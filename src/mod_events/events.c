@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.4 1999-12-16 12:24:43 fjoe Exp $
+ * $Id: events.c,v 1.5 1999-12-21 06:36:23 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -55,20 +55,33 @@ int _module_unload(module_t *m)
 }
 
 static void *
+load_event_cb(void *p, va_list ap)
+{
+	evf_t *evf = (evf_t *) p;
+	module_t *m = va_arg(ap, module_t *);
+
+	evf->fun = dlsym(m->dlh, evf->fun_name);
+	if (evf->fun == NULL)
+		wizlog("_module_load(events): %s", dlerror());
+	return NULL;
+}
+
+static void *
 load_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
-
 	module_t *m = va_arg(ap, module_t *);
 
-	event_fun_t *evf;
+	varr_foreach(&sk->events, load_event_cb, m);
+	return NULL;
+}
 
-        for (evf = sk->eventlist; evf; evf = evf->next) {
-		evf->fun = dlsym(m->dlh, evf->fun_name);
-		if (evf->fun == NULL)
-			wizlog("_module_load(events): %s", dlerror());
-	}
-	
+static void *
+unload_event_cb(void *p, va_list ap)
+{
+	evf_t *evf = (evf_t *) p;
+
+	evf->fun = NULL;
 	return NULL;
 }
 
@@ -77,11 +90,7 @@ unload_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
 
-	event_fun_t *evf;
-
-	for (evf = sk->eventlist; evf; evf = evf->next)
-		evf->fun = NULL;
-
+	varr_foreach(&sk->events, unload_event_cb);
 	return NULL;
 }
 

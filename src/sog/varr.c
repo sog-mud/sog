@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.18 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: varr.c,v 1.19 1999-12-21 06:36:32 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -42,8 +42,8 @@
 void varr_init(varr *v, varrdata_t *v_data)
 {
 	v->p = NULL;
-	v->nused = NULL;
-	v->nalloc = NULL;
+	v->nused = 0;
+	v->nalloc = 0;
 	v->v_data = v_data;
 }
 
@@ -51,8 +51,9 @@ static void *
 varr_cpy_cb(void *p, va_list ap)
 {
 	varr *v = va_arg(ap, varr *);
+	int *pi = va_arg(ap, int *);
 
-	v->v_data->e_cpy(VARR_GET(v, varr_index(v, p)), p);
+	v->v_data->e_cpy(VARR_GET(v, (*pi)++), p);
 	return NULL;
 }
 
@@ -64,9 +65,10 @@ varr_cpy(varr *dst, const varr *src)
 	dst->v_data = src->v_data;
 
 	dst->p = malloc(dst->v_data->nsize * dst->nalloc);
-	if (dst->v_data->e_cpy)
-		varr_foreach((varr *) src, varr_cpy_cb, dst);
-	else
+	if (dst->v_data->e_cpy) {
+		int i = 0;
+		varr_foreach((varr *) src, varr_cpy_cb, dst, &i);
+	} else
 		memcpy(dst->p, src->p, dst->v_data->nsize * dst->nused);
 	return dst;
 }

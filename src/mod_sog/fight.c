@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.246 1999-12-20 12:09:52 kostik Exp $
+ * $Id: fight.c,v 1.247 1999-12-21 06:36:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1130,7 +1130,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				INT(af.location) = APPLY_STR;
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
-				af.events    = EVENT_CHAR_UPDATE;
 				affect_join(victim, &af);
 			}
 

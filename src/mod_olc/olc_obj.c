@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.79 1999-12-20 12:40:35 fjoe Exp $
+ * $Id: olc_obj.c,v 1.80 1999-12-21 06:36:27 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -637,7 +637,7 @@ OLC_FUN(objed_clone)
 
 /* copy affects */
 	aff_free_list(pObj->affected);
-	pObj->affected = aff_dup_list(pFrom->affected);
+	pObj->affected = aff_dup_list(pFrom->affected, -1);
 
 /* copy extra descriptions */
 	ed_free(pObj->ed);

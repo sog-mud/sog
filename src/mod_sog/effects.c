@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.25 1999-12-17 12:59:02 fjoe Exp $
+ * $Id: effects.c,v 1.26 1999-12-21 06:36:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -475,7 +475,6 @@ void poison_effect(void *vo,int level, int dam)
             INT(af.location) = APPLY_STR;
             af.modifier  = -1;
             af.bitvector = AFF_POISON;
-	    af.events    = EVENT_CHAR_UPDATE;
             affect_join( victim, &af );
         }
 

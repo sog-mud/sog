@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.94 1999-12-20 08:31:21 fjoe Exp $
+ * $Id: recycle.c,v 1.95 1999-12-21 06:36:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,17 +58,6 @@ extern int	top_exit;
 extern int	top_room;
 extern int	top_mprog_index;
 extern int	top_ed;
-
-event_fun_t *evf_new(void)
-{
-	return calloc(1, sizeof(event_fun_t));
-}
-
-void evf_free(event_fun_t* evf)
-{
-	free_string(evf->fun_name);
-	free(evf);
-}
 
 ED_DATA *ed_new(void)
 {

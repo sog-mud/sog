@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.280 1999-12-20 08:31:19 fjoe Exp $
+ * $Id: merc.h,v 1.281 1999-12-21 06:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2030,10 +2030,6 @@ ED_DATA *ed_dup		(const ED_DATA *ed);
 void	ed_fread	(rfile_t *fp, ED_DATA **edp);
 void	ed_fwrite	(FILE *fp, ED_DATA *ed);
 void	ed_free		(ED_DATA *ed);
-
-/* event function lists */
-event_fun_t *	evf_new();
-void		evf_free(event_fun_t *evf);
 
 /* object recycling */
 OBJ_DATA *	new_obj	(void);

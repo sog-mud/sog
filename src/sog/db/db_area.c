@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.86 1999-12-20 12:40:39 fjoe Exp $
+ * $Id: db_area.c,v 1.87 1999-12-21 06:36:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1181,6 +1181,8 @@ DBLOAD_FUN(load_mobiles)
 
 	    if (letter == 'a') {
 		AFFECT_DATA *paf = aff_fread(fp);
+		paf->level = pMobIndex->level;
+		paf->duration = -1;
 		SLIST_ADD(AFFECT_DATA, pMobIndex->affected, paf);
 	    } if (letter == 'A') {
 		fread_word(fp);
@@ -1495,6 +1497,8 @@ DBLOAD_FUN(load_objects)
 			switch (letter) {
 			case 'a':
 				paf = aff_fread(fp);
+				paf->level = pObjIndex->level;
+				paf->duration = -1;
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.120 1999-12-20 12:40:37 fjoe Exp $
+ * $Id: tables.c,v 1.121 1999-12-21 06:36:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1333,9 +1333,9 @@ flaginfo_t desc_con_table[] =
 	{ NULL }
 };
 
-flaginfo_t events_table[] =
+flaginfo_t events_classes[] =
 {
-	{ "",			TABLE_BITVAL				},
+	{ "",			TABLE_INTVAL				},
 
 	{ "enter_room",		EVENT_ROOM_ENTER,		TRUE	},
 	{ "leave_room",		EVENT_ROOM_LEAVE,		TRUE	},

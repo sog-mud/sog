@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.10 1999-12-20 12:40:29 fjoe Exp $
+ * $Id: affects.h,v 1.11 1999-12-21 06:36:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,6 @@ struct affect_data
 	int		modifier;
 	flag_t 		bitvector;
 	CHAR_DATA *	owner;
-	flag_t		events;
 };
 
 typedef struct saff_t {
@@ -72,7 +71,7 @@ AFFECT_DATA *	aff_new		(void);
 AFFECT_DATA *	aff_dup		(const AFFECT_DATA *af);
 void		aff_free	(AFFECT_DATA *af);
 
-AFFECT_DATA *	aff_dup_list	(AFFECT_DATA *af);
+AFFECT_DATA *	aff_dup_list	(AFFECT_DATA *af, int level);
 void		aff_free_list	(AFFECT_DATA *af);
 
 AFFECT_DATA *	aff_fread	(rfile_t *fp);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.21 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: race.c,v 1.22 1999-12-21 06:36:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -70,7 +70,7 @@ race_cpy(race_t *dst, const race_t *src)
 	for (i = 0; i < MAX_RESIST; i++)
 		dst->resists[i] = src->resists[i];
 	dst->race_pcdata = pcrace_dup(src->race_pcdata);
-	dst->affected = aff_dup_list(src->affected);
+	dst->affected = aff_dup_list(src->affected, -1);
 	return dst;
 }
 

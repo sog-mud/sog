@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.199 1999-12-17 12:59:04 fjoe Exp $
+ * $Id: spellfun.c,v 1.200 1999-12-21 06:36:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -539,7 +539,6 @@ void spell_healing_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -2737,7 +2736,6 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location)= APPLY_STR;
 	af.modifier	= -1 * UMAX(1,3 + level / 15); 
 	af.bitvector	= AFF_PLAGUE;
-	af.events	= EVENT_CHAR_UPDATE;
 	affect_join(victim,&af);
 
 	char_puts
@@ -2816,7 +2814,6 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location) = APPLY_STR;
 	af.modifier  = -2;
 	af.bitvector = AFF_POISON;
-	af.events    = EVENT_CHAR_UPDATE;
 	affect_join(victim, &af);
 	char_puts("You feel very sick.\n", victim);
 	act("$n looks very ill.",victim,NULL,NULL,TO_ROOM);
@@ -3768,7 +3765,6 @@ void spell_lightning_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_ENTER | EVENT_ROOM_LEAVE;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -3809,7 +3805,6 @@ void spell_shocking_trap(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events     = EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;

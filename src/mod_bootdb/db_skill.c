@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.23 1999-12-20 08:31:25 fjoe Exp $
+ * $Id: db_skill.c,v 1.24 1999-12-21 06:36:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,25 +91,28 @@ DBLOAD_FUN(load_skill)
 				return;
 			}
 			if (IS_TOKEN(fp, "Event")) {
-				flag_t event = fread_fword(events_table, fp);
-				const char *fun_name = fread_sword(fp);
-				event_fun_t *evf;
+				flag_t event = fread_fword(events_classes, fp);
+				evf_t *evf;
 
-				if (!event) {
-					db_error("load_event", "unknown event");
+				if (event < 0) {
+					db_error("load_skill", "unknown event");
+					fread_to_eol(fp);
+					break;
 				}
-				for (evf = sk.eventlist; evf; evf = evf->next)
-					if (!str_cmp(evf->fun_name, fun_name)) {
-						db_error("load_event",
-							 "duplicate fun name");
-						return;
-					}
-				evf = evf_new();
+
+				evf = varr_bsearch(&sk.events, &event, cmpint);
+				if (evf != NULL) {
+					db_error("load_skill", "%s: duplicate event", flag_string(events_classes, event));
+					fread_to_eol(fp);
+					break;
+				}
+
+				evf = varr_enew(&sk.events);
 				evf->event = event;
-				evf->fun_name = fun_name;
-				evf->next = sk.eventlist;
-				sk.eventlist = evf;
+				evf->fun_name = fread_sword(fp);
+				varr_qsort(&sk.events, cmpint);
 				fMatch = TRUE;
+				break;
 			}
 			break;
 		case 'F':

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.313 1999-12-21 03:40:52 fjoe Exp $
+ * $Id: act_info.c,v 1.314 1999-12-21 06:36:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,6 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		char_puts("There is no such social.\n", ch);
 		return;
 	}
-
 
 	SHOW_SOCIAL("Having used with no argument specified, you see:{W", soc->noarg_char);
 	SHOW_SOCIAL("{xAnd others see:{W", soc->noarg_room);
@@ -3454,7 +3453,6 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 2 * LEVEL(ch);
 	INT(af.location)= APPLY_ROOM_HEAL;
 	af.owner	= ch;
-	af.events	= 0;
 	affect_to_room(ch->in_room, &af);
 
 	af.modifier	= LEVEL(ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.222 1999-12-20 12:09:51 kostik Exp $
+ * $Id: act_move.c,v 1.223 1999-12-21 06:36:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2726,7 +2726,6 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            INT(af.location) = APPLY_STR;
 		            af.modifier  = -1;
 		            af.bitvector = AFF_POISON;
-			    af.events    = EVENT_CHAR_UPDATE;
 		            affect_join(victim, &af);
 		      	 }
 
@@ -3393,7 +3392,6 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.modifier	= 0;
 	  af.bitvector	= 0;
 	  af.owner	= ch;
-	  af.events	= EVENT_ROOM_ENTER;
 	  affect_to_room(ch->in_room, &af);
 
 	  af2.where     = TO_AFFECTS;

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.22 1999-12-20 12:40:37 fjoe Exp $
+ * $Id: affects.c,v 1.23 1999-12-21 06:36:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,7 +70,6 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 	naf->modifier	= paf->modifier;
 	naf->bitvector	= paf->bitvector;
 	naf->owner	= paf->owner;
-	naf->events	= paf->events;
 	return naf;
 }
 
@@ -88,13 +87,15 @@ void aff_free(AFFECT_DATA *af)
 }
 
 AFFECT_DATA *
-aff_dup_list(AFFECT_DATA *paf)
+aff_dup_list(AFFECT_DATA *paf, int level)
 {
 	AFFECT_DATA *rv = NULL;
 	AFFECT_DATA **ppaf = &rv;
 
 	while (paf) {
 		*ppaf = aff_dup(paf);
+		if (level >= 0)
+			(*ppaf)->level = level;
 		ppaf = &(*ppaf)->next;
 		paf = paf->next;
 	}

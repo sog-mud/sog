@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.192 1999-12-17 12:58:59 fjoe Exp $
+ * $Id: act_obj.c,v 1.193 1999-12-21 06:36:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1144,7 +1144,6 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_POISON;
-		af.events    = EVENT_CHAR_UPDATE;
 		affect_join(ch, &af);
 	}
 	if (INT(obj->value[0]) > 0)
@@ -1214,7 +1213,6 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			INT(af.location) = APPLY_NONE;
 			af.modifier = 0;
 			af.bitvector = AFF_POISON;
-			af.events    = EVENT_CHAR_UPDATE;
 			affect_join(ch, &af);
 		}
 		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.6 1999-12-20 12:09:52 kostik Exp $
+ * $Id: eventfun.c,v 1.7 1999-12-21 06:36:22 fjoe Exp $
  */
 
 
@@ -218,7 +218,6 @@ EVENT_FUN(event_updatechar_wcurse)
 	witch.modifier = af->modifier * 2;
 	witch.bitvector = 0;
 	witch.owner = af->owner;
-	witch.events = af->events;
 
 	affect_remove(ch, af);
 	affect_to_char(ch ,&witch);

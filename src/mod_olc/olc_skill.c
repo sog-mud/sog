@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.13 1999-12-20 08:31:20 fjoe Exp $
+ * $Id: olc_skill.c,v 1.14 1999-12-21 06:36:27 fjoe Exp $
  */
 
 #include "olc.h"
@@ -79,7 +79,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "flags",	skilled_flags,	NULL,	skill_flags		},
 	{ "group",	skilled_group,	NULL,	skill_groups		},
 	{ "type",	skilled_type,	NULL,	skill_types		},
-	{ "event",	skilled_event, validate_funname, events_table	},
+	{ "event",	skilled_event, validate_funname, events_classes	},
 
 	{ "commands",	show_commands					},
 	{ NULL }
@@ -142,10 +142,22 @@ OLC_FUN(skilled_edit)
 	return FALSE;
 }
 
+static void *
+event_save_cb(void *p, va_list ap)
+{
+	evf_t *ev = (evf_t *) p;
+
+	FILE *fp = va_arg(ap, FILE *);
+
+	fprintf(fp, "Event %s %s\n",
+		flag_string(events_classes, ev->event),
+		ev->fun_name);
+	return NULL;
+}
+
 static void *skill_save_cb(void *p, va_list ap)
 {
-	skill_t *sk = (skill_t *)p;
-	event_fun_t *ev;
+	skill_t *sk = (skill_t *) p;
 
 	FILE *fp = va_arg(ap, FILE *);
 
@@ -170,10 +182,7 @@ static void *skill_save_cb(void *p, va_list ap)
 		fprintf(fp, "SpellFun %s\n", sk->fun_name);
 	mlstr_fwrite(fp, "WearOff", &sk->msg_off);
 	mlstr_fwrite(fp, "ObjWearOff", &sk->msg_obj);
-	for (ev = sk->eventlist; ev; ev = ev->next)
-		fprintf(fp, "Event %s %s\n",
-			flag_string(events_table, ev->event),
-			ev->fun_name);
+	varr_foreach(&sk->events, event_save_cb, fp);
 	fprintf(fp, "End\n\n");
 	return NULL;
 }
@@ -205,11 +214,22 @@ OLC_FUN(skilled_touch)
 	return FALSE;
 }
 
+static void *
+event_show_cb(void *p, va_list ap)
+{
+	evf_t *ev = (evf_t *) p;
+
+	BUFFER *buf = va_arg(ap, BUFFER *);
+
+	buf_printf(buf, "Event: [%s] %s\n",
+		   flag_string(events_classes, ev->event),
+		   ev->fun_name);
+	return NULL;
+}
+
 OLC_FUN(skilled_show)
 {
 	skill_t *sk;
-	event_fun_t *ev;
-	int i = 1;
 	BUFFER *buf;
 
 	if (argument[0] == '\0') {
@@ -250,13 +270,7 @@ OLC_FUN(skilled_show)
 
 	mlstr_dump(buf, "WearOff     ", &sk->msg_off);
 	mlstr_dump(buf, "ObjWearOff  ", &sk->msg_obj);
-	for (ev = sk->eventlist; ev; ev = ev->next, i++) {
-		if (i == 1)
-			buf_add(buf, "Events:\n");
-		buf_printf(buf, "%d) in event   [%s] call fun [%s]\n", i,
-			flag_string(events_table, ev->event),
-			ev->fun_name);
-	}
+	varr_foreach(&sk->events, event_show_cb, buf);
 
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
@@ -389,69 +403,65 @@ OLC_FUN(skilled_type)
 OLC_FUN(skilled_event)
 {
 	skill_t *sk;
-	event_fun_t *ev;
-	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
+	evf_t *ev;
+	flag_t event;
+	char arg[MAX_INPUT_LENGTH];
 
 	EDIT_SKILL(ch, sk);
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if (IS_NULLSTR(argument))
+	if (IS_NULLSTR(arg))
 		OLC_ERROR("'OLC SKILL EVENT'");
 
-	if (!str_prefix(arg, "add")) {
-		argument = one_argument(argument, arg, sizeof(arg));
-			   one_argument(argument, arg2, sizeof(arg2));
+	if (!str_cmp(arg, "?")) {
+		char_puts("Valid event classes are:\n", ch);
+		show_flags(ch, events_classes);
+		return FALSE;
+	}
 
-		if (IS_NULLSTR(arg))
-			OLC_ERROR("'OLC SKILL EVENT'");
+	if ((event = flag_value(events_classes, arg)) < 0) {
+		char_printf(ch, "SkillEd: %s: unknown event.\n",  arg);
+		return FALSE;
+	}
 
-		ev = evf_new();
-		if (!olced_flag(ch, arg, cmd, &ev->event)) {
-			evf_free(ev);
+	ev = varr_bsearch(&sk->events, &event, cmpint);
+	one_argument(argument, arg, sizeof(arg));
+	if (IS_NULLSTR(arg))
+		OLC_ERROR("'OLC SKILL EVENT'");
+
+	if (!str_cmp(arg, "none")) {
+		/*
+		 * delete event
+		 */
+
+		if (ev == NULL) {
+			char_printf(ch, "SkillEd: %s: event not found.\n",
+				    flag_string(events_classes, event));
 			return FALSE;
 		}
 
-		if (IS_NULLSTR(arg2))
-			OLC_ERROR("'OLC SKILL EVENT'");
-
-		if (!cmd->validator(ch, arg2))
-			return FALSE;
-
-		ev->fun_name = str_dup(arg2);
-		ev->next = sk->eventlist;
-		sk->eventlist = ev;
+		varr_edelete(&sk->events, ev);
+		char_printf(ch, "SkillEd: %s: event deleted.\n",
+			    flag_string(events_classes, event));
 		return TRUE;
 	}
 
-	if (!str_prefix(arg, "delete")) {
-		int i;
-		event_fun_t *evp = NULL;
+	if (!cmd->validator(ch, arg))
+		return FALSE;
 
-		one_argument(argument, arg, sizeof(arg));
-		if (!is_number(arg))
-			return skilled_event(ch, str_empty, cmd);
-
-		if ((i = atoi(arg)) < 1) {
-			char_puts("SkillEd: event number must be > 0\n", ch);
-			return FALSE;
-		}
-
-		for (ev = sk->eventlist, i--; i && ev; evp = ev, ev = ev->next, i--);
-
-		if (!ev) {
-			char_puts("SkillEd: no such event defined.\n", ch);
-			return FALSE;
-		}
-
-		if (evp) {
-			evp->next = ev->next;
-		} else {
-			sk->eventlist = ev->next;
-		}
-
-		evf_free(ev);
-		return TRUE;
+	/*
+	 * add event
+	 */
+	if (ev == NULL) {
+		ev = varr_enew(&sk->events);
+		ev->event = event;
+	} else {
+		char_printf(ch, "SkillEd: %s: changing existing event, events module should be reloaded.\n", flag_string(events_classes, event));
 	}
 
-	return skilled_event(ch, str_empty, cmd);
+	free_string(ev->fun_name);
+	ev->fun_name = str_dup(arg);
+	varr_qsort(&sk->events, cmpint);
+	char_puts("SkillEd: Ok.\n", ch);
+	return TRUE;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.144 1999-12-20 12:44:33 fjoe Exp $
+ * $Id: martial_art.c,v 1.145 1999-12-21 06:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -755,7 +755,6 @@ void do_gash(CHAR_DATA *ch, const char *argument) {
 		INT(af.location) = APPLY_HITROLL;
 		af.duration = ch->level/15;
 		af.modifier = -ch->level/5;
-		af.events = EVENT_CHAR_UPDATE;
 
 		gash_drop(ch, victim, WEAR_WIELD);
 		gash_drop(ch, victim, WEAR_SECOND_WIELD);

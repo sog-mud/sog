@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.101 1999-12-20 08:31:22 fjoe Exp $
+ * $Id: skills.c,v 1.102 1999-12-21 06:36:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -521,6 +521,18 @@ const char *skill_slot_lookup(int slot)
 	return str_qdup(sn);
 }
 
+static void	evf_init	(evf_t *);
+static void	evf_destroy	(evf_t *);
+static evf_t *	evf_cpy		(evf_t *, evf_t *);
+
+static varrdata_t v_evf =
+{
+	sizeof(evf_t), 1,
+	(e_init_t) evf_init,
+	(e_destroy_t) evf_destroy,
+	(e_cpy_t) evf_cpy
+};
+
 void skill_init(skill_t *sk)
 {
 	gmlstr_init(&sk->sk_name);
@@ -538,13 +550,11 @@ void skill_init(skill_t *sk)
 	sk->restrict_race = str_empty;
 	sk->group = 0;
 	sk->skill_type = 0;
-	sk->eventlist = NULL;
+	varr_init(&sk->events, &v_evf);
 }
 
 skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 {
-	event_fun_t *evfs, *evfd;
-
 	gmlstr_cpy(&dst->sk_name, &src->sk_name);
 	dst->fun_name = str_qdup(src->fun_name);
 	dst->fun = src->fun;
@@ -560,34 +570,42 @@ skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 	dst->restrict_race = str_qdup(src->restrict_race);
 	dst->group = src->group;
 	dst->skill_type = src->skill_type;
-
-	for (evfs = src->eventlist; evfs; evfs = evfs->next) {
-		evfd = evf_new();
-		evfd->event = evfs->event;
-		evfd->fun_name = str_qdup(evfs->fun_name);
-		evfd->fun = evfs->fun;
-		evfd->next = dst->eventlist;
-		dst->eventlist = evfd;
-	}
-
+	varr_cpy(&dst->events, &src->events);
 	return dst;
 }
 
 void skill_destroy(skill_t *sk)
 {
-	event_fun_t *evf, *evf_next;
-
 	gmlstr_destroy(&sk->sk_name);
 	free_string(sk->fun_name);
 	gmlstr_destroy(&sk->noun_damage);
 	mlstr_destroy(&sk->msg_off);
 	mlstr_destroy(&sk->msg_obj);
 	free_string(sk->restrict_race);
+	varr_destroy(&sk->events);
+}
 
-	for (evf = sk->eventlist; evf; evf = evf_next) {
-		evf_next = evf->next;
-		evf_free(evf);
-	}
+static void
+evf_init(evf_t *evf)
+{
+	evf->event = -1;
+	evf->fun_name = str_empty;
+	evf->fun = NULL;
+}
+
+static void
+evf_destroy(evf_t *evf)
+{
+	free_string(evf->fun_name);
+}
+
+static evf_t *
+evf_cpy(evf_t *dst, evf_t *src)
+{
+	dst->event = src->event;
+	dst->fun_name = str_qdup(src->fun_name);
+	dst->fun = src->fun;
+	return dst;
 }
 
 /*
@@ -596,36 +614,31 @@ void skill_destroy(skill_t *sk)
 void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 {
 	skill_t *sk;
-	event_fun_t *evf;
-
-	if (!IS_SET(paf->events, event))
-		return;
+	evf_t *evf;
 
 	if ((sk = skill_lookup(paf->type)) == NULL) {
-		bug("unknown skill");
+		bug("check_one_event: %s: unknown skill", paf->type);
 		return;
 	}
 
-	for (evf = sk->eventlist; evf; evf = evf->next)
-		if (evf->event == event) break;
-
-	if (evf && evf->fun)
-		(evf->fun)(ch, paf);
+	if ((evf = varr_bsearch(&sk->events, &event, cmpint)) != NULL
+	&&  evf->fun != NULL)
+		evf->fun(ch, paf);
 }
 
-void check_events(CHAR_DATA *ch, AFFECT_DATA *list, flag_t event)
+void check_events(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 {
-	AFFECT_DATA *paf, *paf_next;
+	AFFECT_DATA *paf_next;
 
-	for (paf = list; paf != NULL; paf = paf_next) {
-
+	for (; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
-		check_one_event(ch, paf, event);
 
+		check_one_event(ch, paf, event);
 		if (IS_EXTRACTED(ch))
 			break;
 	}
 }
+
 /*-----------------------------------------------------------------------------
  * mob skills stuff
  */

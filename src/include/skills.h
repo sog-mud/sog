@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.33 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: skills.h,v 1.34 1999-12-21 06:36:25 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -46,13 +46,15 @@
 /*
  * EVENTs for room affects
  */
-#define EVENT_ROOM_ENTER		(A)
-#define EVENT_ROOM_LEAVE		(B)
-#define EVENT_ROOM_UPDATE		(C)
-#define EVENT_ROOM_TIMEOUT		(D)
-#define EVENT_CHAR_UPDATE		(E)
-#define EVENT_CHAR_UPDFAST		(F)
-#define	EVENT_CHAR_TIMEOUT		(G)
+enum {
+	EVENT_ROOM_ENTER,
+	EVENT_ROOM_LEAVE,
+	EVENT_ROOM_UPDATE,
+	EVENT_ROOM_TIMEOUT,
+	EVENT_CHAR_UPDATE,
+	EVENT_CHAR_UPDFAST,
+	EVENT_CHAR_TIMEOUT,
+};
 
 typedef struct skill_t skill_t;
 struct skill_t {
@@ -71,15 +73,14 @@ struct skill_t {
 	const char *	restrict_race;		/* race restrictions */
 	flag_t		group;			/* skill group */
 	flag_t		skill_type;		/* skill type */
-	event_fun_t *	eventlist;		/* list of events */
+	varr		events;			/* evf_t, sorted by event */
 };
 
-struct event_fun_t {
-	struct event_fun_t	*next;
+typedef struct evf_t {
+	flag_t			event;
 	const char *		fun_name;
 	EVENT_FUN *		fun;
-	flag_t			event;
-};
+} evf_t;
 
 extern hash_t skills;
 

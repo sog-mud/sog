@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.204 1999-12-20 12:40:38 fjoe Exp $
+ * $Id: db.c,v 1.205 1999-12-21 06:36:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2151,7 +2151,7 @@ load_msgdb(void)
 		mlstr_destroy(&ml);
 	}
 
-	log("load_msgdb: %d msgs loaded.", msgcnt);
+	log("load_msgdb: %d msgs loaded", msgcnt);
 	rfile_close(fp);
 }
 

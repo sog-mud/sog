@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.162 1999-12-20 08:31:26 fjoe Exp $
+ * $Id: spellfun2.c,v 1.163 1999-12-21 06:36:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3580,7 +3580,6 @@ void spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location)= APPLY_HIT;
 	af.modifier     = - level;
 	af.bitvector    = 0;
-	af.events	= EVENT_CHAR_UPDATE;
 	af.owner	= ch;
 	affect_to_char(victim, &af);
 
@@ -3789,7 +3788,6 @@ void spell_mind_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -3957,7 +3955,6 @@ void spell_randomizer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = RAFF_RANDOMIZER;
 	af.owner     = ch;
-	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4101,7 +4098,6 @@ void spell_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_UPDATE | EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	af.where	= TO_AFFECTS;
@@ -4111,7 +4107,6 @@ void spell_restoring_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
 	af.bitvector	= 0;
-	af.events	= 0;
 	affect_to_char(ch, &af);
 
 	act("The room becomes lit with warm light.", ch, NULL, NULL, TO_ROOM);
@@ -4442,7 +4437,6 @@ void spell_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_UPDATE;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by poison.\n",ch);   
@@ -4472,7 +4466,6 @@ void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = RAFF_CURSE;
 	af.owner     = ch;
-	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The gods has forsaken the room.\n",ch);   
@@ -4502,7 +4495,6 @@ void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_UPDATE | EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The air in the room makes you slowing down.\n",ch);   
@@ -4532,7 +4524,6 @@ void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_UPDATE;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by disease.\n",ch);   
@@ -4562,7 +4553,6 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_UPDATE | EVENT_ROOM_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be seen good place to sleep.\n",ch);   
@@ -4834,7 +4824,6 @@ void spell_evil_spirit(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = RAFF_ESPIRIT;
 	af.owner     = ch;
-	af.events    = EVENT_ROOM_UPDATE;
 
 	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
 	{
