@@ -6,6 +6,11 @@ Res cold~
 Vuln weapon~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Flags undead~
+End
+
+#PCRACE
+Shortname Zombi~
 End
 
 #$
