@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.27 2001-07-04 19:21:19 fjoe Exp $
+ * $Id: updfun.c,v 1.28 2001-07-04 19:34:19 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -964,8 +964,8 @@ light_update(void)
 			continue;
 
 		/* also checks vampireness */
-		if ((dam_light = isn_dark_safe(ch)) == 0) 
-			continue;	
+		if ((dam_light = isn_dark_safe(ch)) == 0)
+			continue;
 
 		if (dam_light != 2
 		&&  number_percent() < get_skill(ch, "light resistance")) {
@@ -992,7 +992,7 @@ light_update(void)
 
 void
 room_update(void)
-{   
+{
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
 

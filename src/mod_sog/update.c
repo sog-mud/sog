@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.196 2001-05-21 19:06:32 fjoe Exp $
+ * $Id: update.c,v 1.197 2001-07-04 19:34:17 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -131,7 +131,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 		case COND_THIRST:
 			act_char("You are thirsty.", ch);
 			break;
-	 
+
 		case COND_DRUNK:
 			if (condition != 0)
 				act_char("You are sober.", ch);
@@ -159,8 +159,8 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
 			       DAM_NONE, DAMF_SHOW | DAMF_HUNGER);
-			if (ch->position == POS_SLEEPING) 
-				return; 
+			if (ch->position == POS_SLEEPING)
+				return;
 			break;
 
 		case COND_THIRST:
