@@ -1100,12 +1100,6 @@ S
 #OMPROGS
 O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'
 O 28 fight_prog fight_prog_ranger_staff	* `a ranger staff'
-O 31 wear_prog wear_prog_quest_weapon	* `the %s Sword of %s'
-O 31 get_prog get_prog_quest_reward	* `the %s Sword of %s'
-O 32 wear_prog wear_prog_quest_weapon	* `the %s Dagger of %s'
-O 32 get_prog get_prog_quest_reward	* `the %s Dagger of %s'
-O 33 wear_prog wear_prog_quest_weapon	* `the %s Mace of %s'
-O 33 get_prog get_prog_quest_reward	* `the %s Mace of %s'
 O 35 wear_prog wear_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
 O 35 remove_prog remove_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
 O 40 get_prog get_prog_quest_reward	* `the %s Song of %s'
