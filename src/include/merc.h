@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.31 2002-09-01 16:56:42 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.32 2002-09-09 19:26:27 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2402,6 +2402,10 @@ void	obj_update	(void);
 void	clan_item_update(void);
 void	weather_update	(void);
 
+/*
+ * fishing
+ */
+int	fish_vnum_lookup(flag32_t room_flags);
+void	fish_affect(CHAR_DATA *ch, int fish_vnum);
 
 #endif
-

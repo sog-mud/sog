@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.17 2002-09-02 16:03:54 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.18 2002-09-09 19:26:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1632,4 +1632,3 @@ where_t *where_lookup(flag32_t where)
 			return wd;
 	return NULL;
 }
-

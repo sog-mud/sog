@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.15 2002-08-31 17:18:46 tatyana Exp $
+* $Id: gsn.h,v 1.30.2.16 2002-09-09 19:26:27 tatyana Exp $
 */
 
 #ifndef _GSN_H_
@@ -263,6 +263,12 @@ extern int gsn_shield_of_law;
 extern int gsn_prismatic_sphere;
 extern int gsn_chameleon_poncho;
 extern int gsn_stealth;
+
+extern int gsn_qtarget;
+
+/*
+ * Fishing.
+ */
 extern int gsn_improved_fishing;
 extern int gsn_mastering_fishing;
 extern int gsn_expert_fishing;
@@ -273,6 +279,7 @@ extern int gsn_blind_fishing;
 extern int gsn_mute_fishing;
 extern int gsn_outraging_fishing;
 
-extern int gsn_qtarget;
+extern int gsn_herring;
+extern int gsn_codfish;
 
 #endif

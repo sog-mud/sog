@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.45 2002-09-01 16:57:02 tatyana Exp $
+ * $Id: update.c,v 1.157.2.46 2002-09-09 19:26:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1755,12 +1755,12 @@ void update_one_obj(OBJ_DATA *obj)
 		message = "$p decomposes.";
 		break;
 	case ITEM_POTION:
-		message = "$p has evaporated from disuse.";	
+		message = "$p has evaporated from disuse.";
 		break;
 	case ITEM_PORTAL:
 		message = "$p fades out of existence.";
 		break;
-	case ITEM_CONTAINER: 
+	case ITEM_CONTAINER:
 		if (CAN_WEAR(obj, ITEM_WEAR_FLOAT))
 			if (obj->contains)
 				message = "$p flickers and vanishes, spilling "
@@ -2383,30 +2383,31 @@ void check_fishing()
 
                 if (d->connected != CON_PLAYING
 		||  (ch = d->character) == NULL
-		||  IS_NPC(ch))
+		||  IS_NPC(ch)
+		||  !IS_SET(PC(ch)->plr_flags, PLR_FISHING))
 			continue;
 
-		if (IS_SET(PC(ch)->plr_flags, PLR_FISHING)
-		&&  (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER) &&
-		     !IS_SET(ch->in_room->room_flags, ROOM_FRESHWATER)))
-			REMOVE_BIT(ch->comm, PLR_FISHING);
+		if (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER | ROOM_FRESHWATER)) {
+			REMOVE_BIT(ch->comm, PLR_FISHING | PLR_FISH_ON);
+			continue;
+		}
 
-		if (IS_SET(PC(ch)->plr_flags, PLR_FISHING)
-		&&  !IS_SET(PC(ch)->plr_flags, PLR_FISH_ON)) {
-			bite = number_range(1, 10);
-			if (bite >= 7 && bite <= 8) {
-				char_puts("Time goes by... not even a "
-					  "nibble.\n", ch);
-			} else if (bite >= 6) {
-				char_puts("You feel a slight jiggle on "
-					  "your line.\n", ch);
-				SET_FIGHT_TIME(ch);
-			} else if (bite >= 4) {
-				char_puts("You feel a very solid pull on your "
-				    "line!\n", ch);
-				SET_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
-				SET_FIGHT_TIME(ch);
-			}
+		if (IS_SET(PC(ch)->plr_flags, PLR_FISH_ON)) {
+			char_puts("You feel a very solid pull on your line!\n",
+				  ch);
+			continue;
+		}
+
+		bite = number_range(1, 10);
+		if (bite >= 7 && bite <= 8) {
+			char_puts("Time goes by... not even a nibble.\n", ch);
+		} else if (bite >= 6) {
+			char_puts("You feel a slight jiggle on your line.\n", ch);
+			SET_FIGHT_TIME(ch);
+		} else if (bite >= 4) {
+			char_puts("You feel a very solid pull on your line!\n", ch);
+			SET_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
+			SET_FIGHT_TIME(ch);
 		}
 	}
 }

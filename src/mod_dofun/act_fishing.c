@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_fishing.c,v 1.1.2.3 2002-09-01 14:03:08 tatyana Exp $
+ * $Id: act_fishing.c,v 1.1.2.4 2002-09-09 19:26:29 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -33,12 +33,10 @@
 #include "merc.h"
 #include "fight.h"
 
-int fish_number(int type);
-
 void do_castout(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *pole;
-	int fail, sk;
+	int success, sk;
 
 	if (IS_NPC(ch))
 		return;
@@ -55,18 +53,16 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!ch->in_room
-	|| (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER) &&
-            !IS_SET(ch->in_room->room_flags, ROOM_FRESHWATER))) {
+	if (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER | ROOM_FRESHWATER)) {
 		act("This is not a good place to fish, you'll want "
 		    "to find a better spot.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	fail = number_percent();
+	success = number_percent();
 
 	if (IS_AFFECTED(ch, AFF_BLIND)) {
-		if ((sk =get_skill(ch, gsn_blind_fishing)) == 0) {
+		if ((sk = get_skill(ch, gsn_blind_fishing)) == 0) {
 			act("You don't know how to fish blinded.",
 			    ch, NULL, NULL, TO_CHAR);
 			return;
@@ -76,7 +72,7 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, gsn_blind_fishing, TRUE, 1);
 		else {
 			check_improve(ch, gsn_blind_fishing, FALSE, 1);
-			fail = -30;
+			success = -30;
 		}
 	}
 
@@ -89,7 +85,9 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (number_percent() < sk - 3) {
+		if (number_percent() + 3 < sk)
+			check_improve(ch, gsn_mounted_fishing, TRUE, 1);
+		else {
 			act("You are tangled with $N and fall down.",
                             ch, NULL, ch->mount, TO_CHAR);
 			act("$n is tangled with you and fall down.",
@@ -104,40 +102,39 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 
 			ch->mount = NULL;
 			ch->position = POS_RESTING;
-			damage(ch, ch, dice(4,6), gsn_mounted_fishing,
+			damage(ch, ch, dice(4, 6), gsn_mounted_fishing,
 			       DAM_BASH, DAMF_SHOW);
 			WAIT_STATE(ch, 15);
 			check_improve(ch, gsn_mounted_fishing, FALSE, 1);
 			return;
-		} else
-			check_improve(ch, gsn_mounted_fishing, TRUE, 1);
+		}
 	}
 
 /* mastering fishing */
 	sk = get_skill(ch, gsn_mastering_fishing);
-	if (number_percent() < sk - 9) {
+	if (number_percent() + 9 < sk && success > 0) {
 		check_improve(ch, gsn_mastering_fishing, TRUE, 1);
-		fail *= 3;
+		success *= 3;
 	} else
 		check_improve(ch, gsn_mastering_fishing, FALSE, 1);
 
 /* improved fisihing */
 	sk = get_skill(ch, gsn_improved_fishing);
-	if (number_percent() < sk - 10) {
+	if (number_percent() + 10 < sk) {
 		check_improve(ch, gsn_improved_fishing, TRUE, 1);
-		fail += 15;
+		success += 15;
 	} else
 		check_improve(ch, gsn_improved_fishing, FALSE, 1);
 
 /* expert fishing */
 	sk = get_skill(ch, gsn_expert_fishing);
-	if (number_percent() < (sk - 8) && fail > 0) {
+	if (number_percent() + 8 < sk && success > 0) {
 		check_improve(ch, gsn_expert_fishing, TRUE, 1);
-		fail = 100;
+		success = 100;
 	} else
 		check_improve(ch, gsn_expert_fishing, FALSE, 1);
 
-	if (fail <= 30) {
+	if (success <= 30) {
 		act("You pull your arm back and try to cast out "
 		    "your line, but it gets all tangled up. Try again.",
                     ch, NULL, NULL, TO_CHAR);
@@ -159,8 +156,8 @@ void do_castout(CHAR_DATA *ch, const char *argument)
 
 void do_reelin(CHAR_DATA *ch, const char *argument)
 {
-	int success, fish_num, sk;
-	OBJ_DATA *fish;
+	int success, fish_vnum, sk;
+	OBJ_DATA *fish, *pole;
 	OBJ_INDEX_DATA *index;
 	int carry_w, carry_n;
 
@@ -169,6 +166,19 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_SET(PC(ch)->plr_flags, PLR_FISHING)) {
 		act("You aren't even fishing!", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!IS_SET(ch->in_room->room_flags, ROOM_SALTWATER | ROOM_FRESHWATER)) {
+		act("This is not a good place to fish, you'll want "
+		    "to find a better spot.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((pole = get_eq_char(ch, WEAR_HOLD)) == NULL
+	||   pole->pObjIndex->item_type != ITEM_FISHING_POLE) {
+		act("It seems like you lost your fishing pole.",
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -182,8 +192,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING);
-	REMOVE_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
+	REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON);
 
 /* Ok, they are fishing and have a fish on */
 	success = number_percent();
@@ -194,6 +203,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
                             ch, NULL, NULL, TO_CHAR);
 			return;
 		}
+
 		if (number_percent() < sk)
 			check_improve(ch, gsn_blind_fishing, TRUE, 1);
 		else {
@@ -268,75 +278,29 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, gsn_winter_fishing, TRUE, 4);
 	check_improve(ch, gsn_outraging_fishing, TRUE, 4);
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SALTWATER)) {
-		fish_num = fish_number(0);
-
-		index = get_obj_index(fish_num);
-		if (index == NULL) {
-			act("Something wrong. Report it to immortals.",
-			    ch, NULL, NULL, TO_CHAR);
-			log("[*****] BUG: NULL object, vnum %d.", fish_num);
-			return;
-		}
-
-		fish = create_obj(index, 0);
-		act("You reel in $p! Nice catch!", ch, fish, NULL, TO_CHAR);
-		act("Wow! $n reels in a helluva catch! Looks like $p!",
-                    ch, fish, NULL, TO_ROOM);
-
-		if (((carry_n = can_carry_n(ch)) >= 0 &&
-		      ch->carry_number + get_obj_number(fish) > carry_n)
-		||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	             get_carry_weight(ch) + get_obj_weight(fish) > carry_w))
-			obj_to_room(fish, ch->in_room);
-		else
-			obj_to_char(fish, ch);
-
-		WAIT_STATE(ch, 31);
-		SET_FIGHT_TIME(ch);
+	fish_vnum = fish_vnum_lookup(ch->in_room->room_flags);
+	index = get_obj_index(fish_vnum);
+	if (index == NULL) {
+		act("Something wrong. Report it to immortals.",
+		    ch, NULL, NULL, TO_CHAR);
+		log("[*****] BUG: NULL object, vnum %d.", fish_vnum);
 		return;
-	} else if (IS_SET(ch->in_room->room_flags, ROOM_FRESHWATER)) {
-		fish_num = fish_number(1);
-
-		index = get_obj_index(fish_num);
-		if (index == NULL) {
-			act("Something wrong. Report it to immortals.",
-			    ch, NULL, NULL, TO_CHAR);
-			log("[*****] BUG: NULL object, vnum %d.", fish_num);
-			return;
-		}
-
-		fish = create_obj(index, 0);
-		act("You reel in $p! Nice catch!", ch, fish, NULL, TO_CHAR);
-
-		if (((carry_n = can_carry_n(ch)) >= 0 &&
-		      ch->carry_number + get_obj_number(fish) > carry_n)
-		||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	             get_carry_weight(ch) + get_obj_weight(fish) > carry_w))
-			obj_to_room(fish, ch->in_room);
-		else
-			obj_to_char(fish, ch);
-
-		WAIT_STATE(ch, 31);
-		SET_FIGHT_TIME(ch);
-		return;
-	} else {
-		act("You should never see this message, "
-		    "please report it.", ch, NULL, NULL, TO_CHAR);
 	}
-}
 
-int fish_number(int type)
-{
-	int fsize, ssize;
-	int fresh[] = {34441, 34442, 34443, 34444, 34445, 34446,
-		       34447, 34448, 0};
-	int salt[] = {34432, 34433, 34434, 34435, 34436, 34437, 34438, 0};
+	fish = create_obj(index, 0);
+	fish->timer = number_fuzzy(30);
+	act("You reel in $p! Nice catch!", ch, fish, NULL, TO_CHAR);
+	act("Wow! $n reels in a helluva catch! Looks like $p!",
+            ch, fish, NULL, TO_ROOM);
 
-	for (fsize = 0; fresh[fsize] != 0; fsize++);
-	for (ssize = 0; salt[ssize] != 0; ssize++);
-	if (type == 0)
-		return salt[number_range(0, ssize-1)];
+	if (((carry_n = can_carry_n(ch)) >= 0 &&
+	      ch->carry_number + get_obj_number(fish) > carry_n)
+	||  ((carry_w = can_carry_w(ch)) >= 0 &&
+		get_carry_weight(ch) + get_obj_weight(fish) > carry_w))
+		obj_to_room(fish, ch->in_room);
 	else
-		return fresh[number_range(0, fsize-1)];
+		obj_to_char(fish, ch);
+
+	WAIT_STATE(ch, 31);
+	SET_FIGHT_TIME(ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.59 2002-09-09 14:01:12 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.60 2002-09-09 19:26:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1063,8 +1063,11 @@ void char_from_room(CHAR_DATA *ch)
 	if (ch->in_room->affected)
 		  check_room_affects(ch, ch->in_room, EVENT_LEAVE);
 
-	if (!IS_NPC(ch))
+	if (!IS_NPC(ch)) {
 		--ch->in_room->area->nplayer;
+		if (IS_SET(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON))
+			REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON);
+	}
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
 	&&   obj->pObjIndex->item_type == ITEM_LIGHT
@@ -3653,6 +3656,13 @@ void quit_char(CHAR_DATA *ch, int flags)
 		return;
 	}
 
+	if (IS_SET(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON)) {
+		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON);
+		act("You pack up your fishing gear.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	for (vch = npc_list; vch; vch=vch->next) {
 		if (IS_AFFECTED(vch, AFF_CHARM)
 		&&  IS_NPC(vch)
@@ -4425,11 +4435,10 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		room_record(ch->name, in_room, door);
 
 	if (!IS_NPC(ch)
-	&&  (IS_SET(PC(ch)->plr_flags, PLR_FISHING) ||
-	     IS_SET(PC(ch)->plr_flags, PLR_FISH_ON))) {
-		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING);
-		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISH_ON);
-		char_puts("You pack up your fishing gear and move on.\n", ch);
+	&&  IS_SET(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON)) {
+		REMOVE_BIT(PC(ch)->plr_flags, PLR_FISHING | PLR_FISH_ON);
+		act("You pack up your fishing gear and move on.",
+		    ch, NULL, NULL, TO_CHAR);
 	}
 
 	/*

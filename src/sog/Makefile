@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.11.2.1 2002-01-05 16:21:59 matrim Exp $
+# $Id: Makefile,v 1.11.2.2 2002-09-09 19:26:34 tatyana Exp $
 #
 
 MODULE_NAME = sog
@@ -13,7 +13,7 @@ DB_CFILES = db/db.c db/db_area.c db/db_clan.c db/db_class.c db/db_cmd.c\
 	    db/db_skills.c db/db_socials.c db/db_system.c db/db_rspells.c
 
 CFILES = auction.c buffer.c chquest.c clan.c class.c cmd.c\
-	 effects.c fight.c flag.c gsn.c handler.c help.c hometown.c\
+	 effects.c fight.c fishing.c flag.c gsn.c handler.c help.c hometown.c\
 	 interp.c lang.c log.c lookup.c magic.c\
 	 memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c msg.c namedp.c\
 	 note.c obj_prog.c quest.c race.c raffect.c\

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.16 2002-08-31 17:18:53 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.17 2002-09-09 19:26:34 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -272,6 +272,9 @@ int gsn_blind_fishing;
 int gsn_mute_fishing;
 int gsn_outraging_fishing;
 
+int gsn_herring;
+int gsn_codfish;
+
 /* special gsns */
 int gsn_qtarget;
 
@@ -498,6 +501,9 @@ namedp_t gsn_table[] =
 	{ "gsn_prismatic_sphere",	&gsn_prismatic_sphere		},
 	{ "gsn_chameleon_poncho",	&gsn_chameleon_poncho		},
 	{ "gsn_stealth",		&gsn_stealth			},
+/*
+ * Fishing.
+ */
         { "gsn_improved_fishing",       &gsn_improved_fishing		},
         { "gsn_mastering_fishing",      &gsn_mastering_fishing		},
         { "gsn_expert_fishing",         &gsn_expert_fishing		},
@@ -508,6 +514,8 @@ namedp_t gsn_table[] =
         { "gsn_mute_fishing",           &gsn_mute_fishing		},
         { "gsn_outraging_fishing",      &gsn_outraging_fishing		},
 
+	{ "gsn_herring",		&gsn_herring			},
+	{ "gsn_codfish",		&gsn_codfish			},
 	{ NULL }
 };
 
