@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_spec.c,v 1.2 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: cc_spec.c,v 1.3 1999-12-20 10:44:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -129,5 +129,21 @@ cc_spec_spclass_limit(const char *arg, va_list ap)
 
 	varr_foreach(&PC(ch)->specs, spclass_count_cb, spclass, spn_rm, &count);
 	return count <= limit;
+}
+
+/*
+ * level_lt
+ *
+ * arg format: <num>
+ * return values: TRUE if ch's level is less than <num>, otherwise FALSE
+ */
+bool
+cc_spec_level_lt(const char *arg, va_list ap)
+{
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+
+	if (!is_number(arg))
+		return FALSE;
+	return ch->level < atoi(arg);
 }
 
