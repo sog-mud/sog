@@ -1944,6 +1944,8 @@ Quest staff waits patiently to return.~
 @eng Shocking waves in this room shock you!@rus Возмущения эфира в этом месте причиняют тебе боль и беспокойство!~
 @eng Shoot what direction and whom?@rus Выстрелить в какую сторону и в кого?~
 @eng Shoot which direction and whom?@rus Выстрелить в какую сторону и в кого?~
+@eng Short affects mode off.@rus Оказываемые на персонажа воздействия будут показываться в развернутом виде.~
+@eng Short affects mode on.@rus Оказываемые на персонажа воздействия будут показываться в кратком виде.~
 @eng Short descriptions activated.@rus Теперь ты будешь видеть краткие описания.~
 @eng Shutdown activated.@rus Останов активизирован.~
 @eng Shutdown already activated.@rus Останов уже активизирован.~
@@ -3574,6 +3576,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You will no longer hear clan talks.@rus Больше ты не будешь слышать, что говорят по клановому каналу.~
 @eng You will no longer hear music.@rus Ты больше не будешь слышать музыкальный канал.~
 @eng You will no longer hear shouts.@rus Отныне ты не будешь слышать чужих криков.~
+@eng You will no longer see battle prompt when fighting.@rus Теперь тебе не будет показываться строка состояния того, с кем дерешься.~
 @eng You will no longer see empty equipment slots.@rus Тебе не будут показываться незанятые позиции.~
 @eng You will no longer see prompts.@rus Тебе не будет показываться строка подсказки.~
 @eng You will no longer see race in long desc.@rus Тебе не будет показываться раса в длинном описании.~
@@ -3585,6 +3588,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You will now hear music.@rus Теперь ты будешь слышать музыкальный канал.~
 @eng You will now hear shouts.@rus Теперь ты будешь слышать чужие крики.~
 @eng You will now mislead the people who follow you.@rus Теперь ты будешь вводить в заблуждение следующих за тобой.~
+@eng You will now see battle prompt when fighting.@rus Теперь тебе будет показываться строка состояния того, с кем дерешься.~
 @eng You will now see empty equipment slots.@rus Ты будешь видеть свободные позиции в своем обмундировании.~
 @eng You will now see english obj/mob names.@rus Теперь ты будешь видеть английские имена мобов/названия обьектов.~
 @eng You will now see prompts.@rus Ты будешь теперь видеть строку подсказки.~
@@ -3812,6 +3816,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng do not bust prompt if hp/mana/move changed mode@rus не обновлять строку подсказки при изменении hp/mana/moves~
 @eng do not display english obj/mob names@rus не показывать английские названия обьектов/имена мобов~
 @eng do not flee from combat in lost-link@rus не сбегать из битвы при потере связи~
+@eng do not show battle prompt@rus не показывать строки состояния того, с кем дерешься~
 @eng do_ban: rule $j already exists.@rus do_ban: правило за номером $j уже существует.~
 @eng do_ban: rule $j deleted.@rus do_ban: правило за номером $j удалено.~
 @eng do_ban: rule $j not found.@rus do_ban: правило за номером $j не найдено.~

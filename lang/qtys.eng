@@ -48,6 +48,13 @@ Form 1 hour~
 End
 
 #RULE
+Name missiles~
+BaseLen 7
+Form 1 -~
+Form 2 -s~
+End
+
+#RULE
 Name steaks~
 Form 1 steak~
 End

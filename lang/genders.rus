@@ -2507,6 +2507,14 @@ Form 3 -ись~
 End
 
 #RULE
+Name выкрикнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name вздрогнул~
 BaseLen 8
 Form 1 -ла~
