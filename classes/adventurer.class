@@ -1,8 +1,8 @@
 #CLASS
-Name adventure~
+Name adventurer~
 ShortName Adv~
 PrimeStat str
-SkillSpec 'class_adventure'
+SkillSpec 'class_adventurer'
 SchoolWeapon 3702
 Thac0_00 18
 Thac0_32 -10

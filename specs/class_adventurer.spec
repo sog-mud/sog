@@ -1,5 +1,5 @@
 #SPEC
-Name class_adventure~
+Name class_adventurer~
 Class class
 End
 
@@ -13,4 +13,3 @@ Max 100
 End
 
 #$
-
