@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.146 1999-11-18 18:41:34 fjoe Exp $
+ * $Id: spellfun2.c,v 1.147 1999-11-19 09:07:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1923,7 +1923,6 @@ void spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.location	= "enhanced damage";
 	af.modifier	= 7 + level/20;
 	af.bitvector	= 0;
-
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/4;

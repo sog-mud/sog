@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.74 1999-11-18 18:41:33 fjoe Exp $
+ * $Id: recycle.c,v 1.75 1999-11-19 09:07:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,34 +128,6 @@ void ed_fwrite(FILE *fp, ED_DATA *ed)
 {
        	fprintf(fp, "E\n%s~\n", fix_string(ed->keyword));
 	mlstr_fwrite(fp, NULL, &ed->description);
-}
-
-AFFECT_DATA *aff_new(void)
-{
-	top_affect++;
-	return calloc(1, sizeof(AFFECT_DATA));
-}
-
-AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
-{
-	AFFECT_DATA *naf = aff_new();
-	naf->where	= paf->where;
-	naf->type	= str_dup(paf->type);
-	naf->level	= paf->level;
-	naf->duration	= paf->duration;
-	naf->location	= paf->location;
-	naf->modifier	= paf->modifier;
-	naf->bitvector	= paf->bitvector;
-	naf->owner	= paf->owner;
-	naf->events	= paf->events;
-	return naf;
-}
-
-void aff_free(AFFECT_DATA *af)
-{
-	free_string(af->type);
-	free(af);
-	top_affect--;
 }
 
 OBJ_DATA *free_obj_list;
@@ -295,6 +267,10 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->mod_stat[i] = 0;
 	}
 
+	varr_init(&ch->sk_affected, sizeof(saff_t), 1);
+	ch->sk_affected.e_init = (varr_e_init_t) saff_init;
+	ch->sk_affected.e_destroy = (varr_e_destroy_t) saff_destroy;
+
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
 		ch->comm = COMM_NOSHOUT | COMM_NOMUSIC;
@@ -323,9 +299,11 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->granted = str_empty;
 		pc->wanted_by = str_empty;
 		pc->dvdata = dvdata_new();
-
-		for (i = 0; i < MAX_COND; i++)
-			pc->condition[i] = 48;
+		pc->condition[COND_FULL] = 48;
+		pc->condition[COND_THIRST] = 48;
+		pc->condition[COND_HUNGER] = 48;
+		pc->condition[COND_BLOODLUST] = 48;
+		pc->condition[COND_DESIRE] = 48;
 		pc->race = str_dup("human");
 		pc->clan_status = CLAN_COMMONER;
 		pc->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;

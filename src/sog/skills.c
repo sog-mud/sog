@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.80 1999-10-25 08:23:37 fjoe Exp $
+ * $Id: skills.c,v 1.81 1999-11-19 09:07:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,10 +72,6 @@ int base_exp(CHAR_DATA *ch)
 
 int exp_for_level(CHAR_DATA *ch, int level)
 {
-#if 0
-	int i = base_exp(ch) * level;
-	return i + i * (level-1) / 20;
-#endif
 	return base_exp(ch)*level*level*level;
 }
 
@@ -180,15 +176,32 @@ void set_skill(CHAR_DATA *ch, const char *sn, int percent)
 	_set_skill(ch, sn, percent, TRUE);
 }
 
+void *
+apply_sa_cb(void *p, void *d)
+{
+	saff_t *sa = (saff_t *) p;
+	apply_sa_t *sa_data = (apply_sa_t *) d;
+
+	skill_t *sk = sa_data->sk;
+
+	if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
+	     !IS_SKILL(sa->sn, sk->name))
+	||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
+	     IS_SET(sk->skill_flags, SKILL_CLAN))
+	||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
+	     !sa_data->skill))
+		return NULL;
+
+	sa_data->mod += sa->mod;
+	return NULL;
+}
+
 /* for returning skill information */
 int get_skill(CHAR_DATA *ch, const char *sn)
 {
 	int skill;
 	skill_t *sk;
-	AFFECT_DATA *paf;
-
-	int add = 0;
-	bool teach = FALSE;
+	apply_sa_t sa_data;
 
 	if ((sk = skill_lookup(sn)) == NULL
 	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
@@ -218,19 +231,12 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	/*
 	 * apply skill affect modifiers
 	 */
-	for (paf = ch->affected; paf; paf = paf->next) {
-		if (paf->where != TO_SKILLS
-		||  (!IS_SET(paf->bitvector, SK_AFF_ALL) &&
-		     IS_SKILL(paf->type, sn))
-		||  (IS_SET(paf->bitvector, SK_AFF_NOTCLAN &&
-		     IS_SET(sk->skill_flags, SKILL_CLAN))))
-			continue;
+	sa_data.sk = sk;
+	sa_data.skill = skill;
+	sa_data.mod = 0;
+	varr_foreach(&ch->sk_affected, apply_sa_cb, &sa_data);
 
-		add += paf->modifier;
-		teach |= IS_SET(paf->bitvector, SK_AFF_TEACH);
-	}
-
-	return UMAX(0, skill ? (skill+add) : teach ? add : 0);
+	return UMAX(0, skill + sa_data.mod);
 }
 
 /*

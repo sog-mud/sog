@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.193 1999-11-18 15:31:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.194 1999-11-19 09:07:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1191,6 +1191,24 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
+static void *
+print_sa_cb(void *p, void *d)
+{
+	saff_t *sa = (saff_t *) p;
+	BUFFER *buf = (BUFFER *) d;
+
+	buf_printf(buf, "  Modifies '%s' by %d",
+		   sa->sn, sa->mod);
+	if (!IS_NULLSTR(sa->type))
+		buf_printf(buf, " (skill '%s')", sa->type);
+	if (sa->bit) {
+		buf_printf(buf, " with bits '%s'",
+			   flag_string(sk_aff_flags, sa->bit));
+	}
+	buf_add(buf, "\n");
+	return NULL;
+}
+
 void do_mstat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1392,6 +1410,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			break;
 		}
 	    buf_printf(output, "level {c%d{x.\n", paf->level);
+	}
+
+	if (!varr_isempty(&victim->sk_affected)) {
+		buf_add(output, "Skill affects:\n");
+		varr_foreach(&victim->sk_affected, print_sa_cb, output);
 	}
 
 	if (!IS_NPC(victim)) {

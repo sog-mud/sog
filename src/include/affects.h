@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.4 1999-10-25 12:05:18 fjoe Exp $
+ * $Id: affects.h,v 1.5 1999-11-19 09:07:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,20 @@ struct affect_data
 	CHAR_DATA *	owner;
 	flag32_t	events;
 };
+
+typedef struct saff_t {
+	const char *	sn;		/* affect which skill */
+	const char *	type;		/* affected by which skill */
+	int		mod;		/* modify skill knowledge by */
+	flag64_t	bit;		/* with bits ... */
+} saff_t;
+
+AFFECT_DATA *	aff_new	(void);
+AFFECT_DATA *	aff_dup	(const AFFECT_DATA *af);
+void		aff_free(AFFECT_DATA *af);
+
+void saff_init(saff_t *sa);
+void saff_destroy(saff_t *sa);
 
 /* where definitions */
 #define TO_AFFECTS	0

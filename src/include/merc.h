@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.248 1999-11-18 15:31:29 fjoe Exp $
+ * $Id: merc.h,v 1.249 1999-11-19 09:07:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1290,6 +1290,7 @@ struct char_data
 	time_t			last_death_time;
 
 	AFFECT_DATA *		affected;
+	varr			sk_affected;
 	OBJ_DATA *		carrying;
 	OBJ_DATA *		on;
 	ROOM_INDEX_DATA *	in_room;
@@ -2078,11 +2079,6 @@ ED_DATA *ed_dup		(const ED_DATA *ed);
 void	ed_fread	(rfile_t *fp, ED_DATA **edp);
 void	ed_fwrite	(FILE *fp, ED_DATA *ed);
 void	ed_free		(ED_DATA *ed);
-
-/* affect recycling */
-AFFECT_DATA *	aff_new	(void);
-AFFECT_DATA *	aff_dup	(const AFFECT_DATA *af);
-void		aff_free(AFFECT_DATA *af);
 
 /* event function lists */
 event_fun_t *	evf_new();

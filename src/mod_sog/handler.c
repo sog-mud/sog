@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.193 1999-11-18 15:31:30 fjoe Exp $
+ * $Id: handler.c,v 1.194 1999-11-19 09:07:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2176,7 +2176,7 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		where_t *w;
 
 		if (paf->where != TO_SKILLS
-		&&  INT_VAL(paf->location) != APPLY_NONE
+		&&  !IS_NULLSTR(paf->location.s)
 		&&  paf->modifier) { 
 			buf_printf(output, "Affects %s by %d",
 				   SFLAGS_VAL(apply_flags, paf->location),

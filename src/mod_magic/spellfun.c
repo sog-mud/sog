@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.188 1999-10-23 10:20:21 fjoe Exp $
+ * $Id: spellfun.c,v 1.189 1999-11-19 09:07:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -968,24 +968,20 @@ void spell_anathema(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.location	= APPLY_HITROLL;
 	af.modifier	= -strength;
 	af.bitvector	= AFF_CURSE;
-
 	affect_to_char(victim, &af);
 	
 	af.location	= APPLY_SAVING_SPELL;
 	af.modifier	= strength;
-
 	affect_to_char(victim, &af);
 
 	af.location	= APPLY_LEVEL;
 	af.modifier	= -strength / 7;
-
 	affect_to_char(victim, &af);
 
 	af.where	= TO_SKILLS;
-	af.location	= APPLY_NONE;
+	af.location	= str_empty;
 	af.modifier	= -strength;
 	af.bitvector	= SK_AFF_ALL;
-
 	affect_to_char(victim, &af);
 	
 	act("$n looks very uncomfortable.", victim, NULL, NULL, TO_ROOM);

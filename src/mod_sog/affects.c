@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.7 1999-11-18 15:31:30 fjoe Exp $
+ * $Id: affects.c,v 1.8 1999-11-19 09:07:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,8 +41,51 @@
 ***************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "merc.h"
 #include "db.h"
+
+AFFECT_DATA *aff_new(void)
+{
+	top_affect++;
+	return calloc(1, sizeof(AFFECT_DATA));
+}
+
+AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
+{
+	AFFECT_DATA *naf = aff_new();
+	naf->where	= paf->where;
+	naf->type	= str_dup(paf->type);
+	naf->level	= paf->level;
+	naf->duration	= paf->duration;
+	naf->location	= paf->location;
+	naf->modifier	= paf->modifier;
+	naf->bitvector	= paf->bitvector;
+	naf->owner	= paf->owner;
+	naf->events	= paf->events;
+	return naf;
+}
+
+void aff_free(AFFECT_DATA *af)
+{
+	free_string(af->type);
+	free(af);
+	top_affect--;
+}
+
+void saff_init(saff_t *sa)
+{
+	sa->sn = str_empty;
+	sa->type = str_empty;
+	sa->mod = 0;
+	sa->bit = 0;
+}
+
+void saff_destroy(saff_t *sa)
+{
+	free_string(sa->sn);
+	free_string(sa->type);
+}
 
 where_t where_table[] =
 {
@@ -81,7 +124,34 @@ void affect_enchant(OBJ_DATA *obj)
 		}
 	}
 }
-    
+ 
+typedef struct remove_sa_t {
+	varr *v;
+	AFFECT_DATA *paf;
+} remove_sa_t;
+
+static void *
+remove_sa_cb(void *p, void *d)
+{
+	saff_t *sa = (saff_t *) p;
+	remove_sa_t *rsa = (remove_sa_t *) d;
+
+	AFFECT_DATA *paf = rsa->paf;
+
+	if (!IS_SKILL(sa->sn, paf->location.s)
+	||  !IS_SKILL(sa->type, paf->type)
+	||  sa->mod != paf->modifier
+	||  sa->bit != paf->bitvector)
+		return NULL;
+
+	varr_edelete(rsa->v, p);
+
+	/*
+	 * restart from this place
+	 */
+	return p;
+}
+
 /*
  * Apply or remove an affect to a character.
  */
@@ -90,8 +160,27 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	OBJ_DATA *wield, *obj2;
 	int mod, i;
 
-	if (paf->where == TO_SKILLS)
+	if (paf->where == TO_SKILLS) {
+		if (fAdd) {
+			saff_t *sa = varr_enew(&ch->sk_affected);
+			sa->sn = str_dup(paf->location.s);
+			sa->type = str_dup(paf->type);
+			sa->mod = paf->modifier;
+			sa->bit =  paf->bitvector;
+		} else {
+			remove_sa_t rsa;
+			void *p = NULL;
+
+			rsa.v = &ch->sk_affected;
+			rsa.paf = paf;
+
+			do {
+				p = varr_eforeach(&ch->sk_affected, p,
+						  remove_sa_cb, &rsa);
+			} while (p);
+		}
 		return;
+	}
 
 	mod = paf->modifier;
 	if (fAdd) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.13 1999-11-18 18:41:33 fjoe Exp $
+ * $Id: varr.c,v 1.14 1999-11-19 09:07:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -176,11 +176,11 @@ void *varr_bsearch(varr* v, const void *e,
 	return bsearch(e, v->p, v->nused, v->nsize, cmpfun);
 }
 
-void *varr_foreach(varr *v, void *(*cb)(void*, void*), void *d)
+void *varr_nforeach(varr *v, size_t from, void *(*cb)(void*, void*), void *d)
 {
-	int i;
+	size_t i;
 
-	for (i = 0; i < v->nused; i++) {
+	for (i = from; i < v->nused; i++) {
 		void *p;
 		if ((p = cb(VARR_GET(v, i), d)) != NULL)
 			return p;

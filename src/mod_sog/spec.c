@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.6 1999-11-18 18:41:33 fjoe Exp $
+ * $Id: spec.c,v 1.7 1999-11-19 09:07:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -250,8 +250,8 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 {
 	race_t *r;
 	skill_t *sk;
-	AFFECT_DATA *paf;
 	_spec_stats_t stats;
+	apply_sa_t sa_data;
 
 	spec_sk->level = LEVEL_IMMORTAL;	/* will find min */
 	spec_sk->rating = 0;			/* will find min */
@@ -277,10 +277,12 @@ void spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 	varr_foreach(&PC(ch)->specs, spec_stats_cb, &stats);
 
 /* check skill affects */
-	for (paf = ch->affected; paf; paf = paf->next)
-		if (paf->where == TO_SKILLS
-		&&  IS_SKILL(paf->location.s, spec_sk->sn))
-			spec_sk->level = 1;
+	sa_data.sk = sk;
+	sa_data.skill = 1;
+	sa_data.mod = 0;
+	varr_foreach(&ch->sk_affected, apply_sa_cb, &sa_data);
+	if (sa_data.mod)
+		spec_sk->level = 1;
 
 bailout:
 	/*

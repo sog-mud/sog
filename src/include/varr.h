@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.9 1999-11-18 18:41:32 fjoe Exp $
+ * $Id: varr.h,v 1.10 1999-11-19 09:07:06 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -60,7 +60,10 @@ void	varr_qsort	(varr*, int (*)(const void*, const void*));
 void *	varr_bsearch	(varr*, const void *e,
 			 int (*)(const void*, const void*));
 
-void *	varr_foreach	(varr*, void *(*)(void*, void*), void*);
+#define varr_foreach(v, cb, p) (varr_nforeach((v), 0, (cb), (p)))
+#define varr_eforeach(v, e, cb, p) \
+		(varr_nforeach((v), (e) ? varr_index((v), (e)) : 0, (cb), (p)))
+void *	varr_nforeach	(varr*, size_t i, void *(*)(void*, void*), void*);
 
 #define varr_enew(v)	(varr_touch((v), (v)->nused))
 #define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->nsize))
@@ -68,5 +71,6 @@ void *	varr_foreach	(varr*, void *(*)(void*, void*), void*);
 			 NULL : VARR_GET((v), (i)))
 #define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->nsize)
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
+#define varr_isempty(v)	(!(v)->nused)
 
 #endif
