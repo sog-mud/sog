@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.26 1998-06-08 09:06:00 efdi Exp $
+ * $Id: update.c,v 1.27 1998-06-08 09:29:19 efdi Exp $
  */
 
 /***************************************************************************
@@ -1129,15 +1129,17 @@ void char_update(void)
 		}
 	    }
 
-	    gain_condition(ch, COND_DRUNK,  -1);
-	    if (ch->class == CLASS_VAMPIRE && ch->level > 10) 
-		gain_condition(ch,COND_BLOODLUST, -1);
-	    gain_condition(ch, COND_FULL, ch->size > SIZE_MEDIUM ? -4 : -2);
-	    if (ch->in_room->sector_type == SECT_DESERT)
-	      gain_condition(ch, COND_THIRST, -3);
-	    else
-	      gain_condition(ch, COND_THIRST, -1);
-	    gain_condition(ch, COND_HUNGER, ch->size > SIZE_MEDIUM ? -2 : -1);
+		if (!ch->was_in_room) {
+		    gain_condition(ch, COND_DRUNK,  -1);
+		    if (ch->class == CLASS_VAMPIRE && ch->level > 10) 
+			gain_condition(ch,COND_BLOODLUST, -1);
+		    gain_condition(ch, COND_FULL, ch->size>SIZE_MEDIUM ? -4:-2);
+		    if (ch->in_room->sector_type == SECT_DESERT)
+		      gain_condition(ch, COND_THIRST, -3);
+		    else
+		      gain_condition(ch, COND_THIRST, -1);
+		    gain_condition(ch, COND_HUNGER, ch->size>SIZE_MEDIUM?-2:-1);
+		}
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf_next)
