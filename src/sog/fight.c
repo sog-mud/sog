@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.168 1999-05-17 14:10:16 fjoe Exp $
+ * $Id: fight.c,v 1.169 1999-05-18 19:58:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2657,8 +2657,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if ((chance = get_skill(ch, gsn_mortal_strike))
-	&&  get_eq_char(ch, WEAR_WIELD)
-	&&  ch->level > (victim->level - 5)) {
+	&&  get_eq_char(ch, WEAR_WIELD)) {
 		chance /= 30;
 		chance += 1 + (ch->level - victim->level) / 2;
 		if (number_percent() < chance) {
@@ -2730,8 +2729,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
 	if ((chance = get_skill(ch, gsn_mortal_strike))
-	&&  get_eq_char(ch, WEAR_WIELD)
-	&&  ch->level > (victim->level - 5)) {
+	&&  get_eq_char(ch, WEAR_WIELD)) {
 		chance /= 30;
 		chance += 1 + (ch->level - victim->level) / 2;
 		if (number_percent() < chance) {

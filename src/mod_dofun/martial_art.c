@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.89 1999-05-18 12:09:18 avn Exp $
+ * $Id: martial_art.c,v 1.90 1999-05-18 19:58:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1824,17 +1824,8 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	int mana;
-	pcskill_t* ps;
-	
-	if (IS_NPC(ch)) 
-		return;
-	if ((ps = pcskill_lookup(ch, gsn_resistance)) == NULL
-	||  skill_level(ch, gsn_resistance) > ch->level)
-		chance = 0;
-	else
-		chance = ps->percent;
 
-	if (chance == 0) {
+	if ((chance = get_skill(ch, gsn_resistance)) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
