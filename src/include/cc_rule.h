@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.h,v 1.1 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: cc_rule.h,v 1.2 1999-11-23 08:09:36 fjoe Exp $
  */
 
 #ifndef _CC_RULE_H_
@@ -64,10 +64,13 @@ typedef struct cc_rulefun_t {
  * order types
  */
 enum {
-	RSO_DENY_ALLOW,		/* `deny' cc's are checked before `allow', */
+	CC_O_DENY_ALLOW,	/* `deny' cc's are checked before `allow', */
 				/* initial state is OK		 	   */
-	RSO_ALLOW_DENY,		/* `allow' check conditions are checked	   */
+	CC_O_ALLOW_DENY,	/* `allow' check conditions are checked	   */
 				/* before `deny', initial state is FORB	   */
+	CC_O_MUTUAL_FAILURE,	/* OK only if matches `allow' cc's and	   */
+				/* does not match `deny' cc's		   */
+				/* initial state is irrelevant		   */
 };
 
 /*

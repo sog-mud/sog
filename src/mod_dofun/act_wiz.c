@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.197 1999-11-22 14:54:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.198 1999-11-23 08:09:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1184,7 +1184,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 					 optype_table[i],
 					 oprog_name_lookup(obj->pObjIndex->oprogs[i]));
 	}
-	buf_printf(output,"Damage condition : %d (%s)\n", obj->condition,
+
+	buf_printf(output,"Damage condition: %d (%s)\n", obj->condition,
 				get_cond_alias(obj));
 
 	send_to_char(buf_string(output), ch);

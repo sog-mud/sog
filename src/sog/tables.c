@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.101 1999-11-22 14:54:27 fjoe Exp $
+ * $Id: tables.c,v 1.102 1999-11-23 08:09:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1424,8 +1424,9 @@ flag_t cc_order_types[] =
 {
 	{ "",			TABLE_INTVAL				},
 
-	{ "deny_allow",		RSO_DENY_ALLOW,			TRUE	},
-	{ "allow_deny",		RSO_ALLOW_DENY,			TRUE	},
+	{ "deny_allow",		CC_O_DENY_ALLOW,		TRUE	},
+	{ "allow_deny",		CC_O_ALLOW_DENY,		TRUE	},
+	{ "mutual_failure",	CC_O_MUTUAL_FAILURE,		TRUE	},
 
 	{ NULL }
 };

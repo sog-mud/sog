@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.c,v 1.1 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: cc_rule.c,v 1.2 1999-11-23 08:09:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -72,7 +72,7 @@ cc_rulecl_destroy(cc_rulecl_t *rcl)
 void
 cc_ruleset_init(cc_ruleset_t *rs)
 {
-	rs->order = RSO_DENY_ALLOW;
+	rs->order = CC_O_DENY_ALLOW;
 
 	varr_init(&rs->allow, sizeof(cc_rule_t), 1);
 	rs->allow.e_init = (varr_e_init_t) cc_rule_init;
@@ -176,18 +176,25 @@ cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, void *p)
 	}
 
 	switch (rs->order) {
-	case RSO_DENY_ALLOW:
+	case CC_O_DENY_ALLOW:
 		retval = TRUE;
 		if (ruleset_match(rcl, &rs->deny, p))
 			retval = FALSE;
 		if (ruleset_match(rcl, &rs->allow, p))
 			retval = TRUE;
 		break;
-	case RSO_ALLOW_DENY:
+	case CC_O_ALLOW_DENY:
 		retval = FALSE;
 		if (ruleset_match(rcl, &rs->allow, p))
 			retval = TRUE;
 		if (ruleset_match(rcl, &rs->deny, p))
+			retval = FALSE;
+		break;
+	case CC_O_MUTUAL_FAILURE:
+		if (ruleset_match(rcl, &rs->allow, p)
+		&&  !ruleset_match(rcl, &rs->deny, p))
+			retval = TRUE;
+		else
 			retval = FALSE;
 		break;
 	default:
