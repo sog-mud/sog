@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.49 2004-02-27 12:31:29 tatyana Exp $
+ * $Id: eventfun.c,v 1.50 2004-02-27 19:29:42 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -55,6 +55,9 @@ DECLARE_EVENT_FUN(event_updatechar_bonedragon);
 DECLARE_EVENT_FUN(event_timeoutchar_bonedragon);
 DECLARE_EVENT_FUN(event_enter_acid_fog);
 DECLARE_EVENT_FUN(event_update_acid_fog);
+DECLARE_EVENT_FUN(event_enter_fog_cloud);
+DECLARE_EVENT_FUN(event_leave_fog_cloud);
+DECLARE_EVENT_FUN(event_timeout_fog_cloud);
 
 static void
 show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
@@ -475,4 +478,19 @@ EVENT_FUN(event_update_acid_fog, ch, af)
 		inflict_effect("acid", ch, af->owner->level, dam);
 	}
 	damage(ch, ch, dam, af->type, DAM_F_SHOW | DAM_F_TRAP_ROOM);
+}
+
+EVENT_FUN(event_enter_fog_cloud, ch, af)
+{
+	act("Fog clouds surround you.", ch, NULL, NULL, TO_CHAR);
+}
+
+EVENT_FUN(event_leave_fog_cloud, ch, af)
+{
+	act("Fog clouds clear away.", ch, NULL, NULL, TO_CHAR);
+}
+
+EVENT_FUN(event_timeout_fog_cloud, ch, af)
+{
+	act("Fog clouds clear away.", ch, NULL, NULL, TO_CHAR);
 }

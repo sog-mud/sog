@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.444 2004-02-24 10:13:27 fjoe Exp $
+ * $Id: act_info.c,v 1.445 2004-02-27 19:29:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -527,7 +527,7 @@ do_look_room(CHAR_DATA *ch, int flags)
 			do_exits(ch, "auto");
 		}
 	} else
-		act_char("It is pitch black...", ch);
+		act_char("You see nothing...", ch);
 
 	show_list_to_char(ch->in_room->contents, ch, 0);
 	show_char_to_char(ch->in_room->people, ch);

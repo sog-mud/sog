@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.60 2004-02-27 14:22:23 tatyana Exp $
+ * $Id: prayers.c,v 1.61 2004-02-27 19:29:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -147,6 +147,8 @@ DECLARE_SPELL_FUN(prayer_wail_of_the_banshee);
 DECLARE_SPELL_FUN(prayer_sunbeam);
 DECLARE_SPELL_FUN(prayer_acid_fog);
 DECLARE_SPELL_FUN(prayer_ice_storm);
+DECLARE_SPELL_FUN(prayer_blast_of_wind);
+DECLARE_SPELL_FUN(prayer_fog_cloud);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3417,3 +3419,36 @@ SPELL_FUN(prayer_ice_storm, sn, level, ch, vo)
 	    ch, NULL, victim, TO_NOTVICT);
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
+/* Domen: water
+ * Make room dark (RAFF_FOG)
+ */
+SPELL_FUN(prayer_fog_cloud, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (is_sn_affected_room(ch->in_room, sn)) {
+		act_char("Fog clouds fill all around you already.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 3;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
+	act("Fog clouds surround you.", ch, NULL, NULL, TO_ALL);
+}
+/* Domen: air
+ * Prayer remove fog clouds.
+ */
+SPELL_FUN(prayer_blast_of_wind, sn, level, ch, vo)
+{
+	if (is_sn_affected_room(ch->in_room, "fog cloud")) {
+		affect_strip_room(ch->in_room, "fog cloud");
+		act("The blast of wind removes all cloud!",
+		    ch, NULL, NULL, TO_ALL);
+	}
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.393 2004-02-22 21:30:03 fjoe Exp $
+ * $Id: handler.c,v 1.394 2004-02-27 19:29:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2873,6 +2873,9 @@ room_is_dark(ROOM_INDEX_DATA *pRoomIndex)
 {
 	/* Lights won't work in RAFF_DARKNESS room */
 	if (IS_AFFECTED(pRoomIndex, RAFF_DARKNESS))
+		return TRUE;
+
+	if (is_sn_affected_room(pRoomIndex, "fog cloud"))
 		return TRUE;
 
 	if (pRoomIndex->light > 0)
