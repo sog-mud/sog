@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.7 1999-12-16 05:34:39 fjoe Exp $
+ * $Id: db_liquid.c,v 1.8 1999-12-16 10:19:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,26 +82,6 @@ DBLOAD_FUN(load_liquid)
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				const char *ln = gmlstr_mval(&lq.lq_name);
-				const char *cn = mlstr_mval(&lq.lq_color);
-				msg_t *m;
-
-				if (mlstr_nlang(&lq.lq_name.ml) == 0
-				&&  (m = msg_lookup(ln)) != NULL
-				&&  str_cmp(ln, "silver")
-				&&  str_cmp(ln, "gold")) {
-					mlstr_cpy(&lq.lq_name.ml, &m->ml);
-					if (m->gender) {
-						const char **pp = mlstr_convert(&lq.lq_name.gender, 1);
-						free_string(*pp);
-						*pp = str_dup(flag_string(gender_table, m->gender));
-					}
-				}
-
-				if (mlstr_nlang(&lq.lq_color) == 0
-				&&  (m = msg_lookup(cn)) != NULL
-				&&  str_cmp(cn, "silver")
-				&&  str_cmp(cn, "gold"))
-					mlstr_cpy(&lq.lq_color, &m->ml);
 
 				if (IS_NULLSTR(ln))
 					db_error("load_liquid",

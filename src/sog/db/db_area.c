@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.80 1999-12-16 07:06:57 fjoe Exp $
+ * $Id: db_area.c,v 1.81 1999-12-16 10:19:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -614,36 +614,12 @@ DBLOAD_FUN(load_rooms)
 
 				pexit->keyword		= fread_string(fp);
 				if (area_current->ver < 2) {
-					msg_t *m;
 					char buf[MAX_STRING_LENGTH];
 					char buf2[MAX_STRING_LENGTH];
 
 					one_argument(pexit->keyword,
 						     buf, sizeof(buf));
-
-					if ((m = msg_lookup(buf)) != NULL
-					&&  str_cmp(buf, "north")
-					&&  str_cmp(buf, "south")
-					&&  str_cmp(buf, "up")
-					&&  str_cmp(buf, "down")
-					&&  str_cmp(buf, "east")
-					&&  str_cmp(buf, "west")
-					&&  str_cmp(buf, "silver")
-					&&  str_cmp(buf, "gold")) {
-						const char **p;
-						mlstr_cpy(&pexit->short_descr.ml, &m->ml);
-						p = mlstr_convert(&pexit->short_descr.ml, 0);
-						snprintf(buf2, sizeof(buf2),
-							 "the %s", *p);
-						free_string(*p);
-						*p = str_dup(buf2);
-
-						if (m->gender) {
-							p = mlstr_convert(&pexit->short_descr.gender, 1);
-							free_string(*p);
-							*p = str_dup(flag_string(gender_table, m->gender));
-						}
-					} else if (buf[0] != '\0') {
+					if (buf[0] != '\0') {
 						snprintf(buf2, sizeof(buf2),
 							 "the %s", buf);
 						mlstr_init(&pexit->short_descr.ml, buf2);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.15 1999-12-14 15:31:15 fjoe Exp $
+ * $Id: spec.c,v 1.16 1999-12-16 10:19:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -403,9 +403,15 @@ spec_update_cb(void *p, va_list ap)
 	}
 
 	if (new_spn != NULL) {
+		SET_BIT(*pflags, SU_F_ALTERED);
+
+		if (IS_NULLSTR(new_spn)) {
+			varr_edelete(&PC(ch)->specs, pspn);
+			return pspn;
+		}
+
 		free_string(*pspn);
 		*pspn = str_qdup(new_spn);
-		SET_BIT(*pflags, SU_F_ALTERED);
 	}
 	return NULL;
 }
@@ -416,9 +422,12 @@ void spec_update(CHAR_DATA *ch)
 	race_t *r = race_lookup(ch->race);
 	class_t *cl = class_lookup(ch->class);
 	clan_t *clan = clan_lookup(ch->clan);
+	void *p = NULL;
 
-	varr_foreach(&PC(ch)->specs, spec_update_cb,
-		     ch, r, cl, clan, &flags);
+	do {
+		p = varr_eforeach(&PC(ch)->specs, p, spec_update_cb,
+				  ch, r, cl, clan, &flags);
+	} while (p);
 
 	if (IS_SET(flags, SU_F_ALTERED))
 		varr_qsort(&PC(ch)->specs, cmpstr);
