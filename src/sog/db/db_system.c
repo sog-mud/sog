@@ -23,8 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.4 1999-06-24 08:05:03 fjoe Exp $
+ * $Id: db_system.c,v 1.5 1999-07-02 12:54:58 fjoe Exp $
  */
+
+#ifndef ABI_VERSION
+#error "ABI_VERSION must be defined. check your Makefile.rules"
+#endif
 
 #include <sys/types.h>
 #if !defined(WIN32)
@@ -79,8 +83,9 @@ DBLOAD_FUN(load_system)
 			if (!str_cmp(word, "Module")) {
 				module_t *m = varr_enew(&modules);
 				m->name = fread_string(fp);
-				m->file_name = str_printf("%s%c%s.so",
-			 		MODULES_PATH, PATH_SEPARATOR, m->name);
+				m->file_name = str_printf("%s%c%s.so.%d",
+			 		MODULES_PATH, PATH_SEPARATOR,
+					m->name, ABI_VERSION);
 				fMatch = TRUE;
 			}
 			break;

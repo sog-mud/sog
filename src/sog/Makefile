@@ -1,11 +1,13 @@
 #
-# $Id: Makefile,v 1.4 1999-06-28 09:04:17 fjoe Exp $
+# $Id: Makefile,v 1.5 1999-07-02 12:54:58 fjoe Exp $
 #
 
 .include "../Makefile.inc"
 
 MODULE_NAME = sog
 INSTALL_DIR = bin
+
+CFLAGS += -DABI_VERSION=$(ABI_VERSION)
 
 COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/comm_act.c\
 	      comm/comm_colors.c comm/comm_info.c comm/resolver.c

@@ -23,17 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.2 1999-06-28 09:04:15 fjoe Exp $
+ * $Id: dofun.c,v 1.3 1999-07-02 12:54:58 fjoe Exp $
  */
 
 #include "typedef.h"
 #include "varr.h"
 
-#include "version.h"
 #include "module.h"
 #include "cmd.h"
-
-int _abi_version = ABI_VERSION;
 
 int _module_load(module_t *m)
 {

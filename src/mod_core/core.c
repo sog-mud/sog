@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.3 1999-07-01 07:44:52 fjoe Exp $
+ * $Id: core.c,v 1.4 1999-07-02 12:54:58 fjoe Exp $
  */
 
 #include <errno.h>
@@ -34,9 +34,6 @@
 #include "merc.h"
 #include "db.h"
 #include "module.h"
-#include "version.h"
-
-int _abi_version = ABI_VERSION;
 
 int _module_load(module_t *m)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.66 1999-06-29 10:57:03 fjoe Exp $
+ * $Id: olc.c,v 1.67 1999-07-02 12:54:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 #include "lang.h"
 #include "string_edit.h"
 #include "module.h"
-#include "version.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -110,8 +109,6 @@ olced_t olced_table[] = {
 static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
-
-int _abi_version = ABI_VERSION;
 
 int _module_load(module_t *m)
 {

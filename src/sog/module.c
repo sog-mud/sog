@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.7 1999-07-01 07:44:54 fjoe Exp $
+ * $Id: module.c,v 1.8 1999-07-02 12:54:58 fjoe Exp $
  */
 
 /*
@@ -38,7 +38,6 @@
 
 #include "merc.h"
 #include "module.h"
-#include "version.h"
 #include "log.h"
 
 varr modules = { sizeof(module_t), 2 };
@@ -46,11 +45,10 @@ varr modules = { sizeof(module_t), 2 };
 int mod_load(module_t* m)
 {
 	void *dlh;
-	int* abi_ver;
 	int (*callback)(module_t*);
 
 	/*
-	 * unload previously loaded module
+	 * try to unload previously loaded module
 	 */
 	if (m->dlh != NULL) {
 		if ((callback = dlsym(m->dlh, "_module_unload")) != NULL
@@ -62,7 +60,7 @@ int mod_load(module_t* m)
 	}
 
 	/*
-	 * open .so and check its version
+	 * open .so
 	 */
 	dlh = dlopen(m->file_name, RTLD_NOW);
 	if (dlh == NULL) {
@@ -70,23 +68,10 @@ int mod_load(module_t* m)
 		return -1;
 	}
 
-	abi_ver = dlsym(dlh, "_abi_version");
-	if (abi_ver == NULL) {
-		wizlog("mod_load: %s: %s", m->file_name, dlerror());
-		dlclose(dlh);
-		return -1;
-	}
-
-	if (*abi_ver != ABI_VERSION) {
-		wizlog("mod_load: %s: incompatible version %x.%x, "
-		       "current version %x.%x",
-		       m->file_name,
-		       VERSION_HI(*abi_ver), VERSION_LO(*abi_ver),
-		       VERSION_HI(ABI_VERSION), VERSION_LO(ABI_VERSION));
-		dlclose(dlh);
-		return -1;
-	}
-
+	/*
+	 * call on-load callback.
+	 * note that m->dlh is be set before
+	 */
 	m->dlh = dlh;
 
 	if ((callback = dlsym(m->dlh, "_module_load")) != NULL

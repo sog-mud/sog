@@ -1,8 +1,8 @@
 #
-# $Id: Makefile,v 1.6 1999-06-24 20:35:14 fjoe Exp $
+# $Id: Makefile,v 1.7 1999-07-02 12:54:58 fjoe Exp $
 #
 
-MODULE_NAME = spellfun.so
+MODULE_NAME = spellfun.so.$(ABI_VERSION)
 
 CFILES = spellfun.c magic.c magic2.c
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.1 1999-06-24 08:05:03 fjoe Exp $
+ * $Id: init_magic.c,v 1.2 1999-07-02 12:54:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,10 +34,7 @@
 #include "skills.h"
 #include "log.h"
 
-#include "version.h"
 #include "module.h"
-
-int _abi_version = ABI_VERSION;
 
 int _module_load(module_t* m)
 {
