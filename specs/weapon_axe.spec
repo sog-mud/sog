@@ -3,6 +3,11 @@ Name weapon_axe~
 Class weapon
 End
 
+#R has_spec
+order allow_deny
+allow class_warrior~
+end
+
 #SKILL
 Skill 'cleave'
 Level 35

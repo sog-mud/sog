@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.217 1999-11-27 08:57:18 fjoe Exp $
+ * $Id: fight.c,v 1.218 1999-11-27 09:17:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -898,11 +898,11 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	if (!IS_SET(dam_flags, DAMF_HIT)) {
 		if (IS_SKILL(dt, "backstab") && (IS_NPC(ch) || wield))
-			dam = LEVEL(ch) / 11 * dam + LEVEL(ch);
+			dam = (LEVEL(ch) / 12 + 2) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "dual backstab") && (IS_NPC(ch) || wield))
 			dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "circle"))
-			dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
+			dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "head crush"))
 			dam = (LEVEL(ch)/22 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "knife"))
@@ -910,7 +910,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		else if (IS_SKILL(dt, "vampiric bite"))
 			dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "charge"))
-			dam = LEVEL(ch)/12 * dam + LEVEL(ch);
+			dam = (LEVEL(ch)/12 + 1) * dam + LEVEL(ch);
 		else if (IS_SKILL(dt, "cleave") && wield != NULL) {
 			if (number_percent() <
 				(URANGE(4, 5 + LEVEL(ch) - LEVEL(victim), 10)

@@ -3,6 +3,11 @@ Name weapon_whip~
 Class weapon
 End
 
+#R has_spec
+order allow_deny
+allow class_warrior~
+End
+
 #SKILL
 Skill 'weapon strip'
 Level 25
@@ -22,3 +27,4 @@ Max 110
 End
 
 #$
+

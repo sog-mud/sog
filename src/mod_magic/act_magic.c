@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.12 1999-11-27 08:57:12 fjoe Exp $
+ * $Id: act_magic.c,v 1.13 1999-11-27 09:17:38 kostik Exp $
  */
 
 #include <stdio.h>
@@ -444,6 +444,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	bool offensive = FALSE;
 	pc_skill_t *pc_sk = NULL;
 	int chance = 0;
+	int cha;
 	skill_t *prayer;
 
 	CHAR_DATA *bch;		/* char to check spellbane on */
@@ -688,6 +689,14 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, prayer->beats);
 
+	if ((cha = get_curr_stat(ch, STAT_CHA)) < 14) {
+		act("Your god doesn't wish to help you anymore.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	chance -= (cha > 18)? 0 : (18 - cha) * 3;
+
 	if (number_percent() > chance) {
 		char_puts("Your god doesn't hear you.\n", ch);
 		check_improve(ch, prayer->name, FALSE, 1);
@@ -695,6 +704,10 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		if (cast_far) cast_far = FALSE;
 	} else {
 		int slevel = LEVEL(ch);
+
+		slevel += (cha - 20) / 2;
+
+		slevel = UMAX(1, slevel);
 
 		ch->mana -= mana;
 

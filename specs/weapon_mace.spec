@@ -4,8 +4,7 @@ Class weapon
 End
 
 #R has_spec
-order deny_allow
-deny all~
+order allow_deny
 allow class_warrior~
 end
 

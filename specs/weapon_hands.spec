@@ -3,6 +3,11 @@ Name weapon_hands~
 Class weapon
 End
 
+#R has_spec
+order allow_deny
+allow all~
+end
+
 #SKILL
 Skill 'throw'
 Level 20

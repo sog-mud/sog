@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.289 1999-11-27 06:05:46 fjoe Exp $
+ * $Id: act_info.c,v 1.290 1999-11-27 09:17:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -85,6 +85,7 @@ static void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
 static void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
 static void	show_obj_to_char	(CHAR_DATA *ch, OBJ_DATA *obj,
 					 flag32_t wear_loc);
+static void list_spells(flag32_t type, CHAR_DATA *ch, const char *argument);
 
 static int show_order[] = {
 	WEAR_LIGHT,
@@ -3168,8 +3169,18 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 	return knowledge;
 }
 		
-static void
-spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
+/* RT spells and skills show the players spells (or skills) */
+void do_prayers(CHAR_DATA *ch, const char *argument)
+{
+	list_spells(ST_PRAYER, ch, argument);
+}
+
+void do_spells(CHAR_DATA *ch, const char *argument) 
+{
+	list_spells(ST_SPELL, ch, argument);
+}
+
+static void list_spells(flag32_t type, CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *list[LEVEL_IMMORTAL+1];
 	int lev;
@@ -3236,17 +3247,6 @@ spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
 	buf_add(output, "\n");
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
-}
-
-/* RT spells and skills show the players spells (or skills) */
-void do_prayers(CHAR_DATA *ch, const char *argument)
-{
-	spell_list(ST_PRAYER, ch, argument);
-}
-
-void do_spells(CHAR_DATA *ch, const char *argument) 
-{
-	spell_list(ST_SPELL, ch, argument);
 }
 
 void do_skills(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.192 1999-11-27 08:57:11 fjoe Exp $
+ * $Id: act_comm.c,v 1.193 1999-11-27 09:17:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -618,7 +618,7 @@ void do_implore(CHAR_DATA *ch, const char *argument)
 		 return;
 	}
 
-	act_puts("You pray for '$t'",
+	act_puts("You implore '{W$t{x'",
 		 ch, argument, NULL, TO_CHAR, POS_DEAD);
 
 	if (argument[0] == '\0')
@@ -630,7 +630,7 @@ void do_implore(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING
 		&&  IS_IMMORTAL(victim)
 		&&  !IS_SET(victim->comm, COMM_NOWIZ))
-			act_puts("{W$n{x is PRAYING for '{G$t{x'",
+			act_puts("{W$n{x is PRAYING for '{W$t{x'",
 				 ch, argument, d->character,
 				 TO_VICT | ACT_TOBUF, POS_DEAD);
 	 }

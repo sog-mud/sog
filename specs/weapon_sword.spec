@@ -3,6 +3,11 @@ Name weapon_sword~
 Class weapon
 End
 
+#R has_spec
+order allow_deny
+allow class_warrior~
+end
+
 #SKILL
 Skill 'fence'
 Level 25
