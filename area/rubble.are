@@ -241,7 +241,7 @@ portal 0 CL 0
 0 0 0 P
 m obj_enter @ 100~
 int l = char_level($n);
-shock_effect($n, l, l);
+inflict_effect("shock", $n, l, l);
 return 0;
 ~
 E
