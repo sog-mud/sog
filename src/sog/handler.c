@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.260 2000-08-02 14:33:44 fjoe Exp $
+ * $Id: handler.c,v 1.261 2000-08-11 10:03:37 cs Exp $
  */
 
 /***************************************************************************
@@ -3652,6 +3652,13 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		    ch, obj, NULL, TO_CHAR);
 		return;
 	}
+
+	if (IS_NPC(ch) && (!IS_SET(ch->form, FORM_BIPED)
+	|| !IS_SET(ch->form, FORM_SENTIENT))) {
+		act("WEAR ?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
 
 	if (ch->shapeform) {
 		act("You cannot reach your items.",
