@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.116 1999-07-01 07:44:53 fjoe Exp $
+ * $Id: act_quest.c,v 1.117 1999-07-01 14:29:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -656,7 +656,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
-			act_puts("    Rune's most heinous criminal, {W$i{x",
+			act_puts("    Rune's most heinous criminal, {W$i{x,",
 				 questor, victim, ch,
 				 TO_VICT | ACT_FORMSH, POS_DEAD);
 			act_puts("    has escaped from the dungeon.",
