@@ -1,5 +1,5 @@
 /*
- * $Id: religion.c,v 1.5.2.2 2001-05-21 18:53:59 fjoe Exp $
+ * $Id: religion.c,v 1.5.2.3 2001-07-16 18:29:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,12 +44,12 @@
 #include "merc.h"
 
 /* vnums for tattoos */
-#define OBJ_VNUM_TATTOO_LIRAIL	 	51
+#define OBJ_VNUM_TATTOO_LIRAIL		51
 #define OBJ_VNUM_TATTOO_AMTINOR		52
-#define OBJ_VNUM_TATTOO_AULIN	 	53
+#define OBJ_VNUM_TATTOO_AULIN		53
 #define OBJ_VNUM_TATTOO_DAKKORN		54
 #define OBJ_VNUM_TATTOO_ULWARK		55
-#define OBJ_VNUM_TATTOO_MOARITH 	56
+#define OBJ_VNUM_TATTOO_MOARITH		56
 #define OBJ_VNUM_TATTOO_ILISSA		57
 #define OBJ_VNUM_TATTOO_HATHIR		58
 #define OBJ_VNUM_TATTOO_THRORGRIM	59
