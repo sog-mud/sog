@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.47 1998-06-17 07:50:36 fjoe Exp $
+ * $Id: comm.c,v 1.48 1998-06-18 03:37:57 efdi Exp $
  */
 
 /***************************************************************************
@@ -98,6 +98,21 @@ DECLARE_DO_FUN(do_outfit	);
 DECLARE_DO_FUN(do_unread	);
 
 char* color(char type, CHAR_DATA *ch);
+
+/***********/
+struct msg {
+	char **p;
+	int sexdep;
+};
+
+extern struct msg **ilang_table;
+enum {
+	DEP_NONE,
+	DEP_CHAR,
+	DEP_VICTIM
+};
+/*** END ***/
+
 
 /*
  * Malloc debugging stuff.
@@ -2737,71 +2752,76 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 		return;
 
 	to = ch->in_room->people;
-	if(type == TO_VICT)
-	{
-	    if (!vch)
-	    {
-	        bug("Act: null vch with TO_VICT.", 0);
-	        return;
-	    }
+	if (type == TO_VICT) {
+		if (!vch) {
+			bug("Act: null vch with TO_VICT.", 0);
+			return;
+		}
 
-	if (!vch->in_room)
-	    return;
+		if (!vch->in_room)
+			return;
 
-	    to = vch->in_room->people;
+		to = vch->in_room->people;
 	}
  
 	va_start(ap, msgid);
 
-	for(; to ; to = to->next_in_room)
-	{
-	    if (!to->desc || to->position < min_pos)
-	        continue;
+	for(; to ; to = to->next_in_room) {
+		if (!to->desc || to->position < min_pos)
+			continue;
  
-	    if(type == TO_CHAR && to != ch)
-	        continue;
-	    if(type == TO_VICT && (to != vch || to == ch))
-	        continue;
-	    if(type == TO_ROOM && to == ch)
-	        continue;
-	    if(type == TO_NOTVICT && (to == ch || to == vch))
-	        continue;
+		if(type == TO_CHAR && to != ch)
+			continue;
+		if(type == TO_VICT && (to != vch || to == ch))
+			continue;
+		if(type == TO_ROOM && to == ch)
+			continue;
+		if(type == TO_NOTVICT && (to == ch || to == vch))
+			continue;
  
-	    point   = buf;
+		point = buf;
 	
-	if(!vch)
-		vch = ch;
+/*		if(!vch)
+			vch = ch;
 	
-	    vsprintf(str, vmsg(msgid, to, vch), ap);
+		vsprintf(str, vmsg(msgid, to, vch), ap);
 	
-	/* *** FIX IT *** */
-	if(!strstr(str, "$N") && vch) {
-		vch = ch;
-	    	vsprintf(str, vmsg(msgid, to, vch), ap);
-	}
-	/******************/
-	    while(*str)
-	    {
-	        if(*str != '$' && *str != '{')
-	        {
-	            *point++ = *str++;
-	            continue;
-	        }
+		if(!strstr(str, "$N") && vch) {
+			vch = ch;
+			vsprintf(str, vmsg(msgid, to, vch), ap);
+		}
+*/
+		/* trying to fix */
+		{
+			CHAR_DATA *victim;
+			struct msg *m;
+			m = ilang_table[to->i_lang] + msgid;
+			victim = ch;
+			if (m->sexdep == DEP_VICTIM)
+				victim = vch;
+			vsprintf(str, exact_msg(msgid, to->i_lang, victim->sex),
+				 ap);
+		}
+		/*****************/
 
-	    i = NULL;
-	    switch(*str)
-	    {
-		case '$':
-		    fColour = TRUE;
-		    ++str;
-		    i = " <@@@> ";
-		    if (!arg2 && *str >= 'A' && *str <= 'Z' && *str != 'G')
-		    {
-			bug("Act: missing arg2 for code %d.", *str);
-			i = " <@@@> ";
-		    }
-		    else
-		    {
+		while(*str) {
+			if(*str != '$' && *str != '{') {
+				*point++ = *str++;
+				continue;
+			}
+
+			i = NULL;
+			switch(*str) {
+			case '$':
+				fColour = TRUE;
+				++str;
+				i = " <@@@> ";
+				if (!arg2 && *str >= 'A' && *str <= 'Z' 
+				&& *str != 'G') {
+					bug("Act: missing arg2 for code %d.", 
+					    *str);
+					i = " <@@@> ";
+				} else {
 			switch (*str)
 			{
 			    default:  

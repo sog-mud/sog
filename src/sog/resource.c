@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.18 1998-06-06 10:51:57 fjoe Exp $
+ * $Id: resource.c,v 1.19 1998-06-18 03:37:57 efdi Exp $
  */
 
 #include <limits.h>
@@ -26,7 +26,7 @@ struct msg {
 };
 
 static int nmsgid;
-static struct msg** ilang_table;
+struct msg** ilang_table;
 char** ilang_names;
 int nilang;
 
@@ -36,10 +36,23 @@ enum {
 	DEP_VICTIM
 };
 
-#define FIX_SEX(ch) (!(ch) ? SEX_NEUTRAL : \
-		     (ch)->sex >= SEX_FEMALE  ? SEX_FEMALE : \
-		     (ch)->sex <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
+
+#define FIX_SEX(sex) ((sex) >= SEX_FEMALE  ? SEX_FEMALE : \
+		     (sex) <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
 						SEX_MALE)
+char *exact_msg(int msgid, int i_lang, int sex)
+{
+	struct msg *m;
+
+	if (msgid >= nmsgid || i_lang >= nilang)
+		return BLANK_STRING;
+
+	m = ilang_table[i_lang]+msgid;
+	if (m->sexdep)
+		return m->p[FIX_SEX(sex)];
+	else
+		return (char*)m->p;
+}
 
 char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -52,7 +65,7 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 	if (m->sexdep) {
 		if (m->sexdep == DEP_VICTIM)
 			ch = victim;
-		return m->p[FIX_SEX(ch)];
+		return m->p[ch ? FIX_SEX(ch->sex) : SEX_NEUTRAL];
 	}
 	else
 		return (char*)m->p;
