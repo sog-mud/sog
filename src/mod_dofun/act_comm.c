@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.33 2002-01-10 13:54:17 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.34 2002-10-18 09:12:59 tatyana Exp $
  */
 
 /***************************************************************************
@@ -125,6 +125,12 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 
 	char_puts("shout          ", ch);
 	if (!IS_SET(ch->comm, COMM_NOSHOUT))
+		 char_puts("ON\n", ch);
+	else
+		 char_puts("OFF\n", ch);
+
+	char_puts("ooc            ", ch);
+	if (!IS_SET(ch->comm, COMM_NOOOC))
 		 char_puts("ON\n", ch);
 	else
 		 char_puts("OFF\n", ch);
@@ -663,8 +669,8 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch) {
 			act_puts("$n gossips '{R$t{x'",
-		        	 ch, argument, d->character,
-	    			 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
+				 ch, argument, d->character,
+				 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
 		}
 	}
 }
@@ -2255,6 +2261,107 @@ void do_toggle(CHAR_DATA *ch, const char *argument)
 		}
 		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
 			 ch, t->desc, NULL, TO_CHAR, POS_DEAD);
+	}
+}
+void do_ooc(CHAR_DATA *ch, const char *argument)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
+		return;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room.\n", ch);
+                return;
+        }
+
+	if (argument[0] == '\0') {
+		TOGGLE_BIT(ch->comm, COMM_NOOOC);
+		if (IS_SET(ch->comm, COMM_NOOOC)) {
+			char_puts("You will no longer hear general "
+				  "Shades of Gray line.\n", ch);
+		} else {
+			char_puts("You will now hear general "
+				  "Shades of Gray line.\n", ch);
+		}
+		return;
+	}
+
+	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+		 char_puts("The gods have revoked your channel privileges.\n",
+			   ch);
+		 return;
+	}
+
+	if (IS_SET(ch->comm, COMM_NOOOC))
+		do_ooc(ch, str_empty);
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+
+	argument = garble(ch, argument);
+	act_puts("[Shades of Gray] $lu{$n}: {C$t{x",
+		 ch, argument, NULL,
+		 TO_CHAR | (ACT_SPEECH(ch) & ~ACT_STRANS), POS_DEAD);
+
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected == CON_PLAYING
+		&&  d->character != ch
+		&&  !IS_SET(d->character->comm, COMM_NOOOC)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
+			act_puts("[Shades of Gray] $lu{$n}: {C$t{x",
+				 ch, argument, d->character,
+				 TO_VICT | ACT_NOTWIT |
+				 (ACT_SPEECH(ch) & ~ACT_STRANS),
+				 POS_DEAD);
+		}
+	}
+}
+void do_oocme(CHAR_DATA *ch, const char *argument)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
+		return;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room.\n", ch);
+                return;
+        }
+
+	if (argument[0] == '\0')
+		return;
+
+	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+		 char_puts("The gods have revoked your channel privileges.\n",
+			   ch);
+		 return;
+	}
+
+	WAIT_STATE(ch, PULSE_VIOLENCE);
+
+	if (is_affected(ch, gsn_garble))
+		return;
+
+	act_puts("[Shades of Gray] {C$lu{$n} $t{x",
+		 ch, argument, NULL,
+		 TO_CHAR | (ACT_SPEECH(ch) & ~ACT_STRANS), POS_DEAD);
+
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected == CON_PLAYING
+		&&  d->character != ch
+		&&  !IS_SET(d->character->comm, COMM_NOOOC)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
+			act_puts("[Shades of Gray] {C$lu{$n} $t{x",
+				 ch, argument, d->character,
+				 TO_VICT | ACT_NOTWIT |
+				 (ACT_SPEECH(ch) & ~ACT_STRANS),
+				 POS_DEAD);
+		}
 	}
 }
 

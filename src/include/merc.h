@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.33 2002-10-16 11:29:57 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.34 2002-10-18 09:12:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1236,6 +1236,7 @@ enum {
 #define COMM_NOWIZ		(C)
 #define COMM_NOAUCTION		(D)
 #define COMM_NOGOSSIP		(E)
+#define COMM_NOOOC		(F)
 #define COMM_NOMUSIC		(G)
 #define COMM_NOCLAN		(J)
 

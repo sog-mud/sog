@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.9 2002-10-16 11:30:03 tatyana Exp $
+ * $Id: recycle.c,v 1.64.2.10 2002-10-18 09:13:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -289,7 +289,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
-		ch->comm = COMM_NOSHOUT | COMM_NOMUSIC;
+		ch->comm = COMM_NOSHOUT | COMM_NOMUSIC | COMM_NOOOC;
 		NPC(ch)->timer = -1;
 	} else {
 		PC_DATA *pc = PC(ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.18 2002-09-09 19:26:37 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.19 2002-10-18 09:13:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -359,6 +359,7 @@ flag_t comm_flags[] =
 	{ "color",		COMM_COLOR,		TRUE	},
 	{ "noemote",		COMM_NOEMOTE,		FALSE	},
 	{ "noshout",		COMM_NOSHOUT,		FALSE	},
+	{ "noooc",		COMM_NOOOC,		FALSE	},
 	{ "notell",		COMM_NOTELL,		FALSE	},
 	{ "nochannels",		COMM_NOCHANNELS,	FALSE	},
 	{ "snoop_proof",	COMM_SNOOP_PROOF,	FALSE	},
