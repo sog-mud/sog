@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.62 1998-06-06 10:51:53 fjoe Exp $
+ * $Id: act_info.c,v 1.63 1998-06-07 20:44:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -132,19 +132,19 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strcat(buf, "({yInvis{x) ");
+			strcat(buf, msg(INFO_INVIS, ch));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strcat(buf, "({DDark{x) ");
+			strcat(buf, msg(INFO_DARK, ch));
 		if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
-			strcat(buf, "({RRed Aura{x) ");
+			strcat(buf, msg(INFO_RED_AURA, ch));
 		if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
-			strcat(buf,"({BBlue Aura{x) ");
+			strcat(buf, msg(INFO_BLUE_AURA, ch));
 		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
-			strcat(buf, "({MMagical{x) ");
+			strcat(buf, msg(INFO_MAGICAL, ch));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, "({WGlowing{x) ");
+			strcat(buf, msg(INFO_GLOWING, ch));
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, "({YHumming{x) ");
+			strcat(buf, msg(INFO_HUMMING, ch));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
@@ -651,8 +651,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED)) {
-			send_to_char("You see glowing red eyes "
-				     "watching YOU!\n\r", ch);
+			send_to_char(msg(INFO_GLOWING_RED_EYES, ch), ch);
 			if (!IS_IMMORTAL(rch))
 				life_count++;
 		}
@@ -661,7 +660,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 	}
 
 	if (life_count && CAN_DETECT(ch,DETECT_LIFE))
-		char_printf(ch, "You feel %d more life %s in the room.\n\r",
+		char_printf(ch, msg(INFO_FEEL_MORE_LIVES, ch),
 			    life_count, (life_count == 1) ? "form" : "forms");
 	return;
 }
@@ -673,7 +672,7 @@ bool check_blind(CHAR_DATA *ch)
 		return TRUE;
 
 	if (IS_AFFECTED(ch, AFF_BLIND)) {
-		send_to_char("You can't see a thing!\n\r", ch);
+		send_to_char(msg(INFO_CANT_SEE_THING, ch), ch);
 		return FALSE;
 	}
 
@@ -1607,7 +1606,7 @@ void do_time(CHAR_DATA *ch, char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "ANATOLIA started up at %s\n\r"
+	char_printf(ch, "MUDDY started up at %s\n\r"
 			"The system time is %s.\n\r",
 			str_boot_time, (char*) ctime(&current_time));
 	return;

@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.60 1998-06-06 01:44:59 efdi Exp $
+ * $Id: resource.h,v 1.61 1998-06-07 20:44:22 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -576,6 +576,7 @@ enum {
 	INFO_RED_AURA,
 	INFO_GOLDEN_AURA,
 	INFO_WHITE_AURA,
+	INFO_BLUE_AURA,
 	INFO_FADE,
 	INFO_WANTED,
 	INFO_CAMF,
@@ -589,6 +590,13 @@ enum {
 	INFO_SEE_NOTHING_SPECIAL,
 	INFO_IS_RIDING_S,
 	INFO_IS_RIDDEN_BY_S,
+	INFO_DARK,
+	INFO_MAGICAL,
+	INFO_GLOWING,
+	INFO_HUMMING,
+	INFO_GLOWING_RED_EYES,
+	INFO_FEEL_MORE_LIVES,	
+	INFO_CANT_SEE_THING,
 };
 
 #endif
