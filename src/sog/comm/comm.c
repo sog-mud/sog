@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.42 2004-02-24 10:24:52 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.43 2004-02-24 11:25:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1161,7 +1161,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Hold horses if pending command already.
 	 */
-	d->incomm_from_qbuf = FALSE;
+	d->incomm_synced = d->qbuf[0] == '\0';
 	if (d->incomm[0] != '\0')
 		return;
 
@@ -1181,7 +1181,7 @@ again:
 				/*
 				 * Try again with queued commands buffer
 				 */
-				d->incomm_from_qbuf = TRUE;
+				d->incomm_synced = TRUE;
 				inbuf = d->qbuf;
 				goto again;
 			}
@@ -1354,7 +1354,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			if (d->pString) {
 				char_puts("  > ", ch);
 				ga = TRUE;
-			} else if (QBUF_IN_SYNC(d)) {
+			} else if (d->incomm_synced) {
 				CHAR_DATA *victim;
 
 				/* battle prompt */

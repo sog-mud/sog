@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.59 2004-02-24 10:42:48 fjoe Exp $
+ * $Id: update.c,v 1.157.2.60 2004-02-24 11:25:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -724,7 +724,7 @@ void mobile_update(void)
 		&&  !ch->desc->pString
 		&&  !ch->desc->showstr_point
 		&&  !IS_SET(ch->comm, COMM_NOBUST)) {
-			ch->desc->incomm_from_qbuf = TRUE;
+			ch->desc->incomm_synced = TRUE;
 			char_puts(str_empty, ch);
 		}
 
@@ -1234,7 +1234,7 @@ void char_update(void)
 			&&  !ch->desc->pString
 			&&  !ch->desc->showstr_point
 			&&  !IS_SET(ch->comm, COMM_NOBUST)) {
-				ch->desc->incomm_from_qbuf = TRUE;
+				ch->desc->incomm_synced = TRUE;
 				char_puts(str_empty, ch);
 			}
 		}

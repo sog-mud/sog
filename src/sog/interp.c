@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.13 2004-02-24 10:24:51 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.14 2004-02-24 11:25:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -219,12 +219,14 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		cmd_level = cmd->min_level;
 	}
 
-	if (!IS_SET(cmd_flg, CMD_HARMLESS)
-	&&  !IS_NPC(ch)
-	&&  ch->desc != NULL
-	&&  (ch->wait > 0 || !QBUF_IN_SYNC(ch->desc))) {
-		append_to_qbuf(ch->desc, save_argument);
-		return;
+	if (ch->desc != NULL) {
+		if (!IS_SET(cmd_flg, CMD_HARMLESS)
+		&&  !IS_NPC(ch)
+		&&  (ch->wait > 0 || !ch->desc->incomm_synced)) {
+			append_to_qbuf(ch->desc, save_argument);
+			return;
+		} else
+			ch->desc->incomm_synced = TRUE;
 	}
 
 	/*
