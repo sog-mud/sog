@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.23 1998-06-15 00:14:40 efdi Exp $
+ * $Id: interp.c,v 1.24 1998-06-16 18:42:24 efdi Exp $
  */
 
 /***************************************************************************
@@ -234,8 +234,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL,1, CMD_GHOST },
     { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
-    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
     { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
     { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
@@ -314,6 +312,9 @@ const	struct	cmd_type	cmd_table	[] =
     { "value",		do_value,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+
+    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
+    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
 
     /*
      * Combat commands.
