@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.69 1998-07-12 11:26:07 efdi Exp $
+ * $Id: comm.c,v 1.70 1998-07-13 16:27:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@
 #include "mob_prog.h"
 #include "string_edit.h"
 #include "mlstring.h"
+#include "util.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -147,6 +148,7 @@ static char R_B_WHITE[]		= "[0m[1;37m";
 static char* reset_color = CLEAR;
 static char* curr_color = CLEAR;
 char* color(char type, CHAR_DATA *ch);
+void parse_colors(const char *i, CHAR_DATA *ch, char *o);
 
 
 /*
@@ -2639,34 +2641,44 @@ void char_nprintf(CHAR_DATA* ch, int msgid, ...)
 }
 
 /*
- * Write to one char, new color version, by Lope. (taken from Rot)
+ * Parse color symbols.
+ */
+void parse_colors(const char *i, CHAR_DATA *ch, char *o)
+{
+	int l;
+	*o = '\0';
+
+	if (i == NULL)
+		return;
+	
+	reset_color = curr_color = CLEAR;
+
+	for (; *i; ++i) {
+		if (*i == '{') {
+			++i;
+			if (*i)
+				strnzcat(o, color(*i, ch), MAX_STRING_LENGTH);
+			continue;
+		}
+		l = strlen(o);
+		if (l < MAX_STRING_LENGTH - 1)
+			o[l] = *i;
+		o[l+1] = '\0';
+	}
+}
+
+/*
+ * Write to one char.
  */
 void char_puts(const char *txt, CHAR_DATA *ch)
 {
-	const char *p;
-	char *q;
-	char buf[MAX_STRING_LENGTH*4];
+	char buf[MAX_STRING_LENGTH];
 
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
-	reset_color = curr_color = CLEAR;
-
-	for(p = txt, q = buf; *p; p++) {
-		if (*p == '{' && *(p+1)) {
-			p++;
-			if (IS_SET(ch->act, PLR_COLOR)) {
-				strcpy(q, color(*p, ch));
-				while (*q) q++;
-				continue;
-			}
-			else if (*p != '{')
-				continue;
-		}
-		*q++ = *p;
-	}			
-	*q = '\0';
-	write_to_buffer(ch->desc, buf, q - buf);
+	parse_colors(txt, ch, buf);
+	write_to_buffer(ch->desc, buf, 0);
 }
 
 /*
@@ -2751,30 +2763,25 @@ static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	     const void *arg1, const void *arg2, char *str)
 {
-	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
-	OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
-	OBJ_DATA 	*obj2 = (OBJ_DATA  *) arg2;
-	char 	fixed[MAX_STRING_LENGTH];
-	char 	*i;
-	char 	*point;
-	char 	*i2;
-	char 	buf[MAX_STRING_LENGTH];
-	char 	fname[MAX_INPUT_LENGTH];
-	bool	fColour = FALSE;
+    CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
+    OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
+    OBJ_DATA 	*obj2 = (OBJ_DATA  *) arg2;
+    char	*point;
+    char 	*i;
+    char 	buf[MAX_STRING_LENGTH];
+    char	tmp[MAX_STRING_LENGTH];
+    char 	fname[MAX_INPUT_LENGTH];
 
-	reset_color = curr_color = CLEAR;
-
-	point   = buf;
-	while(*str) {
-		if(*str != '$' && *str != '{') {
-			*point++ = *str++;
-			continue;
-		}
+    point   = buf;
+    while(*str) {
+	if(*str != '$') {
+		*point++ = *str++;
+		continue;
+	}
 
 	i = NULL;
 	switch(*str) {
 	case '$':
-		fColour = TRUE;
 		++str;
 		i = " <@@@> ";
 		if (!arg2 && *str >= 'A' && *str <= 'Z' 
@@ -2860,77 +2867,33 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		}
 		break;
 
-	case '{':
-		fColour = FALSE;
-		++str;
-		i = NULL;
-		if(IS_SET(to->act, PLR_COLOR))
-			i = color(*str, to);
-		break;
-
 	default:
-		fColour = FALSE;
 		*point++ = *str++;
 		break;
 	}
 
 	++str;
 
-	if(fColour && i) {
-		fixed[0] = '\0';
-		i2 = fixed;
-
-		if(IS_SET(to->act, PLR_COLOR)) {
-			for(i2 = fixed ; *i ; i++) {
-				if(*i == '{') {
-					i++;
-					strcat(fixed, color(*i, to));
-					for(i2 = fixed ; *i2 ; i2++)
-						;
-			    		continue;
-				}
-				*i2 = *i;
-				*++i2 = '\0';
-		    	}			
-			*i2 = '\0';
-			i = &fixed[0];
-		}
-	        else {
-		    for(i2 = fixed ; *i ; i++)
-	            {
-			if(*i == '{')
-			{
-			    i++;
-			    if(*i != '{')
-			    {
-				continue;
-			    }
-			}
-			*i2 = *i;
-			*++i2 = '\0';
-		    }			
-		    *i2 = '\0';
-		    i = &fixed[0];
-		}
-	    }
-
-
-		if(i) {
+	parse_colors(i, to, tmp); 
+	strnzcpy(i, tmp, MAX_STRING_LENGTH);
+	if(i) 
 		while((*point = *i) != '\0') {
 			++point;
 			++i;
-		}
-		}
 	}
+    }
  
-	*point++	= '\n';
-	*point++	= '\r';
-	*point		= '\0';
-	buf[0]		= UPPER(buf[0]);
-	if(to->desc)
-		write_to_buffer(to->desc, buf, point - buf);
-	else if (MOBtrigger)
-		mp_act_trigger(buf, to, ch, arg1, arg2, TRIG_ACT);
+    *point++	= '\n';
+    *point++	= '\r';
+    *point	= '\0';
+
+    parse_colors(buf, to, tmp); 
+    strnzcpy(buf, tmp, MAX_STRING_LENGTH);
+
+    if(to->desc)
+    	write_to_buffer(to->desc, buf, 0);
+    else if (MOBtrigger)
+    	mp_act_trigger(buf, to, ch, arg1, arg2, TRIG_ACT);
 }
 
 
@@ -3062,7 +3025,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 char* color(char type, CHAR_DATA *ch)
 {
 	char *color;
-	if (IS_NPC(ch))
+	if (IS_NPC(ch) || !IS_SET(ch->act, PLR_COLOR))
 		return "";
 
 	switch (type) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.61 1998-07-12 11:26:05 efdi Exp $
+ * $Id: act_comm.c,v 1.62 1998-07-13 16:27:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -404,7 +404,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
-		 strcpy(trans, translate(ch, vch, buf));
+			strcpy(trans, translate(ch, vch, buf));
 			act_nprintf(ch, trans, vch, TO_VICT, POS_RESTING, 
 					COMM_N_SAYS);
 		}
