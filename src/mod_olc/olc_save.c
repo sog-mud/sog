@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.55 1999-02-17 04:25:25 fjoe Exp $
+ * $Id: olc_save.c,v 1.56 1999-02-17 12:10:50 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1168,7 +1168,7 @@ void save_langs(CHAR_DATA *ch)
 		&&  save_words(ch, l->file_qtys, l->hash_qtys)) {
 			save_print(ch, "Qtys saved (language '%s', %s%c%s).",
 				   l->name, LANG_PATH, PATH_SEPARATOR, l->file_qtys);
-			l->flags &= ~LANG_CASES_CHANGED;
+			l->flags &= ~LANG_QTYS_CHANGED;
 		}
 
 		if (IS_SET(l->flags, LANG_CHANGED)

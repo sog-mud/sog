@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.121 1999-02-17 11:30:34 fjoe Exp $
+ * $Id: act_obj.c,v 1.122 1999-02-17 12:10:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3286,18 +3286,11 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		OBJ_DATA       *steak;
 		numsteaks = number_bits(2) + 1;
 
-		if (numsteaks > 1) {
-			act("$n butchers $P and creates $j $qj{steaks}.",
-			    ch, (const void*) numsteaks, obj, TO_ROOM);
-			act_puts("You butcher $P and create $j $qj{steaks}.",
-				 ch, (const void*) numsteaks, obj,
-				 TO_CHAR, POS_DEAD);
-		} else {
-			act("$n butchers $p and creates a steak.",
-			    ch, obj, NULL, TO_ROOM);
-			act("You butcher $p and create a steak.",
-			    ch, obj, NULL, TO_CHAR);
-		}
+		act("$n butchers $P and creates $j $qj{steaks}.",
+		    ch, (const void*) numsteaks, obj, TO_ROOM);
+		act_puts("You butcher $P and create $j $qj{steaks}.",
+			 ch, (const void*) numsteaks, obj,
+			 TO_CHAR, POS_DEAD);
 		check_improve(ch, sn, TRUE, 1);
 
 		for (i = 0; i < numsteaks; i++) {
