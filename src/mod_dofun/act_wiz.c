@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.224 2000-01-05 15:28:52 avn Exp $
+ * $Id: act_wiz.c,v 1.225 2000-01-06 04:48:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1392,6 +1392,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		   strtime(victim->last_fight_time));
 	if (IS_PUMPED(victim))
 		buf_add(output, "Adrenalin is gushing.\n");
+	buf_printf(output, "Wait state: %d\n", ch->wait);
 	if (IS_NPC(victim)) {
 		NPC_DATA *npc = NPC(victim);
 		buf_printf(output, "Last fought: [%s]  In_mind: [%s]  "

@@ -371,6 +371,16 @@ Form 6 -~
 End
 
 #RULE
+Name объявление~
+BaseLen 9
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name нары~
 BaseLen 3
 Form 2 -ам~
@@ -548,6 +558,16 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name заявление~
+BaseLen 8
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
 End
 
 #RULE
@@ -2005,6 +2025,17 @@ End
 #RULE
 Name фонтан~
 Form 1 фонтана~
+End
+
+#RULE
+Name банковское~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ое~
 End
 
 #RULE

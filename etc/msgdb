@@ -150,7 +150,6 @@ Use 'desc edit' to edit your description.
 ~
 @eng $p decomposes.@rus $p $gp{разложился}.~
 @eng $N says '{GDo you feel lucky, punk?{x'.@rus $N $gN{говорит} тебе: "{GЧувствуешь удачу, шпана?{x"~
-@eng Your $T increases!@rus $gT{Твой} $T $gT{улучшается}!~
 @eng That's not edible.
 @rus Это не съедобно.
 ~
@@ -478,11 +477,13 @@ Use 'desc edit' to edit your description.
 @eng You compare $p to itself.  It looks about the same.@rus Ты сравниваешь $c3{$p} с $gp{ним} $gp{самим}. Естественно, они выглядят похожими.~
 @eng But you aren't fighting anyone!@rus Но ты ни с кем не сражаешься!~
 @eng $N {xis sleeping in $p.@rus $N {x$gN{спит} в $c5{$p}.~
+@eng Your $v is already at maximum.@rus Ты больше не можешь развивать $c3{$v}.~
 @eng {MMANGLE{x@rus {MОПУСТОШАЕШЬ{x~
 @eng the down@rus снизу (down)~
 @eng You can't do that here.
 @rus Ты не можешь делать этого здесь.
 ~
+@eng Your $p glows blue.@rus $gp{Твой} $p светится синим.~
 @eng None.
 @rus Нет.
 ~
@@ -992,6 +993,7 @@ Get back to questor before your time runs out!
 @eng $n is blinded by the dirt in $s eyes!@rus $n $gn{ослеплен} грязью, попавшей в глаза!~
 @eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $N.~
 @eng     This item is beyond the trouble option.@rus     Я не могу помочь тебе с твоими неприятностями.~
+@eng Your $v increases!@rus $gv{Твой} $v $gv{улучшается}!~
 @eng {MMUTILATES{x@rus {MУРОДУЕТ{x~
 @eng You ask $N about current challenge quests.@rus Ты спрашиваешь у $c1{$N} какие особенные вещи ты можешь найти в мире.~
 @eng It is too heavy for you to wield.
@@ -1346,7 +1348,6 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You aren't currently on a quest.
 @rus У тебя сейчас нет задания.
 ~
-@eng $n's $T increases!@rus $T $c1{$n} $gT{улучшается}!~
 @eng $n tells you:@rus $n $gn{говорит} тебе:~
 @eng {R[*] TEAR UP [*]{x@rus {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x~
 @eng ({RRed Aura{x) @rus ({RКрасная Аура{x) ~
@@ -1519,7 +1520,6 @@ Quest staff waits patiently to return.
 @rus Bash? А что это?
 ~
 @eng $e's already been blinded.@rus $gN{Он} уже $gN{ослеплен}.~
-@eng Your $T is already at maximum.@rus Ты больше не можешь развивать $c3{$T}.~
 @eng You recite $p.@rus Ты зачитываешь $c3{$p}.~
 @eng Object has been removed from auction.@rus Лот снимается с торгов.~
 @eng No bets on this item have been received.@rus Ставок пока получено не было.~
@@ -1603,6 +1603,7 @@ Quest staff waits patiently to return.
 @eng How can you sneak upon yourself?
 @rus Ты не можешь подкрасться к себе сзади.
 ~
+@eng $n's $v increases!@rus $v $c1{$n} $gv{улучшается}!~
 @eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng $n stands at $p.@rus $n встает около $c1{$p}.~
 @eng That's not a container.

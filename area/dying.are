@@ -2527,13 +2527,9 @@ M 0 24301 18 24367 4	* a centaur guardian (Within a Centaur Hut)
 E 0 24302 0 6		*	a centaur helm: over the head
 M 0 24302 9 24367 2	* centaur ranger (Within a Centaur Hut)
 M 0 24303 5 24367 1	* a centaur captain (Within a Centaur Hut)
-O 0 24301 0 24367	* a steel centaur bracer (Within a Centaur Hut)
-O 0 24308 0 24367	* a blackened bastard sword (Within a Centaur Hut)
-G 0 24301 0		*	a steel centaur bracer
 E 0 24308 0 16		*	a blackened bastard sword: wielded
 M 0 24313 1 24367 1	* a dryad (Within a Centaur Hut)
 M 0 24313 1 24367 1	* a dryad (Within a Centaur Hut)
-O 0 24305 0 24367	* a steel-tipped spear (Within a Centaur Hut)
 M 0 24306 10 24369 1	* a greater Forest naga (Within the Dying Forest)
 M 0 24315 8 24370 3	* a dark stalker (Within the Dying Forest)
 M 0 24306 10 24371 1	* a greater Forest naga (Within the Dying Forest)
