@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.2 1998-09-24 14:09:05 fjoe Exp $
+ * $Id: olc_msg.c,v 1.3 1998-09-29 01:07:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@
 #include "merc.h"
 #include "olc.h"
 #include "interp.h"
+#include "db/lang.h"
 
 #define EDIT_MSG(ch, mlp)	(mlp = (mlstring**) ch->desc->pEdit)
 
@@ -60,7 +61,9 @@ OLC_CMD_DATA olc_cmds_msg[] =
 
 /* case-sensitive substring search with [num.]name syntax */
 static mlstring **	msg_search(const char *argument);
-static char*		fix_msg(const char *argument);
+static const char*	atomsg(const char *argument);
+static const char*	msgtoa(const char *argument);
+static void		msg_dump(BUFFER *buf, mlstring *ml);
 
 OLC_FUN(msged_create)
 {
@@ -84,7 +87,7 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= (void*) msg_add(mlstr_new(fix_msg(argument)));
+	ch->desc->pEdit	= (void*) msg_add(mlstr_new(atomsg(argument)));
 	ch->desc->editor = ED_MSG;
 	char_puts("Msg created.\n\r", ch);
 	return FALSE;
@@ -127,7 +130,7 @@ OLC_FUN(msged_show)
 	EDIT_MSG(ch, mlp);
 	output = buf_new(0);
 
-	mlstr_dump(output, str_empty, *mlp);
+	msg_dump(output, *mlp);
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -172,7 +175,7 @@ OLC_FUN(msged_msg)
 
 	p = mlstr_convert(&ml, lang);
 	free_string(*p);
-	*p = str_dup(fix_msg(argument));
+	*p = str_dup(atomsg(argument));
 
 	if (lang <= 0)
 		ch->desc->pEdit = (void*) msg_add(ml);
@@ -234,6 +237,10 @@ OLC_FUN(msged_del)
 	return FALSE;
 }
 
+/*
+ * local functions
+ */
+
 /* case-sensitive substring search with [num.]name syntax */
 static mlstring **msg_search(const char *argument)
 {
@@ -263,31 +270,78 @@ static mlstring **msg_search(const char *argument)
 	return NULL;
 }
 
-static char *fix_msg(const char *argument)
+static const char *atomsg(const char *argument)
 {
 	static char buf[MAX_STRING_LENGTH];
-	int i;
-	const char *o;
+	const char *i;
+	int o;
 
-	for (i = 0, o = argument; i < sizeof(buf)-1 && *o; i++, o++) {
-		if (*o == '\\' && *(o+1)) {
-			switch (*++o) {
+	for (o = 0, i = argument; o < sizeof(buf)-1 && *i; i++, o++) {
+		if (*i == '\\' && *(i+1)) {
+			switch (*++i) {
 			case 'r':
-				buf[i] = '\r';
+				buf[o] = '\r';
 				break;
 			case 'n':
-				buf[i] = '\n';
+				buf[o] = '\n';
 				break;
 			default:
-				buf[i] = *o;
+				buf[o] = *i;
 				break;
 			}
 			continue;
 		}
-		buf[i] = *o;
+		buf[o] = *i;
 	}
-	buf[i] = '\0';
+	buf[o] = '\0';
 
 	return buf;
+}
+
+static const char* msgtoa(const char *argument)
+{
+	static char buf[MAX_STRING_LENGTH];
+	const char *i;
+	int o;
+
+	for (o = 0, i = argument; o < sizeof(buf)-2 && *i; i++, o++) {
+		switch (*i) {
+		case '\n':
+			buf[o++] = '\\';
+			buf[o] = 'n';
+			continue;
+		case '\r':
+			buf[o++] = '\\';
+			buf[o] = 'r';
+			continue;
+		case '\\':
+			buf[o++] = '\\';
+			break;
+		case '{':
+			buf[o++] = *i;
+			break;
+		}
+		buf[o] = *i;
+	}
+	buf[o] = '\0';
+
+	return buf;
+}
+
+static void msg_dump(BUFFER *buf, mlstring *ml)
+{
+	int lang;
+	int nlang = mlstr_nlang(ml);
+	static char FORMAT[] = "[%s] [%s]\n\r";
+
+	if (!nlang) {
+		buf_printf(buf, FORMAT, "all", mlstr_mval(ml));
+		return;
+	}
+
+	for (lang = 0; lang < nlang; lang++) {
+		LANG_DATA *l = VARR_GET(langs, lang);
+		buf_printf(buf, FORMAT, l->name, msgtoa(mlstr_val(ml, lang)));
+	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.17 1998-09-20 17:01:44 fjoe Exp $
+ * $Id: olc.h,v 1.18 1998-09-29 01:07:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -130,7 +130,7 @@ OLC_CMD_DATA *	olc_cmd_lookup	(CHAR_DATA *ch, OLC_FUN *fun);
 #define	SECURITY_CLAN		5
 #define SECURITY_HELP		5
 #define SECURITY_AREA_CREATE	9
-#define SECURITY_MSGDB		5
+#define SECURITY_MSGDB		3
 
 #endif
 
