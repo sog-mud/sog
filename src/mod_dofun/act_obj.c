@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.100 1998-12-10 13:44:33 kostik Exp $
+ * $Id: act_obj.c,v 1.101 1998-12-17 21:05:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -164,7 +164,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		}
 		ch->silver += obj->value[0];
 		ch->gold += obj->value[1];
-		if (IS_SET(ch->act, PLR_AUTOSPLIT)) {
+		if (IS_SET(ch->plr_flags, PLR_AUTOSPLIT)) {
 			/* AUTOSPLIT code */
 			members = 0;
 			for (gch = ch->in_room->people; gch != NULL;
@@ -736,7 +736,8 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			mp_bribe_trigger(victim, ch,
 					 silver ? amount : amount * 100);
 
-		if (IS_NPC(victim) && IS_SET(victim->act, ACT_CHANGER)) {
+		if (IS_NPC(victim)
+		&&  IS_SET(victim->pIndexData->act, ACT_CHANGER)) {
 			int             change;
 			change = (silver ? 95 * amount / 100 / 100
 				  : 95 * amount);
@@ -1755,7 +1756,7 @@ void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	ch->silver += silver;
 
-	if (IS_SET(ch->act, PLR_AUTOSPLIT)) {
+	if (IS_SET(ch->plr_flags, PLR_AUTOSPLIT)) {
 		/* AUTOSPLIT code */
 		members = 0;
 		for (gch = ch->in_room->people; gch != NULL;
@@ -2328,11 +2329,14 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 	}
 
 	if (IS_SET(keeper->in_room->area->flags, AREA_HOMETOWN)
-	    && !IS_NPC(ch) && IS_SET(ch->act, PLR_WANTED)) {
+	&&  !IS_NPC(ch)
+	&&  IS_SET(ch->plr_flags, PLR_WANTED)) {
 		do_say(keeper, "Criminals are not welcome!");
-		doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n", ch->name);
+		doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n",
+			 ch->name);
 		return NULL;
 	}
+
 	/*
 	 * Shop hours.
 	 */
@@ -2471,6 +2475,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	uint		cost, roll;
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA	*pet;
+	flag_t		act;
 	ROOM_INDEX_DATA *pRoomIndexNext;
 	ROOM_INDEX_DATA *in_room;
 
@@ -2494,11 +2499,15 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	pet = get_char_room(ch, arg);
 	ch->in_room = in_room;
 
-	if (pet == NULL || !IS_SET(pet->act, ACT_PET) || !IS_NPC(pet)) {
+	if (!pet
+	||  !IS_NPC(pet)
+	||  !IS_SET(act = pet->pIndexData->act, ACT_PET)) {
 		char_puts("Sorry, you can't buy that here.\n", ch);
 		return;
 	}
-	if (IS_SET(pet->act, ACT_RIDEABLE)
+
+	
+	if (IS_SET(act, ACT_RIDEABLE)
 	&&  get_skill(ch, gsn_riding) && !MOUNTED(ch)) {
 		cost = 10 * pet->level * pet->level;
 
@@ -2696,7 +2705,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 		for (pet = pRoomIndexNext->people; pet; pet = pet->next_in_room) {
 			if (!IS_NPC(pet))
 				continue;	/* :) */
-			if (IS_SET(pet->act, ACT_PET)) {
+			if (IS_SET(pet->pIndexData->act, ACT_PET)) {
 				if (!found) {
 					found = TRUE;
 					char_puts("Pets for sale:\n", ch);

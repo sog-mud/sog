@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.126 1998-12-16 10:21:35 fjoe Exp $
+ * $Id: merc.h,v 1.127 1998-12-17 21:05:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1106,19 +1106,19 @@ enum {
 #define PLR_BLINK		(ee)
 #define PLR_NEW			(ff)
 
-#define IS_HARA_KIRI(ch) (IS_SET((ch)->act, PLR_HARA_KIRI))
-#define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->act, ACT_CLAN_GUARD))
+#define IS_HARA_KIRI(ch) (IS_SET((ch)->plr_flags, PLR_HARA_KIRI))
+#define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_CLAN_GUARD))
 
-#define IS_PUMPED(ch) (IS_SET((ch)->act, PLR_PUMPED))
+#define IS_PUMPED(ch) (IS_SET((ch)->plr_flags, PLR_PUMPED))
 #define SET_FIGHT_TIME(ch)					\
 	{							\
 		(ch)->last_fight_time = current_time;		\
-		SET_BIT((ch)->act, PLR_PUMPED);			\
+		SET_BIT((ch)->plr_flags, PLR_PUMPED);		\
 	}
 #define RESET_FIGHT_TIME(ch)					\
 	{							\
 		(ch)->last_fight_time = -1;			\
-		REMOVE_BIT((ch)->act, PLR_PUMPED);		\
+		REMOVE_BIT((ch)->plr_flags, PLR_PUMPED);	\
 	}
 
 /* RT comm flags -- may be used on both mobs and chars */
@@ -1201,7 +1201,6 @@ struct mob_index_data
 	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
-	flag_t			act;
 	flag_t			affected_by;
 	int			alignment;
 	int			level;
@@ -1211,6 +1210,7 @@ struct mob_index_data
 	int			damage[3];
 	int			ac[4];
 	int			dam_type;
+	flag_t			act;
 	flag_t			off_flags;
 	flag_t			imm_flags;
 	flag_t			res_flags;
@@ -1290,9 +1290,8 @@ struct char_data
 	uint			silver;
 	int 			exp;	/* total exp */
 	int			exp_tl;	/* exp gained this level */
-	sflag_t			act;
+	sflag_t			plr_flags;
 	sflag_t			comm;	/* RT added to pad the vector */
-	sflag_t			wiznet; /* wiz stuff */
 	sflag_t			imm_flags;
 	sflag_t			res_flags;
 	sflag_t			vuln_flags;
@@ -1319,7 +1318,6 @@ struct char_data
 	sflag_t			size;
 	const char *		material;
 	/* mobile stuff */
-	sflag_t			off_flags;
 	int			damage[3];
 	int			dam_type;
 	sflag_t			start_pos;
@@ -1361,6 +1359,7 @@ struct pc_data
 	int 			perm_mana;
 	int 			perm_move;
 	sflag_t			true_sex;
+	sflag_t			wiznet; /* wiz stuff */
 	int 			last_level;
 	int			condition	[MAX_COND];
 	varr			learned;
@@ -1697,7 +1696,7 @@ struct mpcode
 /*
  * Character macros.
  */
-#define IS_NPC(ch)		(IS_SET((ch)->act, ACT_NPC))
+#define IS_NPC(ch)		(IS_SET((ch)->plr_flags, ACT_NPC))
 #define IS_IMMORTAL(ch) 	(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
 #define IS_TRUSTED(ch, lev)	((IS_NPC(ch) ?				    \

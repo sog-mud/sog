@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.83 1998-12-14 04:26:07 fjoe Exp $
+ * $Id: quest.c,v 1.84 1998-12-17 21:05:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -301,7 +301,7 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!IS_NPC(vch)) 
 			continue;
-		if (IS_SET(vch->act, ACT_QUESTOR)) {
+		if (IS_SET(vch->pIndexData->act, ACT_QUESTOR)) {
 			questor = vch;
 			break;
 		}

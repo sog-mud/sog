@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.97 1998-12-14 12:31:32 fjoe Exp $
+ * $Id: interp.c,v 1.98 1998-12-17 21:05:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -532,7 +532,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Implement freeze command.
 	 */
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
+	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_FREEZE)) {
 		char_puts("You're totally frozen!\n", ch);
 		return;
 	}
@@ -648,7 +648,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (cmd->log == LOG_NEVER)
 		strcpy(logline, str_empty);
 
-	if (((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
+	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG))
 	||   fLogAll
 	||   cmd->log == LOG_ALWAYS) && logline[0] != '\0' 
 	&&   logline[0] != '\n') {

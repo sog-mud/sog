@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.18 1998-12-01 10:53:55 fjoe Exp $
+ * $Id: raffect.c,v 1.19 1998-12-17 21:05:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -302,7 +302,7 @@ void affect_join_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
 {
 	/* ghosts are safe */
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
+	if (!IS_NPC(victim) && IS_SET(victim->plr_flags, PLR_GHOST))
 		return TRUE;
  
 	/* link dead players who do not have rushing adrenalin are safe */

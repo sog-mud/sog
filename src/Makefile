@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.38 1998-12-02 13:32:11 fjoe Exp $
+# $Id: Makefile,v 1.39 1998-12-17 21:05:38 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -23,7 +23,7 @@ INSTALL_PATH	= ..
 
 #
 # for FreeBSD
-CFLAGS	+= -DBSD44
+CFLAGS	+= -DBSD44 
 LIBS	+= -lcrypt
 
 #

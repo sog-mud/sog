@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.121 1998-12-14 04:26:05 fjoe Exp $
+ * $Id: act_move.c,v 1.122 1998-12-17 21:05:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -405,7 +405,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 		if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
 		&&  IS_NPC(fch)
-		&&  IS_SET(fch->act,ACT_AGGRESSIVE)) {
+		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
 			act_printf(ch, NULL, fch, TO_CHAR, POS_DEAD,
 				   "You can't bring $N into the city.");
 			act("You aren't allowed in the city.",
@@ -1128,8 +1128,8 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_HARA_KIRI(ch)) {
-		 char_puts("You feel your blood heats your body.\n", ch);
-		 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
+			char_puts("You feel your blood heats your body.\n", ch);
+			REMOVE_BIT(ch->plr_flags, PLR_HARA_KIRI);
 		}
 
 		ch->position = POS_STANDING;
@@ -1307,7 +1307,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		if (IS_HARA_KIRI(ch)) {
 			char_puts("You feel your blood heats your body.\n",
 				  ch);
-			REMOVE_BIT(ch->act, PLR_HARA_KIRI);
+			REMOVE_BIT(ch->plr_flags, PLR_HARA_KIRI);
 		}
 		break;
 	}
@@ -1443,7 +1443,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 	if (IS_HARA_KIRI(ch)) {
 		 char_puts("You feel your blood heats your body.\n", ch);
-		 REMOVE_BIT(ch->act,PLR_HARA_KIRI);
+		 REMOVE_BIT(ch->plr_flags, PLR_HARA_KIRI);
 	}
 }
 
@@ -1790,9 +1790,8 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	 */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 		if (IS_NPC(mob)
-		&&  (IS_SET(mob->act, ACT_PRACTICE) ||
-		     IS_SET(mob->act, ACT_TRAIN) ||
-		     IS_SET(mob->act, ACT_GAIN)))
+		&&  IS_SET(mob->pIndexData->act,
+			   ACT_PRACTICE | ACT_TRAIN | ACT_GAIN))
 			break;
 
 	if (mob == NULL) {
@@ -1901,7 +1900,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(ch)) {
 			ch->status = 0;
 			if (ch->last_fought != NULL
-			&&  !IS_SET(ch->act, ACT_NOTRACK))
+			&&  !IS_SET(ch->pIndexData->act, ACT_NOTRACK))
 				add_mind(ch, ch->last_fought->name);
 		}
 
@@ -2228,18 +2227,18 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0') {
 		char_printf(ch, "Your current blink status: %s.\n",
-			    IS_SET(ch->act, PLR_BLINK) ? "ON" : "OFF");
+			    IS_SET(ch->plr_flags, PLR_BLINK) ? "ON" : "OFF");
 		return;
 	}
 
 	if (!str_cmp(arg, "ON")) {
-		SET_BIT(ch->act, PLR_BLINK);
+		SET_BIT(ch->plr_flags, PLR_BLINK);
 		char_puts("Now, your current blink status is ON.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "OFF")) {
-		REMOVE_BIT(ch->act, PLR_BLINK);
+		REMOVE_BIT(ch->plr_flags, PLR_BLINK);
 		char_puts("Now, your current blink status is OFF.\n", ch);
 		return;
 	}
@@ -2552,7 +2551,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	percent += can_see(victim, ch) ? -10 : 0;
 
 	if (victim->position == POS_FIGHTING
-	||  (IS_NPC(victim) && IS_SET(victim->act, ACT_NOTRACK))
+	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_NOTRACK))
 	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))) {
 		/*
 		 * Failure.
@@ -2875,8 +2874,8 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 		return;
   	}
  
-	if (!IS_NPC(mount) || !IS_SET(mount->act, ACT_RIDEABLE)
-	||  IS_SET(mount->act, ACT_NOTRACK)) { 
+	if (!IS_NPC(mount) || !IS_SET(mount->pIndexData->act, ACT_RIDEABLE)
+	||  IS_SET(mount->pIndexData->act, ACT_NOTRACK)) { 
 		char_puts("You can't ride that.\n", ch); 
 		return;
 	}
@@ -2991,8 +2990,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 					act("$p strikes $n!",
 					    victim, arrow, NULL, TO_ROOM);
 				}
-				if (is_safe(ch, victim) || (IS_NPC(victim) 
-				    && IS_SET(victim->act, ACT_NOTRACK))) {
+				if (is_safe(ch, victim)
+				||  (IS_NPC(victim) &&
+				     IS_SET(victim->pIndexData->act, ACT_NOTRACK))) {
 					act("$p falls from $n doing no visible damage...",
 					    victim, arrow, NULL, TO_ALL);
 					act("$p falls from $n doing no visible damage...",
@@ -3353,7 +3353,8 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
 		&&  !room_is_private(room)
 		&&  !IS_SET(room->room_flags, ROOM_SAFE) 
 		&&  !IS_SET(room->area->flags, AREA_UNDER_CONSTRUCTION)
-		&&  (!IS_NPC(ch) || !IS_SET(ch->act, ACT_AGGRESSIVE) ||
+		&&  (!IS_NPC(ch) ||
+		     !IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) ||
 		     !IS_SET(room->room_flags, ROOM_LAW)))
 			break;
 	}
@@ -3418,7 +3419,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_AGGRESSIVE)
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE)
 	&&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE)) {
 	        char_puts("Something prevents you from leaving...\n",ch);
 	        return;
@@ -3481,7 +3482,8 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 			continue;
 
 	        if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
-	        &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE))) {
+	        &&  IS_NPC(fch)
+		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
 	        	act("You can't bring $N into the city.",
 	                    ch, NULL, fch, TO_CHAR);
 			act("You aren't allowed in the city.",

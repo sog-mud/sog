@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.59 1998-12-14 09:47:12 kostik Exp $
+ * $Id: martial_art.c,v 1.60 1998-12-17 21:05:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -288,18 +288,17 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	else
 		chance += (ch->size - victim->size) * 10; 
 
-
 	/* stats */
-	chance += get_curr_stat(ch,STAT_STR);
-	chance -= get_curr_stat(victim,STAT_DEX) * 4/3;
+	chance += get_curr_stat(ch, STAT_STR);
+	chance -= get_curr_stat(victim, STAT_DEX) * 4/3;
 
-	if (IS_AFFECTED(ch,AFF_FLYING))
+	if (IS_AFFECTED(ch, AFF_FLYING))
 		chance -= 10;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
 		chance += 10;
-	if (IS_SET(victim->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
 		chance -= 20;
 
 	/* level */
@@ -419,9 +418,10 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	chance -= 2 * get_curr_stat(victim, STAT_DEX);
 
 	/* speed  */
-	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+	if ((IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	||  IS_AFFECTED(ch, AFF_HASTE))
 		chance += 10;
-	if (IS_SET(victim->off_flags, OFF_FAST)
+	if ((IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
 	||  IS_AFFECTED(victim, AFF_HASTE))
 		chance -= 25;
 
@@ -556,9 +556,10 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+	if ((IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
+	||  IS_AFFECTED(ch, AFF_HASTE))
 		chance += 10;
-	if (IS_SET(victim->off_flags,OFF_FAST)
+	if ((IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
 	||  IS_AFFECTED(victim, AFF_HASTE))
 		chance -= 20;
 
@@ -911,15 +912,12 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_KICK))
-		return;
-
 	if ((victim = ch->fighting) == NULL) {
 		char_puts("You aren't fighting anyone.\n", ch);
 		return;
 	}
 
-	if (IS_AFFECTED(ch,AFF_FLYING))
+	if (IS_AFFECTED(ch, AFF_FLYING))
 		chance = chance * 110 / 100;
 
 	WAIT_STATE(ch, SKILL(gsn_kick)->beats);
@@ -1208,13 +1206,12 @@ void do_tame(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_SET(victim->act,ACT_AGGRESSIVE)) {
+	if (!IS_SET(victim->pIndexData->act, ACT_AGGRESSIVE)) {
 		act("$N is not usually aggressive.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
 	if (number_percent() < chance + 15 + 4*(ch->level - victim->level)) {
-		REMOVE_BIT(victim->act, ACT_AGGRESSIVE);
 		SET_BIT(victim->affected_by, AFF_CALM);
 		char_puts("You calm down.\n", victim);
 		act("You calm $N down.", ch, NULL, victim, TO_CHAR);
@@ -1464,9 +1461,9 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		chance += 10;
 
 	/* speed */
-	if (IS_SET(ch->off_flags,OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
 		chance += 10;
-	if (IS_SET(victim->off_flags,OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
 		chance -= 20;
 
 	/* level */
@@ -2429,7 +2426,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, gsn_hara_kiri, TRUE, 2);
 		do_sleep(ch, str_empty);
-		SET_BIT(ch->act,PLR_HARA_KIRI);
+		SET_BIT(ch->plr_flags,PLR_HARA_KIRI);
 
 		af.where     = TO_AFFECTS;
 		af.type      = gsn_hara_kiri;
@@ -2782,9 +2779,9 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
 		chance += 20;
-	if (IS_SET(victim->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
 		chance -= 30;
 
 	/* level */
@@ -3104,9 +3101,9 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		chance -= 10;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST))
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->off_flags, OFF_FAST))
 		chance += 10;
-	if (IS_SET(victim->off_flags, OFF_FAST))
+	if (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))
 		chance -= 20;
 
 	/* level */

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.64 1998-12-14 04:26:06 fjoe Exp $
+ * $Id: spellfun2.c,v 1.65 1998-12-17 21:05:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@ DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_kill		);
+DECLARE_DO_FUN(do_wear		);
 int	find_door	(CHAR_DATA *ch, char *arg);
 int	check_exit	(const char *argument);
 
@@ -255,8 +256,7 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	victim->hit           = 1;
 	victim->mana  	  = 1;
 
-	REMOVE_BIT(victim->act, PLR_WANTED);
-	REMOVE_BIT(victim->act, PLR_BOUGHT_PET);
+	REMOVE_BIT(victim->plr_flags, PLR_WANTED | PLR_BOUGHT_PET);
 
 	victim->pcdata->condition[COND_THIRST] = 40;
 	victim->pcdata->condition[COND_HUNGER] = 40;
@@ -541,10 +541,9 @@ void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!IS_SET(victim->act, PLR_WANTED))
-	{
-	  act("But $N is not wanted.",ch,NULL,victim,TO_CHAR);
-	  return;
+	if (!IS_SET(victim->plr_flags, PLR_WANTED)) {
+		act("But $N is not wanted.", ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
 	if (!is_affected(victim, sn) && !saves_spell(ch->level, victim,DAM_CHARM))
@@ -1227,8 +1226,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	  ||   victim == ch || victim->in_room == NULL
-	  || IS_NPC(victim) || !IS_SET(victim->act, PLR_WANTED))
-	{
+	  || IS_NPC(victim) || !IS_SET(victim->plr_flags, PLR_WANTED)) {
 	  char_puts("You failed.\n", ch);
 	  return;
 	}
@@ -2099,7 +2097,7 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  if (vch->in_room != NULL
 	  &&   !IS_SET(vch->in_room->room_flags, ROOM_NORECALL)
 	  &&   !IS_IMMORTAL(vch)
-	  && ((IS_NPC(vch) && !IS_SET(vch->act, ACT_AGGRESSIVE)) ||
+	  && ((IS_NPC(vch) && !IS_SET(vch->pIndexData->act, ACT_AGGRESSIVE)) ||
 /*      (!IS_NPC(vch) && vch->level > PK_MIN_LEVEL && (vch->level < level || */
 	  (!IS_NPC(vch) && vch->level > PK_MIN_LEVEL && (
 	!is_safe_nomessage(ch, vch)))) && vch != ch
@@ -2477,8 +2475,8 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		}
 
 		if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-		|| IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
-		|| IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)) {
+		||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
+		||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)) {
 			char_puts("You can't animate here.\n", ch);
 			return;
 		}
@@ -2491,8 +2489,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		if (!str_prefix("The undead body of ", p))
 			p += strlen("The undead body of ");
 
-		undead = create_named_mob(get_mob_index(MOB_VNUM_UNDEAD),
-					     p);
+		undead = create_named_mob(get_mob_index(MOB_VNUM_UNDEAD), p);
 		for (i = 0; i < MAX_STATS; i++)
 			undead->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
 
@@ -2511,7 +2508,6 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		undead->sex = ch->sex;
 		undead->gold = 0;
 	
-		SET_BIT(undead->act, ACT_UNDEAD | AFF_CHARM);
 		undead->master = ch;
 		undead->leader = ch;
 
@@ -2523,8 +2519,6 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			obj_from_obj(obj2);
 			obj_to_char(obj2, undead);
 		}
-
-		interpret(undead, "wear all");
 
 		af.where     = TO_AFFECTS;
 		af.type      = sn;
@@ -2540,12 +2534,13 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			   "With mystic power, %s animates %s!",
 			   ch->name, obj->name); 
 
-		/* XXX */
-		act_printf(ch,NULL,NULL,TO_CHAR, POS_RESTING,
-		  	   "%s looks at you and plans to make you "
-			   "pay for distrurbing its rest!",
-			   mlstr_mval(obj->short_descr)); 
-		extract_obj (obj);
+		act_puts("$N looks at you and plans to make you "
+			 "pay for distrurbing its rest!",
+			 ch, NULL, undead, TO_CHAR, POS_DEAD);
+
+		do_wear(undead, "all");
+
+		extract_obj(obj);
 		return;
 	}
 
@@ -2964,7 +2959,7 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target) 
+void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo , int target) 
 {
 	CHAR_DATA *lion;
 	CHAR_DATA *victim;
@@ -3045,8 +3040,7 @@ void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	lion->damage[DICE_TYPE] = number_range(level/3, level/2);
 	lion->damage[DICE_BONUS] = number_range(level/8, level/6);
 	
-/*   SET_BIT(lion->affected_by, AFF_CHARM); 
-	lion->master = lion->leader = ch; */
+/*	lion->master = lion->leader = ch; */
 
 	char_to_room(lion,ch->in_room);
 
@@ -3061,10 +3055,8 @@ void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	af.modifier           = 0;
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
-	SET_BIT(lion->act,ACT_HUNTER);
-	lion->hunting=victim;
+	lion->hunting = victim;
 	hunt_victim(lion);
-
 }
 
 
@@ -3121,7 +3113,7 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->level = ch->level;
 	fire->cost = 0;
 	obj_to_char(fire , ch);    
-	SET_BIT(victim->act,PLR_NOEXP);
+	SET_BIT(victim->plr_flags, PLR_NOEXP);
 	char_printf(ch,"You catch %s's spirit in to your vial.\n",
 		    victim->name);
 }
@@ -4696,21 +4688,16 @@ void spell_disgrace(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else char_puts("You failed.\n",ch);
 }
 
-
 void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if  (!IS_NPC(victim) || !IS_SET(victim->act,ACT_UNDEAD)) 
-	{
-	act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
-	return;
+	if  (!IS_NPC(victim) || !IS_SET(victim->pIndexData->act, ACT_UNDEAD)) {
+		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
+		return;
 	}
 	spell_charm_person(sn,level,ch,vo,target);
-	return;
 }
-
-
 
 void spell_assist(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.22 1998-12-01 10:53:54 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.23 1998-12-17 21:05:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -541,7 +541,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 	{
 	    vnext = victim->next_in_room;
 	    if (IS_NPC(victim) && victim != ch 
-	    &&   !IS_SET(victim->act, ACT_NOPURGE))
+	    &&   !IS_SET(victim->pIndexData->act, ACT_NOPURGE))
 		extract_char(victim, TRUE);
 	}
 

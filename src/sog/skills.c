@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.44 1998-12-03 14:08:11 fjoe Exp $
+ * $Id: skills.c,v 1.45 1998-12-17 21:05:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,9 +70,8 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 	/* find a trainer */
 	for (tr = ch->in_room->people; tr; tr = tr->next_in_room)
 		if (IS_NPC(tr)
-		&&  (IS_SET(tr->act,ACT_PRACTICE) ||
-		     IS_SET(tr->act,ACT_TRAIN) ||
-		     IS_SET(tr->act,ACT_GAIN)))
+		&&  IS_SET(tr->pIndexData->act,
+			   ACT_PRACTICE | ACT_TRAIN | ACT_GAIN))
 			break;
 
 	if (tr == NULL || !can_see(ch, tr)) {
@@ -634,56 +633,58 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = ps->percent;
 	}
 	else {
+		flag_t act = ch->pIndexData->act;
+		flag_t off = ch->pIndexData->off_flags;
+
 		/* mobiles */
 		if (sk->spell_fun)
 			skill = 40 + 2 * ch->level;
 		else if (sn == gsn_track)
 			skill = 100;
 		else if ((sn == gsn_sneak || sn == gsn_hide || sn == gsn_pick)
-		     &&  IS_SET(ch->act, ACT_THIEF))
+		     &&  IS_SET(act, ACT_THIEF))
 			skill = ch->level * 2 + 20;
 		else if (sn == gsn_backstab
-		     &&  (IS_SET(ch->act, ACT_THIEF) ||
-			  IS_SET(ch->off_flags, OFF_BACKSTAB)))
+		     &&  (IS_SET(act, ACT_THIEF) ||
+			  IS_SET(off, OFF_BACKSTAB)))
 			skill = ch->level * 2 + 20;
 		else if (sn == gsn_dual_backstab
-		     &&  (IS_SET(ch->act, ACT_THIEF) ||
-			  IS_SET(ch->off_flags, OFF_BACKSTAB)))
+		     &&  (IS_SET(act, ACT_THIEF) ||
+			  IS_SET(off, OFF_BACKSTAB)))
 			skill = ch->level + 20;
-		else if ((sn == gsn_dodge && IS_SET(ch->off_flags,OFF_DODGE)) ||
- 		         (sn == gsn_parry && IS_SET(ch->off_flags,OFF_PARRY)) ||
-			 (sn == gsn_dirt && IS_SET(ch->off_flags, OFF_DIRT_KICK)))
+		else if ((sn == gsn_dodge && IS_SET(off, OFF_DODGE)) ||
+ 		         (sn == gsn_parry && IS_SET(off, OFF_PARRY)) ||
+			 (sn == gsn_dirt && IS_SET(off, OFF_DIRT_KICK)))
 			skill = ch->level * 2;
  		else if (sn == gsn_shield_block)
 			skill = 10 + 2 * ch->level;
 		else if (sn == gsn_second_attack &&
-			 (IS_SET(ch->act, ACT_WARRIOR) ||
-			  IS_SET(ch->act, ACT_THIEF)))
+			 (IS_SET(act, ACT_WARRIOR | ACT_THIEF)))
 			skill = 10 + 3 * ch->level;
-		else if (sn == gsn_third_attack && IS_SET(ch->act,ACT_WARRIOR))
+		else if (sn == gsn_third_attack && IS_SET(act, ACT_WARRIOR))
 			skill = 4 * ch->level - 40;
-		else if (sn == gsn_fourth_attack && IS_SET(ch->act,ACT_WARRIOR))
+		else if (sn == gsn_fourth_attack && IS_SET(act, ACT_WARRIOR))
 			skill = 4 * ch->level - 60;
 		else if (sn == gsn_hand_to_hand)
 			skill = 40 + 2 * ch->level;
- 		else if (sn == gsn_trip && IS_SET(ch->off_flags,OFF_TRIP)) 
+ 		else if (sn == gsn_trip && IS_SET(off, OFF_TRIP)) 
 			skill = 10 + 3 * ch->level;
  		else if ((sn == gsn_bash || sn == gsn_bash_door) &&
-			 IS_SET(ch->off_flags,OFF_BASH))
+			 IS_SET(off, OFF_BASH))
 			skill = 10 + 3 * ch->level;
-		else if ((sn == gsn_critical) && IS_SET(ch->act, ACT_WARRIOR))
+		else if (sn == gsn_kick && IS_SET(off, OFF_KICK))
+			skill = 10 + 3 * ch->level;
+		else if ((sn == gsn_critical) && IS_SET(act, ACT_WARRIOR))
 			skill = ch->level;
 		else if (sn == gsn_disarm &&
-			 (IS_SET(ch->off_flags,OFF_DISARM) ||
-			  IS_SET(ch->act,ACT_WARRIOR) ||
-			  IS_SET(ch->act,ACT_THIEF)))
+			 (IS_SET(off, OFF_DISARM) ||
+			  IS_SET(act, ACT_WARRIOR | ACT_THIEF)))
 			skill = 20 + 3 * ch->level;
 		else if (sn == gsn_grip &&
-			 (IS_SET(ch->act,ACT_WARRIOR) ||
-			  IS_SET(ch->act,ACT_THIEF)))
+			 (IS_SET(act, ACT_WARRIOR | ACT_THIEF)))
 			skill = ch->level;
 		else if ((sn == gsn_berserk || sn == gsn_tiger_power) &&
-			 IS_SET(ch->off_flags, OFF_BERSERK))
+			 IS_SET(off, OFF_BERSERK))
 			skill = 3 * ch->level;
 		else if (sn == gsn_kick)
 			skill = 10 + 3 * ch->level;
@@ -695,7 +696,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 			 sn == gsn_whip || sn == gsn_polearm ||
 			 sn == gsn_bow || sn == gsn_arrow || sn == gsn_lance)
 			skill = 40 + 5 * ch->level / 2;
-		else if (sn == gsn_crush && IS_SET(ch->off_flags, OFF_CRUSH))
+		else if (sn == gsn_crush && IS_SET(off, OFF_CRUSH))
 			skill = 10 + 3 * ch->level;
 		else 
 			skill = 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.125 1998-12-10 10:16:08 fjoe Exp $
+ * $Id: act_comm.c,v 1.126 1998-12-17 21:05:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,12 +89,12 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 	
-	if (IS_SET(ch->act, PLR_CONFIRM_DELETE)) {
+	if (IS_SET(ch->plr_flags, PLR_CONFIRM_DELETE)) {
 		char *name;
 
 		if (argument[0] != '\0') {
 			char_puts("Delete status removed.\n",ch);
-			REMOVE_BIT(ch->act, PLR_CONFIRM_DELETE);
+			REMOVE_BIT(ch->plr_flags, PLR_CONFIRM_DELETE);
 			return;
 		}
 
@@ -115,7 +115,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 		     "WARNING: this command is irreversible.\n"
 		     "Typing delete with an argument will undo delete status.\n",
 		     ch);
-	SET_BIT(ch->act, PLR_CONFIRM_DELETE);
+	SET_BIT(ch->plr_flags, PLR_CONFIRM_DELETE);
 	wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, ch->level);
 }
 		
@@ -1060,7 +1060,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		return;
 	}
 
-	if (IS_SET(ch->act, PLR_NOEXP)) {
+	if (IS_SET(ch->plr_flags, PLR_NOEXP)) {
 		char_puts("You don't want to lose your spirit.\n", ch);
 		return;
 	}
@@ -1230,13 +1230,15 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && IS_SET(victim->act,PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
+	if (!IS_NPC(victim)
+	&&  IS_SET(victim->plr_flags, PLR_NOFOLLOW)
+	&&  !IS_IMMORTAL(ch)) {
 		act("$N doesn't seem to want any followers.\n",
 		    ch, NULL, victim, TO_CHAR);
-			return;
+		return;
 	}
 
-	REMOVE_BIT(ch->act,PLR_NOFOLLOW);
+	REMOVE_BIT(ch->plr_flags, PLR_NOFOLLOW);
 	
 	if (ch->master != NULL)
 		stop_follower(ch);
@@ -1852,8 +1854,8 @@ DO_FUN(do_wanted)
 		return;
 	}
 
-	TOGGLE_BIT(victim->act, PLR_WANTED);
-	if (IS_SET(victim->act, PLR_WANTED)) {
+	TOGGLE_BIT(victim->plr_flags, PLR_WANTED);
+	if (IS_SET(victim->plr_flags, PLR_WANTED)) {
 		act("$n is now WANTED!!!", victim, NULL, NULL, TO_ROOM);
 		char_puts("You are now WANTED!!!\n", victim);
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.94 1998-12-10 13:52:00 fjoe Exp $
+ * $Id: update.c,v 1.95 1998-12-17 21:05:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,7 +169,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	if (IS_NPC(ch) || ch->level >= LEVEL_HERO)
 		return;
 
-	if (IS_SET(ch->act,PLR_NOEXP) && gain > 0) {
+	if (IS_SET(ch->plr_flags, PLR_NOEXP) && gain > 0) {
 		char_puts("You can't gain exp without your spirit.\n", ch);
 		return;
 	}
@@ -552,35 +552,40 @@ void mobile_update(void)
 	/* Examine all mobs. */
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		bool bust_prompt = FALSE;
+		flag_t act;
 
 		ch_next = ch->next;
 		if (ch->position == POS_FIGHTING)
 			SET_FIGHT_TIME(ch);
 
 /* permanent spellbane */
-		if (!IS_IMMORTAL(ch) && !IS_NPC(ch)
-		&&  get_skill(ch, gsn_spellbane)
-		&&  !is_affected(ch, gsn_spellbane))
-			do_spellbane(ch, str_empty);
+		if (!IS_NPC(ch)) {
+			if (ch->level < LEVEL_IMMORTAL
+			&&  get_skill(ch, gsn_spellbane)
+			&&  !is_affected(ch, gsn_spellbane))
+				do_spellbane(ch, str_empty);
+
+/* update ghost state */
+			if (ch->last_death_time != -1
+			&&  current_time - ch->last_death_time >=
+							GHOST_DELAY_TIME
+			&&  IS_SET(ch->plr_flags, PLR_GHOST)) {
+				char_puts("You return to your normal form.\n",
+					  ch);
+				REMOVE_BIT(ch->plr_flags, PLR_GHOST);
+			}
+		}
 
 /* update pumped state */
 		if (ch->last_fight_time != -1
 		&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
 		&&  IS_PUMPED(ch)) {
-			REMOVE_BIT((ch)->act, PLR_PUMPED);
+			REMOVE_BIT((ch)->plr_flags, PLR_PUMPED);
 			if (!IS_NPC(ch) && ch->desc != NULL
 			&&  ch->desc->pString == NULL 
 			&&  (ch->last_death_time == -1 ||
 			     ch->last_death_time < ch->last_fight_time))
 				char_nputs(MSG_YOU_SETTLE_DOWN, ch);
-		}
-
-/* update ghost state */
-		if (ch->last_death_time != -1
-		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME
-		&&  IS_SET(ch->act, PLR_GHOST)) {
-			char_puts("You return to your normal form.\n", ch);
-			REMOVE_BIT(ch->act, PLR_GHOST);
 		}
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
@@ -607,17 +612,20 @@ void mobile_update(void)
 		&&  ch->desc->showstr_point == NULL)
 			char_puts(str_empty, ch);
 
-/* that's all for PCs and charmed mobiles */
+/*
+ * that's all for PCs and charmed mobiles
+ */
 		if (!IS_NPC(ch)
 		||  ch->in_room == NULL
 		||  IS_AFFECTED(ch, AFF_CHARM))
 			continue;
 
-		if (IS_SET(ch->act,ACT_HUNTER) && ch->hunting)
+		act = ch->pIndexData->act;
+		if (IS_SET(act, ACT_HUNTER) && ch->hunting)
 			hunt_victim(ch);
 
 		if (ch->in_room->area->empty
-		&&  !IS_SET(ch->act,ACT_UPDATE_ALWAYS))
+		&&  !IS_SET(act, ACT_UPDATE_ALWAYS))
 			continue;
 
 		/* Examine call for special procedure */
@@ -734,7 +742,7 @@ void mobile_update(void)
 			continue;
 
 /* Scavenge */
-		if (IS_SET(ch->act, ACT_SCAVENGER)
+		if (IS_SET(act, ACT_SCAVENGER)
 		&&  ch->in_room->contents != NULL
 		&&  number_bits(6) == 0) {
 			OBJ_DATA *obj;
@@ -756,7 +764,7 @@ void mobile_update(void)
 		}
 
 /* Wander */
-		if (!IS_SET(ch->act, ACT_SENTINEL) 
+		if (!IS_SET(act, ACT_SENTINEL) 
 		&&  number_bits(3) == 0
 		&&  (door = number_bits(5)) <= 5
 		&&  !RIDDEN(ch)
@@ -764,14 +772,14 @@ void mobile_update(void)
 		&&  pexit->u1.to_room != NULL
 		&&  !IS_SET(pexit->exit_info, EX_CLOSED)
 		&&  !IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)
-		&&  (!IS_SET(ch->act, ACT_STAY_AREA) ||
+		&&  (!IS_SET(act, ACT_STAY_AREA) ||
 		     pexit->u1.to_room->area == ch->in_room->area) 
-		&&  (!IS_SET(ch->act, ACT_AGGRESSIVE) ||
+		&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
 		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_SAFE))
-		&&  (!IS_SET(ch->act, ACT_OUTDOORS) ||
+		&&  (!IS_SET(act, ACT_OUTDOORS) ||
 		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)) 
-		&&  (!IS_SET(ch->act, ACT_INDOORS) ||
-		     IS_SET(pexit->u1.to_room->room_flags,ROOM_INDOORS)))
+		&&  (!IS_SET(act, ACT_INDOORS) ||
+		     IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)))
 			move_char(ch, door, FALSE);
 	}
 }
@@ -1651,19 +1659,21 @@ void aggr_update(void)
 
 		for (ch = wch->in_room->people; ch != NULL; ch = ch_next) {
 			int count;
+			flag_t act;
 
 			ch_next = ch->next_in_room;
 
 			if (!IS_NPC(ch)
-			||  (!IS_SET(ch->act, ACT_AGGRESSIVE)
-			&&  (ch->last_fought == NULL))
-			||  IS_SET(ch->in_room->room_flags,ROOM_SAFE)
-			||  IS_AFFECTED(ch,AFF_CALM)
+			||  (!IS_SET(act = ch->pIndexData->act,
+				     ACT_AGGRESSIVE) &&
+			     ch->last_fought == NULL)
+			||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+			||  IS_AFFECTED(ch, AFF_CALM)
 			||  ch->fighting != NULL
 			||  RIDDEN(ch)
 			||  IS_AFFECTED(ch, AFF_CHARM)
 			||  !IS_AWAKE(ch)
-			||  (IS_SET(ch->act, ACT_WIMPY) && IS_AWAKE(wch))
+			||  (IS_SET(act, ACT_WIMPY) && IS_AWAKE(wch))
 			||  !can_see(ch, wch) 
 			||  number_bits(1) == 0
 			||  is_safe_nomessage(ch,wch))
@@ -1671,12 +1681,11 @@ void aggr_update(void)
 
 			/* Mad mob attacks! */
 			if (ch->last_fought == wch
-			&&  !IS_AFFECTED(ch,AFF_SCREAM)) {
+			&&  !IS_AFFECTED(ch, AFF_SCREAM)) {
 				doprintf(do_yell, ch, "%s! Now you die!",
 					 PERS(wch,ch));
 				wch = check_guard(wch, ch); 
-
-				multi_hit(ch,wch,TYPE_UNDEFINED);
+				multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
 			}
 
@@ -1697,7 +1706,7 @@ void aggr_update(void)
 				if (!IS_NPC(vch)
 				&&  vch->level < LEVEL_IMMORTAL
 				&&  ch->level >= vch->level - 5 
-				&&  (!IS_SET(ch->act, ACT_WIMPY)
+				&&  (!IS_SET(act, ACT_WIMPY)
 				||   !IS_AWAKE(vch))
 				&&  can_see(ch, vch)
 				/* do not attack vampires */
@@ -2054,7 +2063,7 @@ void room_affect_update(void)
 	            if (!saves_spell(paf.level - 4,vch,DAM_CHARM) 
 		&&  !IS_IMMORTAL(vch)
 		&&  !is_safe_rspell(af->level,vch)
-		&&  !(IS_NPC(vch) && IS_SET(vch->act,ACT_UNDEAD))
+		&&  !(IS_NPC(vch) && IS_SET(vch->pIndexData->act, ACT_UNDEAD))
 	        	&&  !IS_AFFECTED(vch,AFF_SLEEP) && number_bits(3) == 0)
 	        	{
 		  if (IS_AWAKE(vch))
@@ -2206,12 +2215,11 @@ void track_update(void)
 
 		ch_next = ch->next;
 		if (!IS_NPC(ch)
-		||  IS_AFFECTED(ch, AFF_CALM)
-		||  IS_AFFECTED(ch, AFF_CHARM)
-	        ||  ch->fighting != NULL
-		||  ch->in_room == NULL
+		||  IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
+	        ||  ch->fighting
+		||  !ch->in_room
 	        ||  !IS_AWAKE(ch) 
-	        ||  IS_SET(ch->act, ACT_NOTRACK)
+	        ||  IS_SET(ch->pIndexData->act, ACT_NOTRACK)
 		||  RIDDEN(ch)
 		||  IS_AFFECTED(ch, AFF_SCREAM))
 			continue;
@@ -2225,8 +2233,7 @@ void track_update(void)
 		if (ch->in_mind == NULL)
 			continue;
 
-		for (vch = ch->in_room->people;
-		     vch != NULL; vch = vch_next) {
+		for (vch = ch->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
 
 			if (IS_IMMORTAL(vch)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.94 1998-12-16 10:21:35 fjoe Exp $
+ * $Id: handler.c,v 1.95 1998-12-17 21:05:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,44 +60,45 @@ void	affect_modify	(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
 int	age_to_num	(int age);
 
 /* friend stuff -- for NPC's mostly */
-bool is_friend(CHAR_DATA *ch,CHAR_DATA *victim)
+bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (is_same_group(ch,victim))
+	flag_t off;
+	if (is_same_group(ch, victim))
 		return TRUE;
 
-	
 	if (!IS_NPC(ch))
 		return FALSE;
 
-	if (!IS_NPC(victim))
-	{
-		if (IS_SET(ch->off_flags,ASSIST_PLAYERS))
-		    return TRUE;
+	off = ch->pIndexData->off_flags;
+	if (!IS_NPC(victim)) {
+		if (IS_SET(off, ASSIST_PLAYERS))
+			return TRUE;
 		else
-		    return FALSE;
+			return FALSE;
 	}
 
-	if (IS_AFFECTED(ch,AFF_CHARM))
+	if (IS_AFFECTED(ch, AFF_CHARM))
 		return FALSE;
 
-	if (IS_SET(ch->off_flags,ASSIST_ALL))
+	if (IS_SET(off, ASSIST_ALL))
 		return TRUE;
 
 	if (ch->group && ch->group == victim->group)
 		return TRUE;
 
-	if (IS_SET(ch->off_flags,ASSIST_VNUM) 
+	if (IS_SET(off, ASSIST_VNUM) 
 	&&  ch->pIndexData == victim->pIndexData)
 		return TRUE;
 
-	if (IS_SET(ch->off_flags,ASSIST_RACE) && ch->race == victim->race)
+	if (IS_SET(off, ASSIST_RACE) && ch->race == victim->race)
 		return TRUE;
 	 
-	if (IS_SET(ch->off_flags,ASSIST_ALIGN)
-	&&  !IS_SET(ch->act,ACT_NOALIGN) && !IS_SET(victim->act,ACT_NOALIGN)
-	&&  ((IS_GOOD(ch) && IS_GOOD(victim))
-	||	 (IS_EVIL(ch) && IS_EVIL(victim))
-	||   (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))))
+	if (IS_SET(off, ASSIST_ALIGN)
+	&&  !IS_SET(ch->pIndexData->act, ACT_NOALIGN)
+	&&  !IS_SET(victim->pIndexData->act, ACT_NOALIGN)
+	&&  ((IS_GOOD(ch) && IS_GOOD(victim)) ||
+	     (IS_EVIL(ch) && IS_EVIL(victim)) ||
+	     (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))))
 		return TRUE;
 
 	return FALSE;
@@ -558,7 +559,7 @@ int can_carry_n(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return 1000;
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET))
 		return 0;
 
 	return MAX_WEAR + get_curr_stat(ch,STAT_DEX) - 10 + ch->size;
@@ -572,7 +573,7 @@ int can_carry_w(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return 10000000;
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
+	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET))
 		return 0;
 
 	return str_app[get_curr_stat(ch,STAT_STR)].carry * 10 + ch->level * 25;
@@ -1776,7 +1777,7 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 		 for (wch = char_list; wch != NULL ; wch = wch->next) {
 		 	if (IS_NPC(wch)) continue;
 		 	if (is_name(obj->name, wch->name)) {
-				REMOVE_BIT(wch->act,PLR_NOEXP);
+				REMOVE_BIT(wch->plr_flags, PLR_NOEXP);
 				char_puts("Now you catch your spirit.\n", wch);
 				break;
 			}
@@ -1966,7 +1967,7 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 			return rch;
 
 		vch = (is_affected(rch, gsn_doppelganger) &&
-		       (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT))) ?
+		       (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT))) ?
 		      rch->doppel : rch;
 		if (!is_name(arg, vch->name))
 			continue;
@@ -2008,7 +2009,7 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argu
 		   return rch;
 
 		vch = (is_affected(rch, gsn_doppelganger) &&
-		       (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT))) ?
+		       (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT))) ?
 		      rch->doppel : rch;
 		if (!is_name(argument, vch->name))
 			continue;
@@ -2369,7 +2370,7 @@ bool room_is_dark(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA * pRoomIndex = ch->in_room;
 
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_HOLYLIGHT))
 		return FALSE;
 
 	if (is_affected(ch, gsn_vampire))
@@ -2491,7 +2492,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  ch->in_room != victim->in_room)
 		return FALSE;
 
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	if (IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level)) {
@@ -2540,7 +2541,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
  */
 bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	if (IS_SET(obj->extra_flags, ITEM_VIS_DEATH))
@@ -2873,7 +2874,6 @@ bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
-
 bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (victim == ch
@@ -2885,20 +2885,19 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(ch->in_room->area->flags, AREA_UNDER_CONSTRUCTION)
 	||  room_is_private(victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL))
+	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
+	||  IS_SET(victim->imm_flags, IMM_SUMMON))
 		return FALSE;
 
-	if (IS_NPC(victim)) {
-		if (IS_SET(victim->imm_flags, IMM_SUMMON))
-			return FALSE;
-	}
-	else {
-		if ((!in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
-		||  victim->level >= LEVEL_HERO		/* not trust (!) */
-		||  (ch->in_room->area != victim->in_room->area && IS_SET(victim->act, PLR_NOSUMMON))
-		||  guild_check(ch, victim->in_room) < 0)
-			return FALSE;
-	}
+	if (IS_NPC(victim))
+		return TRUE;
+
+	if (((!in_PK(ch, victim) ||
+	      ch->in_room->area != victim->in_room->area) &&
+	     IS_SET(victim->plr_flags, PLR_NOSUMMON))
+	||  victim->level >= LEVEL_HERO
+	||  guild_check(ch, victim->in_room) < 0)
+		return FALSE;
 
 	return TRUE;
 }
@@ -2906,7 +2905,7 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 const char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 {
 	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(looker) || !IS_SET(looker->act, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
 	if (can_see(looker, ch)) {
@@ -3152,7 +3151,7 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, int sn)
 
 bool check_blind_raw(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
+	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
 	if (IS_AFFECTED(ch, AFF_BLIND))

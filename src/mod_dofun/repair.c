@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.13 1998-12-01 10:53:55 fjoe Exp $
+ * $Id: repair.c,v 1.14 1998-12-17 21:05:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -216,7 +216,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 	{
-	    if (IS_NPC(mob) && IS_SET(mob->act, ACT_HEALER))
+	    if (IS_NPC(mob) && IS_SET(mob->pIndexData->act, ACT_HEALER))
 	        break;
 	}
  

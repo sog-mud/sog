@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.176 1998-12-16 10:21:33 fjoe Exp $
+ * $Id: act_info.c,v 1.177 1998-12-17 21:05:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -318,7 +318,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	output = buf_new(ch->lang);
 
 	if (is_affected(victim, gsn_doppelganger)
-	&&  (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)))
 		victim = victim->doppel;
 
 	if (IS_NPC(victim)) {
@@ -327,7 +327,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_add(output, "{r[{RTARGET{r]{x ");
 	}
 	else {
-		if (IS_SET(victim->act, PLR_WANTED))
+		if (IS_SET(victim->plr_flags, PLR_WANTED))
 			buf_add(output, "({RWanted{x) ");
 
 		if (IS_SET(victim->comm, COMM_AFK))
@@ -345,7 +345,8 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_add(output, "({cTranslucent{x) ");
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
 			buf_add(output, "({MPink Aura{x) ");
-		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
+		if (IS_NPC(victim)
+		&&  IS_SET(victim->pIndexData->act, ACT_UNDEAD)
 		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
 			buf_add(output, "({DUndead{x) ");
 		if (RIDDEN(victim))
@@ -373,7 +374,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_NPC(victim) &&
-				  IS_SET(victim->act, ACT_UNDEAD) &&
+				  IS_SET(victim->pIndexData->act, ACT_UNDEAD) &&
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
 		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
@@ -570,7 +571,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	CHAR_DATA *mirror = victim;
 
 	if (is_affected(victim, gsn_doppelganger)) {
-		if (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT)) {
+		if (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)) {
 			doppel = victim->doppel;
 			if (is_affected(victim, gsn_mirror))
 				mirror = victim->doppel;
@@ -811,28 +812,28 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 
 	char_puts("action         status\n",ch);
 	char_puts("---------------------\n",ch);
-	do_print_sw(ch, "color", IS_SET(ch->act, PLR_COLOR));
-	do_print_sw(ch, "autoassist", IS_SET(ch->act, PLR_AUTOASSIST));
-	do_print_sw(ch, "autoexit", IS_SET(ch->act, PLR_AUTOEXIT));
-	do_print_sw(ch, "autogold", IS_SET(ch->act, PLR_AUTOGOLD));
-	do_print_sw(ch, "autolook", IS_SET(ch->act, PLR_AUTOLOOK));
-	do_print_sw(ch, "autoloot", IS_SET(ch->act, PLR_AUTOLOOT));
-	do_print_sw(ch, "autosac", IS_SET(ch->act, PLR_AUTOSAC));
-	do_print_sw(ch, "autosplit", IS_SET(ch->act, PLR_AUTOSPLIT));
+	do_print_sw(ch, "color", IS_SET(ch->plr_flags, PLR_COLOR));
+	do_print_sw(ch, "autoassist", IS_SET(ch->plr_flags, PLR_AUTOASSIST));
+	do_print_sw(ch, "autoexit", IS_SET(ch->plr_flags, PLR_AUTOEXIT));
+	do_print_sw(ch, "autogold", IS_SET(ch->plr_flags, PLR_AUTOGOLD));
+	do_print_sw(ch, "autolook", IS_SET(ch->plr_flags, PLR_AUTOLOOK));
+	do_print_sw(ch, "autoloot", IS_SET(ch->plr_flags, PLR_AUTOLOOT));
+	do_print_sw(ch, "autosac", IS_SET(ch->plr_flags, PLR_AUTOSAC));
+	do_print_sw(ch, "autosplit", IS_SET(ch->plr_flags, PLR_AUTOSPLIT));
 	do_print_sw(ch, "compact mode", IS_SET(ch->comm, COMM_COMPACT));
 	do_print_sw(ch, "verbose messages", !IS_SET(ch->comm, COMM_NOVERBOSE));
 	do_print_sw(ch, "long flags", IS_SET(ch->comm, COMM_LONG));
 	do_print_sw(ch, "prompt", IS_SET(ch->comm, COMM_PROMPT));
 	do_print_sw(ch, "combine items", IS_SET(ch->comm, COMM_COMBINE));
-	do_print_sw(ch, "nocancel", IS_SET(ch->act, PLR_NOCANCEL));
+	do_print_sw(ch, "nocancel", IS_SET(ch->plr_flags, PLR_NOCANCEL));
 
-	if (IS_SET(ch->act, PLR_NOSUMMON))
+	if (IS_SET(ch->plr_flags, PLR_NOSUMMON))
 		char_puts("You can only be summoned players within "
 			     "your PK range.\n",ch);
 	else
 		char_puts("You can be summoned by anyone.\n",ch);
 
-	if (IS_SET(ch->act,PLR_NOFOLLOW))
+	if (IS_SET(ch->plr_flags, PLR_NOFOLLOW))
 		char_puts("You do not welcome followers.\n",ch);
 	else
 		char_puts("You accept followers.\n",ch);
@@ -845,8 +846,8 @@ void do_autoassist(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOASSIST);
-	if (IS_SET(ch->act, PLR_AUTOASSIST))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOASSIST);
+	if (IS_SET(ch->plr_flags, PLR_AUTOASSIST))
 		char_puts("You will now assist when needed.\n",ch);
 	else
 		char_puts("Autoassist removed.\n",ch);
@@ -859,8 +860,8 @@ void do_autoexit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOEXIT);
-	if (IS_SET(ch->act, PLR_AUTOEXIT))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOEXIT);
+	if (IS_SET(ch->plr_flags, PLR_AUTOEXIT))
 		char_puts("Exits will now be displayed.\n",ch);
 	else 
 		char_puts("Exits will no longer be displayed.\n",ch);
@@ -873,8 +874,8 @@ void do_autogold(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOGOLD);
-	if (IS_SET(ch->act, PLR_AUTOGOLD))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOGOLD);
+	if (IS_SET(ch->plr_flags, PLR_AUTOGOLD))
 		char_puts("Automatic gold looting set.\n",ch);
 	else 
 		char_puts("Autogold removed.\n",ch);
@@ -887,8 +888,8 @@ DO_FUN(do_autolook)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOLOOK);
-	if (IS_SET(ch->act, PLR_AUTOLOOK))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOLOOK);
+	if (IS_SET(ch->plr_flags, PLR_AUTOLOOK))
 		char_puts("Automatic corpse examination set.\n", ch);
 	else
 		char_puts("Autolooking removed.\n", ch);
@@ -901,8 +902,8 @@ void do_autoloot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOLOOT);
-	if (IS_SET(ch->act, PLR_AUTOLOOT))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOLOOT);
+	if (IS_SET(ch->plr_flags, PLR_AUTOLOOT))
 		char_puts("Automatic corpse looting set.\n", ch);
 	else
 		char_puts("Autolooting removed.\n", ch);
@@ -915,8 +916,8 @@ void do_autosac(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOSAC);
-	if (IS_SET(ch->act, PLR_AUTOSAC))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOSAC);
+	if (IS_SET(ch->plr_flags, PLR_AUTOSAC))
 		char_puts("Automatic corpse sacrificing set.\n",ch);
 	else
 		char_puts("Autosacrificing removed.\n",ch);
@@ -929,8 +930,8 @@ void do_autosplit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_AUTOSPLIT);
-	if (IS_SET(ch->act, PLR_AUTOSPLIT))
+	TOGGLE_BIT(ch->plr_flags, PLR_AUTOSPLIT);
+	if (IS_SET(ch->plr_flags, PLR_AUTOSPLIT))
 		char_puts("Automatic gold splitting set.\n",ch);
 	else
 		char_puts("Autosplitting removed.\n",ch);
@@ -943,8 +944,8 @@ void do_color(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_COLOR);
-	if (IS_SET(ch->act, PLR_COLOR))
+	TOGGLE_BIT(ch->plr_flags, PLR_COLOR);
+	if (IS_SET(ch->plr_flags, PLR_COLOR))
 		char_puts("{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!\n", ch);
 	else
 		char_puts("Color is now OFF, *sigh*\n", ch);
@@ -1030,8 +1031,8 @@ void do_noloot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_CANLOOT);
-	if (IS_SET(ch->act, PLR_CANLOOT))
+	TOGGLE_BIT(ch->plr_flags, PLR_CANLOOT);
+	if (IS_SET(ch->plr_flags, PLR_CANLOOT))
 		char_puts("Your corpse may now be looted.\n",ch);
 	else
 		char_puts("Your corpse is now safe from thieves.\n",ch);
@@ -1049,8 +1050,8 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_NOFOLLOW);
-	if (IS_SET(ch->act,PLR_NOFOLLOW)) {
+	TOGGLE_BIT(ch->plr_flags, PLR_NOFOLLOW);
+	if (IS_SET(ch->plr_flags,PLR_NOFOLLOW)) {
 		char_puts("You no longer accept followers.\n", ch);
 		die_follower(ch);
 	}
@@ -1062,15 +1063,15 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		TOGGLE_BIT(ch->imm_flags, IMM_SUMMON);
-		if (IS_SET(ch->imm_flags,IMM_SUMMON))
+		if (IS_SET(ch->imm_flags, IMM_SUMMON))
 			char_puts("You are now immune to summoning.\n", ch);
 		else
 			char_puts("You are no longer immune "
 				  "to summoning.\n", ch);
 	}
 	else {
-		TOGGLE_BIT(ch->act, PLR_NOSUMMON);
-		if (IS_SET(ch->act,PLR_NOSUMMON))
+		TOGGLE_BIT(ch->plr_flags, PLR_NOSUMMON);
+		if (IS_SET(ch->plr_flags,PLR_NOSUMMON))
 			char_puts("You may only be summoned by players "
 				  "within your PK range.\n", ch);
 		else 
@@ -1085,8 +1086,8 @@ DO_FUN(do_nocancel)
 		return;
 	}
 
-	TOGGLE_BIT(ch->act, PLR_NOCANCEL);
-	if (IS_SET(ch->act, PLR_NOCANCEL))
+	TOGGLE_BIT(ch->plr_flags, PLR_NOCANCEL);
+	if (IS_SET(ch->plr_flags, PLR_NOCANCEL))
 		char_puts("You do not allow others to cast 'cancellation' "
 			  "on you.\n", ch);
 	else
@@ -1193,7 +1194,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 				char_printf(ch, "  %s",
 					    mlstr_cval(ch->in_room->description, ch));
 
-			if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
+			if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_AUTOEXIT)) {
 				char_puts("\n", ch);
 				do_exits(ch, "auto");
 			}
@@ -1672,7 +1673,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (ch && in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
 		buf_add(output, "{r[{RPK{r]{x ");
 
-	if (IS_SET(wch->act, PLR_WANTED))
+	if (IS_SET(wch->plr_flags, PLR_WANTED))
 		buf_add(output, "{R(WANTED){x ");
 
 	if (IS_IMMORTAL(wch))
@@ -2079,7 +2080,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 
 				if (is_affected(victim, gsn_doppelganger)
-				&&  (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT)))
+				&&  (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)))
 					doppel = victim->doppel;
 				else
 					doppel = victim;
@@ -2202,7 +2203,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_NOTITLE)) {
+	if (IS_SET(ch->plr_flags, PLR_NOTITLE)) {
 		char_puts("You can't change your title.\n", ch);
 		return;
 	}
@@ -2953,7 +2954,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 "     {G| {YYou are hungry.                                                 {G|{x\n");
 		}
 
-		if (IS_SET(ch->act, PLR_GHOST)) {
+		if (IS_SET(ch->plr_flags, PLR_GHOST)) {
 			ekle = 1;
 			buf_add(output,
 "     {G| {cYou are ghost.                                                  {G|{x\n");
@@ -3146,7 +3147,7 @@ DO_FUN(do_oscore)
 			buf_add(output, "You are {rhungry for {Rblood{x.\n");
 		if (ch->pcdata->condition[COND_DESIRE] <= 0)
 			buf_add(output, "You are {rdesiring your home{x.\n");
-		if (IS_SET(ch->act, PLR_GHOST))
+		if (IS_SET(ch->plr_flags, PLR_GHOST))
 			buf_add(output, "You are {cghost{x.\n");
 	}
 
@@ -3223,8 +3224,9 @@ DO_FUN(do_oscore)
 
 	/* RT wizinvis and holy light */
 	if (IS_IMMORTAL(ch)) {
-		buf_printf(output, "Holy Light: %s",
-			IS_SET(ch->act, PLR_HOLYLIGHT) ? "{con{x" : "{coff{x");
+		buf_printf(output, "Holy Light: {c%s{x",
+			   IS_SET(ch->plr_flags, PLR_HOLYLIGHT) ?
+			   "on" : "off");
 
 		if (ch->invis_level)
 			buf_printf(output, "  Invisible: {clevel %d{x",
@@ -3494,7 +3496,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	found = FALSE;
 	sk = SKILL(sn);
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-		if (!IS_NPC(mob) || !IS_SET(mob->act, ACT_PRACTICE))
+		if (!IS_NPC(mob) || !IS_SET(mob->pIndexData->act, ACT_PRACTICE))
 			continue;
 
 		found = TRUE;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.94 1998-12-16 11:02:31 fjoe Exp $
+ * $Id: spellfun.c,v 1.95 1998-12-17 21:05:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -211,7 +211,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						return;
 					}
 
-					if (IS_SET(victim->act, ACT_NOTRACK)) {
+					if (IS_SET(victim->pIndexData->act,
+						   ACT_NOTRACK)) {
 						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
 						return;
 					}
@@ -818,38 +819,36 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_IMMORTAL(ch)) /* always works */
 	  mlevel = 0;
 
-	if (number_range(0, chance) >= mlevel)  /* hard to stop large fights */
-	{
-		for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-   	{
-		    if (IS_NPC(vch) && (IS_SET(vch->imm_flags,IMM_MAGIC) ||
-					IS_SET(vch->act,ACT_UNDEAD)))
-		      return;
+	if (number_range(0, chance) >= mlevel) { /* hard to stop large fights */
+		for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+			if (IS_NPC(vch)
+			&&  (IS_SET(vch->imm_flags, IMM_MAGIC) ||
+			     IS_SET(vch->pIndexData->act, ACT_UNDEAD)))
+				return;
 
-		    if (IS_AFFECTED(vch,AFF_CALM) || IS_AFFECTED(vch,AFF_BERSERK)
-		    ||  is_affected(vch, gsn_frenzy))
-		      return;
+			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
+			||  is_affected(vch, gsn_frenzy))
+				return;
 
-		    char_puts("A wave of calm passes over you.\n",vch);
+			char_puts("A wave of calm passes over you.\n", vch);
 
-		    if (vch->fighting || vch->position == POS_FIGHTING)
-		      stop_fighting(vch,FALSE);
+			if (vch->fighting || vch->position == POS_FIGHTING)
+				stop_fighting(vch, FALSE);
 
+			af.where = TO_AFFECTS;
+			af.type = sn;
+			af.level = level;
+			af.duration = level/4;
+			af.location = APPLY_HITROLL;
+			if (!IS_NPC(vch))
+				af.modifier = -5;
+			else
+				af.modifier = -2;
+			af.bitvector = AFF_CALM;
+			affect_to_char(vch, &af);
 
-		    af.where = TO_AFFECTS;
-		    af.type = sn;
-		    af.level = level;
-		    af.duration = level/4;
-		    af.location = APPLY_HITROLL;
-		    if (!IS_NPC(vch))
-		      af.modifier = -5;
-		    else
-		      af.modifier = -2;
-		    af.bitvector = AFF_CALM;
-		    affect_to_char(vch,&af);
-
-		    af.location = APPLY_DAMROLL;
-		    affect_to_char(vch,&af);
+			af.location = APPLY_DAMROLL;
+			affect_to_char(vch, &af);
 		}
 	}
 }
@@ -865,7 +864,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	     (!IS_AFFECTED(ch, AFF_CHARM) || ch->master != victim))
 	||  (IS_NPC(ch) && !IS_NPC(victim))
 	||  (!IS_NPC(victim) && victim != ch &&
-	     IS_SET(victim->act, PLR_NOCANCEL))) {
+	     IS_SET(victim->plr_flags, PLR_NOCANCEL))) {
 		char_puts("You failed, try dispel magic.\n",ch);
 		return;
 	}
@@ -2912,14 +2911,14 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
  
-	if (is_affected(victim, sn) || IS_AFFECTED(victim,AFF_HASTE)
-	||   IS_SET(victim->off_flags,OFF_FAST))
-	{
+	if (is_affected(victim, sn)
+	||  IS_AFFECTED(victim,AFF_HASTE)
+	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->off_flags, OFF_FAST))) {
 		if (victim == ch)
-		  char_puts("You can't move any faster!\n",ch);
+			char_puts("You can't move any faster!\n",ch);
 		else
-		  act("$N is already moving as fast as $E can.",
-		      ch,NULL,victim,TO_CHAR);
+			act("$N is already moving as fast as $E can.",
+			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -3482,7 +3481,7 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA af;
 
 	if (saves_spell(level,victim,DAM_DISEASE) ||
-		(IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)))
+		(IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD)))
 	{
 		if (ch == victim)
 		  char_puts("You feel momentarily ill, but it passes.\n",ch);
@@ -3933,9 +3932,9 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	AFFECT_DATA af;
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)
-	||   (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD))
-	||   level < victim->level
-	||   saves_spell(level-4, victim,DAM_CHARM))
+	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))
+	||  level < victim->level
+	||  saves_spell(level-4, victim, DAM_CHARM))
 		return;
 
 	af.where     = TO_AFFECTS;
@@ -4038,7 +4037,6 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	return;
 }
 
-
 void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	bool failed = FALSE;
@@ -4061,6 +4059,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
 	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
+	||  IS_SET(victim->imm_flags, IMM_SUMMON)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
 	     victim->in_room->exit[2] == NULL &&
@@ -4071,16 +4070,16 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	else if (IS_NPC(victim)) {
 		if (victim->pIndexData->pShop != NULL
 		||  saves_spell(level, victim, DAM_OTHER)
-		||  IS_SET(victim->act, ACT_AGGRESSIVE)
-		||  IS_SET(victim->imm_flags, IMM_SUMMON)
+		||  IS_SET(victim->pIndexData->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB))
 			failed = TRUE;
 	}
 	else {
 		if (victim->level >= LEVEL_HERO
-		||  (!in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
-		||  (ch->in_room->area != victim->in_room->area && IS_SET(victim->act, PLR_NOSUMMON))
-		||  guild_check(ch, victim->in_room) < 0)
+		||  ((!in_PK(ch, victim) ||
+		      ch->in_room->area != victim->in_room->area) &&
+		     IS_SET(victim->plr_flags, PLR_NOSUMMON))
+		||  guild_check(victim, ch->in_room) < 0)
 			failed = TRUE;
 	}
 
@@ -4827,7 +4826,7 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	if (IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD)) {
+	if (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD)) {
 		 char_puts("Your victim is unaffected by hand of undead.\n",ch);
 		 return;
 	}
@@ -4982,8 +4981,8 @@ void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		 return;
 		}
 
-	if (saves_spell(level,victim,DAM_NEGATIVE)
-	||  (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD))) {
+	if (saves_spell(level, victim, DAM_NEGATIVE)
+	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))) {
 		if (ch == victim)
 			char_puts("You feel momentarily ill, but it passes.\n",ch);
 		else
@@ -5076,8 +5075,6 @@ void spell_detect_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	return;
 }
 
-
-
 void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	OBJ_DATA *obj;
@@ -5085,7 +5082,7 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	ROOM_INDEX_DATA *room = NULL;
 	bool found = FALSE;
  
-	if (IS_NPC(ch) && !IS_SET(ch->act, PLR_GHOST)) {
+	if (IS_NPC(ch) && !IS_SET(ch->plr_flags, PLR_GHOST)) {
 		char_puts("It is too late to take revenge.\n",ch);
 		return;
 	}

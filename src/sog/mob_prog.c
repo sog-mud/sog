@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.37 1998-11-02 05:28:30 fjoe Exp $
+ * $Id: mob_prog.c,v 1.38 1998-12-17 21:05:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -548,7 +548,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_ISTARGET:
 	    return(lval_char != NULL && mob->mprog_target == lval_char);
 	case CHK_ISGHOST:
-		return (lval_char && IS_SET(lval_char->act, PLR_GHOST));
+		return (lval_char && IS_SET(lval_char->plr_flags, PLR_GHOST));
 	case CHK_WAIT:
 		return (lval_char && lval_char->wait);
 	case CHK_SAMECLAN:
@@ -567,13 +567,13 @@ int cmd_eval(int vnum, const char *line, int check,
 		&&  IS_SET(lval_char->affected_by, flag_value(affect_flags, buf)));
 	case CHK_ACT:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->act, flag_value(act_flags, buf)));
+		&&  IS_SET(lval_char->pIndexData->act, flag_value(act_flags, buf)));
 	case CHK_IMM:
 	    return(lval_char != NULL 
 		&&  IS_SET(lval_char->imm_flags, flag_value(imm_flags, buf)));
 	case CHK_OFF:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->off_flags, flag_value(off_flags, buf)));
+		&&  IS_NPC(ch) && IS_SET(lval_char->pIndexData->off_flags, flag_value(off_flags, buf)));
 	case CHK_CARRIES:
 	    if (is_number(buf))
 		return(lval_char != NULL && has_item(lval_char, atoi(buf), -1, FALSE));

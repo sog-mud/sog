@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.101 1998-12-16 10:21:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.102 1998-12-17 21:05:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -188,7 +188,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 
 		output = buf_new(-1);
 		buf_printf(output, "Wiznet status: %s\n",
-			   IS_SET(ch->wiznet, WIZ_ON) ? "ON" : "OFF");
+			   IS_SET(ch->pcdata->wiznet, WIZ_ON) ? "ON" : "OFF");
 
 		buf_add(output, "\nchannel    | status");
 		buf_add(output, "\n-----------|-------\n");
@@ -197,7 +197,8 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 				   wiznet_table[flag].name,
 				   wiznet_table[flag].level > ch->level ?
 				   "N/A" :
-				   IS_SET(ch->wiznet, wiznet_table[flag].flag) ?
+				   IS_SET(ch->pcdata->wiznet,
+					  wiznet_table[flag].flag) ?
 				   "ON" : "OFF");
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -206,13 +207,13 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(argument,"on")) {
 		char_puts("Welcome to Wiznet!\n", ch);
-		SET_BIT(ch->wiznet, WIZ_ON);
+		SET_BIT(ch->pcdata->wiznet, WIZ_ON);
 		return;
 	}
 
 	if (!str_prefix(argument,"off")) {
 		char_puts("Signing off of Wiznet.\n", ch);
-		REMOVE_BIT(ch->wiznet, WIZ_ON);
+		REMOVE_BIT(ch->pcdata->wiznet, WIZ_ON);
 		return;
 	}
 
@@ -223,23 +224,18 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	 
-	if (IS_SET(ch->wiznet,wiznet_table[flag].flag)) {
+	TOGGLE_BIT(ch->pcdata->wiznet, wiznet_table[flag].flag);
+	if (!IS_SET(ch->pcdata->wiznet, wiznet_table[flag].flag))
 		char_printf(ch,"You will no longer see %s on wiznet.\n",
 		        wiznet_table[flag].name);
-		REMOVE_BIT(ch->wiznet, wiznet_table[flag].flag);
-		return;
-	} else {
+	else
 		char_printf(ch, "You will now see %s on wiznet.\n",
-			wiznet_table[flag].name);
-		SET_BIT(ch->wiznet, wiznet_table[flag].flag);
-		return;
-	}
-
+			    wiznet_table[flag].name);
 }
 
 void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
-			   long flag, long flag_skip, int min_level,
-			   char* format, ...) 
+		   long flag, long flag_skip, int min_level,
+		   char* format, ...) 
 {
 	va_list ap;
 	DESCRIPTOR_DATA *d;
@@ -247,18 +243,22 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 
 	va_start(ap, format);
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		if (d->connected == CON_PLAYING &&
-		    IS_IMMORTAL(d->character) && 
-		    IS_SET(d->character->wiznet,WIZ_ON) &&
-		    (!flag || IS_SET(d->character->wiznet,flag)) &&
-		    (!flag_skip || !IS_SET(d->character->wiznet,flag_skip)) &&
-		    d->character->level >= min_level &&
-		    d->character != ch) {
-			if (IS_SET(d->character->wiznet,WIZ_PREFIX))
-				char_puts("--> ",d->character);
-			vsnprintf(buf, sizeof(buf), format, ap);
-			act_puts(buf, d->character, obj, ch, TO_CHAR, POS_DEAD);
-		}
+		CHAR_DATA *vch = d->original ? d->original : d->character;
+
+		if (d->connected != CON_PLAYING
+		||  !vch
+		||  vch->level < LEVEL_IMMORTAL
+		||  !IS_SET(vch->pcdata->wiznet, WIZ_ON)
+		||  (flag && !IS_SET(vch->pcdata->wiznet, flag))
+		||  (flag_skip && IS_SET(vch->pcdata->wiznet, flag_skip))
+		||  vch->level < min_level
+		||  vch == ch)
+			continue;
+
+		if (IS_SET(vch->pcdata->wiznet, WIZ_PREFIX))
+			char_puts("--> ", vch);
+		vsnprintf(buf, sizeof(buf), format, ap);
+		act_puts(buf, vch, obj, ch, TO_CHAR, POS_DEAD);
 	}
 	va_end(ap); 
 }
@@ -548,10 +548,10 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	SET_BIT(victim->act, PLR_DENY);
+	SET_BIT(victim->plr_flags, PLR_DENY);
 	char_puts("You are denied access!\n", victim);
-	wiznet_printf(ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0,
-			"$N denies access to %s",victim->name);
+	wiznet_printf(ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0,
+		      "$N denies access to %s", victim->name);
 	char_puts("Ok.\n", ch);
 	save_char_obj(victim, FALSE);
 	stop_fighting(victim, TRUE);
@@ -1369,17 +1369,18 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   victim->timer);
 	}
 
-	buf_printf(output, "Act: [%s]\n",
-		   flag_string(IS_NPC(victim) ? act_flags : plr_flags,
-			       victim->act));
+	if (!IS_NPC(victim))
+		buf_printf(output, "Plr: [%s]\n",
+			   flag_string(plr_flags, victim->plr_flags));
 	
 	if (victim->comm)
 		buf_printf(output, "Comm: [%s]\n",
 			   flag_string(comm_flags, victim->comm));
 
-	if (IS_NPC(victim) && victim->off_flags)
+	if (IS_NPC(victim) && victim->pIndexData->off_flags)
 		buf_printf(output, "Offense: [%s]\n",
-			   flag_string(off_flags, victim->off_flags));
+			   flag_string(off_flags,
+				       victim->pIndexData->off_flags));
 
 	if (victim->imm_flags)
 		buf_printf(output, "Immune: [%s]\n",
@@ -2141,9 +2142,10 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 
 		for (victim = ch->in_room->people; victim; victim = vnext) {
 			vnext = victim->next_in_room;
-			if (IS_NPC(victim) && !IS_SET(victim->act, ACT_NOPURGE) 
+			if (IS_NPC(victim)
+			&&  !IS_SET(victim->pIndexData->act, ACT_NOPURGE) 
 			&&  victim != ch /* safety precaution */)
-			extract_char(victim, TRUE);
+				extract_char(victim, TRUE);
 		}
 
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
@@ -2270,7 +2272,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 		
 void do_freeze(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH],buf[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
 	one_argument(argument, arg);
@@ -2295,19 +2297,18 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(victim->act, PLR_FREEZE)) {
-		REMOVE_BIT(victim->act, PLR_FREEZE);
+	TOGGLE_BIT(victim->plr_flags, PLR_FREEZE);
+	if (!IS_SET(victim->plr_flags, PLR_FREEZE)) {
 		char_puts("You can play again.\n", victim);
 		char_puts("FREEZE removed.\n", ch);
-		sprintf(buf,"$N thaws %s.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet_printf(ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0,
+			      "$N thaws %s.", victim->name);
 	}
 	else {
-		SET_BIT(victim->act, PLR_FREEZE);
 		char_puts("You can't do ANYthing!\n", victim);
 		char_puts("FREEZE set.\n", ch);
-		sprintf(buf,"$N puts %s in the deep freeze.",victim->name);
-		wiznet(buf,ch,NULL,WIZ_PENALTIES,WIZ_SECURE,0);
+		wiznet_printf(ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0,
+			      "$N puts %s in the deep freeze.", victim->name);
 	}
 	save_char_obj(victim, FALSE);
 }
@@ -2348,14 +2349,11 @@ void do_log(CHAR_DATA *ch, const char *argument)
 	/*
 	 * No level check, gods can log anyone.
 	 */
-	if (IS_SET(victim->act, PLR_LOG)) {
-		REMOVE_BIT(victim->act, PLR_LOG);
+	TOGGLE_BIT(victim->plr_flags, PLR_LOG);
+	if (!IS_SET(victim->plr_flags, PLR_LOG))
 		char_puts("LOG removed.\n", ch);
-	}
-	else {
-		SET_BIT(victim->act, PLR_LOG);
+	else 
 		char_puts("LOG set.\n", ch);
-	}
 }
 
 void do_noemote(CHAR_DATA *ch, const char *argument)
@@ -2479,15 +2477,28 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (rch->fighting != NULL)
-		    stop_fighting(rch, TRUE);
-		if (IS_NPC(rch) && IS_SET(rch->act,ACT_AGGRESSIVE))
-		    REMOVE_BIT(rch->act,ACT_AGGRESSIVE);
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+		if (!rch->fighting)
+			continue;
+		stop_fighting(rch, TRUE);
+		if (IS_NPC(rch)) {
+			/*
+			 * avoid aggressive mobs and hunting mobs attacks
+			 */
+			AFFECT_DATA af;
+
+			af.where = TO_AFFECTS;
+			af.type = gsn_reserved;
+			af.level = MAX_LEVEL;
+			af.duration = 15;
+			af.location = APPLY_NONE;
+			af.modifier = 0;
+			af.bitvector = AFF_CALM | AFF_SCREAM;
+			affect_to_char(rch, &af);
+		}
 	}
 
 	char_puts("Ok.\n", ch);
-	return;
 }
 
 void do_wizlock(CHAR_DATA *ch, const char *argument)
@@ -3163,9 +3174,9 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	TOGGLE_BIT(ch->act, PLR_HOLYLIGHT);
+	TOGGLE_BIT(ch->plr_flags, PLR_HOLYLIGHT);
 	char_printf(ch, "Holy light mode %s.\n",
-		    IS_SET(ch->act, PLR_HOLYLIGHT) ? "on" : "off");
+		    IS_SET(ch->plr_flags, PLR_HOLYLIGHT) ? "on" : "off");
 }
 
 /* prefix command: it will put the string typed on each line typed */
@@ -3791,7 +3802,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			char_puts("Not on NPC.\n", ch);
 			return;
 		}
-		victim->act &= ~PLR_GHOST;
+		REMOVE_BIT(victim->plr_flags, PLR_GHOST);
 		char_puts("Ok.\n", ch);
 		return;
 	}
@@ -4090,16 +4101,13 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	 
-	if (IS_SET(victim->act, PLR_NOTITLE)) {
-	 	REMOVE_BIT(victim->act,PLR_NOTITLE);
-	 	char_puts("You can change your title again.\n",victim);
-	 	char_puts("Ok.\n", ch);
-	}
-	else {		       
-		SET_BIT(victim->act,PLR_NOTITLE);
-		char_puts("You won't be able to change your title anymore.\n",victim);
-	 	char_puts("Ok.\n", ch);
-	}
+	TOGGLE_BIT(victim->plr_flags, PLR_NOTITLE);
+	if (!IS_SET(victim->plr_flags, PLR_NOTITLE))
+	 	char_puts("You can change your title again.\n", victim);
+	else 
+		char_puts("You won't be able to change your title anymore.\n",
+			  victim);
+	char_puts("Ok.\n", ch);
 }
 	   
 void do_noaffect(CHAR_DATA *ch, const char *argument)
@@ -4111,9 +4119,13 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		char_puts("Noaff whom?\n", ch);
+		return;
+	}
 
-	if ((victim = get_char_world(ch ,arg)) == NULL) {
+	if ((victim = get_char_world(ch, arg)) == NULL) {
 		char_puts("He is not currently playing.\n", ch);
 		return;
 	}
