@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.105 1999-05-19 08:05:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.106 1999-05-20 05:04:26 kostik Exp $
  */
 
 /***************************************************************************
@@ -1322,10 +1322,9 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	stalker->armor[i] = interpolate(stalker->level,100,-100);
 	stalker->armor[3] = interpolate(stalker->level,100,0);
 	stalker->gold = 0;
-	stalker->invis_level = LEVEL_HERO;
 	stalker->affected_by |= (AFF_DETECT_IMP_INVIS | AFF_DETECT_FADE | AFF_DETECT_EVIL |
 				 AFF_DETECT_INVIS | AFF_DETECT_MAGIC | AFF_DETECT_HIDDEN |
-				 AFF_DETECT_GOOD | AFF_DARK_VISION);
+				 AFF_DETECT_GOOD | AFF_DARK_VISION | AFF_IMP_INVIS);
 	
 	stalker->target = victim;
 	stalker->clan   = ch->clan;

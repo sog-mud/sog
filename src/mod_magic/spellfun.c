@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.151 1999-05-20 01:39:25 avn Exp $
+ * $Id: spellfun.c,v 1.152 1999-05-20 05:04:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -1300,6 +1300,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	ladj = ch->sex == SEX_FEMALE ? 2 : 0;
 	if (IS_AFFECTED(victim, AFF_CHARM)
 	||  IS_AFFECTED(ch, AFF_CHARM)
+	||  !IS_AWAKE(victim)
 	||  level+ladj < victim->level
 	||  IS_SET(victim->imm_flags, IMM_CHARM)
 	||  saves_spell(level, victim, DAM_CHARM) 
