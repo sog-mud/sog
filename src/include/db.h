@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.27 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: db.h,v 1.28 1998-10-06 13:19:56 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -100,7 +100,7 @@ void	load_bans	(void);
 char		fread_letter	(FILE *fp);
 int		fread_number	(FILE *fp);
 flag_t 		fread_flags	(FILE *fp);
-char *		fread_string	(FILE *fp);
+const char *	fread_string	(FILE *fp);
 void		fread_to_eol	(FILE *fp);
 char *		fread_word	(FILE *fp);
 flag_t		fread_fword	(const FLAG *table, FILE *fp); 

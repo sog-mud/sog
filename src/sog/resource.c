@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.39 1998-09-29 01:07:01 fjoe Exp $
+ * $Id: resource.c,v 1.40 1998-10-06 13:19:57 fjoe Exp $
  */
 
 #include <limits.h>
@@ -44,13 +44,13 @@
 char BLANK_STRING[] = "{RBUG!!!{x";
 
 struct msg {
-	char** p;
+	const char** p;
 	int sexdep;
 };
 
 static int nmsgid;
 struct msg** msg_table;
-char** lang_table;
+const char** lang_table;
 int nlang;
 
 enum {
@@ -64,7 +64,7 @@ enum {
 		     (sex) <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
 						SEX_MALE)
 
-char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
+const char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	struct msg *m;
 
@@ -100,7 +100,7 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 #include "db/db.h"
 
 struct msgid {
-	char* name;
+	const char* name;
 	int msgid;
 };
 
@@ -121,7 +121,7 @@ static void load_langfile(int lang, char* fname);
 static void msgid_add(char* name, int msgid);
 static msgid_lookup(char* name);
 static msgid_cmp(const void*, const void*);
-static char* msgid_name_lookup(int msgid);
+static const char* msgid_name_lookup(int msgid);
 
 char *fix_msg(char* p)
 {
@@ -355,7 +355,7 @@ load_langfile(int lang, char* fname)
 		}
 
 		if (*p == '"') {
-			char* q;
+			const char* q;
 
 			if (curr == NULL
 			||  (curr->sexdep == 0 && curr->p)
@@ -484,7 +484,7 @@ msgid_add(char* name, int msgid)
 }
 
 static
-char*
+const char*
 msgid_name_lookup(int msgid)
 {
 	int i;

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.8 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: db_area.c,v 1.9 1998-10-06 13:19:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,7 +89,7 @@ DBFUN db_load_areas[] = {
 };
 
 AREA_DATA *	area_current;
-char *		help_greeting;
+const char *	help_greeting;
 
 struct		social_type	social_table		[MAX_SOCIALS];
 int		social_count;
@@ -244,7 +244,7 @@ DBLOAD_FUN(load_helps)
 {
 	HELP_DATA *pHelp;
 	int level;
-	char *keyword;
+	const char *keyword;
 
 	if (!area_current) {  /* OLC */
 		log("load_helps: no #AREA seen yet.");
@@ -424,7 +424,7 @@ DBLOAD_FUN(load_mobprogs)
     for (; ;)
     {
 	int vnum;
-	char *code;
+	const char *code;
 	char letter;
 
 	letter		  = fread_letter(fp);
@@ -1226,7 +1226,7 @@ DBLOAD_FUN(load_mobiles)
 		MPTRIG *mptrig;
 		char *word;
 		int type;
-		char *phrase;
+		const char *phrase;
 		int vnum;
 		
 		word = fread_word(fp);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.2 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: word.c,v 1.3 1998-10-06 13:19:57 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -35,7 +35,7 @@
 #include "db/lang.h"
 #include "db/word.h"
 
-#define wordhash(s) hashstr(s, 16, MAX_WORD_HASH);
+#define wordhash(s) hashstr(s, 16, MAX_WORD_HASH)
 
 const char* word_form_lookup(varr **hashp, const char *word, int num);
 
@@ -43,7 +43,8 @@ WORD_DATA *word_new(LANG_DATA *l)
 {
 	WORD_DATA *w = calloc(1, sizeof(WORD_DATA));
 	w->base = str_empty;
-	w->f = varr_new(sizeof(char*), 4);
+	w->f.nsize = sizeof(char*);
+	w->f.nstep = 4;
 	w->lang = l;
 	return w;
 }
@@ -57,8 +58,7 @@ WORD_DATA *word_add(varr **hashp, WORD_DATA *w)
 	if (IS_NULLSTR(w->name))
 		return NULL;
 
-	hash = wordhash(w->name);
-	v = hashp[hash];
+	v = hashp[hash = wordhash(w->name)];
 	if (v == NULL)
 		v = hashp[hash] = varr_new(sizeof(WORD_DATA), 4);
 
@@ -71,13 +71,45 @@ WORD_DATA *word_add(varr **hashp, WORD_DATA *w)
 	return varr_bsearch(v, w, cmpstrp);
 }
 
+void word_del(varr **hashp, const char *name)
+{
+	varr *v;
+	WORD_DATA *w;
+
+	if (IS_NULLSTR(name))
+		return;
+
+	v = hashp[wordhash(name)];
+	if (v == NULL)
+		return;
+
+	if ((w = varr_bsearch(v, &name, cmpstrp)) == NULL)
+		return;
+	w->name = NULL;
+	varr_qsort(v, cmpstrp);
+}
+
+WORD_DATA *word_lookup(varr **hashp, const char *name)
+{
+	if (IS_NULLSTR(name))
+		return NULL;
+	return varr_bsearch(hashp[wordhash(name)], &name, cmpstrp);
+}
+
 void word_form_add(WORD_DATA* w, int fnum, const char *s)
 {
-	char **p = varr_touch(w->f, fnum);
-
+	const char **p = varr_touch(&w->f, fnum);
 	if (*p)
 		free_string(*p);
 	*p = str_dup(s);
+}
+
+void word_form_del(WORD_DATA *w, int fnum)
+{
+	const char **p = varr_get(&w->f, fnum);
+	if (*p)
+		free_string(*p);
+	*p = NULL;
 }
 
 void word_free(WORD_DATA *w)
@@ -87,8 +119,8 @@ void word_free(WORD_DATA *w)
 	free_string(w->name);
 	free_string(w->base);
 
-	for (i = 0; i < w->f->nused; i++) 
-		free_string(VARR_GET(w->f, i));
+	for (i = 0; i < w->f.nused; i++) 
+		free_string(VARR_GET(&w->f, i));
 }
 
 const char *word_gender(int lang, const char *word, int gender)
@@ -128,7 +160,8 @@ const char* word_form_lookup(varr **hashp, const char *word, int num)
 	hash = wordhash(word);
 	if ((v = hashp[hash]) == NULL
 	||  (w = varr_bsearch(v, &word, cmpstrp)) == NULL
-	||  (p = varr_get(w->f, num)) == NULL)
+	||  (p = varr_get(&w->f, num)) == NULL
+	||  IS_NULLSTR(*p))
 		return word;
 
 	if (**p != '-')

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.2 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: db_lang.c,v 1.3 1998-10-06 13:19:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,7 +35,6 @@
 #include "lang.h"
 #include "word.h"
 
-varr 		langs = { sizeof(LANG_DATA), 2 };
 LANG_DATA *	lang_curr;
 
 DECLARE_DBLOAD_FUN(load_lang);
@@ -48,27 +47,9 @@ DBFUN db_load_langs[] =
 
 void load_hash(const char* file, varr** hash);
 
-int lang_lookup(const char *name)
-{
-	int lang;
-
-	if (IS_NULLSTR(name))
-		return -1;
-
-	for (lang = 0; lang < langs.nused; lang++) {
-		LANG_DATA *l = VARR_GET(&langs, lang);
-		if (str_cmp(l->name, name) == 0)
-			return lang;
-	}
-
-	db_error("lang_lookup", "%s: unknown language", name);
-	return -1;
-}
-
 DBLOAD_FUN(load_lang)
 {
-	lang_curr = varr_enew(&langs);
-	lang_curr->slang_of = -1;
+	lang_curr = lang_new();
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -185,7 +166,7 @@ DBLOAD_FUN(load_word)
 		case 'F':
 			if (!str_cmp(word, "Form")) {
 				int fnum = fread_number(fp);
-				char *fstring = fread_string(fp);
+				const char *fstring = fread_string(fp);
 				word_form_add(w, fnum, fstring);
 				free_string(fstring);
 				fMatch = TRUE;

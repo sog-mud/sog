@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.6 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: db_class.c,v 1.7 1998-10-06 13:19:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -125,7 +125,7 @@ DBLOAD_FUN(load_class)
 
 		case 'S':
 			if (!str_cmp(word, "ShortName")) {
-				char *p = fread_string(fp);
+				const char *p = fread_string(fp);
 				strnzcpy(class_curr->who_name, p,
 					 sizeof(class_curr->who_name));
 				free_string(p);

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.70 1998-10-02 04:48:40 fjoe Exp $
+ * $Id: db.c,v 1.71 1998-10-06 13:19:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,8 +122,6 @@ int			line_number;
 
 AREA_DATA *		area_first;
 AREA_DATA *		area_last;
-
-char			str_empty	[1];
 
 int			top_affect;
 int			top_area;
@@ -303,7 +301,7 @@ void boot_db(void)
 
 	fBootDb = TRUE;
 
-	db_load_file(ETC_PATH, LANG_CONF, db_load_langs, NULL);
+	db_load_list(ETC_PATH, LANG_LIST, db_load_langs, NULL);
 	load_oldmsgdb();
 	load_msgdb();
 	db_load_file(ETC_PATH, SKILLS_CONF, db_load_skills, NULL);
@@ -1645,7 +1643,7 @@ flag_t flag_convert(char letter)
 /*
  * Read and allocate space for a string from a file.
  */
-char *fread_string(FILE *fp)
+const char *fread_string(FILE *fp)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *plast;
@@ -1775,76 +1773,6 @@ void *alloc_perm(int sMem)
 	return calloc(1, sMem);
 }
 
-/*
- * Duplicate a string into dynamic memory.
- */
-char *str_dup(const char *str)
-{
-	if (str == NULL)
-		return NULL;
-
-	if (str[0] == '\0')
-		return str_empty;
-
-	return strdup(str);
-}
-
-char *str_add(const char *str,...)
-{
-	va_list ap;
-	size_t len;
-	char *p;
-	char *str_new;
-
-	/* calculate length of sum */
-	va_start(ap, str);
-	len = strlen(str);
-	while ((p = va_arg(ap, char*)) != NULL)
-		len += strlen(p);
-	va_end(ap);
-
-	/* cat them */
-	str_new = alloc_mem(len + 1);
-	strcpy(str_new, str);
-	va_start(ap, str);
-	while ((p = va_arg(ap, char*)) != NULL)
-		strcat(str_new, p);
-	va_end(ap);
-
-	return str_new;
-}
-
-/*
- * Free a string.
- * Null is legal here to simplify callers.
- */
-void free_string(char *pstr)
-{
-	if (pstr == NULL || pstr == str_empty)
-		return;
-	free(pstr);
-}
-
-
-/*
- * str_printf -- like sprintf, but prints into string.
- *		 the format is string itself
- */
-char *str_printf(const char* format,...)
-{
-	va_list ap;
-	char buf[MAX_STRING_LENGTH];
-
-	if (format == NULL)
-		return NULL;
-
-	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), format, ap);
-	va_end(ap);
-
-	return str_dup(buf);
-}
-
 void do_areas(CHAR_DATA *ch, const char *argument)
 {
 	AREA_DATA *pArea1;
@@ -1892,6 +1820,9 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 void do_memory(CHAR_DATA *ch, const char *argument)
 {
 	extern int mlstr_count;
+	extern int mlstr_real_count;
+	extern int str_count;
+	extern int str_real_count;
 
 	char_printf(ch, "Affects  : %d\n\r", top_affect );
 	char_printf(ch, "Areas    : %d\n\r", top_area   );
@@ -1908,7 +1839,10 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Shops    : %d\n\r", top_shop   );
 	char_printf(ch, "Buffers  : %d (%d bytes)\n\r",
 					nAllocBuf, sAllocBuf);
-	char_printf(ch, "mlstrings: %d\n\r", mlstr_count);
+	char_printf(ch, "strings  : %d (%d allocated)\n\r",
+			str_count, str_real_count);
+	char_printf(ch, "mlstrings: %d (%d allocated)\n\r",
+			mlstr_count, mlstr_real_count);
 }
 
 void do_dump(CHAR_DATA *ch, const char *argument)
@@ -2215,10 +2149,15 @@ int interpolate(int level, int value_00, int value_32)
  * Removes the tildes from a string.
  * Used for player-entered strings that go into disk files.
  */
-void smash_tilde(char *str)
+char *smash_tilde(const char *str)
 {
-	for (; *str; str++) 
-		if (*str == '~') *str = '-';
+	static char buf[MAX_STRING_LENGTH];
+	char *p;
+
+	for (p = buf; p-buf < sizeof(buf)-1 && *str; str++, p++) 
+		*p = *str == '~' ? '-' : *str;
+	*p = '\0';
+	return buf;
 }
 
 /*
@@ -2306,7 +2245,7 @@ void load_limited_objects()
 	}
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-		char* pname;
+		const char* pname;
 
 		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
 			continue;
@@ -2784,7 +2723,7 @@ flag_t fread_fword(const FLAG *table, FILE *fp)
 
 flag_t fread_fstring(const FLAG *table, FILE *fp)
 {
-	char *s = fread_string(fp);
+	const char *s = fread_string(fp);
 	flag_t val;
 
 	if (is_number(s))
@@ -2811,7 +2750,7 @@ void *fread_namedp(NAMEDP *table, FILE *fp)
 int fread_clan(FILE *fp)
 {
 	int cn;
-	char *name;
+	const char *name;
 
 	name = fread_string(fp);
 	cn = cn_lookup(name);

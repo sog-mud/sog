@@ -23,30 +23,47 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.h,v 1.3 1998-10-06 13:19:57 fjoe Exp $
+ * $Id: lang.c,v 1.1 1998-10-06 13:19:57 fjoe Exp $
  */
 
-#ifndef _WORD_H_
-#define _WORD_H_
+#include <sys/syslimits.h>
+#include <stdio.h>
 
-#define FORM_MAX 8
+#include "const.h"
+#include "typedef.h"
+#include "lang.h"
+#include "db.h"
+#include "str.h"
+#include "varr.h"
 
-struct word_data {
-	const char *	name;
-	const char *	base;
-	varr 		f;		/* forms */
-	LANG_DATA *	lang;
-};
+varr 		langs = { sizeof(LANG_DATA), 2 };
 
-WORD_DATA *	word_new	(LANG_DATA *l);
-WORD_DATA *	word_add	(varr** hashp, WORD_DATA *w);
-void		word_del	(varr** hashp, const char *name);
-WORD_DATA *	word_lookup	(varr** hashp, const char *name);
-void		word_form_add	(WORD_DATA *w, int fnum, const char *s);
-void		word_form_del	(WORD_DATA *w, int fnum);
-void		word_free	(WORD_DATA*);
+LANG_DATA *lang_new(void)
+{
+	LANG_DATA *lang = varr_enew(&langs);
+	lang->slang_of = -1;
+	return lang;
+}
 
-const char *	word_gender(int lang, const char *word, int gender);
-const char *	word_case(int lang, const char *word, int num);
+int lang_lookup(const char *name)
+{
+	return lang_nlookup(name, strlen(name));
+}
 
-#endif
+int lang_nlookup(const char *name, size_t len)
+{
+	int lang;
+
+	if (IS_NULLSTR(name))
+		return -1;
+
+	for (lang = 0; lang < langs.nused; lang++) {
+		LANG_DATA *l = VARR_GET(&langs, lang);
+		if (str_ncmp(l->name, name, len) == 0)
+			return lang;
+	}
+
+	db_error("lang_lookup", "%s: unknown language", name);
+	return -1;
+}
+

@@ -23,20 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.2 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: lang.h,v 1.3 1998-10-06 13:19:57 fjoe Exp $
  */
 
 #ifndef _LANG_H_
 #define _LANG_H_
 
 struct lang_data {
-	char *	name;
+	const char *	name;
 
-	flag_t	flags;
-	int	slang_of;		/* id of base lang */
+	flag_t		flags;
+	int		slang_of;		/* id of base lang */
 
-	char *	file_genders;
-	char *	file_cases;
+	const char *	file_genders;
+	const char *	file_cases;
 
 	varr *	hash_genders[MAX_WORD_HASH];
 	varr *	hash_cases[MAX_WORD_HASH];
@@ -49,6 +49,8 @@ struct lang_data {
 
 extern varr	langs;
 
-int	lang_lookup(const char*);
+LANG_DATA *	lang_new(void);
+int		lang_lookup(const char*);
+int		lang_nlookup(const char*, size_t len);
 
 #endif

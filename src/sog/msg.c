@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.8 1998-10-02 04:48:41 fjoe Exp $
+ * $Id: msg.c,v 1.9 1998-10-06 13:19:57 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -34,6 +34,7 @@
 
 #include "db.h"
 #include "msg.h"
+#include "str.h"
 #include "mlstring.h"
 #include "util.h"
 #include "varr.h"
@@ -44,7 +45,7 @@ varr *msg_hash_table[MAX_MSG_HASH];
 static int cmpmsg(const void*, const void*);
 static int cmpmlstr(const void*, const void*);
 
-void load_msgdb()
+void load_msgdb(void)
 {
 	FILE *fp;
 	mlstring *ml;
@@ -79,7 +80,7 @@ mlstring **msg_add(mlstring *ml)
 	mlstring **mlp;
 	varr *v;
 	int hash;
-	char *name = mlstr_mval(ml);
+	const char *name = mlstr_mval(ml);
 
 	if (IS_NULLSTR(name))
 		return NULL;
