@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.274 2002-01-08 20:21:36 tatyana Exp $
+ * $Id: act_obj.c,v 1.275 2002-01-08 20:31:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2894,11 +2894,6 @@ DO_FUN(do_balance, ch, argument)
 
 	if (IS_NPC(ch)) {
 		act_char("You don't have a bank account.", ch);
-		return;
-	}
-
-	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
-		act_char("You are not in a bank.", ch);
 		return;
 	}
 
