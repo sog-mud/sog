@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.77 1998-08-06 21:44:47 fjoe Exp $
+ * $Id: act_move.c,v 1.78 1998-08-07 04:24:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4043,7 +4043,10 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		affect_strip(ch, gsn_thumbling);
+		if (is_affected(ch, gsn_thumbling)) {
+			affect_strip(ch, gsn_thumbling);
+			char_nputs(OK, ch);
+		}
 		return;
 	}
 
@@ -4067,7 +4070,8 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() > chance) {
-		char_puts("You failed.\n\r", ch);
+		act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
+		act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_thumbling, FALSE, 3);
 		return;
 	}

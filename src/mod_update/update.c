@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.53 1998-08-06 16:46:15 fjoe Exp $
+ * $Id: update.c,v 1.54 1998-08-07 04:24:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1071,9 +1071,8 @@ void char_update(void)
 
 		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
 			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
-				/* act(..., ch, NULL, NULL, TO_CHAR);
-				   act(..., ch, NULL, NULL, TO_ROOM);
-				*/
+				act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
+				act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
 				affect_strip(ch, gsn_thumbling);
 			}
 		}
