@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.72 2003-09-30 01:25:21 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.73 2004-02-17 22:27:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3244,7 +3244,7 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		return;
 
 	show_name(ch, output, paf, *ppaf);
-	if (paf->location > 0)
+	if (paf->location != APPLY_NONE)
 		buf_printf(output, ": modifies {c%s{x by {c%d{x ",
 			   flag_string(apply_flags, paf->location),
 			   paf->modifier);
