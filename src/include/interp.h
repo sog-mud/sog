@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.11 1998-07-20 02:50:01 efdi Exp $
+ * $Id: interp.h,v 1.12 1998-07-22 22:21:18 efdi Exp $
  */
 
 /***************************************************************************
@@ -261,6 +261,7 @@ DECLARE_DO_FUN(	do_peace	);
 DECLARE_DO_FUN( do_pecho	);
 DECLARE_DO_FUN( do_penalty	);
 DECLARE_DO_FUN( do_permban	);
+DECLARE_DO_FUN(	do_petition	);
 DECLARE_DO_FUN(	do_pick		);
 DECLARE_DO_FUN(	do_poison_smoke	);
 DECLARE_DO_FUN( do_popularity	);
@@ -272,6 +273,7 @@ DECLARE_DO_FUN(	do_practice	);
 DECLARE_DO_FUN(	do_pray		);
 DECLARE_DO_FUN( do_prefi	);
 DECLARE_DO_FUN( do_prefix	);
+DECLARE_DO_FUN(	do_promote	);
 DECLARE_DO_FUN( do_prompt	);
 DECLARE_DO_FUN( do_protect	);
 DECLARE_DO_FUN(	do_purge	);

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.55 1998-07-21 00:04:05 efdi Exp $
+ * $Id: merc.h,v 1.56 1998-07-22 22:21:18 efdi Exp $
  */
 
 /***************************************************************************
@@ -184,8 +184,13 @@ typedef void SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 #define CLAN_HUNTER	 8
 #define CLAN_CONFEDERACY 9
 
+/* Clan status */
+#define CLAN_LEADER	2
+#define CLAN_SECOND	1
+#define CLAN_COMMON	0
+
 /*
- * Cabal structure
+ * Clan structure
  */
 struct clan_type
 {
@@ -1945,7 +1950,9 @@ struct	pc_data
 	QTROUBLE_DATA *		qtrouble;
 	ROOM_INDEX_DATA *	questroom;	/* quest */
 	int			race;	/* orginal race for polymorph */
-	int			pc_killed;	/* how many PC's killed by character */
+	int			pc_killed; /* how many PC's killed by char */
+	int			clan_status; /* leader, secondary or common */
+	int			petition; /* whom petitioned? */
 };
 
 

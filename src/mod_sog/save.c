@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.39 1998-07-14 07:47:50 fjoe Exp $
+ * $Id: save.c,v 1.40 1998-07-22 22:21:19 efdi Exp $
  */
 
 /***************************************************************************
@@ -167,6 +167,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Etho %d\n", ch->ethos);
 	fprintf(fp, "Home %d\n", ch->hometown);
 	fprintf(fp, "Clan %d\n", ch->clan);
+	fprintf(fp, "ClanStatus %d\n", ch->pcdata->clan_status);
 
 	if (!IS_NULLSTR(mlstr_mval(ch->description)))
 		fprintf(fp, "Desc %s~\n", mlstr_mval(ch->description));
@@ -597,6 +598,7 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->race = race_lookup("human");
 	ch->pcdata->race = ch->race;
 	ch->clan = 0;
+	ch->pcdata->clan_status = CLAN_COMMON;
 	ch->hometown = 0;
 	ch->ethos = 0;
 	ch->affected_by = 0;
@@ -634,6 +636,7 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 
 	ch->pcdata->pc_killed = 0;
 	ch->lang = 0;
+	ch->pcdata->petition = 0;
 	ch->pcdata->questpoints = 0;
 	ch->pcdata->questgiver = 0;
 	ch->pcdata->questtime = 0;
@@ -929,6 +932,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Class", ch->class, fread_number(fp));
 			KEY("Cla", ch->class, fread_number(fp));
 			KEY("Clan", ch->clan, fread_number(fp));
+			KEY("ClanStatus", ch->pcdata->clan_status,
+			    fread_number(fp));
 			KEY("Cab", ch->clan, fread_number(fp));
 
 			if (!str_cmp(word, "Condition")
