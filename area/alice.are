@@ -1392,6 +1392,10 @@ enough, it has a pocket watch, and you have never seen a rabbit with a
 watch. You are inspired to investigate!
 ~
 0 C 2
+D0
+~
+~
+0 0 9101
 D1
 ~
 ~
@@ -2699,7 +2703,9 @@ say QUACK!
 #21006
 say The best thing to get us dry would be a Caucus race!
 emote marks out a race course, in a sort of circle.
-MOB ECHOAT $n Dodo tells you'{GThe size doesn't matter.{x '
+MOB NOTELL self
+tell $n The size doesn't matter.
+MOB NOTELL self
 ~
 #21007
 emote is running about furiously!
