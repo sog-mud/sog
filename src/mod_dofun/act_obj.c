@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.4 2000-04-03 16:03:21 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.5 2000-04-05 14:23:52 osya Exp $
  */
 
 /***************************************************************************
@@ -62,8 +62,10 @@ DECLARE_DO_FUN(do_emote		);
  * Local functions.
  */
 static CHAR_DATA *	find_keeper	(CHAR_DATA * ch);
+
 static uint		get_cost	(CHAR_DATA * keeper, OBJ_DATA * obj,
 					 bool fBuy);
+
 static void		obj_to_keeper	(OBJ_DATA * obj, CHAR_DATA * ch);
 static OBJ_DATA *	get_obj_keeper	(CHAR_DATA * ch, CHAR_DATA * keeper,
 					 const char *argument);
@@ -1819,7 +1821,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	
 	if (IS_SET(act, ACT_RIDEABLE)
 	&&  get_skill(ch, gsn_riding) && !MOUNTED(ch)) {
-		cost = 10 * pet->level * pet->level;
+		cost = 3 * pet->level * pet->level;
 
 		if ((ch->silver + 100 * ch->gold) < cost) {
 			char_puts("You can't afford it.\n", ch);
@@ -1847,7 +1849,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		char_puts("You already own a pet.\n", ch);
 		return;
 	}
-	cost = 10 * pet->level * pet->level;
+	cost = 3 * pet->level * pet->level;
 
 	if ((ch->silver + 100 * ch->gold) < cost) {
 		char_puts("You can't afford it.\n", ch);
@@ -2035,7 +2037,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				}
 				char_printf(ch, "[%2d] %8d - %s\n",
 					    pet->level,
-					    10 * pet->level * pet->level,
+					    3 * pet->level * pet->level,
 					    PERS(pet, ch));
 			}
 		}
