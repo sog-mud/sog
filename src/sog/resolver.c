@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.3 1998-09-19 11:13:29 fjoe Exp $
+ * $Id: resolver.c,v 1.4 1998-09-21 02:27:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -89,6 +89,8 @@ void resolver_loop(void)
 	FILE *fout;
 	char buf[128];
 
+	close(fildes[0]);
+	close(fildes[3]);
 	fin = fdopen(fildes[2], "r");
 	fout = fdopen(fildes[1], "w");
 	if (fin == NULL || fout == NULL) {
