@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.22 1998-09-11 06:36:49 fjoe Exp $
+ * $Id: recycle.c,v 1.23 1998-09-19 10:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "db.h"
 #include "hometown.h"
+#include "db/db.h"
 
 /* stuff for recycling extended descs */
 ED_DATA *ed_free_list;

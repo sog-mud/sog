@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.34 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: resource.c,v 1.35 1998-09-19 10:38:59 fjoe Exp $
  */
 
 #include <limits.h>
@@ -34,11 +34,11 @@
 
 #ifdef SUNOS
 #	include <stdarg.h>
-#	include "compat.h"
+#	include "compat/compat.h"
 #endif
 
 #ifdef SVR4
-#	include "compat.h"
+#	include "compat/compat.h"
 #endif
 
 char BLANK_STRING[] = "{RBUG!!!{x";
@@ -142,7 +142,7 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "db.h"
+#include "db/db.h"
 
 struct msgid {
 	char* name;

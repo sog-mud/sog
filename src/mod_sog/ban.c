@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.13 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: ban.c,v 1.14 1998-09-19 10:38:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,8 +49,8 @@
 #include <ctype.h>
 
 #include "merc.h"
-#include "db.h"
 #include "ban.h"
+#include "db/db.h"
 
 struct ban_data
 {

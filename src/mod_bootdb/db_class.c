@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.3 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: db_class.c,v 1.4 1998-09-19 10:39:07 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include "merc.h"
-#include "db.h"
+#include "db/db.h"
 
 DECLARE_DBLOAD_FUN(load_class);
 DECLARE_DBLOAD_FUN(load_pose);

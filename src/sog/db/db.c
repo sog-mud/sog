@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.64 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: db.c,v 1.65 1998-09-19 10:39:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,9 +53,9 @@
 #include <dirent.h>
 
 #include "merc.h"
-#include "db.h"
 #include "rating.h"
 #include "update.h"
+#include "db/db.h"
 
 #ifdef SUNOS
 #include "compat.h"

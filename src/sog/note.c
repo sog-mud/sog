@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.21 1998-09-17 10:57:12 fjoe Exp $
+ * $Id: note.c,v 1.22 1998-09-19 10:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include <ctype.h>
 
 #include "merc.h"
-#include "db.h"
+#include "db/db.h"
 
 /*
  * Data structure for notes.

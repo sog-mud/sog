@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.26 1998-09-17 15:51:29 fjoe Exp $
+ * $Id: olc_save.c,v 1.27 1998-09-19 10:39:10 fjoe Exp $
  */
 
 /**************************************************************************
@@ -29,9 +29,9 @@
 #include <stdarg.h>
 #include <time.h>
 #include "merc.h"
-#include "olc.h"
 #include "obj_prog.h"
 #include "interp.h"
+#include "olc/olc.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 

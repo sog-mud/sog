@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.56 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: save.c,v 1.57 1998-09-19 10:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,9 +53,9 @@
 #endif
 
 #include "merc.h"
-#include "db.h"
 #include "hometown.h"
 #include "quest.h"
+#include "db/db.h"
 
 extern int _filbuf args((FILE *));
 

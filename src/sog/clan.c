@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.13 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: clan.c,v 1.14 1998-09-19 10:38:58 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -33,7 +33,6 @@
 #include <dirent.h>
 #include <string.h>
 #include "merc.h"
-#include "db.h"
 #include "interp.h"
 
 varr *clans;

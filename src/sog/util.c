@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.8 1998-09-17 15:51:24 fjoe Exp $
+ * $Id: util.c,v 1.9 1998-09-19 10:39:00 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,7 +33,7 @@
 #include "merc.h"
 
 #ifdef SUNOS
-#include "compat.h"
+#	include "compat/compat.h"
 #endif
 
 void doprintf(DO_FUN *fn, CHAR_DATA* ch, const char* fmt, ...)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.68 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: act_quest.c,v 1.69 1998-09-19 10:38:59 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -39,7 +39,7 @@
 
 #ifdef SUNOS
 #	include <stdarg.h>
-#	include "compat.h"
+#	include "compat/compat.h"
 #endif
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.35 1998-09-17 15:51:20 fjoe Exp $
+ * $Id: martial_art.c,v 1.36 1998-09-19 10:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,7 @@
 
 #ifdef SUNOS
 #	include <stdarg.h>
-#	include "compat.h"
+#	include "compat/compat.h"
 #endif
 
 void	one_hit		(CHAR_DATA *ch, CHAR_DATA *victim,

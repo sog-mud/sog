@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.19 1998-09-17 15:51:29 fjoe Exp $
+ * $Id: olc.c,v 1.20 1998-09-19 10:39:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,8 +45,8 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "olc.h"
 #include "interp.h"
+#include "olc/olc.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.

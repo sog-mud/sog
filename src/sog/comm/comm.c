@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.95 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: comm.c,v 1.96 1998-09-19 10:38:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,10 +84,10 @@
 #include "quest.h"
 #include "update.h"
 #include "interp.h"
-#include "olc.h"
 #include "mob_prog.h"
 #include "ban.h"
 #include "resolver.h"
+#include "olc/olc.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);

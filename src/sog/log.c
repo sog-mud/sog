@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.6 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: log.c,v 1.7 1998-09-19 10:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include "log.h"
 
 #ifdef SUNOS
-#	include "compat.h"
+#	include "compat/compat.h"
 #endif
 
 /*
