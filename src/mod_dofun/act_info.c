@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.45 2001-12-12 20:24:23 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.46 2001-12-12 20:38:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -305,9 +305,9 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 		char_puts("You can be summoned by anyone.\n",ch);
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
-		char_puts("You do not take any given object.\n",ch);
+		char_puts("You do not take any given object.\n", ch);
 	else
-		char_puts("You will take all objects given to you.\n",ch);
+		char_puts("You will take all objects given to you.\n", ch);
 
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW))
 		char_puts("You do not welcome followers.\n",ch);
@@ -452,10 +452,10 @@ void do_nogive(CHAR_DATA *ch, const char *argument)
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOGIVE);
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE)) {
-		char_puts("You no longer take any giving objects.\n", ch);
+		char_puts("You no longer take any given objects.\n", ch);
 	}
 	else
-		char_puts("You will take any giving objects.\n", ch);
+		char_puts("You will take any given objects.\n", ch);
 
 }
 
