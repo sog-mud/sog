@@ -2732,7 +2732,7 @@ This spell renders the target character blind.
  
 Это заклинание ослепляет жертву.
 ~
-0 'ACETUM PRIMUS' 'ACID ARROW' 'ACID BLAST' 'BURNING HANDS' 'CAUSE CRITICAL' 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSTIC FONT' DISRUPTION 'DRAGON BREATH' 'ETHERAL FIST' FIREBALL FLAMESTRIKE 'GALVANIC WHIP' HARM HELLFIRE 'LIGHTNING BOLT' 'MAGIC MISSILE' 'MAGNETIC TRUST' 'MIND WRACK' 'MIND WRENCH' 'QUANTUM SPIKE' 'SEVERITY FORCE' 'SHOCKING GRASP' 'SONIC RESONANCE' 'SPECTRAL FUROR' 'SULFURUS SPRAY' 'VAMPIRIC BLAST'~
+0 'ACETUM PRIMUS' 'ACID ARROW' 'ACID BLAST' 'BURNING HANDS' 'CAUSECRITICAL' 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSTIC FONT' DISRUPTION 'DRAGON BREATH' 'ETHERAL FIST' FIREBALL FLAMESTRIKE 'GALVANIC WHIP' HARM HELLFIRE 'LIGHTNING BOLT' 'MAGIC MISSILE' 'MAGNETIC TRUST' 'MIND WRACK' 'MIND WRENCH' 'QUANTUM SPIKE' 'SEVERITY FORCE' 'SHOCKING GRASP' 'SONIC RESONANCE' 'SPECTRAL FUROR' 'SULFURUS SPRAY' 'VAMPIRIC BLAST' ICEBALL~
 @eng Syntax: {ccast 'acetum primus'{x  <victim>
 Syntax: {ccast 'acid arrow'{x     <victim>
 Syntax: {ccast 'acid blast'{x     <victim>
@@ -6097,7 +6097,7 @@ scrolls		The reading of magical scrolls and books (see 'help recite')
 staves		The use of staves and similar devices (see 'help brandish')
 wands		The use of wands and similar items (see 'help zap') 
 ~
--1 EXOTIC WEAPONS AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP BOW LANCE~
+-1 EXOTIC WEAPONS AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP BOW LANCE STAFF~
 Each weapon skill applies to a specific group of armaments, and determines how
 well a character fights with a particular weapon.
 If the character has the parry skill as well, he can parry incoming attacks.
@@ -6116,6 +6116,7 @@ sword		the warrior's standby, from rapier to claymore
 whip		the use of whips, chains, and bullwhips
 bow             the use of missile weapons (see HELP SHOOT)
 exotic          the use of strange magical weapons
+staff           to use any staves (magic staves, see {CHELP BRANDISH{x)
  
 The exotic skill can neither be known nor practiced, and is dependent solely
 upon level. 
@@ -6285,11 +6286,10 @@ arrival.
 никто не может заметить вход крадущегося персонажа в комнату.
 ~
 -1 'FAST HEALING'~
-The fast healing skill improves wound healing rates, whether walking, resting,
-or sleeping. It represents knowledge of healing herbs or just general 
-toughness and stamina.  Fast healing is checked every tick, and it is 
-possible for it to fail.  All class may learn this skill, but mages find it
-very difficult to master, due to their bookish lifestyle.
+@eng The fast healing skill improves wound healing rates, whether walking, resting,
+or sleeping. 
+@rus Автоскилл 'fast healing' ускоряет заживление ран, когда ты спишь,
+сидишь отдыхаешь или живешь обычной жизнью.
 ~
 -1 LORE~
 @eng Syntax: {clore{x <object>
@@ -6455,13 +6455,20 @@ A romantic spell that creates a fragrant red rose, with utterly no game
 use whatsoever.
 ~
 60 'PROTECTION GOOD' 'PROTECTION EVIL'~
-Syntax: cast 'protection evil' <target>
-	cast 'protection good' <target>
+@eng Syntax: {x{c{ccast 'protection evil'{x 
+        {ccast 'protection good'{x 
 
 The protection spells reduce damage taken from attackers of the appropriate
-ethos, and improve saving throws against all forms of magic. They may not
+align, and improve saving throws against all forms of magic. They may not
 be cast on others, and one person cannot carry both defenses at the same
 time.
+@rus Синтаксис: {ccast 'protection evil'{x
+           {ccast 'protection good'{x
+ 
+  Эти даклинания уменьшают урон наносимый противником с соответствующим
+алигнментом, а также увеличивают устойчивость против воздействия любых
+форм магии. Заклинания не могут использоваться на других и накладываться
+одновременно.
 ~
 0 'GIANT STRENGTH'~
 Syntax: cast 'giant strength' <character>
@@ -7275,9 +7282,13 @@ Pictures ARE NOT allowed in description.
  
 PS: Do not forget about {{x at the end of your description.
 @rus Синтаксис: {cdescription{x
+Описание -- это то, что видят другие, когда смотрят на тебя.
 
+Способом написания может служить представление себя перед зеркалом
+и описание того, что там, по-твоему, видно :)
 Используй эту команду для ввода описания твоего персонажа.
-Картинка не может считаться описанием.
+Картинка не может считаться описанием. Описание не должно быть
+слишком коротким.
 ~
 0 PROMOTE~
 @eng Syntax: {cpromote{x <character> <position>
@@ -7994,6 +8005,100 @@ roing smurfs come true?
 ~
 0 CLOAK OF LEAVES~
 Quest info. See also help {CPIXIE FOREST QUEST{x.
+~
+0 POLYMORPH~
+@eng Syntax:{c cast 'polymorph'{x [self]
+
+   The powerful wizard can change it's race to another for a little
+moment. Wizard can use all race ability og it's new body.
+Valid races: elf, dark-elf, rockseer, arial, troll, felar, satyr or
+any giant.
+  Spell cannot be used on others.
+@rus Синтаксис:{c cast 'polymorph'{x [self]
+
+  С помощью этого заклинания могущественные маги могут изметить свою
+расу. Превращение осуществляется на небольшой промежуток времени и
+в течение его у мага имеются все расовые способности его нового тела.
+Можно превратится в: эльфа, темного/пещерного эльфа, сатира, фелара,
+тролля, в любого из гигантов, ариала.
+  Заклинание может использоваться только на себя.
+~
+0 DEMAND~
+@eng Syntax:{c demand{x <object> <object's owner>
+
+  This skill allows to take any object from it's owner.
+@rus Синтаксис:{c demand{x <обьект> <хозяин обьекта>
+
+  С помощью этого умения можно потребовать любой обьект у его хозяина.
+~
+0 BLIND FIGHTING~
+@eng   This skill allows to fight well if you are blind.
+'Blind fighting' is autoskill.
+@rus   Если тебя ослепили, то обладая этим умением, ты будешь драться лишь
+немного хуже, чем зрячим.
+  Умение используется автоматически.
+~
+0 RANGE CAST~
+@eng Syntax:{c cast 'name'{x <direction>.<target>
+
+  Some spells can be used on the distance from target. Distance's
+determined your level.
+  E.g: 'magic missles', 'lightning bolt', 'acid blast', etc.
+  Example: cast 'acid arrow' w.guard;
+           cast 'vampiric blast' s.4.rabbit
+@rus Синтаксис:{c cast 'название'{x <направление>.<цель>
+
+  Некоторые заклинания можно использовать на расстоянии. Расстояние на
+котором можно использовать магию зависит от твоего уровня.
+  Например, 'magic missiles', 'lightning bolt', 'acid blast', и т.д.
+  Пример использования: cast 'acid arrow' w.guard;
+                        cast 'vampiric blast' s.4.rabbit
+~
+-1 'ICE SPHERE' 'FIRE SPHERE'~
+@eng Syntax:{c cast 'fire sphere'{x [self]
+       {c cast 'ice sphere'{x [self]
+
+  These two spells create defensive sphere around caster, which reduces
+any damage. Also sphere return part of damage to attacker (Damage is returned
+as fire for 'fire sphere' and as ice for 'ice sphere'). Spells cannot be used
+on others.
+@rus Синтаксис:{c cast 'ice sphere'{x [self]
+          {c cast 'fire sphere'{x [self]
+
+При помощи обоих этих заклинаний создается защитная сфера, уменьшающая
+наносимый урон. При этом часть урона отражается на того, кто его наносит.
+'Fire sphere' отражает урон огнем, 'ice sphere' -- льдом. Заклинания могут
+быть использованы только на себя.
+~
+-1 'IMPROVED MALADICTION'~
+@eng 'Improved maladiction' is the autoskill which increases effectiveness of
+spell from group maladiction (see glist maladiction for list of spells).
+@rus 'Improved maladiction' -- автоскилл, увеличивающий эффективность заклинаний
+из группы maladiction (смотри glist maladiction, чтобы узнать о заклинаниях,
+входящих в группу).
+~
+-1 IMPROVED BENEDICTION~
+@eng 'Improved benediction' is the autoskill which increases effectiveness of
+spell from group benediction (see glist benediction for list of spell).
+@rus 'Improved benediction' -- автоскилл, увеличивающий эффективность заклинаний
+из группы benediction (смотри glist benediction, чтобы узнать о заклинаниях,
+входящих в группу).
+~
+-1 'SENSE LIFE'~
+@eng 'Sense life' is the autoskill which allows to know is anyone near you or
+not. It works if you are blind or you are in the darkness and have not
+any light. You can feel any alive person, even invisible.
+@rus 'Sense life' -- автоскилл. Он позволяет узнать есть ли кто живой рядом
+с тобой, когда ты не видишь (темно или тебя ослепили). В том числе,
+можно почувствовать тех, кто прячется под различными видами невидимости.
+~
+-1 RESURRECTION~
+@eng   'Resurrection' is the autoskill which works when vampire bites its
+victim. Vampire under affect 'resurrection' is immortal. If this vampire
+dies it will rise from the dead and his health will be fully restored.
+@rus   При укусе жертвы вампир имеет шанс обрести кратковременное бессмертие
+(affect resurrection). Если 'убить' такого вампира, то он не умрет, а
+наоборот полностью восстановится. Скилл срабатывает автоматически.
 ~
 -1 $~
 

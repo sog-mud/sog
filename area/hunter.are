@@ -111,6 +111,24 @@ jewelry AMTZ AS
 0 0 0 0 0
 0 1 0 P
 G none
+#95704
+camp fire костер~
+@eng camp-fire@rus костер~
+@eng You see small camp-fire on the center of glade.@rus Небольшой костер (camp-fire) горит в центре поляны.~
+fire~
+furniture 0 0
+100 100000 GJ 200 200
+0 10 10 P
+G male
+#95705
+spring родник~
+@eng a spring@rus родник~
+@eng A spring babbles merrily.@rus Родник (spring) весело журчит.~
+water~
+fountain 0 0
+-1 -1 'water' 0 0
+0 10 10 P
+G none
 #0
 
 #ROOMS
@@ -187,6 +205,39 @@ D2
 ~
 ~
 Z -1 95702
+D3
+~
+~
+Z 0 95704
+S
+#95704
+@eng Hunters' camp@rus Охотничий лагерь~
+@eng Suddently you find yourself an the small glade in the hunters' camp.
+This is continuous camp: the spring on the eastern part of the clearing
+is surrounded by many stones. On the glade's center you see several
+huge logs which are used as branches here, and small camp-fire with
+pot above it. You feel nice aromatic smell. An old hunter sits near
+a camp-fire. He wants to tell you one of his fables. You wish to sit
+near him and have a rest.
+  A hidden trail leads west.
+@rus Внезапно ты оказываешься на небольшой поляне, на которой разбит лагерь.
+Это место постоянной стоянки: родничок, журчащий в восточной части поляны,
+заботливо обложен камнями, в центре -- грубое подобие скамей из громадных
+бревен. Там же горит небольшой костерок, над которым висит аппетитно пах-
+нущий и булькающий котел. У костра сидит старый охотник, готовый рассказать
+одну из своих бесконечных баек. Тебе так и хочется присесть рядом с ним и
+отдохнуть.
+  Едва заметная тропа уходит на запад.
+~
+0 0 inside
+D1
+~
+~
+Z 0 95703
+D3
+~
+~
+Z 0 8855
 S
 #0
 
@@ -203,6 +254,8 @@ E 0 95702 0 17		*	a gray bone: held in the hands
 M 0 95701 1 95703 1	* the cleric (Main chambers of Hunt)
 O 0 95700 0 95703	* the golden sign (Main chambers of Hunt)
 P 0 95701 1 95700 1	* the golden sign: the golden tattoo
+O 0 95704 0 95704	* camp-fire (Hunters' camp)
+O 0 95705 0 95704	* a spring (Hunters' camp)
 S
 
 #MOBPROGS

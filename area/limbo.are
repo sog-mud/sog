@@ -1521,7 +1521,7 @@ chaos weapon~
 @eng A shiny gold weapon is on the ground.@rus Блестящая железяка валяется на на земле.~
 gold~
 weapon AIPTW AN
-dagger 8 1 pierce 0
+dagger 10 1 pierce H
 20 200 0 P
 A
 6 2
