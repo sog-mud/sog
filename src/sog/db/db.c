@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.219 2000-04-10 14:14:35 fjoe Exp $
+ * $Id: db.c,v 1.220 2000-04-10 15:45:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,7 +158,6 @@ const char PENALTY_FILE		[] = "penal.not";
 const char NEWS_FILE		[] = "news.not";
 const char CHANGES_FILE		[] = "chang.not";
 const char SHUTDOWN_FILE	[] = "shutdown";	/* For 'shutdown' */
-const char EQCHECK_FILE		[] = "eqcheck";		/* limited eq checks */
 const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";/* save all pfiles on */
 							/* eq checks	      */
 const char BAN_FILE		[] = "ban.txt";
@@ -1853,16 +1852,10 @@ void scan_pfiles()
 {
 	struct dirent *dp;
 	DIR *dirp;
-	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 
-	log(LOG_INFO, "scan_pfiles: start (eqcheck: %s, save all: %s)",
-		   eqcheck ? "active" : "inactive",
-		   eqcheck_save_all ? "yes" : "no");
-
-	if (eqcheck
-	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log(LOG_INFO, "scan_pfiles: unable to deactivate eq checker (%s)", strerror(errno));
+	log(LOG_INFO, "scan_pfiles: start (save all: %s)",
+	    eqcheck_save_all ? "yes" : "no");
 
 	if (eqcheck_save_all
 	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
@@ -1893,7 +1886,7 @@ void scan_pfiles()
 			continue;
 
 		/* Remove limited eq from the pfile if it's two weeks old */
-		if (stat(dp->d_name, &s) < 0) {
+		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) {
 			log(LOG_ERROR, "scan_pfiles: unable to stat %s.", dp->d_name);
 		} else
 			should_clear = (current_time - s.st_mtime) > 60*60*24*14;
@@ -1909,7 +1902,6 @@ void scan_pfiles()
 			obj->pObjIndex->count++;
 
 			if (obj->pObjIndex->limit < 0
-			||  !eqcheck
 			||  !should_clear)
 				continue;
 
@@ -1931,8 +1923,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log(LOG_INFO, "scan_pfiles: end (eqcheck: %s, save all: %s)",
-		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive",
+	log(LOG_INFO, "scan_pfiles: end (save all: %s)",
 		   dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "yes" : "no");
 }
 

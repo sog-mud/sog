@@ -23,14 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.19 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: util.h,v 1.20 2000-04-10 15:45:50 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
 #define _UTIL_H_
 
+struct stat;
+
 FILE *	dfopen	(const char *dir, const char *file, const char *mode);
 int	dunlink	(const char *dir, const char *file);
+int	dstat	(const char *dir, const char *file, struct stat *s);
 int	d2rename(const char *dir1, const char *file1,
 		 const char *dir2, const char *file2);
 bool	dfexist	(const char *dir, const char *file);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.26 2000-02-10 14:08:55 fjoe Exp $
+ * $Id: util.c,v 1.27 2000-04-10 15:45:52 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -61,6 +61,14 @@ int dunlink(const char *dir, const char *file)
 	char name[PATH_MAX];
 	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
 	return unlink(name);
+}
+
+int
+dstat(const char *dir, const char *file, struct stat *s)
+{
+	char name[PATH_MAX];
+	snprintf(name, sizeof(name), "%s%c%s", dir, PATH_SEPARATOR, file);
+	return stat(name, s);
 }
 
 int d2rename(const char *dir1, const char *file1,
