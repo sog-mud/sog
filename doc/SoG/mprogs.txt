@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.12 2002-02-07 20:03:22 tatyana Exp $
+# $Id: mprogs.txt,v 1.13 2002-03-21 15:51:54 fjoe Exp $
 #
 
 MPC code style
@@ -95,10 +95,6 @@ obj obj_in_world()
 
 MPC functions:
 --------------
-
-acid_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара ch acid effect
-  уровня num, наносится урон dam
 
 act(string msg, char ch, void arg1, void arg2, int act_flags)
   выводит сообщение msg
@@ -250,10 +246,6 @@ bool close_door(char ch, string door)
 bool close_obj(char ch, obj p)
   чар ch выполняет операцию закрытия обьекта p
 
-cold_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара cold_effect
-  уровня num, наносится урон dam
-
 char create_mob(int vnum, int flags)
   создает моба по его внуму
 
@@ -276,10 +268,6 @@ drop_obj(char ch, obj p)
 
 extract_obj(obj p, int flags)
   уничтожает обьект p
-
-fire_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара fire_effect
-  уровня num, наносится урон dam
 
 char get_char_area(char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
@@ -355,6 +343,19 @@ bool has_invis(char ch, int f)
   есть ли на чаре невидимость f (значения см в has_detect)
 
 int has_sp(char ch, string spn, string spn_add, string spn_rm)
+
+inflict_effect(string effect, char ch, int num, int dam)
+  вешает (пытается повесить) на чара ch эффект effect
+  уровня num, наносится урон dam
+
+  Возможные значения effect:
+  - "acid"
+  - "cold"
+  - "fire"
+  - "poison"
+  - "sand"
+  - "scream"
+  - "shock"
 
 bool is_act(char ch, int act_flags)
   стоит ли у чара ch ACT act_flags
@@ -489,10 +490,6 @@ bool open_door(char ch, string door)
 bool open_obj(char ch, obj p)
   открывает (пытается открыть) обьет p, открывает обьект чар ch
 
-poison_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара poison_effect
-  уровня num, наносится урон dam
-
 int real_char_level(char ch)
   возвращает реальный (без +lev) уровень чара ch
 
@@ -507,14 +504,6 @@ int room_vnum(room r)
 
 say_spell(char ch, string sn)
   произносится заклинание sn (или возносится молитва)
-
-sand_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара sand_effect
-  уровня num, наносится урон dam
-
-scream_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара ch scream_effect
-  уровня num, наносится урон dam
 
 set_char_gold(char ch, int num)
   устанавливает чару ch количество золота num
@@ -542,10 +531,6 @@ set_obj_timer(obj p, int timer)
 
 set_weapon_dice_type(obj p, int dice_type)
   оружию p ставится dice_type (v2)
-
-shock_effect(char ch, int num, int dam)
-  вешает (пытается повесить) на чара ch shock effect
-  уровня num, наносится урон dam
 
 social_char(string name, char ch, char victim)
   делается social name (e.g "smile") чаром ch чару victim
