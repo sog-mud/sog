@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.113 1998-11-07 09:09:09 fjoe Exp $
+ * $Id: merc.h,v 1.114 1998-11-07 11:26:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,6 +85,7 @@
 #define CMD_NOORDER	(B)
 #define CMD_CHARMED_OK	(C)
 #define CMD_HIDDEN	(D)
+#define CMD_DISABLED	(E)
 
 struct ethos_type {
 	char *name;

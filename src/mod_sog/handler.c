@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.84 1998-11-07 09:09:09 fjoe Exp $
+ * $Id: handler.c,v 1.85 1998-11-07 11:26:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -686,10 +686,10 @@ void name_toggle(CHAR_DATA *ch, const char *name,
 			return;
 		}
 		cat_name(buf, name, sizeof(buf));
-		char_printf(ch, "%s: name added.\n\r", editor_name);
+		char_printf(ch, "%s: %s: name added.\n\r", editor_name, name);
 	}
 	else 
-		char_printf(ch, "%s: name removed.\n\r", editor_name);
+		char_printf(ch, "%s: %s: name removed.\n\r", editor_name, name);
 
 	free_string(*nl);
 	*nl = str_dup(buf);

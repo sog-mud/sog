@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.81 1998-11-02 05:28:29 fjoe Exp $
+ * $Id: act_wiz.c,v 1.82 1998-11-07 11:26:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4259,7 +4259,7 @@ DO_FUN(do_grant)
 	CHAR_DATA *victim;
 
 	argument = one_argument(argument, arg1);
-	one_argument(argument, arg2);
+	argument = one_argument(argument, arg2);
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		do_help(ch, "'WIZ GRANT'");
 		return;
@@ -4275,15 +4275,75 @@ DO_FUN(do_grant)
 		return;
 	}
 
-	if ((cmd = cmd_lookup(arg2)) == NULL) {
-		char_printf(ch, "%s: command not found.\n\r", arg2);
-		return;
-	}
+	for (; arg2[0]; argument = one_argument(argument, arg2)) {
+		if ((cmd = cmd_lookup(arg2)) == NULL) {
+			char_printf(ch, "%s: command not found.\n\r", arg2);
+			continue;
+		}
 
-	if (cmd->level <= LEVEL_HERO) {
-		char_printf(ch, "%s: not a wizard command.\n\r", arg2);
-		return;
+		if (cmd->level <= LEVEL_HERO) {
+			char_printf(ch, "%s: not a wizard command.\n\r", arg2);
+			return;
+		}
+		name_toggle(ch, arg2, "Grant", &victim->pcdata->granted);
 	}
-
-	name_toggle(ch, arg2, "Grant", &victim->pcdata->granted);
 }
+
+DO_FUN(do_disable)
+{
+	CMD_DATA *cmd;
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'WIZ ENABLE DISABLE'");
+		return;
+	}
+
+	if (!str_cmp(arg, "?")) {
+		char_puts("Disabled commands:\n\r", ch);
+		for (cmd = cmd_table; cmd->name; cmd++)
+			if (IS_SET(cmd->flags, CMD_DISABLED))
+				char_printf(ch, "%s\n\r", cmd->name);
+		return;
+	}
+
+	for (; arg[0]; argument = one_argument(argument, arg)) {
+		if ((cmd = cmd_lookup(arg)) == NULL) {
+			char_printf(ch, "%s: command not found.\n\r", arg);
+			continue;
+		}
+
+		if (!str_cmp(cmd->name, "enable")) {
+			char_puts("'enable' command cannot be disabled.\n\r",
+				  ch);
+			return;
+		}
+
+		SET_BIT(cmd->flags, CMD_DISABLED);
+		char_printf(ch, "%s: command disabled.\n\r", cmd->name);
+	}
+}
+
+DO_FUN(do_enable)
+{
+	CMD_DATA *cmd;
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_help(ch, "'WIZ ENABLE DISABLE'");
+		return;
+	}
+
+	for (; arg[0]; argument = one_argument(argument, arg)) {
+		if ((cmd = cmd_lookup(arg)) == NULL) {
+			char_printf(ch, "%s: command not found.\n\r", arg);
+			continue;
+		}
+
+		REMOVE_BIT(cmd->flags, CMD_DISABLED);
+		char_printf(ch, "%s: command enabled.\n\r", cmd->name);
+	}
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.87 1998-10-26 08:38:19 fjoe Exp $
+ * $Id: interp.c,v 1.88 1998-11-07 11:26:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,7 +478,10 @@ CMD_DATA cmd_table[] =
 
     { "msgstat",	do_msgstat,	POS_DEAD,	IM,  LOG_NEVER	},
     { "strstat",	do_strstat,	POS_DEAD,	IM,  LOG_NEVER	},
-    { "grant",		do_grant,	POS_DEAD,	ML,  LOG_ALWAYS	},
+
+    { "grant",		do_grant,	POS_DEAD,	ML,	LOG_ALWAYS },
+    { "disable",	do_disable,	POS_DEAD,	ML,	LOG_ALWAYS },
+    { "enable",		do_enable,	POS_DEAD,	ML,	LOG_ALWAYS },
 
     /*
      * OLC
@@ -572,6 +575,11 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	for (cmd = cmd_table; cmd->name; cmd++) {
 		if (str_prefix(command, cmd->name))
 			continue;
+
+		if (IS_SET(cmd->flags, CMD_DISABLED)) {
+			char_puts("Sorry, this command is temporarily disabled.\n", ch);
+			return;
+		}
 
 		if (IS_NPC(ch)) {
 			if (cmd->level >= LEVEL_HERO

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.105 1998-11-02 05:28:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.106 1998-11-07 11:26:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,16 +98,19 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 		return;
 	
 	if (IS_SET(ch->act, PLR_CONFIRM_DELETE)) {
+		char *name;
+
 		if (argument[0] != '\0') {
 			char_puts("Delete status removed.\n\r",ch);
 			REMOVE_BIT(ch->act, PLR_CONFIRM_DELETE);
 			return;
 		}
 
-		wiznet("$N turns $Mself into line noise.",ch,NULL,0,0,0);
+		wiznet("$N turns $Mself into line noise.", ch, NULL, 0, 0, 0);
 		RESET_FIGHT_TIME(ch);
-		do_quit_count(ch,str_empty);
-		dunlink(PLAYER_PATH, capitalize(ch->name));
+		name = capitalize(ch->name);
+		do_quit_count(ch, str_empty);
+		dunlink(PLAYER_PATH, name);
 		return;
 	}
 

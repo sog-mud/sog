@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.29 1998-10-26 08:38:20 fjoe Exp $
+ * $Id: interp.h,v 1.30 1998-11-07 11:26:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,6 +126,7 @@ DECLARE_DO_FUN(do_deposit	);
 DECLARE_DO_FUN(do_description	);
 DECLARE_DO_FUN(do_detect_hidden	);
 DECLARE_DO_FUN(do_dirt		);
+DECLARE_DO_FUN(do_disable	);
 DECLARE_DO_FUN(do_disarm	);
 DECLARE_DO_FUN(do_disconnect	);
 DECLARE_DO_FUN(do_dishonor	);
@@ -137,6 +138,7 @@ DECLARE_DO_FUN(do_east		);
 DECLARE_DO_FUN(do_eat		);
 DECLARE_DO_FUN(do_echo		);
 DECLARE_DO_FUN(do_emote		);
+DECLARE_DO_FUN(do_enable	);
 DECLARE_DO_FUN(do_enchant	);
 DECLARE_DO_FUN(do_endure	);
 DECLARE_DO_FUN(do_enter		);
