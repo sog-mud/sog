@@ -2499,13 +2499,11 @@ steel~
 weapon 0 0 AN
 sword 3 10 'slash' D
 26 50 2000 P
+f object hp 20 0
+f object mana 20 0
 E
 sword long~
 This is the ceremonial sword of the Mayor of Midgaard.
-A
-13 20
-A
-12 20
 ~
 g @rus male~
 #3129
