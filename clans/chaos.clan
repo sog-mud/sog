@@ -1,10 +1,10 @@
 #CLAN
 Name Chaos~
+SkillSpec 'clan_chaos'
 Item 95502
 Mark 95504
 Altar 95504
 Flags hidden~
-SkillSpec clan_chaos
 End
 
 #$
