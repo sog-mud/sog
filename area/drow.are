@@ -940,10 +940,13 @@ D3
 Z 0 5124
 S
 #5126
-Entrance Way~
-You stand in the entrance way to the temple which opens up to the north
+@eng Entrance Way@rus Вход в храм~
+@eng You stand in the entrance way to the temple which opens up to the north
 into a large hallway going east and west. Small statues of spiders line the
 entrance way's walls.
+@rus Ты стоишь в тоннеле, ведущем вглубь храма. Чуть дальше он пересекается
+с просторным коридором, уходящим на восток и запад и всюду, куда бы ты ни
+$gn{посмотрел}, стоят небольшие статуи пауков.
 ~
 0 AD inside
 D0
@@ -960,11 +963,16 @@ D4
 Z 0 5119
 S
 #5127
-Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Hallway@rus Коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 To the north is a obsidian stairway.
+@rus Сверкающие адамантитом стены, расписанные изображениями эльфов и
+пауков, уводят на запад и восток, исчезая в темноте. Присмотревшись,
+ты замечаешь, как кто-то спешно удаляется прочь от тебя. Прямо же
+перед тобой, на севере, начинается широкая обсидиановая лестница,
+ведущая наверх.
 ~
 0 AD inside
 D0
@@ -993,10 +1001,14 @@ D3
 Z 0 5131
 S
 #5128
-Long Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Long Hallway@rus Длинный коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
+@rus Блестящие адамантитом и расписанные изображениями эльфов и
+пауков стены уводят на восток и запад, исчезая в темноте. Краем
+глаза ты замечаешь какие-то безмолвные фигуры, спешащие прочь
+от тебя.
 ~
 0 AD inside
 D1
@@ -1013,11 +1025,15 @@ D3
 Z 0 5127
 S
 #5129
-Long Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Long Hallway@rus Длинный коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 To the north is a door.
+@rus Блестящие адамантитом и расписанные изображениями эльфов и
+пауков стены уводят на восток и запад, исчезая в темноте. Краем
+глаза ты замечаешь какие-то безмолвные фигуры, спешащие прочь
+от тебя. Дверь в северной стене ведет в какое-то помещение.
 ~
 0 AD inside
 D0
@@ -1025,7 +1041,7 @@ D0
 ~
 ~
 ~
-Z -1 5150
+ABZ -1 5150
 D1
 ~
 ~
@@ -1040,10 +1056,14 @@ D3
 Z 0 5128
 S
 #5130
-Long Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Long Hallway@rus Длинный коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
+@rus Блестящие адамантитом и расписанные изображениями эльфов и
+пауков стены уводят на восток и запад, исчезая в темноте. Краем
+глаза ты замечаешь какие-то безмолвные фигуры, спешащие прочь
+от тебя.
 ~
 0 AD inside
 D1
@@ -1060,10 +1080,14 @@ D3
 Z 0 5129
 S
 #5131
-Long Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Long Hallway@rus Длинный коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
+@rus Блестящие адамантитом и расписанные изображениями эльфов и
+пауков стены уводят на восток и запад, исчезая в темноте. Краем
+глаза ты замечаешь какие-то безмолвные фигуры, спешащие прочь
+от тебя.
 ~
 0 AD inside
 D1
@@ -1080,11 +1104,15 @@ D3
 Z 0 5132
 S
 #5132
-Long Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Long Hallway@rus Длинный коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
 To the south is a door.
+@rus Блестящие адамантитом и расписанные изображениями эльфов и
+пауков стены уводят на восток и запад, исчезая в темноте. Краем
+глаза ты замечаешь какие-то безмолвные фигуры, спешащие прочь
+от тебя. Дверь в южной стене ведет в какое-то помещение.
 ~
 0 AD inside
 D1
@@ -1098,7 +1126,7 @@ D2
 ~
 ~
 ~
-Z -1 5133
+ABZ -1 5133
 D3
 ~
 ~
@@ -1107,10 +1135,13 @@ D3
 Z 0 5134
 S
 #5133
-Warrior's Barracks~
-The room is a complete mess. None of the beds are made, clothes and other
+@eng Warrior's Barracks@rus Казармы~
+@eng The room is a complete mess. None of the beds are made, clothes and other
 items have been left all about the room. Well drow warriors never were known
 for neatness.
+@rus Тут стоит полный бардак: ни одна постель не заправлена, а пол
+завален одеждой и другими вещами. Впрочем, дроу-воины никогда не
+отличались опрятностью.
 ~
 0 AD inside
 D0
@@ -1118,13 +1149,17 @@ D0
 ~
 ~
 ~
-Z -1 5132
+ABZ -1 5132
 S
 #5134
-Long Hallway~
-You are in a long hallway lined with adamantite. The walls are engraved
+@eng Long Hallway@rus Длинный коридор~
+@eng You are in a long hallway lined with adamantite. The walls are engraved
 with pictures of elves and spiders. The hallway continues east and west. As you
 look down the hallway you can make out one or two figures moving away from you.
+@rus Блестящие адамантитом и расписанные изображениями эльфов и
+пауков стены уводят на восток и запад, исчезая в темноте. Краем
+глаза ты замечаешь какие-то безмолвные фигуры, спешащие прочь
+от тебя.
 ~
 0 AD inside
 D1
@@ -1141,9 +1176,11 @@ D3
 Z 0 5130
 S
 #5135
-Grand Stairway~
-You are standing at the bottom of a giant obsidian and adamantite
+@eng Grand Stairway@rus У подножия величественной лестницы~
+@eng You are standing at the bottom of a giant obsidian and adamantite
 stairway. The edges are trimmed with gold.
+@rus Ты стоишь у самого подножия гигантской лестницы, сделанной целиком
+из обсидиана и адамантита и отделанной по краям золотом.
 ~
 0 AD inside
 D2
@@ -1160,9 +1197,11 @@ D4
 Z 0 5136
 S
 #5136
-Grand Hallway~
-You are standing in the middle of a grand hallway. The walls are
+@eng Grand Hallway@rus Широкий коридор~
+@eng You are standing in the middle of a grand hallway. The walls are
 of the purest adamantite with gold trim. Mosaics line the walls.
+@rus Ты стоишь посреди величественного коридора, ведущего на север.
+Стены из чистейшего адамантита украшены золотом и мозаикой.
 ~
 0 AD inside
 D0
@@ -1176,7 +1215,7 @@ D1
 ~
 ~
 ~
-Z -1 5137
+ABZ -1 5137
 D5
 ~
 ~
@@ -1185,10 +1224,15 @@ D5
 Z 0 5135
 S
 #5137
-Mage's Barracks~
-The mage's living quarters is rather clean with the exception of a few
+@eng Mage's Barracks@rus Казармы магов~
+@eng The mage's living quarters is rather clean with the exception of a few
 used component containers. It is rather well decorated as well. Cots line the
 floor for the mages to sleep on. the only door is to the west.
+@rus В отличие от солдатских казарм, здесь вполне чисто, если не считать
+нескольких пустых бутылок и коробок - очевидно, из-под использованных
+компонент заклинаний. Если осмотреться, можно заметить даже скромные
+украшения вроде статуэток. Койки тянутся от стены к стене ровными ря-
+дами и единственная дверь ведет назад, в коридор.
 ~
 0 AD inside
 D3
@@ -1196,13 +1240,15 @@ D3
 ~
 ~
 ~
-Z -1 5136
+ABZ -1 5136
 S
 #5138
-Grand Hallway~
-You are walking down a grand hallway, heavily decorated with adamantite
+@eng Grand Hallway@rus Широкий коридор~
+@eng You are walking down a grand hallway, heavily decorated with adamantite
 and gold. To the north the hall goes down a flight of stairs while a door is
 too the west.
+@rus Роскошно отделанный адамантитом и золотом коридор ведет дальше,
+заканчиваясь ведущей вниз лестницей. В западной стене видна дверь.
 ~
 0 AD inside
 D2
@@ -1216,7 +1262,7 @@ D3
 ~
 ~
 ~
-Z -1 5139
+ABZ -1 5139
 D5
 ~
 ~
@@ -1225,10 +1271,14 @@ D5
 Z 0 5140
 S
 #5139
-Cleric's Barracks~
-The bed chamber is brightly decorated with spider shaped statues, murals
+@eng Cleric's Barracks@rus Казармы жрецов~
+@eng The bed chamber is brightly decorated with spider shaped statues, murals
 and the like. Large beds line the floor making this a comfortable room to live
 in.
+@rus Первое, что бросается в глаза - это обилие паукообразных статуй
+и украшающих стены фресок. Лишь вдоволь насмотревшись на эти деко-
+рации ты замечаешь стоящие рядами койки, напоминающие о том, что
+это все же спальня.. очень роскошная спальня.
 ~
 0 AD inside
 D1
@@ -1236,20 +1286,23 @@ D1
 ~
 ~
 ~
-Z -1 5138
+ABZ -1 5138
 S
 #5140
-Grand Stairway~
-You are climbing a set of obsidian stairs surrounded by adamantite walls.
+@eng Grand Stairway@rus Величественная лестница~
+@eng You are climbing a set of obsidian stairs surrounded by adamantite walls.
 To the north are a set of large golden doors.
+@rus $gn{Окруженный} адамантитовыми стенами, ты спускаешься по ступеням из
+обсидиана, чтобы обнаружить изумительные двустворчатые двери, сделанные
+целиком из золота. Что-то там, дальше?
 ~
 0 AD inside
 D0
 ~
-~
-~
-~
-Z -1 5141
+doors двери~
+@eng Doors@rus Двери~
+plural~
+ABZ -1 5141
 D4
 ~
 ~
@@ -1258,10 +1311,13 @@ D4
 Z 0 5138
 S
 #5141
-Main Chamber~
-This is the south side of a large auditorium used for services by the
+@eng Main Chamber@rus Основное помещение~
+@eng This is the south side of a large auditorium used for services by the
 drow priestesses. In the center is a large sacrificial pit and beyond that is
 an altar.
+@rus Ты находишься в южной части большого помещения, служащего жрицам
+для справления служб. В центре его находится жертвенный колодец, а
+северней его - алтарь.
 ~
 0 AD inside
 D0
@@ -1279,9 +1335,9 @@ Z 0 5142
 D2
 ~
 ~
-~
-~
-Z -1 5140
+@eng doors@rus двери~
+plural~
+ABZ -1 5140
 D3
 ~
 ~
@@ -1290,9 +1346,12 @@ D3
 Z 0 5144
 S
 #5142
-Eastern side of Chamber~
-You are on the eastern side of the chamber overlooking the pit. To the east
+@eng Eastern side of Chamber@rus У восточной стены зала~
+@eng You are on the eastern side of the chamber overlooking the pit. To the east
 is a door while to the north is an altar.
+@rus Ты находишься в восточной части основного помещения храма. По левую
+руку от тебя зияет отверстие жертвенного колодца, справа видна дверь,
+а впереди возвышается алтарь.
 ~
 0 AD inside
 D0
@@ -1315,18 +1374,26 @@ D2
 Z 0 5141
 S
 #5143
-Sacrificial Pit~
-A you climb down into the pit thousands of spiders cover you tearing your
+@eng Sacrificial Pit@rus Жертвенный колодец~
+@eng A you climb down into the pit thousands of spiders cover you tearing your
 body to shreds.
 Lloth thanks you for your sacrifice.
 You've fallen, and you can't get up!!!
+@rus Осторожно спустившись в колодец, ты обнаруживаешь, что выбраться
+назад уже не можешь.. впрочем, тебе недолго осталось переживать по
+этому поводу. Тысячи пауков покрывают тебя толстым шевелящимся слоем
+и каждый норовит отщипнуть кусочек живой плоти.
+Несомненно, Ллос оценила твое жертвоприношение.
 ~
 0 CD inside
 S
 #5144
-Western side of Chamber~
-You are on the western side of the main chamber overlooking a sacrificial
+@eng Western side of Chamber@rus У западной стены зала~
+@eng You are on the western side of the main chamber overlooking a sacrificial
 pit. To the north is an altar.
+@rus Ты находишься в западной части основного помещения храма. По правую
+руку от тебя зияет отверстие жертвенного колодца, а впереди возвышается
+алтарь.
 ~
 0 AD inside
 D0
@@ -1343,10 +1410,14 @@ D2
 Z 0 5141
 S
 #5145
-The Altar~
-You are standing in front of a highly and freshly bloodstained altar.
+@eng The Altar@rus Алтарь~
+@eng You are standing in front of a highly and freshly bloodstained altar.
 Engraved on the top of the altar is a giant spider with a human head. Looking
 down from the altar you see a large sacrificial pit.
+@rus Залитый свежей кровью алтарь - прямо перед тобой, изображение
+огромного паука с человеческой головой выгравировано на его повер-
+хности. Опустив взгляд ниже, ты видишь черный провал жертвенного
+колодца.
 ~
 0 AD inside
 D0
@@ -1381,9 +1452,11 @@ D5
 Z 0 5143
 S
 #5146
-Slave Cells~
-This is the main room to the cell chambers for the slaves to be
+@eng Slave Cells@rus Помещения для рабов~
+@eng This is the main room to the cell chambers for the slaves to be
 sacrificed. You notice there are no guards around.
+@rus Судя по всему, здесь держат предназначенных в жертву рабов.
+Ты замечаешь, что вокруг не видно ни одного стражника.
 ~
 0 AD inside
 D0
@@ -1400,10 +1473,14 @@ D3
 ABZ 0 5142
 S
 #5147
-Slave Pen~
-Rotten meat and breads lie about the floor while shackles hang from the
+@eng Slave Pen@rus Загон для рабов~
+@eng Rotten meat and breads lie about the floor while shackles hang from the
 walls. The room wreaks of death. You almost become nauseous and decide to leave
 the room since you were obviously too late to save the slave.
+@rus Куски гниющего мяса и хлеба разбросаны по полу, а со стен свисают
+тяжелые кандалы. Все здесь пропитано смертью и даже воздух пахнет ей.
+Тошнота подступает к горлу разбухшим комом и ты решаешь поскорей
+уйти - все равно спасать тут уже некого.
 ~
 0 AD inside
 D2
@@ -1447,9 +1524,12 @@ D1
 ABZ -1 5148
 S
 #5150
-Weaponsmaster's Chamber~
-This one person bedchamber is very elegant. The owner must be held in high
+@eng Weaponsmaster's Chamber@rus Комната наставника воинов~
+@eng This one person bedchamber is very elegant. The owner must be held in high
 to get this kind of treatment.
+@rus Эта одноместная спальня смотрится весьма элегантно. Очевидно,
+ее хозяин является далеко не последним человеком здесь, раз зас-
+лужил такое с собой обращение.
 ~
 0 AD inside
 D2
@@ -1457,7 +1537,7 @@ D2
 ~
 ~
 ~
-Z -1 5129
+ABZ -1 5129
 S
 #0
 
