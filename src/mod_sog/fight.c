@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.347 2002-01-08 20:21:41 tatyana Exp $
+ * $Id: fight.c,v 1.348 2002-01-23 13:12:22 avn Exp $
  */
 
 /***************************************************************************
@@ -243,25 +243,18 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		thac0 = -5 + (thac0 + 5) / 2;
 
 	thac0 -= GET_HITROLL(ch) * sk / 100;
-	thac0 += 5 * (100 - sk) / 100;
+	thac0 += (100 - sk) / 20;
 
 	if (!IS_SET(dam_flags, DAM_F_HIT)) {
-		if (IS_SKILL(dt, "backstab"))
-			thac0 -= 10 * (100 - get_skill(ch, "backstab"));
-		else if (IS_SKILL(dt, "dual backstab"))
-			thac0 -= 10 * (100 - get_skill(ch, "dual backstab"));
-		else if (IS_SKILL(dt, "cleave"))
-			thac0 -= 10 * (100 - get_skill(ch, "cleave"));
-		else if (IS_SKILL(dt, "impale"))
-			thac0 -= 10 * (100 - get_skill(ch, "impale"));
-		else if (IS_SKILL(dt, "ambush"))
-			thac0 -= 10 * (100 - get_skill(ch, "ambush"));
-		else if (IS_SKILL(dt, "vampiric bite"))
-			thac0 -= 10 * (100 - get_skill(ch, "vampiric bite"));
-		else if (IS_SKILL(dt, "charge"))
-			thac0 -= 10 * (100 - get_skill(ch, "charge"));
-		else if (IS_SKILL(dt, "head crush"))
-			thac0 -= 10 * (100 - get_skill(ch, "head crush"));
+		if (IS_SKILL(dt, "backstab")
+		||  IS_SKILL(dt, "dual backstab")
+		||  IS_SKILL(dt, "cleave")
+		||  IS_SKILL(dt, "impale")
+		||  IS_SKILL(dt, "ambush")
+		||  IS_SKILL(dt, "vampiric bite")
+		||  IS_SKILL(dt, "charge")
+		||  IS_SKILL(dt, "head crush"))
+			thac0 += (100 - get_skill(ch, dt)) / 10;
 	}
 
 	switch(dam_class) {
@@ -274,7 +267,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (victim_ac < -15)
 		victim_ac = (victim_ac + 15) / 5 - 15;
 
-	if (get_skill(victim, "armor use") > 70) {
+	if ((sk2 = get_skill(victim, "armor use"))
+	&&  number_percent() < sk2 * 7 / 10) {
 		check_improve(victim, "armor use", TRUE, 8);
 		victim_ac -= (victim->level) / 2;
 	}
@@ -307,7 +301,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	}
 
 	if (is_sn_affected(victim, "blur")
-	&&  !HAS_DETECT(victim, ID_TRUESEEING)
+	&&  !HAS_DETECT(ch, ID_TRUESEEING)
 	&&  (number_percent() < 50)) {
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
