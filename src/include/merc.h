@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.141 1999-02-10 14:57:36 fjoe Exp $
+ * $Id: merc.h,v 1.142 1999-02-11 09:45:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -791,6 +791,7 @@ enum {
 #define ITEM_QUEST		(cc)
 #define ITEM_ENCHANTED		(dd)	/* obj is enchanted */
 #define ITEM_CLAN		(ee)
+#define ITEM_QUIT_DROP		(ff)
 #define ITEM_OLDSTYLE		(zz)	/* obj is in oldstyle format */
 
 /*

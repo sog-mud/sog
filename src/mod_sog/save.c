@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.96 1999-02-09 19:31:05 fjoe Exp $
+ * $Id: save.c,v 1.97 1999-02-11 09:45:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -438,7 +438,9 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	}
 	
 	if (IS_SET(obj->extra_flags, ITEM_CLAN) 
-	    || IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)) return;
+	    || IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)
+	    || IS_SET(obj->pIndexData->extra_flags, ITEM_QUIT_DROP))
+		return;
 
 	fprintf(fp, "#O\n");
 	fprintf(fp, "Vnum %d\n", obj->pIndexData->vnum);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.111 1999-02-10 14:57:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.112 1999-02-11 09:45:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -1145,7 +1145,10 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		    can_see(ch,obj->carried_by) ? obj->carried_by->name
 					 	: "someone",
 		obj->wear_loc);
-	
+ 	buf_printf(output,
+		"Next: %s   Next_content: %s\n",
+		obj->next	== NULL	   ? "(none)" : mlstr_mval(obj->next->short_descr),
+		obj->next_content == NULL  ? "(none)" : mlstr_mval(obj->next_content->short_descr));
 	buf_printf(output, "Values: %d %d %d %d %d\n",
 		obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 		obj->value[4]);

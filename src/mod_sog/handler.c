@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.108 1999-02-11 05:38:23 fjoe Exp $
+ * $Id: handler.c,v 1.109 1999-02-11 09:45:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -1410,6 +1410,7 @@ void obj_from_char(OBJ_DATA *obj)
 
 	if ((ch = obj->carried_by) == NULL) {
 		bug("Obj_from_char: null ch.", 0);
+		log_printf("Name %s", obj->name);
 		return;
 	}
 
