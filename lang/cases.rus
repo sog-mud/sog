@@ -7025,6 +7025,14 @@ Form 6 -х~
 End
 
 #RULE
+Name ослеплен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name осел~
 BaseLen 2
 Form 1 -ла~
@@ -7682,6 +7690,17 @@ Form 3 -е~
 Form 4 -ми~
 Form 5 -х~
 Form 6 -х~
+End
+
+#RULE
+Name присоединился~
+BaseLen 12
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -ю~
 End
 
 #RULE
@@ -14385,6 +14404,14 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name сломал~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE

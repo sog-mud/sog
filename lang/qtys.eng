@@ -5,6 +5,11 @@ Form 1 note~
 End
 
 #RULE
+Name ticks~
+Form 1 tick~
+End
+
+#RULE
 Name gold coins~
 Form 1 gold coin~
 End

@@ -64,6 +64,15 @@ Form 4 серебряные монеты~
 End
 
 #RULE
+Name обьявлений~
+BaseLen 10
+Form 1 обьявление~
+Form 2 обьявления~
+Form 3 обьявления~
+Form 4 обьявления~
+End
+
+#RULE
 Name часов~
 BaseLen 3
 Form 1 -~
@@ -73,11 +82,32 @@ Form 4 -а~
 End
 
 #RULE
+Name непрочитанных~
+BaseLen 13
+Form 1 непрочитанное~
+End
+
+#RULE
+Name штук~
+BaseLen 4
+Form 1 -у~
+Form 2 -и~
+Form 3 -и~
+Form 4 -и~
+End
+
+#RULE
 Name золотых монет~
 Form 1 золотая монета~
 Form 2 золотые монеты~
 Form 3 золотые монеты~
 Form 4 золотые монеты~
+End
+
+#RULE
+Name твои~
+BaseLen 4
+Form 1 твой~
 End
 
 #RULE
@@ -95,6 +125,14 @@ Form 1 бифштекс~
 Form 2 бифштекса~
 Form 3 бифштекса~
 Form 4 бифштекса~
+End
+
+#RULE
+Name тиков~
+BaseLen 3
+Form 2 -а~
+Form 3 -а~
+Form 4 -а~
 End
 
 #$

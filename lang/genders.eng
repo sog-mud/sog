@@ -20,6 +20,14 @@ Form 3 theirs~
 End
 
 #RULE
+Name зашипел~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name boy~
 BaseLen 3
 Form 1 girl~
