@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.72 1998-08-18 09:50:13 fjoe Exp $
+ * $Id: merc.h,v 1.73 1998-08-18 17:18:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3040,28 +3040,24 @@ extern	const	int	rev_dir         [];          /* ROM OLC */
 extern	const	struct	spec_type	spec_table	[];
 extern	char		DEFAULT_PROMPT	[];
 
-/*
- * Global variables
- */
-
 struct flag
 {
-    char *name;
-    int bit;
-    bool settable;
+	char *	name;
+	int	bit;
+	bool	settable;
 };
 typedef struct flag FLAG; 
 
 struct	bit_type
 {
-	const	FLAG *	table;
+	const FLAG *	table;
 	char *		help;
 };
 
-bool is_stat(const FLAG *flag_table);
-bool is_settable(const FLAG *flag_table, int val);
-int flag_value(const FLAG *flag_table, const char *argument);
-char *flag_string(const FLAG *flag_table, int bits);
+int		is_stat		(const FLAG *flag_table);
+const FLAG *	flag_lookup	(const FLAG *flag_table, const char* name);
+int		flag_value	(const FLAG *flag_table, const char *argument);
+char *		flag_string	(const FLAG *flag_table, int bits);
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.58 1998-08-18 09:50:12 fjoe Exp $
+ * $Id: db.c,v 1.59 1998-08-18 17:18:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -525,10 +525,8 @@ void boot_db(void)
 		for (; ;) {
 			char *word;
 
-			if (fread_letter(fpArea) != '#') {
-				log("boot_db: # not found.");
-				exit(1);
-			}
+			if (fread_letter(fpArea) != '#')
+				db_error("boot_db", "# not found.");
 
 			word = fread_word(fpArea);
 

@@ -56,7 +56,7 @@ OLC_CMD_DATA aedit_table[] =
 	{ NULL }
 };
 
-static AREA_DATA *check_range(int lower, int upper);
+static AREA_DATA *check_range(AREA_DATA *pArea, int ilower, int iupper);
 
 /* Entry point for editing area_data. */
 void do_aedit(CHAR_DATA *ch, const char *argument)
@@ -341,14 +341,16 @@ VALIDATOR(validate_minvnum)
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 
-	if (pArea->max_vnum && min_vnum > pArea->max_vnum) {
-		send_to_char("AEdit: Min vnum must be less than max vnum.\n\r", ch);
-		return FALSE;
-	}
+	if (min_vnum && pArea->max_vnum) {
+		if (min_vnum > pArea->max_vnum) {
+			send_to_char("AEdit: Min vnum must be less than max vnum.\n\r", ch);
+			return FALSE;
+		}
 	
-	if (check_range(min_vnum, pArea->max_vnum)) {
-		send_to_char("AEdit: Range must include only this area.\n\r", ch);
-		return FALSE;
+		if (check_range(pArea, min_vnum, pArea->max_vnum)) {
+			send_to_char("AEdit: Range must include only this area.\n\r", ch);
+			return FALSE;
+		}
 	}
 	return TRUE;
 }
@@ -359,38 +361,40 @@ VALIDATOR(validate_maxvnum)
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 
-	if (pArea->min_vnum && max_vnum < pArea->min_vnum) {
-		send_to_char("AEdit: Max vnum must be greater than min vnum.\n\r", ch);
-		return FALSE;
-	}
+	if (pArea->min_vnum && max_vnum) {
+		if (max_vnum < pArea->min_vnum) {
+			send_to_char("AEdit: Max vnum must be greater than min vnum.\n\r", ch);
+			return FALSE;
+		}
 	
-	if (check_range(pArea->min_vnum, max_vnum)) {
-		send_to_char("AEdit: Range must include only this area.\n\r", ch);
-		return FALSE;
+		if (check_range(pArea, pArea->min_vnum, max_vnum)) {
+			send_to_char("AEdit: Range must include only this area.\n\r", ch);
+			return FALSE;
+		}
 	}
 	return TRUE;
 }
 	
 /* Local functions */
 
+#define IN_RANGE(i, l, u) ((l) <= (i) && (i) <= (u))
+
 /*****************************************************************************
  Name:		check_range(lower vnum, upper vnum)
  Purpose:	Ensures the range spans only one area.
  Called by:	aedit_vnum(olc_act.c).
  ****************************************************************************/
-static AREA_DATA *check_range(int lower, int upper)
+static AREA_DATA *check_range(AREA_DATA *this, int ilower, int iupper)
 {
 	AREA_DATA *pArea;
 
-	if (!lower || !upper)
-		return NULL;
-
 	for (pArea = area_first; pArea; pArea = pArea->next) {
-		/*
-		 * lower <= area <= upper
-		 */
-		if ((lower <= pArea->min_vnum && pArea->min_vnum <= upper)
-		||  (lower <= pArea->max_vnum && pArea->max_vnum <= upper))
+		if (pArea == this || !pArea->min_vnum || !pArea->max_vnum)
+			continue;
+		if (IN_RANGE(ilower, pArea->min_vnum, pArea->max_vnum)
+		||  IN_RANGE(iupper, pArea->min_vnum, pArea->max_vnum)
+		||  IN_RANGE(pArea->min_vnum, ilower, iupper)
+		||  IN_RANGE(pArea->max_vnum, ilower, iupper))
 			return pArea;
 	}
 	return NULL;

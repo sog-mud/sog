@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.52 1998-08-17 18:47:02 fjoe Exp $
+ * $Id: act_wiz.c,v 1.53 1998-08-18 17:18:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4656,5 +4656,165 @@ void reboot_muddy(void)
 		close_socket(d);
 	}
 	merc_down = TRUE;    
+}
+
+void do_flag_mob(CHAR_DATA *ch, const char *argument, CHAR_DATA *victim);
+
+void do_flag(CHAR_DATA *ch, const char *argument)
+{
+	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
+
+	if (arg1[0] == '\0') {
+		send_to_char("Syntax:\n\r",ch);
+		send_to_char("  flag mob  <name> <field> <flags>\n\r",ch);
+		send_to_char("  flag char <name> <field> <flags>\n\r",ch);
+		send_to_char("  flag obj  <name> <field> <flags>\n\r",ch);
+		send_to_char("  flag room <room> <field> <flags>\n\r",ch);
+		send_to_char("  mob flags : act, aff, off, imm, res, vuln, form, part, det, pra\n\r",ch);
+		send_to_char("  char flags: plr, comm, aff, imm, res, vuln\n\r",ch);
+		send_to_char("  obj flags : extra, wear, cont, gate, exit\n\r",ch);
+		send_to_char("  room flags: room\n\r",ch);
+		send_to_char("  +: add flag, -: remove flag, = set equal to\n\r",ch);
+		send_to_char("  otherwise flag toggles the flags listed.\n\r",ch);
+		return;
+	}
+
+	if (arg2[0] == '\0') {
+		send_to_char("What do you wish to set flags on?\n\r",ch);
+		return;
+	}
+
+	if (!str_prefix(arg1, "mob") || !str_prefix(arg1, "char")) {
+		CHAR_DATA *victim;
+		victim = get_char_world(ch, arg2);
+		if (victim == NULL) {
+			send_to_char("You can't find them.\n\r",ch);
+			return;
+		}
+		do_flag_mob(ch, argument, victim);
+	}
+	send_to_char("That's not an acceptable target.\n\r",ch);
+}
+
+void do_flag_mob(CHAR_DATA *ch, const char *argument, CHAR_DATA *victim)
+{
+	char arg1[MAX_INPUT_LENGTH];
+	const FLAG *flag_table;
+	int *flag;
+	int marked;
+
+	argument = one_argument(argument, arg1);
+
+	if (arg1[0] == '\0') {
+		send_to_char("You need to specify a flag to set.\n\r",ch);
+		return;
+	}
+
+	if (argument[0] == '\0') {
+		send_to_char("Which flags do you wish to change?\n\r",ch);
+		return;
+	}
+
+        /* select a flag to set */
+	if (!str_prefix(arg1, "act")) {
+		if (!IS_NPC(victim)) {
+			send_to_char("Use plr for PCs.\n\r",ch);
+			return;
+		}
+
+		flag = &victim->act;
+		flag_table = act_flags;
+	}
+	else if (!str_prefix(arg1, "plr")) {
+		if (IS_NPC(victim)) {
+			send_to_char("Use act for NPCs.\n\r",ch);
+			return;
+		}
+
+		flag = &victim->act;
+		flag_table = plr_flags;
+	}
+ 	else if (!str_prefix(arg1, "aff")) {
+		flag = &victim->affected_by;
+		flag_table = affect_flags;
+	}
+	else if (!str_prefix(arg1, "det")) {
+		flag = &victim->detection;
+		flag_table = detect_flags;
+	}
+  	else if (!str_prefix(arg1, "immunity")) {
+		flag = &victim->imm_flags;
+		flag_table = imm_flags;
+	}
+	else if (!str_prefix(arg1, "resist")) {
+		flag = &victim->res_flags;
+		flag_table = imm_flags;
+	}
+	else if (!str_prefix(arg1, "vuln")) {
+		flag = &victim->vuln_flags;
+		flag_table = imm_flags;
+	}
+	else if (!str_prefix(arg1, "form")) {
+		if (!IS_NPC(victim)) {
+	 		send_to_char("Form can't be set on PCs.\n\r",ch);
+			return;
+		}
+		flag = &victim->form;
+		flag_table = form_flags;
+	}
+	else if (!str_prefix(arg1, "parts")) {
+		if (!IS_NPC(victim)) {
+			send_to_char("Parts can't be set on PCs.\n\r",ch);
+			return;
+		}
+		flag = &victim->parts;
+		flag_table = part_flags;
+	}
+	else if (!str_prefix(arg1,"comm")) {
+		if (IS_NPC(victim)) {
+			send_to_char("Comm can't be set on NPCs.\n\r",ch);
+			return;
+		}
+		flag = &victim->comm;
+		flag_table = comm_flags;
+	}
+	else {
+		send_to_char("That's not an acceptable flag.\n\r",ch);
+		return;
+	}
+
+	victim->zone = NULL;
+	marked = 0;
+
+        /* mark the words */
+        for (; ;) {
+		char word[MAX_INPUT_LENGTH];
+		const FLAG *f;
+
+		argument = one_argument(argument, word);
+
+		if (word[0] == '\0')
+			break;
+
+		if ((f = flag_lookup(flag_table, word)) == NULL) {
+			char_printf(ch, "'%s': unknown flag.\n\r", word);
+			return;
+		}
+		if (!f->settable) {
+			char_printf(ch, "'%s': flag is not settable.\n\r",
+				    f->name);
+			continue;
+		}
+		SET_BIT(marked, f->bit);
+	}
+
+	if (marked) {
+		TOGGLE_BIT(*flag, marked);
+		char_printf(ch, "'%s': flag(s) toggled.\n\r",
+			    flag_string(flag_table, marked));
+	}
 }
 

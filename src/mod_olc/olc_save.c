@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.21 1998-08-18 09:50:18 fjoe Exp $
+ * $Id: olc_save.c,v 1.22 1998-08-18 17:18:27 fjoe Exp $
  */
 
 /**************************************************************************
@@ -205,10 +205,11 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     fprintf(fp, "%s ",		size_table[pMobIndex->size].name);
     fprintf(fp, "%s\n",	IS_NULLSTR(pMobIndex->material) ? pMobIndex->material : "unknown");
 
-    fprintf(fp, "A det %s\n", fwrite_flag(pMobIndex->detection &
-					  ~race_table[pMobIndex->race].det,
-					  buf));
+/* save detection flags */
+    if ((temp = pMobIndex->detection & ~race_table[pMobIndex->race].det))
+	fprintf(fp, "A det %s\n", fwrite_flag(temp, buf));
 
+/* save diffs */
     if ((temp = DIF(race_table[race].act,pMobIndex->act)))
      	fprintf(fp, "F act %s\n", fwrite_flag(temp, buf));
 
@@ -959,7 +960,7 @@ void save_area(AREA_DATA *pArea)
 	}
 
 	fprintf(fp, "#AREADATA\n");
-	fprintf(fp, "Name %s~\n",		pArea->name);
+	fprintf(fp, "Name %s~\n",	pArea->name);
 	fprintf(fp, "Builders %s~\n",	fix_string(pArea->builders));
 	fprintf(fp, "VNUMs %d %d\n",	pArea->min_vnum, pArea->max_vnum);
 	fprintf(fp, "Credits %s~\n",	pArea->credits);
@@ -972,16 +973,18 @@ void save_area(AREA_DATA *pArea)
 		fprintf(fp, "Flags %s\n",	fwrite_flag(flags, buf));
 	fprintf(fp, "End\n\n");
 
-	save_mobiles(fp, pArea);
-	save_objects(fp, pArea);
-	save_rooms(fp, pArea);
-	save_specials(fp, pArea);
-	save_resets(fp, pArea);
-	save_shops(fp, pArea);
-	save_olimits(fp, pArea);
-	save_mobprogs(fp, pArea);
-	save_practicers(fp, pArea);
-	save_omprogs(fp, pArea);
+	if (pArea->min_vnum && pArea->max_vnum) {
+		save_mobiles(fp, pArea);
+		save_objects(fp, pArea);
+		save_rooms(fp, pArea);
+		save_specials(fp, pArea);
+		save_resets(fp, pArea);
+		save_shops(fp, pArea);
+		save_olimits(fp, pArea);
+		save_mobprogs(fp, pArea);
+		save_practicers(fp, pArea);
+		save_omprogs(fp, pArea);
+	}
 	save_helps(fp, pArea);
 
 	fprintf(fp, "#$\n");

@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.10 1998-08-18 09:50:17 fjoe Exp $
+ * $Id: olc.h,v 1.11 1998-08-18 17:18:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,8 @@ bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, int*);
 bool olced_str		(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, char**);
+bool olced_str_text	(CHAR_DATA *ch, const char *argument,
+			 OLC_FUN *fun, char **pStr);
 bool olced_mlstr	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, mlstring**);
 bool olced_mlstrnl	(CHAR_DATA *ch, const char *argument,

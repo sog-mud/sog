@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.7 1998-08-18 09:50:18 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.8 1998-08-18 17:18:27 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -150,7 +150,7 @@ MPEDIT (mpedit_create)
 	AREA_DATA *ad;
 
 	if (IS_NULLSTR(argument) || value < 1) {
-		send_to_char("Sintaxis : mpedit create [vnum]\n\r", ch);
+		send_to_char("Syntax: mpedit create [vnum]\n\r", ch);
 		return FALSE;
 	}
 
@@ -198,14 +198,7 @@ MPEDIT(mpedit_code)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
-
-	if (argument[0] =='\0') {
-		string_append(ch, &mpcode->code);
-		return TRUE;
-	}
-
-	send_to_char("Syntax: code\n\r",ch);
-	return FALSE;
+	return olced_str_text(ch, argument, mpedit_code, &mpcode->code);
 }
 
 MPEDIT(mpedit_list)

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.12 1998-08-18 09:50:17 fjoe Exp $
+ * $Id: olc.c,v 1.13 1998-08-18 17:18:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -33,6 +33,7 @@
 #include "recycle.h"
 #include "magic.h"
 #include "resource.h"
+#include "string_edit.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -162,6 +163,23 @@ bool olced_str(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, char **pStr)
 	*pStr = str_dup(argument);
 	char_nputs(MSG_OK, ch);
 	return TRUE;
+}
+
+bool olced_str_text(CHAR_DATA *ch, const char *argument,
+		    OLC_FUN *fun, char **pStr)
+{
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (argument[0] =='\0') {
+		string_append(ch, pStr);
+		return TRUE;
+	}
+
+	char_printf(ch, "Syntax: %s\n\r", cmd->name);
+	return FALSE;
 }
 
 bool olced_mlstr(CHAR_DATA *ch, const char *argument,
@@ -301,10 +319,11 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 {
-	int val;
-	bool stat;
+	int stat;
 	OLC_CMD_DATA *cmd;
 	OLCED_DATA *olced;
+	const FLAG *f;
+	int marked;
 
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL
 	||  (cmd = olced_cmd_lookup(ch, fun, olced)) == NULL)
@@ -314,36 +333,72 @@ bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 		char_printf(ch, "%s: %s: Table of values undefined (report it to implementors).\n\r", olced->name, cmd->name);
 		return FALSE;
 	}
-		
+
+	if ((stat = is_stat(cmd->arg1)) < 0) {
+		char_printf(ch, "%s: %s: Unknown table of values (report it to implementors).\n\r", olced->name, cmd->name);
+		return FALSE;
+	}
+
 	if (!str_cmp(argument, "?")) {
 		show_flag_cmds(ch, cmd->arg1);
 		return FALSE;
 	}
 
-	val = flag_value(cmd->arg1, argument);
-	stat = is_stat(cmd->arg1);
-	if ((stat && val < 0)
-	||  (!stat && val == 0)) {
-		char_printf(ch, "Syntax: %s flag...\n\r"
-				"Type '%s ?' for a list of flags\n\r",
-				cmd->name, cmd->name);
-		return FALSE;
-	}
-
-	if (!is_settable(cmd->arg1, val)) {
-		char_printf(ch, "%s: Value is not settable.\n\r", olced->name);
-		return FALSE;
-	}
-
 	if (stat) {
-		*pInt = val;
-		char_printf(ch, "%s: Value set.\n\r", olced->name);
+		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
+			char_printf(ch, "Syntax: %s value\n\r"
+					"Type '%s ?' for a list of "
+					"acceptable values.\n\r",
+					cmd->name, cmd->name);
+			return FALSE;
+		}
+		if (!f->settable) {
+			char_printf(ch, "%s: %s: '%s': value is not settable.\n\r",
+				    olced->name, cmd->name, f->name);
+			return FALSE;
+		}
+		*pInt = f->bit;
+		char_printf(ch, "%s: %s: '%s': Ok.\n\r",
+			    olced->name, cmd->name, f->name);
+		return TRUE;
 	}
-	else {
-		TOGGLE_BIT(*pInt, val);
-		char_printf(ch, "%s: Flag toggled.\n\r", olced->name);
+
+	marked = 0;
+
+	/*
+	 * Accept multiple flags.
+	 */
+	for (;;) {
+		char word[MAX_INPUT_LENGTH];
+
+		argument = one_argument(argument, word);
+
+		if (word[0] == '\0')
+			break;
+
+		if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
+			char_printf(ch, "Syntax: %s flag...\n\r"
+					"Type '%s ?' for a list of "
+					"acceptable flags.\n\r",
+					cmd->name, cmd->name);
+			return FALSE;
+		}
+		if (!f->settable) {
+			char_printf(ch, "%s: %s: '%s': flag is not settable.\n\r",
+				    olced->name, cmd->name, f->name);
+			continue;
+		}
+		SET_BIT(marked, f->bit);
 	}
-	return TRUE;
+
+	if (marked) {
+		TOGGLE_BIT(*pInt, marked);
+		char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n\r",
+			    olced->name, cmd->name,
+			    flag_string(cmd->arg1, marked));
+		return TRUE;
+	}
+	return FALSE;
 }
 
 bool olced_dice(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *dice)
