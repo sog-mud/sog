@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.32 2002-06-27 17:21:04 fjoe Exp $
+ * $Id: mpc_c.c,v 1.33 2003-03-13 14:18:37 fjoe Exp $
  */
 
 #include <assert.h>
@@ -166,8 +166,7 @@ c_push_retval(mpcode_t *mpc)
 	int rv_tag;
 	int nargs;
 	int *argtype;
-	dynafun_args_t *args;
-	dynafun_args_t dummy_args;
+	dynafun_args_t args;
 	dynafun_data_t *d;
 
 	sym = sym_get(mpc, SYM_FUNC);
@@ -222,14 +221,13 @@ c_push_retval(mpcode_t *mpc)
 	/*
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
 	 */
-	if (nargs == 0)
-		args = &dummy_args;
-	else {
+	if (nargs) {
 		mpc_assert(mpc, __FUNCTION__,
 		    c_size(&mpc->data) >= (size_t) nargs,
 		    "data stack underflow");
-		args = (dynafun_args_t *) VARR_GET(
-		    &mpc->data, c_size(&mpc->data) - nargs);
+		memcpy(
+		    &args, VARR_GET(&mpc->data, c_size(&mpc->data) - nargs),
+		    nargs * sizeof (void *));
 		mpc->data.nused -= nargs;
 	}
 
@@ -257,7 +255,7 @@ c_push_retval(mpcode_t *mpc)
 		case MT_OBJ:
 		case MT_ROOM:
 			mpc_assert(mpc, __FUNCTION__,
-			    dynafun_check_arg(d, i, ((void **) args)[i]),
+			    dynafun_check_arg(d, i, ((void **) &args)[i]),
 			    "dynafun_arg_check failed");
 			break;
 
@@ -274,9 +272,9 @@ c_push_retval(mpcode_t *mpc)
 
 	if (rv_tag == MT_VOID) {
 		vo.s = NULL;
-		d->fun(*args);
+		d->fun(args);
 	} else
-		vo.s = d->fun(*args);
+		vo.s = d->fun(args);
 
 	/*
 	 * push the result
@@ -404,7 +402,7 @@ c_foreach(mpcode_t *mpc)
 	iterdata_t *id;
 	sym_t *sym;
 	vo_t v;
-	dynafun_args_t *args;
+	dynafun_args_t args;
 	size_t nargs;
 
 	TRACE((LOG_INFO, __FUNCTION__));
@@ -438,12 +436,13 @@ c_foreach(mpcode_t *mpc)
 	nargs = id->iter->d.nargs + 2;
 	mpc_assert(mpc, __FUNCTION__,
 	    c_size(&mpc->data) >= nargs, "data stack underflow");
-	args = (dynafun_args_t *) VARR_GET(
-	    &mpc->data, c_size(&mpc->data) - nargs);
+	memcpy(
+	    &args, VARR_GET(&mpc->data, c_size(&mpc->data) - nargs),
+	    nargs * sizeof (void *));
 	mpc->data.nused -= nargs;
 
 	/* XXX check argtypes */
-	id->iter->init(*args);
+	id->iter->init(args);
 
 	/* execute loop body */
 	if (id->iter->cond(id, &sym->s.var.data))
