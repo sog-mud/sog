@@ -89,20 +89,6 @@ B 0 0 0 ABHKL 0 0
 EF
 stand stand none 0
 0 0 medium unknown
-r fire -33
-r cold -33
-r lightning -33
-r acid -33
-r poison -33
-r negative -33
-r holy -33
-r energy -33
-r mental -33
-r disease -33
-r light -33
-r harm -33
-r charm -33
-r sound -33
 #16006
 beholder~
 The beholder~
@@ -119,20 +105,6 @@ BC 0 J 0 ABHKL -1000 0
 EF
 stand stand none 0
 0 0 medium unknown
-r fire -33
-r cold -33
-r lightning -33
-r acid -33
-r poison -33
-r negative -33
-r holy -33
-r energy -33
-r mental -33
-r disease -33
-r light -33
-r harm -33
-r charm -33
-r sound -33
 #16007
 svirfneblin deep gnome~
 The svirfneblin~
@@ -148,9 +120,6 @@ C 0 0 0 L -500 0
 EIKR
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16008
 drow trader~
 The drow trader~
@@ -166,9 +135,6 @@ dark-elf~
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16009
 dwarf duergar~
 The duergar~
@@ -184,9 +150,6 @@ duergar~
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16010
 necromancer mage~
 The necromancer~
@@ -201,9 +164,6 @@ B 0 0 0 A -150 0
 EIK
 stand stand female 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16011
 behir~
 The behir~
@@ -221,8 +181,7 @@ B 0 0 0 AH -100 0
 EF
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison 999
+r poison 100
 #16012
 fighter~
 The fighter~
@@ -270,8 +229,6 @@ lizard~
 EIKR
 stand stand male 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #16015
 purple worm~
 The purple worm~
@@ -368,7 +325,6 @@ BF 0 J 0 H -750 0
 F
 stand stand none 0
 0 0 medium unknown
-r lightning -100
 #16021
 barkeep bartender~
 The Barkeep~
@@ -400,9 +356,6 @@ G 0 0 0 L -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16023
 patron drow~
 The drow patron~
@@ -416,9 +369,6 @@ B 0 0 0 A -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16024
 patron human~
 The human patron~
@@ -588,23 +538,6 @@ B 0 0 0 AH 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #16035
 stone golem~
 The stone golem~
@@ -620,23 +553,6 @@ B 0 0 0 AH 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #16036
 human warlord itreres~
 Itreres~
@@ -684,10 +600,6 @@ CF 0 0 0 H -1000 0
 EKNU
 stand stand none 0
 0 0 medium unknown
-r fire -100
-r cold -50
-r lightning -100
-r poison -100
 #16039
 servant~
 The servant~
@@ -820,14 +732,6 @@ B 0 0 0 0 -900 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #16048
 gnome svirfnebli patron~
 The svirfneblin patron~
@@ -841,9 +745,6 @@ B 0 0 0 0 -750 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16049
 inn keeper~
 The inn keeper~
@@ -875,9 +776,6 @@ B 0 0 0 0 -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16051
 gnome Geg~
 Geg~
@@ -893,9 +791,6 @@ B 0 0 0 0 -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16052
 drow drevlin warrior~
 Drevlin~
@@ -910,9 +805,6 @@ BT 0 0 0 0 -999 0
 EFIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16053
 half-orc~
 Jarre~
@@ -929,14 +821,6 @@ BT 0 0 0 0 -999 0
 EFIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #16054
 serving wench~
 The serving wench~
@@ -1009,14 +893,6 @@ BC 0 0 0 0 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #16059
 goblin slave~
 The goblin slave~
@@ -1030,19 +906,6 @@ BC 0 0 0 0 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #16060
 male human slave~
 A male human slave~
@@ -1082,19 +945,6 @@ BCT 0 0 0 0 0 0
 0
 stand stand male 0
 EIK 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #16063
 elf slave~
 The elven slave~
@@ -1107,8 +957,6 @@ BC 0 0 0 0 0 0
 EIKR
 stand stand male 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #16064
 dwarf slave~
 The dwarven slave~
@@ -1123,9 +971,6 @@ BC 0 0 0 0 0 0
 EIKR
 stand stand male 0
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #16065
 bar tender~
 The Bar Tender~
@@ -1154,9 +999,6 @@ B 0 0 0 A -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16067
 drow warrior~
 Thespan~
@@ -1171,9 +1013,6 @@ BT 0 0 0 0 -600 0
 EIJK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16068
 drow thief~
 Endolar~
@@ -1187,9 +1026,6 @@ BS 0 0 0 0 -600 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16069
 gnome mage~
 Snaromba~
@@ -1205,9 +1041,6 @@ BR 0 0 0 A -600 0
 EIK
 stand stand female 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16070
 gnome thief~
 Anmictes~
@@ -1224,9 +1057,6 @@ BS 0 0 0 0 -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16071
 duergar warrior~
 Emba~
@@ -1244,9 +1074,6 @@ BT 0 0 0 0 -800 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16072
 drow thief~
 Shillikif~
@@ -1263,9 +1090,6 @@ BS 0 0 0 0 -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16073
 drow Yie'Stei~
 Yie'Stei~
@@ -1281,9 +1105,6 @@ BRe 0 0 0 A 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16074
 drow zae'tres~
 Zae'tres~
@@ -1300,9 +1121,6 @@ BTe 0 0 0 A 0 0
 CDEFIJK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16075
 duergar Raesarnt~
 Raesarnt~
@@ -1319,9 +1137,6 @@ BTe 0 0 0 A 0 0
 CDEFIJK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16076
 satori human~
 Satori~
@@ -1354,9 +1169,6 @@ Be 0 0 0 A 0 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16078
 svirfneblin gnome~
 The svirfneblin~
@@ -1372,9 +1184,6 @@ G 0 0 0 0 -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16079
 svirfneblin dignitary~
 The svirfneblin dignitary~
@@ -1390,9 +1199,6 @@ G 0 0 0 0 -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16080
 svirfneblin caretaker~
 The caretaker~
@@ -1409,9 +1215,6 @@ B 0 0 0 0 -700 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16081
 footpad~
 The footpad~
@@ -1426,9 +1229,6 @@ dark-elf~
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16082
 cutpurse~
 The cutpurse~
@@ -1444,9 +1244,6 @@ H 0 0 B 0 -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16083
 filcher~
 The filcher~
@@ -1462,9 +1259,6 @@ H 0 0 0 A -600 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16084
 rogue~
 The rogue~
@@ -1480,9 +1274,6 @@ HS 0 0 B A -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16085
 sharper~
 The sharper~
@@ -1498,9 +1289,6 @@ BFS 0 0 0 A -500 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16086
 magsman thief~
 The magsman~
@@ -1516,9 +1304,6 @@ BS 0 0 0 A -500 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16087
 master thief~
 The master thief~
@@ -1534,9 +1319,6 @@ BS 0 0 0 ABL -700 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16088
 head thief~
 The head thief~
@@ -1552,9 +1334,6 @@ BS 0 0 0 ABL -1000 0
 EFIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16089
 mage~
 Meliadus~
@@ -1569,9 +1348,6 @@ BR 0 J 0 ABL -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16090
 trainer~
 The trainer~
@@ -1587,9 +1363,6 @@ BS D N 0 A 0 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16091
 bravo assassin~
 The bravo~
@@ -1620,9 +1393,6 @@ G 0 0 B A -999 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16093
 thug assassin~
 The thug~
@@ -1755,7 +1525,6 @@ G 0 0 0 BH -500 0
 EIK
 stand stand none 0
 0 0 medium unknown
-r light 50
 #16102
 skyzorr'n~
 The skyzorr'n~
@@ -1806,23 +1575,6 @@ G 0 H 0 H 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #16105
 duergar merchant~
 Gulthac~
@@ -1838,9 +1590,6 @@ GT 0 0 0 0 -800 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16106
 mage eurandus~
 Eurandus~
@@ -1941,14 +1690,6 @@ BS 0 0 0 0 -500 0
 EIKN
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #16112
 drow mage~
 Sabrakarn~
@@ -1964,9 +1705,6 @@ BR 0 0 0 0 -700 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16113
 svirfneblin fighter~
 Hangharid~
@@ -1982,9 +1720,6 @@ BT 0 0 0 0 -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 25
-r poison -20
-r disease -20
 #16114
 drow cleric~
 Sifrim~
@@ -1998,9 +1733,6 @@ BQ 0 0 0 0 -800 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #16115
 duergar fighter~
 Wismarel~
@@ -2015,9 +1747,6 @@ BT 0 0 0 0 -500 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r poison -25
-r disease -25
 #16116
 human mage~
 Methuen~
@@ -2133,10 +1862,6 @@ BGT 0 N 0 0 -999 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r fire -100
-r cold -50
-r lightning -100
-r poison -100
 #16124
 noble cambion~
 A noble cambion~
@@ -2153,10 +1878,6 @@ BG 0 N 0 0 -999 0
 EIK
 stand stand male 0
 0 0 medium unknown
-r fire -100
-r cold -50
-r lightning -100
-r poison -100
 #16125
 clan head~
 Irmugar~
@@ -2188,10 +1909,6 @@ BF 0 0 0 0 -999 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-r fire -100
-r cold -50
-r lightning -100
-r poison -100
 #16127
 eye of fear and flame~
 An eye of fear and flame~
@@ -2236,8 +1953,7 @@ BG 0 0 0 H -700 0
 EF
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison 999
+r poison 100
 #0
 
 #OBJECTS

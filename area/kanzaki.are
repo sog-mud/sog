@@ -33,23 +33,6 @@ BGJTe 0 HV 0 ABH 0 0
 ACDEFHKOPQT
 stand stand none 0
 0 0 gargantuan unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 83
-r cold 83
-r lightning 83
-r acid 83
-r poison 999
-r negative 83
-r holy 83
-r energy 83
-r mental 83
-r disease 999
-r light 83
-r harm 83
-r charm 83
-r sound 83
 #47100
 duck утка~
 @eng a duck@rus ~~утка~~~
@@ -103,8 +86,6 @@ FHM
 stand stand neutral 0
 D 0 tiny unknown
 g @eng neutral@rus female~
-r cold 50
-r poison -33
 #47103
 grasshopper кузнечик~
 @eng a grasshopper@rus ~~кузнечик~~~
@@ -155,10 +136,6 @@ FIJKN
 stand stand male 500
 0 0 medium unknown
 F for HM
-r cold 33
-r poison 33
-r mental 33
-r disease 33
 #47106
 teacher учитель пожилой человек man наставник~
 @eng the old teacher@rus ~~пожилой~~ ~~наставник~~~
@@ -179,12 +156,6 @@ AFHKNQX
 stand stand male 1000
 0 0 medium unknown
 F for HM
-r fire 33
-r cold 33
-r poison 33
-r mental 33
-r disease 33
-r charm 33
 #47107
 deer олень young молодой~
 @eng a young deer@rus ~~молодой~~ ~~олень~~~
@@ -210,9 +181,6 @@ FHIJO
 stand stand neutral 0
 AGV ACDFW large unknown
 g @eng neutral@rus male~
-r cold 33
-r mental 33
-r charm 33
 #47108
 макака обезьяна лохматая ape shaggy~
 @eng a shaggy ape@rus ~~лохматая~~ ~~макака~~~
@@ -234,10 +202,6 @@ FHIJNU
 stand stand neutral 0
 AGHV ABCDEF medium unknown
 g @eng neutral@rus female~
-r poison 33
-r mental 33
-r disease 33
-r charm 33
 #47109
 demon one eyed four одноглазый четырехрукий демон armed когти claws~
 @eng one-eyed and four-armed demon@rus ~~одноглазый~~ ~~четырехрукий~~ ~~демон~~~
@@ -275,15 +239,6 @@ CFJT 0 CJOVc B AB -1000 0
 ADEFHO
 stand stand male 0
 AM ABCFKU unknown unknown
-r fire 50
-r acid 50
-r poison 50
-r negative 999
-r holy -50
-r mental 999
-r disease 50
-r light -50
-r charm 999
 #47110
 dragon storn дракон синий blue~
 @eng the great Blue Dragon@rus ~~Великий~~ ~~синий~~ ~~дракон~~~
@@ -319,17 +274,6 @@ ADFHOZ
 stand stand male 50000
 0 0 giant unknown
 g @eng male@rus male~
-r bash -33
-r pierce 17
-r slash 33
-r fire -33
-r cold 17
-r lightning 50
-r acid 33
-r poison 50
-r mental 50
-r disease 50
-r charm 999
 #47111
 saki саки хозяин owner~
 @eng Saki@rus Саки~
@@ -349,23 +293,6 @@ FHIN
 stand stand male 5000
 0 0 medium unknown
 F for HM
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
 #47112
 visitor посетитель человек мужчина human man~
 @eng a visitor@rus ~~посетитель~~~
@@ -384,9 +311,6 @@ FHINU
 sit sit none 10000
 0 0 medium unknown
 F for HM
-r poison 33
-r mental 33
-r disease 33
 #47113
 shopkeeper продавец парень guy salesman~
 @eng the salesman@rus ~~продавец~~~
@@ -407,11 +331,6 @@ CEFHIJN
 stand stand none 15000
 0 0 medium unknown
 F for HM
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r charm 999
 #47114
 blacksmith man кузнец~
 @eng blacksmith@rus ~~кузнец~~~
@@ -434,9 +353,6 @@ DEFHOZ
 stand stand male 0
 0 0 large unknown
 F for HM
-r fire 33
-r cold 33
-r mental 33
 #47115
 servant слуга парень~
 @eng a servant boy@rus ~~слуга~~~
@@ -518,7 +434,6 @@ FH
 stand stand female 5000
 0 0 medium unknown
 F for HM
-r mental 33
 #47119
 man Saburo kanzaki мужчина Сабуро~
 @eng Saburo@rus Сабуро~
@@ -540,22 +455,6 @@ EFHKNQ
 stand stand male 20000
 0 0 medium unknown
 F for HM
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r sound 33
 #47120
 Mori Мори woman женщина~
 @eng Mori@rus Мори~
@@ -743,8 +642,6 @@ B 0 Vc B BH -500 0
 ACFH
 stand stand neutral 0
 0 Q huge unknown
-r fire 50
-r cold 50
 #47129
 guard temple храмовый страж~
 @eng temple guard@rus ~~храмовый~~ ~~страж~~~
@@ -770,9 +667,6 @@ EFHKQUX
 stand stand male 5000
 0 0 medium unknown
 F for H
-r negative 33
-r mental 33
-r charm 999
 #47130
 captain temple guard начальник страж man человек~
 @eng captain of the guard@rus ~~начальник~~ ~~стражи~~~
@@ -800,9 +694,6 @@ AEFHKQX
 stand stand male 20000
 0 0 medium unknown
 F for H
-r negative 33
-r mental 33
-r charm 999
 #47131
 priest high man священник человек Такеда Takeda~
 @eng the priest Takeda@rus ~~священник~~ ~~Такеда~~~
@@ -825,8 +716,6 @@ FH
 stand stand male 10000
 0 0 medium unknown
 F for H
-r mental 999
-r charm 999
 #47132
 figure silent Tori фигура безмолвная Тори человек human assassin~
 @eng a darkly clad assassin@rus ~~убийца~~ в черном~
@@ -851,15 +740,6 @@ AEFHKN
 stand stand male 0
 0 0 medium unknown
 F for H
-r bash 20
-r pierce 20
-r slash 20
-r fire 33
-r cold 33
-r poison 50
-r mental 999
-r disease 50
-r charm 999
 #47133
 man Тоширо человек Toshiro monk монах~
 @eng brother Toshiro@rus ~~брат~~ Тоширо~
@@ -890,23 +770,6 @@ ADEFKQ
 stand stand male 0
 0 0 medium unknown
 F for H
-r bash 40
-r pierce 40
-r slash 40
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 50
-r holy 33
-r energy 33
-r mental 999
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
 #47151
 worshipper человек молящийся посетитель~
 @eng a worshipper@rus ~~молящийся~~ ~~человек~~~

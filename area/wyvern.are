@@ -190,23 +190,6 @@ BG 0 0 0 A 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1616
 ancient wyvern~
 the ancient wyvern~

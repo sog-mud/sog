@@ -29,8 +29,6 @@ stand stand female 11000
 0 0 medium unknown
 r lightning 33
 r acid 33
-r negative 10
-r charm -33
 #11801
 drakyri deriki noriek deiayan lord~
 Noriek~
@@ -49,8 +47,6 @@ stand stand male 18000
 0 0 medium unknown
 r pierce -50
 r lightning 33
-r negative 10
-r charm -33
 #11802
 drakyri deriki dyrli sh'aya lady~
 Dyrli~
@@ -69,8 +65,6 @@ stand stand female 4000
 0 0 medium unknown
 r fire -50
 r cold 33
-r negative 10
-r charm -33
 #11803
 drakyri deriki roweni sequas~
 Roweni~
@@ -88,8 +82,6 @@ stand stand female 2300
 0 0 medium unknown
 r fire -50
 r cold 33
-r negative 10
-r charm -33
 #11804
 drakyri deriki xanil treye man~
 Xanil~
@@ -106,8 +98,6 @@ FG
 stand stand male 2500
 0 0 medium unknown
 r acid 33
-r negative 10
-r charm -33
 #11805
 drakyri deriki tyrena na'deia lady~
 Tyrena~
@@ -126,8 +116,6 @@ FGI
 stand stand female 6300
 0 0 medium unknown
 r lightning -50
-r negative 10
-r charm -33
 #11806
 drakyri deriki nalyss ira'deia girl~
 Nalyss~
@@ -143,8 +131,6 @@ BCGR 0 TV 0 AB 0 0
 FGJ
 stand stand female 5700
 0 0 medium unknown
-r negative 10
-r charm -33
 #11807
 drakyri deriki daeman ira'deian boy~
 Daeman~
@@ -160,8 +146,6 @@ BGR 0 T A AB 0 0
 FGHN
 stand stand male 6000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11808
 drakyri deriki ykandres ira'deian youth~
 Ykandres~
@@ -180,8 +164,6 @@ stand stand male 7500
 0 0 medium unknown
 r lightning 33
 r acid -50
-r negative 10
-r charm -33
 #11809
 zeion snow owl~
 Zeion~
@@ -211,8 +193,6 @@ BCGR 0 T 0 A 0 0
 DFG
 stand stand male 1500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11811
 mage training~
 a mage in training~
@@ -230,8 +210,6 @@ CGR 0 T 0 AB 0 0
 FG
 stand stand either 4000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11812
 writhing form ghostly~
 a writhing form~
@@ -247,11 +225,7 @@ BGR 0 ITU A H 0 0
 DFG
 stand stand none 0
 HL 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r negative -50
-r holy -50
 r energy -50
 #11813
 glyph warding~
@@ -291,9 +265,9 @@ BGT 0 HN 0 K 1000 0
 CDEIK
 stand stand male 20000
 0 0 medium unknown
-r negative -40
-r holy 999
-r charm -33
+r negative -50
+r holy 100
+r silver 33
 #11815
 drakyri treniste denylis deiaya lady~
 Denylis~
@@ -309,9 +283,8 @@ BGQ 0 HNT 0 K 1000 0
 DEF
 stand stand female 15000
 0 0 medium unknown
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11816
 drakyri treniste kaele sh'ayan~
 Kaele~
@@ -327,9 +300,8 @@ CGT 0 HNT 0 K 1000 0
 CDEFK
 stand stand male 12500
 0 0 medium unknown
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11817
 drakyri treniste rexena sequas female~
 Rexena~
@@ -348,9 +320,8 @@ stand stand female 6500
 0 0 medium unknown
 r fire -50
 r cold 33
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11818
 drakyri treniste deis treye male~
 Deis~
@@ -366,9 +337,8 @@ GQ 0 NT 0 K 900 0
 EFI
 stand stand male 5400
 0 0 medium unknown
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11819
 drakyri treniste lyrene na'deia girl~
 Lyrene~
@@ -387,9 +357,8 @@ stand stand female 8500
 0 0 medium unknown
 r cold -50
 r lightning 33
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11820
 drakyri treniste josreke ira'deian youth~
 Josreke~
@@ -407,9 +376,8 @@ stand stand male 4550
 0 0 medium unknown
 r fire 33
 r cold -50
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11821
 drakyri treniste rodwen ira'deia girl~
 Rodwen~
@@ -426,9 +394,8 @@ GT 0 NT 0 K 920 0
 EFHIK
 stand stand female 4500
 0 0 medium unknown
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11822
 drakyri white paladin~
 a white clad paladin~
@@ -443,9 +410,8 @@ BGT 0 NT 0 K 950 0
 CDFIK
 stand stand either 2500
 0 0 medium unknown
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #11823
 drakyri reykaris rachal deia lady~
 Rachal~
@@ -467,9 +433,8 @@ stand stand female 18550
 0 0 medium unknown
 r fire 33
 r cold -50
-r negative 999
+r negative 100
 r holy -50
-r charm -33
 #11824
 drakyri reykaris toryan deiayan man~
 Toryan~
@@ -485,9 +450,8 @@ BFGT 0 JOT 0 M -1000 0
 CDFK
 stand stand male 19500
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy -50
-r charm -33
 #11825
 drakyri reykaris janalis sh'aya lady~
 Janalis~
@@ -504,9 +468,8 @@ FG 0 JOT 0 M -990 0
 EFK
 stand stand female 13500
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy -50
-r charm -33
 #11826
 drakyri reykaris dreyva sequas~
 Dreyva~
@@ -521,9 +484,8 @@ FG 0 OT 0 M -975 0
 FIK
 stand stand female 9500
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy -50
-r charm -33
 #11827
 drakyri reykaris delyrus treye man~
 Delyrus~
@@ -540,10 +502,9 @@ FI
 stand stand male 6550
 0 0 medium unknown
 r cold 33
-r negative 43
+r negative 33
 r holy -50
 r energy -50
-r charm -33
 #11828
 drakyri reykaris kranali na'deian~
 Kranali~
@@ -561,10 +522,9 @@ stand stand male 12350
 0 0 medium unknown
 r fire 33
 r cold -50
-r negative 43
+r negative 33
 r holy -50
 r mental -50
-r charm -33
 #11829
 drakyri reykaris sorina ira'deia child~
 Sorina~
@@ -582,8 +542,6 @@ CG 0 TV 0 M -500 0
 FJ
 stand stand female 1000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11830
 drakyri reykaris loryn ira'deia girl~
 Loryn~
@@ -600,9 +558,8 @@ BCFGS 0 TV B BM -900 0
 BEFJK
 stand stand female 7550
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy -50
-r charm -33
 #11831
 drakyri reykaris chake ira'deian man~
 Chake~
@@ -617,9 +574,8 @@ BCFG 0 OT 0 M -900 0
 EFK
 stand stand male 8550
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy -50
-r charm -33
 #11832
 hellish guardian~
 the hellish guardian~
@@ -670,22 +626,9 @@ BCFG 0 T B HM -855 0
 DEFJ
 stand stand none 0
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r negative 33
+r weapon 33
+r magic -50
 #11835
 wax statue necromancer black figure~
 the necromancer~
@@ -734,15 +677,11 @@ BG 0 c 0 HL -900 0
 DEFGK
 stand stand male 10300
 ACH ABCDEFJKQUV large unknown
-r bash 20
-r pierce 10
-r slash 10
 r negative 33
 r holy -50
-r energy -50
-r mental -100
 r disease 33
 r light -50
+r silver -50
 #11838
 drakyri myrxes jaena deia eyes~
 Jaena~
@@ -760,8 +699,6 @@ BFGS 0 HTV B B 0 0
 BEFJK
 stand stand female 22550
 0 0 medium unknown
-r negative 10
-r charm -33
 #11839
 drakyri myrxes neraikis deiayan form~
 Neraikis~
@@ -777,8 +714,6 @@ BFGS 0 HT B B 0 0
 BEFJ
 stand stand male 22000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11840
 drakyri myrxes katyre sh'aya figure~
 Katyre~
@@ -794,8 +729,6 @@ CGS 0 HT B B 0 0
 BEFJ
 stand stand female 19500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11841
 drakyri myrxes ryxis sequen~
 Ryxis~
@@ -812,8 +745,6 @@ CGS 0 TV B B 0 0
 BEFJ
 stand stand male 14250
 0 0 medium unknown
-r negative 10
-r charm -33
 #11842
 drakyri myrxes gydeas treye form~
 Gydeas~
@@ -830,8 +761,6 @@ CGS 0 T B B 0 0
 BEFJ
 stand stand male 5250
 0 0 medium unknown
-r negative 10
-r charm -33
 #11843
 drakyri myrxes dyraena na'deia lady~
 Dyraena~
@@ -849,8 +778,6 @@ BCFGS 0 HT B B 0 0
 BEFJK
 stand stand female 8750
 0 0 medium unknown
-r negative 10
-r charm -33
 #11844
 drakyri myrxes nyxi ira'deia girl~
 Nyxi~
@@ -866,8 +793,6 @@ BCGS 0 T B B 0 0
 BEFHJ
 stand stand female 5560
 0 0 medium unknown
-r negative 10
-r charm -33
 #11845
 drakyri myrxes delise ira'deia~
 Delise~
@@ -881,8 +806,6 @@ BCGS 0 T B B 0 0
 BEFJ
 stand stand female 5500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11846
 black panther~
 a black panther~
@@ -940,8 +863,6 @@ CFGS 0 T B B 0 0
 BEFJ
 stand stand male 5500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11850
 hunter arrow~
 the hunter~
@@ -956,8 +877,6 @@ CFG 0 T B B 0 0
 EFJK
 stand stand female 7000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11851
 drakyri xaek dyana deia lady~
 Dyana~
@@ -976,8 +895,6 @@ BGT 0 HT 0 0 0 0
 CDEFIK
 stand stand female 19500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11852
 drakyri xaek ryke deiayan lord~
 Ryke~
@@ -993,8 +910,6 @@ BGT 0 HT 0 0 0 0
 CDEK
 stand stand male 18000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11853
 drakyri xaek nyxil sh'aya~
 Nyxil~
@@ -1012,8 +927,6 @@ GT 0 T 0 0 0 0
 CDEHIK
 stand stand female 4500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11854
 drakyri xaek rakael sequas female warrior~
 Rakael~
@@ -1030,8 +943,6 @@ GT 0 T 0 0 0 0
 EFHIK
 stand stand female 7500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11855
 drakyri xaek yeven treye man~
 Yeven~
@@ -1048,8 +959,6 @@ GT 0 T 0 0 0 0
 CDIK
 stand stand male 2100
 0 0 medium unknown
-r negative 10
-r charm -33
 #11856
 drakyri xaek versant na'deian boy~
 Versant~
@@ -1066,8 +975,6 @@ BGT 0 0 0 0 0 0
 CDEIK
 stand stand male 6000
 0 0 large unknown
-r negative 10
-r charm -33
 #11857
 drakyri xaek saera ira'deia girl~
 Saera~
@@ -1083,8 +990,6 @@ BGT 0 0 0 0 0 0
 CEFIK
 stand stand female 3400
 0 0 medium unknown
-r negative 10
-r charm -33
 #11858
 grey lion~
 the grey lion~
@@ -1134,8 +1039,6 @@ BT 0 0 0 0 0 0
 CDIK
 stand stand either 2500
 0 0 large unknown
-r negative 10
-r charm -33
 #11861
 drakyri warrior training~
 a warrior in training~
@@ -1150,8 +1053,6 @@ BGT 0 0 0 0 0 0
 EFK
 stand stand either 1220
 0 0 medium unknown
-r negative 10
-r charm -33
 #11862
 drakyri sparring warrior~
 a sparring warrior~
@@ -1165,8 +1066,6 @@ GT 0 0 0 0 0 0
 EFIK
 stand stand either 1400
 0 0 medium unknown
-r negative 10
-r charm -33
 #11863
 drakyri noriva yxanes deian man~
 Yxanes~
@@ -1185,10 +1084,9 @@ FIK
 stand stand male 21500
 0 0 medium unknown
 r fire -50
-r negative 43
+r negative 33
 r holy 33
 r energy -50
-r charm -33
 #11864
 drakyri noriva nerael deiaya lady~
 Nerael~
@@ -1207,10 +1105,9 @@ stand stand female 18500
 0 0 medium unknown
 r fire 33
 r cold -50
-r negative 43
+r negative 33
 r holy 33
 r energy -50
-r charm -33
 #11865
 drakyri noriva jorinne sh'aya woman~
 Jorinne~
@@ -1228,10 +1125,8 @@ stand stand female 14000
 r fire 33
 r cold 33
 r acid -50
-r negative 10
 r energy -50
 r mental 33
-r charm -33
 #11866
 drakyri noriva lerylke sequen paladin~
 Lerylke~
@@ -1249,9 +1144,8 @@ CDEK
 rest stand male 8000
 0 0 medium unknown
 r lightning -50
-r negative 43
+r negative 33
 r holy 33
-r charm -33
 #11867
 drakyri noriva nerr treye male~
 Nerr~
@@ -1267,8 +1161,6 @@ BGQ 0 T 0 AB 0 0
 FIK
 rest stand male 5500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11868
 drakyri noriva yllyra na'deia lady~
 Yllyra~
@@ -1285,8 +1177,6 @@ BQ 0 H 0 AB 0 0
 FIK
 stand stand female 12500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11869
 drakyri noriva dryna ira'deia girl~
 Dryna~
@@ -1307,8 +1197,6 @@ r bash -50
 r fire 33
 r cold 33
 r lightning 33
-r negative 10
-r charm -33
 #11870
 drakyri noriva voryl ira'deian boy~
 Voryl~
@@ -1326,8 +1214,6 @@ stand stand male 2500
 0 0 medium unknown
 r fire 33
 r cold -50
-r negative 10
-r charm -33
 #11871
 white cat~
 the white cat~
@@ -1392,19 +1278,9 @@ GR 0 HT 0 0 0 0
 FG
 stand stand female 25000
 0 0 medium unknown
-r fire 999
-r lightning 33
-r acid 33
-r poison 33
-r negative 43
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm -33
-r sound 33
+r fire 100
+r cold -50
+r magic 33
 #11875
 drakyri laerkai shield paladin~
 The Shield~
@@ -1421,9 +1297,8 @@ GT 0 HNT 0 A 1000 0
 CDIK
 stand stand male 25000
 0 0 medium unknown
-r negative -40
-r holy 999
-r charm -33
+r negative -50
+r holy 100
 #11876
 drakyri laerkai claw knight~
 The Claw~
@@ -1438,9 +1313,8 @@ CGT 0 JOT 0 A -1000 0
 DEFIK
 stand stand female 25000
 0 0 medium unknown
-r negative 999
+r negative 100
 r holy -50
-r charm -33
 #11877
 drakyri laerkai shadow shadows~
 The Shadow~
@@ -1458,9 +1332,7 @@ BEFHJ
 stand stand male 25000
 0 0 medium unknown
 r bash 33
-r negative 10
 r energy -50
-r charm -33
 #11878
 drakyri laerkai fist warrior~
 The Fist~
@@ -1477,14 +1349,10 @@ GT 0 HT 0 0 0 0
 CDEIK
 stand stand female 25000
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
 r lightning -50
 r acid -50
-r negative 10
 r mental -50
-r charm -33
+r weapon 33
 #11879
 drakyri laerkai hand priest~
 The Hand~
@@ -1500,10 +1368,9 @@ FIK
 stand stand male 25000
 0 0 medium unknown
 r fire -50
-r negative 43
+r negative 33
 r holy 33
 r energy -50
-r charm -33
 #11880
 drakyri laerkai master~
 the Laerkai Master~
@@ -1528,10 +1395,8 @@ r fire 33
 r cold 33
 r lightning -50
 r acid 33
-r negative 10
 r energy -50
 r mental -50
-r charm -33
 #11881
 drakyri guardian~
 The Guardian~
@@ -1550,10 +1415,9 @@ stand stand female 2000
 r fire -50
 r cold 33
 r lightning -50
-r negative 43
+r negative 33
 r holy 33
 r mental -50
-r charm -33
 #11882
 drakyri mediator light~
 The Mediator~
@@ -1572,14 +1436,14 @@ BGQRU 0 HTU A ABKLM 0 0
 EFIK
 stand stand none 25000
 HK 0 huge unknown
-r bash 999
+r bash 100
 r lightning 33
 r acid 33
 r poison 33
 r mental -50
 r disease 33
-r light 999
-r charm 999
+r light 100
+r charm 100
 r sound -50
 #11883
 drakyri knight protector~
@@ -1595,8 +1459,6 @@ GT 0 T 0 0 0 0
 CDEK
 stand stand either 5500
 0 0 medium unknown
-r negative 10
-r charm -33
 #11884
 drakyri mage protector~
 a drakyri mage protector~
@@ -1611,8 +1473,6 @@ GR 0 T 0 A 0 0
 FG
 stand stand either 6000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11885
 drakyri healer~
 a drakyri healer~
@@ -1629,8 +1489,6 @@ GQ 0 NOT 0 A 0 0
 IK
 stand stand either 6000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11886
 drakyri assassin~
 a drakyri assassin~
@@ -1646,8 +1504,6 @@ CS 0 T B B 0 0
 EFJ
 stand stand either 8000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11887
 drakyri shopkeeper frail old man~
 a frail old man~
@@ -1664,8 +1520,6 @@ BGJe 0 T 0 AB 0 0
 EFGJK
 stand stand male 50000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11888
 drakyri warden~
 The Warden~
@@ -1682,14 +1536,10 @@ BGJT 0 HNOT 0 AB 0 0
 CDEFHIK
 stand stand female 22000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r fire -50
 r cold -50
-r negative 10
 r mental -50
-r charm -33
+r weapon 33
 #0
 
 #OBJECTS

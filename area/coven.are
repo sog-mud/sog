@@ -42,19 +42,9 @@ BCGV 0 K 0 A 0 0
 FR
 stand stand female 1850
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r holy -50
+r iron -50
+r magic 33
 #29122
 guard woodsman~
 The woodsman guard~
@@ -185,8 +175,7 @@ FG 0 0 0 H 0 0
 H
 stand stand none 0
 R 0 large unknown
-r cold 50
-r poison 999
+r poison 100
 #29130
 guardian temple white being~
 The guardian of the white temple~
@@ -231,19 +220,8 @@ F
 stand stand female 2200
 0 0 medium unknown
 r bash -50
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r holy -50
+r magic 33
 #29132
 warlock man~
 The warlock~
@@ -259,19 +237,8 @@ F
 stand stand male 2300
 0 0 medium unknown
 r bash -50
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r holy -50
+r magic 33
 #29133
 leader coven~
 The coven leader~
@@ -288,19 +255,9 @@ F
 stand stand male 2400
 0 0 medium unknown
 r bash -50
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 999
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r negative 100
+r holy -50
+r magic 33
 #29134
 beast hell flaming~
 The flaming beast from hell~
@@ -318,9 +275,9 @@ BFGJ 0 J 0 ABH -1000 0
 F
 stand stand none 1800
 ABG ABCDEFJKLMPUV large unknown
-r fire 999
+r fire 100
 r cold -50
-r poison 999
+r poison 100
 r charm 33
 #0
 

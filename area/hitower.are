@@ -62,23 +62,6 @@ BG 0 0 0 A 500 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1304
 mage young~
 a mage~
@@ -481,7 +464,7 @@ BGJRe D 0 0 A 0 0
 F
 stand stand male 340
 0 0 medium unknown
-r charm 999
+r charm 100
 #1335
 sword dancing~
 a dancing sword~
@@ -522,23 +505,6 @@ BGHR D 0 0 A -200 0
 FU
 stand stand male 50
 0 0 medium unknown
-r bash 90
-r pierce 90
-r slash 88
-r fire 90
-r cold 90
-r lightning 999
-r acid 90
-r poison 999
-r negative 999
-r holy 90
-r energy 999
-r mental 999
-r disease 999
-r light 95
-r harm 999
-r charm 999
-r sound 69
 #1338
 master charmer~
 the master charmer~
@@ -552,23 +518,6 @@ BR D 0 0 AN -400 0
 FU
 stand stand male 233
 0 0 medium unknown
-r bash 90
-r pierce 90
-r slash 90
-r fire 999
-r cold 60
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 90
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 90
-r charm 999
-r sound 999
 #1339
 golem wooden~
 a wooden golem~
@@ -582,23 +531,6 @@ BFG 0 0 0 A 100 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1340
 master binder~
 the master spell binder~
@@ -637,23 +569,6 @@ BFG 0 0 0 0 300 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1343
 golem bronze~
 a bronze golem~
@@ -667,23 +582,6 @@ BG 0 0 0 0 350 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1344
 golem flesh~
 a flesh golem~
@@ -698,23 +596,6 @@ BFG 0 0 0 0 200 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1345
 golem cloth~
 a cloth golem~
@@ -728,23 +609,6 @@ BCG 0 0 0 0 350 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1346
 golem adamantite~
 an adamantite golem~
@@ -759,23 +623,6 @@ BCG 0 0 0 0 350 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1347
 golem clay~
 a clay golem~
@@ -788,23 +635,6 @@ BCFG 0 0 0 A 200 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1348
 master illusionist mage~
 the master of illusions~
@@ -819,20 +649,7 @@ BCGJRe D 0 0 ABKLM 150 0
 F
 stand stand male 117
 0 0 medium unknown
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r magic 100
 #1349
 necromancer master~
 the Necromancer~
@@ -1058,7 +875,7 @@ BGJRe D H 0 A 0 0
 FU
 stand stand female 2500
 0 0 medium unknown
-r charm 999
+r charm 100
 #1365
 wizard~
 a wizard~

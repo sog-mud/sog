@@ -25,23 +25,8 @@ BGJQTV 0 H 0 K 1000 0
 ACEFHIKN
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3701
 blob пузырь~
 @eng the blob@rus пузырь~
@@ -60,23 +45,9 @@ BGJe 0 0 0 K 0 0
 AN
 stand stand male 0
 BSc 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3702
 monster монстрик~
 @eng the monster@rus монстрик~
@@ -93,20 +64,6 @@ B 0 0 0 0 0 0
 0
 stand stand male 10
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
 #3703
 monster wimpy монстр трусливый~
 @eng the wimpy monster@rus ~~трусливый~~ ~~монстр~~~
@@ -123,20 +80,6 @@ BH 0 0 0 0 0 0
 0
 stand stand male 10
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
 #3704
 monster aggressive агрессивный монстр~
 @eng the aggressive monster@rus ~~агрессивный~~ ~~монстр~~~
@@ -153,20 +96,6 @@ BF 0 0 0 0 0 0
 EK
 stand stand male 10
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
 #3705
 monster wimpy aggressive монстр~
 @eng the wimpy aggressive monster@rus трусливо ~~нападающий~~ ~~монстр~~~
@@ -183,20 +112,6 @@ BFH 0 0 0 0 0 0
 J
 stand stand male 10
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
 #3706
 big creature создание~
 @eng the big creature@rus ~~большое~~ ~~создание~~~
@@ -213,20 +128,6 @@ B 0 0 0 H 0 0
 FN
 stand stand none 25
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
 #3707
 adept cleric последователь~
 @eng the adept of Satin@rus ~~приспешник~~ Аландера~
@@ -243,23 +144,8 @@ BGJQTV 0 H 0 K 1000 0
 ACEFHIKN
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3708
 adept приспешник~
 @eng the adept of Alander@rus ~~приспешник~~ Аландера~
@@ -274,23 +160,8 @@ BGJQTV 0 H 0 K 1000 0
 ACEFHIKN
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3709
 rabbit кролик~
 @eng the rabbit@rus кролик~
@@ -322,8 +193,6 @@ R
 stand stand either 0
 0 0 small unknown
 V 37003
-r cold 50
-r poison -33
 #3711
 boar кабан~
 @eng the boar@rus кабан~
@@ -382,20 +251,8 @@ FT 0 0 0 H 0 0
 EKM
 stand stand female 50
 0 0 large unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
+r fire 33
+r cold 33
 #3715
 bear медведь~
 @eng the bear@rus медведь~
@@ -411,8 +268,6 @@ CR
 stand stand either 0
 0 0 large unknown
 V 37006
-r bash -33
-r cold -33
 #3716
 wolf волк~
 @eng the wolf@rus волк~
@@ -442,23 +297,8 @@ BCJQTVe 0 H 0 K 1000 0
 ACEFHIKN
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3718
 adept cleric адепт~
 @eng the adept of Furey@rus ~~адепт~~ Фьюри~
@@ -473,23 +313,8 @@ BCJQTV C H 0 K 1000 0
 ACEFHIKN
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3719
 priest cleric жрец~
 @eng the priest of Circe@rus ~~жрец~~ Циркля~
@@ -504,23 +329,8 @@ BCJQTV D H 0 K 1000 0
 ACEFHIKN
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3720
 diploma beast тварь~
 @eng the diploma beast@rus ~~отвратительная~~ ~~тварь~~~
@@ -537,20 +347,6 @@ Be 0 0 0 H 0 0
 EFN
 stand stand female 30
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm -33
-r sound 50
 #0
 
 #OBJECTS

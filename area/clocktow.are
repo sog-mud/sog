@@ -26,11 +26,12 @@ GTY 0 HV 0 0 0 0
 CEFJK
 stand stand male 3000
 AZc D large unknown
-r fire 999
-r acid 999
-r poison 999
+r fire 100
+r acid 100
+r poison 100
 r holy -50
-r sound 999
+r sound 100
+r wood 100
 #4901
 mechanic watch maker часовщик~
 @eng Mechanic@rus Часовщик~
@@ -51,7 +52,7 @@ EFIKNV
 stand stand male 1000
 0 0 medium unknown
 r holy 33
-r mental 999
+r mental 100
 #4902
 watchman clock tower смотритель~
 @eng Watchman@rus ~~Смотритель~~ Башни~
@@ -77,9 +78,9 @@ r acid 33
 r poison 33
 r negative 33
 r energy 33
-r mental 999
+r mental 100
 r light 33
-r charm 999
+r charm 100
 #4903
 pendulum маятник~
 @eng Pendulum@rus Маятник~
@@ -98,22 +99,9 @@ GTY 0 HTV 0 AB 0 0
 CEFHK
 stand stand male 3456
 AZc B large unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r holy -50
+r weapon 33
+r magic 33
 #4904
 hand long big стрелка~
 @eng Long Hand@rus ~~Большая~~ ~~Стрелка~~~
@@ -159,8 +147,9 @@ BGR 0 T 0 A 0 0
 stand stand male 0
 AW ABCDEF medium unknown
 r acid 33
-r negative 999
+r negative 100
 r energy 33
+r wood 33
 #4907
 chimney sweep трубочист~
 @eng Chimney-sweep@rus Трубочист~
@@ -181,7 +170,7 @@ EFHIJKV
 sit sit male 230
 0 0 medium unknown
 r negative -50
-r holy 999
+r holy 100
 #4908
 one clock один~
 @eng One o'clock@rus ~~Один~~ ~~Час~~~
@@ -457,7 +446,7 @@ CGHQW 0 NTV G AB 1000 0
 DFHIJd
 stand stand male 230
 AW ABCDEF small unknown
-r holy 999
+r holy 100
 #4925
 ghost terrifying привидение~
 @eng terrifying ghost@rus ~~ужасное~~ ~~привидение~~~
@@ -472,13 +461,6 @@ GR 0 0 A 0 0 0
 HQ
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r poison -100
-r negative -100
-r holy 50
-r disease -100
 #4926
 bat angry мышь~
 @eng angry bat@rus ~~летучая~~ ~~мышь~~~
@@ -491,7 +473,6 @@ FGT 0 0 0 A -1000 0
 0
 stand stand none 0
 0 0 small unknown
-r light 50
 #4927
 rat wimpy крыса~
 @eng wimpy rat@rus ~~трусливая~~ ~~крыса~~~
@@ -505,7 +486,6 @@ Q
 stand stand female 0
 0 0 small unknown
 F aff T
-r light 50
 #4928
 spider small паук~
 @eng small spider@rus ~~маленький~~ ~~паук~~~
@@ -518,9 +498,6 @@ GHR 0 0 0 0 0 0
 0
 stand stand male 0
 0 0 tiny unknown
-r bash 50
-r pierce -33
-r cold -33
 #4929
 spider huge паук~
 @eng HUGE spider@rus ~~здоровенный~~ ~~паук~~~
@@ -533,9 +510,6 @@ FGHR 0 0 0 0 -1000 0
 0
 stand stand male 0
 0 0 small unknown
-r bash 50
-r pierce -33
-r cold -33
 #4930
 hand long big~
 Long Hand~

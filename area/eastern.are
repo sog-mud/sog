@@ -57,8 +57,6 @@ EFNR
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
-r cold 50
-r poison -33
 #5003
 scorpion small скорпион~
 @eng The small scorpion@rus ~~маленький~~ ~~скорпион~~~
@@ -104,11 +102,6 @@ EFNR
 stand stand female 275
 0 0 medium unknown
 g @eng female@rus male~
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #5006
 nomad leader предводитель кочевник~
 @eng The nomad leader@rus ~~предводитель~~ кочевников~

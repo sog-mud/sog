@@ -47,20 +47,6 @@ BCFG 0 0 A ABH 0 0
 EI
 stand stand male 0
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #32703
 adult mother warg~
 warg mother~
@@ -114,8 +100,7 @@ BFG 0 0 0 ABH 0 0
 FH
 stand stand none 0
 0 0 small unknown
-r cold 50
-r poison 999
+r poison 100
 #32707
 beorn~
 Beorn~
@@ -129,8 +114,6 @@ G 0 HNU BG ABH 0 0
 CFIK
 stand stand male 0
 0 0 large unknown
-r bash -33
-r cold -33
 #32708
 bat~
 the bat~
@@ -268,28 +251,11 @@ J 0 HIMNOTX AG ABDH 1000 0
 stand stand none 0
 K 0 small unknown
 F for AHMV
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r drowning 999
-r light 999
-r other 999
-r harm 999
-r charm 999
-r sound 999
-r iron 999
-r wood 999
-r silver 999
+r iron 100
+r wood 100
+r silver 100
+r weapon 100
+r magic 100
 #0
 
 #OBJECTS

@@ -24,11 +24,10 @@ FG 0 0 0 0 -1000 0
 C
 stand stand male 800
 0 0 medium unknown
-r fire -33
-r poison -100
-r negative -33
-r holy 50
-r disease -100
+r fire -50
+r cold 33
+r lightning 33
+r mental 100
 #29351
 inquisitor инквизитор~
 @eng The Inquisitor@rus инквизитор~
@@ -47,14 +46,12 @@ BOQ 0 Jc 0 0 -1000 0
 CN
 stand stand male 800
 0 0 medium unknown
-r fire 83
-r cold -100
-r poison -100
-r negative -100
-r holy 83
-r mental -100
-r disease -100
-r charm -100
+r fire -50
+r cold 100
+r poison 100
+r holy -50
+r mental 33
+r disease 100
 #29352
 demon minor младший демон~
 @eng A Minor Demon@rus ~~Младший~~ ~~Демон~~~
@@ -74,7 +71,7 @@ BT 0 T 0 0 -1000 0
 CDFHK
 stand stand neutral 800
 C 0 medium unknown
-r fire 999
+r fire 100
 r cold -50
 r poison 33
 r holy -50
@@ -102,21 +99,14 @@ BT 0 0 0 0 -1000 0
 ACFKM
 stand stand neutral 800
 CIc L large unknown
-r bash -33
-r pierce 50
-r slash 33
-r fire -33
-r cold 50
-r poison 33
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease 33
-r light -50
-r harm -50
-r charm -33
-r sound -50
+r fire 100
+r cold 33
+r lightning 33
+r acid 33
+r poison 100
+r disease 100
+r weapon 33
+r magic -50
 #29354
 lich lord myzelak лич мизелак~
 @eng Myzelak the Lich Lord@rus ~~Лич~~ ~~Мизелак~~~
@@ -137,23 +127,8 @@ BQ 0 J 0 H -1000 0
 IJN
 stand stand male 800
 0 0 medium unknown
-r bash -15
-r pierce -35
-r slash -25
-r fire 33
-r cold -100
-r lightning -100
-r acid 33
-r poison -100
-r negative -100
-r holy 50
-r energy 33
-r mental 33
-r disease -100
-r light 33
-r harm 33
-r charm -67
-r sound 33
+r cold 33
+r lightning 33
 #29355
 dracolich mount dragon драколич~
 @eng The Dracolich@rus ~~Драколич~~~
@@ -173,18 +148,10 @@ CDFMO
 stand stand neutral 800
 c 0 giant unknown
 F par DEFGHIJKX
-r bash -33
-r pierce 50
-r slash 33
-r fire -33
-r cold -33
-r lightning -100
-r acid 33
-r poison 999
-r negative 999
+r cold 33
+r lightning 33
+r acid 0
 r holy -50
-r disease 999
-r charm -100
 #29356
 elite death knight элитный рыцарь смерти~
 @eng An Elite Death Knight@rus ~~Элитный~~ ~~Рыцарь~~ Смерти~
@@ -205,11 +172,8 @@ BFGJT 0 0 0 0 -1000 0
 C
 stand stand male 800
 0 0 large unknown
-r fire -33
-r poison -100
-r negative -33
-r holy 50
-r disease -100
+r fire -50
+r magic 33
 #0
 
 #OBJECTS

@@ -62,7 +62,7 @@ BJVe 0 0 0 0 200 0
 CEIK
 stand stand male 250
 0 0 medium unknown
-r charm 999
+r charm 100
 #404
 shark~
 a shark~
@@ -94,7 +94,7 @@ CG 0 0 0 0 0 0
 0
 stand stand female 250
 0 0 large unknown
-r poison 999
+r poison 100
 #406
 child~
 a child~
@@ -122,12 +122,10 @@ GR 0 0 0 0 -500 0
 0
 stand stand female 320
 0 0 medium unknown
-r bash 999
-r slash -10
-r fire 58
-r lightning 15
-r acid 73
-r charm 999
+r bash 100
+r fire 33
+r acid 33
+r charm 100
 #408
 gorilla~
 A gorilla~
@@ -142,8 +140,6 @@ G 0 0 0 0 50 0
 CU
 stand stand female 0
 0 0 large unknown
-r bash -33
-r cold -33
 #409
 janitor~
 A janitor~

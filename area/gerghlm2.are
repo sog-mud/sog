@@ -55,8 +55,6 @@ G 0 0 0 0 0 0
 EKN
 stand stand female 0
 0 0 small unknown
-r cold 50
-r poison -33
 #7503
 swallow ласточка bird small птичка птица~
 @eng a swallow@rus ласточка~
@@ -99,14 +97,6 @@ G 0 0 0 0 0 0
 EKN
 stand stand male 10
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #7506
 groundhog ground боров hog~
 @eng a ground-hog@rus боров~
@@ -135,8 +125,6 @@ G 0 0 0 0 0 0
 EKN
 stand stand female 10
 0 0 tiny unknown
-r negative 10
-r charm -33
 #7508
 squirrel летучая летяга flying белка~
 @eng a flying squirrel@rus ~~белка~~-~~летяга~~~
@@ -214,8 +202,6 @@ G 0 0 0 0 0 0
 EKN
 stand stand female 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #7513
 fish рыбка pointy teeth small маленькая~
 @eng a small fish with pointy teeth@rus ~~маленькая~~ ~~зубастая~~ ~~рыбка~~~
@@ -323,8 +309,6 @@ G 0 0 0 H -500 0
 KN
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r cold -33
 #7520
 worm червь cleaner large уборщик~
 @eng a cleaner worm@rus ~~червь~~-~~уборщик~~~
@@ -339,8 +323,6 @@ FG 0 0 0 ABH 0 0
 EKN
 stand stand male 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #7521
 citizen житель man~
 @eng a citizen of Gerighelm@rus ~~житель~~ Геригхельма~
@@ -401,20 +383,7 @@ G 0 0 0 0 0 0
 EKN
 stand stand female 280
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7525
 coot старик old~
 @eng an old coot@rus старик~
@@ -431,20 +400,7 @@ G 0 0 0 0 0 7525
 EKN
 stand stand male 360
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7526
 child ребенок little boy мальчик~
 @eng a little boy@rus ~~маленький~~ ~~мальчик~~~
@@ -461,20 +417,7 @@ G 0 0 0 0 0 0
 EKN
 stand stand male 100
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7527
 child ребенок little girl девочка~
 @eng a little girl@rus ~~маленькая~~ ~~девочка~~~
@@ -489,20 +432,7 @@ G 0 0 0 0 0 0
 EKN
 stand stand female 100
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7528
 junior стражник guard молодой~
 @eng a junior guard@rus ~~молодой~~ ~~стражник~~~
@@ -519,20 +449,7 @@ GT 0 0 0 0 1000 7528
 CDEKLT
 stand stand male 600
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7529
 young девушка woman молодая~
 @eng a young woman@rus ~~молодая~~ ~~девушка~~~
@@ -547,20 +464,7 @@ GT 0 0 0 0 1000 0
 CDEKL
 stand stand male 520
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7530
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
@@ -575,20 +479,7 @@ GT 0 0 0 0 1000 7530
 CDEKLT
 stand stand male 600
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7531
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
@@ -603,20 +494,7 @@ GT 0 0 0 0 1000 7530
 CDEKLT
 stand stand male 680
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7532
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
@@ -631,20 +509,7 @@ GT 0 0 0 0 1000 7530
 CDEKLT
 stand stand male 740
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7533
 ale-conner дегустатор ale conner~
 @eng the ale-conner@rus дегустатор~
@@ -661,20 +526,7 @@ G 0 0 0 0 0 0
 CDEKLT
 stand stand male 740
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7534
 defender защитник gerighelm геригхельма~
 @eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
@@ -689,20 +541,7 @@ GT 0 0 0 0 1000 7534
 CDEKLT
 stand stand male 920
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7535
 defender защитник gerighelm геригхельма~
 @eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
@@ -718,20 +557,7 @@ GT 0 0 0 0 1000 7534
 CDEKLT
 stand stand male 1000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7536
 palace стражник guard страж дворца~
 @eng a palace guard@rus ~~страж~~ дворца~
@@ -747,20 +573,7 @@ GT 0 0 0 0 1000 7536
 CDEKLT
 stand stand male 1000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7537
 palace стражник guard страж дворца~
 @eng a palace guard@rus ~~страж~~ дворца~
@@ -776,20 +589,7 @@ GT 0 0 0 0 1000 7536
 CDEKLT
 stand stand male 1300
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7538
 cook повар~
 @eng the cook@rus повар~
@@ -805,20 +605,7 @@ GT 0 0 0 H 1000 0
 CDEKL
 stand stand male 1600
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7539
 palace маг mage придворный~
 @eng the palace mage@rus ~~придворный~~ ~~маг~~~
@@ -834,7 +621,7 @@ N
 stand stand male 2000
 0 0 medium unknown
 r bash -50
-r charm 999
+r charm 100
 #7540
 palace священник priest придворный~
 @eng the palace priest@rus ~~придворный~~ ~~священник~~~
@@ -865,20 +652,7 @@ GT 0 0 0 0 1000 7550
 CDEKLT
 stand stand male 2000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7551
 palace садовник gardener придворный~
 @eng the palace gardener@rus ~~придворный~~ ~~садовник~~~
@@ -893,20 +667,7 @@ GT 0 0 0 0 1000 0
 CDEKL
 stand stand male 2000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7552
 bodyguard телохранитель body guard~
 @eng a bodyguard@rus телохранитель~
@@ -919,20 +680,7 @@ GT 0 0 0 0 1000 0
 CDEKLT
 stand stand male 2200
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7553
 bodyguard телохранитель body guard~
 @eng a bodyguard@rus телохранитель~
@@ -947,20 +695,7 @@ GT 0 0 0 0 1000 0
 CDEKLT
 stand stand male 2500
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7554
 duke герцог gerighelm геригхельма~
 @eng the Duke of Gerighelm@rus ~~Герцог~~ Геригхельма~
@@ -976,7 +711,7 @@ CDEFJKLNU
 stand stand male 4000
 0 0 medium unknown
 r bash -50
-r charm 999
+r charm 100
 #7555
 duchess герцогиня gerighelm геригхельма~
 @eng the Duchess of Gerighelm@rus ~~Герцогиня~~ Геригхельма~
@@ -992,7 +727,7 @@ FKN
 stand stand female 2500
 0 0 medium unknown
 r bash -50
-r charm 999
+r charm 100
 #7590
 servant слуга~
 @eng a servant@rus слуга~
@@ -1007,20 +742,7 @@ G 0 0 0 0 1000 0
 CDEKL
 stand stand male 1000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #7591
 cutpurse воришка~
 @eng a cutpurse@rus воришка~
@@ -1050,23 +772,8 @@ BJVe 0 0 0 0 900 0
 CDF
 stand stand male 100000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #7593
 blacksmith кузнец vendy~
 @eng the blacksmith Vendy@rus ~~кузнец~~ Vendy~
@@ -1084,23 +791,8 @@ BJTVe 0 0 0 0 900 0
 CEIK
 stand stand female 250000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #7594
 mage маг~
 @eng the mage@rus маг~
@@ -1115,23 +807,8 @@ BJVe 0 0 0 A 900 0
 AF
 stand stand male 150000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #7595
 pawn shop runner~
 @eng the pawn shop owner@rus ~~владелец~~ ломбарда~
@@ -1146,23 +823,8 @@ BJVe 0 0 0 0 900 0
 EFJ
 stand stand male 130000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #7597
 merchant купец~
 @eng the merchant@rus купец~
@@ -1177,23 +839,8 @@ JVe 0 0 0 0 900 0
 EFJ
 stand stand male 80000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #7604
 herbalist торговец травами~
 @eng the herbalist@rus ~~торговец~~ травами~
@@ -1208,23 +855,7 @@ BJVe 0 0 0 0 900 0
 EFJ
 stand stand female 150000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r charm 100
 #7609
 animal дрессировщик man~
 @eng the animal man@rus ~~дрессировщик~~ животных~
@@ -1239,20 +870,7 @@ BJV 0 0 0 0 900 0
 0
 stand stand male 9000
 0 0 medium unknown
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r magic 100
 #7610
 witch ведьма hag~
 @eng the old witch@rus ~~старая~~ ~~ведьма~~~
@@ -1267,23 +885,8 @@ BJVe 0 0 0 A 900 7006
 AF
 stand stand male 20000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #7698
 hawk ястреб~
 @eng a hawk@rus ястреб~
@@ -1315,20 +918,7 @@ BGT 0 0 0 ABK 100 0
 A
 stand stand female 0
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #0
 
 #OBJECTS

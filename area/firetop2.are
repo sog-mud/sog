@@ -23,17 +23,9 @@ BCFGJ 0 R 0 0 -400 5701
 CFI
 stand stand male 20
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r acid 33
-r poison -15
-r negative -15
-r holy 15
 r mental -50
-r disease -15
-r light 15
-r charm 999
+r charm 100
 #5736
 orc~
 a sleeping Orc~
@@ -49,17 +41,9 @@ BCFGJ 0 R 0 0 -400 5701
 CFI
 sleep sleep male 20
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r acid 33
-r poison -15
-r negative -15
-r holy 15
 r mental -50
-r disease -15
-r light 15
-r charm 999
+r charm 100
 #5737
 snake~
 a small snake~
@@ -75,11 +59,9 @@ BFGJ 0 0 0 H 0 0
 CFI
 stand stand either 0
 0 0 medium unknown
-r cold 50
 r acid 33
-r poison -33
 r mental -50
-r charm 999
+r charm 100
 #5738
 orc~
 a drunken Orc~
@@ -96,17 +78,9 @@ BCFGJ 0 M 0 0 -400 5701
 CFI
 stand stand either 20
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r acid 33
-r poison -15
-r negative -15
-r holy 15
 r mental -50
-r disease -15
-r light 15
-r charm 999
+r charm 100
 #5739
 orc chieftain~
 an Orcish chieftain~
@@ -122,17 +96,9 @@ BCFGJ 0 J 0 0 -400 5701
 CFI
 stand stand male 100
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r acid 33
-r poison -15
-r negative -15
-r holy 15
 r mental -50
-r disease -15
-r light 15
-r charm 999
+r charm 100
 #5740
 orc servant~
 an orcish servant~
@@ -148,17 +114,9 @@ BCFHJ 0 0 0 0 0 5701
 CFI
 stand stand male 20
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r acid 33
-r poison -15
-r negative -15
-r holy 15
 r mental -50
-r disease -15
-r light 15
-r charm 999
+r charm 100
 #5741
 orc~
 an eating Orc~
@@ -174,17 +132,9 @@ BCGJ 0 0 0 0 -400 5701
 CFI
 stand stand male 20
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r acid 33
-r poison -15
-r negative -15
-r holy 15
 r mental -50
-r disease -15
-r light 15
-r charm 999
+r charm 100
 #5742
 prisoner~
 A deranged prisoner~
@@ -201,6 +151,7 @@ BCHJ 0 X 0 H 0 0
 IR
 stand stand male 10
 0 0 medium unknown
+r silver -50
 #5743
 goblin torturer~
 a Goblin torturer~
@@ -216,19 +167,7 @@ BCFGJ 0 0 0 0 -600 0
 IR
 stand stand male 10
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
+r silver -50
 #5744
 cyclops iron~
 an iron Cyclops~
@@ -243,10 +182,7 @@ BGJ 0 HNO 0 AH 0 0
 IR
 stand stand male 10
 0 0 huge unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
+r silver -50
 #5745
 barbarian~
 an insane Barbarian~
@@ -262,10 +198,7 @@ BFGJ 0 NO 0 H 0 0
 IR
 stand stand male 10
 0 0 huge unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
+r silver -50
 #5746
 old man~
 an old man~
@@ -311,7 +244,7 @@ BCFGJ 0 NO 0 BHL 0 0
 IR
 stand stand male 0
 0 0 medium unknown
-r charm 999
+r charm 100
 #5749
 bat giant~
 a giant Bat~
@@ -327,8 +260,7 @@ BCFGJ 0 NO 0 AH -400 0
 IR
 stand stand either 0
 0 0 medium unknown
-r light 50
-r charm 999
+r charm 100
 #5750
 spider giant~
 a giant Spider~
@@ -345,7 +277,7 @@ BFGJ 0 0 0 AH -400 0
 IR
 stand stand male 0
 0 0 medium unknown
-r charm 999
+r charm 100
 #5751
 ogre~
 an Ogre~
@@ -361,12 +293,6 @@ BCG 0 NO 0 0 0 5702
 IR
 stand stand male 20
 0 0 medium unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #5752
 troll~
 a Troll~
@@ -383,12 +309,6 @@ BCFGQ 0 NO 0 0 -500 5702
 IR
 stand stand male 20
 0 0 medium unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #5753
 rat giant~
 a giant Rat~
@@ -419,11 +339,7 @@ BFGJ 0 NO 0 H 0 0
 IR
 stand stand male 0
 0 0 medium unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
-r charm 999
+r charm 100
 #5755
 piranha~
 a vicious Piranha~
@@ -485,8 +401,7 @@ BCFGJ 0 JNO 0 AH -1000 0
 IR
 stand stand male 100
 I 0 medium unknown
-r acid -50
-r charm 999
+r charm 100
 #5759
 zombie~
 a Zombie~
@@ -533,7 +448,6 @@ I
 stand stand male 50
 0 0 medium unknown
 r mental -50
-r charm 999
 #5762
 ghoul~
 a Ghoul~
@@ -548,7 +462,7 @@ BFGJ 0 NO 0 AH -500 0
 I
 stand stand male 10
 0 0 medium unknown
-r charm 999
+r charm 100
 #5763
 vampire~
 an evil Vampire~
@@ -565,7 +479,6 @@ IR
 stand stand male 200
 I 0 medium unknown
 r acid 33
-r charm 999
 #5764
 dwarf~
 a Dwarf~
@@ -581,11 +494,8 @@ BCGJ 0 0 0 0 400 0
 0
 stand stand male 40
 0 0 medium unknown
-r bash -7
-r poison -25
 r mental 33
-r disease -25
-r charm 999
+r charm 100
 #5765
 minotaur~
 a mighty Minotaur~
@@ -601,7 +511,7 @@ BFGJ 0 0 0 H -400 0
 R
 stand stand male 40
 0 0 medium unknown
-r charm 999
+r charm 100
 #5766
 dragon~
 an enormous Red Dragon~
@@ -627,12 +537,8 @@ BCFGJ 0 JNO 0 ABKL -1000 0
 R
 stand stand male 500
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
 r acid -50
-r charm 999
+r charm 100
 #5767
 warlock~
 the Warlock of Firetop Mountain~
@@ -649,7 +555,7 @@ R
 stand stand male 800
 0 0 medium unknown
 r acid -50
-r charm 999
+r charm 100
 #5768
 hand~
 a hand~

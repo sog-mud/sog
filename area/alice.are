@@ -184,8 +184,6 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 HMV B medium unknown
-r cold 50
-r poison -33
 #21012
 guinea pig~
 a guinea pig~
@@ -258,8 +256,6 @@ BGT 0 0 0 0 400 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-r fire 50
-r cold 50
 #21017
 frog footman~
 a frog-footman~

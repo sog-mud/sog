@@ -23,7 +23,7 @@ GJQe D H 0 A 1000 0
 EIKU
 stand stand male 0
 0 0 medium unknown
-r charm 999
+r charm 100
 #7901
 paladin solamnia~
 Paladin of Solamnia~
@@ -38,9 +38,7 @@ HSe 0 0 G AL 1000 2402
 FHKN
 stand stand male 1499
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
+r weapon -50
 #0
 
 #OBJECTS

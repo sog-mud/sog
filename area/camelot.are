@@ -225,23 +225,6 @@ BCH 0 HNT 0 AHKL 750 0
 EFHNU
 stand stand male 1000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
 #17314
 morgan mage моргана фей маг волшебница~
 @eng Morgan Le Fey@rus ~~Моргана~~ ле Фей~
@@ -305,7 +288,8 @@ stand stand none 1000
 Zc LPQUVX huge unknown
 r pierce -50
 r fire 33
-r lightning 999
+r cold 0
+r lightning 100
 r acid 33
 #17317
 tristram тристрам рыцарь~
@@ -1092,8 +1076,6 @@ GTY 0 N 0 0 400 0
 CEFKO
 stand stand male 2000
 0 0 medium unknown
-r fire 33
-r cold 33
 #17366
 ghost small привидение маленькое~
 @eng small ghost@rus ~~маленькое~~ ~~привидение~~~
@@ -1106,23 +1088,6 @@ GJUY 0 0 ABF ABH 0 0
 0
 stand stand none 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison -100
-r negative -67
-r holy 83
-r energy 999
-r mental 999
-r disease -100
-r light 999
-r harm 999
-r charm 999
-r sound 999
 #0
 
 #OBJECTS

@@ -56,8 +56,8 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
-r poison 999
-r charm 999
+r poison 100
+r charm 100
 #23003
 trolloc ko'bal троллок~
 @eng The trolloc@rus троллок~
@@ -121,9 +121,9 @@ stand stand none 1000
 A 0 medium unknown
 g @eng none@rus female~
 r fire -50
-r poison 999
-r disease 999
-r charm 999
+r poison 100
+r disease 100
+r charm 100
 #23006
 trolloc kno'mon троллок~
 @eng The trolloc@rus троллок~
@@ -162,13 +162,11 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFGMOQ
 stand stand none 1000
 AB ABCDEFGHIJKQ medium unknown
-r bash 999
-r pierce 999
-r slash 999
 r fire 33
 r cold 33
 r lightning -50
-r charm 999
+r charm 100
+r weapon 100
 #23008
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
@@ -186,9 +184,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 0
 AB 0 medium unknown
-r pierce 999
+r pierce 100
 r fire -50
-r charm 999
+r charm 100
 #23009
 draghkar драгкар~
 @eng The draghkar@rus драгкар~
@@ -211,7 +209,7 @@ AB ABCDEFGHIJK medium unknown
 g @eng none@rus male~
 r fire -50
 r acid 33
-r charm 999
+r charm 100
 #23010
 disfigured diseased обезображенное создание flesh lump creature кусок плоти~
 @eng The diseased creature@rus ~~больное~~ ~~создание~~~
@@ -231,7 +229,7 @@ CFGJ A X 0 ABH -1000 0
 CINQ
 stand stand none 1000
 AB ABCDEFGHIJKLMNOPQUVWXY medium unknown
-r charm 999
+r charm 100
 #23011
 warder gaidan сторож~
 @eng The warder@rus сторож~
@@ -257,7 +255,7 @@ r lightning 33
 r acid 33
 r negative 33
 r disease 33
-r charm 999
+r charm 100
 #23012
 lord лорд~
 @eng The Lord of the tower@rus ~~хозяин~~ башни~
@@ -278,23 +276,11 @@ BCFGJT A HNV 0 ABH 0 0
 ADEFGHKN
 stand stand male 1000
 CI ABCDEFGHIJK medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 999
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 999
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r poison 100
+r disease 100
+r charm 100
+r weapon 33
+r magic 33
 #23013
 lord лорд~
 @eng The Lord of the tower@rus ~~хозяин~~ башни~
@@ -315,23 +301,11 @@ BCFGJTV A HNV 0 ABH 0 0
 ADEFGHKN
 stand stand male 1000
 CI ABCDEFGHIJK medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 999
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 999
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r poison 100
+r disease 100
+r charm 100
+r weapon 33
+r magic 33
 #23014
 spirit soldier дух солдат~
 @eng The spirit@rus дух~
@@ -354,9 +328,10 @@ CFGJT A Ud AG ABH 0 0
 EFGHJKNU
 stand stand none 0
 CI ABCDEFGHIJK medium unknown
-r poison 999
+r poison 100
 r holy -50
-r disease 999
+r disease 100
+r silver -50
 #23015
 spirit дух~
 @eng The spirit@rus дух~
@@ -379,10 +354,11 @@ CFGJT A NUd AG ABH 0 0
 EFGHJKNU
 stand stand none 1000
 CI ABCDEFGHIJK medium unknown
-r poison 999
+r poison 100
 r holy -50
-r disease 999
-r charm 999
+r disease 100
+r charm 100
+r silver -50
 #23016
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
@@ -400,9 +376,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 1000
 AB 0 medium unknown
-r pierce 999
+r pierce 100
 r fire -50
-r charm 999
+r charm 100
 #23017
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
@@ -420,9 +396,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 1000
 AB 0 medium unknown
-r pierce 999
+r pierce 100
 r fire -50
-r charm 999
+r charm 100
 #23018
 tree twisted искривленное дерево~
 @eng The twisted tree@rus ~~искривленное~~ ~~дерево~~~
@@ -440,9 +416,9 @@ BCFGJT 0 0 0 ABH -1000 0
 CEFHKNQ
 stand stand none 1000
 AB 0 medium unknown
-r pierce 999
+r pierce 100
 r fire -50
-r charm 999
+r charm 100
 #23019
 seanchan sul'dam сулдам woman женщина~
 @eng The Sul'Dam@rus Сул'дам~
@@ -464,20 +440,8 @@ GHJT 0 0 0 ABH 0 0
 EFHIKNU
 stand stand female 1000
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r magic 33
 #23020
 metal металл metallic orb strange странная металлическая сфера~
 @eng The metallic orb@rus ~~металлическая~~ ~~сфера~~~
@@ -500,8 +464,8 @@ EFHKP
 stand stand none 1000
 E E medium unknown
 g @eng none@rus female~
-r negative 999
-r disease 999
+r negative 100
+r disease 100
 #23021
 fox лиса tall высокий thin~
 @eng The fox-like humanoid@rus ~~лисоподобный~~ ~~гуманоид~~~
@@ -525,10 +489,11 @@ CFGHJS 0 V G ABH 0 0
 BEFHKNU
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
-r acid 999
-r poison 999
-r disease 999
-r charm 999
+r acid 100
+r poison 100
+r disease 100
+r charm 100
+r iron -50
 #23022
 grolm гролм frog жаба huge~
 @eng The grolm@rus гролм~
@@ -547,7 +512,7 @@ JT 0 0 0 ABH 0 0
 CDEF
 stand stand none 1000
 AB ABCDEFGHIJK medium unknown
-r charm 999
+r charm 100
 #0
 
 #OBJECTS

@@ -253,9 +253,7 @@ BGe 0 0 0 0 0 0
 CDEFHKN
 stand stand male 100
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
+r weapon 33
 #32017
 Thomas weaponmaster~
 Thomas the weaponmaster~
@@ -271,9 +269,7 @@ BGe 0 0 0 0 0 0
 CDEFHKN
 stand stand male 100
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
+r weapon 33
 #32018
 slice bologna~
 (processed aura) a slice of bologna~
@@ -303,20 +299,8 @@ BG D HN 0 0 1000 0
 CDEFHIJK
 stand stand male 100
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r magic 33
 #32020
 towel boy~
 the towel boy~
@@ -346,9 +330,6 @@ BGT 0 N 0 H -1000 0
 AEFHKN
 stand stand male 100
 0 0 medium unknown
-r bash 10
-r pierce 10
-r slash 10
 #32022
 Thing~
 The Black thing~
@@ -376,11 +357,6 @@ G 0 HU AG AB 1000 0
 F
 stand stand male 100
 0 0 huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #32024
 Terry ~
 Terry the salesman~
@@ -396,20 +372,7 @@ CHe 0 H 0 0 0 0
 BCDEFIJK
 stand stand male 100
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #0
 
 #OBJECTS

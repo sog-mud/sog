@@ -25,18 +25,11 @@ YZ
 stand stand female 2147483647
 0 0 huge unknown
 g @eng female@rus male~
-r bash 999
-r pierce 999
-r slash 999
-r cold 999
-r lightning 999
-r poison 999
-r negative 999
-r energy 999
-r mental 999
-r disease 999
-r charm 999
-r sound 999
+r iron 100
+r wood 100
+r silver 100
+r weapon 100
+r magic 100
 #15001
 prisoner karabas~
 @eng the prisoner@rus узник~
@@ -50,8 +43,8 @@ J 0 0 0 0 0 0
 0
 stand stand male 0
 0 0 huge unknown
-r disease 999
-r charm 999
+r disease 100
+r charm 100
 #15002
 cockroach~
 @eng cockroach@rus таракан~
@@ -66,10 +59,7 @@ Z 0 0 0 0 1000 0
 stand stand either 0
 0 0 small unknown
 F aff T
-r bash 999
-r pierce 999
-r slash 999
-r charm 999
+r charm 100
 #15003
 rat~
 @eng a rat@rus крыса~
@@ -84,7 +74,7 @@ FH
 stand stand either 0
 G 0 small unknown
 r light -50
-r charm 999
+r charm 100
 #15005
 kitten cat кошечка karapupa~
 @eng little furry kitten@rus ~~маленькая~~ ~~пушистая~~ ~~кошечка~~~
@@ -99,23 +89,8 @@ Ee 0 HTc G ACDF 1000 0
 ACDEIJKNO
 stand stand female 0
 0 0 small unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~
@@ -128,23 +103,11 @@ GJRTe 0 JVac 0 ABKLM -1000 0
 0
 stand stand male 0
 0 0 small unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r iron 100
+r wood 100
+r silver 100
+r weapon 100
+r magic 100
 #15015
 белочка серая squirrel~
 @eng gray squirrel@rus ~~серая~~ ~~белочка~~~
@@ -160,23 +123,8 @@ BIJ E HTVc ABCDFG BCD 1000 0
 ACDEFGHIJKNO
 stand stand female 50
 G ABCQ medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 a 'water breathing' to_affects 80 -1 0 0 0
 #15016
 старая сосна pine~
@@ -209,10 +157,6 @@ GT 0 0 0 M 1000 0
 CDEFIKLS
 stand stand male 500
 0 0 medium unknown
-r poison 33
-r negative -40
-r disease 33
-r charm -33
 a '' to_affects 36 -1 50 18 0
 a '' to_resist 36 -1 100 10 0
 a '' to_skills 36 -1 100 'swimming' 0

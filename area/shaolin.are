@@ -74,9 +74,7 @@ BCFJT 0 0 0 ABH -100 0
 EFGHN
 stand stand male 1140
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
+r weapon 33
 #20106
 demon~
 your own inner demon~
@@ -91,20 +89,7 @@ BCFJR 0 JV 0 ABH -1000 0
 ABCDEFGHN
 stand stand male 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #20107
 evil monk~
 an evil monk~
@@ -161,10 +146,8 @@ BCT 0 NV 0 M 500 0
 AEFHIN
 stand stand male 3140
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r charm 100
+r weapon 33
 #20111
 Wuhua wuhua monk~
 Wuhua~
@@ -179,9 +162,7 @@ CFGJT 0 JV 0 ABH -500 0
 EFHIN
 stand stand male 3410
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
+r weapon 33
 #20112
 master librarian monk~
 the Master of Books~
@@ -196,20 +177,7 @@ B 0 HN 0 0 500 0
 CDFHN
 stand stand male 3710
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #20113
 master monk drunken~
 the Drunken Master~
@@ -224,10 +192,8 @@ CGHT 0 HNV 0 0 250 0
 CDFHIKN
 stand stand male 1040
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r charm 100
+r weapon 33
 #20114
 master monk trainer~
 the Master Trainer~
@@ -242,10 +208,8 @@ CGHJT 0 HNV A 0 500 0
 ACDEFIJKN
 stand stand male 1070
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r charm 100
+r weapon 33
 #20115
 abbot Abbot monk~
 the Abbot of Shaolin~
@@ -260,10 +224,8 @@ CGHJ 0 HNTV 0 0 800 0
 ACDEFIJN
 stand stand male 2300
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r charm 100
+r weapon 33
 #20116
 Jinshen jinshen~
 the Jinshen~
@@ -278,23 +240,9 @@ BT 0 HNV AB A 1000 0
 ACDEFGIJKN
 stand stand male 5340
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
 r charm 100
-r sound 33
+r weapon 33
+r magic 33
 #20117
 guest visitor~
 the visiting guest~

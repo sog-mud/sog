@@ -20,12 +20,6 @@ BTe 0 H 0 ABL 0 0
 ACEFHKMR
 stand stand male 0
 0 0 huge unknown
-r bash 50
-r pierce 50
-r slash 50
-r cold 50
-r poison -33
-r charm 999
 #22102
 gray lizard~
 gray lizard~
@@ -38,8 +32,6 @@ lizard~
 FKM
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22103
 small lizard~
 small lizard~
@@ -52,8 +44,6 @@ lizard~
 FKM
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22104
 grand lizard~
 grand lizard~
@@ -66,8 +56,6 @@ T 0 0 0 A 0 0
 FKM
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22105
 serpent~
 serpent~
@@ -80,8 +68,6 @@ snake~
 FKM
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22106
 snake~
 snake~
@@ -94,8 +80,6 @@ snake~
 FKM
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22107
 dog~
 dog~
@@ -120,9 +104,6 @@ lion~
 0
 stand stand none 0
 0 0 huge unknown
-r bash -33
-r pierce -33
-r slash -33
 #22109
 lizard priest~
 lizard priest~
@@ -135,8 +116,6 @@ BQ 0 H 0 A 0 0
 0
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22110
 ~
 lizard monk~
@@ -149,11 +128,6 @@ T 0 0 0 0 0 0
 FHIKM
 stand stand none 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 50
-r poison -33
 #22111
 archbishop~
 archbishop~
@@ -179,8 +153,6 @@ B 0 0 0 0 0 0
 HM
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22113
 arena master~
 master of arena~
@@ -193,9 +165,6 @@ T 0 0 0 0 0 0
 CHIJN
 stand stand none 10000
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
 #22114
 rattlesnake~
 rattlesnake~
@@ -208,8 +177,6 @@ snake~
 HM
 stand stand none 0
 0 0 huge unknown
-r cold 50
-r poison -33
 #22115
 cobra~
 cobra~
@@ -222,8 +189,6 @@ snake~
 HM
 stand stand none 0
 0 0 huge unknown
-r cold 50
-r poison -33
 #22116
 gladiator~
 gladiator~
@@ -248,8 +213,6 @@ T 0 0 0 A 0 0
 FKM
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22118
 lizard guard~
 lizard guard~
@@ -262,8 +225,6 @@ GTW 0 0 0 A 0 0
 FKMRT
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22119
 bodyguard~
 bodyguard~
@@ -276,12 +237,6 @@ BTe 0 H 0 AB 0 0
 R
 stand stand none 0
 0 0 large unknown
-r bash 50
-r pierce 50
-r slash 50
-r cold 50
-r poison -33
-r charm 999
 #22120
 shaman~
 shaman~
@@ -294,11 +249,6 @@ Q 0 HNOV 0 AB 0 0
 CHIJN
 stand stand none 10000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
 #22121
 mercenary~
 mercenary~
@@ -323,8 +273,6 @@ BEVe 0 H 0 AB 0 0
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22123
 sa~
 sa-long-tingue~
@@ -337,8 +285,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22124
 vi~
 Vi-heavy-hand~
@@ -351,8 +297,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22125
 zo~
 zo-eagle-eye~
@@ -365,8 +309,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22126
 la~
 la addict~
@@ -379,8 +321,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22127
 de~
 de alchemist~
@@ -393,8 +333,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22128
 mu~
 mu-wand-making-lizard~
@@ -407,8 +345,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22129
 slim se~
 slim~
@@ -421,8 +357,6 @@ lizard~
 0
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #22130
 fat tourist~
 fat tourist~
@@ -472,8 +406,6 @@ lizard~
 0
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22134
 halfdead snake~
 halfdead snake~
@@ -486,8 +418,6 @@ snake~
 0
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22135
 lizard green~
 green lizard~
@@ -500,8 +430,6 @@ lizard~
 FKM
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22136
 small lizard~
 small lizard~
@@ -514,8 +442,6 @@ lizard~
 FKM
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #22137
 bird~
 bird~
@@ -589,9 +515,6 @@ BFS 0 0 0 0 0 0
 CHIJN
 stand stand male 10000
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
 #22218
 lake~
 ~

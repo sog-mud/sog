@@ -45,8 +45,6 @@ FNR
 sleep stand none 0
 0 0 medium unknown
 g @eng none@rus male~
-r bash -33
-r cold -33
 #6003
 rabbit заяц~
 @eng the ferocious rabbit@rus ~~дикий~~ ~~заяц~~~
@@ -181,11 +179,6 @@ EFNR
 stand stand none 2500
 0 0 medium unknown
 g @eng none@rus male~
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #6115
 shargugh brownie шаргах брауни~
 @eng Shargugh@rus Шаргах~
@@ -236,23 +229,9 @@ BJRV D 0 0 ABL 1000 0
 F
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #0
 
 #OBJECTS

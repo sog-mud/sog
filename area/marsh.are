@@ -25,12 +25,6 @@ BCFG 0 0 0 0 -600 0
 EFNR
 stand rest male 500
 0 0 medium unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #8302
 troll тролль~
 @eng a green troll@rus ~~зеленый~~ ~~тролль~~~
@@ -50,12 +44,6 @@ CFG 0 0 0 0 -400 0
 EFNR
 stand stand male 400
 0 0 medium unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #8303
 ogre людоед~
 @eng an ogre@rus людоед~
@@ -163,8 +151,6 @@ CFGH 0 0 BG H -100 0
 EFNR
 stand stand female 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #8310
 python snake змея питон~
 @eng a large snake@rus питон~
@@ -180,8 +166,6 @@ EFNR
 stand stand female 0
 0 0 medium unknown
 g @eng female@rus male~
-r cold 50
-r poison -33
 #8312
 hag ведьма~
 @eng the Marsh Hag@rus ~~болотная~~ ~~ведьма~~~
@@ -278,10 +262,6 @@ BCFG 0 0 0 ABH -100 0
 EFNR
 stand stand male 600
 0 0 medium unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #8321
 gargoyle горгулья~
 @eng a gargoyle@rus горгулья~

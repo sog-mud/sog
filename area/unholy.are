@@ -24,7 +24,7 @@ EFHIJKNQ
 stand stand male 0
 0 0 medium unknown
 r lightning -50
-r poison 999
+r poison 100
 r charm 33
 #30801
 clay golem~
@@ -40,23 +40,6 @@ BG 0 N 0 ABH 0 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #30802
 monk master~
 a master~
@@ -73,7 +56,7 @@ EFHIJKNQ
 stand stand male 0
 0 0 medium unknown
 r lightning -50
-r poison 999
+r poison 100
 r charm 33
 #30803
 necromancer~
@@ -106,7 +89,7 @@ EFHIJKNQ
 stand stand male 0
 0 0 medium unknown
 r lightning -50
-r poison 999
+r poison 100
 r charm 33
 #30805
 wight~
@@ -153,8 +136,6 @@ BG 0 0 0 0 0 0
 F
 stand stand female 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #30808
 dwarven dwarf slave~
 a dwarven slave~
@@ -170,9 +151,6 @@ G 0 0 0 0 0 0
 CDEFIJKS
 stand stand male 0
 0 0 small unknown
-r bash -7
-r poison -25
-r disease -25
 #30809
 ogre slavemaster master~
 an ogre slavemaster~
@@ -202,7 +180,7 @@ BG 0 HN 0 ABHKL 1000 0
 EFIJKS
 stand stand male 0
 0 0 medium unknown
-r holy 999
+r holy 100
 #30811
 black dragon~
 a black dragon~
@@ -216,10 +194,6 @@ BG 0 JN 0 ABKL -1000 0
 CDEFQ
 stand stand male 0
 0 0 giant unknown
-r bash -33
-r pierce 50
-r acid -33
-r charm -33
 #30812
 old elf~
 an old elf~
@@ -236,8 +210,6 @@ BG 0 H 0 0 1000 0
 EFIJKS
 stand stand male 0
 0 0 small unknown
-r negative 10
-r charm -33
 #30813
 bone golem~
 a bone golem~
@@ -253,23 +225,6 @@ BG 0 N 0 0 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #30814
 wyvern~
 a wyvern~

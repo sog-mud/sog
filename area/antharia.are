@@ -22,20 +22,7 @@ GT 0 0 0 0 800 0
 CDEKLTU
 stand stand male 1000
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 a 'water breathing' to_affects 25 -1 0 0 0
 #12302
 Suretin~
@@ -331,8 +318,6 @@ B D 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
-r negative 10
-r charm -33
 a 'water breathing' to_affects 40 -1 0 0 0
 #12365
 Dwarven Representative~
@@ -348,9 +333,6 @@ BQ 0 0 0 0 0 0
 CEFIJK
 stand stand male 1000
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 a 'water breathing' to_affects 40 -1 0 0 0
 #12370
 illithid Representative~

@@ -24,8 +24,6 @@ CH 0 0 0 0 0 0
 FHMR
 stand stand female 0
 0 P small unknown
-r cold 50
-r poison -33
 #29202
 lizard ящерица red-tongued красная~
 @eng the red-tongued lizard@rus ~~красная~~ ~~ящерица~~~
@@ -42,8 +40,6 @@ CH 0 0 0 0 0 0
 HMR
 stand stand female 0
 0 0 small unknown
-r cold 50
-r poison -33
 #29203
 lizard ящерица green-tongued зеленая~
 @eng the green-tongued lizard@rus ~~зеленая~~ ~~ящерица~~~
@@ -60,8 +56,6 @@ CH 0 0 0 0 0 0
 FHMR
 stand stand female 0
 0 0 small unknown
-r cold 50
-r poison -33
 #29204
 watchman сторож man человек old старый sailor моряк~
 @eng the watchman of Widow's Cape@rus ~~сторож~~ Вдовьего Мыса~
@@ -296,8 +290,6 @@ BCVe 0 0 0 0 -300 0
 EFNU
 stand stand male 15000
 0 0 medium unknown
-r negative 10
-r charm -33
 #29218
 raedner dwarf гном dwarven кузнец smith рэднер~
 @eng Raedner the dwarven smith@rus ~~кузнец~~ ~~Рэднер~~~
@@ -319,21 +311,7 @@ BCSVe 0 0 0 0 700 0
 EFNU
 stand stand male 15000
 0 0 medium unknown
-r bash -7
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 8
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 8
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #29219
 samantha ведьма~
 @eng Samantha, witch of the Mystic Eye@rus ~~ведьма~~ ~~Саманта~~~

@@ -27,13 +27,6 @@ EFU
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus male~
-r bash -33
-r pierce -33
-r slash -33
-r poison -100
-r negative -100
-r holy 50
-r disease -100
 #22003
 wraith wicked зловещий призрак~
 @eng a Wicked Wraith@rus ~~зловещий~~ ~~призрак~~~
@@ -50,13 +43,6 @@ CEFH
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus male~
-r bash -33
-r pierce -33
-r slash -33
-r poison -100
-r negative -100
-r holy 50
-r disease -100
 #22004
 ghastly spectre призрак мертвенно бледный~
 @eng a spectre@rus ~~призрак~~~
@@ -73,14 +59,9 @@ CDFH
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus male~
-r bash -100
-r pierce -100
-r slash -100
-r cold -100
-r poison -100
-r holy 50
-r light 100
-r charm -100
+r holy -50
+r iron -50
+r silver -50
 #22005
 ghoul гуль~
 @eng a ghoul@rus ~~гуль~~~
@@ -100,11 +81,7 @@ CDHK
 stand stand none 500
 0 0 medium unknown
 g @eng none@rus male~
-r fire 50
-r poison 999
-r holy 50
-r disease 999
-r charm -100
+r holy -50
 #22006
 demon lemure lowest демон лемур~
 @eng a lemure@rus ~~лемур~~~
@@ -122,10 +99,8 @@ CDF
 stand stand none 0
 I 0 medium unknown
 g @eng none@rus male~
-r fire -100
-r cold -50
-r poison -100
 r holy -50
+r iron -50
 #22007
 nupperibo demon obese нупперибо демон тучный~
 @eng a nupperibo@rus нупперибо~
@@ -145,10 +120,8 @@ CDF
 stand stand neutral 0
 I 0 large unknown
 g @eng neutral@rus male~
-r fire -100
-r cold -50
-r poison -100
 r holy -50
+r iron -50
 #22008
 spinagon demon спинагон демон~
 @eng a Spinagon@rus ~~спинагон~~~
@@ -169,9 +142,6 @@ DEFIKN
 stand stand none 500
 I 0 medium unknown
 g @eng none@rus male~
-r fire -100
-r cold -50
-r poison -100
 r holy -50
 #22009
 ghoul lord повелитель гулей~
@@ -192,12 +162,8 @@ BGJO 0 0 0 H -1000 0
 CDEFHK
 stand stand male 800
 0 0 large unknown
-r fire 50
-r poison 999
-r negative 999
-r holy 50
-r disease 999
-r charm -100
+r holy -50
+r iron -50
 #22010
 dragon deep black черный подземный дракон~
 @eng A Deep Dragon@rus ~~подземный~~ ~~дракон~~~
@@ -219,6 +185,7 @@ BG 0 0 0 0 -800 0
 CDEKM
 sleep stand male 20000
 c L medium unknown
+r cold 33
 r lightning 33
 r acid 33
 #22011
@@ -240,7 +207,6 @@ CDEF
 stand stand none 500
 AGIV ACDEFJKQV large unknown
 g @eng none@rus female~
-r holy -50
 #22012
 cleric holy священник~
 @eng a Holy Cleric@rus ~~священник~~~
@@ -293,6 +259,7 @@ GS 0 0 0 H -400 0
 FJNS
 stand stand male 1200
 AHMV ABCDEFGHIJK small unknown
+r iron -50
 #22015
 powerful enchantress могущественная волшебница~
 @eng A Powerful Enchantress@rus ~~могущественная~~ ~~волшебница~~~
@@ -310,20 +277,7 @@ GR 0 J 0 H -600 0
 FNS
 stand stand female 1000
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #0
 
 #OBJECTS

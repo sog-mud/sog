@@ -31,7 +31,7 @@ g @eng none@rus female~
 r negative 33
 r holy -50
 r light -50
-r charm 999
+r charm 100
 #14002
 abaddon king аваддон~
 @eng Abaddon@rus Аваддон~
@@ -53,8 +53,9 @@ stand stand male 900
 AHMVXd ABCDEFGHIJKP medium unknown
 r fire 33
 r cold 33
+r negative 0
 r holy 33
-r charm 999
+r charm 100
 #14003
 babylon whore woman harlot вавилон блудница женщина~
 @eng Babylon@rus Вавилон~
@@ -94,9 +95,9 @@ ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
-r charm 999
+r holy 100
+r disease 100
+r charm 100
 #14005
 angel earth ангел~
 @eng The angel of the earth@rus ~~Ангел~~ земли~
@@ -115,9 +116,9 @@ ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
-r charm 999
+r holy 100
+r disease 100
+r charm 100
 #14006
 angel air ангел~
 @eng The angel of the air@rus ~~Ангел~~ воздуха~
@@ -137,9 +138,9 @@ ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
-r charm 999
+r holy 100
+r disease 100
+r charm 100
 #14007
 angel fire ангел~
 @eng The angel with the fiery censer@rus ~~Ангел~~ с золотой кадильницей~
@@ -159,9 +160,9 @@ ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
-r charm 999
+r holy 100
+r disease 100
+r charm 100
 #14008
 angel harvesting ангел~
 @eng The harvesting angel@rus Ангел~
@@ -180,9 +181,9 @@ ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
-r charm 999
+r holy 100
+r disease 100
+r charm 100
 #14009
 army heaven небесное войско~
 @eng An army of heaven@rus ~~небесное~~ ~~войско~~~
@@ -200,7 +201,7 @@ CEP
 stand stand none 900
 S 0 huge unknown
 g @eng none@rus plural~
-r bash 999
+r bash 100
 r negative -50
 r holy 33
 #14010
@@ -222,7 +223,8 @@ BCN 0 large unknown
 g @eng male@rus male~
 r negative 33
 r holy -50
-r charm 999
+r charm 100
+r iron 33
 #14011
 horseman red всадник рыжий~
 @eng the red horseman@rus ~~всадник~~ на рыжем коне~
@@ -241,7 +243,8 @@ stand stand male 900
 BCN 0 large unknown
 r negative 33
 r holy -50
-r charm 999
+r charm 100
+r iron 33
 #14012
 horseman black всадник~
 @eng The black horseman@rus ~~всадник~~ на вороном коне~
@@ -260,7 +263,8 @@ stand stand male 900
 BCN 0 large unknown
 r negative 33
 r holy -50
-r charm 999
+r charm 100
+r iron 33
 #14013
 horseman pale всадник~
 @eng The pale horseman@rus ~~всадник~~ на бледном коне~
@@ -279,7 +283,8 @@ stand stand male 900
 BCN 0 large unknown
 r negative 33
 r holy -50
-r charm 999
+r charm 100
+r iron 33
 #14014
 michael archangel архангел михаил~
 @eng The archangel Michael@rus ~~архангел~~ ~~Михаил~~~
@@ -300,10 +305,10 @@ r bash 33
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
-r light 999
-r charm 999
+r holy 100
+r disease 100
+r light 100
+r charm 100
 #14015
 dragon дракон~
 @eng The dragon@rus дракон~
@@ -321,15 +326,11 @@ BR 0 0 0 AB -1000 0
 IMQWX
 stand stand male 900
 BCcd L huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
+r cold 33
 r lightning 33
 r acid 33
 r negative 33
 r holy -50
-r charm -33
 #14016
 jezebel woman пророчица иезавель женщина~
 @eng Jezebel the prophetess@rus ~~пророчица~~ ~~Иезавель~~~
@@ -405,10 +406,11 @@ ACDHILMV ABCDEFGHIJKQ medium unknown
 r pierce 33
 r fire 33
 r cold 33
-r negative 999
+r negative 100
 r holy -50
 r energy -50
-r charm 999
+r charm 100
+r iron 0
 #14020
 prophet false лжепророк~
 @eng The false prophet@rus лжепророк~
@@ -449,12 +451,12 @@ BT 0 N 0 0 1000 0
 EFKLS
 stand stand female 900
 0 0 medium unknown
-r poison 999
+r poison 100
 r negative -50
 r holy 33
 r mental 33
-r disease 999
-r charm 999
+r disease 100
+r charm 100
 #14022
 word god слово божие верный истинный~
 @eng The word of God@rus ~~Верный~~ и ~~Истинный~~~
@@ -482,14 +484,15 @@ ACDHMV ABCDEFGHIJKP giant unknown
 r fire 33
 r cold 33
 r lightning -50
-r poison 999
+r poison 100
 r negative -50
-r holy 999
+r holy 100
 r energy 33
 r mental 33
-r disease 999
-r light 999
-r charm 999
+r disease 100
+r light 100
+r charm 100
+r iron 33
 #14023
 one sealed запечатленный~
 @eng The sealed one@rus запечатленный~
@@ -550,7 +553,7 @@ stand stand male 100
 ABGHMV ABCDEFGHIJKQU huge unknown
 r fire 33
 r cold 33
-r negative 999
+r negative 100
 r holy -50
 #14026
 idolator man идолопоклонник человек мужчина~
@@ -747,23 +750,10 @@ BJT 0 HNTVd A ABHKL 1000 0
 FGHKLO
 sit sit male 900
 ACDHLMV ABCDEFGHIJKP giant unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
 r negative 33
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r iron 100
+r weapon 100
+r magic 100
 #14038
 lamb агнец~
 @eng The Lamb@rus Агнец~
@@ -779,23 +769,10 @@ BJTc CD HNTWd A ABHKL 1000 0
 FGHKLO
 sit sit male 900
 ACDHLMV ABCDEFGHIJKP giant unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
 r negative 33
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r iron 100
+r weapon 100
+r magic 100
 #14039
 elders four twenty 24 старцы старца~
 @eng four and twenty elders@rus ~~24 старца~~~
@@ -817,8 +794,8 @@ g @eng none@rus plural~
 r fire 33
 r cold 33
 r negative -50
-r holy 999
-r disease 999
+r holy 100
+r disease 100
 #14040
 lion creature~
 @eng the lion creature@rus ~~животное~~, льву ~~подобное~~~
@@ -837,8 +814,9 @@ BT 0 N 0 ABHKL 1000 0
 FIMPV
 stand stand none 0
 BCDGHLMV ABCDEFGHIJKPQUV large unknown
-r holy 999
-r disease 999
+r holy 100
+r disease 100
+r silver -50
 #14041
 ox creature животное телец создание~
 @eng the ox creature@rus ~~животное~~, тельцу ~~подобное~~~
@@ -857,8 +835,8 @@ BT 0 N 0 ABHKL 1000 0
 CDPV
 stand stand none 900
 CDGHLV ACDEFJKPQW large unknown
-r holy 999
-r disease 999
+r holy 100
+r disease 100
 #14042
 human face faced creature создание лицо~
 @eng the creature with a human face@rus ~~создание~~, лице ~~имеющее~~~
@@ -877,8 +855,8 @@ BT 0 N 0 ABHKL 1000 0
 EFIK
 stand stand none 900
 CDGL LP large unknown
-r holy 999
-r disease 999
+r holy 100
+r disease 100
 #14043
 eagle creature создание орел~
 @eng the eagle creature@rus ~~создание~~, орлу летящему ~~подобное~~~
@@ -897,8 +875,8 @@ BT 0 NT 0 ABHKL 1000 0
 EFIK
 stand stand none 900
 CDGHLW ADEFKPU large unknown
-r holy 999
-r disease 999
+r holy 100
+r disease 100
 #0
 
 #OBJECTS

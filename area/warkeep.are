@@ -100,12 +100,6 @@ troll~
 EFIJKQ
 stand stand male 1000
 0 0 medium unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #15706
 flesh golem~
 a flesh golem~
@@ -120,23 +114,6 @@ BG 0 HN 0 H 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #15707
 fire drake~
 a fire drake~
@@ -167,12 +144,6 @@ G 0 0 0 0 0 0
 EFN
 stand stand none 1000
 0 0 medium unknown
-r poison -100
-r negative -33
-r holy 50
-r energy -33
-r disease -100
-r light 50
 #15709
 guard~
 a keep guard~
@@ -248,8 +219,6 @@ BFG 0 0 0 H 0 0
 EFNU
 stand stand none 0
 0 0 large unknown
-r cold 50
-r poison -33
 #15714
 war dog~
 a savage war dog~
@@ -265,20 +234,6 @@ BFG 0 N 0 H -400 0
 ENQ
 stand stand none 0
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #15715
 assassin~
 an assassin~
@@ -324,20 +279,6 @@ GH 0 0 0 H -400 0
 EN
 stand stand male 0
 0 0 medium unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #15718
 ogre slave~
 an ogre slave~
@@ -352,7 +293,6 @@ ogre~
 FS
 stand stand male 0
 0 0 medium unknown
-r disease -33
 #15719
 flind slave master~
 a flind slave master~

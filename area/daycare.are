@@ -21,9 +21,6 @@ CGT 0 0 0 0 -5 0
 DJR
 sit stand either 10
 0 0 small unknown
-r bash -7
-r poison -25
-r disease -25
 #6601
 teddy bear~
 a teddy bear~
@@ -37,19 +34,6 @@ CG 0 0 0 0 500 0
 NR
 stand stand male 0
 0 0 small unknown
-r bash -33
-r slash 50
-r fire 50
-r cold -100
-r lightning 50
-r acid 50
-r poison -100
-r negative -100
-r holy -100
-r energy 50
-r mental -100
-r disease -100
-r light -33
 #6602
 doll raggedy anne~
 a raggedy anne doll~
@@ -63,19 +47,6 @@ CG 0 0 0 0 300 0
 FHR
 sit stand female 0
 0 0 small unknown
-r bash -33
-r slash 50
-r fire 50
-r cold -100
-r lightning 50
-r acid 50
-r poison -100
-r negative -100
-r holy -100
-r energy 50
-r mental -100
-r disease -100
-r light -33
 #6603
 soldier toy~
 a toy soldier~
@@ -89,19 +60,8 @@ CGT 0 0 0 0 -300 0
 IR
 stand stand male 0
 0 0 small unknown
-r bash -33
-r slash 50
-r fire 50
-r cold -100
-r lightning 50
-r acid 50
-r poison -100
-r negative -100
-r holy -100
-r energy 50
-r mental -100
-r disease -100
-r light -33
+r bash -50
+r slash 33
 #6604
 bear ugly~
 the ugly bear~
@@ -116,19 +76,6 @@ CF 0 0 0 0 -400 0
 DJNR
 stand stand male 5
 0 0 small unknown
-r bash -33
-r slash 50
-r fire 50
-r cold -100
-r lightning 50
-r acid 50
-r poison -100
-r negative -100
-r holy -100
-r energy 50
-r mental -100
-r disease -100
-r light -33
 #6605
 doll old кукла~
 @eng an old doll@rus ~~старая~~ ~~кукла~~~
@@ -143,19 +90,6 @@ CG 0 0 0 0 -2 0
 R
 stand stand female 0
 0 0 small unknown
-r bash -33
-r slash 50
-r fire 50
-r cold -100
-r lightning 50
-r acid 50
-r poison -100
-r negative -100
-r holy -100
-r energy 50
-r mental -100
-r disease -100
-r light -33
 #6606
 nanny~
 the nanny~
@@ -170,9 +104,6 @@ G 0 0 0 0 10 0
 CDR
 stand stand female 50
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6607
 guard~
 the armed guard~
@@ -187,9 +118,6 @@ BCT 0 0 0 A -800 0
 CDJR
 stand stand male 120
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6608
 brat spoiled~
 the spoiled brat~
@@ -204,9 +132,6 @@ BC 0 0 0 0 -400 0
 IJN
 stand stand male 50
 0 0 small unknown
-r bash -7
-r poison -25
-r disease -25
 #0
 
 #OBJECTS

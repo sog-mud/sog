@@ -29,18 +29,6 @@ BJRe 0 HT 0 ABCDF 0 0
 FKMO
 stand stand female 0
 AV ABCDEFPQ giant unknown
-r bash 30
-r pierce 30
-r slash 20
-r fire 33
-r cold 33
-r lightning 33
-r acid 80
-r poison 100
-r negative 33
-r mental 33
-r disease 100
-r charm 100
 #22301
 green glutton ghost~
 Green Glutton Ghost~
@@ -57,19 +45,6 @@ FT 0 0 0 ABCD -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r poison 100
-r negative 100
-r holy 50
-r disease 100
-r light -30
-r harm -30
-r charm 999
-r sound 50
-r iron 30
-r wood 30
 #22302
 cantoras skeltal lord~
 Cantoras the Skeletal Lord~
@@ -84,24 +59,6 @@ FJOT 0 Uc 0 ABCD -1000 0
 AFJKP
 stand stand male 100
 BIV ABCHU huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 100
-r lightning 33
-r acid 33
-r poison 100
-r negative 100
-r holy -33
-r energy 33
-r mental 33
-r disease 100
-r light 33
-r harm 33
-r charm 100
-r sound 33
-r iron 30
-r wood 100
 #22303
 shade warrior ghost~
 the Shade~
@@ -116,21 +73,6 @@ BFOT 0 TU H ABCD -1000 0
 FGK
 stand stand none 10
 IV 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -50
-r cold 33
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light -30
-r harm -30
-r charm 100
-r sound 30
-r iron 30
-r wood 30
 #22304
 daemon faegwath~
 Faegwath the Undead Sorceror~
@@ -145,21 +87,6 @@ BFGOR G JTUc 0 ABCD 0 0
 AFGK
 stand stand none 20000
 BIZc ABCDEFGHU large unknown
-r bash 50
-r pierce 40
-r slash 35
-r fire -50
-r cold 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light -50
-r harm -20
-r charm 100
-r sound 100
-r iron 30
-r wood 30
 #22305
 guard chu-gun iron statue~
 Chu-gun the Guard of Pa-Ra-Voz~
@@ -174,26 +101,6 @@ BFT 0 Vc 0 ABCD 0 0
 EFK
 stand stand none 0
 0 0 huge unknown
-r bash 50
-r pierce 50
-r slash 50
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 100
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 999
-r light 50
-r harm 50
-r charm 100
-r sound 100
-r iron 30
-r wood 30
-r silver 30
 #22306
 ringwraith adunaphel~
 Adunaphel the Quiet~
@@ -210,21 +117,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand female 20000
 0 0 large unknown
-r bash 15
-r pierce 35
-r slash 25
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -30
-r charm 100
-r iron 40
-r wood 40
-r silver -20
 #22307
 uvatha ringwraith~
 Uvatha the Horseman~
@@ -241,21 +133,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 20000
 0 0 large unknown
-r bash 15
-r pierce 35
-r slash 25
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -30
-r charm 100
-r iron 40
-r wood 40
-r silver -20
 #22308
 alhorahil ringwraith~
 Alhorahil the Blind~
@@ -273,21 +150,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 20000
 0 0 large unknown
-r bash 15
-r pierce 35
-r slash 25
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -30
-r charm 100
-r iron 40
-r wood 40
-r silver -20
 #22309
 ren ringwraith~
 Ren the Unclean~
@@ -305,21 +167,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
-r bash 20
-r pierce 40
-r slash 30
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -20
-r charm 100
-r iron 45
-r wood 45
-r silver -25
 #22310
 indur ringwraith~
 Ji Indur Dawndeath~
@@ -336,21 +183,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 21000
 0 0 large unknown
-r bash 20
-r pierce 40
-r slash 30
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -20
-r charm 100
-r iron 45
-r wood 45
-r silver -25
 #22311
 dwar ringwraith~
 Dwar, Dog Lord of Waw~
@@ -368,21 +200,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 21000
 0 0 large unknown
-r bash 20
-r pierce 40
-r slash 30
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -20
-r charm 100
-r iron 45
-r wood 45
-r silver -25
 #22312
 hoarmurath ringwraith~
 Hoarmurath of Dir~
@@ -399,21 +216,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
-r bash 25
-r pierce 45
-r slash 35
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -10
-r charm 100
-r iron 50
-r wood 50
-r silver -30
 #22313
 khamul ringwraith~
 Khamul the Easterling~
@@ -431,21 +233,6 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
-r bash 25
-r pierce 45
-r slash 35
-r cold -100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light 50
-r harm -10
-r charm 100
-r iron 45
-r wood 45
-r silver -25
 #22314
 murazor ringwraith~
 Murazor, the Witch-King of Angmar~
@@ -465,26 +252,6 @@ BFTVe 0 T 0 ABCD -1000 0
 ACGIK
 stand stand male 25000
 0 0 huge unknown
-r bash 30
-r pierce 50
-r slash 40
-r fire 50
-r cold 100
-r lightning 100
-r acid 80
-r poison 100
-r negative 100
-r holy -50
-r energy 90
-r mental 100
-r disease 100
-r light 60
-r harm 20
-r charm 100
-r sound 100
-r iron 60
-r wood 60
-r silver -40
 #22315
 omarax beholder~
 Omarax the Eye tyrant~
@@ -500,22 +267,6 @@ BCGJR 0 JT 0 ABCD -1000 0
 AFGK
 stand stand none 10000
 BIVc AEKU large unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 999
-r negative 999
-r energy 33
-r mental 33
-r disease 999
-r light 33
-r harm 33
-r charm 999
-r sound 33
 #22316
 tselakus ghost~
 Tselakus, the Dreadlord~
@@ -532,25 +283,6 @@ BCFGT 0 J 0 ABCD -1000 0
 AFK
 stand stand none 15000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 100
-r negative 100
-r holy -30
-r energy 33
-r mental 33
-r disease 100
-r light 33
-r harm 33
-r charm 33
-r sound 33
-r iron 33
-r wood 33
 #22317
 muar demon barlog~
 Muar, the Balrog~
@@ -566,19 +298,6 @@ BCFGJT 0 JT 0 ABCD -1000 0
 AFGK
 stand stand male 20000
 ABV ABCDEFGHQW huge unknown
-r bash 50
-r pierce 33
-r slash 33
-r fire 999
-r cold -50
-r acid 33
-r poison 999
-r negative 999
-r energy 33
-r disease 999
-r charm 999
-r iron 33
-r wood 33
 #22318
 gothmog balrog demon~
 Gothmog, the High Captain of Balrogs~
@@ -594,22 +313,6 @@ CEJT 0 TUVc G ABCD -1000 0
 ACEFGIKMOP
 stand stand male 30000
 ABV ABCDEFPU gargantuan unknown
-r bash 60
-r pierce 70
-r slash 50
-r fire 100
-r cold -50
-r lightning 33
-r acid 33
-r poison 100
-r negative 100
-r mental 100
-r disease 100
-r drowning 100
-r light 33
-r other 70
-r charm 100
-r sound 33
 #22319
 lich vecna skelet~
 Vecna, the Emperor Lich~
@@ -624,20 +327,6 @@ BCF 0 JT 0 ABCD -1000 0
 AK
 stand stand female 20000
 0 0 medium unknown
-r bash 15
-r pierce 35
-r slash 25
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light -50
-r charm 100
-r iron 40
-r wood 100
-r silver -20
 #22320
 demon uriel~
 Uriel, Demon of Fire~
@@ -653,21 +342,6 @@ BCFJR 0 JT 0 ABCD -1000 0
 AFGK
 stand stand male 10000
 BV ABCDEF small unknown
-r bash 33
-r pierce 50
-r slash 999
-r fire 999
-r cold -50
-r poison 999
-r negative 999
-r holy -50
-r mental 33
-r disease 999
-r charm 999
-r sound 33
-r iron 33
-r wood 20
-r silver -20
 #22321
 baphoment minotaur lord~
 Baphomet the Minotaur Lord~
@@ -684,14 +358,6 @@ BCF 0 T 0 ABCD -1000 0
 AKZ
 stand stand male 20000
 0 0 huge unknown
-r bash 50
-r pierce 70
-r slash 45
-r fire -50
-r cold 50
-r poison 100
-r disease 100
-r charm 100
 #22322
 dread ghost~
 the Dread~
@@ -707,18 +373,6 @@ CFRT 0 0 0 ABCD -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
-r bash 33
-r pierce 999
-r slash 33
-r cold 33
-r poison 100
-r negative 100
-r holy 50
-r disease 100
-r charm 100
-r iron 30
-r wood 30
-r silver -20
 #22323
 nightwing demon~
 Nightwing~
@@ -735,20 +389,6 @@ CFT 0 T 0 ABCD -1000 0
 AFGP
 stand stand none 0
 0 0 large unknown
-r bash 40
-r pierce 33
-r slash 999
-r fire -33
-r cold 999
-r poison 100
-r negative 60
-r holy -50
-r disease 100
-r light -50
-r charm 100
-r iron 30
-r wood 30
-r silver -30
 #22324
 black reaver demon~
 the Balck River~
@@ -763,19 +403,6 @@ CFT 0 T 0 ABCD -1000 0
 GK
 stand stand none 0
 0 0 large unknown
-r bash 100
-r pierce 70
-r slash 30
-r cold 100
-r lightning 100
-r poison 100
-r negative 100
-r holy -50
-r disease 100
-r light -50
-r charm 100
-r iron 100
-r silver -20
 #22325
 colbran demon~
 the Colbran~
@@ -790,20 +417,6 @@ CFR 0 T 0 ABCD -1000 0
 FGK
 stand stand none 0
 ABV ABCE medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 999
-r lightning 999
-r poison 999
-r negative 999
-r holy -50
-r energy -50
-r disease 999
-r charm 999
-r iron 30
-r wood 100
-r silver 100
 #22326
 the gelatinous cube demon~
 the Gelatinous cube~
@@ -819,19 +432,6 @@ CFR 0 T 0 ABCD -1000 0
 AFGK
 stand stand none 0
 ABV ABCDE large unknown
-r bash 999
-r pierce 33
-r slash 33
-r fire -50
-r cold 33
-r acid 999
-r poison 999
-r negative 999
-r holy -50
-r disease 999
-r charm 999
-r iron 40
-r wood 20
 #22327
 guard fire drake dragon itangast~
 Itangast, the Fire Drake~
@@ -847,15 +447,6 @@ BCTU 0 H 0 ABCD 0 0
 AGK
 stand stand male 0
 0 0 gargantuan unknown
-r bash 999
-r pierce 50
-r slash 33
-r fire 999
-r cold 50
-r poison 999
-r negative 999
-r disease 999
-r charm 999
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
@@ -872,23 +463,6 @@ FT 0 0 0 ABCD -1000 0
 0
 stand stand female 100000
 0 0 gargantuan unknown
-r bash 100
-r pierce 50
-r slash 60
-r fire 100
-r cold 50
-r lightning 50
-r acid 80
-r poison 999
-r negative 999
-r holy 10
-r energy 50
-r mental 50
-r disease 999
-r light 100
-r other 50
-r charm 100
-r sound 59
 #22329
 guard high zombie~
 the high guard~
@@ -906,24 +480,6 @@ ORT 0 V G CDG -1000 0
 AFGHKP
 stand stand random 1000
 0 0 large unknown
-r bash 20
-r pierce 20
-r slash 30
-r fire -30
-r cold 999
-r lightning 60
-r acid 90
-r poison 100
-r negative 999
-r holy 50
-r energy 17
-r mental 999
-r disease 100
-r light 50
-r harm -50
-r charm 100
-r sound 50
-r silver -10
 #22330
 guard undead~
 the undead guard~
@@ -938,23 +494,6 @@ ORT 0 Vc G CD -1000 0
 FGHJKP
 stand stand none 500
 0 0 large unknown
-r pierce 20
-r slash 10
-r fire -30
-r cold 999
-r lightning 60
-r acid 80
-r poison 100
-r negative 999
-r holy 50
-r energy -33
-r mental 999
-r disease 100
-r light 50
-r harm -50
-r charm 999
-r sound 50
-r silver -20
 #22399
 as~
 as~

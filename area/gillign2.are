@@ -223,20 +223,7 @@ BT 0 NO 0 0 0 0
 EFIJN
 stand stand male 10
 0 0 large unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #32115
 Totem pole~
 Totem Pole~
@@ -251,19 +238,6 @@ B 0 NO 0 0 0 0
 FN
 stand stand either 0
 0 0 large unknown
-r bash -33
-r slash 50
-r fire 50
-r cold -100
-r lightning 50
-r acid 50
-r poison -100
-r negative -100
-r holy -100
-r energy 50
-r mental -100
-r disease -100
-r light -33
 #32116
 Surfer~
 a Surfer~
@@ -293,9 +267,7 @@ BC 0 0 0 K 0 0
 HI
 stand stand either 20
 0 0 large unknown
-r fire 33
-r lightning -50
-r mental -50
+r cold -50
 r charm -50
 #32118
 Robinson Cruesoe~
@@ -383,7 +355,6 @@ BCFJ 0 HNO A 0 0 0
 CD
 stand stand either 500
 I 0 medium unknown
-r light -50
 #32124
 Sumo~
 A Sumo~

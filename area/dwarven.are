@@ -22,9 +22,6 @@ B 0 0 0 A 500 0
 EFNR
 stand stand male 500
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6501
 dwarf worker miner гном забойщик~
 @eng the dwarven worker@rus ~~гном~~-~~забойщик~~~
@@ -39,9 +36,6 @@ G 0 0 0 0 900 0
 EFNR
 stand stand male 175
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6502
 wraith призрак~
 @eng the wraith@rus призрак~
@@ -99,8 +93,6 @@ EFNR
 stand stand male 0
 0 0 medium unknown
 g @eng male@rus female~
-r cold 50
-r poison -33
 #6506
 giant великан~
 @eng the giant@rus великан~
@@ -116,10 +108,6 @@ G 0 0 0 0 0 0
 EFNR
 stand stand male 100
 0 0 medium unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #6507
 miner dwarf гном шахтер~
 @eng the dwarven miner@rus ~~гном~~-~~шахтер~~~
@@ -134,9 +122,6 @@ B 0 0 0 0 0 0
 EFNR
 stand stand male 2
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6508
 leader бригадир шахтер~
 @eng the dwarven mine leader@rus ~~бригадир~~ шахтеров~
@@ -151,9 +136,6 @@ B 0 0 0 0 0 0
 EFNR
 stand stand male 1000
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6509
 doctor dwarf лекарь~
 @eng the dwarven doctor@rus ~~гном~~-~~лекарь~~~
@@ -168,9 +150,6 @@ B 0 H 0 A 1000 0
 EFNR
 stand stand male 75
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6510
 peon dwarf гном пеон~
 @eng the dwarven peon@rus ~~гном~~-~~пеон~~~
@@ -185,9 +164,6 @@ B 0 0 0 0 500 0
 EFNR
 stand stand male 3
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6511
 dwarf гном~
 @eng the dwarf@rus гном~
@@ -200,9 +176,6 @@ B 0 0 0 0 500 0
 EFNR
 stand stand male 62
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6512
 son dwarf сын гном~
 @eng the unwanted son@rus ~~нежеланный~~ ~~сын~~~
@@ -215,9 +188,6 @@ G 0 0 0 0 250 0
 EFNR
 stand stand male 2
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6513
 daughter dwarf дочка гном~
 @eng the unwanted daughter@rus ~~нежеланная~~ ~~дочка~~~
@@ -230,9 +200,6 @@ G 0 0 0 0 250 0
 EFNR
 stand stand female 2
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6514
 guard dwarf охранник казармы~
 @eng the barracks guard@rus ~~охранник~~ казармы~
@@ -245,9 +212,6 @@ B 0 0 0 0 100 0
 EFNR
 stand stand male 150
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #6515
 man мужчина~
 @eng the man in waiting@rus ~~ожидающий~~ ~~мужчина~~~
@@ -289,8 +253,6 @@ EFNR
 stand stand male 0
 0 0 medium unknown
 g @eng male@rus female~
-r cold 50
-r poison -33
 #6518
 seller dwarf гном забойщик~
 @eng the dwarven worker@rus ~~гном~~-~~забойщик~~~
@@ -307,9 +269,6 @@ BG 0 0 0 0 0 0
 EFNR
 stand stand male 175
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #0
 
 #OBJECTS

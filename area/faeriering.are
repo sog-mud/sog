@@ -23,22 +23,10 @@ CH 0 T 0 0 0 0
 EFR
 stand stand male 5
 ACHMVW ABCDEFGHIJKO tiny unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r fire -50
+r iron -50
+r weapon 33
+r magic 33
 #29102
 nixie faerie никси~
 @eng a fluttering nixie@rus ~~порхающий~~ никси~
@@ -54,19 +42,9 @@ CH 0 T 0 0 0 0
 EFU
 stand stand male 10
 AHMVW ABCDEFGHIJKO tiny unknown
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r fire -50
+r iron -50
+r magic 33
 #29103
 sprite faerie спрайт~
 @eng a dancing sprite@rus ~~танцующий~~ ~~спрайт~~~
@@ -83,19 +61,9 @@ CH 0 T A 0 0 0
 EFNU
 stand stand female 20
 AHMVW ABCDEFGHIJKO tiny unknown
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r fire -50
+r iron -50
+r magic 33
 #29104
 brownie faerie брауни~
 @eng a stern brownie@rus ~~мрачный~~ брауни~
@@ -112,20 +80,8 @@ BC 0 V 0 0 0 0
 EFHNU
 stand stand male 30
 AHMV ABCDEFGHIJK small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r iron -50
+r magic 33
 #29105
 puck faerie мистер пак~
 @eng Puck@rus ~~мистер~~ ~~Пак~~~
@@ -142,23 +98,9 @@ BCS 0 V B 0 0 0
 EFHNU
 stand stand male 300
 AHMV ABCDEFGHIJK small unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r iron -50
+r weapon 33
+r magic 33
 #29106
 queen faerie~
 @eng the Faerie Queen@rus ~~королева~~ фейри~
@@ -178,20 +120,7 @@ BCR 0 HT 0 A 0 0
 EFNU
 stand stand female 500
 0 O medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 43
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm -33
-r sound 33
+r magic 33
 #29107
 leprechaun faerie леприкон lucky~
 @eng Lucky@rus Лаки~
@@ -207,20 +136,8 @@ CH 0 UV B 0 0 0
 EFHNU
 stand stand male 400
 AHMV ABCDEFGHIJK small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r iron -50
+r magic 33
 #29108
 faerie drunken фейри~
 @eng a drunken faerie@rus ~~пьяный~~ фейри~
@@ -237,22 +154,10 @@ BC 0 RT 0 0 0 0
 EFNU
 sleep rest male 5
 AHMV ABCDEFGHIJKO tiny unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r fire -50
+r iron -50
+r weapon 33
+r magic 33
 #29109
 twinkletoes bartender faerie~
 @eng Twinkletoes@rus Твинклету~
@@ -269,23 +174,9 @@ BCe B V 0 0 0 0
 EFNU
 stand stand female 5000
 AHMV ABCDEFGHIJK medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r iron -50
+r weapon 33
+r magic 33
 #0
 
 #OBJECTS

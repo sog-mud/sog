@@ -55,8 +55,6 @@ BEJVe F HN 0 A 0 0
 EFHJ
 stand stand male 10000
 AV ABCDF small unknown
-r bash -50
-r charm 999
 #22454
 bloody beast~
 bloody beast~
@@ -72,10 +70,6 @@ W 0 0 0 0 500 0
 0
 stand stand none 0
 HM 0 tiny unknown
-r fire 33
-r cold -50
-r holy -50
-r light -50
 #22455
 bloody beast~
 bloody beast~
@@ -91,10 +85,6 @@ W 0 0 0 0 500 0
 F
 stand stand none 0
 HM 0 tiny unknown
-r fire 33
-r cold -50
-r holy -50
-r light -50
 #22456
 guard small~
 small guard~
@@ -140,9 +130,6 @@ GW 0 0 0 AH -500 0
 0
 stand stand none 0
 AHMV A small unknown
-r cold 33
-r holy -50
-r light -50
 #22459
 icky thing blubbering~
 blubbering Icky Thing~
@@ -158,9 +145,6 @@ GW 0 0 0 AH -500 0
 F
 stand stand none 0
 AHMV A small unknown
-r cold 33
-r holy -50
-r light -50
 #22460
 guard medium~
 medium guard~
@@ -176,9 +160,6 @@ GW 0 0 0 AH 500 0
 FK
 stand stand male 150
 0 0 medium unknown
-r cold 33
-r negative -50
-r holy 33
 #22461
 guard medium~
 medium guard~
@@ -194,9 +175,6 @@ CGW 0 0 0 AH 500 0
 FJK
 stand stand male 150
 0 0 medium unknown
-r cold 33
-r negative -50
-r holy 33
 #22462
 clear naga~
 Clear naga~
@@ -212,9 +190,6 @@ GW 0 TU 0 AH -500 0
 FK
 stand stand female 0
 AHMV AC small unknown
-r cold 33
-r negative 33
-r light -50
 #22463
 naga spirit~
 spirit naga~
@@ -232,9 +207,6 @@ GW 0 TU 0 AH -500 0
 FJKO
 stand stand female 0
 AHMV AC medium unknown
-r cold 33
-r negative 33
-r light -50
 #22464
 naga spirit queen~
 Queen of Nagas~
@@ -253,20 +225,6 @@ GJRTW 0 JNTUVc AG ABH -500 0
 ACDEFJK
 stand stand female 1000
 AMX AC large unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
 #22465
 tellias ranger guard~
 Tellias~
@@ -283,9 +241,6 @@ GJ C HV 0 ABFH 500 0
 FJKX
 stand stand male 500
 AMV ACDEF large unknown
-r fire 33
-r cold 33
-r charm 999
 #22466
 mifner captain burner~
 Mifner~
@@ -302,10 +257,6 @@ GJ 0 JV 0 ABH -500 0
 DEFJK
 stand stand male 500
 AMV ACDEF large unknown
-r fire 33
-r cold 33
-r negative 33
-r charm 999
 #22467
 large forest guard~
 large guard~
@@ -324,9 +275,6 @@ BG 0 0 0 AH 1000 0
 CFKN
 stand stand male 100
 AC 0 large unknown
-r lightning 999
-r light 999
-r charm 999
 #22468
 giant guard~
 giant guard~
@@ -341,10 +289,6 @@ GT 0 0 0 AH 1000 0
 CDEFIJKO
 stand stand male 150
 AHMV 0 giant unknown
-r fire 33
-r cold 33
-r lightning 33
-r sound -50
 #22469
 forest burner man~
 forest burner~
@@ -360,10 +304,6 @@ BG 0 0 0 AH -1000 0
 CFKN
 stand stand male 100
 AC 0 large unknown
-r fire 50
-r cold -50
-r lightning 30
-r charm 40
 #22470
 name man destroer~
 forest destroer~
@@ -378,10 +318,6 @@ GT 0 0 0 AH 1000 0
 CDEFIJKO
 stand stand male 150
 AHMV 0 giant unknown
-r fire 33
-r cold -50
-r lightning 33
-r sound -50
 #22471
 giant cracken~
 Giant cracken~
@@ -399,12 +335,6 @@ CF 0 HVa A AB 0 0
 stand stand none 0
 0 0 medium unknown
 F par AEJ
-r bash 30
-r pierce 40
-r slash 30
-r fire 50
-r cold 50
-r mental 30
 #22472
 human sergeant~
 human sergeant~
@@ -421,11 +351,6 @@ human~
 ADFHJK
 stand stand none 0
 0 0 medium unknown
-r bash 30
-r pierce 30
-r slash 30
-r fire 20
-r cold 20
 #22473
 troll small rumpelsteelskin~
 rumpelsteelskin~
@@ -440,12 +365,6 @@ T 0 0 K 0 -500 0
 FK
 stand stand male 0
 0 0 small unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #22479
 ~
 ~

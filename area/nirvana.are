@@ -21,14 +21,6 @@ CG 0 0 0 0 300 0
 N
 stand stand none 0
 0 I medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9001
 quadrone~
 the quadrone~
@@ -42,14 +34,6 @@ FGT 0 0 0 A 300 0
 CEK
 stand stand none 0
 0 I medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9002
 pentadrone~
 the pentadrone~
@@ -63,14 +47,6 @@ BFGT 0 0 0 A 300 0
 CEFLN
 stand stand none 0
 0 N medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9003
 decaton~
 the decaton~
@@ -84,14 +60,6 @@ BFGQT 0 0 0 A 300 0
 ACEKN
 stand stand none 0
 M N medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9004
 nonaton~
 the nonaton~
@@ -106,14 +74,6 @@ AEFN
 stand stand none 0
 M N large unknown
 r slash -50
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9005
 octon~
 the octon~
@@ -129,14 +89,6 @@ ACEHK
 stand stand none 0
 M N large unknown
 r slash -50
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9006
 septon~
 the septon~
@@ -151,14 +103,6 @@ BFGQR 0 0 0 A 300 0
 AFKO
 stand stand none 0
 M IN medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9007
 hexton~
 the hexton~
@@ -173,20 +117,7 @@ BFGJQT 0 H 0 AB 300 0
 ACEFHIKLN
 stand stand none 0
 M INP large unknown
-r fire -33
-r cold -33
-r lightning 33
-r acid -33
-r poison 33
-r negative -100
-r holy -100
-r energy 33
-r mental -100
-r disease -100
-r light 33
-r harm 33
-r charm -100
-r sound 33
+r magic 33
 #9008
 quinton~
 the quinton~
@@ -202,14 +133,6 @@ BFGJQ 0 0 0 A 300 0
 AKMO
 stand stand none 0
 M INPQ large unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #9009
 tertian~
 the tertian~
@@ -225,20 +148,7 @@ BFGJQRT 0 0 0 A 300 0
 CEF
 stand stand none 0
 M IW huge unknown
-r fire -33
-r cold -33
-r lightning 33
-r acid -33
-r poison 33
-r negative -100
-r holy -100
-r energy 33
-r mental -100
-r disease -100
-r light 33
-r harm 33
-r charm -100
-r sound 33
+r magic 33
 #9010
 secundus~
 secundus~
@@ -253,20 +163,10 @@ BFGJQRT 0 H 0 AB 0 0
 EFHIKN
 stand stand none 0
 M I huge unknown
-r fire 999
-r cold 999
-r lightning 33
-r acid 999
-r poison 33
-r negative -100
-r holy -100
-r energy 33
-r mental -100
-r disease -100
-r light 33
-r harm 33
-r charm -100
-r sound 33
+r fire 100
+r cold 100
+r acid 100
+r magic 33
 #9011
 Primus~
 Primus~
@@ -282,20 +182,11 @@ BFGJQRT 0 H 0 AB 0 0
 AH
 stand stand none 0
 M I giant unknown
-r fire 999
-r cold 999
-r lightning 33
-r acid 999
-r poison 33
-r negative -100
-r holy -100
-r energy 33
-r mental -100
-r disease -100
-r light 999
-r harm 33
-r charm -100
-r sound 33
+r fire 100
+r cold 100
+r acid 100
+r light 100
+r magic 33
 #0
 
 #OBJECTS

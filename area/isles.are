@@ -193,8 +193,7 @@ snake~
 FH
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison 999
+r poison 100
 #17024
 crab black~
 the black crab~
@@ -245,8 +244,6 @@ lizard~
 U
 stand stand none 0
 0 0 medium unknown
-r cold 50
-r poison -33
 #17027
 pirate snarling~
 the snarling pirate~
@@ -292,8 +289,6 @@ BT 0 0 0 0 1000 0
 S
 stand stand male 1000
 0 0 medium unknown
-r negative 10
-r charm -33
 #17030
 pele god fire~
 Pele, god of fire~
@@ -309,7 +304,7 @@ BT 0 H 0 ABH 0 0
 CEFIK
 stand stand none 1000
 0 0 medium unknown
-r fire 999
+r fire 100
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
@@ -459,10 +454,6 @@ B 0 0 B 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #17041
 hawkwoman hawk woman~
 the hawkwoman~
@@ -683,8 +674,6 @@ B 0 0 0 0 0 0
 CF
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r cold -33
 #17066
 pirate~
 the pirate in fur skins~

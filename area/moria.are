@@ -24,8 +24,6 @@ FHNOR
 stand stand male 0
 0 0 large unknown
 r pierce 33
-r cold 50
-r poison -33
 #4001
 garter snake змейка садовая~
 @eng the garter snake@rus ~~садовая~~ ~~змейка~~~
@@ -41,8 +39,6 @@ FHR
 stand stand either 0
 0 0 small unknown
 r bash 33
-r cold 50
-r poison -33
 #4002
 centipede сороконожка~
 @eng the centipede@rus сороконожка~
@@ -58,9 +54,6 @@ FR
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r bash 50
-r pierce -33
-r cold -33
 #4003
 kobold кобольд~
 @eng the kobold@rus кобольд~
@@ -75,19 +68,6 @@ CGT 0 0 0 0 -100 0
 R
 stand stand either 18
 0 0 small unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #4004
 orc орк~
 @eng the orc@rus орк~
@@ -102,23 +82,7 @@ CFGT 0 0 0 0 -400 0
 CDNR
 stand stand male 60
 B 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 18
-r negative 18
-r holy 48
-r energy 33
-r mental 33
-r disease -15
-r light 15
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #4005
 large orc большой орк~
 @eng the large orc@rus ~~большой~~ ~~орк~~~
@@ -133,14 +97,6 @@ CGT 0 0 0 0 -500 0
 CJR
 stand stand male 120
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #4050
 warrior воин высокий~
 @eng the warrior@rus ~~высокий~~ ~~воин~~~
@@ -170,20 +126,7 @@ CFT 0 0 0 H -400 0
 CIQR
 stand stand male 140
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #4052
 hobgoblin хобгоблин~
 @eng the hobgoblin@rus хоб~~гоблин~~~
@@ -201,20 +144,7 @@ CGHT 0 0 0 0 -300 0
 N
 stand stand male 12
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -33
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -33
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #4053
 snake змея~
 @eng the snake@rus змея~
@@ -233,8 +163,6 @@ stand stand none 0
 g @eng none@rus female~
 r bash 33
 r pierce 33
-r cold 50
-r poison -33
 #4054
 centipede многоножка~
 @eng the centipede@rus многоножка~
@@ -250,9 +178,6 @@ FR
 stand stand none 0
 0 0 small unknown
 g @eng none@rus female~
-r bash 50
-r pierce -33
-r cold -33
 #4055
 hobgoblin большой хобгоблин~
 @eng the large hobgoblin@rus ~~большой~~ хоб~~гоблин~~~
@@ -270,20 +195,7 @@ CGT 0 0 0 0 -500 0
 CDJR
 stand stand male 210
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison -33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease -33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #4056
 orc орк~
 @eng the orc@rus орк~
@@ -300,14 +212,6 @@ CFGT 0 0 0 0 -800 0
 CNR
 stand stand male 60
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #4057
 lion mountain горный лев~
 @eng the mountain lion@rus ~~горный~~ ~~лев~~~
@@ -344,13 +248,7 @@ GT 0 0 0 0 0 0
 DOR
 stand stand male 500
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
+r weapon 33
 #4100
 mage Маг~
 @eng the Mage@rus маг~
@@ -367,20 +265,7 @@ BCFR 0 0 0 A -100 0
 FQ
 stand stand male 400
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #4101
 troll тролль~
 @eng the troll@rus тролль~
@@ -396,12 +281,6 @@ BCFT 0 0 0 0 -800 0
 CEOR
 stand stand male 200
 0 0 large unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #4102
 guardian snake сторожевая змея~
 @eng the guardian snake@rus ~~сторожевая~~ ~~змея~~~
@@ -420,8 +299,6 @@ stand stand female 0
 0 0 medium unknown
 r pierce 33
 r slash -50
-r cold 50
-r poison -33
 #4103
 thief вор~
 @eng the thief@rus вор~
@@ -450,14 +327,6 @@ CFGHT 0 0 0 0 -200 0
 CJR
 stand stand male 150
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #4105
 centipede сороконожка~
 @eng a centipede@rus сороконожка~
@@ -474,9 +343,6 @@ BU 0 0 0 0 300 0
 FR
 stand stand none 0
 0 0 small unknown
-r bash 50
-r pierce -33
-r cold -33
 #4106
 warrior воин~
 @eng the Warrior@rus воин~
@@ -505,19 +371,6 @@ CFGT 0 0 0 0 -100 0
 NR
 stand stand male 25
 0 0 small unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #4150
 bat blue синяя летучая мышь~
 @eng the blue bat@rus ~~синяя~~ ~~летучая~~ ~~мышь~~~
@@ -533,8 +386,9 @@ R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r lightning 999
-r light 50
+r lightning 100
+r iron -50
+r silver -50
 #4151
 bat red красная летучая мышь~
 @eng the red bat@rus ~~красная~~ ~~летучая~~ ~~мышь~~~
@@ -551,9 +405,8 @@ R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r fire 999
+r fire 100
 r cold -50
-r light 50
 #4152
 bat green зеленая летучая мышь~
 @eng the green bat@rus ~~зеленая~~ ~~летучая~~ ~~мышь~~~
@@ -570,8 +423,7 @@ R
 stand stand none 0
 B 0 tiny unknown
 g @eng none@rus female~
-r poison 999
-r light 50
+r poison 100
 #4153
 bat white белая летучая мышь~
 @eng the white bat@rus ~~белая~~ ~~летучая~~ ~~мышь~~~
@@ -589,8 +441,7 @@ stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
 r fire -50
-r cold 999
-r light 50
+r cold 100
 #4154
 bat black черная летучая мышь~
 @eng the black bat@rus ~~черная~~ ~~летучая~~ ~~мышь~~~
@@ -606,8 +457,7 @@ R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r acid 999
-r light 50
+r acid 100
 #4155
 thief вор~
 @eng the thief@rus вор~
@@ -636,22 +486,7 @@ BCFT 0 0 0 0 -700 0
 CEOR
 stand stand male 1000
 0 0 huge unknown
-r bash -20
-r slash -10
-r fire -25
-r cold -50
-r lightning -35
-r acid 40
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -30
-r sound -50
+r magic -50
 #4157
 mage маг~
 @eng the Mage@rus маг~
@@ -668,20 +503,7 @@ CFGR 0 0 0 H -200 0
 QU
 stand stand male 200
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #4158
 snake змея~
 @eng the snake@rus змея~
@@ -700,8 +522,6 @@ fight fight female 0
 0 0 medium unknown
 r bash 33
 r pierce 33
-r cold 50
-r poison -33
 #4159
 troll small тролль маленький~
 @eng the small troll@rus ~~маленький~~ ~~тролль~~~
@@ -716,12 +536,6 @@ CFGT 0 0 0 0 -300 0
 EJR
 stand stand male 100
 0 0 large unknown
-r bash -20
-r slash -10
-r fire 25
-r lightning 15
-r acid 40
-r charm -30
 #4160
 orc орк~
 @eng the orc@rus орк~
@@ -736,14 +550,6 @@ CFGT 0 0 0 0 -200 0
 CJNR
 stand stand male 150
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
-r poison -15
-r negative -15
-r holy 15
-r disease -15
-r light 15
 #0
 
 #OBJECTS

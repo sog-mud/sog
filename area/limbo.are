@@ -38,11 +38,11 @@ W 0 V DG H 0 0
 EFN
 stand stand male 0
 0 0 medium unknown
-r bash 999
+r bash 100
 r fire 33
 r cold -50
-r acid 999
-r poison 999
+r acid 100
+r poison 100
 r holy -50
 #11
 special guard~
@@ -72,8 +72,6 @@ bear~
 N
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r cold -33
 #13
 fiery red demon~
 a fiery demon~
@@ -101,8 +99,7 @@ Tc 0 S 0 ABH -750 0
 EJ
 stand stand male 0
 I 0 medium unknown
-r slash 999
-r negative 999
+r negative 100
 r holy -50
 r charm 33
 #15
@@ -118,14 +115,7 @@ Tc 0 HNV D BH 1000 0
 0
 stand stand male 0
 0 0 medium unknown
-r bash -23
-r pierce -23
-r slash -23
-r fire 30
-r cold 30
-r lightning -50
 r negative -50
-r mental 30
 r charm 33
 #16
 squire оруженосец~
@@ -159,11 +149,11 @@ B 0 0 0 0 0 0
 EFN
 stand stand male 0
 0 0 medium unknown
-r bash 999
+r bash 100
 r fire 33
 r cold -50
-r acid 999
-r poison 999
+r acid 100
+r poison 100
 r holy -50
 #18
 undead~
@@ -178,12 +168,6 @@ O 0 S 0 0 0 0
 N
 stand stand male 0
 0 0 medium unknown
-r poison -100
-r negative -33
-r holy 50
-r energy -33
-r disease -100
-r light 50
 #19
 lion~
 a lion~
@@ -197,9 +181,6 @@ lion~
 N
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
 #20
 wolf~
 a wolf~
@@ -226,23 +207,6 @@ DT 0 SV 0 0 0 0
 EFO
 stand stand male 0
 0 0 small unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #22
 golem stone голем~
 @eng a stone golem@rus ~~каменный~~ ~~голем~~~
@@ -257,23 +221,6 @@ DT 0 SV 0 0 0 0
 EFO
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #23
 golem iron~
 @eng iron golem@rus ~~железный~~ ~~голем~~~
@@ -289,23 +236,6 @@ DT 0 SV 0 0 0 0
 EFO
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #24
 golem adamantite~
 @eng an adamantite golem@rus ~~адаматитовый~~ ~~голем~~~
@@ -320,23 +250,6 @@ DT 0 SV 0 0 0 0
 EFO
 stand stand male 0
 0 0 large unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #25
 lion~
 a lion~
@@ -350,9 +263,6 @@ L 0 0 0 0 0 0
 N
 stand stand male 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
 #26
 shadow~
 a summoned shadow~
@@ -366,10 +276,7 @@ lion~
 N
 stand stand male 0
 I 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r negative 999
+r negative 100
 #27
 cocoon~
 @eng cocoon@rus ~~кокон~~~
@@ -385,17 +292,16 @@ BJV 0 Acd B 0 0 0
 CJ
 rest rest none 0
 BZc KMN large unknown
-r bash 999
-r pierce 33
-r slash 33
+r bash 100
 r fire -50
-r cold 999
+r cold 100
 r lightning 33
 r acid -50
-r poison 999
-r disease 999
-r charm 999
+r poison 100
+r disease 100
+r charm 100
 r sound 33
+r weapon 33
 #28
 bone dragon lich~
 @eng bone dragon@rus ~~костяной~~ ~~дракон~~~
@@ -414,12 +320,6 @@ stand stand none 0
 0 0 huge unknown
 g @eng none@rus male~
 F aff T
-r bash -33
-r pierce 50
-r fire -33
-r cold -33
-r lightning -100
-r charm -100
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
@@ -434,7 +334,7 @@ stand stand female 0
 0 0 medium unknown
 r fire -50
 r cold 33
-r charm 999
+r charm 100
 #31
 black familiar crow ворон~
 @eng a large black crow@rus большой черный ворон~
@@ -449,7 +349,7 @@ stand stand female 0
 0 0 medium unknown
 r fire -50
 r cold 33
-r charm 999
+r charm 100
 #50
 junkseller junk seller~
 Junkseller~
@@ -463,23 +363,8 @@ EJe 0 HNOUVYc 0 ABL 0 0
 CDEFHIKNO
 stand stand male 0
 0 0 huge unknown
-r bash 999
-r pierce 83
-r slash 999
-r fire 999
-r cold 83
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #0
 
 #OBJECTS

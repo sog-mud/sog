@@ -37,23 +37,8 @@ HT 0 0 0 0 300 0
 DEFGHIJKN
 stand stand none 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r weapon 33
+r magic 33
 #35002
 sea-horse horse~
 the Sea-horse~
@@ -67,23 +52,8 @@ CT 0 0 0 0 1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r weapon 33
+r magic 33
 #35003
 king neptune~
 King Neptune~
@@ -100,23 +70,8 @@ BT 0 HNTUV 0 ABH 1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 giant unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r weapon 33
+r magic 33
 #35004
 mermaid maid woman~
 the Mermaid~
@@ -239,23 +194,8 @@ BT 0 I 0 0 -1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r weapon 33
+r magic 33
 #35012
 martinus~
 Martinus~
@@ -287,23 +227,8 @@ T 0 IM 0 0 -1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r weapon 33
+r magic 33
 #35014
 princess chelly~
 Princess Chelly~
@@ -350,23 +275,8 @@ BJT 0 0 0 AHL 1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r poison 100
-r negative 100
-r holy 100
-r energy 100
-r mental 100
-r disease 100
-r light 100
-r harm 100
-r charm 100
-r sound 100
+r weapon 100
+r magic 100
 #35017
 sophia~
 Sophia~
@@ -382,23 +292,8 @@ BJT 0 0 0 0 900 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r poison 100
-r negative 100
-r holy 100
-r energy 100
-r mental 100
-r disease 100
-r light 100
-r harm 100
-r charm 100
-r sound 100
+r weapon 100
+r magic 100
 #35018
 bruce fishman~
 Bruce the Fishman~
@@ -414,23 +309,8 @@ BJT 0 0 0 0 900 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r poison 100
-r negative 100
-r holy 100
-r energy 100
-r mental 100
-r disease 100
-r light 100
-r harm 100
-r charm 100
-r sound 100
+r weapon 100
+r magic 100
 #35019
 samuel woodcutter~
 Samuel the woodcutter~
@@ -458,7 +338,6 @@ CFJT 0 K 0 0 -1000 0
 DEGIJKN
 stand stand male 0
 0 0 medium unknown
-r light -50
 r charm 100
 #35021
 giant horrifying rat~

@@ -47,8 +47,6 @@ CFGH 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7802
 elf valley эльфийка долинная~
 @eng a valley elf@rus ~~эльфийка~~ из долины~
@@ -66,8 +64,6 @@ CFGH 0 0 0 0 0 0
 EFNR
 stand stand female 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7803
 sentry valley эльф часовой elf~
 @eng a valley elf sentry@rus часовой~
@@ -84,8 +80,6 @@ BF 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7804
 sentry valley эльфийка часовая elf~
 @eng a valley elf sentry@rus часовая~
@@ -102,8 +96,6 @@ BF 0 0 0 0 0 0
 EFNR
 stand stand female 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7805
 scout valley elf эльф разведчик~
 @eng a valley elf scout@rus разведчик~
@@ -119,8 +111,6 @@ CFG 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7806
 elf valley эльф долинный эльфийка~
 @eng a valley elf@rus ~~эльфийка~~ из долины~
@@ -137,8 +127,6 @@ GH 0 0 0 0 0 0
 EFNR
 stand stand female 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7807
 elder valley elf старейшина эльф~
 @eng a valley elf elder@rus старейшина~
@@ -156,8 +144,6 @@ BCFQ 0 HN 0 0 0 0
 EIKR
 stand stand male 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7808
 elder valley elf старейшина эльф~
 @eng a valley elf elder@rus ~~старейшина~~ долины~
@@ -175,8 +161,6 @@ BCFR 0 N 0 0 0 0
 FR
 stand stand female 0
 0 0 medium unknown
-r negative 10
-r charm -33
 #7809
 pyrohydra pyro hydra beast существо гидра огненная~
 @eng the pyrohydra@rus ~~огненная~~ ~~гидра~~~

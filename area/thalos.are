@@ -24,20 +24,7 @@ F
 stand stand none 1128
 0 0 medium unknown
 g @eng none@rus male~
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r magic 100
 #5201
 lamia beast ламия чудовище~
 @eng the lamia@rus ламия~
@@ -136,8 +123,6 @@ EFNR
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
-r cold 50
-r poison -33
 #5208
 golem stone каменный голем~
 @eng the stone golem@rus ~~каменный~~ ~~голем~~~
@@ -154,23 +139,6 @@ B 0 N 0 0 600 0
 EFNU
 stand stand none 0
 0 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison -33
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease -33
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #0
 
 #OBJECTS

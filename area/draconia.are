@@ -22,11 +22,6 @@ BG 0 0 0 0 -900 0
 EFNU
 stand stand none 100
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #2201
 draconian~
 the Draconian~
@@ -142,23 +137,9 @@ BCFJ 0 TV 0 AB -1000 0
 EFNU
 stand stand female 2500
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #2221
 dragon red~
 the Great Red Dragon~
@@ -173,11 +154,7 @@ BCF 0 0 0 AB -1000 0
 EFNR
 stand stand male 8000
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire 999
-r cold 50
-r charm -33
+r fire 100
 #2222
 dragon black~
 the Great Black Dragon~
@@ -192,13 +169,8 @@ BCF 0 0 0 AB -900 0
 EFNR
 stand stand male 1000
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
 r lightning -50
-r acid 999
-r charm -33
+r acid 100
 #2223
 dragon white~
 the Great White Dragon~
@@ -214,11 +186,8 @@ BCF 0 0 0 AB -1000 0
 EFNR
 stand stand female 1750
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 83
-r charm -33
+r fire -50
+r cold 100
 #2225
 dragon green~
 the Ancient Green Dragon~
@@ -234,13 +203,8 @@ BCF 0 0 0 AB -1000 0
 EFNR
 stand stand female 1000
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r poison 999
+r poison 100
 r mental -50
-r charm -33
 #2226
 hydra~
 a large hydra~
@@ -296,11 +260,6 @@ CFGH 0 0 0 AB -300 0
 EFNR
 stand stand male 250
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #2242
 fool draconian~
 the draconian fool~

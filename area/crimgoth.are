@@ -23,12 +23,6 @@ BFOT 0 0 0 0 -1000 0
 FI
 stand stand male 1239
 0 0 medium unknown
-r poison -100
-r negative -33
-r holy 50
-r energy -33
-r disease -100
-r light 50
 #0
 
 #OBJECTS

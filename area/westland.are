@@ -27,15 +27,14 @@ BFJT 0 V 0 0 -1000 0
 BCDEFIKMN
 stand stand male 300
 c L huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
+r fire -50
+r cold 33
 r lightning 33
 r acid 33
 r energy 33
 r disease -50
-r charm 999
+r charm 100
+r silver -50
 #10002
 gar long tail гар~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
@@ -55,15 +54,14 @@ BFJT 0 V 0 0 -1000 0
 BCDEFIKMN
 stand stand male 300
 c L huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
+r fire -50
+r cold 33
 r lightning 33
 r acid 33
 r energy 33
 r disease -50
-r charm 999
+r charm 100
+r silver -50
 #10003
 gar long tail гар длиннохвостый~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
@@ -83,15 +81,14 @@ BFJT 0 V 0 0 -947 0
 BCDEFIKMN
 stand stand male 300
 c L huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
+r fire -50
+r cold 33
 r lightning 33
 r acid 33
 r energy 33
 r disease -50
-r charm 999
+r charm 100
+r silver -50
 #10004
 fly blood муха кровавая~
 @eng a blood fly@rus ~~кровавая~~ ~~муха~~~
@@ -107,10 +104,10 @@ BT 0 TV A HM -200 0
 BCEFKO
 stand stand female 300
 0 0 tiny unknown
-r bash 999
-r lightning 999
+r bash 100
+r lightning 100
 r acid -50
-r poison 999
+r poison 100
 r negative -50
 #10005
 assassin квод наемник quad~
@@ -129,7 +126,7 @@ BJT 0 V 0 0 -1000 0
 BCDEFGHIKNUV
 stand stand male 300
 0 0 large unknown
-r fire 999
+r fire 100
 r lightning -50
 r poison 33
 r charm 33
@@ -150,7 +147,7 @@ BJT 0 V 0 0 -1000 0
 BCDEFGHIKNUV
 stand stand male 300
 0 0 large unknown
-r fire 999
+r fire 100
 r lightning -50
 r poison 33
 r charm 33
@@ -169,7 +166,7 @@ BJT 0 N 0 0 850 0
 BCDEFGHIK
 stand stand female 300
 0 0 medium unknown
-r cold 999
+r cold 100
 #10008
 fisherman man рыбак мужчина~
 @eng a fisherman@rus рыбак~
@@ -186,7 +183,7 @@ BJT 0 N 0 0 1000 0
 BCDEFGHIK
 stand stand male 300
 0 0 medium unknown
-r cold 999
+r cold 100
 #10009
 boy мальчик маленький little~
 @eng a little boy@rus ~~маленький~~ ~~мальчик~~~
@@ -205,7 +202,7 @@ BJT 0 N 0 0 1000 0
 BCDEFGHIK
 stand stand male 300
 0 0 small unknown
-r cold 999
+r cold 100
 #10010
 hound гончая сердца heart~
 @eng a heart hound@rus ~~гончая~~ сердца~
@@ -286,12 +283,8 @@ BJQ 0 H 0 B 1000 0
 KN
 stand stand female 0
 0 0 medium unknown
-r cold 999
-r holy 999
-r mental 33
-r disease 33
-r light 999
-r charm 999
+r weapon 33
+r magic 100
 #10014
 warden страж границы boundary~
 @eng a boundary warden@rus ~~страж~~ границы~
@@ -311,20 +304,10 @@ GJT 0 HUV 0 ABH 1000 0
 BCDEFGHIJKN
 stand stand male 300
 0 0 large unknown
-r bash 999
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm 33
-r sound -50
+r bash 100
+r fire 33
+r charm 100
+r magic -50
 #10015
 thief воришка~
 @eng a thief@rus воришка~
@@ -363,7 +346,7 @@ BCHJ 0 V 0 A 100 0
 BCDEFGHIJKN
 stand stand male 300
 0 0 medium unknown
-r charm 999
+r charm 100
 #10017
 woman женщина эди bone~
 @eng The Bone Woman@rus Эди~
@@ -386,10 +369,10 @@ CDEFIKN
 stand stand female 11300
 0 0 medium unknown
 r bash 33
-r cold 999
+r cold 100
 r lightning -50
 r acid -50
-r mental 999
+r mental 100
 #10018
 gripper хватало~
 @eng a nasty gripper@rus хватало~
@@ -412,9 +395,9 @@ CDEFIKN
 stand stand none 300
 0 0 medium unknown
 r bash 33
-r cold 999
+r cold 100
 r lightning -50
-r mental 999
+r mental 100
 #10019
 shadow thing тень странная~
 @eng the scary shadow thing@rus ~~странная~~ ~~тень~~~
@@ -434,10 +417,10 @@ CDEFIKN
 stand stand female 300
 0 0 medium unknown
 r pierce 33
-r cold 999
+r cold 100
 r lightning -50
 r acid -50
-r mental 999
+r mental 100
 #10020
 king призрачный король spirit~
 @eng the spirit king@rus ~~призрачный~~ ~~король~~~
@@ -458,10 +441,10 @@ BCGT 0 JV 0 H -1000 0
 CDEFIKN
 stand stand male 300
 0 0 medium unknown
-r cold 999
+r cold 100
 r lightning -50
 r acid -50
-r mental 999
+r mental 100
 #10021
 dragon дракон красный скарлет scarlet great red~
 @eng Scarlet@rus Скарлет~
@@ -482,12 +465,10 @@ BCGT 0 J 0 M -1000 0
 BCEFIKN
 stand stand female 300
 c L giant unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 83
-r mental 999
-r charm -33
+r cold 100
+r lightning 0
+r acid 0
+r mental 100
 #10022
 shadow people призрак~
 @eng an evil shadow person@rus призрак~
@@ -503,10 +484,10 @@ CGT 0 0 0 HM -1000 0
 CDFIKN
 stand stand male 300
 0 0 medium unknown
-r cold 999
+r cold 100
 r lightning -50
 r acid -50
-r mental 999
+r mental 100
 #10023
 tender бармен человечек толстый маленький bar~
 @eng the bar tender@rus бармен~
@@ -524,10 +505,10 @@ BCGTe 0 0 0 HM 1000 0
 BCDEFIN
 stand stand male 300
 0 0 medium unknown
-r cold 999
+r cold 100
 r lightning -50
 r acid -50
-r mental 999
+r mental 100
 #10024
 drunken villager сельский пьяница~
 @eng a drunken villager@rus ~~сельский~~ ~~пьяница~~~
@@ -544,9 +525,9 @@ BCGT 0 0 0 HM 102 0
 CDEFIKN
 stand stand male 300
 0 0 medium unknown
-r cold 999
+r cold 100
 r acid -50
-r mental 999
+r mental 100
 #10025
 thief воришка маленький dark~
 @eng a little thief@rus ~~маленький~~ ~~воришка~~~
@@ -563,11 +544,9 @@ CGT 0 0 0 HM -1000 0
 CDEFKN
 stand stand male 300
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 999
-r mental 999
+r cold 100
+r mental 100
+r weapon 33
 #10026
 snake желтая змейка~
 @eng a yellow snake@rus ~~желтая~~ ~~змейка~~~
@@ -586,8 +565,8 @@ BCGT 0 0 0 HM -1000 0
 CDEFIKN
 stand stand female 300
 0 0 small unknown
-r cold 999
-r mental 999
+r cold 100
+r mental 100
 #10027
 beast порождение подземного underworld~
 @eng an underworld beast@rus ~~порождение~~ подземного мира~
@@ -604,8 +583,8 @@ CGT 0 0 0 HM -1000 0
 CDEFIKN
 stand stand none 300
 0 0 large unknown
-r cold 999
-r mental 999
+r cold 100
+r mental 100
 #10028
 cat dopey котенок маленький одурманенный~
 @eng a dopey little cat@rus ~~маленький~~ ~~одурманенный~~ ~~котенок~~~
@@ -623,9 +602,9 @@ CGT 0 0 0 HM 1000 0
 CDEFIKN
 stand stand male 300
 0 0 small unknown
-r cold 999
-r lightning 999
-r mental 999
+r cold 100
+r lightning 100
+r mental 100
 #10029
 sith морд-сит сит mord~
 @eng Mord-Sith@rus Морд-Сит~
@@ -644,9 +623,9 @@ BCGT 0 0 0 HM -1000 0
 CDEFIKN
 stand stand female 300
 0 0 large unknown
-r cold 999
+r cold 100
 r negative -50
-r mental 999
+r mental 100
 #10030
 devoter последователь~
 @eng a devoter of Darken Rahl@rus ~~последователь~~ Даркена Рала~
@@ -665,8 +644,8 @@ BCGT 0 0 0 HM -1000 0
 BCDEFIKN
 stand stand male 300
 0 0 medium unknown
-r cold 999
-r mental 999
+r cold 100
+r mental 100
 #10031
 rahl рал даркен darken~
 @eng The Evil Darken Rahl@rus Даркен ~~Рал~~~
@@ -687,9 +666,9 @@ BCDEFIJKNO
 stand stand male 300
 0 0 large unknown
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 999
+r mental 100
 #10032
 gar tail гар short короткохвостый~
 @eng a short-tailed gar@rus ~~короткохвостый~~ ~~гар~~~
@@ -708,15 +687,14 @@ BFJT 0 JV 0 0 -1000 0
 BCDEFIKMN
 stand stand male 350
 c L giant unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
+r fire -50
+r cold 33
 r lightning 33
 r acid 33
 r energy 33
 r disease -50
-r charm 999
+r charm 100
+r silver -50
 #10033
 mord sith морд-сит denna денна woman женщина~
 @eng Denna@rus Денна~
@@ -735,9 +713,9 @@ BCGT 0 V 0 HM -1000 0
 CDEFIKN
 stand stand female 300
 0 0 large unknown
-r cold 999
+r cold 100
 r negative -50
-r mental 999
+r mental 100
 #0
 
 #OBJECTS

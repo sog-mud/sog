@@ -30,23 +30,8 @@ BGJRV 0 J 0 0 -900 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40102
 GuildMaster Master наставник мастер~
 @eng the Guildmaster@rus наставник~
@@ -66,23 +51,8 @@ BGJV 0 H 0 0 900 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40103
 GuildMaster наставник~
 the Guildmaster~
@@ -100,23 +70,8 @@ BGJRV 0 J 0 0 -900 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40104
 GuildMaster Master WeaponsMaster Weapons~
 the WeaponsMaster~
@@ -135,23 +90,8 @@ BGJTV 0 H 0 0 0 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40105
 GuildMaster Master~
 the Guildmaster~
@@ -169,23 +109,8 @@ BGJRV 0 H 0 0 0 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40106
 GuildMaster Master~
 the Guildmaster~
@@ -206,23 +131,8 @@ BGJQV 0 J 0 0 -1000 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40107
 GuildMaster Master Paladin~
 the Guildmaster~
@@ -243,23 +153,8 @@ BGJQV 0 H 0 0 1000 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40108
 GuildMaster Master~
 the Guildmaster~
@@ -277,23 +172,8 @@ BGJQV 0 H 0 0 0 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40109
 GuildMaster Master~
 the Guildmaster~
@@ -312,23 +192,8 @@ BGJRV 0 J 0 0 -1000 0
 E
 sit sit male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40110
 GuildMaster~
 the Guildmaster~
@@ -348,23 +213,8 @@ BGJV 0 J 0 0 -900 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40111
 GuildMaster~
 the Guildmaster~
@@ -382,23 +232,8 @@ BGJRV 0 H 0 0 0 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40112
 GuildMaster~
 the Guildmaster~
@@ -416,23 +251,8 @@ BGJV 0 J 0 0 -900 0
 E
 stand stand male 3400
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40113
 Bank President Banker~
 the President of the Bank~
@@ -449,23 +269,8 @@ BGJTV 0 Hc 0 0 0 0
 CDEFHIJKN
 stand stand male 5000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40114
 cityguard guard captain~
 the Captain of the City Guard~
@@ -483,8 +288,6 @@ sit sit male 500
 0 0 medium unknown
 r bash 33
 r slash 33
-r negative 10
-r charm -33
 #40115
 cityguard guard~
 the Cityguard~
@@ -500,8 +303,6 @@ stand stand male 200
 0 0 medium unknown
 r bash 33
 r slash 33
-r negative 10
-r charm -33
 #40116
 cityguard guard patroller~
 the Cityguard Patroller~
@@ -518,8 +319,6 @@ stand stand male 200
 0 0 medium unknown
 r bash 33
 r slash 33
-r negative 10
-r charm -33
 #40117
 cityguard gate guard gateguard~
 the Gate Guard~
@@ -537,8 +336,6 @@ stand stand male 200
 0 0 medium unknown
 r bash 33
 r slash 33
-r negative 10
-r charm -33
 #40118
 lieutenant cityguard guard~
 the Lieutenant of the Cityguard~
@@ -555,8 +352,6 @@ stand stand male 200
 0 0 medium unknown
 r bash 33
 r slash 33
-r negative 10
-r charm -33
 #40119
 tavernkeeper barkeep blane~
 Blane the Tavernkeeper~
@@ -581,8 +376,6 @@ stand stand male 1200
 r pierce 33
 r cold 33
 r lightning 33
-r negative 10
-r charm -33
 #40120
 Ilse barmaid maid~
 Ilse the Barmaid~
@@ -599,9 +392,7 @@ BGV 0 0 0 0 0 0
 IJN
 stand stand female 1000
 0 0 medium unknown
-r negative 10
 r mental 33
-r charm -33
 #40121
 Sam harpsichordist player~
 Sam the harpsichord player~
@@ -638,9 +429,8 @@ IJN
 sit sit male 155
 0 0 medium unknown
 r poison 33
-r negative -40
+r negative -50
 r holy 33
-r charm -33
 #40123
 Frenschi gambler~
 Frenschi the gambler~
@@ -674,8 +464,7 @@ BGJV 0 0 0 0 900 0
 BCEFHIJN
 sit sit male 1400
 0 0 medium unknown
-r negative 10
-r charm 999
+r charm 100
 #40125
 kitten cat pet~
 the kitten~
@@ -704,20 +493,7 @@ BIU C 0 0 B 400 0
 N
 stand stand either 0
 0 Q small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #40127
 doberman dog pet~
 the doberman~
@@ -731,20 +507,7 @@ BIU C 0 0 B 400 0
 CDL
 stand stand either 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #40128
 falcon bird pet~
 the falcon~
@@ -758,20 +521,7 @@ BIU C 0 0 B 0 0
 N
 stand stand either 0
 0 U small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #40129
 human mercenary~
 the human mercenary~
@@ -798,9 +548,6 @@ BGI C 0 0 0 600 0
 CDEIKLU
 stand stand male 5
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #40131
 giant mercenary~
 the giant mercenary~
@@ -814,10 +561,6 @@ BGI C 0 0 0 0 0
 CDEIKLU
 stand stand male 5
 0 0 huge unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #40132
 Thedril Saphorson mayor~
 Thedril Saphorson, Mayor of Elvenhame~
@@ -837,11 +580,10 @@ GHT 0 0 0 0 0 0
 CDEFIJKNS
 stand stand male 1999
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy 33
 r energy 33
 r disease -50
-r charm -33
 #40133
 kitten cat~
 the little kitten~
@@ -910,11 +652,10 @@ GHTV 0 0 0 0 0 0
 CDEFIJKNS
 stand stand male 2400
 0 0 medium unknown
-r negative 43
+r negative 33
 r holy 33
 r energy 33
 r disease -50
-r charm -33
 #40137
 citizen man~
 a citizen~
@@ -932,13 +673,9 @@ GHR 0 O 0 0 500 0
 FU
 stand stand male 100
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40138
 citizen woman~
 a citizen~
@@ -953,13 +690,9 @@ GHR 0 O 0 0 500 0
 U
 stand stand female 75
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40139
 elf child~
 the elf child~
@@ -974,13 +707,9 @@ GH 0 O 0 0 500 0
 U
 stand stand either 3
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40140
 citizen man~
 a citizen~
@@ -997,13 +726,9 @@ GHR 0 O 0 0 -500 0
 U
 stand stand male 100
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40141
 citizen woman~
 a citizen~
@@ -1018,13 +743,9 @@ GHR 0 O 0 0 -500 0
 U
 stand stand female 175
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40142
 drow child~
 the drow child~
@@ -1039,13 +760,9 @@ GH 0 O 0 0 -500 0
 U
 stand stand either 3
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40143
 citizen man~
 a citizen~
@@ -1063,13 +780,9 @@ GHR 0 O 0 0 0 0
 U
 stand stand male 140
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40144
 citizen woman~
 a citizen~
@@ -1084,13 +797,9 @@ GHR 0 O 0 0 0 0
 U
 stand stand female 125
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40145
 grey-elven elf child~
 the grey-elven child~
@@ -1105,13 +814,9 @@ GH 0 O 0 0 0 0
 U
 stand stand either 3
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
 r energy 33
 r mental 33
-r charm -33
+r weapon -50
 #40146
 butcher~
 De'Lyron P'Gille the butcher~
@@ -1126,23 +831,8 @@ BGJV 0 0 0 0 -900 0
 BCEFHIJN
 stand stand male 2000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40147
 Nech'lir blacksmith~
 Nech'lir the blacksmith~
@@ -1158,23 +848,8 @@ BGJV 0 0 0 0 -900 0
 CDEFHIJKN
 stand stand male 2000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40148
 Sarn'otha jeweller~
 Sarn'otha Vent'Mir the jeweller~
@@ -1194,23 +869,8 @@ BGJV 0 0 0 0 -900 0
 CDEFHIJKN
 stand stand female 2000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40149
 Gethnir'Rah weaponssmith~
 Gethnir'Rah F'nith the weaponsmith~
@@ -1232,23 +892,8 @@ BGJV 0 0 0 0 900 0
 CDEFHIJKN
 stand stand male 2000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40150
 healer adept~
 The Healer Adept~
@@ -1265,23 +910,8 @@ BGJQV HI H 0 AB 0 0
 AFH
 stand stand female 5000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #40151
 necromancer shopkeeper Xaixara~
 The Necromancer-Alchemist~
@@ -1307,23 +937,8 @@ BGJRV D JNUc 0 A -1000 0
 AFHK
 stand stand female 10000
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #0
 
 #OBJECTS

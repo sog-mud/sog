@@ -27,22 +27,12 @@ ACEFKNU
 stand stand male 5000
 0 0 gargantuan unknown
 C Invaders
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 999
-r holy 33
-r energy 33
-r mental 999
-r disease 33
-r harm 33
-r charm 999
-r sound 33
+r negative 100
+r mental 100
+r light -50
+r charm 100
+r weapon 33
+r magic 33
 #95601
 cleric cabal invader~
 @eng the evil cleric@rus ~~жрец~~ Зла~
@@ -65,23 +55,9 @@ AFHIKQ
 stand stand male 1000
 0 0 medium unknown
 C Invaders
-r bash 999
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r bash 100
+r weapon 33
+r magic 100
 #95602
 bruks vampire~
 @eng bruks@rus ~~брукса~~~
@@ -94,23 +70,8 @@ BJ 0 0 C 0 -1000 0
 G
 stand stand female 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison -100
-r negative 999
-r holy 83
-r energy 999
-r mental 999
-r disease -100
-r light 83
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #95603
 darkness~
 @eng darkness@rus ~~тьма~~~
@@ -123,23 +84,11 @@ BEJc 0 JK ACG ABCD -10000 0
 G
 stand stand none 0
 I 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r iron 100
+r wood 100
+r silver 100
+r weapon 100
+r magic 100
 #95604
 slave~
 @eng slave woman@rus ~~рабыня~~~
@@ -152,23 +101,8 @@ human~
 Q
 stand stand female 0
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r weapon -50
+r magic -50
 #95605
 swamp beast~
 @eng beast@rus ~~тварь~~~
@@ -181,23 +115,8 @@ COc 0 CJc 0 0 -1000 0
 0
 stand stand none 0
 0 0 gargantuan unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison -100
-r negative 999
-r holy 83
-r energy 999
-r mental 999
-r disease -100
-r light 83
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #95606
 shadow watcher~
 @eng Shadow@rus ~~Тень~~~
@@ -212,17 +131,9 @@ stand stand none 0
 0 0 gargantuan unknown
 C Invaders
 W 92
-r bash 999
-r pierce 999
-r slash 999
-r acid 999
-r poison -100
-r negative -33
-r holy 50
-r energy -33
-r mental 999
-r disease -100
-r light 50
+r acid 100
+r mental 100
+r weapon 100
 #0
 
 #OBJECTS

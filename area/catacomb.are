@@ -21,7 +21,6 @@ BF 0 0 0 BH 0 0
 ENR
 stand stand none 0
 0 0 medium unknown
-r light 50
 #2002
 page templar~
 a templar page~
@@ -186,7 +185,6 @@ BF 0 0 0 BH -100 0
 ENR
 stand stand male 0
 0 0 medium unknown
-r light 50
 #2014
 necromancer necro cleric~
 the evil necromancer~

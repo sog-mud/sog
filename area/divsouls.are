@@ -27,20 +27,8 @@ CGR 0 V AB 0 900 0
 FGJN
 stand stand either 1000
 Q 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 10
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm -33
-r sound 33
+r negative -50
+r magic 33
 #11601
 roc bird~
 Roc~
@@ -57,19 +45,8 @@ BCG 0 0 0 0 0 0
 stand stand either 0
 0 0 huge unknown
 r bash 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r fire -50
+r magic 33
 #11602
 nightingale bird~
 nightingale~
@@ -102,20 +79,11 @@ DJK
 stand stand female 0
 HJM ABCEGHIJK large unknown
 r pierce 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 33
-r energy 999
-r mental 33
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r poison 33
+r holy -50
+r mental -50
+r disease 33
+r magic 100
 #11604
 student girl statue~
 the student~
@@ -133,7 +101,7 @@ F
 stand stand female 0
 HJM ABCDEFGHIJK small unknown
 r poison -50
-r holy 999
+r holy 100
 r charm -50
 #11605
 mage statue figure man~
@@ -150,19 +118,10 @@ B 0 0 0 0 0 0
 FJ
 stand stand male 3000
 HJM ABCEGIJK small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 999
-r negative 33
-r holy 33
-r energy 33
-r disease 999
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r poison 100
+r mental -50
+r disease 100
+r magic 33
 #11606
 unicorn white horse~
 the Unicorn~
@@ -180,10 +139,10 @@ stand stand either 0
 CH H large unknown
 r slash 33
 r cold 33
-r poison 999
+r poison 100
 r negative -50
-r holy 999
-r light 999
+r holy 100
+r light 100
 r charm 33
 #11607
 white statue dreamer~
@@ -206,8 +165,8 @@ r bash 33
 r slash 33
 r fire 33
 r cold 33
-r poison 999
-r disease 999
+r poison 100
+r disease 100
 r charm -50
 #11608
 white knight figure~
@@ -229,7 +188,7 @@ r bash 33
 r slash 33
 r acid -50
 r negative -50
-r holy 999
+r holy 100
 r energy -50
 r mental -50
 #11609
@@ -248,10 +207,10 @@ EFK
 stand stand female 2000
 HJM ABCGHIJK medium unknown
 r pierce 33
-r fire 999
-r cold 999
-r poison 999
-r disease 999
+r fire 100
+r cold 100
+r poison 100
+r disease 100
 r charm -50
 #11610
 mad gardener gnome~
@@ -269,13 +228,10 @@ CS 0 V 0 0 0 0
 DFJ
 stand stand male 1000
 C 0 small unknown
-r bash 30
 r cold 33
-r poison -20
 r negative 33
 r holy 33
 r mental -50
-r disease -20
 r charm 33
 #11611
 babbling sculptor~
@@ -329,23 +285,8 @@ BG 0 0 0 0 0 0
 EF
 stand stand either 0
 HJM ABCDGHIJK medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r weapon 33
+r magic -50
 #11614
 white rabbit~
 a white rabbit~
@@ -379,7 +320,7 @@ HJM ABCDGHIJK medium unknown
 r fire 33
 r cold 33
 r acid -50
-r holy 999
+r holy 100
 r energy -50
 r charm 33
 #11616
@@ -398,19 +339,17 @@ BG 0 TU A 0 0 0
 F
 stand stand female 0
 HLS 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 33
-r acid 999
-r poison 999
-r disease 999
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r fire 100
+r cold 100
+r acid 100
+r poison 100
+r negative -50
+r holy -50
+r energy -50
+r mental -50
+r disease 100
+r weapon 33
+r magic 33
 #11617
 faith~
 a bit of faith~
@@ -424,15 +363,13 @@ GS 0 TU 0 H 0 0
 EFG
 stand stand either 0
 HL 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r acid 999
+r acid 100
 r negative -50
 r holy -50
 r energy -50
-r mental 999
-r charm 999
+r mental 100
+r charm 100
+r weapon 33
 #11618
 stray thought~
 a stray thought~
@@ -446,15 +383,13 @@ GS 0 TU 0 0 0 0
 EFG
 stand stand either 0
 HL 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r acid 999
+r acid 100
 r negative -50
 r holy -50
 r energy -50
-r mental 999
-r charm 999
+r mental 100
+r charm 100
+r weapon 33
 #11619
 memories~
 some memories~
@@ -468,15 +403,13 @@ GS 0 TU 0 H 0 0
 EFG
 stand stand either 0
 HL 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r acid 999
+r acid 100
 r negative -50
 r holy -50
 r energy -50
-r mental 999
-r charm 999
+r mental 100
+r charm 100
+r weapon 33
 #11620
 idea~
 an idea~
@@ -490,15 +423,13 @@ GS 0 TU 0 0 0 0
 EFG
 stand stand either 0
 HL 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r acid 999
+r acid 100
 r negative -50
 r holy -50
 r energy -50
-r mental 999
-r charm 999
+r mental 100
+r charm 100
+r weapon 33
 #11621
 white panther gabrian~
 Gabrian~
@@ -516,9 +447,9 @@ stand stand male 0
 0 0 large unknown
 r bash 33
 r fire -50
-r cold 999
-r holy 999
-r disease 999
+r cold 100
+r holy 100
+r disease 100
 #11622
 lonari white lady~
 Lonari~
@@ -535,13 +466,13 @@ EFGK
 stand stand female 0
 0 0 medium unknown
 r bash 33
-r slash 999
+r slash 100
 r fire 33
 r lightning 33
-r acid 999
-r negative -40
-r holy 999
-r charm 999
+r acid 100
+r negative -50
+r holy 100
+r charm 100
 #11623
 myrl figure cynic~
 Myrl~
@@ -563,9 +494,8 @@ CGR 0 0 B AB -900 0
 EFHJ
 stand stand either 1000
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
+r bash -50
+r magic 33
 #11624
 hellhawk hawk~
 the hellhawk~
@@ -580,10 +510,10 @@ BCFG 0 T 0 ABH 0 0
 FH
 stand stand either 0
 AHW ACDEFK huge unknown
-r fire 999
+r fire 100
 r cold -50
 r negative 33
-r charm 999
+r charm 100
 #11625
 silent stalker figure~
 a silent stalker~
@@ -616,9 +546,9 @@ stand stand none 0
 ABHIM ABCDEFGHIJK large unknown
 r bash -50
 r acid 33
-r poison 999
+r poison 100
 r holy -50
-r disease 999
+r disease 100
 #11627
 screaming soul~
 a screaming soul~
@@ -634,9 +564,7 @@ BG 0 IU 0 H 0 0
 F
 rest rest either 0
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
+r weapon -50
 #11628
 dark necromancer cowled figure~
 Dark Necromancer~
@@ -653,8 +581,8 @@ stand stand either 0
 0 0 medium unknown
 r fire -50
 r cold 33
-r negative 999
-r holy -50
+r negative 100
+r silver -50
 #11629
 nightmare black horse darkness~
 the Nightmare~
@@ -671,17 +599,12 @@ GQ 0 HN 0 ABHKLM 1000 0
 DEGI
 stand stand either 0
 CH H large unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 999
-r poison 33
-r negative 999
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r acid 100
+r negative 100
+r holy -50
+r energy -50
+r mental -50
+r magic 33
 #11630
 anti-bishop bishop woman~
 the Anti-Bishop~
@@ -698,9 +621,9 @@ BFG 0 O 0 H -800 0
 FGI
 stand stand female 4000
 0 0 medium unknown
-r bash 999
+r bash 100
 r lightning -50
-r negative 999
+r negative 100
 r holy -50
 r mental -50
 r charm 33
@@ -719,10 +642,8 @@ DEFK
 stand stand either 2000
 DHIM 0 medium unknown
 r fire -50
-r cold 999
+r cold 100
 r acid 33
-r negative 33
-r holy -50
 r energy -50
 #11632
 bloody sadist~
@@ -740,6 +661,7 @@ DF
 stand stand either 3500
 0 0 medium unknown
 r fire -50
+r holy 0
 r disease 33
 r light -50
 #11633
@@ -773,20 +695,9 @@ stand stand none 0
 0 0 large unknown
 r bash 33
 r pierce 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 33
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r acid -50
+r poison 33
+r magic 100
 #11635
 cultist high priest~
 the Cultist High Priest~
@@ -802,12 +713,13 @@ CFGQ 0 O 0 H -900 0
 DEFG
 stand stand either 3000
 0 0 medium unknown
-r cold 999
-r poison 999
+r cold 100
+r poison 100
 r negative 33
 r holy -50
-r disease 999
+r disease 100
 r light -50
+r silver -50
 #11636
 nothingness square area~
 a patch of Nothingness~
@@ -821,9 +733,6 @@ G 0 T A H 0 0
 F
 stand stand none 0
 DIL 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
 r fire -50
 r cold -50
 r lightning -50
@@ -832,7 +741,8 @@ r negative -50
 r holy -50
 r energy -50
 r mental -50
-r charm 999
+r charm 100
+r weapon 100
 #11637
 furry lemming~
 the furry lemming~
@@ -862,10 +772,8 @@ GT 0 V 0 HK 0 0
 ADEFIK
 stand stand male 0
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
 r mental -50
+r weapon 33
 #11639
 vampire janitor white fangs~
 the vampire janitor~
@@ -883,10 +791,8 @@ CHI ABCDEFGHIJKU medium unknown
 r slash 33
 r lightning 33
 r acid 33
-r holy -50
 r energy -50
-r light -50
-r charm 999
+r charm 100
 #11640
 lost dreams~
 some lost dreams~
@@ -917,7 +823,7 @@ HL 0 medium unknown
 r slash 33
 r acid -50
 r poison -50
-r holy 999
+r holy 100
 r mental -50
 r disease -50
 #11642
@@ -951,7 +857,7 @@ EFG
 stand stand either 0
 HL 0 medium unknown
 r pierce -50
-r cold 999
+r cold 100
 r lightning -50
 r mental -50
 r light -50
@@ -970,10 +876,10 @@ DEG
 stand stand female 0
 0 0 large unknown
 r slash 33
-r fire 999
+r fire 100
 r cold -50
-r negative 999
-r disease 999
+r negative 100
+r disease 100
 #11645
 dierek black man~
 Dierek~
@@ -989,14 +895,14 @@ BFGRT 0 JO 0 AHK -1000 11644
 EIK
 stand stand male 0
 0 0 medium unknown
-r bash 999
+r bash 100
 r slash 33
 r cold 33
-r lightning 999
+r lightning 100
 r acid 33
-r negative 999
+r negative 100
 r holy -50
-r charm 999
+r charm 100
 #11646
 shadow reality~
 a shadow of Reality~
@@ -1010,22 +916,10 @@ BCG 0 U B 0 0 0
 ACDEF
 stand stand none 0
 DHL 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r mental -50
+r charm 100
+r weapon -50
+r magic 33
 #11647
 terrified victim~
 a terrified victim~
@@ -1053,13 +947,10 @@ CG 0 0 0 0 0 0
 DFJ
 stand stand male 1000
 C 0 small unknown
-r bash 30
 r cold 33
-r poison -20
 r negative 33
 r holy 33
 r mental -50
-r disease -20
 r charm 33
 #11649
 ghostly servant transparent form~
@@ -1075,13 +966,7 @@ BCG 0 I A H 0 0
 F
 stand stand either 100
 D 0 medium unknown
-r bash -33
-r pierce -33
-r slash -33
-r poison -100
-r negative -100
-r holy 50
-r disease -100
+r bash 33
 #11650
 ykres silent figure~
 Ykres~
@@ -1097,9 +982,9 @@ stand stand female 2500
 0 0 medium unknown
 r fire -50
 r cold -50
-r negative 13
-r holy 43
-r charm 999
+r negative 33
+r holy 33
+r charm 100
 #11651
 assassin~
 an assassin~
@@ -1114,9 +999,8 @@ BEFJ
 stand stand either 2000
 0 0 medium unknown
 r lightning -50
-r negative 13
-r holy 43
-r charm -33
+r negative 33
+r holy 33
 #11652
 night lynx cat form~
 the night lynx~
@@ -1130,8 +1014,8 @@ CGS 0 0 BG ABH 0 0
 EFH
 stand stand either 0
 AGHV ACDEFJKQU large unknown
-r fire 999
-r cold 999
+r fire 100
+r cold 100
 r lightning -50
 r negative 33
 #11653
@@ -1149,7 +1033,7 @@ stand stand none 0
 DHL 0 medium unknown
 r fire 33
 r cold 33
-r lightning 999
+r lightning 100
 r negative -50
 r holy -50
 r mental -50
@@ -1167,9 +1051,9 @@ BCG 0 T 0 ABH 0 0
 ADEFK
 stand stand either 0
 ACHW ACDEFIJKPU huge unknown
-r bash 999
+r bash 100
 r pierce -50
-r lightning 999
+r lightning 100
 r acid 33
 #11655
 owl hatchling~
@@ -1219,23 +1103,8 @@ G 0 ITV A H 0 0
 EFGN
 stand stand none 0
 CHIL ABDEFJKU medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r weapon 33
+r magic -50
 #11658
 nightblade night blade dark elf drow~
 the nightblade~
@@ -1249,9 +1118,6 @@ CGS 0 V B 0 0 0
 EFGJ
 stand stand either 1200
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11659
 shadowblade shadow blade sinister form~
 the shadowblade~
@@ -1265,9 +1131,6 @@ CGS 0 0 B 0 0 0
 EFGH
 stand stand either 2200
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11660
 grey ninja cloaked form~
 the grey ninja~
@@ -1281,9 +1144,6 @@ BCGS 0 0 B 0 0 0
 DEFGHJ
 stand stand either 1500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11661
 black ninja figure~
 the black ninja~
@@ -1299,10 +1159,7 @@ EFGJ
 stand stand female 2500
 0 0 medium unknown
 r fire -50
-r cold 999
-r negative -20
-r holy 10
-r charm -33
+r cold 100
 #11662
 white ninja figure~
 the white ninja ~
@@ -1316,11 +1173,8 @@ BCGS 0 0 A 0 0 0
 EFGJ
 stand stand male 2600
 0 0 medium unknown
-r fire 999
+r fire 100
 r cold -50
-r negative -20
-r holy 10
-r charm -33
 #11663
 shadow serpent~
 the shadow serpent~
@@ -1335,9 +1189,7 @@ BFG 0 0 G ABH 0 0
 EFM
 stand stand either 0
 0 0 large unknown
-r cold 50
-r lightning 999
-r poison -33
+r lightning 100
 #11664
 yllias silver eyes~
 Yllias~
@@ -1352,10 +1204,9 @@ DEFK
 stand stand female 3400
 0 0 medium unknown
 r cold -50
-r negative 13
-r holy 43
+r negative 33
+r holy 33
 r mental -50
-r charm -33
 #11665
 reykas raven black wings~
 Reykas~
@@ -1388,9 +1239,6 @@ CGS 0 IV 0 0 0 0
 EFGJ
 stand stand male 1700
 C 0 small unknown
-r bash 30
-r poison -20
-r disease -20
 #11667
 boggled brain~
 the boggled brain~
@@ -1404,10 +1252,8 @@ G 0 T 0 0 0 0
 CDEF
 stand stand none 0
 DH 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
 r mental 33
+r weapon -50
 #11668
 flying pig winged~
 the flying pig~
@@ -1449,12 +1295,10 @@ CG 0 T 0 0 0 0
 ADEJ
 stand stand none 1200
 DHL 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 r lightning -50
 r mental -50
-r charm 999
+r charm 100
+r weapon 33
 #11671
 insanity~
 Insanity~
@@ -1472,7 +1316,7 @@ r fire 33
 r cold 33
 r negative -50
 r holy -50
-r charm 999
+r charm 100
 #11672
 fool~
 the fool~
@@ -1530,8 +1374,8 @@ BCFGU 0 NO 0 H 0 0
 ACD
 stand stand none 0
 BHJ ABCDEFHIJKU large unknown
-r poison 999
-r disease 999
+r poison 100
+r disease 100
 #11676
 mole~
 the mole~
@@ -1566,8 +1410,8 @@ ACHL ABCDEFGHIJK large unknown
 r lightning -50
 r energy 33
 r mental 33
-r light 999
-r sound 999
+r light 100
+r sound 100
 #11678
 fax parrot~
 Fax~
@@ -1610,14 +1454,6 @@ BI 0 T 0 0 0 0
 CDK
 stand stand none 0
 0 0 large unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #11681
 shadowcat shadow cat form~
 a shadowcat~
@@ -1650,7 +1486,7 @@ BI 0 0 G A 0 0
 CD
 stand stand either 0
 0 0 large unknown
-r lightning 999
+r lightning 100
 r negative -50
 #11683
 pegasus winged horse~
@@ -1680,7 +1516,7 @@ BI C 0 G 0 0 0
 DE
 stand stand either 0
 0 0 large unknown
-r fire 999
+r fire 100
 r cold -50
 #11685
 icecat ice cat crystalline form~
@@ -1698,7 +1534,7 @@ DE
 stand stand either 0
 0 0 large unknown
 r fire -50
-r cold 999
+r cold 100
 r lightning 33
 #11686
 ethereal panther shimmering~
@@ -1716,18 +1552,9 @@ BI 0 TU AG AB 0 0
 DE
 stand stand either 0
 0 0 large unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r energy -50
+r mental -50
+r magic 33
 #11687
 tenarezzii demon dark~
 a t'enarezzi'i demon~
@@ -1817,14 +1644,6 @@ BIT 0 T 0 0 0 0
 DEFK
 stand stand none 0
 0 0 medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #11693
 ethereal weebie rodent~
 an ethereal weebie~
@@ -1840,20 +1659,7 @@ BIT 0 TU A AB 0 0
 CDEGK
 stand stand either 0
 0 0 small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #11694
 zkare blade~
 a Z'kare blade~
@@ -1868,14 +1674,6 @@ BIT 0 NOT 0 0 0 0
 CDEFK
 stand stand none 0
 0 0 medium unknown
-r fire -33
-r cold -33
-r acid -33
-r negative -100
-r holy -100
-r mental -100
-r disease -100
-r charm -100
 #11695
 sherayna golden lady zeinia representative~
 the Zeinia representative~
@@ -1892,8 +1690,6 @@ BGJe 0 0 0 AB 0 0
 EFK
 stand stand female 5000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11696
 nyvri lady zeinia representative~
 the Zeinia representative~
@@ -1910,8 +1706,6 @@ BGJe 0 0 0 AB 0 0
 EFK
 stand stand female 5000
 0 0 medium unknown
-r negative 10
-r charm -33
 #11697
 zdreni avenger figure~
 a Zdreni avenger~
@@ -1932,23 +1726,8 @@ BCFGS 0 a B AB -500 11725
 BDEFHJK
 stand stand either 5000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 13
-r holy 43
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm -33
-r sound 33
+r weapon 33
+r magic 33
 #11698
 zdreni avenger assassin figure~
 the Zdreni avenger~
@@ -1969,23 +1748,8 @@ BCFGRS 0 0 B AB 0 11725
 BEFJK
 stand stand either 5000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 13
-r holy 43
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm -33
-r sound 33
+r weapon 33
+r magic 33
 #11699
 zdreni deathmaster assassin~
 the Zdreni deathmaster~
@@ -2003,9 +1767,6 @@ BCFGRS 0 0 B AB -500 11699
 BEFHJK
 stand stand male 5000
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11700
 zdreni shadowmaster assassin dark elven form~
 the Zdreni shadowmaster~
@@ -2020,9 +1781,6 @@ BCFGS 0 0 B AB -500 11699
 BEFJK
 stand stand female 4000
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11701
 zdreni blademaster assassin~
 the Zdreni blademaster~
@@ -2038,9 +1796,6 @@ CFGS 0 0 B AB -500 11699
 BDEFJ
 stand stand either 3700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11702
 zdreni magemaster assassin elf form~
 the Zdreni magemaster~
@@ -2056,9 +1811,6 @@ CFGRS 0 0 B AB -500 11699
 BFJ
 stand stand either 3700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11703
 zdreni stalker assassin figure~
 the Zdreni stalker~
@@ -2079,9 +1831,6 @@ CFGS 0 0 B AB -500 11699
 BEFJK
 stand stand either 3500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11704
 zdreni darkblade assassin form~
 the Zdreni darkblade~
@@ -2096,9 +1845,6 @@ CFGS 0 0 B AB -500 11699
 BEFJK
 stand stand either 3200
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11705
 zdreni venomblade assassin elf~
 the Zdreni venomblade~
@@ -2113,9 +1859,8 @@ CFGS 0 0 B B -500 11699
 BEFJK
 stand stand either 3000
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
+r poison 100
+r disease 33
 #11706
 zdreni stiletto assassin~
 the Zdreni stiletto~
@@ -2130,9 +1875,6 @@ CFGS 0 0 B 0 -500 11699
 BEFJK
 stand stand either 2700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11707
 zdreni apprentice assassin young~
 the Zdreni apprentice~
@@ -2149,9 +1891,6 @@ CFGS 0 0 B 0 -50 11699
 BFJ
 stand stand either 1000
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11708
 applicant young drow~
 the applicant~
@@ -2168,9 +1907,6 @@ BGS 0 0 0 0 -50 11699
 BF
 stand stand either 250
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11709
 shadow panther black~
 the shadow panther~
@@ -2213,9 +1949,6 @@ BCFGRS 0 0 B AB -500 11699
 BFJ
 stand stand either 3700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11712
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -2232,9 +1965,6 @@ BCFGRS 0 0 B 0 -50 11711
 BFJ
 stand stand either 500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11713
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -2251,9 +1981,6 @@ BCFGRS 0 0 B 0 -50 11699
 BFJ
 stand stand either 500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11714
 zdreni blademaster assassin~
 the Zdreni blademaster~
@@ -2269,9 +1996,6 @@ BCFGS 0 0 B AB -500 11699
 BDEFJ
 stand stand either 3700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11715
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -2288,9 +2012,6 @@ BCFGS 0 0 B 0 -50 11714
 BFJ
 stand stand either 500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11716
 zdreni apprentice assassin~
 the Zdreni apprentice~
@@ -2307,9 +2028,6 @@ BCFGS 0 0 B 0 -50 11699
 BFJ
 stand stand either 500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11717
 zdreni magemaster assassin~
 the Zdreni magemaster~
@@ -2324,9 +2042,6 @@ BCFGRS 0 0 B AB -500 11699
 BFJ
 stand stand either 3700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11718
 zdreni venomblade assassin elf~
 the Zdreni venomblade~
@@ -2341,11 +2056,8 @@ BCFGS 0 0 B 0 -500 11717
 BEFJK
 stand stand male 3000
 0 0 medium unknown
-r poison 999
-r negative -20
-r holy 10
+r poison 100
 r disease 33
-r charm -33
 #11719
 zdreni stiletto assassin~
 the Zdreni stiletto~
@@ -2360,9 +2072,6 @@ BCFGS 0 0 B 0 -500 11717
 BEFJK
 stand stand female 2700
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11720
 zdreni venomblade assassin elf~
 the Zdreni venomblade~
@@ -2377,11 +2086,8 @@ BCFGS 0 0 B 0 -500 11699
 BEFJK
 stand stand either 3000
 0 0 medium unknown
-r poison 999
-r negative -20
-r holy 10
+r poison 100
 r disease 33
-r charm -33
 #11721
 zdreni venomblade assassin elf~
 the Zdreni venomblade~
@@ -2396,11 +2102,8 @@ BCFGS 0 0 B 0 -500 11699
 BEFJK
 stand stand either 3000
 0 0 medium unknown
-r poison 999
-r negative -20
-r holy 10
+r poison 100
 r disease 33
-r charm -33
 #11722
 screaming captive~
 a screaming captive~
@@ -2429,9 +2132,6 @@ BCG 0 0 0 0 -200 11699
 CDIK
 stand stand male 2500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11724
 zdreni drow weaponsmith smith~
 the drow weaponsmith~
@@ -2446,9 +2146,6 @@ BCG 0 0 0 0 -200 11700
 CDIK
 stand stand male 2500
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #11725
 zdreni avenger leader figure~
 a Zdreni avenger~
@@ -2469,23 +2166,8 @@ BCFGRS 0 0 B AB -500 11699
 BDEFHJK
 stand stand either 4500
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 13
-r holy 43
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm -33
-r sound 33
+r weapon 33
+r magic 33
 #0
 
 #OBJECTS

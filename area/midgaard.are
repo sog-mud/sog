@@ -26,23 +26,8 @@ BJVe D HN 0 A 900 0
 AF
 stand stand male 15000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 33
+r magic 100
 #3001
 baker~
 @eng the baker@rus пекарь~
@@ -58,23 +43,9 @@ BJVe D HN 0 0 900 0
 CDF
 stand stand male 500
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3002
 grocer бакалейщик~
 @eng the grocer@rus бакалейщик~
@@ -89,23 +60,9 @@ BJVe 0 HN 0 0 900 0
 EFJ
 stand stand male 1300
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3003
 weaponsmith~
 @eng the weaponsmith@rus оружейник~
@@ -120,23 +77,9 @@ BJTVe F HN 0 0 900 0
 CEIK
 stand stand male 25000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3004
 armourer armorer~
 the armourer~
@@ -151,23 +94,9 @@ BJVe F N 0 0 900 0
 CEFJKN
 stand stand male 25000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3005
 thief вор~
 @eng the thief@rus вор~
@@ -196,23 +125,9 @@ BJTVe 0 H 0 0 900 0
 CEI
 stand stand male 1300
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3007
 sailor моряк~
 @eng the sailor@rus моряк~
@@ -227,23 +142,9 @@ BJTVe C 0 0 0 900 0
 FHJN
 stand stand male 58
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3008
 boy мальчик~
 @eng the pet shop boy@rus ~~продавец~~ животных~
@@ -258,23 +159,9 @@ BJVe 0 H 0 0 900 0
 0
 stand stand male 4000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3009
 jeweller ювелир~
 @eng the jeweller@rus ювелир~
@@ -289,23 +176,9 @@ BJVe 0 HV 0 0 900 0
 AF
 stand stand male 58000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3010
 leather worker скорняк~
 @eng the leather worker@rus скорняк~
@@ -322,23 +195,9 @@ BJVe 0 H 0 0 900 0
 AFN
 stand stand male 10000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3011
 Questor квестор~
 @eng Questor@rus квестор~
@@ -356,23 +215,10 @@ GJTVe E V 0 ABHK 1000 3000
 ACDEFHIKLNOT
 stand stand male 0
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -33
-r cold -33
-r lightning 50
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 83
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r mental 100
+r charm 100
+r weapon 33
+r magic 33
 #3012
 healer лекарь~
 @eng the healer@rus ~~лекарь~~~
@@ -390,23 +236,8 @@ BJQVe HI H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 33
+r magic 100
 #3013
 janitor дворничиха~
 @eng the janitor@rus дворничиха~
@@ -419,20 +250,7 @@ GH 0 0 0 0 900 0
 NU
 stand stand either 10
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3020
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
@@ -451,23 +269,9 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 43
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #3021
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -485,23 +289,9 @@ BJQVe D H 0 ABKL 1000 0
 EFHIK
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #3022
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -537,23 +327,9 @@ BJTVe D 0 0 AB 1000 0
 ACDEIK
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 8
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 8
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #3024
 sorcerer колдун~
 @eng the sorcerer@rus колдун~
@@ -572,23 +348,9 @@ BJRTVe 0 0 A A 800 0
 AEG
 stand stand male 2000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 43
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3025
 templar тамплиер~
 @eng the knight templar@rus Тамплиер~
@@ -609,23 +371,9 @@ BJQTVe 0 0 0 AH 800 0
 DEIK
 stand stand male 2000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3026
 assassin убийца~
 @eng the assassin@rus убийца~
@@ -645,23 +393,9 @@ BJSTVe 0 0 BG AB 800 0
 BEFJN
 stand stand male 2000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3027
 knight рыцарь~
 @eng the knight@rus рыцарь~
@@ -681,23 +415,9 @@ BJTVe 0 0 0 AB 800 0
 ACDEHIK
 stand stand male 2000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3040
 bartender бармен~
 @eng the bartender@rus бармен~
@@ -712,23 +432,9 @@ BJVe 0 0 0 0 900 0
 FHJN
 stand stand male 150
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3041
 waiter~
 the waiter~
@@ -742,23 +448,9 @@ BJVe 0 0 0 0 900 0
 FHJN
 stand stand male 150
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3042
 waiter официант~
 @eng the waiter@rus официант~
@@ -775,23 +467,9 @@ BJRVe 0 0 0 A 600 0
 FJN
 stand stand male 150
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3043
 waiter официант~
 @eng the waiter@rus официант~
@@ -806,23 +484,9 @@ BJQVe 0 0 0 0 600 0
 FHJN
 stand stand male 150
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3044
 waiter официант~
 @eng the waiter@rus официант~
@@ -837,23 +501,9 @@ BJSVe 0 0 0 0 600 0
 FHJN
 stand stand male 150
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3045
 waiter официант~
 @eng the waiter@rus официант~
@@ -868,23 +518,9 @@ BJTVe 0 0 0 0 600 0
 BFHJN
 stand stand male 150
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3046
 filthy филси~
 @eng Filthy@rus Филси~
@@ -902,23 +538,9 @@ BJSVe 0 0 0 0 600 0
 BEFJN
 stand stand male 200
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3060
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -935,20 +557,7 @@ CDEKLTU
 stand stand either 150
 0 0 medium unknown
 V 37001
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3061
 janitor дворник~
 @eng the janitor@rus дворник~
@@ -962,20 +571,7 @@ NU
 stand stand either 10
 0 0 medium unknown
 V 37000
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3062
 fido dog собака зверюга~
 @eng the beastly fido@rus ~~противная~~ ~~зверюга~~~
@@ -991,20 +587,6 @@ FGHU 0 0 0 0 -200 0
 0
 stand stand female 0
 0 0 small unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #3063
 vagabond бродяга~
 @eng the vagabond@rus бродяга~
@@ -1019,20 +601,7 @@ CS 0 0 0 0 -200 0
 BJNQ
 stand stand male 18
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3064
 drunk пьяница~
 @eng the drunk@rus пьяница~
@@ -1047,20 +616,7 @@ G 0 0 0 0 0 0
 U
 stand stand male 65
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3065
 beggar попрошайка~
 @eng the beggar@rus попрошайка~
@@ -1075,20 +631,7 @@ B 0 0 0 0 0 0
 FJNU
 stand stand female 0
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3066
 cat кот~
 @eng an alley cat@rus ~~уличный~~ ~~кот~~~
@@ -1103,20 +646,7 @@ FGHU 0 0 0 0 -200 0
 DR
 stand stand either 0
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3067
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1131,20 +661,7 @@ BT 0 0 0 0 1000 3000
 CDEKLTU
 stand stand either 150
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3068
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1159,20 +676,7 @@ BT 0 0 0 0 1000 3000
 CDEKLTU
 stand stand either 150
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3069
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1187,20 +691,7 @@ BT 0 0 AB 0 1000 3000
 CDEHKLTU
 stand stand either 500
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3070
 shopkeeper old man аптекарь~
 @eng An old man@rus ~~старый~~ ~~аптекарь~~~
@@ -1215,23 +706,9 @@ BJQRVe 0 HV 0 ABL 1000 0
 FGH
 stand stand male 5000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1246,20 +723,7 @@ BT 0 0 0 0 1000 3000
 CDEKLTU
 stand stand either 150
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3072
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1274,20 +738,7 @@ BT 0 0 0 0 1000 3000
 CDEKLTU
 stand stand either 150
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3090
 kitten cat pet котенок~
 @eng the kitten@rus котенок~
@@ -1302,20 +753,7 @@ BIU 0 0 0 0 400 0
 0
 stand stand male 0
 0 0 tiny unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3091
 puppy dog pet щенок~
 @eng the puppy@rus щенок~
@@ -1330,20 +768,7 @@ BIU 0 0 0 B 400 0
 N
 stand stand male 0
 0 Q small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3092
 beagle dog pet гончая~
 @eng the beagle@rus гончая~
@@ -1358,20 +783,7 @@ BIU 0 0 0 B 400 0
 N
 stand stand female 0
 0 Q small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3093
 rottweiler dog pet ротвейлер~
 @eng the rottweiler@rus ротвейлер~
@@ -1386,20 +798,7 @@ BIU 0 0 0 B 400 0
 CDL
 stand stand male 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3094
 wolf pet волк~
 @eng the wolf@rus волк~
@@ -1414,20 +813,7 @@ BIU 0 0 0 B 0 0
 C
 stand stand male 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3095
 eagle bird pet~
 the eagle~
@@ -1441,20 +827,7 @@ BIU 0 0 0 B 0 0
 N
 stand stand either 0
 0 U small unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3096
 lion pet~
 the lion~
@@ -1468,20 +841,7 @@ BIU 0 0 0 B 0 0
 C
 stand stand either 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3097
 tiger pet~
 the tiger~
@@ -1495,20 +855,7 @@ BIU 0 0 0 B 0 0
 CMN
 stand stand either 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3100
 maid служанка~
 @eng the maid@rus служанка~
@@ -1525,23 +872,9 @@ BJVe 0 0 0 0 1000 0
 FG
 stand stand female 180
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3120
 sexton могильщик~
 @eng the sexton@rus могильщик~
@@ -1556,20 +889,7 @@ BH 0 0 0 0 800 0
 0
 sit sit male 75
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3121
 swan лебедь~
 @eng the swan@rus лебедь~
@@ -1584,20 +904,7 @@ BU 0 0 0 0 1000 0
 CFR
 stand stand either 0
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3122
 duckling утенок~
 @eng the duckling@rus утенок~
@@ -1612,20 +919,7 @@ BU 0 0 0 0 1000 0
 FR
 stand stand either 0
 0 0 tiny unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3123
 sparrow воробей~
 @eng the sparrow@rus воробей~
@@ -1640,20 +934,7 @@ GHU 0 0 0 0 1000 0
 R
 stand stand either 0
 0 0 tiny unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3124
 duck утка~
 @eng the duck@rus утка~
@@ -1668,20 +949,7 @@ GU 0 0 0 0 1000 0
 FR
 stand stand either 0
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3140
 captain капитан~
 @eng the captain@rus капитан~
@@ -1696,20 +964,7 @@ BCFT 0 0 0 A 1000 3000
 CDEHKLU
 stand stand male 500
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3141
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -1724,20 +979,7 @@ BCFT 0 0 0 0 1000 3000
 CDEHKLU
 stand stand either 150
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #3142
 secretary секретарь секретарша~
 @eng the secretary@rus секретарша~
@@ -1770,23 +1012,9 @@ BJ 0 N 0 0 900 3000
 EFNS
 sleep stand male 1000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3144
 crier плакальщик~
 @eng the town crier@rus ~~городской~~ ~~плакальщик~~~
@@ -1801,20 +1029,7 @@ H 0 0 0 0 900 0
 D
 stand stand male 14
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #3150
 esme waitress эсме~
 @eng Esme@rus Эсме~
@@ -1830,23 +1045,9 @@ BJVe 0 0 0 0 900 0
 FG
 stand stand male 1000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3160
 Melancholy меланхолик~
 @eng Melancholy@rus Меланхолик~
@@ -1867,23 +1068,9 @@ BJVe 0 0 0 0 900 0
 FG
 stand stand male 8000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3161
 lister green tree snake листер~
 @eng Lister@rus Листер~
@@ -1903,8 +1090,6 @@ FHNR
 stand stand male 0
 0 0 small unknown
 r pierce 33
-r cold 50
-r poison -33
 #3162
 otho money changer moneychanger меняла~
 @eng Otho the Changer@rus Ото-~~меняла~~~
@@ -1928,23 +1113,9 @@ BEJV AG 0 0 AB 900 0
 FG
 stand stand male 1000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3163
 thief вор~
 @eng the thief@rus вор~
@@ -1974,23 +1145,9 @@ BJVe 0 H 0 0 900 0
 EFJ
 stand stand female 7000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3165
 novice boy помощник~
 @eng the novice boy@rus помощник~
@@ -2009,7 +1166,7 @@ BJce 0 HV 0 0 500 0
 EFJN
 stand stand male 100
 0 0 medium unknown
-r charm 999
+r charm 100
 #3166
 healer nacya нася~
 @eng Nacya@rus Нася~
@@ -2029,23 +1186,8 @@ BJQRVe DHI H 0 ABL 1000 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 100
+r magic 100
 #3167
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2064,23 +1206,9 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #3168
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2097,23 +1225,9 @@ BJRVe D 0 0 ABL 0 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3169
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2134,23 +1248,9 @@ BJRVe D 0 0 ABL -300 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 13
-r holy 43
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 33
+r magic 33
 #3170
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
@@ -2169,23 +1269,9 @@ BJRVe D 0 0 ABL 0 0
 FG
 stand stand female 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 43
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #3171
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -2204,23 +1290,9 @@ BJRVe D 0 0 ABL 1000 0
 FG
 stand stand male 0
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r charm 100
+r weapon 100
+r magic 33
 #3172
 templeman~
 the templeman~
@@ -2235,23 +1307,8 @@ BJQVe D H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 33
+r magic 100
 #0
 
 #OBJECTS

@@ -21,11 +21,6 @@ G 0 0 0 A 1000 2900
 CDF
 stand stand either 2000
 0 0 medium unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #2901
 planetar~
 a planetar~
@@ -68,8 +63,6 @@ BGH 0 0 0 AB -800 2903
 CF
 stand stand either 0
 0 0 medium unknown
-r bash -33
-r cold -33
 #2904
 chasme fly demon~
 a chasme~
@@ -84,20 +77,7 @@ CG 0 0 0 AB -900 2904
 CDEFIKN
 stand stand either 2000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #2905
 babau ebony~
 a babau~
@@ -141,7 +121,7 @@ BFGJ 0 J 0 AB -1000 2907
 FI
 stand stand either 6900
 0 0 medium unknown
-r charm 999
+r charm 100
 #2908
 nabassu demon~
 a nabassu~
@@ -156,9 +136,7 @@ CG 0 0 0 A -950 2908
 FI
 stand stand either 1120
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
+r weapon -50
 #2909
 dragon cloud~
 a cloud dragon~
@@ -173,11 +151,6 @@ BG 0 H 0 AB 0 2909
 FIKLN
 stand stand either 8000
 0 0 large unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #2910
 solar~
 a solar~
@@ -206,8 +179,6 @@ C 0 0 0 B 100 2911
 ABC
 stand stand either 0
 0 0 medium unknown
-r bash -33
-r cold -33
 #2912
 frost giant~
 a frost giant~
@@ -222,11 +193,7 @@ BFGJ 0 0 0 AB -300 2912
 FJKN
 stand stand male 3400
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
-r charm 999
+r charm 100
 #2913
 gorgimera~
 a gorgimera~
@@ -241,11 +208,7 @@ BFGJ 0 0 0 A -750 2913
 FIKN
 stand stand either 2500
 0 0 large unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm 999
+r charm 100
 #2914
 ratatosk~
 Ratatosk~

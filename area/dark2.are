@@ -22,20 +22,7 @@ F 0 c 0 0 -500 0
 BKP
 stand stand female 0
 B 0 large unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #14502
 merchant elf elven~
 the Elven Merchant~
@@ -50,8 +37,6 @@ BGe 0 0 0 0 -1 0
 DE
 stand stand male 300000
 0 0 medium unknown
-r negative 10
-r charm -33
 #14503
 merchant dwarven~
 the Dwarven Merchant~
@@ -65,9 +50,6 @@ BGe 0 0 0 0 -1 0
 DE
 stand stand male 300000
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #14504
 merchant halfdwarf~
 the Halfdwarf Merchant~
@@ -82,20 +64,7 @@ GHe 0 0 0 0 90 0
 NU
 stand stand either 300000
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #14505
 merchant human~
 the Human Merchant~
@@ -109,20 +78,7 @@ CSe 0 0 0 0 -200 0
 BJNQ
 stand stand male 300000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #14506
 adventurer madboy~
 Madboy the Adventurer~
@@ -137,20 +93,7 @@ CHS 0 0 0 0 -200 0
 BJNQ
 stand stand male 140
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #14507
 soldier bearded~
 the Bearded Soldier~
@@ -165,20 +108,7 @@ BT 0 0 0 0 1000 3000
 CDELU
 stand stand male 2200
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #14508
 soldier alert~
 the Alert Soldier~
@@ -193,20 +123,7 @@ BT 0 0 0 0 1000 3000
 CDEKLTU
 stand stand male 1530
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #14509
 soldier sleepy~
 the Sleepy Soldier~
@@ -220,20 +137,7 @@ BT 0 0 0 0 1000 3000
 CDEKLTU
 sleep sleep male 2502
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #14510
 Watcher~
 the Watcher~
@@ -248,20 +152,7 @@ BT 0 N 0 H 1000 3000
 CDEHKLTU
 stand stand female 3200
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #14511
 pig fat~
 the fat pig~
@@ -289,20 +180,7 @@ B 0 0 0 B 400 0
 CDL
 stand stand either 0
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 33
-r disease 33
-r light 33
-r harm 33
-r charm 33
-r sound 33
+r magic 33
 #14513
 chicken~
 the chicken~
@@ -318,20 +196,8 @@ ADIJ
 stand stand female 0
 0 0 small unknown
 r slash -50
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 33
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r poison -50
+r magic 100
 #14514
 human man~
 the Human Man~
@@ -346,20 +212,7 @@ CS 0 0 0 0 -200 0
 BJNQ
 stand stand male 181
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #14515
 woman human~
 the Human Woman~
@@ -374,20 +227,7 @@ CS 0 0 0 0 -200 0
 BJNQ
 stand stand female 223
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r magic -50
 #14516
 man elven~
 the Elven Man~
@@ -401,8 +241,6 @@ BJR 0 0 0 ABL 500 0
 FG
 stand stand male 513
 0 0 medium unknown
-r negative 10
-r charm -33
 #14517
 woman elven~
 the Elven Woman~
@@ -416,8 +254,6 @@ BJR 0 0 0 ABL 500 0
 FG
 stand stand female 300
 0 0 medium unknown
-r negative 10
-r charm -33
 #14518
 woman dwarven~
 the Dwarven Woman~
@@ -464,19 +300,7 @@ FG 0 0 0 0 -300 0
 CI
 stand stand male 123
 0 0 huge unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
+r poison 33
 #0
 
 #OBJECTS

@@ -26,11 +26,8 @@ BFGHJTZ 0 H 0 AB 350 0
 CFM
 stand stand male 4999
 0 0 huge unknown
-r bash -33
-r pierce 50
 r cold -50
-r acid -33
-r charm 999
+r charm 100
 #2401
 White Dragon Ледяной Дракон~
 @eng The White Dragon@rus ~~Ледяной~~ ~~Дракон~~~
@@ -48,10 +45,8 @@ BFGHJT 0 J 0 AB -350 0
 CFM
 stand stand male 4999
 0 0 huge unknown
-r bash -33
-r pierce 50
-r cold -33
-r charm 999
+r cold -50
+r charm 100
 #2402
 Pixie Сильф~
 @eng A Pixie@rus сильф~
@@ -68,11 +63,8 @@ FGHJ 0 0 0 0 -360 0
 FHKN
 stand stand male 1499
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm 999
+r charm 100
+r weapon -50
 #2403
 Time Dragon Spirit Дух Дракона Времени~
 @eng The Spirit of the Time Dragon@rus ~~Дух~~ Дракона Времени~
@@ -89,11 +81,7 @@ BFGJT 0 HU 0 AB 0 0
 CFM
 stand stand male 6499
 0 0 huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm 999
+r charm 100
 #2404
 Ice Dragon Spirit Дух Ледяного Дракона~
 @eng The Spirit of the Ice Dragon@rus ~~Дух~~ Ледяного Дракона~
@@ -110,11 +98,7 @@ BFGJT 0 HU 0 AB 0 0
 CFM
 stand stand male 6999
 0 0 huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm 999
+r charm 100
 #2405
 Pixie King Король Сильфов~
 @eng The Pixie King@rus ~~король~~ сильфов~
@@ -133,11 +117,8 @@ BFGJ 0 0 0 AB 1000 0
 EN
 stand stand male 2499
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm 999
+r charm 100
+r weapon -50
 #2406
 gate keeper gatekeeper Привратник~
 @eng The GateKeeper@rus привратник~
@@ -157,11 +138,8 @@ BFGJT 0 0 0 AB 0 0
 EFHIKN
 stand stand male 2799
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm 999
+r charm 100
+r weapon -50
 #2407
 eternity dragon Дракон Вечности~
 @eng The Eternity Dragon@rus ~~Дракон~~ Вечности~
@@ -188,11 +166,6 @@ T 0 HU A AB 0 0
 CFM
 stand stand male 14999
 0 0 huge unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #2408
 pixie guard Сильф Стражник~
 @eng A Pixie Guard@rus ~~сильф~~-~~стражник~~~
@@ -211,11 +184,7 @@ BGT 0 0 0 0 1000 2405
 EIN
 stand stand male 1799
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm -33
+r weapon -50
 #2409
 mage pixie master Главный Сильф-Маг~
 @eng The Master Pixie Mage@rus ~~Главный~~ ~~Сильф~~-~~Маг~~~
@@ -236,11 +205,7 @@ CGHR 0 J 0 A -500 0
 FHN
 stand stand male 4499
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm -33
+r weapon -50
 #2410
 pixie guard Сильфийка Стражница~
 @eng A Pixie Guard@rus ~~сильфийка~~-~~стражница~~~
@@ -259,23 +224,8 @@ BGT 0 0 0 0 1000 2405
 E
 stand stand female 1899
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r poison -50
-r negative -40
-r holy -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -33
-r sound -50
+r weapon -50
+r magic -50
 #2411
 Pixie Сильф~
 @eng A Pixie@rus сильф~
@@ -292,11 +242,7 @@ HS 0 0 B AL -500 0
 FHKN
 stand stand male 1499
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm -33
+r weapon -50
 #2412
 Keeper Хранитель~
 @eng A Keeper@rus хранитель~
@@ -315,9 +261,7 @@ BHS 0 J G AHL -500 2402
 FHKN
 stand stand male 1499
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
+r weapon -50
 #2413
 Fireflash Повелитель Драконов~
 @eng Fireflash@rus ~~Повелитель~~ Драконов~
@@ -332,12 +276,7 @@ HS 0 0 G AL 1000 2402
 FHKN
 stand stand male 1499
 0 0 small unknown
-r bash -33
-r pierce 50
-r slash -50
-r fire -33
-r poison -33
-r charm -33
+r weapon -50
 #2414
 Pixie Сильф~
 @eng A Pixie@rus сильф~
@@ -354,11 +293,8 @@ FGHJ 0 0 0 0 -360 0
 FHKN
 stand stand male 1499
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r negative 10
-r charm 999
+r charm 100
+r weapon -50
 #0
 
 #OBJECTS

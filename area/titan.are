@@ -23,14 +23,10 @@ BJT 0 HV 0 ABHKL 1000 0
 EIK
 stand stand male 1200
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18002
 ally cat~
 a poor ally cat~
@@ -47,9 +43,9 @@ EIK
 stand stand either 0
 0 0 large unknown
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r charm 999
+r charm 100
 #18003
 bongo player drummer~
 the bongo drummer~
@@ -63,14 +59,10 @@ BJT 0 0 0 ABHKL -1000 18004
 EIK
 stand stand male 3100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18004
 guitar player band~
 the guitar player of the band~
@@ -86,14 +78,10 @@ BJ 0 0 0 ABHKL -1000 18004
 EIK
 stand stand male 4330
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18005
 pipe pipeplayer player~
 the windpipe player of the band~
@@ -109,14 +97,10 @@ BJ 0 0 0 ABHKL -1000 18004
 EIK
 stand stand female 5300
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18006
 armourer shop shopkeeper~
 the armourer~
@@ -132,23 +116,10 @@ BJTe F 0 0 ABHKL -500 0
 EIK
 stand stand male 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 83
-r acid 33
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 83
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r acid -50
+r holy 33
+r weapon 100
+r magic 100
 #18007
 shop shopkeeper pet girl~
 the young pet-shop girl~
@@ -165,23 +136,10 @@ BJTe 0 0 0 ABHKL -500 0
 EIK
 stand stand female 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 83
-r acid 33
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 83
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r acid -50
+r holy 33
+r weapon 100
+r magic 100
 #18008
 grocer~
 the meat grocer~
@@ -198,17 +156,11 @@ BJTe 0 0 0 ABHKL -1000 0
 EIK
 stand stand male 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
+r weapon 100
 #18009
 grocer~
 the produce grocer~
@@ -224,17 +176,11 @@ BJTe 0 0 0 ABHKL -1000 0
 EIK
 stand stand male 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
+r weapon 100
 #18010
 weaponsmith weapon shopkeeper~
 the weaponsmith~
@@ -252,17 +198,11 @@ BJTe F 0 0 ABHKL 0 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
+r weapon 100
 #18011
 magic library shopkeeper~
 the librarian~
@@ -278,17 +218,11 @@ BJe 0 0 0 ABHKL 500 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
+r weapon 100
 #18012
 shopkeeper designer~
 the designer~
@@ -305,17 +239,11 @@ BJe 0 0 0 ABHKL -600 0
 CDEFIKN
 stand stand female 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
+r weapon 100
 #18013
 bartender pub owner~
 the bartender~
@@ -331,17 +259,11 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
+r weapon 100
 #18014
 waiter~
 a kind waiter~
@@ -358,14 +280,10 @@ BJTe 0 0 0 ABHKL 200 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18015
 innkeeper~
 the inn keeper~
@@ -382,14 +300,10 @@ BJTe 0 0 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18016
 florist~
 the florist~
@@ -405,14 +319,10 @@ BJTe 0 0 0 ABHKL -300 0
 CDEFIKN
 stand stand female 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18017
 town sheriff~
 the town sheriff~
@@ -428,14 +338,10 @@ BJT 0 0 0 ABHKL 500 0
 CDEFIKN
 stand stand male 2100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18018
 jail guard~
 the jail guard~
@@ -449,14 +355,10 @@ BJT 0 0 0 ABHKL -500 0
 CDEFIKN
 stand stand male 3100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18020
 prisoner~
 a stinky prisoner~
@@ -471,15 +373,12 @@ BJT 0 0 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 0
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
 r light -50
-r charm 999
+r charm 100
+r iron -50
 #18021
 chocolate shopkeeper~
 the chocolate shopkeeper~
@@ -495,14 +394,10 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18022
 icecream vendor shopkeeper~
 the icecreams vendor~
@@ -518,14 +413,10 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18023
 apiarist lady shopkeeper~
 the apiarist~
@@ -541,14 +432,10 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand female 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18024
 baker shopkeeper~
 the baker~
@@ -564,14 +451,10 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18025
 zanrich shopkeeper~
 Zanrich the Shopkeeper~
@@ -586,14 +469,10 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18026
 master wands shopkeeper wizard~
 the wand making wizard~
@@ -608,14 +487,10 @@ BJTe 0 0 0 ABHKL -100 0
 CDEFIKN
 stand stand male 200000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18027
 knight templar~
 the knight templar~
@@ -629,14 +504,10 @@ BJT 0 0 0 ABHKL 1000 0
 CDEFIKN
 stand stand male 5250
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18028
 titan citizen~
 a titan citizen~
@@ -651,14 +522,10 @@ BJT 0 0 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 2500
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18029
 cook maid chef~
 the house chef~
@@ -673,14 +540,10 @@ BJT 0 0 0 ABHKL -500 0
 CDEFIKN
 stand stand female 3900
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18030
 serf~
 the serf~
@@ -695,14 +558,10 @@ BJT 0 0 0 ABHKL -500 0
 CDEFIKN
 stand stand male 5330
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18031
 grubby beggar~
 a grubby beggar~
@@ -717,14 +576,10 @@ BJT 0 0 0 ABHKL -500 0
 CDEFIKN
 stand stand male 10
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18032
 patrol guard~
 a patrol guard~
@@ -739,14 +594,10 @@ BJT 0 H 0 ABHKL 0 0
 CDEFIKN
 stand stand male 3330
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18033
 villager~
 a happy villager~
@@ -761,14 +612,10 @@ BJT 0 J 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 4003
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18034
 tournament guard~
 the tournament guard~
@@ -783,14 +630,10 @@ BJT 0 J 0 ABHKL -1000 0
 CDEFIN
 stand stand male 5100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18035
 tournament warrior~
 a tournament warrior~
@@ -804,14 +647,10 @@ BJT 0 J 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 11300
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18036
 tournament anti-paladin~
 a tournament anti-paladin~
@@ -826,14 +665,8 @@ BJR 0 J 0 ABHKL -1000 0
 CDEFIKN
 stand stand female 6100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
 r holy 33
-r mental 50
-r charm 999
 #18037
 tournament cleric~
 a tournament cleric~
@@ -848,14 +681,10 @@ BJQ 0 J 0 ABHKL -1000 0
 CDEFIKN
 stand stand female 6800
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18038
 tournament ranger~
 a tournament ranger~
@@ -869,14 +698,10 @@ BJS 0 J 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 9100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18039
 dragon baby evil~
 an evil baby dragon~
@@ -894,14 +719,13 @@ BCFJT 0 UV 0 ABKL -1000 0
 BCDEFGHIJLMNO
 stand stand male 0
 0 0 large unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
+r cold 33
+r lightning 0
 r acid -50
-r poison 999
+r poison 100
 r mental 33
-r charm 999
+r charm 100
+r wood -50
 #18040
 evil tree~
 a gloomy evil tree~
@@ -920,12 +744,10 @@ BCDEFGHLO
 stand stand either 0
 0 0 large unknown
 r bash -50
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
+r slash 100
+r lightning 33
 r acid -50
-r mental 50
+r mental 33
 r disease 33
 #18041
 deadly rain cloud~
@@ -941,12 +763,9 @@ BFJT 0 TV 0 ABHK -1000 0
 DEFGHL
 stand stand either 0
 0 0 large unknown
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
+r slash 100
+r cold -50
 r acid -50
-r mental 50
 r light -50
 #18042
 demon fire~
@@ -965,13 +784,13 @@ BCDEFGHIJKLMNO
 stand stand either 0
 0 0 large unknown
 r bash -50
-r slash 999
-r fire 999
-r cold -33
-r lightning 50
+r slash 100
+r fire 100
+r cold -50
 r acid -50
 r poison 33
-r mental 83
+r mental 100
+r silver -50
 #18043
 demon water~
 a demon of water~
@@ -987,13 +806,12 @@ BCDEFGHIJKLMNO
 stand stand either 0
 0 0 large unknown
 r bash 33
-r slash 999
-r fire -33
-r cold -33
-r lightning 50
+r slash 100
+r cold -50
 r acid -50
 r negative -50
-r mental 50
+r mental 33
+r iron -50
 #18044
 demon air~
 a demon of air~
@@ -1008,21 +826,12 @@ BCJT 0 Y 0 BH -1000 0
 BCDEFGHIJKLMNO
 stand stand either 0
 0 0 large unknown
-r bash 999
-r pierce 999
-r fire -33
-r cold -33
-r lightning 50
-r acid -50
-r poison -50
-r negative -50
-r energy -50
-r mental 50
-r disease 33
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r bash 100
+r pierce 100
+r lightning 100
+r holy 33
+r disease 100
+r magic -50
 #18045
 demon earth~
 a demon of earth~
@@ -1038,15 +847,15 @@ BCT 0 Y 0 BH -1000 0
 BCDEFGHIJKLMNO
 stand stand either 0
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
+r fire -50
+r cold -50
 r acid -50
 r holy -50
-r energy 999
-r mental 83
-r light 999
+r energy 100
+r mental 100
+r light 100
 r charm 33
+r wood -50
 #18046
 demon wood~
 a demon of wood~
@@ -1062,14 +871,13 @@ BCT 0 Y 0 BH -1000 0
 BCDEFGHIJKLMNO
 stand stand either 0
 0 0 large unknown
-r pierce 999
-r fire -33
-r cold -33
-r lightning 50
+r pierce 100
+r fire -50
 r acid -50
-r mental 50
+r mental 33
 r disease -50
-r light 999
+r light 100
+r iron -50
 #18047
 demon stone~
 a demon of stone~
@@ -1086,20 +894,11 @@ stand stand either 0
 0 0 large unknown
 r bash 33
 r pierce -50
-r fire 999
-r cold 999
-r lightning 83
-r acid 33
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 83
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r acid -50
+r energy 33
+r disease 33
+r silver -50
+r magic 100
 #18048
 titan guard royal~
 a Royal Titan guard~
@@ -1113,14 +912,10 @@ BCJT 0 0 0 BH -1000 0
 BCDEFGHIK
 stand stand male 7000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18049
 boy titan~
 a small boy titan~
@@ -1134,14 +929,10 @@ BCJT 0 0 0 BH -1000 0
 BCDEFGHIK
 stand stand male 330
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18050
 titan girl~
 a titan girl~
@@ -1157,14 +948,10 @@ BCJT 0 0 0 BH -1000 0
 BCDEFGHIK
 stand stand female 390
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18051
 sleep sleeping guard~
 a sleeping patrol guard~
@@ -1179,14 +966,10 @@ BCJT 0 0 0 BH -1000 0
 BCDEFGHIK
 sleep sleep male 5870
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18052
 first advisor~
 the first advisor~
@@ -1201,13 +984,12 @@ BCJT 0 0 0 B -1000 0
 BCDEFGHIK
 stand stand female 7100
 0 0 large unknown
-r bash -7
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r disease -25
 r light -50
-r charm 999
+r charm 100
+r iron -50
 #18053
 keeper deadly pet owner shopkeeper~
 the keeper of the deadly beasts~
@@ -1223,14 +1005,10 @@ BJTe 0 0 0 BH -1000 0
 CDEFIKN
 stand stand male 5000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18054
 cougar black pet~
 the Visious Black Cougar~
@@ -1245,10 +1023,11 @@ EN
 stand stand male 0
 0 0 large unknown
 r slash 33
-r fire 999
+r fire 100
+r cold 0
 r lightning 33
 r acid 33
-r negative 999
+r negative 100
 #18055
 kraken pet~
 the Deadly Kraken~
@@ -1263,14 +1042,11 @@ BITV 0 HUV 0 AB 1000 0
 EN
 stand stand male 0
 0 0 large unknown
-r bash -33
-r pierce 50
 r slash 33
-r fire 999
-r cold 50
+r fire 100
+r cold 33
 r lightning 33
 r acid 33
-r charm -33
 #18056
 bird sylph pet~
 the Magical Sylph~
@@ -1286,15 +1062,12 @@ BIRV 0 HUV 0 AB 1000 0
 CEFIOY
 stand stand female 0
 I 0 large unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r lightning 999
+r cold 33
+r lightning 100
 r acid 33
 r holy 33
 r energy 33
-r charm -33
+r charm -50
 #18057
 spider monkey pet~
 a Spider Monkey~
@@ -1309,11 +1082,9 @@ BIT 0 V 0 A 1000 0
 C
 stand stand male 0
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
-r lightning 999
+r lightning 100
 r holy 33
+r weapon 33
 #18058
 tame lion pet~
 a tame lion~
@@ -1329,16 +1100,12 @@ C
 stand stand male 0
 0 0 large unknown
 r pierce -50
-r lightning 33
-r poison -50
-r negative -50
-r energy -50
-r mental -50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r fire 33
+r cold 33
+r lightning 100
+r acid 33
+r holy 33
+r magic -50
 #18059
 wolf pet~
 a large black wolf~
@@ -1352,14 +1119,12 @@ BIT 0 TV 0 A 1000 0
 C
 stand stand male 0
 0 0 large unknown
-r bash -50
-r pierce -50
-r slash -50
 r fire 33
 r cold 33
-r lightning 999
+r lightning 100
 r acid 33
 r holy 33
+r weapon -50
 #18060
 java pet~
 a Fearsome Java Beast~
@@ -1374,14 +1139,10 @@ BIR 0 V 0 A 1000 0
 C
 stand stand female 0
 0 0 large unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r lightning 999
+r cold 33
+r lightning 100
 r acid 33
 r holy 33
-r charm -33
 #18061
 king dractax titan~
 the King Dractax~
@@ -1395,13 +1156,10 @@ BT 0 V 0 ABH -1000 0
 CDEFGKNO
 stand stand male 19990
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
+r lightning 33
 r acid -50
-r energy 999
-r mental 50
-r charm 999
+r energy 100
+r charm 100
 #18062
 queen crystal titan~
 the Queen Crystal~
@@ -1415,13 +1173,10 @@ BT 0 V 0 ABH -1000 0
 CDEFGKNO
 stand stand female 16990
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
+r lightning 33
 r acid -50
-r energy 999
-r mental 50
-r charm 999
+r energy 100
+r charm 100
 #18063
 assassin~
 an assassin~
@@ -1437,14 +1192,10 @@ BJT 0 V B ABH -1000 0
 CDEFGKNO
 stand stand male 8990
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18064
 rat~
 a small rat~
@@ -1458,14 +1209,10 @@ BJT 0 V 0 ABH -500 0
 CDEFGKNO
 stand stand male 0
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18065
 peasant~
 a happy peasant~
@@ -1480,14 +1227,10 @@ BJT 0 J 0 ABH -1000 0
 CDEFGKNO
 stand stand female 100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18066
 warrior cleric guildmaster~
 the guildmaster~
@@ -1501,11 +1244,7 @@ BJRV BCD 0 0 ABH 0 0
 FHN
 stand stand male 8000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
-r charm 999
+r charm 100
 #18067
 cleric guildstudent~
 the guildstudent~
@@ -1519,11 +1258,7 @@ BJQV CD 0 0 ABH -250 0
 EFGIK
 stand stand male 4500
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
-r charm 999
+r charm 100
 #18068
 warrior guildstudent student~
 the guildstudent~
@@ -1538,11 +1273,7 @@ BJTV CD 0 0 ABH 0 0
 ACEFHIK
 stand stand male 5500
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
-r charm 999
+r charm 100
 #18069
 anti-paladin ranger guildmaster~
 the guildmaster~
@@ -1558,11 +1289,8 @@ BJTV BCD 0 0 ABH -100 0
 BEFHJKN
 stand stand male 3000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
-r charm 999
+r charm 100
+r iron -50
 #18070
 anti-paladin guildguard~
 the guildguard~
@@ -1576,10 +1304,6 @@ BRT 0 0 0 AH 0 0
 0
 stand stand male 3345
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #18071
 cleric guildguard~
 the guildguard~
@@ -1593,10 +1317,6 @@ BQT 0 0 0 AH 0 0
 0
 stand stand male 4367
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #18072
 warrior guildguard~
 the guildguard~
@@ -1610,10 +1330,6 @@ BTU 0 0 0 AH 0 0
 0
 stand stand male 4278
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #18073
 ranger guildguard~
 the guildguard~
@@ -1628,10 +1344,6 @@ BST 0 0 0 AH 0 0
 0
 stand stand male 5657
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #18074
 servant boy~
 a servant boy~
@@ -1645,10 +1357,6 @@ G 0 0 0 H 0 0
 0
 stand stand male 2267
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #18075
 tourist~
 a tourist~
@@ -1663,10 +1371,6 @@ CGH 0 0 0 H 0 0
 0
 stand stand male 3413
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #18076
 store helper aid~
 the store aid~
@@ -1681,11 +1385,8 @@ BGH 0 0 0 H -1000 0
 DEF
 stand stand male 2333
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 r charm 33
+r iron -50
 #18077
 worker leather~
 the leather worker~
@@ -1700,10 +1401,6 @@ BGH 0 0 0 H -1000 0
 0
 stand stand female 4000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 r charm 33
 #18078
 blacksmith~
@@ -1719,10 +1416,6 @@ BGH 0 0 0 H -1000 0
 0
 stand stand male 8900
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 r charm 33
 #18079
 lieutenant commander~
@@ -1739,23 +1432,8 @@ BGH 0 0 0 H -1000 18062
 0
 stand stand male 6699
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -33
-r cold -33
-r lightning 50
-r acid -50
-r poison -50
-r negative -50
-r holy -50
-r energy -50
-r mental 50
-r disease -50
-r light -50
-r harm -50
-r charm -50
-r sound -50
+r weapon 33
+r magic -50
 #18080
 soldier~
 a Titan Soldier~
@@ -1770,10 +1448,6 @@ GH 0 0 0 H -1000 18079
 0
 stand stand male 6660
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 r charm 33
 #18087
 armourer~
@@ -1789,11 +1463,8 @@ BGH 0 0 0 H -1000 0
 0
 stand stand male 7999
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 r charm 33
+r iron -50
 #18090
 hydra pet~
 the Deadly Hydra~
@@ -1807,14 +1478,11 @@ BIRTV C V 0 AB 1000 0
 N
 stand stand female 0
 0 0 large unknown
-r bash -33
-r pierce 50
 r slash 33
-r fire 999
-r cold 50
+r fire 100
+r cold 33
 r lightning 33
 r acid 33
-r charm -33
 #18097
 court aritist~
 the court aritist~
@@ -1830,15 +1498,11 @@ BCJT 0 0 0 BH -1000 0
 BCDEFH
 stand stand male 9233
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
 r light -50
-r charm 999
+r charm 100
 #18098
 apothecary~
 the apothecary~
@@ -1854,14 +1518,10 @@ BJTe 0 0 0 ABHKL -1000 0
 CDEFIKN
 stand stand female 500000
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18099
 villager happy~
 a happy villager~
@@ -1878,14 +1538,10 @@ BJT 0 0 0 ABHKL -1000 0
 CDEFIKN
 stand stand male 100
 0 0 large unknown
-r fire -33
-r cold -33
-r lightning 50
 r acid -50
-r poison 999
+r poison 100
 r holy 33
-r mental 50
-r charm 999
+r charm 100
 #18100
 Questor~
 @eng Questor@rus Квестор~
@@ -1901,23 +1557,10 @@ GJTVe E V 0 ABHK 1000 3000
 ACDEFHIKLNOT
 stand stand male 0
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire -33
-r cold -33
-r lightning 50
-r acid 33
-r poison 33
-r negative 33
-r holy 33
-r energy 33
-r mental 83
-r disease 33
-r light 33
-r harm 33
-r charm 999
-r sound 33
+r mental 100
+r charm 100
+r weapon 33
+r magic 33
 #18101
 healer~
 the healer~
@@ -1932,23 +1575,8 @@ BJQVe DHI H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 83
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 83
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 33
+r magic 100
 #0
 
 #OBJECTS

@@ -132,8 +132,6 @@ B 0 0 0 AB 0 0
 0
 stand stand male 300
 0 0 medium unknown
-r negative 10
-r charm -33
 #4408
 midget карлик~
 @eng the Midget@rus карлик~
@@ -148,9 +146,6 @@ BCH 0 0 0 0 -300 0
 0
 stand stand male 18
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #4409
 Ivan strongman man strong иван~
 @eng Ivan@rus Иван~
@@ -167,10 +162,6 @@ BCGH 0 N 0 0 100 0
 0
 stand stand male 378
 0 0 giant unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #4410
 swallower мечеглотатель~
 @eng the Sword Swallower@rus Мечеглотатель~
@@ -233,9 +224,6 @@ BCH 0 0 0 0 500 0
 0
 stand stand male 20
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #4414
 clown big клоун гигант~
 @eng a big clown@rus ~~клоун~~-~~гигант~~~
@@ -252,10 +240,6 @@ BCH 0 0 0 0 300 0
 0
 stand stand male 240
 0 0 giant unknown
-r fire -33
-r cold -33
-r lightning 50
-r mental 50
 #4415
 ringmaster master~
 the Ringmaster~
@@ -271,8 +255,6 @@ BC 0 O 0 0 0 0
 0
 stand stand male 990
 0 0 medium unknown
-r negative 10
-r charm -33
 #4416
 thrower~
 the knife thrower~
@@ -333,8 +315,6 @@ BCF 0 0 0 0 -1000 0
 0
 stand stand none 0
 0 0 large unknown
-r bash -33
-r cold -33
 #4420
 walker tightrope~
 a tightrope walker~
@@ -395,8 +375,6 @@ BF 0 0 0 0 0 0
 0
 stand stand none 0
 0 0 large unknown
-r bash -33
-r cold -33
 #4424
 horse~
 a horse~
@@ -444,9 +422,6 @@ BCH 0 0 0 0 -1000 0
 0
 stand stand male 891
 0 0 medium unknown
-r negative -20
-r holy 10
-r charm -33
 #4427
 vendor~
 the cotton candy vendor~
@@ -475,8 +450,6 @@ BF 0 0 0 AB 0 0
 0
 stand stand male 300
 0 0 medium unknown
-r negative 10
-r charm -33
 #4429
 dog guard~
 a guard dog~
@@ -530,9 +503,6 @@ G 0 0 0 0 -900 0
 0
 stand stand male 1000
 0 0 medium unknown
-r bash -7
-r poison -25
-r disease -25
 #0
 
 #OBJECTS

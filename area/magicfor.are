@@ -108,7 +108,8 @@ r negative 33
 r holy 33
 r mental 33
 r light -50
-r sound 999
+r sound 100
+r iron -50
 #1805
 unicorn silver единорог серебряный~
 @eng the silver unicorn@rus ~~серебрЯный~~ ~~единорог~~~
@@ -262,20 +263,6 @@ BGHUY 0 0 0 0 -1000 0
 CU
 stand stand either 0
 c 0 small unknown
-r fire 50
-r cold 50
-r lightning 50
-r acid 50
-r poison 50
-r negative 50
-r holy 50
-r energy 50
-r mental 50
-r disease 50
-r light 50
-r harm 50
-r charm 50
-r sound 50
 #1812
 shadow dragon дракон теневой~
 @eng a shadow dragon@rus ~~теневой~~ ~~дракон~~~
@@ -294,11 +281,6 @@ BGR 0 U 0 ABKLM -1000 0
 A
 stand stand male 3000
 Gc L giant unknown
-r bash -33
-r pierce 50
-r fire -33
-r cold 50
-r charm -33
 #1813
 witch red ведьма красная~
 @eng the red witch@rus ~~красная~~ ~~ведьма~~~
@@ -322,6 +304,7 @@ stand stand female 200
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1814
 witch orange ведьма рыжая~
 @eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
@@ -345,6 +328,7 @@ stand stand female 250
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1815
 witch yellow ведьма желтая~
 @eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
@@ -369,6 +353,7 @@ stand stand female 300
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1816
 witch green ведьма зеленая~
 @eng the green witch@rus ~~зеленая~~ ~~ведьма~~~
@@ -390,6 +375,7 @@ stand stand female 300
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1817
 witch blue ведьма синяя~
 @eng the blue witch@rus ~~синяя~~ ~~ведьма~~~
@@ -409,6 +395,7 @@ stand stand female 350
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1818
 witch indigo ведьма индиго~
 @eng the indigo witch@rus ~~ведьма~~ индиго~
@@ -434,6 +421,7 @@ stand stand female 440
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1819
 witch violet ведьма фиолетовая~
 @eng the violet witch@rus ~~фиолетовая~~ ~~ведьма~~~
@@ -459,6 +447,7 @@ stand stand female 440
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1820
 warlock red колдун красный~
 @eng the red warlock@rus ~~красный~~ ~~колдун~~~
@@ -478,6 +467,7 @@ stand stand male 200
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1821
 warlock orange колдун оранжевый~
 @eng the orange warlock@rus ~~оранжевый~~ ~~колдун~~~
@@ -497,6 +487,7 @@ stand stand male 250
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1822
 warlock yellow колдун желтый~
 @eng the yellow warlock@rus ~~желтый~~ ~~колдун~~~
@@ -519,6 +510,7 @@ stand stand male 300
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1823
 warlock green колдун зеленый~
 @eng the green warlock@rus ~~зеленый~~ ~~колдун~~~
@@ -540,6 +532,7 @@ stand stand male 300
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1824
 warlock blue колдун синий filimordr~
 @eng the blue warlock@rus ~~синий~~ ~~колдун~~~
@@ -561,6 +554,7 @@ stand stand male 350
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1825
 warlock indigo колдун индиго~
 @eng the indigo warlock@rus ~~колдун~~ ~~индиго~~~
@@ -588,6 +582,7 @@ stand stand male 440
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1826
 warlock violet колдун фиолетовый~
 @eng the violet warlock@rus ~~фиолетовый~~ ~~колдун~~~
@@ -612,6 +607,7 @@ stand stand male 440
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1827
 shopkeeper ranger продавец егерь торговец~
 @eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~
@@ -628,23 +624,9 @@ BGJTW A HV 0 0 1000 0
 CFHIJKV
 stand stand male 2324
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 33
+r sound -50
+r weapon 100
+r magic 100
 #1828
 guildmaster ranger егерь мастер гильдии~
 @eng the ranger guildmaster@rus ~~мастер~~ гильдии егерей~
@@ -664,23 +646,10 @@ BGJT BCD HV 0 0 0 0
 CEFHIJKV
 stand stand male 2324
 0 0 medium unknown
-r bash 999
-r pierce 999
-r slash 999
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 33
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 33
+r mental -50
+r sound -50
+r weapon 100
+r magic 100
 #1829
 unicorn black ebony единорог черный эбеновый~
 @eng the ebony unicorn@rus ~~эбеновый~~ ~~единорог~~~
@@ -875,6 +844,7 @@ stand stand male 4444
 r acid 33
 r negative 33
 r holy -50
+r wood -50
 #1839
 bunny rabbit~
 a small white bunny~
@@ -928,23 +898,8 @@ BGJQUe EH Hc 0 AF 1000 0
 FHIK
 stand stand male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 999
-r cold 999
-r lightning 999
-r acid 999
-r poison 999
-r negative 999
-r holy 999
-r energy 999
-r mental 999
-r disease 999
-r light 999
-r harm 999
-r charm 999
-r sound 999
+r weapon 33
+r magic 100
 #0
 
 #OBJECTS
