@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.22 1998-05-08 19:25:43 fjoe Exp $
+ * $Id: comm.c,v 1.23 1998-05-14 13:00:59 efdi Exp $
  */
 
 /***************************************************************************
@@ -1151,21 +1151,21 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
                 percent = -1;
   
             if (percent >= 100)
-                sprintf(wound, msg(INFO_IS_IN_PERFECT_HEALTH, ch));
+                sprintf(wound, msg(INFO_IS_IN_PERFECT_HEALTH, victim));
             else if (percent >= 90)
-                sprintf(wound, msg(INFO_HAS_A_FEW_SCRATCHES, ch));
+                sprintf(wound, msg(INFO_HAS_A_FEW_SCRATCHES, victim));
             else if (percent >= 75)
-                sprintf(wound, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch));
+                sprintf(wound, msg(INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, victim));
             else if (percent >= 50)
-                sprintf(wound, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch));
+                sprintf(wound, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, victim));
             else if (percent >= 30)
-                sprintf(wound, msg(INFO_IS_GUSHING_BLOOD, ch));
+                sprintf(wound, msg(INFO_IS_GUSHING_BLOOD, victim));
             else if (percent >= 15)
-                sprintf(wound, msg(INFO_IS_WRITHING_IN_AGONY, ch));
+                sprintf(wound, msg(INFO_IS_WRITHING_IN_AGONY, victim));
             else if (percent >= 0)
-                sprintf(wound, msg(INFO_IS_CONVULSING_ON_THE_GROUND, ch));
+                sprintf(wound, msg(INFO_IS_CONVULSING_ON_THE_GROUND, victim));
             else
-                sprintf(wound, msg(INFO_IS_NEARLY_DEAD, ch));
+                sprintf(wound, msg(INFO_IS_NEARLY_DEAD, victim));
 
  
             sprintf(buf,"%s %s \n\r", 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.34 1998-05-11 20:46:53 fjoe Exp $
+ * $Id: act_move.c,v 1.35 1998-05-14 13:00:59 efdi Exp $
  */
 
 /***************************************************************************
@@ -2530,54 +2530,55 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 		return;
 	}
  
-	if (MOUNTED(ch)) 
-	{
-		  send_to_char("You can't bash doors while mounted.\n\r", ch);
-		  return;
-	}
-	if (RIDDEN(ch)) 
-	{
-		  send_to_char("You can't bash doors while being ridden.\n\r", ch);
-		  return;
-	}
+    if (MOUNTED(ch)) 
+    {
+        send_to_char(msg(MOVE_CANT_BASH_DOORS_MOUNTED, ch), ch);
+        return;
+    }
+    if (RIDDEN(ch)) 
+    {
+        send_to_char(msg(MOVE_CANT_BASH_DOORS_RIDDEN, ch), ch);
+        return;
+    }
 
-	if (arg[0] == '\0')
-	{
-	send_to_char("Bash which door or direction.\n\r",ch);
+    if (arg[0] == '\0')
+    {
+    send_to_char(msg(MOVE_BASH_WHICH_DOOR, ch), ch);
+    return;
+    }
+
+    if (ch->fighting)
+    {	
+	send_to_char(msg(MOVE_WAIT_FIGHT_FINISH, ch), ch);
 	return;
-	}
+    }
 
-	if (ch->fighting)
-	{	
-		send_to_char("Wait until the fight finishes.\n\r",ch);
-		return;
-	}
-
-	/* look for guards */
-	for (gch = ch->in_room->people; gch; gch = gch->next_in_room)
+    /* look for guards */
+    for ( gch = ch->in_room->people; gch; gch = gch->next_in_room )
+    {
+	if ( IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level )
 	{
-		if (IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level)
-		{
-		    act("$N is standing too close to the door.",
-			ch, NULL, gch, TO_CHAR);
-		    return;
-		}
+	    act_printf(ch, NULL, gch, TO_CHAR, POS_DEAD, 
+			MOVE_N_TOO_CLOSE_TO_DOOR);
+	    return;
 	}
+    }
 
-	if ((door = find_door(ch, arg)) >= 0)
-	{
-		/* 'bash door' */
-		ROOM_INDEX_DATA *to_room;
-		EXIT_DATA *pexit;
-		EXIT_DATA *pexit_rev;
+    if ( ( door = find_door( ch, arg ) ) >= 0 )
+    {
+	/* 'bash door' */
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	EXIT_DATA *pexit_rev;
+	pexit = ch->in_room->exit[door];
 
 		pexit = ch->in_room->exit[door];
-		if (!IS_SET(pexit->exit_info, EX_CLOSED))
-		    { send_to_char("It's already open.\n\r",      ch); return; }
-		if (!IS_SET(pexit->exit_info, EX_LOCKED))
-		    { send_to_char("Just try to open it.\n\r",     ch); return; }
-		if (IS_SET(pexit->exit_info, EX_NOPASS))
-		    { send_to_char("A mystical shield protects the exit.\n\r",ch); 
+	if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
+	    { send_to_char(msg(MOVE_ITS_ALREADY_OPEN, ch), ch); return; }
+	if ( !IS_SET(pexit->exit_info, EX_LOCKED) )
+	    { send_to_char(msg(MOVE_TRY_TO_OPEN, ch), ch); return; }
+	if ( IS_SET(pexit->exit_info, EX_NOPASS) )
+	    { send_to_char(msg(MOVE_SHIELD_PROTECTS_EXIT, ch), ch); 
 		      return; }
 
 	/* modifiers */
@@ -2593,16 +2594,12 @@ void do_bash_door(CHAR_DATA *ch, char *argument)
 	if (IS_AFFECTED(ch,AFF_FLYING))
 		chance -= 10;
 
-	/* level 
-	chance += ch->level / 10;
-	*/
+    act_printf(ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD, 
+			MOVE_YOU_SLAM_TRY_BREAK);
+    act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING,
+			MOVE_N_SLAMS_TRY_BREAK);
 
 	chance += (get_skill(ch,gsn_bash) - 90);
-
-	act("You slam into $d, and try to break $d!",
-			ch,NULL,pexit->keyword,TO_CHAR);
-	act("You slam into $d, and try to break $d!",
-			ch,NULL,pexit->keyword,TO_ROOM);
 
 	if (room_dark(ch->in_room))
 			chance /= 2;

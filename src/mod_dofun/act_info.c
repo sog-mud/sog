@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.33 1998-05-11 19:35:10 fjoe Exp $
+ * $Id: act_info.c,v 1.34 1998-05-14 13:00:58 efdi Exp $
  */
 
 /***************************************************************************
@@ -575,7 +575,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	char_printf(ch, "(%s) %s %s\n\r",
 		    race_table[RACE(vict)].name, PERS(vict, ch),
-		    msg(msgnum, ch));
+		    msg(msgnum, vict));
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++) {
