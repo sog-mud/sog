@@ -23,16 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.c,v 1.8 1999-12-21 00:27:51 avn Exp $
+ * $Id: socials.c,v 1.9 2001-07-08 17:33:40 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "socials.h"
-#include "str.h"
+#include <typedef.h>
+#include <varr.h>
+#include <mlstring.h>
+#include <socials.h>
+#include <str.h>
 
 varr socials;
 
