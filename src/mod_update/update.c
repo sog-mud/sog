@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.174 1999-12-11 15:31:21 fjoe Exp $
+ * $Id: update.c,v 1.175 1999-12-12 20:43:07 avn Exp $
  */
 
 /***************************************************************************
@@ -698,7 +698,7 @@ void mobile_update(void)
 		}
 
 		if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
-		&& !IS_AFFECTED(ch, AFF_WATER_BREATHING)
+		&& !is_affected(ch, "water breathing")
 		&& !IS_IMMORTAL(ch)) {
 			act("$n gasps for fresh air, but inhales water.",
 				ch, NULL, NULL, TO_ROOM);

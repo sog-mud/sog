@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.154 1999-12-11 15:31:25 fjoe Exp $
+ * $Id: spellfun2.c,v 1.155 1999-12-12 20:43:09 avn Exp $
  */
 
 /***************************************************************************
@@ -5399,9 +5399,14 @@ void spell_water_breathing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(ch, AFF_WATER_BREATHING)) {
-		char_puts("You can already breath under water", ch);
-		return;
+	if (is_affected(vch, "water breathing")) {
+		if (ch == vch)
+			char_puts("You can already breath under water.\n", ch);
+		else {
+			act("$E can already breath under water.",
+				ch, NULL, vch, TO_CHAR);
+			return;
+		}
 	}
 
 	af.where	= TO_AFFECTS;
@@ -5410,7 +5415,7 @@ void spell_water_breathing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.duration	= level / 12;
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
-	af.bitvector	= AFF_WATER_BREATHING;
+	af.bitvector	= 0;
 	affect_to_char(vch, &af); 
 	char_puts("Breathing seems a bit easier.\n", vch);
 }
@@ -5425,13 +5430,13 @@ void spell_free_action(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_SKILLS;
 	af.type		= "free action";
 	af.level	= level; 
 	af.duration	= level / 12;
-	INT(af.location)= APPLY_NONE;
+	af.location.s	= str_dup("swimming");;
 	af.modifier	= 0;
-	af.bitvector	= AFF_SWIM;
+	af.bitvector	= 0;
 	affect_to_char(vch, &af); 
 	char_puts("You can move easier.\n", vch);
 }

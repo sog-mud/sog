@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.213 1999-12-11 15:31:01 fjoe Exp $
+ * $Id: act_move.c,v 1.214 1999-12-12 20:43:05 avn Exp $
  */
 
 /***************************************************************************
@@ -3483,32 +3483,33 @@ void do_breathhold(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "hold breath")) {
-		char_puts("You're already holding your breath.\n", ch);
+	if (is_affected(ch, "water breathing")) {
+		char_puts("You already can breath under water.\n", ch);
 		return;
 	}
 
 	if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER) {
-		char_puts("Under water?\n", ch);
+		char_puts("You can't take a breath under water!\n", ch);
 		return;
 	}
+
 	if (number_percent() < get_skill(ch, "hold breath")) {
-		af.bitvector	= AFF_WATER_BREATHING | AFF_SWIM;
 		char_puts("You prepare yourself for swimming.\n", ch);
 		check_improve(ch, "hold breath", TRUE, 1);
+		af.where	= TO_AFFECTS;
+		af.type		= "water breathing";
+		af.level	= LEVEL(ch); 
+		af.duration	= LEVEL(ch) / 20;
+		INT(af.location)= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= 0;
+		affect_to_char(ch, &af); 
 	}
 	else {
-		af.bitvector	= 0;
 		char_puts("You took a deep breath but fail to concentrate.\n", ch);
 		check_improve(ch, "hold breath", FALSE, 1);
 	}
-	af.where	= TO_AFFECTS;
-	af.type		= "hold breath";
-	af.level	= LEVEL(ch); 
-	af.duration	= LEVEL(ch) / 46;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	affect_to_char(ch, &af); 
+	WAIT_STATE(ch, skill_beats("hold breath"));
 }
 
 /*

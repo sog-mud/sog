@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.212 1999-12-11 15:31:16 fjoe Exp $
+ * $Id: handler.c,v 1.213 1999-12-12 20:43:06 avn Exp $
  */
 
 /***************************************************************************
@@ -2950,22 +2950,27 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	move_char_org(ch, door, follow, FALSE);
 }
 
-bool has_boat(CHAR_DATA *ch)
+bool inline has_boat(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	bool found;
 
 	found = FALSE;
 
-	if (IS_IMMORTAL(ch)) return TRUE;
+	if (IS_IMMORTAL(ch))
+		return TRUE;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
 		if (obj->pObjIndex->item_type == ITEM_BOAT) {
 			found = TRUE;
 			break;
 		}
+
 	return found;
 }
+
+#define CAN_SWIM(ch) 	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming"))
+#define CAN_FLY(ch)	(IS_IMMORTAL(ch) || IS_AFFECTED(ch, AFF_FLYING))
 
 bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 {
@@ -3149,75 +3154,63 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			}
 		}
 
-		if (in_room->sector_type == SECT_AIR
-		||  to_room->sector_type == SECT_AIR) {
+		if (in_room->sector_type == SECT_AIR ||
+		    to_room->sector_type == SECT_AIR) {
 			if (MOUNTED(ch)) {
-		        	if(!IS_AFFECTED(MOUNTED(ch), AFF_FLYING)) {
-		        		char_puts("You mount can't fly.\n", ch);
-						   return FALSE;
+				if (!CAN_FLY(MOUNTED(ch))) {
+					char_puts("You mount can't fly.\n", ch);
+					return FALSE;
 				}
-			} 
-			else if (!IS_AFFECTED(ch, AFF_FLYING)
-			&& !IS_IMMORTAL(ch)) {
-				act_puts("You can't fly.",
-					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				return FALSE;
-			} 
+			} else {
+				if (!CAN_FLY(ch)) {
+					char_puts("You can't fly.\n", ch);
+					return FALSE;
+				}
+			}
 		}
 
-		if ((in_room->sector_type == SECT_WATER_SWIM
-		||  to_room->sector_type == SECT_WATER_SWIM)
-		&& MOUNTED(ch)
-		&& !IS_AFFECTED(MOUNTED(ch), AFF_FLYING | AFF_SWIM)) {
-			act_puts("Your mount can neither fly nor swim.",
-				ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return FALSE;
+		if (in_room->sector_type == SECT_WATER_SWIM ||
+		    to_room->sector_type == SECT_WATER_SWIM) {
+			if (MOUNTED(ch)) {
+				if (!CAN_FLY(MOUNTED(ch)) && !CAN_SWIM(MOUNTED(ch))) {
+					char_puts("Your mount can neither fly nor swim.\n", ch);
+					return FALSE;
+				}
+			} else {
+				if (!CAN_FLY(ch) && !CAN_SWIM(ch) && !has_boat(ch)) {
+					char_puts("Learn to swim or buy a boat.\n", ch);
+					return FALSE;
+				}
+			}
 		}
 
-		if ((in_room->sector_type == SECT_WATER_SWIM ||
-		     to_room->sector_type == SECT_WATER_SWIM)
-		&& !MOUNTED(ch) 
-		&& !IS_AFFECTED(ch, AFF_FLYING | AFF_SWIM) 
-		&& !has_boat(ch)) {
-			char_puts("Learn to swim or buy a boat.\n", ch);
-			return FALSE;
-		}
-
-		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
-		     to_room->sector_type == SECT_WATER_NOSWIM)
-		&& MOUNTED(ch)
-		&& !IS_AFFECTED(MOUNTED(ch),AFF_FLYING)) {
-			act_puts("You can't take your mount there.\n",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return FALSE;
-		}  
-
-		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
-		     to_room->sector_type == SECT_WATER_NOSWIM)
-		&& !MOUNTED(ch) 
-		&& !IS_AFFECTED(ch, AFF_FLYING) 
-		&& !has_boat(ch)) {
-			char_puts("You need a boat to go there.\n", ch);
-			return FALSE;
+		if (in_room->sector_type == SECT_WATER_NOSWIM ||
+		    to_room->sector_type == SECT_WATER_NOSWIM) {
+			if (MOUNTED(ch)) {
+				if (!CAN_FLY(MOUNTED(ch))) {
+					char_puts("Your mount can't fly.\n", ch);
+					return FALSE;
+				}
+			} else {
+				if (!CAN_FLY(ch) && !has_boat(ch)) {
+					char_puts("Learn to fly or buy a boat.\n", ch);
+					return FALSE;
+				}
+			}
 		}
 
 		if (in_room->sector_type == SECT_UNDERWATER
 		||  to_room->sector_type == SECT_UNDERWATER) {
-			if (MOUNTED(ch)) {
-				act_puts("Your mount refuses to dive.",
-					ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			if (MOUNTED(ch)	
+			&& (!CAN_SWIM(MOUNTED(ch))
+			    || !is_affected(MOUNTED(ch), "water breathing"))) {
+				char_puts("Your mount refuses to dive.\n", ch);
 				return FALSE;
 			}
-			if (!IS_AFFECTED(ch, AFF_SWIM))	{
-				act_puts("You can't swim.",
-					ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			if (!CAN_SWIM(ch)) {
+				char_puts("You can't swim.\n", ch);
 				return FALSE;
 			}
-			if (!IS_AFFECTED(ch, AFF_WATER_BREATHING)
-			&& in_room->sector_type != SECT_UNDERWATER
-			&& to_room->sector_type == SECT_UNDERWATER)
-				act_puts("Take a deep breath...",
-					ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		}
 
 		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]

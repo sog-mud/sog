@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.109 1999-12-11 15:31:20 fjoe Exp $
+ * $Id: tables.c,v 1.110 1999-12-12 20:43:07 avn Exp $
  */
 
 /***************************************************************************
@@ -180,7 +180,6 @@ flaginfo_t affect_flags[] =
 	{ "protect_evil",	AFF_PROTECT_EVIL,	TRUE	},
 	{ "protect_good",	AFF_PROTECT_GOOD,	TRUE	},
 	{ "turned",		AFF_TURNED,		TRUE	},
-	{ "water_breathing",	AFF_WATER_BREATHING,	TRUE	},
 	{ "sleep",		AFF_SLEEP,		TRUE	},
 	{ "charm",		AFF_CHARM,		TRUE	},
 	{ "flying",		AFF_FLYING,		TRUE	},
@@ -190,7 +189,6 @@ flaginfo_t affect_flags[] =
 	{ "plague",		AFF_PLAGUE,		TRUE	},
 	{ "weaken",		AFF_WEAKEN,		TRUE	},
 	{ "berserk",		AFF_BERSERK,		TRUE	},
-	{ "swim",		AFF_SWIM,		TRUE	},
 	{ "regeneration",	AFF_REGENERATION,	TRUE	},
 	{ "slow",		AFF_SLOW,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},

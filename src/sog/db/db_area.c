@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.74 1999-12-11 15:31:23 fjoe Exp $
+ * $Id: db_area.c,v 1.75 1999-12-12 20:43:08 avn Exp $
  */
 
 /***************************************************************************
@@ -911,7 +911,6 @@ flag_subst_t v0_subst_mob[] =
 #define V0_AFF_BLACK_SHROUD		(uu)
 #define V0_AFF_QUESTTARGET		(vv)
 #define V0_AFF_TURNED			(yy)
-#define V0_AFF_WATER_BREATHING		(zz)
 
 flag_subst_t v0_subst_aff[] =
 {
@@ -932,7 +931,6 @@ flag_subst_t v0_subst_aff[] =
 	{ AFF_PLAGUE,		AFF_PLAGUE		},
 	{ AFF_WEAKEN,		AFF_WEAKEN		},
 	{ AFF_BERSERK,		AFF_BERSERK		},
-	{ AFF_SWIM,		AFF_SWIM		},
 	{ AFF_REGENERATION,	AFF_REGENERATION	},
 	{ AFF_SLOW,		AFF_SLOW		},
 	{ V0_AFF_SCREAM,	AFF_SCREAM		},
@@ -944,7 +942,6 @@ flag_subst_t v0_subst_aff[] =
 	{ V0_AFF_BLACK_SHROUD, 	AFF_BLACK_SHROUD	},
 	{ V0_AFF_QUESTTARGET,	AFF_QUESTTARGET		},
 	{ V0_AFF_TURNED,	AFF_TURNED		},
-	{ V0_AFF_WATER_BREATHING,AFF_WATER_BREATHING	},
 
 	{ -1 }
 };

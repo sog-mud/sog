@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.268 1999-12-11 15:31:09 fjoe Exp $
+ * $Id: merc.h,v 1.269 1999-12-12 20:43:06 avn Exp $
  */
 
 /***************************************************************************
@@ -545,7 +545,6 @@ struct spec_type
 #define AFF_PROTECT_EVIL	(N)
 #define AFF_PROTECT_GOOD	(O)
 #define AFF_TURNED		(P)/* Character is turned into other creature */
-#define AFF_WATER_BREATHING	(Q)
 #define AFF_SLEEP		(R)
 #define AFF_CHARM		(S)
 #define AFF_FLYING		(T)
@@ -555,7 +554,6 @@ struct spec_type
 #define AFF_PLAGUE		(X)
 #define AFF_WEAKEN		(Y)
 #define AFF_BERSERK		(aa)
-#define AFF_SWIM		(bb)
 #define AFF_REGENERATION	(cc)
 #define AFF_SLOW		(dd)
 #define AFF_QUESTTARGET		(ee)
