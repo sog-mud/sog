@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.51 2001-12-21 05:45:34 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.52 2001-12-22 08:34:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -886,7 +886,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam += dam * 110 /100;
 
 		if ((katana = get_katana(ch, WEAR_WIELD)) != NULL
-		||  (katana = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+		||  (katana = get_katana(ch, WEAR_SECOND_WIELD)) != NULL) {
 			AFFECT_DATA *paf;
 			char nmbuf[MAX_STRING_LENGTH];
 			const char *p;
