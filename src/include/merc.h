@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.363 2001-09-12 12:32:18 fjoe Exp $
+ * $Id: merc.h,v 1.364 2001-09-12 19:42:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,9 +107,11 @@ enum {
 };
 
 /* basic types */
+#include <avltree.h>
 #include <buffer.h>
 #include <str.h>
 #include <mlstring.h>
+#include <container.h>
 #include <varr.h>
 #include <hash.h>
 #include <strkey_hash.h>
@@ -2150,8 +2152,13 @@ typedef struct evf_t {
 	EVENT_FUN *		fun;
 } evf_t;
 
+#ifdef NOTYET
+extern avltree_t skills;
+extern avltree_info_t avltree_info_skills;
+#else
 extern hash_t skills;
 extern hashdata_t h_skills;
+#endif
 
 #define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
 
@@ -2166,8 +2173,8 @@ void skills_dump(BUFFER *output, int skill_type);
  */
 
 /* fast skill lookup by precise name */
-#define skill_lookup(sn)	((skill_t*) strkey_lookup(&skills, (sn)))
-#define skill_search(sn)	((skill_t*) mlstrkey_search(&skills, (sn)))
+#define skill_lookup(sn) ((skill_t*) c_mlstrkey_lookup(&skills, (sn)))
+#define skill_search(sn) ((skill_t*) c_mlstrkey_search(&skills, (sn)))
 
 /*----------------------------------------------------------------------
  * specs stuff
@@ -2215,8 +2222,8 @@ spec_t *spec_cpy(spec_t *dst, const spec_t *src);
 void	spec_destroy(spec_t *spec);
 
 /* fast spec lookup by precise name */
-#define spec_lookup(spn)	((spec_t*) strkey_lookup(&specs, (spn)))
-#define spec_search(spn)	((spec_t*) strkey_search(&specs, (spn)))
+#define spec_lookup(spn)	((spec_t*) c_strkey_lookup(&specs, (spn)))
+#define spec_search(spn)	((spec_t*) c_strkey_search(&specs, (spn)))
 #define spec_skill_lookup(spec, sn)					\
 	((spec_skill_t*) varr_bsearch(&spec->spec_skills, &sn, cmpstr))
 
@@ -2252,8 +2259,8 @@ extern varrdata_t v_socials;
 void	social_init	(social_t *soc);
 void	social_destroy	(social_t *soc);
 
-#define social_lookup(name)	((social_t *) vstr_lookup(&socials, (name)))
-#define social_search(name)	((social_t *) vstr_search(&socials, (name)))
+#define social_lookup(name)	((social_t *) c_strkey_lookup(&socials, (name)))
+#define social_search(name)	((social_t *) c_strkey_search(&socials, (name)))
 
 /*----------------------------------------------------------------------
  * socials stuff
@@ -2308,7 +2315,7 @@ extern rating_t rating_table[RATING_TABLE_SIZE];
 extern hash_t glob_gmlstr;
 extern hashdata_t h_glob_gmlstr;
 
-#define	glob_lookup(gn)	((gmlstr_t *) strkey_lookup(&glob_gmlstr, (gn)))
+#define	glob_lookup(gn)	((gmlstr_t *) c_strkey_lookup(&glob_gmlstr, (gn)))
 
 /*----------------------------------------------------------------------
  * ban stuff

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.132 2001-09-12 12:32:52 fjoe Exp $
+ * $Id: recycle.c,v 1.133 2001-09-12 19:43:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -385,7 +385,10 @@ void pc_skill_init(pc_skill_t *pc_sk)
 
 static varrdata_t v_sk_affected =
 {
+	&varr_ops,
+
 	sizeof(saff_t), 1,
+
 	(e_init_t) saff_init,
 	(e_destroy_t) saff_destroy,
 	NULL
@@ -393,7 +396,10 @@ static varrdata_t v_sk_affected =
 
 static varrdata_t v_learned =
 {
+	&varr_ops,
+
 	sizeof(pc_skill_t), 8,
+
 	(e_init_t) pc_skill_init,
 	strkey_destroy,
 	NULL
@@ -401,7 +407,10 @@ static varrdata_t v_learned =
 
 static varrdata_t v_specs =
 {
+	&varr_ops,
+
 	sizeof(const char *), 2,
+
 	strkey_init,
 	strkey_destroy,
 	NULL
@@ -468,7 +477,7 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 	ch->luck		= 50;
 	ch->luck_mod		= 0;
 
-	varr_init(&ch->sk_affected, &v_sk_affected);
+	c_init(&ch->sk_affected, &v_sk_affected);
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
@@ -481,8 +490,8 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(0);
 
-		varr_init(&pc->learned, &v_learned);
-		varr_init(&pc->specs, &v_specs);
+		c_init(&pc->learned, &v_learned);
+		c_init(&pc->specs, &v_specs);
 
 		pc->pwd = str_empty;
 		pc->bamfin = str_empty;
@@ -539,8 +548,8 @@ char_free(CHAR_DATA *ch)
 		free_list = &free_pc_list;
 
 		/* free pc stuff */
-		varr_destroy(&pc->specs);
-		varr_destroy(&pc->learned);
+		c_destroy(&pc->specs);
+		c_destroy(&pc->learned);
 
 		free_string(pc->race);
 		free_string(pc->petition);
@@ -1043,7 +1052,10 @@ hash_t skills;
 
 hashdata_t h_skills =
 {
+	&hash_ops,
+
 	sizeof(skill_t), 1,
+
 	(e_init_t) skill_init,
 	(e_destroy_t) skill_destroy,
 	(e_cpy_t) skill_cpy,
@@ -1053,13 +1065,27 @@ hashdata_t h_skills =
 	ke_cmp_mlstr
 };
 
+avltree_info_t avltree_info_skills =
+{
+	&avltree_ops,
+
+	MT_SKILL, sizeof(skill_t), ke_cmp_mlstr,
+
+	(e_init_t) skill_init,
+	(e_destroy_t) skill_destroy,
+	(e_cpy_t) skill_cpy,
+};
+
 static void	evf_init	(evf_t *);
 static void	evf_destroy	(evf_t *);
 static evf_t *	evf_cpy		(evf_t *, evf_t *);
 
 static varrdata_t v_evf =
 {
+	&varr_ops,
+
 	sizeof(evf_t), 1,
+
 	(e_init_t) evf_init,
 	(e_destroy_t) evf_destroy,
 	(e_cpy_t) evf_cpy
@@ -1083,7 +1109,7 @@ skill_init(skill_t *sk)
 	sk->restrict_race = str_empty;
 	sk->group = 0;
 	sk->skill_type = 0;
-	varr_init(&sk->events, &v_evf);
+	c_init(&sk->events, &v_evf);
 }
 
 skill_t *
@@ -1117,7 +1143,7 @@ skill_destroy(skill_t *sk)
 	mlstr_destroy(&sk->msg_off);
 	mlstr_destroy(&sk->msg_obj);
 	free_string(sk->restrict_race);
-	varr_destroy(&sk->events);
+	c_destroy(&sk->events);
 }
 
 static void *
@@ -1145,7 +1171,7 @@ void
 skills_dump(BUFFER *output, int skill_type)
 {
 	int col = 0;
-	hash_foreach(&skills, skills_dump_cb, output, skill_type, &col);
+	c_foreach(&skills, skills_dump_cb, output, skill_type, &col);
 	if (col % 4)
 		buf_append(output, "\n");
 }
@@ -1181,6 +1207,8 @@ hash_t specs;
 
 hashdata_t h_specs =
 {
+	&hash_ops,
+
 	sizeof(spec_t), 1,
 	(e_init_t) spec_init,
 	(e_destroy_t) spec_destroy,
@@ -1196,7 +1224,10 @@ static spec_skill_t *	spec_skill_cpy(spec_skill_t *, const spec_skill_t *);
 
 static varrdata_t v_spec_skills =
 {
+	&varr_ops,
+
 	sizeof(spec_skill_t), 4,
+
 	(e_init_t) spec_skill_init,
 	strkey_destroy,
 	(e_cpy_t) spec_skill_cpy,
@@ -1208,7 +1239,7 @@ spec_init(spec_t *spec)
 	spec->spec_name = str_empty;
 	spec->spec_class = 0;
 
-	varr_init(&spec->spec_skills, &v_spec_skills);
+	c_init(&spec->spec_skills, &v_spec_skills);
 	trig_init(&spec->mp_trig);
 	spec->mp_trig.trig_type = TRIG_SPEC;
 }
@@ -1227,7 +1258,7 @@ void
 spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
-	varr_destroy(&spec->spec_skills);
+	c_destroy(&spec->spec_skills);
 	trig_destroy(&spec->mp_trig);
 }
 
@@ -1262,6 +1293,8 @@ hash_t forms;
 
 hashdata_t h_forms =
 {
+	&hash_ops,
+
 	sizeof(form_index_t), 1,
 	(e_init_t) form_init,
 	(e_destroy_t) form_destroy,
@@ -1337,6 +1370,8 @@ hash_t liquids;
 
 hashdata_t h_liquids =
 {
+	&hash_ops,
+
 	sizeof(liquid_t), 1,
 	(e_init_t) liquid_init,
 	(e_destroy_t) liquid_destroy,
@@ -1387,9 +1422,12 @@ varr socials;
 
 varrdata_t v_socials =
 {
+	&varr_ops,
+
 	sizeof(social_t), 8,
 	(e_init_t) social_init,
 	(e_destroy_t) social_destroy,
+
 	NULL
 };
 
@@ -1438,9 +1476,12 @@ varr hints;
 
 varrdata_t v_hints =
 {
+	&varr_ops,
+
 	sizeof(hint_t), 4,
 	(e_init_t) hint_init,
 	(e_destroy_t) hint_destroy,
+
 	NULL
 };
 
@@ -1464,6 +1505,8 @@ hash_t clans;
 
 hashdata_t h_clans =
 {
+	&hash_ops,
+
 	sizeof(clan_t), 1,
 	(e_init_t) clan_init,
 	(e_destroy_t) clan_destroy,
@@ -1527,6 +1570,8 @@ hash_t		glob_gmlstr;
 
 hashdata_t h_glob_gmlstr =
 {
+	&hash_ops,
+
 	sizeof(gmlstr_t), 1,
 	(e_init_t) gmlstr_init,
 	(e_destroy_t) gmlstr_destroy,

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.325 2001-09-12 12:32:40 fjoe Exp $
+ * $Id: handler.c,v 1.326 2001-09-12 19:43:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4774,7 +4774,7 @@ clan_item_ok(const char *cln)
 	if (room_in == clan->altar_vnum)
 		return TRUE;
 
-	if (hash_foreach(&clans, item_ok_cb, room_in) != NULL)
+	if (c_foreach(&clans, item_ok_cb, room_in) != NULL)
 		return FALSE;
 
 	return TRUE;
@@ -6166,7 +6166,7 @@ drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		if (hash_foreach(&clans, drop_objs_cb, obj) != NULL)
+		if (c_foreach(&clans, drop_objs_cb, obj) != NULL)
 			continue;
 		extract_obj(obj, 0);
 	}

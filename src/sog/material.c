@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.8 2001-08-05 16:37:00 fjoe Exp $
+ * $Id: material.c,v 1.9 2001-09-12 19:43:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,6 +35,8 @@ hash_t materials;
 
 hashdata_t h_materials =
 {
+	&hash_ops,
+
 	sizeof(material_t), 1,
 	(e_init_t) material_init,
 	(e_destroy_t) material_destroy,

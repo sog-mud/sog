@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.20 2001-09-04 19:33:03 fjoe Exp $
+ * $Id: hometown.c,v 1.21 2001-09-12 19:43:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,13 @@ static hometown_t *	get_hometown	(int htn);
 
 varr hometowns;
 
-varrdata_t v_hometowns = { sizeof(hometown_t), 4, NULL, NULL, NULL };
+varrdata_t v_hometowns = {
+	&varr_ops,
+
+	sizeof(hometown_t), 4,
+
+	NULL, NULL, NULL
+};
 
 /*
  * lookup hometown number by name
@@ -140,8 +146,7 @@ ROOM_INDEX_DATA *
 get_random_recall(void)
 {
 	int i = number_range(0, MAX_AN-1);
-	return get_hometown(
-	    number_range(1, varr_size(&hometowns) - 1))->recall[i];
+	return ((hometown_t *) c_random_elem(&hometowns))->recall[i];
 }
 
 /*

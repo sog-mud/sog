@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.h,v 1.9 2001-08-05 16:36:21 fjoe Exp $
+ * $Id: liquid.h,v 1.10 2001-09-12 19:42:35 fjoe Exp $
  */
 
 #ifndef _LIQUID_H_
@@ -45,7 +45,7 @@ void		liquid_init	(liquid_t *sk);
 liquid_t *	liquid_cpy	(liquid_t *dst, const liquid_t *src);
 void		liquid_destroy	(liquid_t *sk);
 
-#define liquid_lookup(ln)	((liquid_t*) strkey_lookup(&liquids, (ln)))
-#define liquid_search(ln)	((liquid_t*) mlstrkey_search(&liquids, (ln)))
+#define liquid_lookup(ln)	((liquid_t*) c_mlstrkey_lookup(&liquids, (ln)))
+#define liquid_search(ln)	((liquid_t*) c_mlstrkey_search(&liquids, (ln)))
 
 #endif

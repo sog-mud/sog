@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.28 2001-08-28 21:52:18 fjoe Exp $
+ * $Id: module.c,v 1.29 2001-09-12 19:43:18 fjoe Exp $
  */
 
 /*
@@ -64,7 +64,10 @@ static int	modset_elem_cmp	(const void *, const void *);
 static int	module_cmp	(const void *p, const void *q);
 
 static varrdata_t v_modset = {
+	&varr_ops,
+
 	sizeof(module_t*), 4,
+
 	NULL,
 	NULL,
 	NULL
@@ -78,18 +81,18 @@ mod_reload(module_t* m, time_t curr_time)
 {
 	varr v;
 
-	varr_init(&v, &v_modset);
+	c_init(&v, &v_modset);
 
 	if (modset_add(&v, m, curr_time) < 0) {
-		varr_destroy(&v);
+		c_destroy(&v);
 		return -1;
 	}
 
 	varr_qsort(&v, modset_elem_cmp);
 	varr_rforeach(&v, mod_unload_cb);
-	varr_foreach(&v, mod_load_cb);
+	c_foreach(&v, mod_load_cb);
 
-	varr_destroy(&v);
+	c_destroy(&v);
 
 	if (do_longjmp) {
 		do_longjmp = FALSE;
@@ -106,7 +109,7 @@ mod_unload(module_t *m)
 {
 	module_t *m_dep;
 
-	if ((m_dep = varr_foreach(&modules, checkdep_cb, m->name)) != NULL) {
+	if ((m_dep = c_foreach(&modules, checkdep_cb, m->name)) != NULL) {
 		log(LOG_ERROR, "modules `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
 		    m->name, m->file_name, m_dep->name, m_dep->file_name);
 		return -1;
@@ -121,10 +124,16 @@ mod_unload(module_t *m)
 module_t *
 mod_lookup(const char *name)
 {
-	return varr_foreach(&modules, mod_lookup_cb, name);
+	return c_foreach(&modules, mod_lookup_cb, name);
 }
 
-static varrdata_t v_modules = { sizeof(module_t), 2, NULL, NULL, NULL };
+static varrdata_t v_modules = {
+	&varr_ops,
+
+	sizeof(module_t), 2,
+
+	NULL, NULL, NULL
+};
 
 void
 boot_modules()
@@ -133,7 +142,7 @@ boot_modules()
 	FILE *fp;
 	char buf[MAX_INPUT_LENGTH];
 
-	varr_init(&modules, &v_modules);
+	c_init(&modules, &v_modules);
 
 	/*
 	 * read modules
@@ -214,8 +223,8 @@ boot_modules()
 	init_dynafuns();
 
 	varr_qsort(&modules, module_cmp);
-	varr_foreach(&modules, boot_load_cb, curr_time);
-	varr_foreach(&modules, boot_cb);
+	c_foreach(&modules, boot_load_cb, curr_time);
+	c_foreach(&modules, boot_cb);
 }
 
 /*--------------------------------------------------------------------
@@ -400,7 +409,7 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 
 	mp = (module_t **) varr_enew(v);
 	*mp = m;
-	if (varr_foreach(&modules, modset_add_cb, v, m->name, curr_time))
+	if (c_foreach(&modules, modset_add_cb, v, m->name, curr_time))
 		return -1;
 	return 0;
 }
@@ -441,7 +450,7 @@ FOREACH_CB_FUN(checkdep_cb, p, ap)
 static module_t *
 modset_search(varr *v, const char *name)
 {
-	return varr_foreach(v, modset_search_cb, name);
+	return c_foreach(v, modset_search_cb, name);
 }
 
 static int

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.402 2001-09-12 12:32:23 fjoe Exp $
+ * $Id: act_info.c,v 1.403 2001-09-12 19:42:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2933,7 +2933,7 @@ DO_FUN(do_practice, ch, argument)
 
 		output = buf_new(GET_LANG(ch));
 
-		for (i = 0; i < varr_size(&pc->learned); i++) {
+		for (i = 0; i < c_size(&pc->learned); i++) {
 			pc_sk = VARR_GET(&pc->learned, i);
 
 			spec_sk.sn = pc_sk->sn;
@@ -2975,7 +2975,7 @@ DO_FUN(do_practice, ch, argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	pc_sk = (pc_skill_t*) vstr_search(&pc->learned, arg);
+	pc_sk = (pc_skill_t*) c_strkey_search(&pc->learned, arg);
 	if (pc_sk == NULL
 	||  (sk = skill_lookup(pc_sk->sn)) == NULL
 	||  pc_sk->percent == 0
@@ -3075,7 +3075,7 @@ DO_FUN(do_learn, ch, argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	pc_sk = (pc_skill_t*) vstr_search(&pc->learned, arg);
+	pc_sk = (pc_skill_t*) c_strkey_search(&pc->learned, arg);
 	if (pc_sk == NULL
 	||  skill_lookup(pc_sk->sn) == NULL
 	||  pc_sk->percent == 0
@@ -3293,7 +3293,7 @@ list_spells(flag_t type, CHAR_DATA *ch,
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		list[lev] = NULL;
 
-	for (i = 0; i < varr_size(&PC(ch)->learned); i++) {
+	for (i = 0; i < c_size(&PC(ch)->learned); i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
 		spec_skill_t spec_sk;
@@ -3366,7 +3366,7 @@ DO_FUN(do_skills, ch, argument)
 		skill_list[lev] = NULL;
 	}
 
-	for (i = 0; i < varr_size(&PC(ch)->learned); i++) {
+	for (i = 0; i < c_size(&PC(ch)->learned); i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
 		skill_t *sk;
 		spec_skill_t spec_sk;
@@ -3469,7 +3469,7 @@ DO_FUN(do_glist, ch, argument)
 	act_puts("Now listing group '$t':",
 		 ch, flag_string(skill_groups, group), NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	hash_foreach(&skills, glist_cb, ch, group, &col);
+	c_foreach(&skills, glist_cb, ch, group, &col);
 	if (col)
 		send_to_char("\n", ch);
 }
@@ -3487,7 +3487,7 @@ DO_FUN(do_slook, ch, argument)
 	}
 
 	if (!IS_NPC(ch))
-		pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg);
+		pc_sk = (pc_skill_t*) c_strkey_search(&PC(ch)->learned, arg);
 
 	if (pc_sk == NULL)
 		sk = skill_search(arg);
@@ -4311,7 +4311,7 @@ DO_FUN(do_commands, ch, argument)
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	for (i = 0; i < varr_size(&v); i++) {
+	for (i = 0; i < c_size(&v); i++) {
 		cmd_t *cmd = VARR_GET(&v, i);
 
 		if (cmd->min_level < LEVEL_HERO
@@ -4324,11 +4324,11 @@ DO_FUN(do_commands, ch, argument)
 				send_to_char("\n", ch);
 		}
 	}
- 
+
 	if (col % 6 != 0)
 		send_to_char("\n", ch);
 
-	varr_destroy(&v);
+	c_destroy(&v);
 }
 
 DO_FUN(do_wizhelp, ch, argument)
@@ -4346,7 +4346,7 @@ DO_FUN(do_wizhelp, ch, argument)
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	for (i = 0; i < varr_size(&v); i++) {
+	for (i = 0; i < c_size(&v); i++) {
 		cmd_t *cmd = VARR_GET(&v, i);
 
 		if (cmd->min_level < LEVEL_IMMORTAL)
@@ -4362,11 +4362,11 @@ DO_FUN(do_wizhelp, ch, argument)
 		if (++col % 6 == 0)
 			send_to_char("\n", ch);
 	}
- 
+
 	if (col % 6 != 0)
 		send_to_char("\n", ch);
 
-	varr_destroy(&v);
+	c_destroy(&v);
 }
 
 static void
@@ -4513,14 +4513,15 @@ DO_FUN(do_item, ch, argument)
 		act_puts3("$p is in $R.",
 			  ch, clan->obj_ptr, NULL, in_obj->in_room,
 			  TO_CHAR, POS_DEAD);
-		clan = hash_foreach(&clans, item_cb, in_obj->in_room);
+		clan = c_foreach(&clans, item_cb, in_obj->in_room);
 		if (clan) {
 			act_puts("It is altar of $t.",
 				 ch, clan->name, NULL, TO_CHAR, POS_DEAD);
 		}
-	} else 
+	} else {
 		act_puts("$p is somewhere.",
 			 ch, clan->obj_ptr, NULL, TO_CHAR, POS_DEAD);
+	}
 }
 
 DO_FUN(do_rating, ch, argument)

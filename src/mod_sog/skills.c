@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.128 2001-08-28 16:37:40 avn Exp $
+ * $Id: skills.c,v 1.129 2001-09-12 19:43:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -60,7 +60,7 @@ skill_beats(const char *sn)
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
+#ifdef C_STRKEY_STRICT_CHECKS
 		log(LOG_BUG, "skill_beats: %s: unknown skill", sn);
 #endif
 		return 0;
@@ -77,7 +77,7 @@ skill_mana(CHAR_DATA *ch, const char *sn)
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
+#ifdef C_STRKEY_STRICT_CHECKS
 		log(LOG_BUG, "skill_mana: %s: unknown skill", sn);
 #endif
 		return 0;
@@ -93,7 +93,7 @@ gmlstr_t *
 skill_noun(const char *sn)
 {
 	skill_t *sk;
-	STRKEY_CHECK(&skills, sn, "skill_noun");		// notrans
+	C_STRKEY_CHECK(&skills, sn, "skill_noun");		// notrans
 	sk = skill_lookup(sn);
 	if (sk != NULL)
 		return &sk->noun_damage;
@@ -170,7 +170,7 @@ _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 	if (IS_NULLSTR(sn))
 		return;
 
-	STRKEY_CHECK(&skills, sn, "_set_skill");		// notrans
+	C_STRKEY_CHECK(&skills, sn, "_set_skill");		// notrans
 
 	if ((pc_sk = pc_skill_lookup(ch, sn)) != NULL) {
 		if (replace || pc_sk->percent < percent)

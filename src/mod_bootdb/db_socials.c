@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.19 2001-09-12 12:32:20 fjoe Exp $
+ * $Id: db_socials.c,v 1.20 2001-09-12 19:42:45 fjoe Exp $
  */
 
 #include <limits.h>
@@ -49,7 +49,7 @@ DBDATA db_socials = { dbfun_socials, init_socials, 0 };
 DBINIT_FUN(init_socials)
 {
 	if (!DBDATA_VALID(dbdata))
-		varr_init(&socials, &v_socials);
+		c_init(&socials, &v_socials);
 }
 
 DBLOAD_FUN(load_social)

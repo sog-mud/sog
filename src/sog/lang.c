@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.35 2001-08-14 16:07:10 fjoe Exp $
+ * $Id: lang.c,v 1.36 2001-09-12 19:43:17 fjoe Exp $
  */
 
 #include <string.h>
@@ -148,6 +148,8 @@ hash_t msgdb;
 
 hashdata_t h_msgdb =
 {
+	&hash_ops,
+
 	sizeof(mlstring), 1,
 	(e_init_t) mlstr_init,
 	(e_destroy_t) mlstr_destroy,
@@ -196,9 +198,12 @@ str_destroy(const char **p)
 
 static varrdata_t v_forms =
 {
+	&varr_ops,
+
 	sizeof(char*), 4,
 	(e_init_t) str_init,
 	(e_init_t) str_destroy,
+
 	NULL
 };
 
@@ -207,7 +212,7 @@ rule_init(rule_t *r)
 {
 	r->name = NULL;
 	r->arg = 0;
-	varr_init(&r->forms, &v_forms);
+	c_init(&r->forms, &v_forms);
 }
 
 void
@@ -215,7 +220,7 @@ rule_destroy(rule_t *r)
 {
 	free_string(r->name);
 	r->name = NULL;
-	varr_destroy(&r->forms);
+	c_destroy(&r->forms);
 }
 
 void
@@ -338,9 +343,12 @@ erule_lookup(rulecl_t *rcl, const char *name)
 
 static varrdata_t v_rule =
 {
+	&varr_ops,
+
 	sizeof(rule_t), 4,
 	(e_init_t) rule_init,
 	(e_destroy_t) rule_destroy,
+
 	NULL
 };
 
@@ -354,8 +362,8 @@ rulecl_init(lang_t *l, size_t rulecl)
 	rcl->file_expl = str_empty;
 	rcl->file_impl = str_empty;
 	for (i = 0; i < MAX_RULE_HASH; i++)
-		varr_init(rcl->expl+i, &v_rule);
-	varr_init(&rcl->impl, &v_rule);
+		c_init(rcl->expl+i, &v_rule);
+	c_init(&rcl->impl, &v_rule);
 	rcl->rcl_flags = 0;
 }
 
@@ -366,6 +374,8 @@ varr langs;
 
 varrdata_t v_langs =
 {
+	&varr_ops,
+
 	sizeof(lang_t), 2,
 	(e_init_t) lang_init,
 	NULL,

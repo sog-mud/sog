@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.14 2001-09-12 08:11:58 fjoe Exp $
+ * $Id: trig.c,v 1.15 2001-09-12 19:43:21 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -87,7 +87,8 @@ trig_fread(trig_t *trig, rfile_t *fp)
 		return;
 	}
 
-	trig->trig_prog = str_dup(fread_strkey(fp, &mprogs, "trig_fread"));	// notrans
+	trig->trig_prog = str_dup(c_fread_strkey(
+	    fp, &mprogs, "trig_fread"));			// notrans
 	trig->trig_arg = fread_string(fp);
 }
 
@@ -100,6 +101,8 @@ trig_fwrite(const char *pre, trig_t *trig, FILE *fp)
 }
 
 static varrdata_t v_trigs = {
+	&varr_ops,
+
 	sizeof(trig_t), 2,
 
 	(e_init_t) trig_init,
@@ -110,13 +113,13 @@ static varrdata_t v_trigs = {
 void
 trig_init_list(varr *v)
 {
-	varr_init(v, &v_trigs);
+	c_init(v, &v_trigs);
 }
 
 void
 trig_destroy_list(varr *v)
 {
-	varr_destroy(v);
+	c_destroy(v);
 }
 
 void
@@ -142,7 +145,7 @@ FOREACH_CB_FUN(trig_fwrite_list_cb, p, ap)
 void
 trig_fwrite_list(const char *pre, varr *v, FILE *fp)
 {
-	varr_foreach(v, trig_fwrite_list_cb, pre, fp);
+	c_foreach(v, trig_fwrite_list_cb, pre, fp);
 }
 
 static
@@ -172,7 +175,7 @@ trig_dump_list(varr *v, BUFFER *buf)
 {
 	int cnt = 0;
 
-	varr_foreach(v, trig_dump_list_cb, &cnt, buf);
+	c_foreach(v, trig_dump_list_cb, &cnt, buf);
 }
 
 void
@@ -391,7 +394,7 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
-	for (i = varr_index(v, trig); i < varr_size(v); i++) {
+	for (i = varr_index(v, trig); i < c_size(v); i++) {
 		trig = VARR_GET(v, i);
 
 		if (trig->trig_type != trig_type)

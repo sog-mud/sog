@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.54 2001-08-25 04:46:55 fjoe Exp $
+ * $Id: olc_race.c,v 1.55 2001-09-12 19:43:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -148,13 +148,13 @@ OLC_FUN(raceed_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	race_init(&race);
 	race.name = str_dup(arg);
-	r = hash_insert(&races, race.name, &race);
+	r = c_insert(&races, race.name, &race);
 	race_destroy(&race);
 
 	if (r == NULL) {
@@ -198,7 +198,7 @@ OLC_FUN(raceed_save)
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved races:");
-	hash_foreach(&races, save_race_cb, ch, &found);
+	c_foreach(&races, save_race_cb, ch, &found);
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -338,7 +338,7 @@ OLC_FUN(raceed_show)
 	if (r->race_pcdata->restrict_ethos)
 		buf_printf(output, BUF_END, "Ethos restrict:[%s]\n",
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
-	for (i = 0; i < varr_size(&r->race_pcdata->classes); i++) {
+	for (i = 0; i < c_size(&r->race_pcdata->classes); i++) {
 		rclass_t *rc = VARR_GET(&r->race_pcdata->classes, i);
 
 		if (rc->name == NULL)
@@ -845,7 +845,7 @@ VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	if ((r2 = hash_foreach(&races, search_whoname_cb, arg)) != NULL
+	if ((r2 = c_foreach(&races, search_whoname_cb, arg)) != NULL
 	&&  r2 != r) {
 		act_puts("RaceEd: $t: duplicate race whoname.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -905,7 +905,7 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fprintf(fp, "#PCRACE\n");
 	fwrite_string(fp, "Shortname", pcr->who_name);
 	fwrite_number(fp, "Points", pcr->points);
-	varr_foreach(&pcr->classes, save_race_class_cb, fp);
+	c_foreach(&pcr->classes, save_race_class_cb, fp);
 	fwrite_word(fp, "SkillSpec", pcr->skill_spec);
 	fwrite_string(fp, "BonusSkills", pcr->bonus_skills);
 	fwrite_rstats(fp, "Stats", pcr->mod_stat);

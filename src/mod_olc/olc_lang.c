@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.34 2001-08-25 04:46:53 fjoe Exp $
+ * $Id: olc_lang.c,v 1.35 2001-09-12 19:43:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -132,7 +132,7 @@ OLC_FUN(langed_save)
 	if (fp == NULL)
 		return FALSE;
 
-	for (lang = 0; lang < varr_size(&langs); lang++) {
+	for (lang = 0; lang < c_size(&langs); lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 
 		fprintf(fp, "%s\n", l->file_name);
@@ -219,7 +219,7 @@ OLC_FUN(langed_list)
 {
 	size_t lang;
 
-	for (lang = 0; lang < varr_size(&langs); lang++) {
+	for (lang = 0; lang < c_size(&langs); lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
 		act_puts("[$j] $T",
 			 ch, (const void *) lang, l->name,

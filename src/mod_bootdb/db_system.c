@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.22 2001-09-12 12:32:21 fjoe Exp $
+ * $Id: db_system.c,v 1.23 2001-09-12 19:42:45 fjoe Exp $
  */
 
 #if !defined(WIN32)
@@ -66,7 +66,7 @@ DBLOAD_FUN(load_system)
 	 * command line parameters override
 	 * configuration settings
 	 */
-	fListen = varr_isempty(&control_sockets);
+	fListen = c_isempty(&control_sockets);
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -112,7 +112,7 @@ DBLOAD_FUN(load_info)
 	 * command line parameters override
 	 * configuration settings
 	 */
-	fListen = varr_isempty(&info_sockets);
+	fListen = c_isempty(&info_sockets);
 
 	for (;;) {
 		bool fMatch = FALSE;

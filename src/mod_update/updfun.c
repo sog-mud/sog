@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.44 2001-09-12 12:32:47 fjoe Exp $
+ * $Id: updfun.c,v 1.45 2001-09-12 19:43:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1132,7 +1132,7 @@ UPDATE_FUN(clan_update)
 	if (time_info.hour != 0)
 		return;
 
-	hash_foreach(&clans, clan_item_update_cb);
+	c_foreach(&clans, clan_item_update_cb);
 }
 
 UPDATE_FUN(song_update)
@@ -1142,31 +1142,27 @@ UPDATE_FUN(song_update)
 UPDATE_FUN(hint_update)
 {
 	DESCRIPTOR_DATA *d;
-	hint_t *t;
-	static int idx;
-	int nidx;
+	hint_t *h;
+	static hint_t *prev_h;
 
 	do {
-		nidx = number_range(0, varr_size(&hints) - 1);
-	} while (nidx == idx);
-	idx = nidx;
-
-	t = (hint_t *) VARR_GET(&hints, idx);
+		h = c_random_elem(&hints);
+	} while (h == prev_h);
 
 	/* Found hint has just been created, skip it */
-	if (mlstr_null(&t->phrase))
+	if (mlstr_null(&h->phrase))
 		return;
 
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *och = d->original ? d->original : d->character;
 
 		if (d->connected != CON_PLAYING
-		||  PC(och)->hints_level < t->hint_level)
+		||  PC(och)->hints_level < h->hint_level)
 			continue;
 
 		act_puts("{YHINT: {x",
 			 d->character, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		act_mlputs(&t->phrase,
+		act_mlputs(&h->phrase,
 			   d->character, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 }
@@ -1923,7 +1919,7 @@ FOREACH_CB_FUN(clan_item_update_cb, p, ap)
 	 * do not move clan items which are in altars
 	 */
 	if (obj->in_room
-	&&  hash_foreach(&clans, put_back_cb, obj) != NULL)
+	&&  c_foreach(&clans, put_back_cb, obj) != NULL)
 		return NULL;
 
 	obj_to_obj(clan->obj_ptr, clan->altar_ptr);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.16 2001-08-05 16:36:56 fjoe Exp $
+ * $Id: damtype.c,v 1.17 2001-09-12 19:43:16 fjoe Exp $
  */
 
 #include <string.h>
@@ -36,6 +36,8 @@ hash_t damtypes;
 
 hashdata_t h_damtypes =
 {
+	&hash_ops,
+
 	sizeof(damtype_t), 1,
 	(e_init_t) damtype_init,
 	(e_destroy_t) damtype_destroy,
@@ -96,7 +98,7 @@ damtype_slot_lookup(int slot)
 	if (slot < 0)
 		return NULL;
 
-	dn = hash_foreach(&damtypes, (void*)damtype_slot_cb, slot);
+	dn = c_foreach(&damtypes, (void *) damtype_slot_cb, slot);
 	if (IS_NULLSTR(dn))
 		log(LOG_ERROR, "damtype_slot_lookup: unknown slot %d", slot);
 	return str_qdup(dn);
@@ -106,7 +108,7 @@ gmlstr_t *
 damtype_noun(const char *dn)
 {
 	damtype_t *d;
-	STRKEY_CHECK(&damtypes, dn, "damtype_noun");		// notrans
+	C_STRKEY_CHECK(&damtypes, dn, "damtype_noun");		// notrans
 	d = damtype_lookup(dn);
 	if (d != NULL)
 		return &d->dam_noun;
@@ -118,7 +120,7 @@ int
 damtype_class(const char *dn)
 {
 	damtype_t *d;
-	STRKEY_CHECK(&damtypes, dn, "damtype_class");		// notrans
+	C_STRKEY_CHECK(&damtypes, dn, "damtype_class");		// notrans
 	d = damtype_lookup(dn);
 	if (d != NULL)
 		return d->dam_class;

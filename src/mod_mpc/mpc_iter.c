@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.4 2001-09-12 12:32:34 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.5 2001-09-12 19:42:56 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -32,6 +32,7 @@
 #include <memalloc.h>
 #include <varr.h>
 #include <hash.h>
+#include <container.h>
 #include <dynafun.h>
 #include <str.h>
 

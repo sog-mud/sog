@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.204 2001-09-12 12:32:46 fjoe Exp $
+ * $Id: update.c,v 1.205 2001-09-12 19:43:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ uhandler_load(const char *mod_name)
 		    __FUNCTION__, mod_name);
 		return;
 	}
-	hash_foreach(&uhandlers, uhandler_load_cb, m, m->mod_id);
+	c_foreach(&uhandlers, uhandler_load_cb, m, m->mod_id);
 }
 
 void
@@ -100,13 +100,13 @@ uhandler_unload(const char *mod_name)
 	module_t *m = mod_lookup(mod_name);
 	if (!m)
 		return;
-	hash_foreach(&uhandlers, uhandler_unload_cb, m->mod_id);
+	c_foreach(&uhandlers, uhandler_unload_cb, m->mod_id);
 }
 
 void
 update_handler(void)
 {
-	hash_foreach(&uhandlers, uhandler_tick_cb);
+	c_foreach(&uhandlers, uhandler_tick_cb);
 }
 
 int

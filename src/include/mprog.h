@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.5 2001-09-04 19:32:39 fjoe Exp $
+ * $Id: mprog.h,v 1.6 2001-09-12 19:42:36 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -70,8 +70,8 @@ void mprog_init(mprog_t *);
 void mprog_destroy(mprog_t *);
 mprog_t *mprog_cpy(mprog_t *dst, const mprog_t *src);
 
-#define mprog_lookup(name)	((mprog_t *) hash_lookup(&mprogs, (name)))
-#define mprog_search(name)	((mprog_t *) strkey_search(&mprogs, (name)))
+#define mprog_lookup(name)	((mprog_t *) c_lookup(&mprogs, (name)))
+#define mprog_search(name)	((mprog_t *) c_strkey_search(&mprogs, (name)))
 
 extern int (*mprog_compile)(mprog_t *mp);
 extern int (*mprog_execute)(mprog_t *mp,

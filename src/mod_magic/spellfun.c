@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.268 2001-09-12 12:32:30 fjoe Exp $
+ * $Id: spellfun.c,v 1.269 2001-09-12 19:42:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4012,7 +4012,7 @@ SPELL_FUN(spell_amnesia, sn, level, ch, vo)
 	if (IS_NPC(victim))
 		return;
 
-	for (i = 0; i < varr_size(&PC(victim)->learned); i++) {
+	for (i = 0; i < c_size(&PC(victim)->learned); i++) {
 		pc_skill_t *pc_sk = VARR_GET(&PC(victim)->learned, i);
 		pc_sk->percent = UMAX(pc_sk->percent / 2, 1);
 	}

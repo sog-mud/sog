@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.23 2001-08-22 20:45:46 fjoe Exp $
+ * $Id: db_spec.c,v 1.24 2001-09-12 19:42:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ DBINIT_FUN(init_specs)
 	if (DBDATA_VALID(dbdata)) {
 		db_set_arg(dbdata, "SKILL", NULL);
 	} else
-		hash_init(&specs, &h_specs);
+		c_init(&specs, &h_specs);
 }
 
 DBLOAD_FUN(load_spec)
@@ -72,7 +72,7 @@ DBLOAD_FUN(load_spec)
 
 				if (IS_NULLSTR(sp.spec_name)) {
 					log(LOG_ERROR, "load_spec: spec name undefined");
-				} else if ((psp = hash_insert(&specs,
+				} else if ((psp = c_insert(&specs,
 						sp.spec_name, &sp)) == NULL) {
 					log(LOG_ERROR, "load_spec: duplicate spec name");
 				} else {
@@ -144,7 +144,7 @@ DBLOAD_FUN(load_spec_skill)
 			KEY("Rating", spec_sk->rating, fread_number(fp));
 			break;
 		case 'S':
-			SKEY("Skill", spec_sk->sn, fread_strkey(
+			SKEY("Skill", spec_sk->sn, c_fread_strkey(
 			    fp, &skills, "load_spec_skill"));	// notrans
 			break;
 		}

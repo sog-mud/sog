@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.13 2001-09-04 19:32:44 fjoe Exp $
+ * $Id: db_hometown.c,v 1.14 2001-09-12 19:42:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ static bool check_hometown(hometown_t *h);
 DBINIT_FUN(init_hometowns)
 {
 	if (!DBDATA_VALID(dbdata))
-		varr_init(&hometowns, &v_hometowns);
+		c_init(&hometowns, &v_hometowns);
 }
 
 DBLOAD_FUN(load_hometown)

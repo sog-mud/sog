@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.22 2001-09-12 12:32:53 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.23 2001-09-12 19:43:20 fjoe Exp $
  */
 
 #include <limits.h>
@@ -35,12 +35,9 @@
 #include <typedef.h>
 #include <varr.h>
 #include <hash.h>
-#include <strkey_hash.h>
-#include <buffer.h>
 #include <str.h>
 #include <mlstring.h>
-#include <log.h>
-#include <rwfile.h>
+#include <strkey_hash.h>
 
 void
 strkey_init(void *p)
@@ -101,79 +98,6 @@ ke_cmp_csmlstr(const void *k, const void *e)
 }
 #endif
 
-void *
-strkey_lookup(hash_t *h, const char *name)
-{
-	if (IS_NULLSTR(name))
-		return NULL;
-	return hash_lookup(h, name);
-}
-
-/*
- * strkey_search -- lookup elem by prefix
- */
-void *
-strkey_search(hash_t *h, const char *name)
-{
-	void *p;
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	/*
-	 * try exact match first
-	 */
-	if ((p = hash_lookup(h, name)) != NULL)
-		return p;
-
-	/*
-	 * search by prefix
-	 */
-	return hash_foreach(h, vstr_search_cb, name);
-}
-
-#if !defined(HASHTEST) && !defined(MPC)
-static void *
-mlstrkey_search_cb(void *p, va_list ap)
-{
-	const char *key = va_arg(ap, const char *);
-	if (!str_prefix(key, mlstr_mval((mlstring *) p)))
-		return p;
-	return NULL;
-}
-
-/*
- * mlstrkey_search -- lookup elem by prefix
- */
-void *
-mlstrkey_search(hash_t *h, const char *name)
-{
-	void *p;
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	/*
-	 * try exact match first
-	 */
-	if ((p = hash_lookup(h, name)) != NULL)
-		return p;
-
-	/*
-	 * search by prefix
-	 */
-	return hash_foreach(h, mlstrkey_search_cb, name);
-}
-
-const char *
-fread_strkey(rfile_t *fp, hash_t *h, const char *id)
-{
-	const char *name = fread_sword(fp);
-	STRKEY_CHECK(h, name, id);
-	return name;
-}
-#endif
-
 char *
 strkey_filename(const char *name, const char *ext)
 {
@@ -200,7 +124,7 @@ strkey_filename(const char *name, const char *ext)
 	}
 
 	*p = '\0';
-	if (!IS_NULLSTR(ext)) 
+	if (!IS_NULLSTR(ext))
 		strnzcat(buf[ind], sizeof(buf[ind]), ext);
 	return buf[ind];
 }

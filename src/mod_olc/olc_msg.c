@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.54 2001-08-26 16:17:29 fjoe Exp $
+ * $Id: olc_msg.c,v 1.55 2001-09-12 19:43:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -91,7 +91,7 @@ OLC_FUN(msged_create)
 	}
 
 	mlstr_init2(&ml, arg);
-	mlp = hash_insert(&msgdb, arg, &ml);
+	mlp = c_insert(&msgdb, arg, &ml);
 	mlstr_destroy(&ml);
 
 	if (mlp == NULL) {
@@ -157,7 +157,10 @@ msged_save_cb(void *p, va_list ap)
 }
 
 static varrdata_t v_msgdb = {
+	&varr_ops,
+
 	sizeof(const char *), 64,
+
 	NULL, NULL, NULL
 };
 
@@ -175,9 +178,9 @@ OLC_FUN(msged_save)
 		return FALSE;
 
 	varr_init(&v, &v_msgdb);
-	hash_foreach(&msgdb, msged_add_cb, &v);
+	c_foreach(&msgdb, msged_add_cb, &v);
 	varr_qsort(&v, cscmpstr);
-	varr_foreach(&v, msged_save_cb, fp);
+	c_foreach(&v, msged_save_cb, fp);
 	varr_destroy(&v);
 
 	fprintf(fp, "$~\n");
@@ -246,7 +249,7 @@ OLC_FUN(msged_list)
 	
 	argument = atomsg(argument);
 	output = buf_new(0);
-	hash_foreach(&msgdb, msged_list_cb, atomsg(argument), &num, output);
+	c_foreach(&msgdb, msged_list_cb, atomsg(argument), &num, output);
 	if (num)
 		page_to_char(buf_string(output), ch);
 	else
@@ -272,7 +275,7 @@ OLC_FUN(msged_del)
 		return FALSE;
 
 	EDIT_MSG(ch, mlp);
-	hash_delete(&msgdb, mlstr_mval(mlp));
+	c_delete(&msgdb, mlstr_mval(mlp));
 	SET_BIT(changed_flags, CF_MSGDB);
 	edit_done(ch->desc);
 	return FALSE;
@@ -315,7 +318,7 @@ msg_search(const char *argument)
 	if ((mlp = msg_lookup(argument)) != NULL)
 		return mlp;
 
-	return hash_foreach(&msgdb, msg_search_cb, &num, name);
+	return c_foreach(&msgdb, msg_search_cb, &num, name);
 }
 
 static const char *atomsg(const char *argument)

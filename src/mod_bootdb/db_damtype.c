@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.16 2001-08-05 16:36:27 fjoe Exp $
+ * $Id: db_damtype.c,v 1.17 2001-09-12 19:42:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_damtype = { dbfun_damtype, init_damtype, 0 };
 DBINIT_FUN(init_damtype)
 {
 	if (!DBDATA_VALID(dbdata))
-		hash_init(&damtypes, &h_damtypes);
+		c_init(&damtypes, &h_damtypes);
 }
 
 DBLOAD_FUN(load_damtype)
@@ -69,7 +69,7 @@ DBLOAD_FUN(load_damtype)
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(d.dam_name)) {
 					log(LOG_ERROR, "load_damtype: damtype name undefined");
-				} else if (!hash_insert(&damtypes, d.dam_name, &d)) {
+				} else if (!c_insert(&damtypes, d.dam_name, &d)) {
 					log(LOG_ERROR, "load_damtype: duplicate damtype name");
 				}
 				damtype_destroy(&d);

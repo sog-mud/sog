@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.4 2001-08-20 16:47:45 fjoe Exp $
+ * $Id: reset.c,v 1.5 2001-09-12 19:43:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -283,8 +283,8 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
 				clan_t* clan;
 
-				clan = hash_foreach(&clans, clan_item_cb,
-						    pObjIndex);
+				clan = c_foreach(
+				    &clans, clan_item_cb, pObjIndex);
 				if (clan != NULL) {
 					/*
 					 * create_obj can't fail here because

@@ -23,39 +23,51 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.27 2001-09-12 12:32:19 fjoe Exp $
+ * $Id: varr.h,v 1.28 2001-09-12 19:42:37 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
 
-typedef struct varrdata_t {
-	size_t nsize;			/* size of elem */
-	size_t nstep;			/* allocation step */
+extern c_ops_t varr_ops;
 
-	e_init_t e_init;		/* init elem */
-	e_destroy_t e_destroy;		/* destroy elem */
-	e_cpy_t e_cpy;			/* copy elem */
+typedef struct varrdata_t {
+	c_ops_t *ops;			/**< container ops		*/
+
+	size_t nsize;			/**< size of elem		*/
+	size_t nstep;			/**< allocation step		*/
+
+	e_init_t e_init;		/**< init elem			*/
+	e_destroy_t e_destroy;		/**< destroy elem		*/
+	e_cpy_t e_cpy;			/**< copy elem			*/
 } varrdata_t;
 
 typedef struct varr varr;
 struct varr {
+	varrdata_t *v_data;
+
 	void *p;
 
 	size_t nused;			/* elems used */
 	size_t nalloc;			/* elems allocated */
-
-	varrdata_t *v_data;
 };
 
-void	varr_init	(varr *, varrdata_t *v_data);
-varr *	varr_cpy	(varr *dst, const varr *src);
-void	varr_destroy	(varr *);
+#define varr_esize(v)	((v)->v_data->nsize)
+#define varr_index(v, q) ((((const char *) q) - ((const char *) (v)->p)) / (v)->v_data->nsize)
 
-void	varr_erase	(varr *);
+void	varr_init	(void *v, void *info);
+void	varr_destroy	(void *v);
+varr *	varr_cpy	(varr *dst, const varr *src);
+
 void *	varr_touch	(varr *, size_t i);
 void *	varr_insert	(varr *, size_t i);
-void	varr_delete	(varr *, size_t i);
+
+void *	varr_enew(varr *v);
+void *	varr_get(varr *v, size_t i);
+#define VARR_GET(v, i)	((void *) (((char *) (v)->p) + (i)*(v)->v_data->nsize))
+
+void	varr_ndelete	(varr *, size_t i);
+#define varr_edelete(v, p) (varr_ndelete((v), varr_index((v), (p))))
 
 void	varr_qsort	(const varr *, int (*)(const void *, const void *));
 void *	varr_bsearch	(const varr *, const void *e,
@@ -66,7 +78,6 @@ void *	varr_bsearch_lower(const varr *, const void *e,
 /*
  * iterators
  */
-void *	varr_foreach	(const varr *, foreach_cb_t, ...);
 void *	varr_eforeach	(const varr *, void *, foreach_cb_t *, ...);
 void *	varr_nforeach	(const varr *, size_t i, foreach_cb_t *, ...);
 void *	varr_anforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
@@ -78,33 +89,5 @@ void *	varr_rforeach	(const varr *, foreach_cb_t *, ...);
 void *	varr_reforeach	(const varr *, void *, foreach_cb_t *, ...);
 void *	varr_rnforeach	(const varr *, size_t i, foreach_cb_t *, ...);
 void *	varr_arnforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
-
-#define varr_size(v)	((v)->nused)
-#define varr_esize(v)	((v)->v_data->nsize)
-#define varr_enew(v)	(varr_touch((v), varr_size(v)))
-#define VARR_GET(v, i)	((void *) (((char *) (v)->p) + (i)*(v)->v_data->nsize))
-
-void *varr_get(varr *v, size_t i);
-extern inline void *varr_get(varr *v, size_t i)
-{
-	return i >= varr_size(v) ? NULL : VARR_GET(v, i);
-}
-
-#define varr_index(v, q) ((((const char *) q) - ((const char *) (v)->p)) / (v)->v_data->nsize)
-#define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
-#define varr_isempty(v)	(!varr_size(v))
-
-/*
- * `vstr_lookup' does precise search of name (str_cmp)
- * `vstr_search' does `vstr_lookup', if not found prefix search (str_prefix)
- * is performed
- */
-void *	vstr_lookup_cb	(void *p, va_list ap);
-void *	vstr_search_cb	(void *p, va_list ap);
-
-void *	vstr_lookup	(varr *v, const char *name);
-void *	vstr_search	(varr *v, const char *name);
-
-void	vstr_dump	(varr *v, BUFFER *buf);
 
 #endif

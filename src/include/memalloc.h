@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.18 2001-08-14 16:06:45 fjoe Exp $
+ * $Id: memalloc.h,v 1.19 2001-09-12 19:42:35 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -44,6 +44,7 @@ enum {
 	MT_OBJ_INDEX,
 	MT_MOB_INDEX,
 	MT_DESCRIPTOR,
+	MT_SKILL,
 
 	/* only for dynafuns */
 	MT_VA_LIST,

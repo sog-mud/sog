@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.21 2001-09-12 12:32:49 fjoe Exp $
+ * $Id: cmd.c,v 1.22 2001-09-12 19:43:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@
 #include <typedef.h>
 #include <str.h>
 #include <varr.h>
+#include <container.h>
 #include <cmd.h>
 #include <log.h>
 #include <module.h>
@@ -40,7 +41,10 @@ varr commands;
 
 varrdata_t v_commands =
 {
+	&varr_ops,
+
 	sizeof(cmd_t), 16,
+
 	(e_init_t) cmd_init,
 	(e_destroy_t) cmd_destroy,
 	(e_cpy_t) cmd_cpy

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.38 2001-08-21 09:35:17 fjoe Exp $
+ * $Id: db_race.c,v 1.39 2001-09-12 19:42:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ DBINIT_FUN(init_race)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PCRACE", NULL);
 	else
-		hash_init(&races, &h_races);
+		c_init(&races, &h_races);
 }
 
 DBLOAD_FUN(load_race)
@@ -76,7 +76,7 @@ DBLOAD_FUN(load_race)
 			break;
 		case 'D':
 			KEY("Det", r.has_detect, fread_fstring(id_flags, fp));
-			KEY("Damtype", r.damtype, fread_strkey(
+			KEY("Damtype", r.damtype, c_fread_strkey(
 			    fp, &damtypes, "load_mobiles"));	// notrans
 			break;
 		case 'E':
@@ -89,8 +89,7 @@ DBLOAD_FUN(load_race)
 					return;
 				}
 
-				if ((pr = hash_insert(&races, r.name,
-							     &r)) == NULL) {
+				if ((pr = c_insert(&races, r.name, &r)) == NULL) {
 					log(LOG_ERROR, "load_race: duplicate race name");
 				} else {
 					db_set_arg(dbdata, "PCRACE", pr);
@@ -219,7 +218,7 @@ DBLOAD_FUN(load_pcrace)
 		case 'S':
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
-			SKEY("SkillSpec", pcr->skill_spec, fread_strkey(
+			SKEY("SkillSpec", pcr->skill_spec, c_fread_strkey(
 			    fp, &specs, "load_pcrace"));	// notrans
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);

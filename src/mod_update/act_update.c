@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.13 2001-09-12 12:32:45 fjoe Exp $
+ * $Id: act_update.c,v 1.14 2001-09-12 19:43:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -93,7 +93,7 @@ DO_FUN(do_settick, ch, argument)
 		buf = buf_new(0);
 		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");	// notrans
 		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");	// notrans
-		hash_foreach(&uhandlers, update_print_cb, buf);
+		c_foreach(&uhandlers, update_print_cb, buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return;
@@ -106,7 +106,7 @@ DO_FUN(do_settick, ch, argument)
 		return;
 	}
 
-	if (!hash_foreach(&uhandlers, update_set_cb, arg, val)) {
+	if (!c_foreach(&uhandlers, update_set_cb, arg, val)) {
 		dofun("help", ch, "'WIZ SETTICK'");
 	}
 }

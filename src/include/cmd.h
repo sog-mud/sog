@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.17 2001-08-26 16:17:17 fjoe Exp $
+ * $Id: cmd.h,v 1.18 2001-09-12 19:42:33 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -69,8 +69,8 @@ void	cmd_init	(cmd_t *cmd);
 void	cmd_destroy	(cmd_t *cmd);
 cmd_t *	cmd_cpy		(cmd_t *dst, cmd_t *src);
 
-#define cmd_lookup(name)	((cmd_t *) vstr_lookup(&commands, (name)))
-#define cmd_search(name)	((cmd_t *) vstr_search(&commands, (name)))
+#define cmd_lookup(name)	((cmd_t *) c_strkey_lookup(&commands, (name)))
+#define cmd_search(name)	((cmd_t *) c_strkey_search(&commands, (name)))
 
 void *	cmd_load_cb	(void *p, va_list ap);
 void *	cmd_unload_cb	(void *p, va_list ap);

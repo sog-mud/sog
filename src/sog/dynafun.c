@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.16 2001-09-12 12:32:50 fjoe Exp $
+ * $Id: dynafun.c,v 1.17 2001-09-12 19:43:16 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -36,6 +36,7 @@
 #include <varr.h>
 #include <hash.h>
 #include <strkey_hash.h>
+#include <container.h>
 #include <dynafun.h>
 #include <module.h>
 #include <flag.h>
@@ -95,6 +96,8 @@ static void dynafun_register(dynafun_data_t *d, void *arg);
 static void dynafun_unregister(dynafun_data_t *d, void *arg);
 
 static hashdata_t h_dynafuns = {
+	&hash_ops,
+
 	sizeof(dynafun_data_t), 8,
 	(e_init_t) dynafun_init,
 	strkey_destroy,
@@ -110,7 +113,7 @@ hash_t dynafuns;
 void
 init_dynafuns(void)
 {
-	hash_init(&dynafuns, &h_dynafuns);
+	c_init(&dynafuns, &h_dynafuns);
 }
 
 void *
@@ -298,6 +301,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_OBJ_INDEX:
 		case MT_MOB_INDEX:
 		case MT_DESCRIPTOR:
+		case MT_SKILL:
 			arg = va_arg(ap, void *);
 			*(const void **) args_ap = arg;
 			arg = va_arg(args_ap, void *);
@@ -334,7 +338,7 @@ dynafun_register(dynafun_data_t *d, void *arg)
 {
 	module_t *m = (module_t *) arg;
 
-	if ((d = hash_insert(&dynafuns, d->name, d)) == NULL) {
+	if ((d = c_insert(&dynafuns, d->name, d)) == NULL) {
 		log(LOG_BUG, "dynafun_register: %s: duplicate dynafun name",
 		    d->name);
 	}
@@ -348,5 +352,5 @@ dynafun_register(dynafun_data_t *d, void *arg)
 static void
 dynafun_unregister(dynafun_data_t *d, void *arg __attribute__((unused)))
 {
-	hash_delete(&dynafuns, d->name);
+	c_delete(&dynafuns, d->name);
 }

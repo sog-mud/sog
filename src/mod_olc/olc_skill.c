@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.25 2001-08-25 04:46:57 fjoe Exp $
+ * $Id: olc_skill.c,v 1.26 2001-09-12 19:43:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -107,13 +107,13 @@ OLC_FUN(skilled_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	skill_init(&sk);
 	mlstr_init2(&sk.sk_name.ml, argument);
-	s = hash_insert(&skills, argument, &sk);
+	s = c_insert(&skills, argument, &sk);
 	skill_destroy(&sk);
 
 	if (s == NULL) {
@@ -192,7 +192,7 @@ static void *skill_save_cb(void *p, va_list ap)
 		fprintf(fp, "SpellFun %s\n", sk->fun_name);
 	mlstr_fwrite(fp, "WearOff", &sk->msg_off);
 	mlstr_fwrite(fp, "ObjWearOff", &sk->msg_obj);
-	varr_foreach(&sk->events, event_save_cb, fp);
+	c_foreach(&sk->events, event_save_cb, fp);
 	fprintf(fp, "End\n\n");
 	return NULL;
 }
@@ -209,7 +209,7 @@ OLC_FUN(skilled_save)
 	if (fp == NULL)
 		return FALSE;
 
-	hash_foreach(&skills, skill_save_cb, fp);
+	c_foreach(&skills, skill_save_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -281,7 +281,7 @@ OLC_FUN(skilled_show)
 
 	mlstr_dump(buf, "WearOff    ", &sk->msg_off, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj, DUMP_LEVEL(ch));
-	varr_foreach(&sk->events, event_show_cb, buf);
+	c_foreach(&sk->events, event_show_cb, buf);
 
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
@@ -293,7 +293,7 @@ OLC_FUN(skilled_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(0);
-	mlstrkey_printall(&skills, buffer);
+	c_mlstrkey_dump(&skills, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -504,7 +504,7 @@ OLC_FUN(skilled_delete)
 		return FALSE;
 
 	EDIT_SKILL(ch, sk);
-	hash_delete(&skills, gmlstr_mval(&sk->sk_name));
+	c_delete(&skills, gmlstr_mval(&sk->sk_name));
 	edit_done(ch->desc);
 	return TRUE;
 }

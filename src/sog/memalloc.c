@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.12 2001-09-12 12:32:51 fjoe Exp $
+ * $Id: memalloc.c,v 1.13 2001-09-12 19:43:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,7 +46,7 @@ mem_alloc2(int type_tag, size_t mem_len, size_t mem_prealloc)
 	if (p == NULL)
 		return NULL;
 
-	m = (memchunk_t*) (p + mem_prealloc);
+	m = (memchunk_t *) (p + mem_prealloc);
 	m->mem_type = type_tag;
 	m->mem_sign = MEM_VALID;
 	m->mem_prealloc = mem_prealloc;

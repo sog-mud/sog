@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.251 2001-09-12 12:32:22 fjoe Exp $
+ * $Id: act_comm.c,v 1.252 2001-09-12 19:42:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -725,15 +725,13 @@ DO_FUN(do_pose, ch, argument)
 {
 	class_t *cl;
 	pose_t *pose;
-	int maxnum;
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
 	||  cl->poses.nused == 0)
 		return;
 
-	maxnum = UMIN(ch->level, (int) varr_size(&cl->poses) - 1);
-	pose = VARR_GET(&cl->poses, number_range(0, maxnum));
+	pose = c_random_elem(&cl->poses);
 	act(pose->self, ch, NULL, NULL, TO_CHAR);
 	act(pose->others, ch, NULL, NULL, TO_ROOM | ACT_TOBUF);
 }
@@ -1278,7 +1276,7 @@ DO_FUN(do_lang, ch, argument)
 	if ((l = lang_lookup(arg)) == NULL) {
 		act_puts("Usage: lang [ ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		for (lang = 0; lang < varr_size(&langs); lang++) {
+		for (lang = 0; lang < c_size(&langs); lang++) {
 			l = VARR_GET(&langs, lang);
 			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;

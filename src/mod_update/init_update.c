@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.13 2001-09-12 12:32:45 fjoe Exp $
+ * $Id: init_update.c,v 1.14 2001-09-12 19:43:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,10 @@ DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
 static hashdata_t h_uhandlers = {
+	&hash_ops,
+
 	sizeof(uhandler_t), 4,
+
 	(e_init_t) uhandler_init,
 	(e_destroy_t) uhandler_destroy,
 	(e_cpy_t) uhandler_cpy,
@@ -63,10 +66,10 @@ DBDATA db_uhandlers = { dbfun_uhandlers, NULL, 0 };
 
 MODINIT_FUN(_module_load, m)
 {
-	hash_init(&uhandlers, &h_uhandlers);
+	c_init(&uhandlers, &h_uhandlers);
 	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
 
-	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	c_foreach(&commands, cmd_load_cb, MODULE, m);
 	uhandler_load(m->name);
 	update_register(m);
 	return 0;
@@ -76,8 +79,8 @@ MODINIT_FUN(_module_unload, m)
 {
 	update_unregister();
 	uhandler_unload(m->name);
-	varr_foreach(&commands, cmd_unload_cb, MODULE);
-	hash_destroy(&uhandlers);
+	c_foreach(&commands, cmd_unload_cb, MODULE);
+	c_destroy(&uhandlers);
 	return 0;
 }
 
@@ -101,7 +104,7 @@ DBLOAD_FUN(load_uhandler)
 					log(LOG_ERROR, "load_uhandler: fun name undefined");
 				else if (!hdlr.ticks)
 					log(LOG_ERROR, "load_uhandler: ticks undefined");
-				else if (!hash_insert(&uhandlers, hdlr.name, &hdlr))
+				else if (!c_insert(&uhandlers, hdlr.name, &hdlr))
 					log(LOG_ERROR, "load_uhandler: %s: duplicate uhandler name", hdlr.name);
 				uhandler_destroy(&hdlr);
 				return;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_glob_gmlstr.c,v 1.2 2001-08-05 16:36:27 fjoe Exp $
+ * $Id: db_glob_gmlstr.c,v 1.3 2001-09-12 19:42:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,7 +45,7 @@ DBDATA db_glob_gmlstr = { dbfun_glob_gmlstr, init_glob_gmlstr, 0 };
 DBINIT_FUN(init_glob_gmlstr)
 {
 	if (!DBDATA_VALID(dbdata))
-		hash_init(&glob_gmlstr, &h_glob_gmlstr);
+		c_init(&glob_gmlstr, &h_glob_gmlstr);
 }
 
 DBLOAD_FUN(load_glob_gmlstr)
@@ -68,7 +68,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 		switch (rfile_tokfl(fp)) {
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
-				if (hash_insert(&glob_gmlstr, gmlstr_mval(&gml), &gml) == NULL) {
+				if (c_insert(&glob_gmlstr, gmlstr_mval(&gml), &gml) == NULL) {
 					log(LOG_ERROR, "load_gmlstr: duplicate gmlstr");
 				}
 				gmlstr_destroy(&gml);

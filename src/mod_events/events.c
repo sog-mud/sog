@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.12 2001-09-12 12:32:29 fjoe Exp $
+ * $Id: events.c,v 1.13 2001-09-12 19:42:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,13 +40,13 @@ static DECLARE_FOREACH_CB_FUN(unload_cb);
 
 MODINIT_FUN(_module_load, m)
 {
-	hash_foreach(&skills, load_cb, m);
+	c_foreach(&skills, load_cb, m);
 	return 0;
 }
 
 MODINIT_FUN(_module_unload, m)
 {
-	hash_foreach(&skills, unload_cb);
+	c_foreach(&skills, unload_cb);
 	return 0;
 }
 
@@ -68,7 +68,7 @@ FOREACH_CB_FUN(load_cb, p, ap)
 	skill_t *sk = (skill_t*) p;
 	module_t *m = va_arg(ap, module_t *);
 
-	varr_foreach(&sk->events, load_event_cb, m);
+	c_foreach(&sk->events, load_event_cb, m);
 	return NULL;
 }
 
@@ -86,6 +86,6 @@ FOREACH_CB_FUN(unload_cb, p, ap)
 {
 	skill_t *sk = (skill_t*) p;
 
-	varr_foreach(&sk->events, unload_event_cb);
+	c_foreach(&sk->events, unload_event_cb);
 	return NULL;
 }

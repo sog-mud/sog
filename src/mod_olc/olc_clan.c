@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.50 2001-08-25 04:46:52 fjoe Exp $
+ * $Id: olc_clan.c,v 1.51 2001-09-12 19:42:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -90,13 +90,13 @@ OLC_FUN(claned_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	clan_init(&clan);
 	clan.name = str_dup(arg);
-	cl = hash_insert(&clans, clan.name, &clan);
+	cl = c_insert(&clans, clan.name, &clan);
 	clan_destroy(&clan);
 
 	if (cl == NULL) {
@@ -144,7 +144,7 @@ OLC_FUN(claned_save)
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved clans:");
-	hash_foreach(&clans, save_clan_cb, ch, &found);
+	c_foreach(&clans, save_clan_cb, ch, &found);
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;

@@ -23,23 +23,26 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.h,v 1.1 2001-09-12 12:45:23 fjoe Exp $
+ * $Id: avltree.h,v 1.2 2001-09-12 19:42:32 fjoe Exp $
  */
 
 #ifndef _AVL_TREE_H_
 #define _AVL_TREE_H_
 
-typedef struct avltree_info_t avltree_info_t;
-struct avltree_info_t {
-	size_t esize;		/**< elem size			*/
-	ke_cmp_t ke_cmp;	/**< key vs. elem compare	*/
+extern c_ops_t avltree_ops;
 
-	e_init_t e_init;	/**< init elem			*/
-	e_destroy_t e_destroy;	/**< destroy elem		*/
-	e_cpy_t e_cpy;		/**< copy elem			*/
+struct avltree_info_t {
+	c_ops_t *ops;		/**< container ops			*/
+
+	int type_tag;		/**< type tag				*/
+	size_t esize;		/**< elem size				*/
+	ke_cmp_t ke_cmp;	/**< key vs. elem compare		*/
+
+	e_init_t e_init;	/**< init elem				*/
+	e_destroy_t e_destroy;	/**< destroy elem			*/
+	e_cpy_t e_cpy;		/**< copy elem				*/
 };
 
-typedef struct avlnode_t avlnode_t;
 struct avlnode_t {
 	avlnode_t *link[2];	/**< left and right subtrees or threads	*/
 	int8_t tag[2];		/**< left and right thread tags		*/
@@ -50,29 +53,13 @@ struct avlnode_t {
 /*
  * AVL tree
  */
-typedef struct avltree_t avltree_t;
 struct avltree_t {
-	avlnode_t root;		/**< tree root			*/
-	avltree_info_t *info;	/**< tree data			*/
-	int type_tag;
-	int count;		/**< number of elems		*/
+	avltree_info_t *info;	/**< tree data				*/
+	avlnode_t root;		/**< tree root				*/
+	int count;		/**< number of elems			*/
 };
 
-void avltree_init(avltree_t *avl, avltree_info_t *info, int type_tag);
-void avltree_destroy(avltree_t *avl);
-
-void avltree_erase(avltree_t *avl);
-void *avltree_lookup(avltree_t *avl, const void *k);
-void avltree_delete(avltree_t *avl, const void *k);
-
-void *avltree_insert(avltree_t *avl, const void *k, const void *e);
-void *avltree_update(avltree_t *avl, const void *k, const void *e);
-void *avltree_replace(avltree_t *avl, const void *k, const void *e);
-
-bool avltree_isempty(avltree_t *avl);
-void *avltree_random_item(avltree_t *avl);
-void *avltree_foreach(avltree_t *avl, foreach_cb_t cb, ...);
-
-void *strkey_avltree_search(avltree_t *avl, const char *k);
+void avltree_init(void *avl, void *info);
+void avltree_destroy(void *avl);
 
 #endif /* _AVL_TREE_H_ */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.31 2001-08-26 05:49:13 fjoe Exp $
+ * $Id: olc_class.c,v 1.32 2001-09-12 19:43:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -117,13 +117,13 @@ OLC_FUN(classed_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	class_init(&class);
 	class.name	= str_dup(arg);
-	cl = hash_insert(&classes, class.name, &class);
+	cl = c_insert(&classes, class.name, &class);
 	class_destroy(&class);
 
 	if (cl == NULL) {
@@ -167,7 +167,7 @@ OLC_FUN(classed_save)
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved classes:");
-	hash_foreach(&classes, save_class_cb, ch, &found);
+	c_foreach(&classes, save_class_cb, ch, &found);
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -422,7 +422,7 @@ OLC_FUN(classed_poses)
 		bool st = FALSE;
 
 		buffer = buf_new(0);
-		for (i = 0; i < varr_size(&class->poses); i++) {
+		for (i = 0; i < c_size(&class->poses); i++) {
 			pose = VARR_GET(&class->poses, i);
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 				continue;
@@ -525,7 +525,7 @@ OLC_FUN(classed_guilds)
 		bool st = FALSE;
 
 		buffer = buf_new(0);
-		for (i = 0; i < varr_size(&class->guilds); i++) {
+		for (i = 0; i < c_size(&class->guilds); i++) {
 			vnum = *(int*) VARR_GET(&class->guilds, i);
 			if (!vnum)
 				continue;
@@ -626,7 +626,7 @@ static VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	if ((cl2 = hash_foreach(&classes, whoname_cb, arg)) != NULL
+	if ((cl2 = c_foreach(&classes, whoname_cb, arg)) != NULL
 	&&  cl2 != cl) {
 		act_puts("ClassEd: $t: duplicate class whoname.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -665,7 +665,7 @@ FOREACH_CB_FUN(save_class_cb, p, ap)
 	if (!IS_NULLSTR(cl->skill_spec))
 		fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
 	fprintf(fp, "SchoolWeapon %d\n", cl->weapon);
-	for (i = 0; i < varr_size(&cl->guilds); i++) {
+	for (i = 0; i < c_size(&cl->guilds); i++) {
 		if (*(int*)VARR_GET(&cl->guilds, i) != 0) {
 			fprintf(fp, "GuildRoom %d\n",
 				*(int*)VARR_GET(&cl->guilds, i));
@@ -697,7 +697,7 @@ FOREACH_CB_FUN(save_class_cb, p, ap)
 		fprintf(fp, "DeathLimit %d\n", cl->death_limit);
 	fprintf(fp, "End\n\n");
 
-	for (i = 0; i < varr_size(&cl->poses); i++) {
+	for (i = 0; i < c_size(&cl->poses); i++) {
 		pose_t *pose = VARR_GET(&cl->poses, i);
 		if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 			continue;

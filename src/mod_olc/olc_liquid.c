@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.18 2001-08-25 04:46:54 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.19 2001-09-12 19:43:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -86,13 +86,13 @@ OLC_FUN(liqed_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	liquid_init(&lq);
 	mlstr_init2(&lq.lq_name.ml, argument);
-	l = hash_insert(&liquids, argument, &lq);
+	l = c_insert(&liquids, argument, &lq);
 	liquid_destroy(&lq);
 
 	if (l == NULL) {
@@ -164,7 +164,7 @@ OLC_FUN(liqed_save)
 	if (fp == NULL)
 		return FALSE;
 
-	hash_foreach(&liquids, liquid_save_cb, fp);
+	c_foreach(&liquids, liquid_save_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -281,7 +281,7 @@ OLC_FUN(liqed_delete)
 		return FALSE;
 
 	EDIT_LIQ(ch, lq);
-	hash_delete(&liquids, gmlstr_mval(&lq->lq_name));
+	c_delete(&liquids, gmlstr_mval(&lq->lq_name));
 	edit_done(ch->desc);
 	return TRUE;
 }

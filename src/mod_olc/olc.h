@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.85 2001-08-26 05:49:13 fjoe Exp $
+ * $Id: olc.h,v 1.86 2001-09-12 19:42:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,7 +124,7 @@ bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
  */
 typedef struct olced_strkey_t olced_strkey_t;
 struct olced_strkey_t {
-	hash_t *h;
+	void *c;
 	const char *path;	/* path to conf files for edited hash	*/
 	const char *ext;	/* conf files extension			*/
 };

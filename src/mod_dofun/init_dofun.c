@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_dofun.c,v 1.2 2001-09-12 12:32:26 fjoe Exp $
+ * $Id: init_dofun.c,v 1.3 2001-09-12 19:42:50 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <typedef.h>
 #include <varr.h>
+#include <container.h>
 
 #include <module.h>
 #include <cmd.h>
@@ -39,7 +40,7 @@ DECLARE_MODINIT_FUN(_module_unload);
 
 MODINIT_FUN(_module_load, m)
 {
-	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	c_foreach(&commands, cmd_load_cb, MODULE, m);
 	return 0;
 }
 
@@ -47,7 +48,7 @@ extern bool do_longjmp;
 
 MODINIT_FUN(_module_unload, m)
 {
-	varr_foreach(&commands, cmd_unload_cb, MODULE);
+	c_foreach(&commands, cmd_unload_cb, MODULE);
 	do_longjmp = TRUE;
 	return 0;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.20 2001-08-25 04:46:54 fjoe Exp $
+ * $Id: olc_material.c,v 1.21 2001-09-12 19:43:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -84,13 +84,13 @@ OLC_FUN(mated_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	material_init(&mat);
 	mat.name = str_dup(argument);
-	m = hash_insert(&materials, mat.name, &mat);
+	m = c_insert(&materials, mat.name, &mat);
 	material_destroy(&mat);
 
 	if (m == NULL) {
@@ -159,7 +159,7 @@ OLC_FUN(mated_save)
 	if (fp == NULL)
 		return FALSE;
 
-	hash_foreach(&materials, material_save_cb, fp);
+	c_foreach(&materials, material_save_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -254,7 +254,7 @@ OLC_FUN(mated_delete)
 		return FALSE;
 
 	EDIT_MAT(ch, mat);
-	hash_delete(&materials, mat->name);
+	c_delete(&materials, mat->name);
 	edit_done(ch->desc);
 	return TRUE;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.24 2001-09-12 12:32:33 fjoe Exp $
+ * $Id: mpc_c.c,v 1.25 2001-09-12 19:42:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,7 @@
 #include <memalloc.h>
 #include <varr.h>
 #include <hash.h>
+#include <container.h>
 #include <dynafun.h>
 #include <util.h>
 #include <flag.h>
@@ -76,7 +77,7 @@ c_pop(mpcode_t *mpc)
 	v = pop(mpc);
 	type_tag = CODE_GET(int, mpc);
 
-	sym = (sym_t *) hash_lookup(&mpc->syms, "$_");
+	sym = (sym_t *) c_lookup(&mpc->syms, "$_");
 	mpc_assert(mpc, __FUNCTION__,
 	    sym != NULL, "$_: symbol not found");
 	mpc_assert(mpc, __FUNCTION__,
@@ -139,7 +140,7 @@ c_push_retval(mpcode_t *mpc)
 	argtype = (int *) VARR_GET(&mpc->code, mpc->ip);
 	mpc->ip += nargs;
 	mpc_assert(mpc, __FUNCTION__,
-	    (size_t) mpc->ip <= varr_size(&mpc->code), "program code exhausted");
+	    (size_t) mpc->ip <= c_size(&mpc->code), "program code exhausted");
 
 #if 0
 	/*
@@ -183,10 +184,11 @@ c_push_retval(mpcode_t *mpc)
 		args = &dummy_args;
 	else {
 		mpc_assert(mpc, __FUNCTION__,
-		    varr_size(&mpc->data) >= (size_t) nargs, "data stack underflow");
+		    c_size(&mpc->data) >= (size_t) nargs,
+		    "data stack underflow");
 		args = (dynafun_args_t *) VARR_GET(
-		    &mpc->data, varr_size(&mpc->data) - nargs);
-		varr_size(&mpc->data) -= nargs;
+		    &mpc->data, c_size(&mpc->data) - nargs);
+		mpc->data.nused -= nargs;
 	}
 
 	for (i = 0; i < nargs; i++) {
@@ -353,7 +355,7 @@ c_quecolon(mpcode_t *mpc)
 }
 
 void
-c_foreach(mpcode_t *mpc)
+c_op_foreach(mpcode_t *mpc)
 {
 	int next_addr;
 	int body_addr;
@@ -393,11 +395,11 @@ c_foreach(mpcode_t *mpc)
 	push(mpc, v);
 
 	mpc_assert(mpc, __FUNCTION__,
-	    varr_size(&mpc->data) >= (size_t) (iter->init.nargs + 2),
+	    c_size(&mpc->data) >= (size_t) (iter->init.nargs + 2),
 	    "data stack underflow");
 	args = (dynafun_args_t *) VARR_GET(
-	    &mpc->data, varr_size(&mpc->data) - (iter->init.nargs + 2));
-	varr_size(&mpc->data) -= iter->init.nargs + 2;
+	    &mpc->data, c_size(&mpc->data) - (iter->init.nargs + 2));
+	mpc->data.nused -= iter->init.nargs + 2;
 
 	/* XXX check argtypes */
 	iter->init.fun(*args);
@@ -455,7 +457,7 @@ c_declare(mpcode_t *mpc)
 		break;
 	};
 
-	p = hash_insert(&mpc->syms, sym.name, &sym);
+	p = c_insert(&mpc->syms, sym.name, &sym);
 	if (p == NULL)
 		sym_destroy(&sym);
 	mpc_assert(mpc, __FUNCTION__,
@@ -479,7 +481,7 @@ c_declare_assign(mpcode_t *mpc)
 	sym.s.var.block = CODE_GET(int, mpc);
 	TRACE((LOG_INFO, "%s: block %d", __FUNCTION__, sym.s.var.block));
 
-	s = (sym_t *) hash_insert(&mpc->syms, sym.name, &sym);
+	s = (sym_t *) c_insert(&mpc->syms, sym.name, &sym);
 	if (s == NULL)
 		sym_destroy(&sym);
 	mpc_assert(mpc, __FUNCTION__,
@@ -516,7 +518,7 @@ c_return_0(mpcode_t *mpc)
 
 	TRACE((LOG_INFO, __FUNCTION__));
 
-	sym = (sym_t *) hash_lookup(&mpc->syms, "$_");
+	sym = (sym_t *) c_lookup(&mpc->syms, "$_");
 	mpc_assert(mpc, __FUNCTION__,
 	    sym != NULL, "$_: symbol not found");
 	mpc_assert(mpc, __FUNCTION__,
@@ -795,7 +797,7 @@ static vo_t *
 pop(mpcode_t *mpc)
 {
 	vo_t *vo = peek(mpc, 0);
-	varr_size(&mpc->data)--;
+	mpc->data.nused--;
 	return vo;
 }
 
@@ -803,7 +805,7 @@ static vo_t *
 peek(mpcode_t *mpc, size_t depth)
 {
 	vo_t *vo = (vo_t *) varr_get(
-	    &mpc->data, varr_size(&mpc->data) - 1 - depth);
+	    &mpc->data, c_size(&mpc->data) - 1 - depth);
 	mpc_assert(mpc, __FUNCTION__, vo != NULL, "data stack underflow");
 	return vo;
 }

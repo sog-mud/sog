@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.32 2001-08-13 18:23:12 fjoe Exp $
+ * $Id: class.h,v 1.33 2001-09-12 19:42:33 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -72,8 +72,8 @@ void	class_init	(class_t *cl);
 class_t *class_cpy	(class_t *dst, const class_t *src);
 void	class_destroy	(class_t *cl);
 
-#define class_lookup(cn)	((class_t*) strkey_lookup(&classes, (cn)))
-#define class_search(cn)	((class_t*) strkey_search(&classes, (cn)))
+#define class_lookup(cn)	((class_t*) c_strkey_lookup(&classes, (cn)))
+#define class_search(cn)	((class_t*) c_strkey_search(&classes, (cn)))
 
 #define IS_CLASS(cl1, cl2)	(!str_cmp((cl1), (cl2)))
 

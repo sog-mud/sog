@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.14 2001-08-05 16:36:27 fjoe Exp $
+ * $Id: db_form.c,v 1.15 2001-09-12 19:42:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_forms = { dbfun_forms, init_form, 0 };
 DBINIT_FUN(init_form)
 {
 	if (!DBDATA_VALID(dbdata))
-		hash_init(&forms, &h_forms);
+		c_init(&forms, &h_forms);
 }
 
 DBLOAD_FUN(load_form)
@@ -66,7 +66,7 @@ DBLOAD_FUN(load_form)
 			KEY("Attacks", f.num_attacks, fread_number(fp));
 			break;
 		case 'D':
-			KEY("Damtype", f.damtype, fread_strkey(
+			KEY("Damtype", f.damtype, c_fread_strkey(
 			    fp, &damtypes, "load_form"));	// notrans
 			if (IS_TOKEN(fp, "Damage")) {
 				f.damage[DICE_NUMBER]	= fread_number(fp);
@@ -89,7 +89,7 @@ DBLOAD_FUN(load_form)
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(f.name)) {
 					log(LOG_ERROR, "load_form: form name undefined");
-				} else if (!hash_insert(&forms, f.name, &f)) {
+				} else if (!c_insert(&forms, f.name, &f)) {
 					log(LOG_ERROR, "load_form: duplicate form name");
 				}
 				form_destroy(&f);
@@ -104,7 +104,7 @@ DBLOAD_FUN(load_form)
 			break;
 		case 'S':
 			MLSKEY("ShortDesc", f.short_desc);
-			SKEY("SkillSpec", f.skill_spec, fread_strkey(
+			SKEY("SkillSpec", f.skill_spec, c_fread_strkey(
 			    fp, &specs, "load_form"))		// notrans
 			if (IS_TOKEN(fp, "Stats")) {
 				int i;

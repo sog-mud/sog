@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.13 2001-08-05 16:36:29 fjoe Exp $
+ * $Id: db_material.c,v 1.14 2001-09-12 19:42:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_materials = { dbfun_materials, init_materials, 0 };
 DBINIT_FUN(init_materials)
 {
 	if (!DBDATA_VALID(dbdata))
-		hash_init(&materials, &h_materials);
+		c_init(&materials, &h_materials);
 }
 
 DBLOAD_FUN(load_material)
@@ -69,7 +69,7 @@ DBLOAD_FUN(load_material)
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(mat.name)) {
 					log(LOG_ERROR, "load_material: material name undefined");
-				} else if (!hash_insert(&materials, mat.name, &mat)) {
+				} else if (!c_insert(&materials, mat.name, &mat)) {
 					log(LOG_ERROR, "load_material: duplicate material name");
 				}
 				material_destroy(&mat);

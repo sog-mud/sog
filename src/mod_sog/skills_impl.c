@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.2 2001-08-13 18:23:41 fjoe Exp $
+ * $Id: skills_impl.c,v 1.3 2001-09-12 19:43:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,7 +61,7 @@ int
 get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 {
 	int mod = 0;
-	varr_foreach(&ch->sk_affected, apply_sa_cb, sk, percent, &mod);
+	c_foreach(&ch->sk_affected, apply_sa_cb, sk, percent, &mod);
 	return mod;
 }
 
@@ -165,7 +165,7 @@ mob_skill_init(void)
 	mob_skill_t *mob_skill;
 
 	for (mob_skill = mob_skill_tab; mob_skill->sn; mob_skill++) {
-		STRKEY_CHECK(
+		C_STRKEY_CHECK(
 		    &skills, mob_skill->sn, "mob_skill_init");	// notrans
 		mob_skill_count++;
 	}

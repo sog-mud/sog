@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.33 2001-08-25 04:46:57 fjoe Exp $
+ * $Id: olc_social.c,v 1.34 2001-09-12 19:43:04 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -167,7 +167,7 @@ OLC_FUN(soced_save)
 	if (fp == NULL)
 		return FALSE;
 
-	varr_foreach(&socials, save_social_cb, fp);
+	c_foreach(&socials, save_social_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -243,7 +243,7 @@ OLC_FUN(soced_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	for (i = 0; i < varr_size(&socials); i++) {
+	for (i = 0; i < c_size(&socials); i++) {
 		social_t *soc = (social_t*) VARR_GET(&socials, i);
 
 		if (arg[0] && str_prefix(arg, soc->name))
@@ -351,8 +351,8 @@ OLC_FUN(soced_move)
 	if (!is_number(arg))
 		OLC_ERROR("'OLC SOCIALS'");
 
-	if ((num = atoi(arg)) >= (int) varr_size(&socials))
-		num = varr_size(&socials) - 1;
+	if ((num = atoi(arg)) >= (int) c_size(&socials))
+		num = c_size(&socials) - 1;
 	if (num < 0) {
 		act_char("SocEd: move: num should be >= 0.", ch);
 		return FALSE;
@@ -477,7 +477,7 @@ shadow_dump_cmds(BUFFER *output, const char *name)
 		return;
 
 	buf_append(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
-	varr_foreach(&commands, shadow_dump_cb, name, output);
+	c_foreach(&commands, shadow_dump_cb, name, output);
 }
 
 static void

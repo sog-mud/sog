@@ -23,48 +23,41 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.11 2001-09-12 12:32:17 fjoe Exp $
+ * $Id: hash.h,v 1.12 2001-09-12 19:42:34 fjoe Exp $
  */
 
 #ifndef _HASH_H_
 #define _HASH_H_
 
+extern c_ops_t hash_ops;
+
 /*
  * first five elems must be the same as in varrdata_t
  */
 typedef struct hashdata_t {
-	size_t nsize;			/* size of elem */
-	size_t nstep;			/* allocation step */
+	c_ops_t *ops;			/**< container ops		*/
 
-	e_init_t e_init;		/* init elem */
-	e_destroy_t e_destroy;		/* destroy elem */
-	e_cpy_t e_cpy;			/* copy elem */
+	size_t nsize;			/**< size of elem		*/
+	size_t nstep;			/**< allocation step		*/
+
+	e_init_t e_init;		/**< init elem			*/
+	e_destroy_t e_destroy;		/**< destroy elem		*/
+	e_cpy_t e_cpy;			/**< copy elem			*/
 
 	size_t hsize;
-	k_hash_t k_hash;		/* hash of key	*/
-	ke_cmp_t ke_cmp;		/* cmp key and elem */
+	k_hash_t k_hash;		/**< hash of key		*/
+	ke_cmp_t ke_cmp;		/**< cmp key and elem		*/
 } hashdata_t;
 
 typedef struct hash_t hash_t;
 struct hash_t {
-	varr *v;
 	hashdata_t *h_data;
+	varr *v;
 };
 
-void	hash_init(hash_t *, hashdata_t *h_data);
-void	hash_destroy(hash_t *);
+void	hash_init(void *h, void *info);
+void	hash_destroy(void *h);
 
-void	hash_erase(hash_t *h);
-void *	hash_lookup(hash_t *, const void *k);
-void	hash_delete(hash_t *, const void *k);
-
-void *	hash_insert(hash_t *, const void *k, const void *e);
-void *	hash_update(hash_t *, const void *k, const void *e);
-void *	hash_replace(hash_t *, const void *k, const void *e);
-
-bool	hash_isempty(hash_t *);
-void *	hash_random_item(hash_t *h);
-void *	hash_foreach(hash_t *h, foreach_cb_t, ...);
 void	hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb);
 
 int	vnum_hash(const void *k, size_t hsize);

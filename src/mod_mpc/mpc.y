@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.35 2001-09-12 12:32:33 fjoe Exp $
+ * $Id: mpc.y,v 1.36 2001-09-12 19:42:55 fjoe Exp $
  */
 
 /*
@@ -50,6 +50,7 @@
 #include <typedef.h>
 #include <varr.h>
 #include <hash.h>
+#include <container.h>
 #include <dynafun.h>
 #include <memalloc.h>
 #include <buffer.h>
@@ -109,8 +110,8 @@ argtype_push(mpcode_t *mpc, int type_tag)
 static void
 argtype_popn(mpcode_t *mpc, size_t n)
 {
-	assert(varr_size(&mpc->args) >= n);
-	varr_size(&mpc->args) -= n;
+	assert(c_size(&mpc->args) >= n);
+	mpc->args.nused -= n;
 }
 
 /**
@@ -119,7 +120,7 @@ argtype_popn(mpcode_t *mpc, size_t n)
 static int
 argtype_get(mpcode_t *mpc, int n, int idx)
 {
-	int *t = varr_get(&mpc->args, varr_size(&mpc->args) - n + idx);
+	int *t = varr_get(&mpc->args, c_size(&mpc->args) - n + idx);
 	if (t == NULL)
 		return MT_NONE;
 	return *t;
@@ -135,7 +136,7 @@ argtype_get(mpcode_t *mpc, int n, int idx)
 static int
 code(mpcode_t *mpc, const void *opcode)
 {
-	int old_ip = varr_size(&mpc->code);
+	int old_ip = c_size(&mpc->code);
 	const void **o = varr_enew(&mpc->code);
 	*o = opcode;
 	return old_ip;
@@ -242,12 +243,12 @@ code3(mpcode_t *mpc,
 		*p = addr;						\
 	} while (0)
 
-#define PUSH_ADDR()	PUSH_EXPLICIT(varr_size(&mpc->code))
+#define PUSH_ADDR()	PUSH_EXPLICIT(c_size(&mpc->code))
 
 #define PEEK_ADDR(addr)							\
 	do {								\
 		int *p = (int *) varr_get(				\
-		    &mpc->cstack, varr_size(&mpc->cstack) - 1);		\
+		    &mpc->cstack, c_size(&mpc->cstack) - 1);		\
 		if (p == NULL) {					\
 			compile_error(mpc, "compiler stack underflow");	\
 			YYERROR;					\
@@ -255,10 +256,10 @@ code3(mpcode_t *mpc,
 		addr = *p;						\
 	} while (0)
 
-#define POP_ADDR(addr)						\
+#define POP_ADDR(addr)							\
 	do {								\
 		PEEK_ADDR(addr);					\
-		varr_size(&mpc->cstack)--;				\
+		mpc->cstack.nused--;					\
 	} while (0)
 
 #define CODE(addr)	((int *) VARR_GET(&mpc->code, (addr)))
@@ -331,7 +332,7 @@ stmt:	';'
 			break;
 		};
 
-		if ((p = hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
+		if ((p = c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
 			compile_error(mpc, "%s: duplicate symbol", sym.name);
 			YYERROR;
@@ -358,7 +359,7 @@ stmt:	';'
 		sym.s.var.is_const = FALSE;
 		sym.s.var.block = mpc->curr_block;
 
-		if ((p = hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
+		if ((p = c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
 			compile_error(mpc, "%s: duplicate symbol", sym.name);
 			YYERROR;
@@ -393,9 +394,9 @@ label:	L_IDENT ':' {
 
 		sym.name = str_dup($1);
 		sym.type = SYM_LABEL;
-		sym.s.label.addr = varr_size(&mpc->code);
+		sym.s.label.addr = c_size(&mpc->code);
 
-		if ((p = hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
+		if ((p = c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
 			compile_error(mpc, "%s: duplicate symbol", sym.name);
 			YYERROR;
@@ -417,13 +418,13 @@ if:	L_IF {
 
 		/* store then addr */
 		PEEK_ADDR(addr);
-		CODE(addr)[1] = varr_size(&mpc->code);
+		CODE(addr)[1] = c_size(&mpc->code);
 	} stmt optional_else {
 		int addr;
 
 		/* store next stmt addr */
 		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&mpc->code);
+		CODE(addr)[0] = c_size(&mpc->code);
 
 		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 	}
@@ -439,7 +440,7 @@ optional_else: /* empty */
 		code2(mpc, c_jmp_addr, (void *) addr);
 
 		/* store else addr */
-		CODE(addr)[2] = varr_size(&mpc->code);
+		CODE(addr)[2] = c_size(&mpc->code);
 	} stmt
 	;
 
@@ -459,13 +460,13 @@ switch:	L_SWITCH {
 		if (jumptab == NULL)
 			jumptab = varr_enew(&mpc->jumptabs);
 		else
-			varr_erase(jumptab);
+			c_erase(jumptab);
 		jump = varr_enew(jumptab);
 		jump->addr = INVALID_ADDR;
 
 		/* next_addr, jt_offset */
 		code(mpc, (void *) DELIMITER_ADDR);
-		mpc->curr_break_addr = varr_size(&mpc->code) - 1;
+		mpc->curr_break_addr = c_size(&mpc->code) - 1;
 		code(mpc, (void *) mpc->curr_jumptab);
 	} '(' expr ')' {
 		code(mpc, c_stop);
@@ -480,7 +481,7 @@ switch:	L_SWITCH {
 		 */
 		code(mpc, c_jmp);
 		code(mpc, (void *) mpc->curr_break_addr);
-		mpc->curr_break_addr = varr_size(&mpc->code) - 1;
+		mpc->curr_break_addr = c_size(&mpc->code) - 1;
 
 		/*
 		 * traverse linked list of break addresses
@@ -489,7 +490,7 @@ switch:	L_SWITCH {
 		for (; mpc->curr_break_addr != DELIMITER_ADDR;
 		     mpc->curr_break_addr = next_break_addr) {
 			next_break_addr = CODE(mpc->curr_break_addr)[0];
-			CODE(mpc->curr_break_addr)[0] = varr_size(&mpc->code);
+			CODE(mpc->curr_break_addr)[0] = c_size(&mpc->code);
 		}
 
 		/* qsort jumptab */
@@ -513,7 +514,7 @@ switch:	L_SWITCH {
 		POP_ADDR(addr);
 
 		/* store next addr */
-		CODE(addr)[0] = varr_size(&mpc->code);
+		CODE(addr)[0] = c_size(&mpc->code);
 		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 	}
 	;
@@ -536,7 +537,7 @@ case_label: L_CASE int_const ':' {
 
 		jump = (swjump_t *) varr_enew(jumptab);
 		jump->val.i = $2;
-		jump->addr = varr_size(&mpc->code);
+		jump->addr = c_size(&mpc->code);
 	}
 	;
 
@@ -557,7 +558,7 @@ default: L_DEFAULT ':' {
 		}
 
 		jump = (swjump_t *) VARR_GET(jumptab, 0);
-		jump->addr = varr_size(&mpc->code);
+		jump->addr = c_size(&mpc->code);
 	}
 	;
 
@@ -569,7 +570,7 @@ break: L_BREAK ';' {
 		}
 
 		code2(mpc, c_jmp, (void *) mpc->curr_break_addr);
-		mpc->curr_break_addr = varr_size(&mpc->code) - 1;
+		mpc->curr_break_addr = c_size(&mpc->code) - 1;
 	}
 	| L_BREAK L_IDENT ';' {
 		sym_t *sym;
@@ -577,7 +578,7 @@ break: L_BREAK ';' {
 
 		if (CODE(sym->s.label.addr)[0] != (int) c_if
 		&&  CODE(sym->s.label.addr)[0] != (int) c_switch
-		&&  CODE(sym->s.label.addr)[0] != (int) c_foreach) {
+		&&  CODE(sym->s.label.addr)[0] != (int) c_op_foreach) {
 			compile_error(mpc,
 			    "break outside of if or switch or loop");
 			YYERROR;
@@ -589,7 +590,7 @@ break: L_BREAK ';' {
 
 foreach: L_FOREACH {
 		/* emit `foreach' */
-		code(mpc, c_foreach);
+		code(mpc, c_op_foreach);
 		PUSH_ADDR();
 
 		/* next addr, body */
@@ -647,7 +648,7 @@ foreach: L_FOREACH {
 		code3(mpc, (void *) INVALID_ADDR, sym->name, id);
 
 		/* body addr */
-		CODE(addr)[1] = varr_size(&mpc->code);
+		CODE(addr)[1] = c_size(&mpc->code);
 	} stmt {
 		int addr;
 		int body_addr;
@@ -656,7 +657,7 @@ foreach: L_FOREACH {
 		/* emit `continue' */
 		code(mpc, c_jmp);
 		code(mpc, (void *) mpc->curr_continue_addr);
-		mpc->curr_continue_addr = varr_size(&mpc->code) - 1;
+		mpc->curr_continue_addr = c_size(&mpc->code) - 1;
 
 		POP_ADDR(body_addr);
 
@@ -675,8 +676,8 @@ foreach: L_FOREACH {
 
 		/* store next stmt addr */
 		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&mpc->code);
-		CODE(body_addr)[3] = varr_size(&mpc->code);
+		CODE(addr)[0] = c_size(&mpc->code);
+		CODE(body_addr)[3] = c_size(&mpc->code);
 
 		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 	}
@@ -690,13 +691,13 @@ continue: L_CONTINUE ';' {
 
 		/* emit `continue' */
 		code2(mpc, c_jmp, (void *) mpc->curr_continue_addr);
-		mpc->curr_continue_addr = varr_size(&mpc->code) - 1;
+		mpc->curr_continue_addr = c_size(&mpc->code) - 1;
 	}
 	| L_CONTINUE L_IDENT ';' {
 		sym_t *sym;
 		SYM_LOOKUP(sym, $2, SYM_LABEL);
 
-		if (CODE(sym->s.label.addr)[0] != (int) c_foreach) {
+		if (CODE(sym->s.label.addr)[0] != (int) c_op_foreach) {
 			compile_error(mpc,
 			    "continue outside of loop");
 			YYERROR;
@@ -855,7 +856,7 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		/* else_addr */
 		PEEK_ADDR(addr);
-		CODE(addr)[1] = varr_size(&mpc->code);
+		CODE(addr)[1] = c_size(&mpc->code);
 	} ':' expr %prec '?' {
 		int addr;
 
@@ -869,7 +870,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		}
 
 		/* next_addr */
-		CODE(addr)[0] = varr_size(&mpc->code);
+		CODE(addr)[0] = c_size(&mpc->code);
 	}
 	| expr L_LOR {
 		INT_OP("||", $1, c_bop_lor);
@@ -883,7 +884,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		code(mpc, c_stop);
 
 		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&mpc->code);
+		CODE(addr)[0] = c_size(&mpc->code);
 
 		$$ = MT_INT;
 	}
@@ -899,7 +900,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		code(mpc, c_stop);
 
 		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&mpc->code);
+		CODE(addr)[0] = c_size(&mpc->code);
 
 		$$ = MT_INT;
 	}
@@ -1058,7 +1059,7 @@ struct codeinfo_t codetab[] = {
 	{ c_if,			"if",			3 },
 	{ c_switch,		"switch",		2 },
 	{ c_quecolon,		"quecolon",		2 },
-	{ c_foreach,		"foreach",		2 },
+	{ c_op_foreach,		"foreach",		2 },
 	{ c_foreach_next,	"foreach_next",		3 },
 	{ c_declare,		"declare",		3 },
 	{ c_declare_assign,	"declare_assign",	3 },
@@ -1154,22 +1155,30 @@ sym_cpy(sym_t *dst, const sym_t *src)
 }
 
 varrdata_t v_swjumps = {
+	&varr_ops,
+
 	sizeof(swjump_t), 4,
+
 	NULL, NULL, NULL
 };
 
 static void
 jumptab_init(varr *v)
 {
-	varr_init(v, &v_swjumps);
+	c_init(v, &v_swjumps);
 }
 
 varrdata_t v_ints = {
+	&varr_ops,
+
 	sizeof(int), 8,
+
 	NULL, NULL, NULL
 };
 
 varrdata_t v_jumptabs = {
+	&varr_ops,
+
 	sizeof(varr), 4,
 
 	(e_init_t) jumptab_init,
@@ -1178,11 +1187,16 @@ varrdata_t v_jumptabs = {
 };
 
 varrdata_t v_iterdata = {
+	&varr_ops,
+
 	sizeof(iterdata_t), 4,
+
 	NULL, NULL, NULL
 };
 
 hashdata_t h_strings = {
+	&hash_ops,
+
 	sizeof(char *), 4,
 
 	strkey_init,
@@ -1195,6 +1209,8 @@ hashdata_t h_strings = {
 };
 
 hashdata_t h_syms = {
+	&hash_ops,
+
 	sizeof(sym_t), 4,
 
 	(e_init_t) sym_init,
@@ -1207,7 +1223,10 @@ hashdata_t h_syms = {
 };
 
 varrdata_t v_vos = {
+	&varr_ops,
+
 	sizeof(vo_t), 4,
+
 	NULL, NULL, NULL
 };
 
@@ -1218,11 +1237,11 @@ mpcode_init(mpcode_t *mpc)
 	mpc->mp = NULL;
 	mpc->lineno = 0;
 
-	hash_init(&mpc->strings, &h_strings);
-	hash_init(&mpc->syms, &h_syms);
+	c_init(&mpc->strings, &h_strings);
+	c_init(&mpc->syms, &h_syms);
 
-	varr_init(&mpc->cstack, &v_ints);
-	varr_init(&mpc->args, &v_ints);
+	c_init(&mpc->cstack, &v_ints);
+	c_init(&mpc->args, &v_ints);
 	mpc->curr_block = 0;
 
 	mpc->curr_jumptab = -1;
@@ -1230,12 +1249,12 @@ mpcode_init(mpcode_t *mpc)
 	mpc->curr_continue_addr = INVALID_ADDR;
 
 	mpc->ip = 0;
-	varr_init(&mpc->code, &v_ints);
+	c_init(&mpc->code, &v_ints);
 
-	varr_init(&mpc->jumptabs, &v_jumptabs);
-	varr_init(&mpc->iterdata, &v_iterdata);
+	c_init(&mpc->jumptabs, &v_jumptabs);
+	c_init(&mpc->iterdata, &v_iterdata);
 
-	varr_init(&mpc->data, &v_vos);
+	c_init(&mpc->data, &v_vos);
 }
 
 void
@@ -1243,18 +1262,18 @@ mpcode_destroy(mpcode_t *mpc)
 {
 	free_string(mpc->name);
 
-	hash_destroy(&mpc->strings);
-	hash_destroy(&mpc->syms);
+	c_destroy(&mpc->strings);
+	c_destroy(&mpc->syms);
 
-	varr_destroy(&mpc->cstack);
-	varr_destroy(&mpc->args);
+	c_destroy(&mpc->cstack);
+	c_destroy(&mpc->args);
 
-	varr_destroy(&mpc->code);
+	c_destroy(&mpc->code);
 
-	varr_destroy(&mpc->jumptabs);
-	varr_destroy(&mpc->iterdata);
+	c_destroy(&mpc->jumptabs);
+	c_destroy(&mpc->iterdata);
 
-	varr_destroy(&mpc->data);
+	c_destroy(&mpc->data);
 }
 
 static
@@ -1271,7 +1290,7 @@ mpcode_dump(mpcode_t *mpc)
 {
 	size_t ip;
 
-	for (ip = 0; ip < varr_size(&mpc->code); ip++) {
+	for (ip = 0; ip < c_size(&mpc->code); ip++) {
 		void *p = (void *) CODE(ip)[0];
 		codeinfo_t *ci;
 
@@ -1300,7 +1319,7 @@ mpcode_dump(mpcode_t *mpc)
 
 			jumptab = varr_get(&mpc->jumptabs, jt_offset);
 			if (jumptab != NULL)
-				varr_foreach(jumptab, print_swjump_cb);
+				c_foreach(jumptab, print_swjump_cb);
 		} else if (p == c_quecolon) {
 			fprintf(stderr, " (next: 0x%08x else: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2]);
@@ -1308,7 +1327,7 @@ mpcode_dump(mpcode_t *mpc)
 			fprintf(stderr,
 				" (next: 0x%08x, then: 0x%08x, else: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2], CODE(ip)[3]);
-		} else if (p == c_foreach) {
+		} else if (p == c_op_foreach) {
 			fprintf(stderr,
 				" (next: 0x%08x, body: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2]);
@@ -1349,10 +1368,10 @@ sym_lookup(mpcode_t *mpc, const char *name)
 {
 	sym_t *sym;
 
-	if ((sym = (sym_t *) hash_lookup(&glob_syms, name)) != NULL)
+	if ((sym = (sym_t *) c_lookup(&glob_syms, name)) != NULL)
 		return sym;
 
-	return (sym_t *) hash_lookup(&mpc->syms, name);
+	return (sym_t *) c_lookup(&mpc->syms, name);
 }
 
 static void *
@@ -1373,7 +1392,7 @@ cleanup_syms(mpcode_t *mpc, int block)
 	for (; ;) {
 		sym_t *sym;
 
-		sym = (sym_t *) hash_foreach(&mpc->syms, find_block_cb, block);
+		sym = (sym_t *) c_foreach(&mpc->syms, find_block_cb, block);
 		if (sym == NULL)
 			break;
 
@@ -1381,7 +1400,7 @@ cleanup_syms(mpcode_t *mpc, int block)
 			log(LOG_INFO, "%s: %s (%d)",
 			    __FUNCTION__, sym->name, sym->s.var.block);
 		}
-		hash_delete(&mpc->syms, sym->name);
+		c_delete(&mpc->syms, sym->name);
 	}
 }
 
@@ -1407,8 +1426,8 @@ alloc_string(mpcode_t *mpc, const char *s)
 	if (IS_NULLSTR(s))
 		return str_empty;
 
-	if ((p = hash_lookup(&mpc->strings, s)) == NULL)
-		p = hash_insert(&mpc->strings, s, &s);
+	if ((p = c_lookup(&mpc->strings, s)) == NULL)
+		p = c_insert(&mpc->strings, s, &s);
 	return *p;
 }
 
@@ -1425,7 +1444,7 @@ var_add(mpcode_t *mpc, const char *name, int type_tag)
 	sym.s.var.block = -1;
 	sym.s.var.data.i = 0;
 
-	if ((s = (sym_t *) hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
+	if ((s = (sym_t *) c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 		sym_destroy(&sym);
 		compile_error(mpc, "%s: duplicate symbol", sym.name);
 		return -1;
@@ -1501,7 +1520,7 @@ _mprog_compile(mprog_t *mp)
 
 		mpcode_init(&mpcode);
 		mpcode.name = str_qdup(mp->name);
-		if ((mpc = (mpcode_t *) hash_insert(&mpcodes, mpcode.name, &mpcode)) == NULL) {
+		if ((mpc = (mpcode_t *) c_insert(&mpcodes, mpcode.name, &mpcode)) == NULL) {
 			log(LOG_ERROR, "compile_mprog: %s: mpcode already exists",
 			    mpcode.name);
 			mpcode_destroy(&mpcode);
@@ -1514,17 +1533,17 @@ _mprog_compile(mprog_t *mp)
 
 	mpc->lineno = 1;
 
-	hash_erase(&mpc->strings);
-	hash_erase(&mpc->syms);
+	c_erase(&mpc->strings);
+	c_erase(&mpc->syms);
 
-	varr_erase(&mpc->cstack);
-	varr_erase(&mpc->args);
+	c_erase(&mpc->cstack);
+	c_erase(&mpc->args);
 	mpc->curr_block = 0;
 
-	varr_erase(&mpc->code);
+	c_erase(&mpc->code);
 
-	varr_erase(&mpc->jumptabs);
-	varr_erase(&mpc->iterdata);
+	c_erase(&mpc->jumptabs);
+	c_erase(&mpc->iterdata);
 
 	mpc->curr_jumptab = -1;
 	mpc->curr_break_addr = INVALID_ADDR;
@@ -1646,7 +1665,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 	else if (rv < 0)
 		goto err;
 
-	if ((sym = (sym_t *) hash_lookup(&mpc->syms, "$_")) == NULL) {
+	if ((sym = (sym_t *) c_lookup(&mpc->syms, "$_")) == NULL) {
 		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
 			__FUNCTION__, "$_");
 		execerr(MPC_ERR_RUNTIME);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.34 2001-08-05 16:36:26 fjoe Exp $
+ * $Id: db_clan.c,v 1.35 2001-09-12 19:42:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,7 +61,7 @@ DBINIT_FUN(init_clans)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PLISTS", NULL);
 	else
-		hash_init(&clans, &h_clans);
+		c_init(&clans, &h_clans);
 }
 
 DBLOAD_FUN(load_clan)
@@ -83,7 +83,7 @@ DBLOAD_FUN(load_clan)
 				clan_t *pclan;
 				if (IS_NULLSTR(clan.name)) {
 					log(LOG_ERROR, "load_clan: clan name not defined");
-				} else if ((pclan = hash_insert(&clans,
+				} else if ((pclan = c_insert(&clans,
 						clan.name, &clan)) != NULL) {
 					const char *file_name =
 						strkey_filename(clan.name, CLAN_EXT);
@@ -116,7 +116,7 @@ DBLOAD_FUN(load_clan)
 			KEY("Recall", clan.recall_vnum, fread_number(fp));
 			break;
 		case 'S':
-			SKEY("SkillSpec", clan.skill_spec, fread_strkey(
+			SKEY("SkillSpec", clan.skill_spec, c_fread_strkey(
 			    fp, &specs, "load_clan"));		// notrans
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.15 2001-08-26 05:49:14 fjoe Exp $
+ * $Id: olc_spec.c,v 1.16 2001-09-12 19:43:04 fjoe Exp $
  */
 
 #include "olc.h"
@@ -88,13 +88,13 @@ OLC_FUN(speced_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	spec_init(&spec);
 	spec.spec_name = str_dup(arg);
-	s = hash_insert(&specs, spec.spec_name, &spec);
+	s = c_insert(&specs, spec.spec_name, &spec);
 	spec_destroy(&spec);
 
 	if (s == NULL) {
@@ -138,7 +138,7 @@ OLC_FUN(speced_save)
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved specs:");
-	hash_foreach(&specs, save_spec_cb, ch, &found);
+	c_foreach(&specs, save_spec_cb, ch, &found);
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -187,7 +187,7 @@ OLC_FUN(speced_show)
 	else {
 		buf_printf(output, BUF_END, "Num   Skill name          Level  Rate    Min    Adept   Max\n");
 		buf_printf(output, BUF_END, "--------------------------------------------------------------\n");
-		varr_foreach(&s->spec_skills, show_spec_skill_cb, output, &s->spec_skills);
+		c_foreach(&s->spec_skills, show_spec_skill_cb, output, &s->spec_skills);
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -356,7 +356,7 @@ save_spec_cb(void *p, va_list ap)
 	}
 	fprintf(fp, "End\n");
 
-	varr_foreach(&s->spec_skills, save_spec_skill_cb, fp);
+	c_foreach(&s->spec_skills, save_spec_skill_cb, fp);
 	fprintf(fp, "\n#$\n");
 	fclose(fp);
 

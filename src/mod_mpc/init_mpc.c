@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.29 2001-09-12 12:49:07 fjoe Exp $
+ * $Id: init_mpc.c,v 1.30 2001-09-12 19:42:55 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -81,6 +81,8 @@ static dynafun_data_t core_dynafun_tab[] = {
 hash_t mpcodes;
 
 hashdata_t h_mpcodes = {
+	&hash_ops,
+
 	sizeof(mpcode_t), 4,
 
 	(e_init_t) mpcode_init,
@@ -128,8 +130,8 @@ MODINIT_FUN(_module_load, m)
 
 	dynafun_tab_register(__mod_tab(MODULE), m);
 
-	hash_init(&mpcodes, &h_mpcodes);
-	hash_foreach(&mprogs, compile_mprog_cb);
+	c_init(&mpcodes, &h_mpcodes);
+	c_foreach(&mprogs, compile_mprog_cb);
 
 	return 0;
 }
@@ -139,7 +141,7 @@ MODINIT_FUN(_module_unload, m)
 	mprog_compile = NULL;
 	mprog_execute = NULL;
 
-	hash_destroy(&mpcodes);
+	c_destroy(&mpcodes);
 
 	dynafun_tab_unregister(__mod_tab(MODULE));
 	mpc_fini();
@@ -288,7 +290,7 @@ mpc_init(void)
 		sym.s.var.data.i = ic->value;
 		sym.s.var.is_const = TRUE;
 
-		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+		if ((p = c_insert(&glob_syms, sym.name, &sym)) == NULL) {
 			log(LOG_ERROR, "%s: duplicate symbol (const)",
 			    sym.name);
 		}
@@ -305,7 +307,7 @@ mpc_init(void)
 		sym.name = str_dup(*pp);
 		sym.type = SYM_FUNC;
 
-		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+		if ((p = c_insert(&glob_syms, sym.name, &sym)) == NULL) {
 			log(LOG_ERROR, "%s: duplicate symbol (func)",
 			    sym.name);
 		}

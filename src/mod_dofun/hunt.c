@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.43 2001-08-30 18:50:06 fjoe Exp $
+ * $Id: hunt.c,v 1.44 2001-09-12 19:42:50 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -67,14 +67,14 @@ DO_FUN(do_hunt, ch, argument)
 			check_improve(ch, "world find", TRUE, 1);
 	}
 
- 	WAIT_STATE(ch, skill_beats("hunt"));
+	WAIT_STATE(ch, skill_beats("hunt"));
 
 	if (fArea)
 		victim = get_char_area(ch, arg);
 	else
 		victim = get_char_world(ch, arg);
 
- 	if (victim == NULL || victim->in_room == NULL) {
+	if (victim == NULL || victim->in_room == NULL) {
 		act_char("No-one around by that name.", ch);
 		return;
 	}
@@ -106,7 +106,7 @@ DO_FUN(do_hunt, ch, argument)
 
 	direction = find_path(ch->in_room->vnum, victim->in_room->vnum,
 			      ch, DEFAULT_DEPTH, fArea);
- 	if (direction < 0) {
+	if (direction < 0) {
 		act("You couldn't find a path to $N from here.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -191,6 +191,8 @@ struct room_d
 };
 
 static hashdata_t h_room = {
+	&hash_ops,
+
 	sizeof(room_d), 32,
 	NULL, NULL, NULL,
 
@@ -218,10 +220,10 @@ find_path(int in_room_vnum, int out_room_vnum,
 
 	startp = get_room_index(in_room_vnum);
 
-	hash_init(&x_room, &h_room);
+	c_init(&x_room, &h_room);
 	d_room.vnum = in_room_vnum;
 	d_room.exit = -1;
-	hash_insert(&x_room, &in_room_vnum, &d_room);
+	c_insert(&x_room, &in_room_vnum, &d_room);
 
 	/* initialize queue */
 	q_head = (room_q *) malloc(sizeof(room_q));
@@ -232,7 +234,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 	count = 0;
 	for (; q_head; tmp_q = q_head->next_q, free(q_head), q_head = tmp_q) {
 		int i;
-  		ROOM_INDEX_DATA *herep;
+		ROOM_INDEX_DATA *herep;
 
 		herep = get_room_index(q_head->room_nr);
 		if (herep == NULL) {
@@ -248,7 +250,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 		for (i = 0; i < MAX_DIR; i++) {
 			room_d *dp;
 			int tmp_room;
-  			EXIT_DATA *pexit = herep->exit[i];
+			EXIT_DATA *pexit = herep->exit[i];
 
 			if (pexit == NULL
 			||  pexit->to_room.r == NULL
@@ -269,16 +271,16 @@ find_path(int in_room_vnum, int out_room_vnum,
 				}
 
 				/* return direction if first layer */
-				dp = hash_lookup(&x_room, &tmp_room);
+				dp = c_lookup(&x_room, &tmp_room);
 				if (dp == NULL) {
 					log(LOG_BUG, "key %d: not found",
 					    tmp_room);
-					hash_destroy(&x_room);
+					c_destroy(&x_room);
 					return -1;
 				}
 
 				rv = dp->exit == -1 ? i : dp->exit;
-				hash_destroy(&x_room);
+				c_destroy(&x_room);
 				return rv;
 			}
 
@@ -286,7 +288,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 			 * shall we add room to queue?
 			 * count determines total breadth and depth
 			 */
-			if (hash_lookup(&x_room, &tmp_room) != NULL
+			if (c_lookup(&x_room, &tmp_room) != NULL
 			||  count++ >= depth)
 				continue;
 
@@ -296,9 +298,9 @@ find_path(int in_room_vnum, int out_room_vnum,
 			tmp_q->next_q = NULL;
 			q_tail->next_q = tmp_q;
 			q_tail = tmp_q;
-	      
+
 			/* ancestor for first layer is the direction */
-			dp = hash_lookup(&x_room, &q_head->room_nr);
+			dp = c_lookup(&x_room, &q_head->room_nr);
 			if (dp == NULL) {
 				log(LOG_BUG, "vnum %d: ancestor not found",
 				    q_head->room_nr);
@@ -307,12 +309,12 @@ find_path(int in_room_vnum, int out_room_vnum,
 
 			d_room.vnum = tmp_room;
 			d_room.exit = (dp->exit == -1 ? i : dp->exit);
-			hash_insert(&x_room, &tmp_room, &d_room);
+			c_insert(&x_room, &tmp_room, &d_room);
 		}
 	}
 
 	/* couldn't find path */
-	hash_destroy(&x_room);
+	c_destroy(&x_room);
 	return -1;
 }
 

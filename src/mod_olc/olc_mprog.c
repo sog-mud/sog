@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.5 2001-09-12 12:32:35 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.6 2001-09-12 19:43:02 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -69,13 +69,13 @@ OLC_FUN(mped_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	mprog_init(&mprog);
 	mprog.name	= str_dup(arg);
-	mp = hash_insert(&mprogs, mprog.name, &mprog);
+	mp = c_insert(&mprogs, mprog.name, &mprog);
 
 	if (mp == NULL) {
 		act_puts("MProgEd: $t: already exists.",
@@ -125,7 +125,7 @@ OLC_FUN(mped_save)
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved mprogs:");
-	hash_foreach(&mprogs, save_mprog_cb, ch, &found);
+	c_foreach(&mprogs, save_mprog_cb, ch, &found);
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;

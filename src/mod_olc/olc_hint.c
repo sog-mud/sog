@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.7 2001-08-25 04:46:53 fjoe Exp $
+ * $Id: olc_hint.c,v 1.8 2001-09-12 19:43:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -99,7 +99,7 @@ OLC_FUN(hinted_edit)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	hint = varr_foreach(&hints, hint_search_cb, argument);
+	hint = c_foreach(&hints, hint_search_cb, argument);
 	if (!hint) {
 		act_char("HintEd: no such hint.", ch);
 		return FALSE;
@@ -123,7 +123,7 @@ OLC_FUN(hinted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	varr_foreach(&hints, save_hint_cb, fp);
+	c_foreach(&hints, save_hint_cb, fp);
 
 	fprintf(fp, "0\n");
 	fclose(fp);
@@ -150,7 +150,7 @@ OLC_FUN(hinted_show)
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
-		if ((hint = varr_foreach(&hints, hint_search_cb, argument)) == NULL) {
+		if ((hint = c_foreach(&hints, hint_search_cb, argument)) == NULL) {
 			act_char("HintEd: No such hint.", ch);
 			return FALSE;
 		}
@@ -175,7 +175,7 @@ OLC_FUN(hinted_list)
 
 	output = buf_new(0);
 
-	varr_foreach(&hints, hint_list_cb, argument, output);
+	c_foreach(&hints, hint_list_cb, argument, output);
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.142 2001-09-04 19:32:58 fjoe Exp $
+ * $Id: olc.c,v 1.143 2001-09-12 19:42:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -142,7 +142,7 @@ MODINIT_FUN(_module_load, m)
 		return -1;
 	}
 
-	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	c_foreach(&commands, cmd_load_cb, MODULE, m);
 	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
@@ -162,7 +162,7 @@ MODINIT_FUN(_module_unload, m)
 		edit_done(d);
 	}
 
-	varr_foreach(&commands, cmd_unload_cb, MODULE);
+	c_foreach(&commands, cmd_unload_cb, MODULE);
 	olc_interpret = NULL;
 	return 0;
 }
@@ -309,7 +309,7 @@ OLC_FUN(olced_strkey)
 	}
 
 	o = (olced_strkey_t *) cmd->arg1;
-	if ((q = hash_insert(o->h, arg, ch->desc->pEdit)) == NULL) {
+	if ((q = c_insert(o->c, arg, ch->desc->pEdit)) == NULL) {
 		act_puts("$t: $T: duplicate name.",
 			 ch, OLCED(ch)->name, arg,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -324,8 +324,8 @@ OLC_FUN(olced_strkey)
 			 o->path, strkey_filename(arg, o->ext));
 	}
 
-	hash_delete(o->h, old_key);
-	ch->desc->pEdit = hash_lookup(o->h, arg);
+	c_delete(o->c, old_key);
+	ch->desc->pEdit = c_lookup(o->c, arg);
 	if (ch->desc->pEdit == NULL) {
 		act_puts("$t: $T: not found.",
 			 ch, OLCED(ch)->name, arg,
@@ -392,7 +392,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 			return TRUE;
 		}
 
-		if ((q = hash_insert(o->h, argument, q)) == NULL) {
+		if ((q = c_insert(o->c, argument, q)) == NULL) {
 			act_puts("$t: $T: duplicate name.",
 				 ch, OLCED(ch)->name, argument,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -413,8 +413,8 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 				 o->path, strkey_filename(argument, o->ext));
 		}
 
-		hash_delete(o->h, old_key);
-		ch->desc->pEdit = hash_lookup(o->h, argument);
+		c_delete(o->c, old_key);
+		ch->desc->pEdit = c_lookup(o->c, argument);
 		if (ch->desc->pEdit == NULL) {
 			act_puts("$t: $T: not found.",
 				 ch, OLCED(ch)->name, langname,
@@ -525,7 +525,7 @@ olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if ((p = strkey_search(h, argument)) == NULL) {
+	if ((p = c_strkey_search(h, argument)) == NULL) {
 		act_puts("'$t': unknown $T.",
 			 ch, argument, cmd->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -572,7 +572,7 @@ olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if ((p = mlstrkey_search(h, argument)) == NULL) {
+	if ((p = c_mlstrkey_search(h, argument)) == NULL) {
 		act_puts("'$t': unknown $T.",
 			 ch, argument, cmd->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -1372,7 +1372,7 @@ olced_trigdel(CHAR_DATA *ch, const char *argument, varr *v)
 	}
 
 	act_char("Ok.", ch);
-	varr_delete(v, num);
+	varr_ndelete(v, num);
 	return TRUE;
 }
 
@@ -1403,7 +1403,7 @@ VALIDATE_FUN(validate_room_vnum)
 VALIDATE_FUN(validate_skill_spec)
 {
 	const char *spn = (const char *) arg;
-	STRKEY_CHECK(&specs, spn, OLCED(ch)->name); 
+	C_STRKEY_CHECK(&specs, spn, OLCED(ch)->name);
 	return TRUE;
 }
 

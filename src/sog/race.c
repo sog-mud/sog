@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.31 2001-08-21 11:39:07 fjoe Exp $
+ * $Id: race.c,v 1.32 2001-09-12 19:43:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,6 +35,8 @@ hash_t races;
 
 hashdata_t h_races =
 {
+	&hash_ops,
+
 	sizeof(race_t), 1,
 	(e_init_t) race_init,
 	(e_destroy_t) race_destroy,
@@ -100,7 +102,10 @@ race_destroy(race_t *r)
 
 static varrdata_t v_classes =
 {
+	&varr_ops,
+
 	sizeof(rclass_t), 4,
+
 	strkey_init,
 	strkey_destroy,
 	NULL
@@ -113,7 +118,7 @@ pcrace_new(void)
 	pcr = calloc(1, sizeof(*pcr));
 	pcr->skill_spec = str_empty;
 	pcr->hunger_rate = 100;
-	varr_init(&pcr->classes, &v_classes);
+	c_init(&pcr->classes, &v_classes);
 	pcr->refcnt = 1;
 	return pcr;
 }
@@ -133,7 +138,7 @@ pcrace_free(pcrace_t *pcr)
 {
 	if (--pcr->refcnt > 0)
 		return;
-	varr_destroy(&pcr->classes);
+	c_destroy(&pcr->classes);
 	free_string(pcr->skill_spec);
 	free_string(pcr->bonus_skills);
 	free(pcr);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.20 2001-09-12 12:32:50 fjoe Exp $
+ * $Id: hash.c,v 1.21 2001-09-12 19:43:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,59 +33,133 @@
 #include <typedef.h>
 #include <varr.h>
 #include <hash.h>
+#include <container.h>
 #include <str.h>
 #include <strkey_hash.h>
-
-/*
- * hash_add flags
- */
-#define HA_F_INSERT	(A)	/* insert element if does not exist */
-#define HA_F_UPDATE	(B)	/* update element if exists */
+#include <util.h>
 
 static void *hash_search(hash_t *h, const void *k, varr *v);
-static void *hash_add(hash_t *h, const void *k, const void *e, int flags);
 
 void
-hash_init(hash_t *h, hashdata_t *h_data)
+hash_init(void *c, void *info)
 {
+	hash_t *h = (hash_t *) c;
+	hashdata_t *h_data = (hashdata_t *) info;
 	size_t i;
 
 	h->h_data = h_data;
 	h->v = malloc(h_data->hsize * sizeof(varr));
 
+	h->v[0].v_data = malloc(sizeof(varrdata_t));
+	memcpy(h->v[0].v_data, h_data, sizeof(varrdata_t));
+	h->v[0].v_data->ops = &varr_ops;
+
 	for (i = 0; i < h_data->hsize; i++)
-		varr_init(h->v + i, (varrdata_t *) h_data);
+		c_init(h->v + i, h->v[0].v_data);
 }
 
 void
-hash_destroy(hash_t *h)
+hash_destroy(void *c)
 {
+	hash_t *h = (hash_t *) c;
 	size_t i;
+	varrdata_t *v_data;
 
+	v_data = h->v[0].v_data;
 	for (i = 0; i < h->h_data->hsize; i++)
-		varr_destroy(h->v + i);
+		c_destroy(h->v + i);
 
+	free(v_data);
 	free(h->v);
 }
 
-void
-hash_erase(hash_t *h)
+#if !defined(HASHTEST) && !defined(MPC)
+static varrdata_t v_print =
 {
+	&varr_ops,
+
+	sizeof(const char *), 8,
+	strkey_init,
+	strkey_destroy,
+
+	NULL
+};
+
+void
+hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
+{
+	varr v;
+
+	c_init(&v, &v_print);
+	c_foreach(h, addname_cb, &v);
+	varr_qsort(&v, cmpstr);
+	c_strkey_dump(&v, buf);
+	c_destroy(&v);
+}
+#endif
+
+int
+vnum_hash(const void *k, size_t hsize)
+{
+	return (*(const int *) k) * 17 % hsize;
+}
+
+int
+vnum_ke_cmp(const void *k, const void *e)
+{
+	return *(const int *) k - *(const int *) e;
+}
+
+/*-------------------------------------------------------------------
+ * container ops
+ */
+
+DEFINE_C_OPS(hash);
+
+static void
+hash_erase(void *c)
+{
+	hash_t *h = (hash_t *) c;
 	size_t i;
 
 	for (i = 0; i < h->h_data->hsize; i++)
-		varr_erase(h->v + i);
+		c_erase(h->v + i);
 }
 
-void *
-hash_lookup(hash_t *h, const void *k)
+static void *
+hash_lookup(void *c, const void *k)
 {
+	hash_t *h = (hash_t *) c;
 	return hash_search(h, k, h->v + h->h_data->k_hash(k, h->h_data->hsize));
 }
 
-void
-hash_delete(hash_t *h, const void *k)
+static void *
+hash_add(void *c, const void *k, const void *e, int flags)
 {
+	hash_t *h = (hash_t *) c;
+	varr *v = h->v + h->h_data->k_hash(k, h->h_data->hsize);
+	void *elem = hash_search(h, k, v);	/* existing element */
+
+	if (elem == NULL) {
+		if (!IS_SET(flags, CA_F_INSERT))
+			return NULL;
+		elem = varr_enew(v);
+	} else {
+		if (!IS_SET(flags, CA_F_UPDATE))
+			return NULL;
+		if (v->v_data->e_destroy)
+			v->v_data->e_destroy(elem);
+	}
+
+	if (h->h_data->e_cpy)
+		return h->h_data->e_cpy(elem, e);
+	return memcpy(elem, e, h->h_data->nsize);
+}
+
+static void
+hash_delete(void *c, const void *k)
+{
+	hash_t *h = (hash_t *) c;
 	varr *v = h->v + h->h_data->k_hash(k, h->h_data->hsize);
 	void *e = hash_search(h, k, v);
 
@@ -95,31 +169,47 @@ hash_delete(hash_t *h, const void *k)
 	varr_edelete(v, e);
 }
 
+/*
+ * hash_foreach -- call `cb' for each item in hash
+ *		   if `cb' returns value < 0 then hash_foreach will
+ *		   exit immediately
+ */
 void *
-hash_insert(hash_t *h, const void *k, const void *e)
+hash_foreach(void *c, foreach_cb_t cb, va_list ap)
 {
-	return hash_add(h, k, e, HA_F_INSERT);
+	hash_t *h = (hash_t *) c;
+	size_t i;
+	void *rv = NULL;
+
+	for (i = 0; i < h->h_data->hsize; i++) {
+		if ((rv = varr_anforeach(h->v + i, 0, cb, ap)) != NULL)
+			break;
+	}
+
+	return rv;
 }
 
-void *
-hash_update(hash_t *h, const void *k, const void *e)
+size_t
+hash_size(void *c)
 {
-	return hash_add(h, k, e, HA_F_UPDATE);
-}
+	hash_t *h = (hash_t *) c;
+	size_t i;
+	size_t size = 0;
 
-void *
-hash_replace(hash_t *h, const void *k, const void *e)
-{
-	return hash_add(h, k, e, HA_F_INSERT | HA_F_UPDATE);
+	for (i = 0; i < h->h_data->hsize; i++)
+		size += c_size(h->v + i);
+
+	return size;
 }
 
 bool
-hash_isempty(hash_t *h)
+hash_isempty(void *c)
 {
+	hash_t *h = (hash_t *) c;
 	size_t i;
 
 	for (i = 0; i < h->h_data->hsize; i++) {
-		if (!varr_isempty(h->v+i))
+		if (!c_isempty(h->v + i))
 			return FALSE;
 	}
 
@@ -127,72 +217,27 @@ hash_isempty(hash_t *h)
 }
 
 #if !defined(HASHTEST) && !defined(MPC)
-int number_range(int from, int to);
-
 void *
-hash_random_item(hash_t *h)
+hash_random_elem(void *c)
 {
+	hash_t *h = (hash_t *) c;
+
 	if (hash_isempty(h))
 		return NULL;
 
-	for (;;) {
+	for (; ;) {
 		varr *v = h->v + number_range(0, h->h_data->hsize - 1);
 		if (v->nused == 0)
 			continue;
-		return VARR_GET(v, number_range(0, varr_size(v) - 1));
+		return VARR_GET(v, number_range(0, c_size(v) - 1));
 	}
-}
-#endif
-
-/*
- * hash_foreach -- call `cb' for each item in hash
- *		   if `cb' returns value < 0 then hash_foreach will
- *		   exit immediately
- */
-void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
-{
-	size_t i;
-	void *rv = NULL;
-	va_list ap;
-
-	va_start(ap, cb);
-	for (i = 0; i < h->h_data->hsize; i++) {
-		void *p;
-		if ((p = varr_anforeach(h->v + i, 0, cb, ap)) != NULL) {
-			rv = p;
-			break;
-		}
-	}
-	va_end(ap);
-
-	return rv;
-}
-
-#if !defined(HASHTEST) && !defined(MPC)
-static varrdata_t v_print =
-{
-	sizeof(const char *), 8,
-	strkey_init,
-	strkey_destroy,
-	NULL
-};
-
-void
-hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
-{
-	varr v;
-
-	varr_init(&v, &v_print);
-	hash_foreach(h, addname_cb, &v);
-	varr_qsort(&v, cmpstr);
-	vstr_dump(&v, buf);
-	varr_destroy(&v);
 }
 #endif
 
 /*-------------------------------------------------------------------
  * static functions
  */
+
 static void *
 hash_search(hash_t *h, const void *k, varr *v)
 {
@@ -205,38 +250,4 @@ hash_search(hash_t *h, const void *k, varr *v)
 	}
 
 	return NULL;
-}
-
-static void *
-hash_add(hash_t *h, const void *k, const void *e, int flags)
-{
-	varr *v = h->v + h->h_data->k_hash(k, h->h_data->hsize);
-	void *elem = hash_search(h, k, v);	/* existing element */
-
-	if (elem == NULL) {
-		if (!IS_SET(flags, HA_F_INSERT))
-			return NULL;
-		elem = varr_enew(v);
-	} else {
-		if (!IS_SET(flags, HA_F_UPDATE))
-			return NULL;
-		if (v->v_data->e_destroy)
-			v->v_data->e_destroy(elem);
-	}
-
-	if (h->h_data->e_cpy)
-		return h->h_data->e_cpy(elem, e);
-	return memcpy(elem, e, h->h_data->nsize);
-}
-
-int
-vnum_hash(const void *k, size_t hsize)
-{
-	return (*(const int *) k) * 17 % hsize;
-}
-
-int
-vnum_ke_cmp(const void *k, const void *e)
-{
-	return *(const int *) k - *(const int *) e;
 }

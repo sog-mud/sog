@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.37 2001-08-26 16:17:29 fjoe Exp $
+ * $Id: olc_rule.c,v 1.38 2001-09-12 19:43:03 fjoe Exp $
  */
 
 #include "olc.h"
@@ -245,7 +245,7 @@ OLC_FUN(ruleed_save)
 	}
 
 	EDIT_ROPS(ch, rops);
-	for (lang = 0; lang < varr_size(&langs); lang++) {
+	for (lang = 0; lang < c_size(&langs); lang++) {
 		int i;
 		lang_t *l = VARR_GET(&langs, lang);
 
@@ -327,7 +327,7 @@ OLC_FUN(ruleed_show)
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
-	for (i = 0; i < varr_size(&r->forms); i++) {
+	for (i = 0; i < c_size(&r->forms); i++) {
 		int i2;
 		char **p = VARR_GET(&r->forms, i);
 
@@ -398,7 +398,7 @@ OLC_FUN(ruleed_list)
 	if (rops->id == ED_IMPL) {
 		if (rcl->impl.nused) {
 			output = buf_new(0);
-			for (i = 0; i < varr_size(&rcl->impl); i++) {
+			for (i = 0; i < c_size(&rcl->impl); i++) {
 				rule_t *r = VARR_GET(&rcl->impl, i);
 				buf_printf(output, BUF_END, "%3d. %s\n", i, r->name);
 			}
@@ -410,7 +410,7 @@ OLC_FUN(ruleed_list)
 		for (i = 0; i < MAX_RULE_HASH; i++) {
 			size_t j;
 
-			for (j = 0; j < varr_size(rcl->expl + i); j++) {
+			for (j = 0; j < c_size(rcl->expl + i); j++) {
 				rule_t *r = VARR_GET(rcl->expl+i, j);
 
 				if (!str_prefix(argument, r->name)) {
@@ -564,7 +564,7 @@ rule_save(FILE *fp, rule_t *r)
 		    "Name %s~\n", r->name);
 	if (r->arg)
 		fprintf(fp, "BaseLen %d\n", r->arg);
-	for (i = 0; i < varr_size(&r->forms); i++) {
+	for (i = 0; i < c_size(&r->forms); i++) {
 		char **p = VARR_GET(&r->forms, i);
 		if (IS_NULLSTR(*p))
 			continue;
@@ -595,7 +595,7 @@ rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	for (i = 0; i < MAX_RULE_HASH; i++) {
 		size_t j;
 
-		for (j = 0; j < varr_size(rcl->expl + i); j++) {
+		for (j = 0; j < c_size(rcl->expl + i); j++) {
 			rule_t *r = VARR_GET(rcl->expl+i, j);
 			rule_save(fp, r);
 		}
@@ -630,7 +630,7 @@ rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_impl, ch, -1)) == NULL)
 		return;
 
-	for (i = 0; i < varr_size(&rcl->impl); i++) {
+	for (i = 0; i < c_size(&rcl->impl); i++) {
 		rule_t *r = VARR_GET(&rcl->impl, i);
 		rule_save(fp, r);
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.13 2001-08-05 16:36:27 fjoe Exp $
+ * $Id: db_cmd.c,v 1.14 2001-09-12 19:42:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ DBDATA db_cmd = { dbfun_cmd, init_cmds, 0 };
 DBINIT_FUN(init_cmds)
 {
 	if (!DBDATA_VALID(dbdata))
-		varr_init(&commands, &v_commands);
+		c_init(&commands, &v_commands);
 }
 
 DBLOAD_FUN(load_cmd)

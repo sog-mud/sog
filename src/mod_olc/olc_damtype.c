@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.8 2001-08-25 04:46:53 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.9 2001-09-12 19:43:00 fjoe Exp $
  */
 
 /*
@@ -99,13 +99,13 @@ OLC_FUN(damted_create)
 	one_argument(argument, arg, sizeof(arg));
 
 	/*
-	 * olced_busy check is not needed since hash_insert
+	 * olced_busy check is not needed since c_insert
 	 * adds new elements to the end of varr
 	 */
 
 	damtype_init(&dt);
 	dt.dam_name = str_dup(arg);
-	d = hash_insert(&damtypes, arg, &dt);
+	d = c_insert(&damtypes, arg, &dt);
 	damtype_destroy(&dt);
 
 	if (d == NULL) {
@@ -175,7 +175,7 @@ OLC_FUN(damted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	hash_foreach(&damtypes, damt_save_cb, fp);
+	c_foreach(&damtypes, damt_save_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -272,7 +272,7 @@ OLC_FUN(damted_delete)
 		return FALSE;
 
 	EDIT_DAMT(ch, dt);
-	hash_delete(&damtypes, dt->dam_name);
+	c_delete(&damtypes, dt->dam_name);
 	edit_done(ch->desc);
 	return TRUE;
 }

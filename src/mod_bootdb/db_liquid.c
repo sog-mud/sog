@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.16 2001-08-05 16:36:28 fjoe Exp $
+ * $Id: db_liquid.c,v 1.17 2001-09-12 19:42:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_liquids = { dbfun_liquids, init_liquids, 0 };
 DBINIT_FUN(init_liquids)
 {
 	if (DBDATA_VALID(dbdata))
-		hash_init(&liquids, &h_liquids);
+		c_init(&liquids, &h_liquids);
 }
 
 DBLOAD_FUN(load_liquid)
@@ -80,7 +80,7 @@ DBLOAD_FUN(load_liquid)
 
 				if (IS_NULLSTR(ln))
 					log(LOG_ERROR, "load_liquid: liquid name undefined");
-				else if (!hash_insert(&liquids, ln, &lq))
+				else if (!c_insert(&liquids, ln, &lq))
 					log(LOG_ERROR, "load_liquid: duplicate liquid name");
 				liquid_destroy(&lq);
 				return;

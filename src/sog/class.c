@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.34 2001-08-13 18:24:00 fjoe Exp $
+ * $Id: class.c,v 1.35 2001-09-12 19:43:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,6 +38,8 @@ static void	pose_destroy(pose_t *p);
 
 hashdata_t h_classes =
 {
+	&hash_ops,
+
 	sizeof(class_t), 1,
 	(e_init_t) class_init,
 	(e_destroy_t) class_destroy,
@@ -48,11 +50,20 @@ hashdata_t h_classes =
 	ke_cmp_str
 };
 
-static varrdata_t v_guilds = { sizeof(int), 4, NULL, NULL, NULL };
+static varrdata_t v_guilds = {
+	&varr_ops,
+
+	sizeof(int), 4,
+
+	NULL, NULL, NULL
+};
 
 static varrdata_t v_poses =
 {
+	&varr_ops,
+
 	sizeof(pose_t), 4,
+
 	(e_init_t) pose_init,
 	(e_destroy_t) pose_destroy,
 	(e_cpy_t) pose_cpy
@@ -80,8 +91,8 @@ class_init(class_t *cl)
 	cl->luck_bonus = 0;
 	cl->skill_spec = str_empty;
 
-	varr_init(&cl->guilds, &v_guilds);
-	varr_init(&cl->poses, &v_poses);
+	c_init(&cl->guilds, &v_guilds);
+	c_init(&cl->poses, &v_poses);
 	for (i = 0; i < MAX_STAT; i++)
 		cl->mod_stat[i] = 0;
 }
@@ -121,8 +132,8 @@ class_destroy(class_t *cl)
 {
 	free_string(cl->restrict_sex);
 	free_string(cl->skill_spec);
-	varr_destroy(&cl->poses);
-	varr_destroy(&cl->guilds);
+	c_destroy(&cl->poses);
+	c_destroy(&cl->guilds);
 }
 
 static void *
@@ -158,7 +169,7 @@ guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	||  IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (hash_foreach(&classes, guild_ok_cb, ch, room->vnum, &cn_found))
+	if (c_foreach(&classes, guild_ok_cb, ch, room->vnum, &cn_found))
 		return TRUE;
 
 	if (IS_NULLSTR(cn_found)) {

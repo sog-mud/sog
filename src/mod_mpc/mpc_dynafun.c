@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.16 2001-09-12 12:49:07 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.17 2001-09-12 19:42:56 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,7 +57,7 @@ has_sp(CHAR_DATA *ch, const char *spn, const char *spn_rm, const char *spn_add)
 	if (is_name_strict(spn_add, spn))
 		return TRUE;
 
-	return !!varr_foreach(&PC(ch)->specs, has_sp_cb, spn, spn_rm);
+	return !!c_foreach(&PC(ch)->specs, has_sp_cb, spn, spn_rm);
 }
 
 static
@@ -96,7 +96,7 @@ spclass_count(CHAR_DATA *ch, const char *spclass_name,
 	&&  spec->spec_class == spclass)
 		count++;
 
-	varr_foreach(&PC(ch)->specs, spclass_count_cb, spclass, spn_rm, &count);
+	c_foreach(&PC(ch)->specs, spclass_count_cb, spclass, spn_rm, &count);
 	return count;
 }
 

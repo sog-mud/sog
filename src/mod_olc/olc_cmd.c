@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.21 2001-08-25 04:46:52 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.22 2001-09-12 19:43:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -151,7 +151,7 @@ OLC_FUN(cmded_save)
 	if (fp == NULL)
 		return FALSE;
 
-	varr_foreach(&commands, save_cmd_cb, fp);
+	c_foreach(&commands, save_cmd_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -227,7 +227,7 @@ OLC_FUN(cmded_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	for (i = 0; i < varr_size(&commands); i++) {
+	for (i = 0; i < c_size(&commands); i++) {
 		cmd_t *cmnd = (cmd_t*) VARR_GET(&commands, i);
 
 		if (arg[0] && str_prefix(arg, cmnd->name))
@@ -314,8 +314,8 @@ OLC_FUN(cmded_move)
 	if (!is_number(arg))
 		OLC_ERROR("'OLC CMDS'");
 
-	if ((num = atoi(arg)) >= (int) varr_size(&commands))
-		num = varr_size(&commands) - 1;
+	if ((num = atoi(arg)) >= (int) c_size(&commands))
+		num = c_size(&commands) - 1;
 	if (num < 0) {
 		act_char("CmdEd: move: num should be >= 0.", ch);
 		return FALSE;
@@ -431,7 +431,7 @@ static void check_shadow(CHAR_DATA *ch, const char *name)
 
 	output = buf_new(0);
 
-	for (i = 0; i < varr_size(&socials); i++) {
+	for (i = 0; i < c_size(&socials); i++) {
 		soc = (social_t *)VARR_GET(&socials, i);
 		if (str_prefix(soc->name, name))
 			continue;

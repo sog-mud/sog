@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.4 2001-09-07 19:34:45 fjoe Exp $
+ * $Id: nanny.c,v 1.5 2001-09-12 19:43:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -406,7 +406,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			act_char("The following races are available:", ch);
 			send_to_char("  ", ch);			// notrans
 			col = 0;
-			hash_foreach(&races, print_race_cb, ch, &col);
+			c_foreach(&races, print_race_cb, ch, &col);
 			send_to_char("\n", ch);
 			act_puts("What is your race ('help <race>' for more information)? ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -450,7 +450,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		act_char("The following classes are available:", ch);
 		col = 0;
-		hash_foreach(&classes, print_class_cb, ch, &col);
+		c_foreach(&classes, print_class_cb, ch, &col);
 		send_to_char("\n", ch);
 		act_puts("What is your class ('help <class>' for more information)? ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);

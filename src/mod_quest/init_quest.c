@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.7 2001-09-12 12:32:37 fjoe Exp $
+ * $Id: init_quest.c,v 1.8 2001-09-12 19:43:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@
 #include <memalloc.h>
 #include <varr.h>
 #include <hash.h>
+#include <container.h>
 #include <cmd.h>
 
 #include <update.h>
@@ -47,7 +48,7 @@ DECLARE_MODINIT_FUN(_module_unload);
 
 MODINIT_FUN(_module_load, m)
 {
-	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	c_foreach(&commands, cmd_load_cb, MODULE, m);
 	dynafun_tab_register(__mod_tab(MODULE), m);
 	uhandler_load(m->name);
 	chquest_init();
@@ -58,6 +59,6 @@ MODINIT_FUN(_module_unload, m)
 {
 	uhandler_unload(m->name);
 	dynafun_tab_unregister(__mod_tab(MODULE));
-	varr_foreach(&commands, cmd_unload_cb, MODULE);
+	c_foreach(&commands, cmd_unload_cb, MODULE);
 	return 0;
 }

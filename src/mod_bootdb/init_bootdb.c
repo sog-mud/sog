@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.8 2001-09-12 12:32:21 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.9 2001-09-12 19:42:46 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -114,7 +114,7 @@ load_msgdb(void)
 	rfile_t *fp;
 	mlstring ml;
 
-	hash_init(&msgdb, &h_msgdb);
+	c_init(&msgdb, &h_msgdb);
 
 	line_number = 0;
 	snprintf(bootdb_filename, sizeof(bootdb_filename), "%s%c%s",
@@ -134,7 +134,7 @@ load_msgdb(void)
 		if (!strcmp(key, "$"))
 			break;
 
-		if (!hash_insert(&msgdb, key, &ml))
+		if (!c_insert(&msgdb, key, &ml))
 			log(LOG_ERROR, "load_msgdb: %s: duplicate msg", key);
 		else
 			msgcnt++;
@@ -150,7 +150,7 @@ load_hints(void)
 {
 	rfile_t *fp;
 
-	varr_init(&hints, &v_hints);
+	c_init(&hints, &v_hints);
 
 	line_number = 0;
 	snprintf(bootdb_filename, sizeof(bootdb_filename), "%s%c%s",
@@ -215,7 +215,7 @@ load_mprog(const char *name)
 		goto bailout;
 	}
 
-	if ((mp = (mprog_t *) hash_insert(&mprogs, mprog.name, &mprog)) == NULL) {
+	if ((mp = (mprog_t *) c_insert(&mprogs, mprog.name, &mprog)) == NULL) {
 		fprintf(stderr, "load_mprog: %s: duplicate mprog", mprog.name);
 		mprog_destroy(&mprog);
 		goto bailout;
@@ -234,7 +234,7 @@ load_mprogs()
 	DIR *dirp;
 	char mask[PATH_MAX];
 
-	hash_init(&mprogs, &h_mprogs);
+	c_init(&mprogs, &h_mprogs);
 
 	if ((dirp = opendir(MPC_PATH)) == NULL) {
 		log(LOG_ERROR, "load_mprogs: %s: %s",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.31 2001-08-26 05:49:15 fjoe Exp $
+ * $Id: spec.c,v 1.32 2001-09-12 19:43:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ FOREACH_CB_FUN(spec_stats_cb, p, ap)
 /* lookup spec */
 	spec = spec_lookup(spn);
 	if (spec == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
+#ifdef C_STRKEY_STRICT_CHECKS
 		log(LOG_INFO, "spec_stats: %s: unknown spec", spn);
 #endif
 		return NULL;
@@ -122,7 +122,7 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 
 /* noone can use ill-defined skills */
 	if ((sk = skill_lookup(spec_sk->sn)) == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
+#ifdef C_STRKEY_STRICT_CHECKS
 		log(LOG_BUG, "spec_stats: %s: unknown skill", spec_sk->sn);
 #endif
 		goto bailout;
@@ -134,7 +134,7 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 		bonus_skills = r->race_pcdata->bonus_skills;
 	else
 		bonus_skills = NULL;
-	varr_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
+	c_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
 
 /* check skill affects */
 	if (get_skill_mod(ch, sk, 1))
@@ -192,13 +192,13 @@ FOREACH_CB_FUN(add_skills_cb, p, ap)
 	spec_t *spec = spec_lookup(spn);
 
 	if (spec == NULL) {
-#ifdef STRKEY_STRICT_CHECKS
+#ifdef C_STRKEY_STRICT_CHECKS
 		log(LOG_INFO, "update_skills: %s: %s: unknown spec", ch->name, spn);
 #endif
 		return NULL;
 	}
 
-	varr_foreach(&spec->spec_skills, add_one_skill_cb,
+	c_foreach(&spec->spec_skills, add_one_skill_cb,
 		     ch, bonus_skills, spec);
 	return NULL;
 }
@@ -237,11 +237,11 @@ update_skills(CHAR_DATA *ch)
 		bonus_skills = r->race_pcdata->bonus_skills;
 	else
 		bonus_skills = NULL;
-	varr_foreach(&PC(ch)->specs, add_skills_cb, ch, bonus_skills);
+	c_foreach(&PC(ch)->specs, add_skills_cb, ch, bonus_skills);
 
 /* remove not matched skills */
 	if (!IS_IMMORTAL(ch))
-		varr_foreach(&PC(ch)->learned, check_one_skill_cb, ch);
+		c_foreach(&PC(ch)->learned, check_one_skill_cb, ch);
 }
 
 /*-------------------------------------------------------------------
@@ -395,7 +395,7 @@ has_spec(CHAR_DATA *ch, const char *spn)
 	if (IS_NPC(ch) || IS_NULLSTR(spn))
 		return FALSE;
 
-	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
+	C_STRKEY_CHECK(&specs, spn, "spec_add");		// notrans
 
 	return varr_bsearch(&PC(ch)->specs, &spn, cmpstr) != NULL;
 }
@@ -411,7 +411,7 @@ spec_add(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return TRUE;
 
-	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
+	C_STRKEY_CHECK(&specs, spn, "spec_add");		// notrans
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn != NULL)
@@ -431,7 +431,7 @@ spec_del(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return TRUE;
 
-	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
+	C_STRKEY_CHECK(&specs, spn, "spec_add");		// notrans
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn == NULL)
@@ -454,7 +454,7 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 	&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
 		return FALSE;
 
-	if ((rv = varr_foreach(&PC(ch)->specs, replace_cb, ch,
+	if ((rv = c_foreach(&PC(ch)->specs, replace_cb, ch,
 			       spn_rm, spn_add)) != NULL)
 		return FALSE;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.39 2001-08-05 16:36:26 fjoe Exp $
+ * $Id: db_class.c,v 1.40 2001-09-12 19:42:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ DBINIT_FUN(init_class)
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "POSE", NULL);
 	else
-		hash_init(&classes, &h_classes);
+		c_init(&classes, &h_classes);
 }
 
 DBLOAD_FUN(load_class)
@@ -80,7 +80,7 @@ DBLOAD_FUN(load_class)
 
 				if (IS_NULLSTR(class.name)) {
 					log(LOG_ERROR, "load_class: class name undefined");
-				} else if ((cl = hash_insert(&classes,
+				} else if ((cl = c_insert(&classes,
 						class.name, &class)) == NULL) {
 					log(LOG_ERROR, "load_class: duplicate class name");
 				} else {
@@ -129,8 +129,8 @@ DBLOAD_FUN(load_class)
 		case 'S':
 			KEY("SchoolWeapon", class.weapon,
 			    fread_number(fp));
-			SKEY("SkillSpec", class.skill_spec,
-			     fread_strkey(fp, &specs, "load_class")); // notrans
+			SKEY("SkillSpec", class.skill_spec, c_fread_strkey(
+			    fp, &specs, "load_class")); // notrans
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(class.who_name,

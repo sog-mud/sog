@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.106 2001-09-09 09:46:46 kostik Exp $
+ * $Id: olc_area.c,v 1.107 2001-09-12 19:42:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -546,10 +546,10 @@ VALIDATE_FUN(validate_move)
 /* everything is ok -- change vnums of all rooms, objs, mobs in area */
 
 /* fix clan recall, item and altar vnums */
-	hash_foreach(&clans, move_clan_cb, pArea, delta, &touched);
+	c_foreach(&clans, move_clan_cb, pArea, delta, &touched);
 	if (touched) {
 		act_char("AreaEd: Changed clans:", ch);
-		hash_foreach(&clans, move_print_clan_cb, ch);
+		c_foreach(&clans, move_print_clan_cb, ch);
 	}
 
 /* fix mobs */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.298 2001-09-12 12:32:26 fjoe Exp $
+ * $Id: act_wiz.c,v 1.299 2001-09-12 19:42:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1455,9 +1455,9 @@ DO_FUN(do_mstat, ch, argument)
 
 	show_affects(ch, victim, output);
 
-	if (!varr_isempty(&victim->sk_affected)) {
+	if (!c_isempty(&victim->sk_affected)) {
 		buf_append(output, "Skill affects:\n");		// notrans
-		varr_foreach(&victim->sk_affected, print_sa_cb, output);
+		c_foreach(&victim->sk_affected, print_sa_cb, output);
 	}
 
 	if (!IS_NPC(victim)) {
@@ -2678,7 +2678,7 @@ DO_FUN(do_sset, ch, argument)
 	}
 
 	if (!str_cmp(arg2, "all")) {
-		hash_foreach(&skills, sset_cb, victim, value);
+		c_foreach(&skills, sset_cb, victim, value);
 		act_char("Ok.", ch);
 	} else {
 		const char *sn;
@@ -4314,7 +4314,7 @@ DO_FUN(do_grant, ch, argument)
 			goto cleanup;
 		}
 
-		for (i = 0; i < varr_size(&commands); i++) {
+		for (i = 0; i < c_size(&commands); i++) {
 			cmd = VARR_GET(&commands, i);
 
 			if (cmd->min_level < LEVEL_IMMORTAL
@@ -4704,7 +4704,7 @@ DO_FUN(do_mpstat, ch, argument)
 			"No target" : npc->mprog_target->name); // notrans
 #endif
 
-	if (varr_size(&victim->pMobIndex->mp_trigs) == 0)
+	if (c_size(&victim->pMobIndex->mp_trigs) == 0)
 		buf_append(buf, "No triggers set.\n");		// notrans
 	else
 		trig_dump_list(&victim->pMobIndex->mp_trigs, buf);
@@ -4863,7 +4863,7 @@ DO_FUN(do_modules, ch, argument)
 		buf = buf_new(GET_LANG(ch));
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
 		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
-		for (i = 0; i < varr_size(&modules); i++) {
+		for (i = 0; i < c_size(&modules); i++) {
 			module_t *m = VARR_GET(&modules, i);
 			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
 				   m->name,

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.67 2001-09-07 19:34:42 fjoe Exp $
+ * $Id: affects.c,v 1.68 2001-09-12 19:43:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -275,7 +275,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 AFFECT_DATA  *
 affect_find(AFFECT_DATA *paf, const char *sn)
 {
-	STRKEY_CHECK(&skills, sn, "affect_find");		// notrans
+	C_STRKEY_CHECK(&skills, sn, "affect_find");		// notrans
 
 	for (; paf != NULL; paf = paf->next) {
 		if (IS_SKILL(paf->type, sn))
@@ -339,7 +339,7 @@ affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new, *paf2;
 
-	STRKEY_CHECK(&skills, paf->type, "affect_to_char");	// notrans
+	C_STRKEY_CHECK(&skills, paf->type, "affect_to_char");	// notrans
 
 	if (paf->owner != NULL) {
 		for (paf2 = ch->affected; paf2 != NULL; paf2 = paf2->next) {
@@ -366,7 +366,7 @@ affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new, *paf2;
 
-	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");	// notrans
+	C_STRKEY_CHECK(&skills, paf->type, "affect_to_obj");	// notrans
 
 	if (paf->owner != NULL) {
 		for (paf2 = obj->affected; paf2 != NULL; paf2 = paf2->next) {
@@ -552,7 +552,7 @@ affect_strip(CHAR_DATA *ch, const char *sn)
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 
-	STRKEY_CHECK(&skills, sn, "affect_strip");		// notrans
+	C_STRKEY_CHECK(&skills, sn, "affect_strip");		// notrans
 
 	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
@@ -915,7 +915,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 			buf_append(output, "------ --------- ------- ---------- -------- ----------------------------------\n");		// notrans
 		}
 		buf_printf(output, BUF_END,
-		    "[%4d] %9.9s %7.7s %10.10s %8d %s\n",	// notrans
+		    "[%4d] %-9.9s %-7.7s %-10.10s %8d %s\n",	// notrans
 		    cnt, paf->type,
 		    flag_string(affect_where_types, paf->where),
 		    IS_APPLY_AFFECT(paf) ?

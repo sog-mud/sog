@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.263 2001-09-12 12:32:24 fjoe Exp $
+ * $Id: act_obj.c,v 1.264 2001-09-12 19:42:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2400,7 +2400,7 @@ random_spell(void)
 	skill_t *sk;
 
 	for (;;) {
-		sk = (skill_t*) hash_random_item(&skills);
+		sk = (skill_t *) c_random_elem(&skills);
 		if (sk == NULL)
 			return "agle-bargle";
 		if (sk->skill_type == ST_SPELL

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.33 2001-09-12 12:32:54 fjoe Exp $
+ * $Id: varr.c,v 1.34 2001-09-12 19:43:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,6 +31,7 @@
 #include <string.h>
 
 #include <typedef.h>
+#include <container.h>
 #include <varr.h>
 #include <buffer.h>
 #include <str.h>
@@ -40,16 +41,19 @@
  * Variable size array implementation
  */
 
-void varr_init(varr *v, varrdata_t *v_data)
+void
+varr_init(void *c, void *v_data)
 {
+	varr *v = (varr *) c;
+
 	v->p = NULL;
 	v->nused = 0;
 	v->nalloc = 0;
 	v->v_data = v_data;
 }
 
-static void *
-varr_cpy_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(varr_cpy_cb, p, ap)
 {
 	varr *v = va_arg(ap, varr *);
 	int *pi = va_arg(ap, int *);
@@ -71,35 +75,10 @@ varr_cpy(varr *dst, const varr *src)
 	dst->p = malloc(dst->v_data->nsize * dst->nalloc);
 	if (dst->v_data->e_cpy) {
 		int i = 0;
-		varr_foreach((varr *)(uintptr_t)src, varr_cpy_cb, dst, &i);
+		c_foreach((varr *)(uintptr_t) src, varr_cpy_cb, dst, &i);
 	} else
 		memcpy(dst->p, src->p, dst->v_data->nsize * dst->nused);
 	return dst;
-}
-
-static void *
-varr_destroy_cb(void *p, va_list ap)
-{
-	varr *v = va_arg(ap, varr *);
-
-	v->v_data->e_destroy(p);
-	return NULL;
-}
-
-void
-varr_destroy(varr *v)
-{
-	varr_erase(v);
-	v->nalloc = 0;
-	free(v->p);
-}
-
-void
-varr_erase(varr *v)
-{
-	if (v->v_data->e_destroy)
-		varr_foreach(v, varr_destroy_cb, v);
-	v->nused = 0;
 }
 
 void *
@@ -147,8 +126,20 @@ varr_insert(varr *v, size_t i)
 	return p;
 }
 
+void *
+varr_enew(varr *v)
+{
+	return varr_touch((v), c_size(v));
+}
+
+void *
+varr_get(varr *v, size_t i)
+{
+	return i >= c_size(v) ? NULL : VARR_GET(v, i);
+}
+
 void
-varr_delete(varr *v, size_t i)
+varr_ndelete(varr *v, size_t i)
 {
 	if (!v->nused || i >= v->nused)
 		return;
@@ -186,19 +177,6 @@ varr_bsearch_lower(const varr *v, const void *e,
 	if (v == NULL || v->nused == 0)
 		return NULL;
 	return bsearch_lower(e, v->p, v->nused, v->v_data->nsize, cmpfun);
-}
-
-void *
-varr_foreach(const varr *v, foreach_cb_t cb, ...)
-{
-	void *rv;
-	va_list ap;
-
-	va_start(ap, cb);
-	rv = varr_anforeach(v, 0, cb, ap);
-	va_end(ap);
-
-	return rv;
 }
 
 void *
@@ -306,8 +284,45 @@ varr_arnforeach(const varr *v, size_t from, foreach_cb_t cb, va_list ap)
 	return NULL;
 }
 
-void *
-vstr_lookup_cb(void *p, va_list ap)
+/*-------------------------------------------------------------------
+ * container ops
+ */
+
+#define varr_delete varr_ops_delete
+
+DEFINE_C_OPS(varr);
+
+void
+varr_destroy(void *c)
+{
+	varr *v = (varr *) c;
+
+	varr_erase(v);
+	v->nalloc = 0;
+	free(v->p);
+}
+
+static
+FOREACH_CB_FUN(varr_erase_cb, p, ap)
+{
+	varr *v = va_arg(ap, varr *);
+
+	v->v_data->e_destroy(p);
+	return NULL;
+}
+
+static void
+varr_erase(void *c)
+{
+	varr *v = (varr *) c;
+
+	if (v->v_data->e_destroy)
+		c_foreach(v, varr_erase_cb, v);
+	v->nused = 0;
+}
+
+static
+FOREACH_CB_FUN(str_lookup_cb, p, ap)
 {
 	const char *name = va_arg(ap, const char *);
 
@@ -317,63 +332,63 @@ vstr_lookup_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void *
-vstr_search_cb(void *p, va_list ap)
-{
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_prefix(name, *(const char **) p))
-		return p;
-
-	return NULL;
-}
-
-void *
-vstr_lookup(varr *v, const char *name)
-{
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	return varr_foreach(v, vstr_lookup_cb, name);
-}
-
-void *
-vstr_search(varr *v, const char *name)
-{
-	void *p;
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	/*
-	 * try exact match first
-	 */
-	if ((p = vstr_lookup(v, name)) != NULL)
-		return p;
-
-	return varr_foreach(v, vstr_search_cb, name);
-}
-
-#if !defined(HASHTEST) && !defined(MPC)
 static void *
-vstr_dump_cb(void *p, va_list ap)
+varr_lookup(void *c, const void *k)
 {
-	BUFFER *buf = va_arg(ap, BUFFER *);
-	int *pcol = va_arg(ap, int *);
+	varr *v = (varr *) c;
+	const char *name = (const char *) k;
 
-	buf_printf(buf, BUF_END, "%-19.18s",			// notrans
-		   *(const char**) p);
-	if (++(*pcol) % 4 == 0)
-		buf_append(buf, "\n");
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	return c_foreach(v, str_lookup_cb, name);
+}
+
+static void *
+varr_add(void *c, const void *k, const void *e, int flags)
+{
+	UNUSED_ARG(c);
+	UNUSED_ARG(k);
+	UNUSED_ARG(e);
+	UNUSED_ARG(flags);
 	return NULL;
 }
 
-void
-vstr_dump(varr *v, BUFFER *buf)
+static void
+varr_delete(void *c, const void *k)
 {
-	int col = 0;
-	varr_foreach(v, vstr_dump_cb, buf, &col);
-	if (col % 4 != 0)
-		buf_append(buf, "\n");
+	UNUSED_ARG(c);
+	UNUSED_ARG(k);
 }
-#endif
+
+static void *
+varr_foreach(void *c, foreach_cb_t cb, va_list ap)
+{
+	return varr_anforeach(c, 0, cb, ap);
+}
+
+static size_t
+varr_size(void *c)
+{
+	varr *v = (varr *) c;
+
+	return v->nused;
+}
+
+static bool
+varr_isempty(void *c)
+{
+	return c_size(c) == 0;
+}
+
+static void *
+varr_random_elem(void *c)
+{
+	varr *v = (varr *) c;
+	size_t size = c_size(c);
+
+	if (!size)
+		return NULL;
+
+	return VARR_GET(v, number_range(1, size) - 1);
+}

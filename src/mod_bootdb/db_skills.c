@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.31 2001-08-05 16:36:29 fjoe Exp $
+ * $Id: db_skills.c,v 1.32 2001-09-12 19:42:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,7 +48,7 @@ DBDATA db_skills = { dbfun_skills, init_skills, 0 };
 DBINIT_FUN(init_skills)
 {
 	if (!DBDATA_VALID(dbdata))
-		hash_init(&skills, &h_skills);
+		c_init(&skills, &h_skills);
 }
 
 DBLOAD_FUN(load_skill)
@@ -71,7 +71,7 @@ DBLOAD_FUN(load_skill)
 
 				if (IS_NULLSTR(sn)) {
 					log(LOG_ERROR, "load_skill: skill name undefined");
-				} else if (!hash_insert(&skills, sn, &sk)) {
+				} else if (!c_insert(&skills, sn, &sk)) {
 					log(LOG_ERROR, "load_skill: duplicate skill name");
 				}
 				skill_destroy(&sk);

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.167 2001-09-12 12:32:53 fjoe Exp $
+ * $Id: tables.c,v 1.168 2001-09-12 19:43:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1496,6 +1496,9 @@ flaginfo_t mt_types[] =
 	{ "BUFFER *",		MT_BUFFER,			FALSE	},
 	{ "OBJ_INDEX_DATA *",	MT_OBJ_INDEX,			FALSE	},
 	{ "MOB_INDEX_DATA *",	MT_MOB_INDEX,			FALSE	},
+	{ "DESCRIPTOR_DATA *",	MT_DESCRIPTOR,			FALSE	},
+	{ "skill_t *",		MT_SKILL,			FALSE	},
+
 	{ "va_list",		MT_VA_LIST,			FALSE	},
 	{ "size_t",		MT_SIZE_T,			FALSE	},
 	{ "bool",		MT_BOOL,			FALSE	},
