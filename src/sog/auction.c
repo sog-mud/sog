@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.42 1999-06-22 12:37:17 fjoe Exp $
+ * $Id: auction.c,v 1.43 1999-06-23 09:27:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -280,12 +280,18 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))    /* NPC can't auction cos it can be extracted! */
 		return;
 
+	if (!str_cmp(arg1, "off")) {
+		char_puts("Auction channel is now OFF.\n",ch);
+		SET_BIT(ch->comm,COMM_NOAUCTION);
+		return;
+	}
+
 	if (IS_SET(ch->comm, COMM_NOAUCTION)) {
 		char_puts("Auction channel is now ON.\n",ch);
 		REMOVE_BIT(ch->comm, COMM_NOAUCTION);
 	}
 
-	if (arg1[0] == '\0')
+	if (arg1[0] == '\0') {
 		if (auction.item != NULL) {
 			/* show item data here */
 			if (IS_IMMORTAL(ch)) {
@@ -314,11 +320,6 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			char_puts("Auction WHAT?\n", ch);
 			return;
 		}
-
-	if (!str_cmp(arg1, "off")) {
-		char_puts("Auction channel is now OFF.\n",ch);
-		SET_BIT(ch->comm,COMM_NOAUCTION);
-		return;
 	}
 
 	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop"))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.179 1999-06-23 04:50:20 fjoe Exp $
+ * $Id: act_comm.c,v 1.180 1999-06-23 09:27:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1862,6 +1862,7 @@ DO_FUN(do_toggle)
 
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		flag64_t* bits;
+		const char *p;
 
 		if ((t = toggle_lookup(arg)) == NULL
 		||  (bits = toggle_bits(ch, t)) == NULL) {
@@ -1869,7 +1870,16 @@ DO_FUN(do_toggle)
 			continue;
 		}
 
-		TOGGLE_BIT(*bits, t->bit);
+		p = one_argument(argument, arg, sizeof(arg));
+		if (!str_cmp(arg, "on")) {
+			SET_BIT(*bits, t->bit);
+			argument = p;
+		} else if (!str_cmp(arg, "off")) {
+			REMOVE_BIT(*bits, t->bit);
+			argument = p;
+		} else {
+			TOGGLE_BIT(*bits, t->bit);
+		}
 		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
 			 ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 	}
