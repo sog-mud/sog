@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.23 1998-10-09 13:42:42 fjoe Exp $
+ * $Id: mlstring.c,v 1.24 1998-10-16 13:24:58 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -239,11 +239,15 @@ int mlstr_nlang(const mlstring *ml)
 
 const char * mlstr_val(const mlstring *ml, int lang)
 {
+	const char *p;
+
 	if (ml == NULL)
 		return str_empty;
 
-	if (ml->nlang == 0)
-		return ml->u.str;
+	if (ml->nlang == 0) {
+		p = ml->u.str;
+		return (p ? p : str_empty);
+	}
 
 	if (lang >= ml->nlang
 	||  lang < 0
@@ -258,7 +262,8 @@ const char * mlstr_val(const mlstring *ml, int lang)
 			return str_empty;
 	}
 
-	return ml->u.lstr[lang];
+	p = ml->u.lstr[lang];
+	return (p ? p : str_empty);
 }
 
 bool mlstr_null(const mlstring *ml)

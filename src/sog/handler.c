@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.74 1998-10-14 18:10:17 fjoe Exp $
+ * $Id: handler.c,v 1.75 1998-10-16 13:24:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3188,6 +3188,8 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 {
 	if (ch->level < 20) {
 		show_name(ch, output, paf, *ppaf);
+		if (*ppaf && (*ppaf)->type == paf->type)
+			return;
 		buf_add(output, "\n\r");
 		*ppaf = paf;
 		return;
