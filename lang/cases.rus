@@ -1574,6 +1574,17 @@ Form 6 -и~
 End
 
 #RULE
+Name минута~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name брошь~
 BaseLen 4
 Form 1 -и~
@@ -6552,6 +6563,17 @@ Form 6 -а~
 End
 
 #RULE
+Name пущенная~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name морковь~
 BaseLen 6
 Form 1 -и~
@@ -8600,6 +8622,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name обвитый~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name обаяние~
 BaseLen 6
 Form 1 -я~
@@ -10078,6 +10111,15 @@ End
 #RULE
 Name холм~
 BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
+Name шаг~
+BaseLen 3
 Form 1 -а~
 Form 2 -у~
 Form 4 -ом~

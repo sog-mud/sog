@@ -42,6 +42,21 @@ Form 5 жителей~
 End
 
 #RULE
+Name магические~
+BaseLen 10
+Form 1 магическая~
+End
+
+#RULE
+Name взысканий~
+BaseLen 8
+Form 1 -е~
+Form 2 -я~
+Form 3 -я~
+Form 4 -я~
+End
+
+#RULE
 Name монет~
 BaseLen 5
 Form 1 -а~
@@ -53,6 +68,12 @@ End
 #RULE
 Name золотых~
 Form 1 золотой~
+End
+
+#RULE
+Name пущенные~
+BaseLen 8
+Form 1 пущенная~
 End
 
 #RULE
@@ -88,12 +109,30 @@ Form 1 непрочитанное~
 End
 
 #RULE
+Name шагов~
+BaseLen 5
+Form 1 шаг~
+Form 2 шага~
+Form 3 шага~
+Form 4 шага~
+End
+
+#RULE
 Name штук~
 BaseLen 4
 Form 1 -у~
 Form 2 -и~
 Form 3 -и~
 Form 4 -и~
+End
+
+#RULE
+Name идей~
+BaseLen 4
+Form 1 идея~
+Form 2 идеи~
+Form 3 идеи~
+Form 4 идеи~
 End
 
 #RULE
@@ -111,12 +150,27 @@ Form 1 твой~
 End
 
 #RULE
+Name изменениями~
+BaseLen 8
+Form 1 -ем~
+End
+
+#RULE
 Name практик~
 Form 1 практика~
 Form 2 практики~
 Form 3 практики~
 Form 4 практики~
 Form 5 практик~
+End
+
+#RULE
+Name новостей~
+BaseLen 8
+Form 1 новость~
+Form 2 новости~
+Form 3 новости~
+Form 4 новости~
 End
 
 #RULE
@@ -133,6 +187,15 @@ BaseLen 3
 Form 2 -а~
 Form 3 -а~
 Form 4 -а~
+End
+
+#RULE
+Name строк~
+BaseLen 5
+Form 1 -а~
+Form 2 -и~
+Form 3 -и~
+Form 4 -и~
 End
 
 #$

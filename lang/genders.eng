@@ -20,6 +20,14 @@ Form 3 theirs~
 End
 
 #RULE
+Name неуязвим~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name зашипел~
 BaseLen 7
 Form 1 -а~
@@ -31,6 +39,14 @@ End
 Name boy~
 BaseLen 3
 Form 1 girl~
+End
+
+#RULE
+Name писал~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #$
