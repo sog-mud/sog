@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.158 1999-02-20 16:29:17 fjoe Exp $
+ * $Id: merc.h,v 1.159 1999-02-20 16:44:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2003,6 +2003,7 @@ const char *	first_arg	(const char *argument, char *arg_first, size_t,
 const char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 
 /* save.c */
+void	delete_player	(CHAR_DATA *victim, char* msg);
 void	save_char_obj	(CHAR_DATA *ch, bool reboot);
 void	load_char_obj	(DESCRIPTOR_DATA *d, const char *name);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.147 1999-02-20 16:29:14 fjoe Exp $
+ * $Id: act_comm.c,v 1.148 1999-02-20 16:44:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,28 +91,14 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 		return;
 	
 	if (IS_SET(ch->plr_flags, PLR_CONFIRM_DELETE)) {
-		CLAN_DATA *clan;
-		char *name;
-
 		if (argument[0] != '\0') {
 			char_puts("Delete status removed.\n",ch);
 			REMOVE_BIT(ch->plr_flags, PLR_CONFIRM_DELETE);
 			return;
 		}
 
-		/*
-		 * remove char from clan lists
-		 */
-		if (ch->clan && (clan = clan_lookup(ch->clan))) {
-			clan_update_lists(clan, ch, TRUE);
-			clan_save(clan);
-		}
-
 		wiznet("$N turns $Mself into line noise.", ch, NULL, 0, 0, 0);
-		RESET_FIGHT_TIME(ch);
-		name = capitalize(ch->name);
-		do_quit_count(ch, str_empty);
-		dunlink(PLAYER_PATH, name);
+		delete_player(ch, NULL);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.141 1999-02-19 13:43:24 kostik Exp $
+ * $Id: fight.c,v 1.142 1999-02-20 16:44:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1051,23 +1051,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	}
 
 	tail_chain();
-}
-
-void delete_player(CHAR_DATA *victim, char* msg)
-{
-	char *name;
-
-	char_puts("You became a ghost permanently "
-		     "and leave the earth realm.\n", victim);
-	act("$n is dead, and will not rise again.\n",
-	    victim, NULL, NULL, TO_ROOM);
-	victim->hit = 1;
-	victim->position = POS_STANDING;
-	wiznet("$N is deleted due to $t.", victim, msg, 0, 0, 0);
-	RESET_FIGHT_TIME(victim);
-	name = capitalize(victim->name);
-	do_quit_count(victim, str_empty);
-	dunlink(PLAYER_PATH, name);
 }
 
 /*

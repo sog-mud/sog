@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.100 1999-02-20 16:29:19 fjoe Exp $
+ * $Id: save.c,v 1.101 1999-02-20 16:44:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -76,14 +76,45 @@ void fread_char (CHAR_DATA * ch, FILE * fp);
 void fread_pet  (CHAR_DATA * ch, FILE * fp);
 void fread_obj  (CHAR_DATA * ch, FILE * fp);
 
+/*
+ * delete_player -- delete player, update clan lists if necessary
+ *		    if !msg then the player is delete due to
+ *		    low con or high number of deaths. this msg is logged
+ */
+void delete_player(CHAR_DATA *victim, char* msg)
+{
+	CLAN_DATA *clan;
+	char *name;
 
+	if (msg) {
+		char_puts("You became a ghost permanently "
+			  "and leave the earth realm.\n", victim);
+		act("$n is dead, and will not rise again.\n",
+		    victim, NULL, NULL, TO_ROOM);
+		victim->hit = 1;
+		victim->position = POS_STANDING;
+		wiznet("$N is deleted due to $t.", victim, msg, 0, 0, 0);
+	}
+
+	/*
+	 * remove char from clan lists
+	 */
+	if (victim->clan && (clan = clan_lookup(victim->clan))) {
+		clan_update_lists(clan, victim, TRUE);
+		clan_save(clan);
+	}
+
+	RESET_FIGHT_TIME(victim);
+	name = capitalize(victim->name);
+	do_quit_count(victim, str_empty);
+	dunlink(PLAYER_PATH, name);
+}
 
 /*
  * Save a character and inventory.
  * Would be cool to save NPC's too for quest purposes,
  *   some of the infrastructure is provided.
  */
-
 void save_char_obj(CHAR_DATA * ch, bool reboot)
 {
 	FILE           *fp;
