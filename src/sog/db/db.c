@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.97 1999-02-09 14:28:27 fjoe Exp $
+ * $Id: db.c,v 1.98 1999-02-09 19:43:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -147,6 +147,7 @@ int                     top_vnum_mob;		/* OLC */
 int                     top_vnum_obj;		/* OLC */
 int			top_mprog_index;	/* OLC */
 int 			mobile_count = 0;
+int			obj_count = 0;
 int			newmobs = 0;
 int			newobjs = 0;
 
@@ -953,12 +954,12 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 	int i;
 	AFFECT_DATA af;
 
-	mobile_count++;
-
 	if (pMobIndex == NULL) {
 		bug("Create_mobile: NULL pMobIndex.", 0);
 		exit(1);
 	}
+
+	mobile_count++;
 
 	mob = new_char();
 
@@ -1220,6 +1221,8 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 		bug("Create_object: NULL pObjIndex.", 0);
 		exit(1);
 	}
+
+	obj_count++;
 
 	obj = new_obj();
 
@@ -1776,8 +1779,8 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Socials  : %d\n", social_count);
 	char_printf(ch, "Mobs     : %d (%d new format, %d in use)\n",
 					top_mob_index, newmobs, mobile_count); 
-	char_printf(ch, "Objs     : %d (%d new format)\n",
-					top_obj_index, newobjs); 
+	char_printf(ch, "Objs     : %d (%d new format, %d in use)\n",
+					top_obj_index, newobjs, obj_count); 
 	char_printf(ch, "Resets   : %d\n", top_reset  );
 	char_printf(ch, "Rooms    : %d\n", top_room   );
 	char_printf(ch, "Shops    : %d\n", top_shop   );
