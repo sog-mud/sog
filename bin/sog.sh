@@ -80,7 +80,7 @@ do
 	corecount=`ls corefiles/core.* | wc -l`
 	if [ -r $SOG_CORE -a $corecount -le $SOG_CORELIM ]; then
 		chmod g+rw $SOG_CORE
-		if [ $avail -lt 65535 ]; then
+		if [ $avail -gt 65535 ]; then
 			mv $SOG_CORE corefiles/core.$index
 			ln bin/$SOG_BIN corefiles/$SOG_BIN.$index
 		else
