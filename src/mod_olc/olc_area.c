@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.11 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_area.c,v 1.12 1998-10-02 08:15:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,6 +38,7 @@ DECLARE_OLC_FUN(areaed_create		);
 DECLARE_OLC_FUN(areaed_edit		);
 DECLARE_OLC_FUN(areaed_touch		);
 DECLARE_OLC_FUN(areaed_show		);
+DECLARE_OLC_FUN(areaed_list		);
 
 DECLARE_OLC_FUN(areaed_name		);
 DECLARE_OLC_FUN(areaed_file		);
@@ -64,6 +65,7 @@ OLC_CMD_DATA olc_cmds_area[] =
 	{ "edit",	areaed_edit				},
 	{ "touch",	areaed_touch				},
 	{ "show",	areaed_show				},
+	{ "list",	areaed_list				},
 
 	{ "age",	areaed_age				},
 	{ "area",	areaed_flags,	area_flags		},
@@ -156,6 +158,50 @@ OLC_FUN(areaed_show)
 		char_printf(ch, "Credits : [%s]\n\r", pArea->credits);
 	char_printf(ch, "Flags:    [%s]\n\r",
 			flag_string(area_flags, pArea->flags));
+	return FALSE;
+}
+
+OLC_FUN(areaed_list)
+{
+	char arg[MAX_STRING_LENGTH];
+	AREA_DATA *pArea;
+	BUFFER *output = NULL;
+
+	one_argument(argument, arg);
+
+	for (pArea = area_first; pArea; pArea = pArea->next) {
+		if (arg[0] != '\0') {
+			char *lowered;
+			bool match;
+
+			lowered = str_dup(pArea->name);
+			strlwr(lowered);
+			match = strstr(lowered, arg) != NULL;
+			free(lowered);
+
+			if (!match)
+				continue;
+		}
+
+		if (output == NULL) {
+			output = buf_new(0);
+    			buf_printf(output, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n\r",
+				   "Num", "Area Name", "lvnum", "uvnum",
+				   "Filename", "Sec", "Builders");
+		}
+
+		buf_printf(output, "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n\r",
+			   pArea->vnum, pArea->name,
+			   pArea->min_vnum, pArea->max_vnum,
+			   pArea->file_name, pArea->security, pArea->builders);
+    	}
+
+	if (output != NULL) {
+		send_to_char(buf_string(output), ch);
+		buf_free(output);
+	}
+	else
+		char_puts("No areas with that name found.\n\r", ch);
 	return FALSE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.19 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc.h,v 1.20 1998-10-02 08:15:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,11 +40,14 @@ enum {
 	FUN_CREATE,
 	FUN_EDIT,
 	FUN_TOUCH,
+
+	FUN_FIRST = FUN_TOUCH,
+
 	FUN_SHOW,
 	FUN_LIST,
-};
 
-#define FUN_FIRST FUN_TOUCH
+	FUN_MAX
+};
 
 /*
  * Structure for an OLC editor command.

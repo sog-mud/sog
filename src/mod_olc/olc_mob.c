@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.11 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_mob.c,v 1.12 1998-10-02 08:15:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -86,6 +86,7 @@ OLC_CMD_DATA olc_cmds_mob[] =
 	{ "edit",	mobed_edit				},
 	{ "touch",	mobed_touch				},
 	{ "show",	mobed_show				},
+	{ "list",	NULL					},
 
 	{ "alignment",	mobed_align				},
 	{ "desc",	mobed_desc				},

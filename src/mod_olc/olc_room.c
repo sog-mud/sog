@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.14 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_room.c,v 1.15 1998-10-02 08:15:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -75,6 +75,7 @@ OLC_CMD_DATA olc_cmds_room[] =
 	{ "edit",	roomed_edit			},
 	{ "touch",	roomed_touch			},
 	{ "show",	roomed_show			},
+	{ "list",	NULL				},
 
 	{ "desc",	roomed_desc			},
 	{ "exd",	roomed_exd			},

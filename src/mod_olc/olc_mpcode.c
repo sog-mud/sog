@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.16 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.17 1998-10-02 08:15:40 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -22,9 +22,9 @@ DECLARE_OLC_FUN(mped_create		);
 DECLARE_OLC_FUN(mped_edit		);
 DECLARE_OLC_FUN(mped_touch		);
 DECLARE_OLC_FUN(mped_show		);
+DECLARE_OLC_FUN(mped_list		);
 
 DECLARE_OLC_FUN(mped_code		);
-DECLARE_OLC_FUN(mped_list		);
 
 OLC_CMD_DATA olc_cmds_mpcode[] =
 {
@@ -34,9 +34,9 @@ OLC_CMD_DATA olc_cmds_mpcode[] =
 	{ "edit",	mped_edit	},
 	{ "touch",	mped_touch	},
 	{ "show",	mped_show	},
+	{ "list",	mped_list	},
 
 	{ "code",	mped_code	},
-	{ "list",	mped_list	},
 
 	{ "commands",	show_commands	},
 
@@ -133,13 +133,6 @@ OLC_FUN(mped_show)
 	return FALSE;
 }
 
-OLC_FUN(mped_code)
-{
-	MPCODE *mpcode;
-	EDIT_MPCODE(ch, mpcode);
-	return olced_str_text(ch, argument, mped_code, &mpcode->code);
-}
-
 OLC_FUN(mped_list)
 {
 	int count = 1;
@@ -179,3 +172,11 @@ OLC_FUN(mped_list)
 
 	return FALSE;
 }
+
+OLC_FUN(mped_code)
+{
+	MPCODE *mpcode;
+	EDIT_MPCODE(ch, mpcode);
+	return olced_str_text(ch, argument, mped_code, &mpcode->code);
+}
+

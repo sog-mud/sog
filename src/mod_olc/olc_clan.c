@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.9 1998-10-02 04:48:47 fjoe Exp $
+ * $Id: olc_clan.c,v 1.10 1998-10-02 08:15:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,6 +39,7 @@ DECLARE_OLC_FUN(claned_create		);
 DECLARE_OLC_FUN(claned_edit		);
 DECLARE_OLC_FUN(claned_touch		);
 DECLARE_OLC_FUN(claned_show		);
+DECLARE_OLC_FUN(claned_list		);
 
 DECLARE_OLC_FUN(claned_name		);
 DECLARE_OLC_FUN(claned_filename		);
@@ -56,20 +57,21 @@ static bool touch_clan(CLAN_DATA *clan);
 
 OLC_CMD_DATA olc_cmds_clan[] =
 {
-	{ "create",	claned_create				},
-	{ "edit",	claned_edit				},
-	{ "touch",	claned_touch				},
-	{ "show",	claned_show				},
+	{ "create",	claned_create					},
+	{ "edit",	claned_edit					},
+	{ "touch",	claned_touch					},
+	{ "show",	claned_show					},
+	{ "list",	claned_list					},
 
-	{ "name",	claned_name,	validate_name	 	},
+	{ "name",	claned_name,		validate_name	 	},
 	{ "filename",	claned_filename,	validate_filename	},
-	{ "recall",	claned_recall,	validate_room_vnum	},
+	{ "recall",	claned_recall,		validate_room_vnum	},
 	{ "msgp",	claned_msg_prays				},
-	{ "msgv",	claned_msg_vanishes			},
-	{ "flags",	claned_flags,	clan_flags		},
-	{ "skill",	claned_skill				},
+	{ "msgv",	claned_msg_vanishes				},
+	{ "flags",	claned_flags,		clan_flags		},
+	{ "skill",	claned_skill					},
 
-	{ "commands",	show_commands				},
+	{ "commands",	show_commands					},
 	{ NULL }
 };
 
@@ -160,10 +162,10 @@ OLC_FUN(claned_show)
 	if (clan->recall_vnum)
 		buf_printf(output, "Recall:      [%d]\n\r",
 			   clan->recall_vnum);
-	if (!mlstr_null(clan->msg_prays))
-		mlstr_dump(output, "MsgPrays:    ", clan->msg_prays);
-	if (!mlstr_null(clan->msg_vanishes))
-		mlstr_dump(output, "MsgVanishes: ", clan->msg_vanishes);
+	if (!IS_NULLSTR(clan->msg_prays))
+		buf_printf(output, "MsgPrays:    [%s]\n\r", clan->msg_prays);
+	if (!IS_NULLSTR(clan->msg_vanishes))
+		buf_printf(output, "MsgVanishes: [%s]\n\r", clan->msg_vanishes);
 
 	for (i = 0; i < clan->skills.nused; i++) {
 		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
@@ -179,6 +181,15 @@ OLC_FUN(claned_show)
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
+	return FALSE;
+}
+
+OLC_FUN(claned_list)
+{
+	int i;
+
+	for (i = 0; i < clans.nused; i++)
+		char_printf(ch, "[%d] %s\n\r", i, CLAN(i)->name);
 	return FALSE;
 }
 
@@ -207,14 +218,14 @@ OLC_FUN(claned_msg_prays)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_mlstr(ch, argument, claned_msg_prays, &clan->msg_prays);
+	return olced_str(ch, argument, claned_msg_prays, &clan->msg_prays);
 }
 
 OLC_FUN(claned_msg_vanishes)
 {
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_mlstr(ch, argument, claned_msg_vanishes, &clan->msg_vanishes);
+	return olced_str(ch, argument, claned_msg_vanishes, &clan->msg_vanishes);
 }
 
 OLC_FUN(claned_flags)

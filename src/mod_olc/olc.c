@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.23 1998-10-02 04:48:46 fjoe Exp $
+ * $Id: olc.c,v 1.24 1998-10-02 08:15:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -127,10 +127,12 @@ bool run_olc_editor(DESCRIPTOR_DATA *d)
 		return TRUE;
 	}
 
-	if ((cmd = cmd_name_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL)
+	if ((cmd = cmd_name_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL
+	||  cmd->olc_fun == NULL)
 		return FALSE;
 
-	if (cmd->olc_fun(d->character, argument))
+	if (cmd->olc_fun(d->character, argument)
+	&&  olced->cmd_table[FUN_TOUCH].olc_fun)
 		olced->cmd_table[FUN_TOUCH].olc_fun(d->character, NULL);
 
 	return TRUE;
@@ -144,6 +146,11 @@ void do_create(CHAR_DATA *ch, const char *argument)
 void do_edit(CHAR_DATA *ch, const char *argument)
 {
 	do_olc(ch, argument, FUN_EDIT);
+}
+
+void do_alist(CHAR_DATA *ch, const char *argument)
+{
+	do_olc(ch, argument, FUN_LIST);
 }
 
 /*
@@ -600,62 +607,6 @@ void edit_done(DESCRIPTOR_DATA *d)
 	d->editor = NULL;
 }
 
-/*****************************************************************************
- Name:		do_alist
- Purpose:	Normal command to list areas and display area information.
- Called by:	interpreter(interp.c)
- ****************************************************************************/
-void do_alist(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_STRING_LENGTH];
-	AREA_DATA *pArea;
-	BUFFER *output = NULL;
-
-	one_argument(argument, arg);
-
-	for (pArea = area_first; pArea; pArea = pArea->next) {
-		if (arg[0] != '\0') {
-			char *lowered;
-			bool match;
-
-			lowered = str_dup(pArea->name);
-			strlwr(lowered);
-			match = strstr(lowered, arg) != NULL;
-			free(lowered);
-
-			if (!match)
-				continue;
-		}
-
-		if (output == NULL) {
-			output = buf_new(0);
-    			buf_printf(output, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n\r",
-				   "Num", "Area Name", "lvnum", "uvnum",
-				   "Filename", "Sec", "Builders");
-		}
-
-		buf_printf(output, "[%3d] %-29.29s (%-5d-%5d) %-12.12s [%d] [%-10.10s]\n\r",
-			   pArea->vnum, pArea->name,
-			   pArea->min_vnum, pArea->max_vnum,
-			   pArea->file_name, pArea->security, pArea->builders);
-    	}
-
-	if (output != NULL) {
-		send_to_char(buf_string(output), ch);
-		buf_free(output);
-	}
-	else
-		char_puts("No areas with that name found.\n\r", ch);
-}
-
-void do_clist(CHAR_DATA *ch, const char *argument)
-{
-	int i;
-
-	for (i = 0; i < clans.nused; i++)
-		char_printf(ch, "[%d] %s\n\r", i, CLAN(i)->name);
-}
-
 OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun)
 {
 	OLCED_DATA *olced = olced_lookup(ch->desc->editor);
@@ -700,20 +651,31 @@ static OLC_CMD_DATA *cmd_name_lookup(OLC_CMD_DATA *cmd_table, const char *name)
 	return NULL;
 }
 
+char* help_topics[FUN_MAX] =
+{
+	"'OLC CREATE'",
+	"'OLC EDIT'",
+	NULL,
+	NULL,
+	"'OLC ALIST'"
+};
+
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 {
 	char command[MAX_INPUT_LENGTH];
 	OLCED_DATA *olced;
+	OLC_FUN *olcfun;
 
 	if (IS_NPC(ch))
 		return;
 
 	argument = one_argument(argument, command);
-	if ((olced = olced_lookup(command)) == NULL) {
-        	do_help(ch, "'OLC EDIT'");
+	if ((olced = olced_lookup(command)) == NULL
+	||  (olcfun = olced->cmd_table[fun].olc_fun) == NULL) {
+        	do_help(ch, help_topics[fun]);
         	return;
 	}
 
-	olced->cmd_table[fun].olc_fun(ch, argument);
+	olcfun(ch, argument);
 }
 
