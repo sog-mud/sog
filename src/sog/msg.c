@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.5 1998-09-29 01:07:01 fjoe Exp $
+ * $Id: msg.c,v 1.6 1998-09-29 01:26:19 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -49,7 +49,10 @@ void load_msgdb()
 	FILE *fp;
 	mlstring *ml;
 
-	fp = dfopen(ETC_PATH, MSG_FILE, "r");
+	snprintf(filename, sizeof(filename), "%s%s", ETC_PATH, MSG_FILE);
+	line_number = 0;
+
+	fp = fopen(filename, "r");
 	if (fp == NULL) {
 		perror(MSG_FILE);
 		exit(1);
