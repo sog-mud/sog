@@ -17,17 +17,18 @@ AddExp 200
 StatMod 1 0 0 1 1 5
 Skill 'acute vision' 7 1 0
 Skill 'bark skin' 22 1 0
+Skill 'homepoint' 60 1 0
 Skill 'lion help' 63 1 0
 Skill 'protection cold' 25 1 0
 Skill 'ranger staff' 32 1 0
 Skill 'axe' 1 1 0
 Skill 'bow' 35 1 0
 Skill 'dagger' 1 1 0
-Skill 'staff' 1 1 0
 Skill 'shield block' 10 1 -10
 Skill 'spear' 1 1 0
 Skill 'sword' 1 1 0
 Skill 'whip' 1 1 0
+Skill 'staff' 1 1 0
 Skill 'second weapon' 23 1 0
 Skill 'ambush' 17 1 0
 Skill 'bear call' 31 1 0
@@ -44,18 +45,16 @@ Skill 'entangle' 26 1 0
 Skill 'hand to hand' 24 1 0
 Skill 'herbs' 18 1 0
 Skill 'kick' 8 1 0
-Skill 'trip' 15 1 0
-Skill 'forest fighting' 45 1 0
 Skill 'lion call' 55 1 0
 Skill 'make arrow' 37 1 0
 Skill 'make bow' 36 1 0
 Skill 'parry' 3 1 20
 Skill 'shield cleave' 35 1 0
 Skill 'track' 39 1 0
+Skill 'trip' 15 1 0
 Skill 'warcry' 35 1 0
 Skill 'weapon cleave' 38 1 0
 Skill 'second attack' 13 1 0
-Skill 'homepoint' 60 1 0
 Skill 'third attack' 45 1 0
 Skill 'blue arrow' 51 1 0
 Skill 'fast healing' 6 1 0
@@ -69,8 +68,10 @@ Skill 'scrolls' 1 2 0
 Skill 'staves' 1 2 0
 Skill 'tame' 39 1 0
 Skill 'white arrow' 49 1 0
+Skill 'forest fighting' 45 1 0
 Skill 'mastering bow' 61 1 0
 Skill 'throwing weapons' 32 1 0
+Skill 'hold breath' 33 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Forest Pupil~
