@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.49 1999-12-03 11:57:16 fjoe Exp $
+ * $Id: olc_mob.c,v 1.50 1999-12-04 08:52:30 fjoe Exp $
  */
 
 #include "olc.h"
@@ -264,7 +264,7 @@ OLC_FUN(mobed_show)
 		pMob->vnum,
 		pMob->race);
 
-	mlstr_dump(buf, "Sex:         ", &pMob->gender);
+	mlstr_dump(buf, "Gender:      ", &pMob->gender);
 
 	if (!IS_NULLSTR(pMob->clan))
 		buf_printf(buf, "Clan:        [%s]\n", pMob->clan);

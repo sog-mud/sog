@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.27 1999-10-26 13:52:51 fjoe Exp $
+ * $Id: flag.c,v 1.28 1999-12-04 08:52:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -35,26 +35,18 @@
  *		  (impl. dependent values such as table type should
  *		   be skipped)
  */
-const flag_t* flag_lookup(const flag_t *f, const char *name)
+const flag_t *
+_flag_lookup(const flag_t *f, const char *name,
+	     int (*cmpfun)(const char *, const char *))
 {
 	if (IS_NULLSTR(name))
 		return NULL;
 
 	while (f->name != NULL) {
-		if (str_prefix(name, f->name) == 0)
+		if (!cmpfun(name, f->name))
 			return f;
 		f++;
 	}
-	return NULL;
-}
-
-const flag_t* flag_ilookup(const flag_t *f, flag64_t val)
-{
-	for (f++; f->name != NULL; f++) {
-		if (f->bit == val)
-			return f;
-	}
-
 	return NULL;
 }
 
@@ -63,7 +55,9 @@ const flag_t* flag_ilookup(const flag_t *f, flag64_t val)
  Purpose:	Returns the value of the flags entered.  Multi-flags accepted.
  Called by:	olc.c and olc_act.c.
  ****************************************************************************/
-flag64_t flag_value(const flag_t *flag64_table, const char *argument)
+flag64_t
+_flag_value(const flag_t *flag64_table, const char *argument,
+	    int (*cmpfun)(const char *, const char *))
 {
 	const flag_t *f;
 	const char *tname = flag64_table->name;
@@ -84,8 +78,9 @@ flag64_t flag_value(const flag_t *flag64_table, const char *argument)
 			if (word[0] == '\0')
 				break;
 
-			if ((f = flag_lookup(flag64_table, word)) == NULL) {
-				log("flag_value: %s: unknown flag name", word);
+			f = _flag_lookup(flag64_table, word, cmpfun);
+			if (f == NULL) {
+				log("_flag_value: %s: unknown flag name", word);
 				continue;
 			}
 
@@ -97,18 +92,29 @@ flag64_t flag_value(const flag_t *flag64_table, const char *argument)
 	}
 
 	case TABLE_INTVAL:
-		if ((f = flag_lookup(flag64_table, argument)) == NULL)
+		if ((f = _flag_lookup(flag64_table, argument, cmpfun)) == NULL)
 			return -1;
 		return f->bit;
 		/* NOT REACHED */
 
 	default:
-		log("flag_value: %s: unknown table type %d",
+		log("_flag_value: %s: unknown table type %d",
 			   tname, ttype);
 		break;
 	}
 
 	return 0;
+}
+
+const flag_t*
+flag_ilookup(const flag_t *f, flag64_t val)
+{
+	for (f++; f->name != NULL; f++) {
+		if (f->bit == val)
+			return f;
+	}
+
+	return NULL;
 }
 
 #define NBUFS 3

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.83 1999-12-03 22:33:09 avn Exp $
+ * $Id: recycle.c,v 1.84 1999-12-04 08:52:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -639,7 +639,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	varr_init(&pObj->restrictions, sizeof(cc_ruleset_t), 1);
 	pObj->restrictions.e_init = (varr_e_init_t) cc_ruleset_init;
 	pObj->restrictions.e_destroy = (varr_e_destroy_t) cc_ruleset_destroy;
-
+	mlstr_init(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
         top_obj_index++;
 	return pObj;
 }
@@ -663,7 +663,6 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	}
 
 	ed_free(pObj->ed);
-
 	objval_destroy(pObj->item_type, pObj->value);
 	varr_destroy(&pObj->restrictions);
 
@@ -685,6 +684,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 	pMob->start_pos		= POS_STANDING;
 	pMob->default_pos	= POS_STANDING;
 	pMob->damtype		= str_empty;
+	mlstr_init(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
 	top_mob_index++;
 	return pMob;
 }

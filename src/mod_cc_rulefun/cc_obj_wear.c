@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_obj_wear.c,v 1.4 1999-11-24 11:18:41 fjoe Exp $
+ * $Id: cc_obj_wear.c,v 1.5 1999-12-04 08:52:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,7 +45,7 @@ bool
 cc_obj_wear_race(const char *arg, va_list ap)
 {
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	return _is_name(ch->race, arg, str_cmp);
+	return is_sname(ch->race, arg);
 }
 
 /*
@@ -59,7 +59,7 @@ bool
 cc_obj_wear_class(const char *arg, va_list ap)
 {
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	return _is_name(ch->class, arg, str_cmp);
+	return is_sname(ch->class, arg);
 }
 
 /*

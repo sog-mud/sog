@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.294 1999-12-03 11:57:12 fjoe Exp $
+ * $Id: act_info.c,v 1.295 1999-12-04 08:48:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1205,11 +1205,11 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_SET(flags, WHO_F_RRACE)
-		&&  !_is_name(PC(wch)->race, race_names, str_cmp))
+		&&  !is_sname(PC(wch)->race, race_names))
 			continue;
 
 		if (IS_SET(flags, WHO_F_RCLASS)
-		&&  !_is_name(wch->class, class_names, str_cmp))
+		&&  !is_sname(wch->class, class_names))
 			continue;
 
 		count++;

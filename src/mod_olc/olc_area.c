@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.62 1999-12-03 11:57:16 fjoe Exp $
+ * $Id: olc_area.c,v 1.63 1999-12-04 08:52:29 fjoe Exp $
  */
 
 #include "olc.h"
@@ -844,6 +844,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	race_t *r = race_lookup(pMobIndex->race);
 	MPTRIG *mptrig;
 	flag64_t temp;
+	const char *p;
 
 	if (r == NULL) {
 		wizlog("save_mobile: vnum %d: %s: unknown race",
@@ -882,10 +883,14 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	fprintf(fp, "%s ",	format_flags(pMobIndex->imm_flags & ~r->imm));
 	fprintf(fp, "%s ",	format_flags(pMobIndex->res_flags & ~r->res));
 	fprintf(fp, "%s\n",	format_flags(pMobIndex->vuln_flags & ~r->vuln));
+
+	p = mlstr_mval(&pMobIndex->gender);
+	if (IS_NULLSTR(p))
+		p = flag_string(gender_table, SEX_NEUTRAL);
 	fprintf(fp, "%s %s %s %d\n",
 			flag_string(position_table, pMobIndex->start_pos),
 			flag_string(position_table, pMobIndex->default_pos),
-			mlstr_mval(&pMobIndex->gender),	/* compatibility */
+			p,
 			pMobIndex->wealth);
 	fprintf(fp, "%s ",	format_flags(pMobIndex->form & ~r->form));
 	fprintf(fp, "%s ",	format_flags(pMobIndex->parts & ~r->parts));

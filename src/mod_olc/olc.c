@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.86 1999-12-03 22:33:09 avn Exp $
+ * $Id: olc.c,v 1.87 1999-12-04 08:52:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -820,8 +820,8 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	p = one_argument(argument, arg, sizeof(arg));
 	    one_argument(p, arg, sizeof(arg));
 
-	if (flag_value(cmd->arg1, arg) < 0) {
-		char_puts("Invalid value. Valid values are:\n", ch);
+	if (flag_svalue(cmd->arg1, arg) < 0) {
+		char_puts("Syntax: gender <lang> <value>\nValid values are:\n", ch);
 		show_flags(ch, cmd->arg1);
 		return FALSE;
 	}

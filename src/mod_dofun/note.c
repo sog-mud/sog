@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.7 1999-10-21 12:51:51 fjoe Exp $
+ * $Id: note.c,v 1.8 1999-12-04 08:48:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -273,11 +273,11 @@ static bool is_note_to(CHAR_DATA *ch, note_t *pnote)
 	&&  is_name("clan", pnote->to_list))
 		return TRUE;
 
-	if (_is_name(ch->name, pnote->to_list, str_cmp))
+	if (is_sname(ch->name, pnote->to_list))
 		return TRUE;
 
 	if ((clan = clan_lookup(ch->clan))
-	&&  _is_name(clan->name, pnote->to_list, str_cmp))
+	&&  is_sname(clan->name, pnote->to_list))
 		return TRUE;
 
 	return FALSE;

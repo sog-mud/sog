@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namelist.c,v 1.2 1999-10-17 08:55:48 fjoe Exp $
+ * $Id: namelist.c,v 1.3 1999-12-04 08:52:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -76,11 +76,6 @@ bool _is_name(const char *str, const char *namelist,
 				break;
 		}
 	}
-}
-
-bool is_name(const char *str, const char *namelist)
-{
-	return _is_name(str, namelist, str_prefix);
 }
 
 void cat_name(char *buf, const char *name, size_t len)

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.143 1999-12-03 11:57:17 fjoe Exp $
+ * $Id: save.c,v 1.144 1999-12-04 08:52:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,7 +128,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	 */
 	touched = FALSE;
 	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
-		if (!_is_name(victim->name, pArea->builders, str_cmp))
+		if (!is_sname(victim->name, pArea->builders))
 			continue;
 		name_delete(&pArea->builders, victim->name, NULL, NULL);
 		SET_BIT(pArea->area_flags, AREA_CHANGED);

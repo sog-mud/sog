@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.206 1999-12-03 11:57:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.207 1999-12-04 08:48:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1247,7 +1247,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		IS_NPC(victim) ? victim->pMobIndex->group : 0,
 		victim->in_room == NULL ? 0 : victim->in_room->vnum);
 
-	mlstr_dump(output, "Sex: ", &victim->gender);
+	mlstr_dump(output, "Gender: ", &victim->gender);
 
 	if (IS_NPC(victim))
 		buf_printf(output,"Count: %d  Killed: %d\n",

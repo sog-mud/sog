@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.6 1999-10-26 13:52:50 fjoe Exp $
+ * $Id: flag.h,v 1.7 1999-12-04 08:52:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -29,9 +29,18 @@ struct flag_t
 	bool		settable;
 };
 
-const flag_t *	flag_lookup	(const flag_t *flag64_table, const char* name);
+const flag_t *	_flag_lookup	(const flag_t *flag64_table, const char* name,
+				 int (*cmpfun)(const char *, const char *));
+#define flag_lookup(t, n)	(_flag_lookup((t), (n), str_prefix))
+#define flag_slookup(t, n)	(_flag_lookup((t), (n), str_cmp))
+
+flag64_t	_flag_value	(const flag_t *flag64_table,
+				 const char *argument,
+				 int (*cmpfun)(const char *, const char *));
+#define flag_value(t, arg)	(_flag_value((t), (arg), str_prefix))
+#define flag_svalue(t, arg)	(_flag_value((t), (arg), str_cmp))
+
 const flag_t *	flag_ilookup	(const flag_t *flag64_table, flag64_t val);
-flag64_t	flag_value	(const flag_t *flag64_table, const char *argument);
 const char *	flag_string	(const flag_t *flag64_table, flag64_t bits);
 
 void show_flags_buf(BUFFER *output, const flag_t *flag64_table);
