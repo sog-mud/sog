@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.45 1999-07-01 11:20:02 fjoe Exp $
+ * $Id: olc_area.c,v 1.46 1999-07-01 11:31:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -819,6 +819,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	mlstr_fwrite(fp, NULL,	&pMobIndex->long_descr);
 	mlstr_fwrite(fp, NULL,	&pMobIndex->description);
 	fwrite_string(fp, NULL,	r->name);
+	pMobIndex->act |= ACT_NPC;
 	fprintf(fp, "%s ",	format_flags(pMobIndex->act & ~r->act));
 	fprintf(fp, "%s ",	format_flags(pMobIndex->affected_by & ~r->aff));
 	fprintf(fp, "%d %d\n",	pMobIndex->alignment , pMobIndex->group);
