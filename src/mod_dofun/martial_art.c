@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.213 2002-08-15 14:29:36 tatyana Exp $
+ * $Id: martial_art.c,v 1.214 2002-08-24 13:59:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2570,6 +2570,7 @@ DO_FUN(do_assassinate, ch, argument)
 	}
 
 	if ((get_eq_char(ch, WEAR_WIELD) != NULL)
+	||  (get_eq_char(ch, WEAR_SHIELD) != NULL)
 	||  (get_eq_char(ch, WEAR_HOLD ) != NULL))  {
 		act_char("You need both hands free to assassinate somebody.", ch);
 		return;
