@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.286 2002-03-20 19:39:33 fjoe Exp $
+ * $Id: act_move.c,v 1.287 2002-09-02 09:42:29 tatyana Exp $
  */
 
 /***************************************************************************
@@ -103,6 +103,7 @@ DECLARE_DO_FUN(do_breathhold);
 /* command procedures needed */
 DECLARE_DO_FUN(do_look);
 DECLARE_DO_FUN(do_yell);
+DECLARE_DO_FUN(do_help);
 
 /*
  * Local functions.
@@ -1562,27 +1563,55 @@ DO_FUN(do_bash_door, ch, argument)
 
 DO_FUN(do_blink, ch, argument)
 {
+	char arg[MAX_INPUT_LENGTH];
+
 	if (get_skill(ch, "blink") == 0) {
 		act_char("Huh?", ch);
 		return;
 	}
 
-	if (is_sn_affected(ch, "blink")) {
-		act("You stop blinking.", ch, NULL, NULL, TO_CHAR);
-		act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
-		affect_strip(ch, "blink");
-	} else {
-		AFFECT_DATA *paf;
+	one_argument(argument, arg, sizeof(arg));
 
-		act("You start blinking.", ch, NULL, NULL, TO_CHAR);
-		act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
+	if (arg[0] =='\0') {
+		if (is_sn_affected(ch, "blink")) {
+			act("You current blink status is now: ON.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		} else {
+			act("You current blink status is now: OFF.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	} else if (!str_cmp(arg,"on")) {
+		if (is_sn_affected(ch, "blink")) {
+			act("You are already blinking.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		} else {
+			AFFECT_DATA *paf;
 
-		paf = aff_new(TO_AFFECTS, "blink");
-		paf->level	= LEVEL(ch);
-		paf->duration	= -1;
-		affect_to_char(ch, paf);
-		aff_free(paf);
-	}
+			act("You start blinking.", ch, NULL, NULL, TO_CHAR);
+			act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
+
+			paf = aff_new(TO_AFFECTS, "blink");
+			paf->level	= LEVEL(ch);
+			paf->duration	= -1;
+			affect_to_char(ch, paf);
+			aff_free(paf);
+			return;
+		}
+	} else if (!str_cmp(arg,"off")) {
+		if (is_sn_affected(ch, "blink")) {
+			act("You stop blinking.", ch, NULL, NULL, TO_CHAR);
+			act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
+			affect_strip(ch, "blink");
+			return;
+		} else {
+			act("You are not blinking.", ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	} else
+		do_help(ch, "blink");
 }
 
 DO_FUN(do_vanish, ch, argument)
