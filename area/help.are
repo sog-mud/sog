@@ -3187,12 +3187,21 @@ Here are the types of the damages, from small to...
                              [*] POWER HIT [*]
 
 ~
-0 WIN1251~
-This help is only for russian win1251 (MS Windows) codepage players.
+0 RUSSIAN~
+This help is only for players who use russian codepages.
 
+win1251:
         Если от вас не приходит буква 'Я' маленькая, то попробуйте сказать
 {Ctoggle notelnet{x. Для того, чтобы маленькая буква 'Я' транслировалась в большую,
 попробуйте {Ctoggle noiac{x.
+ 
+koi8-r:
+       То же самое, но с большой буквой 'Ъ'.
+
+На данный момент список правильно работающих установок notelnet/noiac такова:
+ZMud 3.62a  -- notelnet on, noiac on
+tt++ 1.5pl6 -- notelnet on, noiac on
+tf 4.0g3    -- notelnet off, noiac off
  
 ~
 0 AEDIT~
