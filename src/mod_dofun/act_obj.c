@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.178 1999-11-27 08:57:11 fjoe Exp $
+ * $Id: act_obj.c,v 1.179 1999-11-27 09:00:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1208,8 +1208,17 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 
 	case ITEM_PILL:
 		obj_cast_spell(obj->value[1].s, INT_VAL(obj->value[0]), ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
 		obj_cast_spell(obj->value[2].s, INT_VAL(obj->value[0]), ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
 		obj_cast_spell(obj->value[3].s, INT_VAL(obj->value[0]), ch, ch);
+		if (IS_EXTRACTED(ch))
+			break;
+
 		obj_cast_spell(obj->value[4].s, INT_VAL(obj->value[0]), ch, ch);
 		break;
 	}
