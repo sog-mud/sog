@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.263 1999-07-02 12:24:19 fjoe Exp $
+ * $Id: act_info.c,v 1.264 1999-07-05 18:48:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -167,51 +167,89 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	char_puts("{MUsing this social without an argument", ch);
+	/* noarg */
+	char_puts("Using this social without an argument", ch);
 	found = FALSE;
+
 	if (soc->noarg_char) {
-		char_puts(", you'll see:{x\n   ", ch); found = TRUE; }
+		char_puts(", you'll see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
+
 	if (soc->noarg_room) {
-		if (found) char_puts("{MO", ch);
-			else char_puts(", o", ch);
-		char_puts("thers will see:{x\n   ", ch); found = TRUE; }
+		if (found)
+			char_puts("O", ch);
+		else
+			char_puts(", o", ch);
+		char_puts("thers will see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->noarg_room, ch, NULL, NULL, TO_CHAR);
-	if (!found) char_puts(" is pointless.{x\n", ch);
 
-	char_puts("\n{MUsing it with your name as an argument", ch);
+	if (!found)
+		char_puts(" is pointless.\n", ch);
+
+	/* self */
+	char_puts("\nUsing it with your name as an argument", ch);
 	found = FALSE;
+
 	if (soc->self_char) {
-		char_puts(", you'll see:{x\n   ", ch); found = TRUE; }
+		char_puts(", you'll see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->self_char, ch, NULL, ch, TO_CHAR);
+
 	if (soc->self_room) {
-		if (found) char_puts("{MO", ch);
-			else char_puts(", o", ch);
-		char_puts("thers will see:{x\n   ", ch); found = TRUE; }
+		if (found)
+			char_puts("O", ch);
+		else
+			char_puts(", o", ch);
+		char_puts("thers will see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->self_room, ch, NULL, ch, TO_CHAR);
-	if (!found) char_puts(" is pointless.{x\n", ch);
 
-	if (soc->notfound_char)
-		char_puts("\n{MIf your victim is absent, you'll see:{x\n   ",
-		ch);
-	act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
+	if (!found)
+		char_puts(" is pointless.\n", ch);
 
-	char_puts("\n{MUsing it on other character", ch);
+	/* notfound */
+	if (soc->notfound_char) {
+		char_puts("\nIf your victim is absent, you'll see:\n   ", ch);
+		act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
+	}
+
+	/* other */
+	char_puts("\nUsing it on other character", ch);
 	found = FALSE;
 	if (soc->found_char) {
-		char_puts(", you'll see:{x\n   ", ch); found = TRUE; }
+		char_puts(", you'll see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->found_char, ch, NULL, ch, TO_CHAR);
+
 	if (soc->found_vict) {
-		if (found) char_puts("{MY", ch);
-			else char_puts(", y", ch);
-		char_puts("our victim will see:{x\n   ", ch); found = TRUE; }
+		if (found)
+			char_puts("Y", ch);
+		else
+			char_puts(", y", ch);
+		char_puts("our victim will see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->found_vict, ch, NULL, ch, TO_CHAR);
+
 	if (soc->found_notvict) {
-		if (found) char_puts("{MO", ch);
-			else char_puts(", y", ch);
-		char_puts("thers will see:{x\n   ", ch); found = TRUE; }
+		if (found)
+			char_puts("O", ch);
+		else
+			char_puts(", o", ch);
+		char_puts("thers will see:\n   ", ch);
+		found = TRUE;
+	}
 	act(soc->found_notvict, ch, NULL, ch, TO_CHAR);
-	if (!found) char_puts(" is pointless.{x\n", ch);
+
+	if (!found)
+		char_puts(" is pointless.\n", ch);
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
@@ -3862,8 +3900,8 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 				 GETMSG("({YHumming{x) ", ch->lang));
 	}
 	else {
-		static char flag_tS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
-		strnzcpy(buf, sizeof(buf), flag_tS);
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
+		strnzcpy(buf, sizeof(buf), FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
@@ -3874,7 +3912,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[17] = 'M';
 		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[20] = 'G';
 		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[23] = 'H';
-		if (strcmp(buf, flag_tS) == 0)
+		if (strcmp(buf, FLAGS) == 0)
 			buf[0] = '\0';
 	}
 
@@ -4031,7 +4069,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	free(prgnShow);
 }
 
-#define flag_t_SET(pos, c, exp) (flag_tS[pos] = (exp) ? (flags = TRUE, c) : '.')
+#define FLAG_SET(pos, c, exp) (FLAGS[pos] = (exp) ? (flags = TRUE, c) : '.')
 
 static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -4091,37 +4129,37 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({gBlending{x) ", ch);
 	}
 	else {
-		static char flag_tS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
 		bool flags = FALSE;
 
-		flag_t_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
-		flag_t_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
-		flag_t_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
-		flag_t_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
-		flag_t_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
-		flag_t_SET(20, 'U', IS_NPC(victim) &&
+		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
+		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
+		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
+		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
+		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
+		FLAG_SET(20, 'U', IS_NPC(victim) &&
 				  IS_SET(victim->pIndexData->act, ACT_UNDEAD) &&
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
-		flag_t_SET(23, 'R', RIDDEN(victim));
-		flag_t_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
-		flag_t_SET(29, 'E', IS_EVIL(victim) &&
+		FLAG_SET(23, 'R', RIDDEN(victim));
+		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
+		FLAG_SET(29, 'E', IS_EVIL(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
-		flag_t_SET(32, 'G', IS_GOOD(victim) &&
+		FLAG_SET(32, 'G', IS_GOOD(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
-		flag_t_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
-		flag_t_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
+		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
+		FLAG_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
-			flag_t_SET(35, 'B', TRUE);
-			flag_t_SET(34, 'D', TRUE);
+			FLAG_SET(35, 'B', TRUE);
+			FLAG_SET(34, 'D', TRUE);
 		}
 
-		flag_t_SET(38, 'F', IS_AFFECTED(victim, AFF_FADE));
-		flag_t_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
-		flag_t_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
+		FLAG_SET(38, 'F', IS_AFFECTED(victim, AFF_FADE));
+		FLAG_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
+		FLAG_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
 
 		if (flags)
-			char_puts(flag_tS, ch);
+			char_puts(FLAGS, ch);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
