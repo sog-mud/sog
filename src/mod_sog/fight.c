@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.166 1999-05-14 20:09:05 avn Exp $
+ * $Id: fight.c,v 1.167 1999-05-15 10:32:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -301,18 +301,6 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	/* no attacks for stunnies -- just a check */
 	if (ch->position < POS_RESTING)
 		return;
-
-#if 0
-	/* become CRIMINAL in Law rooms */
-	if (!IS_NPC(ch) && !IS_NPC(victim)
-	&& IS_SET(ch->in_room->room_flags, ROOM_LAW)
-	&& !IS_SET(victim->plr_flags, PLR_WANTED)
-	&& !IS_SET(ch->plr_flags, PLR_WANTED)) {
-		char_puts("This room is under supervision of the law! "
-			  "Now you're {RCRIMINAL{x!\n", ch);
-		SET_BIT(ch->plr_flags, PLR_WANTED);		
-	}
-#endif
 
 	/* ridden's adjustment */
 	if (RIDDEN(victim) && !IS_NPC(victim->mount)) {
@@ -1153,9 +1141,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Dying penalty: 2/3 way back. */
-	if (IS_SET(victim->plr_flags, PLR_WANTED)
-	&&  victim->level > 1) {
-		REMOVE_BIT(victim->plr_flags, PLR_WANTED);
+	if (IS_WANTED(victim) && victim->level > 1) {
+		SET_WANTED(victim, NULL);
 		victim->level--;
 		victim->pcdata->plevels++;
 		victim->exp = exp_for_level(victim, victim->level);

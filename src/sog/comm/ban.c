@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.32 1999-05-15 09:28:25 fjoe Exp $
+ * $Id: ban.c,v 1.33 1999-05-15 10:32:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,12 @@
 #include <unistd.h>
 #endif
 #include <stdio.h>
+
+#if defined(BSD44)
 #include <fnmatch.h>
+#else
+#include "fnmatch.h"
+#endif
 
 #include "merc.h"
 #include "ban.h"

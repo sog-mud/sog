@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.137 1999-05-12 18:54:39 avn Exp $
+ * $Id: act_obj.c,v 1.138 1999-05-15 10:32:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2440,8 +2440,7 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 		return NULL;
 	}
 
-	if (!IS_NPC(ch)
-	&&  IS_SET(ch->plr_flags, PLR_WANTED)) {
+	if (IS_WANTED(ch)) {
 		do_say(keeper, "Criminals are not welcome!");
 		doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n",
 			 ch->name);

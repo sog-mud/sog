@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.184 1999-05-15 09:28:24 fjoe Exp $
+ * $Id: merc.h,v 1.185 1999-05-15 10:32:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1104,7 +1104,6 @@ enum {
 #define PLR_AUTOSAC		(F)
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
-#define PLR_WANTED		(J)
 #define PLR_NOTITLE		(K)
 /* RT personal flags */
 #define PLR_NOEXP		(L)
@@ -1135,6 +1134,15 @@ enum {
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->plr_flags, PLR_HARA_KIRI))
 #define IS_CLAN_GUARD(ch) (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_CLAN_GUARD))
 #define IS_OWNER(ch, obj) (!mlstr_cmp(ch->short_descr, obj->owner))
+
+#define IS_WANTED(ch)	(!IS_NPC(ch) && !IS_NULLSTR(ch->pcdata->wanted_by))
+#define SET_WANTED(ch, w_by)					\
+{								\
+	if (!IS_NPC(ch)) {					\
+		free_string(ch->pcdata->wanted_by);		\
+		ch->pcdata->wanted_by = str_qdup(w_by);		\
+	}							\
+}
 
 #define IS_PUMPED(ch) (IS_SET((ch)->plr_flags, PLR_PUMPED))
 #define SET_FIGHT_TIME(ch)					\
@@ -1422,6 +1430,8 @@ struct pc_data
 
 	int			plevels;	/* penalty levels */
 	ROOM_INDEX_DATA	*	homepoint;
+
+	const char *		wanted_by;
 };
 
 /*

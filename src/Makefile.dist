@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.8 1999-05-12 18:54:37 avn Exp $
+# $Id: Makefile.dist,v 1.9 1999-05-15 10:32:38 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -12,13 +12,15 @@ INSTALL_PATH	= ..
 
 #
 # for FreeBSD
-CFLAGS	+= -DBSD44
-LIBS	+= -lcrypt
+#CFLAGS	+= -DBSD44
+#LIBS	+= -lcrypt
 
 #
 # for Linux
 #CFLAGS	+= -DLINUX 
 #LIBS	+= -lcrypt
+#CFILES += compat/fnmatch.c
+#OFILES += fnmatch.o
 
 #
 # for SunOS 5 (Solaris)

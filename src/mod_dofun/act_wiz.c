@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.144 1999-05-15 09:28:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.145 1999-05-15 10:32:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,12 @@
 #include <unistd.h>
 #endif
 #include <limits.h>
-#include <fnmatch.h>
+
+#if defined(BSD44)
+#	include <fnmatch.h>
+#else
+#	include "fnmatch.h"
+#endif
 
 #include "merc.h"
 #include "interp.h"
@@ -3033,32 +3038,24 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	for (d = descriptor_list; d; d = d->next) {
+		char buf[MAX_STRING_LENGTH];
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
 		if (vch && !can_see(ch, vch))
 			continue;
 
-		switch (arg[0]) {
-		case '\0':
-			break;
+		snprintf(buf, sizeof(buf), "%s@%s",
+			 vch ? vch->name : NULL,
+			 d->host);
 
-		case '@':
-			if (fnmatch(arg+1, d->host, FNM_CASEFOLD) != 0)
-				continue;
-			break;
-
-		default:
-			if (!vch || !is_name(arg, vch->name))
-				continue;
-			break;
-		}
+		if (arg[0] && fnmatch(arg, buf, FNM_CASEFOLD) != 0)
+			continue;
 
 		count++;
-		buf_printf(output, "[%3d %2d] %s@%s (%s)",
+		buf_printf(output, "[%3d %2d] %s (%s)",
 			   d->descriptor,
 			   d->connected,
-			   vch ? vch->name : "(none)",
-			   d->host,
+			   buf,
 			   d->ip);
 		if (vch && vch->timer)
 			buf_printf(output, " idle %d", vch->timer);

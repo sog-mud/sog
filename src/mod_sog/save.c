@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.114 1999-05-12 18:54:48 avn Exp $
+ * $Id: save.c,v 1.115 1999-05-15 10:32:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -289,6 +289,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fwrite_string(fp, "Bin", pcdata->bamfin);
 		fwrite_string(fp, "Bout", pcdata->bamfout);
 		fwrite_string(fp, "Titl", pcdata->title);
+		fwrite_string(fp, "WantedBy", pcdata->wanted_by);
 		fprintf(fp, "Pnts %d\n", pcdata->points);
 		fprintf(fp, "TSex %d\n", pcdata->true_sex);
 		fprintf(fp, "LLev %d\n", pcdata->last_level);
@@ -1086,6 +1087,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Wimpy", ch->wimpy, fread_number(fp));
 			KEY("Wimp", ch->wimpy, fread_number(fp));
 			KEY("Wizn", ch->pcdata->wiznet, fread_flags(fp));
+			SKEY("WantedBy", ch->pcdata->wanted_by);
 			break;
 		}
 

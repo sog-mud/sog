@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.161 1999-04-16 15:52:13 fjoe Exp $
+ * $Id: act_comm.c,v 1.162 1999-05-15 10:32:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1679,7 +1679,7 @@ DO_FUN(do_wanted)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Toggle wanted whom?\n", ch);
+		char_puts("Set wanted whom?\n", ch);
 		return;
 	}
 
@@ -1704,16 +1704,32 @@ DO_FUN(do_wanted)
 		return;
 	}
 
-	TOGGLE_BIT(victim->plr_flags, PLR_WANTED);
-	if (IS_SET(victim->plr_flags, PLR_WANTED)) {
-		act("$n is now WANTED!!!", victim, NULL, ch, TO_NOTVICT);
-		act("$n is now WANTED!!!", victim, NULL, ch, TO_VICT);
-		char_puts("You are now WANTED!!!\n", victim);
+	if (IS_WANTED(victim)) {
+		/*
+		 * Commoner can remove wanted only if he/she set it before
+		 */
+		if (ch->pcdata->clan_status == CLAN_COMMONER
+		&&  str_cmp(victim->pcdata->wanted_by, ch->name)) {
+			act("You do not have enough privileges to remove "
+			    "WANTED status from $N.",
+			    ch, NULL, victim, TO_CHAR);
+			return;
+		}
+
+		SET_WANTED(victim, NULL);
+		act("You are no longer wanted.", victim, NULL, ch, TO_CHAR);
+		act("$n is no longer wanted.", victim, NULL, ch, TO_VICT);
+		act("$n is no longer wanted.", victim, NULL, ch, TO_NOTVICT);
+		if (ch->in_room != victim->in_room)
+			act("$N is no longer wanted.", ch, NULL, victim, TO_NOTVICT);
 	}
 	else {
-		act("$n is no longer wanted.", victim, NULL, ch, TO_NOTVICT);
-		act("$n is no longer wanted.", victim, NULL, ch, TO_VICT);
-		char_puts("You are no longer wanted.\n", victim);
+		SET_WANTED(victim, ch->name);
+		act("$N declares you WANTED!!!", victim, NULL, ch, TO_CHAR);
+		act("You declare $n WANTED!!!", victim, NULL, ch, TO_VICT);
+		act("$N declares $n WANTED!!!", victim, NULL, ch, TO_NOTVICT);
+		if (ch->in_room != victim->in_room)
+			act("$n declares $N WANTED!!!", ch, NULL, victim, TO_NOTVICT);
 	}
 }
 

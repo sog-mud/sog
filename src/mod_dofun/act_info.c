@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.228 1999-05-15 09:28:21 fjoe Exp $
+ * $Id: act_info.c,v 1.229 1999-05-15 10:32:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,7 +326,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("{r[{RTARGET{r]{x ", ch);
 	}
 	else {
-		if (IS_SET(victim->plr_flags, PLR_WANTED))
+		if (IS_WANTED(victim))
 			char_puts("({RWanted{x) ", ch);
 
 		if (IS_SET(victim->comm, COMM_AFK))
@@ -1576,7 +1576,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (ch && in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
 		buf_add(output, "{r[{RPK{r]{x ");
 
-	if (IS_SET(wch->plr_flags, PLR_WANTED))
+	if (IS_WANTED(wch))
 		buf_add(output, "{R(WANTED){x ");
 
 	if (IS_IMMORTAL(wch))

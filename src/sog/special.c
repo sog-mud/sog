@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.44 1999-05-11 09:38:53 fjoe Exp $
+ * $Id: special.c,v 1.45 1999-05-15 10:32:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -688,8 +688,7 @@ bool spec_executioner(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (!IS_NPC(victim) && IS_SET(victim->plr_flags, PLR_WANTED) 
-		&&  can_see(ch, victim)) {
+		if (IS_WANTED(victim) && can_see(ch, victim)) {
 			crime = "CRIMINAL";
 			break;
 		}
@@ -1014,7 +1013,7 @@ bool spec_guard(CHAR_DATA *ch)
 			}
 		}
 
-		if (!IS_NPC(victim) && IS_SET(victim->plr_flags, PLR_WANTED)) {
+		if (IS_WANTED(victim)) {
 			crime = "CRIMINAL";
 			break;
 		}
@@ -1063,7 +1062,7 @@ bool spec_special_guard(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 		
-		if (!IS_NPC(victim) && IS_SET(victim->plr_flags, PLR_WANTED)) {
+		if (IS_WANTED(victim)) {
 			crime = "CRIMINAL";
 			break;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.99 1999-05-12 18:54:45 avn Exp $
+ * $Id: spellfun2.c,v 1.100 1999-05-15 10:32:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -256,7 +256,8 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	victim->hit           = 1;
 	victim->mana  	  = 1;
 
-	REMOVE_BIT(victim->plr_flags, PLR_WANTED | PLR_BOUGHT_PET);
+	REMOVE_BIT(victim->plr_flags, PLR_BOUGHT_PET);
+	SET_WANTED(victim, NULL);
 
 	victim->pcdata->condition[COND_THIRST] = 40;
 	victim->pcdata->condition[COND_HUNGER] = 40;
@@ -599,7 +600,7 @@ void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!IS_SET(victim->plr_flags, PLR_WANTED)) {
+	if (!IS_WANTED(victim)) {
 		act("But $N is not wanted.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -1275,16 +1276,16 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	int i;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	  ||   victim == ch || victim->in_room == NULL
-	  || IS_NPC(victim) || !IS_SET(victim->plr_flags, PLR_WANTED)) {
-	  char_puts("You failed.\n", ch);
-	  return;
+	||  victim == ch
+	||  victim->in_room == NULL
+	||  !IS_WANTED(victim)) {
+		char_puts("You failed.\n", ch);
+		return;
 	}
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("This power is used too recently.\n", ch);
-	  return;
+	if (is_affected(ch,sn)) {
+		char_puts("This power is used too recently.\n", ch);
+		return;
 	}
 
 	char_puts("You attempt to summon a stalker.\n",ch);
@@ -1292,19 +1293,17 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	stalker = create_mob(get_mob_index(MOB_VNUM_STALKER));
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = 6;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	af.location           = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level; 
+	af.duration	= 6;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	for (i=0;i < MAX_STATS; i++)
-	{
-	  stalker->perm_stat[i] = victim->perm_stat[i];
-	}
+	for (i = 0; i < MAX_STATS; i++)
+		stalker->perm_stat[i] = victim->perm_stat[i];
 
 	stalker->max_hit = UMIN(30000,2 * victim->max_hit);
 	stalker->hit = stalker->max_hit;

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.45 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: recycle.c,v 1.46 1999-05-15 10:32:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -320,6 +320,7 @@ void free_pcdata(PC_DATA *pcdata)
 	free_string(pcdata->title);
 	free_string(pcdata->twitlist);
 	free_string(pcdata->granted);
+	free_string(pcdata->wanted_by);
 	buf_free(pcdata->buffer);
     
 	for (alias = 0; alias < MAX_ALIAS; alias++) {
