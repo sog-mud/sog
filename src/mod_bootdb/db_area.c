@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.72 1999-12-10 12:03:03 kostik Exp $
+ * $Id: db_area.c,v 1.73 1999-12-11 08:22:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -394,7 +394,7 @@ DBLOAD_FUN(load_old_mob)
 		}
 		
 		for (i = 0; i < MAX_RESIST; i++)
-			pMobIndex->resists[i] = r->resists[i];
+			pMobIndex->resists[i] = r ? r->resists[i] : 0;
 
 		if (letter != 'S') {
 			db_error("load_old_mob", "vnum %d non-S.", vnum);
@@ -1019,7 +1019,6 @@ DBLOAD_FUN(load_mobiles)
     flag64_t imm_r = 0;
     flag64_t vul_r = 0;
     int16_t rresists[MAX_RESIST];
-
     if (!area_current) {
         db_error("load_mobiles", "no #AREA seen yet.");
 	return;
@@ -1033,6 +1032,9 @@ DBLOAD_FUN(load_mobiles)
 	int i;
 	bool found_res = FALSE;
  
+     	res_r = 0;
+     	imm_r = 0;
+    	vul_r = 0;
         letter                          = fread_letter(fp);
         if (letter != '#') {
             db_error("load_mobiles", "# not found.");
