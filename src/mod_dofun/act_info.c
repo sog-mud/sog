@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.393 2001-08-26 16:17:20 fjoe Exp $
+ * $Id: act_info.c,v 1.394 2001-08-29 11:48:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -3656,6 +3656,22 @@ DO_FUN(do_demand, ch, argument)
 
 	if (!IS_NPC(victim)) {
 		act_char("Why don't you just want that directly from the player?", ch);
+		return;
+	}
+
+	if (victim->position == POS_SLEEPING) {
+		act("You should wake $N first.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+	if (!can_see(victim, ch)) {
+		do_say(victim,
+			"If you want something from me, stop hiding from me!");
+		return;
+	}
+
+	if (victim->position == POS_FIGHTING) {
+		do_say(victim,
+		    "Let me finish my fight, and then we'll talk.");
 		return;
 	}
 

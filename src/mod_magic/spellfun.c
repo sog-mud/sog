@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.259 2001-08-28 22:07:07 fjoe Exp $
+ * $Id: spellfun.c,v 1.260 2001-08-29 11:48:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -7656,11 +7656,9 @@ SPELL_FUN(spell_simulacrum, sn, level, ch, vo)
 	illusion->level = victim->level;
 
 	for (i = 0; i < MAX_RESIST; i++) {
-		if (victim->pMobIndex->resists[i] == RES_UNDEF)
-			continue;
-
-		illusion->res_mod[i] = victim->pMobIndex->resists[i];
+		illusion->res_mod[i] = 0;
 	}
+	illusion->res_mod[DAM_POISON] = illusion->res_mod[DAM_DISEASE] = 100;
 
 	paf = aff_new(TO_AFFECTS, sn);
 	paf->level	= level;
