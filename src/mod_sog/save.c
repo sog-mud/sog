@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.11 1998-04-29 11:01:26 fjoe Exp $
+ * $Id: save.c,v 1.12 1998-04-29 11:27:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -187,7 +187,6 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 {
     AFFECT_DATA *paf;
     int sn, pos;
-/* DEBUG */ printf( "saving.\n" );
 
     fprintf( fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER"	);
 

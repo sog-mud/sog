@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.5 1998-04-26 17:08:02 efdi Exp $
+ * $Id: act_obj.c,v 1.6 1998-04-29 11:27:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -2041,7 +2041,6 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
 {
 	OBJ_DATA *r_cont;
 	OBJ_DATA *r_next_cont;
-/* DEBUG */ printf( "do_sacrifice: input argument = '%s'\n", argument );
 	if( !strcmp( argument, "all" ) )
 		for( r_cont = ch->in_room->contents; r_cont; r_cont = r_next_cont ) {
 			r_next_cont = r_cont->next_content;
@@ -2073,7 +2072,6 @@ void do_sacr( CHAR_DATA *ch, char *argument )
 
     one_argument( argument, arg );
 
-/* DEBUG */ printf("do_sacr: input argument = '%s'\n", arg );
     if ( arg[0] == '\0' || !str_cmp( arg, ch->name ) )
     {
 	act( "$n offers $mself to gods, who graciously declines.",

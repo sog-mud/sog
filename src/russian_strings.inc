@@ -272,6 +272,7 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_RECALL_FROM_COMBAT */	"Боги вернули тебя домой из битвы! Ты теряешь %d очков опыта.\n\r",
 /* MOVE_N_DISAPPEARS */		"$n исчез.",
 /* MOVE_N_APPEARS_IN_THE_ROOM */"Здесь появился $n.",
+/* MOVE_YOU_CANT_DO_THAT_HERE */"Ты не можешь делать етого здесь.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
