@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.69 2004-03-03 13:52:00 tatyana Exp $
+ * $Id: prayers.c,v 1.70 2004-03-03 14:40:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -159,6 +159,7 @@ DECLARE_SPELL_FUN(prayer_sleep_of_grave);
 DECLARE_SPELL_FUN(prayer_wind_blow);
 DECLARE_SPELL_FUN(prayer_tornado);
 DECLARE_SPELL_FUN(prayer_ice_sphere);
+DECLARE_SPELL_FUN(prayer_cloak_of_death);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3863,4 +3864,22 @@ SPELL_FUN(prayer_ice_sphere, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_CHAR);
 	act("Water freezes around $n forming sparkling ice sphere.",
 	    ch, NULL, NULL, TO_ROOM);
+}
+SPELL_FUN(prayer_cloak_of_death, sn, level, ch, vo)
+{
+	if (!is_sn_affected(ch, sn)) {
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_RESISTS, sn);
+		paf->duration	= level / 10;
+		paf->level	= level;
+		INT(paf->location)= DAM_NEGATIVE;
+		paf->modifier	= 95;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
+		act("Your god grant you protection against negative.",
+		    ch, NULL, NULL, TO_CHAR);
+	} else
+		act_char("Power of your god is already with you.", ch);
 }
