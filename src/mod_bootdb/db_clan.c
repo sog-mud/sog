@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.37 2001-09-13 16:21:57 fjoe Exp $
+ * $Id: db_clan.c,v 1.38 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -156,12 +156,15 @@ DBLOAD_FUN(load_plists)
 			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
+
 		case 'L':
 			SKEY("Leaders", clan->leader_list, fread_string(fp));
 			break;
+
 		case 'M':
 			SKEY("Members", clan->member_list, fread_string(fp));
 			break;
+
 		case 'S':
 			SKEY("Seconds", clan->second_list, fread_string(fp));
 			break;

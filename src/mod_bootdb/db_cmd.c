@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.16 2001-09-15 17:12:35 fjoe Exp $
+ * $Id: db_cmd.c,v 1.17 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -62,6 +62,7 @@ DBLOAD_FUN(load_cmd)
 		case 'D':
 			SKEY("dofun", cmd->dofun_name, fread_string(fp));
 			break;
+
 		case 'E':
 			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(cmd->name)) {
@@ -71,14 +72,17 @@ DBLOAD_FUN(load_cmd)
 				return;
 			}
 			break;
+
 		case 'F':
 			KEY("flags", cmd->cmd_flags,
 			    fread_fstring(cmd_flags, fp));
 			break;
+
 		case 'L':
 			KEY("log", cmd->cmd_log,
 			    fread_fword(cmd_logtypes, fp));
 			break;
+
 		case 'M':
 			KEY("min_pos", cmd->min_pos,
 			    fread_fword(position_table, fp));
@@ -87,6 +91,7 @@ DBLOAD_FUN(load_cmd)
 			KEY("module", cmd->cmd_mod,
 			    fread_fword(module_names, fp));
 			break;
+
 		case 'N':
 			SKEY("name", cmd->name, fread_string(fp));
 			break;

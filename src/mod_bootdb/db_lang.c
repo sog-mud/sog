@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.36 2001-09-15 17:12:36 fjoe Exp $
+ * $Id: db_lang.c,v 1.37 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -110,13 +110,16 @@ DBLOAD_FUN(load_lang)
 				return;
 			}
 			break;
+
 		case 'F':
 			KEY("Flags", lang->lang_flags,
 			    fread_fstring(lang_flags, fp));
 			break;
+
 		case 'N':
 			KEY("Name", lang->name, fread_sword(fp));
 			break;
+
 		case 'S':
 			KEY("SlangOf", lang->slang_of, fread_lang(fp));
 			break;
@@ -181,6 +184,7 @@ DBLOAD_FUN(load_rulecl)
 				return;
 			}
 			break;
+
 		case 'I':
 			SKEY("Impl", rcl->file_impl, fread_string(fp));
 			break;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.24 2001-09-13 12:02:54 fjoe Exp $
+ * $Id: db_system.c,v 1.25 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #if !defined(WIN32)
@@ -77,6 +77,7 @@ DBLOAD_FUN(load_system)
 			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
+
 		case 'L':
 			if (IS_TOKEN(fp, "Listen")) {
 				int port;
@@ -90,6 +91,7 @@ DBLOAD_FUN(load_system)
 				fMatch = TRUE;
 			}
 			break;
+
 		case 'O':
 			KEY("Options", mud_options,
 			    fread_fstring(options_table, fp));
@@ -125,10 +127,12 @@ DBLOAD_FUN(load_info)
 				fMatch = TRUE;
 			}
 			break;
+
 		case 'E':
 			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
+
 		case 'L':
 			if (IS_TOKEN(fp, "Listen")) {
 				int port;

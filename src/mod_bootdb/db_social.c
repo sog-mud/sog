@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.22 2001-09-15 17:12:36 fjoe Exp $
+ * $Id: db_social.c,v 1.23 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <limits.h>
@@ -70,21 +70,25 @@ DBLOAD_FUN(load_social)
 				return;
 			}
 			break;
+
 		case 'F':
 			MLSKEY("found_char", soc->found_char);
 			MLSKEY("found_vict", soc->found_vict);
 			MLSKEY("found_notvict", soc->found_notvict);
 			break;
+
 		case 'N':
 			KEY("name", soc->name, fread_sword(fp));
 			MLSKEY("notfound_char", soc->notfound_char);
 			MLSKEY("noarg_char", soc->noarg_char);
 			MLSKEY("noarg_room", soc->noarg_room);
 			break;
+
 		case 'M':
 			KEY("min_pos", soc->min_pos,
 			    fread_fword(position_table, fp));
 			break;
+
 		case 'S':
 			MLSKEY("self_char", soc->self_char);
 			MLSKEY("self_room", soc->self_room);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.16 2001-09-15 17:12:36 fjoe Exp $
+ * $Id: db_hometown.c,v 1.17 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -71,6 +71,7 @@ DBLOAD_FUN(load_hometown)
 				fMatch = TRUE;
 			}
 			break;
+
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (!check_hometown(h))
@@ -78,12 +79,14 @@ DBLOAD_FUN(load_hometown)
 				return;
 			}
 			break;
+
 		case 'M':
 			if (IS_TOKEN(fp, "Map")) {
 				fread_map(h, fp);
 				fMatch = TRUE;
 			}
 			break;
+
 		case 'R':
 			if (IS_TOKEN(fp, "Recall")) {
 				fread_recall(h, fp);

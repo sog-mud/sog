@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.27 2001-11-12 09:43:35 kostik Exp $
+ * $Id: db_spec.c,v 1.28 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -127,6 +127,7 @@ DBLOAD_FUN(load_spec_skill)
 		case 'A':
 			KEY("Adept", spec_sk->adept, fread_number(fp));
 			break;
+
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
 				if (IS_NULLSTR(spec_sk->sn)) {
@@ -138,16 +139,20 @@ DBLOAD_FUN(load_spec_skill)
 				return;
 			}
 			break;
+
 		case 'L':
 			KEY("Level", spec_sk->level, fread_number(fp));
 			break;
+
 		case 'M':
 			KEY("Min", spec_sk->min, fread_number(fp));
 			KEY("Max", spec_sk->max, fread_number(fp));
 			break;
+
 		case 'R':
 			KEY("Rating", spec_sk->rating, fread_number(fp));
 			break;
+
 		case 'S':
 			SKEY("Skill", spec_sk->sn,
 			     fread_strkey(fp, &skills));

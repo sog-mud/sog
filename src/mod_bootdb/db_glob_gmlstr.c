@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_glob_gmlstr.c,v 1.5 2001-09-13 16:21:59 fjoe Exp $
+ * $Id: db_glob_gmlstr.c,v 1.6 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -80,6 +80,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
+
 		case 'G':
 			MLSKEY("gender", gmlp->gender);
 			break;

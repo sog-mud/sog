@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.42 2001-09-13 16:21:58 fjoe Exp $
+ * $Id: db_class.c,v 1.43 2002-03-21 13:54:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -203,9 +203,11 @@ DBLOAD_FUN(load_pose)
 			if (IS_TOKEN(fp, "End"))
 				return;
 			break;
+
 		case 'O':
 			SKEY("Others", pose->others, fread_string(fp));
 			break;
+
 		case 'S':
 			SKEY("Self", pose->self, fread_string(fp));
 			break;
