@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.35 2000-03-07 09:21:54 avn Exp $
+ * $Id: affect.c,v 1.36 2000-03-21 13:43:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1057,12 +1057,15 @@ void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 	bool found = FALSE;
 
 	for (paf = vch->affected; paf; paf = paf->next) {
-		if (!found)
+		if (!found) {
 			if (ch == vch)
 				buf_add(output, "You are affected by the following spells:\n");
-			else
+			else {
 				buf_act(output, "$N is affected by the following spells:",
 					ch, NULL, vch, NULL, 0);
+			}
+		}
+
 		found = TRUE;
 		if (ch->level < 20) {
 			show_name(ch, output, paf, paf_last);
@@ -1075,12 +1078,15 @@ void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 		show_loc_affect(ch, output, paf, &paf_last);
 		show_bit_affect(output, paf, &paf_last);
 	}
-	if (!found)
+
+	if (!found) {
 		if (ch == vch)
 			buf_add(output, "You are not affected by any spells.\n");
-		else
+		else {
 			buf_act(output, "$N is not affected by any spells.",
 				ch, NULL, vch, NULL, 0);
+		}
+	}
 
 	if (ch->level < 20)
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.264 2000-03-07 09:21:55 avn Exp $
+ * $Id: fight.c,v 1.265 2000-03-21 13:43:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -948,7 +948,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (dam <= 0)
 		dam = 1;
 
-	if (m && m->dam_class != DAM_NONE)
+	if (m && m->dam_class != DAM_NONE) {
 		if (counter)
 			res = get_resist(ch, m->dam_class);
 		else {
@@ -958,6 +958,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act("You are immune to $n's attacks.", ch, NULL, victim, TO_VICT);
 			}
 		}
+	}
 	dam = dam * (100 - res) / 100;
 
 	if (counter) {

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.214 2000-03-03 04:09:12 avn Exp $
+ * $Id: db.c,v 1.215 2000-03-21 13:44:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1096,12 +1096,14 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 	free_string(mob->race);
 	mob->race		= str_qdup(pMobIndex->race);
-	if ((r = race_lookup(pMobIndex->race)) != NULL)
-		for (i = 0; i < MAX_RESIST; i++)
+	if ((r = race_lookup(pMobIndex->race)) != NULL) {
+		for (i = 0; i < MAX_RESIST; i++) {
 			if (mob->resists[i] != MOB_IMMUNE)
 				mob->resists[i] += r->resists[i];
 			else
 				mob->resists[i] = 100;
+		}
+	}
 
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.331 2000-03-03 04:09:08 avn Exp $
+ * $Id: act_info.c,v 1.332 2000-03-21 13:43:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1536,7 +1536,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	char *pwdnew;
+	const char *pwdnew;
 
 	if (IS_NPC(ch))
 		return;
@@ -1551,13 +1551,12 @@ void do_password(CHAR_DATA *ch, const char *argument)
 
 	if (strcmp(crypt(arg1, PC(ch)->pwd), PC(ch)->pwd)) {
 		WAIT_STATE(ch, 10 * PULSE_PER_SECOND);
-		char_puts("Wrong password.  Wait 10 seconds.\n", ch);
+		char_puts("Wrong password. Wait 10 seconds.\n", ch);
 		return;
 	}
 
 	if (strlen(arg2) < 5) {
-		char_puts("New password must be at least "
-			     "five characters long.\n", ch);
+		char_puts("New password must be at least five characters long.\n", ch);
 		return;
 	}
 
@@ -1566,8 +1565,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	 */
 	pwdnew = crypt(arg2, ch->name);
 	if (strchr(pwdnew, '~') != NULL) {
-		char_puts("New password not acceptable, "
-			     "try again.\n", ch);
+		char_puts("New password not acceptable, try again.\n", ch);
 		return;
 	}
 

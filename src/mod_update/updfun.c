@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.4 2000-03-02 17:14:11 avn Exp $
+ * $Id: updfun.c,v 1.5 2000-03-21 13:43:49 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -501,7 +501,7 @@ mobile_update_cb(void *vo, va_list ap)
 	&&  (pexit = ch->in_room->exit[door]) != NULL
 	&&  pexit->to_room.r != NULL
 	&&  !IS_SET(pexit->exit_info, EX_CLOSED)
-	&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)
+	&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB | ROOM_GUILD)
 	&&  (!IS_SET(act, ACT_STAY_AREA) ||
 	     pexit->to_room.r->area == ch->in_room->area) 
 	&&  (!IS_SET(act, ACT_AGGRESSIVE) ||

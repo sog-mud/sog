@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.37 2000-02-10 14:08:53 fjoe Exp $
+ * $Id: string_edit.c,v 1.38 2000-03-21 13:44:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,20 +51,41 @@ void string_append(CHAR_DATA *ch, const char **pString)
 /*****************************************************************************
  Name:		string_replace
  Purpose:	Substitutes one string for another.
- Called by:	string_add(string.c) (aedit_builder)olc_act.c.
  ****************************************************************************/
-const char * string_replace(const char * orig, char * old, char * new)
+const char *
+string_replace(const char *orig, const char *old, const char *new, int flags)
 {
 	char xbuf[MAX_STRING_LENGTH];
 	char *p;
 
-	strnzcpy(xbuf, sizeof(xbuf), orig);
+	if (IS_NULLSTR(old) || !str_cmp(old, new))
+		return orig;
 
-	if ((p = strstr(xbuf, old))) {
-		*p = '\0';
+	xbuf[0] = '\0';
+	while ((p = strstr(orig, old)) != NULL) {
+		/*
+		 * cat prefix
+		 */
+		if (p > orig)
+			strnzncat(xbuf, sizeof(xbuf), orig, p - orig);
+
+		/*
+		 * cat replacement
+		 */
 		strnzcat(xbuf, sizeof(xbuf), new);
-		strnzcat(xbuf, sizeof(xbuf), orig + (p - xbuf) + strlen(old));
+
+		/*
+		 * move pointers
+		 */
+		orig = p + strlen(old);
+		if (!IS_SET(flags, SR_F_ALL))
+			break;
 	}
+
+	/*
+	 * cat the rest
+	 */
+	strnzcat(xbuf, sizeof(xbuf), orig);
 
 	free_string(orig);
 	return str_dup(xbuf);
@@ -78,8 +99,7 @@ void string_add_exit(CHAR_DATA *ch, bool save)
 		char_puts("No changes saved.\n", ch);
 		free_string(*d->pString);
 		*d->pString = d->backup;
-	}
-	else {
+	} else {
 		free_string(d->backup);
 		if (OLCED(ch) && olc_interpret)
 			olc_interpret(d, "touch");
@@ -101,111 +121,138 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	size_t len;
         char arg1[MAX_INPUT_LENGTH];
 
-    /*
-     * Thanks to James Seng
-     */
+	/*
+	 * Thanks to James Seng
+	*/
 
-    if (*argument == ':')
-    {
-        char arg2 [MAX_INPUT_LENGTH];
-        char arg3 [MAX_INPUT_LENGTH];
-        char tmparg3 [MAX_INPUT_LENGTH];
+	if (*argument == ':') {
+		char arg2[MAX_INPUT_LENGTH];
+		char arg3[MAX_INPUT_LENGTH];
+		char tmparg3[MAX_INPUT_LENGTH];
 
-        argument = one_argument(argument, arg1, sizeof(arg1));
-        argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
-	strnzcpy(tmparg3, sizeof(tmparg3), argument);
-        argument = first_arg(argument, arg3, sizeof(arg3), FALSE);
+		argument = one_argument(argument, arg1, sizeof(arg1));
+		argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
+		strnzcpy(tmparg3, sizeof(tmparg3), argument);
+		argument = first_arg(argument, arg3, sizeof(arg3), FALSE);
 
-        if (!str_cmp(arg1+1, "c"))
-        {
-            char_puts("String cleared.\n", ch);
-	    free_string(*ch->desc->pString);
-	    *ch->desc->pString = str_dup(str_empty);
-            return;
-        }
+		/*
+		 * clear string
+		 */
+		if (!str_cscmp(arg1+1, "c")) {
+			char_puts("String cleared.\n", ch);
+			free_string(*ch->desc->pString);
+			*ch->desc->pString = str_dup(str_empty);
+			return;
+		}
 
-        if (!str_cmp(arg1+1, "s"))
-        {
-            char_printf(ch, "String so far:\n%s",
-            		numlines(*ch->desc->pString));
-            return;
-        }
+		/*
+		 * show string
+		 */
+		if (!str_cscmp(arg1+1, "s")) {
+			char_printf(ch, "String so far:\n%s",
+				    numlines(*ch->desc->pString));
+			return;
+		}
 
-        if (!str_cmp(arg1+1, "r"))
-        {
-            if (arg2[0] == '\0')
-            {
-                char_puts(
-                    "usage:  :r \"old string\" \"new string\"\n", ch);
-                return;
-            }
+		/*
+		 * replace
+		 */
+		if (!str_cmp(arg1+1, "r")) {
+			if (arg2[0] == '\0') {
+				char_printf(ch, "Usage:  :%c \"old string\" \"new string\"\n", arg1[1]);
+				return;
+			}
 
-            *ch->desc->pString =
-                string_replace(*ch->desc->pString, arg2, arg3);
-            char_printf(ch, "'%s' replaced with '%s'.\n", arg2, arg3);
-            return;
-        }
+			*ch->desc->pString =
+				string_replace(*ch->desc->pString, arg2, arg3,
+					       arg1[1] == 'r' ? 0 : SR_F_ALL);
+			char_printf(ch, "%s'%s' replaced with '%s'.\n",
+				    arg1[1] == 'r' ? str_empty : "All ",
+				    arg2, arg3);
+			return;
+		}
 
-        if (!str_cmp(arg1+1, "f"))
-        {
-            *ch->desc->pString = format_string(*ch->desc->pString);
-            char_puts("String formatted.\n", ch);
-            return;
-        }
-        
-	if (!str_cmp(arg1+1, "ld"))
-	{
-		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
-		char_puts("Line deleted.\n", ch);
+		/*
+		 * format
+		 */
+		if (!str_cscmp(arg1+1, "f")) {
+			*ch->desc->pString = format_string(*ch->desc->pString);
+			char_puts("String formatted.\n", ch);
+			return;
+		}
+
+		/*
+		 * delete line
+		 */
+		 if (!str_cscmp(arg1+1, "ld")) {
+			*ch->desc->pString = string_linedel(*ch->desc->pString,
+							    atoi(arg2));
+			char_puts("Line deleted.\n", ch);
+			return;
+		}
+
+		/*
+		 * insert line
+		 */
+		if (!str_cscmp(arg1+1, "li")) {
+			*ch->desc->pString = string_lineadd(*ch->desc->pString,
+							   tmparg3, atoi(arg2));
+			char_puts("Line inserted.\n", ch);
+			return;
+		}
+
+		/*
+		 * replace line
+		 */
+		if (!str_cscmp(arg1+1, "lr")) {
+			*ch->desc->pString = string_linedel(*ch->desc->pString,
+							    atoi(arg2));
+			*ch->desc->pString = string_lineadd(*ch->desc->pString,
+							   tmparg3, atoi(arg2));
+			char_puts("Line replaced.\n", ch);
+			return;
+		}
+
+		/*
+		 * quit, do not save changes
+		 */
+		if (!str_cscmp(arg1+1, "q!")) {
+			string_add_exit(ch, FALSE);
+			return;
+		}
+
+		/*
+		 * quit, save changes
+		 */
+		if (!str_cscmp(arg1+1, "x")
+		||  !str_cscmp(arg1+1, "wq")) {
+			string_add_exit(ch, TRUE);
+			return;
+		}
+
+		/*
+		 * help
+		 */
+		if (!str_cscmp(arg1+1, "h")) {
+			char_puts("Sedit help (commands on blank line):\n"
+				  ":r 'old' 'new'   - replace a substring (first occurence)\n"
+				  ":R 'old' 'new'   - replace a substring (all occurences)\n"
+				  "                   (requires '', \"\")\n"
+				  ":h               - get help (this info)\n"
+				  ":s               - show string so far\n"
+				  ":f               - (word wrap) string\n"
+				  ":c               - clear string so far\n"
+				  ":ld <num>        - delete line #num\n"
+				  ":li <num> <str>  - insert <str> before line #num\n"
+				  ":lr <num> <str>  - replace line #num with <str>\n"
+				  "@, ~, :x, :wq    - finish editing (save changes)\n"
+				  ":q!              - abort editing (do not save changes)\n", ch);
+			return;
+		}
+
+		char_puts("SEdit: Invalid command.\n", ch);
 		return;
 	}
-
-	if (!str_cmp(arg1+1, "li"))
-	{
-		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		char_puts("Line inserted.\n", ch);
-		return;
-	}
-
-	if (!str_cmp(arg1+1, "lr"))
-	{
-		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
-		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		char_puts("Line replaced.\n", ch);
-		return;
-	}
-
-	if (!str_cmp(arg1+1, "q!")) {
-		string_add_exit(ch, FALSE);
-		return;
-	}
-
-	if (!str_cmp(arg1+1, "x")
-	||  !str_cmp(arg1+1, "wq")) {
-		string_add_exit(ch, TRUE);
-        	return;
-	}
-
-        if (!str_cmp(arg1+1, "h"))
-        {
-            char_puts("Sedit help (commands on blank line):\n", ch);
-            char_puts(":r 'old' 'new'   - replace a substring\n", ch);
-            char_puts("                   (requires '', \"\")\n", ch);
-            char_puts(":h               - get help (this info)\n", ch);
-            char_puts(":s               - show string so far\n", ch);
-            char_puts(":f               - (word wrap) string\n", ch);
-            char_puts(":c               - clear string so far\n", ch);
-            char_puts(":ld <num>        - delete line #num\n", ch);
-            char_puts(":li <num> <str>  - insert <str> before line #num\n", ch);
-	    char_puts(":lr <num> <str>  - replace line #num with <str>\n", ch);
-            char_puts("@, ~, :x, :wq    - finish editing (save changes)\n", ch);
-            char_puts(":q!              - abort editing (do not save changes)\n", ch);
-            return;
-        }
-
-        char_puts("SEdit: Invalid command.\n", ch);
-        return;
-    }
 
 	if (*argument == '~' || *argument == '@') {
 		string_add_exit(ch, TRUE);
