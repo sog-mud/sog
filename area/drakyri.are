@@ -548,7 +548,7 @@ ACFG GJ -950 0
 79 0 100d12+13000 1d50+5000 9d11+49 claw
 -48 -47 -47 -15
 CDJK 0 HM IN
-stand stand none 1000
+stand stand none 0
 0 0 large unknown
 #11833
 howling beast figure~
@@ -581,7 +581,7 @@ ABCFG GJQT -855 0
 81 0 100d12+14250 1d10+950 10d10+51 claw
 -50 -50 -51 -20
 DEFJ 0 DM CN
-stand stand none 1000
+stand stand none 0
 0 0 large unknown
 #11835
 wax statue necromancer black figure~

@@ -63,7 +63,7 @@ ABG D 500 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
-stand stand none 49
+stand stand none 0
 0 0 medium unknown
 #1304
 mage young~
@@ -568,7 +568,7 @@ ABFG D 100 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
-stand stand none 50
+stand stand none 0
 0 0 medium unknown
 #1340
 master binder~
@@ -667,7 +667,7 @@ ABCG 0 350 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand none 500
+stand stand none 0
 0 0 medium unknown
 #1347
 golem clay~

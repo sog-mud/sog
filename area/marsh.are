@@ -138,7 +138,7 @@ ACFGH JPQ -100 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNR 0 0 0
-stand stand male 500
+stand stand male 0
 0 0 medium unknown
 #8310
 snake python~

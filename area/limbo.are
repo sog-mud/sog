@@ -353,7 +353,7 @@ ABFGO 0 -1000 0
 0 0 1d1+0 1d1+0 1d1+0 pierce
 -25 -25 -25 0
 EFN ABM 0 0
-rest rest none 5300
+rest rest none 0
 0 0 medium unknown
 F aff U
 F imm R
@@ -371,7 +371,7 @@ Ae DEFHNOUVYc 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 divine
 -66 -66 -66 -66
 CDEFHIKNO ABCDU 0 0
-stand stand male 100000
+stand stand male 0
 0 0 huge unknown
 #0
 

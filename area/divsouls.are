@@ -987,7 +987,7 @@ ABFG DFJPZ 0 0
 75 0 65d10+12000 1d10+750 10d6+25 shbite
 -45 -46 -47 -44
 EFM J 0 0
-stand stand either 3250
+stand stand either 0
 0 0 large unknown
 #11664
 yllias silver eyes~
@@ -1203,7 +1203,7 @@ ABCG 0 0 11677
 80 0 100d12+13500 1d10+900 15d15+20 peckb
 -50 -50 -49 -48
 CDEJ 0 J K
-stand stand male 110
+stand stand male 0
 0 0 large unknown
 #11679
 aerial servant~

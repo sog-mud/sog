@@ -176,7 +176,7 @@ ABKe H 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNR AB 0 0
-stand stand none 5000
+stand stand none 0
 0 0 medium unknown
 #9214
 water puddle elemental~
@@ -190,7 +190,7 @@ AG 0 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNR 0 0 0
-stand stand none 11
+stand stand none 0
 0 0 medium unknown
 #9215
 fire flame elemental~

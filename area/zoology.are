@@ -138,7 +138,7 @@ AG 0 50 0
 4 0 1d10+30 1d1+100 2d2+1 beating
 7 5 7 8
 CU 0 0 0
-stand stand female 90
+stand stand female 0
 0 0 large unknown
 #409
 janitor~

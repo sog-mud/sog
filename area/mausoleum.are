@@ -119,7 +119,7 @@ AFT BDFJPQZu -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 acbite
 -1 -1 -1 -1
 ADEF A BHM IN
-stand stand none 1
+stand stand none 0
 C B medium unknown
 #4608
 bat vampire~

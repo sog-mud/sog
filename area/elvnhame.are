@@ -453,7 +453,7 @@ ABU 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 scratch
 8 8 8 10
 U 0 P H
-stand stand either 1
+stand stand either 0
 0 0 tiny unknown
 #40126
 puppy dog pet~
@@ -574,7 +574,7 @@ AU 0 200 0
 3 2 2d6+51 1d1+99 1d6+0 scratch
 5 5 5 2
 U 0 P H
-stand stand either 2
+stand stand either 0
 0 0 tiny unknown
 #40134
 alley cat alleycat~
@@ -591,7 +591,7 @@ AU 0 200 0
 6 2 2d7+80 1d1+99 1d7+1 scratch
 4 4 4 4
 U 0 P H
-stand stand either 5
+stand stand either 0
 0 0 small unknown
 #40135
 drunk man~

@@ -20,7 +20,7 @@ ABC J -750 0
 5 0 2d6+60 49d1+1 1d6+1 pierce
 5 5 5 9
 B 0 0 0
-stand stand male 150
+stand stand male 0
 0 0 medium unknown
 #18602
 newbie monster~
@@ -99,7 +99,7 @@ ABFG 0 -250 0
 1 0 2d6+8 9d1+1 1d4+0 punch
 9 9 9 10
 F AB 0 0
-stand stand male 110
+stand stand male 0
 0 0 medium unknown
 #18607
 newbie zombie~
@@ -130,7 +130,7 @@ ACGH JP -800 0
 3 0 2d6+35 29d1+1 1d6+0 smash
 7 7 7 10
 H 0 0 0
-stand stand male 130
+stand stand male 0
 0 0 medium unknown
 #18609
 minotaur~
@@ -147,7 +147,7 @@ ABFG J -1000 0
 7 0 2d6+80 69d1+1 1d8+1 blast
 4 4 4 9
 I AB 0 0
-stand stand male 170
+stand stand male 0
 0 0 medium unknown
 #18610
 spectre ghost~
@@ -162,7 +162,7 @@ ABDFG BDJ -850 0
 6 0 2d7+71 59d1+1 1d7+0 bite
 4 4 4 9
 J AB 0 0
-stand stand either 140
+stand stand either 0
 0 0 medium unknown
 #18611
 newbie annoying jerk~

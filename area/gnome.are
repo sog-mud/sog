@@ -225,7 +225,7 @@ ABCF DJ -900 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 ENR 0 0 0
-stand stand male 300
+stand stand male 0
 0 0 medium unknown
 #1516
 guard hobgoblin~

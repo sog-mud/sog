@@ -24,7 +24,7 @@ ABGY JTVZ 1000 0
 40 1 15d10+1850 1d400+800 4d8+13 pierce
 -20 -20 -20 -20
 EFHIJK 0 LQR H
-stand stand either 400
+stand stand either 0
 0 PQW large unknown
 #1802
 unicorn white~
@@ -42,7 +42,7 @@ ABGY JTVZ 1000 0
 35 1 10d10+1300 1d400+800 4d7+11 pierce
 -17 -17 -17 -17
 EFHIJK 0 LQR H
-stand stand either 275
+stand stand either 0
 0 PQW large unknown
 #1803
 panther black~
@@ -58,7 +58,7 @@ AG H 1000 0
 60 2 5d10+9500 1d400+5000 8d6+28 slash
 -50 -50 -50 -50
 EIJKP 0 P HK
-stand stand male 1000
+stand stand male 0
 0 0 large unknown
 #1804
 bard girl singer~
@@ -95,7 +95,7 @@ ABGY CDEFGJTVZ 1000 0
 60 1 50d10+9500 1d400+400 8d6+28 pierce
 -50 -50 -50 -50
 EFHIKR 0 LQR H
-stand stand male 1200
+stand stand male 0
 0 PQW large unknown
 #1806
 unicorn gold~
@@ -112,7 +112,7 @@ ABGY CDEFGJTVZ 1000 0
 59 1 50d10+9000 1d400+400 8d6+26 pierce
 -48 -48 -48 -48
 EFHIKR 0 LQR H
-stand stand male 1100
+stand stand male 0
 0 PQW large unknown
 #1807
 unicorn platinum~
@@ -129,7 +129,7 @@ ABGY CDEFGJTVZ 1000 0
 58 1 50d10+8500 1d400+400 8d6+24 pierce
 -47 -47 -47 -47
 EFHIKR 0 LQR H
-stand stand male 1000
+stand stand male 0
 0 PQW large unknown
 #1808
 unicorn copper~
@@ -146,7 +146,7 @@ ABGY CDEFGJTVZ 1000 0
 54 1 50d10+6500 1d400+400 7d6+22 pierce
 -45 -45 -45 -45
 EFHIKR 0 LQR H
-stand stand male 900
+stand stand male 0
 0 PQW large unknown
 #1809
 unicorn chromatic~
@@ -163,7 +163,7 @@ ABGY CDEFGJTVZ 1000 0
 60 1 50d10+11500 1d400+400 9d6+28 pierce
 -60 -60 -60 -60
 EFHIKR 0 LQR H
-stand stand male 1200
+stand stand male 0
 0 PQW large unknown
 #1810
 unicorn brass~
@@ -180,7 +180,7 @@ ABGY CDEFGJTVZ 1000 0
 50 1 50d10+4500 1d400+400 5d8+19 pierce
 -42 -42 -42 -42
 EFHIKR 0 LQR H
-stand stand male 800
+stand stand male 0
 0 PQW large unknown
 #1811
 mushroom mush shroom~
@@ -196,7 +196,7 @@ ABGHUY 0 -1000 0
 40 0 15d10+1850 1d300+340 4d8+13 suction
 -33 -33 -33 -33
 CU 0 0 0
-stand stand either 200
+stand stand either 0
 c 0 small unknown
 #1812
 shadow dragon~
@@ -501,7 +501,7 @@ ABGY CDEFGJTVZ -1000 0
 50 1 50d10+4500 1d400+400 5d8+79 pierce
 -42 -42 -42 -42
 EFHIKR 0 LQR H
-stand stand male 800
+stand stand male 0
 0 PQW large unknown
 #1830
 grey squirrel~
@@ -518,7 +518,7 @@ ACGH V 300 0
 1 1 2d6+10 1d200+200 1d4+0 bite
 9 9 9 9
 U 0 IPS HJQ
-stand stand either 10
+stand stand either 0
 0 0 small unknown
 #1831
 butterfly~
@@ -534,7 +534,7 @@ AGU V 0 0
 5 0 2d6+60 2d100+100 1d6+1 none
 5 5 5 5
 0 0 0 OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 #1832
 cardinal red bird~
@@ -551,7 +551,7 @@ AGU V 0 0
 5 0 2d8+60 2d100+100 1d8+1 none
 3 3 3 3
 U 0 J OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 #1833
 bluebird blue bird~
@@ -567,7 +567,7 @@ AGU V 0 0
 5 0 2d6+60 2d100+100 1d9+1 none
 4 4 4 4
 0 0 J OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 #1834
 blue thrush bluebird bird~
@@ -583,7 +583,7 @@ AGU V 0 0
 5 0 2d8+60 2d100+100 1d9+5 none
 2 2 2 2
 0 0 J OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 #1835
 yellow bird gold finch goldfinch~
@@ -598,7 +598,7 @@ AGU V 0 0
 4 0 2d6+60 2d100+100 1d7+2 none
 4 4 4 4
 0 0 J OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 #1836
 vireo red-eyed bird~
@@ -614,7 +614,7 @@ AGU V 0 0
 6 0 2d9+60 2d100+100 1d9+9 none
 0 0 0 0
 0 0 J OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 M act 1809 gets a small well-woven nest~
 #1837
@@ -631,7 +631,7 @@ AGU V 0 0
 3 0 2d4+60 2d100+100 1d6+5 pierce
 3 3 3 3
 0 0 J OR
-stand stand either 100
+stand stand either 0
 O 0 tiny unknown
 M act 1807 gets a small moss and lichen nest~
 #1838
@@ -665,7 +665,7 @@ AGHUY V 0 0
 3 0 2d6+35 1d300+300 1d6+0 scratch
 7 7 7 7
 U 0 FI EHJ
-stand stand either 40
+stand stand either 0
 0 0 small unknown
 #1840
 fallow deer small~
@@ -679,7 +679,7 @@ AGHUY V 0 0
 7 0 2d6+90 1d300+400 1d8+1 bite
 4 4 4 4
 U 0 JO HKLM
-stand stand either 110
+stand stand either 0
 0 0 medium unknown
 #1899
 ranger healer~

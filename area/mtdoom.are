@@ -56,7 +56,7 @@ ABG 0 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EFNU 0 0 0
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 #14703
 marmandes demon prince~
@@ -730,7 +730,7 @@ ABG 0 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EFNU 0 0 0
-stand stand none 1000
+stand stand none 0
 0 0 medium unknown
 #14746
 keeper~
@@ -759,7 +759,7 @@ ABDG DJu -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 punch
 -21 -21 -21 0
 EFIK L Q 0
-stand stand male 1000
+stand stand male 0
 0 0 medium unknown
 #0
 

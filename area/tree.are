@@ -64,7 +64,7 @@ ABGH DF -800 2903
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 CF 0 0 0
-stand stand either 800
+stand stand either 0
 0 0 medium unknown
 #2904
 chasme fly demon~
@@ -185,7 +185,7 @@ AC F 100 2911
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 ABC 0 0 0
-stand stand either 800
+stand stand either 0
 0 0 medium unknown
 #2912
 frost giant~

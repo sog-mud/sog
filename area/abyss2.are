@@ -138,7 +138,7 @@ ABC DHJ 0 25007
 22 0 5d10+400 219d1+1 4d4+6 punch
 -5 -5 -5 6
 ACHIKL 0 J E
-stand stand male 877
+stand stand male 0
 0 0 medium unknown
 #25008
 flaming efreet~
@@ -168,7 +168,7 @@ ABCF J -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 6
 K AB R LO
-stand stand female 6090
+stand stand female 0
 0 0 medium unknown
 #25010
 kraken~
@@ -184,7 +184,7 @@ ABF DJ -1000 0
 40 0 15d10+1700 399d1+1 4d8+11 punch
 -13 -13 -13 7
 AB R C HI
-stand stand male 4504
+stand stand male 0
 0 0 medium unknown
 #25011
 treant tree~
@@ -199,7 +199,7 @@ ABCF Ju -1000 0
 44 0 25d10+2550 439d1+1 8d4+12 punch
 -15 -15 -15 4
 CEF AB D CH
-stand stand male 5709
+stand stand male 0
 0 0 medium unknown
 #25012
 githyanki~
@@ -263,7 +263,7 @@ ABCF Ju -1000 25015
 46 0 25d10+3250 459d1+1 6d6+16 punch
 -16 -16 -16 4
 J AB KL I
-stand stand male 10000
+stand stand male 0
 0 0 medium unknown
 #25016
 shadow daemon~
@@ -306,7 +306,7 @@ AB FHJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 HIJK 0
-stand stand male 4500
+stand stand male 0
 0 0 medium unknown
 #25019
 earth elemental king~
@@ -320,7 +320,7 @@ AB FHJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 HIJK 0
-stand stand male 10000
+stand stand male 0
 0 0 medium unknown
 #25020
 air elemental lord~
@@ -334,7 +334,7 @@ AB DJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AI 0 HIJK 0
-stand stand male 4906
+stand stand male 0
 0 0 medium unknown
 #25021
 fire elemental sultan~

@@ -19,7 +19,7 @@ AG 0 0 7500
 1 0 2d6+10 9d1+1 1d4+0 bite
 9 9 9 10
 EKN 0 0 0
-stand stand male 10
+stand stand male 0
 0 0 small unknown
 #7501
 chipmunk tiny~
@@ -34,7 +34,7 @@ AG 0 0 7501
 1 0 2d6+10 9d1+1 1d4+0 claw
 9 9 9 1
 EKN 0 0 0
-stand stand male 10
+stand stand male 0
 0 0 small unknown
 #7502
 snake green small~
@@ -105,7 +105,7 @@ AG 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 stab
 8 8 8 10
 EKN 0 0 0
-stand stand male 44
+stand stand male 0
 0 0 medium unknown
 #7507
 field mouse fieldmouse small~
@@ -134,7 +134,7 @@ AG 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 punch
 8 8 8 10
 EKN 0 0 0
-stand stand male 40
+stand stand male 0
 0 0 small unknown
 #7509
 starryeyed starry eyed lover~
@@ -192,7 +192,7 @@ AG bz 0 0
 6 0 2d7+71 59d1+1 1d7+1 whip
 4 4 4 9
 EKN 0 0 0
-stand stand male 110
+stand stand male 0
 0 0 medium unknown
 #7513
 fish pointy teeth small~
@@ -206,7 +206,7 @@ AG z 0 0
 6 0 2d7+71 59d1+1 1d7+1 smash
 4 4 4 9
 EKN 0 0 0
-stand stand male 133
+stand stand male 0
 0 0 medium unknown
 F aff b
 #7514
@@ -221,7 +221,7 @@ AG Jz 0 0
 7 0 2d6+85 69d1+1 1d8+1 smash
 4 4 4 9
 EKN 0 0 0
-stand stand male 150
+stand stand male 0
 0 0 medium unknown
 F aff b
 #7515
@@ -236,7 +236,7 @@ AG z 0 0
 8 0 2d7+96 79d1+1 1d7+2 smash
 3 3 3 9
 EKN 0 0 0
-stand stand male 170
+stand stand male 0
 0 0 medium unknown
 F aff b
 #7516
@@ -252,7 +252,7 @@ AG Jz 0 0
 5 0 2d6+60 49d1+1 1d6+1 bite
 5 5 5 9
 EKN 0 0 0
-stand stand male 170
+stand stand male 0
 0 0 medium unknown
 F aff b
 #7517
@@ -283,7 +283,7 @@ AG z 0 0
 6 0 2d7+71 59d1+1 1d7+1 claw
 4 4 4 9
 EKN 0 0 0
-stand stand male 130
+stand stand male 0
 0 0 medium unknown
 F aff b
 #7519
@@ -298,7 +298,7 @@ AG J -500 0
 9 0 2d6+110 89d1+1 1d8+2 pierce
 2 2 2 9
 KN 0 0 0
-stand stand male 170
+stand stand male 0
 0 0 medium unknown
 #7520
 worm cleaner large~
@@ -312,7 +312,7 @@ AFG DFJ 0 0
 10 0 2d7+121 99d1+1 2d4+2 grep
 1 1 1 8
 EKN 0 0 0
-stand stand male 200
+stand stand male 0
 0 0 medium unknown
 #7521
 citizen man~
