@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.101 1999-12-17 09:00:26 fjoe Exp $
+ * $Id: olc.c,v 1.102 1999-12-17 09:17:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -607,6 +607,11 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		OLC_ERROR("'OLC EXD'");
 
 	if (!str_cmp(command, "add")) {
+		if (ed_lookup(keyword, *ped) != NULL) {
+			char_printf(ch, "%s: %s: exd keyword already exists.\n", OLCED(ch)->name, keyword);
+			return FALSE;
+		}
+
 		ed		= ed_new();
 		ed->keyword	= str_dup(keyword);
 
@@ -627,7 +632,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
+			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
 			return FALSE;
 		}
 
@@ -654,7 +659,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
+			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
 			return FALSE;
 		}
 
@@ -678,7 +683,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		}
 
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
+			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
 			return FALSE;
 		}
 
@@ -699,7 +704,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
+			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
 			return FALSE;
 		}
 
@@ -714,7 +719,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	if (!str_cmp(command, "format")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: Extra description keyword not found.\n", OLCED(ch)->name);
+			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
 			return FALSE;
 		}
 
