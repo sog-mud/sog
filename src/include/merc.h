@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.11 2000-06-08 18:13:11 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.12 2000-08-21 07:51:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2291,7 +2291,6 @@ int	number_range	(int from, int to);
 int	number_percent	(void);
 int	number_door	(void);
 int	number_bits	(int width);
-long	number_mm	(void);
 int	dice		(int number, int size);
 int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
