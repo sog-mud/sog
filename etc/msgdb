@@ -1330,7 +1330,9 @@ $t~
 @eng BLOOD! I NEED BLOOD!@rus КРОВИ! Я ХОЧУ СВЕЖЕЙ КРОВИ!~
 @eng BRANDISH? You are not a filthy magician!@rus Но ведь ты не глупый волшебник! Зачем тебе магический посох??~
 @eng Backstab whom?@rus Ударить в спину кого?~
-@eng Ban rules:@rus Правила допуска игроков в Мир Серых Теней:~
+@eng Ban rules:
+@rus Правила допуска игроков в Мир Серых Теней:
+~
 @eng Bash wich door or direction?@rus Какую дверь выбить?~
 @eng Bashing? What's that?@rus Bash? А что это?~
 @eng Bet how much?@rus Сколько поставить?~
@@ -1722,7 +1724,9 @@ $t~
 ~
 @eng No alias of that name to remove.@rus Такого сокращения у тебя нет.~
 @eng No argument is used with this command.@rus Эта команда используется без дополнительных аргументов.~
-@eng No ban rules defined.@rus Любой может войти в Мир Серых Теней.~
+@eng No ban rules defined.
+@rus Любой может войти в Мир Серых Теней.
+~
 @eng No bears come to your rescue.@rus Медведи не слышат твоего зова.~
 @eng No bears listen you.@rus Медведи не слышат твоего зова.~
 @eng No bets on this item have been received.@rus Ставок пока получено не было.~
