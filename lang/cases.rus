@@ -735,6 +735,17 @@ Form 6 -у~
 End
 
 #RULE
+Name учебный~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name прочная~
 BaseLen 5
 Form 1 -ой~
@@ -1063,6 +1074,17 @@ Form 6 -~
 End
 
 #RULE
+Name клинок~
+BaseLen 4
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
+End
+
+#RULE
 Name мальчик~
 BaseLen 7
 Form 1 -а~
@@ -1247,6 +1269,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name тренировочный~
+BaseLen 11
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -1499,6 +1532,17 @@ Form 3 -я~
 Form 4 -енем~
 Form 5 -ени~
 Form 6 -я~
+End
+
+#RULE
+Name проклятый~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -4363,6 +4407,17 @@ Form 6 -у~
 End
 
 #RULE
+Name жемчужное~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name мрачный~
 BaseLen 5
 Form 1 -ого~
@@ -4484,6 +4539,17 @@ Form 1 -ого~
 Form 2 -ому~
 Form 3 -ый~
 Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
+Name тонкий~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
 Form 5 -ом~
 Form 6 -ого~
 End

@@ -3210,8 +3210,8 @@ potion G AO
 G none
 #3349
 long sword меч~
-@eng a glowing long sword@rus Сверкающий длинный меч (sword) лежит здесь.~
-A glowing long sword is here.~
+@eng a glowing long sword@rus ~~сверкающий~~ ~~длинный~~ ~~меч~~~
+@eng A glowing long sword is here.@rus Сверкающий длинный меч (sword) лежит здесь.~
 steel~
 weapon 0 AN
 sword 4 7 slash 0
