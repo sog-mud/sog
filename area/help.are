@@ -4186,6 +4186,25 @@ Syntax: plist [member | second | leader] [name]
 'plist xxx' will show current clan xxx list.
  
 ~
+0 'WIZ CHQUEST'~
+Syntax: chquest status
+Syntax: chquest restart
+Syntax: chquest start vnum
+Syntax: chquest stop vnum
+Syntax: chquest add vnum
+Syntax: chquest delete vnum
+ 
+'chquest status' shows the status of challenge quests.
+'chquest restart' restarts all the challenge quests which are not running.
+'chquest start' starts challenge quest with obj vnum 'vnum'.
+'chquest stop' stops challenge quest with obj vnum 'vnum'.
+'chquest add' adds obj vnum to list of available quest items.
+All the objects with extra flags 'chquest' are added to this list
+automagically at the boot stage.
+'chquest del' stops challenge quest with obj vnum 'vnum' and deletes
+it from list of available quest items.
+ 
+~
 -1 $~
 
 #$

@@ -626,7 +626,7 @@ spear 0 0 pierce 0
 0 160 0 P
 G male
 #29
-перчатки gloves~
+gloves перчатки~
 @eng black gloves@rus ~~черные~~ ~~перчатки~~~
 @eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
 unknown~
@@ -746,6 +746,26 @@ weapon 0 AO
 arrow 1 1 pierce G
 1 5 10 P
 G female
+#38
+pillow big подушка~
+@eng Big Soft Pillow@rus ~~большая~~ ~~мягкая~~ ~~подушка~~~
+@eng The big soft pillow lies here.@rus Большая подушка (pillow) так и манит к себе.~
+unknown~
+furniture Ah AP
+A CFG EK DFGHIJ DFGHIJ
+10 1 10000 P
+G female
+#39
+bell small колокольчик~
+@eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
+@eng Small silver bell lies here.@rus В пыли мягким серебрянным светом поблескивает колокольчик (bell).~
+silver~
+jewelry AGh AOP
+0 0 0 0 0
+10 0 0 P
+F
+S 'summon' 100 A
+G male
 #40
 song hero~
 the %s Song of %s~
@@ -775,6 +795,17 @@ A
 A
 13 200
 G female
+#41
+sack sands мешок~
+@eng sack filled with sands@rus ~~мешок~~ с песком~
+@eng Sack filled with sands lies here.@rus Небольшой мешок (sack) из холстины валяется на земле.~
+canvas~
+container h AOP
+0 C 0 500 5
+0 100 10000 P
+F
+S 'blackjack' 100 A
+G male
 #42
 vial potion пузырек~
 @eng a potion vial@rus ~~пустой~~ ~~пузырек~~~
@@ -915,8 +946,6 @@ F
 S 'improved invis' 100 A
 F
 S 'invisibility' 100 A
-F
-S 'fade' 100 A
 G none
 #49
 ring кольцо silver серебряное колечко~
@@ -1111,6 +1140,25 @@ tattoo ATUY AR
 0 0 -1 0 0
 0 0 0 P
 G none
+#68
+skin rabbit шкура шкурка~
+@eng Rabbit's skin@rus ~~крольчья~~ ~~шкурка~~~
+@eng Rabbit's skin lies here.@rus Кроличья шкурка (skin) валяется здесь.~
+skin~
+trash Ah AG
+0 0 0 0 0
+10 0 0 P
+F
+A 20 -20 T
+A
+19 20
+A
+18 20
+F
+A 12 100 U
+F
+A 13 100 P
+G female
 #70
 badge значок~
 @eng silver ruler badge@rus ~~серебряный~~ ~~значок~~ Рулера~

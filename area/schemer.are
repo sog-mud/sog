@@ -4,6 +4,7 @@ VNUMs 36200 36299
 Credits Schemer~
 Security 2
 LevelRange 0 0
+Flags closed~
 End
 
 #MOBILES
@@ -63,7 +64,7 @@ D2
 Z 0 36200
 S
 #36202
-@eng {WHallway{z@rus {WHallway{z~
+Hallway~
 ~
 0 0 inside
 D1

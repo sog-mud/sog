@@ -816,7 +816,7 @@ pill yellow detection~
 Bright yellow pill has been forgotten here.~
 unknown~
 pill 0 AO
-300 'detect fade' 'improved detect' 'detect hidden' 'acute vision'
+150 'detect fade' 'improved detect' 'detect hidden' 'acute vision'
 10 3 0 P
 G none
 #36199

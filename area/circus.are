@@ -183,11 +183,14 @@ stand stand male 378
 0 0 giant unknown
 #4410
 swallower~
-the Sword Swallower~
-The Sword Swallower is in the act of swallowing an entire bastard sword.
+@eng the Sword Swallower@rus Мечеглотатель~
+@eng The Sword Swallower is in the act of swallowing an entire bastard sword.
+@rus Мечеглотатель (swallower) глотает мечи, шпаги и кинжалы всем на забаву.
 ~
-This guy has eaten more swords than you have even seen.  He probably knows how
+@eng This guy has eaten more swords than you have even seen.  He probably knows how
 to use his sword as well.
+@rus Этот парень съел мечей гораздо больше, чем ты видил. Возможно он так же 
+и не плохо им махает.
 ~
 human~
 AB 0 0 0
