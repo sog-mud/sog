@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.11 2000-03-27 04:01:33 osya Exp $
+ * $Id: update.c,v 1.157.2.12 2000-03-27 08:47:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -598,8 +598,6 @@ void mobile_update(void)
 	EXIT_DATA *pexit;
 	int door;
 	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-	NPC_DATA *npch;
 
 	/* Examine all mobs. */
 	for (ch = char_list; ch; ch = ch_next) {
@@ -628,14 +626,15 @@ void mobile_update(void)
 			}
 		} else {
 /* update npc timer */
-			npch = NPC(ch);
+			OBJ_DATA *obj_next;
+			NPC_DATA *npch = NPC(ch);
 			if (npch->timer > 0 && --npch->timer == 0) {
 				if  (IS_SET(ch->pMobIndex->act, ACT_UNDEAD)
-				|| IS_SET(ch->pMobIndex->form, FORM_UNDEAD)) {
-					act("$n's flesh decays into dust.", ch, NULL, NULL ,TO_ALL);
-				} else {
-					act("n's body becomes transparent, and $n disappears into void.", ch, NULL, NULL, TO_ALL);
-				}
+				||   IS_SET(ch->pMobIndex->form, FORM_UNDEAD))
+					act("$n's flesh decays into dust.",
+					    ch, NULL, NULL ,TO_ALL);
+				else
+					act("n's body becomes transparent and $n disappears into void.", ch, NULL, NULL, TO_ALL);
 		        	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		               		obj_next = obj->next_content;
 					obj_from_char(obj);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.7 2000-03-27 04:01:26 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.8 2000-03-27 08:47:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5841,7 +5841,8 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
 
                 if (!(obj->pObjIndex->item_type == ITEM_CORPSE_NPC
                 || obj->pObjIndex->item_type == ITEM_CORPSE_PC)) {
-                        act_puts("You can animate only corpses!\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        act_puts("You can animate only corpses!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
                         return;
 		}
 
@@ -5860,7 +5861,7 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
 
                 if (ch->in_room != NULL
                 &&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-                        act_puts("You can't animate deads here.\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        act_puts("You can't animate deads here.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
                         return;
                 }
 
@@ -5869,19 +5870,19 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
                 &&  obj->in_room
                 &&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
                 &&  !IS_OWNER(ch, obj)) {
-                        act_puts("You cannot do that.\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        act_puts("You cannot do that.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
                         return;
                 }
 
                 if (IS_SET(ch->in_room->room_flags,
                            ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-                        act_puts("You can't animate here.\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        act_puts("You can't animate here.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
                         return;
                 }
 
                 chance = URANGE(5, get_skill(ch, sn)+(level-obj->level)*7, 95);
                 if (number_percent() > chance) {
-                        act_puts("You failed and destroyed it.\n",
+                        act_puts("You failed and destroyed it.",
                                  ch, NULL, NULL, TO_CHAR, POS_DEAD);
                         act("$n tries to animate $p, but fails and destroys it.", ch, obj, NULL, TO_ROOM);
                         for (obj2 = obj->contains; obj2; obj2 = next) {

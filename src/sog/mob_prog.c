@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50.2.1 2000-03-27 04:01:32 osya Exp $
+ * $Id: mob_prog.c,v 1.50.2.2 2000-03-27 08:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -633,7 +633,7 @@ int cmd_eval(int vnum, const char *line, int check,
     /*
      * Case 5: Keyword, actor, comparison and value
      */
-    if(buf[0] != '$') 
+    if(buf[0] != '$') {
     	if((oper = keyword_lookup(fn_evals, buf)) < 0) {
 		log("cmd_eval: vnum %d: syntax error(5): '%s'",
 			vnum, original);
@@ -642,6 +642,7 @@ int cmd_eval(int vnum, const char *line, int check,
 		one_argument(line, buf, sizeof(buf));
 		rval = atoi(buf);
 	}
+    }
 
     switch(check)
     {

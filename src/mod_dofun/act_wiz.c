@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.7 2000-03-27 04:01:21 osya Exp $
+ * $Id: act_wiz.c,v 1.186.2.8 2000-03-27 08:47:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1372,7 +1372,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		victim->master	? victim->master->name	: "(none)",
 		victim->leader	? victim->leader->name	: "(none)",
 		pet		? pet->name		: "(none)",
-		IS_NPC(victim)  ? (NPC(victim)->mprog_target ? NPC(victim)->mprog_target->name : "(none)") : "(none)");
+		IS_NPC(victim) && NPC(victim)->mprog_target ?
+			NPC(victim)->mprog_target->name : "(none)");
 
 	/* OLC */
 	if (!IS_NPC(victim))
