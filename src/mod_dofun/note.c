@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.28 2001-12-10 22:01:52 tatyana Exp $
+ * $Id: note.c,v 1.29 2002-08-30 13:46:32 tatyana Exp $
  */
 
 /***************************************************************************
@@ -911,6 +911,8 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 			act_char("You need to provide a text.", ch);
 			return;
 		}
+
+		act_char("Posted.", ch);
 
 		pc->pnote->next	= NULL;
 		pc->pnote->date	= str_dup(strtime(current_time));
