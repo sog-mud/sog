@@ -125,8 +125,8 @@ channel    | status@rus .
 @eng $N can't get any slower than that.@rus $N не $gn{может} двигаться еще медленнее.~
 @eng $N can't get any stronger.@rus $N не $gN{может} стать еще сильнее.~
 @eng $N can't see it.@rus $N не $gN{видит} этого.~
-@eng $N cannot join $n's group.@rus $N не может присоедениться к группе $c1{$n}.~
-@eng $N cannot join your group.@rus $N не $gn{может} присоедениться к твоей группе.~
+@eng $N cannot join $n's group.@rus $N не может присоединиться к группе $c1{$n}.~
+@eng $N cannot join your group.@rus $N не $gn{может} присоединиться к твоей группе.~
 @eng $N clones $i.@rus $N $gN{создал} копию $c1{$i}.~
 @eng $N clones $p.@rus $N $gN{создал} копию $c1{$p}.~
 @eng $N coils into an ascending column of colour, vanishing into thin air.@rus Разноцветной спиралью $N $gN{вознесся} вверх, растворившись в воздухе.~
@@ -256,15 +256,15 @@ channel    | status@rus .
 @eng $N is surrounded by a force shield.@rus Силовой щит окружил $c5{$N}.~
 @eng $N is the embodiment of pure evil!@rus $N -- воплощение зла!~
 @eng $N is too different from you to mimic.@rus $N слишком отличен от тебя, чтобы $gN{ему} подражать.~
-@eng $N is too evil for your group!@rus $N слишком $gN{злой}, чтобы присоедениться к твоей группе.~
-@eng $N is too pure for your group!@rus $N слишком $gN{добр}, чтобы присоедениться к твоей группе.~
+@eng $N is too evil for your group!@rus $N слишком $gN{злой}, чтобы присоединиться к твоей группе.~
+@eng $N is too pure for your group!@rus $N слишком $gN{добр}, чтобы присоединиться к твоей группе.~
 @eng $N is unable to release $p and it pulls $S hand down.@rus Не имея возможности избавиться от $c1{$p}, $N $gN{опустил} руки вниз.~
 @eng $N is unaffected by $n's $V!@rus $V $c1{$n} не действует на $c6{$N}!~
 @eng $N is unaffected by your $V!@rus $gV{Твой} $V не действует на $c6{$N}.~
 @eng $N is using:@rus $N $gN{использует}:~
 @eng $N is your beloved master.@rus $N твой $gN{любимый} $gN{повелитель}.~
 @eng $N isn't following you.@rus $N не $gN{следует} за тобой.~
-@eng $N joins $n's group.@rus $N $gN{присоеденился} к группе $c1{$n}.~
+@eng $N joins $n's group.@rus $N $gN{присоединился} к группе $c1{$n}.~
 @eng $N joins your group.@rus $N $gN{присоединился} к твоей группе.~
 @eng $N kneels before $n!@rus $N $gN{опустился} на колени перед $c5{$n}!~
 @eng $N kneels before you.@rus $N $gN{опустился} на колени перед тобой.~
@@ -2221,7 +2221,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Why don't you just relax for a while?@rus Почему бы тебе немного не отдохнуть?~
 @eng Why don't you let them stop fighting first?@rus Почему бы тебе сначала не подождать пока закончится драка?~
 @eng Why don't you tame yourself first?@rus Почему бы сначала $gn{самому} не успокоиться?~
-@eng Wimpy set to $j hit points.@rus Ты будешь пытаться сбежать, когда у тебя останется $j $qj{едениц} здоровья.~
+@eng Wimpy set to $j hit points.@rus Ты будешь пытаться сбежать, когда у тебя останется $j $qj{единиц} здоровья.~
 @eng Wimpy set to {c%d{x hit points.@rus Ты будешь сбегать, когда у тебя останется {c%d{x единиц здоровья.~
 @eng With a crunch of bone and splash of blood $n nails $p to a sacrificial cross.@rus Разрушая кости и разбрызгивая кровь, $n $gn{распял} $c3{$p} на кресте.~
 @eng With a crunch of bone and splash of blood you nail $p to a sacrificial cross.@rus Разрушая кости и разбрызгивая кровь, ты $gn{распял} $c3{$p} на кресте.~
@@ -2396,13 +2396,13 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are thirsty.@rus Ты испытываешь сильную жажду.~
 @eng You are too dazed to push anyone.@rus Ты слишком удивлен, чтобы толкаться.~
 @eng You are too dazed to steal anything.@rus Ты слишком $gn{растерян}, чтобы заниматься воровством.~
-@eng You are too evil for $n's group.@rus Ты слишком $gn{злой}, чтобы присоедениться к группе $c1{$n}.~
+@eng You are too evil for $n's group.@rus Ты слишком $gn{злой}, чтобы присоединиться к группе $c1{$n}.~
 @eng You are too exhausted.@rus Ты так $gn{устал}, что не можешь идти дальше.~
 @eng You are too full to eat more.@rus Твой желудок полон. Ты не можешь проглотить ни кусочка.~
 @eng You are too high for this group.@rus Ты слишком большого уровня, чтобы присоединиться к этой группе.~
-@eng You are too low for this group.@rus Твой левел недостаточен, чтобы присоедениться к этой группе.~
+@eng You are too low for this group.@rus Твой левел недостаточен, чтобы присоединиться к этой группе.~
 @eng You are too pumped to pray now.@rus Ты слишком $gn{возбужден}, чтобы молиться.~
-@eng You are too pure to join $n's group!@rus Ты слишком $gn{добр}, чтобы присоедениться к группе $c1{$n}!~
+@eng You are too pure to join $n's group!@rus Ты слишком $gn{добр}, чтобы присоединиться к группе $c1{$n}!~
 @eng You are too stunned to do that.@rus Ты лежишь оглушенный и не можешь этого сделать.~
 @eng You are too stunned to respond $N's attack.@rus Ты $gn{огушен} и не можешь ответить на $c1{$N} удар.~
 @eng You are unable to follow $n's maneuvers.@rus Ты не поспеваешь за маневрами $c1{$n}.~
@@ -2679,7 +2679,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You cannot gossip in this form.@rus Когда ты в таком виде тебе это не доступно.~
 @eng You cannot hide while glowing.@rus Ты не можешь спрятаться пока светишься.~
 @eng You cannot hold your $N.@rus Ты не можешь удержать $c6{$gN{свой} $c6{$N}.~
-@eng You cannot join $n's group.@rus Ты не можешь присоедениться к группе $c1{$n}.~
+@eng You cannot join $n's group.@rus Ты не можешь присоединиться к группе $c1{$n}.~
 @eng You cannot leave your clan this way.@rus Ты не можешь покинуть клан таким способом.~
 @eng You cannot muster up the energy.@rus Ты не можешь собрать достаточно сил.~
 @eng You cannot quit and leave your $N alone.@rus Ты не можешь уйти и оставить $c6{$N} в одиночестве.~
@@ -3093,7 +3093,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You look about sharply, but you don't see anything new.@rus Ты кидаешь взляды по сторонам, но не видишь ничего нового.~
 @eng You look around sharply!@rus Ты зорко глядишь по сторонам!~
 @eng You look rather tired, why don't you rest a bit first?@rus Ты выглядишь слишком $gn{усталым}, почему бы тебе немного не отдохнуть?~
-@eng You loose $j experience points.@rus Ты теряешь $j $qj{едениц} опыта.~
+@eng You loose $j experience points.@rus Ты теряешь $j $qj{единиц} опыта.~
 @eng You loose $t.@rus Ты теряешь $c3{$t}.~
 @eng You loose a level!@rus Ты $gn{потерял} уровень!~
 @eng You lose $j exp.@rus Ты $gn{потерял} $j $qj{очков} опыта.~
@@ -3204,7 +3204,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You quaff $p.@rus Ты пьешь $c3{$p}.~
 @eng You raise your hand and a blinding ray of light shoots forth!@rus Воздев руки, ты $gn{послал} вперед ослепляющий луч света!~
 @eng You reach for the True Source and feel something stopping you.@rus Ты чувстуешь, что кто-то не дает тебе добратся да Источника Силы.~
-@eng You receive $j experience points.@rus Ты получаешь $j $qj{едениц} опыта.~
+@eng You receive $j experience points.@rus Ты получаешь $j $qj{единиц} опыта.~
 @eng You recite $p.@rus Ты зачитываешь $c3{$p}.~
 @eng You release $p and it floats next to you.@rus Ты выпускаешь $c3{$p} и $gp{он} $gp{начинает} летать вокруг тебя.~
 @eng You remove $N from your group.@rus Ты $gn{исключил} $c6{$N} из своей группы.~
