@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.6 2001-09-16 18:24:52 fjoe Exp $
+# $Id: mprogs.txt,v 1.7 2001-09-17 19:22:57 fjoe Exp $
 #
 
 MPC code style
@@ -159,6 +159,10 @@ int char_gold(char ch)
 int char_hit(char ch)
   возвращает текущее кол-во hp чара ch
 
+string char_hometown(char ch)
+  возвращает 'hometown' чара ch, для моба возвращает зону в которой он заресечен
+  или (если родился не через reset) зону в которой находится в настоящий момент
+
 int char_level(char ch)
   возвращает уровень чара (с +lev)
 
@@ -186,6 +190,9 @@ int char_silver(char ch)
 int char_size(char ch)
   возвращает размер чара ch
 
+int char_vnum(char ch)
+  возвращает vnum чара ch
+
 bool close_door(char ch, string door)
   чар ch закрывает (пытается) дверь
 
@@ -212,6 +219,9 @@ int dice(int num, int size)
 
 dofun(string name, char ch, string arg)
   чар ch выполняет do-функцию 'name'
+
+drop_obj(char ch, obj p)
+  чаром ch бросается обьект p
 
 fire_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара fire_effect
@@ -313,6 +323,9 @@ bool is_neutral(char ch)
 
 bool is_owner(char ch, obj p)
   является ли чар ch owner'ом обьекта p
+
+bool is_owner_name(obj p, string name)
+  принадлежит ли обьект p чару с именем name
 
 bool is_safe(char ch, char victim)
 
