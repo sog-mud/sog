@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.20 1998-11-02 05:28:29 fjoe Exp $
+ * $Id: clan.c,v 1.21 1998-11-17 05:29:55 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -166,7 +166,6 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			victim->pcdata->petition = CLAN_NONE;
 			victim->pcdata->clan_status = CLAN_COMMON;
 			update_skills(victim);
-			char_puts("Ok.\n\r", ch);
 			char_puts("Greet new member!\n\r", ch);
 			char_printf(victim, "Your petition to %s has been "
 				    "accepted.\n\r",
@@ -187,11 +186,10 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			victim->clan = CLAN_NONE;
 			victim->pcdata->petition = CLAN_NONE;
 			update_skills(victim);
-			char_puts("Ok.\n\r", ch);
 			char_printf(ch, "They are not a member of %s "
 					"anymore.\n\r", clan->name);
-			char_printf(ch, "You are not a member of %s "
-					"anymore.\n\r", clan->name);
+			char_printf(victim, "You are not a member of %s "
+					    "anymore.\n\r", clan->name);
 			return;
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.84 1998-11-14 09:01:10 fjoe Exp $
+ * $Id: spellfun.c,v 1.85 1998-11-17 05:29:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1734,36 +1734,61 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	return;
 }
 
-
-
-void spell_detect_hidden(int sn,int level,CHAR_DATA *ch,void *vo,int target)
+void spell_detect_hidden(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_HIDDEN))
-	{
+	if (IS_AFFECTED(victim, AFF_DETECT_HIDDEN)) {
 		if (victim == ch)
-		  char_puts("You are already as alert as you can be. \n\r",ch);
+			char_puts("You are already as alert as you can be.\n\r",
+				  ch);
 		else
-		  act("$N can already sense hidden lifeforms.",ch,NULL,victim,TO_CHAR);
+			act("$N can already sense hidden lifeforms.",
+			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (5 + level / 3);
-	af.location  = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = AFF_DETECT_HIDDEN;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 5 + level / 3;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= AFF_DETECT_HIDDEN;
 	affect_to_char(victim, &af);
 	char_puts("Your awareness improves.\n\r", victim);
 	if (ch != victim)
 		char_puts("Ok.\n\r", ch);
-	return;
 }
 
+void spell_detect_fade(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
 
+	if (IS_AFFECTED(victim, AFF_DETECT_FADE)) {
+		if (victim == ch)
+			char_puts("You are already as alert as you can be.\n\r",
+				  ch);
+		else
+			act("$N can already sense faded lifeforms.",
+			    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 5 + level / 3;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= AFF_DETECT_FADE;
+	affect_to_char(victim, &af);
+	char_puts("Your awareness improves.\n\r", victim);
+	if (ch != victim)
+		char_puts("Ok.\n\r", ch);
+}
 
 void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {

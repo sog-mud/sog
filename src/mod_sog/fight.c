@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.100 1998-11-14 09:01:09 fjoe Exp $
+ * $Id: fight.c,v 1.101 1998-11-17 05:29:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2669,28 +2669,46 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (!IS_AWAKE(victim) || MOUNTED(victim))
 		return FALSE;
 
+	if (!IS_NPC(victim) && HAS_SKILL(victim, gsn_spellbane)) {
+		if (victim->pcdata->clan_status) {
+			act("You catch $p that had been shot to you.",
+			    ch, obj, victim, TO_VICT);
+			act("$N catches $p that had been shot to $M.",
+			    ch, obj, victim, TO_CHAR);
+			act("$n catches $p that had been shot to $m.",
+			    victim, obj, ch, TO_NOTVICT);
+			obj_to_char(obj, victim);
+		}
+		return TRUE;
+	}
+
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
-		chance  = get_skill(victim,gsn_dodge) / 2;
+		chance  = get_skill(victim, gsn_dodge) / 2;
 		/* chance for high dex. */
-		chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
-		if (victim->class == CLASS_WARRIOR || victim->class == CLASS_SAMURAI)
+		chance += 2 * (get_curr_stat(victim, STAT_DEX) - 20);
+		if (victim->class == CLASS_WARRIOR
+		||  victim->class == CLASS_SAMURAI)
 			chance *= 1.2;
-		if (victim->class == CLASS_THIEF || victim->class ==CLASS_NINJA)
+		if (victim->class == CLASS_THIEF
+		||  victim->class ==CLASS_NINJA)
 			chance *= 1.1;
 	}
 
 	chance -= (bonus - 90);
 	chance /= 2;
-	if (number_percent() >= chance && IS_NPC(victim))
+	if (number_percent() >= chance)
 		return FALSE;
 
-	act("You dodge $p that had been shot to you.",ch,obj,victim,TO_VICT);
-	act("$N dodges $p that had been shot to $M.",ch,obj,victim,TO_CHAR);
-	act("$n dodges $p that had been shot to $m.",victim,obj,ch,TO_NOTVICT);
-	obj_to_room(obj,victim->in_room);
-	check_improve(victim,gsn_dodge,TRUE,6);
+	act("You dodge $p that had been shot to you.",
+	    ch, obj, victim, TO_VICT);
+	act("$N dodges $p that had been shot to $M.",
+	    ch, obj, victim, TO_CHAR);
+	act("$n dodges $p that had been shot to $m.",
+	    victim, obj, ch, TO_NOTVICT);
+	obj_to_room(obj, victim->in_room);
+	check_improve(victim, gsn_dodge, TRUE, 6);
 
 	return TRUE;
 }
