@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.29 1999-02-09 19:31:05 fjoe Exp $
+ * $Id: olc_area.c,v 1.30 1999-02-10 14:57:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,6 +51,7 @@ DECLARE_OLC_FUN(areaed_builders		);
 DECLARE_OLC_FUN(areaed_resetmsg		);
 DECLARE_OLC_FUN(areaed_minvnum		);
 DECLARE_OLC_FUN(areaed_maxvnum		);
+DECLARE_OLC_FUN(areaed_move		);
 DECLARE_OLC_FUN(areaed_credits		);
 DECLARE_OLC_FUN(areaed_minlevel		);
 DECLARE_OLC_FUN(areaed_maxlevel		);
@@ -59,6 +60,7 @@ DECLARE_OLC_FUN(areaed_clan		);
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
 DECLARE_VALIDATE_FUN(validate_maxvnum	);
+DECLARE_VALIDATE_FUN(validate_move	);
 
 OLC_CMD_DATA olc_cmds_area[] =
 {
@@ -80,6 +82,7 @@ OLC_CMD_DATA olc_cmds_area[] =
 	{ "resetmsg",	areaed_resetmsg				},
 	{ "minvnum",	areaed_minvnum,	validate_minvnum	},
 	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum	},
+	{ "move",	areaed_move,	validate_move		},
 	{ "credits",	areaed_credits				},
 	{ "minlevel",	areaed_minlevel				},
 	{ "maxlevel",	areaed_maxlevel				},
@@ -318,6 +321,13 @@ OLC_FUN(areaed_maxvnum)
 	return olced_number(ch, argument, areaed_maxvnum, &pArea->max_vnum);
 }
 
+OLC_FUN(areaed_move)
+{
+	AREA_DATA *pArea;
+	EDIT_AREA(ch, pArea);
+	return olced_number(ch, argument, areaed_move, &pArea->min_vnum);
+}
+
 OLC_FUN(areaed_clan)
 {
 	AREA_DATA *pArea;
@@ -379,10 +389,187 @@ VALIDATE_FUN(validate_maxvnum)
 	}
 	return TRUE;
 }
-	
-/* Local functions */
 
 #define IN_RANGE(i, l, u) ((l) <= (i) && (i) <= (u))
+#define MOVE(i) if (IN_RANGE(i, pArea->min_vnum, pArea->max_vnum)) {	\
+			i += delta;					\
+			touched = TRUE;					\
+		}
+
+static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta);
+static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta);
+static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta);
+
+VALIDATE_FUN(validate_move)
+{
+	int i;
+	int new_min = *(int*) arg;
+	int delta;
+	bool touched;
+	AREA_DATA *pArea;
+	MPCODE *mpc;
+	CLAN_DATA *clan;
+	EDIT_AREA(ch, pArea);
+
+	if (ch->pcdata->security < SECURITY_AREA_CREATE) {
+		char_puts("AEdit: Insufficient security.\n", ch);
+		return FALSE;
+	}
+
+	if (!pArea->min_vnum || !pArea->max_vnum) {
+		char_puts("AEdit: Both min_vnum and max_vnum must be set "
+			  "in order to perform area vnum move.\n", ch);
+		return FALSE;
+	}
+
+/* check new region */
+	delta = new_min - pArea->min_vnum;
+	if (check_range(pArea, new_min, pArea->max_vnum+delta)) {
+		char_puts("AEdit: New vnum range overlaps other areas.\n", ch);
+		return FALSE;
+	}
+
+/* everything is ok -- change vnums of all rooms, objs, mobs in area */
+
+/* fix clan recall, item and altar vnums */
+	touched = FALSE;
+	for (i = 0; i < clans.nused; i++) {
+		bool touched2 = touched;
+		touched = FALSE;
+		clan = CLAN(i);
+		MOVE(clan->altar_vnum);
+		MOVE(clan->recall_vnum);
+		MOVE(clan->obj_vnum);
+		if (touched)
+			touch_clan(clan);
+		else
+			touched = touched2;
+	}
+	if (touched) {
+		char_puts("AEdit: Changed clans:\n", ch);
+		for (i = 0; i < clans.nused; i++) {
+			clan = CLAN(i);
+			if (IS_SET(clan->flags, CLAN_CHANGED))
+				char_printf(ch, "- %s\n", clan->name);
+		}
+	}
+
+/* XXX fix mprogs */
+	for (mpc = mpcode_list; mpc; mpc = mpc->next)
+		MOVE(mpc->vnum);
+
+/* fix mobs */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		MOB_INDEX_DATA *mob;
+
+		for (mob = mob_index_hash[i]; mob; mob = mob->next)
+			move_mob(mob, pArea, delta);
+	}
+
+/* fix objs */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *obj;
+
+		for (obj = obj_index_hash[i]; obj; obj = obj->next)
+			move_obj(obj, pArea, delta);
+	}
+
+/* fix rooms */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room;
+
+		for (room = room_index_hash[i]; room; room = room->next)
+			move_room(room, pArea, delta);
+	}
+
+/* rebuild mob index hash */
+	top_vnum_mob = 0;
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		MOB_INDEX_DATA *mob, *mob_next, *mob_prev = NULL;
+
+		for (mob = mob_index_hash[i]; mob; mob = mob_next) {
+			int mob_hash = mob->vnum % MAX_KEY_HASH;
+			mob_next = mob->next;
+
+			if (top_vnum_mob < mob->vnum)
+				top_vnum_mob = mob->vnum;
+
+			if (mob_hash != i) {
+				if (!mob_prev)
+					mob_index_hash[i] = mob->next;
+				else
+					mob_prev->next = mob->next;
+				mob->next = mob_index_hash[mob_hash];
+				mob_index_hash[mob_hash] = mob;
+			}
+			else
+				mob_prev = mob;
+		}
+	}
+
+/* rebuild obj index hash */
+	top_vnum_obj = 0;
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *obj, *obj_next, *obj_prev = NULL;
+
+		for (obj = obj_index_hash[i]; obj; obj = obj_next) {
+			int obj_hash = obj->vnum % MAX_KEY_HASH;
+			obj_next = obj->next;
+
+			if (top_vnum_obj < obj->vnum)
+				top_vnum_obj = obj->vnum;
+
+			if (obj_hash != i) {
+				if (!obj_prev)
+					obj_index_hash[i] = obj->next;
+				else
+					obj_prev->next = obj->next;
+				obj->next = obj_index_hash[obj_hash];
+				obj_index_hash[obj_hash] = obj;
+			}
+			else
+				obj_prev = obj;
+		}
+	}
+
+/* rebuild room index hash */
+	top_vnum_room = 0;
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room, *room_next, *room_prev = NULL;
+
+		for (room = room_index_hash[i]; room; room = room_next) {
+			int room_hash = room->vnum % MAX_KEY_HASH;
+			room_next = room->next;
+
+			if (top_vnum_room < room->vnum)
+				top_vnum_room = room->vnum;
+
+			if (room_hash != i) {
+				if (!room_prev)
+					room_index_hash[i] = room->next;
+				else
+					room_prev->next = room->next;
+				room->next = room_index_hash[room_hash];
+				room_index_hash[room_hash] = room;
+			}
+			else
+				room_prev = room;
+		}
+	}
+
+	pArea->min_vnum += delta;
+	pArea->max_vnum += delta;
+	touch_area(pArea);
+
+	char_puts("AEdit: Changed areas:\n", ch);
+	for (pArea = area_first; pArea; pArea = pArea->next)
+		if (IS_SET(pArea->flags, AREA_CHANGED))
+			char_printf(ch, "[%3d] %s (%s)\n",
+				    pArea->vnum, pArea->name, pArea->file_name);
+	return TRUE;
+}
+
+/* Local functions */
 
 /*****************************************************************************
  Name:		check_range(lower vnum, upper vnum)
@@ -404,3 +591,86 @@ static AREA_DATA *check_range(AREA_DATA *this, int ilower, int iupper)
 	}
 	return NULL;
 }
+
+static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
+{
+	bool touched;
+	MPTRIG *mp;
+
+	MOVE(mob->vnum);
+
+	if (mob->pShop) 
+		MOVE(mob->pShop->keeper);
+
+	for (mp = mob->mptrig_list; mp; mp = mp->next)
+		MOVE(mp->vnum);
+}
+
+static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
+{
+	bool touched = FALSE;
+	int old_vnum = obj->vnum;
+
+/* fix containers */
+	switch (obj->item_type) {
+	case ITEM_CONTAINER:
+		MOVE(obj->value[2]);
+		if (touched) {
+			OBJ_DATA *o;
+
+			for (o = object_list; o; o = o->next)
+				if (o->pIndexData == obj)
+					o->value[2] += delta;
+		}
+	}
+
+	MOVE(obj->vnum);
+
+/* touch area if it is not area being moved */
+	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
+		touch_vnum(old_vnum);
+}
+
+static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
+{
+	int i;
+	bool touched = FALSE;
+	int old_vnum = room->vnum;
+	RESET_DATA *r;
+
+	MOVE(room->vnum);
+
+	for (i = 0; i < MAX_DIR; i++) {
+		EXIT_DATA *pExit = room->exit[i];
+
+		if (!pExit || !pExit->u1.to_room)
+			continue;
+
+		if (IN_RANGE(pExit->u1.to_room->vnum, pArea->min_vnum+delta,
+			     pArea->max_vnum+delta))
+			touched = TRUE;
+	}
+
+	for (r = room->reset_first; r; r = r->next) {
+		switch (r->command) {
+		case 'M':
+		case 'O':
+		case 'P':
+			MOVE(r->arg1);
+			MOVE(r->arg3);
+			break;
+
+		case 'G':
+		case 'E':
+		case 'D':
+		case 'R':
+			MOVE(r->arg1);
+			break;
+		}
+	}
+
+/* touch area if it is not area being moved */
+	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
+		touch_vnum(old_vnum);
+}
+

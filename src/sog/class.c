@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.9 1999-02-09 10:19:11 fjoe Exp $
+ * $Id: class.c,v 1.10 1999-02-10 14:57:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -56,36 +56,39 @@ void class_free(CLASS_DATA *class)
 }
 
 /*
- * guild_check - == 0 - the room is not a guild
- *		  > 0 - the room is guild and ch is allowed there
- *		  < 0 - the room is guild and ch is not allowed there
+ * guild_ok - check if ch allowed in the room (if the room is guild)
  */
-int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 {
 	int class = -1;
 	int iClass, iGuild;
 
-	if (!IS_SET(room->room_flags, ROOM_GUILD))
-		return 0;
+	if (!IS_SET(room->room_flags, ROOM_GUILD)
+	||  IS_IMMORTAL(ch))
+		return TRUE;
 
 	for (iClass = 0; iClass < classes.nused; iClass++) {
 		CLASS_DATA *cl = CLASS(iClass);
 		for (iGuild = 0; iGuild < cl->guild.nused; iGuild++) {
 		    	if (room->vnum == *(int*)VARR_GET(&cl->guild, iGuild)) {
 				if (iClass == ch->class)
-					return 1;
+					return TRUE;
 				class = iClass;
 			}
 		}
 	}
 
-	if (class == -1)
-		return 0;
+	if (class < 0) {
+		/*
+		 * room was not found in the list of guild rooms
+		 * of all classes
+		 */
+		log_printf("guild_ok: room %d: is not in guild rooms list",
+			   room->vnum);
+		return TRUE;
+	}
 
-	if (IS_IMMORTAL(ch))
-		return 1;
-
-	return -1;
+	return FALSE;
 }
 
 const char *class_name(CHAR_DATA *ch)

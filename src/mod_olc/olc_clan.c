@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.17 1999-02-09 14:28:32 fjoe Exp $
+ * $Id: olc_clan.c,v 1.18 1999-02-10 14:57:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,12 +49,12 @@ DECLARE_OLC_FUN(claned_flags		);
 DECLARE_OLC_FUN(claned_skill		);
 DECLARE_OLC_FUN(claned_item		);
 DECLARE_OLC_FUN(claned_altar		);
+DECLARE_OLC_FUN(claned_plist		);
 
 DECLARE_OLC_FUN(claned_skill_add	);
 DECLARE_OLC_FUN(claned_skill_del	);
-DECLARE_VALIDATE_FUN(validate_name	);
 
-static bool touch_clan(CLAN_DATA *clan);
+DECLARE_VALIDATE_FUN(validate_name	);
 
 OLC_CMD_DATA olc_cmds_clan[] =
 {
@@ -73,6 +73,7 @@ OLC_CMD_DATA olc_cmds_clan[] =
 	{ "skill",	claned_skill					},
 	{ "item",	claned_item					},
 	{ "altar", 	claned_altar					},
+	{ "plist",	claned_plist					},
 
 	{ "commands",	show_commands					},
 	{ NULL }
@@ -289,6 +290,53 @@ OLC_FUN(claned_skill)
 	return FALSE;
 }
 
+OLC_FUN(claned_plist)
+{
+	const char **nl;
+	const char *name;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	CLAN_DATA *clan;
+	EDIT_CLAN(ch, clan);
+	
+	argument = one_argument(argument, arg1);
+		   one_argument(argument, arg2);
+
+	if (arg1[0] == '\0') {
+		do_help(ch, "'OLC CLAN PLIST'");
+		return FALSE;
+	}
+
+	if (!str_prefix(arg1, "member")) {
+		nl = &clan->member_list;
+		name = "members";
+	}
+	else if (!str_prefix(arg1, "leader")) {
+		nl = &clan->leader_list;
+		name = "leaders";
+	}
+	else if (!str_prefix(arg1, "second")) {
+		nl = &clan->second_list;
+		name = "secondaries";
+	}
+	else
+		return claned_plist(ch, str_empty);
+
+	if (arg2[0] == '\0') {
+		char_printf(ch, "List of %s of %s: [%s]\n",
+			    name, clan->name, *nl);
+		return FALSE;
+	}
+			    
+	if (!pc_name_ok(arg2)) {
+		char_printf(ch, "ClanEd: %s: Illegal name\n", arg2);
+		return FALSE;
+	}
+
+	name_toggle(nl, arg2, ch, "ClanEd");
+	return TRUE;
+}
+
 OLC_FUN(claned_skill_add)
 {
 	int sn;
@@ -365,6 +413,12 @@ OLC_FUN(claned_skill_del)
 	return TRUE;
 }
 
+bool touch_clan(CLAN_DATA *clan)
+{
+	SET_BIT(clan->flags, CLAN_CHANGED);
+	return FALSE;
+}
+
 VALIDATE_FUN(validate_name)
 {
 	int i;
@@ -382,8 +436,3 @@ VALIDATE_FUN(validate_name)
 	return TRUE;
 }
 
-static bool touch_clan(CLAN_DATA *clan)
-{
-	SET_BIT(clan->flags, CLAN_CHANGED);
-	return FALSE;
-}

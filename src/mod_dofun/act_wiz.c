@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.110 1999-02-09 19:31:03 fjoe Exp $
+ * $Id: act_wiz.c,v 1.111 1999-02-10 14:57:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3985,8 +3985,6 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
  * .gz files are checked for too, just in case.
  */
 
-bool check_parse_name(char* name);  
-
 void do_rename(CHAR_DATA* ch, const char *argument)
 {
 	char old_name[MAX_INPUT_LENGTH], 
@@ -4033,7 +4031,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 		
-	if (!check_parse_name(new_name)) {
+	if (!pc_name_ok(new_name)) {
 		char_puts("The new name is illegal.\n",ch);
 		return;
 	}

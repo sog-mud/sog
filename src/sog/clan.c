@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.29 1999-02-09 19:31:04 fjoe Exp $
+ * $Id: clan.c,v 1.30 1999-02-10 14:57:35 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -450,12 +450,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (arg1[0] == '\0') {
-		do_help(ch, "CLANLIST");
-		return;
-	}
-
-	if (!str_prefix(arg1, "member")) {
+	if (arg1[0] == '\0' || !str_prefix(arg1, "member")) {
 		show_clanlist(ch, clan, clan->member_list, "members");
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.108 1999-02-09 14:28:15 fjoe Exp $
+ * $Id: spellfun.c,v 1.109 1999-02-10 14:57:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,7 @@ int allowed_other(CHAR_DATA *ch, int sn)
 }
 
 /*
- * check if victim allow ch to cast SPELL_QUESTIONABLE spell
+ * check trust - check if victim allow ch to cast SPELL_QUESTIONABLE spell
  */
 bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -86,6 +86,38 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
 }
 
 /*
+ * spellbane - check if 'bch' deflects the spell of 'ch'
+ */
+bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
+{
+	if (bch && is_affected(bch, gsn_spellbane)
+	&&  number_percent() < bane_chance) {
+		if (ch == bch) {
+	        	act_puts("Your spellbane deflects the spell!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("$n's spellbane deflects the spell!",
+			    ch, NULL, NULL, TO_ROOM);
+			damage(ch, ch, bane_damage, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+		}
+	        else {
+			act_puts("$N deflects your spell!",
+				 ch, NULL, bch, TO_CHAR, POS_DEAD);
+			act("You deflect $n's spell!",
+			    ch, NULL, bch, TO_VICT);
+			act("$N deflects $n's spell!",
+			    ch, NULL, bch, TO_NOTVICT);
+			if (!is_safe(bch, ch))
+				damage(bch, ch, bane_damage, gsn_spellbane,
+				       DAM_NEGATIVE, TRUE);
+	        }
+	        return TRUE;
+	}
+
+	return FALSE;
+}
+
+/*
  * The kludgy global is for spells who want more stuff from command line.
  */
 const char *target_name;
@@ -101,11 +133,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int target;
 	int door, range;
 	bool cast_far = FALSE;
+	bool trust = FALSE;
 	int slevel;
 	int chance = 0;
 	SKILL_DATA *spell;
 	CLASS_DATA *cl;
-	int bane_chance;
+
+	CHAR_DATA *bch;		/* char to check spellbane on */
+	int bane_chance;	/* spellbane chance */
 
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
@@ -204,6 +239,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	vo		= NULL;
 	target		= TARGET_NONE;
 	bane_chance	= 100;
+	bch		= NULL;
 
 	switch (spell->target) {
 	default:
@@ -211,6 +247,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 
 	case TAR_IGNORE:
+		bch = ch;
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
@@ -220,36 +257,34 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 		}
-		else {
-			if ((range = allowed_other(ch, sn)) > 0) {
-				if (!(victim = get_char_spell(ch, target_name,
-							      &door, range)))
-					return;
-
-				if (IS_NPC(victim)
-				&&  victim->in_room != ch->in_room) {
-					if (room_is_private(ch->in_room)) {
-						char_puts("You can't cast this spell from private room right now.\n", ch);
-						return;
-					}
-
-					if (IS_SET(victim->pIndexData->act,
-						   ACT_NOTRACK)) {
-						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
-						return;
-					}
-				}
-				cast_far = TRUE;
-			}
-			else if (!(victim = get_char_room(ch, target_name))) {
-				char_puts("They aren't here.\n", ch);
+		else if ((range = allowed_other(ch, sn)) > 0) {
+			if ((victim = get_char_spell(ch, target_name,
+						     &door, range)) == NULL)
 				return;
+
+			if (IS_NPC(victim)
+			&&  victim->in_room != ch->in_room) {
+				if (room_is_private(ch->in_room)) {
+					char_puts("You can't cast this spell from private room right now.\n", ch);
+					return;
+				}
+
+				if (IS_SET(victim->pIndexData->act,
+					   ACT_NOTRACK)) {
+					act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
+					return;
+				}	
 			}
+			cast_far = TRUE;
+		}
+		else if ((victim = get_char_room(ch, target_name)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
 		}
 
-		vo = (void *) victim;
 		target = TARGET_CHAR;
-		bane_chance = 2*get_skill(victim, gsn_spellbane)/3;
+		bch = victim;
+		bane_chance = 2*get_skill(bch, gsn_spellbane)/3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -260,30 +295,22 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		vo = (void *) victim;
-		if (IS_SET(spell->flags, SKILL_QUESTIONABLE) 
-		&& !check_trust(ch, victim)) {
-			char_puts("They do not trust you enough for this spell.\n", ch);
-			return;
-		}
 		target = TARGET_CHAR;
+		bch = victim;
 		break;
 
 	case TAR_CHAR_SELF:
 		if (target_name[0] == '\0')
 			victim = ch;
-		else {
-			if ((victim = get_char_room(ch, target_name)) == NULL
-			||  (!IS_NPC(ch) && victim != ch)) {
-				char_puts("You cannot cast this spell "
-					  "on another.\n", ch);
-				char_puts("They aren't here.\n", ch);
-				return;
-			}
+		else if ((victim = get_char_room(ch, target_name)) == NULL
+		     ||  (!IS_NPC(ch) && victim != ch)) {
+			char_puts("You cannot cast this spell "
+				  "on another.\n", ch);
+			return;
 		}
 
-		vo = (void *) victim;
 		target = TARGET_CHAR;
+		bch = victim;
 		break;
 
 	case TAR_OBJ_INV:
@@ -298,8 +325,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		vo = (void *) obj;
 		target = TARGET_OBJ;
+		bch = ch;
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
@@ -313,95 +340,76 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 		else if ((victim = get_char_room(ch, target_name)))
 			target = TARGET_CHAR;
-
-		if (target == TARGET_CHAR) {
-			if (IS_AFFECTED(ch, AFF_CHARM)
-			&&  ch->master == victim) {
-				char_puts("You can't do that on your own "
-					  "follower.\n", ch);
-				return;
-			}
-			vo = (void *) victim;
-		}
-		else if ((obj = get_obj_here(ch, target_name))) {
-			vo = (void *) obj;
+		else if ((obj = get_obj_here(ch, target_name)))
 			target = TARGET_OBJ;
-		}
 		else {
 			char_puts("You don't see that here.\n",ch);
 			return;
 		}
+		bch = victim;
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
 		if (target_name[0] == '\0') {
-			vo = (void *) ch;
+			victim = ch;
 			target = TARGET_CHAR;
 		}
-		else if ((victim = get_char_room(ch, target_name))) {
-			vo = (void *) victim;
+		else if ((victim = get_char_room(ch, target_name)))
 			target = TARGET_CHAR;
-		}
-		else if ((obj = get_obj_carry(ch, target_name))) {
-			vo = (void *) obj;
+		else if ((obj = get_obj_carry(ch, target_name)))
 			target = TARGET_OBJ;
-		}
 		else {
 			char_puts("You don't see that here.\n",ch);
 			return;
 		}
+		bch = victim;
 		break;
-	}
-
-	if (spell->target == TAR_CHAR_OFFENSIVE
-	||  (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR)) {
-		if (!(IS_SET(spell->flags, SKILL_QUESTIONABLE)
-		&& check_trust(ch, victim))
-		&& is_safe(ch, victim))
-			return;
-
-		if (!IS_NPC(ch)
-		&& !IS_NPC(victim)
-		&&  victim != ch
-		&&  ch->fighting != victim
-		&&  victim->fighting != ch
-		&&  !IS_AFFECTED(victim, AFF_CHARM)
-		&&  !(IS_SET(spell->flags, SKILL_QUESTIONABLE) 
-		&&  check_trust(ch, victim)))
-			doprintf(do_yell, victim,
-				 "Die, %s, you sorcerous dog!",
-				 PERS(ch,victim));
 	}
 
 	if (str_cmp(spell->name, "ventriloquate"))
 		say_spell(ch, sn);
 
-	if (!victim)
-		victim = ch;
+	switch (target) {
+	case TARGET_CHAR:
+		vo = (void*) victim;
+		if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
+			trust = check_trust(ch, victim);
 
-	if (victim && is_affected(victim, gsn_spellbane)
-	&&  number_percent() < bane_chance) {
-		if (ch == victim) {
-			act_puts("Your spellbane deflects the spell!",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n's spellbane deflects the spell!",
-			    ch, NULL, NULL, TO_ROOM);
-			damage(ch, ch, 3 * ch->level, gsn_spellbane,
-			       DAM_NEGATIVE, TRUE);
+		if (!trust) {
+			switch (spell->target) {
+			case TAR_CHAR_DEFENSIVE:
+			case TAR_OBJ_CHAR_DEF:
+				char_puts("They do not trust you enough "
+					  "for this spell.\n", ch);
+				return;
+				/* NOT REACHED */	
+
+			case TAR_CHAR_OFFENSIVE:
+			case TAR_OBJ_CHAR_OFF:
+				if (is_safe(ch, victim))
+					return;
+
+				if (!IS_NPC(ch)
+				&&  !IS_NPC(victim)
+				&&  victim != ch
+				&&  ch->fighting != victim
+				&&  victim->fighting != ch
+				&&  !is_same_group(ch, victim))
+					doprintf(do_yell, victim,
+						 "Die, %s, you sorcerous dog!",
+						 PERS(ch, victim));
+				break;
+			}
 		}
-		else {
-	       		act_puts("$N deflects your spell!",
-				 ch, NULL, victim, TO_CHAR, POS_DEAD);
-	       		act("You deflect $n's spell!",
-			    ch, NULL, victim, TO_VICT);
-			act("$N deflects $n's spell!",
-			    ch, NULL, victim, TO_NOTVICT);
-			if (!is_safe(victim, ch))
-				damage(victim, ch, 3 * victim->level,
-				       gsn_spellbane, DAM_NEGATIVE, TRUE);
-	       	}
-		return;
+		break;
+
+	case TARGET_OBJ:
+		vo = (void*) obj;
+		break;
 	}
+
+	if (spellbane(bch, ch, bane_chance, 3 * bch->level))
+		return;
 
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n", ch);
@@ -411,9 +419,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		if (IS_SET(cl->flags, CLASS_MAGIC))
-			slevel = ch->level - UMAX(0,(ch->level / 20));
+			slevel = ch->level - UMAX(0, (ch->level / 20));
 		else
-			slevel = ch->level - UMAX(5,(ch->level / 10));
+			slevel = ch->level - UMAX(5, (ch->level / 10));
 
 		if ((chance = get_skill(ch, gsn_spell_craft))) {
 			if (number_percent() < chance) {
@@ -424,26 +432,30 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				check_improve(ch, gsn_spell_craft, FALSE, 1);
 		}
 
-		if ((chance = get_skill(ch, gsn_improved_maladiction)) 
-			&& IS_SET(spell->group, GROUP_MALADICTIONS)) {
+		if (IS_SET(spell->group, GROUP_MALADICTIONS)
+		&&  (chance = get_skill(ch, gsn_improved_maladiction))) {
 			if (number_percent() < chance) {
 				slevel = ch->level;
 				slevel += chance/20;
-				check_improve(ch, gsn_improved_maladiction, TRUE, 1);
+				check_improve(ch, gsn_improved_maladiction,
+					      TRUE, 1);
 			}
 			else
-				check_improve(ch, gsn_improved_maladiction, FALSE, 1);
+				check_improve(ch, gsn_improved_maladiction,
+					      FALSE, 1);
 		}
 
-		if ((chance = get_skill(ch, gsn_improved_benediction))
-			&& IS_SET(spell->group, GROUP_BENEDICTIONS)) {
+		if (IS_SET(spell->group, GROUP_BENEDICTIONS)
+		&&  (chance = get_skill(ch, gsn_improved_benediction))) {
 			if (number_percent() < chance) {
 				slevel = ch->level;
 				slevel += chance/10;
-				check_improve(ch, gsn_improved_benediction, TRUE, 1);
+				check_improve(ch, gsn_improved_benediction,
+					      TRUE, 1);
 			}
 			else 
-				check_improve(ch, gsn_improved_benediction, FALSE, 1);
+				check_improve(ch, gsn_improved_benediction,
+					      FALSE, 1);
 		}
 
 		if ((chance = get_skill(ch, gsn_mastering_spell))
@@ -461,18 +473,17 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		ch->mana -= mana;
 
 		spell->spell_fun(sn, IS_NPC(ch) ? ch->level : slevel,
-			      ch, vo, target);
+				 ch, vo, target);
 		check_improve(ch, sn, TRUE, 1);
 	}
 		
 	if (cast_far && door != -1)
 		path_to_track(ch, victim, door);
 	else if ((spell->target == TAR_CHAR_OFFENSIVE ||
-		 (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
+		  (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	&&   victim != ch
 	&&   victim->master != ch
-	&&   !(IS_SET(spell->flags, SKILL_QUESTIONABLE)
-	&&   check_trust(ch, victim))) {
+	&&   !trust) {
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
@@ -480,7 +491,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			vch_next = vch->next_in_room;
 			if (victim == vch && victim->fighting == NULL) {
 				if (victim->position != POS_SLEEPING)
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+					multi_hit(victim, ch, TYPE_UNDEFINED);
 				break;
 			}
 		}
@@ -493,24 +504,27 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 void obj_cast_spell(int sn, int level,
 		    CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
-	void *vo;
+	void *vo = NULL;
 	int target = TARGET_NONE;
 	SKILL_DATA *spell;
-	int bane_chance;
+	CHAR_DATA *bch = NULL;
+	int bane_chance = 100;
+	int bane_damage = 0;
+	bool trust = FALSE;
 
 	if (sn <= 0
 	||  (spell = skill_lookup(sn)) == NULL
 	||  spell->spell_fun == NULL)
 		return;
 
-	bane_chance = 100;
 	switch (spell->target) {
 	default:
 		bug("Obj_cast_spell: bad target for sn %d.", sn);
 		return;
 
 	case TAR_IGNORE:
-		vo = NULL;
+		bch = ch;
+		bane_damage = 10*bch->level;
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
@@ -520,14 +534,10 @@ void obj_cast_spell(int sn, int level,
 			char_puts("You can't do that.\n", ch);
 			return;
 		}
-		if ( !(IS_SET(spell->flags, SKILL_QUESTIONABLE)
-		&& check_trust(ch, victim))
-		&& is_safe(ch, victim)) {
-	/*		char_puts("Something isn't right...\n",ch); */
-			return;
-		}
-		vo = (void *) victim;
+
 		target = TARGET_CHAR;
+		bch = victim;
+		bane_damage = 10*bch->level;
 		bane_chance = 2 * get_skill(victim, gsn_spellbane) / 3;
 		break;
 
@@ -535,13 +545,9 @@ void obj_cast_spell(int sn, int level,
 	case TAR_CHAR_SELF:
 		if (victim == NULL)
 			victim = ch;
-		vo = (void *) victim;
-		if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
-		&& !check_trust(ch, victim)) {
-			char_puts("They do not trust you enough for this spell.\n", ch);
-			return;
-		}
 		target = TARGET_CHAR;
+		bch = victim;
+		bane_damage = 10*bch->level;
 		break;
 
 	case TAR_OBJ_INV:
@@ -549,83 +555,79 @@ void obj_cast_spell(int sn, int level,
 			char_puts("You can't do that.\n", ch);
 			return;
 		}
-		vo = (void *) obj;
 		target = TARGET_OBJ;
+		bch = ch;
+		bane_damage = 3*bch->level;
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
-		if (victim == NULL && obj == NULL)
-			if (ch->fighting != NULL)
+		if (!victim && !obj) {
+			if (ch->fighting)
 				victim = ch->fighting;
 			else {
 				char_puts("You can't do that.\n", ch);
 				return;
 			}
-
-		if (victim) {
-			if (is_safe(ch, victim)) {
-			    char_puts("Somehting isn't right...\n", ch);
-			    return;
-			}
-
-			vo = (void *) victim;
-			target = TARGET_CHAR;
 		}
-		else {
-			vo = (void *) obj;
-			target = TARGET_OBJ;
-		}
+
+		target = victim ? TARGET_CHAR : TARGET_OBJ;
+		bch = victim;
+		bane_damage = 3*bch->level;
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
-		if (victim == NULL && obj == NULL) {
-			vo = (void *) ch;
+		if (!victim && !obj) {
+			victim = ch;
 			target = TARGET_CHAR;
 		}
-		else if (victim != NULL) {
-			if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
-			&& !check_trust(ch, victim)) {
-				char_puts("They do not trust you enough for this spell.\n", ch);
-				return;
-			}
-			vo = (void *) victim;
+		else if (victim) {
 			target = TARGET_CHAR;
 		}
-		else {
-			vo = (void *) obj;
+		else 
 			target = TARGET_OBJ;
-		}
+		bch = victim;
+		bane_damage = 3*bch->level;
 		break;
 	}
 
-	if (!victim)
-		victim = ch;
+	switch (target) {
+	case TARGET_NONE:
+		vo = NULL;
+		break;
 
-	if (is_affected(victim, gsn_spellbane)
-	&&  number_percent() < bane_chance) {
-		if (ch == victim) {
-	        	act_puts("Your spellbane deflects the spell!",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n's spellbane deflects the spell!",
-			    ch, NULL, NULL, TO_ROOM);
-			damage(ch, ch, 10 * level, gsn_spellbane,
-			       DAM_NEGATIVE, TRUE);
+	case TARGET_OBJ:
+		if (obj->extracted)
+			return;
+		vo = (void*) obj;
+		break;
+
+	case TARGET_CHAR:
+		vo = (void *) victim;
+		if (IS_SET(spell->flags, SKILL_QUESTIONABLE))
+			trust = check_trust(ch, victim);
+
+		if (!trust) {
+			switch (spell->target) {
+			case TAR_CHAR_DEFENSIVE:
+			case TAR_OBJ_CHAR_DEF:
+				char_puts("They do not trust you enough "
+					  "for this spell.\n", ch);
+				return;
+				/* NOT REACHED */
+
+			case TAR_CHAR_OFFENSIVE:
+			case TAR_OBJ_CHAR_OFF:
+				if (is_safe(ch, victim)) {
+					char_puts("Somehting isn't right...\n",
+						  ch);
+					return;
+				}
+				break;
+			}
 		}
-	        else {
-			act_puts("$N deflects your spell!",
-				 ch, NULL, victim, TO_CHAR, POS_DEAD);
-			act("You deflect $n's spell!",
-			    ch, NULL, victim, TO_VICT);
-			act("$N deflects $n's spell!",
-			    ch, NULL, victim, TO_NOTVICT);
-			if (!is_safe(victim, ch))
-				damage(victim, ch, 10 * victim->level,
-				       gsn_spellbane, DAM_NEGATIVE, TRUE);
-	        }
-	        return;
 	}
 
-	if (target == TARGET_OBJ && ((OBJ_DATA*) vo)->extracted)
+	if (spellbane(bch, ch, bane_chance, bane_damage))
 		return;
 
 	target_name = str_empty;
@@ -635,8 +637,7 @@ void obj_cast_spell(int sn, int level,
 	    (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	&&  victim != ch
 	&&  victim->master != ch
-	&&  !(IS_SET(spell->flags, SKILL_QUESTIONABLE)
-	&&  check_trust(ch, victim))) {
+	&&  !trust) {
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
@@ -4229,7 +4230,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		||  ((!in_PK(ch, victim) ||
 		      ch->in_room->area != victim->in_room->area) &&
 		     IS_SET(victim->plr_flags, PLR_NOSUMMON))
-		||  guild_check(victim, ch->in_room) < 0)
+		||  !guild_ok(victim, ch->in_room))
 			failed = TRUE;
 	}
 

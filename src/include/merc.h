@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.140 1999-02-09 19:31:04 fjoe Exp $
+ * $Id: merc.h,v 1.141 1999-02-10 14:57:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1901,6 +1901,7 @@ bool	name_delete	(const char **namelist, const char *name,
 bool	name_toggle	(const char **namelist, const char *name,
 			 CHAR_DATA *CH, const char *editor_name);
 
+bool	pc_name_ok	(const char *name);
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_remove	(CHAR_DATA *ch, AFFECT_DATA *paf);
@@ -2158,7 +2159,7 @@ void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 /* act_move.h */
 void move_char(CHAR_DATA *ch, int door, bool follow);
 char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend);
-int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
+bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
 /* act_obj.h */
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.131 1999-02-09 14:28:13 fjoe Exp $
+ * $Id: act_move.c,v 1.132 1999-02-10 14:57:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -219,7 +219,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (!IS_NPC(ch)) {
 		int move;
 
-		if (guild_check(ch, to_room) < 0) {
+		if (!guild_ok(ch, to_room)) {
 			char_puts("You aren't allowed there.\n", ch);
 			return;
 		}

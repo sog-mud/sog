@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.106 1999-02-09 19:31:04 fjoe Exp $
+ * $Id: handler.c,v 1.107 1999-02-10 14:57:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "raffects.h"
 #include "fight.h"
 #include "quest.h"
+#include "db/db.h"
 
 DECLARE_DO_FUN(do_raffects	);
 DECLARE_DO_FUN(do_return	);
@@ -674,7 +675,7 @@ bool name_edit(const char **nl, const char *name, int flags,
 	for (;;) {
 		char arg[MAX_STRING_LENGTH];
 
-		p = one_argument(p, arg);
+		p = first_arg(p, arg, FALSE);
 
 		if (arg[0] == '\0')
 			break;
@@ -2236,12 +2237,6 @@ OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name, uint *number)
 {
 	OBJ_DATA *obj;
 
-/* search in room contents */
-	obj = get_obj_list_raw(ch, name, number, ch->in_room->contents,
-			       GETOBJ_F_WEAR_ANY);
-	if (obj)
-		return obj;
-
 /* search in player's inventory */
 	obj = get_obj_list_raw(ch, name, number, ch->carrying,
 			       GETOBJ_F_WEAR_NONE);
@@ -2250,6 +2245,12 @@ OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name, uint *number)
 
 /* search in player's eq */
 	obj = get_obj_list_raw(ch, name, number, ch->carrying, GETOBJ_F_WEAR);
+	if (obj)
+		return obj;
+
+/* search in room contents */
+	obj = get_obj_list_raw(ch, name, number, ch->in_room->contents,
+			       GETOBJ_F_WEAR_ANY);
 	if (obj)
 		return obj;
 
@@ -2964,7 +2965,7 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	      ch->in_room->area != victim->in_room->area) &&
 	     IS_SET(victim->plr_flags, PLR_NOSUMMON))
 	||  victim->level >= LEVEL_HERO
-	||  guild_check(ch, victim->in_room) < 0)
+	||  !guild_ok(ch, victim->in_room))
 		return FALSE;
 
 	return TRUE;
@@ -3339,6 +3340,86 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 						 obj->pIndexData->affected);
 			show_obj_affects(ch, output, obj->affected);
 		}
+}
+
+/*
+ * Parse a name for acceptability.
+ */
+bool pc_name_ok(const char *name)
+{
+	const char *pc;
+	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
+ 	int total_caps = 0;
+	int i;
+
+	/*
+	 * Reserved words.
+	 */
+	if (is_name(name, "chronos all auto immortals self someone something"
+			  "the you demise balance circle loner honor "
+			  "none clan"))
+		return FALSE;
+	
+	/*
+	 * Length restrictions.
+	 */
+	 
+	if (strlen(name) < 2)
+		return FALSE;
+
+	if (strlen(name) > MAX_CHAR_NAME)
+		return FALSE;
+
+	/*
+	 * Alphanumerics only.
+	 * Lock out IllIll twits.
+	 */
+	fIll = TRUE;
+	for (pc = name; *pc != '\0'; pc++) {
+		if (!isalpha(*pc))
+			return FALSE;
+
+		if (isupper(*pc)) { /* ugly anti-caps hack */
+			if (adjcaps)
+				cleancaps = TRUE;
+			total_caps++;
+			adjcaps = TRUE;
+		}
+		else
+			adjcaps = FALSE;
+
+		if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
+			fIll = FALSE;
+	}
+
+	if (fIll)
+		return FALSE;
+
+	if (total_caps > strlen(name) / 2)
+		return FALSE;
+
+	/*
+	 * Prevent players from naming themselves after mobs.
+	 */
+	{
+		MOB_INDEX_DATA *pMobIndex;
+		int iHash;
+
+		for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
+			for (pMobIndex  = mob_index_hash[iHash];
+			     pMobIndex != NULL; pMobIndex  = pMobIndex->next) 
+				if (is_name(name, pMobIndex->name))
+					return FALSE;
+		}
+	}
+
+	for (i = 0; i < clans.nused; i++) {
+		CLASS_DATA *clan = VARR_GET(&clans, i);
+		if (!str_cmp(name, clan->name))
+			return FALSE;
+	}
+
+	return TRUE;
 }
 
 #ifdef WIN32

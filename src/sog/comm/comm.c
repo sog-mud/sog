@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.135 1998-12-23 16:11:19 fjoe Exp $
+ * $Id: comm.c,v 1.136 1999-02-10 14:57:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,7 +92,6 @@
 #include "charset.h"
 #include "resolver.h"
 #include "olc/olc.h"
-#include "db/db.h"
 #include "comm_info.h"
 #include "comm_colors.h"
 
@@ -211,7 +210,6 @@ void	resolv_done		(void);
 /*
  * Other local functions (OS-independent).
  */
-bool	check_parse_name	(const char *name);
 bool	check_reconnect		(DESCRIPTOR_DATA *d, const char *name,
 				 bool fConn);
 bool	check_playing		(DESCRIPTOR_DATA *d, const char *name);
@@ -1543,7 +1541,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		if (!check_parse_name(argument)) {
+		if (!pc_name_ok(argument)) {
 			write_to_buffer(d, "Illegal name, try another.\n\r"
 					   "Name: ", 0);
 			return;
@@ -2358,86 +2356,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		do_unread(ch, "login");  
 		break;
 	}
-}
-
-/*
- * Parse a name for acceptability.
- */
-bool check_parse_name(const char *name)
-{
-	const char *pc;
-	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
- 	int total_caps = 0;
-	int i;
-
-	/*
-	 * Reserved words.
-	 */
-	if (is_name(name, "chronos all auto immortals self someone something"
-			  "the you demise balance circle loner honor "
-			  "none clan"))
-		return FALSE;
-	
-	/*
-	 * Length restrictions.
-	 */
-	 
-	if (strlen(name) < 2)
-		return FALSE;
-
-	if (strlen(name) > MAX_CHAR_NAME)
-		return FALSE;
-
-	/*
-	 * Alphanumerics only.
-	 * Lock out IllIll twits.
-	 */
-	fIll = TRUE;
-	for (pc = name; *pc != '\0'; pc++) {
-		if (!isalpha(*pc))
-			return FALSE;
-
-		if (isupper(*pc)) { /* ugly anti-caps hack */
-			if (adjcaps)
-				cleancaps = TRUE;
-			total_caps++;
-			adjcaps = TRUE;
-		}
-		else
-			adjcaps = FALSE;
-
-		if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
-			fIll = FALSE;
-	}
-
-	if (fIll)
-		return FALSE;
-
-	if (total_caps > strlen(name) / 2)
-		return FALSE;
-
-	/*
-	 * Prevent players from naming themselves after mobs.
-	 */
-	{
-		MOB_INDEX_DATA *pMobIndex;
-		int iHash;
-
-		for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
-			for (pMobIndex  = mob_index_hash[iHash];
-			     pMobIndex != NULL; pMobIndex  = pMobIndex->next) 
-				if (is_name(name, pMobIndex->name))
-					return FALSE;
-		}
-	}
-
-	for (i = 0; i < clans.nused; i++) {
-		CLASS_DATA *clan = VARR_GET(&clans, i);
-		if (!str_cmp(name, clan->name))
-			return FALSE;
-	}
-
-	return TRUE;
 }
 
 /*
