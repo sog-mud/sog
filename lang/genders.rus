@@ -1,9 +1,151 @@
 #RULE
-Name возбужден~
+Name nопал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name юным~
+BaseLen 2
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name агрессивен~
+BaseLen 8
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name активизировал~
+BaseLen 12
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name атаковал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name бдителен~
+BaseLen 6
+Form 1 -ьна~
+Form 2 -ьно~
+Form 3 -ьны~
+End
+
+#RULE
+Name белый~
+BaseLen 3
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name берет~
+BaseLen 3
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name бессилен~
+BaseLen 6
+Form 1 -ьна~
+Form 2 -ьно~
+Form 3 -ьны~
+End
+
+#RULE
+Name бессмертный~
 BaseLen 9
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name безразличен~
+BaseLen 9
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name благославлен~
+BaseLen 12
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name блокирует~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name бодрствует~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name бодрым~
+BaseLen 6
+Form 1 бодрой~
+Form 2 бодрым~
+Form 3 бодрыми~
+End
+
+#RULE
+Name болен~
+BaseLen 3
+Form 1 -ьна~
+Form 2 -ьно~
+Form 3 -ьны~
+End
+
+#RULE
+Name больным~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name бормочет~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name бросает~
+BaseLen 5
+Form 3 -ют~
 End
 
 #RULE
@@ -15,19 +157,25 @@ Form 3 -ли~
 End
 
 #RULE
-Name засыпает~
+Name бросился~
 BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE
-Name протиснулся~
-BaseLen 8
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
+Name бьется~
+BaseLen 6
+Form 3 бьются~
+End
+
+#RULE
+Name был~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
 End
 
 #RULE
@@ -39,14 +187,6 @@ Form 3 -ют~
 End
 
 #RULE
-Name отменил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
 Name дал~
 BaseLen 2
 Form 1 -ла~
@@ -55,86 +195,62 @@ Form 3 -ли~
 End
 
 #RULE
-Name прекрасным~
-BaseLen 8
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name опутал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вооружен~
-BaseLen 8
+Name дезориентирован~
+BaseLen 15
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
 End
 
 #RULE
-Name погрузил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name настиг~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name прокричал~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name подобен~
+Name добился~
 BaseLen 5
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name уверенным~
-BaseLen 7
-Form 1 -ой~
-Form 3 -ыми~
-End
-
-#RULE
-Name превращает~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name излечился~
-BaseLen 7
 Form 1 -ась~
 Form 2 -ось~
 Form 3 -ись~
 End
 
 #RULE
-Name избавил~
+Name добр~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name добрался~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name добрый~
+BaseLen 4
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name должен~
+Form 1 должна~
+Form 2 должно~
+Form 3 должны~
+End
+
+#RULE
+Name достает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name достиг~
 BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
@@ -150,134 +266,6 @@ Form 3 -ли~
 End
 
 #RULE
-Name схватил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name покрылся~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name прискакал~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name наполняет~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name здоровым~
-BaseLen 6
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name выругался~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name понял~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name берет~
-BaseLen 3
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ут~
-End
-
-#RULE
-Name прошел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name подскользнулся~
-BaseLen 12
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name подошел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name предполагал~
-BaseLen 10
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name взорвался~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name сделал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name призывает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name овладел~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
 Name дошел~
 BaseLen 3
 Form 1 -ла~
@@ -286,95 +274,112 @@ Form 3 -ли~
 End
 
 #RULE
-Name бормочет~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
+Name дрожит~
+BaseLen 4
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name друг~
+BaseLen 4
+Form 1 подруга~
+Form 3 друзья~
+End
+
+#RULE
+Name его~
+Form 1 ее~
+Form 2 его~
+Form 3 их~
+End
+
+#RULE
+Name ему~
+Form 1 ей~
+Form 2 ему~
+Form 3 им~
+End
+
+#RULE
+Name гаснет~
+BaseLen 4
 Form 3 -ут~
 End
 
 #RULE
-Name свой~
+Name глядит~
 BaseLen 4
-Form 1 своя~
-Form 2 свое~
-Form 3 свои~
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
 End
 
 #RULE
-Name оглушен~
-BaseLen 7
+Name глуп~
+BaseLen 4
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
 End
 
 #RULE
-Name Твой~
-BaseLen 2
-Form 1 -оя~
-Form 2 -ое~
-Form 3 -ои~
-End
-
-#RULE
-Name нагнулся~
-BaseLen 5
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name видимый~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name осмотрел~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name согрешил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name покупает~
-BaseLen 6
+Name гниет~
+BaseLen 3
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
 End
 
 #RULE
-Name взмахнул~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
+Name голоден~
+BaseLen 5
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
 End
 
 #RULE
-Name оглянулся~
+Name голодным~
 BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
 End
 
 #RULE
-Name велик~
+Name горячий~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ее~
+Form 3 -ие~
+End
+
+#RULE
+Name готов~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name говорит~
+BaseLen 5
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name гуляет~
+BaseLen 4
+Form 3 -ют~
+End
+
+#RULE
+Name хорош~
 BaseLen 5
 Form 1 -а~
 Form 2 -о~
@@ -382,119 +387,16 @@ Form 3 -и~
 End
 
 #RULE
-Name удивлен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name снес~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name заразился~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name взвизгнул~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name подбирает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name произносит~
-BaseLen 8
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name преступник~
-BaseLen 9
-Form 1 -ца~
-Form 2 -к~
-Form 3 -ки~
-End
-
-#RULE
-Name похитил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name отдыхает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name зашел~
-BaseLen 3
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name начинает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name МЕРТВ~
-Form 1 МЕРТВА~
-Form 2 МЕРТВО~
-Form 3 МЕРТВЫ~
-End
-
-#RULE
-Name достиг~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name покрыт~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name нырнул~
+Name хороший~
 BaseLen 5
+Form 1 -ая~
+Form 2 -ее~
+Form 3 -ие~
+End
+
+#RULE
+Name хотел~
+BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -507,349 +409,76 @@ Form 3 хотят~
 End
 
 #RULE
-Name забрался~
+Name хрюкнул~
 BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name выдохшимся~
-BaseLen 6
-Form 1 -ейся~
-Form 3 -имися~
-End
-
-#RULE
-Name кидает~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name вошел~
-BaseLen 3
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
 End
 
 #RULE
-Name лишился~
+Name храбр~
+Form 1 храбра~
+Form 2 храбро~
+Form 3 храбры~
+End
+
+#RULE
+Name храбрый~
 BaseLen 5
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name просит~
-BaseLen 4
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name восприимчив~
-BaseLen 11
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name почернел~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name парирует~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name осведомлен~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name обнаружил~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name застрял~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name ступивший~
-BaseLen 7
-Form 1 -ая~
-Form 2 -ее~
-Form 3 -ие~
-End
-
-#RULE
-Name сам~
-BaseLen 3
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name расщепил~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name проводит~
-BaseLen 6
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name окаменел~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name уперся~
-BaseLen 4
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name сгорел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name маленький~
-BaseLen 7
 Form 1 -ая~
 Form 2 -ое~
-Form 3 -ие~
+Form 3 -ые~
+End
+
+#RULE
+Name храбрым~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name хватает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name идет~
+BaseLen 2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name идиот~
+BaseLen 5
+Form 1 -ка~
+Form 3 -ы~
+End
+
+#RULE
+Name икнул~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name им~
+Form 1 ей~
+Form 3 ими~
 End
 
 #RULE
 Name исказил~
 BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name является~
-BaseLen 8
-Form 3 являются~
-End
-
-#RULE
-Name возвратился~
-BaseLen 9
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name рад~
-BaseLen 3
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name замахнулся~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name пересох~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name самоуверен~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name кипящий~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ие~
-End
-
-#RULE
-Name закипел~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name заинтересован~
-BaseLen 13
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name убил~
-BaseLen 3
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name осторожным~
-BaseLen 8
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name медвяный~
-BaseLen 6
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name сжег~
-BaseLen 4
-Form 1 сожгла~
-Form 2 сожгло~
-Form 3 сожгли~
-End
-
-#RULE
-Name замечает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name вялым~
-BaseLen 3
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name уведомляет~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name раздал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name взглянул~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name отважный~
-BaseLen 6
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name огрел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name кладет~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name проклят~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name перестал~
-BaseLen 7
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -864,7 +493,7 @@ Form 3 -лись~
 End
 
 #RULE
-Name сотворил~
+Name испачкал~
 BaseLen 7
 Form 1 -ла~
 Form 2 -ло~
@@ -872,80 +501,24 @@ Form 3 -ли~
 End
 
 #RULE
-Name растворился~
+Name использует~
 BaseLen 8
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name расползся~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name провалился~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name который~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name заметил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вонзился~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name кусает~
-BaseLen 4
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
 End
 
 #RULE
-Name вышел~
-BaseLen 3
-Form 1 -лa~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name пропал~
-BaseLen 5
+Name испытал~
+BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
 End
 
 #RULE
-Name прижимает~
-BaseLen 7
+Name испытывает~
+BaseLen 8
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
@@ -960,1391 +533,7 @@ Form 3 -ли~
 End
 
 #RULE
-Name хорош~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name болен~
-BaseLen 3
-Form 1 -ьна~
-Form 2 -ьно~
-Form 3 -ьны~
-End
-
-#RULE
-Name встретил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name спит~
-BaseLen 2
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name заблудился~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name навострил~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name горячий~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ее~
-Form 3 -ие~
-End
-
-#RULE
-Name достает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name хотел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name бросился~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name погас~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name бодрствует~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name выливает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name пытался~
-BaseLen 5
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name атаковал~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name зажал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вспыхнул~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name сжимает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name кричит~
-BaseLen 4
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ат~
-End
-
-#RULE
-Name несся~
-BaseLen 3
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name пьет~
-BaseLen 2
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name отпер~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name опаляет~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name обезопасил~
-BaseLen 9
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name смешался~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name хватает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name подслушал~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name втянул~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name приветствует~
-BaseLen 10
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name продает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name оказал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name готов~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name ему~
-Form 1 ей~
-Form 2 ему~
-Form 3 им~
-End
-
-#RULE
-Name счастлив~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name переполненным~
-BaseLen 11
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name коричневый~
-BaseLen 8
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name бессилен~
-BaseLen 6
-Form 1 -ьна~
-Form 2 -ьно~
-Form 3 -ьны~
-End
-
-#RULE
-Name смотрит~
-BaseLen 5
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name потерялся~
-BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name повелителя~
-BaseLen 10
-Form 1 повелительницу~
-Form 3 повелителей~
-End
-
-#RULE
-Name каков~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name постарался~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name икнул~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name улетучился~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name бьется~
-BaseLen 6
-Form 3 бьются~
-End
-
-#RULE
-Name ожидал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вымотанным~
-BaseLen 8
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name самому~
-BaseLen 3
-Form 1 -ой~
-Form 3 -им~
-End
-
-#RULE
-Name отколол~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name рассекает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name прекрасен~
-BaseLen 7
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name покружен~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name способен~
-BaseLen 6
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name преграждает~
-BaseLen 9
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name подвешен~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name прочитал~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name засиял~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name путешествовал~
-BaseLen 12
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name проклятым~
-BaseLen 7
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name следует~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name nопал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name сидит~
-BaseLen 3
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name припоздал~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name разложился~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name подчинил~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name обрадовался~
-BaseLen 8
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name зачитывает~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name выносливым~
-BaseLen 8
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name вселился~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name пьян~
-BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name протрезвел~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name превратился~
-BaseLen 9
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name почувствовал~
-BaseLen 11
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name дезориентирован~
-BaseLen 15
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name посвежевшим~
-BaseLen 11
-Form 1 посвежевшей~
-Form 2 посвежевшим~
-Form 3 посвежевшими~
-End
-
-#RULE
-Name замыкает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name выглянул~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name твоему~
-BaseLen 6
-Form 1 твоей~
-Form 3 твоим~
-End
-
-#RULE
-Name прогорел~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name остановился~
-BaseLen 8
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name закашлялся~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name слышит~
-BaseLen 4
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ат~
-End
-
-#RULE
-Name расстроен~
-BaseLen 9
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name опустил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name совершил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name храбр~
-Form 1 храбра~
-Form 2 храбро~
-Form 3 храбры~
-End
-
-#RULE
-Name мог~
-BaseLen 3
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name невидимым~
-BaseLen 7
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name добр~
-BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name открывает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name поразил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name ощутил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вал~
-BaseLen 3
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name скользнул~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name слепой~
-BaseLen 4
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name неподвластен~
-BaseLen 10
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name разорвался~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name растаял~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name пытается~
-BaseLen 8
-Form 3 пытаются~
-End
-
-#RULE
-Name воспротивился~
-BaseLen 10
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name отрезал~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name гаснет~
-BaseLen 4
-Form 3 -ут~
-End
-
-#RULE
-Name вскакивает~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name подобревшим~
-BaseLen 9
-Form 1 -ей~
-Form 2 -им~
-Form 3 -ими~
-End
-
-#RULE
-Name юным~
-BaseLen 2
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name весь~
-BaseLen 4
-Form 1 вся~
-Form 2 все~
-Form 3 все~
-End
-
-#RULE
-Name говорит~
-BaseLen 5
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name восстановил~
-BaseLen 11
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name улыбнулся~
-BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name принесен~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name повелитель~
-BaseLen 10
-Form 1 повелительница~
-Form 3 повелители~
-End
-
-#RULE
-Name отдохнувшим~
-BaseLen 9
-Form 1 -ей~
-Form 2 -им~
-Form 3 -ими~
-End
-
-#RULE
-Name сорвал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name предпочел~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name белый~
-BaseLen 3
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name слеп~
-BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name прост~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name воздел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name ворвался~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name сумашедшим~
-BaseLen 8
-Form 1 -ей~
-Form 2 -им~
-Form 3 -ими~
-End
-
-#RULE
-Name послал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name узок~
-BaseLen 2
-Form 1 -ка~
-Form 2 -ко~
-Form 3 -ки~
-End
-
-#RULE
-Name стоит~
-BaseLen 3
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name расслаблен~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name отгородил~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вытягивает~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name замораживает~
-BaseLen 10
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name рвет~
-BaseLen 2
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name растерян~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name надевает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name УМЕР~
-BaseLen 4
-Form 1 УМЕРЛА~
-Form 2 УМЕРЛО~
-Form 3 УМЕРЛИ~
-End
-
-#RULE
-Name самим~
-BaseLen 3
-Form 1 -ой~
-Form 3 -ими~
-End
-
-#RULE
-Name преисполнен~
-BaseLen 11
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name желает~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name ударяет~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name попытался~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name неузнаваем~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name потерявшимся~
-BaseLen 8
-Form 1 -ейся~
-Form 3 -имися~
-End
-
-#RULE
-Name сонным~
-BaseLen 4
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name приносит~
-BaseLen 6
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name насчитал~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name ослеплен~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name голоден~
-BaseLen 5
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name добился~
-BaseLen 5
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name скрыл~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name покинул~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name падает~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name хрюкнул~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name встречал~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name установил~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name проигнорировал~
-BaseLen 13
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name оторванным~
-BaseLen 8
-Form 1 -ой~
-Form 3 -ыми~
-End
-
-#RULE
-Name добрался~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name содержит~
-BaseLen 6
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ат~
-End
-
-#RULE
-Name пропускает~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name должен~
-Form 1 должна~
-Form 2 должно~
-Form 3 должны~
-End
-
-#RULE
-Name заморожен~
-BaseLen 9
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name приподнялся~
-BaseLen 9
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name наносит~
-BaseLen 5
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name лежит~
-BaseLen 3
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ат~
-End
-
-#RULE
-Name выпущен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name устремился~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name разделал~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name погрузился~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name нанес~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name уклонился~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name произнес~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name остался~
-BaseLen 5
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name задрожал~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name раздавлен~
-BaseLen 9
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name невидимый~
-BaseLen 7
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name воспламенился~
-BaseLen 11
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name спрашивает~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name застал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name выпущенный~
-BaseLen 8
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name вернул~
+Name исчез~
 BaseLen 5
 Form 1 -ла~
 Form 2 -ло~
@@ -2360,174 +549,11 @@ Form 3 -ют~
 End
 
 #RULE
-Name окружен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name плюнул~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name безразличен~
-BaseLen 9
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name агрессивен~
-BaseLen 8
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name защищенным~
-BaseLen 8
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name находился~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name мудр~
-BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name вступил~
+Name избавил~
 BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
-End
-
-#RULE
-Name своего~
-BaseLen 6
-Form 1 свою~
-Form 3 своих~
-End
-
-#RULE
-Name вернется~
-BaseLen 8
-Form 3 вернутся~
-End
-
-#RULE
-Name умен~
-BaseLen 2
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name сбитый~
-BaseLen 4
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name опалил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name собрал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name прибыл~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name пожирает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name наполнен~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name осуществил~
-BaseLen 9
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name задымился~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name заставил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name изучил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name взламывает~
-BaseLen 8
-Form 3 -ют~
 End
 
 #RULE
@@ -2539,113 +565,19 @@ Form 3 -ись~
 End
 
 #RULE
-Name выкрикнул~
-BaseLen 8
+Name издал~
+BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
 End
 
 #RULE
-Name вздрогнул~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name храбрым~
-BaseLen 5
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name потерявшим~
-BaseLen 8
-Form 1 -ей~
-Form 2 -им~
-Form 3 -ими~
-End
-
-#RULE
-Name неопытен~
-BaseLen 6
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name такому~
-BaseLen 3
-Form 1 -ой~
-Form 3 -им~
-End
-
-#RULE
-Name сбежал~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name обнаоружил~
-BaseLen 9
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name обхватил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name напал~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name рассыпался~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name уязвим~
+Name изгнан~
 BaseLen 6
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
-End
-
-#RULE
-Name попался~
-BaseLen 5
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name него~
-BaseLen 1
-Form 1 -ее~
-Form 3 -их~
 End
 
 #RULE
@@ -2657,610 +589,11 @@ Form 3 -ли~
 End
 
 #RULE
-Name посмотрел~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name получил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name побеждал~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name обнаружен~
-BaseLen 9
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name ищет~
-BaseLen 2
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ут~
-End
-
-#RULE
-Name превратил~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name идиот~
-BaseLen 5
-Form 1 -ка~
-Form 3 -ы~
-End
-
-#RULE
-Name отдал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name обуглился~
+Name излечился~
 BaseLen 7
 Form 1 -ась~
 Form 2 -ось~
 Form 3 -ись~
-End
-
-#RULE
-Name возник~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name путе-
-шествовал~
-BaseLen 14
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name присоеденился~
-BaseLen 11
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name своим~
-BaseLen 5
-Form 1 своей~
-Form 3 своими~
-End
-
-#RULE
-Name успел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name размяк~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name выглядит~
-BaseLen 6
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name стал~
-BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name осторожен~
-BaseLen 7
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name кинул~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name бессмертный~
-BaseLen 9
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name испытал~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name друг~
-BaseLen 4
-Form 1 подруга~
-Form 3 друзья~
-End
-
-#RULE
-Name вызвал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name полупрозрачным~
-BaseLen 12
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name слышал~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name повернул~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name загляделся~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name упал~
-BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name блокирует~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name загубил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name встряхнул~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name починил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name оживил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name наклонился~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name путешественнику~
-BaseLen 13
-Form 1 -це~
-Form 3 -кам~
-End
-
-#RULE
-Name поверил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name испачкал~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name насадил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name обречен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name неоконченное~
-BaseLen 10
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name набрел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name им~
-Form 1 ей~
-Form 3 ими~
-End
-
-#RULE
-Name зарычал~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name встает~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name валился~
-BaseLen 5
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name сбит~
-BaseLen 2
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name янтарный~
-BaseLen 6
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name гниет~
-BaseLen 3
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name заслужил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name закружил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name устал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name услышал~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name нашел~
-BaseLen 3
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name наткнулся~
-BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name въезжает~
-BaseLen 6
-Form 3 -ют~
-End
-
-#RULE
-Name попал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name оглушенный~
-BaseLen 8
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name он~
-Form 1 она~
-Form 2 оно~
-Form 3 они~
-End
-
-#RULE
-Name видел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name размыкает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name отошел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name выталкивает~
-BaseLen 9
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name узнал~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name переместился~
-BaseLen 10
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name обезоруживает~
-BaseLen 11
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name красный~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name создал~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name сможет~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 смогут~
-End
-
-#RULE
-Name прибывает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name поднялся~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name незаконченого~
-BaseLen 10
-Form 1 -ой~
-Form 3 -ых~
-End
-
-#RULE
-Name ослабил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name самостоятельным~
-BaseLen 13
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name решил~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name подозрителен~
-BaseLen 10
-Form 1 -ьна~
-Form 2 -ьно~
-Form 3 -ьны~
-End
-
-#RULE
-Name оказался~
-BaseLen 5
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name молодым~
-BaseLen 5
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
 End
 
 #RULE
@@ -3272,51 +605,82 @@ Form 3 -ли~
 End
 
 #RULE
-Name использует~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name разгадал~
+Name изумлен~
 BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name отправляет~
-BaseLen 8
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name был~
-BaseLen 3
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name разглядел~
-BaseLen 8
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name отравлен~
-BaseLen 8
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name изучил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name ищет~
+BaseLen 2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name каков~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name кидает~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name ким~
+BaseLen 1
+Form 1 -ой~
+Form 3 -ими~
+End
+
+#RULE
+Name кинул~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name кипящий~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ие~
+End
+
+#RULE
+Name кладет~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name коричневый~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
@@ -3328,247 +692,23 @@ Form 3 -ись~
 End
 
 #RULE
-Name изумлен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name раскололся~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name простер~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name активизировал~
-BaseLen 12
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name ударил~
+Name который~
 BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name приготовил~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name повредил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вооруженный~
-BaseLen 9
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
 End
 
 #RULE
-Name смущен~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name обжег~
-BaseLen 2
-Form 1 -ожгла~
-Form 2 -ожгло~
-Form 3 -ожгли~
-End
-
-#RULE
-Name встретился~
-BaseLen 7
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name поражен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name вырывает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name прозрачный~
-BaseLen 8
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name обладает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name вгляделся~
-BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name раздетый~
-BaseLen 6
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name обернулся~
-BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name самого~
-BaseLen 3
-Form 1 -ой~
-Form 2 -ого~
-Form 3 -их~
-End
-
-#RULE
-Name появился~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name запутался~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name закрывает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name выпускает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name посылает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name нем~
-BaseLen 1
-Form 1 -ей~
-Form 2 -ем~
-Form 3 -их~
-End
-
-#RULE
-Name желал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name утомлен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name умирает~
+Name красный~
 BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
-Name попадает~
-BaseLen 6
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name отдает~
-BaseLen 4
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name дрожит~
+Name кричит~
 BaseLen 4
 Form 1 -ит~
 Form 2 -ит~
@@ -3576,91 +716,11 @@ Form 3 -ат~
 End
 
 #RULE
-Name взял~
-BaseLen 3
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name успокоился~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name глуп~
+Name кусает~
 BaseLen 4
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name зажигает~
-BaseLen 6
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
-End
-
-#RULE
-Name выполнил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name увернулся~
-BaseLen 7
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name распял~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name больным~
-BaseLen 5
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name согреваемый~
-BaseLen 9
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name переместил~
-BaseLen 9
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name нечистым~
-BaseLen 6
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
 End
 
 #RULE
@@ -3672,131 +732,11 @@ Form 3 -ли~
 End
 
 #RULE
-Name призвал~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name разрубил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name расплавился~
-BaseLen 9
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name постучал~
-BaseLen 8
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name злой~
-BaseLen 2
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name пришел~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name обрел~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name вернулся~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name наслал~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -и~
-End
-
-#RULE
-Name разбил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name щелкает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name замерз~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вознесся~
-BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name провел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name темный~
-BaseLen 4
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name снимает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
+Name лежит~
+BaseLen 3
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
 End
 
 #RULE
@@ -3808,31 +748,108 @@ Form 3 -и~
 End
 
 #RULE
-Name УБИТ~
-BaseLen 2
-Form 1 -ИТА~
-Form 2 -ИТО~
-Form 3 -ИТЫ~
+Name лишился~
+BaseLen 5
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
 End
 
 #RULE
-Name приобрел~
+Name мал~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name маленький~
 BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ие~
 End
 
 #RULE
-Name писал~
+Name медвяный~
+BaseLen 6
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name МЕРТВ~
+Form 1 МЕРТВА~
+Form 2 МЕРТВО~
+Form 3 МЕРТВЫ~
+End
+
+#RULE
+Name мирным~
 BaseLen 4
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name мог~
+BaseLen 3
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
 End
 
 #RULE
-Name обжигает~
+Name молит~
+BaseLen 3
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name молод~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name молодым~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name может~
+BaseLen 2
+Form 3 -гут~
+End
+
+#RULE
+Name мудр~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name набрел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name надевает~
 BaseLen 6
 Form 1 -ет~
 Form 2 -ет~
@@ -3840,7 +857,31 @@ Form 3 -ют~
 End
 
 #RULE
-Name вырос~
+Name нагнулся~
+BaseLen 5
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name находился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name наклонился~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name нанес~
 BaseLen 5
 Form 1 -ла~
 Form 2 -ло~
@@ -3848,23 +889,31 @@ Form 3 -ли~
 End
 
 #RULE
-Name прекратил~
-BaseLen 9
+Name наносит~
+BaseLen 5
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name напал~
+BaseLen 5
 Form 1 -а~
 Form 2 -о~
 Form 3 -и~
 End
 
 #RULE
-Name исчез~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
+Name наполнен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
-Name прилетает~
+Name наполняет~
 BaseLen 7
 Form 1 -ет~
 Form 2 -ет~
@@ -3880,129 +929,43 @@ Form 3 -ли~
 End
 
 #RULE
-Name молит~
-BaseLen 3
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name сконцентрировался~
-BaseLen 15
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name спустился~
+Name насадил~
 BaseLen 6
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
-End
-
-#RULE
-Name розовый~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name первый~
-BaseLen 4
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name закрыт~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name ждал~
-BaseLen 3
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
 End
 
 #RULE
-Name подивился~
+Name наслал~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name настиг~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name насчитал~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name наткнулся~
 BaseLen 6
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
-End
-
-#RULE
-Name гуляет~
-BaseLen 4
-Form 3 -ют~
-End
-
-#RULE
-Name уверен~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name помолодевшим~
-BaseLen 10
-Form 1 -ей~
-Form 2 -им~
-Form 3 -ими~
-End
-
-#RULE
-Name изгнан~
-BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name родившимся~
-BaseLen 10
-Form 1 родившейся~
-Form 2 родившимся~
-Form 3 родившимися~
-End
-
-#RULE
-Name вытаскивает~
-BaseLen 9
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name свалился~
-BaseLen 6
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name переполнен~
-BaseLen 10
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
 End
 
 #RULE
@@ -4014,15 +977,147 @@ Form 3 -лись~
 End
 
 #RULE
-Name хороший~
-BaseLen 5
-Form 1 -ая~
-Form 2 -ее~
-Form 3 -ие~
+Name навострил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
-Name рассматривает~
+Name нашел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name начинает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name него~
+BaseLen 1
+Form 1 -ее~
+Form 3 -их~
+End
+
+#RULE
+Name нем~
+BaseLen 1
+Form 1 -ей~
+Form 2 -ем~
+Form 3 -их~
+End
+
+#RULE
+Name неоконченное~
+BaseLen 10
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name неопытен~
+BaseLen 6
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name неподвластен~
+BaseLen 10
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name несся~
+BaseLen 3
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name неузнаваем~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name невидимый~
+BaseLen 7
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name невидимым~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name незаконченого~
+BaseLen 10
+Form 1 -ой~
+Form 3 -ых~
+End
+
+#RULE
+Name нечистым~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name ним~
+Form 1 ней~
+Form 3 ними~
+End
+
+#RULE
+Name нырнул~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name обернулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name обезопасил~
+BaseLen 9
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name обезоруживает~
 BaseLen 11
 Form 1 -ет~
 Form 2 -ет~
@@ -4030,11 +1125,99 @@ Form 3 -ют~
 End
 
 #RULE
-Name принес~
+Name обхватил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name обладает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name обнаоружил~
+BaseLen 9
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name обнаружен~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name обнаружил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name обрадовался~
+BaseLen 8
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name обратил~
 BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name обрел~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name обречен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name обуглился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name обжег~
+BaseLen 2
+Form 1 -ожгла~
+Form 2 -ожгло~
+Form 3 -ожгли~
+End
+
+#RULE
+Name обжигает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #RULE
@@ -4046,31 +1229,39 @@ Form 3 -ли~
 End
 
 #RULE
-Name шел~
-BaseLen 1
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
+Name оглянулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
-Name ранен~
-BaseLen 5
+Name оглушен~
+BaseLen 7
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
 End
 
 #RULE
-Name подсекает~
-BaseLen 7
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
+Name оглушенный~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
 End
 
 #RULE
-Name отправил~
+Name огрел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name окаменел~
 BaseLen 7
 Form 1 -ла~
 Form 2 -ло~
@@ -4078,7 +1269,78 @@ Form 3 -ли~
 End
 
 #RULE
-Name открыт~
+Name оказал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name оказался~
+BaseLen 5
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name окружен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name Окруженный~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name он~
+Form 1 она~
+Form 2 оно~
+Form 3 они~
+End
+
+#RULE
+Name опалил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name опаляет~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name опустил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name опутал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name опутан~
 BaseLen 6
 Form 1 -а~
 Form 2 -о~
@@ -4086,16 +1348,8 @@ Form 3 -ы~
 End
 
 #RULE
-Name идет~
-BaseLen 2
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ут~
-End
-
-#RULE
-Name стащил~
-BaseLen 5
+Name ослабил~
+BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -4110,87 +1364,79 @@ Form 3 -ли~
 End
 
 #RULE
-Name Окруженный~
+Name ослеплен~
 BaseLen 8
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
-Name храбрый~
+Name осмотрел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name остался~
 BaseLen 5
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name мирным~
-BaseLen 4
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name добрый~
-BaseLen 4
-Form 1 -ая~
-Form 2 -ое~
-Form 3 -ые~
-End
-
-#RULE
-Name свободен~
-BaseLen 6
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name задохнулся~
-BaseLen 8
 Form 1 -ась~
 Form 2 -ось~
 Form 3 -ись~
 End
 
 #RULE
-Name смазал~
-BaseLen 5
+Name остановился~
+BaseLen 8
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name осторожен~
+BaseLen 7
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name осторожным~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name осуществил~
+BaseLen 9
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
 End
 
 #RULE
-Name ступил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name вручает~
-BaseLen 5
-Form 1 -ет~
-Form 2 -ет~
-Form 3 -ют~
-End
-
-#RULE
-Name мал~
-BaseLen 3
+Name осведомлен~
+BaseLen 10
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
 End
 
 #RULE
-Name издал~
+Name отдает~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name отдал~
 BaseLen 4
 Form 1 -ла~
 Form 2 -ло~
@@ -4198,100 +1444,23 @@ Form 3 -ли~
 End
 
 #RULE
-Name расколол~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
+Name отдохнувшим~
+BaseLen 9
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
 End
 
 #RULE
-Name может~
-BaseLen 2
-Form 3 -гут~
-End
-
-#RULE
-Name его~
-Form 1 ее~
-Form 2 его~
-Form 3 их~
-End
-
-#RULE
-Name зеленым~
-BaseLen 5
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name опутан~
+Name отдыхает~
 BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name благославлен~
-BaseLen 12
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name заставляет~
-BaseLen 8
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
 End
 
 #RULE
-Name выдохнул~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name спросил~
-BaseLen 6
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name приметил~
-BaseLen 7
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name виден~
-BaseLen 3
-Form 1 -на~
-Form 2 -но~
-Form 3 -ны~
-End
-
-#RULE
-Name разлетелся~
-BaseLen 8
-Form 1 -ась~
-Form 2 -ось~
-Form 3 -ись~
-End
-
-#RULE
-Name пошевелил~
+Name отгородил~
 BaseLen 8
 Form 1 -ла~
 Form 2 -ло~
@@ -4299,7 +1468,7 @@ Form 3 -ли~
 End
 
 #RULE
-Name обратил~
+Name отколол~
 BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
@@ -4307,9 +1476,58 @@ Form 3 -ли~
 End
 
 #RULE
-Name ним~
-Form 1 ней~
-Form 3 ними~
+Name открыт~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name открывает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name отменил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name оторванным~
+BaseLen 8
+Form 1 -ой~
+Form 3 -ыми~
+End
+
+#RULE
+Name отошел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name отпер~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name отправил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -4321,116 +1539,7 @@ Form 3 -ись~
 End
 
 #RULE
-Name бодрым~
-BaseLen 6
-Form 1 бодрой~
-Form 2 бодрым~
-Form 3 бодрыми~
-End
-
-#RULE
-Name утащил~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name снял~
-BaseLen 3
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name ким~
-BaseLen 1
-Form 1 -ой~
-Form 3 -ими~
-End
-
-#RULE
-Name забрел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name выпал~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name увидел~
-BaseLen 5
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name глядит~
-BaseLen 4
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name молод~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name смог~
-BaseLen 4
-Form 1 -ла~
-Form 2 -ло~
-Form 3 -ли~
-End
-
-#RULE
-Name голодным~
-BaseLen 6
-Form 1 -ой~
-Form 2 -ым~
-Form 3 -ыми~
-End
-
-#RULE
-Name бросает~
-BaseLen 5
-Form 3 -ют~
-End
-
-#RULE
-Name защищен~
-BaseLen 7
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
-End
-
-#RULE
-Name входит~
-BaseLen 4
-Form 1 -ит~
-Form 2 -ит~
-Form 3 -ят~
-End
-
-#RULE
-Name испытывает~
+Name отправляет~
 BaseLen 8
 Form 1 -ет~
 Form 2 -ет~
@@ -4438,8 +1547,56 @@ Form 3 -ют~
 End
 
 #RULE
-Name пожаловал~
+Name отравлен~
 BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name отрезал~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name отважный~
+BaseLen 6
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name ожидал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name оживил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name овладел~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name ощутил~
+BaseLen 5
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -4454,33 +1611,1648 @@ Form 3 -лись~
 End
 
 #RULE
-Name бдителен~
-BaseLen 6
-Form 1 -ьна~
-Form 2 -ьно~
-Form 3 -ьны~
+Name падает~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #RULE
-Name уставшим~
+Name парирует~
 BaseLen 6
-Form 1 -ей~
-Form 2 -им~
-Form 3 -ими~
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #RULE
-Name украденый~
+Name переместил~
+BaseLen 9
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name переместился~
+BaseLen 10
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name переполнен~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name переполненным~
+BaseLen 11
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name пересох~
 BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name перестал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name первый~
+BaseLen 4
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
 End
 
 #RULE
-Name таким~
+Name писал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name плюнул~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name побеждал~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name подбирает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name подивился~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name поднялся~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name подобен~
+BaseLen 5
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name подобревшим~
+BaseLen 9
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
+Name подозрителен~
+BaseLen 10
+Form 1 -ьна~
+Form 2 -ьно~
+Form 3 -ьны~
+End
+
+#RULE
+Name подошел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name подсекает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name подскользнулся~
+BaseLen 12
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name подслушал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name подвешен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name подчинил~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name погас~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name погрузил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name погрузился~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name похитил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name покинул~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name покружен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name покрылся~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name покрыт~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name покупает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name полупрозрачным~
+BaseLen 12
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name получил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name помолодевшим~
+BaseLen 10
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
+Name понял~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name попадает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name попал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name попался~
+BaseLen 5
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name попытался~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name появился~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name поражен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name поразил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name послал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name посмотрел~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name постарался~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name постучал~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name посвежевшим~
+BaseLen 11
+Form 1 посвежевшей~
+Form 2 посвежевшим~
+Form 3 посвежевшими~
+End
+
+#RULE
+Name посылает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name потерял~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name потерялся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name потерявшим~
+BaseLen 8
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
+Name потерявшимся~
+BaseLen 8
+Form 1 -ейся~
+Form 3 -имися~
+End
+
+#RULE
+Name пожаловал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name пожирает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name повелителя~
+BaseLen 10
+Form 1 повелительницу~
+Form 3 повелителей~
+End
+
+#RULE
+Name повелитель~
+BaseLen 10
+Form 1 повелительница~
+Form 3 повелители~
+End
+
+#RULE
+Name поверил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name повернул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name повредил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name пошевелил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name почернел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name починил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name почувствовал~
+BaseLen 11
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name предполагал~
+BaseLen 10
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name предпочел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name преграждает~
+BaseLen 9
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name преисполнен~
+BaseLen 11
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name прекрасен~
+BaseLen 7
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name прекрасным~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name прекратил~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name преступник~
+BaseLen 9
+Form 1 -ца~
+Form 2 -к~
+Form 3 -ки~
+End
+
+#RULE
+Name превратил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name превратился~
+BaseLen 9
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name превращает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name прибыл~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name прибывает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name приготовил~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name прилетает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name приметил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name принес~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name принесен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name приносит~
+BaseLen 6
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name приобрел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name приподнялся~
+BaseLen 9
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name припоздал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name прискакал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name присоеденился~
+BaseLen 11
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name прижимает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name приветствует~
+BaseLen 10
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name призвал~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name призывает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name пришел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name продает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name прогорел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name проигнорировал~
+BaseLen 13
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name произнес~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name произносит~
+BaseLen 8
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name проклят~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name проклятым~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name прокричал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name пропал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name пропускает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name просит~
+BaseLen 4
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name прост~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name простер~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name протиснулся~
+BaseLen 8
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name протрезвел~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name провалился~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name провел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name проводит~
+BaseLen 6
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name прозрачный~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name прошел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name прочитал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name путе-
+шествовал~
+BaseLen 14
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name путешественнику~
+BaseLen 13
+Form 1 -це~
+Form 3 -кам~
+End
+
+#RULE
+Name путешествовал~
+BaseLen 12
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name пьет~
+BaseLen 2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name пьян~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name пытается~
+BaseLen 8
+Form 3 пытаются~
+End
+
+#RULE
+Name пытался~
+BaseLen 5
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name янтарный~
+BaseLen 6
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name является~
+BaseLen 8
+Form 3 являются~
+End
+
+#RULE
+Name рад~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name ранен~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name расколол~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name раскололся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name расплавился~
+BaseLen 9
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name расползся~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name распял~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name рассекает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name расслаблен~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name рассматривает~
+BaseLen 11
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name расстроен~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name рассыпался~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name растаял~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name растерян~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name растворился~
+BaseLen 8
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name расщепил~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name разбил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name раздал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name раздавлен~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name разделал~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name раздетый~
+BaseLen 6
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name разгадал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name разглядел~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name разлетелся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name разложился~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name размяк~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name размыкает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name разорвался~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name разрубил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name решил~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name родившимся~
+BaseLen 10
+Form 1 родившейся~
+Form 2 родившимся~
+Form 3 родившимися~
+End
+
+#RULE
+Name розовый~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name рвет~
+BaseLen 2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name сам~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name самим~
 BaseLen 3
 Form 1 -ой~
+Form 3 -ими~
+End
+
+#RULE
+Name самого~
+BaseLen 3
+Form 1 -ой~
+Form 2 -ого~
+Form 3 -их~
+End
+
+#RULE
+Name самому~
+BaseLen 3
+Form 1 -ой~
+Form 3 -им~
+End
+
+#RULE
+Name самостоятельным~
+BaseLen 13
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name самоуверен~
+BaseLen 10
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name сбежал~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name сбит~
+BaseLen 2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name сбитый~
+BaseLen 4
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name сделал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name сгорел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name схватил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name сидит~
+BaseLen 3
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name скользнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name сконцентрировался~
+BaseLen 15
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name скрыл~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name следует~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name слеп~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name слепой~
+BaseLen 4
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name слышал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name слышит~
+BaseLen 4
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name смазал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name смешался~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name смог~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name смотрит~
+BaseLen 5
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name сможет~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 смогут~
+End
+
+#RULE
+Name смущен~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name снес~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name снимает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name снял~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name собрал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name содержит~
+BaseLen 6
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name согреваемый~
+BaseLen 9
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name согрешил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name сонным~
+BaseLen 4
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name сорвал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name сотворил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name совершил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name создал~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name спит~
+BaseLen 2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name способен~
+BaseLen 6
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name спрашивает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name спросил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name спустился~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name стал~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name стащил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name стоит~
+BaseLen 3
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name ступил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name ступивший~
+BaseLen 7
+Form 1 -ая~
+Form 2 -ее~
+Form 3 -ие~
+End
+
+#RULE
+Name сумашедшим~
+BaseLen 8
+Form 1 -ей~
 Form 2 -им~
 Form 3 -ими~
 End
@@ -4494,11 +3266,1247 @@ Form 3 -ись~
 End
 
 #RULE
-Name потерял~
+Name сжег~
+BaseLen 4
+Form 1 сожгла~
+Form 2 сожгло~
+Form 3 сожгли~
+End
+
+#RULE
+Name сжимает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name свалился~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name свободен~
+BaseLen 6
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name своего~
+BaseLen 6
+Form 1 свою~
+Form 3 своих~
+End
+
+#RULE
+Name своим~
+BaseLen 5
+Form 1 своей~
+Form 3 своими~
+End
+
+#RULE
+Name свой~
+BaseLen 4
+Form 1 своя~
+Form 2 свое~
+Form 3 свои~
+End
+
+#RULE
+Name счастлив~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name таким~
+BaseLen 3
+Form 1 -ой~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
+Name такому~
+BaseLen 3
+Form 1 -ой~
+Form 3 -им~
+End
+
+#RULE
+Name темный~
+BaseLen 4
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name твоему~
+BaseLen 6
+Form 1 твоей~
+Form 3 твоим~
+End
+
+#RULE
+Name Твой~
+BaseLen 2
+Form 1 -оя~
+Form 2 -ое~
+Form 3 -ои~
+End
+
+#RULE
+Name убил~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name УБИТ~
+BaseLen 2
+Form 1 -ИТА~
+Form 2 -ИТО~
+Form 3 -ИТЫ~
+End
+
+#RULE
+Name ударил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name ударяет~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name удивлен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name уклонился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name украденый~
+BaseLen 7
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name улетучился~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name улыбнулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name умен~
+BaseLen 2
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name УМЕР~
+BaseLen 4
+Form 1 УМЕРЛА~
+Form 2 УМЕРЛО~
+Form 3 УМЕРЛИ~
+End
+
+#RULE
+Name умирает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name упал~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name уперся~
+BaseLen 4
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name уязвим~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name услышал~
 BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name успел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name успокоился~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name устал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name установил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name уставшим~
+BaseLen 6
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
+Name устремился~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name утащил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name утомлен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name уведомляет~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name уверен~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name уверенным~
+BaseLen 7
+Form 1 -ой~
+Form 3 -ыми~
+End
+
+#RULE
+Name увернулся~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name увидел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name узнал~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name узок~
+BaseLen 2
+Form 1 -ка~
+Form 2 -ко~
+Form 3 -ки~
+End
+
+#RULE
+Name ждал~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name желает~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name желал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вал~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name валился~
+BaseLen 5
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name велик~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name вернется~
+BaseLen 8
+Form 3 вернутся~
+End
+
+#RULE
+Name вернул~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вернулся~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name весь~
+BaseLen 4
+Form 1 вся~
+Form 2 все~
+Form 3 все~
+End
+
+#RULE
+Name вгляделся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name входит~
+BaseLen 4
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name видел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name виден~
+BaseLen 3
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
+Name видимый~
+BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name вонзился~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name вооружен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name вооруженный~
+BaseLen 9
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name ворвался~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name воспламенился~
+BaseLen 11
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name восприимчив~
+BaseLen 11
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name воспротивился~
+BaseLen 10
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name восстановил~
+BaseLen 11
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name возбужден~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name воздел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вознесся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name возник~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name возвратился~
+BaseLen 9
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name вошел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вялым~
+BaseLen 3
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name вручает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name вселился~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name вскакивает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name вспыхнул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name встает~
+BaseLen 4
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name встретил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name встретился~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name встречал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name встряхнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вступил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name втянул~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выдохнул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выдохшимся~
+BaseLen 6
+Form 1 -ейся~
+Form 3 -имися~
+End
+
+#RULE
+Name выглядит~
+BaseLen 6
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
+#RULE
+Name выглянул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выкрикнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выливает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name вымотанным~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name выносливым~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name выпал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выполнил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выпускает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name выпущен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name выпущенный~
+BaseLen 8
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name вырос~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name выругался~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name вырывает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name выталкивает~
+BaseLen 9
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name вытаскивает~
+BaseLen 9
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name вытягивает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name вызвал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вышел~
+BaseLen 3
+Form 1 -лa~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вздрогнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name взглянул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name взламывает~
+BaseLen 8
+Form 3 -ют~
+End
+
+#RULE
+Name взмахнул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name взорвался~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name взял~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name взвизгнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name въезжает~
+BaseLen 6
+Form 3 -ют~
+End
+
+#RULE
+Name заблудился~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name забрался~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name забрел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name задохнулся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name задрожал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name задымился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name загляделся~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name загубил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name заинтересован~
+BaseLen 13
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name закашлялся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name закипел~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name закружил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name закрыт~
+BaseLen 6
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name закрывает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name замахнулся~
+BaseLen 8
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name замерз~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name заметил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name замечает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name замораживает~
+BaseLen 10
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name заморожен~
+BaseLen 9
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name замыкает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name запутался~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name заразился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name зарычал~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
+Name засиял~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name заслужил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name заснул~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name застал~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name заставил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name заставляет~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name застрял~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name засыпает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name зажал~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name зажигает~
+BaseLen 6
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name зашел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name защищен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
+Name защищенным~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name зачитывает~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name здоровым~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name зеленым~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
+Name злой~
+BaseLen 2
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name шел~
+BaseLen 1
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name щелкает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
 End
 
 #$
