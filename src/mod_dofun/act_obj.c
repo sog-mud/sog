@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.8 1998-05-08 18:00:50 fjoe Exp $
+ * $Id: act_obj.c,v 1.9 1998-05-08 20:35:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1629,7 +1629,6 @@ bool remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
  */
 void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
-    char buf[MAX_STRING_LENGTH];
     int wear_level;
 
     wear_level = ch->level;

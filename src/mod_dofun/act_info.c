@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.29 1998-05-08 19:10:39 fjoe Exp $
+ * $Id: act_info.c,v 1.30 1998-05-08 20:35:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,12 +137,12 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
 			strcat(buf, "({MMagical{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, "({YGlowing{x) ");
+			strcat(buf, "({WGlowing{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, "({WHumming{x) ");
+			strcat(buf, "({YHumming{x) ");
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{Y.{W.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
 		strcpy(buf, FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';

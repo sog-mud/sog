@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.14 1998-05-07 07:05:04 fjoe Exp $
+ * $Id: merc.h,v 1.15 1998-05-08 20:35:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -679,13 +679,6 @@ struct spec_type
 {
     char *	name;			/* special function name */
     SPEC_FUN *	function;		/* the function */
-};
-
-struct prac_type
-{
-    char *	sh_name;
-    char *	name;
-    sh_int	number;
 };
 
 
@@ -2780,7 +2773,7 @@ extern		struct	cabal_type	cabal_table	[];
 extern	const	struct	color_type	color_table	[];
 extern	const	struct	religion_type	religion_table	[];
 extern	const	struct	spec_type	spec_table	[];
-extern	const	struct	prac_type	prac_table	[];
+extern  const	char*			group_table	[];
 extern	const	struct	liq_type	liq_table	[];
 extern	const	struct	skill_type	skill_table	[MAX_SKILL];
 extern	const	struct	ethos_type	ethos_table	[];
