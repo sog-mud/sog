@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.69 2001-09-13 12:03:04 fjoe Exp $
+ * $Id: affects.c,v 1.70 2001-09-13 18:41:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -918,7 +918,8 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		    "[%4d] %-9.9s %-7.7s %-10.10s %8d %s\n",	// notrans
 		    cnt, paf->type,
 		    flag_string(affect_where_types, paf->where),
-		    IS_APPLY_AFFECT(paf) ?
+		    IS_APPLY_AFFECT(paf) ||
+		    paf->where == TO_RESISTS || paf->where == TO_FORMRESISTS ?
 			(w != NULL && w->loc_table) ?
 				SFLAGS(w->loc_table, paf->location) : "none" :
 			STR(paf->location),
@@ -944,7 +945,9 @@ format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 		     INT(paf->location) != APPLY_NONE)
 		&&   paf->modifier) {
 			buf_printf(output, BUF_END, w->loc_format,
-			    IS_APPLY_AFFECT(paf) ?
+			    IS_APPLY_AFFECT(paf) ||
+			     paf->where == TO_RESISTS ||
+			     paf->where == TO_FORMRESISTS ?
 				SFLAGS(w->loc_table, paf->location) :
 				STR(paf->location),
 			    paf->modifier);
