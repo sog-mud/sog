@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.132 1999-03-10 17:23:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.133 1999-03-16 19:12:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,10 +60,12 @@
 #include "quest.h"
 #include "db/cmd.h"
 #include "db/db.h"
+#include "olc/olc.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
 DECLARE_DO_FUN(do_mstat	);
+DECLARE_DO_FUN(do_dstat	);
 DECLARE_DO_FUN(do_ostat	);
 DECLARE_DO_FUN(do_rset	);
 DECLARE_DO_FUN(do_mset	);
@@ -936,46 +938,52 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 
 /* RT to replace the 3 stat commands */
 
-void do_stat (CHAR_DATA *ch, const char *argument)
+void do_stat(CHAR_DATA *ch, const char *argument)
 {
-	 char arg[MAX_INPUT_LENGTH];
-	 const char *string;
-	 OBJ_DATA *obj;
-	 ROOM_INDEX_DATA *location;
-	 CHAR_DATA *victim;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
+	ROOM_INDEX_DATA *location;
+	CHAR_DATA *victim;
+	const char *string;
 
-	 string = one_argument(argument, arg, sizeof(arg));
-	 if (arg[0] == '\0') {
+	string = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
 		char_puts("Syntax:\n", ch);
 		char_puts("  stat <name>\n", ch);
 		char_puts("  stat obj <name>\n", ch);
 		char_puts("  stat mob <name>\n", ch);
 		char_puts("  stat room <number>\n", ch);
+		char_puts("  stat desc <number>\n", ch);
 		return;
-	 }
+	}
 
-	 if (!str_cmp(arg, "room")) {
+	if (!str_cmp(arg, "room")) {
 		do_rstat(ch, string);
 		return;
-	 }
+	}
 	
-	 if (!str_cmp(arg, "obj")) {
+	if (!str_cmp(arg, "obj")) {
 		do_ostat(ch, string);
 		return;
-	 }
+	}
 
-	 if(!str_cmp(arg, "char")  || !str_cmp(arg, "mob")) {
+	if (!str_cmp(arg, "char") || !str_cmp(arg, "mob")) {
 		do_mstat(ch, string);
 		return;
-	 }
+	}
 	 
-	 /* do it the old way */
+	if (!str_cmp(arg, "desc")) {
+		do_dstat(ch, string);
+		return;
+	}
 
-	 obj = get_obj_world(ch, argument);
-	 if (obj != NULL) {
-	 	do_ostat(ch, argument);
+	/* do it the old way */
+
+	obj = get_obj_world(ch, argument);
+	if (obj != NULL) {
+		do_ostat(ch, argument);
 	 	return;
-	 }
+	}
 
 	victim = get_char_world(ch, argument);
 	if (victim != NULL) {
@@ -1495,6 +1503,52 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "In_mind: [%s], Target: [%s]\n", 
 			victim->in_mind ? victim->in_mind : "none",
 			victim->target ? victim->target->name : "none");
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
+DO_FUN(do_dstat)
+{
+	BUFFER *output;
+	DESCRIPTOR_DATA *d;
+	char arg[MAX_INPUT_LENGTH];
+	int desc;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (!is_number(arg)) {
+		do_help(ch, "'WIZ STAT'");
+		return;
+	}
+
+	desc = atoi(arg);
+	for (d = descriptor_list; d; d = d->next)
+		if (d->descriptor == desc)
+			break;
+	if (!d) {
+		char_puts("dstat: descriptor not found\n", ch);
+		return;
+	}
+
+	output = buf_new(-1);
+
+	buf_printf(output, "Desc: [%d]  Conn: [%d]  "
+			   "Outsize: [%d]  Outtop:  [%d]\n",
+		   d->descriptor, d->connected, d->outsize, d->outtop);
+	buf_printf(output, "Inbuf: [%s]\n", d->inbuf);
+	buf_printf(output, "Incomm: [%s]\n", d->incomm);
+	buf_printf(output, "Repeat: [%d]  Inlast: [%s]\n",
+		   d->repeat, d->inlast);
+	if (d->character)
+		buf_printf(output, "Ch: [%s]\n", d->character->name);
+	if (d->original)
+		buf_printf(output, "Original: [%s]\n", d->original->name);
+	if (d->olced)
+		buf_printf(output, "OlcEd: [%s]\n", d->olced->name);
+	if (d->pString)
+		buf_printf(output, "pString: [%s]\n", *d->pString);
+	if (d->showstr_head)
+		buf_printf(output, "showstr_head: [%s]\n", d->showstr_head);
+
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
