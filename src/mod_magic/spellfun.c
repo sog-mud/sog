@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.8 2000-04-25 08:34:47 osya Exp $
+ * $Id: spellfun.c,v 1.181.2.9 2000-04-25 13:22:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4717,15 +4717,18 @@ spell_ice_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (is_affected(ch, sn)) { 
-		act_puts("You are already protected.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act_puts("You are already protected.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	};
 
-	if (is_affected(ch, sn_lookup("fire sphere"))) {
-		act("Your fire sphere blushes and go out!", ch, NULL, NULL, TO_CHAR);
-		act("$n's fire sphere blushes and go out!", ch, NULL, NULL, TO_ROOM);
+	if (is_affected(ch, gsn_fire_sphere)) {
+		act("Your fire sphere blushes and goes out!",
+		    ch, NULL, NULL, TO_CHAR);
+		act("$n's fire sphere blushes and goes out!",
+		    ch, NULL, NULL, TO_ROOM);
                 damage(ch, ch, dice(level, 4), TYPE_HIT, DAM_FIRE, TRUE);
-		affect_strip(ch, sn_lookup("fire sphere"));
+		affect_strip(ch, gsn_fire_sphere);
 		return;
 	};
 
@@ -4737,8 +4740,11 @@ spell_ice_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
-	act("Fine shiny sphere starts glowing around you.", ch, NULL, NULL, TO_CHAR);
-	act("Fine shiny sphere starts glowing around $n.", ch, NULL, NULL, TO_ROOM);
+
+	act("Fine shiny sphere starts glowing around you.",
+	    ch, NULL, NULL, TO_CHAR);
+	act("Fine shiny sphere starts glowing around $n.",
+	    ch, NULL, NULL, TO_ROOM);
 }
 
 void
@@ -4747,18 +4753,21 @@ spell_fire_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
         AFFECT_DATA af;
 
         if (is_affected(ch, sn)) {
-                act_puts("You are already protected.", ch, NULL, NULL, TO_CHAR,
-POS_DEAD);
-        return;
+                act_puts("You are already protected.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
         };
 
-	if (is_affected(ch, sn_lookup("ice sphere"))) {
-		act("Your ice sphere explodes, and splinters hits you!", ch, NULL, NULL, TO_CHAR);
-		act("$n's ice sphere explodes and splinters hits $n!", ch, NULL, NULL, TO_ROOM);
+	if (is_affected(ch, gsn_ice_sphere)) {
+		act("Your ice sphere explodes, and splinters hit you!",
+		    ch, NULL, NULL, TO_CHAR);
+		act("$n's ice sphere explodes and splinters hit $n!",
+		    ch, NULL, NULL, TO_ROOM);
 		damage(ch, ch, dice(level, 4), 0, DAM_COLD, TRUE);
-		affect_strip(ch, sn_lookup("ice sphere"));
+		affect_strip(ch, gsn_ice_sphere);
 		return;
 	};
+
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
@@ -4767,8 +4776,8 @@ POS_DEAD);
 	af.modifier  = 0;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
-	act("Hot violence fire flashes around you.", ch, NULL, NULL, TO_CHAR);
-	act("Hot violence fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
 
+	act("Hot violent fire flashes around you.", ch, NULL, NULL, TO_CHAR);
+	act("Hot violent fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
 }
 
