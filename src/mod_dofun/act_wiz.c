@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.92 1998-11-23 06:38:02 fjoe Exp $
+ * $Id: act_wiz.c,v 1.93 1998-11-25 15:17:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -576,7 +576,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		desc = atoi(arg);
 		for (d = descriptor_list; d != NULL; d = d->next) {
 		        if (d->descriptor == desc) {
-		        	close_socket(d);
+		        	close_descriptor(d);
 	        		char_puts("Ok.\n\r", ch);
 	        		return;
 	        	}
@@ -595,7 +595,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (d == victim->desc) {
-			close_socket(d);
+			close_descriptor(d);
 			char_puts("Ok.\n\r", ch);
 			return;
 		}
@@ -1452,7 +1452,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		   "Last fought: [%s], Last fight time: [%s]\n\r",
 		   victim->last_fought ? victim->last_fought->name : "none", 
-		   ctime(&victim->last_fight_time));
+		   strtime(victim->last_fight_time));
 	if (IS_PUMPED(victim))
 		buf_add(output, "Adrenalin is gushing.\n\r");
 	buf_printf(output, "In_mind: [%s]\n\r", 
@@ -2160,8 +2160,8 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 			save_char_obj(victim, FALSE);
 		d = victim->desc;
 		extract_char(victim, TRUE);
-		if (d != NULL)
-			close_socket(d);
+		if (d)
+			close_descriptor(d);
 		return;
 	}
 
@@ -3848,7 +3848,7 @@ void do_desocket(CHAR_DATA *ch, const char *argument)
 		      write_to_descriptor(d->descriptor,
 					  "You are being disconnected by an immortal.",
 					  0);
-		      close_socket(d);
+		      close_descriptor(d);
 		      char_puts("Done.\n\r", ch);
 		      return;
 		    }
@@ -4198,9 +4198,9 @@ void reboot_muddy(void)
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		write_to_buffer(d,"Muddy is going down for rebooting NOW!",0);
-		if (d->character != NULL)
+		if (d->character)
 			save_char_obj(d->character, TRUE);
-		close_socket(d);
+		close_descriptor(d);
 	}
 	merc_down = TRUE;    
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.90 1998-11-23 06:38:04 fjoe Exp $
+ * $Id: update.c,v 1.91 1998-11-25 15:17:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1032,7 +1032,7 @@ void char_update(void)
 					char_puts("You move silently again.\n\r", ch);
 			}
 			else
-				skip |= AFF_HIDE | AFF_FADE | AFF_INVISIBLE |
+				skip |= AFF_HIDE | AFF_FADE | AFF_INVIS |
 					AFF_IMP_INVIS | AFF_SNEAK |
 					AFF_CAMOUFLAGE;
 

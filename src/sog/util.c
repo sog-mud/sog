@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.15 1998-11-02 05:28:31 fjoe Exp $
+ * $Id: util.c,v 1.16 1998-11-25 15:17:46 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #if	!defined (WIN32)
 #include <unistd.h>
 #endif
@@ -133,4 +134,11 @@ const char *cstrfirst(const char *cstr)
 		if (*(cstr+1))
 			cstr++;
 	return cstr;
+}
+
+char *strtime(time_t time)
+{
+	char *p = ctime(&time);
+	p[24] = '\0';
+	return p;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.87 1998-11-23 06:38:02 fjoe Exp $
+ * $Id: spellfun.c,v 1.88 1998-11-25 15:17:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,12 +161,16 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = mana_cost(ch, sn);
+	if (!IS_NPC(ch)) {
+		mana = mana_cost(ch, sn);
 
-	if (!IS_NPC(ch) && ch->mana < mana) {
-		char_puts("You don't have enough mana.\n\r", ch);
-		return;
+		if (ch->mana < mana) {
+			char_puts("You don't have enough mana.\n\r", ch);
+			return;
+		}
 	}
+	else
+		mana = 0;
 
 	WAIT_STATE(ch, spell->beats);
 
@@ -2704,9 +2708,9 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
 			continue;
 
-		affect_bit_strip(ich, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
+		affect_bit_strip(ich, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS);
 		REMOVE_BIT(ich->affected_by, AFF_HIDE | AFF_FADE |
-					     AFF_CAMOUFLAGE | AFF_INVISIBLE |
+					     AFF_CAMOUFLAGE | AFF_INVIS |
 					     AFF_IMP_INVIS);
 
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
@@ -3227,7 +3231,7 @@ void spell_invisibility(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	/* character invisibility */
 	victim = (CHAR_DATA *) vo;
 
-	if (IS_AFFECTED(victim, AFF_INVISIBLE))
+	if (IS_AFFECTED(victim, AFF_INVIS))
 		return;
 
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
@@ -3238,7 +3242,7 @@ void spell_invisibility(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.duration  = (level / 8 + 10);
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_INVISIBLE;
+	af.bitvector = AFF_INVIS;
 	affect_to_char(victim, &af);
 	char_puts("You fade out of existence.\n\r", victim);
 	return;
@@ -3424,7 +3428,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
 	{
-		if (!is_same_group(gch, ch) || IS_AFFECTED(gch, AFF_INVISIBLE))
+		if (!is_same_group(gch, ch) || IS_AFFECTED(gch, AFF_INVIS))
 		    continue;
 		act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
 		char_puts("You slowly fade out of existence.\n\r", gch);
@@ -3435,7 +3439,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		af.duration  = 24;
 		af.location  = APPLY_NONE;
 		af.modifier  = 0;
-		af.bitvector = AFF_INVISIBLE;
+		af.bitvector = AFF_INVIS;
 		affect_to_char(gch, &af);
 	}
 	char_puts("Ok.\n\r", ch);

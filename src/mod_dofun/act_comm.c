@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.116 1998-11-24 08:29:57 kostik Exp $
+ * $Id: act_comm.c,v 1.117 1998-11-25 15:17:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1164,18 +1164,18 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	else
 		 extract_char_nocount(ch, TRUE);
 
-	if (d != NULL)
-		close_socket(d);
+	if (d)
+		close_descriptor(d);
 
 	/* toast evil cheating bastards    */
-	for (d = descriptor_list; d != NULL; d = d_next) {
+	for (d = descriptor_list; d; d = d_next) {
 		CHAR_DATA *tch;
 
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
 		if (tch && tch->id == id) {
 			extract_char_nocount(tch, TRUE);
-			close_socket(d);
+			close_descriptor(d);
 		} 
 	}
 }

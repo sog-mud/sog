@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.12 1998-10-10 04:36:25 fjoe Exp $
+ * $Id: util.h,v 1.13 1998-11-25 15:17:46 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -42,5 +42,7 @@ int cmpint(const void *p1, const void *p2);
 
 size_t		cstrlen		(const char* cstr);
 const char*	cstrfirst	(const char *cstr);
+
+char*		strtime		(time_t);
 
 #endif

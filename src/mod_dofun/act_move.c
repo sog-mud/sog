@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.116 1998-11-21 06:00:34 fjoe Exp $
+ * $Id: act_move.c,v 1.117 1998-11-25 15:17:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1709,10 +1709,10 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 				MSG_N_STEPS_OUT_COVER);
 	}
 
-	if (IS_AFFECTED(ch, AFF_INVISIBLE | AFF_IMP_INVIS)) {
+	if (IS_AFFECTED(ch, AFF_INVIS | AFF_IMP_INVIS)) {
 		char_puts("You fade into existence.\n\r", ch);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
-		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE | AFF_IMP_INVIS);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS);
+		REMOVE_BIT(ch->affected_by, AFF_INVIS | AFF_IMP_INVIS);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
 }
@@ -2921,9 +2921,9 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	mount->mount = ch;
 	mount->riding = TRUE;
   
-	affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS | AFF_SNEAK);
+	affect_bit_strip(ch, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS | AFF_SNEAK);
 	REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE |
-				    AFF_INVISIBLE | AFF_IMP_INVIS | AFF_SNEAK);
+				    AFF_INVIS | AFF_IMP_INVIS | AFF_SNEAK);
 }
 
 void do_dismount(CHAR_DATA *ch, const char *argument)

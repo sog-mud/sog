@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.4 1998-11-02 05:28:31 fjoe Exp $
+ * $Id: str.c,v 1.5 1998-11-25 15:17:46 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -299,7 +299,7 @@ bool str_prefix(const char *astr, const char *bstr)
 
 	for (; *astr; astr++, bstr++) {
 		if (LOWER(*astr) != LOWER(*bstr))
-		    return TRUE;
+			return TRUE;
 	}
 
 	return FALSE;
@@ -323,8 +323,7 @@ bool str_infix(const char *astr, const char *bstr)
 	sstr1 = strlen(astr);
 	sstr2 = strlen(bstr);
 
-	for (ichar = 0; ichar <= sstr2 - sstr1; ichar++)
-	{
+	for (ichar = 0; ichar <= sstr2 - sstr1; ichar++) {
 		if (c0 == LOWER(bstr[ichar]) && !str_prefix(astr, bstr + ichar))
 		    return FALSE;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.92 1998-11-24 08:29:58 kostik Exp $
+ * $Id: interp.c,v 1.93 1998-11-25 15:17:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -518,10 +518,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
 	char logline[MAX_INPUT_LENGTH];
-#ifdef IMMORTALS_LOGS
-	char buf[MAX_INPUT_LENGTH];
-	char *strtime;
-#endif
 	CMD_DATA *cmd;
 	bool found;
 
@@ -553,13 +549,10 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+")) == NULL)
 			bug("cannot open imm_log_file", 0);
 		else {
-			strtime = (char *) malloc(100);
-			strtime = ctime(&current_time);
-			strtime[strlen(strtime) -1] = '\0';
-			sprintf(buf,"%s :[%s]:%s\n", strtime,ch->name, logline);
+			fprintf(imm_log, "%s [%s] %s\n",
+				strtime(time(NULL)), ch->name, logline);
 			fprintf(imm_log, buf);
 			fclose(imm_log);
-			free(strtime);
 		}
 	}
 #endif
@@ -640,7 +633,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 		&& (cmd->position == POS_FIGHTING)) {
 			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
-			char_puts("You fade into existence.", ch);
+			char_puts("You fade into existence.\n\r", ch);
 			act("$n fades into existence.",
 			    ch, NULL, NULL, TO_ROOM);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.88 1998-11-18 10:28:46 fjoe Exp $
+ * $Id: handler.c,v 1.89 1998-11-25 15:17:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2472,29 +2472,13 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (room_is_dark(ch) && !IS_AFFECTED(ch, AFF_INFRARED))
 		return FALSE;
 
-	if (IS_AFFECTED(victim, AFF_INVISIBLE)
+	if (IS_AFFECTED(victim, AFF_INVIS)
 	&&   !IS_AFFECTED(ch, AFF_DETECT_INVIS))
 		return FALSE;
 
 	if (IS_AFFECTED(victim, AFF_IMP_INVIS)
 	&&   !IS_AFFECTED(ch, AFF_DETECT_IMP_INVIS))
 		return FALSE;
-
-/*
-	if (IS_AFFECTED(victim, AFF_SNEAK)
-	&&  !(IS_NPC(ch) && ch->pIndexData->pShop)
-	&&  !IS_AFFECTED(ch,AFF_DETECT_HIDDEN)
-	&&  !IS_NPC(victim) && !victim->fighting) {
-		int chance;
-		chance = get_skill(victim, gsn_sneak);
-		chance += get_curr_stat(victim, STAT_DEX) * 3/2;
- 		chance -= get_curr_stat(ch, STAT_INT) * 2;
-		chance += (victim->level - ch->level) * 3/2;
-
-		if (number_percent() < chance)
-		    return FALSE;
-	}
-*/
 
 	if (IS_AFFECTED(victim,AFF_CAMOUFLAGE) &&
 	    !IS_AFFECTED(ch,AFF_ACUTE_VISION))

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.41 1998-11-18 07:43:45 fjoe Exp $
+ * $Id: skills.c,v 1.42 1998-11-25 15:17:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -884,7 +884,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 /* find min level of the skill for char */
 int skill_level(CHAR_DATA *ch, int sn)
 {
-	int slevel;
+	int slevel = LEVEL_IMMORTAL;
 	SKILL_DATA *sk;
 	CLAN_DATA *clan;
 	CLAN_SKILL *clan_skill;
@@ -893,14 +893,10 @@ int skill_level(CHAR_DATA *ch, int sn)
 	RACE_DATA *r;
 	RACE_SKILL *race_skill;
 
-	if (IS_NPC(ch))
-		return ch->level;
-
-	slevel = LEVEL_IMMORTAL;
-
 /* noone can use ill-defined skills */
 /* broken chars can't use any skills */
-	if ((sk = skill_lookup(sn)) == NULL
+	if (IS_NPC(ch)
+	||  (sk = skill_lookup(sn)) == NULL
 	||  (cl = class_lookup(ch->class)) == NULL
 	||  (r = race_lookup(ch->race)) == NULL
 	||  !r->pcdata)
@@ -922,6 +918,9 @@ int skill_level(CHAR_DATA *ch, int sn)
 	return slevel;
 }
 
+/*
+ * assumes !IS_NPC(ch) && ch->level >= skill_level(ch, sn)
+ */
 int mana_cost(CHAR_DATA *ch, int sn)
 {
 	SKILL_DATA *sk;

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.36 1998-11-02 05:28:27 fjoe Exp $
+# $Id: Makefile,v 1.37 1998-11-25 15:17:42 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -41,8 +41,10 @@ LIBS	+= -lcrypt
 #
 # Generally Makefile should not be edited below this line
 #
-COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/resolver.c
-COMM_OFILES = ban.o charset.o comm.o resolver.o
+COMM_CFILES = comm/ban.c comm/charset.c comm/comm.c comm/comm_colors.c\
+	      comm/comm_info.c comm/resolver.c
+COMM_OFILES = ban.o charset.o comm.o comm_colors.o\
+	      comm_info.o resolver.o
 
 DB_CFILES = db/cmd.c db/db.c db/db_area.c db/db_clan.c db/db_class.c\
 	    db/db_skills.c db/db_lang.c db/db_race.c\

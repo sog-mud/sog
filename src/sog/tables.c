@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.26 1998-11-24 08:29:59 kostik Exp $
+ * $Id: tables.c,v 1.27 1998-11-25 15:17:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,7 +137,7 @@ FLAG plr_flags[] =
 FLAG affect_flags[] =
 {
 	{ "blind",		AFF_BLIND,		TRUE	},
-	{ "invisible",		AFF_INVISIBLE,		TRUE	},
+	{ "invisible",		AFF_INVIS,		TRUE	},
 	{ "detect_evil",	AFF_DETECT_EVIL,	TRUE	},
 	{ "detect_invis",	AFF_DETECT_INVIS,	TRUE	},
 	{ "detect_magic",	AFF_DETECT_MAGIC,	TRUE	},

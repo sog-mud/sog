@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.36 1998-11-06 09:04:04 fjoe Exp $
+ * $Id: note.c,v 1.37 1998-11-25 15:17:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -848,8 +848,6 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_prefix(arg, "post") || !str_prefix(arg, "send")) {
-		char *strtime;
-
 		if (ch->pnote == NULL) {
 			char_puts("You have no note in progress.\n\r", ch);
 			return;
@@ -879,9 +877,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		ch->pnote->next			= NULL;
-		strtime				= ctime(&current_time);
-		strtime[strlen(strtime)-1]	= '\0';
-		ch->pnote->date			= str_dup(strtime);
+		ch->pnote->date			= str_dup(strtime(current_time));
 		ch->pnote->date_stamp		= current_time;
 
 		append_note(ch->pnote);

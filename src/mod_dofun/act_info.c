@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.167 1998-11-23 06:38:01 fjoe Exp $
+ * $Id: act_info.c,v 1.168 1998-11-25 15:17:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -335,7 +335,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
-		if (IS_AFFECTED(victim, AFF_INVISIBLE))
+		if (IS_AFFECTED(victim, AFF_INVIS))
 			buf_add(output, "({yInvis{x) ");
 		if (IS_AFFECTED(victim, AFF_HIDE)) 
 			buf_add(output, "({DHidden{x) ");
@@ -367,7 +367,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
 		bool flags = FALSE;
 
-		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVISIBLE));
+		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
 		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
@@ -1570,15 +1570,14 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	char_printf(ch, "\n\rMUDDY started up at %s"
+	char_printf(ch, "\n\rMUDDY started up at %s\n\r"
 			"The system time is %s.\n\r",
-			str_boot_time, (char*) ctime(&current_time));
+			str_boot_time, strtime(time(NULL)));
 }
 
-void do_date(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_date)
 {
-	time_t t = time(NULL);
-	char_puts(ctime(&t), ch);
+	char_printf(ch, "%s\n\r", strtime(time(NULL)));
 }
 
 void do_weather(CHAR_DATA *ch, const char *argument)
@@ -1611,25 +1610,26 @@ void do_help(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
+void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
 	CLAN_DATA *clan;
 	CLASS_DATA *cl;
 	RACE_DATA *r;
 
 	if ((cl = class_lookup(wch->class)) == NULL
-	||  (r = race_lookup(wch->race)) == NULL)
+	||  (r = race_lookup(wch->race)) == NULL
+	||  !r->pcdata)
 		return;
 
 	buf_add(output, "[");
-	if (IS_IMMORTAL(ch) || ch == wch
+	if ((ch && (IS_IMMORTAL(ch) || ch == wch))
 	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
 		buf_printf(output, "%3d ", wch->level);
 	else
 		buf_add(output, "    ");
 
 	if (wch->level >= LEVEL_HERO) {
-		if (IS_IMMORTAL(ch))
+		if (ch && IS_IMMORTAL(ch))
 			buf_add(output, "  ");
 		buf_add(output, "{G");
 		switch (wch->level) {
@@ -1645,16 +1645,13 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		case HERO:		buf_add(output, "HERO "); break;
 		}
 		buf_add(output, "{x");
-		if (IS_IMMORTAL(ch))
+		if (ch && IS_IMMORTAL(ch))
 			buf_add(output, "  ");
 	}
 	else {
-		if (r && r->pcdata)
-			buf_printf(output, "%5.5s", r->pcdata->who_name);
-		else 
-			buf_add(output, "     ");
+		buf_printf(output, "%5.5s", r->pcdata->who_name);
 
-		if (IS_IMMORTAL(ch))
+		if (ch && IS_IMMORTAL(ch))
 			buf_printf(output, " %3.3s", cl->who_name);
 	}
 	buf_add(output, "] ");
@@ -1662,7 +1659,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (wch->clan
 	&&  (clan = clan_lookup(wch->clan))
 	&&  (!IS_SET(clan->flags, CLAN_HIDDEN) ||
-	     wch->clan == ch->clan || IS_IMMORTAL(ch)))
+	     (ch && (wch->clan == ch->clan || IS_IMMORTAL(ch)))))
 		buf_printf(output, "[{c%s{x] ", clan->name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
@@ -1673,7 +1670,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (wch->incog_level >= LEVEL_HERO)
 		buf_add(output, "[{DIncog{x] ");
 
-	if (in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
+	if (ch && in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
 		buf_add(output, "{r[{RPK{r]{x ");
 
 	if (IS_SET(wch->act, PLR_WANTED))
@@ -1684,10 +1681,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	else
 		buf_add(output, wch->name);
 
-	if (IS_NPC(wch))
-		buf_add(output, " Believer of Chronos");
-	else
-		buf_add(output, wch->pcdata->title);
+	buf_add(output, wch->pcdata->title);
 
 	buf_add(output, "\n\r{x");
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.120 1998-11-23 06:38:04 fjoe Exp $
+ * $Id: merc.h,v 1.121 1998-11-25 15:17:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -623,7 +623,7 @@ struct kill_data
  * Used in #MOBILES.
  */
 #define AFF_BLIND		(A)
-#define AFF_INVISIBLE		(B)
+#define AFF_INVIS		(B)
 #define AFF_DETECT_EVIL		(C)
 #define AFF_DETECT_INVIS	(D)
 #define AFF_DETECT_MAGIC	(E)
@@ -2130,6 +2130,7 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 /* act_info.c */
 void	set_title	(CHAR_DATA *ch, const char *title);
 char	*get_cond_alias	(OBJ_DATA *obj);
+void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 
 /* act_move.h */
 void move_char(CHAR_DATA *ch, int door, bool follow);
