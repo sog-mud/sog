@@ -18,12 +18,13 @@ wilst have to pay... To see how I may help thee, type HEAL, which will also
 show you the cost of each service".
 ~
 human~
-ABGKe HN 1000 0
+ABGKel HN 1000 0
 80 5 50d10+23500 5d5+5000 13d9+50 'divine'
 -60 -60 -60 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31001
 dryad guildmaster~
 the Dryad Guildmaster~
@@ -51,12 +52,13 @@ item that be damaged. If not, then I'm afeared there ain't
 nuthin' I can help ye with".
 ~
 human~
-ABG CDEFHN 1000 0
+ABGl CDEFHN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31003
 armorer~
 the Armorer~
@@ -71,12 +73,13 @@ just want to know what it's worth, type VALUE <item> and I'll give you a
 free valuation". 
 ~
 human~
-ABGe HN 1000 0
+ABGel HN 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31004
 weaponsmith smith~
 the Weaponsmith~
@@ -89,12 +92,13 @@ you, type SELL <item>. If you just want a valuation, type VALUE <item> and
 I'll let you know what its worth for free".
 ~
 human~
-ABGe HN 1000 0
+ABGel HN 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31005
 mercenary master~
 the Mercenary Master~
@@ -121,12 +125,13 @@ think I may like to buy, type SELL <item>. Alternatively I can give you
 a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
-ABGe HN 1000 0
+ABGel HN 1000 0
 80 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand female 1000
 0 0 medium unknown
+r charm 100
 #31007
 mitzak sage~
 Mitzak the Sage~
@@ -139,12 +144,13 @@ and then I will identify it, tell you what it does, and hand it back. Easy,
 eh? Hmmph... Anyway..."
 ~
 human~
-ABG CDEFHN 1000 0
+ABGl CDEFHN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'slash'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31008
 pet owner~
 the Pet Shop Owner~
@@ -157,12 +163,13 @@ to buy, simply type BUY <pet>, and if you wish to name it, add the name that
 you want it to have to the same line, i.e, BUY mouse harold".
 ~
 human~
-ABGe HN 1000 0
+ABGel HN 1000 0
 80 0 50d10+13500 5d5+5000 13d9+50 'slap'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31009
 elven elf guildmaster~
 the Elven Guildmaster~
@@ -191,12 +198,13 @@ think I may like to buy, type SELL <item>. Alternatively I can give you
 a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
-ABGe HN 1000 0
+ABGel HN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand female 1000
 0 0 medium unknown
+r charm 100
 #31011
 dwarf baker~
 the Baker~
@@ -485,12 +493,13 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-ABGe HN 0 0
+ABGel HN 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand none 1000
 0 0 medium unknown
+r charm 100
 #31030
 human waiter~
 a Human Waiter~
@@ -840,12 +849,13 @@ goes on to tell you that you can have anything you want, as long as it's
 deep-fried. That includes the pizza...
 ~
 human~
-AGe HJN 1000 0
+AGel HJN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKN AB 0 0
+FHKN 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r charm 100
 #31054
 guard~
 a City Guard~

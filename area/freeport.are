@@ -282,9 +282,23 @@ dwarf~
 ABCESVe 0 700 0
 65 0 50d10+8250 10d10+1000 11d5+35 'slash'
 -35 -35 -35 -17
-EFNU 0 C 0
+EFNU 0 0 0
 stand stand male 15000
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #29219
 samantha~
 Samantha, witch of the Mystic Eye~

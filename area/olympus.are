@@ -20,9 +20,10 @@ human~
 ABCQ BDFHNT 1000 0
 60 30 50d10+11000 60d9+100 5d10+28 'none'
 -30 -30 -30 -3
-EIKU B B 0
+EIKU 0 0 0
 stand stand male 5000
 0 0 medium unknown
+r charm 100
 #902
 prometheus~
 Prometheus~
@@ -35,9 +36,10 @@ human~
 ABC BDFHJNT 1000 0
 51 0 50d10+5000 25d9+100 5d8+20 'none'
 -21 -21 -21 3
-EFNU B B 0
+EFNU 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r charm 100
 #903
 hermes~
 Hermes~
@@ -67,9 +69,10 @@ human~
 ABCR BDFHNT 1000 0
 59 0 50d10+8500 59d9+100 10d4+24 'none'
 -28 -28 -28 -9
-FU B B 0
+FU 0 0 0
 sit stand male 5000
 0 0 medium unknown
+r charm 100
 #905
 apollo~
 Apollo~
@@ -83,9 +86,10 @@ human~
 ABC BDFHNT 1000 0
 58 0 50d10+8500 29d9+100 5d10+25 'none'
 -28 -28 -28 1
-EFNU B B 0
+EFNU 0 0 0
 stand stand male 2000
 0 0 medium unknown
+r charm 100
 #906
 ares~
 Ares~
@@ -98,9 +102,10 @@ human~
 ABCF BDFJTu -1000 0
 59 0 50d10+9000 29d9+100 8d6+26 'none'
 -29 -29 -29 1
-EFNU B B 0
+EFNU 0 0 0
 stand stand male 2500
 0 0 medium unknown
+r charm 100
 #907
 athena~
 Athena~
@@ -298,9 +303,10 @@ human~
 ABC BDFHNT 1000 0
 60 85 50d10+12000 30d9+100 8d6+28 'none'
 -40 -40 -40 0
-ENR B B 0
+ENR 0 0 0
 stand stand male 5000
 0 0 medium unknown
+r charm 100
 #920
 chimera~
 a chimera~
@@ -328,9 +334,10 @@ human~
 ABCQ BDFHNT 1000 0
 59 0 50d10+9000 59d9+100 6d8+26 'none'
 -29 -29 -29 -3
-EIKU B B 0
+EIKU 0 0 0
 stand stand female 5000
 0 0 medium unknown
+r charm 100
 #922
 roc~
 a roc~

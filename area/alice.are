@@ -41,7 +41,7 @@ rabbit~
 AGHT HJNPT 400 0
 40 0 10d108+648 40d10+100 5d14+20 'pierce'
 -15 -15 -15 -2
-ENR 0 BEI F
+ENR 0 0 0
 stand stand male 0
 HM BGI medium unknown
 M greet 21003 100~
@@ -52,6 +52,10 @@ M act 21024 leaves west.~
 M act 21024 leaves north.~
 M act 21024 leaves south.~
 M act 21024 leaves.~
+r bash 33
+r pierce -50
+r cold 33
+r charm 33
 #21002
 mouse~
 a mouse~

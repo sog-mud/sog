@@ -21,9 +21,23 @@ human~
 ABG CDEJNu -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-EFHIJKNU B C 0
+EFHIJKNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #14701
 death knight~
 a death knight~
@@ -36,12 +50,17 @@ presence in honor of the alliance he has forged with the dark powers to
 facilitate the conquest of Anon.
 ~
 human~
-ABG DJu -1000 0
+ABGl DJu -1000 0
 56 0 50d10+5750 5d5+5000 10d4+24 'punch'
 -26 -26 -26 -2
-BCEGK AB D H
+BCEGK 0 0 0
 stand stand none 1000
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r charm 100
 #14702
 iron golem~
 an iron golem~
@@ -73,9 +92,11 @@ unique~
 ABG CDEFJu -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 'pierce'
 -30 -30 -30 -3
-EFIKU 0 H N
+EFIKU 0 0 0
 stand stand male 1000
 0 0 large unknown
+r fire 33
+r holy -50
 #14704
 axtraxes arch mage~
 axtraxes~
@@ -89,9 +110,26 @@ human~
 ABFGH DEJu -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 'punch'
 -24 -24 -24 -1
-EFIKNU B C D
+EFIKNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #14705
 high priest~
 an evil high priest~
@@ -169,9 +207,23 @@ human~
 ABFGH EJ -1000 0
 45 0 25d10+3000 5d5+1000 3d12+14 'punch'
 -15 -15 -15 2
-FIKU B C 0
+FIKU 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #14710
 blackguard guard~
 a member of the blackguard~
@@ -283,9 +335,10 @@ unique~
 ABFG 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
-EF H 0 0
+EF 0 0 0
 stand stand none 1000
 0 0 medium unknown
+r fire 100
 #14717
 efreeti~
 an efreeti~
@@ -300,9 +353,10 @@ human~
 ABFG CJNT -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
-FIK H 0 0
+FIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r fire 100
 #14718
 shedu~
 a shedu~
@@ -453,9 +507,10 @@ unique~
 ABFG 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
-EFU I 0 0
+EFU 0 0 0
 stand stand none 1000
 0 0 medium unknown
+r cold 100
 #14728
 air elemental~
 an air elemental~
@@ -498,9 +553,26 @@ fire giant~
 ABG J -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 'punch'
 -21 -21 -21 0
-CEFIKQ 0 D C
+CEFIKQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 0
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #14731
 frost giant~
 a frost giant~
@@ -758,9 +830,11 @@ snake~
 ABDG DJu -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 'punch'
 -21 -21 -21 0
-EFIK L Q 0
+EFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r disease 33
+r poison 100
 #0
 
 #OBJECTS

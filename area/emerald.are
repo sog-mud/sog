@@ -24,9 +24,12 @@ unique~
 ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU BJN B 0
+KU 0 0 0
 stand stand female 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #202
 Nymph~
 a nymph~
@@ -42,9 +45,12 @@ unique~
 ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU BJN B 0
+FKU 0 0 0
 stand stand female 150
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #203
 Pixie~
 a pixie~
@@ -61,9 +67,12 @@ unique~
 AG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU BJN B 0
+FU 0 0 0
 stand stand female 80
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r charm 100
 #204
 Sprite~
 a sprite~
@@ -77,9 +86,12 @@ unique~
 AG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU BJN B 0
+FU 0 0 0
 stand stand male 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #205
 Brownie~
 a brownie~
@@ -96,9 +108,12 @@ unique~
 ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU BJN B 0
+FKU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r charm 100
 #206
 Ranger~
 a ranger~
@@ -115,9 +130,13 @@ unique~
 ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #207
 Spriggan Iachimo~
 the Spriggan~
@@ -133,9 +152,11 @@ unique~
 ABCGHS JPQu -900 0
 20 12 2d1+400 1d1+99 5d5+25 'scratch'
 0 0 0 0
-AEFKU L L N
+AEFKU 0 0 0
 stand stand none 50
 AC ABCDEF small unknown
+r holy -50
+r poison 100
 #208
 Gremlin~
 a gremlin~
@@ -149,12 +170,14 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABGl DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #209
 Fiendish Donkey~
 a fiendish donkey~
@@ -169,9 +192,11 @@ unique~
 ABG DJ -950 0
 20 8 2d1+300 1d1+99 4d5+14 'beating'
 0 0 0 0
-CDEFJKU B B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #210
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -182,12 +207,14 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF large unknown
+r holy -50
+r charm 100
 #211
 Pumpkin man~
 the pumpkin man~
@@ -199,12 +226,14 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+14 'scratch'
 -3 -3 -3 -3
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #212
 Ranger Guildmaster Elesar~
 the Ancient Ranger Guildmaster~
@@ -218,12 +247,29 @@ forest brown leathers and green cloak, he is currently practicing
 the use of his staff.
 ~
 unique~
-ABGK 0 0 0
+ABGKl 0 0 0
 60 20 2d1+10000 1d1+99 5d6+150 'beating'
 -19 -19 -19 -19
-FK ABCD BCD 0
+FK 0 0 0
 stand stand male 100
 A 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #213
 Ranger Lord~
 the Ancient Ranger Lord~
@@ -236,12 +282,29 @@ physical fitness. He is intently carving some wooden sticks, probably
 arrows after he's finished with them.
 ~
 unique~
-ABGJ DFHJ 0 0
+ABGJl DFHJ 0 0
 58 30 2d1+6500 1d1+99 5d6+75 'beating'
 -12 -12 -12 -12
-FKW AB BCD 0
+FKW 0 0 0
 stand stand male 100
 A ABCDEF medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #214
 Ranger Bear~
 the ancient ranger bear~
@@ -253,9 +316,11 @@ unique~
 ABGe DF 750 0
 55 25 2d1+5000 1d1+99 5d6+50 'claw'
 -10 -10 -10 -10
-DKN L L H
+DKN 0 0 0
 stand stand male 100
 A ABCDEF large unknown
+r fire -50
+r poison 100
 #215
 Grand Pooh-Ba~
 the Grand Pooh-Ba~
@@ -273,9 +338,13 @@ unique~
 ABG DJ 1000 0
 30 20 2d1+850 1d1+99 5d6+30 'smash'
 3 3 3 3
-CFK BJLN B 0
+CFK 0 0 0
 stand stand male 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #216
 Witch Aude~
 Aude~
@@ -286,12 +355,15 @@ the sparks from the fire. Aude looks at you with moistened lips and half
 closed eyes issuing an invitation you somehow cannot resist.
 ~
 unique~
-ABFG DFJOu -1000 0
+ABFGl DFJOu -1000 0
 40 15 2d1+1500 1d1+99 5d6+35 'wrath'
 -5 -5 -5 -5
-FQ AB B HN
+FQ 0 0 0
 stand stand female 30
 AB ABCDEF medium unknown
+r fire -50
+r holy -50
+r charm 100
 #217
 Witch Gertrude~
 Gertrude~
@@ -303,12 +375,15 @@ her mottled cheeks and her gnarled skin testify to her long suffering and
 an intense adhorrence for all beauty and youth.
 ~
 unique~
-ABFG DFJu -1000 0
+ABFGl DFJu -1000 0
 41 15 2d1+1600 1d1+99 5d6+40 'divine'
 -6 -6 -6 -6
-FKQ AB B HN
+FKQ 0 0 0
 stand stand female 30
 AB ABCDEF medium unknown
+r fire -50
+r holy -50
+r charm 100
 #218
 Witch Hela~
 Hela~
@@ -319,12 +394,15 @@ Gertrude. Born in a half-living, half-dead state, she harnesses the power
 of the undeed to destroy you!
 ~
 unique~
-ABFG DFJu -1000 0
+ABFGl DFJu -1000 0
 40 15 2d1+1450 1d1+99 5d6+40 'magic'
 -5 -5 -5 -5
-EFQ AB B HN
+EFQ 0 0 0
 stand stand female 30
 AB ABCDEF medium unknown
+r fire -50
+r holy -50
+r charm 100
 #219
 Jim Young~
 Young Jim~
@@ -341,9 +419,26 @@ unique~
 ABGH J 750 0
 15 10 2d1+200 1d1+99 5d6+0 'punch'
 7 7 7 7
-JK 0 0 CDEFGHIJKL
+JK 0 0 0
 stand stand male 30
 A ABCD small unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #220
 Farmer~
 Happy Farmer~
@@ -359,9 +454,26 @@ unique~
 AG J 750 0
 15 12 2d1+220 1d1+99 5d6+5 'punch'
 2 2 2 2
-EFJK 0 0 CDEFGHIJL
+EFJK 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #221
 HotBlood bully~
 Young HotBlood~
@@ -374,9 +486,26 @@ unique~
 ABG J 750 0
 15 5 2d1+320 1d1+99 4d5+8 'punch'
 -3 -3 -3 -3
-EFJKLR 0 0 ABCDE
+EFJKLR 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #222
 Maddie Beauty~
 Maddie the local beauty~
@@ -389,9 +518,23 @@ unique~
 ABGH J 750 0
 20 8 2d1+320 1d1+99 4d5+15 'punch'
 -3 -3 -3 -3
-FK 0 0 ABC
+FK 0 0 0
 stand stand female 30
 A ABCDEF medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #223
 Sheeka shopkeeper~
 Sheeka Trilquill~
@@ -405,12 +548,14 @@ green apron which reads "Roses for the loving, Lilies for the sad,
 Tulips for the laughing, violets for the glad".
 ~
 unique~
-ABGe J 1000 0
+ABGel J 1000 0
 20 10 2d1+380 1d1+99 4d5+20 'grep'
 -1 -1 -1 -1
-EF AB B H
+EF 0 0 0
 stand stand female 30
 A ABCDEF medium unknown
+r fire -50
+r charm 100
 #224
 goodwife wife~
 a good wife~
@@ -427,9 +572,26 @@ unique~
 AGH J 750 0
 15 5 2d1+180 1d1+99 4d5+8 'punch'
 3 3 3 3
-FK 0 0 CDEFGHIJL
+FK 0 0 0
 stand stand female 30
 A ABCDEF medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #225
 Idiot~
 the village idiot~
@@ -455,9 +617,26 @@ unique~
 ABCG J 0 0
 13 8 2d1+150 1d1+99 5d5+5 'punch'
 4 4 4 4
-CDFK 0 0 CDEFGHIJL
+CDFK 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #226
 Knight Crusader~
 a Knight~
@@ -474,9 +653,11 @@ unique~
 ABGX DHJN 1000 0
 39 15 2d1+1550 1d1+99 5d6+35 'punch'
 -6 -6 -6 -6
-EFHK B B QXYZ
+EFHK 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
+r disease -50
+r charm 100
 #227
 Sylph~
 a Sylph~
@@ -490,12 +671,13 @@ is mercy to be found in this evil place, she will fade away before
 the witches come to sacrifice her tonight. She looks at you pleadingly.
 ~
 unique~
-ABG DIJKN 1000 0
+ABGl DIJKN 1000 0
 15 10 2d1+80 1d1+99 4d5+0 'stab'
 2 2 2 2
-K AB B 0
+K 0 0 0
 stand stand female 80
 AC 0 small unknown
+r charm 100
 #228
 Irin girl elfin maid elf-maid~
 Irin~
@@ -510,11 +692,13 @@ unique~
 ABCGH DHJN 1000 0
 50 15 2d1+3000 1d1+99 5d6+50 'punch'
 -7 -7 -7 -7
-EFK B B QXYZ
+EFK 0 0 0
 stand stand female 30
 A ABCDEF medium unknown
 M speech 201 Irin~
 M speech 201 ้าษฮ~
+r disease -50
+r charm 100
 #229
 cat~
 the marmalade cat~
@@ -526,12 +710,13 @@ tail from side to side.  A sudden crackle of orange electricity runs
 down the length of its body and disappears.
 ~
 unique~
-ABCGH DFJ 0 0
+ABCGHl DFJ 0 0
 40 10 2d1+3000 1d1+99 5d6+40 'bite'
 0 0 0 0
-DFJK AB B 0
+DFJK 0 0 0
 stand stand female 30
 A ABCDEF medium unknown
+r charm 100
 #230
 Kortho Wordgiver~
 Kortho~
@@ -543,12 +728,13 @@ he seems abit tight-lipped at the moment.  You're probably going to
 have to beat it out of him.
 ~
 unique~
-ABCG DJN 0 0
+ABCGl DJN 0 0
 38 15 2d1+1450 1d1+99 5d6+25 'suction'
 -3 -3 -3 -3
-FK AB B 0
+FK 0 0 0
 stand stand male 30
 A ABCDEF medium unknown
+r charm 100
 #231
 Knight Sorrow~
 Sir Sorrow~
@@ -582,12 +768,22 @@ You draw back in ponder of this pointed-beard priest while his greyish-
 black apparel gives hint of his oriental origin.
 ~
 unique~
-ABG DHJ 1000 0
+ABGl DHJ 1000 0
 60 25 2d1+5500 1d1+99 10d5+65 'frbite'
 -11 -11 -11 -11
-DEFHK AB BHIJKLMNOP 0
+DEFHK 0 0 0
 stand stand male 30
 A ABCDEF large unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r poison 33
+r charm 100
 #233
 Farmer Griff man~
 farmer~
@@ -598,12 +794,14 @@ Farmer Griff smiles and says "You musn't leave without trying my
  'Char Siew Bao' ".
 ~
 unique~
-ABGe J 750 0
+ABGel J 750 0
 20 15 2d1+500 1d1+99 4d5+10 'punch'
 0 0 0 0
-EFQ AB B H
+EFQ 0 0 0
 stand stand female 30
 A ABCDEF medium unknown
+r fire -50
+r charm 100
 #234
 HellHound dog~
 a hellHound~
@@ -614,12 +812,14 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABF DJ -1000 0
+ABFl DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG AB B N
+BEFG 0 0 0
 stand stand none 15
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #235
 boogum~
 the mountain boogum~
@@ -630,12 +830,13 @@ He looks like a dirty-furred dwarf with overly long hands and a mouth
 filled with sharp little teeth.
 ~
 unique~
-ABCFG DFJ -1000 0
+ABCFGl DFJ -1000 0
 12 5 2d1+180 1d1+99 4d5+12 'chop'
 2 2 2 2
-BCF AB B 0
+BCF 0 0 0
 stand stand male 15
 A ABCDEF large unknown
+r charm 100
 #236
 apparition priest~
 an Apparition~
@@ -647,12 +848,29 @@ witches.  His strength proved less than his faith in himself and his
 spectre now wanders the edge of this dark lake forever.
 ~
 unique~
-ABCG J 1000 0
+ABCGl J 1000 0
 35 25 2d1+1050 1d1+99 5d9+25 'charge'
 5 5 5 5
-FGK ABCDEFGHIJKLMNOPQRS BCD 0
+FGK 0 0 0
 stand stand none 15
 D ABCDEF medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #237
 Demon-Elf girl~
 Demon-Elf~
@@ -665,12 +883,14 @@ you sharply and for a moment, you see upon her face the image of
 smiling demon.
 ~
 unique~
-ABG DJu -1000 0
+ABGl DJu -1000 0
 43 10 2d1+2150 1d1+99 5d6+45 'punch'
 -2 -2 -2 -2
-AFK AB B N
+AFK 0 0 0
 stand stand female 1000
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #238
 imbessar king~
 Imbessar~
@@ -685,12 +905,25 @@ you see that ages of paranoia and fear have moulded a defiant snarl
 permanently on his scarred face.
 ~
 unique~
-ACGT HJ 0 0
+ACGTl HJ 0 0
 58 12 2d1+5900 1d1+99 5d6+105 'punch'
 -5 -5 -5 -5
-ACEFJK AB C N
+ACEFJK 0 0 0
 stand stand male 15000
 A ABCDEF medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #239
 Marisa enchantress~
 Marisa~
@@ -704,12 +937,25 @@ Imbessar. She has tracked him to the Emerald Forest and it is here
 that they will have their last battle.
 ~
 unique~
-ABGHR JNu -1000 0
+ABGHRl JNu -1000 0
 54 12 2d1+4500 1d1+99 5d6+85 'magic'
 -1 -1 -1 -1
-FH AB C N
+FH 0 0 0
 stand stand female 10000
 A ABCDEF medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #240
 Ranger~
 a lady ranger~
@@ -727,9 +973,13 @@ unique~
 ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand female 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #241
 Pixie~
 a pixie~
@@ -746,9 +996,12 @@ unique~
 ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU BJN B 0
+FU 0 0 0
 stand stand female 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #242
 Pixie~
 a pixie~
@@ -765,9 +1018,12 @@ unique~
 ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU BJN B 0
+FU 0 0 0
 stand stand female 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #243
 Pixie~
 a pixie~
@@ -784,9 +1040,12 @@ unique~
 ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU BJN B 0
+FU 0 0 0
 stand stand female 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #244
 Pixie~
 a pixie~
@@ -803,9 +1062,12 @@ unique~
 ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU BJN B 0
+FU 0 0 0
 stand stand female 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #245
 Brownie~
 a brownie~
@@ -822,9 +1084,12 @@ unique~
 ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU BJN B 0
+FKU 0 0 0
 stand stand male 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #246
 Brownie~
 a brownie~
@@ -841,9 +1106,12 @@ unique~
 ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU BJN B 0
+FKU 0 0 0
 stand stand male 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #247
 Brownie~
 a brownie~
@@ -860,9 +1128,12 @@ unique~
 ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU BJN B 0
+FKU 0 0 0
 stand stand male 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #248
 Brownie~
 a brownie~
@@ -879,9 +1150,12 @@ unique~
 ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU BJN B 0
+FKU 0 0 0
 stand stand male 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #249
 Brownie~
 a brownie~
@@ -898,9 +1172,12 @@ unique~
 ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU BJN B 0
+FKU 0 0 0
 stand stand male 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #250
 Sprite~
 a sprite~
@@ -914,9 +1191,12 @@ unique~
 ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU BJN B 0
+FU 0 0 0
 stand stand male 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #251
 Sprite~
 a sprite~
@@ -930,9 +1210,12 @@ unique~
 ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU BJN B 0
+FU 0 0 0
 stand stand male 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #252
 Sprite~
 a sprite~
@@ -946,9 +1229,12 @@ unique~
 ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU BJN B 0
+FU 0 0 0
 stand stand male 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #253
 Sprite~
 a sprite~
@@ -962,9 +1248,12 @@ unique~
 ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU BJN B 0
+FU 0 0 0
 stand stand male 80
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #254
 Dryad~
 a dryad~
@@ -981,9 +1270,12 @@ unique~
 ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU BJN B 0
+KU 0 0 0
 stand stand female 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #255
 Dryad~
 a dryad~
@@ -1000,9 +1292,12 @@ unique~
 ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU BJN B 0
+KU 0 0 0
 stand stand female 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #256
 Dryad~
 a dryad~
@@ -1019,9 +1314,12 @@ unique~
 ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU BJN B 0
+KU 0 0 0
 stand stand female 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #257
 Dryad~
 a dryad~
@@ -1038,9 +1336,12 @@ unique~
 ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU BJN B 0
+KU 0 0 0
 stand stand female 100
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #258
 Nymph~
 a nymph~
@@ -1056,9 +1357,12 @@ unique~
 ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU BJN B 0
+FKU 0 0 0
 stand stand female 150
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #259
 Nymph~
 a nymph~
@@ -1074,9 +1378,12 @@ unique~
 ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU BJN B 0
+FKU 0 0 0
 stand stand female 150
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #260
 Nymph~
 a nymph~
@@ -1092,9 +1399,12 @@ unique~
 ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU BJN B 0
+FKU 0 0 0
 stand stand female 150
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #261
 Nymph~
 a nymph~
@@ -1110,9 +1420,12 @@ unique~
 ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU BJN B 0
+FKU 0 0 0
 stand stand female 150
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #262
 Ranger~
 a lady ranger~
@@ -1130,9 +1443,13 @@ unique~
 ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand female 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #263
 Ranger~
 a lady ranger~
@@ -1150,9 +1467,13 @@ unique~
 ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand female 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #264
 Ranger~
 a ranger~
@@ -1169,9 +1490,13 @@ unique~
 ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #265
 Ranger~
 a ranger~
@@ -1188,9 +1513,13 @@ unique~
 ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #266
 Ranger~
 a ranger~
@@ -1207,9 +1536,13 @@ unique~
 ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #267
 Ranger~
 a ranger~
@@ -1226,9 +1559,13 @@ unique~
 ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #268
 Gremlin~
 a gremlin~
@@ -1242,12 +1579,14 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABGl DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #269
 Gremlin~
 a gremlin~
@@ -1261,12 +1600,14 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABGl DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #270
 Gremlin~
 a gremlin~
@@ -1280,12 +1621,14 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABGl DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #271
 Gremlin~
 a gremlin~
@@ -1299,12 +1642,14 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG DJ -1000 0
+ABGl DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #272
 Pumpkin man~
 the pumpkin man~
@@ -1316,12 +1661,14 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #273
 Pumpkin man~
 the pumpkin man~
@@ -1333,12 +1680,14 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #274
 Pumpkin man~
 the pumpkin man~
@@ -1350,12 +1699,14 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #275
 Pumpkin man~
 the pumpkin man~
@@ -1367,12 +1718,14 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #276
 Fiendish Donkey~
 a fiendish donkey~
@@ -1387,9 +1740,11 @@ unique~
 ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU B B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #277
 Fiendish Donkey~
 a fiendish donkey~
@@ -1404,9 +1759,11 @@ unique~
 ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU B B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #278
 Fiendish Donkey~
 a fiendish donkey~
@@ -1421,9 +1778,11 @@ unique~
 ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU B B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #279
 Fiendish Donkey~
 a fiendish donkey~
@@ -1438,9 +1797,11 @@ unique~
 ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU B B N
+CDEFJKU 0 0 0
 stand stand none 50
 AB ABCDEF medium unknown
+r holy -50
+r charm 100
 #280
 HellHound dog~
 a hellHound~
@@ -1451,12 +1812,14 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG AB B N
+BEFG 0 0 0
 stand stand none 15
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #281
 HellHound dog~
 a hellHound~
@@ -1467,12 +1830,14 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG AB B N
+BEFG 0 0 0
 stand stand none 15
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #282
 HellHound dog~
 a hellHound~
@@ -1483,12 +1848,14 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG AB B N
+BEFG 0 0 0
 stand stand none 15
 AB ABCDEF small unknown
+r holy -50
+r charm 100
 #283
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1499,12 +1866,14 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF large unknown
+r holy -50
+r charm 100
 #284
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1515,12 +1884,14 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF large unknown
+r holy -50
+r charm 100
 #285
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1531,12 +1902,14 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF large unknown
+r holy -50
+r charm 100
 #286
 Devil's Huntsman~
 the Devil's Huntsman~
@@ -1547,12 +1920,14 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG DJ -1000 0
+ABFGl DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU AB B N
+CDEFJKU 0 0 0
 stand stand male 50
 AB ABCDEF large unknown
+r holy -50
+r charm 100
 #287
 Nymph~
 a nymph~
@@ -1567,9 +1942,12 @@ unique~
 ABG DJT 1000 0
 27 10 2d10+650 1d1+99 5d5+0 'slap'
 -8 -8 -8 -8
-FKU BJN B 0
+FKU 0 0 0
 stand stand female 150
 AC 0 small unknown
+r lightning 100
+r holy 100
+r charm 100
 #288
 Ranger~
 a ranger~
@@ -1586,9 +1964,13 @@ unique~
 ABG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #289
 Ranger~
 a ranger~
@@ -1605,9 +1987,13 @@ unique~
 ABG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #290
 Ranger~
 a ranger~
@@ -1624,9 +2010,13 @@ unique~
 AG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU BJLN B 0
+FKNU 0 0 0
 stand stand male 100
 AC 0 medium unknown
+r lightning 100
+r holy 100
+r poison 100
+r charm 100
 #291
 Devil Lieutenant~
 the Devil Lieutenant~
@@ -1639,12 +2029,15 @@ in the sixth plane of Hell, he now watches over witchwood with his liege of
 huntsmen in service to Gertrude.
 ~
 unique~
-ABFG DFJu -1000 0
+ABFGl DFJu -1000 0
 40 14 2d1+1600 1d1+99 8d6+30 'magic'
 -7 -7 -7 -7
-FKQ AB B HN
+FKQ 0 0 0
 stand stand female 30
 AB ABCDEF medium unknown
+r fire -50
+r holy -50
+r charm 100
 #299
 healer woodskeeper~
 priest~
@@ -1657,13 +2050,29 @@ almost everything."
 Type HEAL for list.
 ~
 elf~
-ABGQae DHct 1000 0
+ABGQael DHct 1000 0
 100 100 1d1+50000 1d1+10000 1d1+100 'divine'
 0 0 0 0
-EFIK ABC D 0
+EFIK 0 0 0
 stand stand male 0
 0 0 medium unknown
-F vul Z
+r bash 33
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS

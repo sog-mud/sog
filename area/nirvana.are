@@ -46,7 +46,7 @@ modron~
 ABFGT D 300 0
 14 3 15d12+110 1d1+99 4d4+3 'slap'
 -2 -2 0 -1
-CEFLN R 0 0
+CEFLN 0 0 0
 stand stand none 0
 0 N medium unknown
 #9003
@@ -60,7 +60,7 @@ modron~
 ABFGQT D 300 0
 17 4 25d10+70 17d8+50 4d5+3 'pound'
 -4 -4 0 -2
-ACEKN R 0 0
+ACEKN 0 0 0
 stand stand none 0
 M N medium unknown
 #9004
@@ -74,9 +74,10 @@ modron~
 ABFGQT DH 300 0
 20 5 11d8+250 20d8+75 4d6+4 'pound'
 -4 -4 -2 -3
-AEFN R 0 G
+AEFN 0 0 0
 stand stand none 0
 M N large unknown
+r slash -50
 #9005
 octon~
 the octon~
@@ -89,9 +90,10 @@ modron~
 ABFGQ D 300 0
 22 5 25d10+300 18d10+75 4d6+5 'crush'
 -5 -5 -3 -4
-ACEHK R 0 G
+ACEHK 0 0 0
 stand stand none 0
 M N large unknown
+r slash -50
 #9006
 septon~
 the septon~
@@ -104,7 +106,7 @@ modron~
 ABFGQR D 300 0
 24 5 30d10+350 20d10+100 6d4+5 'beating'
 -6 -6 -6 -4
-AFKO R 0 0
+AFKO 0 0 0
 stand stand none 0
 M IN medium unknown
 #9007
@@ -116,12 +118,18 @@ A hexton appears as a humanoid with 6 arms: 2 large human arms with 6 fingers,
 and 4 tentacles below tipped with sharp claws.
 ~
 modron~
-ABFGQT DFH 300 0
+ABFGQTl DFH 300 0
 26 7 35d20+300 20d10+75 4d8+6 'slash'
 -8 -8 -8 -4
-ACEFHIKLN AR C 0
+ACEFHIKLN 0 0 0
 stand stand none 0
 M INP large unknown
+r lightning 33
+r energy 33
+r sound 33
+r poison 33
+r harm 33
+r light 33
 #9008
 quinton~
 the quinton~
@@ -132,10 +140,10 @@ shoulders.  A prehensile tail serves as the creature's 5th arm, and they have
 fan-like wings attached to their shoulders.
 ~
 modron~
-ABFGQ D 300 0
+ABFGQl D 300 0
 28 6 10d100+150 20d12+100 4d8+7 'beating'
 -7 -8 -6 -8
-AKMO AR 0 0
+AKMO 0 0 0
 stand stand none 0
 M INPQ large unknown
 #9009
@@ -148,12 +156,18 @@ the sides of their bald heads, and the long prehensile tail ending in a mace-
 like ball.
 ~
 modron~
-ABFGQRT D 300 0
+ABFGQRTl D 300 0
 33 12 1d1+999 20d20+50 8d6+12 'pound'
 -11 -13 -10 -9
-CEF AR C 0
+CEF 0 0 0
 stand stand none 0
 M IW huge unknown
+r lightning 33
+r energy 33
+r sound 33
+r poison 33
+r harm 33
+r light 33
 #9010
 secundus~
 secundus~
@@ -163,12 +177,21 @@ The secundi is an incredibly thin, tall humanoids with long, narrow faces
 and deepset eyes. It radiates intense power.
 ~
 modron~
-ABFGQRT DFH 0 0
+ABFGQRTl DFH 0 0
 36 15 1d1+1599 40d20+50 7d8+15 'punch'
 -11 -14 -11 -12
-EFHIKN AHIKR C 0
+EFHIKN 0 0 0
 stand stand none 0
 M I huge unknown
+r fire 100
+r cold 100
+r lightning 33
+r acid 100
+r energy 33
+r sound 33
+r poison 33
+r harm 33
+r light 33
 #9011
 Primus~
 Primus~
@@ -179,12 +202,21 @@ violet eyes. His right hand is wreathed in darkness, his left in light, and
 he looks very displeased to see you.
 ~
 modron~
-ABFGQRT DFH 0 0
+ABFGQRTl DFH 0 0
 40 20 1d1+3999 1d1+3999 6d10+25 'wrath'
 -15 -15 -15 -15
-AH AHIKRS C 0
+AH 0 0 0
 stand stand none 0
 M I giant unknown
+r fire 100
+r cold 100
+r lightning 33
+r acid 100
+r energy 33
+r sound 33
+r poison 33
+r harm 33
+r light 100
 #0
 
 #OBJECTS

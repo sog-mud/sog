@@ -18,9 +18,12 @@ human~
 ACGT 0 500 0
 3 1 10d5+15 1d1+99 1d4+1 'punch'
 7 7 7 8
-JN 0 HIJR 0
+JN 0 0 0
 stand stand male 30
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
 #9202
 cyclops~
 the cyclops~
@@ -29,12 +32,27 @@ A hungry cyclops snarls at you!
 He looks like he's about to have dinner (maybe it's you?).
 ~
 giant~
-ABFQT DF -700 0
+ABFQTl DF -700 0
 22 7 10d10+600 10d10+100 6d4+10 'smash'
 -7 -7 -7 -2
-ACDIO AB CD 0
+ACDIO 0 0 0
 stand stand male 600
 0 0 huge unknown
+r bash 33
+r pierce 33
+r slash 33
+r lightning 0
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 0
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #9203
 tiny elemental~
 a tiny elemental~
@@ -114,12 +132,13 @@ secrets and knowledge of the Earth.  You can't really tell where
 he begins and the rock wall ends.
 ~
 human~
-ABKQe HJ 0 0
+ABKQel HJ 0 0
 30 0 6d12+853 30d9+100 5d4+8 'none'
 -9 -9 -9 4
-EIKU AB 0 0
+EIKU 0 0 0
 stand stand none 5000
 0 0 medium unknown
+r charm 100
 #9209
 fire elemental ruler~
 the Fire Ruler~
@@ -128,12 +147,13 @@ The Ruler of the fire elementals.
 As you look at him he seems to blend in with the fire in his throne.
 ~
 human~
-ABKe H 0 0
+ABKel H 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU AB 0 0
+EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
+r charm 100
 #9210
 air elemental ruler~
 The Air Ruler~
@@ -142,12 +162,13 @@ The Ruler of the air elementals.
 As you peer at him you seem to be looking at the sky itself.
 ~
 human~
-ABKe H 0 0
+ABKel H 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU AB 0 0
+EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
+r charm 100
 #9211
 lightning elemental ruler~
 The Lightning Ruler~
@@ -157,12 +178,13 @@ As you examine him there is a blinding flash of light and a deafening boom!
 You rub your eyes and look and the ruler is there grinning at you.
 ~
 human~
-ABKe H 0 0
+ABKel H 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU AB 0 0
+EFNU 0 0 0
 stand stand none 5000
 0 0 medium unknown
+r charm 100
 #9212
 water elemental ruler~
 The Water Ruler~
@@ -172,12 +194,13 @@ As you look at him he changes to mist, which swirls around you.  Just
 as you get scared, it reforms in elemental form.
 ~
 water fowl~
-ABKe H 0 0
+ABKel H 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNR AB 0 0
+EFNR 0 0 0
 stand stand none 5000
 0 0 medium unknown
+r charm 100
 #9214
 water puddle elemental~
 a puddle~
@@ -526,12 +549,29 @@ A vendor is willing to sell you elixirs.
 I WOULD NOT suggest you attack me ...!
 ~
 human~
-ABEGRe 0 900 0
+ABEGRel 0 900 0
 30 0 6d12+778 30d9+100 5d4+7 'none'
 -9 -9 -9 1
-CFUZ ABCD 0 0
+CFUZ 0 0 0
 stand stand male 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #9239
 the magician~
 The Combat Magician~
@@ -541,12 +581,26 @@ The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
-ABGKRe D -50 0
+ABGKRel D -50 0
 46 30 3d9+8233 17d9+4100 10d12+33 'none'
 -12 -12 -12 -4
-F ABC 0 0
+F 0 0 0
 stand stand none 400
 0 0 medium unknown
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #0
 
 #OBJECTS

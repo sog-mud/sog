@@ -134,9 +134,12 @@ lizard~
 AT 0 0 0
 50 0 50d10+4500 10d10+1000 5d8+25 'punch'
 -20 -20 -20 -10
-FHIKM 0 D 0
+FHIKM 0 0 0
 stand stand none 0
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
 #22111
 archbishop~
 archbishop~
@@ -174,9 +177,12 @@ human~
 AT 0 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'shbite'
 -30 -30 -30 -15
-CHIJN 0 D 0
+CHIJN 0 0 0
 stand stand none 10000
 0 0 large unknown
+r bash 33
+r pierce 33
+r slash 33
 #22114
 rattlesnake~
 rattlesnake~
@@ -255,7 +261,6 @@ AT DF 0 0
 R 0 0 0
 stand stand none 10000
 0 0 large unknown
-F vul I
 #22120
 shaman~
 shaman~
@@ -266,9 +271,14 @@ human~
 AQ DFHNOV 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
-CHIJN 0 DHI 0
+CHIJN 0 0 0
 stand stand none 10000
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
 #22121
 mercenary~
 mercenary~
@@ -289,10 +299,10 @@ Very fat lizard sells his cookies.
 ~
 ~
 lizard~
-ABVe DFH 0 0
+ABVek DFH 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
-0 U 0 0
+0 0 0 0
 stand stand none 10000
 0 0 large unknown
 #22123
@@ -554,9 +564,12 @@ human~
 ABFS 0 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'shbite'
 -30 -30 -30 -15
-CHIJN 0 D 0
+CHIJN 0 0 0
 stand stand male 10000
 0 0 large unknown
+r bash 33
+r pierce 33
+r slash 33
 #22218
 lake~
 ~

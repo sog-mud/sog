@@ -21,9 +21,11 @@ unique~
 AFG FJ -400 0
 30 0 6d12+853 1d1+99 4d6+8 'bite'
 -9 -9 -9 3
-CFNQ 0 L I
+CFNQ 0 0 0
 stand stand male 2000
 AGHMVXc ABCDEFGHIJKPQUVX large unknown
+r cold -50
+r poison 33
 #29121
 hag gelda~
 The hag Gelda~
@@ -38,9 +40,22 @@ human~
 ABCGV DK 0 0
 28 0 6d12+703 1d1+399 2d12+8 'slap'
 -8 -8 -8 6
-FR 0 C NZ
+FR 0 0 0
 stand stand female 1850
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #29122
 guard woodsman~
 The woodsman guard~
@@ -176,9 +191,10 @@ snake~
 AFG J 0 0
 32 0 10d10+1000 1d1+100 6d4+9 'bite'
 -10 -10 -10 4
-H L 0 0
+H 0 0 0
 stand stand none 0
 R 0 large unknown
+r poison 100
 #29130
 guardian temple white being~
 The guardian of the white temple~
@@ -221,9 +237,23 @@ human~
 AFG DJ -700 0
 32 0 6d12+885 1d1+300 4d6+8 'punch'
 -9 -9 -9 4
-F 0 CM ENR
+F 0 0 0
 stand stand female 2200
 0 0 medium unknown
+r bash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #29132
 warlock man~
 The warlock~
@@ -236,9 +266,23 @@ human~
 AFG DJ -800 0
 33 0 10d10+1000 1d1+300 4d6+8 'punch'
 -11 -11 -11 0
-F 0 CM ENR
+F 0 0 0
 stand stand male 2300
 0 0 medium unknown
+r bash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #29133
 leader coven~
 The coven leader~
@@ -252,9 +296,23 @@ human~
 AFG DFJ -900 0
 34 0 10d10+1100 1d1+300 4d6+9 'punch'
 -11 -11 -11 1
-F M C ENR
+F 0 0 0
 stand stand male 2400
 0 0 medium unknown
+r bash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r negative 100
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #29134
 beast hell flaming~
 The flaming beast from hell~
@@ -267,12 +325,16 @@ terrible talons. It looks at you, and with a fiery laughter, it says:
 battle, but you will not stop our plan!'
 ~
 unique~
-ABFG DFJu -1000 0
+ABFGl DFJu -1000 0
 28 0 6d12+703 1d1+200 2d12+8 'bite'
 -8 -8 -8 6
-F AHL B I
+F 0 0 0
 stand stand none 1800
 ABG ABCDEFJKLMPUV large unknown
+r fire 100
+r cold -50
+r poison 100
+r charm 33
 #0
 
 #OBJECTS

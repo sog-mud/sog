@@ -21,16 +21,32 @@ to destroy anyone who dares to penatrate into the chamber.
 попытается проникнуть сюда.  
 ~
 human~
-ABJKWef DFJNOTVZclmtu -1000 0
+ABJKWefl DFJNOTVZclmtu -1000 0
 92 40 2d500+25000 1d200+600 10d40+40 'slash'
 -77 -77 -77 -42
-ACEFKNU ABMP CDEK S
+ACEFKNU 0 0 0
 stand stand male 5000
 0 0 gargantuan unknown
 M grall 95600 100~
 M exall 95603 0~
 M fight 95605 30~
 C Invaders
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 100
+r energy 33
+r mental 100
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
 #95601
 cleric cabal invader~
 @eng the evil cleric@rus ~~жрец~~ Зла~
@@ -48,14 +64,31 @@ whole Shades of Gray as in the history.
 того дня, когда весь этот мир склонится перед Инвайдерами.  
 ~
 human~
-ABQVace DFmu -1000 0
+ABQVacel DFmu -1000 0
 90 100 1d1+28999 1d1+999 2d14+60 'magic'
 -85 -85 -85 -15
-AFHIKQ ABCE D 0
+AFHIKQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
 M act 95601 tells you 'great night'~
 C Invaders
+r bash 100
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #95602
 bruks vampire~
 @eng bruks@rus ~~брукса~~~
@@ -64,25 +97,57 @@ bruks vampire~
 ~
 ~
 undead~
-AB g -1000 0
+ABl g -1000 0
 1 0 1d1+1 1d1+10000 1d1+1 'kiss'
 -10000 -10000 -10000 -10000
-G ABCD 0 0
+G 0 0 0
 stand stand female 0
 0 0 medium unknown
 M bribe 95602 5000~
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 33
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r charm 100
+r harm 100
+r light 33
 #95603
 darkness~
 @eng darkness@rus ~~тьма~~~
 ~
 ~
 unique~
-ABOc BDFKPglmu -10000 0
+ABOckl BDFKPglmu -10000 0
 200 0 1d1+1000000 0d0+0 0d0+0 'blast'
 0 0 0 0
-G ABCDEFGHIJKLMNOPQRTUXYZ 0 0
+G 0 0 0
 stand stand none 0
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #95604
 slave~
 @eng slave woman@rus ~~рабыня~~~
@@ -94,9 +159,26 @@ human~
 A 0 1000 0
 1 0 1d1+10 0d0+0 0d0+0 'slap'
 0 0 0 0
-Q 0 0 CDKMO
+Q 0 0 0
 stand stand female 0
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #95605
 swamp beast~
 @eng beast@rus ~~тварь~~~
@@ -108,10 +190,25 @@ undead~
 ACOc ciu -1000 0
 200 1000 1d1+100000 1d1+100000 1d1+100 'kiss'
 0 0 0 0
-0 CDP 0 0
+0 0 0 0
 stand stand none 0
 0 0 gargantuan unknown
 M random 95604 10~
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 33
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r charm 100
+r harm 100
+r light 33
 #95606
 shadow watcher~
 @eng Shadow@rus ~~Тень~~~
@@ -123,12 +220,17 @@ undead~
 ABOci gl -1000 0
 92 0 1d1+100000 1d1+100000 0d0+0 'wrath'
 -100 -100 -100 -100
-0 DKP 0 0
+0 0 0 0
 stand stand none 0
 0 0 gargantuan unknown
 M grall 95606 100~
 C Invaders
 W 92
+r bash 100
+r pierce 100
+r slash 100
+r acid 100
+r mental 100
 #0
 
 #OBJECTS

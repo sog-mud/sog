@@ -59,12 +59,13 @@ John the shopkeeper stands here at his part time job.
 John the shopkeeper is obviously not happy.  And who would be at this job?
 ~
 human~
-ABVe 0 200 0
+ABVel 0 200 0
 10 0 2d33+50 10d10+100 3d5+7 'pierce'
 4 4 4 7
-CEIK AB 0 0
+CEIK 0 0 0
 stand stand male 250
 0 0 medium unknown
+r charm 100
 #404
 shark~
 a shark~
@@ -74,12 +75,14 @@ How hungry do you think a shark could possibly be?  You poke its nose to
 piss it off.  Boy does he look angry now!
 ~
 human~
-ABF 0 -300 0
+ABFl 0 -300 0
 7 1 1d33+61 1d10+100 3d4+1 'scratch'
 3 3 3 5
-DKMV AR LQ 0
+DKMV 0 0 0
 stand stand male 250
 0 0 large unknown
+r disease 33
+r poison 33
 #405
 jellyfish man war man-o-war~
 A Man-of-war~
@@ -93,9 +96,10 @@ human~
 ACG 0 0 0
 5 0 4d5+30 1d10+100 1d6+1 'bite'
 8 0 8 8
-0 L 0 0
+0 0 0 0
 stand stand female 250
 0 0 large unknown
+r poison 100
 #406
 child~
 a child~
@@ -122,9 +126,13 @@ troll~
 AGR 0 -500 0
 5 0 2d5+40 5d10+100 2d3+1 'pierce'
 6 6 6 8
-0 BE HK 0
+0 0 0 0
 stand stand female 320
 0 0 medium unknown
+r bash 100
+r fire 33
+r acid 33
+r charm 100
 #408
 gorilla~
 A gorilla~

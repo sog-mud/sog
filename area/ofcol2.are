@@ -36,12 +36,13 @@ is the hardest metal she can find.  She is willing to defend Ofcol to her
 death.
 ~
 human~
-ABKQe DHN 1000 0
+ABKQel DHN 1000 0
 33 16 10d73+487 33d10+100 5d11+19 'none'
 -10 -10 -10 -5
-EIKU AB 0 0
+EIKU 0 0 0
 stand stand female 250
 0 0 medium unknown
+r charm 100
 #602
 derrick captain guard cityguard~
 Captain Derrick~
@@ -458,12 +459,29 @@ with the world.  She devotes all her time to help teach you the ways of her
 god, Bahamut.  The dragon symbol around her neck looks almost alive.
 ~
 human~
-ABKe HN 1000 0
+ABKel HN 1000 0
 29 20 10d56+405 29d10+100 5d10+15 'none'
 -8 -8 -8 -3
-EFNU ABCD 0 0
+EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #629
 chaplain Jerrold~
 Chaplain Jerrold~

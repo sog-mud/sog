@@ -22,12 +22,27 @@ fearsome sight. Despite the wasted, rotten flesh it is garbed in the rich
 clothes of nobility.
 ~
 human~
-ABCF DJu -1000 0
+ABCFl DJu -1000 0
 47 0 25d10+3500 469d1+1 6d6+17 'punch'
 -17 -17 -17 3
-CDIKLN AB E CK
+CDIKLN 0 0 0
 stand stand male 6700
 0 0 medium unknown
+r bash 33
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm 33
+r harm -50
+r light -50
 #25001
 keftab~
 Keftab, the Ancient One~
@@ -43,12 +58,25 @@ mossy protrusions, like some strange malignant blemishes. It emits low,
 gutteral mewlings from its fange, quivering oriface.
 ~
 human~
-ABC DJP -1000 0
+ABCl DJP -1000 0
 45 0 25d10+2300 449d1+1 8d4+10 'beating'
 -15 -15 -15 4
-CDEFH AB N C
+CDEFH 0 0 0
 stand stand male 6500
 0 0 medium unknown
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm 33
+r harm -50
+r light -50
 #25002
 death crimson~
 A Crimson Death~
@@ -59,12 +87,16 @@ victims stain the robe. Its skeletal figure resembles that of the angel of
 death. Its eyes glow with a furious fire to kill.
 ~
 human~
-ABCF DJTUu -1000 0
+ABCFl DJTUu -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 5
-DEHIJK AB D FGNO
+DEHIJK 0 0 0
 stand stand either 5600
 0 0 medium unknown
+r bash 33
+r holy -50
+r energy -50
+r charm 100
 #25003
 mist daemon~
 A Mist Daemon~
@@ -74,12 +106,13 @@ A large demon like creature hovers abover you, in a cloud of grey mist.
 Its winged form stares down at you in utter hatred.
 ~
 human~
-ABCF JU -1000 0
+ABCFl JU -1000 0
 34 0 10d10+1200 339d1+1 4d7+10 'punch'
 -11 -11 -11 5
-HIK AB R X
+HIK 0 0 0
 stand stand either 10000
 0 0 medium unknown
+r charm 100
 #25004
 black slayer~
 a Black Slayer~
@@ -89,12 +122,25 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-ABCF DJP -1000 0
+ABCFl DJP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ACFHIK A C B
+ACFHIK 0 0 0
 stand stand male 999
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r harm 33
+r light 33
 #25005
 lost soul~
 a Lost Soul~
@@ -103,12 +149,28 @@ A ghostly apparition floats here, staring at you in utter hatred.
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
 human~
-ACF DJP -1000 0
+ACFl DJP -1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-FGJK A C DS
+FGJK 0 0 0
 stand stand female 666
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
 #25006
 storm giant~
 a Storm Giant~
@@ -118,12 +180,27 @@ This huge creature is approximatly 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
 ~
 giant~
-ABCF DJP -1000 0
+ABCFl DJP -1000 0
 40 0 15d10+1850 399d1+1 4d8+13 'punch'
 -13 -13 -13 4
-CEIKL AB D CIK
+CEIKL 0 0 0
 stand stand male 10000
 0 0 large unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 0
+r cold 0
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r sound -50
+r disease -50
+r poison -50
+r charm 33
+r harm -50
+r light -50
 #25007
 white gold manticore~
 a White Gold Manticore~
@@ -137,9 +214,11 @@ bear~
 ABC DHJ 0 25007
 22 0 5d10+400 219d1+1 4d4+6 'punch'
 -5 -5 -5 6
-ACHIKL 0 J E
+ACHIKL 0 0 0
 stand stand male 877
 0 0 medium unknown
+r bash 0
+r lightning 33
 #25008
 flaming efreet~
 an Efreet~
@@ -149,12 +228,18 @@ The creature is formed entirely of flames. The creature gives off an
 intense heat.
 ~
 human~
-ABF Jb -1000 25008
+ABFl Jb -1000 25008
 35 0 10d10+1200 349d1+1 4d7+10 'punch'
 -11 -11 -11 7
-CDEFGHIK AB H LNOS
+CDEFGHIK 0 0 0
 stand stand male 5612
 0 0 medium unknown
+r fire 33
+r holy -50
+r energy -50
+r poison -50
+r charm 100
+r light -50
 #25009
 hydra~
 the Hydra~
@@ -164,12 +249,15 @@ The huge, scaled creature  has eight heads... each capable of breathing
 a dangerous stream of fire.
 ~
 fox~
-ABCF J -1000 0
+ABCFl J -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 6
-K AB R LO
+K 0 0 0
 stand stand female 6090
 0 0 medium unknown
+r energy -50
+r poison -50
+r charm 100
 #25010
 kraken~
 the kraken~
@@ -183,9 +271,21 @@ water fowl~
 ABF DJ -1000 0
 40 0 15d10+1700 399d1+1 4d8+11 'punch'
 -13 -13 -13 7
-AB R C HI
+AB 0 0 0
 stand stand male 4504
 0 0 medium unknown
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #25011
 treant tree~
 the Treant~
@@ -195,12 +295,28 @@ It is a rather large creature resembling a tree. At the base of the trunk
 is a large opening that looks very much like a mouth.
 ~
 lizard~
-ABCF Ju -1000 0
+ABCFl Ju -1000 0
 44 0 25d10+2550 439d1+1 8d4+12 'punch'
 -15 -15 -15 4
-CEF AB D CH
+CEF 0 0 0
 stand stand male 5709
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison 0
+r charm 33
+r harm -50
+r light -50
 #25012
 githyanki~
 a Githyanki~
@@ -215,9 +331,14 @@ human~
 ABCGH DJP -1000 25012
 26 0 5d10+600 259d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ADEF 0 LM D
+ADEF 0 0 0
 stand stand male 1500
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r negative 33
+r poison 33
 #25013
 kalas~
 Kalas~
@@ -228,12 +349,17 @@ He is a large, muscular man of undead nature. He is clad in rather magical
 looking suit of armor, his sword burning fiercly.
 ~
 human~
-ABF Ju -1000 0
+ABFl Ju -1000 0
 50 0 50d10+4500 499d1+1 5d8+19 'punch'
 -20 -20 -20 3
-ABCDEFGHJKN AB H IJK
+ABCDEFGHJKN 0 0 0
 stand stand male 12045
 0 0 medium unknown
+r fire 33
+r cold -50
+r lightning -50
+r acid -50
+r charm 100
 #25014
 death knight~
 the Death knight~
@@ -244,12 +370,17 @@ of a once mighty warrior. Its eyes are fixed coldly upon you, unsheathing
 its sword, he charges for battle.
 ~
 human~
-ABCF Ju -1000 0
+ABCFl Ju -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 'punch'
 -13 -13 -13 5
-BCEGK AB D H
+BCEGK 0 0 0
 stand stand male 6860
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r charm 100
 #25015
 Neo Otyugh~
 the Neo-Otyugh~
@@ -259,12 +390,16 @@ This creature is covered with slime like substance, many tentacles protrude
 from its disgusting body.
 ~
 dog~
-ABCF Ju -1000 25015
+ABCFl Ju -1000 25015
 46 0 25d10+3250 459d1+1 6d6+16 'punch'
 -16 -16 -16 4
-J AB KL I
+J 0 0 0
 stand stand male 10000
 0 0 medium unknown
+r cold -50
+r acid 33
+r poison 33
+r charm 100
 #25016
 shadow daemon~
 a Shadow Daemon~
@@ -273,12 +408,18 @@ A shadowy figure stands here, looking you over with greed.
 This creature has almost no form, it looks like some sort of shadow with wings.
 ~
 human~
-ACF DJ -1000 0
+ACFl DJ -1000 0
 28 0 6d12+703 279d1+1 2d12+8 'punch'
 -8 -8 -8 5
-CDHI AB MNO STZ
+CDHI 0 0 0
 stand stand male 1230
 0 0 medium unknown
+r holy 33
+r negative 33
+r energy 33
+r sound -50
+r charm 100
+r light -50
 #25017
 gatekeeper gate keeper~
 the Gatekeeper~
@@ -288,12 +429,29 @@ He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 ~
 human~
-ABFG DFJu -1000 25036
+ABFGl DFJu -1000 25036
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
-CI AB C D
+CI 0 0 0
 stand stand male 5400
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #25018
 elemental water prince~
 The Water Prince~
@@ -305,9 +463,13 @@ water fowl~
 AB FHJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHI 0 HIJK 0
+AHI 0 0 0
 stand stand male 4500
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
 #25019
 earth elemental king~
 The Earth King~
@@ -319,9 +481,13 @@ water fowl~
 AB FHJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHI 0 HIJK 0
+AHI 0 0 0
 stand stand male 10000
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
 #25020
 air elemental lord~
 The Lord of Air~
@@ -333,9 +499,13 @@ song bird~
 AB DJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AI 0 HIJK 0
+AI 0 0 0
 stand stand male 4906
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
 #25021
 fire elemental sultan~
 The Sultan of Fire~
@@ -347,9 +517,12 @@ dragon~
 AB D 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHI 0 IJK 0
+AHI 0 0 0
 stand stand male 4111
 0 0 medium unknown
+r cold 0
+r lightning 33
+r acid 33
 #25022
 king goblin~
 The goblin king~
@@ -428,12 +601,29 @@ A Vrock stands here
 It is a vulture/human creature. Extremely ugly, and nasty.
 ~
 human~
-ACF DFJ -666 25030
+ACFl DFJ -666 25030
 21 0 4d10+360 209d1+1 4d4+5 'punch'
 -5 -5 -5 6
-FI AB C D
+FI 0 0 0
 stand stand male 999
 0 0 medium unknown
+r bash -50
+r pierce -50
+r slash -50
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #25031
 demon hezrou~
 A hezrou~
@@ -442,12 +632,17 @@ A demon Hezrou stands here.
 Not unlike A large toad/man
 ~
 human~
-ACF DFJ -666 0
+ACFl DFJ -666 0
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
-AKN AB GPS HR
+AKN 0 0 0
 stand stand male 378
 0 0 medium unknown
+r slash 33
+r fire -50
+r mental 33
+r charm 100
+r light 33
 #25032
 demon glabrezu~
 A glabrezu~
@@ -456,12 +651,13 @@ A demon Glabrezu stands here.
 I forget what this one looks like.
 ~
 human~
-ACF DFJ -666 25032
+ACFl DFJ -666 25032
 18 0 3d9+283 179d1+1 2d7+4 'punch'
 -3 -3 -3 7
-J AB 0 0
+J 0 0 0
 stand stand either 490
 0 0 medium unknown
+r charm 100
 #25033
 demon nalfeshnee~
 Nalfeshnee~
@@ -470,12 +666,13 @@ Nalfeshnee stands here
 This one is big and mean looking.
 ~
 giant~
-ABCF DFJ -666 25033
+ABCFl DFJ -666 25033
 19 0 3d9+308 190d1+1 2d7+5 'punch'
 -4 -4 -4 7
-A AB 0 0
+A 0 0 0
 stand stand either 890
 0 0 medium unknown
+r charm 100
 #25034
 demon marilith~
 Marilith~
@@ -484,12 +681,13 @@ Marilith slithers here
 A woman with 6 arms and a snake's tail
 ~
 elf~
-ACF DF -666 25034
+ACFl DF -666 25034
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
-A AB 0 0
+A 0 0 0
 stand stand female 450
 0 0 tiny unknown
+r charm 100
 #25035
 demon balor~
 Balor~
@@ -498,12 +696,29 @@ Balor stands here, surrounded by electrical fire
 He is very large, and looks rather deadly
 ~
 dwarf~
-ACF DF -666 0
+ACFl DF -666 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-I AB D C
+I 0 0 0
 stand stand male 899
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm 33
+r harm -50
+r light -50
 #25036
 gatekeeper gate keeper~
 the Gatekeeper~
@@ -513,12 +728,13 @@ He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 ~
 human~
-ABFG DFJu -1000 25017
+ABFGl DFJu -1000 25017
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
-CDIK AB 0 0
+CDIK 0 0 0
 stand stand male 5400
 0 0 medium unknown
+r charm 100
 #25037
 black slayer~
 a Black Slayer~
@@ -528,12 +744,25 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-ABCF DJP -1000 0
+ABCFl DJP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ACFHIK A C B
+ACFHIK 0 0 0
 stand stand male 999
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r harm 33
+r light 33
 #25038
 black slayer~
 a Black Slayer~
@@ -543,12 +772,25 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-ABCF DJP -1000 0
+ABCFl DJP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 0 0 0 0
-ACFHIK A C B
+ACFHIK 0 0 0
 stand stand male 0
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r harm 33
+r light 33
 #0
 
 #OBJECTS
@@ -854,7 +1096,12 @@ ivory~
 armor GL AM
 9 9 9 2 0
 31 16 13420 G
-F R 0 0 D
+A
+27 33
+A
+28 33
+A
+29 33
 F A 0 0 KT
 F A 0 0 Z
 g none~

@@ -50,12 +50,14 @@ renowned for his unusial strenght and vigor.Now he is selling some goods,
 wich he find in his travels.
 ~
 unique~
-ABVei DHN 0 0
+ABVeikl DHN 0 0
 30 0 7d12+1200 30d9+100 5d4+60 'scratch'
 -20 -20 -20 -20
-EFHJ ABU 0 E
+EFHJ 0 0 0
 stand stand male 10000
 AV ABCDF small unknown
+r bash -50
+r charm 100
 #22454
 bloody beast~
 bloody beast~
@@ -69,9 +71,13 @@ pig~
 AW 0 500 0
 11 0 2d8+105 1d1+99 1d3+3 'bite'
 1 10 1 0
-0 0 H INS
+0 0 0 0
 stand stand none 50
 HM 0 tiny unknown
+r fire 33
+r cold -50
+r holy -50
+r light -50
 #22455
 bloody beast~
 bloody beast~
@@ -85,9 +91,13 @@ pig~
 AW 0 500 0
 13 0 2d7+103 1d1+99 1d5+3 'bite'
 1 10 1 0
-F 0 H INS
+F 0 0 0
 stand stand none 50
 HM 0 tiny unknown
+r fire 33
+r cold -50
+r holy -50
+r light -50
 #22456
 guard small~
 small guard~
@@ -133,9 +143,12 @@ unique~
 AGW DJ -500 0
 18 6 2d10+400 1d1+99 5d5+5 'scratch'
 -2 -2 -2 2
-0 0 I NS
+0 0 0 0
 stand stand none 0
 AHMV A small unknown
+r cold 33
+r holy -50
+r light -50
 #22459
 icky thing blubbering~
 blubbering Icky Thing~
@@ -149,9 +162,12 @@ unique~
 AGW DJ -500 0
 19 6 2d11+410 1d1+99 5d5+5 'slime'
 -2 -2 -2 2
-F 0 I NS
+F 0 0 0
 stand stand none 0
 AHMV A small unknown
+r cold 33
+r holy -50
+r light -50
 #22460
 guard medium~
 medium guard~
@@ -165,9 +181,12 @@ human~
 AGW DJ 500 0
 27 8 2d15+750 1d1+99 5d5+10 'crush'
 -6 -5 -6 -5
-FK 0 IN M
+FK 0 0 0
 stand stand male 150
 0 ABCDF medium unknown
+r cold 33
+r holy 33
+r negative -50
 #22461
 guard medium~
 medium guard~
@@ -181,9 +200,12 @@ human~
 ACGW DJ 500 0
 29 10 2d15+900 1d1+99 5d5+10 'cleave'
 -6 -5 -6 -5
-FJK 0 IN M
+FJK 0 0 0
 stand stand male 150
 0 ABCDF medium unknown
+r cold 33
+r holy 33
+r negative -50
 #22462
 clear naga~
 Clear naga~
@@ -197,9 +219,12 @@ unique~
 AGW DJTU -500 0
 26 6 2d18+700 1d1+99 5d5+7 'drain'
 -6 -2 -6 -7
-FK 0 IM S
+FK 0 0 0
 stand stand female 0
 AHMV AC small unknown
+r cold 33
+r negative 33
+r light -50
 #22463
 naga spirit~
 spirit naga~
@@ -215,9 +240,12 @@ unique~
 AGW DJTU -500 0
 29 6 2d10+900 1d1+99 5d6+11 'wrath'
 -10 -10 -10 -10
-FJKO 0 IM S
+FJKO 0 0 0
 stand stand female 0
 AHMV AC medium unknown
+r cold 33
+r negative 33
+r light -50
 #22464
 naga spirit queen~
 Queen of Nagas~
@@ -231,12 +259,26 @@ On its head you can see a crown maded form strange metal.And it hisses
 strange and ancient chants,prepare for battle with intruders.
 ~
 unique~
-AGRTW BDFJNPTUVcu -500 0
+AGRTWl BDFJNPTUVcu -500 0
 32 6 2d10+1500 1d1+99 5d5+20 'wrath'
 -10 -10 -10 -10
-ACDEFJK AB CIKMP 0
+ACDEFJK 0 0 0
 stand stand female 1000
 AMX AC large unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #22465
 tellias ranger guard~
 Tellias~
@@ -248,12 +290,15 @@ his fighting prowess and physical fitness.In his hands you see ancient
 staff maded form blue ice crystall.
 ~
 unique~
-AGJ DFHJVt 500 0
+AGJl DFHJVt 500 0
 45 30 2d40+2000 1d1+99 5d5+30 'wrath'
 -15 -15 -15 -15
-FJKX AB HI 0
+FJKX 0 0 0
 stand stand male 500
 AMV ACDEF large unknown
+r fire 33
+r cold 33
+r charm 100
 #22466
 mifner captain burner~
 Mifner~
@@ -265,12 +310,16 @@ and in his red eyes you see a flame of evilness and hate of all forest
 creatures.
 ~
 unique~
-AG DFJVu -500 0
+AGl DFJVu -500 0
 45 30 2d40+2000 1d1+99 5d5+30 'acbite'
 -15 -15 -15 -15
-DEFJK AB HIM 0
+DEFJK 0 0 0
 stand stand male 500
 AMV ACDEF large unknown
+r fire 33
+r cold 33
+r negative 33
+r charm 100
 #22467
 large forest guard~
 large guard~
@@ -287,9 +336,12 @@ unique~
 ABG DJ 1000 0
 35 20 2d2+1500 1d1+99 6d6+35 'slash'
 -10 -10 -10 -10
-CFKN BJS B 0
+CFKN 0 0 0
 stand stand male 100
 AC 0 large unknown
+r lightning 100
+r charm 100
+r light 100
 #22468
 giant guard~
 giant guard~
@@ -302,9 +354,13 @@ unique~
 AGT DJ 1000 0
 46 15 25d10+2600 1d1+999 32d4+8 'claw'
 -12 -12 -12 -12
-CDEFIJKO 0 HIJ T
+CDEFIJKO 0 0 0
 stand stand male 150
 AHMV 0 giant unknown
+r fire 33
+r cold 33
+r lightning 33
+r sound -50
 #22469
 forest burner man~
 forest burner~
@@ -318,9 +374,13 @@ unique~
 ABG DJ -1000 0
 35 20 2d2+1500 1d1+99 6d6+35 'slash'
 -10 -10 -10 -10
-CFKN BJ BH I
+CFKN 0 0 0
 stand stand male 100
 AC 0 large unknown
+r fire 33
+r cold -50
+r lightning 100
+r charm 100
 #22470
 name man destroer~
 forest destroer~
@@ -333,9 +393,13 @@ unique~
 AGT DJ 1000 0
 46 15 25d10+2600 1d1+999 32d4+8 'chop'
 -12 -12 -12 -12
-CDEFIJKO 0 HJ IT
+CDEFIJKO 0 0 0
 stand stand male 150
 AHMV 0 giant unknown
+r fire 33
+r cold -50
+r lightning 33
+r sound -50
 #22479
 ~
 ~

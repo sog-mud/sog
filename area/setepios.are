@@ -32,12 +32,29 @@ bargan~
 @rus Ни чего не видно кроме его рясы.
 ~
 human~
-ABQRT DFHUVZl 0 0
+ABQRTkl DFHUVZl 0 0
 110 1000 1d1+30000 1d1+30000 1d1+1000 'divine'
 -100 -100 -100 -100
-0 ABCDKNU 0 0
+0 0 0 0
 stand stand male 32000
 0 0 medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #38002
 buzua~
 Buzua~
@@ -46,12 +63,16 @@ Buzua is snooping here for new victims.
 Wow !!! It's a kind of mutant troll ...
 ~
 troll~
-ABGRT FVu -1000 0
+ABGRTk FVu -1000 0
 25 200 1d1+3000 1d1+6000 1d1+250 'crush'
 -30 -10 0 0
-H BJLPUX 0 0
+H 0 0 0
 stand stand male 0
 0 0 huge unknown
+r lightning 100
+r mental 100
+r poison 100
+r charm 100
 #38003
 of gubund sola rafta~
 Rafta~
@@ -59,12 +80,18 @@ Rafta is here.
 ~
 ~
 troll~
-ABQRST HV 100 0
+ABQRSTk HV 100 0
 40 120 1d1+5000 1d1+1000 10d7+120 'smash'
 -10 -10 -10 -10
-ACEFHIJKO BJKOPQU 0 0
+ACEFHIJKO 0 0 0
 stand stand female 10000
 0 0 medium unknown
+r lightning 100
+r acid 100
+r energy 100
+r mental 100
+r disease 100
+r charm 100
 #38004
 mavtar tikashu~
 Tikashu~
@@ -85,12 +112,13 @@ You see a shadow off Elemental of Life
 ~
 ~
 fire elemental~
-ABGRT u -1000 0
+ABGRTk u -1000 0
 32 50 2000d1+1 100d10+400 10d3+4 'divine'
 0 0 0 0
-0 BU 0 0
+0 0 0 0
 stand stand none 0
 0 0 medium unknown
+r charm 100
 #38006
 demoniar~
 {RDemoniar{x~
@@ -114,12 +142,13 @@ Kabidir is snooping all around ...
 It's him !!!
 ~
 troll~
-ABCGQRST DFHV 0 0
+ABCGQRSTk DFHV 0 0
 70 70 1d1+18999 1d1+999 10d5+100 'cleave'
 -100 -70 -70 -40
-AJ BU 0 0
+AJ 0 0 0
 stand stand male 10000
 0 0 medium unknown
+r charm 100
 #38008
 demon of second circle red dragon~
 {RRED DRAGON{x~
@@ -127,12 +156,13 @@ demon of second circle red dragon~
 ~
 ~
 red dragon~
-ABCGQRT DFHUVcl 0 0
+ABCGQRTk DFHUVcl 0 0
 100 800 1d1+30000 1d1+30000 1d1+500 'flame'
 -100 -100 -100 -100
-AEFHKO BU 0 0
+AEFHKO 0 0 0
 stand stand none 999999
 0 0 medium unknown
+r charm 100
 #38009
 grabi~
 {rGrabi{x~
@@ -141,13 +171,27 @@ Grabi is smiling here ...
 You think she'll die if she smile ...
 ~
 human~
-ABCGQRST DFVl -1000 0
+ABCGQRSTk DFVl -1000 0
 100 320 1d1+29999 1d1+2999 20d10+200 'scratch'
 -200 -200 -200 -200
-ACFHJKO BU C 0
+ACFHJKO 0 0 0
 stand stand female 10000
 0 0 medium unknown
 F for AHMV
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #38010
 sheeala~
 @eng {MSheeala{x@rus {MШиала{x~
@@ -156,13 +200,30 @@ sheeala~
 ~
 ~
 human~
-ABCGQRST DFTVu -1000 0
+ABCGQRSTk DFTVu -1000 0
 1 220 1d1+19999 1d1+10000 10d5+100 'flbite'
 -30 -40 -30 -50
-0 BCDU 0 0
+0 0 0 0
 stand stand female 100
 0 0 medium unknown
 F for AHMV
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #38011
 natasha~
 @eng Natasha@rus Наташа~
@@ -226,13 +287,15 @@ his hand seems to be his own finger !
 конечности.
 ~
 troll~
-ABFGT DHZ 0 0
+ABFGTl DHZ 0 0
 110 0 100d10+20000 1d1+5000 15d15+120 'smash'
 -70 -50 -50 -30
-AEFH APQ 0 0
+AEFH 0 0 0
 stand stand male 70000
 0 0 large unknown
 M greet 38500 100~
+r mental 100
+r disease 100
 #38501
 elephant слон~
 @eng elephant@rus слон~
@@ -256,14 +319,15 @@ ga-nocry~
 This tall man is guarding the entrance to the temple of dreams...
 ~
 gnome~
-ABGR DFl 1000 0
+ABGRl DFl 1000 0
 107 0 50d50+15000 100d100+8000 15d12+100 'magic'
 -40 0 -50 -90
-AE ABX B 0
+AE 0 0 0
 stand stand male 60000
 0 0 medium unknown
 M exall 38501 3~
 M speech 38502 Я Степа~
+r charm 100
 #0
 
 #OBJECTS

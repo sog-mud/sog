@@ -19,10 +19,24 @@ human~
 AGH 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
-NU 0 0 C
+NU 0 0 0
 stand stand either 10
 0 0 medium unknown
 V 3061
+r fire -50
+r cold -50
+r lightning -50
+r acid -50
+r holy -50
+r negative -50
+r energy -50
+r mental -50
+r sound -50
+r disease -50
+r poison -50
+r charm -50
+r harm -50
+r light -50
 #37001
 cityguard guard стражница~
 @eng the cityguard@rus стражница~
@@ -36,10 +50,24 @@ human~
 ACGT 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTU 0 C 0
+CDEKLTU 0 0 0
 stand stand either 150
 0 0 medium unknown
 V 3060
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 33
+r harm 33
+r light 33
 #37002
 rabbit крольчиха~
 @eng the rabbit@rus крольчиха~
@@ -159,10 +187,12 @@ human~
 AHT EFHNV 500 0
 40 100 3d12+2000 1d1+700 2d7+80 'none'
 -18 -18 -18 -4
-CDEFHIJKLNQ 0 AEI 0
+CDEFHIJKLNQ 0 0 0
 stand stand either 20000
 0 0 medium unknown
 F for H
+r bash 33
+r cold 33
 #0
 
 #SPECIALS

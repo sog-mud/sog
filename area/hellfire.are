@@ -19,13 +19,30 @@ troll~
 AJKTbef DFOPVlmt -1000 0
 0 100 1d1+29999 1d1+999 1d1+200 'none'
 -200 -200 -200 -200
-ACEFIJKLN CD D 0
+ACEFIJKLN 0 0 0
 stand stand male 1000000
 0 0 huge unknown
 M speech 18799 да пошел ты~
 M speech 18799 да иди ты~
 M act 18799 say~
 C Battleragers
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #18701
 griswold грисвольд~
 @eng Griswold@rus кузнец Гризвольд~
@@ -38,13 +55,30 @@ griswold грисвольд~
  
 ~
 human~
-ABTce CDEFHNTVlmt 584 0
+ABTcekl CDEFHNTVlmt 584 0
 70 15 25d15+25000 1d1+999 8d8+60 'slash'
 -80 -80 -80 -80
-ACEFHJK ABQU CDL 0
+ACEFHJK 0 0 0
 stand stand male 1000000
 0 0 medium unknown
 F for AHMV
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 100
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #18702
 ogden огден~
 @eng innkeeper Ogden@rus ~~Трактирщик~~ ~~Огден~~~
@@ -68,13 +102,30 @@ cain кейн~
 ~
 ~
 human~
-ABJKRXbdef DFHV 367 0
+ABJKRXbdefl DFHV 367 0
 70 50 1d1+29999 1d1+499 6d14+100 'chill'
 -100 -100 -100 -100
-EFKT ABEQ CDL 0
+EFKT 0 0 0
 stand stand male 1000
 0 0 medium unknown
 F for AHMV
+r bash 100
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 100
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #18704
 healer лекарь пепин pepin~
 @eng healer Pepin@rus ~~лекарь~~ ~~Пепин~~~
@@ -83,13 +134,30 @@ healer лекарь пепин pepin~
 ~
 ~
 human~
-ABQaef DFHNTVlmt 1000 0
+ABQaefkl DFHNTVlmt 1000 0
 120 300 1d1+29999 12d42+10000 20d10+100 'divine'
 -100 -100 -100 -100
-AN ABCMNQU DL 0
+AN 0 0 0
 stand stand male 1000
 0 0 medium unknown
 F for AHMV
+r bash 33
+r pierce 33
+r slash 33
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #18705
 adria ведьма адрия witch~
 @eng Adria witch@rus ~~Ведьма~~ ~~Адрия~~~
@@ -97,13 +165,29 @@ adria ведьма адрия witch~
 ~
 ~
 human~
-ABRcef DFVu -1000 0
+ABRcefl DFVu -1000 0
 92 0 1d1+28999 1d1+999 10d10+20 'none'
 -70 -70 -70 -70
-F AB CD M
+F 0 0 0
 stand stand female 0
 0 0 medium unknown
 F for AHMV
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #18706
 farnham алкаш drunk~
 @eng Farnham@rus ~~пьяница~~ Фанхам~
@@ -112,13 +196,25 @@ farnham алкаш drunk~
 ~
 ~
 human~
-ABUe Yd 0 0
+ABUel Yd 0 0
 15 0 15d15+200 1d1+149 2d4+5 'punch'
 10 10 10 10
-DFK A CI BPR
+DFK 0 0 0
 stand rest male 0
 0 0 medium unknown
 F for AHMV
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r sound 33
+r disease 33
+r poison 33
+r harm 33
+r light 33
 #18707
 wirt вирт~
 @eng Wirt@rus ~~Вирт~~~
@@ -127,16 +223,21 @@ wirt вирт~
 ~
 ~
 human~
-ABCSce CDFGPdlmtu -436 0
+ABCScel CDFGPdlmtu -436 0
 50 0 50d10+18000 1d1+99 6d8+30 'none'
 -23 -54 -34 -67
-BFNT ABLQ D ER
+BFNT 0 0 0
 stand stand male 0
 0 0 medium unknown
 F for AHMV
 M grall 18700 666~
 M exall 18702 2~
 M bribe 18701 5000~
+r pierce 33
+r slash 33
+r disease 100
+r poison 100
+r charm 100
 #18708
 bank~
 ~
@@ -146,10 +247,11 @@ human~
 ABe 0 0 0
 100 0 1d1+29999 0d0+0 0d0+0 'slash'
 0 0 0 0
-0 0 0 P
+0 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
+r mental -50
 #18710
 mage fire ball~
 @eng {RFire Ball{x@rus {RОгненный шар{x~
@@ -182,7 +284,8 @@ axe 1 9999 'flame' AD
 95 300 2147483647 P
 F A 19 100000 a
 F A 18 100000 a
-F I 0 0 H
+A
+30 100
 F A 2 15 V
 F A 0 0 A
 g male~

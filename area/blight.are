@@ -19,10 +19,10 @@ hooves and rams head that is.  It's all too human eyes burn with hatred upon
 spotting you, it picks it's teeth as it prepares to slaughter you.
 ~
 unique~
-ABCFGT DFJ -1000 0
+ABCFGTl DFJ -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFIJNQR A 0 R
+CDEFIJNQR 0 0 0
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 #23002
@@ -37,12 +37,18 @@ by the Dark One's taint.  It turns it's eyeless gaze upon you...  this may be
 your last battle...
 ~
 unique~
-ACFGST DFJPQu -1000 0
+ACFGSTl DFJPQu -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-BEFGHIQ ABL HIJK R
+BEFGHIQ 0 0 0
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r poison 100
+r charm 100
 #23003
 trolloc ko'bal~
 The trolloc~
@@ -55,10 +61,10 @@ wolf-like jowls that is.  It's all too human eyes burn with hatred upon
 spotting you, it picks it's teeth as it prepares to slaughter you.
 ~
 unique~
-ABCFGT DFJb -1000 0
+ABCFGTl DFJb -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFIJNQR A 0 R
+CDEFIJNQR 0 0 0
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 #23004
@@ -73,10 +79,10 @@ beak that is.  It's all too human eyes burn with hatred upon spotting you,
 it pecks at the last of it's meal as it prepares to slaughter you.
 ~
 unique~
-ABCFGT DFJTb -1000 0
+ABCFGTl DFJTb -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFQ A 0 R
+CDEFQ 0 0 0
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 #23005
@@ -89,12 +95,16 @@ As soon as they spot you they descend, a huge black cloud come down to claim
 your flesh.
 ~
 unique~
-ABCFGS J -1000 0
+ABCFGSl J -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
-EFHN ABLQR 0 H
+EFHN 0 0 0
 stand stand none 1000
 A 0 medium unknown
+r fire -50
+r disease 100
+r poison 100
+r charm 100
 #23006
 trolloc kno'mon~
 The trolloc~
@@ -107,10 +117,10 @@ boar like snout and tusks that is.  It's all too human eyes burn with hatred
 as it charges to attack.
 ~
 unique~
-ABCFGT DFJb -1000 0
+ABCFGTl DFJb -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFIJKNQR A 0 R
+CDEFIJKNQR 0 0 0
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
 #23007
@@ -122,12 +132,19 @@ A grotesque black oily creature slides through the roiling black waters of the
 Lake.  It seems quite hostile.
 ~
 unique~
-ABCFGT DFJ -1000 0
+ABCFGTl DFJ -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'claw'
 -11 -11 -11 3
-CEFGMOQ ABD HI J
+CEFGMOQ 0 0 0
 stand stand none 1000
 AB ABCDEFGHIJKQ medium unknown
+r bash 100
+r pierce 100
+r slash 100
+r fire 33
+r cold 33
+r lightning -50
+r charm 100
 #23008
 tree twisted~
 The twisted tree~
@@ -137,12 +154,15 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT DFJ -1000 0
+ABCFGTl DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
-CEFHKNQ ABF 0 H
+CEFHKNQ 0 0 0
 stand stand none 0
 AB 0 medium unknown
+r pierce 100
+r fire -50
+r charm 100
 #23009
 draghkar~
 The draghkar~
@@ -153,12 +173,15 @@ drawn to the creature, at the last moment you pull away, and pull out your
 weapons.
 ~
 unique~
-ABCFGRT DF -1000 0
+ABCFGRTl DF -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-AEFGHJKNQ AB K H
+AEFGHJKNQ 0 0 0
 stand stand none 10000
 AB ABCDEFGHIJK medium unknown
+r fire -50
+r acid 33
+r charm 100
 #23010
 disfigured diseased flesh lump creature~
 The diseased creature~
@@ -169,12 +192,13 @@ energy.  The taint of evil has twisted the creature beyond recognition, you
 fell the emense hatred this creature feels for you, it rambles closer...
 ~
 unique~
-ACFGd DFJX -1000 0
+ACFGdl DFJX -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 'charge'
 -4 -4 -4 5
-CINQ AB 0 0
+CINQ 0 0 0
 stand stand none 1000
 AB ABCDEFGHIJKLMNOPQUVWXY medium unknown
+r charm 100
 #23011
 warder gaidan~
 The warder~
@@ -186,12 +210,18 @@ know the man, but you do know he is deadly, and from the looks of him, not to
 be trifled with.
 ~
 human~
-AGTd BDFJNPQZ 1000 0
+AGTdl BDFJNPQZ 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-EFGHKLPS AB IJKMQ 0
+EFGHKLPS 0 0 0
 stand stand male 1000
 0 0 medium unknown
+r cold 33
+r lightning 33
+r acid 33
+r negative 33
+r disease 33
+r charm 100
 #23012
 lord~
 The Lord of the tower~
@@ -203,12 +233,29 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTd DFHJNVZb 0 0
+ABCFGOTdl DFHJNVZb 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
-ADEFGHKN ABLQ CD 0
+ADEFGHKN 0 0 0
 stand stand male 1000
 C ABCDEFGHIJK medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 100
+r poison 100
+r charm 100
+r harm 33
+r light 33
 #23013
 lord~
 The Lord of the tower~
@@ -220,12 +267,29 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTVd DFHJNVZb 0 0
+ABCFGOTVdl DFHJNVZb 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
-ADEFGHKN ABLQ CD 0
+ADEFGHKN 0 0 0
 stand stand male 1000
 C ABCDEFGHIJK medium unknown
+r bash 33
+r pierce 33
+r slash 33
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 100
+r poison 100
+r charm 100
+r harm 33
+r light 33
 #23014
 spirit soldier~
 The spirit~
@@ -238,12 +302,15 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-ACFGOTd BDFJPUZd 0 0
+ACFGOTdl BDFJPUZd 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-EFGHJKNU ALQ 0 NY
+EFGHJKNU 0 0 0
 stand stand none 0
 C ABCDEFGHIJK medium unknown
+r holy -50
+r disease 100
+r poison 100
 #23015
 spirit~
 The spirit~
@@ -256,12 +323,16 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-ACFGOTd BDFJNPUZd 0 0
+ACFGOTdl BDFJNPUZd 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-EFGHJKNU ABLQ 0 NY
+EFGHJKNU 0 0 0
 stand stand none 1000
 C ABCDEFGHIJK medium unknown
+r holy -50
+r disease 100
+r poison 100
+r charm 100
 #23016
 tree twisted~
 The twisted tree~
@@ -271,12 +342,15 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT DFJ -1000 0
+ABCFGTl DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'magic'
 -9 -9 -9 3
-CEFHKNQ ABF 0 H
+CEFHKNQ 0 0 0
 stand stand none 1000
 AB 0 medium unknown
+r pierce 100
+r fire -50
+r charm 100
 #23017
 tree twisted~
 The twisted tree~
@@ -286,12 +360,15 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT DFJ -1000 0
+ABCFGTl DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'magic'
 -9 -9 -9 3
-CEFHKNQ ABF 0 H
+CEFHKNQ 0 0 0
 stand stand none 1000
 AB 0 medium unknown
+r pierce 100
+r fire -50
+r charm 100
 #23018
 tree twisted~
 The twisted tree~
@@ -301,12 +378,15 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGT DFJ -1000 0
+ABCFGTl DFJ -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'magic'
 -9 -9 -9 3
-CEFHKNQ ABF 0 H
+CEFHKNQ 0 0 0
 stand stand none 1000
 AB 0 medium unknown
+r pierce 100
+r fire -50
+r charm 100
 #23019
 seanchan sul'dam woman~
 The Sul'Dam~
@@ -318,12 +398,26 @@ appears to be a military uniform almost, but she looks like no warrior you
 have ever seen.
 ~
 human~
-AGHT DFJb 0 0
+AGHTl DFJb 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'shock'
 -13 -13 -13 3
-EFHIKNU AB C 0
+EFHIKNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r negative 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r charm 100
+r harm 33
+r light 33
 #23020
 metal metallic orb strange~
 The metallic orb~
@@ -335,12 +429,14 @@ You see no eyes on the creature, but feel it 'sees' you somehow.  This
 did not come from any land you have ever heard of.
 ~
 unique~
-AGT DFJTZb 0 0
+AGTl DFJTZb 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'flame'
 -15 -15 -15 2
-EFHKP AMQ 0 0
+EFHKP 0 0 0
 stand stand none 1000
 E E medium unknown
+r negative 100
+r disease 100
 #23021
 fox tall thin~
 The fox-like humanoid~
@@ -353,12 +449,16 @@ smile, and his attire appearing to be made of something like human flesh,
 he seems like a pretty nice guy.
 ~
 unique~
-ACFGHS DFJPV 0 0
+ACFGHSl DFJPV 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
-BEFHKNU ABKLQ 0 Z
+BEFHKNU 0 0 0
 stand stand male 1000
 AB ABCDEFGHIJK medium unknown
+r acid 100
+r disease 100
+r poison 100
+r charm 100
 #23022
 grolm frog huge~
 The grolm~
@@ -369,12 +469,13 @@ skinned nightmare.  That is all you have time to think about until it is time
 to fight.
 ~
 unique~
-AT DFJ 0 0
+ATl DFJ 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'punch'
 -15 -15 -15 2
-CDEF AB 0 0
+CDEF 0 0 0
 stand stand none 1000
 AB ABCDEFGHIJK medium unknown
+r charm 100
 #0
 
 #OBJECTS

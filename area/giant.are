@@ -91,12 +91,13 @@ he seems just the person who you would want as a friend. (And his size makes
 him seem like someone who you WOULDN'T want as an enemy)
 ~
 giant~
-ABCGHQT DFHTU 0 0
+ABCGHQTl DFHTU 0 0
 50 0 1d1+6499 1d1+100 4d4+20 'blast'
 -15 -15 -15 -10
-DEK AB 0 0
+DEK 0 0 0
 stand stand male 2000
 0 0 giant unknown
+r charm 100
 #13005
 human captain guard~
 the Captain of the Castle Guard~
@@ -176,9 +177,10 @@ elf~
 A 0 1000 0
 30 0 6d12+850 1d1+0 5d6+8 'peck'
 -9 -9 -9 -9
-EFJKN 0 0 M
+EFJKN 0 0 0
 stand stand female 0
 0 0 medium unknown
+r negative -50
 #13010
 weeping elf~
 the weeping elf~
@@ -193,9 +195,10 @@ elf~
 A 0 1000 0
 30 0 6d12+850 1d1+0 5d6+8 'peck'
 -9 -9 -9 -9
-EFJKN 0 0 M
+EFJKN 0 0 0
 stand stand female 0
 0 0 medium unknown
+r negative -50
 #13011
 librarian~
 the librarian~
@@ -227,9 +230,10 @@ human~
 ABCFGHOT OV -1000 0
 40 0 1d1+3599 1d1+0 4d9+13 'wrath'
 -14 -14 -14 -10
-ADFHJN 0 0 N
+ADFHJN 0 0 0
 stand stand male 4000
 0 0 medium unknown
+r holy -50
 #13013
 screaming elf~
 the screaming elf~
@@ -244,9 +248,21 @@ elf~
 AB IN 1000 0
 40 0 1d1+3299 1d1+0 4d9+12 'divine'
 -15 -15 -15 -15
-FHJKN 0 C M
+FHJKN 0 0 0
 sit stand male 0
 0 0 medium unknown
+r fire 33
+r cold 33
+r lightning 33
+r acid 33
+r holy 33
+r energy 33
+r mental 33
+r sound 33
+r disease 33
+r poison 33
+r harm 33
+r light 33
 #0
 
 #OBJECTS
@@ -490,7 +506,8 @@ copper~
 armor ABJK AE
 10 10 10 10 10
 50 70 8000 P
-F R 0 0 E
+A
+27 33
 A
 18 1
 A
@@ -537,7 +554,8 @@ copper~
 armor A AC
 6 7 5 0 0
 50 20 8000 P
-F R 0 0 B
+A
+41 33
 A
 1 2
 A

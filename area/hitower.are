@@ -493,12 +493,13 @@ The Enchanter is here placing a dweomer upon well made sword.
 ~
 ~
 human~
-ABGKRe D 0 0
+ABGKRel D 0 0
 43 30 5d100+6400 23d9+100 2d8+35 'none'
 -35 -35 -35 -23
-F AB 0 0
+F 0 0 0
 stand stand male 340
 0 0 medium unknown
+r charm 100
 #1335
 sword dancing~
 a dancing sword~
@@ -692,12 +693,26 @@ The image of an ugly dragon flickers slightly, and where the dragon was
 now stands a small harmless looking old man.
 ~
 human~
-ABCGKRe CDEFG 150 0
+ABCGKRel CDEFG 150 0
 101 50 1d99+29333 21d9+5100 12d47+60 'magic'
 -104 -104 -104 -53
-F ABC 0 0
+F 0 0 0
 stand stand male 117
 0 0 medium unknown
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy 100
+r mental 100
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
+r light 100
 #1349
 necromancer master~
 the Necromancer~
@@ -726,9 +741,10 @@ human~
 ABFG DJ -500 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNU 0 0 E
+EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
+r bash -50
 #1351
 undead giant~
 an undead giant~
@@ -933,12 +949,13 @@ youthful appearance through the use of strong magics.
 The Grand Master pets her familiar and smiles at you in confidence.
 ~
 human~
-ABGKRe DH 0 0
+ABGKRel DH 0 0
 50 0 50d10+4000 50d9+100 6d6+17 'none'
 -19 -19 -19 -4
-FU AB 0 0
+FU 0 0 0
 stand stand female 2500
 0 0 medium unknown
+r charm 100
 #1365
 wizard~
 a wizard~
@@ -1900,7 +1917,6 @@ crystal~
 gem AGY AO
 0 0 0 0 0
 40 60 5100 P
-F I 0 0 A
 A
 17 -10
 A
