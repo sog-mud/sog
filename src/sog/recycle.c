@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.79 1999-11-23 16:04:56 fjoe Exp $
+ * $Id: recycle.c,v 1.80 1999-11-26 08:25:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -355,6 +355,7 @@ void char_free(CHAR_DATA *ch)
 		free_string(pc->bamfout);
 		free_string(pc->title);
 		free_string(pc->twitlist);
+		free_string(pc->enemy_list);
 		free_string(pc->granted);
 		free_string(pc->wanted_by);
 		buf_free(pc->buffer);

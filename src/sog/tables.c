@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.103 1999-11-25 12:26:25 fjoe Exp $
+ * $Id: tables.c,v 1.104 1999-11-26 08:25:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -1400,6 +1400,7 @@ flag_t spec_classes[] =
 	{ "class",		SPEC_CLASS,			TRUE	},
 	{ "race",		SPEC_RACE,			TRUE	},
 	{ "clan",		SPEC_CLAN,			TRUE	},
+	{ "weapon",		SPEC_WEAPON,			TRUE	},
 
 	{ NULL }
 };

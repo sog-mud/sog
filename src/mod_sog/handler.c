@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.203 1999-11-25 12:26:24 fjoe Exp $
+ * $Id: handler.c,v 1.204 1999-11-26 08:25:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -407,7 +407,7 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->in_room		= NULL;
 	obj->in_obj		= NULL;
 	
-	if (obj->last_owner && !IS_NPC(ch)) {
+	if (obj->last_owner && !IS_NPC(ch) && obj->last_owner != ch) {
 		name_add(&PC(obj->last_owner)->enemy_list, ch->name, NULL,NULL);
 		PC(ch)->last_offence = current_time;
 	}
