@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.351 2001-08-21 09:35:15 fjoe Exp $
+ * $Id: merc.h,v 1.352 2001-08-21 11:38:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1313,7 +1313,7 @@ struct mob_index_data
 	flag_t			form;
 	flag_t			parts;
 	flag_t			size;
-	int16_t			resists[MAX_RESIST]; /* Resistances */
+	int16_t			resists[MAX_RESIST];	/* resistances */
 	const char *		material;
 	flag_t			practicer;
 	const char *		clan;
@@ -1425,8 +1425,8 @@ struct char_data
 	int			luck;
 	int			luck_mod;
 
-	/* resistances */
-	int16_t			resists[MAX_RESIST];
+	/* resistances mods */
+	int16_t			res_mod[MAX_RESIST];
 
 	/* parts stuff */
 	flag_t			form;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.310 2001-08-21 09:35:19 fjoe Exp $
+ * $Id: handler.c,v 1.311 2001-08-21 11:39:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -413,24 +413,14 @@ create_mob(int vnum, int flags)
 	mob->level		= pMobIndex->level;
 	mob->position		= pMobIndex->start_pos;
 
-	for (i = 0; i < MAX_RESIST; i++)
-		mob->resists[i] = pMobIndex->resists[i];
-
 	free_string(mob->race);
 	mob->race		= str_qdup(pMobIndex->race);
 
 	/*
 	 * apply race modifiers
 	 */
-	if ((r = race_lookup(pMobIndex->race)) != NULL) {
-		for (i = 0; i < MAX_RESIST; i++) {
-			if (mob->resists[i] != RES_UNDEF)
-				continue;
-
-			mob->resists[i] = r->resists[i];
-		}
+	if ((r = race_lookup(pMobIndex->race)) != NULL)
 		mob->luck	+= r->luck_bonus;
-	}
 
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;
@@ -859,15 +849,8 @@ quit_char(CHAR_DATA *ch, int flags)
 		return;
 	}
 
-	if (ch->shapeform) {
-		AFFECT_DATA *paf;
-		AFFECT_DATA *paf_next;
-		for (paf = ch->affected; paf; paf = paf_next) {
-			paf_next = paf->next;
-			if (paf->where == TO_FORM)
-				affect_remove (ch, paf);
-		}
-	}
+	if (ch->shapeform)
+		revert(ch);
 
 	for (vch = npc_list; vch; vch = vch->next) {
 		if (IS_AFFECTED(vch, AFF_CHARM)
@@ -2236,12 +2219,35 @@ damsubst_t damsubst_tab[] = {
 
 #define DAMSUBST_TAB_SZ	(sizeof(damsubst_tab) / sizeof(*damsubst_tab))
 
-int
-get_resist(CHAR_DATA *ch, int dam_class)
+static int
+get_res(CHAR_DATA *ch, race_t *r, int dam_class)
 {
-	int16_t *resists;
-	int16_t bonus=0;
-	int resist;
+	if (ch->shapeform != NULL) {
+		if (ch->shapeform->index->resists[dam_class] != RES_UNDEF)
+			return ch->shapeform->index->resists[dam_class];
+		return 0;
+	}
+
+	if (IS_NPC(ch) && ch->pMobIndex->resists[dam_class] != RES_UNDEF)
+		return ch->pMobIndex->resists[dam_class];
+
+	return r->resists[dam_class];
+}
+
+int
+get_resist(CHAR_DATA *ch, int dam_class, bool default_mod)
+{
+	int res;
+	int mod;
+
+	int16_t *res_mod;
+	race_t *r;
+
+	damsubst_t *d;
+	static bool damsubsts_initialized = FALSE;
+
+	if ((r = race_lookup(ch->race)) == NULL)
+		return 0;
 
 	/*
 	 * immune to DAM_NONE and invalid damtypes
@@ -2261,34 +2267,49 @@ get_resist(CHAR_DATA *ch, int dam_class)
 	}
 
 	/*
-	 * take shapeforms into account
+	 * find default damclass
 	 */
-	if (ch->shapeform)
-		resists = ch->shapeform->resists;
-	else
-		resists = ch->resists;
+	if (!damsubsts_initialized) {
+		damsubsts_initialized = TRUE;
+		qsort(damsubst_tab, DAMSUBST_TAB_SZ,
+		     sizeof(damsubst_t), cmpint);
+	}
+
+	d = bsearch(
+	    &dam_class, damsubst_tab, DAMSUBST_TAB_SZ,
+	    sizeof(damsubst_t), cmpint);
 
 	/*
-	 * calculate bonuses based on dam_class
+	 * calculate resist modifier
 	 */
+	if (ch->shapeform != NULL)
+		res_mod = ch->shapeform->res_mod;
+	else
+		res_mod = ch->res_mod;
+
+	mod = res_mod[dam_class];
+	if (d != NULL && default_mod)
+		mod += res_mod[d->dam_subst];
+
+	/* additional mods based on dam_class */
 	switch (dam_class) {
 	case DAM_POISON:
 	case DAM_DISEASE:
-		bonus = get_curr_stat(ch, STAT_CON) - 18;
+		mod += get_curr_stat(ch, STAT_CON) - 18;
 		break;
 	case DAM_BASH:
-		bonus = (get_curr_stat(ch, STAT_CON) - 18) / 2;
+		mod += (get_curr_stat(ch, STAT_CON) - 18) / 2;
 		break;
 	case DAM_MENTAL:
 		if (IS_IMMORTAL(ch))
 			return 100;
-		bonus = (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 36) / 2;
+		mod += (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 36) / 2;
 		break;
 	case DAM_HOLY:
-		bonus = ch->alignment / 500;
+		mod += ch->alignment / 500;
 		break;
 	case DAM_NEGATIVE:
-		bonus = - ch->alignment / 500;
+		mod -= ch->alignment / 500;
 		break;
 	case DAM_CHARM:
 		if (IS_IMMORTAL(ch))
@@ -2297,29 +2318,17 @@ get_resist(CHAR_DATA *ch, int dam_class)
 	}
 
 	/*
-	 * check defaults if resist is undefined
+	 * calculate base resist
 	 */
-	if ((resist = resists[dam_class]) == RES_UNDEF) {
-		static bool damsubsts_initialized = FALSE;
-		damsubst_t *d;
-
-		if (!damsubsts_initialized) {
-			damsubsts_initialized = TRUE;
-			qsort(damsubst_tab, DAMSUBST_TAB_SZ,
-			     sizeof(damsubst_t), cmpint);
-		}
-
-		d = bsearch(
-		    &dam_class, damsubst_tab, DAMSUBST_TAB_SZ,
-		    sizeof(damsubst_t), cmpint);
+	if ((res = get_res(ch, r, dam_class)) == RES_UNDEF) {
 		if (d != NULL)
-			resist = resists[d->dam_subst];
+			res = get_res(ch, r, d->dam_subst);
 
-		if (resist == RES_UNDEF)
-			resist = 0;
+		if (res == RES_UNDEF)
+			res = 0;
 	}
 
-	return URANGE(-100, resist + bonus, 100);
+	return URANGE(-100, res + mod, 100);
 }
 
 /*
@@ -3992,7 +4001,7 @@ shapeshift(CHAR_DATA *ch, const char *shapeform)
 	form->hitroll = form_index->hitroll;
 
 	for (i = 0; i < MAX_RESIST; i++)
-		form->resists[i] = form_index->resists[i];
+		form->res_mod[i] = 0;
 
 	ch->shapeform = form;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.30 2001-08-19 18:18:47 fjoe Exp $
+ * $Id: race.c,v 1.31 2001-08-21 11:39:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,7 +149,6 @@ void
 race_resetstats(CHAR_DATA *ch)
 {
 	race_t *r;
-	int i;
 
 	if ((r = race_lookup(ch->race)) == NULL)
 		return;
@@ -163,9 +162,7 @@ race_resetstats(CHAR_DATA *ch)
 	ch->has_detect = r->has_detect;
 	ch->form = r->form;
 	ch->parts = r->parts;
-
-	for (i = 0; i < MAX_RESIST; i++)
-		ch->resists[i] = r->resists[i];
+	ch->luck = r->luck_bonus;
 }
 
 /* return current stats */

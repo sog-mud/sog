@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.316 2001-08-20 16:47:41 fjoe Exp $
+ * $Id: fight.c,v 1.317 2001-08-21 11:39:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -525,9 +525,9 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	if (m && m->dam_class != DAM_NONE) {
 		if (counter)
-			res = get_resist(ch, m->dam_class);
+			res = get_resist(ch, m->dam_class, TRUE);
 		else {
-			res = get_resist(victim, m->dam_class);
+			res = get_resist(victim, m->dam_class, TRUE);
 			if (res == 100) {
 				act("$N is immune to your attacks.", ch, NULL, victim, TO_CHAR);
 				act("You are immune to $n's attacks.", ch, NULL, victim, TO_VICT);
@@ -983,6 +983,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	bool immune;
 	int dam2;
 	int loc;
+	int res;
 
 	int initial_damage = dam;
 
@@ -1154,7 +1155,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		check_stun(ch, victim);
 	}
 
-	if (get_resist(victim, dam_class) == 100)
+	if ((res = get_resist(victim, dam_class, TRUE)) == 100)
 		immune = TRUE;
 
 	if (IS_SET(dam_flags, DAMF_HIT) && ch != victim) {
@@ -1162,7 +1163,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			dam = dam2;
 	}
 
-	dam -= dam*get_resist(victim, dam_class) / 100;
+	dam -= dam * res / 100;
 
 	if (is_affected(victim, "shadow magic"))
 		dam /= 5;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.13 2001-08-20 16:47:21 fjoe Exp $
+ * $Id: sog.h,v 1.14 2001-08-21 11:38:58 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -146,8 +146,8 @@ DECLARE_FUN1(int, get_hours,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(int, get_age,
 	     ARG(CHAR_DATA), ch)
-DECLARE_FUN2(int, get_resist,
-	     ARG(CHAR_DATA), ch, ARG(int), dam_class)
+DECLARE_FUN3(int, get_resist,
+	     ARG(CHAR_DATA), ch, ARG(int), dam_class, ARG(bool), default_mod)
 
 DECLARE_FUN2(CHAR_DATA, get_char_room,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.64 2001-08-20 18:18:12 fjoe Exp $
+ * $Id: affects.c,v 1.65 2001-08-21 11:39:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,8 +146,8 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			    res);
 		} else {
 			if (ch->shapeform && paf->where == TO_FORMRESIST)
-				ch->shapeform->resists[res] += mod;
-			ch->resists[res] += mod;
+				ch->shapeform->res_mod[res] += mod;
+			ch->res_mod[res] += mod;
 		}
 		return;
 	}

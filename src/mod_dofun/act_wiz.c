@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.290 2001-08-20 16:47:26 fjoe Exp $
+ * $Id: act_wiz.c,v 1.291 2001-08-21 11:39:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1527,7 +1527,7 @@ DO_FUN(do_mstat, ch, argument)
 		const char *dam_class;
 		int resist;
 
-		if ((resist = get_resist(victim, i)) == 0)
+		if ((resist = get_resist(victim, i, TRUE)) == 0)
 			continue;
 
 		if (!found) {

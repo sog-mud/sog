@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.124 2001-08-19 18:18:48 fjoe Exp $
+ * $Id: recycle.c,v 1.125 2001-08-21 11:39:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -437,6 +437,9 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->mod_stat[i] = 0;
 	}
 
+	for (i = 0; i < MAX_RESIST; i++)
+		ch->res_mod[i] = 0;
+
 	ch->luck		= 50;
 	ch->luck_mod		= 0;
 
@@ -558,6 +561,9 @@ char_free(CHAR_DATA *ch)
 
 	free_string(ch->damtype);
 	ch->damtype = NULL;
+
+	free(ch->shapeform);
+	ch->shapeform = NULL;
 
 	ch->next = *free_list;
 	*free_list = ch;
@@ -1249,7 +1255,7 @@ form_init(form_index_t *f)
 	f->flags		= 0;
 	f->skill_spec	= str_empty;
 	for (i = 0; i < MAX_RESIST; i++)
-		f->resists[i] = 0;
+		f->resists[i] = RES_UNDEF;
 	for (i = 0; i < MAX_STAT; i++)
 		f->stats[i] = 10;
 }

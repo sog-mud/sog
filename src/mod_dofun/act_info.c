@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.390 2001-08-20 16:47:23 fjoe Exp $
+ * $Id: act_info.c,v 1.391 2001-08-21 11:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2794,7 +2794,8 @@ DO_FUN(do_raffects, ch, argument)
 	}
 }
 
-static const char * get_resist_alias(int resist)
+static const char *
+get_resist_alias(int resist)
 {
 	if (resist < -90)
 		return "eradicated by";
@@ -2833,7 +2834,8 @@ DO_FUN(do_resistances, ch, argument)
 	for (i = 0; i < MAX_RESIST; i++) {
 		int res;
 
-		if (!(res = get_resist(ch, i)) || i == DAM_CHARM)
+		if (i == DAM_CHARM
+		||  (res = get_resist(ch, i, FALSE)) == 0)
 			continue;
 
 		found = TRUE;
@@ -2853,7 +2855,7 @@ DO_FUN(do_resistances, ch, argument)
 
 	if (!found) {
 		act("You don't have any resistances and vulnerabilities.",
-			ch, NULL, NULL, TO_CHAR);
+		    ch, NULL, NULL, TO_CHAR);
 	}
 }
 
@@ -3764,7 +3766,7 @@ DO_FUN(do_control, ch, argument)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  number_percent() > chance
 	||  ch->level < (victim->level + 2)
-	||  (get_resist(victim, DAM_CHARM) == 100)
+	||  get_resist(victim, DAM_CHARM, TRUE) == 100
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)) {
 		check_improve(ch, "control animal", FALSE, 2);
 		do_say(victim, "I'm not about to follow you!");

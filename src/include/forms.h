@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.7 2001-08-05 16:36:19 fjoe Exp $
+ * $Id: forms.h,v 1.8 2001-08-21 11:38:57 fjoe Exp $
  */
 
 #ifndef _FORMS_H_
@@ -54,7 +54,7 @@ struct form_t {
 	form_index_t *	index;
 	int		damroll;
 	int		hitroll;
-	int16_t		resists[MAX_RESIST];
+	int16_t		res_mod[MAX_RESIST];
 };
 
 extern hash_t forms;
