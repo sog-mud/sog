@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.77 1998-09-01 18:29:07 fjoe Exp $
+# $Id: english.lang,v 1.78 1998-09-04 05:28:17 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -233,7 +233,7 @@ MSG_N_SITS_DOWN_IN 	"$n sits down in $p."
 MSG_YOU_CANT_SLEEP_MOUNTED "You can't sleep while mounted.\n\r"
 MSG_YOU_CANT_SLEEP_RIDDEN "You can't sleep while being ridden.\n\r"
 MSG_YOU_GO_TO_SLEEP 	"You go to sleep.\n\r"
-MSG_N_GOES_TO_SLEEP 	"$n goes to sleep.\n\r"
+MSG_N_GOES_TO_SLEEP 	"$n goes to sleep."
 MSG_YOU_CANT_SLEEP_ON_THAT "You can't sleep on that.\n\r"
 MSG_THERES_NO_ROOM_ON_P_FOR_YOU "There's no room on $p for you."
 MSG_YOU_GO_TO_SLEEP_AT	"You go to sleep at $p."
