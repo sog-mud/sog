@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.13 1998-10-06 13:20:14 fjoe Exp $
+ * $Id: olc_area.c,v 1.14 1998-10-09 13:43:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,6 +32,7 @@
 #include "merc.h"
 #include "olc.h"
 #include "interp.h"
+#include "db/db.h"
 
 #define EDIT_AREA(ch, area)	(area = (AREA_DATA*) ch->desc->pEdit)
 

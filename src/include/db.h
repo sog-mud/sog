@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.28 1998-10-06 13:19:56 fjoe Exp $
+ * $Id: db.h,v 1.29 1998-10-09 13:43:07 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -97,6 +97,19 @@ void	load_msgdb	(void);
 void	load_notes	(void);
 void	load_bans	(void);
 
+char *	fix_string	(const char *);
+
+int	xgetc	(FILE *fp);
+void	xungetc	(int c, FILE *fp);
+
+void	vnum_check	(AREA_DATA *area, int vnum);
+
+void	convert_objects	(void);
+void	convert_object	(OBJ_INDEX_DATA *pObjIndex);
+
+void	reset_area      (AREA_DATA * pArea);
+void	reset_room	(ROOM_INDEX_DATA *pRoom);
+
 char		fread_letter	(FILE *fp);
 int		fread_number	(FILE *fp);
 flag_t 		fread_flags	(FILE *fp);
@@ -151,6 +164,30 @@ void		db_error	(const char* fn, const char* fmt, ...);
 			fMatch = TRUE;			\
 			break;				\
 		}
+
+extern int		newmobs;
+extern int		newobjs;
+extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
+extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
+extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
+extern int		top_mob_index;
+extern int		top_obj_index;
+extern int		top_vnum_mob;
+extern int		top_vnum_obj;
+extern int		top_vnum_room;
+extern int  		top_affect;
+extern int		top_ed; 
+extern int		top_area;
+extern int		top_exit;
+extern int		top_help;
+extern int		top_reset;
+extern int		top_room;
+extern int		top_shop;
+extern int		social_count;
+extern AREA_DATA *	area_first;
+extern AREA_DATA *	area_last;
+extern AREA_DATA *	area_current;
+extern SHOP_DATA *	shop_last;
 
 #endif
 

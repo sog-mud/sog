@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.10 1998-10-08 13:31:06 fjoe Exp $
+ * $Id: db_area.c,v 1.11 1998-10-09 13:43:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,7 +94,8 @@ const char *	help_greeting;
 struct		social_type	social_table		[MAX_SOCIALS];
 int		social_count;
 
-static int slot_lookup(int slot);
+static int	slot_lookup	(int slot);
+static void	convert_mobile	(MOB_INDEX_DATA *pMobIndex);
 
 DBINIT_FUN(init_area)
 {
@@ -309,7 +310,6 @@ DBLOAD_FUN(load_old_mob)
 		pMobIndex->description	= NULL;
 
 		pMobIndex->vnum		= vnum;
-		pMobIndex->new_format	= FALSE;
 		pMobIndex->name	= fread_string(fp);
 		pMobIndex->short_descr	= mlstr_fread(fp);
 		pMobIndex->long_descr	= mlstr_fread(fp);
@@ -1516,5 +1516,93 @@ static int slot_lookup(int slot)
 
 	db_error("slot_lookup", "bad slot %d.", slot);
 	return -1;
+}
+
+/*****************************************************************************
+ Name:		convert_mobile
+ Purpose:	Converts an old_format mob into new_format
+ Called by:	load_old_mob (db.c).
+ Note:          Dug out of create_mob (db.c)
+ Author:        Hugin
+ ****************************************************************************/
+void convert_mobile(MOB_INDEX_DATA *pMobIndex)
+{
+	int i;
+	int type, number, bonus;
+	int level;
+
+	level = pMobIndex->level;
+
+	pMobIndex->act              |= ACT_WARRIOR;
+
+	/*
+	 * Calculate hit dice.  Gives close to the hitpoints
+	 * of old format mobs created with create_mob()  (db.c)
+	 * A high number of dice makes for less variance in mobiles
+	 * hitpoints.
+	 * (might be a good idea to reduce the max number of dice)
+	 *
+	 * The conversion below gives:
+
+	level:     dice         min         max        diff       mean
+	 1:      1d2+6        7 (7)        8 (8)       1 (1)       8 (8)
+	 2:      1d3+15      16 (15)      18 (18)      2 (3)      17 (17)
+	 3:      1d6+24      25 (24)      30 (30)      5 (6)      27 (27)
+	 5:     1d17+42      43 (42)      59 (59)     16 (17)     51 (51)
+	10:     3d22+96      99 (95)     162 (162)    63 (67)    131 ()
+	15:     5d30+161    166 (159)    311 (311)   145 (150)   239 ()
+	30:    10d61+416    426 (419)   1026 (1026)  600 (607)   726 ()
+	50:   10d169+920    930 (923)   2610 (2610) 1680 (1688) 1770 ()
+
+	The values in parenthesis give the values generated in create_mob.
+		Diff = max - min.  Mean is the arithmetic mean.
+	(hmm.. must be some roundoff error in my calculations.. smurfette got
+	 1d6+23 hp at level 3 ? -- anyway.. the values above should be
+	 approximately right..)
+
+	 */
+
+	type   = level*level*27/40;
+	number = UMIN(type/40 + 1, 10); /* how do they get 11 ??? */
+	type   = UMAX(2, type/number);
+	bonus  = UMAX(0, level*(8 + level)*.9 - number*type);
+
+	pMobIndex->hit[DICE_NUMBER]    = number;
+	pMobIndex->hit[DICE_TYPE]      = type;
+	pMobIndex->hit[DICE_BONUS]     = bonus;
+
+	pMobIndex->mana[DICE_NUMBER]   = level;
+	pMobIndex->mana[DICE_TYPE]     = 10;
+	pMobIndex->mana[DICE_BONUS]    = 100;
+
+	/*
+	 * Calculate dam dice.  Gives close to the damage
+	 * of old format mobs in damage()  (fight.c)
+	 */
+	type   = level*7/4;
+	number = UMIN(type/8 + 1, 5);
+	type   = UMAX(2, type/number);
+	bonus  = UMAX(0, level*9/4 - number*type);
+
+	pMobIndex->damage[DICE_NUMBER] = number;
+	pMobIndex->damage[DICE_TYPE]   = type;
+	pMobIndex->damage[DICE_BONUS]  = bonus;
+
+	switch (number_range(1, 3)) {
+		case (1): pMobIndex->dam_type =  3;       break;  /* slash  */
+		case (2): pMobIndex->dam_type =  7;       break;  /* pound  */
+		case (3): pMobIndex->dam_type = 11;       break;  /* pierce */
+	}
+
+	for (i = 0; i < 3; i++)
+		pMobIndex->ac[i]         = interpolate(level, 100, -100);
+	pMobIndex->ac[3]             = interpolate(level, 100, 0);    /* exotic */
+
+	pMobIndex->wealth           /= 100;
+	pMobIndex->size              = SIZE_MEDIUM;
+	pMobIndex->material          = str_dup("none");
+
+	pMobIndex->new_format        = TRUE;
+	++newmobs;
 }
 

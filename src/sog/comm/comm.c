@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.107 1998-10-08 13:29:29 fjoe Exp $
+ * $Id: comm.c,v 1.108 1998-10-09 13:42:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2355,8 +2355,9 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 		char_puts(
 		    "Reconnecting. Type replay to see missed tells.\n\r", ch);
 		act("$n has reconnected.", ch, NULL, NULL, TO_ROOM);
-		if ((obj = get_eq_char(ch,WEAR_LIGHT)) != NULL
-		&&  obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
+		if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
+		&&  obj->pIndexData->item_type == ITEM_LIGHT
+		&&  obj->value[2] != 0)
 		    --ch->in_room->light;
 
 		log_printf("%s@%s reconnected.", ch->name, d->host);
@@ -2554,7 +2555,8 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 		return trans;
 	}
 
-	strnzcpy(trans, flag_string(slang_table, ch->slang), sizeof(trans));
+	snprintf(trans, sizeof(trans), "[%s] ",
+		 flag_string(slang_table, ch->slang));
 	for (o = strchr(trans, '\0'); *i && o-trans < sizeof(trans)-1; i++, o++) {
 		char *p = strchr(common, *i);
 		*o = p ? slang[p-common] : *i;
