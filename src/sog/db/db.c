@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.195 1999-12-14 15:31:16 fjoe Exp $
+ * $Id: db.c,v 1.196 1999-12-15 08:14:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -220,8 +220,9 @@ const int rev_dir[] =
 /*
  * Semi-locals.
  */
-bool			fBootDb;
-char			filename[PATH_MAX];
+bool	fBootDb;
+char	filename[PATH_MAX];
+int	changed_flags;		/* changed object flags for OLC */
 
 /*
  * Local booting procedures.

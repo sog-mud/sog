@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.62 1999-12-14 15:31:10 fjoe Exp $
+ * $Id: db.h,v 1.63 1999-12-15 08:14:14 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -118,6 +118,18 @@ void db_load_file(DBDATA *, const char *path, const char *file);
 void db_set_arg(DBDATA *, const char* name, void *arg);
 
 extern int fBootDb;
+
+/*
+ * changed flags
+ */
+#define CF_MSGDB	(A)
+#define CF_SOCIAL	(B)
+#define CF_CMD		(C)
+#define CF_SKILL	(D)
+#define CF_MATERIAL	(E)
+#define CF_LIQUID	(F)
+
+extern int changed_flags;
 
 int	xgetc	(rfile_t *fp);
 void	xungetc	(rfile_t *fp);

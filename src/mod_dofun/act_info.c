@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.301 1999-12-14 06:08:32 fjoe Exp $
+ * $Id: act_info.c,v 1.302 1999-12-15 08:13:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4148,7 +4148,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	free(prgnShow);
 }
 
-#define FLAG_SET(pos, c, exp) (FLAGS[pos] = (exp) ? (flags = TRUE, c) : '.')
+#define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (c) : '.')
 
 static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -4208,8 +4208,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({gBlending{x) ", ch);
 	} else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
-		bool flags = FALSE;
+		char buf[sizeof(FLAGS)];
 
+		strnzcpy(buf, sizeof(buf), FLAGS);
 		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS));
 		FLAG_SET( 8, 'H', HAS_INVIS(victim, ID_HIDDEN));
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
@@ -4224,11 +4225,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				  HAS_DETECT(ch, ID_EVIL));
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&
 				  HAS_DETECT(ch, ID_GOOD));
-
-		if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
-			FLAG_SET(35, 'S', TRUE);
-			FLAG_SET(34, 'W', TRUE);
-		}
+		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 			FLAG_SET(35, 'B', TRUE);
@@ -4239,8 +4236,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(41, 'C', HAS_INVIS(victim, ID_CAMOUFLAGE));
 		FLAG_SET(44, 'B', HAS_INVIS(victim, ID_BLEND));
 
-		if (flags)
-			char_puts(FLAGS, ch);
+		if (strcmp(buf, FLAGS))
+			char_puts(buf, ch);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)

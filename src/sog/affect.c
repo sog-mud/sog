@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.17 1999-12-14 15:31:13 fjoe Exp $
+ * $Id: affect.c,v 1.18 1999-12-15 08:14:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -242,7 +242,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			REMOVE_DETECT(ch, paf->bitvector);
 			break;
 		case TO_INVIS:
-			REMOVE_DETECT(ch, paf->bitvector);
+			REMOVE_INVIS(ch, paf->bitvector);
 			break;
 		}
 		mod = 0 - mod;

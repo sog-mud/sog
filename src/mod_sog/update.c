@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.175 1999-12-12 20:43:07 avn Exp $
+ * $Id: update.c,v 1.176 1999-12-15 08:14:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1269,14 +1269,12 @@ void char_update(void)
 				if (number_range(0, 4) == 0 && paf->level > 0)
 					paf->level--;
 				/* spell strength fades with time */
-			}
-			else if (paf->duration == 0) {
+			} else if (paf->duration == 0) {
 				skill_t *sk;
 
 				if ((paf_next == NULL ||
 				     paf_next->type != paf->type ||
 				     paf_next->duration > 0)
-				&&  paf->type > 0
 				&&  (sk = skill_lookup(paf->type)) != NULL
 				&&  !IS_NULLSTR(sk->msg_off)) 
 					act_puts(sk->msg_off, ch, NULL, NULL,
@@ -1289,9 +1287,10 @@ void char_update(void)
 				affect_remove(ch, paf);
 			}
 		}
-		check_events(ch, ch->affected, EVENT_CHAR_UPDATE);
 
-		if (IS_EXTRACTED(ch)) continue;
+		check_events(ch, ch->affected, EVENT_CHAR_UPDATE);
+		if (IS_EXTRACTED(ch))
+			continue;
 
 		if (ch->position == POS_INCAP 
 		&&  number_range(0, 1) == 0)

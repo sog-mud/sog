@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.61 1999-12-15 00:14:14 avn Exp $
+ * $Id: olc.h,v 1.62 1999-12-15 08:14:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,18 +54,6 @@ enum {
 
 	FUN_MAX
 };
-
-/*
- * changed flags
- */
-#define CF_MSGDB	(A)
-#define CF_SOCIAL	(B)
-#define CF_CMD		(C)
-#define CF_SKILL	(D)
-#define CF_MATERIAL	(E)
-#define CF_LIQUID	(F)
-
-extern int changed_flags;
 
 extern const char ED_AREA	[];
 extern const char ED_ROOM	[];

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.94 1999-12-15 00:14:14 avn Exp $
+ * $Id: olc.c,v 1.95 1999-12-15 08:14:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,8 +66,6 @@
 		"     (Port a ROM 2.4 - Nov 2, 1996)\n" \
 		"     Version actual : 1.71 - Mar 22, 1998\n"
 #define CREDITS "     Original by Surreality(cxw197@psu.edu) and Locke(locke@lm.com)"
-
-int changed_flags;
 
 const char ED_AREA[]	= "areas";
 const char ED_ROOM[]	= "rooms";

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.1 1999-12-15 00:14:14 avn Exp $
+ * $Id: olc_cmd.c,v 1.2 1999-12-15 08:14:15 fjoe Exp $
  */
 
 #include "olc.h"
@@ -306,27 +306,27 @@ static void *save_cmd_cb(void *p, va_list ap)
 	FILE *fp = va_arg(ap, FILE *);
 
 	fprintf(fp, "#CMD\n");
-	fprintf(fp, "Name %s~\n", cmnd->name);
-	fprintf(fp, "Dofun %s~\n", cmnd->dofun_name);
-	fprintf(fp, "Min_pos %s\n",
+	fprintf(fp, "name %s~\n", cmnd->name);
+	fprintf(fp, "dofun %s~\n", cmnd->dofun_name);
+	fprintf(fp, "min_pos %s\n",
 		flag_string(position_table, cmnd->min_pos));
 	if (cmnd->min_level)
-		fprintf(fp, "Min_level %s\n",
+		fprintf(fp, "min_level %s\n",
 			fix_word(flag_istring(level_table, cmnd->min_level)));
 
 	if (cmnd->cmd_log != LOG_NORMAL)
-		fprintf(fp, "Log %s\n",
+		fprintf(fp, "log %s\n",
 			flag_string(cmd_logtypes, cmnd->cmd_log));
 
 	if (cmnd->cmd_flags)
-		fprintf(fp, "Flags %s~\n",
+		fprintf(fp, "flags %s~\n",
 			flag_string(cmd_flags, cmnd->cmd_flags));
 
 	if (cmnd->cmd_class != CC_ORDINARY)
-		fprintf(fp, "Class %s\n",
+		fprintf(fp, "class %s\n",
 			flag_string(cmd_classes, cmnd->cmd_class));
 
-	fprintf(fp, "End\n\n");
+	fprintf(fp, "end\n\n");
 
 	return NULL;
 }
