@@ -1,0 +1,2 @@
+dofun("emote", $n, "throws back his head and cackles with insane glee!");
+return 0;

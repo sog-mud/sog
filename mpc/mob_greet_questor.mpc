@@ -1,0 +1,3 @@
+if (can_see($n, $N))
+        tell_char($n, $N, "Don't you want a quest?");
+return 0;
