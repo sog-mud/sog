@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.48 1998-10-10 06:25:06 fjoe Exp $
+ * $Id: spellfun2.c,v 1.49 1998-10-10 06:27:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1038,7 +1038,7 @@ void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	OBJ_DATA *blade;
 	AFFECT_DATA af;
 	
-	blade = create_named_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), level);
+	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), level);
 	char_puts("You create a blade of chaos!\n\r",ch);
 	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
 
