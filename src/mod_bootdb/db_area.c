@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.107 2001-06-24 21:12:52 avn Exp $
+ * $Id: db_area.c,v 1.108 2001-06-25 13:09:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1224,6 +1224,7 @@ DBLOAD_FUN(load_mobiles)
 		}
 	     } else if ( letter == 'M' ) {
 		MPTRIG *mptrig;
+		int trig_vnum;
 		int type;
 		const char *phrase;
 		
@@ -1233,10 +1234,10 @@ DBLOAD_FUN(load_mobiles)
 			return;
 		}
 
-		vnum   = fread_number(fp);
+		trig_vnum = fread_number(fp);
 		phrase = fread_string(fp);
 
-		mptrig = mptrig_new(type, phrase, vnum);
+		mptrig = mptrig_new(type, phrase, trig_vnum);
 		mptrig_add(pMobIndex, mptrig);
 		free_string(phrase);
 	     } else if (letter == 'g') {
