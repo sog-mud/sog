@@ -1958,7 +1958,7 @@ Human       Human     None     None      0      average race
 Elf	     Elf     Int,Dex  Str,Con   500     good
 Half-Elf    H-Elf    Int,Dex  Str,Con   200     half human, half elf
 Dark-Elf    D-Elf    Int,Dex  Str,Con   500     evil
-Rockseer    Rocks    Int,Dex  Str,Con   500     neutral, "wand", "!meld into s."
+Rockseer    Rocks    Int,Dex  Str,Con   500     neutral, "wand", "meld into s."
 Dwarf       Dwarf    Wis,Con    Dex     250     "berserk"
 Svirfnebli  Svirf      Wis      Int	250     "lore", "identify"
 Duergar     Duerg    Str,Con  Int,Wis   250     "berserk", "pick lock"
@@ -1970,10 +1970,10 @@ Fire Giant  FiGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
 Frost Giant FrGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
 Githyanki   Githy    Int,Dex  Wis,Con   250     evil, "sword", "dagger"
 Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
-Felar       Felar    Dex,Con  Str,Int   450     
-Troll       Troll    Str,Con  Int,Dex   400     evil, regenerate, "fast healing"
+Felar       Felar    Dex,Con  Str,Int   450     "hand to hand", "tail"
+Troll       Troll    Str,Con  Int,Dex   400     evil, regen., "fast healing"
 
-What is your race (help <race> for more information)?~
+What is your race (help <race> for more information)? ~
 -1 GNOME GNOMES~
 Gnomes are a race of small, wiry, but tough creatures.  They live a very
 long time and accumulate much wisdom. They are resistant to poisons, but
