@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.30 1998-05-22 12:28:16 efdi Exp $
+ * $Id: comm.c,v 1.31 1998-05-24 15:19:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -1262,6 +1262,11 @@ void bust_a_prompt( CHAR_DATA *ch )
       {
          default :
             i = " "; break;
+	case 't':
+	    sprintf(buf2, "%d%s", (time_info.hour % 12 == 0) ? 
+				   12 : time_info.hour %12, 
+				time_info.hour >= 12 ? "pm" : "am");
+	    i = buf2; break;
 	case 'e':
 	    found = FALSE;
 	    doors[0] = '\0';
