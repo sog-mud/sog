@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.87 2004-02-11 21:44:11 fjoe Exp $
+ * $Id: affects.c,v 1.88 2004-02-11 23:13:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -564,14 +564,7 @@ affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
 bool
 is_sn_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 {
-	AFFECT_DATA *paf;
-
-	for (paf = room->affected; paf != NULL; paf = paf->next) {
-		if (IS_SKILL(paf->type, sn))
-			return TRUE;
-	}
-
-	return FALSE;
+	return affect_find(room->affected, sn) != NULL;
 }
 
 typedef void (*aff_remove_t)(void *, AFFECT_DATA *);
