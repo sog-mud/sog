@@ -2377,3 +2377,168 @@ Hi.
  
 {WMarewell{x
 ~
+Sender  Marewell~
+Date    Mon Mar 27 18:48:55 2000~
+Stamp   954168535
+To      all~
+Subject New skill - 'crypt thing'~
+Text
+Привет.
+Добавлен новый скилл 'crypt thing'. Тварь выращивается по такому же
+принципу что и зомби в 'animate dead' то есть чем больше уровень трупа -
+тем меньше вероятность успеха, но уровень трупа соответствует уровню
+получающейся твари. Что она умеет? Он предупредит мастера о любом
+зашедшем в комнату PC, если мастер спит рядом с ней то разбудит его,
+если вошедший в PK у мастера - то нападет. Живет она сравнительно
+недолго.
+ 
+{WMarewell{x.
+PS. Кроме того у некров забрали 'shocking trap'.
+~
+Sender  Arborn~
+Date    Tue Mar 28 02:44:39 2000~
+Stamp   954197079
+To      all~
+Subject prompt~
+Text
+Добавилась еще одна опция в приглашение:
+%T - здоровье танка (того, кого бьет твой противник)
+ 
+Regards,
+{WArborn{x.
+~
+Sender  Tyan~
+Date    Tue Mar 28 23:18:52 2000~
+Stamp   954271132
+To      imm~
+Subject немного о~
+Text
+hi, there!
+ 
+%W/%I работают по-старому. %w/%i показывают только уровень.
+!cmd позволяет выполнить любую обычную команду из OLC редактора
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Wed Mar 29 11:19:21 2000~
+Stamp   954314361
+To      imm~
+Subject ITEM_NOFIND~
+Text
+hi, there!
+ 
+после ребута будет nofind. use with care
+(кстати я его не проверял но работать должно. если кто проверит
+и оно заработает/не заработает -- сообщите мне)
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Thu Mar 30 20:14:54 2000~
+Stamp   954432894
+To      clan imm~
+Subject renegades~
+Text
+hi, there!
+ 
+игрок, исключенный из клана получает знак ренегада как clan mark
+и не может вступать в кланы
+ 
+{WTyan{x
+~
+Sender  Marewell~
+Date    Fri Mar 31 12:24:09 2000~
+Stamp   954491049
+To      all~
+Subject Some changes in necromancers class.~
+Text
+Hi.
+У некромантов отныне нет умений 'adamantite golem', 'iron golem', 'gate'.
+Однако у них появился 'mist walk'.
+ 
+{WMarewell{x.
+PS. Еще мелочь, которая некромантов напрямую (:) не касается -
+stalker теперь может быть выпущен на жертву только в том случае,
+если она и ruler в одной арии.
+~
+Sender  Tyan~
+Date    Fri Mar 31 17:43:43 2000~
+Stamp   954510223
+To      all~
+Subject titles~
+Text
+hi, there!
+ 
+после ребута title может быть поставлен только бессмертным
+(за особые заслуги)
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Fri Mar 31 17:44:36 2000~
+Stamp   954510276
+To      clan imm~
+Subject titles~
+Text
+hi, there!
+ 
+clan лидеры тоже смогут ставить титлы своим clannie. а багах
+рапортуйте
+ 
+happy mudding,
+{WTyan{x
+~
+Sender  Tyan~
+Date    Mon Apr  3 19:46:13 2000~
+Stamp   954776773
+To      all~
+Subject buy~
+Text
+hi, there!
+ 
+теперь можно покупать gear (вещи) в магазине выше своего левела
+(но только те, что игрок может одеть по левелу)
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Mon Apr  3 19:50:35 2000~
+Stamp   954777035
+To      imm~
+Subject set char xxx~
+Text
+hi, there!
+ 
+questt -> qtime, questp -> qpoints (переименованы команды
+для установки quest time и quest points)
+ 
+set char xxx clan xxx теперь правильно ставит/отбирает клан марки
+ 
+set char xxx relig xxx теперь правильно ставит/отбирает татушки
+а также больше не требует численные номера религий
+(список религий можно посмотреть по команде
+set char xxx relig ?)
+ 
+set char xxx clan/relig могут поставить clan/religion "none"
+(соотв. отберется клан марк/татушка и поставится clan/religion none)
+ 
+спеллы 'remove tattoo' и 'tattoo' убраны за ненадобностью
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Mon Apr  3 19:51:47 2000~
+Stamp   954777107
+To      all~
+Subject buy~
+Text
+On Mon Apr  3 19:46:13 2000 Tyan {xwrote to all:
+{x
+> теперь можно покупать gear (вещи) в магазине выше своего левела
+> (но только те, что игрок может одеть по левелу)
+ 
+sorry, это будет после ребута
+ 
+{WTyan{x
+~
