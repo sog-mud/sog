@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.87 1999-12-04 08:52:29 fjoe Exp $
+ * $Id: olc.c,v 1.88 1999-12-04 10:34:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,12 +117,16 @@ static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
+const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
+#define NSKIP_COMMANDS (sizeof(skip_commands) / sizeof(*skip_commands))
+
 int _module_load(module_t *m)
 {
 	varr_foreach(&commands, cmd_load_cb, CC_OLC, m);
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL)
 		wizlog("_module_load: %s", dlerror());
+	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
 
@@ -151,6 +155,7 @@ bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 	char command[MAX_INPUT_LENGTH];
 	olc_cmd_t *cmd;
 	olced_t *olced;
+	const char *p = command;
 
 	if ((olced = d->olced) == NULL)
 		return FALSE;
@@ -162,6 +167,10 @@ bool _olc_interpret(DESCRIPTOR_DATA *d, const char *argument)
 						   olced->cmd_table+FUN_SHOW);
 		return TRUE;
 	}
+
+	if (bsearch(&p, skip_commands, NSKIP_COMMANDS,
+		    sizeof(*skip_commands), cmpstr) != NULL) 
+		return FALSE;
 
 	if (!str_cmp(command, "done")) {
 		edit_done(d);
