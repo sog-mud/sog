@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.23 1998-12-07 08:06:47 fjoe Exp $
+ * $Id: olc_obj.c,v 1.24 1998-12-22 16:22:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -44,6 +44,7 @@ DECLARE_OLC_FUN(objed_edit		);
 DECLARE_OLC_FUN(objed_touch		);
 DECLARE_OLC_FUN(objed_show		);
 DECLARE_OLC_FUN(objed_list		);
+DECLARE_OLC_FUN(objed_del		);
 
 DECLARE_OLC_FUN(objed_name		);
 DECLARE_OLC_FUN(objed_short		);
@@ -82,6 +83,7 @@ OLC_CMD_DATA olc_cmds_obj[] =
 	{ "touch",	objed_touch					},
 	{ "show",	objed_show					},
 	{ "list",	objed_list					},
+	{ "del",	objed_del					},
 
 	{ "addaffect",	objed_addaffect					},
 	{ "addapply",	objed_addapply					},
@@ -244,7 +246,7 @@ OLC_FUN(objed_show)
 		flag_string(item_types, pObj->item_type));
 
 	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
-		buf_printf(output, "Clan      : [%s]\n", clan->name);
+		buf_printf(output, "Clan        : [%s]\n", clan->name);
 
 	if (pObj->limit != -1)
 		buf_printf(output, "Limit:       [%5d]\n", pObj->limit);
@@ -353,6 +355,95 @@ OLC_FUN(objed_list)
 	}
 
 	buf_free(buffer);
+	return FALSE;
+}
+
+OLC_FUN(objed_del)
+{
+	OBJ_INDEX_DATA *pObj;
+	OBJ_DATA *obj, *obj_next;
+	AREA_DATA *area;
+	int i;
+	bool error = FALSE;
+
+	EDIT_OBJ(ch, pObj);
+
+/* check that pObj is not in resets */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		ROOM_INDEX_DATA *room;
+
+		for (room = room_index_hash[i]; room; room = room->next) {
+			int j = 0;
+			RESET_DATA *reset;
+
+			for (reset = room->reset_first; reset;
+							reset = reset->next) {
+				bool found = FALSE;
+
+				j++;
+				switch (reset->command) {
+				case 'P':
+					if (reset->arg3 == pObj->vnum)
+						found = TRUE;
+
+					/* FALLTHRU */
+
+				case 'O':
+				case 'G':
+				case 'E':
+					if (reset->arg1 == pObj->vnum)
+						found = TRUE;
+					break;
+				}
+
+				if (!found)
+					continue;
+
+				if (!error) {
+					error = TRUE;
+					char_puts("ObjEd: can't delete obj "
+						  "index: delete the "
+						  "following resets:\n", ch);
+				}
+
+				char_printf(ch, "ObjEd: room %d, reset %d\n",
+					    room->vnum, j);
+			}
+		}
+	}
+
+	if (error)
+		return FALSE;
+
+/* delete all the instances of obj index */
+	for (obj = object_list; obj; obj = obj_next) {
+		obj_next = obj->next;
+
+		if (obj->pIndexData == pObj)
+			extract_obj_raw(obj, X_F_NORECURSE);
+	}
+
+	if ((area = area_vnum_lookup(pObj->vnum)))
+		touch_area(area);
+
+/* delete obj index itself */
+	i = pObj->vnum % MAX_KEY_HASH;
+	if (pObj == obj_index_hash[i])
+		obj_index_hash[i] = pObj->next;
+	else {
+		OBJ_INDEX_DATA *prev;
+
+		for (prev = obj_index_hash[i]; prev; prev = prev->next)
+			if (prev->next == pObj)
+				break;
+
+		if (prev)
+			prev->next = pObj->next;
+	}
+
+	free_obj_index(pObj);
+	char_puts("ObjEd: Obj index deleted.\n", ch);
+	edit_done(ch->desc);
 	return FALSE;
 }
 

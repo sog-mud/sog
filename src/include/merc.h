@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.128 1998-12-21 04:39:42 fjoe Exp $
+ * $Id: merc.h,v 1.129 1998-12-22 16:22:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -726,36 +726,36 @@ enum {
  * Item types.
  * Used in #OBJECTS.
  */
-#define ITEM_LIGHT		      1
-#define ITEM_SCROLL		      2
-#define ITEM_WAND		      3
-#define ITEM_STAFF		      4
-#define ITEM_WEAPON		      5
-#define ITEM_TREASURE		      8
-#define ITEM_ARMOR		      9
-#define ITEM_POTION		     10
-#define ITEM_CLOTHING		     11
-#define ITEM_FURNITURE		     12
-#define ITEM_TRASH		     13
-#define ITEM_CONTAINER		     15
-#define ITEM_DRINK_CON		     17
-#define ITEM_KEY		     18
-#define ITEM_FOOD		     19
-#define ITEM_MONEY		     20
-#define ITEM_BOAT		     22
-#define ITEM_CORPSE_NPC 	     23
-#define ITEM_CORPSE_PC		     24
-#define ITEM_FOUNTAIN		     25
-#define ITEM_PILL		     26
-#define ITEM_PROTECT		     27
-#define ITEM_MAP		     28
-#define ITEM_PORTAL		     29
-#define ITEM_WARP_STONE 	     30
-#define ITEM_ROOM_KEY		     31
-#define ITEM_GEM		     32
-#define ITEM_JEWELRY		     33
-#define ITEM_JUKEBOX		     34
-#define ITEM_TATTOO		     35
+#define ITEM_LIGHT		1
+#define ITEM_SCROLL		2
+#define ITEM_WAND		3
+#define ITEM_STAFF		4
+#define ITEM_WEAPON		5
+#define ITEM_TREASURE		8
+#define ITEM_ARMOR		9
+#define ITEM_POTION		10
+#define ITEM_CLOTHING		11
+#define ITEM_FURNITURE		12
+#define ITEM_TRASH		13
+#define ITEM_CONTAINER		15
+#define ITEM_DRINK_CON		17
+#define ITEM_KEY		18
+#define ITEM_FOOD		19
+#define ITEM_MONEY		20
+#define ITEM_BOAT		22
+#define ITEM_CORPSE_NPC		23
+#define ITEM_CORPSE_PC		24
+#define ITEM_FOUNTAIN		25
+#define ITEM_PILL		26
+#define ITEM_PROTECT		27
+#define ITEM_MAP		28
+#define ITEM_PORTAL		29
+#define ITEM_WARP_STONE 	30
+#define ITEM_ROOM_KEY		31
+#define ITEM_GEM		32
+#define ITEM_JEWELRY		33
+#define ITEM_JUKEBOX		34
+#define ITEM_TATTOO		35
 
 /*
  * Extra flags.  *EXT*
@@ -917,7 +917,7 @@ enum {
 #define CONT_CLOSED		(C)
 #define CONT_LOCKED		(D)
 #define CONT_PUT_ON		(E)
-#define CONT_FOR_ARROW		(F)
+#define CONT_QUIVER		(F)
 
 /*
  * Room flags.
@@ -1915,9 +1915,16 @@ void	obj_from_room	(OBJ_DATA *obj);
 void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
 void	obj_from_obj	(OBJ_DATA *obj);
-void	extract_obj	(OBJ_DATA *obj);
-void	extract_obj_nocount	(OBJ_DATA *obj);
-void	extract_obj_1	(OBJ_DATA *obj, bool count);
+
+/* extract flags */
+#define X_F_NOCOUNT	(A)	/* do not count */
+#define X_F_NORECURSE	(B)	/* do not extract contained in objs */
+
+#define extract_obj(obj)		extract_obj_raw(obj, 0)
+#define extract_obj_nocount(obj)	extract_obj_raw(obj, X_F_NOCOUNT)
+
+void	extract_obj_raw		(OBJ_DATA *obj, int flags);
+
 void	extract_char	(CHAR_DATA *ch, bool fPull);
 void	extract_char_nocount	(CHAR_DATA *ch, bool fPull);
 void	extract_char_org	(CHAR_DATA *ch, bool fPull, bool Count);

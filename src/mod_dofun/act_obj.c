@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.101 1998-12-17 21:05:39 fjoe Exp $
+ * $Id: act_obj.c,v 1.102 1998-12-22 16:22:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -312,8 +312,9 @@ bool put_obj(CHAR_DATA *ch, OBJ_DATA *container, OBJ_DATA *obj, int* count)
 {
 	OBJ_DATA *	objc;
 
-	if (IS_SET(container->value[1], CONT_FOR_ARROW)
-	&&  (obj->pIndexData->item_type != ITEM_WEAPON || obj->value[0] != WEAPON_ARROW)) {
+	if (IS_SET(container->value[1], CONT_QUIVER)
+	&&  (obj->pIndexData->item_type != ITEM_WEAPON ||
+	     obj->value[0] != WEAPON_ARROW)) {
 		act_puts("You can only put arrows in $p.",
 			 ch, container, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;

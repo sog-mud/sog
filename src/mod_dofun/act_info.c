@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.177 1998-12-17 21:05:39 fjoe Exp $
+ * $Id: act_info.c,v 1.178 1998-12-22 16:22:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3872,7 +3872,6 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		char_puts("You successfully make an arrow.\n", ch);
 		check_improve(ch, sn, TRUE, 3);
 		if (color)
 			check_improve(ch, color, TRUE, 3);
@@ -3912,6 +3911,8 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		}
 
 		obj_to_char(arrow, ch);
+		act_puts("You successfully make $p.",
+			 ch, arrow, NULL, TO_CHAR, POS_DEAD);
 		arrow = NULL;
 	}
 }
@@ -3955,7 +3956,6 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
-	char_puts("You successfully make bow.\n", ch);
 	check_improve(ch, sn, TRUE, 1);
 
 	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), ch->level);
@@ -3982,6 +3982,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	affect_to_obj(bow, &af);
 
 	obj_to_char(bow, ch);
+	act_puts("You successfully make $p.", ch, bow, NULL, TO_CHAR, POS_DEAD);
 }
 
 void do_make(CHAR_DATA *ch, const char *argument)

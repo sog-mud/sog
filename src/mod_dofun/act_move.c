@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.124 1998-12-19 12:26:25 kostik Exp $
+ * $Id: act_move.c,v 1.125 1998-12-22 16:22:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3102,7 +3102,27 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 	return FALSE;
 }
 
-void do_shoot(CHAR_DATA *ch, const char *argument)
+static OBJ_DATA *find_arrow(CHAR_DATA *ch)
+{
+	OBJ_DATA *arrow;
+	OBJ_DATA *obj;
+
+	if ((arrow = get_eq_char(ch, WEAR_HOLD)))
+		return arrow;
+
+	for (obj = ch->carrying; obj; obj = obj->next_content) {
+		if (obj->wear_loc == WEAR_NONE
+		||  obj->pIndexData->item_type != ITEM_CONTAINER
+		||  !IS_SET(obj->value[1], CONT_QUIVER)
+		||  !obj->contains)
+			continue;
+		return obj->contains;
+	}
+
+	return NULL;
+}
+
+DO_FUN(do_shoot)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -3158,11 +3178,10 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	}
 
 	wield = get_eq_char(ch, WEAR_WIELD);
-	arrow = get_eq_char(ch, WEAR_HOLD);    
 
 	if (!wield || wield->pIndexData->item_type != ITEM_WEAPON
-	||  wield->value[0]!=WEAPON_BOW) {
-		char_puts("You need a bow to shoot!\n",ch);
+	||  wield->value[0] != WEAPON_BOW) {
+		char_puts("You need a bow to shoot!\n", ch);
 		return;    	
 	}
 
@@ -3172,15 +3191,14 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;    	
 	}
 
-	if (!arrow) {
-		 char_puts("You need an arrow holding for your ammunition!\n",
-			   ch);
+	if ((arrow = find_arrow(ch)) == NULL) {
+		 char_puts("You need an arrow to shoot!\n", ch);
 		 return;    	
 	}
 		
 	if (arrow->pIndexData->item_type != ITEM_WEAPON
 	||  arrow->value[0] != WEAPON_ARROW) {
-		char_puts("That's not the right kind of arrow!\n",ch);
+		char_puts("That's not the right kind of arrow!\n", ch);
 		return;
 	}
 		
@@ -3201,7 +3219,11 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	act_printf(ch, arrow, NULL, TO_ROOM, POS_RESTING,
 		   "$n shoots $p to %s.", dir_name[direction]);
 
-	obj_from_char(arrow);
+	if (arrow->carried_by)
+		obj_from_char(arrow);
+	else if (arrow->in_obj)
+		obj_from_obj(arrow);
+
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(wield->value[1],wield->value[2]));
 	check_improve(ch, gsn_bow, TRUE, 1);

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.32 1998-12-21 04:39:43 fjoe Exp $
+ * $Id: tables.c,v 1.33 1998-12-22 16:22:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -627,7 +627,7 @@ FLAG cont_flags[] =
 	{ "closed",		CONT_CLOSED,		TRUE	},
 	{ "locked",		CONT_LOCKED,		TRUE	},
 	{ "put_on",		CONT_PUT_ON,		TRUE	},
-	{ "for_arrow",		CONT_FOR_ARROW,		TRUE	},
+	{ "quiver",		CONT_QUIVER,		TRUE	},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.96 1998-12-21 04:39:42 fjoe Exp $
+ * $Id: handler.c,v 1.97 1998-12-22 16:22:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1725,51 +1725,47 @@ void obj_from_obj(OBJ_DATA *obj)
 	}
 }
 
-/* 
- * Extract an object consider limit
- */
-void extract_obj(OBJ_DATA *obj)
-{
-	extract_obj_1(obj,TRUE);
-}
-
-/* 
- * Extract an object consider limit
- */
-void extract_obj_nocount(OBJ_DATA *obj)
-{
-	extract_obj_1(obj,FALSE);
-}
-
 /*
  * Extract an obj from the world.
  */
-void extract_obj_1(OBJ_DATA *obj, bool count)
+void extract_obj_raw(OBJ_DATA *obj, int flags)
 {
 	OBJ_DATA *obj_content;
 	OBJ_DATA *obj_next;
 
-	if (obj->extracted)  /* if the object has already been extracted once */
-	  {
-	    log_printf("extract_obj_1: %s, vnum %d already extracted",
-			obj->name, obj->pIndexData->vnum);
-	    return; /* if it's already been extracted, something bad is going on */
-	  }
+	if (obj->extracted) {
+		log_printf("extract_obj_raw: %s, vnum %d: already extracted",
+			   obj->name, obj->pIndexData->vnum);
+		return;
+	}
 	else
-	  obj->extracted = TRUE;  /* if it hasn't been extracted yet, now
-	                           * it's being extracted. */
+		obj->extracted = TRUE;
  
-	if (obj->in_room != NULL)
-		obj_from_room(obj);
-	else if (obj->carried_by != NULL)
-		obj_from_char(obj);
-	else if (obj->in_obj != NULL)
-		obj_from_obj(obj);
-
 	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
 		obj_next = obj_content->next_content;
-		extract_obj_1(obj_content, count);
+
+		if (!IS_SET(flags, X_F_NORECURSE)) {
+			extract_obj_raw(obj_content, flags);
+			continue;
+		}
+
+		obj_from_obj(obj_content);
+		if (obj->in_room)
+			obj_to_room(obj_content, obj->in_room);
+		else if (obj->carried_by)
+			obj_to_char(obj_content, obj->carried_by);
+		else if (obj->in_obj)
+			obj_to_obj(obj_content, obj->in_obj);
+		else
+			extract_obj(obj_content);
 	}
+
+	if (obj->in_room)
+		obj_from_room(obj);
+	else if (obj->carried_by)
+		obj_from_char(obj);
+	else if (obj->in_obj)
+		obj_from_obj(obj);
 
 	if (obj->pIndexData->vnum == OBJ_VNUM_MAGIC_JAR) {
 		 CHAR_DATA *wch;
@@ -1804,7 +1800,8 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 		    return;
 		}
 	}
-	if (count)
+
+	if (!IS_SET(flags, X_F_NOCOUNT))
 		--obj->pIndexData->count;
 	free_obj(obj);
 }
