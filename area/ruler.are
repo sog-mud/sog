@@ -56,15 +56,15 @@ law laws book~
 the book of laws~
 The book of laws is left here on the floor.~
 paper~
-treasure O AO
+treasure ORe AO
 0 0 0 0 0
-60 1 100000 P
+0 1 100000 P
 #95102
 roll paper rolled~
 a rolled paper~
 A rolled paper is left on the ground.~
 paper~
-key ORY AO
+key ORVY AO
 0 0 0 0 0
 40 4 0 P
 E

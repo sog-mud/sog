@@ -19,7 +19,7 @@ staffs. Even he had never used a magical item. Those shows how he
 hates magic.
 ~
 giant~
-ABJKTVef DFelmt 0 0
+ABJKTVef DFlmt 0 0
 92 70 2d500+25000 1d1+3999 10d40+90 slash
 -90 -90 -90 -70
 ACEFIK AB D 0
@@ -66,7 +66,7 @@ key~
 a bone key~
 A key, made of bone, is lying on the ground.~
 bone~
-key ORY AO
+key ORVY AO
 0 0 0 0 0
 40 4 0 P
 #95401
@@ -74,9 +74,9 @@ skull~
 @eng Skull of mage@rus þลาละ อมวม~
 An old glowing small skull is sitting on the ground.~
 bone~
-treasure O AO
+treasure ORe AO
 0 0 0 0 0
-60 1 100000 P
+0 1 100000 P
 #95402
 white throne~
 A white throne~
@@ -322,7 +322,7 @@ S
 #MOBPROGS
 #95400
 if clan $n Battlerager
-'Hail, brother!           
+'Hail, brother!
 mob echoat $n $I snaps to attention, sharply saluting you!
 end
 endif
@@ -344,7 +344,7 @@ say Ghosts are not allowed in this place!
 mob slay $n
 end
 endif
-clan We are attacked by $n !
+clan We are attacked by $n!
 mob attack $n
 ~
 #0

@@ -59,15 +59,15 @@ globe sphere~
 the nothing globe~
 A small, sphere shaped unexistance area floats in the air.~
 unknown~
-treasure CEOT AO
+treasure CEORTe AO
 0 0 0 0 0
-60 2 10000 P
+0 2 10000 P
 #95602
 skull grayish jaw~
 grayish jaw of a skull~
 A gray jaw of a skull.~
 bone~
-key CEORY A
+key CEORVY A
 0 0 0 0 0
 40 2 0 P
 #95603
@@ -93,6 +93,14 @@ A magically created green object casts strange shadows across the clearing.~
 energy~
 portal AO 0
 0 0 B 3124 0
+0 0 0 P
+#95606
+shadow~
+shadow cloak~
+Mistical shadow is ready to cuddle you.~
+unknown~
+furniture R P
+ACD 0 HK DGH DGH
 0 0 0 P
 #0
 
@@ -282,6 +290,7 @@ P 0 95601 1 95600 1	* the skull: the nothing globe
 O 0 95603 0 95608	* Magical White Portal (The Pentagram)
 O 0 95604 0 95608	* Dark Portal (The Pentagram)
 O 0 95605 0 95608	* Magical Green Portal (The Pentagram)
+O 0 95606 0 95608	* shadow cloak (The Pentagram)
 S
 
 #MOBPROGS

@@ -8,7 +8,7 @@ End
 
 #MOBILES
 #38001
-old father Kimafat mage~
+bargan~
 @eng Bargan@rus Барган~
 @eng Oldman Bargan stands here.
 @rus Старик Барган стоит тут.
@@ -17,7 +17,7 @@ old father Kimafat mage~
 @rus Ни чего не видно кроме его рясы.
 ~
 human~
-AR H 0 0
+ABQRT H 0 0
 110 20 1d1+30000 1d1+30000 1d1+10 divine
 -100 -100 -100 -100
 0 CD 0 0

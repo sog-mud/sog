@@ -2,7 +2,7 @@
 Name Wex'sh city~
 Builders ahellair~
 VNUMs 40200 40499
-Credits Ahellair~
+Credits gate calico~
 Security 1
 LevelRange 40 90
 ResetMessage @eng A blinding flash lights all around ...@rus Ослепительная вспышка осветила все вокруг ....~
@@ -477,8 +477,8 @@ scroll wsarth~
 @eng An old fragile scroll lies here.@rus Старый свиток лежит на земле.~
 paper~
 scroll N AO
-120 'continual light' 'bless' 'enchant weapon' 'enchant weapon'
-83 0 12000 P
+120 'bless' 'enchant weapon' 'enchant weapon' 'enchant weapon'
+78 0 12000 P
 #40360
 scroll divine wrath~
 @eng scroll of divine wrath@rus Свиток божественного гнева~
@@ -525,6 +525,70 @@ unknown~
 potion 0 AO
 90 'improved invis' 'heal' 'heal' 'heal'
 75 0 0 P
+#40400
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40401
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40402
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40403
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40404
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40405
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40406
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+#40407
+no name~
+~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
 #0
 
 #ROOMS
@@ -542,7 +606,7 @@ S
 @eng You are hanging on a thick thread of a giant web
 @rus Ты висишь на толстой нити в гигантской паутине.
 ~
-0 0 field
+0 N field
 D1
 ~
 ~
@@ -565,7 +629,7 @@ S
 @eng You are hanging on a thick thread in a giant web.
 @rus Ты висишь на толстой нити в гигантской паутине.
 ~
-0 0 field
+0 N field
 D1
 ~
 ~
@@ -588,7 +652,7 @@ S
 @eng You are hanging on a thick thread in a giant web.
 @rus Ты висишь на толстой нити в гигантской паутине.
 ~
-0 0 field
+0 N field
 D1
 ~
 ~
@@ -611,7 +675,7 @@ S
 @eng You are hanging on a thick thread in a giant web.
 @rus Ты висишь на толстой нити в гигантской паутине.
 ~
-0 0 field
+0 N field
 D1
 ~
 ~
@@ -634,7 +698,7 @@ S
 @eng You are hanging on a thick thread in a giant web.
 @rus Ты висишь на толстой нити в гигантской паутине.
 ~
-0 0 field
+0 N field
 D1
 ~
 ~
@@ -657,7 +721,7 @@ S
 @eng You are hanging on a thick thread in a giant web.
 @rus Ты висишь на толстой нити в гигантской паутине.
 ~
-0 0 field
+0 N field
 D1
 ~
 ~
@@ -810,6 +874,10 @@ D0
 ~
 ~
 Z 0 40213
+D5
+~
+~
+Z 0 40340
 S
 #40215
 @eng End of Kh'nass street@rus Конец улицы Х'насс~
@@ -1833,6 +1901,392 @@ D5
 ~
 ABZ 0 40270
 S
+#40340
+@eng Entrance hall@rus Вход~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40341
+D4
+~
+~
+Z 0 40214
+S
+#40341
+@eng Chamber of Judgement@rus Судебная палата~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40345
+D1
+~
+~
+Z 0 40344
+D2
+~
+~
+Z 0 40340
+D3
+~
+~
+Z 0 40343
+D4
+~
+~
+Z 0 40342
+D5
+~
+~
+Z 0 40369
+S
+#40342
+~
+~
+0 0 inside
+D5
+~
+~
+Z 0 40341
+S
+#40343
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 40341
+S
+#40344
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 40341
+S
+#40345
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40346
+D1
+~
+~
+ABCZ 40402 40349
+D2
+~
+~
+Z 0 40341
+D3
+~
+~
+ABCZ 40401 40348
+D4
+~
+~
+ABCZ 40403 40350
+D5
+~
+~
+ABCZ 40400 40347
+S
+#40346
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40356
+D1
+~
+~
+ABCZ 40406 40353
+D2
+~
+~
+Z 0 40345
+D3
+~
+~
+ABCZ 40405 40352
+D4
+~
+~
+ABCZ 40407 40354
+D5
+~
+~
+ABCZ 40404 40351
+S
+#40347
+~
+~
+0 0 inside
+D4
+~
+~
+ABCZ 0 40345
+S
+#40348
+~
+~
+0 0 inside
+D1
+~
+~
+ABCZ 0 40345
+S
+#40349
+~
+~
+0 0 inside
+D3
+~
+~
+ABCZ 0 40345
+S
+#40350
+~
+~
+0 0 inside
+D5
+~
+~
+ABCZ 0 40345
+S
+#40351
+~
+~
+0 0 inside
+D4
+~
+~
+ABCZ 0 40346
+S
+#40352
+~
+~
+0 0 inside
+D1
+~
+~
+ABCZ 0 40346
+S
+#40353
+~
+~
+0 0 inside
+D3
+~
+~
+ABCZ 0 40346
+S
+#40354
+~
+~
+0 0 inside
+D5
+~
+~
+ABCZ 0 40346
+S
+#40355
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 40356
+D5
+~
+~
+Z 0 40363
+S
+#40356
+~
+~
+0 0 inside
+D0
+~
+~
+ABZ 0 40361
+D1
+~
+~
+ABZ 0 40357
+D2
+~
+~
+Z 0 40346
+D3
+~
+~
+Z 0 40355
+S
+#40357
+~
+~
+0 0 inside
+D3
+~
+~
+ABZ 0 40356
+D4
+~
+~
+Z 0 40358
+S
+#40358
+~
+~
+0 0 inside
+D5
+~
+~
+Z 0 40357
+S
+#40359
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 40360
+D2
+~
+~
+Z 0 40361
+S
+#40360
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 40362
+D3
+~
+~
+Z 0 40359
+S
+#40361
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40359
+D1
+~
+~
+Z 0 40362
+D2
+~
+~
+ABZ 0 40356
+S
+#40362
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40360
+D3
+~
+~
+Z 0 40361
+S
+#40363
+~
+~
+0 0 inside
+D5
+~
+~
+Z 0 40364
+S
+#40364
+~
+~
+0 0 inside
+D5
+~
+~
+Z 0 40365
+S
+#40365
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 40366
+D2
+~
+~
+Z 0 40367
+S
+#40366
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 40367
+D3
+~
+~
+Z 0 40365
+S
+#40367
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 40366
+D1
+~
+~
+Z 0 40368
+S
+#40368
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 40367
+S
+#40369
+~
+~
+0 0 inside
+D4
+~
+~
+Z 0 40341
+S
 #0
 
 #SPECIALS
@@ -1849,143 +2303,32 @@ D 0 40269 1 1	* Scrolls shop: door to the east: closed
 D 0 40270 4 1	* Wands shop: door to the up: closed
 D 0 40292 3 1	* Wizard's room: door to the west: closed
 D 0 40292 5 1	* Wizard's room: door to the down: closed
+D 0 40345 1 2	* : door to the east: closed and locked
+D 0 40345 3 2	* : door to the west: closed and locked
+D 0 40345 4 2	* : door to the up: closed and locked
+D 0 40345 5 2	* : door to the down: closed and locked
+D 0 40346 1 2	* : door to the east: closed and locked
+D 0 40346 3 2	* : door to the west: closed and locked
+D 0 40346 4 2	* : door to the up: closed and locked
+D 0 40346 5 2	* : door to the down: closed and locked
+D 0 40347 4 2	* : door to the up: closed and locked
+D 0 40348 1 2	* : door to the east: closed and locked
+D 0 40349 3 2	* : door to the west: closed and locked
+D 0 40350 5 2	* : door to the down: closed and locked
+D 0 40351 4 2	* : door to the up: closed and locked
+D 0 40352 1 2	* : door to the east: closed and locked
+D 0 40353 3 2	* : door to the west: closed and locked
+D 0 40354 5 2	* : door to the down: closed and locked
+D 0 40356 0 1	* : door to the north: closed
+D 0 40356 1 1	* : door to the east: closed
+D 0 40357 3 1	* : door to the west: closed
+D 0 40361 2 1	* : door to the south: closed
 R 0 40201 6	* A thread.: randomize
 R 0 40202 6	* A thread.: randomize
 R 0 40203 6	* A thread.: randomize
 R 0 40204 6	* A thread.: randomize
 R 0 40205 6	* A thread.: randomize
 R 0 40206 6	* A thread.: randomize
-M 0 40201 10 40209 2	* Wex'sh citizen (Wex'sh Gates.)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40202 22 40209 2	* Wex'sh citizen (Wex'sh Gates.)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40204 10 40210 3	* Wex'sh cityguard (Intersection.)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40204 10 40210 3	* Wex'sh cityguard (Intersection.)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40204 10 40211 3	* Wex'sh cityguard (Main way)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40200 20 40211 2	* Wex'sh citizen (Main way)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40202 22 40212 2	* Wex'sh citizen (End of Main way.)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40202 22 40212 2	* Wex'sh citizen (End of Main way.)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40201 2 40212 10	* Wex'sh citizen (End of Main way.)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40200 20 40212 2	* Wex'sh citizen (End of Main way.)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40201 10 40215 2	* Wex'sh citizen (End of Kh'nass street)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40202 22 40216 2	* Wex'sh citizen (Lean'th street)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40204 10 40217 3	* Wex'sh cityguard (Lean'th street)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40200 20 40217 2	* Wex'sh citizen (Lean'th street)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40204 10 40219 3	* Wex'sh cityguard (End of Skeet'sha street)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40202 22 40220 2	* Wex'sh citizen (Market way)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40204 10 40221 3	* Wex'sh cityguard (Market way)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40204 10 40222 3	* Wex'sh cityguard (Market way)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40201 10 40223 2	* Wex'sh citizen (Royal avenue)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40204 10 40224 3	* Wex'sh cityguard (Royal avenue)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40200 20 40224 2	* Wex'sh citizen (Royal avenue)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40224 2	* Wex'sh citizen (Royal avenue)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40204 10 40225 3	* Wex'sh cityguard (Royal avenue)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40202 22 40225 2	* Wex'sh citizen (Royal avenue)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40200 20 40225 2	* Wex'sh citizen (Royal avenue)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40227 2	* Wex'sh citizen (Guild lane)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40203 5 40229 1	* Wex'sh outlaw (End of Guild lane)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40201 10 40230 2	* Wex'sh citizen (Nameless road)
-E 0 40205 0 16		*	short-bladed dagger: wielded
-M 0 40202 22 40231 2	* Wex'sh citizen (Windy road)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40200 20 40231 2	* Wex'sh citizen (Windy road)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40231 2	* Wex'sh citizen (Windy road)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40233 2	* Wex'sh citizen (Windy road)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40202 22 40237 2	* Wex'sh citizen (K'shath street)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40200 20 40237 2	* Wex'sh citizen (K'shath street)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40204 10 40240 3	* Wex'sh cityguard (Main way)
-E 0 40203 0 16		*	Wex'sh sword: wielded
-E 0 40207 0 11		*	round shield: as a shield
-M 0 40200 20 40240 2	* Wex'sh citizen (Main way)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40242 2	* Wex'sh citizen (Main way.)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40243 2	* Wex'sh citizen (Main way.)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40243 2	* Wex'sh citizen (Main way.)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40202 22 40244 2	* Wex'sh citizen (Kh'nass street.)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40200 20 40245 2	* Wex'sh citizen (Kh'nass street.)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40202 22 40246 2	* Wex'sh citizen (Kh'nass street)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40200 20 40247 2	* Wex'sh citizen (Ss'tah street)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40202 22 40248 2	* Wex'sh citizen (Lean'th street)
-E 0 40206 0 16		*	carved mace: wielded
-M 0 40202 22 40248 2	* Wex'sh citizen (Lean'th street)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40201 10 40248 2	* Wex'sh citizen (Lean'th street)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40200 20 40249 2	* Wex'sh citizen (Skeet'sha street)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40200 20 40250 2	* Wex'sh citizen (Market way)
-E 0 40200 0 16		*	a spear: wielded
-M 0 40202 22 40252 2	* Wex'sh citizen (Market way)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40202 22 40253 2	* Wex'sh citizen (Market way)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40202 22 40255 2	* Wex'sh citizen (Market way)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40202 22 40257 2	* Wex'sh citizen (Lean'th street)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40202 22 40257 2	* Wex'sh citizen (Lean'th street)
-E 0 40202 0 16		*	carved mace: wielded
-M 0 40200 20 40258 2	* Wex'sh citizen (Royal avenue)
-E 0 40204 0 16		*	spear: wielded
-M 0 40203 5 40262 1	* Wex'sh outlaw (Guild lane)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40201 10 40262 2	* Wex'sh citizen (Guild lane)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40203 5 40264 1	* Wex'sh outlaw (Guild lane)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40201 10 40264 2	* Wex'sh citizen (Guild lane)
-E 0 40201 0 16		*	short-bladed dagger: wielded
-M 0 40250 1 40278 1	* Phran'thea (Elite magic shop)
-G 0 40360 0		*	scroll of divine wrath
-G 0 40361 0		*	staff of healing
-G 0 40362 0		*	wand of escaping
-G 0 40363 0		*	scroll named "YUIALKOS"
 S
 
 #SHOPS
@@ -2030,8 +2373,6 @@ endif
 endif
 ~
 #40204
-mob oload 40208
-give stone ahell
 ~
 #0
 

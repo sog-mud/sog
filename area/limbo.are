@@ -282,7 +282,7 @@ dragon~
 Ae DEFHNOUVYc 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 divine
 -66 -66 -66 -66
-CDEFHIKNO ABU 0 0
+CDEFHIKNO ABCDU 0 0
 stand stand male 100000
 0 0 huge unknown
 #0
@@ -1125,7 +1125,7 @@ S
 Supermob office~
 Supermob lives here. Don't bother him.
 ~
-0 AHLNOX inside
+0 ACHLNOX inside
 S
 #0
 

@@ -105,7 +105,7 @@ key golden~
 a golden key~
 A golden key is left on the floor.~
 gold~
-key ORY AO
+key ORVY AO
 0 0 0 0 0
 40 4 0 P
 #95201
@@ -121,9 +121,9 @@ large medal honor~
 Large medal of honor~
 The large medal of honor is left here.~
 gold~
-treasure O AO
+treasure ORe AO
 0 0 0 0 0
-60 1 100000 P
+0 1 100000 P
 #0
 
 #ROOMS
