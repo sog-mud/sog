@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.85 1998-08-15 12:40:48 fjoe Exp $
+ * $Id: comm.c,v 1.86 1998-08-17 18:47:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -109,7 +109,6 @@ DECLARE_DO_FUN(do_unread	);
 /*
  * Colour stuff by Lope of Loping Through The MUD (taken from Rot)
  */
-static char EMPTY_STRING[]	= "";
 static char CLEAR[]		= "[0m";	/* Resets Color        */
 						/* Normal Colors       */
 /* static char C_BLACK[]	= "[0;30m";	-- Not used */	
@@ -1231,10 +1230,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 			i = buf2;
 			break;
 
-		case 'c':
-			i = "\n\r";
-			break;
-
 		case 'n':
 			i = ch->name;
 			break;
@@ -1357,13 +1352,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'E' :
-			snprintf(buf2, sizeof(buf2), "%s", olc_ed_name(ch));
-			i = buf2;
-			break;
-
-		case 'O' :
-			snprintf(buf2, sizeof(buf2), "%s", olc_ed_vnum(ch));
-			i = buf2;
+			i = olc_ed_name(ch);
 			break;
 		}
 		++str;
@@ -2930,8 +2919,18 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 char* color(char type, CHAR_DATA *ch)
 {
 	char *color;
+
+	switch (type) {
+	case '*':
+		return "\a";
+	case '{':
+		return "{";
+	case '\\':
+		return "\n\r";
+	}
+
 	if (IS_NPC(ch) || !IS_SET(ch->act, PLR_COLOR))
-		return "";
+		return str_empty;
 
 	switch (type) {
 	case 'b':
@@ -2999,14 +2998,8 @@ char* color(char type, CHAR_DATA *ch)
 		break;
 	case 'z':
 		return curr_color = reset_color;
-	case '*':
-		return "\a";
-	case '{':
-		return "{";
-	case '\\':
-		return "\n\r";
 	default:
-		return EMPTY_STRING;
+		return str_empty;
 	}
 
 	reset_color = curr_color;

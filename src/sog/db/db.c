@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.56 1998-08-15 07:47:33 fjoe Exp $
+ * $Id: db.c,v 1.57 1998-08-17 18:47:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,15 +104,10 @@ extern  AFFECT_DATA	*affect_free;
 /*
  * Globals.
  */
-HELP_DATA *		help_first;
-HELP_DATA *		help_last;
-
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
 
 NOTE_DATA *		note_free;
-
-MPROG_CODE *		mprog_list;
 
 CHAR_DATA *		char_list;
 char *			help_greeting;
@@ -433,7 +428,7 @@ void    load_aflag	(FILE *fp);
 void	load_mobprogs	(FILE *fp);
  
 void	fix_exits	(void);
-void    fix_mobprogs	(void);
+void    check_mob_progs	(void);
 
 void	reset_area	(AREA_DATA * pArea);
 
@@ -519,13 +514,9 @@ void boot_db(void)
 		if (strArea[0] == '$')
 			break;
 
-		if (strArea[0] == '-')
-			fpArea = stdin;
-		else {
-			if ((fpArea = fopen(strArea, "r")) == NULL) {
-				perror(strArea);
-				exit(1);
-			}
+		if ((fpArea = fopen(strArea, "r")) == NULL) {
+			perror(strArea);
+			exit(1);
 		}
 
 		area_current = NULL;
@@ -566,14 +557,9 @@ void boot_db(void)
 			}
 		}
 
-		if (fpArea != stdin)
-			fclose(fpArea);
+		fclose(fpArea);
 		fpArea = NULL;
-
-		if (area_current != NULL) {
-			REMOVE_BIT(area_current->area_flags, AREA_LOADING);
-			area_current = NULL;
-		}
+		area_current = NULL;
 	}
 	fclose(fpList);
 
@@ -584,7 +570,7 @@ void boot_db(void)
 	 * Load up the songs, notes and ban files.
 	 */
 	fix_exits();
-	fix_mobprogs();
+	check_mob_progs();
 	load_limited_objects();
 	log_printf("Total non-immortal levels > 5: %d", total_levels);
 
@@ -611,7 +597,6 @@ void load_area(FILE *fp)
 	pArea->help_last	= NULL;
 	pArea->file_name	= fread_string(fp);
 
-	pArea->area_flags	= AREA_LOADING;
 	pArea->security		= 9;
 	pArea->vnum		= top_area;
 	pArea->builders		= str_dup("None");
@@ -630,7 +615,7 @@ void load_area(FILE *fp)
 	pArea->empty		= FALSE;
 	pArea->count		= 0;
 	pArea->resetmsg		= NULL;
-	pArea->area_flag	= 0;
+	pArea->flags		= 0;
 
 	if (area_first == NULL)
 		area_first = pArea;
@@ -706,10 +691,9 @@ void load_areadata(FILE *fp)
 	pArea->security		= 9;                    /* 9 -- Hugin */
 	pArea->min_vnum		= 0;
 	pArea->max_vnum		= 0;
-	pArea->area_flags	= 0;
+	pArea->flags		= 0;
 	pArea->low_range	= 0;
 	pArea->high_range	= 0;          
-	pArea->area_flag	= 0;
 	pArea->resetmsg		= NULL;
 /*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
  
@@ -739,7 +723,7 @@ void load_areadata(FILE *fp)
 			}
 			break;
 		case 'F':
-			KEY("Flags", pArea->area_flag, fread_flags(fp));
+			KEY("Flags", pArea->flags, fread_flags(fp));
 			break;
 		case 'L':
 			if (!str_cmp(word, "LevelRange")) {
@@ -792,28 +776,6 @@ void vnum_check(AREA_DATA *area, int vnum)
 	}
 }
  
-void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
-{
-/* insert into global help list */
-	if (help_first == NULL)
-		help_first = pHelp;
-	if (help_last != NULL)
-		help_last->next = pHelp;
-	help_last		= pHelp;
-	pHelp->next		= NULL;
-	
-/* insert into help list for given area */
-	if (pArea->help_first == NULL)
-		pArea->help_first = pHelp;
-	if (pArea->help_last != NULL)
-		pArea->help_last->next_in_area = pHelp;
-	pArea->help_last = pHelp;
-	pHelp->next_in_area	= NULL;
-
-/* link help with given area */
-	pHelp->area		= pArea;
-}
-
 /*
  * Snarf a help section.
  */
@@ -835,7 +797,7 @@ void load_helps(FILE *fp)
 		if (keyword[0] == '$')
 			break;
 	
-		pHelp		= new_help();
+		pHelp		= help_new();
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
 		pHelp->text	= mlstr_fread(fp);
@@ -1448,7 +1410,7 @@ void load_rooms(FILE *fp)
  */
 void load_mobprogs(FILE *fp)
 {
-    MPROG_CODE *pMprog;
+    MPCODE *mpcode;
 
     if (area_current == NULL)
     {
@@ -1459,6 +1421,7 @@ void load_mobprogs(FILE *fp)
     for (; ;)
     {
 	int vnum;
+	char *code;
 	char letter;
 
 	letter		  = fread_letter(fp);
@@ -1472,38 +1435,28 @@ void load_mobprogs(FILE *fp)
 	if (vnum == 0)
 	    break;
 
-	fBootDb = FALSE;
-	if (get_mprog_index(vnum) != NULL)
+	if (mpcode_lookup(vnum) != NULL)
 	{
 	    log_printf("load_mobprogs: vnum %d duplicated.", vnum);
 	    exit(1);
 	}
-	fBootDb = TRUE;
+	code 		= fread_string(fp);
 
-	pMprog		= alloc_perm(sizeof(*pMprog));
-	pMprog->vnum  	= vnum;
-	pMprog->code  	= fread_string(fp);
-	if (mprog_list == NULL)
-	    mprog_list = pMprog;
-	else
-	{
-	    pMprog->next = mprog_list;
-	    mprog_list 	= pMprog;
-	}
-	top_mprog_index++;
+	mpcode		= mpcode_new();
+	mpcode->vnum  	= vnum;
+	mpcode->code  	= code;
+	mpcode_add(mpcode);
     }
-    return;
 }
 
 
 /*
- *  Translate mobprog vnums pointers to real code
+ *  Check mobprogs
  */
-void fix_mobprogs(void)
+void check_mob_progs(void)
 {
     MOB_INDEX_DATA *pMobIndex;
-    MPROG_LIST        *list;
-    MPROG_CODE        *prog;
+    MPTRIG        *mptrig;
     int iHash;
 
     for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
@@ -1512,14 +1465,11 @@ void fix_mobprogs(void)
 	      pMobIndex   != NULL;
 	      pMobIndex   = pMobIndex->next)
 	{
-	    for(list = pMobIndex->mprogs; list != NULL; list = list->next)
+	    for(mptrig = pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next)
 	    {
-		if ((prog = get_mprog_index(list->vnum)) != NULL)
-		    list->code = prog->code;
-		else
-		{
-		    log_printf("fix_mobprogs: code vnum %d not found.",
-			       list->vnum);
+		if (mpcode_lookup(mptrig->vnum) == NULL) {
+		    log_printf("check_mob_progs: code vnum %d not found.",
+			       mptrig->vnum);
 		    exit(1);
 		}
 	    }
@@ -1535,8 +1485,7 @@ void load_shops(FILE *fp)
 {
 	SHOP_DATA *pShop;
 
-	for (; ;)
-	{
+	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
 		int iTrade;
 
@@ -3993,26 +3942,14 @@ int interpolate(int level, int value_00, int value_32)
 	return value_00 + level * (value_32 - value_00) / 32;
 }
 
-
-
 /*
  * Removes the tildes from a string.
  * Used for player-entered strings that go into disk files.
  */
 void smash_tilde(char *str)
 {
-		for (; *str; str++) 
-			if (*str == '~') *str = '-';
-}
-
-void smash_percent(char* str)
-{
-		for (; *str; str++)
-			if (*str == '%')
-				if (*(str+1) == '%')
-					str++;
-				else
-					*str = '#';
+	for (; *str; str++) 
+		if (*str == '~') *str = '-';
 }
 
 /*
@@ -4348,7 +4285,7 @@ void load_practicer(FILE *fp)
 		case 'M':
 			pMobIndex = get_mob_index(fread_number(fp));
 			gname = fread_word(fp);
-			if ((group = flag_lookup(gname, skill_groups)) == 0) {
+			if ((group = flag_value(skill_groups, gname)) == 0) {
 				log_printf("load_practicer: 'M': vnum %d: "
 					   "unknown group '%s'",
 					   pMobIndex->vnum, gname);
@@ -4370,7 +4307,7 @@ void load_resetmsg(FILE *fp)
 
 void load_aflag(FILE *fp)
 {
-	area_current->area_flag = fread_flags(fp);
+	area_current->flags = fread_flags(fp);
 }
 
 
@@ -4402,17 +4339,6 @@ char *format_flags(int flags)
 	return buf;
 }
 
-
-MPROG_CODE *get_mprog_index(int vnum)
-{
-	MPROG_CODE *prg;
-	for (prg = mprog_list; prg; prg = prg->next) {
-	    	if (prg->vnum == vnum)
-        		return(prg);
-	}
-	return NULL;
-}    
- 
 void db_error(const char* fn, const char* fmt,...)
 {
 	char buf[MAX_STRING_LENGTH];

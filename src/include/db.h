@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.18 1998-08-15 07:47:33 fjoe Exp $
+ * $Id: db.h,v 1.19 1998-08-17 18:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,8 +73,6 @@ extern		char			str_empty[1];
 void	reset_area      (AREA_DATA * pArea);		/* OLC */
 void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */
 
-void		help_add	(AREA_DATA*, HELP_DATA*);
-
 void		boot_db		(void);
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
 CHAR_DATA *	create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name);
@@ -89,7 +87,6 @@ ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
-MPROG_CODE *		get_mprog_index (int vnum);
 char	fread_letter	(FILE *fp);
 int	fread_number	(FILE *fp);
 long 	fread_flags	(FILE *fp);
@@ -114,7 +111,6 @@ long     number_mm      (void);
 int	dice		(int number, int size);
 int	interpolate	(int level, int value_00, int value_32);
 void	smash_tilde	(char *str);
-void	smash_percent	(char *str);
 bool	str_cmp		(const char *astr, const char *bstr);
 bool	str_prefix	(const char *astr, const char *bstr);
 bool	str_infix	(const char *astr, const char *bstr);

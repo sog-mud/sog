@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.9 1998-08-15 07:47:33 fjoe Exp $
+ * $Id: mem.c,v 1.10 1998-08-17 18:47:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,14 +45,9 @@ OBJ_INDEX_DATA		*	obj_index_free;
 SHOP_DATA		*	shop_free;
 MOB_INDEX_DATA		*	mob_index_free;
 RESET_DATA		*	reset_free;
-HELP_DATA		*	help_free;
-
-HELP_DATA		*	help_last;
 
 void	ed_free	args((ED_DATA *pExtra));
 void	free_affect		args((AFFECT_DATA *af));
-void	free_mprog              args ((MPROG_LIST *mp));
-
 
 RESET_DATA *new_reset_data(void)
 {
@@ -121,11 +116,10 @@ AREA_DATA *new_area(void)
 	pArea->empty		= TRUE;              /* ROM patch */
 	pArea->builders		= str_dup("None");
 	pArea->vnum		= top_area-1;
-	pArea->area_flags	= AREA_ADDED;
 	pArea->security		= 1;
 	pArea->count		= 0;
 	pArea->resetmsg		= NULL;
-	pArea->area_flag	= 0;
+	pArea->flags		= 0;
 /*    pArea->recall		= ROOM_VNUM_TEMPLE;      ROM OLC */
 
 	return pArea;
@@ -436,7 +430,7 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
     mlstr_free(pMob->short_descr);
     mlstr_free(pMob->long_descr);
     mlstr_free(pMob->description);
-    free_mprog(pMob->mprogs);
+    mptrig_free(pMob->mptrig_list);
 
     free_shop(pMob->pShop);
 
@@ -445,34 +439,52 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
     return;
 }
 
-MPROG_CODE              *       mpcode_free;
+MPCODE *mpcode_list;
+MPCODE *free_mpcode_list;
 
-MPROG_CODE *new_mpcode(void)
+MPCODE *mpcode_new(void)
 {
-     MPROG_CODE *NewCode;
+	MPCODE *mpcode;
 
-     if (!mpcode_free)
-     {
-         NewCode = alloc_perm(sizeof(*NewCode));
-         top_mprog_index++;
-     }
-     else
-     {
-         NewCode     = mpcode_free;
-         mpcode_free = mpcode_free->next;
-     }
+	if (free_mpcode_list == NULL) {
+        	mpcode = alloc_perm(sizeof(*mpcode));
+        	top_mprog_index++;
+	}
+	else {
+        	mpcode = free_mpcode_list;
+        	free_mpcode_list = free_mpcode_list->next;
+	}
 
-     NewCode->vnum    = 0;
-     NewCode->code    = str_dup("");
-     NewCode->next    = NULL;
+	mpcode->vnum    = 0;
+	mpcode->code    = str_empty;
+	mpcode->next    = NULL;
 
-     return NewCode;
+	return mpcode;
 }
 
-void free_mpcode(MPROG_CODE *pMcode)
+void mpcode_add(MPCODE *mpcode)
 {
-    free_string(pMcode->code);
-    pMcode->next = mpcode_free;
-    mpcode_free  = pMcode;
-    return;
+	if (mpcode_list == NULL)
+		mpcode_list = mpcode;
+	else {
+		mpcode->next = mpcode_list;
+		mpcode_list = mpcode;
+	}
+}
+
+MPCODE *mpcode_lookup(int vnum)
+{
+	MPCODE *mpcode;
+	for (mpcode = mpcode_list; mpcode; mpcode = mpcode->next) {
+	    	if (mpcode->vnum == vnum)
+        		return mpcode;
+	}
+	return NULL;
+}    
+ 
+void mpcode_free(MPCODE *mpcode)
+{
+	free_string(mpcode->code);
+	mpcode->next = free_mpcode_list;
+	free_mpcode_list = mpcode;
 }

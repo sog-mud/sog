@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.59 1998-08-14 05:45:11 fjoe Exp $
+ * $Id: act_obj.c,v 1.60 1998-08-17 18:47:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2331,7 +2331,7 @@ find_keeper(CHAR_DATA * ch)
 		send_to_char("You can't do that here.\n\r", ch);
 		return NULL;
 	}
-	if (IS_SET(keeper->in_room->area->area_flag, AREA_HOMETOWN)
+	if (IS_SET(keeper->in_room->area->flags, AREA_HOMETOWN)
 	    && !IS_NPC(ch) && IS_SET(ch->act, PLR_WANTED)) {
 		do_say(keeper, "Criminals are not welcome!");
 		doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n\r", ch->name);

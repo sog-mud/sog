@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.51 1998-08-15 12:40:48 fjoe Exp $
+ * $Id: act_wiz.c,v 1.52 1998-08-17 18:47:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,6 @@
 #include "buffer.h"
 #include "tables.h"
 #include "mlstring.h"
-#include "olc.h"
 #include "interp.h"
 #include "fight.h"
 #include "quest.h"
@@ -1366,7 +1365,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	  
 	case ITEM_WEAPON:
 		buf_printf(output, "%s\n\r",
-			   flag_name_lookup(weapon_class, obj->value[0]));
+			   flag_string(weapon_class, obj->value[0]));
 		if (obj->pIndexData->new_format)
 		    	buf_printf(output,"Damage is %dd%d (average %d)\n\r",
 			    obj->value[1],obj->value[2],
@@ -1559,7 +1558,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 		IS_NPC(victim) ? victim->pIndexData->new_format ? "new" : "old" : "pc",
 		race_table[RACE(victim)].name,race_table[ORG_RACE(victim)].name,
-		IS_NPC(victim) ? victim->group : 0, sex_flags[victim->sex].name,
+		IS_NPC(victim) ? victim->group : 0, sex_table[victim->sex].name,
 		victim->in_room == NULL    ?        0 : victim->in_room->vnum);
 
 	if (IS_NPC(victim))
@@ -1616,7 +1615,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, 
 		"Hit: %d  Dam: %d  Saves: %d  Size: %s  Position: %s  Wimpy: %d\n\r",
 		GET_HITROLL(victim), GET_DAMROLL(victim), victim->saving_throw,
-		size_table[victim->size].name, position_table[victim->position].name,
+		flag_string(size_table, victim->size),
+		flag_string(position_table, victim->position),
 		victim->wimpy);
 
 	if (IS_NPC(victim) && victim->pIndexData->new_format)
@@ -3046,12 +3046,12 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				char_puts(" Not on PC's.\n\r", ch);
 				return;
 			}
-			mlstr_change(&victim->short_descr, arg3);
+			mlstr_edit(&victim->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "desc")) {
-			mlstr_change_desc(&victim->description, arg3);
+			mlstr_editnl(&victim->description, arg3);
 			return;
 		}
 
@@ -3060,7 +3060,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				char_puts("Not on PC's.\n\r", ch);
 				return;
 			}
-			mlstr_change_desc(&victim->long_descr, arg3);
+			mlstr_editnl(&victim->long_descr, arg3);
 			return;
 		}
 
@@ -3105,12 +3105,12 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg2, "short")) {
-			mlstr_change(&obj->short_descr, arg3);
+			mlstr_edit(&obj->short_descr, arg3);
 			return;
 		}
 
 		if (!str_prefix(arg2, "long")) {
-			mlstr_change(&obj->short_descr, arg3);
+			mlstr_edit(&obj->short_descr, arg3);
 			return;
 		}
 
@@ -3128,7 +3128,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			ed = ed_new();
 			ed->keyword		= str_dup(arg3);
 			ed->next		= obj->ed;
-			mlstr_change_desc(&ed->description, argument);
+			mlstr_editnl(&ed->description, argument);
 			obj->ed	= ed;
 			return;
 		}

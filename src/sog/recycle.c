@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.18 1998-08-14 22:33:07 fjoe Exp $
+ * $Id: recycle.c,v 1.19 1998-08-17 18:47:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,9 @@
 #include "lookup.h"
 #include "buffer.h"
 #include "mlstring.h"
+
+HELP_DATA *		help_first;
+HELP_DATA *		help_last;
 
 /* stuff for recyling notes */
 NOTE_DATA *note_free;
@@ -583,67 +586,135 @@ long get_mob_id(void)
 
     
 /* stuff for recycling mobprograms */
-MPROG_LIST *mprog_free;
+MPTRIG *mptrig_free_list;
  
-MPROG_LIST *new_mprog(void)
-{
-	MPROG_LIST *mp;
-
-	if (mprog_free == NULL)
-		mp = alloc_perm(sizeof(*mp));
-	else {
-		mp = mprog_free;
-		mprog_free=mprog_free->next;
-	}
-
-	mp->trig_type	= 0;
-	mp->trig_phrase	= NULL;
-	mp->flags	= 0;
-	mp->vnum	= 0;
-	mp->code	= str_dup("");
-	VALIDATE(mp);
-	return mp;
-}
-
-
-void mprog_check_case(MPROG_LIST *mp)
+MPTRIG *mptrig_new(int type, char *phrase, int vnum)
 {
 	char *p;
+	MPTRIG *mptrig;
 
-	for (p = mp->trig_phrase; *p; p++)
+	if (mptrig_free_list == NULL)
+		mptrig = alloc_perm(sizeof(*mptrig));
+	else {
+		mptrig = mptrig_free_list;
+		mptrig_free_list = mptrig_free_list->next;
+	}
+
+	mptrig->type	= type;
+	mptrig->phrase	= str_dup(phrase);
+	mptrig->vnum	= vnum;
+	mptrig->flags	= 0;
+	for (p = mptrig->phrase; *p; p++)
 		if (ISUPPER(*p)) {
-			SET_BIT(mp->flags, TRIG_CASEDEP);
-			return;
+			SET_BIT(mptrig->flags, TRIG_CASEDEP);
+			break;
 		}
-	REMOVE_BIT(mp->flags, TRIG_CASEDEP);
+	VALIDATE(mptrig);
+	return mptrig;
 }
 
-void free_mprog(MPROG_LIST *mp)
+void mptrig_add(MOB_INDEX_DATA *mob, MPTRIG *mptrig)
+{
+	SET_BIT(mob->mptrig_types, mptrig->type);
+	SLIST_ADD(MPTRIG, mob->mptrig_list, mptrig);
+}
+
+void mptrig_free(MPTRIG *mp)
 {
 	if (!IS_VALID(mp))
 		return;
 
 	INVALIDATE(mp);
-	mp->next = mprog_free;
-	mprog_free = mp;
+	mp->next = mptrig_free_list;
+	mptrig_free_list = mp;
 }
 
-HELP_DATA * help_free;
 extern int top_help;
 
-HELP_DATA * new_help(void)
+HELP_DATA * help_new(void)
 {
-	HELP_DATA * help;
-
-	if (help_free) {
-		help		= help_free;
-		help_free	= help_free->next;
-	}
-	else {
-		help		= alloc_perm(sizeof(*help));
-		help->text	= NULL;
-		top_help++;
-	}
- 
-	return help;
+	top_help++;
+	return calloc(1, sizeof(HELP_DATA));
 }
+
+void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
+{
+/* insert into global help list */
+	if (help_first == NULL)
+		help_first = pHelp;
+	if (help_last != NULL)
+		help_last->next = pHelp;
+	help_last		= pHelp;
+	pHelp->next		= NULL;
+	
+/* insert into help list for given area */
+	if (pArea->help_first == NULL)
+		pArea->help_first = pHelp;
+	if (pArea->help_last != NULL)
+		pArea->help_last->next_in_area = pHelp;
+	pArea->help_last = pHelp;
+	pHelp->next_in_area	= NULL;
+
+/* link help with given area */
+	pHelp->area		= pArea;
+}
+
+HELP_DATA *help_lookup(int num, const char *keyword)
+{
+	HELP_DATA *res;
+
+	if (num <= 0 || IS_NULLSTR(keyword))
+		return NULL;
+
+	for (res = help_first; res != NULL; res = res->next)
+		if (is_name(keyword, res->keyword) && !--num)
+			return res;
+	return NULL;
+}
+
+void help_free(HELP_DATA *pHelp)
+{
+	HELP_DATA *p;
+	HELP_DATA *prev;
+	AREA_DATA *pArea;
+
+/* remove from global list */
+	for (prev = NULL, p = help_first; p != NULL; p = p->next) {
+		if (p == pHelp)
+			break;
+		prev = p;
+	}
+		
+	if (p) {
+		if (prev) 
+			prev->next = pHelp->next;
+		else
+			help_first = help_first->next;
+		if (help_last == pHelp)
+			help_last = prev;
+	}
+
+/* remove from area */
+	pArea = pHelp->area;
+	for (prev = NULL, p = pArea->help_first; p != NULL; p = p->next) {
+		if (p == pHelp)
+			break;
+		prev = p;
+	}
+
+	if (p) {
+		if (prev)
+			prev->next = pHelp->next;
+		else
+			pArea->help_first = pArea->help_first->next;
+		if (pArea->help_last == pHelp)
+			help_last = prev;
+	}
+
+/* free memory */
+	free_string(pHelp->keyword);
+	mlstr_free(pHelp->text);
+	free(pHelp);
+	top_help--;
+}
+

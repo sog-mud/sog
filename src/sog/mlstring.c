@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.11 1998-08-15 07:47:34 fjoe Exp $
+ * $Id: mlstring.c,v 1.12 1998-08-17 18:47:07 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -34,8 +34,6 @@ struct mlstring {
 	int nlang;
 	int ref;
 };
-
-mlstring mlstr_empty;
 
 static void smash_a(char *s);
 static char* fix_mlstring(const char* s);
@@ -130,7 +128,7 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 
 void mlstr_free(mlstring *ml)
 {
-	if (ml == NULL || ml == &mlstr_empty || !ml->ref || --ml->ref)
+	if (ml == NULL || !ml->ref || --ml->ref)
 		return;
 
 	if (ml->nlang == 0)
@@ -150,9 +148,6 @@ mlstring *mlstr_dup(mlstring *ml)
 {
 	if (ml == NULL)
 		return NULL;
-
-	if (ml == &mlstr_empty)
-		return &mlstr_empty;
 
 	ml->ref++;
 	return ml;
@@ -293,7 +288,7 @@ void mlstr_format(mlstring **mlp)
 		(*mlp)->u.lstr[lang] = format_string((*mlp)->u.lstr[lang]);
 }
 
-bool mlstr_change(mlstring **mlp, const char *argument)
+bool mlstr_edit(mlstring **mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
@@ -311,10 +306,10 @@ bool mlstr_change(mlstring **mlp, const char *argument)
 }
 
 /*
- * The same as mlstr_change, but '\n' is appended and first symbol
+ * The same as mlstr_edit, but '\n' is appended and first symbol
  * is uppercased
  */
-bool mlstr_change_desc(mlstring **mlp, const char *argument)
+bool mlstr_editnl(mlstring **mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;

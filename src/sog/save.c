@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.47 1998-08-14 06:30:53 fjoe Exp $
+ * $Id: save.c,v 1.48 1998-08-17 18:47:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -493,7 +493,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 	/* these data are only used if they do not match the defaults */
 
-	if (obj->name != obj->pIndexData->name)
+	if (str_cmp(obj->name, obj->pIndexData->name) != 0)
 		fprintf(fp, "Name %s~\n", obj->name);
 	if (mlstr_cmp(obj->short_descr, obj->pIndexData->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", obj->short_descr);

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.21 1998-08-15 12:40:49 fjoe Exp $
+ * $Id: special.c,v 1.22 1998-08-17 18:47:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1127,7 +1127,7 @@ bool spec_guard(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 	
-		if (IS_SET(ch->in_room->area->area_flag, AREA_HOMETOWN) 
+		if (IS_SET(ch->in_room->area->flags, AREA_HOMETOWN) 
 			&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
 			do_say(ch, vmsg(MSG_DO_I_KNOW_YOU, ch, victim));
  			if (str_cmp(ch->in_room->area->name,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.82 1998-08-15 12:40:47 fjoe Exp $
+ * $Id: act_move.c,v 1.83 1998-08-17 18:47:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2257,8 +2257,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	}
 
 	level = ch->level;
-	duration = level / 10 ;
-	duration += 5;
+	duration = level / 10 + 5;
 
 	af.type      = gsn_vampire;
 	af.level     = level;

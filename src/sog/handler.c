@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.48 1998-08-14 05:45:13 fjoe Exp $
+ * $Id: handler.c,v 1.49 1998-08-17 18:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2975,7 +2975,7 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 
-char *flag_names_raw(const struct flag_type *f, int vector, char* buf)
+char *flag_names_raw(const FLAG *f, int vector, char* buf)
 {
 	while (f->name != NULL) {
 		if (IS_SET(vector, f->bit)) {
@@ -2989,7 +2989,7 @@ char *flag_names_raw(const struct flag_type *f, int vector, char* buf)
 }
 
 
-char *flag_names(const struct flag_type *f, int vector)
+char *flag_names(const FLAG *f, int vector)
 {
 	static char buf[MAX_STRING_LENGTH];
 	buf[0] = '\0';
@@ -3001,7 +3001,7 @@ char *flag_names(const struct flag_type *f, int vector)
  */
 char *item_type_name(OBJ_DATA *obj)
 {
-	return flag_name_lookup(type_flags, obj->item_type);
+	return flag_string(type_flags, obj->item_type);
 }
 
 
@@ -3010,7 +3010,7 @@ char *item_type_name(OBJ_DATA *obj)
  */
 char *affect_loc_name(int location)
 {
-	return flag_name_lookup(apply_flags, location);
+	return flag_string(apply_flags, location);
 }
 
 

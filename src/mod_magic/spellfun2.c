@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.33 1998-08-14 05:45:14 fjoe Exp $
+ * $Id: spellfun2.c,v 1.34 1998-08-17 18:47:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5002,7 +5002,7 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	}
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
-	|| IS_SET(ch->in_room->area->area_flag,AREA_HOMETOWN))
+	|| IS_SET(ch->in_room->area->flags, AREA_HOMETOWN))
 	{
 	  send_to_char("Holy aura in this room prevents your powers to work on it.\n\r",ch);
 	  return;

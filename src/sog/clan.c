@@ -1,5 +1,5 @@
 /*
- * $Id: clan.c,v 1.8 1998-08-14 05:45:12 fjoe Exp $
+ * $Id: clan.c,v 1.9 1998-08-17 18:47:03 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -269,9 +269,8 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 	char_puts("Now listing members of your clan:\n\r", ch);
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-		char name[MAX_STRING_LENGTH];
+		char *name = NULL;
 		int clan = -1, status = -1;
-		*name = '\0';
 
 		if (dp->d_namlen < 3)
 			continue;
@@ -289,21 +288,24 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 			if (letter == 'N'
 			&&  !strcmp(word = fread_word(pfile), "ame")) {
-				strnzcpy(name, fread_word(pfile),
-					 MAX_STRING_LENGTH);
-				name[strlen(name)-1] = '\0';
+				if (name)
+					continue;
+				name = fread_string(pfile);
 				continue;
 			}
 
 			if (letter == 'C'
-			&&  !strcmp(word = fread_word(pfile), "lan"))
-				clan = fread_number(pfile);
+			&&  !strcmp(word = fread_word(pfile), "lan")) {
+				char *p = fread_string(pfile);
+				clan = clan_lookup(p);
+				free_string(p);
+			}
 			else if (letter == 'C'
 			&&  !strcmp(word, "lanStatus"))
 				status = fread_number(pfile);
 		}
 
-		if (clan == ch->clan)
+		if (name && clan == ch->clan)
 			char_printf(ch, "%s -- %s\n\r", name,
 				    get_status_alias(status));
 		fclose(pfile);

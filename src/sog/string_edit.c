@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.10 1998-08-15 07:47:34 fjoe Exp $
+ * $Id: string_edit.c,v 1.11 1998-08-17 18:47:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -27,7 +27,6 @@
 #include "db.h"
 #include "comm.h"
 #include "log.h"
-#include "olc.h"
 #include "string_edit.h"
 
 char *string_linedel(char *, int);
@@ -224,26 +223,6 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
     if (*argument == '~' || *argument == '@')
     {
-	if (ch->desc->editor == ED_MPCODE) /* para los mobprogs */
-	{
-		MOB_INDEX_DATA *mob;
-		int hash;
-		MPROG_LIST *mpl;
-		MPROG_CODE *mpc;
-
-		EDIT_MPCODE(ch, mpc);
-
-		if (mpc != NULL)
-			for (hash = 0; hash < MAX_KEY_HASH; hash++)
-				for (mob = mob_index_hash[hash]; mob; mob = mob->next)
-					for (mpl = mob->mprogs; mpl; mpl = mpl->next)
-						if (mpl->vnum == mpc->vnum)
-						{
-							char_printf(ch, "Arreglando mob %d.\n\r", mob->vnum);
-							mpl->code = mpc->code;
-						}
-	}
-
         ch->desc->pString = NULL;
         return;
     }
@@ -440,61 +419,6 @@ char *format_string(char *oldstring /*, bool fSpace */)
 
 
 /*
- * Used above in string_add.  Because this function does not
- * modify case if fCase is FALSE and because it understands
- * parenthesis, it would probably make a nice replacement
- * for one_argument.
- */
-/*****************************************************************************
- Name:		first_arg
- Purpose:	Pick off one argument from a string and return the rest.
- 		Understands quates, parenthesis (barring) ('s) and
- 		percentages.
- Called by:	string_add(string.c)
- ****************************************************************************/
-const char *first_arg(const char *argument, char *arg_first, bool fCase)
-{
-    char cEnd;
-
-    while (*argument == ' ')
-	argument++;
-
-    cEnd = ' ';
-    if (*argument == '\'' || *argument == '"'
-      || *argument == '%'  || *argument == '(')
-    {
-        if (*argument == '(')
-        {
-            cEnd = ')';
-            argument++;
-        }
-        else cEnd = *argument++;
-    }
-
-    while (*argument != '\0')
-    {
-	if (*argument == cEnd)
-	{
-	    argument++;
-	    break;
-	}
-    if (fCase) *arg_first = LOWER(*argument);
-            else *arg_first = *argument;
-	arg_first++;
-	argument++;
-    }
-    *arg_first = '\0';
-
-    while (*argument == ' ')
-	argument++;
-
-    return argument;
-}
-
-
-
-
-/*
  * Used in olc_act.c for aedit_builders.
  */
 char * string_unpad(char * argument)
@@ -596,6 +520,9 @@ char *string_lineadd(char *string, char *newstr, int line)
 	char buf[MAX_STRING_LENGTH];
 
 	buf[0] = '\0';
+
+	if (newstr[0] == '.')
+		newstr++;
 
 	for (; *strtmp != '\0' || (!done && cnt == line); strtmp++)
 	{

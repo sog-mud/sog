@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.62 1998-08-15 12:40:48 fjoe Exp $
+ * $Id: act_quest.c,v 1.63 1998-08-17 18:47:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -607,7 +607,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		      IS_SET(victim->in_room->room_flags, ROOM_PRIVATE) ||
 		      IS_SET(victim->in_room->room_flags, ROOM_SOLITARY))
 		    )
-		||  IS_SET(victim->in_room->area->area_flag, AREA_HOMETOWN))
+		||  IS_SET(victim->in_room->area->flags, AREA_HOMETOWN))
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)
@@ -868,8 +868,8 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	/* ok, give him requested item */
 
 	obj = create_obj(get_obj_index(item_vnum), ch->level);
-
-	mlstr_printf(obj->short_descr,
+	mlstr_free(obj->short_descr);
+	obj->short_descr = mlstr_printf(obj->pIndexData->short_descr,
 			IS_GOOD(ch) ?		"holy" :
 			IS_NEUTRAL(ch) ?	"blue-green" : 
 						"evil", 

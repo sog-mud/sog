@@ -2,7 +2,7 @@
 #define _LOMSG_OKUP_H_
 
 /*
- * $Id: lookup.h,v 1.7 1998-08-14 05:45:14 fjoe Exp $
+ * $Id: lookup.h,v 1.8 1998-08-17 18:47:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 
 int	position_lookup	(const char *name);
 int 	size_lookup	(const char *name);
-int	flag_lookup	(const char *, const struct flag_type *);
 int	race_lookup	(const char *name);
 int	item_lookup	(const char *name);
 int	liq_lookup	(const char *name);
@@ -59,7 +58,6 @@ int	class_lookup	(const char *name);
 int	clan_lookup	(const char *argument);
 int	skill_lookup	(const char *name );
 int	slot_lookup	(int slot );
-char *flag_name_lookup(const struct flag_type *f, int bit);
 
 #endif
 

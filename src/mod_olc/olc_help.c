@@ -1,23 +1,24 @@
 /*
- * $Id: olc_help.c,v 1.2 1998-08-15 09:14:42 fjoe Exp $
+ * $Id: olc_help.c,v 1.3 1998-08-17 18:47:38 fjoe Exp $
  */
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "merc.h"
 #include "olc.h"
 #include "db.h"
 #include "resource.h"
 #include "comm.h"
-#include "recycle.h"
-#include "mlstring.h"
-#include "string_edit.h"
 #include "buffer.h"
+#include "mlstring.h"
+#include "recycle.h"
 #include "util.h"
 #include "interp.h"
 
 #define HEDIT(fun)	bool fun(CHAR_DATA *ch, const char *argument)
+#define EDIT_HELP(Ch, Code)	(Code = (HELP_DATA*)Ch->desc->pEdit)
 
 DECLARE_OLC_FUN(hedit_create		);
 DECLARE_OLC_FUN(hedit_edit		);
@@ -25,21 +26,24 @@ DECLARE_OLC_FUN(hedit_show		);
 DECLARE_OLC_FUN(hedit_level		);
 DECLARE_OLC_FUN(hedit_keyword		);
 DECLARE_OLC_FUN(hedit_text		);
+DECLARE_OLC_FUN(hedit_del		);
 
-const struct olc_cmd_type hedit_table[] =
+DECLARE_VALIDATE_FUN(validate_keyword	);
+
+OLC_CMD_DATA hedit_table[] =
 {
-	{ "commands",	show_commands	},
-	{ "?",		show_help	},
-	{ "create",	hedit_create	},
-	{ "edit",	hedit_edit	},
-	{ "show",	hedit_show	},
-	{ "level",	hedit_level 	},
-	{ "keywords",	hedit_keyword	},
-	{ "text",	hedit_text	},
+	{ "create",	hedit_create				},
+	{ "edit",	hedit_edit				},
+	{ "show",	hedit_show				},
+	{ "level",	hedit_level			 	},
+	{ "keyword",	hedit_keyword,	validate_keyword	},
+	{ "text",	hedit_text				},
+	{ "del",	hedit_del				},
+
+	{ "commands",	show_commands				},
+	{ "?",		show_help				},
 	{ NULL }
 };
-
-HELP_DATA *help_lookup(int num, const char *keyword);
 
 void hedit(CHAR_DATA *ch, const char *argument)
 {
@@ -65,7 +69,7 @@ void hedit(CHAR_DATA *ch, const char *argument)
 			if (hedit_table[cmd].olc_fun(ch, argument)) {
 				HELP_DATA *pHelp;
 				EDIT_HELP(ch, pHelp);
-				SET_BIT(pHelp->area->area_flags, AREA_CHANGED);
+				SET_BIT(pHelp->area->flags, AREA_CHANGED);
 			}
 			return;
 		}
@@ -124,15 +128,15 @@ HEDIT(hedit_create)
 	else if (ch->desc->editor == ED_AREA)
 		pArea = ((AREA_DATA*) ch->desc->pEdit);
 	else { 
-		char_puts("You must be editing an area to create helps.\n\r",
+		char_puts("You must be editing an area or another help to create helps.\n\r",
 			  ch);
 		return FALSE;
 	}
 
-	pHelp			= new_help();
+	pHelp			= help_new();
 	pHelp->level		= 0;
 	pHelp->keyword		= str_dup(argument);
-	pHelp->text		= &mlstr_empty;
+	pHelp->text		= NULL;
 	help_add(pArea, pHelp);
 
 	ch->desc->pEdit		= (void *)pHelp;
@@ -172,7 +176,7 @@ HEDIT(hedit_show)
 		   "Keywords: [%s]\n\r",
 		   pHelp->level, pHelp->keyword);
 	mlstr_dump(output, "Text:     ", pHelp->text);
-	char_puts(buf_string(output), ch);
+	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
 	return FALSE;
@@ -180,61 +184,45 @@ HEDIT(hedit_show)
 
 HEDIT(hedit_level)
 {
-	int level;
-	char *endptr;
-	char arg[MAX_STRING_LENGTH];
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-
-	one_argument(argument, arg);
-	level = strtol(arg, &endptr, 0);
-	if (*arg == '\0' || *endptr != '\0') {
-		char_puts("Syntax: level num\n\r", ch);
-		return FALSE;
-	}
-	pHelp->level = level;
-	return TRUE;
+	return olced_number(ch, argument, hedit_level, &pHelp->level);
 }
 
 HEDIT(hedit_keyword)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-
-	if (argument[0] == '\0') {
-		char_puts("Syntax: keyword string\n\r", ch);
-		return FALSE;
-	}
-
-	free_string(pHelp->keyword);
-	pHelp->keyword = str_dup(argument);
-	char_puts("Help keywords set.\n\r", ch);
-	return TRUE;
+	return olced_str(ch, argument, hedit_keyword, &pHelp->keyword);
 }
 		
 HEDIT(hedit_text)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
+	return olced_mlstr_text(ch, argument, hedit_text, &pHelp->text);
+}
 
-	if (argument[0] != '\0') {
-		mlstr_append(ch, &pHelp->text, argument);
-		return TRUE;
-	}
-
-	char_puts("Syntax: text lang\n\r", ch);
+HEDIT(hedit_del)
+{
+	HELP_DATA *pHelp;
+	EDIT_HELP(ch, pHelp);
+	help_free(pHelp);
+	SET_BIT(pHelp->area->flags, AREA_CHANGED);
+	char_puts("Help deleted.\n\r", ch);
+	edit_done(ch);
 	return FALSE;
 }
 
-HELP_DATA *help_lookup(int num, const char *keyword)
+VALIDATOR(validate_keyword)
 {
-	HELP_DATA *res;
+	HELP_DATA *pHelp;
 
-	if (num <= 0 || IS_NULLSTR(keyword))
-		return NULL;
-
-	for (res = help_first; res != NULL; res = res->next)
-		if (is_name(keyword, res->keyword) && !--num)
-			return res;
-	return NULL;
+	if ((pHelp = help_lookup(1, (char*) arg))) {
+		char_printf(ch,
+			    "HEdit: Help already exists in area %s (%s).\n\r",
+			    pHelp->area->name, pHelp->area->file_name);
+		return FALSE;
+	}
+	return TRUE;
 }

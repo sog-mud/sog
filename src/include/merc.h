@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.70 1998-08-15 07:47:33 fjoe Exp $
+ * $Id: merc.h,v 1.71 1998-08-17 18:47:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -86,8 +86,8 @@ typedef struct	shop_data		SHOP_DATA;
 typedef struct	time_info_data		TIME_INFO_DATA;
 typedef struct	weather_data		WEATHER_DATA;
 typedef struct	room_history_data	ROOM_HISTORY_DATA;
-typedef struct  mprog_list		MPROG_LIST;
-typedef struct  mprog_code		MPROG_CODE;
+typedef struct  mptrig			MPTRIG;
+typedef struct  mpcode			MPCODE;
 typedef struct	qtrouble_data		QTROUBLE_DATA;
 typedef struct	mlstring		mlstring;
 typedef struct	hometown_data		HOMETOWN_DATA;
@@ -676,40 +676,41 @@ struct	kill_data
 
 /* RT ASCII conversions -- used so we can have letters in this file */
 
-#define A			1
-#define B			2
-#define C			4
-#define D			8
-#define E			16
-#define F			32
-#define G			64
-#define H			128
+#define A			(1 <<  0)
+#define B			(1 <<  1)
+#define C			(1 <<  2)
+#define D			(1 <<  3)
+#define E			(1 <<  4)
+#define F			(1 <<  5)
+#define G			(1 <<  6)
+#define H			(1 <<  7)
 
-#define I			256
-#define J			512
-#define K			1024
-#define L			2048
-#define M			4096
-#define N			8192
-#define O			16384
-#define P			32768
+#define I			(1 <<  8)
+#define J			(1 <<  9)
+#define K			(1 << 10)
+#define L			(1 << 11)
+#define M			(1 << 12)
+#define N			(1 << 13)
+#define O			(1 << 14)
+#define P			(1 << 15)
 
-#define Q			65536
-#define R			131072
-#define S			262144
-#define T			524288
-#define U			1048576
-#define V			2097152
-#define W			4194304
-#define X			8388608
+#define Q			(1 << 16)
+#define R			(1 << 17)
+#define S			(1 << 18)
+#define T			(1 << 19)
+#define U			(1 << 20)
+#define V			(1 << 21)
+#define W			(1 << 22)
+#define X			(1 << 23)
 
-#define Y			16777216
-#define Z			33554432
-#define aa			67108864	/* doubled due to conflicts */
-#define bb			134217728
-#define cc			268435456
-#define dd			536870912
-#define ee			1073741824
+#define Y			(1 << 24)
+#define Z			(1 << 25)
+#define aa			(1 << 26) /* letters doubled due to conflicts */
+#define bb			(1 << 27)
+#define cc			(1 << 28)
+#define dd			(1 << 29)
+#define ee			(1 << 30)
+#define ff			(1 << 31)
 
 
 /* race table */
@@ -786,6 +787,7 @@ struct	kill_data
  * AREA FLAGS
  */
 #define AREA_HOMETOWN		(A)
+#define AREA_CHANGED		(Z)	/* Area has been modified. */
 
 
 /*
@@ -1380,9 +1382,6 @@ enum {
 #define PUT_IN			(O)
 #define PUT_INSIDE		(P)
 
-
-
-
 /*
  * Apply types (for affects).
  * Used in #OBJECTS.
@@ -1421,13 +1420,12 @@ enum {
  * Values for containers (value[1]).
  * Used in #OBJECTS.
  */
-#define CONT_CLOSEABLE		      1
-#define CONT_PICKPROOF		      2
-#define CONT_CLOSED		      4
-#define CONT_LOCKED		      8
-#define CONT_PUT_ON		     16
-#define CONT_FOR_ARROW		     32
-
+#define CONT_CLOSEABLE		(A)
+#define CONT_PICKPROOF		(B)
+#define CONT_CLOSED		(C)
+#define CONT_LOCKED		(D)
+#define CONT_PUT_ON		(E)
+#define CONT_FOR_ARROW		(F)
 
 /*
  * Well known room virtual numbers.
@@ -1734,7 +1732,8 @@ struct	mob_index_data
 	SPEC_FUN *		spec_fun;
 	int 			progtypes;
 	SHOP_DATA * 		pShop;
-	MPROG_LIST *		mprogs;
+	MPTRIG *		mptrig_list;
+	int			mptrig_types;
 	int			vnum;
 	int			group;
 	bool			new_format;
@@ -1768,7 +1767,6 @@ struct	mob_index_data
 	int			parts;
 	int			size;
 	char *			material;
-	int			mprog_flags;
 	int			practicer;
 };
 
@@ -2123,11 +2121,10 @@ struct	area_data
 	bool		empty;
 	char *		builders;	/* OLC */ /* Listing of */
 	int		vnum;		/* OLC */ /* Area vnum  */
-	int		area_flags;	/* OLC */
+	int		flags;		/* OLC */
 	int		security;	/* OLC */ /* Value 1-9  */
 	unsigned int	count;
 	mlstring *	resetmsg;
-	int		area_flag;
 };
 
 struct room_history_data
@@ -2190,22 +2187,21 @@ struct	room_index_data
 /* trigger flags */
 #define TRIG_CASEDEP	(A)
 
-struct mprog_list
+struct mptrig
 {
-	int		trig_type;
-	char *		trig_phrase;
+	int		type;
+	char *		phrase;
 	int		flags;
-	int		vnum;
-	char *  	code;
-	MPROG_LIST * 	next;
+	int		vnum;		/* mob prog code vnum */
+	MPTRIG * 	next;
 	bool		valid;
 };
 
-struct mprog_code
+struct mpcode
 {
 	int		vnum;
 	char *		code;
-	MPROG_CODE *	next;
+	MPCODE *	next;
 };
 
 /*
@@ -2518,6 +2514,7 @@ extern int gsn_thumbling;
 
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))
+#define TOGGLE_BIT(var, bit)    ((var) ^= (bit))
 #define REMOVE_BIT(var, bit)	((var) &= ~(bit))
 #define IS_WATER(var) 	(((var)->sector_type == SECT_WATER_SWIM) || \
 				 ((var)->sector_type == SECT_WATER_NOSWIM))
@@ -2571,7 +2568,7 @@ extern int gsn_thumbling;
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 #define get_carry_weight(ch)	((ch)->carry_weight + (ch)->silver/10 +  \
 						      (ch)->gold * 2 / 5)
-#define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pIndexData->mprog_flags,(trig)))
+#define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pIndexData->mptrig_types,(trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	\
 				(ch->pcdata->security >= Area->security	\
@@ -2690,7 +2687,7 @@ extern		CHAR_DATA	  *	char_list;
 extern		DESCRIPTOR_DATA   *	descriptor_list;
 extern		OBJ_DATA	  *	object_list;
 
-extern		MPROG_CODE	  *	mprog_list;
+extern		MPCODE	 	 *	mpcode_list;
 
 extern		ROOM_INDEX_DATA   *	top_affected_room;
 
@@ -2810,7 +2807,7 @@ char *	crypt		(const char *key, const char *salt);
 #define RID	ROOM_INDEX_DATA
 #define SF	SPEC_FUN
 #define AD	AFFECT_DATA
-#define MPC	MPROG_CODE
+#define MPC	MPCODE
 
 /* act_hera.c */
 /* enter.c */
@@ -2954,6 +2951,8 @@ bool	is_number	(const char *argument);
 int	number_argument (const char *argument, char *arg);
 int	mult_argument	(const char *argument, char *arg);
 const char *	one_argument	(const char *argument, char *arg_first);
+const char *	first_arg	(const char *argument, char *arg_first,
+				 bool fCase);
 char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 
 
@@ -2976,6 +2975,35 @@ void	group_add	(CHAR_DATA *ch);
 SF *	spec_lookup	(const char *name);
 char *	spec_name	(SPEC_FUN *function);
 
+RESET_DATA	*new_reset_data		(void);
+void		free_reset_data		(RESET_DATA *pReset);
+AREA_DATA	*new_area		(void);
+void		free_area		(AREA_DATA *pArea);
+EXIT_DATA	*new_exit		(void);
+void		free_exit		(EXIT_DATA *pExit);
+ROOM_INDEX_DATA *new_room_index		(void);
+void		free_room_index		(ROOM_INDEX_DATA *pRoom);
+AFFECT_DATA	*new_affect		(void);
+void		free_affect		(AFFECT_DATA* pAf);
+SHOP_DATA	*new_shop		(void);
+void		free_shop		(SHOP_DATA *pShop);
+OBJ_INDEX_DATA	*new_obj_index		(void);
+void		free_obj_index		(OBJ_INDEX_DATA *pObj);
+MOB_INDEX_DATA	*new_mob_index		(void);
+void		free_mob_index		(MOB_INDEX_DATA *pMob);
+void		show_liqlist		(CHAR_DATA *ch);
+void		show_damlist		(CHAR_DATA *ch);
+
+MPTRIG *	mptrig_new              (int type, char *phrase, int vnum);
+void		mptrig_add		(MOB_INDEX_DATA *mob, MPTRIG *mptrig);
+void            mptrig_free		(MPTRIG *mptrig);
+
+extern MPCODE *	mpcode_list;
+MPCODE *	mpcode_new		(void);
+void		mpcode_add		(MPCODE *mpcode);
+MPCODE *	mpcode_lookup		(int vnum);
+void		mpcode_free		(MPCODE *mpcode);
+
 #undef	MID
 #undef	OD
 #undef	OID
@@ -2996,13 +3024,10 @@ char *	spec_name	(SPEC_FUN *function);
 /*
  * Area flags.
  */
-#define         AREA_NONE       0
-#define         AREA_CHANGED    1	/* Area has been modified. */
 #define         AREA_ADDED      2	/* Area has been added to. */
 #define         AREA_LOADING    4	/* Used for counting in db.c */
 
 #define MAX_DIR	6
-#define NO_FLAG -99	/* Must not be used in flags or stats. */
 
 /*
  * Global Constants
@@ -3010,39 +3035,29 @@ char *	spec_name	(SPEC_FUN *function);
 extern	char *	const	dir_name        [];
 extern	const	int	rev_dir         [];          /* ROM OLC */
 extern	const	struct	spec_type	spec_table	[];
+extern	char		DEFAULT_PROMPT	[];
 
 /*
  * Global variables
  */
 
-struct flag_type
+struct flag
 {
     char *name;
     int bit;
     bool settable;
 };
-
-struct position_type
-{
-    char *name;
-    char *short_name;
-};
-
-struct sex_type
-{
-    char *name;
-};
-
-struct size_type
-{
-    char *name;
-};
+typedef struct flag FLAG; 
 
 struct	bit_type
 {
-	const	struct	flag_type *	table;
-	char *				help;
+	const	FLAG *	table;
+	char *		help;
 };
+
+bool is_stat(const FLAG *flag_table);
+int flag_value(const FLAG *flag_table, const char *argument);
+char *flag_string(const FLAG *flag_table, int bits);
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.26 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: mob_prog.c,v 1.27 1998-08-17 18:47:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,8 +56,6 @@
 #include "tables.h"
 #include "mlstring.h"
 #include "util.h"
-
-extern int flag_lookup(const char *word, const struct flag_type *flag_table);
 
 /*
  * These defines correspond to the entries in fn_keyword[] table.
@@ -565,19 +563,19 @@ int cmd_eval(int vnum, const char *line, int check,
      {
 	case CHK_AFFECTED:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->affected_by, flag_lookup(buf, affect_flags)));
+		&&  IS_SET(lval_char->affected_by, flag_value(affect_flags, buf)));
 	case CHK_DETECT:
 	    return (lval_char != NULL
-		&& IS_SET(lval_char->detection, flag_lookup(buf, detect_flags)));  	
+		&& IS_SET(lval_char->detection, flag_value(detect_flags, buf))); 
 	case CHK_ACT:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->act, flag_lookup(buf, act_flags)));
+		&&  IS_SET(lval_char->act, flag_value(act_flags, buf)));
 	case CHK_IMM:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->imm_flags, flag_lookup(buf, imm_flags)));
+		&&  IS_SET(lval_char->imm_flags, flag_value(imm_flags, buf)));
 	case CHK_OFF:
 	    return(lval_char != NULL 
-		&&  IS_SET(lval_char->off_flags, flag_lookup(buf, off_flags)));
+		&&  IS_SET(lval_char->off_flags, flag_value(off_flags, buf)));
 	case CHK_CARRIES:
 	    if (is_number(buf))
 		return(lval_char != NULL && has_item(lval_char, atoi(buf), -1, FALSE));
@@ -901,27 +899,32 @@ void expand_arg(char *buf,
 #define END_BLOCK        -2 /* Flag: End of if-else-endif block */
 #define MAX_CALL_LEVEL    5 /* Maximum nested calls */
 
-void program_flow(
-        int pvnum,  /* For diagnostic purposes */
-	char *source,  /* the actual MOBprog code */
-	CHAR_DATA *mob, CHAR_DATA *ch, const void *arg1, const void *arg2)
+void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
+		  const void *arg1, const void *arg2)
 {
-    CHAR_DATA *rch = NULL;
-    const char *code, *line;
-    char buf[MAX_STRING_LENGTH];
-    char control[MAX_INPUT_LENGTH], data[MAX_STRING_LENGTH];
+	CHAR_DATA *rch = NULL;
+	const char *code, *line;
+	char buf[MAX_STRING_LENGTH];
+	char control[MAX_INPUT_LENGTH], data[MAX_STRING_LENGTH];
+	MPCODE* mprog;
 
-    static int call_level; /* Keep track of nested "mpcall"s */
+	static int call_level; /* Keep track of nested "mpcall"s */
 
-    int level, eval, check;
-    int state[MAX_NESTED_LEVEL], /* Block state (BEGIN,IN,END) */
+	int level, eval, check;
+	int state[MAX_NESTED_LEVEL], /* Block state (BEGIN,IN,END) */
 	cond[MAX_NESTED_LEVEL];  /* Boolean value based on the last if-check */
 
-    if(++call_level > MAX_CALL_LEVEL) {
-	log_printf("program_flow: vnum %d: MAX_CALL_LEVEL exceeded",
+	if ((mprog = mpcode_lookup(pvnum)) == NULL) {
+		log_printf("program_flow: mob vnum %d: mprog vnum %d: "
+			   "not found", mob->pIndexData->vnum, pvnum);
+		return;
+	}
+
+	if (++call_level > MAX_CALL_LEVEL) {
+		log_printf("program_flow: vnum %d: MAX_CALL_LEVEL exceeded",
 		pvnum);
-	goto bail_out;
-    }
+		goto bail_out;
+	}
 
     /*
      * Reset "stack"
@@ -933,7 +936,7 @@ void program_flow(
     }
     level = 0;
 
-    code = source;
+    code = mprog->code;
     /*
      * Parse the MOBprog code
      */
@@ -1121,17 +1124,17 @@ bail_out:
 void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch, 
 		    const void *arg1, const void *arg2, int type)
 {
-	MPROG_LIST *prg;
+	MPTRIG *mptrig;
 	char *lowered;
 
 	lowered = str_dup(argument);
 	strlwr(lowered);
 
-	for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next) {
- 		if (prg->trig_type == type 
-		&&  strstr(IS_SET(prg->flags, TRIG_CASEDEP) ?
-		    argument : lowered, prg->trig_phrase) != NULL) {
-			program_flow(prg->vnum, prg->code, mob, ch, arg1, arg2);
+	for (mptrig = mob->pIndexData->mptrig_list; mptrig; mptrig = mptrig->next) {
+ 		if (mptrig->type == type 
+		&&  strstr(IS_SET(mptrig->flags, TRIG_CASEDEP) ?
+		    argument : lowered, mptrig->phrase)) {
+			program_flow(mptrig->vnum, mob, ch, arg1, arg2);
 			break;
 		}
 	}
@@ -1146,14 +1149,14 @@ bool mp_percent_trigger(
 	CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, int type)
 {
-    MPROG_LIST *prg;
+    MPTRIG *prg;
 
-    for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next)
+    for (prg = mob->pIndexData->mptrig_list; prg != NULL; prg = prg->next)
     {
-    	if (prg->trig_type == type 
-	&&   number_percent() < atoi(prg->trig_phrase))
+    	if (prg->type == type 
+	&&   number_percent() < atoi(prg->phrase))
         {
-	    program_flow(prg->vnum, prg->code, mob, ch, arg1, arg2);
+	    program_flow(prg->vnum, mob, ch, arg1, arg2);
 	    return (TRUE);
 	}
     }
@@ -1162,19 +1165,19 @@ bool mp_percent_trigger(
 
 void mp_bribe_trigger(CHAR_DATA *mob, CHAR_DATA *ch, int amount)
 {
-    MPROG_LIST *prg;
+    MPTRIG *prg;
 
     /*
      * Original MERC 2.2 MOBprograms used to create a money object
      * and give it to the mobile. WFT was that? Funcs in act_obj()
      * handle it just fine.
      */
-    for (prg = mob->pIndexData->mprogs; prg; prg = prg->next)
+    for (prg = mob->pIndexData->mptrig_list; prg; prg = prg->next)
     {
-	if (prg->trig_type == TRIG_BRIBE
-	&&   amount >= atoi(prg->trig_phrase))
+	if (prg->type == TRIG_BRIBE
+	&&   amount >= atoi(prg->phrase))
 	{
-	    program_flow(prg->vnum, prg->code, mob, ch, NULL, NULL);
+	    program_flow(prg->vnum, mob, ch, NULL, NULL);
 	    break;
 	}
     }
@@ -1184,33 +1187,33 @@ void mp_bribe_trigger(CHAR_DATA *mob, CHAR_DATA *ch, int amount)
 bool mp_exit_trigger(CHAR_DATA *ch, int dir)
 {
     CHAR_DATA *mob;
-    MPROG_LIST   *prg;
+    MPTRIG   *prg;
 
     for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room)
     {    
 	if (IS_NPC(mob)
 	&&   (HAS_TRIGGER(mob, TRIG_EXIT) || HAS_TRIGGER(mob, TRIG_EXALL)))
 	{
-	    for (prg = mob->pIndexData->mprogs; prg; prg = prg->next)
+	    for (prg = mob->pIndexData->mptrig_list; prg; prg = prg->next)
 	    {
 		/*
 		 * Exit trigger works only if the mobile is not busy
 		 * (fighting etc.). If you want to be sure all players
 		 * are caught, use ExAll trigger
 		 */
-		if (prg->trig_type == TRIG_EXIT
-		&&  dir == atoi(prg->trig_phrase)
+		if (prg->type == TRIG_EXIT
+		&&  dir == atoi(prg->phrase)
 		&&  mob->position == mob->pIndexData->default_pos
 		&&  can_see(mob, ch))
 		{
-		    program_flow(prg->vnum, prg->code, mob, ch, NULL, NULL);
+		    program_flow(prg->vnum, mob, ch, NULL, NULL);
 		    return TRUE;
 		}
 		else
-		if (prg->trig_type == TRIG_EXALL
-		&&   dir == atoi(prg->trig_phrase))
+		if (prg->type == TRIG_EXALL
+		&&   dir == atoi(prg->phrase))
 		{
-		    program_flow(prg->vnum, prg->code, mob, ch, NULL, NULL);
+		    program_flow(prg->vnum, mob, ch, NULL, NULL);
 		    return TRUE;
 		}
 	    }
@@ -1223,12 +1226,12 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 {
     char buf[MAX_INPUT_LENGTH];
     const char	*p;
-    MPROG_LIST  *prg;
+    MPTRIG  *prg;
 
-    for (prg = mob->pIndexData->mprogs; prg; prg = prg->next)
-	if (prg->trig_type == TRIG_GIVE)
+    for (prg = mob->pIndexData->mptrig_list; prg; prg = prg->next)
+	if (prg->type == TRIG_GIVE)
 	{
-	    p = prg->trig_phrase;
+	    p = prg->phrase;
 	    /*
 	     * Vnum argument
 	     */
@@ -1236,7 +1239,7 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 	    {
 		if (obj->pIndexData->vnum == atoi(p))
 		{
-		    program_flow(prg->vnum, prg->code, mob, ch, (void *) obj, NULL);
+		    program_flow(prg->vnum, mob, ch, (void *) obj, NULL);
 		    return;
 		}
 	    }
@@ -1252,7 +1255,7 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 		    if (is_name(buf, obj->name)
 		    ||   !str_cmp("all", buf))
 		    {
-		    	program_flow(prg->vnum, prg->code, mob, ch, (void *) obj, NULL);
+		    	program_flow(prg->vnum, mob, ch, (void *) obj, NULL);
 		    	return;
 		    }
 		}
@@ -1288,13 +1291,13 @@ void mp_greet_trigger(CHAR_DATA *ch)
 
 void mp_hprct_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-    MPROG_LIST *prg;
+    MPTRIG *prg;
 
-    for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next)
-	if ((prg->trig_type == TRIG_HPCNT)
-	&& ((100 * mob->hit / mob->max_hit) < atoi(prg->trig_phrase)))
+    for (prg = mob->pIndexData->mptrig_list; prg != NULL; prg = prg->next)
+	if ((prg->type == TRIG_HPCNT)
+	&& ((100 * mob->hit / mob->max_hit) < atoi(prg->phrase)))
 	{
-	    program_flow(prg->vnum, prg->code, mob, ch, NULL, NULL);
+	    program_flow(prg->vnum, mob, ch, NULL, NULL);
 	    break;
 	}
 }

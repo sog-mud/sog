@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.10 1998-08-14 03:36:22 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.11 1998-08-17 18:47:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,6 +43,7 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "mob_cmds.h"
+#include "mob_prog.h"
 #include "db.h"
 #include "act_obj.h"
 #include "act_move.h"
@@ -54,6 +55,7 @@
 #include "lookup.h"
 #include "mlstring.h"
 #include "fight.h"
+#include "tables.h"
 
 DECLARE_DO_FUN(do_look 	);
 extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);
@@ -135,30 +137,6 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
     bug(buf, 0);
 }
 
-char *mprog_type_to_name(int type)
-{
-    switch (type)
-    {
-    case TRIG_ACT:             	return "ACT";
-    case TRIG_SPEECH:          	return "SPEECH";
-    case TRIG_RANDOM:          	return "RANDOM";
-    case TRIG_FIGHT:           	return "FIGHT";
-    case TRIG_HPCNT:           	return "HPCNT";
-    case TRIG_DEATH:           	return "DEATH";
-    case TRIG_ENTRY:           	return "ENTRY";
-    case TRIG_GREET:           	return "GREET";
-    case TRIG_GRALL:        	return "GRALL";
-    case TRIG_GIVE:            	return "GIVE";
-    case TRIG_BRIBE:           	return "BRIBE";
-    case TRIG_KILL:	      	return "KILL";
-    case TRIG_DELAY:           	return "DELAY";
-    case TRIG_SURR:	      	return "SURRENDER";
-    case TRIG_EXIT:	      	return "EXIT";
-    case TRIG_EXALL:	      	return "EXALL";
-    default:                  	return "ERROR";
-    }
-}
-
 /* 
  * Displays MOBprogram triggers of a mobile
  *
@@ -167,7 +145,7 @@ char *mprog_type_to_name(int type)
 void do_mpstat(CHAR_DATA *ch, const char *argument)
 {
     char        arg[ MAX_STRING_LENGTH  ];
-    MPROG_LIST  *mprg;
+    MPTRIG  *mptrig;
     CHAR_DATA   *victim;
     int i;
 
@@ -204,25 +182,18 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 		victim->mprog_target == NULL ?
 		"No target" : victim->mprog_target->name);
 
-    if (!victim->pIndexData->mprog_flags) {
+    if (!victim->pIndexData->mptrig_types) {
 	send_to_char("[No programs set]\n\r", ch);
 	return;
     }
 
-    for (i = 0, mprg = victim->pIndexData->mprogs; mprg != NULL;
-	 mprg = mprg->next)
-
-    {
-	sprintf(arg, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n\r",
+    for (i = 0, mptrig = victim->pIndexData->mptrig_list; mptrig != NULL;
+	 mptrig = mptrig->next)
+	char_printf(ch, "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n\r",
 	      ++i,
-	      mprog_type_to_name(mprg->trig_type),
-	      mprg->vnum,
-	      mprg->trig_phrase);
-	send_to_char(arg, ch);
-    }
-
-    return;
-
+	      flag_string(mptrig_types, mptrig->type),
+	      mptrig->vnum,
+	      mptrig->phrase);
 }
 
 /*
@@ -233,15 +204,15 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 void do_mpdump(CHAR_DATA *ch, const char *argument)
 {
    char buf[ MAX_INPUT_LENGTH ];
-   MPROG_CODE *mprg;
+   MPCODE *mpcode;
 
    one_argument(argument, buf);
-   if ((mprg = get_mprog_index(atoi(buf))) == NULL)
+   if ((mpcode = mpcode_lookup(atoi(buf))) == NULL)
    {
 	send_to_char("No such MOBprogram.\n\r", ch);
 	return;
    }
-   page_to_char(mprg->code, ch);
+   page_to_char(mpcode->code, ch);
 }
 
 /*
@@ -1239,37 +1210,32 @@ void do_mpcancel(CHAR_DATA *ch, const char *argument)
  */
 void do_mpcall(CHAR_DATA *ch, const char *argument)
 {
-    char arg[ MAX_INPUT_LENGTH ];
-    CHAR_DATA *vch;
-    OBJ_DATA *obj1, *obj2;
-    MPROG_CODE *prg;
-    extern void program_flow(int, char *, CHAR_DATA *, CHAR_DATA *, const void *, const void *);
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *vch;
+	OBJ_DATA *obj1, *obj2;
+	int vnum;
 
-    argument = one_argument(argument, arg);
-    if (arg[0] == '\0')
-    {
-	bug("MpCall: missing arguments from vnum %d.", 
-		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	return;
-    }
-    if ((prg = get_mprog_index(atoi(arg))) == NULL)
-    {
-	bug("MpCall: invalid prog from vnum %d.", 
-		IS_NPC(ch) ? ch->pIndexData->vnum : 0);
-	return;
-    }
-    vch = NULL;
-    obj1 = obj2 = NULL;
-    argument = one_argument(argument, arg);
-    if (arg[0] != '\0')
-        vch = get_char_room(ch, arg);
-    argument = one_argument(argument, arg);
-    if (arg[0] != '\0')
-    	obj1 = get_obj_here(ch, arg);
-    argument = one_argument(argument, arg);
-    if (arg[0] != '\0')
-    	obj2 = get_obj_here(ch, arg);
-    program_flow(prg->vnum, prg->code, ch, vch, (void *)obj1, (void *)obj2);
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		bug("MpCall: missing arguments from vnum %d.", 
+			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
+		return;
+	}
+
+	vnum = atoi(arg);
+
+	vch = NULL;
+	obj1 = obj2 = NULL;
+	argument = one_argument(argument, arg);
+	if (arg[0] != '\0')
+		vch = get_char_room(ch, arg);
+	argument = one_argument(argument, arg);
+	if (arg[0] != '\0')
+		obj1 = get_obj_here(ch, arg);
+	argument = one_argument(argument, arg);
+	if (arg[0] != '\0')
+		obj2 = get_obj_here(ch, arg);
+	program_flow(vnum, ch, vch, (void *)obj1, (void *)obj2);
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.119 1998-08-15 12:40:47 fjoe Exp $
+ * $Id: act_info.c,v 1.120 1998-08-17 18:47:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -984,7 +984,7 @@ void do_show(CHAR_DATA *ch, const char *argument)
 
 void do_prompt(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_PROMPT_LENGTH];
+	char *prompt;
 
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm,COMM_PROMPT)) {
@@ -999,17 +999,15 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!strcmp(argument, "all"))
-		strcpy(buf, DEFAULT_PROMPT);
+		prompt = str_dup(DEFAULT_PROMPT);
 	else {
-		strnzcpy(buf, argument, sizeof(buf));
-		smash_tilde(buf);
-		if (str_suffix("%c",buf))
-			strcat(buf, " ");
+		prompt = str_printf("%s ", argument);
+		smash_tilde(prompt);
 	}
 
 	free_string(ch->prompt);
-	ch->prompt = str_dup(buf);
-	char_printf(ch, "Prompt set to %s\n\r", ch->prompt);
+	ch->prompt = prompt;
+	char_printf(ch, "Prompt set to '%s'\n\r", ch->prompt);
 }
 
 
@@ -1658,7 +1656,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (pFirst == NULL) {
-		send_to_char(msg(MSG_NO_HELP_ON_WORD, ch), ch);
+		char_nprintf(ch, MSG_NO_HELP_ON_WORD, argument);
 		return;
 	}
 
@@ -1676,10 +1674,11 @@ void do_help(CHAR_DATA *ch, const char *argument)
 		/*
 		 * Strip leading '.' to allow initial blanks.
 		 */
-		if (text[0] == '.')
-			buf_add(output, text+1);
-		else
-			buf_add(output, text);
+		if (text)
+			if (text[0] == '.')
+				buf_add(output, text+1);
+			else
+				buf_add(output, text);
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -2359,50 +2358,13 @@ void do_password(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	char *pArg;
 	char *pwdnew;
-	char cEnd;
 
 	if (IS_NPC(ch))
 		return;
 
-	/*
-	 * Can't use one_argument here because it smashes case.
-	 * So we just steal all its code.  Bleagh.
-	 */
-	pArg = arg1;
-	while (isspace(*argument))
-		argument++;
-
-	cEnd = ' ';
-	if (*argument == '\'' || *argument == '"')
-		cEnd = *argument++;
-
-	while (*argument != '\0') {
-		if (*argument == cEnd) {
-			argument++;
-			break;
-		}
-		*pArg++ = *argument++;
-	}
-	*pArg = '\0';
-
-	pArg = arg2;
-	while (isspace(*argument))
-		argument++;
-
-	cEnd = ' ';
-	if (*argument == '\'' || *argument == '"')
-		cEnd = *argument++;
-
-	while (*argument != '\0') {
-		if (*argument == cEnd) {
-			argument++;
-			break;
-		}
-		*pArg++ = *argument++;
-	}
-	*pArg = '\0';
+	argument = first_arg(argument, arg1, FALSE);
+	argument = first_arg(argument, arg2, FALSE);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		send_to_char("Syntax: password <old> <new>.\n\r", ch);

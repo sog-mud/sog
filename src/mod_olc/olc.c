@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.10 1998-08-15 07:47:34 fjoe Exp $
+ * $Id: olc.c,v 1.11 1998-08-17 18:47:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -14,8 +14,6 @@
  *  all the previous coders who released their source code.                *
  *                                                                         *
  ***************************************************************************/
-
-
 
 #include <sys/types.h>
 #include <ctype.h>
@@ -32,126 +30,253 @@
 #include "buffer.h"
 #include "mlstring.h"
 #include "util.h"
+#include "recycle.h"
+#include "magic.h"
+#include "resource.h"
 
-/*
- * Local functions.
- */
-AREA_DATA *get_area_data	args((int vnum));
+struct olced_data {
+	int		id;
+	char *		name;
+	DO_FUN *	edit;
+	OLC_CMD_DATA *	cmd_table;
+	char *		do_name;
+	DO_FUN *	do_fun;
+};
+typedef struct olced_data OLCED_DATA;	
 
+OLCED_DATA olced_table[] = {
+	{	ED_AREA,	"AEdit",	aedit,
+		aedit_table,	"area",		do_aedit,	},
+	{	ED_ROOM,	"REdit",	redit,
+		redit_table,	"room",		do_redit,	},
+	{	ED_OBJECT,	"OEdit",	oedit,
+		oedit_table,	"object",	do_oedit,	},
+	{	ED_MOBILE,	"MEdit",	medit,
+		medit_table,	"mobile",	do_medit,	},
+	{	ED_MPCODE,	"MPEdit",	mpedit,
+		mpedit_table,	"mpcode",	do_mpedit,	},
+	{	ED_HELP,	"HEdit",	hedit,
+		hedit_table,	"help",		do_hedit,	},
+	{ -1 }
+};
+
+static OLCED_DATA *	olced_lookup(int id);
 
 /* Executed from comm.c.  Minimizes compiling when changes are made. */
 bool run_olc_editor(DESCRIPTOR_DATA *d)
 {
-    switch (d->editor)
-    {
-    case ED_AREA:
-	aedit(d->character, d->incomm);
-	break;
-    case ED_ROOM:
-	redit(d->character, d->incomm);
-	break;
-    case ED_OBJECT:
-	oedit(d->character, d->incomm);
-	break;
-    case ED_MOBILE:
-	medit(d->character, d->incomm);
-	break;
-    case ED_MPCODE:
-    	mpedit(d->character, d->incomm);
-    	break;
-    case ED_HELP:
-	hedit(d->character, d->incomm);
-	break;
-    default:
-	return FALSE;
-    }
-    return TRUE;
+	OLCED_DATA *olced = olced_lookup(d->editor);
+	if (olced == NULL)
+		return FALSE;
+	olced->edit(d->character, d->incomm);
+	return TRUE;
 }
 
-
-
-char *olc_ed_name(CHAR_DATA *ch)
+/*
+ * olc_ed_name - returns name of current OLC editor (if any).
+ *		 Called by bust_a_prompt.
+ */
+const char *olc_ed_name(CHAR_DATA *ch)
 {
-    static char buf[10];
-    
-    buf[0] = '\0';
-    switch (ch->desc->editor)
-    {
-    case ED_AREA:
-	strncpy(buf, "AEdit", sizeof(buf));
-	break;
-    case ED_ROOM:
-	strncpy(buf, "REdit", sizeof(buf));
-	break;
-    case ED_OBJECT:
-	strncpy(buf, "OEdit", sizeof(buf));
-	break;
-    case ED_MOBILE:
-	strncpy(buf, "MEdit", sizeof(buf));
-	break;
-    case ED_MPCODE:
-    	strncpy(buf, "MPEdit", sizeof(buf));
-	break;
-    case ED_HELP:
-	strncpy(buf, "HEdit", sizeof(buf));
-	break;
-    default:
-	strncpy(buf, " ", sizeof(buf));
-	break;
-    }
-    return buf;
+	OLCED_DATA *olced;
+
+	if (IS_NPC(ch))
+		return str_empty;
+
+	olced = olced_lookup(ch->desc->editor);
+	if (olced == NULL)
+		return str_empty;
+	return olced->name;
 }
 
-
-
-char *olc_ed_vnum(CHAR_DATA *ch)
+OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun)
 {
-    AREA_DATA *pArea;
-    ROOM_INDEX_DATA *pRoom;
-    OBJ_INDEX_DATA *pObj;
-    MOB_INDEX_DATA *pMob;
-    MPROG_CODE *pMprog;
-    static char buf[10];
+	OLCED_DATA *olced = olced_lookup(ch->desc->editor);
+	OLC_CMD_DATA *cmd;
+
+	if ((olced = olced_lookup(ch->desc->editor)) == NULL)
+		return NULL;
+
+	for (cmd = olced->cmd_table; cmd->name; cmd++)
+		if (cmd->olc_fun == fun)
+			return cmd;
+	return NULL;
+}
+
+/*
+ * Generic OLC editor functions.
+ * All functions assume !IS_NPC(ch).
+ */
+bool olced_number(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
+{
+	int val;
+	char *endptr;
+	char arg[MAX_STRING_LENGTH];
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	one_argument(argument, arg);
+	val = strtol(arg, &endptr, 0);
+	if (*arg == '\0' || *endptr != '\0') {
+		char_printf(ch, "Syntax: %s number\n\r", cmd->name);
+		return FALSE;
+	}
+
+	if (cmd->validate_fun && !cmd->validate_fun(ch, &val))
+		return FALSE;
+
+	*pInt = val;
+	char_nputs(MSG_OK, ch);
+	return TRUE;
+}
+
+bool olced_str(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, char **pStr)
+{
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (IS_NULLSTR(argument)) {
+		char_printf(ch, "Syntax: %s string\n\r", cmd->name);
+		return FALSE;
+	}
+
+	if (cmd->validate_fun && !cmd->validate_fun(ch, argument))
+		return FALSE;
+
+	free_string(*pStr);
+	*pStr = str_dup(argument);
+	char_nputs(MSG_OK, ch);
+	return TRUE;
+}
+
+bool olced_mlstr(CHAR_DATA *ch, const char *argument,
+		 OLC_FUN *fun, mlstring **pmlstr)
+{
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (!mlstr_edit(pmlstr, argument)) {
+		char_printf(ch, "Syntax: %s lang string\n\r", cmd->name);
+		return FALSE;
+	}
+	char_nputs(MSG_OK, ch);
+	return TRUE;
+}
+
+bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
+		   OLC_FUN *fun, mlstring **pmlstr)
+{
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (!mlstr_editnl(pmlstr, argument)) {
+		char_printf(ch, "Syntax: %s lang string\n\r", cmd->name);
+		return FALSE;
+	}
+	char_nputs(MSG_OK, ch);
+	return TRUE;
+}
+
+bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
+		      OLC_FUN *fun, mlstring **pmlstr)
+{
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (!mlstr_append(ch, pmlstr, argument)) {
+		char_printf(ch, "Syntax: %s lang\n\r", cmd->name);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
+{
+	int val;
+	OLC_CMD_DATA *cmd;
+	bool stat;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (!str_cmp(argument, "?")) {
+		show_flag_cmds(ch, cmd->arg1);
+		return FALSE;
+	}
+
+	val = flag_value(cmd->arg1, argument);
+	stat = is_stat(cmd->arg1);
+	if ((stat && val < 0)
+	||  (!stat && val == 0)) {
+		char_printf(ch, "Syntax: %s flag...\n\r"
+				"Type '%s ?' for a list of flags\n\r",
+				cmd->name, cmd->name);
+		return FALSE;
+	}
+
+	if (cmd->validate_fun && !cmd->validate_fun(ch, &val))
+		return FALSE;
+
+	if (stat)
+		*pInt = val;
+	else
+		TOGGLE_BIT(*pInt, val);
+	char_nputs(MSG_OK, ch);
+	return TRUE;
+}
+
+bool olced_dice(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *dice)
+{
+	int num, type, bonus;
+	char* p;
+	OLC_CMD_DATA *cmd;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (argument[0] == '\0')
+		goto bail_out;
 	
-    buf[0] = '\0';
-    switch (ch->desc->editor)
-    {
-    case ED_AREA:
-	pArea = (AREA_DATA *)ch->desc->pEdit;
-	sprintf(buf, "%d", pArea ? pArea->vnum : 0);
-	break;
-    case ED_ROOM:
-	pRoom = ch->in_room;
-	sprintf(buf, "%d", pRoom ? pRoom->vnum : 0);
-	break;
-    case ED_OBJECT:
-	pObj = (OBJ_INDEX_DATA *)ch->desc->pEdit;
-	sprintf(buf, "%d", pObj ? pObj->vnum : 0);
-	break;
-    case ED_MOBILE:
-	pMob = (MOB_INDEX_DATA *)ch->desc->pEdit;
-	sprintf(buf, "%d", pMob ? pMob->vnum : 0);
-	break;
-    case ED_MPCODE:
-    	pMprog = (MPROG_CODE *)ch->desc->pEdit;
-    	sprintf(buf, "%d", pMprog ? pMprog->vnum : 0);
-	break;
-    default:
-	sprintf(buf, " ");
-	break;
-    }
+	num = strtod(argument, &p);
+	if (num < 1 || *p != 'd')
+		goto bail_out;
 
-    return buf;
+	type = strtod(p+1, &p);
+	if (type < 1 || *p != '+')
+		goto bail_out;
+	
+	bonus = strtod(p+1, &p);
+	if (bonus < 0 || *p != '\0')
+		goto bail_out;
+
+	dice[DICE_NUMBER] = num;
+	dice[DICE_TYPE]   = type;
+	dice[DICE_BONUS]  = bonus;
+
+	char_printf(ch, "%s set to %dd%d+%d.\n\r", cmd->name, num, type, bonus);
+	return TRUE;
+
+bail_out:
+	char_printf(ch, "Syntax: %s <number>d<type>+<bonus>\n\r", cmd->name);
+	return FALSE;
 }
-
-
 
 /*****************************************************************************
  Name:		show_olc_cmds
  Purpose:	Format up the commands from given table.
  Called by:	show_commands(olc_act.c).
  ****************************************************************************/
-void show_olc_cmds(CHAR_DATA *ch, const struct olc_cmd_type *olc_table)
+void show_olc_cmds(CHAR_DATA *ch, OLC_CMD_DATA *olc_table)
 {
     char buf  [ MAX_STRING_LENGTH ];
     char buf1 [ MAX_STRING_LENGTH ];
@@ -184,196 +309,15 @@ void show_olc_cmds(CHAR_DATA *ch, const struct olc_cmd_type *olc_table)
  ****************************************************************************/
 bool show_commands(CHAR_DATA *ch, const char *argument)
 {
-    switch (ch->desc->editor)
-    {
-	case ED_AREA:
-	    show_olc_cmds(ch, aedit_table);
-	    break;
-	case ED_ROOM:
-	    show_olc_cmds(ch, redit_table);
-	    break;
-	case ED_OBJECT:
-	    show_olc_cmds(ch, oedit_table);
-	    break;
-	case ED_MOBILE:
-	    show_olc_cmds(ch, medit_table);
-	    break;
-	case ED_MPCODE:
-	    show_olc_cmds(ch, mpedit_table);
-	    break;
-	case ED_HELP:
-	    show_olc_cmds(ch, hedit_table);
-	    break;
-    }
+	OLCED_DATA *olced;
 
-    return FALSE;
+	olced = olced_lookup(ch->desc->editor);
+	if (olced == NULL)
+		return FALSE;
+
+	show_olc_cmds(ch, olced->cmd_table);
+	return FALSE;
 }
-
-
-
-/*****************************************************************************
- *                           Interpreter Tables.                             *
- *****************************************************************************/
-const struct olc_cmd_type aedit_table[] =
-{
-/*  {   command		function	}, */
-
-    {   "age",		aedit_age	},
-    {   "builder",	aedit_builder	}, /* s removed -- Hugin */
-    {   "commands",	show_commands	},
-    {   "create",	aedit_create	},
-    {   "filename",	aedit_file	},
-    {   "name",		aedit_name	},
-/*  {   "recall",	aedit_recall	},   ROM OLC */
-    {	"reset",	aedit_reset	},
-    {   "security",	aedit_security	},
-    {	"show",		aedit_show	},
-    {   "vnum",		aedit_vnum	},
-    {   "lvnum",	aedit_lvnum	},
-    {   "uvnum",	aedit_uvnum	},
-    {   "credits",	aedit_credits	},
-
-    {   "?",		show_help	},
-    {   "version",	show_version	},
-
-    {	NULL,		0,		}
-};
-
-
-
-const struct olc_cmd_type redit_table[] =
-{
-/*  {   command		function	}, */
-
-    {   "commands",	show_commands	},
-    {   "create",	redit_create	},
-    {   "desc",		redit_desc	},
-    {   "ed",		redit_ed	},
-    {   "format",	redit_format	},
-    {   "name",		redit_name	},
-    {	"show",		redit_show	},
-    {   "heal",		redit_heal	},
-    {	"mana",		redit_mana	},
-    {   "clan",		redit_clan	},
-
-    {   "north",	redit_north	},
-    {   "south",	redit_south	},
-    {   "east",		redit_east	},
-    {   "west",		redit_west	},
-    {   "up",		redit_up	},
-    {   "down",		redit_down	},
-
-    /* New reset commands. */
-    {	"mreset",	redit_mreset	},
-    {	"oreset",	redit_oreset	},
-    {	"mlist",	redit_mlist	},
-    {	"rlist",	redit_rlist	},
-    {	"olist",	redit_olist	},
-    {	"mshow",	redit_mshow	},
-    {	"oshow",	redit_oshow	},
-    {   "owner",	redit_owner	},
-    {	"room",		redit_room	},
-    {	"sector",	redit_sector	},
-
-    {   "?",		show_help	},
-    {   "version",	show_version	},
-
-    {	NULL,		0,		}
-};
-
-
-
-const struct olc_cmd_type oedit_table[] =
-{
-/*  {   command		function	}, */
-
-    {   "addaffect",	oedit_addaffect	},
-    {	"addapply",	oedit_addapply	},
-    {   "commands",	show_commands	},
-    {   "cost",		oedit_cost	},
-    {   "create",	oedit_create	},
-    {   "delaffect",	oedit_delaffect	},
-    {   "ed",		oedit_ed	},
-    {   "long",		oedit_long	},
-    {   "name",		oedit_name	},
-    {   "short",	oedit_short	},
-    {	"show",		oedit_show	},
-    {   "v0",		oedit_value0	},
-    {   "v1",		oedit_value1	},
-    {   "v2",		oedit_value2	},
-    {   "v3",		oedit_value3	},
-    {   "v4",		oedit_value4	},  /* ROM */
-    {   "weight",	oedit_weight	},
-    {   "limit",	oedit_limit	},
-
-    {   "extra",        oedit_extra     },  /* ROM */
-    {   "wear",         oedit_wear      },  /* ROM */
-    {   "type",         oedit_type      },  /* ROM */
-    {   "material",     oedit_material  },  /* ROM */
-    {   "level",        oedit_level     },  /* ROM */
-    {   "condition",    oedit_condition },  /* ROM */
-
-    {   "?",		show_help	},
-    {   "version",	show_version	},
-
-    {	NULL,		0,		}
-};
-
-
-
-const struct olc_cmd_type medit_table[] =
-{
-/*  {   command		function	}, */
-
-    {   "alignment",	medit_align	},
-    {   "commands",	show_commands	},
-    {   "create",	medit_create	},
-    {   "desc",		medit_desc	},
-    {   "level",	medit_level	},
-    {   "long",		medit_long	},
-    {   "name",		medit_name	},
-    {   "shop",		medit_shop	},
-    {   "short",	medit_short	},
-    {	"show",		medit_show	},
-    {   "spec",		medit_spec	},
-
-    {   "sex",          medit_sex       },  /* ROM */
-    {   "act",          medit_act       },  /* ROM */
-    {   "affect",       medit_affect    },  /* ROM */
-    {   "detect",       medit_detect    },
-    {   "prac",		medit_prac	},
-    {   "armor",        medit_ac        },  /* ROM */
-    {   "form",         medit_form      },  /* ROM */
-    {   "part",         medit_part      },  /* ROM */
-    {   "imm",          medit_imm       },  /* ROM */
-    {   "res",          medit_res       },  /* ROM */
-    {   "vuln",         medit_vuln      },  /* ROM */
-    {   "material",     medit_material  },  /* ROM */
-    {   "off",          medit_off       },  /* ROM */
-    {   "size",         medit_size      },  /* ROM */
-    {   "hitdice",      medit_hitdice   },  /* ROM */
-    {   "manadice",     medit_manadice  },  /* ROM */
-    {   "damdice",      medit_damdice   },  /* ROM */
-    {   "race",         medit_race      },  /* ROM */
-    {   "position",     medit_position  },  /* ROM */
-    {   "wealth",       medit_gold      },  /* ROM */
-    {   "hitroll",      medit_hitroll   },  /* ROM */
-    {	"damtype",	medit_damtype	},  /* ROM */
-    {   "group",	medit_group	},  /* ROM */
-    {   "mpadd",	medit_mpadd	},  /* ROM */
-    {	"mpdel",	medit_mpdel	},  /* ROM */
-
-    {   "?",		show_help	},
-    {   "version",	show_version	},
-
-    {	NULL,		0,		}
-};
-
-/*****************************************************************************
- *                          End Interpreter Tables.                          *
- *****************************************************************************/
-
-
 
 /*****************************************************************************
  Name:		get_area_data
@@ -407,1025 +351,33 @@ bool edit_done(CHAR_DATA *ch)
     return FALSE;
 }
 
-
-
-/*****************************************************************************
- *                              Interpreters.                                *
- *****************************************************************************/
-
-
-/* Area Interpreter, called by do_aedit. */
-void aedit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    char command[MAX_INPUT_LENGTH];
-    char arg[MAX_INPUT_LENGTH];
-    int  cmd;
-    int  value;
-
-    EDIT_AREA(ch, pArea);
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    if (!IS_BUILDER(ch, pArea))
-    {
-	send_to_char("AEdit:  Insufficient security to modify area.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done"))
-    {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0')
-    {
-	aedit_show(ch, argument);
-	return;
-    }
-
-    if ((value = flag_value(area_flags, command)) != NO_FLAG)
-    {
-	TOGGLE_BIT(pArea->area_flags, value);
-
-	send_to_char("Flag toggled.\n\r", ch);
-	return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; aedit_table[cmd].name != NULL; cmd++)
-    {
-	if (!str_prefix(command, aedit_table[cmd].name))
-	{
-	    if ((*aedit_table[cmd].olc_fun) (ch, argument))
-	    {
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		return;
-	    }
-	    else
-		return;
-	}
-    }
-
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
-}
-
-
-
-/* Room Interpreter, called by do_redit. */
-void redit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    ROOM_INDEX_DATA *pRoom;
-    char arg[MAX_STRING_LENGTH];
-    char command[MAX_INPUT_LENGTH];
-    int  cmd;
-
-    EDIT_ROOM(ch, pRoom);
-    pArea = pRoom->area;
-
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    if (!IS_BUILDER(ch, pArea))
-    {
-        send_to_char("REdit:  Insufficient security to modify room.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done"))
-    {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0')
-    {
-	redit_show(ch, argument);
-	return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; redit_table[cmd].name != NULL; cmd++)
-    {
-	if (!str_prefix(command, redit_table[cmd].name))
-	{
-	    if ((*redit_table[cmd].olc_fun) (ch, argument))
-	    {
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		return;
-	    }
-	    else
-		return;
-	}
-    }
-
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
-}
-
-
-
-/* Object Interpreter, called by do_oedit. */
-void oedit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    OBJ_INDEX_DATA *pObj;
-    char arg[MAX_STRING_LENGTH];
-    char command[MAX_INPUT_LENGTH];
-    int  cmd;
-
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    EDIT_OBJ(ch, pObj);
-    pArea = get_vnum_area(pObj->vnum);
-
-    if (!IS_BUILDER(ch, pArea))
-    {
-	send_to_char("OEdit: Insufficient security to modify area.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done"))
-    {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0')
-    {
-	oedit_show(ch, argument);
-	return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; oedit_table[cmd].name != NULL; cmd++) {
-	if (!str_prefix(command, oedit_table[cmd].name)) {
-	    if ((*oedit_table[cmd].olc_fun) (ch, argument))
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-	    return;
-	}
-    }
-
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
-}
-
-
-
-/* Mobile Interpreter, called by do_medit. */
-void medit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    MOB_INDEX_DATA *pMob;
-    char command[MAX_INPUT_LENGTH];
-    char arg[MAX_STRING_LENGTH];
-    int  cmd;
-
-    strcpy(arg, argument);
-    smash_tilde(arg);
-    argument = one_argument(arg, command);
-
-    EDIT_MOB(ch, pMob);
-    pArea = get_vnum_area(pMob->vnum);
-
-    if (!IS_BUILDER(ch, pArea))
-    {
-	send_to_char("MEdit: Insufficient security to modify area.\n\r", ch);
-	edit_done(ch);
-	return;
-    }
-
-    if (!str_cmp(command, "done"))
-    {
-	edit_done(ch);
-	return;
-    }
-
-    if (command[0] == '\0')
-    {
-        medit_show(ch, argument);
-        return;
-    }
-
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; medit_table[cmd].name != NULL; cmd++)
-    {
-	if (!str_prefix(command, medit_table[cmd].name))
-	{
-	    if ((*medit_table[cmd].olc_fun) (ch, argument))
-	    {
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		return;
-	    }
-	    else
-		return;
-	}
-    }
-
-    /* Default to Standard Interpreter. */
-    interpret(ch, arg);
-    return;
-}
-
-
-
-
-const struct editor_cmd_type editor_table[] =
-{
-/*  {   command		function	}, */
-
-    {   "area",		do_aedit	},
-    {   "room",		do_redit	},
-    {   "object",	do_oedit	},
-    {   "mobile",	do_medit	},
-    {	"mpcode",	do_mpedit	},
-    {	"help",		do_hedit	},
-
-    {	NULL,		0,		}
-};
-
-
 /* Entry point for all editors. */
 void do_olc(CHAR_DATA *ch, const char *argument)
 {
-    char command[MAX_INPUT_LENGTH];
-    int  cmd;
+	char command[MAX_INPUT_LENGTH];
+	int i;
 
-    if (IS_NPC(ch))
-    	return;
-
-    argument = one_argument(argument, command);
-
-    if (command[0] == '\0')
-    {
-        do_help(ch, "olc");
-        return;
-    }
- 
-    /* Search Table and Dispatch Command. */
-    for (cmd = 0; editor_table[cmd].name != NULL; cmd++)
-    {
-	if (!str_prefix(command, editor_table[cmd].name))
-	{
-	    (*editor_table[cmd].do_fun) (ch, argument);
-	    return;
-	}
-    }
-
-    /* Invalid command, send help. */
-    do_help(ch, "olc");
-    return;
-}
-
-
-
-/* Entry point for editing area_data. */
-void do_aedit(CHAR_DATA *ch, const char *argument)
-{
-    AREA_DATA *pArea;
-    int value;
-    char arg[MAX_STRING_LENGTH];
-
-    if (IS_NPC(ch))
-    	return;
-
-    pArea	= ch->in_room->area;
-
-    argument	= one_argument(argument,arg);
-
-    if (is_number(arg)) {
-	value = atoi(arg);
-	if (!(pArea = get_area_data(value))) {
-	    send_to_char("That area vnum does not exist.\n\r", ch);
-	    return;
-	}
-    } else if (!str_cmp(arg, "create")) {
-	if (ch->pcdata->security < 9) {
-		send_to_char("AEdit: Insufficient security for creating areas.\n\r", ch);
+	if (IS_NPC(ch))
 		return;
-	}
 
-	aedit_create(ch, "");
-	ch->desc->editor = ED_AREA;
-	return;
-    }
+	argument = one_argument(argument, command);
 
-    if (!IS_BUILDER(ch,pArea)) {
-	send_to_char("Insufficient security for editing areas.\n\r",ch);
-	return;
-    }
-
-    ch->desc->pEdit = (void *)pArea;
-    ch->desc->editor = ED_AREA;
-    return;
-}
-
-
-
-/* Entry point for editing room_index_data. */
-void do_redit(CHAR_DATA *ch, const char *argument)
-{
-    ROOM_INDEX_DATA *pRoom;
-    char arg1[MAX_STRING_LENGTH];
-
-    if (IS_NPC(ch))
-    	return;
-
-    argument = one_argument(argument, arg1);
-
-    pRoom = ch->in_room;
-
-    if (!str_cmp(arg1, "reset"))	/* redit reset */
-    {
-	if (!IS_BUILDER(ch, pRoom->area))
-	{
-		send_to_char("Insufficient security to modify rooms.\n\r" , ch);
+	if (command[0] == '\0') {
+        	do_help(ch, "'OLC INTRO'");
         	return;
 	}
-
-	reset_room(pRoom);
-	send_to_char("Room reset.\n\r", ch);
-
-	return;
-    }
-    else
-    if (!str_cmp(arg1, "create"))	/* redit create <vnum> */
-    {
-	if (argument[0] == '\0' || atoi(argument) == 0)
-	{
-	    send_to_char("Syntax:  edit room create [vnum]\n\r", ch);
-	    return;
-	}
-
-	if (redit_create(ch, argument)) /* pEdit == nuevo cuarto */
-	{
-	    ch->desc->editor = ED_ROOM;
-	    char_from_room(ch);
-	    char_to_room(ch, ch->desc->pEdit);
-	    SET_BIT(((ROOM_INDEX_DATA *)ch->desc->pEdit)->area->area_flags, AREA_CHANGED);
-	}
-
-	return;
-    }
-    else if (!IS_NULLSTR(arg1))	/* redit <vnum> */
-    {
-	pRoom = get_room_index(atoi(arg1));
-
-	if (!pRoom)
-	{
-		send_to_char("REdit: cuarto inexistente.\n\r", ch);
-		return;
-	}
-
-	if (!IS_BUILDER(ch, pRoom->area))
-	{
-		send_to_char("REdit : insuficiente seguridad para editar cuarto.\n\r", ch);
-		return;
-	}
-
-	char_from_room(ch);
-	char_to_room(ch, pRoom);
-    }
-
-    if (!IS_BUILDER(ch, pRoom->area))
-    {
-    	send_to_char("REdit : Insuficiente seguridad para editar cuartos.\n\r", ch);
-    	return;
-    }
-
-    ch->desc->pEdit	= (void *) pRoom;
-    ch->desc->editor	= ED_ROOM;
-
-    return;
-}
-
-
-
-/* Entry point for editing obj_index_data. */
-void do_oedit(CHAR_DATA *ch, const char *argument)
-{
-    OBJ_INDEX_DATA *pObj;
-    AREA_DATA *pArea;
-    char arg1[MAX_STRING_LENGTH];
-    int value;
-
-    if (IS_NPC(ch))
-	return;
-
-    argument = one_argument(argument, arg1);
-
-    if (is_number(arg1))
-    {
-	value = atoi(arg1);
-	if (!(pObj = get_obj_index(value)))
-	{
-	    send_to_char("OEdit:  That vnum does not exist.\n\r", ch);
-	    return;
-	}
-
-	pArea = get_vnum_area(pObj->vnum);
-	if (!IS_BUILDER(ch, pArea))
-	{
-		send_to_char("Insuficiente seguridad para modificar objetos.\n\r" , ch);
-	        return;
-	}
-
-	ch->desc->pEdit = (void *)pObj;
-	ch->desc->editor = ED_OBJECT;
-	return;
-    }
-    else
-    {
-	if (!str_cmp(arg1, "create"))
-	{
-	    value = atoi(argument);
-	    if (argument[0] == '\0' || value == 0)
-	    {
-		send_to_char("Syntax:  edit object create [vnum]\n\r", ch);
-		return;
-	    }
-
-	    pArea = get_vnum_area(value);
-
-	    if (!pArea)
-	    {
-		send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
-		return;
-	    }
-
-	    if (!IS_BUILDER(ch, pArea))
-	    {
-		send_to_char("Insuficiente seguridad para modificar objetos.\n\r" , ch);
-	        return;
-	    }
-
-	    if (oedit_create(ch, argument))
-	    {
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		ch->desc->editor = ED_OBJECT;
-	    }
-	    return;
-	}
-    }
-
-    send_to_char("OEdit:  There is no default object to edit.\n\r", ch);
-    return;
-}
-
-
-
-/* Entry point for editing mob_index_data. */
-void do_medit(CHAR_DATA *ch, const char *argument)
-{
-    MOB_INDEX_DATA *pMob;
-    AREA_DATA *pArea;
-    int value;
-    char arg1[MAX_STRING_LENGTH];
-
-    argument = one_argument(argument, arg1);
-
-    if (IS_NPC(ch))
-    	return;
-
-    if (is_number(arg1))
-    {
-	value = atoi(arg1);
-	if (!(pMob = get_mob_index(value)))
-	{
-	    send_to_char("MEdit:  That vnum does not exist.\n\r", ch);
-	    return;
-	}
-
-	pArea = get_vnum_area(pMob->vnum);
-	if (!IS_BUILDER(ch, pArea))
-	{
-		send_to_char("Insuficiente seguridad para modificar mobs.\n\r" , ch);
-	        return;
-	}
-
-	ch->desc->pEdit = (void *)pMob;
-	ch->desc->editor = ED_MOBILE;
-	return;
-    }
-    else
-    {
-	if (!str_cmp(arg1, "create"))
-	{
-	    value = atoi(argument);
-	    if (arg1[0] == '\0' || value == 0)
-	    {
-		send_to_char("Syntax:  edit mobile create [vnum]\n\r", ch);
-		return;
-	    }
-
-	    pArea = get_vnum_area(value);
-
-	    if (!pArea)
-	    {
-		send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
-		return;
-	    }
-
-	    if (!IS_BUILDER(ch, pArea))
-	    {
-		send_to_char("Insuficiente seguridad para modificar mobs.\n\r" , ch);
-	        return;
-	    }
-
-	    if (medit_create(ch, argument))
-	    {
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-		ch->desc->editor = ED_MOBILE;
-	    }
-	    return;
-	}
-    }
-
-    send_to_char("MEdit:  There is no default mobile to edit.\n\r", ch);
-    return;
-}
-
-
-
-void display_resets(CHAR_DATA *ch)
-{
-    ROOM_INDEX_DATA	*pRoom;
-    RESET_DATA		*pReset;
-    MOB_INDEX_DATA	*pMob = NULL;
-    BUFFER *		buf;
-    int 		iReset = 0;
-
-    EDIT_ROOM(ch, pRoom);
-    buf = buf_new(0);
-    
-    buf_add(buf,
-  " No.  Loads    Description       Location         Vnum   Mx Mn Description"
-  "\n\r"
-  "==== ======== ============= =================== ======== ===== ==========="
-  "\n\r");
-
-    for (pReset = pRoom->reset_first; pReset; pReset = pReset->next) {
-	OBJ_INDEX_DATA  *pObj;
-	MOB_INDEX_DATA  *pMobIndex;
-	OBJ_INDEX_DATA  *pObjIndex;
-	OBJ_INDEX_DATA  *pObjToIndex;
-	ROOM_INDEX_DATA *pRoomIndex;
-	char *start = buf_string(buf);
-
-	buf_printf(buf, "[%2d] ", ++iReset);
-
-	switch (pReset->command)
-	{
-	default:
-	    buf_printf(buf, "Bad reset command: %c.", pReset->command);
-	    break;
-
-	case 'M':
-	    if (!(pMobIndex = get_mob_index(pReset->arg1))) {
-                buf_printf(buf, "Load Mobile - Bad Mob %d\n\r", pReset->arg1);
-                continue;
-	    }
-
-	    if (!(pRoomIndex = get_room_index(pReset->arg3))) {
-                buf_printf(buf, "Load Mobile - Bad Room %d\n\r", pReset->arg3);
-                continue;
-	    }
-
-            pMob = pMobIndex;
-            buf_printf(buf, "M[%5d] %-13.13s in room             R[%5d] %2d-%2d %-15.15s\n\r",
-                       pReset->arg1, mlstr_mval(pMob->short_descr),
-			pReset->arg3, pReset->arg2, pReset->arg4,
-			mlstr_cval(pRoomIndex->name, ch));
-
-	    /*
-	     * Check for pet shop.
-	     * -------------------
-	     */
-	    {
-		ROOM_INDEX_DATA *pRoomIndexPrev;
-
-		pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
-		if (pRoomIndexPrev
-		    && IS_SET(pRoomIndexPrev->room_flags, ROOM_PET_SHOP))
-                    start[5] = 'P';
-	    }
-
-	    break;
-
-	case 'O':
-	    if (!(pObjIndex = get_obj_index(pReset->arg1))) {
-                buf_printf(buf, "Load Object - Bad Object %d\n\r",
-		    pReset->arg1);
-                continue;
-	    }
-
-            pObj       = pObjIndex;
-
-	    if (!(pRoomIndex = get_room_index(pReset->arg3))) {
-                buf_printf(buf, "Load Object - Bad Room %d\n\r", pReset->arg3);
-                continue;
-	    }
-
-            buf_printf(buf, "O[%5d] %-13.13s in room             "
-                          "R[%5d]       %-15.15s\n\r",
-                          pReset->arg1, mlstr_mval(pObj->short_descr),
-                          pReset->arg3, mlstr_mval(pRoomIndex->name));
-
-	    break;
-
-	case 'P':
-	    if (!(pObjIndex = get_obj_index(pReset->arg1))) {
-                buf_printf(buf, "Put Object - Bad Object %d\n\r",
-                    pReset->arg1);
-                continue;
-	    }
-
-            pObj       = pObjIndex;
-
-	    if (!(pObjToIndex = get_obj_index(pReset->arg3))) {
-                buf_printf(buf, "Put Object - Bad To Object %d\n\r",
-                    pReset->arg3);
-                continue;
-	    }
-
-	    buf_printf(buf,
-		"O[%5d] %-13.13s inside              O[%5d] %2d-%2d %-15.15s\n\r",
-		pReset->arg1,
-		mlstr_mval(pObj->short_descr),
-		pReset->arg3,
-		pReset->arg2,
-		pReset->arg4,
-		mlstr_mval(pObjToIndex->short_descr));
-
-	    break;
-
-	case 'G':
-	case 'E':
-	    if (!(pObjIndex = get_obj_index(pReset->arg1))) {
-                buf_printf(buf, "Give/Equip Object - Bad Object %d\n\r",
-                    pReset->arg1);
-                continue;
-	    }
-
-            pObj       = pObjIndex;
-
-	    if (!pMob) {
-                buf_printf(buf, "Give/Equip Object - No Previous Mobile\n\r");
-                break;
-	    }
-
-	    if (pMob->pShop) {
-	        buf_printf(buf,
-		"O[%5d] %-13.13s in the inventory of S[%5d]       %-15.15s\n\r",
-		pReset->arg1,
-		mlstr_mval(pObj->short_descr),                           
-		pMob->vnum,
-		mlstr_mval(pMob->short_descr));
-	    }
-	    else
-	    buf_printf(buf,
-		"O[%5d] %-13.13s %-19.19s M[%5d]       %-15.15s\n\r",
-		pReset->arg1,
-		mlstr_mval(pObj->short_descr),
-		(pReset->command == 'G') ?
-		    flag_string(wear_loc_strings, WEAR_NONE)
-		  : flag_string(wear_loc_strings, pReset->arg3),
-		  pMob->vnum,
-		  mlstr_mval(pMob->short_descr));
-
-	    break;
-
-	/*
-	 * Doors are set in rs_flags don't need to be displayed.
-	 * If you want to display them then uncomment the new_reset
-	 * line in the case 'D' in load_resets in db.c and here.
-	 */
-	case 'D':
-	    pRoomIndex = get_room_index(pReset->arg1);
-	    buf_printf(buf, "R[%5d] %s door of %-19.19s reset to %s\n\r",
-		pReset->arg1,
-		capitalize(dir_name[ pReset->arg2 ]),
-		mlstr_cval(pRoomIndex->name, ch),
-		flag_string(door_resets, pReset->arg3));
-
-	    break;
-	/*
-	 * End Doors Comment.
-	 */
-	case 'R':
-	    if (!(pRoomIndex = get_room_index(pReset->arg1))) {
-		buf_printf(buf, "Randomize Exits - Bad Room %d\n\r",
-		    pReset->arg1);
-		continue;
-	    }
-
-	    buf_printf(buf, "R[%5d] Exits are randomized in %s\n\r",
-		pReset->arg1, mlstr_cval(pRoomIndex->name, ch));
-
-	    break;
-	}
-    }
-    send_to_char(buf_string(buf), ch);
-    buf_free(buf);
-}
-
-
-
-/*****************************************************************************
- Name:		add_reset
- Purpose:	Inserts a new reset in the given index slot.
- Called by:	do_resets(olc.c).
- ****************************************************************************/
-void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index)
-{
-    RESET_DATA *reset;
-    int iReset = 0;
-
-    if (!room->reset_first)
-    {
-	room->reset_first	= pReset;
-	room->reset_last	= pReset;
-	pReset->next		= NULL;
-	return;
-    }
-
-    index--;
-
-    if (index == 0)	/* First slot (1) selected. */
-    {
-	pReset->next = room->reset_first;
-	room->reset_first = pReset;
-	return;
-    }
-
-    /*
-     * If negative slot(<= 0 selected) then this will find the last.
-     */
-    for (reset = room->reset_first; reset->next; reset = reset->next)
-    {
-	if (++iReset == index)
-	    break;
-    }
-
-    pReset->next	= reset->next;
-    reset->next		= pReset;
-    if (!pReset->next)
-	room->reset_last = pReset;
-    return;
-}
-
-
-
-void do_resets(CHAR_DATA *ch, const char *argument)
-{
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
-    char arg3[MAX_INPUT_LENGTH];
-    char arg4[MAX_INPUT_LENGTH];
-    char arg5[MAX_INPUT_LENGTH];
-    char arg6[MAX_INPUT_LENGTH];
-    char arg7[MAX_INPUT_LENGTH];
-    RESET_DATA *pReset = NULL;
-
-    argument = one_argument(argument, arg1);
-    argument = one_argument(argument, arg2);
-    argument = one_argument(argument, arg3);
-    argument = one_argument(argument, arg4);
-    argument = one_argument(argument, arg5);
-    argument = one_argument(argument, arg6);
-    argument = one_argument(argument, arg7);
-
-    if (!IS_BUILDER(ch, ch->in_room->area))
-    {
-	send_to_char("Resets: Invalid security for editing this area.\n\r",
-                      ch);
-	return;
-    }
-
-    /*
-     * Display resets in current room.
-     * -------------------------------
-     */
-    if (arg1[0] == '\0')
-    {
-	if (ch->in_room->reset_first)
-	{
-	    send_to_char(
-		"Resets: M = mobile, R = room, O = object, "
-		"P = pet, S = shopkeeper\n\r", ch);
-	    display_resets(ch);
-	}
-	else
-	    send_to_char("No resets in this room.\n\r", ch);
-    }
-
-
-    /*
-     * Take index number and search for commands.
-     * ------------------------------------------
-     */
-    if (is_number(arg1))
-    {
-	ROOM_INDEX_DATA *pRoom = ch->in_room;
-
-	/*
-	 * Delete a reset.
-	 * ---------------
-	 */
-	if (!str_cmp(arg2, "delete"))
-	{
-	    int insert_loc = atoi(arg1);
-
-	    if (!ch->in_room->reset_first)
-	    {
-		send_to_char("No resets in this area.\n\r", ch);
-		return;
-	    }
-
-	    if (insert_loc-1 <= 0)
-	    {
-		pReset = pRoom->reset_first;
-		pRoom->reset_first = pRoom->reset_first->next;
-		if (!pRoom->reset_first)
-		    pRoom->reset_last = NULL;
-	    }
-	    else
-	    {
-		int iReset = 0;
-		RESET_DATA *prev = NULL;
-
-		for (pReset = pRoom->reset_first;
-		  pReset;
-		  pReset = pReset->next)
-		{
-		    if (++iReset == insert_loc)
-			break;
-		    prev = pReset;
-		}
-
-		if (!pReset)
-		{
-		    send_to_char("Reset not found.\n\r", ch);
-		    return;
-		}
-
-		if (prev)
-		    prev->next = prev->next->next;
-		else
-		    pRoom->reset_first = pRoom->reset_first->next;
-
-		for (pRoom->reset_last = pRoom->reset_first;
-		  pRoom->reset_last->next;
-		  pRoom->reset_last = pRoom->reset_last->next);
-	    }
-
-	    free_reset_data(pReset);
-	    send_to_char("Reset deleted.\n\r", ch);
-	}
-	else
-	/*
-	 * Add a reset.
-	 * ------------
-	 */
-	if ((!str_cmp(arg2, "mob") && is_number(arg3))
-	  || (!str_cmp(arg2, "obj") && is_number(arg3)))
-	{
-	    /*
-	     * Check for Mobile reset.
-	     * -----------------------
-	     */
-	    if (!str_cmp(arg2, "mob"))
-	    {
-		if (get_mob_index(is_number(arg3) ? atoi(arg3) : 1) == NULL)
-		  {
-		    send_to_char("Mob no existe.\n\r",ch);
-		    return;
-		  }
-		pReset = new_reset_data();
-		pReset->command = 'M';
-		pReset->arg1    = atoi(arg3);
-		pReset->arg2    = is_number(arg4) ? atoi(arg4) : 1; /* Max # */
-		pReset->arg3    = ch->in_room->vnum;
-		pReset->arg4	= is_number(arg5) ? atoi(arg5) : 1; /* Min # */
-	    }
-	    else
-	    /*
-	     * Check for Object reset.
-	     * -----------------------
-	     */
-	    if (!str_cmp(arg2, "obj"))
-	    {
-		pReset = new_reset_data();
-		pReset->arg1    = atoi(arg3);
-		/*
-		 * Inside another object.
-		 * ----------------------
-		 */
-		if (!str_prefix(arg4, "inside"))
-		{
-		    OBJ_INDEX_DATA *temp;
-
-		    temp = get_obj_index(is_number(arg5) ? atoi(arg5) : 1);
-		    if ((temp->item_type != ITEM_CONTAINER) &&
-		         (temp->item_type != ITEM_CORPSE_NPC))
-		     {
-		       send_to_char("Objeto 2 no es container.\n\r", ch);
-		       return;
-		     }
-		    pReset->command = 'P';
-		    pReset->arg2    = is_number(arg6) ? atoi(arg6) : 1;
-		    pReset->arg3    = is_number(arg5) ? atoi(arg5) : 1;
-		    pReset->arg4    = is_number(arg7) ? atoi(arg7) : 1;
-		}
-		else
-		/*
-		 * Inside the room.
-		 * ----------------
-		 */
-		if (!str_cmp(arg4, "room"))
-		{
-		    if (get_obj_index(atoi(arg3)) == NULL)
-		      {
-		         send_to_char("Vnum no existe.\n\r",ch);
-		         return;
-		      }
-		    pReset->command  = 'O';
-		    pReset->arg2     = 0;
-		    pReset->arg3     = ch->in_room->vnum;
-		    pReset->arg4     = 0;
-		}
-		else
-		/*
-		 * Into a Mobile's inventory.
-		 * --------------------------
-		 */
-		{
-		    if (flag_value(wear_loc_flags, arg4) == NO_FLAG)
-		    {
-			send_to_char("Resets: '? wear-loc'\n\r", ch);
+ 
+ 	/* Search Table and Dispatch Command. */
+	for (i = 0; olced_table[i].name != NULL; i++) {
+		if (!str_prefix(command, olced_table[i].do_name)) {
+			olced_table[i].do_fun(ch, argument);
 			return;
-		    }
-		    if (get_obj_index(atoi(arg3)) == NULL)
-		      {
-		         send_to_char("Vnum no existe.\n\r",ch);
-		         return;
-		      }
-		    pReset->arg1 = atoi(arg3);
-		    pReset->arg3 = flag_value(wear_loc_flags, arg4);
-		    if (pReset->arg3 == WEAR_NONE)
-			pReset->command = 'G';
-		    else
-			pReset->command = 'E';
 		}
-	    }
-	    add_reset(ch->in_room, pReset, atoi(arg1));
-	    SET_BIT(ch->in_room->area->area_flags, AREA_CHANGED);
-	    send_to_char("Reset added.\n\r", ch);
 	}
-	else
-	if (!str_cmp(arg2, "random") && is_number(arg3))
-	{
-		if (atoi(arg3) < 1 || atoi(arg3) > 6)
-			{
-				send_to_char("Invalid argument.\n\r", ch);
-				return;
-			}
-		pReset = new_reset_data ();
-		pReset->command = 'R';
-		pReset->arg1 = ch->in_room->vnum;
-		pReset->arg2 = atoi(arg3);
-		add_reset(ch->in_room, pReset, atoi(arg1));
-		SET_BIT(ch->in_room->area->area_flags, AREA_CHANGED);
-		send_to_char("Random exits reset added.\n\r", ch);
-	}
-	else
-	{
-	send_to_char("Syntax: RESET <number> OBJ <vnum> <wear_loc>\n\r", ch);
-	send_to_char("        RESET <number> OBJ <vnum> inside <vnum> [limit] [count]\n\r", ch);
-	send_to_char("        RESET <number> OBJ <vnum> room\n\r", ch);
-	send_to_char("        RESET <number> MOB <vnum> [max #x area] [max #x room]\n\r", ch);
-	send_to_char("        RESET <number> DELETE\n\r", ch);
-	send_to_char("        RESET <number> RANDOM [#x exits]\n\r", ch);
-	}
-    }
 
-    return;
+	/* Invalid command, send help. */
+	do_help(ch, "'OLC INTRO'");
 }
-
-
 
 /*****************************************************************************
  Name:		do_alist
@@ -1473,4 +425,402 @@ void do_alist(CHAR_DATA *ch, const char *argument)
 	}
 	else
 		char_puts("No areas with that name found.\n\r", ch);
+}
+
+struct olc_help_type
+{
+	char *command;
+	const void *structure;
+	char *desc;
+};
+
+/*
+ * The version info.  Please use this info when reporting bugs.
+ * It is displayed in the game by typing 'version' while editing.
+ * Do not remove these from the code - by request of Jason Dinkel
+ */
+#define VERSION	"ILAB Online Creation [Beta 1.0, ROM 2.3 modified]\n\r" \
+		"     Port a ROM 2.4 v1.7\n\r"
+#define AUTHOR	"     By Jason(jdinkel@mines.colorado.edu)\n\r" \
+                "     Modified for use with ROM 2.3\n\r"        \
+                "     By Hans Birkeland (hansbi@ifi.uio.no)\n\r" \
+                "     Modificado para uso en ROM 2.4b4a\n\r"	\
+                "     Por Ivan Toledo (pvillanu@choapa.cic.userena.cl)\n\r" \
+		"     Modified for use with Muddy\n\r" \
+		"     Farmer Joe (fjoe@iclub.nsu.ru)\n\r"
+#define DATE	"     (Apr. 7, 1995 - ROM mod, Apr 16, 1995)\n\r" \
+		"     (Port a ROM 2.4 - Nov 2, 1996)\n\r" \
+		"     Version actual : 1.71 - Mar 22, 1998\n\r"
+#define CREDITS "     Original by Surreality(cxw197@psu.edu) and Locke(locke@lm.com)"
+
+bool show_version(CHAR_DATA *ch, const char *argument)
+{
+	send_to_char(VERSION, ch);
+	send_to_char("\n\r", ch);
+	send_to_char(AUTHOR, ch);
+	send_to_char("\n\r", ch);
+	send_to_char(DATE, ch);
+	send_to_char("\n\r", ch);
+	send_to_char(CREDITS, ch);
+	send_to_char("\n\r", ch);
+
+	return FALSE;
+}    
+
+/*
+ * This table contains help commands and a brief description of each.
+ * ------------------------------------------------------------------
+ */
+const struct olc_help_type help_table[] =
+{
+	{ "area",	area_flags,	"Area attributes."		},
+	{ "room",	room_flags,	"Room attributes."		},
+	{ "sector",	sector_types,	"Sector types, terrain."	},
+	{ "exit",	exit_flags,	"Exit types."			},
+	{ "type",	type_flags,	"Types of objects."		},
+	{ "extra",	extra_flags,	"Object attributes."		},
+	{ "wear",	wear_flags,	"Where to wear object."		},
+	{ "spec",	spec_table,	"Available special programs." 	},
+	{ "wear-loc",	wear_loc_flags,	"Where mobile wears object."	},
+	{ "spells",	skill_table,	"Names of current spells." 	},
+	{ "container",	container_flags,"Container status."		},
+
+/* ROM specific bits: */
+
+	{ "armor",	ac_type,	"Ac for different attacks."	},
+	{ "apply",	apply_flags,	"Apply flags"			},
+	{ "size",	size_table,	"Mobile size."			},
+	{ "wclass",     weapon_class,   "Weapon class."                }, 
+	{ "wtype",      weapon_type2,   "Special weapon type."         },
+	{ "portal",	portal_flags,	"Portal types."		},
+	{ "furniture",	furniture_flags,"Furniture types."		},
+	{ "liquid",	liq_table,	"Liquid types."		},
+	{ "apptype",	apply_types,	"Apply types."			},
+	{ "weapon",	attack_table,	"Weapon types."		},
+	{ "mptrig",	mptrig_types,	"Trigger types."		},
+	{ NULL,		NULL,		 NULL				}
+};
+
+
+
+/*****************************************************************************
+ Name:		show_flag_cmds
+ Purpose:	Displays settable flags and stats.
+ Called by:	show_help(olc_act.c).
+ ****************************************************************************/
+void show_flag_cmds(CHAR_DATA *ch, const FLAG *flag_table)
+{
+	BUFFER *output;
+	int  flag;
+	int  col;
+ 
+	output = buf_new(0);
+	col = 0;
+	for (flag = 0; flag_table[flag].name != NULL; flag++) {
+		if (flag_table[flag].settable) {
+			buf_printf(output, "%-19.18s", flag_table[flag].name);
+			if (++col % 4 == 0)
+				buf_add(output, "\n\r");
+		}
+	}
+ 
+	if (col % 4 != 0)
+		buf_add(output, "\n\r");
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
+
+/*****************************************************************************
+ Name:		show_skill_cmds
+ Purpose:	Displays all skill functions.
+ 		Does remove those damn immortal commands from the list.
+ 		Could be improved by:
+ 		(1) Adding a check for a particular class.
+ 		(2) Adding a check for a level range.
+ Called by:	show_help(olc_act.c).
+ ****************************************************************************/
+void show_skill_cmds(CHAR_DATA *ch, int tar)
+{
+	int  sn;
+	int  col;
+	BUFFER *output;
+ 
+	output = buf_new(0);
+	col = 0;
+	for (sn = 0; sn < MAX_SKILL; sn++) {
+		if (!skill_table[sn].name)
+			break;
+
+		if (!str_cmp(skill_table[sn].name, "reserved")
+		||  skill_table[sn].spell_fun == spell_null)
+			continue;
+
+		if (tar == -1 || skill_table[sn].target == tar) {
+			buf_printf(output, "%-19.18s", skill_table[sn].name);
+			if (++col % 4 == 0)
+				buf_add(output, "\n\r");
+		}
+	}
+ 
+	if (col % 4 != 0)
+		buf_add(output, "\n\r");
+
+	send_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
+
+
+/*****************************************************************************
+ Name:		show_spec_cmds
+ Purpose:	Displays settable special functions.
+ Called by:	show_help(olc_act.c).
+ ****************************************************************************/
+void show_spec_cmds(CHAR_DATA *ch)
+{
+	int  spec;
+	int  col;
+	BUFFER *output;
+
+	output = buf_new(0);
+	col = 0;
+	buf_add(output, "Preceed special functions with 'spec_'\n\r\n\r");
+	for (spec = 0; spec_table[spec].function != NULL; spec++) {
+		buf_printf(output, "%-19.18s", &spec_table[spec].name[5]);
+		if (++col % 4 == 0)
+			buf_add(output, "\n\r");
+	}
+ 
+	if (col % 4 != 0)
+		buf_add(output, "\n\r");
+
+	send_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+
+
+
+/*****************************************************************************
+ Name:		show_help
+ Purpose:	Displays help for many tables used in OLC.
+ Called by:	olc interpreters.
+ ****************************************************************************/
+bool show_help(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	char spell[MAX_INPUT_LENGTH];
+	int cnt;
+
+	argument = one_argument(argument, arg);
+	one_argument(argument, spell);
+
+	/*
+	 * Display syntax.
+	 */
+	if (arg[0] == '\0') {
+		send_to_char("Syntax:  ? [command]\n\r\n\r", ch);
+		send_to_char("[command]  [description]\n\r", ch);
+		for (cnt = 0; help_table[cnt].command != NULL; cnt++) {
+			char_printf(ch, "%-10.10s -%s\n\r",
+				    capitalize(help_table[cnt].command),
+				    help_table[cnt].desc);
+		}
+		return FALSE;
+	}
+
+	/*
+	 * Find the command, show changeable data.
+	 * ---------------------------------------
+	 */
+	for (cnt = 0; help_table[cnt].command != NULL; cnt++) {
+		if (arg[0] == help_table[cnt].command[0]
+		&&  !str_prefix(arg, help_table[cnt].command)) {
+			if (help_table[cnt].structure == spec_table) {
+				show_spec_cmds(ch);
+				return FALSE;
+			}
+			else if (help_table[cnt].structure == liq_table) {
+				show_liqlist(ch);
+				return FALSE;
+			}
+			else if (help_table[cnt].structure == attack_table) {
+				show_damlist(ch);
+				return FALSE;
+			}
+			else if (help_table[cnt].structure == skill_table) {
+
+				if (spell[0] == '\0') {
+					send_to_char("Syntax:  ? spells "
+			        		     "[ignore/attack/defend/self/object/all]\n\r", ch);
+					return FALSE;
+				}
+
+				if (!str_prefix(spell, "all"))
+					show_skill_cmds(ch, -1);
+				else if (!str_prefix(spell, "ignore"))
+					show_skill_cmds(ch, TAR_IGNORE);
+				else if (!str_prefix(spell, "attack"))
+					show_skill_cmds(ch, TAR_CHAR_OFFENSIVE);
+				else if (!str_prefix(spell, "defend"))
+					show_skill_cmds(ch, TAR_CHAR_DEFENSIVE);
+				else if (!str_prefix(spell, "self"))
+					show_skill_cmds(ch, TAR_CHAR_SELF);
+				else if (!str_prefix(spell, "object"))
+					show_skill_cmds(ch, TAR_OBJ_INV);
+				else
+					send_to_char("Syntax:  ? spell "
+			    			     "[ignore/attack/defend/self/object/all]\n\r", ch);
+			    
+					return FALSE;
+			}
+			else {
+				show_flag_cmds(ch, help_table[cnt].structure);
+				return FALSE;
+			}
+		}
+	}
+
+	show_help(ch, "");
+	return FALSE;
+}
+
+
+bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
+{
+	ED_DATA *ed;
+	char command[MAX_INPUT_LENGTH];
+	char keyword[MAX_INPUT_LENGTH];
+	char lang[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, command);
+	argument = one_argument(argument, keyword);
+	argument = one_argument(argument, lang);
+
+	if (command[0] == '\0' || keyword[0] == '\0') {
+		do_help(ch, "'OLC ED'");
+		return FALSE;
+	}
+
+	if (!str_cmp(command, "add")) {
+		ed		= ed_new();
+		ed->keyword	= str_dup(keyword);
+		ed->next	= *ped;
+		*ped		= ed;
+
+		if (!mlstr_append(ch, &ed->description, lang)) {
+			ed_free(ed);
+			do_help(ch, "'OLC ED'");
+			return FALSE;
+		}
+
+		send_to_char("Extra description added.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "edit")) {
+		ed = ed_lookup(keyword, *ped);
+		if (ed == NULL) {
+			send_to_char("Extra description keyword not found.\n\r", ch);
+			return FALSE;
+		}
+
+		if (!mlstr_append(ch, &ed->description, lang)) {
+			do_help(ch, "'OLC ED'");
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "delete")) {
+		ED_DATA *prev = NULL;
+
+		for (ed = *ped; ed; ed = ed->next) {
+			if (is_name(keyword, ed->keyword))
+				break;
+			prev = ed;
+		}
+
+		if (ed == NULL) {
+			send_to_char("Extra description keyword not found.\n\r", ch);
+			return FALSE;
+		}
+
+		if (prev == NULL)
+			*ped = ed->next;
+		else
+			prev->next = ed->next;
+
+		ed_free(ed);
+
+		send_to_char("Extra description deleted.\n\r", ch);
+		return TRUE;
+	}
+
+
+	if (!str_cmp(command, "format")) {
+		ed = ed_lookup(keyword, *ped);
+		if (ed == NULL) {
+			send_to_char("REdit:  Extra description keyword not found.\n\r", ch);
+			return FALSE;
+		}
+
+		mlstr_format(&ed->description);
+		send_to_char("Extra description formatted.\n\r", ch);
+		return TRUE;
+	}
+
+	do_help(ch, "'OLC ED'");
+	return FALSE;
+}
+
+void show_liqlist(CHAR_DATA *ch)
+{
+	int liq;
+	BUFFER *buffer;
+	
+	buffer = buf_new(0);
+	
+	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
+		if ((liq % 21) == 0)
+			buf_add(buffer,"Name                 Color          Proof Full Thirst Food Ssize\n\r");
+
+		buf_printf(buffer, "%-20s %-14s %5d %4d %6d %4d %5d\n\r",
+			liq_table[liq].liq_name,liq_table[liq].liq_color,
+			liq_table[liq].liq_affect[0],liq_table[liq].liq_affect[1],
+			liq_table[liq].liq_affect[2],liq_table[liq].liq_affect[3],
+			liq_table[liq].liq_affect[4]);
+	}
+
+	page_to_char(buf_string(buffer), ch);
+	buf_free(buffer);
+}
+
+void show_damlist(CHAR_DATA *ch)
+{
+	int att;
+	BUFFER *buffer;
+	
+	buffer = buf_new(0);
+	
+	for (att = 0; attack_table[att].name != NULL; att++) {
+		if ((att % 21) == 0)
+			buf_add(buffer,"Name                 Noun\n\r");
+
+		buf_printf(buffer, "%-20s %-20s\n\r",
+			attack_table[att].name,attack_table[att].noun);
+	}
+
+	page_to_char(buf_string(buffer),ch);
+	buf_free(buffer);
+}
+
+static OLCED_DATA *olced_lookup(int id)
+{
+	int i;
+	for (i = 0; olced_table[i].id != -1; i++)
+		if (olced_table[i].id == id)
+			return olced_table+i;
+	return NULL;
 }

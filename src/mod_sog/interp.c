@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.54 1998-08-14 22:33:05 fjoe Exp $
+ * $Id: interp.c,v 1.55 1998-08-17 18:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -184,6 +184,7 @@ const	struct	cmd_type	cmd_table	[] =
      */
     { "bearcall",       do_bear_call,   POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
     { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "=",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
     { "clanlist",	do_clanlist,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
     { "clanrecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "deaf",		do_deaf,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -860,7 +861,6 @@ bool is_number(const char *argument)
 	return TRUE;
 }
 
-
 static int x_argument(const char *argument, char *arg, char c)
 {
 	char *p;
@@ -907,32 +907,48 @@ int mult_argument(const char *argument, char *arg)
  */
 const char *one_argument(const char *argument, char *arg_first)
 {
-    char cEnd;
+	return first_arg(argument, arg_first, TRUE);
+}
 
-    while (isspace(*argument))
-	argument++;
+/*
+ * Used above in string_add.  Because this function does not
+ * modify case if fCase is FALSE and because it understands
+ * parenthesis, it would probably make a nice replacement
+ * for one_argument.
+ */
+/*****************************************************************************
+ Name:		first_arg
+ Purpose:	Pick off one argument from a string and return the rest.
+ 		Understands quates, parenthesis (barring) ('s) and
+ 		percentages.
+ Called by:	string_add(string.c)
+ ****************************************************************************/
+const char *first_arg(const char *argument, char *arg_first, bool fCase)
+{
+	char cEnd = '\0';
 
-    cEnd = ' ';
-    if (*argument == '\'' || *argument == '"')
-	cEnd = *argument++;
+/* skip leading spaces */
+	while (isspace(*argument))
+		argument++;
 
-    while (*argument != '\0')
-    {
-	if (*argument == cEnd)
-	{
-	    argument++;
-	    break;
+/* check quotes */
+	if (*argument == '\'' || *argument == '"')
+        	cEnd = *argument++;
+
+	while (*argument) {
+		if (isspace(*argument) || *argument == cEnd) {
+			argument++;
+			break;
+		}
+		*arg_first++ = fCase ? LOWER(*argument) : *argument;
+		argument++;
 	}
-	*arg_first = LOWER(*argument);
-	arg_first++;
-	argument++;
-    }
-    *arg_first = '\0';
+	*arg_first = '\0';
 
-    while (isspace(*argument))
-	argument++;
+	while (isspace(*argument))
+		argument++;
 
-    return argument;
+	return argument;
 }
 
 /*

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.75 1998-08-15 12:40:48 fjoe Exp $
+# $Id: english.lang,v 1.76 1998-08-17 18:47:05 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -628,7 +628,7 @@ MSG_NON_NEUTRALS	"non-neutrals"
 MSG_GOODS		"goods"
 MSG_EVILS		"evils"
 MSG_NEUTRALS		"neutrals"
-MSG_NO_HELP_ON_WORD	"No help on that word.\n\r"
+MSG_NO_HELP_ON_WORD	"%s: no help on that word.\n\r"
 MSG_PLAYERS_FOUND	"\n\rPlayers found: %d. Most so far today: %d.\n\r"
 MSG_MUST_PROVIDE_NAME	"You must provide a name.\n\r"
 MSG_NO_ONE_THAT_NAME	"No one of that name is playing.\n\r"

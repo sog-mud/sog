@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.98 1998-08-15 12:40:49 fjoe Exp $
+# $Id: russian.lang,v 1.99 1998-08-17 18:47:07 fjoe Exp $
 #
 
 MSG_NOTHING  		"Ничего.\n\r",	
@@ -771,7 +771,7 @@ MSG_NON_NEUTRALS	"non-neutrals"
 MSG_GOODS		"goods"
 MSG_EVILS		"evils"
 MSG_NEUTRALS		"neutrals"
-MSG_NO_HELP_ON_WORD	"На это слово нет подсказки.\n\r"
+MSG_NO_HELP_ON_WORD	"%s: Нет подсказки на это слово.\n\r"
 MSG_PLAYERS_FOUND  "\n\rСейчас играет %d игроков. Максимум на сегодня: %d.\n\r"
 MSG_MUST_PROVIDE_NAME  sexdep  "Ты забыло указать имя.\n\r"
 				"Ты забыл указать имя.\n\r"

@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.22 1998-08-15 07:47:33 fjoe Exp $
+ * $Id: db2.c,v 1.23 1998-08-17 18:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,7 +56,6 @@
 #include "tables.h"
 #include "mlstring.h"
 #include "recycle.h"
-#include "olc.h"		/* for mprog_check_case */
 
 extern void xungetc(int, FILE *stream);
 
@@ -219,7 +218,7 @@ void load_mobiles(FILE *fp)
 	/* vital statistics */
 	pMobIndex->start_pos		= position_lookup(fread_word(fp));
 	pMobIndex->default_pos		= position_lookup(fread_word(fp));
-	pMobIndex->sex			= flag_lookup(fread_word(fp), sex_flags);
+	pMobIndex->sex			= flag_value(sex_table, fread_word(fp));
 
 	pMobIndex->wealth		= fread_number(fp);
 
@@ -267,22 +266,23 @@ void load_mobiles(FILE *fp)
 	     }
 	     else if ( letter == 'M' )
 	     {
-		MPROG_LIST *pMprog;
+		MPTRIG *mptrig;
 		char *word;
-		int trigger = 0;
+		int type;
+		char *phrase;
+		int vnum;
 		
-		pMprog              = alloc_perm(sizeof(*pMprog));
-		word   		    = fread_word(fp);
-		if ((trigger = flag_lookup(word, mprog_flags)) == 0)
+		word = fread_word(fp);
+		if ((type = flag_value(mptrig_types, word)) == 0)
 			db_error("load_mobiles", "vnum %d: "
 				   "'%s': invalid mob prog trigger",
 				   pMobIndex->vnum, word);
-		SET_BIT(pMobIndex->mprog_flags, trigger);
-		pMprog->trig_type   = trigger;
-		pMprog->vnum        = fread_number(fp);
-		pMprog->trig_phrase = fread_string(fp);
-		mprog_check_case(pMprog);
-		SLIST_ADD(MPROG_LIST, pMobIndex->mprogs, pMprog);
+		vnum   = fread_number(fp);
+		phrase = fread_string(fp);
+
+		mptrig = mptrig_new(type, phrase, vnum);
+		mptrig_add(pMobIndex, mptrig);
+		free_string(phrase);
 	     }
 	     else
 	     {

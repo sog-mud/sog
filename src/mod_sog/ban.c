@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.10 1998-08-14 05:45:12 fjoe Exp $
+ * $Id: ban.c,v 1.11 1998-08-17 18:47:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -236,7 +236,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 
     if (strlen(name) == 0)
     {
-	send_to_char("You have to ban MSG_SOMETHING.\n\r",ch);
+	send_to_char("You have to ban SOMETHING.\n\r",ch);
 	return;
     }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.17 1998-08-15 12:40:49 fjoe Exp $
+ * $Id: skills.c,v 1.18 1998-08-17 18:47:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -497,7 +497,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 	char_printf(ch, "Skill '%s' in group '%s'.\n\r",
 		    skill_table[sn].name,
-		    flag_name_lookup(skill_groups, skill_table[sn].group));
+		    flag_string(skill_groups, skill_table[sn].group));
 }
 
 #define PC_PRACTICER	123

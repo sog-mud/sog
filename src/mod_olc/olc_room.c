@@ -1,0 +1,1782 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "merc.h"
+#include "olc.h"
+#include "comm.h"
+#include "string_edit.h"
+#include "db.h"
+#include "tables.h"
+#include "buffer.h"
+#include "mlstring.h"
+#include "act_move.h"
+#include "interp.h"
+
+#define REDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
+#define EDIT_ROOM(Ch, Room)	(Room = Ch->in_room)
+
+/*
+ * Room Editor Prototypes
+ */
+DECLARE_OLC_FUN(redit_show		);
+DECLARE_OLC_FUN(redit_create		);
+DECLARE_OLC_FUN(redit_name		);
+DECLARE_OLC_FUN(redit_desc		);
+DECLARE_OLC_FUN(redit_ed		);
+DECLARE_OLC_FUN(redit_north		);
+DECLARE_OLC_FUN(redit_south		);
+DECLARE_OLC_FUN(redit_east		);
+DECLARE_OLC_FUN(redit_west		);
+DECLARE_OLC_FUN(redit_up		);
+DECLARE_OLC_FUN(redit_down		);
+DECLARE_OLC_FUN(redit_mreset		);
+DECLARE_OLC_FUN(redit_oreset		);
+DECLARE_OLC_FUN(redit_mlist		);
+DECLARE_OLC_FUN(redit_rlist		);
+DECLARE_OLC_FUN(redit_olist		);
+DECLARE_OLC_FUN(redit_mshow		);
+DECLARE_OLC_FUN(redit_oshow		);
+DECLARE_OLC_FUN(redit_heal		);
+DECLARE_OLC_FUN(redit_mana		);
+DECLARE_OLC_FUN(redit_clan		);
+DECLARE_OLC_FUN(redit_owner		);
+DECLARE_OLC_FUN(redit_room		);
+DECLARE_OLC_FUN(redit_sector		);
+
+OLC_CMD_DATA redit_table[] =
+{
+/*  {   command		function	}, */
+
+    {   "commands",	show_commands	},
+    {   "create",	redit_create	},
+    {   "desc",		redit_desc	},
+    {   "ed",		redit_ed	},
+    {   "name",		redit_name	},
+    {	"show",		redit_show	},
+    {   "heal",		redit_heal	},
+    {	"mana",		redit_mana	},
+    {   "clan",		redit_clan	},
+
+    {   "north",	redit_north	},
+    {   "south",	redit_south	},
+    {   "east",		redit_east	},
+    {   "west",		redit_west	},
+    {   "up",		redit_up	},
+    {   "down",		redit_down	},
+
+    /* New reset commands. */
+    {	"mreset",	redit_mreset	},
+    {	"oreset",	redit_oreset	},
+    {	"mlist",	redit_mlist	},
+    {	"rlist",	redit_rlist	},
+    {	"olist",	redit_olist	},
+    {	"mshow",	redit_mshow	},
+    {	"oshow",	redit_oshow	},
+    {   "owner",	redit_owner	},
+    {	"room",		redit_room,		NULL,	room_flags	},
+    {	"sector",	redit_sector,		NULL,	sector_types	},
+
+    {   "?",		show_help	},
+    {   "version",	show_version	},
+
+    {	NULL,		0,		}
+};
+
+DECLARE_OLC_FUN(medit_show);
+DECLARE_OLC_FUN(oedit_show);
+static bool olced_exit(CHAR_DATA *ch, const char *argument,
+		       OLC_FUN *fun, int door);
+static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index);
+
+void do_redit(CHAR_DATA *ch, const char *argument)
+{
+    ROOM_INDEX_DATA *pRoom;
+    char arg1[MAX_STRING_LENGTH];
+
+    if (IS_NPC(ch))
+    	return;
+
+    argument = one_argument(argument, arg1);
+
+    pRoom = ch->in_room;
+
+    if (!str_cmp(arg1, "reset"))	/* redit reset */
+    {
+	if (!IS_BUILDER(ch, pRoom->area))
+	{
+		send_to_char("Insufficient security to modify rooms.\n\r" , ch);
+        	return;
+	}
+
+	reset_room(pRoom);
+	send_to_char("Room reset.\n\r", ch);
+
+	return;
+    }
+    else
+    if (!str_cmp(arg1, "create"))	/* redit create <vnum> */
+    {
+	if (argument[0] == '\0' || atoi(argument) == 0)
+	{
+	    send_to_char("Syntax:  edit room create [vnum]\n\r", ch);
+	    return;
+	}
+
+	if (redit_create(ch, argument)) /* pEdit == nuevo cuarto */
+	{
+	    ch->desc->editor = ED_ROOM;
+	    char_from_room(ch);
+	    char_to_room(ch, ch->desc->pEdit);
+	    SET_BIT(((ROOM_INDEX_DATA *)ch->desc->pEdit)->area->flags, AREA_CHANGED);
+	}
+
+	return;
+    }
+    else if (!IS_NULLSTR(arg1))	/* redit <vnum> */
+    {
+	pRoom = get_room_index(atoi(arg1));
+
+	if (!pRoom)
+	{
+		send_to_char("REdit: cuarto inexistente.\n\r", ch);
+		return;
+	}
+
+	if (!IS_BUILDER(ch, pRoom->area))
+	{
+		send_to_char("REdit : insuficiente seguridad para editar cuarto.\n\r", ch);
+		return;
+	}
+
+	char_from_room(ch);
+	char_to_room(ch, pRoom);
+    }
+
+    if (!IS_BUILDER(ch, pRoom->area))
+    {
+    	send_to_char("REdit : Insuficiente seguridad para editar cuartos.\n\r", ch);
+    	return;
+    }
+
+    ch->desc->pEdit	= (void *) pRoom;
+    ch->desc->editor	= ED_ROOM;
+
+    return;
+}
+
+/* Room Interpreter, called by do_redit. */
+void redit(CHAR_DATA *ch, const char *argument)
+{
+    AREA_DATA *pArea;
+    ROOM_INDEX_DATA *pRoom;
+    char arg[MAX_STRING_LENGTH];
+    char command[MAX_INPUT_LENGTH];
+    int  cmd;
+
+    EDIT_ROOM(ch, pRoom);
+    pArea = pRoom->area;
+
+    strcpy(arg, argument);
+    smash_tilde(arg);
+    argument = one_argument(arg, command);
+
+    if (!IS_BUILDER(ch, pArea))
+    {
+        send_to_char("REdit:  Insufficient security to modify room.\n\r", ch);
+	edit_done(ch);
+	return;
+    }
+
+    if (!str_cmp(command, "done"))
+    {
+	edit_done(ch);
+	return;
+    }
+
+    if (command[0] == '\0')
+    {
+	redit_show(ch, argument);
+	return;
+    }
+
+    /* Search Table and Dispatch Command. */
+    for (cmd = 0; redit_table[cmd].name != NULL; cmd++)
+    {
+	if (!str_prefix(command, redit_table[cmd].name))
+	{
+	    if ((*redit_table[cmd].olc_fun) (ch, argument))
+	    {
+		SET_BIT(pArea->flags, AREA_CHANGED);
+		return;
+	    }
+	    else
+		return;
+	}
+    }
+
+    /* Default to Standard Interpreter. */
+    interpret(ch, arg);
+    return;
+}
+
+REDIT(redit_show)
+{
+	char buf[MAX_STRING_LENGTH];
+	ROOM_INDEX_DATA	*pRoom;
+	BUFFER *	output;
+	OBJ_DATA	*obj;
+	CHAR_DATA	*rch;
+	int		door;
+	bool		fcnt;
+	
+	EDIT_ROOM(ch, pRoom);
+
+	output = buf_new(0);
+	
+	buf_add(output, "Description:\n\r");
+	mlstr_dump(output, "", pRoom->description);
+	mlstr_dump(output, "Name:       ", pRoom->name);
+	buf_printf(output, "Area:       [%5d] %s\n\r",
+		   pRoom->area->vnum, pRoom->area->name);
+	buf_printf(output, "Vnum:       [%5d]\n\rSector:     [%s]\n\r",
+		   pRoom->vnum, flag_string(sector_types, pRoom->sector_type));
+	buf_printf(output, "Room flags: [%s]\n\r",
+		   flag_string(room_flags, pRoom->room_flags));
+
+	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
+		buf_printf(output, "Health rec: [%d]\n\rMana rec  : [%d]\n\r",
+			   pRoom->heal_rate, pRoom->mana_rate);
+
+	if (pRoom->clan > 0)
+		buf_printf(output, "Clan      : [%d] %s\n\r",
+			   pRoom->clan, clan_table[pRoom->clan].short_name);
+
+	if (!IS_NULLSTR(pRoom->owner))
+		buf_printf(output, "Owner     : [%s]\n\r", pRoom->owner);
+
+	if (pRoom->ed) {
+		ED_DATA *ed;
+
+		buf_add(output, "Desc Kwds:  [");
+		for (ed = pRoom->ed; ed != NULL; ed = ed->next) {
+			buf_add(output, ed->keyword);
+			if (ed->next != NULL)
+				buf_add(output, " ");
+		}
+		buf_add(output, "]\n\r");
+	}
+
+	buf_add(output, "Characters: [");
+	fcnt = FALSE;
+	for (rch = pRoom->people; rch != NULL; rch = rch->next_in_room) {
+		one_argument(rch->name, buf);
+		buf_add(output, buf);
+		if (rch->next_in_room != NULL)
+			buf_add(output, " ");
+		fcnt = TRUE;
+	}
+
+	if (fcnt) 
+		buf_add(output, "]\n\r");
+	else
+		buf_add(output, "none]\n\r");
+
+	buf_add(output, "Objects:    [");
+	fcnt = FALSE;
+	for (obj = pRoom->contents; obj != NULL; obj = obj->next_content) {
+		one_argument(obj->name, buf);
+		buf_add(output, buf);
+		if (obj->next_content != NULL)
+			buf_add(output, " ");
+		fcnt = TRUE;
+	}
+
+	if (fcnt)
+		buf_add(output, "]\n\r");
+	else
+		buf_add(output, "none]\n\r");
+
+	for (door = 0; door < MAX_DIR; door++) {
+		EXIT_DATA *pexit;
+
+		if ((pexit = pRoom->exit[door]) != NULL) {
+			char word[MAX_INPUT_LENGTH];
+			char reset_state[MAX_STRING_LENGTH];
+			const char *state;
+			int i, length;
+
+			buf_printf(output, "-%-5s to [%5d] Key: [%5d] ",
+				   capitalize(dir_name[door]),
+				   pexit->u1.to_room ?
+						pexit->u1.to_room->vnum : 0,
+				   pexit->key);
+
+			/*
+			 * Format up the exit info.
+			 * Capitalize all flags that are not part of the reset info.
+			 */
+			strcpy(reset_state, flag_string(exit_flags, pexit->rs_flags));
+			state = flag_string(exit_flags, pexit->exit_info);
+			buf_add(output, " Exit flags: [");
+			for (; ;) {
+				state = one_argument(state, word);
+
+				if (word[0] == '\0') {
+					buf_add(output, "]\n\r");
+					break;
+				}
+
+				if (str_infix(word, reset_state)) {
+					length = strlen(word);
+					for (i = 0; i < length; i++)
+						word[i] = UPPER(word[i]);
+				}
+				buf_add(output, word);
+				buf_add(output, " ");
+			}
+
+			if (!IS_NULLSTR(pexit->keyword))
+				buf_printf(output, "Kwds: [%s]\n\r",
+					   pexit->keyword);
+			mlstr_dump(output, "", pexit->description);
+		}
+	}
+
+	send_to_char(buf_string(output), ch);
+	buf_free(output);
+	return FALSE;
+}
+
+REDIT(redit_north)
+{
+	return olced_exit(ch, argument, redit_north, DIR_NORTH);
+}
+
+REDIT(redit_south)
+{
+	return olced_exit(ch, argument, redit_south, DIR_SOUTH);
+}
+
+REDIT(redit_east)
+{
+	return olced_exit(ch, argument, redit_east, DIR_EAST);
+}
+
+REDIT(redit_west)
+{
+	return olced_exit(ch, argument, redit_west, DIR_WEST);
+}
+
+REDIT(redit_up)
+{
+	return olced_exit(ch, argument, redit_up, DIR_UP);
+}
+
+REDIT(redit_down)
+{
+	return olced_exit(ch, argument, redit_down, DIR_DOWN);
+}
+
+REDIT(redit_ed)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	return olced_ed(ch, argument, &pRoom->ed);
+}
+
+REDIT(redit_create)
+{
+	AREA_DATA *pArea;
+	ROOM_INDEX_DATA *pRoom;
+	int value;
+	int iHash;
+	
+	EDIT_ROOM(ch, pRoom);
+
+	value = atoi(argument);
+
+	if (argument[0] == '\0' || value <= 0)
+	{
+		send_to_char("Syntax:  create [vnum > 0]\n\r", ch);
+		return FALSE;
+	}
+
+	pArea = get_vnum_area(value);
+	if (!pArea)
+	{
+		send_to_char("REdit:  That vnum is not assigned an area.\n\r", ch);
+		return FALSE;
+	}
+
+	if (!IS_BUILDER(ch, pArea))
+	{
+		send_to_char("REdit:  Vnum in an area you cannot build in.\n\r", ch);
+		return FALSE;
+	}
+
+	if (get_room_index(value))
+	{
+		send_to_char("REdit:  Room vnum already exists.\n\r", ch);
+		return FALSE;
+	}
+
+	pRoom			= new_room_index();
+	pRoom->area			= pArea;
+	pRoom->vnum			= value;
+
+	if (value > top_vnum_room)
+		 top_vnum_room = value;
+
+	iHash			= value % MAX_KEY_HASH;
+	pRoom->next			= room_index_hash[iHash];
+	room_index_hash[iHash]	= pRoom;
+	ch->desc->pEdit		= (void *)pRoom;
+
+	send_to_char("Room created.\n\r", ch);
+	return TRUE;
+}
+
+REDIT(redit_name)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	return olced_mlstr(ch, argument, redit_name, &pRoom->name);
+}
+
+REDIT(redit_desc)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	return olced_mlstr_text(ch, argument, redit_desc, &pRoom->description);
+}
+
+REDIT(redit_heal)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	return olced_number(ch, argument, redit_heal, &pRoom->heal_rate);
+}       
+
+REDIT(redit_mana)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	return olced_number(ch, argument, redit_mana, &pRoom->mana_rate);
+}       
+
+REDIT(redit_clan)
+{
+	send_to_char("This option temporarily disabled.\n\r", ch);
+	return FALSE;
+/*
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+	pRoom->clan = clan_lookup(argument);
+	send_to_char ("Clan set.\n\r", ch);
+	return TRUE;
+*/
+}
+	  
+REDIT(redit_mreset)
+{
+	ROOM_INDEX_DATA	*pRoom;
+	MOB_INDEX_DATA	*pMobIndex;
+	AREA_DATA	*pArea;
+	CHAR_DATA	*newmob;
+	char		arg [ MAX_INPUT_LENGTH ];
+	char		arg2 [ MAX_INPUT_LENGTH ];
+
+	RESET_DATA	*pReset;
+
+	EDIT_ROOM(ch, pRoom);
+
+	argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg2);
+
+	if (arg[0] == '\0' || !is_number(arg)) {
+		send_to_char ("Syntax:  mreset <vnum> <max #x> <mix #x>\n\r", ch);
+		return FALSE;
+	}
+
+	if (!(pMobIndex = get_mob_index(atoi(arg)))) {
+		send_to_char("REdit: No mobile has that vnum.\n\r", ch);
+		return FALSE;
+	}
+
+	pArea = get_vnum_area(pMobIndex->vnum);
+	if (pArea != pRoom->area) {
+		send_to_char("REdit: No such mobile in this area.\n\r", ch);
+		return FALSE;
+	}
+
+	/*
+	 * Create the mobile reset.
+	 */
+	pReset              = new_reset_data();
+	pReset->command	= 'M';
+	pReset->arg1	= pMobIndex->vnum;
+	pReset->arg2	= is_number(arg2) ? atoi(arg2) : MAX_MOB;
+	pReset->arg3	= pRoom->vnum;
+	pReset->arg4	= is_number(argument) ? atoi (argument) : 1;
+	add_reset(pRoom, pReset, 0/* Last slot*/);
+
+	/*
+	 * Create the mobile.
+	 */
+	newmob = create_mob(pMobIndex);
+	char_to_room(newmob, pRoom);
+
+	char_printf(ch, "%s (%d) has been loaded and added to resets.\n\r"
+		"There will be a maximum of %d loaded to this room.\n\r",
+		mlstr_mval(pMobIndex->short_descr),
+		pMobIndex->vnum,
+		pReset->arg2);
+	act("$n has created $N!", ch, NULL, newmob, TO_ROOM);
+	return TRUE;
+}
+
+REDIT(redit_rlist)
+{
+	ROOM_INDEX_DATA	*pRoomIndex;
+	AREA_DATA		*pArea;
+	BUFFER		*buffer;
+	char		arg  [ MAX_INPUT_LENGTH    ];
+	bool found;
+	int vnum;
+	int  col = 0;
+
+	one_argument(argument, arg);
+
+	pArea = ch->in_room->area;
+	buffer = buf_new(0);
+	found   = FALSE;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pRoomIndex = get_room_index(vnum))) {
+			found = TRUE;
+			buf_printf(buffer, "[%5d] %-17.16s",
+				vnum,
+				capitalize(mlstr_cval(pRoomIndex->name, ch)));
+			if (++col % 3 == 0)
+				buf_add(buffer, "\n\r");
+		}
+	}
+
+	if (!found) {
+		send_to_char("Room(s) not found in this area.\n\r", ch);
+		return FALSE;
+	}
+
+	if (col % 3 != 0)
+		buf_add(buffer, "\n\r");
+
+	page_to_char(buf_string(buffer), ch);
+	buf_free(buffer);
+	return FALSE;
+}
+
+REDIT(redit_mlist)
+{
+	MOB_INDEX_DATA	*pMobIndex;
+	AREA_DATA	*pArea;
+	BUFFER		*buffer;
+	char		arg  [MAX_INPUT_LENGTH];
+	bool fAll, found;
+	int vnum;
+	int  col = 0;
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		send_to_char("Syntax:  mlist <all/name>\n\r", ch);
+		return FALSE;
+	}
+
+	buffer = buf_new(0);
+	pArea = ch->in_room->area;
+	fAll    = !str_cmp(arg, "all");
+	found   = FALSE;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
+			if (fAll || is_name(arg, pMobIndex->name)) {
+				found = TRUE;
+				buf_printf(buffer, "[%5d] %-17.16s",
+					   pMobIndex->vnum,
+					   mlstr_mval(pMobIndex->short_descr));
+				if (++col % 3 == 0)
+					buf_add(buffer, "\n\r");
+			}
+		}
+	}
+
+	if (!found) {
+		send_to_char("Mobile(s) not found in this area.\n\r", ch);
+		return FALSE;
+	}
+
+	if (col % 3 != 0)
+		buf_add(buffer, "\n\r");
+
+	page_to_char(buf_string(buffer), ch);
+	buf_free(buffer);
+	return FALSE;
+}
+
+
+
+REDIT(redit_olist)
+{
+	OBJ_INDEX_DATA	*pObjIndex;
+	AREA_DATA	*pArea;
+	BUFFER		*buffer;
+	char		arg  [MAX_INPUT_LENGTH];
+	bool fAll, found;
+	int vnum;
+	int  col = 0;
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		send_to_char("Syntax:  olist <all/name/item_type>\n\r", ch);
+		return FALSE;
+	}
+
+	pArea   = ch->in_room->area;
+	buffer  = buf_new(0);
+	fAll    = !str_cmp(arg, "all");
+	found   = FALSE;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
+		if ((pObjIndex = get_obj_index(vnum))) {
+			if (fAll || is_name(arg, pObjIndex->name)
+			|| flag_value(type_flags, arg) == pObjIndex->item_type) {
+				found = TRUE;
+				buf_printf(buffer, "[%5d] %-17.16s",
+					   pObjIndex->vnum,
+					   mlstr_mval(pObjIndex->short_descr));
+				if (++col % 3 == 0)
+					buf_add(buffer, "\n\r");
+			}
+		}
+	}
+
+	if (!found) {
+		send_to_char("Object(s) not found in this area.\n\r", ch);
+		return FALSE;
+	}
+
+	if (col % 3 != 0)
+		buf_add(buffer, "\n\r");
+
+	page_to_char(buf_string(buffer), ch);
+	buf_free(buffer);
+	return FALSE;
+}
+
+
+
+REDIT(redit_mshow)
+{
+	MOB_INDEX_DATA *pMob;
+	int value;
+
+	if (argument[0] == '\0') {
+		send_to_char("Syntax:  mshow <vnum>\n\r", ch);
+		return FALSE;
+	}
+
+	if (!is_number(argument)) {
+		send_to_char("REdit: Ingresa un numero.\n\r", ch);
+		return FALSE;
+	}
+
+	if (is_number(argument)) {
+		value = atoi(argument);
+		if (!(pMob = get_mob_index(value))) {
+			send_to_char("REdit:  That mobile does not exist.\n\r", ch);
+			return FALSE;
+		}
+
+		ch->desc->pEdit = (void *)pMob;
+	}
+ 
+	medit_show(ch, argument);
+	ch->desc->pEdit = (void *)ch->in_room;
+	return FALSE; 
+}
+
+
+
+REDIT(redit_oshow)
+{
+	OBJ_INDEX_DATA *pObj;
+	int value;
+
+	if (argument[0] == '\0') {
+		send_to_char("Syntax:  oshow <vnum>\n\r", ch);
+		return FALSE;
+	}
+
+	if (!is_number(argument)) {
+		send_to_char("REdit: Ingresa un numero.\n\r", ch);
+		return FALSE;
+	}
+
+	if (is_number(argument)) {
+		value = atoi(argument);
+		if (!(pObj = get_obj_index(value))) {
+			send_to_char("REdit:  That object does not exist.\n\r", ch);
+			return FALSE;
+		}
+
+		ch->desc->pEdit = (void *)pObj;
+	}
+ 
+	oedit_show(ch, argument);
+	ch->desc->pEdit = (void *)ch->in_room;
+	return FALSE; 
+}
+
+struct wear_type
+{
+	int	wear_loc;
+	int	wear_bit;
+};
+
+const struct wear_type wear_table[] =
+{
+	{	WEAR_NONE,	ITEM_TAKE		},
+	{	WEAR_LIGHT,	ITEM_LIGHT		},
+	{	WEAR_FINGER_L,	ITEM_WEAR_FINGER	},
+	{	WEAR_FINGER_R,	ITEM_WEAR_FINGER	},
+	{	WEAR_NECK_1,	ITEM_WEAR_NECK		},
+	{	WEAR_NECK_2,	ITEM_WEAR_NECK		},
+	{	WEAR_BODY,	ITEM_WEAR_BODY		},
+	{	WEAR_HEAD,	ITEM_WEAR_HEAD		},
+	{	WEAR_LEGS,	ITEM_WEAR_LEGS		},
+	{	WEAR_FEET,	ITEM_WEAR_FEET		},
+	{	WEAR_HANDS,	ITEM_WEAR_HANDS		},
+	{	WEAR_ARMS,	ITEM_WEAR_ARMS		},
+	{	WEAR_SHIELD,	ITEM_WEAR_SHIELD	},
+	{	WEAR_ABOUT,	ITEM_WEAR_ABOUT		},
+	{	WEAR_WAIST,	ITEM_WEAR_WAIST		},
+	{	WEAR_WRIST_L,	ITEM_WEAR_WRIST		},
+	{	WEAR_WRIST_R,	ITEM_WEAR_WRIST		},
+	{	WEAR_WIELD,	ITEM_WIELD		},
+	{	WEAR_HOLD,	ITEM_HOLD		},
+	{	-1					}
+};
+
+
+
+/*****************************************************************************
+ Name:		wear_loc
+ Purpose:	Returns the location of the bit that matches the count.
+ 		1 = first match, 2 = second match etc.
+ Called by:	oedit_reset(olc_act.c).
+ ****************************************************************************/
+int wear_loc(int bits, int count)
+{
+	int flag;
+ 
+	for (flag = 0; wear_table[flag].wear_bit != -1; flag++) {
+		 if (IS_SET(bits, wear_table[flag].wear_bit) && --count < 1)
+		     return wear_table[flag].wear_loc;
+	}
+ 
+	return -1;
+}
+
+
+
+/*****************************************************************************
+ Name:		wear_bit
+ Purpose:	Converts a wear_loc into a bit.
+ Called by:	redit_oreset(olc_act.c).
+ ****************************************************************************/
+int wear_bit(int loc)
+{
+	int flag;
+ 
+	for (flag = 0; wear_table[flag].wear_loc != -1; flag++) {
+		 if (loc == wear_table[flag].wear_loc)
+		     return wear_table[flag].wear_bit;
+	}
+ 
+	return 0;
+}
+
+
+
+REDIT(redit_oreset)
+{
+	ROOM_INDEX_DATA	*pRoom;
+	OBJ_INDEX_DATA	*pObjIndex;
+	AREA_DATA	*pArea;
+	OBJ_DATA	*newobj;
+	OBJ_DATA	*to_obj;
+	CHAR_DATA	*to_mob;
+	char		arg1 [ MAX_INPUT_LENGTH ];
+	char		arg2 [ MAX_INPUT_LENGTH ];
+	int		olevel = 0;
+
+	RESET_DATA	*pReset;
+	char		output [ MAX_STRING_LENGTH ];
+
+	EDIT_ROOM(ch, pRoom);
+
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
+
+	if (arg1[0] == '\0' || !is_number(arg1)) {
+		send_to_char ("Syntax:  oreset <vnum> <args>\n\r", ch);
+		send_to_char ("        -no_args               = into room\n\r", ch);
+		send_to_char ("        -<obj_name>            = into obj\n\r", ch);
+		send_to_char ("        -<mob_name> <wear_loc> = into mob\n\r", ch);
+		return FALSE;
+	}
+
+	if (!(pObjIndex = get_obj_index(atoi(arg1)))) {
+		send_to_char("REdit: No object has that vnum.\n\r", ch);
+		return FALSE;
+	}
+
+	pArea = get_vnum_area(pObjIndex->vnum);
+	if (pArea != pRoom->area) {
+		send_to_char("REdit: No such object in this area.\n\r", ch);
+		return FALSE;
+	}
+
+	/*
+	 * Load into room.
+	 */
+	if (arg2[0] == '\0')
+	{
+		pReset		= new_reset_data();
+		pReset->command	= 'O';
+		pReset->arg1	= pObjIndex->vnum;
+		pReset->arg2	= 0;
+		pReset->arg3	= pRoom->vnum;
+		pReset->arg4	= 0;
+		add_reset(pRoom, pReset, 0/* Last slot*/);
+
+		newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+		obj_to_room(newobj, pRoom);
+
+		char_printf(ch, "%s (%d) has been loaded and added to resets.\n\r",
+			mlstr_mval(pObjIndex->short_descr),
+			pObjIndex->vnum);
+	}
+	else
+	/*
+	 * Load into object's inventory.
+	 */
+	if (argument[0] == '\0'
+	&& ((to_obj = get_obj_list(ch, arg2, pRoom->contents)) != NULL))
+	{
+		pReset		= new_reset_data();
+		pReset->command	= 'P';
+		pReset->arg1	= pObjIndex->vnum;
+		pReset->arg2	= 0;
+		pReset->arg3	= to_obj->pIndexData->vnum;
+		pReset->arg4	= 1;
+		add_reset(pRoom, pReset, 0/* Last slot*/);
+
+		newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+		newobj->cost = 0;
+		obj_to_obj(newobj, to_obj);
+
+		char_printf(ch, "%s (%d) has been loaded into "
+			"%s (%d) and added to resets.\n\r",
+			mlstr_mval(newobj->short_descr),
+			newobj->pIndexData->vnum,
+			mlstr_mval(to_obj->short_descr),
+			to_obj->pIndexData->vnum);
+	}
+	else
+	/*
+	 * Load into mobile's inventory.
+	 */
+	if ((to_mob = get_char_room(ch, arg2)) != NULL)
+	{
+		int	wear_loc;
+
+		/*
+		 * Make sure the location on mobile is valid.
+		 */
+		if ((wear_loc = flag_value(wear_loc_flags, argument)) < 0)
+		{
+			send_to_char("REdit: Invalid wear_loc.  '? wear-loc'\n\r", ch);
+			return FALSE;
+		}
+
+		/*
+		 * Disallow loading a sword(WEAR_WIELD) into WEAR_HEAD.
+		 */
+		if (!IS_SET(pObjIndex->wear_flags, wear_bit(wear_loc)))
+		{
+			char_printf(ch,
+			    "%s (%d) has wear flags: [%s]\n\r",
+			    mlstr_mval(pObjIndex->short_descr),
+			    pObjIndex->vnum,
+			flag_string(wear_flags, pObjIndex->wear_flags));
+			return FALSE;
+		}
+
+		/*
+		 * Can't load into same position.
+		 */
+		if (get_eq_char(to_mob, wear_loc))
+		{
+			send_to_char("REdit:  Object already equipped.\n\r", ch);
+			return FALSE;
+		}
+
+		pReset		= new_reset_data();
+		pReset->arg1	= pObjIndex->vnum;
+		pReset->arg2	= wear_loc;
+		if (pReset->arg2 == WEAR_NONE)
+			pReset->command = 'G';
+		else
+			pReset->command = 'E';
+		pReset->arg3	= wear_loc;
+
+		add_reset(pRoom, pReset, 0/* Last slot*/);
+
+		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
+		 newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+
+		if (to_mob->pIndexData->pShop)	/* Shop-keeper? */
+		{
+			switch (pObjIndex->item_type)
+			{
+			default:		olevel = 0;				break;
+			case ITEM_PILL:	olevel = number_range( 0, 10);	break;
+			case ITEM_POTION:	olevel = number_range( 0, 10);	break;
+			case ITEM_SCROLL:	olevel = number_range( 5, 15);	break;
+			case ITEM_WAND:	olevel = number_range(10, 20);	break;
+			case ITEM_STAFF:	olevel = number_range(15, 25);	break;
+			case ITEM_ARMOR:	olevel = number_range( 5, 15);	break;
+			case ITEM_WEAPON:	if (pReset->command == 'G')
+						    olevel = number_range(5, 15);
+				else
+				    olevel = number_fuzzy(olevel);
+			break;
+			}
+
+			newobj = create_obj(pObjIndex, olevel);
+			if (pReset->arg2 == WEAR_NONE)
+			SET_BIT(newobj->extra_flags, ITEM_INVENTORY);
+		}
+		else
+			newobj = create_obj(pObjIndex, number_fuzzy(olevel));
+
+		obj_to_char(newobj, to_mob);
+		if (pReset->command == 'E')
+			equip_char(to_mob, newobj, pReset->arg3);
+
+		char_printf(ch, "%s (%d) has been loaded "
+			"%s of %s (%d) and added to resets.\n\r",
+			mlstr_mval(pObjIndex->short_descr),
+			pObjIndex->vnum,
+			flag_string(wear_loc_strings, pReset->arg3),
+			mlstr_mval(to_mob->short_descr),
+			to_mob->pIndexData->vnum);
+		send_to_char(output, ch);
+	}
+	else	/* Display Syntax */
+	{
+		send_to_char("REdit:  That mobile isn't here.\n\r", ch);
+		return FALSE;
+	}
+
+	act("$n has created $p!", ch, newobj, NULL, TO_ROOM);
+	return TRUE;
+}
+
+REDIT(redit_room)
+{
+	ROOM_INDEX_DATA *room;
+	EDIT_ROOM(ch, room);
+	return olced_flag(ch, argument, redit_room, &room->room_flags);
+}
+
+REDIT(redit_sector)
+{
+	ROOM_INDEX_DATA *room;
+	EDIT_ROOM(ch, room);
+	return olced_flag(ch, argument, redit_sector, &room->sector_type);
+}
+
+REDIT(redit_owner)
+{
+	ROOM_INDEX_DATA *pRoom;
+	EDIT_ROOM(ch, pRoom);
+
+	if (argument[0] == '\0') {
+		send_to_char("Syntax:  owner [owner]\n\r", ch);
+		send_to_char("         owner none\n\r", ch);
+		return FALSE;
+	}
+
+	free_string(pRoom->owner);
+	if (!str_cmp(argument, "none"))
+		pRoom->owner = str_dup("");
+	else
+		pRoom->owner = str_dup(argument);
+
+	send_to_char("Owner set.\n\r", ch);
+	return TRUE;
+}
+
+static bool olced_exit(CHAR_DATA *ch, const char *argument,
+		       OLC_FUN fun, int door)
+{
+	OLC_CMD_DATA *cmd;
+	ROOM_INDEX_DATA *pRoom;
+	char command[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
+	int  value;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	EDIT_ROOM(ch, pRoom);
+
+	/*
+	 * Set the exit flags, needs full argument.
+	 * ----------------------------------------
+	 */
+	if ((value = flag_value(exit_flags, argument)) != 0) {
+		ROOM_INDEX_DATA *pToRoom;
+		int rev;                                    /* ROM OLC */
+
+		if (!pRoom->exit[door]) {
+		   	send_to_char("Exit does not exist.\n\r",ch);
+		   	return FALSE;
+		}
+		 /*   pRoom->exit[door] = new_exit(); */
+
+		/*
+		 * This room.
+		 */
+		TOGGLE_BIT(pRoom->exit[door]->rs_flags,  value);
+		/* Don't toggle exit_info because it can be changed by players. */
+		pRoom->exit[door]->exit_info = pRoom->exit[door]->rs_flags;
+
+		/*
+		 * Connected room.
+		 */
+		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
+		rev = rev_dir[door];
+
+		if (pToRoom->exit[rev] != NULL) {
+			TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
+			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
+		}
+
+		send_to_char("Exit flag toggled.\n\r", ch);
+		return TRUE;
+	}
+
+	/*
+	 * Now parse the arguments.
+	 */
+	argument = one_argument(argument, command);
+	argument = one_argument(argument, arg);
+
+	if (command[0] == '\0' && argument[0] == '\0') { /* Move command. */
+		move_char(ch, door, TRUE);                    /* ROM OLC */
+		return FALSE;
+	}
+
+	if (command[0] == '?') {
+		do_help(ch, "'OLC EXITS'");
+		return FALSE;
+	}
+
+	if (!str_cmp(command, "delete")) {
+		ROOM_INDEX_DATA *pToRoom;
+		int rev;                                     /* ROM OLC */
+		
+		if (!pRoom->exit[door]) {
+			send_to_char("REdit:  Cannot delete a null exit.\n\r", ch);
+			return FALSE;
+		}
+
+		/*
+		 * Remove ToRoom Exit.
+		 */
+		rev = rev_dir[door];
+		pToRoom = pRoom->exit[door]->u1.to_room;       /* ROM OLC */
+		
+		if (pToRoom->exit[rev]) {
+			free_exit(pToRoom->exit[rev]);
+			pToRoom->exit[rev] = NULL;
+		}
+
+		/*
+		 * Remove this exit.
+		 */
+		free_exit(pRoom->exit[door]);
+		pRoom->exit[door] = NULL;
+
+		send_to_char("Exit unlinked.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "link")) {
+		EXIT_DATA *pExit;
+
+		if (arg[0] == '\0' || !is_number(arg)) {
+			do_help(ch, "'OLC EXITS'");
+			char_printf(ch, "Syntax: %s link [vnum]\n\r",
+				    cmd->name);
+			return FALSE;
+		}
+
+		value = atoi(arg);
+
+		if (!get_room_index(value))
+		{
+			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
+			return FALSE;
+		}
+
+		if (!IS_BUILDER(ch, get_room_index(value)->area))
+		{
+			send_to_char("REdit:  Cannot link to that area.\n\r", ch);
+			return FALSE;
+		}
+
+		if (get_room_index(value)->exit[rev_dir[door]])
+		{
+			send_to_char("REdit:  Remote side's exit already exists.\n\r", ch);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		}
+
+		pRoom->exit[door]->u1.to_room = get_room_index(value);   /* ROM OLC */
+		pRoom->exit[door]->orig_door = door;
+		
+/*	pRoom->exit[door]->vnum = value;                Can't set vnum in ROM */
+
+		pRoom                   = get_room_index(value);
+		door                    = rev_dir[door];
+		pExit                   = new_exit();
+		pExit->u1.to_room       = ch->in_room;
+/*	pExit->vnum             = ch->in_room->vnum;    Can't set vnum in ROM */
+		pExit->orig_door	= door;
+		pRoom->exit[door]       = pExit;
+
+		send_to_char("Two-way link established.\n\r", ch);
+		return TRUE;
+	}
+		 
+	if (!str_cmp(command, "dig"))
+	{
+		char buf[MAX_STRING_LENGTH];
+		
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			char_printf(ch, "Syntax: %s dig <vnum>\n\r",
+				    cmd->name);
+			return FALSE;
+		}
+		
+		redit_create(ch, arg);
+		snprintf(buf, sizeof(buf), "link %s", arg);
+		olced_exit(ch, buf, fun, door);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "room"))
+	{
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			char_printf(ch, "Syntax: %s room [vnum]\n\r",
+				    cmd->name);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		}
+
+		value = atoi(arg);
+
+		if (!get_room_index(value))
+		{
+			send_to_char("REdit:  Cannot link to non-existant room.\n\r", ch);
+			return FALSE;
+		}
+
+		pRoom->exit[door]->u1.to_room = get_room_index(value);    /* ROM OLC */
+		pRoom->exit[door]->orig_door = door;
+/*	pRoom->exit[door]->vnum = value;                 Can't set vnum in ROM */
+
+		send_to_char("One-way link established.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "key"))
+	{
+		if (arg[0] == '\0' || !is_number(arg))
+		{
+			char_printf(ch, "Syntax: %s key [vnum]\n\r",
+				    cmd->name);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		   {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		   }
+
+/*	if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		} */
+
+		value = atoi(arg);
+
+		if (!get_obj_index(value))
+		{
+			send_to_char("REdit:  Item doesn't exist.\n\r", ch);
+			return FALSE;
+		}
+
+		if (get_obj_index(atoi(argument))->item_type != ITEM_KEY)
+		{
+			send_to_char("REdit:  Key doesn't exist.\n\r", ch);
+			return FALSE;
+		}
+
+		pRoom->exit[door]->key = value;
+
+		send_to_char("Exit key set.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_cmp(command, "name"))
+	{
+		if (arg[0] == '\0')
+		{
+			char_printf(ch, "Syntax: %s name [string]\n\r"
+					"        %s name none\n\r",
+				    cmd->name, cmd->name);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door])
+		   {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		   }
+
+/*	if (!pRoom->exit[door])
+		{
+			pRoom->exit[door] = new_exit();
+		} */
+
+		free_string(pRoom->exit[door]->keyword);
+		if (str_cmp(arg,"none"))
+			pRoom->exit[door]->keyword = str_dup(arg);
+		else
+			pRoom->exit[door]->keyword = str_dup("");
+
+		send_to_char("Exit name set.\n\r", ch);
+		return TRUE;
+	}
+
+	if (!str_prefix(command, "description")) {
+		if (!pRoom->exit[door]) {
+		   	send_to_char("Salida no existe.\n\r",ch);
+		   	return FALSE;
+		}
+
+/*	    if (!pRoom->exit[door])
+			{
+			    pRoom->exit[door] = new_exit();
+			} */
+
+		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
+			char_printf(ch, "Syntax: %s desc lang\n\r",
+				    cmd->name);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+void display_resets(CHAR_DATA *ch)
+{
+    ROOM_INDEX_DATA	*pRoom;
+    RESET_DATA		*pReset;
+    MOB_INDEX_DATA	*pMob = NULL;
+    BUFFER *		buf;
+    int 		iReset = 0;
+
+    EDIT_ROOM(ch, pRoom);
+    buf = buf_new(0);
+    
+    buf_add(buf,
+  " No.  Loads    Description       Location         Vnum   Mx Mn Description"
+  "\n\r"
+  "==== ======== ============= =================== ======== ===== ==========="
+  "\n\r");
+
+    for (pReset = pRoom->reset_first; pReset; pReset = pReset->next) {
+	OBJ_INDEX_DATA  *pObj;
+	MOB_INDEX_DATA  *pMobIndex;
+	OBJ_INDEX_DATA  *pObjIndex;
+	OBJ_INDEX_DATA  *pObjToIndex;
+	ROOM_INDEX_DATA *pRoomIndex;
+	char *start = buf_string(buf);
+
+	buf_printf(buf, "[%2d] ", ++iReset);
+
+	switch (pReset->command)
+	{
+	default:
+	    buf_printf(buf, "Bad reset command: %c.", pReset->command);
+	    break;
+
+	case 'M':
+	    if (!(pMobIndex = get_mob_index(pReset->arg1))) {
+                buf_printf(buf, "Load Mobile - Bad Mob %d\n\r", pReset->arg1);
+                continue;
+	    }
+
+	    if (!(pRoomIndex = get_room_index(pReset->arg3))) {
+                buf_printf(buf, "Load Mobile - Bad Room %d\n\r", pReset->arg3);
+                continue;
+	    }
+
+            pMob = pMobIndex;
+            buf_printf(buf, "M[%5d] %-13.13s in room             R[%5d] %2d-%2d %-15.15s\n\r",
+                       pReset->arg1, mlstr_mval(pMob->short_descr),
+			pReset->arg3, pReset->arg2, pReset->arg4,
+			mlstr_cval(pRoomIndex->name, ch));
+
+	    /*
+	     * Check for pet shop.
+	     * -------------------
+	     */
+	    {
+		ROOM_INDEX_DATA *pRoomIndexPrev;
+
+		pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
+		if (pRoomIndexPrev
+		    && IS_SET(pRoomIndexPrev->room_flags, ROOM_PET_SHOP))
+                    start[5] = 'P';
+	    }
+
+	    break;
+
+	case 'O':
+	    if (!(pObjIndex = get_obj_index(pReset->arg1))) {
+                buf_printf(buf, "Load Object - Bad Object %d\n\r",
+		    pReset->arg1);
+                continue;
+	    }
+
+            pObj       = pObjIndex;
+
+	    if (!(pRoomIndex = get_room_index(pReset->arg3))) {
+                buf_printf(buf, "Load Object - Bad Room %d\n\r", pReset->arg3);
+                continue;
+	    }
+
+            buf_printf(buf, "O[%5d] %-13.13s in room             "
+                          "R[%5d]       %-15.15s\n\r",
+                          pReset->arg1, mlstr_mval(pObj->short_descr),
+                          pReset->arg3, mlstr_mval(pRoomIndex->name));
+
+	    break;
+
+	case 'P':
+	    if (!(pObjIndex = get_obj_index(pReset->arg1))) {
+                buf_printf(buf, "Put Object - Bad Object %d\n\r",
+                    pReset->arg1);
+                continue;
+	    }
+
+            pObj       = pObjIndex;
+
+	    if (!(pObjToIndex = get_obj_index(pReset->arg3))) {
+                buf_printf(buf, "Put Object - Bad To Object %d\n\r",
+                    pReset->arg3);
+                continue;
+	    }
+
+	    buf_printf(buf,
+		"O[%5d] %-13.13s inside              O[%5d] %2d-%2d %-15.15s\n\r",
+		pReset->arg1,
+		mlstr_mval(pObj->short_descr),
+		pReset->arg3,
+		pReset->arg2,
+		pReset->arg4,
+		mlstr_mval(pObjToIndex->short_descr));
+
+	    break;
+
+	case 'G':
+	case 'E':
+	    if (!(pObjIndex = get_obj_index(pReset->arg1))) {
+                buf_printf(buf, "Give/Equip Object - Bad Object %d\n\r",
+                    pReset->arg1);
+                continue;
+	    }
+
+            pObj       = pObjIndex;
+
+	    if (!pMob) {
+                buf_printf(buf, "Give/Equip Object - No Previous Mobile\n\r");
+                break;
+	    }
+
+	    if (pMob->pShop) {
+	        buf_printf(buf,
+		"O[%5d] %-13.13s in the inventory of S[%5d]       %-15.15s\n\r",
+		pReset->arg1,
+		mlstr_mval(pObj->short_descr),                           
+		pMob->vnum,
+		mlstr_mval(pMob->short_descr));
+	    }
+	    else
+	    buf_printf(buf,
+		"O[%5d] %-13.13s %-19.19s M[%5d]       %-15.15s\n\r",
+		pReset->arg1,
+		mlstr_mval(pObj->short_descr),
+		(pReset->command == 'G') ?
+		    flag_string(wear_loc_strings, WEAR_NONE)
+		  : flag_string(wear_loc_strings, pReset->arg3),
+		  pMob->vnum,
+		  mlstr_mval(pMob->short_descr));
+
+	    break;
+
+	/*
+	 * Doors are set in rs_flags don't need to be displayed.
+	 * If you want to display them then uncomment the new_reset
+	 * line in the case 'D' in load_resets in db.c and here.
+	 */
+	case 'D':
+	    pRoomIndex = get_room_index(pReset->arg1);
+	    buf_printf(buf, "R[%5d] %s door of %-19.19s reset to %s\n\r",
+		pReset->arg1,
+		capitalize(dir_name[ pReset->arg2 ]),
+		mlstr_cval(pRoomIndex->name, ch),
+		flag_string(door_resets, pReset->arg3));
+
+	    break;
+	/*
+	 * End Doors Comment.
+	 */
+	case 'R':
+	    if (!(pRoomIndex = get_room_index(pReset->arg1))) {
+		buf_printf(buf, "Randomize Exits - Bad Room %d\n\r",
+		    pReset->arg1);
+		continue;
+	    }
+
+	    buf_printf(buf, "R[%5d] Exits are randomized in %s\n\r",
+		pReset->arg1, mlstr_cval(pRoomIndex->name, ch));
+
+	    break;
+	}
+    }
+    send_to_char(buf_string(buf), ch);
+    buf_free(buf);
+}
+
+
+
+void do_resets(CHAR_DATA *ch, const char *argument)
+{
+    char arg1[MAX_INPUT_LENGTH];
+    char arg2[MAX_INPUT_LENGTH];
+    char arg3[MAX_INPUT_LENGTH];
+    char arg4[MAX_INPUT_LENGTH];
+    char arg5[MAX_INPUT_LENGTH];
+    char arg6[MAX_INPUT_LENGTH];
+    char arg7[MAX_INPUT_LENGTH];
+    RESET_DATA *pReset = NULL;
+
+    argument = one_argument(argument, arg1);
+    argument = one_argument(argument, arg2);
+    argument = one_argument(argument, arg3);
+    argument = one_argument(argument, arg4);
+    argument = one_argument(argument, arg5);
+    argument = one_argument(argument, arg6);
+    argument = one_argument(argument, arg7);
+
+    if (!IS_BUILDER(ch, ch->in_room->area))
+    {
+	send_to_char("Resets: Invalid security for editing this area.\n\r",
+                      ch);
+	return;
+    }
+
+    /*
+     * Display resets in current room.
+     * -------------------------------
+     */
+    if (arg1[0] == '\0')
+    {
+	if (ch->in_room->reset_first)
+	{
+	    send_to_char(
+		"Resets: M = mobile, R = room, O = object, "
+		"P = pet, S = shopkeeper\n\r", ch);
+	    display_resets(ch);
+	}
+	else
+	    send_to_char("No resets in this room.\n\r", ch);
+    }
+
+
+    /*
+     * Take index number and search for commands.
+     * ------------------------------------------
+     */
+    if (is_number(arg1))
+    {
+	ROOM_INDEX_DATA *pRoom = ch->in_room;
+
+	/*
+	 * Delete a reset.
+	 * ---------------
+	 */
+	if (!str_cmp(arg2, "delete"))
+	{
+	    int insert_loc = atoi(arg1);
+
+	    if (!ch->in_room->reset_first)
+	    {
+		send_to_char("No resets in this area.\n\r", ch);
+		return;
+	    }
+
+	    if (insert_loc-1 <= 0)
+	    {
+		pReset = pRoom->reset_first;
+		pRoom->reset_first = pRoom->reset_first->next;
+		if (!pRoom->reset_first)
+		    pRoom->reset_last = NULL;
+	    }
+	    else
+	    {
+		int iReset = 0;
+		RESET_DATA *prev = NULL;
+
+		for (pReset = pRoom->reset_first;
+		  pReset;
+		  pReset = pReset->next)
+		{
+		    if (++iReset == insert_loc)
+			break;
+		    prev = pReset;
+		}
+
+		if (!pReset)
+		{
+		    send_to_char("Reset not found.\n\r", ch);
+		    return;
+		}
+
+		if (prev)
+		    prev->next = prev->next->next;
+		else
+		    pRoom->reset_first = pRoom->reset_first->next;
+
+		for (pRoom->reset_last = pRoom->reset_first;
+		  pRoom->reset_last->next;
+		  pRoom->reset_last = pRoom->reset_last->next);
+	    }
+
+	    free_reset_data(pReset);
+	    send_to_char("Reset deleted.\n\r", ch);
+	}
+	else
+	/*
+	 * Add a reset.
+	 * ------------
+	 */
+	if ((!str_cmp(arg2, "mob") && is_number(arg3))
+	  || (!str_cmp(arg2, "obj") && is_number(arg3)))
+	{
+	    /*
+	     * Check for Mobile reset.
+	     * -----------------------
+	     */
+	    if (!str_cmp(arg2, "mob"))
+	    {
+		if (get_mob_index(is_number(arg3) ? atoi(arg3) : 1) == NULL)
+		  {
+		    send_to_char("Mob no existe.\n\r",ch);
+		    return;
+		  }
+		pReset = new_reset_data();
+		pReset->command = 'M';
+		pReset->arg1    = atoi(arg3);
+		pReset->arg2    = is_number(arg4) ? atoi(arg4) : 1; /* Max # */
+		pReset->arg3    = ch->in_room->vnum;
+		pReset->arg4	= is_number(arg5) ? atoi(arg5) : 1; /* Min # */
+	    }
+	    else
+	    /*
+	     * Check for Object reset.
+	     * -----------------------
+	     */
+	    if (!str_cmp(arg2, "obj"))
+	    {
+		pReset = new_reset_data();
+		pReset->arg1    = atoi(arg3);
+		/*
+		 * Inside another object.
+		 * ----------------------
+		 */
+		if (!str_prefix(arg4, "inside"))
+		{
+		    OBJ_INDEX_DATA *temp;
+
+		    temp = get_obj_index(is_number(arg5) ? atoi(arg5) : 1);
+		    if ((temp->item_type != ITEM_CONTAINER) &&
+		         (temp->item_type != ITEM_CORPSE_NPC))
+		     {
+		       send_to_char("Objeto 2 no es container.\n\r", ch);
+		       return;
+		     }
+		    pReset->command = 'P';
+		    pReset->arg2    = is_number(arg6) ? atoi(arg6) : 1;
+		    pReset->arg3    = is_number(arg5) ? atoi(arg5) : 1;
+		    pReset->arg4    = is_number(arg7) ? atoi(arg7) : 1;
+		}
+		else
+		/*
+		 * Inside the room.
+		 * ----------------
+		 */
+		if (!str_cmp(arg4, "room"))
+		{
+		    if (get_obj_index(atoi(arg3)) == NULL)
+		      {
+		         send_to_char("Vnum no existe.\n\r",ch);
+		         return;
+		      }
+		    pReset->command  = 'O';
+		    pReset->arg2     = 0;
+		    pReset->arg3     = ch->in_room->vnum;
+		    pReset->arg4     = 0;
+		}
+		else
+		/*
+		 * Into a Mobile's inventory.
+		 * --------------------------
+		 */
+		{
+		    if (flag_value(wear_loc_flags, arg4) < 0)
+		    {
+			send_to_char("Resets: '? wear-loc'\n\r", ch);
+			return;
+		    }
+		    if (get_obj_index(atoi(arg3)) == NULL)
+		      {
+		         send_to_char("Vnum no existe.\n\r",ch);
+		         return;
+		      }
+		    pReset->arg1 = atoi(arg3);
+		    pReset->arg3 = flag_value(wear_loc_flags, arg4);
+		    if (pReset->arg3 == WEAR_NONE)
+			pReset->command = 'G';
+		    else
+			pReset->command = 'E';
+		}
+	    }
+	    add_reset(ch->in_room, pReset, atoi(arg1));
+	    SET_BIT(ch->in_room->area->flags, AREA_CHANGED);
+	    send_to_char("Reset added.\n\r", ch);
+	}
+	else
+	if (!str_cmp(arg2, "random") && is_number(arg3))
+	{
+		if (atoi(arg3) < 1 || atoi(arg3) > 6)
+			{
+				send_to_char("Invalid argument.\n\r", ch);
+				return;
+			}
+		pReset = new_reset_data ();
+		pReset->command = 'R';
+		pReset->arg1 = ch->in_room->vnum;
+		pReset->arg2 = atoi(arg3);
+		add_reset(ch->in_room, pReset, atoi(arg1));
+		SET_BIT(ch->in_room->area->flags, AREA_CHANGED);
+		send_to_char("Random exits reset added.\n\r", ch);
+	}
+	else
+	{
+	send_to_char("Syntax: RESET <number> OBJ <vnum> <wear_loc>\n\r", ch);
+	send_to_char("        RESET <number> OBJ <vnum> inside <vnum> [limit] [count]\n\r", ch);
+	send_to_char("        RESET <number> OBJ <vnum> room\n\r", ch);
+	send_to_char("        RESET <number> MOB <vnum> [max #x area] [max #x room]\n\r", ch);
+	send_to_char("        RESET <number> DELETE\n\r", ch);
+	send_to_char("        RESET <number> RANDOM [#x exits]\n\r", ch);
+	}
+    }
+
+    return;
+}
+
+/* Static functions */
+
+/*****************************************************************************
+ Name:		add_reset
+ Purpose:	Inserts a new reset in the given index slot.
+ Called by:	do_resets(olc.c).
+ ****************************************************************************/
+static void add_reset(ROOM_INDEX_DATA *room, RESET_DATA *pReset, int index)
+{
+    RESET_DATA *reset;
+    int iReset = 0;
+
+    if (!room->reset_first)
+    {
+	room->reset_first	= pReset;
+	room->reset_last	= pReset;
+	pReset->next		= NULL;
+	return;
+    }
+
+    index--;
+
+    if (index == 0)	/* First slot (1) selected. */
+    {
+	pReset->next = room->reset_first;
+	room->reset_first = pReset;
+	return;
+    }
+
+    /*
+     * If negative slot(<= 0 selected) then this will find the last.
+     */
+    for (reset = room->reset_first; reset->next; reset = reset->next)
+    {
+	if (++iReset == index)
+	    break;
+    }
+
+    pReset->next	= reset->next;
+    reset->next		= pReset;
+    if (!pReset->next)
+	room->reset_last = pReset;
+    return;
+}

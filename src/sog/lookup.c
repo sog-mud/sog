@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.10 1998-08-14 05:45:14 fjoe Exp $
+ * $Id: lookup.c,v 1.11 1998-08-17 18:47:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,44 +49,15 @@
 #include "db.h"
 #include "log.h"
 
-int flag_lookup (const char *name, const struct flag_type *f)
+int position_lookup(const char *name)
 {
-	while (f->name != NULL) {
-		if (str_prefix(name, f->name) == 0)
-			return f->bit;
-		f++;
-	}
-	return 0;
-}
-
-
-int position_lookup (const char *name)
-{
-   int pos;
-
-   for (pos = 0; position_table[pos].name != NULL; pos++)
-   {
-	if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
-	&&  !str_prefix(name,position_table[pos].name))
-	    return pos;
-   }
-   
-   return -1;
+	return flag_value(position_table, name);
 }
 
 
 int size_lookup (const char *name)
 {
-   int size;
- 
-   for ( size = 0; size_table[size].name != NULL; size++)
-   {
-        if (LOWER(name[0]) == LOWER(size_table[size].name[0])
-        &&  !str_prefix( name,size_table[size].name))
-            return size;
-   }
- 
-   return 0;
+	return flag_value(size_table, name);
 }
 
 int slang_lookup (const char *name)
@@ -278,15 +249,3 @@ int slot_lookup(int slot)
 	db_error("slot_lookup", "bad slot %d.", slot);
 	return -1;
 }
-
-
-char *flag_name_lookup(const struct flag_type *f, int bit)
-{
-	while (f->name != NULL) {
-		if (bit == f->bit)
-			return f->name;
-		f++;
-	}
-	return "(unknown)";
-}
-

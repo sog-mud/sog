@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.18 1998-08-15 07:47:34 fjoe Exp $
+ * $Id: olc_save.c,v 1.19 1998-08-17 18:47:39 fjoe Exp $
  */
 
 /**************************************************************************
@@ -117,18 +117,18 @@ char *fwrite_flag(int flags, char buf[])
 
 void save_mobprogs(FILE *fp, AREA_DATA *pArea)
 {
-	MPROG_CODE *pMprog;
+	MPCODE *mpcode;
         int i;
 	bool found = FALSE;
 
 	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
-        	if ((pMprog = get_mprog_index(i)) != NULL) {
+        	if ((mpcode = mpcode_lookup(i)) != NULL) {
 			if (!found) {
         			fprintf(fp, "#MOBPROGS\n");
 				found = TRUE;
 			}
 			fprintf(fp, "#%d\n", i);
-			fprintf(fp, "%s~\n", fix_string(pMprog->code));
+			fprintf(fp, "%s~\n", fix_string(mpcode->code));
 		}
         }
 
@@ -144,7 +144,7 @@ void save_mobprogs(FILE *fp, AREA_DATA *pArea)
 void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
     int race = pMobIndex->race;
-    MPROG_LIST *pMprog;
+    MPTRIG *mptrig;
     char buf[MAX_STRING_LENGTH];
     int temp;
 
@@ -193,10 +193,10 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 					    ~race_table[pMobIndex->race].vuln,
 					    buf));
     fprintf(fp, "%s %s %s %d\n",
-				position_table[pMobIndex->start_pos].short_name,
-				position_table[pMobIndex->default_pos].short_name,
-				sex_flags[pMobIndex->sex].name,
-				pMobIndex->wealth);
+			flag_string(position_table, pMobIndex->start_pos),
+			flag_string(position_table, pMobIndex->default_pos),
+			flag_string(sex_table, pMobIndex->sex),
+			pMobIndex->wealth);
     fprintf(fp, "%s ",		fwrite_flag(pMobIndex->form &
 					    ~race_table[pMobIndex->race].form,
 					    buf));
@@ -234,11 +234,11 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     if ((temp = DIF(race_table[race].parts,pMobIndex->parts)))
     	fprintf(fp, "F par %s\n", fwrite_flag(temp, buf));
 
-    for (pMprog = pMobIndex->mprogs; pMprog; pMprog = pMprog->next)
+    for (mptrig = pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next)
     {
         fprintf(fp, "M %s %d %s~\n",
-        mprog_type_to_name(pMprog->trig_type), pMprog->vnum,
-                pMprog->trig_phrase);
+        flag_string(mptrig_types, mptrig->type), mptrig->vnum,
+                mptrig->phrase);
     }
 }
 
@@ -890,7 +890,7 @@ void save_omprogs(FILE *fp, AREA_DATA *pArea)
 
 void save_practicer(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
-	const struct flag_type *f;
+	const FLAG *f;
 
 	for (f = skill_groups; f->name != NULL; f++)
 		if (IS_SET(pMobIndex->practicer, f->bit))
@@ -948,6 +948,7 @@ void save_area(AREA_DATA *pArea)
 {
 	char buf[MAX_STRING_LENGTH];
 	FILE *fp;
+	int flags;
 
 	fclose(fpReserve);
 	if (!(fp = fopen(pArea->file_name, "w"))) {
@@ -964,8 +965,9 @@ void save_area(AREA_DATA *pArea)
 	fprintf(fp, "LevelRange %d %d\n",	pArea->low_range, pArea->high_range);
 	if (!mlstr_null(pArea->resetmsg))
 		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
-	if (pArea->area_flag)
-		fprintf(fp, "Flags %s\n",	fwrite_flag(pArea->area_flag, buf));
+	flags = pArea->flags & ~AREA_CHANGED;
+	if (flags)
+		fprintf(fp, "Flags %s\n",	fwrite_flag(flags, buf));
 	fprintf(fp, "End\n\n");
 
 	save_mobiles(fp, pArea);
@@ -1011,7 +1013,7 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 		if (ch && !IS_BUILDER(ch, pArea))
 			continue;
 
-		if (flags && !IS_SET(pArea->area_flags, flags))
+		if (flags && !IS_SET(pArea->flags, flags))
 			continue;
 
 		found = TRUE;
@@ -1023,7 +1025,7 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 		else
 			log_printf("    %s (%s)",
 				   pArea->name, pArea->file_name);
-		REMOVE_BIT(pArea->area_flags, flags);
+		REMOVE_BIT(pArea->flags, flags);
 	}
 
 	if (!found) {
