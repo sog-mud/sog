@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.314 2001-08-27 16:56:01 fjoe Exp $
+ * $Id: handler.c,v 1.315 2001-08-28 17:46:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1831,14 +1831,6 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			ch, NULL, NULL, TO_ROOM);
 	}
 
-	/*
-	 * Exit trigger, if activated, bail out. Only PCs are triggered.
-	 */
-	if (!IS_NPC(ch)
-	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb, ch,
-		       dir_name[door]) != NULL)
-		return FALSE;
-
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
 	||  (to_room = pexit->to_room.r) == NULL
@@ -2043,6 +2035,14 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			WAIT_STATE(ch, wait);
 		}
 	}
+
+	/*
+	 * Exit trigger, if activated, bail out. Only PCs are triggered.
+	 */
+	if (!IS_NPC(ch)
+	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb, ch,
+		       dir_name[door]) != NULL)
+		return FALSE;
 
 	if (!HAS_INVIS(ch, ID_SNEAK | ID_CAMOUFLAGE)
 	&&  ch->invis_level < LEVEL_HERO)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.17 2001-08-26 16:17:27 fjoe Exp $
+ * $Id: mpc_c.c,v 1.18 2001-08-28 17:46:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -174,9 +174,13 @@ c_push_retval(mpcode_t *mpc)
 	    "%s: rv type mismatch (want %d, got %d)",
 	    d->name, rv_tag, d->rv_tag);
 	for (i = 0; i < nargs; i++) {
+		if (d->argtype[i].type_tag == MT_PVOID
+		||  d->argtype[i].type_tag == MT_PCVOID)
+			continue;
+
 		mpc_assert(mpc, __FUNCTION__,
 		    argtype[i] == d->argtype[i].type_tag,
-		    "%s: invalid arg %d type (want %d, got %d)",
+		    "%s: invalid arg[%d] type (want %d, got %d)",
 		    d->name, i+1, argtype[i], d->argtype[i].type_tag);
 	}
 

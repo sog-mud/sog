@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.5 2001-08-27 16:56:03 fjoe Exp $
+ * $Id: trig.c,v 1.6 2001-08-28 17:46:24 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -156,11 +156,11 @@ FOREACH_CB_FUN(trig_dump_list_cb, p, ap)
 
 	if (*pcnt == 0) {
 		buf_printf(buf, BUF_END, "MP triggers:\n");
-		buf_append(buf, "Num  Trigger    Program                    Arg [Flags]\n");
-		buf_append(buf, "---- ---------- -------------------------- -------------------------------------\n");
+		buf_append(buf, "Num  Trigger     Program                    Arg [Flags]\n");
+		buf_append(buf, "---- ----------- -------------------------- -----------------------------------\n");
 	}
 
-	buf_printf(buf, BUF_END, "[%2d] %-9s %-26s %s [%s]\n",
+	buf_printf(buf, BUF_END, "[%2d] %-11s %-26s %s [%s]\n",
 		   *pcnt, flag_string(mptrig_types, trig->trig_type),
 		   trig->trig_prog, trig->trig_arg,
 		   flag_string(mptrig_flags, trig->trig_flags));

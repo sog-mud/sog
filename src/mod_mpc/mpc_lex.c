@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.13 2001-08-28 16:37:37 avn Exp $
+ * $Id: mpc_lex.c,v 1.14 2001-08-28 17:46:18 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -134,8 +134,6 @@ skip_line(mpcode_t *mpc)
 
 #define IS_IDENT_CH(ch)		((isalpha(ch) && isascii(ch)) || ch == '_')
 
-#define MAX_IDENT_LEN	64
-
 struct keyword_t {
 	const char *keyword;
 	int lexval;
@@ -185,7 +183,7 @@ int
 mpc_lex(mpcode_t *mpc)
 {
 	int ch;
-	static char yytext[MAX_IDENT_LEN];
+	static char yytext[MAX_STRING_LENGTH];
 
 	for (; ; ) {
 		bool is_hex;

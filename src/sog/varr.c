@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.30 2001-08-26 16:17:35 fjoe Exp $
+ * $Id: varr.c,v 1.31 2001-08-28 17:46:24 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -191,7 +191,7 @@ varr_bsearch_lower(const varr *v, const void *e,
 
 	i = varr_index(v, elem);
 	while (i) {
-		if (!!cmpfun(VARR_GET(v, i), e))
+		if (!!cmpfun(VARR_GET(v, i-1), e))
 			break;
 		i--;
 	}

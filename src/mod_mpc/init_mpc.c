@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.17 2001-08-28 09:33:54 fjoe Exp $
+ * $Id: init_mpc.c,v 1.18 2001-08-28 17:46:17 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -149,6 +149,7 @@ MODINIT_FUN(_module_unload, m)
  */
 const char *mpc_dynafuns[] = {
 #if !defined(MPC)
+	"act",
 	"act_char",
 	"can_see",
 	"dofun",
