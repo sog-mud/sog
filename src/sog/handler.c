@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.45 2001-12-08 00:04:09 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.46 2001-12-10 12:08:41 cs Exp $
  */
 
 /***************************************************************************
@@ -4179,11 +4179,11 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		}
 	}
 
-	if (IS_SET(pexit->exit_info, EX_CLOSED) 
-	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	if (IS_SET(pexit->exit_info, EX_CLOSED)
+	&&  (!IS_TRANSLUCENT(ch) ||
 	     IS_SET(pexit->exit_info, EX_NOPASS))
 	&&  !IS_TRUSTED(ch, LEVEL_ANG)) {
-		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
+		if (IS_TRANSLUCENT(ch)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
   			act_puts("You failed to pass through the $d.",
 				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);

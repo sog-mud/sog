@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.21 2001-07-04 20:37:37 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.22 2001-12-10 12:08:27 cs Exp $
  */
 
 /***************************************************************************
@@ -2131,14 +2131,15 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (IS_AFFECTED(ch, AFF_FLYING)) {		       
-			char_puts("You are already flying.\n", ch); 
+		if (IS_AFFECTED(ch, AFF_FLYING)) {
+			char_puts("You are already flying.\n", ch);
 			return;
 		}
 
 		if (is_bit_affected(ch, TO_AFFECTS, AFF_FLYING)
 		||  ((r = race_lookup(ch->race)) && (r->aff & AFF_FLYING))
-		||  has_obj_affect(ch, AFF_FLYING)) {
+		||  has_obj_affect(ch, AFF_FLYING)
+		|| (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST))) {
 			SET_BIT(ch->affected_by, AFF_FLYING);
 			char_puts("You start to fly.\n", ch);
 		}
@@ -2422,7 +2423,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	if ((pexit = was_in->exit[door]) == 0
 	||  pexit->to_room.r == NULL
 	||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
-	     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	     (!IS_TRANSLUCENT(ch) ||
 	      IS_SET(pexit->exit_info, EX_NOPASS)) &&
 	     !IS_TRUSTED(ch, LEVEL_ANG))
 	||  IS_SET(pexit->exit_info, EX_NOFLEE)

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.37 2001-05-21 18:54:00 fjoe Exp $
+ * $Id: update.c,v 1.157.2.38 2001-12-10 12:08:44 cs Exp $
  */
 
 /***************************************************************************
@@ -626,6 +626,7 @@ void mobile_update(void)
 				char_puts("You return to your normal form.\n",
 					  ch);
 				REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
+				REMOVE_BIT(ch->affected_by, AFF_FLYING);
 			}
 		} else {
 /* update npc timer */

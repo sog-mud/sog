@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.21 2001-12-04 20:37:47 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.22 2001-12-10 12:08:34 cs Exp $
  */
 
 /***************************************************************************
@@ -249,7 +249,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		if ((pexit = was_in->exit[door]) == 0
 		     || pexit->to_room.r == NULL
 		     || (IS_SET(pexit->exit_info, EX_CLOSED)
-		         && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
+		         && (!IS_TRANSLUCENT(ch)
 		             || IS_SET(pexit->exit_info,EX_NOPASS))
 		             && !IS_TRUSTED(ch, LEVEL_ANG))
 		         || (IS_SET(pexit->exit_info , EX_NOFLEE))

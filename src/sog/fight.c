@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.45 2001-12-08 00:06:42 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.46 2001-12-10 12:08:39 cs Exp $
  */
 
 /***************************************************************************
@@ -1696,6 +1696,7 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 		char_puts("You return to your normal form.\n", ch);
 		REMOVE_BIT(PC(ch)->plr_flags, PLR_GHOST);
+		REMOVE_BIT(ch->affected_by, AFF_FLYING);
 	}
 
 	return safe;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.42 2001-12-05 19:09:51 avn Exp $
+ * $Id: act_info.c,v 1.271.2.43 2001-12-10 12:08:23 cs Exp $
  */
 
 /***************************************************************************
@@ -4153,7 +4153,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({DHidden{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_CHARM))
 			char_puts("({mCharmed{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR))
+		if (IS_TRANSLUCENT(victim))
 			char_puts("({cTranslucent{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE))
 			char_puts("({MPink Aura{x) ", ch);
@@ -4201,7 +4201,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
 		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
-		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
+		FLAG_SET(14, 'T', IS_TRANSLUCENT(victim));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_UNDEAD(victim, r) &&
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));

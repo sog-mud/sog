@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.22 2001-12-08 00:04:03 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.23 2001-12-10 12:08:20 cs Exp $
  */
 
 /***************************************************************************
@@ -1212,6 +1212,8 @@ enum {
 	}
 
 #define IS_VAMPIRE(ch)	(get_skill(ch, gsn_vampire))
+#define IS_TRANSLUCENT(ch) (IS_SET((ch)->affected_by, AFF_PASS_DOOR) ||	\
+    (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST)))
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)

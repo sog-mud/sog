@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.27 2001-12-05 16:50:12 avn Exp $
+ * $Id: act_wiz.c,v 1.186.2.28 2001-12-10 12:08:30 cs Exp $
  */
 
 /***************************************************************************
@@ -3891,6 +3891,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 		REMOVE_BIT(PC(victim)->plr_flags, PLR_GHOST);
+		REMOVE_BIT(victim->affected_by, AFF_FLYING);
 		char_puts("Ok.\n", ch);
 		altered = TRUE;
 		goto cleanup;
