@@ -24,6 +24,7 @@ EIKU
 stand stand male 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_cleric +100~
 #7901
 paladin solamnia~
 Paladin of Solamnia~
@@ -41,6 +42,7 @@ stand stand male 1499
 r weapon -50
 m mob_give mob_give_paladin_solamnia 2438~
 m mob_greet mob_greet_paladin_solamnia 100~
+m mob_random mob_random_breath_any +100~
 #0
 
 #OBJECTS
@@ -532,11 +534,6 @@ D5
 Z -1 7916
 S
 #0
-
-#SPECIALS
-M 7900 spec_cast_cleric	* the Grand Knight of paladins
-M 7901 spec_breath_any	* Paladin of Solamnia
-S
 
 #RESETS
 M 0 7900 1 7900 1	* the Grand Knight of paladins (Outside Redferne's residence)

@@ -45,6 +45,7 @@ stand stand male 1200
 r acid -50
 r charm 100
 r sound 33
+m mob_random mob_random_cast_undead +100~
 #13402
 creature nightmare творение кошмара~
 @eng a warped creature from a nightmare@rus ~~отвратительное~~ ~~создание~~ из ночного кошмара~
@@ -89,6 +90,7 @@ r acid -50
 r mental 33
 r light 33
 r charm 100
+m mob_random mob_random_breath_acid +100~
 #13404
 black pudding черный пудинг crate ящик~
 @eng the black pudding@rus ~~черный~~ ~~пудинг~~~
@@ -148,6 +150,7 @@ stand stand male 7500
 r cold 100
 r acid -50
 r charm 100
+m mob_random mob_random_cast_undead +100~
 #13407
 roof ceiling потолок lurker above скрывающийся во тьме~
 @eng the lurker above@rus ~~скрывающийся~~ во тьме~
@@ -189,6 +192,7 @@ stand stand male 5300
 0 0 medium unknown
 r acid -50
 r charm 100
+m mob_random mob_random_cast_undead +100~
 #13409
 human automaton человеческий автомат~
 @eng the human automaton@rus ~~человеческий~~ ~~автомат~~~
@@ -301,6 +305,7 @@ stand stand female 9500
 0 0 medium unknown
 r acid -50
 r charm 100
+m mob_random mob_random_breath_gas +100~
 #13415
 Ciquala lich лич Цикуала~
 @eng the lich Ciquala@rus ~~лич~~ ~~Цикуала~~~
@@ -321,6 +326,7 @@ stand stand female 10000
 0 0 medium unknown
 r acid -50
 r sound 33
+m mob_random mob_random_cast_undead +100~
 #13416
 lich лич~
 @eng Lich@rus лич~
@@ -337,6 +343,7 @@ B
 stand stand male 6500
 0 0 medium unknown
 r acid -50
+m mob_random mob_random_cast_undead +100~
 #13417
 vampire вампир~
 @eng vampire@rus вампир~
@@ -1203,16 +1210,6 @@ stone камень~
 ABZ -1 13418
 S
 #0
-
-#SPECIALS
-M 13401 spec_cast_undead	* the vampire lab assistant
-M 13403 spec_breath_acid	* a docile creature
-M 13406 spec_cast_undead	* the undead guardian
-M 13408 spec_cast_undead	* a vampire servant
-M 13414 spec_breath_gas	* Ciquala's Undead Dragon
-M 13415 spec_cast_undead	* the lich Ciquala
-M 13416 spec_cast_undead	* Lich
-S
 
 #RESETS
 M 0 13400 1 13403 1	* Guardian Lich (A dusty tunnel deep under the ground)

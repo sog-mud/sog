@@ -102,6 +102,7 @@ EFNR
 stand stand female 275
 0 0 medium unknown
 g @eng female@rus male~
+m mob_random mob_random_breath_any +100~
 #5006
 nomad leader предводитель кочевник~
 @eng The nomad leader@rus ~~предводитель~~ кочевников~
@@ -169,6 +170,7 @@ BF 0 J 0 AH -1000 0
 EFNU
 stand stand none 3750
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #5011
 drider drow~
 The drider~
@@ -222,6 +224,7 @@ BHQ 0 H 0 AH 850 0
 EIKU
 stand stand male 75
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #5015
 dustdigger~
 The dustdigger~
@@ -1746,12 +1749,6 @@ D4
 Z 0 5009
 S
 #0
-
-#SPECIALS
-M 5005 spec_breath_any	* the brass dragon
-M 5010 spec_breath_fire	* The dracolich
-M 5014 spec_cast_cleric	* The myconoid shaman
-S
 
 #RESETS
 M 0 5011 3 5009 3	* The drider (At the foot of the rubble)

@@ -60,6 +60,7 @@ BFR 0 0 0 A -1000 0
 FU
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #5104
 drow priestess~
 the drow priestess~
@@ -73,6 +74,7 @@ BFQ 0 0 0 A -1000 0
 EIKU
 stand stand female 200
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #5105
 drow master~
 The drow master~
@@ -125,6 +127,7 @@ BFQ 0 J 0 A -1000 0
 EIKU
 stand stand female 1500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #5109
 yochlol~
 the yochlol~
@@ -138,6 +141,7 @@ BF 0 J 0 AH -1000 0
 EFNU
 stand stand female 1500
 0 0 medium unknown
+m mob_random mob_random_breath_any +100~
 #5110
 drow guard~
 the drow guard~
@@ -334,6 +338,10 @@ whip 6 6 'whip' 0
 24 140 1530 P
 f object damroll 7 0
 f object hitroll 5 0
+m obj_wear obj_wear_snake_whip 100~
+m obj_remove obj_remove_snake_whip 100~
+m obj_fight obj_fight_snake_whip 100~
+m obj_get obj_get_snake_whip 100~
 g @rus none~
 #0
 
@@ -1528,13 +1536,6 @@ D2
 ABZ -1 5129
 S
 #0
-
-#SPECIALS
-M 5103 spec_cast_mage	* the drow mage noble
-M 5104 spec_cast_cleric	* the drow priestess
-M 5108 spec_cast_cleric	* the matron mother
-M 5109 spec_breath_any	* the yochlol
-S
 
 #RESETS
 M 0 5106 2 5101 1	* The weapons master (City street)

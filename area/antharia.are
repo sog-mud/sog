@@ -40,6 +40,7 @@ EFK
 stand stand male 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
+m mob_random mob_random_cast_cleric +100~
 #12303
 Sucker fish~
 a sucker fish~
@@ -109,6 +110,7 @@ G 0 0 0 0 0 0
 stand stand male 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
+m mob_random mob_random_thief +100~
 #12315
 Antharian child~
 an Antharian child~
@@ -243,6 +245,7 @@ CDEFIJK
 stand stand female 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
+m mob_random mob_random_cast_mage +100~
 #12360
 Human Representative~
 a human representative~
@@ -273,6 +276,7 @@ CEFIJK
 stand stand male 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
+m mob_random mob_random_cast_cleric +100~
 #12362
 Kender Representative~
 a kender representative~
@@ -288,6 +292,7 @@ CEFIJK
 stand stand female 1000
 I 0 medium unknown
 a 'water breathing' affects none 0 0
+m mob_random mob_random_thief +100~
 #12363
 Antharian Representative~
 an antharian representative~
@@ -319,6 +324,7 @@ CEFIJK
 stand stand female 1000
 0 0 medium unknown
 a 'water breathing' affects none 0 0
+m mob_random mob_random_cast_mage +100~
 #12365
 Dwarven Representative~
 a dwarven representative~
@@ -2147,15 +2153,6 @@ Guild street.
 Z -1 12352
 S
 #0
-
-#SPECIALS
-M 12302 spec_cast_cleric	* Suretin
-M 12314 spec_thief	* an Antharian child
-M 12348 spec_cast_mage	* Cyrtpea
-M 12361 spec_cast_cleric	* a druidic representative
-M 12362 spec_thief	* a kender representative
-M 12364 spec_cast_mage	* an elven representative
-S
 
 #RESETS
 M 0 12303 4 12300 1	* a sucker fish (Entrance Street)

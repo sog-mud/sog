@@ -24,6 +24,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #102
 smurf смурф~
 @eng a smurf@rus смурф~
@@ -39,6 +40,7 @@ BHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #103
 brainy smurf смурф~
 @eng Brainy Smurf@rus ~~мозговитый~~ ~~смурф~~~
@@ -55,6 +57,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #104
 handy smurf~
 Handy Smurf~
@@ -69,6 +72,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #105
 sleepy smurf смурф~
 @eng Sleepy Smurf@rus ~~смурф~~ ~~Соня~~~
@@ -84,6 +88,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #106
 hefty smurf~
 Hefty Smurf~
@@ -98,6 +103,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #107
 grumpy smurf~
 Grumpy Smurf~
@@ -111,6 +117,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #108
 jokey smurf~
 Jokey Smurf~
@@ -125,6 +132,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #109
 smurfette смурфетта~
 @eng Smurfette@rus Смурфетта~
@@ -141,6 +149,7 @@ GHS 0 0 0 AB 100 0
 BEFJNU
 stand stand female 1
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #110
 papa smurf~
 Papa Smurf~
@@ -156,6 +165,7 @@ GHR 0 0 0 0 100 0
 FU
 stand stand male 2
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #111
 gargamel~
 Gargamel~
@@ -170,6 +180,7 @@ BHQ 0 0 0 0 -100 0
 EIKU
 stand stand male 2
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #112
 azreal cat~
 Azreal~
@@ -184,6 +195,7 @@ BH 0 0 0 0 -100 0
 EFNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #0
 
 #OBJECTS
@@ -976,21 +988,6 @@ Smurfy Road
 Z -1 107
 S
 #0
-
-#SPECIALS
-M 101 spec_thief	* a smurf
-M 102 spec_thief	* a smurf
-M 103 spec_thief	* Brainy Smurf
-M 104 spec_thief	* Handy Smurf
-M 105 spec_thief	* Sleepy Smurf
-M 106 spec_thief	* Hefty Smurf
-M 107 spec_thief	* Grumpy Smurf
-M 108 spec_thief	* Jokey Smurf
-M 109 spec_thief	* Smurfette
-M 110 spec_cast_mage	* Papa Smurf
-M 111 spec_cast_cleric	* Gargamel
-M 112 spec_poison	* Azreal
-S
 
 #RESETS
 M 0 101 8 104 1	* a smurf (Entrance to Smurf Village)

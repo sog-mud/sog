@@ -28,6 +28,7 @@ stand stand male 4999
 0 0 huge unknown
 r cold -50
 r charm 100
+m mob_random mob_random_breath_any +100~
 #2401
 White Dragon Ледяной Дракон~
 @eng The White Dragon@rus ~~Ледяной~~ ~~Дракон~~~
@@ -47,6 +48,7 @@ stand stand male 4999
 0 0 huge unknown
 r cold -50
 r charm 100
+m mob_random mob_random_breath_any +100~
 #2402
 Pixie Сильф~
 @eng A Pixie@rus сильф~
@@ -65,6 +67,7 @@ stand stand male 1499
 0 0 small unknown
 r charm 100
 r weapon -50
+m mob_random mob_random_thief +100~
 #2403
 Time Dragon Spirit Дух Дракона Времени~
 @eng The Spirit of the Time Dragon@rus ~~Дух~~ Дракона Времени~
@@ -82,6 +85,7 @@ CFM
 stand stand male 6499
 0 0 huge unknown
 r charm 100
+m mob_random mob_random_breath_any +100~
 #2404
 Ice Dragon Spirit Дух Ледяного Дракона~
 @eng The Spirit of the Ice Dragon@rus ~~Дух~~ Ледяного Дракона~
@@ -119,6 +123,7 @@ stand stand male 2499
 0 0 small unknown
 r charm 100
 r weapon -50
+m mob_random mob_random_cast_cleric +100~
 #2406
 gate keeper gatekeeper Привратник~
 @eng The GateKeeper@rus привратник~
@@ -166,6 +171,7 @@ T 0 HU A AB 0 0
 CFM
 stand stand male 14999
 0 0 huge unknown
+m mob_random mob_random_breath_any +100~
 #2408
 pixie guard Сильф Стражник~
 @eng A Pixie Guard@rus ~~сильф~~-~~стражник~~~
@@ -206,6 +212,7 @@ FHN
 stand stand male 4499
 0 0 small unknown
 r weapon -50
+m mob_random mob_random_cast_mage +100~
 #2410
 pixie guard Сильфийка Стражница~
 @eng A Pixie Guard@rus ~~сильфийка~~-~~стражница~~~
@@ -243,6 +250,7 @@ FHKN
 stand stand male 1499
 0 0 small unknown
 r weapon -50
+m mob_random mob_random_thief +100~
 #2412
 Keeper Хранитель~
 @eng A Keeper@rus хранитель~
@@ -265,6 +273,7 @@ r weapon -50
 m mob_give mob_give_keeper 90~
 m mob_give mob_give_keeper_all all~
 m mob_greet mob_greet_keeper 100~
+m mob_random mob_random_cast_mage +100~
 #2413
 Fireflash Повелитель Драконов~
 @eng Fireflash@rus ~~Повелитель~~ Драконов~
@@ -283,6 +292,7 @@ r weapon -50
 m mob_give mob_give_fireflash 91~
 m mob_give mob_give_fireflash_all all~
 m mob_greet mob_greet_fireflash 100~
+m mob_random mob_random_breath_any +100~
 #2414
 Pixie Сильф~
 @eng A Pixie@rus сильф~
@@ -3891,19 +3901,6 @@ door дверь~
 Z -1 2500
 S
 #0
-
-#SPECIALS
-M 2400 spec_breath_any	* The Copper Dragon
-M 2401 spec_breath_any	* The White Dragon
-M 2402 spec_thief	* A Pixie
-M 2403 spec_breath_any	* The Spirit of the Time Dragon
-M 2405 spec_cast_cleric	* The Pixie King
-M 2407 spec_breath_any	* The Eternity Dragon
-M 2409 spec_cast_mage	* The Master Pixie Mage
-M 2411 spec_thief	* A Pixie
-M 2412 spec_cast_mage	* A Keeper
-M 2413 spec_breath_any	* Fireflash
-S
 
 #RESETS
 M 0 2414 12 2410 1	* A Pixie (Walking through DragonSpyre)

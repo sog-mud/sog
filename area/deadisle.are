@@ -87,6 +87,7 @@ BFGOR G JTUc 0 ABCD 0 0
 AFGK
 stand stand none 20000
 BIZc ABCDEFGHU large unknown
+m mob_random mob_random_breath_any +100~
 #22305
 guard chu-gun iron statue~
 Chu-gun the Guard of Pa-Ra-Voz~
@@ -101,6 +102,7 @@ BFT 0 Vc 0 ABCD 0 0
 EFK
 stand stand none 0
 0 0 huge unknown
+m mob_random mob_random_breath_fire +100~
 #22306
 ringwraith adunaphel~
 Adunaphel the Quiet~
@@ -117,6 +119,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand female 20000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22307
 uvatha ringwraith~
 Uvatha the Horseman~
@@ -133,6 +136,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 20000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22308
 alhorahil ringwraith~
 Alhorahil the Blind~
@@ -150,6 +154,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 20000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22309
 ren ringwraith~
 Ren the Unclean~
@@ -167,6 +172,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22310
 indur ringwraith~
 Ji Indur Dawndeath~
@@ -183,6 +189,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 21000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22311
 dwar ringwraith~
 Dwar, Dog Lord of Waw~
@@ -200,6 +207,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 21000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22312
 hoarmurath ringwraith~
 Hoarmurath of Dir~
@@ -216,6 +224,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22313
 khamul ringwraith~
 Khamul the Easterling~
@@ -233,6 +242,7 @@ BFTVe 0 T 0 ABCD -1000 0
 K
 stand stand male 22000
 0 0 large unknown
+m mob_random mob_random_cast_undead +100~
 #22314
 murazor ringwraith~
 Murazor, the Witch-King of Angmar~
@@ -252,6 +262,7 @@ BFTVe 0 T 0 ABCD -1000 0
 ACGIK
 stand stand male 25000
 0 0 huge unknown
+m mob_random mob_random_cast_undead +100~
 #22315
 omarax beholder~
 Omarax the Eye tyrant~
@@ -267,6 +278,7 @@ BCGJR 0 JT 0 ABCD -1000 0
 AFGK
 stand stand none 10000
 BIVc AEKU large unknown
+m mob_random mob_random_cast_beholder +100~
 #22316
 tselakus ghost~
 Tselakus, the Dreadlord~
@@ -313,6 +325,7 @@ CEJT 0 TUVc G ABCD -1000 0
 ACEFGIKMOP
 stand stand male 30000
 ABV ABCDEFPU gargantuan unknown
+m mob_random mob_random_special_guard +100~
 #22319
 lich vecna skelet~
 Vecna, the Emperor Lich~
@@ -327,6 +340,7 @@ BCF 0 JT 0 ABCD -1000 0
 AK
 stand stand female 20000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #22320
 demon uriel~
 Uriel, Demon of Fire~
@@ -342,6 +356,7 @@ BCFJR 0 JT 0 ABCD -1000 0
 AFGK
 stand stand male 10000
 BV ABCDEF small unknown
+m mob_random mob_random_breath_fire +100~
 #22321
 baphoment minotaur lord~
 Baphomet the Minotaur Lord~
@@ -373,6 +388,7 @@ CFRT 0 0 0 ABCD -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #22323
 nightwing demon~
 Nightwing~
@@ -403,6 +419,7 @@ CFT 0 T 0 ABCD -1000 0
 GK
 stand stand none 0
 0 0 large unknown
+m mob_random mob_random_cast_mage +100~
 #22325
 colbran demon~
 the Colbran~
@@ -417,6 +434,7 @@ CFR 0 T 0 ABCD -1000 0
 FGK
 stand stand none 0
 ABV ABCE medium unknown
+m mob_random mob_random_cast_mage +100~
 #22326
 the gelatinous cube demon~
 the Gelatinous cube~
@@ -432,6 +450,7 @@ CFR 0 T 0 ABCD -1000 0
 AFGK
 stand stand none 0
 ABV ABCDE large unknown
+m mob_random mob_random_cast_mage +100~
 #22327
 guard fire drake dragon itangast~
 Itangast, the Fire Drake~
@@ -449,6 +468,7 @@ stand stand male 0
 0 0 gargantuan unknown
 m mob_bribe mob_bribe_itangast 1000~
 m mob_give mob_give_itangast 22352~
+m mob_random mob_random_breath_fire +100~
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
@@ -465,6 +485,7 @@ FT 0 0 0 ABCD -1000 0
 0
 stand stand female 100000
 0 0 gargantuan unknown
+m mob_random mob_random_cast_mage +100~
 #22329
 guard high zombie~
 the high guard~
@@ -482,6 +503,7 @@ ORT 0 V G CDG -1000 0
 AFGHKP
 stand stand random 1000
 0 0 large unknown
+m mob_random mob_random_cast_mage +100~
 m mob_open mob_open_undead_guard chest~
 #22330
 guard undead~
@@ -4321,31 +4343,6 @@ D3
 Z 0 22415
 S
 #0
-
-#SPECIALS
-M 22304 spec_breath_any	* Faegwath the Undead Sorceror
-M 22305 spec_breath_fire	* Chu-gun the Guard of Pa-Ra-Voz
-M 22306 spec_cast_undead	* Adunaphel the Quiet
-M 22307 spec_cast_undead	* Uvatha the Horseman
-M 22308 spec_cast_undead	* Alhorahil the Blind
-M 22309 spec_cast_undead	* Ren the Unclean
-M 22310 spec_cast_undead	* Ji Indur Dawndeath
-M 22311 spec_cast_undead	* Dwar, Dog Lord of Waw
-M 22312 spec_cast_undead	* Hoarmurath of Dir
-M 22313 spec_cast_undead	* Khamul the Easterling
-M 22314 spec_cast_undead	* Murazor, the Witch-King of Angmar
-M 22315 spec_cast_beholder	* Omarax the Eye tyrant
-M 22318 spec_special_guard	* Gothmog, the High Captain of Balrogs
-M 22319 spec_cast_mage	* Vecna, the Emperor Lich
-M 22320 spec_breath_fire	* Uriel, Demon of Fire
-M 22322 spec_cast_mage	* the Dread
-M 22324 spec_cast_mage	* the Balck River
-M 22325 spec_cast_mage	* the Colbran
-M 22326 spec_cast_mage	* the Gelatinous cube
-M 22327 spec_breath_fire	* Itangast, the Fire Drake
-M 22328 spec_cast_mage	* Tiamat, Celestial Dragon of Evil
-M 22329 spec_cast_mage	* the high guard
-S
 
 #RESETS
 O 0 22328 0 22301	* a huge stone (The Isle of the Lost Souls)

@@ -126,6 +126,7 @@ r bash 100
 r fire 33
 r acid 33
 r charm 100
+m mob_random mob_random_cast_mage +100~
 #408
 gorilla~
 A gorilla~
@@ -148,12 +149,13 @@ You feel so sorry fort his poor man who has been subjected to cleaning up
 after the gorillas for the rest of his life.
 ~
 human~
-CG 0 0 0 0 200 0
+CG J 0 0 0 200 0
 3 0 3d10+10 1d100+30 1d4+2 'scratch'
 7 8 8 9
 EN
 stand stand either 110
 0 0 medium unknown
+m mob_random mob_random_janitor +100~
 #410
 emu~
 an emu~
@@ -543,11 +545,6 @@ D5
 Z 0 401
 S
 #0
-
-#SPECIALS
-M 407 spec_cast_mage	* Your teacher
-M 409 spec_janitor	* A janitor
-S
 
 #RESETS
 M 0 401 1 400 1	* A gorilla (Entrance to the Museum)

@@ -34,6 +34,7 @@ CG 0 0 0 0 0 0
 FJN
 stand stand female 140
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #20103
 disciple~
 a disciple~
@@ -75,6 +76,7 @@ EFGHN
 stand stand male 1140
 0 0 medium unknown
 r weapon 33
+m mob_random mob_random_cast_mage +100~
 #20106
 demon~
 your own inner demon~
@@ -90,6 +92,7 @@ ABCDEFGHN
 stand stand male 0
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #20107
 evil monk~
 an evil monk~
@@ -104,6 +107,7 @@ CFGJT 0 0 0 ABH -700 0
 EFIN
 stand stand male 1240
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #20108
 wood wooden monk man machine~
 the wooden man~
@@ -132,6 +136,7 @@ CGHT 0 NV 0 0 201 0
 CDEIKN
 stand stand male 1150
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #20110
 luohan Luohan bronze monk~
 the Luohan~
@@ -148,6 +153,7 @@ stand stand male 3140
 0 0 medium unknown
 r charm 100
 r weapon 33
+m mob_random mob_random_cast_mage +100~
 #20111
 Wuhua wuhua monk~
 Wuhua~
@@ -163,6 +169,7 @@ EFHIN
 stand stand male 3410
 0 0 medium unknown
 r weapon 33
+m mob_random mob_random_poison +100~
 #20112
 master librarian monk~
 the Master of Books~
@@ -178,6 +185,7 @@ CDFHN
 stand stand male 3710
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #20113
 master monk drunken~
 the Drunken Master~
@@ -194,6 +202,7 @@ stand stand male 1040
 0 0 medium unknown
 r charm 100
 r weapon 33
+m mob_random mob_random_cast_mage +100~
 #20114
 master monk trainer~
 the Master Trainer~
@@ -210,6 +219,7 @@ stand stand male 1070
 0 0 medium unknown
 r charm 100
 r weapon 33
+m mob_random mob_random_cast_mage +100~
 #20115
 abbot Abbot monk~
 the Abbot of Shaolin~
@@ -226,6 +236,7 @@ stand stand male 2300
 0 0 medium unknown
 r charm 100
 r weapon 33
+m mob_random mob_random_breath_fire +100~
 #20116
 Jinshen jinshen~
 the Jinshen~
@@ -243,6 +254,7 @@ stand stand male 5340
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_breath_any +100~
 #20117
 guest visitor~
 the visiting guest~
@@ -256,6 +268,7 @@ CGH 0 0 0 0 -150 0
 CEFIN
 stand stand male 640
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #20118
 old man~
 a crazy old man~
@@ -272,6 +285,7 @@ EFIN
 stand stand male 10
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_assassinater +100~
 #0
 
 #OBJECTS
@@ -1388,23 +1402,6 @@ A mysterious room.
 ABCFGZ 20136 20136
 S
 #0
-
-#SPECIALS
-M 20102 spec_cast_cleric	* an imprisoned nun
-M 20105 spec_cast_mage	* a monk guard
-M 20106 spec_cast_mage	* your own inner demon
-M 20107 spec_poison	* an evil monk
-M 20109 spec_cast_mage	* the monk warrior
-M 20110 spec_cast_mage	* the Luohan
-M 20111 spec_poison	* Wuhua
-M 20112 spec_cast_cleric	* the Master of Books
-M 20113 spec_cast_mage	* the Drunken Master
-M 20114 spec_cast_mage	* the Master Trainer
-M 20115 spec_breath_fire	* the Abbot of Shaolin
-M 20116 spec_breath_any	* the Jinshen
-M 20117 spec_thief	* the visiting guest
-M 20118 spec_assassinater	* a crazy old man
-S
 
 #RESETS
 M 0 20118 1 20102 1	* a crazy old man (Path to the Shaolin Temple)

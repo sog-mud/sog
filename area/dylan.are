@@ -127,6 +127,7 @@ BCF 0 J 0 AH -600 0
 EFNU
 stand stand female 3000
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #0
 
 #OBJECTS
@@ -2470,10 +2471,6 @@ You've fallen, and you can't get up!!!
 0 C field
 S
 #0
-
-#SPECIALS
-M 9107 spec_cast_undead	* the ugly, wicked witch
-S
 
 #RESETS
 M 0 9101 35 9102 2	* the screaming, filthy harpy (A fluffy white cloud.)

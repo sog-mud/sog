@@ -498,6 +498,7 @@ GHR 0 0 0 0 0 0
 0
 stand stand male 0
 0 0 tiny unknown
+m mob_random mob_random_poison +100~
 #4929
 spider huge паук~
 @eng HUGE spider@rus ~~здоровенный~~ ~~паук~~~
@@ -510,6 +511,7 @@ FGHR 0 0 0 0 -1000 0
 0
 stand stand male 0
 0 0 small unknown
+m mob_random mob_random_poison +100~
 #4930
 hand long big~
 Long Hand~
@@ -3529,11 +3531,6 @@ D1
 Z 0 4900
 S
 #0
-
-#SPECIALS
-M 4928 spec_poison	* small spider
-M 4929 spec_poison	* HUGE spider
-S
 
 #RESETS
 O 0 4944 0 4900	* exit from the tower (Entrance to the Tower)

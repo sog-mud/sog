@@ -188,6 +188,7 @@ c L medium unknown
 r cold 33
 r lightning 33
 r acid 33
+m mob_random mob_random_breath_lightning +100~
 #22011
 beast undead тварь неживая~
 @eng an Undead Beast@rus ~~неживая~~ ~~тварь~~~
@@ -225,6 +226,7 @@ BGQ 0 0 0 H 800 0
 CEKLS
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #22013
 knight рыцарь~
 @eng A Well Armed Knight@rus ~~вооруженный~~ ~~рыцарь~~~
@@ -278,12 +280,13 @@ FNS
 stand stand female 1000
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #0
 
 #OBJECTS
 #22000
 girdle giant strength пояс силы гиганта~
-@eng girdle of giant strength@rus ~~пояс~~ силы гиганта~
+@eng girdle of giant strength@rus ~~пояс~~, ~~дающий~~ гигантскую силу~
 @eng A brilliant admantite girdle floats here.@rus Великолепный адамантитовый пояс (girdle) сверкает здесь.~
 adamantite~
 armor BG 0 AL
@@ -291,6 +294,8 @@ armor BG 0 AL
 42 3 2000 P
 f object damroll 5 0
 f object str 5 0
+m obj_wear obj_wear_giant_str 100~
+m obj_remove obj_remove_giant_str 100~
 g @eng none@rus male~
 #22001
 bone key carved ключ костяной резной~
@@ -1565,12 +1570,6 @@ D2
 Z 0 10401
 S
 #0
-
-#SPECIALS
-M 22010 spec_breath_lightning	* A Deep Dragon
-M 22012 spec_cast_cleric	* a Holy Cleric
-M 22015 spec_cast_mage	* A Powerful Enchantress
-S
 
 #RESETS
 M 0 22002 10 22001 1	* A Wandering Ghost (A Darkened Tunnel)

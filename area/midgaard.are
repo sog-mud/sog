@@ -28,6 +28,7 @@ stand stand male 15000
 0 0 medium unknown
 r weapon 33
 r magic 100
+m mob_random mob_random_cast_mage +100~
 #3001
 baker~
 @eng the baker@rus пекарь~
@@ -114,6 +115,7 @@ CHS 0 0 BG 0 -100 0
 EFJN
 stand stand either 100
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #3006
 captain капитан~
 @eng the captain@rus капитан~
@@ -182,6 +184,7 @@ stand stand male 58000
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #3010
 leather worker скорняк~
 @eng the leather worker@rus скорняк~
@@ -242,19 +245,21 @@ stand stand male 5000
 0 0 huge unknown
 r weapon 33
 r magic 100
+m mob_random mob_random_cast_adept +100~
 #3013
 janitor дворничиха~
 @eng the janitor@rus дворничиха~
 @eng A janitor is walking around, cleaning up.@rus Дворничиха (janitor) ходит кругами, подметая мусор.~
 ~
 human~
-GH 0 0 0 0 900 0
+GH J 0 0 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
 NU
 stand stand either 10
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_janitor +100~
 #3020
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
@@ -276,6 +281,7 @@ stand stand female 0
 r charm 100
 r weapon 100
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #3021
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -296,6 +302,7 @@ stand stand male 0
 r charm 100
 r weapon 100
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #3022
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -355,6 +362,7 @@ stand stand male 2000
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #3025
 templar тамплиер~
 @eng the knight templar@rus Тамплиер~
@@ -400,6 +408,7 @@ stand stand male 2000
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_assassinater +100~
 #3027
 knight рыцарь~
 @eng the knight@rus рыцарь~
@@ -474,6 +483,7 @@ stand stand male 150
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #3043
 waiter официант~
 @eng the waiter@rus официант~
@@ -491,6 +501,7 @@ stand stand male 150
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #3044
 waiter официант~
 @eng the waiter@rus официант~
@@ -562,13 +573,14 @@ stand stand either 150
 0 0 medium unknown
 V 37001
 r magic 33
+m mob_random mob_random_guard +100~
 #3061
 janitor дворник~
 @eng the janitor@rus дворник~
 @eng A janitor is walking around, cleaning up.@rus Дворник (janitor) ходит вокруг тебя, подметая мусор.~
 ~
 human~
-GH 0 0 0 0 900 0
+GH J 0 0 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
 NU
@@ -576,7 +588,8 @@ stand stand either 10
 0 0 medium unknown
 V 37000
 r magic -50
-m mob_random mob_random_janitor 1~
+m mob_random mob_random_janitor +100~
+m mob_random mob_random_tired_janitor 1~
 #3062
 fido dog собака зверюга~
 @eng the beastly fido@rus ~~противная~~ ~~зверюга~~~
@@ -592,6 +605,7 @@ FGHU 0 0 0 0 -200 0
 0
 stand stand female 0
 0 0 small unknown
+m mob_random mob_random_fido +100~
 #3063
 vagabond бродяга~
 @eng the vagabond@rus бродяга~
@@ -671,6 +685,7 @@ CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_guard +100~
 #3068
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -686,6 +701,7 @@ CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_guard +100~
 #3069
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -701,6 +717,7 @@ CDEHKLTU
 stand stand either 500
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_guard +100~
 #3070
 shopkeeper old man аптекарь~
 @eng An old man@rus ~~старый~~ ~~аптекарь~~~
@@ -719,6 +736,7 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_greet mob_greet_apothecary_shopkeeper 100~
+m mob_random mob_random_cast_mage +100~
 #3071
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -885,6 +903,7 @@ stand stand female 180
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #3120
 sexton могильщик~
 @eng the sexton@rus могильщик~
@@ -900,6 +919,7 @@ BH 0 0 0 0 800 0
 sit sit male 75
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_cast_cleric +100~
 #3121
 swan лебедь~
 @eng the swan@rus лебедь~
@@ -1025,6 +1045,7 @@ sleep stand male 1000
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_mayor +100~
 #3144
 crier плакальщик~
 @eng the town crier@rus ~~городской~~ ~~плакальщик~~~
@@ -1140,6 +1161,7 @@ CHS 0 0 BG 0 -100 0
 EFJN
 stand stand either 100
 0 0 medium unknown
+m mob_random mob_random_nasty +100~
 #3164
 butcher shopkeeper~
 @eng the butcher@rus мясник~
@@ -1198,6 +1220,7 @@ stand stand female 0
 0 0 medium unknown
 r weapon 100
 r magic 100
+m mob_random mob_random_cast_adept +100~
 #3167
 guildmaster master наставник~
 @eng the guildmaster@rus наставник~
@@ -1319,6 +1342,7 @@ stand stand male 5000
 0 0 huge unknown
 r weapon 33
 r magic 100
+m mob_random mob_random_cast_adept +100~
 #0
 
 #OBJECTS
@@ -10242,33 +10266,6 @@ D5
 Z -1 3356
 S
 #0
-
-#SPECIALS
-M 3000 spec_cast_mage	* the wizard
-M 3005 spec_thief	* the thief
-M 3009 spec_cast_mage	* the jeweller
-M 3012 spec_cast_adept	* the healer
-M 3013 spec_janitor	* the janitor
-M 3020 spec_cast_mage	* the guildmaster
-M 3021 spec_cast_cleric	* the guildmaster
-M 3024 spec_cast_mage	* the sorcerer
-M 3026 spec_assassinater	* the assassin
-M 3042 spec_cast_mage	* the waiter
-M 3043 spec_cast_cleric	* the waiter
-M 3060 spec_guard	* the cityguard
-M 3061 spec_janitor	* the janitor
-M 3062 spec_fido	* the beastly fido
-M 3067 spec_guard	* the cityguard
-M 3068 spec_guard	* the cityguard
-M 3069 spec_guard	* the cityguard
-M 3070 spec_cast_mage	* An old man
-M 3100 spec_cast_cleric	* the maid
-M 3120 spec_cast_cleric	* the sexton
-M 3143 spec_mayor	* the mayor
-M 3163 spec_nasty	* the thief
-M 3166 spec_cast_adept	* Nacya
-M 3172 spec_cast_adept	* the templeman
-S
 
 #RESETS
 M 0 3011 1 3001 1	* Questor (The Temple Of Midgaard)

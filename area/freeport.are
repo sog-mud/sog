@@ -520,6 +520,7 @@ BC 0 0 0 0 -200 0
 EFNU
 stand stand male 250
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #29231
 oglethorpe оглторп master старший merchant купец~
 @eng Oglethorpe, 1st Master Merchant of Freeport@rus Оглторп~
@@ -542,6 +543,7 @@ BC 0 0 0 0 -1000 0
 EFNU
 stand stand male 1500
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #29232
 mourning моурнинг lord лорд~
 @eng Lord Mourning@rus ~~лорд~~ ~~Моурнинг~~~
@@ -564,6 +566,7 @@ BC 0 J 0 0 -1000 0
 EFNU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #29233
 sailor моряк drunken пьяный~
 @eng the drunken sailor@rus ~~пьяный~~ ~~моряк~~~
@@ -3480,12 +3483,6 @@ D3
 Z -1 29254
 S
 #0
-
-#SPECIALS
-M 29230 spec_poison	* Admiral Blacksail
-M 29231 spec_poison	* Oglethorpe, 1st Master Merchant of Freeport
-M 29232 spec_poison	* Lord Mourning
-S
 
 #RESETS
 M 0 29202 2 29203 1	* the red-tongued lizard (On the Rock Jetty)

@@ -57,6 +57,7 @@ r holy -50
 r disease 100
 r charm 100
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #12002
 puck пак~
 @eng Puck@rus Пак~
@@ -1009,6 +1010,7 @@ BEJKNV
 stand stand female 0
 0 0 medium unknown
 r iron -50
+m mob_random mob_random_cast_mage +100~
 #12049
 bransidhe pet брансид~
 @eng A BranSidhe@rus БранСид~
@@ -1031,6 +1033,7 @@ r bash -50
 r pierce 33
 r holy -50
 r iron -50
+m mob_random mob_random_cast_cleric +100~
 #0
 
 #OBJECTS
@@ -7037,12 +7040,6 @@ D0
 ABFZ 0 12156
 S
 #0
-
-#SPECIALS
-M 12001 spec_cast_cleric	* Queen Titania
-M 12048 spec_cast_mage	* A CatSidhe
-M 12049 spec_cast_cleric	* A BranSidhe
-S
 
 #RESETS
 M 0 12043 25 12001 1	* a flower faery (In a Field)

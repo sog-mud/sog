@@ -23,6 +23,7 @@ BG 0 0 0 0 0 0
 EFNU
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #32001
 rat~
 the rat~
@@ -36,6 +37,7 @@ G 0 0 B H 0 0
 F
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #32002
 Prison Guard~
 the Prison Guard~
@@ -51,6 +53,7 @@ CG 0 0 0 H 0 0
 EFNU
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #32003
 Prison Worker~
 the Prison Worker~
@@ -59,12 +62,13 @@ The Prison Worker looks almost exactly like a janitor you have seen in
 Midgaard!
 ~
 human~
-CG 0 0 0 ABH 0 0
+CG J 0 0 ABH 0 0
 9 0 2d6+110 5d5+100 1d8+2 'slash'
 2 2 2 7
 FIJ
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_janitor +100~
 #32004
 Cell Guard~
 the Cell Guard~
@@ -80,6 +84,7 @@ BGe 0 H 0 H 1000 0
 CDEFIKU
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #32005
 prisoner~
 the prisoner~
@@ -94,6 +99,7 @@ G 0 0 0 H 0 0
 FIJK
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #32006
 cockroach~
 the cockroach~
@@ -108,6 +114,7 @@ G 0 0 0 H 500 0
 F
 stand stand none 100
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #32007
 flunky~
 a flunky~
@@ -167,6 +174,7 @@ BGe 0 HU 0 0 0 0
 FHIJK
 stand stand male 100
 0 0 medium unknown
+m mob_random mob_random_breath_lightning +100~
 #32011
 Trixie~
 Trixie the secretary~
@@ -225,6 +233,7 @@ BGe 0 HN 0 0 1000 0
 CDEFIJK
 stand stand female 100
 0 0 medium unknown
+m mob_random mob_random_breath_any +100~
 #32015
 Steam Monster~
 A steam monster~
@@ -239,6 +248,7 @@ BFG 0 0 0 A 0 0
 FKN
 stand stand none 100
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #32016
 Larry armsmaster~
 Larry the armsmaster~
@@ -301,6 +311,7 @@ stand stand male 100
 0 0 medium unknown
 r charm 100
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #32020
 towel boy~
 the towel boy~
@@ -358,6 +369,7 @@ G 0 HU AG AB 1000 0
 F
 stand stand male 100
 0 0 huge unknown
+m mob_random mob_random_breath_fire +100~
 #32024
 Terry ~
 Terry the salesman~
@@ -374,6 +386,7 @@ BCDEFIJK
 stand stand male 100
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_poison +100~
 #0
 
 #OBJECTS
@@ -2978,22 +2991,6 @@ on the wall.
 0 C city
 S
 #0
-
-#SPECIALS
-M 32000 spec_thief	* the gatekeeper
-M 32001 spec_fido	* the rat
-M 32002 spec_guard	* the Prison Guard
-M 32003 spec_janitor	* the Prison Worker
-M 32004 spec_guard	* the Cell Guard
-M 32005 spec_thief	* the prisoner
-M 32006 spec_poison	* the cockroach
-M 32010 spec_breath_lightning	* Brad the Warden
-M 32014 spec_breath_any	* Wendy the Cook
-M 32015 spec_poison	* A steam monster
-M 32019 spec_cast_cleric	* The Muslim Cleric
-M 32023 spec_breath_fire	* A huge Bronze Dragon
-M 32024 spec_poison	* Terry the salesman
-S
 
 #RESETS
 M 0 32001 12 32000 1	* the rat (Entrance to the Prison)

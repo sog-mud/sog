@@ -26,6 +26,7 @@ stand stand male 1000
 0 0 medium unknown
 r charm 100
 r weapon 33
+m mob_random mob_random_cast_adept +100~
 #31001
 dryad guildmaster~
 the Dryad Guildmaster~
@@ -259,6 +260,7 @@ BCG 0 HN 0 H 1000 0
 F
 stand stand male 1000
 I 0 medium unknown
+m mob_random mob_random_thief +100~
 #31015
 dryad waiter~
 a Dryad Waiter~
@@ -315,6 +317,7 @@ BGe 0 HN 0 H 0 0
 FHKN
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #31019
 mouse~
 the mouse~
@@ -567,12 +570,13 @@ A janitor is walking around, cleaning up.~
 YOUR crap? Grumble grumble... and these BLOODSTAINS! *SIGH*"
 ~
 human~
-G 0 0 0 A 900 0
+G J 0 0 A 900 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_janitor +100~
 #31037
 footpad~
 a footpad~
@@ -625,6 +629,7 @@ GH 0 U BG HK 0 0
 F
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #31041
 fido~
 a beastly fido~
@@ -638,6 +643,7 @@ GH 0 0 0 0 0 0
 0
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #31042
 rat~
 a huge sewer rat~
@@ -652,6 +658,7 @@ GH 0 0 0 H 0 0
 0
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #31043
 cat~
 a cat~
@@ -680,6 +687,7 @@ GT 0 N 0 K 1000 0
 CDFIJK
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31045
 guard~
 a City Guard~
@@ -695,6 +703,7 @@ G 0 N 0 K 1000 0
 CDFIJK
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31046
 guard~
 a City Guard~
@@ -710,6 +719,7 @@ BG 0 N 0 K 1000 0
 CDFIJK
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31047
 hobbit merc1~
 Hobbit Mercenary~
@@ -5582,19 +5592,6 @@ D2
 Z -1 31009
 S
 #0
-
-#SPECIALS
-M 31000 spec_cast_adept	* Gath the Healer
-M 31014 spec_thief	* the Kender Guildmaster
-M 31018 spec_thief	* a Greasy Bartender
-M 31036 spec_janitor	* the janitor
-M 31040 spec_thief	* a thief
-M 31041 spec_fido	* a beastly fido
-M 31042 spec_fido	* a huge sewer rat
-M 31044 spec_guard	* a City Guard
-M 31045 spec_guard	* a City Guard
-M 31046 spec_guard	* a City Guard
-S
 
 #RESETS
 M 0 31024 1 31000 1	* Cuervo the headsman (The Temple of Anon)

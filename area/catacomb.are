@@ -104,6 +104,7 @@ EFNU
 stand stand male 55
 0 0 medium unknown
 r bash -50
+m mob_random mob_random_cast_undead +100~
 #2008
 templar~
 a templar~
@@ -133,6 +134,7 @@ CF 0 U 0 BH 0 0
 EFNU
 stand stand male 30
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #2010
 officer templar~
 the templar officer~
@@ -159,6 +161,7 @@ CFR 0 0 0 H -100 0
 FU
 stand stand male 27
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #2012
 shadow shadows~
 the shadow~
@@ -185,6 +188,7 @@ BF 0 0 0 BH -100 0
 ENR
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #2014
 necromancer necro cleric~
 the evil necromancer~
@@ -199,6 +203,7 @@ BF 0 0 0 H -888 0
 EFNU
 stand stand male 55
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #2015
 grand templar leader~
 the grand templar~
@@ -226,6 +231,7 @@ BF 0 0 0 AB -303 0
 EFNU
 stand stand male 1500
 0 0 medium unknown
+m mob_random mob_random_breath_any +100~
 #2017
 darken dark beast darkenbeast~
 The DarkenBeast~
@@ -239,6 +245,7 @@ BF 0 0 0 H -1000 0
 EFNU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #0
 
 #OBJECTS
@@ -293,6 +300,8 @@ sword 10 4 'slash' 0
 24 150 3400 P
 f object str 1 0
 f object hitroll 3 0
+m obj_wear obj_wear_excalibur 100~
+m obj_remove obj_remove_excalibur 100~
 g @rus none~
 #2006
 crown~
@@ -1934,16 +1943,6 @@ D3
 Z -1 2068
 S
 #0
-
-#SPECIALS
-M 2007 spec_cast_undead	* a skeleton
-M 2009 spec_cast_undead	* a mysterious wraith
-M 2011 spec_cast_mage	* zombie
-M 2013 spec_cast_undead	* The vampire
-M 2014 spec_cast_undead	* the evil necromancer
-M 2016 spec_breath_any	* the prism dragon
-M 2017 spec_poison	* The DarkenBeast
-S
 
 #RESETS
 M 0 2003 2 2002 1	* a spelunker (North/south tunnel)

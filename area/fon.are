@@ -225,6 +225,7 @@ GJRTW 0 JNTUVc AG ABH -500 0
 ACDEFJK
 stand stand female 1000
 AMX AC large unknown
+m mob_random mob_random_breath_gas +100~
 #22465
 tellias ranger guard~
 Tellias~
@@ -241,6 +242,7 @@ GJ C HV 0 ABFH 500 0
 FJKX
 stand stand male 500
 AMV ACDEF large unknown
+m mob_random mob_random_cast_cleric +100~
 #22466
 mifner captain burner~
 Mifner~
@@ -257,6 +259,7 @@ GJ 0 JV 0 ABH -500 0
 DEFJK
 stand stand male 500
 AMV ACDEF large unknown
+m mob_random mob_random_cast_mage +100~
 #22467
 large forest guard~
 large guard~
@@ -335,6 +338,7 @@ CF 0 HVa A AB 0 0
 stand stand none 0
 0 0 medium unknown
 F par AEJ
+m mob_random mob_random_nasty +100~
 #22472
 human sergeant~
 human sergeant~
@@ -4108,13 +4112,6 @@ D2
 Z 0 22569
 S
 #0
-
-#SPECIALS
-M 22464 spec_breath_gas	* Queen of Nagas
-M 22465 spec_cast_cleric	* Tellias
-M 22466 spec_cast_mage	* Mifner
-M 22471 spec_nasty	* Giant cracken
-S
 
 #RESETS
 O 0 22454 0 22451	* a small sign (Entrance into Forest)

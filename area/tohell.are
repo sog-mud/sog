@@ -24,6 +24,7 @@ BFe 0 V 0 ABH -900 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_judge +100~
 #10402
 pile coins~
 the pile of gold coins~
@@ -37,6 +38,7 @@ BS 0 0 0 ABH -800 0
 BEFJNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #10403
 male dee demon~
 the male Dee~
@@ -51,6 +53,7 @@ BF 0 V 0 H -1000 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #10404
 female dee demon~
 the female Dee~
@@ -78,6 +81,7 @@ BS 0 0 0 ABH -800 0
 BEFJNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #10406
 chicken pot pie~
 a scrumptious chicken pot pie~
@@ -91,6 +95,7 @@ B 0 0 0 H -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #10407
 beef pot pie~
 a yummy beef pot pie~
@@ -104,6 +109,7 @@ B 0 0 0 H -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_judge +100~
 #10408
 vegetable pot pie~
 a yummy vegetable pot pie~
@@ -117,6 +123,7 @@ B 0 0 0 H -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #10409
 damned soul~
 a damned soul~
@@ -131,6 +138,7 @@ GQ 0 0 0 H -700 0
 EIKU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #10410
 tortured soul~
 a tortured soul~
@@ -145,6 +153,7 @@ BR 0 0 0 H -800 0
 FU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #10411
 half-eaten person~
 the half-eaten person~
@@ -160,6 +169,7 @@ B 0 V 0 H -757 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #10412
 living wall~
 the living wall~
@@ -175,6 +185,7 @@ B 0 V 0 H -1000 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #10413
 skeletal warrior~
 skeletal warrior~
@@ -245,6 +256,7 @@ B 0 0 0 H -950 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_gas +100~
 #10418
 Lost soul~
 the lost soul~
@@ -259,6 +271,7 @@ BR 0 0 0 H -500 0
 FU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #10419
 crispy critter~
 the crispy critter~
@@ -274,6 +287,7 @@ B 0 0 0 H -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #10420
 pile bones skeleton~
 pile of bones~
@@ -306,6 +320,7 @@ H 0 V 0 H -900 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #10422
 prisoner raiden~
 the prisoner Raiden~
@@ -321,6 +336,7 @@ B 0 0 0 H -1000 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_breath_lightning +100~
 #10423
 prisoner hell~
 a prisoner in Hell~
@@ -365,6 +381,7 @@ FG 0 0 0 H -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #10426
 burning fool~
 the burning fool~
@@ -379,6 +396,7 @@ B 0 0 0 H -900 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #10427
 construction worker male~
 male construction worker~
@@ -425,6 +443,7 @@ B 0 0 0 H -1000 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #10431
 wall fire~
 the wall of fire~
@@ -455,6 +474,7 @@ B 0 0 0 ABH -900 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #10433
 frozen body~
 the frozen body~
@@ -470,6 +490,7 @@ B 0 0 0 H -900 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #10434
 ice devil~
 the ice devil~
@@ -487,6 +508,7 @@ B 0 TV 0 H -1000 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #10435
 trapped soul ice~
 the trapped soul~
@@ -532,6 +554,7 @@ BFR 0 0 0 H -876 0
 FU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #10438
 I-scream worker~
 the I-scream worker~
@@ -549,6 +572,7 @@ B 0 0 0 H -706 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #10439
 Ice Screamer~
 the Ice Screamer~
@@ -566,6 +590,7 @@ B 0 V 0 H -706 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #10440
 Construction Foreman Demonic~
 the Demonic Foreman~
@@ -613,6 +638,7 @@ BS 0 0 0 ABH -1000 0
 BEFJNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #10443
 records worker~
 records worker~
@@ -655,6 +681,7 @@ BFQ 0 V 0 ABH -1000 0
 EIKU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #10446
 bowl blood~
 a bowl of blood~
@@ -695,6 +722,7 @@ B 0 V 0 ABH -1000 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_cast_judge +100~
 #10449
 lawyer hell~
 Lawyer from Hell~
@@ -808,6 +836,7 @@ B 0 0 0 ABH -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #10457
 rancid turkey leg~
 rancid turkey leg~
@@ -975,6 +1004,7 @@ B 0 0 0 ABH -800 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #10469
 frozen side beef~
 side of frozen beef~
@@ -989,6 +1019,7 @@ B 0 0 0 H -675 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #10470
 guard dog~
 guard dog~
@@ -1002,6 +1033,7 @@ B 0 V 0 H -900 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #10471
 juicy steak~
 juicy steak~
@@ -5115,41 +5147,6 @@ You see a room of ice.
 Z -1 10472
 S
 #0
-
-#SPECIALS
-M 10401 spec_cast_judge	* the Guardian of Hell
-M 10402 spec_thief	* the pile of gold coins
-M 10403 spec_breath_fire	* the male Dee
-M 10405 spec_thief	* the gold bar
-M 10406 spec_poison	* a scrumptious chicken pot pie
-M 10407 spec_cast_judge	* a yummy beef pot pie
-M 10408 spec_cast_cleric	* a yummy vegetable pot pie
-M 10409 spec_cast_cleric	* a damned soul
-M 10410 spec_cast_mage	* a tortured soul
-M 10411 spec_cast_undead	* the half-eaten person
-M 10412 spec_breath_acid	* the living wall
-M 10417 spec_breath_gas	* the blood from the fountain
-M 10418 spec_cast_mage	* the lost soul
-M 10419 spec_breath_fire	* the crispy critter
-M 10421 spec_fido	* the manes
-M 10422 spec_breath_lightning	* the prisoner Raiden
-M 10425 spec_poison	* demonguard
-M 10426 spec_breath_fire	* the burning fool
-M 10430 spec_breath_fire	* the fire devil
-M 10432 spec_breath_fire	* the hell hound
-M 10433 spec_breath_frost	* the frozen body
-M 10434 spec_breath_frost	* the ice devil
-M 10437 spec_cast_mage	* the killer penguin
-M 10438 spec_breath_frost	* the I-scream worker
-M 10439 spec_breath_frost	* the Ice Screamer
-M 10442 spec_thief	* office worker from Hell
-M 10445 spec_cast_cleric	* High Priest of Hell
-M 10448 spec_cast_judge	* Judge Whopper
-M 10456 spec_breath_acid	* stomach dragon
-M 10468 spec_breath_fire	* the Greater Fire Demon
-M 10469 spec_breath_frost	* side of frozen beef
-M 10470 spec_fido	* guard dog
-S
 
 #RESETS
 M 0 10401 2 10405 2	* the Guardian of Hell (Gateway to Hell)

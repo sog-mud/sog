@@ -53,6 +53,7 @@ FR 0 0 0 AH -1000 0
 FU
 stand stand female 625
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7703
 stalker invisible~
 An invisible stalker~
@@ -96,6 +97,7 @@ CS 0 0 G AB -500 0
 BEFJNU
 stand stand male 50
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #7706
 githyanki warrior~
 A githyanki warrior~
@@ -176,6 +178,7 @@ R 0 0 0 0 -500 0
 FU
 stand stand male 150
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7711
 githyanki gish~
 An evil gish~
@@ -192,6 +195,7 @@ CFR 0 0 0 0 -500 0
 FU
 stand stand male 150
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7712
 githyanki warlock~
 A warlock of the Gith~
@@ -208,6 +212,7 @@ FR 0 0 0 AL -500 0
 FU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7713
 githyanki lich queen~
 The lich-queen~
@@ -224,6 +229,7 @@ BF 0 J 0 ABHL -750 0
 ENU
 stand stand female 5000
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #7714
 lord gith~
 Lord Gith~
@@ -243,6 +249,7 @@ BF 0 J A 0 -900 0
 EFNU
 stand stand male 250
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #7715
 ghost~
 An insubstantial ghost~
@@ -259,6 +266,7 @@ ghost~
 EFNU
 stand stand none 50
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #7716
 githzerai prisoner~
 An imprisoned githzerai~
@@ -289,6 +297,7 @@ BR 0 0 0 0 0 0
 FU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7718
 dragon red slave~
 The enslaved red dragon~
@@ -305,6 +314,7 @@ BR 0 0 0 A -400 0
 FR
 stand stand male 250
 0 0 giant unknown
+m mob_random mob_random_cast_mage +100~
 #7719
 fire furnace flame~
 A massive blast of fire~
@@ -318,6 +328,7 @@ BF 0 0 0 H 0 0
 EFNU
 stand stand none 250
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #0
 
 #OBJECTS
@@ -3678,20 +3689,6 @@ begins to coalesce before you.
 0 AC air
 S
 #0
-
-#SPECIALS
-M 7702 spec_cast_mage	* An evil night hag
-M 7705 spec_thief	* A githyanki hunter
-M 7710 spec_cast_mage	* An evil gish
-M 7711 spec_cast_mage	* An evil gish
-M 7712 spec_cast_mage	* A warlock of the Gith
-M 7713 spec_cast_undead	* The lich-queen
-M 7714 spec_cast_undead	* Lord Gith
-M 7715 spec_cast_undead	* An insubstantial ghost
-M 7717 spec_cast_mage	* A tortured mindflayer prisoner
-M 7718 spec_cast_mage	* The enslaved red dragon
-M 7719 spec_breath_fire	* A massive blast of fire
-S
 
 #RESETS
 M 0 7700 1 7706 1	* The Astral Guardian (The Astral Gate)

@@ -178,6 +178,7 @@ r holy 100
 r charm 100
 r wood -50
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #36307
 boy little son banker сын~
 @eng Banker's son@rus ~~сын~~ банкира~
@@ -261,6 +262,7 @@ CEFIKN
 stand stand male 20000
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_mayor +100~
 #36311
 clerk клерк~
 @eng Clerk@rus клерк~
@@ -299,6 +301,7 @@ GQ 0 HNU 0 A 0 0
 FIKN
 sit sit male 9856
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #36313
 rodent ugly rat грызун~
 @eng Rodent@rus грызун~
@@ -347,6 +350,7 @@ GQ 0 HU 0 A 0 0
 EFIJKN
 sit sit male 10895
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #36316
 warrior competition воин~
 @eng warrior on competition@rus ~~соревнующийся~~ ~~воин~~~
@@ -498,6 +502,7 @@ GS 0 0 0 0 -100 0
 FId
 stand stand male 3500
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #36326
 vendor разносчик~
 @eng vendor@rus разносчик~
@@ -527,6 +532,7 @@ GTY 0 HTU 0 AB 500 0
 CEFHIJKLNc
 stand stand male 2450
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #36328
 thief hidden figure воришка~
 @eng hidden figure@rus ~~ловкий~~ ~~воришка~~~
@@ -543,6 +549,7 @@ BGHS 0 U BG B -500 0
 EFHIJKNX
 stand stand male 2000
 S 0 medium unknown
+m mob_random mob_random_thief +100~
 #36329
 pickpocket thief карманник~
 @eng pickpocket@rus карманник~
@@ -555,6 +562,7 @@ GHS 0 0 BG B -100 0
 BEFIJKN
 stand stand male 2300
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #36330
 bat мышь~
 @eng bat@rus ~~летучая~~ ~~мышь~~~
@@ -598,6 +606,7 @@ GHR 0 H 0 A 1000 0
 FIKVY
 sit sit male 20000
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #36333
 mage white neutral маг~
 @eng White Neutrality@rus ~~белый~~ ~~маг~~ Равновесия~
@@ -612,6 +621,7 @@ GHR 0 H 0 A 1000 0
 FIKVY
 sit sit male 23000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #36334
 mage white chaos маг~
 @eng White Chaos@rus ~~белый~~ ~~маг~~ Хаоса~
@@ -626,6 +636,7 @@ GHR 0 H 0 A 1000 0
 FIKVY
 sit sit male 15000
 0 0 medium unknown
+m mob_random mob_random_breath_gas +100~
 #36335
 mage grey law маг~
 @eng Grey Law@rus ~~серый~~ ~~маг~~ Закона~
@@ -640,6 +651,7 @@ GHR 0 H 0 A 0 0
 FIKVY
 sit sit male 14000
 0 0 medium unknown
+m mob_random mob_random_breath_lightning +100~
 #36336
 mage grey neutral маг~
 @eng True Neutrality@rus ~~серый~~ ~~маг~~ Равновесия~
@@ -654,6 +666,7 @@ GHR 0 H 0 A 0 0
 FIKVY
 sit sit male 50000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #36337
 mage grey chaos маг~
 @eng Grey Chaos@rus ~~серый~~ ~~маг~~ Хаоса~
@@ -668,6 +681,7 @@ GHR 0 H 0 A 0 0
 FIKVY
 sit sit male 10000
 0 0 medium unknown
+m mob_random mob_random_breath_gas +100~
 #36338
 mage dark law маг~
 @eng Dark Law@rus ~~темный~~ ~~маг~~ Закона~
@@ -682,6 +696,7 @@ GHR 0 J 0 A -1000 0
 FIKVY
 sit sit male 14000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #36339
 mage dark neutral маг~
 @eng Dark Neutrality@rus ~~темный~~ ~~маг~~ Равновесия~
@@ -696,6 +711,7 @@ GHR 0 J 0 A -1000 0
 FIKVY
 sit sit male 5090
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #36340
 mage dark chaos маг~
 @eng Dark Chaos@rus ~~темный~~ ~~маг~~ Хаоса~
@@ -710,6 +726,7 @@ GHR 0 J 0 A -1000 0
 FIKVY
 sit sit male 3500
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #36341
 mage earthquaker маг~
 @eng Earthquaker@rus ~~Сотрясатель~~ Земли~
@@ -724,6 +741,7 @@ GR 0 0 0 0 0 0
 FIK
 sit stand male 4500
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #36342
 mage wimpy маг~
 @eng wimpy mage@rus ~~трусливый~~ ~~колдун~~~
@@ -754,6 +772,7 @@ GH 0 0 G 0 0 0
 FN
 stand stand male 0
 Z 0 small unknown
+m mob_random mob_random_breath_fire +100~
 #36344
 servant слуга~
 @eng servant@rus слуга~
@@ -7261,28 +7280,6 @@ D2
 Z -1 36452
 S
 #0
-
-#SPECIALS
-M 36306 spec_cast_cleric	* Monk
-M 36310 spec_mayor	* Mayor
-M 36312 spec_cast_mage	* Archivarius
-M 36315 spec_cast_mage	* Librarian
-M 36325 spec_cast_mage	* juggler
-M 36327 spec_guard	* Gate guard
-M 36328 spec_thief	* hidden figure
-M 36329 spec_thief	* pickpocket
-M 36332 spec_breath_acid	* White Law
-M 36333 spec_breath_frost	* White Neutrality
-M 36334 spec_breath_gas	* White Chaos
-M 36335 spec_breath_lightning	* Grey Law
-M 36336 spec_breath_frost	* True Neutrality
-M 36337 spec_breath_gas	* Grey Chaos
-M 36338 spec_breath_fire	* Dark Law
-M 36339 spec_breath_frost	* Dark Neutrality
-M 36340 spec_breath_acid	* Dark Chaos
-M 36341 spec_cast_mage	* Earthquaker
-M 36343 spec_breath_fire	* gekko
-S
 
 #RESETS
 M 0 36319 3 36300 1	* hedgehog (Path to the Festival Town)

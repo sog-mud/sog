@@ -291,6 +291,7 @@ stand stand male 10000
 0 0 tiny unknown
 r weapon -50
 r magic -50
+m mob_random mob_random_cast_mage +100~
 #15220
 tim guard lifeguard~
 Tim, the King's Lifeguard~
@@ -2182,10 +2183,6 @@ You see the stairs going back down to the second floor.
 Z -1 15248
 S
 #0
-
-#SPECIALS
-M 15219 spec_cast_mage	* the Astrologer
-S
 
 #RESETS
 M 0 15222 1 15205 1	* the Chef (The Kitchen)

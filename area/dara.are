@@ -25,6 +25,7 @@ stand stand male 15400
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #15401
 trusted henchman~
 the trusted henchman~
@@ -66,6 +67,7 @@ r negative -50
 r holy -50
 r charm 100
 r weapon 33
+m mob_random mob_random_cast_undead +100~
 #15403
 golorth captain thug~
 Golorth, the thug captain~
@@ -104,6 +106,7 @@ r poison -50
 r negative -50
 r charm 100
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #15405
 masked thug guard~
 the masked thug~
@@ -139,6 +142,7 @@ stand stand male 3120
 r bash -50
 r charm 100
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #15407
 mother woman~
 Darathorn's mother~
@@ -157,6 +161,7 @@ stand stand female 5000
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #15408
 guardian golem obsidian~
 the obsidian golem~
@@ -179,6 +184,7 @@ r mental 100
 r charm 100
 r iron -50
 r weapon 33
+m mob_random mob_random_breath_any +100~
 #15409
 thug guard minor~
 the minor thug~
@@ -211,6 +217,7 @@ stand stand either 530
 r pierce 33
 r acid -50
 r poison 33
+m mob_random mob_random_assassinater +100~
 #15411
 thief~
 the thief~
@@ -228,6 +235,7 @@ r pierce 33
 r poison 33
 r disease -50
 r charm 33
+m mob_random mob_random_assassinater +100~
 #15412
 master thief~
 the master thief~
@@ -245,6 +253,7 @@ stand stand male 1700
 r pierce 33
 r poison 33
 r charm 100
+m mob_random mob_random_assassinater +100~
 #15413
 shade guardian~
 the shade guardian~
@@ -266,6 +275,7 @@ r energy -50
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #15414
 assasin deadly~
 the deadly assasin~
@@ -288,6 +298,7 @@ r holy -50
 r disease 100
 r charm 100
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #15415
 prisoner~
 the wretched prisoner~
@@ -312,13 +323,14 @@ He has been trained to move without a sound and his tongue has been removed.
 He seems not to take any notice of you or his surroundings.
 ~
 human~
-CGHJ 0 T AG H 0 1507
+CGHJ J T AG H 0 1507
 20 0 3d9+330 1d1+149 2d8+5 'scratch'
 -4 -4 -4 4
 F
 stand stand either 220
 0 0 medium unknown
 r charm 33
+m mob_random mob_random_janitor +100~
 #15417
 man barbarian warrior~
 the barbarian warrior~
@@ -361,6 +373,7 @@ r mental 100
 r charm 100
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #0
 
 #OBJECTS
@@ -2358,22 +2371,6 @@ of you, is: "Boy, was that a STUPID thing to do".
 0 C inside
 S
 #0
-
-#SPECIALS
-M 15400 spec_cast_undead	* the Arch-Villan Darathorn
-M 15402 spec_cast_undead	* the Hand
-M 15404 spec_cast_undead	* Alengrot, the evil cleric
-M 15406 spec_cast_undead	* Tolorian, Darathorn's advisor
-M 15407 spec_cast_undead	* Darathorn's mother
-M 15408 spec_breath_any	* the obsidian golem
-M 15410 spec_assassinater	* the minor thief
-M 15411 spec_assassinater	* the thief
-M 15412 spec_assassinater	* the master thief
-M 15413 spec_cast_undead	* the shade guardian
-M 15414 spec_cast_undead	* the deadly assasin
-M 15416 spec_janitor	* the silent servant
-M 15418 spec_cast_undead	* the kadrdw'ws
-S
 
 #RESETS
 M 0 15409 12 15401 12	* the minor thug (A dark passage)

@@ -72,6 +72,7 @@ stand stand male 0
 0 0 giant unknown
 r weapon 33
 r magic 33
+m mob_random mob_random_cast_undead +100~
 #35004
 mermaid maid woman~
 the Mermaid~
@@ -147,6 +148,7 @@ BT 0 H 0 0 1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #35009
 atlantis guard~
 the Atlantis Guard~
@@ -163,6 +165,7 @@ DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_guard +100~
 #35010
 gtlantis uard~
 the Atlantis Guard~
@@ -179,6 +182,7 @@ DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_guard +100~
 #35011
 prisoner~
 the Prisoner~
@@ -212,6 +216,7 @@ BT 0 H 0 A 1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_adept +100~
 #35013
 dark dragon~
 the Dark Dragon~
@@ -229,6 +234,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 33
 r magic 33
+m mob_random mob_random_breath_gas +100~
 #35014
 princess chelly~
 Princess Chelly~
@@ -244,6 +250,7 @@ T 0 H 0 0 1000 0
 DEFGHIJKN
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #35015
 cook ed~
 Ed the Cook~
@@ -277,6 +284,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 100
 r magic 100
+m mob_random mob_random_cast_mage +100~
 #35017
 sophia~
 Sophia~
@@ -354,6 +362,7 @@ J 0 0 0 0 -1000 0
 stand stand none 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_undead +100~
 #35022
 native atlantis~
 a native of Atlantis~
@@ -384,6 +393,7 @@ DEGIJKN
 stand stand male 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_thief +100~
 #35024
 gardener~
 the gardener~
@@ -2114,19 +2124,6 @@ You can't see a thing.
 Z -1 35016
 S
 #0
-
-#SPECIALS
-M 35003 spec_cast_undead	* King Neptune
-M 35008 spec_guard	* the General Guard
-M 35009 spec_guard	* the Atlantis Guard
-M 35010 spec_guard	* the Atlantis Guard
-M 35012 spec_cast_adept	* Martinus
-M 35013 spec_breath_gas	* the Dark Dragon
-M 35014 spec_cast_cleric	* Princess Chelly
-M 35016 spec_cast_mage	* Sage Marid
-M 35021 spec_cast_undead	* the giant horrifying rat
-M 35023 spec_thief	* the parrot
-S
 
 #RESETS
 M 0 35000 1 35000 1	* the Fisherman (Beside the sea...)

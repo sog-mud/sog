@@ -91,6 +91,7 @@ stand stand female 0
 0 0 small unknown
 r weapon 100
 r magic 100
+m mob_random mob_random_breath_any +100~
 #15010
 devil~
 @eng {DDevil{x@rus {D˛≈“‘{x~
@@ -633,10 +634,6 @@ S
 0 C inside
 S
 #0
-
-#SPECIALS
-M 15005 spec_breath_any	* little furry kitten
-S
 
 #RESETS
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Lair.)

@@ -503,6 +503,7 @@ G 0 0 0 0 -900 0
 0
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #0
 
 #OBJECTS
@@ -2189,10 +2190,6 @@ yet completely fat free.
 0 0 city
 S
 #0
-
-#SPECIALS
-M 4451 spec_thief	* the Midget
-S
 
 #RESETS
 M 0 4400 1 4402 4	* the Ticket Clerk (The Entrance to the Circus)

@@ -26,6 +26,7 @@ human~
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #17302
 squire оруженосец~
 @eng the squire@rus оруженосец~
@@ -56,6 +57,7 @@ human~
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #17304
 arthur king король артур~
 @eng King Arthur@rus ~~Король~~ ~~Артур~~~
@@ -107,6 +109,7 @@ B 0 N 0 ABK 1000 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #17307
 black knight черный рыцарь~
 @eng the black knight@rus рыцарь~
@@ -207,6 +210,7 @@ B CD HN 0 AB 1000 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #17313
 merlin mage мерлин маг~
 @eng Merlin@rus Мерлин~
@@ -226,6 +230,7 @@ BCH 0 HNT 0 AHKL 750 0
 EFHNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #17314
 morgan mage моргана фей маг волшебница~
 @eng Morgan Le Fey@rus ~~Моргана~~ ле Фей~
@@ -244,6 +249,7 @@ CFH 0 0 0 0 -1000 0
 EFNU
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #17315
 pellinore king король пеллинор~
 @eng King Pellinore@rus ~~Король~~ ~~Пеллинор~~~
@@ -291,6 +297,7 @@ r pierce -50
 r fire 33
 r lightning 100
 r acid 33
+m mob_random mob_random_breath_lightning +100~
 #17317
 tristram тристрам рыцарь~
 @eng Sir Tristram of Lyoness@rus ~~Сэр~~ ~~Тристрам~~~
@@ -324,6 +331,7 @@ FH 0 J G H -1000 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #17319
 charmed knight завороженный рыцарь познания renown~
 @eng charmed knight of renown@rus ~~завороженный~~ ~~прославленный~~ ~~рыцарь~~~
@@ -646,6 +654,7 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+m mob_random mob_random_breath_fire +100~
 #17338
 jack iron железный джек~
 @eng Iron Jack@rus ~~Железный~~ ~~Джек~~~
@@ -5524,18 +5533,6 @@ S
 0 CM inside
 S
 #0
-
-#SPECIALS
-M 17301 spec_guard	* the knight of renown
-M 17303 spec_guard	* the knight of quality
-M 17306 spec_guard	* Sir Galahad
-M 17312 spec_guard	* Sir Lancelot du Lake
-M 17313 spec_cast_mage	* Merlin
-M 17314 spec_cast_mage	* Morgan Le Fey
-M 17316 spec_breath_lightning	* the Questing Beast
-M 17318 spec_thief	* Mordred
-M 17337 spec_breath_fire	* Aigram the demon
-S
 
 #RESETS
 M 0 17307 1 17302 1	* the black knight (The Crossroads of Arden)

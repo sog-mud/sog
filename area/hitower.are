@@ -21,6 +21,7 @@ CFG 0 0 AG AH -350 0
 EFNU
 stand stand none 5
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1301
 adventurer~
 a lost adventurer~
@@ -34,6 +35,7 @@ BCHQ 0 0 0 H 400 0
 EIKU
 sit stand male 14
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #1302
 edgar~
 Edgar~
@@ -76,6 +78,7 @@ GHR 0 0 0 A 450 0
 FU
 stand stand male 21
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1305
 strick bartender~
 Strick the bartender~
@@ -102,6 +105,7 @@ BGRe 0 0 0 A 900 0
 FU
 stand stand male 250
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1307
 ezmerelda cook~
 Ezmerelda~
@@ -114,6 +118,7 @@ BGR 0 0 0 A -500 0
 FU
 stand stand female 54
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1308
 assistant mage~
 The cook's assistant~
@@ -126,6 +131,7 @@ BGHR 0 0 0 A -200 0
 FU
 stand stand male 5
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1309
 prisoner~
 The prisoner~
@@ -143,6 +149,7 @@ BCFGHR 0 0 0 H 100 0
 FU
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1310
 jailor mage~
 the Jailor~
@@ -156,6 +163,7 @@ BGR 0 0 0 A 100 0
 FU
 sleep sleep male 66
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1311
 broom~
 a broom~
@@ -169,6 +177,7 @@ BCFGS 0 0 0 ABH 50 0
 BEFJNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #1312
 lesser guardian hands~
 a pair of disembodied hands~
@@ -182,6 +191,7 @@ FG 0 0 0 0 -400 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1313
 guardian greater eyes~
 a pair of disembodied eyes~
@@ -195,6 +205,7 @@ FG 0 0 0 AH -600 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1314
 mage visitor~
 the mage~
@@ -208,6 +219,7 @@ BCGHR 0 0 0 A 250 0
 FU
 sleep sleep male 36
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1315
 apprentice young~
 a young apprentice magic user~
@@ -221,6 +233,7 @@ BGHR 0 0 0 0 400 0
 FU
 sit sit female 18
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1316
 apprentice young~
 a young apprentice~
@@ -234,6 +247,7 @@ BGHR 0 0 0 0 380 0
 FU
 stand stand male 24
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1317
 apprentice young~
 a young apprentice~
@@ -247,6 +261,7 @@ BGHR 0 0 0 0 350 0
 FU
 sleep sleep male 10
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1318
 apprentice young~
 A young apprentice~
@@ -260,6 +275,7 @@ BGHR 0 0 0 0 -200 0
 FU
 stand stand male 19
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1319
 kitten~
 a small kitten~
@@ -287,6 +303,7 @@ BGHR 0 0 0 0 350 0
 FU
 sit sit male 13
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1321
 instructor teacher mage~
 an instructor of magic~
@@ -300,6 +317,7 @@ BFGR 0 0 0 A 300 0
 FU
 stand stand male 44
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1322
 student~
 a student of spells~
@@ -313,6 +331,7 @@ BGHR 0 0 A A 400 0
 FU
 stand stand male 9
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1323
 teacher mage~
 a spell teacher~
@@ -325,6 +344,7 @@ BFGR 0 0 A A 300 0
 FU
 stand stand male 62
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1324
 student~
 a student of spells~
@@ -338,6 +358,7 @@ BGHR 0 0 0 A 400 0
 FU
 sleep sleep female 28
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1325
 wizard speaker mage~
 a wizard~
@@ -350,6 +371,7 @@ BGHR 0 0 0 A 400 0
 FU
 stand stand male 123
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1326
 mage young~
 a young mage~
@@ -362,6 +384,7 @@ BGHR 0 0 0 A 300 0
 FU
 stand stand male 34
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1327
 mistress battle~
 the battle mistress~
@@ -376,6 +399,7 @@ BFGR 0 0 0 A 200 0
 FU
 stand stand female 160
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1328
 mage teacher~
 a spell teacher~
@@ -388,6 +412,7 @@ BGR 0 0 0 A 200 0
 FU
 rest rest male 50
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1329
 wizard~
 an aged wizard~
@@ -400,6 +425,7 @@ BFGHR 0 0 0 A 350 0
 FU
 sleep sleep male 78
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1330
 scribe mage~
 a scribe~
@@ -412,6 +438,7 @@ BCGHR 0 0 0 A 400 0
 FU
 stand stand male 15
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1331
 scribe mage~
 a scribe~
@@ -426,6 +453,7 @@ BGHR 0 0 0 A 500 0
 FU
 stand stand female 34
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1332
 master scribe~
 the master scribe~
@@ -440,6 +468,7 @@ BFGHR 0 0 0 A 100 0
 FU
 stand stand male 281
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1333
 assistant scribe~
 the scribe's assistant~
@@ -452,6 +481,7 @@ BFGHR 0 0 0 A 100 0
 FU
 stand stand male 52
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1334
 master enchanter mage~
 the Enchanter~
@@ -465,6 +495,7 @@ F
 stand stand male 340
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_mage +100~
 #1335
 sword dancing~
 a dancing sword~
@@ -493,6 +524,7 @@ BCFGHR 0 0 0 A 150 0
 FU
 stand stand male 117
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1337
 master summoner~
 the master summoner~
@@ -506,6 +538,7 @@ FU
 stand stand male 50
 0 0 medium unknown
 m mob_kill mob_kill_master_summoner 100~
+m mob_random mob_random_cast_mage +100~
 #1338
 master charmer~
 the master charmer~
@@ -520,6 +553,7 @@ FU
 stand stand male 233
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_mage +100~
 #1339
 golem wooden~
 a wooden golem~
@@ -546,6 +580,7 @@ BCFGHR 0 0 0 A -500 0
 FU
 stand stand male 115
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1341
 master maker~
 the golem maker~
@@ -558,6 +593,7 @@ BFGR 0 0 0 A 300 0
 FU
 stand stand male 133
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1342
 golem granite~
 a granite golem~
@@ -652,6 +688,7 @@ F
 stand stand male 117
 0 0 medium unknown
 r magic 100
+m mob_random mob_random_cast_mage +100~
 #1349
 necromancer master~
 the Necromancer~
@@ -668,6 +705,7 @@ BCFGHR 0 0 0 AH -950 0
 FU
 stand stand male 584
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1350
 skeleton undead~
 an animated skeleton~
@@ -682,6 +720,7 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 r bash -50
+m mob_random mob_random_cast_undead +100~
 #1351
 undead giant~
 an undead giant~
@@ -694,6 +733,7 @@ BCFG 0 0 0 AH -500 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1352
 witch hag~
 an ugly witch~
@@ -709,6 +749,7 @@ BCFGR 0 0 0 AH -450 0
 FU
 stand stand female 107
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1353
 librarian mage~
 the Librarian~
@@ -722,6 +763,7 @@ BFGHR 0 0 0 A 450 0
 FU
 sleep sleep male 64
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1354
 apprentice~
 the master's apprentice~
@@ -738,6 +780,7 @@ BCFGR 0 0 0 A 0 0
 FU
 stand stand male 336
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1355
 cat grey familiar~
 a grey cat~
@@ -752,6 +795,7 @@ BGR 0 0 AG 0 0 0
 R
 stand stand female 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1356
 master guildmaster grey~
 the master of Neutrality~
@@ -765,6 +809,7 @@ BGR 0 H 0 A 0 0
 FU
 stand stand male 767
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1357
 apprentice black~
 a black robed apprentice~
@@ -780,6 +825,7 @@ BCFGR 0 0 G AH -750 0
 FU
 stand stand female 693
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1358
 cat black familiar~
 a black cat~
@@ -794,6 +840,7 @@ BGR 0 0 G AH -800 0
 R
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1359
 master guildmaster black~
 the master of the black robes~
@@ -807,6 +854,7 @@ BCGR 0 J 0 AH -1000 0
 FU
 stand stand male 1105
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1360
 apprentice white~
 a white robed apprentice~
@@ -821,6 +869,7 @@ BFGR 0 0 0 A 750 0
 FU
 stand stand male 370
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1361
 cat white familiar~
 a white cat~
@@ -834,6 +883,7 @@ BGR 0 0 G A 800 0
 R
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1362
 master guildmaster white~
 The master of goodness~
@@ -847,6 +897,7 @@ BGR 0 H 0 A 1000 0
 FU
 stand stand male 1095
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1363
 cat calico familiar кошка~
 @eng A calico cat@rus ~~Черепаховая~~ ~~кошка~~~
@@ -861,6 +912,7 @@ BGR 0 0 G A 800 0
 R
 stand stand female 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1364
 guildmaster grand mistress~
 The Grand Mistress~
@@ -878,6 +930,7 @@ FU
 stand stand female 2500
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_mage +100~
 #1365
 wizard~
 a wizard~
@@ -890,6 +943,7 @@ CGR 0 0 G A 350 0
 FU
 stand stand male 160
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #0
 
 #OBJECTS
@@ -1623,6 +1677,8 @@ jewelry G 0 AM
 20 50 1440 P
 f object cha 1 0
 f object ac -5 0
+m obj_wear obj_wear_bracer 100~
+m obj_remove obj_remove_bracer 100~
 g @rus none~
 #1385
 staff~
@@ -6038,63 +6094,6 @@ on a desk.
 0 CDJ inside
 S
 #0
-
-#SPECIALS
-M 1300 spec_cast_undead	* a shadow guardian
-M 1301 spec_cast_cleric	* a lost adventurer
-M 1304 spec_cast_mage	* a mage
-M 1306 spec_cast_mage	* Tatorious
-M 1307 spec_cast_mage	* Ezmerelda
-M 1308 spec_cast_mage	* The cook's assistant
-M 1309 spec_cast_mage	* The prisoner
-M 1310 spec_cast_mage	* the Jailor
-M 1311 spec_thief	* a broom
-M 1312 spec_cast_undead	* a pair of disembodied hands
-M 1313 spec_cast_undead	* a pair of disembodied eyes
-M 1314 spec_cast_mage	* the mage
-M 1315 spec_cast_mage	* a young apprentice magic user
-M 1316 spec_cast_mage	* a young apprentice
-M 1317 spec_cast_mage	* a young apprentice
-M 1318 spec_cast_mage	* A young apprentice
-M 1320 spec_cast_mage	* a student
-M 1321 spec_cast_mage	* an instructor of magic
-M 1322 spec_cast_mage	* a student of spells
-M 1323 spec_cast_mage	* a spell teacher
-M 1324 spec_cast_mage	* a student of spells
-M 1325 spec_cast_mage	* a wizard
-M 1326 spec_cast_mage	* a young mage
-M 1327 spec_cast_mage	* the battle mistress
-M 1328 spec_cast_mage	* a spell teacher
-M 1329 spec_cast_mage	* an aged wizard
-M 1330 spec_cast_mage	* a scribe
-M 1331 spec_cast_mage	* a scribe
-M 1332 spec_cast_mage	* the master scribe
-M 1333 spec_cast_mage	* the scribe's assistant
-M 1334 spec_cast_mage	* the Enchanter
-M 1336 spec_cast_mage	* the Mad Alchemist
-M 1337 spec_cast_mage	* the master summoner
-M 1338 spec_cast_mage	* the master charmer
-M 1340 spec_cast_mage	* the master spell binder
-M 1341 spec_cast_mage	* the golem maker
-M 1348 spec_cast_mage	* the master of illusions
-M 1349 spec_cast_mage	* the Necromancer
-M 1350 spec_cast_undead	* an animated skeleton
-M 1351 spec_cast_undead	* an undead giant
-M 1352 spec_cast_mage	* an ugly witch
-M 1353 spec_cast_mage	* the Librarian
-M 1354 spec_cast_mage	* the master's apprentice
-M 1355 spec_cast_mage	* a grey cat
-M 1356 spec_cast_mage	* the master of Neutrality
-M 1357 spec_cast_mage	* a black robed apprentice
-M 1358 spec_cast_mage	* a black cat
-M 1359 spec_cast_mage	* the master of the black robes
-M 1360 spec_cast_mage	* a white robed apprentice
-M 1361 spec_cast_mage	* a white cat
-M 1362 spec_cast_mage	* The master of goodness
-M 1363 spec_cast_mage	* A calico cat
-M 1364 spec_cast_mage	* The Grand Mistress
-M 1365 spec_cast_mage	* a wizard
-S
 
 #RESETS
 R 0 1301 4	* The Shadow Grove: randomize

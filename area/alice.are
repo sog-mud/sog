@@ -49,6 +49,7 @@ r cold 33
 r charm 33
 m mob_give mob_give_white_rabbit 21007~
 m mob_greet mob_greet_white_rabbit 100~
+m mob_random mob_random_cast_mage +100~
 m mob_exit mob_exit_white_rabbit all~
 m mob_tell mob_tell_white_rabbit ~
 #21002
@@ -262,6 +263,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_caterpillar 100~
+m mob_random mob_random_breath_gas +100~
 m mob_exit mob_exit_caterpillar all~
 m mob_look mob_look_caterpillar 100~
 #21015
@@ -387,6 +389,7 @@ stand stand male 0
 m mob_greet mob_greet_cheshire_cat 100~
 m mob_kill mob_kill_bamf_self 100~
 m mob_random mob_random_cheshire_cat 1~
+m mob_random mob_random_cast_mage +100~
 m mob_exit mob_exit_cheshire_cat all~
 m mob_look mob_look_cast_invis 100~
 #21022
@@ -500,7 +503,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_gardener_two 100~
 m mob_random mob_random_gardener_two 1~
-m mob_exall mob_exall_gardener_two all~
+m mob_exit mob_exit_gardener_two +all~
 #21030
 soldier club card~
 a soldier~
@@ -515,6 +518,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_soldier_card 100~
+m mob_random mob_random_guard +100~
 m mob_look mob_look_soldier_card 100~
 #21031
 courtier diamond card~
@@ -600,6 +604,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_knave_of_hearts 100~
+m mob_random mob_random_thief +100~
 m mob_look mob_look_cast_invis 100~
 m mob_tell mob_tell_knave_of_hearts ~
 #21036
@@ -650,6 +655,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_executioner 100~
 m mob_kill mob_kill_bamf 100~
+m mob_random mob_random_executioner +100~
 m mob_exit mob_exit_executioner all~
 m mob_look mob_look_executioner 100~
 m mob_tell mob_tell_executioner ~
@@ -689,6 +695,7 @@ stand stand male 0
 m mob_death mob_death_gryphon 100~
 m mob_greet mob_greet_gryphon 100~
 m mob_kill mob_kill_gryphon 100~
+m mob_random mob_random_fido +100~
 m mob_look mob_look_gryphon 100~
 m mob_tell mob_tell_gryphon ~
 #21041
@@ -724,6 +731,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_court_officer 100~
 m mob_kill mob_kill_court_officer 100~
+m mob_random mob_random_guard +100~
 #0
 
 #OBJECTS
@@ -2790,17 +2798,6 @@ D5
 Z -1 21062
 S
 #0
-
-#SPECIALS
-M 21001 spec_cast_mage	* a white rabbit
-M 21014 spec_breath_gas	* the caterpillar
-M 21021 spec_cast_mage	* a Cheshire Cat
-M 21030 spec_guard	* a soldier
-M 21035 spec_thief	* the Knave of Hearts
-M 21038 spec_executioner	* the executioner
-M 21040 spec_fido	* a Gryphon
-M 21042 spec_guard	* a court officer
-S
 
 #RESETS
 O 0 21065 0 21001	* a rabbit hole (A Hedge)

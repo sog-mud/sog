@@ -26,6 +26,7 @@ B 0 J 0 AH -1000 0
 EFNU
 stand stand male 1250
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #2301
 treant tree дерево~
 @eng the Old Treant@rus старое Дерево~
@@ -63,6 +64,7 @@ BF 0 0 G HKL 0 0
 EFNU
 stand stand none 125
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #2303
 toad rock жаба~
 @eng the Rock Toad@rus ~~каменная~~ ~~жаба~~~
@@ -126,6 +128,7 @@ BCF 0 0 0 H -1000 0
 EFNU
 stand stand male 1250
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #2307
 ogre villager~
 the Ogre Villager~
@@ -185,6 +188,7 @@ BCFGHQ 0 J 0 A -750 0
 EIKU
 stand stand male 2500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #2311
 chief chieftain ogre шеф~
 @eng the Ogre Chieftain@rus Огр-шеф~
@@ -230,6 +234,7 @@ BCFGH 0 0 0 0 -350 0
 EFNU
 stand stand none 50
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #2314
 worm ice iceworm~
 the Ice Worm~
@@ -245,6 +250,7 @@ BCFG 0 0 0 0 0 0
 EFNU
 stand stand none 175
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #2315
 citizen minotaur~
 the Minotaur Citizen~
@@ -386,6 +392,7 @@ BCGR 0 H 0 A -300 0
 FU
 stand stand male 2500
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #2325
 gorak minotaur warrior master~
 Gorak~
@@ -414,6 +421,7 @@ BF 0 J 0 AH -1000 0
 EFNU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #2327
 tyrgoth minotaur paladin master~
 Tyrgoth~
@@ -443,6 +451,7 @@ BFR 0 H 0 A 300 0
 FU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #2329
 sumaron minotaur cleric master~
 Sumaron~
@@ -457,6 +466,7 @@ BFQ 0 H 0 A 1000 0
 EIKU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #2330
 nasturn minotaur druid master~
 Nasturn~
@@ -471,6 +481,7 @@ BQ 0 H 0 A 500 0
 EIKU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #2331
 belrak minotaur ranger master~
 Belrak~
@@ -517,6 +528,7 @@ BCR 0 JTU A A -500 0
 FU
 stand stand male 5000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #0
 
 #OBJECTS
@@ -4416,21 +4428,6 @@ brown~
 AFZ 2354 2397
 S
 #0
-
-#SPECIALS
-M 2300 spec_cast_undead	* the Dark Ethereal Knight
-M 2302 spec_breath_acid	* the Cave Dweller
-M 2306 spec_poison	* the Swamp Wraith
-M 2310 spec_cast_cleric	* The Ogre Shaman
-M 2313 spec_breath_frost	* the White Yeti
-M 2314 spec_breath_acid	* the Ice Worm
-M 2324 spec_cast_mage	* the Minotaur Ring-Keeper
-M 2326 spec_cast_undead	* Darkoth
-M 2328 spec_cast_mage	* Amyrok
-M 2329 spec_cast_cleric	* Sumaron
-M 2330 spec_cast_cleric	* Nasturn
-M 2333 spec_cast_mage	* Mahn-Tor
-S
 
 #RESETS
 M 0 2300 1 2307 1	* the Dark Ethereal Knight (The bloody intersection)

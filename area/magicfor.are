@@ -284,6 +284,7 @@ BGR 0 U 0 ABKLM -1000 0
 A
 stand stand male 3000
 Gc L giant unknown
+m mob_random mob_random_cast_mage +100~
 #1813
 witch red ведьма красная~
 @eng the red witch@rus ~~красная~~ ~~ведьма~~~
@@ -309,6 +310,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_random mob_random_red_witch 12~
+m mob_random mob_random_cast_mage +100~
 #1814
 witch orange ведьма рыжая~
 @eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
@@ -334,6 +336,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_random mob_random_orange_witch 12~
+m mob_random mob_random_cast_mage +100~
 #1815
 witch yellow ведьма желтая~
 @eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
@@ -360,6 +363,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_random mob_random_yellow_witch 12~
+m mob_random mob_random_cast_mage +100~
 #1816
 witch green ведьма зеленая~
 @eng the green witch@rus ~~зеленая~~ ~~ведьма~~~
@@ -382,6 +386,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1817
 witch blue ведьма синяя~
 @eng the blue witch@rus ~~синяя~~ ~~ведьма~~~
@@ -402,6 +407,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1818
 witch indigo ведьма индиго~
 @eng the indigo witch@rus ~~ведьма~~ индиго~
@@ -428,6 +434,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1819
 witch violet ведьма фиолетовая~
 @eng the violet witch@rus ~~фиолетовая~~ ~~ведьма~~~
@@ -455,6 +462,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_greet mob_greet_violet_witch 100~
+m mob_random mob_random_cast_mage +100~
 #1820
 warlock red колдун красный~
 @eng the red warlock@rus ~~красный~~ ~~колдун~~~
@@ -475,6 +483,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1821
 warlock orange колдун оранжевый~
 @eng the orange warlock@rus ~~оранжевый~~ ~~колдун~~~
@@ -495,6 +504,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1822
 warlock yellow колдун желтый~
 @eng the yellow warlock@rus ~~желтый~~ ~~колдун~~~
@@ -518,6 +528,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1823
 warlock green колдун зеленый~
 @eng the green warlock@rus ~~зеленый~~ ~~колдун~~~
@@ -540,6 +551,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1824
 warlock blue колдун синий filimordr~
 @eng the blue warlock@rus ~~синий~~ ~~колдун~~~
@@ -562,6 +574,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1825
 warlock indigo колдун индиго~
 @eng the indigo warlock@rus ~~колдун~~ ~~индиго~~~
@@ -590,6 +603,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1826
 warlock violet колдун фиолетовый~
 @eng the violet warlock@rus ~~фиолетовый~~ ~~колдун~~~
@@ -616,6 +630,7 @@ r negative 33
 r holy -50
 r wood -50
 m mob_greet mob_greet_violet_warlock 100~
+m mob_random mob_random_cast_mage +100~
 #1827
 shopkeeper ranger продавец егерь торговец~
 @eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~
@@ -865,6 +880,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_cast_mage +100~
 #1839
 bunny rabbit~
 a small white bunny~
@@ -920,6 +936,7 @@ stand stand male 0
 0 0 medium unknown
 r weapon 33
 r magic 100
+m mob_random mob_random_cast_adept +100~
 #0
 
 #OBJECTS
@@ -4428,26 +4445,6 @@ D2
 Z 0 1896
 S
 #0
-
-#SPECIALS
-M 1812 spec_cast_mage	* a shadow dragon
-M 1813 spec_cast_mage	* the red witch
-M 1814 spec_cast_mage	* the orange witch
-M 1815 spec_cast_mage	* the yellow witch
-M 1816 spec_cast_mage	* the green witch
-M 1817 spec_cast_mage	* the blue witch
-M 1818 spec_cast_mage	* the indigo witch
-M 1819 spec_cast_mage	* the violet witch
-M 1820 spec_cast_mage	* the red warlock
-M 1821 spec_cast_mage	* the orange warlock
-M 1822 spec_cast_mage	* the yellow warlock
-M 1823 spec_cast_mage	* the green warlock
-M 1824 spec_cast_mage	* the blue warlock
-M 1825 spec_cast_mage	* the indigo warlock
-M 1826 spec_cast_mage	* the violet warlock
-M 1838 spec_cast_mage	* the black warlock
-M 1899 spec_cast_adept	* ranger healer
-S
 
 #RESETS
 M 0 1830 27 1801 1	* a grey squirrel (Northwest Corner)

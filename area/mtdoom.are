@@ -46,6 +46,7 @@ stand stand none 1000
 r fire -50
 r charm 100
 r weapon 33
+m mob_random mob_random_cast_judge +100~
 #14702
 iron golem~
 an iron golem~
@@ -61,6 +62,7 @@ BG 0 0 0 0 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_executioner +100~
 #14703
 marmandes demon prince~
 the demon prince Marmandes~
@@ -80,6 +82,7 @@ stand stand male 1000
 0 0 large unknown
 r fire 33
 r holy -50
+m mob_random mob_random_cast_undead +100~
 #14704
 axtraxes arch mage~
 axtraxes~
@@ -98,6 +101,7 @@ stand stand male 1000
 r charm 100
 r weapon -50
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #14705
 high priest~
 an evil high priest~
@@ -113,6 +117,7 @@ BFG 0 J 0 AH -1000 0
 CDEFIJKNQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #14706
 elite guard~
 an elite guard~
@@ -128,6 +133,7 @@ BFG 0 0 0 H -1000 0
 CDEFIJKQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #14707
 destrier~
 a destrier~
@@ -143,6 +149,7 @@ BG 0 0 0 H -1000 0
 FKU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #14708
 evil priest~
 an evil priest~
@@ -157,6 +164,7 @@ BG 0 0 0 H -1000 0
 EFIKNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #14709
 scientist mage~
 an evil scientist mage~
@@ -175,6 +183,7 @@ stand stand male 1000
 0 0 medium unknown
 r charm 100
 r magic 33
+m mob_random mob_random_cast_cleric +100~
 #14710
 blackguard guard~
 a member of the blackguard~
@@ -189,6 +198,7 @@ BFG 0 0 0 H -1000 0
 CDEFIJKQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #14711
 dragon red красный дракон~
 @eng a red dragon@rus ~~красный~~ ~~дракон~~~
@@ -209,6 +219,7 @@ CEFM
 stand stand none 1000
 0 0 medium unknown
 g @eng none@rus male~
+m mob_random mob_random_breath_fire +100~
 #14712
 black dragon~
 a black dragon~
@@ -225,6 +236,7 @@ BFG 0 J 0 BK -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #14713
 white dragon~
 a white dragon~
@@ -241,6 +253,7 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_frost +100~
 #14714
 blue dragon~
 a blue dragon~
@@ -257,6 +270,7 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_lightning +100~
 #14715
 green dragon~
 a green dragon~
@@ -273,6 +287,7 @@ BFG 0 J 0 AB -1000 0
 CEFM
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_gas +100~
 #14716
 fire elemental~
 a fire elemental~
@@ -287,6 +302,7 @@ EF
 stand stand none 1000
 0 0 medium unknown
 r fire 100
+m mob_random mob_random_breath_fire +100~
 #14717
 efreeti~
 an efreeti~
@@ -304,6 +320,7 @@ FIK
 stand stand male 1000
 0 0 medium unknown
 r fire 100
+m mob_random mob_random_cast_mage +100~
 #14718
 shedu~
 a shedu~
@@ -319,6 +336,7 @@ BG 0 HN 0 H 1000 0
 FIKU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #14719
 illithid~
 an evil illithid~
@@ -377,6 +395,7 @@ BFG 0 0 0 BH 0 0
 FIJKNU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #14723
 hydra~
 a twelve-headed hydra~
@@ -392,6 +411,7 @@ BFG 0 0 0 0 0 0
 EFU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_any +100~
 #14724
 quasit~
 a quasit~
@@ -406,6 +426,7 @@ BFGH 0 T ABG AB -1000 0
 EFU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #14725
 succubus~
 a succubus~
@@ -421,6 +442,7 @@ BGH 0 JT 0 AH -1000 0
 EFIU
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #14726
 earth elemental~
 an earth elemental~
@@ -461,6 +483,7 @@ BFG 0 0 0 0 0 0
 EFU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_gas +100~
 #14729
 hell hound hellhound~
 a hellhound~
@@ -475,6 +498,7 @@ FG 0 0 0 AH -1000 0
 EFU
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #14730
 fire giant~
 a fire giant~
@@ -535,6 +559,7 @@ BFG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #14734
 ogre~
 an ogre servant~
@@ -544,12 +569,13 @@ runt, as they never cease to point out to him as he makes his way about,
 serving food and drinks in between kicks to the head.
 ~
 human~
-BGH 0 0 0 H -400 0
+BGH J 0 0 H -400 0
 30 0 6d12+853 5d5+1000 4d6+8 'punch'
 -9 -9 -9 3
 CEFIK
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_janitor +100~
 #14735
 ogre mage~
 an ogre mage~
@@ -566,6 +592,7 @@ BG 0 J 0 AHL -1000 0
 EFIKQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #14736
 troll~
 a troll~
@@ -580,6 +607,7 @@ BG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #14737
 ettin~
 an ettin~
@@ -594,6 +622,7 @@ BG 0 0 0 H -1000 0
 CEFIKQ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #14738
 chief assassin~
 the chief assassin~
@@ -609,6 +638,7 @@ BG 0 N 0 AH -1000 0
 CEFIK
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #14739
 assassin~
 an assassin~
@@ -623,6 +653,7 @@ BFG 0 0 0 H -1000 0
 CEFIK
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #14740
 drow ambassador~
 a drow ambassador~
@@ -637,6 +668,7 @@ BFGH 0 J 0 AHL -1000 0
 CEFIKQ
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #14741
 warg~
 a warg~
@@ -650,6 +682,7 @@ FG 0 0 0 BH -1000 0
 CEFIK
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #14742
 ghoul~
 a bloodthirsty ghoul~
@@ -663,6 +696,7 @@ FG 0 0 0 H -1000 0
 EFK
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #14743
 vampire~
 a vampire~
@@ -677,6 +711,7 @@ BGH 0 JTU 0 AH -1000 0
 EFIKNQ
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #14744
 lich~
 an ancient lich~
@@ -693,6 +728,7 @@ BG 0 JNT 0 ABHKL -1000 0
 CEFIKQ
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #14745
 stone golem~
 a stone golem~
@@ -708,6 +744,7 @@ BG 0 0 0 0 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_executioner +100~
 #14746
 keeper~
 The keeper of the mutant pit~
@@ -720,6 +757,7 @@ BFG 0 N 0 H -1000 0
 CEFIKQ
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #14747
 naga princess~
 a naga princess~
@@ -737,6 +775,7 @@ stand stand male 0
 0 0 medium unknown
 r poison 100
 r disease 33
+m mob_random mob_random_poison +100~
 #0
 
 #OBJECTS
@@ -4612,48 +4651,6 @@ D4
 Z -1 14768
 S
 #0
-
-#SPECIALS
-M 14701 spec_cast_judge	* a death knight
-M 14702 spec_executioner	* an iron golem
-M 14703 spec_cast_undead	* the demon prince Marmandes
-M 14704 spec_cast_mage	* axtraxes
-M 14705 spec_cast_cleric	* an evil high priest
-M 14706 spec_guard	* an elite guard
-M 14707 spec_fido	* a destrier
-M 14708 spec_cast_mage	* an evil priest
-M 14709 spec_cast_cleric	* an evil scientist mage
-M 14710 spec_guard	* a member of the blackguard
-M 14711 spec_breath_fire	* a red dragon
-M 14712 spec_breath_acid	* a black dragon
-M 14713 spec_breath_frost	* a white dragon
-M 14714 spec_breath_lightning	* a blue dragon
-M 14715 spec_breath_gas	* a green dragon
-M 14716 spec_breath_fire	* a fire elemental
-M 14717 spec_cast_mage	* an efreeti
-M 14718 spec_cast_cleric	* a shedu
-M 14722 spec_fido	* a mutant
-M 14723 spec_breath_any	* a twelve-headed hydra
-M 14724 spec_thief	* a quasit
-M 14725 spec_cast_undead	* a succubus
-M 14728 spec_breath_gas	* an air elemental
-M 14729 spec_breath_fire	* a hellhound
-M 14733 spec_cast_cleric	* a cloud giant
-M 14734 spec_janitor	* an ogre servant
-M 14735 spec_cast_mage	* an ogre mage
-M 14736 spec_fido	* a troll
-M 14737 spec_guard	* an ettin
-M 14738 spec_cast_mage	* the chief assassin
-M 14739 spec_thief	* an assassin
-M 14740 spec_cast_cleric	* a drow ambassador
-M 14741 spec_fido	* a warg
-M 14742 spec_fido	* a bloodthirsty ghoul
-M 14743 spec_cast_undead	* a vampire
-M 14744 spec_cast_mage	* an ancient lich
-M 14745 spec_executioner	* a stone golem
-M 14746 spec_poison	* The keeper of the mutant pit
-M 14747 spec_poison	* a naga princess
-S
 
 #RESETS
 M 0 14741 8 14701 1	* a warg (The Plains of Mount Doom)

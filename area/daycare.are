@@ -21,6 +21,7 @@ CGT 0 0 0 0 -5 0
 DJR
 sit stand either 10
 0 0 small unknown
+m mob_random mob_random_thief +100~
 #6601
 teddy bear~
 a teddy bear~
@@ -76,6 +77,7 @@ CF 0 0 0 0 -400 0
 DJNR
 stand stand male 5
 0 0 small unknown
+m mob_random mob_random_thief +100~
 #6605
 doll old кукла~
 @eng an old doll@rus ~~старая~~ ~~кукла~~~
@@ -104,6 +106,7 @@ G 0 0 0 0 10 0
 CDR
 stand stand female 50
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #6607
 guard~
 the armed guard~
@@ -132,6 +135,7 @@ BC 0 0 0 0 -400 0
 IJN
 stand stand male 50
 0 0 small unknown
+m mob_random mob_random_thief +100~
 #0
 
 #OBJECTS
@@ -674,13 +678,6 @@ D0
 Z -1 6624
 S
 #0
-
-#SPECIALS
-M 6600 spec_thief	* the dwarven youth
-M 6604 spec_thief	* the ugly bear
-M 6606 spec_cast_cleric	* the nanny
-M 6608 spec_thief	* the spoiled brat
-S
 
 #RESETS
 M 0 6600 7 6602 1	* the dwarven youth (Day Care Center)

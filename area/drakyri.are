@@ -29,6 +29,7 @@ stand stand female 11000
 0 0 medium unknown
 r lightning 33
 r acid 33
+m mob_random mob_random_cast_mage +100~
 #11801
 drakyri deriki noriek deiayan lord~
 Noriek~
@@ -47,6 +48,7 @@ stand stand male 18000
 0 0 medium unknown
 r pierce -50
 r lightning 33
+m mob_random mob_random_cast_mage +100~
 #11802
 drakyri deriki dyrli sh'aya lady~
 Dyrli~
@@ -65,6 +67,7 @@ stand stand female 4000
 0 0 medium unknown
 r fire -50
 r cold 33
+m mob_random mob_random_cast_mage +100~
 #11803
 drakyri deriki roweni sequas~
 Roweni~
@@ -82,6 +85,7 @@ stand stand female 2300
 0 0 medium unknown
 r fire -50
 r cold 33
+m mob_random mob_random_cast_mage +100~
 #11804
 drakyri deriki xanil treye man~
 Xanil~
@@ -98,6 +102,7 @@ FG
 stand stand male 2500
 0 0 medium unknown
 r acid 33
+m mob_random mob_random_cast_mage +100~
 #11805
 drakyri deriki tyrena na'deia lady~
 Tyrena~
@@ -116,6 +121,7 @@ FGI
 stand stand female 6300
 0 0 medium unknown
 r lightning -50
+m mob_random mob_random_cast_mage +100~
 #11806
 drakyri deriki nalyss ira'deia girl~
 Nalyss~
@@ -131,6 +137,7 @@ BCGR 0 TV 0 AB 0 0
 FGJ
 stand stand female 5700
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #11807
 drakyri deriki daeman ira'deian boy~
 Daeman~
@@ -146,6 +153,7 @@ BGR 0 T A AB 0 0
 FGHN
 stand stand male 6000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #11808
 drakyri deriki ykandres ira'deian youth~
 Ykandres~
@@ -164,6 +172,7 @@ stand stand male 7500
 0 0 medium unknown
 r lightning 33
 r acid -50
+m mob_random mob_random_cast_mage +100~
 #11809
 zeion snow owl~
 Zeion~
@@ -193,6 +202,7 @@ BCGR 0 T 0 A 0 0
 DFG
 stand stand male 1500
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #11811
 mage training~
 a mage in training~
@@ -210,6 +220,7 @@ CGR 0 T 0 AB 0 0
 FG
 stand stand either 4000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #11812
 writhing form ghostly~
 a writhing form~
@@ -227,6 +238,7 @@ stand stand none 0
 HL 0 medium unknown
 r negative -50
 r energy -50
+m mob_random mob_random_cast_mage +100~
 #11813
 glyph warding~
 a glyph of warding~
@@ -285,6 +297,7 @@ stand stand female 15000
 0 0 medium unknown
 r negative -50
 r holy 33
+m mob_random mob_random_cast_cleric +100~
 #11816
 drakyri treniste kaele sh'ayan~
 Kaele~
@@ -339,6 +352,7 @@ stand stand male 5400
 0 0 medium unknown
 r negative -50
 r holy 33
+m mob_random mob_random_cast_cleric +100~
 #11819
 drakyri treniste lyrene na'deia girl~
 Lyrene~
@@ -378,6 +392,7 @@ r fire 33
 r cold -50
 r negative -50
 r holy 33
+m mob_random mob_random_cast_mage +100~
 #11821
 drakyri treniste rodwen ira'deia girl~
 Rodwen~
@@ -435,6 +450,7 @@ r fire 33
 r cold -50
 r negative 100
 r holy -50
+m mob_random mob_random_cast_mage +100~
 #11824
 drakyri reykaris toryan deiayan man~
 Toryan~
@@ -505,6 +521,7 @@ r cold 33
 r negative 33
 r holy -50
 r energy -50
+m mob_random mob_random_cast_cleric +100~
 #11828
 drakyri reykaris kranali na'deian~
 Kranali~
@@ -525,6 +542,7 @@ r cold -50
 r negative 33
 r holy -50
 r mental -50
+m mob_random mob_random_cast_mage +100~
 #11829
 drakyri reykaris sorina ira'deia child~
 Sorina~
@@ -649,6 +667,7 @@ stand stand either 4500
 0 0 medium unknown
 r negative 33
 r holy -50
+m mob_random mob_random_cast_mage +100~
 #11836
 mass writhing tentacles~
 a mass of writhing tentacles~
@@ -863,6 +882,7 @@ CFGS 0 T B B 0 0
 BEFJ
 stand stand male 5500
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #11850
 hunter arrow~
 the hunter~
@@ -1087,6 +1107,7 @@ r fire -50
 r negative 33
 r holy 33
 r energy -50
+m mob_random mob_random_cast_cleric +100~
 #11864
 drakyri noriva nerael deiaya lady~
 Nerael~
@@ -1108,6 +1129,7 @@ r cold -50
 r negative 33
 r holy 33
 r energy -50
+m mob_random mob_random_cast_cleric +100~
 #11865
 drakyri noriva jorinne sh'aya woman~
 Jorinne~
@@ -1127,6 +1149,7 @@ r cold 33
 r acid -50
 r energy -50
 r mental 33
+m mob_random mob_random_cast_cleric +100~
 #11866
 drakyri noriva lerylke sequen paladin~
 Lerylke~
@@ -1161,6 +1184,7 @@ BGQ 0 T 0 AB 0 0
 FIK
 rest stand male 5500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #11868
 drakyri noriva yllyra na'deia lady~
 Yllyra~
@@ -1177,6 +1201,7 @@ BQ 0 H 0 AB 0 0
 FIK
 stand stand female 12500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #11869
 drakyri noriva dryna ira'deia girl~
 Dryna~
@@ -1197,6 +1222,7 @@ r bash -50
 r fire 33
 r cold 33
 r lightning 33
+m mob_random mob_random_cast_cleric +100~
 #11870
 drakyri noriva voryl ira'deian boy~
 Voryl~
@@ -1214,6 +1240,7 @@ stand stand male 2500
 0 0 medium unknown
 r fire 33
 r cold -50
+m mob_random mob_random_cast_cleric +100~
 #11871
 white cat~
 the white cat~
@@ -1263,6 +1290,7 @@ r cold -50
 r lightning -50
 r negative 33
 r holy 33
+m mob_random mob_random_cast_cleric +100~
 #11874
 drakyri laerkai flame mage~
 The Flame~
@@ -1281,6 +1309,7 @@ stand stand female 25000
 r fire 100
 r cold -50
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #11875
 drakyri laerkai shield paladin~
 The Shield~
@@ -1299,6 +1328,7 @@ stand stand male 25000
 0 0 medium unknown
 r negative -50
 r holy 100
+m mob_random mob_random_guard +100~
 #11876
 drakyri laerkai claw knight~
 The Claw~
@@ -1371,6 +1401,7 @@ r fire -50
 r negative 33
 r holy 33
 r energy -50
+m mob_random mob_random_cast_cleric +100~
 #11880
 drakyri laerkai master~
 the Laerkai Master~
@@ -1397,6 +1428,7 @@ r lightning -50
 r acid 33
 r energy -50
 r mental -50
+m mob_random mob_random_cast_mage +100~
 #11881
 drakyri guardian~
 The Guardian~
@@ -1418,6 +1450,7 @@ r lightning -50
 r negative 33
 r holy 33
 r mental -50
+m mob_random mob_random_cast_cleric +100~
 #11882
 drakyri mediator light~
 The Mediator~
@@ -1445,6 +1478,7 @@ r disease 33
 r light 100
 r charm 100
 r sound -50
+m mob_random mob_random_cast_cleric +100~
 #11883
 drakyri knight protector~
 a drakyri knight protector~
@@ -1473,6 +1507,7 @@ GR 0 T 0 A 0 0
 FG
 stand stand either 6000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #11885
 drakyri healer~
 a drakyri healer~
@@ -1489,6 +1524,7 @@ GQ 0 NOT 0 A 0 0
 IK
 stand stand either 6000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #11886
 drakyri assassin~
 a drakyri assassin~
@@ -1540,6 +1576,7 @@ r fire -50
 r cold -50
 r mental -50
 r weapon 33
+m mob_random mob_random_breath_any +100~
 #0
 
 #OBJECTS
@@ -5816,46 +5853,6 @@ doors double white oaken~
 ABZ -1 11895
 S
 #0
-
-#SPECIALS
-M 11800 spec_cast_mage	* Lechandre
-M 11801 spec_cast_mage	* Noriek
-M 11802 spec_cast_mage	* Dyrli
-M 11803 spec_cast_mage	* Roweni
-M 11804 spec_cast_mage	* Xanil
-M 11805 spec_cast_mage	* Tyrena
-M 11806 spec_cast_mage	* Nalyss
-M 11807 spec_cast_mage	* Daeman
-M 11808 spec_cast_mage	* Ykandres
-M 11810 spec_cast_mage	* the lab assistant
-M 11811 spec_cast_mage	* a mage in training
-M 11812 spec_cast_mage	* a writhing form
-M 11815 spec_cast_cleric	* Denylis
-M 11818 spec_cast_cleric	* Deis
-M 11820 spec_cast_mage	* Josreke
-M 11823 spec_cast_mage	* Rachal
-M 11827 spec_cast_cleric	* Delyrus
-M 11828 spec_cast_mage	* Kranali
-M 11835 spec_cast_mage	* the necromancer
-M 11849 spec_thief	* the stalker
-M 11863 spec_cast_cleric	* Yxanes
-M 11864 spec_cast_cleric	* Nerael
-M 11865 spec_cast_cleric	* Jorinne
-M 11867 spec_cast_cleric	* Nerr
-M 11868 spec_cast_cleric	* Yllyra
-M 11869 spec_cast_cleric	* Dryna
-M 11870 spec_cast_cleric	* Voryl
-M 11873 spec_cast_cleric	* the guardian spirit
-M 11874 spec_cast_mage	* The Flame
-M 11875 spec_guard	* The Shield
-M 11879 spec_cast_cleric	* The Hand
-M 11880 spec_cast_mage	* the Laerkai Master
-M 11881 spec_cast_cleric	* The Guardian
-M 11882 spec_cast_cleric	* The Mediator
-M 11884 spec_cast_mage	* a drakyri mage protector
-M 11885 spec_cast_cleric	* a drakyri healer
-M 11888 spec_breath_any	* The Warden
-S
 
 #RESETS
 O 0 11804 0 11801	* a pool of water (Strange Grove)

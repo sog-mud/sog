@@ -109,6 +109,7 @@ stand stand female 10000
 r pierce -50
 r fire -50
 r cold 100
+m mob_random mob_random_cast_mage +100~
 #4604
 vampire shadar lunn вампир шадар лунн man мужчина~
 @eng the Vampire, Shadar Lunn@rus ~~вампир~~ Шадар ~~Лунн~~~
@@ -132,6 +133,7 @@ r fire -50
 r cold 33
 r charm 100
 r wood -50
+m mob_random mob_random_cast_undead +100~
 #4605
 ghoul creature гуль существо~
 @eng a hungry ghoul@rus ~~голодный~~ ~~гуль~~~
@@ -156,6 +158,7 @@ r negative 33
 r holy -50
 r light -50
 r silver -50
+m mob_random mob_random_fido +100~
 #4606
 mastiff hound адский пес hell~
 @eng the hell hound@rus ~~адский~~ ~~пес~~~
@@ -172,6 +175,7 @@ g @eng none@rus male~
 r fire 33
 r cold -50
 r charm 33
+m mob_random mob_random_breath_fire +100~
 #4608
 bat vampire мышь летучая~
 @eng the vampire bat@rus ~~летучая~~ ~~мышь~~~
@@ -246,6 +250,7 @@ stand stand none 5000
 CG 0 medium unknown
 g @eng none@rus male~
 r charm 100
+m mob_random mob_random_cast_cleric +100~
 #4612
 dark spectre темный призрак~
 @eng the dark spectre@rus ~~темный~~ ~~призрак~~~
@@ -266,6 +271,7 @@ ACK 0 medium unknown
 r fire -50
 r weapon 100
 r magic 100
+m mob_random mob_random_cast_undead +100~
 #0
 
 #OBJECTS
@@ -1768,15 +1774,6 @@ the hidden~
 Z 0 4625
 S
 #0
-
-#SPECIALS
-M 4603 spec_cast_mage	* Kharzandra, the Dark-elf Vampire
-M 4604 spec_cast_undead	* the Vampire, Shadar Lunn
-M 4605 spec_fido	* a hungry ghoul
-M 4606 spec_breath_fire	* the hell hound
-M 4611 spec_cast_cleric	* the dark priest vampire
-M 4612 spec_cast_undead	* the dark spectre
-S
 
 #RESETS
 O 0 4603 0 4600	* a smelly humanoid corpse (Outside of the mausoleum)

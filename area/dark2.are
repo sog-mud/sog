@@ -153,6 +153,7 @@ CDEHKLTU
 stand stand female 3200
 0 0 medium unknown
 r magic 33
+m mob_random mob_random_cast_mage +100~
 #14511
 pig fat~
 the fat pig~
@@ -2797,10 +2798,6 @@ D3
 Z -1 14598
 S
 #0
-
-#SPECIALS
-M 14510 spec_cast_mage	* the Watcher
-S
 
 #RESETS
 M 0 14501 3 14508 1	* the BIG monkey (Palm path)

@@ -208,6 +208,7 @@ BGH 0 H 0 0 700 0
 EIK
 stand stand female 1000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #29513
 andromache~
 Andromache~
@@ -392,6 +393,7 @@ BG 0 N 0 0 500 0
 EIK
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_adept +100~
 #29526
 menestheus~
 Menestheus~
@@ -544,6 +546,7 @@ BG 0 H 0 0 400 0
 EIK
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #29537
 neoptolemus~
 Neoptolemus~
@@ -3285,12 +3288,6 @@ D2
 Z -1 29597
 S
 #0
-
-#SPECIALS
-M 29512 spec_cast_cleric	* Cassandra
-M 29525 spec_cast_adept	* Machaon
-M 29536 spec_cast_cleric	* Helenus
-S
 
 #RESETS
 M 0 29515 1 29531 1	* Automedon (The Battlefield)

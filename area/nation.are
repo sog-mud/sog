@@ -139,6 +139,7 @@ G 0 0 0 0 0 0
 EN
 stand stand male 10
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9910
 warrior goblin~
 the Goblin Warrior~
@@ -2529,10 +2530,6 @@ D3
 Z -1 9996
 S
 #0
-
-#SPECIALS
-M 9909 spec_cast_cleric	* the Goblin Shaman
-S
 
 #RESETS
 M 0 9901 1 9902 1	* the Villager (On the river)

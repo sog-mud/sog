@@ -25,6 +25,7 @@ BGR 0 0 0 A 500 0
 FU
 stand stand male 105
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1101
 ring keeper~
 the Keeper of the Ring~
@@ -42,6 +43,7 @@ BGS 0 0 A AB 0 0
 BEFJNU
 stand stand male 61
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #1102
 farmer gamgee~
 Farmer Gamgee~
@@ -173,6 +175,7 @@ CGT 0 0 0 H 150 0
 CDEIKLU
 sit sit male 2
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #1111
 shiriff~
 a shiriff~
@@ -189,6 +192,7 @@ CGT 0 0 0 H 150 0
 CDEIKLU
 sit sit male 2
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #1112
 thain~
 the Thain~
@@ -205,6 +209,7 @@ GT 0 0 0 0 400 0
 CDEIKLU
 sit sit male 25
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #1113
 innkeeper~
 the Innkeeper~
@@ -264,6 +269,7 @@ BR 0 0 0 0 600 0
 FU
 sit sit male 25
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1117
 dwarven prince~
 the dwarven prince~
@@ -279,6 +285,7 @@ BQ 0 0 0 0 200 0
 EIKU
 sit sit male 35
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #1118
 shopkeeper~
 the shopkeeper~
@@ -335,6 +342,7 @@ BT 0 0 0 0 350 0
 CDEIKLU
 stand stand male 75
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #1122
 halfling youth~
 a halfling youth~
@@ -349,6 +357,7 @@ GHS 0 0 0 AB 0 0
 BEFJNU
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #1123
 seasoned adventurer~
 a seasoned adventurer~
@@ -479,6 +488,7 @@ BT 0 0 0 0 150 0
 CDEIKLU
 stand stand male 2
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #0
 
 #OBJECTS
@@ -1988,19 +1998,6 @@ D5
 Z -1 1144
 S
 #0
-
-#SPECIALS
-M 1100 spec_cast_mage	* the Elven Wizard
-M 1101 spec_thief	* the Keeper of the Ring
-M 1110 spec_guard	* a shiriff
-M 1111 spec_guard	* a shiriff
-M 1112 spec_guard	* the Thain
-M 1116 spec_cast_mage	* the elven warrior
-M 1117 spec_cast_cleric	* the dwarven prince
-M 1121 spec_guard	* the battle master
-M 1122 spec_thief	* a halfling youth
-M 1132 spec_guard	* a shiriff
-S
 
 #RESETS
 O 0 1102 0 1103	* a sign (Entrance to the Shire)

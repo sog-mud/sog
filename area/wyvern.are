@@ -73,6 +73,7 @@ BCGQ 0 0 0 AB -900 0
 EIKU
 stand stand female 150
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #1606
 carnivorous plant~
 a carnivorous plant~
@@ -125,6 +126,7 @@ BCFG 0 0 0 ABH -1000 0
 EFNU
 stand stand male 110
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1610
 burly minotaur~
 A burly minotaur~
@@ -177,6 +179,7 @@ CFG 0 0 0 0 -1000 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #1615
 lesser golem~
 a lesser golem~
@@ -203,6 +206,7 @@ CFG 0 0 0 AB -1000 0
 EFNU
 stand rest male 0
 0 0 medium unknown
+m mob_random mob_random_breath_any +100~
 #1617
 spectre~
 the spectre~
@@ -216,6 +220,7 @@ CFG 0 J A AH -1000 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1702
 trapper~
 a trapper~
@@ -359,6 +364,7 @@ BC 0 0 A 0 200 0
 EFNU
 rest stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1720
 displacer beast~
 a displacer beast~
@@ -1862,15 +1868,6 @@ The path continues west through thick forest.
 Z 0 1708
 S
 #0
-
-#SPECIALS
-M 1605 spec_cast_cleric	* the gargoyle shaman
-M 1609 spec_cast_undead	* an evil wight
-M 1614 spec_breath_acid	* the black pudding
-M 1616 spec_breath_any	* the ancient wyvern
-M 1617 spec_cast_undead	* the spectre
-M 1716 spec_cast_undead	* the centaur chief
-S
 
 #RESETS
 O 0 1652 0 1608	* a barrel of ale (Old Store Room)

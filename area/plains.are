@@ -148,6 +148,7 @@ BHR 0 H 0 A 1000 0
 FR
 stand stand female 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #0
 
 #OBJECTS
@@ -1697,10 +1698,6 @@ You've fallen, and you can't get up!
 0 C field
 S
 #0
-
-#SPECIALS
-M 350 spec_cast_mage	* the pet dragon
-S
 
 #RESETS
 O 0 304 0 316	* wild flowers (Grassy plains)

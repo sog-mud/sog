@@ -62,6 +62,7 @@ stand stand either 0
 r acid 33
 r mental -50
 r charm 100
+m mob_random mob_random_poison +100~
 #5738
 orc~
 a drunken Orc~
@@ -152,6 +153,7 @@ IR
 stand stand male 10
 0 0 medium unknown
 r silver -50
+m mob_random mob_random_fido +100~
 #5743
 goblin torturer~
 a Goblin torturer~
@@ -183,6 +185,7 @@ IR
 stand stand male 10
 0 0 huge unknown
 r silver -50
+m mob_random mob_random_cast_judge +100~
 #5745
 barbarian~
 an insane Barbarian~
@@ -214,6 +217,7 @@ BCGRe 0 HNO 0 ABKL 400 0
 0
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #5747
 old man wererat~
 an old man who is a Wererat~
@@ -229,6 +233,7 @@ IR
 stand stand male 20
 0 0 medium unknown
 r mental -50
+m mob_random mob_random_poison +100~
 #5748
 neanderthal caveman man~
 A lumbering Neanderthal~
@@ -261,6 +266,7 @@ IR
 stand stand either 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_poison +100~
 #5750
 spider giant~
 a giant Spider~
@@ -278,6 +284,7 @@ IR
 stand stand male 0
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_poison +100~
 #5751
 ogre~
 an Ogre~
@@ -309,6 +316,7 @@ BCFGQ 0 NO 0 0 -500 5702
 IR
 stand stand male 20
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #5753
 rat giant~
 a giant Rat~
@@ -325,6 +333,7 @@ BFG 0 0 0 AH -400 0
 stand stand male 30
 0 0 medium unknown
 r charm 33
+m mob_random mob_random_poison +100~
 #5754
 giant~
 a burly Giant~
@@ -402,6 +411,7 @@ IR
 stand stand male 100
 I 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_undead +100~
 #5759
 zombie~
 a Zombie~
@@ -432,6 +442,7 @@ BG 0 NO 0 ABH 0 0
 0
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #5761
 werewolf man~
 a Werewolf~
@@ -448,6 +459,7 @@ I
 stand stand male 50
 0 0 medium unknown
 r mental -50
+m mob_random mob_random_executioner +100~
 #5762
 ghoul~
 a Ghoul~
@@ -463,6 +475,7 @@ I
 stand stand male 10
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_poison +100~
 #5763
 vampire~
 an evil Vampire~
@@ -479,6 +492,7 @@ IR
 stand stand male 200
 I 0 medium unknown
 r acid 33
+m mob_random mob_random_cast_undead +100~
 #5764
 dwarf~
 a Dwarf~
@@ -539,6 +553,7 @@ stand stand male 500
 0 0 medium unknown
 r acid -50
 r charm 100
+m mob_random mob_random_breath_any +100~
 #5767
 warlock~
 the Warlock of Firetop Mountain~
@@ -556,6 +571,7 @@ stand stand male 800
 0 0 medium unknown
 r acid -50
 r charm 100
+m mob_random mob_random_cast_mage +100~
 #5768
 hand~
 a hand~
@@ -569,6 +585,7 @@ BCFGS 0 0 0 AH 0 0
 0
 stand stand either 0
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #5769
 crocodile croc~
 a crocodile~
@@ -597,6 +614,7 @@ BFG 0 JNOT 0 ABH -1000 0
 0
 stand stand either 10
 0 0 medium unknown
+m mob_random mob_random_breath_gas +100~
 #0
 
 #OBJECTS
@@ -4097,27 +4115,6 @@ door~
 AFZ 5807 5833
 S
 #0
-
-#SPECIALS
-M 5737 spec_poison	* a small snake
-M 5742 spec_fido	* A deranged prisoner
-M 5744 spec_cast_judge	* an iron Cyclops
-M 5746 spec_cast_mage	* an old man
-M 5747 spec_poison	* an old man who is a Wererat
-M 5749 spec_poison	* a giant Bat
-M 5750 spec_poison	* a giant Spider
-M 5752 spec_poison	* a Troll
-M 5753 spec_poison	* a giant Rat
-M 5758 spec_cast_undead	* a Wight
-M 5760 spec_breath_fire	* a Guard Dog
-M 5761 spec_executioner	* a Werewolf
-M 5762 spec_poison	* a Ghoul
-M 5763 spec_cast_undead	* an evil Vampire
-M 5766 spec_breath_any	* an enormous Red Dragon
-M 5767 spec_cast_mage	* the Warlock of Firetop Mountain
-M 5768 spec_thief	* a hand
-M 5770 spec_breath_gas	* a gas beast
-S
 
 #RESETS
 M 0 5735 2 5739 2	* an Orc sentry (A Guard Post)

@@ -21,6 +21,7 @@ CGS 0 0 0 AB 0 0
 BEFJNU
 stand stand male 5
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #9302
 star~
 a beautiful star~
@@ -189,6 +190,7 @@ BFG 0 J 0 AH -1000 0
 EFNU
 stand stand none 750
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #9314
 draco baby~
 a baby draco~
@@ -204,6 +206,7 @@ CGH 0 0 0 H -700 0
 EFNU
 stand stand none 200
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #9315
 aries~
 Aries~
@@ -218,6 +221,7 @@ BGQ 0 H 0 0 700 0
 EIKU
 sit sit male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9316
 taurus~
 Taurus~
@@ -232,6 +236,7 @@ BFGQ 0 H 0 A -100 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9317
 gemini~
 Gemini~
@@ -246,6 +251,7 @@ BGQ 0 H 0 0 1000 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9318
 gemini~
 Gemini~
@@ -260,6 +266,7 @@ BCFGHQ 0 JU 0 A -1000 0
 EIKU
 stand stand male 250
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9319
 cancer~
 Cancer~
@@ -275,6 +282,7 @@ BGQ 0 H 0 0 0 0
 EIKU
 stand stand male 600
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9320
 leo~
 Leo~
@@ -290,6 +298,7 @@ BFGQ 0 H 0 A -100 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9321
 virgo~
 Virgo~
@@ -305,6 +314,7 @@ BGQ 0 H 0 0 1000 0
 EIKU
 sit sit female 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9322
 libra~
 Libra~
@@ -319,6 +329,7 @@ BGQ 0 H 0 0 1000 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9323
 scorpio~
 Scorpio~
@@ -333,6 +344,7 @@ BFGQ 0 H 0 A -200 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9324
 sagittarius~
 Sagittarius~
@@ -346,6 +358,7 @@ BGQ 0 H 0 0 1000 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9325
 capricorn~
 Capricorn~
@@ -361,6 +374,7 @@ BGQ 0 H 0 0 700 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9326
 aquarius~
 Aquarius~
@@ -375,6 +389,7 @@ BGQ 0 H 0 0 1000 0
 EIKU
 stand stand female 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9327
 pisces mermaid~
 Pisces the mermaid~
@@ -389,6 +404,7 @@ BGQ 0 H 0 0 1000 0
 EIKU
 sit sit female 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9328
 pisces fish~
 Pisces the fish~
@@ -403,6 +419,7 @@ BFGQ 0 J 0 0 -1000 0
 EIKU
 stand stand male 500
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9329
 bear ursa major~
 Ursa Major the bear~
@@ -417,6 +434,7 @@ BFGQ 0 H 0 A 0 0
 IKR
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #9330
 cassiopeia queen~
 Cassiopeia the Queen~
@@ -430,6 +448,7 @@ BGR 0 H 0 A 700 0
 FU
 sit sit female 600
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #9331
 cepheus king~
 Cepheus the King~
@@ -444,6 +463,7 @@ BGR 0 H 0 0 700 0
 FU
 sit sit male 600
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #9332
 polaris polar star~
 Polaris, the polar star~
@@ -460,6 +480,7 @@ BG 0 H A A 1000 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #0
 
 #OBJECTS
@@ -481,6 +502,8 @@ armor AGK 0 AI
 6 6 6 0 0
 22 100 3100 P
 f object damroll 2 0
+m obj_wear obj_wear_giant_str 100~
+m obj_remove obj_remove_giant_str 100~
 E
 arm~
 These mighty armors have been worn by this immortal, since the ancient time.
@@ -2133,30 +2156,6 @@ D0
 Z 0 9370
 S
 #0
-
-#SPECIALS
-M 9301 spec_thief	* a poor mudder
-M 9313 spec_breath_fire	* the Head of Draco
-M 9314 spec_breath_fire	* a baby draco
-M 9315 spec_cast_cleric	* Aries
-M 9316 spec_cast_cleric	* Taurus
-M 9317 spec_cast_cleric	* Gemini
-M 9318 spec_cast_cleric	* Gemini
-M 9319 spec_cast_cleric	* Cancer
-M 9320 spec_cast_cleric	* Leo
-M 9321 spec_cast_cleric	* Virgo
-M 9322 spec_cast_cleric	* Libra
-M 9323 spec_cast_cleric	* Scorpio
-M 9324 spec_cast_cleric	* Sagittarius
-M 9325 spec_cast_cleric	* Capricorn
-M 9326 spec_cast_cleric	* Aquarius
-M 9327 spec_cast_cleric	* Pisces the mermaid
-M 9328 spec_cast_cleric	* Pisces the fish
-M 9329 spec_cast_cleric	* Ursa Major the bear
-M 9330 spec_cast_mage	* Cassiopeia the Queen
-M 9331 spec_cast_mage	* Cepheus the King
-M 9332 spec_breath_acid	* Polaris, the polar star
-S
 
 #RESETS
 M 0 9302 9 9304 1	* a beautiful star (On an InterGalactic Walkway)

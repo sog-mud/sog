@@ -24,6 +24,7 @@ EIKU
 stand stand male 2
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_cast_cleric +100~
 #8901
 hierophant~
 The Hierophant~
@@ -39,6 +40,7 @@ GHQ 0 HN 0 A 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #8902
 elder druid~
 an elder druid~
@@ -53,6 +55,7 @@ GHQ 0 N 0 0 1000 0
 EIKU
 stand stand male 2
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #8903
 elder druidess~
 an elder druidess~
@@ -66,6 +69,7 @@ GHQ 0 N 0 0 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #8904
 doe~
 a doe~
@@ -133,6 +137,7 @@ FGH 0 0 G 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #8909
 druid~
 a druid~
@@ -146,6 +151,7 @@ GHQ 0 N 0 A 1000 0
 EIKU
 stand stand male 2
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #8910
 druidess~
 a druidess~
@@ -159,6 +165,7 @@ GHQ 0 N 0 A 1000 0
 EIKU
 stand stand female 2
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #0
 
 #OBJECTS
@@ -997,16 +1004,6 @@ and falling ...
 0 C inside
 S
 #0
-
-#SPECIALS
-M 8900 spec_cast_cleric	* The Hierophant
-M 8901 spec_cast_cleric	* The Hierophant
-M 8902 spec_cast_cleric	* an elder druid
-M 8903 spec_cast_cleric	* an elder druidess
-M 8908 spec_poison	* a harmless snake
-M 8909 spec_cast_cleric	* a druid
-M 8910 spec_cast_cleric	* a druidess
-S
 
 #RESETS
 M 0 8901 1 8901 1	* The Hierophant (The holy grove)

@@ -59,6 +59,7 @@ stand stand male 0
 0 0 medium unknown
 r negative -50
 r charm 33
+m mob_random mob_random_special_guard +100~
 #12
 bear~
 a bear~
@@ -85,6 +86,7 @@ B 0 0 0 H -1000 0
 FHI
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #14
 nightwalker~
 A Nightwalker~
@@ -320,6 +322,7 @@ stand stand none 0
 0 0 huge unknown
 g @eng none@rus male~
 F aff T
+m mob_random mob_random_cast_undead +100~
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
@@ -365,6 +368,7 @@ stand stand male 0
 0 0 huge unknown
 r weapon 100
 r magic 100
+m mob_random mob_random_breath_any +100~
 #0
 
 #OBJECTS
@@ -653,6 +657,7 @@ ebony~
 weapon A 0 AN
 staff 0 0 'pierce' F
 0 160 0 P
+m obj_fight obj_fight_ranger_staff 100~
 g @rus male~
 #29
 gloves перчатки~
@@ -1185,6 +1190,18 @@ flesh~
 trash HM CE AS
 0 0 0 0 0
 1 0 0 P
+#79
+shield cold~
+cold shield~
+An energy shield is left here.~
+energy~
+armor GPUY 0 AJ
+20 20 20 20 2
+0 50 10000 P
+E
+shield energy~
+This shield is resistive to cold.
+~
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~
@@ -1193,6 +1210,7 @@ gold~
 weapon AIP CD AN
 dagger 10 1 'pierce' DK
 20 80 0 P
+m obj_fight obj_fight_golden_weapon 100~
 g @rus male~
 #81
 golden mace булава~
@@ -1202,6 +1220,7 @@ gold~
 weapon AIP CD AN
 mace 11 1 'crush' 0
 20 200 0 P
+m obj_fight obj_fight_golden_weapon 100~
 g @rus female~
 #82
 golden dragonplate plate~
@@ -1223,6 +1242,7 @@ gold~
 weapon AIP CD AN
 sword 10 1 'pierce' D
 20 80 0 P
+m obj_fight obj_fight_golden_weapon 100~
 g @rus male~
 #84
 quest kio~
@@ -1286,6 +1306,7 @@ exotic 10 1 'pierce' D
 15 60 0 P
 f object hitroll 20 0
 f object cha 1 0
+m obj_wear obj_wear_eyed_sword 100~
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -1333,7 +1354,7 @@ armor GPUY 0 AJ
 0 50 10000 P
 E
 shield energy~
-This shield is resistive to %s.
+This shield is resistive to fire.
 ~
 g @rus none~
 #93
@@ -1407,13 +1428,14 @@ f object move 500 0
 g @rus none~
 #97
 chaos blade~
-a chaos blade~
+chaos blade~
 A shiny gold dagger is on the ground.~
 gold~
 weapon AIP CD AN
 dagger 8 1 'pierce' D
 20 200 0 P
 f object cha 2 0
+m obj_fight obj_fight_chaos_blade 100~
 g @rus none~
 #98
 sword katana~
@@ -1423,6 +1445,7 @@ iron~
 weapon 0 F AN
 sword 10 1 'slash' D
 15 60 0 P
+m obj_wear obj_wear_katana 100~
 E
 katana~
 The letters '%s' is carved on the handle.
@@ -1436,6 +1459,7 @@ gold~
 weapon AIP CD AN
 lance 10 1 'none' D
 20 80 0 P
+m obj_fight obj_fight_golden_weapon 100~
 g @rus none~
 #0
 
@@ -1474,13 +1498,6 @@ Supermob lives here. Don't bother him.
 0 ACHLNOX inside
 S
 #0
-
-#SPECIALS
-M 11 spec_special_guard	* the guard
-M 13 spec_cast_mage	* a fiery demon
-M 28 spec_cast_undead	* bone dragon
-M 50 spec_breath_any	* Junkseller
-S
 
 #SHOPS
 50 0 26 0 0 0 100 100 0 23

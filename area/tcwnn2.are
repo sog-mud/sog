@@ -24,6 +24,7 @@ GT 0 HN 0 0 500 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31201
 south wall guard~
 a south wall guard~
@@ -40,6 +41,7 @@ GT 0 HN 0 0 500 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31202
 north wall guard~
 a north wall guard~
@@ -56,6 +58,7 @@ GT 0 HN 0 0 500 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31203
 west wall guard~
 an west wall guard~
@@ -72,6 +75,7 @@ GT 0 HN 0 0 500 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31204
 guard captain east wall~
 the east wall guard captain~
@@ -88,6 +92,7 @@ BGT 0 HN 0 ABKL 800 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31205
 guard captain south wall~
 the south wall guard captain~
@@ -104,6 +109,7 @@ BGT 0 HN 0 ABKL 800 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31206
 guard captain north wall~
 the north wall guard captain~
@@ -120,6 +126,7 @@ BGT 0 HN 0 ABKL 800 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31207
 guard captain west wall~
 the west wall guard captain~
@@ -136,6 +143,7 @@ BGT 0 HN 0 ABKL 800 0
 CDEFIKTU
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_guard +100~
 #31208
 knight~
 a knight~
@@ -151,6 +159,7 @@ BGT 0 HN 0 ABKL 1000 0
 CDEFIK
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #31209
 battle mage~
 an elven battle mage~
@@ -168,6 +177,7 @@ BGR 0 T 0 ABKL 400 0
 EIK
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #31210
 marshal~
 the marshal~
@@ -183,6 +193,7 @@ BGT 0 HN 0 ABKL 800 0
 CEFIK
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_cast_judge +100~
 #31211
 crossbowman~
 a crossbowman~
@@ -198,6 +209,7 @@ BGT 0 N 0 H 400 0
 EFIKN
 stand stand male 200
 0 0 medium unknown
+m mob_random mob_random_cast_judge +100~
 #31212
 smith~
 the guard smith~
@@ -227,6 +239,7 @@ BFG 0 JNT G ABHKL -1000 0
 EFIKN
 stand stand none 200
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #31214
 ghost~
 a ghost~
@@ -243,6 +256,7 @@ BGH 0 HNT ABG ABHKL 1000 0
 EF
 stand stand none 200
 0 0 medium unknown
+m mob_random mob_random_cast_adept +100~
 #31215
 priestess~
 a priestess of Lenny~
@@ -258,6 +272,7 @@ BG 0 HN 0 ABHKL 1000 0
 EFNU
 stand stand female 200
 0 0 medium unknown
+m mob_random mob_random_cast_adept +100~
 #31216
 worker~
 a burly worker~
@@ -3627,24 +3642,6 @@ D0
 Z -1 31011
 S
 #0
-
-#SPECIALS
-M 31200 spec_guard	* an east wall guard
-M 31201 spec_guard	* a south wall guard
-M 31202 spec_guard	* a north wall guard
-M 31203 spec_guard	* an west wall guard
-M 31204 spec_guard	* the east wall guard captain
-M 31205 spec_guard	* the south wall guard captain
-M 31206 spec_guard	* the north wall guard captain
-M 31207 spec_guard	* the west wall guard captain
-M 31208 spec_cast_cleric	* a knight
-M 31209 spec_cast_mage	* an elven battle mage
-M 31210 spec_cast_judge	* the marshal
-M 31211 spec_cast_judge	* a crossbowman
-M 31213 spec_cast_undead	* a vile spectre
-M 31214 spec_cast_adept	* a ghost
-M 31215 spec_cast_adept	* a priestess of Lenny
-S
 
 #RESETS
 O 0 31216 0 31202	* a wall beacon (Inside the North Tower, West Gatehouse)

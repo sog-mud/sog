@@ -37,6 +37,7 @@ r fire -50
 r cold 100
 r holy 100
 r charm 100
+m mob_random mob_random_poison +100~
 #8801
 sylvan elf warrior лесной эльф воин~
 @eng a sylvan elf warrior@rus ~~лесной~~ ~~эльф~~-~~воин~~~
@@ -81,6 +82,7 @@ stand stand male 211
 r charm 100
 r weapon -50
 r magic -50
+m mob_random mob_random_nasty +100~
 #8803
 orc warrior орк воин~
 @eng an orc warrior@rus ~~орк~~-~~воин~~~
@@ -102,6 +104,7 @@ stand stand male 0
 0 0 medium unknown
 r charm 100
 r magic -50
+m mob_random mob_random_guard +100~
 #8804
 guard elf эльф стражник~
 @eng a wood elf guard@rus ~~эльф~~-~~стражник~~~
@@ -146,6 +149,7 @@ r fire 100
 r poison 100
 r holy 100
 r magic 33
+m mob_random mob_random_guard +100~
 #8806
 galion butler elf гэлион дворецкий~
 @eng Galion the butler@rus ~~дворецкий~~ ~~Гэлион~~~
@@ -181,6 +185,7 @@ CDEK
 sit sit male 0
 0 0 medium unknown
 r weapon 33
+m mob_random mob_random_cast_mage +100~
 #8808
 wood elf male лесной эльф~
 @eng a male wood elf@rus ~~лесной~~ ~~эльф~~~
@@ -2092,14 +2097,6 @@ D2
 Z -1 8868
 S
 #0
-
-#SPECIALS
-M 8800 spec_poison	* a sylvan elf scout
-M 8802 spec_nasty	* an orc scout
-M 8803 spec_guard	* an orc warrior
-M 8805 spec_guard	* the chief of the guard
-M 8807 spec_cast_mage	* Thranduil, king of the Wood Elves
-S
 
 #RESETS
 M 0 8800 4 8810 1	* a sylvan elf scout (A Guard Post)

@@ -65,6 +65,7 @@ BCR 0 0 0 0 500 0
 FU
 stand stand male 50
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1504
 guard gnome~
 a gnome guard~
@@ -93,6 +94,7 @@ BQ 0 0 0 0 550 0
 EIKU
 stand stand male 400
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #1507
 troll small~
 a small troll~
@@ -133,6 +135,7 @@ C 0 0 0 H -200 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #1510
 rat large~
 a large rat~
@@ -146,6 +149,7 @@ C 0 0 0 H -200 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #1511
 rat giant~
 a giant rat~
@@ -159,6 +163,7 @@ C 0 0 0 H -200 0
 EFNU
 stand stand male 1
 0 0 medium unknown
+m mob_random mob_random_poison +100~
 #1512
 troll~
 the troll~
@@ -186,6 +191,7 @@ bat~
 ENR
 stand stand none 0
 0 0 medium unknown
+m mob_random mob_random_breath_acid +100~
 #1514
 zombie gnome~
 the zombie gnome~
@@ -200,6 +206,7 @@ human~
 EFNU
 stand stand none 34
 0 0 medium unknown
+m mob_random mob_random_cast_undead +100~
 #1515
 bat fire~
 the fire bat~
@@ -214,6 +221,7 @@ BCF 0 0 0 AH -900 0
 ENR
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #1516
 guard hobgoblin~
 the hobgoblin guard~
@@ -270,6 +278,7 @@ BR 0 0 0 0 -500 0
 FU
 sit stand male 300
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #1520
 miner hobgoblin~
 a hobgoblin miner~
@@ -2686,18 +2695,6 @@ You see a small mine shaft.
 Z -1 1588
 S
 #0
-
-#SPECIALS
-M 1503 spec_cast_mage	* a gnome scientist
-M 1505 spec_cast_cleric	* the chief gnome
-M 1509 spec_poison	* a rat
-M 1510 spec_poison	* a large rat
-M 1511 spec_poison	* a giant rat
-M 1513 spec_breath_acid	* a black bat
-M 1514 spec_cast_undead	* the zombie gnome
-M 1515 spec_breath_fire	* the fire bat
-M 1519 spec_cast_mage	* the king of the hobgoblins
-S
 
 #RESETS
 M 0 1502 3 1503 1	* a gnome man (A Road in the Village)

@@ -209,6 +209,7 @@ unique~
 0
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #17025
 worm lava~
 the lava worm~
@@ -226,6 +227,7 @@ human~
 U
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_breath_fire +100~
 #17026
 lizard lava~
 the lava lizard~
@@ -305,6 +307,7 @@ CEFIK
 stand stand none 1000
 0 0 medium unknown
 r fire 100
+m mob_random mob_random_breath_fire +100~
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
@@ -381,6 +384,7 @@ F 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #17036
 shark white great~
 the great white shark~
@@ -396,6 +400,7 @@ F 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #17037
 shark mako~
 the mako shark~
@@ -411,6 +416,7 @@ F 0 0 0 0 0 0
 EF
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #17038
 shark hammerhead~
 the hammerhead shark~
@@ -425,6 +431,7 @@ human~
 EF
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #17039
 shark blue~
 the blue shark~
@@ -440,6 +447,7 @@ human~
 EF
 stand stand none 1000
 0 0 medium unknown
+m mob_random mob_random_fido +100~
 #17040
 clam giant~
 Did I say coral? I meant clam~
@@ -616,6 +624,7 @@ B 0 0 A 0 1000 0
 EFIJ
 stand stand male 1000
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #17051
 orca~
 the orca~
@@ -956,6 +965,9 @@ armor AGQ 0 AI
 25 25 25 25 0
 64 5 1000 P
 f object hp 100 0
+m obj_wear obj_wear_armbands 100~
+m obj_remove obj_remove_armbands 100~
+m obj_fight obj_fight_armbands 20~
 E
 fire~
 The armbands are burning brightly.
@@ -5062,18 +5074,6 @@ the ice~
 ABCFZ -1 17297
 S
 #0
-
-#SPECIALS
-M 17024 spec_fido	* the black crab
-M 17025 spec_breath_fire	* the lava worm
-M 17030 spec_breath_fire	* Pele, god of fire
-M 17035 spec_fido	* the tiger shark
-M 17036 spec_fido	* the great white shark
-M 17037 spec_fido	* the mako shark
-M 17038 spec_fido	* the hammerhead shark
-M 17039 spec_fido	* the blue shark
-M 17050 spec_cast_mage	* Lord Vulture
-S
 
 #RESETS
 M 0 17012 1 17171 1	* the shipwright (On the Beach)

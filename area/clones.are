@@ -168,9 +168,4 @@ stand stand either 10
 F for AHMV
 #0
 
-#SPECIALS
-M 37000 spec_janitor	* the janitor
-M 37001 spec_guard	* the cityguard
-S
-
 #$

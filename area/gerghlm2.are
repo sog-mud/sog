@@ -450,6 +450,7 @@ CDEKLT
 stand stand male 600
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7529
 young девушка woman молодая~
 @eng a young woman@rus ~~молодая~~ ~~девушка~~~
@@ -480,6 +481,7 @@ CDEKLT
 stand stand male 600
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7531
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
@@ -495,6 +497,7 @@ CDEKLT
 stand stand male 680
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7532
 cityguard стражник guard gerighelm геригхельма~
 @eng a Gerighelm cityguard@rus ~~стражник~~ Геригхельма~
@@ -510,6 +513,7 @@ CDEKLT
 stand stand male 740
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7533
 ale-conner дегустатор ale conner~
 @eng the ale-conner@rus дегустатор~
@@ -542,6 +546,7 @@ CDEKLT
 stand stand male 920
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7535
 defender защитник gerighelm геригхельма~
 @eng a Defender of Gerighelm@rus ~~защитник~~ Геригхельма~
@@ -558,6 +563,7 @@ CDEKLT
 stand stand male 1000
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7536
 palace стражник guard страж дворца~
 @eng a palace guard@rus ~~страж~~ дворца~
@@ -574,6 +580,7 @@ CDEKLT
 stand stand male 1000
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7537
 palace стражник guard страж дворца~
 @eng a palace guard@rus ~~страж~~ дворца~
@@ -590,6 +597,7 @@ CDEKLT
 stand stand male 1300
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7538
 cook повар~
 @eng the cook@rus повар~
@@ -622,6 +630,7 @@ stand stand male 2000
 0 0 medium unknown
 r bash -50
 r charm 100
+m mob_random mob_random_cast_mage +100~
 #7540
 palace священник priest придворный~
 @eng the palace priest@rus ~~придворный~~ ~~священник~~~
@@ -638,6 +647,7 @@ EFK
 stand stand male 2000
 0 0 medium unknown
 r bash -50
+m mob_random mob_random_cast_cleric +100~
 #7550
 head начальник guard стражи~
 @eng the head of the guard@rus ~~начальник~~ стражи~
@@ -653,6 +663,7 @@ CDEKLT
 stand stand male 2000
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_executioner +100~
 #7551
 palace садовник gardener придворный~
 @eng the palace gardener@rus ~~придворный~~ ~~садовник~~~
@@ -681,6 +692,7 @@ CDEKLT
 stand stand male 2200
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7553
 bodyguard телохранитель body guard~
 @eng a bodyguard@rus телохранитель~
@@ -696,6 +708,7 @@ CDEKLT
 stand stand male 2500
 0 0 medium unknown
 r magic -50
+m mob_random mob_random_guard +100~
 #7554
 duke герцог gerighelm геригхельма~
 @eng the Duke of Gerighelm@rus ~~Герцог~~ Геригхельма~
@@ -712,6 +725,7 @@ stand stand male 4000
 0 0 medium unknown
 r bash -50
 r charm 100
+m mob_random mob_random_cast_judge +100~
 #7555
 duchess герцогиня gerighelm геригхельма~
 @eng the Duchess of Gerighelm@rus ~~Герцогиня~~ Геригхельма~
@@ -728,6 +742,7 @@ stand stand female 2500
 0 0 medium unknown
 r bash -50
 r charm 100
+m mob_random mob_random_breath_any +100~
 #7590
 servant слуга~
 @eng a servant@rus слуга~
@@ -758,6 +773,7 @@ CHS 0 0 BG 0 -100 0
 EFJN
 stand stand either 200
 0 0 medium unknown
+m mob_random mob_random_thief +100~
 #7592
 baker пекарь~
 @eng a baker@rus пекарь~
@@ -6467,25 +6483,6 @@ S
 0 CM inside
 S
 #0
-
-#SPECIALS
-M 7528 spec_guard	* a junior guard
-M 7530 spec_guard	* a Gerighelm cityguard
-M 7531 spec_guard	* a Gerighelm cityguard
-M 7532 spec_guard	* a Gerighelm cityguard
-M 7534 spec_guard	* a Defender of Gerighelm
-M 7535 spec_guard	* a Defender of Gerighelm
-M 7536 spec_guard	* a palace guard
-M 7537 spec_guard	* a palace guard
-M 7539 spec_cast_mage	* the palace mage
-M 7540 spec_cast_cleric	* the palace priest
-M 7550 spec_executioner	* the head of the guard
-M 7552 spec_guard	* a bodyguard
-M 7553 spec_guard	* a bodyguard
-M 7554 spec_cast_judge	* the Duke of Gerighelm
-M 7555 spec_breath_any	* the Duchess of Gerighelm
-M 7591 spec_thief	* a cutpurse
-S
 
 #RESETS
 M 0 7503 6 7502 1	* a swallow (The Park)

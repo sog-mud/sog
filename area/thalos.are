@@ -25,6 +25,7 @@ stand stand none 1128
 0 0 medium unknown
 g @eng none@rus male~
 r magic 100
+m mob_random mob_random_cast_mage +100~
 #5201
 lamia beast ламия чудовище~
 @eng the lamia@rus ламия~
@@ -2593,10 +2594,6 @@ D0
 Z 0 5279
 S
 #0
-
-#SPECIALS
-M 5200 spec_cast_mage	* The mighty beholder
-S
 
 #RESETS
 M 0 5201 12 5204 1	* the lamia (A Garden Path)

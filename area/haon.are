@@ -179,6 +179,7 @@ EFNR
 stand stand none 2500
 0 0 medium unknown
 g @eng none@rus male~
+m mob_random mob_random_breath_gas +100~
 #6115
 shargugh brownie шаргах брауни~
 @eng Shargugh@rus Шаргах~
@@ -212,6 +213,7 @@ BCFQ 0 0 0 AH 0 0
 EIKU
 stand stand male 250
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #6117
 guildmaster master учитель~
 @eng the guildmaster@rus учитель~
@@ -3477,11 +3479,6 @@ D3
 Z 0 6156
 S
 #0
-
-#SPECIALS
-M 6112 spec_breath_gas	* the huge, green dragon
-M 6116 spec_cast_cleric	* the elder druid
-S
 
 #RESETS
 O 0 6011 0 6006	* a mushroom (A small path in the dense forest)

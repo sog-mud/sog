@@ -373,6 +373,7 @@ r cold 100
 r lightning -50
 r acid -50
 r mental 100
+m mob_random mob_random_cast_cleric +100~
 #10018
 gripper хватало~
 @eng a nasty gripper@rus хватало~
@@ -445,6 +446,7 @@ r cold 100
 r lightning -50
 r acid -50
 r mental 100
+m mob_random mob_random_cast_mage +100~
 #10021
 dragon дракон красный скарлет scarlet great red~
 @eng Scarlet@rus Скарлет~
@@ -467,6 +469,7 @@ stand stand female 300
 c L giant unknown
 r cold 100
 r mental 100
+m mob_random mob_random_breath_fire +100~
 #10022
 shadow people призрак~
 @eng an evil shadow person@rus призрак~
@@ -526,6 +529,7 @@ stand stand male 300
 r cold 100
 r acid -50
 r mental 100
+m mob_random mob_random_breath_any +100~
 #10025
 thief воришка маленький dark~
 @eng a little thief@rus ~~маленький~~ ~~воришка~~~
@@ -545,6 +549,7 @@ stand stand male 300
 r cold 100
 r mental 100
 r weapon 33
+m mob_random mob_random_thief +100~
 #10026
 snake желтая змейка~
 @eng a yellow snake@rus ~~желтая~~ ~~змейка~~~
@@ -667,6 +672,7 @@ r acid -50
 r poison 100
 r holy 33
 r mental 100
+m mob_random mob_random_cast_undead +100~
 #10032
 gar tail гар short короткохвостый~
 @eng a short-tailed gar@rus ~~короткохвостый~~ ~~гар~~~
@@ -2540,15 +2546,6 @@ D2
 Z 0 10041
 S
 #0
-
-#SPECIALS
-M 10017 spec_cast_cleric	* The Bone Woman
-M 10020 spec_cast_mage	* the spirit king
-M 10021 spec_breath_fire	* Scarlet
-M 10024 spec_breath_any	* a drunken villager
-M 10025 spec_thief	* a little thief
-M 10031 spec_cast_undead	* The Evil Darken Rahl
-S
 
 #RESETS
 O 0 10026 0 10001	* a little sign (Path by a lake)

@@ -161,6 +161,7 @@ B 0 0 0 0 2 0
 0
 stand stand male 0
 0 0 large unknown
+m mob_random mob_random_breath_lightning +100~
 #8209
 elephant слон~
 @eng the elephant@rus слон~
@@ -1267,10 +1268,6 @@ D1
 Z -1 8237
 S
 #0
-
-#SPECIALS
-M 8208 spec_breath_lightning	* the baby dragon
-S
 
 #RESETS
 O 0 8203 0 8201	* a fountain (The Zoo Wishing Well)

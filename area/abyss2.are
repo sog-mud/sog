@@ -68,6 +68,7 @@ stand stand male 6500
 r holy 33
 r charm 100
 r magic -50
+m mob_random mob_random_breath_gas +100~
 #25002
 death crimson красная смерть~
 @eng A Crimson Death@rus ~~Красная~~ ~~Смерть~~~
@@ -205,6 +206,7 @@ r fire 100
 r poison 100
 r holy -50
 r disease 100
+m mob_random mob_random_cast_cleric +100~
 #25009
 hydra гидра~
 @eng the Hydra@rus ~~гидра~~~
@@ -244,6 +246,7 @@ stand stand male 0
 r fire -50
 r cold -50
 r magic 33
+m mob_random mob_random_poison +100~
 #25011
 treant tree дерево~
 @eng the Treant@rus ~~ожившее~~ ~~дерево~~~
@@ -264,6 +267,7 @@ g @eng male@rus neutral~
 r charm 100
 r weapon 33
 r magic -50
+m mob_random mob_random_cast_undead +100~
 #25012
 githyanki гитьянки~
 @eng a Githyanki@rus гитьянки~
@@ -407,6 +411,7 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+m mob_random mob_random_breath_any +100~
 #25019
 earth elemental king король элементалей земли~
 @eng The Earth King@rus ~~король~~ земных элементалей~
@@ -425,6 +430,7 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+m mob_random mob_random_breath_any +100~
 #25020
 air elemental lord повелитель элементалей воздуха~
 @eng The Lord of Air@rus ~~повелитель~~ элементалей воздуха~
@@ -443,6 +449,7 @@ r fire 33
 r cold 33
 r lightning 33
 r acid 33
+m mob_random mob_random_breath_any +100~
 #25021
 fire elemental sultan султан элементалей огня~
 @eng The Sultan of Fire@rus ~~султан~~ огня~
@@ -460,6 +467,7 @@ stand stand male 0
 r cold 33
 r lightning 33
 r acid 33
+m mob_random mob_random_breath_any +100~
 #25030
 demon vrock демон врок~
 @eng A vrock@rus ~~Врок~~~
@@ -527,6 +535,7 @@ A
 stand stand either 890
 0 0 medium unknown
 r charm 100
+m mob_random mob_random_thief +100~
 #25034
 demon marilith марилит~
 @eng Marilith@rus Марилит~
@@ -3297,18 +3306,6 @@ D0
 Z -1 25097
 S
 #0
-
-#SPECIALS
-M 25001 spec_breath_gas	* Keftab, the Ancient One
-M 25008 spec_cast_cleric	* an Efreet
-M 25010 spec_poison	* the kraken
-M 25011 spec_cast_undead	* the Treant
-M 25018 spec_breath_any	* The Water Prince
-M 25019 spec_breath_any	* The Earth King
-M 25020 spec_breath_any	* The Lord of Air
-M 25021 spec_breath_any	* The Sultan of Fire
-M 25033 spec_thief	* Nalfeshnee
-S
 
 #RESETS
 M 0 25017 2 25003 1	* the Gatekeeper (The End of the Trail)

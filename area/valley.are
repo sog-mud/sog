@@ -144,6 +144,7 @@ BCFQ 0 HN 0 0 0 0
 EIKR
 stand stand male 0
 0 0 medium unknown
+m mob_random mob_random_cast_cleric +100~
 #7808
 elder valley elf старейшина эльф~
 @eng a valley elf elder@rus ~~старейшина~~ долины~
@@ -161,6 +162,7 @@ BCFR 0 N 0 0 0 0
 FR
 stand stand female 0
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7809
 pyrohydra pyro hydra beast существо гидра огненная~
 @eng the pyrohydra@rus ~~огненная~~ ~~гидра~~~
@@ -179,6 +181,7 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
+m mob_random mob_random_breath_fire +100~
 #7810
 hermit man old отшельник~
 @eng an old hermit@rus ~~старый~~ ~~отшельник~~~
@@ -208,6 +211,7 @@ BCFR 0 0 0 0 0 0
 FU
 stand stand male 50
 0 0 medium unknown
+m mob_random mob_random_cast_mage +100~
 #7812
 guardian daemon демон охранник~
 @eng the guardian daemon@rus ~~демон~~-~~охранник~~~
@@ -3033,13 +3037,6 @@ You've fallen, and you can't get up!
 0 C inside
 S
 #0
-
-#SPECIALS
-M 7807 spec_cast_cleric	* a valley elf elder
-M 7808 spec_cast_mage	* a valley elf elder
-M 7809 spec_breath_fire	* the pyrohydra
-M 7811 spec_cast_mage	* Talemon
-S
 
 #RESETS
 M 0 7801 6 7805 1	* a valley elf (The Entrance to the Valley of the Elves)
