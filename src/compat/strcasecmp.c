@@ -1,9 +1,9 @@
 /*
- * $Id: strsep.c,v 1.5 1998-08-16 11:21:13 fjoe Exp $
+ * $Id: strcasecmp.c,v 1.1 1998-08-16 11:21:13 fjoe Exp $
  */
 
-/*-
- * Copyright (c) 1990, 1993
+/*
+ * Copyright (c) 1987, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,50 +36,46 @@
  */
 
 #include <string.h>
-#include <stdio.h>
+#include <ctype.h>
 
 #include "compat.h"
 
 #if defined(LIBC_SCCS) && !defined(lint)
-static char sccsid[] = "@(#)strsep.c	8.1 (Berkeley) 6/4/93";
+static char sccsid[] = "@(#)strcasecmp.c	8.1 (Berkeley) 6/4/93";
 #endif /* LIBC_SCCS and not lint */
 
-/*
- * Get next token from string *stringp, where tokens are possibly-empty
- * strings separated by characters from delim.
- *
- * Writes NULs into the string at *stringp to end tokens.
- * delim need not remain constant from call to call.
- * On return, *stringp points past the last NUL written (if there might
- * be further tokens), or is NULL (if there are definitely no more tokens).
- *
- * If *stringp is NULL, strsep returns NULL.
- */
-char *
-strsep(stringp, delim)
-	register char **stringp;
-	register const char *delim;
-{
-	register char *s;
-	register const char *spanp;
-	register int c, sc;
-	char *tok;
+typedef unsigned char u_char;
 
-	if ((s = *stringp) == NULL)
-		return (NULL);
-	for (tok = s;;) {
-		c = *s++;
-		spanp = delim;
+int
+strcasecmp(s1, s2)
+	const char *s1, *s2;
+{
+	register const u_char
+			*us1 = (const u_char *)s1,
+			*us2 = (const u_char *)s2;
+
+	while (tolower(*us1) == tolower(*us2++))
+		if (*us1++ == '\0')
+			return (0);
+	return (tolower(*us1) - tolower(*--us2));
+}
+
+int
+strncasecmp(s1, s2, n)
+	const char *s1, *s2;
+	register size_t n;
+{
+	if (n != 0) {
+		register const u_char
+				*us1 = (const u_char *)s1,
+				*us2 = (const u_char *)s2;
+
 		do {
-			if ((sc = *spanp++) == c) {
-				if (c == 0)
-					s = NULL;
-				else
-					s[-1] = 0;
-				*stringp = s;
-				return (tok);
-			}
-		} while (sc != 0);
+			if (tolower(*us1) != tolower(*us2++))
+				return (tolower(*us1) - tolower(*--us2));
+			if (*us1++ == '\0')
+				break;
+		} while (--n != 0);
 	}
-	/* NOTREACHED */
+	return (0);
 }
