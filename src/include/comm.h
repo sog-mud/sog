@@ -2,10 +2,11 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.6 1998-05-27 08:47:22 fjoe Exp $
+ * $Id: comm.h,v 1.7 1998-07-10 13:08:01 efdi Exp $
  */
 
-/* comm.c */
+#define MAX_ON_FILE	"max_on.txt"
+
 void	show_string	(struct descriptor_data *d, char *input);
 void	close_socket	(DESCRIPTOR_DATA *dclose);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, int length);

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.65 1998-07-10 10:39:39 fjoe Exp $
+ * $Id: comm.c,v 1.66 1998-07-10 13:08:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -2314,11 +2314,28 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		{
 			int count;
 			extern int max_on;
-			    count=0;
-			    for (d = descriptor_list; d != NULL; d = d->next)
-			    	if (d->connected == CON_PLAYING)
-			        	count++;
-			    max_on = UMAX(count,max_on);
+			FILE *max_on_file;
+			int tmp = 0;
+			count = 0;
+			for (d = descriptor_list; d != NULL; d = d->next)
+				if (d->connected == CON_PLAYING)
+			       		count++;
+			max_on = UMAX(count, max_on);
+			if(!(max_on_file = fopen(MAX_ON_FILE, "r")))
+				bug("nanny: couldn't open MAX_ON_FILE for read",					 0);
+			else {
+				fscanf(max_on_file, "%d", &tmp);
+				fclose(max_on_file);
+			}
+			if (tmp < max_on) {
+				if(!(max_on_file = fopen(MAX_ON_FILE, "w"))) {
+					bug("nanny: couldn't open MAX_ON_FILE "
+					    "for write", 0);
+				}
+				fprintf(max_on_file, "%d", max_on);
+				log("Global max_on changed.");
+				fclose(max_on_file);
+			}
 		}
 
 
