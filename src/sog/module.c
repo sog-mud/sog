@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.2 1999-06-22 13:50:45 fjoe Exp $
+ * $Id: module.c,v 1.3 1999-06-24 08:05:01 fjoe Exp $
  */
 
 /*
@@ -36,129 +36,78 @@
 #include <dlfcn.h>
 
 #include "merc.h"
-#include "dl.h"
+#include "module.h"
 #include "version.h"
-#include "db/db.h"
+#include "log.h"
 
-static void load_spellfun(dl_t*);
-static void unload_spellfun(dl_t*);
+varr modules = { sizeof(module_t), 2 };
 
-dl_t dl_tab[] =
-{
-	{ "spellfun", load_spellfun, unload_spellfun },
-
-	{ NULL }
-};
-
-int dl_load(const char *name)
+int mod_load(module_t* m)
 {
 	void *dlh;
-	int (*dl_version)(void);
-	int ver;
-	dl_t *dl;
-
-	if ((dl = dl_lookup(name)) == NULL) {
-		db_error("dl_load", "%s: unknown module name", name);
-		return -1;
-	}
-
-	/*
-	 * build .so filename if it was not done before
-	 */
-	if (dl->filename == NULL) {
-		char filename[PATH_MAX];
-
-		snprintf(filename, sizeof(filename), "%s%c%s.so",
-			 DL_PATH, PATH_SEPARATOR, dl->name);
-		dl->filename = str_dup(filename);
-	}
+	int* abi_ver;
+	int (*callback)(module_t*);
 
 	/*
 	 * unload previously loaded module
 	 */
-	if (dl->dlh != NULL) {
-		if (dl->unload_callback)
-			dl->unload_callback(dl->dlh);
-		dl_close(dl->dlh);
-		dl->dlh = NULL;
+	if (m->dlh != NULL) {
+		if ((callback = dlsym(m->dlh, "_module_unload")) != NULL
+		&&  callback(m) < 0)
+			return -1;
+
+		dlclose(m->dlh);
+		m->dlh = NULL;
 	}
 
 	/*
 	 * open .so and check its version
 	 */
-	dlh = dl_open(dl->filename, RTLD_LAZY);
+	dlh = dlopen(m->file_name, RTLD_LAZY);
 	if (dlh == NULL) {
-		db_error("dl_load", "%s: %s", dl->filename, dl_error(dlh));
+		wizlog("mod_load: %s", dlerror());
 		return -1;
 	}
 
-	dl_version = dl_sym(dlh, "dl_version");
-	if (dl_version == NULL) {
+	abi_ver = dlsym(dlh, "_abi_version");
+	if (abi_ver == NULL) {
+		wizlog("mod_load: %s: %s", m->file_name, dlerror());
 		dlclose(dlh);
-		db_error("dl_load", "%s: %s", dl->filename, dl_error(dlh));
 		return -1;
 	}
 
-	if ((ver = dl_version()) != DL_VERSION) {
-		dl_close(dlh);
-		db_error("dl_load",
-			 "%s: incorrect version %d.%d, current version %d.%d",
-			 dl->filename,
-			 VERSION_HI(ver), VERSION_LO(ver),
-			 VERSION_HI(DL_VERSION), VERSION_LO(DL_VERSION));
+	if (*abi_ver != ABI_VERSION) {
+		wizlog("mod_load: %s: incorrect version %d.%d, "
+		       "current version %d.%d",
+		       m->file_name,
+		       VERSION_HI(*abi_ver), VERSION_LO(*abi_ver),
+		       VERSION_HI(ABI_VERSION), VERSION_LO(ABI_VERSION));
+		dlclose(dlh);
 		return -1;
 	}
 
-	dl->dlh = dlh;
+	m->dlh = dlh;
 
-	if (dl->load_callback)
-		dl->load_callback(dl);
+	if ((callback = dlsym(m->dlh, "_module_load")) != NULL
+	&&  callback(m) < 0) {
+		dlclose(dlh);
+		m->dlh = NULL;
+		return -1;
+	}
+
+	wizlog("mod_load: loaded module %s (%s)", m->name, m->file_name);
 	return 0;
 }
 
-dl_t *dl_lookup(const char *name)
+module_t *mod_lookup(const char *name)
 {
-	dl_t *dl;
+	int i;
 
-	for (dl = dl_tab; dl->name; dl++) {
-		if (!str_prefix(name, dl->name))
-			return dl;
+	for (i = 0; i < modules.nused; i++) {
+		module_t *m = VARR_GET(&modules, i);
+		if (!str_prefix(name, m->name))
+			return m;
 	}
 
 	return NULL;
-}
-
-/*
- * loader callbacks
- */
-static void load_spellfun(dl_t* dl)
-{
-	int sn;
-
-	for (sn = 0; sn < skills.nused; sn++) {
-		skill_t *sk = SKILL(sn);
-
-		if (sk->skill_type != ST_SPELL)
-			continue;
-
-		sk->fun = dl_sym(dl->dlh, sk->fun_name);
-		if (sk->fun == NULL) {
-			db_error("load_spellfun", "%s: %s",
-				 sk->name, dl_error(dl->dlh));
-		}
-	}
-}
-
-static void unload_spellfun(dl_t *dl)
-{
-	int sn;
-
-	for (sn = 0; sn < skills.nused; sn++) {
-		skill_t *sk = SKILL(sn);
-
-		if (sk->skill_type != ST_SPELL)
-			continue;
-
-		sk->fun = NULL;
-	}
 }

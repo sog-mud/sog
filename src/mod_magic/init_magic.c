@@ -23,16 +23,51 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dl_version.c,v 1.1 1999-06-22 12:37:18 fjoe Exp $
+ * $Id: init_magic.c,v 1.1 1999-06-24 08:05:03 fjoe Exp $
  */
+
+#include <stdio.h>
+#include <dlfcn.h>
+
+#include "typedef.h"
+#include "varr.h"
+#include "skills.h"
+#include "log.h"
 
 #include "version.h"
+#include "module.h"
 
-/*
- * This is version checking stub for .so libraries
- */
+int _abi_version = ABI_VERSION;
 
-int dl_version(void)
+int _module_load(module_t* m)
 {
-	return DL_VERSION;
+	int sn;
+
+	for (sn = 0; sn < skills.nused; sn++) {
+		skill_t *sk = SKILL(sn);
+
+		if (sk->skill_type != ST_SPELL)
+			continue;
+
+		sk->fun = dlsym(m->dlh, sk->fun_name);
+		if (sk->fun == NULL) 
+			wizlog("_module_load(spellfun): %s", dlerror());
+	}
+
+	return 0;
+}
+
+int _module_unload(module_t *m)
+{
+	int sn;
+
+	for (sn = 0; sn < skills.nused; sn++) {
+		skill_t *sk = SKILL(sn);
+
+		if (sk->skill_type != ST_SPELL)
+			continue;
+
+		sk->fun = NULL;
+	}
+	return 0;
 }

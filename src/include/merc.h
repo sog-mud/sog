@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.212 1999-06-24 01:13:48 avn Exp $
+ * $Id: merc.h,v 1.213 1999-06-24 08:05:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1238,6 +1238,7 @@ where_t *where_lookup(flag32_t where);
 #define WIZ_PREFIX		(S)
 #define WIZ_SPAM		(T)
 #define WIZ_OLC			(U)
+#define WIZ_WIZLOG		(V)
 
 /*
  * Prototype for a mob.
@@ -2199,10 +2200,6 @@ void	tail_chain	(void);
 char *format_flags(flag64_t flags);
 
 #define chance(num) (number_range(1, 100) <= num)
-
-/*****************************************************************************
- *                                    OLC                                    *
- *****************************************************************************/
 
 /*
  * Global Constants

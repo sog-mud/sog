@@ -23,30 +23,23 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.h,v 1.2 1999-06-22 13:50:45 fjoe Exp $
+ * $Id: module.h,v 1.3 1999-06-24 08:05:01 fjoe Exp $
  */
 
-#ifndef _DL_H_
-#define _DL_H_
+#ifndef _MODULE_H_
+#define _MODULE_H_
 
-typedef struct dl_t dl_t;
+typedef struct module_t module_t;
 
-struct dl_t {
-	const char *name;		/* library name		*/
-	void (*load_callback)(dl_t*);	/* load callback	*/
-	void (*unload_callback)(dl_t*);	/* unload callback	*/
-	const char *filename;		/* library filename	*/
-	void *dlh;			/* library handler	*/
+struct module_t {
+	const char *name;		/* module name		*/
+	const char *file_name;		/* module filename	*/
+	void *dlh;			/* module handle	*/
 };
 
-int	dl_load			(const char *name);
-dl_t *	dl_lookup	(const char *name);
+int		mod_load	(module_t *m);
+module_t *	mod_lookup	(const char *name);
 
-#define dl_open(name, mode)	dlopen(name, mode)
-#define dl_error(dlh)		dlerror()
-#define dl_sym(dlh, name)	dlsym(dlh, name)
-#define dl_close(dlh)		dlclose(dlh)
-
-extern dl_t dl_tab[];
+extern varr modules;
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.162 1999-06-24 01:13:48 avn Exp $
+ * $Id: act_wiz.c,v 1.163 1999-06-24 08:04:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,7 +68,6 @@
 #include "db/cmd.h"
 #include "db/db.h"
 #include "olc/olc.h"
-#include "dl.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -263,7 +262,7 @@ void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
 		if (IS_SET(vch->pcdata->wiznet, WIZ_PREFIX))
 			act_puts("--> ", vch, NULL, NULL, TO_CHAR | ACT_NOLF,
 				 POS_DEAD);
-		act_puts(msg, vch, arg, ch, TO_CHAR, POS_DEAD);
+		act_puts(msg, vch, arg, ch, TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}
 }
 
@@ -4597,6 +4596,8 @@ DO_FUN(do_qtarget)
 	affect_to_char(vch, &af);
 }
 
+#include "module.h"
+
 void do_modules(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -4608,8 +4609,33 @@ void do_modules(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg, "reload")) {
+		module_t *m;
+
 		one_argument(argument, arg, sizeof(arg));
-		dl_load(arg);
+		if ((m = mod_lookup(arg)) == NULL) {
+			char_printf(ch, "%s: unknown module name.\n",
+				    arg);
+			return;
+		}
+
+		if (mod_load(m) == 0)
+			char_puts("Ok.\n", ch);
+
+		return;
+	}
+
+	if (!str_prefix(arg, "list")) {
+		int i;
+
+		if (modules.nused == 0) {
+			char_puts("No modules found.\n", ch);
+			return;
+		}
+
+		for (i = 0; i < modules.nused; i++) {
+			module_t *m = VARR_GET(&modules, i);
+			char_printf(ch, "Module: %s\n", m->name);
+		}
 		return;
 	}
 

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.50 1999-06-22 14:29:41 fjoe Exp $
+# $Id: Makefile,v 1.51 1999-06-24 08:04:59 fjoe Exp $
 #
 
 .include "Makefile.inc"
@@ -32,22 +32,22 @@ OLC_OFILES = olc.o olc_area.o olc_clan.o olc_help.o\
 	     olc_social.o
 
 CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
-         buffer.c cast.c chquest.c clan.c class.c dl.c\
+         buffer.c cast.c chquest.c clan.c class.c\
 	 effects.c fight.c flag.c handler.c healer.c help.c\
 	 hunt.c interp.c log.c lookup.c martial_art.c\
-	 mlstring.c mob_cmds.c mob_prog.c namedp.c note.c obj_prog.c quest.c\
-	 race.c raffects.c rating.c recycle.c religion.c repair.c rspells.c\
-	 save.c skills.c special.c str.c string_edit.c\
+	 mlstring.c mob_cmds.c mob_prog.c module.c namedp.c note.c obj_prog.c\
+	 quest.c race.c raffects.c rating.c recycle.c religion.c repair.c\
+	 rspells.c save.c skills.c special.c str.c string_edit.c\
 	 tables.c update.c util.c varr.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(OLC_CFILES) $(COMPAT_CFILES)
 
 OFILES = act_comm.o act_info.o act_move.o act_obj.o act_wiz.o auction.o\
-         buffer.o cast.o chquest.o clan.o class.o dl.o\
+         buffer.o cast.o chquest.o clan.o class.o\
 	 effects.o fight.o flag.o handler.o healer.o help.o\
 	 hunt.o interp.o log.o lookup.o martial_art.o\
-	 mlstring.o mob_cmds.o mob_prog.o namedp.o note.o obj_prog.o quest.o\
-	 race.o raffects.o rating.o recycle.o religion.o repair.o rspells.o\
-	 save.o skills.o special.o str.o string_edit.o\
+	 mlstring.o mob_cmds.o mob_prog.o module.o namedp.o note.o obj_prog.o\
+	 quest.o race.o raffects.o rating.o recycle.o religion.o repair.o\
+	 rspells.o save.o skills.o special.o str.o string_edit.o\
 	 tables.o update.o util.o varr.o\
 	 $(COMM_OFILES) $(DB_OFILES) $(OLC_OFILES) $(COMPAT_OFILES)
 

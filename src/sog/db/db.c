@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.158 1999-06-22 13:50:46 fjoe Exp $
+ * $Id: db.c,v 1.159 1999-06-24 08:05:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,9 +63,9 @@
 #include "socials.h"
 #include "update.h"
 #include "db.h"
+#include "module.h"
 #include "db/lang.h"
 #include "olc/olc.h"
-#include "dl.h"
 
 #ifdef SUNOS
 #	include "compat.h"
@@ -109,7 +109,7 @@ const char CLASSES_PATH		[] = "classes";
 const char CLANS_PATH		[] = "clans";
 const char AREA_PATH		[] = "area";
 const char LANG_PATH		[] = "lang";
-const char DL_PATH		[] = "lib";
+const char MODULES_PATH		[] = "modules";
 
 #if defined (WIN32)
 const char PLISTS_PATH		[] = "clans\\plists";
@@ -341,6 +341,7 @@ void boot_db_system(void)
 void boot_db(void)
 {
 	long lhour, lday, lmonth;
+	int i;
 
 #ifdef __FreeBSD__
 	extern char* malloc_options;
@@ -393,13 +394,19 @@ void boot_db(void)
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);
-	dl_load("spellfun");
 
 	db_load_list(&db_races, RACES_PATH, RACE_LIST);
 	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
 	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
+
+	/*
+	 * load modules
+	 */
+	for (i = 0; i < modules.nused; i++)
+		mod_load(VARR_GET(&modules, i));
+
 	fBootDb = FALSE;
 
 	/*

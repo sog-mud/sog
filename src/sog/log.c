@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.16 1999-06-22 13:50:46 fjoe Exp $
+ * $Id: log.c,v 1.17 1999-06-24 08:05:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,10 +44,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "typedef.h"
-#include "const.h"
-#include "log.h"
-#include "util.h"
+#include "merc.h"
 
 #ifdef SUNOS
 #	include "compat/compat.h"
@@ -100,3 +97,17 @@ void bug(const char *str, ...)
 
 	log("[*****] BUG: %s", buf);
 }
+
+void wizlog(const char *str, ...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, str);
+	vsnprintf(buf, sizeof(buf), str, ap);
+	va_end(ap);
+
+	log(buf);
+	wiznet(buf, NULL, NULL, WIZ_WIZLOG, 0, 0);
+}
+

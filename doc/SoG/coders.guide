@@ -1,6 +1,27 @@
 Some notes for coders
 ---------------------
 
+			INTRO. COMMON DECLARATIONS
+			--------------------------
+
 	Formatting style is fully described in 'man 9 style' (FreeBSD).
 
-	varrs and mlstrings never should be allocated dynamically.
+			PART I. BASIC TYPES
+			-------------------
+
+str
+---
+
+mlstring
+--------
+	mlstrings never should be allocated dynamically.
+
+varr
+----
+	varr is variable size array. varr should never be allocated
+	dynamically.
+
+	struct
+	varr_init(varr* v, size_t nsize, size_t nstep);
+
+		varr_init simply initializes `nsize' and `nstep' fields of `v'.

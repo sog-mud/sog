@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.3 1999-06-10 11:47:35 fjoe Exp $
+ * $Id: db_system.c,v 1.4 1999-06-24 08:05:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,9 +40,11 @@
 
 #include "merc.h"
 #include "db.h"
+#include "module.h"
 
 DECLARE_DBLOAD_FUN(load_system);
 DECLARE_DBLOAD_FUN(load_info);
+DECLARE_DBLOAD_FUN(load_module);
 
 DBFUN dbfun_system[] =
 {
@@ -70,6 +72,15 @@ DBLOAD_FUN(load_system)
 			if (!str_cmp(word, "Listen")) {
 				int *p = varr_enew(&control_sockets);
 				*p = fread_number(fp);
+				fMatch = TRUE;
+			}
+			break;
+		case 'M':
+			if (!str_cmp(word, "Module")) {
+				module_t *m = varr_enew(&modules);
+				m->name = fread_string(fp);
+				m->file_name = str_printf("%s%c%s.so",
+			 		MODULES_PATH, PATH_SEPARATOR, m->name);
 				fMatch = TRUE;
 			}
 			break;
