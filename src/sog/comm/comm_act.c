@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.8 1999-02-17 07:53:28 fjoe Exp $
+ * $Id: comm_act.c,v 1.9 1999-02-18 20:09:25 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -405,18 +405,18 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			case 'p':
 				i = can_see_obj(to, obj1) ?
 					mlstr_cval(obj1->short_descr, to) :
-					"something";
+					GETMSG("something", to->lang);
 				break;
 	
 			case 'P':
 				i = can_see_obj(to, obj2) ?
 					mlstr_cval(obj2->short_descr, to) :
-					"something";
+					GETMSG("something", to->lang);
 				break;
 	
 			case 'd':
 				if (IS_NULLSTR(arg2))
-					i = "door";
+					i = GETMSG("door", to->lang);
 				else {
 					one_argument(arg2, tmp, sizeof(tmp));
 					i = tmp;
@@ -450,12 +450,20 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 				case 'g':
 					switch (subcode) {
-					case 'v':
+					case 'N':
 						tstack[sp].arg = vch->sex;
 						break;
 
-					case 'c':
+					case 'n':
 						tstack[sp].arg = ch->sex;
+						break;
+
+					case 'i':
+						tstack[sp].arg = vch1->sex;
+						break;
+
+					case 'I':
+						tstack[sp].arg = vch3->sex;
 						break;
 
 					case 't':

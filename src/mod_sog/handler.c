@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.116 1999-02-18 09:57:29 fjoe Exp $
+ * $Id: handler.c,v 1.117 1999-02-18 20:09:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3064,13 +3064,19 @@ const char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 	if (can_see(looker, ch)) {
 		if (IS_NPC(ch))
 			return mlstr_cval(ch->short_descr, looker);
-		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker))
-			return "an ugly creature";
+		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
+			return word_gender(looker->lang,
+					   GETMSG("an ugly creature",
+						  looker->lang), ch->sex);
+		}
 		return ch->name;
 	}
 
-	if (IS_IMMORTAL(ch))
-		return "an immortal";
+	if (IS_IMMORTAL(ch)) {
+		return word_gender(looker->lang,
+				   GETMSG("an immortal", looker->lang),
+				   ch->sex);
+	}
 
 	return "someone";
 }
