@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.1 1999-12-13 14:17:32 avn Exp $
+ * $Id: olc_spec.c,v 1.2 1999-12-14 00:26:41 avn Exp $
  */
 
 #include "olc.h"
@@ -83,10 +83,8 @@ OLC_FUN(speced_create)
 	}
 
 	first_arg(argument, arg, sizeof(arg), FALSE);
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -119,10 +117,8 @@ OLC_FUN(speced_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((s = spec_search(argument)) == 0) {
 		char_printf(ch, "SpecEd: %s: No such spec.\n", argument);
@@ -161,7 +157,7 @@ OLC_FUN(speced_show)
 		if (IS_EDIT(ch, ED_SPEC))
 			EDIT_SPEC(ch, s);
 		else {
-			dofun("help", ch, "'OLC ASHOW'");
+			OLC_ERROR("'OLC ASHOW'");
 			return FALSE;
 		}
 	} else {
@@ -207,11 +203,6 @@ OLC_FUN(speced_class)
 	return olced_flag(ch, argument, cmd, &s->spec_class);
 }
 
-#define SS_ERROR 	do {						\
-				dofun("help", ch, "'OLC SPEC SKILL'");	\
-				return FALSE;				\
-			} while (0)
-
 OLC_FUN(speced_skill)
 {
 	spec_t *s;
@@ -222,7 +213,7 @@ OLC_FUN(speced_skill)
 
 	EDIT_SPEC(ch, s);
 	if (argument[0] == '\0')
-		SS_ERROR;
+		OLC_ERROR("'OLC SPEC SKILL'");
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_prefix(arg, "add")) {
@@ -241,11 +232,11 @@ OLC_FUN(speced_skill)
 		del = TRUE;
 
 	if (!del && str_prefix(arg, "edit"))
-		SS_ERROR;
+		OLC_ERROR("'OLC SPEC SKILL'");
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg))
-		SS_ERROR;
+		OLC_ERROR("'OLC SPEC SKILL'");
 
 	num = atoi(arg);
 	ssk = varr_get(&s->spec_skills, num);

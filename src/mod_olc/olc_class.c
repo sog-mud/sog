@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.14 1999-12-11 15:31:11 fjoe Exp $
+ * $Id: olc_class.c,v 1.15 1999-12-14 00:26:39 avn Exp $
  */
 
 #include "olc.h"
@@ -110,10 +110,8 @@ OLC_FUN(classed_create)
 	}
 
 	first_arg(argument, arg, sizeof(arg), FALSE);
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -146,10 +144,8 @@ OLC_FUN(classed_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((cl = class_search(argument)) == NULL) {
 		char_printf(ch, "ClassEd: %s: No such class.\n", argument);
@@ -190,10 +186,8 @@ OLC_FUN(classed_show)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_CLASS))
 			EDIT_CLASS(ch, class);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if ((class = class_search(argument)) == NULL) {
 			char_printf(ch, "ClassEd: %s: No such class.\n",
@@ -367,7 +361,7 @@ OLC_FUN(classed_stats)
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+	if (!st) char_printf(ch, "Syntax: %s <attr1> <attr2> ...\n", cmd->name);
 		else char_puts("Ok.\n", ch);
 	return st;
 }
@@ -479,8 +473,7 @@ OLC_FUN(classed_poses)
 		return TRUE;
 	}
 
-	dofun("help", ch, "'OLC CLASS POSES'");
-	return FALSE;
+	OLC_ERROR("'OLC CLASS POSES'");
 }
 
 OLC_FUN(classed_skillspec)
@@ -568,8 +561,7 @@ OLC_FUN(classed_guilds)
 		return TRUE;
 	}
 
-	dofun("help", ch, "'OLC CLASS SKILLS'");
-	return FALSE;
+	OLC_ERROR("'OLC CLASS GUILDS'");
 }
 
 bool touch_class(class_t *class)

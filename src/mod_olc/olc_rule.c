@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.23 1999-12-11 15:31:14 fjoe Exp $
+ * $Id: olc_rule.c,v 1.24 1999-12-14 00:26:41 avn Exp $
  */
 
 #include "olc.h"
@@ -153,10 +153,8 @@ OLC_FUN(ruleed_create)
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (impl)
 		argument = one_argument(argument, arg2, sizeof(arg2));
-	if (argument[0] == '\0' || (impl && !is_number(arg2))) {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (argument[0] == '\0' || (impl && !is_number(arg2)))
+		OLC_ERROR("'OLC CREATE'");
 
 	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
 		char_printf(ch, "RuleEd: %s: unknown rule class.\n", arg);
@@ -199,10 +197,8 @@ OLC_FUN(ruleed_edit)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	EDIT_LANG(ch, l);
 	EDIT_ROPS(ch, rops);
@@ -273,20 +269,16 @@ OLC_FUN(ruleed_show)
 			EDIT_RULE(ch, r);
 			EDIT_RCL(ch, rcl);
 		}
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
 		int rulecl;
 		char arg[MAX_INPUT_LENGTH];
 
 		argument = one_argument(argument, arg, sizeof(arg));
-		if (argument[0] == '\0') {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		if (argument[0] == '\0')
+			OLC_ERROR("'OLC ASHOW'");
 
 		if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
 			char_printf(ch, "RuleEd: %s: unknown rule class.\n",
@@ -358,20 +350,16 @@ OLC_FUN(ruleed_list)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_IMPL) || IS_EDIT(ch, ED_EXPL))
 			EDIT_RCL(ch, rcl);
-		else {
-			dofun("help", ch, "'OLC ALIST'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ALIST'");
 	}
 	else {
 		int rulecl;
 		char arg[MAX_INPUT_LENGTH];
 
 		argument = one_argument(argument, arg, sizeof(arg));
-		if (arg[0] == '\0') {
-			dofun("help", ch, "'OLC ALIST'");
-			return FALSE;
-		}
+		if (arg[0] == '\0')
+			OLC_ERROR("'OLC ALIST'");
 
 		if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
 			char_printf(ch, "RuleEd: %s: unknown rule class.\n",
@@ -391,10 +379,8 @@ OLC_FUN(ruleed_list)
 		}
 	}
 	else {
-		if (argument[0] == '\0') {
-			dofun("help", ch, "'OLC ALIST'");
-			return FALSE;
-		}
+		if (argument[0] == '\0')
+			OLC_ERROR("'OLC ALIST'");
 	
 		for (i = 0; i < MAX_RULE_HASH; i++) {
 			int j;
@@ -429,7 +415,7 @@ OLC_FUN(eruleed_name)
 	rulecl_t *rcl;
 
 	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC RULE'");
+		char_printf(ch, "Syntax: name <word>\n");
 		return FALSE;
 	}
 

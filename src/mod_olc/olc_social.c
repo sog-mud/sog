@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.13 1999-12-11 15:31:14 fjoe Exp $
+ * $Id: olc_social.c,v 1.14 1999-12-14 00:26:41 avn Exp $
  */
 
 #include "olc.h"
@@ -93,10 +93,8 @@ OLC_FUN(soced_create)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	if ((soc = social_lookup(arg, str_cmp))) {
 		char_printf(ch, "SocEd: %s: already exists.\n", soc->name);
@@ -124,10 +122,8 @@ OLC_FUN(soced_edit)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((soc = social_lookup(arg, str_cmp)) == NULL) {
 		char_printf(ch, "SocEd: %s: No such social.\n", arg);
@@ -186,10 +182,8 @@ OLC_FUN(soced_show)
 	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_SOCIAL))
 			EDIT_SOC(ch, soc);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
 		if ((soc = social_lookup(arg, str_prefix)) == NULL) {

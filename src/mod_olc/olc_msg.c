@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.37 1999-12-11 15:31:12 fjoe Exp $
+ * $Id: olc_msg.c,v 1.38 1999-12-14 00:26:40 avn Exp $
  */
 
 #include "olc.h"
@@ -77,10 +77,8 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	if (!str_cmp(argument, "$")) {
 		char_puts("MsgEd: invalid value.\n", ch);
@@ -113,10 +111,8 @@ OLC_FUN(msged_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((mp = msg_search(atomsg(argument))) == NULL) {
 		char_puts("MsgEd: msg not found.\n", ch);
@@ -185,10 +181,8 @@ OLC_FUN(msged_show)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_MSG))
 			EDIT_MSG(ch, mp);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
 		if ((mp = msg_search(atomsg(argument))) == NULL) {
@@ -210,10 +204,8 @@ OLC_FUN(msged_list)
 	int num;
 	BUFFER *output = NULL;
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC ALIST'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC ALIST'");
 	
 	argument = atomsg(argument);
 	num = 0;
@@ -256,10 +248,8 @@ OLC_FUN(msged_msg)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	lang = lang_lookup(arg);
-	if (lang < 0) {
-		dofun("help", ch, "'OLC MSG'");
-		return FALSE;
-	}
+	if (lang < 0)
+		OLC_ERROR("'OLC MSG'");
 
 	argument = atomsg(argument);
 	if (!lang) {

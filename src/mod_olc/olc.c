@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.91 1999-12-13 14:10:38 avn Exp $
+ * $Id: olc.c,v 1.92 1999-12-14 00:26:38 avn Exp $
  */
 
 /***************************************************************************
@@ -271,7 +271,7 @@ OLC_FUN(olced_strkey)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (IS_NULLSTR(arg)) {
-		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <string>\n", cmd->name);
 		return FALSE;
 	}
 
@@ -315,7 +315,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument,
 	one_argument(argument, arg, sizeof(arg));
 	val = strtol(arg, &endptr, 0);
 	if (*arg == '\0' || *endptr != '\0') {
-		char_printf(ch, "Syntax: %s number\n", cmd->name);
+		char_printf(ch, "Syntax: %s <number>\n", cmd->name);
 		return FALSE;
 	}
 
@@ -335,7 +335,7 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <string>\n", cmd->name);
 		return FALSE;
 	}
 
@@ -401,7 +401,7 @@ bool olced_str(CHAR_DATA *ch, const char *argument,
 	       olc_cmd_t *cmd, const char **pStr)
 {
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <string>\n", cmd->name);
 		return FALSE;
 	}
 
@@ -430,7 +430,7 @@ bool olced_mlstr(CHAR_DATA *ch, const char *argument,
 		 olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_edit(mlp, argument)) {
-		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
 		return FALSE;
 	}
 	char_puts("Ok.\n", ch);
@@ -441,7 +441,7 @@ bool olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 		   olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_editnl(mlp, argument)) {
-		char_printf(ch, "Syntax: %s lang string\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
 		return FALSE;
 	}
 	char_puts("Ok.\n", ch);
@@ -452,7 +452,7 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 		      olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_append(ch, mlp, argument)) {
-		char_printf(ch, "Syntax: %s lang\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang>\n", cmd->name);
 		return FALSE;
 	}
 	return FALSE;
@@ -473,10 +473,8 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	argument = one_argument(argument, command, sizeof(command));
 	argument = one_argument(argument, keyword, sizeof(keyword));
 
-	if (command[0] == '\0' || keyword[0] == '\0') {
-		dofun("help", ch, "'OLC EXD'");
-		return FALSE;
-	}
+	if (command[0] == '\0' || keyword[0] == '\0')
+		OLC_ERROR("'OLC EXD'");
 
 	if (!str_cmp(command, "add")) {
 		ed		= ed_new();
@@ -484,8 +482,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		if (!mlstr_append(ch, &ed->description, argument)) {
 			ed_free(ed);
-			dofun("help", ch, "'OLC EXD'");
-			return FALSE;
+			OLC_ERROR("'OLC EXD'");
 		}
 
 		ed->next	= *ped;
@@ -531,10 +528,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 			return FALSE;
 		}
 
-		if (!mlstr_append(ch, &ed->description, argument)) {
-			dofun("help", ch, "'OLC EXD'");
-			return FALSE;
-		}
+		if (!mlstr_append(ch, &ed->description, argument))
+			OLC_ERROR("'OLC EXD'");
+
 		return TRUE;
 	}
 
@@ -597,8 +593,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		return TRUE;
 	}
 
-	dofun("help", ch, "'OLC EXD'");
-	return FALSE;
+	OLC_ERROR("'OLC EXD'");
 }
 
 bool olced_flag(CHAR_DATA *ch, const char *argument,
@@ -641,7 +636,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 				break;
 	
 			if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
-				char_printf(ch, "Syntax: %s flag...\n"
+				char_printf(ch, "Syntax: %s <flag(s)>\n"
 						"Type '%s ?' for a list of "
 						"acceptable flags.\n",
 						cmd->name, cmd->name);
@@ -671,7 +666,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 
 	case TABLE_INTVAL:
 		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
-			char_printf(ch, "Syntax: %s value\n"
+			char_printf(ch, "Syntax: %s <value>\n"
 					"Type '%s ?' for a list of "
 					"acceptable values.\n",
 					cmd->name, cmd->name);
@@ -738,10 +733,8 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 	argument = one_argument(argument, arg, sizeof(arg));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC RULECLASS'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC RULECLASS'");
 
 	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
 		char_printf(ch, "%s: %s: unknown rule class\n",
@@ -764,8 +757,7 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 				    &l->rules[rulecl].rcl_flags);
 	}
 
-	dofun("help", ch, "'OLC RULECLASS'");
-	return FALSE;
+	OLC_ERROR("'OLC RULECLASS'");
 }
 
 bool olced_vform_add(CHAR_DATA *ch, const char *argument,
@@ -777,10 +769,8 @@ bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0'
 	||  !is_number(arg)
-	||  (fnum = atoi(arg)) < 0) {
-		dofun("help", ch, "'OLC VFORM'");
-		return FALSE;
-	}
+	||  (fnum = atoi(arg)) < 0)
+		OLC_ERROR("'OLC VFORM'");
 
 	vform_add(r->f, fnum, argument);
 	char_puts("Form added.\n", ch);
@@ -794,10 +784,8 @@ bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 	int fnum;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg) || (fnum = atoi(arg)) < 0) {
-		dofun("help", ch, "'OLC FORM'");
-		return FALSE;
-	}
+	if (!is_number(arg) || (fnum = atoi(arg)) < 0)
+		OLC_ERROR("'OLC VFORM'");
 
 	vform_del(r->f, fnum);
 	char_puts("Form deleted.\n", ch);
@@ -834,7 +822,7 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	}
 
 	if (!mlstr_edit(g, argument)) {
-		char_printf(ch, "Syntax: %s lang value\n", cmd->name);
+		char_printf(ch, "Syntax: %s <lang> <value>\n", cmd->name);
 		return FALSE;
 	}
 
@@ -842,11 +830,6 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	return TRUE;
 }
 
-#define CC_RULESET_ERR					\
-	do {						\
-		dofun("help", ch, "'OLC CC_RULESET'");	\
-		return FALSE;				\
-	} while (0);
 		
 bool
 olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
@@ -859,7 +842,7 @@ olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
-		CC_RULESET_ERR;
+		OLC_ERROR("'OLC RULESET'");
 
 	if (!str_prefix(arg, "show")) {
 		BUFFER *buf = buf_new(-1);
@@ -876,7 +859,7 @@ olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
 		del = TRUE;
 
 	if (!del && str_prefix(arg, "add"))
-		CC_RULESET_ERR;
+		OLC_ERROR("'OLC RULESET'");
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!str_prefix(arg, "allow"))
@@ -885,7 +868,7 @@ olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
 		v = &rs->deny;
 
 	if (v == NULL || argument == NULL)
-		CC_RULESET_ERR;
+		OLC_ERROR("'OLC RULESET'");
 		
 	if (del) {
 		int num;
@@ -893,7 +876,7 @@ olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (!is_number(arg))
-			CC_RULESET_ERR;
+			OLC_ERROR("'OLC RULESET'");
 
 		num = atoi(arg);
 		p = varr_get(v, num);

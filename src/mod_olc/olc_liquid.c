@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.3 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.4 1999-12-14 00:26:39 avn Exp $
  */
 
 #include "olc.h"
@@ -77,10 +77,8 @@ OLC_FUN(liqed_create)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -113,10 +111,8 @@ OLC_FUN(liqed_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if (!(lq = liquid_search(argument))) {
 		char_printf(ch, "LiqEd: %s: No such liquid.\n", argument);
@@ -184,10 +180,8 @@ OLC_FUN(liqed_show)
 	if (argument[0] == '\0')
 		if (IS_EDIT(ch, ED_LIQUID))
 			EDIT_LIQ(ch, lq);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else 
+			OLC_ERROR("'OLC ASHOW'");
 	else
 		if (!(lq = liquid_search(argument))) {
 			char_printf(ch, "LiqEd: %s: no such liquid.\n", argument);
@@ -243,7 +237,7 @@ OLC_FUN(liqed_affect)
 	EDIT_LIQ(ch, lq);
 
 	if (IS_NULLSTR(argument)) {
-		char_puts("Syntax: affect [condition] [value]\n", ch);
+		char_puts("Syntax: affect <condition> <value>\n", ch);
 		return FALSE;
 	}
 	argument = one_argument(argument, arg, sizeof(arg));

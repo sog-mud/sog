@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.58 1999-12-13 16:47:22 avn Exp $
+ * $Id: olc.h,v 1.59 1999-12-14 00:26:39 avn Exp $
  */
 
 /***************************************************************************
@@ -207,6 +207,11 @@ void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 #define SECURITY_MATERIAL	2
 #define SECURITY_SKILL		8
 #define SECURITY_SPEC		8
+
+#define OLC_ERROR(topic)	do {					\
+					dofun("help", ch, (topic));	\
+					return FALSE;			\
+				} while (0)
 
 #endif
 

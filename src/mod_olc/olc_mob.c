@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.54 1999-12-11 15:31:12 fjoe Exp $
+ * $Id: olc_mob.c,v 1.55 1999-12-14 00:26:40 avn Exp $
  */
 
 #include "olc.h"
@@ -151,10 +151,8 @@ OLC_FUN(mobed_create)
 
 	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
-	if (!value) {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (!value)
+		OLC_ERROR("'OLC CREATE'");
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
@@ -197,10 +195,8 @@ OLC_FUN(mobed_edit)
 	char arg[MAX_INPUT_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	value = atoi(arg);
 	if ((pMob = get_mob_index(value)) == NULL) {
@@ -240,10 +236,8 @@ OLC_FUN(mobed_show)
 	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_MOB))
 			EDIT_MOB(ch, pMob);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
 		int value = atoi(arg);
@@ -438,10 +432,8 @@ OLC_FUN(mobed_list)
 	int  col = 0;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC ALIST'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC ALIST'");
 
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
@@ -482,7 +474,7 @@ OLC_FUN(mobed_spec)
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax:  spec [special function]\n", ch);
+		char_puts("Syntax:  spec <special function>\n", ch);
 		return FALSE;
 	}
 
@@ -517,7 +509,7 @@ OLC_FUN(mobed_damtype)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Syntax: damtype [damage message]\n", ch);
+		char_puts("Syntax: damtype <damage message\n", ch);
 		char_puts("Syntax: damtype ?\n", ch);
 		return FALSE;
 	}
@@ -816,14 +808,14 @@ OLC_FUN(mobed_resist)
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] == '\0') {
-		char_puts("Syntax: resist damclass number.\n", ch);
+		char_puts("Syntax: resist <damclass> <number>\n", ch);
 		return FALSE;
 	}
 	
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Syntax: resist damclass number.\n", ch);
+		char_puts("Syntax: resist <damclass> <number>\n", ch);
 		return FALSE;
 	}
 	
@@ -831,7 +823,7 @@ OLC_FUN(mobed_resist)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!is_number(arg) || (res < 0)) {
-		char_puts("Syntax: resist damclass number.\n", ch);
+		char_puts("Syntax: resist <damclass> <number>\n", ch);
 		return FALSE;
 	}
 	
@@ -1186,10 +1178,8 @@ OLC_FUN(mobed_clone)
 	int i;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg)) {
-		char_puts("Syntax: clone <vnum>\n", ch);
-		return FALSE;
-	}
+	if (!is_number(arg))
+		OLC_ERROR("'OLC CLONE'");
 
 	i = atoi(arg);
 	if ((pFrom = get_mob_index(i)) == NULL) {

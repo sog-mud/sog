@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.69 1999-12-11 15:31:13 fjoe Exp $
+ * $Id: olc_room.c,v 1.70 1999-12-14 00:26:41 avn Exp $
  */
 
 #include "olc.h"
@@ -133,10 +133,8 @@ OLC_FUN(roomed_edit)
 		if (!str_cmp(arg, "dropout")) {
 			drop_out = TRUE;
 			pRoom = ch->in_room;
-		} else {
-			dofun("help", ch, "'OLC EDIT'");
-			return FALSE;
-		}
+		} else
+			OLC_ERROR("'OLC EDIT'");
 	} else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
 		char_puts("RoomEd: Vnum does not exist.\n", ch);
 		return FALSE;
@@ -189,10 +187,8 @@ OLC_FUN(roomed_show)
 		else
 			pRoom = ch->in_room;
 	}
-	else if (!is_number(arg)) {
-		dofun("help", ch, OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
-		return FALSE;
-	}
+	else if (!is_number(arg))
+		OLC_ERROR(OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
 	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
 		char_puts("RoomEd: Vnum does not exist.\n", ch);
 		return FALSE;
@@ -744,10 +740,8 @@ OLC_FUN(roomed_clone)
 		argument = one_argument(argument, arg, sizeof(arg));
 	}
 
-	if (!is_number(arg)) {
-		dofun("help", ch, "'OLC ROOM CLONE'");
-		return FALSE;
-	}
+	if (!is_number(arg))
+		OLC_ERROR("'OLC CLONE'");
 
 	i = atoi(arg);
 	if ((proto = get_room_index(i)) == NULL) {
@@ -907,10 +901,8 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		EXIT_DATA *pExit;
 		ROOM_INDEX_DATA *pToRoom;
 
-		if (arg[0] == '\0' || !is_number(arg)) {
-			dofun("help", ch, "'OLC EXITS'");
-			return FALSE;
-		}
+		if (arg[0] == '\0' || !is_number(arg))
+			OLC_ERROR("'OLC EXITS'");
 
 		value = atoi(arg);
 
@@ -1024,7 +1016,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			char_printf(ch, "Syntax: %s desc lang\n",
+			char_printf(ch, "Syntax: %s desc <lang>\n",
 				    cmd->name);
 			return FALSE;
 		}

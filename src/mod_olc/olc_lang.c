@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.22 1999-12-11 15:31:12 fjoe Exp $
+ * $Id: olc_lang.c,v 1.23 1999-12-14 00:26:39 avn Exp $
  */
 
 #include "olc.h"
@@ -78,10 +78,8 @@ OLC_FUN(langed_create)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	if (lang_lookup(arg) >= 0) {
 		char_puts("LangEd: lang already exists.\n", ch);
@@ -109,10 +107,8 @@ OLC_FUN(langed_edit)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((lang = lang_lookup(arg)) < 0) {
 		char_puts("LangEd: language not found.\n", ch);
@@ -170,10 +166,8 @@ OLC_FUN(langed_show)
 	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_LANG))
 			EDIT_LANG(ch, l);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
 		int lang;
@@ -254,10 +248,8 @@ OLC_FUN(langed_slangof)
 	int lang;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC LANG SLANG'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC LANG SLANG'");
 
 	if ((lang = lang_lookup(arg)) < 0) {
 		char_puts("LangEd: language not found.\n", ch);

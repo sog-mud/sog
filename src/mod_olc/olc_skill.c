@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.3 1999-12-11 15:31:14 fjoe Exp $
+ * $Id: olc_skill.c,v 1.4 1999-12-14 00:26:41 avn Exp $
  */
 
 #include "olc.h"
@@ -91,10 +91,8 @@ OLC_FUN(skilled_create)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -127,10 +125,8 @@ OLC_FUN(skilled_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if (!(sk = skill_search(argument))) {
 		char_printf(ch, "LiqEd: %s: No such liquid.\n", argument);
@@ -215,10 +211,8 @@ OLC_FUN(skilled_show)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_SKILL))
 			EDIT_SKILL(ch, sk);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if (!(sk = skill_search(argument))) {
 			char_printf(ch, "SkillEd: %s: no such skill.\n", argument);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.37 1999-12-11 15:31:11 fjoe Exp $
+ * $Id: olc_clan.c,v 1.38 1999-12-14 00:26:39 avn Exp $
  */
 
 #include "olc.h"
@@ -85,10 +85,8 @@ OLC_FUN(claned_create)
 	}
 
 	first_arg(argument, arg, sizeof(arg), FALSE);
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -124,7 +122,7 @@ OLC_FUN(claned_edit)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
+		OLC_ERROR("'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -167,7 +165,7 @@ OLC_FUN(claned_show)
 		if (IS_EDIT(ch, ED_CLAN))
 			EDIT_CLAN(ch, clan);
 		else {
-			dofun("help", ch, "'OLC ASHOW'");
+			OLC_ERROR("'OLC ASHOW'");
 			return FALSE;
 		}
 	} else if ((clan = clan_search(arg)) == NULL) {
@@ -273,7 +271,7 @@ OLC_FUN(claned_plist)
 		   one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0') {
-		dofun("help", ch, "'OLC CLAN PLIST'");
+		OLC_ERROR("'OLC CLAN PLIST'");
 		return FALSE;
 	}
 

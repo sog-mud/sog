@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.40 1999-12-07 14:20:59 fjoe Exp $
+ * $Id: olc_help.c,v 1.41 1999-12-14 00:26:39 avn Exp $
  */
 
 #include "olc.h"
@@ -70,10 +70,8 @@ OLC_FUN(helped_create)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	if (IS_EDIT(ch, ED_HELP))
 		pArea = ((HELP_DATA*) ch->desc->pEdit)->area;
@@ -109,10 +107,8 @@ OLC_FUN(helped_edit)
 	}
 
 	num = number_argument(argument, keyword, sizeof(keyword));
-	if (keyword[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (keyword[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((pHelp = help_lookup(num, keyword)) == NULL) {
 		char_printf(ch, "HelpEd: %s: Help not found.\n",
@@ -141,20 +137,16 @@ OLC_FUN(helped_show)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_HELP))
 			EDIT_HELP(ch, pHelp);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	}
 	else {
 		int num;
 		char keyword[MAX_INPUT_LENGTH];
 
 		num = number_argument(argument, keyword, sizeof(keyword));
-		if (keyword[0] == '\0') {
-			dofun("help", ch, OLCED(ch) ?  "'OLC EDIT'" : "'OLC ASHOW'");
-			return FALSE;
-		}
+		if (keyword[0] == '\0')
+			OLC_ERROR(OLCED(ch) ?  "'OLC EDIT'" : "'OLC ASHOW'");
 
 		if ((pHelp = help_lookup(num, keyword)) == NULL) {
 			char_printf(ch, "HelpEd: %s: Help not found.\n",
@@ -187,10 +179,8 @@ OLC_FUN(helped_list)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		if ((pArea = get_edited_area(ch)) == NULL) {
-			dofun("help", ch, "'OLC ALIST'");
-			return FALSE;
-		}
+		if ((pArea = get_edited_area(ch)) == NULL)
+			OLC_ERROR("'OLC ALIST'");
 	}
 
 	output = buf_new(-1);

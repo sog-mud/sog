@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.70 1999-12-11 15:31:13 fjoe Exp $
+ * $Id: olc_obj.c,v 1.71 1999-12-14 00:26:40 avn Exp $
  */
 
 #include <sys/types.h>
@@ -131,10 +131,8 @@ OLC_FUN(objed_create)
 
 	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
-	if (!value) {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (!value)
+		OLC_ERROR("'OLC CREATE'");
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
@@ -177,10 +175,8 @@ OLC_FUN(objed_edit)
 	AREA_DATA *pArea;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	value = atoi(arg);
 	pObj = get_obj_index(value);
@@ -221,10 +217,8 @@ OLC_FUN(objed_show)
 	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_OBJ))
 			EDIT_OBJ(ch, pObj);
-		else {
-			dofun("help", ch, "'OLC EDIT'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC EDIT'");
 	}
 	else {
 		int value = atoi(arg);
@@ -326,10 +320,8 @@ OLC_FUN(objed_list)
 	int  col = 0;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC ALIST'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC ALIST'");
 
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
@@ -480,10 +472,8 @@ OLC_FUN(objed_addaffect)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if (arg1[0] == '\0') {
-		dofun("help", ch, "'OLC ADDAFFECT'");
-		return FALSE;
-	}
+	if (arg1[0] == '\0')
+		OLC_ERROR("'OLC ADDAFFECT'");
 
 	/*
 	 * set `w' and `where'
@@ -549,10 +539,9 @@ OLC_FUN(objed_addaffect)
 		 */
 		modifier = 0;
 	} else {
-		if (!is_number(arg2)) {
-			dofun("help", ch, "'OLC ADDAFFECT'");
-			return FALSE;
-		}
+		if (!is_number(arg2))
+			OLC_ERROR("'OLC ADDAFFECT'");
+
 		modifier = atoi(arg2);
 	}
 
@@ -817,10 +806,8 @@ OLC_FUN(objed_clone)
 	AFFECT_DATA **ppaf;
 
 	one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg)) {
-		char_puts("Syntax: clone <vnum>\n", ch);
-		return FALSE;
-	}
+	if (!is_number(arg))
+		OLC_ERROR("'OLC CLONE'");
 
 	i = atoi(arg);
 	if ((pFrom = get_obj_index(i)) == NULL) {

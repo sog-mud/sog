@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.8 1999-12-11 15:31:12 fjoe Exp $
+ * $Id: olc_material.c,v 1.9 1999-12-14 00:26:40 avn Exp $
  */
 
 #include "olc.h"
@@ -77,10 +77,8 @@ OLC_FUN(mated_create)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -113,10 +111,8 @@ OLC_FUN(mated_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if (!(mat = material_search(argument))) {
 		char_printf(ch, "MatEd: %s: No such material.\n", argument);
@@ -180,10 +176,8 @@ OLC_FUN(mated_show)
 	if (argument[0] == '\0')
 		if (IS_EDIT(ch, ED_MATERIAL))
 			EDIT_MAT(ch, mat);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	else
 		if (!(mat = material_search(argument))) {
 			char_printf(ch, "MatEd: %s: no such material.\n", argument);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.22 1999-12-13 14:10:39 avn Exp $
+ * $Id: olc_race.c,v 1.23 1999-12-14 00:26:40 avn Exp $
  */
 
 #include "olc.h"
@@ -65,8 +65,7 @@ DECLARE_OLC_FUN(raceed_slang		);
 DECLARE_OLC_FUN(raceed_align		);
 DECLARE_OLC_FUN(raceed_ethos		);
 
-DECLARE_OLC_FUN(raceed_addclass		);
-DECLARE_OLC_FUN(raceed_delclass		);
+DECLARE_OLC_FUN(raceed_class		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
@@ -114,8 +113,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "align",	raceed_align,	NULL,		ralign_names	},
 	{ "ethos",	raceed_ethos,	NULL,		ethos_table	},
 
-	{ "addclass",	raceed_addclass					},
-	{ "delclass",	raceed_delclass					},
+	{ "class",	raceed_class					},
 
 	{ "update",	olc_skill_update				},
 	{ "commands",	show_commands					},
@@ -137,10 +135,8 @@ OLC_FUN(raceed_create)
 	}
 
 	first_arg(argument, arg, sizeof(arg), FALSE);
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC CREATE'");
 
 	/*
 	 * olced_busy check is not needed since hash_insert
@@ -173,10 +169,8 @@ OLC_FUN(raceed_edit)
 		return FALSE;
 	}
 
-	if (argument[0] == '\0') {
-		dofun("help", ch, "'OLC EDIT'");
-		return FALSE;
-	}
+	if (argument[0] == '\0')
+		OLC_ERROR("'OLC EDIT'");
 
 	if ((r = race_search(argument)) == 0) {
 		char_printf(ch, "RaceEd: %s: No such race.\n", argument);
@@ -216,10 +210,8 @@ OLC_FUN(raceed_show)
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_RACE))
 			EDIT_RACE(ch, r);
-		else {
-			dofun("help", ch, "'OLC ASHOW'");
-			return FALSE;
-		}
+		else
+			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if ((r = race_search(argument)) == NULL) {
 			char_printf(ch, "RaceEd: %s: No such race.\n", argument);
@@ -527,7 +519,7 @@ OLC_FUN(raceed_stats)
 	}
 	
 	if (!st)
-		char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+		char_printf(ch, "Syntax: %s <attr1> <attr2> ...\n", cmd->name);
 	else
 		char_puts("Ok.\n", ch);
 	return st;
@@ -554,7 +546,7 @@ OLC_FUN(raceed_maxstats)
 	}
 	
 	if (!st)
-		char_printf(ch, "Syntax: %s attr1 attr2 ...\n", cmd->name);
+		char_printf(ch, "Syntax: %s <attr1> <attr2> ...\n", cmd->name);
 	else
 		char_puts("Ok.\n", ch);
 	return st;
@@ -620,7 +612,7 @@ OLC_FUN(raceed_resists)
 
 
 	if (arg[0] == '\0') {
-		char_puts("Syntax: resists damclass number.\n", ch);
+		char_puts("Syntax: resists <damclass> <number>\n", ch);
 		return FALSE;
 	}
 
@@ -629,7 +621,7 @@ OLC_FUN(raceed_resists)
 	one_argument(argument, arg, sizeof(arg));
 
 	if((res < 0) ||arg[0] == '\0' || !is_number(arg)) {
-		char_puts("Syntax: resists damclass number.\n", ch);
+		char_puts("Syntax: resists <damclass> <number>\n", ch);
 		return FALSE;
 	}
 
@@ -684,10 +676,8 @@ OLC_FUN(raceed_addclass)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	           one_argument(argument, arg2, sizeof(arg2));
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		dofun("help", ch, "'OLC RACE CLASS'");
-		return FALSE;
-	}
+	if (arg1[0] == '\0' || arg2[0] == '\0')
+		OLC_ERROR("'OLC RACE CLASS'");
 
 	if ((cl = class_search(arg1)) == NULL) {
 		char_printf(ch, "RaceEd: %s: unknown class.\n", arg1);
@@ -716,10 +706,8 @@ OLC_FUN(raceed_delclass)
 	EDIT_RACE(ch, race);
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		dofun("help", ch, "'OLC RACE CLASS'");
-		return FALSE;
-	}
+	if (arg[0] == '\0')
+		OLC_ERROR("'OLC RACE CLASS'");
 
 	if ((rc = rclass_lookup(race, arg)) == NULL) {
 		char_printf(ch, "RaceEd: %s: not found in race class list.\n",
@@ -730,6 +718,18 @@ OLC_FUN(raceed_delclass)
 	varr_edelete(&race->race_pcdata->classes, rc);
         char_puts("Ok.\n", ch);
 	return TRUE;
+}
+
+OLC_FUN(raceed_class)
+{
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (!str_prefix(arg, "add"))
+		return raceed_addclass(ch, argument, cmd);
+	if (!str_prefix(arg, "delete"))
+		return raceed_delclass(ch, argument, cmd);
+	OLC_ERROR("'OLC RACE CLASS'");
 }
 
 OLC_FUN(olc_skill_update)
