@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.2 1998-09-17 15:51:24 fjoe Exp $
+ * $Id: varr.c,v 1.3 1998-09-17 15:55:01 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -85,5 +85,4 @@ void *varr_bsearch(varr* v, void *e, int (*cmpfun)(const void*, const void*))
 		return NULL;
 	return bsearch(e, v->p, v->nused, v->nsize, cmpfun);
 }
-
 

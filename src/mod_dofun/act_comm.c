@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.81 1998-09-17 15:51:16 fjoe Exp $
+ * $Id: act_comm.c,v 1.82 1998-09-17 15:55:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1773,7 +1773,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 	||  ch->slang == SLANG_COMMON
 	||  ch->slang == pc_race_table[ORG_RACE(victim)].slang) {
 		if (IS_IMMORTAL(victim))
-			snprintf(trans, sizeof(trans), "{{%s} %s",
+			snprintf(trans, sizeof(trans), "[%s] %s",
 				 flag_string(slang_table, ch->slang), argument);
 		else
 			snprintf(trans, sizeof(trans), "%s", argument);
@@ -1786,7 +1786,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 	}
 	buf[i] = '\0';
 
-	snprintf(trans, sizeof(trans), "{{%s} %s",
+	snprintf(trans, sizeof(trans), "[%s] %s",
 		 flag_string(slang_table, ch->slang), buf);
 	return trans;
 }
