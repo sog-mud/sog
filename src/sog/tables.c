@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.16 2002-09-01 16:57:01 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.17 2002-09-02 16:03:54 tatyana Exp $
  */
 
 /***************************************************************************
@@ -554,7 +554,7 @@ flag_t item_types[] =
 	{ "jewelry",		ITEM_JEWELRY,		TRUE	},
 	{ "jukebox",		ITEM_JUKEBOX,		TRUE	},
 	{ "tattoo",		ITEM_TATTOO,		FALSE	},
-	{ "fishing_pole",	ITEM_FISHING_POLE,	TRUE	},
+	{ "pole",		ITEM_FISHING_POLE,	TRUE	},
 	{ "fish",		ITEM_FISH,		TRUE	},
 
 	{ NULL }

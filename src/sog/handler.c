@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.56 2002-09-02 09:04:41 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.57 2002-09-02 16:03:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3845,27 +3845,29 @@ void stop_follower(CHAR_DATA *ch)
 		return;
 	}
 
+	if (can_see(ch->master, ch) && ch->in_room != NULL) {
+		act_puts("$n stops following you.",ch, NULL, ch->master,
+			 TO_VICT, POS_RESTING);
+		act_puts("You stop following $N.", ch, NULL, ch->master,
+			 TO_CHAR, POS_RESTING);
+	}
+
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
 		REMOVE_BIT(ch->affected_by, AFF_CHARM);
 		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
 		update_pos(ch);
 	}
 
-	if (can_see(ch->master, ch) && ch->in_room != NULL) {
-		act_puts("$n stops following you.",ch, NULL, ch->master, 
-			 TO_VICT, POS_RESTING);
-		act_puts("You stop following $N.", ch, NULL, ch->master, 
-			 TO_CHAR, POS_RESTING);
-	}
 
-	if (!IS_NPC(ch->master)) {
+	if (ch->master != NULL && !IS_NPC(ch->master)) {
 		PC_DATA *pc = PC(ch->master);
 		if (pc->pet == ch)
 			pc->pet = NULL;
 	}
 
 	if (ch->leader && ch->fighting == ch->leader->fighting)
-		stop_fighting(ch, TRUE);        
+		stop_fighting(ch, TRUE);
+
 	ch->master = NULL;
 	ch->leader = NULL;
 }
