@@ -47,6 +47,14 @@ Form 3 -ут~
 End
 
 #RULE
+Name оглушен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name твой~
 BaseLen 3
 Form 1 -я~
@@ -230,6 +238,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name бодрствует~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name вспыхнул~
 BaseLen 7
 Form 1 -ла~
@@ -306,6 +322,14 @@ BaseLen 12
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name сидит~
+BaseLen 3
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
 End
 
 #RULE

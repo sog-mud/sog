@@ -3,6 +3,7 @@ Name Invaders~
 Item 95601
 Mark 95608
 Altar 95608
+Flags hidden~
 Skill 'detect fade' 20 1
 Skill 'evil spirit' 33 1
 Skill 'nightwalker' 25 1

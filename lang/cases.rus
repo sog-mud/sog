@@ -3764,6 +3764,17 @@ Form 6 -ка~
 End
 
 #RULE
+Name древесная~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name темный~
 BaseLen 4
 Form 1 -ого~

@@ -3,6 +3,7 @@ Name Hunters~
 Item 95701
 Mark 95703
 Altar 95703
+Flags hidden~
 Skill 'hunt' 13 1
 Skill 'find object' 25 1
 Skill 'path find' 13 1

@@ -204,7 +204,11 @@ S
 #MOBPROGS
 #95700
 if clan $n hunters     
-'Welcome, brother.     
+if sex $n == 1
+' Welcome, brother.
+else
+' Welcome, sister.
+endif
 end
 endif
 if isimmort $n 

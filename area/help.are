@@ -883,7 +883,7 @@ PMOTE действует аналогично EMOTE, но будет заменять имена персонажа на 'you'.
 
 POSE выдает случайное сообщение, зависящее от вашего класса и уровня.
 ~
-52 SMOTE~
+92 'WIZ SMOTE' SMOTE~
 @eng Syntax: smote <action>
 
 Smote works exactly like pmote, except you must place your name somewhere in
@@ -933,19 +933,28 @@ WEAR ALL попробует HOLD, WEAR, or WIELD каждую подходящую вещь в вещмешке.;
 REMOVE снимет любой объект с тебя и положит его обратно в инвентарь.           ;
 ~
 0 BUG TYPO~
-Syntax: bug <message>
+@eng Syntax: bug <message>
 Syntax: typo <message>
 
 These commands will take your message and record it into a file as feedback
 to the mud implementors.
+@rus Синтаксис: {cbug{x <сообщение>
+Синтаксис: {ctypo{x <сообщение>
+ 
+Этими командами записываются краткие сообщения в специальный файл, который
+периодически просматривают бессмертные - используй эти команды для сообщения
+о ошибках в программе и в синтаксисе.
 ~
 0 CREDITS~
-Syntax: credits
+@eng Syntax: credits
 
 This command shows the list of the original Diku Mud implementors.
+@rus Синтаксис: {ccredits{x
+ 
+Эта команда показывает тебе список создателей MUDa.
 ~
-0 AREAS COMMANDS REPORT SCORE TIME~
-Syntax: areas
+0 AREAS COMMANDS REPORT SCORE OSCORE TIME WEATHER~
+@eng Syntax: areas
 Syntax: commands
 Syntax: report
 Syntax: score
@@ -966,42 +975,98 @@ TIME shows the game time, as well as the time the mud was last started,
 and the current local time for the host computer.
 
 WEATHER shows the current game weather.
+@rus Синтаксис: {careas{x
+Синтаксис: {ccommands{x
+Синтаксис: {creport{x
+Синтаксис: {cscore{x
+Синтаксис: {coscore{x
+Синтаксис: {ctime{x
+Синтаксис: {cweather{x
+ 
+AREAS выводит список подключенных зон.
+ 
+COMMANDS выводит список всех игровых команд.
+ 
+REPORT выводит твое состояние всем в комнате.
+ 
+SCORE выводит наиболее полную информацию о тебе. В скобках указаны значения
+твоих характеристик с учетом надетых вещей и наложенных заклинаний.
+OSCORE является устаревшим вариантом SCORE.
+ 
+TIME выводит игровое и системное время, а также время последнего рестарта
+сервера.
+ 
+WEATHER выводит текущую погоду в игре.
 ~
 -1 WHO~
-Syntax: who
-Syntax: who clan
-Syntax: who pk
-Syntax: who immortals
-Syntax: who tattoo
-Syntax: who <clan name>
-Syntax: who <race name>
-Syntax: who <class name> (IMM ONLY)
-Syntax: who min_level [max_level] (IMM ONLY)
+@eng Syntax: {cwho{x
+Syntax: {cwho clan{x
+Syntax: {cwho pk{x
+Syntax: {cwho immortal{x
+Syntax: {cwho tattoo{x
+Syntax: {cwho{x <race name>
+Syntax: {cwho{x <class name>  (IMM ONLY)
+Syntax: {cwho{x <clan name>  (IMM ONLY)
+Syntax: {cwho{x <min level> [<max level>]  (IMM ONLY)
+Syntax: {cwho{x [<ethos>]-[<align>]  (IMM ONLY)
  
 WHO command shows the players currently in game. When the player
 is invisible for you, WHO command will not show that player.
-With {cno arguments{x given WHO command shows all the players you can see.
-'{cwho clan{x' shows only clan players.
-'{cwho pk{x' shows players in your PK range.
-'{cwho immortals{x' shows all immortal players.
-'{cwho tattoo{x' shows players of your religion.
-By specifying clan, race, class (IMM ONLY) names or levels (IMM ONLY)
-you can restrict list of players by specified clan, race, class or levels.
+
+With no arguments given WHO command shows all the players you can see.
+{cwho clan{x     shows players of the same clan as you clan to mortals and 
+                 clan players to immortals
+{cwho pk{x       shows players in your PK range.
+{cwho immortal{x shows all immortal players.
+{cwho tattoo{x   shows players of your religion.
+
+By specifying race, class, clan names, levels, ethos or align you can
+restrict list of players by specified race, class, clan, levels, ethos
+and align.
  
 WHO arguments can be combined.
  
-See also: WHOIS.
+See also: {CHELP WHOIS{x
+@rus Синтаксис: {cwho{x
+Синтаксис: {cwho clan{x
+Синтаксис: {cwho pk{x
+Синтаксис: {cwho immortal{x
+Синтаксис: {cwho tattoo{x
+Синтаксис: {cwho{x <название расы>
+Синтаксис: {cwho{x <название класса> (Только для богов)
+Синтаксис: {cwho{x <название клана> (Только для богов)
+Синтаксис: {cwho{x <мин. уровень> [<макс. уровень>] (Только для богов)
+Синтаксис: {cwho{x [<ethos>]-[<align>] (Только для богов)
  
+WHO показывает всех видимых тебе игроков, присутствующих в игре 
+на данный момент.
+ 
+WHO без аргументов показывает всех видимых игроков.
+{cwho clan{x     покажет всех игроков одного с тобой клана (для смертных) или
+                 всех клановых игроков (для бессмертных)
+{cwho pk{x       покажет игроков, на которых ты можешь напасть
+{cwho immortal{x покажет бессмертных
+{cwho tattoo{x   покажет персонажей одной с тобой религии
+Указав название расы, класса, клана, границы уровней, ethos или align, можно
+ограничить список выводимых персонажей этими условиями.
+ 
+Аргументы WHO могут сочетаться.
+ 
+Также смотри: {CHELP WHOIS{x
 ~
 -1 WHOIS~
-Syntax: whois name
+@eng Syntax: whois name
 
 WHOIS command identifies any user who matches the name given. For
 example, 'whois a' shows all characters whose name begins with A.
  
+@rus Синтаксис: {cwhois{x <имя>
+ 
+Команда whois показывает всех игроков подходящих под указанное имя.
+Например {cwhois a{x покажет всех игроков, у которых имя начинается с А.
 ~
 0 WHERE~
-Syntax: where
+@eng Syntax: where
 Syntax: where <character>
 Syntax: where pk
 
@@ -1011,9 +1076,19 @@ area as you are.
 WHERE with an argument tells you the location of one character with that name
 within your area, including monsters. If pk switch is used, WHERE command 
 will only show the players near you that are in your PK range.
+@rus Синтаксис: {cwhere{x
+Синтаксис: {cwhere{x <персонаж>
+Синтаксис: {cwhere pk{x
+ 
+WHERE без аргументов сообщает тебе местонахождение всех видимых тебе игроков
+в той же зоне, где находишься и ты.
+ 
+WHERE с аргументом сообщает местонахождение одного персонажа с таким именем
+(включая монстров) или всех персонажей на которых ты можешь напасть (where pk)
+в текущей зоне.
 ~
 0 HELP~
-Syntax: help
+@eng Syntax: help
 Syntax: help [num.]keyword
 
 HELP without any arguments shows a one-page command summary.
@@ -1021,44 +1096,78 @@ HELP without any arguments shows a one-page command summary.
 HELP [num.]keyword shows a page number 'num' on that keyword. The keywords
 include all the commands, spells and skills listed in the game.
  
+@rus Синтаксис: {chelp{x
+Синтаксис: {chelp{x <ключевое слово>
+ 
+HELP без аргументов выдает краткий одностраничный справочник по командам.
+ 
+HELP <ключевое слово> выдает помощь по запрошенному слову. Выдается помощь
+по всем командам, заклинаниям и умениям в игре, соответствующим указанному
+слову.  Если на  заданное слово есть  несколько тем  -  все они будут тебе
+перечислены, и можно будет более точно указать интересующую тебя тему - либо
+уточнив пункт (например, {chelp 1.acid{x) или написав более полно тему
+({chelp acid blast{x).
 ~
 0 MEND~
-Syntax: cast mend <object>
+@eng Syntax: cast mend <object>
 
 Mend is similar to smithing which you can repair damaged objects.
+@rus Синтаксис: {ccast mend{x <объект>
+ 
+Заклинание mend позволяет тебе чинить поврежденную вещь
 ~
 0 SMITHING~
-Syntax: smithing <object>
+@eng Syntax: smithing <object>
 
 Smithing is similar to mend which you can repair damaged objects 
 holding the hammer which you can find it in dwarven area.
+@rus Синтаксис: {csmithing{x <объект>
+ 
+Smithing позволяет тебе чинить поврежденную вещь. Но для этого ты должен
+держать в руке молот, который можно найти у карликов.
 ~
 0 TRACK~
-Syntax: track
+@eng Syntax: track
 
         While you are fighting if your opponent fleds you can follow 
 it/his/her just typing track.
+@rus Синтаксис: {ctrack{x
+ 
+Если твой противник во время боя сбегает, ты можешь последовать за ним,
+использовав эту команду.
 ~
 0 LINK~
-Syntax: cast link <character>
+@eng Syntax: cast link <character>
 
         You transfer all of your mana to the character that you linked.
+@rus Синтаксис: {ccast link{x <персонаж>
+ 
+Это заклинание позволяет тебе передать всю твою ману указанному персонажу.
 ~
 0 PROTECTION HEAT~
-Syntax: cast 'protection heat' 
+@eng Syntax: cast 'protection heat' 
 
         This spell makes you resistive against fire attacks.
+@rus Синтаксис: {ccast 'protection heat'{x
+ 
+Это заклинание защитит тебя от огненных атак.
 ~
 0 SHIELDING~
-Syntax: cast 'shielding' <character>
+@eng Syntax: cast 'shielding' <character>
 
         The player which is affected by this spell cannot reach the true 
 source  to cast. Thus cannot cast any spell.
+@rus Синтаксис: {ccast shielding{x <персонаж>
+ 
+Персонаж под действием этого заклинания не может колдовать.
 ~
 0 PROTECTION COLD~
-Syntax: cast 'protection cold'
+@eng Syntax: cast 'protection cold'
 
         This spell makes you resistive against the cold attacks.
+@rus Синтаксис: {ccast 'protection cold'{x
+ 
+Это заклинание защитит тебя от атак холодом.
 ~
 0 KNOCK~
 @eng Syntax: cast 'knock' <door>
@@ -1070,15 +1179,23 @@ Syntax: cast 'protection cold'
 Это заклинание позволяет отпереть дверь без помощи ключа. Но не сильно
 обольщайтесь, не все двери вам поддадуться.
 ~
-0 BASH DOOR~
-Syntax: bashdoor <direction>
+0 BASH DOOR BASHDOOR~
+@eng Syntax: bashdoor <direction>
+@rus Синтаксис: {cbashdoor{x <направление>
+ 
+Это умение выламывать двери дает тебе возможность открывать их без ключа.
 ~
 0 FIRE SHIELD~
-Syntax: cast 'fire shield' cold
+@eng Syntax: cast 'fire shield' cold
 Syntax: cast 'fire shield' fire 
 
         You can create a resistive shield against the fire or cold attacks
 which makes you resistive against the fire or cold attacks.
+@rus Синтаксис: {ccast 'fire shield' cold{x
+Синтаксис: {ccast 'fire shield' fire{x
+ 
+Это заклинание позволит тебе создать щит, который защитит тебя от атак холодом
+или огнем.
 ~
 0 WEB~
 Syntax: cast 'web' <victim>
@@ -1092,59 +1209,93 @@ Syntax: cast 'magic resistance'
         This spell makes you resistive against the magical attacks.
 ~
 0 DISINTEGRATE~
-Syntax: cast 'disintegrate' <victim>
+@eng Syntax: cast 'disintegrate' <victim>
 
         Very high level warlocks can learn to kill in one cast.This 
 surprise attack doesn't has to be on a fully healed target.Save spell is the
 only one way to protect from this attack.
+@rus Синтаксис: {ccast disintegrate{x <жертва>
+ 
+Волшебники очень высоких уровней могут убивать единственным заклинанием. Сила
+этого заклинания так велика, что оно уничтожает даже вещи жертвы. Только защита
+от магии (saves) может спасти жертву.
 ~
 0 WITCH CURSE~
-Syntax: cast 'witch curse' <victim>
+@eng Syntax: cast 'witch curse' <victim>
 
         This spell means certain death to the target, but it takes some time
 related to the hp the target has. Each round  victim's hit point decreases
 by 100 till the end, death.
+@rus Синтаксис: {ccast 'witch curse'{x <жертва>
+ 
+Это заклинание означает медленную, но неотвратимую смерть для жертвы. Смерть
+занимает некоторое время в зависимости от здоровья жертвы. Каждый тик жертва
+теряет все больше и больше хит-пойнтов (hp) до конца... до смерти.
 ~
-0 ANIMATE DEATH~
-Syntax: cast 'animate death' <corpse>
+0 ANIMATE DEAD~
+@eng Syntax: cast 'animate death' <corpse>
 
         This spell allows the caster to give life to a corpse and force the
 zombie that is newly born to aid him.
+@rus Синтаксис: {ccast 'animate dead'{x <труп>
+ 
+Это заклинание позволяет некромансеру оживить труп и сделать преданного ему
+зомби.
 ~
 0 TAIL~
-Syntax: tail 
+@eng Syntax: tail 
 Syntax: tail <opponent>
 
         This skill enables tailed creatures to hit its opponent with its
 tail. The chance to hit with tail is very small. But when hits gives great 
 damage to victim.
+@rus Синтаксис: {ctail{x
+Синтаксис: {ctail{x <жертва>
+ 
+Это умение дает возможность хвостатым существам использовать хвост в бою.
+Вероятность такого удара очень низка, но он наносит очень большой ущерб жертве.
 ~
-0 'DARGON SKIN' DRAGONSKIN~
-Syntax: cast 'dragon skin'
+0 'DRAGON SKIN' DRAGONSKIN~
+@eng Syntax: cast 'dragon skin'
 
         This spell enables dragons to increase its AC so that they can
 fight more easily. 
+@rus Синтаксис: {ccast 'dragon skin'{x
+ 
+Этим заклинанием пользуются драконы для улучшения своей натуральной брони.
 ~
 0 FEAR~
-Syntax: cast 'fear' <victim>
+@eng Syntax: cast 'fear' <victim>
  
         This spell allows the caster to touch the victim with the fingers of 
 fear and force him to flee.
+@rus Синтаксис: {ccast 'fear'{x <жертва>
+ 
+Это заклинание запугивает жертву и принуждает ее сбежать из боя.
 ~
 0 MAGIC JAR~
-Syntax: cast 'magic jar' <victim>
+@eng Syntax: cast 'magic jar' <victim>
 
         This spell allows the caster to catch the spirit of the victim 
 and thus victim cannot get exp.
         Don't forget to carry an empty vial in your inventory to put the
 spirit.
+@rus Синтаксис: {ccast 'magic jar'{x <жертва>
+ 
+Это заклинание высасывает душу из жертвы, в результате чего жертва не может
+получать очки опыта и покидать этот мир. Не забывай, что для хранения души
+нужен пустой пузырек.
 ~
 0 POWER WORD KILL~
-Syntax: cast 'power word kill' <victim>
+@eng Syntax: cast 'power word kill' <victim>
 
         Very high level necromancers can learn to kill in one cast.This 
 surprise attack doesn't has to be on a fully healed target.Save spell is the
 only one way to protect from this attack.
+@rus Синтаксис: {ccast 'power word kill'{x <жертва>
+ 
+Некромансеры очень высоких уровней могут убивать единственным заклинанием.
+Только защита от магии (saves) может спасти жертву.
 ~
 0 'POWER WORD STUN' STUN~
 Syntax: cast 'power word stun' <victim>
@@ -1568,7 +1719,7 @@ Questionable spells are : 'word of recall', 'cancellation', 'slow',
 'remove curse'
  
 ~
-99 REBOOT SHUTDOWN~
+92 'WIZ REBOOT' REBOOT 'WIZ SHUTDOWN' SHUTDOWN~
 Syntax: reboot status
 Syntax: reboot num
 
@@ -1811,11 +1962,12 @@ very useful for loading. Vnum skill returns the skill number (for set) and
 the slot number (for making new zones) of a skill name.
 (see also load)
 ~
-93 STAT~
-Syntax: stat <name>
-	stat mob  <name>
-	stat obj  <name>
-	stat room <number>
+92 'WIZ STAT' STAT~
+Syntax: {cstat{x <name>
+        {cstat mob{x  <name>
+        {cstat obj{x  <name>
+        {cstat room{x <number>
+        {cstat desc{x <number>
 
 The stat command gives you detailed information on an object, mobile, or room
 within the game.  Without a class argument, the command will return a object
@@ -5381,6 +5533,18 @@ or her hands.
 ~
 0 MASTERING HAND~
 This automatic skill allows ninjas to fight more efficiently then unarmed.
+~
+0 'WIZ MODULES'~
+@eng Syntax: {cmodules reload{x <name>
+ 
+MODULES RELOAD command will reload module with name NAME
+Available modules:
+   spellfun    - all spell functions
+@rus Синтаксис: {cmodules reload{x <название>
+ 
+MODULES RELOAD перезагрузит указанный модуль.
+Доступные модули:
+   spellfun    - все функции заклинаний
 ~
 -1 $~
 

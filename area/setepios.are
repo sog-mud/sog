@@ -990,6 +990,25 @@ furniture AR A
 A 0 EH DGH DGH
 30 1 1 P
 G female
+#38601
+bench~
+@eng bench@rus лавке.~
+@eng guest bench.@rus лавка для гостей~
+unknown~
+furniture 0 0
+BD 0 EH 0 0
+0 0 0 P
+G none
+#38602
+star of justice~
+@eng {Y***{W Power of Justice{Y ***{x@rus {Y***{W Сила Правосудия{Y ***{x~
+@eng Star of Justice lies here.@rus Что-то невзрачное поблескивает на земле. (star of justice)~
+unknown~
+treasure ACGMRSTZa AO
+0 0 0 0 0
+54 1 1 P
+S 'heal' 100 A
+G none
 #0
 
 #ROOMS
@@ -1433,6 +1452,10 @@ S
 #SHOPS
 38001 0 0 0 0 0 1 1 1 23
 0
+
+#OLIMITS
+O 38602 0	* {Y***{W Power of Justice{Y ***{x
+S
 
 #MOBPROGS
 #38500

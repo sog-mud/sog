@@ -4933,8 +4933,9 @@ Z -1 36401
 S
 #36401
 @eng Deep in the Dark Cave@rus Глубоко в пещере~
-You step in the dark cave. East opens a wide tunnel, up you can
+@eng You step in the dark cave. East opens a wide tunnel, up you can
 climb back to the daylight.
+@rus Ты вошел в темную пещеру. На востоке вход в длинный туннель, ~~
 ~
 0 ADN mountain
 D3

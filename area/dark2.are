@@ -2432,9 +2432,9 @@ D 0 14596 3 1	* Outside the East Tower: door to the west: closed
 M 0 14501 3 14508 1	* the BIG monkey (Palm path)
 G 0 14501 0		*	a monkey paw
 M 0 14507 3 14520 1	* the Bearded Soldier (Clearing)
-E 0 14517 0 16		*	an Island Helmet: wielded
+E 0 14517 0 6		*	an Island Helmet: over the head
 E 0 14518 0 11		*	an Island Shield: as a shield
-E 0 14516 0 6		*	an Island Sword: over the head
+E 0 14516 0 16		*	an Island Sword: wielded
 M 0 14508 4 14523 1	* the Alert Soldier (Clearing's Center)
 E 0 14517 0 16		*	an Island Helmet: wielded
 E 0 14518 0 11		*	an Island Shield: as a shield
@@ -2500,7 +2500,7 @@ E 0 14527 0 6		*	a straw hat: over the head
 G 0 14526 0		*	a basket of fruit
 M 0 14519 4 14582 1	* the Dwarven Man (Garden path)
 E 0 14537 0 16		*	A Dwarven Flail: wielded
-E 0 14538 0 6		*	a Dwarven Shield: over the head
+E 0 14538 0 11		*	a Dwarven Shield: as a shield
 S
 
 #SHOPS
