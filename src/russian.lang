@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.80 1998-07-05 17:01:04 fjoe Exp $
+# $Id: russian.lang,v 1.81 1998-07-09 13:01:36 fjoe Exp $
 #
 
 NOTHING  		"Ничего.\n\r",	
@@ -56,10 +56,9 @@ YOU_ARE_USING 	"Ты используешь:\n\r"
 IS_USING 		"$N использует:"
 YOU_PEEK_AT_THE_INVENTORY "\n\rТы всматриваешься в снаряжение:\n\r"
 
-COMM_INTERFACE_LANGUAGE_UNDEFINED "Your current interface language undefined. Report it to Gods!!!\n\r"
-COMM_SHOW_LANGUAGE		"Текущий язык: '%s'.\n\r"
-COMM_LANGUAGE_USAGE_PRE		"Использование: lang [ "
-COMM_LANGUAGE_USAGE_POST	" ]\n\r"
+INTERFACE_LANGUAGE_IS	"Текущий язык: '%s'.\n\r"
+LANG_USAGE_PRE		"Использование: lang [ "
+LANG_USAGE_POST		" ]\n\r"
 
 COND_EXCELLENT 	"идеальное"
 COND_GOOD 		"хорошее"

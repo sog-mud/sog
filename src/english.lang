@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.62 1998-07-09 12:57:30 fjoe Exp $
+# $Id: english.lang,v 1.63 1998-07-09 13:01:36 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -59,10 +59,9 @@ YOU_ARE_USING		"You are using:\n\r"
 IS_USING			"$N is using:"
 YOU_PEEK_AT_THE_INVENTORY	"\n\rYou peek at the inventory:\n\r"
 
-COMM_INTERFACE_LANGUAGE_UNDEFINED "Your current interface language undefined. Report it to Gods!!!\n\r"
-COMM_SHOW_LANGUAGE		"Interface language is '%s'.\n\r"
-COMM_LANGUAGE_USAGE_PRE		"Usage: lang [ "
-COMM_LANGUAGE_USAGE_POST	" ]\n\r"
+INTERFACE_LANGUAGE_IS	"Interface language is '%s'.\n\r"
+LANG_USAGE_PRE		"Usage: lang [ "
+LANG_USAGE_POST		" ]\n\r"
 
 COND_EXCELLENT 	"excellent"
 COND_GOOD 		"good"
