@@ -85,7 +85,7 @@ A stench of corruption and decay surrounds this sorceror, who has
 clearly risen from the grave to continue his foul plots and schemes .
 ~
 unique~
-ABFGORTh DFTUcu 0 0
+ABFGORh DFTUcu 0 0
 47 35 100d40+3000 100d5+1000 10d7+30 'blast'
 -30 -30 -30 -30
 AFGK BLMQ I HNS
@@ -110,7 +110,7 @@ F vul C
 #22306
 ringwraith adunaphel~
 Adunaphel the Quiet~
-A tall black cloaked Ringwraith.
+A tall black cloaked Ringwraith stays here.
 ~
 A sorceress in life, Adunaphel quickly fell under Sauron's sway and 
 the power of the rings. Now she is set here, guarding the mysteries
@@ -118,16 +118,16 @@ of the dungeon.  Cold radiating from her freezes your breath in the
 air.
 ~
 lich~
-ABFORTe DFNOTm -1000 0
-47 50 100d5+4000 100d2+1000 20d5+50 'drain'
+ABFORTe DFTm -1000 0
+47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-0 0 0 S
+K 0 0 S
 stand stand female 20000
 0 0 large unknown
 #22307
 uvatha ringwraith~
 Uvatha the Horseman~
-A tall black cloaked Ringwraith.
+A tall black cloaked Ringwraith stays here.
 ~
 A tall black cloaked Ringwraith, he is a master at horsemanship. 
 He longs to taste your blood. Now he is set here, guarding the 
@@ -135,8 +135,8 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-ABFORTe DFNOTm -1000 0
-47 50 100d5+4000 100d2+1000 20d5+50 'drain'
+ABFORTe DFTm -1000 0
+47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
 K 0 0 S
 stand stand male 20000
@@ -144,7 +144,7 @@ stand stand male 20000
 #22308
 alhorahil ringwraith~
 Alhorahil the Blind~
-A tall black cloaked Ringwraith.
+A tall black cloaked Ringwraith stays here.
 ~
 A mighty sorcerer King, Akhorahil was blind in life. With powerful
 enchantment he created jewelled eyes that enabled to see better 
@@ -154,7 +154,7 @@ breath in the air.
 ~
 lich~
 ABFORTe DFTm -1000 0
-47 0 100d5+4000 100d2+1000 20d5+50 'drain'
+47 0 100d5+4000 100d2+1000 20d5+50 'blast'
 0 0 0 0
 K 0 0 S
 stand stand male 20000
@@ -162,7 +162,7 @@ stand stand male 20000
 #22309
 ren ringwraith~
 Ren the Unclean~
-A tall black cloaked Ringwraith.
+A tall black cloaked Ringwraith stays here.
 ~
 Ren was an insane eastern King who believed hiself to be the son
 of a volcano god. At an early age his sanity was destroyed by a 
@@ -177,6 +177,146 @@ ABFORTe DFTm -1000 0
 K 0 0 S
 stand stand male 22000
 0 0 large unknown
+#22310
+indur ringwraith~
+Ji Indur Dawndeath~
+A tall black cloaked Ringwraith stays here.
+~
+This Ringwraith was a weakminded sorcerer King who fell easily 
+under Sauron's power. Now he is set here, guarding the 
+mysteries of the dungeon. You can feel a furnace cold radiating
+from his form.
+~
+lich~
+ABFORTe DFTm -1000 0
+49 55 100d5+4500 100d2+1000 20d6+40 'blast'
+-55 -55 -55 -55
+K 0 0 S
+stand stand male 21000
+0 0 large unknown
+#22311
+dwar ringwraith~
+Dwar, Dog Lord of Waw~
+A tall black cloaked Ringwraith stays here.
+~
+Dwar had a special affinity for dogs in life, and can still 
+command them at will. He howls manically as he reaches out 
+to destroy you. Now he is set here, guarding the mysteries 
+of the dungeon. You can feel a furnace cold radiating from 
+his form.
+~
+lich~
+ABFORTe DFTm -1000 0
+49 55 100d5+4500 100d2+1000 20d6+40 'blast'
+-55 -55 -55 -55
+K 0 0 S
+stand stand male 21000
+0 0 large unknown
+#22312
+hoarmurath ringwraith~
+Hoarmurath of Dir~
+A tall black cloaked Ringwraith stays here.
+~
+A Ringwraith powerful in fell sorcery he yearns for the life he 
+has lost for a life of everlasting torment. Now he is set here, 
+guarding the mysteries of the dungeon.  The air around you 
+warps with energy as you come closer.
+~
+lich~
+ABFORTe DFTm -1000 0
+51 60 100d5+4800 100d2+1000 20d7+40 'blast'
+-60 -60 -60 -60
+K 0 0 S
+stand stand male 22000
+0 0 large unknown
+#22313
+khamul ringwraith~
+Khamul the Easterling~
+A tall black cloaked Ringwraith stays here.
+~
+A warrior King of the East. Khamul is a powerful opponent,
+his skill in combat awesome and his form twisted by evil 
+cunning. Now he is set here, guarding the mysteries of the 
+dungeon.  The air around you warps with energy as you come 
+closer.
+~
+lich~
+ABFORTe DFTm -1000 0
+51 60 100d6+4800 100d2+1000 20d7+40 'blast'
+-60 -60 -60 -60
+K 0 0 S
+stand stand male 22000
+0 0 large unknown
+#22314
+murazor ringwraith~
+Murazor, the Witch-King of Angmar~
+A tall black cloaked Ringwraith in a iron crown stays here.
+~
+The Chief of the Ringwraiths. A fell being of devastating 
+power. His spells are lethal and his combat blows crushingly
+hard. He moves at speed, and commands legions of evil to do
+his bidding. He is fated to never die by the hand of mortal 
+man. Now he is set here, guarding the mysteries of the 
+dungeon. The air around you warps with energy as you come 
+closer.
+~
+lich~
+ABFOQRTe DFTm -1000 0
+52 60 100d7+5000 100d3+1200 20d8+50 'blast'
+-65 -65 -65 -65
+AGK 0 0 0
+stand stand male 25000
+0 0 huge unknown
+F vul N
+#22315
+omarax beholder~
+Omarax the Eye tyrant~
+A huge beholder sends its gaze over you.
+~
+This ball-like creature looks almost invulnerable due to thousands
+of small eyes on stalks which surround the air around you with piercing
+shrieking so you can't get closer.
+~
+unique~
+ABCGR DFTZmu -1000 0
+63 60 100d7+6400 100d5+3000 20d3+50 'sting'
+-60 -60 -60 -60
+AFGK ABLMQR CD N
+stand stand none 10000
+BIVc AEKU large unknown
+#22316
+tselakus ghost~
+Tselakus, the Dreadlord~
+A ghost decides to check his skills on you.
+~
+You see a tall figure of an armed knight that seems to be made of
+grey mist.  It looks at you menacingly, his glittering eyes glow with
+power from beneath it's helmet.  Though you can see straight through
+its ghostly shape, it looks MORE tougher than ghosts you see before...
+~
+ghost~
+ABCFGT DFmu -1000 0
+63 60 200d10+7000 100d3+1000 20d4+60 'peck'
+-50 -50 -50 -50
+AFK 0 C 0
+stand stand none 15000
+0 0 huge unknown
+#22317
+muar demon barlog~
+Muar, the Balrog~
+A demon of fearsome power stands here, ready to defeat you.
+~
+It is massive humanoid demon from the Planes of Hell, looks like it
+is capable to send you there with one blow.  Its muscular form looks
+extremely powerful next to your own frail body.
+~
+unique~
+ABCFGT DFTmu -1000 0
+64 60 200d10+6500 200d2+1000 30d3+40 'flbite'
+-55 -55 -55 -55
+AFGK ABHLMQ FGKO EI
+stand stand male 20000
+ABV ABCDEFGHQW huge unknown
 #22399
 as~
 as~
@@ -504,6 +644,83 @@ A
 13 -50
 A
 19 4
+G none
+#22320
+key gorrors~
+a key of the Gorrors~
+A small key with engraved head of a dreadful monster lies here.~
+iron~
+key Uf AO
+0 0 0 0 0
+0 1 1000 P
+G none
+#22321
+shield~
+the Shield of Deflection~
+A huge iron shield with dark symbols lies here.~
+iron~
+armor BCIT AJ
+25 25 25 20 0
+45 100 50000 P
+A
+12 -50
+A
+13 10
+A
+18 -5
+A
+17 -30
+G none
+#22322
+chest~
+the chest of the beast~
+A securely locked ancient chest sits here.~
+iron~
+container DRY P
+0 ABCD 22323 500 0
+45 1000 0 P
+G none
+#22323
+key~
+the key of the beast~
+A strange key lies here, looking very depressive.~
+iron~
+key PTUf AO
+0 0 0 0 0
+5 1 0 P
+G none
+#22324
+key~
+the key of the beast~
+A strange key lies here, looking very depressive.~
+energy~
+key PTUf AO
+0 0 0 0 0
+5 1 0 P
+G none
+#22325
+chest~
+the chest of the beast~
+A securely locked ancient chest sits here.~
+iron~
+container RSTY P
+0 ABCD 22324 1000 0
+45 1000 0 P
+G none
+#22326
+axe great~
+the Greate Axe named "Barukkheled"~
+A some huge humming axe lies here.~
+iron~
+weapon RTY AN
+axe 15 4 'cleave' EFG
+45 100 100000 P
+A
+26 1
+A
+19 5
+A
+18 5
 G none
 #22399
 battleaxe dagger sword~
@@ -1089,6 +1306,10 @@ D3
 ~
 ~
 Z 0 22332
+D5
+~
+~
+ABCFGZ 22320 22373
 S
 #22334
 A corridor~
@@ -1114,7 +1335,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ANX inside
+0 ACNX inside
 D0
 ~
 ~
@@ -1131,7 +1352,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ANX inside
+0 ACNX inside
 D0
 ~
 ~
@@ -1148,7 +1369,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ANX inside
+0 ACNX inside
 D0
 ~
 ~
@@ -1312,7 +1533,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ANX inside
+0 ACNX inside
 D0
 ~
 ~
@@ -1329,7 +1550,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ANX inside
+0 ACNX inside
 D0
 ~
 ~
@@ -1346,7 +1567,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ANX inside
+0 ACNX inside
 D0
 ~
 ~
@@ -1517,12 +1738,622 @@ D4
 ~
 ABCFGZ 0 22306
 S
+#22357
+A Cage~
+You stand inside the large, VERY firm and solid looking cage.
+The sense of an extreme dread and fear comes over you as you examine
+the locks and bars of this cage.  You wonder what kind of a beast
+this cage must have imprisoned...
+~
+0 ANX inside
+D2
+~
+~
+ABLZ 0 22359
+S
+#22358
+A Cage~
+You stand inside the large, VERY firm and solid looking cage.
+The sense of an extreme dread and fear comes over you as you examine
+the locks and bars of this cage.  You wonder what kind of a beast
+this cage must have imprisoned...
+~
+0 ANX inside
+D2
+~
+~
+ABLZ 0 22360
+S
+#22359
+An island in the underworld sea~
+You stand on a small island in the underworld sea.  The only
+thing you notice on the island is a great solid cage to the north.
+A metal plaque with some inscripitions written by ancient runes is
+hanging on the bar.
+~
+0 ANX inside
+D0
+~
+~
+ABLZ 0 22357
+D2
+~
+~
+Z 0 22361
+S
+#22360
+An island in the underworld sea~
+You stand on a small island in the underworld sea.  The only
+thing you notice on the island is a great solid cage to the north.
+A metal plaque with some inscripitions written by ancient runes is
+hanging on the bar.
+~
+0 ANX inside
+D0
+~
+~
+ABLZ 0 22358
+D2
+~
+~
+Z 0 22365
+S
+#22361
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.  To the north you notice
+a small island with a huge metal construction.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22359
+D1
+~
+~
+Z 0 22362
+D2
+~
+~
+Z 0 22366
+S
+#22362
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22363
+D3
+~
+~
+Z 0 22361
+S
+#22363
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22364
+D2
+~
+~
+Z 0 22367
+D3
+~
+~
+Z 0 22362
+S
+#22364
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22365
+D3
+~
+~
+Z 0 22363
+S
+#22365
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22360
+D2
+~
+~
+Z 0 22368
+D3
+~
+~
+Z 0 22364
+S
+#22366
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22361
+D2
+~
+~
+Z 0 22371
+S
+#22367
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22363
+D2
+~
+~
+Z 0 22373
+S
+#22368
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22365
+D2
+~
+~
+Z 0 22375
+S
+#22369
+A Cage~
+You stand inside the large, VERY firm and solid looking cage.
+The sense of an extreme dread and fear comes over you as you examine
+the locks and bars of this cage.  You wonder what kind of a beast
+this cage must have imprisoned...
+~
+0 ANX inside
+D1
+~
+~
+ABLZ 0 22370
+S
+#22370
+An island in the underworld sea~
+You stand on a small island in the underworld sea.  The only
+thing you notice on the island is a great solid cage to the west.
+A metal plaque with some inscripitions written by ancient runes is
+hanging on the bar.
+~
+0 ANX inside
+D1
+~
+~
+Z 0 22371
+D3
+~
+~
+ABLZ 0 22369
+S
+#22371
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.  To the west you notice
+a small island with a huge metal construction.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22366
+D1
+~
+~
+Z 0 22372
+D2
+~
+~
+Z 0 22378
+D3
+~
+~
+Z 0 22370
+S
+#22372
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22373
+D3
+~
+~
+Z 0 22371
+S
+#22373
+The Entrance to the Hall of Gorrors~
+You stand in the huge underground cave, full of water.  It is
+SO huge, that you can't even see where this hall ends.  Large rocks
+and reefs are scattered on the water, leaving just narrow fjords.
+Stairs lead up to the Hall of Guards, but a large black gate blocks
+your way out.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22367
+D1
+~
+~
+Z 0 22374
+D2
+~
+~
+Z 0 22379
+D3
+~
+~
+Z 0 22372
+D4
+~
+~
+ABCFGZ 0 22333
+S
+#22374
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22375
+D3
+~
+~
+Z 0 22373
+S
+#22375
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.  To the east you notice
+a small island with a huge metal construction.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22368
+D1
+~
+~
+Z 0 22376
+D2
+~
+~
+Z 0 22380
+D3
+~
+~
+Z 0 22374
+S
+#22376
+An island in the underworld sea~
+You stand on a small island in the underworld sea.  The only
+thing you notice on the island is a great solid cage to the east.
+A metal plaque with some inscripitions written by ancient runes is
+hanging on the bar.
+~
+0 ANX inside
+D1
+~
+~
+ABLZ 0 22377
+D3
+~
+~
+Z 0 22375
+S
+#22377
+A Cage~
+You stand inside the large, VERY firm and solid looking cage.
+The sense of an extreme dread and fear comes over you as you examine
+the locks and bars of this cage.  You wonder what kind of a beast
+this cage must have imprisoned...
+~
+0 ANX inside
+D3
+~
+~
+ABLZ 0 22376
+S
+#22378
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22371
+D2
+~
+~
+Z 0 22381
+S
+#22379
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22373
+D2
+~
+~
+Z 0 22383
+S
+#22380
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22375
+D2
+~
+~
+Z 0 22385
+S
+#22381
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.  To the south you notice
+a small island with a huge metal construction.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22378
+D1
+~
+~
+Z 0 22382
+D2
+~
+~
+Z 0 22386
+S
+#22382
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22383
+D3
+~
+~
+Z 0 22381
+S
+#22383
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22379
+D1
+~
+~
+Z 0 22384
+D3
+~
+~
+Z 0 22382
+S
+#22384
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.
+~
+0 ANX swim
+D1
+~
+~
+Z 0 22385
+D3
+~
+~
+Z 0 22383
+S
+#22385
+The underworld sea~
+You swim in the great underworld sea.  Waters are cold and
+deep, some putrid smells rises from the depths of this hidden
+sea.  An eerie silence surrounds you, and you feel as somebody
+glares at you from the waters below.  To the south you notice
+a small island with a huge metal construction.
+~
+0 ANX swim
+D0
+~
+~
+Z 0 22380
+D2
+~
+~
+Z 0 22387
+D3
+~
+~
+Z 0 22384
+S
+#22386
+An island in the underworld sea~
+You stand on a small island in the underworld sea.  The only
+thing you notice on the island is a great solid cage to the south.
+A metal plaque with some inscripitions written by ancient runes is
+hanging on the bar.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22381
+D2
+~
+~
+ABLZ 0 22388
+S
+#22387
+An island in the underworld sea~
+You stand on a small island in the underworld sea.  The only
+thing you notice on the island is a great solid cage to the south.
+A metal plaque with some inscripitions written by ancient runes is
+hanging on the bar.
+~
+0 ANX inside
+D0
+~
+~
+Z 0 22385
+D2
+~
+~
+ABLZ 0 22389
+S
+#22388
+A Cage~
+You stand inside the large, VERY firm and solid looking cage.
+The sense of an extreme dread and fear comes over you as you examine
+the locks and bars of this cage.  You wonder what kind of a beast
+this cage must have imprisoned...
+~
+0 ANX inside
+D0
+~
+~
+ABLZ 0 22386
+S
+#22389
+A Cage~
+You stand inside the large, VERY firm and solid looking cage.
+The sense of an extreme dread and fear comes over you as you examine
+the locks and bars of this cage.  You wonder what kind of a beast
+this cage must have imprisoned...
+~
+0 ANX inside
+D0
+~
+~
+ABLZ 0 22387
+S
 #22400
 ~
 ~
 0 0 inside
 S
 #0
+
+#SPECIALS
+M 22304 spec_breath_any	* Faegwath the Undead Sorceror
+M 22305 spec_breath_fire	* Chu-gun the Guard of Pa-Ra-Voz
+M 22306 spec_cast_undead	* Adunaphel the Quiet
+M 22307 spec_cast_undead	* Uvatha the Horseman
+M 22308 spec_cast_undead	* Alhorahil the Blind
+M 22309 spec_cast_undead	* Ren the Unclean
+M 22310 spec_cast_undead	* Ji Indur Dawndeath
+M 22311 spec_cast_undead	* Dwar, Dog Lord of Waw
+M 22312 spec_cast_undead	* Hoarmurath of Dir
+M 22313 spec_cast_undead	* Khamul the Easterling
+M 22314 spec_cast_undead	* Murazor, the Witch-King of Angmar
+M 22315 spec_cast_beholder	* Omarax the Eye tyrant
+S
 
 #RESETS
 D 0 22302 5 2	* The Entrance to the Dungeon: door to the down: closed and locked
@@ -1556,7 +2387,21 @@ D 0 22322 4 2	* The Hall of the Crypts: door to the up: closed and locked
 D 0 22323 0 1	* A Crypt: door to the north: closed
 D 0 22324 0 1	* A Crypt: door to the north: closed
 D 0 22325 0 1	* A Crypt: door to the north: closed
+D 0 22333 5 2	* The Guards Quarters: door to the down: closed and locked
 D 0 22356 4 2	* The entrance to the Hall of Ringwraiths: door to the up: closed and locked
+D 0 22357 2 1	* A Cage: door to the south: closed
+D 0 22358 2 1	* A Cage: door to the south: closed
+D 0 22359 0 1	* An island in the underworld sea: door to the north: closed
+D 0 22360 0 1	* An island in the underworld sea: door to the north: closed
+D 0 22369 1 1	* A Cage: door to the east: closed
+D 0 22370 3 1	* An island in the underworld sea: door to the west: closed
+D 0 22373 4 2	* The Entrance to the Hall of Gorrors: door to the up: closed and locked
+D 0 22376 1 1	* An island in the underworld sea: door to the east: closed
+D 0 22377 3 1	* A Cage: door to the west: closed
+D 0 22386 2 1	* An island in the underworld sea: door to the south: closed
+D 0 22387 2 1	* An island in the underworld sea: door to the south: closed
+D 0 22388 0 1	* A Cage: door to the north: closed
+D 0 22389 0 1	* A Cage: door to the north: closed
 M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
 E 0 22300 0 17		*	key of the crypts: held in the hands
 M 0 22303 12 22303 1	* the Shade (A Crypt)
@@ -1578,6 +2423,7 @@ M 0 22304 1 22306 1	* Faegwath the Undead Sorceror (The Hall of Crypts)
 E 0 22313 0 5		*	a black gown of Death: on the body
 E 0 22314 0 2		*	a ring of demons: on the right finger
 E 0 22319 0 16		*	the staff of Death: wielded
+E 0 22320 0 17		*	a key of the Gorrors: held in the hands
 M 0 22303 12 22307 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
@@ -1601,7 +2447,7 @@ E 0 22303 0 5		*	the Hi-Kane-Do battle gown: on the body
 E 0 22305 0 10		*	the Hi-Kane-Do battle sleeves: on the arms
 E 0 22306 0 9		*	the Hi-Kane-Do battle gloves: on the hands
 E 0 22307 0 8		*	the Hi-Kane-Do battle boots: on the feet
-E 0 22312 0 17		*	a Bonsai tree: held in the hands
+E 0 22321 0 11		*	the Shield of Deflection: as a shield
 M 0 22301 12 22311 2	* Green Glutton Ghost (The End of Passage)
 M 0 22301 12 22312 2	* Green Glutton Ghost (A Narrow Passage)
 M 0 22301 12 22313 2	* Green Glutton Ghost (A Narrow Passage)
@@ -1645,15 +2491,30 @@ E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
-M 0 22306 1 22327 1	* Adunaphel the Quiet (The northern hallway)
-M 0 22307 1 22339 1	* Uvatha the Horseman (The central hallway)
+M 0 22312 1 22327 1	* Hoarmurath of Dir (The northern hallway)
+M 0 22313 1 22329 1	* Khamul the Easterling (The northern hallway)
+M 0 22314 1 22331 1	* Murazor, the Witch-King of Angmar (The northern hallway)
+M 0 22311 1 22339 1	* Dwar, Dog Lord of Waw (The central hallway)
+M 0 22310 1 22341 1	* Ji Indur Dawndeath (The central hallway)
+M 0 22309 1 22343 1	* Ren the Unclean (The central hallway)
 M 0 22308 1 22350 1	* Alhorahil the Blind (The southern hallway)
-M 0 22309 1 22352 1	* Ren the Unclean (The southern hallway)
+M 0 22307 1 22352 1	* Uvatha the Horseman (The southern hallway)
+M 0 22306 1 22354 1	* Adunaphel the Quiet (The southern hallway)
+M 0 22315 1 22357 1	* Omarax the Eye tyrant (A Cage)
+E 0 22323 0 17		*	the key of the beast: held in the hands
+O 0 22322 0 22357	* the chest of the beast (A Cage)
+M 0 22316 1 22358 1	* Tselakus, the Dreadlord (A Cage)
+E 0 22324 0 17		*	the key of the beast: held in the hands
+O 0 22325 0 22358	* the chest of the beast (A Cage)
+P 0 22326 0 22325 1	* the chest of the beast: the Greate Axe named "Barukkheled"
+M 0 22317 1 22377 1	* Muar, the Balrog (A Cage)
 S
 
 #OLIMITS
 O 22316 8	* the Wheel of Pa-Ra-Voz
 O 22318 4	* the Axel of Pa-Ra-Voz
+O 22321 10	* the Shield of Deflection
+O 22326 1	* the Greate Axe named "Barukkheled"
 O 22399 0	* battlaxe 
 S
 

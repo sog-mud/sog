@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.104 1999-11-26 08:25:12 kostik Exp $
+ * $Id: tables.c,v 1.105 1999-11-30 08:10:02 kostik Exp $
  */
 
 /***************************************************************************
@@ -237,6 +237,7 @@ flag_t off_flags[] =
 	{ "assist_players",	ASSIST_PLAYERS,		TRUE	},
 	{ "assist_guard",	ASSIST_GUARD,		TRUE	},
 	{ "assist_vnum",	ASSIST_VNUM,		TRUE	},
+	{ "distance", 		OFF_DISTANCE,		TRUE	},
 
 	{ NULL }
 };

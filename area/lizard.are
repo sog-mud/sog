@@ -1,7 +1,7 @@
 #AREADATA
 Name Lizard Kingdom~
 VNUMs 22100 22299
-Credits Vivien~
+Credits ParAvoz~
 Security 1
 LevelRange 35 45
 End
@@ -1461,20 +1461,303 @@ A
 G none
 #22156
 bracelet~
-bracelet of ko~
-Very strange bracelet with letters Ko lays here.~
+bracelet of vi~
+Very strange bracelet with letters Vi lays here.~
 snakeskin~
 armor B AM
 18 18 18 10 0
 60 100 10000 P
 A
-4 -2
+5 -2
 A
 13 50
 A
 19 1
 A
 18 1
+G none
+#22157
+hammer~
+hammer of zo~
+Huge hammer belongs Zo lays here.~
+steel~
+weapon ABI AN
+mace 12 4 'flame' A
+60 400 100000 P
+A
+19 10
+A
+18 5
+A
+5 -2
+G none
+#22158
+bracelet~
+bracelet of zo~
+Very strange bracelet with letters Zo lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+6 -2
+A
+13 50
+A
+19 1
+A
+18 1
+G none
+#22159
+hookah~
+hookah~
+An old hookah lays here.~
+bone~
+staff ABM AO
+100 20 20 'frenzy' 0
+60 10 1000 P
+A
+5 -1
+A
+2 -1
+G none
+#22160
+bracelet~
+bracelet of la~
+Very strange bracelet with letters La lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+5 -1
+A
+2 -1
+A
+13 50
+A
+19 1
+A
+18 1
+G none
+#22161
+cap~
+cap~
+Cap with two letters De lays here~
+cotton~
+armor ABG AE
+18 18 18 10 0
+60 10 30000 P
+G none
+#22162
+bracelet~
+bracelet of de~
+Very strange bracelet with letters De lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+12 80
+A
+13 30
+A
+6 -1
+A
+1 -1
+A
+19 1
+A
+18 1
+G none
+#22163
+sleeves~
+sleeves of mu~
+Small black sleeves lays here.~
+unknown~
+armor AM AI
+15 15 15 12 0
+60 10 10000 P
+A
+19 6
+A
+18 5
+A
+9 1
+A
+1 -1
+G none
+#22164
+bracelet~
+bracelet of mu~
+Very strange bracelet with letters Mu lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+19 6
+A
+18 5
+A
+9 1
+A
+1 -1
+A
+18 1
+G none
+#22165
+glasses~
+glasses~
+Small glasses shine here.~
+unknown~
+armor AH AE
+15 15 15 15 0
+60 0 0 P
+A
+13 50
+A
+9 -5
+A
+2 -1
+A
+1 -1
+G none
+#22166
+bracelet~
+bracelet of Ce~
+Very strange bracelet with letters Ce lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+13 50
+A
+2 -1
+A
+1 -1
+G none
+#22167
+hooded cloak~
+hooded cloak~
+Black hooded cloak lays here.~
+cotton~
+armor J AE
+20 20 20 9 0
+40 10 100 P
+A
+13 10
+A
+2 2
+G none
+#22168
+gray cape~
+gray cape~
+Gray cape looks like sack is here.~
+cotton~
+armor J AC
+20 20 20 8 0
+40 10 1000 P
+A
+13 15
+A
+2 2
+G none
+#22169
+long knife~
+long knife~
+Very long and sharp knife lays here.~
+steel~
+weapon EJ AN
+dagger 10 4 'stab' 0
+40 50 3000 P
+G none
+#22170
+sword~
+sword~
+Evil looking sword lays here.~
+steel~
+weapon EJ AN
+sword 10 4 'slash' 0
+45 100 2000 P
+G none
+#22171
+necklace~
+necklace~
+Small golden necklace glows here.~
+gold~
+treasure AB AC
+0 0 0 0 0
+0 10 10000 P
+A
+7 -2
+A
+6 3
+G none
+#22172
+assassin mask~
+~
+~
+cotton~
+armor Ha AE
+20 20 20 10 0
+60 20 0 P
+F A 0 0 B
+A
+19 3
+A
+18 3
+A
+6 -3
+G none
+#22173
+black vest~
+black vest~
+Very useful black vest lays here. ~
+unknown~
+armor Ha AD
+20 20 20 10 0
+60 100 60000 P
+F A 0 0 U
+A
+19 3
+A
+18 3
+A
+6 -2
+G none
+#22174
+black trousers~
+black trousers~
+Strange black trousers lays here.~
+unknown~
+armor Ha AF
+20 20 20 10 0
+2 100 10000 P
+F A 0 0 TV
+A
+19 3
+A
+18 3
+A
+6 -2
+G none
+#22175
+black sandals~
+~
+~
+unknown~
+armor 0 AG
+15 15 15 7 0
+60 100 10000 P
+F A 0 0 P
+A
+19 3
+A
+18 3
+A
+6 -2
 G none
 #0
 
@@ -4463,7 +4746,21 @@ O 22152 1	* bracelet of ko
 O 22153 1	* tie of sa
 O 22154 1	* bracelet of sa
 O 22155 1	* hammer of vi
-O 22156 1	* bracelet of ko
+O 22156 1	* bracelet of vi
+O 22157 1	* hammer of zo
+O 22158 1	* bracelet of zo
+O 22159 1	* hookah
+O 22160 1	* bracelet of la
+O 22161 1	* cap
+O 22162 1	* bracelet of de
+O 22163 1	* sleeves of mu
+O 22164 1	* bracelet of mu
+O 22165 1	* glasses
+O 22166 1	* bracelet of Ce
+O 22172 2	* 
+O 22173 2	* black vest
+O 22174 2	* black trousers
+O 22175 2	* 
 S
 
 #$

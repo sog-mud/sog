@@ -42,20 +42,139 @@ M act 47004 removes his shoes.~
 M act 47004 removes her shoes.~
 M speech 47003 password~
 #47100
-horse warhorse~
-@eng Lothar's warhorse@rus Боевой конь~
-@eng Lothar's warhorse is here.
-@rus Боевой конь Лотара стоит здесь, из его ноздрей валит дым.
+duck утка~
+@eng a duck@rus ~~утка~~~
+@eng A duck is here, quacking loudly.
+@rus Утка путается у тебя под ногами, громко крякая.
 ~
-Це ж Сивка-бурка!
+@eng A medium sized duck is crossing the road right
+before you and quacking loudly at everyone.
+@rus Средних размеров утка решает пересечь дорогу
+прямо под твоим носом и недовольно крякает на
+всех и вся.
 ~
-horse~
-AJKTZbd DFHJNOTUc 1000 0
-50 300 100d100+10000 100d100+10000 15d15+250 'smash'
--100 -100 -100 -100
-ACDINO CD 0 0
+song bird~
+AGHe 0 0 0
+10 10 6d10+100 1d1+0 2d5+5 'peckb'
+4 4 4 7
+IJ 0 0 C
+stand stand female 0
+0 ADFHP tiny unknown
+#47101
+утенок small duck~
+@eng a small duck@rus ~~утенок~~~
+@eng A small duck is looking for its mother.
+@rus Утенок вертит головой в разные стороны, разыскивая утку.
+~
+@eng It is cute and quiet enough, and too young
+to be served anyway.
+@rus Покрытый с ног до головы желтым пухом, он весьма
+симпатичен и не имеет привычки крякать на все, что
+видит.
+~
+song bird~
+AGHe bz 0 0
+5 5 5d5+30 0d0+0 2d2+3 'peckb'
+7 7 7 7
+J 0 0 C
 stand stand male 0
-0 0 huge unknown
+0 ADFHP tiny unknown
+#47102
+snake змея змейка~
+@eng a small snake@rus ~~маленькая~~ ~~змейка~~~
+@eng A snake slithers silently in the grass.
+@rus Небольшая змея бесшумно скользит в траве.
+~
+@eng It looks harmless but you'd better not check
+if it's venomous or not.
+@rus Она выглядит совсем безобидной, но все же не стоит проверять,
+ядовита она или нет.
+~
+snake~
+AGW FPQV 0 0
+20 25 10d15+350 0d0+0 5d5+20 'bite'
+-4 -4 -4 -4
+FHM 0 0 0
+stand stand female 0
+D AQ tiny unknown
+#47103
+grasshopper кузнечик~
+@eng a grasshopper@rus ~~кузнечик~~~
+@eng A tiny grasshopper is hiding in the grass.
+@rus Крохотный кузнечик притаился в траве.
+~
+@eng Very small and fragile, it jumps away as you approach.
+@rus Очень маленький и хрупкий, он прыгает в сторону
+как только ты подходишь.
+~
+unique~
+AHe T 500 0
+5 5 6d6+50 0d0+0 4d4+8 'scratch'
+2 2 2 2
+F 0 0 HI
+stand stand male 0
+AO CP tiny unknown
+#47104
+small bird птичка маленькая~
+@eng a bird@rus ~~птичка~~~
+@eng A small bird is searching the grass for insects.
+@rus Какая-то птичка выискивает в траве букашек.
+~
+@eng It probably got tired from flying and singing
+and decided to catch some bug for a meal.
+@rus Наверное, она устала щебетать и решила подкрепится
+каким-нибудь неудачливым червячком.
+~
+song bird~
+AH 0 0 0
+10 10 10d10+200 0d0+0 5d5+15 'peck'
+-2 -2 -2 -2
+0 0 0 0
+stand stand female 0
+0 FP small unknown
+#47105
+ученик юноша young man apprentice~
+@eng apprentice@rus ~~ученик~~~
+@eng A young apprentice is performing complex motions here.
+@rus Молодой человек отрабатывает здесь различные упражнения.
+~
+@eng He follows every instruction given by his teacher,
+performing various motions some of which imitate combat
+moves.
+@rus Сосредоточенно смотря перед собой, он совершает
+сложные движения, некоторые из которых имитируют
+боевые приемы.
+~
+human~
+ABG bz 700 0
+25 20 10d20+500 0d0+0 6d6+25 'punch'
+-5 -5 -5 -5
+FIJKN 0 EGILPQ 0
+stand stand male 500
+0 ABCDEF medium unknown
+F for HM
+#47106
+teacher учитель пожилой человек man наставник~
+@eng the old teacher@rus ~~пожилой~~ ~~наставник~~~
+@eng An old man is here, watching his apprentice.
+@rus Пожилой человек стоит здесь, наблюдая за своим учеником.
+~
+@eng His hair is grey and face is wrinkled, but he managed
+to save the amazing grace of movements and love for life,
+as if there weren't all those years behind him.
+@rus Голова его седа, а лицо изборождено морщинами, но
+ему удалось сохранить поразительную легкость движе-
+ний и любовь к жизни, заставляющую его глаза сиять,
+словно у юноши.
+~
+human~
+ABGT DFPbz 1000 0
+32 30 10d50+538 0d0+0 9d6+35 'punch'
+-12 -12 -12 -10
+AFHKN 0 BDHILPQ 0
+stand stand male 1000
+0 ABCDF medium unknown
+F for HM
 #0
 
 #OBJECTS
@@ -758,6 +877,62 @@ fountain RZ 0
 -1 -1 'water' 135137728 0
 0 100000 0 P
 G male
+#47129
+мертвая змея dead snake coil кольцо~
+@eng a dead snake@rus ~~мертвая~~ ~~змея~~~
+@eng A dead snake lies here coiled.@rus Мертвая змея лежит здесь, свернувшись кольцом.~
+snakeskin~
+weapon QVa AN
+whip 4 8 'sting' H
+20 5 0 P
+A
+19 2
+A
+18 4
+G female
+#47130
+пояс belt~
+@eng a worn belt@rus ~~поношенный~~ ~~пояс~~~
+@eng A worn belt made of cotton lies here.@rus Самый обычный и довольно поношенный пояс лежит на земле.~
+cotton~
+clothing 0 AL
+0 0 0 0 0
+15 5 100 P
+A
+17 -10
+A
+14 25
+A
+2 1
+A
+20 -2
+A
+18 2
+G male
+#47131
+штаны pants short короткие~
+@eng short pants@rus ~~короткие~~ ~~штаны~~~
+@eng Short and quite worn pants lie here.@rus Короткие и не слишком новые штаны лежат здесью~
+cotton~
+clothing 0 AF
+0 0 0 0 0
+15 5 100 P
+A
+18 2
+A
+17 -15
+A
+14 30
+G plural
+#47132
+pile feathers кучка перьев~
+@eng a small pile of feathers@rus ~~кучка~~ ~~перьев~~~
+@eng A pile of dirty feathers is lying on the ground.@rus Кучка грязных перьев валяется на земле.~
+unknown~
+trash Va A
+0 0 0 0 0
+0 2 0 P
+G female
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -2877,7 +3052,7 @@ ly bare - there isn't even moss growing at it.
 опасно... если не смотреть вниз и не обращать внимания на усилив-
 шийся ветер, словно решивший во что бы то ни стало сбросить тебя
 вниз. Неожиданно для себя ты замечаешь что поверхность камня со-
-вершенно чиста - на ней не растет даже  лишайник.
+вершенно чиста - на ней не растет даже лишайник.
 ~
 0 0 mountain
 D0
@@ -2900,7 +3075,7 @@ isn't even moss growing at it.
 опасно... если не смотреть вниз и не обращать внимания на усилив-
 шийся ветер, словно решивший во что бы то ни стало сбросить тебя
 вниз. Неожиданно для себя ты замечаешь что поверхность камня со-
-вершенно чиста - на ней не растет даже  лишайник.
+вершенно чиста - на ней не растет даже лишайник.
 ~
 0 0 mountain
 D2
@@ -2914,6 +3089,19 @@ Z 0 47188
 S
 #47188
 @eng The mountain@rus На горе~
+@eng The sad, monotonous rock splits here to reveal an inky black
+hole, obviously leading to the cave. For a moment, you think
+you can hear a menacing hum coming from inside, but a second
+later you decide that it might as well be just a howl of wind.
+Smelling the air, you can't feel anything that could hint on
+some beast living in this cave... are there ANY beasts willing
+to live at this height?
+@rus В этом месте камень расходится, открывая небольшое, меньше
+человеческого роста, отверстие, ведущее, по всей видимости,
+в пещеру. Кажется, ты слышишь какой-то зловещий шум, исходящий
+оттуда - или это всего лишь ветер? Принюхавшись, ты не чувству-
+ешь ничего, что могло бы указать на живущего в пещере дикого
+зверя... да и какой зверь стал бы жить на такой высоте?
 ~
 0 0 mountain
 D1
@@ -2927,6 +3115,16 @@ Z 0 47189
 S
 #47189
 @eng The mountain@rus На горе~
+@eng The wind attacks you with renewed force, sometimes trying
+to smear you and sometimes to pull away and throw down. Clin-
+ging to the stone, you can surely hear some strange noise -
+as if there was someone imprisoned within this mountain and
+he is dashing against the walls, trying to break free.
+@rus Холодный ветер с новой силой накидывается на тебя, пытаясь то
+размазать по камню, то оторвать от него и сбросить вниз. Прижав-
+шись к горе, ты уже не сомневаешься, в том что слышишь какой-то
+непонятный и оттого пугающий шум - словно кто-то заточен внутри
+и бьется о стены своей тюрьмы в тщетных попытках освободиться.
 ~
 0 0 mountain
 D1
@@ -2940,6 +3138,16 @@ Z 0 47190
 S
 #47190
 @eng The mountain@rus На горе~
+@eng The wind attacks you with renewed force, sometimes trying
+to smear you and sometimes to pull away and throw down. Clin-
+ging to the stone, you can surely hear some strange noise...
+as if there was someone confined within the mountain and it
+is dashing against the walls, trying to break free.
+@rus Холодный ветер с новой силой накидывается на тебя, пытаясь то
+размазать по камню, то оторвать от него и сбросить вниз. Прижав-
+шись к горе, ты уже не сомневаешься, в том что слышишь какой-то
+непонятный и оттого пугающий шум - словно кто-то заточен внутри
+и бьется о стены своей тюрьмы в тщетных попытках освободиться.
 ~
 0 0 mountain
 D0
@@ -2953,6 +3161,21 @@ Z 0 47191
 S
 #47191
 @eng The mountain@rus На горе~
+@eng The wind attacks you with renewed force, sometimes trying
+to smear you and sometimes to pull away and throw down. Clin-
+ging to the stone, you can surely hear some strange noise...
+as if there was someone confined within the mountain and it
+is dashing against the walls, trying to break free.
+  The clouds seem to be close enough to reach with your hand -
+actually, they already are around you and it is impossible to
+see further than 50 feet.
+@rus Холодный ветер с новой силой накидывается на тебя, пытаясь то
+размазать по камню, то оторвать от него и сбросить вниз. Прижав-
+шись к горе, ты уже не сомневаешься, в том что слышишь какой-то
+непонятный и оттого пугающий шум - словно кто-то заточен внутри
+и бьется о стены своей тюрьмы в тщетных попытках освободиться.
+  Облака уже совсем близко - собственно, все вокруг уже окутано
+легкой дымкой и в паре десятков метров ничего нельзя разглядеть.
 ~
 0 0 mountain
 D0
@@ -2966,6 +3189,16 @@ Z 0 47192
 S
 #47192
 @eng The mountain@rus На горе~
+@eng Looking upward, you can't see anything besides grey haze that
+safely conceals the mountain top from anyone's eyes. Anyhow, 
+there are enough hollows and ledges around to ascend higher,
+where dim outline of a flat platform's edge can be seen... You
+decide to hurry up and move further.
+@rus Глядя вверх, ты не видишь ничего, кроме серой дымки,
+надежно укрывающей вершину от посторонних глаз. Впрочем,
+здесь хватает уступов, по которым можно взобраться выше,
+туда, где смутно угадывается край ровной площадки... ты
+решаешь не тянуть и двигаешься дальше.
 ~
 0 0 mountain
 D3
@@ -2979,8 +3212,18 @@ Z 0 47193
 S
 #47193
 @eng Approaching the summit@rus Приближаясь к вершине~
+@eng How strange... here is a flat platform indeed. Somewhere
+by its edge you notice marks left by some giant creature's
+claws, and in the opposite side another steep slope rises
+up. The cold here is entirely unbearable, and the lack of
+air makes you feel giddy - you'd better hurry up.
+@rus Как странно... здесь и в самом деле оказалась ровная площадка.
+Кое-где по краю видны следы огромных когтей (интересно, чьих?),
+с другой стороны ввысь поднимается очередной отвесный склон.
+Холод становится совсем невыносимым и вдобавок к этому начинает
+ощущаться нехватка воздуха - здесь точно не стоит задерживаться.
 ~
-0 0 mountain
+0 A mountain
 D0
 ~
 ~
@@ -2992,8 +3235,19 @@ Z 0 47192
 S
 #47194
 @eng Approaching the summit@rus Приближаясь к вершине~
+@eng A plumb wall rises up to the sky right before you,
+its edge invisible in the haze. Upon short examination,
+you notice a couple places where it seems possible to
+jump and pull yourself up and decide to follow this..
+having little care of that you may not be able to des-
+cend back.
+@rus Отвесная стена поднимается вверх, и ее края практически не
+разглядеть. Немного походив вдоль нее, ты обнаруживаешь пару 
+мест, где можно было бы подпрыгнуть и подтянуться, чем ты и
+решаешь заняться.. не утруждая себя мыслями о том, что навер-
+ху может и не остаться сил на обратную дорогу.
 ~
-0 0 mountain
+0 A mountain
 D2
 ~
 ~
@@ -3005,6 +3259,24 @@ Z 0 47195
 S
 #47195
 @eng At the summit@rus Вершина горы~
+@eng Wide platform wreathing the mountain top rises over clouds and
+there's only quiet blue sky above you. The sun shines brightly,
+approaching the zenith, and a few large birds slowly circle far
+off.
+  Most of the space is occupied by a huge.. no, enormous dragon
+that is gazing upon you with quite intelligent expression on its
+face. The stone surface all around you bears deep gauges from
+its claws and the size of these marks suggests you involuntary
+respect to the owner of such weapon.
+@rus Широкая площадка, венчающая вершину, оказывается выше облаков
+и над тобой только безмятежно-синее небо. Солнце ярко светит,
+приближаясь к зениту и несколько больших птиц безмолвно парят
+вдалеке.
+  Большая часть площадки занята огромным - нет, гигантским
+драконом, рассматривающим тебя с вполне осмысленным интересом.
+Поверхность камня кругом украшена следами его когтей и глубина
+отметин внушает тебе невольное преклонение перед обладателем
+такого оружия.
 ~
 0 0 mountain
 D5
@@ -3014,8 +3286,24 @@ Z 0 47194
 S
 #47196
 @eng Dark cave@rus Темная пещера~
+@eng Neither light nor wind reach here through the narrow entrance.
+As soon as your eyes get used to the darkness, you can see the
+remains of a campfire, distinguished long ago, in the corner,
+and a thick layer of dust covering the stone floor.
+  Sometimes the walls seem to shudder silently, not enough to
+to make anything move, but nethertheless you feel it.. and a
+strange, almost inaudible sound can be heard from the other end
+of the cave.
+@rus Через узкий вход сюда не почти не проникают ни свет, ни
+ветер. По мере того как глаза привыкают к темноте, можно
+разглядеть следы давно потухшего костра в углу и толстый,
+давно никем не тревоженный слой пыли на каменном полу.
+  Время от времени стены словно вздрагивают - не настолько
+сильно, чтобы сдвинуть что-нибудь с места, но достаточно,
+чтобы ты это почувствовал... и если прислушаться, можно
+услышать какие-то неясные звуки из дальнего конца пещеры.
 ~
-0 AN inside
+0 ADN inside
 D0
 ~
 ~
@@ -3027,8 +3315,24 @@ Z 0 47197
 S
 #47197
 @eng Deeper into the cave@rus Вглубь пещеры~
+@eng This part of the cave lies aside from the entrance and
+is sunk in an inky darkness, where no senses other than
+touch can help. Step by step, you move slowly along the
+wall until something stops you, warning about the danger
+that lies ahead. Undetectable in the darkness, a crevasse
+splits the stone floor in half, serving as a nexus for in-
+visible pulsing threads which you could sometimes feel
+while ascending.
+@rus Эта часть пещеры лежит в стороне от входа и поэтому погружена
+в полнейший мрак. Ориентироваться можно лишь наощупь и, шаг за
+шагом, ты медленно продвигаешься вдоль стены до тех пор, пока
+словно шестое чувство не предупреждает тебя об опасности, нахо-
+дящейся впереди. Невидимая в темноте, в полу перед тобой зияет
+расщелина, в которой словно сходятся воедино незримые пульсиру-
+ющие нити, опутывающие эту гору и присутствие которых ты мог
+чувствовать по дороге сюда.
 ~
-0 AN inside
+0 ADN inside
 D3
 ~
 ~
@@ -3036,8 +3340,26 @@ Z 0 47196
 S
 #47198
 @eng Stone trap inside the mountain@rus Каменный мешок~
+@eng After short trip down the crevasse, you fall down on the hard floor,
+covered with burnt bones, fragments of stone and god knows what else,
+with edges as sharp. Walls of this room are all marked with deep gou-
+ges left by amazingly strong hits, and the fact that the prisoner
+couldn't destroy his jail and break free up to now can only be explai-
+ned by a powerful magical defense that doesn't require any special
+abilities to be felt. The inhabitant, however, isn't going to wait
+'til you stand up and attacks fiercely.
+@rus После недолгого путешествия вниз и куда-то в бок по расщелине, ты
+спиной вниз падаешь на пол, усыпанный обгоревшими костями, осколками
+камней и еще бог знает чем со столь же острыми краями. Стены этой
+довольно тесной полости сплошь покрыты бороздами и выбоинами от силь-
+ных ударов чем-то твердым, и единственным разумным объяснением того,
+что заточенное тут существо до сих пор не разнесло свою тюрьму вдре-
+безги и не освободилось, может быть лишь наличие сильной магической
+защиты, почувствовать которую можно и не имея особых способностей.
+Существо же, похоже, не намерено ждать, пока ты встанешь, и яростно
+атакует.
 ~
-0 ACN inside
+0 ACDN inside
 S
 #47199
 @eng Hallway@rus Коридор~
@@ -3327,6 +3649,17 @@ Z 0 47160
 S
 #47214
 @eng Bamboo grove near the river@rus Заросли бамбука у реки~
+@eng Long sprouts close behind your back, and you discover
+a small patch of clear ground. It's quite possible to
+sleep here for a while, undisturbed by anyone, or listen
+to the river's purl, or the wind playing with bamboo...
+in other words, rest alone. Somehow you guess that you
+aren't the first person to find it out.
+@rus Высокие зеленые стебли смыкаются стеной позади тебя и взгляду
+открывается небольшая "полянка". Тут вполне можно поспать, пос-
+лушать шум реки или как ветер играет побегами бымбука, заставляя
+их стучать друг о друга - в общем, уединиться и отдохнуть...
+Почему-то тебе кажется, что не ты первый до этого додумался.
 ~
 0 0 forest
 D1
@@ -3404,7 +3737,7 @@ drag you away.
 ний. Хотя течение нельзя назвать быстрым, ты все время чувствуешь, как оно
 давит на тебя, пытаясь утащить.
 ~
-0 0 inside
+0 D underwater
 D2
 ~
 ~
@@ -3432,7 +3765,7 @@ drag you away.
 ний. Хотя течение нельзя назвать быстрым, ты все время чувствуешь, как оно
 давит на тебя, пытаясь утащить.
 ~
-0 0 inside
+0 D underwater
 D0
 ~
 ~
@@ -3444,6 +3777,21 @@ Z 0 47215
 S
 #47219
 @eng Underwater cave@rus Подводная пещера~
+@eng The water here is noticeably colder and almost absolutely
+motionless, as if the river gave up to spread its influence
+past the entrance. Viscous silt covers the floor, serving as
+a shelter to small crayfish-like critters that sometimes
+reveal their presence with lightning fast movements, jumping
+out of the silt to burrow somewhere else.
+  Most of the cave is sunk in darkness and, peering into it,
+you sense someone else lurking there and staring back at you.
+@rus Власть реки словно заканчивается прямо у входа сюда - вода
+здесь заметно холоднее и абсолютно неподвижна. Слой вязкого
+ила покрывает дно, служа пристанищем мелким рачкам, изредка
+перебирающимся с места на место стремительными прыжками.
+  Большая часть пещеры погружена в темноту и, вглядываясь в
+нее, ты все больше утверждаешься в мысли, что кто-то живой
+прячется в ней и неотрывно наблюдает за тобой.
 ~
 0 A inside
 D1
@@ -3455,6 +3803,7 @@ S
 
 #SPECIALS
 M 47000 spec_guard	* The statue
+M 47102 spec_poison	* a small snake
 S
 
 #RESETS
@@ -3525,6 +3874,10 @@ O 0 47116 0 47209	* Mirror (Miyu's room)
 O 0 47117 0 47209	* Vase with flowers (Miyu's room)
 P 0 47118 0 47117 1	* Vase with flowers: A bouquet of flowers
 O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
+M 0 47105 1 47212 1	* apprentice (A small opening)
+M 0 47105 1 47212 1	* apprentice (A small opening)
+E 0 47130 0 13		*	a worn belt: around the waist
+E 0 47131 0 7		*	short pants: on the legs
 O 0 47128 0 47213	* a pool of hot water (By the hot spring)
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)

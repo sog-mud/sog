@@ -630,7 +630,7 @@ ABG EJZc -900 0
 95 0 100d12+22500 1d100+7500 12d12+65 'claw'
 -65 -65 -63 -24
 EFG 0 MQ NSY
-stand stand none 10300
+stand stand male 10300
 ACH ABCDEFJKQUV large unknown
 #11838
 drakyri myrxes jaena deia eyes~
@@ -1601,16 +1601,16 @@ a mithril ((+*+)) torque~
 An engraved mithril torque glows here.~
 mithril~
 armor AI AC
-28 28 29 23 0
-87 30 10000 P
+9 9 10 8 0
+43 30 10000 P
 A
-3 5
+3 2
 A
-12 125
+19 3
 A
-18 6
+18 3
 A
-19 6
+12 45
 E
 mithril ((+*+)) torque deriki~
 An inscription along the edge reads:
@@ -1624,12 +1624,12 @@ a shimmering blue robe~
 A blue robe shimmers here.~
 light~
 armor A AK
-28 27 27 25 0
-87 50 10000 P
+10 9 9 9 0
+43 50 10000 P
 A
-3 3
+3 1
 A
-12 150
+12 55
 E
 shimmering blue robe~
 An inscription along the edge reads:
@@ -1644,11 +1644,11 @@ A strange flame hovers here.~
 flame~
 light A A
 0 0 -1 0 0
-87 0 10000 P
+43 0 10000 P
 A
-12 115
+19 2
 A
-19 5
+12 45
 G none
 #11812
 engraved ((+*+)) ring deriki~
@@ -1656,16 +1656,16 @@ an engraved ((+*+)) ring~
 An intricately engraved ring lies here.~
 mithril~
 armor B AB
-28 28 28 25 0
-87 10 10000 P
+8 8 8 7 0
+43 10 10000 P
 A
-1 3
+1 1
 A
-12 100
+18 4
 A
-13 75
+12 35
 A
-18 10
+13 25
 E
 engraved ((+*+)) ring deriki~
 An inscription along the inside of the band reads:
@@ -1679,18 +1679,18 @@ a ((+*+)) crest~
 An ornate crest is here.~
 mithril~
 armor A AO
-27 27 28 15 0
-87 20 10000 P
+9 9 10 6 0
+43 20 10000 P
 A
-2 1
-A
-3 2
+17 -10
 A
 4 1
 A
-12 100
+3 1
 A
-17 -10
+2 1
+A
+12 40
 E
 ((+*+)) crest deriki~
 An inscription along the inside of the band reads:
@@ -1704,12 +1704,12 @@ a ((+*+)) bracelet~
 An ornate mithril bracelet is here, gleaming.~
 mithril~
 armor A AM
-27 28 27 25 0
-85 20 9500 P
+9 10 9 8 0
+42 20 9500 P
 A
-12 90
+12 40
 A
-19 7
+19 3
 G none
 #11815
 ((+*+)) chain belt deriki~
@@ -1717,14 +1717,14 @@ a ((+*+)) chain belt~
 An engraved chain belt glitters here.~
 mithril~
 armor A AL
-27 27 27 24 0
-82 50 9000 P
+10 10 10 8 0
+42 50 9000 P
+A
+12 50
+A
+19 4
 A
 5 -2
-A
-12 100
-A
-19 7
 G none
 #11816
 ((+*+)) shoes deriki~
@@ -1732,16 +1732,16 @@ a pair of ((+*+)) shoes~
 A pair of glittering shoes is here.~
 mithril~
 armor A AG
-26 27 26 24 0
-80 50 11100 P
+8 9 8 7 0
+40 50 11100 P
 A
-2 2
+12 35
 A
-3 2
+13 15
 A
-12 95
+3 1
 A
-13 30
+2 1
 A
 18 -2
 G none
@@ -1751,16 +1751,16 @@ some ((+*+)) armbands~
 A pair of armbands glitters here.~
 mithril~
 armor AI AI
-27 27 27 23 0
-82 50 11000 P
+9 9 9 8 0
+41 50 11000 P
 A
-4 2
+4 1
+A
+19 3
+A
+12 35
 A
 6 -1
-A
-12 75
-A
-19 7
 G none
 #11818
 glittering ((+*+)) earring deriki~
@@ -1768,18 +1768,18 @@ a glittering ((+*+)) earring~
 An intricately carved earring glitters here.~
 mithril~
 armor AG AE
-26 26 26 23 0
-80 10 12400 P
+6 6 6 5 0
+40 10 12400 P
+A
+5 -1
+A
+19 3
+A
+12 40
+A
+13 20
 A
 1 1
-A
-5 -2
-A
-12 100
-A
-13 50
-A
-19 6
 G none
 #11819
 glowing ((+*+)) sphere deriki~
@@ -1787,16 +1787,16 @@ a glowing ((+*+)) sphere~
 A sphere floats here, glowing with an eerie light.~
 light~
 armor ABI AQ
-26 25 26 24 0
-80 10 10000 P
+13 12 13 11 0
+40 10 10000 P
+A
+19 2
+A
+18 2
+A
+12 50
 A
 9 -5
-A
-12 100
-A
-18 5
-A
-19 6
 G none
 #11820
 ((+*+)) tunic deriki~
@@ -1804,14 +1804,14 @@ a ((+*+)) tunic~
 A tunic emblazoned with the Deriki crest is here.~
 silk~
 armor 0 AD
-26 26 25 25 0
-80 40 10000 P
+10 10 9 8 0
+40 40 10000 P
 A
-3 3
+3 2
 A
-12 80
+12 30
 A
-13 60
+13 20
 A
 20 -5
 G none
@@ -1821,16 +1821,16 @@ Owl eyes~
 A pair of feather rimmed eyes are here.~
 feathers~
 armor GI AE
-28 28 27 24 0
-85 10 9000 P
+10 10 9 8 0
+42 10 9000 P
 A
-4 4
+20 -3
 A
-12 100
+12 50
 A
-18 10
+18 3
 A
-20 -5
+4 2
 G none
 #11822
 staff guarding mithril~
@@ -1838,8 +1838,8 @@ a staff of guarding~
 A polished mithril staff lies here.~
 mithril~
 staff B AO
-100 11 11 'sanctuary' 0
-85 30 10100 P
+50 8 6 'sanctuary' 0
+35 30 10100 P
 A
 17 -20
 G none
@@ -1849,16 +1849,16 @@ a gleaming ((-*-)) circlet~
 An engraved golden circlet gleams here.~
 gold~
 armor AIKL AE
-28 27 29 24 0
-85 20 10500 P
+10 9 11 9 0
+42 20 10500 P
 A
-3 3
+4 2
 A
-4 3
+3 2
 A
-18 8
+18 4
 A
-19 8
+19 4
 G none
 #11824
 ((-*-)) set chain armor treniste~
@@ -1866,14 +1866,14 @@ a set of ((-*-)) chain armor~
 A set of engraved armor lies here.~
 gold~
 armor IKL AD
-28 25 27 24 0
-85 100 15000 P
+14 12 13 11 0
+42 100 15000 P
 A
-1 3
+19 4
+A
+1 1
 A
 13 10
-A
-19 8
 G none
 #11825
 white ((-*-)) belt treniste~
@@ -1881,16 +1881,16 @@ a white ((-*-)) belt~
 A gleaming white belt lies here.~
 leather~
 armor IKL AL
-28 27 25 24 0
-85 30 10000 P
+10 10 9 8 0
+42 30 10000 P
 A
-4 3
+4 1
 A
-12 50
+12 25
 A
-13 50
+13 25
 A
-19 7
+19 4
 G none
 #11826
 pair ((-*-)) gauntlets treniste~
@@ -6055,6 +6055,10 @@ S
 0
 
 #OLIMITS
+O 11815 5	* a ((+*+)) chain belt
+O 11822 16	* a staff of guarding
+O 11823 5	* a gleaming ((-*-)) circlet
+O 11825 5	* a white ((-*-)) belt
 O 11832 5	* an ornate mask
 O 11838 2	* a pair of taloned gloves
 O 11845 4	* a dark  ->*<-  necklace

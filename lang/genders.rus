@@ -509,6 +509,13 @@ Form 3 -ли~
 End
 
 #RULE
+Name храбр~
+Form 1 храбра~
+Form 2 храбро~
+Form 3 храбры~
+End
+
+#RULE
 Name открывает~
 BaseLen 7
 Form 1 -ет~
@@ -631,6 +638,14 @@ BaseLen 8
 Form 1 -а~
 Form 2 -о~
 Form 3 -ы~
+End
+
+#RULE
+Name голоден~
+BaseLen 5
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
 End
 
 #RULE

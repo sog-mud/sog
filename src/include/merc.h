@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.258 1999-11-27 06:05:49 fjoe Exp $
+ * $Id: merc.h,v 1.259 1999-11-30 08:10:02 kostik Exp $
  */
 
 /***************************************************************************
@@ -460,6 +460,7 @@ struct spec_type
 #define ASSIST_PLAYERS		(S)
 #define ASSIST_GUARD		(T)
 #define ASSIST_VNUM		(U)
+#define OFF_DISTANCE		(X)
 
 /* return values for check_imm */
 #define IS_NORMAL		0

@@ -8,13 +8,17 @@ End
 
 #MOBILES
 #17301
-knight reknown~
-The knight of reknown~
-A knight of reknown slaps you with his gauntlet and challenges you!
+knight reknown рыцарь познания~
+@eng The knight of reknown@rus ~~Рыцарь~~ Познания~
+@eng A knight of reknown slaps you with his gauntlet and challenges you!
+@rus Рыцарь Познания бросает тебе свою перчатку и вызывает на честный бой!
 ~
-The knight of reknown is mounted on a warhorse, uses a lance, and you can 
+@eng The knight of reknown is mounted on a warhorse, uses a lance, and you can 
 see his morningstar on his horse. His colors fly from a banner carried by 
 his squire.
+@rus Рыцарь Познания восседает верхом на боевой лошади, использует рыцарское
+копье, а его булава привязана к седлу.  Стяг в руках его оруженосца выкрашен
+в цвета герба рыцаря.  
 ~
 human~
 A J 500 0
@@ -24,12 +28,15 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17302
-squire~
-The squire~
-A squire is here on an errand for his lord.
+squire оруженосец~
+@eng The squire@rus оруженосец~
+@eng A squire is here on an errand for his lord.
+@rus Оруженосец полон готовности служить своему хозяину.
 ~
-A squire stands here on a mission for his lord. He is dressed in rags, 
+@eng A squire stands here on a mission for his lord. He is dressed in rags, 
 smells bad, and looks like he is in a hurry.
+@rus Оруженосец стоит здесь по заданию своего хозяиня. Он одет в лохмотья,
+плохо пахнет и выглядит не лучшим образом.
 ~
 human~
 AC P 250 0

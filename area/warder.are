@@ -1,7 +1,7 @@
 #AREADATA
 Name Warders~
 VNUMs 96000 96099
-Credits Vivien~
+Credits ParAvoz~
 Security 1
 LevelRange 0 0
 Flags closed noquest~
@@ -79,7 +79,7 @@ portal 0 0
 0 0 0 P
 G male
 #96004
-~
+spring~
 @eng spring@rus ручей~
 @eng A small strange spring gushes forth here.@rus Маленький странный ручей~
 unknown~

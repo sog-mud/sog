@@ -358,8 +358,8 @@ A
 G none
 #29362
 silvery potion~
-a silvery potion ~
-A silvery potion has been left in the desk~
+a silvery potion~
+A silvery potion has been left in the desk.~
 glass~
 potion AG AO
 40 'invisibility' 'detect invis' 'detect magic' ''
@@ -952,7 +952,7 @@ E 0 29350 0 16		*	an old black mace: wielded
 O 0 29370 0 29360	* a large mahogany desk (Lich's Study)
 O 0 29371 0 29360	* a closet carved into the wall (Lich's Study)
 P 0 29361 0 29370 1	* a large mahogany desk: the Infinity Scroll
-P 0 29362 0 29370 1	* a large mahogany desk: a silvery potion 
+P 0 29362 0 29370 1	* a large mahogany desk: a silvery potion
 P 0 29363 0 29372 1	* a powerful grimoire: a golden key
 P 0 29364 0 29371 1	* a closet carved into the wall: boots of waterwalking
 P 0 29365 0 29371 1	* a closet carved into the wall: a Thieve's Tunic

@@ -4185,24 +4185,24 @@ repair equipment.
 Чтобы узнать стоимость работ по ремонту какой-нибудь вещи, используй команду
 'ESTIMATE'.
 ~
-0 PRAY ~
-@eng Syntax: {cpray{x
-Syntax: {cpray{x <message>
+0 IMPLORE~
+@eng Syntax: {cimplore{x
+Syntax: {cimplore{x <message>
 
 Use this command to send a message to all the immortals who are on the mud
 at the time.  If you need to talk to a specific god, put their name in the
-message, you can even just do pray name.  PRAY, by itself simply gives 
+message, you can even just do implore name.  IMPLORE, by itself simply gives 
 '(your name) is PRAYING for: any god'  If you dont with to get a pot-luck
-immortal, type a message after 'pray'.
+immortal, type a message after 'implore'.
 
-{RDO NOT ABUSE THIS PRIVILEGE!!!{x  Anyone who does multiple prays or prays
+{RDO NOT ABUSE THIS PRIVILEGE!!!{x  Anyone who does multiple implores or implores
 without a good reason will be severely punished.
-@rus Синтаксис: {cpray{x
-Синтаксис: {cpray{x <сообщение>
+@rus Синтаксис: {cimplore{x
+Синтаксис: {cimplore{x <сообщение>
  
 Используй эту команду, чтоб послать сообщение бессмертным, кто сейчас в игре.
 Если вы хотите поговорить с конкретным богом, включите его имя в сообщение.
-Без аргументов PRAY выводит всем бессмертным лишь твою просьбу обратить на тебя
+Без аргументов IMPLORE выводит всем бессмертным лишь твою просьбу обратить на тебя
 внимание. Если ты не ищешь любого бессмертного для разговора, напиши сообщение
 после команды.
  
@@ -5644,13 +5644,17 @@ objects are not kept, however.
 жимое контейнеров и то, что несет монстр. Расширенная текстовая информация 
 (exd) тем не менее не копируется.
 ~
-0 SKILLS SPELLS~
+0 SKILLS SPELLS PRAYERS~
 @eng Syntax: {cskills{x
 Syntax: {cspells{x
+Syntax: {cprayers{x
  
-SKILLS and SPELLS commands are used to display your character's list of
-available skills and spells. Lists are sorted by level, with mana cost
-(for spells) or mastering percentage (for skills).
+These commands are used to display your character spells, skills and prayers.
+They listed by level, with additional information on how good are you in it,
+and mana cost (for spells and prayers).
+The values representing how good you are (the later in list, the better):
+ridiculous, very bad, bad, average, good, very good, remarkable, perfect.
+'Perfect' means you have mastered the skill.
 @rus Синтаксис: {cskills{x
 Синтаксис: {cspells{x
  
@@ -7263,6 +7267,17 @@ Valid types and check expressions for "spec" cc_rule class are:
         has not more than <num> specs from spec class <spclass>.
  
 SEE ALSO: 'OLC CC_RULES'
+~
+0 specialize~
+Syntax: {c specialize weapon_type{x
+ 
+Using this command, warriors can choose their weapon specialization.
+Warriors, specialized in certain weapon type, gains additional skills, 
+related to that weapon.
+~
+0 pray~
+Syntax:{cpray{x <prayer> <target>
+ 
 ~
 -1 $~
 

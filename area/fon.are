@@ -7,6 +7,215 @@ Security 1
 LevelRange 5 45
 End
 
+#MOBILES
+#22451
+tiny guard~
+tiny guard~
+A tiny forest guard stand here , protecting forest.
+~
+Before you stand tiny human wearing green camouflaged clothes.He protect
+animals and forest from hunters,woodcutters and destroers.
+He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
+~
+human~
+AC D 500 0
+11 0 2d8+120 1d1+99 1d5+1 'slash'
+1 1 1 2
+0 0 0 0
+stand stand male 50
+0 ABCDF tiny unknown
+#22452
+tiny guard~
+tiny guard~
+A tiny forest guard stand here , protecting forest.
+~
+Before you stand tiny human wearing green camouflaged clothes.He protect
+animals and forest from hunters,woodcutters and destroers.
+He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
+~
+human~
+AC D 500 0
+13 0 2d7+90 1d1+99 1d5+1 'slash'
+1 1 1 2
+FK 0 0 0
+stand stand male 50
+0 ABCDF tiny unknown
+#22453
+bullroarer hobbit~
+Bullroarer the Hobbit~
+A hobbit standing here,selling goods.
+~
+Before you stand a Bullroarer the Hobbit.He is strudy hobbit who is
+renowned for his unusial strenght and vigor.Now he is selling some goods,
+wich he find in his travels.
+~
+unique~
+ABVei DHN 0 0
+30 0 7d12+1200 30d9+100 5d4+60 'scratch'
+-20 -20 -20 -20
+EFHJ ABU 0 E
+stand stand male 10000
+AV ABCDF small unknown
+#0
+
+#OBJECTS
+#22451
+seaweed~
+a seaweed~
+A heap of seaweed lies here.~
+plant~
+pill 0 A
+20 'water breathing' '' '' ''
+10 10 500 P
+G none
+#22452
+staff green~
+green staff~
+The green staff incrusted by leaves lies here.~
+wood~
+staff B AO
+25 30 30 'create food' 0
+2 2 120 P
+E
+staff~
+You see a large green staff incrusted by fresh leaves.You can read runes 
+on staff :"Satisfy Hunger".
+~
+G none
+#22453
+spring water~
+a magical spring~
+A spring is here , filled by cold water~
+quartz~
+fountain BGOR 0
+0 0 'water' 135138384 0
+0 0 0 P
+G female
+#22454
+sing plaque~
+a small sign~
+A small sign is here mounted on tree.~
+wood~
+trash OR 0
+0 0 0 0 0
+0 0 0 P
+E
+credits~
+This area designed for 5 and upper players.Most mobiles are 
+friendly.
+        Lucer.
+~
+E
+sign~
+               Welcome to the Forest of Nowhere!
+In our friendly forest you can find a rest,food and drink.
+And in our forest you can't find aggressive creatures.
+But beware a deep tunnel under forest.
+                     Signed Tellias,Ranger Guard of FoN.
+~
+G none
+#22455
+staff wooden training~
+wooden training staff~
+The small wooden staff catch your eye.~
+wood~
+weapon 0 AN
+staff 10 2 'smash' F
+5 20 0 P
+A
+17 -6
+A
+19 2
+A
+18 2
+E
+staff~
+You see a small wooden staff maded form fresh wood.
+~
+G none
+#22456
+mace wood training~
+wooden training mace~
+The small wooden mace catch your eye.~
+unknown~
+weapon 0 AN
+mace 9 2 'smash' 0
+5 0 0 P
+A
+13 8
+A
+19 1
+A
+18 1
+G none
+#22457
+flail wooden training~
+wooden training flail~
+The small wooden flail catch your eye.~
+wood~
+weapon 0 AN
+flail 9 2 'thwack' 0
+5 0 0 P
+A
+13 15
+G none
+#22458
+leather training whip~
+leather training whip~
+The small leather whip catch your eye.~
+leather~
+weapon 0 AN
+whip 9 2 'sting' 0
+5 0 0 P
+A
+12 20
+A
+19 3
+G none
+#22459
+wooden training polearm~
+wooden training polearm~
+The small wooden polearm catch your eye.~
+wood~
+weapon 0 AN
+polearm 10 2 'cleave' 0
+5 0 0 P
+A
+17 -5
+A
+19 3
+A
+18 3
+G none
+#22460
+~
+~
+~
+unknown~
+weapon 0 AN
+exotic 9 2 '' 0
+5 0 0 P
+G none
+#22461
+~
+~
+~
+unknown~
+weapon 0 AN
+exotic 9 2 '' 0
+5 0 0 P
+G none
+#22462
+~
+~
+~
+unknown~
+weapon 0 AN
+exotic 9 2 '' 0
+5 0 0 P
+G none
+#0
+
 #ROOMS
 #22451
 Entrance into Forest~
@@ -45,6 +254,10 @@ Z 0 22453
 S
 #22453
 Camp-In-The-Forest~
+You stand in small clearing in the forest.You can see a lot of 
+adventures rest here , and in the corner you can see a hobbit ,who 
+sell his goods.In other corner you can see campfire , and some adventrers
+prepare they food on it.You think you are to tired and need rest here.
 ~
 0 0 forest
 D0
@@ -67,5 +280,25 @@ D2
 Z 0 22452
 S
 #0
+
+#RESETS
+O 0 22454 0 22451	* a small sign (Entrance into Forest)
+M 0 22451 5 22452 1	* tiny guard (In the Forest of Nowhere)
+E 0 22456 0 16		*	wooden training mace: wielded
+M 0 22452 5 22452 1	* tiny guard (In the Forest of Nowhere)
+E 0 22457 0 16		*	wooden training flail: wielded
+M 0 22453 1 22453 1	* Bullroarer the Hobbit (Camp-In-The-Forest)
+G 0 22451 0		*	a seaweed
+G 0 22452 0		*	green staff
+O 0 22453 0 22453	* a magical spring (Camp-In-The-Forest)
+M 0 22451 5 22454 1	* tiny guard (In the Forest of Nowhere)
+E 0 22455 0 16		*	wooden training staff: wielded
+M 0 22452 5 22454 1	* tiny guard (In the Forest of Nowhere)
+E 0 22458 0 16		*	leather training whip: wielded
+S
+
+#SHOPS
+22453 4 26 0 0 0 120 70 0 23
+0
 
 #$

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.86 1999-11-26 12:00:44 kostik Exp $
+ * $Id: skills.c,v 1.87 1999-11-30 08:10:02 kostik Exp $
  */
 
 /***************************************************************************
@@ -612,6 +612,7 @@ DECLARE_MOB_SKILL(mob_berserk);
 DECLARE_MOB_SKILL(mob_rescue);
 DECLARE_MOB_SKILL(mob_crush);
 DECLARE_MOB_SKILL(mob_weapon);
+DECLARE_MOB_SKILL(mob_distance);
 
 static size_t mob_skill_count;
 
@@ -625,6 +626,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ "dual backstab",	mob_dual_backstab	},
 	{ "dodge",		mob_dodge		},
 	{ "parry",		mob_parry		},
+	{ "distance",		mob_distance		},
 	{ "dirt kicking",	mob_dirt_kicking	},
 	{ "shield block",	mob_shield_block	},
 	{ "second attack",	mob_second_attack	},
@@ -727,6 +729,13 @@ MOB_SKILL(mob_dodge)
 MOB_SKILL(mob_parry)
 {
 	if (IS_SET(mob->pMobIndex->off_flags, OFF_PARRY))
+		return mob->level * 2;
+	return 0;
+}
+
+MOB_SKILL(mob_distance)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_DISTANCE))
 		return mob->level * 2;
 	return 0;
 }

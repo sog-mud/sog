@@ -1,5 +1,6 @@
 #AREADATA
-Name Gnome Village~
+Name Gnome village~
+Builders dias~
 VNUMs 1500 1599
 Credits Vougon~
 Security 9
@@ -609,9 +610,12 @@ G none
 
 #ROOMS
 #1501
-Entrance to Gnome Village~
-You stand on a dusty path that leads north and east.  To the east you hear
+@eng Entrance to Gnome Village@rus Вход в деревню гномов~
+@eng You stand on a dusty path that leads north and east.  To the east you hear
 the sounds of a small village.
+@rus Ты стоишь на пыльной тропке, ведущей с севера на восток.  К востоку
+слышны звуки небольшой деревеньки.  Местность вокруг покрыта невысокими
+кустиками.  
 ~
 0 C field
 D0
@@ -626,9 +630,11 @@ You see a dusty path.
 Z -1 1502
 S
 #1502
-A Dusty Path~
-This is a path leading into the village.  It continues east and west and
+@eng A Dusty Path@rus Пыльная тропка~
+@eng This is a path leading into the village.  It continues east and west and
 there is a small house to the north.
+@rus Ты идешь по пыльной дорожке, ведущей в деревню гномов. Дорожка продолжается
+на запад и восток, а на севере ты видишь небольшой гномий домик.
 ~
 0 0 city
 D0
@@ -648,9 +654,11 @@ You see a path.
 Z -1 1501
 S
 #1503
-A Road in the Village~
-This road runs north and south through the center of the village.  There
+@eng A Road in the Village@rus Дорога в деревне гномов~
+@eng This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
+@rus Дорога, на которой ты стоишь, проходит по деревне с юга на север. Вокруг
+ходит несколько жителей, но их немного.
 ~
 0 0 city
 D0
@@ -707,9 +715,11 @@ You see a road.
 Z -1 1503
 S
 #1505
-A Road in the Village~
-This road runs north and south through the center of the village.  There
+@eng A Road in the Village@rus Дорога в деревне гномов~
+@eng This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
+@rus Дорога, на которой ты стоишь, проходит по деревне с юга на север. Вокруг
+ходит несколько жителей, но их немного.
 ~
 0 0 city
 D0
@@ -734,9 +744,11 @@ You see a house.
 Z -1 1510
 S
 #1506
-A Road in the Village~
-This road runs north and south through the center of the village.  There
+@eng A Road in the Village@rus Дорога в деревне гномов~
+@eng This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
+@rus Дорога, на которой ты стоишь, проходит по деревне с юга на север. Вокруг
+ходит несколько жителей, но их немного.
 ~
 0 0 city
 D0
@@ -751,9 +763,11 @@ You see a road.
 Z -1 1505
 S
 #1507
-A Road in the Village~
-This road runs north and south through the center of the village.  There
+@eng A Road in the Village@rus Дорога в деревне гномов~
+@eng This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
+@rus Дорога, на которой ты стоишь, проходит по деревне с юга на север. Вокруг
+ходит несколько жителей, но их немного.
 ~
 0 0 city
 D0
@@ -773,9 +787,11 @@ You see a shop.
 Z -1 1514
 S
 #1508
-A Road in the Village~
-This road runs north and south through the center of the village.  There
+@eng A Road in the Village@rus Дорога в деревне гномов~
+@eng This road runs north and south through the center of the village.  There
 are a few people moving around, but not many.
+@rus Дорога, на которой ты стоишь, проходит по деревне с юга на север. Вокруг
+ходит несколько жителей, но их немного.
 ~
 0 0 city
 D0
@@ -800,9 +816,11 @@ You see a shop.
 Z -1 1515
 S
 #1509
-A Small Gnome House~
-This is a small suburban house made from quality wood.  You can see the
+@eng A Small Gnome House@rus Небольшой гномий домик~
+@eng This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
+@rus Ты вошел в небольшой гномий домик, сделанный из дерева. Домик сделан
+очень прочно и добротно, в нем недостает красоты, но это не главное.
 ~
 0 D inside
 D2
@@ -812,9 +830,11 @@ You see a path.
 Z -1 1502
 S
 #1510
-A Small Gnome House~
-This is a small suburban house made from quality wood.  You can see the
+@eng A Small Gnome House@rus Небольшой гномий домик~
+@eng This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
+@rus Ты вошел в небольшой гномий домик, сделанный из дерева. Домик сделан
+очень прочно и добротно, в нем недостает красоты, но это не главное.
 ~
 0 D inside
 D1
@@ -824,9 +844,11 @@ You see a path.
 Z -1 1505
 S
 #1511
-A Small Gnome House~
-This is a small suburban house made from quality wood.  You can see the
+@eng A Small Gnome House@rus Небольшой гномий домик~
+@eng This is a small suburban house made from quality wood.  You can see the
 expert workmanship that went into making it, but it lacks creativity.
+@rus Ты вошел в небольшой гномий домик, сделанный из дерева. Домик сделан
+очень прочно и добротно, в нем недостает красоты, но это не главное.
 ~
 0 D inside
 D3
@@ -860,9 +882,12 @@ You see a path.
 Z -1 1504
 S
 #1514
-A Gnome Shop~
-You are in one of the several shops of this fine town.  The wares look fine,
+@eng A Gnome Shop@rus Магазин гномов~
+@eng You are in one of the several shops of this fine town.  The wares look fine,
 but unfortunately the gnomes don't do business with outsiders.
+@rus Ты стоишь в одном из немногочисленных магазинов в деревне гномов. Вещи,
+разложенные на полках магазина, выглядят неплохо, но к большому сожалению,
+гномы не любят торговать с чужеземцами.
 ~
 0 D inside
 D1
@@ -872,9 +897,12 @@ You see a road.
 Z -1 1507
 S
 #1515
-A Gnome Shop~
-You are in one of the several shops of this fine town.  The wares look fine,
+@eng A Gnome Shop@rus Магазин гномов~
+@eng You are in one of the several shops of this fine town.  The wares look fine,
 but unfortunately the gnomes don't do business with outsiders.
+@rus Ты стоишь в одном из немногочисленных магазинов в деревне гномов. Вещи,
+разложенные на полках магазина, выглядят неплохо, но к большому сожалению,
+гномы не любят торговать с чужеземцами.
 ~
 0 D inside
 D1
@@ -884,9 +912,12 @@ You see a road.
 Z -1 1508
 S
 #1516
-A Gnome Shop~
-You are in one of the several shops of this fine town.  The wares look fine,
+@eng A Gnome Shop@rus Магазин гномов~
+@eng You are in one of the several shops of this fine town.  The wares look fine,
 but unfortunately the gnomes don't do business with outsiders.
+@rus Ты стоишь в одном из немногочисленных магазинов в деревне гномов. Вещи,
+разложенные на полках магазина, выглядят неплохо, но к большому сожалению,
+гномы не любят торговать с чужеземцами.
 ~
 0 D inside
 D3
@@ -896,9 +927,12 @@ You see a road.
 Z -1 1508
 S
 #1517
-Path by a Stream~
-You are on a small path leading north and west, that is surrounded on the
+@eng Path by a Stream@rus Тропинка у ручья~
+@eng You are on a small path leading north and west, that is surrounded on the
 other two sides by a small stream.  The water looks mighty cold.
+@rus Ты стоишь на неширокой тропинке, ведущей на восток и север, возле
+неглубокого ручья, огибающего тропинку с запада и юга. Вода в ручье
+очень холодная.
 ~
 0 C field
 E
@@ -922,10 +956,13 @@ You see a small path.
 Z -1 1518
 S
 #1518
-Path by a Stream~
-You are on a small east-west path.  The path shows new grass, as if it
+@eng Path by a Stream@rus Тропинка у ручья~
+@eng You are on a small east-west path.  The path shows new grass, as if it
 has stopped being used sometime in the recent past.  A river is to the south,
 and a small hut is to the west.
+@rus Ты стоишь на неширокой тропинке, идущей с запада на восток. На тропинке
+прорастает зеленая травка, кажется, эту тропинку перестали использовать не
+так давно. Ручей находится на юге, а к западу ты видишь небольшой гномий домик.
 ~
 0 0 field
 E
@@ -953,10 +990,13 @@ You see a small hut that is starting to fall apart.
 Z -1 1519
 S
 #1519
-A Small Hut~
-The hut is a mess!  Blood has stained the grass walls into a dark rich
+@eng A Small Hut@rus Небольшой гномий домик~
+@eng The hut is a mess!  Blood has stained the grass walls into a dark rich
 crimson color.  Torn clothes and trash lie all around, and you think you
 see a skeleton in the corner.
+@rus Зайдя в домик, ты увидел, что поросшие мохом стены забрызганы засохшей
+кровью темно-красного цвета. Порванные остатки одежды и какой-то мусор
+разбросан повсюду. Ты даже замечаешь в углу домика чей-то скелет.
 ~
 0 D inside
 E
@@ -972,9 +1012,12 @@ You see a small path.
 Z -1 1518
 S
 #1520
-On the Stream~
-The stream is cold and frigid, yet it supports plenty of life beneath its
+@eng On the Stream@rus Холодный ручей~
+@eng The stream is cold and frigid, yet it supports plenty of life beneath its
 surface.  The current trickles west and there is a field to the south.
+@rus Ручей, в котором ты стоишь, холоден и быстр. В ручье и на его берегах
+суетится куча всяческой живности. По ручью можно пройти на восток, или выйти
+из него на севере или юге.
 ~
 0 0 noswim
 D0
@@ -994,9 +1037,11 @@ You see a small stream.
 Z -1 1521
 S
 #1521
-On the Stream~
-The current here flows from the east, but a logjam blocks you from 
+@eng On the Stream@rus Холодный ручей~
+@eng The current here flows from the east, but a logjam blocks you from 
 continuing onward.
+@rus Ручей течет с запада на восток, на востоке тебе преграждает дорогу завал из
+толстых бревен. Можно выйти из ручья на севере.
 ~
 0 0 noswim
 D0
@@ -1011,9 +1056,12 @@ You see a small stream.
 Z -1 1520
 S
 #1522
-The Field of Mice's Dreams~
-This is a large green field of waist high grass.  You feel something
+@eng The Field of Mice's Dreams@rus Поле Мышиной Мечты~
+@eng This is a large green field of waist high grass.  You feel something
 scurry over your feet.  There is a cave to the east.
+@rus Это большое зеленое поле, поросшее высокой сочной травой. Ты чувствуешь,
+что под твоими ногами в траве что-то бегает. На востоке ты замечаешь
+какую-то пещеру.
 ~
 0 0 field
 D0
@@ -1028,9 +1076,12 @@ You see a dark mysterious cave.
 Z -1 1523
 S
 #1523
-The Dark Cave~
-The cave gleams as your light reflects off of it.  As you squint your eyes
+@eng The Dark Cave@rus Темная пещера~
+@eng The cave gleams as your light reflects off of it.  As you squint your eyes
 and try to look ahead, you think you see something move.
+@rus Ты вошел в пещеру с каменными стенами, от которых отражается свет твоего
+факела. Пещера проболжается вглубь горы на север, и вглядываясь в темноту,
+ты замечаешь какое-то неясное движение.
 ~
 0 A forest
 D0
@@ -1044,9 +1095,12 @@ You see a grassy field.
 Z -1 1522
 S
 #1524
-Darker Cave~
-The cave gets even darker as your terror grows stronger.  You fear for your
+@eng Darker Cave@rus Совсем темная пещера~
+@eng The cave gets even darker as your terror grows stronger.  You fear for your
 life as something emerges out of the shadows.
+@rus Насколько темнее становится пещера, настолько больше страха ты
+чувствуешь у себя в груди. Ты побаиваешься за свою жизнь, особо,
+когда замечаешь какой-то темный силуэт в углу пещеры.
 ~
 0 A forest
 D2
@@ -1055,9 +1109,12 @@ D2
 Z -1 1523
 S
 #1526
-A Dusty Path~
-You are on a well traveled path that leads in many directions.  To the north
+@eng A Dusty Path@rus Пыльная дорога~
+@eng You are on a well traveled path that leads in many directions.  To the north
 is a large house, and to the west is a fortress.
+@rus Ты стоишь на пыльной, утоптанной дороге, идущей с юга. На севере ты
+видишь большой деревянный дом, а на западе расположена мощная каменная
+крепость.
 ~
 0 C city
 E
@@ -1081,9 +1138,11 @@ You see the gateway to a large fortress.
 Z -1 1527
 S
 #1527
-The Iron Gateway~
-You stand at the entrance to the gnome fortress.  The place seems to be
+@eng The Iron Gateway@rus Железные ворота крепости~
+@eng You stand at the entrance to the gnome fortress.  The place seems to be
 well fortified.
+@rus Ты стоишь внутри главных ворот гномьей крепости. Крепость кажется очень
+укрепленной. Вход неплохо охраняется.
 ~
 0 0 city
 D1
@@ -1098,11 +1157,14 @@ You see a long hallway.
 Z -1 1528
 S
 #1528
-A Long Hallway~
-You are now inside of the fortress; you must be lucky that the guards 
+@eng A Long Hallway@rus Длинный коридор в крепости~
+@eng You are now inside of the fortress; you must be lucky that the guards 
 haven't killed you.  As you glance around, you notice that the walls and
 floors are spotlessly cleaned.  The barracks are to the north and a
 storage room is to the south.
+@rus Ты вошел в крепость. Тебе, должно быть, повезло, что стражники тебя
+не убили. Оглядевшись вокруг, ты с удивлением заметил, что здесь очень
+чисто. К северу расположены бараки воинов, а на юге - складские помещения.
 ~
 0 D inside
 D0
@@ -1127,10 +1189,13 @@ You see a long hallway.
 Z -1 1529
 S
 #1529
-A Long Hallway~
-You are now inside of the fortress; you must be lucky that the guards 
+@eng A Long Hallway@rus Длинный коридор в крепости~
+@eng You are now inside of the fortress; you must be lucky that the guards 
 haven't killed you.  As you glance around, you notice that the walls and
 floors are spotlessly cleaned.  A mess hall is to the south.
+@rus Ты идешь по коридору в крепости. Тебе, должно быть, повезло, что
+стражники тебя не убили. Оглядевшись вокруг, ты с удивлением заметил,
+что здесь очень чисто. На юге расположен главный зал крепости.
 ~
 0 D inside
 D1
@@ -1150,10 +1215,13 @@ You see a small room.
 Z -1 1535
 S
 #1530
-The Barracks~
-You now stand in the sleeping quarters of the gnome guards.  Every bed is
+@eng The Barracks@rus Бараки воинов~
+@eng You now stand in the sleeping quarters of the gnome guards.  Every bed is
 made perfectly, and not single article of clothing is on the floor.  There
 is a small storage room to the east.
+@rus Ты вошел в помещения для отдыха гномов-воинов. Каждая кровать здесь сделана
+качественно, и ничего не разбросано на полу - все в полном порядке. На востоке
+вход в небольшую кладовую.
 ~
 0 D inside
 D1
@@ -1168,9 +1236,11 @@ You see a long hallway.
 Z -1 1528
 S
 #1531
-A Small Storage Room~
-This is where the gnomes store all their spare clothing and armor.
+@eng A Small Storage Room@rus Небольшая кладовая~
+@eng This is where the gnomes store all their spare clothing and armor.
 There is not much here, but you might come up with something.
+@rus Это комната, где гномы-воины хранят одежду и доспехи. Ничего больше здесь
+нет. Выход из кладовой лежит на западе.
 ~
 0 D inside
 D3
@@ -1180,9 +1250,11 @@ You see the barracks.
 Z -1 1530
 S
 #1532
-A Small Storage Room~
-This is where the gnomes store all their spare weapons.  A door leads off
+@eng A Small Storage Room@rus Небольшая кладовая~
+@eng This is where the gnomes store all their spare weapons.  A door leads off
 to the east.
+@rus Это помещение, где гномы хранят оружие и запасы. Выход на севере, а небольшая
+дверь ведет на восток.
 ~
 0 D inside
 D0
@@ -1197,9 +1269,11 @@ You see a small room.
 Z -1 1533
 S
 #1533
-A Small Storage Room~
-This is yet another room for storing gnome stuff.  Maps and battle plans
+@eng A Small Storage Room@rus Небольшая кладовая~
+@eng This is yet another room for storing gnome stuff.  Maps and battle plans
 are stored in neat stacks on the shelves.
+@rus Здесь еще одно помещение для хранения различных запасов. На полке сложены
+карты и боевые планы, вокруг порядок и чистота.
 ~
 0 D inside
 D3
@@ -1209,10 +1283,13 @@ You see a small room.
 Z -1 1532
 S
 #1534
-The Mess Hall~
-You are in the room where the guards come to get their grub.  The benches 
+@eng The Mess Hall@rus Главный зал крепости~
+@eng You are in the room where the guards come to get their grub.  The benches 
 and tables are neatly cleaned and straightened, while shiny plates line
 the walls.
+@rus Ты стоишь в зале, где воины получают свои задания. Лавки и столы
+убраны и чисты, везде полный порядок. Стены отделаны блестящим
+металлом.
 ~
 0 D inside
 D0
@@ -1222,8 +1299,10 @@ You see a long hallway.
 Z -1 1529
 S
 #1535
-A Small Room~
-This is a small plain room.  Its only interesting feature is a ladder down.
+@eng A Small Room@rus Небольшая комната~
+@eng This is a small plain room.  Its only interesting feature is a ladder down.
+@rus Коридор крепости заканчивается этой небольшой комнатой. Единственное, что
+здесь заслуживает внимания, это лестница, ведущая вниз.
 ~
 0 D inside
 D1
@@ -1238,10 +1317,13 @@ You see darkness.
 Z -1 1536
 S
 #1536
-A Small Unused Room~
-You stand in a small room in an unused section of the fortress.  The whole
+@eng A Small Unused Room@rus Небольшая неиспользуемая комната~
+@eng You stand in a small room in an unused section of the fortress.  The whole
 room is coated with dust and cobwebs.  The ladder leads back up, and
 a rusty door is to the east.
+@rus Ты спустился по лестнице в еще одну небольшую комнату в крепости. Комната
+покрыта толстым слоем пыли, по углам висит паутина. Лестница поднимается
+наверх, а ржавая старая дверь ведет на восток.
 ~
 0 AD city
 D1
@@ -1256,10 +1338,13 @@ You see a small room.
 Z -1 1535
 S
 #1537
-Dark Hallway~
-You find yourself in a very old section of the fortress.  You must be the
+@eng Dark Hallway@rus Темный коридор~
+@eng You find yourself in a very old section of the fortress.  You must be the
 first person to pass through here in years.  The hallway continues south
 and a door leads off to the east.
+@rus Ты находишься в очень старой части крепости. Должно быть, ты первый, кто
+зашел сюда за много лет. Коридор продолжается на юг, а на востоке ты видишь
+какую-то дверь.
 ~
 0 AD field
 D1
@@ -1277,9 +1362,11 @@ door~
 AFZ 1500 1536
 S
 #1538
-Torture Chamber~
-This is a room that was once used to extract lies out of helpless victims.
+@eng Torture Chamber@rus Комната пыток~
+@eng This is a room that was once used to extract lies out of helpless victims.
 The machines look unused, but could still work.
+@rus Эта комната использовалась для пыток несчастных узников подземелья. Вокруг
+стоят различные машины и приспособления для пыток, их давно не использовали.
 ~
 0 AD field
 E
@@ -1293,9 +1380,11 @@ D3
 Z -1 1537
 S
 #1539
-Dark Hallway~
-The hall continues in a north-south direction.  The floor is coated with
+@eng Dark Hallway@rus Темный коридор~
+@eng The hall continues in a north-south direction.  The floor is coated with
 some kind of molded slime.  Doors lead east and west.
+@rus Темный коридор продолжается с севера на юг. По обоим сторонам коридора
+видны двери. Пол коридора покрыт чем-то наподобие слизи.
 ~
 0 AD field
 D0
@@ -1316,9 +1405,11 @@ D3
 Z -1 1541
 S
 #1540
-Dark Hallway~
-The hall continues in a north-south direction.  The floor is coated with
+@eng Dark Hallway@rus Темный коридор~
+@eng The hall continues in a north-south direction.  The floor is coated with
 some kind of molded slime.  Doors lead east and west.
+@rus Темный коридор продолжается с севера на юг. По обоим сторонам коридора
+видны двери. Пол коридора покрыт чем-то наподобие слизи.
 ~
 0 AD field
 D0
@@ -1339,9 +1430,11 @@ D3
 Z -1 1545
 S
 #1541
-Prison Cell~
-You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+@eng Prison Cell@rus Камера для узников~
+@eng You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
+@rus Ты стоишь в темной и неуютной камере. На полу лежит пара старых скелетов.
+Выход из камеры на востоке.
 ~
 0 AD field
 D1
@@ -1350,9 +1443,11 @@ D1
 Z -1 1539
 S
 #1542
-Prison Cell~
-You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+@eng Prison Cell@rus Камера для узников~
+@eng You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
+@rus Ты стоишь в темной и неуютной камере. На полу лежит пара старых скелетов.
+Выход из камеры на западе.
 ~
 0 AD field
 D3
@@ -1372,9 +1467,11 @@ D0
 Z -1 1540
 S
 #1544
-Prison Cell~
-You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+@eng Prison Cell@rus Камера для узников~
+@eng You are in a dark and nasty prison cell.  Bodies lying on the floor give off
 an unbearable stench.
+@rus Ты стоишь в темной и неуютной камере. На полу лежит пара старых скелетов.
+Выход из камеры на западе.
 ~
 0 AD field
 D3
@@ -1383,9 +1480,11 @@ D3
 Z -1 1540
 S
 #1545
-End of the Dark Hallway~
-You have reached the end of the dark hallway and maybe the end of your puny
+@eng End of the Dark Hallway@rus Конец темного коридора~
+@eng You have reached the end of the dark hallway and maybe the end of your puny
 life.  Something lumbers its way out of the shadows.
+@rus Ты достиг конца темного коридора, а может быть, и конца своей несчастной
+жизни. Какие-то неясные тени мерещатся тебе в темноте.
 ~
 0 AD field
 D1
@@ -1399,8 +1498,10 @@ door~
 ABCFZ 1501 1546
 S
 #1546
-A Ladder~
-You have come into a vertical tunnel with a ladder.
+@eng A Ladder@rus Лестница~
+@eng You have come into a vertical tunnel with a ladder.
+@rus Здесь лестница, ведущая вниз, в подземелье, в вертикально спускающийся
+туннель. Вокруг беспросветная темень.
 ~
 0 AD forest
 D1
@@ -1414,9 +1515,11 @@ D5
 Z -1 1547
 S
 #1547
-Lair~
-You have entered a new lair in the fortress.  Anything could be lurking
+@eng Lair@rus Подземелье~
+@eng You have entered a new lair in the fortress.  Anything could be lurking
 around the corner.
+@rus Ты спустился в темное подземелье. Какие-то тени копошатся в углу.
+Выход из подземелья - по лестнице наверх, подземелье продолжается на юг.
 ~
 0 AD field
 D2
@@ -1429,9 +1532,11 @@ D4
 Z -1 1546
 S
 #1548
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus Грязный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D0
@@ -1448,9 +1553,11 @@ D3
 Z -1 1551
 S
 #1549
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus Грязный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D2
@@ -1463,9 +1570,11 @@ D3
 Z -1 1548
 S
 #1550
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus Грязный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D0
@@ -1478,9 +1587,11 @@ D2
 Z -1 1555
 S
 #1551
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus Грязный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D1
@@ -1493,9 +1604,11 @@ D2
 Z -1 1552
 S
 #1552
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus Грязный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D0
@@ -1508,9 +1621,11 @@ D2
 Z -1 1553
 S
 #1553
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus ГрЯзный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грЯзном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становитсЯ страшно.
 ~
 0 ADN field
 D0
@@ -1523,9 +1638,11 @@ D1
 Z -1 1554
 S
 #1554
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus ГрЯзный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грЯзном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становитсЯ страшно.
 ~
 0 ADN field
 D0
@@ -1542,9 +1659,11 @@ D3
 Z -1 1553
 S
 #1555
-A Damp Hallway~
-You are wandering in a dark, damp, twisting hallway.  The temperature
+@eng A Damp Hallway@rus Грязный темный туннель~
+@eng You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
+@rus Ты бродишь в темном, грязном, извилистом туннеле. Здесь почему-то
+жарче, чем везде. Тебе становится страшно.
 ~
 0 ADN field
 D0
@@ -1557,9 +1676,12 @@ D3
 Z -1 1554
 S
 #1556
-The End of the Hallway~
-You make your way out of the hallway, just to find yourself in greater
+@eng The End of the Hallway@rus В конце грязного туннеля~
+@eng You make your way out of the hallway, just to find yourself in greater
 danger.  Before you looms the source of the great heat.
+@rus Ты все-таки дошел до конца этого бесконечного извилистого туннеля, и
+почувствовал себя в большой опасности. Перед тобой находится источник
+повышенной жары.
 ~
 0 ADN field
 D1
@@ -1572,9 +1694,11 @@ D2
 Z -1 1554
 S
 #1557
-The Altar~
-You finally reach the end of the maze.  There is a great altar here in the
+@eng The Altar@rus Алтарь~
+@eng You finally reach the end of the maze.  There is a great altar here in the
 shape of a bat.  A passageway leads off to the west.
+@rus Ты достиг самого конца этого бесконечного лабиринта. Здесь стоит огромный
+черный алтарь в форме летучей мыши. Выход из алтаря находится на западе.
 ~
 0 ADN field
 D3
@@ -1583,10 +1707,13 @@ D3
 Z -1 1556
 S
 #1558
-The Chief's House~
-You enter into a large and luxurious house.  The floor is coated with carpets
+@eng The Chief's House@rus Дом гномьего Старосты~
+@eng You enter into a large and luxurious house.  The floor is coated with carpets
 and the walls are covered in paintings.  You feel privileged just for stepping
 inside.
+@rus Ты вошел в большой богатый деревянный дом деревенского старосты. Дощатый
+пол покрыт красивыми коврами, а на стенах висят различные картины. Ты
+чувствуешь, что даже войти сюда - уже привилегия.
 ~
 0 D inside
 D2
@@ -1596,9 +1723,11 @@ You see a path.
 Z -1 1526
 S
 #1559
-The Unused Path~
-You are now on a fairly unused path that leads east out of the village.  
+@eng The Unused Path@rus Неиспользуемая дорога~
+@eng You are now on a fairly unused path that leads east out of the village.  
 You wonder what could be out this way.
+@rus Ты идешь по давно заброшенной дороге, которая ведет на восток от деревни
+гномов. "Куда же может вести эта дорога" - думаешь ты.
 ~
 0 C city
 D1
@@ -1613,9 +1742,12 @@ You see a path.
 Z -1 1504
 S
 #1560
-The Overgrown Path~
-As the path continues on, the grass grows higher.  You can't imagine
+@eng The Overgrown Path@rus Заросшая дорога~
+@eng As the path continues on, the grass grows higher.  You can't imagine
 what could possibly be out this way.
+@rus По мере того, как дорога продолжается на восток, она становится все
+более заросшей высокой травой. Ты не можешь определить, куда же все-таки
+ведет эта заброшенная дорога.
 ~
 0 0 field
 D1
@@ -1630,9 +1762,12 @@ You see a path.
 Z -1 1559
 S
 #1561
-The Clearing~
-Your progress is suddenly stopped by mountains on all sides.  The path leads
+@eng The Clearing@rus Дорога у гор~
+@eng Your progress is suddenly stopped by mountains on all sides.  The path leads
 back to the west, and there appears to be an old mine shaft to the north.
+@rus Твое движение по заросшей дороге закончилось тупиком,- со всех сторон
+дорогу окружают горы, и только на запад можно вернуться на дорогу. На
+севере ты видишь полуобвалившийся вход в старую шахту.
 ~
 0 0 field
 D0
@@ -1647,9 +1782,13 @@ You see a path.
 Z -1 1560
 S
 #1562
-Entrance to the Mine Shaft~
-As you enter the mine shaft, you get a sudden fear of the walls closing
+@eng Entrance to the Mine Shaft@rus Вход в старую шахту~
+@eng As you enter the mine shaft, you get a sudden fear of the walls closing
 in on you.  You are surprised to notice that you don't need a light.
+@rus Как только ты вошел в шахту, тебя окутал страх, сжимающий твое сердце
+наступающими со всех сторон каменными стенами. Однако, ты с удивлением
+замечаешь, что тебе не нужен источник света - откуда-то льется призрачное
+свечение.
 ~
 0 D field
 D1
@@ -1664,9 +1803,12 @@ You see the clearing.
 Z -1 1561
 S
 #1563
-Mine Shaft~
-This mine shaft looks stable, at least in this area.  The wooden supports are
+@eng Mine Shaft@rus Старая шахта~
+@eng This mine shaft looks stable, at least in this area.  The wooden supports are
 thick and strong.  Torches line the walls.  Exits lead in all directions.
+@rus Эта старая шахта кажется еще крепкой, по крайней мере, в этом районе.
+Деревянные распорки и перекрытия толстые и прочные. Из стен торчат факелы.
+Выходы ведут во всех направлениях.
 ~
 0 D field
 D0
@@ -1691,9 +1833,12 @@ You see the entrance.
 Z -1 1562
 S
 #1564
-Mine Shaft~
-This mine shaft looks stable, at least in this area.  The wooden supports are
+@eng Mine Shaft@rus Старая шахта~
+@eng This mine shaft looks stable, at least in this area.  The wooden supports are
 thick and strong.  Torches line the walls.  Exits lead in all directions.
+@rus Эта старая шахта кажется еще крепкой, по крайней мере, в этом районе.
+Деревянные распорки и перекрытия толстые и прочные. Из стен торчат факелы.
+Выходы ведут во всех направлениях.
 ~
 0 D field
 D0
@@ -1718,10 +1863,13 @@ You see the shaft.
 Z -1 1563
 S
 #1565
-Mine Shaft~
-This mine shaft looks stable, at least in this area.  The wooden supports are
+@eng Mine Shaft@rus Старая шахта~
+@eng This mine shaft looks stable, at least in this area.  The wooden supports are
 thick and strong.  Torches line the walls.  Exits lead in all directions
 except north.
+@rus Эта старая шахта кажется еще крепкой, по крайней мере, в этом районе.
+Деревянные распорки и перекрытия толстые и прочные. Из стен торчат факелы.
+Выходы ведут во всех направлениях, кроме севера.
 ~
 0 D field
 D1
@@ -1741,10 +1889,13 @@ You see the shaft.
 Z -1 1564
 S
 #1566
-Walkway~
-You are on a well built path in the middle of a mountain.  You sense something
+@eng Walkway@rus Туннель в камне~
+@eng You are on a well built path in the middle of a mountain.  You sense something
 great up ahead, considering the hard work that must have gone into creating
 this passage.
+@rus Ты идешь по широкому туннелю, выдолбленному в каменной толще.  Тебе
+кажется, что впереди должно быть что-то грандиозное, если принять во
+внимание ту огромную работу, которую приложили, чтобы выбить этот туннель.  
 ~
 0 D city
 D2
@@ -1759,10 +1910,13 @@ You see the shaft.
 Z -1 1565
 S
 #1567
-Walkway~
-You are on a well built path in the middle of a mountain.  You sense something
+@eng Walkway@rus Туннель в камне~
+@eng You are on a well built path in the middle of a mountain.  You sense something
 great up ahead, considering the hard work that must have gone into creating
 this passage.
+@rus Ты идешь по широкому туннелю, выдолбленному в каменной толще.  Тебе
+кажется, что впереди должно быть что-то грандиозное, если принять во
+внимание ту огромную работу, которую приложили, чтобы выбить этот туннель.  
 ~
 0 D city
 D0
@@ -1777,10 +1931,13 @@ You see a large hall.
 Z -1 1568
 S
 #1568
-The Grand Hall~
-You have stepped into the Grand Hall of the hobgoblin kingdom; your luck
+@eng The Grand Hall@rus Большой зал~
+@eng You have stepped into the Grand Hall of the hobgoblin kingdom; your luck
 must be running low by now.  Golden pillars span the hallway, and you
 notice a red carpet beneath your feet.
+@rus Ты входишь в огромный зал, окруженный каменными стенами, зал королевства
+хобгоблинов твое счастье, по-видимому, немного тебе изменило.  Золотые
+колонны стоят по бокам зала, и ты обнаруживаешь под ногами красный ковер.  
 ~
 0 D inside
 D0
@@ -1795,9 +1952,11 @@ You see a large room.
 Z -1 1569
 S
 #1569
-The Throne Room~
-This is large bright room filled with Hobgoblins.  To the south there is
+@eng The Throne Room@rus Тронный зал~
+@eng This is large bright room filled with Hobgoblins.  To the south there is
 a large golden throne against the wall.
+@rus Огромный зал в каменной толще заполнен хобгоблинами. На юге ты видишь
+большой золотой трон возле стены.
 ~
 0 D inside
 D0
@@ -1807,9 +1966,11 @@ You see a large hall.
 Z -1 1568
 S
 #1570
-The Treasury~
-You are inside the hobgoblin's treasury.  Your eyes are almost blinded by the
+@eng The Treasury@rus Сокровищница~
+@eng You are inside the hobgoblin's treasury.  Your eyes are almost blinded by the
 gold, silver and copper coins.
+@rus Ты внутри сокровищницы хобгоблинов. Твои глаза ослепил блеск золота, серебряных
+и медных монет, лежащих кучами на каменном полу.
 ~
 0 D inside
 D0
@@ -1819,9 +1980,11 @@ You see a large room.
 Z -1 1571
 S
 #1571
-Guarded Room~
-You are inside a well guarded room.  The place is slightly better built than
+@eng Guarded Room@rus Охраняемая комната~
+@eng You are inside a well guarded room.  The place is slightly better built than
 the mine shafts, and is lit by lanterns.
+@rus Ты внутри хорошо охраняемой комнаты. Это место построено слегка лучше, чем
+остальные виденные тобой части подземелья, и освещено лампами.
 ~
 0 D city
 D0
@@ -1836,9 +1999,11 @@ You see a large room.
 Z -1 1570
 S
 #1572
-Guarded Room~
-You are inside a well guarded room.  The place is slightly better built than
+@eng Guarded Room@rus Охраняемая комната~
+@eng You are inside a well guarded room.  The place is slightly better built than
 the mine shafts, and is lit by lanterns.
+@rus Ты внутри хорошо охраняемой комнаты. Это место построено слегка лучше, чем
+остальные виденные тобой части подземелья, и освещено лампами.
 ~
 0 D city
 D0
@@ -1853,9 +2018,12 @@ You see a large room.
 Z -1 1571
 S
 #1573
-Hobgoblin Armory~
-The guards store their spare weapons and armor here.  There are rusty swords
+@eng Hobgoblin Armory@rus Оружейная комната хобгоблинов~
+@eng The guards store their spare weapons and armor here.  There are rusty swords
 on rotting shelves, and armor hanging from hooks or laying on the floor.
+@rus Гвардейцы хранят в этой комнате свои доспехи и оружие.
+Здесь на специальных подставках лежит оружие, а на каменном полу сложены
+железные доспехи.
 ~
 0 D city
 D0
