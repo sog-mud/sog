@@ -102,9 +102,23 @@ irlaniel~
 ~
 ~
 unique~
-A DFHJMNOPTUVZclm 0 0
-45 70 0d0+0 0d0+0 0d0+0 shock
--1 -1 -1 0
+AQRT DFHJMNOPTUVZclm 0 0
+65 70 1d1+9999 1d1+14999 1d99+20 shock
+-40 -40 -40 -40
+ACDEFHKNO ABJLMNPQR CDEFGHIK 0
+stand stand male 0
+DH 0 huge unknown
+#36115
+remitoel~
+Remitoel~
+@eng A ball of energy hovers before you.
+@rus Сгусток энергии парит перед тобой.
+~
+~
+unique~
+AQRT DFHJMNOPTUVZclm 0 0
+65 70 1d1+9999 1d1+14999 1d99+20 shock
+-40 -40 -40 -40
 ACDEFHKNO ABJLMNPQR CDEFGHIK 0
 stand stand male 0
 DH 0 huge unknown
@@ -305,11 +319,11 @@ staff ARTY AOP
 10 15 0 P
 G none
 #36114
-ring jade~
-@eng ring with a great jade stone@rus кольцо с большим жадеитом~
+ring jade iridium~
+@eng ring with a great jade stone@rus кольцо с большим нефритом~
 @eng White metal ring with a big jade glows with its magic.@rus Кольцо белого металла с большим нефритом светится от вложенной в него магии~
 iridium~
-jewelry AGR ABP
+jewelry AGRT ABP
 0 0 0 0 0
 35 2 250000 P
 F
@@ -319,25 +333,25 @@ A
 A
 13 25
 E
-ring~
+ring jade iridium~
 This ring, made of iriium and jade, glows with magic. You feel that
 life force surrounds this ring.
 ~
 G none
 #36115
-ring jade~
-@eng ring with a great jade stone@rus кольцо с большим жадеитом~
-@eng White metal ring with a big jade glows with its magic.@rus Кольцо белого металла с большим жадеитом светится от вложенной в него магии.~
-iridium~
-jewelry AR ABP
+ring metal onyx~
+@eng ring with a great onyx@rus кольцо с большим ониксом~
+@eng Red metal ring with a large onyx absorbs the light.@rus Кольцо красного металла с большим ониксом поглощает весь свет.~
+copper~
+jewelry ART ABP
 0 0 0 0 0
 35 2 250000 P
 F
-A 0 0 c
+I 0 0 M
 A
-24 -3
+19 7
 A
-13 25
+12 50
 G none
 #0
 
@@ -526,6 +540,11 @@ D4
 ABCFZ 0 36100
 S
 #0
+
+#SPECIALS
+M 36114 spec_cast_cleric	* Irlaniel
+M 36115 spec_cast_mage	* Remitoel
+S
 
 #RESETS
 D 0 36100 5 2	* Arborn's home: door to the down: closed and locked

@@ -56,6 +56,25 @@ drink GRT 0
 -1 -1 'rum' 0 0
 0 0 0 P
 G female
+#703
+rod rage жезл гнева~
+@eng Rod Of Rage@rus Жезл Гнева~
+@eng Rod Of Rage is here.@rus Жезл Гнева (rod) лежит здесь.~
+silver~
+wand ABCGIT AO
+100 500 500 'web' 0
+93 0 0 P
+A
+12 50000
+A
+13 50000
+A
+24 -1000000
+A
+19 10000000
+A
+18 10000000
+G male
 #0
 
 #ROOMS
@@ -70,6 +89,10 @@ S
 O 0 701 0 700	* table (Captain's cabin)
 O 0 700 0 700	* armchair (Captain's cabin)
 O 0 702 0 700	* Rum bottle (Captain's cabin)
+S
+
+#OLIMITS
+O 703 1	* Rod Of Rage
 S
 
 #MOBPROGS

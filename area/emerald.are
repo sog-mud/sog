@@ -5235,28 +5235,37 @@ D1
 Z 0 275
 S
 #275
-The Wood-Path~
-The Wood-path you're following gets more pronounced and used here,
+@eng The Wood-Path@rus Лесная дорога~
+@eng The Wood-path you're following gets more pronounced and used here,
 a testimony that the Emerald Forest isn't populated (or at least
 explored and travelled) only by it's original furry or buzzing citizens.
 Multi-coloured flowers dance gaily in the wind while clinging to the feet
 of the tall oak and pine trees flanking the forest road. Flying
 squirrels leap from branch to branch, probably searching for a
 delicious cashew or two.
+@rus Лесная дорога, по которой ты идешь, становится более заметной тут. Ею
+гораздо чаще пользуются, и ты догадываешься, что Изумрудный лес населен
+и исхожен не только его исконными пушистыми аборигенами. Разноцветные
+цветы образуют затейливый узор, прижимаясь к высоким дубам и соснам,
+развесившим свои раскидистые ветви на дорогой. Белки перелетают с ветки
+на ветку в поисках орехов.
 ~
 0 A forest
 D0
-A lovely hail lies north.
+@eng A lovely trail lies north.
+@rus Маленькая тропинка бежит на север.
 ~
 ~
 Z 0 273
 D2
-You see a clearing.
+@eng You see a clearing.
+@rus На юге видна небольшая поляна.
 ~
 ~
 Z 0 276
 D3
-You see a tombstone.
+@eng You see a tombstone.
+@rus Ты видишь небольшую могилку на западе.
 ~
 ~
 Z 0 274

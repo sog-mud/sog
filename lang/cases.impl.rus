@@ -98,6 +98,17 @@ Form 6 -у~
 End
 
 #RULE
+Name -яя~
+BaseLen -2
+Form 1 -ей~
+Form 2 -ей~
+Form 3 -юю~
+Form 4 -ей~
+Form 5 -ей~
+Form 6 -юю~
+End
+
+#RULE
 Name -да~
 BaseLen -1
 Form 1 -ы~
@@ -109,14 +120,14 @@ Form 6 -у~
 End
 
 #RULE
-Name -о~
+Name -да~
 BaseLen -1
-Form 1 -а~
-Form 2 -у~
-Form 3 -о~
-Form 4 -ом~
-Form 5 -ем~
-Form 6 -о~
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #$

@@ -6,7 +6,6 @@ Credits Diku~
 Security 9
 LevelRange 1 100
 ResetMessage The earth rumbles with the after affects of another experience gone away...~
-Flags hometown~
 End
 
 #MOBILES
@@ -233,7 +232,7 @@ stand stand male 5000
 janitor дворничиха~
 @eng the janitor@rus дворничиха~
 @eng A janitor is walking around, cleaning up.
-@rus Дворничиха ходит кругами, подметая мусор.
+@rus Дворничиха (janitor) ходит кругами, подметая мусор.
 ~
 ~
 human~
@@ -4650,7 +4649,7 @@ mound upon which the temple is built and ends on the temple square below.
    Equally large steps lead UP through a small door into the ENTRANCE to MUD 
 SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
 @rus Вы находитесь в южной части зала Храма Мидгаарда. Храм состоит из гигантских 
-мраморных блоков, на вид очень древних. Большенство стен покрыто нарисованными
+мраморных блоков, на вид очень древних. Большинство стен покрыто нарисованными
 изображениями богов, гигантов и крестьян. 
   Большие ступени ведут вниз через массивные храмовые врата, спускаясь с 
 огромного холма, на котором и построен Храм и заканчиваются внизу соборной 
@@ -5299,28 +5298,35 @@ Z -1 7048
 S
 #3024
 @eng Eastern End of Poor Alley@rus Восточная окраина переулка бедняков~
-You are at the poor alley. South of here is the Grubby Inn and to the
+@eng You are at the poor alley. South of here is the Grubby Inn and to the
 east you see common square. Melancholy's map shop is north. The alley continues 
 further west.
+@rus Вы стоите в переулке бедняков. На юге(south) отсюда находится грязная
+таверна, а на востоке(east) вы видите магазин карт Меланхолика располагается на
+севере(north). Переулок заканчивается дальше на западе(west).
 ~
 0 S city
 D0
-You see Melancholy's Map Shop
+@eng You see Melancholy's Map Shop
+@rus Вы видите магазин карт Меланхолика.
 ~
 ~
 Z -1 3160
 D1
-You see the common square.
+@eng You see the common square.
+@rus Вы видите Общую площадь.
 ~
 ~
 Z -1 3025
 D2
-You see the Inn.
+@eng You see the Inn.
+@rus Вы видите таверну.
 ~
 ~
 Z -1 3048
 D3
-You see the poor alley.
+@eng You see the poor alley.
+@rus Вы видите переулок бедняков.
 ~
 ~
 Z -1 3044
@@ -7010,6 +7016,10 @@ You see some dangerous looking slums...just the right place for a gang.
 ~
 ~
 Z -1 2101
+D2
+~
+~
+Z 0 4401
 D3
 ~
 ~

@@ -5,7 +5,6 @@ VNUMs 9500 9800
 Credits Conner~
 Security 9
 LevelRange 10 35
-Flags hometown~
 End
 
 #MOBILES
@@ -2413,7 +2412,7 @@ G none
 
 #ROOMS
 #9500
-The Entrance to the Dancing Daemon Inn~
+@eng The Entrance to the Dancing Daemon Inn@rus Вход в гостиницу Танцующий Демон~
 You find yourself in an entrance foyer to the Dancing Daemon Inn. Chrome
 plated stairs spiral up to the reception area. To the south you hear the
 sounds of merriment and drinking and from the west you hear the bustling
