@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.38 2003-09-30 01:10:06 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.39 2004-02-19 11:01:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1478,10 +1478,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   attack_table[victim->dam_type].noun);
 	}
 
-	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n",
+	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d (%d) Carry weight: %ld (%d)\n",
 		   victim->fighting ? victim->fighting->name : "(none)" ,
 		   IS_NPC(victim) ? 0 : PC(victim)->death,
-		   victim->carry_number, get_carry_weight(victim) / 10);
+		   victim->carry_number, can_carry_n(victim),
+		   get_carry_weight(victim), can_carry_w(victim));
 
 	if (!IS_NPC(victim)) {
 		buf_printf(output,
