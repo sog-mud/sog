@@ -4890,10 +4890,8 @@ From OLC editor you can use shortened form ({cshow{x) or just press RETURN
 on empty line.
 ~
 0 'OLC ADDAFFECT'~
-Syntax: {caddaffect{x <type> {{ <where> | {cnone{x } {{ <loc> <mod> | {cnone{x } [<bits>]
-Syntax: {caddaffect{x <type> {cskill{x {{ <skill> | {creserved{x } <mod> [<bits>]
- 
-<type> is skill name. Use '?' to list valid skills. Empty skill is valid.
+Syntax: {caddaffect{x [type <skill>] {{ <where> | {cnone{x } {{ <loc> <mod> | {cnone{x } [<bits>]
+Syntax: {caddaffect{x [type <skill>] {cskill{x <skill> <mod> [<bits>]
  
 <where> is affect class. Use '?' to list valid affect classes.
  
@@ -4902,6 +4900,9 @@ Use '?' to list valid locations.
  
 <bits> is bitvector. Use '?' to list valid bits. Valid bits
 depend on <where>.
+
+If "type <skill>" parameter is not omitted the resulting affect will be
+as if affect was applied as a result of casted spell, prayer or used skill.
 ~
 0 TWIT~
 @eng Syntax: {ctwit{x <name>

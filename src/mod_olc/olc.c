@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.163 2004-02-17 20:59:31 fjoe Exp $
+ * $Id: olc.c,v 1.164 2004-02-17 21:48:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1078,7 +1078,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 		olc_cmd_t *cmd __attribute__((unused)),
 		int level, AFFECT_DATA **ppaf)
 {
-	skill_t *sk_type = NULL;
+	const char *type = str_empty;
 	const flaginfo_t *f;
 	where_t *w;
 	vo_t location;
@@ -1088,36 +1088,41 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 	flaginfo_t *loctbl;
 	AFFECT_DATA *paf;
 	char arg[MAX_INPUT_LENGTH];
-	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	argument = one_argument(argument, arg1, sizeof(arg1));
-	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (!str_cmp(arg, "type")) {
+		skill_t *sk;
 
-	if (arg[0] != '\0' && (sk_type = skill_search(arg, ST_ALL)) == NULL) {
-		BUFFER *output = buf_new(0);
-		buf_append(output, "Valid types are skill names (listed below) or empty type (''):\n");
-		skills_dump(output, ST_ALL);
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
-		return FALSE;
+		argument = one_argument(argument, arg, sizeof(arg));
+		sk = skill_search(arg, ST_ALL);
+		if (sk == NULL) {
+			BUFFER *output = buf_new(0);
+			buf_append(output, "Valid affect skill types are:\n");
+			skills_dump(output, ST_ALL);
+			page_to_char(buf_string(output), ch);
+			buf_free(output);
+			return FALSE;
+		}
+
+		type = gmlstr_mval(&sk->sk_name);
+		argument = one_argument(argument, arg, sizeof(arg));
 	}
-
-	if (arg1[0] == '\0')
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC ADDAFFECT'");
 
 	/*
 	 * set `w' and `where'
 	 */
-	if (!str_cmp(arg1, "none")) {
+	if (!str_cmp(arg, "none")) {
 		w = NULL;
 		where = TO_AFFECTS;
 		loctbl = apply_flags;
 	} else {
-		if ((f = flag_lookup(affect_where_types + 1, arg1)) == NULL
+		if ((f = flag_lookup(affect_where_types + 1, arg)) == NULL
 		||  !f->settable) {
-			act_char("Valid locations are:", ch);
+			act_char("Valid where types are:", ch);
 			show_flags(ch, affect_where_types);
 			return FALSE;
 		}
@@ -1209,8 +1214,7 @@ olced_addaffect(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	paf = aff_new(where,
-	    sk_type != NULL ? gmlstr_mval(&sk_type->sk_name) : str_empty);
+	paf = aff_new(where, type);
 	switch (paf->where) {
 	case TO_SKILLS:
 	case TO_RACE:
