@@ -232,7 +232,7 @@ axe battle urukhay~
 @eng {rUrukhay's battle axe{x@rus {rБоевой топор Урукхая{x~
 A large two-bladed battle axe lies on the ground, humming with might.~
 steel~
-weapon BHY AN
+weapon BHPY AN
 axe 11 12 cleave DFH
 91 500 100 P
 A
@@ -245,7 +245,7 @@ flamberge blaze sword~
 A huge wavy blade lies here, enshrouded in flames.~
 adamantite~
 weapon BHKLP AN
-sword 12 10 chop ADFI
+sword 12 10 flame ADF
 91 500 10000 P
 A
 19 20
@@ -256,7 +256,7 @@ flaming sword~
 {Yflaming sword{x~
 A longsword enshrouded in flames lies here.~
 steel~
-weapon AH AN
+weapon AHP AN
 sword 12 10 slash AD
 91 100 0 P
 A

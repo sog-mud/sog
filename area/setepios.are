@@ -101,7 +101,7 @@ fountain~
 @eng Big fountain@rus {BБольшой фонтан из {Cмрамора{w~
 marble~
 fountain G 0
-1000 1000 'champagne' 0 0
+1000 1000 'blood' 0 0
 92 1 1 P
 #38004
 table~
@@ -200,13 +200,13 @@ A
 A
 18 7
 #38012
-pie hera~
-Heras POT pie~
-Heras Pot pie lies here.~
+hera boot~
+Heras boots~
+Heras boots are here.~
 unknown~
-food R A
-CE CE 0 A 0
-0 10 10 P
+armor RT AG
+0 0 0 0 0
+110 10 10 P
 #38013
 weapon~
 Third Power~
@@ -683,9 +683,11 @@ S
 
 #RESETS
 O 0 38003 0 38101	* fountain (Coridor)
+O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
+O 0 38012 0 38103	* Heras boots (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
 M 0 38500 1 38500 1	* war-rawan (The Gates of Nightmare)
 E 0 38500 0 16		*	the spiked club named 'Skullsmasher': wielded
