@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.306 2000-08-04 14:12:45 cs Exp $
+ * $Id: merc.h,v 1.307 2000-08-21 07:50:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2223,7 +2223,6 @@ int	number_range	(int from, int to);
 int	number_percent	(void);
 int	number_door	(void);
 int	number_bits	(int width);
-long	number_mm	(void);
 int	dice		(int number, int size);
 int 	dice_wlb	(int number, int dice, CHAR_DATA *ch, CHAR_DATA *victim);
 /* Dice with luck bonus */
