@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.146 1999-05-15 10:56:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.147 1999-05-17 21:10:22 avn Exp $
  */
 
 /***************************************************************************
@@ -4161,24 +4161,6 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if (victim->clan && (clan = clan_lookup(victim->clan))) {
-		bool touched = FALSE;
-
-		if (name_delete(&clan->member_list, old_name, NULL, NULL)) {
-			touched = TRUE;
-			name_add(&clan->member_list, new_name, NULL, NULL);
-		}
-		if (name_delete(&clan->leader_list, old_name, NULL, NULL)) {
-			touched = TRUE;
-			name_add(&clan->leader_list, new_name, NULL, NULL);
-		}
-		if (name_delete(&clan->second_list, old_name, NULL, NULL)) {
-			touched = TRUE;
-			name_add(&clan->second_list, new_name, NULL, NULL);
-		}
-		if (touched)
-			clan_save(clan);
-	}
 
 /* delete old pfile */
 	if (str_cmp(new_name, old_name)) {
@@ -4205,6 +4187,25 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		if (dfexist(PLAYER_PATH, strsave)) {
 			char_puts ("A player with that name already exists in a compressed file!\n",ch);
 			return;		
+		}
+
+		if (victim->clan && (clan = clan_lookup(victim->clan))) {
+		bool touched = FALSE;
+
+		if (name_delete(&clan->member_list, old_name, NULL, NULL)) {
+			touched = TRUE;
+			name_add(&clan->member_list, new_name, NULL, NULL);
+		}
+		if (name_delete(&clan->leader_list, old_name, NULL, NULL)) {
+			touched = TRUE;
+			name_add(&clan->leader_list, new_name, NULL, NULL);
+		}
+		if (name_delete(&clan->second_list, old_name, NULL, NULL)) {
+			touched = TRUE;
+			name_add(&clan->second_list, new_name, NULL, NULL);
+		}
+		if (touched)
+			clan_save(clan);
 		}
 
 		/* change object owners */
