@@ -94,7 +94,7 @@ dragon brass дракон~
 @eng The brass dragon steps out of the darkness and says 'Hello'.
 Then adds to it, 'Prepare to die, have a nice day!'@rus Латунный дракон (dragon) выступил из темноты и сказал 'Привет'. А потом добавил 'Приготовься умереть, дружок'.~
 ~
-dragon~
+brass dragon~
 BCF 0 H 0 A 450 0
 28 45 6d12+1053 15d9+100 4d40+28 'none'
 -19 -19 -19 -10

@@ -338,11 +338,11 @@ F par AEJ
 #22472
 human sergeant~
 human sergeant~
-A human sergeant stand here , watch to intruders.~
-Before you stand a tall man wearing jewel encrusted clothes.In his shoulder
-you can see a sergeant sign.He have a blue eyes and short black hair, his 
-arms lies on jewel-encrusted hilt of his sword , but you see that a place
-for dagger on his wasit is empty.
+A human sergeant stands here watching for intruders.~
+Before you stands a tall man wearing jewel encrusted clothes. On his
+shoulder you can see a sergeant sign. He has a blue eyes and short
+black hair. His arms lie on jewel-encrusted hilt of his sword
+but you see that a place for dagger on his wasit is empty.
 ~
 human~
 0 0 0 0 0 0 0
@@ -351,6 +351,7 @@ human~
 ADFHJK
 stand stand none 0
 0 0 medium unknown
+m mob_give mob_give_sergeant 22492~
 #22473
 troll small rumpelsteelskin~
 rumpelsteelskin~

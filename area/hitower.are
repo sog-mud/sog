@@ -505,6 +505,7 @@ BGHR D 0 0 A -200 0
 FU
 stand stand male 50
 0 0 medium unknown
+m mob_kill mob_kill_master_summoner 100~
 #1338
 master charmer~
 the master charmer~

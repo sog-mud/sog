@@ -256,6 +256,7 @@ r wood 100
 r silver 100
 r weapon 100
 r magic 100
+m mob_bribe mob_bribe_small_statue 10000~
 #0
 
 #OBJECTS

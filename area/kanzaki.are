@@ -33,6 +33,14 @@ BGJTe 0 HV 0 ABH 0 0
 ACDEFHKOPQT
 stand stand none 0
 0 0 gargantuan unknown
+g @eng none@rus female~
+m mob_greet mob_greet_lothar_warrior 100~
+m mob_speech mob_speech_lothar_warrior i'm your man~
+m mob_speech mob_speech_lothar_warrior i'm your woman~
+m mob_speech mob_speech_lothar_warrior_password пароль~
+m mob_speech mob_speech_lothar_warrior_password password~
+m mob_exall mob_exall_lothar_warrior west~
+m mob_cmd mob_cmd_lothar_warrior shoes~
 #47100
 duck утка~
 @eng a duck@rus ~~утка~~~

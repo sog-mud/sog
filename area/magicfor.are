@@ -110,6 +110,9 @@ r mental 33
 r light -50
 r sound 100
 r iron -50
+m mob_random mob_random_girl_singer_1 5~
+m mob_random mob_random_girl_singer_2 2~
+m mob_random mob_random_girl_singer_3 2~
 #1805
 unicorn silver единорог серебряный~
 @eng the silver unicorn@rus ~~серебрЯный~~ ~~единорог~~~
@@ -305,6 +308,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_red_witch 12~
 #1814
 witch orange ведьма рыжая~
 @eng the orange witch@rus ~~рыжая~~ ~~ведьма~~~
@@ -329,6 +333,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_orange_witch 12~
 #1815
 witch yellow ведьма желтая~
 @eng the yellow witch@rus ~~желтая~~ ~~ведьма~~~
@@ -354,6 +359,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_random mob_random_yellow_witch 12~
 #1816
 witch green ведьма зеленая~
 @eng the green witch@rus ~~зеленая~~ ~~ведьма~~~
@@ -448,6 +454,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_greet mob_greet_violet_witch 100~
 #1820
 warlock red колдун красный~
 @eng the red warlock@rus ~~красный~~ ~~колдун~~~
@@ -608,6 +615,7 @@ r acid 33
 r negative 33
 r holy -50
 r wood -50
+m mob_greet mob_greet_violet_warlock 100~
 #1827
 shopkeeper ranger продавец егерь торговец~
 @eng the ranger shopkeeper@rus ~~егерский~~ ~~торговец~~~
@@ -778,6 +786,7 @@ O 0 tiny unknown
 g @eng either@rus male~
 r lightning 33
 r energy -50
+m mob_random mob_random_blue_bird 1~
 #1835
 bird finch goldfinch yellow gold птичка канарейка желтая~
 @eng a goldfinch@rus ~~канарейка~~~
@@ -816,6 +825,7 @@ O 0 tiny unknown
 g @eng either@rus male~
 r lightning 33
 r energy -50
+m mob_get mob_get_vireo 1842~
 #1837
 bird hummingbird humming колибри птичка птица~
 a tiny hummingbird~
@@ -833,6 +843,7 @@ stand stand either 0
 O 0 tiny unknown
 r lightning 33
 r energy -50
+m mob_get mob_get_hummingbird 1838~
 #1838
 black warlock~
 the black warlock~

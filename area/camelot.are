@@ -109,8 +109,8 @@ stand stand male 1000
 0 0 medium unknown
 #17307
 black knight черный рыцарь~
-@eng the black knight@rus Рыцарь, одетый в черную броню.~
-@eng A knight dressed in black armor.@rus Рыцарь в черной (black) броне стоит перед тобой.~
+@eng the black knight@rus рыцарь~
+@eng A knight dressed in black armor.@rus Рыцарь (knight) в черной броне стоит перед тобой.~
 @eng The black knight has black armor and a visored helm. He stands resting on 
 a two handed sword.
 @rus Черный рыцарь одет в черную броню и шлем с прорезью. Он стоит, опершись
@@ -123,6 +123,7 @@ B 0 0 0 AB 0 0
 EFNU
 stand stand male 1000
 0 0 medium unknown
+m mob_greet mob_greet_black_knight 100~
 #17308
 gareth knight гарет рыцарь~
 @eng Sir Gareth@rus ~~Сэр~~ ~~Гарет~~~

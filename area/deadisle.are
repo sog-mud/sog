@@ -480,6 +480,7 @@ ORT 0 V G CDG -1000 0
 AFGHKP
 stand stand random 1000
 0 0 large unknown
+m mob_open mob_open_undead_guard chest~
 #22330
 guard undead~
 the undead guard~
@@ -494,6 +495,7 @@ ORT 0 Vc G CD -1000 0
 FGHJKP
 stand stand none 500
 0 0 large unknown
+m mob_open mob_open_undead_guard chest~
 #22399
 as~
 as~

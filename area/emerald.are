@@ -559,6 +559,8 @@ r charm 100
 r iron -50
 r wood -50
 r silver -50
+m mob_speech mob_speech_irin irin~
+m mob_speech mob_speech_irin ирин~
 #229
 cat~
 the marmalade cat~

@@ -117,6 +117,7 @@ stand stand male 0
 m mob_greet mob_greet_lory 100~
 m mob_exit mob_exit_lory all~
 m mob_look mob_look_lory 100~
+m mob_tell mob_tell_lory ~
 #21006
 eaglet~
 an eaglet~
@@ -241,6 +242,7 @@ stand stand male 0
 HM B medium unknown
 m mob_greet mob_greet_puppy 100~
 m mob_exit mob_exit_puppy all~
+m mob_tell mob_tell_puppy ~
 #21014
 caterpillar~
 the caterpillar~
@@ -308,6 +310,7 @@ BGT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_tell mob_tell_frog_footman ~
 #21018
 duchess~
 the Duchess~
@@ -325,6 +328,7 @@ stand stand female 0
 0 0 medium unknown
 m mob_greet mob_greet_duchess 100~
 m mob_random mob_random_duchess 1~
+m mob_tell mob_random_duchess ~
 #21019
 pig baby~
 the Duchess' baby~
@@ -357,6 +361,7 @@ EFNU
 stand stand female 0
 0 0 medium unknown
 m mob_greet mob_greet_cook 100~
+m mob_speech mob_speech_cook ~
 m mob_exit mob_exit_cook all~
 #21021
 cheshire cat~
@@ -406,6 +411,7 @@ stand stand male 0
 m mob_greet mob_greet_no_room 100~
 m mob_exit mob_exit_stuff_dormouse all~
 m mob_look mob_look_mad_hatter 100~
+m mob_tell mob_tell_mad_hatter ~
 #21023
 march hare~
 the March Hare~
@@ -456,6 +462,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_gardener_five 100~
+m mob_speech mob_speech_gardener ~
 #21028
 gardener heart seven card~
 a gardener~
@@ -471,6 +478,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_gardener_seven 100~
+m mob_speech mob_speech_gardener ~
 #21029
 gardener heart two card~
 a gardener~
@@ -570,6 +578,7 @@ m mob_greet mob_queen_of_hearts 100~
 m mob_kill mob_kill_queen_of_hearts 100~
 m mob_exit mob_queen_of_hearts all~
 m mob_look mob_look_queen_of_hearts 100~
+m mob_tell mob_tell_queen_of_hearts ~
 #21035
 knave hearts~
 the Knave of Hearts~
@@ -587,6 +596,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_knave_of_hearts 100~
 m mob_look mob_look_cast_invis 100~
+m mob_tell mob_tell_knave_of_hearts ~
 #21036
 flamingo~
 a flamingo~
@@ -635,6 +645,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_executioner 100~
 m mob_exit mob_exit_executioner all~
+m mob_tell mob_tell_executioner ~
 #21039
 mock turtle~
 the Mock Turtle~
@@ -672,6 +683,7 @@ m mob_death mob_death_gryphon 100~
 m mob_greet mob_greet_gryphon 100~
 m mob_kill mob_kill_gryphon 100~
 m mob_look mob_look_gryphon 100~
+m mob_tell mob_tell_gryphon ~
 #21041
 juror~
 a juror~
@@ -688,6 +700,7 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 m mob_greet mob_greet_juror 100~
+m mob_tell mob_tell_juror ~
 #21042
 court officer~
 a court officer~
