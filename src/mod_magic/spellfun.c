@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.104 1999-02-02 15:50:22 kostik Exp $
+ * $Id: spellfun.c,v 1.105 1999-02-05 06:12:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -1265,6 +1265,10 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (victim->master)
 		stop_follower(victim);
 	add_follower(victim, ch);
+
+	if (ch->leader == victim) 
+		ch->leader = NULL;
+
 	victim->leader = ch;
 
 	af.where	= TO_AFFECTS;
