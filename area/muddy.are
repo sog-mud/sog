@@ -8,7 +8,6 @@ End
 
 #HELPS
 -1 WIZLIST~
-.
         ________            *********************           ________
       /+_+_+_+_+_\        **  The Gods of Muddy   **      /+_+_+_+_+_\
       \__________/          *********************         \__________/
@@ -25,7 +24,7 @@ End
 /<<>>\/<<>>\/<<>>\/<<>>\                            /<<>>\/<<>>\/<<>>\/<<>>\
 \<<>>/\<<>>/\<<>>/\<<>>/      Supremacies [98]      \<<>>/\<<>>/\<<>>/\<<>>/
        |.  /  . |             ****************             |.  /  . |
-       | .//\.  |                 abrazak                  | .//\.  |
+       | .//\.  |             abrazak, Phobos              | .//\.  |
        |.  /  . |                                          |.  /  . |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Deities [97]               |.  /  . |
@@ -34,7 +33,7 @@ End
        | .//\.  |                                          | .//\.  |
        | .//\.  |                Gods [96]                 | .//\.  |
        |.  /  . |                *********                 |.  /  . |
-       | .//\.  |                                          | .//\.  |
+       | .//\.  |               Lothar, Eidu               | .//\.  |
        | .//\.  |                                          | .//\.  |
        |.  /\ . |              Immortals [95]              |.  /  . |
        | .//\.  |              **************              | .//\.  |
@@ -44,23 +43,21 @@ End
        | .//\.  |               *************              | .//\.  |
        |.  /\ . |                                          |.  /  . |
        |.  /  . |                                          |.  /  . |
-       | .//\.  |               Angels [93]                | .//\.  |
-       |.  /  . |               ***********                |.  /  . |
-       | .//\.  |                                          | .//\.  |
+       | .//\.  |                Angels [93]               | .//\.  |
+       |.  /  . |                ***********               |.  /  . |
        | .//\.  |                                          | .//\.  |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Avatars [92]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
+       |.  /  . |                 Setepios                 |.  /  . |
        |.  /  . |                                          |.  /  . |
-       |.  /  . |                                          |.  /  . |
-        \ //\. /                 Heros [91]                 \ //\. /
-         \ /. /                 ************                 \ /. /
+        \ //\. /                 Heroes [91]                \ //\. /
+         \ /. /                 *************                \ /. /
           \ //                                                \ //
-           \/                       Oleg                       \/
-                                    Arnx
-                                   Holod
-                                   Thorn
-                                  Kelter
+           \/                 Oleg, Arnx, Anri                 \/
+                                Kelter, Thorn  
+                                    Holod
+                                   Urukhay
 ~
 -1 ANATOLIA~
 . 
@@ -242,29 +239,29 @@ Thanks to ...
 Thanks to Ezra for drawing the originals of several maps on ROM.
 ~
 -1 GREETING~
-.
-        /                                                          \
-        |                                                           ) 
-        \                      ___   _                              / 
-         '\                 __r^   '-^ ;_                        ,--'
-           ;             _r^             \  _                 __/        
-         ___`;------,_r-`                 -` '-^\.___.--.__,-^            
-_____,*-'   `==                                                            
- ,-r-,_'`--`-'                                                            
- /                        M U D D Y   R E A L M S 
-/___,                                                                       
-    /           Original DikuMUD by Hans Staerfeldt, Katja Nyboe,           
-   |            Tom Madsen, Michael Seifert, and Sebastian Hammer            
-|`-'            Based on MERC 2.1 code by Hatchet, Furey, and Kahn           
-`-,             ROM 2.4 copyright (c) 1993-1995 Russ Taylor.
-   \            ANATOLIA 2.1 by 1997 Serdar BULUT, Ibrahim CANPUNAR,          
-    |           Murat BICER, Devrim Baris ACAR.
-    |           Muddy code by fjoe and efdi.  
-     \             __                                           
-      `c_--:_     /  ^-,__        _r-z__.;/'|        
-             `---'        -\___;-'         ,'   
-                                           \  
-                                           | 
+.         .     .
+    ...  :``..':
+     : ````.'   :''::'                                     _=_
+   ..:..  :     .'' :            __                       ( _ )
+``.    `:    .'     :           (  `\    ________________/'(_)`\_______________
+    :    :   :        :          \   ~~~~~~ ____________   __   __   ____________~~
+     :   :   :         :          )>  _               ~~-~~  ~~-~~  ~~-~~
+     :    :   :        :         <(  (_)   @@}--> M U D D Y   R E A L M S <--{@@
+      :    :   :..''''``::.        \
+       : ...:..'     .''           |      Original DikuMUD by Hans Staerfeldt,
+       .'   .'  .::::'             |  Katja Nyboe, Tom Madsen, Michael Seifert,
+      :..'''``:::::::              |   and Sebastian Hammer. Based on MERC 2.1
+      '         `::::              |  __   code by Hatchet, Furey, and Kahn.
+                  `::.             | (  )   ROM 2.4 copyright (c) 1993-1995
+                   `::             |  \    Russ Taylor. ANATOLIA 2.1 by 1997
+                    :::.           |   )    Serdar BULUT, Ibrahim CANPUNAR,
+         ,,:,:,::.   ::'`   .-:~~:-._\  (     Murat BICER, Devrim Baris ACAR.
+       ..'      `:.: ::   :'       .|   \,/    Muddy code by fjoe and efdi.
+      .:        .:``:::  :       .: |   /`\                 _
+      .:    ..''     :::.'    :':    \         ___         (_)         ___
+       : .''         .:: : : '       `\  /====~~   ~~=====\       /=====~~   ~~====
+        :          .'`::               \(                )/~~^~~\(
+                      ::                `                '     `
 ~
 -2 MOTD~
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
@@ -275,9 +272,10 @@ _____,*-'   `==
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{Clong{x' command.
 * {CGossip{x and {Cmusic{x channels added.
-* Use '{Cbug{x' command or mail to mud@@iclub.nsu.ru for bug reports
+* Use '{Cbug{x' command or mail to {Cmud@@iclub.nsu.ru{x for bug reports
   and suggestions.
 * win1251 users, see '{CHELP WIN1251{x'.
+* Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
 92 IMOTD~
 Welcome Immortal!
