@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.78 1999-11-23 12:14:32 fjoe Exp $
+ * $Id: recycle.c,v 1.79 1999-11-23 16:04:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -633,7 +633,9 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	pObj->material		= str_dup("unknown");
 	pObj->condition		= 100;
 	pObj->limit		= -1;
-	cc_ruleset_init(&pObj->restrictions);
+	varr_init(&pObj->restrictions, sizeof(cc_ruleset_t), 1);
+	pObj->restrictions.e_init = (varr_e_init_t) cc_ruleset_init;
+	pObj->restrictions.e_destroy = (varr_e_destroy_t) cc_ruleset_destroy;
 
         top_obj_index++;
 	return pObj;
@@ -659,7 +661,7 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	ed_free(pObj->ed);
 
 	objval_destroy(pObj->item_type, pObj->value);
-	cc_ruleset_destroy(&pObj->restrictions);
+	varr_destroy(&pObj->restrictions);
 
 	top_obj_index--;
 	free(pObj);

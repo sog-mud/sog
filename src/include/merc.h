@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.254 1999-11-23 12:14:30 fjoe Exp $
+ * $Id: merc.h,v 1.255 1999-11-23 16:04:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1524,7 +1524,7 @@ struct obj_index_data
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	flag32_t		gender;
-	cc_ruleset_t		restrictions;
+	varr			restrictions; /* varr of cc_ruleset_t */
 };
 
 /*

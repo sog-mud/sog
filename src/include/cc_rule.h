@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_rule.h,v 1.3 1999-11-23 12:14:29 fjoe Exp $
+ * $Id: cc_rule.h,v 1.4 1999-11-23 16:04:55 fjoe Exp $
  */
 
 #ifndef _CC_RULE_H_
@@ -78,32 +78,26 @@ enum {
  * a set of cc_rule's with checking order
  */
 typedef struct cc_ruleset_t {
+	const char *keyword;	/* keyword		*/
 	flag32_t order;		/* order		*/
-	varr allow;		/* allow cc_rule_t	*/
-	varr deny;		/* deny cc_rule_t	*/
+	varr allow;		/* allow arg's		*/
+	varr deny;		/* deny arg's		*/
 } cc_ruleset_t;
 
 void	cc_ruleset_init		(cc_ruleset_t *);
 void	cc_ruleset_destroy	(cc_ruleset_t *);
 
-void	fread_cc_ruleset	(rfile_t *fp, const char *rcn, cc_ruleset_t *);
-void	fwrite_cc_ruleset	(FILE *fp, const char *rcn,
-				 const char *pre, cc_ruleset_t *);
-void	print_cc_ruleset	(BUFFER *buf, const char *rcn,
-				 const char *pre, cc_ruleset_t *);
+#define cc_ruleset_lookup(v, keyword) \
+	((cc_ruleset_t *) varr_foreach((v), strkey_search_cb, (keyword)))
+
+void	fread_cc_ruleset	(rfile_t *fp, const char *rcn, varr *v);
+void *	fwrite_cc_ruleset_cb	(void *p, va_list ap);
+void *	print_cc_ruleset_cb	(void *p, va_list ap);
 
 #define cc_ruleset_isempty(rs)	\
 		(varr_isempty(&(rs)->allow) && varr_isempty(&(rs)->deny))
 
-/*
- * condition checking rule
- */
-typedef struct cc_rule_t {
-	const char *keyword;
-	const char *arg;
-} cc_rule_t;
-
-bool cc_ruleset_ok(const char *rcn, cc_ruleset_t *rs, ...);
+const char *cc_rules_check(const char *rcn, varr *v, ...);
 
 #endif
 

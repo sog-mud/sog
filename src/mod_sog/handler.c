@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.199 1999-11-23 12:14:31 fjoe Exp $
+ * $Id: handler.c,v 1.200 1999-11-23 16:04:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -551,10 +551,15 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return NULL;
 	}
 
+	if (cc_rules_check("obj", &obj->pObjIndex->restrictions, ch)) {
+		act("You cannot wear, wield or hold $p.",
+		    ch, obj, NULL, TO_CHAR);
+		return NULL;
+	}
+
 	if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch)   )
 	||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch)   )
-	||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))
-	||  !cc_ruleset_ok("obj", &obj->pObjIndex->restrictions, ch)) {
+	||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
 		/*
 		 * Thanks to Morgenes for the bug fix here!
 		 */
