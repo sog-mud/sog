@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.20 2000-10-21 19:41:07 fjoe Exp $
+ * $Id: updfun.c,v 1.21 2000-10-29 19:53:22 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -578,7 +578,7 @@ char_update_cb(void *vo, va_list ap)
 	}
 
 	if (number_percent() < 20) {
-		// Ajust luck
+		// Adjust luck
 		class_t* cl;
 		int nominal_luck = 50 + r->luck_bonus;
 		if ((cl = class_lookup(ch->class)) != NULL)
