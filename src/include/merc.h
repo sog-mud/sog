@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.314 2000-11-17 17:14:18 avn Exp $
+ * $Id: merc.h,v 1.315 2000-11-23 15:46:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2305,7 +2305,6 @@ int	find_door	(CHAR_DATA *ch, const char *arg);
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
 void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			 const char *msg_others);
-void wear_obj		(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace);
 void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
 void set_title		(CHAR_DATA *ch, const char *argument);
 
