@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.38 2002-09-01 16:56:45 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.39 2002-09-02 09:04:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2395,13 +2395,14 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	chance = number_percent();
 
 	if (percent < 20) {
-		buf_printf(output, "Object '%s'.\n", obj->name);
+		buf_printf(output, "Object '%s'.\n",
+			   mlstr_mval(&obj->short_descr));
 		check_improve(ch, sn, TRUE, 8);
 		return;
 	} else if (percent < 40) {
 		buf_printf(output,
-			    "Object '%s'.  Weight is %d, value is %d.\n",
-			    obj->name,
+			   "Object '%s'.  Weight is %d, value is %d.\n",
+			   mlstr_mval(&obj->short_descr),
 		chance < 60 ? obj->weight : number_range(1, 2 * obj->weight),
 		     chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost
 			);
@@ -2411,9 +2412,9 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else if (percent < 60) {
 		buf_printf(output,
-			    "Object '%s' has weight %d.\nValue is %d, level is %d.\nMaterial is %s.\n",
-			    obj->name,
-			    obj->weight,
+			   "Object '%s' has weight %d.\nValue is %d, level is %d.\nMaterial is %s.\n",
+			   mlstr_mval(&obj->short_descr),
+			   obj->weight,
 		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
 		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
 		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
@@ -2422,11 +2423,11 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else if (percent < 80) {
 		buf_printf(output,
-			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
-			    obj->name,
-			    flag_string(item_types, obj->pObjIndex->item_type),
-			    flag_string(extra_flags, obj->extra_flags),
-			    obj->weight,
+			   "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
+			   mlstr_mval(&obj->short_descr),
+			   flag_string(item_types, obj->pObjIndex->item_type),
+			   flag_string(extra_flags, obj->extra_flags),
+			   obj->weight,
 		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
 		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
 		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
@@ -2435,9 +2436,9 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else
 		buf_printf(output,
-			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
-			    obj->name,
-			    flag_string(item_types, obj->pObjIndex->item_type),
+			   "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
+			   mlstr_mval(&obj->short_descr),
+			   flag_string(item_types, obj->pObjIndex->item_type),
 			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,

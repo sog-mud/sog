@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.55 2002-09-01 16:56:59 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.56 2002-09-02 09:04:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2952,7 +2952,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	buf_printf(output,
 		"Object '%s' is type %s, extra flags %s.\n"
 		"Weight is %d, value is %d, level is %d.\n",
-		obj->name,
+		mlstr_mval(&obj->short_descr),
 		flag_string(item_types, obj->pObjIndex->item_type),
 		flag_string(extra_flags, obj->extra_flags & ~ITEM_ENCHANTED),
 		obj->weight / 10,
