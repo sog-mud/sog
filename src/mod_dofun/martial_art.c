@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.14 2001-02-25 17:41:34 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.15 2001-02-28 19:59:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -305,7 +305,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		skill += (get_curr_stat(victim, STAT_STR) -
 			  get_curr_stat(ch, STAT_STR)) * 5;
 		if (number_percent() < skill) {
-			act("$N grips and prevent you to disarm $M!",
+			act("$N grips and prevents you to disarm $M!",
 			    ch, NULL, victim, TO_CHAR);
 			act("$n tries to disarm you, but you grip and escape!",
 			    ch, NULL, victim, TO_VICT);
@@ -1780,8 +1780,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		char_puts("Your feet should touch the ground to balance.\n",
-			     ch);
+		char_puts("Your feet must touch the ground to balance.\n", ch);
 		return;
 	}
 
@@ -3212,7 +3211,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_REGENERATION)) {
-		char_puts("You have already using your bandage.\n", ch);
+		char_puts("You are already using your bandage.\n", ch);
 		return;
 	}
 
