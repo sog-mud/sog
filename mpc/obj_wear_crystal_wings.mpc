@@ -1,12 +1,12 @@
 /*
- * $Id: obj_wear_crystal_wings.mpc,v 1.1 2001-09-14 18:08:05 fjoe Exp $
+ * $Id: obj_wear_crystal_wings.mpc,v 1.2 2001-10-21 22:40:03 fjoe Exp $
  */
 
 if (is_affected($n, AFF_FLYING))
         return 0;
 
 if (char_size($n) > SIZE_SMALL)
-        act("You are to big and heavy. These small wings can't get you up.",
+        act("You are too big and heavy. These small wings can't get you up.",
             $n, NULL, NULL, TO_CHAR);
 else {
         act("As you wear $p, you run up. Your are flying!",

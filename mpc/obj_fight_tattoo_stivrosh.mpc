@@ -1,5 +1,5 @@
 /*
- * $Id: obj_fight_tattoo_stivrosh.mpc,v 1.1 2001-09-14 16:48:22 fjoe Exp $
+ * $Id: obj_fight_tattoo_stivrosh.mpc,v 1.2 2001-10-21 22:40:03 fjoe Exp $
  */
 
 switch (number_bits(4)) {
@@ -16,11 +16,11 @@ case 0:
            $n, NULL, NULL, TO_CHAR);
 
        int level = char_level($n);
-       affect_char($n, TO_AFFECTS, "berserk", level, umin(1, level / 3),
-                   APPLY_HITROLL, umin(1, level / 5), AFF_BERSERK);
-       affect_char($n, TO_AFFECTS, "berserk", level, umin(1, level / 3),
-                   APPLY_DAMROLL, umin(1, level / 5), AFF_BERSERK);
-       affect_char($n, TO_AFFECTS, "berserk", level, umin(1, level / 3),
+       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+                   APPLY_HITROLL, umax(1, level / 5), AFF_BERSERK);
+       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+                   APPLY_DAMROLL, umax(1, level / 5), AFF_BERSERK);
+       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
                    APPLY_AC, 10 * (level / 10), AFF_BERSERK);
        break;
 }

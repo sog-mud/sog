@@ -1,9 +1,9 @@
 /*
- * $Id: obj_wear_flaming_sword.mpc,v 1.1 2001-09-23 16:51:13 fjoe Exp $
+ * $Id: obj_wear_flaming_sword.mpc,v 1.2 2001-10-21 22:40:02 fjoe Exp $
  */
 
 act("Flaming sword flares brightly as $n wields the sorcerous blade.",
     $n, NULL, NULL, TO_ROOM);
-act("Flaming sword flares brightly as you wields the sorcerous blade.",
+act("Flaming sword flares brightly as you wield the sorcerous blade.",
     $n, NULL, NULL, TO_CHAR);
 return 0;
