@@ -128,6 +128,8 @@ if (wear != NULL && wear->vnum == 35480)
         return 0;
  
 Obj claw = create_obj(35471, 0);
+if (claw == NULL)
+	return 0;
 obj_to_room(claw, mob->in_room);
 return 0;
 ~
@@ -169,6 +171,8 @@ m mob_death @ 100~
 act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
     mob, NULL, NULL, TO_ROOM);
 Obj wings = create_obj(35472, 0);
+if (wings == NULL)
+        return 0;
 obj_to_room(wings, mob->in_room);
 return 0;
 ~
@@ -228,13 +232,15 @@ if (wear != NULL && wear->vnum == 35477)
         return 0;
  
 Obj pearl = create_obj(35470, 0);
+if (pearl == NULL)
+        return 0;
 obj_to_room(pearl, mob->in_room);
 return 0;
 ~
 m mob_fight @ 20~
 Char victim = get_random_fighting(mob);
 if (victim == NULL)
-       return 0;
+        return 0;
 
 act("{DA $n's shriek resounds through the cave!{x",
     mob, NULL, NULL, TO_ROOM);
@@ -313,6 +319,8 @@ if (wear != NULL && wear->vnum == 35478)
         return 0;
 
 Obj ring = create_obj(35473, 0);
+if (ring == NULL)
+        return 0;
 obj_to_room(ring, mob->in_room);
 return 0;
 ~
@@ -353,6 +361,8 @@ if (wear != NULL && wear->vnum == 35479)
         return 0;
  
 Obj wings = create_obj(35472, 0);
+if (wings == NULL)
+        return 0;
 obj_to_room(wings, mob->in_room);
 return 0;
 ~
@@ -485,6 +495,8 @@ if (wear != NULL && wear->vnum == 35482)
         return 0;
 
 Obj bark = create_obj(35465, 0);
+if (bark == NULL)
+        return 0;
 obj_to_room(bark, mob->in_room);
  
 return 0;
