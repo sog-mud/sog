@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.4 1998-11-14 09:01:22 fjoe Exp $
+ * $Id: spellfn.c,v 1.5 1998-11-17 05:29:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -270,6 +270,7 @@ NAMEDP spellfn_table[] =
 	{ "spell_take_revenge",		spell_take_revenge		},
 	{ "spell_mirror",		spell_mirror			},
 	{ "spell_doppelganger",		spell_doppelganger		},
+	{ "spell_detect_fade",		spell_detect_fade		},
 	{ NULL }
 };
 
