@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.178 2001-07-04 19:21:21 fjoe Exp $
+ * $Id: interp.c,v 1.179 2001-07-09 06:18:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -153,8 +153,13 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		&&  !IS_SET(cmd->cmd_flags, CMD_FROZEN_OK))
 			continue;
 
-		if (IS_SET(cmd->cmd_flags, CMD_DISABLED)) {
-			act_char("Sorry, this command is temporarily disabled.", ch);
+		/*
+		 * "edit" cannot be disabled, otherwise it would be impossible
+		 * to enable it back
+		 */
+		if (IS_SET(cmd->cmd_flags, CMD_DISABLED)
+		&&  !!str_cmp(cmd->name, "edit")) {
+			act_char("Sorry, this command is disabled.", ch);
 			return;
 		}
 

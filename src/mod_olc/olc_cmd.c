@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.16 2001-06-22 07:13:43 avn Exp $
+ * $Id: olc_cmd.c,v 1.17 2001-07-09 06:18:38 fjoe Exp $
  */
 
 #include "olc.h"
@@ -60,7 +60,7 @@ olc_cmd_t olc_cmds_cmd[] =
 	{ "show",	cmded_show					},
 	{ "list",	cmded_list					},
 
-	{ "name",	cmded_name,	validate_cmd_name 		},
+	{ "name",	cmded_name,	validate_cmd_name		},
 	{ "minpos",	cmded_minpos,	NULL,		position_table	},
 	{ "minlevel",	cmded_minlevel, NULL,		level_table	},
 	{ "dofun",	cmded_dofun,	validate_funname				},

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.276 2001-07-04 19:21:11 fjoe Exp $
+ * $Id: act_wiz.c,v 1.277 2001-07-09 06:18:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4247,74 +4247,6 @@ cleanup:
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
 	if (loaded) 
 		char_nuke(victim);
-}
-
-void do_disable(CHAR_DATA *ch, const char *argument)
-{
-	cmd_t *cmd;
-	char arg[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		do_help(ch, "'WIZ ENABLE DISABLE'");
-		return;
-	}
-
-	if (!str_cmp(arg, "?")) {
-		int i;
-
-		act_char("Disabled commands:", ch);
-		for (i = 0; i < commands.nused; i++) {
-			cmd = VARR_GET(&commands, i);
-			if (IS_SET(cmd->cmd_flags, CMD_DISABLED)) {
-				act_puts("$t", ch, cmd->name, NULL,
-					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
-					 POS_DEAD);
-			}
-		}
-		return;
-	}
-
-	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
-		if ((cmd = cmd_lookup(arg)) == NULL) {
-			act_puts("$t: command not found.", ch, arg, NULL,
-				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-			continue;
-		}
-
-		if (!str_cmp(cmd->name, "enable")) {
-			act_char("'enable' command cannot be disabled.", ch);
-			return;
-		}
-
-		SET_BIT(cmd->cmd_flags, CMD_DISABLED);
-		act_puts("$t: command disabled.", ch, cmd->name, NULL,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	}
-}
-
-void do_enable(CHAR_DATA *ch, const char *argument)
-{
-	cmd_t *cmd;
-	char arg[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
-		do_help(ch, "'WIZ ENABLE DISABLE'");
-		return;
-	}
-
-	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
-		if ((cmd = cmd_lookup(arg)) == NULL) {
-			act_puts("$t: command not found.", ch, arg, NULL,
-				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-			continue;
-		}
-
-		REMOVE_BIT(cmd->cmd_flags, CMD_DISABLED);
-		act_puts("$t: command enabled.", ch, cmd->name, NULL,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	}
 }
 
 void do_qtarget(CHAR_DATA *ch, const char *argument)
