@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.11 1999-02-17 10:27:10 fjoe Exp $
+ * $Id: olc_lang.c,v 1.12 1999-02-22 13:30:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -97,6 +97,7 @@ OLC_FUN(langed_create)
 	l->file_name = str_printf("lang%02d.lang", langs.nused-1);
 	ch->desc->pEdit = l;
 	ch->desc->editor = ED_LANG;
+	touch_lang(l, NULL);
 	char_puts("LangEd: lang created.\n", ch);
 	return FALSE;
 }

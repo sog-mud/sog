@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.46 1999-02-21 19:19:29 fjoe Exp $
+ * $Id: olc.c,v 1.47 1999-02-22 13:30:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -182,6 +182,58 @@ const char *olc_ed_name(CHAR_DATA *ch)
 	if (olced == NULL)
 		return str_empty;
 	return olced->name;
+}
+
+/*
+ * olced_obj_busy -- returns TRUE if there is another character
+ *		     editing the same OLC object
+ */
+bool olced_obj_busy(CHAR_DATA *ch)
+{
+	DESCRIPTOR_DATA *d;
+
+	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *vch = d->original ? d->original : d->character;
+
+		if (vch != ch
+		&&  d->editor == ch->desc->editor
+		&&  d->pEdit == ch->desc->pEdit) {
+			char_printf(ch, "%s: %s is editing this object "
+					"right now.\n",
+				    olc_ed_name(ch), vch->name);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+/*
+ * olced_busy -- returns TRUE if there is another character
+ *		 is using the same OLC editor
+ */
+bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
+{
+	DESCRIPTOR_DATA *d;
+
+	for (d = descriptor_list; d; d = d->next) {
+		OLCED_DATA *olced;
+		CHAR_DATA *vch = d->original ? d->original : d->character;
+
+		if (vch != ch
+		&&  d->editor == id
+		&&  (!edit || vch->desc->pEdit == edit)
+		&&  (!edit2 || vch->desc->pEdit2 == edit2)) {
+			char_printf(ch, "%s: %s is using this editor "
+					"right now.\n",
+				    (olced = olced_lookup(id)) ?
+					olced->name : str_empty,
+				    vch->name);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
 }
 
 /*

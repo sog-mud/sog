@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.22 1999-02-21 19:19:29 fjoe Exp $
+ * $Id: olc_msg.c,v 1.23 1999-02-22 13:30:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,8 +61,10 @@ OLC_CMD_DATA olc_cmds_msg[] =
 
 /* case-sensitive substring search with [num.]name syntax */
 static mlstring **	msg_search(const char *argument);
+
 static const char*	atomsg(const char *argument);
 static const char*	msgtoa(const char *argument);
+
 static void		msg_dump(BUFFER *buf, mlstring *ml);
 
 OLC_FUN(msged_create)
@@ -86,6 +88,9 @@ OLC_FUN(msged_create)
 		char_puts("MsgEd: msg already exists.\n", ch);
 		return FALSE;
 	}
+
+	if (olced_busy(ch, ED_MSG, NULL, NULL))
+		return FALSE;
 
 	ch->desc->pEdit	= (void*) msg_add(mlstr_new(argument));
 	ch->desc->editor = ED_MSG;
@@ -202,28 +207,29 @@ OLC_FUN(msged_msg)
 
 	if (!lang) {
 		/* gonna change name */
-		mlstring **mlp2;
 
 		if (!str_cmp(argument, "$")) {
 			char_puts("MsgEd: invalid value.\n", ch);
 			return FALSE;
 		}
 
-		mlp2 = msg_lookup(argument);
-		if (mlp2) {
+		if (msg_lookup(argument)) {
 			char_puts("MsgEd: duplicate name.\n", ch);
 			return FALSE;
 		}
-		ml = msg_del(mlstr_mval(*mlp));
-	}
-	else
-		ml = *mlp;
 
-	p = mlstr_convert(&ml, lang);
+		if (olced_busy(ch, ED_MSG, NULL, NULL))
+			return FALSE;
+
+		ml = msg_del(mlstr_mval(*mlp));
+		mlp = &ml;
+	}
+
+	p = mlstr_convert(mlp, lang);
 	free_string(*p);
 	*p = str_dup(atomsg(argument));
 
-	if (!lang)
+	if (!lang) 
 		ch->desc->pEdit = (void*) msg_add(ml);
 
 	return TRUE;
@@ -233,8 +239,11 @@ OLC_FUN(msged_del)
 {
 	mlstring *ml;
 	mlstring **mlp;
-	EDIT_MSG(ch, mlp);
 
+	if (olced_busy(ch, ED_MSG, NULL, NULL))
+		return FALSE;
+
+	EDIT_MSG(ch, mlp);
 	ml = msg_del(mlstr_mval(*mlp));
 	mlstr_free(ml);
 	edit_done(ch->desc);

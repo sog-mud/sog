@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.38 1999-02-20 17:41:17 fjoe Exp $
+ * $Id: olc_obj.c,v 1.39 1999-02-22 13:30:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -369,6 +369,9 @@ OLC_FUN(objed_del)
 	AREA_DATA *area;
 	int i;
 	bool error = FALSE;
+
+	if (olced_obj_busy(ch))
+		return FALSE;
 
 	EDIT_OBJ(ch, pObj);
 

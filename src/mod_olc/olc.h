@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.33 1999-02-19 15:22:24 fjoe Exp $
+ * $Id: olc.h,v 1.34 1999-02-22 13:30:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -102,6 +102,9 @@ DECLARE_DO_FUN(do_ashow		);
 DECLARE_DO_FUN(do_edit		);
 DECLARE_DO_FUN(do_create	);
 DECLARE_DO_FUN(do_resets	);
+
+bool olced_obj_busy(CHAR_DATA *ch);
+bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
 
 /*
  * Generic data edit functions

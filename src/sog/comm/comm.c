@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.144 1999-02-22 09:47:30 fjoe Exp $
+ * $Id: comm.c,v 1.145 1999-02-22 13:30:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2485,7 +2485,7 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 		return; /* ben yazdim ibrahim */
 
 	if (ch->lines == 0) {
-		char_puts(txt, ch);
+		send_to_char(txt, ch);
 		return;
 	}
 	
@@ -2500,8 +2500,7 @@ void show_string(struct descriptor_data *d, char *input)
 	char buffer[4*MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	char *scan;
-	const char *chk;
-	int lines = 0, toggle = 1;
+	int lines = 0;
 	int show_lines;
 
 	one_argument(input, buf, sizeof(buf));
@@ -2519,15 +2518,26 @@ void show_string(struct descriptor_data *d, char *input)
 	else
 		show_lines = 0;
 
-	for (scan = buffer; ; scan++, d->showstr_point++) {
-		if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
-		&&  (toggle = -toggle) < 0)
-			lines++;
-		else if (!*scan || (show_lines > 0 && lines >= show_lines)) {
-			*scan = '\0';
-			send_to_char(buffer, d->character);
-			for (chk = d->showstr_point; isspace(*chk); chk++);
+	for (scan = buffer; scan - buffer < sizeof(buffer)-2;
+						scan++, d->showstr_point++) {
+		/*
+		 * simple copy if not eos and not eol
+		 */
+		if ((*scan = *d->showstr_point) && (*scan) != '\n') 
+			continue;
 
+		/*
+		 * bamf out buffer if we reached eos or show_lines limit
+		 */
+		if (!*scan || (show_lines > 0 && ++lines >= show_lines)) {
+			const char *chk;
+
+			if (*scan)
+				*++scan = '\0';
+			send_to_char(buffer, d->character);
+
+			for (chk = d->showstr_point; isspace(*chk); chk++)
+				;
 			if (!*chk) {
 				if (d->showstr_head) {
 					free_string(d->showstr_head);

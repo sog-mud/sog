@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.19 1999-02-22 07:00:26 fjoe Exp $
+ * $Id: olc_form.c,v 1.20 1999-02-22 13:30:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -71,8 +71,6 @@ OLC_CMD_DATA olc_cmds_form[] =
 	{ "commands",		show_commands	},
 	{ NULL }
 };
-
-static void formed_update(CHAR_DATA *ch, varr *hash);
 
 OLC_FUN(formed_create)
 {
@@ -127,12 +125,14 @@ OLC_FUN(formed_create)
 		return FALSE;
 	}
 
+	if (olced_busy(ch, type, NULL, l))
+		return FALSE;
+
 	word_init(&wnew);
 	wnew.name = str_dup(argument);
 	ch->desc->editor = type;
 	ch->desc->pEdit = word_add(hash, &wnew);
 	ch->desc->pEdit2 = l; 
-	formed_update(ch, hash);
 	touch_lang(l, type);
 	char_puts("FormEd: word created.\n", ch);
 	return FALSE;
@@ -354,11 +354,13 @@ OLC_FUN(formed_name)
 		return FALSE;
 	}
 
+	if (olced_busy(ch, ch->desc->editor, NULL, l))
+		return FALSE;
+
 	word_del(hash, w->name);
 	word_init(&wnew);
 	wnew.name = str_dup(argument);
 	ch->desc->pEdit = word_add(hash, &wnew);
-	formed_update(ch, hash);
 	return TRUE;
 }
 
@@ -419,38 +421,20 @@ OLC_FUN(formed_formdel)
 	WORD_DATA *w;
 	LANG_DATA *l;
 
+	if (olced_obj_busy(ch))
+		return FALSE;
+
 	EDIT_WORD(ch, w);
 	EDIT_LANG(ch, l);
 	EDIT_HASH(ch, l, hash);
 
+	if (olced_busy(ch, ch->desc->editor, NULL, l))
+		return FALSE;
+
 	word_del(hash, w->name);
 	touch_lang(l, ch->desc->editor);
-	formed_update(ch, hash);
 	edit_done(ch->desc);
 
 	return FALSE;
 }
 
-static void formed_update(CHAR_DATA *ch, varr *hash)
-{
-	DESCRIPTOR_DATA *d;
-
-	for (d = descriptor_list; d; d = d->next) {
-		if ((d->editor == ED_CASE || d->editor == ED_GENDER ||
-		     d->editor == ED_QTY)) {
-			CHAR_DATA *vch;
-			LANG_DATA *l;
-			WORD_DATA *w;
-			varr *hash2;
-
-			vch = d->original ? d->original : d->character;
-			EDIT_WORD(vch, w);
-			EDIT_LANG(vch, l);
-			EDIT_HASH(vch, l, hash2);
-			if (vch == ch || hash2 != hash)
-				continue;
-
-			d->pEdit = word_lookup(hash2, w->name);
-		}
-	}
-}
