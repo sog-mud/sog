@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.251 2000-01-13 14:46:36 kostik Exp $
+ * $Id: fight.c,v 1.252 2000-01-17 08:31:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -944,7 +944,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		dam = 1;
 
 	if (counter) {
-		result = damage(ch, ch, 2*dam, dt, dam_class, DAMF_SHOW);
+		result = damage(ch, ch, 2*dam, dt, dam_class, dam_flags);
 		multi_hit(victim, ch, NULL);
 		return;
 	} 
