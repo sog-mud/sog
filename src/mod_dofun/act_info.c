@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.23 1998-05-06 04:33:23 fjoe Exp $
+ * $Id: act_info.c,v 1.24 1998-05-06 09:25:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -134,26 +134,25 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
 			strcat(buf,"({BBlue Aura{x) ");
 		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
-			strcat(buf, "({yMagical{x) ");
+			strcat(buf, "({YMagical{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, "({YGlowing{x) ");
+			strcat(buf, "({MGlowing{x) ");
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, "({yHumming{x) ");
-		if (IS_OBJ_STAT(obj, ITEM_QUEST))
-			strcat(buf, "({GQuest{x) ");
+			strcat(buf, "({WHumming{x) ");
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{R.{B.{M.{Y.{W.{G.{x] ";
-		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'V';
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{Y.{M.{W.{x] ";
+		strcpy(buf, FLAGS);
+		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
+		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'H';
 		if (CAN_DETECT(ch, DETECT_EVIL)
-		&& IS_OBJ_STAT(obj, ITEM_EVIL)		)   buf[8] = 'E';
+		&& IS_OBJ_STAT(obj, ITEM_EVIL)		)   buf[11] = 'E';
 		if (CAN_DETECT(ch, DETECT_GOOD)
-		&&  IS_OBJ_STAT(obj,ITEM_BLESS)		)   buf[11] = 'B';
+		&&  IS_OBJ_STAT(obj,ITEM_BLESS)		)   buf[14] = 'B';
 		if (CAN_DETECT(ch, DETECT_MAGIC)
-		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[14] = 'M';
-		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[17] = 'G';
-		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[20] = 'H';
-		if (IS_OBJ_STAT(obj, ITEM_QUEST)	)   buf[23] = 'Q';
+		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[17] = 'M';
+		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[20] = 'G';
+		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[23] = 'H';
 		if (strcmp(buf, FLAGS) == 0)
 			buf[0] = '\0';
 	}
@@ -321,16 +320,16 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVISIBLE))
-			strcat(buf, "(Invis) ");
-		if (IS_AFFECTED(victim, AFF_HIDE)) strcat(buf, "(Hide) ");
-		if (IS_AFFECTED(victim, AFF_CHARM)) strcat(buf, "(Charmed) ");
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) strcat(buf, "(Translucent) ");
-		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) strcat(buf, "{M(Pink Aura){x ");
+			strcat(buf, "({yInvis{x) ");
+		if (IS_AFFECTED(victim, AFF_HIDE)) strcat(buf, "({DHidden{x) ");
+		if (IS_AFFECTED(victim, AFF_CHARM)) strcat(buf, "({mCharmed{x) ");
+		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) strcat(buf, "({cTranslucent{x) ");
+		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) strcat(buf, "({MPink Aura{x) ");
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
 		&&  CAN_DETECT(ch, DETECT_UNDEAD))
 			strcat(buf, "({DUndead{x) ");
 		if (RIDDEN(victim))
-			strcat(buf, "({yRidden{x) ");
+			strcat(buf, "({GRidden{x) ");
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
 			strcat(buf, "({bImproved{x) "  );
 		if (IS_EVIL(victim) && CAN_DETECT(ch, DETECT_EVIL))
@@ -339,16 +338,16 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			strcat(buf, "({YGolden Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
 			strcat(buf, "({WWhite Aura{x) ");
+		if (IS_AFFECTED(victim, AFF_FADE)) strcat(buf, "({yFade{x) ");
 		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
-			strcat(buf, "({RCRIMINAL{x) ");
-		if (IS_AFFECTED(victim, AFF_FADE)) strcat(buf, "(Fade) ");
-		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) strcat(buf, "(Camf) ");
+			strcat(buf, "({RWanted{x) ");
+		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) strcat(buf, "({gCamf{x) ");
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{c.{b.{w.{D.{y.{B.{R.{Y.{W.{R.{x.{y.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{R.{g.{x] ";
 		char* p = strend(buf);
 		strcpy(p, FLAGS); 
-		if (IS_AFFECTED(victim, AFF_INVISIBLE)  ) p[5] = 'V';
+		if (IS_AFFECTED(victim, AFF_INVISIBLE)  ) p[5] = 'I';
 		if (IS_AFFECTED(victim, AFF_HIDE)       ) p[8] = 'H';
 		if (IS_AFFECTED(victim, AFF_CHARM)      ) p[11] = 'C';
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)  ) p[14] = 'T';
@@ -363,10 +362,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (IS_GOOD(victim)
 		&&  CAN_DETECT(ch, DETECT_GOOD)		) p[32] = 'G';
 		if (IS_AFFECTED(victim, AFF_SANCTUARY)  ) p[35] = 'S';
+		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE) ) p[38] = 'C';
 		if (!IS_NPC(victim)
-		&&  IS_SET(victim->act, PLR_WANTED)     ) p[38] = 'C';
-		if (IS_AFFECTED(victim, AFF_FADE)       ) p[41] = 'F';
-		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE) ) p[44] = 'C';
+		&&  IS_SET(victim->act, PLR_WANTED)     ) p[41] = 'W';
+		if (IS_AFFECTED(victim, AFF_FADE)       ) p[44] = 'F';
 		if (strcmp(p, FLAGS) == 0)
 			p[0] = '\0';
 	}
@@ -581,7 +580,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	for (i = 0; show_order[i] != -1; i++) {
 		if ((obj = get_eq_char(is_affected(victim,gsn_mirror) ?
 				       vict : victim, show_order[i])) != NULL
-		&&  !can_see_obj(ch, obj)) {
+		&&  can_see_obj(ch, obj)) {
 
 			if (!found) {
 				send_to_char("\n\r", ch);
