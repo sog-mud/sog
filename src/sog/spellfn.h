@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.11 1999-02-23 07:55:42 kostik Exp $
+ * $Id: spellfn.h,v 1.12 1999-03-26 20:04:44 kostik Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -276,6 +276,7 @@ DECLARE_SPELL_FUN(spell_mirror);
 DECLARE_SPELL_FUN(spell_doppelganger);
 DECLARE_SPELL_FUN(spell_detect_fade);
 DECLARE_SPELL_FUN(spell_shield_of_ruler);
+DECLARE_SPELL_FUN(spell_benediction);
 
 #endif
 

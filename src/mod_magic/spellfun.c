@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.136 1999-03-25 13:12:25 kostik Exp $
+ * $Id: spellfun.c,v 1.137 1999-03-26 20:04:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -2735,6 +2735,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo, int target)
 void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
 	int dam;
 
 	if (saves_spell(level, victim,DAM_NEGATIVE))
@@ -2756,6 +2757,24 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		dam		 = dice(1, level);
 		ch->hit		+= dam;
 	}
+
+	if (number_percent() < 15) {
+		af.where 	= TO_AFFECTS;
+		af.type		= sn;
+		af.level	= level/2;
+		af.duration	= (6 + level/12);
+		af.location	= APPLY_LEVEL;
+		af.modifier	= -1;
+		af.bitvector	= 0;
+
+		affect_join(victim, &af);
+
+		if (number_percent() < 25) {
+			af.modifier = 1;
+			affect_join(ch, &af);
+		}
+	}
+
 
 	char_puts("You feel your life slipping away!\n",victim);
 	char_puts("Wow....what a rush!\n",ch);

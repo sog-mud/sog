@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.95 1999-03-25 13:12:26 kostik Exp $
+ * $Id: spellfun2.c,v 1.96 1999-03-26 20:04:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -197,12 +197,12 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	int i,dam=0;
 	OBJ_DATA *tattoo, *clanmark; 
 	
-	if (saves_spell(level-2, victim, DAM_MENTAL)
+	if (saves_spell(level-2, victim, DAM_ENERGY)
 	||  number_bits(1) == 0
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
 		dam = dice(level, 24) ;
-		damage(ch, victim, dam, sn, DAM_MENTAL, TRUE);
+		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE);
 		return;
 	}
 
@@ -543,6 +543,57 @@ void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	    damage(ch, vch, dam, sn, DAM_FIRE, TRUE);
 	}
 }
+
+void spell_benediction(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+	int strength = 0;
+	if (is_affected(victim, sn)) {
+		if (victim == ch) 
+			act("You are already blessed.", 
+				ch, NULL, NULL, TO_CHAR);
+		else 
+			act("$N is already blessed.", 
+				ch, NULL, victim, TO_CHAR);
+		return;
+	}
+	if (IS_EVIL(victim)) 
+		strength = IS_EVIL(ch) ? 2 : (IS_GOOD(ch) ? 0 : 1);
+	if (IS_GOOD(victim))
+		strength = IS_GOOD(ch) ? 2 : (IS_EVIL(ch) ? 0 : 1);
+	if (IS_NEUTRAL(victim)) 
+		strength = IS_NEUTRAL(ch) ? 2 : 1;
+	if (!strength) {
+		act("Your god does not seems to like $N", 
+			ch, NULL, victim, TO_CHAR);
+		return;
+	}
+	af.where 	= TO_AFFECTS;
+	af.type  	= sn;
+	af.level	= level;
+	af.duration	= 5+level/2;
+	af.location	= APPLY_HITROLL;
+	af.modifier	= level / 8 * strength;
+	af.bitvector	= 0;
+
+	affect_to_char(victim, &af);
+
+	af.location	= APPLY_SAVING_SPELL;
+	af.modifier	= 0 - level / 8 * strength;
+
+	affect_to_char(victim, &af);
+
+	af.location	= APPLY_LEVEL;
+	af.modifier	= strength;
+
+	affect_to_char(victim, &af);
+	act("You feel righteous.\n", victim, NULL, NULL, TO_CHAR);
+	if (victim != ch)
+		act("You grant $N favor of your god.", 
+			ch, NULL, victim, TO_CHAR);
+}
+
 
 void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
