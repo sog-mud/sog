@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.46 2002-12-03 16:57:30 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.47 2002-12-03 17:37:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3938,7 +3938,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		else { /* stop the auction */
 			act_auction("Sale of $p has been stopped by $N.",
 				    auction.item, ch, NULL,
-				    ACT_FORMSH, POS_DEAD);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			auction_give_obj(auction.seller);
 
 			/* return money to the buyer */
@@ -4028,7 +4028,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	        act_auction("A bet of $J gold has been received on $p.",
 			    auction.item, NULL, (const void*) newbet,
-			    ACT_FORMSH, POS_RESTING);
+			    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 	        return;
 	}
 
@@ -4044,7 +4044,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	if (auction.item != NULL) {
 		act_puts("Try again later - $p is being auctioned right now!",
-			 ch, auction.item, NULL, TO_CHAR, POS_DEAD);
+			 ch, auction.item, NULL, TO_CHAR | ACT_NOCANSEE, POS_DEAD);
 		return;
 	}
 
@@ -4131,7 +4131,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction.going = 0;
 
 		act_auction("A new item has been received: {Y$p{x.",
-			    obj, NULL, NULL, ACT_FORMSH, POS_RESTING);
+			    obj, NULL, NULL, ACT_FORMSH | ACT_NOCANSEE,
+			    POS_RESTING);
 		break;
 	} /* switch */
 }
