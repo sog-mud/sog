@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.14 1998-05-19 00:46:09 efdi Exp $
+# $Id: english.lang,v 1.15 1998-05-19 08:37:55 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -406,7 +406,7 @@ QUEST_THE_PENALTY_IS	"The penalty for this crime is death, and you are to delive
 QUEST_ENEMY_OF_MINE	"An enemy of mine, {W%s{G, is making vile threats against the crown."
 QUEST_ELEMINATE_THREAT	"This threat must be eleminated!"
 QUEST_SEEK_S_OUT	"Seek {W%s{G out in vicinity of {W%s{G!"
-QUEST_LOCATION_IS_IN_AREA	"That location is in general area of {W%s{G."
+QUEST_LOCATION_IS_IN_AREA	"That location is in general area of {W%s{G for {W%s{G."
 QUEST_VILE_PILFERERS	"Vile pilferers have stolen {W%s{G from the royal treasury!"
 QUEST_MY_COURT_WIZARDESS	"My court wizardess, with her magic mirror, has pinpointed its location."
 QUEST_IS_ALMOST_COMPLETE	"Your quest is ALMOST complete!\n\rGet back to questor before your time runs out!\n\r"
