@@ -39,9 +39,9 @@ do
 	avail=`df -k /usr | tail -1 | awk '{ print $4 }'`
 	if [ -r muddy.core ]
 	then
+		chmod g+rw muddy.core
 		if [ $avail -gt 65535 ]
 		then
-			chmod g+rw muddy.core
 			mv muddy.core corefiles/core.$index
 			cp -p $muddy corefiles/muddy.$index
 		else
