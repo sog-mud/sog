@@ -3,6 +3,12 @@ Name weapon_mace~
 Class weapon
 End
 
+#R has_spec
+order deny_allow
+deny all~
+allow class_warrior~
+end
+
 #SKILL
 Skill 'head crush'
 Level 25
