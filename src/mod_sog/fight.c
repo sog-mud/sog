@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.333 2001-09-23 16:24:20 fjoe Exp $
+ * $Id: fight.c,v 1.334 2001-09-26 14:46:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -2912,7 +2912,7 @@ xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 {
 	PC_DATA *pc = PC(gch);
 	int pc_level = gch->level;
-	int xp;
+	int64_t xp;
 	int base_exp;
 	int neg_cha = 0, pos_cha = 0;
 
