@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.18 1998-10-02 04:48:35 fjoe Exp $
+ * $Id: ban.c,v 1.19 1998-10-06 13:19:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,7 @@ struct ban_data
 	bool		valid;
 	sflag_t		ban_flags;
 	int		level;
-	char *		name;
+	const char *	name;
 };
 
 BAN_DATA *ban_list;
@@ -163,7 +163,7 @@ void load_bans(void)
     }
 }
 
-bool check_ban(char *site,int type)
+bool check_ban(const char *site, int type)
 {
     BAN_DATA *pban;
     char host[MAX_STRING_LENGTH];

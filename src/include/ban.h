@@ -1,5 +1,5 @@
 /*
- * $Id: ban.h,v 1.2 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: ban.h,v 1.3 1998-10-06 13:19:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,5 +53,7 @@
 #define BAN_PERMIT		E
 #define BAN_PERMANENT		F
 #define BAN_PLAYER		G
+
+bool	check_ban	(const char *site, int type);
 
 #endif

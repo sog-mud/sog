@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.104 1998-10-02 08:14:44 fjoe Exp $
+ * $Id: comm.c,v 1.105 1998-10-06 13:19:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -180,11 +180,12 @@ struct codepage {
 };
 
 struct codepage codepages[] = {
-	{ "koi8-r", koi8_koi8, koi8_koi8 },
-	{ "alt (cp866)", alt_koi8, koi8_alt },
-	{ "win (cp1251)", win_koi8, koi8_win },
-	{ "iso (ISO-8859-5)", iso_koi8, koi8_iso },
-	{ "mac", mac_koi8, koi8_mac }
+	{ "koi8-r",		koi8_koi8,	koi8_koi8	},
+	{ "alt (cp866)",	alt_koi8,	koi8_alt	},
+	{ "win (cp1251)",	win_koi8,	koi8_win	},
+	{ "iso (ISO-8859-5)",	iso_koi8,	koi8_iso	},
+	{ "mac",		mac_koi8,	koi8_mac	},
+	{ "translit",		koi8_koi8,	koi8_vola	},
 };
 #define NCODEPAGES (sizeof(codepages) / sizeof(struct codepage))
 
@@ -228,7 +229,7 @@ void	resolv_done		(void);
 bool	check_parse_name	(const char *name);
 bool	check_reconnect		(DESCRIPTOR_DATA *d, const char *name,
 				 bool fConn);
-bool	check_playing		(DESCRIPTOR_DATA *d, char *name);
+bool	check_playing		(DESCRIPTOR_DATA *d, const char *name);
 int	main			(int argc, char **argv);
 void	nanny			(DESCRIPTOR_DATA *d, const char *argument);
 bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
@@ -327,7 +328,7 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 		return;
 
 	free_string(d->host);
-	free_mem(d->outbuf, d->outsize);
+	free(d->outbuf);
 	INVALIDATE(d);
 	d->next = descriptor_free;
 	descriptor_free = d;
@@ -492,7 +493,7 @@ void game_loop_unix(int control)
 				stop_idling(d->character);
 
 				if (d->showstr_point != NULL)
-					show_string(d,d->incomm);
+					show_string(d, d->incomm);
 				else if (d->pString != NULL)
 					string_add(d->character, d->incomm);
 				else if (d->connected == CON_PLAYING) {
@@ -579,13 +580,14 @@ static void cp_print(DESCRIPTOR_DATA* d)
 
 	write_to_buffer(d, "\n\r", 0);
 	for (i = 0; i < NCODEPAGES; i++) {
-		snprintf(buf, sizeof(buf), "%d) %s  ", i+1, codepages[i].name);
+		snprintf(buf, sizeof(buf), "%s%d. %s",
+			 i ? " " : "", i+1, codepages[i].name);
 		write_to_buffer(d, buf, 0);
 	}
-	write_to_buffer(d, "\n\rSelect your codepage: ", 0);
+	write_to_buffer(d, "\n\rSelect your codepage (non-russian players should choose translit): ", 0);
 }
 
-extern char *help_greeting;
+extern const char *help_greeting;
 
 void init_descriptor(int control)
 {
@@ -622,7 +624,7 @@ void init_descriptor(int control)
 	dnew->pString		= NULL;			/* OLC */
 	dnew->editor		= NULL;			/* OLC */
 	dnew->outsize		= 2000;
-	dnew->outbuf		= alloc_mem(dnew->outsize);
+	dnew->outbuf		= malloc(dnew->outsize);
 	dnew->wait_for_se	= 0;
 	dnew->codepage		= codepages;
 	dnew->host		= NULL;
@@ -1254,9 +1256,9 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 			close_socket(d);
 			return;
  		}
-		outbuf = alloc_mem(2 * d->outsize);
+		outbuf = malloc(2 * d->outsize);
 		strncpy(outbuf, d->outbuf, d->outtop);
-		free_mem(d->outbuf, d->outsize);
+		free(d->outbuf);
 		d->outbuf = outbuf;
 		d->outsize *= 2;
 	}
@@ -1553,11 +1555,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_CONFIRM_NEW_NAME:
 		switch (*argument) {
 		case 'y': case 'Y':
-			write_to_descriptor(d->descriptor, echo_off_str, 0);
 			snprintf(buf, sizeof(buf),
 				 "New character.\n\r"
 				 "Give me a password for %s: ", ch->name);
 			write_to_buffer(d, buf, 0);
+			write_to_descriptor(d->descriptor, echo_off_str, 0);
 			d->connected = CON_GET_NEW_PASSWORD;
 			break;
 
@@ -1633,10 +1635,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    if (argument[0] == '\0')
 	      {
 		sprintf(buf,
-"The Muddy MUD is home to %d different races with brief descriptions below:",
+"The Muddy MUD is home to %d different races with brief descriptions below:\n\r",
 			MAX_PC_RACE - 1);
 		write_to_buffer(d, buf, 0);
-		write_to_buffer(d, "\n\r", 0);
 	        	do_help(ch,"RACETABLE");
 		break;
 	      }
@@ -1644,7 +1645,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	      {
 		do_help(ch,argument);
 	            write_to_buffer(d,
-		"What is your race? (help for more information) ",0);
+		"What is your race? ('help <race>' for more information) ",0);
 	      }	
 	    break;
   	}
@@ -1655,18 +1656,17 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	{
 	    write_to_buffer(d,"That is not a valid race.\n\r",0);
 	        write_to_buffer(d,"The following races are available:\n\r  ",0);
-	        for (race = 1; race_table[race].name != NULL; race++)
-	        {
+	        for (race = 1; race_table[race].name != NULL; race++) {
 	        	if (!race_table[race].pc_race)
-	                break;
-		if (race == 9 || race == 15)
-		  write_to_buffer(d,"\n\r  ",0);
-		write_to_buffer(d,"(",0);
-	        	write_to_buffer(d,race_table[race].name,0);
-		write_to_buffer(d,") ",0);
+	                	break;
+			if (race == 8 || race == 14)
+			write_to_buffer(d,"\n\r  ",0);
+			write_to_buffer(d,"(",0);
+			write_to_buffer(d,race_table[race].name,0);
+			write_to_buffer(d,") ",0);
 	        }
 	        write_to_buffer(d, "\n\r", 0);
-	        write_to_buffer(d, "What is your race? (help for more information) ",0);
+	        write_to_buffer(d, "What is your race? ('help <race>' for more information) ",0);
 	    break;
 	}
 
@@ -1741,7 +1741,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	write_to_buffer(d, buf, 0);
 	write_to_buffer(d, buf1, 0);
 	        write_to_buffer(d,
-		"What is your class (help for more information)? ",0);
+		"What is your class ('help <class>' for more information)? ",0);
 	    d->connected = CON_GET_NEW_CLASS;
 	    break;
 
@@ -1756,7 +1756,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    else
 		do_help(ch,argument);
 	        write_to_buffer(d,
-		"What is your class (help for more information)? ",0);
+		"What is your class ('help <class>' for more information)? ",0);
 	    return;
 	  }
 
@@ -2229,9 +2229,8 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	do_look(ch, "auto");
 
 	if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
-	    sprintf(buf,"You are taxed %d gold to pay for the Mayor's bar.\n\r",
+	    char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n\r",
 		(ch->gold - 6000) / 2);
-	    char_puts(buf,ch); 
 	    ch->gold -= (ch->gold - 6000) / 2;
 	}
 	
@@ -2373,14 +2372,16 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 /*
  * Check if already playing.
  */
-bool check_playing(DESCRIPTOR_DATA *d, char *name)
+bool check_playing(DESCRIPTOR_DATA *d, const char *name)
 {
 	DESCRIPTOR_DATA *dold;
 
 	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
 		&&  dold->character != NULL
+		&&  dold->connected != CON_GET_CODEPAGE
 		&&  dold->connected != CON_GET_NAME
+		&&  dold->connected != CON_RESOLV
 		&&  dold->connected != CON_GET_OLD_PASSWORD
 		&&  !str_cmp(name, dold->original ?  dold->original->name :
 						     dold->character->name)) {
@@ -2472,8 +2473,7 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 		return;
 	}
 	
-	ch->desc->showstr_head = alloc_mem(strlen(txt) + 1);
-	strcpy(ch->desc->showstr_head, txt);
+	ch->desc->showstr_head = str_dup(txt);
 	ch->desc->showstr_point = ch->desc->showstr_head;
 	show_string(ch->desc, str_empty);
 }
@@ -2483,53 +2483,45 @@ void show_string(struct descriptor_data *d, char *input)
 {
 	char buffer[4*MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
-	register char *scan, *chk;
+	char *scan;
+	const char *chk;
 	int lines = 0, toggle = 1;
 	int show_lines;
 
-	one_argument(input,buf);
-	if (buf[0] != '\0')
-	{
-	if (d->showstr_head)
-	{
-	    free_string(d->showstr_head);
-	    d->showstr_head = 0;
-	}
-		d->showstr_point  = 0;
-	return;
+	one_argument(input, buf);
+	if (buf[0] != '\0') {
+		if (d->showstr_head) {
+			free_string(d->showstr_head);
+			d->showstr_head = NULL;
+		}
+		d->showstr_point  = NULL;
+		return;
 	}
 
 	if (d->character)
-	show_lines = d->character->lines;
-		else
-	show_lines = 0;
+		show_lines = d->character->lines;
+	else
+		show_lines = 0;
 
-	for (scan = buffer; ; scan++, d->showstr_point++)
-	{
-	if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
-	    && (toggle = -toggle) < 0)
-	    lines++;
+	for (scan = buffer; ; scan++, d->showstr_point++) {
+		if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
+		&&  (toggle = -toggle) < 0)
+			lines++;
+		else if (!*scan || (show_lines > 0 && lines >= show_lines)) {
+			*scan = '\0';
+			send_to_char(buffer, d->character);
+			for (chk = d->showstr_point; isspace(*chk); chk++);
 
-	else if (!*scan || (show_lines > 0 && lines >= show_lines))
-	{
-	    *scan = '\0';
-		char_puts(buffer, d->character);
-	    for (chk = d->showstr_point; isspace(*chk); chk++);
-	    {
-		if (!*chk)
-		{
-		    if (d->showstr_head)
-	    	    {
-	        		free_string(d->showstr_head);
-	        		d->showstr_head = 0;
-	    	    }
-	    	    d->showstr_point  = 0;
+			if (!*chk) {
+				if (d->showstr_head) {
+					free_string(d->showstr_head);
+					d->showstr_head = NULL;
+				}
+				d->showstr_point  = NULL;
 			}
-	    }
-	    return;
+			return;
+		}
 	}
-	}
-	return;
 }
 	
 static char * const he_she  [] = { "it",  "he",  "she" };
