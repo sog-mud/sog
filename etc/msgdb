@@ -124,7 +124,7 @@ Use 'desc edit' to edit your description.
 @rus Боги помогают вернуться только игрокам.
 ~
 @eng {Rfighting{x@rus {Rсражаешься{x~
-@eng You feel quite confident with $p.@rus Ты достаточно уверенно владеешь $c3{$p}.~
+@eng You feel quite confident with $p.@rus Ты достаточно уверенно владеешь $c4{$p}.~
 @eng You can't sleep while mounted.
 @rus Ты не можешь спать верхом.
 ~
@@ -274,7 +274,7 @@ Use 'desc edit' to edit your description.
 @eng You can't fade while mounted.
 @rus Ты не можешь поблекнуть верхом.
 ~
-@eng You are skilled with $p.@rus Ты хорошо владеешь $c3{$p}.~
+@eng You are skilled with $p.@rus Ты хорошо владеешь $c4{$p}.~
 @eng You are STUNNED to do that.
 @rus Ты оглушен и не можешь этого сделать.
 ~
@@ -1024,7 +1024,7 @@ Get back to questor before your time runs out!
 ~
 @eng $n wakes up and rests at $p.@rus $n $gn{просыпается} и $gn{садится} отдыхать около $c1{$p}.~
 @eng You wake and stand in $p.@rus Ты просыпаешься и встаешь в $c3{$p}.~
-@eng You don't even know which end is up on $p.@rus Ты даже не знаешь с какой стороны нужно браться за $p.~
+@eng You don't even know which end is up on $p.@rus Ты даже не знаешь с какой стороны нужно браться за $c3{$p}.~
 @eng $n's $p strikes $N!@rus $p $c1{$n} $gp{попадает} в $c6{$N}!~
 @eng $n disarms $N!@rus $n $gn{обезоруживает} $c6{$N}!~
 @eng Your $V $u you.@rus $gV{Твой} $V $u тебя.~
