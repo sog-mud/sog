@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Id: sog.sh,v 1.12 2001-11-11 20:52:07 avn Exp $
+# $Id: sog.sh,v 1.13 2001-11-12 19:45:35 avn Exp $
 
 #
 # determine our home
@@ -12,9 +12,10 @@ export SOG_HOME
 
 #
 # check uid
+SOG_USER=sog
 uid=`id -un`
-if [ "$uid" != "sog" ]; then
-	echo "SoG must be run under user \`sog'"
+if [ "$uid" != "$SOG_USER" ]; then
+	echo "SoG must be run under user \`$SOG_USER'"
 	exit 1
 fi
 
@@ -56,15 +57,15 @@ if [ -r $SOG_SHUTDOWN ]; then
 	rm $SOG_SHUTDOWN
 fi
 
-while [ 1 ]
+while :
 do
 	if [ -r $SOG_LASTLOG ]; then
 		index=`cat $SOG_LASTLOG`
 	fi
 
-	while [ 1 ]
+	while :
 	do
-		logfile=`printf "log/%05d.log" $index`
+		logfile=`printf "%05d.log" $index`
 		if [ -r $logfile ]
 		then
 			index=$(($index + 1))
@@ -74,7 +75,9 @@ do
 	done
 
 	echo $(($index+1)) > $SOG_LASTLOG
-	bin/$SOG_BIN >$logfile 2>&1
+	rm -f log/current.log
+	ln -s $logfile log/current.log
+	bin/$SOG_BIN >log/$logfile 2>&1
 	exitcode=$?
 
 	avail=`df -k $SOG_HOME | tail -1 | awk '{ print $4 }'`
