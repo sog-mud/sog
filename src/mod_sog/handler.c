@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.321 2001-09-05 12:57:08 fjoe Exp $
+ * $Id: handler.c,v 1.322 2001-09-07 15:40:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,9 +75,7 @@ static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
 static CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name,
 				    uint *number, ROOM_INDEX_DATA *room);
 static void strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf);
-#if 0
 static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype);
-#endif
 static bool has_boat(CHAR_DATA *ch);
 static bool has_key(CHAR_DATA *ch, int key);
 static bool has_key_ground(CHAR_DATA *ch, int key);
@@ -705,7 +703,6 @@ extract_char(CHAR_DATA *ch, int flags)
 	CHAR_DATA *wch;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	OBJ_DATA *wield;
 	int extract_obj_flags;
 
 	if (!mem_is(ch, MT_CHAR)) {
@@ -728,9 +725,6 @@ extract_char(CHAR_DATA *ch, int flags)
 		die_follower(ch);
 
 	stop_fighting(ch, TRUE);
-
-	if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL)
-		unequip_char(ch, wield);
 
 	extract_obj_flags = (IS_SET(flags, XC_F_NOCOUNT) ? XO_F_NOCOUNT : 0);
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
@@ -879,7 +873,7 @@ quit_char(CHAR_DATA *ch, int flags)
 			return;
 		}
 
-		if (is_affected(ch, "witch curse")) {
+		if (is_sn_affected(ch, "witch curse")) {
 			act_char("You are cursed. Wait till you DIE!", ch);
 			return;
 		}
@@ -896,7 +890,7 @@ quit_char(CHAR_DATA *ch, int flags)
 		}
 
 		if (!get_skill(ch, "evil spirit")
-		&&  is_affected(ch, "evil spirit")) {
+		&&  is_sn_affected(ch, "evil spirit")) {
 			act_char("Evil spirits in you prevents you from leaving.", ch);
 			return;
 		}
@@ -956,7 +950,7 @@ quit_char(CHAR_DATA *ch, int flags)
 		NPC_DATA *vnpc;
 
 		vch_next = vch->next;
-		if (is_affected(vch, "doppelganger")
+		if (is_sn_affected(vch, "doppelganger")
 		&&  vch->doppel == ch) {
 			act_char("You shift to your true form as your victim leaves.", vch);
 			affect_strip(vch, "doppelganger");
@@ -1315,7 +1309,7 @@ can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
 
-	if (is_affected(ch, "hallucination"))
+	if (is_sn_affected(ch, "hallucination"))
 		return (number_percent() < 70);
 
 	if (char_in_dark_room(ch) && !HAS_DETECT(ch, ID_INFRARED))
@@ -1426,8 +1420,6 @@ nth_obj(OBJ_DATA *obj, int n)
 	return nobj;
 }
 
-DECLARE_SPEC_FUN(spec_janitor);	/* XXX spec_janitor should not be here */
-
 /*
  * Retrieve a character's carry capacity.
  */
@@ -1440,7 +1432,7 @@ can_carry_n(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		if (IS_SET(ch->pMobIndex->act, ACT_PET))
 			return 0;
-		if (ch->pMobIndex->spec_fun == spec_janitor)
+		if (MOB_IS(ch, MOB_JANITOR))
 			return -1;
 	}
 
@@ -1459,9 +1451,7 @@ can_carry_w(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		if (IS_SET(ch->pMobIndex->act, ACT_PET))
 			return 0;
-		if (ch->pMobIndex->spec_fun == spec_janitor)
-			return -1;
-		if (MOB_IS(ch, MOB_CHANGER))
+		if (MOB_IS(ch, MOB_JANITOR))
 			return -1;
 	}
 
@@ -1593,6 +1583,9 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return NULL;
 	}
 
+	if (pull_obj_trigger(TRIG_OBJ_WEAR, obj, ch, NULL) > 0)
+		return NULL;
+
 	obj->wear_loc = iWear;
 	_equip_char(ch, obj);
 
@@ -1601,11 +1594,6 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
 
-#if 0
-	XXX
-	if (oprog_call(OPROG_WEAR, obj, ch, NULL))
-		return NULL;
-#endif
 	return obj;
 }
 
@@ -1621,23 +1609,24 @@ strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf)
 /*
  * Unequip a char with an obj.
  */
-void
+bool
 unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	int i;
+	int wear_loc = obj->wear_loc;
 
-	if (obj->wear_loc == WEAR_NONE) {
+	if (wear_loc == WEAR_NONE) {
 		log(LOG_BUG, "unequip_char: already unequipped");
-		return;
+		return FALSE;
 	}
 
-	if (obj->wear_loc == WEAR_STUCK_IN) {
+	if (wear_loc == WEAR_STUCK_IN) {
 		obj->wear_loc = WEAR_NONE;
-		return;
+		return FALSE;
 	}
 
 	for (i = 0; i < 4; i++)
-		ch->armor[i] += apply_ac(obj, obj->wear_loc,i);
+		ch->armor[i] += apply_ac(obj, obj->wear_loc, i);
 	obj->wear_loc = WEAR_NONE;
 
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
@@ -1650,19 +1639,20 @@ unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&  ch->in_room->light > 0)
 		--ch->in_room->light;
 
-#if 0
-	XXX
-	oprog_call(OPROG_REMOVE, obj, ch, NULL);
-#endif
+	pull_obj_trigger(TRIG_OBJ_REMOVE, obj, ch, NULL);
+	if (IS_EXTRACTED(ch))
+		return FALSE;
 
-	if ((obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+	if (wear_loc == WEAR_WIELD
+	&&  (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
 		act_puts("You wield your second weapon as your first!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n wields $s second weapon as first!",
 		    ch, NULL, NULL, TO_ROOM);
-		unequip_char(ch, obj);
-		equip_char(ch, obj, WEAR_WIELD);
+		obj->wear_loc = WEAR_WIELD;
 	}
+
+	return TRUE;
 }
 
 /*
@@ -1718,7 +1708,6 @@ FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
 		return NULL;
 
 	pull_mob_trigger(TRIG_MOB_GREET, vch, ch, NULL);
-	pull_mob_trigger(TRIG_MOB_GRALL, vch, ch, NULL);
 
 	vo_foreach(vch, &iter_obj_char, pull_obj_trigger_cb,
 		   ch, TRIG_OBJ_GREET);
@@ -1737,8 +1726,7 @@ FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
 	if (!can_see(vch, ch))
 		return NULL;
 
-	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0
-	||  pull_mob_trigger(TRIG_MOB_EXALL, vch, ch, arg) > 0)
+	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0)
 		return p;
 	return NULL;
 }
@@ -1813,7 +1801,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
 
-	if (is_affected(ch, "globe of invulnerability")) {
+	if (is_sn_affected(ch, "globe of invulnerability")) {
 		affect_strip(ch, "globe of invulnerability");
 		act_char("You destroy your globe of invulnerability.", ch);
 	}
@@ -1983,7 +1971,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		||  to_room->sector_type == SECT_UNDERWATER) {
 			if (MOUNTED(ch)
 			&& (!CAN_SWIM(MOUNTED(ch))
-			    || !is_affected(MOUNTED(ch), "water breathing"))) {
+			    || !is_sn_affected(MOUNTED(ch), "water breathing"))) {
 				act_char("Your mount refuses to dive.", ch);
 				return FALSE;
 			}
@@ -2069,13 +2057,13 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		check_improve(ch, "quiet movement", TRUE, 1);
 	} else if (IS_SET(flags, MC_F_CHARGE)) {
 		act("$n spurs $s $N, leaving $t.", ch,
-		dir_name[is_affected(ch, "misleading")
+		dir_name[is_sn_affected(ch, "misleading")
 			? number_range(0, 5) : door],
 		ch->mount,  TO_ROOM);
 	} else {
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
 				  "$n leaves $t.", ch,
-		dir_name[is_affected(ch, "misleading") ?
+		dir_name[is_sn_affected(ch, "misleading") ?
 			number_range(0, 5) : door],
 		MOUNTED(ch), act_flags);
 	}
@@ -2387,10 +2375,10 @@ get_char_room_raw(CHAR_DATA *ch, const char *name,
 
 		if (ugly
 		&&  *number == 1
-		&&  is_affected(rch, "vampire"))
+		&&  is_sn_affected(rch, "vampire"))
 			return rch;
 
-		vch = (is_affected(rch, "doppelganger") &&
+		vch = (is_sn_affected(rch, "doppelganger") &&
 		       (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))) ?
 					rch->doppel : rch;
 		if (vnum) {
@@ -2905,10 +2893,8 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			vo_foreach(ch->in_room, &iter_char_room,
 				   pull_mob_get_cb, ch, obj);
 		}
-#if 0
-		XXX
-		oprog_call(OPROG_GET, obj, ch, NULL);
-#endif
+
+		pull_obj_trigger(TRIG_OBJ_GET, obj, ch, NULL);
 	}
 
 	return FALSE;
@@ -2968,7 +2954,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		return FALSE;
 	}
 
-	if (ch->shapeform) {
+	if (ch->shapeform != NULL) {
 		act("You cannot reach your items.",
 			ch, NULL, NULL, TO_CHAR);
 		return FALSE;
@@ -3166,7 +3152,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return FALSE;
 		}
 
-		if (is_affected(ch, "crippled hands")) {
+		if (is_sn_affected(ch, "crippled hands")) {
 			act("Your crippled hands refuse to hold $p.",
 				ch, obj, NULL, TO_CHAR);
 			return FALSE;
@@ -3179,11 +3165,11 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		}
 
 		if ((weapon = get_eq_char(ch, WEAR_SECOND_WIELD)))
-			unequip_char(ch, weapon);
+			weapon->wear_loc = WEAR_NONE;
 
 		if (!remove_obj(ch, WEAR_WIELD, fReplace)) {
 			if (weapon)
-				equip_char(ch, weapon, WEAR_SECOND_WIELD);
+				weapon->wear_loc = WEAR_SECOND_WIELD;
 			return FALSE;
 		}
 
@@ -3191,7 +3177,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		act_puts("You wield $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		obj = equip_char(ch, obj, WEAR_WIELD);
 		if (weapon)
-			equip_char(ch, weapon, WEAR_SECOND_WIELD);
+			weapon->wear_loc = WEAR_SECOND_WIELD;
 		if (obj == NULL)
 			return FALSE;
 
@@ -3232,7 +3218,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return FALSE;
 		}
 
-		if (is_affected(ch, "crippled hands")) {
+		if (is_sn_affected(ch, "crippled hands")) {
 			act("Your crippled hands refuse to hold $p.",
 				ch, obj, NULL, TO_CHAR);
 			return FALSE;
@@ -3314,16 +3300,17 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		return FALSE;
 	}
 
-#if 0
-	/* XXX should be moved to do_remove */
 	if (iWear == WEAR_STUCK_IN) {
 		const char *wsn = get_weapon_sn(obj);
-		unequip_char(ch, obj);
+
+		if (!unequip_char(ch, obj))
+			return FALSE;
 
 		if (obj->pObjIndex->item_type == ITEM_WEAPON
-		&&  get_stuck_eq(ch, INT(obj->value[0])) == NULL)
-			if (is_affected(ch, wsn))
+		&&  get_stuck_eq(ch, INT(obj->value[0])) == NULL) {
+			if (is_sn_affected(ch, wsn))
 				affect_strip(ch, wsn);
+		}
 
 		act_puts("You remove $p, in pain.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -3331,20 +3318,13 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
                 damage(ch, ch, dice(obj->level, 12),
 		       NULL, DAM_OTHER, DAMF_NONE);
                 WAIT_STATE(ch, 4);
-		return TRUE;
+		return !IS_EXTRACTED(ch);
 	}
-#endif
 
-	unequip_char(ch, obj);
 	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You stop using $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
-	if (iWear == WEAR_WIELD
-	&&  (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
-		unequip_char(ch, obj);
-		equip_char(ch, obj, WEAR_WIELD);
-	}
-	return TRUE;
+	return unequip_char(ch, obj);
 }
 
 bool
@@ -3869,10 +3849,10 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	CHAR_DATA *mirror = victim;
 	char buf[MAX_STRING_LENGTH];
 
-	if (is_affected(victim, "doppelganger")) {
+	if (is_sn_affected(victim, "doppelganger")) {
 		if (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)) {
 			doppel = victim->doppel;
-			if (is_affected(victim, "mirror"))
+			if (is_sn_affected(victim, "mirror"))
 				mirror = victim->doppel;
 		}
 	}
@@ -3889,7 +3869,7 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 	}
 
-	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
+	if (is_sn_affected(ch, "hallucination") && !IS_NPC(ch))
 		doppel = nth_char(doppel, PC(ch)->random_value);
 
 	if (doppel->shapeform)
@@ -4007,7 +3987,7 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	/* Love potion */
-	if (is_affected(ch, "love potion") && (victim != ch)) {
+	if (is_sn_affected(ch, "love potion") && (victim != ch)) {
 		AFFECT_DATA *paf;
 
 		affect_strip(ch, "love potion");
@@ -5025,7 +5005,7 @@ char_in_dark_room(CHAR_DATA *ch)
 	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return FALSE;
 
-	if (is_affected(ch, "vampire"))
+	if (is_sn_affected(ch, "vampire"))
 		return FALSE;
 
 	return room_is_dark(pRoomIndex);
@@ -5116,7 +5096,7 @@ isn_dark_safe(CHAR_DATA *ch)
 	OBJ_DATA *light;
 	int light_exist;
 
-	if (!is_affected(ch, "vampire")
+	if (!is_sn_affected(ch, "vampire")
 	||  IS_SET(ch->in_room->room_flags, ROOM_DARK))
 		return 0;
 
@@ -5789,24 +5769,23 @@ apply_ac(OBJ_DATA *obj, int iWear, int type)
 	return 0;
 }
 
-/* XXX is not used for a while */
-#if 0
 /* find stuck-in objects of certain weapon type */
-static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype)
+static OBJ_DATA *
+get_stuck_eq(CHAR_DATA *ch, int wtype)
 {
 	OBJ_DATA *obj;
 
 	if (!ch)
 		return NULL;
 
-	for (obj = ch->carrying; obj; obj = obj->next_content)
+	for (obj = ch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_STUCK_IN
 		&&  obj->pObjIndex->item_type == ITEM_WEAPON
 		&&  INT(obj->value[0]) == wtype)
 			return obj;
+	}
 	return NULL;
 }
-#endif
 
 CHAR_DATA *
 find_char(CHAR_DATA *ch, const char *argument, int door, int range)

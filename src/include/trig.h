@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.8 2001-09-04 19:32:41 fjoe Exp $
+ * $Id: trig.h,v 1.9 2001-09-07 15:40:03 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -39,20 +39,18 @@
 #define TRIG_MOB_FIGHT		4		/* arg: probability	*/
 #define TRIG_MOB_GIVE		5		/* arg: obj vnum/name	*/
 #define TRIG_MOB_GREET		6		/* arg: probability	*/
-#define TRIG_MOB_GRALL		7		/* arg: probability	*/
-#define TRIG_MOB_KILL		8		/* arg: probability	*/
-#define TRIG_MOB_HPCNT		9		/* arg: probability	*/
-#define TRIG_MOB_RANDOM		10		/* arg: probability	*/
-#define TRIG_MOB_SPEECH		11		/* arg: text		*/
-#define TRIG_MOB_EXIT		12		/* arg: dir (or "all")	*/
-#define TRIG_MOB_EXALL		13		/* arg: dir (or "all")	*/
-#define TRIG_MOB_DELAY		14		/* arg: probability	*/
-#define TRIG_MOB_SURR		15		/* arg: probability	*/
-#define TRIG_MOB_LOOK		16		/* arg: probability	*/
-#define TRIG_MOB_OPEN		17		/* arg: obj vnum/name	*/
-#define TRIG_MOB_GET		18		/* arg: obj vnum/name	*/
-#define TRIG_MOB_TELL		19		/* arg: text		*/
-#define TRIG_MOB_CMD		20		/* arg: cmd		*/
+#define TRIG_MOB_KILL		7		/* arg: probability	*/
+#define TRIG_MOB_HPCNT		8		/* arg: probability	*/
+#define TRIG_MOB_RANDOM		9		/* arg: probability	*/
+#define TRIG_MOB_SPEECH		10		/* arg: text		*/
+#define TRIG_MOB_EXIT		11		/* arg: dir (or "all")	*/
+#define TRIG_MOB_DELAY		12		/* arg: probability	*/
+#define TRIG_MOB_SURR		13		/* arg: probability	*/
+#define TRIG_MOB_LOOK		14		/* arg: probability	*/
+#define TRIG_MOB_OPEN		15		/* arg: obj vnum/name	*/
+#define TRIG_MOB_GET		16		/* arg: obj vnum/name	*/
+#define TRIG_MOB_TELL		17		/* arg: text		*/
+#define TRIG_MOB_CMD		18		/* arg: cmd		*/
 
 /* obj triggers */
 #define TRIG_OBJ_WEAR		100		/* arg: probability	*/
@@ -75,8 +73,6 @@
 				 trig->trig_type == TRIG_MOB_SPEECH ||	\
 				 trig->trig_type == TRIG_MOB_TELL ||	\
 				 trig->trig_type == TRIG_OBJ_SPEECH)
-#define HAS_EXIT_ARG(trig)	(trig->trig_type == TRIG_MOB_EXIT ||	\
-				 trig->trig_type == TRIG_MOB_EXALL)
 #define HAS_OBJ_ARG(trig)	(trig->trig_type == TRIG_MOB_GIVE ||	\
 				 trig->trig_type == TRIG_MOB_OPEN ||	\
 				 trig->trig_type == TRIG_MOB_GET)

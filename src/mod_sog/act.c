@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.84 2001-09-04 19:33:00 fjoe Exp $
+ * $Id: act.c,v 1.85 2001-09-07 15:40:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ static int
 PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, uint to_lang)
 {
 	if (ch != looker
-	&&  is_affected(ch, "doppelganger")
+	&&  is_sn_affected(ch, "doppelganger")
 	&&  ch->doppel != NULL
 	&&  (IS_NPC(looker) || !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
@@ -160,12 +160,12 @@ PERS(CHAR_DATA *ch, CHAR_DATA *to, uint to_lang, int act_flags)
 {
 	bool visible = can_see(to, ch);
 
-	if (is_affected(ch, "doppelganger")
+	if (is_sn_affected(ch, "doppelganger")
 	&&  (IS_NPC(to) ||
 	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
-	if (!IS_NPC(to) && is_affected(to, "hallucination"))
+	if (!IS_NPC(to) && is_sn_affected(to, "hallucination"))
 		ch = nth_char(ch, PC(to)->random_value);
 
 	if (visible) {
@@ -287,7 +287,7 @@ static const char *
 act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, uint to_lang,
 	       int act_flags)
 {
-	if (!IS_NPC(to) && is_affected(to, "hallucination"))
+	if (!IS_NPC(to) && is_sn_affected(to, "hallucination"))
 		obj = nth_obj(obj, PC(to)->random_value);
 
 	if (!can_see_obj(to, obj))
@@ -959,7 +959,7 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 /* check "deaf dumb blind" chars */
 	if (IS_SET(act_flags, ACT_NODEAF)
 	&&  !IS_IMMORTAL(to)
-	&&  is_affected(to, "deafen"))
+	&&  is_sn_affected(to, "deafen"))
 		return TRUE;
 
 /* skip verbose messages */
@@ -1308,7 +1308,7 @@ garble(CHAR_DATA *ch, const char *i)
 	static char buf[MAX_STRING_LENGTH];
 	char *o;
 
-	if (!is_affected(ch, "garble"))
+	if (!is_sn_affected(ch, "garble"))
 		return i;
 
 	for (o = buf; *i && o < buf + sizeof(buf) - 1; i++, o++) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.63 2001-08-21 09:35:21 fjoe Exp $
+ * $Id: affect.c,v 1.64 2001-09-07 15:40:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -153,7 +153,7 @@ where_t where_table[] =
 	{ TO_DETECTS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' detection"	},
 	{ TO_INVIS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x'"			},
 	{ TO_RESISTS,	dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
-	{ TO_FORMRESIST,dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
+	{ TO_FORMRESISTS,dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
 	{ TO_OBJECT,	apply_flags,	stat_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
 	{ -1,		NULL,		NULL,		str_empty,				str_empty			}
 };
@@ -212,7 +212,7 @@ aff_fwrite(AFFECT_DATA *paf, FILE *fp, int w_flags)
 		break;
 
 	case TO_RESISTS:
-	case TO_FORMRESIST:
+	case TO_FORMRESISTS:
 		fprintf(fp, "%s ",
 			flag_string(dam_classes, INT(paf->location)));
 		break;
@@ -256,7 +256,7 @@ aff_fread(rfile_t *fp, int r_flags)
 		    fp, &forms, "aff_fread");			// notrans
 		break;
 	case TO_RESISTS:
-	case TO_FORMRESIST:
+	case TO_FORMRESISTS:
 		INT(paf->location) = fread_fword(dam_classes, fp);
 		break;
 	default:
@@ -318,7 +318,7 @@ aff_fread_v5(rfile_t *fp)
 		    fp, &forms, "aff_fread");			// notrans
 		break;
 	case TO_RESISTS:
-	case TO_FORMRESIST:
+	case TO_FORMRESISTS:
 		INT(paf->location) = fread_fword(dam_classes, fp);
 		break;
 	default:

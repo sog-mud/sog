@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.196 2001-09-02 16:21:52 fjoe Exp $
+ * $Id: martial_art.c,v 1.197 2001-09-07 15:40:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -614,8 +614,8 @@ DO_FUN(do_entangle, ch, argument)
 		return;
 	}
 
-	if ((is_affected(ch, "entanglement"))
-	|| is_affected(victim, "entanglement"))
+	if ((is_sn_affected(ch, "entanglement"))
+	|| is_sn_affected(victim, "entanglement"))
 		return;
 
 	if (!(whip = get_eq_char(ch, WEAR_SECOND_WIELD))
@@ -661,11 +661,13 @@ DO_FUN(do_entangle, ch, argument)
 	}
 }
 
-static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+static void
+gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 {
 	OBJ_DATA *item;
 	if (!(item = get_eq_char(victim, loc)))
 		return;
+
 	if (IS_OBJ_STAT(item, ITEM_NOREMOVE)) {
 		act("$N is unable to release $p and it pulls $S hand down.",
 			ch, item, victim, TO_CHAR);
@@ -673,7 +675,7 @@ static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 			ch, item, victim, TO_VICT);
 		act("$N is unable to release $p and it pulls $S hand down.",
 			ch, item, victim, TO_NOTVICT);
-		} else {
+	} else {
 		act("$N drops $S $p, unable to hold it!",
 			ch, item, victim, TO_CHAR);
 		act("You drop your $p, unable to hold it!",
@@ -683,7 +685,7 @@ static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		obj_from_char(item);
 
 		if (IS_OBJ_STAT(item, ITEM_NODROP)
-		|| IS_OBJ_STAT(item, ITEM_INVENTORY))
+		||  IS_OBJ_STAT(item, ITEM_INVENTORY))
 			obj_to_char(item, victim);
 		else
 			obj_to_room(item, victim->in_room);
@@ -751,7 +753,7 @@ DO_FUN(do_gash, ch, argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (is_affected(victim, "crippled hands")) {
+	if (is_sn_affected(victim, "crippled hands")) {
 		act("$s hands are already crippled.", ch, NULL, victim,TO_CHAR);
 		return;
 	}
@@ -821,12 +823,6 @@ DO_FUN(do_gash, ch, argument)
 			"terrible wound!{x", ch, NULL, victim, TO_VICT);
 		act("{R$n gashes at $N's hands, producing a bleeding wound!{x",
 			ch, NULL, victim, TO_ROOM);
-
-		if (get_eq_char(victim, WEAR_WIELD) == NULL
-		&&  (weapon = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {
-			unequip_char(victim, weapon);
-			equip_char(victim, weapon, WEAR_WIELD);
-		}
 
 		paf = aff_new(TO_AFFECTS, "crippled hands");
 		paf->level = ch->level;
@@ -1159,8 +1155,8 @@ DO_FUN(do_berserk, ch, argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_BERSERK)
-	||  is_affected(ch, "berserk")
-	||  is_affected(ch, "frenzy")) {
+	||  is_sn_affected(ch, "berserk")
+	||  is_sn_affected(ch, "frenzy")) {
 		act_char("You get a little madder.", ch);
 		return;
 	}
@@ -1340,7 +1336,7 @@ DO_FUN(do_bash, ch, argument)
 		return;
 	}
 	
-	if (is_affected(victim, "protective shield")) {
+	if (is_sn_affected(victim, "protective shield")) {
 		act_puts("Your bash seems to slide around $N.",
 			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
 		act_puts("$n's bash slides off your protective shield.",
@@ -2307,7 +2303,6 @@ DO_FUN(do_strip, ch, argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
 	OBJ_DATA *vwield;
-	OBJ_DATA *obj2;
 	int chance, ch_weapon, vict_weapon;
 	int loc = WEAR_WIELD;
 	char arg[MAX_INPUT_LENGTH];
@@ -2368,14 +2363,14 @@ DO_FUN(do_strip, ch, argument)
 			act("$S weapon won't budge!",
 				ch, NULL, victim, TO_CHAR);
 			act("$n tries to disarm you, but your weapon won't budge!",
-		    		ch, NULL, victim, TO_VICT);
+				ch, NULL, victim, TO_VICT);
 			act("$n tries to disarm $N, but fails.",
-		    		ch, NULL, victim, TO_NOTVICT);
+				ch, NULL, victim, TO_NOTVICT);
 			return;
 		}
 
 		act_puts("$n DISARMS you!",
-		 	ch, NULL, victim, TO_VICT, POS_FIGHTING);
+			ch, NULL, victim, TO_VICT, POS_FIGHTING);
 		act_puts("You disarm $N!",
 			ch,NULL, victim, TO_CHAR, POS_FIGHTING);
 		act_puts("$n disarms $N!",
@@ -2387,20 +2382,8 @@ DO_FUN(do_strip, ch, argument)
 		else
 			obj_to_char(vwield, ch);
 
-
-		if ((obj2 = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {
-			act_puts("You wield your second weapon as your first!",
-			 ch, NULL, victim, TO_VICT, POS_FIGHTING);
-			act_puts("$N wields his second weapon as first!",
-			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
-			act_puts("$N wields his second weapon as first!",
-			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
-			unequip_char(victim, obj2);
-			equip_char(victim, obj2, WEAR_WIELD);
-		}
 		check_improve(ch, "weapon strip", TRUE, 1);
-	}
-	else {
+	} else {
 		act("You fail to disarm $N.", ch, NULL, victim, TO_CHAR);
 		act("$n tries to disarm you, but fails.",
 		    ch, NULL, victim, TO_VICT);
@@ -2440,7 +2423,7 @@ DO_FUN(do_nerve, ch, argument)
 		return;
 	}
 
-	if (is_affected(victim, "nerve")) {
+	if (is_sn_affected(victim, "nerve")) {
 		act_char("You cannot weaken that character any more.", ch);
 		return;
 	}
@@ -2504,7 +2487,7 @@ DO_FUN(do_endure, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "endure")) {
+	if (is_sn_affected(ch, "endure")) {
 		act_char("You cannot endure more concentration.", ch);
 		return;
 	}
@@ -2701,7 +2684,7 @@ DO_FUN(do_caltrops, ch, argument)
 	if (IS_EXTRACTED(victim))
 		return;
 
-	if (!is_affected(victim, "caltrops")) {
+	if (!is_sn_affected(victim, "caltrops")) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_AFFECTS, "caltrops");
@@ -2778,7 +2761,7 @@ DO_FUN(do_throw, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("throw"));
 
-	if (is_affected(victim, "protective shield")) {
+	if (is_sn_affected(victim, "protective shield")) {
 		act_puts("You fail to reach $s arm.",ch,NULL,victim, TO_CHAR,
 			 POS_FIGHTING);
 		act_puts("$n fails to throw you.", ch, NULL, victim, TO_VICT,
@@ -2874,7 +2857,7 @@ DO_FUN(do_strangle, ch, argument)
 		return;
 	}
 
-	if (is_affected(victim, "strangle"))
+	if (is_sn_affected(victim, "strangle"))
 		return;
 
 	if (MOUNTED(victim)) {
@@ -2890,7 +2873,7 @@ DO_FUN(do_strangle, ch, argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (is_affected(victim, "free action"))
+	if (is_sn_affected(victim, "free action"))
 		chance -= 15;
 
 	SET_FIGHT_TIME(victim);
@@ -3096,7 +3079,7 @@ DO_FUN(do_blackjack, ch, argument)
 	chance += can_see(victim, ch) ? 0 : 5;
 	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 		chance -= 40;
-	if (is_affected(victim, "free action"))
+	if (is_sn_affected(victim, "free action"))
 		chance -= 15;
 
 	WAIT_STATE(ch, skill_beats("blackjack"));
@@ -3205,7 +3188,7 @@ DO_FUN(do_toughen, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "toughen")) {
+	if (is_sn_affected(ch, "toughen")) {
 		act_char("You are as resistant as you will get.", ch);
 		return;
 	}
@@ -3260,7 +3243,7 @@ DO_FUN(do_trophy, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "trophy")) {
+	if (is_sn_affected(ch, "trophy")) {
 		act_char("But you've already got one trophy!", ch);
 		return;
 	}
@@ -3380,7 +3363,7 @@ DO_FUN(do_truesight, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "truesight")) {
+	if (is_sn_affected(ch, "truesight")) {
 		act_char("Your eyes are as sharp as they can get.", ch);
 		return;
 	}
@@ -3419,7 +3402,7 @@ DO_FUN(do_warcry, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "warcry")) {
+	if (is_sn_affected(ch, "warcry")) {
 		act_char("The fighting zeal is already with you.", ch);
 		return;
 	}
@@ -3706,8 +3689,8 @@ DO_FUN(do_tiger, ch, argument)
 	}
 	act("$n calls the power of ten tigers!", ch, NULL, NULL, TO_ROOM);
 
-	if (IS_AFFECTED(ch, AFF_BERSERK) || is_affected(ch, "berserk")
-	||  is_affected(ch, "tiger power") || is_affected(ch, "frenzy")) {
+	if (IS_AFFECTED(ch, AFF_BERSERK) || is_sn_affected(ch, "berserk")
+	||  is_sn_affected(ch, "tiger power") || is_sn_affected(ch, "frenzy")) {
 		act_char("You get a little madder.", ch);
 		return;
 	}
@@ -3794,7 +3777,7 @@ DO_FUN(do_hara, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "hara kiri")) {
+	if (is_sn_affected(ch, "hara kiri")) {
 		act_char("If you want to kill yourself go and try to kill He-Man.", ch);
 		return;
 	}
@@ -4068,7 +4051,7 @@ DO_FUN(do_tail, ch, argument)
 		return;
 	}
 
-	if (is_affected(victim, "protective shield")) {
+	if (is_sn_affected(victim, "protective shield")) {
 		act_puts("Your tail seems to slide around $N.",
 			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
 		act_puts("$n's tail slides off your protective shield.",
@@ -4169,7 +4152,7 @@ DO_FUN(do_concentrate, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "concentrate")) {
+	if (is_sn_affected(ch, "concentrate")) {
 		act_char("You are already concentrated for the fight.", ch);
 		return;
 	}
@@ -4281,7 +4264,7 @@ DO_FUN(do_katana, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "katana")) {
+	if (is_sn_affected(ch, "katana")) {
 		act_char("But you've already got one katana!", ch);
 		return;
 	}
@@ -4384,7 +4367,7 @@ DO_FUN(do_crush, ch, argument)
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim)
 		return;
 	
-	if (is_affected(victim, "protective shield")) {
+	if (is_sn_affected(victim, "protective shield")) {
 		act_puts("Your crush seems to slide around $N.",
 			 ch, NULL, victim, TO_CHAR, POS_FIGHTING);
 		act_puts("$n's crush slides off your protective shield.",
@@ -4477,7 +4460,7 @@ DO_FUN(do_sense, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "sense life")) {
+	if (is_sn_affected(ch, "sense life")) {
 		act_char("You can already feel life forms.", ch);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.40 2001-08-31 10:29:36 fjoe Exp $
+ * $Id: updfun.c,v 1.41 2001-09-07 15:40:26 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -77,15 +77,27 @@ static DECLARE_FOREACH_CB_FUN(put_back_cb);
 static DECLARE_FOREACH_CB_FUN(clan_item_update_cb);
 static void	print_resetmsg(AREA_DATA *pArea);
 
+static
+FOREACH_CB_FUN(pull_obj_fight_cb, p, ap)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) p;
+
+	CHAR_DATA *ch = obj->carried_by;
+
+	if (obj->wear_loc == WEAR_NONE)
+		return NULL;
+
+	pull_obj_trigger(TRIG_OBJ_FIGHT, obj, ch, NULL);
+	if (IS_EXTRACTED(ch) || ch->fighting == NULL)
+		return p;
+
+	return NULL;
+}
+
 FOREACH_CB_FUN(violence_update_cb, vo, ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 	CHAR_DATA *victim;
-#if 0
-	XXX
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-#endif
 
 	/* decrement the wait */
 	if (ch->desc == NULL)
@@ -110,15 +122,7 @@ FOREACH_CB_FUN(violence_update_cb, vo, ap)
 	if (victim->in_room != ch->in_room)
 		return NULL;
 
-#if 0
-	XXX
-	for (obj = ch->carrying; obj; obj = obj_next) {
-		obj_next = obj->next_content;
-		if (ch->fighting == NULL)
-			break;
-		oprog_call(OPROG_FIGHT, obj, ch, NULL);
-	}
-#endif
+	vo_foreach(ch, &iter_obj_char, pull_obj_fight_cb);
 
 	if ((victim = ch->fighting) == NULL
 	||  victim->in_room != ch->in_room)
@@ -204,7 +208,7 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 	}
 
 	if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
-	&&  !is_affected(ch, "water breathing")
+	&&  !is_sn_affected(ch, "water breathing")
 	&&  !IS_IMMORTAL(ch)) {
 		act("$n gasps for fresh air, but inhales water.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -248,17 +252,8 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 	&&  !IS_SET(f_act, ACT_UPDATE_ALWAYS))
 		return NULL;
 
-	/* Examine call for special procedure */
-	if (ch->pMobIndex->spec_fun != 0) {
-		if (ch->pMobIndex->spec_fun(ch))
-			return NULL;
-	}
-
-
-	if (ch->position == ch->pMobIndex->default_pos) {
 #if 0
 	XXX MPC
-/* check triggers (only if mobile still in default position) */
 		if (HAS_TRIGGER(ch, TRIG_DELAY)
 		&&  NPC(ch)->mprog_delay > 0) {
 			if (--NPC(ch)->mprog_delay <= 0) {
@@ -267,9 +262,9 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 			}
 		}
 #endif
-		if (pull_mob_trigger(TRIG_MOB_RANDOM, ch, NULL, NULL) > 0)
-			return NULL;
-	}
+
+	if (pull_mob_trigger(TRIG_MOB_RANDOM, ch, NULL, NULL) > 0)
+		return NULL;
 
 /* potion using and stuff for intelligent mobs */
 
@@ -570,7 +565,7 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 		affect_check(ch, -1, -1);
 
 		/* Remove caltrops effect after fight off */
-		if (is_affected(ch, "caltrops"))
+		if (is_sn_affected(ch, "caltrops"))
 			affect_strip(ch, "caltrops");
 
 		if (!MOUNTED(ch)) {
@@ -590,7 +585,7 @@ FOREACH_CB_FUN(char_update_cb, vo, ap)
 	}
 
 	/* Remove vampire effect when morning. */
-	if (is_affected(ch, "vampire")
+	if (is_sn_affected(ch, "vampire")
 	&&  (weather_info.sunlight == SUN_LIGHT ||
 	     weather_info.sunlight == SUN_RISE))
 		dofun("human", ch, str_empty);
@@ -1573,7 +1568,7 @@ mana_gain(CHAR_DATA *ch)
 		gain = (gain * 11) / 10;
 	if (IS_HARA_KIRI(ch))
 		gain *= 3;
-	if (is_affected(ch, "lich"))
+	if (is_sn_affected(ch, "lich"))
 		gain -= 2*ch->level;
 
 	return UMIN(gain, ch->max_mana - ch->mana);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.11 2001-09-05 12:57:10 fjoe Exp $
+ * $Id: trig.c,v 1.12 2001-09-07 15:40:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -182,8 +182,9 @@ trig_set_arg(trig_t *trig, const char *arg)
 	int errcode;
 	int cflags;
 	char buf[MAX_INPUT_LENGTH];
+	const char *trig_arg;
 
-	trig->trig_arg = arg;
+	trig_arg = trig->trig_arg = arg;
 
 	/*
 	 * skip non-text arg triggers and empty args
@@ -191,10 +192,13 @@ trig_set_arg(trig_t *trig, const char *arg)
 	if (!HAS_TEXT_ARG(trig) || IS_NULLSTR(trig->trig_arg))
 		return;
 
+	if (trig_arg[0] == '+')
+		trig_arg++;
+
 	/*
 	 * check if trigger arg is case-dependent
 	 */
-	for (p = trig->trig_arg; *p; p++) {
+	for (p = trig_arg; *p; p++) {
 		if (ISUPPER(*p)) {
 			SET_BIT(trig->trig_flags, TRIG_F_CASEDEP);
 			break;
@@ -204,7 +208,7 @@ trig_set_arg(trig_t *trig, const char *arg)
 	/*
 	 * check if trigger arg is regexp
 	 */
-	if (trig->trig_arg[0] != '*')
+	if (trig_arg[0] != '*')
 		return;
 
 	SET_BIT(trig->trig_flags, TRIG_F_REGEXP);
@@ -214,7 +218,7 @@ trig_set_arg(trig_t *trig, const char *arg)
 		cflags |= REG_ICASE;
 
 	trig->trig_extra = malloc(sizeof(regex_t));
-	errcode = regcomp(trig->trig_extra, trig->trig_arg+1, cflags);
+	errcode = regcomp(trig->trig_extra, trig_arg+1, cflags);
 	if (!errcode)
 		return;
 
@@ -263,6 +267,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		 void *arg1, void *arg2, void *arg3)
 {
 	mprog_t *mp;
+	const char *trig_arg;
 	void *arg4 = NULL;
 
 	if (mprog_execute == NULL)
@@ -274,8 +279,23 @@ pull_one_trigger(trig_t *trig, int mp_type,
 	if (mp->type != mp_type)
 		return MPC_ERR_TYPE_MISMATCH;
 
+	trig_arg = trig->trig_arg;
+	if (mp->type == MP_T_MOB
+	&&  trig_arg[0] == '+') {
+		CHAR_DATA *ch = (CHAR_DATA *) arg1;
+
+		if (trig->trig_type != TRIG_MOB_FIGHT
+		&&  trig->trig_type != TRIG_MOB_DEATH
+		&&  trig->trig_type != TRIG_MOB_KILL
+		&&  trig->trig_type != TRIG_MOB_HPCNT
+		&&  ch->position != ch->pMobIndex->default_pos)
+			return MPC_ERR_COND_FAILED;
+
+		trig_arg++;
+	}
+
 	if (trig->trig_type == TRIG_MOB_BRIBE) {
-		int silver_needed = atoi(trig->trig_arg);
+		int silver_needed = atoi(trig_arg);
 		int silver = (int) arg3;
 
 		if (silver < silver_needed)
@@ -289,26 +309,17 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		else {
 			if (!IS_SET(trig->trig_flags, TRIG_F_CASEDEP))
 				arg3 = arg_lwr;
-			match = strstr(arg3, trig->trig_arg) != NULL;
+			match = strstr(arg3, trig_arg) != NULL;
 		}
 
 		if (!match)
-			return MPC_ERR_COND_FAILED;
-	} else if (HAS_EXIT_ARG(trig)) {
-		CHAR_DATA *ch = (CHAR_DATA *) arg1;
-
-		if (trig->trig_type == TRIG_MOB_EXIT
-		&&  ch->position != ch->pMobIndex->default_pos)
-			return MPC_ERR_COND_FAILED;
-
-		if (!is_name(arg3, trig->trig_arg))
 			return MPC_ERR_COND_FAILED;
 	} else if (HAS_OBJ_ARG(trig)) {
 		OBJ_DATA *obj = (OBJ_DATA *) arg3;
 		bool match = FALSE;
 
-		if (is_number(trig->trig_arg))
-			match = obj->pObjIndex->vnum == atoi(trig->trig_arg);
+		if (is_number(trig_arg))
+			match = obj->pObjIndex->vnum == atoi(trig_arg);
 		else {
 			const char *p = obj->pObjIndex->name;
 			char buf[MAX_STRING_LENGTH];
@@ -318,7 +329,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 			 */
 			while (*p) {
 				p = one_argument(p, buf, sizeof(buf));
-				if ((match = is_name(buf, trig->trig_arg)))
+				if ((match = is_name(buf, trig_arg)))
 					break;
 			}
 		}
@@ -330,11 +341,14 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		char command[MAX_INPUT_LENGTH];
 
 		argument = one_argument(argument, command, sizeof(command));
-		if (!!str_prefix(command, trig->trig_arg))
+		if (!!str_prefix(command, trig_arg))
 			return MPC_ERR_COND_FAILED;
 
 		arg3 = NULL;
 		arg4 = (void *) (uintptr_t) argument;
+	} else if (trig->trig_type == TRIG_MOB_EXIT) {
+		if (!is_name(arg3, trig_arg))
+			return MPC_ERR_COND_FAILED;
 	} else {
 		int chance;
 
@@ -346,7 +360,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 				return MPC_ERR_COND_FAILED;
 		}
 
-		chance = atoi(trig->trig_arg);
+		chance = atoi(trig_arg);
 		if (chance < number_percent())
 			return MPC_ERR_COND_FAILED;
 	}
@@ -377,7 +391,7 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 			break;
 
 		rv = pull_one_trigger(trig, mp_type, arg1, arg2, arg3);
-		if (rv >= 0)
+		if (rv > 0)
 			break;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.295 2001-09-05 12:57:03 fjoe Exp $
+ * $Id: act_wiz.c,v 1.296 2001-09-07 15:40:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1458,10 +1458,6 @@ DO_FUN(do_mstat, ch, argument)
 		buf_append(output, "Long description:\n");	     // notrans
 		mlstr_dump(output, str_empty,
 			   &victim->long_descr, DUMP_LEVEL(ch));
-		if (victim->pMobIndex->spec_fun != 0) {
-			buf_printf(output, BUF_END, "Mobile has special procedure %s.\n", // notrans
-				   mob_spec_name(victim->pMobIndex->spec_fun));
-		}
 	}
 
 	show_affects(ch, victim, output);

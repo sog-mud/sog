@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.276 2001-09-04 19:32:48 fjoe Exp $
+ * $Id: act_move.c,v 1.277 2001-09-07 15:40:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1255,7 +1255,7 @@ DO_FUN(do_vampire, ch, argument)
 	AFFECT_DATA *paf;
 	int chance;
 
-	if (is_affected(ch, "vampire")) {
+	if (is_sn_affected(ch, "vampire")) {
 		act_char("But you are already vampire. Kill them! Kill them!", ch);
 		return;
 	}
@@ -1341,7 +1341,7 @@ DO_FUN(do_vbite, ch, argument)
 		return;
 	}
 
-	if (!is_affected(ch, "vampire")) {
+	if (!is_sn_affected(ch, "vampire")) {
 		act_char("You must transform vampire before biting.", ch);
 		return;
 	}
@@ -1554,7 +1554,7 @@ DO_FUN(do_blink, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "blink")) {
+	if (is_sn_affected(ch, "blink")) {
 		act("You stop blinking.", ch, NULL, NULL, TO_CHAR);
 		act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
 		affect_strip(ch, "blink");
@@ -1628,7 +1628,7 @@ DO_FUN(do_kidnap, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "kidnap")) {
+	if (is_sn_affected(ch, "kidnap")) {
 		act("You feel too exhausted from previous kidnap attempt.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -1751,7 +1751,7 @@ DO_FUN(do_vtouch, ch, argument)
 		return;
 	}
 
-	if (!is_affected(ch, "vampire")) {
+	if (!is_sn_affected(ch, "vampire")) {
 		act_char("Let it be.", ch);
 		return;
 	}
@@ -1772,13 +1772,13 @@ DO_FUN(do_vtouch, ch, argument)
 		return;
 	}
 
-	if (is_affected(victim, "vampiric touch"))
+	if (is_sn_affected(victim, "vampiric touch"))
 		return;
 
 	if (is_safe(ch,victim))
 		return;
 
-	if (is_affected(victim, "free action"))
+	if (is_sn_affected(victim, "free action"))
 		chance -= 20;
 
 	WAIT_STATE(ch, skill_beats("vampiric touch"));
@@ -2011,7 +2011,7 @@ DO_FUN(do_crecall, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "clan recall")) {
+	if (is_sn_affected(ch, "clan recall")) {
 		act_puts("You can't pray now.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
@@ -2171,7 +2171,7 @@ DO_FUN(do_layhands, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "lay hands")) {
+	if (is_sn_affected(ch, "lay hands")) {
 		 act_char("You can't concentrate enough.", ch);
 		 return;
 	}
@@ -2689,7 +2689,7 @@ DO_FUN(do_shoot, ch, argument)
 
 DO_FUN(do_human, ch, argument)
 {
-	if (!is_affected(ch, "vampire")) {
+	if (!is_sn_affected(ch, "vampire")) {
 		act_char("You are already a human.", ch);
 		return;
 	}
@@ -3012,12 +3012,12 @@ DO_FUN(do_settraps, ch, argument)
 
 		check_improve(ch, "settraps", TRUE, 1);
 
-		if (is_affected_room(ch->in_room, "settraps")) {
+		if (is_sn_affected_room(ch->in_room, "settraps")) {
 			act_char("This room has already trapped.", ch);
 			return;
 		}
 
-		if (is_affected(ch, "settraps")) {
+		if (is_sn_affected(ch, "settraps")) {
 			act_char("This skill is used too recently.", ch);
 			return;
 		}
@@ -3062,7 +3062,7 @@ DO_FUN(do_forest, ch, argument)
 	}
 
 	if (!str_prefix(arg, "normal")) {
-		if (!is_affected(ch, "forest fighting")) {
+		if (!is_sn_affected(ch, "forest fighting")) {
 			act_char("You do not use your knowledge of forest in fight.", ch);
 			return;
 		} else {
@@ -3081,7 +3081,7 @@ DO_FUN(do_forest, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "forest fighting"))
+	if (is_sn_affected(ch, "forest fighting"))
 		affect_strip(ch, "forest fighting");
 
 	paf = aff_new(TO_AFFECTS, "forest fighting");
@@ -3118,7 +3118,7 @@ DO_FUN(do_breathhold, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "water breathing")) {
+	if (is_sn_affected(ch, "water breathing")) {
 		act_char("You already can breath under water.", ch);
 		return;
 	}

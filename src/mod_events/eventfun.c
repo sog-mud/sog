@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.36 2001-08-30 18:50:08 fjoe Exp $
+ * $Id: eventfun.c,v 1.37 2001-09-07 15:40:12 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -192,7 +192,7 @@ EVENT_FUN(event_update_espirit, ch, af)
 	if (!is_safe_rspell(af, ch)
 	&&  !IS_IMMORTAL(ch)
 	&&  !saves_spell(af->level + 2, ch, DAM_MENTAL)
-	&&  !is_affected(ch, "evil spirit")
+	&&  !is_sn_affected(ch, "evil spirit")
 	&&  number_bits(3) == 0) {
 		AFFECT_DATA *paf;
 
@@ -340,7 +340,7 @@ EVENT_FUN(event_updatefast_entangle, ch, af)
 		if (!weapon || 
 		!(WEAPON_IS(weapon, WEAPON_WHIP) 
 		|| WEAPON_IS(weapon, WEAPON_FLAIL))) {
-			if (is_affected(paf->owner, "entanglement")) 
+			if (is_sn_affected(paf->owner, "entanglement")) 
 				affect_strip(paf->owner, "entanglement");
 			affect_strip(ch, "entanglement");
 		}
@@ -350,7 +350,7 @@ EVENT_FUN(event_updatefast_entangle, ch, af)
 		if (number_percent() < get_curr_stat(ch, STAT_DEX)) {
 			act("You manage to get free.", ch, NULL, NULL, TO_CHAR);
 			act("$n manages to get free.", ch, NULL, NULL, TO_ROOM);
-			if (is_affected(paf->owner, "entanglement")) 
+			if (is_sn_affected(paf->owner, "entanglement")) 
 				affect_strip(paf->owner, "entanglement");
 			affect_strip(ch, "entanglement");
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.248 2001-09-04 19:47:32 fjoe Exp $
+ * $Id: act_comm.c,v 1.249 2001-09-07 15:40:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -275,7 +275,7 @@ FOREACH_CB_FUN(pull_mob_speech_cb, p, ap)
 	char *speech = va_arg(ap, char *);
 
 	pull_mob_trigger(TRIG_MOB_SPEECH, vch, ch, speech);
-	vo_foreach(ch, &iter_obj_char, pull_obj_speech_cb, ch, speech);
+	vo_foreach(vch, &iter_obj_char, pull_obj_speech_cb, ch, speech);
 	return NULL;
 }
 
@@ -349,12 +349,12 @@ DO_FUN(do_gtell, ch, argument)
 			break;
 
 		i++;
-		if (is_same_group(gch, ch) && !is_affected(gch, "deafen"))
+		if (is_same_group(gch, ch) && !is_sn_affected(gch, "deafen"))
 			act_puts("$n tells the group '{G$t{x'",
 				 ch, argument, gch, flags, POS_DEAD);
 	}
 
-	if (i > 1 && !is_affected(ch, "deafen"))
+	if (i > 1 && !is_sn_affected(ch, "deafen"))
 		act_puts("You tell your group '{G$t{x'",
 			 ch, argument, NULL,
 			 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.104 2001-08-28 21:52:17 fjoe Exp $
+ * $Id: olc_area.c,v 1.105 2001-09-07 15:40:20 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1120,47 +1120,6 @@ save_rooms(FILE *fp, AREA_DATA *pArea)
 		fprintf(fp, "#0\n\n");
 }
 
-static void
-save_special(FILE *fp, MOB_INDEX_DATA *pMobIndex)
-{
-#if defined(VERBOSE)
-	fprintf(fp, "M %d %s\t* %s\n",
-		pMobIndex->vnum,
-		mob_spec_name(pMobIndex->spec_fun),
-		mlstr_mval(&pMobIndex->short_descr));
-#else
-	fprintf(fp, "M %d %s\n",
-		pMobIndex->vnum, mob_spec_name(pMobIndex->spec_fun));
-#endif
-}
-
-/*****************************************************************************
- Name:		save_specials
- Purpose:	Save #SPECIALS section of area file.
- Called by:	save_area(olc_save.c).
- ****************************************************************************/
-static void
-save_specials(FILE *fp, AREA_DATA *pArea)
-{
-	int i;
-	MOB_INDEX_DATA *pMobIndex;
-	bool found = FALSE;
-
-	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
-		if ((pMobIndex = get_mob_index(i))
-		&&  pMobIndex->spec_fun) {
-			if (!found) {
-				fprintf(fp, "#SPECIALS\n");
-				found = TRUE;
-			}
-			save_special(fp, pMobIndex);
-		}
-	}
-
-	if (found)
-		fprintf(fp, "S\n\n");
-}
-
 #define NAME(vo)	((vo) ? mlstr_mval(&(vo)->name) : "<unknown>")
 #define SHORT(vo)	((vo) ? mlstr_mval(&(vo)->short_descr) : "<unknown>")
 
@@ -1459,7 +1418,6 @@ save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 		save_mobiles(fp, pArea);
 		save_objects(fp, pArea);
 		save_rooms(fp, pArea);
-		save_specials(fp, pArea);
 		save_resets(fp, pArea);
 		save_shops(fp, pArea);
 		save_olimits(fp, pArea);

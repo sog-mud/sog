@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.83 2001-08-25 04:46:54 fjoe Exp $
+ * $Id: olc_mob.c,v 1.84 2001-09-07 15:40:20 fjoe Exp $
  */
 
 #include "olc.h"
@@ -46,7 +46,6 @@ DECLARE_OLC_FUN(mobed_shop		);
 DECLARE_OLC_FUN(mobed_desc		);
 DECLARE_OLC_FUN(mobed_level		);
 DECLARE_OLC_FUN(mobed_align		);
-DECLARE_OLC_FUN(mobed_spec		);
 
 DECLARE_OLC_FUN(mobed_gender		);  /* ROM */
 DECLARE_OLC_FUN(mobed_act		);  /* ROM */
@@ -103,7 +102,6 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "name",	mobed_name,	NULL,		NULL		},
 	{ "shop",	mobed_shop,	NULL,		NULL		},
 	{ "short",	mobed_short,	NULL,		NULL		},
-	{ "spec",	mobed_spec,	NULL,		NULL		},
 
 	{ "gender",	mobed_gender,	NULL,		sex_table	},
 	{ "act",	mobed_act,	NULL,		mob_act_flags	},
@@ -148,8 +146,6 @@ olc_cmd_t olc_cmds_mob[] =
 
 	{ NULL, NULL, NULL, NULL }
 };
-
-static void show_spec_cmds(CHAR_DATA *ch);
 
 OLC_FUN(mobed_create)
 {
@@ -357,11 +353,6 @@ OLC_FUN(mobed_show)
 			   pMob->incog_level);
 	}
 
-	if (pMob->spec_fun) {
-		buf_printf(buf, BUF_END, "Spec fun:    [%s]\n",
-			   mob_spec_name(pMob->spec_fun));
-	}
-
 	if (pMob->practicer) {
 		buf_printf(buf, BUF_END, "Practicer:   [%s]\n",
 			   flag_string(skill_groups, pMob->practicer));
@@ -447,38 +438,6 @@ OLC_FUN(mobed_list)
 	}
 
 	buf_free(buffer);
-	return FALSE;
-}
-
-OLC_FUN(mobed_spec)
-{
-	MOB_INDEX_DATA *pMob;
-	EDIT_MOB(ch, pMob);
-
-	if (argument[0] == '\0') {
-		act_char("Syntax:  spec <special function>", ch);
-		return FALSE;
-	}
-
-	if (!str_cmp(argument, "?")) {
-		show_spec_cmds(ch);
-		return FALSE;
-	}
-
-	if (!str_cmp(argument, "none")) {
-		 pMob->spec_fun = NULL;
-
-		 act_char("Spec removed.", ch);
-		 return TRUE;
-	}
-
-	if (mob_spec_lookup(argument)) {
-		pMob->spec_fun = mob_spec_lookup(argument);
-		act_char("Spec set.", ch);
-		return TRUE;
-	}
-
-	act_char("MobEd: No such special function.", ch);
 	return FALSE;
 }
 
@@ -1090,7 +1049,6 @@ OLC_FUN(mobed_clone)
 	mlstr_cpy(&pMob->long_descr, &pFrom->long_descr);
 	mlstr_cpy(&pMob->description, &pFrom->description);
 
-	pMob->spec_fun		= pFrom->spec_fun;
 	pMob->group		= pFrom->group;
 	pMob->act		= pFrom->act;
 	pMob->affected_by	= pFrom->affected_by;
@@ -1252,28 +1210,6 @@ OLC_FUN(mobed_where)
 }
 
 /* Local functions */
-
-static void show_spec_cmds(CHAR_DATA *ch)
-{
-	int  spec;
-	int  col;
-	BUFFER *output;
-
-	output = buf_new(0);
-	col = 0;
-	buf_append(output, "Preceed special functions with 'spec_'\n\n");
-	for (spec = 0; spec_table[spec].function != NULL; spec++) {
-		buf_printf(output, BUF_END, "%-19.18s", &spec_table[spec].name[5]);
-		if (++col % 4 == 0)
-			buf_append(output, "\n");
-	}
-
-	if (col % 4 != 0)
-		buf_append(output, "\n");
-
-	send_to_char(buf_string(output), ch);
-	buf_free(output);
-}
 
 VALIDATE_FUN(validate_fvnum)
 {

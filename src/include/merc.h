@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.358 2001-09-04 19:32:39 fjoe Exp $
+ * $Id: merc.h,v 1.359 2001-09-07 15:40:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -551,6 +551,7 @@ struct spec_type
 #define MOB_SAGE		(G)		/* sage (Otho etc.)	*/
 #define MOB_HEALER		(H)
 #define MOB_CLAN_GUARD		(I)
+#define MOB_JANITOR		(J)
 
 #define MOB_IS(mob, f)		(IS_SET((mob)->pMobIndex->mob_flags, (f)))
 
@@ -701,7 +702,7 @@ struct spec_type
 #define REMOVE_DETECT(ch, f)	(REMOVE_BIT((ch)->has_detect, (f)))
 
 /* where definitions for room */
-#define TO_ROOM_AFFECTS 0
+#define TO_ROOM_AFFECTS		0
 
 /* room applies */
 #define APPLY_ROOM_NONE		0
@@ -1274,7 +1275,6 @@ enum {
 struct mob_index_data
 {
 	MOB_INDEX_DATA *	next;
-	SPEC_FUN *		spec_fun;
 	SHOP_DATA *		pShop;
 	int			vnum;
 	int			fvnum;
@@ -1917,10 +1917,6 @@ extern		bool			wizlock;
 #define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->pObjIndex->name) ||\
 				 is_name(_name, (obj)->label))
 
-/* special.c */
-SPEC_FUN *	mob_spec_lookup	(const char *name);
-const char *	mob_spec_name(SPEC_FUN *function);
-
 RESET_DATA *	reset_new	(void);
 void		reset_free	(RESET_DATA *pReset);
 
@@ -2020,19 +2016,17 @@ extern bool merc_down;
  */
 
 /* where definitions */
-enum {
-	TO_AFFECTS,
-	TO_OBJECT,
-	TO_WEAPON,
-	TO_SKILLS,
-	TO_RACE,
-	TO_DETECTS,
-	TO_INVIS,
-	TO_FORM,
-	TO_FORMAFFECTS,
-	TO_FORMRESIST,
-	TO_RESISTS
-};
+#define TO_AFFECTS	0
+#define TO_OBJECT	1
+#define TO_WEAPON	2
+#define TO_SKILLS	3
+#define TO_RACE		4
+#define TO_DETECTS	5
+#define TO_INVIS	6
+#define TO_FORM		7
+#define TO_FORMAFFECTS	8
+#define TO_FORMRESISTS	9
+#define TO_RESISTS	10
 
 struct affect_data
 {
@@ -2086,13 +2080,14 @@ struct where_t
 
 where_t *where_lookup(flag_t where);
 
-#define IS_APPLY_AFFECT(paf)					\
-		((paf)->where == TO_AFFECTS ||			\
-		 (paf)->where == TO_OBJECT ||			\
-		 (paf)->where == TO_WEAPON ||			\
-		 (paf)->where == TO_DETECTS ||			\
-		 (paf)->where == TO_INVIS ||			\
-		 (paf)->where == TO_FORMAFFECTS)
+#define IS_APPLY_WHERE(where)					\
+	((where) == TO_AFFECTS ||				\
+	 (where) == TO_OBJECT ||				\
+	 (where) == TO_WEAPON ||				\
+	 (where) == TO_DETECTS ||				\
+	 (where) == TO_INVIS ||					\
+	 (where) == TO_FORMAFFECTS)
+#define IS_APPLY_AFFECT(paf)	IS_APPLY_WHERE((paf)->where)
 
 /*----------------------------------------------------------------------
  * skills stuff

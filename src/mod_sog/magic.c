@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.35 2001-09-02 16:21:55 fjoe Exp $
+ * $Id: magic.c,v 1.36 2001-09-07 15:40:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -392,7 +392,7 @@ check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
 {
 	AFFECT_DATA *af;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 	    for (af = victim->affected; af != NULL; af = af->next) {
 	        if (IS_SKILL(af->type, sn)) {
 	            if (!saves_dispel(dis_level,af->level,af->duration)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.259 2001-09-05 12:57:02 fjoe Exp $
+ * $Id: act_obj.c,v 1.260 2001-09-07 15:40:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -780,7 +780,7 @@ DO_FUN(do_feed, ch, argument)
 				    "before meal!");
 			return;
 		}
-		if (is_affected(vch, "bone dragon")) {
+		if (is_sn_affected(vch, "bone dragon")) {
 			act("Your pet might get too fat and clumsy.",
 				ch, NULL, NULL, TO_CHAR);
 			return;
@@ -1047,7 +1047,7 @@ DO_FUN(do_drink, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "bellyache")) {
+	if (is_sn_affected(ch, "bellyache")) {
 		act("You aren't able to drink anything.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -1155,7 +1155,7 @@ DO_FUN(do_eat, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "bellyache")) {
+	if (is_sn_affected(ch, "bellyache")) {
 		act("You cannot force yourself to eat.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -2324,7 +2324,7 @@ DO_FUN(do_herbs, ch, argument)
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (is_affected(ch, "herbs")) {
+	if (is_sn_affected(ch, "herbs")) {
 		act_char("You can't find any more herbs.", ch);
 		return;
 	}
@@ -2379,13 +2379,13 @@ DO_FUN(do_herbs, ch, argument)
 		}
 		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * LEVEL(ch));
 		check_improve(ch, "herbs", TRUE, 1);
-		if (is_affected(victim, "plague")
+		if (is_sn_affected(victim, "plague")
 		&&  check_dispel(LEVEL(ch), victim, "plague")) {
 			act("$n looks relieved as $s sores vanish.",
 			    victim, NULL, NULL, TO_ROOM);
 		}
 
-		if (is_affected(victim, "poison")
+		if (is_sn_affected(victim, "poison")
 		&&  check_dispel(LEVEL(ch), victim, "poison")) {
 			act("$n does not look so green anymore.",
 			    victim, NULL, NULL, TO_ROOM);
@@ -2769,7 +2769,7 @@ DO_FUN(do_crucify, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "crucify")) {
+	if (is_sn_affected(ch, "crucify")) {
 		act_char("You are not yet ready to make a sacrifice.", ch);
 		return;
 	}
@@ -2780,7 +2780,7 @@ DO_FUN(do_crucify, ch, argument)
 	}
 
 	if (IS_AFFECTED(ch, AFF_BERSERK)
-	||  is_affected(ch, "frenzy")) {
+	||  is_sn_affected(ch, "frenzy")) {
 		act_char("Calm down first.", ch);
 		return;
 	}
@@ -3590,11 +3590,8 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		}
 	}
 
-#if 0
-	XXX
-	if (oprog_call(OPROG_SAC, obj, ch, NULL))
+	if (pull_obj_trigger(TRIG_OBJ_SAC, obj, ch, NULL) > 0)
 		return;
-#endif
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);

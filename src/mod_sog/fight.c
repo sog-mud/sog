@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.324 2001-09-05 12:57:07 fjoe Exp $
+ * $Id: fight.c,v 1.325 2001-09-07 15:40:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -264,7 +264,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		return;
 	}
 
-	if (is_affected(victim, "blur")
+	if (is_sn_affected(victim, "blur")
 	&&  !HAS_DETECT(victim, ID_TRUESEEING)
 	&&  (number_percent() < 50)) {
 		act("You failed to detect true $N's position.",
@@ -1088,14 +1088,14 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		affect_bit_strip(ch, TO_INVIS, ID_SNEAK);
 	}
 
-	if (ch != victim && is_affected(ch, "globe of invulnerability")) {
+	if (ch != victim && is_sn_affected(ch, "globe of invulnerability")) {
 		affect_strip(ch, "globe of invulnerability");
 		act_char("Your globe of invulnerability shatters.", ch);
 		act("$n's globe of invulnerability shatters.", ch,
 		    NULL, NULL, TO_ROOM);
 	}
 
-	if (ch != victim && is_affected(victim, "globe of invulnerability")) {
+	if (ch != victim && is_sn_affected(victim, "globe of invulnerability")) {
 		affect_strip(victim, "globe of invulnerability");
 		act_char("Your globe of invulnerability shatters.", victim);
 		act("$n's globe of invulnerability shatters.", victim,
@@ -1120,7 +1120,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch))
 		dam -= dam / 4;
 
-	if (is_affected(victim, "golden aura")) {
+	if (is_sn_affected(victim, "golden aura")) {
 		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */
 			dam /= 8;
 		else if (IS_EVIL(ch))
@@ -1129,7 +1129,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			dam -= dam / 10;
 	}
 
-	if (is_affected(victim, "toughen"))
+	if (is_sn_affected(victim, "toughen"))
 		dam = (3 * dam) / 5;
 
 	immune = FALSE;
@@ -1142,7 +1142,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		/*
 		 * some funny stuff
 		 */
-		if (is_affected(victim, "mirror")) {
+		if (is_sn_affected(victim, "mirror")) {
 			act("$n shatters into tiny fragments of glass.",
 			    victim, NULL, NULL, TO_ROOM);
 			extract_char(victim, 0);
@@ -1174,7 +1174,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 	dam -= dam * res / 100;
 
-	if (is_affected(victim, "shadow magic"))
+	if (is_sn_affected(victim, "shadow magic"))
 		dam /= 5;
 
 	if (IS_SET(dam_flags, DAMF_NOREDUCE))
@@ -1226,7 +1226,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		break;
 
 	case POS_DEAD:
-		send_to_char("\n", victim);
 		break;
 
 	default:
@@ -1443,19 +1442,31 @@ stop_fighting(CHAR_DATA *ch, bool fBoth)
 	return;
 }
 
+static
+FOREACH_CB_FUN(pull_obj_death_cb, p, ap)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) p;
+
+	CHAR_DATA *ch = obj->carried_by;
+
+	if (obj->wear_loc == WEAR_NONE)
+		return NULL;
+
+	if (pull_obj_trigger(TRIG_OBJ_DEATH, obj, ch, NULL) > 0)
+		return p;
+
+	return NULL;
+}
+
 OBJ_DATA *
 raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *vch, *vch_next;
-#if 0
-	XXX
-	OBJ_DATA *obj, *obj_next;
-#endif
 	int i;
 	OBJ_DATA *tattoo, *clanmark;
 	OBJ_DATA *corpse = NULL;
 
-	if (is_affected(victim, "resurrection")) {
+	if (is_sn_affected(victim, "resurrection")) {
 		act_puts("Yess! Your Great Master resurrects you!",
 			 victim, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("Ouch! Beast stands and fight again, with new power!",
@@ -1477,18 +1488,8 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (pull_mob_trigger(TRIG_MOB_DEATH, victim, ch, NULL) > 0)
 		return NULL;
-
-#if 0
-	XXX
-	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
-		obj_next = obj->next_content;
-		if (obj->wear_loc != WEAR_NONE
-		&&  oprog_call(OPROG_DEATH, obj, victim, NULL)) {
-			victim->position = POS_STANDING;
-			return NULL;
-		}
-	}
-#endif
+	if (vo_foreach(victim, &iter_obj_char, pull_obj_death_cb) != NULL)
+		return NULL;
 
 	act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
 	act_char("You die..", victim);
@@ -1625,7 +1626,7 @@ check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 {
 	int chance;
 
-	if (is_affected(victim, "protection from missiles")) {
+	if (is_sn_affected(victim, "protection from missiles")) {
 		act("$p falls to the ground, making no damage to you.",
 		    ch, obj, victim, TO_VICT);
 		act("$p falls to the ground, making no damage to $N.",
@@ -2188,7 +2189,7 @@ check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (!(chance = get_skill(victim, "distance")))
 		return FALSE;
 
-	if (is_affected(victim, "entanglement"))
+	if (is_sn_affected(victim, "entanglement"))
 		return FALSE;
 
 	ch_weapon = get_eq_char(ch, loc);
@@ -2359,7 +2360,7 @@ check_blink(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int chance;
 
-	if (!is_affected(victim, "blink"))
+	if (!is_sn_affected(victim, "blink"))
 		return FALSE;
 
 	if (IS_NPC(victim))
@@ -2396,7 +2397,7 @@ check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (get_eq_char(victim, WEAR_SHIELD) == NULL)
 		return FALSE;
 
-	if (is_affected(victim, "entanglement"))
+	if (is_sn_affected(victim, "entanglement"))
 		return FALSE;
 
 	chance = get_skill(victim, "shield block") / 2;
@@ -2472,7 +2473,7 @@ check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (MOUNTED(victim))
 		return FALSE;
 
-	if (is_affected(ch, "entanglement"))
+	if (is_sn_affected(ch, "entanglement"))
 		return FALSE;
 
 	chance  = get_skill(victim, "dodge") / 2;
@@ -3036,7 +3037,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	const char *msg_char;
 	const char *msg_vict = NULL;
 	const char *msg_notvict;
-	bool shadow = (ch != victim) && is_affected(ch, "shadow magic");
+	bool shadow = (ch != victim) && is_sn_affected(ch, "shadow magic");
 	gmlstr_t *dam_noun = NULL;
 	int act_flags = (dam == 0 ? ACT_VERBOSE : 0);
 
@@ -3099,7 +3100,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 
 			if (shadow)
 				msg_char = "$N is even immune to real $V.";
-			if (shadow && is_affected(victim, "shadow magic"))
+			if (shadow && is_sn_affected(victim, "shadow magic"))
 				msg_vict = "$n's illusionary $V is powerless "
 					"against you.";
 		} else {
@@ -3118,7 +3119,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				msg_notvict = "$n's illusionary $V $u $N.";
 			}
 
-			if (shadow && is_affected(victim, "shadow magic"))
+			if (shadow && is_sn_affected(victim, "shadow magic"))
 				msg_vict = "$n's illusionary $V $u you.";
 		}
 	}

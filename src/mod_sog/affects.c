@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.65 2001-08-21 11:39:03 fjoe Exp $
+ * $Id: affects.c,v 1.66 2001-09-07 15:40:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,7 +136,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		if (!IS_NPC(ch))
 			spec_update(ch);
 		return;
-	} else if (paf->where == TO_RESISTS || paf->where == TO_FORMRESIST) {
+	} else if (paf->where == TO_RESISTS || paf->where == TO_FORMRESISTS) {
 		int res = INT(paf->location);
 
 		if (res < 0)
@@ -145,7 +145,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			log(LOG_BUG, "affect_modify: res %d >= MAX_RESIST",
 			    res);
 		} else {
-			if (ch->shapeform && paf->where == TO_FORMRESIST)
+			if (ch->shapeform && paf->where == TO_FORMRESISTS)
 				ch->shapeform->res_mod[res] += mod;
 			ch->res_mod[res] += mod;
 		}
@@ -582,7 +582,7 @@ affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
 }
 
 bool
-is_affected(CHAR_DATA *ch, const char *sn)
+is_sn_affected(CHAR_DATA *ch, const char *sn)
 {
 	return affect_find(ch->affected, sn) != NULL;
 }
@@ -801,7 +801,7 @@ affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
  * Return true if a room is affected by a spell.
  */
 bool
-is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
+is_sn_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 {
 	AFFECT_DATA *paf;
 
@@ -916,18 +916,16 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 			buf_append(output, "------ --------- ------- ---------- -------- ----------------------------------\n");		// notrans
 		}
 		buf_printf(output, BUF_END,
-			   "[%4d] %9.9s %7.7s %10.10s %8d %s"	// notrans
-			   "\n",
-			   cnt,
-			   paf->type,
-			   flag_string(affect_where_types, paf->where),
-			   paf->where == TO_SKILLS ||
-			   paf->where == TO_FORM ||
-			   paf->where == TO_RACE ?
-				STR(paf->location) :
-				(w && w->loc_table) ? SFLAGS(w->loc_table, paf->location) : "none",
-			   paf->modifier,
-			   (w && w->bit_table) ? flag_string(w->bit_table, paf->bitvector) : "none");
+		    "[%4d] %9.9s %7.7s %10.10s %8d %s\n",	// notrans
+		    cnt, paf->type,
+		    flag_string(affect_where_types, paf->where),
+		    IS_APPLY_AFFECT(paf) ?
+			(w != NULL && w->loc_table) ?
+				SFLAGS(w->loc_table, paf->location) : "none" :
+			STR(paf->location),
+		    paf->modifier,
+		    (w != NULL && w->bit_table) ?
+			flag_string(w->bit_table, paf->bitvector) : "none");
 		cnt++;
 	}
 }
@@ -942,15 +940,15 @@ format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			continue;
 
 		if (!IS_NULLSTR(w->loc_format)
-		&& (paf->where == TO_RESISTS
-			|| paf->where == TO_FORMRESIST
-			|| INT(paf->location) != APPLY_NONE)
-		&&  paf->modifier) {
+		&&  (paf->where == TO_RESISTS ||
+		     paf->where == TO_FORMRESISTS ||
+		     INT(paf->location) != APPLY_NONE)
+		&&   paf->modifier) {
 			buf_printf(output, BUF_END, w->loc_format,
-				paf->where != TO_RACE ?
+			    IS_APPLY_AFFECT(paf) ?
 				SFLAGS(w->loc_table, paf->location) :
 				STR(paf->location),
-				paf->modifier);
+			    paf->modifier);
 			if (!IS_SET(flags, FOA_F_NODURATION)
 			&&  paf->duration > -1)
 				buf_printf(output, BUF_END, " for %d hours",

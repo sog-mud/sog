@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.264 2001-09-05 12:57:04 fjoe Exp $
+ * $Id: spellfun.c,v 1.265 2001-09-07 15:40:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -204,6 +204,7 @@ DECLARE_SPELL_FUN(spell_fear);
 DECLARE_SPELL_FUN(spell_protection_heat);
 DECLARE_SPELL_FUN(spell_protection_cold);
 DECLARE_SPELL_FUN(spell_fire_shield);
+DECLARE_SPELL_FUN(spell_cold_shield);
 DECLARE_SPELL_FUN(spell_witch_curse);
 DECLARE_SPELL_FUN(spell_knock);
 DECLARE_SPELL_FUN(spell_hallucination);
@@ -265,7 +266,7 @@ SPELL_FUN(spell_armor, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already armored.", ch);
 		else {
@@ -411,7 +412,7 @@ SPELL_FUN(spell_dispel_magic, sn, level, ch, vo)
 
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
-	&&  !is_affected(victim, "sanctuary")) {
+	&&  !is_sn_affected(victim, "sanctuary")) {
 		REMOVE_BIT(victim->affected_by, AFF_SANCTUARY);
 		act("The white aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
@@ -420,7 +421,7 @@ SPELL_FUN(spell_dispel_magic, sn, level, ch, vo)
 
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
-	&&  !is_affected(victim, "black shroud")) {
+	&&  !is_sn_affected(victim, "black shroud")) {
 		REMOVE_BIT(victim->affected_by, AFF_BLACK_SHROUD);
 		act("The black aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
@@ -1241,7 +1242,7 @@ SPELL_FUN(spell_draining_touch, sn, level, ch, vo)
 	if (IS_EXTRACTED(victim))
 		return;
 
-	if (!is_affected(victim, sn)
+	if (!is_sn_affected(victim, sn)
 	&&  !saves_spell(level-5, victim, DAM_NEGATIVE)) {
 		AFFECT_DATA *paf;
 
@@ -1409,7 +1410,7 @@ SPELL_FUN(spell_fly, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 
 	if (IS_AFFECTED(victim, AFF_FLYING)
-	||  is_affected(victim, sn)) {
+	||  is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already airborne.", ch);
 		else {
@@ -1469,7 +1470,7 @@ SPELL_FUN(spell_giant_strength, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn))
+	if (is_sn_affected(victim, sn))
 	{
 		if (victim == ch)
 		  act_char("You are already as strong as you can get!", ch);
@@ -1497,7 +1498,7 @@ SPELL_FUN(spell_haste, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)
+	if (is_sn_affected(victim, sn)
 	||  IS_AFFECTED(victim,AFF_HASTE)
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))) {
 		if (victim == ch)
@@ -1708,7 +1709,7 @@ SPELL_FUN(spell_magic_missile, sn, level, ch, vo)
 
 	int dam;
 
-	if (is_affected(victim, "protective shield"))  {
+	if (is_sn_affected(victim, "protective shield"))  {
 		const char *text = LEVEL(ch) > 4 ? "missiles" : "missile";
 
 		act("Your magic $t fizzle out near your victim.",
@@ -2003,7 +2004,7 @@ SPELL_FUN(spell_shield, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already shielded from harm.", ch);
 		else {
@@ -2058,7 +2059,7 @@ SPELL_FUN(spell_sleep, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, "free action"))
+	if (is_sn_affected(victim, "free action"))
 		level -= 5;
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)
@@ -2086,7 +2087,7 @@ SPELL_FUN(spell_slow, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn) || IS_AFFECTED(victim,AFF_SLOW)) {
+	if (is_sn_affected(victim, sn) || IS_AFFECTED(victim,AFF_SLOW)) {
 		if (victim == ch)
 			act_char("You can't move any slower!", ch);
 		else {
@@ -2125,7 +2126,7 @@ SPELL_FUN(spell_stone_skin, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		if (victim == ch)
 			act_char("Your skin is already as hard as a rock.", ch);
 		else {
@@ -2279,7 +2280,7 @@ SPELL_FUN(spell_weaken, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn) || saves_spell(level, victim,DAM_OTHER))
+	if (is_sn_affected(victim, sn) || saves_spell(level, victim,DAM_OTHER))
 		return;
 
 	paf = aff_new(TO_AFFECTS, sn);
@@ -2585,12 +2586,12 @@ SPELL_FUN(spell_lightning_shield, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already shielded.", ch);
 		return;
 	}
 
-	if (is_affected(ch,sn)) {
+	if (is_sn_affected(ch,sn)) {
 		act_char("This spell is used too recently.", ch);
 		return;
 	}
@@ -2616,12 +2617,12 @@ SPELL_FUN(spell_shocking_trap, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already trapped with shocks waves.", ch);
 		return;
 	}
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("This spell is used too recently.", ch);
 		return;
 	}
@@ -3266,7 +3267,7 @@ SPELL_FUN(spell_bark_skin, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		if (victim == ch)
 			act_char("Your skin is already covered in bark.", ch);
 		else {
@@ -3327,7 +3328,7 @@ SPELL_FUN(spell_transform, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn) || ch->hit > ch->max_hit) {
+	if (is_sn_affected(ch, sn) || ch->hit > ch->max_hit) {
 		act_char("You are already overflowing with health.", ch);
 		return;
 	}
@@ -3382,7 +3383,7 @@ SPELL_FUN(spell_mental_knife, sn, level, ch, vo)
 	if (IS_EXTRACTED(victim))
 		return;
 
-	if (!is_affected(victim, sn)
+	if (!is_sn_affected(victim, sn)
 	&&  !saves_spell(level, victim, DAM_MENTAL)) {
 		AFFECT_DATA *paf;
 
@@ -3415,7 +3416,7 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to summon another demon right now.", ch);
 		return;
 	}
@@ -3523,7 +3524,7 @@ SPELL_FUN(spell_manacles, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)
+	if (is_sn_affected(victim, sn)
 	||  saves_spell(ch->level, victim, DAM_CHARM))
 		return;
 
@@ -3609,7 +3610,7 @@ SPELL_FUN(spell_guard_call, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to call another two guards now.", ch);
 		return;
 	}
@@ -3677,7 +3678,7 @@ SPELL_FUN(spell_nightwalker, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_affected(ch,sn)) {
+	if (is_sn_affected(ch,sn)) {
 		act_puts("You feel too weak to summon a Nightwalker now.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
@@ -3765,7 +3766,7 @@ SPELL_FUN(spell_shadow_cloak, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch) {
 			act_char("You are already protected by a shadow cloak.",
 				 ch);
@@ -3797,7 +3798,7 @@ SPELL_FUN(spell_nightfall, sn, level, ch, vo)
 	OBJ_DATA  *obj;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You can't find the power to control objects.", ch);
 		return;
 	}
@@ -3848,13 +3849,13 @@ SPELL_FUN(spell_garble, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		act("$N's speech is already garbled.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (is_safe_nomessage(ch,victim)) {
+	if (is_safe_nomessage(ch, victim)) {
 		act_char("You cannot garble that person.", ch);
 		return;
 	}
@@ -3879,7 +3880,7 @@ SPELL_FUN(spell_confuse, sn, level, ch, vo)
 	CHAR_DATA *rch;
 	int count;
 
-	if (is_affected(victim, "confuse")) {
+	if (is_sn_affected(victim, "confuse")) {
 		act("$N is already thoroughly confused.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -3943,7 +3944,7 @@ SPELL_FUN(spell_kassandra, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("The kassandra has been used for this purpose too recently.", ch);
 		return;
 	}
@@ -3964,7 +3965,7 @@ SPELL_FUN(spell_sebat, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("The kassandra has been used for that too recently.",
 			 ch);
 		return;
@@ -3988,7 +3989,7 @@ SPELL_FUN(spell_matandra, sn, level, ch, vo)
 	int dam;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("The kassandra has been used for this purpose too recently.", ch);
 		return;
 	}
@@ -4068,7 +4069,7 @@ SPELL_FUN(spell_stalker, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("This power is used too recently.", ch);
 		return;
 	}
@@ -4329,7 +4330,7 @@ SPELL_FUN(spell_shadowlife, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(ch,sn)) {
+	if (is_sn_affected(ch,sn)) {
 		act_char("You don't have the strength to raise a Shadow now.", ch);
 		return;
 	}
@@ -4449,7 +4450,7 @@ SPELL_FUN(spell_dragon_strength, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You are already full of the strength of the dragon.", ch);
 		return;
 	}
@@ -4505,7 +4506,7 @@ SPELL_FUN(spell_golden_aura, sn, level, ch, vo)
 		if (!is_same_group(vch, ch) || !IS_GOOD(ch))
 			continue;
 
-		if (is_affected(vch, sn)) {
+		if (is_sn_affected(vch, sn)) {
 			if (vch == ch)
 				act_char("You are already protected by a golden aura.", ch);
 			else
@@ -4789,7 +4790,7 @@ SPELL_FUN(spell_squire, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You cannot command another squire right now.", ch);
 		return;
 	}
@@ -4937,7 +4938,7 @@ SPELL_FUN(spell_entangle, sn, level, ch, vo)
 	else
 		victim->move = 0;
 
-	if (!is_affected(victim, sn)) {
+	if (!is_sn_affected(victim, sn)) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_AFFECTS, sn);
@@ -4954,7 +4955,7 @@ SPELL_FUN(spell_holy_armor, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You are already protected from harm.", ch);
 		return;
 	}
@@ -4990,7 +4991,7 @@ SPELL_FUN(spell_protective_shield, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch) {
 			act_char("You are already surrounded by a protective shield.", ch);
 		} else {
@@ -5023,7 +5024,7 @@ SPELL_FUN(spell_deafen, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim,sn)) {
+	if (is_sn_affected(victim,sn)) {
 		act("$N is already deaf.",ch,NULL,victim,TO_CHAR);
 		return;
 	}
@@ -5052,7 +5053,7 @@ SPELL_FUN(spell_disperse, sn, level, ch, vo)
 	CHAR_DATA *vch, *vch_next;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You aren't up to dispersing this crowd.", ch);
 		return;
 	}
@@ -5093,7 +5094,7 @@ SPELL_FUN(spell_honor_shield, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch) {
 			act_char("But you're already protected by your honor.",
 				 ch);
@@ -5300,7 +5301,7 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 			return;
 		}
 
-		if (is_affected(ch, sn)) {
+		if (is_sn_affected(ch, sn)) {
 			act_char("You cannot summon the strength to handle more undead bodies.", ch);
 			return;
 		}
@@ -5435,7 +5436,7 @@ SPELL_FUN(spell_bone_dragon, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act("You are still tired from growing previous one.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -5480,7 +5481,7 @@ SPELL_FUN(spell_enhanced_armor, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already enhancedly armored.", ch);
 		else {
@@ -5510,7 +5511,7 @@ SPELL_FUN(spell_meld_into_stone, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch) {
 			act_char("Your skin is already covered with stone.",
 				 ch);
@@ -5541,7 +5542,7 @@ SPELL_FUN(spell_web, sn, level, ch, vo)
 	if (saves_spell (level, victim, DAM_OTHER))
 		return;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already webbed.", ch);
 		else
@@ -5629,7 +5630,7 @@ SPELL_FUN(spell_shielding, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		paf = aff_new(TO_AFFECTS, sn);
 		paf->level	= level;
 		paf->duration	= level / 20;
@@ -5752,7 +5753,7 @@ SPELL_FUN(spell_lion_help, sn, level, ch, vo)
 	act_char("You call a hunter lion.", ch);
 	act("$n shouts a hunter lion.", ch, NULL, NULL, TO_ROOM);
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You cannot summon the strength to handle more lions right now.", ch);
 		return;
 	}
@@ -5886,7 +5887,7 @@ SPELL_FUN(spell_fear, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)
+	if (is_sn_affected(victim, sn)
 	||  saves_spell(level, victim, DAM_OTHER))
 		return;
 
@@ -5906,7 +5907,7 @@ SPELL_FUN(spell_protection_heat, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, "protection heat")) {
+	if (is_sn_affected(victim, "protection heat")) {
 		if (victim == ch)
 			act_char("You are already protected from heat.", ch);
 		else {
@@ -5916,7 +5917,7 @@ SPELL_FUN(spell_protection_heat, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, "protection cold")) {
+	if (is_sn_affected(victim, "protection cold")) {
 		if (victim == ch)
 			act_char("You are already protected from cold.", ch);
 		else {
@@ -5926,7 +5927,7 @@ SPELL_FUN(spell_protection_heat, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, "fire shield")) {
+	if (is_sn_affected(victim, "fire shield")) {
 		if (victim == ch)
 			act_char("You are already using fire shield.", ch);
 		else {
@@ -5954,7 +5955,7 @@ SPELL_FUN(spell_protection_cold, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, "protection cold")) {
+	if (is_sn_affected(victim, "protection cold")) {
 		if (victim == ch)
 			act_char("You are already protected from cold.", ch);
 		else {
@@ -5964,7 +5965,7 @@ SPELL_FUN(spell_protection_cold, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, "protection heat")) {
+	if (is_sn_affected(victim, "protection heat")) {
 		if (victim == ch)
 			act_char("You are already protected from heat.", ch);
 		else {
@@ -5974,7 +5975,7 @@ SPELL_FUN(spell_protection_cold, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, "fire shield")) {
+	if (is_sn_affected(victim, "fire shield")) {
 		if (victim == ch)
 			act_char("You are already using fire shield.", ch);
 		else {
@@ -6001,24 +6002,14 @@ SPELL_FUN(spell_protection_cold, sn, level, ch, vo)
 
 SPELL_FUN(spell_fire_shield, sn, level, ch, vo)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *fire;
-
-	target_name = one_argument(target_name, arg, sizeof(arg));
-	if (str_cmp(arg, "cold") && str_cmp(arg, "fire")) {
-		act_char("You must specify the type.", ch);
-		return;
-	}
 
 	fire = create_obj(OBJ_VNUM_FIRE_SHIELD, 0);
 	if (fire == NULL)
 		return;
 
 	fire->level = ch->level;
-	label_add(fire, arg);
-
 	mlstr_cpy(&fire->owner, &ch->short_descr);
-	fire->ed = ed_new2(fire->pObjIndex->ed, arg);
 
 	fire->cost = 0;
 	fire->timer = 5 * ch->level ;
@@ -6032,12 +6023,37 @@ SPELL_FUN(spell_fire_shield, sn, level, ch, vo)
 	act("You create $p.", ch, fire, NULL, TO_CHAR);
 }
 
+#define OBJ_VNUM_COLD_SHIELD		79
+
+SPELL_FUN(spell_cold_shield, sn, level, ch, vo)
+{
+	OBJ_DATA *cold;
+
+	cold = create_obj(OBJ_VNUM_COLD_SHIELD, 0);
+	if (cold == NULL)
+		return;
+
+	cold->level = ch->level;
+	mlstr_cpy(&cold->owner, &ch->short_descr);
+
+	cold->cost = 0;
+	cold->timer = 5 * ch->level ;
+	if (IS_GOOD(ch))
+		SET_OBJ_STAT(cold, ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL);
+	else if (IS_NEUTRAL(ch))
+		SET_OBJ_STAT(cold, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
+	else if (IS_EVIL(ch))
+		SET_OBJ_STAT(cold, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
+	obj_to_char(cold, ch);
+	act("You create $p.", ch, cold, NULL, TO_CHAR);
+}
+
 SPELL_FUN(spell_witch_curse, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		act_char("It has already underflowing with health.", ch);
 		return;
 	}
@@ -6147,7 +6163,7 @@ SPELL_FUN(spell_hallucination, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (ch == victim) {
 			act_char("You are already hallucinating.", ch);
 		} else {
@@ -6185,7 +6201,7 @@ SPELL_FUN(spell_wolf, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to summon another wolf right now.",
 			 ch);
 		return;
@@ -6252,7 +6268,7 @@ SPELL_FUN(spell_dragon_skin, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("Your skin is already hard as rock.", ch);
 		else {
@@ -6304,7 +6320,7 @@ SPELL_FUN(spell_power_stun, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn) || saves_spell(level, victim, DAM_OTHER))
+	if (is_sn_affected(victim, sn) || saves_spell(level, victim, DAM_OTHER))
 		return;
 
 	paf = aff_new(TO_AFFECTS, sn);
@@ -6350,7 +6366,7 @@ SPELL_FUN(spell_randomizer, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("Your power of randomness has been exhausted for now.", ch);
 		return;
 	}
@@ -6402,7 +6418,7 @@ SPELL_FUN(spell_flesh_golem, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i = 0;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to create another golem right now.", ch);
 		return;
 	}
@@ -6466,7 +6482,7 @@ SPELL_FUN(spell_stone_golem, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i = 0;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to create another golem right now.", ch);
 		return;
 	}
@@ -6530,7 +6546,7 @@ SPELL_FUN(spell_iron_golem, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i = 0;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to create another golem right now.", ch);
 		return;
 	}
@@ -6592,7 +6608,7 @@ SPELL_FUN(spell_adamantite_golem, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i = 0;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to create another golem right now.", ch);
 		return;
 	}
@@ -6681,7 +6697,7 @@ SPELL_FUN(spell_mysterious_dream, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already been affected by sleep gas.", ch);
 		return;
 	}
@@ -6702,7 +6718,7 @@ SPELL_FUN(spell_ratform, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You are rat already.", ch);
 		return;
 	}
@@ -6723,7 +6739,7 @@ SPELL_FUN(spell_polymorph, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	race_t *r;
 
-	if (is_affected(ch, sn) || is_affected(ch, "deathen")) {
+	if (is_sn_affected(ch, sn) || is_sn_affected(ch, "deathen")) {
 		act_char("You are already polymorphed.", ch);
 		return;
 	}
@@ -6760,7 +6776,7 @@ SPELL_FUN(spell_deathen, sn, level, ch, vo)
         AFFECT_DATA *paf;
         CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-        if (is_affected(victim, sn)) {
+        if (is_sn_affected(victim, sn)) {
 	        act("$N is already decays.", ch, NULL, victim, TO_CHAR);
 	        return;
         }
@@ -6787,7 +6803,7 @@ SPELL_FUN(spell_lich, sn, level, ch, vo)
 	race_t *r;
 	int lev = 0;
 
-	if (is_affected(ch, sn) || is_affected(ch, "deathen")) {
+	if (is_sn_affected(ch, sn) || is_sn_affected(ch, "deathen")) {
 		act("Your flesh is already dead.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -6830,7 +6846,7 @@ SPELL_FUN(spell_lich, sn, level, ch, vo)
 
 SPELL_FUN(spell_protection_negative, sn, level, ch, vo)
 {
-	if (!is_affected(ch, sn)) {
+	if (!is_sn_affected(ch, sn)) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_RESISTS, sn);
@@ -6848,7 +6864,7 @@ SPELL_FUN(spell_protection_negative, sn, level, ch, vo)
 
 SPELL_FUN(spell_ruler_aura, sn, level, ch, vo)
 {
-	if (!is_affected(ch, sn)) {
+	if (!is_sn_affected(ch, sn)) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_RESISTS, sn);
@@ -6872,12 +6888,12 @@ SPELL_FUN(spell_evil_spirit, sn, level, ch, vo)
 	int i;
 
 	if (IS_AFFECTED(ch->in_room, RAFF_ESPIRIT)
-	||  is_affected_room(ch->in_room,sn)) {
+	||  is_sn_affected_room(ch->in_room,sn)) {
 		act_char("The zone is already full of evil spirit.", ch);
 		return;
 	}
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("Your power of evil spirit is less for you, now.", ch);		return;
 	}
 
@@ -6913,7 +6929,7 @@ SPELL_FUN(spell_disgrace, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!is_affected(victim, sn)
+	if (!is_sn_affected(victim, sn)
 	&&  !saves_spell(level, victim, DAM_MENTAL)) {
 		AFFECT_DATA *paf;
 
@@ -6999,7 +7015,7 @@ SPELL_FUN(spell_assist, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("This power is used too recently.", ch);
 		return;
 	}
@@ -7027,7 +7043,7 @@ SPELL_FUN(spell_summon_shadow, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_affected(ch,sn)) {
+	if (is_sn_affected(ch,sn)) {
 		act_char("You lack the power to summon another shadow right now.", ch);
 		return;
 	}
@@ -7116,8 +7132,8 @@ SPELL_FUN(spell_mirror, sn, level, ch, vo)
 	}
 
 	for (mirrors = 0, gch = npc_list; gch; gch = gch->next)
-		if (is_affected(gch, "mirror")
-		&&  is_affected(gch, "doppelganger")
+		if (is_sn_affected(gch, "mirror")
+		&&  is_sn_affected(gch, "doppelganger")
 		&&  gch->doppel == victim)
 			mirrors++;
 
@@ -7191,7 +7207,7 @@ SPELL_FUN(spell_doppelganger, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (ch == victim || (is_affected(ch, sn) && ch->doppel == victim)) {
+	if (ch == victim || (is_sn_affected(ch, sn) && ch->doppel == victim)) {
 		act("You already look like $M.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -7287,7 +7303,7 @@ SPELL_FUN(spell_enlarge, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (ch==victim)
 			act("You are already as large as you can get.",
 				ch, NULL, NULL, TO_CHAR);
@@ -7301,7 +7317,7 @@ SPELL_FUN(spell_enlarge, sn, level, ch, vo)
 	||  !saves_spell(level, victim, DAM_NEGATIVE)) {
 		AFFECT_DATA *paf;
 
-		if (is_affected(victim, "shrink")) {
+		if (is_sn_affected(victim, "shrink")) {
 			affect_strip(victim, "shrink");
 			act("You grow back to your normal size.",
 				victim, NULL, NULL, TO_CHAR);
@@ -7346,7 +7362,7 @@ SPELL_FUN(spell_shrink, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (ch == victim) {
 			act("You are already as small as you can get.",
 				ch, NULL, NULL, TO_CHAR);
@@ -7361,7 +7377,7 @@ SPELL_FUN(spell_shrink, sn, level, ch, vo)
 	||  !saves_spell(level, victim, DAM_NEGATIVE)) {
 		AFFECT_DATA *paf;
 
-		if (is_affected(victim, "enlarge")) {
+		if (is_sn_affected(victim, "enlarge")) {
 			affect_strip(victim, "enlarge");
 			act("You shrink back to your normal size.",
 				victim, NULL, NULL, TO_CHAR);
@@ -7404,7 +7420,7 @@ SPELL_FUN(spell_water_breathing, sn, level, ch, vo)
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(vch, sn)) {
+	if (is_sn_affected(vch, sn)) {
 		if (ch == vch)
 			act_char("You can already breath under water.", ch);
 		else {
@@ -7427,7 +7443,7 @@ SPELL_FUN(spell_blur, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("Your body is already blurred.", ch);
 		return;
 	}
@@ -7627,7 +7643,7 @@ SPELL_FUN(spell_simulacrum, sn, level, ch, vo)
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (gch->master == ch
-		&& (is_affected(gch, sn)))
+		&& (is_sn_affected(gch, sn)))
 			count_illusions++;
 	}
 
@@ -7672,7 +7688,7 @@ SPELL_FUN(spell_misleading, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act("You are already affected.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -7862,7 +7878,7 @@ SPELL_FUN(spell_protection_from_missiles, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You are already well protected from missiles.", ch);
 		return;
 	}
@@ -7888,7 +7904,7 @@ SPELL_FUN(spell_alarm, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("The alarm in this room had been already set.", ch);
 		return;
 	}
@@ -7914,7 +7930,7 @@ SPELL_FUN(spell_globe_of_invulnerability, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You are already protected by a globe.", ch);
 		return;
 	}
@@ -7943,7 +7959,7 @@ SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int hp_to_add;
 
-	if (is_affected(ch,sn)) {
+	if (is_sn_affected(ch,sn)) {
 		act_char("You are already protected.\n", ch);
 		return;
 	}

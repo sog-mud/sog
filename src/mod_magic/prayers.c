@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.17 2001-09-02 16:21:56 fjoe Exp $
+ * $Id: prayers.c,v 1.18 2001-09-07 15:40:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -213,12 +213,12 @@ SPELL_FUN(prayer_restoring_light, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room is already lit with magic light.", ch);
 		return;
 	}
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("Rest a while, you're tired from previous one.", ch);
 		return;
 	}
@@ -310,7 +310,7 @@ inspire_cb(void *vo, va_list ap)
 		return NULL;
 	}
 
-	if (is_affected(gch, "bless")) {
+	if (is_sn_affected(gch, "bless")) {
 		if (gch == ch)
 			act_char("You are already inspired.", ch);
 		else
@@ -481,7 +481,7 @@ SPELL_FUN(prayer_cure_blindness, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!is_affected(victim, "blindness")) {
+	if (!is_sn_affected(victim, "blindness")) {
 		if (victim == ch)
 		  act_char("You aren't blind.", ch);
 		else
@@ -500,7 +500,7 @@ SPELL_FUN(prayer_cure_poison, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!is_affected(victim, "poison")) {
+	if (!is_sn_affected(victim, "poison")) {
 		if (victim == ch)
 			act_char("You aren't poisoned.", ch);
 		else {
@@ -522,7 +522,7 @@ SPELL_FUN(prayer_cure_disease, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!is_affected(victim, "plague")) {
+	if (!is_sn_affected(victim, "plague")) {
 		if (victim == ch)
 			act_char("You aren't ill.", ch);
 		else {
@@ -556,7 +556,7 @@ group_defense_cb(void *vo, va_list ap)
 		return NULL;
 	}
 
-	if (is_affected(gch, "armor")) {
+	if (is_sn_affected(gch, "armor")) {
 		if (gch == ch)
 			act_char("You are already armored.", ch);
 		else
@@ -579,7 +579,7 @@ group_defense_cb(void *vo, va_list ap)
 		}
 	}
 
-	if (is_affected(gch, "shield")) {
+	if (is_sn_affected(gch, "shield")) {
 		if (gch == ch)
 			act_char("You are already shielded.", ch);
 		else
@@ -658,7 +658,7 @@ SPELL_FUN(prayer_turn, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("This power is used too recently.", ch);
 		return;
 	}
@@ -759,7 +759,7 @@ SPELL_FUN(prayer_create_water, sn, level, ch, vo)
 
 SPELL_FUN(prayer_resilience, sn, level, ch, vo)
 {
-	if (!is_affected(ch, sn)) {
+	if (!is_sn_affected(ch, sn)) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_RESISTS, sn);
@@ -819,34 +819,34 @@ SPELL_FUN(prayer_sanctify_lands, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected_room(ch->in_room, "cursed lands")) {
+	if (is_sn_affected_room(ch->in_room, "cursed lands")) {
 		affect_strip_room(ch->in_room, "cursed lands");
 		act_char("The curse of the land wears off.", ch);
 		act("The curse of the land wears off.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
 
-	if (is_affected_room(ch->in_room, "deadly venom")) {
+	if (is_sn_affected_room(ch->in_room, "deadly venom")) {
 		affect_strip_room(ch->in_room, "deadly venom");
 		act_char("The land seems more healthy.", ch);
 		act("The land seems more healthy.", ch, NULL, NULL, TO_ROOM);
 	}
 
-	if (is_affected_room(ch->in_room, "mysterious dream")) {
+	if (is_sn_affected_room(ch->in_room, "mysterious dream")) {
 		affect_strip_room(ch->in_room, "mysterious dream");
 		act_char("The land wake up from mysterious dream.", ch);
 		act("The land wake up from mysterious dream.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
 
-	if (is_affected_room(ch->in_room, "black death")) {
+	if (is_sn_affected_room(ch->in_room, "black death")) {
 		act_char("The disease of the land has been treated.", ch);
 		act("The disease of the land has been treated.",
 		    ch, NULL, NULL, TO_ROOM);
 		affect_strip_room(ch->in_room, "black death");
 	}
 
-	if (is_affected_room(ch->in_room, "lethargic mist")) {
+	if (is_sn_affected_room(ch->in_room, "lethargic mist")) {
 		act_char("The lethargic mist dissolves.", ch);
 		act("The lethargic mist dissolves.", ch, NULL, NULL, TO_ROOM);
 		affect_strip_room(ch->in_room, "lethargic mist");
@@ -937,7 +937,7 @@ SPELL_FUN(prayer_calm, sn, level, ch, vo)
 				continue;
 
 			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
-			||  is_affected(vch, "frenzy"))
+			||  is_sn_affected(vch, "frenzy"))
 				continue;
 
 			act_char("A wave of calm passes over you.", vch);
@@ -1072,7 +1072,7 @@ SPELL_FUN(prayer_bless, sn, level, ch, vo)
 
 	victim = (CHAR_DATA *) vo;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch)
 			act_char("You are already blessed.", ch);
 		else if (ch) {
@@ -1276,7 +1276,7 @@ SPELL_FUN(prayer_restoration, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act("You do not have enough power.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -1354,7 +1354,7 @@ SPELL_FUN(prayer_lethargic_mist, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already been full of lethargic mist.", ch);
 		return;
 	}
@@ -1441,7 +1441,7 @@ SPELL_FUN(prayer_healing_light, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already been healed by light.", ch);
 		return;
 	}
@@ -1603,7 +1603,7 @@ SPELL_FUN(prayer_black_death, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already been diseased.", ch);
 		return;
 	}
@@ -1726,7 +1726,7 @@ SPELL_FUN(prayer_anathema, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		act_puts("$N is already cursed.",
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
@@ -1882,7 +1882,7 @@ SPELL_FUN(prayer_mind_light, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already had booster of mana.", ch);
 		return;
 	}
@@ -1910,7 +1910,7 @@ SPELL_FUN(prayer_free_action, sn, level, ch, vo)
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act("Your movements are already free.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
@@ -1939,7 +1939,7 @@ SPELL_FUN(prayer_deadly_venom, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected_room(ch->in_room, sn)) {
+	if (is_sn_affected_room(ch->in_room, sn)) {
 		act_char("This room has already been affected by deadly venom.", ch);
 		return;
 	}
@@ -1999,7 +1999,7 @@ SPELL_FUN(prayer_aid, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("This power is used too recently.", ch);
 		return;
 	}
@@ -2106,7 +2106,7 @@ SPELL_FUN(prayer_benediction, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int strength = 0;
 
-	if (is_affected(victim, sn)) {
+	if (is_sn_affected(victim, sn)) {
 		if (victim == ch) {
 			act("You are already blessed.",
 				ch, NULL, NULL, TO_CHAR);
@@ -2322,7 +2322,7 @@ SPELL_FUN(prayer_frenzy, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn) || IS_AFFECTED(victim, AFF_BERSERK)) {
+	if (is_sn_affected(victim, sn) || IS_AFFECTED(victim, AFF_BERSERK)) {
 		if (victim == ch)
 			act_char("You are already in a frenzy.", ch);
 		else
@@ -2331,7 +2331,7 @@ SPELL_FUN(prayer_frenzy, sn, level, ch, vo)
 		return;
 	}
 
-	if (is_affected(victim, "calm")) {
+	if (is_sn_affected(victim, "calm")) {
 		if (victim == ch)
 			act_char("Why don't you just relax for a while?", ch);
 		else

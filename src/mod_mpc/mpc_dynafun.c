@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.12 2001-09-05 12:57:06 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.13 2001-09-07 15:40:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -60,12 +60,6 @@ has_sp(CHAR_DATA *ch, const char *spn, const char *spn_rm, const char *spn_add)
 		return TRUE;
 
 	return !!varr_foreach(&PC(ch)->specs, has_sp_cb, spn, spn_rm);
-}
-
-int
-level(CHAR_DATA *ch)
-{
-	return ch->level;
 }
 
 static
@@ -190,6 +184,134 @@ ROOM_INDEX_DATA *
 char_room(CHAR_DATA *ch)
 {
 	return ch->in_room;
+}
+
+int
+char_level(CHAR_DATA *ch)
+{
+	return LEVEL(ch);
+}
+
+int
+real_char_level(CHAR_DATA *ch)
+{
+	return LEVEL(ch);
+}
+
+void
+set_weapon_dice_type(OBJ_DATA *obj, int dice_type)
+{
+	if (obj->pObjIndex->item_type != ITEM_WEAPON)
+		return;
+
+	INT(obj->value[2]) = dice_type;
+}
+
+CHAR_DATA *
+char_fighting(CHAR_DATA *ch)
+{
+	return ch->fighting;
+}
+
+void
+set_obj_level(OBJ_DATA *obj, int level)
+{
+	obj->level = level;
+}
+
+bool
+is_owner(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	return !mlstr_cmp(&ch->short_descr, &obj->owner);
+}
+
+bool
+is_class(CHAR_DATA *ch, const char *cl)
+{
+	return IS_CLASS(ch->class, cl);
+}
+
+void
+affect_char(CHAR_DATA *ch, int where, const char *sn,
+	    int level, int duration, int loc, int mod, int bits)
+{
+	AFFECT_DATA *paf;
+
+	if (!IS_APPLY_WHERE(where))
+		return;
+
+	paf = aff_new(where, sn);
+
+	paf->level = level;
+	paf->duration = duration;
+
+	INT(paf->location) = loc;
+	paf->modifier = mod;
+	paf->bitvector = bits;
+
+	affect_to_char(ch, paf);
+	aff_free(paf);
+}
+
+int
+obj_level(OBJ_DATA *obj)
+{
+	return obj->level;
+}
+
+int
+room_sector(ROOM_INDEX_DATA *room)
+{
+	return room->sector_type;
+}
+
+int
+char_max_hit(CHAR_DATA *ch)
+{
+	return ch->max_hit;
+}
+
+void
+set_char_hit(CHAR_DATA *ch, int hit)
+{
+	ch->hit = hit;
+	update_pos(ch);
+}
+
+int
+obj_timer(OBJ_DATA *obj)
+{
+	return obj->timer;
+}
+
+void
+set_obj_timer(OBJ_DATA *obj, int timer)
+{
+	obj->timer = timer;
+}
+
+void
+set_char_gold(CHAR_DATA *ch, int gold)
+{
+	ch->gold = gold;
+}
+
+void
+set_char_silver(CHAR_DATA *ch, int silver)
+{
+	ch->silver = silver;
+}
+
+void
+wait_state(CHAR_DATA *ch, int ws)
+{
+	WAIT_STATE(ch, ws);
+}
+
+bool
+is_affected(CHAR_DATA *ch, int aff)
+{
+	return IS_AFFECTED(ch, aff);
 }
 
 #else /* !defined(MPC) */

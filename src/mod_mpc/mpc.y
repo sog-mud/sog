@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.31 2001-09-04 19:32:53 fjoe Exp $
+ * $Id: mpc.y,v 1.32 2001-09-07 15:40:17 fjoe Exp $
  */
 
 /*
@@ -1562,16 +1562,16 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "$N", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$o", MT_OBJ) < 0)
+		if (var_add(mpc, "$p", MT_OBJ) < 0)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "$t", MT_STR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
 	case MP_T_OBJ:
-		if (var_add(mpc, "$o", MT_OBJ) < 0)
+		if (var_add(mpc, "$p", MT_OBJ) < 0)
 			return MPC_ERR_COMPILE;
-		if (var_add(mpc, "$N", MT_CHAR) < 0)
+		if (var_add(mpc, "$n", MT_CHAR) < 0)
 			return MPC_ERR_COMPILE;
 		break;
 
@@ -1635,14 +1635,14 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3, void *arg4)
 			execerr(MPC_ERR_RUNTIME);
 		if (mob_var_assign(mpc, "$N", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (obj_var_assign(mpc, "$o", arg3) < 0)
+		if (obj_var_assign(mpc, "$p", arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		if (str_var_assign(mpc, "$t", arg4) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
 	case MP_T_OBJ:
-		if (obj_var_assign(mpc, "$o", arg1) < 0)
+		if (obj_var_assign(mpc, "$p", arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		if (mob_var_assign(mpc, "$n", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);

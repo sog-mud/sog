@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.399 2001-09-02 16:21:49 fjoe Exp $
+ * $Id: act_info.c,v 1.400 2001-09-07 15:40:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1206,7 +1206,7 @@ DO_FUN(do_who, ch, argument)
 		if (!wch || !can_see(ch, wch))
 			continue;
 
-		if (is_affected(wch, "vampire")
+		if (is_sn_affected(wch, "vampire")
 		&&  !IS_IMMORTAL(ch) && ch != wch)
 			continue;
 
@@ -1275,7 +1275,7 @@ DO_FUN(do_whois, ch, argument)
 				continue;
 
 		if (d->connected != CON_PLAYING
-		||  (is_affected(d->character, "vampire") &&
+		||  (is_sn_affected(d->character, "vampire") &&
 		     !IS_IMMORTAL(ch) && (ch != d->character)))
 			continue;
 
@@ -1460,7 +1460,7 @@ DO_FUN(do_where, ch, argument)
 				CHAR_DATA *doppel;
 				found = TRUE;
 
-				if (is_affected(victim, "doppelganger")
+				if (is_sn_affected(victim, "doppelganger")
 				&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
 					doppel = victim->doppel;
 				else
@@ -1834,7 +1834,7 @@ DO_FUN(do_request, ch, argument)
 	AFFECT_DATA *paf;
 	int carry_w, carry_n;
 
-	if (is_affected(ch, "reserved")) {
+	if (is_sn_affected(ch, "reserved")) {
 		act_char("Wait for a while to request again.", ch);
 		return;
 	}
@@ -1894,8 +1894,9 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
-	if (obj->wear_loc != WEAR_NONE)
-		unequip_char(victim, obj);
+	if (obj->wear_loc != WEAR_NONE
+	&&  !unequip_char(victim, obj))
+		return;
 
 	if (!can_drop_obj(victim, obj)) {
 		do_say(victim, "Sorry, I can't let go of it. It's cursed.");
@@ -2066,7 +2067,7 @@ DO_FUN(do_awareness, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "awareness")) {
+	if (is_sn_affected(ch, "awareness")) {
 		act_char("You are already as alert as you can be.", ch);
 		return;
 	}
@@ -2108,7 +2109,7 @@ DO_FUN(do_bear_call, ch, argument)
 	act_char("You call for bears help you.", ch);
 	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
 
-	if (is_affected(ch, "bear call")) {
+	if (is_sn_affected(ch, "bear call")) {
 		act_char("You cannot summon the strength to handle more bears right now.", ch);
 		return;
 	}
@@ -2827,7 +2828,7 @@ DO_FUN(do_lion_call, ch, argument)
 	act_char("You call for lions help you.", ch);
 	act("$n shouts a lion call.",ch,NULL,NULL,TO_ROOM);
 
-	if (is_affected(ch, "lion call")) {
+	if (is_sn_affected(ch, "lion call")) {
 		act_char("You cannot summon the strength to handle more lions right now.", ch);
 		return;
 	}
@@ -3517,7 +3518,7 @@ DO_FUN(do_camp, ch, argument)
 		return;
 	}
 
-	if (is_affected(ch, "camp")) {
+	if (is_sn_affected(ch, "camp")) {
 		act_char("You don't have enough power to handle more camp areas.", ch);
 		return;
 	}
@@ -3644,8 +3645,9 @@ DO_FUN(do_demand, ch, argument)
 		return;
 	}
 
-	if (obj->wear_loc != WEAR_NONE)
-		unequip_char(victim, obj);
+	if (obj->wear_loc != WEAR_NONE
+	&&  !unequip_char(victim, obj))
+		return;
 
 	if (!can_drop_obj(victim, obj)) {
 		do_say(victim, "It's cursed, so I can't let go of it. "
@@ -3950,7 +3952,7 @@ DO_FUN(do_homepoint, ch, argument)
                 return;
         }
 
-        if (is_affected(ch, "homepoint")) {
+        if (is_sn_affected(ch, "homepoint")) {
                 act_char("You fatigue for searching new home.", ch);
                 return;
         }
@@ -4011,11 +4013,11 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	const void *arg3 = NULL;
 	BUFFER *output;
 
-	if (is_affected(victim, "doppelganger")
+	if (is_sn_affected(victim, "doppelganger")
 	&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
 		victim = victim->doppel;
 
-	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
+	if (is_sn_affected(ch, "hallucination") && !IS_NPC(ch))
 		victim = nth_char(victim, PC(ch)->random_value);
 
 	output = buf_new(0);
@@ -4057,7 +4059,7 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_append(output, "({WWhite Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 			buf_append(output, "({DBlack Aura{x) ");
-		if (is_affected(victim, "golden aura"))
+		if (is_sn_affected(victim, "golden aura"))
 			buf_append(output, "({YGolden Aura{x) ");
 		if (HAS_INVIS(victim, ID_FADE))
 			buf_append(output, "({yFade{x) ");
@@ -4092,7 +4094,7 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			FLAG_SET(28, 'W', TRUE);
 			FLAG_SET(29, 'G', TRUE);
 		}
-		FLAG_SET(32, 'Y', is_affected(victim, "golden aura"));
+		FLAG_SET(32, 'Y', is_sn_affected(victim, "golden aura"));
 		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {

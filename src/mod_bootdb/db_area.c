@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.126 2001-08-22 20:45:45 fjoe Exp $
+ * $Id: db_area.c,v 1.127 2001-09-07 15:40:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,6 +41,7 @@
 ***************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include <merc.h>
@@ -699,6 +700,47 @@ DBLOAD_FUN(load_shops)
 	}
 }
 
+struct spec_subst_t {
+	const char *spec;
+	const char *mprog;
+};
+typedef struct spec_subst_t spec_subst_t;
+
+struct spec_subst_t spec_substs[] =
+{
+	{ "spec_breath_any",		"mob_random_breath_any"		},
+	{ "spec_breath_acid",		"mob_random_breath_acid"	},
+	{ "spec_breath_fire",		"mob_random_breath_fire"	},
+	{ "spec_breath_frost",		"mob_random_breath_frost"	},
+	{ "spec_breath_gas",		"mob_random_breath_gas"		},
+	{ "spec_breath_lightning",	"mob_random_breath_lightning"	},
+	{ "spec_cast_adept",		"mob_random_cast_adept"		},
+	{ "spec_cast_cleric",		"mob_random_cast_cleric"	},
+	{ "spec_cast_judge",		"mob_random_cast_judge"		},
+	{ "spec_cast_mage",		"mob_random_cast_mage"		},
+	{ "spec_cast_seneschal",	"mob_random_cast_seneschal"	},
+	{ "spec_cast_beholder",		"mob_random_cast_beholder"	},
+	{ "spec_cast_undead",		"mob_random_cast_undead"	},
+	{ "spec_executioner",		"mob_random_executioner"	},
+	{ "spec_fido",			"mob_random_fido"		},
+	{ "spec_guard",			"mob_random_guard"		},
+	{ "spec_janitor",		"mob_random_janitor"		},
+	{ "spec_mayor",			"mob_random_mayor"		},
+	{ "spec_poison",		"mob_random_poison"		},
+	{ "spec_thief",			"mob_random_thief"		},
+	{ "spec_nasty",			"mob_random_nasty"		},
+	{ "spec_troll_member",		"mob_random_troll_member"	},
+	{ "spec_ogre_member",		"mob_random_ogre_member"	},
+	{ "spec_patrolman",		"mob_random_patrolman"		},
+	{ "spec_cast_clan",		"mob_random_cast_clan"		},
+	{ "spec_special_guard",		"mob_random_special_guard"	},
+	{ "spec_assassinater",          "mob_random_assassinater"	},
+	{ "spec_captain",		"mob_random_captain"		},
+	{ "spec_headlamia",		"mob_random_headlamia"		},
+};
+
+#define SPEC_SUBSTS_SZ	(sizeof(spec_substs) / sizeof(spec_subst_t))
+
 /*
  * Snarf spec proc declarations.
  */
@@ -709,6 +751,10 @@ DBLOAD_FUN(load_specials)
 		char letter;
 		int vnum;
 		const char *spec;
+
+		static bool spec_substs_initialized = FALSE;
+		spec_subst_t *ssubst;
+		trig_t *trig;
 
 		switch (letter = fread_letter(fp)) {
 		default:
@@ -730,11 +776,30 @@ DBLOAD_FUN(load_specials)
 
 			fread_word(fp);
 			spec = rfile_tok(fp);
-			pMobIndex->spec_fun = mob_spec_lookup(spec);
-			if (pMobIndex->spec_fun == NULL) {
-				log(LOG_ERROR, "load_specials: %s: no such spec", spec);
+
+			if (!spec_substs_initialized) {
+				qsort(spec_substs, SPEC_SUBSTS_SZ,
+				      sizeof(spec_subst_t), cmpstr);
+				spec_substs_initialized = TRUE;
+			}
+
+			ssubst = bsearch(&spec, spec_substs, SPEC_SUBSTS_SZ,
+					 sizeof(spec_subst_t), cmpstr);
+			if (ssubst == NULL) {
+				log(LOG_ERROR, "load_specials: %s: unknown spec", spec);
 				break;
 			}
+
+			trig = varr_enew(&pMobIndex->mp_trigs);
+			trig->trig_type = TRIG_MOB_RANDOM;
+			trig->trig_prog = str_dup(ssubst->mprog);
+			trig_set_arg(trig, str_dup("+100"));
+			varr_qsort(&pMobIndex->mp_trigs, cmpint);
+
+			if (!str_cmp(spec, "spec_janitor"))
+				SET_BIT(pMobIndex->mob_flags, MOB_JANITOR);
+
+			TOUCH_AREA(area_current);
 			break;
 		}
 
@@ -1208,23 +1273,6 @@ DBLOAD_FUN(load_mobiles)
 					log(LOG_ERROR, "flag remove: flag not found.");
 					return;
 				}
-			} else if (letter == 'M') {
-				/* XXX */
-				int trig_vnum;
-				const char *phrase;
-#if 0
-				int type;
-
-				if ((type = fread_fword(mptrig_types, fp)) == 0) {
-					log(LOG_ERROR, "load_mobiles: vnum %d: invalid mob prog trigger",
-					    pMobIndex->vnum);
-					return;
-				}
-#endif
-				fread_word(fp);
-				trig_vnum = fread_number(fp);
-				phrase = fread_string(fp);
-				free_string(phrase);
 			} else if (letter == 'g')
 				mlstr_fread(fp, &pMobIndex->gender);
 			else if (letter == 'r') {   /* Resists */
@@ -1473,6 +1521,10 @@ DBLOAD_FUN(load_objects)
 				    AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 
+			case 'm':
+				trig_fread_list(&pObjIndex->mp_trigs, fp);
+				break;
+
 			case 'A':
 				paf = aff_new(TO_OBJECT, str_empty);
 
@@ -1646,14 +1698,6 @@ DBLOAD_FUN(load_objects)
 				mlstr_destroy(&pObjIndex->gender);
 				mlstr_init2(&pObjIndex->gender, rfile_tok(fp));
 				break;
-
-#if 0
-			XXX
-			case 'R':
-				fread_cc_vexpr(&pObjIndex->restrictions,
-					       "obj_wear", fp);	// notrans
-				break;
-#endif
 
 			case 'S':
 				paf = aff_new(TO_SKILLS, str_empty);

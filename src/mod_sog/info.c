@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.30 2001-08-22 12:41:29 fjoe Exp $
+ * $Id: info.c,v 1.31 2001-09-07 15:40:25 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -265,7 +265,7 @@ CMD_FUN(cmd_who)
 		|| wch->invis_level
 		|| wch->incog_level
 		|| HAS_INVIS(wch, ID_ALL_INVIS)
-		|| is_affected(wch, "vampire"))
+		|| is_sn_affected(wch, "vampire"))
 			continue;
 
 		do_who_raw(NULL, wch, output);

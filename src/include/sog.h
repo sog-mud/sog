@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.21 2001-09-05 12:57:01 fjoe Exp $
+ * $Id: sog.h,v 1.22 2001-09-07 15:40:02 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -129,8 +129,8 @@ DECLARE_PROC2(_equip_char,
 	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN3(OBJ_DATA, equip_char,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(int), iWear)
-DECLARE_PROC2(unequip_char,
-	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
+DECLARE_FUN2(bool, unequip_char,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 DECLARE_FUN2(OBJ_DATA, get_eq_char,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear)
 
@@ -438,7 +438,7 @@ DECLARE_PROC3(affect_bit_strip,
 DECLARE_PROC2(affect_join,
 	      ARG(CHAR_DATA), ch, ARG(AFFECT_DATA), paf)
 
-DECLARE_FUN2(bool, is_affected,
+DECLARE_FUN2(bool, is_sn_affected,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
 DECLARE_FUN3(AFFECT_DATA, is_bit_affected,
 	     ARG(CHAR_DATA), ch, ARG(int), where, ARG(flag_t), bits)
@@ -452,7 +452,7 @@ DECLARE_PROC2(affect_remove_room,
 	      ARG(ROOM_INDEX_DATA), room, ARG(AFFECT_DATA), paf)
 DECLARE_PROC2(affect_strip_room,
 	      ARG(ROOM_INDEX_DATA), ch, ARG(cchar_t), sn)
-DECLARE_FUN2(bool, is_affected_room,
+DECLARE_FUN2(bool, is_sn_affected_room,
 	     ARG(ROOM_INDEX_DATA), ch, ARG(cchar_t), sn)
 DECLARE_PROC1(strip_raff_owner,
 	      ARG(CHAR_DATA), ch)
@@ -635,7 +635,7 @@ DECLARE_FUN4(cchar_t, PERS,
 #define ACT_NOTRIG	(G)	/* do not pull act triggers		    */
 #define ACT_NOTWIT	(H)	/* do not perform twit list checking	    */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
-#define ACT_NODEAF	(J)	/* skip is_affected(to, "deafen") chars     */
+#define ACT_NODEAF	(J)	/* skip is_sn_affected(to, "deafen") chars  */
 #define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
 #define ACT_NOMORTAL	(L)	/* skip mortals				    */
 #define ACT_VERBOSE	(M)	/* skip if (!IS_SET(to->comm, COMM_VERBOSE))*/

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.164 2001-09-04 19:33:04 fjoe Exp $
+ * $Id: tables.c,v 1.165 2001-09-07 15:40:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,6 +131,7 @@ flaginfo_t mob_flags[] =
 	{ "sage",		MOB_SAGE,		TRUE	},
 	{ "healer",		MOB_HEALER,		TRUE	},
 	{ "clan_guard",		MOB_CLAN_GUARD,		TRUE	},
+	{ "janitor",		MOB_JANITOR,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1523,13 +1524,11 @@ flaginfo_t mptrig_types[] =
 	{ "mob_fight",		TRIG_MOB_FIGHT,		TRUE	},
 	{ "mob_give",		TRIG_MOB_GIVE,		TRUE	},
 	{ "mob_greet",		TRIG_MOB_GREET,		TRUE    },
-	{ "mob_grall",		TRIG_MOB_GRALL,		TRUE	},
 	{ "mob_kill",		TRIG_MOB_KILL,		TRUE	},
 	{ "mob_hpcnt",		TRIG_MOB_HPCNT,		TRUE    },
 	{ "mob_random",		TRIG_MOB_RANDOM,	TRUE	},
 	{ "mob_speech",		TRIG_MOB_SPEECH,	TRUE	},
 	{ "mob_exit",		TRIG_MOB_EXIT,		TRUE    },
-	{ "mob_exall",		TRIG_MOB_EXALL,		TRUE    },
 	{ "mob_delay",		TRIG_MOB_DELAY,		TRUE    },
 	{ "mob_surr",		TRIG_MOB_SURR,		TRUE    },
 	{ "mob_look",		TRIG_MOB_LOOK,		TRUE	},

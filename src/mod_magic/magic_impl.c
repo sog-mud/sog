@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.7 2001-09-02 16:21:55 fjoe Exp $
+ * $Id: magic_impl.c,v 1.8 2001-09-07 15:40:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -217,13 +217,13 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 	}
 
 	if (cp->sk->skill_type == ST_SPELL
-	&&  is_affected(ch, "shielding")) {
+	&&  is_sn_affected(ch, "shielding")) {
 		act_char("You reach for the True Source and feel something stopping you.", ch);
 		return FALSE;
 	}
 
-	if (is_affected(ch, "garble")
-	||  is_affected(ch, "deafen")
+	if (is_sn_affected(ch, "garble")
+	||  is_sn_affected(ch, "deafen")
 	||  (ch->shapeform != NULL &&
 	     IS_SET(ch->shapeform->index->flags, FORM_NOCAST))) {
 		act_char("You can't get the right intonations.", ch);
@@ -233,7 +233,7 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 	if (cp->sk->skill_type == ST_SPELL
 	&&  IS_VAMPIRE(ch)
 	&&  !IS_IMMORTAL(ch)
-	&&  !is_affected(ch, "vampire")
+	&&  !is_sn_affected(ch, "vampire")
 	&&  (IS_NPC(ch) || vstr_search(&PC(ch)->learned, cp->sn) != NULL)
 	&&  !IS_SET(cp->sk->skill_flags, SKILL_CLAN)) {
 		act_char("You must transform to vampire before casting!", ch);
@@ -444,7 +444,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 		victim = spt->vo;
 	else if (mem_is(spt->vo, MT_OBJ))
 		obj = spt->vo;
-	else {
+	else if (spt->vo != NULL) {
 		log(LOG_BUG, "cast_spell: spt->vo is neither MT_CHAR nor MT_OBJ");
 		return;
 	}
@@ -613,7 +613,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 
 		if (IS_SET(cp->sk->skill_flags, SKILL_MISSILE)
 		&&  victim != NULL
-		&&  is_affected(victim, "blur")
+		&&  is_sn_affected(victim, "blur")
 		&&  !HAS_DETECT(ch, ID_TRUESEEING)
 		&&  (number_percent() < 50)) {
 			act("You failed to focus your spell properly.",
@@ -626,7 +626,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 		if (cp->sk->skill_type == ST_SPELL
 		&&  victim != NULL
 		&&  victim != ch
-		&&  is_affected(victim, "globe of invulnerability")) {
+		&&  is_sn_affected(victim, "globe of invulnerability")) {
 			act("Your spell cannot pass through the sphere "
 			    "protecting $n.", ch, victim, NULL, TO_CHAR);
 			act("Your globe protects you from $n's spell.",
@@ -679,7 +679,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 		}
 		if (victim != NULL && IS_EXTRACTED(victim))
 			return;
-		if (cp->shadow && is_affected(victim, "shadow magic"))
+		if (cp->shadow && is_sn_affected(victim, "shadow magic"))
 			affect_strip(victim, "shadow magic");
 	}
 
