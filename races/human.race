@@ -12,8 +12,7 @@ Class 'ranger' 100
 Class 'thief' 100
 Class 'warrior' 100
 Class 'wizard' 100
-Stats 1 0 0 0 1 0 
-MaxStats 21 20 21 20 21 25 
+MaxStats 21 21 21 21 21 25 
 Size medium
 Slang human
 End

@@ -101,8 +101,8 @@ EFNR
 rest stand male 150
 0 0 medium unknown
 #2805
-large troll female~
-the large female troll~
+large troll female троллиха ~~огромная~~ ~~троллиха~~~
+@eng the large female troll@rus троллиха~
 A large female troll is lying on the pile of carnage, blissfully writhing.
 ~
 She is a huge, grotesque, furry humanoid.
@@ -134,14 +134,18 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 #2807
-roving beast~
-the roving beast~
-A roving beast is searching for prey.
+roving beast зверь~
+@eng the roving beast@rus ~~блуждающий~~ ~~зверь~~~
+@eng A roving beast is searching for prey.
+@rus Зверь (beast) бродит тут в поисках добычи.
 ~
-Jet black fur covers this beast.
+@eng Jet black fur covers this beast.
 You stare at his two huge red eyes.  You can count at least 50 teeth on this
 beast.  You can't tell whether it is blood or saliva dripping from the beast's
 jaw.  The roving beast snarls at you.
+@rus Зверь, с абсолютно черной шкурой, огромными красными глазами, пастью, в
+которой можно насчитать по крайней мере полсотни зубов, c которых капает 
+слюна (или это кровь?) рычит на тебя.
 ~
 human~
 BCFG 0 0 G AH -200 0
@@ -150,6 +154,7 @@ BCFG 0 0 G AH -200 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+g @eng male@rus male~
 #2808
 medium troll~
 @eng the medium troll@rus тролль~
@@ -233,9 +238,9 @@ This old, smelly belt looks like it is barely better than rotting cloth.
 ~
 g @rus none~
 #2805
-bone cracked~
-a cracked bone~
-A cracked piece of bone lies here.~
+bone cracked кость~
+@eng a cracked bone@rus ~~сломанная~~ ~~кость~~~
+@eng A cracked piece of bone lies here.@rus Кусок сломанной кости лежет здесь.~
 bone~
 weapon 0 0 AN
 mace 3 3 'pound' 0
@@ -264,13 +269,6 @@ plaque~
 This zone (trollden) is created by MERC for any MERC Mud.
 copyright 1992
 ~
-D0
-You reach civilization again.
-~
-~
-~
-~
-Z 0 6124
 D2
 You find the stench is stronger inside.
 ~

@@ -5696,6 +5696,12 @@ D3
 ~
 ~
 Z 0 10853
+D4
+~
+~
+~
+~
+Z 0 10854
 S
 #10852
 @eng k~
@@ -5731,6 +5737,153 @@ D2
 ~
 Z 0 10849
 S
+#10854
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10855
+D5
+~
+~
+~
+~
+Z 0 10851
+S
+#10855
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10854
+D5
+~
+~
+~
+~
+Z 0 10856
+S
+#10856
+@eng k~
+~
+0 NX inside
+D4
+~
+~
+~
+~
+Z 0 10855
+D5
+~
+~
+~
+~
+Z 0 10857
+S
+#10857
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABCFGZ 0 10858
+D1 medium
+~
+~
+~
+~
+ABFIZ 0 10859
+D2
+~
+~
+~
+~
+ABZ 0 10860
+D3
+~
+~
+~
+~
+ABZ 0 10861
+D4
+~
+~
+~
+~
+Z 0 10856
+D5
+~
+Ã¿À~
+~
+~
+ABCFGIZ 0 10862
+S
+#10858
+@eng k~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+ABCFGZ 0 10857
+S
+#10859
+@eng k~
+~
+0 NX inside
+D3
+~
+~
+~
+~
+ABFIZ 0 10857
+S
+#10860
+@eng k~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+ABZ 0 10857
+S
+#10861
+@eng k~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+ABZ 0 10857
+S
+#10862
+@eng k~
+~
+0 NX inside
+D4
+~
+~
+~
+~
+ABCFGIZ 0 10857
+S
 #0
 
 #RESETS
@@ -5750,6 +5903,16 @@ D 0 10709 4 1	* : door to the up: closed
 D 0 10714 4 1	* : door to the up: closed
 D 0 10720 4 1	* : door to the up: closed
 D 0 10785 5 1	* : door to the down: closed
+D 0 10857 0 2	* k: door to the north: closed and locked
+D 0 10857 1 1	* k: door to the east: closed
+D 0 10857 2 1	* k: door to the south: closed
+D 0 10857 3 1	* k: door to the west: closed
+D 0 10857 5 2	* k: door to the down: closed and locked
+D 0 10858 2 2	* k: door to the south: closed and locked
+D 0 10859 3 1	* k: door to the west: closed
+D 0 10860 0 1	* k: door to the north: closed
+D 0 10861 1 1	* k: door to the east: closed
+D 0 10862 4 2	* k: door to the up: closed and locked
 O 0 10604 0 10634	* nightmare ()
 M 0 10602 1 10634 1	*  ()
 O 0 10602 0 10636	* gun (Porthole)

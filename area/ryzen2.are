@@ -22,7 +22,7 @@ not rest until destroyed and sent into the heavens.
 обретет покой лишь тогда, когда ее кости будут погребены.
 ~
 ghost~
-G 0 U A H -200 0
+G 0 0 A H -200 0
 25 0 5d10+550 1d50+100 2d10+7 'wrath'
 -7 -7 -7 0
 EFU
@@ -40,7 +40,7 @@ wraith wicked зловещий призрак~
 как и со всеми остальными - сожрать.
 ~
 ghost~
-0 0 U 0 H -1000 0
+0 0 0 0 H -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 'claw'
 -11 -10 -11 5
 CEFH
@@ -58,7 +58,7 @@ ghastly spectre призрак мертвенно бледный~
 теперь лишь одной вещи - крови живых.
 ~
 spectre~
-G 0 U 0 H -800 0
+G 0 0 0 H -800 0
 32 0 5d10+1000 2d20+1000 6d4+9 'slash'
 -10 -10 -10 4
 CDFH
@@ -175,17 +175,9 @@ CDEFHK
 stand stand male 800
 0 0 large unknown
 r fire 0
-r cold 0
-r lightning 0
-r acid 0
 r negative 100
-r energy 0
-r mental 0
-r sound 0
 r disease 100
 r poison 100
-r harm 0
-r light 0
 #22010
 dragon deep black черный подземный дракон~
 @eng A Deep Dragon@rus ~~подземный~~ ~~дракон~~~
@@ -209,7 +201,6 @@ BG 0 0 0 0 -800 0
 CDEKM
 sleep stand male 20000
 c L medium unknown
-r cold 0
 r lightning 33
 r acid 33
 #22011
@@ -894,7 +885,7 @@ S
 @eng A Branch in the Tunnel@rus Еще одна развилка~
 @eng The tunnel branches off in three directions here again.  Directions lead
 south, down, and east.  
-@rus Перед тобой очередная развилка. Ты модешь пойти на юг, вниз,
+@rus Перед тобой очередная развилка. Ты можешь пойти на юг, вниз,
 либо же повернуть назад.
 ~
 0 A inside
@@ -1316,7 +1307,7 @@ S
 faint light from the west illuminates the cavern in brilliant, flashing
 colors that nearly blind you.  You may continue towards the light to the
 west or return to the tunnel to the north.  
-@rus Стены этой пещеры чочтоят, кажется, из самого настоящего
+@rus Стены этой пещеры состоят, кажется, из самого настоящего
 хрусталя. Слабый свет с запада, отраженный тысячами граней,
 создает неповторимый узор на полу, едва не ослепляя тебя
 при попытке взглянуть на сами кристаллы.
@@ -1472,11 +1463,11 @@ S
 room.  The darkness present in the maze seems to be here to such a degree
 that you feel blinded by the infinite amount of shadow.  The presence of
 evil continues to grow stronger, you must be getting close.  
-@rus Все каменные нагромождения резко кончаются здесь, , словно оставшись
-за невидимой глазу стеной. Тьма вновь сгущается, делая невозможным
-разглядеть что-либо впереди и уже знакомое чувство первобытного страха
-вновь просыпается в тебе, напоминая о том, что находится в сердце
-этого лабиринта.
+@rus Все каменные нагромождения резко кончаются здесь, словно оставшись за
+невидимой глазу стеной. Тьма вновь сгущается, делая невозможным разгля-
+деть что-либо впереди и уже знакомое чувство первобытного страха вновь
+просыпается в тебе, напоминая о том, что находится в сердце этого лаби-
+ринта.
 ~
 0 AD inside
 D3

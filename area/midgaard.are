@@ -400,7 +400,7 @@ r harm 33
 r light 33
 #3012
 healer лекарь~
-@eng the healer@rus лекарь~
+@eng the healer@rus ~~лекарь~~~
 @eng A healer is here, selling spells.
 @rus Лекарь (healer) с удовольствием поможет тебе за небольшое вознаграждение.
 ~

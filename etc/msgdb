@@ -93,7 +93,7 @@ Use 'desc edit' to edit your description.
 @eng $n picks up some trash.@rus $n $gn{подбирает} мусор.~
 @eng $N looks very disinterested.@rus $N не $gN{заинтересован} тобой.~
 @eng {cdevastates{x@rus {cопустошает{x~
-@eng $n delivers a blow of deadly force!@rus $n $gN{наносит} удар сокрушительной силы!~
+@eng $n delivers a blow of deadly force!@rus $n $gn{наносит} удар сокрушительной силы!~
 @eng {MDISEMBOWELS{x@rus {MКАЛЕЧИТ{x~
 @eng the south@rus с юга (south)~
 @eng You stop resting.
@@ -237,7 +237,6 @@ Use 'desc edit' to edit your description.
 @rus Ты сейчас спишь.
 ~
 @eng The cold touch of $p surrounds you with ice.@rus Холод $c1{$p} пробирает тебя до костей.~
-@eng It's $ufilled with a $U liquid.@rus $P $u$gP{наполнен} $c4{$g2{$U}} жидкостью.~
 @eng Drink what?
 @rus Что выпить?
 ~
@@ -775,6 +774,7 @@ The actioneer appears before $n and hands $m $p.~
 @rus Проверить что?
 ~
 @eng Death will thank you for your gift.@rus Ты станешь приятным подарком СМЕРТИ.~
+@eng It's $ufilled with a $V liquid.@rus $P $u$gP{наполнен} $c4{$g2{$V}} жидкостью.~
 @eng You scan $t.@rus Ты пристально вглядываешься $t.~
 @eng You ask $N for a quest.@rus Ты просишь задание у $c1{$N}.~
 @eng Gods give you $j silver $qj{coins} for your sacrifice.@rus Боги дают тебе $j $c3{$qj{серебряных монет}} за твое жертвоприношение.~

@@ -712,7 +712,7 @@ cloak blue silk плащ синего шелка pile куча~
 wool~
 armor GL 0 AK
 12 12 12 6 0
-37 120 19453 G
+37 120 5000 G
 a '' to_object 37 -1 -10 17 0
 E
 dark blue~
@@ -1989,7 +1989,7 @@ You find here, what appears to be the remains of some sort
 of creature, bones are strewn all about the ground.
 @rus Подойдя ближе к зданию, ты видишь, что оно порядком
 разрушено и слышишь странные звуки, исходящие изнутри.
-Чьи-то останки рзбросаны по земле, кости вперемежку с
+Чьи-то останки разбросаны по земле, кости вперемежку с
 потрохами.
 ~
 0 AN city
@@ -2276,7 +2276,7 @@ D2
 Z -1 25041
 S
 #25044
-@eng At the Base of the Spiral Staircase@rus У подножия винтовой оестницы~
+@eng At the Base of the Spiral Staircase@rus У подножия винтовой лестницы~
 @eng As you come to the base of the staircase, you hear a faint
 roaring sound from somewhere above you. The staircase is old, but
 still looks quite sturdy. Strange symbols are engraved into the
@@ -2451,7 +2451,7 @@ through the air.
 чувствуешь зловещую магию, которой напитано это место. В дальнем
 конце залы возвышается сияющий хрустальный трон, украшенный золотыми
 рунами. Сердце твое на секунду останавливается, когда ты замечаешь,
-что трон не пуст - на нем восседает истлевший скелет, сохоанивший
+что трон не пуст - на нем восседает истлевший скелет, сохранивший
 жизнь после смерти с помощью черной магии. Буквально пронзая тебя
 своими горящими красными глазами, он делает быстрое движение рукой
 и дверь за твоей спиной исчезает, оставляя ровную каменную стену.

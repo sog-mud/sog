@@ -1497,7 +1497,7 @@ Trained by both, she has become a lethal blend of sorcery and stealth.
 ~
 elf~
 BCFGRS 0 HT AB ABD 0 0
-55 50 100d6+5000 1d100+4000 9d11+40 'wrath'
+55 50 100d6+4000 1d100+4000 9d11+40 'wrath'
 -43 -43 -43 -28
 EFGHJK
 stand stand female 30000

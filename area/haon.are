@@ -5,17 +5,23 @@ VNUMs 6000 6199
 Credits Diku~
 Security 9
 LevelRange 5 10
+ResetMessage @rus Листья на деревьях тихонько шелестят...~
 End
 
 #MOBILES
 #6000
-john lumberjack~
-John the Lumberjack~
-John the Lumberjack is here, looking for some trees to chop down.
+john lumberjack джон дровосек~
+@eng John the Lumberjack@rus ~~дровосек~~ Джон~
+@eng John the Lumberjack is here, looking for some trees to chop down.
+@rus Дровосек Джон (John) оглядывается вокруг, выбирая какое девево срубить.
 ~
-He is six feet tall and looks quite strong, muscles bulging under his heavy,
+@eng He is six feet tall and looks quite strong, muscles bulging under his heavy,
 chequered shirt.  His features are worn with hard work and his expression is
 one of a peaceful man leading a simple life.
+@rus Он шести футов ростов и, похоже, очень сильный. Его мускулы
+перекатываются под рубашкой при каждом движении. Он выглядит
+уставшим от постоянной тяжелой работы. А его лицо -- это лицо
+человека ведущего мирную простую жизнь.
 ~
 human~
 G 0 0 0 0 350 0
@@ -25,12 +31,15 @@ EFNU
 stand stand male 2
 0 0 medium unknown
 #6002
-bear~
-the brown bear~
-A big, brown, angry-looking bear is here.
+bear медведь~
+@eng the brown bear@rus ~~бурый~~ ~~медведь~~~
+@eng A big, brown, angry-looking bear is here.
+@rus Большой бурый проголодавшийся медведь (bear).
 ~
-The bear is a big, brown, furry animal with very large claws and very sharp
-teeth.  It doesn't resemble those cute little thingies from toy shops at all.
+@eng The bear is a big, brown, furry animal with very large claws and very sharp
+teeth.
+@rus Большое бурое мохнатое животное с большими когтями и очень острыми
+зубами. 
 ~
 bear~
 FG 0 0 0 H -50 0
@@ -39,14 +48,15 @@ FG 0 0 0 H -50 0
 FNR
 sleep stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #6003
-rabbit~
-the ferocious rabbit~
-A ferocious rabbit is here, glaring hungrily at you.
+rabbit заяц~
+@eng the ferocious rabbit@rus ~~дикий~~ ~~заяц~~~
+@eng A ferocious rabbit is here, glaring hungrily at you.
+@rus Дикий заяц (rabbit) глядит на тебя голодными глазами.
 ~
-This small, furry creature with long ears and big feet has been attacked by
-the dreaded rabbit rabies, a horrible disease that turns helpless and innocent
-rabbits into ferocious and bloodthirsty monsters.
+@eng A small, furry creature with long ears and big feet.
+@rus Маленькое мохнатое существо с длинными ушами и большими ногами.
 ~
 rabbit~
 FG 0 0 0 0 -150 0
@@ -55,27 +65,34 @@ FG 0 0 0 0 -150 0
 ENR
 sleep stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #6004
-deer~
-the fallow deer~
-A fallow deer is grazing peacefully here.
+deer олень~
+@eng the fallow deer@rus ~~молодой~~ ~~олень~~~
+@eng A fallow deer is grazing peacefully here.
+@rus Молодой олень (deer) мирно щиплет траву.
 ~
-She is a graceful creature on long, slender legs, and with large, brown eyes
+@eng She is a graceful creature on long, slender legs, and with large, brown eyes
 looking back at you with an air of watchful interest.
+@rus Грациозное создание с длинными тонкими ногами, с большими 
+карими глазами, глядящими на тебя с интересом.
 ~
 human~
 BG 0 0 0 A 350 0
 2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
 EFNU
-stand stand female 0
+stand stand neutral 0
 0 0 medium unknown
+g @eng neutral@rus male~
 #6005
-fox~
-the brown fox~
-A brown fox is here, looking for some rabbits to chew up.
+fox лисица~
+@eng the brown fox@rus ~~рыжая~~ ~~лисица~~~
+@eng A brown fox is here, looking for some rabbits to chew up.
+@rus Рыжая лисица (fox) оглядывается в поисках кролика на завтрак.
 ~
-It is a large fox with beautiful, red-brown fur and a long, thick brush.
+@eng It is a large fox with beautiful, red-brown fur and a long, thick brush.
+@rus Большая лисица с рыжим прекрасным мехом и длинным толстым хвостом.
 ~
 fox~
 G 0 0 0 0 -50 0
@@ -84,13 +101,18 @@ G 0 0 0 0 -50 0
 ENR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #6100
-warg vicious~
-the vicious warg~
-A vicious warg is here, snarling angrily at you.
+warg vicious волчище оборотень волк варг~
+@eng the vicious warg@rus ~~злобный~~ ~~варг~~~
+@eng A vicious warg is here, snarling angrily at you.
+@rus Злобный варг (warg) рычит на тебя.
 ~
-It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
+@eng It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
 quickly from its long, white fangs.  It looks quite dangerous and very angry.
+@rus Особенно большой волк с толстой черной шерстью. С его острых зубов
+капает слюна. И весь его вид говорит о том, что он опасен и очень
+голоден.
 ~
 human~
 FG 0 0 0 H -350 0
@@ -100,12 +122,16 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 #6101
-warg ferocious~
-the ferocious warg~
-A ferocious warg is here, snarling angrily at you.
+warg ferocious волчище варг оборотень~
+@eng the ferocious warg@rus ~~свирепый~~ ~~варг~~~
+@eng A ferocious warg is here, snarling angrily at you.
+@rus Свирепый варг (warg) рычит на тебя.
 ~
-It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
+@eng It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
 quickly from its long, white fangs.  It looks quite dangerous and very angry.
+@rus Особенно большой волк с толстой черной шерстью. С его острых зубов
+капает слюна. И весь его вид говорит о том, что он опасен и очень
+голоден.
 ~
 human~
 FG 0 0 0 H -350 0
@@ -114,12 +140,15 @@ FG 0 0 0 H -350 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #6102
-wolf grey~
-the large, grey wolf~
-A large, grey wolf is here, glaring hungrily at you.
+wolf grey серый волк~
+@eng the large, grey wolf@rus ~~большой~~ ~~серый~~ ~~волк~~~
+@eng A large, grey wolf is here, glaring hungrily at you.
+@rus Ты видишь сверкающие глаза большого серого волка (wolf).
 ~
-The large, grey wolf eyes you with interest while licking its lips.
+@eng The large, grey wolf eyes you with interest while licking its lips.
+@rus Его глаза горят огнем, а алый язык лениво свисает из пасти.
 ~
 wolf~
 FG 0 0 0 H -150 0
@@ -128,12 +157,15 @@ FG 0 0 0 H -150 0
 ENR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #6103
-wolf black~
-the large, black wolf~
-A large, black wolf is here, glaring hungrily at you.
+wolf black волк черный~
+@eng the large, black wolf@rus ~~большой~~ ~~черный~~ ~~волк~~~
+@eng A large, black wolf is here, glaring hungrily at you.
+@rus Ты видишь сверкающие глаза большого черного волка (wolf).
 ~
-The large, black wolf eyes you with interest while licking its lips.
+@eng The large, black wolf eyes you with interest while licking its lips.
+@rus Его глаза горят огнем, а алый язык лениво свисает из пасти.
 ~
 wolf~
 FG 0 0 0 H -150 0
@@ -142,15 +174,22 @@ FG 0 0 0 H -150 0
 ENR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #6112
-dragon green~
-the huge, green dragon~
-A huge green dragon is here, its narrow yellow eyes glowing with rage.
+dragon green дракон~
+@eng the huge, green dragon@rus ~~огромный~~ ~~зеленый~~ ~~дракон~~~
+@eng A huge green dragon is here, its narrow yellow eyes glowing with rage.
+@rus Большой зеленый дракон (dragon), его узкие желтые глаза налиты яростью.
 ~
-This enormous winged serpent has dark green scales covering most of its
+@eng This enormous winged serpent has dark green scales covering most of its
 colossal body.  Numerous holes in its heavy wings tell of many fights as does
 the nicks in the horns on its head.  It smells as disgusting as only dragons
 do.
+@rus Ужасная крылатая рептилия с темно-зеленой чешуей покрывающей
+большую часть ее громадного тела. Разрывы на ее больших кры-
+льях говорят о множестве схватов, в которых этот дракон при-
+нимал участие. От него пахнет.. хмм.. воняет так, как обыкно-
+венного дракона.
 ~
 dragon~
 BFG 0 0 0 A -1000 0
@@ -159,14 +198,19 @@ BFG 0 0 0 A -1000 0
 EFNR
 stand stand none 2500
 0 0 medium unknown
+g @eng none@rus male~
 #6115
-shargugh brownie~
-Shargugh~
-Shargugh the Forest Brownie is here, grinning broadly at you.
+shargugh brownie шаргах брауни~
+@eng Shargugh@rus Шаргах~
+@eng Shargugh the Forest Brownie is here, grinning broadly at you.
+@rus Шаргах (Shargugh), лесной брауни открыто смеется на тобой.
 ~
-This little fellow is only three foot tall with wild matted brown hair and long
+@eng This little fellow is only three foot tall with wild matted brown hair and long
 tangled brown beard.  He wears ragged brown and green clothing and looks as if
 he is having great fun.
+@rus Маленький парниша, трех футов ростом с коричневыми волосами и длинной
+курчавой бородой того же цвета. Он одет в зелено-коричневый наряд и
+выглядит поистине полностью счастливым.
 ~
 human~
 CH 0 0 AG AH 1000 0
@@ -176,12 +220,14 @@ EFNU
 stand stand male 50
 0 0 medium unknown
 #6116
-elder druid~
-the elder druid~
-The elder druid is here ... he looks very upset at your presence in his home.
+elder druid старец друид~
+@eng the elder druid@rus ~~старец~~ ~~друид~~~
+@eng The elder druid is here ... he looks very upset at your presence in his home.
+@rus Старец (elder) друид... он выглядит расстроеным твоим вторжением в его дом.
 ~
-The druid looks quite old.  You would think him venerable, but you know
+@eng The druid looks quite old.  You would think him venerable, but you know
 he would be a tough foe.
+@rus Он выглядит очень старым. Но он может быть очень стойким противником.
 ~
 human~
 BCFQ 0 0 0 AH 0 0
@@ -191,18 +237,22 @@ EIKU
 stand stand male 250
 0 0 medium unknown
 #6117
-guildmaster master~
-the guildmaster~
-Your guildmaster is standing here.
+guildmaster master учитель~
+@eng the guildmaster@rus учитель~
+@eng Your guildmaster is standing here.
+@rus Учитель (guildmaster) стоит здесь.
 ~
-He is an old, but strong looking ranger.  Some leaves and dry branches 
+@eng He is an old, but strong looking ranger.  Some leaves and dry branches 
 still hang over his clothes from last camouflage.
+@rus Старый, но все еще сильный рейнжер. На его одежде еще 
+остались листья и ветки, которые он использовал для
+маскировки в лесу.
 ~
 human~
 BJRV D 0 0 ABL 1000 0
 66 0 1d1+24999 1d1+999 6d18+24 'chop'
 -90 -90 -90 -70
-FG
+F
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -226,311 +276,333 @@ r light 33
 
 #OBJECTS
 #6000
-axe lumber two-handed~
-a lumber axe~
-A heavy lumber axe lies here.~
+axe lumber two-handed топор~
+@eng a lumber axe@rus ~~топор~~ дровосека~
+@eng A heavy lumber axe lies here.@rus Огромный топор (axe) оставлен здесь.~
 iron~
 weapon 0 0 AN
 axe 2 6 'chop' F
 8 100 820 P
 E
-axe lumber~
-It is a heavy axe of the kind lumberjacks use to chop down trees.
+axe lumber топор~
+@eng It is a heavy axe of the kind lumberjacks use to chop down trees.
+@rus Большой топор, используемый дровосеками для того, чтобы
+валить деревья.
 ~
-g @rus none~
+g @rus male~
 #6001
-shirt~
-a chequered shirt~
-A chequered shirt lies here.~
+shirt рубаха~
+@eng a chequered shirt@rus ~~клетчатая~~ ~~рубаха~~~
+@eng A chequered shirt lies here.@rus Клетчатая рубаха (shirt) валяется здесь.~
 cloth~
 armor 0 0 AD
 3 3 3 0 0
 3 20 610 P
 E
-shirt~
-It is an extra large, chequered shirt made from heavy cloth.
+shirt рубаха~
+@eng It is an extra large, chequered shirt made from heavy cloth.
+@rus Она очень большого размера, сшитая из тлотного хлопка в клетку.
 ~
-g @rus none~
+g @rus female~
 #6002
-boots~
-a pair of leather boots~
-A pair of leather boots lies here.~
+boots ботинки~
+@eng a pair of leather boots@rus ~~кожаные~~ ~~ботинки~~~
+@eng A pair of leather boots lies here.@rus Пара кожаных ботинок (boots) оставлена здесь.~
 leather~
 armor 0 0 AG
 3 3 3 0 0
 3 40 310 P
 E
-boots~
-They are fashioned from rough leather that has been oiled frequently to make
+boots ботинки~
+@eng They are fashioned from rough leather that has been oiled frequently to make
 it stay waterproof.  They look worn but quite functional.
+@rus Они сделаны из грубой кожи и намазаны жиром, чтобы не пропускали
+воду. Ботинки поношены, но вполне функциональны.
 ~
-g @rus none~
+g @rus plural~
 #6003
-fireplace~
-a fireplace~
-A fireplace made from stone is set against the east wall.~
+fireplace камин~
+@eng a fireplace@rus камин~
+@eng A fireplace made from stone is set against the east wall.@rus Сложенный из камней камин (fireplace) расположен напротив восточной стены.~
 stone~
 container 0 0 0
 200 0 0 200 100
 0 0 0 P
 E
 fireplace~
-It is fashioned from stones of various sizes that have been stacked on top of
+@eng It is fashioned from stones of various sizes that have been stacked on top of
 each other and fastened with mortar.  Its chimney is constructed likewise and
 leads the smoke out through the low cabin ceiling.
+@rus Камин сложен из камней различного размера, положенных один
+на другой и скрепленных известковым раствором. Его труба 
+сделана таким же образом и призвана выводить дым наружу.
 ~
-g @rus none~
+g @rus male~
 #6005
-chest~
-a wooden chest~
-A wooden chest stands in the corner.~
+chest сундук~
+@eng a wooden chest@rus ~~деревянный~~ ~~сундук~~~
+@eng A wooden chest stands in the corner.@rus Деревянный сундук (chest) стоит в углу.~
 wood~
 container 0 0 A
 100 ACD 6006 20 100
 0 400 100 P
 E
-chest~
-It is a robust chest made from short, heavy planks that have been fastened
+chest сундук~
+@eng It is a robust chest made from short, heavy planks that have been fastened
 together with tenons.  It is equipped with a simple brass lock.
+@rus Этот крепкий сундук сделан из коротких крепких досок,
+скрепленных шипами. Сундук заперт на незамысловатый
+латунный замок.
 ~
-g @rus none~
+g @rus male~
 #6006
-key~
-a small brass key~
-A small brass key lies here.~
+key ключ~
+@eng a small brass key@rus ~~маленький~~ ~~латунный~~ ~~ключ~~~
+@eng A small brass key lies here.@rus Маленький латунный ключик (key) лежит здесь.~
 brass~
 key 0 0 A
 ACEFGIJKM 0 0 0 0
 0 10 0 P
 E
-key~
-It is a small, simple brass key with no inscriptions or marks of any kind.
+key ключ~
+@eng It is a small, simple brass key with no inscriptions or marks of any kind.
+@rus Маленький незамысловатый латунный ключ, без каких-либо надписей
+или рисунков на нем.
 ~
-g @rus none~
+g @rus male~
 #6007
-coins silver~
-a heap of silver coins~
-Some silver coins lie piled up in a heap on the floor.~
+coins silver кучка монеты~
+@eng a heap of silver coins@rus ~~кучка~~ монет~
+@eng Some silver coins lie piled up in a heap on the floor.@rus Кучка серебряных монет (coins) почему-то лежит на земле.~
 silver~
 money 0 0 A
 89 1 0 0 0
 0 10 0 P
-E
-coins~
-The coins seem to be gold.  They are obviously valuable.
-~
-g @rus none~
+g @rus female~
 #6010
-blackberries~
-some blackberries~
-Some blackberries grow on a bush nearby.~
+blackberries ежевика ягоды~
+@eng some blackberries@rus ~~ежевичные~~ ~~ягоды~~~
+@eng Some blackberries grow on a bush nearby.@rus Куст ежевичных ягод (blackberries) растет неподалеку.~
 food~
 food 0 0 A
 AB AB 0 0 0
 0 10 0 P
 E
-blackberries~
-They look very tasty indeed.
+blackberries ежевика ягоды~
+@eng They look very tasty indeed.
+@rus Ягодки выглядят очень аппетитно.
 ~
-g @rus none~
+g @rus plural~
 #6011
-mushroom~
-a mushroom~
-A small mushroom grows nearby.~
+mushroom гриб~
+@eng a mushroom@rus гриб~
+@eng A small mushroom grows nearby.@rus Маленький гриб (mushroom) растет здесь.~
 food~
 food 0 0 A
 BC BC 0 0 0
 0 10 0 P
 E
-mushroom~
-It is a tasty little thing.
+mushroom гриб~
+@eng It is a tasty little thing.
+@rus Маленькая вкусная штучка.
 ~
-g @rus none~
+g @rus male~
 #6013
-water barrel~
-the barrel~
-A water barrel has been left here.~
+barrel water бочонок~
+@eng the barrel@rus бочонок~
+@eng A water barrel has been left here.@rus Бочонок с водой (barrel) стоит здесь.~
 wood~
 drink 0 0 A
 256 256 'water' 0 0
 0 200 20 P
-g @rus none~
+g @rus male~
 #6102
-tree opening~
-a colossal tree~
-A colossal tree blocks the way westwards.~
+tree opening дерево~
+@eng a colossal tree@rus ~~огромное~~ ~~дерево~~~
+@eng A colossal tree blocks the way westwards.@rus Огромное дерево (tree) преграждает тебе путь на запад.~
 wood~
 container 0 0 0
 1000 0 0 400 100
 0 0 0 P
 E
-opening~
-The opening is far too narrow for you to squeeze through but it looks as if the
+opening дупло щель~
+@eng The opening is far too narrow for you to squeeze through but it looks as if the
 tree is hollow.
+@rus Дупло слишком узко, чтобы в него можно было пролезть.
+Но видно что там внутри есть пустота.
 ~
 E
-tree~
-This enormous tree must be a thousand years old.  Its rough bark looks grey
+tree дерево~
+@eng This enormous tree must be a thousand years old.  Its rough bark looks grey
 and pale and is decorated with scratches and claw marks.  On its west side is a
 small opening just above ground level.
+@rus Это огромнейшее дерево растет здесь не меньше сотни лет.
+Его жесткая серая кора украшена следами зубов и когтей 
+диких животных. С западной стороны дерева видно дупло.
 ~
 g @rus none~
 #6103
-branch~
-a long, grey branch~
-A long, grey branch rests heavily on the ground.~
+branch ветка~
+@eng a long, grey branch@rus ~~длинная~~ ~~серая~~ ~~ветка~~~
+@eng A long, grey branch rests heavily on the ground.@rus Длинная серая ветка (branch) валяется на земле.~
 wood~
 light 0 0 AO
 0 0 25 0 0
 0 200 0 P
-g @rus none~
+g @rus female~
 #6104
-branch~
-a long, grey branch~
-A long, grey branch rests heavily on the ground.~
+branch ветка сук~
+@eng a long, grey branch@rus ~~длинный~~ ~~сук~~~
+@eng A long, grey branch rests heavily on the ground.@rus Длинный серый сук (branch) валяется на земле.~
 wood~
 weapon 0 0 AN
 mace 2 5 'pound' 0
 6 300 290 P
 a '' to_object 6 -1 -2 18 0
-g @rus none~
+g @rus female~
 #6105
-branch~
-a long, grey branch~
-A long, grey branch rests heavily on the ground.~
+branch ветка~
+@eng a long, grey branch@rus ~~длинная~~ ~~серая~~ ~~ветка~~~
+@eng A long, grey branch rests heavily on the ground.@rus Длинная серая ветка (branch) валяется на земле.~
 wood~
 trash 0 0 A
 0 0 0 0 0
 0 400 0 P
-g @rus none~
+g @rus female~
 #6106
-toadstool~
-a toadstool~
-A large toadstool grows nearby.~
-wood~
-food 0 0 A
-CD CD 0 0 0
-0 50 0 P
-E
-toadstool~
-It is a large, brown boletus that must weigh nearly five pounds.  The top
-surface is covered in a thin layer of transparent slime that emits a weak,
-musty smell.  Not the most delicious thing you have seen.
-~
-g @rus none~
-#6107
-toadstool~
-a toadstool~
-A large toadstool grows nearby.~
+toadstool поганка~
+@eng a toadstool@rus поганка~
+@eng A large toadstool grows nearby.@rus Большая поганка (toadstool) растет неподалеку.~
 wood~
 food 0 0 A
 CD CD 0 A 0
 0 50 0 P
 E
-toadstool~
-It is a large, brown boletus that must weigh nearly five pounds.  It has small
-white spots and the top surface is covered in a thin layer of transparent slime
-that emits a weak, musty smell.  Not the most delicious thing you have seen.
+toadstool поганка~
+@eng It is a large, brown boletus that must weigh nearly five pounds.  The top
+surface is covered in a thin layer of transparent slime that emits a weak,
+musty smell.  Not the most delicious thing you have seen.
+@rus Большой коричневый гриб, весящий, наверное, килограмма два.
+С его шляпки свисает какая-то слизь, издающая неприятный
+запах. 
+~
+g @rus female~
+#6107
+toadstool поганка~
+@eng a toadstool@rus поганка~
+@eng A large toadstool grows nearby.@rus Большая поганка (toadstool) растет неподалеку.~
+wood~
+food 0 0 A
+CD CD 0 A 0
+0 50 0 P
+E
+toadstool поганка~
+@eng It is a large, brown boletus that must weigh nearly five pounds.  The top
+surface is covered in a thin layer of transparent slime that emits a weak,
+musty smell.  Not the most delicious thing you have seen.
+@rus Большой коричневый гриб, весящий, наверное, килограмма два.
+С его шляпки свисает какая-то слизь, издающая неприятный
+запах. 
 ~
 g @rus none~
 #6110
-potion yellow~
-a yellow potion~
-A yellow potion has been left here.~
+potion yellow микстура~
+@eng a yellow potion@rus ~~желтая~~ ~~микстура~~~
+@eng A yellow potion has been left here.@rus Желтая микстура (potion) оставлена здесь.~
 glass~
 potion G 0 A
 15 'giant strength' '' '' ''
 4 20 350 P
 E
-potion yellow~
-It has a deep yellow colour and and a strong spicy smell.
+potion yellow желтая микстура~
+@eng It has a deep yellow colour and and a strong spicy smell.
+@rus Микстура темно-желтого цвета с острым запахом.
 ~
-g @rus none~
+g @rus female~
 #6111
-shield large~
-a large round shield~
-A large round shield has been left here.~
+shield large щит~
+@eng a large round shield@rus ~~большой~~ ~~круглый~~ ~~щит~~~
+@eng A large round shield has been left here.@rus Большой круглый щит (shield) оставлен здесь.~
 wood~
 armor 0 0 AJ
 6 6 6 3 0
 15 350 1760 P
 E
-shield large~
-It is made from hard wood that has been reinforced with heavy iron bands.
+shield large щит~
+@eng It is made from hard wood that has been reinforced with heavy iron bands.
+@rus Он сделан из крепкой древесины и обит железом.
 ~
-g @rus none~
+g @rus male~
 #6112
-crown iron~
-an iron crown~
-An iron crown rests on the ground.~
+crown iron корона~
+@eng an iron crown@rus ~~железная~~ ~~корона~~~
+@eng An iron crown rests on the ground.@rus Железная корона (crown) валяется на земле.~
 iron~
 armor G 0 AE
 6 6 6 0 0
 15 100 1050 P
 E
-crown iron~
-It is a heavy human-sized crown made from solid iron.
+crown iron корона~
+@eng It is a heavy human-sized crown made from solid iron.
+@rus Тяжелая корона (принадлежавшая человеку) сделана из чистого
+железа.
 ~
 g @rus none~
 #6114
-ring iron~
-an iron ring~
-An iron ring has been left here.~
+ring iron rus кольцо~
+@eng an iron ring@rus ~~железное~~ ~~кольцо~~~
+@eng An iron ring has been left here.@rus Железное кольцо (ring) оставлено здесь.~
 iron~
 jewelry G 0 AB
 0 0 0 0 0
 0 10 50 P
-E
-ring iron~
-It is a quite heavy human-sized ring made from solid iron.  It lacks
-decorations of any kind.
-~
 g @rus none~
 #6155
-morning-star star morning~
-the morning star~
-The morning star is here collecting dust while it lies on the ground.~
+morning-star star morning утренняя звезда~
+@eng the morning star@rus ~~утренняя~~ ~~звезда~~~
+@eng The morning star is here collecting dust while it lies on the ground.@rus Звезда (star) собирает пыль, лежа на земле.~
 wood~
 weapon G 0 AN
 mace 2 8 'crush' 0
 15 100 750 P
-g @rus none~
+g @rus female~
 #0
 
 #ROOMS
 #6000
-The edge of the forest~
-You are standing at the eastern edge of a big forest.  To the east is the West
-Gate of Midgaard and to the west is a narrow trail, leading in through the
-forest.  A dimly lit path leads north.
+@eng The edge of the forest@rus Лесная опушка~
+@eng You are standing at the eastern edge of a big forest.  To the east is the
+West Gate of Midgaard and to the west is a narrow trail, leading in through
+the forest.  A dimly lit path leads north.  
+@rus Ты стоишь на восточном крае огромного леса. На востоке видны Западные
+Врата Мидгаарда, на запад, в лес, убегает узкая тропинка. На север ухо-
+дит темная дорога.
 ~
 0 C field
 E
-tree trees~
-The trees are quite tall considering most of them appear to be quite young.
-On one of the trees, crude letters forming the word "Haon-Dor" have been
-carved into the bark.
-~
-E
-trail~
-The forest trail winds westwards through the trees.
+trail тропа дорога~
+@eng The forest trail winds westwards through the trees.
+@rus Лесная тропа идущая, на запад, петляющаяя среди деревьев.
 ~
 D0
-You see a dimly lit path.
+@eng You see a dimly lit path.
+@rus Темная дорога.
 ~
 ~
 ~
 ~
 Z 0 1100
 D1
-You see the West Gate of the City of Midgaard.
+@eng You see the West Gate of the City of Midgaard.
+@rus Западные Врата Мидгаарда.
 ~
 ~
 ~
 ~
 Z -1 3052
 D3
-You see the narrow forest trail winding westwards in between the trees.
+@eng You see the narrow forest trail winding westwards in between the trees.
+@rus Узкая тропа, уводящая на запад, петляющая среди деревьев.
 ~
 ~
 ~
@@ -538,33 +610,40 @@ You see the narrow forest trail winding westwards in between the trees.
 Z -1 6001
 S
 #6001
-A trail through the light forest~
-You are on a trail leading through the forest.  To the east is the forest edge
-and to the west, the trail leads further into the forest.
+@eng A trail through the light forest@rus Лесная тропинка~
+@eng You are on a trail leading through the forest.  To the east is the forest
+edge and to the west, the trail leads further into the forest.  
+@rus Ты стоишь на тропинке, ведущей через лес. На востоке, совсем недалеко,
+видна лесная опушка. Тропинка убегает дальше в лес.
 ~
 0 0 forest
 E
-birds insects animals~
-Very cute little creatures, they seem to enjoy life.
+birds insects animals животные птицы насекомые~
+@eng Very cute little creatures, they seem to enjoy life.
+@rus Маленькие милые создания, наслаждающиеся жизнью.
 ~
 E
-tree trees~
-The trees here are quite young and fresh.  They seem to accommodate many kinds
+tree trees дерево деревья~
+@eng The trees here are quite young and fresh.  They seem to accommodate many kinds
 of birds, insects and other small animals.
+@rus Молодые зеленые деревца. На них видно множество птиц, а у их корней
+резвятся зверушки.
 ~
 E
 trail~
-The forest trail winds east-west through the trees.
+@eng The forest trail winds east-west through the trees.
+@rus Лесная тропинка.
 ~
 D1
-Bus Stop.
+@rus Лесная опушка.
 ~
 ~
 ~
 ~
 Z -1 6000
 D3
-You see the narrow forest trail winding westwards in between the trees.
+@eng You see the narrow forest trail winding westwards in between the trees.
+@rus Лесная тропинка.
 ~
 ~
 ~
@@ -572,48 +651,58 @@ You see the narrow forest trail winding westwards in between the trees.
 Z -1 6002
 S
 #6002
-A trail through the light forest~
-You are on a narrow trail leading east and west through the forest.  To the
+@eng A trail through the light forest@rus Лесная тропинка~
+@eng You are on a narrow trail leading east and west through the forest.  To the
 west, the forest gradually becomes more dense.  A small forest path leads
 south.
+@rus Ты стоишь на тропинке, пересекающей лес с востока на запад.
+На западе лес становится гуще, узкая тропка уходит на юг.
 ~
 0 0 forest
 E
-tree trees~
-The young, slender trees look beautiful, their fresh, green leaves moving
+tree trees дерево деревья~
+@eng The young, slender trees look beautiful, their fresh, green leaves moving
 lightly in the wind.
+@rus Молодые грациозные деревца смотрятся поистине великолепно. Их
+свежие зеленые листики колышатся на ветру.
 ~
 E
-trail~
-The forest trail winds east-west through the trees.
+trail тропинка тропа~
+@eng The forest trail winds east-west through the trees.
+@rus Лесная тропинка.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая дорожка, протоптанная лесными обитателями.
 ~
 D1
-The trail continues eastwards through the young trees.
+@eng The trail continues eastwards through the young trees.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6001
 D2
-The small path leads south through the young trees.
+@eng The small path leads south through the young trees.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6011
 D3
-You see the narrow forest trail winding westwards into the dense forest.
+@eng You see the narrow forest trail winding westwards into the dense forest.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6003
 D4
-Junction in the dark Forest.
+@eng Junction in the dark Forest.
+@rus Развилка в темном лесу.
 ~
 ~
 ~
@@ -621,36 +710,32 @@ Junction in the dark Forest.
 Z -1 7556
 S
 #6003
-A trail through the dense forest~
-You are on a trail leading east and west through the dense forest.  To the
+@eng A trail through the dense forest@rus Тропа в густом лесу~
+@eng You are on a trail leading east and west through the dense forest.  To the
 east, the forest gradually seems to become lighter.
+@rus Ты стоишь на тропинке, пересекающей лес с востока на запад. На
+востоке лес становится реже и светлее.
 ~
 0 0 forest
-E
-tree trees~
-The dense crowns of the mature trees leave only a fraction of the sky to be
-seen through the leaves.
-~
-E
-trail~
-The forest trail seems almost fragile compared to the massive trunks.
-~
 D1
-The trail continues eastwards to the younger part of the forest.
+@eng The trail continues eastwards to the younger part of the forest.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6002
 D3
-You see the narrow trail winding westwards through the dense forest.
+@eng You see the narrow trail winding westwards through the dense forest.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6004
 D5
-Junction in the dark Forest.
+@eng Junction in the dark Forest.
+@rus Развилка в лесу.
 ~
 ~
 ~
@@ -658,40 +743,50 @@ Junction in the dark Forest.
 Z -1 7556
 S
 #6004
-A trail through the dense forest~
-You are on a trail leading east and west through the dense forest.  To the
+@eng A trail through the dense forest@rus Тропа в густом лесу~
+@eng You are on a trail leading east and west through the dense forest.  To the
 west, the trees are so huge and their crowns so dense that forest remains in
 total darkness.  A small path leads south through the trees.
+@rus Ты стоишь на тропинке, пересекающей лес с востока на запад.
+На западе лес становится еще гуще, кроны деревьев смыкаются,
+не пропуская солнечный свет. Незаметная тропинка ответвляется
+к югу.
 ~
 0 0 forest
 E
-tree trees~
-The crowns of the old trees almost cut out all light.
+tree trees дерево деревья~
+@eng The crowns of the old trees almost cut out all light.
+@rus Кроны старых деревьев поглащают почти все солнечные лучи.
 ~
 E
-trail~
-The forest trail seems almost fragile compared to the massive trunks.
+trail тропа~
+@eng The forest trail seems almost fragile compared to the massive trunks.
+@rus Лесная тропинка, петляющая среди огромных деревьев.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорога дорожка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая дорожка, протоптанная лесными жителями.
 ~
 D1
-The trail continues eastwards through the dense forest.
+@eng The trail continues eastwards through the dense forest.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6003
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Лесная тропинка.
 ~
 ~
 ~
 ~
 Z -1 6005
 D3
-The narrow trail almost seems to disappear between the enormous trunks.
+@eng The narrow trail almost seems to disappear between the enormous trunks.
+@rus Лесная тропинка.
 ~
 ~
 ~
@@ -699,29 +794,36 @@ The narrow trail almost seems to disappear between the enormous trunks.
 Z -1 6100
 S
 #6005
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues north and south.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев. 
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинка ведет на север и на юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропинка, протоптанная лесными жителями.
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Лесная тропинка, петляющая меж деревьев.
 ~
 ~
 ~
 ~
 Z -1 6004
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Лесная тропинка, петляющая меж деревьев.
 ~
 ~
 ~
@@ -729,29 +831,36 @@ The small path leads south through the trees.
 Z -1 6006
 S
 #6006
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
-continues north and east.
+continues north and south.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев. 
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинка ведет на север и на юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропинка, протоптанная лесными жителями.
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6005
 D1
-The small path leads east through the trees.
+@eng The small path leads east through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -759,36 +868,45 @@ The small path leads east through the trees.
 Z -1 6007
 S
 #6007
-An intersection in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng An intersection in the dense forest@rus Развилка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The forest
 gradually lightens to the east.  Paths lead east, west and south.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинки ведут на восток, на запад и на
+юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees деревья дерево~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорога тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропинка, протоптанная лесными жителями.
 ~
 D1
-You can barely make out a clearing to the east.
+@eng You can barely make out a clearing to the east.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6008
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6012
 D3
-The small path leads west through the trees.
+@eng The small path leads west through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -796,43 +914,39 @@ The small path leads west through the trees.
 Z -1 6006
 S
 #6008
-The forest clearing~
-You are in a clearing in the forest.  Lots of fresh stumps of varying sizes
+@eng The forest clearing@rus Лесная вырубка~
+@eng You are in a clearing in the forest.  Lots of fresh stumps of varying sizes
 protrude from the ground and heavy logs are stacked neatly in a big pile
 supported by stakes set into the ground.  Paths lead north, east and west.
+@rus Ты находишься на вырубленном участке леса. Множество пней,
+оставшихся от совсем недавно срубленных деревьев, самых раз-
+личных размеров торчат из земли. Бревна сложены в большие ку-
+чи, поддерживаемые вбитыми в землю кольями. Рядом валяются 
+обрубленные ветки. Тропинки уходят на север, на восток и на 
+запад.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees деревья дерево~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые дубы и буки.
 ~
 E
-stump stumps~
-There are more stumps than logs and some of the stumps are partly covered in
-moss.
-~
-E
-stake stakes~
-The stakes keep the logs from rolling down.
-~
-E
-path paths~
-The narrow path is probably used by the animals living in the forest.
-~
-E
-log logs~
-Even though the logs have been chopped to shorter pieces, they are quite heavy
-as they are fresh and still filled with sap.
+path paths дорожка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропинка, протоптанная лесными жителями.
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6011
 D1
-The small path leads east through the trees.
+@eng The small path leads east through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -845,7 +959,8 @@ D2
 ~
 Z -1 6156
 D3
-The small path leads west through the trees.
+@eng The small path leads west through the trees.
+@rus Лесная тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -853,40 +968,49 @@ The small path leads west through the trees.
 Z -1 6007
 S
 #6009
-Outside a small cabin in the forest~
-You are outside a small cabin built entirely from heavy logs.  There is a
+@eng Outside a small cabin in the forest@rus Около лесной хижины~
+@eng You are outside a small cabin built entirely from heavy logs.  There is a
 wooden door to the north and small paths lead west and south through the trees.
+@rus Ты стоишь около маленькой хижины, построенной из тяжелых бревен.
+Тропинки уходят на юг и на запад, петляя среди деревьев, на севере
+видна дверь, ведущая в хижину.
 ~
 0 0 forest
 E
-tree trees~
-The trees are fairly young, not much more than a hundred years or so.
+tree trees дерево деревья~
+@eng The trees are fairly young, not much more than a hundred years or so.
+@rus Совсем молодые деревья, им всего лет сто или около того.
 ~
 E
-path paths~
-The path is probably used by the cabin's inhabitants.
+path paths дорожка тропинка~
+@eng The path is probably used by the cabin's inhabitants.
+@rus Это тропинка используется жителями хижины.
 ~
 E
-cabin logs~
-It looks simple but comfortable and the slender trees make the whole place seem
+cabin logs хижина~
+@eng It looks simple but comfortable and the slender trees make the whole place seem
 pretty idyllic.  It's a cabin built from logs.  Wooden logs, not system logs.
+@rus Очень скромная, но вместе с тем удобная хижина. Она построена из бревен.
 ~
 D0
-The wooden door is quite sturdy but does not appear to be equipped with a lock.
+@eng The wooden door is quite sturdy but does not appear to be equipped with a lock.
+@rus Дверь массивная и крепкая, но без признаков замка на ней.
 ~
-door wooden~
+door wooden дверь~
 ~
 ~
 ABZ -1 6010
 D2
-The small path leads south through the dense forest.
+@eng The small path leads south through the dense forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6014
 D3
-The small path leads west through the light forest.
+@eng The small path leads west through the light forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -894,55 +1018,69 @@ The small path leads west through the light forest.
 Z -1 6008
 S
 #6010
-Inside the cabin~
-You are inside a small one-room cabin made entirely from heavy logs.  It is
+@eng Inside the cabin@rus В хижине~
+@eng You are inside a small one-room cabin made entirely from heavy logs.  It is
 very sparsely furnished, containing only most basic housekeeping equipment,
 such as a bed, a chair and a table.
+@rus Ты стоишь внутри совсем маленькой хижины, состоящей всего из 
+одной комнаты. Она построена из тяжелых бревен и очень скудно
+обставлена. Кровать, стол и стул составляют всю здешнюю мебель.
 ~
 0 D inside
 E
-table~
-A heavy table that doesn't even appear to rock.
+table стол~
+@eng A heavy table that doesn't even appear to rock.
+@rus Массивный стол, столь же крепкий, как камень.
 ~
 E
-chair~
-It is made from oak and looks strong and sturdy.
+chair стул~
+@eng It is made from oak and looks strong and sturdy.
+@rus Он сделан из дуба и выглядит кретким и массивным.
 ~
 E
-bed~
-It is definitely not the most comfortable bed you have seen in your life.
+bed кровать~
+@eng It is definitely not the most comfortable bed you have seen in your life.
+@rus Определенно не самая удобная кровать из виденных тобой.
 ~
 D2
-The wooden door leads south.
+@eng The wooden door leads south.
+@rus Дверь, сделанная из крепкой древесины.
 ~
-door wooden~
+door wooden дверь~
 ~
 ~
 Z -1 6009
 S
 #6011
-A small path through the light forest~
-You are on a small path leading through the forest.  The trees are tall and
+@eng A small path through the light forest@rus Лесная тропинка~
+@eng You are on a small path leading through the forest.  The trees are tall and
 slender.  Paths lead north and south.
+@rus Ты стоишь на едва заметной тропинке, бегущей через лес.
+Деревья вокруг стройны, высоки и грациозны. Тропинка ведет
+на север и на юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are fairly young, not much more than a hundred years or so.
+tree trees дерево деревья~
+@eng The trees are fairly young, not much more than a hundred years or so.
+@rus Совсем еще не старые деревья, им всего около сотни лет.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The path leads north through the young trees.
+@eng The path leads north through the young trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6002
 D2
-The path leads south through the young trees.
+@eng The path leads south through the young trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -950,36 +1088,45 @@ The path leads south through the young trees.
 Z -1 6008
 S
 #6012
-An intersection in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng An intersection in the dense forest@rus Развилка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest floor in an unreal twilight illumination.  Paths
 lead north, east and south.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинки ведут на север, на восток и 
+на юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые могучие дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6007
 D1
-The small path leads east through the trees.
+@eng The small path leads east through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6013
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -987,29 +1134,36 @@ The small path leads south through the trees.
 Z -1 6021
 S
 #6013
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues east and west.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинка ведет на запад и на восток.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые могучие дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D1
-The small path leads east through the trees.
+@eng The small path leads east through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6014
 D3
-The small path leads west through the trees.
+@eng The small path leads west through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1017,36 +1171,44 @@ The small path leads west through the trees.
 Z -1 6012
 S
 #6014
-An intersection in the dense forest~
-You are on a small path leading through the dense forest.  The forest gradually
-lightens to the north.  Paths lead north, east and west.
+@eng An intersection in the dense forest@rus Развилка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The forest
+gradually lightens to the north.  Paths lead north, east and west.  
+@rus Ты стоишь на незаметной дорожке в лесу. На севере лес становится
+реже и светлее. Тропинки ведут на север, на восток и на запад.
 ~
 0 0 forest
 E
-tree trees~
-The crowns of the old trees leave the forest in an unreal twilight
+tree trees дерево деревья~
+@eng The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+@rus Кроны лесных старых деревьев, избирательно пропуская солнечный свет,
+создают ощущение нереальности.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The path leads north to a lighter part of the forest.
+@eng The path leads north to a lighter part of the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6009
 D1
-The small path leads east through the trees.
+@eng The small path leads east through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6015
 D3
-The small path leads west through the trees.
+@eng The small path leads west through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1054,29 +1216,36 @@ The small path leads west through the trees.
 Z -1 6013
 S
 #6015
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues south and west.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинка ведет на запад и на юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые могучие дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6016
 D3
-The small path leads west through the trees.
+@eng The small path leads west through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1084,29 +1253,36 @@ The small path leads west through the trees.
 Z -1 6014
 S
 #6016
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues north and south.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Тропинка ведет на север и на юг.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые могучие дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6015
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1114,36 +1290,45 @@ The small path leads south through the trees.
 Z -1 6017
 S
 #6017
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The forest seems to
-become lighter to the west.  The path continues north and west.
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The forest
+seems to become lighter to the west.  The path continues north and west.  
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+На западе лес становится реже и светлее, тропинка ведет на юг
+и на север.
 ~
 0 0 forest
 E
-tree trees~
-The crowns of the old trees leave the forest in an unreal twilight
+tree trees дерево деревья~
+@eng The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+@rus Кроны лесных старых деревьев, избирательно пропуская солнечный свет,
+создают ощущение нереальности.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths тропинка дорожка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6016
 D2
-Wooden path.
+@eng Wooden path.
+@rus Лесная дорога.
 ~
 ~
 ~
 ~
 Z -1 11800
 D3
-The small path leads west through the trees to a lighter part of the forest.
+@eng The small path leads west through the trees to a lighter part of the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1151,35 +1336,44 @@ The small path leads west through the trees to a lighter part of the forest.
 Z -1 6018
 S
 #6018
-An intersection in the light forest~
-You are on a small path leading through the forest.  A path leads north to a
+@eng An intersection in the light forest@rus Развилка в лесу~
+@eng You are on a small path leading through the forest.  A path leads north to a
 small field and other paths lead east and west into the dense forest.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тропинки ведут на восток, на запад и на север на зеленую лу-
+жайку.
 ~
 0 0 forest
 E
-tree trees~
-The tall trees are young and slender, not much more than a hundred years or so.
+tree trees дерево деревья~
+@eng The tall trees are young and slender, not much more than a hundred years or so.
+@rus Высокие деревья красивы и грациозны, и растут они здесь еще не дольше
+ста лет.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The path leads north to a small, grassy field.
+@eng The path leads north to a small, grassy field.
+@rus Лесная поляна.
 ~
 ~
 ~
 ~
 Z -1 6023
 D1
-The path leads east to a dense part of the forest.
+@eng The path leads east to a dense part of the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6017
 D3
-The path leads west to a dense part of the forest.
+@eng The path leads west to a dense part of the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1187,29 +1381,37 @@ The path leads west to a dense part of the forest.
 Z -1 6019
 S
 #6019
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The forest seems to
-become lighter to the east.  The path continues north and east.
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The forest
+seems to become lighter to the east.  The path continues north and east.  
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+На востоке лес становится реже и светлее. Тропинка ведет на 
+юг и на север.
 ~
 0 0 forest
 E
-tree trees~
-The crowns of the old trees leave the forest in an unreal twilight
+tree trees дерево деревья~
+@eng The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+@rus Кроны лесных старых деревьев, избирательно пропуская солнечный свет,
+создают ощущение нереальности.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6020
 D1
-The small path leads east through the trees to a lighter part of the forest.
+@eng The small path leads east through the trees to a lighter part of the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1217,29 +1419,37 @@ The small path leads east through the trees to a lighter part of the forest.
 Z -1 6018
 S
 #6020
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  The crowns of the
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  The crowns of the
 old trees leave the forest in an unreal twilight illumination.  The path
 continues south and west.
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+Тень от крон старых деревьев покрывает лес сумраком, создавая
+ощущение нереальности. Ты можешь пойти на север или на запад
+по этой же тропинке дальше.
 ~
 0 0 forest
 E
-tree trees~
-The trees are mostly old beeches and oaks.
+tree trees дерево деревья~
+@eng The trees are mostly old beeches and oaks.
+@rus Это старые могучие дубы и буки.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D2
-The small path leads south through the trees.
+@eng The small path leads south through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6019
 D3
-The small path leads west through the trees.
+@eng The small path leads west through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1247,41 +1457,52 @@ The small path leads west through the trees.
 Z -1 6021
 S
 #6021
-A small path in the dense forest~
-You are on a small path leading through the dense forest.  To the west there is
-a cave entrance.  The path continues north and east.
+@eng A small path in the dense forest@rus Тропинка в густом лесу~
+@eng You are on a small path leading through the dense forest.  To the west
+there is a cave entrance.  The path continues north and east.  
+@rus Ты стоишь на незаметной тропинке, петляющей среди деревьев.
+На западе виден вход в пещеру. Тропинка продолжается в север-
+ном и восточном направлениях.
 ~
 0 0 forest
 E
-cave entrance~
-The irregular opening is eight feet wide and six feet tall.  An acrid smell
+cave entrance пещера~
+@eng The irregular opening is eight feet wide and six feet tall.  An acrid smell
 emanates from within.
+@rus Огромный темный глаз шести футов в высоту и восьми в ширину. Оттуда
+доносится невыносимое зловоние.
 ~
 E
-tree trees~
-The crowns of the old trees leave the forest in an unreal twilight
+tree trees дерево деревья~
+@eng The crowns of the old trees leave the forest in an unreal twilight
 illumination.
+@rus Кроны лесных старых деревьев, избирательно пропуская солнечный свет,
+создают ощущение нереальности.
 ~
 E
-path paths~
-The narrow path is probably used by the animals living in the forest.
+path paths дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 D0
-The small path leads north through the trees.
+@eng The small path leads north through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6012
 D1
-The small path leads east through the trees.
+@eng The small path leads east through the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6020
 D3
-The cave is very dark.
+@eng The cave is very dark.
+@rus Темная пещера.
 ~
 ~
 ~
@@ -1289,26 +1510,19 @@ The cave is very dark.
 Z -1 6022
 S
 #6022
-Inside the cave~
-You are in a natural cave.  Various sorts of debris cover the stone floor,
+@eng Inside the cave@rus В пещере~
+@eng You are in a natural cave.  Various sorts of debris cover the stone floor,
 emitting a rather unpleasant smell that makes the air thick and hard to
 breathe.  The only obvious exit is east.
+@rus Ты стоишь в природной пещере. Пол засыпан осколками камней, 
+неприятный запах, а скорее даже вонь наполняет пещеру, и ты
+чувствуешь, что уже стало тяжело дышать. Единственные выход
+из этого места на востоке.
 ~
 0 AD inside
-E
-air smell~
-Kind of transparent, but quite noticeable nevertheless.
-~
-E
-cave walls floor stone~
-Quite uninteresting.
-~
-E
-debris~
-It consists mostly of gnawed bones mixed with small pieces of torn fur.
-~
 D1
-The cave opening is to the east.
+@eng The cave opening is to the east.
+@rus Выход из пещеры.
 ~
 ~
 ~
@@ -1316,27 +1530,35 @@ The cave opening is to the east.
 Z -1 6021
 S
 #6023
-On a small, grassy field~
-You are in a small, grassy field somewhere in the forest.  The tall grass
+@eng On a small, grassy field@rus Лужайка~
+@eng You are in a small, grassy field somewhere in the forest.  The tall grass
 nearly reaches your waist, and the surrounding oaks and beeches form an almost
 wall-like thicket on all sides of the field.  A small path leads south through
 the trees.
+@rus Ты стоишь на маленькой лужайке, спрятавшейся в глубине леса,
+заросшей травой. Окружающие поляну могучие дубы и буки похожи
+на живую стену, отгородившую поляну от остального леса. Кое-
+где трава достигает твоего пояса. Тропинка уводит на юг.
 ~
 0 0 field
 E
-tree trees thicket~
-The trees form a close thicket.
+tree trees thicket дерево деревья~
+@eng The trees form a close thicket.
+@rus Деревья образуют непроходимые заросли.
 ~
 E
-path~
-The narrow path is probably used by the animals living in the forest.
+path дорожка тропинка~
+@eng The narrow path is probably used by the animals living in the forest.
+@rus Узкая тропа, протоптанная лесными обитателями 
 ~
 E
-grass~
-The tall grass makes a nice hiding place for animals.
+grass трава~
+@eng The tall grass makes a nice hiding place for animals.
+@rus Высокая трава дает чудесное убежище для мелких зверушек.
 ~
 D2
-The small path leads south in between the trees.
+@eng The small path leads south in between the trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1344,31 +1566,42 @@ The small path leads south in between the trees.
 Z -1 6018
 S
 #6100
-A narrow trail through the deep, dark forest~
-You are on a narrow trail winding its way between the enormous, grey trunks.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a narrow trail winding its way between the enormous, grey trunks.
 The crowns of the trees must be very dense, as they leave the forest floor in
 utter darkness.  The trail leads east and west.
+@rus Ты стоишь на узкой тропе, нашедшей себе дорогу среди множества
+огромных, серых стволов. Кроны деревьев смыкаются, а потому здесь
+под деревьями, совсем темно. По тропинке можно пойти на восток и
+на запад.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропа~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow trail leads east to a somewhat lighter part of the forest.
+@eng The narrow trail leads east to a somewhat lighter part of the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6004
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1376,43 +1609,56 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6101
 S
 #6101
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way east-west between huge, ancient trees
-whose grey trunks remind you of ancient pillars in a enormous, deserted hall.
-To the south, a frail path leads away from the trail.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way east-west between huge, ancient
+trees whose grey trunks remind you of ancient pillars in a enormous,
+deserted hall.  To the south, a frail path leads away from the trail.  
+@rus Ты стоишь на едва заметной тропке, бегущей мимо огромных
+вековых деревьев, чьи серые стволы похожи на античные колон-
+ны. На юг ответвляется практически заросшая тропа.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-path~
-The path seems fragile and unsafe compared to the enormous trunks that loom
+path дорожка~
+@eng The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6100
 D2
-The path leads south - away from the trail.
+@eng The path leads south - away from the trail.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6104
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1420,36 +1666,48 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6102
 S
 #6102
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way east-west between huge, ancient trees
-that stand close on all sides.  Not a sound is to be heard - everything is
-ominously quiet.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way east-west between huge, ancient
+trees that stand close on all sides.  Not a sound is to be heard -
+everything is ominously quiet.  
+@rus Ты стоишь на пыльной тропе идущей с востока на запад среди
+огромных вековых деревьев. В лесу не слышно ни звука, стоит
+угрожающая напряженная тишина.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-path~
-The path seems fragile and unsafe compared to the enormous trunks that loom
+path дорожка~
+@eng The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6101
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1457,38 +1715,50 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6103
 S
 #6103
-A narrow trail through the deep, dark forest~
-You are where the dusty trail bends, as to avoid conflict with a colossal
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are where the dusty trail bends, as to avoid conflict with a colossal
 trunk to the west.  Not a sound is to be heard - everything is ominously quiet.
 The trail leads east and south.
+@rus Здесь пыльная тропа, по которой ты $gn{шел}, круто поворачивает,
+огибая огромное дерево, ствол которого преграждает ей путь на
+западе. В лесу не слышно ни звука, стоит угрожающая напряжен-
+ная тишина. По тропе можно пойти на восток, на север или на юг.
 ~
 0 AD forest
 E
-trees trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+trees trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D0
-You see a dark trail north.
+@eng You see a dark trail north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z 0 6150
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6102
 D2
-The narrow, dusty trail leads south through the forest.
+@eng The narrow, dusty trail leads south through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1496,30 +1766,39 @@ The narrow, dusty trail leads south through the forest.
 Z -1 6108
 S
 #6104
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  You feel as if
-the ancient trees observe you in watchful silence.  The path continues north
-and south.
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  You feel
+as if the ancient trees observe you in watchful silence.  The path continues
+north and south.  
+@rus Узкая тропа в глубине леса, в самой чаще. Такое чувство, что
+старые деревья, растущие здесь уже не одну сотню лет (если су-
+дить по их размеру), молчаливо наблюдают за тобой. По тропинке
+можно пойти или на север, или на юг.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропинка уже совсем не заметна, зато видны огромные корни, выступающие из
+земли.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6101
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1527,29 +1806,37 @@ The narrow path winds its way through the trees to the south.
 Z -1 6105
 S
 #6105
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient grey
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The path continues north and west.
+@rus Узкая тропинка в лесной чаще. Грозные могучие деревья,
+растущие здесь не одну сотню лет, нависают со всех сто-
+рон. По тропинке можно пойти или на север, или на запад.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6104
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1557,36 +1844,45 @@ The narrow path winds its way through the trees to the west.
 Z -1 6106
 S
 #6106
-A junction in the deep, dark forest~
-You are by a junction where three paths meet.  Ancient grey trees tower above
+@eng A junction in the deep, dark forest@rus На распутье~
+@eng You are by a junction where three paths meet.  Ancient grey trees tower above
 you on all sides.  Paths lead east, south and west.
+@rus Ты стоишь в месте, где сходятся три тропы. Со всех сторон его
+окружают огромные вековые деревья. Тропинки уходят на восток,
+на запад, на юг.
 ~
 0 AD forest
 E
-path paths~
-The path seems all too frail.  One of the giant roots could probably crush it
+path paths дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks деревья дерево стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6105
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6117
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1594,29 +1890,36 @@ The narrow path winds its way through the trees to the west.
 Z -1 6107
 S
 #6107
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient grey
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The path continues north and east.
+@rus Незаметная тропка, петляющая среди вековых деревьев, окружающих
+тебя совсех сторон. Тропинка идет на север и на восток.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6108
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1624,43 +1927,57 @@ The narrow path winds its way through the trees to the east.
 Z -1 6106
 S
 #6108
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way between huge, ancient trees
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way between huge, ancient trees
 standing close on all sides.  The trail leads north and west and to the south,
 a frail path leads away from the trail.
+@rus Ты идешь по пыльной тропе, прокладывающей себе дорогу сквозь
+огромные толстые стволы вековых деревьев, которые, словно сго-
+ворившись, пытаются преградить тебе путь. Тропа идет с севера 
+на запад, а на юг ответвляется совсем малюсенькая тропка.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-path~
-The path seems fragile and unsafe compared to the enormous trunks that loom
+path дорожка~
+@eng The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D0
-The narrow, dusty trail leads north through the forest.
+@eng The narrow, dusty trail leads north through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6103
 D2
-The path leads south - away from the trail.
+@eng The path leads south - away from the trail.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6107
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1668,31 +1985,41 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6109
 S
 #6109
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way east-west between huge, ancient trees
-that stand close on all sides.  Not a sound is to be heard - everything is
-ominously quiet.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way east-west between huge, ancient
+trees that stand close on all sides.  Not a sound is to be heard -
+everything is ominously quiet.  
+@rus Ты идешь по лесной тропе, петляющей среди вековых деревьев,
+нависающих со всех сторон. Ни звука не достигает твоих ушей,
+стоит напряженная, даже угрожающая тишина.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропа тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6108
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1700,43 +2027,56 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6110
 S
 #6110
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way between huge, ancient trees that stand
-close on all sides.  The trail leads east and south.  To the north, a narrow
-path leads away from the trail.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way between huge, ancient trees that
+stand close on all sides.  The trail leads east and south.  To the north, a
+narrow path leads away from the trail.  
+@rus Ты стоишь на пыльной тропе, идущей через лес. Вокруг тебя
+возвышаются огромные вековые деревья. По тропе можно пойти
+на юг или на восток, а едва заметная тропинка ведет отсюда
+на север.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-Some of the trunks to the west are covered in a thin, almost transparent
-substance.  It looks like small threads woven carefully together.
+tree trees trunk trunks дерево деревья стволы~
+@eng Some of the trunks to the west are covered in a thin, almost transparent
+substance. 
+@rus Деревья изпачканы в каком-то странном веществе.
 ~
 E
-path~
-The path seems fragile and unsafe compared to the enormous trunks that loom
+path дорожка~
+@eng The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D0
-The narrow path leads west between the giant trees.
+@eng The narrow path leads west between the giant trees.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6144
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6109
 D2
-The narrow, dusty trail leads south through the forest.
+@eng The narrow, dusty trail leads south through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1744,30 +2084,39 @@ The narrow, dusty trail leads south through the forest.
 Z -1 6111
 S
 #6111
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way north-south between huge, ancient
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way north-south between huge, ancient
 trees that loom ominously above you.
+@rus Ты идешь по пыльной тропе, пересекающей лес с севера на восток.
+Огромные вековые деревья угрожающе нависают над тобой.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропа тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D0
-The narrow, dusty trail leads north through the forest.
+@eng The narrow, dusty trail leads north through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6110
 D2
-The narrow, dusty trail leads south through the forest.
+@eng The narrow, dusty trail leads south through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1775,43 +2124,57 @@ The narrow, dusty trail leads south through the forest.
 Z -1 6112
 S
 #6112
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way between huge, ancient trees
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way between huge, ancient trees
 standing close on all sides.  The trail leads north and west and to the east,
 a frail path leads away from the trail.
+@rus Ты идешь по пыльной лесной тропе, петляющей меж огромных
+вековых деревьев. Отсюда по ней можно пойти на запад или
+на север, а можешь повернуть на восток и пойти по тропе,
+практически полностью скрытой травой.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-path~
-The path seems fragile and unsafe compared to the enormous trunks that loom
+path дорожка~
+@eng The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D0
-The narrow, dusty trail leads north through the forest.
+@eng The narrow, dusty trail leads north through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6111
 D1
-The path leads east - away from the trail.
+@eng The path leads east - away from the trail.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6113
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1819,29 +2182,37 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6127
 S
 #6113
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient grey
+@eng A small path in the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom in all directions.  The path continues south and west.
+@rus Ты идешь по пыльной лесной тропе. Со всех сторон угрожающе
+нависают огромные серые стволы вековых деревьев. По тропинке
+можно пойти на юг или на запад.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6114
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1849,36 +2220,45 @@ The narrow path winds its way through the trees to the west.
 Z -1 6112
 S
 #6114
-A junction in the deep, dark forest~
-You are by a junction where three paths meet.  Ancient grey trees tower above
+@eng A junction in the deep, dark forest@rus На распутье~
+@eng You are by a junction where three paths meet.  Ancient grey trees tower above
 you on all sides.  Paths lead north, east and west.
+@rus Со всех сторон ты $gn{окружен} могучими вековыми деревьями. Здесь,
+на этом месте, сходятся три тропы, ведущие на север, на восток
+и на запад.
 ~
 0 AD forest
 E
-path paths~
-The path seems all too frail.  One of the giant roots could probably crush it
+path paths дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6113
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6115
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1886,30 +2266,38 @@ The narrow path winds its way through the trees to the west.
 Z -1 6122
 S
 #6115
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  You feel as
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  You feel as
 if the ancient trees observe you in watchful silence.  The path continues north
 and west.
+@rus Узкая тропа в глубине леса. Возникает чувство, что вековые
+деревья, растущие здесь, молчаливо наблюдают за тобой. Даль-
+ше по тропинке можно пойти на север или на запад.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6116
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1917,29 +2305,37 @@ The narrow path winds its way through the trees to the west.
 Z -1 6114
 S
 #6116
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Giant, grey
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Giant, grey
 trees loom ominously on all sides.  The path continues east and south.
+@rus Узкая тропа в глубине леса. Гигантские деревья угрожающе
+нависают со всех сторон. По тропинке можно пойти на восток
+или на юг.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6117
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1947,36 +2343,45 @@ The narrow path winds its way through the trees to the south.
 Z -1 6115
 S
 #6117
-A junction in the deep, dark forest~
-You are by a junction where three paths meet.  Ancient, grey trees seem to
-observe you silently you from all sides.  Paths lead north, east and west.
+@eng A junction in the deep, dark forest@rus На распутье~
+@eng You are by a junction where three paths meet.  Ancient grey trees tower above
+you on all sides.  Paths lead east, north and west.
+@rus Ты стоишь в месте, где сходятся три тропы. Со всех сторон его
+окружают огромные вековые деревья. Тропинки уходят на восток,
+на запад, на север.
 ~
 0 AD forest
 E
-path paths~
-The path seems all too frail.  One of the giant roots could probably crush it
+path paths дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6106
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6118
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -1984,29 +2389,37 @@ The narrow path winds its way through the trees to the west.
 Z -1 6116
 S
 #6118
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient,
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Ancient,
 grey trees loom everywhere.  The path continues south and west.
+@rus Незаметная тропинка в самой чаще леса. Повсюду возвышаются
+вековые деревья с серой стволами. По тропе можно пойти на юг
+и на запад.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6119
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2014,29 +2427,37 @@ The narrow path winds its way through the trees to the west.
 Z -1 6117
 S
 #6119
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Huge, ancient
-trees are on all sides.  The path continues north and south.
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Huge,
+ancient trees are on all sides.  The path continues north and south.  
+@rus Незаметная тропинка в самой чаще леса. Повсюду возвышаются
+вековые деревья с серой стволами. По тропе можно пойти на юг
+или на север.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-You feel as if they are watching you.
+tree trees trunk trunks дерево деревья стволы~
+@eng You feel as if they are watching you.
+@rus Они словно следят за тобой.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6118
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2044,35 +2465,44 @@ The narrow path winds its way through the trees to the south.
 Z -1 6120
 S
 #6120
-On the river bank in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  To the south a
-fast river is flowing westwards through the forest.  Ancient grey trees loom on
-both banks.  The path continues north and west.
+@eng On the river bank in the deep, dark forest@rus Берег лесной речки~
+@eng You are on a narrow path leading through the deep, dark forest.  To the
+south a fast river is flowing westwards through the forest.  Ancient grey
+trees loom on both banks.  The path continues north and west.  
+@rus Незаметная тропинка в самой чаще леса. На юге чистая лесная речка
+катит свои воды сквозь деревья. По обеим ее сторонам растут вековые
+деревья. По тропинке можно пойти на север и на запад.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-bank banks tree trees trunk trunks~
-The ancient crowns of trees on both banks reach together forming a dense roof
+bank banks tree trees trunk trunks дерево деревья стволы берег~
+@eng The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
+@rus По обеим сторонам реки растут огромные деревья.
 ~
 E
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+river река~
+@eng The river flows fast and strong.  It is black or looks so in the gloom.
+@rus В реке течение сильное и бысторое. А вода практически черна.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6119
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2080,28 +2510,37 @@ The narrow path winds its way through the trees to the west.
 Z -1 6121
 S
 #6121
-A dead end path on the river bank in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  The ancient
+@eng A dead end path on the river bank in the deep, dark forest@rus Конец тропы~
+@eng You are on a narrow path leading through the deep, dark forest.  The ancient
 trees stand so close that the path disappears between the dusty roots.  To the
 south a dark river flows from east to west.  The only exit appears to be east.
+@rus Незаметная тропинка в самой чаще леса. Огромным деревьям, 
+растущим здесь, наконец-то удается преградить путь, и тро-
+пинка здесь кончается. На юге лесная речка несет свои воды
+с востока на запад. Придется идти назад на восток.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-bank banks tree trees trunk trunks~
-The ancient crowns of trees on both banks reach together forming a dense roof
+bank banks tree trees trunk trunks дерево деревья стволы берег~
+@eng The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
+@rus По обеим сторонам реки растут огромные деревья.
 ~
 E
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+river река~
+@eng The river flows fast and strong.  It is black or looks so in the gloom.
+@rus В реке течение сильное и бысторое. А вода практически черна.
 ~
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2109,29 +2548,37 @@ The narrow path winds its way through the trees to the east.
 Z -1 6120
 S
 #6122
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Giant, grey
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Giant, grey
 trees loom ominously all around.  The path continues east and south.
+@rus Едва заметная тропинка ведет тебя сквозь чащу леса. Гигантские
+серые деревья угрожающе нависают со всех сторон. По тропе можно
+пойти на юг или на восток.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6114
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2139,49 +2586,61 @@ The narrow path winds its way through the trees to the south.
 Z -1 6123
 S
 #6123
-A junction on the river bank in the deep, dark forest~
-You are by a junction where three paths meet.  Ancient, grey trees seem to
+@eng A junction on the river bank in the deep, dark forest@rus Развилка у лесной реки~
+@eng You are by a junction where three paths meet.  Ancient, grey trees seem to
 observe you silently you from all around.  To the south a dark river flows from
 east to west through the forest.  Paths lead north, east and west. 
+@rus В этом месте сходятся три тропы. Огромные вековые деревья молчаливо
+следят за твоими действиями. На юге, темная река несет свои воды с
+востока на запад сквозь лес. Тропинки ведут на север, на восток, на
+запад.
 ~
 0 AD forest
 E
-path paths~
-The path seems all too frail.  One of the giant roots could probably crush it
+path paths дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-bank banks tree trees trunk trunks~
-The ancient crowns of trees on both banks reach together forming a dense roof
+bank banks tree trees trunk trunks дерево деревья стволы берег~
+@eng The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
+@rus По обеим сторонам реки растут огромные деревья.
 ~
 E
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+river река~
+@eng The river flows fast and strong.  It is black or looks so in the gloom.
+@rus В реке течение сильное и бысторое. А вода практически черна.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6122
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6124
 D2
-You see a dark river.
+@eng You see a dark river.
+@rus Темные речные воды.
 ~
 ~
 ~
 ~
 Z -1 9774
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2189,35 +2648,35 @@ The narrow path winds its way through the trees to the west.
 Z -1 6125
 S
 #6124
-A dead end path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  The ancient
+@eng A dead end path in the deep, dark forest@rus Глухой лесной угол~
+@eng You are on a narrow path leading through the deep, dark forest.  The ancient
 trees stand so close that the path disappears between the dusty roots.  To the
 south a dark river flows from east to west.  The only exit appears to be west.
+@rus Узкая тропа, идущая через лес. На юге темная река несет свои воды 
+с востока на запад. Единственный выход на западе.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-bank banks tree trees trunk trunks~
-The ancient crowns of trees on both banks reach together forming a dense roof
+bank banks tree trees trunk trunks дерево деревья стволы берег~
+@eng The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
+@rus По обеим сторонам реки растут огромные деревья.
 ~
 E
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+river река~
+@eng The river flows fast and strong.  It is black or looks so in the gloom.
+@rus В реке течение сильное и бысторое. А вода практически черна.
 ~
-D2
-It stinks in there.
-~
-~
-~
-~
-Z -1 2801
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2225,42 +2684,52 @@ The narrow path winds its way through the trees to the west.
 Z -1 6123
 S
 #6125
-A small path on the river bank in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient grey
+@eng A small path on the river bank in the deep, dark forest@rus Тропинка, идущая по берегу реки~
+@eng You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom everywhere.  To the south you smell marsh gas.  The path continues
 north and east.
+@rus Узкая тропа, петляющая среди огромных вековых деревьев,
+нависающих буквально отовсюду. С юга ветер доносит запах
+болота. Тропа ведет на север и на восток.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-bank banks tree trees trunk trunks~
-The ancient crowns of trees on both banks reach together forming a dense roof
+bank banks tree trees trunk trunks дерево деревья стволы берег~
+@eng The ancient crowns of trees on both banks reach together forming a dense roof
 above the dark river.
+@rus По обеим сторонам реки растут огромные деревья.
 ~
 E
-river~
-The river flows fast and strong.  It is black or looks so in the gloom.
+river река~
+@eng The river flows fast and strong.  It is black or looks so in the gloom.
+@rus В реке течение сильное и бысторое. А вода практически черна.
 ~
 D0
-The narrow path winds its way through the trees to the north.
+@eng The narrow path winds its way through the trees to the north.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6126
 D1
-The narrow path winds its way through the trees to the east.
+@eng The narrow path winds its way through the trees to the east.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6123
 D2
-You smell marsh gas.
+@eng You smell marsh gas.
+@rus Болото.
 ~
 ~
 ~
@@ -2268,43 +2737,57 @@ You smell marsh gas.
 Z -1 8301
 S
 #6126
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way between huge, ancient trees standing
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way between huge, ancient trees standing
 close on all sides.  The trail leads north and west, and to the south a frail
 path leads away from the trail.
+@rus Ты идешь по пыльной тропе, петляющей меж огромных вековых
+деревьев, окружающих тебя со всех сторон. По тропинке можно
+пойти или на север, или на запад, а на юг ответвляется еще
+одна тропинка, практически скрытая растительностью.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-path~
-The path seems fragile and unsafe compared to the enormous trunks that loom
+path дорожка~
+@eng The path seems fragile and unsafe compared to the enormous trunks that loom
 around it.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D0
-The narrow, dusty trail leads north through the forest.
+@eng The narrow, dusty trail leads north through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6127
 D2
-The path leads south - away from the trail.
+@eng The path leads south - away from the trail.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6125
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2312,30 +2795,40 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6128
 S
 #6127
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way between huge, ancient trees
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way between huge, ancient trees
 standing close on all sides.  The trail leads east and south.
+@rus Ты идешь по пыльной тропе, петляющей меж огромных вековых
+деревьев, окружающих тебя со всех сторон. По тропинке можно
+пойти или на юг, или на восток.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6112
 D2
-The narrow, dusty trail leads south through the forest.
+@eng The narrow, dusty trail leads south through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2343,31 +2836,41 @@ The narrow, dusty trail leads south through the forest.
 Z -1 6126
 S
 #6128
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way east-west between huge, ancient trees
-that stand close on all sides.  Not a sound is to be heard - everything is
-ominously quiet.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way east-west between huge, ancient
+trees that stand close on all sides.  Not a sound is to be heard -
+everything is ominously quiet.  
+@rus Пыльная тропа, идущая с востока на запад, огибая деревья,
+встречающиеся на пути. Не слышно ни звука, стоит тяжелая,
+давящая тишина.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6126
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2375,31 +2878,41 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6129
 S
 #6129
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way east-west between huge, ancient trees
-that stand close on all sides.  Not a sound is to be heard - everything is
-ominously quiet.
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way east-west between huge, ancient
+trees that stand close on all sides.  Not a sound is to be heard -
+everything is ominously quiet.  
+@rus Пыльная тропа, идущая с востока на запад, огибая деревья,
+встречающиеся на пути. Не слышно ни звука, стоит тяжелая,
+давящая тишина.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-These ancient trees must have been here for many, many years.  It is impossible
+tree trees trunk trunks дерево деревья стволы~
+@eng These ancient trees must have been here for many, many years.  It is impossible
 to catch even a glimpse of anything above the lowest branches.
+@rus Огромные вековые деревья. Они растут здесь уже много много лет. Ты не
+можешь дотянуться даже до нижних веток.
 ~
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest.
+@eng The narrow, dusty trail leads east through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6128
 D3
-The narrow, dusty trail leads west through the forest.
+@eng The narrow, dusty trail leads west through the forest.
+@rus Маленькая тропинка, петляющая среди деревьев.
 ~
 ~
 ~
@@ -2407,34 +2920,35 @@ The narrow, dusty trail leads west through the forest.
 Z -1 6135
 S
 #6130
-A narrow trail through the deep, dark forest~
-You are on a dusty trail winding its way westwards just below huge sticky
+@eng A narrow trail through the deep, dark forest@rus Узкая тропка в лесной чаще~
+@eng You are on a dusty trail winding its way westwards just below huge sticky
 wires suspended like ropes between the trees.  To the west the path seems to
 be completely covered in a giant web made from huge threads covered with glue.
 This place gives you the creeps.
+@rus Пыльная тропинка в лесу. Здесь между деревьями видны какие-то
+странные липкие веревки. На западе, над дорожкой, этой гадости
+так много -- огромнейшая паутина, висящая меж деревьев, что ес-
+ли ты захочешь туда пролезть, скорее всего, это придется делать
+ползком.
 ~
 0 AD forest
 E
-substance wire wires rope ropes tree trees trunk trunks~
-The sticky substance is hanging like ropes between the ancient trees, crossing
-the path just out of reach.  It might be possible to climb one of the sticky
-trunks.
-~
-E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 D1
-The narrow, dusty trail leads east through the forest, away from the web.
+@eng The narrow, dusty trail leads east through the forest, away from the web.
+@rus Маленькая тропинка, петляющая среди деревьев и уходящая прочь от паутины.
 ~
 ~
 ~
 ~
 Z -1 6144
 D3
-The structure to the west looks most of all like an immense spider web.
-It does not look as if you can go further without getting caught in it.
 ~
 ~
 ~
@@ -2448,8 +2962,8 @@ D4
 Z -1 6132
 S
 #6131
-The spider web~
-You are walking along the narrow path, ducking under the sticky ropes as you
+@eng The spider web@rus Паутина~
+@eng You are walking along the narrow path, ducking under the sticky ropes as you
 advance...
 >
 A huge, poisonous spider drops from above!
@@ -2461,30 +2975,41 @@ The huge, poisonous spider stings you!  You are poisoned!
 The huge, poisonous spider stings you!  You are poisoned!
 >
 You've fallen, and you can't get up!!!!!
+@rus Спокойно идя по тропинке, ты неожиданно попадаешь в сплетение
+клейких веревок, которые сжимают тебя тем крепче, чем сильнее ты
+пытаешься вырваться...
+   Огромный ядовитый паук сверху падает на тебя и... ЖАЛИТ.
+   Огромный ядовитый паук сверху падает на тебя и... ЖАЛИТ.
+   Огромный ядовитый паук сверху падает на тебя и... ЖАЛИТ.
+Паучий яд проникает в кровь, ты чувствуешь, что тебе отсюда не
+выбраться.
 ~
 0 CD forest
 S
 #6132
-Up in the tree~
-You are hanging on the outside of a huge tree trunk covered in a sticky
+@eng Up in the tree@rus На дереве~
+@eng You are hanging on the outside of a huge tree trunk covered in a sticky
 substance.  Directly to the west is an immense spider web suspended between
 numerous of the giant trees including the one you are hanging on.
+@rus Ты висишь на ветке большого дерева облепленной вязкой
+субстанцией. На западе видна огромная паутина, висящая
+на нескольких деревьях одновременно, включая и то, на
+котором ты висишь.
 ~
 0 ACD swim
 E
-web~
-The spider web stretches out to the west.  It looks as if it is possible to
+web паутина~
+@eng The spider web stretches out to the west.  It looks as if it is possible to
 walk on it.
+@rus А по ней, кажется, можно идти...
 ~
 D3
-To the west is the immense spider web.  It seems to move softly.
 ~
 ~
 ~
 ~
 Z -1 6133
 D5
-Downwards is the narrow forest path.
 ~
 ~
 ~
@@ -2492,37 +3017,40 @@ Downwards is the narrow forest path.
 Z -1 6130
 S
 #6133
-On the spider web~
-You are balancing carefully on the giant sticky threads that holds the giant
+@eng On the spider web@rus Паутина~
+@eng You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the east is a giant tree trunk and to the west is an entrance
 to a cave-like structure made from many layers of spider web.
+@rus Ты с трудом балансируешь на гигантских липких нитях, из
+которых сплетена эта паутина. На востоке находится ствол
+дерева, на западе виден вход в странное сооружение, сде-
+ланное из множества слоев паутины.
 ~
 0 AD swim
 E
-cave structure~
-It covers a ground area corresponding to an irregular circle with a diameter of
-about 20 feet and is nearly 10 feet tall.  It looks very old.
-~
-E
-web~
-The immense spider web moves softly.
+web паутина~
+@eng The immense spider web moves softly.
+@rus Огромная пайтина, она колышется.
 ~
 D0
-The web continues to the north.
+@eng The web continues to the north.
+@rus Паутина.
 ~
 ~
 ~
 ~
 Z -1 6200
 D1
-To the east is the giant tree trunk.
+@eng To the east is the giant tree trunk.
+@rus Гигантский ствол дерева.
 ~
 ~
 ~
 ~
 Z -1 6132
 D3
-To the west is the entrance to the cave-like structure.
+@eng To the west is the entrance to the cave-like structure.
+@rus Вход в какое-то пещероподобное сооружение.
 ~
 ~
 ~
@@ -2530,24 +3058,24 @@ To the west is the entrance to the cave-like structure.
 Z -1 6134
 S
 #6134
-The Den of the Queen Spider~
-You are inside a cave-like structure that seems to be made entirely from
+@eng The Den of the Queen Spider@rus Логово паучьей королевы~
+@eng You are inside a cave-like structure that seems to be made entirely from
 countless layers of spider web.  Temperature and humidity is very high making
 it hard to breathe the foul air that lingers here.  The walls are covered with
 open cocoons.
+@rus Ты находишься в пещероподобной комнате, образованной
+бесчисленными слоями паутины. Высокие температура и 
+влажность делают воздух словно вязким, и этим скверным
+воздухом тяжело дышать. На стенах висит множество от-
+крытых коконов.
 ~
 0 AD swim
 E
-cocoon cocoons~
-The cocoons are burst open as if something inside really wanted to get out.
-They are at the size of a human head.
-~
-E
-web wall walls~
-The sticky walls are covered with open cocoons.
+web walls паутина стена стены~
+@eng The sticky walls are covered with open cocoons.
+@rus Липкие стены увешаны открытыми коконами.
 ~
 D1
-Compared to this place the east exit looks inviting.
 ~
 ~
 ~
@@ -2555,24 +3083,30 @@ Compared to this place the east exit looks inviting.
 Z -1 6133
 S
 #6135
-A dusty trail in the deep, dark forest~
-You are on a dusty trail leading through the deep, dark forest.  Ancient grey
+@eng A dusty trail in the deep, dark forest@rus Тропа в чаще~
+@eng You are on a dusty trail leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The trail continues north and east.
+@rus Пыльная тропа, петляющая меж огромных серых стволов вековых
+деревьев, угрожающе нависающих над тобой. По тропе можно пойти
+на север или на восток.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-The dusty trail leads north through the trees.
+@eng The dusty trail leads north through the trees.
+@rus Лесная тропинка петляет среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6136
 D1
-The dusty trail leads east through the trees.
+@eng The dusty trail leads east through the trees.
+@rus Лесная тропинка петляет среди деревьев.
 ~
 ~
 ~
@@ -2580,42 +3114,47 @@ The dusty trail leads east through the trees.
 Z -1 6129
 S
 #6136
-A dusty trail in the deep, dark forest~
-You are on a dusty trail leading through the deep, dark forest.  Ancient,
+@eng A dusty trail in the deep, dark forest@rus Тропа в чаще~
+@eng You are on a dusty trail leading through the deep, dark forest.  Ancient,
 grey trees loom everywhere.  The trail continues south and west.  A broad
 irregular path leads eastwards away from the trail.
+@rus Пыльная тропа, петляющая меж огромных серых стволов вековых
+деревьев, угрожающе нависающих над тобой. По тропе можно пойти
+на юг или на запад. Хорошо заметная дорожка сворачивает в вос-
+точном направлении.
 ~
 0 AD forest
 E
-trail~
-The dark and dusty trail seems fragile compared to the massive trunks, and in
+trail тропинка~
+@eng The dark and dusty trail seems fragile compared to the massive trunks, and in
 some places, giant grey roots have broken up through its surface.
+@rus Темная пыльная тропа в чаще леса, Петляющая меж огромных серых стволов.
+Гигантские корни деревьев, выступающие из земли, пытаются подставить тебе
+подножку.
 ~
 E
-path~
-The trees standing on the sides of the path have scratch marks on them.
-~
-E
-tree trees trunk trunks~
-To the east the ancient grey giants have many marks as if something with huge
+tree trees trunk trunks дерево деревья стволы~
+@eng To the east the ancient grey giants have many marks as if something with huge
 claws has been tearing at them in rage.
+@rus Гигантские стволы вековых деревьев со следами когтей и зубов на них.
 ~
 D1
-The trees standing on the sides of the path have scratch marks on them.
 ~
 ~
 ~
 ~
 Z -1 6142
 D2
-The dusty trail leads south through the trees.
+@eng The dusty trail leads south through the trees.
+@rus Лесная тропинка петляет среди деревьев.
 ~
 ~
 ~
 ~
 Z -1 6135
 D3
-The dusty trail leads west through the trees.
+@eng The dusty trail leads west through the trees.
+@rus Лесная тропинка петляет среди деревьев.
 ~
 ~
 ~
@@ -2623,25 +3162,32 @@ The dusty trail leads west through the trees.
 Z -1 6137
 S
 #6137
-At the end of the trail through the deep, dark forest~
-You are on a dusty trail leading through the deep, dark forest.  Ancient grey
+@eng At the end of the trail through the deep, dark forest@rus Конец тропы~
+@eng You are on a dusty trail leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  You see a dark grove north of you.
 The other exits are east and south.
+@rus Пыльная тропа привела тебя в это место. Вековые деревья угрожающе
+нависают над тобой. На севере виден совсем черный лес, там ни единый
+солнейный лучик не может достичь земли. Можно пойти по тропе назад, 
+на юг или на восток.
 ~
 0 AD forest
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D0
-You see a dark grove north.
+@eng You see a dark grove north.
+@rus Темный лес.
 ~
 ~
 ~
 ~
 Z 0 1300
 D1
-The dusty trail leads east through the trees.
+@eng The dusty trail leads east through the trees.
+@rus Лесная тропинка петляет среди деревьев.
 ~
 ~
 ~
@@ -2655,30 +3201,35 @@ D2
 Z -1 8838
 S
 #6142
-Outside a cave in the deep, dark forest~
-You are at the end of a broad, irregular path.  To the north is a very large
+@eng Outside a cave in the deep, dark forest@rus Около пещеры в лесной чаще~
+@eng You are at the end of a broad, irregular path.  To the north is a very large
 ominous-looking cave opening.  The trees here have many marks as if something
 with huge claws has been tearing at them in rage.
+@rus Ты стоишь на хорошо заметной, неровной тропе. С севера на тебя
+смотрит открытый глаз пещеры. На деревьях, окружающих это место,
+множество следов от зубов и когтей.
 ~
 0 AD forest
 E
-cave opening~
-The disgusting smell of a large reptile emanates from the cave opening.
+cave opening пещера вход~
+@eng The disgusting smell of a large reptile emanates from the cave opening.
+@rus Пренепреятнейший аромат доносится из пещеры.
 ~
 E
-tree trees~
-The ancient grey giants have many marks as if something with huge claws has
+tree trees trunk дерево деревья стволы~
+@eng The ancient grey giants have many marks as if something with huge claws has
 been tearing at them in rage.
+@rus Огромные стволы деревьев со следами зубов и когтей на них.
 ~
 D0
-The disgusting smell of a large reptile emanates from the cave opening.
+@eng The disgusting smell of a large reptile emanates from the cave opening.
+@rus Пренепреятнейший аромат доносится из пещеры.
 ~
 ~
 ~
 ~
 Z -1 6143
 D3
-The path winds its way westwards.
 ~
 ~
 ~
@@ -2686,18 +3237,23 @@ The path winds its way westwards.
 Z -1 6136
 S
 #6143
-The cave of the Green Dragon~
-You are in a big natural cave.  The floor is littered with bones of all sorts
+@eng The cave of the Green Dragon@rus Пещера зеленого дракона~
+@eng You are in a big natural cave.  The floor is littered with bones of all sorts
 and the stench is so massive that you could cut it with a knife.  The only exit
 is to the south.
+@rus Огромная пещера. Пол засыпан слоем костей всех сортов и размеров.
+А в воздехе висит такое густое зловоние, что его можно резать ножом.
+Единственный выход из этого мрачного места -- на юге.
 ~
 0 AD forest
 E
-bone bones floor~
-Most of the bones on the floor appear to be of human origin.
+bone bones floor коти пол~
+@eng Most of the bones on the floor appear to be of human origin.
+@rus Похоже пол засыпан человечьими костями.
 ~
 D2
-The exit leads out into the forest.
+@eng The exit leads out into the forest.
+@rus Выход в лес.
 ~
 ~
 ~
@@ -2705,35 +3261,39 @@ The exit leads out into the forest.
 Z -1 6142
 S
 #6144
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient,
+@eng A small path in the deep, dark forest@rus Незаметная тропа в чаще~
+@eng You are on a narrow path leading through the deep, dark forest.  Ancient,
 grey trees loom everywhere.  The tree trunks here seem to be covered in some
 sticky substance.  The path continues south and west.
+@rus Узкая тропа, пробирающаяся сквозь лесную чащу. Огромные стволы
+вековых деревьев нависают со всех сторон. Стволы деревьев покры-
+ты каким-то липким веществом. По тропинке можно пойти на юг или
+на запад.
 ~
 0 AD forest
 E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
+path дорожка~
+@eng The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
+@rus Тропа ненадежна и опасна. Она петляет меж мрачных серых стволов огромных
+деревьев.
 ~
 E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-E
-substance rope ropes thread threads~
-The substance reminds you of giant threads covered with glue.  If it had not
-been for the size you could have sworn it was part of a spider web.
+tree trees trunk trunks дерево деревья стволы~
+@eng The ancient grey giants seem to observe you silently.
+@rus Огромные деревья молчаливо наюлюдают за тобой.
 ~
 D2
-The narrow path winds its way through the trees to the south.
+@eng The narrow path winds its way through the trees to the south.
+@rus Лесная тропинка, петляющая меж деревьев.
 ~
 ~
 ~
 ~
 Z -1 6110
 D3
-The narrow path winds its way through the trees to the west.
+@eng The narrow path winds its way through the trees to the west.
+@rus Лесная тропинка, петляющая меж деревьев.
 ~
 ~
 ~
@@ -2741,21 +3301,27 @@ The narrow path winds its way through the trees to the west.
 Z -1 6130
 S
 #6150
-The narrow trail.~
-This trail looks much spookier than any other thats you have seen.  The usual
+@eng The narrow trail@rus Узкая тропа~
+@eng This trail looks much spookier than any other thats you have seen.  The usual
 animal claw marks and bites on the trees are getting far and few between. The
 trail continues north.
+@rus Эта тропинка... она какая-то нереальная, словно в другом мире, 
+совсем не похожая на другие дороги и тропы, по которым ты $gn{путе-
+шествовал}. Столь обыкновенные для любого леса следы когтей жи-
+вотных становятся реже. Тропа идет дальше на север.
 ~
 0 AD forest
 D0
-the narrow trail continues north.
+@eng The narrow trail continues north.
+@rus Лесная тропинка, петляющая меж деревьев.
 ~
 ~
 ~
 ~
 Z -1 6151
 D2
-the trail intersects the main forest path.
+@eng The trail intersects the main forest path.
+@rus Лесная тропинка, петляющая меж деревьев.
 ~
 ~
 ~
@@ -2763,21 +3329,22 @@ the trail intersects the main forest path.
 Z -1 6103
 S
 #6151
-The narrow trail.~
-This area of the trail is also very peculiar.  You can see no signs of animal
+@eng The narrow trail@rus Узкая тропа~
+@eng This area of the trail is also very peculiar.  You can see no signs of animal
 life what so ever.  The structure of the surrounding trees forces the path to
 make a sharp turn to the east.
+@rus Очень своеобразное место. Нигде не видно следов птиц или животных.
+Несколько огромных деревьев преграждают путь на север, вынуждая тро-
+пу резко повернуть на восток.
 ~
 0 AD forest
 D1
-the trail bends east.
 ~
 ~
 ~
 ~
 Z -1 6152
 D2
-the start of the trail.
 ~
 ~
 ~
@@ -2785,28 +3352,35 @@ the start of the trail.
 Z -1 6150
 S
 #6152
-The circle of trees.~
-The trees here seem to form a circle around a HUGE tree that is in the center
+@eng The circle of trees.@rus Круг из деревьев~
+@eng The trees here seem to form a circle around a HUGE tree that is in the center
 of them.  You notice a wooden door carved into the huge tree to the east.  The
 trail that you followed to get here seems to end at the base of the tree.
+@rus Очень интересное место. Здесь посередине поляны растет огромнейшее
+дерево, наверное, самое большое из виденный тобой. А вогруг него рас-
+тут деревья уже нормального размера, причем, что примечательно, они
+образуют правильный круг, в центре которого и растет старое дерево,
+внутрь которого ведет деревянная дверь. Тропа, что привела тебя сюда
+оканчивается у подножья центрального дерева.
 ~
 0 AD forest
 D0
-A long dusty trail.
+@eng A long dusty trail.
+@rus Лесная тропа.
 ~
 ~
 ~
 ~
 Z -1 18001
 D1
-The tree door is carved beautifully.
+@eng The tree door is carved beautifully.
+@rus Вырезанная из дерева дверь. 
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 6153
 D3
-the bend on the trail.
 ~
 ~
 ~
@@ -2814,27 +3388,28 @@ the bend on the trail.
 Z -1 6151
 S
 #6153
-Inside the great tree.~
-You have stepped inside of this hollowed tree.  From here steps lead down into
-darkness or you can exit the tree by going west.
+@eng Inside the great tree.@rus Внутри огромного древа~
+@eng You have stepped inside of this hollowed tree.  From here steps lead down
+into darkness or you can exit the tree by going west.  
+@rus Ты $gn{вступил} внутрь этого пустого дерева. Отсюда вниз, в темноту,
+ведет лестница. Чтобы выбраться под солнце надо идти на запад.
 ~
 0 AD forest
 D0
-A large Knothole in a tree.
 ~
 ~
 ~
 ~
 Z -1 13400
 D3
-the door is carved beautifully.
+@eng The door is carved beautifully.
+@rus Вырезанная из дерева дверь. 
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 6152
 D5
-The steps look appear like they will hold your weight.
 ~
 ~
 ~
@@ -2842,10 +3417,13 @@ The steps look appear like they will hold your weight.
 Z -1 6154
 S
 #6154
-The underground hallway.~
-This hallway is apparently one of the roots of the tree hollowed out.  The 
+@eng The underground hallway.@rus Подземный проход~
+@eng This hallway is apparently one of the roots of the tree hollowed out.  The 
 hall leads south to a room where you hear strange noises or you can go up
-the steps. ~
+the steps. @rus Этот проход, по-видимому, полый корень одного из деревьев.
+На юге расположена комната, откуда слышатся какие-то стран-
+ные звуки. Можно, конечно, вылезти обратно наверх.
+~
 0 AD forest
 D0
 ~
@@ -2854,14 +3432,12 @@ D0
 ~
 Z -1 14700
 D2
-the hallway looks quite grand.
 ~
 ~
 ~
 ~
 Z -1 6155
 D4
-the steps appear like they will hold your weight.
 ~
 ~
 ~
@@ -2869,22 +3445,25 @@ the steps appear like they will hold your weight.
 Z -1 6153
 S
 #6155
-The cultist temple.~
-This temple is built to some god that you don't worship.  It is a nice place
+@eng The cultist temple.@rus Религиозный храм~
+@eng This temple is built to some god that you don't worship.  It is a nice place
 to visit but you feel very uncomfortable about spending much time here.
 The wooden altar seems almost to glow as you enter the room.  The only exit is
 the way you came in.
+@rus Это храм, построенный служителями бога, в которого ты не веришь.
+Миленькое место для того чтобы поднабраться впечатлений, но совсем
+неподходящее для того, чтобы проводить здесь много времени. Дере-
+вянный алтарь, отполированный до блеска, находится посередине зала.
+Выйти можно только тем же путем, что ты $gn{пришел} сюда.
 ~
 0 AD forest
 D0
-the hallway looks quite grand.
 ~
 ~
 ~
 ~
 Z -1 6154
 D2
-Gateway to abyss.
 ~
 ~
 ~
@@ -2892,15 +3471,19 @@ Gateway to abyss.
 Z -1 25004
 S
 #6156
-The Hidden Glade~
-Parting the undergrowth, you step in a small glade.  Quiet and 
+@eng The Hidden Glade@rus Скрытая прогалина~
+@eng Parting the undergrowth, you step in a small glade.  Quiet and 
 peaceful, you relax in the beauty of the forest.  Small Sprites and 
 Fairies dance around a calm pool, offering you a cool drink.  You feel 
 at peace with yourself and the forest around you.
+@rus Выйдя из под деревьев, ты $gn{ступил} на маленькую прогалину.
+В тишине и спокойствии ты можешь отдохнуть, любуясь красотой
+леса. Маленькие спрайты порхают вокруг спокойного пруда, пред-
+лагающего уталить жажду прохладной водой. Лес окружает тебя,
+наполняя спокойствием и безмятежностью.
 ~
 0 KY forest
 D0
-You see an open clearing to north.
 ~
 ~
 ~
@@ -2914,11 +3497,16 @@ D1
 Z 0 6157
 S
 #6157
-Ranger Training Room~
-Here is where Rangers learn campcraft, how to talk to the animals, and the
+@eng Ranger Training Room@rus Тренировочная поляна~
+@eng Here is where Rangers learn campcraft, how to talk to the animals, and the
 care of the land. Here, too, they learn to defend themselves and others,
 skills with weapons, and how to dress a killed beast to turn it into food.
 The old ranger who runs the Station is here to help you learn.
+@rus Здесь рейнжеры оттачивают свои умения: учатся разговаривать
+с животными и заботиться о матери-земле. Здесь они учатся за-
+щищаться, обращаться с оружием, как освежевать убитое животное
+и превратить его в аппетитный бифштекс. Старый опытный рейнжер
+помогает им в их учении.
 ~
 0 KY forest
 D3
@@ -2949,13 +3537,13 @@ O 0 6005 0 6010	* a wooden chest (Inside the cabin)
 P 0 6007 1 6005 1	* a wooden chest: a heap of silver coins
 P 0 6006 1 6003 1	* a fireplace: a small brass key
 O 0 6013 0 6010	* the barrel (Inside the cabin)
-M 0 309 5 6012 2	* the cute rabbit (An intersection in the dense forest)
+M 0 6003 2 6012 1	* the ferocious rabbit (An intersection in the dense forest)
 O 0 6011 0 6013	* a mushroom (A small path in the dense forest)
 M 0 6005 2 6014 2	* the brown fox (An intersection in the dense forest)
-M 0 309 5 6015 1	* the cute rabbit (A small path in the dense forest)
+M 0 6003 5 6015 1	* the ferocious rabbit (A small path in the dense forest)
 O 0 6011 0 6016	* a mushroom (A small path in the dense forest)
-M 0 309 5 6017 1	* the cute rabbit (A small path in the dense forest)
-M 0 309 5 6019 1	* the cute rabbit (A small path in the dense forest)
+M 0 6003 5 6017 1	* the ferocious rabbit (A small path in the dense forest)
+M 0 6003 5 6019 1	* the ferocious rabbit (A small path in the dense forest)
 M 0 6002 1 6022 1	* the brown bear (Inside the cave)
 M 0 6004 1 6023 1	* the fallow deer (On a small, grassy field)
 O 0 6010 0 6023	* some blackberries (On a small, grassy field)
@@ -2963,23 +3551,18 @@ M 0 6115 1 6100 1	* Shargugh (A narrow trail through the deep, dark forest)
 E 0 6114 0 1		*	an iron ring: on the left finger
 O 0 6102 0 6103	* a colossal tree (A narrow trail through the deep, dark forest)
 M 0 6102 4 6104 2	* the large, grey wolf (A small path in the deep, dark forest)
-M 0 6102 4 6104 2	* the large, grey wolf (A small path in the deep, dark forest)
 O 0 6106 0 6104	* a toadstool (A small path in the deep, dark forest)
 O 0 6105 0 6105	* a long, grey branch (A small path in the deep, dark forest)
 M 0 6102 4 6108 2	* the large, grey wolf (A narrow trail through the deep, dark forest)
-M 0 6102 4 6108 2	* the large, grey wolf (A narrow trail through the deep, dark forest)
 O 0 6106 0 6111	* a toadstool (A narrow trail through the deep, dark forest)
-M 0 6103 4 6112 2	* the large, black wolf (A narrow trail through the deep, dark forest)
 M 0 6103 4 6112 2	* the large, black wolf (A narrow trail through the deep, dark forest)
 O 0 6103 0 6113	* a long, grey branch (A small path in the deep, dark forest)
 M 0 6100 2 6116 2	* the vicious warg (A small path in the deep, dark forest)
 M 0 6100 2 6116 2	* the vicious warg (A small path in the deep, dark forest)
 M 0 6103 4 6118 2	* the large, black wolf (A small path in the deep, dark forest)
-M 0 6103 4 6118 2	* the large, black wolf (A small path in the deep, dark forest)
 O 0 6107 0 6119	* a toadstool (A small path in the deep, dark forest)
 O 0 6106 0 6122	* a toadstool (A small path in the deep, dark forest)
 O 0 6104 0 6125	* a long, grey branch (A small path on the river bank in the deep, dark forest)
-M 0 6101 2 6127 2	* the ferocious warg (A narrow trail through the deep, dark forest)
 M 0 6101 2 6127 2	* the ferocious warg (A narrow trail through the deep, dark forest)
 M 0 6319 1 6134 1	* the Queen Spider (The Den of the Queen Spider)
 G 0 6308 0		*	a big pile of coins

@@ -2380,7 +2380,7 @@ key 0 0 AO
 g @rus male~
 #36379
 oak дуб~
-@eng oak@rus {wВековой дуб (oak) растет в чаще, излучая серебристое сияние. {x~
+@eng oak@rus ~~вековой~~ ~~дуб~~~
 @eng A huge oak stands here, gleaming in a holy white light.@rus Вековой дуб (oak) растет в чаще, излучая серебристое сияние.~
 hardwood~
 container 0 B 0
@@ -2858,7 +2858,7 @@ a '' to_object 25 -1 5 18 0
 g @rus female~
 #36415
 ball crystall quartz шар~
-@eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~ {x~
+@eng quartz crystall@rus ~~кварцевый~~ ~~шар~~~
 @eng A strange glowing ball shimmers in the dirt.@rus Странный светящийся шар (ball) мерцает в пыли.~
 quartz~
 light AG 0 A

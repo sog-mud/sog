@@ -118,8 +118,9 @@ stand stand none 37
 0 0 medium unknown
 #9207
 large elemental~
-a large elemental~
-A large elemental.
+@eng a large elemental@rus большой элементал~
+@eng A large elemental.
+@rus Большой элементал.
 ~
 A large elemental, a resident of the canyon.~
 human~
@@ -131,8 +132,9 @@ stand stand none 100
 0 0 medium unknown
 #9208
 earth elemental ruler~
-the Earth Ruler~
-The Ruler of the earth elementals.
+@eng the Earth Ruler@rus Повелитель Земли~
+@eng The Ruler of the earth elementals.
+@rus Повелитель элементалов Земли.
 ~
 He looks as old as the earth itself.  He seems to know all the 
 secrets and knowledge of the Earth.  You can't really tell where 
@@ -148,8 +150,9 @@ stand stand none 5000
 r charm 100
 #9209
 fire elemental ruler~
-the Fire Ruler~
-The Ruler of the fire elementals.
+@eng the Fire Ruler@rus Повелитель Огня~
+@eng The Ruler of the fire elementals.
+@rus Повелитель элементалов Огня.
 ~
 As you look at him he seems to blend in with the fire in his throne.
 ~

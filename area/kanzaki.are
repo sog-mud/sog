@@ -805,7 +805,6 @@ B 0 Vc B BH -500 0
 ACFH
 stand stand neutral 0
 0 Q huge unknown
-g @eng neutral@rus female~
 #47129
 guard temple храмовый страж~
 @eng temple guard@rus ~~храмовый~~ ~~страж~~~
@@ -859,7 +858,7 @@ is among them.
 ~
 human~
 BGJT 0 N 0 AH 1000 0
-40 25 50d6+2300 0d0+0 6d7+15 'pound'
+40 25 50d7+3000 0d0+0 6d7+15 'pound'
 -20 -20 -20 -20
 AEFHKQX
 stand stand male 20000
@@ -2201,8 +2200,8 @@ which probably is the poison.
 g @eng neutral@rus male~
 #47177
 sword ancient ivory меч древний~
-@eng an ancient ivory-hilted sword@rus ~~древний~~ ~~меч~~ с рукоятью из слоновой кости~
-@eng A wonderful sword with long hilt of ivory draws your attention.@rus Чудесный меч (sword) с длинной рукоятью из слоновой кости лежит здесь.~
+@eng an ancient ivory-hilted sword@rus ~~старинный~~ ~~меч~~ с рукоятью из слоновой кости~
+@eng A wonderful sword with long hilt of ivory draws your attention.@rus Дивный меч (sword) с длинной рукоятью из слоновой кости лежит здесь.~
 adamantite~
 weapon GIK 0 AN
 sword 15 3 'wrath' DE
