@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.15 2003-05-08 14:00:19 fjoe Exp $
+ * $Id: avltree.c,v 1.16 2004-02-17 23:17:53 fjoe Exp $
  */
 
 #include <assert.h>
@@ -532,9 +532,9 @@ avlnode_delete(void *c, const void *key, bool free_node)
 {
 	avltree_t *avl = (avltree_t *) c;
 
-	avlnode_t *pa[AVL_MAX_HEIGHT];		/* Stack P: Nodes. */
-	unsigned char a[AVL_MAX_HEIGHT];	/* Stack P: Bits. */
-	int k = 1;				/* Stack P: Pointer. */
+	avlnode_t *pa[AVL_MAX_HEIGHT];
+	unsigned char a[AVL_MAX_HEIGHT];
+	int k = 1;
 
 	avlnode_t *curr, *rv;
 	avlnode_t **q;
@@ -677,7 +677,6 @@ avlnode_delete(void *c, const void *key, bool free_node)
 		if (a[k] == 0) {
 			avlnode_t *const r = RIGHT(s);
 
-			/* D10. */
 			if (s->bal == -1) {
 				s->bal = 0;
 				continue;
