@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.46 1998-07-25 15:02:37 fjoe Exp $
+ * $Id: act_obj.c,v 1.47 1998-07-27 08:45:39 efdi Exp $
  */
 
 /***************************************************************************
@@ -3478,10 +3478,6 @@ do_deposit(CHAR_DATA * ch, const char *argument)
 	}
 	if (amount_s > ch->silver) {
 		send_to_char("That's more than you've got.\n\r", ch);
-		return;
-	}
-	if ((amount_g + ch->pcdata->bank_g) > 50000) {
-		send_to_char("Bank cannot accept more than 50.000 gold.\n\r", ch);
 		return;
 	}
 	ch->pcdata->bank_s += amount_s;

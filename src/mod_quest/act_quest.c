@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.52 1998-07-25 21:19:49 efdi Exp $
+ * $Id: act_quest.c,v 1.53 1998-07-27 08:45:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -896,7 +896,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	ch->gold += 350000;
+	ch->pcdata->bank_g += 350000;
 	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
 						QUEST_N_GIVES_GOLD);
 	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,

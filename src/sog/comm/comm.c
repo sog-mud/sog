@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.77 1998-07-25 15:02:38 fjoe Exp $
+ * $Id: comm.c,v 1.78 1998-07-27 08:45:39 efdi Exp $
  */
 
 /***************************************************************************
@@ -2403,15 +2403,6 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    ch->gold -= (ch->gold - 6000) / 2;
 	}
 	
-
-	if (ch->pcdata->bank_g > 50000 && !IS_IMMORTAL(ch)) {
-	    sprintf(buf,"You are taxed %d gold to pay for war expenses of Sultan.\n\r",
-		(ch->pcdata->bank_g - 50000));
-	    send_to_char(buf,ch); 
-	    ch->pcdata->bank_g = 50000;
-	}
-	
-
 	if (ch->pet != NULL) {
 	    char_to_room(ch->pet,ch->in_room);
 	    act("$n has entered the game.",ch->pet,NULL,NULL,TO_ROOM);

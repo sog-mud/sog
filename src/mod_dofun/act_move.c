@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.70 1998-07-26 01:32:21 efdi Exp $
+ * $Id: act_move.c,v 1.71 1998-07-27 08:45:39 efdi Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "mlstring.h"
+#include "interp.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);

@@ -61,6 +61,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		}
 		victim->clan = ch->clan;
 		victim->pcdata->petition = CLAN_NONE;
+		victim->pcdata->clan_status = CLAN_COMMON;
 		char_nputs(OK, ch);
 		char_puts("Greet new member!\n\r", ch);
 		char_printf(victim, "Your petition to %s has been "
