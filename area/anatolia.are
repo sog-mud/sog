@@ -268,11 +268,8 @@ _____,*-'   `==
 * Important commands: help, commands, news, notes.
 * Read all helps. So many things are changed relatively before.
 * Read helps of WHATSNEW(ROM2ANATOLIA), FROM20TO21 and ALIGNORCABAL.
-* iclub.nsu.ru 4000 - koi8-r
-  iclub.nsu.ru 4001 - alt (cp866)
-  iclub.nsu.ru 4002 - win (cp1251)
-  iclub.nsu.ru 4003 - iso (iso-8859-5)
-  iclub.nsu.ru 4004 - mac
+* We ARE MOVED!!! iclub.nsu.ru 4000 - for all codepages
+* Added 'language' command
 
 [Hit Return to continue]
 ~ 
@@ -585,6 +582,13 @@ Raffect command is used to show all the spells affecting the rooms. At
 low levels, only the spell name will be displayed, at higher levels the
 effects and duration of the spell will also be shown.  Spell effects
 are no longer shown on score (this can be changed by using 'show' command).
+~
+-1 LANGUAGE~
+Language command is used to switch native language. Now only russian and
+english are implemented.
+	
+	language [ russian | english ]
+
 ~
 
 0 $~
