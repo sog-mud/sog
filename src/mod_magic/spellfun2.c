@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.58 2002-10-30 18:08:00 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.59 2002-10-31 11:01:52 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4216,7 +4216,8 @@ void spell_bless_weapon(int sn, int level,CHAR_DATA *ch, void *vo)
 
 	if (IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
 	||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-	||  IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)) {
+	||  IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)
+	||  IS_OBJ_STAT(obj, ITEM_EVIL)) {
 		act("You can't seem to bless $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.19 2002-10-03 15:00:35 tatyana Exp $
+ * $Id: gsn.c,v 1.32.2.20 2002-10-31 11:01:58 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -261,6 +261,7 @@ int gsn_prismatic_sphere;
 int gsn_chameleon_poncho;
 int gsn_hunters_trophy;
 int gsn_stealth;
+int gsn_sharpen_weapon;
 
 /* fishing */
 int gsn_improved_fishing;
@@ -517,6 +518,7 @@ namedp_t gsn_table[] =
 	{ "gsn_chameleon_poncho",	&gsn_chameleon_poncho		},
 	{ "gsn_hunters_trophy",		&gsn_hunters_trophy		},
 	{ "gsn_stealth",		&gsn_stealth			},
+	{ "gsn_sharpen_weapon",		&gsn_sharpen_weapon		},
 /*
  * Fishing.
  */
