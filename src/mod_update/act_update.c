@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.6 2001-01-18 12:15:08 avn Exp $
+ * $Id: act_update.c,v 1.7 2001-01-23 21:46:59 fjoe Exp $
  */
 #include <stdarg.h>
 #include <stdio.h>
@@ -47,7 +47,8 @@ update_print_cb(void *p, va_list ap)
 	uhandler_t *hdlr = (uhandler_t *) p;
 	BUFFER *buf = va_arg(ap, BUFFER *);
 
-	buf_printf(buf, BUF_END, "[%9s] [%9s] [%10s] %5d %5d %c%s\n",
+	buf_printf(buf, BUF_END,
+		   "[%9s] [%9s] [%10s] %5d %5d %c%s\n",		// notrans
 		   hdlr->name,
 		   flag_string(module_names, hdlr->mod),
 		   hdlr->iter != NULL ?
@@ -85,8 +86,8 @@ void do_settick(CHAR_DATA *ch, const char *argument)
 		BUFFER *buf;
 
 		buf = buf_new(-1);
-		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");
-		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");
+		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");	// notrans
+		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");	// notrans
 		hash_foreach(&uhandlers, update_print_cb, buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);

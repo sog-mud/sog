@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.45 2001-01-18 22:20:13 fjoe Exp $
+ * $Id: healer.c,v 1.46 2001-01-23 21:46:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -50,19 +50,44 @@ typedef struct {
  */
 heal_t heal_table[] =
 {
-    { "light",	  "cure light wounds",	  "cure light",    0, 1000	},
-    { "serious",  "cure serious wounds",  "cure serious",  0, 1500	},
-    { "critical", "cure critical wounds", "cure critical", 0, 2500	},
-    { "heal",	  "healing spell",	  "heal",          0, 5000	},
-    { "blind",	  "cure blindness",	  "cure blindness",0, 2000	},
-    { "disease",  "cure disease",	  "cure disease",  0, 1500	},
-    { "poison",	  "cure poison",	  "cure poison",   0, 2500	},
-    { "uncurse",  "remove curse",	  "remove curse",  0, 5000	},
-    { "refresh",  "restore movement",	  "refresh",       0, 500,	},
-    { "mana",	  "restore mana",	  "mana restore", 20, 1000	},
-    { "master",	  "master heal spell",	  "master healing",0, 20000	},
-    { "energize", "restore 300 mana",	  "mana restore",  0, 20000	},
-    { "herbs",	  "ranger's healing",	  "herbs",         0, -10000	},
+    { "light",							// notrans
+      "cure light wounds",	"cure light",		0, 1000		},
+
+    { "serious",						// notrans
+      "cure serious wounds",	"cure serious",		0, 1500		},
+
+    { "critical",						// notrans
+      "cure critical wounds",	"cure critical",	0, 2500		},
+
+    { "heal",							// notrans
+      "healing spell",	 	"heal",          	0, 5000		},
+
+    { "blind",							// notrans
+      "cure blindness",	 	"cure blindness",	0, 2000		},
+
+    { "disease",						// notrans
+      "cure disease",		"cure disease",		0, 1500		},
+
+    { "poison",							// notrans
+      "cure poison",		"cure poison",		0, 2500		},
+
+    { "uncurse",						// notrans
+      "remove curse",		"remove curse",		0, 5000		},
+
+    { "refresh",						// notrans
+      "restore movement",	"refresh",		0, 500,		},
+
+    { "mana",							// notrans
+      "restore mana",		"mana restore",		20, 1000	},
+
+    { "master",							// notrans
+      "master heal spell",	"master healing",	0, 20000	},
+
+    { "energize",						// notrans
+      "restore 300 mana",	"mana restore",		0, 20000	},
+
+    { "herbs",							// notrans
+      "ranger's healing",	"herbs",		0, -10000	},
 
     { NULL }
 };

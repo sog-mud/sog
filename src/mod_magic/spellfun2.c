@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.204 2001-01-12 15:33:51 cs Exp $
+ * $Id: spellfun2.c,v 1.205 2001-01-23 21:46:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1300,8 +1300,8 @@ void spell_tesseract(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		ch, NULL, NULL, TO_ROOM);
 	transfer_char(ch, NULL, victim->in_room,
 		      NULL,
-		      "As you utter the words, time and space seem to blur.\n."
-		      "You feel as though space and time are shifting.\n"
+		      "As you utter the words, time and space seem to blur.\n"
+		      "You feel as though space and time are shifting\n"
 		      "all around you while you remain motionless.",
 		      "$N arrives suddenly.");
 	
@@ -1369,7 +1369,7 @@ void spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	  		spell = "cure poison";
 			break;
 		case 2:
-	  		spell = "cure blind";
+	  		spell = "cure blindness";
 			break;
 		case 3:
 	  		spell = "cure disease";
@@ -4436,7 +4436,7 @@ void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_room(ch->in_room, &af);
 
 	act_char("The gods has forsaken the room.", ch);   
-	act("The gos has forsaken the room.", ch, NULL, NULL, TO_ROOM);
+	act("The gods has forsaken the room.", ch, NULL, NULL, TO_ROOM);
 }
 
 void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -5872,7 +5872,7 @@ spell_protection_from_missiles(const char *sn, int level,
 	AFFECT_DATA af;
 
 	if (is_affected(ch, sn)) {
-		act_char("You are already well protected from missiles", ch);
+		act_char("You are already well protected from missiles.", ch);
 		return;
 	}
 
@@ -5951,7 +5951,7 @@ spell_globe_of_invulnerability(const char *sn, int level, CHAR_DATA *ch,
 
 	affect_to_char(ch, &af);
 
-	act("$n is surrounded by the globe of invulnerability", ch, NULL, NULL,
+	act("$n is surrounded by the globe of invulnerability.", ch, NULL, NULL,
 	    TO_ROOM);
-	act_char("You are surrounded by the globe of invulnerability", ch);
+	act_char("You are surrounded by the globe of invulnerabilityi.", ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.316 2001-01-21 11:18:28 cs Exp $
+ * $Id: merc.h,v 1.317 2001-01-23 21:46:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2260,7 +2260,6 @@ int 	dice_wlb	(int number, int dice, CHAR_DATA *ch, CHAR_DATA *victim);
 /* Dice with luck bonus */
 int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
-void	append_file	(CHAR_DATA *ch, const char *file, const char *str);
 void	tail_chain	(void);
 char *	format_flags	(flag_t flags);
 

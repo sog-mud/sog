@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.7 2000-06-07 08:55:49 fjoe Exp $
+ * $Id: init_update.c,v 1.8 2001-01-23 21:46:59 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -51,7 +51,7 @@ DECLARE_DBLOAD_FUN(load_uhandler);
 
 DBFUN dbfun_uhandlers[] =
 {
-	{ "UHANDLER",	load_uhandler	},
+	{ "UHANDLER",	load_uhandler	},			// notrans
 	{ NULL }
 };
 

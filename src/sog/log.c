@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.27 2000-10-15 17:19:33 fjoe Exp $
+ * $Id: log.c,v 1.28 2001-01-23 21:47:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,10 +52,10 @@ typedef struct logdata_t {
  * this list must be sorted by llevel (asc)
  */
 static logdata_t logtab[] = {
-	{ LOG_INFO,	"INFO",		logger_default,	logger_default	},
-	{ LOG_WARN,	"WARN",		logger_default, logger_default	},
-	{ LOG_ERROR,	"ERROR",	logger_default,	logger_default	},
-	{ LOG_BUG,	"BUG",		logger_bug,	logger_bug	},
+	{ LOG_INFO,	"INFO",	logger_default,	logger_default	}, // notrans
+	{ LOG_WARN,	"WARN",	logger_default, logger_default	}, // notrans
+	{ LOG_ERROR,	"ERROR",logger_default,	logger_default	}, // notrans
+	{ LOG_BUG,	"BUG",	logger_bug,	logger_bug	}, // notrans
 };
 #define NLOG (sizeof(logtab) / sizeof(logdata_t))
 
@@ -81,7 +81,7 @@ log(int llevel, const char *format, ...)
 	ld->logger(buf);
 
 	if (log_char) {
-		act_puts("$t: $T", log_char, ld->alias, buf,
+		act_puts("$t: $T", log_char, ld->alias, buf,	// notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 }
@@ -127,7 +127,7 @@ logger_default(const char *buf)
 
 #if defined (WIN32)
 	/* Also add to logfile */
-	logfile = fopen("sog.log", "a+b");
+	logfile = fopen("sog.log", "a+b");			// notrans
 	if (logfile) {
 		fprintf(logfile, "%s :: %s\n", strtime(current_time), buf);
 		fclose(logfile);
@@ -139,7 +139,7 @@ void
 logger_bug(const char *buf)
 {
 	char buf2[MAX_STRING_LENGTH];
-	snprintf(buf2, sizeof(buf2), "[*****] BUG: %s", buf);
+	snprintf(buf2, sizeof(buf2), "[*****] BUG: %s", buf);	// notrans
 	logger_default(buf2);
 }
 

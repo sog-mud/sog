@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.175 2001-01-11 21:43:18 fjoe Exp $
+ * $Id: save.c,v 1.176 2001-01-23 21:47:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -109,7 +109,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 
 	if (msg) {
 		act_char("You became a ghost permanently and leave the earth realm.", victim);
-		act("$n is dead, and will not rise again.\n",
+		act("$n is dead, and will not rise again.",
 		    victim, NULL, NULL, TO_ROOM);
 		victim->hit = 1;
 		victim->position = POS_STANDING;
@@ -137,7 +137,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	}
 
 	if (touched)
-		dofun("asave", NULL, "changed");
+		dofun("asave", NULL, "changed");		// notrans
 
 	RESET_FIGHT_TIME(victim);
 	name = capitalize(victim->name);
@@ -575,10 +575,10 @@ CHAR_DATA *char_load(const char *name, int flags)
 	int iNest;
 
 	name = capitalize(name);
-	snprintf(filename, sizeof(filename), "%s.gz", name);
+	snprintf(filename, sizeof(filename), "%s.gz", name);	// notrans
 	if (dfexist(PLAYER_PATH, filename)) {
 		char buf[PATH_MAX];
-		snprintf(buf, sizeof(buf), "gzip -dfq %s%c%s",
+		snprintf(buf, sizeof(buf), "gzip -dfq %s%c%s",	// notrans
 			 PLAYER_PATH, PATH_SEPARATOR, filename);
 		system(buf);
 	}
@@ -720,10 +720,10 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'C':
-			KEY("Class", ch->class,
-			    fread_strkey(fp, &classes, "fread_char"));
-			KEY("Clan", ch->clan,
-			    fread_strkey(fp, &clans, "fread_char"));
+			KEY("Class", ch->class, fread_strkey(
+			    fp, &classes, "fread_char"));	// notrans
+			KEY("Clan", ch->clan, fread_strkey(
+			    fp, &clans, "fread_char"));		// notrans
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
 			if (IS_TOKEN(fp, "CndC")) {
@@ -859,8 +859,8 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'P':
-			KEY("Peti", PC(ch)->petition,
-			    fread_strkey(fp, &clans, "fread_char"));
+			KEY("Peti", PC(ch)->petition, fread_strkey(
+			    fp, &clans, "fread_char"));		// notrans
 			KEY("PLev", PC(ch)->plevels, fread_number(fp));
 			SKEY("Pass", PC(ch)->pwd, fread_string(fp));
 			KEY("PC_Killed", PC(ch)->pc_killed, fread_number(fp));
@@ -878,7 +878,8 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'R':
 			if (IS_TOKEN(fp, "Race")) {
 				free_string(ch->race);
-				ch->race = fread_strkey(fp, &races, "fread_char");
+				ch->race = fread_strkey(
+				    fp, &races, "fread_char");	// notrans
 				PC(ch)->race = str_qdup(ch->race);
 				race_resetstats(ch);
 				fMatch = TRUE;
@@ -910,13 +911,14 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Silv", ch->silver, fread_number(fp));
 			if (IS_TOKEN(fp, "Spec")) {
 				const char **pspn = varr_enew(&PC(ch)->specs);
-				*pspn = fread_strkey(fp, &specs, "fread_char");
+				*pspn = fread_strkey(
+				    fp, &specs, "fread_char");	// notrans
 				fMatch = TRUE;
 			}
 			if (IS_TOKEN(fp, "Sk")) {
 				int value = fread_number(fp);
-				const char *sn = fread_strkey(fp, &skills,
-							    "fread_char");
+				const char *sn = fread_strkey(
+				    fp, &skills, "fread_char");	// notrans
 				set_skill(ch, sn, value);
 				free_string(sn);
 				fMatch = TRUE;
@@ -1030,8 +1032,8 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'C':
-			KEY("Clan", pet->clan,
-			    fread_strkey(fp, &clans, "fread_pet"));
+			KEY("Clan", pet->clan, fread_strkey(
+			    fp, &clans, "fread_pet"));		// notrans
 			KEY("Comm", pet->comm, fread_flags(fp));
 			KEY("Chan", pet->chan, fread_flags(fp));
 			break;
@@ -1242,7 +1244,8 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 			if (IS_TOKEN(fp, "Spell")) {
 				int iValue = fread_number(fp);
-				const char *sn = fread_strkey(fp, &skills, "fread_obj");
+				const char *sn = fread_strkey(
+				    fp, &skills, "fread_obj");	// notrans
 
 				if (iValue < 0 || iValue > 3) {
 					log(LOG_INFO, "fread_obj: %s: %d: bad iValue", ch->name, iValue);

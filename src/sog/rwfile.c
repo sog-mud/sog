@@ -23,10 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.16 2001-01-11 18:44:28 fjoe Exp $
+ * $Id: rwfile.c,v 1.17 2001-01-23 21:47:00 fjoe Exp $
  */
 
-static char str_end[] = "End";
+static char str_end[] = "End";					// notrans
 
 int line_number;
 

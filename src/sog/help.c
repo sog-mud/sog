@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.17 2000-10-21 17:00:55 fjoe Exp $
+ * $Id: help.c,v 1.18 2001-01-23 21:47:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -98,7 +98,7 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 	}
 
 	if (IS_NULLSTR(keyword)) 
-		keyword = "summary";
+		keyword = "SUMMARY";				// notrans
 
 	for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
 		if (pHelp->level > level
@@ -121,14 +121,18 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 		/* found second matched help topic */
 		if (!topic_list) {
 			buf_append(output, "Available topics:\n");
-			buf_printf(output, BUF_END, "    o %s\n", pFirst->keyword);
+			buf_printf(output, BUF_END,
+			    "    o %s\n",			// notrans
+			    pFirst->keyword);
 			topic_list = TRUE;
 		}
-		buf_printf(output, BUF_END, "    o %s\n", pHelp->keyword);
+		buf_printf(output, BUF_END, "    o %s\n",	// notrans
+		    pHelp->keyword);
 	}
 
 	if (pFirst == NULL) {
-		buf_printf(output, BUF_END, "%s: no help on that word.\n", keyword);
+		buf_printf(output, BUF_END,
+			   "%s: no help on that word.\n", keyword);
 		return;
 	}
 
@@ -136,8 +140,10 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 		const char *text;
 
 		if (pFirst->level > -2
-		&&  str_cmp(pFirst->keyword, "imotd"))
-			buf_printf(output, BUF_END, "{C%s{x\n\n", pFirst->keyword);
+		&&  str_cmp(pFirst->keyword, "imotd")) {
+			buf_printf(output, BUF_END,
+			     "{C%s{x\n\n", pFirst->keyword);	// notrans
+		}
 
 		text = mlstr_val(&pFirst->text, lang);
 		if (text)

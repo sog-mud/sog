@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.171 2001-01-12 15:33:48 cs Exp $
+ * $Id: martial_art.c,v 1.172 2001-01-23 21:46:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -748,12 +748,10 @@ do_gash(CHAR_DATA *ch, const char *argument)
 						number_range(30, 40));
 					break;
 				case 1:
-					act("Your dagger only scratches  "
-					"$N's $p.", ch, gauntlets,
-					victim, TO_CHAR);
-					act("$n's dagger leaves a few scratches
-					on your $p.", ch, gauntlets, victim,
-					TO_VICT);
+					act("Your dagger only scratches  $N's $p.",
+					    ch, gauntlets, victim, TO_CHAR);
+					act("$n's dagger leaves a few scratches on your $p.",
+					    ch, gauntlets, victim, TO_VICT);
 					damage_to_obj(victim, dagger, gauntlets,
 						number_range(30, 40));
 					break;
@@ -2572,8 +2570,9 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		act_char("You don't want to kill your beloved master.", ch);
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL)  {
+		act("You don't want to kill your beloved master.",
+		    ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
 

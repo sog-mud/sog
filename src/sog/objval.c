@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.7 2001-01-11 21:43:18 fjoe Exp $
+ * $Id: objval.c,v 1.8 2001-01-23 21:47:00 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -499,7 +499,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 			   "[v3] Poisoned:    [%s]\n",
 			   INT(v[0]),
 			   INT(v[1]),
-			   INT(v[3]) ? "yes" : "no");
+			   INT(v[3]) ? "yes" : "no");		// notrans
 		break;
 
 	case ITEM_MONEY:

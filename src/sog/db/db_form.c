@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.9 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db_form.c,v 1.10 2001-01-23 21:47:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -77,8 +77,8 @@ DBLOAD_FUN(load_form)
 			KEY("Attacks", f.num_attacks, fread_number(fp));
 			break;
 		case 'D':
-			KEY("Damtype", f.damtype, 
-				fread_strkey(fp, &damtypes, "load_form"));
+			KEY("Damtype", f.damtype, fread_strkey(
+			    fp, &damtypes, "load_form"));	// notrans
 			if (IS_TOKEN(fp, "Damage")) {
 				f.damage[DICE_NUMBER] 	= fread_number(fp);
 				fread_letter(fp);
@@ -115,8 +115,8 @@ DBLOAD_FUN(load_form)
 			break;
 		case 'S':
 			MLSKEY("ShortDesc", f.short_desc);
-			SKEY("SkillSpec", f.skill_spec,
-				fread_strkey(fp, &specs, "load_form"))
+			SKEY("SkillSpec", f.skill_spec, fread_strkey(
+			    fp, &specs, "load_form"))		// notrans
 			if (IS_TOKEN(fp, "Stats")) {
 				int i;
 				for (i = 0; i < MAX_STAT; i++)

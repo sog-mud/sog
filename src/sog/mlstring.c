@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.55 2000-10-22 17:53:47 fjoe Exp $
+ * $Id: mlstring.c,v 1.56 2001-01-23 21:47:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -163,9 +163,9 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *mlp)
 			continue;
 
 		l = VARR_GET(&langs, lang);
-		fprintf(fp, "@%s %s", l->name, fix_mlstring(p));
+		fprintf(fp, "@%s %s", l->name, fix_mlstring(p));// notrans
 	}
-	fputs("~\n", fp);
+	fputs("~\n", fp);					// notrans
 }
 
 mlstring *
@@ -423,13 +423,14 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp,
 	char space[MAX_STRING_LENGTH];
 	size_t namelen;
 	int lang;
-	static char FORMAT[] = "%s[%s] [%s]\n";
+	static char FORMAT[] = "%s[%s] [%s]\n";			// notrans
 	lang_t *l;
 
 	if (mlp == NULL || mlp->nlang == 0) {
 		buf_printf(buf, BUF_END, FORMAT, name, "all",
-			   mlp == NULL ?
-				"(null)" : strdump(mlp->u.str, dump_level));
+		    mlp == NULL ?
+			"(null)" :				// notrans
+			strdump(mlp->u.str, dump_level));
 		return;
 	}
 
@@ -571,7 +572,7 @@ static char *fix_mlstring(const char *s)
 	while((p = strchr(s, '@')) != NULL) {
 		*p = '\0';
 		strnzcat(buf, sizeof(buf), s);
-		strnzcat(buf, sizeof(buf), "@@");
+		strnzcat(buf, sizeof(buf), "@@");		// notrans
 		s = p+1;
 	}
 	strnzcat(buf, sizeof(buf), s);

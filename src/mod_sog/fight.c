@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.286 2001-01-12 15:33:50 cs Exp $
+ * $Id: fight.c,v 1.287 2001-01-23 21:46:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -201,7 +201,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (!IS_SET(dam_flags, DAMF_HIT)) {
 		if (IS_SKILL(dt, "backstab"))
 			thac0 -= 10 * (100 - get_skill(ch, "backstab"));
-		else if (IS_SKILL(dt, "dual_backstab"))
+		else if (IS_SKILL(dt, "dual backstab"))
 			thac0 -= 10 * (100 - get_skill(ch, "dual backstab"));
 		else if (IS_SKILL(dt, "cleave"))
 			thac0 -= 10 * (100 - get_skill(ch, "cleave"));
@@ -727,18 +727,18 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		}	
 
 		if (IS_SET(plr_flags, PLR_AUTOLOOK))
-			dofun("examine", ch, "corpse");
+			dofun("examine", ch, "corpse");		// notrans
 
 		if (corpse->contains) {
 			/* corpse exists and not empty */
 			if (IS_SET(plr_flags, PLR_AUTOLOOT))
-				dofun("get", ch, "all corpse");
+				dofun("get", ch, "all corpse");	// notrans
 			else if (IS_SET(plr_flags, PLR_AUTOGOLD))
 				get_gold_corpse(ch, corpse);
 		}
 
 		if (IS_SET(plr_flags, PLR_AUTOSAC))
-			dofun("sacrifice", ch, "corpse");
+			dofun("sacrifice", ch, "corpse");	// notrans
 	}
 
 	/*

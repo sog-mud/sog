@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.238 2001-01-18 22:20:14 fjoe Exp $
+ * $Id: comm.c,v 1.239 2001-01-23 21:47:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,12 +108,12 @@ struct codepage {
 };
 
 struct codepage codepages[] = {
-	{ "koi8-r",		koi8_koi8,	koi8_koi8	},
-	{ "alt (cp866)",	alt_koi8,	koi8_alt	},
-	{ "win (cp1251)",	win_koi8,	koi8_win	},
-	{ "iso (ISO-8859-5)",	iso_koi8,	koi8_iso	},
-	{ "mac",		mac_koi8,	koi8_mac	},
-	{ "translit",		koi8_koi8,	koi8_vola	},
+	{ "koi8-r",		koi8_koi8,	koi8_koi8	}, // notrans
+	{ "alt (cp866)",	alt_koi8,	koi8_alt	}, // notrans
+	{ "win (cp1251)",	win_koi8,	koi8_win	}, // notrans
+	{ "iso (ISO-8859-5)",	iso_koi8,	koi8_iso	}, // notrans
+	{ "mac",		mac_koi8,	koi8_mac	}, // notrans
+	{ "translit",		koi8_koi8,	koi8_vola	}, // notrans
 };
 #define NCODEPAGES (sizeof(codepages) / sizeof(struct codepage))
 
@@ -194,10 +194,10 @@ varr	info_trusted;
 
 static void usage(const char *name)
 {
-	fprintf(stderr, "Usage: %s [-p port...] [-i port...]\n"
-			"Where:\n"
-			"\t-p -- listen port\n"
-			"\t-i -- info service port\n",
+	fprintf(stderr, "Usage: %s [-p port...] [-i port...]\n"	// notrans
+			"Where:\n"				// notrans
+			"\t-p -- listen port\n"			// notrans
+			"\t-i -- info service port\n",		// notrans
 		get_filename(name));
 	exit(1);
 }
@@ -279,7 +279,7 @@ int main(int argc, char **argv)
 		info_sockets.nused = 0;
 
 		opterr = 0;
-		while ((ch = getopt(argc, argv, "p:i:")) != -1) {
+		while ((ch = getopt(argc, argv, "p:i:")) != -1) { // notrans
 			int *p;
 
 			switch (ch) {
@@ -801,9 +801,9 @@ static void charset_print(DESCRIPTOR_DATA* d)
 	char buf[MAX_STRING_LENGTH];
 	int i;
 
-	write_to_buffer(d, "\n\r", 0);
+	write_to_buffer(d, "\n\r", 0);				// notrans
 	for (i = 0; i < NCODEPAGES; i++) {
-		snprintf(buf, sizeof(buf), "%s%d. %s",
+		snprintf(buf, sizeof(buf), "%s%d. %s",		//notrans
 			 i ? " " : "", i+1, codepages[i].name);
 		write_to_buffer(d, buf, 0);
 	}
@@ -857,7 +857,8 @@ void init_descriptor(int control)
 		addr = ntohl(sock.sin_addr.s_addr);
 		from = gethostbyaddr((char *) &sock.sin_addr,
 				     sizeof(sock.sin_addr), AF_INET);
-		dnew->host = str_dup(from ? from->h_name : "unknown");
+		dnew->host = str_dup(
+		    from ? from->h_name : "unknown");		// notrans
 	}
 #endif
 
@@ -869,7 +870,7 @@ void init_descriptor(int control)
 	/*
 	 * Send the greeting.
 	 */
-	if ((greeting = help_lookup(1, "GREETING"))) {
+	if ((greeting = help_lookup(1, "GREETING"))) {		// notrans
 		char buf[MAX_STRING_LENGTH];
 		parse_colors(mlstr_mval(&greeting->text), buf, sizeof(buf),
 			     FORMAT_DUMB);
@@ -1184,7 +1185,7 @@ void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
         else
 		msg = "{Ris nearly dead{x.";
 
-	act_puts("$N $t", ch, msg, victim, TO_CHAR, POS_DEAD);
+	act_puts("$N $t", ch, msg, victim, TO_CHAR, POS_DEAD);	// notrans
 }
 
 /*
@@ -1208,7 +1209,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			ga = TRUE;
 		} else if (fPrompt && d->connected == CON_PLAYING) {
 			if (d->pString) {
-				send_to_char("  > ", ch);
+				send_to_char("  > ", ch);	// notrans
 				ga = TRUE;
 			} else {
 				CHAR_DATA *victim;
@@ -1243,11 +1244,11 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	if ((snoopy = d->snoop_by) != NULL && d->snoop_buf.top > 0) {
 		char buf[MAX_STRING_LENGTH];
 
-		snprintf(buf, sizeof(buf), "\n\r===> %s\n\r",
+		snprintf(buf, sizeof(buf), "\n\r===> %s\n\r",	// notrans
 			 d->character ? d->character->name : str_empty);
 		write_to_buffer(snoopy, buf, 0);
 		write_to_buffer(snoopy, d->snoop_buf.buf, d->snoop_buf.top);
-		write_to_buffer(snoopy, "\n\r", 0);
+		write_to_buffer(snoopy, "\n\r", 0);		// notrans
 	}
 
 	/*
@@ -1277,10 +1278,10 @@ bail_out:
 
 void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 {
-	if (ch->hit >= 0)
-		snprintf(buf, sizeof(buf), "%d%%",
+	if (ch->hit >= 0) {
+		snprintf(buf, sizeof(buf), "%d%%",		// notrans
 			 ((100 * ch->hit) / UMAX(1,ch->max_hit)));
-	else
+	} else
 		strnzcpy(buf, sizeof(buf), "BAD!");
 }
 
@@ -1311,7 +1312,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 		CHAR_DATA *victim;
 		EXIT_DATA *pexit;
 		bool found;
-		const char *dir_name[] = {"N","E","S","W","U","D"};
+		const char *dir_name[] = {"N","E","S","W","U","D"}; // notrans
 		int door;
  
 		if (*str != '%') {
@@ -1330,8 +1331,9 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		case 't':
 			snprintf(buf2, sizeof(buf2),
-				 "%d%s", (time_info.hour % 12 == 0) ? 
-				 12 : time_info.hour % 12, 
+				 "%d%s",			// notrans
+				 (time_info.hour % 12 == 0) ?
+				 	12 : time_info.hour % 12, 
 				 time_info.hour >= 12 ? "pm" : "am");
 			i = buf2;
 			break;
@@ -1351,7 +1353,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 						 dir_name[door]);
 					if (IS_SET(pexit->exit_info, EX_CLOSED))
 						strnzcat(buf2, sizeof(buf2),
-							 "*");
+							 "*");	// notrans
 				}
 			if (buf2[0])
 				strnzcat(buf2, sizeof(buf2), " ");
@@ -1377,7 +1379,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 					percent_hp(victim, buf2);
 					i = buf2;
 				} else
-					i = "???";
+					i = "???";		// notrans
 			} else
 				i = "None";
 			break;
@@ -1388,7 +1390,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 					percent_hp(victim, buf2);
 					i = buf2;
 				} else
-					i = "???";
+					i = "???";		// notrans
 			} else
 				i = "None";
 			break;
@@ -1689,7 +1691,7 @@ static void print_hometown(CHAR_DATA *ch)
 		act_puts("\nYour hometown is $t, permanently.",
 			 ch, hometown_name(htn), NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		act_puts("[Hit Return to Continue]",
+		act_puts("[Hit Return to continue]",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 
 /* XXX */
@@ -1701,7 +1703,7 @@ static void print_hometown(CHAR_DATA *ch)
 	send_to_char("\n", ch);
 	dofun("help", ch, "'CREATECHAR HOMETOWN'");
 	hometown_print_avail(ch);
-	send_to_char("? ", ch);
+	send_to_char("? ", ch);					// notrans
 	ch->desc->connected = CON_PICK_HOMETOWN;
 }
 
@@ -1709,11 +1711,11 @@ static void
 print_cb(const char *s, CHAR_DATA *ch, int *pcol)
 {
 	if (*pcol > 60) {
-		send_to_char("\n  ", ch);
+		send_to_char("\n  ", ch);			// notrans
 		*pcol = 0;
 	}
 
-	act_puts("($t) ", ch, s, NULL,
+	act_puts("($t) ", ch, s, NULL,				// notrans
 		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 	*pcol += strlen(s) + 3;
 }
@@ -1849,10 +1851,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			else {
 				d->ip = str_dup(inet_ntoa(sock.sin_addr));
 #if defined (WIN32)
-				printf("%s@%s\n", ch->name, d->ip);
+				printf("%s@%s\n",		// notrans
 #else
-				fprintf(rfout, "%s@%s\n", ch->name, d->ip);
+				fprintf(rfout, "%s@%s\n",	// notrans
 #endif
+				    ch->name, d->ip);
 				d->connected = CON_RESOLV;
 /* wait until sock.sin_addr gets resolved */
 				break;
@@ -2081,7 +2084,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  r->race_pcdata->classes.nused == 0) {
 			act_char("That is not a valid race.", ch);
 			act_char("The following races are available:", ch);
-			send_to_char("  ", ch);
+			send_to_char("  ", ch);			// notrans
 			col = 0;
 			hash_foreach(&races, print_race_cb, ch, &col);
 			send_to_char("\n", ch);
@@ -2179,7 +2182,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_GET_ALIGNMENT;
 		} else {
-			act_puts("[Hit Return to Continue]",
+			act_puts("[Hit Return to continue]",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			print_hometown(ch);
 		}
@@ -2205,7 +2208,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		act_puts("Now your character is $t.",
 			 ch, flag_string(align_names, NALIGN(ch)), NULL,
 			 TO_CHAR, POS_DEAD);
-		act_puts("[Hit Return to Continue]",
+		act_puts("[Hit Return to continue]",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		print_hometown(ch);
 		break;
@@ -2272,7 +2275,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				ch->ethos = 1;
 			}
 		}
-		act_puts("[Hit Return to Continue]",
+		act_puts("[Hit Return to continue]",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_CREATE_DONE;
 		break;
@@ -2460,7 +2463,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!IS_EXTRACTED(ch)) {
 			dofun("look", ch, "auto");
-			dofun("unread", ch, "login");  
+			dofun("unread", ch, "login");		// notrans
 		}
 
 		break;
@@ -2681,10 +2684,7 @@ void log_area_popularity(void)
 	        str_boot_time);
 
 	for (area = area_first; area != NULL; area = area->next)
-		if (area->count >= 5000000)
-			fprintf(fp,"%-60s overflow\n",area->name);
-		else
-			fprintf(fp,"%-60s %u\n",area->name,area->count);
+		fprintf(fp,"%-60s %u\n",area->name,area->count);
 
 	fclose(fp);
 }

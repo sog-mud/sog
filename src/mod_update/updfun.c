@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.22 2001-01-11 18:44:27 fjoe Exp $
+ * $Id: updfun.c,v 1.23 2001-01-23 21:46:59 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -569,14 +569,6 @@ char_update_cb(void *vo, va_list ap)
 	&&  (weather_info.sunlight == SUN_LIGHT ||
 	     weather_info.sunlight == SUN_RISE))
 		dofun("human", ch, str_empty);
-
-	if (!IS_NPC(ch) && is_affected(ch, "thumbling")) {
-		if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
-			act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
-			act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
-			affect_strip(ch, "thumbling");
-		}
-	}
 
 	if (number_percent() < 20) {
 		// Adjust luck
@@ -1212,8 +1204,10 @@ area_update(void)
 				||  IS_SET(pRoomIndex->room_flags,
 								ROOM_INDOORS))
 					continue;
-				if (number_percent() < 50)
-					room_record("erased", pRoomIndex, -1);
+				if (number_percent() < 50) {
+					room_record("erased",	// notrans
+					    pRoomIndex, -1);
+				}
 			}
 		}
 
@@ -1406,8 +1400,6 @@ potion_arm_level(OBJ_DATA *potion)
 			al += 2;
 		if (IS_SKILL(potion->value[i].s, "sanctuary"))
 			al += 4;
-		if (IS_SKILL(potion->value[i].s, "protection"))
-			al += 3;
 	}
 	return al;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.30 2000-06-01 17:58:02 fjoe Exp $
+ * $Id: db_clan.c,v 1.31 2001-01-23 21:47:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,7 +39,7 @@ DECLARE_DBINIT_FUN(init_clans);
 
 DBFUN dbfun_clans[] =
 {
-	{ "CLAN",	load_clan	},
+	{ "CLAN",	load_clan	},		// notrans
 	{ NULL }
 };
 
@@ -49,7 +49,7 @@ DECLARE_DBLOAD_FUN(load_plists);
 
 DBFUN dbfun_plists[] =
 {
-	{ "PLISTS",	load_plists	},
+	{ "PLISTS",	load_plists	},		// notrans
 	{ NULL }
 };
 
@@ -127,8 +127,8 @@ DBLOAD_FUN(load_clan)
 			KEY("Recall", clan.recall_vnum, fread_number(fp));
 			break;
 		case 'S':
-			SKEY("SkillSpec", clan.skill_spec,
-			     fread_strkey(fp, &specs, "load_clan"));
+			SKEY("SkillSpec", clan.skill_spec, fread_strkey(
+			    fp, &specs, "load_clan"));		// notrans
 		}
 
 		if (!fMatch) {

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.32 2000-10-09 19:16:06 fjoe Exp $
+ * $Id: hunt.c,v 1.33 2001-01-23 21:46:55 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -680,10 +680,9 @@ void do_find(CHAR_DATA *ch, const char *argument)
 	}
 
 	path = find_way(ch, ch->in_room, location);
-	act_puts("$t.", ch, path, NULL,
+	act_puts("$t.", ch, path, NULL,				// notrans
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	log(LOG_INFO, "From %d to %d: %s.\n",
 		   ch->in_room->vnum, location->vnum, path);
-	return;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.16 2000-10-13 08:46:14 fjoe Exp $
+ * $Id: core.c,v 1.17 2001-01-23 21:46:53 fjoe Exp $
  */
 
 #include <errno.h>
@@ -222,7 +222,7 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 		if (reboot_counter == -1) 
 			act_char("Automatic rebooting is inactive.", ch);
 		else {
-			act_puts("Reboot in $j minutes.",
+			act_puts("Reboot in $j $qj{minutes}.",
 				 ch, (const void *) reboot_counter, NULL,
 				 TO_CHAR, POS_DEAD);
 		}
@@ -232,7 +232,7 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 	if (is_number(arg)) {
 		reboot_counter = atoi(arg);
 		rebooter = 1;
-		act_puts("SoG will reboot in $j ticks.",
+		act_puts("SoG will reboot in $j $qj{ticks}.",
 			 ch, (const void *) reboot_counter, NULL,
 			 TO_CHAR, POS_DEAD);
 		return;

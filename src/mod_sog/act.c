@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.66 2001-01-12 15:33:53 cs Exp $
+ * $Id: act.c,v 1.67 2001-01-23 21:47:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -83,9 +83,9 @@ _format_short(mlstring *mlshort, const char *name, CHAR_DATA *to,
 
 		if (IS_SET(act_flags, ACT_NOFIXSH)
 		&&  strchr(sshort, '~') == NULL)
-			format = "~%s~ (%s)";
+			format = "~%s~ (%s)";			// notrans
 		else
-			format = "%s (%s)";
+			format = "%s (%s)";			// notrans
 
         	one_argument(name, buf2, sizeof(buf2));
 		snprintf(buf, sizeof(buf), format, sshort, buf2);
@@ -188,11 +188,13 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 
 /* common and slang should have the same size */
 char common[] =
-	"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
-	"áÁâÂ÷×çÇäÄåÅ³£öÖúÚéÉêÊëËìÌíÍîÎïÏðÐòÒóÓôÔõÕæÆèÈãÃþÞûÛýÝÿßùÙøØüÜàÀñÑ";
+	"aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"	// notrans
+	"áÁâÂ÷×çÇäÄåÅ³£öÖúÚéÉêÊëËìÌíÍîÎïÏðÐòÒóÓôÔõÕæÆèÈãÃþÞûÛ"	// notrans
+	"ýÝÿßùÙøØüÜàÀñÑ";					// notrans
 char slang[] =
-	"eEcCdDfFiIgGhHjJoOkKlLmMnNpPuUqQrRsStTvVyYwWxXzZaAbB"
-	"õÕâÂâÂïÏâÂáÁùÙâÂâÂõÕâÂâÂâÂâÂéÉáÁâÂâÂòÒâÂùÙâÂâÂâÂâÂâÂâÂÿßõÕøØáÁõÕùÙ";
+	"eEcCdDfFiIgGhHjJoOkKlLmMnNpPuUqQrRsStTvVyYwWxXzZaAbB"	// notrans
+	"õÕâÂâÂïÏâÂáÁùÙâÂâÂõÕâÂâÂâÂâÂéÉáÁâÂâÂòÒâÂùÙâÂâÂâÂâÂâÂ"	// notrans
+	"âÂÿßõÕøØáÁõÕùÙ";					// notrans
 
 /* ch says, victim hears */
 static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
@@ -210,10 +212,10 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 	||  ((r = race_lookup(ORG_RACE(victim))) &&
 	     r->race_pcdata &&
 	     ch->slang == r->race_pcdata->slang)) {
-		if (IS_IMMORTAL(victim))
-			snprintf(trans, sizeof(trans), "[%s] %s",
+		if (IS_IMMORTAL(victim)) {
+			snprintf(trans, sizeof(trans), "[%s] %s", // notrans
 				 flag_string(slang_table, ch->slang), i);
-		else
+		} else
 			strnzcpy(trans, sizeof(trans), i);
 		return trans;
 	}
@@ -230,9 +232,9 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 	return trans;
 }
 
-const char *he_she [] = { "it",  "he",  "she", "they" };
-const char *him_her[] = { "it",  "him", "her", "them" };
-const char *his_her[] = { "its", "his", "her", "their" };
+const char *he_she [] = { "it",  "he",  "she", "they" };	// notrans
+const char *him_her[] = { "it",  "him", "her", "them" };	// notrans
+const char *his_her[] = { "its", "his", "her", "their" };	// notrans
  
 struct tdata {
 	char	type;
@@ -367,7 +369,7 @@ act_format_door(gmlstr_t *gml)
 #define CHAR_ARG(vch)							\
 	{								\
 		if (vch == NULL) {					\
-			i = GETMSG("Noone", opt->to_lang);		\
+			i = GETMSG("somebody", opt->to_lang);		\
 		} else {						\
 			CHECK_TYPE(vch, MT_CHAR);			\
 			i = PERS2(vch, to, opt->to_lang,		\
@@ -559,9 +561,9 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			case 'F':
 				*point = '\0';
 				snprintf(tmp2, sizeof(tmp2),
-					 tstack[sp].type == 'f' ?
-					 	"%%%ds" : "%%%d.%ds",
-					 tstack[sp].arg, abs(tstack[sp].arg));
+				    tstack[sp].type == 'f' ?
+				 	"%%%ds" : "%%%d.%ds",	// notrans
+				    tstack[sp].arg, abs(tstack[sp].arg));
 				snprintf(tmp, sizeof(tmp), tmp2, tstack[sp].p);
 				strnzcpy(tstack[sp].p,
 					 buf_len - 3 - (tstack[sp].p - buf),
@@ -583,17 +585,17 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 			switch (code = *s++) {
 			default:  
-				i = " <@@@> ";
+				i = " <@@@> ";		// notrans
 				log(LOG_INFO, "act_buf: '%s': bad code $%c",
 					   format, code);
 				continue;
 
 			case '$':
-				i = "$";
+				i = "$";		// notrans
 				break;
 				
 			case '{':
-				i = "{{";
+				i = "{{";		// notrans
 				break;
 
 /* text arguments */
@@ -726,8 +728,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			case 'l':
 			case 'F':
 				if (++sp >= TSTACK_SZ) {
-					log(LOG_INFO, "act_raw: '%s': "
-					    "tstack overflow", format);
+					log(LOG_INFO, "act_raw: '%s': tstack overflow", format);
 					continue;
 				}
 
@@ -747,9 +748,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = subcode;
 						break;
 					default:
-						log(LOG_INFO, "act_buf: '%s': "
-						    "bad subcode '%c' "
-						    "(pos %d)",
+						log(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
 						    format, subcode,
 						    s - format);
 						sp--;
@@ -838,9 +837,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					default:
-						log(LOG_INFO, "act_buf: '%s': "
-						    "bad subcode '%c' "
-						    "(pos %d)",
+						log(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
 						    format, subcode,
 						    s - format);
 						sp--;
@@ -859,9 +856,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = NUM3;
 						break;
 					default:
-						log(LOG_INFO, "act_buf: '%s': "
-						    "bad subcode '%c' "
-						    "(pos %d)",
+						log(LOG_INFO, "act_buf: '%s': bad subcode '%c' (pos %d)",
 						    format, subcode,
 						    s - format);
 						sp--;
@@ -872,8 +867,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				}
 
 				if (*s != '{') {
-					log(LOG_INFO, "act_buf: '%s': "
-					    "syntax error (pos %d)",
+					log(LOG_INFO, "act_buf: '%s': syntax error (pos %d)",
 					    format, s - format);
 					sp--;
 					continue;
@@ -1130,4 +1124,3 @@ void act_say(CHAR_DATA *ch, const char *text, const void *arg)
 			 POS_RESTING);
 	}
 }
-

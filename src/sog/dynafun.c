@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.6 2000-06-08 19:43:59 fjoe Exp $
+ * $Id: dynafun.c,v 1.7 2001-01-23 21:47:00 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -127,8 +127,7 @@ dynafun_call(int rv_tag, const char *name, int nargs, ...)
 		return NULL;
 
 	if (rv_tag != d->rv_tag) {
-		log(LOG_BUG, "dynafun_call: %s: rv type %d does not match "
-			     "requested rv type %d",
+		log(LOG_BUG, "dynafun_call: %s: rv type %d does not match requested rv type %d",
 		    d->name, d->rv_tag, rv_tag);
 		return NULL;
 	}

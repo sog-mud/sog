@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.174 2000-10-04 20:28:51 fjoe Exp $
+ * $Id: interp.c,v 1.175 2001-01-23 21:47:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,9 +176,11 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		else {
 			if (IS_AFFECTED(ch, AFF_CHARM)
 			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
+			&&  ch->master != NULL
 			&&  cmd->min_level < LEVEL_IMMORTAL 
 			&&  !IS_IMMORTAL(ch)) {
-				act_char("First ask your beloved master!", ch);
+				act("First ask your beloved master!",
+				    ch, NULL, ch->master, TO_CHAR);
 				return;
 			}
 		}
@@ -199,7 +201,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->desc && ch->desc->snoop_by) {
 		char buf[MAX_INPUT_LENGTH];
 
-		snprintf(buf, sizeof(buf), "# %s\n\r", logline);
+		snprintf(buf, sizeof(buf), "# %s\n\r", logline); // notrans
 		write_to_snoop(ch->desc, buf, 0);
 	}
 
@@ -484,9 +486,10 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	if (d->dvdata->prefix[0] != '\0' && str_prefix("prefix", argument)) {
 		if (strlen(d->dvdata->prefix) + strlen(argument) + 2 >
 							MAX_INPUT_LENGTH) {
-			act_char("Line to long, prefix not processed.", d->character);
+			act_char("Line too long, prefix not processed.", d->character);
 		} else {
-			snprintf(prefix, sizeof(prefix), "%s %s",
+			snprintf(prefix, sizeof(prefix),
+				 "%s %s",			// notrans
 				 d->dvdata->prefix, argument);
 			argument = prefix;
 		}
@@ -516,7 +519,8 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 			 * found an alias
 			 */
 			if (!IS_NULLSTR(point)) {
-				snprintf(buf, sizeof(buf), "%s %s",
+				snprintf(buf, sizeof(buf),
+					 "%s %s",		// notrans
 					 d->dvdata->alias_sub[i], point);
 			} else {
 				strnzcpy(buf, sizeof(buf),

@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.33 2000-10-07 10:58:05 fjoe Exp $
+ * $Id: flag.c,v 1.34 2001-01-23 21:47:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -185,7 +185,7 @@ const char *flag_string(const flaginfo_t *flag_table, flag_t bits)
 		/* NOT REACHED */
 
 	case TABLE_INTVAL:
-		return "unknown";
+		return "unknown";				// notrans
 		/* NOT REACHED */
 
 	default:
@@ -204,7 +204,8 @@ void show_flags_buf(BUFFER *output, const flaginfo_t *flag_table)
 	flag_table++;
 	for (flag = 0; flag_table[flag].name; flag++) {
 		if (flag_table[flag].settable) {
-			buf_printf(output, BUF_END, "%-19.18s", flag_table[flag].name);
+			buf_printf(output, BUF_END, "%-19.18s",	// notrans
+			    flag_table[flag].name);
 			if (++col % 4 == 0)
 				buf_append(output, "\n");
 		}

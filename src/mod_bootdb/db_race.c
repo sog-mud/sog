@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.29 2001-01-18 22:20:16 fjoe Exp $
+ * $Id: db_race.c,v 1.30 2001-01-23 21:47:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -87,8 +87,8 @@ DBLOAD_FUN(load_race)
 			break;
 		case 'D':
 			KEY("Det", r.has_detect, fread_fstring(id_flags, fp));
-			KEY("Damtype", r.damtype, 
-			    fread_strkey(fp, &damtypes, "load_mobiles"));
+			KEY("Damtype", r.damtype, fread_strkey(
+			    fp, &damtypes, "load_mobiles"));	// notrans
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
@@ -228,8 +228,8 @@ DBLOAD_FUN(load_pcrace)
 		case 'S':
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
-			SKEY("SkillSpec", pcr->skill_spec,
-			     fread_strkey(fp, &specs, "load_pcrace"));
+			SKEY("SkillSpec", pcr->skill_spec, fread_strkey(
+			    fp, &specs, "load_pcrace"));	// notrans
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(pcr->who_name, sizeof(pcr->who_name),

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.11 2000-06-02 16:40:46 fjoe Exp $
+ * $Id: act_spec.c,v 1.12 2001-01-23 21:46:55 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -88,7 +88,7 @@ void do_read(CHAR_DATA* ch, const char* argument)
 		act("You didn't understand contents of $t.",
 			ch, flag_string(book_class, INT(book->value[0])), 
 			NULL, TO_CHAR);
-		act("$p glows with strange red light, than disappears.", 
+		act("$p glows with strange red light, then disappears.", 
 			ch, book, NULL, TO_CHAR);
 
 		obj_from_char(book);
@@ -96,7 +96,7 @@ void do_read(CHAR_DATA* ch, const char* argument)
 		bad_effect(ch, eff);
 	} else {
 		act(STR(book->value[4]), ch, NULL, NULL, TO_CHAR);
-		act("$p suddenly disappears.", ch, book, NULL, TO_CHAR);
+		act("$p disappears suddenly.", ch, book, NULL, TO_CHAR);
 		obj_from_char(book);
 		extract_obj(book, 0);
 	}
@@ -200,8 +200,8 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "major"))
 		major = TRUE;
-	else if(str_prefix(arg, "minor")) {
-		act("Syntax : school [major|minor] school name.", 
+	else if (!!str_prefix(arg, "minor")) {
+		act("Syntax: school {major|minor} <school name>", 
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -247,7 +247,7 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (major) {
-		char * repl = has_spec(ch, minor_school) ? minor_school : NULL;
+		char *repl = has_spec(ch, minor_school) ? minor_school : NULL;
 		if (has_spec(ch, major_school)) {
 			act("$T is already your major school.",
 				ch, NULL, school_name, TO_CHAR);
@@ -283,4 +283,3 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 		}
 	}
 }
-

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.364 2001-01-07 17:52:32 fjoe Exp $
+ * $Id: act_info.c,v 1.365 2001-01-23 21:46:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,7 +119,7 @@ static int show_order[] = {
 void do_clear(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch))
-		send_to_char("\033[0;0H\033[2J", ch);
+		send_to_char("\033[0;0H\033[2J", ch);	// notrans
 }
 
 /* changes your scroll */
@@ -159,15 +159,18 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 		 ch, (const void *) pagelen, NULL, TO_CHAR, POS_DEAD);
 }
 
-#define SHOW_SOCIAL(prephrase, phrase)					\
-	if (!mlstr_null(&(phrase))) {					\
-		act("$t\n    ", ch, (prephrase), NULL,			\
-		    TO_CHAR | ACT_NOLF);				\
-		act_mlputs(&(phrase), ch, NULL, mob,			\
-			   TO_CHAR, POS_RESTING);			\
+static void
+show_social(CHAR_DATA *ch, CHAR_DATA *vch, const char *pre, mlstring *ml)
+{
+	if (!mlstr_null(ml)) {
+		act("$t\n    ", ch, pre, NULL,			// notrans
+		    TO_CHAR | ACT_NOLF);
+		act_mlputs(ml, ch, NULL, vch, TO_CHAR, POS_RESTING);
 	}
+}
 
-void do_socials(CHAR_DATA *ch, const char *argument)
+void
+do_socials(CHAR_DATA *ch, const char *argument)
 {
 	social_t *soc;
 	CHAR_DATA *mob;
@@ -186,20 +189,26 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 
 	do {
 		mob_index = get_mob_index(number_range(1, top_vnum_mob));
+		// XXX should skip mobs with act triggers :)
 	} while (mob_index == NULL);
 	mob = create_mob(mob_index, 0);
 
-	SHOW_SOCIAL("Having used with no argument specified, you see:",
-		    soc->noarg_char);
-	SHOW_SOCIAL("And others see:", soc->noarg_room);
-	SHOW_SOCIAL("Having targeted yourself, you see:", soc->self_char);
-	SHOW_SOCIAL("And others see:", soc->self_room);
-	SHOW_SOCIAL("If your target is missing, you will see:",
-		    soc->notfound_char);
-	SHOW_SOCIAL("Having targeted it to another character, you see:",
-		    soc->found_char);
-	SHOW_SOCIAL("Your victim see:", soc->found_vict);
-	SHOW_SOCIAL("And others see:", soc->found_notvict);
+	show_social(ch, mob,
+	   "Having used with no argument specified, you see:",
+	   &soc->noarg_char);
+	show_social(ch, mob, "And others see:", &soc->noarg_room);
+	show_social(ch, mob,
+	    "Having targeted yourself, you see:",
+	    &soc->self_char);
+	show_social(ch, mob, "And others see:", &soc->self_room);
+	show_social(ch, mob,
+	    "If your target is missing, you will see:",
+	    &soc->notfound_char);
+	show_social(ch, mob,
+	    "Having targeted it to another character, you see:",
+	    &soc->found_char);
+	show_social(ch, mob, "Your victim see:", &soc->found_vict);
+	show_social(ch, mob, "And others see:", &soc->found_notvict);
 
 	extract_char(mob, 0);
 }
@@ -239,7 +248,7 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 		return;
 
 	act_char("action         status", ch);
-	act_char("---------------------", ch);
+	act_char("---------------------", ch);			// notrans
 	do_print_sw(ch, "autoassist", IS_SET(PC(ch)->plr_flags, PLR_AUTOASSIST));
 	do_print_sw(ch, "autoexit", IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT));
 	do_print_sw(ch, "autogold", IS_SET(PC(ch)->plr_flags, PLR_AUTOGOLD));
@@ -504,7 +513,7 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 		send_to_char("\n", ch);
 
  		if (!IS_SET(flags, LOOK_F_NORDESC)) {
-			send_to_char("  ", ch);
+			send_to_char("  ", ch);			// notrans
 			act_puts(mlstr_cval(&ch->in_room->description, ch),
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
@@ -840,16 +849,19 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 			}
 
 			found = TRUE;
-			if (fAuto)
-				buf_printf(buf, BUF_END, " %s%s",
-					   dir_name[door],
-					   show_closed ? "*" : str_empty);
-			else {
+			if (fAuto) {
+				buf_printf(buf, BUF_END,
+				    " %s%s",			    // notrans
+				    dir_name[door],
+				    show_closed ? "*" : str_empty); // notrans
+			} else {
 				buf_printf(buf, BUF_END, "{C%-5s%s{x - %s",
-					   capitalize(dir_name[door]),
-					   show_closed ? "*" : str_empty,
-					   room_dark(pexit->to_room.r) ?
-						GETMSG("Too dark to tell", GET_LANG(ch)) : mlstr_cval(&pexit->to_room.r->name, ch));
+				    capitalize(dir_name[door]),
+				    show_closed ?
+					"*" : str_empty,	// notrans
+				    	room_dark(pexit->to_room.r) ?
+					    GETMSG("Too dark to tell", GET_LANG(ch)) :
+					    mlstr_cval(&pexit->to_room.r->name, ch));
 
 				if (IS_IMMORTAL(ch)
 				||  IS_BUILDER(ch, pexit->to_room.r->area)) {
@@ -890,7 +902,7 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 				 TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 	}
-	act_puts(".", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	act_puts(".", ch, NULL, NULL, TO_CHAR, POS_DEAD);	// notrans
 
 	if (!IS_NPC(ch)) {
 		act_puts("You have killed $j $T",
@@ -910,16 +922,34 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 
 static const char* day_name[] =
 {
-	"the Moon", "the Bull", "Deception", "Thunder", "Freedom",
-	"the Great Gods", "the Sun"
+	"the Moon",			// notrans
+	"the Bull",			// notrans
+	"Deception",			// notrans
+	"Thunder",			// notrans
+	"Freedom",			// notrans
+	"the Great Gods",		// notrans
+	"the Sun"			// notrans
 };
 
 static const char* month_name[] =
 {
-	"Winter", "the Winter Wolf", "the Frost Giant", "the Old Forces",
-	"the Grand Struggle", "the Spring", "Nature", "Futility", "the Dragon",
-	"the Sun", "the Heat", "the Battle", "the Dark Shades", "the Shadows",
-	"the Long Shadows", "the Ancient Darkness", "the Great Evil"
+	"Winter",			// notrans
+	"the Winter Wolf",		// notrans
+	"the Frost Giant",		// notrans
+	"the Old Forces",		// notrans
+	"the Grand Struggle",		// notrans
+	"the Spring",			// notrans
+	"Nature",			// notrans
+	"Futility",			// notrans
+	"the Dragon",			// notrans
+	"the Sun",			// notrans
+	"the Heat",			// notrans
+	"the Battle",			// notrans
+	"the Dark Shades",		// notrans
+	"the Shadows",			// notrans
+	"the Long Shadows",		// notrans
+	"the Ancient Darkness",		// notrans
+	"the Great Evil"		// notrans
 };
 
 void do_time(CHAR_DATA *ch, const char *argument)
@@ -961,7 +991,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	act_puts("The system time is $t.",
 		 ch, strtime(time(NULL)), NULL,
 		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
-	act_puts("Reboot in $j minutes.",
+	act_puts("Reboot in $j $qj{minutes}.",
 		 ch, (const void *) reboot_counter, NULL, TO_CHAR, POS_DEAD);
 }
 
@@ -1420,8 +1450,9 @@ void do_where(CHAR_DATA *ch, const char *argument)
 						 ch, NULL, NULL,
 						 TO_CHAR | ACT_NOLF, POS_DEAD);
 				} else {
-					act_puts("     ", ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
+					act_puts("     ",	// notrans
+					    ch, NULL, NULL,
+					    TO_CHAR | ACT_NOLF, POS_DEAD);
 				}
 
 				act_puts("$f-28{$N} $t", ch,
@@ -1520,7 +1551,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 
 void do_description(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
@@ -1528,16 +1559,21 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		act_char("Your description is:", ch);
+		act_puts("$t{x", 				// notrans
+			 ch, mlstr_mval(&ch->description), NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		act_char("Use 'desc edit' to edit your description.", ch);
+		return;
+	}
 
 	if (!str_prefix(arg, "edit")) {
 		string_append(ch, mlstr_convert(&ch->description, -1));
 		return;
 	}
 
-	act_char("Your description is:", ch);
-	act_puts("$t{x", ch, mlstr_mval(&ch->description), NULL,
-		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	act_char("Use 'desc edit' to edit your description.", ch);
+	do_description(ch, str_empty);
 }
 
 void do_report(CHAR_DATA *ch, const char *argument)
@@ -1639,7 +1675,7 @@ static void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch)
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		act_puts("    $N.", ch, NULL, rch,
+		act_puts("    $N.", ch, NULL, rch,		// notrans
 			 TO_CHAR | ACT_FORMSH, POS_DEAD);
 	}
 }
@@ -2182,7 +2218,7 @@ static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)
 	if (ch->level < 20 && !IS_NPC(ch))
 		strnzcpy(buf, len, get_stat_alias(ch, stat));
 	else {
-		snprintf(buf, len, "%2d (%2d)",
+		snprintf(buf, len, "%2d (%2d)",		// notrans
 			 ch->perm_stat[stat],
 			 get_curr_stat(ch, stat));
 	}
@@ -2236,7 +2272,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_DEX);
 	buf_printf(output, BUF_END,
 "     {G| {RClass: {x%-12.12s {C| {RDex: {x%-11.11s {C| {RQuest Pnts: {x%-5d      {G|{x\n",
-		IS_NPC(ch) ? "mobile" : ch->class,
+		IS_NPC(ch) ? "mobile" : ch->class,		// notrans
 		buf2,
 		IS_NPC(ch) ? 0 : PC(ch)->questpoints);
 
@@ -2251,12 +2287,13 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_CHA);
 	buf_printf(output, BUF_END,
 "     {G| {REthos: {x%-12.12s {C| {RCha: {x%-11.11s {C| {R%s     : {x%-5d      {G|{x\n",
-		IS_NPC(ch) ? "mobile" : flag_string(ethos_table, ch->ethos),
+	    IS_NPC(ch) ?
+		"mobile" : flag_string(ethos_table, ch->ethos),	// notrans
 		buf2,
 		_can_flee ? "Wimpy" : "Death",
 		_can_flee ? ch->wimpy : PC(ch)->death);
 
-	snprintf(buf2, sizeof(buf2), "%s %s.",
+	snprintf(buf2, sizeof(buf2), "%s %s.",			// notrans
 		 GETMSG("You are", GET_LANG(ch)),
 		 GETMSG(flag_string(position_names, ch->position), GET_LANG(ch)));
 	buf_printf(output, BUF_END, "     {G| {RHome : {x%-31.31s {C|{x %-22.22s {G|{x\n",
@@ -2379,7 +2416,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(GET_LANG(ch));
 
-	buf_printf(output, BUF_END, "%s %s%s\n{x",
+	buf_printf(output, BUF_END, "%s %s%s\n{x",		// notrans
 		GETMSG("You are", GET_LANG(ch)),
 		IS_NPC(ch) ? capitalize(mlstr_val(&ch->short_descr, GET_LANG(ch))) :
 			     ch->name,
@@ -2504,7 +2541,8 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			buf_append(output, "You are {cghost{x.\n");
 	}
 
-	buf_printf(output, BUF_END, "You are %s.\n",
+	buf_printf(output, BUF_END, "%s %s.\n",
+		   GETMSG("You are", GET_LANG(ch)),
 		   GETMSG(flag_string(position_names, ch->position),
 			  GET_LANG(ch)));
 
@@ -3332,7 +3370,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 		lev = spec_sk.level;
 		
-		snprintf(buf, sizeof(buf), "%-19s %-11s  ",
+		snprintf(buf, sizeof(buf), "%-19s %-11s  ",	// notrans
 			pc_sk->sn, knowledge);
 
 		if (skill_list[lev] == NULL) {
@@ -3340,8 +3378,10 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 			buf_printf(skill_list[lev], BUF_END,
 				   "\nLevel %2d: %s", lev, buf);
 		} else {
-			if (++skill_columns[lev] % 2 == 0)
-				buf_append(skill_list[lev], "\n          ");
+			if (++skill_columns[lev] % 2 == 0) {
+				buf_append(skill_list[lev],
+					   "\n          ");	// notrans
+			}
 			buf_append(skill_list[lev], buf);
 		}
 	}
@@ -3376,7 +3416,7 @@ glist_cb(void *p, va_list ap)
 	if (group == sk->group) {
 		const char *sn = gmlstr_mval(&sk->sk_name);
 		act_puts("$t$f-18{$T}", ch,
-			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn,
+			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn, // notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (*pcol)
 			send_to_char("\n", ch);
@@ -3760,10 +3800,9 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	ch->mana -= mana;
 	WAIT_STATE(ch, wait);
 
-	act_char("You start to make arrows!", ch);
 	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
 	pObjIndex = get_obj_index(vnum);
-	for(count = 0; count < LEVEL(ch) / 5; count++) {
+	for (count = 0; count < LEVEL(ch) / 5; count++) {
 		if (number_percent() > chance * color_chance / 100) {
 			act_char("You failed to make the arrow, and broke it.", ch);
 			check_improve(ch, "make arrow", FALSE, 3);
@@ -3980,7 +4019,7 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 			strnzcat(buf, sizeof(buf),
 				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
 	} else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] "; // notrans
 		strnzcpy(buf, sizeof(buf), FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
 			buf[5] = 'I';
@@ -4131,10 +4170,12 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 			continue;
 
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
-			if (prgnShow[iShow] != 1) 
-				buf_printf(output, BUF_END, "(%2d) ", prgnShow[iShow]);
-			else
-				buf_append(output,"     ");
+			if (prgnShow[iShow] != 1) {
+				buf_printf(output, BUF_END,
+				    "(%2d) ",			// notrans
+				    prgnShow[iShow]);
+			} else
+				buf_append(output,"     ");	// notrans
 		}
 
 		buf_append(output, prgpstrShow[iShow]);
@@ -4144,7 +4185,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 
 	if (fShowNothing && nShow == 0) {
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
-			send_to_char("     ", ch);
+			send_to_char("     ", ch);		// notrans
 		act_char("Nothing.", ch);
 	}
 
@@ -4227,7 +4268,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				 TO_CHAR | ACT_NOLF);
 		}
 	} else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g."; // notrans
 		char buf[sizeof(FLAGS)];
 		bool diff;
 
@@ -4262,14 +4303,14 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (diff)
 			buf_append(output, buf);
 		else if (IS_SET(ch->comm, COMM_SHOWRACE))
-			buf_append(output, "{x[");
+			buf_append(output, "{x[");		// notrans
 
 		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
-			buf_act(output, BUF_END,
-				"{c$t{x] ", ch, victim->race, NULL, NULL,
-				 TO_CHAR | ACT_NOLF);
+			buf_act(output, BUF_END, "{c$t{x] ",	// notrans
+				ch, victim->race, NULL, NULL,
+				TO_CHAR | ACT_NOLF);
 		} else if (diff)
-			buf_append(output, "{x] ");
+			buf_append(output, "{x] ");		// notrans
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
@@ -4292,10 +4333,13 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		return;
 	}
 
-	if (IS_IMMORTAL(victim))
-		act_puts("{W", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-	else
-		act_puts("{x", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+	if (IS_IMMORTAL(victim)) {
+		act_puts("{W", ch, NULL, NULL,			// notrans
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
+	} else {
+		act_puts("{x", ch, NULL, NULL,			// notrans
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
+	}
 
 	switch (victim->position) {
 	case POS_DEAD:
@@ -4490,7 +4534,7 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			act_puts(desc, ch, NULL, NULL,
 				 TO_CHAR | ACT_NOLF, POS_DEAD);
 		} else {
-			act_puts("$t{x", ch, desc, NULL,
+			act_puts("$t{x", ch, desc, NULL,	// notrans
 				 TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 	} else {
@@ -4532,10 +4576,10 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(doppel)) {
-		act_puts("($t) ", ch, doppel->race, NULL,
+		act_puts("($t) ", ch, doppel->race, NULL,	// notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (!IS_NPC(doppel)) {
-			act_puts("($t) ($T) ", ch,
+			act_puts("($t) ($T) ", ch,		// notrans
 				 doppel->class, mlstr_mval(&doppel->gender),
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		}
@@ -4544,12 +4588,12 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	strnzcpy(buf, sizeof(buf), PERS(victim, ch));
 	buf[0] = UPPER(buf[0]);
 	if (IS_IMMORTAL(victim))
-		send_to_char("{W", ch);
-	act_puts("$N", ch, NULL, victim,
+		send_to_char("{W", ch);				// notrans
+	act_puts("$N", ch, NULL, victim,			// notrans
 		 TO_CHAR | ACT_NOLF | ACT_FORMSH, POS_DEAD);
 	if (IS_IMMORTAL(victim))
 		send_to_char("{x", ch);
-	act_puts(" $t", ch, msg, NULL, TO_CHAR, POS_DEAD);
+	act_puts(" $t", ch, msg, NULL, TO_CHAR, POS_DEAD);	// notrans
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++)
@@ -4730,7 +4774,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 		cnt++;
 		r = race_lookup(vch->race);
 		cl = class_lookup(vch->class);
-		buf_printf(output, BUF_END, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
+		buf_printf(output, BUF_END, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n", // notrans
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
 			r && r->race_pcdata ? r->race_pcdata->who_name : "none",

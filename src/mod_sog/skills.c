@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.114 2001-01-18 22:20:14 fjoe Exp $
+ * $Id: skills.c,v 1.115 2001-01-23 21:47:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -160,7 +160,7 @@ void _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 	if (IS_NULLSTR(sn))
 		return;
 
-	STRKEY_CHECK(&skills, sn, "_set_skill");
+	STRKEY_CHECK(&skills, sn, "_set_skill");		// notrans
 
 	if ((pc_sk = pc_skill_lookup(ch, sn)) != NULL) {
 		if (replace || pc_sk->percent < percent)
@@ -434,7 +434,7 @@ gmlstr_t *
 skill_noun(const char *sn)
 {
 	skill_t *sk;
-	STRKEY_CHECK(&skills, sn, "skill_noun");
+	STRKEY_CHECK(&skills, sn, "skill_noun");		// notrans
 	sk = skill_lookup(sn);
 	if (sk != NULL)
 		return &sk->noun_damage;
@@ -457,7 +457,7 @@ skills_dump_cb(void *p, va_list ap)
 	||  (skill_type >= 0 && sk->skill_type != skill_type))
 		return NULL;
 
-	buf_printf(output, BUF_END, "%-19.18s", sn);
+	buf_printf(output, BUF_END, "%-19.18s", sn);		// notrans
 	if (++(*pcol) % 4 == 0)
 		buf_append(output, "\n");
 	return 0;
@@ -683,48 +683,48 @@ static size_t mob_skill_count;
 
 static mob_skill_t mob_skill_tab[] =
 {
-	{ "track",		mob_track		},
-	{ "sneak", 		mob_sneak		},
-	{ "hide",		mob_hide		},
-	{ "pick lock",		mob_pick_lock		},
-	{ "backstab",		mob_backstab		},
-	{ "dual backstab",	mob_dual_backstab	},
-	{ "dodge",		mob_dodge		},
-	{ "parry",		mob_parry		},
-	{ "distance",		mob_distance		},
-	{ "dirt kicking",	mob_dirt_kicking	},
-	{ "shield block",	mob_shield_block	},
-	{ "second attack",	mob_second_attack	},
-	{ "third attack",	mob_third_attack	},
-	{ "fourth attack",	mob_fourth_attack	},
-	{ "hand to hand",	mob_hand_to_hand	},
-	{ "trip",		mob_trip		},
-	{ "bash",		mob_bash		},
-	{ "bash door",		mob_bash		},
-	{ "kick",		mob_kick		},
-	{ "critical strike",	mob_critical_strike	},
-	{ "deathblow",		mob_deathblow		},
-	{ "spellbane", 		mob_spellbane		},
-	{ "disarm",		mob_disarm		},
-	{ "grip",		mob_grip		},
-	{ "berserk",		mob_berserk		},
-	{ "tiger power",	mob_tiger_power		},
-	{ "dual wield",		mob_dual_wield		},
-	{ "rescue",		mob_rescue		},
-	{ "crush",		mob_crush		},
-	{ "sword",		mob_weapon		},
-	{ "dagger",		mob_weapon		},
-	{ "spear",		mob_weapon		},
-	{ "mace",		mob_weapon		},
-	{ "axe",		mob_weapon		},
-	{ "flail",		mob_weapon		},
-	{ "staff",		mob_weapon		},
-	{ "whip",		mob_weapon		},
-	{ "polearm",		mob_weapon		},
-	{ "bow",		mob_weapon		},
-	{ "arrow",		mob_weapon		},
-	{ "lance",		mob_weapon		},
-	{ "herbs",		mob_herbs		},
+	{ "track",		mob_track		},	// notrans
+	{ "sneak", 		mob_sneak		},	// notrans
+	{ "hide",		mob_hide		},	// notrans
+	{ "pick lock",		mob_pick_lock		},	// notrans
+	{ "backstab",		mob_backstab		},	// notrans
+	{ "dual backstab",	mob_dual_backstab	},	// notrans
+	{ "dodge",		mob_dodge		},	// notrans
+	{ "parry",		mob_parry		},	// notrans
+	{ "distance",		mob_distance		},	// notrans
+	{ "dirt kicking",	mob_dirt_kicking	},	// notrans
+	{ "shield block",	mob_shield_block	},	// notrans
+	{ "second attack",	mob_second_attack	},	// notrans
+	{ "third attack",	mob_third_attack	},	// notrans
+	{ "fourth attack",	mob_fourth_attack	},	// notrans
+	{ "hand to hand",	mob_hand_to_hand	},	// notrans
+	{ "trip",		mob_trip		},	// notrans
+	{ "bash",		mob_bash		},	// notrans
+	{ "bash door",		mob_bash		},	// notrans
+	{ "kick",		mob_kick		},	// notrans
+	{ "critical strike",	mob_critical_strike	},	// notrans
+	{ "deathblow",		mob_deathblow		},	// notrans
+	{ "spellbane", 		mob_spellbane		},	// notrans
+	{ "disarm",		mob_disarm		},	// notrans
+	{ "grip",		mob_grip		},	// notrans
+	{ "berserk",		mob_berserk		},	// notrans
+	{ "tiger power",	mob_tiger_power		},	// notrans
+	{ "dual wield",		mob_dual_wield		},	// notrans
+	{ "rescue",		mob_rescue		},	// notrans
+	{ "crush",		mob_crush		},	// notrans
+	{ "sword",		mob_weapon		},	// notrans
+	{ "dagger",		mob_weapon		},	// notrans
+	{ "spear",		mob_weapon		},	// notrans
+	{ "mace",		mob_weapon		},	// notrans
+	{ "axe",		mob_weapon		},	// notrans
+	{ "flail",		mob_weapon		},	// notrans
+	{ "staff",		mob_weapon		},	// notrans
+	{ "whip",		mob_weapon		},	// notrans
+	{ "polearm",		mob_weapon		},	// notrans
+	{ "bow",		mob_weapon		},	// notrans
+	{ "arrow",		mob_weapon		},	// notrans
+	{ "lance",		mob_weapon		},	// notrans
+	{ "herbs",		mob_herbs		},	// notrans
 
 	{ NULL }
 };
@@ -735,7 +735,8 @@ mob_skill_init(void)
 	mob_skill_t *mob_skill;
 
 	for (mob_skill = mob_skill_tab; mob_skill->sn; mob_skill++) {
-		STRKEY_CHECK(&skills, mob_skill->sn, "mob_skill_init");
+		STRKEY_CHECK(
+		    &skills, mob_skill->sn, "mob_skill_init");	// notrans
 		mob_skill_count++;
 	}
 	qsort(mob_skill_tab, mob_skill_count, sizeof(mob_skill_t), cmpstr);

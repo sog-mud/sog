@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.27 2001-01-18 22:20:16 fjoe Exp $
+ * $Id: db_lang.c,v 1.28 2001-01-23 21:47:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,13 +52,13 @@ DECLARE_DBLOAD_FUN(load_impl);
 
 DBFUN dbfun_expl[] =
 {
-	{ "RULE",	load_expl },
+	{ "RULE",	load_expl },			// notrans
 	{ NULL }
 };
 
 DBFUN dbfun_impl[] =
 {
-	{ "RULE",	load_impl },
+	{ "RULE",	load_impl },			// notrans
 	{ NULL }
 };
 

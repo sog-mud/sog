@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.263 2000-12-07 07:53:43 avn Exp $
+ * $Id: act_wiz.c,v 1.264 2001-01-23 21:46:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -233,10 +233,10 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 			buf_printf(output, BUF_END, "%-11s|  %s\n",
 				   wiznet_table[flag].name,
 				   wiznet_table[flag].level > vch->level ?
-				   "N/A" :
+				   "N/A" :		// notrans
 				   IS_SET(PC(vch)->wiznet,
 					  wiznet_table[flag].flag) ?
-				   "ON" : "OFF");
+				   "ON" : "OFF");	// notrans
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return;
@@ -662,13 +662,15 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg1, "all")) {
-		for (d = descriptor_list; d != NULL; d = d->next)
+		for (d = descriptor_list; d != NULL; d = d->next) {
 			if (d->connected == CON_PLAYING
 			&&  d->character != ch
 			&&  d->character->in_room != NULL
 			&&  can_see(ch, d->character)) {
 				dofun("transfer", ch,
-				      "%s %s", d->character->name, arg2);
+				      "%s %s",			// notrans
+				      d->character->name, arg2);
+			}
 		}
 		return;
 	}
@@ -1118,11 +1120,14 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	if (obj->pObjIndex->oprogs) {
 		buf_append(output, "Object progs:\n");
-		for (i = 0; i < OPROG_MAX; i++)
-			if (obj->pObjIndex->oprogs[i] != NULL)
-				buf_printf(output, BUF_END, "%s: %s\n",
-					 optype_table[i],
-					 oprog_name_lookup(obj->pObjIndex->oprogs[i]));
+		for (i = 0; i < OPROG_MAX; i++) {
+			if (obj->pObjIndex->oprogs[i] != NULL) {
+				buf_printf(output, BUF_END,
+				    "%s: %s\n", // notrans
+				    optype_table[i],
+				    oprog_name_lookup(obj->pObjIndex->oprogs[i]));
+			}
+		}
 	}
 
 	buf_printf(output, BUF_END, "Damage condition: %d (%s)\n",
@@ -1185,8 +1190,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, BUF_END, "Name: [%s]  ", victim->name);
 	if (IS_NPC(victim)) {
 		buf_printf(output, BUF_END, "Vnum: [%d]  Reset Zone: [%s]\n",
-			   victim->pMobIndex->vnum,
-			   NPC(victim)->zone ? NPC(victim)->zone->name : "?");
+		    victim->pMobIndex->vnum,
+		    NPC(victim)->zone ?
+			NPC(victim)->zone->name : "?");		// notrans
 	} else 
 		buf_printf(output, BUF_END, "%sLINE\n", loaded ? "OFF" : "ON");
 
@@ -1900,23 +1906,23 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg,"object")) {
+	if (!str_prefix(arg, "object")) {
 		mob = NULL;
 		obj = get_obj_here(ch,rest);
 		if (obj == NULL) {
 		    act_char("You don't see that here.", ch);
 		    return;
 		}
-	} else if (!str_prefix(arg,"mobile") || !str_prefix(arg,"character")) {
+	} else if (!str_prefix(arg, "mobile") || !str_prefix(arg, "character")) {
 		obj = NULL;
-		mob = get_char_room(ch,rest);
+		mob = get_char_room(ch, rest);
 		if (mob == NULL) {
 		    act_char("You don't see that here.", ch);
 		    return;
 		}
 	} else { /* find both */
-		mob = get_char_room(ch,argument);
-		obj = get_obj_here(ch,argument);
+		mob = get_char_room(ch, argument);
+		obj = get_obj_here(ch, argument);
 		if (mob == NULL && obj == NULL) {
 			act_char("You don't see that here.", ch);
 			return;
@@ -1977,12 +1983,12 @@ void do_load(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg,"mob") || !str_cmp(arg,"char")) {
+	if (!str_cmp(arg, "mob") || !str_cmp(arg, "char")) {
 		do_mload(ch, argument);
 		return;
 	}
 
-	if (!str_cmp(arg,"obj")) {
+	if (!str_cmp(arg, "obj")) {
 		do_oload(ch, argument);
 		return;
 	}
@@ -2594,7 +2600,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		
 		if (!str_prefix(arg2, "short")) {
 			if (!IS_NPC(victim)) {
-				act_char(" Not on PC's.", ch);
+				act_char("Not on PC's.", ch);
 				return;
 			}
 			mlstr_edit(&victim->short_descr, arg3);
@@ -2616,7 +2622,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	
-	if (!str_prefix(type,"object")) {
+	if (!str_prefix(type, "object")) {
 		/* string an obj */
 		
 	 	if ((obj = get_obj_room(ch, arg1)) == NULL) {
@@ -2783,11 +2789,11 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	int count;
 
 	count = 0;
-	output = buf_new(-1);
+	output = buf_new(GET_LANG(ch));
 
 	one_argument(argument, arg, sizeof(arg));
 	if (strchr(arg, '@') == NULL) 
-		strnzcat(arg, sizeof(arg), "*@*");
+		strnzcat(arg, sizeof(arg), "*@*");		// notrans
 
 	for (d = descriptor_list; d; d = d->next) {
 		char buf[MAX_STRING_LENGTH];
@@ -2796,7 +2802,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 		if (vch && !can_see(ch, vch))
 			continue;
 
-		snprintf(buf, sizeof(buf), "%s@%s",
+		snprintf(buf, sizeof(buf), "%s@%s",		// notrans
 			 vch ? vch->name : NULL,
 			 d->host);
 
@@ -2804,7 +2810,8 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		count++;
-		buf_printf(output, BUF_END, "[%3d %12s] %s (%s)",
+		buf_printf(output, BUF_END,
+			   "[%3d %12s] %s (%s)",		// notrans
 			   d->descriptor,
 			   flag_string(desc_con_table, d->connected),
 			   buf,
@@ -2821,7 +2828,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output, BUF_END, "%d user%s\n",
-		   count, count == 1 ? str_empty : "s");
+		   count, count == 1 ? str_empty : "s");	// notrans
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -3708,10 +3715,10 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
 		if (i % 2 == 0) 
 			buf_append(output, "\n");
-		buf_printf(output, BUF_END, "%-20s %-8u       ",
+		buf_printf(output, BUF_END, "%-20s %-8u       ",// notrans
 			   area->name, area->count);
 	}
-	buf_append(output, "\n\n");
+	buf_append(output, "\n\n");				// notrans
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -3844,7 +3851,8 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		}
 
 		/* check .gz pfile */
-		snprintf(strsave, sizeof(strsave), "%s.gz", file_name);
+		snprintf(strsave, sizeof(strsave),
+			 "%s.gz", file_name);			// notrans
 		if (dfexist(PLAYER_PATH, strsave)) {
 			act_char("A player with that name already exists in a compressed file!", ch);
 			goto cleanup;		
@@ -4571,11 +4579,11 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fclose(fp);
 
 	/* start printing out mobile data */
-	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)
+	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)	// notrans
 		return;
 
 	fprintf(fp,"\nMobile Analysis\n");
-	fprintf(fp,  "---------------\n");
+	fprintf(fp,  "---------------\n");			// notrans
 	nMatch = 0;
 	for (vnum = 0; nMatch < top_mob_index; vnum++)
 		if ((pMobIndex = get_mob_index(vnum)) != NULL)
@@ -4588,11 +4596,11 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fclose(fp);
 
 	/* start printing out object data */
-	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)
+	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)	// notrans
 		return;
 
 	fprintf(fp,"\nObject Analysis\n");
-	fprintf(fp,  "---------------\n");
+	fprintf(fp,  "---------------\n");			// notrans
 	nMatch = 0;
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
 		if ((pObjIndex = get_obj_index(vnum)) != NULL)

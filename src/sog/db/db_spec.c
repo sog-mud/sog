@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.16 2001-01-18 22:20:16 fjoe Exp $
+ * $Id: db_spec.c,v 1.17 2001-01-23 21:47:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -124,7 +124,7 @@ DBLOAD_FUN(load_spec_r)
 		return;
 	}
 
-	fread_cc_vexpr(&spec->spec_deps, "spec", fp);
+	fread_cc_vexpr(&spec->spec_deps, "spec", fp);		// notrans
 }
 
 DBLOAD_FUN(load_spec_skill)
@@ -169,8 +169,8 @@ DBLOAD_FUN(load_spec_skill)
 			KEY("Rating", spec_sk->rating, fread_number(fp));
 			break;
 		case 'S':
-			SKEY("Skill", spec_sk->sn,
-			     fread_strkey(fp, &skills, "load_spec_skill"));
+			SKEY("Skill", spec_sk->sn, fread_strkey(
+			    fp, &skills, "load_spec_skill"));	// notrans
 			break;
 		}
 

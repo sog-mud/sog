@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.223 2001-01-12 15:33:48 cs Exp $
+ * $Id: act_comm.c,v 1.224 2001-01-23 21:46:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 {
 	/* lists all channels and their status */
 	act_char("   channel     status", ch);
-	act_char("---------------------", ch);
+	act_char("---------------------", ch);			// notrans
 	act_puts("music          $t",
 		 ch, !IS_SET(ch->chan, CHAN_NOMUSIC) ? "ON" : "OFF", NULL,
 		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
@@ -342,10 +342,10 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 
 	flags = ACT_NOTRIG | 
 		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
-	act("$n $T", ch, NULL, argument, TO_CHAR | flags);
+	act("$n $T", ch, NULL, argument, TO_CHAR | flags);	// notrans
 
 	flags |= ACT_TOBUF | ACT_NOTWIT;
-	act("$n $T", ch, NULL, argument, TO_ROOM | flags);
+	act("$n $T", ch, NULL, argument, TO_ROOM | flags);	// notrans
 }
 
 void do_pmote(CHAR_DATA *ch, const char *argument)
@@ -370,7 +370,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 
 	flags = TO_CHAR | ACT_NOTRIG | ACT_NOFIXSH |
 		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
-	act("$n $t", ch, argument, NULL, flags);
+	act("$n $t", ch, argument, NULL, flags);	// notrans
 
 	flags |= ACT_TOBUF | ACT_NOTWIT;
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
@@ -378,7 +378,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if ((letter = strstr(argument, vch->name)) == NULL) {
-			act("$N $t", vch, argument, ch, flags);
+			act("$N $t", vch, argument, ch, flags);	// notrans
 			continue;
 		}
 
@@ -421,7 +421,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			name = vch->name;
 		}
 
-		act("$N $t", vch, temp, ch, flags);
+		act("$N $t", vch, temp, ch, flags);		// notrans
 	}
 }
 
@@ -1230,11 +1230,12 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 			l = VARR_GET(&langs, lang);
 			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;
-			act_puts(" $t$T",
-				 ch, lang == 0 ? str_empty : " | ", l->name,
+			act_puts(" $T$t",			// notrans
+				 ch, l->name,
+				 lang == 0 ? str_empty : " | ", // notrans
 				 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
 		}
-		act_char(" ]", ch);
+		act_char(" ]", ch);				// notrans
 		return;
 	}
 
@@ -1825,8 +1826,10 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		clan_save(clan);
 
 		vpc->clan_status = CLAN_COMMONER;
-		if (ch != victim)
-			act_char("They are now commoner in the clan.", ch);
+		if (ch != victim) {
+			act("They are now commoner in the clan.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		act_char("You are now commoner in the clan.", victim);
 		changed = TRUE;
 		goto cleanup;
@@ -1874,7 +1877,8 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 			||  d->dvdata->alias_sub[pos] == NULL)
 				break;
 
-			act_puts("    $t: $T", ch, d->dvdata->alias[pos],
+			act_puts("    $t: $T",			// notrans
+				 ch, d->dvdata->alias[pos],
 				 d->dvdata->alias_sub[pos],
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		}
@@ -2017,128 +2021,128 @@ static bool toggle_enabled(CHAR_DATA *ch, toggle_t *t);
  */
 toggle_t toggle_table[] =
 {
-	{ "affects",		"show affects in score",
-	  NULL,
-	  comm_flags,	COMM_SHOWAFF,
+	{ "affects",						// notrans
+	  "show affects in score",
+	  NULL, comm_flags,	COMM_SHOWAFF,
 	  "Affects will now be shown in score.",
 	  "Affects will no longer be shown in score."
 	},
 
-	{ "brief",		"brief descriptions",
-	  NULL,
-	  comm_flags,	COMM_BRIEF,
+	{ "brief",						// notrans
+	  "brief descriptions",
+	  NULL, comm_flags,	COMM_BRIEF,
 	  "Short descriptions activated.",
 	  "Full descriptions activated."
 	},
 
-	{ "color",		"ANSI colors",
-	  NULL,
-	  comm_flags,	COMM_COLOR,
+	{ "color",						// notrans
+	  "ANSI colors",
+	  NULL, comm_flags,	COMM_COLOR,
 	  "{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!",
-	  "Color is now OFF, *sigh*"
+	  "Color is now OFF, *sigh*."
 	},
 
-	{ "compact",		"compact mode",
-	  NULL,
-	  comm_flags,	COMM_COMPACT,
+	{ "compact",						// notrans
+	  "compact mode",
+	  NULL, comm_flags,	COMM_COMPACT,
 	  "$t on.",
 	  "$t off."
 	},
 
-	{ "combine",		"combined items in inventory list",
-	  NULL,
-	  comm_flags,	COMM_COMBINE,
+	{ "combine",						// notrans
+	  "combined items in inventory list",
+	  NULL, comm_flags,	COMM_COMBINE,
 	  "Combined inventory selected.",
 	  "Long inventory selected."
 	},
 
-	{ "long flags",		"long flags mode",
-	  NULL,
-	  comm_flags,	COMM_LONG,
+	{ "long flags",						// notrans
+	  "long flags mode",
+	  NULL, comm_flags,	COMM_LONG,
 	  "$t on.",
 	  "$t off."
 	},
 
-	{ "nobust",		"do not bust prompt if hp/mana/move changed mode",
-	  NULL,
-	  comm_flags,	COMM_NOBUST,
+	{ "nobust",						// notrans
+	  "do not bust prompt if hp/mana/move changed mode",
+	  NULL, comm_flags,	COMM_NOBUST,
 	  "$t on.",
 	  "$t off."
 	},
 
-	{ "noeng",		"do not display english obj/mob names",
-	  NULL,
-	  comm_flags,	COMM_NOENG,
+	{ "noeng",						// notrans
+	  "do not display english obj/mob names",
+	  NULL, comm_flags,	COMM_NOENG,
 	  "You will not see english obj/mob names anymore.",
 	  "You will now see english obj/mob names."
 	},
 
-	{ "noflee",		"do not flee from combat in lost-link",
-	  NULL,
-	  comm_flags,	COMM_NOFLEE,
+	{ "noflee",						// notrans
+	  "do not flee from combat in lost-link",
+	  NULL, comm_flags,	COMM_NOFLEE,
 	  "You will not flee automagically from combat in lost-link anymore.",
 	  "You will flee automagically from combat in lost-link."
 	},
 
-	{ "notelnet",		"no telnet parser",
-	  NULL,
-	  comm_flags,	COMM_NOTELNET,
+	{ "notelnet",						// notrans
+	  "no telnet parser",
+	  NULL, comm_flags,	COMM_NOTELNET,
 	  "Telnet parser is OFF.",
 	  "Telnet parser is ON.",
 	},
 
-	{ "noiac",		"no IACs in output",
-	  NULL,
-	  comm_flags,	COMM_NOIAC,
+	{ "noiac",						// notrans
+	  "no IACs in output",
+	  NULL, comm_flags,	COMM_NOIAC,
 	  "IACs will not be sent to you anymore.",
 	  "Text will be sent to you unmodified.",
 	},
 
-	{ "noverbose",		"no verbose messages",
-	  NULL,
-	  comm_flags,	COMM_NOVERBOSE,
+	{ "noverbose",						// notrans
+	  "no verbose messages",
+	  NULL, comm_flags,	COMM_NOVERBOSE,
 	  "You will no longer see verbose messages.",
 	  "Now you will see verbose messages."
 	},
 
-	{ "prompt",		"show prompt",
-	  NULL,
-	  comm_flags,	COMM_PROMPT,
+	{ "prompt",						// notrans
+	  "show prompt",
+	  NULL, comm_flags,	COMM_PROMPT,
 	  "You will now see prompts.",
 	  "You will no longer see prompts."
 	},
 
-	{ "telnet GA",		"send IAC GA (goahead) after each prompt",
-	  NULL,
-	  comm_flags,	COMM_TELNET_GA,
+	{ "telnet GA",						// notrans
+	  "send IAC GA (goahead) after each prompt",
+	  NULL, comm_flags,	COMM_TELNET_GA,
 	  "IAC GA will be sent after each prompt.",
 	  "IAC GA will not be sent after prompts.",
 	},
 
-	{ "quiet edit",		"quiet mode in string editor",
-	  NULL,
-	  comm_flags,	COMM_QUIET_EDITOR,
+	{ "quiet edit",						// notrans
+	  "quiet mode in string editor",
+	  NULL, comm_flags,	COMM_QUIET_EDITOR,
 	  "$t on.",
 	  "$t off."
 	},
 
-	{ "show race",		"show race in long desc",
-	  NULL,
-	  comm_flags,	COMM_SHOWRACE,
+	{ "show race",						// notrans
+	  "show race in long desc",
+	  NULL, comm_flags,	COMM_SHOWRACE,
 	  "You will now see race in long desc.",
 	  "You will no longer see race in long desc.",
 	},
 
-	{ "trans mode",		"OLC translation mode",
-	  "create edit ashow",
-	  olc_flags,	OLC_MODE_TRANS,
+	{ "trans mode",						// notrans
+	  "OLC translation mode",
+	  "create edit ashow", olc_flags,	OLC_MODE_TRANS,	// notrans
 	  "$t on.",
 	  "$t off."
 	},
 
-	{ "raw strings",	"raw strings mode",
-	  "create edit ashow stat",
-	  olc_flags,	OLC_MODE_RAW,
+	{ "raw strings",					// notrans
+	  "raw strings mode",
+	  "create edit ashow stat", olc_flags,	OLC_MODE_RAW,	// notrans
 	  "$t on.",
 	  "$t off."
 	},

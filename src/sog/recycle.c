@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.108 2001-01-11 21:43:18 fjoe Exp $
+ * $Id: recycle.c,v 1.109 2001-01-23 21:47:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -497,7 +497,7 @@ AREA_DATA *new_area(void)
 	pArea->vnum		= top_area;
 	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
 	pArea->builders		= str_empty;
-	pArea->name		= str_dup("New area");
+	pArea->name		= str_dup("New area");		// notrans
 	pArea->empty		= TRUE;              /* ROM patch */
 	pArea->security		= 1;
 

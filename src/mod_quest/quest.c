@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.12 2000-10-07 10:58:04 fjoe Exp $
+ * $Id: quest.c,v 1.13 2001-01-23 21:46:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -125,6 +125,8 @@ qtrouble_dump(BUFFER *output, CHAR_DATA *victim)
 		return;
 	}
 
-	for (qt = PC(victim)->qtrouble; qt; qt = qt->next)
-		buf_printf(output, BUF_END, "[%d]-[%d] ", qt->vnum, qt->count-1);
+	for (qt = PC(victim)->qtrouble; qt; qt = qt->next) {
+		buf_printf(output, BUF_END, "[%d]-[%d] ",	// notrans
+		    qt->vnum, qt->count-1);
+	}
 }

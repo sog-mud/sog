@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.29 2000-08-04 14:12:48 cs Exp $
+ * $Id: class.c,v 1.30 2001-01-23 21:46:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -166,7 +166,7 @@ const char *class_who_name(CHAR_DATA *ch)
 	class_t *cl;
 
 	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
-		return "Mob";
+		return "Mob";					// notrans
 	return cl->who_name;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_colors.c,v 1.10 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: comm_colors.c,v 1.11 2001-01-23 21:47:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -169,7 +169,7 @@ FORMAT_DATA format_table[] =
 	{ NULL }
 };
 
-static const char special_symbols[] = "\r\n&<>";
+static const char special_symbols[] = "\r\n&<>";	// notrans
 
 /*
  * Parse color symbols. len MUST BE > 1
@@ -271,7 +271,7 @@ static const char* color(char type, int format)
 		return format_table[format].colors[curr_color = reset_color];
 		break;
 	case '{':
-		return "{";
+		return "{";			// notrans
 	default:
 		return str_empty;
 	}

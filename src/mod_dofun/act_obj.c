@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.229 2001-01-16 19:22:27 fjoe Exp $
+ * $Id: act_obj.c,v 1.230 2001-01-23 21:46:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -794,7 +794,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		if (is_affected(vch, "bone dragon")) {
-			act("Your pet might get too fat and clumsy",
+			act("Your pet might get too fat and clumsy.",
 				ch, NULL, NULL, TO_CHAR);
 			return;
 		}
@@ -2029,14 +2029,14 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 		if (count < number) {
 			do_tell_raw(keeper, ch,
-				    "I don't have that many in stock.'");
+				    "I don't have that many in stock.");
 			return;
 		}
 	}
 	if ((ch->silver + ch->gold * 100) < cost * number) {
 		if (number > 1) {
 			do_tell_raw(keeper, ch,
-				    "You can't afford to buy that many.'");
+				    "You can't afford to buy that many.");
 		} else {
 			act("$n tells you '{GYou can't afford to buy $p.{x'",
 			    keeper, obj, ch, TO_VICT);
@@ -2182,9 +2182,10 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					}
 
 					buf_printf(buf, BUF_END,
-						   "[%2d %5d %2d ] %s\n",
-						   obj->level, cost, count,
-						   format_short(&obj->short_descr, obj->pObjIndex->name, ch));
+					    "[%2d %5d %2d ] %s\n", // notrans
+					    obj->level, cost, count,
+					    format_short(&obj->short_descr,
+						obj->pObjIndex->name, ch));
 				}
 			}
 		}
@@ -2318,7 +2319,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 	act_puts3("I'll give you $j silver and $J gold $qJ{coins} for $P.",
 		  ch, (const void*) (cost%100), obj, (const void*) (cost/100),
 		  TO_CHAR | ACT_NOLF, POS_DEAD);
-	act_puts("{x'", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	act_puts("{x'", ch, NULL, NULL, TO_CHAR, POS_DEAD);	// notrans
 }
 
 void do_herbs(CHAR_DATA * ch, const char *argument)
@@ -2596,7 +2597,8 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output, BUF_END, "%s.\n", flag_string(weapon_class, INT(v0)));
+		buf_printf(output, BUF_END, "%s.\n",
+		    flag_string(weapon_class, INT(v0)));
 
 		buf_printf(output, BUF_END, "Damage is %dd%d (average %d).\n",
 			   INT(v1), INT(v2), GET_AVE(v1, v2));
@@ -3199,7 +3201,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL)
 	{
-	do_say(mob,"You don't have that item");
+	do_say(mob,"You don't have that item.");
 	return;
 	}
 
@@ -3232,7 +3234,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	ch->gold -= cost;
 	mob->gold += cost;
-	act_puts("$n takes $p from $N, repairs it, and returns it to $N",
+	act_puts("$n takes $p from $N, repairs it, and returns it to $N.",
 		 mob, obj, ch, TO_ROOM, POS_RESTING);
 	obj->condition = 100;
 }
@@ -3264,7 +3266,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	} 
 	if ((obj = (get_obj_carry(ch, arg))) == NULL)
 	{
-	do_say(mob,"You don't have that item");
+	do_say(mob,"You don't have that item.");
 	return;
 	}
 	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER)
@@ -3274,12 +3276,12 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	}
 	if (obj->condition >= 100)
 	{
-	do_say(mob,"But that item's not broken");
+	do_say(mob,"But that item's not broken.");
 	return;
 	}
 	if (obj->cost == 0)
 	{
-	do_say(mob,"That item is beyond repair");
+	do_say(mob,"That item is beyond repair.");
 		return;
 	} 
 	

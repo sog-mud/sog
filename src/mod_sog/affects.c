@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.47 2000-10-22 17:53:46 fjoe Exp $
+ * $Id: affects.c,v 1.48 2001-01-23 21:46:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -364,7 +364,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 /* find an affect in an affect list */
 AFFECT_DATA  *affect_find(AFFECT_DATA *paf, const char *sn)
 {
-	STRKEY_CHECK(&skills, sn, "affect_find");
+	STRKEY_CHECK(&skills, sn, "affect_find");		// notrans
 
 	for (; paf != NULL; paf = paf->next) {
 		if (IS_SKILL(paf->type, sn))
@@ -426,7 +426,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new = aff_dup(paf), *paf2;
 
-	STRKEY_CHECK(&skills, paf->type, "affect_to_char");
+	STRKEY_CHECK(&skills, paf->type, "affect_to_char");	// notrans
 
 	if (paf->owner != NULL) {
 		for (paf2 = ch->affected; paf2; paf2 = paf2->next)
@@ -450,7 +450,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new = aff_dup(paf), *paf2;
 
-	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");
+	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");	// notrans
 
 	if (paf->owner != NULL) {
 		for (paf2 = obj->affected; paf2; paf2 = paf2->next)
@@ -979,7 +979,7 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		return;
 
 	show_name(ch, output, paf, *ppaf);
-	buf_append(output, ": ");
+	buf_append(output, ": ");				// notrans
 	buf_printf(output, BUF_END, w->loc_format,
 		   w->loc_table ?
 			SFLAGS(w->loc_table, paf->location) :
@@ -999,7 +999,7 @@ void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 		return;
 
 	show_name(NULL, output, paf, *ppaf);
-	buf_append(output, ": ");
+	buf_append(output, ": ");				// notrans
 	buf_printf(output, BUF_END, w->bit_format,
 		flag_string(w->bit_table, paf->bitvector));
 	show_duration(output, paf);
@@ -1111,7 +1111,7 @@ AFFECT_DATA *aff_fread(rfile_t *fp)
 {
 	AFFECT_DATA *paf = aff_new();
 
-	paf->type = fread_strkey(fp, &skills, "aff_fread");
+	paf->type = fread_strkey(fp, &skills, "aff_fread");	// notrans
 	paf->where = fread_fword(affect_where_types, fp);
 	if (paf->where < 0)
 		paf->where = TO_AFFECTS;
@@ -1120,10 +1120,12 @@ AFFECT_DATA *aff_fread(rfile_t *fp)
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
-		paf->location.s = fread_strkey(fp, &skills, "aff_fread");
+		paf->location.s = fread_strkey(
+		    fp, &skills, "aff_fread");			// notrans
 		break;
 	case TO_RACE:
-		paf->location.s = fread_strkey(fp, &races, "aff_fread");
+		paf->location.s = fread_strkey(
+		    fp, &races, "aff_fread");			// notrans
 		break;
 	default:
 		INT(paf->location) = fread_number(fp);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.35 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db_class.c,v 1.36 2001-01-23 21:47:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -141,7 +141,7 @@ DBLOAD_FUN(load_class)
 			KEY("SchoolWeapon", class.weapon,
 			    fread_number(fp));
 			SKEY("SkillSpec", class.skill_spec,
-			     fread_strkey(fp, &specs, "load_class"));
+			     fread_strkey(fp, &specs, "load_class")); // notrans
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(class.who_name,

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.102 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db_area.c,v 1.103 2001-01-23 21:47:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -281,7 +281,7 @@ DBLOAD_FUN(load_areadata)
 			break;
 		case 'C':
 			KEY("Clan", pArea->clan,
-			    fread_strkey(fp, &clans, "load_areadata"));
+			    fread_strkey(fp, &clans, "load_areadata")); // notrans
 			SKEY("Credits", pArea->credits, fread_string(fp));
 			break;
 		case 'E':
@@ -615,7 +615,8 @@ DBLOAD_FUN(load_rooms)
 						     buf, sizeof(buf));
 					if (buf[0] != '\0') {
 						snprintf(buf2, sizeof(buf2),
-							 "the %s", buf);
+							 "the %s", // notrans
+							 buf);
 						mlstr_init2(&pexit->short_descr.ml, buf2);
 					}
 				} else {
@@ -1047,7 +1048,7 @@ DBLOAD_FUN(load_mobiles)
         mlstr_fread(fp, &pMobIndex->description);
 	free_string(pMobIndex->race);
 	pMobIndex->race		 	= fread_string(fp);
-	STRKEY_CHECK(&races, pMobIndex->race, "load_mob");
+	STRKEY_CHECK(&races, pMobIndex->race, "load_mob");	// notrans
 	r = race_lookup(pMobIndex->race);
 
 	if (area_current->ver > 0) {
@@ -1104,8 +1105,8 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->damage[DICE_TYPE]	= fread_number(fp);
 					  fread_letter(fp);
 	pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
-	pMobIndex->damtype		=
-			fread_strkey(fp, &damtypes, "load_mobiles");
+	pMobIndex->damtype		= fread_strkey(
+	    fp, &damtypes, "load_mobiles");			// notrans
 
 	/* read armor class */
 	pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;
@@ -1178,7 +1179,8 @@ DBLOAD_FUN(load_mobiles)
 		    log(LOG_ERROR, "load_mobiles: duplicate clan.");
 		    return;
 		}
-		pMobIndex->clan = fread_strkey(fp, &clans, "load_mobiles");
+		pMobIndex->clan = fread_strkey(
+		    fp, &clans, "load_mobiles");		// notrans
 	    } else if (letter == 'W') 
 		pMobIndex->invis_level = fread_number(fp);
 	    else if (letter == 'I')
@@ -1430,7 +1432,7 @@ DBLOAD_FUN(load_objects)
 	
 		if (IS_NULLSTR(pObjIndex->material)) {
 			free_string(pObjIndex->material);
-			pObjIndex->material = str_dup("unknown");
+			pObjIndex->material = str_dup("unknown"); // notrans
 		}
 	
 		if (!material_lookup(pObjIndex->material))
@@ -1716,7 +1718,7 @@ DBLOAD_FUN(load_objects)
 	
 			case 'R':
 				fread_cc_vexpr(&pObjIndex->restrictions,
-					       "obj_wear", fp);
+					       "obj_wear", fp);	// notrans
 				break;
 
 			case 'S':
@@ -1725,7 +1727,8 @@ DBLOAD_FUN(load_objects)
 				paf->type = str_empty;
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
-				paf->location.s = fread_strkey(fp, &skills, "load_objects");
+				paf->location.s = fread_strkey(
+				    fp, &skills, "load_objects"); // notrans
 				paf->modifier = fread_number(fp);
 				paf->bitvector = fread_flags(fp);
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);

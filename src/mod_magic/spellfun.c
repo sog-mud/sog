@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.228 2001-01-21 11:18:28 cs Exp $
+ * $Id: spellfun.c,v 1.229 2001-01-23 21:46:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2356,7 +2356,7 @@ void spell_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				if (can_drop_obj(victim, obj_lose)) {
 					act("$n yelps and throws $p to the ground!",
 					     victim, obj_lose, NULL, TO_ROOM);
-					act("You and drop $p before it burns you.",
+					act("You yelp and drop $p before it burns you.",
 					    victim, obj_lose, NULL, TO_CHAR);
 					dam += number_range(1,obj_lose->level) / 6;
 					obj_from_char(obj_lose);
@@ -2398,7 +2398,7 @@ void spell_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				if (can_drop_obj(victim, obj_lose)) {
 					act("$n throws a burning hot $p to the ground!",
 					    victim, obj_lose, NULL, TO_ROOM);
-					act("You and drop $p before it burns you.",
+					act("You yelp and drop $p before it burns you.",
 					    victim, obj_lose, NULL, TO_CHAR);
 					dam += number_range(1, obj_lose->level) / 6;
 					obj_from_char(obj_lose);
@@ -2920,7 +2920,7 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    return;
 		}
 
-		act("You can't poison $p.",ch,obj,NULL,TO_CHAR);
+		act("You can't poison $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.18 2000-10-22 17:53:47 fjoe Exp $
+ * $Id: module.c,v 1.19 2001-01-23 21:47:00 fjoe Exp $
  */
 
 /*
@@ -129,7 +129,7 @@ mod_load_cb(void *arg, va_list ap)
 	 */
 	m->dlh = dlh;
 
-	if ((callback = dlsym(m->dlh, "_module_load")) != NULL
+	if ((callback = dlsym(m->dlh, "_module_load")) != NULL // notrans
 	&&  callback(m) < 0) {
 		dlclose(m->dlh);
 		m->dlh = NULL;
@@ -140,7 +140,7 @@ mod_load_cb(void *arg, va_list ap)
 	 * update dependencies
 	 */
 	free_string(m->mod_deps);
-	_depend = dlsym(m->dlh, "_depend");
+	_depend = dlsym(m->dlh, "_depend");			// notrans
 	m->mod_deps = str_dup(_depend);
 
 	/*
@@ -164,7 +164,7 @@ mod_unload_cb(void *arg, va_list ap)
 	if (m->dlh == NULL)
 		return NULL;
 
-	if ((callback = dlsym(m->dlh, "_module_unload")) != NULL
+	if ((callback = dlsym(m->dlh, "_module_unload")) != NULL // notrans
 	&&  callback(m) < 0)
 		return NULL;
 
@@ -209,7 +209,7 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 		return -1;
 	}
 
-	snprintf(buf, sizeof(buf), "%s~", m->file_name);
+	snprintf(buf, sizeof(buf), "%s~", m->file_name);	// notrans
 	if (!stat(buf, &s))
 		unlink(buf);
 	if (link(m->file_name, buf) < 0) {
@@ -224,7 +224,7 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 		return -1;
 	}
 
-	if (dlsym(dlh, "_depend") == NULL) {
+	if (dlsym(dlh, "_depend") == NULL) {			// notrans
 		dlclose(dlh);
 		log(LOG_ERROR, "mod_load: %s", dlerror());
 		return -1;

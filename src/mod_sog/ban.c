@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.42 2000-10-07 20:41:11 fjoe Exp $
+ * $Id: ban.c,v 1.43 2001-01-23 21:47:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -244,7 +244,7 @@ const char *format_ban(ban_t *pban)
 {
 	static char buf[MAX_STRING_LENGTH];
 
-	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",
+	snprintf(buf, sizeof(buf), "%9d %5s %7s %s",		// notrans
 		 pban->ban_num,
 		 flag_string(ban_actions, pban->ban_action),
 		 flag_string(ban_classes, pban->ban_class),

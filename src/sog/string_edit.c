@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.45 2000-10-22 17:53:47 fjoe Exp $
+ * $Id: string_edit.c,v 1.46 2001-01-23 21:47:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -130,7 +130,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		char arg3[MAX_INPUT_LENGTH];
 		char tmparg3[MAX_INPUT_LENGTH];
 
-		argument = one_argument(argument, arg1, sizeof(arg1));
+		argument = first_arg(argument, arg1, sizeof(arg1), FALSE);
 		argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 		strnzcpy(tmparg3, sizeof(tmparg3), argument);
 		argument = first_arg(argument, arg3, sizeof(arg3), FALSE);
@@ -163,11 +163,10 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 */
 		if (!str_cscmp(arg1+1, "p")) {
 			act_puts("Text so far (preview):\n"
-				 "$t", ch,
+				 "$t{x", ch,
 				 numlines(*ch->desc->pString, DL_NONE), NULL,
 				 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF,
 				 POS_DEAD);
-			send_to_char("{x", ch);
 			return;
 		}
 
@@ -186,11 +185,19 @@ void string_add(CHAR_DATA *ch, const char *argument)
 			*ch->desc->pString = string_replace(
 			    *ch->desc->pString, arg2, arg3,
 			    arg1[1] == 'r' ? 0 : SR_F_ALL);
-			act_puts3("$t'$T' replaced with '$U'.",
-				  ch, arg1[1] == 'r' ? str_empty : "All ",
-				  strdump(arg2, DL_COLOR),
-				  strdump(arg3, DL_COLOR),
-				  TO_CHAR | ACT_NOTRANS | ACT_SEDIT, POS_DEAD);
+			if (arg1[1] == 'r') {
+				act_puts("'$t' replaced with '$T'.",
+				    ch, strdump(arg2, DL_COLOR),
+				    strdump(arg3, DL_COLOR),
+				    TO_CHAR | ACT_NOTRANS | ACT_SEDIT,
+				    POS_DEAD);
+			} else {
+				act_puts("All occurences of '$t' replaced with '$T'.",
+				    ch, strdump(arg2, DL_COLOR),
+				    strdump(arg3, DL_COLOR),
+				    TO_CHAR | ACT_NOTRANS | ACT_SEDIT,
+				    POS_DEAD);
+			}
 			return;
 		}
 
@@ -269,7 +276,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 				 "                   (requires '', \"\")\n"
 				 ":h               - get help (this info)\n"
 				 ":s               - show text so far\n"
-				 ":p		   - preview text\n"
+				 ":p               - preview text\n"
 				 ":f               - format (word wrap) text\n"
 				 ":c               - clear text so far\n"
 				 ":ld <num>        - delete line #num\n"
@@ -309,10 +316,10 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	if (argument[len-1] == '\\') {
 		strnzncpy(arg1, sizeof(arg1), argument, len-1);
 		*ch->desc->pString = str_printf(
-		    "%s%s", *ch->desc->pString, arg1);
+		    "%s%s", *ch->desc->pString, arg1);		// notrans
 	} else {
 		*ch->desc->pString = str_printf(
-		    "%s%s\n", *ch->desc->pString, argument);
+		    "%s%s\n", *ch->desc->pString, argument);	// notrans
 	}
 	free_string(p);
 }
@@ -457,7 +464,7 @@ const char *format_string(const char *oldstring /*, bool fSpace */)
     {
       log(LOG_WARN, "format_string: no spaces");
       strnzncat(xbuf, sizeof(xbuf), rdesc, 75);
-      strnzcat(xbuf, sizeof(xbuf), "-\n");
+      strnzcat(xbuf, sizeof(xbuf), "-\n");			// notrans
       rdesc += 76;
     }
   }
@@ -563,7 +570,7 @@ char *numlines(const char *string, int dump_level)
 
 	while (*string) {
 		string = getline(string, tmpb, sizeof(tmpb));
-		snprintf(buf2, sizeof(buf2), "%2d. %s\n",
+		snprintf(buf2, sizeof(buf2), "%2d. %s\n",	// notrans
 			 cnt++, strdump(tmpb, dump_level));
 		strnzcat(buf, sizeof(buf), buf2);
 	}

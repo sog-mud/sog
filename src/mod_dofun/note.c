@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.14 2000-10-22 17:53:41 fjoe Exp $
+ * $Id: note.c,v 1.15 2001-01-23 21:46:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -248,7 +248,7 @@ static void append_note(note_t *pnote)
 			last->next = pnote;
 	}
 
-	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) 
+	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL)
 		return;
 	fwrite_note(fp, pnote);
         fclose(fp);
@@ -570,10 +570,10 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				&&  str_prefix(from, pnote->sender))
 					continue;
 
-				buf_printf(output, BUF_END, "[%3d%c] %s: %s\n{x",
-					   vnum-1,
-					   hide_note(ch, pnote) ? ' ' : 'N', 
-					   pnote->sender, pnote->subject);
+				buf_printf(output, BUF_END,
+				    "[%3d%c] %s: %s\n{x",	// notrans
+				    vnum-1, hide_note(ch, pnote) ? ' ' : 'N',
+				    pnote->sender, pnote->subject);
 			}
 		}
 
@@ -913,7 +913,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			&&  fch != ch
 			&&  is_note_to(fch, pc->pnote)
 			&&  d->connected == CON_PLAYING)
-				do_unread(fch, "login");
+				do_unread(fch, "login");	// notrans
 		}
 
 		pc->pnote = NULL;

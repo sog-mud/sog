@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.21 2000-06-07 08:56:01 fjoe Exp $
+ * $Id: spec.c,v 1.22 2001-01-23 21:47:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -303,7 +303,7 @@ has_spec(CHAR_DATA *ch, const char *spn)
 	if (IS_NPC(ch) || IS_NULLSTR(spn))
 		return FALSE;
 
-	STRKEY_CHECK(&specs, spn, "spec_add");
+	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
 
 	return varr_bsearch(&PC(ch)->specs, &spn, cmpstr) != NULL;
 }
@@ -318,7 +318,7 @@ bool spec_add(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return TRUE;
 
-	STRKEY_CHECK(&specs, spn, "spec_add");
+	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn != NULL)
@@ -337,7 +337,7 @@ bool spec_del(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return TRUE;
 
-	STRKEY_CHECK(&specs, spn, "spec_add");
+	STRKEY_CHECK(&specs, spn, "spec_add");			// notrans
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn == NULL)
@@ -477,7 +477,7 @@ replace_cb(void *p, va_list ap)
 		return NULL;
 
 	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,
+	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
 				 spn_rm, spn_add)) != NULL)
 		return (void*) rv;
 
@@ -491,10 +491,10 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 	spec_t *spec;
 
 	if (IS_NPC(ch))
-		return "is_npc";
+		return "is_npc";				// notrans
 
 	if ((spec = spec_lookup(spn_add)) != NULL
-	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,
+	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
 				 spn_rm, spn_add)) != NULL)
 		return rv;
 
@@ -503,11 +503,11 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 		return rv;
 
 	if (!spec_del(ch, spn_rm))
-		return "spec_del";
+		return "spec_del";				// notrans
 
 	if (!spec_add(ch, spn_add)) {
 		spec_add(ch, spn_rm);
-		return "spec_add";
+		return "spec_add";				// notrans
 	}
 
 	return NULL;

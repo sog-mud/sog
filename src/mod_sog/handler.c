@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.276 2001-01-18 22:20:13 fjoe Exp $
+ * $Id: handler.c,v 1.277 2001-01-23 21:47:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2148,9 +2148,7 @@ bool pc_name_ok(const char *name)
 	/*
 	 * Reserved words.
 	 */
-	if (is_name(name, "chronos all auto immortals self someone something "
-			  "the you demise balance circle loner honor "
-			  "none clan"))
+	if (is_name(name, "chronos all auto immortals self someone something the you demise balance circle loner honor none clan"))		// notrans
 		return FALSE;
 	
 	/*
@@ -2217,12 +2215,12 @@ bool pc_name_ok(const char *name)
 
 const char *stat_val_aliases[MAX_STAT][6] =
 {
-	{ "Titanic", "Herculian", "Strong", "Average", "Poor", "Weak"	},
-	{ "Genious", "Clever", "Good", "Average", "Poor", "Hopeless"	},
-	{ "Excellent", "Wise", "Good", "Average", "Dim", "Fool"		}, 	
-	{ "Fast", "Quick", "Dextrous", "Average", "Clumsy", "Slow"	},
-	{ "Iron", "Hearty", "Healthy", "Average", "Poor", "Fragile"	},
-	{ "Charismatic", "Familier", "Good", "Average", "Poor", "Mongol"}
+  { "Titanic", "Herculian", "Strong", "Average", "Poor", "Weak"	},  // notrans
+  { "Genious", "Clever", "Good", "Average", "Poor", "Hopeless"	},  // notrans
+  { "Excellent", "Wise", "Good", "Average", "Dim", "Fool"	},  // notrans
+  { "Fast", "Quick", "Dextrous", "Average", "Clumsy", "Slow"	},  // notrans
+  { "Iron", "Hearty", "Healthy", "Average", "Poor", "Fragile"	},  // notrans
+  { "Charismatic", "Familier", "Good", "Average", "Poor", "Mongol"} // notrans
 };
 
 const char *get_stat_alias(CHAR_DATA *ch, int stat)
@@ -2231,7 +2229,7 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat)
 	int i;
 
 	if (stat >= MAX_STAT)
-		return "Unknown";
+		return "Unknown";				// notrans
 
 	val = get_curr_stat(ch, stat);
 	     if (val >  22)	i = 0;
@@ -2278,7 +2276,7 @@ void set_leader(CHAR_DATA *ch, CHAR_DATA *lch)
 void set_title(CHAR_DATA *ch, const char *title)
 {
 	char buf[MAX_TITLE_LENGTH];
-	static char nospace[] = "-.,!?':";
+	static char nospace[] = "-.,!?':";		// notrans
 
 	buf[0] = '\0';
 
@@ -2297,7 +2295,7 @@ void set_title(CHAR_DATA *ch, const char *title)
 
 const char *garble(CHAR_DATA *ch, const char *i)
 {
-	static char not_garbled[] = "?!()[]{},.:;'\" ";
+	static char not_garbled[] = "?!()[]{},.:;'\" ";		// notrans
 	static char buf[MAX_STRING_LENGTH];
 	char *o;
 
@@ -2471,7 +2469,8 @@ void quit_char(CHAR_DATA *ch, int flags)
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		act_char("You don't want to leave your master.", ch);
+		act("You don't want to leave your master.",
+		    ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
 
@@ -2786,21 +2785,33 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 			if (!IS_IMMORTAL(wch) && in_PK(ch, wch))
 				buf_append(output, "{r[{RPK{r]{x ");
 			else
-				buf_append(output, "     ");
+				buf_append(output, "     ");	// notrans
 		}
 	}
 
 	if (wch->level >= LEVEL_HERO) {
-		buf_append(output, "[{G");
+		buf_append(output, "[{G");		// notrans
 		switch (wch->level) {
-		case LEVEL_IMP:		buf_append(output, "IMP"); break;
-		case LEVEL_CRE:		buf_append(output, "CRE"); break;
-		case LEVEL_DEI:		buf_append(output, "DEI"); break;
-		case LEVEL_GOD:		buf_append(output, "GOD"); break;
-		case LEVEL_AVA:		buf_append(output, "AVA"); break;
-		case LEVEL_HERO:	buf_append(output, "HERO"); break;
+		case LEVEL_IMP:
+			buf_append(output, "IMP");	// notrans
+			break;
+		case LEVEL_CRE:
+			buf_append(output, "CRE");	// notrans
+			break;
+		case LEVEL_DEI:
+			buf_append(output, "DEI");	// notrans
+			break;
+		case LEVEL_GOD:
+			buf_append(output, "GOD");	// notrans
+			break;
+		case LEVEL_AVA:
+			buf_append(output, "AVA");	// notrans
+			break;
+		case LEVEL_HERO:
+			buf_append(output, "HERO");	// notrans
+			break;
 		}
-		buf_append(output, "{x] ");
+		buf_append(output, "{x] ");		// notrans
 	}
 
 	if ((clan = clan_lookup(wch->clan)) != NULL
@@ -3082,7 +3093,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (IS_AFFECTED(ch, AFF_CHARM)
 	&&  ch->master != NULL
 	&&  in_room == ch->master->in_room) {
-		act_char("What? And leave your beloved master?", ch);
+		act("What? And leave your beloved master?",
+		    ch, NULL, ch->master, TO_CHAR);
 		return FALSE;
 	}
 
@@ -3108,7 +3120,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		if (!IS_IMMORTAL(ch)) {
 			if (IS_SET(to_room->room_flags, ROOM_GUILD)
 			&&  !guild_ok(ch, to_room)) {
-				act_char("You aren't allowed there.", ch);
+				act_char("You aren't allowed in there.", ch);
 				return FALSE;
 			}
 
@@ -3184,16 +3196,12 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]
 		  + movement_loss[URANGE(0, to_room->sector_type, MAX_SECT)])/2;
 
-		if (is_affected(ch, "thumbling"))
-			move *= 2;
-		else {
-			if (IS_AFFECTED(ch,AFF_FLYING)
-			|| IS_AFFECTED(ch,AFF_HASTE))
-				move /= 2;
+		if (IS_AFFECTED(ch, AFF_FLYING)
+		||  IS_AFFECTED(ch, AFF_HASTE))
+			move /= 2;
 
-			if (IS_AFFECTED(ch,AFF_SLOW))
-				move *= 2;
-		}
+		if (IS_AFFECTED(ch, AFF_SLOW))
+			move *= 2;
 
 		if (!MOUNTED(ch)) {
 			int wait;
@@ -3578,8 +3586,9 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 			if (members > 1
 			&&  (INT(obj->value[0]) > 1 ||
 			     INT(obj->value[1]))) {
-				dofun("split", ch, "%d %d", obj->value[0],
-				       obj->value[1]);
+				dofun("split", ch,
+				      "%d %d", obj->value[0],	// notrans
+				      obj->value[1]);
 			}
 		}
 		extract_obj(obj, 0);
@@ -4025,7 +4034,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 
 		act("$n now uses $p as $s clan mark.",
 		    ch, obj, NULL, TO_ROOM);
-		act_puts("You now use $p as  your clan mark.",
+		act_puts("You now use $p as your clan mark.",
 		    ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_CLANMARK);
 		return;
@@ -4055,10 +4064,11 @@ void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
 		||  vch == ch)
 			continue;
 
-		if (IS_SET(PC(vch)->wiznet, WIZ_PREFIX))
-			act_puts("--> ", d->character,
+		if (IS_SET(PC(vch)->wiznet, WIZ_PREFIX)) {
+			act_puts("--> ", d->character,		// notrans
 				 NULL, NULL, TO_CHAR | ACT_NOLF,
 				 POS_DEAD);
+		}
 		act_puts(msg, d->character, arg, ch,
 			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}

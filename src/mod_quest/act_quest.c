@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.146 2001-01-11 21:43:16 fjoe Exp $
+ * $Id: act_quest.c,v 1.147 2001-01-23 21:46:58 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -107,17 +107,17 @@ struct qcmd_data {
 typedef struct qcmd_data qcmd_t;
 
 qcmd_t qcmd_table[] = {
-	{ "points",	quest_points,	POS_DEAD,	CMD_KEEP_HIDE	},
-	{ "info",	quest_info,	POS_DEAD,	CMD_KEEP_HIDE	},
-	{ "time",	quest_time,	POS_DEAD,	CMD_KEEP_HIDE	},
-	{ "list",	quest_list,	POS_RESTING,	0		},
-	{ "buy",	quest_buy,	POS_RESTING,	0		},
-	{ "request",	quest_request,	POS_RESTING,	0		},
-	{ "complete",	quest_complete,	POS_RESTING,	0		},
-	{ "trouble",	quest_trouble,	POS_RESTING,	0		},
-	{ "items",	quest_chquest,	POS_RESTING,	0		},
-	{ "cancel", 	quest_cancel_cmd,POS_RESTING,	0		},
-	{ NULL}
+  { "points",	quest_points,	POS_DEAD,	CMD_KEEP_HIDE	}, // notrans
+  { "info",	quest_info,	POS_DEAD,	CMD_KEEP_HIDE	}, // notrans
+  { "time",	quest_time,	POS_DEAD,	CMD_KEEP_HIDE	}, // notrans
+  { "list",	quest_list,	POS_RESTING,	0		}, // notrans
+  { "buy",	quest_buy,	POS_RESTING,	0		}, // notrans
+  { "request",	quest_request,	POS_RESTING,	0		}, // notrans
+  { "complete",	quest_complete,	POS_RESTING,	0		}, // notrans
+  { "trouble",	quest_trouble,	POS_RESTING,	0		}, // notrans
+  { "items",	quest_chquest,	POS_RESTING,	0		}, // notrans
+  { "cancel", 	quest_cancel_cmd,POS_RESTING,	0		}, // notrans
+  { NULL}
 };
 
 #define QUESTOR_TELLS_YOU(questor, ch)			\
@@ -161,7 +161,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	act_puts("QUEST COMMANDS:",
 		 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
-		act_puts(" $t", ch, qcmd->name, NULL,
+		act_puts(" $t", ch, qcmd->name, NULL,		// notrans
 			 TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	send_to_char("\n", ch);
@@ -175,7 +175,7 @@ chquest_status(CHAR_DATA *ch)
 	chquest_t *q;
 	BUFFER *buf;
 
-	buf = buf_new(-1);
+	buf = buf_new(GET_LANG(ch));
 	buf_append(buf, "Challenge quest items:\n");
 
 	for (q = chquest_list; q; q = q->next) {
@@ -760,7 +760,7 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		return;
 
 	if (arg[0] == '\0') {
-		act_char("To resolve a quest award's trouble, type: 'quest trouble award'.", ch);
+		act_char("To resolve a quest award's trouble, type: 'quest trouble <award>'.", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.235 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: db.c,v 1.236 2001-01-23 21:47:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,67 +106,67 @@ extern	int	_filbuf		(FILE *);
 /*
  * Globals.
  */
-const char TMP_PATH		[] = "tmp";
-const char PLAYER_PATH		[] = "player";
-const char GODS_PATH		[] = "gods";
-const char NOTES_PATH		[] = "notes";
-const char ETC_PATH		[] = "etc";
-const char AREA_PATH		[] = "area";
-const char LANG_PATH		[] = "lang";
-const char MODULES_PATH		[] = "modules";
+const char TMP_PATH		[] = "tmp";		// notrans
+const char PLAYER_PATH		[] = "player";		// notrans
+const char GODS_PATH		[] = "gods";		// notrans
+const char NOTES_PATH		[] = "notes";		// notrans
+const char ETC_PATH		[] = "etc";		// notrans
+const char AREA_PATH		[] = "area";		// notrans
+const char LANG_PATH		[] = "lang";		// notrans
+const char MODULES_PATH		[] = "modules";		// notrans
 
-const char CLASSES_PATH		[] = "classes";
-const char CLANS_PATH		[] = "clans";
-const char RACES_PATH		[] = "races";
-const char SPEC_PATH		[] = "specs";
+const char CLASSES_PATH		[] = "classes";		// notrans
+const char CLANS_PATH		[] = "clans";		// notrans
+const char RACES_PATH		[] = "races";		// notrans
+const char SPEC_PATH		[] = "specs";		// notrans
 
-const char RACE_EXT		[] = ".race";
-const char CLASS_EXT		[] = ".class";
-const char CLAN_EXT		[] = ".clan";
-const char SPEC_EXT		[] = ".spec";
+const char RACE_EXT		[] = ".race";		// notrans
+const char CLASS_EXT		[] = ".class";		// notrans
+const char CLAN_EXT		[] = ".clan";		// notrans
+const char SPEC_EXT		[] = ".spec";		// notrans
 
 #if defined (WIN32)
-const char PLISTS_PATH		[] = "clans\\plists";
-const char NULL_FILE		[] = "NUL";
+const char PLISTS_PATH		[] = "clans\\plists";	// notrans
+const char NULL_FILE		[] = "NUL";		// notrans
 #else
-const char PLISTS_PATH		[] = "clans/plists";
-const char NULL_FILE		[] = "/dev/null";
+const char PLISTS_PATH		[] = "clans/plists";	// notrans
+const char NULL_FILE		[] = "/dev/null";	// notrans
 #endif
 
-const char TMP_FILE		[] = "romtmp";
+const char TMP_FILE		[] = "romtmp"; 		// notrans
 
-const char HOMETOWNS_CONF	[] = "hometowns.conf";	/* hometowns */
-const char SKILLS_CONF		[] = "skills.conf";	/* skills */
-const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
-const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
-const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
-const char CMD_CONF		[] = "cmd.conf";	/* commands */
-const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
-const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
-const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
-const char FORMS_CONF		[] = "forms.conf";	/* shapeforms */
-const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
-const char UHANDLERS_CONF	[] = "uhandlers.conf";	/* update handlers */
+const char HOMETOWNS_CONF	[] = "hometowns.conf";	// notrans
+const char SKILLS_CONF		[] = "skills.conf";	// notrans
+const char SOCIALS_CONF		[] = "socials.conf";	// notrans
+const char SYSTEM_CONF		[] = "system.conf";	// notrans
+const char LANG_CONF		[] = "lang.conf";	// notrans
+const char CMD_CONF		[] = "cmd.conf";	// notrans
+const char DAMTYPE_CONF		[] = "damtype.conf";	// notrans
+const char MATERIALS_CONF	[] = "materials.conf";	// notrans
+const char LIQUIDS_CONF		[] = "liquids.conf";	// notrans
+const char FORMS_CONF		[] = "forms.conf";	// notrans
+const char CC_EXPR_CONF		[] = "cc_expr.conf";	// notrans
+const char UHANDLERS_CONF	[] = "uhandlers.conf";	// notrans
 
-const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
-const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
-const char HINTS_FILE		[] = "hints";		/* hints */
+const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	// notrans
+const char MSGDB_FILE		[] = "msgdb";		// notrans
+const char HINTS_FILE		[] = "hints";		// notrans
 
-const char AREA_LIST		[] = "area.lst";	/* list of areas */
-const char LANG_LIST		[] = "lang.lst";	/* list of languages */
+const char AREA_LIST		[] = "area.lst";	// notrans
+const char LANG_LIST		[] = "lang.lst";	// notrans
 
-const char NOTE_FILE		[] = "notes.not";	/* 'notes' */
-const char IDEA_FILE		[] = "ideas.not";
-const char PENALTY_FILE		[] = "penal.not";
-const char NEWS_FILE		[] = "news.not";
-const char CHANGES_FILE		[] = "chang.not";
-const char SHUTDOWN_FILE	[] = "shutdown";	/* For 'shutdown' */
-const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";/* save all pfiles on */
-							/* eq checks	      */
-const char BAN_FILE		[] = "ban.txt";
-const char MAXON_FILE		[] = "maxon.txt";
-const char AREASTAT_FILE	[] = "areastat.txt";
-const char IMMLOG_FILE		[] = "immortals.log";
+const char NOTE_FILE		[] = "notes.not";	// notrans
+const char IDEA_FILE		[] = "ideas.not";	// notrans
+const char PENALTY_FILE		[] = "penal.not";	// notrans
+const char NEWS_FILE		[] = "news.not";	// notrans
+const char CHANGES_FILE		[] = "chang.not";	// notrans
+const char SHUTDOWN_FILE	[] = "shutdown";	// notrans
+const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";// notrans
+							
+const char BAN_FILE		[] = "ban.txt";		// notrans
+const char MAXON_FILE		[] = "maxon.txt";	// notrans
+const char AREASTAT_FILE	[] = "areastat.txt";	// notrans
+const char IMMLOG_FILE		[] = "immortals.log";	// notrans
 
 flag_t		mud_options;
 
@@ -298,7 +298,7 @@ logger_db(const char *buf)
 {
 	char buf2[MAX_STRING_LENGTH];
 
-	snprintf(buf2, sizeof(buf2), "%s: line %d: %s",
+	snprintf(buf2, sizeof(buf2), "%s: line %d: %s",		// notrans
 		 filename, line_number, buf);
 	logger_default(buf2);
 }
@@ -378,7 +378,7 @@ void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 	if (!dbdata->tab_sz)
 		dbdata_init(dbdata);
 
-	snprintf(mask, sizeof(mask), "*%s", ext);
+	snprintf(mask, sizeof(mask), "*%s", ext);	// notrans
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 #if defined (LINUX) || defined (WIN32)
@@ -445,7 +445,7 @@ void boot_db(void)
 
 #ifdef __FreeBSD__
 	extern char* malloc_options;
-	malloc_options = "X";
+	malloc_options = "X";					// notrans
 #endif
 
 #ifdef OLD_RAND
@@ -795,7 +795,7 @@ static int reset_num;		/* number of reset in room being reset */
 static void logger_reset(const char *buf)
 {
 	char buf2[MAX_STRING_LENGTH];
-	snprintf(buf2, sizeof(buf2), "reset_room %d[%d]: %s",
+	snprintf(buf2, sizeof(buf2), "reset_room %d[%d]: %s",	// notrans
 		 reset_room_vnum, reset_num, buf);
 	logger_default(buf2);
 }
@@ -1627,12 +1627,12 @@ fix_word(const char *w)
 	static char buf[MAX_STRING_LENGTH];
 
 	if (IS_NULLSTR(w))
-		return "''";
+		return "''";					// notrans
 
-	if (strpbrk(w, " \t") == NULL)
+	if (strpbrk(w, " \t") == NULL)				// notrans
 		return w;
 
-	snprintf(buf, sizeof(buf), "'%s'", w);
+	snprintf(buf, sizeof(buf), "'%s'", w);			// notrans
 	return buf;
 }
 
@@ -1888,25 +1888,6 @@ char *capitalize(const char *str)
 }
 
 /*
- * Append a string to a file.
- */
-void append_file(CHAR_DATA *ch, const char *file, const char *str)
-{
-	FILE *fp;
-
-	if (IS_NPC(ch) || str[0] == '\0')
-		return;
-
-	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL)
-		act_char("Could not open the file!", ch);
-	else {
-		fprintf(fp, "[%5d] %s: %s\n",
-		    ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
-		fclose(fp);
-	}
-}
-
-/*
  * This function is here to aid in debugging.
  * If the last expression in a function is another function call,
  *   gcc likes to generate a JMP instead of a CALL.
@@ -1970,7 +1951,7 @@ void scan_pfiles()
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 
 	log(LOG_INFO, "scan_pfiles: start (save all: %s)",
-	    eqcheck_save_all ? "yes" : "no");
+	    eqcheck_save_all ? "yes" : "no");			// notrans
 
 	if (eqcheck_save_all
 	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
@@ -2042,7 +2023,8 @@ void scan_pfiles()
 	closedir(dirp);
 
 	log(LOG_INFO, "scan_pfiles: end (save all: %s)",
-		   dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "yes" : "no");
+	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ?
+		"yes" : "no");					// notrans
 }
 
 void move_pfiles(int minvnum, int maxvnum, int delta)

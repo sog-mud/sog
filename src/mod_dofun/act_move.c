@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.249 2001-01-16 19:34:57 fjoe Exp $
+ * $Id: act_move.c,v 1.250 2001-01-23 21:46:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1159,9 +1159,8 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 		return; 
 	}
 
-	act_puts("$n wakes you", ch, NULL, victim, TO_VICT, POS_SLEEPING);
+	act_puts("$n wakes you.", ch, NULL, victim, TO_VICT, POS_SLEEPING);
 	do_stand(victim, str_empty);
-	return;
 }
 
 void do_sneak(CHAR_DATA *ch, const char *argument)
@@ -1493,32 +1492,28 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	}
 
 	pc = PC(ch);
-	if (argument[0] == '\0') {
+	stat = flag_svalue(stat_aliases, argument);
+	if (stat < 0) {
 		act_puts("You have $j training sessions.",
 			 ch, (const void *) pc->train, NULL,
 			 TO_CHAR, POS_DEAD);
-		argument = "foo";
-	}
-
-	stat = flag_svalue(stat_aliases, argument);
-	if (stat < 0) {
 		snprintf(buf, sizeof(buf),
-			 GETMSG("You can train: %s%s%s%s%s%s", GET_LANG(ch)),
+			 GETMSG("You can train:%s%s%s%s%s%s", GET_LANG(ch)),
 			 ch->perm_stat[STAT_STR] < get_max_train(ch, STAT_STR) ?
-			 	" str" : str_empty,
+			 	" str" : str_empty,		// notrans
 			 ch->perm_stat[STAT_INT] < get_max_train(ch, STAT_INT) ?
-			 	" int" : str_empty,
+			 	" int" : str_empty,		// notrans
 			 ch->perm_stat[STAT_WIS] < get_max_train(ch, STAT_WIS) ?
-			 	" wis" : str_empty,
+			 	" wis" : str_empty,		// notrans
 			 ch->perm_stat[STAT_DEX] < get_max_train(ch, STAT_DEX) ?
-			 	" dex" : str_empty,
+			 	" dex" : str_empty,		// notrans
 			 ch->perm_stat[STAT_CON] < get_max_train(ch, STAT_CON) ?
-			 	" con" : str_empty,
+			 	" con" : str_empty,		// notrans
 			 ch->perm_stat[STAT_CHA] < get_max_train(ch, STAT_CHA) ?
-			 	" cha" : str_empty);
+			 	" cha" : str_empty);		// notrans
 
 		if (buf[strlen(buf)-1] != ':')
-			act_puts("$t.", ch, buf, NULL,
+			act_puts("$t.", ch, buf, NULL,		// notrans
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		else {
 			act("You have nothing left to train!",
@@ -2184,11 +2179,6 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg,"up")) {
 		race_t *r;
-
-		if (is_affected(ch, "thumbling")) {
-			act_char("Stop jumping like a crazy rabbit first.", ch);
-			return;
-		}
 
 		if (IS_AFFECTED(ch, AFF_FLYING)) {		       
 			act_char("You are already flying.", ch); 
@@ -3104,7 +3094,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	int range = (LEVEL(ch) / 10) + 1;
 	const char *sn;
 
-	if ((chance = get_skill(ch, "throwing weapons")) == 0) {
+	if ((chance = get_skill(ch, "throw weapon")) == 0) {
 		act_char("You don't know how to use throwing weapons.", ch);
 		return;
 	}
@@ -3430,80 +3420,6 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  return;
 	} else
 		check_improve(ch, "settraps", FALSE, 1);
-}
-
-void do_thumbling(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_STRING_LENGTH];
-	int chance;
-	bool attack;
-	AFFECT_DATA af;
-
-	if ((chance = get_skill(ch, "thumbling")) == 0) {
-		act_char("You don't know how to do that.", ch);
-		return;
-	}
-
-	one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0') {
-		if (is_affected(ch, "thumbling")) {
-			affect_strip(ch, "thumbling");
-			act_char("Ok.", ch);
-		}
-		return;
-	}
-
-	if (!str_prefix(arg, "attack"))
-		attack = TRUE;
-	else if (!str_prefix(arg, "defense"))
-		attack = FALSE;
-	else {
-		act_char("Aglebargle, glip-glop?", ch);
-		return;
-	}
-
-	WAIT_STATE(ch, skill_beats("thumbling"));
-
-	if (is_affected(ch, "thumbling")) {
-		act_char("You do the best you can.", ch);
-		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		act_char("Touch the ground first.", ch);
-		return;
-	}
-
-	if (number_percent() > chance) {
-		act("You failed to reach the true source of tennis ball power.", ch, NULL, NULL, TO_CHAR);
-		act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
-		check_improve(ch, "thumbling", FALSE, 3);
-		return;
-	}
-
-	af.where	= TO_AFFECTS;
-	af.type		= "thumbling";
-	af.level	= ch->level;
-	af.duration	= -1;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-
-	if (attack) {
-		af.modifier	= ch->level / 3;
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(ch, &af);
-		INT(af.location)= APPLY_DAMROLL;
-	} else {
-		af.modifier	= - ch->level * 2;
-		INT(af.location)= APPLY_AC;
-	}
-	affect_to_char(ch, &af);
-
-	act("You start to jump like a tennis ball!", ch, NULL, NULL, TO_CHAR);
-	act("$n starts to jump like a tennis ball!", ch, NULL, NULL, TO_ROOM);
-
-	check_improve(ch, "thumbling", TRUE, 3);
 }
 
 void do_forest(CHAR_DATA* ch, const char* argument)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.10 2000-10-07 18:14:50 fjoe Exp $
+ * $Id: hometown.c,v 1.11 2001-01-23 21:47:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -109,7 +109,7 @@ void hometown_print_avail(CHAR_DATA *ch)
 		}
 
 		if (col)
-			send_to_char(", ", ch);
+			send_to_char(", ", ch);			// notrans
 		act_puts("$t", ch, h->area, NULL,
 			 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
 		col += strlen(h->area) + 2;

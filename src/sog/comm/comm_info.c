@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.20 2001-01-18 22:20:15 fjoe Exp $
+ * $Id: comm_info.c,v 1.21 2001-01-23 21:47:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -84,11 +84,11 @@ typedef struct {
 
 infocmd_t info_cmds[] =
 {
-	{ "WHO",	cmd_who			},	// notrans
-	{ "AUTH",	cmd_auth		},	// notrans
-	{ "HELP",	cmd_help		},	// notrans
-	{ "SHOW",	cmd_show		},	// notrans
-	{ "SETF",	cmd_setf		},	// notrans
+	{ "WHO",	cmd_who			},
+	{ "AUTH",	cmd_auth		},
+	{ "HELP",	cmd_help		},
+	{ "SHOW",	cmd_show		},
+	{ "SETF",	cmd_setf		},
 	{ NULL,		cmd_dumb		}
 };
 
@@ -270,7 +270,8 @@ void	cmd_who(const char *argument)
 	buf_free(output);
 }
 
-void	cmd_auth(const char *argument)
+void
+cmd_auth(const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
