@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.82 1998-11-11 05:46:56 fjoe Exp $
+ * $Id: spellfun.c,v 1.83 1998-11-13 11:21:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -1246,6 +1246,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    ch, NULL, victim, TO_CHAR);
 
 	if (IS_NPC(victim) && !IS_NPC(ch)) {
+		victim->last_fought=ch;
 		if (number_percent() < (4 + (victim->level - ch->level)) * 10)
 		 	add_mind(victim, ch->name);
 		else if (victim->in_mind == NULL) {

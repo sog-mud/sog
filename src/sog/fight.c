@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.98 1998-11-07 12:02:33 fjoe Exp $
+ * $Id: fight.c,v 1.99 1998-11-13 11:21:28 kostik Exp $
  */
 
 /***************************************************************************
@@ -1393,6 +1393,8 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	bool safe = cant_kill(ch, victim);
+	if (IS_NPC(victim) && IS_SET(victim->affected_by,AFF_CHARM)
+		&& victim->master!=NULL) return is_safe_nomessage(ch,victim->master);
 	if (safe || IS_NPC(ch))
 		return safe;
 
