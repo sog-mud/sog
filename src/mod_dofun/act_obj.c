@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.56 2004-02-19 21:34:51 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.57 2004-02-19 22:15:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -75,6 +75,17 @@ static bool		put_obj		(CHAR_DATA *ch, OBJ_DATA *container,
 					 OBJ_DATA *obj, int* count);
 static void		drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 
+static void		give_coins(CHAR_DATA *ch, CHAR_DATA *victim,
+				   int silver, int gold);
+static const char *	money_argument(const char *argument,
+				    char *arg, size_t len,
+				    int *silver, int *gold);
+static OBJ_DATA *	get_container_here(CHAR_DATA *ch, const char *name);
+static bool		check_money(CHAR_DATA *ch, OBJ_DATA *container,
+				    int silver, int gold);
+static void		get_money(CHAR_DATA *ch, OBJ_DATA *container,
+				  int silver, int gold);
+
 void do_get(CHAR_DATA * ch, const char *argument)
 {
 	char            arg1[MAX_INPUT_LENGTH];
@@ -84,8 +95,82 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	bool            found;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
-	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (is_number(arg1)) {
+		int silver, gold;
+		int act_flags;
 
+		argument = money_argument(
+		    argument, arg1, sizeof(arg1), &silver, &gold);
+		if (argument == NULL) {
+			do_get(ch, str_empty);
+			return;
+		}
+
+		argument = one_argument(argument, arg2, sizeof(arg2));
+		if (arg2[0] == '\0')
+			container = NULL;
+		else {
+			if (!str_cmp(arg2, "from")) {
+				argument = one_argument(
+				    argument, arg2, sizeof(arg2));
+			}
+
+			if ((container = get_container_here(ch, arg2)) == NULL)
+				return;
+		}
+
+		if (!check_money(ch, container, silver, gold)) {
+			if (container == NULL) {
+				act("You do not see that much money here.",
+				    ch, NULL, NULL, TO_CHAR);
+			} else {
+				act("You do not see that much money in $p.",
+				    ch, container, NULL, TO_CHAR);
+			}
+			return;
+		}
+
+		if (!can_carry_more_w(ch, COINS_WEIGHT(silver, gold))) {
+			act("You can't carry that much weight.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+
+		ch->silver += silver;
+		ch->gold += gold;
+		act_flags = HAS_INVIS(ch, ID_SNEAK) &&
+			    number_percent() < get_skill(ch, "stealth") ?
+				ACT_NOMORTAL : 0;
+		if (container != NULL) {
+			if (gold) {
+				act("You get $j $qj{gold coins} from $P.",
+				    ch, (const void *) gold, container, TO_CHAR);
+				act("$n gets some coins from $P.",
+				    ch, NULL, container, TO_ROOM | act_flags);
+			} else {
+				act("You get $j $qj{silver coins} from $P.",
+				    ch, (const void *) silver, container, TO_CHAR);
+				act("$n gets some coins from $P.",
+				    ch, NULL, container, TO_ROOM | act_flags);
+			}
+		} else {
+			if (gold) {
+				act("You get $j $qj{gold coins}.",
+				    ch, (const void *) gold, NULL, TO_CHAR);
+				act("$n gets some coins.",
+				    ch, NULL, NULL, TO_ROOM | act_flags);
+			} else {
+				act("You get $j $qj{silver coins}.",
+				    ch, (const void *) silver, NULL, TO_CHAR);
+				act("$n gets some coins.",
+				    ch, NULL, NULL, TO_ROOM | act_flags);
+			}
+		}
+		get_money(ch, container, silver, gold);
+		return;
+	}
+
+	argument = one_argument(argument, arg2, sizeof(arg2));
 	if (!str_cmp(arg2, "from"))
 		argument = one_argument(argument, arg2, sizeof(arg2));
 
@@ -157,33 +242,10 @@ void do_get(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't do that.\n", ch);
 		return;
 	}
-	if ((container = get_obj_here(ch, arg2)) == NULL) {
-		act_puts("I see no $T here.",
-			 ch, NULL, arg2, TO_CHAR, POS_DEAD);
-		return;
-	}
 
-	switch (container->pObjIndex->item_type) {
-	default:
-		char_puts("That is not a container.\n", ch);
+	if ((container = get_container_here(ch, arg2)) == NULL)
 		return;
 
-	case ITEM_CONTAINER:
-	case ITEM_CORPSE_NPC:
-		break;
-
-	case ITEM_CORPSE_PC:
-		if (!can_loot(ch, container)) {
-			char_puts("You can't do that.\n", ch);
-			return;
-		}
-	}
-
-	if (IS_SET(container->value[1], CONT_CLOSED)) {
-		act_puts("The $d is closed.",
-			 ch, NULL, container->name, TO_CHAR, POS_DEAD);
-		return;
-	}
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 		/* 'get obj container' */
 		obj = get_obj_list(ch, arg1, container->contains, GETOBJ_F_ANY);
@@ -4388,3 +4450,142 @@ do_sharpen_weapon(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+static void
+give_coins(CHAR_DATA *ch, CHAR_DATA *victim, int silver, int gold)
+{
+	if (silver > 0) {
+		dofun("give", ch, sizeof(buf), "%d silver '%s'",
+		    silver, victim->name);
+	}
+	if (gold > 0) {
+		dofun("give", ch, "%d gold '%s'",
+		    gold, victim->name);
+	}
+}
+
+static const char *
+money_argument(const char *argument, char *arg, size_t len,
+	       int *silver, int *gold)
+{
+	int amount;
+
+	amount = atoi(arg);
+	if (amount <= 0)
+		return NULL;
+
+	argument = one_argument(argument, arg, len);
+	if (arg[0] == '\0')
+		return NULL;
+
+	if (!str_cmp(arg, "silver")
+	||  !str_cmp(arg, "coins")
+	||  !str_cmp(arg, "coin")) {
+		*silver = amount;
+		*gold = 0;
+	} else if (!str_cmp(arg, "gold")) {
+		*silver = 0;
+		*gold = amount;
+	} else
+		return NULL;
+
+	return argument;
+}
+
+static OBJ_DATA *
+get_container_here(CHAR_DATA *ch, const char *name)
+{
+	OBJ_DATA *container;
+
+	if ((container = get_obj_here(ch, name)) == NULL) {
+		act_puts("I see no $T here.",
+			 ch, NULL, name, TO_CHAR, POS_DEAD);
+		return NULL;
+	}
+	switch (container->pObjIndex->item_type) {
+	default:
+		act_char("That is not a container.", ch);
+		return NULL;
+
+	case ITEM_CONTAINER:
+	case ITEM_CORPSE_NPC:
+		break;
+
+	case ITEM_CORPSE_PC:
+		if (!can_loot(ch, container)) {
+			act_char("You can't do that.", ch);
+			return NULL;
+		}
+	}
+	if (IS_SET(container->value[1], CONT_CLOSED)) {
+		act_puts("$p is closed.",
+			 ch, container, NULL, TO_CHAR, POS_DEAD);
+		return NULL;
+	}
+
+	return container;
+}
+
+static bool
+check_money(CHAR_DATA *ch, OBJ_DATA *container, int silver, int gold)
+{
+	OBJ_DATA *obj;
+
+	obj = container != NULL ? container->contains : ch->in_room->contents;
+	for (; obj != NULL; obj = obj->next_content) {
+		if (!can_see_obj(ch, obj)
+		||  obj->pObjIndex->item_type != ITEM_MONEY)
+			continue;
+
+		silver -= obj->value[0];
+		gold -= obj->value[1];
+		if (silver <= 0 && gold <= 0)
+			return TRUE;
+	}
+
+	return silver <= 0 && gold <= 0;
+}
+
+static void
+get_money(CHAR_DATA *ch, OBJ_DATA *container, int silver, int gold)
+{
+	OBJ_DATA *obj, *obj_next;
+
+	obj = container != NULL ? container->contains : ch->in_room->contents;
+	for (; obj != NULL; obj = obj_next) {
+		obj_next = obj->next_content;
+
+		if (!can_see_obj(ch, obj)
+		||  obj->pObjIndex->item_type != ITEM_MONEY)
+			continue;
+
+		obj->value[0] -= silver;
+		if (obj->value[0] < 0) {
+			silver = -obj->value[0];
+			obj->value[0] = 0;
+		} else
+			silver = 0;
+		obj->value[1] -= gold;
+		if (obj->value[1] < 0) {
+			gold = -obj->value[1];
+			obj->value[1] = 0;
+		} else
+			gold = 0;
+		if (obj->value[0] != 0 || obj->value[1] != 0) {
+			OBJ_DATA *obj2;
+
+			/*
+			 * obj_to_obj and obj_to_room add obj2 to the head
+			 * of the list. obj_next is already set so obj2
+			 * will be skipped.
+			 */
+			obj2 = create_money(obj->value[1], obj->value[0]);
+			if (container)
+				obj_to_obj(obj2, container);
+			else
+				obj_to_room(obj2, ch->in_room);
+		}
+		extract_obj(obj, 0);
+		if (silver == 0 && gold == 0)
+			break;
+	}
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.26.2.1 2003-09-30 01:24:58 fjoe Exp $
+ * $Id: hunt.c,v 1.26.2.2 2004-02-19 22:15:44 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -582,7 +582,7 @@ static void hunt_victim(CHAR_DATA *ch)
 	if(!found || !can_see(ch, ch->hunting)) {
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
 	    		printlog("mob portal");
-	    		dofun("cast", ch, "portal %s", ch->hunting->name);
+	    		dofun("cast", ch, "portal '%s'", ch->hunting->name);
 	    		printlog("do_enter1");
 	    		dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
@@ -603,7 +603,7 @@ static void hunt_victim(CHAR_DATA *ch)
 		if (get_char_area(ch, ch->hunting->name) != NULL  
 		&&  ch->level > 35) {
 			printlog("mob portal");
-			dofun("cast", ch, "portal %s", ch->hunting->name);
+			dofun("cast", ch, "portal '%s'", ch->hunting->name);
 			printlog("do_enter2");
 			dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
