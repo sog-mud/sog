@@ -60,7 +60,7 @@ static char sccsid[] = "@(#)fnmatch.c	8.2 (Berkeley) 4/16/94";
 #define RANGE_NOMATCH   0
 #define RANGE_ERROR     (-1)
 
-static int rangematch __P((const char *, char, int, char **));
+static int rangematch __P((const char *, char, int, const char **));
 
 int
 fnmatch(pattern, string, flags)
@@ -68,7 +68,7 @@ fnmatch(pattern, string, flags)
 	int flags;
 {
 	const char *stringstart;
-	char *newp;
+	const char *newp;
 	char c, test;
 
 	for (stringstart = string;;)
@@ -172,7 +172,7 @@ rangematch(pattern, test, flags, newp)
 	const char *pattern;
 	char test;
 	int flags;
-	char **newp;
+	const char **newp;
 {
 	int negate, ok;
 	char c, c2;
@@ -235,6 +235,6 @@ rangematch(pattern, test, flags, newp)
 			ok = 1;
 	} while ((c = *pattern++) != ']');
 
-	*newp = (char *)pattern;
+	*newp = pattern;
 	return (ok == negate ? RANGE_NOMATCH : RANGE_MATCH);
 }
