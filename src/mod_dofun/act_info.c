@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.369 2001-02-21 19:07:07 fjoe Exp $
+ * $Id: act_info.c,v 1.370 2001-03-09 21:36:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,7 +165,7 @@ show_social(CHAR_DATA *ch, CHAR_DATA *vch, const char *pre, mlstring *ml)
 	if (!mlstr_null(ml)) {
 		act("$t\n    ", ch, pre, NULL,			// notrans
 		    TO_CHAR | ACT_NOLF);
-		act_mlputs(ml, ch, NULL, vch, TO_CHAR, POS_RESTING);
+		act_mlputs(ml, ch, NULL, vch, TO_CHAR, POS_DEAD);
 	}
 }
 
