@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.55 2002-08-23 18:46:06 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.56 2002-08-24 05:53:23 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5090,6 +5090,12 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		loaded = TRUE;
+	}
+
+	if (IS_NPC(victim)) {
+		act("You can't get any info about $N.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
