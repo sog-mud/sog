@@ -280,6 +280,8 @@ End
 #RULE
 Name ему~
 Form 1 ей~
+Form 2 ему~
+Form 3 им~
 End
 
 #RULE
@@ -495,6 +497,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name стал~
+BaseLen 4
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name бессмертный~
 BaseLen 9
 Form 1 -ая~
@@ -540,6 +550,14 @@ Form 3 они~
 End
 
 #RULE
+Name узнал~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -и~
+End
+
+#RULE
 Name создал~
 BaseLen 6
 Form 1 -а~
@@ -565,6 +583,14 @@ End
 
 #RULE
 Name использует~
+BaseLen 8
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name отправляет~
 BaseLen 8
 Form 1 -ет~
 Form 2 -ет~

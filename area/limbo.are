@@ -510,8 +510,8 @@ mace 9 0 divine I
 0 0 0 P
 G male
 #19
-pick lockpick~
-@eng lockpick@rus ~~отмычка~~~
+pick lockpick lock-pick~
+@eng lock-pick@rus ~~отмычка~~~
 @eng A small steell needle lies here.@rus Маленькая стальная игла блестит в пыли.~
 steel~
 trash h AO
@@ -526,7 +526,7 @@ mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
 @eng A delicious magic mushroom is here.@rus Вкусный Волшебный Мухомор (mushroom) растет тут.~
 food~
-food 0 A
+food G A
 D D 0 0 0
 0 10 0 P
 G male

@@ -10,12 +10,12 @@ End
 
 #HELPS
 -1 SOG 'SHADES OF GRAY' MUDDY~
-@eng Shades of Gray is based on Anatolia MUD -- see help anatolia.
+@eng {DShades of Gray{x is based on Anatolia MUD -- see {CHELP ANATOLIA{x.
                      Original idea, concept and coding:
-        fjoe                         [Iluvatar] (fjoe@@iclub.nsu.ru)
-{x        Constantin Svintsoff           [Nergal] (kostik@@iclub.nsu.ru)
-        Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
-        Alexey Neyman                  [Arborn] (avn@@org.chem.msu.su)
+        fjoe                         [{cIluvatar{x] (fjoe@@iclub.nsu.ru)
+        Constantin Svintsoff           [{cNergal{x] (kostik@@iclub.nsu.ru)
+        Alexander Morokhovets            [{cEros{x] (efdi@@iclub.nsu.ru)
+        Alexey Neyman                  [{cArborn{x] (avn@@org.chem.msu.su)
 
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
@@ -32,11 +32,11 @@ End
 -1 DIKU~
 @eng .                    Original game idea, concept, and design:
 
-          Katja Nyboe               [Superwoman] (katz@@freja.diku.dk)
-          Tom Madsen              [Stormbringer] (noop@@freja.diku.dk)
-          Hans Henrik Staerfeldt           [God] (bombman@@freja.diku.dk)
-          Michael Seifert                 [Papi] (seifert@@freja.diku.dk)
-          Sebastian Hammer               [Quinn] (quinn@@freja.diku.dk)
+          Katja Nyboe               [{cSuperwoman{x] (katz@@freja.diku.dk)
+          Tom Madsen              [{cStormbringer{x] (noop@@freja.diku.dk)
+          Hans Henrik Staerfeldt           [{cGod{x] (bombman@@freja.diku.dk)
+          Michael Seifert                 [{cPapi{x] (seifert@@freja.diku.dk)
+          Sebastian Hammer               [{cQuinn{x] (quinn@@freja.diku.dk)
 
 
 Developed at: DIKU -- The Department of Computer Science
@@ -55,13 +55,13 @@ Developed at: DIKU -- The Department of Computer Science
 -1 GOLD SILVER MONEY~
 @eng Midgaard's economy is based on gold and silver coinage (and the lowly copper,
 which you as an adventurer are far too proud to carry).  Gold coins are worth
-100 silver coins, but are also four times as heavy (25 to the pound, as 
-opposed to 100 to the pound for silver). Gems can be bought to alleviate weight problems
+100 silver coins, but are also four times as heavy (25 to the pound, as opposed
+to 100 to the pound for silver). Gems can be bought to alleviate weight problems
 from the Midgaard jeweller, he charges a mere 10% more than they are worth.
 10 gems weigh one pound, and they can be worth more than 100 gold pieces for
 the highest quality stones.
  
-See also HELP BANK.
+See also {CHELP BANK{x
 @rus Экономика Мидгарда основана на золотой и серебряной чеканке (и не использует 
 медь, которую ты, являясь авантюристом, просто не переносишь). Золотые монеты
 стоят 100 серебряных монет, но - они в четыре раза тяжелее. Чтобы облегчить
@@ -70,6 +70,7 @@ See also HELP BANK.
 камней весят один фунт, и они могут стоить больше чем 100 золотых, для камней
 самого высокого качества, тогда как тот же фунт весят 25 золотых или 
 100 серебрянных монет.
+
 Смотри также {CHELP BANK{x
 ~
 0 BRIEF COMPACT~
@@ -91,10 +92,10 @@ a person).
 богов к тебе. 
 ~
 0 PROMPT~
-@eng Syntax: prompt
-Syntax: prompt show
-Syntax: prompt all
-Syntax: prompt <%*>
+@eng Syntax: {cprompt{x
+Syntax: {cprompt show{x
+Syntax: {cprompt all{x
+Syntax: {cprompt <%*>{x
  
 PROMPT with out an argument will bust your current prompt.
 PROMPT SHOW will show your current prompt.
@@ -125,7 +126,7 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %W :  Display current wizi level (IMMORTAL or trusted players only)
         %I :  Display current incog level (IMMORTAL or trusted playes only)
 
-Example:  PROMPT <%hhp %mm %vmv>
+Example:  {cPROMPT <%hhp %mm %vmv>{x
         Will set your prompt to "<10hp 100m 100mv>"
  
 @rus Синтаксис: {cprompt{x
@@ -162,31 +163,33 @@ Example:  PROMPT <%hhp %mm %vmv>
        %W : покажет уровень wisinvis (для богов)
        %I : покажет уровень incognito (для богов)
  
-Пример: prompt <%hhp %mmana %vmv> -- установит тебе следующее
+Пример: {cprompt <%hhp %mmana %vmv>{x -- установит тебе следующее
 приглашение: <10hp 100mana 120mv>
 ~
 -1 SUMMARY~
-@eng ____________________________________________________________________________
-|| MOVEMENT                       |    GROUP                              ||
-|| north south east west up down  |    follow group gtell split           ||
-|| exits recall                   |                                       ||
-|| sleep wake rest stand          |                                       ||
+@eng {g____________________________________________________________________________
+|| {YMOVEMENT                       {G|    {YGROUP                              {g||
+|| {xnorth south east west up down  {g|    {xfollow group gtell split           {g||
+|| {xexits recall                   {g|                                       ||
+|| {xsleep wake rest stand          {g|                                       ||
 ||________________________________|_______________________________________||
-|| OBJECTS                        |    INFORMATION / COMMUNICATION        ||
-|| get put drop give sacrifice    |    help credits commands areas        ||
-|| wear wield hold                |    report score time weather where who||
-|| recite quaff zap brandish      |    description password title         ||
-|| lock unlock open close pick    |    bug idea typo                      ||
-|| inventory equipment look       |    cgossip say shout tell yell        ||
-|| eat drink fill compare         |    emote pose                         ||
-|| list buy sell value            |    note pray worth raffect affect     ||
+|| {YOBJECTS                        {g|    {YINFORMATION / COMMUNICATION        {g||
+|| {xget put drop give sacrifice    {g|    {xhelp credits commands areas        {g||
+|| {xwear wield hold                {g|    {xreport score time weather where who{g||
+|| {xrecite quaff zap brandish      {g|    {xdescription password title         {g||
+|| {xlock unlock open close pick    {g|    {xbug idea typo                      {g||
+|| {xinventory equipment look       {g|    {xgossip say shout tell yell         {g||
+|| {xeat drink fill compare         {g|    {xemote pose                         {g||
+|| {xlist buy sell value repair     {g|    {xnotes pray worth raffect affect    {g||
 ||________________________________|_______________________________________||
-|| COMBAT                         |    OTHER                              ||
-|| kill flee kick rescue disarm   |    ! save quit demand request         ||
-|| backstab cast wimpy            |    practice train quest               ||
-||________________________________|_______________________________________||
-     For more help, type 'help <topic>' for any command, skill, or spell.
-     Also help on: DAMAGE DEATH EXPERIENCE NEWS TICK WIZLIST QUESTS
+|| {YCOMBAT                         {g|    {YOTHER                              {g||
+|| {xkill flee kick rescue disarm   {g|    {x! save quit demand request         {g||
+|| {xbackstab cast wimpy            {g|    {xpractice train quest               {g||
+||________________________________|_______________________________________||{x
+
+     For more help, type {CHELP <topic>{x for any command, skill, or spell.
+   Use {CHELP n.<topic>{x to select one of available topics. E.g. {CHELP 1.DEATH{x
+       Also see {CHELP DAMAGE DEATH EXPERIENCE COLOR TICK WIZLIST QUESTS{x
 @rus {g____________________________________________________________________________
 || {YПЕРЕМЕЩЕНИЕ                    {g|    {YГРУППЫ                             {g||
 || {xnorth south east west up down  {g|    {xfollow group gtell split           {g||
@@ -200,7 +203,7 @@ Example:  PROMPT <%hhp %mm %vmv>
 || {xlock unlock open close pick    {g|    {xbug idea typo                      {g||
 || {xinventory equipment look       {g|    {xgossip say shout tell yell         {g||
 || {xeat drink fill compare         {g|    {xemote pose                         {g||
-|| {xlist buy sell value            {g|    {xnote pray worth raffect affect     {g||
+|| {xlist buy sell value repair     {g|    {xnotes pray worth raffect affect    {g||
 ||________________________________|_______________________________________||
 || {YБОЙ                            {g|    {YОСТАЛЬНОЕ                          {g||
 || {xkill flee kick rescue disarm   {g|    {x! save quit demand request         {g||
@@ -209,7 +212,8 @@ Example:  PROMPT <%hhp %mm %vmv>
 
             Для того чтобы узнать больше наберите {CHELP {C<topic>{x
                 на любую команду, умение или заклинание.
-   А также {CHELP DAMAGE, DEATH, EXPERIENCE, COLOR, NEWS, TICK, WIZLIST, QUESTS{x
+Для выбора из нескольких тем введите {CHELP n.<topic>{x, например: HELP 1.DEATH
+    А также HELP DAMAGE, DEATH, EXPERIENCE, COLOR, TICK, WIZLIST, QUESTS
 ~
 0 DEATH~
 @eng When your character dies, you are reincarnated back at the Altar of the Temple
@@ -383,9 +387,9 @@ the ground will not be regenerated if anyone is in the area when it resets.
 @eng Syntax: !
 
 ! repeats the last command you typed.
-@rus Синтаксис: {G!{x
+@rus Синтаксис: {c!{x
 
-{G!{x повторяет последнюю введенную команду.
+! повторяет последнюю введенную команду.
 ~
 0 NORTH SOUTH EAST WEST UP DOWN~
 @eng Syntax: north
@@ -432,11 +436,11 @@ name. Last decision depend upon Immortals of Shades of Gray.
 Для создания ролевой атмосферы в этом мире, ты должен выбрать имя согласно 
 указанным ниже правилам:
 
-{cПриемлимо:{x
+{cПриемлемо:{x
     -- имена, соответствующие средневековой эпохе (Takasi, Mitra)
     -- выдуманные имена с красивым звучанием (Priatros, Sansoles)
 
-{cНеприемлимо:{x
+{cНеприемлемо:{x
     -- грубые или сексуально-ориентированные имена
     -- названия и имена животных (Horse, Doll)
     -- наборы случайных символов (Asdfg, Qwdldkf)
@@ -446,8 +450,9 @@ name. Last decision depend upon Immortals of Shades of Gray.
     -- составные имена (FarmerJoe, Maryjane)
 
 В любом случае Боги могут "предложить" тебе сменить имя.
+
 Если твое имя удовлетворяет вышеуказанным требованиям, нажми Y,
-иначе выбели себе другое имя. Но окончательное решение за Богами
+иначе выбери себе другое имя. Но окончательное решение за Богами
 этого мира.
 ~
 0 CAST~
@@ -469,7 +474,7 @@ The effect of the spell is reduced or eliminated if the victim makes the
 saving throw successfully.
 
 See also the help sections for individual spells.
-@rus Синтаксис: {ccast <название> <цель>{x
+@rus Синтаксис: {ccast{x <название> <цель>
 
 Прежде, чем ты сможешь произносить заклинание, ты должен практиковать его. Чем 
 больше ты практикуешь, тем более высок шанс успеха. Произнесение заклинания 
@@ -483,7 +488,7 @@ See also the help sections for individual spells.
 его в апострофы.
 Например: {ccast 'cure critical' frag{x.
 
-Когда ты используете боевое заклинание, жертва обычно получает возможность 
+Когда ты используешь боевое заклинание, жертва обычно получает возможность
 полностью или частично избежать действия этого заклинания. Эффект заклинания
 зависит от saves жертвы, чем меньше их величина тем лучше она избегает действия 
 вредных заклинаний. Успех заклинания также зависит от уровня заклинания,
@@ -534,10 +539,10 @@ DROP, GET and PUT understand the object names 'ALL' for all objects and
 Синтаксис: {cgive{x <сумма> {csilver{x [{cto{x] <персонаж>
 Синтаксис: {cput{x <обьект> <контейнер>
 
-{cDROP{x бросает объект или деньги на землю.
-{cGET{x или {cTAKE{x берет объект лежащий на земле или в контейнере (даже в трупе) 
-{cPUT{x кладет обьект в контейнер.
-{cGIVE{x передает объект или деньги другому персонажу.
+DROP бросает объект или деньги на землю.
+GET или TAKE берет объект лежащий на земле или в контейнере (даже в трупе)
+PUT кладет обьект в контейнер.
+GIVE передает объект или деньги другому персонажу.
 
 drop all, get all и put all выполняют действия со всеми доступными обьектами
 drop all.xxx, get all.xxx или put all.xxx выполняют действия со всеми
@@ -653,7 +658,8 @@ LOOK позволяет посмотреть на что-то или во что-то и сообщает тебе о том,
 что ты увидел.
 GLANCE является аналогом look без параметров. Но не показывает описание
 комнаты.
-EXAMINE является сокращением для look in <контейнер> и look in <труп>.
+EXAMINE является сокращением для look <труп>, look in <труп> или
+look <контейнер>, look in <контейнер>
 ~
 0 ORDER~
 @eng Syntax: order <character> command
@@ -714,7 +720,7 @@ also WAKE other sleeping characters.
 Использование этих команд с именем обьекта как аргументом приведет к использо-
 ванию этого объекта для отдыха или сна.
 ~
-0 GTELL ; REPLY SAY TELL~
+0 GTELL ; REPLY SAY TELL '~
 @eng Syntax: gtell <message>
 Syntax: say   <message>
 Syntax: tell  <character> <message>

@@ -2529,7 +2529,7 @@ titanium-headed arrow~
 A heavy looking arrow lies in the dirt.~
 wood~
 weapon 0 AO
-arrow 11 11 pierce 0
+arrow 12 12 pierce 0
 82 10 1500 P
 G none
 #36424
@@ -2652,6 +2652,21 @@ map 0 AO
 0 0 0 P
 E
 map~
+Forest
+
+     Tournament                 Hills
+        lawn        Lawn       (mages)
+     (warriors)
+                                  |
+                              Caverns
+
+          Bank     Central      Mayor
+                   Square
+ 
+                  Entrance
+~
+E
+map~
 === The Map of the Festival Town ===
  
 This is the map the wise little hedgehog has painted.
@@ -2723,7 +2738,7 @@ G none
 
 #ROOMS
 #36300
-Path to the Festival Town~
+@eng Path to the Festival Town@rus Дорога в Город Фестивалей~
 @eng You are on the path to a beautiful town lying north. Flags
 flow above the entrance tower. Opened gates invite you to
 enter the town.
@@ -2742,7 +2757,7 @@ D2
 Z 0 40166
 S
 #36301
-Fountain~
+@eng Fountain@rus У Фонтана~
 @eng Children play in the fountain, having ventured down into the
 shallow stone bowl, darting in and out of the spray, laughing
 and teasing one another. Light catches the water and creates
@@ -2772,7 +2787,7 @@ D3
 Z -1 36308
 S
 #36302
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2802,7 +2817,7 @@ D3
 Z -1 36309
 S
 #36303
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2824,7 +2839,7 @@ D3
 Z -1 36302
 S
 #36304
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2854,7 +2869,7 @@ D3
 Z -1 36301
 S
 #36305
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2876,7 +2891,7 @@ D3
 Z -1 36306
 S
 #36306
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2906,7 +2921,7 @@ D3
 Z -1 36307
 S
 #36307
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2928,7 +2943,7 @@ D1
 Z -1 36306
 S
 #36308
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2958,7 +2973,7 @@ D3
 Z -1 36323
 S
 #36309
-The Lawn~
+@eng The Lawn@rus Лужайка~
 @eng A grassy flat spreads all around a great stone basin. A fountain
 at the center of the basin spouts a plume of water that arches
 high into the air in a feathery spray.  People are seated all
@@ -2980,7 +2995,7 @@ D2
 Z -1 36308
 S
 #36310
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3004,7 +3019,7 @@ D3
 Z -1 36325
 S
 #36311
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3036,7 +3051,7 @@ D3
 Z -1 36310
 S
 #36312
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3060,7 +3075,7 @@ D3
 Z -1 36311
 S
 #36313
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3084,7 +3099,7 @@ D3
 Z -1 36312
 S
 #36314
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3108,7 +3123,7 @@ D2
 Z -1 36315
 S
 #36315
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3140,7 +3155,7 @@ D3
 Z -1 36304
 S
 #36316
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3164,7 +3179,7 @@ D2
 Z -1 36317
 S
 #36317
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3188,7 +3203,7 @@ D3
 Z -1 36318
 S
 #36318
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3212,7 +3227,7 @@ D3
 Z -1 36319
 S
 #36319
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3244,7 +3259,7 @@ D3
 Z -1 36320
 S
 #36320
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3268,7 +3283,7 @@ D3
 Z -1 36321
 S
 #36321
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3292,7 +3307,7 @@ D1
 Z -1 36320
 S
 #36322
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3316,7 +3331,7 @@ D2
 Z -1 36321
 S
 #36323
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3348,7 +3363,7 @@ grate~
 ABZ -1 36329
 S
 #36324
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3372,7 +3387,7 @@ D2
 Z -1 36323
 S
 #36325
-Walkway~
+@eng Walkway@rus Аллея~
 @eng Walkways border the lawn, packed end to end with makeshift
 booths selling the works of artisans and craftsmen: glass
 prisms, wood carvings, metal sculptures, and clothing of
@@ -3396,9 +3411,12 @@ D2
 Z -1 36324
 S
 #36326
-Unused Path~
-A dusty trail leads to the north. South you can return back
+@eng Unused Path@rus Заброшенная дорога~
+@eng A dusty trail leads to the north. South you can return back
 to the Festival Lawn.
+@rus Пыльная тропинка ведет к северу от города. Южнее ты
+можешь вернуться обратно на Лужайку, где проходит
+Фестиваль.
 ~
 0 0 forest
 D0
@@ -3411,9 +3429,11 @@ D2
 ABZ -1 36311
 S
 #36327
-Small Path~
-A small path leads to the hills where magic users can
+@eng Small Path@rus Тропинка~
+@eng A small path leads to the hills where magic users can
 show their abilities.
+@rus Тропинка вьется между холмами, где маги
+могут продемонстрировать свои умения.
 ~
 0 C forest
 D1
@@ -3426,7 +3446,7 @@ D3
 ABZ -1 36315
 S
 #36328
-Small Path~
+@eng Small Path@rus Тропинка~
 @eng You are on a small path. A wide lawn lies to the north. There
 are people everywhere on the lawn, and everyone is celebrating.
 South you can return back to the streets.
@@ -3445,11 +3465,14 @@ grate~
 ABZ -1 36440
 S
 #36329
-Small Path~
-A small path in the forest leads to the tournament lawn,
+@eng Small Path@rus Тропинка~
+@eng A small path in the forest leads to the tournament lawn,
 where you can see many warrior compete with each other
 for the right to be awarded by the Grand Pris and for
 the title of a champion.
+@rus Лесная тропинка ведет на ристалище, где ты видишь
+множество воинов, борющихся между собой за
+право получить Главный приз и титул Чемпиона.
 ~
 0 C forest
 D1
@@ -3462,7 +3485,7 @@ D3
 Z -1 36373
 S
 #36330
-Main Street~
+@eng Main Street@rus Главная Улица~
 @eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
@@ -3493,7 +3516,7 @@ D3
 Z -1 36344
 S
 #36331
-Main Street~
+@eng Main Street@rus Главная Улица~
 @eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
@@ -3524,7 +3547,7 @@ D3
 Z -1 36346
 S
 #36332
-Central Square~
+@eng Central Square@rus Центральная Площадь~
 @eng You are on the Central Square of Festival Town. North and
 south the main road continues, west is a Bank Office,
 east you can enter a Mayor's Residence.
@@ -3553,7 +3576,7 @@ D3
 Z -1 36337
 S
 #36333
-Main Street~
+@eng Main Street@rus Главная Улица~
 @eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
@@ -3584,7 +3607,7 @@ D3
 ABZ -1 36348
 S
 #36334
-Main Street~
+@eng Main Street@rus Главная Улица~
 @eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
@@ -3615,7 +3638,7 @@ D3
 Z -1 36350
 S
 #36335
-The Gates~
+@eng The Gates@rus Ворота~
 @eng You enter the gates and step into a nice archway, leading
 to the brightness of a festival. Gate guards greet you warmly
 and invite to the town.
@@ -3634,7 +3657,7 @@ D2
 Z -1 36336
 S
 #36336
-Before the Gates~
+@eng Before the Gates@rus Перед Воротами~
 @eng You are before the gates with a beautiful carvings. A brightly
 painted wall stretches east and west. A road carries you fore
 to the entrance.
@@ -3653,14 +3676,21 @@ D2
 Z 0 36300
 S
 #36337
-Entrance to the Bank Office~
-There is an emposing building west in the garden. The house
+@eng Entrance to the Bank Office@rus Вход в Банк~
+@eng There is an emposing building west in the garden. The house
 is wood-sided and painted white with deep blue trim. Window
 boxes filled with flowers decorate its front, and a covered
 porch with a swing and rockers run its length. Dormers jutted
 out from the sloping roof, the windows brightly curtained,
 end massive stone chimneys brackets the walls at either end.
 
+@rus В саду на западе ты видишь величественное здание. Дом
+отделан деревом и окрашен в белый цвет с темно-голубыми
+узорами. Окна, заполненные цветами, выходят на фасад
+здания, и крытое крыльцо с качелями и плетеными креслами
+тянется вдоль него. Слуховое оконце выступает из ската
+крыши, окна закрывают яркие занавески. Массивные каменные
+трубы возвышаются над стенами с каждой стороны.
 ~
 0 0 city
 D1
@@ -3673,13 +3703,17 @@ D3
 Z -1 36339
 S
 #36338
-Entrance to the Mayor's Residence~
-There is a two-story home set back from the street in a
+@eng Entrance to the Mayor's Residence@rus Вход в резиденцию Мэра~
+@eng There is a two-story home set back from the street in a
 grove of spruce and dog-wood, the foundation bordered by
 flower beds, the walkway lined with petunias, and the yard
 dotted with rhododendrons. Sunlight streaks the house and
 yard through gaps in the trees.
 
+@rus Двухэтажный дом прячется в тени елового бора, его
+фундамент окружают цветочные клумбы, вдоль садовых дорожек
+растут петунии, а дворик окружен рододендронами. Сквозь хвою
+на дом и двор льется солнечный свет.
 ~
 0 0 city
 D1
@@ -3692,10 +3726,13 @@ D3
 Z -1 36332
 S
 #36339
-Entrance Hall~
-This hall is not so colored and decorated as mayor's one,
+@eng Entrance Hall@rus Холл~
+@eng This hall is not so colored and decorated as mayor's one,
 but you can see some flags hanging by the walls. South
 you can get in the Office, north lies a bedroom.
+@rus Этот холл не так нарядно украшен, как у Мэра, но ты все
+же можешь заметить флаги, висящие на стенах. На юге ты
+можешь пройти в оффис, на севере - в жилую часть здания.
 ~
 0 0 inside
 D0
@@ -3712,9 +3749,12 @@ D2
 Z -1 36340
 S
 #36340
-Office~
-A bank office is strongly colored. A wooden bureau stands by the
+@eng Office@rus Кабинет~
+@eng A bank office is strongly colored. A wooden bureau stands by the
 southern wall. West you see a door to the treasure room.
+@rus Отделка кабинета выдержана в строгих тонах. Конторка
+из дерева стоит у южной стены. На западе - дверь
+в сокровищницу.
 ~
 0 DE inside
 D0
@@ -3727,8 +3767,9 @@ D3
 ABZ -1 36341
 S
 #36341
-Dark Room~
-It is pitch black.
+@eng Dark Room@rus Кладовая~
+@eng It is pitch black.
+@rus Не видно ни зги...
 ~
 0 ADE inside
 D1
@@ -3737,10 +3778,13 @@ D1
 ABZ -1 36340
 S
 #36342
-Living Room~
-A table with simple chairs stands in the middle of the room.
+@eng Living Room@rus Гостиная~
+@eng A table with simple chairs stands in the middle of the room.
 A window shows the park before the house. West is the
 bedroom, south you can get back to the entrance.
+@rus Стол, окруженный стульями, стоит в центре комнаты. Через
+окно виден парк перед домом. На западе находится спальня,
+на юг ты можешь вернуться обратно в холл.
 ~
 0 DE inside
 D2
@@ -3753,10 +3797,13 @@ D3
 ABCFGZ 36376 36343
 S
 #36343
-Bedroom~
-A dark bedroom is slightly lightened by the window in the
+@eng Bedroom@rus Спальня~
+@eng A dark bedroom is slightly lightened by the window in the
 west wall. Forest edge does not allow the daylight come to
 the room.
+@rus Темная спальня лишь слегка освещается через окно в
+западной стене. Лесная опушка приглушает солнечный
+свет и создает приятный полумрак.
 ~
 0 ADE inside
 D1
@@ -3783,11 +3830,17 @@ Z -1 36330
 S
 #36345
 Ranger's House~
-A home of ranger is filled with forest goods. There is
-a huge skin of a mountain lion lies on the floor. Wood
-carvings and rocks lies on the stands and shelves. An
-ashen longbow stands by the corner and wooden arrows
+@eng A home of ranger is filled with the forest goods.
+There is a huge skin of a mountain lion on the floor. 
+Wood carvings and rocks lie on the stands and shelves. 
+An ashen longbow stands by the corner and wooden arrows
 fill a quiver hanging on the back wall.
+@rus Дом Рэнжера полон всевозможными вещами, так или
+иначе относящимися к лесу. Огромная шкура горного
+льва лежит на полу. Деревянные поделки и кусочки
+камней лежат на тумбочках и полках. Длинный ясеневый
+лук стоит в углу, а на задней стене висит колчан,
+полный стрел.
 ~
 0 D inside
 D3
@@ -3818,7 +3871,8 @@ Z -1 36331
 S
 #36348
 Vampire's House~
-Simply the house of a dreaded vampire.
+@eng Simply the house of a dreaded vampire.
+@rus Просто домик ужасного Вампира.
 ~
 0 AD inside
 D1
@@ -3828,8 +3882,10 @@ ABZ -1 36333
 S
 #36349
 Witch's House~
-You come to the witch house at your own risk. Vials filling
+@eng You come to the witch house at your own risk. Vials filling
 with witch's brew are everywhere.
+@rus На свой страх и риск ты вошел в дом Ведьмы! Повсюду стоят
+пузырьки, наполненные колдовскими снадобьями.
 ~
 0 AD inside
 D3
@@ -3839,8 +3895,10 @@ ABZ -1 36333
 S
 #36350
 Cleric's House~
-Holy symbols and other monk's things are lying on the
+@eng Holy symbols and other monk's things are lying on the
 shelves and hanging on the walls.
+@rus Святые вещи и прочие принадлежности быта монаха
+лежат на полках и развешаны по стенам.
 ~
 0 AD inside
 D1
@@ -3860,10 +3918,14 @@ D3
 Z -1 36334
 S
 #36352
-Entrance Hall~
-You enter the Mayor's Residence. Marble stairs lead to the
+@eng Entrance Hall@rus Холл@rusoff Холл~
+@eng You enter the Mayor's Residence. Marble stairs lead to the
 Great Hall north and the Mayor's Office south. Up ahead you
 see a great Dining Hall. West you can get back outdoors.
+@rus Ты входишь в резиденцию Мэра. Мраморные ступени ведут
+в Большой Зал на севере и приемную Мэра на юге. Наверху
+ты видишь Пиршественную Залу. На западе ты можешь
+вернуться на улицу.
 ~
 0 D inside
 D0
@@ -3884,12 +3946,17 @@ D4
 Z -1 36356
 S
 #36353
-Secretary's Office~
-A humble secretary's office is also decorated. A simple
+@eng Secretary's Office@rus Приемная~
+@eng A humble secretary's office is also decorated. A simple
 table covered in green stands at the window. Some flags
 and rescripts hang on the walls. Waiting chairs stand
 along the southern wall. A few stairs lead up to the
 Mayor's office.
+@rus Приемная, несмотря на скромность сидящего тут секретаря,
+тоже празднично украшена. Простой стол, покрытый зеленым
+сукном, стоит у окна. Несколько флагов и постановлений в
+рамках висят на стенах. Кресла для посетителей стоят
+вдоль южной стены. В кабинет Мэра наверху ведет лестница.
 ~
 0 DE inside
 D0
@@ -3906,12 +3973,17 @@ D4
 ABZ -1 36359
 S
 #36354
-Great Hall~
-Many statues stand along the walls. Amidst them you can see
+@eng Great Hall@rus Большой Зал~
+@eng Many statues stand along the walls. Amidst them you can see
 a huge gobelen with some types of weapons on it hanging on
-the eastern wall. North you see an entrance to the Great
+the northern wall. East you see an entrance to the Great
 Library. There is a small door upstairs leading to the
 Mayor's apartments. Probably you aren't allowed there.
+@rus Вдоль стен стоят статуи. Между ними ты можешь заметить
+большие гобелены и развешанные на них всевозможные виды
+оружия вдоль северной стены. На востоке ты видишь вход
+в Библиотеку. Маленькая дверь на вершине лестницы ведет
+в апартаменты Мэра. Ты чувствуешь, что не стоит туда заходить...
 ~
 0 DE inside
 D1
@@ -3928,12 +4000,17 @@ D4
 ABZ -1 36355
 S
 #36355
-Living Room~
-You see not an ordinary room but a large apartments. Some
+@eng Living Room@rus Апартаменты~
+@eng You see not an ordinary room but a large apartments. Some
 gobelens hang on the wall. A huge bed stands deep in the
 alcove by the eastern wall. A table with food and drinks
 stands by the western wall. Bright windows enlighten the
 room.
+@rus Перед тобой не просто жилая комната, а нечто, что с
+уверенностью можно назвать Апартаментами! Огромная
+кровать стоит глубоко в нише восточной стены. На
+стенах висят гобелены. Стол с едой и напитками стоит
+возле западной стены. Яркие окна освещают комнату.
 ~
 0 DE inside
 D5
@@ -3942,11 +4019,15 @@ D5
 ABZ -1 36354
 S
 #36356
-Dining Hall~
-Dining hall is decorated by flowers and waits for citizens
+@eng Dining Hall@rus Пиршественная Зала~
+@eng Dining hall is decorated by flowers and waits for citizens
 and guests to sit at the large tables filled with fruits,
 cookies, and other edibles and drinks. A band of servants
 hurries preparing a festival dinner.
+@rus Пиршественная зала украшена цветами и ждет, пока жители
+и гости Фестиваля сядут за огромный стол, уставленный
+фруктами, выпечкой и прочими яствами и напитками. Группа
+слуг торопится закончить все приготовления.
 ~
 0 DE inside
 D5
@@ -3955,10 +4036,14 @@ D5
 Z -1 36352
 S
 #36357
-Great Library~
-What? Archives, once again? No, you have mistaken. This
+@eng Great Library@rus Библиотека~
+@eng What? Archives, once again? No, you have mistaken. This
 is The Great Library, where you can find any book that was
 ever written. Come on and find what you want!
+@rus Как? Снова Архив? Нет, на этот раз ты ошибся. Это
+Великая Библиотека, в которой ты можешь найти любую
+книгу, когда-либо написанную. Заходи и выбирай все,
+что нужно.
 ~
 0 DE inside
 D3
@@ -3967,22 +4052,31 @@ D3
 ABZ -1 36354
 S
 #36358
-Lost in time~
-You drift, suspended in the light, wrapped in silence and
+@eng Lost in time@rus В глубинах Времени~
+@eng You drift, suspended in the light, wrapped in silence and
 consumed by a numbness that empties you of all feeling...
 Suddenly the light disappears in a rush of wind and
 brilliant colors and you realize that you are in a strange
 room with no exits.
+@rus Ты висишь, растворенный в свете, погруженный в молчание и
+скованный оцепенением, лишающим тебя возможности что-либо
+чувствовать. Внезапно сияние исчезает в вихре ярких брызг,
+и ты обнаруживаешь, что попал в странное место без выходов...
 ~
 0 AN inside
 S
 #36359
-Mayor's Office~
-As you enter the room, a huge table with an armchair behind
+@eng Mayor's Office@rus Кабинет Мэра~
+@eng As you enter the room, a huge table with an armchair behind
 gets your attention. A wide windows allow you to see a whole
 countryside. A dozen of chairs stands along the walls. On
 the northern wall you see a diploma enclosed in a bright gold
 frame.
+@rus Ты входишь в комнату, и твое внимание привлекает огромный
+стол и кресло позади него. Через широкое окно открывается
+изумительный вид на окружающие городок поля и леса.
+На северной стене висит диплом (diploma), заключенный
+в яркую золотую рамку.
 ~
 0 DEJ inside
 E
@@ -4001,11 +4095,14 @@ D5
 ABZ -1 36353
 S
 #36360
-Archives~
-Many shelves are all over the large room. In the corner
+@eng Archives@rus Архив~
+@eng Many shelves are all over the large room. In the corner
 you can barely see a small bureau with a simple chair
 at it. A lot of scrolls, rescripts and books are on the
 shelves.
+@rus Большая комната заполнена полками. В углу ты с трудом
+различаешь маленькую конторку с простым стулом подле
+нее. Полки завалены кучей свитков, постановлений и книг.
 ~
 0 DE inside
 D3
@@ -4014,10 +4111,13 @@ D3
 ABZ -1 36353
 S
 #36361
-The edge of the Forest~
-You are by the edge of a light green forest. Bowmen and
+@eng The edge of the Forest@rus Лесная опушка~
+@eng You are by the edge of a light green forest. Bowmen and
 other masters of throwing techniques stands here on a start
 position. They compete for the Grand Pris.
+@rus Ты на опушке в светлом зеленом  лесу. Лучники
+и другие мастера метания выстроились в линию.
+Они соревнуются за Гран При Фестиваля!
 ~
 0 0 forest
 D0
@@ -4026,11 +4126,15 @@ D0
 Z -1 36362
 S
 #36362
-Shooting Place~
-A grassy field spreads between the forest edges. Some
+@eng Shooting Place@rus Стрельбище~
+@eng A grassy field spreads between the forest edges. Some
 animals are worrying about their business. You can see
 bowmen by the southern edge and their targets by the
 northern.
+@rus Между лесными опушками простирается поросшая
+зеленой травой поляна. Животные шныряют по
+своим делам. Лучники, стоящие на южной опушке
+стреляют по мишеням.
 ~
 0 0 field
 D0
@@ -4043,11 +4147,15 @@ D2
 Z -1 36361
 S
 #36363
-Shooting Place~
-A grassy field spreads between the forest edges. Some
+@eng Shooting Place@rus Стрельбище~
+@eng A grassy field spreads between the forest edges. Some
 animals are worrying about their business. You can see
 bowmen by the southern edge and their targets by the
 northern.
+@rus Между лесными опушками простирается поросшая
+зеленой травой поляна. Животные шныряют по
+своим делам. Лучники, стоящие на южной опушке
+стреляют по мишеням.
 ~
 0 0 field
 D0
@@ -4060,11 +4168,15 @@ D2
 Z -1 36362
 S
 #36364
-Shooting Place~
-A grassy field spreads between the forest edges. Some
+@eng Shooting Place@rus Стрельбище~
+@eng A grassy field spreads between the forest edges. Some
 animals are worrying about their business. You can see
 bowmen by the southern edge and their targets by the
 northern.
+@rus Между лесными опушками простирается поросшая
+зеленой травой поляна. Животные шныряют по
+своим делам. Лучники, стоящие на южной опушке
+стреляют по мишеням.
 ~
 0 0 field
 D0
@@ -4081,11 +4193,15 @@ D2
 Z -1 36363
 S
 #36365
-Shooting Place~
-A grassy field spreads between the forest edges. Some
+@eng Shooting Place@rus Стрельбище~
+@eng A grassy field spreads between the forest edges. Some
 animals are worrying about their business. You can see
 bowmen by the southern edge and their targets by the
 northern.
+@rus Между лесными опушками простирается поросшая
+зеленой травой поляна. Животные шныряют по
+своим делам. Лучники, стоящие на южной опушке
+стреляют по мишеням.
 ~
 0 0 field
 D0
@@ -4098,11 +4214,15 @@ D2
 Z -1 36364
 S
 #36366
-Shooting Place~
-A grassy field spreads between the forest edges. Some
+@eng Shooting Place@rus Стрельбище~
+@eng A grassy field spreads between the forest edges. Some
 animals are worrying about their business. You can see
 bowmen by the southern edge and their targets by the
 northern.
+@rus Между лесными опушками простирается поросшая
+зеленой травой поляна. Животные шныряют по
+своим делам. Лучники, стоящие на южной опушке
+стреляют по мишеням.
 ~
 0 0 field
 D0
@@ -4115,9 +4235,14 @@ D2
 Z -1 36365
 S
 #36367
-The edge of the Forest~
-You step under the trees and feel relaxed. But what do
+@eng The edge of the Forest@rus Лесная опушка~
+@eng You step under the trees and feel relaxed. But what do
 you see here safe the trees and grass?
+@rus Ты входишь под тень деревьев и расслабляешься.
+Посреди травы и деревьев ты замечаешь какие-то
+круглые щиты, разрисованные красными и белыми полосками.
+  "ВВЖЖЖЖЖЖМЦ" Стрела прожужала над твоим ухом
+и со звучным чмоком впилась в мишень.
 ~
 0 0 forest
 D2
@@ -4126,9 +4251,11 @@ D2
 Z -1 36366
 S
 #36368
-The edge of the Forest~
-You step under the trees and feel relaxed. But what do
+@eng The edge of the Forest@rus Лесная опушка~
+@eng You step under the trees and feel relaxed. But what do
 you see here safe the trees and grass?
+@rus Ты входишь под тень деревьев и расслабляешься.
+Но что еще ты замечаешь здесь кроме деревьев и травы?
 ~
 0 0 forest
 D2
@@ -4137,10 +4264,15 @@ D2
 Z -1 36372
 S
 #36369
-Strange Grove~
-A grove you enter looks ordinary but at the same time it
+@eng Strange Grove@rus Маленькая роща~
+@eng A grove you enter looks ordinary but at the same time it
 don't. Looking around you see trees, flowers, birds, small
 animals and suddenly a small tent gets your attention.
+@rus Роща, в которую ты вошел выглядит обычной , но,
+приглядевшись, ты замечаешь в ней что-то странное...
+Оглядевшись вокруг, ты видишь деревья, цветы, птичек,
+маленьких животных, и внезапно твое внимание привлекает
+маленький тент.
 ~
 0 0 forest
 D0
@@ -4149,10 +4281,14 @@ D0
 Z -1 36375
 S
 #36370
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4173,10 +4309,14 @@ D3
 Z -1 36377
 S
 #36371
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D1
@@ -4193,10 +4333,14 @@ D3
 Z -1 36378
 S
 #36372
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4213,10 +4357,14 @@ D3
 Z -1 36371
 S
 #36373
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4237,10 +4385,14 @@ D3
 Z -1 36370
 S
 #36374
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4253,10 +4405,14 @@ D3
 Z -1 36375
 S
 #36375
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4277,10 +4433,14 @@ D3
 Z -1 36376
 S
 #36376
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4293,10 +4453,14 @@ D1
 Z -1 36375
 S
 #36377
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D0
@@ -4317,10 +4481,14 @@ D3
 Z -1 36364
 S
 #36378
-Wasted Lawn~
-A wide grassy lawn is wasted by the boots of many warriors
+@eng Wasted Lawn@rus Вытоптанная лужайка~
+@eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
+@rus Широкая травяная лужайка вытоптанна сапогами
+множества соревнующихся воинов. Чемпионат
+выглядит очень интересным, особенно если ты
+принимаешь в нем участие.
 ~
 0 0 field
 D1
@@ -4333,10 +4501,13 @@ D2
 Z -1 36377
 S
 #36379
-Dark Hill~
-A dark hill, filled with a black magic, covered with fairy
+@eng Dark Hill@rus Черная Скала~
+@eng A dark hill, filled with a black magic, covered with fairy
 mists, shows you a deserted line to the south. Far you can
 see a lit hill.
+@rus Черная скала пронизанна черной магией и покрыта
+колдовским туманом. На юге лежит выжженная линия.
+Вдалеке виднеется светлый холм.
 ~
 0 0 hills
 D2
@@ -4345,9 +4516,12 @@ D2
 Z -1 36380
 S
 #36380
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4360,9 +4534,12 @@ D2
 Z -1 36381
 S
 #36381
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4375,9 +4552,12 @@ D2
 Z -1 36382
 S
 #36382
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4394,9 +4574,12 @@ D2
 Z -1 36383
 S
 #36383
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4413,9 +4596,12 @@ D3
 Z -1 36327
 S
 #36384
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4432,9 +4618,12 @@ D2
 Z -1 36385
 S
 #36385
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4447,9 +4636,12 @@ D2
 Z -1 36386
 S
 #36386
-Deserted Lawn~
-Earlier it was a lawn. But mage's casts deserted it and you
+@eng Deserted Lawn@rus Пустошь~
+@eng Earlier it was a lawn. But mage's casts deserted it and you
 can see only the sands.
+@rus Раньше тут был луг, но заклинания волшебников 
+выжгли его и превратили в пустыню. Теперь здесь
+только ветер перегоняет песок.
 ~
 0 0 desert
 D0
@@ -4462,9 +4654,11 @@ D2
 Z -1 36387
 S
 #36387
-Lit Hill~
-You are on the top of a lit hill. North spreads the desert
+@eng Lit Hill@rus Светлый Холм~
+@eng You are on the top of a lit hill. North spreads the desert
 you have left just now. South you can see Festival Town.
+@rus Ты на вершине светлого холма. Севернее простирается 
+выжженная лужайка, откуда ты только что пришел.
 ~
 0 0 hills
 D0
@@ -4473,18 +4667,26 @@ D0
 Z -1 36386
 S
 #36388
-Small Shrub~
-You are beside a small shrub. You can't go back to the north,
+@eng Small Shrub@rus Кусты~
+@eng You are beside a small shrub. You can't go back to the north,
 but under your feet you can barely see a dark hole. May be
 there is a way home?
+@rus Продравшись сквозь кусты, ты понимаешь, что 
+вернуться обратно на север тебе не удасться.
+Однако под корнями виднеется темная нора.
+Возможно она куда-нибудь и приведет тебя...
 ~
 0 C forest
 S
 #36389
-Rocky Mountain~
-A rocky mountain rises in the middle of a hill country side.
+@eng Rocky Mountain@rus Вершина горы~
+@eng A rocky mountain rises in the middle of a hill country side.
 Far to the west you can see a festival lawn and further lies
 tournament lawn. South-east lies Festival Town.
+@rus Горная вершина возвышается посреди холмов в сельской
+местности. Далеко на западе виднеются фестивальная
+лужайка и луг, на котором соревнуются воины.
+Юго-восточнее лежит Фестивальный городок.
 ~
 0 0 mountain
 D0
@@ -4510,10 +4712,13 @@ rock~
 ABZ -1 36400
 S
 #36390
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D1
@@ -4530,10 +4735,13 @@ D3
 Z -1 36397
 S
 #36391
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D2
@@ -4546,10 +4754,13 @@ D3
 Z -1 36390
 S
 #36392
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D0
@@ -4566,10 +4777,13 @@ D3
 Z -1 36389
 S
 #36393
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D0
@@ -4582,10 +4796,13 @@ D3
 Z -1 36394
 S
 #36394
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D0
@@ -4602,10 +4819,13 @@ D3
 Z -1 36395
 S
 #36395
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D0
@@ -4626,10 +4846,13 @@ D3
 Z -1 36384
 S
 #36396
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D0
@@ -4646,10 +4869,13 @@ D2
 Z -1 36395
 S
 #36397
-Hills~
-Grassy hills spreads on the foot of a high rocky mountain.
+@eng Hills@rus Холмы~
+@eng Grassy hills spreads on the foot of a high rocky mountain.
 Mages practices here their spells on competition. Birds and
 small animals run away you approaching.
+@rus Поросшие травой холмы окружают высокую гору.
+Маги соревнуются здесь в волшебстве. Птички и
+маленькие зверьки разбегаются при твоем появлении.
 ~
 0 0 hills
 D1
@@ -4666,8 +4892,9 @@ D3
 Z -1 36382
 S
 #36398
-Path to the Forest~
-You are on a dark path leading into forest shadows.
+@eng Path to the Forest@rus Лесная тропинка~
+@eng You are on a dark path leading into the forest shadows.
+@rus Ты идешь по тропинке, ведущей вглубь леса.
 ~
 0 0 forest
 D1
@@ -4680,15 +4907,18 @@ D2
 Z -1 36326
 S
 #36399
-Deep in the Dark Forest~
-You have come far deep in the dark forest. You are lost...
+@eng Deep in the Dark Forest@rus В темном лесу~
+@eng You have come far deep in the dark forest. You are lost...
+@rus Ты попал в самую чащу леса. И заблудился...
 ~
 0 CN forest
 S
 #36400
-Entrance Cave~
-You dive in the darkness. Dump walls cause you to feel
+@eng Entrance Cave@rus Вход в пещеру~
+@eng You dive in the darkness. Dump walls cause you to feel
 yourself cold. A dump tunnel leads down.
+@rus Ты ныряешь в  темноту. Влажные стены заставляют
+тебя дрожать от холода. Сырой туннель ведет вниз.
 ~
 0 ADN mountain
 D4
@@ -4702,7 +4932,7 @@ D5
 Z -1 36401
 S
 #36401
-Deep in the Dark Cave~
+@eng Deep in the Dark Cave@rus Глубоко в пещере~
 You step in the dark cave. East opens a wide tunnel, up you can
 climb back to the daylight.
 ~
@@ -5557,7 +5787,7 @@ D5
 Z -1 36425
 S
 #36439
-Main Street~
+@eng Main Street@rus Главная Улица~
 @eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
@@ -5580,7 +5810,7 @@ D2
 Z -1 36330
 S
 #36440
-Intersection~
+@eng Intersection@rus Перекресток~
 @eng You are at the intersection of the 2nd Line and Main street.
 A smart grate blocks path northward, south lies the central
 part of the town. East and west 2nd Line continues.
@@ -5720,7 +5950,7 @@ D0
 Z -1 36444
 S
 #36449
-Main Street~
+@eng Main Street@rus Главная Улица~
 @eng You are walking along the main street. Brightly colored houses
 are on the sides of the street. Some of them are closed, other
 opened and you can catch some shadows inside. Probably, all the
@@ -5743,11 +5973,11 @@ D2
 Z -1 36450
 S
 #36450
-Intersection~
+@eng Intersection@rus Перекресток~
 @eng You are at the intersection of the 1st Line and Main street.
 North lies the town you are to visit now. East and west
 the 1st Line continues. South you can return to the gates.
-@rus Ты находишся на пересечении Первой Линии и Главной улицы.
+@rus Ты находишься на пересечении Первой Линии и Главной улицы.
 Севернее лежит город, который ты обязан посетить. С востока 
 на запад идет Первая Линия. Южнее ты видишь ворота.
 ~
@@ -6231,6 +6461,7 @@ G 0 36338 0		*	a match box
 M 0 36319 10 36389 1	* hedgehog (Rocky Mountain)
 E 0 36373 0 9		*	hedgehog's gloves: on the hands
 G 0 36315 0		*	apple
+G 0 36436 0		*	map of the Festival Town
 M 0 36343 5 36390 1	* gekko (Hills)
 M 0 36342 4 36390 1	* wimpy mage (Hills)
 E 0 36347 0 16		*	goose pen: wielded
@@ -6365,21 +6596,6 @@ endif
 1 festival~
 There are many peoples all over the world
       celebrating here! Join them!
-~
-1 town~
-Forest
-
-     Tournament                 Hills
-        lawn        Lawn       (mages)
-     (warriors)
-                                  |
-                              Caverns
-
-
-          Bank     Central      Mayor
-                   Square
-
-                   Entrance
 ~
 -1 $~
 

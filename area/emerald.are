@@ -2093,7 +2093,7 @@ a yew bow~
 An elegant yew bow lies here amongst the rocks.~
 yew~
 weapon GKL AN
-exotic 5 9 pierce 0
+bow 5 9 pierce 0
 43 9 30000 G
 A
 2 2
@@ -2371,7 +2371,7 @@ an ashen longbow~
 A skillfully crafted longbow with a quiver of arrows lie here.~
 Gold~
 weapon K AN
-exotic 9 3 pierce 0
+bow 9 3 pierce 0
 28 10 4700 G
 A
 18 3

@@ -4,6 +4,12 @@ Form 1 серебряный~
 End
 
 #RULE
+Name идут~
+Form 0 идет~
+Form 1 идет~
+End
+
+#RULE
 Name players~
 Form 1 player~
 End

@@ -85,7 +85,7 @@ ABT BGJTVb -200 0
 40 0 25d10+1850 10d10+3000 4d8+13 shbite
 -13 -13 -13 5
 BCEFKO EJL J KM
-stand stand male 300
+stand stand female 300
 0 0 tiny unknown
 #10005
 assassin квод наемник quad~
@@ -201,7 +201,7 @@ AFGT UVZb -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 acbite
 -25 -25 -25 0
 BCDEFGHIKNO 0 0 0
-stand stand male 300
+stand stand female 300
 0 0 huge unknown
 #10011
 speaker оратор~
@@ -395,7 +395,7 @@ ABCGT JV -1000 0
 99 0 50d10+29000 10d10+3029 4d50+80 wrath
 -69 -69 -69 -30
 CDEFIKN IP F JK
-stand stand none 300
+stand stand female 300
 0 0 medium unknown
 #10020
 king призрачный король spirit~
@@ -531,7 +531,7 @@ ABCGT GJ -1000 0
 30 0 6d12+853 1d1+100 4d6+8 bite
 -9 -9 -9 2
 CDEFIKN IP 0 0
-stand stand male 300
+stand stand female 300
 0 0 small unknown
 #10027
 beast порождение подземного underworld~

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.116 1999-06-22 12:37:24 fjoe Exp $
+ * $Id: spellfun2.c,v 1.117 1999-06-22 19:57:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3141,6 +3141,9 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *vial;
 	OBJ_DATA *fire;
 	int i;
+
+	char_puts("Spell temporarily disabled.\n", ch);
+	return;
 
 	if (victim == ch)
 	{

@@ -566,7 +566,7 @@ crossbow black pawn арбалет~
 @eng The crossbow of a Black Pawn lies here.@rus Арбалет (crossbow) валяется здесь, оставленный черной пешкой.~
 steel~
 weapon J AN
-exotic 2 7 blast 0
+bow 2 7 blast 0
 10 100 750 G
 G male
 #4231
@@ -575,7 +575,7 @@ crossbow white pawn арбалет~
 @eng The crossbow of a White Pawn lies here.@rus Арбалет (crossbow) валяется на земле, забытый белой пешкой.~
 steel~
 weapon K AN
-exotic 2 7 blast 0
+bow 2 7 blast 0
 10 100 750 G
 G male
 #4232
