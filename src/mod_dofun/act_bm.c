@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.9 2002-11-20 22:04:14 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.10 2004-03-29 17:16:49 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -370,6 +370,12 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		if (obj->pObjIndex->limit == -1) {
 			act ("{D[BLACK MARKET]{x You can't sell {D$p{x here.",
 			     ch, obj, NULL, TO_CHAR | ACT_NOCANSEE);
+			return;
+		}
+
+		if (IS_OBJ_STAT(obj, ITEM_KEEP)) {
+			act("{D[BLACK MARKET]{x You need to unkeep {D$p{x first.",
+			    ch, obj, NULL, TO_CHAR | ACT_NOCANSEE);
 			return;
 		}
 
