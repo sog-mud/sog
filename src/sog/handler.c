@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.40 2001-05-21 18:53:56 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.41 2001-07-04 20:37:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4107,7 +4107,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 			act_puts("You step out from your cover.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $m's cover.",
+			act("$n steps out from $s cover.",
 			    ch, NULL, NULL, TO_ROOM);
 		}	    
 		else if (number_percent() < chance)
@@ -4116,7 +4116,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 			act_puts("You step out from your cover.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $m's cover.",
+			act("$n steps out from $s cover.",
 			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, gsn_camouflage_move, FALSE, 5);
 		}	    
@@ -4126,7 +4126,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
 		act_puts("You step out from your cover.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
+		act("$n steps out from $s cover.",
 			ch, NULL, NULL, TO_ROOM);
 	}
 
@@ -4359,7 +4359,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
+		act("$n steps out from $s cover.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
 

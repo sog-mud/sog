@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.20 2001-07-04 19:42:59 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.21 2001-07-04 20:37:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2287,7 +2287,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		act("$n tried to push $N.", ch, NULL, victim, TO_NOTVICT);
 
 		if (IS_AWAKE(victim))
-			act_yell(victim, "Keep your hands out of me, $i!",
+			act_yell(victim, "Keep your hands off of me, $i!",
 				 ch, NULL);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, sn, FALSE, 2);
