@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.13 1999-12-18 16:08:38 avn Exp $
+ * $Id: olc_material.c,v 1.14 2000-03-05 22:01:38 avn Exp $
  */
 
 #include "olc.h"
@@ -136,7 +136,7 @@ static void *material_save_cb(void *p, va_list ap)
 	if (mat->float_time)
 		fprintf(fp, "Float %d\n", mat->float_time);
 	if (mat->dam_class != DAM_NONE)
-		fprintf(fp, "Damc %s~\n", flag_string(dam_classes, mat->dam_class));
+		fprintf(fp, "Damc %s\n", flag_string(dam_classes, mat->dam_class));
 	if (mat->mat_flags)
 		fprintf(fp, "Flags %s~\n", flag_string(material_flags, mat->mat_flags));
 	fprintf(fp, "End\n\n");

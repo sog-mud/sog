@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.262 2000-03-03 04:09:11 avn Exp $
+ * $Id: fight.c,v 1.263 2000-03-05 22:01:39 avn Exp $
  */
 
 /***************************************************************************
@@ -550,6 +550,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	bool result;
 	int sercount;
 	int dam_flags;
+	material_t *m = NULL;
+	int res = 0;
 
 	/* just in case */
 	if (victim == ch || ch == NULL || victim == NULL)
@@ -697,12 +699,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (IS_NPC(ch) && wield == NULL) {
 		NPC_DATA *npc = NPC(ch);
 		dam = dice(npc->dam.dice_number, npc->dam.dice_type);
+		m = material_lookup(ch->material);
 	} else {
 		if (weapon_sn != NULL)
 			check_improve(ch, weapon_sn, TRUE, 5);
 		if (wield != NULL) {
-			dam = dice(INT(wield->value[1]),
-				   INT(wield->value[2])) * sk / 100;
+			m = material_lookup(wield->material);
+			dam = dice(INT(wield->value[1]), INT(wield->value[2])) * sk / 100;
 
 /* no shield = more */
 			if (get_eq_char(ch, WEAR_SHIELD) == NULL)
@@ -728,6 +731,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			dam = dice(ch->shapeform->index->damage[DICE_NUMBER],
 				ch->shapeform->index->damage[DICE_TYPE]); 
 		} else {
+			OBJ_DATA *gaunt = get_eq_char(ch, WEAR_HANDS);
+			if (gaunt)
+				m = material_lookup(gaunt->material);
 			dam = number_range(1 + 4 * sk / 100,
 					   2 * LEVEL(ch) / 3 * sk / 100);
 			if ((sk2 = get_skill(ch, "master hand"))
@@ -941,6 +947,18 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	if (dam <= 0)
 		dam = 1;
+
+	if (m && m->dam_class != DAM_NONE)
+		if (counter)
+			res = get_resist(ch, m->dam_class);
+		else {
+			res = get_resist(victim, m->dam_class);
+			if (res == 100) {
+				act("$N is immune to your attacks.", ch, NULL, victim, TO_CHAR);
+				act("You are immune to $n's attacks.", ch, NULL, victim, TO_VICT);
+			}
+		}
+	dam = dam * (100 - res) / 100;
 
 	if (counter) {
 		result = damage(ch, ch, 2*dam, dt, dam_class, dam_flags);
