@@ -106,10 +106,10 @@ main(int argc, char *argv[])
 	/*
 	 * bsearch in varr
 	 */
-	asprintf(&p, "%04d: %s", 0, text);
+	asprintf(&p, "%04d: %s", nelem/2, text);
 	bsearch_varr(p);
 
-	asprintf(&p, "%04d: %s", nelem/2, text);
+	asprintf(&p, "%04d: %s", nelem*6/7, text);
 	bsearch_varr(p);
 
 	asprintf(&p, "%04d: %s", nelem-1, text);
