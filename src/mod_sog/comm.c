@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.13 2002-11-23 21:01:52 fjoe Exp $
+ * $Id: comm.c,v 1.14 2002-11-28 20:16:29 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -631,7 +631,7 @@ charset_print(DESCRIPTOR_DATA *d)
 
 RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 {
-	DESCRIPTOR_DATA *d, *d_next;
+	DESCRIPTOR_DATA *d;
 	INFO_DESC *id;
 	INFO_DESC *id_next;
 	int maxdesc;
@@ -687,19 +687,7 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 			info_process_cmd(id);
 	}
 
-	/*
-	 * Kick out the freaky folks.
-	 */
-	for (d = descriptor_list; d; d = d_next) {
-		d_next = d->next;
-		if (FD_ISSET(d->descriptor, exc_set)) {
-			FD_CLR(d->descriptor, in_set);
-			FD_CLR(d->descriptor, out_set);
-			outbuf_flush(d);
-			close_descriptor(d, SAVE_F_NORMAL);
-		}
-	}
-
+	vo_foreach_init(NULL, &iter_descriptor, NULL);
 	_run_game_bottom(in_set, out_set, exc_set);
 }
 
@@ -710,9 +698,20 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 	/*
 	 * Process input.
 	 */
-	for (d = descriptor_list; d != NULL; d = d_next) {
-		d_next		= d->next;
+	for (d = descriptor_list;
+	     (d = vo_foreach_cond(NULL, &iter_descriptor, 1,
+				  d, (void **) &d_next)) != NULL;
+	     d = d_next) {
 		d->fcommand	= FALSE;
+
+		if (FD_ISSET(d->descriptor, exc_set)) {
+			/*
+			 * Kick out the freaky folks.
+			 */
+			outbuf_flush(d);
+			close_descriptor(d, SAVE_F_NORMAL);
+			continue;
+		}
 
 		if (FD_ISSET(d->descriptor, in_set)) {
 			/*
@@ -757,6 +756,7 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 				d->incomm[0]	= '\0';
 		}
 	}
+	vo_foreach_destroy(NULL, &iter_descriptor, NULL, d_next);
 
 	/*
 	 * Autonomous game motion.
