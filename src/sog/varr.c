@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.7 1999-03-08 13:56:05 fjoe Exp $
+ * $Id: varr.c,v 1.8 1999-03-18 16:14:23 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -77,7 +77,7 @@ void *varr_insert(varr *v, size_t i)
 	if (i >= v->nused)
 		return varr_touch(v, i);
 	varr_enew(v);
-	memcpy(VARR_GET(v, i+1), VARR_GET(v, i), v->nsize*(v->nused-1 - i));
+	memmove(VARR_GET(v, i+1), VARR_GET(v, i), v->nsize*(v->nused-1 - i));
 	return memset(VARR_GET(v, i), 0, v->nsize);
 }
 
@@ -88,7 +88,7 @@ void varr_del(varr *v, void *p)
 	if (!v->nused || i >= v->nused || i >= --v->nused)
 		return;
 
-	memcpy(VARR_GET(v, i), VARR_GET(v, i+1), v->nsize*(v->nused - i));
+	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->nsize*(v->nused - i));
 }
 
 void varr_qsort(varr* v, int (*cmpfun)(const void*, const void*))

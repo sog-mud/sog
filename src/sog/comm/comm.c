@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.163 1999-03-16 11:06:35 fjoe Exp $
+ * $Id: comm.c,v 1.164 1999-03-18 16:14:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -907,7 +907,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			q = p+2;
 			break;
 		}
-		strnzcpy(p, sizeof(d->inbuf) - ((char*) p - d->inbuf + 1), q);
+		memmove(p, q, strlen(q)+1);
 	} 
 
 	return TRUE;
