@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.38 1998-06-20 23:21:28 efdi Exp $
+ * $Id: quest.c,v 1.39 1998-06-23 15:22:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,9 @@
 #define QUEST_VNUM_GIRTH	94
 #define QUEST_VNUM_RING		95
 #define QUEST_VNUM_WEAPON	96
+#define QUEST_VNUM_SWORD	31
+#define QUEST_VNUM_DAGGER	32
+#define QUEST_VNUM_MACE		33
 
 #define TROUBLE_MAX 3
 
@@ -131,8 +134,41 @@ struct qitem_data qitem_table[] = {
 	{ "the Ring of Real Heroism",	1000, CLASS_NONE,
 	   QUEST_VNUM_RING, NULL				},
 
-	{ "the Real Hero's Weapon",	1000, CLASS_NONE,
-	   QUEST_VNUM_WEAPON, NULL				},
+	{ "the Real Hero's Dagger",	1000, CLASS_WITCH,
+	   QUEST_VNUM_DAGGER, NULL				},
+
+	{ "the Real Hero's Mace",	1000, CLASS_CLERIC,
+	   QUEST_VNUM_MACE, NULL				},
+
+	{ "the Real Hero's Dagger",	1000, CLASS_THIEF,
+	   QUEST_VNUM_DAGGER, NULL				},
+
+	{ "the Real Hero's Sword",	1000, CLASS_WARRIOR,
+	   QUEST_VNUM_SWORD, NULL				},
+
+	{ "the Real Hero's Sword",	1000, CLASS_PALADIN,
+	   QUEST_VNUM_SWORD, NULL				},
+
+	{ "the Real Hero's Sword",	1000, CLASS_ANTI_PALADIN,
+	   QUEST_VNUM_SWORD, NULL				},
+
+	{ "the Real Hero's Dagger",	1000, CLASS_NINJA,
+	   QUEST_VNUM_DAGGER, NULL				},
+
+	{ "the Real Hero's Sword",	1000, CLASS_RANGER,
+	   QUEST_VNUM_SWORD, NULL				},
+
+	{ "the Real Hero's Dagger",	1000, CLASS_WARLOCK,
+	   QUEST_VNUM_DAGGER, NULL				},
+
+	{ "the Real Hero's Sword",	1000, CLASS_SAMURAI,
+	   QUEST_VNUM_SWORD, NULL				},
+
+	{ "the Real Hero's Dagger",	1000, CLASS_VAMPIRE,
+	   QUEST_VNUM_DAGGER, NULL				},
+
+	{ "the Real Hero's Dagger",	1000, CLASS_NECROMANCER,
+	   QUEST_VNUM_DAGGER, NULL				},
 
 	{ "350,000 gold pieces",	 500, CLASS_NONE,
 	   0, buy_gold						},
@@ -473,13 +509,8 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 			bool buy_ok = FALSE;
 
 			if (qitem->class != CLASS_NONE
-			&&  qitem->class != ch->class) {
-				quest_tell(ch, questor,
-					   msg(QUEST_WRONG_CLASS, ch),
-					   ch->name,
-					   class_table[qitem->class].name);
-				return;
-			}
+			&&  qitem->class != ch->class)
+				continue;
 
 			if (ch->pcdata->questpoints < qitem->price) {
 				quest_tell(ch, questor,

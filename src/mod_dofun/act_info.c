@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.81 1998-06-22 10:04:26 fjoe Exp $
+ * $Id: act_info.c,v 1.82 1998-06-23 15:22:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1638,8 +1638,8 @@ void do_help(CHAR_DATA *ch, char *argument)
 	/*
 	 * prevent spamming
 	 */
-	if (strlen(argall) < 3) {
-		char_puts("Help topic must be at least 3 characters long.\n\r",
+	if (strlen(argall) < 2) {
+		char_puts("Help topic must be at least 2 characters long.\n\r",
 			  ch);
 		return;
 	}
