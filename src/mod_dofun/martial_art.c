@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.137 1999-12-04 13:39:11 kostik Exp $
+ * $Id: martial_art.c,v 1.138 1999-12-06 11:10:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -671,8 +671,9 @@ void do_gash(CHAR_DATA *ch, const char *argument) {
 					act("Your dagger only scratches  "
 					"$N's $p.", ch, gauntlets, 
 					victim, TO_CHAR);
-					act("$n's dagger scratches your $p.", 
-					ch, gauntlets, victim, TO_VICT);
+					act("$n's dagger leaves a few scratches
+					on your $p.", ch, gauntlets, victim,
+					TO_VICT);
 					damage_to_obj(victim, dagger, gauntlets,
 						number_range(30, 40));
 					break;

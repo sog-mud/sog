@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.183 1999-12-04 13:39:10 kostik Exp $
+ * $Id: act_obj.c,v 1.184 1999-12-06 11:10:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1756,9 +1756,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		char_puts("You got it!\n", ch);
 		check_improve(ch, "steal", TRUE, 2);
 	} else {
-		obj_inve = NULL;
-		obj_inve = create_obj(obj->pObjIndex, 0);
-		clone_obj(obj, obj_inve);
+		obj_inve = clone_obj(obj);
 		REMOVE_BIT(obj_inve->extra_flags, ITEM_INVENTORY);
 		obj_to_char(obj_inve, ch);
 		char_puts("You got one of them!\n", ch);

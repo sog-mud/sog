@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.67 1999-12-03 11:57:16 fjoe Exp $
+ * $Id: olc_obj.c,v 1.68 1999-12-06 11:10:20 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -893,7 +893,10 @@ OLC_FUN(objed_clone)
 	mlstr_cpy(&pObj->short_descr, &pFrom->short_descr);
 	mlstr_cpy(&pObj->description, &pFrom->description);
 
+	objval_destroy(pObj->item_type, pObj->value);
 	pObj->item_type		= pFrom->item_type;
+	objval_cpy(pFrom->item_type, pObj->value, pFrom->value);
+
 	pObj->extra_flags	= pFrom->extra_flags;
 	pObj->wear_flags	= pFrom->wear_flags;
 	pObj->level		= pFrom->level;
@@ -901,7 +904,6 @@ OLC_FUN(objed_clone)
 	pObj->weight		= pFrom->weight;
 	pObj->cost		= pFrom->cost;
 	pObj->limit		= pFrom->limit;
-	objval_cpy(pFrom->item_type, pObj->value, pFrom->value);
 
 /* copy affects */
 	for (paf = pObj->affected; paf; paf = paf_next) {

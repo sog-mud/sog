@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.189 1999-12-03 11:57:18 fjoe Exp $
+ * $Id: db.c,v 1.190 1999-12-06 11:10:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1350,15 +1350,17 @@ CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
 }
 
 /* duplicate a mobile exactly -- except inventory */
-void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
+CHAR_DATA *
+clone_mob(CHAR_DATA *parent)
 {
 	int i;
 	AFFECT_DATA *paf;
+	CHAR_DATA *clone;
 
-	if (parent == NULL || clone == NULL || !IS_NPC(parent))
-		return;
-	
+	clone = create_mob(parent->pMobIndex);
+
 	/* start fixing values */ 
+	free_string(clone->name);
 	clone->name 		= str_qdup(parent->name);
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->long_descr, &parent->long_descr);
@@ -1401,13 +1403,14 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->form		= parent->form;
 	clone->parts		= parent->parts;
 	clone->size		= parent->size;
+	free_string(clone->material);
 	clone->material		= str_qdup(parent->material);
+	free_string(clone->damtype);
 	clone->damtype		= str_qdup(parent->damtype);
 	clone->hunting		= NULL;
 	free_string(clone->clan);
 	clone->clan	= str_qdup(parent->clan);
 	NPC(clone)->dam	= NPC(parent)->dam;
-
 
 	for (i = 0; i < 4; i++)
 		clone->armor[i]	= parent->armor[i];
@@ -1417,10 +1420,13 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 		clone->mod_stat[i]	= parent->mod_stat[i];
 	}
 
-	/* now add the affects */
+	/*
+	 * clone affects
+	 */
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_char(clone,paf);
+		affect_to_char(clone, paf);
 
+	return clone;
 }
 
 /*
@@ -1448,10 +1454,14 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	obj->material		= str_qdup(pObjIndex->material);
 	obj->extra_flags	= pObjIndex->extra_flags;
 	obj->wear_flags		= pObjIndex->wear_flags;
-	objval_cpy(pObjIndex->item_type, obj->value, pObjIndex->value);
 	obj->weight		= pObjIndex->weight;
 	obj->condition		= pObjIndex->condition;
 	obj->cost		= pObjIndex->cost;
+
+	/*
+	 * objval_destroy is not needed since obj was just created
+	 */
+	objval_cpy(pObjIndex->item_type, obj->value, pObjIndex->value);
 
 	/*
 	 * Mess with object properties.
@@ -1486,16 +1496,19 @@ OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 }
 
 /* duplicate an object exactly -- except contents */
-void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
+OBJ_DATA *
+clone_obj(OBJ_DATA *parent)
 {
 	AFFECT_DATA *paf;
-	ED_DATA *ed,*ed2;
+	ED_DATA *ed, *ed2;
+	OBJ_DATA *clone;
 
-	if (parent == NULL || clone == NULL)
-		return;
+	clone = create_obj(parent->pObjIndex, 0);
 
 	/* start fixing the object */
+	free_string(clone->name);
 	clone->name 		= str_qdup(parent->name);
+
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->description, &parent->description);
 	clone->extra_flags	= parent->extra_flags;
@@ -1507,12 +1520,22 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->material		= str_qdup(parent->material);
 	clone->timer		= parent->timer;
 	mlstr_cpy(&clone->owner, &parent->owner);
+
+	/*
+	 * obj values
+	 */
+	objval_destroy(parent->pObjIndex->item_type, clone->value);
 	objval_cpy(parent->pObjIndex->item_type, clone->value, parent->value);
 
+	/*
+	 * affects
+	 */
 	for (paf = parent->affected; paf != NULL; paf = paf->next) 
-		affect_to_obj(clone,paf);
+		affect_to_obj(clone, paf);
 
-	/* extended desc */
+	/*
+	 * extended desc
+	 */
 	for (ed = parent->ed; ed != NULL; ed = ed->next) {
 		ed2		= ed_new();
 		ed2->keyword	= str_qdup(ed->keyword);
@@ -1521,6 +1544,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 		clone->ed	= ed2;
 	}
 
+	return clone;
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.84 1999-12-04 08:52:31 fjoe Exp $
+ * $Id: recycle.c,v 1.85 1999-12-06 11:10:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -791,6 +791,10 @@ void objval_init(flag32_t item_type, vo_t *v)
 	}
 }
 
+/*
+ * copy obj values from src to dst
+ * dst is assumed to be freed before the call
+ */
 void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 {
 	int i;
@@ -805,7 +809,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	case ITEM_FOUNTAIN:
 		dst[0] = src[0];
 		dst[1] = src[1];
-		STR_ASSIGN(dst[2], str_qdup(src[2].s));
+		dst[2] = str_qdup(src[2].s);
 		dst[3] = src[3];
 		dst[4] = src[4];
 		break;
@@ -816,7 +820,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 		dst[0] = src[0];
 		dst[1] = src[1];
 		dst[2] = src[2];
-		STR_ASSIGN(dst[3], str_qdup(src[3].s));
+		dst[3] = str_qdup(src[3].s);
 		dst[4] = src[4];
 		break;
 
@@ -825,7 +829,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	case ITEM_SCROLL:
 		dst[0] = src[0];
 		for (i = 1; i < 5; i++)
-			STR_ASSIGN(dst[i], str_qdup(src[i].s));
+			dst[i] = str_qdup(src[i].s);
 		break;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.295 1999-12-04 08:48:43 fjoe Exp $
+ * $Id: act_info.c,v 1.296 1999-12-06 11:10:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2161,8 +2161,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	bear->armor[3] = interpolate(bear->level, 100, 0);
 	bear->gold = 0;
 
-	bear2 = create_mob(bear->pMobIndex);
-	clone_mob(bear, bear2);
+	bear2 = clone_mob(bear);
 
 	SET_BIT(bear->affected_by, AFF_CHARM);
 	SET_BIT(bear2->affected_by, AFF_CHARM);
@@ -2857,8 +2856,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->gold = 0;
 
-	lion2 = create_mob(lion->pMobIndex);
-	clone_mob(lion, lion2);
+	lion2 = clone_mob(lion);
 
 	SET_BIT(lion->affected_by, AFF_CHARM);
 	SET_BIT(lion2->affected_by, AFF_CHARM);

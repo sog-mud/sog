@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.207 1999-12-04 08:48:44 fjoe Exp $
+ * $Id: act_wiz.c,v 1.208 1999-12-06 11:10:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1921,11 +1921,10 @@ static void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 {
 	OBJ_DATA *c_obj, *t_obj;
 	for (c_obj = obj->contains; c_obj != NULL; c_obj = c_obj->next_content) {
-			t_obj = create_obj(c_obj->pObjIndex, 0);
-			clone_obj(c_obj, t_obj);
-			obj_to_obj(t_obj, clone);
-			recursive_clone(ch, c_obj, t_obj);
-		}
+		t_obj = clone_obj(c_obj);
+		obj_to_obj(t_obj, clone);
+		recursive_clone(ch, c_obj, t_obj);
+	}
 }
 
 /* command that is similar to load */
@@ -1970,8 +1969,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	if (obj) {
 		OBJ_DATA *clone;
 
-		clone = create_obj(obj->pObjIndex, 0); 
-		clone_obj(obj, clone);
+		clone = clone_obj(obj);
 		if (obj->carried_by != NULL)
 		    obj_to_char(clone, ch);
 		else
@@ -1992,16 +1990,14 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		clone = create_mob(mob->pMobIndex);
-		clone_mob(mob, clone); 
+		clone = clone_mob(mob); 
 		
 		for (obj = mob->carrying; obj != NULL; obj = obj->next_content) {
-				new_obj = create_obj(obj->pObjIndex, 0);
-				clone_obj(obj, new_obj);
-				recursive_clone(ch, obj, new_obj);
-				obj_to_char(new_obj, clone);
-				new_obj->wear_loc = obj->wear_loc;
-			}
+			new_obj = clone_obj(obj);
+			recursive_clone(ch, obj, new_obj);
+			obj_to_char(new_obj, clone);
+			new_obj->wear_loc = obj->wear_loc;
+		}
 		act("$n has created $N.", ch, NULL, clone, TO_ROOM);
 		act("You clone $N.", ch, NULL, clone, TO_CHAR);
 		wiznet("$N clones $i.",

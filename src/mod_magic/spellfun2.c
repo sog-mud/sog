@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.151 1999-12-03 11:57:19 fjoe Exp $
+ * $Id: spellfun2.c,v 1.152 1999-12-06 11:10:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -688,8 +688,7 @@ void spell_guard_call(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	NPC(guard)->dam.dice_type = number_range(level/4, level/3);
 	guard->damroll = number_range(level/10, level/8);
 
-	guard2 = create_mob(guard->pMobIndex);
-	clone_mob(guard,guard2);
+	guard2 = clone_mob(guard);
 	
 	SET_BIT(guard->affected_by, AFF_CHARM);
 	SET_BIT(guard2->affected_by, AFF_CHARM);

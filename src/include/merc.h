@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.264 1999-12-04 08:52:28 fjoe Exp $
+ * $Id: merc.h,v 1.265 1999-12-06 11:10:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2115,14 +2115,14 @@ void		boot_db		(void);
 
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
 CHAR_DATA *	create_mob_of	(MOB_INDEX_DATA *pMobIndex, mlstring *owner);
-void		clone_mob	(CHAR_DATA *parent, CHAR_DATA *clone);
+CHAR_DATA *	clone_mob	(CHAR_DATA *parent);
 
 /* create_obj flags */
 #define CO_F_NOCOUNT	(A)	/* do not update obj count */
 
 OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int flags);
 OBJ_DATA *	create_obj_of	(OBJ_INDEX_DATA *pObjIndex, mlstring *owner);
-void		clone_obj	(OBJ_DATA *parent, OBJ_DATA *clone); 
+OBJ_DATA *	clone_obj	(OBJ_DATA *parent); 
 
 void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
