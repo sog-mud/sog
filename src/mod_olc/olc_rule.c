@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.1 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_rule.c,v 1.2 1999-03-09 15:36:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -260,7 +260,7 @@ OLC_FUN(ruleed_show)
 		    rops->id);
 
 	if (rops->id == ED_IMPL) 
-		char_printf(ch, "Base: [%d]\n", r->arg);
+		char_printf(ch, "Arg:  [%d]\n", r->arg);
 	else {
 		char buf[MAX_STRING_LENGTH];
 
@@ -272,7 +272,7 @@ OLC_FUN(ruleed_show)
 		char **p = VARR_GET(&r->f->v, i);
 
 		if (!IS_NULLSTR(*p))
-			char_printf(ch, "Rule: [%d] [%s]\n", i, *p);
+			char_printf(ch, "Form: [%d] [%s]\n", i, *p);
 	}
 
 	return FALSE;
