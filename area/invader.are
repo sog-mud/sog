@@ -73,7 +73,7 @@ darkness~
 ~
 ~
 unique~
-BOc BDFKPglmu -10000 0
+ABOc BDFKPglmu -10000 0
 200 0 1d1+1000000 0d0+0 0d0+0 blast
 0 0 0 0
 G ABCDEFGHIJKLMNOPQRTUXYZ 0 0
@@ -145,6 +145,15 @@ furniture CER P
 ACD 0 IL DGH DGH
 0 0 0 P
 G female
+#95607
+fountain blood~
+@eng bloody fountain@rus ~~фонтан~~~
+@eng Stream of rancid {rblood{x splash all over you.@rus Поток прогорклой {rкрови{x окатил тебя с головы до ног.~
+stone~
+fountain BJ P
+0 0 'blood' 0 0
+0 0 0 P
+G male
 #0
 
 #ROOMS
@@ -157,7 +166,7 @@ shadows watching you!
 валуном.  Вдруг, холодок страха плеснул тебе в лицо - ты почуствовал, что
 тени следят за тобой.  
 ~
-0 ACDK inside
+0 ACDNTX inside
 D0
 ~
 ~
@@ -182,7 +191,7 @@ well.
 огромного человека.  Лучше оставь попытки померятся с ним силами на будущее
 и выбирайся из колодца.  
 ~
-0 ACDK inside
+0 ACDNTX inside
 D0
 @eng The doorway leads to a well lit chamber. On the wall is a huge shadow.
 @rus Путь ведет в хорошо освещенный зал.  На стене перед входом видна огромая
@@ -205,7 +214,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?  
 ~
-0 ADN inside
+0 DNTX inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -223,7 +232,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADN inside
+0 ADNT inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -241,7 +250,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADN inside
+0 ADNT inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -259,7 +268,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADN inside
+0 ADTX inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -279,7 +288,7 @@ have been heard.
 выхода ты продолжаешь спускаться вниз.  ЧТО ждет тебя на дне?  Ты отчаянно
 молишь об освобождении - безнадежно.  Кто услышит тебя?  
 ~
-0 ADKN inside
+0 ADNTX inside
 D5
 @eng Falling further into the black pit or to the death.
 @rus Провал уводит дальше, в черную яму и смерти.
@@ -297,7 +306,7 @@ mostly about death, eg. skulls, demon claws, fangs...
 следы мощнейшей магии.  Повсюду высечены изображения демонов, черепов,
 клыков...  Ты вспомнил о смерти...  К чему бы это?  
 ~
-0 ADK inside
+0 ACDNTX inside
 D0
 It's dark to tell anything.
 ~
@@ -383,7 +392,7 @@ Z 0 95611
 D4
 ~
 ~
-ABDFGIZ 0 95612
+Z 0 95612
 S
 #95611
 @eng Dark tunnel@rus Темный туннель~
@@ -399,13 +408,9 @@ D2
 Z 0 95610
 S
 #95612
+@eng Bloody Grotto@rus Кровавый Грот~
 ~
-~
-0 0 inside
-D5
-~
-~
-Z 0 95610
+0 ANX inside
 S
 #0
 
@@ -418,7 +423,6 @@ S
 D 0 95600 5 1	* The Well: door to the down: closed
 D 0 95601 4 1	* Bottom of the Well: door to the up: closed
 D 0 95607 5 1	* Shadowy chambers: door to the down: closed
-D 0 95610 4 1	* Vampires Lair: door to the up: closed
 M 0 95600 1 95607 1	* the invader guardian (Shadowy chambers)
 E 0 95602 0 17		*	darkish jaw of a skull: held in the hands
 M 0 95601 1 95608 1	* the evil cleric (The Pentagram)
@@ -429,6 +433,7 @@ O 0 95606 0 95608	* shadow (The Pentagram)
 O 0 95600 0 95608	* the skull (The Pentagram)
 P 0 95601 1 95600 1	* the skull: the nothing globe
 M 0 95602 1 95610 1	* bruks (Vampires Lair)
+O 0 95607 0 95612	* bloody fountain (Bloody Grotto)
 S
 
 #MOBPROGS

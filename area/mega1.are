@@ -488,9 +488,10 @@ G none
 
 #ROOMS
 #8001
-Entrance to Mega-City One~
-A road begins here in the glowing sands.  You follow it through a gate
+@eng Entrance to Mega-City One@rus Вход в Mega-City One~
+@eng A road begins here in the glowing sands.  You follow it through a gate
 in a Plasteen wall onto the Megway of Mega-City One.
+@rus Здесь, в золотых песках, свой путь начинает Megway - главная дорога Mega-City One.
 ~
 0 0 city
 D0
@@ -506,8 +507,10 @@ Z 0 8002
 S
 #8002
 Mahmount Allesh Megway~
-You are on one mile of over 13 and a half billion kilometers of
+@eng You are on one mile of over 13 and a half billion kilometers of
 roadway in Mega-City One.  The Megway continues north and south.
+@rus Вы находитесь на первой миле из всех 13-ти с половиной миллиардов километров разных
+дорог в Mega-City One.  Megway продолжается на север (north) и юг (south).
 ~
 0 0 city
 D0

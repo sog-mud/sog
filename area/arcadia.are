@@ -2736,16 +2736,16 @@ D1
 Z -1 12039
 S
 #12041
-@eng The Deep end of the Lake@rus В глубине озера~
+@eng The Deep end of the Lake@rus Озеро~
 @eng You are in the depths of a lake of crystal blue waters.  The cool 
 waters carress and soothe your aches.  The water seems so peaceful that 
 you don't ever want to leave.  The lake extends to the north and east 
 while a rock face borders it to the west and south.
-@rus Ты находишься в глубине озера с кристально чистой голубой водой. 
-Холодная вола ласкает твое тело и притупляет твою боль.  Здесь столь
-спокойно и прекрасно, что тебе совсем не хочется покидать этого места. 
-Озеро простирается дальше на север и на восток.  А большая скала
-загораживает южное и западное направления.  
+@rus Ты заплыл в самую глубь этого удивительного заповедного озера. Холодная
+вода нежно ласкает все твое тело и все печали и заботы отходят на второй
+план. Здесь столь спокойно и так прекрасно, что тебе совсем не хочется
+покидать этого места. Совсем недалеко от тебя из воды торчит огромная
+скала, загораживая всю южную оконечность озера.
 ~
 0 0 noswim
 D0
@@ -2763,10 +2763,15 @@ Z -1 12042
 S
 #12042
 @eng The Lake Shore@rus На берегу озера~
-You stand in the shallows of a blue crystal lake.  The water is warm 
+@eng You stand in the shallows of a blue crystal lake.  The water is warm 
 and inviting and you catch glimpses of what look like swimmers farther 
 out in the lake to the west.  To the south a rock face blocks all 
 movement and to the north is more of the shore.
+@rus Ты стоишь на мелководье. Прямо перед тобой раскинулось прекрасное озеро.
+Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
+набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
+дальше и дальше в глубину озера. На юге вода с шумом разбивается на тысячи
+мельчайших капелек о большой валун, непонятно откуда тут взявшийся. 
 ~
 0 0 swim
 D0
@@ -2786,11 +2791,15 @@ The Deep end of the Lake
 Z -1 12041
 S
 #12043
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver 
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2810,11 +2819,15 @@ The Lake Shore
 Z -1 12042
 S
 #12044
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2839,11 +2852,15 @@ An Enchanted Forest
 Z -1 12043
 S
 #12045
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2863,11 +2880,15 @@ An Enchanted Forest
 Z -1 12044
 S
 #12046
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2887,11 +2908,15 @@ An Enchanted Forest
 Z -1 12045
 S
 #12048
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2906,11 +2931,15 @@ An Enchanted Forest
 Z -1 12046
 S
 #12049
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2930,11 +2959,15 @@ An Enchanted Forest
 Z -1 12050
 S
 #12050
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2959,11 +2992,15 @@ An Enchanted Forest
 Z -1 12051
 S
 #12051
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -2988,11 +3025,15 @@ An Enchanted Forest
 Z -1 12052
 S
 #12052
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3017,11 +3058,15 @@ An Enchanted Forest
 Z -1 12053
 S
 #12053
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3046,11 +3091,17 @@ The Lake Shore
 Z -1 12054
 S
 #12054
-The Lake Shore~
-You stand in the shallows of a blue crystal lake.  The water is warm
+@eng The Lake Shore@rus На берегу озера~
+@eng You stand in the shallows of a blue crystal lake.  The water is warm
 and inviting and you catch glimpses of what look like swimmers farther
 out in the lake to the west.  To the south and to the north is more of the 
 shore and the Forest lies east..
+@rus Ты стоишь на мелководье. Прямо перед тобой раскинулось прекрасное озеро.
+Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
+набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
+дальше и дальше в глубину озера. Магический заповедный лес подходит здесь
+к самой воде. Старые ивы тихонько перешептываютя, склонив к самой воде свои
+ветви.
 ~
 0 0 swim
 D0
@@ -3075,11 +3126,15 @@ The Deep end of the Lake
 Z -1 12055
 S
 #12055
-The Deep end of the Lake~
-You are in the depths of a lake of crystal blue waters.  The cool
+@eng The Deep end of the Lake@rus Озеро~
+@eng You are in the depths of a lake of crystal blue waters.  The cool
 waters carress and soothe your aches.  The water seems so peaceful that
 you don't ever want to leave.  The lake extends to the north, south and east
 while a rock face borders it to the west.
+@rus Ты заплыл в самую глубь этого удивительного заповедного озера. Холодная 
+вода нежно ласкает все твое тело и все печали и заботы отходят на второй
+план. Здесь столь спокойно и так прекрасно, что тебе совсем не хочется 
+покидать этого места.
 ~
 0 0 noswim
 D0
@@ -3099,11 +3154,17 @@ The Deep end of the Lake.
 Z -1 12041
 S
 #12056
-The Lake Shore~
-You stand in the shallows of a blue crystal lake.  The water is warm
+@eng The Lake Shore@rus На берегу озера~
+@eng You stand in the shallows of a blue crystal lake.  The water is warm
 and inviting and you catch glimpses of what look like swimmers farther
-out in the lake to the south.  To the west a rock face blocks all
+out in the lake to the south.  To the west a rock face blocks all  
 movement to the east is more of the shore and the Forest is north.
+@rus Ты стоишь на мелководье. Прямо перед тобой раскинулось прекрасное озеро.
+Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
+набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
+дальше и дальше в глубину озера. Магический заповедный лес подходит здесь
+к самой воде. Старые ивы тихонько перешептываютя, склонив к самой воде свои
+ветви.
 ~
 0 0 swim
 D0
@@ -3123,11 +3184,17 @@ The Deep end of the Lake
 Z -1 12055
 S
 #12057
-The Lake Shore~
-You stand in the shallows of a blue crystal lake.  The water is warm
+@eng The Lake Shore@rus На берегу озера~
+@eng You stand in the shallows of a blue crystal lake.  The water is warm
 and inviting and you catch glimpses of what look like swimmers farther
-out in the lake. The lake extends to the south and west and the Forest is 
-to the north and east.
+out in the lake. The lake extends to the south and west and the Forest is  
+to the north and east. 
+@rus Ты стоишь на мелководье. Прямо перед тобой раскинулось прекрасное озеро.
+Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
+набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
+дальше и дальше в глубину озера. Магический заповедный лес подходит здесь
+к самой воде. Старые ивы тихонько перешептываютя, склонив к самой воде свои
+ветви.
 ~
 0 0 swim
 D0
@@ -3152,11 +3219,15 @@ The Lake Shore
 Z -1 12056
 S
 #12059
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3181,11 +3252,15 @@ The Lake Shore
 Z -1 12057
 S
 #12060
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3210,11 +3285,15 @@ An Enchanted Forest
 Z -1 12059
 S
 #12061
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3239,11 +3318,15 @@ An Enchanted Forest
 Z -1 12060
 S
 #12062
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3268,11 +3351,15 @@ An Enchanted Forest
 Z -1 12061
 S
 #12063
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3292,12 +3379,16 @@ An Enchanted Forest
 Z -1 12062
 S
 #12064
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form 
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form 
 the earth up into the heavens seemingly holding up the sky itself.  
 Further into the forest it seems as if the sky is the trees as the canopy 
 above obscures all but fleeting glimpses of blue skies.  A meadow extends 
 to the north and the forest extends to the south and west.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх,
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга.
 ~
 0 0 forest
 D0
@@ -3317,12 +3408,16 @@ The Forest Edge
 Z -1 12065
 S
 #12065
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form
 the earth up into the heavens seemingly holding up the sky itself.
 Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх,
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они 
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга.  
 ~
 0 0 forest
 D0
@@ -3347,12 +3442,16 @@ The Forest Edge
 Z -1 12066
 S
 #12066
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form
 the earth up into the heavens seemingly holding up the sky itself.
 Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх,
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они 
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга.  
 ~
 0 0 forest
 D0
@@ -3377,12 +3476,16 @@ The Forest Edge
 Z -1 12067
 S
 #12067
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form
 the earth up into the heavens seemingly holding up the sky itself.
 Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх,
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они 
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга.  
 ~
 0 0 forest
 D0
@@ -3407,12 +3510,17 @@ The Forest Edge
 Z -1 12068
 S
 #12068
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form
 the earth up into the heavens seemingly holding up the sky itself.
 Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A meadow extends
 to the north and the forest extends in all other directions.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх,
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они 
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга.  
+ 
 ~
 0 0 forest
 D0
@@ -3437,12 +3545,15 @@ The Forest Edge
 Z -1 12069
 S
 #12069
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
-the earth up into the heavens seemingly holding up the sky itself.
-Further into the forest it seems as if the sky is the trees as the canopy
-above obscures all but fleeting glimpses of blue skies. The forest extends in
-all  directions.
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
+difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3467,11 +3578,15 @@ The Forest Edge
 Z -1 12070
 S
 #12070
-An Enchanted Forest~
-All around you are massive trees with emerald leaves and silver
-bark.  The forest floor is covered in flowers and soft mosses.  Sunlight
-filters softly through the canopy above lighting the world with a soft
+@eng An Enchanted Forest@rus Колдовской лес~
+@eng All around you are massive trees with emerald leaves and silver 
+bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
+filters softly through the canopy above lighting the world with a soft 
 difused glow.
+@rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
+листьями и серебристой корой. Землю сплошным ковром покрывают самые
+разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
+весело играются с капельками росы.
 ~
 0 0 forest
 D0
@@ -3491,12 +3606,16 @@ The Lake Shore
 Z -1 12056
 S
 #12071
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form
 the earth up into the heavens seemingly holding up the sky itself.
 Further into the forest it seems as if the sky is the trees as the canopy
-above obscures all but fleeting glimpses of blue skies. The wall of an 
-Inn lies to the north and the forest extends in all other directions.
+above obscures all but fleeting glimpses of blue skies.  A meadow extends
+to the north and the forest extends in all other directions.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх,
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они 
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга.  
 ~
 0 0 forest
 D1
@@ -3511,13 +3630,18 @@ An Enchanted Forest
 Z -1 12070
 S
 #12072
-The Forest Edge~
-You stand on the edge of a great forest.  Ancient trunks extend form
+@eng The Forest Edge@rus Лесная опушка~
+@eng You stand on the edge of a great forest.  Ancient trunks extend form
 the earth up into the heavens seemingly holding up the sky itself.
 Further into the forest it seems as if the sky is the trees as the canopy
 above obscures all but fleeting glimpses of blue skies.  A dirt road is
 to the north, a meadow to the east and the forest extends in all other 
 directions.
+@rus Ты стоишь на опушке великого леса. Старые могучие стволы тянутся вверх, 
+словно пытаясь достать своими ветвями до небес. Глубже в лесу они 
+своими кронами почти совсем скрыли голубое небо. Там, где кончается лес,
+начинаются и тянуться до самого горизонта сочные травяные луга. На севере
+виднеется какая-то дорога.
 ~
 0 0 forest
 D0
@@ -3542,12 +3666,16 @@ The Forest Edge
 Z -1 12071
 S
 #12073
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing 
-array of flowers.  The miasma of scents makes you slightly dizzy and the 
-swirl of colors as the flowers sway in the breeze doesn't help you 
-concentrate.  To the north there is a dirt road and off to the north east 
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
+array of flowers.  The miasma of scents makes you slightly dizzy and the
+swirl of colors as the flowers sway in the breeze doesn't help you
+concentrate.  To the north there is a dirt road and to the north
 you see a hill with a glorious castle on top.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы, 
+витающие в воздухе, столь сильны, что вызывают головокружение. На
+севере виднеется дорога, по-видимому ведущая к замку на холме.
 ~
 0 0 field
 D0
@@ -3572,12 +3700,16 @@ The Forest Edge
 Z -1 12072
 S
 #12074
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  To the north there is a dirt road and to the north
 you see a hill with a glorious castle on top.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы, 
+витающие в воздухе, столь сильны, что вызывают головокружение. На
+севере виднеется дорога, по-видимому ведущая к замку на холме.
 ~
 0 0 field
 D0
@@ -3602,12 +3734,17 @@ The Flower Meadow
 Z -1 12073
 S
 #12075
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
-on top and the meadow extends northward. 
+on top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы, 
+витающие в воздухе, столь сильны, что вызывают головокружение. На
+северо-западе виден холм, на вершине которого расположен какой-то
+замок.
 ~
 0 0 field
 D0
@@ -3632,12 +3769,17 @@ The Flower Meadow
 Z -1 12074
 S
 #12076
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы, 
+витающие в воздухе, столь сильны, что вызывают головокружение. На
+северо-западе виден холм, на вершине которого расположен какой-то
+замок.
 ~
 0 0 field
 D0
@@ -3662,12 +3804,17 @@ The Flower Meadow
 Z -1 12075
 S
 #12077
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate.  Off to the north west you see a hill with a glorious castle 
 on top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы, 
+витающие в воздухе, столь сильны, что вызывают головокружение. На
+северо-западе виден холм, на вершине которого расположен какой-то
+замок.
 ~
 0 0 field
 D0
@@ -3687,11 +3834,15 @@ The Flower Meadow
 Z -1 12076
 S
 #12078
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,  
+витающие в воздухе, столь сильны, что вызывают головокружение. На  
+западе виден холм, на вершине которого расположен какой-то замок.
 ~
 0 0 field
 D0
@@ -3711,11 +3862,15 @@ The Flower Meadow
 Z -1 12079
 S
 #12079
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,  
+витающие в воздухе, столь сильны, что вызывают головокружение. На  
+западе виден холм, на вершине которого расположен какой-то замок.
 ~
 0 0 field
 D0
@@ -3740,11 +3895,15 @@ The Flower Meadow
 Z -1 12080
 S
 #12080
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,  
+витающие в воздухе, столь сильны, что вызывают головокружение. На  
+западе виден холм, на вершине которого расположен какой-то замок.
 ~
 0 0 field
 D0
@@ -3948,12 +4107,16 @@ The Flower Meadow
 Z -1 12086
 S
 #12089
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,  
+витающие в воздухе, столь сильны, что вызывают головокружение. На   
+юго-западе виден холм, на вершине которого расположен какой-то замок.
 ~
 0 0 field
 D0
@@ -3978,12 +4141,16 @@ Behind the Hill
 Z -1 12156
 S
 #12090
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,  
+витающие в воздухе, столь сильны, что вызывают головокружение. На   
+юго-западе виден холм, на вершине которого расположен какой-то замок.
 ~
 0 0 field
 D0
@@ -4008,11 +4175,15 @@ The Flower Meadow
 Z -1 12089
 S
 #12091
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the west you see a hill with a glorious castle on top.
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,  
+витающие в воздухе, столь сильны, что вызывают головокружение. На  
+западе виден холм, на вершине которого расположен какой-то замок.
 ~
 0 0 field
 D0
@@ -4033,11 +4204,16 @@ Z -1 12090
 S
 #12092
 The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on 
 top. To the north mountains rise sharply out of the ground. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,
+витающие в воздухе, столь сильны, что вызывают головокружение. На 
+юге виден холм, на вершине которого расположен какой-то замок. А на
+севере по напрвлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D2
@@ -4053,11 +4229,16 @@ Z -1 12093
 S
 #12093
 The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
-concentrate. Off to the south west you see a hill with a glorious castle on
-top. To the north mountains rise sharply out of the ground.
+concentrate. Off to the south west you see a hill with a glorious castle on 
+top. To the north mountains rise sharply out of the ground. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,
+витающие в воздухе, столь сильны, что вызывают головокружение. На 
+юге виден холм, на вершине которого расположен какой-то замок. А на
+севере по напрвлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D1
@@ -4077,12 +4258,17 @@ The Flower Meadow
 Z -1 12094
 S
 #12094
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
 concentrate. Off to the south west you see a hill with a glorious castle on
 top. To the north a steep path winds up the mountain.
+@rus Все вокруг усыпано разноцветными цветами.  Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор.  Цветочные ароматы, витающие
+в воздухе, столь сильны, что вызывают головокружение.  На юге виден холм, на
+вершине которого расположен какой-то замок.  А на севере ясно можно
+различить дорогу сквозь небольшой горный массив, рассположенный там.  
 ~
 0 0 field
 D0
@@ -4107,12 +4293,17 @@ The Flower Meadow
 Z -1 12095
 S
 #12095
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
-concentrate. Off to the south  you see a hill with a glorious castle on
-top. To the north a path leads up the mountain. 
+concentrate. Off to the south west you see a hill with a glorious castle on
+top. To the north a steep path winds up the mountain.
+@rus Все вокруг усыпано разноцветными цветами.  Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор.  Цветочные ароматы, витающие
+в воздухе, столь сильны, что вызывают головокружение.  На юге виден холм, на
+вершине которого расположен какой-то замок.  А на севере ясно можно
+различить дорогу сквозь небольшой горный массив, рассположенный там.  
 ~
 0 0 field
 D0
@@ -4137,12 +4328,17 @@ The Flower Meadow
 Z -1 12096
 S
 #12096
-The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng The Flower Meadow@rus Цветочный луг~
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
-concentrate. Off to the south east you see a hill with a glorious castle on
-top. To the north a steep path leads up the mountain.
+concentrate. Off to the south west you see a hill with a glorious castle on
+top. To the north a steep path winds up the mountain.
+@rus Все вокруг усыпано разноцветными цветами.  Они в сочетании со свежей
+зеленью травы создают необычайно красивый узор.  Цветочные ароматы, витающие
+в воздухе, столь сильны, что вызывают головокружение.  На юге виден холм, на
+вершине которого расположен какой-то замок.  А на севере ясно можно
+различить дорогу сквозь небольшой горный массив, рассположенный там.  
 ~
 0 0 field
 D0
@@ -4168,11 +4364,16 @@ Z -1 12097
 S
 #12097
 The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
-concentrate. Off to the south west you see a hill with a glorious castle on
-top. To the north mountains rise sharply out of the ground.
+concentrate. Off to the south west you see a hill with a glorious castle on 
+top. To the north mountains rise sharply out of the ground. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,
+витающие в воздухе, столь сильны, что вызывают головокружение. На 
+юге виден холм, на вершине которого расположен какой-то замок. А на
+севере по напрвлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D1
@@ -4193,11 +4394,16 @@ Z -1 12098
 S
 #12098
 The Flower Meadow~
-You are standing in a meadow full of tall grasses and an amazing
+@eng You are standing in a meadow full of tall grasses and an amazing
 array of flowers.  The miasma of scents makes you slightly dizzy and the
 swirl of colors as the flowers sway in the breeze doesn't help you
-concentrate. Off to the south east you see a hill with a glorious castle on
-top. To the north mountains rise sharply out of the ground.
+concentrate. Off to the south west you see a hill with a glorious castle on 
+top. To the north mountains rise sharply out of the ground. 
+@rus Все вокруг усыпано разноцветными цветами. Они в сочетании со свежей   
+зеленью травы создают необычайно красивый узор. Цветочные ароматы,
+витающие в воздухе, столь сильны, что вызывают головокружение. На 
+юге виден холм, на вершине которого расположен какой-то замок. А на
+севере по напрвлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D1
@@ -5599,7 +5805,7 @@ E 0 12004 0 12		*	A light gossamer gown: about the shoulders
 M 0 12036 13 12068 1	* a pixie (The Forest Edge)
 G 0 12007 0		*	A pixie bow
 E 0 12006 0 8		*	A pair of grey boots: on the feet
-M 0 12044 12 12069 1	* an acorn faery (The Forest Edge)
+M 0 12044 12 12069 1	* an acorn faery (An Enchanted Forest)
 E 0 12000 0 6		*	An acorn hat: over the head
 M 0 12029 4 12070 1	* an adventurous eshu (An Enchanted Forest)
 E 0 12013 0 16		*	A gleaming khopesh: wielded

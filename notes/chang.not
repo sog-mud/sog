@@ -1498,3 +1498,59 @@ Happy mudding.
  
 /abrazak, the sovereign of shadows.
 ~
+Sender  Iluvatar~
+Date    Sat Mar 20 01:33:24 1999~
+Stamp   921872004
+To      all~
+Subject {DShades of Gray{x~
+Text
+hi, there!
+ 
+с сегодняшнего дня муд доступен (кроме порта 4000) также на портах
+9000, 1234, 4321.
+у нас новое имя. кроме того нам скоро год :)
+happy mudding
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Sat Mar 20 01:40:29 1999~
+Stamp   921872429
+To      all~
+Subject noflee~
+Text
+hi, there!
+ 
+one more thing i forgot to mention -- new toggle flag -- 'noflee'
+(do not flee automagically from combat in lost-link)
+happy mudding
+ 
+{WIluvatar{x, Eru, the One
+~
+Sender  Iluvatar~
+Date    Sat Mar 20 01:43:12 1999~
+Stamp   921872592
+To      imm~
+Subject 'who' commands~
+Text
+hi, there!
+ 
+в команде who можно указывать ethos-align в качестве параметра
+e.g.: who lawful-evil
+понимается также who -good и who chaotic-
+ 
+/fjoe
+~
+Sender  Iluvatar~
+Date    Sat Mar 20 01:54:13 1999~
+Stamp   921873253
+To      all~
+Subject more minor changes~
+Text
+hi, there!
+ 
+'look n.' shows n'th char in room. other commands with mob/char numbering
+(in room) work in similar manner.
+ 
+{WIluvatar{x, Eru, the One
+~

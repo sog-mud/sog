@@ -2,6 +2,7 @@
 Name Invader~
 Item 95601
 Altar 95608
+Skill 'detect fade' 20 1
 Skill 'evil spirit' 33 1
 Skill 'nightwalker' 25 1
 Skill 'eyes of intrigue' 13 1

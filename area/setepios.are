@@ -102,7 +102,7 @@ Varafinij is snooping here .
 It's him !!!
 ~
 troll~
-0 DFHV 0 0
+A DFHV 0 0
 35 30 1d1+4000 1d1+1000 1d1+40 pound
 -10 -10 -10 -10
 0 BU 0 0
@@ -115,12 +115,28 @@ demon of second circle red dragon~
 ~
 ~
 red dragon~
-BCGQRT DFHUVcl 0 0
+ABCGQRT DFHUVcl 0 0
 100 800 1d1+30000 1d1+30000 1d1+500 flame
 -100 -100 -100 -100
 AEFHKO BU 0 0
 stand stand none 999999
 0 0 medium unknown
+#38009
+guaba~
+{RGuaba{x~
+Evil Witch Guaba is looking for new victim here ...
+~
+You think she'll die if she smile ...
+~
+human~
+ABCGQRST DFV -1000 0
+40 30 1d1+1999 1d1+999 5d8+3 scratch
+-5 -5 -5 -5
+A BU 0 0
+stand stand female 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -221,7 +237,7 @@ fountain~
 @eng Big fountain@rus {BБольшой фонтан из {Cмрамора{w~
 marble~
 fountain G 0
-1000 1000 'blood' 0 0
+1000 1000 'ale' 0 0
 92 1 1 P
 G none
 #38004
@@ -512,6 +528,37 @@ A
 A
 13 50
 G none
+#38024
+necklace bone ожерелье~
+@eng bone necklace@rus ~~ожерелье~~ из зубов дракона~
+@eng A necklace is lying here.@rus Ожерелье из огромных страшных зубов брошено тут.~
+unknown~
+armor ARa AC
+-20 -20 -20 -20 0
+91 0 10 P
+A
+4 2
+A
+6 2
+A
+5 2
+A
+2 2
+A
+3 2
+A
+1 2
+A
+12 250
+A
+13 250
+A
+19 10
+A
+18 10
+A
+20 -10
+G none
 #38025
 ring of heavens~
 {MRing of Heavens{x~
@@ -584,6 +631,23 @@ A
 A
 13 500
 G none
+#38029
+sword of honor~
+Sword of Honor~
+Strange sword is glowing here.~
+divine power~
+weapon AIKRa AN
+exotic 6 7 slash H
+27 1 1 P
+A
+18 12
+A
+19 12
+A
+12 50
+A
+13 70
+G male
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
 dark glass~
@@ -620,6 +684,19 @@ A
 19 15
 A
 18 15
+G none
+#38501
+winged boots~
+@eng Winged Boots of Setepios@rus '{WКрылатые туфли{x'~
+Some dirty boots lies here ...~
+divine~
+armor C AG
+1000 1000 1000 1000 0
+92 1 1 P
+A
+12 10000
+A
+13 10000
 G none
 #0
 
@@ -725,7 +802,7 @@ S
 @eng Wild 
 @rus Жутковатое место ... Тут Боги испытывают силу и ум смертных ...
 ~
-0 AQ inside
+0 Q inside
 S
 #38500
 @eng The Gates of Nightmare@rus Врата ужаса~
@@ -1065,7 +1142,9 @@ O 38017 1	* Blessed Shield of Gods
 O 38018 1	* {YBlessed {WHelm {xof Honor
 O 38019 1	* {RBlessed Ring of Life{x
 O 38020 1	* {YBlessed Belt of Truth{x
+O 38024 2	* bone necklace
 O 38028 5	* Dragons Skull
+O 38501 1	* Winged Boots of Setepios
 S
 
 #MOBPROGS
