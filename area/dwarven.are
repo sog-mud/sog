@@ -508,6 +508,249 @@ trash T AO
 0 0 0 0 0
 0 30 0 P
 G none
+#6523
+copper bars~
+a chunk of {rcopper{x bars~
+There is a chunk of {rcopper{x bars here.~
+copper~
+trash T AO
+0 0 0 0 0
+0 40 0 P
+G none
+#6524
+gold bars~
+a chunk of {Ygold{x bars~
+There is a chunk of {Ygold{x bars here.~
+gold~
+treasure T AO
+0 0 0 0 0
+1 60 100 P
+G none
+#6525
+gems pile~
+a pile of {gg{ce{mm{Ys{x~
+There is a pile of {rp{yr{Ye{cc{Bi{Ro{gu{Gs{x stones here.~
+gem~
+gem AGT AO
+0 0 0 0 0
+1 50 500 P
+G none
+#6526
+iron ore~
+a piece of {ciron{x ore~
+There is a piece of {ciron{x ore here.~
+iron~
+trash T AO
+0 0 0 0 0
+0 60 0 P
+G none
+#6527
+copper ore~
+a piece of {rcopper{x ore~
+There is a chunk of {rcopper{x bars here.~
+copper~
+trash T AO
+0 0 0 0 0
+0 80 0 P
+G none
+#6528
+gold ore~
+a piece of {ygold{x ore~
+There is a piece of {ygold{x ore here.~
+gold~
+treasure T AO
+0 0 0 0 0
+1 120 5 P
+G none
+#6529
+pliers~
+forge pliers~
+Forge pliers are here, forgotten.~
+iron~
+weapon 0 AN
+exotic 1 1 crush 0
+1 30 10 P
+G none
+#6530
+ring golden dwarven~
+a dwarven golden ring~
+A finely crafted golden ring is here.~
+gold~
+treasure 0 AB
+0 0 0 0 0
+1 10 50 P
+G none
+#6531
+sceptre golden dwarven~
+a dwarven golden sceptre~
+A finely crafted golden sceptre is here.~
+gold~
+treasure 0 AO
+0 0 0 0 0
+1 60 100 P
+G none
+#6532
+bracer golden dwarven~
+a dwarven golden bracer~
+A finely crafted golden bracer is here.~
+gold~
+treasure 0 AM
+0 0 0 0 0
+1 30 100 P
+G none
+#6533
+boots reinforced dwarven~
+a pair of reinforced dwarven boots~
+A pair of reinforced dwarven boots sits here.~
+iron~
+armor 0 AG
+2 2 2 1 0
+1 30 10 P
+G none
+#6534
+gauntlets reinforced dwarven~
+a pair of reinforced dwarven gauntlets~
+A pair of reinforced dwarven gauntlets lies here.~
+iron~
+armor 0 AH
+2 2 2 1 0
+1 30 10 P
+G none
+#6535
+legplates plates dwarven~
+a pair of dwarven legplates~
+A pair of dwarven legplates lies here.~
+iron~
+armor 0 AF
+2 2 2 1 0
+1 40 10 P
+G none
+#6536
+armplates plates dwarven~
+a pair of dwarven armplates~
+A pair of dwarven armplates lies here.~
+iron~
+armor 0 AI
+2 2 2 1 0
+1 40 10 P
+G none
+#6537
+collar dwarven~
+a dwarven chain collar~
+A dwarven chain collar made of tiny rings lies here.~
+iron~
+armor 0 AC
+2 2 2 1 0
+1 40 10 P
+G none
+#6538
+chainmail mail dwarven~
+a dwarven chainmail~
+A dwarven chainmail made of tiny rings lies here.~
+iron~
+armor 0 AD
+3 3 3 2 0
+1 40 10 P
+G none
+#6539
+helmet~
+a dwarven helmet~
+A dwarven helmet is here.~
+iron~
+armor 0 AE
+2 2 2 1 0
+1 40 10 P
+G none
+#6540
+sword dwarven~
+a dwarven sword~
+A dwarven sword is dropped here.~
+iron~
+weapon 0 AN
+sword 1 1 pierce 0
+1 60 20 P
+G none
+#6541
+claymore longsword dwarven~
+a dwarven longsword~
+A claymore is stuck in here.~
+iron~
+weapon 0 AN
+sword 1 1 slash F
+1 120 40 P
+G none
+#6542
+waraxe axe dwarven~
+a dwarven waraxe~
+A dwarven waraxe is dropped here.~
+iron~
+weapon 0 AN
+axe 1 1 slash 0
+1 80 20 P
+G none
+#6543
+flail war dwarven~
+a dwarven war flail~
+A dwarven war flail is lying here.~
+iron~
+weapon 0 AN
+flail 1 1 crush F
+1 120 40 P
+G none
+#6544
+war mace dwarven~
+a dwarven war mace~
+A dwarven war mace is dropped here.~
+iron~
+weapon 0 AN
+mace 1 1 pound 0
+1 80 20 P
+G none
+#6545
+haulberd dwarven~
+a dwarven haulberd~
+A dwarven haulberd is lying here.~
+iron~
+weapon 0 AN
+polearm 1 1 slash F
+1 120 40 P
+G none
+#6546
+spear dwarven~
+a dwarven spear~
+A dwarven spear is dropped here.~
+iron~
+weapon 0 AN
+spear 1 1 pierce K
+1 60 20 P
+G none
+#6547
+forge~
+a forge~
+A forge is set in the corner.~
+stone~
+furniture ABR 0
+0 0 0 0 0
+0 50000 0 P
+G none
+#6548
+anvil~
+an anvil~
+An anvil is set in the middle of the room.~
+stone~
+furniture R 0
+0 0 0 0 0
+0 50000 0 P
+G none
+#6549
+dagger dwarven~
+a dwarven dagger~
+A dwarven dagger is dropped here.~
+iron~
+weapon 0 AN
+dagger 1 1 pierce 0
+1 30 10 P
+G none
 #0
 
 #ROOMS
