@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: check_includes.sh,v 1.5 2001-08-13 18:23:10 fjoe Exp $
+# $Id: check_includes.sh,v 1.6 2001-08-13 18:37:17 fjoe Exp $
 #
 # show files in core (sog/ and mod_core/) that #include module headers
 #
@@ -16,7 +16,6 @@ egrep -Ir `ls include/*.h | sed -e 's/include\//"/' -e 's/$/"/' | tr '\n' ' ' | 
 
 echo
 echo "===> core files that #include module headers"
-check_includes "dynafun_decl.h|core.h" mod_core/*.c
-check_includes "dynafun_decl.h" sog/*.c sog/**/*.c
+check_includes "dynafun_decl.h" sog/*.c
 check_includes "dynafun_decl.h" mod_bootdb/*.c
 
