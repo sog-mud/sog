@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.56 1998-12-01 10:53:53 fjoe Exp $
+ * $Id: martial_art.c,v 1.57 1998-12-08 11:12:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -615,7 +615,7 @@ void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
 		}
 		else {
 			check_improve(ch, gsn_dual_backstab, FALSE, 1);
-			multi_hit(ch, victim, gsn_backstab);
+			one_hit(ch, victim, gsn_backstab,WEAR_WIELD);
 		}
 	}
 	else {
@@ -743,7 +743,7 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
 		check_improve(ch, gsn_cleave, TRUE, 1);
-		multi_hit(ch, victim, gsn_cleave);
+		one_hit(ch, victim, gsn_cleave,WEAR_WIELD);
 	}
 	else {
 		check_improve(ch, gsn_cleave, FALSE, 1);
@@ -798,7 +798,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	||  IS_NPC(ch)
 	||  number_percent() < chance) {
 		check_improve(ch, gsn_ambush, TRUE, 1);
-		multi_hit(ch, victim, gsn_ambush);
+		one_hit(ch, victim, gsn_ambush,WEAR_WIELD);
 	}
 	else {
 		check_improve(ch, gsn_ambush, FALSE, 1);
@@ -1293,7 +1293,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim))
-		multi_hit(ch, victim, gsn_assassinate);
+		one_hit(ch, victim, gsn_assassinate,WEAR_WIELD);
 	else {
 		check_improve(ch, gsn_assassinate, FALSE, 1);
 		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
