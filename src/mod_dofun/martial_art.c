@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.123 1999-11-23 12:14:28 fjoe Exp $
+ * $Id: martial_art.c,v 1.124 1999-11-26 07:04:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1991,7 +1991,6 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	} 
 
-
 	if ((victim = get_char_room(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("You do not see that person here.\n", ch);
@@ -2011,10 +2010,16 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(victim, "free action"))
-		chance -= 15;
+	if (IS_AFFECTED(victim, AFF_SLEEP))  {
+		act("$E is already asleep.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
 	if (is_safe(ch, victim))
 		return;
+
+	if (is_affected(victim, "free action"))
+		chance -= 15;
 
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
@@ -2206,7 +2211,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		return;
 	} 
 
-	if (IS_AFFECTED(victim,AFF_SLEEP))  {
+	if (IS_AFFECTED(victim, AFF_SLEEP))  {
 		act("$E is already asleep.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
