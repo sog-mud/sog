@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.1 1999-02-15 12:51:21 fjoe Exp $
+ * $Id: olc_social.c,v 1.2 1999-02-15 13:18:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -98,7 +98,7 @@ OLC_FUN(soced_create)
 		return FALSE;
 	}
 
-	if ((soc = social_lookup(arg))) {
+	if ((soc = social_lookup(arg, str_cmp))) {
 		char_printf(ch, "SocEd: %s: already exists.\n", soc->name);
 		return FALSE;
 	}
@@ -128,7 +128,7 @@ OLC_FUN(soced_edit)
 		return FALSE;
 	}
 
-	if ((soc = social_lookup(arg)) == NULL) {
+	if ((soc = social_lookup(arg, str_cmp)) == NULL) {
 		char_printf(ch, "SocEd: %s: No such social.\n", arg);
 		return FALSE;
 	}
@@ -163,7 +163,7 @@ OLC_FUN(soced_show)
 		}
 	}
 	else {
-		if ((soc = social_lookup(arg)) == NULL) {
+		if ((soc = social_lookup(arg, str_prefix)) == NULL) {
 			char_printf(ch, "SocEd: %s: No such social.\n", arg);
 			return FALSE;
 		}
@@ -292,9 +292,8 @@ OLC_FUN(soced_notfound_char)
 
 static VALIDATE_FUN(validate_name)
 {
-	int i;
 	const char *name = (const char*) arg;
-	social_t *soc;
+	social_t *soc, *soc2;
 	EDIT_SOC(ch, soc);
 
 	if (strpbrk(name, " \t")) {
@@ -304,15 +303,10 @@ static VALIDATE_FUN(validate_name)
 		return FALSE;
 	}
 
-	for (i = 0; i < socials.nused; i++) {
-		social_t *soc2 = VARR_GET(&socials, i);
-
-		if (soc2 != soc
-		&&  !str_cmp(soc2->name, name)) {
-			char_printf(ch, "SocEd: %s: duplicate social name.\n",
-				    arg);
-			return FALSE;
-		}
+	if ((soc2 = social_lookup(name, str_cmp))
+	&&  soc2 != soc) {
+		char_printf(ch, "SocEd: %s: duplicate social name.\n", arg);
+		return FALSE;
 	}
 
 	return TRUE;

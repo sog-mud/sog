@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.h,v 1.1 1999-02-15 12:51:11 fjoe Exp $
+ * $Id: socials.h,v 1.2 1999-02-15 13:18:55 fjoe Exp $
  */
 
 #ifndef _SOCIALS_H_
@@ -55,6 +55,7 @@ extern varr socials;
 
 social_t *	social_new();
 void		social_free(social_t *soc);
-social_t *	social_lookup(const char *name);
+social_t *	social_lookup(const char *name,
+			      int (*cmpfun)(const char *s1, const char *s2));
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.c,v 1.1 1999-02-15 12:51:11 fjoe Exp $
+ * $Id: socials.c,v 1.2 1999-02-15 13:18:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,13 +57,14 @@ void social_free(social_t *soc)
 	free_string(soc->notfound_char);
 }
 
-social_t *social_lookup(const char *name)
+social_t *social_lookup(const char *name,
+			int (*cmpfun)(const char *s1, const char *s2))
 {
 	int i;
 
 	for (i = 0; i < socials.nused; i++) {
 		social_t *soc = VARR_GET(&socials, i);
-		if (!str_prefix(name, soc->name))
+		if (!cmpfun(name, soc->name))
 			return soc;
 	}
 
