@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.78 1998-06-21 22:39:56 efdi Exp $
+ * $Id: resource.h,v 1.79 1998-06-22 14:57:18 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -820,6 +820,8 @@ enum {
 	N_RECITES_P,
 	YOU_RECITE_P,
 	MISPRONOUNCE_SYLLABLE,
+	NS_P_STRIKES_N,
+	P_STRIKES_N,
 };
 
 #endif
