@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.80 1998-10-11 16:52:44 fjoe Exp $
+ * $Id: act_obj.c,v 1.81 1998-10-12 04:56:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,12 +91,11 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	CHAR_DATA      *gch;
 	int             members;
 
-	/* can't take corpses in ROOM_BATTLE_ARENA rooms */
 	if (!CAN_WEAR(obj, ITEM_TAKE)
-	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
-	     obj->in_room != NULL &&
-	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
-	     !IS_NULLSTR(obj->owner) &&
+	||  ((obj->pIndexData->item_type == ITEM_CORPSE_PC ||
+	      obj->pIndexData->item_type == ITEM_CORPSE_NPC) &&
+	     (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) &&
+	     !IS_IMMORTAL(ch) &&
 	     str_cmp(ch->name, obj->owner))) {
 		char_puts("You can't take that.\n\r", ch);
 		return;
@@ -144,13 +143,14 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		act_puts("You get $p from $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
 		act("$n gets $p from $P.", ch, obj, container,
-		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
 		obj_from_obj(obj);
-	} else {
+	}
+	else {
 		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
 		act("$n gets $p.", ch, obj, container,
-		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 		obj_from_room(obj);
 	}
 
@@ -490,7 +490,7 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	obj_to_room(obj, ch->in_room);
 
 	act("$n drops $p.", ch, obj, NULL,
-	    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+	    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL
@@ -516,13 +516,13 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
 		act("$p sinks down the water.", ch, obj, NULL,
-		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 	}
 	else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
 		act("$p dissolves into smoke.", ch, obj, NULL,
-		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 	}
@@ -604,13 +604,13 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		obj = create_money(gold, silver);
 		obj_to_room(obj, ch->in_room);
 		act("$n drops some coins.", ch, NULL, NULL,
-		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 		char_puts("Ok.\n\r", ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj);
 			act("The coins sink down, and disapear in the water.",
 			    ch, NULL, NULL,
-			    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 			act_puts("The coins sink down, and disapear in the water.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		}
@@ -915,7 +915,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			affect_to_obj(obj, &af);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
-			    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
+			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0));
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, sn, TRUE, 3);
 			return;
@@ -2127,7 +2127,9 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 	if ((!IS_NPC(ch) && percent > get_skill(ch, sn))
 	||  IS_SET(victim->imm_flags, IMM_STEAL)
-	||  IS_IMMORTAL(victim)) {
+	||  IS_IMMORTAL(victim)
+	||  (victim->in_room &&
+	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA))) {
 		/*
 		 * Failure.
 		 */

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.94 1998-10-11 17:42:05 fjoe Exp $
+ * $Id: merc.h,v 1.95 1998-10-12 04:56:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2042,6 +2042,7 @@ void		show_damlist		(CHAR_DATA *ch);
 
 MPTRIG *	mptrig_new              (int type, const char *phrase, int vnum);
 void		mptrig_add		(MOB_INDEX_DATA *mob, MPTRIG *mptrig);
+void		mptrig_fix		(MOB_INDEX_DATA *mob);
 void            mptrig_free		(MPTRIG *mptrig);
 
 extern MPCODE *	mpcode_list;

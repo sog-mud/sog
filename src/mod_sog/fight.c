@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.82 1998-10-11 16:52:44 fjoe Exp $
+ * $Id: fight.c,v 1.83 1998-10-12 04:56:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,24 +119,22 @@ void violence_update(void)
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 
-	for (ch = char_list; ch != NULL; ch = ch_next)
-	{
+	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
 		if ((victim = ch->fighting) == NULL || ch->in_room == NULL)
-		    continue;
-
+			continue;
 
 		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
-		    multi_hit(ch, victim, TYPE_UNDEFINED);
+			multi_hit(ch, victim, TYPE_UNDEFINED);
 		else
-		    stop_fighting(ch, FALSE);
+			stop_fighting(ch, FALSE);
 
 		if ((victim = ch->fighting) == NULL)
-		    continue;
+			continue;
 
 		if (!IS_NPC(victim))
-		  ch->last_fought = victim;
+			ch->last_fought = victim;
 
 		SET_FIGHT_TIME(ch);
 
@@ -1316,7 +1314,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 */
 	if (!IS_NPC(victim) && victim->desc == NULL) {
 		if (number_range(0, victim->wait) == 0) {
-			if (victim->level < 11)
+			if (victim->level < 10)
 				do_recall(victim, str_empty);
 			else
 				do_flee(victim, str_empty);

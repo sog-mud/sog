@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.49 1998-10-10 06:27:00 fjoe Exp $
+ * $Id: spellfun2.c,v 1.50 1998-10-12 04:56:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1124,7 +1124,6 @@ void spell_remove_tattoo(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("$N doesn't have any tattoos.", ch, NULL, victim, TO_CHAR);
 }
 
-
 void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -1132,28 +1131,28 @@ void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA af;
 	
 	if (!IS_NPC(ch) && IS_EVIL(ch))
-	victim = ch;
+		victim = ch;
 	
-	if (IS_GOOD(victim))
-	{
-	  act("The gods protect $N.", ch, NULL, victim, TO_ROOM);
-	  return;
+	if (IS_GOOD(victim)) {
+		act("The gods protect $N.", ch, NULL, victim, TO_ROOM);
+		return;
 	}
 	
-	if (IS_NEUTRAL(victim))
-	{
-	  act("$N does not seem to be affected.", ch, NULL, victim, TO_CHAR);
-	  return;
+	if (IS_NEUTRAL(victim)) {
+		act("$N does not seem to be affected.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
-	dam = dice(level,12);
+	dam = dice(level, 12);
 
 	if (saves_spell(level, victim, DAM_HOLY))
-	dam /= 2;
+		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
 	
-	if (IS_AFFECTED(victim, AFF_CURSE) || saves_spell(level, victim, DAM_HOLY))
-	return;
+	if (IS_AFFECTED(victim, AFF_CURSE)
+	||  saves_spell(level, victim, DAM_HOLY))
+		return;
 	af.where		= TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
@@ -1169,71 +1168,7 @@ void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	char_puts("You feel unclean.\n\r", victim);
 	if (ch != victim)
-	act("$N looks very uncomfortable.",ch,NULL,victim,TO_CHAR);
-	 return;
-}
-
-void spell_old_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
-{
-	ROOM_INDEX_DATA *pRoomIndex;
-	EXIT_DATA *pexit;
-	int d0;
-	int d1;
-	AFFECT_DATA af;
-
-	if (is_affected(ch, sn))
-	{
-	  char_puts
-	("Your power of randomness has been exhausted for now.\n\r",
-	 ch);
-	  return;
-	}
-	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
-	{
-	  char_puts(
-	    "This room is far too orderly for your powers to work on it.\n\r",
-		   ch);
-	  return;
-	}
-
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = UMIN(level + 15, MAX_LEVEL);
-	af.location  = 0;
-	af.modifier  = 0;
-	af.bitvector = 0;
-
-	pRoomIndex = get_room_index(ch->in_room->vnum);
-
-	if (number_bits(1) == 0)
-	{
-	  char_puts("Despite your efforts, the universe resisted chaos.\n\r",
-		   ch);
-	  if (ch->trust >= 56)
-	    af.duration  = 1;
-	  else
-	af.duration = level;
-	  affect_to_char(ch, &af);
-	  return;
-	}
-	for (d0 = 0; d0 < 5; d0++)
-	{
-	  d1 = number_range(d0, 5);
-	  pexit = pRoomIndex->exit[d0];
-	  pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
-	  pRoomIndex->exit[d1] = pexit;
-
-	}
-	if (ch->trust >= 56)
-	af.duration = 1;
-	else
-	af.duration = 2*level;
-	affect_to_char(ch, &af);
-	char_puts("The room was successfully randomized!\n\r", ch);
-	char_puts("You feel very drained from the effort.\n\r", ch);
-	ch->hit -= UMIN(200, ch->hit/2);
-
-	log_printf("%s used randomizer in room %d", ch->name, ch->in_room->vnum);
+		act("$N looks very uncomfortable.",ch,NULL,victim,TO_CHAR);
 }
 
 void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -2379,13 +2314,11 @@ void spell_attract_other(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if  (ch->sex == victim->sex) 
-	{
-	char_puts("You'd better try your chance on other sex!\n\r", ch);
-	return;
+	if (ch->sex == victim->sex) {
+		char_puts("You'd better try your chance on other sex!\n\r", ch);
+		return;
 	}
 	spell_charm_person(sn,level,ch,vo,target);
-	return;
 }
 
 void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
@@ -2426,7 +2359,6 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		if (obj->pIndexData->item_type == ITEM_CORPSE_PC
 		&&  obj->in_room != NULL
 		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-		&&  obj->owner != NULL
 		&&  str_cmp(ch->name, obj->owner)) {
 			char_puts("You cannot do that.\n\r", ch);
 			return;
@@ -3352,7 +3284,7 @@ void spell_witch_curse (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	AFFECT_DATA af;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (is_affected(victim,gsn_witch_curse)) {
+	if (is_affected(victim, gsn_witch_curse)) {
 		char_puts("It has already underflowing with health.\n\r",ch);
 		return;
 	}
@@ -3368,9 +3300,9 @@ void spell_witch_curse (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	af.bitvector    = 0;
 	affect_to_char(victim, &af);
 
-	char_puts("Now he got the path to death.\n\r",ch);
+	act("Now $n got the path to death.", victim, NULL, NULL, TO_ROOM);
+	act("Now you got the path to death.", victim, NULL, NULL, TO_CHAR);
 }
-
 
 void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {

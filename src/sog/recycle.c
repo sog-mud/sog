@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.28 1998-10-10 04:36:25 fjoe Exp $
+ * $Id: recycle.c,v 1.29 1998-10-12 04:56:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -270,6 +270,14 @@ void mptrig_add(MOB_INDEX_DATA *mob, MPTRIG *mptrig)
 {
 	SET_BIT(mob->mptrig_types, mptrig->type);
 	SLIST_ADD(MPTRIG, mob->mptrig_list, mptrig);
+}
+
+void mptrig_fix(MOB_INDEX_DATA *mob)
+{
+	MPTRIG *mptrig;
+
+	for (mptrig = mob->mptrig_list; mptrig; mptrig = mptrig->next)
+		SET_BIT(mob->mptrig_types, mptrig->type);
 }
 
 void mptrig_free(MPTRIG *mp)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.69 1998-10-11 16:52:44 fjoe Exp $
+ * $Id: handler.c,v 1.70 1998-10-12 04:56:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2624,12 +2624,9 @@ void add_mind(CHAR_DATA *ch, const char *str)
 	if (!IS_NPC(ch) || ch->in_room == NULL)
 		return;
 
-	if (ch->in_mind == NULL) {
+	if (ch->in_mind == NULL)
 		/* remember a place to return */
-		char buf[MAX_STRING_LENGTH];
-		snprintf(buf, sizeof(buf), "%d", ch->in_room->vnum);
-		ch->in_mind = str_dup(buf);
-	}
+		ch->in_mind = str_printf("%d", ch->in_room->vnum);
 
 	if (!is_name(str, ch->in_mind)) {
 		const char *p = ch->in_mind;
@@ -2662,7 +2659,8 @@ void remove_mind(CHAR_DATA *ch, const char *str)
 				snprintf(buff, sizeof(buff), "%s %s", buf, arg);
 			strcpy(buf,buff);
 		}
-	} while (mind[0] != '\0');
+	}
+	while (mind[0] != '\0');
  
 	free_string(ch->in_mind);
 	if (is_number(buf)) {

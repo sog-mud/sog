@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.30 1998-10-11 16:52:46 fjoe Exp $
+ * $Id: special.c,v 1.31 1998-10-12 04:56:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1450,6 +1450,11 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 	int num = 1;
 	CHAR_DATA *vch;
 	char name[MAX_STRING_LENGTH];
+
+	if (ch->fighting == victim) {
+		doprintf(interpret, ch, "cast '%s'", spell_name);
+		return;
+	}
 
 	one_argument(victim->name, name);
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {

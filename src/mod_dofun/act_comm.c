@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.95 1998-10-10 04:36:20 fjoe Exp $
+ * $Id: act_comm.c,v 1.96 1998-10-12 04:56:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -427,7 +427,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	act("$n $t", ch, argument, NULL, TO_CHAR);
 
 	flags = TO_CHAR | TO_BUF | CHECK_TWIT | NO_TRIGGER |
-		((IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM)) ? TRANS_TEXT : 0);
+		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? TRANS_TEXT : 0);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch->desc == NULL || vch == ch)
