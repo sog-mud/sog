@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.39 2002-08-26 16:13:34 fjoe Exp $
+ * $Id: sog.h,v 1.40 2002-11-20 20:14:44 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -634,14 +634,36 @@ DECLARE_FUN4(cchar_t, PERS,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), to, ARG(uint), to_lang,
 	     ARG(int), act_flags)
 
-/* the following 5 act target flags are exclusive */
-#define TO_ROOM		(A)
-#define TO_NOTVICT	(B)
-#define TO_VICT		(C)
-#define TO_CHAR		(D)
-#define TO_ALL		(E)
+/*
+ * layout of act_flags is:
+ * bits 0..2	-- act target
+ * bits 3..5	-- queue
+ * bits 6..31	-- flags
+ */
 
-#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead	    */
+/*
+ * act target
+ */
+#define TO_ROOM		(1 << 0)
+#define TO_NOTVICT	(2 << 0)
+#define TO_VICT		(3 << 0)
+#define TO_CHAR		(4 << 0)
+#define TO_ALL		(5 << 0)
+
+/*
+ * act queue specifiers
+ */
+#define ACTQ_SAY	(1 << 3)
+#define ACTQ_TELL	(2 << 3)
+#define ACTQ_GROUP	(3 << 3)
+#define ACTQ_CLAN	(4 << 3)
+#define ACTQ_SOG	(5 << 3)
+#define ACTQ_CHAN	(6 << 3)
+#define ACTQ_IMMTALK	(7 << 3)
+
+/*
+ * act flags
+ */
 #define ACT_NOTRIG	(G)	/* do not pull act triggers		    */
 #define ACT_NOTWIT	(H)	/* do not perform twit list checking	    */
 #define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
@@ -655,6 +677,7 @@ DECLARE_FUN4(cchar_t, PERS,
 #define ACT_SEDIT	(Q)	/* string editor message		    */
 				/* (do not buffer it)			    */
 #define ACT_NOCANSEE	(R)	/* do not perform can_see checks	    */
+#define ACT_TOBUF	(S)	/* append to replay buffer if link-dead */
 #define ACT_NOFIXSH	(Z)	/* do not fix char/obj short descrs	    */
 				/* (used internally in comm_act.c for not   */
 				/* stripping '~' when short descrs are      */
@@ -662,6 +685,9 @@ DECLARE_FUN4(cchar_t, PERS,
 #define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS |			\
 			 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
+
+#define ACT_TO(act_flags)	((act_flags) & (7 << 0))
+#define ACTQ(act_flags)		((act_flags) & (7 << 3))
 
 /*
  * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set

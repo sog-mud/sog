@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.153 2002-07-16 06:09:40 fjoe Exp $
+ * $Id: recycle.c,v 1.154 2002-11-20 20:15:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -692,6 +692,11 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->ll_host = str_empty;
 		pc->ll_ip = str_empty;
 
+		msgq_init(&pc->msgq_say, MSGQ_LEN_PERS);
+		msgq_init(&pc->msgq_tell, MSGQ_LEN_PERS);
+		msgq_init(&pc->msgq_group, MSGQ_LEN_PERS);
+		msgq_init(&pc->msgq_sog, MSGQ_LEN_CHAN);
+		msgq_init(&pc->msgq_chan, MSGQ_LEN_CHAN);
 	}
 	RESET_FIGHT_TIME(ch);
 	return ch;
@@ -743,6 +748,11 @@ char_free(CHAR_DATA *ch)
 		free_string(pc->ll_host);
 		free_string(pc->ll_ip);
 
+		msgq_destroy(&pc->msgq_say);
+		msgq_destroy(&pc->msgq_tell);
+		msgq_destroy(&pc->msgq_group);
+		msgq_destroy(&pc->msgq_sog);
+		msgq_destroy(&pc->msgq_chan);
 	}
 
 	if (ch->carrying != NULL) {
@@ -1699,6 +1709,7 @@ clan_init(clan_t *clan)
 	clan->leader_list = str_empty;
 	clan->member_list = str_empty;
 	clan->second_list = str_empty;
+	msgq_init(&clan->msgq_clan, MSGQ_LEN_CHAN);
 }
 
 static void
@@ -1709,6 +1720,7 @@ clan_destroy(clan_t *clan)
 	free_string(clan->leader_list);
 	free_string(clan->member_list);
 	free_string(clan->second_list);
+	msgq_destroy(&clan->msgq_clan);
 }
 
 avltree_info_t c_info_clans =

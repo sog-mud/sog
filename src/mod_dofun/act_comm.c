@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.267 2002-10-27 06:48:06 tatyana Exp $
+ * $Id: act_comm.c,v 1.268 2002-11-20 20:14:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,7 +67,6 @@ DECLARE_DO_FUN(do_replay);
 DECLARE_DO_FUN(do_say);
 DECLARE_DO_FUN(do_tell);
 DECLARE_DO_FUN(do_reply);
-DECLARE_DO_FUN(do_retell);
 DECLARE_DO_FUN(do_gtell);
 DECLARE_DO_FUN(do_emote);
 DECLARE_DO_FUN(do_pmote);
@@ -97,10 +96,15 @@ DECLARE_DO_FUN(do_petition);
 DECLARE_DO_FUN(do_promote);
 DECLARE_DO_FUN(do_alias);
 DECLARE_DO_FUN(do_unalias);
+DECLARE_DO_FUN(do_last);
 DECLARE_DO_FUN(do_toggle);
+DECLARE_DO_FUN(do_ooc);
+DECLARE_DO_FUN(do_oocme);
+DECLARE_DO_FUN(do_retell);
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look);
+DECLARE_DO_FUN(do_help);
 
 DO_FUN(do_afk, ch, argument)
 {
@@ -380,22 +384,24 @@ DO_FUN(do_gtell, ch, argument)
 	}
 
 	argument = garble(ch, argument);
-	flags = TO_VICT | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_NODEAF);
+	flags =
+	    TO_VICT | ACTQ_GROUP | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_NODEAF);
 	for (i = 0, gch = char_list; gch; gch = gch->next) {
 		if (IS_NPC(gch))
 			break;
 
 		i++;
-		if (is_same_group(gch, ch) && !is_sn_affected(gch, "deafen"))
+		if (is_same_group(gch, ch) && !is_sn_affected(gch, "deafen")) {
 			act_puts("$n tells the group '{G$t{x'",
 				 ch, argument, gch, flags, POS_DEAD);
+		}
 	}
 
-	if (i > 1 && !is_sn_affected(ch, "deafen"))
+	if (i > 1 && !is_sn_affected(ch, "deafen")) {
 		act_puts("You tell your group '{G$t{x'",
 			 ch, argument, NULL,
-			 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	else
+			 TO_CHAR | ACTQ_GROUP | ACT_SPEECH(ch), POS_DEAD);
+	} else
 		act_char("Quit talking to yourself. You are all alone.", ch);
 }
 
@@ -541,8 +547,8 @@ DO_FUN(do_immtalk, ch, argument)
 		do_immtalk(ch, str_empty);
 
 	flags = ACT_SPEECH(orig) & ~(ACT_STRANS | ACT_NODEAF);
-	act_puts("[IMM] $n: {C$t{x", orig, argument,		// notrans
-		 NULL, TO_CHAR | flags, POS_DEAD);
+	act_puts("[IMM] $n: {C$t{x",				// notrans
+	    orig, argument, NULL, TO_CHAR | ACTQ_IMMTALK | flags, POS_DEAD);
 
 	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
 		CHAR_DATA *victim = GET_ORIGINAL(vch);
@@ -552,8 +558,8 @@ DO_FUN(do_immtalk, ch, argument)
 		||  IS_SET(victim->comm, CHAN_NOWIZ))
 			continue;
 
-		act_puts("[IMM] $n: {C$t{x", orig, argument, vch,// notrans
-			 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
+		act_puts("[IMM] $n: {C$t{x",			// notrans
+		    orig, argument, vch, TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 	}
 }
 
@@ -629,7 +635,7 @@ DO_FUN(do_shout, ch, argument)
 
 	argument = garble(ch, argument);
 	act_puts("You shout '{Y$t{x'",
-		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	    ch, argument, NULL, TO_CHAR | ACTQ_CHAN | ACT_SPEECH(ch), POS_DEAD);
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
@@ -639,9 +645,9 @@ DO_FUN(do_shout, ch, argument)
 		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
 			act_puts("$n shouts '{Y$t{x'",
-				 ch, argument, d->character,
-				 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
-				 POS_DEAD);
+			    ch, argument, d->character,
+			    TO_VICT | ACTQ_CHAN | ACT_NOTWIT | ACT_SPEECH(ch),
+			    POS_DEAD);
 		}
 	}
 }
@@ -731,14 +737,14 @@ DO_FUN(do_gossip, ch, argument)
 
 	argument = garble(ch, argument);
 	act_puts("You gossip '{R$t{x'",
-		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	    ch, argument, NULL, TO_CHAR | ACTQ_CHAN | ACT_SPEECH(ch), POS_DEAD);
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch) {
 			act_puts("$n gossips '{R$t{x'",
-				 ch, argument, d->character,
-				 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
+			    ch, argument, d->character,
+			    TO_VICT | ACTQ_CHAN | ACT_SPEECH(ch), POS_DEAD);
 		}
 	}
 }
@@ -773,7 +779,7 @@ DO_FUN(do_clan, ch, argument)
 
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $lu{$n}: {C$t{x",
-		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	    ch, argument, NULL, TO_CHAR | ACTQ_CLAN | ACT_SPEECH(ch), POS_DEAD);
 	act_clan(ch, "$T", argument);
 }
 
@@ -2139,6 +2145,68 @@ DO_FUN(do_unalias, ch, argument)
 		act_char("No alias of that name to remove.", ch);
 }
 
+DO_FUN(do_last, ch, argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	const char *qname = NULL;
+	msgq_t *msgq = NULL;
+	clan_t *clan;
+	const char *msg;
+	bool found = FALSE;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		do_help(ch, "LAST");
+		return;
+	}
+
+	if (!str_prefix(arg, "say") && !IS_NPC(ch)) {
+		qname = "says";
+		msgq = &PC(ch)->msgq_say;
+	} else if (!str_prefix(arg, "tell") && !IS_NPC(ch)) {
+		qname = "tells";
+		msgq = &PC(ch)->msgq_tell;
+	} else if ((!str_prefix(arg, "group") ||
+		    !str_prefix(arg, "gtell")) && !IS_NPC(ch)) {
+		qname = "group tells";
+		msgq = &PC(ch)->msgq_group;
+	} else if (!str_prefix(arg, "clan") &&
+		   (clan = clan_lookup(ch->clan)) != NULL) {
+		qname = "clan talks";
+		msgq = &clan->msgq_clan;
+	} else if ((!str_prefix(arg, "sog") ||
+		    !str_prefix(arg, "ooc")) && !IS_NPC(ch)) {
+		qname = "OOC talks";
+		msgq = &PC(ch)->msgq_sog;
+	} else if ((!str_prefix(arg, "shout") ||
+		    !str_prefix(arg, "gossip") ||
+		    !str_prefix(arg, "channels")) && !IS_NPC(ch)) {
+		qname = "shouts and gossips";
+		msgq = &PC(ch)->msgq_chan;
+	} else if (!str_prefix(arg, "immtalk") && IS_IMMORTAL(ch)) {
+		qname = "imm talks";
+		msgq = &msgq_immtalk;
+	}
+
+	if (msgq == NULL) {
+		do_last(ch, str_empty);
+		return;
+	}
+
+	for (msg = msgq_first(msgq); msg != NULL; msg = msgq_next(msgq)) {
+		if (!found) {
+			act_puts("Last $t were:",
+				 ch, qname, NULL, TO_CHAR, POS_DEAD);
+			found = TRUE;
+		}
+
+		send_to_char(msg, ch);
+	}
+
+	if (!found)
+		act_puts("Nothing here.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+}
+
 /*-----------------------------------------------------------------------------
  * toggle bit stuff
  */
@@ -2351,6 +2419,105 @@ DO_FUN(do_toggle, ch, argument)
 		}
 		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
 			 ch, t->desc, NULL, TO_CHAR, POS_DEAD);
+	}
+}
+
+DO_FUN(do_ooc, ch, argument)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
+		return;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                act_char("You are in silent room.", ch);
+                return;
+        }
+
+	if (argument[0] == '\0') {
+		TOGGLE_BIT(ch->chan, CHAN_NOOOC);
+		if (IS_SET(ch->chan, CHAN_NOOOC)) {
+			act_char("You will no longer hear general Shades of Gray line.", ch);
+		} else {
+			act_char("You will now hear general Shades of Gray line.", ch);
+		}
+		return;
+	}
+
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
+		 act_char("The gods have revoked your channel privileges.", ch);
+		 return;
+	}
+
+	if (IS_SET(ch->chan, CHAN_NOOOC))
+		do_ooc(ch, str_empty);
+	WAIT_STATE(ch, get_pulse("violence"));
+
+	argument = garble(ch, argument);
+	act_puts("[Shades of Gray] $lu{$n}: {m$t{x",
+		 ch, argument, NULL,
+		 TO_CHAR | ACTQ_SOG | (ACT_SPEECH(ch) & ~ACT_STRANS), POS_DEAD);
+
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected == CON_PLAYING
+		&&  d->character != ch
+		&&  !IS_SET(d->character->chan, CHAN_NOOOC)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
+			act_puts("[Shades of Gray] $lu{$n}: {m$t{x",
+				 ch, argument, d->character,
+				 TO_VICT | ACTQ_SOG | ACT_NOTWIT |
+				 (ACT_SPEECH(ch) & ~ACT_STRANS),
+				 POS_DEAD);
+		}
+	}
+}
+
+DO_FUN(do_oocme, ch, argument)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
+		return;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                act_char("You are in silent room.", ch);
+                return;
+        }
+
+	if (argument[0] == '\0')
+		return;
+
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
+		 act_char("The gods have revoked your channel privileges.", ch);
+		 return;
+	}
+
+	WAIT_STATE(ch, get_pulse("violence"));
+
+	if (is_sn_affected(ch, "garble"))
+		return;
+
+	act_puts("[Shades of Gray] {m$lu{$n} $t{x",
+		 ch, argument, NULL,
+		 TO_CHAR | ACTQ_SOG | (ACT_SPEECH(ch) & ~ACT_STRANS), POS_DEAD);
+
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected == CON_PLAYING
+		&&  d->character != ch
+		&&  !IS_SET(d->character->chan, CHAN_NOOOC)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
+			act_puts("[Shades of Gray] {m$lu{$n} $t{x",
+				 ch, argument, d->character,
+				 TO_VICT | ACTQ_SOG | ACT_NOTWIT |
+				 (ACT_SPEECH(ch) & ~ACT_STRANS),
+				 POS_DEAD);
+		}
 	}
 }
 

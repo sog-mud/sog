@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,57 +23,34 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.30 2002-11-20 20:14:42 fjoe Exp $
+ * $Id: msgq.h,v 1.2 2002-11-20 20:14:44 fjoe Exp $
  */
 
-#ifndef _CLAN_H_
-#define _CLAN_H_
-
-#include <msgq.h>
-
-/*----------------------------------------------------------------------
- * clan stuff (clan.c)
- */
-
-/* Clan status */
-#define CLAN_LEADER	2
-#define CLAN_SECOND	1
-#define CLAN_COMMONER	0
+#ifndef _MSGQ_H_
+#define _MSGQ_H_
 
 /*
- * Clan structure
+ * message queue
  */
-struct clan_t
-{
-	const char *	name;		/* clan name */
-
-	int		recall_vnum;	/* recall room vnum */
-	const char *	skill_spec;	/* skill spec for this clan */
-
-	flag_t		clan_flags;	/* clan flags */
-
-	int		altar_vnum;	/* vnum of room with clan item */
-	int		obj_vnum;	/* vnum of clan item */
-	int		mark_vnum;	/* vnum of clan mark */
-	OBJ_DATA *	obj_ptr;	/* pointer to clan item */
-	OBJ_DATA *	altar_ptr;	/* pointer to altar (obj with clan item)*/
-	const char *	leader_list;	/* list of leaders */
-	const char *	member_list;	/* list of members */
-	const char *	second_list;	/* list of secondaries */
-
-	msgq_t		msgq_clan;	/* last clan messages */
+struct msgq_t {
+	size_t qlen;		/* queue length */
+	size_t qlast;		/* index of last msg */
+	size_t qcurr;		/* current iterator position */
+	const char **qbuf;	/* messages, non-existent are NULL's */
 };
+typedef struct msgq_t msgq_t;
 
-/* clan flags */
-#define CLAN_HIDDEN	(A)		/* clan will not appear in who */
-#define CLAN_CHANGED	(Z)
+void msgq_init(msgq_t *msgq, size_t qlen);
+void msgq_destroy(msgq_t *msgq);
 
-extern avltree_t clans;
-extern avltree_info_t c_info_clans;
+void msgq_add(msgq_t *msgq, const char *msg);
+const char *msgq_first(msgq_t *msgq);
+const char *msgq_next(msgq_t *msgq);
 
-#define clan_lookup(cln)	((clan_t*) c_strkey_lookup(&clans, (cln)))
-#define clan_search(cln)	((clan_t*) c_strkey_search(&clans, (cln)))
+extern msgq_t	msgq_sog;	/* SoG channel messages */
+extern msgq_t	msgq_immtalk;	/* immtalk messages */
 
-#define IS_CLAN(cln1, cln2)	(!str_cmp((cln1), (cln2)))
+#define MSGQ_LEN_PERS	16
+#define MSGQ_LEN_CHAN	16
 
 #endif

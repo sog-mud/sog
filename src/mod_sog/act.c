@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.94 2002-10-27 06:48:09 tatyana Exp $
+ * $Id: act.c,v 1.95 2002-11-20 20:15:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -511,6 +511,8 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	int		sp = -1;
 	int		inside_wform = 0;
 
+	int		actq;
+
 	s = format = GETMSG(format, opt->to_lang);
 	while (*s) {
 		char		code;
@@ -907,15 +909,43 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* first non-control char is uppercased */
 	if (!IS_SET(opt->act_flags, ACT_NOUCASE))
 		cstrtoupper(buf);
+
+	if ((actq = ACTQ(opt->act_flags)) != 0) {
+		msgq_t *msgq = NULL;
+		clan_t *clan;
+
+		if (actq == ACTQ_SAY && !IS_NPC(to))
+			msgq = &PC(to)->msgq_say;
+		else if (actq == ACTQ_TELL && !IS_NPC(to))
+			msgq = &PC(to)->msgq_tell;
+		else if (actq == ACTQ_GROUP && !IS_NPC(to))
+			msgq = &PC(to)->msgq_group;
+		else if (actq == ACTQ_CLAN &&
+			 (clan = clan_lookup(ch->clan)) != NULL)
+			msgq = &clan->msgq_clan;
+		else if (actq == ACTQ_SOG && !IS_NPC(to))
+			msgq = &PC(to)->msgq_sog;
+		else if (actq == ACTQ_CHAN && !IS_NPC(to))
+			msgq = &PC(to)->msgq_chan;
+		else if (actq == ACTQ_IMMTALK)
+			msgq = &msgq_immtalk;
+
+		if (msgq == NULL) {
+			log(LOG_INFO,
+			    "act_buf: %d: invalid actq (act_flags = 0x%08x)\n",
+			    actq, opt->act_flags);
+		} else
+			msgq_add(msgq, buf);
+	}
 }
 
 static CHAR_DATA *
 act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags)
 {
-	if (IS_SET(act_flags, TO_CHAR))
+	if (ACT_TO(act_flags) == TO_CHAR)
 		return ch;
 
-	if (IS_SET(act_flags, TO_VICT))
+	if (ACT_TO(act_flags) == TO_VICT)
 		return vch;
 
 	if (!ch || !ch->in_room)
@@ -931,13 +961,13 @@ act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	if (to->position < min_pos)
 		return TRUE;
 
-	if (IS_SET(act_flags, TO_CHAR) && to != ch)
+	if (ACT_TO(act_flags) == TO_CHAR && to != ch)
 		return TRUE;
-	if (IS_SET(act_flags, TO_VICT) && (to != vch || to == ch))
+	if (ACT_TO(act_flags) == TO_VICT && (to != vch || to == ch))
 		return TRUE;
-	if (IS_SET(act_flags, TO_ROOM) && to == ch)
+	if (ACT_TO(act_flags) == TO_ROOM && to == ch)
 		return TRUE;
-	if (IS_SET(act_flags, TO_NOTVICT) && (to == ch || to == vch))
+	if (ACT_TO(act_flags) == TO_NOTVICT && (to == ch || to == vch))
 		return TRUE;
 
 	if (IS_NPC(to)
@@ -990,8 +1020,8 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	parse_colors(buf, tmp, sizeof(tmp), OUTPUT_FORMAT(to));
 
 	if (!IS_NPC(to)) {
-		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL) &&
-		     IS_SET(act_flags, ACT_TOBUF))
+		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL)
+		&&  IS_SET(act_flags, ACT_TOBUF))
 			buf_append(PC(to)->buffer, tmp);
 		else if (to->desc) {
 			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
@@ -1024,7 +1054,8 @@ act_puts3(const char *format, CHAR_DATA *ch,
 	||  (to = act_args(ch, vch, act_flags)) == NULL)
 		return;
 
-	if (IS_SET(act_flags, TO_CHAR | TO_VICT)) {
+	if (ACT_TO(act_flags) == TO_CHAR
+	||  ACT_TO(act_flags) == TO_VICT) {
 		if (!act_skip(ch, vch, to, act_flags, min_pos)) {
 			act_raw(ch, to, arg1, arg2, arg3,
 				format, act_flags);
@@ -1170,9 +1201,9 @@ act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 			continue;
 
 		act_puts("[CLAN] $lu{$n}: {C$t{x", ch,
-			 act_speech(ch, vch, text, arg), vch,
-			 TO_VICT | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_STRANS),
-			 POS_DEAD);
+		    act_speech(ch, vch, text, arg), vch,
+		    TO_VICT | ACT_TOBUF | (ACT_SPEECH(ch) & ~ACT_STRANS),
+		    POS_DEAD);
 	}
 }
 
@@ -1183,15 +1214,15 @@ act_say(CHAR_DATA *ch, const char *text, const void *arg)
 
 	act_puts("You say '{G$t{x'", ch,
 		 act_speech(ch, ch, text, arg), NULL,
-		 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+		 TO_CHAR | ACTQ_SAY | ACT_SPEECH(ch), POS_DEAD);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch == ch)
 			continue;
 		act_puts("$n says '{G$t{x'", ch,
-			 act_speech(ch, vch, text, arg), vch,
-			 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
-			 POS_RESTING);
+		    act_speech(ch, vch, text, arg), vch,
+		    TO_VICT | ACTQ_SAY | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+		     POS_RESTING);
 	}
 }
 
@@ -1298,11 +1329,11 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	msg = garble(ch, msg);
 	act_puts("You tell $N '{G$t{x'",
-		 ch, msg, victim, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	    ch, msg, victim, TO_CHAR | ACTQ_TELL | ACT_SPEECH(ch), POS_DEAD);
 	act_puts("$n tells you '{G$t{x'",
-		 ch, msg, victim,
-		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
-		 POS_SLEEPING);
+	    ch, msg, victim,
+	    TO_VICT | ACTQ_TELL | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+	    POS_SLEEPING);
 
 	if (IS_NPC(ch))
 		return;

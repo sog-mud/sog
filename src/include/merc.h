@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.394 2002-10-27 06:48:04 tatyana Exp $
+ * $Id: merc.h,v 1.395 2002-11-20 20:14:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -181,6 +181,7 @@ enum {
 #include <vo_iter.h>
 #include <trig.h>
 #include <mccp.h>
+#include <msgq.h>
 
 #define PFILE_VERSION	12
 #define AREA_VERSION	7
@@ -1267,6 +1268,7 @@ enum {
 #define CHAN_NOAUCTION		(C)
 #define CHAN_NOGOSSIP		(D)
 #define CHAN_NOMUSIC		(F)
+#define CHAN_NOOOC		(G)
 #define CHAN_NOCLAN		(H)
 #define CHAN_NOSHOUT		(I)
 
@@ -1627,6 +1629,12 @@ struct pc_data
 	dvdata_t *		dvdata;
 
 	int			move_used;	/* Moves used in current tick */
+
+	msgq_t			msgq_say;
+	msgq_t			msgq_tell;
+	msgq_t			msgq_group;
+	msgq_t			msgq_sog;
+	msgq_t			msgq_chan;
 };
 
 /*

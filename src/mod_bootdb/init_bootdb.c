@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.18 2002-03-21 13:56:25 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.19 2002-11-20 20:14:51 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -96,6 +96,8 @@ MODINIT_FUN(_module_load, m)
 	fix_resets();
 	fix_exits();
 	fix_mprogs();
+
+	msgq_init(&msgq_immtalk, MSGQ_LEN_CHAN);
 
 	return 0;
 }

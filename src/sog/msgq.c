@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,57 +23,66 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.30 2002-11-20 20:14:42 fjoe Exp $
+ * $Id: msgq.c,v 1.2 2002-11-20 20:15:28 fjoe Exp $
  */
 
-#ifndef _CLAN_H_
-#define _CLAN_H_
-
+#include <sys/types.h>
+#include <stdlib.h>
+#include <typedef.h>
 #include <msgq.h>
+#include <str.h>
 
-/*----------------------------------------------------------------------
- * clan stuff (clan.c)
- */
+msgq_t msgq_immtalk;
 
-/* Clan status */
-#define CLAN_LEADER	2
-#define CLAN_SECOND	1
-#define CLAN_COMMONER	0
-
-/*
- * Clan structure
- */
-struct clan_t
+void
+msgq_init(msgq_t *msgq, size_t qlen)
 {
-	const char *	name;		/* clan name */
+	msgq->qlen = qlen;
+	msgq->qlast = 0;
+	msgq->qbuf = calloc(1, sizeof(const char *) * msgq->qlen);
+}
 
-	int		recall_vnum;	/* recall room vnum */
-	const char *	skill_spec;	/* skill spec for this clan */
+void
+msgq_destroy(msgq_t *msgq)
+{
+	size_t i;
 
-	flag_t		clan_flags;	/* clan flags */
+	for (i = 0; i < msgq->qlen; i++)
+		free_string(msgq->qbuf[i]);
+}
 
-	int		altar_vnum;	/* vnum of room with clan item */
-	int		obj_vnum;	/* vnum of clan item */
-	int		mark_vnum;	/* vnum of clan mark */
-	OBJ_DATA *	obj_ptr;	/* pointer to clan item */
-	OBJ_DATA *	altar_ptr;	/* pointer to altar (obj with clan item)*/
-	const char *	leader_list;	/* list of leaders */
-	const char *	member_list;	/* list of members */
-	const char *	second_list;	/* list of secondaries */
+void
+msgq_add(msgq_t *msgq, const char *msg)
+{
+	free_string(msgq->qbuf[msgq->qlast]);
+	msgq->qbuf[msgq->qlast] = str_dup(msg);
+	msgq->qlast = (msgq->qlast + 1) % msgq->qlen;
+}
 
-	msgq_t		msgq_clan;	/* last clan messages */
-};
+const char *
+msgq_first(msgq_t *msgq)
+{
+	/*
+	 * find first not-NULL element from qlast
+	 */
+	msgq->qcurr = msgq->qlast;
+	do {
+		if (msgq->qbuf[msgq->qcurr] != NULL)
+			break;
+		msgq->qcurr = (msgq->qcurr + 1) % msgq->qlen;
+	} while (msgq->qcurr != msgq->qlast);
 
-/* clan flags */
-#define CLAN_HIDDEN	(A)		/* clan will not appear in who */
-#define CLAN_CHANGED	(Z)
+	/*
+	 * we should return NULL if queue is empty -- we do so
+	 */
+	return msgq->qbuf[msgq->qcurr];
+}
 
-extern avltree_t clans;
-extern avltree_info_t c_info_clans;
-
-#define clan_lookup(cln)	((clan_t*) c_strkey_lookup(&clans, (cln)))
-#define clan_search(cln)	((clan_t*) c_strkey_search(&clans, (cln)))
-
-#define IS_CLAN(cln1, cln2)	(!str_cmp((cln1), (cln2)))
-
-#endif
+const char *
+msgq_next(msgq_t *msgq)
+{
+	msgq->qcurr = (msgq->qcurr + 1) % msgq->qlen;
+	if (msgq->qcurr == msgq->qlast)
+		return NULL;
+	return msgq->qbuf[msgq->qcurr];
+}

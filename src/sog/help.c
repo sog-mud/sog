@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.24 2001-08-14 16:07:09 fjoe Exp $
+ * $Id: help.c,v 1.25 2002-11-20 20:15:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -100,12 +100,12 @@ help_show_raw(int level, uint lang, BUFFER *output, const char *keyword)
 		keyword = buf;
 	}
 
-	if (IS_NULLSTR(keyword)) 
+	if (IS_NULLSTR(keyword))
 		keyword = "SUMMARY";				// notrans
 
 	for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
 		if (pHelp->level > level
-		||  !is_name(keyword, pHelp->keyword)) 
+		||  !is_name(keyword, pHelp->keyword))
 			continue;
 
 		if (pFirst == NULL) {
