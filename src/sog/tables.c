@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.20 2002-12-11 17:32:38 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.21 2003-02-27 16:55:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -392,6 +392,7 @@ flag_t clan_status_table[] =
 {
 	{ "", 			TABLE_INTVAL			},
 
+	{ "inactive",		CLAN_INACTIVE,		TRUE	},
 	{ "leader",		CLAN_LEADER,		TRUE	},
 	{ "second",		CLAN_SECOND, 		TRUE	},
 	{ "commoner",		CLAN_COMMONER,		TRUE	},

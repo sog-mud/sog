@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.18.2.3 2002-10-26 16:51:24 fjoe Exp $
+ * $Id: clan.h,v 1.18.2.4 2003-02-27 16:55:12 tatyana Exp $
  */
 
 #ifndef _CLAN_H_
@@ -35,9 +35,10 @@
  * clan stuff (clan.c)
  */
 
-#define CLAN_NONE 	 0
+#define CLAN_NONE	 0
 
 /* Clan status */
+#define	CLAN_INACTIVE	3
 #define CLAN_LEADER	2
 #define CLAN_SECOND	1
 #define CLAN_COMMONER	0
@@ -64,6 +65,7 @@ struct clan_t
 	const char *	leader_list;	/* list of leaders */
 	const char *	member_list;	/* list of members */
 	const char *	second_list;	/* list of secondaries */
+	const char *	inactive_list;	/* list of inactive members */
 
 	msgq_t		msgq_clan;	/* last clan messages */
 };

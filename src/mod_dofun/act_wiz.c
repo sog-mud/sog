@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.36 2002-12-09 21:40:28 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.37 2003-02-27 16:55:18 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4216,6 +4216,13 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 					NULL, NULL)) {
 				touched = TRUE;
 				name_add(&clan->second_list, new_name,
+					 NULL, NULL);
+			}
+
+			if (name_delete(&clan->inactive_list, old_name,
+					NULL, NULL)) {
+				touched = TRUE;
+				name_add(&clan->inactive_list, new_name,
 					 NULL, NULL);
 			}
 

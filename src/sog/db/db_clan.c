@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.20.2.1 1999-12-16 12:40:07 fjoe Exp $
+ * $Id: db_clan.c,v 1.20.2.2 2003-02-27 16:55:34 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -129,6 +129,9 @@ DBLOAD_FUN(load_plists)
 		case 'E':
 			if (!str_cmp(word, "End"))
 				return;
+			break;
+		case 'I':
+			SKEY("Inactive", clan->inactive_list);
 			break;
 		case 'L':
 			SKEY("Leaders", clan->leader_list);

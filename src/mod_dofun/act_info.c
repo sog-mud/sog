@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.77 2002-12-11 19:11:03 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.78 2003-02-27 16:55:15 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4846,6 +4846,12 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg1, "second")) {
 		show_clanlist(ch, clan, clan->second_list, "secondaries");
+		return;
+	}
+
+	if (!str_prefix(arg1, "inactive")) {
+		show_clanlist(ch, clan, clan->inactive_list,
+			      "inactive members");
 		return;
 	}
 

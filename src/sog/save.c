@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.17 2002-11-20 14:53:55 fjoe Exp $
+ * $Id: save.c,v 1.126.2.18 2003-02-27 16:55:27 tatyana Exp $
  */
 
 /***************************************************************************
@@ -771,8 +771,18 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 				if (!ch->clan
 				||  (clan = clan_lookup(ch->clan)) == NULL)
 					return;
-				
-				touched = !name_add(&clan->member_list, ch->name, NULL, NULL);
+
+				switch (PC(ch)->clan_status) {
+				case CLAN_INACTIVE:
+					touched = !name_add(&clan->inactive_list, ch->name,
+							    NULL, NULL);
+					break;
+				default:
+					touched = !name_add(&clan->member_list, ch->name,
+							    NULL, NULL);
+					break;
+				}
+
 				switch (PC(ch)->clan_status) {
 				case CLAN_LEADER:
 					nl = &clan->leader_list;
@@ -781,6 +791,7 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 					nl = &clan->second_list;
 					break;
 				}
+
 				if (nl)
 					touched = !name_add(nl, ch->name, NULL, NULL) || touched;
 				if (touched)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.31.2.1 1999-12-16 12:39:54 fjoe Exp $
+ * $Id: olc_clan.c,v 1.31.2.2 2003-02-27 16:55:25 tatyana Exp $
  */
 
 #include "olc.h"
@@ -342,6 +342,10 @@ OLC_FUN(claned_plist)
 		nl = &clan->second_list;
 		name = "secondaries";
 	}
+	else if (!str_prefix(arg1, "inactive")) {
+		nl = &clan->inactive_list;
+		name = "inactive members";
+	}
 	else
 		return claned_plist(ch, str_empty, cmd);
 
@@ -350,7 +354,7 @@ OLC_FUN(claned_plist)
 			    name, clan->name, *nl);
 		return FALSE;
 	}
-			    
+
 	if (!pc_name_ok(arg2)) {
 		char_printf(ch, "ClanEd: %s: Illegal name\n", arg2);
 		return FALSE;
@@ -506,6 +510,7 @@ static void save_clan(CHAR_DATA *ch, clan_t *clan)
 	fwrite_string(fp, "Leaders", clan->leader_list);
 	fwrite_string(fp, "Seconds", clan->second_list);
 	fwrite_string(fp, "Members", clan->member_list);
+	fwrite_string(fp, "Inactive", clan->inactive_list);
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");

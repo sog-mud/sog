@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.30 2002-11-30 19:47:16 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.31 2003-02-27 16:55:31 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2409,7 +2409,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		     ||  IS_NULLSTR(PC(ch)->ll_host))
 			char_puts("Last login was from nowhere.\n", ch);
 		else {
-			act_puts3("Last login was from $U($T) at $t.\n", ch,
+			act_puts3("Last login was from $U($T) at $t.", ch,
 				  strtime(PC(ch)->ll_time),
 				  PC(ch)->ll_ip, PC(ch)->ll_host,
 				  TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -2418,6 +2418,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		PC(ch)->ll_host	= str_qdup(d->host);
 		PC(ch)->ll_ip	= str_qdup(d->ip);
 		PC(ch)->ll_time	= current_time;
+
+		if (ch->clan != NULL
+		&&  PC(ch)->clan_status == CLAN_INACTIVE)
+			act_char("You have inactive status in clan and can't use clan powers!\n",
+				  ch);
 
 		update_skills(ch);
 		ch->next	= char_list;

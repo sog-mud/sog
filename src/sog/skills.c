@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74.2.11 2002-11-23 15:36:53 fjoe Exp $
+ * $Id: skills.c,v 1.74.2.12 2003-02-27 16:55:27 tatyana Exp $
  */
 
 /***************************************************************************
@@ -273,7 +273,9 @@ int get_skill(CHAR_DATA *ch, int sn)
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL
-	||  (IS_SET(sk->skill_flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
+	||  (IS_SET(sk->skill_flags, SKILL_CLAN) &&
+	     (!clan_item_ok(ch->clan) ||
+	      (!IS_NPC(ch) && PC(ch)->clan_status == CLAN_INACTIVE))))
 		return 0;
 
 	if (!IS_NPC(ch)) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.48.2.2 2002-10-26 16:51:30 fjoe Exp $
+ * $Id: clan.c,v 1.48.2.3 2003-02-27 16:55:26 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -102,6 +102,10 @@ void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 
 	case CLAN_LEADER:
 		nl = &clan->leader_list;
+		break;
+
+	case CLAN_INACTIVE:
+		nl =&clan->inactive_list;
 		break;
 	}
 	if (nl)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.44 2002-12-11 14:13:56 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.45 2003-02-27 16:55:14 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1732,6 +1732,12 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			changed = TRUE;
 		}
 
+		if (is_name(victim->name, clan->inactive_list)) {
+			name_delete(&clan->inactive_list, victim->name,
+				    NULL, NULL);
+			changed = TRUE;
+		}
+
 		if (changed)
 			clan_save(clan);
 
@@ -1760,7 +1766,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		}
 		else
 			cln = ch->clan;
-			
+
 		for (d = descriptor_list; d; d = d->next) {
 			CHAR_DATA *vch = d->original ? d->original :
 						       d->character;
@@ -1830,7 +1836,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (!*arg1 || !*arg2) {
-		char_puts("Usage: promote <char name> <commoner | secondary>\n",
+		char_puts("Usage: promote <char name> <commoner | secondary | inactive>\n",
 			  ch);
 		if (IS_IMMORTAL(ch)) {
 			char_puts("    or: promote <char name> <leader>\n",
@@ -1877,6 +1883,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		if (vpc->clan_status == CLAN_INACTIVE)
+			name_add(&clan->member_list, victim->name, NULL, NULL);
+
 		clan_update_lists(clan, victim, FALSE);
 		name_add(&clan->leader_list, victim->name, NULL, NULL);
 		clan_save(clan);
@@ -1897,6 +1906,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 				char_nuke(victim);
 			return;
 		}
+
+		if (vpc->clan_status == CLAN_INACTIVE)
+			name_add(&clan->member_list, victim->name, NULL, NULL);
 
 		clan_update_lists(clan, victim, FALSE);
 		name_add(&clan->second_list, victim->name, NULL, NULL);
@@ -1919,6 +1931,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		if (vpc->clan_status == CLAN_INACTIVE)
+			name_add(&clan->member_list, victim->name, NULL, NULL);
+
 		clan_update_lists(clan, victim, FALSE);
 		clan_save(clan);
 
@@ -1926,6 +1941,26 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		if (ch != victim)
 			char_puts("They are now commoner in the clan.\n", ch);
 		char_puts("You are now commoner in the clan.\n", victim);
+		changed = TRUE;
+		goto cleanup;
+	}
+
+	if (!str_prefix(arg2, "inactive")) {
+		if (vpc->clan_status == CLAN_INACTIVE) {
+			act_char("They are already in inactive status.", ch);
+			if (loaded)
+				char_nuke(victim);
+			return;
+		}
+
+		clan_update_lists(clan, victim, TRUE);
+		name_add(&clan->inactive_list, victim->name, NULL, NULL);
+		clan_save(clan);
+
+		vpc->clan_status = CLAN_INACTIVE;
+		if (ch != victim)
+			act_char("They are now in inactive status.", ch);
+		act_char("You are now in inactive status.", victim);
 		changed = TRUE;
 		goto cleanup;
 	}
@@ -1938,6 +1973,47 @@ cleanup:
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
 	if (loaded)
 		char_nuke(victim);
+}
+
+void do_renounc(CHAR_DATA *ch, const char *argument)
+{
+	act_char("You must type the full command to renounce clan.", ch);
+}
+
+void do_renounce(CHAR_DATA *ch, const char *argument)
+{
+	clan_t *clan;
+	char arg[MAX_STRING_LENGTH];
+	OBJ_DATA *mark;
+
+	if (IS_NPC(ch))
+		return;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (!IS_NULLSTR(arg)) {
+		act_char("Just type 'renounce'.", ch);
+		return;
+	}
+
+	clan = clan_lookup(ch->clan);
+	clan_update_lists(clan, ch, TRUE);
+	clan_save(clan);
+
+	act("You are not a member of $t anymore.", ch, clan->name, NULL, TO_CHAR);
+
+	ch->clan = CLAN_NONE;
+	REMOVE_BIT(PC(ch)->trust, TRUST_CLAN);
+	update_skills(ch);
+	set_title(ch, str_empty);
+
+	if ((mark = get_eq_char(ch, WEAR_CLANMARK))) {
+		obj_from_char(mark);
+		extract_obj(mark, 0);
+		mark = create_obj(get_obj_index(OBJ_VNUM_RENEGADE_MARK), 0);
+		obj_to_char(mark, ch);
+		equip_char(ch, mark, WEAR_CLANMARK);
+	}
 }
 
 /*-----------------------------------------------------------------------------
@@ -1959,7 +2035,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		return;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-    
+
 	if (arg[0] == '\0') {
 		if (d->dvdata->alias[0] == NULL) {
 			char_puts("You have no aliases defined.\n",ch);
