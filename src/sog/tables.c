@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.181 2001-12-07 07:07:09 avn Exp $
+ * $Id: tables.c,v 1.182 2001-12-07 21:31:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1052,7 +1052,6 @@ flaginfo_t ralign_names[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
 
-	{ "none",		RA_NONE,		TRUE	},
 	{ "evil",		RA_EVIL,		TRUE	},
 	{ "neutral",		RA_NEUTRAL,		TRUE	},
 	{ "good",		RA_GOOD,		TRUE	},
@@ -1085,7 +1084,6 @@ flaginfo_t ethos_table[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
 
-	{ "none",		ETHOS_NONE,		TRUE	},
 	{ "lawful",		ETHOS_LAWFUL,		TRUE	},
 	{ "neutral",		ETHOS_NEUTRAL,		TRUE	},
 	{ "chaotic",		ETHOS_CHAOTIC,		TRUE	},
