@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.26 1999-07-01 18:13:46 avn Exp $
+ * $Id: healer.c,v 1.27 1999-07-20 15:01:46 avn Exp $
  */
 
 /*-
@@ -124,11 +124,6 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     }
 
     WAIT_STATE(ch,PULSE_VIOLENCE);
-
-    if (!can_see(mob, ch)) {
-	dofun("say", mob, "I can't heal those I don't see.");
-	return;
-    }
 
     if (cost < 0) {
 	deduct_cost(ch, -cost);
