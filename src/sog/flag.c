@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.46 2004-02-10 14:15:53 fjoe Exp $
+ * $Id: flag.c,v 1.47 2004-02-17 20:53:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -31,7 +31,7 @@
 /*
  * flag_lookup -- lookup flag by name in flag table
  *		  f should point to real start of table
- *		  (impl. dependent values such as table type should
+ *		  (implementation dependent values such as table type should
  *		   be skipped)
  */
 const flaginfo_t *
