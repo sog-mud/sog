@@ -1,5 +1,5 @@
 #
-# $Id: hosting.txt,v 1.5 2002-01-25 08:49:41 fjoe Exp $
+# $Id: hosting.txt,v 1.6 2002-07-26 17:49:59 fjoe Exp $
 #
 
 Common server setup
@@ -18,11 +18,9 @@ If you need quotas, group sog must have ~300M quota.
 	--------+-----------------------+--------------
 	fjoe	| Max Khon		| tcsh (or bash)
 	tatyana	| Tatyana Novikova	| bash
-	mmm	| Marat M. Mirzaev	| bash
 	avn	| Alexey Neyman		| bash
 	cs	| Constantin Svintsoff	| bash
 	matrim	| Sergey A. Menzhulin	| bash
-	murazor	| Dmitriy Shichkov	| bash
 
 All these users should be in group `sog'.
 
@@ -60,7 +58,8 @@ Mud server setup
 
 2) Add an ability to switch to user `sog' for all users in group `sog' (sudo)
 
-Sample `%ETCDIR%/sudoers' file (use /bin/su for Linux):
+Sample `%ETCDIR%/sudoers' file (use /bin/su instead of /usr/bin/su below
+for Linux):
 
 --- cut here ---
 # User alias specification
