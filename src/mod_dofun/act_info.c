@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.31 1998-05-09 12:20:15 fjoe Exp $
+ * $Id: act_info.c,v 1.32 1998-05-11 19:23:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -789,7 +789,6 @@ void do_autolist(CHAR_DATA *ch, char *argument)
 	do_print_sw(ch, "compact mode", IS_SET(ch->comm,COMM_COMPACT));
 	do_print_sw(ch, "long flags", IS_SET(ch->comm,COMM_LONG));
 	do_print_sw(ch, "prompt", IS_SET(ch->comm,COMM_PROMPT));
-	do_print_sw(ch, "compact mode", IS_SET(ch->comm,COMM_COMPACT));
 	do_print_sw(ch, "combine items", IS_SET(ch->comm,COMM_COMBINE));
 
 	if (IS_SET(ch->act, PLR_NOSUMMON))

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.8 1998-05-09 12:20:16 fjoe Exp $
+ * $Id: fight.c,v 1.9 1998-05-11 19:23:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1564,6 +1564,11 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
   if ((!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST)) ||
 	  (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)))
 	return TRUE;
+
+	/* handle ROOM_SAFE flags */
+	if (victim->in_room != NULL
+	&&  IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+		return TRUE;
 
   /* link dead players whose adrenalin is not gushing are safe */
   if (!IS_NPC(victim) && ((victim->last_fight_time == -1) ||

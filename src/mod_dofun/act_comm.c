@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.15 1998-05-08 18:00:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.16 1998-05-11 19:23:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1725,17 +1725,13 @@ bool is_same_group_old(CHAR_DATA *ach, CHAR_DATA *bch)
  */
 bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
 {
-	CHAR_DATA *ch,*vch,*ch_next,*vch_next;
+	CHAR_DATA *ch, *vch;
 
-	for(ch = ach; ch != NULL; ch = ch_next)
-	{
-	ch_next = ch->leader;
-	for(vch = bch; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->leader;
-	if (ch == vch) return TRUE; 
-	}
-	}
+	for(ch = ach; ch != NULL; ch = ch->leader)
+		for(vch = bch; vch != NULL; vch = vch->leader)
+			if (ch == vch)
+				return TRUE; 
+
 	return FALSE;
 }
 
