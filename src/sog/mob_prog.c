@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50.2.2 2000-03-27 08:47:31 fjoe Exp $
+ * $Id: mob_prog.c,v 1.50.2.3 2000-03-27 11:25:58 osya Exp $
  */
 
 /***************************************************************************
@@ -119,6 +119,7 @@ enum {
 	CHK_WAIT,
 	CHK_SAMECLAN,
 	CHK_INPK,
+	CHK_ISSPECTAR,
 };
 
 /*
@@ -208,6 +209,7 @@ const char * fn_keyword[] =
     "wait",
     "sameclan",
     "inpk",		/* if inpk $a $n   - check includes in PK range */
+    "isspectar",	/* if isspectar $n - is $n mob's spec target */  
 
     "\n"		/* Table terminator */
 };
@@ -567,6 +569,8 @@ int cmd_eval(int vnum, const char *line, int check,
 		return (lval_char && lval_char->wait);
 	case CHK_SAMECLAN:
 		return (lval_char && lval_char->clan == mob->clan);
+	case CHK_ISSPECTAR:
+		return (lval_char != NULL && NPC(mob)->target == lval_char);
 	default:;
      }
 
