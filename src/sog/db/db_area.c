@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.83 1999-12-17 12:59:03 fjoe Exp $
+ * $Id: db_area.c,v 1.84 1999-12-17 13:42:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -343,7 +343,37 @@ DBLOAD_FUN(load_areadata)
 		}
 	}
 }
- 
+
+static const char *
+cb_strip_nl(int lang, const char **p, va_list ap)
+{
+	char buf[MAX_STRING_LENGTH];
+	size_t len, oldlen;
+
+	AREA_DATA *pArea = va_arg(ap, AREA_DATA *);
+
+	if (*p == NULL
+	||  (len = strlen(*p)) == 0)
+		return NULL;
+
+	oldlen = len;
+	while ((*p)[len-1] == '\n') {
+		if (len < 2
+		||  (*p)[len-2] != '\n')
+			break;
+		len--;
+	}
+
+	if (oldlen != len) {
+		strnzncpy(buf, sizeof(buf), *p, len);
+		free_string(*p);
+		*p = str_dup(buf);
+		TOUCH_AREA(pArea);
+	}
+
+	return NULL;
+}
+
 /*
  * Snarf a help section.
  */
@@ -369,9 +399,8 @@ DBLOAD_FUN(load_helps)
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
 		mlstr_fread(fp, &pHelp->text);
-	
-		if (mlstr_stripnl(&pHelp->text))
-			TOUCH_AREA(area_current);
+
+		mlstr_foreach(&pHelp->text, cb_strip_nl, area_current);
 		help_add(area_current, pHelp);
 	}
 }
