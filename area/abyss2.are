@@ -201,12 +201,10 @@ genie~
 0
 stand stand male 5612
 0 0 medium unknown
-r fire 33
-r poison -50
+r fire 100
+r poison 100
 r holy -50
-r energy -50
-r light -50
-r charm 100
+r disease 100
 #25009
 hydra гидра~
 @eng the Hydra@rus ~~гидра~~~
@@ -404,9 +402,7 @@ B 0 0 0 0 0 0
 -10 -10 -10 5
 0
 stand stand male 0
-D 0 medium unknown
-F for AZ
-F par AD
+0 0 medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -424,9 +420,7 @@ B 0 0 0 0 0 0
 -10 -10 -10 5
 0
 stand stand male 0
-D 0 medium unknown
-F for Z
-F par AD
+0 0 medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -444,9 +438,7 @@ B 0 H 0 0 0 0
 -10 -10 -10 5
 0
 stand stand male 0
-D 0 medium unknown
-F for Z
-F par AD
+0 0 medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -464,9 +456,7 @@ B 0 0 0 0 0 0
 -10 -10 -10 5
 0
 stand stand male 0
-D 0 medium unknown
-F for Z
-F par AD
+0 0 medium unknown
 r cold 33
 r lightning 33
 r acid 33

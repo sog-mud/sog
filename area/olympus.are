@@ -27,6 +27,7 @@ BCQT 0 HNT A AB 1000 0
 AEFHIKU
 stand stand male 50000
 0 0 gargantuan unknown
+r lightning 100
 r charm 100
 #902
 prometheus прометей~
@@ -301,6 +302,8 @@ BC 0 HNT A AB 1000 0
 ENR
 stand stand male 5000
 0 0 medium unknown
+r fire 100
+r light 100
 r charm 100
 #920
 chimera химера~

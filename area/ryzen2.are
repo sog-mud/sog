@@ -199,13 +199,13 @@ ribs and organs exposed.  ICK!
 острыми, копьеобразными костями и кое-где прогнила, открывая твоему
 взгляду ребра и потроха.
 ~
-unique~
-BFGO 0 0 0 H -900 0
+undead~
+BFGO 0 0 0 0 -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 'bite'
 -13 -13 -13 3
 CDEF
 stand stand none 500
-AGIV ACDEFJKQV large unknown
+G QV large unknown
 g @eng none@rus female~
 #22012
 cleric holy священник~

@@ -15,11 +15,11 @@ lich guardian лич стражник~
 @eng The Guardian lich looks like a decaying corpse, with small glowing points of light for eyes.
 @rus Лич Стражник похож на разлагающийся труп с горящими угольками глаз.
 ~
-human~
+lich~
 BCFJ 0 T AB H -1000 0
 43 0 25d10+2750 329d1+100 8d4+15 'slash'
 -15 -15 -15 5
-BCDEH
+BCDE
 stand stand male 4200
 0 0 medium unknown
 r acid -50
@@ -276,7 +276,7 @@ torturer lich лич мучитель~
 @eng You'd better not look to close, he may charm you.
 @rus Тебе лучше не смотреть на него вблизи, он может очаровать тебя.
 ~
-human~
+lich~
 BFJ 0 J 0 H -1000 0
 51 0 50d10+4800 409d1+100 5d8+20 'pierce'
 -22 -22 -22 2
@@ -312,11 +312,11 @@ see the menace in her eye as she looks at you, and prepares her first spell.
 Но ты можешь видеть угрозу в ее глазах в то время, когда она смотрит на
 тебя и готовит первое заклинание.
 ~
-human~
+lich~
 BFJ 0 JT 0 ABH -1000 0
 62 0 50d15+10000 519d1+100 6d9+29 'pierce'
 -35 -35 -35 -1
-BCDEH
+BCDE
 stand stand female 10000
 0 0 medium unknown
 r acid -50
@@ -329,7 +329,7 @@ lich лич~
 light for eyes.
 @rus Лич похож на разлагающийся труп с горящими угольками глаз.
 ~
-human~
+lich~
 BCFJ 0 0 A AH -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 1

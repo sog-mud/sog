@@ -86,8 +86,8 @@ r energy -50
 r charm 33
 r wood -50
 #4603
-Kharzandra wizardress vampire кхарзандра волшебница~
-@eng Kharzandra, the Dark-elf Vampire@rus ~~Кхарзандра~~~
+Kharzandra wizardress vampire кхазандра волшебница~
+@eng Kharzandra, the Dark-elf Vampire@rus Хазандра~
 @eng A dark-skinned wizardress stands here, raising the dead.@rus Темнокожая волшебница (wizardress) поднимает здесь все новых и новых зомби.~
 @eng Fear grips you upon looking at this frail, young looking creature, when you
 realize what it truly is... a Dark-elf enchantress which has become a
@@ -181,13 +181,13 @@ You don't like it.
 @rus Сморщенная мордочка поворачивается в твою сторону и оскаливает зубы,
 показывая два длинных и острых резца.
 ~
-unique~
-BFGH 0 Tc G BH -700 0
+bat~
+BFGH 0 c G BH -700 0
 20 10 20d10+600 1d1+199 7d5+10 'bite'
 1 1 1 1
-FHQ
+Q
 stand stand none 200
-BIV ADFPV medium unknown
+BI V medium unknown
 g @eng none@rus female~
 #4609
 demon familiar демон~
@@ -215,13 +215,13 @@ dracolich драколич огромный~
 @eng Horrible skeletal form look at you and green evilly.
 @rus При виде тебя на его морде появляется жуткое подобие ухмылки.
 ~
-unique~
-BFGJT 0 J 0 ABH -1000 0
+dracolich~
+BFGJT 0 J 0 AB -1000 0
 51 20 10d100+3500 1d1+400 7d8+40 'claw'
 -30 -30 -30 -30
 EFMO
 stand stand none 50000
-BCDI 0 huge unknown
+BCD 0 huge unknown
 g @eng none@rus male~
 #4611
 priest vampire вампир священник~
@@ -1023,7 +1023,7 @@ door~
 ABZ 0 4607
 S
 #4609
-@eng The Kharzandra's coffin room@rus Склеп Кхарзандры~
+@eng The Kharzandra's coffin room@rus Склеп Хазандры~
 ~
 0 ADN inside
 D1
@@ -1034,7 +1034,7 @@ D1
 ABZ 0 4610
 S
 #4610
-@eng The workroom of Kharzandra.@rus Рабочая комната Кхарзандры~
+@eng The workroom of Kharzandra.@rus Рабочая комната Хазандры~
 ~
 0 ADN inside
 D0

@@ -104,7 +104,7 @@ A VERY gaunt looking newbie... it looks like a zombie!~
 This guy has been lost in here too long... it is more zombie than man
 now.  You would feel sorry for it, but it is moving in to attack!
 ~
-human~
+zombie~
 CFGJ 0 0 0 H -500 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
