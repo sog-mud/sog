@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.42 2001-08-26 16:17:24 fjoe Exp $
+ * $Id: hunt.c,v 1.43 2001-08-30 18:50:06 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -389,7 +389,7 @@ hunt_victim(CHAR_DATA *ch)
 			dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
 		} else {
-			act_say(ch, "I have lost $i!", ch->hunting);
+			act_say(ch, "I have lost $N!", ch->hunting);
 			ch->hunting = NULL;
 		}
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.354 2001-08-26 05:49:05 fjoe Exp $
+ * $Id: merc.h,v 1.355 2001-08-30 18:50:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1790,9 +1790,13 @@ struct room_index_data
 #define GET_PET(ch)		(IS_NPC(ch) ? NULL : PC(ch)->pet)
 #define GET_LANG(ch)		(ch->desc ? ch->desc->dvdata->lang : 0)
 
-#define IS_GOOD(ch)		((ch)->alignment >= 350)
-#define IS_EVIL(ch)		((ch)->alignment <= -350)
-#define IS_NEUTRAL(ch)		(!IS_GOOD(ch) && !IS_EVIL(ch))
+#define IS_GOOD_ALIGN(align)	((align) >= 350)
+#define IS_EVIL_ALIGN(align)	((align) <= -350)
+#define IS_NEUTRAL_ALIGN(align)	(!IS_GOOD_ALIGN(align) && !IS_EVIL_ALIGN(align))
+
+#define IS_GOOD(ch)		(IS_GOOD_ALIGN((ch)->alignment))
+#define IS_EVIL(ch)		(IS_EVIL_ALIGN((ch)->alignment))
+#define IS_NEUTRAL(ch)		(IS_NEUTRAL_ALIGN((ch)->alignment))
 
 #define RALIGN(ch)	(IS_GOOD(ch) ? RA_GOOD :	\
 			 IS_EVIL(ch) ? RA_EVIL :	\

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.244 2001-08-21 13:23:31 kostik Exp $
+ * $Id: act_comm.c,v 1.245 2001-08-30 18:50:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -275,7 +275,7 @@ DO_FUN(do_say, ch, argument)
 	}
 
 	argument = garble(ch, argument);
-	act_say(ch, "$t", argument);
+	act_say(ch, "$T", argument);
 
 #if 0
 	XXX
@@ -526,7 +526,7 @@ DO_FUN(do_yell, ch, argument)
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_yell(ch, "$t", argument, NULL);
+	act_yell(ch, "$T", argument, NULL);
 }
 
 DO_FUN(do_shout, ch, argument)
@@ -688,7 +688,7 @@ DO_FUN(do_clan, ch, argument)
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $lu{$n}: {C$t{x",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_clan(ch, "$t", argument);
+	act_clan(ch, "$T", argument);
 }
 
 DO_FUN(do_implore, ch, argument)

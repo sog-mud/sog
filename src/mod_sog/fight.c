@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.320 2001-08-28 16:37:39 avn Exp $
+ * $Id: fight.c,v 1.321 2001-08-30 18:50:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,14 @@
 
 #include <sog.h>
 
+struct xpc_t {
+	int members;
+	int group_levels;
+	int v_level;
+	int v_align;
+};
+typedef struct xpc_t xpc_t;
+
 /*
  * Local functions.
  */
@@ -80,9 +88,9 @@ static void	form_hit	(CHAR_DATA *ch, CHAR_DATA *victim,
 static void	dam_message	(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				 const char *dt, bool immune, int dam_class,
 				 int dam_flags);
-static void	group_gain	(CHAR_DATA *ch, CHAR_DATA *victim);
-static int	xp_compute	(CHAR_DATA *gch, CHAR_DATA *victim,
-				 int total_levels, int members);
+static void	xpc_compute	(CHAR_DATA *ch, CHAR_DATA *victim, xpc_t *xpc);
+static void	group_gain	(CHAR_DATA *ch, xpc_t *xpc);
+static int	xp_compute	(CHAR_DATA *gch, xpc_t *xpc);
 static OBJ_DATA *make_corpse	(CHAR_DATA *ch);
 static void	get_gold_corpse	(CHAR_DATA *ch, OBJ_DATA *corpse);
 static int	num_enemies	(CHAR_DATA *ch);
@@ -450,10 +458,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 					ch, NULL, victim,
 					TO_NOTVICT, POS_RESTING);
 				check_improve(ch, "impale", TRUE, 1);
-				act_char("You die..", victim);
-				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
-				victim->position = POS_DEAD;
+
 				handle_death(ch, victim);
 				return;
 			} else {
@@ -475,10 +481,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 					 ch, NULL, victim,
 					 TO_NOTVICT, POS_RESTING);
 				check_improve(ch, "cleave", TRUE, 1);
-				act_char("You die..", victim);
-				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
 				WAIT_STATE(ch, 2);
-				victim->position = POS_DEAD;
+
 				handle_death(ch, victim);
 				return;
 			} else
@@ -496,11 +500,8 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act_puts("$n {R+++ASSASSINATES+++{x you!",
 					 ch, NULL, victim,
 					 TO_VICT, POS_DEAD);
-				act_char("You die..", victim);
-				act("$n is DEAD!", victim, NULL, victim,
-				    TO_ROOM);
 				check_improve(ch, "assassinate", TRUE, 1);
-				victim->position = POS_DEAD;
+
 				handle_death(ch, victim);
 				return;
 			} else {
@@ -585,9 +586,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				act("$p whistles in the air, "
 				    "chopping your head OFF!",
 				    victim, wield, NULL, TO_CHAR);
-				act("$n is DEAD!", victim, NULL, NULL, TO_ROOM);
-				act_char("You die..", victim);
-				victim->position = POS_DEAD;
+
 				handle_death(ch, victim);
 				return;
 			}
@@ -705,20 +704,19 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM))
 		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
+	xpc_t xpc;
 
-	if (is_affected(victim, "resurrection")) {
-		raw_kill(ch, victim);
-		return;
-	}
-
-	if (!is_duel)
-		group_gain(ch, victim);
+	xpc_compute(ch, victim, &xpc);
+	victim->position = POS_DEAD;
 
 	/*
 	 * IS_NPC victim is not valid after raw_kill
 	 */
 	if ((corpse = raw_kill(ch, victim)) == NULL)
 		return;
+
+	if (!is_duel)
+		group_gain(ch, &xpc);
 
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room) {
 		flag_t f_plr = PC(ch)->plr_flags;
@@ -1027,13 +1025,9 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
-#if 0
-				XXX
-				if (IS_NPC(victim)
-				&&  HAS_TRIGGER(victim, TRIG_KILL))
-					mp_percent_trigger(victim, ch, NULL,
-							   NULL, TRIG_KILL);
-#endif
+
+				pull_mob_trigger(
+				    TRIG_MOB_KILL, NULL, victim, ch, NULL);
 			}
 
 			/*
@@ -1231,8 +1225,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		break;
 
 	case POS_DEAD:
-		act("$n is DEAD!!", victim, 0, 0, TO_ROOM);
-		act_char("You die..", victim);
 		send_to_char("\n", victim);
 		break;
 
@@ -1497,6 +1489,9 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 #endif
 
+	act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
+	act_char("You die..", victim);
+
 	if (IS_NPC(victim))
 		quest_handle_death(ch, victim);
 	else
@@ -1590,7 +1585,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 
 			if (vch->pMobIndex->vnum == MOB_VNUM_STALKER) {
-				act_clan(vch, "$i is dead and I can leave the realm.", victim);
+				act_clan(vch, "$N is dead and I can leave the realm.", victim);
 				act("$n slowly fades away.",
 				    vch, NULL, NULL, TO_ROOM);
 				extract_char(vch, 0);
@@ -2742,27 +2737,28 @@ death_cry(CHAR_DATA *ch)
 }
 
 static void
-group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
+xpc_compute(CHAR_DATA *ch, CHAR_DATA *victim, xpc_t *xpc)
 {
-	const CHAR_DATA *lch;
 	CHAR_DATA *gch;
-	int xp;
-	int members;
-	int group_levels;
+	CHAR_DATA *lch;
+
+	xpc->members = 0;
+	xpc->group_levels = 0;
 
 	if (!IS_NPC(victim) || victim == ch)
 		return;
 
 	if (IS_SET(victim->pMobIndex->act, ACT_PET)
 	||  victim->pMobIndex->vnum < 100
-	||  victim->master
-	||  victim->leader)
+	||  victim->master != NULL
+	||  victim->leader != NULL)
 		return;
+
+	xpc->v_align = victim->alignment;
+	xpc->v_level = victim->level;
 
 	lch = leader_lookup(ch);
 
-	members = 0;
-	group_levels = 0;
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
 		if (is_same_group(gch, ch)) {
 			if (IS_NPC(gch)) {
@@ -2770,13 +2766,27 @@ group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 					continue;
 			} else {
 				if (abs(gch->level - lch->level) <= 8)
-					members++;
+					xpc->members++;
 			}
-			group_levels += gch->level;
+			xpc->group_levels += gch->level;
 		}
 	}
+}
+
+static void
+group_gain(CHAR_DATA *ch, xpc_t *xpc)
+{
+	CHAR_DATA *gch;
+	CHAR_DATA *lch;
+
+	if (xpc->members == 0)
+		return;
+
+	lch = leader_lookup(ch);
 
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
+		int xp;
+
 		if (!is_same_group(gch, ch) || IS_NPC(gch))
 			continue;
 
@@ -2790,8 +2800,8 @@ group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 			continue;
 		}
 
-		xp = xp_compute(gch, victim, group_levels, members);
-		if(xp >= 0) {
+		xp = xp_compute(gch, xpc);
+		if (xp >= 0) {
 			act_puts("You receive $j experience points.",
 				 gch, (const void *) xp, NULL,
 				 TO_CHAR, POS_DEAD);
@@ -2812,7 +2822,7 @@ group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
  * gch is assumed to be !IS_NPC
  */
 static int
-xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
+xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 {
 	PC_DATA *pc = PC(gch);
 	int pc_level = gch->level;
@@ -2822,20 +2832,20 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 	base_exp = (pc_level + 1) * pc_level;
 
-	if (pc_level > victim->level) {
-		base_exp >>= pc_level - victim->level;
-	} else if ((victim->level - pc_level) < 5) {
-		base_exp *= (victim->level - pc_level + 1);
+	if (pc_level > xpc->v_level) {
+		base_exp >>= pc_level - xpc->v_level;
+	} else if ((xpc->v_level - pc_level) < 5) {
+		base_exp *= (xpc->v_level - pc_level + 1);
 	} else {
-		base_exp *= (19 + victim->level - pc_level) / 4;
+		base_exp *= (19 + xpc->v_level - pc_level) / 4;
 	}
 
-	if ((IS_EVIL(gch) && IS_GOOD(victim))
-	||  (IS_EVIL(victim) && IS_GOOD(gch)))
+	if ((IS_EVIL(gch) && IS_GOOD_ALIGN(xpc->v_align))
+	||  (IS_EVIL_ALIGN(xpc->v_align) && IS_GOOD(gch)))
 		xp = base_exp * 8 / 5;
-	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL(victim))
+	else if (!IS_NEUTRAL(gch) && IS_NEUTRAL_ALIGN(xpc->v_align))
 		xp = base_exp * 11 / 10;
-	else if (IS_NEUTRAL(gch) && !IS_NEUTRAL(victim))
+	else if (IS_NEUTRAL(gch) && !IS_NEUTRAL_ALIGN(xpc->v_align))
 		xp = base_exp * 13 / 10;
 	else
 		xp = base_exp;
@@ -2846,45 +2856,45 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	xp = number_range(xp * 3/4, xp * 5/4);
 
 	/* adjust for grouping */
-	xp *= UMIN(members, 3);
-	xp = xp * gch->level/total_levels;
+	xp *= UMIN(xpc->members, 3);
+	xp = xp * gch->level/xpc->group_levels;
 
 	if (IS_GOOD(gch)) {
-		if (IS_GOOD(victim)) {
+		if (IS_GOOD_ALIGN(xpc->v_align)) {
 			pc->anti_killed++;
 			neg_cha = 1;
-		} else if (IS_NEUTRAL(victim)) {
+		} else if (IS_NEUTRAL_ALIGN(xpc->v_align)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		} else if (IS_EVIL(victim)) {
+		} else if (IS_EVIL_ALIGN(xpc->v_align)) {
 			pc->has_killed++;
 			pos_cha = 1;
 		}
 	} else if (IS_NEUTRAL(gch)) {
-		if (IS_GOOD(victim)) {
+		if (IS_GOOD_ALIGN(xpc->v_align)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		} else if (IS_NEUTRAL(victim)) {
+		} else if (IS_NEUTRAL_ALIGN(xpc->v_align)) {
 			pc->anti_killed++;
 			neg_cha = 1;
-		} else if (IS_EVIL(victim)) {
+		} else if (IS_EVIL_ALIGN(xpc->v_align)) {
 			pc->has_killed++;
 			pos_cha =1;
 		}
 	} else if (IS_EVIL(gch)) {
-		if (IS_GOOD(victim)) {
+		if (IS_GOOD_ALIGN(xpc->v_align)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		} else if (IS_NEUTRAL(victim)) {
+		} else if (IS_NEUTRAL_ALIGN(xpc->v_align)) {
 			pc->has_killed++;
 			pos_cha = 1;
-		} else if (IS_EVIL(victim)) {
+		} else if (IS_EVIL_ALIGN(xpc->v_align)) {
 			pc->anti_killed++;
 			neg_cha = 1;
 		}
 	}
 
-	if (IS_GOOD(gch) && IS_GOOD(victim))
+	if (IS_GOOD(gch) && IS_GOOD_ALIGN(xpc->v_align))
 		xp = -xp;
 
 	if (neg_cha) {
@@ -2917,6 +2927,7 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 			}
 		}
 	}
+
 	return xp;
 }
 

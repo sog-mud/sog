@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.18 2001-08-28 17:46:18 fjoe Exp $
+ * $Id: mpc_c.c,v 1.19 2001-08-30 18:50:13 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -175,7 +175,12 @@ c_push_retval(mpcode_t *mpc)
 	    d->name, rv_tag, d->rv_tag);
 	for (i = 0; i < nargs; i++) {
 		if (d->argtype[i].type_tag == MT_PVOID
-		||  d->argtype[i].type_tag == MT_PCVOID)
+		||  d->argtype[i].type_tag == MT_PCVOID
+		||  (argtype[i] == MT_PVOID &&
+		     (d->argtype[i].type_tag == MT_STR ||
+		      d->argtype[i].type_tag == MT_CHAR ||
+		      d->argtype[i].type_tag == MT_OBJ ||
+		      d->argtype[i].type_tag == MT_ROOM)))
 			continue;
 
 		mpc_assert(mpc, __FUNCTION__,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.35 2001-08-20 17:03:27 fjoe Exp $
+ * $Id: eventfun.c,v 1.36 2001-08-30 18:50:08 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -257,10 +257,8 @@ EVENT_FUN(event_updatechar_wcurse, ch, af)
 	if (ch->hit < 1) {
 		if (IS_IMMORTAL(ch))
 			ch->hit = 1;
-		else {
-			ch->position = POS_DEAD;
+		else
 			handle_death(ch, ch);
-		}
 	}
 }
 

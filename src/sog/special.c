@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.80 2001-08-26 16:17:34 fjoe Exp $
+ * $Id: special.c,v 1.81 2001-08-30 18:50:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -677,7 +677,7 @@ bool spec_executioner(CHAR_DATA *ch)
 		return FALSE;
 
 	act_yell(ch,
-		 "$lu{$i} is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
+		 "$lu{$N} is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 		 victim, NULL);
 	multi_hit(ch, victim, NULL);
 	return TRUE;
@@ -1008,7 +1008,7 @@ bool spec_guard(CHAR_DATA *ch)
 	
 	if (victim) {
 		act_yell(ch,
-			 "$i is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
+			 "$lu{$N} is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
 			 victim, NULL);
 		multi_hit(ch, victim, NULL);
 		return TRUE;
@@ -1041,7 +1041,7 @@ bool spec_special_guard(CHAR_DATA *ch)
 
 	if (victim) {
 		act_yell(ch,
-			 "$i is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
+			 "$lu{$N} is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
 			 victim, NULL);
 		multi_hit(ch, victim, NULL);
 		return TRUE;

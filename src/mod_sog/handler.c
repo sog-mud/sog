@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.315 2001-08-28 17:46:21 fjoe Exp $
+ * $Id: handler.c,v 1.316 2001-08-30 18:50:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -978,7 +978,7 @@ quit_char(CHAR_DATA *ch, int flags)
 			}
 
 			if (vch->pMobIndex->vnum == MOB_VNUM_STALKER) {
-				act_clan(vch, "$i has left the realm, I have to leave too.", ch);
+				act_clan(vch, "$N has left the realm, I have to leave too.", ch);
 				act("$n slowly fades away.",
 				    vch, NULL, NULL, TO_ROOM);
 				extract_char(vch, 0);
@@ -4593,7 +4593,6 @@ bad_effect(CHAR_DATA *ch, int effect)
 		return;
 
 	case FAIL_DEATH:
-		act("You die..", ch, NULL, NULL, TO_CHAR);
 		raw_kill(ch, ch);
 		return;
 

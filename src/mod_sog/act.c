@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.82 2001-08-20 16:47:39 fjoe Exp $
+ * $Id: act.c,v 1.83 2001-08-30 18:50:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -440,7 +440,7 @@ act_format_door(const gmlstr_t *gml)
  * $j - num(arg1)
  * $J - num(arg3)
  * $k
- * $K
+ * $K - num(arg2)
  * $l - $lx{...} - tolower/toupper convertions
  *	u	- uppercase first letter
  * $L
@@ -486,6 +486,7 @@ act_format_door(const gmlstr_t *gml)
 #define VCH1	((CHAR_DATA *) (uintptr_t) arg1)
 #define VCH3	((CHAR_DATA *) (uintptr_t) arg3)
 #define NUM1	((int) arg1)
+#define NUM2	((int) arg2)
 #define NUM3	((int) arg3)
 #define ROOM1	((const ROOM_INDEX_DATA *) arg1)
 #define ROOM3	((const ROOM_INDEX_DATA *) arg3)
@@ -680,6 +681,11 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 			case 'J':
 				snprintf(tmp, sizeof(tmp), "%d", NUM3);
+				i = tmp;
+				break;
+
+			case 'K':
+				snprintf(tmp, sizeof(tmp), "%d", NUM2);
 				i = tmp;
 				break;
 
@@ -1119,7 +1125,7 @@ act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg)
 	opt.to_lang = GET_LANG(vch);
 	opt.act_flags = ACT_NOUCASE | ACT_NOLF;
 
-	act_buf(text, ch, ch, arg, NULL, NULL, &opt, buf, sizeof(buf));
+	act_buf(text, ch, ch, NULL, arg, NULL, &opt, buf, sizeof(buf));
 	return buf;
 }
 

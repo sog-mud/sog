@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.260 2001-08-29 11:48:37 kostik Exp $
+ * $Id: spellfun.c,v 1.261 2001-08-30 18:50:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5698,15 +5698,8 @@ SPELL_FUN(spell_power_word_kill, sn, level, ch, vo)
 		dam = dice(level , 20) ;
 		damage(ch, victim , dam , sn,
 			saves_nega ? DAM_MENTAL : DAM_NEGATIVE,  DAMF_SHOW);
-	} else {
-
-		act_char("You die..", victim);
-
-		act("$N has been killed!\n", ch, NULL, victim, TO_CHAR);
-		act("$N has been killed!\n", ch, NULL, victim, TO_NOTVICT);
-
+	} else
 		raw_kill(ch, victim);
-	}
 }
 
 #define OBJ_VNUM_EYED_SWORD		88
@@ -7848,7 +7841,6 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 			    ch, NULL, victim, TO_VICT);
 			act("You are squeezed by the rock.",
 			    ch, NULL, victim, TO_VICT);
-			act_char("You die..", victim);
 			act("$N believes $E is squeezed by the large rock fallen from the sky and dies.", ch, NULL, victim, TO_CHAR);
 			act("$n makes $N believe that large rock from the sky squeezes $M.", ch, NULL, victim, TO_NOTVICT);
 			raw_kill(ch, victim);

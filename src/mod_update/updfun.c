@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.38 2001-08-26 16:17:32 fjoe Exp $
+ * $Id: updfun.c,v 1.39 2001-08-30 18:50:17 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -196,7 +196,6 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 			if (IS_IMMORTAL(ch))
 				ch->hit = 1;
 			else {
-				ch->position = POS_DEAD;
 				handle_death(ch, ch);
 				return NULL;
 			}
@@ -213,7 +212,6 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 		    ch, NULL, NULL, TO_CHAR);
 		ch->hit -= ch->max_hit/20;
 		if (ch->hit < 1) {
-			ch->position = POS_DEAD;
 			handle_death(ch, ch);
 			return NULL;
 		}
@@ -1126,7 +1124,7 @@ FOREACH_CB_FUN(track_update_cb, vo, ap)
 		||  !is_name(vch->name, npc->in_mind))
 			continue;
 
-		act_yell(ch, "So we meet again, $i!", vch, NULL);
+		act_yell(ch, "So we meet again, $N!", vch, NULL);
 		multi_hit(ch, vch, NULL);
 		break;
 	}
@@ -1852,7 +1850,7 @@ FOREACH_CB_FUN(find_aggr_cb, vo, ap)
 	if (npc->last_fought != NULL) {
 		if (npc->last_fought == wch
 		&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
-			act_yell(ch, "$i! Now you die!", wch, NULL);
+			act_yell(ch, "$lu{$N}! Now you die!", wch, NULL);
 			wch = check_guard(wch, ch);
 			multi_hit(ch, wch, NULL);
 		}

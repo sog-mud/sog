@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.5 2001-08-27 16:55:59 fjoe Exp $
+ * $Id: trig.h,v 1.6 2001-08-30 18:50:02 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -48,6 +48,7 @@
 #define TRIG_MOB_EXALL		13		/* arg: dir (or "all")	*/
 #define TRIG_MOB_DELAY		14		/* arg: probability	*/
 #define TRIG_MOB_SURR		15		/* arg: probability	*/
+#define TRIG_MOB_LOOK		16		/* arg: probability	*/
 
 /* obj triggers */
 #define TRIG_OBJ_WEAR		100		/* arg: probability	*/

@@ -1,8 +1,8 @@
 #
-# $Id: genconst.sed,v 1.1 2001-06-18 15:05:35 fjoe Exp $
+# $Id: genconst.sed,v 1.2 2001-08-30 18:50:11 fjoe Exp $
 #
 
 s/^#define /"/
 s/	/",/
 s/^/	{ /
-s/$/},/
+s/$/,	MT_INT },/

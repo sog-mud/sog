@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.39 2001-08-28 16:37:35 avn Exp $
+ * $Id: act_magic.c,v 1.40 2001-08-30 18:50:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -349,7 +349,7 @@ DO_FUN(do_cast, ch, argument)
 				&&  victim->fighting != ch
 				&&  !is_same_group(ch, victim))
 					yell(victim, ch,
-					     "Die, $i, you sorcerous dog!");
+					     "Die, $N, you sorcerous dog!");
 				break;
 			}
 		}
@@ -757,7 +757,7 @@ DO_FUN(do_pray, ch, argument)
 				&&  victim->fighting != ch
 				&&  !is_same_group(ch, victim))
 					yell(victim, ch,
-					     "Help! I've been attacked by $i!");
+					     "Help! I've been attacked by $N!");
 				break;
 			}
 		}

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.27 2001-08-28 17:46:17 fjoe Exp $
+ * $Id: mpc.y,v 1.28 2001-08-30 18:50:12 fjoe Exp $
  */
 
 /*
@@ -619,7 +619,7 @@ foreach: L_FOREACH {
 			int got_type = argtype_get(mpc, $8, i);
 			if (got_type != $6->init.argtype[i].type_tag) {
 				compile_error(mpc,
-				    "%s: invalid arg[%d] type '%s' ('%s' (%d) expected)",
+				    "%s: invalid arg[%d] type '%s' (type '%s' (%d) expected)",
 				    $6->init.name, i+1,
 				    flag_string(mpc_types, got_type),
 				    flag_string(mpc_types, $6->init.argtype[i].type_tag),
@@ -800,16 +800,22 @@ expr:	L_IDENT assign expr %prec '=' {
 		for (i = 0; i < d->nargs; i++) {
 			int got_type;
 
+			got_type = argtype_get(mpc, $3, i);
+
 			if (d->argtype[i].type_tag == MT_PVOID
-			||  d->argtype[i].type_tag == MT_PCVOID) {
+			||  d->argtype[i].type_tag == MT_PCVOID
+			||  (got_type == MT_PVOID &&
+			     (d->argtype[i].type_tag == MT_STR ||
+			      d->argtype[i].type_tag == MT_CHAR ||
+			      d->argtype[i].type_tag == MT_OBJ ||
+			      d->argtype[i].type_tag == MT_ROOM))) {
 				code(mpc, (void *) d->argtype[i].type_tag);
 				continue;
 			}
 
-			got_type = argtype_get(mpc, $3, i);
 			if (got_type != d->argtype[i].type_tag) {
 				compile_error(mpc,
-				    "%s: invalid arg[%d] type '%s' (%s (%d) expected)",
+				    "%s: invalid arg[%d] type '%s' (type '%s' (%d) expected)",
 				    $1, i+1,
 				    flag_string(mpc_types, got_type),
 				    flag_string(mpc_types, d->argtype[i].type_tag),

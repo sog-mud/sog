@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_const.h,v 1.1 2001-06-18 15:05:36 fjoe Exp $
+ * $Id: mpc_const.h,v 1.2 2001-08-30 18:50:13 fjoe Exp $
  */
 
 #ifndef _MPC_CONST_H_
@@ -32,6 +32,7 @@
 struct int_const_t {
 	const char *name;
 	int value;
+	int type_tag;
 };
 typedef struct int_const_t int_const_t;
 

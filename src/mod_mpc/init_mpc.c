@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.18 2001-08-28 17:46:17 fjoe Exp $
+ * $Id: init_mpc.c,v 1.19 2001-08-30 18:50:12 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -151,6 +151,7 @@ const char *mpc_dynafuns[] = {
 #if !defined(MPC)
 	"act",
 	"act_char",
+	"act_yell",
 	"can_see",
 	"dofun",
 	"has_sp",
@@ -190,7 +191,7 @@ mpc_init(void)
 
 		sym.name = str_dup(ic->name);
 		sym.type = SYM_VAR;
-		sym.s.var.type_tag = MT_INT;
+		sym.s.var.type_tag = ic->type_tag;
 		sym.s.var.data.i = ic->value;
 		sym.s.var.is_const = TRUE;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.394 2001-08-29 11:48:35 kostik Exp $
+ * $Id: act_info.c,v 1.395 2001-08-30 18:50:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -692,6 +692,7 @@ DO_FUN(do_look, ch, argument)
 			    victim, NULL, ch, TO_NOTVICT);
 		}
 
+		pull_mob_trigger(TRIG_MOB_LOOK, NULL, victim, ch, NULL);
 		return;
 	}
 

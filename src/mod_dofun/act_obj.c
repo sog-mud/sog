@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.253 2001-08-28 16:37:32 avn Exp $
+ * $Id: act_obj.c,v 1.254 2001-08-30 18:50:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1805,17 +1805,17 @@ DO_FUN(do_steal, ch, argument)
 
 			switch (number_range(0, 3)) {
 			case 0:
-				msg = "$i is a lousy thief!";
+				msg = "$lu{$N} is a lousy thief!";
 				break;
 			case 1:
-				msg = "$i couldn't rob $gi{his} way "
+				msg = "$lu{$N} couldn't rob $gN{his} way "
 				      "out of a paper bag!";
 				break;
 			case 2:
-				msg = "$i tried to rob me!";
+				msg = "$lu{$N} tried to rob me!";
 				break;
 			default:
-				msg = "Keep your hands out of there, $i!";
+				msg = "Keep your hands out of there, $N!";
 				break;
 			}
 
@@ -3299,7 +3299,7 @@ DO_FUN(do_repair, ch, argument)
 	}
 
 	if (obj->cost == 0) {
-		act_say(mob, "$p is beyond repair.", obj);
+		act_say(mob, "$P is beyond repair.", obj);
 		return;
 	}
 
@@ -3326,55 +3326,52 @@ DO_FUN(do_repair, ch, argument)
 DO_FUN(do_estimate, ch, argument)
 {
 	OBJ_DATA *obj;
-	CHAR_DATA *mob; 
+	CHAR_DATA *mob;
 	char arg[MAX_INPUT_LENGTH];
 	int cost;
-	
+
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
 		if (IS_NPC(mob) && MOB_IS(mob, MOB_REPAIRMAN))
 			break;
 	}
- 
-	if (mob == NULL)
-	{
-	    act_char("You can't do that here.", ch);
-	    return;
-	}
-	
-	one_argument(argument, arg, sizeof(arg));
-	
-	if (arg[0] == '\0')
-	{
-	do_say(mob,"Try estimate <item>.");
-   	return; 
-	} 
-	if ((obj = (get_obj_carry(ch, arg))) == NULL)
-	{
-	do_say(mob,"You don't have that item.");
-	return;
-	}
-	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER)
-	{
-	    do_say(mob,"That hammer is beyond my power.");
-	    return;
-	}
-	if (obj->condition >= 100)
-	{
-	do_say(mob,"But that item's not broken.");
-	return;
-	}
-	if (obj->cost == 0)
-	{
-	do_say(mob,"That item is beyond repair.");
+
+	if (mob == NULL) {
+		act_char("You can't do that here.", ch);
 		return;
-	} 
-	
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		do_say(mob, "Try estimate <item>.");
+		return;
+	}
+
+	if ((obj = (get_obj_carry(ch, arg))) == NULL) {
+		do_say(mob, "You don't have that item.");
+		return;
+	}
+
+	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER) {
+		do_say(mob, "$P is beyond my power.");
+		return;
+	}
+
+	if (obj->condition >= 100) {
+		do_say(mob, "But that item's not broken.");
+		return;
+	}
+
+	if (obj->cost == 0) {
+		do_say(mob,"That item is beyond repair.");
+		return;
+	}
+
 	cost = ((obj->level * 10) +
 		((obj->cost * (100 - obj->condition)) /100)   );
 	cost /= 100;
 
-	act_say(mob, "It will cost you $j gold to fix that item.",
-		(const void*) cost);
+	act_say(mob, "It will cost you $K gold to fix that item.",
+		(const void *) cost);
 }
 
 DO_FUN(do_smithing, ch, argument)
@@ -3466,7 +3463,7 @@ static CHAR_DATA *find_keeper(CHAR_DATA *ch)
 
 	if (IS_WANTED(ch)) {
 		do_say(keeper, "Criminals are not welcome!");
-		act_yell(keeper, "$i the CRIMINAL is over here!", ch, NULL);
+		act_yell(keeper, "$lu{$N} the CRIMINAL is over here!", ch, NULL);
 		return NULL;
 	}
 

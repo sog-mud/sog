@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.6 2001-08-28 16:37:32 avn Exp $
+ * $Id: init_bootdb.c,v 1.7 2001-08-30 18:50:03 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -78,12 +78,14 @@ MODINIT_FUN(_module_load, m)
 	db_load_dir(&db_races, RACES_PATH, RACE_EXT);
 	db_load_dir(&db_classes, CLASSES_PATH, CLASS_EXT);
 	db_load_dir(&db_clans, CLANS_PATH, CLAN_EXT);
+
+	load_mprogs();
+
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
 	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
 
 	load_hints();
-	load_mprogs();
 
 	if (bootdb_errors != 0) {
 		log(LOG_ERROR, "%d errors found", bootdb_errors);

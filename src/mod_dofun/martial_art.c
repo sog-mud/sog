@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.193 2001-08-21 13:23:34 kostik Exp $
+ * $Id: martial_art.c,v 1.194 2001-08-30 18:50:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -439,7 +439,7 @@ DO_FUN(do_murder, ch, argument)
 	}
 
 	multi_hit(ch, victim, NULL);
-	yell(victim, ch, "Help! $lu{$i} is attacking me!");
+	yell(victim, ch, "Help! $lu{$N} is attacking me!");
 }
 
 DO_FUN(do_flee, ch, argument)
@@ -594,7 +594,7 @@ DO_FUN(do_pound, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $i is attacking me!");
+		yell(victim, ch, "Help! $lu{$N} is attacking me!");
 }
 
 DO_FUN(do_entangle, ch, argument)
@@ -841,7 +841,7 @@ DO_FUN(do_gash, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $i is attacking me!");
+		yell(victim, ch, "Help! $lu{$N} is attacking me!");
 }
 
 DO_FUN(do_cut, ch, argument)
@@ -940,7 +940,7 @@ DO_FUN(do_cut, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $i is attacking me!");
+		yell(victim, ch, "Help! $lu{$N} is attacking me!");
 }
 
 DO_FUN(do_hunger, ch, argument)
@@ -1035,7 +1035,7 @@ DO_FUN(do_whirl, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $i is attacking me!");
+		yell(victim, ch, "Help! $lu{$N} is attacking me!");
 }
 
 DO_FUN(do_feint, ch, argument)
@@ -1428,7 +1428,7 @@ DO_FUN(do_bash, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $lu{$i} is bashing me!");
+		yell(victim, ch, "Help! $lu{$N} is bashing me!");
 }
 
 DO_FUN(do_dirt, ch, argument)
@@ -1563,7 +1563,7 @@ DO_FUN(do_dirt, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $lu{$i} just kicked dirt into my eyes!");
+		yell(victim, ch, "Help! $lu{$N} just kicked dirt into my eyes!");
 }
 
 DO_FUN(do_trip, ch, argument)
@@ -1690,7 +1690,7 @@ DO_FUN(do_trip, ch, argument)
 	}
 
 	if (attack)
-		yell(victim, ch, "Help! $lu{$i} just tripped me!");
+		yell(victim, ch, "Help! $lu{$N} just tripped me!");
 }
 
 DO_FUN(do_backstab, ch, argument)
@@ -1771,7 +1771,7 @@ DO_FUN(do_backstab, ch, argument)
 		damage(ch, victim, 0, "backstab", DAM_NONE, DAMF_SHOW);
 	}
 
-	yell(victim, ch, "Die, $i! You are backstabbing scum!");
+	yell(victim, ch, "Die, $N! You are backstabbing scum!");
 }
 
 DO_FUN(do_knife, ch, argument)
@@ -1830,7 +1830,7 @@ DO_FUN(do_knife, ch, argument)
 		damage(ch, victim, 0, "knife",  DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "knife", FALSE, 1);
 	}
-	yell(victim, ch, "Die, $i! You're backstabbing scum!");
+	yell(victim, ch, "Die, $N! You're backstabbing scum!");
 }
 
 DO_FUN(do_cleave, ch, argument)
@@ -1908,7 +1908,7 @@ DO_FUN(do_cleave, ch, argument)
 		check_improve(ch, "cleave", FALSE, 1);
 		damage(ch, victim, 0, "cleave", DAM_NONE, DAMF_SHOW);
 	}
-	yell(victim, ch, "Die, $i, you butchering fool!");
+	yell(victim, ch, "Die, $N, you butchering fool!");
 }
 
 DO_FUN(do_impale, ch, argument)
@@ -1981,7 +1981,7 @@ DO_FUN(do_impale, ch, argument)
 		check_improve(ch, "impale", FALSE, 1);
 		damage(ch, victim, 0, "impale", DAM_NONE, DAMF_SHOW);
 	}
-	yell(victim, ch, "Help! $i just tried to impale me!");
+	yell(victim, ch, "Help! $lu{$N} just tried to impale me!");
 }
 
 DO_FUN(do_ambush, ch, argument)
@@ -2045,7 +2045,7 @@ DO_FUN(do_ambush, ch, argument)
 		check_improve(ch, "ambush", FALSE, 1);
 		damage(ch, victim, 0, "ambush", DAM_NONE, DAMF_SHOW);
 	}
-	yell(victim, ch, "Help! I've been ambushed by $i!");
+	yell(victim, ch, "Help! I've been ambushed by $N!");
 }
 
 DO_FUN(do_rescue, ch, argument)
@@ -2485,7 +2485,7 @@ DO_FUN(do_nerve, ch, argument)
 		check_improve(ch, "nerve", FALSE, 1);
 	}
 	if (attack)
-		yell(victim, ch, "Help! $lu{$i} is attacking me!");
+		yell(victim, ch, "Help! $lu{$N} is attacking me!");
 	multi_hit(victim,ch,NULL);
 }
 
@@ -2663,7 +2663,7 @@ DO_FUN(do_assassinate, ch, argument)
 		check_improve(ch, "assassinate", FALSE, 1);
 		damage(ch, victim, 0, "assassinate", DAM_NONE, DAMF_SHOW);
 	}
-	yell(victim, ch, "Help! $lu{$i} tries to assassinate me!");
+	yell(victim, ch, "Help! $lu{$N} tries to assassinate me!");
 }
 
 DO_FUN(do_caltrops, ch, argument)
@@ -2925,7 +2925,7 @@ DO_FUN(do_strangle, ch, argument)
 	} else {
 		damage(ch,victim, 0, "strangle", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "strangle", FALSE, 1);
-		yell(victim, ch, "Help! I'm being strangled by $i!");
+		yell(victim, ch, "Help! I'm being strangled by $N!");
 	}
 }
 
@@ -2993,7 +2993,7 @@ DO_FUN(do_headcrush, ch, argument)
 	|| IS_CLAN_GUARD(victim)) {
 		damage(ch, victim, 0, "head crush", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "head crush", FALSE, 2);
-		yell(victim, ch, "Help! $i just tried to shatter my skull!");
+		yell(victim, ch, "Help! $lu{$N} just tried to shatter my skull!");
 		return;
 	}
 
@@ -3001,7 +3001,7 @@ DO_FUN(do_headcrush, ch, argument)
 
 	if (number_percent() > chance) {
 		one_hit(ch, victim, "head crush", WEAR_WIELD);
-		yell(victim, ch, "Help! $i just tried to shatter my skull!");
+		yell(victim, ch, "Help! $lu{$N} just tried to shatter my skull!");
 		return;
 	}
 
@@ -3129,7 +3129,7 @@ DO_FUN(do_blackjack, ch, argument)
 		damage(ch, victim, LEVEL(ch)/2,
 		       "blackjack", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "blackjack", FALSE, 1);
-		yell(victim, ch, "Help! I'm being blackjacked by $i!");
+		yell(victim, ch, "Help! I'm being blackjacked by $N!");
 	}
 }
 
@@ -3577,7 +3577,7 @@ explode_cb(void *vo, va_list ap)
 	}
 
 	if (attack)
-		yell(vch, ch, "Help! $lu{$i} tries to burn me!");
+		yell(vch, ch, "Help! $lu{$N} tries to burn me!");
 	return NULL;
 }
 
@@ -4151,7 +4151,7 @@ DO_FUN(do_tail, ch, argument)
 		check_downstrike(ch);
 	}
 	if (attack)
-		yell(victim, ch, "Help! $lu{$i} tried to hit me with his tail!");
+		yell(victim, ch, "Help! $lu{$N} tried to hit me with his tail!");
 }
 
 DO_FUN(do_concentrate, ch, argument)
@@ -4527,7 +4527,7 @@ poison_smoke_cb(void *vo, va_list ap)
 	spellfun_call("poison", NULL, LEVEL(ch), ch, vch);
 	if (vch != ch) {
 		if (attack)
-			yell(vch, ch, "$i tries to poison me!");
+			yell(vch, ch, "$lu{$N} tries to poison me!");
 		multi_hit(vch, ch, NULL);
 	}
 	return NULL;
@@ -4575,7 +4575,7 @@ blindness_dust_cb(void *vo, va_list ap)
 
 	spellfun_call("blindness", NULL, LEVEL(ch), ch, vch);
 	if (attack)
-		yell(vch, ch, "Help! $lu{$i} just threw dust into my eyes!");
+		yell(vch, ch, "Help! $lu{$N} just threw dust into my eyes!");
 	if (vch != ch)
 		multi_hit(vch, ch, NULL);
 	return NULL;

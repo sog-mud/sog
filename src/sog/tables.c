@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.162 2001-08-26 16:17:34 fjoe Exp $
+ * $Id: tables.c,v 1.163 2001-08-30 18:50:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1532,6 +1532,7 @@ flaginfo_t mptrig_types[] =
 	{ "mob_exall",		TRIG_MOB_EXALL,		TRUE    },
 	{ "mob_delay",		TRIG_MOB_DELAY,		TRUE    },
 	{ "mob_surr",		TRIG_MOB_SURR,		TRUE    },
+	{ "mob_look",		TRIG_MOB_LOOK,		TRUE	},
 
 	{ "obj_wear",		TRIG_OBJ_WEAR,		TRUE	},
 	{ "obj_remove",		TRIG_OBJ_REMOVE,	TRUE	},

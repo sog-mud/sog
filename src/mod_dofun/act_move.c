@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.273 2001-08-26 16:17:21 fjoe Exp $
+ * $Id: act_move.c,v 1.274 2001-08-30 18:50:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1756,7 +1756,7 @@ DO_FUN(do_vbite, ch, argument)
 		damage(ch, victim, 0, "vampiric bite", DAM_NONE, DAMF_SHOW);
 	}
 	if (!IS_NPC(victim) && victim->position == POS_FIGHTING)
-		yell(victim, ch, "Help! $lu{$i} tried to bite me!");
+		yell(victim, ch, "Help! $lu{$N} tried to bite me!");
 }
 
 DO_FUN(do_bash_door, ch, argument)
@@ -2047,7 +2047,7 @@ DO_FUN(do_kidnap, ch, argument)
 		transfer_char(victim, NULL, to_room,
 			"$N disappears.", NULL, "$N appears from nowhere.");
 		check_improve(ch, "kidnap", TRUE, 1);
-		yell(victim, ch, "Help! $lu{$i} just kidnapped me!");
+		yell(victim, ch, "Help! $lu{$N} just kidnapped me!");
 		multi_hit(victim, ch, NULL);
 	} else {
 		act("You grab $N, but $E escaped.",
@@ -2056,7 +2056,7 @@ DO_FUN(do_kidnap, ch, argument)
 			ch, NULL, victim, TO_VICT);
 		act("$n grabs $N, but $E escaped.",
 			ch, NULL, victim, TO_NOTVICT);
-		yell(victim, ch, "Help! $lu{$i} tried to kidnap me!");
+		yell(victim, ch, "Help! $lu{$N} tried to kidnap me!");
 		check_improve(ch, "kidnap", FALSE, 1);
 		multi_hit(victim, ch, NULL);
 	}
@@ -2160,7 +2160,7 @@ DO_FUN(do_vtouch, ch, argument)
 		damage(ch, victim, 0, "vampiric touch", DAM_NONE, DAMF_SHOW);
 		check_improve(ch, "vampiric touch", FALSE, 1);
 	}
-	yell(victim, ch, "Help! $lu{$i} tried to touch me!");
+	yell(victim, ch, "Help! $lu{$N} tried to touch me!");
 }
 
 DO_FUN(do_fly, ch, argument)
@@ -2326,7 +2326,7 @@ DO_FUN(do_push, ch, argument)
 		act("$n tried to push $N.", ch, NULL, victim, TO_NOTVICT);
 
 		if (IS_AWAKE(victim))
-			act_yell(victim, "Keep your hands off of me, $i!",
+			act_yell(victim, "Keep your hands off of me, $N!",
 				 ch, NULL);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, "push", FALSE, 2);
@@ -2918,7 +2918,7 @@ DO_FUN(do_charge, ch, argument)
 		}
 		WAIT_STATE(ch, beats * 2);
 	}
-	yell(victim, ch, "Help! $lu{$i} is attacking me!");
+	yell(victim, ch, "Help! $lu{$N} is attacking me!");
 }
 
 DO_FUN(do_shoot, ch, argument)
@@ -3034,7 +3034,7 @@ DO_FUN(do_shoot, ch, argument)
 				  INT(wield->value[2])));
 	if (success)
 		check_improve(ch, "bow", TRUE, 1);
-	yell(victim, ch, "Help! $lu{$i} is trying to shoot me!");
+	yell(victim, ch, "Help! $lu{$N} is trying to shoot me!");
 }
 
 DO_FUN(do_human, ch, argument)

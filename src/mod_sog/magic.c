@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.32 2001-08-21 11:39:02 fjoe Exp $
+ * $Id: magic.c,v 1.33 2001-08-30 18:50:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -179,7 +179,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	&&  victim->master != ch
 	&&  victim->in_room == ch->in_room
 	&&  victim->position != POS_SLEEPING) {
-		yell(victim, ch, "Help! $lu{$i} is attacking me!");
+		yell(victim, ch, "Help! $lu{$N} is attacking me!");
 		if (victim->fighting == NULL)
 			multi_hit(victim, ch, NULL);
 	}
