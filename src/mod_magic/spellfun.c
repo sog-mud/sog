@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.283 2002-01-03 20:06:35 fjoe Exp $
+ * $Id: spellfun.c,v 1.284 2002-01-06 03:37:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -7500,7 +7500,7 @@ SPELL_FUN(spell_hunger_weapon, sn, level, ch, vo)
 		act("You transmit part of your hunger to $p.",
 		    ch, obj, NULL, TO_CHAR);
 	} else
-		act("You failed.", ch, obj, NULL, TO_ALL);
+		act("You failed.", ch, obj, NULL, TO_CHAR);
 }
 
 /*
