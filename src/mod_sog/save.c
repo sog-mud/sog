@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.82 1998-11-11 05:46:56 fjoe Exp $
+ * $Id: save.c,v 1.83 1998-11-14 09:01:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -608,7 +608,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		affect_check(ch, -1, -1);
 
 		if (ch->pcdata->condition[COND_BLOODLUST] < 48
-		&&  !get_skill(ch, gsn_vampire))
+		&&  !HAS_SKILL(ch, gsn_vampire))
 			ch->pcdata->condition[COND_BLOODLUST] = 48;
 	}
 
@@ -1465,7 +1465,8 @@ void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 {
 	SKILL_DATA *sk;
 
-	if ((sk = skill_lookup(paf->type)) == NULL)
+	if (paf->type == gsn_doppelganger
+	||  (sk = skill_lookup(paf->type)) == NULL)
 		return;
 
 	fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %s\n",

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.115 1998-11-11 05:46:56 fjoe Exp $
+ * $Id: merc.h,v 1.116 1998-11-14 09:01:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1317,6 +1317,7 @@ struct char_data
 	int			slang;	/* spoken language */
 	int			lang; /* interface language */
 	CHAR_DATA *		hunter;	/* who quested to slay */
+	CHAR_DATA *		doppel;
 };
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.45 1998-11-02 05:28:30 fjoe Exp $
+ * $Id: obj_prog.c,v 1.46 1998-11-14 09:01:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -545,25 +545,33 @@ int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  
 int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if ((get_eq_char(ch,WEAR_WIELD) == obj) || 
-		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
-	switch(number_bits(7)) {
-	case 1:
+	if (get_eq_char(ch, WEAR_WIELD) != obj
+	&&  get_eq_char(ch, WEAR_SECOND_WIELD) != obj)
+		return 0;
 
-	  act("The chaotic blade shakes a bit.", ch, NULL, NULL, TO_ROOM);
-	  char_puts("Your chaotic blade shakes a bit.\n\r", ch);
-	  obj_cast_spell(gsn_garble,ch->level,ch,ch->fighting,obj);
-	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
-	  break;
+	switch(number_bits(7)) {
+	case 0:
+		act("The chaotic blade trembles violently!",
+		    ch, NULL, NULL, TO_ROOM);
+		char_puts("Your chaotic blade trembles violently!\n\r", ch);
+		obj_cast_spell(gsn_mirror, ch->level, ch, ch, obj); 
+		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		break;
+
+	case 1:
+		act("The chaotic blade shakes a bit.", ch, NULL, NULL, TO_ROOM);
+		char_puts("Your chaotic blade shakes a bit.\n\r", ch);
+		obj_cast_spell(gsn_garble, ch->level, ch, ch->fighting, obj);
+		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		break;
 
 	case 2:
-
-	  act("The chaotic blade shivers uncontrollably!",ch,NULL,NULL,TO_ROOM);
-	  char_puts("Your chaotic blade shivers uncontrollably!\n\r",ch);
-	  obj_cast_spell(gsn_confuse, ch->level,ch,ch->fighting,obj);
-	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
-	  break;
-
+		act("The chaotic blade shivers uncontrollably!",
+		    ch, NULL, NULL, TO_ROOM);
+		char_puts("Your chaotic blade shivers uncontrollably!\n\r", ch);
+		obj_cast_spell(gsn_confuse, ch->level, ch, ch->fighting, obj);
+		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+		break;
 	}
 	return 0;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.38 1998-11-12 12:35:27 fjoe Exp $
+ * $Id: skills.c,v 1.39 1998-11-14 09:01:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,69 +62,60 @@ int	ch_skill_nok	(CHAR_DATA *ch , int sn);
 void do_gain(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *trainer;
+	CHAR_DATA *tr;
 
 	if (IS_NPC(ch))
 		return;
 
 	/* find a trainer */
-	for (trainer = ch->in_room->people; 
-			  trainer != NULL; 
-			  trainer = trainer->next_in_room)
-			if (IS_NPC(trainer) && 	(IS_SET(trainer->act,ACT_PRACTICE) ||
-				IS_SET(trainer->act,ACT_TRAIN) || IS_SET(trainer->act,ACT_GAIN)))
-				break;
+	for (tr = ch->in_room->people; tr; tr = tr->next_in_room)
+		if (IS_NPC(tr)
+		&&  (IS_SET(tr->act,ACT_PRACTICE) ||
+		     IS_SET(tr->act,ACT_TRAIN) ||
+		     IS_SET(tr->act,ACT_GAIN)))
+			break;
 
-	if (trainer == NULL || !can_see(ch,trainer))
-	{
-			char_puts("You can't do that here.\n\r",ch);
-			return;
+	if (tr == NULL || !can_see(ch, tr)) {
+		char_puts("You can't do that here.\n\r",ch);
+		return;
 	}
 
-	one_argument(argument,arg);
+	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
-	{
-			do_say(trainer,"You may convert 10 practices into 1 train.");
-			do_say(trainer,"You may revert 1 train into 10 practices.");
-			do_say(trainer,"Simply type 'gain convert' or 'gain revert'.");
-			return;
+	if (arg[0] == '\0') {
+		do_say(tr, "You may convert 10 practices into 1 train.");
+		do_say(tr, "You may revert 1 train into 10 practices.");
+		do_say(tr, "Simply type 'gain convert' or 'gain revert'.");
+		return;
 	}
 
-	if (!str_prefix(arg,"revert"))
-	{
-			if (ch->train < 1)
-			{
-				act("$N tells you 'You are not yet ready.'",
-					ch,NULL,trainer,TO_CHAR);
-				return;
-			}
-
-			act("$N helps you apply your training to practice",
-					ch,NULL,trainer,TO_CHAR);
-			ch->practice += 10;
-			ch->train -=1 ;
+	if (!str_prefix(arg, "revert")) {
+		if (ch->train < 1) {
+			do_tell_raw(tr, ch, "You are not yet ready.");
 			return;
+		}
+
+		act("$N helps you apply your training to practice",
+		    ch, NULL, tr, TO_CHAR);
+		ch->practice += 10;
+		ch->train -=1 ;
+		return;
 	}
 
-	if (!str_prefix(arg,"convert"))
-	{
-			if (ch->practice < 10)
-			{
-				act("$N tells you 'You are not yet ready.'",
-					ch,NULL,trainer,TO_CHAR);
-				return;
-			}
-
-			act("$N helps you apply your practice to training",
-					ch,NULL,trainer,TO_CHAR);
-			ch->practice -= 10;
-			ch->train +=1 ;
+	if (!str_prefix(arg, "convert")) {
+		if (ch->practice < 10) {
+			do_tell_raw(tr, ch, "You are not yet ready.");
 			return;
+		}
+
+		act("$N helps you apply your practice to training",
+		    ch, NULL, tr, TO_CHAR);
+		ch->practice -= 10;
+		ch->train +=1 ;
+		return;
 	}
 
-	act("$N tells you 'I do not understand...'",ch,NULL,trainer,TO_CHAR);
-
+	do_tell_raw(tr, ch, "I do not understand...");
 }
 
 
@@ -132,20 +123,19 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 void do_spells(CHAR_DATA *ch, const char *argument)
 {
-	char spell_list[LEVEL_HERO][MAX_STRING_LENGTH];
-	char spell_columns[LEVEL_HERO];
+	char spell_list[LEVEL_IMMORTAL+1][MAX_STRING_LENGTH];
+	char spell_columns[LEVEL_IMMORTAL+1];
 	int lev;
 	int i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
-	char output[4*MAX_STRING_LENGTH];
+	BUFFER *output;
 
 	if (IS_NPC(ch))
 		return;
 	
 	/* initialize data */
-	output[0] = '\0';
-	for (lev = 0; lev < LEVEL_HERO; lev++) {
+	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++) {
 		spell_columns[lev] = 0;
 		spell_list[lev][0] = '\0';
 	}
@@ -162,21 +152,22 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 		lev = skill_level(ch, ps->sn);
 
-		if (lev > LEVEL_HERO)
+		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
 			continue;
 
-		if (ch->level < lev)
-			sprintf(buf, "%-18s  n/a      ", sk->name);
-		else 
-			sprintf(buf, "%-18s  %3d mana  ",
-				sk->name, mana_cost(ch, ps->sn));
+		snprintf(buf, sizeof(buf),
+			 ch->level < lev ?
+				"%-18s  n/a      " : "%-18s  %3d mana  ",
+			 sk->name, mana_cost(ch, ps->sn));
 			
 		if (spell_list[lev][0] == '\0')
-			sprintf(spell_list[lev],"\n\rLevel %2d: %s", lev, buf);
+			snprintf(spell_list[lev], sizeof(spell_list[lev]),
+				 "\n\rLevel %2d: %s", lev, buf);
 		else { /* append */
 			if (++spell_columns[lev] % 2 == 0)
-				strcat(spell_list[lev], "\n\r          ");
-			strcat(spell_list[lev], buf);
+				strnzcat(spell_list[lev], "\n\r          ",
+					 sizeof(spell_list[lev]));
+			strnzcat(spell_list[lev], buf, sizeof(spell_list[lev]));
 		}
 	}
 
@@ -187,27 +178,30 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	for (lev = 0; lev < LEVEL_HERO; lev++)
+	output = buf_new(-1);
+	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		if (spell_list[lev][0] != '\0')
-			strcat(output, spell_list[lev]);
-	strcat(output, "\n\r");
-	page_to_char(output, ch);
+			buf_add(output, spell_list[lev]);
+	buf_add(output, "\n\r");
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 void do_skills(CHAR_DATA *ch, const char *argument)
 {
-	char skill_list[LEVEL_HERO][MAX_STRING_LENGTH];
-	char skill_columns[LEVEL_HERO];
+	char skill_list[LEVEL_IMMORTAL+1][MAX_STRING_LENGTH];
+	char skill_columns[LEVEL_IMMORTAL+1];
 	int lev;
 	int i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
+	BUFFER *output;
 	
 	if (IS_NPC(ch))
 		return;
 	
 	/* initialize data */
-	for (lev = 0; lev < LEVEL_HERO; lev++) {
+	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++) {
 		skill_columns[lev] = 0;
 		skill_list[lev][0] = '\0';
 	}
@@ -224,21 +218,22 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		found = TRUE;
 		lev = skill_level(ch, ps->sn);
 
-		if (lev > LEVEL_HERO)
+		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
 			continue;
 
-		if (ch->level < lev)
-			sprintf(buf, "%-18s n/a      ", sk->name);
-		else 
-			sprintf(buf, "%-18s %3d%%      ",
-				sk->name, ps->percent);
-			
+		snprintf(buf, sizeof(buf),
+			 ch ->level < lev ?
+				"%-18s n/a      " : "%-18s %3d%%      ",
+			 sk->name, ps->percent);
+
 		if (skill_list[lev][0] == '\0')
-			sprintf(skill_list[lev],"\n\rLevel %2d: %s",lev,buf);
+			snprintf(skill_list[lev], sizeof(skill_list[lev]),
+				 "\n\rLevel %2d: %s", lev, buf);
 		else { /* append */
 			if (++skill_columns[lev] % 2 == 0)
-				strcat(skill_list[lev],"\n\r          ");
-			strcat(skill_list[lev],buf);
+				strnzcat(skill_list[lev], "\n\r          ",
+					 sizeof(skill_list[lev]));
+			strnzcat(skill_list[lev], buf, sizeof(skill_list[lev]));
 		}
 	}
 	
@@ -249,10 +244,13 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	for (lev = 0; lev < LEVEL_HERO; lev++)
+	output = buf_new(-1);
+	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		if (skill_list[lev][0] != '\0')
-			char_puts(skill_list[lev],ch);
-	char_puts("\n\r",ch);
+			buf_add(output, skill_list[lev]);
+	buf_add(output, "\n\r");
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 int base_exp(CHAR_DATA *ch)

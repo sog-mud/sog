@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.109 1998-11-12 12:35:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.110 1998-11-14 09:01:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1128,7 +1128,14 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	}
 
 
-	for (vch = char_list; vch != NULL; vch = vch->next) {
+	for (vch = char_list; vch; vch = vch->next) {
+		if (is_affected(vch, gsn_doppelganger)
+		&&  vch->doppel == ch) {
+			char_puts("You shift to your true form as your victim leaves.\n\r",
+				  vch);
+			affect_strip(vch, gsn_doppelganger);
+		}
+
 		if (vch->guarding == ch) {
 			act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
 			act("$n stops guarding you.", vch, NULL, ch, TO_VICT);
@@ -1136,6 +1143,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 			vch->guarding  = NULL;
 			ch->guarded_by = NULL;
 		}
+
 		if (vch->last_fought == ch) {
 			vch->last_fought = NULL;
 			back_home(vch);
@@ -1152,7 +1160,6 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		ch->guarded_by->guarding = NULL;
 		ch->guarded_by = NULL;
 	}
-
 
 	/*
 	 * After extract_char the ch is no longer valid!

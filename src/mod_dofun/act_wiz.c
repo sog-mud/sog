@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.85 1998-11-11 10:34:01 fjoe Exp $
+ * $Id: act_wiz.c,v 1.86 1998-11-14 09:01:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2054,6 +2054,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA *pMobIndex;
 	CHAR_DATA *victim;
+	int vnum;
 	
 	one_argument(argument, arg);
 
@@ -2062,8 +2063,8 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((pMobIndex = get_mob_index(atoi(arg))) == NULL) {
-		char_puts("No mob has that vnum.\n\r", ch);
+	if ((pMobIndex = get_mob_index(vnum = atoi(arg))) == NULL) {
+		char_printf(ch, "%d: No mob has that vnum.\n\r", vnum);
 		return;
 	}
 
@@ -2093,7 +2094,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	
 	vnum = atoi(arg1);
 	if ((pObjIndex = get_obj_index(vnum)) == NULL) {
-		char_printf(ch, "%s: No objects with this vnum.\n\r", vnum);
+		char_printf(ch, "%d: No objects with this vnum.\n\r", vnum);
 		return;
 	}
 

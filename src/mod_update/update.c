@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.86 1998-11-11 11:13:42 fjoe Exp $
+ * $Id: update.c,v 1.87 1998-11-14 09:01:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -419,8 +419,10 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return;
 
-	if (get_skill(ch, gsn_vampire)
-	&&  (iCond == COND_THIRST || iCond == COND_FULL || iCond == COND_HUNGER))
+	if (HAS_SKILL(ch, gsn_vampire)
+	&&  (iCond == COND_THIRST ||
+	     iCond == COND_FULL ||
+	     iCond == COND_HUNGER))
 		return;
 
 	condition = ch->pcdata->condition[iCond];
@@ -1138,7 +1140,7 @@ void char_update(void)
 
 			if (!ch->was_in_room) {
 				gain_condition(ch, COND_DRUNK, -1);
-				if (get_skill(ch, gsn_vampire))
+				if (HAS_SKILL(ch, gsn_vampire))
 					gain_condition(ch, COND_BLOODLUST, -1);
 				gain_condition(ch, COND_FULL, 
 					     ch->size > SIZE_MEDIUM ? -4 : -2);
@@ -1697,7 +1699,7 @@ void aggr_update(void)
 				||   !IS_AWAKE(vch))
 				&&  can_see(ch, vch)
 				/* do not attack vampires */
-				&&  !get_skill(vch, gsn_vampire)
+				&&  !HAS_SKILL(vch, gsn_vampire)
 				/* good vs good :( */
 				&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
 					if (number_range(0, count) == 0)

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.99 1998-11-13 11:21:28 kostik Exp $
+ * $Id: fight.c,v 1.100 1998-11-14 09:01:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1069,7 +1069,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
-		if (get_skill(ch, gsn_vampire)) {
+		if (HAS_SKILL(ch, gsn_vampire)) {
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
 				 ch, NULL,victim,TO_ROOM,POS_SLEEPING);
 			char_puts("You suck {Rblood{x "
@@ -1213,6 +1213,16 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Check for parry, and dodge.
 	 */
 	if (dt >= TYPE_HIT && ch != victim) {
+		/*
+		 * some funny stuff
+		 */
+		if (is_affected(victim, gsn_mirror)) {
+			act("$n shatters into tiny fragments of glass.",
+			    victim, NULL, NULL, TO_ROOM);
+			extract_char(victim, TRUE);
+			return FALSE;
+		}
+
 		if (check_parry(ch, victim, loc))
 			return FALSE;
 		if (check_block(ch, victim, loc))

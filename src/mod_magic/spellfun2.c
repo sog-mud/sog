@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.54 1998-10-30 06:56:33 fjoe Exp $
+ * $Id: spellfun2.c,v 1.55 1998-11-14 09:01:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2734,16 +2734,15 @@ void spell_shielding(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (saves_spell(level, victim ,DAM_NONE))
-	{
-	act("$N shivers slightly, but it passes quickly.",
-		ch, NULL, victim, TO_CHAR);
-	char_puts("You shiver slightly, but it passes quickly.\n\r",victim);
-	return;
+	if (saves_spell(level, victim, DAM_NONE)) {
+		act("$N shivers slightly, but it passes quickly.",
+		    ch, NULL, victim, TO_CHAR);
+		char_puts("You shiver slightly, but it passes quickly.\n\r",
+			  victim);
+		return;
 	}
 
-	if (is_affected(victim, sn))
-	{
+	if (is_affected(victim, sn)) {
 		af.type    = sn;
 		af.level   = level;
 		af.duration = level / 20;
@@ -2751,10 +2750,10 @@ void spell_shielding(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
 		af.modifier = 0;
 		af.bitvector = 0;
 		affect_to_char(victim, &af);
-	  act("You wrap $N in more flows of Spirit.",
-		ch, NULL, victim, TO_CHAR);
-	  char_puts("You feel the shielding get stronger.\n\r",victim);
-	  return;
+		act("You wrap $N in more flows of Spirit.",
+		    ch, NULL, victim, TO_CHAR);
+		char_puts("You feel the shielding get stronger.\n\r",victim);
+		return;
 	}
 
 	af.type	= sn;
@@ -2766,9 +2765,8 @@ void spell_shielding(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
 	affect_join(victim, &af);
 
 	char_puts("You feel as if you have lost touch with something.\n\r",
-		victim);
+		  victim);
 	act("You shield $N from the True Source.", ch, NULL, victim, TO_CHAR);
-	return;
 }
 
 
@@ -4804,25 +4802,157 @@ void spell_remove_fear(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	else char_puts("You failed.\n\r",ch);
 }
 
-void spell_desert_fist(int sn, int level, CHAR_DATA *ch, void *vo,int target)
- {
+void spell_desert_fist(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
 	if ((ch->in_room->sector_type != SECT_HILLS)
-	&& (ch->in_room->sector_type != SECT_MOUNTAIN)
-	&& (ch->in_room->sector_type != SECT_DESERT))
-	{
-	 char_puts("You don't find any sand here to create a fist.\n\r",ch);
-	 ch->wait = 0;
-	 return;
+	&&  (ch->in_room->sector_type != SECT_MOUNTAIN)
+	&&  (ch->in_room->sector_type != SECT_DESERT)) {
+		char_puts("You don't find any sand here to create a fist.\n\r",
+			  ch);
+		ch->wait = 0;
+		return;
 	}
 
 	act("An existing parcel of sand rises up and forms a fist and pummels $n.",
-		victim,NULL,NULL,TO_ROOM);
+	    victim, NULL, NULL, TO_ROOM);
 	act("An existing parcel of sand rises up and forms a fist and pummels you.",
-		victim,NULL,NULL,TO_CHAR);
-	dam = dice(level , 14);
-	damage(ch,victim,dam,sn,DAM_OTHER,TRUE);
-	sand_effect(victim,level,dam,TARGET_CHAR);
+	    victim, NULL, NULL, TO_CHAR);
+	dam = dice(level, 14);
+	damage(ch, victim, dam, sn, DAM_OTHER, TRUE);
+	sand_effect(victim, level, dam, TARGET_CHAR);
 }
+
+void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+	int mirrors, new_mirrors;
+	CHAR_DATA *gch;
+	CHAR_DATA *tmp_vict;
+	int order;
+
+	if (IS_NPC(victim)) {
+		send_to_char("Only players can be mirrored.\n\r",ch);
+		return;
+	}
+
+	for (mirrors = 0, gch = char_list; gch; gch = gch->next)
+		if (IS_NPC(gch) && is_affected(gch, gsn_mirror)
+		&&  is_affected(gch, gsn_doppelganger) && gch->doppel == victim)
+			mirrors++;
+
+	if (mirrors >= level/5) {
+		if (ch == victim) 
+			char_puts("You cannot be further mirrored.\n\r", ch);
+		else
+			act("$N cannot be further mirrored.",
+			    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.level	= level;
+	af.modifier	= 0;
+	af.location	= 0;
+	af.bitvector	= 0;
+
+	for (tmp_vict = victim; is_affected(tmp_vict, gsn_doppelganger);
+	     tmp_vict = tmp_vict->doppel);
+
+	order = number_range(0, level/5 - mirrors);
+
+	for (new_mirrors = 0; mirrors + new_mirrors < level/5; new_mirrors++) {
+		gch = create_mob(get_mob_index(MOB_VNUM_MIRROR_IMAGE));
+		free_string(gch->name);
+		mlstr_free(gch->short_descr);
+		mlstr_free(gch->long_descr);
+		mlstr_free(gch->description);
+		gch->name = str_dup(tmp_vict->name);
+		gch->short_descr = mlstr_new(tmp_vict->name);
+		gch->long_descr = mlstr_printf(gch->pIndexData->long_descr,
+					       tmp_vict->name,
+					       tmp_vict->pcdata->title);
+		gch->description = mlstr_dup(tmp_vict->description);
+		gch->sex = tmp_vict->sex;
+    
+		af.type = gsn_doppelganger;
+		af.duration = level;
+		affect_to_char(gch, &af);
+
+		af.type = gsn_mirror;
+		af.duration = -1;
+		affect_to_char(gch,&af);
+
+		gch->max_hit = gch->hit = 1;
+		gch->level = 1;
+		gch->doppel = victim;
+		gch->master = victim;
+		char_to_room(gch, victim->in_room);
+
+		if (new_mirrors == order) {
+			char_from_room(victim);
+			char_to_room(victim, gch->in_room);
+		}
+      
+		if (ch == victim) {
+			char_puts("A mirror image of yourself appears beside you!\n\r",
+				  ch);
+			act("A mirror image of $n appears beside $M!",
+			    ch, NULL, victim, TO_ROOM);
+		}
+		else {
+			act("A mirror of $N appears beside $M!",
+			    ch, NULL, victim, TO_CHAR);
+			act("A mirror of $N appears beside $M!",
+			    ch,NULL,victim,TO_NOTVICT);
+			char_puts("A mirror image of yourself appears beside you!\n\r",
+				  victim);
+		}
+	}
+}    
+ 
+void spell_doppelganger(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	if (ch == victim || (is_affected(ch, sn) && ch->doppel == victim)) {
+		act("You already look like $M.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_NPC(victim)) {
+		act("$N is too different from yourself to mimic.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_IMMORTAL(victim)) {
+		char_puts("Yeah, sure. And I'm the Pope.\n\r",ch);
+		return;
+	}
+
+	if (saves_spell(level, victim, DAM_CHARM)) {
+		char_puts("You failed.\n\r", ch);
+		return;
+	}
+
+	act("You change form to look like $N.", ch, NULL, victim, TO_CHAR);
+	act("$n changes form to look like YOU!", ch, NULL, victim, TO_VICT);
+	act("$n changes form to look like $N!", ch, NULL, victim, TO_NOTVICT);
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level; 
+	af.duration	= 2 * level / 3;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af); 
+	ch->doppel = victim;
+}
+ 

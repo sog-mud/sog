@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.85 1998-11-07 11:26:22 fjoe Exp $
+ * $Id: handler.c,v 1.86 1998-11-14 09:01:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1921,6 +1921,8 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 		ugly = TRUE;
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
+		CHAR_DATA *vch;
+
 		if (!can_see(ch, rch))
 			continue;
 
@@ -1928,7 +1930,10 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 		&&  is_affected(rch, gsn_vampire))
 			return rch;
 
-		if (!is_name(arg, rch->name))
+		vch = (is_affected(rch, gsn_doppelganger) &&
+		       (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT))) ?
+		      rch->doppel : rch;
+		if (!is_name(arg, vch->name))
 			continue;
 
 		if (++count == number)
@@ -1958,6 +1963,8 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argu
 		ugly = TRUE;
 
 	for (rch = room->people; rch != NULL; rch = rch->next_in_room) {
+		CHAR_DATA *vch;
+
 		if (!can_see(ch, rch))
 		    continue;
 
@@ -1965,7 +1972,10 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argu
 		&&  is_affected(rch, gsn_vampire))
 		   return rch;
 
-		if (!is_name(argument, rch->name))
+		vch = (is_affected(rch, gsn_doppelganger) &&
+		       (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT))) ?
+		      rch->doppel : rch;
+		if (!is_name(argument, vch->name))
 			continue;
 
 		if (++count == *number)
@@ -2873,6 +2883,10 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 
 const char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 {
+	if (is_affected(ch, gsn_doppelganger)
+	&&  (IS_NPC(looker) || !IS_SET(looker->act, PLR_HOLYLIGHT)))
+		ch = ch->doppel;
+
 	if (can_see(looker, ch)) {
 		if (IS_NPC(ch))
 			return mlstr_cval(ch->short_descr, looker);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.160 1998-11-07 09:09:09 fjoe Exp $
+ * $Id: act_info.c,v 1.161 1998-11-14 09:01:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -315,6 +315,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	output = buf_new(ch->lang);
 
+	if (is_affected(victim, gsn_doppelganger)
+	&&  (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT)))
+		victim = victim->doppel;
+
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && ch->pcdata->questmob > 0
 		&&  victim->hunter == ch)
@@ -559,6 +563,16 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	bool found;
 	char *msg;
 	const char *desc;
+	CHAR_DATA *doppel = victim;
+	CHAR_DATA *mirror = victim;
+
+	if (is_affected(victim, gsn_doppelganger)) {
+		if (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT)) {
+			doppel = victim->doppel;
+			if (is_affected(victim, gsn_mirror))
+				mirror = victim->doppel;
+		}
+	}
 
 	if (can_see(victim, ch)) {
 		if (ch == victim)
@@ -572,10 +586,10 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	if (IS_NPC(victim))
-		desc = mlstr_cval(victim->description, ch);
+	if (IS_NPC(doppel))
+		desc = mlstr_cval(doppel->description, ch);
 	else
-		desc = mlstr_mval(victim->description);
+		desc = mlstr_mval(doppel->description);
 
 	if (!IS_NULLSTR(desc))
 		char_puts(desc, ch);
@@ -585,7 +599,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (MOUNTED(victim))
 		char_printf(ch, "%s is riding %s.\n\r",
-			    PERS(victim,ch), PERS(MOUNTED(victim),ch));
+			    PERS(victim, ch), PERS(MOUNTED(victim), ch));
 	if (RIDDEN(victim))
 		act("$N is being ridden by $t.",
 		    ch, PERS(RIDDEN(victim), ch), victim, TO_CHAR);
@@ -613,13 +627,13 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		msg = "{Ris nearly dead{x.";
 
 	/* vampire ... */
-	if (percent < 90 && get_skill(ch, gsn_vampire))
+	if (percent < 90 && HAS_SKILL(ch, gsn_vampire))
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(victim)) {
-		char_printf(ch, "(%s) ", race_name(victim->race));
+		char_printf(ch, "(%s) ", race_name(doppel->race));
 		if (!IS_NPC(victim)) 
-			char_printf(ch, "(%s) ", class_name(victim->class));
+			char_printf(ch, "(%s) ", class_name(doppel->class));
 	}
 
 	char_printf(ch, "%s%s%s %s\n\r",
@@ -630,7 +644,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	found = FALSE;
 	for (i = 0; show_order[i] != -1; i++)
-		if ((obj = get_eq_char(victim, show_order[i]))
+		if ((obj = get_eq_char(mirror, show_order[i]))
 		&&  can_see_obj(ch, obj)) {
 			if (!found) {
 				char_puts("\n\r", ch);
@@ -641,7 +655,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 			show_obj_to_char(ch, obj, show_order[i]);
 		}
 
-	for (obj = victim->carrying; obj; obj = obj->next_content)
+	for (obj = mirror->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc == WEAR_STUCK_IN
 		&&  can_see_obj(ch, obj)) {
 			if (!found) {
@@ -659,7 +673,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	&&  number_percent() < get_skill(ch, gsn_peek)) {
 		char_puts("\n\rYou peek at the inventory:\n\r", ch);
 		check_improve(ch, gsn_peek, TRUE, 4);
-		show_list_to_char(victim->carrying, ch, TRUE, TRUE);
+		show_list_to_char(mirror->carrying, ch, TRUE, TRUE);
 	}
 }
 
@@ -2030,7 +2044,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 	if (!check_blind(ch))
 		return;
 
-	if (room_is_dark(ch) && !IS_SET(ch->act, PLR_HOLYLIGHT)) {
+	if (room_is_dark(ch)) {
 		char_puts("It's too dark to see.\n\r", ch);
 		return;
 	}
@@ -2049,13 +2063,21 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  victim->in_room != NULL
 			&&  victim->in_room->area == ch->in_room->area
 			&&  can_see(ch, victim)) {
+				CHAR_DATA *doppel;
 				found = TRUE;
+
+				if (is_affected(victim, gsn_doppelganger)
+				&&  (IS_NPC(ch) || !IS_SET(ch->act, PLR_HOLYLIGHT)))
+					doppel = victim->doppel;
+				else
+					doppel = victim;
+
 				char_printf(ch, "%s%-28s %s\n\r",
-					(in_PK(ch, victim) &&
+					(in_PK(ch, doppel) &&
 					!IS_IMMORTAL(ch)) ?
 					"{r[{RPK{r]{x " : "     ",
 					PERS(victim, ch),
-					mlstr_cval(victim->in_room->name, ch));
+					mlstr_mval(victim->in_room->name));
 			}
 		}
 		if (!found)
@@ -2072,7 +2094,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n\r",
 					PERS(victim, ch),
-					mlstr_cval(victim->in_room->name, ch));
+					mlstr_mval(victim->in_room->name));
 				break;
 			}
 		}

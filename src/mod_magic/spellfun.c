@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.83 1998-11-13 11:21:29 kostik Exp $
+ * $Id: spellfun.c,v 1.84 1998-11-14 09:01:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -134,8 +134,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 	spell = SKILL(sn);
 
-	if (!IS_IMMORTAL(ch)
-	&&  get_skill(ch, gsn_vampire)
+	if (HAS_SKILL(ch, gsn_vampire)
 	&&  !is_affected(ch, gsn_vampire)
 	&&  !IS_SET(spell->flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n\r",
@@ -4916,7 +4915,6 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  !is_affected(ch, gsn_vampire)
 	||  victim->level >= level - 5
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
