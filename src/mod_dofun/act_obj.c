@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.194 1999-12-22 08:28:58 fjoe Exp $
+ * $Id: act_obj.c,v 1.195 1999-12-23 16:12:23 avn Exp $
  */
 
 /***************************************************************************
@@ -2339,7 +2339,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	}
 	ch->mana -= mana;
-	WAIT_STATE(ch, skill_beats("beats"));
+	WAIT_STATE(ch, skill_beats("lore"));
 
 	/* a random lore */
 	chance = number_percent();
