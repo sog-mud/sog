@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.171 1999-06-10 14:33:19 fjoe Exp $
+ * $Id: act_comm.c,v 1.172 1999-06-10 20:30:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1380,14 +1380,11 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		 POS_SLEEPING);
 }
 
-
-
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
 void do_split(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
 	int members;
@@ -1398,46 +1395,44 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 		   one_argument(argument, arg2, sizeof(arg2));
 
-	if (arg1[0] == '\0')
-	{
-	char_puts("Split how much?\n", ch);
-	return;
+	if (!is_number(arg1)) {
+		act_puts("Split how much?", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 	
 	amount_silver = atoi(arg1);
 
-	if (arg2[0] != '\0')
-	amount_gold = atoi(arg2);
+	if (is_number(arg2))
+		amount_gold = atoi(arg2);
 
-	if (amount_gold < 0 || amount_silver < 0)
-	{
-	char_puts("Your group wouldn't like that.\n", ch);
-	return;
+	if (amount_gold < 0 || amount_silver < 0) {
+		act_puts("Your group wouldn't like that.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 
-	if (amount_gold == 0 && amount_silver == 0)
-	{
-	char_puts("You hand out zero coins, but no one notices.\n", ch);
-	return;
+	if (amount_gold == 0 && amount_silver == 0) {
+		act_puts("You hand out zero coins, but no one notices.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 
-	if (ch->gold <  amount_gold || ch->silver < amount_silver)
-	{
-	char_puts("You don't have that much to split.\n", ch);
-	return;
+	if (ch->gold < amount_gold || ch->silver < amount_silver) {
+		act_puts("You don't have that much to split.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 	
 	members = 0;
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
-	{
-	if (is_same_group(gch, ch) && !IS_AFFECTED(gch,AFF_CHARM))
-		members++;
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+		if (is_same_group(gch, ch) && !IS_AFFECTED(gch, AFF_CHARM))
+			members++;
 	}
 
-	if (members < 2)
-	{
-	char_puts("Just keep it all.\n", ch);
-	return;
+	if (members < 2) {
+		act_puts("Just keep it all.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 		
 	share_silver = amount_silver / members;
@@ -1446,10 +1441,10 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	share_gold   = amount_gold / members;
 	extra_gold   = amount_gold % members;
 
-	if (share_gold == 0 && share_silver == 0)
-	{
-	char_puts("Don't even bother, cheapskate.\n", ch);
-	return;
+	if (share_gold == 0 && share_silver == 0) {
+		act_puts("Don't even bother, cheapskate.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
 	}
 
 	ch->silver	-= amount_silver;
@@ -1457,36 +1452,54 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	ch->gold 	-= amount_gold;
 	ch->gold 	+= share_gold + extra_gold;
 
-	if (share_silver > 0)
-	char_printf(ch,
-		"You split %d silver coins. Your share is %d silver.\n",
-		    amount_silver,share_silver + extra_silver);
+	if (share_silver > 0) {
+		act_puts3("You split $j $qj{silver coins}. "
+			  "Your share is $J silver.",
+			  ch, (const void*) amount_silver, NULL,
+			  (const void*) share_silver + extra_silver,
+			  TO_CHAR, POS_DEAD);
+	}
 
-	if (share_gold > 0)
-	char_printf(ch,
-		"You split %d gold coins. Your share is %d gold.\n",
-		 amount_gold,share_gold + extra_gold);
-
-	if (share_gold == 0)
-	snprintf(buf, sizeof(buf), "$n splits %d silver coins. Your share is %d silver.",
-		amount_silver,share_silver);
-	else if (share_silver == 0)
-	snprintf(buf, sizeof(buf), "$n splits %d gold coins. Your share is %d gold.",
-		amount_gold,share_gold);
-	else
-	snprintf(buf, sizeof(buf),
-"$n splits %d silver and %d gold coins, giving you %d silver and %d gold.\n",
-		amount_silver,amount_gold,share_silver,share_gold);
+	if (share_gold > 0) {
+		act_puts3("You split $j $qj{gold coins}. "
+			  "Your share is $J gold.",
+			  ch, (const void*) amount_gold, NULL,
+			  (const void*) share_gold + extra_gold,
+			  TO_CHAR, POS_DEAD);
+	}
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-	if (gch != ch && is_same_group(gch,ch) && !IS_AFFECTED(gch,AFF_CHARM)) {
-		act(buf, ch, NULL, gch, TO_VICT);
+		if (gch == ch
+		||  !is_same_group(gch, ch)
+		||  IS_AFFECTED(gch, AFF_CHARM))
+			continue;
+
+		if (share_gold == 0) {
+			act_puts3("$n splits $j $qj{silver coins}. "
+				  "Your share is $J silver.",
+				  ch, (const void*) amount_silver, gch,
+				  (const void*) share_silver,
+				  TO_VICT, POS_DEAD);
+		} else if (share_silver == 0) {
+			act_puts3("$n splits $j $qj{gold coins}. "
+				  "Your share is $J gold.",
+				  ch, (const void*) amount_gold, gch,
+				  (const void*) share_gold,
+				  TO_VICT, POS_DEAD);
+		} else {
+			act_puts3("$n splits $j silver and $J $qJ{gold coins}",
+				  ch, (const void*) amount_silver, gch,
+				  (const void*) amount_gold,
+				  TO_VICT | ACT_NOLF, POS_DEAD);
+			act_puts3(", giving you $j silver and $J gold.",
+				  ch, (const void*) share_silver, gch,
+				  (const void*) share_gold,
+				  TO_VICT, POS_DEAD);
+		}
+
 		gch->gold += share_gold;
 		gch->silver += share_silver;
 	}
-	}
-
-	return;
 }
 
 void do_speak(CHAR_DATA *ch, const char *argument)
