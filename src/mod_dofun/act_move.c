@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.87 1998-09-11 16:18:47 fjoe Exp $
+ * $Id: act_move.c,v 1.88 1998-09-15 15:17:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2224,13 +2224,13 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if (victim->fighting != NULL) {
 		char_nputs(MSG_CANT_BITE_FIGHTING_PERS, ch);
 		return;
 	}
+
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
@@ -2686,9 +2686,6 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
-		return;
-
 	if (victim->position == POS_FIGHTING) {
 		char_nputs(MSG_WAIT_FIGHT_FINISH, ch);
 		return;
@@ -2723,6 +2720,9 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((sn = sn_lookup("push")) < 0)
+		return;
+
+	if (is_safe(ch,victim))
 		return;
 
 	WAIT_STATE(ch, SKILL(sn)->beats);
@@ -3329,12 +3329,6 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim)) {
-		char_printf(ch, "Gods protect %s.\n\r",
-			    PERS(victim, ch));
-		return;
-	}
-
 	wield = get_eq_char(ch, WEAR_WIELD);
 	arrow = get_eq_char(ch, WEAR_HOLD);    
 
@@ -3362,7 +3356,11 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
-	
+	if (is_safe(ch,victim)) {
+		char_printf(ch, "Gods protect %s.\n\r", PERS(victim, ch));
+		return;
+	}
+
 	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
    
 	chance = (chance - 50) * 2;
@@ -3484,12 +3482,6 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim)) {
-		char_printf(ch, "Gods protect %s.\n\r",
-			    PERS(victim, ch));
-		return;
-	}
-
 	spear = get_eq_char(ch, WEAR_WIELD);
 	if (!spear || spear->item_type != ITEM_WEAPON
 	||  spear->value[0] != WEAPON_SPEAR) {
@@ -3500,6 +3492,11 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD)) {
 		send_to_char("Your second hand should be free!\n\r",ch);
 		return;    	
+	}
+
+	if (is_safe(ch,victim)) {
+		char_printf(ch, "Gods protect %s.\n\r", PERS(victim, ch));
+		return;
 	}
 
 	WAIT_STATE(ch, SKILL(gsn_spear)->beats);

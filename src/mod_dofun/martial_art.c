@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.32 1998-09-10 22:07:53 fjoe Exp $
+ * $Id: martial_art.c,v 1.33 1998-09-15 15:17:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -287,9 +287,6 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
 		act("But $N is your friend!", ch, NULL, victim, TO_CHAR);
 		return;
@@ -304,7 +301,10 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
 		return;
 	}
-		
+
+	if (is_safe(ch, victim))
+		return;
+
 	/* modifiers */
 
 	/* size  and weight */
@@ -438,13 +438,13 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
-		return;
-
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
 		act("But $N is such a good friend!",ch,NULL,victim,TO_CHAR);
 		return;
 	}
+
+	if (is_safe(ch,victim))
+		return;
 
 	/* modifiers */
 
@@ -567,9 +567,6 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
-		return;
-
 	if (IS_AFFECTED(victim,AFF_FLYING)) {
 		act("$S feet aren't on the ground.", ch, NULL, victim, TO_CHAR);
 		return;
@@ -591,6 +588,9 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		act("$N is your beloved master.",ch,NULL,victim,TO_CHAR);
 		return;
 	}
+
+	if (is_safe(ch,victim))
+		return;
 
 	/* modifiers */
 
@@ -685,9 +685,6 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL)
 	{
 		send_to_char("You need to wield a weapon to backstab.\n\r", ch);
@@ -707,6 +704,8 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, SKILL(gsn_backstab)->beats);
 
@@ -750,16 +749,14 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	}
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
-		&& victim->position == POS_FIGHTING)
-		{
+	&&  victim->position == POS_FIGHTING) {
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I've been backstabbed!");
 		else
 			doprintf(do_yell, victim,
 				 "Die, %s, you backstabbing scum!", 
 				 ch->name);
-		}
-	return;
+	}
 }
 
 void do_cleave(CHAR_DATA *ch, const char *argument)
@@ -799,9 +796,6 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		send_to_char("You need to wield a weapon to cleave.\n\r", ch);
 		return;
@@ -820,6 +814,9 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 			  ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
 	if (!IS_AWAKE(victim)
@@ -913,8 +910,6 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
-
 void do_rescue(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -960,10 +955,10 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch) && ch->master != NULL && IS_NPC(victim))
 		return;
 
-	if (is_safe(ch, fch))
+	if (ch->master != NULL && is_safe(ch->master, fch))
 		return;
 
-	if (ch->master != NULL && is_safe(ch->master, fch))
+	if (is_safe(ch, fch))
 		return;
 
 	WAIT_STATE(ch, SKILL(gsn_rescue)->beats);
@@ -984,8 +979,6 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	set_fighting(ch, fch);
 	set_fighting(fch, ch);
 }
-
-
 
 void do_kick(CHAR_DATA *ch, const char *argument)
 {
@@ -1204,14 +1197,15 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 
 	victim = ch->fighting;
 
-	if (is_safe(ch,victim))
-		return;
-
 	if (is_affected(ch,gsn_nerve))
 	{
 		char_puts("You cannot weaken that character any more.\n\r",ch);
 		return;
 	}
+
+	if (is_safe(ch,victim))
+		return;
+
 	WAIT_STATE(ch, SKILL(gsn_nerve)->beats);
 
 	if (IS_NPC(ch) || 
@@ -1394,9 +1388,6 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if (IS_IMMORTAL(victim) && !IS_NPC(victim)) {
 		send_to_char("Your hands pass through.\n\r", ch);
 		return;
@@ -1431,6 +1422,9 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 		}
 */
+
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, SKILL(gsn_assassinate)->beats);
 	if (number_percent() < chance)
@@ -2344,8 +2338,6 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		||  (IS_NPC(vch) && IS_NPC(ch)
 		&&   (ch->fighting != vch || vch->fighting != ch)))
 			  continue;
-		if (is_safe(ch, vch))
-			  continue;
 
 		if (vch == victim) { /* full damage */
 			fire_effect(vch,level,dam,TARGET_CHAR);
@@ -2853,9 +2845,6 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
-		return;
-
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
 		act("But $N is your friend!",ch,NULL,victim,TO_CHAR);
 		return;
@@ -2870,7 +2859,10 @@ act_puts("$n's tail seems to slide around $N.",ch,NULL,victim,
 		TO_NOTVICT,POS_FIGHTING);
 		return;
 	}
-		
+
+	if (is_safe(ch,victim))
+		return;
+
 	/* modifiers */
 
 	/* size  and weight */
@@ -3177,9 +3169,6 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	if (victim->position < POS_FIGHTING)
 		return;
 
-	if (is_safe(ch,victim))
-		return;
-
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim)
 		return;
 		
@@ -3193,6 +3182,9 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
+	if (is_safe(ch,victim))
+		return;
+
 	/* modifiers */
 
 	/* size  and weight */
@@ -3308,7 +3300,8 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	int mana;
-	CHAR_DATA *tmp_vict;
+	CHAR_DATA *vch;
+	CHAR_DATA *vch_next;
 
 	if ((chance = get_skill(ch, gsn_poison_smoke)) == 0) {
 		char_nputs(MSG_HUH, ch);
@@ -3334,34 +3327,22 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 
 	check_improve(ch,gsn_poison_smoke,TRUE,1);
 
-	for (tmp_vict=ch->in_room->people;tmp_vict!=NULL;
-		 tmp_vict=tmp_vict->next_in_room)
-	if (!is_safe_spell(ch,tmp_vict,TRUE)) {
-		if (!IS_NPC(ch) && tmp_vict != ch
-		&&  ch->fighting != tmp_vict
-		&&  tmp_vict->fighting != ch
-		&&  (IS_SET(tmp_vict->affected_by,AFF_CHARM) ||
-		     !IS_NPC(tmp_vict))) {
-			if (!can_see(tmp_vict, ch))
-				do_yell(tmp_vict,
-					"Help someone is attacking me!");
-			else 
-				doprintf(do_yell, tmp_vict,
-					 "Die, %s, you sorcerous dog!",
-					 ch->name);
-		}
-			
-		spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
-		if (tmp_vict != ch)
-			multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
-		
-		}
-	
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
+
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		spell_poison(gsn_poison,ch->level,ch,vch, TARGET_CHAR);
+		if (vch != ch)
+			multi_hit(vch,ch,TYPE_UNDEFINED);
+	}
 }
 
 void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *tmp_vict;
+	CHAR_DATA *vch;
+	CHAR_DATA *vch_next;
 	int chance;
 	int mana;
 
@@ -3389,25 +3370,14 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 
 	check_improve(ch,gsn_blindness_dust,TRUE,1);
 
-	for (tmp_vict=ch->in_room->people;tmp_vict!=NULL;
-		 tmp_vict=tmp_vict->next_in_room)
-	if (!is_safe_spell(ch,tmp_vict,TRUE)) {
-		if (!IS_NPC(ch) && tmp_vict != ch
-		&&  ch->fighting != tmp_vict
-		&&  tmp_vict->fighting != ch
-		&&  (IS_SET(tmp_vict->affected_by, AFF_CHARM) ||
-		     !IS_NPC(tmp_vict))) {
-			if (!can_see(tmp_vict, ch))
-				do_yell(tmp_vict,
-					"Help someone is attacking me!");
-			else 
-				doprintf(do_yell, tmp_vict,
-					 "Die, %s, you sorcerous dog!",
-					 ch->name);
-		}
-			
-		spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
-		if (tmp_vict != ch)
-			multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
+
+		if (is_safe_spell(ch, vch, TRUE)) 
+			continue;
+
+		spell_blindness(gsn_blindness,ch->level,ch,vch, TARGET_CHAR);
+		if (vch != ch)
+			multi_hit(vch,ch,TYPE_UNDEFINED);
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.62 1998-09-15 02:51:38 fjoe Exp $
+ * $Id: interp.c,v 1.63 1998-09-15 15:17:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,7 +103,7 @@ const	struct	cmd_type	cmd_table	[] =
      * Placed here so one and two letter abbreviations work.
      */
     { "at",             do_at,          POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST  },
-    { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0},
+    { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "auction",        do_auction,     POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST  },
     { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "channels",       do_channels,    POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
@@ -115,9 +115,9 @@ const	struct	cmd_type	cmd_table	[] =
     { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "glist",          do_glist,       POS_DEAD,        0,  LOG_NEVER,  1, 0},
     { "group",          do_group,       POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0},
+    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
     { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0},
+    { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
@@ -246,6 +246,8 @@ const	struct	cmd_type	cmd_table	[] =
     { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER,  1, CMD_KEEP_HIDE|CMD_GHOST },
     { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
+    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -275,8 +277,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "human",          do_human,       POS_STANDING,    0,  LOG_NORMAL,1,0 },
     { "hunt",           do_hunt,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
     { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL,1, CMD_GHOST },
-    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
     { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
@@ -706,8 +706,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	tail_chain();
 }
 
-
-
 bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -778,7 +776,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	victim = NULL;
 	if (arg[0] == '\0') {
 		act(social_table[cmd].val[SOC_OTHERS_NO_ARG],
-			ch, NULL, victim, TO_ROOM | TO_BUF);
+			ch, NULL, victim, TO_ROOM | TO_BUF | CHECK_TWIT);
 		act(social_table[cmd].val[SOC_CHAR_NO_ARG],
 			ch, NULL, victim, TO_CHAR);
 		return TRUE;
@@ -792,7 +790,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 
 	if (victim == ch) {
 		act(social_table[cmd].val[SOC_OTHERS_AUTO],
-			ch, NULL, victim, TO_ROOM | TO_BUF);
+			ch, NULL, victim, TO_ROOM | TO_BUF | CHECK_TWIT);
 		act(social_table[cmd].val[SOC_CHAR_AUTO],
 			ch, NULL, victim, TO_CHAR);
 		return TRUE;
@@ -802,7 +800,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 	victim->in_room = ch->in_room;
 
 	act(social_table[cmd].val[SOC_OTHERS_FOUND],
-		ch, NULL, victim, TO_NOTVICT | TO_BUF);
+		ch, NULL, victim, TO_NOTVICT | TO_BUF | CHECK_TWIT);
 	act(social_table[cmd].val[SOC_CHAR_FOUND],
 		ch, NULL, victim, TO_CHAR);
 	act(social_table[cmd].val[SOC_VICT_FOUND],
@@ -819,20 +817,20 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 			case 1: case 2: case 3: case 4:
 			case 5: case 6: case 7: case 8:
 				act(social_table[cmd].val[SOC_OTHERS_FOUND],
-				    victim, NULL, ch, TO_NOTVICT | TO_BUF);
+				    victim, NULL, ch,
+				    TO_NOTVICT | TO_BUF | CHECK_TWIT);
 				act(social_table[cmd].val[SOC_CHAR_FOUND],
-					    victim, NULL, ch, TO_CHAR);
+				    victim, NULL, ch, TO_CHAR);
 				act(social_table[cmd].val[SOC_VICT_FOUND],
-					    victim, NULL, ch, TO_VICT | TO_BUF);
+				    victim, NULL, ch, TO_VICT | TO_BUF);
 				break;
 
 			case 9: case 10: case 11: case 12:
 				act("$n slaps $N.", victim, NULL, ch, 
-					    TO_NOTVICT | TO_BUF);
-				act("You slap $N.", victim, NULL, ch, 
-					    TO_CHAR);
+				    TO_NOTVICT | TO_BUF | CHECK_TWIT);
+				act("You slap $N.", victim, NULL, ch, TO_CHAR);
 				act("$n slaps you.", victim, NULL, ch, 
-					    TO_VICT | TO_BUF);
+				    TO_VICT | TO_BUF);
 				break;
 		}
 	}

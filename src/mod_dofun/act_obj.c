@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.63 1998-09-04 05:27:44 fjoe Exp $
+ * $Id: act_obj.c,v 1.64 1998-09-15 15:17:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2143,8 +2143,8 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim)
-	||  (sn = sn_lookup("steal")) < 0)
+	if ((sn = sn_lookup("steal")) < 0
+	||  is_safe(ch, victim))
 		return;
 	
 	WAIT_STATE(ch, SKILL(sn)->beats);

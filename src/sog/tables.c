@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.2 1998-09-04 05:27:47 fjoe Exp $
+ * $Id: tables.c,v 1.3 1998-09-15 15:17:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1043,47 +1043,47 @@ const   struct wiznet_type      wiznet_table    []              =
 /* attack table */
 const 	struct attack_type	attack_table	[]		=
 {
-	{ "none",	"hit",			-1		},  /*  0 */
+	{ "none",	"hit",			-1		}, /*  0 */
 	{ "slice",	"slice", 		DAM_SLASH	},	
 	{ "stab",	"stab",			DAM_PIERCE	},
 	{ "slash",	"slash",		DAM_SLASH	},
 	{ "whip",	"whip",			DAM_SLASH	},
-	{ "claw",	"claw",			DAM_SLASH	},  /*  5 */
+	{ "claw",	"claw",			DAM_SLASH	}, /*  5 */
 	{ "blast",	"blast",		DAM_BASH	},
 	{ "pound",	"pound",		DAM_BASH	},
 	{ "crush",	"crush",		DAM_BASH	},
 	{ "grep",	"grep",			DAM_SLASH	},
-	{ "bite",	"bite",			DAM_PIERCE	},  /* 10 */
+	{ "bite",	"bite",			DAM_PIERCE	}, /* 10 */
 	{ "pierce",	"pierce",		DAM_PIERCE	},
 	{ "suction",	"suction",		DAM_BASH	},
 	{ "beating",	"beating",		DAM_BASH	},
 	{ "digestion",	"digestion",		DAM_ACID	},
-	{ "charge",	"charge",		DAM_BASH	},  /* 15 */
+	{ "charge",	"charge",		DAM_BASH	}, /* 15 */
 	{ "slap",	"slap",			DAM_BASH	},
 	{ "punch",	"punch",		DAM_BASH	},
 	{ "wrath",	"wrath",		DAM_ENERGY	},
 	{ "magic",	"magic",		DAM_ENERGY	},
-	{ "divine",	"divine power",		DAM_HOLY	},  /* 20 */
+	{ "divine",	"divine power",		DAM_HOLY	}, /* 20 */
 	{ "cleave",	"cleave",		DAM_SLASH	},
 	{ "scratch",	"scratch",		DAM_PIERCE	},
 	{ "peck",	"peck",			DAM_PIERCE	},
 	{ "peckb",	"peck",			DAM_BASH	},
-	{ "chop",	"chop",			DAM_SLASH	},  /* 25 */
+	{ "chop",	"chop",			DAM_SLASH	}, /* 25 */
 	{ "sting",	"sting",		DAM_PIERCE	},
 	{ "smash",	"smash",		DAM_BASH	},
 	{ "shbite",	"shocking bite",	DAM_LIGHTNING	},
 	{ "flbite",	"flaming bite",		DAM_FIRE	},
-	{ "frbite",	"freezing bite",	DAM_COLD	},  /* 30 */
+	{ "frbite",	"freezing bite",	DAM_COLD	}, /* 30 */
 	{ "acbite",	"acidic bite",		DAM_ACID	},
 	{ "chomp",	"chomp",		DAM_PIERCE	},
 	{ "drain",	"life drain",		DAM_NEGATIVE	},
 	{ "thrust",	"thrust",		DAM_PIERCE	},
-	{ "slime",	"slime",		DAM_ACID	},
+	{ "slime",	"slime",		DAM_ACID	}, /* 35 */
 	{ "shock",	"shock",		DAM_LIGHTNING	},
 	{ "thwack",	"thwack",		DAM_BASH	},
 	{ "flame",	"flame",		DAM_FIRE	},
 	{ "chill",	"chill",		DAM_COLD	},
-	{ "kiss",	"kiss",			DAM_MENTAL	},
+	{ "kiss",	"kiss",			DAM_MENTAL	}, /* 40 */
 	{ NULL }
 };
 

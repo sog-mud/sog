@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.126 1998-09-15 02:51:37 fjoe Exp $
+ * $Id: act_info.c,v 1.127 1998-09-15 15:17:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1600,7 +1600,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_add(output, "[");
 	if (IS_IMMORTAL(ch) || ch == wch
 	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
-		buf_printf(output, "{C%3d{x ", wch->level);
+		buf_printf(output, "%3d ", wch->level);
 	else
 		buf_add(output, "    ");
 
@@ -1631,7 +1631,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 			buf_add(output, "     ");
 
 		if (IS_IMMORTAL(ch))
-			buf_printf(output, " {Y%s{x", cl->who_name);
+			buf_printf(output, " %s", cl->who_name);
 	}
 	buf_add(output, "] ");
 
@@ -2106,7 +2106,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim)) {
+	if (!in_PK(ch, victim)) {
 		send_to_char(msg(MSG_DONT_EVEN_THINK, ch), ch);
 		return;
 	}
@@ -2140,7 +2140,6 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 
 	act(cmsg, ch, NULL, victim, TO_CHAR);
 	act(align, ch, NULL, victim, TO_CHAR);
-	return;
 }
 
 void set_title(CHAR_DATA *ch, const char *title)
@@ -2943,7 +2942,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
 		show_affects(ch, output);
-	page_to_char(buf_string(output), ch);
+	char_puts(buf_string(output), ch);
 	buf_free(output);
 }
 
@@ -3201,7 +3200,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
 		show_affects(ch, output);
-	page_to_char(buf_string(output), ch);
+	char_puts(buf_string(output), ch);
 	buf_free(output);
 }
 
@@ -3711,10 +3710,10 @@ void do_control(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
+	if (count_charmed(ch))
 		return;
 
-	if (count_charmed(ch))
+	if (is_safe(ch, victim))
 		return;
 
 	WAIT_STATE(ch, SKILL(sn)->beats);

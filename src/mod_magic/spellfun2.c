@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.36 1998-09-01 18:38:00 fjoe Exp $
+ * $Id: spellfun2.c,v 1.37 1998-09-15 15:17:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -278,64 +278,43 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) {
-	CHAR_DATA *tmp_vict;
+void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *vch;
+	CHAR_DATA *vch_next;
 
 	send_to_char("A cloud of poison smoke fills the room.\n\r",ch);
 	act("A cloud of poison smoke fills the room.",ch,NULL,NULL,TO_ROOM);
 
-	for (tmp_vict=ch->in_room->people;tmp_vict!=NULL;
-	   tmp_vict=tmp_vict->next_in_room)
-	if (!is_safe_spell(ch,tmp_vict,TRUE))
-	  {
-	if (!IS_NPC(ch) && tmp_vict != ch && 
-	    ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-	    (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-	  {
-	    if (!can_see(tmp_vict, ch))
-		do_yell(tmp_vict, "Help someone is attacking me!");
-	    else 
-	         doprintf(do_yell, tmp_vict, "Die, %s, you sorcerous dog!",
-			ch->name);
-	  }
-	  
-	spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
-	if (tmp_vict != ch)
-	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
-	
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
+
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		spell_poison(gsn_poison, ch->level, ch, vch, TARGET_CHAR);
+		if (vch != ch)
+			multi_hit(vch,ch,TYPE_UNDEFINED);
 	}
-	
 }
 
 void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	CHAR_DATA *tmp_vict;
+	CHAR_DATA *vch;
+	CHAR_DATA *vch_next;
 
 	send_to_char("A cloud of dust fills in the room.\n\r",ch);
 	act("A cloud of dust fills the room.",ch,NULL,NULL,TO_ROOM);
 
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
-	for (tmp_vict=ch->in_room->people;tmp_vict!=NULL;
-	   tmp_vict=tmp_vict->next_in_room)
-	if (!is_safe_spell(ch,tmp_vict,TRUE))
-	  {
-	if (!IS_NPC(ch) && tmp_vict != ch && 
-	    ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-	    (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-	  {
-	    if (!can_see(tmp_vict, ch))
-		do_yell(tmp_vict, "Help someone is attacking me!");
-	    else 
-	         doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-			ch->name);
-	  }
-	  
-	spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
-	if (tmp_vict != ch)
-	  multi_hit(tmp_vict,ch,TYPE_UNDEFINED);
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
 
+		spell_blindness(gsn_blindness, ch->level, ch, vch, TARGET_CHAR);
+		multi_hit(vch, ch, TYPE_UNDEFINED);
 	}
-
 }
 
 void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -361,7 +340,6 @@ void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 	act("$n's skin becomes covered in bark.", victim, NULL, NULL, TO_ROOM);
 	send_to_char("Your skin becomes covered in bark.\n\r", victim);
-	return;
 }
 
 void spell_bear_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -674,52 +652,36 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
-	CHAR_DATA *tmp_vict;
-	CHAR_DATA *tmp_next;
+	CHAR_DATA *vch;
+	CHAR_DATA *vch_next;
 	int dam;
 
 	if (ch->level < 40)
-	dam = dice(level,6);
+		dam = dice(level, 6);
 	else if (ch->level < 65)
-	dam = dice(level,9);
-	else dam = dice(level,12);
+		dam = dice(level, 9);
+	else
+		dam = dice(level, 12);
 
-	for (tmp_vict = ch->in_room->people;tmp_vict != NULL;
-	   tmp_vict = tmp_next)
-	{
-	  tmp_next = tmp_vict->next_in_room;
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
-	  if (!is_safe_spell(ch,tmp_vict,TRUE))
-	{ 
-	  if (!IS_NPC(ch) && tmp_vict != ch && 
-	      ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-	      (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-	    {
-	      if (!can_see(tmp_vict, ch))
-		do_yell(tmp_vict, "Help someone is attacking me!");
-	      else 
-		  doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-				ch->name);
-	    }
-	    
-	  if (!is_affected(tmp_vict,sn)) {
-	    
+		if (is_safe_spell(ch, vch, TRUE)
+		||  is_affected(vch, sn))	/* XXX ??? */
+			continue;
 
 	    if (number_percent() < level)
-	      spell_poison(gsn_poison, level, ch, tmp_vict, TARGET_CHAR);
+	      spell_poison(gsn_poison, level, ch, vch, TARGET_CHAR);
 
 	    if (number_percent() < level)
-	      spell_blindness(gsn_blindness,level,ch,tmp_vict, TARGET_CHAR);
+	      spell_blindness(gsn_blindness,level,ch,vch, TARGET_CHAR);
 
 	    if (number_percent() < level)
-	      spell_weaken(gsn_weaken, level, ch, tmp_vict, TARGET_CHAR);
+	      spell_weaken(gsn_weaken, level, ch, vch, TARGET_CHAR);
 
-	        if (saves_spell(level,tmp_vict, DAM_FIRE))
+	        if (saves_spell(level,vch, DAM_FIRE))
 	      dam /= 2;
-	    damage(ch, tmp_vict, dam, sn, DAM_FIRE, TRUE);
-	  }
-
-	}
+	    damage(ch, vch, dam, sn, DAM_FIRE, TRUE);
 	}
 }
 
@@ -1500,7 +1462,7 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *wch;
-	CHAR_DATA *wch_next;
+	CHAR_DATA *vch_next;
 	bool gate_pet;
 
 	if ((victim = get_char_world(ch,target_name)) == NULL
@@ -1515,8 +1477,8 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else
 		gate_pet = FALSE;
 
-	for (wch = ch->in_room->people; wch != NULL; wch = wch_next) {
-		wch_next = wch->next_in_room;
+	for (wch = ch->in_room->people; wch != NULL; wch = vch_next) {
+		vch_next = wch->next_in_room;
 		if (wch != ch && is_same_group(wch, ch)) {
 			act("$n utters some strange words and, "
 			    "with a sickening lurch, you feel time\n\r"
@@ -2365,8 +2327,6 @@ switch(dice(1,5))
 	||  (IS_NPC(vch) && IS_NPC(ch)
 	&&   (ch->fighting != vch || vch->fighting != ch)))
 	    continue;
-	if (is_safe(ch, vch))
-	      continue;
 
 	if (vch == victim) /* full damage */
 	{
@@ -2419,9 +2379,6 @@ switch(dice(1,5))
 	||  (IS_NPC(vch) && IS_NPC(ch) 
 	&&   (ch->fighting != vch || vch->fighting != ch)))
 	    continue;
-	if (is_safe(ch, vch))
-	      continue;
-
 
 	if (vch == victim) /* full damage */
 	{
@@ -2454,26 +2411,13 @@ switch(dice(1,5))
 	case 4:
 	poison_effect(ch->in_room,level,dam,TARGET_ROOM);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
+	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
 	vch_next = vch->next_in_room;
 
 	if (is_safe_spell(ch,vch,TRUE)
 	||  (IS_NPC(ch) && IS_NPC(vch) 
-	&&   (ch->fighting == vch || vch->fighting == ch)))
+	&&  (ch->fighting == vch || vch->fighting == ch)))
 	    continue;
-	if (is_safe(ch, vch))
-	      continue;
-	      if (!IS_NPC(ch) && vch != ch &&
-	          ch->fighting != vch && vch->fighting != ch &&
-	          (IS_SET(vch->affected_by,AFF_CHARM) || !IS_NPC(vch)))
-	        {
-	        if (!can_see(vch, ch))
-	            do_yell(vch, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, vch, "Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
 
 	if (saves_spell(level,vch,DAM_POISON))
 	{
@@ -2535,8 +2479,6 @@ void spell_sand_storm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  (IS_NPC(vch) && IS_NPC(ch)
 	&&   (ch->fighting != vch /*|| vch->fighting != ch*/)))
 	    continue;
-	if (is_safe(ch, vch))
-	      continue;
 
 	    if (saves_spell(level,vch,DAM_COLD))
 	    {
@@ -2573,8 +2515,6 @@ void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (is_safe_spell(ch,vch,TRUE))
 	    continue;
-	if (is_safe(ch, vch))
-	      continue;
 
 	    if (saves_spell(level,vch,DAM_ENERGY))
 	    {
@@ -2890,9 +2830,7 @@ void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo ,int target)
 				ch, NULL, gch, TO_CHAR);
 
 	}
-	return;
 }
-
 
 void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
 {
@@ -2933,9 +2871,7 @@ void spell_inspire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 				ch, NULL, gch, TO_CHAR);
 
 	}
-	return;
 }
-
 
 void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
 {
@@ -2971,7 +2907,6 @@ void spell_mass_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 			act("$N is surrounded by a white aura.",
 				ch, NULL, gch, TO_CHAR);
 	}
-	return;
 }
 
 void spell_mend(int sn, int level, CHAR_DATA *ch, void *vo , int target)
@@ -3401,15 +3336,12 @@ void spell_turn (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->next_in_room;
+	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
-	if (is_safe_spell(ch,vch,TRUE))
-	    continue;
-	if (is_safe(ch, vch))
-	      continue;
-	turn_spell(sn,ch->level,ch,vch,target);
+		if (is_safe_spell(ch,vch,TRUE))
+			continue;
+		turn_spell(sn, ch->level, ch, vch, target);
 	}
 }
 
@@ -3678,7 +3610,6 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	}
 
 	send_to_char("You can't see that here.\n\r",ch);
-	return;
 }
 
 
@@ -4765,17 +4696,6 @@ void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	dam /= 3;
 	damage(ch,victim,dam,sn,DAM_PIERCE,TRUE);
 
-	if (!IS_NPC(ch) && victim != ch &&
-	    ch->fighting != victim && victim->fighting != ch &&
-	    (IS_SET(victim->affected_by,AFF_CHARM) || !IS_NPC(victim)))
-	  {
-	    if (!can_see(victim, ch))
-	      do_yell(victim, "Help someone is attacking me!");
-	    else
-	        doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
-				ch->name);
-	  }
-
 	act("The blade barriers crash $n!",victim,NULL,NULL,TO_ROOM);
 	dam = dice(level,4);
 	if (saves_spell(level,victim,DAM_PIERCE))
@@ -4800,9 +4720,7 @@ void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	dam /= 3;
 	damage(ch,victim,dam,sn,DAM_PIERCE,TRUE);
 	act("The blade barriers crash you!",victim,NULL,NULL,TO_CHAR);
-
 }
-
 
 void spell_protection_negative (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 {
@@ -4903,7 +4821,6 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	}
 
 }
-
 
 void spell_disgrace(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {

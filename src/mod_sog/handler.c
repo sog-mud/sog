@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.56 1998-09-11 07:53:54 fjoe Exp $
+ * $Id: handler.c,v 1.57 1998-09-15 15:17:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1841,8 +1841,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	if (IS_NPC(ch))
 		--ch->pIndexData->count;
 
-	if (ch->desc != NULL && ch->desc->original != NULL)
-	{
+	if (ch->desc != NULL && ch->desc->original != NULL) {
 		do_return(ch, "");
 		ch->desc = NULL;
 	}

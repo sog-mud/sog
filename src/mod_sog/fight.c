@@ -1,7 +1,3 @@
-/*
- * $Id: fight.c,v 1.67 1998-09-10 22:07:53 fjoe Exp $
- */
-
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
@@ -59,8 +55,6 @@
 #include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-
-#define MAX_DAMAGE_MESSAGE 34
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_emote 	);
@@ -180,8 +174,6 @@ void violence_update(void)
 				mp_hprct_trigger(ch, victim);
 		}
 	}
-
-	return;
 }
 
 /* for auto assisting */
@@ -210,7 +202,8 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 		    {
 			if (((!IS_NPC(rch) && IS_SET(rch->act,PLR_AUTOASSIST))
 			||     IS_AFFECTED(rch,AFF_CHARM))
-			&&   is_same_group(ch,rch))
+			&&   is_same_group(ch,rch)
+			&&  !is_safe_nomessage(rch, victim))
 			    multi_hit (rch,victim,TYPE_UNDEFINED);
 
 			continue;
@@ -309,11 +302,6 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		else
 			do_dismount(victim->mount, "");
 	}
-
-	/* no attacks on ghosts or attacks by ghosts */
-	if ((!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-	||  (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)))
-		return;
 
 	if (IS_AFFECTED(ch,AFF_WEAK_STUN)) {
 		act_puts("You are too stunned to respond $N's attack.",
@@ -439,10 +427,6 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
 	int chance,number;
 	CHAR_DATA *vch, *vch_next;
-
-	/* no attacks on ghosts */
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-		return;
 
 	/* no attack by ridden mobiles except spec_casts */
 	if (RIDDEN(ch)) {
@@ -591,11 +575,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 	/* just in case */
 	if (victim == ch || ch == NULL || victim == NULL)
-		return;
-
-	/* ghosts can't fight */
-	if ((!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-	||  (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)))
 		return;
 
 	/*
@@ -1074,50 +1053,11 @@ void delete_player(CHAR_DATA *victim, char* msg)
 }
 
 /*
- * handle_pc_death - called from `handle_death'
- * Returns TRUE if victim `became a ghost permanently' (is deleted permanently)
- */
-static inline
-bool
-handle_pc_death(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	/*
-	 * Dying penalty: 2/3 way back.
-	 */
-	if (victim->exp_tl > 0)
-		gain_exp(victim, -victim->exp_tl*2/3);
-
-	if ((++victim->pcdata->death % 3) != 2)
-		return FALSE;
-
-	/*
-	 *  Die too much and is deleted ... :(
-	 */
-	if (victim->class == CLASS_SAMURAI) {
-		victim->perm_stat[STAT_CHA]--;
-		if (victim->pcdata->death > 10) {
-			delete_player(victim, "10 deaths limit for Samurai");
-			return TRUE;
-		}
-	}
-	else {
-		if (--victim->perm_stat[STAT_CON] < 3) {
-			delete_player(victim, "lack of CON");
-			return TRUE;
-		}
-		else
-			send_to_char("You feel your life power has decreased "
-				     "with this death.\n\r", victim);
-	}
-
-	return FALSE;
-}
-
-/*
  * handle_death - called from `damage' if `ch' has killed `victim'
  */
 static void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
+	bool vnpc = IS_NPC(victim);
 	OBJ_DATA *corpse;
 
 	group_gain(ch, victim);
@@ -1128,32 +1068,15 @@ static void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	/*
 	 * Death trigger
 	 */
-	if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_DEATH)) {
+	if (vnpc && HAS_TRIGGER(victim, TRIG_DEATH)) {
 		victim->position = POS_STANDING;
 		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
 	}
 
-	victim->position = POS_DEAD;
 	raw_kill(ch, victim);
-	if (victim->position != POS_DEAD)
-		return;
-
-	/*
-	 * handle PC death (from NPC or being MSG_WANTED)
-	 */
-	if (!IS_NPC(victim)
-	&&  (victim == ch ||
-	     (IS_NPC(ch) && ch->master == NULL && ch->leader == NULL) ||
-	     IS_SET(victim->act, PLR_WANTED))
-	&&  handle_pc_death(ch, victim))
-		return;
-
-	/* don't remember killed victims anymore */
-	if (IS_NPC(ch))
-		remove_mind(ch, victim->name);
 
 	/* RT new auto commands */
-	if (!IS_NPC(ch) && IS_NPC(victim)
+	if (!IS_NPC(ch) && vnpc
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) != NULL) {
 		if (ch->class == CLASS_VAMPIRE && ch->level > 10) {
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
@@ -1172,6 +1095,41 @@ static void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 		if (IS_SET(ch->act, PLR_AUTOSAC))
 			do_sacrifice(ch, "corpse");
+	}
+
+	if (vnpc || victim->position == POS_STANDING)
+		return;
+
+	if ((!IS_NPC(ch) || ch->master != NULL || ch->leader != NULL)
+	&&  ch != victim
+	&&  !IS_SET(victim->act, PLR_WANTED))
+		return;
+
+/* handle PC death (from NPC or being PLR_WANTED) */
+
+	/* Dying penalty: 2/3 way back. */
+	if (victim->exp_tl > 0)
+		gain_exp(victim, -victim->exp_tl*2/3);
+
+	if ((++victim->pcdata->death % 3) != 2)
+		return;
+
+	/* Die too much and is deleted ... :( */
+	if (victim->class == CLASS_SAMURAI) {
+		victim->perm_stat[STAT_CHA]--;
+		if (victim->pcdata->death > 10) {
+			delete_player(victim, "10 deaths limit for Samurai");
+			return;
+		}
+	}
+	else {
+		if (--victim->perm_stat[STAT_CON] < 3) {
+			delete_player(victim, "lack of CON");
+			return;
+		}
+		else
+			send_to_char("You feel your life power has decreased "
+				     "with this death.\n\r", victim);
 	}
 }
 
@@ -1192,8 +1150,11 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		 * Certain attacks are forbidden.
 		 * Most other attacks are returned.
 		 */
-		if (is_safe(ch, victim))
+
+#if 0
+		if (cant_kill(ch, victim, F_QUIET))
 			return FALSE;
+#endif
 
 		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
@@ -1270,7 +1231,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		dam -= dam / 4;
 
 	immune = FALSE;
-
 
 	/*
 	 * Check for parry, and dodge.
@@ -1420,17 +1380,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	return TRUE;
 }
 
-bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (is_safe_nomessage(ch,victim)) {
-		act("The gods protect $N.",ch,NULL,victim,TO_CHAR);
-		act("The gods protect $N from $n.",ch,NULL,victim,TO_ROOM);
-		return TRUE;
-	}
-	return FALSE;
-}
-
-bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
+bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (victim->fighting == ch
 	||  ch == victim
@@ -1438,13 +1388,14 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	/* Ghosts are safe */
-	if ((!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-	||  (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)))
+	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
 		return TRUE;
 
 	/* handle ROOM_SAFE flags */
-	if (victim->in_room != NULL
-	&&  IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+	if ((victim->in_room != NULL &&
+	     IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+	||  (ch->in_room != NULL &&
+	     IS_SET(ch->in_room->room_flags, ROOM_SAFE)))
 		return TRUE;
 
 	/* Experimental vampires' coffins handle */
@@ -1461,26 +1412,58 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	return !in_PK(ch, victim);
 }
 
-bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
+bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (ch == victim && !area)
-		return TRUE;
+	bool safe = cant_kill(ch, victim);
+	if (safe || IS_NPC(ch))
+		return safe;
 
-	if (IS_IMMORTAL(victim) &&	area)
-		return TRUE;
+	if (victim != ch
+	&&  ch->fighting != victim
+	&&  (IS_SET(victim->affected_by, AFF_CHARM) || !IS_NPC(victim))) {
+		if (!can_see(victim, ch))
+			do_yell(victim, "Help! Someone is attacking me!");
+		else 
+			doprintf(do_yell, victim,
+				 "Die, %s, you sorcerous dog!",
+				 PERS(ch, victim));
+	}
+	  
+	if (victim != ch && IS_SET(ch->act, PLR_GHOST)) {
+		char_puts("You return to your normal form.\n\r", ch);
+		REMOVE_BIT(ch->act, PLR_GHOST);
+	}
 
-	if (is_same_group(ch,victim) && area)
-		return TRUE;
-
-	if (ch == victim && area && ch->in_room->sector_type == SECT_INSIDE)
-		return TRUE;
-
-	if ((RIDDEN(ch) == victim || MOUNTED(ch) == victim) && area)
-		return TRUE;
-
-	return is_safe(ch,victim);
+	return safe;
 }
 
+bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (is_safe_nomessage(ch, victim)) {
+		act("The gods protect $N.",ch,NULL,victim,TO_CHAR);
+		act("The gods protect $N from $n.",ch,NULL,victim,TO_ROOM);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
+{
+#if 0
+	if (ch == victim && !area)
+		return TRUE;
+#endif
+	if (area) {
+		if (IS_IMMORTAL(victim)
+		||  is_same_group(ch, victim)
+		||  ch == victim
+		||  RIDDEN(ch) == victim
+		||  MOUNTED(ch) == victim)
+			return TRUE;
+	}
+
+	return is_safe(ch, victim);
+}
 
 /*
  * Check for parry.
@@ -1690,48 +1673,41 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
-
-
 /*
  * Set position of a victim.
  */
 void update_pos(CHAR_DATA *victim)
 {
-	if (victim->hit > 0)
-	{
+	if (victim->hit > 0) {
 		if (victim->position <= POS_STUNNED)
-		    victim->position = POS_STANDING;
+			victim->position = POS_STANDING;
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->hit < 1)
-	{
+	if (IS_NPC(victim) && victim->hit < 1) {
 		victim->position = POS_DEAD;
 		return;
 	}
 
-	if (victim->hit <= -11)
-	{
+	if (victim->hit <= -11) {
 		victim->position = POS_DEAD;
 		return;
 	}
 
-		 if (victim->hit <= -6) victim->position = POS_MORTAL;
-	else if (victim->hit <= -3) victim->position = POS_INCAP;
-	else			  victim->position = POS_STUNNED;
-
-	return;
+	if (victim->hit <= -6)
+		victim->position = POS_MORTAL;
+	else if (victim->hit <= -3)
+		victim->position = POS_INCAP;
+	else
+		victim->position = POS_STUNNED;
 }
-
-
 
 /*
  * Start fights.
  */
 void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (ch->fighting != NULL)
-	{
+	if (ch->fighting != NULL) {
 		bug("Set_fighting: already fighting", 0);
 		return;
 	}
@@ -1741,11 +1717,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	ch->fighting = victim;
 	ch->position = POS_FIGHTING;
-
-	return;
 }
-
-
 
 /*
  * Stop fights.
@@ -1763,11 +1735,7 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 		    update_pos(fch);
 		}
 	}
-
-	return;
 }
-
-
 
 /*
  * Make a corpse out of a character.
@@ -1963,10 +1931,7 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		}
 	}
 	ch->in_room = was_in_room;
-
-	return;
 }
-
 
 void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 {
@@ -1984,23 +1949,21 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		}
 	}
 
+	/* don't remember killed victims anymore */
+	if (IS_NPC(ch))
+		remove_mind(ch, victim->name);
+
 	stop_fighting(victim, TRUE);
 	rating_update(ch, victim);
-
 	quest_handle_death(ch, victim);
-
 	RESET_FIGHT_TIME(victim);
 	victim->last_death_time = current_time;
-	if(!IS_NPC(victim))
-		SET_BIT(victim->act, PLR_GHOST);
+	death_cry_org(victim, part);
 
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
 	if (tattoo != NULL)
 		obj_from_char(tattoo);
-
-	death_cry_org(victim, part);
 	make_corpse(victim);
-
 
 	if (IS_NPC(victim)) {
 		victim->pIndexData->killed++;
@@ -2009,6 +1972,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		return;
 	}
 
+	SET_BIT(victim->act, PLR_GHOST);
 	char_puts("You turn into an invincible ghost for a few minutes.\n\r"
 		  "As long as you don't attack anything.\n\r",
 		  victim);
@@ -2026,7 +1990,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	victim->move		= victim->max_move;
 
 	/* RT added to prevent infinite deaths */
-	REMOVE_BIT(victim->act, PLR_WANTED);
 	REMOVE_BIT(victim->act, PLR_BOUGHT_PET);
 
 	victim->pcdata->condition[COND_THIRST] = 40;
@@ -2052,8 +2015,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		remove_mind(tmp_ch, victim->name);
 	}
 }
-
-
 
 void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -2359,6 +2320,8 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,in
 	else {
 		SKILL_DATA *sk;
 
+/* XXX */
+#define MAX_DAMAGE_MESSAGE 40
 		if ((sk = skill_lookup(dt)))
 			attack	= sk->noun_damage;
 		else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
@@ -2472,9 +2435,6 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if (ch->position == POS_FIGHTING) {
 		if (victim == ch->fighting)
 			send_to_char("You do the best you can!\n\r", ch);
@@ -2502,6 +2462,9 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
+	if (is_safe(ch, victim))
+		return;
 
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 
@@ -2562,9 +2525,6 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
-		return;
-
 	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
@@ -2575,20 +2535,10 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (is_safe(ch, victim))
+		return;
+
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
-	if (!can_see(victim, ch))
-		do_yell(victim, "Help! I am being attacked by someone!");
-	else {
-		if (IS_NPC(ch))
-			/* XXX */
-			doprintf(do_yell, victim,
-				"Help! I am being attacked by %s!",
-				mlstr_mval(ch->short_descr));
-		else
-			doprintf(do_yell, victim,
-				 "Help! I am being attacked by %s!",
-				 ch->name);
-	}
 
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)
@@ -2721,7 +2671,6 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT);
 	act("$n slays $N in cold blood!", ch, NULL, victim, TO_NOTVICT);
 	raw_kill(ch, victim);
-	return;
 }
 
 /*

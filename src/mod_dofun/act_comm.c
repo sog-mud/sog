@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.79 1998-09-15 02:51:36 fjoe Exp $
+ * $Id: act_comm.c,v 1.80 1998-09-15 15:17:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -127,11 +127,10 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(d->character->comm, COMM_NOMUSIC)) {
 			strcpy(trans, translate(ch,d->character,buf));
 			act_puts("$n musics '{W$t{x'",
-		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
+		        	 ch, trans, d->character, TO_VICT | CHECK_TWIT,
+				 POS_DEAD);
 		}
 	}
-
-	return;
 }
 
 void do_gossip(CHAR_DATA *ch, const char *argument)
@@ -178,11 +177,10 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 		&&  !IS_SET(d->character->comm, COMM_NOGOSSIP)) {
 			strcpy(trans, translate(ch,d->character,buf));
 			act_puts("$n gossips '{Y$t{x'",
-		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
+		        	 ch, trans, d->character, TO_VICT | CHECK_TWIT,
+				 POS_DEAD);
 		}
 	}
-
-	return;
 }
 
 /* RT code to delete yourself */
@@ -377,8 +375,6 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
-
 void do_say(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *char_obj;
@@ -404,7 +400,8 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
 			strcpy(trans, translate(ch, vch, buf));
-			act_nputs(MSG_N_SAYS, ch, trans, vch, TO_VICT | TO_BUF, POS_RESTING);
+			act_nputs(MSG_N_SAYS, ch, trans, vch,
+				  TO_VICT | TO_BUF | CHECK_TWIT, POS_RESTING);
 		}
 	}
 
@@ -434,8 +431,6 @@ void do_say(CHAR_DATA *ch, const char *argument)
 		oprog_call(OPROG_SPEECH, char_obj, ch, buf);
 	}
 }
-
-
 
 void do_shout(CHAR_DATA *ch, const char *argument)
 {
@@ -467,8 +462,7 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		act_puts("You shout '{R$T{x'",
 		       ch, NULL, buf, TO_CHAR,POS_DEAD);
 
-	for (d = descriptor_list; d != NULL; d = d->next)
-	{
+	for (d = descriptor_list; d != NULL; d = d->next) {
 	CHAR_DATA *victim;
 
 	victim = d->original ? d->original : d->character;
@@ -483,8 +477,6 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		              ch,trans,d->character,TO_VICT,POS_DEAD);
 	}
 	}
-
-	return;
 }
 
 
@@ -615,10 +607,9 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	else
 		 strcpy(buf,argument);
 
-	act("$n $T", ch, NULL, buf, TO_ROOM | TO_BUF | NO_TRIGGER);
+	act("$n $T", ch, NULL, buf, TO_ROOM | TO_BUF | NO_TRIGGER | CHECK_TWIT);
 	act("$n $T", ch, NULL, buf, TO_CHAR | NO_TRIGGER);
 }
-
 
 void do_pmote(CHAR_DATA *ch, const char *argument)
 {
@@ -645,7 +636,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 
 		if ((letter = strstr(argument,vch->name)) == NULL) {
 			act("$N $t", vch, argument, ch,
-			    TO_CHAR | TO_BUF | NO_TRIGGER);
+			    TO_CHAR | TO_BUF | NO_TRIGGER | CHECK_TWIT);
 			continue;
 		}
 

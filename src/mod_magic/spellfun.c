@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.48 1998-09-04 05:27:46 fjoe Exp $
+ * $Id: spellfun.c,v 1.49 1998-09-15 15:17:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -207,23 +207,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		if (!IS_NPC(ch) && is_safe(ch, victim))
+		if (is_safe(ch, victim))
 			return;
 
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-		if (!IS_NPC(ch) && victim != ch
-		&&  ch->fighting != victim && victim->fighting != ch
-		&&  (IS_SET(victim->affected_by, AFF_CHARM)
-		     || !IS_NPC(victim))) {
-			if (!can_see(victim, ch))
-				do_yell(victim,
-				    "Help someone is attacking me!");
-			else
-				doprintf(do_yell, victim,
-					 "Die, %s, you sorcerous dog!",
-					 ch->name);
-		}
 
 		if (is_affected(victim, gsn_spellbane)
 		&&  (number_percent() < 2*get_skill(ch, gsn_spellbane)/3)) {
@@ -348,21 +336,16 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if (target == TARGET_CHAR) /* check the sanity of the attack */
 		{
-		    if(is_safe_spell(ch,victim,FALSE) && victim != ch)
-		    {
-			send_to_char("Your spell didn't work.\n\r",ch);
-			return;
-		    }
-
-		    if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim)
-		    {
+		    if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
 			send_to_char("You can't do that on your own follower.\n\r",
 			    ch);
 			return;
 		    }
 
-		    if (is_safe(ch, victim))
+		    if (is_safe(ch, victim)) {
+			send_to_char("Your spell didn't work.\n\r",ch);
 			return;
+		    }
 
 		    vo = (void *) victim;
 		}
@@ -507,10 +490,9 @@ void obj_cast_spell(int sn, int level,
 		    send_to_char("You can't do that.\n\r", ch);
 		    return;
 		}
-		if (is_safe(ch,victim) && ch != victim)
-		{
-		    send_to_char("Something isn't right...\n\r",ch);
-		    return;
+		if (is_safe(ch, victim)) {
+			send_to_char("Something isn't right...\n\r",ch);
+			return;
 		}
 		vo = (void *) victim;
 		target = TARGET_CHAR;
@@ -583,8 +565,7 @@ void obj_cast_spell(int sn, int level,
 
 		    if (victim != NULL)
 		    {
-			if (is_safe_spell(ch,victim,FALSE) && ch != victim)
-			{
+			if (is_safe(ch, victim)) {
 			    send_to_char("Somehting isn't right...\n\r",ch);
 			    return;
 			}
@@ -815,22 +796,18 @@ void spell_burning_hands(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-
-
 void spell_call_lightning(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
 	int dam;
 
-	if (!IS_OUTSIDE(ch))
-	{
+	if (!IS_OUTSIDE(ch)) {
 		send_to_char("You must be out of doors.\n\r", ch);
 		return;
 	}
 
-	if (weather_info.sky < SKY_RAINING)
-	{
+	if (weather_info.sky < SKY_RAINING) {
 		send_to_char("You need bad weather.\n\r", ch);
 		return;
 	}
@@ -838,37 +815,32 @@ void spell_call_lightning(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 	dam = dice(level, 9);
 
 	send_to_char("Gods' lightning strikes your foes!\n\r", ch);
-	act("$n calls lightning to strike $s foes!",
-		ch, NULL, NULL, TO_ROOM);
+	act("$n calls lightning to strike $s foes!", ch, NULL, NULL, TO_ROOM);
 
-	for (vch = char_list; vch != NULL; vch = vch_next)
-	{
+	for (vch = char_list; vch != NULL; vch = vch_next) {
 		vch_next	= vch->next;
+
 		if (vch->in_room == NULL)
-		    continue;
-		if (vch == ch)
-		    continue;
-		if (vch->in_room == ch->in_room)
-		{
-		    if (vch != ch && !is_same_group(ch, vch))
-		      if (is_safe(ch, vch))
 			continue;
-			damage(ch, vch, saves_spell(level,vch,DAM_LIGHTNING)
-			? dam / 2 : dam, sn,DAM_LIGHTNING,TRUE);
-		    continue;
+
+		if (vch->in_room == ch->in_room) {
+			if (is_safe_spell(ch, vch, TRUE))
+				continue;
+			damage(ch, vch,
+			       saves_spell(level, vch, DAM_LIGHTNING) ?
+			       dam / 2 : dam,
+			       sn,DAM_LIGHTNING,TRUE);
+			continue;
 		}
 
 		if (vch->in_room->area == ch->in_room->area
-		&&   IS_OUTSIDE(vch)
-		&&   IS_AWAKE(vch))
+		&&  IS_OUTSIDE(vch)
+		&&  IS_AWAKE(vch))
 		    send_to_char("Lightning flashes in the sky.\n\r", vch);
 	}
-
-	return;
 }
 
 /* RT calm spell stops all fighting in the room */
-
 void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *vch;
@@ -1171,7 +1143,7 @@ void spell_cause_serious(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	CHAR_DATA *tmp_vict,*last_vict,*next_vict;
+	CHAR_DATA *vch,*last_vict,*next_vict;
 	bool found;
 	int dam;
 
@@ -1189,90 +1161,63 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 		dam /= 3;
 	damage(ch,victim,dam,sn,DAM_LIGHTNING,TRUE);
 
-	if (!IS_NPC(ch) && victim != ch &&
-	    ch->fighting != victim && victim->fighting != ch &&
-	    (IS_SET(victim->affected_by,AFF_CHARM) || !IS_NPC(victim)))
-	  {
-	    if (!can_see(victim, ch))
-	      do_yell(victim, "Help someone is attacking me!");
-	    else
-	        doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
-			ch->name);
-	  }
-
-
 	last_vict = victim;
 	level -= 4;   /* decrement damage */
 
 	/* new targets */
-	while (level > 0)
-	{
+	while (level > 0) {
 		found = FALSE;
-		for (tmp_vict = ch->in_room->people;
-		     tmp_vict != NULL;
-		     tmp_vict = next_vict)
-		{
-		  next_vict = tmp_vict->next_in_room;
-		  if (!is_safe_spell(ch,tmp_vict,TRUE) && tmp_vict != last_vict)
-		  {
-		    found = TRUE;
-		    last_vict = tmp_vict;
-		    if (is_safe(ch, tmp_vict))  {
-		      act("The bolt passes around $n's body.", ch, NULL, NULL, TO_ROOM);
-		      act("The bolt passes around your body.", ch, NULL, NULL, TO_CHAR);
-		    }
-		    else  {
-		      act("The bolt arcs to $n!",tmp_vict,NULL,NULL,TO_ROOM);
-		      act("The bolt hits you!",tmp_vict,NULL,NULL,TO_CHAR);
-		      dam = dice(level,6);
+		for (vch = ch->in_room->people; vch; vch = next_vict) {
+			next_vict = vch->next_in_room;
 
-	        if (!IS_NPC(ch) && tmp_vict != ch &&
-	            ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-	            (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-	          {
-	        if (!can_see(tmp_vict, ch))
-	            do_yell(tmp_vict, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
+			if (vch == last_vict)
+				continue;
 
-		      if (saves_spell(level,tmp_vict,DAM_LIGHTNING))
-			dam /= 3;
-		      damage(ch,tmp_vict,dam,sn,DAM_LIGHTNING,TRUE);
-		      level -= 4;  /* decrement damage */
-		    }
-		  }
+			if (is_safe_spell(ch, vch, TRUE)) {
+				act("The bolt passes around $n's body.",
+				    ch, NULL, NULL, TO_ROOM);
+				act("The bolt passes around your body.",
+				    ch, NULL, NULL, TO_CHAR);
+				continue;
+			}
+
+			found = TRUE;
+			last_vict = vch;
+			act("The bolt arcs to $n!", vch, NULL, NULL, TO_ROOM);
+			act("The bolt hits you!", vch, NULL, NULL, TO_CHAR);
+			dam = dice(level,6);
+
+			if (saves_spell(level, vch, DAM_LIGHTNING))
+				dam /= 3;
+			damage(ch, vch, dam, sn, DAM_LIGHTNING, TRUE);
+			level -= 4;  /* decrement damage */
 		}   /* end target searching loop */
 
-		if (!found) /* no target found, hit the caster */
-		{
-		  if (ch == NULL)
-		    return;
+		if (found)
+			continue;
 
-		  if (last_vict == ch) /* no double hits */
-		  {
-		    act("The bolt seems to have fizzled out.",ch,NULL,NULL,TO_ROOM);
-		    act("The bolt grounds out through your body.",
-			ch,NULL,NULL,TO_CHAR);
-		    return;
-		  }
+/* no target found, hit the caster */
+		if (ch == NULL)
+			return;
 
-		  last_vict = ch;
-		  act("The bolt arcs to $n...whoops!",ch,NULL,NULL,TO_ROOM);
-		  send_to_char("You are struck by your own lightning!\n\r",ch);
-		  dam = dice(level,6);
-		  if (saves_spell(level,ch,DAM_LIGHTNING))
-		   dam /= 3;
-		  damage(ch,ch,dam,sn,DAM_LIGHTNING,TRUE);
-		  level -= 4;  /* decrement damage */
-		  if (ch == NULL)
-		    return;
+		if (last_vict == ch) { /* no double hits */
+			act("The bolt seems to have fizzled out.",
+			    ch, NULL, NULL, TO_ROOM);
+			act("The bolt grounds out through your body.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
 		}
-	/* now go back and find more targets */
-	}
-}
 
+		last_vict = ch;
+		act("The bolt arcs to $n...whoops!", ch, NULL, NULL, TO_ROOM);
+		send_to_char("You are struck by your own lightning!\n\r", ch);
+		dam = dice(level,6);
+		if (saves_spell(level, ch, DAM_LIGHTNING))
+			dam /= 3;
+		damage(ch, ch, dam, sn, DAM_LIGHTNING, TRUE);
+		level -= 4;  /* decrement damage */
+	} /* now go back and find more targets */
+}
 
 void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -1303,10 +1248,7 @@ void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(ch, &af2);
 	send_to_char("The room starts to be filled with healing light.\n\r", ch);
 	act("The room starts to be filled with $n's healing light.",ch,NULL,NULL,TO_ROOM);
-	return;
 }
-
-
 
 void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -1314,9 +1256,8 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	char buf[MAX_INPUT_LENGTH];
 	AFFECT_DATA af;
 
-	if (is_safe(ch,victim)) return;
-
-	if (count_charmed(ch)) return;
+	if (count_charmed(ch))
+		return;
 
 	if (victim == ch) {
 		send_to_char("You like yourself even better!\n\r", ch);
@@ -1324,45 +1265,44 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (IS_AFFECTED(victim, AFF_CHARM)
-	||   IS_AFFECTED(ch, AFF_CHARM)
-	|| (ch->sex == SEX_MALE &&  level < victim->level)
-	|| (ch->sex == SEX_FEMALE &&  level < (victim->level + 2))
-	||   IS_SET(victim->imm_flags,IMM_CHARM)
-	||   saves_spell(level, victim,DAM_CHARM) 
-	||   (IS_NPC(victim) && victim->pIndexData->pShop != NULL))
+	||  IS_AFFECTED(ch, AFF_CHARM)
+	||  (ch->sex == SEX_MALE &&  level < victim->level)
+	||  (ch->sex == SEX_FEMALE &&  level < (victim->level + 2))
+	||  IS_SET(victim->imm_flags, IMM_CHARM)
+	||  saves_spell(level, victim, DAM_CHARM) 
+	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL))
+		return;
+
+	if (is_safe(ch, victim))
 		return;
 
 	if (victim->master)
 		stop_follower(victim);
 	add_follower(victim, ch);
 	victim->leader = ch;
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = number_fuzzy(level / 5);
-	af.location  = 0;
-	af.modifier  = 0;
-	af.bitvector = AFF_CHARM;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= number_fuzzy(level / 5);
+	af.location	= 0;
+	af.modifier	= 0;
+	af.bitvector	= AFF_CHARM;
 	affect_to_char(victim, &af);
 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
 	if (ch != victim)
-		act("$N looks at you with adoring eyes.",ch,NULL,victim,TO_CHAR);
+		act("$N looks at you with adoring eyes.",
+		    ch, NULL, victim, TO_CHAR);
 
-	if (IS_NPC(victim) 	&& !IS_NPC(ch))
-	{
-	 if (number_percent() < (4 + (victim->level - ch->level)) * 10)
-	 	add_mind(victim,ch->name);
-	 else if (victim->in_mind == NULL)
-		{
-		 sprintf(buf,"%d",victim->in_room->vnum);
-		 victim->in_mind = str_dup(buf);
+	if (IS_NPC(victim) && !IS_NPC(ch)) {
+		if (number_percent() < (4 + (victim->level - ch->level)) * 10)
+		 	add_mind(victim, ch->name);
+		else if (victim->in_mind == NULL) {
+			sprintf(buf, "%d", victim->in_room->vnum);
+			victim->in_mind = str_dup(buf);
 		}
 	}
-	
-	return;
 }
-
-
 
 void spell_chill_touch(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -2248,30 +2188,27 @@ void spell_earthquake(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	send_to_char("The earth trembles beneath your feet!\n\r", ch);
 	act("$n makes the earth tremble and shiver.", ch, NULL, NULL, TO_ROOM);
 
-	for (vch = char_list; vch != NULL; vch = vch_next)
-	{
+	for (vch = char_list; vch != NULL; vch = vch_next) {
 		vch_next	= vch->next;
+
 		if (vch->in_room == NULL)
-		    continue;
-		if (vch->in_room == ch->in_room)
-		{
-		    if (vch != ch && !is_safe_spell(ch,vch,TRUE) && !is_same_group(ch, vch))
-		      if (is_safe(ch, vch))
 			continue;
-		    if (ch == vch)
-			continue;
+
+		if (vch->in_room == ch->in_room) {
+			if (is_safe_spell(ch, vch, TRUE))
+				continue;
+
 			if (IS_AFFECTED(vch,AFF_FLYING))
-			    damage(ch,vch,0,sn,DAM_BASH,TRUE);
+				damage(ch, vch, 0, sn, DAM_BASH, TRUE);
 			else
-			    damage(ch,vch,level + dice(2, 8), sn, DAM_BASH,TRUE);
-		    continue;
+				damage(ch, vch, level + dice(2, 8), sn,
+				       DAM_BASH,TRUE);
+			continue;
 		}
 
 		if (vch->in_room->area == ch->in_room->area)
-		    send_to_char("The earth trembles and shivers.\n\r", vch);
+			char_puts("The earth trembles and shivers.\n\r", vch);
 	}
-
-	return;
 }
 
 void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
@@ -2723,38 +2660,24 @@ void spell_hellfire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_iceball(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	CHAR_DATA *tmp_vict;
-	CHAR_DATA *tmp_next;
+	CHAR_DATA *vch;
+	CHAR_DATA *vch_next;
 	int dam;
 	int movedam;
 
 	dam = dice(level , 12);
 	movedam     = number_range(ch->level, 2 * ch->level);
 
-  for (tmp_vict = ch->in_room->people;tmp_vict != NULL;
-	   tmp_vict = tmp_next)
-	{
-	  tmp_next = tmp_vict->next_in_room;
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
-	  if (!is_safe_spell(ch,tmp_vict,TRUE))
-	    {
-	      if (!IS_NPC(ch) && tmp_vict != ch &&
-	          ch->fighting != tmp_vict && tmp_vict->fighting != ch &&
-	          (IS_SET(tmp_vict->affected_by,AFF_CHARM) || !IS_NPC(tmp_vict)))
-	        {
-	        if (!can_see(tmp_vict, ch))
-	            do_yell(tmp_vict, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
 
-	      if (saves_spell(level,tmp_vict, DAM_COLD))
-	        dam /= 2;
-	      damage(ch, tmp_vict, dam, sn, DAM_COLD, TRUE);
-	      tmp_vict->move -= UMIN(tmp_vict->move,movedam);
-
-	    }
+		if (saves_spell(level,vch, DAM_COLD))
+			dam /= 2;
+		damage(ch, vch, dam, sn, DAM_COLD, TRUE);
+		vch->move -= UMIN(vch->move, movedam);
 	}
 }
 
@@ -2767,9 +2690,7 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_FIRE ,TRUE);
-	return;
 }
-
 
 void spell_fireproof(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -2796,8 +2717,6 @@ void spell_fireproof(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	act("$p is surrounded by a protective aura.",ch,obj,NULL,TO_ROOM);
 }
 
-
-
 void spell_flamestrike(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -2807,10 +2726,7 @@ void spell_flamestrike(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (saves_spell(level, victim,DAM_FIRE))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_FIRE ,TRUE);
-	return;
 }
-
-
 
 void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -2829,10 +2745,7 @@ void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("You are surrounded by a pink outline.\n\r", victim);
 	act("$n is surrounded by a pink outline.", victim, NULL, NULL, TO_ROOM);
-	return;
 }
-
-
 
 void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
@@ -2867,8 +2780,6 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
 		send_to_char("You are revealed!\n\r", ich);
 	}
-
-	return;
 }
 
 void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo,int target)
@@ -2894,7 +2805,6 @@ void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 	return;
 }
 
-
 void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -2918,11 +2828,9 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your feet rise off the ground.\n\r", victim);
 	act("$n's feet rise off the ground.", victim, NULL, NULL, TO_ROOM);
-	return;
 }
 
 /* RT clerical berserking spell */
-
 void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -3266,74 +3174,48 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
 	int dam;
-	int bless_num, curse_num;
+	int sn_bless, sn_curse;
 
-	bless_num = sn_lookup("bless");
-	curse_num = sn_lookup("curse");
+	if ((sn_bless = sn_lookup("bless")) < 0
+	||  (sn_curse = sn_lookup("curse")) < 0)
+		return;
 
-	act("$n utters a word of divine power!",ch,NULL,NULL,TO_ROOM);
-	send_to_char("You utter a word of divine power.\n\r",ch);
+	act("$n utters a word of divine power!", ch, NULL, NULL, TO_ROOM);
+	send_to_char("You utter a word of divine power.\n\r", ch);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
+	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
 		vch_next = vch->next_in_room;
 
 		if ((IS_GOOD(ch) && IS_GOOD(vch)) ||
 		    (IS_EVIL(ch) && IS_EVIL(vch)) ||
-		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch)))
-		{
-		  send_to_char("You feel full more powerful.\n\r",vch);
-		  spell_frenzy(gsn_frenzy,level,ch,(void *) vch,TARGET_CHAR);
-		  spell_bless(bless_num,level,ch,(void *) vch,TARGET_CHAR);
+		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
+			send_to_char("You feel full more powerful.\n\r", vch);
+			spell_frenzy(gsn_frenzy, level, ch, vch, TARGET_CHAR);
+			spell_bless(sn_bless, level, ch, vch, TARGET_CHAR);
+			continue;
 		}
 
-		else if ((IS_GOOD(ch) && IS_EVIL(vch)) ||
-			 (IS_EVIL(ch) && IS_GOOD(vch)))
-		{
-	      if (!is_safe_spell(ch,vch,TRUE))
-	      {
-	        if (!IS_NPC(ch) && vch != ch &&
-	            ch->fighting != vch && vch->fighting != ch &&
-	            (IS_SET(vch->affected_by,AFF_CHARM) || !IS_NPC(vch)))
-	          {
-	        if (!can_see(vch, ch))
-	            do_yell(vch, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
 
-	        spell_curse(curse_num,level,ch,(void *) vch, TARGET_CHAR);
-	        send_to_char("You are struck down!\n\r",vch);
-	        dam = dice(level,6);
-	        damage(ch,vch,dam,sn,DAM_ENERGY, TRUE);
-	      }
-	    }
+		if ((IS_GOOD(ch) && IS_EVIL(vch))
+		||  (IS_EVIL(ch) && IS_GOOD(vch))) {
+			spell_curse(sn_curse, level, ch, vch, TARGET_CHAR);
+			send_to_char("You are struck down!\n\r",vch);
+			dam = dice(level, 6);
+			damage(ch, vch, dam, sn, DAM_ENERGY, TRUE);
+			continue;
+		}
 
-		else if (IS_NEUTRAL(ch))
-		{
-	      if (!is_safe_spell(ch,vch,TRUE))
-	      {
-	        if (!IS_NPC(ch) && vch != ch &&
-	            ch->fighting != vch && vch->fighting != ch &&
-	            (IS_SET(vch->affected_by,AFF_CHARM) || !IS_NPC(vch)))
-	          {
-	        if (!can_see(vch, ch))
-	            do_yell(vch, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
-
-	        spell_curse(curse_num,level/2,ch,(void *) vch, TARGET_CHAR);
-	        send_to_char("You are struck down!\n\r",vch);
-	        dam = dice(level,4);
-	        damage(ch,vch,dam,sn,DAM_ENERGY, TRUE);
-		  }
+		if (IS_NEUTRAL(ch)) {
+			spell_curse(sn_curse, level/2, ch, vch, TARGET_CHAR);
+			send_to_char("You are struck down!\n\r", vch);
+			dam = dice(level, 4);
+			damage(ch, vch, dam, sn, DAM_ENERGY, TRUE);
 		}
 	}
 
-	send_to_char("You feel drained.\n\r",ch);
+	send_to_char("You feel drained.\n\r", ch);
 	gain_exp(ch, -1 * number_range(1,10) * 5);
 	ch->move /= (4/3);
 	ch->hit /= (4/3);
@@ -4501,8 +4383,6 @@ void spell_fire_breath(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		||  (IS_NPC(vch) && IS_NPC(ch) 
 		&&  (ch->fighting != vch /*|| vch->fighting != ch */)))
 		    continue;
-		if (is_safe(ch, vch))
-	      continue;
 
 		if (vch == victim) /* full damage */
 		{
@@ -4559,9 +4439,6 @@ void spell_frost_breath(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		||  (IS_NPC(vch) && IS_NPC(ch) 
 		&&   (ch->fighting != vch /*|| vch->fighting != ch*/)))
 		    continue;
-		if (is_safe(ch, vch))
-	      continue;
-
 
 		if (vch == victim) /* full damage */
 		{
@@ -4617,18 +4494,6 @@ void spell_gas_breath(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		||  (IS_NPC(ch) && IS_NPC(vch) 
 		&&   (ch->fighting == vch || vch->fighting == ch)))
 		    continue;
-		if (is_safe(ch, vch))
-	      continue;
-	      if (!IS_NPC(ch) && vch != ch &&
-	          ch->fighting != vch && vch->fighting != ch &&
-	          (IS_SET(vch->affected_by,AFF_CHARM) || !IS_NPC(vch)))
-	        {
-	        if (!can_see(vch, ch))
-	            do_yell(vch, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, vch, "Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
 
 		if (saves_spell(level,vch,DAM_POISON))
 		{
@@ -5232,18 +5097,6 @@ void spell_hurricane(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 		||  (IS_NPC(ch) && IS_NPC(vch) 
 		&&   (ch->fighting == vch || vch->fighting == ch)))
 		    continue;
-		if (is_safe(ch, vch))
-	      continue;
-	      if (!IS_NPC(ch) && vch != ch &&
-	          ch->fighting != vch && vch->fighting != ch &&
-	          (IS_SET(vch->affected_by,AFF_CHARM) || !IS_NPC(vch)))
-	        {
-	        if (!can_see(vch, ch))
-	            do_yell(vch, "Help someone is attacking me!");
-	        else
-	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
-				ch->name);
-	      }
 
 		if (!IS_AFFECTED(vch,AFF_FLYING)) dam /= 2;
 

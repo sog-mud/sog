@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.57 1998-09-15 02:51:37 fjoe Exp $
+ * $Id: act_wiz.c,v 1.58 1998-09-15 15:17:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2654,7 +2654,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		char_puts("Syntax:\n\r",ch);
-		char_puts("  et skill <name> <spell or skill> <value>\n\r", ch);
+		char_puts("  set skill <name> <spell or skill> <value>\n\r", ch);
 		char_puts("  set skill <name> all <value>\n\r",ch);  
 		char_puts("(use the name of the skill, not the number)\n\r",ch);
 		return;
@@ -2693,9 +2693,10 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 
 	if (fAll)
 		for (sn = 0; sn < skills->nused; sn++)
-			set_skill(ch, sn, 100);
+			set_skill(victim, sn, 100);
 	else
-		set_skill(ch, sn, value);
+		set_skill(victim, sn, value);
+	char_nputs(MSG_OK, ch);
 }
 
 
