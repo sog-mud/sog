@@ -8,6 +8,7 @@
 @eng $n hits the ground ... DEAD.@rus $n $gn{упал} замертво!~
 @eng     I'm sorry, but i don't have any quests for you at this time.@rus     Мне очень жаль, но у меня сейчас нет для тебя подходящего задания.~
 @eng                       @rus                            ~
+@eng The black aura around $n's body vanishes.@rus Черная аура, окружавшая $c3{$n} исчезла.~
 @eng No lines left to remove.
 @rus Больше нечего удалять.
 ~
@@ -17,7 +18,7 @@
 @eng You can't see a thing!
 @rus Ты ничего не видишь!
 ~
-@eng Lightning flashes in the sky.@rus Молния озарила небо.~
+@eng Lightning flashes in the sky.@rus Яркая вспышка озарила небо. До тебя донесся отдаленный удар грома.~
 @eng $p: going $T, starting price $J gold.@rus Лот "$p". Начальная цена $J $qJ{золотых} -- $T!~
 @eng $n leaves.@rus $n $gn{удаляется}.~
 @eng {R### NUKES ###{x@rus {R### РАЗНОСИТ НА ЧАСТИ ###{x~
@@ -108,7 +109,7 @@ Use 'desc edit' to edit your description.
 @eng A bet of $J gold has been received on $p.@rus Лот "$p". Ставка $J $qJ{золотых} -- принято!~
 @eng $p draws life from $n.@rus $p $gp{вытягивает} жизнь из $c1{$n}.~
 @eng {R>>> ERADICATES <<<{x@rus {R>>> ОПУСТОШАЕТ <<<{x~
-@eng $p flickers and goes out.@rus $p $gp{вспыхнул} на прощание и $gp{погас}.~
+@eng $p flickers and goes out.@rus $p $gp{вспыхнул} последний раз и $gp{погас}.~
 @eng The rain stopped.@rus Дождь прекратился.~
 @eng I see no door $T here.@rus Я не вижу здесь дверей $T.~
 @eng Escape to what direction?
@@ -179,6 +180,7 @@ Use 'desc edit' to edit your description.
 @eng $N {xis standing on $p.@rus $N {x$gN{стоит} на $c5{$p}.~
 @eng $N {xis resting at $p.@rus $N {x$gN{отдыхает} за $c4{$p}.~
 @eng $N {xis here, fighting with someone who left??@rus $N {xздесь, сражается с кем-то, кто ушел??~
+@eng $n polymorphes $mself to $t.@rus $n $gn{превратил} себя в $c3{$t}.~
 @eng It is closed.@rus $p $gp{закрыт}.~
 @eng $n sacrifices $p to gods.@rus $n $gn{приносит} $c3{$p} в жертву богам.~
 @eng $n has created $N!@rus $n $gn{создал} $c6{$N}!~
@@ -194,6 +196,7 @@ Use 'desc edit' to edit your description.
 @eng You sell $P for $j silver $qj{pieces}.@rus Ты продаешь $c3{$P} за $j $c3{$qj{серебряных монет}}.~
 @eng You rest on $p.@rus Ты садишься отдыхать на $c3{$p}.~
 @eng Don't you want a quest?@rus Не хочешь ли получить задание?~
+@eng So we meet again, $i!@rus Вот мы и встретились снова, $i!~
 @eng You already wear two rings.
 @rus На тебе уже надето два кольца.
 ~
@@ -291,6 +294,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $p feels like a part of you!@rus $p $gp{выглядит} частью тебя!~
 @eng $n cuts out $N's {Rheart{x! I bet that hurt!@rus {R$n вырывает сердце из груди $c1{$N}!{x~
+@eng The white aura around $n's body vanishes.@rus Белая аура, окружавшая $c3{$n} исчезла.~
 @eng scatter on the dirt.~
 @eng gold@rus золотые~
 @eng Your pulse races as you are consumned by rage!
@@ -387,7 +391,7 @@ Typing delete with an argument will undo delete status.
 @eng $n unlocks $d.@rus $n $gn{размыкает} $c3{$d}.~
 @eng $n sits down in $p.@rus $n $gn{садится} в $c3{$p}.~
 @eng $n savagely devours a corpse.@rus $n жадно $gn{пожирает} труп.~
-@eng $n goes to sleep.@rus $n $gn{засыпает}.~
+@eng $n goes to sleep.@rus $n $gn{заснул}.~
 @eng You can't sit on that.
 @rus Ты не можешь сесть на это.
 ~
@@ -432,6 +436,7 @@ Typing delete with an argument will undo delete status.
 @rus Ты не видишь этого тут.
 ~
 @eng $p dries up.@rus $p $gp{пересох}.~
+@eng A golden aura surrounds $N.@rus Золотая аура окружила $c3{$N}.~
 @eng about half-@rus примерно наполовину ~
 @eng Your pulse speeds up, but nothing happens.
 @rus Твой пульс заметно учащается, но этим все заканчивается.
@@ -489,6 +494,7 @@ Typing delete with an argument will undo delete status.
 @eng You compare $p to itself.  It looks about the same.@rus Ты сравниваешь $c3{$p} с $gp{ним} $gp{самим}. Естественно, они выглядят похожими.~
 @eng But you aren't fighting anyone!@rus Но ты ни с кем не сражаешься!~
 @eng $N {xis sleeping in $p.@rus $N {x$gN{спит} в $c5{$p}.~
+@eng $n is surrounded by black aura.@rus Черная аура окружила $c3{$n}.~
 @eng {MMANGLE{x@rus {MОПУСТОШАЕШЬ{x~
 @eng the down@rus снизу (down)~
 @eng You can't do that here.
@@ -500,6 +506,7 @@ Typing delete with an argument will undo delete status.
 ~
 @eng $N {xis here, fighting with $i.@rus $N {xздесь, $gN{сражается} с $c4{$i}.~
 @eng     Sorry, $N, but you haven't got any deaths yet.@rus     Извини, $N, но тебе еще пока нечего выкупать.~
+@eng $n has created $p.@rus $n $gn{сотворил} $c3{$p}.~
 @eng up@rus вверх (up)~
 @eng many things @rus много вещей.~
 @eng You fail to grab your opponent.@rus Тебе не удалось схватить противника.~
@@ -507,6 +514,7 @@ Typing delete with an argument will undo delete status.
 @rus Вокруг себя ты видишь:
 ~
 @eng $n is carrying too much to carry $p and $e drops it.@rus $n $gn{несет} слишком много, чтобы еще нести и $c3{$p}, поэтому $gn{он} $gn{бросил} его на землю.~
+@eng $p makes bubbles on the water.@rus $p $gp{покачивается} на водной глади, пуская пузыри.~
 @eng Your muscles stop responding.@rus Твое тело теряет чувтвительность.~
 @eng You see {Rglowing red eyes{x watching YOU!
 @rus Ты видишь {Rпылающие красные глаза{x, смотрящие на ТЕБЯ!
@@ -536,6 +544,12 @@ Typing delete with an argument will undo delete status.
 ~
 @eng ({DDark{x) @rus ({DТемное{x) ~
 @eng $n sits down and rests.@rus $n $gn{садится} отдыхать.~
+@eng You are dying of thrist!
+@rus Ты медленно погибаешь от жажды.
+~
+@eng It contains some other liquid.
+@rus Там уже налита какая-то жидкость.
+~
 @eng You sit in $p.@rus Ты садишься на $c3{$p}.~
 @eng     You're very brave, $N, but let someone else have a chance.@rus     Ты, конечно очень $gN{храбр}, $N, но дай шанс
     проявить себя кому-нибудь еще.~
@@ -543,6 +557,7 @@ Typing delete with an argument will undo delete status.
 @rus Ты не можешь сесть верхом.
 ~
 @eng You can't compare $p and $P.@rus $p и $P не сравнимы.~
+@eng Split how much?@rus Сколько монет ты хочешь разделить с товарищами?~
 @eng {cmaul{x@rus {cсильно ранишь{x~
 @eng The auctioneer appears before $n and hands $m $p.@rus Маленький человечек появился перед $c4{$n} и отдал $gn{ему} $c3{$p}.~
 @eng You can recite only scrolls.
@@ -553,6 +568,7 @@ Typing delete with an argument will undo delete status.
 ~
 @eng $n wears $p as a shield.@rus $n $gn{берет} $c3{$p} как щит.~
 @eng     As you wield it, you will feel that its power will increase continuosly.@rus     Вооружись ей, используй ее и ты увидишь как растет ее мощь.~
+@eng Time left for current quest: {W$j{x $qj{minutes}.@rus На выполнение текущего задания осталось {W$j{x $qj{минут}.~
 @eng You now use $p as the tattoo of your religion.@rus Ты теперь используешь $p, как татуировку твоей религии.~
 @eng     Sorry, $N, but you don't have your katana with you.@rus     $N, у тебя нет с собой твоей катаны.~
 @eng     Sorry, $N, but you don't have enough quest points for that.@rus     Извини, $N, но для этого у тебя недостаточно квестовых очков.~
@@ -563,6 +579,9 @@ Typing delete with an argument will undo delete status.
 ~
 @eng Auction channel is now OFF.
 @rus Ты больше не принимаешь участия в торгах.
+~
+@eng It is unable to hold water.
+@rus Эта вещь не может быть наполнена водой.
 ~
 @eng Usage: lang [ @rus Использование: lang [ ~
 @eng That's pointless.
@@ -606,6 +625,9 @@ Typing delete with an argument will undo delete status.
 @rus Подожди пока не кончится бой.
 ~
 @eng $n gives $p to $N.@rus $n $gn{отдает} $c3{$p} $c2{$N}.~
+@eng That can't be transformed into a potion.
+@rus Ты не можешь изготовить зелье из этого.
+~
 @eng You aren't allowed in the city.@rus Тебе не разрешено входить в этот город.~
 @eng But you are already vampire. Kill them! Kill them!
 @rus Ты не можешь стать еще большим вампиром чем сейчас!
@@ -615,7 +637,11 @@ You peek at the inventory:
 @rus 
 Ты всматриваешься в снаряжение:
 ~
+@eng Do you want it to get better or worse?
+@rus Тебе хочется улучшить или ухудшить погоду?
+~
 @eng $N is standing too close to lock.@rus $N $gN{стоит} слишком близко к замку.~
+@eng $n splits $j $qj{silver coins}. Your share is $J silver.@rus $n делит $j $c3{$qj{монет}} серебром. Твоя доля -- $J $qJ{серебряных монет}.~
 @eng miss@rus не задеваешь~
 @eng You can't fill that.
 @rus У тебя не получится это наполнить.
@@ -645,6 +671,7 @@ You peek at the inventory:
 ~
 @eng $n is poisoned by the venom on $p.@rus $n $gn{отравлен} ядом $c1{$p}.~
 @eng $N deadly touches your neck and puts you to nightmares.@rus $N касается твоей шеи и отправляет тебя в мир кошмаров.~
+@eng You don't have that much to split.@rus А у тебя столько нет...~
 @eng $n goes to sleep in $p.@rus $n $gn{ложится} спать в $c3{$p}.~
 @eng $N{x$t {xis here, riding $I.@rus $N{x$t {xздесь, верхом на $c5{$I}.~
 @eng door@rus дверь~
@@ -687,6 +714,9 @@ The actioneer appears before $n and hands $m $p.~
 @rus На этом нельзя ездить верхом.
 ~
 @eng A new item has been received: {Y$p{x.@rus Получен новый лот: {Y$p{x.~
+@eng You are hungry for blood.
+@rus Тебе срочно необходим глоток свежей крови.
+~
 @eng You do not have that item.
 @rus У тебя нет этой вещи.
 ~
@@ -761,6 +791,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng That beast is too powerful for you to ride.@rus на восток (east)~
 @eng Sold by: $i. Last bet by: $N.@rus Продавец: $i.  Покупатель: $N.~
 @eng $n tries to disarm you, but you grip and escape!@rus $n $gN{пытается} выбить оружие из твоих рук, но ты лишь крепче сжимаешь его!~
+@eng You are surrounded by a white aura.@rus Тебя окружила белая аура.~
 @eng {cinjures{x@rus {cлегко ранит{x~
 @eng Your spellbane deflects the spell!@rus Проклятье на тебе отразило заклинание!~
 @eng You aren't allowed in there.
@@ -768,6 +799,9 @@ The actioneer appears before $n and hands $m $p.~
 ~
 @eng Learn to swim or buy a boat.
 @rus Учись плавать или найди лодку.
+~
+@eng Lightning flashes in the sky.
+@rus Яркая вспышка озарила небо.
 ~
 @eng : adds immunity to '%s' @rus : иммунитет к '%s' ~
 @eng You cannot say anything in this form.@rus Ты не $gn{способен} ничего произнести в этой форме.~
@@ -846,7 +880,7 @@ Get back to questor before your time runs out!
 ~
 @eng You wake and sit at $p.@rus Ты просыпаешься и садишься за $c3{$p}.~
 @eng $n wakes and stands up.@rus $n $gn{просыпается} и $gn{встает}.~
-@eng {R### NUKE ###{x@rus {R### РАЗНОСИШЬ НА ЧАСТИ ###{X~
+@eng {R### NUKE ###{x@rus {R### РАЗНОСИШЬ НА ЧАСТИ ###{x~
 @eng few things @rus несколько вещей.~
 @eng You don't have a religion to have a tattoo.
 @rus Чтобы получить татуировку, тебе нужно поверить в какого-нибудь бога.
@@ -866,6 +900,7 @@ Get back to questor before your time runs out!
 @eng Let it be.
 @rus Пусть живет.
 ~
+@eng $n is starving!@rus $n медленно умирает от голода.~
 @eng You can't bring $N into the city.@rus Ты не можешь внести $N в этот город.~
 @eng From now on, you won't hear tells.
 @rus С этого момента ты не будешь слышать то, что тебе говорят.
@@ -885,6 +920,7 @@ Get back to questor before your time runs out!
 @eng $n releases $p to float next to $m.@rus $n $gn{выпускает} $c3{$p} и $gp{он} $gp{начинает} летать вокруг $gn{него}.~
 @eng $N gives 60 practices to $n.@rus $N $gN{дает} 60 практик $c2{$n}.~
 @eng     - $p (somewhere)@rus     - $p (неизвестно где)~
+@eng You split $j $qj{gold coins}. Your share is $J gold.@rus Ты делишь $j $c3{$qj{золотых монет}}. Твоя доля -- $J $qJ{золотых}.~
 @eng You settle down.@rus Ты $gn{успокоился}.~
 @eng You don't know how to ride!
 @rus Ты не умеешь ездить верхом!
@@ -912,11 +948,13 @@ Get back to questor before your time runs out!
 @eng It won't fit.
 @rus Не входит.
 ~
+@eng $n is suffering from thirst of blood!@rus $n изнемогает от желания глотнуть свежей крови.~
 @eng scratch@rus царапающий удар~
 @eng $p flickers and vanishes.@rus $p $gp{вспыхнул} и $gp{исчез}.~
 @eng $n's power increases!@rus Энергия $c1{$p} увеличивается!~
 @eng $n rests in $p.@rus $n $gn{садится} отдыхать в $c3{$p}.~
 @eng $n is DEAD!@rus $n $gn{МЕРТВ}!~
+@eng , giving you $j silver and $J gold.@rus , твоя доля составила $J $c3{$qJ{золотых монет}} и $j $c3{$qj{серебряных монет}}.~
 @eng You slam into $d, and try to break it!@rus Ты с разбегу ударяешься в $d!~
 @eng You feel yourself moving more quickly.@rus Твои движения ускоряются.~
 @eng You can't rest while mounted.
@@ -964,6 +1002,7 @@ Get back to questor before your time runs out!
 ~
 @eng <worn on feet>      $t@rus <надето на ступни>     $t~
 @eng $n fills $p with $V from $P.@rus $n $gn{наполняет} $c3{$p} $c4{$V} из $c1{$P}.~
+@eng You are surrounded by black aura.@rus Тебя окружила черная аура.~
 @eng {MMASSACRE{x@rus {MУРОДУЕШЬ{x~
 @eng Your mount subbornly refuses to go that way.
 @rus Твое животное упорно отказывается идти в эту сторону.
@@ -979,6 +1018,9 @@ Get back to questor before your time runs out!
 @eng A chill sinks deep into your bones.@rus Твоя кожа покрывается синими пятнами и мелкая дрожь охватывает тело.~
 @eng $n gives you $J $t.@rus $n $gn{дает} тебе $J $c3{$qJ{$c1{$t}}}.~
 @eng  none@rus  нет~
+@eng You are hungry.
+@rus Тебе хочется есть.
+~
 @eng There's no cover here.
 @rus Здесь нет прикрытия.
 ~
@@ -1008,7 +1050,7 @@ Get back to questor before your time runs out!
 @eng $n's heart is torn from $s chest.@rus Сердце $c1{$n} вырвано из рассеченной груди.~
 @eng     You haven't completed the quest yet, but there is still time!@rus     Ты еще не $gN{выполнил} свое задание, но у тебя еще есть время.~
 @eng $n is blinded by the dirt in $s eyes!@rus $n $gn{ослеплен} грязью, попавшей в глаза!~
-@eng $N looks like an easy kill.@rus Ты, похоже, легко убьешь $c1{$N}.~
+@eng $N looks like an easy kill.@rus Похоже, ты легко убьешь $c3{$N}.~
 @eng     This item is beyond the trouble option.@rus     Я не могу помочь тебе с твоими неприятностями.~
 @eng {MMUTILATES{x@rus {MУРОДУЕТ{x~
 @eng You ask $N about current challenge quests.@rus Ты спрашиваешь у $c1{$N} какие особенные вещи ты можешь найти в мире.~
@@ -1075,7 +1117,7 @@ Get back to questor before your time runs out!
 @eng That really did HURT!
 @rus Это было действительно БОЛЬНО!
 ~
-@eng It starts to rain.@rus Начинается дождь.~
+@eng It starts to rain.@rus Начал накрапывать дождик.~
 @eng It is empty.
 @rus Тут пусто.
 ~
@@ -1129,6 +1171,12 @@ Get back to questor before your time runs out!
 @eng You put $p on $P.@rus Ты кладешь $c3{$p} на $c3{$P}.~
 @eng Nothing.
 @rus Ничего.
+~
+@eng Your vision returns!
+@rus К тебе вернулась возможность видеть мир!
+~
+@eng You don't have any vials to brew the potion into.
+@rus У тебя нет сосуда, в который можно налить зелье.
 ~
 @eng Your durability increases!@rus Твоя стойкость увеличивается!~
 @eng $p and $P are revealed by $n's sacrifice.@rus На жертвенном костре $n остались $p и $P.~
@@ -1187,6 +1235,7 @@ Get back to questor before your time runs out!
 @eng You take $N down with a weird judo move!@rus Ловким движением ты бросаешь $c6{$N} на землю.~
 @eng You put $p in $P.@rus Ты кладешь $c3{$p} в $c3{$P}.~
 @eng You fade into existence.@rus Ты становишься $c4{$gn{видимый}}.~
+@eng troll@rus тролль~
 @eng Tell whom what?
 @rus Сказать что и кому?
 ~
@@ -1194,6 +1243,9 @@ Get back to questor before your time runs out!
 @eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~
 @eng $n puts $p on $P.@rus $n $gn{кладет} $c3{$p} на $c3{$P}.~
 @eng $N {xis sitting on $p.@rus $N {x$gN{сидит} на $c5{$p}.~
+@eng You are starving!
+@rus Ты ужастно хочешь есть. Силы медленно покидают тебя.
+~
 @eng You're totally frozen!
 @rus Ты заморожен!
 ~
@@ -1212,6 +1264,7 @@ Get back to questor before your time runs out!
 ~
 @eng $n drops $p.@rus $n бросает $c3{$p}.~
 @eng $n dodges $p that had been shot to $m.@rus $n $gn{уклонился} от $c1{$p}, $c1{$gp{выпущенный}} в $gn{него}.~
+@eng $n splits $j $qj{gold coins}. Your share is $J gold.@rus $n делит $j $c3{$qj{золотых монет}}. Твоя доля -- $J $qJ{золотых}.~
 @eng {y=== ATOMIZE ==={x@rus {y=== РАЗДРОБЛЯЕШЬ ==={x~
 @eng {y*** DEVASTATE ***{x@rus {y*** ОПУСТОШАЕШЬ ***{x~
 @eng the west@rus с запада (west)~
@@ -1226,7 +1279,7 @@ Get back to questor before your time runs out!
 @rus Выпить что?
 ~
 @eng $N is using:@rus $N $gN{использует}:~
-@eng The clouds disappear.@rus Небо прояснилось.~
+@eng The clouds disappear.@rus Небо прояснилось.
 @eng The auctioneer charges you an auction fee of $j gold.@rus Ведущий взял с тебя $j $qj{золотых} за участие в торгах.~
 @eng Pour what into what?
 @rus Перелить что во что?
@@ -1235,6 +1288,7 @@ Get back to questor before your time runs out!
 @rus Увы, ты не можешь идти туда.
 ~
 @eng $n picks $d.@rus $n $gn{взламывает} $c3{$d}.~
+@eng You create $p.@rus Ты $gn{сотворил} $c3{$p}.~
 @eng You must bid at least 1 gold over the current bet.@rus Нужно ставить хотя бы на золотой больше текущей цены.~
 @eng You are asleep yourself!
 @rus Но ты же сам спишь!
@@ -1263,6 +1317,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 ~
 @eng $N {xis sleeping on $p.@rus $N {x$gN{спит} на $c5{$p}.~
 @eng  is incapacitated.@rus  при смерти.~
+@eng $p sinks down the water.@rus $p медленно $gp{погрузился} в воду.~
 @eng Nothing special there.
 @rus Ничего особенного.
 ~
@@ -1314,6 +1369,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @rus Так как ты под влиянием не будем говорить чего, оседлать кого-то будет несколько сложнее...
 ~
 @eng     Look in the general area of {W$t{x for {W$R{x!@rus     Ищи его в {W$c5{$R}{x. Это в районе {W$c1{$t}{x.~
+@eng $n is dying of thirst!@rus $n медленно умирает от жажды.~
 @eng You hand {W$p{x to $N.@rus Ты отдаешь {W$c3{$p}{x $c2{$N}.~
 @eng Wow. One gold coin.@rus О! Целый золотой!~
 @eng $n wakes and stands on $p.@rus $n $gn{просыпается} и $gn{встает} на $c3{$p}.~
@@ -1324,6 +1380,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng $N smiles at you, hoping you will turn from your evil path.@rus $N $gN{улыбается} тебе и $gN{надеется}, что ты свернешь с пути зла.~
 @eng $n's $V is powerless against you.@rus $V $c1{$n} на тебя не действует.~
 @eng You wear $p on your face.@rus Ты надеваешь $c3{$p} на лицо.~
+@eng You split $j $qj{silver coins}. Your share is $J silver.@rus Ты делишь $j $c3{$qj{монет}} серебром. Твоя доля -- $J $qJ{серебряных монет}.~
 @eng You couldn't knock $d!@rus У тебя не получилось отпереть $c3{$d}.~
 @eng It is pitch black...
 @rus Не видно не зги...
@@ -1346,6 +1403,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng ({YGolden Aura{x) @rus ({YЗолотая Аура{x) ~
 @eng $n squeezes you with a powerful crush!@rus $n $gN{прижимает} тебя к земле всем весом!~
 @eng $n disappears into the void.@rus $n $gn{исчезает} в никуда.~
+@eng You brew $p from your resources!@rus Ты $gn{изготовил} $c3{$p}.~
 @eng You wear $p on your head.@rus Ты надеваешь $c3{$p} на голову.~
 @eng You go to sleep at $p.@rus Ты ложишься спать за $c3{$p}.~
 @eng <worn on face>      $t@rus <на лице>              $t~
@@ -1368,6 +1426,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Gods appreciates your offer and may accept it later.
 @rus Боги оценили твой подарок, но примут его позже.
 ~
+@eng You polymorph yourself to $t.@rus Ты $gn{превратил} себя в $c3{$t}.~
 @eng {R-==> SKELETONIZES <==-{x@rus {R-==> РАЗДИРАЕТ НА ЧАСТИ <==-{x~
 @eng You wield $p.@rus Ты вооружаешься $c4{$p}.~
 @eng You sit down at $p.@rus Ты садишься за $c3{$p}.~
@@ -1375,9 +1434,11 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @rus У тебя сейчас нет задания.
 ~
 @eng $n tells you:@rus $n $gn{говорит} тебе:~
+@eng $n splits $j silver and $J $qJ{gold coins}@rus $n делит $j $c3{$qj{серебряных монет}} и $J $c3{$qJ{золотых монет}}~
 @eng {R[*] TEAR UP [*]{x@rus {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x~
 @eng ({RRed Aura{x) @rus ({RКрасная Аура{x) ~
 @eng $n asks $N to cancel $s current quest.@rus $n $gn{просит} $c6{$N} отменить $gn{его} задание.~
+@eng $n is surrounded by a white aura.@rus Белая аура окружила $c3{$n}.~
 @eng {*{R[*] POWER HITS [*]{x@rus {*{R[*] БЬЕТ С НЕОПИСУЕМОЙ СИЛОЙ [*]{x~
 @eng You walk through $p and find yourself somewhere else...@rus Ты входишь в $c3{$p}.~
 @eng They must be sleeping.
@@ -1462,7 +1523,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Try flee. It may fit better to you.
 @rus Попробуй flee. Может быть это подойдет тебе лучше.
 ~
-@eng $p flickers.@rus $p $gp{гаснет}.~
+@eng $p flickers.@rus $p $gp{мерцает} и медленно $gp{гаснет}.~
 @eng silver@rus серебряные~
 @eng red@rus красный~
 @eng Your mount must be standing.
@@ -1547,6 +1608,9 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Delete status removed.
 @rus Состояние самоуничтожения отменено.
 ~
+@eng You are thirsty.
+@rus Ты испытываешь сильную жажду.
+~
 Quest staff waits patiently to return.
 ~
 @eng As you sacrifice the corpse, @rus На жертвенном костре осталось лежать ~
@@ -1577,6 +1641,9 @@ Quest staff waits patiently to return.
 ~
 @eng     This is the $j$qj{th} time that I am giving that award back.@rus     Это $j-й раз, когда я возвращаю тебе твою вещь.~
 @eng     May the gods go with you!@rus     Да пребудет с тобой благословление Богов!~
+@eng You feel a golden aura around you.
+@rus Ты чувствуешь, как тебя окружает золотая аура.
+~
 @eng {cgrazes{x@rus {cзадевает{x~
 @eng You get $p.@rus Ты подбираешь $c3{$p}.~
 @eng You can't sleep while being ridden.
@@ -1590,6 +1657,9 @@ Quest staff waits patiently to return.
 @rus Ты пьянеешь.
 ~
 @eng $n wakes and sits in $p.@rus $n $gn{просыпается} и $gn{садится} в $c3{$p}.~
+@eng That item is not in need of mending.
+@rus Эта вещь не нуждается в починке.
+~
 @eng You can't fade while being ridden.
 @rus Ты не можешь поблекнуть оседланным.
 ~
@@ -1609,7 +1679,7 @@ Quest staff waits patiently to return.
 @eng $N is unaffected by your $V!@rus $gV{Твой} $V не действует на $c3{$N}.~
 @eng You don't like the way $n has been treating you.@rus Тебе не понравилось поведение $n.~
 @eng You bite $N!@rus Ты кусаешь $c6{$N}!~
-@eng The sky is getting cloudy.@rus Небо затянулось тучами.~
+@eng The sky is getting cloudy.@rus Небо затянуло тучами.~
 @eng Consider killing whom?
 @rus Сравниться с кем?
 ~
@@ -1630,6 +1700,9 @@ Quest staff waits patiently to return.
 ~
 @eng <worn about wrist>  $t@rus <обхватывает запястья> $t~
 @eng $n utters the words, '$t'.@rus $n $gn{бормочет}: "$t"~
+@eng You are suffering from thrist of blood!
+@rus Ты изнемогаешь от желания глотнуть свежей кровушки.
+~
 @eng You do not have that potion.
 @rus У тебя нет этого зелья.
 ~
@@ -1642,6 +1715,7 @@ Quest staff waits patiently to return.
 ~
 @eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng $n stands at $p.@rus $n встает около $c1{$p}.~
+@eng satyr@rus сатир~
 @eng That's not a container.
 @rus Это не контейнер.
 ~
