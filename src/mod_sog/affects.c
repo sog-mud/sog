@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.80 2002-11-30 20:08:15 fjoe Exp $
+ * $Id: affects.c,v 1.81 2002-11-30 20:31:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@ static void show_bit_affect(CHAR_DATA *ch, BUFFER *output,
 static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf);
 static void strip_race_and_form_affects(CHAR_DATA *ch);
 static void reset_affects(CHAR_DATA *ch);
+static void calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo);
 
 /* enchanted stuff for eq */
 void
