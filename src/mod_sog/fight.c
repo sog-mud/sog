@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.256 2000-01-19 06:51:46 fjoe Exp $
+ * $Id: fight.c,v 1.257 2000-01-31 08:23:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -1370,6 +1370,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	}
 
 	dam -= dam*get_resist(victim, dam_class) / 100;
+
+	if (is_affected(victim, "shadow magic")) 
+		dam /= 5;
 
 	if (IS_SET(dam_flags, DAMF_NOREDUCE))
 		dam = initial_damage;
@@ -2745,6 +2748,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	const char *msg_char;
 	const char *msg_vict = NULL;
 	const char *msg_notvict;
+	bool shadow = (ch != victim) && is_affected(ch, "shadow magic");
 	gmlstr_t *dam_noun = NULL;
 	int act_flags = (dam == 0 ? ACT_VERBOSE : 0);
 
@@ -2803,6 +2807,12 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				msg_char = "$N is unaffected by your $V!";
 				msg_vict = "$n's $V is powerless against you.";
 			}
+
+			if (shadow) 
+				msg_char = "$N is even immune to real $V.";
+			if (shadow && is_affected(victim, "shadow magic"))
+				msg_vict = "$n's illusionary $V is powerless "
+					"against you.";
 		} else {
 			vs = vp;
 
@@ -2815,6 +2825,13 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				msg_char = "Your $V $u $N.";
 				msg_vict = "$n's $V $u you.";
 			}
+			if (shadow) {
+				msg_char = "Your illusionary $V $u $N.";
+				msg_notvict = "$n's illusionary $V $u $N.";
+			}
+
+			if (shadow && is_affected(victim, "shadow magic"))
+				msg_vict = "$n's illusionary $V $u you.";
 		}
 	}
 

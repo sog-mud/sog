@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.21 2000-01-05 12:00:55 kostik Exp $
+ * $Id: act_magic.c,v 1.22 2000-01-31 08:23:31 kostik Exp $
  */
 
 #include <stdio.h>
@@ -42,6 +42,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int door, range;
 	bool cast_far = FALSE;
 	bool offensive = FALSE;
+	bool shadow = FALSE;
 	pc_skill_t *pc_sk = NULL;
 	int chance = 0;
 	skill_t *spell;
@@ -76,26 +77,46 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch)) {
-		if (!str_cmp(arg1, "nowait")) {
-			target_name = one_argument(target_name,
-						   arg1, sizeof(arg1));
-			if (ch->wait)
-				ch->wait = 0;
-		} else if (ch->wait) 
-			return;
-	} else
-		pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
-
-	if (pc_sk != NULL)
-		spell = skill_lookup(pc_sk->sn);
-	else
+	if ((chance = get_skill(ch, "shadow magic")) 
+	&& !strcmp(arg1, "shadow")) {
+		shadow = TRUE;
+		target_name = one_argument(target_name, arg1, sizeof(arg1));
 		spell = skill_search(arg1);
+		if (spell == NULL 
+		|| spell->skill_type != ST_SPELL
+		|| spell->fun == NULL) {
+			act("You have never heard about such a spell.",
+				ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+		sn = gmlstr_mval(&spell->sk_name);
+		if (!IS_SET(spell->skill_flags, SKILL_SHADOW)) {
+			act("You aren't able to imitate this spell.",
+				ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	} else {
+		if (IS_NPC(ch)) {
+			if (!str_cmp(arg1, "nowait")) {
+				target_name = one_argument(target_name,
+						   arg1, sizeof(arg1));
+				if (ch->wait)
+					ch->wait = 0;
+			} else if (ch->wait) 
+				return;
+		} else
+			pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
 
-	if (spell == NULL
-	||  (chance = get_skill(ch, (sn = gmlstr_mval(&spell->sk_name)))) == 0) {
-		char_puts("You don't know any spells of that name.\n", ch);
-		return;
+		if (pc_sk != NULL)
+			spell = skill_lookup(pc_sk->sn);
+		else
+			spell = skill_search(arg1);
+
+		if (spell == NULL
+		||  (chance = get_skill(ch, (sn = gmlstr_mval(&spell->sk_name)))) == 0) {
+			char_puts("You don't know any spells of that name.\n", ch);
+			return;
+		}
 	}
 	
 	if (IS_VAMPIRE(ch)
@@ -135,7 +156,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch)) {
-		mana = skill_mana(ch, sn);
+		mana = shadow? spell->min_mana: skill_mana(ch, sn);
 		if (ch->mana < mana) {
 			char_puts("You don't have enough mana.\n", ch);
 			return;
@@ -337,6 +358,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		char_puts("You lost your concentration.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
+		if (shadow)
+			check_improve(ch, "shadow magic", FALSE, 1);
 		if (cast_far) cast_far = FALSE;
 	} else {
 		int slevel = LEVEL(ch);
@@ -426,11 +449,45 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 
 		check_improve(ch, sn, TRUE, 1);
+		
+		if (shadow)
+			check_improve(ch, "shadow magic", TRUE, 1);
+
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
+
+		if (shadow) {
+			AFFECT_DATA af;
+
+			if (victim == ch) {
+				act("You can't do that to yourself.",
+					ch, NULL, NULL, TO_CHAR);
+				return;
+			}
+
+			af.where 	= TO_AFFECTS;
+			af.type		= "shadow magic";
+			af.level	= slevel;
+			af.duration	= 0;
+			af.modifier	= 0;
+			INT(af.location)= APPLY_NONE;
+			af.bitvector	= 0;
+
+			affect_to_char(ch, &af);
+
+			if (saves_spell(slevel, victim, DAM_MENTAL)) 
+				affect_to_char(victim, &af);
+		}
+
 		spell->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
+		if (shadow) {
+			if (!IS_EXTRACTED(ch)) 
+				affect_strip(ch, "shadow magic");
+		}
 		if (victim && IS_EXTRACTED(victim))
 			return;
+		if (shadow && is_affected(victim, "shadow magic"))
+			affect_strip(victim, "shadow magic");
 	}
 		
 	if (cast_far && door != -1) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.325 2000-01-19 06:51:40 fjoe Exp $
+ * $Id: act_info.c,v 1.326 2000-01-31 08:23:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -2664,7 +2664,7 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 		if (!resists[i] || i == RESIST_CHARM)
 			continue;
 		found = TRUE;
-		if (ch->level < 20) {
+		if (ch->level < MAX_LEVEL / 3) {
 			char_printf(ch, "You are %s %s.\n", 
 				get_resist_alias(resists[i]), 
 				flag_string(resist_info_flags, i));

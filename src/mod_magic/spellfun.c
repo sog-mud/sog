@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.205 2000-01-04 19:28:07 fjoe Exp $
+ * $Id: spellfun.c,v 1.206 2000-01-31 08:23:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,7 @@ void spell_acid_blast(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 18);
+	dam = dice(level, 12);
 	if (saves_spell(level, victim, DAM_ACID))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
@@ -643,8 +643,9 @@ void spell_chill_touch(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 	int dam;
+	
+	dam = dice(level, level / 6 + 1);
 
-	dam = number_range(1, level);
 	if (!saves_spell(level, victim, DAM_COLD)) {
 		act("$n turns blue and shivers.", victim, NULL, NULL, TO_ROOM);
 		af.where     = TO_AFFECTS;
@@ -1871,7 +1872,7 @@ void spell_fireball(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 15);
+	dam = dice(level, 11);
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
@@ -3918,7 +3919,7 @@ void spell_acid_arrow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 12);
+	dam = dice(level, 8);
 	if (saves_spell(level, victim, DAM_ACID))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
@@ -3931,7 +3932,7 @@ void spell_etheral_fist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 12);
+	dam = dice(level, 8);
 	if (saves_spell(level, victim, DAM_ENERGY))
 		dam /= 2;
 	act("A fist of black, otherworldly ether rams into $N, leaving $M looking stunned!",
@@ -3944,7 +3945,7 @@ void spell_spectral_furor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 8);
+	dam = dice(level, 6);
 	if (saves_spell(level, victim, DAM_LIGHT))
 		dam /= 2;
 	act("The fabric of the cosmos strains in fury about $N!",
@@ -3957,7 +3958,7 @@ void spell_disruption(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 9);
+	dam = dice(level, 7);
 	if (saves_spell(level, victim, DAM_NEGATIVE))
 		dam /= 2;
 	act("A weird energy encompasses $N, causing you to question $S continued existence.",
@@ -3970,7 +3971,7 @@ void spell_sonic_resonance(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level, 7);
+	dam = dice(level, 6);
 	if (saves_spell(level, victim, DAM_SOUND))
 		dam /= 2;
 	act("A cylinder of kinetic energy enshrouds $N causing $S to resonate.",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.35 2000-01-05 12:01:02 kostik Exp $
+ * $Id: skills.h,v 1.36 2000-01-31 08:23:44 kostik Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -39,6 +39,7 @@
 #define SKILL_QUESTIONABLE	(D)
 #define SKILL_FORM		(E)
 #define SKILL_MISSILE		(F)
+#define SKILL_SHADOW		(G)	/* for "shadow magic" skill */
 
 #define ST_SKILL	0
 #define ST_SPELL	1

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.229 2000-01-18 13:25:33 kostik Exp $
+ * $Id: act_move.c,v 1.230 2000-01-31 08:23:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -3123,7 +3123,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	int range = (LEVEL(ch) / 10) + 1;
 	const char *sn;
 
-	if ((chance = get_skill(ch, "throw weapon")) == 0) {
+	if ((chance = get_skill(ch, "throwing weapons")) == 0) {
 		char_puts("You don't know how to use throwing weapons.\n",ch);
 		return;
 	}

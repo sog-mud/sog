@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.172 2000-01-18 13:54:16 avn Exp $
+ * $Id: spellfun2.c,v 1.173 2000-01-31 08:23:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -188,7 +188,7 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  number_bits(1) == 0
 	||  IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
-		dam = dice(level, 24) ;
+		dam = dice(level, 20) ;
 		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
 		return;
 	}
@@ -381,9 +381,9 @@ void spell_mental_knife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	if (ch->level < 40)
+	if (ch->level < MAX_LEVEL / 2)
 	dam = dice(level,8);
-	else if (ch->level < 65)
+	else if (ch->level < MAX_LEVEL * 2 / 3)
 	dam = dice(level,11);
 	else dam = dice(level,14);
 
@@ -512,8 +512,8 @@ scourge_cb(void *vo, va_list ap)
 
 void spell_scourge(const char *sn, int level, CHAR_DATA *ch, void *vo)	
 {
-	int dam = ch->level < 40 ? dice(level, 6) :
-		  ch->level < 65 ? dice(level, 9) :
+	int dam = ch->level < MAX_LEVEL / 2 ? dice(level, 6) :
+		  ch->level < MAX_LEVEL * 2 / 3 ? dice(level, 9) :
 				   dice(level, 12);
 	vo_foreach(ch->in_room, &iter_char_room, scourge_cb,
 		   sn, level, ch, dam);
@@ -2392,7 +2392,7 @@ void spell_sand_storm(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	hpch = UMAX(10, ch->hit);
 	hp_dam  = number_range(hpch/9 + 1, hpch/5);
-	dice_dam = dice(level, 20);
+	dice_dam = dice(level, 15);
 
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
 	sand_effect(ch->in_room, level, dam/2);
@@ -2425,7 +2425,7 @@ void spell_scream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	int hpch = UMAX(10, ch->hit);
 	int hp_dam = number_range(hpch/9 + 1, hpch/5);
-	int dice_dam = dice(level, 20);
+	int dice_dam = dice(level, 15);
 	int dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam /10);
 
 	act("$n screams with a disturbing NOISE!.", ch, NULL, NULL, TO_ROOM);
@@ -3047,7 +3047,7 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act("You are not affected by the power word of $n.",
 			ch, NULL, victim, TO_CHAR);
 	} else if (saves_mental || saves_nega) {
-		dam = dice(level , 24) ;
+		dam = dice(level , 20) ;
 		damage(ch, victim , dam , sn, 
 			saves_nega ? DAM_MENTAL : DAM_NEGATIVE,  DAMF_SHOW);
 	} else {
@@ -4583,11 +4583,11 @@ void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (!strcmp(r->name, "undead"))
-		lev = 45;
+		lev = 0;
 	else if (!strcmp(r->name, "zombie"))
-		lev = 63;
+		lev = MAX_LEVEL / 2 ;
 	else if (!strcmp(r->name, "lich"))
-		lev = 81;
+		lev = MAX_LEVEL * 2 / 3;
 
 	if (ch->level < lev) {
 		char_puts("You lack the power to do it.\n", ch);

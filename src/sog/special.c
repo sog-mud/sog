@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.64 1999-12-22 08:29:14 fjoe Exp $
+ * $Id: special.c,v 1.65 2000-01-31 08:23:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -406,7 +406,7 @@ bool spec_cast_adept(CHAR_DATA *ch)
 		&&  can_see(ch, victim)
 		&&  number_bits(1) == 0 
 		&&  !IS_NPC(victim)
-		&&  victim->level < 10)
+		&&  victim->level < LEVEL_PK)
 			break;
 	}
 

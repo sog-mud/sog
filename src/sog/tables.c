@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.129 2000-01-18 13:25:51 kostik Exp $
+ * $Id: tables.c,v 1.130 2000-01-31 08:23:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -1072,6 +1072,7 @@ flaginfo_t skill_flags[] =
 	{ "questionable",	SKILL_QUESTIONABLE,	TRUE	},
 	{ "form",		SKILL_FORM,		TRUE	},
 	{ "missile", 		SKILL_MISSILE,		TRUE	},
+	{ "shadow",		SKILL_SHADOW,		TRUE	},
 
 	{ NULL }
 };

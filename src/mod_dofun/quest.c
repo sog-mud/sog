@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.134 2000-01-04 19:27:52 fjoe Exp $
+ * $Id: quest.c,v 1.135 2000-01-31 08:23:31 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -574,8 +574,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		int diff = victim->level - ch->level;
 
 		if (!IS_NPC(victim)
-		||  (ch->level < 51 && (diff > 4 || diff < -1))
-		||  (ch->level > 50 && (diff > 6 || diff < 0))
+		||  (ch->level <= MAX_LEVEL / 2 && (diff > 4 || diff < -1))
+		||  (ch->level > MAX_LEVEL / 2 && (diff > 6 || diff < 0))
 		||  victim->pMobIndex->pShop
 		||  IS_RACE(victim->race, ch->race)
 		||  victim->invis_level
