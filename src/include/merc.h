@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.380 2001-12-04 20:38:24 tatyana Exp $
+ * $Id: merc.h,v 1.381 2001-12-07 21:30:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1877,7 +1877,6 @@ extern	const	struct dex_app_type	dex_app[26];
 extern	const	struct con_app_type	con_app[26];
 
 extern	const	struct wiznet_type	wiznet_table	[];
-extern	const	struct spec_type	spec_table	[];
 
 /*
  * Global variables.
