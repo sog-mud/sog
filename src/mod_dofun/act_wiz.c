@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.88 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.89 1998-11-18 10:44:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2900,20 +2900,23 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
-		if (!vch
-		||  (can_see(ch, vch) &&
-		     (arg[0] == '\0' ||
-		      (!IS_NULLSTR(vch->name) && is_name(arg, vch->name))))) {
-			count++;
-			buf_printf(output, "[%3d %2d] %s@%s",
-				   d->descriptor,
-				   d->connected,
-				   vch ? vch->name : "(none)",
-				   d->host);
-			if (vch && vch->timer)
-				buf_printf(output, " (idle %d)", vch->timer);
-			buf_add(output, "\n\r");
+		if (vch) {
+			if (!can_see(ch, vch)
+			||  (arg[0] && !is_name(arg, vch->name)))
+				continue;
 		}
+		else if (arg[0])
+			continue;
+
+		count++;
+		buf_printf(output, "[%3d %2d] %s@%s",
+			   d->descriptor,
+			   d->connected,
+			   vch ? vch->name : "(none)",
+			   d->host);
+		if (vch && vch->timer)
+			buf_printf(output, " (idle %d)", vch->timer);
+		buf_add(output, "\n\r");
 	}
 
 	if (count == 0) {
