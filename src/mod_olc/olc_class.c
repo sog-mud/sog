@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.3 1999-09-24 04:16:05 avn Exp $
+ * $Id: olc_class.c,v 1.4 1999-09-30 05:18:18 avn Exp $
  */
 
 #include "olc.h"
@@ -537,7 +537,11 @@ OLC_FUN(classed_poses)
 	}
 	if (!str_prefix(arg, "delete")) {
 		argument = one_argument(argument, arg, sizeof(arg));
-		pose = VARR_GET(&class->poses, atoi(arg));
+		pose = varr_get(&class->poses, atoi(arg));
+		if (!pose) {
+			char_puts("ClassEd: pose: no such pose.\n", ch);
+			return FALSE;
+		}
 		pose->self = str_dup(str_empty);
 		pose->others = str_dup(str_empty);
 		varr_qsort(&class->poses, cmpstr);
@@ -546,7 +550,11 @@ OLC_FUN(classed_poses)
 	}
 	if (!str_prefix(arg, "self")) {
 		argument = one_argument(argument, arg, sizeof(arg));
-		pose = VARR_GET(&class->poses, atoi(arg));
+		pose = varr_get(&class->poses, atoi(arg));
+		if (!pose) {
+			char_puts("ClassEd: pose: no such pose.\n", ch);
+			return FALSE;
+		}
 		free_string(pose->self);
 		pose->self = str_dup(argument);
 		char_puts("Ok.\n", ch);
@@ -554,7 +562,11 @@ OLC_FUN(classed_poses)
 	}
 	if (!str_prefix(arg, "others")) {
 		argument = one_argument(argument, arg, sizeof(arg));
-		pose = VARR_GET(&class->poses, atoi(arg));
+		pose = varr_get(&class->poses, atoi(arg));
+		if (!pose) {
+			char_puts("ClassEd: pose: no such pose.\n", ch);
+			return FALSE;
+		}
 		free_string(pose->others);
 		pose->others = str_dup(argument);
 		char_puts("Ok.\n", ch);
@@ -693,7 +705,6 @@ OLC_FUN(classed_guilds)
 		return FALSE;
 	}
 	if (!str_prefix(arg, "add")) {
-		int i;
 		int *pvnum;
 
 		argument = one_argument(argument, arg, sizeof(arg));
@@ -702,12 +713,11 @@ OLC_FUN(classed_guilds)
 			char_printf(ch, "ClassEd: %d: no such room.\n", vnum);
 			return FALSE;
 		}
-		for (i = 0; i < class->guild.nused; i++)
-			if (vnum == *(int*)VARR_GET(&class->guild, i)) {
+		if (varr_bsearch(&class->guild, &vnum, cmpint) != NULL) {
 			char_printf(ch, "ClassEd: %d: already in list.\n",
 				    vnum);
 			return FALSE;
-			}
+		}
 		pvnum = varr_enew(&class->guild);
 		*pvnum = vnum;
 		varr_qsort(&class->guild, cmpint);
@@ -715,20 +725,18 @@ OLC_FUN(classed_guilds)
 		return TRUE;
 	}
 	if (!str_prefix(arg, "delete")) {
-		int i;
+		int *pvnum;
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		vnum = atoi(arg);
-		for (i = 0; i < class->guild.nused; i++) {
-			if (vnum != *(int*)VARR_GET(&class->guild, i))
-				continue;
-			*(int*)VARR_GET(&class->guild, i) = 0;
-			varr_qsort(&class->guild, cmpint);
-			char_puts("Guild deleted.\n", ch);
-			return TRUE;
+		if ((pvnum = (int *)varr_bsearch(&class->guild, &vnum, cmpint)) == NULL) {
+			char_puts("ClassEd: guild: not in list.\n", ch);
+			return FALSE;
 		}
-		char_printf(ch, "ClassEd: %d: not in list.\n", vnum);
-		return FALSE;
+		*pvnum = 0;
+		varr_qsort(&class->guild, cmpint);
+		char_puts("Guild deleted.\n", ch);
+		return TRUE;
 	}
 	dofun("help", ch, "'OLC CLASS SKILLS'");
 	return FALSE;

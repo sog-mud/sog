@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.7 1999-09-24 04:16:05 avn Exp $
+ * $Id: olc_race.c,v 1.8 1999-09-30 05:18:18 avn Exp $
  */
 
 #include "olc.h"
@@ -525,7 +525,6 @@ OLC_FUN(raceed_points)
 OLC_FUN(raceed_bonusskill)
 {
 	race_t *race;
-	const char *buff;
 	int sn;
 
 	EDIT_RACE(ch, race);
@@ -533,8 +532,8 @@ OLC_FUN(raceed_bonusskill)
 		char_printf(ch, "RaceEd: %s: no such skill.\n", argument);
 		return FALSE;
 	}
-	buff = str_printf("'%s'", SKILL(sn)->name);
-	return olced_name(ch, buff, cmd, &race->race_pcdata->bonus_skills);
+	return olced_name(ch, SKILL(sn)->name,
+			cmd, &race->race_pcdata->bonus_skills);
 }
 
 OLC_FUN(raceed_stats)
@@ -776,7 +775,7 @@ OLC_FUN(olc_skill_update)
 {
 	CHAR_DATA *gch;
 
-	for (gch = char_list; gch; gch = gch->next) {
+	for (gch = char_list; gch && IS_NPC(gch); gch = gch->next) {
 		if (!IS_NPC(gch)) update_skills(gch);
 	}
 	char_puts("Active players' skills updated.\n", ch);
