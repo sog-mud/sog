@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.147 1999-05-22 13:37:28 fjoe Exp $
+ * $Id: interp.c,v 1.148 1999-05-27 09:52:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -205,6 +205,7 @@ cmd_t cmd_table[] =
 
     { "wanted",		do_wanted,	POS_RESTING,	 0,  LOG_ALWAYS, CMD_NOORDER},
     { "judge",		do_judge,	POS_RESTING,	 0,  LOG_NORMAL, CMD_NOORDER | CMD_CHARMED_OK},
+    { "kidnap",		do_kidnap,	POS_STANDING,	 0,  LOG_NORMAL, CMD_NOORDER},
 
     /*
      * Configuration commands.

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.50 1999-05-22 13:37:28 fjoe Exp $
+ * $Id: interp.h,v 1.51 1999-05-27 09:52:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -388,6 +388,7 @@ DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_zap		);
 DECLARE_DO_FUN(do_zecho		);
 DECLARE_DO_FUN(do_qtarget	);
+DECLARE_DO_FUN(do_kidnap	);
 
 #endif
 

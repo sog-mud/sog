@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.35 1999-05-26 06:47:57 fjoe Exp $
+ * $Id: const.h,v 1.36 1999-05-27 09:52:41 kostik Exp $
  */
 
 #ifndef _CONST_H_
@@ -272,6 +272,7 @@ enum {
 #define OBJ_VNUM_PORTAL 		25
 #define OBJ_VNUM_DUMMY			30
 #define OBJ_VNUM_ROSE			1001
+#define OBJ_VNUM_HOLY_HAMMER		18
 
 #define OBJ_VNUM_SCHOOL_VEST		3703
 #define OBJ_VNUM_SCHOOL_SHIELD		3704

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.159 1999-05-24 07:05:40 fjoe Exp $
+ * $Id: spellfun.c,v 1.160 1999-05-27 09:52:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -3178,6 +3178,84 @@ void spell_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (ch != victim)
 		char_puts("Ok.\n", ch);
 	return;
+}
+
+void spell_restoration(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	if(is_affected(ch, sn)) {
+		act("You do not have enough power.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	victim->hit = victim->max_hit;
+	update_pos(victim);
+	act("A warm feeling fills your body.", victim, NULL, NULL, TO_CHAR);
+	act("A bleeding wounds on $N's body vanish.", NULL, victim, NULL, TO_NOTVICT);
+
+	af.where 	= TO_AFFECTS;
+	af.type  	= sn;
+	af.level 	= level;
+	af.duration	= 5;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
+
+	affect_to_char(ch, &af);
+}
+
+void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	OBJ_DATA *hammer;
+	AFFECT_DATA af;
+
+	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
+	hammer->level = ch->level;
+	hammer->timer = level * 3;
+	hammer->value[2] = (ch->level/10)+1;
+
+	af.where 	= TO_OBJECT;
+	af.type  	= sn;
+	af.level 	= level;
+	af.duration	= -1;
+	af.bitvector	= 0;
+	af.modifier	= level/7 +3;
+
+	af.location	= APPLY_HITROLL;
+
+	affect_to_obj(hammer, &af);
+
+	af.location	= APPLY_DAMROLL;
+
+	affect_to_obj(hammer, &af);
+
+	obj_to_char(hammer, ch);
+
+	act ("You create a Holy Hammer.", ch, NULL, NULL, TO_CHAR);
+	act ("$n creates a Holy Hammer.", ch, NULL, NULL, TO_ROOM);
+}
+
+void spell_hold_person(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA* victim = (CHAR_DATA*) vo;
+	AFFECT_DATA af;
+	
+	if (saves_spell(level + 2, victim, DAM_OTHER)) {
+		char_puts("You failed.", ch);
+		act("$n tries to hold you, but fails.", ch, victim, NULL, TO_VICT);
+		return;
+	}
+
+	af.where 	= TO_AFFECTS;
+	af.type		= sn;
+	af.duration	= 1;
+	af.level	= level;
+	af.bitvector	= 0;
+	af.modifier	= -level/12;
+	af.location	= APPLY_DEX;
+
+	affect_to_char(victim, &af);
 }
 
 void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo, int target)

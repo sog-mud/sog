@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.15 1999-05-17 19:58:36 avn Exp $
+ * $Id: spellfn.c,v 1.16 1999-05-27 09:52:43 kostik Exp $
  */
 
 #include <stdio.h>
@@ -281,6 +281,9 @@ namedp_t spellfn_table[] =
 	{ "spell_shield_of_ruler",	spell_shield_of_ruler		},
 	{ "spell_benediction", 		spell_benediction		},
 	{ "spell_mana_restore",		spell_mana_restore		},
+	{ "spell_restoration",		spell_restoration		},
+	{ "spell_holy_hammer", 		spell_holy_hammer		},
+	{ "spell_hold_person",		spell_hold_person		},
 	{ NULL }
 };
 

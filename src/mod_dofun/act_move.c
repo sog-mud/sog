@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.174 1999-05-26 10:30:19 fjoe Exp $
+ * $Id: act_move.c,v 1.175 1999-05-27 09:52:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -2325,6 +2325,100 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		      "$N is gone!", NULL, "$N appears from nowhere.");
 }
 
+void do_kidnap(CHAR_DATA* ch, const char *argument)
+{
+	CHAR_DATA * victim;
+	char arg[MAX_INPUT_LENGTH];
+	ROOM_INDEX_DATA* to_room;
+	int sn;
+	int chance;
+	int mana;
+
+	sn = sn_lookup("kidnap");
+
+	if ((chance = get_skill(ch, sn)) == 0) {
+		act("Oh, no. You can't do that.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] =='\0') {
+		act("Kidnap whom?", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!(ch->in_room)) 
+		return;
+
+	if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		char_puts("Very funny.\n", ch);
+		return;
+	}
+
+	if (victim->position == POS_FIGHTING) {
+		char_puts("You'd better not -- you might get hit.\n", ch);
+		return;
+	}
+
+	if (is_safe(ch, victim)) 
+		return;
+
+	chance -= get_curr_stat(victim, STAT_WIS) + 
+		  get_curr_stat(victim, STAT_DEX) -
+		  get_curr_stat(ch, STAT_DEX);
+	
+	if (ch->mana < (mana=SKILL(sn)->min_mana)) {
+		char_puts("You don't have enough power.\n", ch);
+		return;
+	}
+
+	ch->mana -= mana;
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)) 
+		chance = 0;
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
+		chance /= 2;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
+	if (number_percent()<chance) {
+		to_room = get_random_room(ch, NULL);
+		act("You grab $N and take $m away.", 
+			ch, NULL, victim, TO_CHAR);
+		act("$n grabs you and takes you away.", 
+			ch, NULL, victim, TO_VICT);
+		act("$n grabs $N and takes $m away.",
+			ch, NULL, victim, TO_NOTVICT);
+		transfer_char(ch, NULL, to_room,
+			"$N disappears.", NULL, "$N appears from nowhere.");
+		transfer_char(victim, NULL, to_room,
+			"$N disappears.", NULL, "$N appears from nowhere.");
+		check_improve(ch, sn, TRUE, 1);
+		yell(victim, ch, "Help! %s just kidnapped me!");
+		multi_hit(victim, ch, TYPE_UNDEFINED);
+	} else
+	{
+		act("You grab $N, but $E escaped.", 
+			ch, NULL, victim, TO_CHAR);
+		act("$n grabs you, but you manage to break free.",
+			ch, NULL, victim, TO_VICT);
+		act("$n grabs $N, but $E escaped.",
+			ch, NULL, victim, TO_NOTVICT);
+		yell(victim, ch, "Help! %s tried to kidnap me!");
+		check_improve(ch, sn, FALSE, 1);
+		multi_hit(victim, ch, TYPE_UNDEFINED);
+	}
+}
+		
+
 void do_fade(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
@@ -2421,6 +2515,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, sn, DAM_NONE, DAMF_SHOW);
 		check_improve(ch, sn, FALSE, 1);
 	}
+	yell(victim, ch, "Help! %s tryed to touch me!");
 }
 
 void do_fly(CHAR_DATA *ch, const char *argument)
@@ -3283,6 +3378,7 @@ DO_FUN(do_charge)
 		}
 		WAIT_STATE(ch, SKILL(gsn_charge)->beats*2);
 	}
+	yell(victim, ch, "Help! %s is attacking me!");
 }
 
 DO_FUN(do_shoot)
@@ -3399,6 +3495,7 @@ DO_FUN(do_shoot)
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(wield->value[1],wield->value[2]));
 	check_improve(ch, gsn_bow, TRUE, 1);
+	yell(victim, ch, "Help! %s is trying to shoot me!");
 }
 
 char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend) 
