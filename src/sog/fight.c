@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.41 1998-06-21 11:38:37 fjoe Exp $
+ * $Id: fight.c,v 1.42 1998-06-23 20:08:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -115,7 +115,7 @@ void	check_shield_destroyed	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second)
 void	check_weapon_destroyed	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second));
 
 /*
- * Gets all money from corpse
+ * Gets all money from the corpse.
  */
 void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 {
@@ -126,8 +126,6 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 			get_obj(ch, tmp, corpse);
 	}
 }
-
-
 
 /*
  * Control the fights going on.

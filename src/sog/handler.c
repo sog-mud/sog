@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.24 1998-06-23 18:16:37 efdi Exp $
+ * $Id: handler.c,v 1.25 1998-06-23 20:08:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -2995,10 +2995,10 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  !CAN_DETECT(ch,DETECT_HIDDEN)
 	&&  victim->fighting == NULL) {
 		int chance;
-		chance = get_skill(victim,gsn_sneak);
-		chance += get_curr_stat(ch,STAT_DEX) * 3/2;
- 		chance -= get_curr_stat(ch,STAT_INT) * 2;
-		chance += ch->level - victim->level * 3/2;
+		chance = get_skill(victim, gsn_sneak);
+		chance += get_curr_stat(victim, STAT_DEX) * 3/2;
+ 		chance -= get_curr_stat(ch, STAT_INT) * 2;
+		chance += (victim->level - ch->level) * 3/2;
 
 		if (number_percent() < chance)
 		    return FALSE;
