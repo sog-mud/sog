@@ -1,6 +1,9 @@
 alpha	[a-zA-Z]
 alnum	[a-zA-Z0-9]
 
+%option noyywrap
+%option prefix="cc_yy"
+
 %{
 #include <setjmp.h>
 #include <stdarg.h>
@@ -75,7 +78,7 @@ expr_check_cb(void *p, va_list ap)
 	cc_ctx.rcl = va_arg(ap, cc_eclass_t *);
 	cc_ctx.ap = va_arg(ap, va_list);
 
-	yy_buf = yy_scan_string(e->expr);
+	yy_buf = cc_yy_scan_string(e->expr);
 
 	if (!setjmp(cc_jmpbuf)) {
 		cc_yyparse();
@@ -87,7 +90,7 @@ expr_check_cb(void *p, va_list ap)
 		rv = NULL;
 	}
 
-	yy_delete_buffer(yy_buf);
+	cc_yy_delete_buffer(yy_buf);
 
 	return rv;
 }

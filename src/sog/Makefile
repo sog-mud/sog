@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.25 1999-12-22 05:00:45 fjoe Exp $
+# $Id: Makefile,v 1.26 1999-12-22 05:21:00 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -27,9 +27,6 @@ CFILES = auction.c affect.c buffer.c cc_expr.c chquest.c clan.c class.c cmd.c\
 OFILES_ADD = cc_parse.o cc_lex.o
 CLEAN_FILES = y.tab.h
 .include "../Makefile.osdep"
-
-YFLAGS += -pcc_yy
-LFLAGS += -Pcc_yy
 
 cc_parse.o: cc_parse.y cc_lex.h ../include/typedef.h ../include/str.h\
 	    ../include/log.h
