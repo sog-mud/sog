@@ -1,5 +1,17 @@
 #!/bin/sh
-# $Id: rndcontrol.sh,v 1.2 2001-01-18 12:15:07 avn Exp $
-
 rndcontrol=/usr/sbin/rndcontrol
-[ -x $rndcontrol ] && $rndcontrol -s 10 -s 14 > /dev/null && echo -n ' rnd'
+
+[ -x $rndcontrol ] || exit 1
+
+case "$1" in
+start)
+	$rndcontrol -s 10 -s 14 > /dev/null && echo -n ' rnd'
+	;;
+stop)
+	;;
+*)
+	echo "Usage: `basename $0` {start|stop}" >&2
+	;;
+esac
+
+exit 0
