@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.54 1998-09-11 06:36:49 fjoe Exp $
+ * $Id: save.c,v 1.55 1998-09-11 13:37:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -669,7 +669,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'A':
 			KEY("Act", ch->act, fread_flags(fp) &
 					    ~(PLR_GHOST | PLR_CONFIRM_DELETE |
-					      PLR_NOEXP | PLR_CHANGED_AFF));
+					      PLR_NOEXP | PLR_CHANGED_AFF |
+					      PLR_NEW));
 			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
 			KEY("AfBy", ch->affected_by, fread_flags(fp) &
 						     ~AFF_CHARM);
