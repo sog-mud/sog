@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.179 1999-06-17 05:46:39 fjoe Exp $
+ * $Id: fight.c,v 1.180 1999-06-17 05:56:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1108,16 +1108,19 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
 	}
 
+	/*
+	 * IS_NPC victim is not valid after raw_kill
+	 */
 	raw_kill(ch, victim);
 
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
 		if (IS_VAMPIRE(ch)) {
-			act_puts("$n suck {Rblood{x from $N's corpse!!",
-				 ch, NULL,victim,TO_ROOM,POS_SLEEPING);
-			char_puts("You suck {Rblood{x "
-				  "from the corpse!!\n\n", ch);
+			act_puts("$n sucks {Rblood{x from $p!",
+				 ch, corpse, NULL, TO_ROOM, POS_RESTING);
+			act_puts("You suck {Rblood{x from $p!",
+				 ch, corpse, NULL, TO_CHAR, POS_DEAD);
 			gain_condition(ch, COND_BLOODLUST, 3);
 		}
 
