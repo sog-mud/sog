@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.12.2.2 2001-11-11 20:37:11 avn Exp $
+ * $Id: resolver.c,v 1.12.2.3 2001-11-21 19:23:45 avn Exp $
  */
 
 #if !defined (WIN32)
@@ -105,8 +105,10 @@ void resolver_done(void)
 {
 	fclose(rfin);
 	fclose(rfout);
-	kill(rpid, SIGTERM);
-	wait(NULL);
+	if (rpid > 0) {
+		kill(rpid, SIGTERM);
+		wait(NULL);
+	}
 }
 
 /* local functions */

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.18 2001-11-21 18:53:14 avn Exp $
+ * $Id: comm.c,v 1.200.2.19 2001-11-21 19:23:44 avn Exp $
  */
 
 /***************************************************************************
@@ -622,8 +622,10 @@ void game_loop_unix(void)
 		add_fds(&info_sockets, &in_set, &maxdesc);
 
 #if !defined (WIN32)
-		FD_SET(fileno(rfin), &in_set);
-		maxdesc = UMAX(maxdesc, fileno(rfin));
+		if (rpid > 0) {
+			FD_SET(fileno(rfin), &in_set);
+			maxdesc = UMAX(maxdesc, fileno(rfin));
+		}
 #endif
 
 		for (d = descriptor_list; d; d = d->next) {
@@ -645,7 +647,7 @@ void game_loop_unix(void)
 		}
 
 #if !defined (WIN32)
-		if (FD_ISSET(fileno(rfin), &in_set))
+		if (rpid > 0 && FD_ISSET(fileno(rfin), &in_set))
 			resolv_done();
 #endif
 
@@ -733,6 +735,28 @@ void game_loop_unix(void)
 			&&  FD_ISSET(d->descriptor, &out_set)) {
 				if (!process_output(d, TRUE))
 					close_descriptor(d, SAVE_F_NORMAL);
+			}
+		}
+
+		/*
+		 * Check whether resolver is running
+		 */
+		if (rpid > 0) {
+			int st;
+
+			if (waitpid(rpid, &st, WNOHANG | WUNTRACED) == rpid) {
+				/* resolver died/stopped */
+				if (WIFEXITED(st))
+					bug("resolver exited with status %d",
+						WEXITSTATUS(st));
+				else if (WIFSIGNALED(st))
+					bug("resolver died on signal %d",
+						WTERMSIG(st));
+				else if (WIFSTOPPED(st))
+					bug("resolver stopped on signal %d",
+						WSTOPSIG(st));
+				/* to prevent reading from resolver */
+				 rpid = -1;
 			}
 		}
 sync:
@@ -1811,7 +1835,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 #if defined (WIN32)
 				printf("%s@%s\n", ch->name, d->ip);
 #else
-				fprintf(rfout, "%s@%s\n", ch->name, d->ip);
+				if (rpid > 0)
+					fprintf(rfout, "%s@%s\n",
+						ch->name, d->ip);
 #endif
 				d->connected = CON_RESOLV;
 /* wait until sock.sin_addr gets resolved */
@@ -1822,8 +1848,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		/* FALLTHRU */
 
 	case CON_RESOLV:
-		if (d->host == NULL)
-			break;
+		if (d->host == NULL) {
+			if (rpid > 0)
+				break;
+			else
+				d->host = str_qdup(d->ip);
+		}
 
 		/*
 		 * Swiftest: I added the following to ban sites.  I don't
