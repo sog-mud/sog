@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.42 2001-07-31 09:13:11 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.43 2001-07-31 10:19:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2914,6 +2914,7 @@ void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo )
 		  continue;
 		}
 		else {
+			af.where     = TO_AFFECTS;
 			af.type      = armor_sn;
 			af.level     = level;
 			af.duration  = level;
@@ -2936,6 +2937,7 @@ void spell_group_defense(int sn, int level, CHAR_DATA *ch, void *vo )
 		  continue;
 		}
 		else {
+			af.where     = TO_AFFECTS;
 			af.type      = shield_sn;
 			af.level     = level;
 			af.duration  = level;
@@ -5413,7 +5415,6 @@ void spell_enlarge(int sn, int level, CHAR_DATA *ch, void *vo)
 				victim, NULL, NULL, TO_ROOM);
 			return;
 		}
-		af.where 	= TO_AFFECTS;
 		af.where	= TO_AFFECTS;
 		af.type		= sn;
 		af.level	= level;
@@ -5473,7 +5474,6 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo)
 				victim, NULL, NULL, TO_ROOM);
 			return;
 		}
-		af.where 	= TO_AFFECTS;
 		af.where	= TO_AFFECTS;
 		af.type		= sn;
 		af.level	= level;
