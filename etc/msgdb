@@ -8,7 +8,7 @@
 @eng $n hits the ground ... DEAD.@rus $n $gn{упал} замертво!~
 @eng     I'm sorry, but i don't have any quests for you at this time.@rus     Мне очень жаль, но у меня сейчас нет для тебя подходящего задания.~
 @eng                       @rus                            ~
-@eng The black aura around $n's body vanishes.@rus Черная аура, окружавшая $c3{$n} исчезла.~
+@eng The black aura around $n's body vanishes.@rus Черная аура, окружавшая $c6{$n} исчезла.~
 @eng No lines left to remove.
 @rus Больше нечего удалять.
 ~
@@ -294,7 +294,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $p feels like a part of you!@rus $p $gp{выглядит} частью тебя!~
 @eng $n cuts out $N's {Rheart{x! I bet that hurt!@rus {R$n вырывает сердце из груди $c1{$N}!{x~
-@eng The white aura around $n's body vanishes.@rus Белая аура, окружавшая $c3{$n} исчезла.~
+@eng The white aura around $n's body vanishes.@rus Белая аура, окружавшая $c6{$n} исчезла.~
 @eng scatter on the dirt.~
 @eng gold@rus золотые~
 @eng Your pulse races as you are consumned by rage!
@@ -361,7 +361,7 @@ Typing delete with an argument will undo delete status.
 @eng $n holds $p in $s hand.@rus $n $gn{берет} $c3{$p} в руку.~
 @eng $n has fled!@rus $n $gn{сбежал}!~
 @eng $P: you can't carry that much weight.@rus $P: ты не можешь унести такую тяжесть.~
-@eng     Seek $i out in the vicinity of {W$R{x!@rus     Ты можешь найти $c3{$i} в {W$c5{$R}{x!~
+@eng     Seek $i out in the vicinity of {W$R{x!@rus     Ты можешь найти $c6{$i} в {W$c5{$R}{x!~
 @eng You can't take your mount there.
 @rus Ты не можешь взять свое животное туда с собой.
 ~
@@ -436,7 +436,7 @@ Typing delete with an argument will undo delete status.
 @rus Ты не видишь этого тут.
 ~
 @eng $p dries up.@rus $p $gp{пересох}.~
-@eng A golden aura surrounds $N.@rus Золотая аура окружила $c3{$N}.~
+@eng A golden aura surrounds $N.@rus Золотая аура окружила $c6{$N}.~
 @eng about half-@rus примерно наполовину ~
 @eng Your pulse speeds up, but nothing happens.
 @rus Твой пульс заметно учащается, но этим все заканчивается.
@@ -494,7 +494,7 @@ Typing delete with an argument will undo delete status.
 @eng You compare $p to itself.  It looks about the same.@rus Ты сравниваешь $c3{$p} с $gp{ним} $gp{самим}. Естественно, они выглядят похожими.~
 @eng But you aren't fighting anyone!@rus Но ты ни с кем не сражаешься!~
 @eng $N {xis sleeping in $p.@rus $N {x$gN{спит} в $c5{$p}.~
-@eng $n is surrounded by black aura.@rus Черная аура окружила $c3{$n}.~
+@eng $n is surrounded by black aura.@rus Черная аура окружила $c6{$n}.~
 @eng {MMANGLE{x@rus {MОПУСТОШАЕШЬ{x~
 @eng the down@rus снизу (down)~
 @eng You can't do that here.
@@ -780,7 +780,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng $p crumbles into dust.@rus $p $gp{рассыпался} в пыль.~
 @eng $n is DEAD!!@rus $n $gn{МЕРТВ}!!~
 @eng $d is closed.@rus $d $gd{закрыт}.~
-@eng $N is unaffected by $n's $V!@rus $V $c1{$n} не действует на $c3{$N}!~
+@eng $N is unaffected by $n's $V!@rus $V $c1{$n} не действует на $c6{$N}!~
 @eng a lot of objects @rus очень много вещей.~
 @eng You must transform vampire before biting.
 @rus Сначала стань вампиром, а потом кусайся.
@@ -834,7 +834,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng Do I know you?@rus А ты кто такой?~
 @eng $p glows brightly, and is whole again.  Good Job!@rus $p окутывается сиянием и, когда оно рассеивается, ты уже не видишь ни одной царапины.~
 @eng $p glows brightly, and is whole again.@rus $p окутывается сиянием, которое вскоре исчезает.~
-@eng $n asks $N about current challenge quests.@rus $n $gn{спрашивает} $c3{$N} что особенного он может найти в мире.~
+@eng $n asks $N about current challenge quests.@rus $n $gn{спрашивает} $c6{$N} что особенного он может найти в мире.~
 @eng Your quest is ALMOST complete!
 Get back to questor before your time runs out!
 @rus Ты ПОЧТИ выполнил свое задание!
@@ -1050,7 +1050,7 @@ Get back to questor before your time runs out!
 @eng $n's heart is torn from $s chest.@rus Сердце $c1{$n} вырвано из рассеченной груди.~
 @eng     You haven't completed the quest yet, but there is still time!@rus     Ты еще не $gN{выполнил} свое задание, но у тебя еще есть время.~
 @eng $n is blinded by the dirt in $s eyes!@rus $n $gn{ослеплен} грязью, попавшей в глаза!~
-@eng $N looks like an easy kill.@rus Похоже, ты легко убьешь $c3{$N}.~
+@eng $N looks like an easy kill.@rus Похоже, ты легко убьешь $c6{$N}.~
 @eng     This item is beyond the trouble option.@rus     Я не могу помочь тебе с твоими неприятностями.~
 @eng {MMUTILATES{x@rus {MУРОДУЕТ{x~
 @eng You ask $N about current challenge quests.@rus Ты спрашиваешь у $c1{$N} какие особенные вещи ты можешь найти в мире.~
@@ -1348,7 +1348,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 ~
 @eng     That location is in general area of {W$t{x.@rus     Это находится в районе {W$c1{$t}{x.~
 @eng {C[Exits:@rus {C[Выходы:~
-@eng You slam into $N, and send $M flying!@rus Ты бросаешься на $c3{$N}, сбивая $gN{его} с ног!~
+@eng You slam into $N, and send $M flying!@rus Ты бросаешься на $c6{$N}, сбивая $gN{его} с ног!~
 @eng You can't hide while being ridden.
 @rus Ты не можешь прятаться оседланным.
 ~
@@ -1438,7 +1438,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng {R[*] TEAR UP [*]{x@rus {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x~
 @eng ({RRed Aura{x) @rus ({RКрасная Аура{x) ~
 @eng $n asks $N to cancel $s current quest.@rus $n $gn{просит} $c6{$N} отменить $gn{его} задание.~
-@eng $n is surrounded by a white aura.@rus Белая аура окружила $c3{$n}.~
+@eng $n is surrounded by a white aura.@rus Белая аура окружила $c6{$n}.~
 @eng {*{R[*] POWER HITS [*]{x@rus {*{R[*] БЬЕТ С НЕОПИСУЕМОЙ СИЛОЙ [*]{x~
 @eng You walk through $p and find yourself somewhere else...@rus Ты входишь в $c3{$p}.~
 @eng They must be sleeping.
@@ -1676,7 +1676,7 @@ Quest staff waits patiently to return.
 @eng You deliver a blow of deadly force!@rus Ты наносишь удар сокрушительной силы!~
 @eng $n unlocks $p.@rus $n $gn{размыкает} $c3{$p}.~
 @eng You invert $p, spilling $V $T.@rus Ты выливаешь $c3{$V} из $c1{$p} $T.~
-@eng $N is unaffected by your $V!@rus $gV{Твой} $V не действует на $c3{$N}.~
+@eng $N is unaffected by your $V!@rus $gV{Твой} $V не действует на $c6{$N}.~
 @eng You don't like the way $n has been treating you.@rus Тебе не понравилось поведение $n.~
 @eng You bite $N!@rus Ты кусаешь $c6{$N}!~
 @eng The sky is getting cloudy.@rus Небо затянуло тучами.~
