@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.32 2004-05-24 18:24:48 tatyana Exp $
+ * $Id: note.c,v 1.33 2004-05-26 05:39:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -615,14 +615,16 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (can_delete_note(ch, pnote) && vnum++ == anum) {
-				note_remove(ch, pnote, FALSE);
-				act_char("Ok.", ch);
-				return;
-			} else {
-				act_char("You can delete only your own "
-					 "messages.", ch);
-				return;
+			if (vnum++ == anum) {
+				if (can_delete_note(ch, pnote)) {
+					note_remove(ch, pnote, FALSE);
+					act_char("Ok.", ch);
+					return;
+				} else {
+					act_char("You can delete only your own "
+						 "messages.", ch);
+					return;
+				}
 			}
 		}
 
@@ -679,14 +681,16 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (can_delete_note(ch, pnote) && vnum++ == anum) {
-				note_remove(ch, pnote, TRUE);
-				act_char("Ok.", ch);
-				return;
-			} else {
-				act_char("You can delete only your own "
-					 "messages.", ch);
-				return;
+			if (vnum++ == anum) {
+				if (can_delete_note(ch, pnote)) {
+					note_remove(ch, pnote, TRUE);
+					act_char("Ok.", ch);
+					return;
+				} else {
+					act_char("You can delete only your own "
+						 "messages.", ch);
+					return;
+				}
 			}
 		}
 
