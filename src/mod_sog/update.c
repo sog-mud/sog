@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.65 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: update.c,v 1.66 1998-10-02 08:13:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -208,80 +208,72 @@ int hit_gain(CHAR_DATA *ch)
 		return 0;
 
 	if (IS_NPC(ch)) {
-	gain =  5 + ch->level;
- 	if (IS_AFFECTED(ch,AFF_REGENERATION))
-	    gain *= 2;
+		gain =  5 + ch->level;
+ 		if (IS_AFFECTED(ch, AFF_REGENERATION))
+			gain *= 2;
 
-	switch(ch->position) {
-	        default :           gain /= 2;                      break;
-	        case POS_SLEEPING:  gain = 3 * gain/2;              break;
-	        case POS_RESTING:                                   break;
-	        case POS_FIGHTING:  gain /= 3;                      break;
- 	}
-
-	
+		switch(ch->position) {
+		default:		gain /= 2;		break;
+		case POS_SLEEPING:	gain = 3 * gain/2;	break;
+		case POS_RESTING:				break;
+		case POS_FIGHTING:	gain /= 3;		break;
+ 		}
 	}
-	else
-	{
-	gain = UMAX(3, 2 * get_curr_stat(ch,STAT_CON) + (7 * ch->level) / 4); 
-	gain = (gain * cl->hp_rate) / 100;
- 	number = number_percent();
-	if (number < get_skill(ch,gsn_fast_healing))
-	{
-	    gain += number * gain / 100;
-	    if (ch->hit < ch->max_hit)
-		check_improve(ch,gsn_fast_healing,TRUE,8);
-	}
+	else {
+		gain = UMAX(3, 2 * get_curr_stat(ch,STAT_CON) + (7 * ch->level) / 4); 
+		gain = (gain * cl->hp_rate) / 100;
+ 		number = number_percent();
+		if (number < get_skill(ch, gsn_fast_healing)) {
+			gain += number * gain / 100;
+			if (ch->hit < ch->max_hit)
+				check_improve(ch, gsn_fast_healing, TRUE, 8);
+		}
 
-	if (number < get_skill(ch,gsn_trance))
-	{
-	    gain += number * gain / 150;
-	    if (ch->mana < ch->max_mana)
-	        check_improve(ch,gsn_trance,TRUE,8);
-	}
-	switch (ch->position)
-	{
-	    default:	   	gain /= 4;			break;
-	    case POS_SLEEPING: 					break;
-	    case POS_RESTING:  	gain /= 2;			break;
-	    case POS_FIGHTING: 	gain /= 6;			break;
-	}
+		if (number < get_skill(ch, gsn_trance)) {
+			gain += number * gain / 150;
+			if (ch->mana < ch->max_mana)
+				check_improve(ch, gsn_trance, TRUE, 8);
+		}
 
-	if (ch->pcdata->condition[COND_HUNGER]   < 0)
-	    gain = 0;
+		switch (ch->position) {
+		default:		gain /= 4;		break;
+		case POS_SLEEPING: 				break;
+		case POS_RESTING:	gain /= 2;		break;
+		case POS_FIGHTING:	gain /= 6;		break;
+		}
 
-	if (ch->pcdata->condition[COND_THIRST] < 0)
-	    gain = 0;
+		if (ch->pcdata->condition[COND_HUNGER]   < 0)
+			gain = 0;
 
+		if (ch->pcdata->condition[COND_THIRST] < 0)
+			gain = 0;
 	}
 
 	gain = gain * ch->in_room->heal_rate / 100;
 	
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
-	gain = gain * ch->on->value[3] / 100;
+		gain = gain * ch->on->value[3] / 100;
 
 	if (IS_AFFECTED(ch, AFF_POISON))
-	gain /= 4;
+		gain /= 4;
 
 	if (IS_AFFECTED(ch, AFF_PLAGUE))
-	gain /= 8;
+		gain /= 8;
 
-	if (IS_AFFECTED(ch,AFF_HASTE))
-	gain /=2 ;
+	if (IS_AFFECTED(ch, AFF_HASTE))
+		gain /= 2;
 
-	if (IS_AFFECTED(ch,AFF_SLOW))
-	gain *=2 ;
+	if (IS_AFFECTED(ch, AFF_SLOW))
+		gain /= 2;
 
-	if (get_curr_stat(ch,STAT_CON) > 20)
-	gain = (gain * 14) / 10;
+	if (get_curr_stat(ch, STAT_CON) > 20)
+		gain = (gain * 14) / 10;
 
 	if (IS_HARA_KIRI(ch))
-	gain *= 3;
+		gain *= 3;
 
 	return UMIN(gain, ch->max_hit - ch->hit);
 }
-
-
 
 int mana_gain(CHAR_DATA *ch)
 {
@@ -356,7 +348,7 @@ int mana_gain(CHAR_DATA *ch)
 	if (IS_AFFECTED(ch,AFF_HASTE))
 	    gain /= 2 ;
 	if (IS_AFFECTED(ch,AFF_SLOW))
-	    gain *= 2 ;
+	    gain /= 2 ;
 	if (get_curr_stat(ch,STAT_INT) > 20)
 	gain = (gain * 13) / 10;
 	if (get_curr_stat(ch,STAT_WIS) > 20)

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.74 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: interp.c,v 1.75 1998-10-02 08:13:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -175,9 +175,9 @@ const	struct	cmd_type	cmd_table	[] =
      * Communication commands.
      */
     { "bearcall",       do_bear_call,   POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
-    { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "=",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "clanlist",	do_clanlist,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "=",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "clanlist",	do_clanlist,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "clanrecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "deaf",		do_deaf,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "emote",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.67 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.68 1998-10-02 08:13:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1881,10 +1881,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	victim->comm = ch->comm;
 	victim->lines = ch->lines;
 	char_puts("Ok.\n\r", victim);
-	return;
 }
-
-
 
 void do_return(CHAR_DATA *ch, const char *argument)
 {

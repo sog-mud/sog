@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.96 1998-10-02 04:48:24 fjoe Exp $
+ * $Id: act_move.c,v 1.97 1998-10-02 08:13:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2692,7 +2692,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act_mlputs(ch, NULL, NULL, TO_ROOM, POS_RESTING, clan->msg_prays);
+	act(clan->msg_prays, ch, NULL, NULL, TO_ROOM);
 	
 	if ((location = get_room_index(clan->recall_vnum)) == NULL) {
 		char_puts("You are completely lost.\n\r", ch);
@@ -2710,7 +2710,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->move /= 2;
-	act_mlputs(ch, NULL, NULL, TO_ROOM, POS_RESTING, clan->msg_vanishes);
+	act(clan->msg_vanishes, ch, NULL, NULL, TO_ROOM);
 	char_from_room(ch);
 	char_to_room(ch, location);
 	act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.28 1998-09-29 01:26:10 fjoe Exp $
+ * $Id: note.c,v 1.29 1998-10-02 08:13:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -399,11 +399,11 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 	if (IS_IMMORTAL(ch) && is_name("imm", pnote->to_list))
 		return TRUE;
 
-	if (is_name(ch->name, pnote->to_list))
+	if (is_name_raw(ch->name, pnote->to_list, str_cmp))
 		return TRUE;
 
 	if ((clan = clan_lookup(ch->clan))
-	&&  is_name(clan->name, pnote->to_list))
+	&&  is_name_raw(clan->name, pnote->to_list, str_cmp))
 		return TRUE;
 
 	return FALSE;
