@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.22 1998-05-27 08:47:28 fjoe Exp $
+ * $Id: quest.c,v 1.23 1998-05-27 17:48:52 efdi Exp $
  */
 
 /***************************************************************************
@@ -520,31 +520,30 @@ void do_quest(CHAR_DATA *ch, char *argument)
 						pracreward);
 					send_to_char(buf, ch);
 					ch->practice += pracreward;
-				}
-
-				cancel_quest(ch);
-				ch->pcdata->questtime = -5;
-				ch->gold += reward;
-				ch->pcdata->questpoints += pointreward;
-
-				return;
-			} else if (ch->pcdata->questobj > 0 
-				   && ch->pcdata->questtime > 0) {
-				bool obj_found = FALSE;
-
-				for (obj = ch->carrying; obj != NULL; obj= obj_next) {
-					obj_next = obj->next_content;
-
-					if (obj != NULL 
-				   &&obj->pIndexData->vnum==ch->pcdata->questobj
-				   && strstr(obj->extra_descr->description, 
-						     ch->name) != NULL) {
-						obj_found = TRUE;
-						break;
 					}
-				}
-				if (obj_found == TRUE) {
-					int reward, pointreward, pracreward;
+
+					cancel_quest(ch);
+					ch->pcdata->questtime = -5;
+					ch->gold += reward;
+					ch->pcdata->questpoints += pointreward;
+
+					return;
+				} else if (ch->pcdata->questobj > 0 
+				   && ch->pcdata->questtime > 0) {
+					bool obj_found = FALSE;
+
+					for (obj = ch->carrying; obj != NULL;
+						 obj= obj_next) {
+						obj_next = obj->next_content;
+
+if (obj != NULL && obj->pIndexData->vnum == ch->pcdata->questobj && strstr(obj->extra_descr->description, ch->name) != NULL) {
+							obj_found = TRUE;
+							break;
+						}
+					}
+					if (obj_found == TRUE) {
+						int reward, pointreward, 
+							pracreward;
 
 					reward=number_range(350,20 * ch->level);
 					pointreward = number_range(15,40);
@@ -927,20 +926,17 @@ void quest_update(void)
 		if (IS_NPC(ch)) 
 			continue;
 		if (ch->pcdata->questtime < 0) {
-			ch->pcdata->questtime++;
 
-			if (ch->pcdata->questtime == 0) {
+			if (!++ch->pcdata->questtime) {
 				send_to_char(msg(QUEST_YOU_MAY_NOW_QUEST_AGAIN,
 						 ch), ch);
 				return;
 			}
 		} else if (IS_QUESTOR(ch)) {
-			if (--ch->pcdata->questtime <= 0) {
+			if (!--ch->pcdata->questtime) {
 				send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
 				cancel_quest(ch);
-			}
-			if (ch->pcdata->questtime > 0 
-			    && ch->pcdata->questtime < 6) {
+			} else if (ch->pcdata->questtime < 6) {
 				send_to_char(msg(QUEST_BETTER_HURRY, ch), ch);
 				return;
 			}
