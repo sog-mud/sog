@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.231 1999-05-18 14:15:25 fjoe Exp $
+ * $Id: act_info.c,v 1.232 1999-05-18 16:10:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1810,10 +1810,10 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 		if (!can_see(ch, wch))
 			continue;
 
-		count++;
-		if (!str_prefix(arg,wch->name)) {
+		if (!str_prefix(arg, wch->name)) {
 			if (output == NULL)
 				output = buf_new(-1);
+			count++;
 			do_who_raw(ch, wch, output);
 		}
 	}
