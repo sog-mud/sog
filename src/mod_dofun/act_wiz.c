@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.37 1998-07-11 22:09:10 fjoe Exp $
+ * $Id: act_wiz.c,v 1.38 1998-07-13 11:08:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4088,7 +4088,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		char_puts("    str int wis dex con cha sex class level\n\r",ch);
 		char_puts("    race gold hp mana move practice align\n\r",	ch);
 		char_puts("    train thirst drunk full hometown ethos\n\r",	ch);
-		char_puts("    pumped\n\r", ch);
+		char_puts("    pumped noghost\n\r", ch);
 
 /*** Added By KIO ***/
 		char_puts("    questp questt relig bloodlust desire security\n\r",	ch);
@@ -4563,12 +4563,19 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_prefix(arg2, "noghost")) {
+		if (IS_NPC(victim)) {
+			char_puts("Not on NPC.\n\r", ch);
+			return;
+		}
+		REMOVE_BIT(victim->act, PLR_GHOST);
+		char_puts("Ok.\n\r", ch);
+	}
 
 	/*
 	 * Generate usage message.
 	 */
 	do_mset(ch, "");
-	return;
 }
 
 

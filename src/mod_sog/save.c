@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.37 1998-07-12 11:26:08 efdi Exp $
+ * $Id: save.c,v 1.38 1998-07-13 11:09:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -199,8 +199,13 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fprintf(fp, "Silv %d\n", 0);
 	fprintf(fp, "Exp  %d\n", ch->exp);
 	if (ch->act != 0)
-		fprintf(fp, "Act  %s\n",
-			format_flags(ch->act & ~(PLR_NOEXP | PLR_CHANGED_AFF)));
+		if (IS_NPC(ch))
+			fprintf(fp, "Act  %s\n", format_flags(ch->act));
+		else
+			fprintf(fp, "Act  %s\n", 
+				format_flags(ch->act & ~(PLR_NOEXP |
+							 PLR_CHANGED_AFF |
+							 PLR_GHOST)));
 
 	if (ch->affected_by != 0) {
 		if (IS_NPC(ch))
@@ -593,6 +598,7 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	d->character = ch;
 	ch->desc = d;
 	ch->name = str_dup(name);
+	ch->name[0] = UPPER(ch->name[0]);
 	ch->id = get_pc_id();
 	ch->race = race_lookup("human");
 	ch->pcdata->race = ch->race;
@@ -814,7 +820,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'A':
-			KEY("Act", ch->act, fread_flags(fp));
+			KEY("Act", ch->act, fread_flags(fp) & ~PLR_GHOST);
 			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
 			KEY("AfBy", ch->affected_by, fread_flags(fp));
 			KEY("Alignment", ch->alignment, fread_number(fp));

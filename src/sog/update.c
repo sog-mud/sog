@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.43 1998-07-13 00:22:16 fjoe Exp $
+ * $Id: update.c,v 1.44 1998-07-13 11:09:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -589,7 +589,7 @@ void mobile_update(void)
 			ch->pumped = FALSE;
 			if (!IS_NPC(ch) && ch->desc != NULL
 			&&  ch->desc->pString == NULL 
-			&&  (IS_SET(ch->act, PLR_GHOST) ||
+			&&  (ch->last_death_time == -1 ||
 			     ch->last_death_time < ch->last_fight_time))
 				char_nputs(YOU_SETTLE_DOWN, ch);
 		}
