@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.32 1998-07-14 07:47:44 fjoe Exp $
+ * $Id: spellfun.c,v 1.33 1998-07-15 08:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1153,7 +1153,7 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		      return;
 
 		    if (IS_AFFECTED(vch,AFF_CALM) || IS_AFFECTED(vch,AFF_BERSERK)
-		    ||  is_affected(vch,skill_lookup("frenzy")))
+		    ||  is_affected(vch, gsn_frenzy))
 		      return;
 
 		    send_to_char("A wave of calm passes over you.\n\r",vch);
@@ -1271,7 +1271,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		found = TRUE;
 	}
 
-	if (check_dispel(level,victim,skill_lookup("frenzy")))
+	if (check_dispel(level,victim,gsn_frenzy))
 	{
 		act("$n no longer looks so wild.",victim,NULL,NULL,TO_ROOM);;
 		found = TRUE;
@@ -2356,7 +2356,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	    found = TRUE;
 	}
  
-	if (check_dispel(level,victim,skill_lookup("frenzy")))
+	if (check_dispel(level,victim, gsn_frenzy))
 	{
 	    act("$n no longer looks so wild.",victim,NULL,NULL,TO_ROOM);;
 	    found = TRUE;
@@ -3515,11 +3515,10 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
 	int dam;
-	int bless_num, curse_num, frenzy_num;
+	int bless_num, curse_num;
 
 	bless_num = skill_lookup("bless");
 	curse_num = skill_lookup("curse");
-	frenzy_num = skill_lookup("frenzy");
 
 	act("$n utters a word of divine power!",ch,NULL,NULL,TO_ROOM);
 	send_to_char("You utter a word of divine power.\n\r",ch);
@@ -3533,7 +3532,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch)))
 		{
 		  send_to_char("You feel full more powerful.\n\r",vch);
-		  spell_frenzy(frenzy_num,level,ch,(void *) vch,TARGET_CHAR);
+		  spell_frenzy(gsn_frenzy,level,ch,(void *) vch,TARGET_CHAR);
 		  spell_bless(bless_num,level,ch,(void *) vch,TARGET_CHAR);
 		}
 

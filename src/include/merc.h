@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.51 1998-07-14 12:29:40 fjoe Exp $
+ * $Id: merc.h,v 1.52 1998-07-15 08:47:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2505,6 +2505,7 @@ extern int  gsn_make_bow;
 extern int  gsn_blindness_dust;
 extern int  gsn_poison_smoke;
 extern int  gsn_mastering_spell;
+extern int  gsn_frenzy;
 
 /*
  * Utility macros.

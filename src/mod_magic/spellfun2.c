@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.26 1998-07-14 07:47:44 fjoe Exp $
+ * $Id: spellfun2.c,v 1.27 1998-07-15 08:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1682,7 +1682,7 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  spell = skill_lookup("haste");
 	  break;
 	case 2:
-	  spell = skill_lookup("frenzy");
+	  spell = gsn_frenzy;
 	  break;
 	case 3:
 	  spell = skill_lookup("create spring");

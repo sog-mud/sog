@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.18 1998-07-14 07:47:48 fjoe Exp $
+ * $Id: obj_prog.c,v 1.19 1998-07-15 08:47:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -735,7 +735,7 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 			obj_cast_spell(skill_lookup("cure disease"),
 				       MAX_LEVEL, ch, ch, obj);
   		if (IS_AFFECTED(ch, AFF_POISON))
-  			obj_cast_spell(skill_lookup("cure poison"),
+  			obj_cast_spell(gsn_cure_poison,
 				       MAX_LEVEL, ch, ch, obj);
 		break;
 	}
@@ -754,7 +754,7 @@ int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		break;
 	case 1:
 		char_nputs(TATTOO_GLOWS_RED, ch);
-		obj_cast_spell(skill_lookup("blue fire"),
+		obj_cast_spell(gsn_bluefire,
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -947,7 +947,7 @@ int fight_prog_tattoo_athena(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		case 0:
 			if (IS_AFFECTED(ch,AFF_BERSERK)
 			||  is_affected(ch,gsn_berserk)
-			||  is_affected(ch,skill_lookup("frenzy"))) {
+			||  is_affected(ch,gsn_frenzy)) {
 				send_to_char("You get a little madder.\n\r",ch);
 				return 0;
 			}
@@ -1043,7 +1043,7 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		break;
 	case 2:
 		char_nputs(TATTOO_GLOWS_RED, ch);
-		obj_cast_spell(skill_lookup("web"), ch->level, ch, ch->fighting,
+		obj_cast_spell(gsn_web, ch->level, ch, ch->fighting,
 			       obj);
 		break;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.19 1998-07-14 07:47:47 fjoe Exp $
+ * $Id: martial_art.c,v 1.20 1998-07-15 08:47:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -164,7 +164,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 
 	if (IS_AFFECTED(ch, AFF_BERSERK)
 	||  is_affected(ch, gsn_berserk)
-	||  is_affected(ch, skill_lookup("frenzy"))) {
+	||  is_affected(ch, gsn_frenzy)) {
 		send_to_char("You get a little madder.\n\r", ch);
 		return;
 	}
@@ -2604,7 +2604,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	act("$n calls the power of 10 tigers!.",ch,NULL,NULL,TO_ROOM);
 
 	if (IS_AFFECTED(ch,AFF_BERSERK) || is_affected(ch,gsn_berserk) ||
-	is_affected(ch,gsn_tiger_power) || is_affected(ch,skill_lookup("frenzy")))
+	is_affected(ch,gsn_tiger_power) || is_affected(ch,gsn_frenzy))
 	{
 		send_to_char("You get a little madder.\n\r",ch);
 		return;
