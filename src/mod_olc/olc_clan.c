@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.26 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: olc_clan.c,v 1.27 1999-05-22 00:08:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -185,7 +185,7 @@ OLC_FUN(claned_show)
 		buf_printf(output, "Item:        [%d]\n",
 			   clan->obj_vnum);
 	if (clan->mark_vnum) 
-		buf_printf(output, "Mark:	 [%d]\n",
+		buf_printf(output, "Mark:        [%d]\n",
 			   clan->mark_vnum);
 	if (clan->altar_vnum)
 		buf_printf(output, "Altar:       [%d]\n",

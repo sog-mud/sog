@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.40 1999-05-20 19:59:01 fjoe Exp $
+ * $Id: clan.c,v 1.41 1999-05-22 00:08:50 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -73,7 +73,7 @@ int cln_lookup(const char *name)
 		return -1;
 
 	for (cln = 0; cln < clans.nused; cln++)
-		if (!str_cmp(name, CLAN(cln)->name))
+		if (!str_prefix(name, CLAN(cln)->name))
 			return cln;
 
 	return -1;
@@ -122,21 +122,24 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *mark;
 	clan_t *clan = NULL;
 
-	if ((ch->clan == 0) || ((clan=clan_lookup(ch->clan)) == NULL)) {
+	if ((ch->clan == 0) || ((clan = clan_lookup(ch->clan)) == NULL)) {
 		char_puts("You are not in clan.\n", ch);
 		return;
 	}
+
 	if (!clan->mark_vnum) {
 		char_puts ("Your clan do not have any mark.\n", ch);
 		return;
 	}
-	if ((mark=get_eq_char(ch, WEAR_CLANMARK))!=NULL) {
+
+	if ((mark = get_eq_char(ch, WEAR_CLANMARK)) != NULL) {
 		obj_from_char(mark);
 		extract_obj(mark, 0);
 	}
+
 	mark = create_obj(get_obj_index(clan->mark_vnum), 0);
-	obj_to_char (mark, ch);
-	equip_char (ch, mark, WEAR_CLANMARK);
+	obj_to_char(mark, ch);
+	equip_char(ch, mark, WEAR_CLANMARK);
 }
 
 void do_petition(CHAR_DATA *ch, const char *argument)
@@ -614,15 +617,23 @@ bool clan_item_ok(int cln)
 	OBJ_DATA* obj;
 	int room_in;
 	int i;
-	if (!(clan=clan_lookup(cln)) || !(clan->obj_ptr)) 
+
+	if (!(clan = clan_lookup(cln)) || !(clan->obj_ptr)) 
 		return TRUE;
-	for (obj=clan->obj_ptr; obj->in_obj!=NULL; obj=obj->in_obj);
+
+	for (obj = clan->obj_ptr; obj->in_obj != NULL; obj = obj->in_obj)
+		;
+
 	if (obj->in_room) 
 		room_in=obj->in_room->vnum;
 	else 
 		return TRUE;
-	if (room_in == clan->altar_vnum) return TRUE;
-	for (i=0; i < clans.nused; i++)
-		if (room_in == clan_lookup(i)->altar_vnum) return FALSE;
+
+	if (room_in == clan->altar_vnum)
+		return TRUE;
+
+	for (i = 0; i < clans.nused; i++)
+		if (room_in == clan_lookup(i)->altar_vnum)
+			return FALSE;
 	return TRUE;
 }
