@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.74 1999-02-11 16:40:29 fjoe Exp $
+ * $Id: spellfun2.c,v 1.75 1999-02-12 10:33:28 kostik Exp $
  */
 
 /***************************************************************************
@@ -196,7 +196,7 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	int i,dam=0;
-	OBJ_DATA *tattoo; 
+	OBJ_DATA *tattoo, *clanmark; 
 	
 	if (saves_spell(level, victim, DAM_MENTAL)
 	||  number_bits(1) == 0
@@ -228,6 +228,8 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	tattoo = get_eq_char(victim, WEAR_TATTOO); /* keep tattoos for later */
 	if (tattoo != NULL)
 		obj_from_char(tattoo);
+	if ((clanmark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) 
+		obj_from_char(clanmark);
 
 	victim->gold = 0;
 	victim->silver = 0;
@@ -267,6 +269,11 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (tattoo != NULL) {
 		obj_to_char(tattoo, victim);
 		equip_char(victim, tattoo, WEAR_TATTOO);
+	}
+
+	if (clanmark != NULL) {
+		obj_to_char(clanmark, victim);
+		equip_char(victim, clanmark, WEAR_CLANMARK);
 	}
 
 	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch->next)

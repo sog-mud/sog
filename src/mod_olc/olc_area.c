@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.31 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_area.c,v 1.32 1999-02-12 10:33:36 kostik Exp $
  */
 
 #include <stdio.h>
@@ -440,6 +440,7 @@ VALIDATE_FUN(validate_move)
 		MOVE(clan->altar_vnum);
 		MOVE(clan->recall_vnum);
 		MOVE(clan->obj_vnum);
+		MOVE(clan->mark_vnum);
 		if (touched)
 			touch_clan(clan);
 		else

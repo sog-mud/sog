@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.50 1999-02-11 16:40:33 fjoe Exp $
+ * $Id: olc_save.c,v 1.51 1999-02-12 10:33:36 kostik Exp $
  */
 
 /**************************************************************************
@@ -943,6 +943,8 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 		fprintf(fp, "Recall %d\n", clan->recall_vnum);
 	if (clan->obj_vnum)
 		fprintf(fp, "Item %d\n", clan->obj_vnum);
+	if (clan->mark_vnum)
+		fprintf(fp, "Mark %d\n", clan->mark_vnum);
 	if (clan->altar_vnum)
 		fprintf(fp, "Altar %d\n", clan->altar_vnum);
 	fwrite_string(fp, "MsgPrays", clan->msg_prays);

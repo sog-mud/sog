@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.19 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_clan.c,v 1.20 1999-02-12 10:33:36 kostik Exp $
  */
 
 #include <stdio.h>
@@ -48,6 +48,7 @@ DECLARE_OLC_FUN(claned_msg_vanishes	);
 DECLARE_OLC_FUN(claned_flags		);
 DECLARE_OLC_FUN(claned_skill		);
 DECLARE_OLC_FUN(claned_item		);
+DECLARE_OLC_FUN(claned_mark		);
 DECLARE_OLC_FUN(claned_altar		);
 DECLARE_OLC_FUN(claned_plist		);
 
@@ -72,6 +73,7 @@ OLC_CMD_DATA olc_cmds_clan[] =
 	{ "flags",	claned_flags,		clan_flags		},
 	{ "skill",	claned_skill					},
 	{ "item",	claned_item					},
+	{ "mark",	claned_mark					},
 	{ "altar", 	claned_altar					},
 	{ "plist",	claned_plist					},
 
@@ -186,6 +188,9 @@ OLC_FUN(claned_show)
 	if (clan->obj_vnum)
 		buf_printf(output, "Item:        [%d]\n",
 			   clan->obj_vnum);
+	if (clan->mark_vnum) 
+		buf_printf(output, "Mark:	 [%d]\n",
+			   clan->mark_vnum);
 	if (clan->altar_vnum)
 		buf_printf(output, "Altar:       [%d]\n",
 			   clan->altar_vnum);
@@ -246,6 +251,13 @@ OLC_FUN(claned_item)
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_number(ch, argument, claned_item, &clan->obj_vnum);
+}
+
+OLC_FUN(claned_mark)
+{
+	CLAN_DATA *clan;
+	EDIT_CLAN(ch, clan);
+	return olced_number(ch, argument, claned_mark, &clan->mark_vnum);
 }
 
 OLC_FUN(claned_altar)

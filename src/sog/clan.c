@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.30 1999-02-10 14:57:35 fjoe Exp $
+ * $Id: clan.c,v 1.31 1999-02-12 10:33:28 kostik Exp $
  */
 
 #include <sys/time.h>
@@ -117,6 +117,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	int cn = 0;
 	CLAN_DATA *clan = NULL;
 	char arg1[MAX_STRING_LENGTH];
+	OBJ_DATA *mark;
 
 	if (IS_NPC(ch))
 		return;	
@@ -204,6 +205,15 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				    clan->name);
 			char_printf(victim, "You are now one of %s!\n",
 				    clan->name);
+			if ((mark = get_eq_char(victim, WEAR_CLANMARK)) != NULL) {
+				obj_from_char(mark);
+				extract_obj(mark);
+			}
+			if (clan->mark_vnum) {
+				mark = create_obj(get_obj_index(clan->mark_vnum), 0);
+				obj_to_char(mark, victim);
+				equip_char(victim, mark, WEAR_CLANMARK);
+			};
 			return;
 		}
 
@@ -229,6 +239,12 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 					"anymore.\n", clan->name);
 			char_printf(victim, "You are not a member of %s "
 					    "anymore.\n", clan->name);
+
+			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
+				obj_from_char(mark);
+				extract_obj(mark);
+			}
+
 			return;
 		}
 
@@ -503,7 +519,7 @@ void do_item(CHAR_DATA* ch, const char* argument)
 			mlstr_mval(clan->obj_ptr->short_descr),
 			mlstr_mval(in_obj->carried_by->in_room->name),
 			PERS(in_obj->carried_by, ch));
-	else {
+	else if (in_obj->in_room) {
 		char_printf(ch, "%s is in %s.\n",
 			mlstr_mval(clan->obj_ptr->short_descr),
 			mlstr_mval(in_obj->in_room->name));
@@ -512,6 +528,8 @@ void do_item(CHAR_DATA* ch, const char* argument)
 				char_printf(ch, "It is altar of %s.\n",
 					    CLAN(cn)->name);
 	}
+	else char_printf (ch, "%s is somethere.\n",
+			mlstr_mval(clan->obj_ptr->short_descr));
 }
 
 bool clan_item_ok(int cn)

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.127 1999-02-11 16:40:28 fjoe Exp $
+ * $Id: fight.c,v 1.128 1999-02-12 10:33:28 kostik Exp $
  */
 
 /***************************************************************************
@@ -1996,7 +1996,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	CHAR_DATA *tmp_ch;
 	OBJ_DATA *obj,*obj_next;
 	int i;
-	OBJ_DATA *tattoo;
+	OBJ_DATA *tattoo, *clanmark;
 
 	for (obj = victim->carrying;obj != NULL;obj = obj_next) {
 		obj_next = obj->next_content;
@@ -2019,8 +2019,11 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	death_cry_org(victim, part);
 
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
+	clanmark = get_eq_char(victim, WEAR_CLANMARK);
 	if (tattoo != NULL)
 		obj_from_char(tattoo);
+	if (clanmark != NULL)
+		obj_from_char(clanmark);
 	make_corpse(victim);
 
 	if (IS_NPC(victim)) {
@@ -2059,6 +2062,11 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	if (tattoo != NULL) {
 		obj_to_char(tattoo, victim);
 		equip_char(victim, tattoo, WEAR_TATTOO);
+	}
+
+	if (clanmark != NULL) {
+		obj_to_char(clanmark, victim);
+		equip_char(victim, clanmark, WEAR_CLANMARK);
 	}
 
 	if (victim->level > 1)

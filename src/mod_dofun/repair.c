@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.15 1998-12-23 16:11:18 fjoe Exp $
+ * $Id: repair.c,v 1.16 1999-02-12 10:33:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -386,7 +386,8 @@ void check_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		||  check_material(destroy,"platinum") 
 		||  destroy->pIndexData->limit != -1
 		||  (i == WEAR_WIELD || i== WEAR_SECOND_WIELD ||
-		     i == WEAR_TATTOO || i == WEAR_STUCK_IN))
+		     i == WEAR_TATTOO || i == WEAR_STUCK_IN ||
+		     i == WEAR_CLANMARK ))
 			continue;
 	
 		if (is_metal(wield)) {
