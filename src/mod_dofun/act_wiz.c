@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.204 1999-12-01 09:07:06 fjoe Exp $
+ * $Id: act_wiz.c,v 1.205 1999-12-02 13:09:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3373,34 +3373,49 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "hp"))
-	{
-		if (value < -10 || value > 30000)
-		{
-		    char_puts("Hp range is -10 to 30,000 hit points.\n", ch);
-		    return;
+	if (!str_prefix(arg2, "hp")) {
+		int delta = value - victim->perm_hit;
+
+		if (victim->perm_hit + delta < 1
+		||  victim->perm_hit + delta > 30000) {
+			char_puts("perm_hit will be out of range 1..30,000.\n", ch);
+			return;
 		}
-		victim->perm_hit = value;
+
+		victim->perm_hit += delta;
+		victim->max_hit += delta;
+		victim->hit = victim->max_hit;
+		update_pos(victim);
 		return;
 	}
 
-	if (!str_prefix(arg2, "mana"))
-	{
-		if (value < 0 || value > 60000)
-		{
-		    char_puts("Mana range is 0 to 60,000 mana points.\n", ch);
-		    return;
+	if (!str_prefix(arg2, "mana")) {
+		int delta = value - victim->perm_mana;
+
+		if (victim->perm_mana + delta < 1
+		||  victim->perm_mana + delta > 60000) {
+			char_puts("perm_mana will be out of range 1..60,000.\n", ch);
+			return;
 		}
-		victim->perm_mana = value;
+
+		victim->perm_mana += delta;
+		victim->max_mana += delta;
+		victim->mana = victim->max_mana;
 		return;
 	}
 
 	if (!str_prefix(arg2, "move")) {
-		if (value < 0 || value > 60000) {
-			char_puts("Move range is 0 to 60,000 move points.\n", ch);
+		int delta = value - victim->perm_move;
+
+		if (victim->perm_move + delta < 0
+		||  victim->perm_move + delta > 60000) {
+			char_puts("perm_move will be out of range 1..60,000.\n", ch);
 			return;
 		}
-		victim->perm_move = value;
+
+		victim->perm_move += delta;
+		victim->max_move += delta;
+		victim->move = victim->max_move;
 		return;
 	}
 

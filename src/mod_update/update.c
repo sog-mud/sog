@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.172 1999-12-01 09:07:13 fjoe Exp $
+ * $Id: update.c,v 1.173 1999-12-02 13:09:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,8 +108,6 @@ void advance_level(CHAR_DATA *ch)
 		return;
 	}
 
-	update_skills(ch);
-
 	add_hp = number_range(min_hit_gain(ch), max_hit_gain(ch));
 	add_mana = number_range(min_mana_gain(ch), max_mana_gain(ch));
 	add_move = number_range(min_move_gain(ch), max_move_gain(ch));
@@ -121,7 +119,6 @@ void advance_level(CHAR_DATA *ch)
 	ch->perm_hit += add_hp;
 	ch->perm_mana += add_mana;
 	ch->perm_move += add_move;
-
 
 	if (PC(ch)->plevels > 0) {
 		PC(ch)->plevels--;
@@ -208,14 +205,25 @@ void advance(CHAR_DATA *victim, int level)
 	 */
 	if (level <= victim->level) {
 		int temp_prac;
+		int delta;
 
 		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n", victim);
 		temp_prac = PC(victim)->practice;
 		victim->level = 1;
 		PC(victim)->exp	= base_exp(victim);
-		SET_HIT(victim, 20);
-		SET_MANA(victim, 100);
-		SET_MOVE(victim, 100);
+
+		delta = 20 - victim->perm_hit;
+		victim->perm_hit += delta;
+		victim->max_hit += delta;
+
+		delta = 100 - victim->perm_mana;
+		victim->perm_mana += delta;
+		victim->max_mana += delta;
+
+		delta = 100 - victim->perm_move;
+		victim->perm_move += delta;
+		victim->max_move += delta;
+
 		advance_level(victim);
 		PC(victim)->practice= temp_prac;
 	} else 
@@ -227,6 +235,8 @@ void advance(CHAR_DATA *victim, int level)
 		victim->level++;
 		advance_level(victim);
 	}
+
+	update_skills(victim);
 	PC(victim)->train	= tra;
 	PC(victim)->practice= pra;
 	char_save(victim, 0);
@@ -264,6 +274,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		wiznet("$N has attained level $j!",
 			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
 		advance_level(ch);
+		update_skills(ch);
 		char_save(ch, 0);
 	}
 }
