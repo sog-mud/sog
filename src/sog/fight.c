@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.244 1999-12-18 12:20:07 fjoe Exp $
+ * $Id: fight.c,v 1.245 1999-12-18 12:25:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2723,10 +2723,12 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	const char *msg_vict = NULL;
 	const char *msg_notvict;
 	gmlstr_t *dam_noun = NULL;
+	int act_flags = 0;
 
 	if (dam == 0) {
 		vs = "miss";
 		vp = "misses";
+		act_flags = ACT_VERBOSE;
 	} else if (dam <= 4) {
 		vs = "{cscratch{x";
 		vp = "{cscratches{x";
@@ -2877,16 +2879,16 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, dam_noun,
-			  TO_ROOM, POS_RESTING);
+			  TO_ROOM | act_flags, POS_RESTING);
 		act_puts3(msg_char, ch, vs, NULL, dam_noun,
-			  TO_CHAR, POS_RESTING);
+			  TO_CHAR | act_flags, POS_RESTING);
 	} else {
 		act_puts3(msg_notvict, ch, vp, victim, dam_noun,
-			  TO_NOTVICT, POS_RESTING);
+			  TO_NOTVICT | act_flags, POS_RESTING);
 		act_puts3(msg_char, ch, vs, victim, dam_noun,
-			  TO_CHAR, POS_RESTING);
+			  TO_CHAR | act_flags, POS_RESTING);
 		act_puts3(msg_vict, ch, vp, victim, dam_noun,
-			  TO_VICT, POS_RESTING);
+			  TO_VICT | act_flags, POS_RESTING);
 	}
 }
 
