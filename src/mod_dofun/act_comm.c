@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.10 2000-04-20 08:01:03 osya Exp $
+ * $Id: act_comm.c,v 1.187.2.11 2000-04-26 11:10:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,40 +402,41 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 
 void do_immtalk(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *vch;
-	DESCRIPTOR_DATA *d;
+	CHAR_DATA *vch, *vch_next;
+	CHAR_DATA *orig;
 	int flags;
 
+	orig = GET_ORIGINAL(ch);
 	if (argument[0] == '\0') {
-		TOGGLE_BIT(ch->comm, COMM_NOWIZ);
-		if (IS_SET(ch->comm, COMM_NOWIZ))
-			char_puts("Immortal channel is now OFF\n",ch);
+		TOGGLE_BIT(orig->comm, COMM_NOWIZ);
+		if (IS_SET(orig->comm, COMM_NOWIZ))
+			char_puts("Immortal channel is now OFF\n", ch);
 		else
-			char_puts("Immortal channel is now ON\n",ch);
+			char_puts("Immortal channel is now ON\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(orig->comm, COMM_NOCHANNELS)) {
 		char_puts("The gods have revoked your channel privileges.\n", ch);
 		return;
 	}
 	
-	if (IS_SET(ch->comm, COMM_NOWIZ))
+	if (IS_SET(orig->comm, COMM_NOWIZ))
 		do_immtalk(ch, str_empty);
 
-	vch = GET_ORIGINAL(ch);
-	flags = ACT_SPEECH(ch) & ~ACT_STRANS;
-	act_puts("$n: {C$t{x", vch, argument, NULL, TO_CHAR | flags, POS_DEAD);
+	flags = ACT_SPEECH(orig) & ~ACT_STRANS;
+	act_puts("$n: {C$t{x", orig, argument, NULL, TO_CHAR | flags, POS_DEAD);
 
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *victim = d->original ? d->original : d->character;
+	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
+		CHAR_DATA *victim = GET_ORIGINAL(vch);
+		vch_next = vch->next;
 
-		if (d->connected == CON_PLAYING
-		&&  IS_IMMORTAL(victim)
-		&&  !IS_SET(victim->comm, COMM_NOWIZ)) {
-			act_puts("$n: {C$t{x", vch, argument, d->character,
-				 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
-		}
+		if (!IS_IMMORTAL(victim)
+		||  IS_SET(victim->comm, COMM_NOWIZ))
+			continue;
+
+		act_puts("$n: {C$t{x", orig, argument, vch,
+			 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 	}
 }
 
@@ -615,31 +616,33 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 
 void do_pray(CHAR_DATA *ch, const char *argument)
 {
-	DESCRIPTOR_DATA *d;
+	CHAR_DATA *vch, *vch_next;
 
 	if (IS_NPC(ch))
 		return;
 
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
-		 char_puts("The gods refuse to listen to you right now.",ch);
+		 char_puts("The gods refuse to listen to you right now.", ch);
 		 return;
 	}
-
-	act_puts("You pray for '$t'",
-		 ch, argument, NULL, TO_CHAR, POS_DEAD);
 
 	if (argument[0] == '\0')
 		argument = "any god";
 
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *victim = d->original ? d->original : d->character;
+	act_puts("You PRAY for '$t'",
+		 ch, argument, NULL, TO_CHAR, POS_DEAD);
 
-		if (d->connected == CON_PLAYING
-		&&  IS_IMMORTAL(victim)
-		&&  !IS_SET(victim->comm, COMM_NOWIZ))
-			act_puts("{W$n{x is PRAYING for '{G$t{x'",
-				 ch, argument, d->character,
-				 TO_VICT | ACT_TOBUF, POS_DEAD);
+	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
+		CHAR_DATA *victim = GET_ORIGINAL(vch);
+		vch_next = vch->next;
+
+		if (!IS_IMMORTAL(victim)
+		||  IS_SET(victim->comm, COMM_NOWIZ))
+			continue;
+
+		act_puts("{W$n{x is PRAYING for '{G$t{x'",
+			 ch, argument, vch,
+			 TO_VICT | ACT_TOBUF, POS_DEAD);
 	 }
 }
 
