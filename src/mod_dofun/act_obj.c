@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.120 1999-02-17 07:53:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.121 1999-02-17 11:30:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2905,8 +2905,8 @@ void do_value(CHAR_DATA * ch, const char *argument)
 	silver = cost % 100;
 	strnzcpy(buf2, GETMSG("silver", ch->lang), sizeof(buf2));
 	snprintf(buf, sizeof(buf),
-		 "$n tells you '{GI'll give you %d %s and $J gold "
-		 "$qJ{coins} for $p.{x'",
+		 GETMSG("$n tells you '{GI'll give you %d %s and $J gold "
+		 	"$qJ{coins} for $p.{x'", ch->lang),
 		 silver, word_quantity(ch->lang, buf2, silver));
 	act_puts3(buf, keeper, obj, ch, (const void*) (cost / 100),
 		  TO_VICT, POS_DEAD);
