@@ -1,3 +1,7 @@
+#
+# $Id: russian.lang,v 1.79 1998-06-28 04:43:28 fjoe Exp $
+#
+
 NOTHING  		"Ничего.\n\r",	
 EQ_USED_AS_LIGHT 	"<освещает>             "
 EQ_WORN_ON_FINGER_1 	"<надето на палец>      "
