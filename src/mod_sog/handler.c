@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.392 2004-02-21 20:03:46 fjoe Exp $
+ * $Id: handler.c,v 1.393 2004-02-22 21:30:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1831,7 +1831,6 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *fch;
-	CHAR_DATA *fch_next;
 	CHAR_DATA *mount;
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
@@ -2317,9 +2316,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	/*
 	 * move all the followers
 	 */
-	for (fch = in_room->people; fch; fch = fch_next) {
-		fch_next = fch->next_in_room;
-
+	foreach (fch, char_in_room(in_room)) {
 		if (fch->master != ch || fch->position != POS_STANDING
 		||  !can_see_room(fch, to_room))
 			continue;
@@ -2336,7 +2333,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 
 		act_puts("You follow $N.", fch, NULL, ch, TO_CHAR, POS_DEAD);
 		move_char(fch, door, 0);
-	}
+	} end_foreach(fch);
 
 	if (IS_EXTRACTED(ch))
 		return FALSE;
