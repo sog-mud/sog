@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.31 1998-06-23 17:22:18 efdi Exp $
+ * $Id: act_obj.c,v 1.32 1998-06-23 20:07:55 efdi Exp $
  */
 
 /***************************************************************************
@@ -222,6 +222,8 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		    + obj->value[1] * 2 / 5 > can_carry_w(ch)) {
 			act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
 				    CANT_CARRY_WEIGHT);
+			if (container)
+				obj_to_obj(obj, container);
 			return;
 		}
 		ch->silver += obj->value[0];
