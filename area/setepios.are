@@ -687,7 +687,6 @@ O 0 38002 0 38101	* armchair (Coridor)
 O 0 38001 0 38102	* big bed (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
-O 0 38012 0 38103	* Heras boots (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)
 M 0 38500 1 38500 1	* war-rawan (The Gates of Nightmare)
 E 0 38500 0 16		*	the spiked club named 'Skullsmasher': wielded
