@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.18 2001-03-11 07:23:46 cs Exp $
+ * $Id: spellfun.c,v 1.181.2.19 2001-04-25 09:49:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,11 +283,11 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo)
 			if (IS_NPC(vch)
 			&&  (IS_SET(vch->imm_flags, IMM_MAGIC) ||
 			     IS_SET(vch->pMobIndex->act, ACT_UNDEAD)))
-				return;
+				continue;
 
 			if (IS_AFFECTED(vch, AFF_CALM | AFF_BERSERK)
 			||  is_affected(vch, gsn_frenzy))
-				return;
+				continue;
 
 			char_puts("A wave of calm passes over you.\n", vch);
 			if (vch->fighting || vch->position == POS_FIGHTING)
