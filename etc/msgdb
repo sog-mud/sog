@@ -540,7 +540,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n gives you some herbs to eat.@rus $n $gn{дает} тебе пару побегов.~
 @eng $n glares at $N and says, '{GYe shall DIE!{x'@rus $n свирепо $gn{посмотрел} на $c6{$N} и произнес: "{GПриготовься умереть!{x"~
 @eng $n glares at you and says, '{GYe shall DIE!{x'@rus $n свирепо $gn{посмотрел} на тебя и произнес: "{GПриготовься умереть!{x"~
-@eng $n goes to sleep at $p.@rus $n $gn{ложится} спать за $c3{$p}.~
+@eng $n goes to sleep at $p.@rus $n $gn{ложится} спать около $c1{$p}.~
 @eng $n goes to sleep in $p.@rus $n $gn{ложится} спать в $c3{$p}.~
 @eng $n goes to sleep on $p.@rus $n $gn{ложится} спать на $c3{$p}.~
 @eng $n goes to sleep.@rus $n $gn{заснул}.~
@@ -3178,7 +3178,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You give life to $N's shadow!@rus Ты $gn{дал} жизнь тени $c1{$N}!~
 @eng You give the herbs to $N.@rus И $gn{отдал} их $c2{$N}.~
 @eng You glare at $N and say, '{GYe shall DIE!{x'@rus Ты свирепо $gn{посмотрел} на $c6{$N} и произнес: "{GПриготовься умереть!{x"~
-@eng You go to sleep at $p.@rus Ты ложишься спать за $c3{$p}.~
+@eng You go to sleep at $p.@rus Ты ложишься спать около $c1{$p}.~
 @eng You go to sleep in $p.@rus Ты ложишься спать в $c3{$p}.~
 @eng You go to sleep on $p.@rus Ты ложишься спать на $c3{$p}.~
 @eng You go to sleep.@rus Ты засыпаешь.~
