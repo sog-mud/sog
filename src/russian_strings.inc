@@ -4,8 +4,8 @@ char *strings_rus[] = {
 /* INFO_NOTHING */ 		"Ничего.\n\r",	
 
 /* EQ_USED_AS_LIGHT */		"<освещает>             ",
-/* EQ_WORN_ON_FINGER1 */	"<надето на палец>      ",
-/* EQ_WORN_ON_FINGER2 */	"<надето на палец>      ",
+/* EQ_WORN_ON_FINGER_1 */	"<надето на палец>      ",
+/* EQ_WORN_ON_FINGER_2 */	"<надето на палец>      ",
 /* EQ_WORN_AROUND_NECK_1 */	"<надето на шею>        ",
 /* EQ_WORN_AROUND_NECK_2 */	"<надето на шею>        ",
 /* EQ_WORN_ON_TORSO */		"<надето на тело>       ",
@@ -13,7 +13,7 @@ char *strings_rus[] = {
 /* EQ_WORN_ON_LEGS */		"<надето на ноги>       ",
 /* EQ_WORN_ON_FEET */		"<надето на ступни>     ",
 /* EQ_WORN_ON_HANDS */		"<надето на руки>       ",
-/* EQ_WORN_ON_ARMS */		"<натдето на плечи>     ",
+/* EQ_WORN_ON_ARMS */		"<надето на плечи>      ",
 /* EQ_WORN_AS_SHIELD */		"<щит>                  ",
 /* EQ_WORN_ABOUT_BODY */	"<накинуто сверху>      ",
 /* EQ_WORN_ABOUT_WAIST */	"<на талии>             ",
@@ -23,7 +23,7 @@ char *strings_rus[] = {
 /* EQ_HELD */			"<зажато в руке>        ",
 /* EQ_FLOATING_NEARBY */	"<кружится поблизости>  ",
 /* EQ_SCRATCHED_TATTOO */	"<татуировка>           ",
-/* EQ_DUAL_WIELDED */		"<dual wielded>         ",
+/* EQ_DUAL_WIELDED */		"<второе оружие>        ",
 /* EQ_STUCK_IN */		"<stuck in>             ",
 
 /* INFO_SLEEPING_AT */		" спит у %s.",

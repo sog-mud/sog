@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.13 1998-04-22 06:08:58 fjoe Exp $
+ * $Id: act_info.c,v 1.14 1998-04-24 17:06:06 efdi Exp $
  */
 
 /***************************************************************************
@@ -143,7 +143,7 @@ char *format_obj_to_char( OBJ_DATA *obj, CHAR_DATA *ch, bool fShort )
 	if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		strcat(buf, "(Magical) ");
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
-		strcat(buf, "(Glowing) ");
+		strcat(buf, "{W(Glowing){x ");
 	if (IS_OBJ_STAT(obj, ITEM_HUM))
 		strcat( buf, "(Humming) ");
 
