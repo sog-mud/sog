@@ -1,10 +1,10 @@
 #CLAN
 Name Invaders~
+SkillSpec 'clan_invaders'
 Item 95601
 Mark 95608
 Altar 95608
 Flags hidden~
-SkillSpec 'clan_invaders'
 End
 
 #$
