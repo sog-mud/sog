@@ -1650,7 +1650,7 @@ S
 O 908 fight_prog fight_prog_firegauntlets
 O 908 wear_prog wear_prog_firegauntlets
 O 908 remove_prog remove_prog_firegauntlets
-O 923 fight_prog fight_prog_vorbalblade
+O 923 fight_prog fight_prog_vorpalblade
 O 923 wear_prog wear_prog_excalibur
 O 901 fight_prog fight_prog_shockwave
 S
