@@ -219,7 +219,7 @@ A medium fish with pointy teeth is here,  swimming along peacefully.
 He has many medium sharp pointy teeth in his mouth.
 ~
 water fowl~
-AG 0 0 0
+AG J 0 0
 7 0 2d6+85 69d1+1 1d8+1 smash
 4 4 4 9
 EKN 0 0 0
@@ -248,7 +248,7 @@ Aw, the little fella must have been dumped here, all alone, to care for
 himself.  You should help him...
 ~
 water fowl~
-AG 0 0 0
+AG J 0 0
 5 0 2d6+60 49d1+1 1d6+1 bite
 5 5 5 9
 EKN 0 0 0
@@ -262,7 +262,7 @@ A happy guppy is here, being, well you know, HAPPY!
 He is almost as cute as the goldfish.  You should help him too.
 ~
 human~
-AG 0 0 0
+AG J 0 0
 5 0 2d6+60 49d1+1 1d6+1 punch
 5 5 5 9
 EKN 0 0 0
@@ -292,7 +292,7 @@ An UGLY bugbear is here, plotting who knows what.
 He looks evil, and mean.  You wonder what he is planning to do down here..
 ~
 bear~
-AG 0 -500 0
+AG J -500 0
 9 0 2d6+110 89d1+1 1d8+2 pierce
 2 2 2 9
 KN 0 0 0
@@ -350,7 +350,7 @@ His voice is clear and strong.  It makes you want to join in the song
 (and buy him dinner...)
 ~
 human~
-AG 0 0 0
+AGI 0 0 0
 10 0 2d7+121 99d1+1 2d4+2 punch
 1 1 1 8
 EKN 0 0 0
@@ -564,7 +564,7 @@ The Cook is here, dreaming up new recipes.
 He looks like one of his creampuffs.  To bad he doesn't know how to diet...
 ~
 human~
-AGT 0 1000 0
+AGT J 1000 0
 22 0 5d10+400 219d1+1 4d4+6 punch
 -5 -5 -5 7
 CDEKL 0 0 C
@@ -718,7 +718,7 @@ The baker of Gerighelm is here, selling things.
 He looks like a friendly old man who likes to bake.
 ~
 human~
-ABV 0 900 0
+ABVe 0 900 0
 50 0 1d1+2999 1d1+199 1d9+30 beating
 -25 -25 -25 -25
 CDF ABCD 0 0
@@ -733,7 +733,7 @@ The way she is pounding her anvil makes you want to be on his good side.
 The main reason, is that I doubt the anvil can take much more of her pounding.
 ~
 human~
-ABTV 0 900 0
+ABTVe 0 900 0
 50 10 1d1+2999 1d1+199 1d8+52 punch
 -25 -25 -25 -25
 CEIK ABCD 0 0
@@ -747,7 +747,7 @@ The Mage is here, selling things.
 He is a powerful old coot....
 ~
 human~
-ABV D 900 0
+ABVe D 900 0
 50 0 1d1+2999 1d1+999 1d8+42 magic
 -15 -15 -15 -15
 AF ABCD 0 0
@@ -761,7 +761,7 @@ The Pawn Shop owner is here selling and buying things.
 He looks almost like the pawn...
 ~
 human~
-ABV 0 900 0
+ABVe 0 900 0
 50 0 1d1+2999 1d1+199 1d8+32 beating
 -15 -15 -15 -15
 EFJ ABCD 0 0
@@ -775,7 +775,7 @@ The merchant is here, selling his wares.
 HE'S A MERCHANT!
 ~
 human~
-AV 0 900 0
+AVe 0 900 0
 40 0 1d1+1999 1d1+99 1d8+30 beating
 -15 -15 -15 -15
 EFJ ABCD 0 0
@@ -789,7 +789,7 @@ The Herbalist is here, selling herbs.
 She looks like she is happy with her lot in life.
 ~
 human~
-ABV 0 900 0
+ABVe 0 900 0
 30 0 1d1+999 1d1+99 1d8+20 beating
 -15 -15 -15 -15
 EFJ ABCD 0 0
@@ -817,7 +817,7 @@ The old Witch is here, selling things.
 She is old, and ugly- very good witch material...
 ~
 human~
-ABV D 900 7006
+ABVe D 900 7006
 40 0 1d1+1999 1d1+999 1d8+32 magic
 -15 -15 -15 -15
 AF ABCD 0 0
@@ -846,7 +846,7 @@ It is strong, impertubable looking creature. It notice that you look at its,
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 ~
 human~
-ABGT CDF 100 0
+ABGIT CDF 100 0
 60 0 50d10+9500 599d1+1 8d6+28 slap
 -30 -30 -30 0
 A 0 0 C

@@ -20,7 +20,7 @@ was involved in the carnage that occurred here. His soul is trapped here, as
 he waits for release.
 ~
 human~
-AB DH -1000 0
+AB DHJ -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
@@ -52,7 +52,7 @@ a bird's beak, huge white eyes, a furry body, and long clawed hands and feet.
 It sees you and snarls.
 ~
 human~
-ABF CEP 0 0
+ABF CEJP 0 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -81,7 +81,7 @@ The weeping willow has long thins branches. These branches seem to droop in
 anguish and dismay. You hear a faint sound of crying.
 ~
 human~
-AB DH 1000 0
+AB DHJ 1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
@@ -95,7 +95,7 @@ A mistling emerges from the mist surrounding you.
 It looks like a thin wisp of mist that has gained substance and size.
 ~
 human~
-ABF Q 0 0
+ABF JQ 0 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -111,7 +111,7 @@ appears to emerge from the mist. You feel the cold radiating from his form as
 he nears you.
 ~
 human~
-ABCF 0 -1000 0
+ABCF J -1000 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -411,7 +411,7 @@ Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
 chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
 ~
 human~
-ABF DH -1000 0
+ABF DHJ -1000 0
 33 0 6d12+853 15d9+100 4d6+10 none
 -9 -9 -9 6
 EFNU 0 0 0

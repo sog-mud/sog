@@ -32,7 +32,7 @@ A drow commoner walks on guard duty.
 I doubt he is the type to give directions.
 ~
 human~
-ADFG D -1000 0
+ADFG DJ -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -46,7 +46,7 @@ The drow warrior noble stands here guarding his home.
 He looks pissed off!
 ~
 human~
-ABF D -1000 0
+ABF DJ -1000 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
@@ -60,7 +60,7 @@ The drow mage noble is here protecting his home.
 The mage prepares to cast a spell ... at you!!
 ~
 human~
-ABFR D -1000 0
+ABFR DJ -1000 0
 15 0 2d10+190 15d9+100 1d10+3 none
 -1 -1 -1 5
 FU 0 0 0
@@ -74,7 +74,7 @@ The drow priestess is here shouting orders.
 I wouldn't want go get on her bad side!
 ~
 human~
-ABFQ D -1000 0
+ABFQ DJ -1000 0
 17 0 3d9+258 17d9+100 2d6+4 none
 -3 -3 -3 6
 EIKU 0 0 0
@@ -88,7 +88,7 @@ The drow master stares at you angrily.
 The drow master is ALWAYS ready for a fight.
 ~
 human~
-ABF D -1000 0
+ABF DJ -1000 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
@@ -102,7 +102,7 @@ The drow weapons master is here shadow boxing.
 He definitely knows his way around in combat.
 ~
 human~
-ABF D -1000 0
+ABF DJ -1000 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -116,7 +116,7 @@ The matron mother of the house is standing here.
 She looks really pissed off!
 ~
 human~
-ABF D -1000 0
+ABF DJ -1000 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -130,7 +130,7 @@ The matron mother of the 1st house is waiting for you.
 She looks like she is about to rip your head off and eat it.
 ~
 human~
-ABFQ DH -1000 0
+ABFQ DHJ -1000 0
 26 0 5d10+600 26d9+100 2d10+7 none
 -7 -7 -7 5
 EIKU 0 0 0
@@ -144,7 +144,7 @@ A yochlol forms out of a swirling mist.
 The yochlol is not in a good mood.
 ~
 human~
-ABF DH -1000 0
+ABF DHJ -1000 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
@@ -172,7 +172,7 @@ The drow scout is here sneaking among the shadows.
 The drow scout blends so well with her environment, you barely see her form.
 ~
 human~
-AFH PQ -1000 0
+AFH JPQ -1000 0
 11 0 2d8+134 5d9+100 1d10+2 none
 1 1 1 8
 EFNU 0 0 0

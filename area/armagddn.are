@@ -39,7 +39,7 @@ come. His appearance is to your liking, whatever that may be,
 and you find his voice pleasant and reasonable.
 ~
 unique~
-ABT ABITX -1000 0
+ABT ABIJTX -1000 0
 95 0 90d20+23000 91d10+9500 16d10+65 crush
 -66 -66 -66 -28
 FV BN HIM MN
@@ -101,7 +101,7 @@ The angel looks you over and tells you that you are too late.
 He has already scattered the seventh vial of wrath on the wind.
 ~
 unique~
-ABT BNT 1000 0
+ABT BJNT 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 divine
 -58 -58 -58 -24
 CEFKPX BNQR HIN M
@@ -145,7 +145,7 @@ The army of heaven is approximately 50 troops, lightly
 armed with simple spears and shields.
 ~
 human~
-AT N 1000 0
+AT JN 1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 slice
 -50 -50 -50 -20
 CEP E N M
@@ -220,7 +220,7 @@ Michael towers some 18', and is dressed in the blinding
 white of heaven. His voice booms in a deep base laugh.
 ~
 unique~
-ABT BDFNTVd 1000 0
+ABT BDFJNTVd 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 divine
 -63 -63 -63 -30
 CEFKPX BNQS EHIN M
@@ -323,7 +323,7 @@ If you will worship as he says, step forward and
 receive the mark.
 ~
 human~
-AR 0 -1000 0
+AR J -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 flame
 -58 -58 -58 -24
 FN 0 0 N
@@ -375,7 +375,7 @@ All of the tribes were marked with a seal so as
 to spare them from the wrath of God.
 ~
 human~
-AT 0 1000 0
+AT J 1000 0
 70 0 50d20+9750 91d10+9500 10d15+61 pound
 -46 -46 -46 -18
 FI 0 0 0
@@ -390,7 +390,7 @@ The marked one has chosen the side of evil for
 the final conflict. He seems to be suffering from a pox.
 ~
 human~
-AT X -1000 0
+AT JX -1000 0
 70 0 50d20+9750 91d10+9500 10d15+61 pound
 -46 -46 -46 -18
 FJ 0 0 0
@@ -408,7 +408,7 @@ scar runs across one head, where it was mortally
 wounded and healed.
 ~
 unique~
-ABT CTZbd -1000 0
+ABT CJTZbd -1000 0
 88 0 90d20+17500 91d10+9500 13d10+56 claw
 -60 -60 -60 -25
 AM M HI N
@@ -423,7 +423,7 @@ The idolator is engrossed in his worship, and
 does not see you.
 ~
 human~
-AHT 0 -1000 0
+AHT J -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
 FJ 0 0 0
@@ -487,7 +487,7 @@ your purse. He picks it up and returns
 it to you.
 ~
 human~
-AHS 0 -1000 0
+AHS J -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
 FJ 0 0 0
@@ -520,7 +520,7 @@ has a harried look. He blames his sins on
 his rivals.
 ~
 human~
-AHT 0 -1000 0
+AHT J -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 pound
 -50 -50 -50 -20
 FJ 0 0 0

@@ -19,7 +19,7 @@ This huge winged creature looks really menacing.  You are happy it doesn't
 APPEAR to be very hungry ... yet.
 ~
 wyvern~
-AG 0 -200 0
+AG J -200 0
 8 2 8d8+80 1d1+149 2d6+1 bite
 5 4 5 6
 DNR 0 0 0

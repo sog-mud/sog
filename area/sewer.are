@@ -20,7 +20,7 @@ a huge figure made up from mud alone, and it sure looks like it had human
 flesh for breakfast and is strongly intent on having the same for dinner.
 ~
 human~
-AG P -250 0
+AG JP -250 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -36,7 +36,7 @@ though it looks rather peaceful, hanging there. The thought of arousing this
 cruel creature doesn't seem appealing.
 ~
 bat~
-AFG P -500 0
+AFG JP -500 0
 1 0 2d6+10 0d9+100 1d4+0 none
 9 9 9 10
 ENR 0 0 0
@@ -62,7 +62,7 @@ The small hairy spider.
 ~
 ~
 human~
-AF P -700 0
+AF JP -700 0
 1 0 2d6+10 0d9+100 1d4+0 none
 9 9 9 10
 EFNU 0 0 0
@@ -146,7 +146,7 @@ The head and torso of a chreffn is copper-covered, with yellow,
 glowing eyes. The lower body is in an orange shading.
 ~
 human~
-ACH DP -830 0
+ACH DJP -830 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -178,7 +178,7 @@ a huge figure made up from mud alone, and it sure looks like it had human
 flesh for breakfast and is strongly intent on having the same for dinner.
 ~
 human~
-AFG P -250 0
+AFG JP -250 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -260,7 +260,7 @@ interested in you at all, but anyway it attacks. It looks like it's
 mind has been burned out.
 ~
 human~
-AF P -500 0
+AF JP -500 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0

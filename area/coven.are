@@ -21,7 +21,7 @@ has a dog like snout, perky ears, and 6 legs, and has many more long
 sharp nasty teeth.
 ~
 unique~
-AFGX F -400 0
+AFGX FJ -400 0
 30 0 6d12+853 1d1+99 4d6+8 bite
 -9 -9 -9 3
 CFNQ 0 L I
@@ -91,7 +91,7 @@ woods will strike town next. He gets to talking of the glory days of
 Dunkeldorf, before everyone started disappearing.
 ~
 human~
-ABGX 0 450 0
+ABGXe 0 450 0
 26 0 5d10+600 1d1+99 3d7+7 slap
 -7 -7 -7 5
 CEFN 0 0 0
@@ -109,7 +109,7 @@ temple and fighting the guardian there. He wishes you luck and
 godspeed.
 ~
 human~
-ABGX 0 550 0
+ABGXe 0 550 0
 27 0 5d10+650 1d1+99 5d4+7 punch
 -8 -8 -8 5
 CEFN 0 0 0
@@ -127,7 +127,7 @@ to get iron from the old mine in the Murkmire, but the cave has long
 since collapsed and become unstable, so now he trades for it.
 ~
 human~
-ABGSX 0 600 0
+ABGSXe 0 600 0
 29 0 6d12+778 1d1+100 2d12+8 punch
 -9 -9 -9 5
 CEFN 0 0 0
@@ -144,7 +144,7 @@ tells you a sad tale about his mad sister Gelda running off into the
 forest one night, naked screaming, and never to return.
 ~
 human~
-ABGX 0 700 0
+ABGXe 0 700 0
 28 0 6d12+703 1d1+100 2d12+8 punch
 -8 -8 -8 5
 CEFN 0 0 0
@@ -160,7 +160,7 @@ satchel full of curiosities. He sings for you a song of life in the
 shire, and of longbottom leaf.
 ~
 human~
-AGX 0 300 0
+AGXe 0 300 0
 26 0 5d10+600 1d1+100 3d7+7 punch
 -7 -7 -7 6
 CEFN 0 0 0
@@ -176,7 +176,7 @@ crush an ox. Its rounded head gives it away as a non poisonous
 constrictor.
 ~
 snake~
-AFGX 0 0 0
+AFGX J 0 0
 32 0 10d10+1000 1d1+100 6d4+9 bite
 -10 -10 -10 4
 H L 0 0
@@ -221,7 +221,7 @@ The witch looks harried and driven. Her eyes dance wildly, and she
 cackles at you with an insane glee.
 ~
 human~
-AFGX D -700 0
+AFGX DJ -700 0
 32 0 6d12+885 1d1+300 4d6+8 punch
 -9 -9 -9 4
 F 0 CM ENR
@@ -236,7 +236,7 @@ The warlock looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-AFGX D -800 0
+AFGX DJ -800 0
 33 0 10d10+1000 1d1+300 4d6+8 punch
 -11 -11 -11 0
 F 0 CM ENR
@@ -252,7 +252,7 @@ The coven leader looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-AFGX DF -900 0
+AFGX DFJ -900 0
 34 0 10d10+1100 1d1+300 4d6+9 punch
 -11 -11 -11 1
 F M C ENR
@@ -270,7 +270,7 @@ terrible talons. It looks at you, and with a fiery laughter, it says:
 battle, but you will not stop our plan!'
 ~
 unique~
-ABFGX DFH -1000 0
+ABFGX DFHJ -1000 0
 28 0 6d12+703 1d1+200 2d12+8 bite
 -8 -8 -8 6
 F AHL B I

@@ -81,7 +81,7 @@ The worm is the protector of the treasure of G'harne and has been so
 for as long anyone can remember.
 ~
 human~
-ABF D -1000 0
+ABF DJ -1000 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -98,7 +98,7 @@ His life is seems to be totally occupied with trading.
 He looks very fit and capable of protecting his goods.
 ~
 human~
-ABC 0 400 0
+ABCe 0 400 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -113,7 +113,7 @@ The Innkeeper looks skilled in brewing different beers and mixing the
 wierdest drinks known. He also looks very big.
 ~
 human~
-AB 0 -100 0
+ABe 0 -100 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0

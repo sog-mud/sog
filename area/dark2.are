@@ -34,7 +34,7 @@ This Elf does not appear to be very prosperous. His violet eyes look you
 over as he tries to decide if you are a client or a salesman.
 ~
 elf~
-ABG 0 -1 0
+ABGe 0 -1 0
 12 0 2d10+150 119d1+1 1d10+3 pound
 0 0 0 8
 DE 0 0 0
@@ -48,7 +48,7 @@ The Dwarven Merchant greets you, "Welcome!"
 This merchant has the Eye of the Tiger. "Welcome my friend," he says.
 ~
 dwarf~
-ABG 0 -1 0
+ABGe 0 -1 0
 12 0 2d10+150 119d1+1 1d10+3 pound
 0 0 0 8
 DE 0 0 0
@@ -63,7 +63,7 @@ This man is only four feet tall but has a powerful body.  His arms reach
 almost to his calves.
 ~
 human~
-AGH 0 90 0
+AGHe 0 90 0
 12 0 2d10+150 119d1+1 1d10+3 pound
 0 0 0 8
 NU 0 0 C
@@ -77,7 +77,7 @@ A large Human Merchant stands ready to sell you.
 Many of the merchants you have seen throughout your life resemble this man.
 ~
 human~
-ACS 0 -200 0
+ACSe 0 -200 0
 5 1 2d6+60 1d1+99 1d6+1 punch
 7 5 5 10
 BJNQ 0 0 C

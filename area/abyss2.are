@@ -25,7 +25,7 @@ fearsome sight. Despite the wasted, rotten flesh it is garbed in the rich
 clothes of nobility.
 ~
 human~
-ABCF DH -1000 0
+ABCF DHJ -1000 0
 47 0 25d10+3500 469d1+1 6d6+17 punch
 -17 -17 -17 3
 CDIKLN AB E CK
@@ -46,7 +46,7 @@ mossy protrusions, like some strange malignant blemishes. It emits low,
 gutteral mewlings from its fange, quivering oriface.
 ~
 human~
-ABC DP -1000 0
+ABC DJP -1000 0
 45 0 25d10+2300 449d1+1 8d4+10 beating
 -15 -15 -15 4
 CDEFH AB N C
@@ -62,7 +62,7 @@ victims stain the robe. Its skeletal figure resembles that of the angel of
 death. Its eyes glow with a furious fire to kill.
 ~
 human~
-ABCF DHTU -1000 0
+ABCF DHJTU -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 DEHIJK AB D FGNO
@@ -77,7 +77,7 @@ A large demon like creature hovers abover you, in a cloud of grey mist.
 Its winged form stares down at you in utter hatred.
 ~
 human~
-ABCF U -1000 0
+ABCF JU -1000 0
 34 0 10d10+1200 339d1+1 4d7+10 punch
 -11 -11 -11 5
 HIK AB R X
@@ -92,7 +92,7 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-ABCF DP -1000 0
+ABCF DJP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 punch
 -7 -7 -7 6
 ACFHIK A C B
@@ -106,7 +106,7 @@ A ghostly apparition floats here, staring at you in utter hatred.
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
 human~
-ACF DP -1000 0
+ACF DJP -1000 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 FGJK A C DS
@@ -121,7 +121,7 @@ This huge creature is approximatly 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
 ~
 giant~
-ABCF DP -1000 0
+ABCF DJP -1000 0
 40 0 15d10+1850 399d1+1 4d8+13 punch
 -13 -13 -13 4
 CEIKL AB D CIK
@@ -137,7 +137,7 @@ entirely of white gold. Its eyes seem to watch your every move..
 they almost appear is if they were alive.
 ~
 bear~
-ABC DH 0 25007
+ABC DHJ 0 25007
 22 0 5d10+400 219d1+1 4d4+6 punch
 -5 -5 -5 6
 ACHIKL 0 J E
@@ -152,7 +152,7 @@ The creature is formed entirely of flames. The creature gives off an
 intense heat.
 ~
 human~
-ABF b -1000 25008
+ABF Jb -1000 25008
 35 0 10d10+1200 349d1+1 4d7+10 punch
 -11 -11 -11 7
 CDEFGHIK AB H LNOS
@@ -167,7 +167,7 @@ The huge, scaled creature  has eight heads... each capable of breathing
 a dangerous stream of fire.
 ~
 fox~
-ABCF 0 -1000 0
+ABCF J -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 6
 K AB R LO
@@ -183,7 +183,7 @@ size. its huge tentacles grasp something... though you can not make out
 what the object is.
 ~
 water fowl~
-ABF D -1000 0
+ABF DJ -1000 0
 40 0 15d10+1700 399d1+1 4d8+11 punch
 -13 -13 -13 7
 AB R C HI
@@ -198,7 +198,7 @@ It is a rather large creature resembling a tree. At the base of the trunk
 is a large opening that looks very much like a mouth.
 ~
 lizard~
-ABCF H -1000 0
+ABCF HJ -1000 0
 44 0 25d10+2550 439d1+1 8d4+12 punch
 -15 -15 -15 4
 CEF AB D CH
@@ -215,7 +215,7 @@ glow with a brilliant red fire, in its right hand he grasps a an extremely
 sharp blade of magical nature.
 ~
 human~
-ABCGH DP -1000 25012
+ABCGH DJP -1000 25012
 26 0 5d10+600 259d1+1 2d10+7 punch
 -7 -7 -7 6
 ADEF 0 LM D
@@ -231,7 +231,7 @@ He is a large, muscular man of undead nature. He is clad in rather magical
 looking suit of armor, his sword burning fiercly.
 ~
 human~
-ABF H -1000 0
+ABF HJ -1000 0
 50 0 50d10+4500 499d1+1 5d8+19 punch
 -20 -20 -20 3
 ABCDEFGHJKN AB H IJK
@@ -247,7 +247,7 @@ of a once mighty warrior. Its eyes are fixed coldly upon you, unsheathing
 its sword, he charges for battle.
 ~
 human~
-ABCF H -1000 0
+ABCF HJ -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 punch
 -13 -13 -13 5
 BCEGK AB D H
@@ -262,7 +262,7 @@ This creature is covered with slime like substance, many tentacles protrude
 from its disgusting body.
 ~
 dog~
-ABCF H -1000 25015
+ABCF HJ -1000 25015
 46 0 25d10+3250 459d1+1 6d6+16 punch
 -16 -16 -16 4
 J AB KL I
@@ -276,7 +276,7 @@ A shadowy figure stands here, looking you over with greed.
 This creature has almost no form, it looks like some sort of shadow with wings.
 ~
 human~
-ACF D -1000 0
+ACF DJ -1000 0
 28 0 6d12+703 279d1+1 2d12+8 punch
 -8 -8 -8 5
 CDHI AB MNO STZ
@@ -305,7 +305,7 @@ The prince of water elementals flows here
 He looks like a giant wave about to swoop down upon you.
 ~
 water fowl~
-AB FH 0 0
+AB FHJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 HIJK 0
@@ -319,7 +319,7 @@ The King of earth elementals stands here.. cower fool!
 It looks vaguely man-shaped.
 ~
 water fowl~
-AB FH 0 0
+AB FHJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 HIJK 0
@@ -333,7 +333,7 @@ A huge tornado is squeezed into this impossibly small space.
 It looks sentinent.
 ~
 song bird~
-AB D 0 0
+AB DJ 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AI 0 HIJK 0
@@ -431,7 +431,7 @@ A Vrock stands here
 It is a vulture/human creature. Extremely ugly, and nasty.
 ~
 human~
-ACF DF -666 25030
+ACF DFJ -666 25030
 21 0 4d10+360 209d1+1 4d4+5 punch
 -5 -5 -5 6
 FI AB C D
@@ -445,7 +445,7 @@ A demon Hezrou stands here.
 Not unlike A large toad/man
 ~
 human~
-ACF DF -666 0
+ACF DFJ -666 0
 17 0 3d9+258 169d1+1 3d4+4 punch
 -3 -3 -3 7
 AKN AB GPS HR
@@ -459,7 +459,7 @@ A demon Glabrezu stands here.
 I forget what this one looks like.
 ~
 human~
-ACF DF -666 25032
+ACF DFJ -666 25032
 18 0 3d9+283 179d1+1 2d7+4 punch
 -3 -3 -3 7
 J AB 0 0
@@ -473,7 +473,7 @@ Nalfeshnee stands here
 This one is big and mean looking.
 ~
 giant~
-ABCF DF -666 25033
+ABCF DFJ -666 25033
 19 0 3d9+308 190d1+1 2d7+5 punch
 -4 -4 -4 7
 A AB 0 0

@@ -126,7 +126,7 @@ Matt the brewmaster is here looking for something to drink.
 ~
 ~
 human~
-A H 800 0
+Ae H 800 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 EIK 0 0 0
@@ -141,7 +141,7 @@ A fat, nice looking baker. But you can see that he has many scars on his
 body.
 ~
 human~
-AB 0 900 0
+ABe 0 900 0
 23 0 5d10+450 5d5+1000 3d6+6 punch
 -6 -6 -6 4
 EIK 0 0 0
@@ -155,7 +155,7 @@ Cookie's Helper is here offering you a free cookie sample.
 A young neighborhood girl helps out cookie when she is not around.
 ~
 human~
-AB 0 900 0
+ABe 0 900 0
 20 0 3d9+333 5d5+1000 2d8+5 punch
 -4 -4 -4 5
 EIK 0 0 0
@@ -170,7 +170,7 @@ She is a very pretty and loves her birds. Her black hair hangs behind her
 tied in a pony tail.
 ~
 human~
-AB H 900 0
+ABe H 900 0
 30 0 6d12+853 5d5+1000 4d6+8 punch
 -9 -9 -9 3
 EIK 0 0 0
@@ -216,7 +216,7 @@ This is probably another of Jander's victims. Probably got caught with
 his hand in the cash or something.
 ~
 human~
-AB 0 900 0
+ABe 0 900 0
 13 0 2d10+170 5d5+100 2d5+3 magic
 -1 -1 -1 6
 EK 0 0 0
@@ -289,7 +289,7 @@ Jhen the farmer is here.
 a rather tall man who works hard for his money.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 23 0 5d10+450 5d5+1000 3d6+6 punch
 -6 -6 -6 4
 EIK 0 0 0
@@ -304,7 +304,7 @@ a pretty woman who works hard for her money. Travelling every year
 to the market to sell her fruits.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 24 0 5d10+500 5d5+1000 2d10+6 punch
 -6 -6 -6 4
 EIK 0 0 0
@@ -318,7 +318,7 @@ Janni is here.
 Janni has spent his whole life making trinkets for people to enjoy.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 22 0 5d10+400 5d5+1000 4d4+6 punch
 -5 -5 -5 5
 EIK 0 0 0
@@ -332,7 +332,7 @@ Nisi is here.
 Nisi is a very interesting person. It shows in the wares she sells
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 24 0 5d10+500 5d5+1000 2d10+6 punch
 -6 -6 -6 4
 EIK 0 0 0
@@ -346,7 +346,7 @@ Molin the brewer is here.
 Molin is a grey old man with hair down to his toes.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 24 0 5d10+500 5d5+1000 2d10+6 punch
 -6 -6 -6 4
 EIK 0 0 0
@@ -360,7 +360,7 @@ Rashan the farmer is here.
 Rashan is a middle aged man who grows his rutabagas by candlelight.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 21 0 4d10+1360 5d5+1000 8d9+5 pound
 -5 -5 -5 5
 EIK 0 0 0
@@ -375,7 +375,7 @@ Lexie is an accomplish diver. But he seems to have problems keeping
 students.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EIK 0 0 0
@@ -390,7 +390,7 @@ Croben is a young man who learned the art of container making from his
 grandfather.
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EIK 0 0 0
@@ -407,7 +407,7 @@ Otik whispers, "A magical staff! I bet it was forged by demons from the
 terrible Darken Wood. There are terrible mysteries in that place, there are."
 ~
 human~
-AB 0 800 0
+ABe 0 800 0
 27 0 5d10+1650 5d5+1000 5d8+7 pound
 -8 -8 -8 4
 EIK 0 0 0
@@ -734,7 +734,7 @@ A large macaw is here.
 The macaw looks like a strong, fearless fighter. It is a beautiful bird.
 ~
 song bird~
-ABC 0 0 0
+ABCI 0 0 0
 12 0 2d10+150 5d5+100 1d10+3 claw
 0 0 0 7
 0 0 0 0
@@ -748,7 +748,7 @@ A large, black raven is here.
 The raven looks like a strong, fearless fighter.
 ~
 human~
-ABC 0 0 0
+ABCI 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 claw
 -2 -2 -2 6
 EK 0 0 0
@@ -763,7 +763,7 @@ The hawk looks like a strong, fearless fighter. It has been trained for
 hunting game.
 ~
 song bird~
-ABC 0 0 0
+ABCI 0 0 0
 18 0 3d9+283 5d5+1000 2d7+4 claw
 -3 -3 -3 6
 E 0 0 0
@@ -778,7 +778,7 @@ The battle falcon looks like a strong, fearless fighter. This giant breed has
 been trained especially for combat.
 ~
 song bird~
-ABC 0 0 0
+ABCI 0 0 0
 21 0 4d10+360 5d5+1000 4d4+5 claw
 -5 -5 -5 5
 E 0 0 0

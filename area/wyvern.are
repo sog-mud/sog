@@ -32,7 +32,7 @@ A stone gargoyle looms over you.
 As you look, the figure seems to shift and move ...
 ~
 human~
-ABFGH 0 -400 0
+ABFGH J -400 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
@@ -46,7 +46,7 @@ An angry gargoyle glares at you.
 He looks ready to attack!
 ~
 human~
-ACFG 0 -600 0
+ACFG J -600 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -60,7 +60,7 @@ An elite gargoyle guards this room against intrusion.
 He snarls at you and says LEAVE OR DIE!
 ~
 human~
-ABC 0 -600 0
+ABC J -600 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -88,7 +88,7 @@ Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!
 The plant looks something like a Venus fly-trap, only MUCH larger.
 ~
 human~
-ABFG 0 0 0
+ABFG J 0 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
@@ -102,7 +102,7 @@ A huge, gruesome ogre is sprawled here, gnawing some strange meat.
 It thinks that perhaps you would make a better meal.
 ~
 human~
-ABCFG 0 -200 0
+ABCFG J -200 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -116,7 +116,7 @@ A dark shadow moves about the room.
 The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
 human~
-ACFG BDF -1000 0
+ACFG BDFJ -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -130,7 +130,7 @@ An evil wight lurks in the shadows!
 He glares at you savagely and charges!
 ~
 human~
-ABCFG DF -1000 0
+ABCFG DFJ -1000 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -144,7 +144,7 @@ A burly minotaur watches you solemnly.
 This powerful creature wonders whether to kill you or not ...
 ~
 human~
-ACG D -600 0
+ACG DJ -600 0
 14 0 2d10+190 7d9+100 1d12+3 none
 -1 -1 -1 8
 EFNU 0 0 0
@@ -158,7 +158,7 @@ A bloodthirsty minotaur slowly counts his loot
 He looks up at you and screams 'SO! Coming to steal my hoard!'
 ~
 human~
-ABCFG D -600 0
+ABCFG DJ -600 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -172,7 +172,7 @@ Sitting here in this room is the Minotaur Captain.
 He looks at you, and a sinister grin slowly spreads on his face ...
 ~
 human~
-ABCFG D -900 0
+ABCFG DJ -900 0
 17 0 3d9+258 8d9+100 3d4+4 none
 -3 -3 -3 7
 EFNU 0 0 0
@@ -228,7 +228,7 @@ A spectre has begun to materialize in front of you!
 Terror fills your heart as you view this master of the undead.
 ~
 human~
-ACFG BDH -1000 0
+ACFG BDHJ -1000 0
 19 0 3d9+308 9d9+100 2d7+5 none
 -4 -4 -4 7
 EFNU 0 0 0

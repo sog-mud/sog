@@ -35,7 +35,7 @@ This punk is from one of the rowdiest, scruffiest, and definitely most
 fashionable of all gangs -- the Grunge Mongers.
 ~
 human~
-ACG 0 -500 0
+ACG J -500 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -203,7 +203,7 @@ A bite fighter is here sharpening his teeth.
 A bite fighter is here with sharpened teeth and a bad attitude.
 ~
 human~
-ABF 0 -400 0
+ABF J -400 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0

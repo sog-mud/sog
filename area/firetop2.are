@@ -134,7 +134,7 @@ seeking to attack you but was simply overjoyed at beign released. He is
 quite harmless, but very filthy.
 ~
 human~
-ABCH X 0 0
+ABCH JX 0 0
 8 0 2d7+96 79d1+1 1d7+2 pierce
 3 3 3 9
 IR A 0 Y
@@ -165,7 +165,7 @@ This specially made Iron Golem is extremely tough and powerful. Although not
 aggressive, it will certainly attack if you seek to take its gem.
 ~
 giant~
-ABG DHNO 0 0
+ABG DHJNO 0 0
 15 0 3d9+208 149d1+1 2d6+3 bite
 -2 -2 -2 7
 IR A 0 Y
@@ -181,7 +181,7 @@ taking out his frustrations on you! Towering over you at six feet tall and
 weighing in at 280 lbs, he is certainly a force to be reckoned with.
 ~
 giant~
-ABFG NO 0 0
+ABFG JNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 crush
 0 0 0 8
 IR A 0 Y
@@ -197,7 +197,7 @@ appearance, this elderly gentleman is more than capable of taking care of
 himself. He can sell you lighting equipment for the journey ahead.
 ~
 human~
-ABCGR CDEFHNO 400 0
+ABCGRe CDEFHNO 400 0
 30 0 6d12+853 299d1+1 4d6+8 scratch
 -9 -9 -9 6
 0 0 0 0
@@ -212,7 +212,7 @@ This seemingly harmless old coot is actually a powerful lycanthrope, who
 will not hesitate to kill you if you threaten him.
 ~
 human~
-ABCG DFHNO 0 0
+ABCG DFHJNO 0 0
 13 0 2d10+170 129d1+1 2d5+3 punch
 -1 -1 -1 8
 IR A 0 P
@@ -244,7 +244,7 @@ pointy fangs dripping potent venom, it is quite a formidable sight. Better
 be careful with this one.
 ~
 bat~
-ABCFG DNO -400 0
+ABCFG DJNO -400 0
 11 0 2d8+134 109d1+1 1d10+2 beating
 1 1 1 8
 IR AB 0 0
@@ -261,7 +261,7 @@ the way its beady eyes stare evilly at you as is approaches, or the way the
 venom dripping from its maw burns into the stone as it falls...
 ~
 human~
-ABFG D -400 0
+ABFG DJ -400 0
 12 0 2d10+150 119d1+1 1d10+3 beating
 0 0 0 8
 IR AB 0 0
@@ -310,7 +310,7 @@ blood. It lashes at you with its sharp claws and seeks to clamp its fangs
 around your neck!
 ~
 human~
-ABFG D -400 0
+ABFG DJ -400 0
 10 0 2d7+121 99d1+1 2d4+2 smash
 1 1 1 8
 0 0 AB 0
@@ -325,7 +325,7 @@ You have disturbed this big fellow's evening repast, and he is not happy
 about it.
 ~
 giant~
-ABFG NO 0 0
+ABFG JNO 0 0
 15 0 3d9+208 149d1+1 2d6+3 crush
 -2 -2 -2 7
 IR AB 0 0
@@ -341,7 +341,7 @@ It moves almsot too fast for you to catch it in the water, but eventually
 returns for another bite, which gives you a chance to attack it.
 ~
 human~
-ABFG 0 0 0
+ABFG J 0 0
 10 0 2d7+121 99d1+1 2d4+2 beating
 1 1 1 8
 IR 0 0 P
@@ -356,7 +356,7 @@ This big fellow makes sea serpents of old look tiny. His circular maw is
 lined with rows and rows of teeth, all ready to bite into you!.
 ~
 human~
-ABFG DNO 0 0
+ABFG DJNO 0 0
 16 0 3d9+233 159d1+1 2d6+4 crush
 -2 -2 -2 7
 IR 0 0 0
@@ -421,7 +421,7 @@ you may find that it is not like msot other Dogs, in that it is very tough
 and has certain abilities that may catch you by surprise...
 ~
 dog~
-ABG DFNO 0 0
+ABG DFJNO 0 0
 12 0 2d10+150 119d1+1 1d10+3 cleave
 0 0 0 8
 0 0 0 0
@@ -437,7 +437,7 @@ unfortunate curse (Lycanthropy), he is not a bad guy, and will only attack if
 you initiate hostilities by attacking him or his dog.
 ~
 human~
-ABG HNOR 0 0
+ABG HJNOR 0 0
 13 0 2d1+170 129d1+1 2d5+3 slice
 -1 -1 -1 8
 I AB 0 P
@@ -452,7 +452,7 @@ This decaying corpse-like undead slashes at you with its filthy fingernails,
 attempting to slay and devour you!
 ~
 human~
-ABFG DNO -500 0
+ABFG DJNO -500 0
 13 0 2d10+170 129d1+1 2d5+3 blast
 -1 -1 -1 8
 I AB 0 0
@@ -556,7 +556,7 @@ An animated Hand strikes at you!
 This hand rises up from the floor and begins to beat you!
 ~
 human~
-ABCFGS D 0 0
+ABCFGS DJ 0 0
 10 0 2d7+121 99d1+1 2d4+2 slash
 1 1 1 8
 0 0 0 0
@@ -571,7 +571,7 @@ This huge reptile is hideous and mean, and it looks eager to bury its many
 pointed teeth in your body!
 ~
 human~
-ABFG D 0 0
+ABFG DJ 0 0
 12 0 2d10+150 119d1+1 1d10+3 crush
 0 0 0 8
 0 0 0 0

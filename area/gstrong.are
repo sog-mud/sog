@@ -161,7 +161,7 @@ A dark, horned figure is trapped inside the pentagram.
 He really wants to get out of that pentagram. Maybe you should let him out?
 ~
 human~
-ABG Hb -1000 0
+ABG HJb -1000 0
 20 0 1d1+399 1d1+149 5d4+5 none
 -7 -7 -7 5
 CDEFIKMN AB HQ EN

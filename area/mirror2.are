@@ -408,7 +408,7 @@ check.  The wizard giggles as you look at him, and holds up his "Wizard
 Finishing School" diploma.
 ~
 human~
-ABG DFGJN 1000 0
+ABGe DFGJN 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 magic
 -13 -13 -13 3
 F 0 0 0
@@ -438,7 +438,7 @@ Lauraine is a cheerful, middle-aged woman wearing a plain white apron and a
 white lace cap; she gently dusts the edge of the bar, waiting for a customer.
 ~
 human~
-ABG 0 1000 0
+ABGe 0 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 pound
 -13 -13 -13 3
 FIJ 0 0 0
@@ -453,7 +453,7 @@ Sweat pours down the waiter's bald head as he dashes from table to table,
 trying to keep track of all the checks, the food, and the special orders.
 ~
 human~
-ABG 0 1000 0
+ABGe 0 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 pound
 -13 -13 -13 3
 FIJ 0 0 0
@@ -486,7 +486,7 @@ The proprietor is a thin, tired old man; the adventurers' business isn't doing
 so well right now, what with the land being completely closed off and all.
 ~
 human~
-ABGJK DFN 1000 0
+ABGJKe DFN 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJ 0 0 0
@@ -503,7 +503,7 @@ with overdue books....her glare chills you to the bone.  Hope you returned
 your books on time.
 ~
 human~
-ABG DFN 1000 0
+ABGe DFN 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 pound
 -15 -15 -15 2
 FIJ 0 0 0
@@ -587,7 +587,7 @@ spectacles, check; evil grin, check; otherworldly air, check.  The wizard
 smirks as you look at him, and taps his "Wizard's Finishing School" diploma.
 ~
 human~
-ABG DFJ -1000 0
+ABGe DFJ -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 magic
 -15 -15 -15 2
 FI 0 0 0
@@ -713,7 +713,7 @@ peers at you with red-rimmed eyes as you enter, and mumbles a request for your
 order.
 ~
 human~
-ABG DF -1000 0
+ABGe DF -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 FI 0 0 0
@@ -730,7 +730,7 @@ to get rid of rather quickly--or at least anything that no one else will touch
 likely turn it around for a handsome profit).
 ~
 human~
-ABCG DFJP -1000 0
+ABCGe DFJP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 pound
 -11 -11 -11 3
 F 0 0 0
@@ -780,7 +780,7 @@ eyes are filled with animal rage.
 Uh-oh.
 ~
 fox~
-ABFG DFP -1000 0
+ABFG DFJP -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 charge
 -11 -11 -11 3
 0 0 0 0
@@ -814,7 +814,7 @@ It's a big black bear....sharp claws, big teeth, the works.
 And it's coming right at you.
 ~
 bear~
-ABCFG DFIP -1000 0
+ABCFG DFIJP -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 claw
 -9 -9 -9 3
 CF 0 0 0
@@ -830,7 +830,7 @@ through his greasy hair.  He picks up a plate of stew, suddenly sneezes
 on it, then tosses the plate back on the table.
 ~
 human~
-ABCG DFJP -1000 0
+ABCGe DFJP -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 F 0 0 0
@@ -3785,10 +3785,6 @@ D0
 ~
 ~
 0 -1 19036
-D3
-~
-~
-0 -1 19034
 D1
 ~
 ~
@@ -3797,6 +3793,10 @@ D2
 ~
 ~
 0 -1 19031
+D3
+~
+~
+0 -1 19034
 S
 #19033
 Mirrors~
@@ -3804,14 +3804,14 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D1
-~
-~
-0 -1 19034
 D0
 ~
 ~
 0 -1 19035
+D1
+~
+~
+0 -1 19034
 D3
 ~
 ~
@@ -3823,10 +3823,6 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D3
-~
-~
-0 -1 19033
 D0
 ~
 ~
@@ -3835,6 +3831,10 @@ D1
 ~
 ~
 0 -1 19032
+D3
+~
+~
+0 -1 19033
 S
 #19035
 Mirrors~
@@ -3846,18 +3846,18 @@ D0
 ~
 ~
 0 -1 19038
-D3
-~
-~
-0 -1 19036
-D2
-~
-~
-0 -1 19033
 D1
 ~
 ~
 0 -1 19037
+D2
+~
+~
+0 -1 19033
+D3
+~
+~
+0 -1 19036
 S
 #19036
 Mirrors~
@@ -3865,14 +3865,6 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D2
-~
-~
-0 -1 19032
-D3
-~
-~
-0 -1 19037
 D0
 ~
 ~
@@ -3881,6 +3873,14 @@ D1
 ~
 ~
 0 -1 19035
+D2
+~
+~
+0 -1 19032
+D3
+~
+~
+0 -1 19037
 S
 #19037
 Mirrors~
@@ -3888,22 +3888,22 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D2
-~
-~
-0 -1 19034
 D0
 ~
 ~
 0 -1 19039
-D3
-~
-~
-0 -1 19035
 D1
 ~
 ~
 0 -1 19036
+D2
+~
+~
+0 -1 19034
+D3
+~
+~
+0 -1 19035
 S
 #19038
 Mirrors~
@@ -3911,14 +3911,14 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D2
-~
-~
-0 -1 19035
 D1
 ~
 ~
 0 -1 19039
+D2
+~
+~
+0 -1 19035
 D3
 ~
 ~
@@ -3930,18 +3930,18 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D3
-~
-~
-0 -1 19038
-D2
-~
-~
-0 -1 19037
 D1
 ~
 ~
 0 -1 19040
+D2
+~
+~
+0 -1 19037
+D3
+~
+~
+0 -1 19038
 S
 #19040
 Mirrors~
@@ -3949,18 +3949,18 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D 0
-D2
-~
-~
-0 -1 19036
-D1
-~
-~
-0 -1 19038
 D0
 ~
 ~
 0 -1 19041
+D1
+~
+~
+0 -1 19038
+D2
+~
+~
+0 -1 19036
 D3
 ~
 ~

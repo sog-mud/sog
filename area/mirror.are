@@ -175,7 +175,7 @@ Dan the Barkeep stands by the counter wiping a glass.
 He looks at you, and says, 'What's your poison, stranger?'
 ~
 human~
-AB 0 600 0
+ABe 0 600 0
 30 0 6d12+1253 15d9+100 4d6+8 none
 -19 -19 -19 -6
 EFNU 0 0 0
@@ -190,7 +190,7 @@ Looking down at you with blood splattered all over his face and apron,
 he asks, 'How much you want?'
 ~
 human~
-AB 0 600 0
+ABe 0 600 0
 30 0 6d12+1253 15d9+100 4d6+8 none
 -19 -19 -19 -6
 EFNU 0 0 0
@@ -204,7 +204,7 @@ Farmer Betty looks at you sweetly offering you some apples.
 She smiles at you meekly.
 ~
 human~
-AB 0 650 0
+ABe 0 650 0
 30 0 6d12+1253 15d9+100 4d6+8 none
 -19 -19 -19 -6
 EFNU 0 0 0
@@ -219,7 +219,7 @@ Thaellor sweats rivers and complains about the heat as he pounds the
 metal into items of defense and destruction.
 ~
 human~
-AB 0 550 0
+ABe 0 550 0
 30 0 6d12+1253 15d9+100 4d6+8 none
 -19 -19 -19 -6
 EFNU 0 0 0
@@ -233,7 +233,7 @@ Ben the Smith sells metal odds and ends to anyone interested.
 Ben tries to pawn his various wares to you.
 ~
 human~
-AB 0 600 0
+ABe 0 600 0
 30 0 6d12+1253 15d9+100 4d6+8 none
 -19 -19 -19 -6
 EFNU 0 0 0
@@ -275,7 +275,7 @@ An old wizard sits quietly at the counter waiting for a sale.
 This old wizard almost looks like he is about to fall over and sleep.
 ~
 human~
-ABR D 550 0
+ABRe D 550 0
 30 0 6d12+1278 30d9+100 5d4+9 none
 -19 -19 -19 -1
 FU 0 0 0
@@ -719,7 +719,7 @@ Junk Seller is here, selling junk.
 This huge dragon wants to sell some junk to you.
 ~
 dragon~
-AZc 0 7 0
+AZce 0 7 0
 100 1 100d100+10000 100d10+20 100d100+100 slap
 0 0 0 0
 0 0 0 0
@@ -2704,16 +2704,16 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
-D2
-You see a fuzzy portal of some sort and a little green.
-~
-~
-0 0 5368
 D1
 You see stars.
 ~
 ~
 0 0 5378
+D2
+You see a fuzzy portal of some sort and a little green.
+~
+~
+0 0 5368
 D3
 You see stars.
 ~
@@ -2739,17 +2739,17 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D2
+D0
 You see stars.
 ~
 ~
 0 0 5377
-D5
+D1
 You see stars.
 ~
 ~
-0 0 5375
-D0
+0 0 5376
+D2
 You see stars.
 ~
 ~
@@ -2764,11 +2764,11 @@ You see stars.
 ~
 ~
 0 0 5375
-D1
+D5
 You see stars.
 ~
 ~
-0 0 5376
+0 0 5375
 S
 #5377
 The Void~
@@ -2784,11 +2784,11 @@ You see stars.
 ~
 ~
 0 0 5376
-D5
+D1
 You see stars.
 ~
 ~
-0 0 5378
+0 0 5377
 D2
 You see stars.
 ~
@@ -2804,11 +2804,11 @@ You see stars.
 ~
 ~
 0 0 5378
-D1
+D5
 You see stars.
 ~
 ~
-0 0 5377
+0 0 5378
 S
 #5378
 The Void~
@@ -2820,7 +2820,7 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
-D3
+D1
 You see stars.
 ~
 ~
@@ -2830,7 +2830,7 @@ You see a fuzzy portal of some sort and a little green.
 ~
 ~
 0 0 8903
-D1
+D3
 You see stars.
 ~
 ~

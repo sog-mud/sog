@@ -35,7 +35,7 @@ This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
 looks up at you and smiles.
 ~
 human~
-ABC BDFHNT 1000 0
+ABC BDFHJNT 1000 0
 51 0 50d10+5000 25d9+100 5d8+20 none
 -21 -21 -21 3
 EFNU B B 0
@@ -98,7 +98,7 @@ The God of War is here, studying some maps.  He scowls at you as you enter
 and says 'I am very busy.  What do you want?'
 ~
 human~
-ABCF BDFHT -1000 0
+ABCF BDFHJT -1000 0
 59 0 50d10+9000 29d9+100 8d6+26 none
 -29 -29 -29 1
 EFNU B B 0
@@ -159,7 +159,7 @@ This man is waiting on Ares.  Although he does not look very strong, you
 realize that Ares would not have any weaklings working for him.
 ~
 human~
-ABCF BDFHT 0 0
+ABCF BDFHJT 0 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
@@ -236,7 +236,7 @@ not to underestimate him.  He smiles warmly at you and shows you his selection
 of delicious looking foods.
 ~
 human~
-ABC BDFHNT 1000 0
+ABCe BDFHNT 1000 0
 50 0 50d10+4500 25d9+100 5d8+19 none
 -40 -40 -40 -13
 EFNU 0 0 0
@@ -313,7 +313,7 @@ This bizarre creature has three heads - one of a goat, one of a lion, and one
 of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
 ~
 human~
-ABCF BDFHT -1000 0
+ABCF BDFHJT -1000 0
 34 0 10d10+1200 17d9+100 4d7+10 none
 -11 -11 -11 5
 EFNU 0 0 0
@@ -401,7 +401,7 @@ He looks as though he has spent a lot of time underground, guarding the
 prisoners.
 ~
 human~
-ABCR BDFHNT 0 0
+ABCR BDFHJNT 0 0
 22 0 4d10+360 22d9+100 2d7+5 none
 -5 -5 -5 3
 FU 0 0 0

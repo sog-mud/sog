@@ -120,7 +120,7 @@ eerie inner light.  The clear eyes seem timelessly wise, yet shadowed
 with a strange, innocent vacancy.
 ~
 horse~
-AG CDEFGHN 1000 0
+AG CDEFGHJN 1000 0
 70 2 100d10+9500 1d10+800 12d5+40 cleave
 -45 -45 -45 -45
 EIK LNS BGI M
@@ -204,7 +204,7 @@ incoherently.  Judging from the chisel marks on the walls, he seems to
 be the creator of this artwork..
 ~
 human~
-ACGS 0 0 0
+ACGS J 0 0
 65 0 65d10+8500 1d10+500 9d6+20 punch
 -33 -32 -30 -30
 DEFJ 0 Q LO
@@ -297,7 +297,7 @@ A bit of faith floats here, thriving on your belief in its existence.
 It seems to grow more solid as you look at it.
 ~
 unique~
-AGS TU 0 0
+AGS JTU 0 0
 62 0 50d10+7800 1d10+620 10d5+10 magic
 -35 -34 -33 -31
 EFG BKP D MNO
@@ -325,7 +325,7 @@ Some memories hover here, reminiscing.
 They remind you of something.. but you can't quite recall what..
 ~
 unique~
-AGS TU 0 0
+AGS JTU 0 0
 64 0 50d10+8500 1d10+640 10d5+40 magic
 -35 -34 -33 -31
 EFG BKP D MNO
@@ -408,7 +408,7 @@ Fiery green eyes glow against the dark avian face with a bottomless hunger
 that makes you shiver inside.
 ~
 unique~
-ABCFG DFT 0 0
+ABCFG DFJT 0 0
 65 2 65d10+8000 1d10+650 9d6+30 peck
 -35 -33 -34 -20
 FH BH M I
@@ -423,7 +423,7 @@ The dark figure moves in and out of the shadows with the graceful power of
 a cat.
 ~
 human~
-ACFGS PQ 0 0
+ACFGS JPQ 0 0
 52 1 50d10+4500 1d10+100 5d8+22 pierce
 -23 -24 -22 -24
 BEFJ 0 K P
@@ -438,7 +438,7 @@ A horrorific construction of bones and flesh shambles around the room.  The
 dull grey eyes flash restlessly from side to side searchingly.
 ~
 unique~
-ABCFG O -500 0
+ABCFG JO -500 0
 64 0 50d10+8000 1d10+500 9d6+28 digestion
 -33 -34 -34 -32
 CDEFJ LQ K EN
@@ -454,7 +454,7 @@ bones beneath.  As the soul writhes with pain, larger chunks peel off and
 fall to the floor.
 ~
 human~
-ABG IU 0 0
+ABG IJU 0 0
 52 0 50d10+4500 1d10+520 6d7+0 scratch
 -20 -18 -17 -15
 F 0 0 D
@@ -469,7 +469,7 @@ Fierce red eyes flash eerily from within the dark cowl.  One arm raises, and
 you notice that the fingers are clawed and bloody..
 ~
 human~
-ABCFGR DFGO -800 0
+ABCFGR DFGJO -800 0
 64 0 50d10+8000 1d10+2000 9d6+0 claw
 -30 -32 -31 -30
 FG M I HNY
@@ -486,7 +486,7 @@ vicinity of the beast, surrounding it with an aura of blackness, pierced
 only by the hellish red lights of its eyes.
 ~
 horse~
-AGQ CDEFGHN 1000 0
+AGQ CDEFGHJN 1000 0
 70 2 100d10+10000 1d10+800 12d5+40 cleave
 -45 -45 -45 -45
 DEGI KM CH NOP
@@ -503,7 +503,7 @@ part in a ghastly parody of a smile, twisting her face into something
 terribly evil and entirely inhuman.
 ~
 human~
-ABFG OZ -800 0
+ABFG JOZ -800 0
 60 0 50d10+7500 1d10+700 8d6+24 claw
 -30 -31 -29 -28
 FGI EM B JNP
@@ -518,7 +518,7 @@ An aura of evil and death hangs about the dark wraith.  It turns its head,
 and the blood red eyes seem to bore into yours with an insatiable hunger..
 ~
 unique~
-ACGOT OTUZ -400 0
+ACGOT JOTUZ -400 0
 65 3 65d10+8900 1d10+250 9d6+40 drain
 -37 -38 -36 -27
 DEFK I KM HNO
@@ -534,7 +534,7 @@ hands give the figure a ghastly, inhuman appearance.  The wild dark eyes
 flicker searchingly around the room.
 ~
 human~
-ACFG V -600 0
+ACFG JV -600 0
 68 0 70d10+9250 1d10+680 9d6+45 claw
 -37 -38 -38 -35
 DF 0 NQ HNS
@@ -549,7 +549,7 @@ A black-robed cultist is attempting to keep the onyx walls spotless.  He's
 doing a remarkable good job, considering that his tongue is only so long..
 ~
 human~
-ACG 0 0 0
+ACG J 0 0
 70 0 65d10+10200 1d10+630 9d6+25 chomp
 -38 -39 -40 -38
 F 0 0 0
@@ -565,7 +565,7 @@ on insane.  Then again.. floating teeth?  Maybe you're not entirely all there
 yourself...  <g>
 ~
 unique~
-ACG TV 0 0
+ACG JTV 0 0
 65 1 65d10+8500 0d0+0 9d6+30 chomp
 -33 -32 -30 -30
 DEF BCFPT EL FK
@@ -581,7 +581,7 @@ Powerful taloned hands grasp a sacrificial dagger still grimy with blood.
 The ghastly face turns towards you and licks its lips.
 ~
 human~
-ACFGQ OZ -900 0
+ACFGQ JOZ -900 0
 65 0 50d10+8200 1d10+1300 9d6+20 wrath
 -35 -34 -35 -33
 DEFG ILQ M NSY
@@ -595,7 +595,7 @@ All matter has disappeared in a square area in the center of the room.
 Your guts wrench as you attempt to look at.. nothing at all.
 ~
 unique~
-AGO BT 0 0
+AGO BJT 0 0
 57 0 50d10+6200 1d10+500 6d8+10 drain
 -28 -29 -27 -25
 FG BD 0 HIJKMNOP
@@ -610,7 +610,7 @@ This furry little creature would be pretty cute if it didn't seem so bent
 on self destruction.
 ~
 rabbit~
-ACG 0 0 0
+ACG J 0 0
 45 0 25d10+3000 0d0+0 8d4+6 bite
 -15 -16 -15 -15
 0 0 0 E
@@ -625,7 +625,7 @@ Wary, intelligent eyes combine with honed muscles and reflexive grace to
 make this man a very dangerous enemy.
 ~
 human~
-AGT CV 0 0
+AGT CJV 0 0
 70 5 50d12+10200 1d10+400 10d6+45 cleave
 -41 -42 -41 -40
 ADEFIK 0 D P
@@ -640,7 +640,7 @@ It could almost be a part of the shadows, if it weren't for the telltale
 red eyes gleaming sadistically against the blackness.
 ~
 unique~
-AFG BDFOTZ -700 0
+AFG BDFJOTZ -700 0
 70 0 100d10+10500 1d10+700 7d10+30 drain
 -40 -42 -41 -39
 FG B GJK NO
@@ -654,7 +654,7 @@ Some dreams drift aimlessly.
 Some dreams have been left here, forgotten.
 ~
 unique~
-AG BTU 0 0
+AG BJTU 0 0
 62 0 50d10+8250 1d10+620 10d5+10 magic
 -35 -34 -33 -31
 FG 0 0 S
@@ -668,7 +668,7 @@ A bit of knowledge, tattered and grey, floats in midair.
 You feel wiser, yet somehow dirty..
 ~
 unique~
-AG ITU 0 0
+AG IJTU 0 0
 61 0 50d10+7600 1d10+610 10d5+0 digestion
 -35 -34 -33 -31
 EFG N G KLPQ
@@ -682,7 +682,7 @@ Some lies have been hidden here.
 As you attempt to look at them, they bury deeper into the shadows.
 ~
 unique~
-AGHS PQTU 0 0
+AGHS JPQTU 0 0
 64 0 50d10+8200 1d10+640 10d5+40 drain
 -35 -34 -33 -31
 EFGJ 0 F JPS
@@ -696,7 +696,7 @@ Some hopes have been left here to drift.
 An overwhelming feeling of hopelessness washes over you.
 ~
 unique~
-AG BTU 0 0
+AG BJTU 0 0
 62 0 50d10+8200 1d10+620 10d5+10 scratch
 -35 -34 -33 -31
 EFG I 0 FJPS
@@ -711,7 +711,7 @@ Slitted silver eyes gleam warily from the powerful cat form as she prowls
 silently, like a living shadow.
 ~
 cat~
-ABFGT PQV 0 11644
+ABFGT JPQV 0 11644
 80 2 100d12+15000 1d10+850 15d5+40 claw
 -52 -51 -49 -50
 DEG HMQ G I
@@ -727,7 +727,7 @@ build.  The dark silver eyes, shadowed with pain, are strangely at odds with
 the cruel smile that seems to have permanently twisted the human lips.
 ~
 human~
-ABFGRT CDHO -1000 11644
+ABFGRT CDHJO -1000 11644
 85 0 100d12+16500 1d10+1000 9d10+50 smash
 -50 -53 -55 -53
 EIK BEJM GIK N
@@ -755,7 +755,7 @@ A sacrifice victim lies here, too terrified to scream.
 This person is completely rigid with fear.
 ~
 human~
-ABG I 0 0
+ABG IJ 0 0
 58 0 5d10+6500 1d10+180 5d10+0 scratch
 -52 -50 -51 -46
 DFJ 0 0 P
@@ -784,7 +784,7 @@ Strange, you can see right through it..  It appears to be keeping the area
 clean.
 ~
 ghost~
-ABCG BIU 0 0
+ABCG BIJU 0 0
 65 0 65d10+8500 1d10+6700 9d6+20 magic
 -39 -38 -36 -34
 F 0 E 0
@@ -826,7 +826,7 @@ A huge, dark cat form prowls in the darkness.
 Slitted silver eyes glint menacingly.
 ~
 unique~
-ACGS DFPQZ 0 0
+ACGS DFJPQZ 0 0
 66 0 65d10+8800 1d10+660 9d6+35 claw
 -37 -38 -36 -35
 EFH HI M J
@@ -840,7 +840,7 @@ A dark shape seems to flit through the trees in the corner of your eye.
 You think you see something there.. but maybe it's just your imagination.
 ~
 unique~
-AGS BTU 0 0
+AGS BJTU 0 0
 62 0 65d10+7800 1d10+650 8d6+30 magic
 -33 -34 -34 -33
 EFGH J HI MNP
@@ -855,7 +855,7 @@ Beneath the glimmering ice blue eyes, a cruel beak pokes out of the shadow
 black feathers forming the avian face.
 ~
 unique~
-ABCG DFTZ 0 0
+ABCG DFJTZ 0 0
 67 0 65d10+9000 1d10+670 9d6+40 claw
 -36 -37 -37 -35
 ADEFK EJ K F
@@ -870,7 +870,7 @@ Dark grey down covers a large owl shape and semiformed wings.  Long, cruel
 black talons betray a natural predator behind the seeming vulnerability.
 ~
 unique~
-ABCG Z 0 0
+ABCG JZ 0 0
 60 0 50d10+7200 1d10+600 8d6+20 peck
 -28 -29 -28 -27
 EF 0 EJ B
@@ -886,7 +886,7 @@ extend before the form.  You notice a piece of rotting flesh dangling
 from one claw.
 ~
 unique~
-ACFG BTUZ 0 0
+ACFG BJTUZ 0 0
 67 0 65d10+9000 1d10+670 9d6+40 drain
 -36 -37 -37 -35
 DEFG 0 G HO
@@ -900,7 +900,7 @@ A sillouhette floats here.
 A dark sillouhette of a humanoid form.
 ~
 unique~
-AG BITV 0 0
+AG BIJTV 0 0
 70 0 100d10+10500 1d10+1000 12d5+20 magic
 -45 -44 -43 -41
 EFGN 0 D C
@@ -986,7 +986,7 @@ Dark green scales gleam in the dim light.  A long forked tongue snakes
 out from between sharp white fangs as the serpent hisses warningly.
 ~
 snake~
-ABFG DFPZ 0 0
+ABFG DFJPZ 0 0
 75 0 65d10+12000 1d10+750 10d6+25 shbite
 -45 -46 -47 -44
 EFM J 0 0
@@ -1015,7 +1015,7 @@ Peering into the shadows, you can barely make out the looming form of a
 dark hawk.
 ~
 unique~
-ABCFG DFQTZ 0 11664
+ABCFG DFJQTZ 0 11664
 80 0 100d12+14500 1d10+820 9d10+20 claw
 -40 -39 -40 -38
 ACDEFG 0 MN P
@@ -1158,7 +1158,7 @@ A smelly mound of... stuff... squishes here.
 Gross..
 ~
 unique~
-ABCFGU NOZ 0 0
+ABCFGU JNOZ 0 0
 65 0 65d10+8700 1d10+650 9d6+27 suction
 -35 -35 -36 -34
 ACD LQ 0 0
@@ -1217,7 +1217,7 @@ Summoned from the elemental plane of air, the servant is bound to
 follow its master's orders until it is killed or freed.
 ~
 human~
-ABJ BDTU 0 0
+ABIJ BDTU 0 0
 40 0 15d10+2550 1d10+400 4d8+13 chill
 -13 -13 -13 -10
 FG 0 0 0
@@ -1231,7 +1231,7 @@ A gauntleted fist hovers menacingly.
 Hard adamantite knuckles gleam with a fierce power. 
 ~
 modron~
-ABJ T 0 0
+ABIJ T 0 0
 45 0 25d10+3000 1d10+450 8d4+16 crush
 -15 -15 -15 -12
 CDK 0 0 0
@@ -1246,7 +1246,7 @@ Midnight black hair ripples across the sleek muscles of a large,
 powerful cat.
 ~
 cat~
-ABJ P 0 0
+ABIJ P 0 0
 50 0 50d10+4500 1d10+500 5d8+19 claw
 -21 -19 -20 -19
 DE 0 MN JS
@@ -1261,7 +1261,7 @@ The huge silver cat form moves with a liquid grace that leaves the
 impression of a living bolt of pure lightning.
 ~
 cat~
-ABJ DP 0 0
+ABIJ DP 0 0
 55 0 50d10+6000 1d10+550 10d4+23 shbite
 -26 -25 -25 -23
 CD J 0 M
@@ -1276,7 +1276,7 @@ Powerful snow white wings sprout from the equinne shoulder blades.
 Intelligent sea blue eyes seem to follow your every move.
 ~
 pig~
-ABJ DET 500 0
+ABIJ DET 500 0
 60 0 50d10+6500 1d10+600 8d6+28 cleave
 -30 -30 -30 -30
 FIK 0 0 0
@@ -1291,7 +1291,7 @@ Pure flame has been shaped into the form of a large cat.  Blue eyes
 glint like twin furnaces amidst the heat.
 ~
 cat~
-ABJ P 0 0
+ABIJ P 0 0
 65 0 75d10+8000 1d10+650 8d6+34 flbite
 -36 -36 -34 -33
 DE H 0 I
@@ -1307,7 +1307,7 @@ hardness of its make the cat moves with the silent, dangerous grace of
 a killer.
 ~
 cat~
-ABJ P 0 0
+ABIJ P 0 0
 65 0 75d10+8000 1d10+650 8d6+34 flbite
 -35 -36 -34 -33
 DE I J H
@@ -1324,7 +1324,7 @@ the ability to do quite a bit of very real damage to those who oppose
 its master..
 ~
 cat~
-ABJ BDFPTU 0 0
+ABIJ BDFPTU 0 0
 70 0 100d10+9500 1d10+700 7d10+30 wrath
 -40 -41 -41 -40
 DE 0 C OP
@@ -1341,7 +1341,7 @@ arms and powerful legs.  A narrow enchanted collar encircles the thick
 neck, binding it to the will of its master.
 ~
 human~
-ABJ E -500 0
+ABIJ E -500 0
 75 0 100d10+11250 1d10+750 7d10+35 slash
 -45 -45 -45 -45
 CDK 0 0 0
@@ -1357,7 +1357,7 @@ bat wings.  A thick tail protrudes from the demon's hindquarters, ending
 in a sharp, triangular tip.
 ~
 human~
-ABJ ET -700 0
+ABIJ ET -700 0
 80 0 100d12+13500 1d10+800 9d10+28 slash
 -50 -50 -50 -50
 CDEKM 0 0 0
@@ -1373,7 +1373,7 @@ to absorb all light in the area.  Two muscular arms sprout from
 either side of the broad torso, ending in wickedly sharp black talons.
 ~
 human~
-ABJ EO -900 0
+ABIJ EO -900 0
 85 0 100d12+16250 1d10+800 9d10+33 claw
 -55 -55 -55 -55
 CDK 0 H N
@@ -1388,7 +1388,7 @@ The soft brown fur stands on end, giving the hamster the appearance
 of a small and deadly fluffball.  Watch those incisors!
 ~
 rabbit~
-ABCJ b 0 0
+ABCIJ b 0 0
 90 0 100d12+18000 1d10+900 9d10+38 bite
 -60 -60 -60 -58
 DJ 0 0 0
@@ -1402,7 +1402,7 @@ A small guinea pig hisses at you viciously.
 It snuffles viciously.  Fatal and furry!
 ~
 rabbit~
-ABCJ a 0 0
+ABCIJ a 0 0
 92 0 100d12+17250 1d10+950 10d10+38 chomp
 -68 -68 -68 -68
 DEJ 0 0 0
@@ -1417,7 +1417,7 @@ Exquisitely crafted of mithril, the blade has been given life through
 powerful magic.  It is very precise and extremely deadly.
 ~
 modron~
-ABJT T 0 0
+ABIJT T 0 0
 92 0 100d12+17250 1d10+950 10d10+40 slash
 -65 -65 -65 -65
 DEFK 0 0 0
@@ -1433,7 +1433,7 @@ resembles a large rabbit.  Though small, it possesses an intelligence
 and training which make it an deadly fighter.
 ~
 rabbit~
-ABJT BDFTUZ 0 0
+ABIJT BDFTUZ 0 0
 93 0 100d12+19000 1d10+1000 10d10+43 magic
 -75 -74 -74 -74
 CDEGK 0 C 0
@@ -1448,7 +1448,7 @@ Powerful runes shimmer along both faces of the finely crafted adamantite
 blade.  Magically empowered and honed, the blade is a lethal enemy.
 ~
 modron~
-ABJT NOT 0 0
+ABIJT NOT 0 0
 90 0 100d12+19000 1d10+1000 10d10+43 cleave
 -70 -70 -70 -68
 CDEFK 0 0 0
@@ -1465,7 +1465,7 @@ A classy nametag pinned to her lapel reads:
                "Sherayna"
 ~
 elf~
-ABG DF 0 0
+ABGe DF 0 0
 93 0 100d12+19000 1d10+1000 10d10+43 wrath
 -50 -50 -50 -50
 EFK A 0 0
@@ -1483,7 +1483,7 @@ A silver pin on her lapel reads:
              "Nyvri"
 ~
 elf~
-ABG DF 0 0
+ABGe DF 0 0
 90 0 100d12+18000 1d10+1000 10d10+43 magic
 -50 -50 -50 -50
 EFK A 0 0
@@ -1706,7 +1706,7 @@ the huge cat.  Though large, the panther is all muscle and moves
 with a powerful grace.
 ~
 cat~
-AFG PQ 0 11700
+AFG JPQ 0 11700
 55 0 50d10+5000 1d10+550 10d4+23 claw
 -28 -28 -28 -27
 DE 0 0 0
@@ -1720,7 +1720,7 @@ A midnight black lynx paces silently.
 Slitted green eyes watch you warily.  A black key is draped around its neck.
 ~
 cat~
-ABFG P 0 11700
+ABFG JP 0 11700
 55 0 50d10+5000 1d10+550 10d4+23 claw
 -28 -28 -28 -27
 DE 0 0 0
@@ -1909,7 +1909,7 @@ The captive tugs futiley at the cords which bind him to the table
 and only succeeds in pulling them tighter.
 ~
 human~
-ABG M 0 11700
+ABG JM 0 11700
 30 0 6d12+853 1d10+300 4d6+6 scratch
 -6 -6 -6 -4
 0 0 0 0
@@ -5701,21 +5701,21 @@ that this is supposed to lead somewhere.  Then again..
 As you watch, the intersection seems to twist and change.
 ~
 0 0 1
-D3
-Twisting red brick road.
-~
-~
-0 -1 11689
-D2
-Twisting red brick road.
-~
-~
-0 -1 11687
 D1
 Twisting red brick road.
 ~
 ~
 0 -1 11683
+D2
+Twisting red brick road.
+~
+~
+0 -1 11687
+D3
+Twisting red brick road.
+~
+~
+0 -1 11689
 S
 #11687
 Entrance to the Funny Farm~

@@ -94,7 +94,7 @@ An old withered mage/bartender leans against the bar.
 He looks distracted as he pours five drinks at once without error.
 ~
 human~
-ABRVXY D 800 0
+ABRVXYe D 800 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -169,7 +169,7 @@ The baker stands here playing solitaire.
 You see a large man in a white apron covered in flour from head to toe.
 ~
 human~
-ABVXY D 800 0
+ABVXYe D 800 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -184,7 +184,7 @@ The shopkeeper stands here.
 You see a half-elf sitting on a stool behind his counter.
 ~
 human~
-ABVXY D 800 0
+ABVXYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -218,7 +218,7 @@ This middle-aged man looks over you with disdain and quickly suggests a new
 wardrobe.
 ~
 human~
-ABVXY D 800 0
+ABVXYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -233,7 +233,7 @@ Vera the veggie lady beams as you look over her stand.
 A tall slender elf stands before you smiling broadly.
 ~
 human~
-ABVXY D 800 0
+ABVXYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -249,7 +249,7 @@ This stocky dwarf has a mad glint in his eye as he twirls his cleaver
 carelessly into the air.
 ~
 human~
-ABTVXY D 800 0
+ABTVXYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -265,7 +265,7 @@ Abdul returns your gaze with a steady eye. You quickly glance away under
 his cold stare and place your order.
 ~
 human~
-ABTVXY D 800 0
+ABTVXYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -281,7 +281,7 @@ Igor stands here doing... something.
 You see a small dwarf with a large hump on his left shoulder.
 ~
 human~
-ABTVXY D 800 0
+ABTVXYe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -298,7 +298,7 @@ open sea. It is only through years of fishing that she is able to withstand
 the smell that permeates the air.
 ~
 human~
-AB D 800 0
+ABe D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -469,7 +469,7 @@ Aziz the Human Canon stands here.
 You see nothing special...
 ~
 human~
-ACGHQR D 0 0
+ACGHQR DJ 0 0
 11 0 2d7+121 11d9+100 1d7+2 none
 1 1 1 6
 FU 0 0 0
@@ -484,7 +484,7 @@ Mustafah the Human Robber stands here.
 You see nothing special...
 ~
 human~
-ACGHS DF 0 0
+ACGHS DFJ 0 0
 7 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 8
 BEFJNU 0 0 0
@@ -499,7 +499,7 @@ Fatima the Elven Invoker stands here.
 You see nothing special...
 ~
 human~
-ACGHRU D 0 0
+ACGHRU DJ 0 0
 9 0 2d7+96 9d9+100 1d7+1 none
 3 3 3 7
 FU 0 0 0
@@ -514,7 +514,7 @@ Kareem the Dwarven Mercenary stands here.
 You see nothing special...
 ~
 human~
-ACGHT D 0 0
+ACGHT DJ 0 0
 12 0 2d10+170 6d9+100 1d10+3 none
 0 0 0 8
 CDEIKLU 0 0 0
@@ -560,7 +560,7 @@ A skinny kid wanders around.
 This small child sees you looking at him and quickly looks away.
 ~
 human~
-ACHS DF 100 0
+ACHS DFJ 100 0
 7 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 8
 BEFJNU 0 0 0
@@ -683,7 +683,7 @@ A small harmless feline searches for food.
 You see a small starved cat.
 ~
 human~
-ACHU 0 -10 0
+ACHU J -10 0
 2 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 EFNU 0 0 0
@@ -698,7 +698,7 @@ A vulture circles above you.
 As you look up at this bird, you see the only thing it wants is a corpse.
 ~
 human~
-AGH 0 -200 0
+AGH J -200 0
 2 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 EFNU 0 0 0
@@ -820,7 +820,7 @@ You see a pathetic soul lying here. Some ex-nobleman that has fallen
 out of grace with the Sultan.
 ~
 human~
-ABCHT D -100 0
+ABCHT DJ -100 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
@@ -928,7 +928,7 @@ You see a thief dressed all in black, he quickly stands as you enter
 and steps to bar your way. You notice his hands resting on two sheafs.
 ~
 human~
-ABST D 0 0
+ABST DJ 0 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
@@ -1019,7 +1019,7 @@ You see the shipwright of New Thalos, waiting to make someone a boat. He
 beams a smile at you through his beard as you walk in.
 ~
 human~
-ABVXY 0 0 0
+ABVXYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1035,7 +1035,7 @@ You see a large human, dripping in sweat, standing before you. He takes a
 break from his swealtering work to bid you welcome.
 ~
 human~
-ABVXY 0 0 0
+ABVXYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1097,7 +1097,7 @@ The cryohydra stands here.
 A grey-brown reptillian creature with amber eyes stands before you.
 ~
 human~
-AFGTW 0 0 0
+AFGTW J 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
@@ -1112,7 +1112,7 @@ The minotaur lizard stands here.
 A huge lizard like reptile with horns like a minotaur.
 ~
 giant~
-AFGT 0 0 0
+AFGT J 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNR 0 0 0
@@ -1126,7 +1126,7 @@ The death dog stands here.
 A large two-headed hound barks at you viciously.
 ~
 dog~
-AFGU 0 0 0
+AFGU J 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNR 0 0 0
@@ -1140,7 +1140,7 @@ The spotted lion stands here.
 A large fierce dapple skinned lion glares at you.
 ~
 human~
-AFGU 0 0 0
+AFGU J 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
@@ -1155,7 +1155,7 @@ A behir slithers on the ground.
 You see a large snake like reptile with more than a dozen legs.
 ~
 human~
-ABFT D -300 0
+ABFT DJ -300 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -1172,7 +1172,7 @@ the hindquarters of a goat, the forepaws of a lion and the body of a red
 dragon.
 ~
 human~
-ABFT D -500 0
+ABFT DJ -500 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0
@@ -1188,7 +1188,7 @@ A beautiful creature with the body of a serpent and feathered wings the
 color of the rainbow.
 ~
 human~
-ABEQU B 300 0
+ABEQU BJ 300 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -1204,7 +1204,7 @@ The giant hornet hits you very hard!
 You wish you wounds would stop BLEEDING so much!
 ~
 giant~
-AFGU 0 0 0
+AFGU J 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNR 0 0 0
@@ -1235,7 +1235,7 @@ You see a very healthy female dressed in black, with long flowing
 hair to match her outfit.
 ~
 human~
-ABRVXY 0 0 0
+ABRVXYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1250,7 +1250,7 @@ Braheem stands here talking to the walls.
 You see a powerful but slighty insane mage.
 ~
 human~
-ABRVXY 0 0 0
+ABRVXYe 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -1297,7 +1297,7 @@ You see a really big guy here who seems to have lost an eye in one manner
 or another.
 ~
 human~
-ABHVXY D -500 0
+ABHVXYe D -500 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -1313,7 +1313,7 @@ You see a small hobbit with his feet kicked up on his desk waiting for
 some sucker, um, customer to walk in his store.
 ~
 human~
-ABHVXY D -500 0
+ABHVXYe D -500 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -1362,7 +1362,7 @@ You see a half wolf- half human beast wearing a glove with long thin
 blades on it.
 ~
 human~
-ABETUW D 0 0
+ABETUW DJ 0 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -1422,7 +1422,7 @@ A very large ray with a wicked looking tail swims here.
 You see a large ray with sharp fangs and a barbed tail.
 ~
 human~
-ABEQT D -500 0
+ABEQT DJ -500 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0

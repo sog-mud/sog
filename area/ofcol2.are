@@ -91,7 +91,7 @@ smiling a very big smile, as he looks at your coins.  You wonder if he likes
 the metals or the value of the coins.
 ~
 human~
-AB N 1000 0
+ABe N 1000 0
 30 0 6d12+1853 15d9+100 4d6+10 none
 -13 -13 -13 2
 EFNU 0 0 0
@@ -106,7 +106,7 @@ Sam is a middle-aged workman.  He looks tired, but never too tired to get that
 last sale from you.  He grins at you slightly.
 ~
 human~
-AB N 1000 0
+ABe N 1000 0
 30 0 6d12+1853 15d9+100 4d6+10 none
 -13 -13 -13 2
 EFNU 0 0 0
@@ -122,7 +122,7 @@ the hard ways of this world and is ready for it.  She spends her time at the
 shop, trading little things (for a wee bit of profit).
 ~
 human~
-AB N 1000 0
+ABe N 1000 0
 20 0 3d9+1333 10d9+100 2d8+7 none
 -7 -7 -7 3
 EFNU 0 0 0
@@ -138,7 +138,7 @@ son, Jim, raise and slaughter the animals for him.  Marty still knows how to
 kill, though.
 ~
 human~
-AB N 1000 0
+ABe N 1000 0
 30 0 6d12+1853 15d9+100 4d6+10 none
 -13 -13 -13 2
 EFNU 0 0 0
@@ -155,7 +155,7 @@ Farmer Elizabeth smiles at you nicely, but you bet she is doing that just to
 get a good price off of you!
 ~
 human~
-AB N 1000 0
+ABe N 1000 0
 20 0 3d9+1333 10d9+100 2d8+7 none
 -7 -7 -7 3
 EFNU 0 0 0
@@ -370,7 +370,7 @@ join in.  He keeps an eye on you and his glasses, making sure you don't steal
 any.
 ~
 human~
-AB 0 1000 0
+ABe 0 1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0

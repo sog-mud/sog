@@ -20,7 +20,7 @@ intruders in their sanctum! And you can rest assured they will do their
 utmost to eject you!
 ~
 human~
-AFG DFN -400 0
+AFG DFJN -400 0
 60 0 50d10+6750 5d5+5000 8d6+28 pound
 -30 -30 -30 -3
 EFHIJKNQ L B J
@@ -35,7 +35,7 @@ This statue isn't very well-fashioned, and isn't very attractive. You wonder
 why even the unholy monks would use such art in their abbey. Shrug.
 ~
 golem~
-ABG DFN 0 0
+ABG DFJN 0 0
 64 0 50d10+8000 5d5+5000 8d7+34 none
 -34 -34 -34 -4
 EFNU 0 0 0
@@ -51,7 +51,7 @@ and answer only to the abbot himself. They are if anything more diabolical
 than their demented pupils, and twice as deadly.
 ~
 human~
-AFG DFH -800 0
+AFG DFHJ -800 0
 63 0 50d10+7500 5d5+5000 7d8+33 pound
 -33 -33 -33 -4
 EFHIJKNQ L B J
@@ -178,7 +178,7 @@ and imprisoned here. The new clan has not dared to disturb him, for they
 know of his power.
 ~
 human~
-ABG CDEFHN 1000 0
+ABG CDEFHJN 1000 0
 75 0 50d10+11000 5d5+5000 9d11+45 pound
 -45 -45 -45 -9
 EFIJKS N 0 0
@@ -257,7 +257,7 @@ have managed to tame these beasts, much to the displeasure of civilized
 folk everywhere.
 ~
 unique~
-ABFG P 0 0
+ABFG JP 0 0
 62 0 50d10+7250 5d5+5000 6d9+32 charge
 -32 -32 -32 -4
 FIJQ 0 0 0

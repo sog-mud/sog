@@ -137,7 +137,7 @@ A small rat shrieks and runs around.
 The rat is a little evil creature that deserves death.
 ~
 human~
-AC 0 -200 0
+AC J -200 0
 2 0 2d7+21 1d9+100 1d5+0 none
 8 8 8 10
 EFNU 0 0 0
@@ -151,7 +151,7 @@ A large rat runs up to you and nibbles on your boots.
 You have the urge to kill this vile creature.
 ~
 human~
-AC 0 -200 0
+AC J -200 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
 EFNU 0 0 0
@@ -165,7 +165,7 @@ A giant rat growls at you and prepares to attack.
 This rat has grown up to be the size of an average dog.
 ~
 human~
-AC 0 -200 0
+AC J -200 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -194,7 +194,7 @@ A black bat hangs from the ceiling.
 The bat is a grotesque little creature with large wings and fangs.
 ~
 bat~
-A 0 -500 0
+A J -500 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 ENR 0 0 0
@@ -209,7 +209,7 @@ This is a creature which has passed away long ago.  His body has been
 pulled out of its resting place by some evil force.
 ~
 human~
-A 0 -700 0
+A J -700 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -224,7 +224,7 @@ You see a huge flame which resembles the shape of a bat.  The creature
 hangs from the ceiling and bites at you.
 ~
 bat~
-ABCF D -900 0
+ABCF DJ -900 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 ENR 0 0 0
@@ -1417,14 +1417,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D1
-~
-~
-0 -1 1549
 D0
 ~
 ~
 0 -1 1547
+D1
+~
+~
+0 -1 1549
 D3
 ~
 ~
@@ -1451,14 +1451,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D2
-~
-~
-0 -1 1555
 D0
 ~
 ~
 0 -1 1549
+D2
+~
+~
+0 -1 1555
 S
 #1551
 A Damp Hallway~
@@ -1466,14 +1466,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D2
-~
-~
-0 -1 1552
 D1
 ~
 ~
 0 -1 1548
+D2
+~
+~
+0 -1 1552
 S
 #1552
 A Damp Hallway~
@@ -1496,14 +1496,14 @@ You are wandering in a dark, damp, twisting hallway.  The temperature
 seems to be greater here, as well as your fear.
 ~
 0 ADN 2
-D1
-~
-~
-0 -1 1554
 D0
 ~
 ~
 0 -1 1552
+D1
+~
+~
+0 -1 1554
 S
 #1554
 A Damp Hallway~

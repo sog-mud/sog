@@ -172,7 +172,7 @@ commissioned to build 3 triremes, boats which offer little
 cargo storage, but excellent raiding speed.
 ~
 human~
-ABCE 0 300 0
+ABCEe 0 300 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 EFNU 0 0 0
@@ -248,7 +248,7 @@ a shady looking bunch talking about how Oglethorpe the master merchant
 had sold out Freeport to the pirates.
 ~
 human~
-ABCDE 0 600 0
+ABCDEe 0 600 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 EFNU 0 0 0
@@ -265,7 +265,7 @@ very cheap in which you might be interested. When you scoff at his
 fenced goods, Anwar clams up.
 ~
 elf~
-ABCEV 0 -300 0
+ABCEVe 0 -300 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 EFNU 0 0 0
@@ -282,7 +282,7 @@ nobody he had talked to voted for Mayor Friendly. He offers to repair your
 armor.
 ~
 dwarf~
-ABCESV 0 700 0
+ABCESVe 0 700 0
 94 0 50d10+21500 5d5+5000 10d18+66 slash
 -69 -69 -69 -35
 EFNU 0 C 0
@@ -299,7 +299,7 @@ She lets slip that Lord Mourning was seen recently in her shop. She offers
 to identify anything you may have.
 ~
 human~
-ABCERV 0 -700 0
+ABCERVe 0 -700 0
 94 0 50d10+21500 5d5+5000 10d18+66 pierce
 -69 -69 -69 -35
 EFNU 0 0 0
@@ -415,7 +415,7 @@ the last 6 years. Recently her business picked up again. In fact, she
 just last month had a week stay by a very rich visitor named Lord Vulture.
 ~
 human~
-ABCE 0 400 0
+ABCEe 0 400 0
 94 0 50d10+21500 5d5+5000 10d18+66 pound
 -69 -69 -69 -35
 EFNU 0 0 0
@@ -444,7 +444,7 @@ The guard is heavily armed and moves with military
 precision.
 ~
 human~
-ABCEF 0 -600 0
+ABCEF J -600 0
 46 0 25d10+3250 5d5+1000 6d6+16 pierce
 -16 -16 -16 2
 EFNU 0 0 0

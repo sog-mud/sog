@@ -62,7 +62,7 @@ John the shopkeeper stands here at his part time job.
 John the shopkeeper is obviously not happy.  And who would be at this job?
 ~
 human~
-ABV 0 200 0
+ABVe 0 200 0
 10 0 2d33+50 10d10+100 3d5+7 pierce
 4 4 4 7
 CEIK ABCD 0 0

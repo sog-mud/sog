@@ -22,7 +22,7 @@ As you approach he says, "Beware the Goblins!  They
 swarm like flies upon the unwary.  Beware!"
 ~
 human~
-ABG 0 0 0
+ABGe 0 0 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 EN 0 0 0

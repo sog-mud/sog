@@ -19,7 +19,7 @@ Brown bones with tufts of clothing still hanging from them.  This
 skeleton looks very mindless but still dangerous ...
 ~
 human~
-AF 0 0 0
+AF J 0 0
 1 0 2d6+10 0d9+100 1d4+0 none
 9 9 9 10
 EFNU 0 0 E
@@ -35,7 +35,7 @@ quite different from the next because they were, of course, once alive and
 human.
 ~
 human~
-ABF DF -100 0
+ABF DFJ -100 0
 4 0 2d7+46 2d9+100 1d5+1 none
 6 6 6 9
 EFNU 0 0 0
@@ -50,7 +50,7 @@ The ghoul no longer resembles the adventurer he once was.  Nonetheless
 he looks like he hasn't forgot his fighting skills.
 ~
 human~
-AF D -500 0
+AF DJ -500 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -66,7 +66,7 @@ black robe which hides all but the darkness of his face and the glimmer
 in his eyes.
 ~
 human~
-ABF BDF -750 0
+ABF BDFJ -750 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -81,7 +81,7 @@ The guardian vampire looks quite EVIL.  Just by looking at him the hair on your
 arms raises. He looks mighty tough to be just a minor minion.
 ~
 human~
-ABF DF -1000 0
+ABF DFJ -1000 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
@@ -115,7 +115,7 @@ multitudes of very small antennae, where a head would ordinarily be.  These
 beings sometimes walk on all their legs and sometimes on the hind pair only.
 ~
 human~
-AF 0 -500 0
+AF J -500 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -133,7 +133,7 @@ of all, it makes absolutely no sound or speech and smiles not at all because
 it has no face, only a suggestive blackness where a face ought to be ...
 ~
 human~
-AFG PQ -1000 0
+AFG JPQ -1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -151,7 +151,7 @@ and writhing, so it is hard to look at them.  They speak in great harsh
 voices.  A hunting horror is HUGE, normally around 40 feet long.
 ~
 human~
-AF DF -1000 0
+AF DFJ -1000 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -165,7 +165,7 @@ Some weeds are creeping across the floor.
 Just some unpleasant looking vine-like growths ...
 ~
 human~
-ACF DPQ 0 0
+ACF DJPQ 0 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -181,7 +181,7 @@ bright red hair. Half his face is burnt off and he has a perpetual smile.
 He is called up from his service in hell in order to aid the Undying One.
 ~
 human~
-AB D -750 0
+AB DJ -750 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -199,7 +199,7 @@ It has dog-like face except ... different.  Bright glowing eyes and a grimace
 lead you to believe that he knew that you were coming.
 ~
 human~
-ABF D -1000 0
+ABF DJ -1000 0
 17 0 3d9+258 8d9+100 3d4+4 none
 -3 -3 -3 7
 EFNU 0 0 0
@@ -218,7 +218,7 @@ softly into the air:
     calls me but I am blocked from its quiet.
 ~
 human~
-ABR DF 350 0
+ABR DFJ 350 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
@@ -232,7 +232,7 @@ A rock slug is slowly creeping along, leaving a slime trail behind it.
 It is a large brownish slug.  Got any salt?  Didn't think so ...
 ~
 human~
-AC 0 0 0
+AC J 0 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 0
@@ -254,7 +254,7 @@ Would you like hot or cold tea?  Yes the weather is ...'
 And on he babbles ...
 ~
 human~
-AGR A 1000 0
+AGR AJ 1000 0
 5 0 2d7+46 5d9+100 1d5+0 none
 6 6 6 8
 FU 0 0 0
@@ -272,7 +272,7 @@ insanely at you thru a broken jaw and missing teeth.  One hand of hers is
 resting on the shoulder of the etcher ... her husband.
 ~
 human~
-AB Q 1000 0
+AB JQ 1000 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -286,7 +286,7 @@ A half-decomposed body is lying in the corner here.
 YUK! It's ugly, disgusting ... it smells ... it also moves a bit!
 ~
 human~
-ACF 0 -350 0
+ACF J -350 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 EFNU 0 0 0

@@ -19,7 +19,7 @@ The asp is a small, smooth-scaled snake the color of worn pottery.
 The poison bite of this snake has felled many a mighty pharoah.
 ~
 human~
-AFG 0 0 0
+AFG J 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -79,7 +79,7 @@ A sneaky tomb thief moves about in search of treasure.
 The thief brushes against you briefly, then slinks back into the shadows.
 ~
 human~
-AGHS DFP -250 0
+AGHS DFJP -250 0
 10 0 2d6+110 5d9+100 1d8+2 none
 2 2 2 8
 BEFJNU 0 0 0
@@ -2032,11 +2032,6 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8753
-D3
-You see only a wall of whirling, blowing, dry sand.
-~
-~
-0 -1 8754
 D1
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -2047,6 +2042,11 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8755
+D3
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+0 -1 8754
 S
 #8755
 A Swirling Sandstorm~
@@ -2065,16 +2065,16 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8754
-D2
-You see only a wall of whirling, blowing, dry sand.
-~
-~
-0 -1 8756
 D1
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8755
+D2
+You see only a wall of whirling, blowing, dry sand.
+~
+~
+0 -1 8756
 D3
 You see only a wall of whirling, blowing, dry sand.
 ~
@@ -2093,12 +2093,12 @@ sand~
 Sand is about all you CAN see right now.  Unfortunately, it isn't very
 interesting sand, only white, dry, and blowing all over the place.
 ~
-D1
+D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
-0 -1 8756
-D3
+0 -1 8755
+D1
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
@@ -2108,11 +2108,11 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8757
-D0
+D3
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
-0 -1 8755
+0 -1 8756
 S
 #8757
 A Swirling Sandstorm~
@@ -2131,7 +2131,7 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8756
-D3
+D1
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
@@ -2141,7 +2141,7 @@ You see only a wall of whirling, blowing, dry sand.
 ~
 ~
 0 -1 8758
-D1
+D3
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~

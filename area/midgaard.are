@@ -425,7 +425,7 @@ Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
 but do not mess with him or else he'll get upset.
 ~
 human~
-ABSV 0 600 0
+ABSVe 0 600 0
 23 2 1d1+599 1d1+99 1d8+18 beating
 -8 -8 -8 -4
 BEFJN AB CD 0
@@ -580,7 +580,7 @@ An old man eyes you greedily.
 He looks very dangerous.  I wouldn't try to rob him.
 ~
 human~
-ABQRV DEFHV 1000 0
+ABQRVe DEFHV 1000 0
 92 0 1d1+29599 1d1+999 10d10+20 magic
 -65 -65 -65 -25
 FGH AB CD 0
@@ -623,7 +623,7 @@ A small loyal kitten is here.
 The kitten looks like a cute, little, fierce fighter.
 ~
 cat~
-ABU 0 400 0
+ABIU 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 scratch
 8 8 8 10
 0 0 C 0
@@ -637,7 +637,7 @@ A small loyal puppy is here.
 The puppy looks like a cute, little, fierce fighter.
 ~
 dog~
-ABU F 400 0
+ABIU F 400 0
 3 2 4d6+25 1d1+99 1d6+0 bite
 7 7 7 10
 N 0 C 0
@@ -651,7 +651,7 @@ A small, quick, loyal beagle is here.
 The beagle looks like a fierce fighter.
 ~
 dog~
-ABU F 400 0
+ABIU F 400 0
 5 3 3d12+50 1d1+99 1d6+0 bite
 5 5 5 9
 N 0 C 0
@@ -665,7 +665,7 @@ A large, loyal rottweiler is here.
 The rottweiler looks like a strong, fierce fighter.
 ~
 dog~
-ABU F 400 0
+ABIU F 400 0
 7 3 6d10+60 1d1+149 2d4+1 bite
 4 4 4 8
 CDL 0 C 0
@@ -679,7 +679,7 @@ A large, trained wolf is here.
 The wolf looks like a strong, fearless fighter.
 ~
 wolf~
-ABU F 0 0
+ABIU F 0 0
 9 3 6d10+80 1d1+99 2d5+1 bite
 4 4 4 8
 C 0 C 0
@@ -736,7 +736,7 @@ She is very beautiful with golden hair, and deep blue eyes. A good reason
 for coming here more often.
 ~
 human~
-ABV 0 1000 0
+ABVe 0 1000 0
 23 2 1d1+499 1d1+99 1d8+12 beating
 -15 -15 -15 -15
 FG AB CD 0
@@ -893,7 +893,7 @@ Esme brushes a lock of dark hair away from her wire-rimmed glasess and
 smiles warmly at you.
 ~
 human~
-ABV 0 900 0
+ABVe 0 900 0
 25 0 1d1+999 1d1+199 1d8+10 slap
 -15 -15 -15 -15
 FG AB CD 0
@@ -910,7 +910,7 @@ frame.  She looks up from her pile of papers and maps and looks inquiringly
 at you, smiling faintly.
 ~
 human~
-ABV 0 900 0
+ABVe 0 900 0
 84 3 20d10+28800 1d1+399 13d60+60 slap
 -65 -65 -65 -35
 FG AB CD 0
@@ -974,7 +974,7 @@ This brawny woman wears a large white apron to catch all the spatters while
 she cuts the beef.
 ~
 human~
-ABV H 900 0
+ABVe H 900 0
 48 1 25d10+6250 1d1+999 6d18+16 none
 -35 -35 -35 -15
 EFJ AB CD 0

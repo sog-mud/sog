@@ -74,7 +74,7 @@ just want to know what it's worth, type VALUE <item> and I'll give you a
 free valuation". 
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN AB 0 0
@@ -92,7 +92,7 @@ you, type SELL <item>. If you just want a valuation, type VALUE <item> and
 I'll let you know what its worth for free".
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN AB 0 0
@@ -107,7 +107,7 @@ The Mercenary Master grunts as you enter.
 to hire 'im. That's it. Now pay up or get out".
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FKN 0 0 0
@@ -124,7 +124,7 @@ think I may like to buy, type SELL <item>. Alternatively I can give you
 a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 80 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN AB 0 0
@@ -160,7 +160,7 @@ to buy, simply type BUY <pet>, and if you wish to name it, add the name that
 you want it to have to the same line, i.e, BUY mouse harold".
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 80 0 50d10+13500 5d5+5000 13d9+50 slap
 -50 -50 -50 -13
 FHKN AB 0 0
@@ -194,7 +194,7 @@ think I may like to buy, type SELL <item>. Alternatively I can give you
 a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN AB 0 0
@@ -211,7 +211,7 @@ If ya wanna buy something, then type BUY <item>. If ya think ya got sumptin'
 I might wanna buy, type SELL <item>. Now buy up!"
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 blast
 -50 -50 -50 -13
 FHKN 0 0 0
@@ -227,7 +227,7 @@ spellflinging types. To see whats on tap, type LIST. If you see something
 you fancy, well, then type BUY <item>. OK?"
 ~
 human~
-ABG HN 1000 0
+ABGe HN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN 0 0 0
@@ -261,7 +261,7 @@ do NOT STEAL! We BORROW... Now with that out of the way, type PRAC to see
 what I can teach you, and PRAC skill to learn one of the skills shown."
 ~
 human~
-ABCGO HN 1000 0
+ABCGO HJN 1000 0
 10 0 2d7+121 5d5+100 2d4+2 pound
 1 1 1 7
 F 0 0 0
@@ -276,7 +276,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-ABG HN 0 0
+ABGe HN 0 0
 55 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 F 0 0 0
@@ -291,7 +291,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 elf~
-ABG HN 0 0
+ABGe HN 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FKN 0 0 0
@@ -306,7 +306,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 dwarf~
-ABG HN 0 0
+ABGe HN 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FHKN 0 0 0
@@ -321,7 +321,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-ABG HN 0 0
+ABGe HJN 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FHKN 0 0 0
@@ -422,7 +422,7 @@ Aod the dealer stands in the shadows here.
 AOD apparently practices safe sex...
 ~
 human~
-ACG DFJ 0 0
+ACGe DFJ 0 0
 60 5 50d10+15500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FK 0 0 0
@@ -488,7 +488,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-ABG HN 0 0
+ABGe HN 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FHKN AB 0 0
@@ -503,7 +503,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-ABG HN 0 0
+ABGe HN 0 0
 55 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FKN 0 0 0
@@ -518,7 +518,7 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-ABG HN 0 0
+ABGe HN 0 0
 55 0 50d10+8250 5d5+5000 11d5+35 pound
 -35 -35 -35 -5
 FKN 0 0 0
@@ -610,7 +610,7 @@ A footpad stalks around looking for an easy victim.
 The footpad skulks about, looking for someone to conk over the head.
 ~
 human~
-ACG 0 -200 0
+ACG J -200 0
 5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 0 0 0 0
@@ -624,7 +624,7 @@ A singing, happy drunk.
 A drunk who seems to be too happy, and to carry too much money. He mumbles something unintelligible and stumbles away.
 ~
 human~
-AG 0 400 0
+AG J 400 0
 5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 0 0 0 0
@@ -652,7 +652,7 @@ A thief adroitly cuts the strings of another fat merchant's purse.
 This clever fellow has robbed dozens of unsuspecting visitors to Anon.
 ~
 human~
-AGH CPQU 0 0
+AGH CJPQU 0 0
 10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 F 0 0 0
@@ -681,7 +681,7 @@ Rats! Eeyew! They come up out of the sewer and steal the children of Anon.
 Good.
 ~
 unique~
-AGH 0 0 0
+AGH J 0 0
 5 0 2d6+60 5d5+100 1d6+1 bite
 5 5 5 9
 0 0 0 0
@@ -843,7 +843,7 @@ goes on to tell you that you can have anything you want, as long as it's
 deep-fried. That includes the pizza...
 ~
 human~
-AG HJN 1000 0
+AGe HJN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN AB 0 0
@@ -859,7 +859,7 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-ABG CN 1000 0
+ABGe CN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 CDEF 0 0 0
@@ -876,7 +876,7 @@ isn't saying much as it is the ONLY place that serves Cafe-style food in
 all of Anon...
 ~
 human~
-ABG HJN 1000 0
+ABGe HJN 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 FHKN 0 0 0
@@ -938,7 +938,7 @@ history, social structure and legends of the many races of Anon. He is more
 than willing to sell you a book.
 ~
 human~
-ABG DH 1000 0
+ABGe DH 1000 0
 55 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 F 0 0 0
@@ -954,7 +954,7 @@ surprisingly dextrous. He also purchases keys off of players. Try selling
 him one!
 ~
 human~
-AG DH 1000 0
+AGe DH 1000 0
 63 0 50d10+13500 5d5+5000 13d9+50 pound
 -50 -50 -50 -13
 F 0 0 0
@@ -985,7 +985,7 @@ extremely agitated because a swamp spirit has stolen his gem. Perhaps you
 can retrieve it for him?
 ~
 human~
-ABG H 0 0
+ABG HJ 0 0
 6 0 2d7+71 5d5+100 1d7+1 punch
 4 4 4 8
 0 0 0 0

@@ -49,7 +49,7 @@ An ogre stands here getting ready to beat in your face.
 This mean bastard looks like he could tear you limb from limb.
 ~
 human~
-ACFG 0 -500 0
+ACFG J -500 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -63,7 +63,7 @@ The Swamp Thing shambles about here.  It seems hungry.
 The Swamp Thing has huge fists, which look like they could pound you flat.
 ~
 human~
-ACFG 0 -700 0
+ACFG J -700 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -77,7 +77,7 @@ There is a mean looking gnoll here.
 The Gnoll seems annoyed at your presence.
 ~
 human~
-ACG DF -1000 0
+ACG DFJ -1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -92,7 +92,7 @@ This huge beast stands about 20 feet in height and has huge green clawed
 appendages. 
 ~
 human~
-ACFG DF -450 0
+ACFG DFJ -450 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
@@ -107,7 +107,7 @@ This rather small beast looks like you could take it out with a single
 sword blow.
 ~
 human~
-ACGH P 0 0
+ACGH JP 0 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 0
@@ -123,7 +123,7 @@ You stare as hard as you can at the glowing ball of floating light and
 are just able to notice a small pair of glowing eyes.
 ~
 human~
-ACGH P 0 0
+ACGH JP 0 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -137,7 +137,7 @@ A monstrous snake slithers towards you, thinking 'breakfast'.
 This 10 meter anaconda looks rather hungry.
 ~
 snake~
-ACFGH PQ -100 0
+ACFGH JPQ -100 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNR 0 0 0
@@ -151,7 +151,7 @@ A rather large python rests in a coil here.
 It's the largest Amazon python you have ever seen.
 ~
 snake~
-ACFGH PQ -100 0
+ACFGH JPQ -100 0
 11 0 2d8+134 5d9+100 1d10+2 none
 1 1 1 8
 EFNR 0 0 0
@@ -166,7 +166,7 @@ Yech!  She manages to make even Smurfette look attractive.  That's ok,
 because she thinks you stink too, and she's about to do something about it.
 ~
 human~
-ACGS DF -200 0
+ACGS DFJ -200 0
 9 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 8
 BEFJNU 0 0 0
@@ -181,7 +181,7 @@ This dark apparition stands a meager 13 feet in height.  Even in the dim
 swamp light, the blade of his scythe gleams.
 ~
 human~
-ACG DF -200 0
+ACG DFJ -200 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
@@ -196,7 +196,7 @@ This wolf looks plump.  She probably ate a friend or two of yours who came
 into the marsh.
 ~
 wolf~
-ACFG 0 -200 0
+ACFG J -200 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 ENR 0 0 0
@@ -210,7 +210,7 @@ A heap of garbage shambles towards you.
 This grotesque pile of plant matter fills you with utmost horror.
 ~
 human~
-ACG Q -100 0
+ACG JQ -100 0
 13 0 2d10+170 6d9+100 2d5+3 none
 -1 -1 -1 8
 EFNU 0 0 0
@@ -239,7 +239,7 @@ A marsh giant stomps towards you.
 This huge monster of a man has green gnarly teeth and a BIG stick.
 ~
 giant~
-ABCDFG DF -100 0
+ABCDFG DFJ -100 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNR 0 0 0
@@ -253,7 +253,7 @@ A large gargoyle lands next to you, baring his fangs at you.
 This creepy fellow looks like he could use you as a meal.
 ~
 human~
-ABCDFG DF -100 0
+ABCDFG DFJ -100 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0

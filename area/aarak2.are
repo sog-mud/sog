@@ -19,7 +19,7 @@ A fat bird with shiny feathers.  He eyes you cautiously and suggests you LIST
 his wares.
 ~
 song bird~
-ABG 0 0 0
+ABGe 0 0 0
 30 0 7d10+800 1d8+200 4d8+13 crush
 -25 -25 -25 -25
 E 0 0 0
@@ -34,7 +34,7 @@ A tall skinny bird with many black feathers.  He eyes you harshly and
 suggests you LIST his rare, imported wares.
 ~
 song bird~
-ABGN 0 0 0
+ABGNe 0 0 0
 34 0 12d10+900 1d8+200 5d8+10 crush
 -25 -25 -25 -25
 E 0 0 0
@@ -50,7 +50,7 @@ suggesting you LIST her wares, but decides she doesn't want to part with any of
 them.
 ~
 song bird~
-ABG 0 0 0
+ABGe 0 0 0
 34 0 8d10+900 1d8+200 5d9+10 crush
 -25 -25 -25 -25
 0 0 0 0
@@ -116,7 +116,7 @@ jagged scar on the right side of the taxidermist's face suggests that he can
 hold his own in a scrape.
 ~
 song bird~
-ABGN 0 0 0
+ABGNe 0 0 0
 34 0 10d10+900 1d8+180 5d9+13 claw
 -25 -25 -25 -25
 E 0 0 0
@@ -225,7 +225,7 @@ A fat bird with a bad slouch.  He is festooned with all kinds of shiny and dull
 metal objects.  His name is Fred.  He asks if you are interested in a bargain?
 ~
 song bird~
-ABCGN 0 0 0
+ABCGNe 0 0 0
 34 0 1d1+30000 1d80+20 5d4+40 crush
 -25 -25 -25 -25
 CE ABCD 0 0
@@ -322,7 +322,7 @@ for a large metal furnace.
    He looks powerful enough to claw your face to shreds with a single swath.
 ~
 song bird~
-ABGN 0 0 0
+ABGNe 0 0 0
 34 0 10d10+1500 1d8+200 5d10+30 crush
 -25 -25 -25 -25
 CEIR 0 0 0
@@ -337,7 +337,7 @@ As the armorer looks up at you, the hammer comes down upon his claw and he
 lets out a piercing shriek.
 ~
 song bird~
-ABG 0 0 0
+ABGe 0 0 0
 34 0 11d11+1500 1d8+200 5d6+30 crush
 -25 -25 -25 -25
 CEIKR 0 0 0
@@ -366,7 +366,7 @@ Your guildmaster is picking a *HUGE* (Glowing) Mithral lock.
 well, COUNT your money!
 ~
 song bird~
-ABGKS 0 0 0
+ABGKSe J 0 0
 19 0 10d10+400 1d8+20 10d5+10 crush
 -25 -25 -25 -25
 EIKNR ABCD 0 0
@@ -2490,14 +2490,14 @@ equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
 0 D 1
-D1
-~
-~
-0 -1 5659
 D0
 ~
 ~
 0 -1 5658
+D1
+~
+~
+0 -1 5659
 D4
 ~
 ~
@@ -2530,14 +2530,14 @@ equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
 0 D 1
-D1
-~
-~
-0 -1 5683
 D0
 ~
 ~
 0 -1 5670
+D1
+~
+~
+0 -1 5683
 D4
 ~
 ~
@@ -2639,14 +2639,14 @@ equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
 0 D 1
-D1
-~
-~
-0 -1 5677
 D0
 ~
 ~
 0 -1 5676
+D1
+~
+~
+0 -1 5677
 D3
 ~
 ~
@@ -2927,14 +2927,14 @@ equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
 0 D 1
-D1
-~
-~
-0 -1 5655
 D0
 ~
 ~
 0 -1 5654
+D1
+~
+~
+0 -1 5655
 D4
 ~
 ~
@@ -2947,14 +2947,14 @@ equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
 0 D 1
-D1
-~
-~
-0 -1 5657
 D0
 ~
 ~
 0 -1 5656
+D1
+~
+~
+0 -1 5657
 D3
 ~
 ~

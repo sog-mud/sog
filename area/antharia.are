@@ -171,7 +171,7 @@ councils, which are said to be displayed in a museum inside the
 Temple.
 ~
 human~
-AB 0 400 0
+ABe 0 400 0
 70 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CEFIJK 0 0 0
@@ -187,7 +187,7 @@ sell Antharian food.  He is highly respected, as producing good food
 in this underwater world is not easy.
 ~
 human~
-AB 0 500 0
+ABe 0 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CDEFIJK 0 0 0
@@ -221,7 +221,7 @@ passed from generation to generation.  The secret is well kept, and
 rightly so -- for their's is the best.
 ~
 human~
-ABT 0 500 0
+ABTe 0 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CDEFIJK 0 0 0
@@ -238,7 +238,7 @@ Transformation, and Cyrtpea and her colleages work hard to recover as
 much of this lost magic as possible.
 ~
 human~
-ABU N 400 0
+ABUe N 400 0
 65 0 50d10+18500 5d5+5000 17d9+60 pound
 -60 -60 -60 -27
 CDEFIJK 0 0 0

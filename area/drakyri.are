@@ -219,7 +219,7 @@ to be trapped in one place by some kind of magic which apparently
 holds despite the form's continuous lashing.
 ~
 unique~
-ABGR BITUZ 0 0
+ABGR BIJTUZ 0 0
 87 0 100d12+16000 1d50+10000 12d11+57 magic
 -57 -57 -57 -20
 DFG 0 D MNO
@@ -234,7 +234,7 @@ It seems to be made of semi-transparent substance shaped in the form
 of a magical glyph, created to guard the house against outside threats.
 ~
 unique~
-ABG BDFQTUZ 0 0
+ABG BDFJQTUZ 0 0
 90 0 100d12+17500 1d100+10000 12d12+60 wrath
 -60 -60 -60 -28
 DEFG 0 FMN JOP
@@ -547,7 +547,7 @@ A hellish guardian stalks here, looking for prey.
 A rabid reddish light flickers behind narrow green cat eyes.
 ~
 pig~
-ACFG G -950 0
+ACFG GJ -950 0
 79 0 100d12+13000 1d50+5000 9d11+49 claw
 -48 -47 -47 -15
 CDJK 0 HM IN
@@ -564,7 +564,7 @@ against the magic which holds it.  The red eyes glint, and
 the long muzzle opens to emit a furious, ear-piercing screech!
 ~
 pig~
-ABCFG O -800 0
+ABCFG JO -800 0
 82 0 100d12+14500 1d10+900 9d12+52 bite
 -50 -51 -52 -20
 DEFI 0 K P
@@ -580,7 +580,7 @@ the eyes.  Twisted lips part to reveal cruel white canines.  The
 figure emits a threatening snarl..
 ~
 pig~
-ABCFG GQT -855 0
+ABCFG GJQT -855 0
 81 0 100d12+14250 1d10+950 10d10+51 claw
 -50 -50 -51 -20
 DEFJ 0 DM CN
@@ -599,7 +599,7 @@ blood-freezing snarl, and a trail of very real blood drips from
 the gleaming white fangs!
 ~
 human~
-ABFGR DGOZ -955 0
+ABFGR DGJOZ -955 0
 80 0 100d12+12500 1d100+8500 9d11+50 claw
 -50 -52 -51 -20
 FG 0 M N
@@ -615,7 +615,7 @@ menacingly.  The tentacles part momentarily, and you notice a
 round, fanged mouth at the center, dripping blood.
 ~
 unique~
-ABCFG OVZ -670 0
+ABCFG JOVZ -670 0
 81 0 100d12+14000 1d10+950 10d10+51 slash
 -51 -50 -51 -20
 DEK 0 0 0
@@ -629,7 +629,7 @@ A hulking figure snarls viciously.
 You catch a glimpse of hellish red eyes and wickedly sharp black talons.
 ~
 unique~
-ABG EZc -900 0
+ABG EJZc -900 0
 95 0 100d12+22500 1d100+7500 12d12+65 claw
 -65 -65 -63 -24
 EFG 0 MQ NSY
@@ -776,7 +776,7 @@ Powerful muscles ripple beneath a shadow black coat.  Emerald green
 cat eyes flicker constantly around the room, taking in everything.
 ~
 cat~
-AFG DFPQ 0 0
+AFG DFJPQ 0 0
 63 0 100d10+7500 1d10+750 8d6+33 claw
 -33 -33 -33 -13
 EK 0 0 0
@@ -791,7 +791,7 @@ The form of a huge, dark lynx is barely visible in the shadows.
 Slitted silver eyes flicker towards you, and she hisses in warning.
 ~
 cat~
-AFG DFPQ 0 0
+AFG DFJPQ 0 0
 63 0 100d10+7500 1d10+750 8d6+33 claw
 -33 -33 -34 -13
 EK 0 0 0
@@ -806,7 +806,7 @@ She hovers silently, powerful wings outspread.  Beneath the intelligent
 dark eyes, a cruel black beak opens to emit a shrill scream of challenge!
 ~
 song bird~
-ACFG PQZ 0 0
+ACFG JPQZ 0 0
 75 0 100d10+10500 1d10+800 8d11+45 peck
 -44 -45 -46 -14
 CDE 0 0 0
@@ -1441,7 +1441,7 @@ a youthful power which is quite at odds with his apparent frailty.
 He winks at you and returns to his work.
 ~
 elf~
-ABG DFT 0 0
+ABGe DFT 0 0
 65 0 100d12+8000 1d100+17500 8d7+35 shock
 -35 -35 -35 -10
 EFGJK A 0 0

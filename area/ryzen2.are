@@ -20,7 +20,7 @@ the shape of a human body but an astral look to it.  It is a soul which can
 not rest until destroyed and sent into the heavens.  
 ~
 human~
-AG BTU -200 0
+AG BJTU -200 0
 25 0 5d10+550 1d50+100 2d10+7 wrath
 -7 -7 -7 0
 EFU 0 D N
@@ -34,7 +34,7 @@ A wicked looking wraith stares at you, chilling your soul
 The wraith floats slowly towards you, searching for a new soul to consume.  
 ~
 human~
-AGO U -1000 0
+AGO JU -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 claw
 -11 -10 -11 5
 CEFH 0 0 NY
@@ -48,7 +48,7 @@ A ghastly spectre lurks nearby in the shadows.
 This long dead spirit is now an evil creation that longs for your blood.  
 ~
 human~
-AGO U -800 0
+AGO JU -800 0
 32 0 5d10+1000 2d20+1000 6d4+9 slash
 -10 -10 -10 4
 CDFH 0 0 NYZ
@@ -64,7 +64,7 @@ ferocious.  It carries around an old arm bone that it chews on constantly,
 tearing the last remnants of flesh from it for food.  
 ~
 human~
-AGO 0 -950 0
+AGO J -950 0
 36 0 5d25+1400 36d10+100 3d10+11 claw
 -12 -12 -12 3
 CDHK 0 0 N
@@ -79,7 +79,7 @@ A Lemure trudges slowly forward.  Its morphous form not allowing it to
 move any faster than at a slow walk.  
 ~
 human~
-AGO 0 -600 0
+AGO J -600 0
 25 0 5d10+550 1d50+100 2d10+7 charge
 0 0 0 0
 CDF 0 0 NZ
@@ -95,7 +95,7 @@ disgusting.  It's huge, obese form is disgusting, rolls of fat cover its
 entire body.
 ~
 human~
-AGO 0 -700 0
+AGO J -700 0
 27 0 5d10+650 27d10+100 5d4+7 charge
 -8 -8 -8 6
 CDF 0 0 NZ
@@ -111,7 +111,7 @@ it aflight as it wields its monstrous spear, a blade that is sure to keep
 even the hardiest of warriors at bay.  
 ~
 human~
-AGO T -1000 0
+AGO JT -1000 0
 33 0 5d20+1200 39d10+1100 6d4+10 none
 -11 -11 -11 5
 DEFIKN 0 0 N
@@ -159,7 +159,7 @@ hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
 ~
 unique~
-ABFGO Z -900 0
+ABFGO JZ -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 bite
 -13 -13 -13 3
 CDEF 0 0 NY
@@ -175,7 +175,7 @@ caverns.  From what he tells you he and his companions became seperated
 during a battle with undead.  
 ~
 human~
-ABGQ 0 800 0
+ABGQ J 800 0
 35 0 10d50+1300 40d10+4150 4d7+11 none
 -11 -11 -11 3
 CEKLS 0 0 0
@@ -191,7 +191,7 @@ dragon is emblazoned on his plate and he wields his silver long sword with
 ease.  
 ~
 human~
-AGT C 1000 0
+AGT CJ 1000 0
 26 0 5d10+600 26d10+1100 3d7+17 none
 -7 -7 -7 4
 CEFIKS 0 0 0
@@ -222,7 +222,7 @@ lost after a fight.  She seems to be quite confident in here magic and she
 wears a gorgeous ring on her finger.  
 ~
 human~
-AGR H -600 0
+AGR HJ -600 0
 31 0 10d10+928 50d10+2200 4d6+9 pierce
 0 0 0 0
 FNS 0 C 0

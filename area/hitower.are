@@ -32,7 +32,7 @@ An emaciated adventurer is here looking lost and hopeless.
 He looks haggard and sickly; no doubt he's been lost here for quite some time.
 ~
 human~
-ABCHQ 0 400 0
+ABCHQ J 400 0
 8 0 2d7+96 8d9+100 1d7+2 none
 3 3 3 8
 EIKU 0 0 0
@@ -48,7 +48,7 @@ You see before you, one of Midgaard's finest fighting elite, the mighty
 bunny slayer himself, Edgar the Horrible!
 ~
 human~
-ACEH 0 1000 0
+ACEH J 1000 0
 1 0 2d6+10 0d9+100 1d4+0 none
 9 9 9 10
 EFNU 0 0 0
@@ -91,7 +91,7 @@ Strick is here levitating drinks to his customers.
 He looks rather harmless, but then again so does a sleeping dragon.
 ~
 human~
-ABG D 750 0
+ABGe D 750 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
@@ -105,7 +105,7 @@ Tatorious the wizard is here counting his earnings.
 Tatorious winks at you mischievously.
 ~
 human~
-ABGR D 900 0
+ABGRe D 900 0
 25 0 5d10+500 25d9+100 4d4+6 none
 -6 -6 -6 2
 FU 0 0 0
@@ -149,7 +149,7 @@ casting you cannot tell.
 He looks quite mad, no doubt he's been mistreated horribly.
 ~
 human~
-ABCFGHR 0 100 0
+ABCFGHR J 100 0
 16 0 3d9+208 16d9+100 2d5+3 none
 -2 -2 -2 4
 FU 0 0 0
@@ -177,7 +177,7 @@ A straw broom is here leaning against the wall.
 The broom screams 'Take that you lout!'
 ~
 human~
-ABCFGS DF 50 0
+ABCFGS DFJ 50 0
 7 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 8
 BEFJNU 0 0 0
@@ -205,7 +205,7 @@ A pair of disembodied eyes floats here glaring at you.
 The eyes smolder with hatred.
 ~
 human~
-AFG D -600 0
+AFG DJ -600 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -711,7 +711,7 @@ embers which serve as eyes can be seen through the shadow.
 The Necromancer shrieks some obscenities and orders his minions to attack.
 ~
 human~
-ABCFGHR D -950 0
+ABCFGHR DJ -950 0
 25 0 5d10+500 25d9+100 4d4+6 none
 -6 -6 -6 2
 FU 0 0 0
@@ -725,7 +725,7 @@ An animated skeleton screams silently and attacks.
 It feels no pain, and hacks at you ruthlessly.
 ~
 human~
-ABFG D -500 0
+ABFG DJ -500 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 E
@@ -738,7 +738,7 @@ An undead giant lumbers towards you.
 ~
 ~
 human~
-ABCFG D -500 0
+ABCFG DJ -500 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
@@ -754,7 +754,7 @@ her mouth should be, comes a disgusting giggling sound that makes your skin
 crawl with revulsion.
 ~
 human~
-ABCFGR D -450 0
+ABCFGR DJ -450 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
@@ -830,7 +830,7 @@ must have been beautiful, now the scar combined with what seems to be a
 permanent scowl make her looks quite fearsome.
 ~
 human~
-ABCFGR DP -750 0
+ABCFGR DJP -750 0
 20 0 3d9+308 20d9+100 3d4+4 none
 -4 -4 -4 3
 FU 0 0 0
@@ -845,7 +845,7 @@ It looks both mean and dangerous.  Petting seems to be completely out of
 the question.
 ~
 cat~
-ABGR DP -800 0
+ABGR DJP -800 0
 16 0 3d9+208 16d9+100 2d5+3 none
 -2 -2 -2 4
 R 0 0 0
@@ -859,7 +859,7 @@ The master of the black robes is here plotting vile deeds.
 The master glares at you.
 ~
 human~
-ABCGR DH -1000 0
+ABCGR DHJ -1000 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
@@ -1906,26 +1906,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1303
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1304
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1302
 D0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1307
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1302
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1304
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1303
 S
 #1302
 The Shadow Grove~
@@ -1935,16 +1935,16 @@ sounds moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1303
 D0
 You see a small clearing in the shadows.
 ~
 ~
 0 -1 1311
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1303
 D2
 The shadows cloud your vision.
 ~
@@ -1964,26 +1964,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1301
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1302
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1306
 D0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1309
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1301
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1306
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1302
 S
 #1304
 The Shadow Grove~
@@ -1993,6 +1993,11 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 1301
 D1
 The shadows cloud your vision.
 ~
@@ -2003,11 +2008,6 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1307
-D0
-The shadows cloud your vision.
-~
-~
-0 -1 1301
 D3
 Dark gates loom in the mist.
 ~
@@ -2022,26 +2022,26 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1308
-D1
-The shadows cloud your vision.
-~
-~
-0 -1 1306
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1304
 D0
 The shadows cloud your vision.
 ~
 ~
 0 -1 1302
+D1
+The shadows cloud your vision.
+~
+~
+0 -1 1306
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1308
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1304
 S
 #1306
 The Shadow Grove~
@@ -2051,16 +2051,6 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D3
-The shadows cloud your vision.
-~
-~
-0 -1 1305
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1309
 D0
 The shadows cloud your vision.
 ~
@@ -2071,6 +2061,16 @@ You see a shadowy tavern.
 ~
 ~
 0 -1 9301
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1309
+D3
+The shadows cloud your vision.
+~
+~
+0 -1 1305
 S
 #1307
 The Shadow Grove~
@@ -2109,11 +2109,6 @@ sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 ~
 0 AN 3
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1300
 D0
 The shadows cloud your vision.
 ~
@@ -2124,6 +2119,11 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1309
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1300
 D3
 The shadows cloud your vision.
 ~
@@ -2143,16 +2143,16 @@ The shadows cloud your vision.
 ~
 ~
 0 -1 1306
-D2
-The shadows cloud your vision.
-~
-~
-0 -1 1303
 D1
 The shadows cloud your vision.
 ~
 ~
 0 -1 1307
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 1303
 D3
 The shadows cloud your vision.
 ~
@@ -3547,18 +3547,6 @@ Nice going!  You might as well wait here until the wizard who built this
 trap comes back to imprison your soul as well as your body.
 ~
 0 DN 0
-D3
-~
-~
-0 0 7428
-D5
-~
-~
-0 0 3460
-D4
-~
-~
-0 0 938
 D1
 ~
 ~
@@ -3567,6 +3555,18 @@ D2
 ~
 ~
 0 0 9141
+D3
+~
+~
+0 0 7428
+D4
+~
+~
+0 0 938
+D5
+~
+~
+0 0 3460
 S
 #1393
 A hallway~

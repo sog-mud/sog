@@ -35,7 +35,7 @@ The bear is a big, brown, furry animal with very large claws and very sharp
 teeth.  It doesn't resemble those cute little thingies from toy shops at all.
 ~
 bear~
-AFG 0 -50 0
+AFG J -50 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 FNR 0 0 0
@@ -95,7 +95,7 @@ It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
 quickly from its long, white fangs.  It looks quite dangerous and very angry.
 ~
 human~
-AFG 0 -350 0
+AFG J -350 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -110,7 +110,7 @@ It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
 quickly from its long, white fangs.  It looks quite dangerous and very angry.
 ~
 human~
-AFG 0 -350 0
+AFG J -350 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -124,7 +124,7 @@ A large, grey wolf is here, glaring hungrily at you.
 The large, grey wolf eyes you with interest while licking its lips.
 ~
 wolf~
-AFG 0 -150 0
+AFG J -150 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 ENR 0 0 0
@@ -138,7 +138,7 @@ A large, black wolf is here, glaring hungrily at you.
 The large, black wolf eyes you with interest while licking its lips.
 ~
 wolf~
-AFG 0 -150 0
+AFG J -150 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 ENR 0 0 0
@@ -171,7 +171,7 @@ tangled brown beard.  He wears ragged brown and green clothing and looks as if
 he is having great fun.
 ~
 human~
-ACEH BDP 1000 0
+ACEH BDJP 1000 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -186,7 +186,7 @@ The druid looks quite old.  You would think him venerable, but you know
 he would be a tough foe.
 ~
 human~
-ABCFQ D 0 0
+ABCFQ DJ 0 0
 17 0 3d9+258 17d9+100 2d6+4 none
 -3 -3 -3 6
 EIKU 0 0 0

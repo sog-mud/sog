@@ -20,7 +20,7 @@ see his morningstar on his horse. His colors fly from a banner carried by
 his squire.
 ~
 human~
-A 0 500 0
+A J 500 0
 22 0 5d10+400 5d5+1000 4d4+6 pound
 -5 -5 -5 5
 EFNU 0 0 0
@@ -49,7 +49,7 @@ A knight of quality looks down upon you from his mount.
 The knight is in full plate mail on a barded horse and carries a lance.
 ~
 human~
-A N 750 0
+A JN 750 0
 25 0 5d10+550 5d5+1000 2d10+7 slash
 -7 -7 -7 4
 EFNU 0 0 0
@@ -80,7 +80,7 @@ Sir Benlad is clad in his renowned green armor, rumored to be impervious
 to normal weaponry. He bears a huge battle axe.
 ~
 human~
-AF H 250 0
+AF HJ 250 0
 30 0 6d12+853 5d5+1000 4d6+8 slash
 -9 -9 -9 3
 EFNU 0 0 0
@@ -144,7 +144,7 @@ Sir Garlon (the vile villian) is hiding here. He was given his invisibility
 power by the witch of the fens for the furtherment of evil.
 ~
 human~
-ABF BDP -1000 0
+ABF BDJP -1000 0
 28 0 6d12+703 5d5+1000 2d12+8 pound
 -8 -8 -8 4
 EFNU 0 0 0
@@ -175,7 +175,7 @@ the twelve of Morgan le Fey, and enemy of Sir Gawaine is fully armored and
 mounted.
 ~
 human~
-AB 0 0 0
+AB J 0 0
 30 0 6d12+853 5d5+1000 4d6+8 smash
 -9 -9 -9 3
 EFNU 0 0 0
@@ -256,7 +256,7 @@ You sure are BLEEDING!
 The Questing Beast is in perfect health.
 ~
 human~
-ABFH DFPQ -1000 0
+ABFH DFJPQ -1000 0
 24 0 5d10+500 5d5+1000 2d10+6 claw
 -6 -6 -6 4
 FMU J HIJK FI
@@ -287,7 +287,7 @@ Mordred, bastard son of Lancelot and Gwenivere, wears his enchanted golden
 armor and his unholy spear.
 ~
 human~
-AFH HP -1000 0
+AFH HJP -1000 0
 34 0 10d10+1200 5d5+1000 4d7+10 pound
 -11 -11 -11 3
 EFNU 0 0 0
@@ -302,7 +302,7 @@ The knight is in rusty armor and bears a knotched sword. He has a disheveled
 look to him and his eyes stare vacantly at you!
 ~
 human~
-AF K -500 0
+AF JK -500 0
 21 0 4d10+360 5d5+1000 4d4+5 pound
 -5 -5 -5 5
 EFNU 0 0 0
@@ -317,7 +317,7 @@ A charmed knight of quality stands here in his rusted armor. His eyes are
 vacant, his sword is knotched, and he is unkempt.
 ~
 human~
-AFH K -750 0
+AFH JK -750 0
 24 0 5d10+500 5d5+1000 2d10+6 pound
 -6 -6 -6 4
 EFNU 0 0 0
@@ -361,7 +361,7 @@ A charmed squire stands here woodenly
 The charmed squire is wearing various leather garmets in a state of disarray.
 ~
 human~
-ACH KP -250 0
+ACH JKP -250 0
 18 0 3d9+283 5d5+1000 2d7+4 pound
 -3 -3 -3 6
 EFNU 0 0 0
@@ -440,7 +440,7 @@ tied with here hands behind her back. Her coartly gowns are soiled and
 tattered.
 ~
 human~
-AB 0 200 0
+AB J 200 0
 8 0 2d7+96 5d5+100 1d7+2 punch
 3 3 3 8
 EFNU 0 0 0
@@ -556,7 +556,7 @@ A servant is rushing by
 The servant has a plate of hot food that looks delicious.
 ~
 human~
-AC P 0 0
+AC JP 0 0
 2 0 2d6+20 5d5+100 1d6+1 punch
 5 5 5 9
 EFNU 0 0 0
@@ -593,7 +593,7 @@ Iron Jack wears his smith apron, leather leggings, and has corded muscular
 arms.
 ~
 human~
-ABST 0 500 0
+ABSTe 0 500 0
 30 0 6d12+853 5d5+1000 4d6+8 pound
 -9 -9 -9 3
 EFNU 0 0 0
@@ -607,7 +607,7 @@ Stirrup, the stable master of Camelot is here.
 Stirrup is a short man, wearing a leather jerkin, and smells of the barn.
 ~
 human~
-AB 0 400 0
+ABe 0 400 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EFNU 0 0 0

@@ -32,7 +32,7 @@ A beautiful white star smiles at you.
 You can't tell what the star looks like, she is too bright!
 ~
 human~
-ABG 0 500 0
+ABG J 500 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
@@ -46,7 +46,7 @@ A young nebula, waiting to become a star.
 It hasn't got a definite shape, it is just a cloud of mist.
 ~
 human~
-AG 0 200 0
+AG J 200 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -75,7 +75,7 @@ You notice the giant is not as tough as his name sounds ...
 Still he can be very powerful.
 ~
 human~
-ABGH 0 0 0
+ABGH J 0 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
@@ -105,7 +105,7 @@ You can only make out its shape from the darkness.  He was cursed to stay in
 here and his face may never be seen by anyone again.
 ~
 human~
-ABG PQ -1000 0
+ABG JPQ -1000 0
 18 0 3d9+283 9d9+100 2d7+4 none
 -3 -3 -3 7
 EFNU 0 0 0
@@ -198,7 +198,7 @@ before entering the inner galaxy.  His neck is flexing in a random fashion so
 hitting the head is certainly not easy.
 ~
 human~
-ABFG DH -1000 0
+ABFG DHJ -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
@@ -214,7 +214,7 @@ resembles a snake.  Gosh, is this a draco, you wonder, is this the thing
 we are on now?
 ~
 human~
-ACGH 0 -700 0
+ACGH J -700 0
 9 0 2d6+110 4d9+100 1d8+2 none
 2 2 2 8
 EFNU 0 0 0

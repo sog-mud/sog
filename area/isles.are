@@ -32,7 +32,7 @@ A shipwright is here, repairing a trireme.
 The shipwright is stripped to the waist, and is sweating profusely.
 ~
 human~
-ABG 0 1000 0
+ABGe 0 1000 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 CEFIK 0 0 0
@@ -107,7 +107,7 @@ was never paid. One-eye in his anger cast the princess in this prison
 until her manner changed.
 ~
 human~
-ABG 0 500 0
+ABG J 500 0
 40 0 15d10+1850 5d5+1000 4d8+13 slap
 -13 -13 -13 3
 EIKU 0 0 0
@@ -354,7 +354,7 @@ of fealty. Shifty is weak from hunger, and his soiled finery speaks for
 his recent fall from grace.
 ~
 human~
-AB 0 500 0
+ABe 0 500 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 CEFIK 0 0 0
@@ -3105,6 +3105,10 @@ D0
 In the air~
 ~
 0 -1 17244
+D1
+In the air~
+~
+0 -1 17242
 D2
 In the air~
 ~
@@ -3113,10 +3117,6 @@ D3
 In the air~
 ~
 0 -1 17243
-D1
-In the air~
-~
-0 -1 17242
 D4
 In the air~
 ~
@@ -3133,22 +3133,14 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 Q 9
-D4
-In the air~
-~
-0 -1 17246
-D1
-In the air~
-~
-0 -1 17243
-D5
-In the air~
-~
-0 -1 17244
 D0
 In the air~
 ~
 0 -1 17245
+D1
+In the air~
+~
+0 -1 17243
 D2
 In the air~
 ~
@@ -3157,6 +3149,14 @@ D3
 In the air~
 ~
 0 -1 17241
+D4
+In the air~
+~
+0 -1 17246
+D5
+In the air~
+~
+0 -1 17244
 S
 #17243
 In the Air Beneath the Flying Mountain~
@@ -3165,18 +3165,6 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 T 9
-D5
-In the air~
-~
-0 -1 17245
-D3
-In the air~
-~
-0 -1 17242
-D2
-In the air~
-~
-0 -1 17246
 D0
 In the air~
 ~
@@ -3185,10 +3173,22 @@ D1
 In the air~
 ~
 0 -1 17241
+D2
+In the air~
+~
+0 -1 17246
+D3
+In the air~
+~
+0 -1 17242
 D4
 In the air~
 ~
 0 -1 17244
+D5
+In the air~
+~
+0 -1 17245
 S
 #17244
 In the Air Beneath the Flying Mountain~
@@ -3201,22 +3201,22 @@ D0
 In the air~
 ~
 0 -1 17241
-D2
-In the air~
-~
-0 -1 17241
 D1
 In the air~
 ~
 0 -1 17245
-D4
+D2
 In the air~
 ~
-0 -1 17242
+0 -1 17241
 D3
 In the air~
 ~
 0 -1 17246
+D4
+In the air~
+~
+0 -1 17242
 D5
 In the air~
 ~
@@ -3229,30 +3229,30 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 S 9
-D3
-In the air~
-~
-0 -1 17244
-D2
-In the air~
-~
-0 -1 17242
-D5
-In the air~
-~
-0 -1 17241
-D4
-In the air~
-~
-0 -1 17243
-D1
-In the air~
-~
-0 -1 17246
 D0
 In the air~
 ~
 0 -1 17242
+D1
+In the air~
+~
+0 -1 17246
+D2
+In the air~
+~
+0 -1 17242
+D3
+In the air~
+~
+0 -1 17244
+D4
+In the air~
+~
+0 -1 17243
+D5
+In the air~
+~
+0 -1 17241
 S
 #17246
 In the Air Beneath the Flying Mountain~
@@ -3261,7 +3261,7 @@ whips and whistles in fierce blasting gusts sending you in all
 directions.
 ~
 0 U 9
-D2
+D0
 In the air~
 ~
 0 -1 17243
@@ -3269,7 +3269,7 @@ D1
 In the air~
 ~
 0 -1 17244
-D0
+D2
 In the air~
 ~
 0 -1 17243

@@ -46,7 +46,7 @@ A wraith is awaiting your first move here.
 A black, almost transparent wraith.
 ~
 human~
-AB DF -900 0
+AB DFJ -900 0
 29 0 20d20+778 20d20+500 5d17+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -60,7 +60,7 @@ There is the Hide & Tooth storekeeper standing here, waiting patiently.
 The storekeeper is very rotund, but looks like a sharp guy.
 ~
 human~
-AB 0 900 0
+ABe 0 900 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
@@ -74,7 +74,7 @@ Granite Head, the baker, is waiting for a customer here.
 Granite Head is covered with flour and grains.
 ~
 human~
-AB 0 900 0
+ABe 0 900 0
 35 0 10d10+1700 17d9+100 4d7+11 none
 -31 -31 -31 5
 EFNU 0 0 0
@@ -237,7 +237,7 @@ A mazekeeper is here.
 He looks VERY tough.
 ~
 human~
-ABF H -1000 0
+ABF HJ -1000 0
 29 0 6d12+778 14d9+100 2d12+8 none
 -9 -9 -9 6
 EFNU 0 0 0
@@ -250,7 +250,7 @@ There is a giant snake here.
 ~
 ~
 snake~
-ABF 0 -1000 0
+ABF J -1000 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNR 0 0 0

@@ -180,7 +180,7 @@ his belt is a thin dagger, and on his body he wears a suit of leather armor.
 This is one halfling you don't want to mess with.
 ~
 human~
-ACGT 0 150 0
+ACGT J 150 0
 8 0 2d6+110 4d9+100 1d7+2 none
 3 3 3 9
 CDEIKLU 0 0 0
@@ -197,7 +197,7 @@ his belt is a thin dagger, and on his body he wears a suit of leather armor.
 This is one halfling you don't want to mess with.
 ~
 human~
-ACGT 0 150 0
+ACGT J 150 0
 8 0 2d6+110 4d9+100 1d7+2 none
 3 3 3 9
 CDEIKLU 0 0 0
@@ -229,7 +229,7 @@ The Innkeeper is a jolly old halfling who spends his days eavesdropping on
 local gossip.  In his younger days, he was quite a seasoned traveller.
 ~
 human~
-ABG 0 200 0
+ABGe 0 200 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0
@@ -308,7 +308,7 @@ The shopkeeper will fight like a madman to protect his store from riff-raff
 like you.
 ~
 human~
-AB 0 600 0
+ABe 0 600 0
 21 0 4d10+1360 10d9+100 4d4+15 none
 -5 -5 -5 7
 EFNU 0 0 0
@@ -324,7 +324,7 @@ However, he also knows that it's worth protecting and so will do everything
 in his power to prevent riff-raff like you from stealing it.
 ~
 human~
-AB 0 600 0
+ABe 0 600 0
 21 0 4d10+1360 10d9+100 4d4+15 none
 -5 -5 -5 7
 EFNU 0 0 0
@@ -339,7 +339,7 @@ The blacksmith is a lean and mean fighting machine.  His knowledge of weapons
 and armour would certainly help him in any fight against riff-raff like you.
 ~
 human~
-AB 0 600 0
+ABe 0 600 0
 50 0 50d10+8500 25d9+100 5d8+39 none
 -40 -40 -40 -23
 EFNU 0 0 0
@@ -462,7 +462,7 @@ A country bumpkin dreams of pipeweed and its many uses.
 The country bumpkin snores noisily.
 ~
 human~
-AB 0 0 0
+AB J 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -477,7 +477,7 @@ The Innkeeper is a jolly old halfling who spends his days eavesdropping on
 local gossip.  In his younger days, he was quite a seasoned traveller.
 ~
 human~
-AB 0 200 0
+ABe 0 200 0
 12 0 2d10+150 6d9+100 1d10+3 none
 0 0 0 8
 EFNU 0 0 0

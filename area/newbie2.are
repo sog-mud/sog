@@ -19,7 +19,7 @@ Ick... what a disgusting creature!  It is black and green and slimy
 and it is drooling everywhere... looks mean too.
 ~
 bear~
-ABC 0 -750 0
+ABC J -750 0
 5 0 2d6+60 49d1+1 1d6+1 pierce
 5 5 5 9
 B 0 0 0
@@ -113,7 +113,7 @@ This guy has been lost in here too long... it is more zombie than man
 now.  You would feel sorry for it, but it is moving in to attack!
 ~
 human~
-ACFG 0 -500 0
+ACFG J -500 0
 4 0 2d7+46 39d1+1 1d5+1 punch
 6 6 6 9
 G AB 0 0
@@ -129,7 +129,7 @@ It is hard to say because before you ever get a good look at it, it darts
 back into the shadows.
 ~
 snake~
-ACGH P -800 0
+ACGH JP -800 0
 3 0 2d6+35 29d1+1 1d6+0 smash
 7 7 7 10
 H 0 0 0
@@ -146,7 +146,7 @@ a heck of a lot meaner than any bull you have ever seen... and he is
 coming this way!
 ~
 dog~
-ABFG 0 -1000 0
+ABFG J -1000 0
 7 0 2d6+80 69d1+1 1d8+1 blast
 4 4 4 9
 I AB 0 0
@@ -161,7 +161,7 @@ The soul of a long since passed on adventurer... it lurks here waiting for
 a chance to bring death to any who cross its path.
 ~
 water fowl~
-ABDFG BD -850 0
+ABDFG BDJ -850 0
 6 0 2d7+71 59d1+1 1d7+0 bite
 4 4 4 9
 J AB 0 0
@@ -177,7 +177,7 @@ comments about everything.  Better silence him with cold, tempered steel
 MUHAHAHAHAHAHAHAHAHAHA!
 ~
 human~
-ABC FG -500 0
+ABC FGJ -500 0
 2 0 2d7+21 19d1+1 1d5+0 punch
 8 8 8 10
 K 0 0 0
@@ -193,7 +193,7 @@ ask and he will probably ask 2 or 3 times too.  This guy just doesn't get
 it, best put him out of his misery.
 ~
 human~
-ABC G 0 0
+ABC GJ 0 0
 1 0 2d6+10 9d1+1 1d4+0 punch
 9 9 9 10
 L 0 0 0
@@ -209,7 +209,7 @@ friendly, interesting sort.  Seems to have a clue what she's doing also,
 unlike some others you might see.
 ~
 human~
-ABG 0 100 0
+ABG J 100 0
 3 0 2d6+35 29d1+1 1d6+0 punch
 7 7 7 10
 M 0 0 0
@@ -225,7 +225,7 @@ too far from home this time.  Don't think he knows quite where he is,
 maybe you should help him out?
 ~
 human~
-ACG 0 300 0
+ACG J 300 0
 4 0 2d7+46 39d1+1 1d5+1 punch
 6 6 6 9
 N 0 0 0
@@ -240,7 +240,7 @@ Here is a guy who has it all together.  Nice equipment too, must have read
 the help files, Eh?
 ~
 human~
-ABC G 0 500
+ABC GJ 0 500
 5 0 2d6+60 49d1+1 1d6+1 punch
 5 5 5 9
 IK 0 0 0

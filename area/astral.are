@@ -1011,6 +1011,11 @@ of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
 0 0 2
+D0
+The astral field leads off into infinity.
+~
+~
+0 -1 7713
 D1
 The astral field leads off into infinity.
 ~
@@ -1021,21 +1026,16 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7707
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7714
 D3
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7712
-D0
+D5
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7713
+0 -1 7714
 S
 #7709
 Exploring the Astral Plane~
@@ -1045,26 +1045,26 @@ of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
 0 0 2
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7710
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7707
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7716
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7714
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7716
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7707
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7710
 D5
 The astral field leads off into infinity.
 ~
@@ -1084,26 +1084,26 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7715
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7708
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7709
 D1
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7707
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7708
 D4
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7713
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7709
 S
 #7711
 Exploring the Astral Plane~
@@ -1113,16 +1113,21 @@ of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
 0 0 2
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7712
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7716
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7712
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7717
 D4
 The astral field leads off into infinity.
 ~
@@ -1133,11 +1138,6 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7707
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7717
 S
 #7712
 Exploring the Astral Plane~
@@ -1147,31 +1147,31 @@ of this environment is very disorienting, and it is difficult to maintain your
 bearings and sense of direction.
 ~
 0 0 2
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7715
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7708
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7717
-D4
+D1
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7707
+0 -1 7708
 D3
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7711
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7707
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7715
 S
 #7713
 Roaming the Astral Plane~
@@ -1181,36 +1181,36 @@ of this environment is somewhat disorienting.
    All exits lead off into the astral field.
 ~
 0 0 2
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7710
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7708
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7714
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7718
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7720
 D1
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7715
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7708
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7720
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7714
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7710
 S
 #7714
 Roaming the Astral Plane~
@@ -1225,31 +1225,31 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7719
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7713
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7709
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7708
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7718
 D1
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7717
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7709
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7718
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7708
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7713
 S
 #7715
 Roaming the Astral Plane~
@@ -1265,16 +1265,11 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7720
-D4
+D1
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7712
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7716
+0 -1 7722
 D2
 The astral field leads off into infinity.
 ~
@@ -1285,11 +1280,16 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7713
-D1
+D4
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7722
+0 -1 7712
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7716
 S
 #7716
 Roaming the Astral Plane~
@@ -1300,36 +1300,36 @@ close to home.
    All exits lead off into the astral field.
 ~
 0 0 2
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7709
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7719
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7717
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7721
-D4
+D1
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7715
+0 -1 7719
 D2
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7711
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7709
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7715
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7717
 S
 #7717
 Roaming the Astral Plane~
@@ -1345,6 +1345,21 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7722
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7711
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7712
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7714
 D4
 The astral field leads off into infinity.
 ~
@@ -1355,21 +1370,6 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7721
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7714
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7712
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7711
 S
 #7718
 Wandering the Astral Plane~
@@ -1380,36 +1380,36 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7714
-D5
-You see a tangible strand of silvery light.
-~
-~
-0 -1 7736
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7713
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7733
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7719
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7709
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7714
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7713
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7719
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7733
+D5
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7736
 S
 #7719
 Wandering the Astral Plane~
@@ -1425,6 +1425,11 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7710
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7718
 D2
 The astral field leads off into infinity.
 ~
@@ -1435,11 +1440,6 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7716
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7718
 D4
 The astral field leads off into infinity.
 ~
@@ -1460,16 +1460,6 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7721
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7715
 D0
 The astral field leads off into infinity.
 ~
@@ -1480,16 +1470,26 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7713
-D5
-You see a tangible strand of silvery light.
+D2
+The astral field leads off into infinity.
 ~
 ~
-0 -1 7740
+0 -1 7715
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7721
 D4
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7735
+D5
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7740
 S
 #7721
 Wandering the Astral Plane~
@@ -1500,31 +1500,31 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7717
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7712
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7716
 D1
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7720
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7716
 D3
 You see a tangible strand of silvery light.
 ~
 ~
 0 -1 7742
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7717
 D5
 The astral field leads off into infinity.
 ~
@@ -1540,26 +1540,26 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D4
-You see a tangible strand of silvery light.
-~
-~
-0 -1 7744
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7717
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7712
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7717
 D3
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7715
+D4
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7744
 D5
 The astral field leads off into infinity.
 ~
@@ -1575,36 +1575,36 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7726
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7735
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7732
-D2
-You see a tangible strand of silvery light.
-~
-~
-0 -1 7737
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7728
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7724
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7728
+D2
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7737
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7726
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7732
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7735
 S
 #7724
 Travelling the Astral Plane~
@@ -1615,36 +1615,36 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7723
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7729
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7733
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7725
-D5
-You see a tangible strand of silvery light.
+D1
+The astral field leads off into infinity.
 ~
 ~
-0 -1 7739
+0 -1 7729
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7723
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7733
 D4
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7730
+D5
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7739
 S
 #7725
 Travelling the Astral Plane~
@@ -1655,11 +1655,26 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
+D0
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7741
 D1
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7727
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7724
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7734
 D4
 The astral field leads off into infinity.
 ~
@@ -1670,21 +1685,6 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7730
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7734
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7724
-D0
-You see a tangible strand of silvery light.
-~
-~
-0 -1 7741
 S
 #7726
 Travelling the Astral Plane~
@@ -1695,21 +1695,16 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D5
-The astral field leads off into infinity.
-~
-~
-0 -1 7729
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7731
-D4
-You see a tangible strand of silvery light.
+D1
+The astral field leads off into infinity.
 ~
 ~
-0 -1 7743
+0 -1 7723
 D2
 The astral field leads off into infinity.
 ~
@@ -1720,11 +1715,16 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7735
-D1
+D4
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7743
+D5
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7723
+0 -1 7729
 S
 #7727
 Travelling the Astral Plane~
@@ -1735,36 +1735,36 @@ strand of light.
    Most exits lead off into the astral field.
 ~
 0 0 2
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7732
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7725
-D5
-You see a tangible strand of silvery light.
-~
-~
-0 -1 7744
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7726
-D4
+D1
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7731
+0 -1 7732
 D2
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7733
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7725
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7731
+D5
+You see a tangible strand of silvery light.
+~
+~
+0 -1 7744
 S
 #7728
 Traversing the Astral Plane~
@@ -1775,31 +1775,31 @@ keeping your sense of direction.
    All exits lead off into the astral field.
 ~
 0 0 2
-D4
-The astral field leads off into the depths.
-~
-~
-0 -1 7745
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7734
-D1
-The astral field leads off into the depths.
-~
-~
-0 -1 7747
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7723
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7709
+D1
+The astral field leads off into the depths.
+~
+~
+0 -1 7747
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7734
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7723
+D4
+The astral field leads off into the depths.
+~
+~
+0 -1 7745
 D5
 The astral field leads off into infinity.
 ~
@@ -1815,21 +1815,16 @@ keeping your sense of direction.
    All exits lead off into the astral field.
 ~
 0 0 2
-D5
-The astral field leads off into the depths.
-~
-~
-0 -1 7746
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7730
-D4
-The astral field leads off into infinity.
+D1
+The astral field leads off into the depths.
 ~
 ~
-0 -1 7726
+0 -1 7749
 D2
 The astral field leads off into infinity.
 ~
@@ -1840,11 +1835,16 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7724
-D1
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7726
+D5
 The astral field leads off into the depths.
 ~
 ~
-0 -1 7749
+0 -1 7746
 S
 #7730
 Traversing the Astral Plane~
@@ -1855,36 +1855,36 @@ keeping your sense of direction.
    All exits lead off into the astral field.
 ~
 0 0 2
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7733
 D0
 The astral field leads off into the depths.
 ~
 ~
 0 -1 7747
-D5
+D1
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7724
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7725
-D3
-The astral field leads off into the depths.
-~
-~
-0 -1 7745
+0 -1 7733
 D2
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7729
+D3
+The astral field leads off into the depths.
+~
+~
+0 -1 7745
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7725
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7724
 S
 #7731
 Traversing the Astral Plane~
@@ -1895,11 +1895,11 @@ keeping your sense of direction.
    All exits lead off into the astral field.
 ~
 0 0 2
-D5
+D0
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7727
+0 -1 7732
 D1
 The astral field leads off into infinity.
 ~
@@ -1910,21 +1910,21 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7726
-D4
-The astral field leads off into the depths.
-~
-~
-0 -1 7746
 D3
 The astral field leads off into the depths.
 ~
 ~
 0 -1 7748
-D0
+D4
+The astral field leads off into the depths.
+~
+~
+0 -1 7746
+D5
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7732
+0 -1 7727
 S
 #7732
 Traversing the Astral Plane~
@@ -1935,31 +1935,31 @@ keeping your sense of direction.
    All exits lead off into the astral field.
 ~
 0 0 2
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7727
-D2
-The astral field leads off into infinity.
-~
-~
-0 -1 7731
 D0
 The astral field leads off into the depths.
 ~
 ~
 0 -1 7749
-D4
-The astral field leads off into the depths.
-~
-~
-0 -1 7748
 D1
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7735
+D2
+The astral field leads off into infinity.
+~
+~
+0 -1 7731
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7727
+D4
+The astral field leads off into the depths.
+~
+~
+0 -1 7748
 D5
 The astral field leads off into infinity.
 ~
@@ -1975,21 +1975,21 @@ keeping your senses straight.
    All exits lead off into the astral field.
 ~
 0 0 2
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7730
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7724
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7727
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7724
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7730
 D4
 The astral field leads off into infinity.
 ~
@@ -2010,31 +2010,31 @@ keeping your senses straight.
    All exits lead off into the astral field.
 ~
 0 0 2
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7725
-D4
-The astral field leads off into infinity.
-~
-~
-0 -1 7722
 D0
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7728
-D5
+D1
 The astral field leads off into infinity.
 ~
 ~
-0 -1 7719
+0 -1 7725
 D3
 The astral field leads off into infinity.
 ~
 ~
 0 -1 7731
+D4
+The astral field leads off into infinity.
+~
+~
+0 -1 7722
+D5
+The astral field leads off into infinity.
+~
+~
+0 -1 7719
 S
 #7735
 Lost in the Astral Plane~
@@ -2045,6 +2045,21 @@ keeping your senses straight.
    All exits lead off into the astral field.
 ~
 0 0 2
+D0
+The astral field leads off into infinity.
+~
+~
+0 -1 7729
+D1
+The astral field leads off into infinity.
+~
+~
+0 -1 7726
+D3
+The astral field leads off into infinity.
+~
+~
+0 -1 7732
 D4
 The astral field leads off into infinity.
 ~
@@ -2055,21 +2070,6 @@ The astral field leads off into infinity.
 ~
 ~
 0 -1 7720
-D3
-The astral field leads off into infinity.
-~
-~
-0 -1 7732
-D1
-The astral field leads off into infinity.
-~
-~
-0 -1 7726
-D0
-The astral field leads off into infinity.
-~
-~
-0 -1 7729
 S
 #7736
 Walking the Silvery Strand~
@@ -2128,16 +2128,16 @@ You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
 0 0 2
-D4
-You see the infinite expanse of the astral field.
-~
-~
-0 -1 7724
 D3
 The strand of light twists and turns out of sight.
 ~
 ~
 0 -1 7738
+D4
+You see the infinite expanse of the astral field.
+~
+~
+0 -1 7724
 S
 #7740
 Walking the Silvery Strand~
@@ -2196,16 +2196,16 @@ You are standing atop a silvery strand of light that twists and turns
 through the astral field.
 ~
 0 0 2
-D5
-You see the infinite expanse of the astral field.
-~
-~
-0 -1 7726
 D2
 The strand of light twists and turns out of sight.
 ~
 ~
 0 -1 7742
+D5
+You see the infinite expanse of the astral field.
+~
+~
+0 -1 7726
 S
 #7744
 Walking the Silvery Strand~

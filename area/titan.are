@@ -21,7 +21,7 @@ crush you without a second thought. Aside from his mean and deadly build,
 he greets you a good day and wishes you on your way.
 ~
 giant~
-ABT CDEFHV 1000 0
+ABT CDEFHJV 1000 0
 45 0 25d10+3000 1d1+99 3d12+15 slash
 -15 -15 -15 4
 EIK ABL N K
@@ -37,7 +37,7 @@ home and must seartch through the garbage for bit of supper. You feel sorry
 for the little fella.
 ~
 cat~
-AB CDEF -1000 0
+AB CDEFJ -1000 0
 30 0 6d12+853 299d1+5 4d6+8 none
 -9 -9 -9 6
 EIK ABL N K
@@ -99,7 +99,7 @@ runs to you as you walk in, asking if you need any help. If
 you're in need of armour here is the place to shop!
 ~
 giant~
-ABT CDEF -500 0
+ABTe CDEFJ -500 0
 53 0 50d10+13000 1d1+99 6d7+41 slice
 -33 -33 -33 2
 EIK ABCDL N K
@@ -116,7 +116,7 @@ but these animals are basically for show and probably not for combat. Well,
 you know what they say: Don't knock 'em till you've bought 'em!
 ~
 giant~
-ABT CDEFJ -500 0
+ABTe CDEFJ -500 0
 53 0 50d10+13000 1d1+99 6d7+31 slice
 -43 -43 -43 -10
 EIK ABCDL N K
@@ -133,7 +133,7 @@ t'day and y'can't beat th'lamb, fresh s'a cool mornin' breeze, if
 There is a big selection of meat and poultry to chose from.
 ~
 giant~
-ABT CDEF -1000 0
+ABTe CDEFJ -1000 0
 51 0 50d10+14000 1d1+99 5d8+39 scratch
 -41 -41 -41 -3
 EIK ABDL N K
@@ -149,7 +149,7 @@ seems to be selling quite an amount of produce. Perhaps you will
 buy some and help keep his business running?
 ~
 giant~
-ABT CDEF -1000 0
+ABTe CDEFJ -1000 0
 51 0 50d10+14000 1d1+140 5d8+49 scratch
 -41 -41 -41 -30
 EIK ABDL N K
@@ -167,7 +167,7 @@ the forging of the weapons. If ever you were to go to war, this would be the
 place to get your weapons.
 ~
 giant~
-ABT CDEF 0 0
+ABTe CDEFJ 0 0
 53 0 50d10+15000 1d1+99 6d7+41 sting
 -43 -43 -43 -30
 CDEFIKN ABDL N K
@@ -183,7 +183,7 @@ sorting the books. This is no ordinary library but one that contains magical
 books and books of lore. Perhaps you should widen your magical knowledge.
 ~
 giant~
-AB CDEFJ 500 0
+ABe CDEFJ 500 0
 48 0 25d10+13750 1d1+99 6d6+48 beating
 -38 -38 -38 -12
 CDEFIKN ABDL N K
@@ -200,7 +200,7 @@ leather garnets are here, quite the selection. To have the latest in fashion
 this is a good store to come to.
 ~
 giant~
-AB CDEFJ -600 0
+ABe CDEFJ -600 0
 51 0 50d10+15000 1d1+99 5d8+40 pierce
 -41 -41 -41 -23
 CDEFIKN ABDL BN K
@@ -216,7 +216,7 @@ on the rocks? What'll it be?" The room seems filled with people who whish
 to have a good time; and get drunk.
 ~
 giant~
-ABT CDEFJ -100 0
+ABTe CDEFJ -100 0
 51 0 50d10+15000 1d1+99 5d8+39 slash
 -41 -41 -41 -23
 CDEFIKN ABDL N K
@@ -233,7 +233,7 @@ cod and crab, our cook really did out-do himself this time!" This place seems
 mighty expensive.
 ~
 giant~
-ABT CDEFJ 200 0
+ABTe CDEFJ 200 0
 45 0 25d10+14000 1d1+99 8d4+36 pierce
 -15 -15 -15 -1
 CDEFIKN ABL N K
@@ -250,7 +250,7 @@ get some good sleep. Please let me know if there is anything I
 could do."
 ~
 giant~
-ABT CDEF -1000 0
+ABTe CDEFJ -1000 0
 51 0 50d10+5000 1d1+99 5d8+20 pierce
 -21 -21 -21 -3
 CDEFIKN ABL N K
@@ -266,7 +266,7 @@ flower arrangements. Perhaps she has something for that special "someone"
 in your life?
 ~
 giant~
-ABT CDEFJ -300 0
+ABTe CDEFJ -300 0
 48 0 25d10+4750 1d1+99 6d6+18 slice
 -18 -18 -18 3
 CDEFIKN ABL N K
@@ -282,7 +282,7 @@ ever. It would be a real shame to disturb him, even though his cells are full,
 I am sure he could find room for one more unwanted tourist.
 ~
 giant~
-ABT CDEF 500 0
+ABT CDEFJ 500 0
 30 0 6d12+1000 1d1+99 4d6+8 pierce
 -9 -9 -9 6
 CDEFIKN ABL N K
@@ -327,7 +327,7 @@ able to try them all? The man behind the counter seems to know his chocolates
 very well. Perhaps he could show you some of the most popular.
 ~
 giant~
-ABT CDEFJ -100 0
+ABTe CDEFJ -100 0
 45 0 25d1+13000 1d1+100 8d4+26 slice
 -35 -35 -35 4
 CDEFIKN ABL N K
@@ -343,7 +343,7 @@ Mint...Strawberry Swirl...Which will you have? So many to chose
 form, but I'll bet that they are all superb!
 ~
 giant~
-ABT CDEF -100 0
+ABTe CDEFJ -100 0
 30 0 6d12+853 1d1+99 4d6+15 slap
 -9 -9 -9 6
 CDEFIKN ABL N K
@@ -359,7 +359,7 @@ There are several different varieties to chose from. You really should
 try 'em all!
 ~
 giant~
-ABT CDEFJ -100 0
+ABTe CDEFJ -100 0
 40 0 15d10+7850 1d1+100 4d8+13 beating
 -33 -33 -33 -21
 CDEFIKN ABL BN K
@@ -375,7 +375,7 @@ You simply love the smell of this room, and all you can think of is Bread!
 Cookies! Pies!!! Try them all, the man looks willing to do business with you!
 ~
 giant~
-ABT CDEF -100 0
+ABTe CDEFJ -100 0
 48 0 25d10+15050 1d1+100 6d6+38 pierce
 -48 -48 -48 -24
 CDEFIKN ABL N K
@@ -390,7 +390,7 @@ The tall young lad is here, selling his special containers. He was rated number
 1 in all the lands, for his speical containers and their capability.
 ~
 giant~
-ABT CDEF -100 0
+ABTe CDEFJ -100 0
 48 0 25d10+12750 1d1+100 6d6+38 pierce
 -38 -38 -38 -22
 CDEFIKN ABL N K
@@ -405,7 +405,7 @@ All cloaked in black this wizard wishes to sell you his special
 wands. Magically tuned to perfection. They would be mighty handy.
 ~
 giant~
-ABT CDEF -100 0
+ABTe CDEFJ -100 0
 55 0 10d10+15300 1d1+100 4d7+21 slash
 -51 -51 -51 -30
 CDEFIKN ABL N K
@@ -419,7 +419,7 @@ A strong knight templar is here, patroling the streets.
 All clad in armor this guy looks quite deadly. Would want to mess with him.
 ~
 giant~
-ABT CDEF 1000 0
+ABT CDEFJ 1000 0
 40 0 15d10+2200 1d1+90 4d8+13 scratch
 -13 -13 -13 4
 CDEFIKN ABL N K
@@ -434,7 +434,7 @@ Tall and strong, a citizen of The Valley of The Titans greets
 you, welcoming you to his city.
 ~
 giant~
-ABT CDEF -1000 0
+ABT CDEFJ -1000 0
 28 0 6d12+703 1d1+100 2d12+8 pierce
 -8 -8 -8 6
 CDEFIKN ABL N K
@@ -464,7 +464,7 @@ To busy to talk. To busy to listen. This serf is WAY to busy to
 care. He is running back and forth, carrying out orders.
 ~
 giant~
-ABT CDEF -500 0
+ABT CDEFJ -500 0
 30 0 6d12+853 1d1+100 4d6+8 pierce
 -9 -9 -9 6
 CDEFIKN ABL N K
@@ -479,7 +479,7 @@ Sitting on a pile of garbage which he calls "his", this grubby
 beggar asks for some coins. He sure does look poor.
 ~
 giant~
-ABT CDEF -500 0
+ABT CDEFJ -500 0
 25 0 5d10+650 1d1+310 2d10+7 slice
 -7 -7 -7 6
 CDEFIKN ABL N K
@@ -494,7 +494,7 @@ Very tall and very strong, this patrol guard looks as though he
 does his job quite well.
 ~
 giant~
-ABT CDEFH 0 0
+ABT CDEFHJ 0 0
 40 0 15d10+2100 1d1+201 4d8+13 pierce
 -13 -13 -13 4
 CDEFIKN ABL N K
@@ -509,7 +509,7 @@ If I were you, I wouldn't talk to this fella. He's to busy
 dancing to the music.
 ~
 giant~
-ABT CDEFH -1000 0
+ABT CDEFHJ -1000 0
 30 0 6d12+953 299d1+1 4d6+8 punch
 -9 -9 -9 6
 CDEFIKN ABL N K
@@ -524,7 +524,7 @@ To busy keeping the warriors fighting with the magical monster,
 he doesn't have any time to speak to you.
 ~
 giant~
-ABT CDEFH -1000 0
+ABT CDEFHJ -1000 0
 48 0 25d10+4750 1d1+120 6d6+18 crush
 -18 -18 -18 3
 CDEFIN ABL N K
@@ -538,7 +538,7 @@ The tournament warrior is here, practicing his skills.
 *SLICE* *BASH* *BLAM* He looks to be just a tad too busy to socialize.
 ~
 giant~
-ABT CDEFH -1000 0
+ABT CDEFHJ -1000 0
 38 0 10d10+1800 1d1+100 5d6+12 slash
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -568,7 +568,7 @@ She's very busy using her magical talents to speak with you. Remember, she is
 fighting real mobs, deadly mobs. You'd hate to get her killed!
 ~
 giant~
-ABQ CDEFH -1000 0
+ABQ CDEFHJ -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -582,7 +582,7 @@ A tournament ranger is here, stealing money from his foe.
 Better not talk to this rascal, he may kick your ass!
 ~
 giant~
-ABS CDEFH -1000 0
+ABS CDEFHJ -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
@@ -633,7 +633,7 @@ Flying madly through the air is a deadly rain cloud, spreading acid rain over
 the world. It would be a good idea not to go near this...thing.
 ~
 giant~
-ABFT CDFTV -1000 0
+ABFT CDFJTV -1000 0
 23 0 5d10+450 1d1+100 3d6+6 slash
 -6 -6 -6 1
 DEFGHL AG 0 IKRS
@@ -817,7 +817,7 @@ face of a mage. He seems to be selling the best battle animals in the world.
 Perhaps he could interest you in some of his beasts?
 ~
 giant~
-ABT FJ -1000 0
+ABTe FJ -1000 0
 50 0 50d10+14500 1d1+212 5d8+29 pierce
 -50 -50 -50 -23
 CDEFIKN ABL N K
@@ -831,7 +831,7 @@ A black cougar is here, protecting its master.
 Very large and very deadly, you would NOT want to mess with this black cougar!
 ~
 cat~
-ABTV DFHUVZ 1000 0
+ABITV DFHUVZ 1000 0
 40 1 15d10+1500 1d1+200 4d8+13 beating
 -13 -13 -13 4
 EN HM GHIJK I
@@ -846,7 +846,7 @@ VERY very big and tough, this kraken looks to be the most fearsome thing you
 have ever seen!
 ~
 dragon~
-ABTV DFHUV 1000 0
+ABITV DFHUV 1000 0
 45 1 25d10+2100 1d1+102 8d4+16 beating
 -15 -15 -15 3
 EN H GIJK 0
@@ -861,7 +861,7 @@ A small but beautiful creature, this sylph seems to be a weak fighter. Despite
 her size, she is one of the most rare and deadly creatures in all of Muddy.
 ~
 dragon~
-ABORV DFHUV 1000 0
+ABIORV DFHUV 1000 0
 50 0 50d10+3000 1d1+499 5d6+14 beating
 -20 -20 -20 2
 CEFIOY J IJKNO B
@@ -876,7 +876,7 @@ A small but cute little spider monkey is here, aiding its master
 in their times of need.
 ~
 human~
-ABT DV 1000 0
+ABIT DV 1000 0
 20 1 3d9+300 1d1+310 2d8+5 beating
 -4 -4 -4 7
 C J DN 0
@@ -891,7 +891,7 @@ A cute little male lion is here, following his master about,
 always ready for combat.
 ~
 cat~
-ABT DV 1000 0
+ABIT DV 1000 0
 25 0 5d10+500 1d1+249 2d10+7 beating
 -7 -7 -7 5
 C J HIJKN CF
@@ -905,7 +905,7 @@ A large black wolf is here, guarding his master.
 A fearsome black wolf is here, protecting his master.
 ~
 dog~
-ABT DTV 1000 0
+ABIT DTV 1000 0
 30 0 6d12+823 1d1+299 4d6+8 beating
 -9 -9 -9 6
 C J HIJKN DF
@@ -920,7 +920,7 @@ A large and deadly Java Beast is here, protecting her master with
 its magical flames.
 ~
 dragon~
-ABR DV 1000 0
+ABIR DV 1000 0
 35 1 10d10+1550 1d1+904 4d7+11 beating
 -11 -11 -11 5
 C J IJKN 0
@@ -934,7 +934,7 @@ The King Dractax of The Titans is here.
 A tall and proud king is here, planning the future of his kingdom.
 ~
 giant~
-ABT DFV -1000 0
+ABT DFJV -1000 0
 53 0 50d10+7000 1d1+401 6d7+21 pierce
 -22 -22 -22 2
 CDEFGKNO BO J K
@@ -948,7 +948,7 @@ The Queen Crystal of The Titans is here.
 A tall and proud queen is here, planning the future of her kingdom.
 ~
 giant~
-ABT DFV -1000 0
+ABT DFJV -1000 0
 51 0 50d10+5500 1d1+502 5d8+19 pierce
 -21 -21 -21 3
 CDEFGKNO BO J K
@@ -964,7 +964,7 @@ passage-way behind the throne. Obviously, someone in the kingdom wants the
 king and queen destroyed. Why is beyon all knowledge.
 ~
 giant~
-ABT DFV -1000 0
+ABT DFJV -1000 0
 45 0 25d10+3500 1d1+302 8d4+16 slash
 -15 -15 -15 4
 CDEFGKNO ABL N K
@@ -978,7 +978,7 @@ An ugly small rat is here.
 An ugly rat is here, chewing on the carpet.
 ~
 giant~
-ABT DFV -500 0
+ABT DFJV -500 0
 30 0 6d12+953 1d1+201 4d6+8 beating
 -9 -9 -9 6
 CDEFGKNO ABL N K
@@ -993,7 +993,7 @@ She seems to be quite busy, yet manages to have the time to enjoy
 the calm breeze and bright warm sunshine.
 ~
 giant~
-ABT DFH -1000 0
+ABT DFHJ -1000 0
 28 0 6d12+703 1d1+504 2d12+8 pierce
 -8 -8 -8 6
 CDEFGKNO ABL N K
@@ -1007,7 +1007,7 @@ The warrior and cleric guildmaster stands here.
 An old man peering through ancient tomes rests here.
 ~
 giant~
-ABJKRVb DF 0 0
+ABJKRVb DFJ 0 0
 40 0 15d10+8000 1d1+499 4d8+13 slash
 -13 -13 -13 4
 FHN AB 0 0
@@ -1021,7 +1021,7 @@ A cleric guildstudent stands here, learning his skills.
 An young man wrapped in purple, long-flowing robes meditates here.
 ~
 giant~
-ABJKQV DF -250 0
+ABJKQV DFJ -250 0
 35 0 10d10+1300 1d1+499 4d7+11 pierce
 -11 -11 -11 5
 EFGIK AB 0 0
@@ -1036,7 +1036,7 @@ A smaller man dressed in nothing but a tunic stands here waiting
 to fight mighty foes.
 ~
 giant~
-ABJKTV DF 0 0
+ABJKTV DFJ 0 0
 35 0 10d10+1300 1d1+99 4d7+11 pierce
 -11 -11 -11 5
 ACEFHIK AB 0 0
@@ -1066,7 +1066,7 @@ The Guard for the Guild of Anti-Paladins stand here.
 This man looks like a mage/warrior, i wouldn't mess with him.
 ~
 giant~
-ABRT D 0 0
+ABRT DJ 0 0
 30 0 6d12+953 3d7+4 4d6+8 pierce
 -9 -9 -9 5
 0 0 0 0
@@ -1080,7 +1080,7 @@ The Guard for the Guild of Clerics stands here.
 This man looks like a master cleric. I wouldn't mess with him.
 ~
 giant~
-ABQT D 0 0
+ABQT DJ 0 0
 30 0 6d12+1003 3d7+4 4d6+8 pierce
 -9 -9 -9 5
 0 0 0 0
@@ -1094,7 +1094,7 @@ The Guard for the Guild of Warriors stands here.
 The man looks like Apollo's cousin, I wouldn't mess with him.
 ~
 giant~
-ABTU D 0 0
+ABTU DJ 0 0
 30 0 6d12+1100 3d7+4 4d6+8 pierce
 -9 -9 -9 -1
 0 0 0 0
@@ -1109,7 +1109,7 @@ You see a ranger dressed all in black, he quickly stands as you enter and
 steps to bar your way. You notice his hands resting on two sheafs.
 ~
 giant~
-ABST D 0 0
+ABST DJ 0 0
 30 0 6d12+953 3d7+4 4d6+8 pierce
 -9 -9 -9 -1
 0 0 0 0
@@ -1123,7 +1123,7 @@ A servant boy is here running errands.
 You see a small boy running around the halls of the palace.
 ~
 giant~
-AG 0 0 0
+AG J 0 0
 25 0 5d10+650 1d6+1 2d10+7 beating
 -7 -7 -7 0
 0 0 0 0
@@ -1138,7 +1138,7 @@ You see a small round dwarven man, gazing at all the sites. He's looking at
 a small tavelling map that he seems to be holding upside down.
 ~
 giant~
-ACGH 0 0 0
+ACGH J 0 0
 25 0 5d10+650 1d6+1 2d10+7 beating
 -7 -7 -7 6
 0 0 0 0
@@ -1243,7 +1243,7 @@ A large and deadly Hydra is here.
 A large deadly Hydra is here and will do anything to protect her master.
 ~
 dragon~
-ABJRTV DFV 1000 0
+ABIJRTV DFV 1000 0
 35 0 10d10+1550 1d1+348 4d8+13 beating
 -11 -11 -11 5
 N H GIJK 0
@@ -1275,7 +1275,7 @@ in potions and pills, you wonder which you shall by. You know right away that
 anything type of cure you would need, here is where you'd get it.
 ~
 giant~
-ABT CDEFJ -1000 0
+ABTe CDEFJ -1000 0
 45 0 25d10+3000 1d1+320 8d4+16 slash
 -15 -15 -15 -2
 CDEFIKN ABL BN K
@@ -1292,7 +1292,7 @@ You are glad that this town is such a happy place... lets just hope it doesn't
 get too happy.
 ~
 giant~
-ABT CDEF -1000 0
+ABT CDEFJ -1000 0
 28 0 6d12+703 1d1+195 2d12+8 pierce
 -8 -8 -8 6
 CDEFIKN ABL N K

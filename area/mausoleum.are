@@ -177,7 +177,7 @@ This dark-priest wears the sign of Loki about his neck, and is seeming
 disturbed by your intrusion during his meditation.
 ~
 unique~
-AGLQ DFUZ -1000 0
+AGLQ DFJUZ -1000 0
 46 20 100d3+3500 1d1+500 6d8+25 divine
 -20 -20 -20 -20
 AFIK AB 0 0
@@ -192,7 +192,7 @@ You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
 ~
 unique~
-ABFT BDFHQTU -1000 0
+ABFT BDFHJQTU -1000 0
 55 10 100d3+2500 1d1+500 5d8+25 bite
 -15 -15 -15 -10
 FK ABCD 0 H

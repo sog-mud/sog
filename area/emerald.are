@@ -23,7 +23,7 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
@@ -41,7 +41,7 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
@@ -60,7 +60,7 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-AG D 1000 0
+AG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
@@ -76,7 +76,7 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-AG DT 0 0
+AG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
@@ -95,7 +95,7 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
@@ -114,7 +114,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -132,7 +132,7 @@ bone in his spindly body and the forest would be well rid of him.
 He unleashes a torrent of curses at you.
 ~
 unique~
-ABCGHS HPQ -900 0
+ABCGHS HJPQ -900 0
 20 12 2d1+400 1d1+99 5d5+25 scratch
 0 0 0 0
 AEFKU L L N
@@ -151,7 +151,7 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG D -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
@@ -168,7 +168,7 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG D -950 0
+ABG DJ -950 0
 20 8 2d1+300 1d1+99 4d5+14 beating
 0 0 0 0
 CDEFJKU B B N
@@ -184,7 +184,7 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
@@ -201,7 +201,7 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+14 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
@@ -238,7 +238,7 @@ physical fitness. He is intently carving some wooden sticks, probably
 arrows after he's finished with them.
 ~
 unique~
-ABGJ DFH 0 0
+ABGJ DFHJ 0 0
 58 30 2d1+6500 1d1+99 5d6+75 beating
 -12 -12 -12 -12
 FKW AB BCD 0
@@ -252,7 +252,7 @@ A twelve foot bear stands here scratching his crotch.
 Smokey smiles affably at you as he beckons you over to buy his wares.
 ~
 unique~
-ABG DF 750 0
+ABGe DF 750 0
 55 25 2d1+5000 1d1+99 5d6+50 claw
 -10 -10 -10 -10
 DKN L L H
@@ -272,7 +272,7 @@ pixies and brownies. He is dressed in large and flowing green-brown
 robe, and seems rather busy with his duties.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 30 20 2d1+850 1d1+99 5d6+30 smash
 3 3 3 3
 CFK BJLN B 0
@@ -288,7 +288,7 @@ the sparks from the fire. Aude looks at you with moistened lips and half
 closed eyes issuing an invitation you somehow cannot resist.
 ~
 unique~
-ABFG DFHO -1000 0
+ABFG DFHJO -1000 0
 40 15 2d1+1500 1d1+99 5d6+35 wrath
 -5 -5 -5 -5
 FQ AB B HN
@@ -305,7 +305,7 @@ her mottled cheeks and her gnarled skin testify to her long suffering and
 an intense adhorrence for all beauty and youth.
 ~
 unique~
-ABFG DFH -1000 0
+ABFG DFHJ -1000 0
 41 15 2d1+1600 1d1+99 5d6+40 divine
 -6 -6 -6 -6
 FKQ AB B HN
@@ -321,7 +321,7 @@ Gertrude. Born in a half-living, half-dead state, she harnesses the power
 of the undeed to destroy you!
 ~
 unique~
-ABFG DFH -1000 0
+ABFG DFHJ -1000 0
 40 15 2d1+1450 1d1+99 5d6+40 magic
 -5 -5 -5 -5
 EFQ AB B HN
@@ -340,7 +340,7 @@ the wishful malady that the young are known to fall into once in
 a while. Love.
 ~
 unique~
-ABGH 0 750 0
+ABGH J 750 0
 15 10 2d1+200 1d1+99 5d6+0 punch
 7 7 7 7
 JK 0 0 CDEFGHIJKL
@@ -358,7 +358,7 @@ farmers with a few hunters and trappers. His sun burnt arms and face
 mark him as a happy worker, and no slacker.
 ~
 unique~
-AG 0 750 0
+AG J 750 0
 15 12 2d1+220 1d1+99 5d6+5 punch
 2 2 2 2
 EFJK 0 0 CDEFGHIJL
@@ -373,7 +373,7 @@ This young straw-chewing punk spits and clenches his fist at you. Better
 SCRAM! He looks around for Maddie, the local beauty.
 ~
 unique~
-ABG 0 750 0
+ABG J 750 0
 15 5 2d1+320 1d1+99 4d5+8 punch
 -3 -3 -3 -3
 EFJKLR 0 0 ABCDE
@@ -388,7 +388,7 @@ Maddie looks at you with desperate eyes imploring your assistance against
 her ruffian suitors.
 ~
 unique~
-ABGH 0 750 0
+ABGH J 750 0
 20 8 2d1+320 1d1+99 4d5+15 punch
 -3 -3 -3 -3
 FK 0 0 ABC
@@ -407,7 +407,7 @@ green apron which reads "Roses for the loving, Lilies for the sad,
 Tulips for the laughing, violets for the glad".
 ~
 unique~
-ABG 0 1000 0
+ABGe J 1000 0
 20 10 2d1+380 1d1+99 4d5+20 grep
 -1 -1 -1 -1
 EF AB B H
@@ -426,7 +426,7 @@ spared the tricksters or thieves of the larger towns. Her basket is
 full of delicious looking apples and pears.
 ~
 unique~
-AGH 0 750 0
+AGH J 750 0
 15 5 2d1+180 1d1+99 4d5+8 punch
 3 3 3 3
 FK 0 0 CDEFGHIJL
@@ -454,7 +454,7 @@ He is singing a song over and over again and you catch its words...
     But I met with scorn"
 ~
 unique~
-ABCG 0 0 0
+ABCG J 0 0
 13 8 2d1+150 1d1+99 5d5+5 punch
 4 4 4 4
 CDFK 0 0 CDEFGHIJL
@@ -473,7 +473,7 @@ warrior monk, and he must be trying to regain spiritual peace and
 conscience with the Most High.
 ~
 unique~
-ABG DHN 1000 0
+ABG DHJN 1000 0
 39 15 2d1+1550 1d1+99 5d6+35 punch
 -6 -6 -6 -6
 EFHK B B QXYZ
@@ -492,7 +492,7 @@ is mercy to be found in this evil place, she will fade away before
 the witches come to sacrifice her tonight. She looks at you pleadingly.
 ~
 unique~
-ABG DIKN 1000 0
+ABG DIJKN 1000 0
 15 10 2d1+80 1d1+99 4d5+0 stab
 2 2 2 2
 K AB B 0
@@ -509,7 +509,7 @@ seems lost in her own world, her long black hair framing a face that
 is almost too beautiful to describe.
 ~
 unique~
-ABCGH DHN 1000 0
+ABCGH DHJN 1000 0
 50 15 2d1+3000 1d1+99 5d6+50 punch
 -7 -7 -7 -7
 EFK B B QXYZ
@@ -526,7 +526,7 @@ tail from side to side.  A sudden crackle of orange electricity runs
 down the length of its body and disappears.
 ~
 unique~
-ABCGH DF 0 0
+ABCGH DFJ 0 0
 40 10 2d1+3000 1d1+99 5d6+40 bite
 0 0 0 0
 DFJK AB B 0
@@ -543,7 +543,7 @@ he seems abit tight-lipped at the moment.  You're probably going to
 have to beat it out of him.
 ~
 unique~
-ABCG DN 0 0
+ABCG DJN 0 0
 38 15 2d1+1450 1d1+99 5d6+25 suction
 -3 -3 -3 -3
 FK AB B 0
@@ -563,7 +563,7 @@ burdened with. The Sorrow of God, perhaps? Nobody really knows save
 the members of the order.
 ~
 unique~
-ABG DH 1000 0
+ABG DHJ 1000 0
 37 12 2d1+1300 1d1+99 5d6+25 punch
 -2 -2 -2 -2
 EK 0 0 0
@@ -582,7 +582,7 @@ You draw back in ponder of this pointed-beard priest while his greyish-
 black apparel gives hint of his oriental origin.
 ~
 unique~
-ABG DH 1000 0
+ABG DHJ 1000 0
 60 25 2d1+5500 1d1+99 10d5+65 frbite
 -11 -11 -11 -11
 DEFHK AB BHIJKLMNOP 0
@@ -598,7 +598,7 @@ Farmer Griff smiles and says "You musn't leave without trying my
  'Char Siew Bao' ".
 ~
 unique~
-ABG 0 750 0
+ABGe J 750 0
 20 15 2d1+500 1d1+99 4d5+10 punch
 0 0 0 0
 EFQ AB B H
@@ -614,7 +614,7 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABF D -1000 0
+ABF DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
@@ -630,7 +630,7 @@ He looks like a dirty-furred dwarf with overly long hands and a mouth
 filled with sharp little teeth.
 ~
 unique~
-ABCFG DF -1000 0
+ABCFG DFJ -1000 0
 12 5 2d1+180 1d1+99 4d5+12 chop
 2 2 2 2
 BCF AB B 0
@@ -647,7 +647,7 @@ witches.  His strength proved less than his faith in himself and his
 spectre now wanders the edge of this dark lake forever.
 ~
 unique~
-ABCG 0 1000 0
+ABCG J 1000 0
 35 25 2d1+1050 1d1+99 5d9+25 charge
 5 5 5 5
 FGK ABCDEFGHIJKLMNOPQRS BCD 0
@@ -665,7 +665,7 @@ you sharply and for a moment, you see upon her face the image of
 smiling demon.
 ~
 unique~
-ABG DH -1000 0
+ABG DHJ -1000 0
 43 10 2d1+2150 1d1+99 5d6+45 punch
 -2 -2 -2 -2
 AFK AB B N
@@ -685,7 +685,7 @@ you see that ages of paranoia and fear have moulded a defiant snarl
 permanently on his scarred face.
 ~
 unique~
-ACGT H 0 0
+ACGT HJ 0 0
 58 12 2d1+5900 1d1+99 5d6+105 punch
 -5 -5 -5 -5
 ACEFJK AB C N
@@ -704,7 +704,7 @@ Imbessar. She has tracked him to the Emerald Forest and it is here
 that they will have their last battle.
 ~
 unique~
-ABGHR HN -1000 0
+ABGHR HJN -1000 0
 54 12 2d1+4500 1d1+99 5d6+85 magic
 -1 -1 -1 -1
 FH AB C N
@@ -724,7 +724,7 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
@@ -743,7 +743,7 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
@@ -762,7 +762,7 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
@@ -781,7 +781,7 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
@@ -800,7 +800,7 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 13 4 2d1+175 1d1+99 4d5+7 magic
 0 0 0 0
 FU BJN B 0
@@ -819,7 +819,7 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
@@ -838,7 +838,7 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
@@ -857,7 +857,7 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
@@ -876,7 +876,7 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
@@ -895,7 +895,7 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 17 5 2d1+280 1d1+99 4d5+9 punch
 -4 -4 -4 -4
 FKU BJN B 0
@@ -911,7 +911,7 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
@@ -927,7 +927,7 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
@@ -943,7 +943,7 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
@@ -959,7 +959,7 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DT 0 0
+ABG DJT 0 0
 20 6 2d1+350 1d1+99 4d5+12 stab
 -5 -5 -5 -5
 FU BJN B 0
@@ -978,7 +978,7 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
@@ -997,7 +997,7 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
@@ -1016,7 +1016,7 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
@@ -1035,7 +1035,7 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 24 6 2d10+500 1d1+99 5d5+5 punch
 -7 -7 -7 -7
 KU BJN B 0
@@ -1053,7 +1053,7 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
@@ -1071,7 +1071,7 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
@@ -1089,7 +1089,7 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
@@ -1107,7 +1107,7 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 29 9 2d10+750 1d1+99 5d5+10 slap
 -10 -10 -10 -10
 FKU BJN B 0
@@ -1127,7 +1127,7 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
@@ -1147,7 +1147,7 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 FKNU BJLN B 0
@@ -1166,7 +1166,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1185,7 +1185,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1204,7 +1204,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1223,7 +1223,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1242,7 +1242,7 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG D -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
@@ -1261,7 +1261,7 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG D -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
@@ -1280,7 +1280,7 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG D -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
@@ -1299,7 +1299,7 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABG D -1000 0
+ABG DJ -1000 0
 15 3 2d1+200 1d1+99 4d5+5 pierce
 5 5 5 5
 CDEFJKU AB B N
@@ -1316,7 +1316,7 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
@@ -1333,7 +1333,7 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
@@ -1350,7 +1350,7 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
@@ -1367,7 +1367,7 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 25 10 2d1+600 1d1+99 5d5+15 scratch
 -3 -3 -3 -3
 CDEFJKU AB B N
@@ -1384,7 +1384,7 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG D -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
@@ -1401,7 +1401,7 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG D -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
@@ -1418,7 +1418,7 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG D -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
@@ -1435,7 +1435,7 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG D -950 0
+ABG DJ -950 0
 20 8 2d1+390 1d1+99 4d5+15 beating
 0 0 0 0
 CDEFJKU B B N
@@ -1451,7 +1451,7 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
@@ -1467,7 +1467,7 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
@@ -1483,7 +1483,7 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 30 8 2d1+900 1d1+99 5d5+16 bite
 -5 -5 -5 -5
 BEFG AB B N
@@ -1499,7 +1499,7 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
@@ -1515,7 +1515,7 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
@@ -1531,7 +1531,7 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
@@ -1547,7 +1547,7 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFG D -1000 0
+ABFG DJ -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 punch
 -8 -8 -8 -8
 CDEFJKU AB B N
@@ -1564,7 +1564,7 @@ water as her laughter rings gaily through the forest.  A tunic wrapped
 loosely in a braided cloak of forest green lies among the lilac bushes.
 ~
 unique~
-ABG DT 1000 0
+ABG DJT 1000 0
 27 10 2d10+650 1d1+99 5d5+0 slap
 -8 -8 -8 -8
 FKU BJN B 0
@@ -1583,7 +1583,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1602,7 +1602,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG D 1000 0
+ABG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1621,7 +1621,7 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-AG D 1000 0
+AG DJ 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 punch
 -10 -10 -10 -10
 FKNU BJLN B 0
@@ -1639,7 +1639,7 @@ in the sixth plane of Hell, he now watches over witchwood with his liege of
 huntsmen in service to Gertrude.
 ~
 unique~
-ABFG DFH -1000 0
+ABFG DFHJ -1000 0
 40 14 2d1+1600 1d1+99 8d6+30 magic
 -7 -7 -7 -7
 FKQ AB B HN

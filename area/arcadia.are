@@ -727,7 +727,7 @@ This hound is strangely quiet and well behaved, it's eyes contain a
 measure of intelligence rarely seen in a normal animal.
 ~
 unique~
-ATU DFPZ 0 0
+AITU DFPZ 0 0
 22 0 5d10+550 10d20+2000 2d10+7 claw
 -7 -7 -7 -1
 CDFLN 0 0 NYZ
@@ -742,7 +742,7 @@ This large bull is pure white with red horns.  Its eyes hold an
 intelligence that is not common in one of it's species.
 ~
 unique~
-ATU DFPZ 0 0
+AITU DFPZ 0 0
 40 0 10d20+2000 10d20+2000 4d8+13 pierce
 -21 -20 -21 -2
 CDILN 0 0 YZ
@@ -757,7 +757,7 @@ This cat is all white with red ears.  In it's eyes you can see
 inteligence.
 ~
 cat~
-ARU DFPZ 0 0
+AIRU DFPZ 0 0
 50 0 20d20+4250 10d20+2000 5d8+19 claw
 -24 -25 -23 -2
 BEJKNV 0 0 Z

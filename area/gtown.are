@@ -100,7 +100,7 @@ and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
 human~
-ABFGO DF -1000 0
+ABFGO DFJ -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 pierce
 -28 -28 -28 2
 EFNQ AB T K
@@ -331,7 +331,7 @@ A Shambling Mound... well... shambles toward you.
 RUN! A twelve-foot high pile of garbage is attacking you!
 ~
 unique~
-AFGO N 0 0
+AFGO JN 0 0
 45 -1 50d10+3000 10d10+1000 8d4+16 slash
 -15 -14 -15 4
 EFNQ 0 0 0
@@ -2316,14 +2316,14 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D1
-~
-~
-0 -1 8176
 D0
 ~
 ~
 0 -1 8180
+D1
+~
+~
+0 -1 8176
 S
 #8176
 The Garden~
@@ -2334,18 +2334,18 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8175
-D1
-~
-~
-0 -1 8177
 D0
 ~
 ~
 0 -1 8181
+D1
+~
+~
+0 -1 8177
+D3
+~
+~
+0 -1 8175
 S
 #8177
 The Garden~
@@ -2356,14 +2356,14 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D1
-~
-~
-0 -1 8178
 D0
 ~
 ~
 0 -1 8182
+D1
+~
+~
+0 -1 8178
 D3
 ~
 ~
@@ -2378,10 +2378,6 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8177
 D0
 ~
 ~
@@ -2390,6 +2386,10 @@ D1
 ~
 ~
 0 -1 8179
+D3
+~
+~
+0 -1 8177
 S
 #8179
 The Garden~
@@ -2400,14 +2400,14 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8178
 D0
 ~
 ~
 0 -1 8184
+D3
+~
+~
+0 -1 8178
 S
 #8180
 The Garden~
@@ -2418,18 +2418,18 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D2
-~
-~
-0 -1 8175
-D1
-~
-~
-0 -1 8181
 D0
 ~
 ~
 0 -1 8185
+D1
+~
+~
+0 -1 8181
+D2
+~
+~
+0 -1 8175
 S
 #8181
 The Garden~
@@ -2440,18 +2440,18 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D2
-~
-~
-0 -1 8176
-D1
-~
-~
-0 -1 8182
 D0
 ~
 ~
 0 -1 8186
+D1
+~
+~
+0 -1 8182
+D2
+~
+~
+0 -1 8176
 D3
 ~
 ~
@@ -2466,14 +2466,6 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8181
-D2
-~
-~
-0 -1 8177
 D0
 ~
 ~
@@ -2482,6 +2474,14 @@ D1
 ~
 ~
 0 -1 8183
+D2
+~
+~
+0 -1 8177
+D3
+~
+~
+0 -1 8181
 S
 #8183
 The Garden~
@@ -2492,10 +2492,6 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8182
 D0
 ~
 ~
@@ -2508,6 +2504,10 @@ D2
 ~
 ~
 0 -1 8178
+D3
+~
+~
+0 -1 8182
 S
 #8184
 The Garden~
@@ -2518,18 +2518,18 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8183
-D2
-~
-~
-0 -1 8179
 D0
 ~
 ~
 0 -1 8189
+D2
+~
+~
+0 -1 8179
+D3
+~
+~
+0 -1 8183
 S
 #8185
 The Garden~
@@ -2544,14 +2544,14 @@ D0
 ~
 ~
 0 -1 8190
-D2
-~
-~
-0 -1 8180
 D1
 ~
 ~
 0 -1 8186
+D2
+~
+~
+0 -1 8180
 S
 #8186
 The Garden~
@@ -2566,18 +2566,18 @@ D0
 ~
 ~
 0 -1 8191
-D3
-~
-~
-0 -1 8185
-D2
-~
-~
-0 -1 8181
 D1
 ~
 ~
 0 -1 8187
+D2
+~
+~
+0 -1 8181
+D3
+~
+~
+0 -1 8185
 S
 #8187
 The Garden~
@@ -2588,22 +2588,22 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D2
-~
-~
-0 -1 8182
 D0
 ~
 ~
 0 -1 8192
-D3
-~
-~
-0 -1 8186
 D1
 ~
 ~
 0 -1 8188
+D2
+~
+~
+0 -1 8182
+D3
+~
+~
+0 -1 8186
 S
 #8188
 The Garden~
@@ -2618,6 +2618,10 @@ D0
 ~
 ~
 0 -1 8193
+D1
+~
+~
+0 -1 8189
 D2
 ~
 ~
@@ -2626,10 +2630,6 @@ D3
 ~
 ~
 0 -1 8187
-D1
-~
-~
-0 -1 8189
 S
 #8189
 The Garden~
@@ -2640,18 +2640,18 @@ by a silent dimness that only exaggerates the already-eerie quality of
 your surroundings.
 ~
 0 AN 3
-D3
-~
-~
-0 -1 8188
-D2
-~
-~
-0 -1 8184
 D0
 ~
 ~
 0 -1 8194
+D2
+~
+~
+0 -1 8184
+D3
+~
+~
+0 -1 8188
 S
 #8190
 The Garden~

@@ -20,7 +20,7 @@ obeyed.  They are just that, huge eyes that float above the ground.  The
 eye has a dark brown shell, with a huge pupil that never seems to blink.
 The pupil is a very dark green and takes in every action you do. ~
 unique~
-A CDEF 0 0
+A CDEFJ 0 0
 32 0 10d10+1000 5d5+1000 6d4+9 none
 -10 -10 -10 3
 EF 0 0 0
@@ -37,7 +37,7 @@ others.  The eye's pupil is a very dark grey and you can't tell where it is
 focused.
 ~
 unique~
-A D -350 0
+A DJ -350 0
 18 0 3d9+283 5d5+1000 2d7+4 none
 -3 -3 -3 6
 EF 0 0 0
@@ -54,7 +54,7 @@ stares at you and does nothing else.  It looks as if he has lost the will to
 live, you wonder what the enforcers did to him.
 ~
 human~
-AB C -200 0
+AB CJ -200 0
 18 0 3d9+283 5d5+1000 2d7+4 punch
 -3 -3 -3 6
 EIK 0 0 0
@@ -71,7 +71,7 @@ The pupil of this eye is a very deep red.  Looking at it makes you slightly
 dizzy.
 ~
 unique~
-A CDEF 0 0
+A CDEFJ 0 0
 43 0 25d10+2500 5d5+1000 3d12+15 none
 -15 -15 -15 2
 EF 0 0 0
@@ -90,7 +90,7 @@ resides in the central area.  A large mouth with razor sharp teeth lies below
 this huge eye.  The body is protected by a hard chitinous covering.
 ~
 unique~
-AB CDEF 0 0
+AB CDEFJ 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 bite
 -20 -20 -20 0
 EF 0 0 0
@@ -107,7 +107,7 @@ seems to disrupt your casting abilities.  This beholder lives in this city and
 masterminds many evil operations.
 ~
 unique~
-ABC CDEFH -1000 0
+ABC CDEFHJ -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 charge
 -19 -19 -19 1
 EF 0 0 0
@@ -139,7 +139,7 @@ with a purpose to sell his goods.  Although he looks skinny he looks very
 deadly and quick.
 ~
 human~
-A D -750 0
+A DJ -750 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIK 0 0 0
@@ -170,7 +170,7 @@ You turn your gaze on a necromancer who seems to have power flowing
 through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
 human~
-AB D -150 0
+AB DJ -150 0
 43 0 25d10+2500 5d5+1000 3d12+15 punch
 -15 -15 -15 2
 EIK 0 0 0
@@ -188,7 +188,7 @@ crocodilian than snake-like.  The scales are ultramarine with bands of
 grey-brown.  The belly is pale blue.
 ~
 snake~
-AB D -100 0
+AB DJ -100 0
 38 0 10d10+1600 5d5+1000 5d6+12 bite
 -13 -13 -13 3
 EF L 0 0
@@ -206,7 +206,7 @@ whatever the reason is the fighter doesn't seem that happy that you are
 staring at him.
 ~
 human~
-ABT C -750 0
+ABT CJ -750 0
 43 0 25d10+2500 5d5+1000 3d12+15 pound
 -15 -15 -15 2
 CEIK 0 0 0
@@ -222,7 +222,7 @@ shimmer in and out of existence much like a mirage.  He bears the design
 of Xevior on his forehead.
 ~
 human~
-AB CDEFH -666 0
+AB CDEFHJ -666 0
 43 0 25d10+2500 5d5+1000 3d12+15 slap
 -15 -15 -15 2
 EFNU 0 0 0
@@ -238,7 +238,7 @@ little scales and seems to be light green in colour.  He stares at you as you
 look at him.  Ready for any move you may make on him.
 ~
 lizard~
-A D -600 0
+A DJ -600 0
 16 0 3d9+233 5d5+1000 2d6+4 bite
 -2 -2 -2 6
 EIKR 0 0 0
@@ -255,7 +255,7 @@ uses to slowly crush it's prey if they are unlucky enough not to be
 swallowed whole.
 ~
 human~
-ABF HQ -100 0
+ABF HJQ -100 0
 44 0 25d10+2750 5d5+1000 8d4+15 none
 -15 -15 -15 2
 EFU 0 0 0
@@ -271,7 +271,7 @@ purple and has teeth about 4 inches long each.  The mouth is so large that
 it looks like a small cavern.  You can only see the front of the worm since
 it's whole mass can not possibly fit in the corridor. ~
 human~
-ABF HQ -250 0
+ABF HJQ -250 0
 48 0 25d10+3750 5d5+1000 6d6+18 bite
 -18 -18 -18 1
 EFU 0 0 0
@@ -288,7 +288,7 @@ hands he wears a pair of gauntlets that bear the beholders symbol, an eye
 with ten eyestalks around it.
 ~
 human~
-AG DF -750 0
+AG DFJ -750 0
 43 0 25d10+2500 5d5+1000 3d12+15 pound
 -15 -15 -15 2
 EF 0 0 0
@@ -306,7 +306,7 @@ looks straight at you and you see glowing red eyes.  This figure is a
 githzerai!  You wonder how that happened.
 ~
 human~
-AG DF -850 0
+AG DFJ -850 0
 46 0 25d10+3250 5d5+1000 6d6+16 pound
 -16 -16 -16 2
 EF 0 0 0
@@ -323,7 +323,7 @@ leave him in peace.  He holds himself with confidence and you realise it
 would no easy matter to defeat him.
 ~
 human~
-AB DF -900 0
+AB DFJ -900 0
 48 0 25d10+3750 5d5+1000 6d6+18 pound
 -18 -18 -18 1
 EF 0 0 0
@@ -340,7 +340,7 @@ beak, below which trail ten six foot long tentacles hang.  The body of the
 grell is a drab olive colour streaked with white; the tentacles are pale
 olive-green.  This grell is the beloved pet of the beholder. ~
 human~
-ABF H -750 0
+ABF HJ -750 0
 46 0 25d10+3250 5d5+1000 6d6+16 none
 -16 -16 -16 2
 F 0 0 0
@@ -356,7 +356,7 @@ and you get the feeling if you do anything destructive or stupid he will
 make you pay.
 ~
 human~
-ABT CDN 0 0
+ABTe CDJN 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 EFIKN 0 0 0
@@ -373,7 +373,7 @@ easily pick you up.  You figure he frequents the Gemstone since he just
 seems to fit in.
 ~
 human~
-AG E -500 0
+AG EJ -500 0
 11 0 2d8+134 5d5+100 1d10+2 punch
 1 1 1 7
 EIK 0 0 0
@@ -387,7 +387,7 @@ A drow sits here quietly minding his own business
 The drow doesn't seem to be looking at anything at all.  His dark skin
 blends in with the murky lighting.  The drow looks quick and deadly. ~
 human~
-AB D -600 0
+AB DJ -600 0
 13 0 2d10+170 5d5+100 2d5+3 punch
 -1 -1 -1 6
 EIK 0 0 0
@@ -403,7 +403,7 @@ shape, the only thing going for him is the fact that he looks strong.  He has
 a gut that hangs out right over his belt, and a few scars on his face
 ~
 human~
-AG E -250 0
+AG EJ -250 0
 14 -1 2d10+190 5d5+100 1d12+3 punch
 -1 -1 -1 6
 EIK 0 0 0
@@ -420,7 +420,7 @@ good looking.  His eyes are green and seem to hold the key to power in
 them.
 ~
 human~
-AB E 0 0
+AB EJ 0 0
 22 0 5d10+400 5d5+1000 4d4+6 punch
 -5 -5 -5 5
 EIK 0 0 0
@@ -434,7 +434,7 @@ Antryg sits here sipping on his beer
 Antryg is dressed in long robes that cover up his body.  You can't tell how
 built he is, but you do know he looks very deadly and dangerous ~
 human~
-AB E 0 0
+AB EJ 0 0
 22 0 5d10+400 5d5+1000 4d4+6 punch
 -5 -5 -5 5
 EIK 0 0 0
@@ -451,7 +451,7 @@ slimy.  This little fellow has nasty little teeth and questing hands that pick
 up anything.
 ~
 human~
-ACG PQ -50 0
+ACG JPQ -50 0
 17 0 3d9+258 5d5+1000 3d4+4 punch
 -3 -3 -3 6
 EIK 0 0 0
@@ -467,7 +467,7 @@ look closely and notice with a start that it seems to be alive.  The slime is
 slowly eating it's way through the wall and floor.
 ~
 human~
-AG 0 0 0
+AG J 0 0
 20 0 3d9+333 5d5+1000 2d8+5 magic
 -4 -4 -4 5
 EF 0 0 0
@@ -483,7 +483,7 @@ on the surface.  The rat has green eyes that seem to shimmer with hatred.
 The rat's fur is black and brown and very dirty.
 ~
 human~
-AG 0 0 0
+AG J 0 0
 19 0 3d9+308 5d5+1000 2d7+5 charge
 -4 -4 -4 5
 EF 0 0 0
@@ -500,7 +500,7 @@ one of the "little people" who cause trouble.  You then notice this jinxkin
 has dirty but sharp nails.
 ~
 human~
-ACG PQ -400 0
+ACG JPQ -400 0
 22 0 5d10+400 5d5+1000 4d4+6 punch
 -5 -5 -5 5
 EIK 0 0 0
@@ -518,7 +518,7 @@ the head, all leathery and smooth.  The limbs of this creature are knotty
 and bowed, with hands and feet tipped with thick nails which are filthy.
 ~
 human~
-ACG P -600 0
+ACG JP -600 0
 21 0 4d10+360 5d5+1000 4d4+5 punch
 -5 -5 -5 5
 EIK 0 0 0
@@ -567,7 +567,7 @@ This looks to be an iron statue of a human.  The statue stands a good
 fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. ~
 golem~
-AB D 0 0
+AB DJ 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 pound
 -13 -13 -13 3
 EFNU 0 0 0
@@ -583,7 +583,7 @@ looks powerful enough to rip off your head without straining.  The statue
 looks as if it is watching you.
 ~
 golem~
-AB D 0 0
+AB DJ 0 0
 39 0 15d10+1700 5d5+1000 5d6+13 pound
 -13 -13 -13 3
 EFNU 0 0 0
@@ -600,7 +600,7 @@ a bear of a man, he ripples with muscles.  He has scars all over his arms
 and you are pretty sure all over his body.
 ~
 human~
-AB N -500 0
+AB JN -500 0
 42 0 25d10+2250 5d5+1000 3d12+14 slap
 -14 -14 -14 3
 EIK 0 0 0
@@ -805,7 +805,7 @@ who listens patiently to the stories of the adventurers that pass through
 here.
 ~
 human~
-ABT J 0 0
+ABTe J 0 0
 95 0 50d10+22500 5d5+5000 16d15+68 pound
 -71 -71 -71 -37
 CDEFIJK 0 0 0
@@ -901,7 +901,7 @@ The slave dealer is huge and looks mighty mean.  He patiently waits for
 you to decide on which slave you wish to buy.
 ~
 human~
-ABT 0 900 0
+ABTe J 900 0
 95 0 50d10+22500 5d5+5000 15d15+68 pound
 -71 -71 -71 -37
 CEFIJKU 0 0 0
@@ -975,7 +975,7 @@ A male human slave stands before you with his back rigid, his spirit hasn't
 been broken... yet.
 ~
 human~
-ABC 0 0 0
+ABC J 0 0
 19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 EIK 0 0 0
@@ -988,7 +988,7 @@ A female human slave waits for her orders.
 ~
 A female human slave stands before you watching you carefully. ~
 human~
-ABC 0 0 0
+ABC J 0 0
 11 0 2d8+134 5d5+100 1d10+2 slap
 1 1 1 7
 EIK 0 0 0
@@ -1046,7 +1046,7 @@ retired adventurer and can defeat any mortal who would be idiotic enough
 to attack him.
 ~
 human~
-ABT C 0 0
+ABTe CJ 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 CEFIJK 0 0 0
@@ -1060,7 +1060,7 @@ A drow adventurer sits with his party watching you.
 This adventurer's name is well known in this establishment, he goes by the
 name Prax.  He is an accomplished mage, and seems to breathe magic. ~
 human~
-AB D -500 0
+AB DJ -500 0
 28 0 6d12+703 5d5+1000 2d12+8 pound
 -8 -8 -8 4
 EIK 0 0 0
@@ -1075,7 +1075,7 @@ This drow is a very strong warrior.  He has never been defeated in his
 entire career.  He goes by the name Thespan.
 ~
 human~
-ABT 0 -600 0
+ABT J -600 0
 26 0 5d10+600 5d5+1000 3d7+7 slash
 -7 -7 -7 4
 EIJK 0 0 0
@@ -1089,7 +1089,7 @@ A drow thief sits at the table with his companions watching you
 This drow is not to be trusted, he has a well earned reputation of being
 able to steal anything off of anyone.  Maybe you should check your gold. ~
 human~
-ABS 0 -600 0
+ABS J -600 0
 26 0 5d10+600 5d5+1000 3d7+7 punch
 -7 -7 -7 4
 EIKN 0 0 0
@@ -1105,7 +1105,7 @@ the threshold of becoming powerful, no easy feat in the Underdark.  She is
 clearly very intelligent and cunning.
 ~
 human~
-ABR D -600 0
+ABR DJ -600 0
 16 0 3d9+233 5d5+1000 2d6+4 punch
 -2 -2 -2 6
 EIK 0 0 0
@@ -1122,7 +1122,7 @@ they will be a force to be reckoned with.  Knowing this one of the city's
 beholder's has outfitted them and protects them.
 ~
 human~
-ABS 0 -700 0
+ABS J -700 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIKN 0 0 0
@@ -1140,7 +1140,7 @@ getting closer together, which would be a very bad thing for the surface
 races.
 ~
 human~
-ABT 0 -800 0
+ABT J -800 0
 17 0 3d9+258 5d5+1000 3d4+4 slash
 -3 -3 -3 6
 EIK 0 0 0
@@ -1157,7 +1157,7 @@ group has reputedly found a way into the githzerai keep from the
 Underdark.
 ~
 human~
-ABS 0 -700 0
+ABS J -700 0
 16 0 3d9+233 5d5+1000 2d6+4 punch
 -2 -2 -2 6
 EIKN 0 0 0
@@ -1173,7 +1173,7 @@ shop even while others have tried to take it from him.  He has a very
 profitable business going.
 ~
 human~
-ABR D 0 0
+ABRe DJ 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 magic
 -20 -20 -20 0
 EIK 0 0 0
@@ -1190,7 +1190,7 @@ there would be a profitable trade in selling arms, especially drow arms to
 those who visit this unique city.
 ~
 human~
-ABT D 0 0
+ABTe DJ 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 CDEFIJK 0 0 0
@@ -1207,7 +1207,7 @@ obviously has been through a lot in his life.  He walks with a quiet
 confidence of one who has seen everything and knows nothing can best
 him. ~
 human~
-ABT D 0 0
+ABTe DJ 0 0
 95 0 50d10+22500 5d5+5000 12d15+68 pound
 -71 -71 -71 -37
 CDEFIJK 0 0 0
@@ -1223,7 +1223,7 @@ rumoured that she killed all her rivals by murdering them while they slept.
 She is a beautiful lady who always gets her way.
 ~
 human~
-ABT D -999 0
+ABTe DJ -999 0
 40 0 15d10+1850 5d5+1000 4d8+13 slash
 -13 -13 -13 3
 EIK 0 0 0
@@ -1241,7 +1241,7 @@ overlook, yet he seems to be very very powerful, not a person to mess
 with.
 ~
 human~
-AB D 0 0
+ABe DJ 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EIK 0 0 0
@@ -1257,7 +1257,7 @@ the way he is acting you figure he is running from something.  He is
 dressed is dark grey clothing and stands a good five feet tall.
 ~
 human~
-AG 0 -500 0
+AG J -500 0
 17 0 3d9+258 5d5+1000 3d4+4 punch
 -3 -3 -3 6
 EIK 0 0 0
@@ -1273,7 +1273,7 @@ He has just been rather shaken up by his visit to the drow city and has
 come here to find comfort in the safe walls of this building.  He is dressed
 in different shades of grey and sports a nice looking necklace ~
 human~
-AG 0 -500 0
+AG J -500 0
 16 0 3d9+233 5d5+1000 2d6+4 punch
 -2 -2 -2 6
 EIK 0 0 0
@@ -1290,7 +1290,7 @@ figure in his homeland, but he fell out of favour and was sent here.  He
 does his duty with a fanatic pride.
 ~
 human~
-AB 0 -700 0
+AB J -700 0
 17 0 3d9+258 5d5+1000 3d4+4 punch
 -3 -3 -3 6
 EIK 0 0 0
@@ -1305,7 +1305,7 @@ This is one of the younger thieves of the guild.  He has considerable
 experience, like all the thieves in the Underdark.  Although he has plenty
 of experience his skills aren't refined like those of his superiors. ~
 human~
-A Q -450 0
+A JQ -450 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIK 0 0 0
@@ -1321,7 +1321,7 @@ himself to the guild, by working the streets he is looking for that perfect
 steal or kill.
 ~
 human~
-AH Q -600 0
+AH JQ -600 0
 17 0 3d9+258 5d5+1000 3d4+4 punch
 -3 -3 -3 6
 EIK 0 0 0
@@ -1337,7 +1337,7 @@ and knows who to pick on.  He is lean but covered in muscles, with many
 scars from countless fights.
 ~
 human~
-AH D -600 0
+AH DJ -600 0
 18 0 3d9+283 5d5+1000 2d7+4 punch
 -3 -3 -3 6
 EIK 0 0 0
@@ -1353,7 +1353,7 @@ guild.  He only has to make his name even and bigger, and thus he is
 willing to take greater risks.
 ~
 human~
-AHS DQ -700 0
+AHS DJQ -700 0
 19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 EIKN 0 0 0
@@ -1385,7 +1385,7 @@ his ability to both kill and steal.  He lives in the guild where the head thief
 can watch him.
 ~
 human~
-ABS D -500 0
+ABS DJ -500 0
 23 0 5d10+450 5d5+1000 3d6+6 punch
 -6 -6 -6 4
 EIKN 0 0 0
@@ -1432,7 +1432,7 @@ This is the thieve's guild main mage.  He is the only one who power
 anywhere near that of the head's.  Meliadus is dressed in a long flowing
 robe and lights the room with a rob shaped like a hand holding an orb. ~
 human~
-ABR DEFH -500 0
+ABR DEFHJ -500 0
 40 0 15d10+1850 5d5+1000 4d8+13 magic
 -13 -13 -13 3
 EIK 0 0 0
@@ -1464,7 +1464,7 @@ dressed in black.  He is very skilled at the art of hitting the critical spot,
 so watch your back.
 ~
 human~
-AG Q -900 0
+AG JQ -900 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 EIKN 0 0 0
@@ -1479,7 +1479,7 @@ street.  You can barely make out his form as he moves silently, looking for
 the opening.
 ~
 human~
-AG DPQ -999 0
+AG DJPQ -999 0
 21 0 4d10+360 5d5+1000 4d4+5 pound
 -5 -5 -5 5
 EIKN 0 0 0
@@ -1494,7 +1494,7 @@ This assassin is very dangerous, he is built and strong.  He flits in and out
 of the shadows.  As an assassin he has the capability of nailing you with a
 critical hit, watch your back and don't hang around. ~
 human~
-AG DPQ -999 0
+AG DJPQ -999 0
 22 0 5d10+400 5d5+1000 4d4+6 pound
 -5 -5 -5 5
 EIKN 0 0 0
@@ -1510,7 +1510,7 @@ survive the first hit, you may be able to kill him.  Do not be deceived by
 the match up, his strike is deadly.
 ~
 human~
-AG DQ -999 0
+AG DJQ -999 0
 23 0 5d10+450 5d5+1000 3d6+6 pound
 -6 -6 -6 4
 EIKN 0 0 0
@@ -1526,7 +1526,7 @@ who match up with the power of the assassin.  Should you take the time to
 read all of this, I caution you to move right away.
 ~
 human~
-AG D -999 0
+AG DJ -999 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EIKN 0 0 0
@@ -1542,7 +1542,7 @@ assassin is sheathed completely in black.  Wearing a mask you can not tell
 what this assassin really looks like.
 ~
 human~
-AG D -999 0
+AG DJ -999 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 EIKN 0 0 0
@@ -1558,7 +1558,7 @@ long to write out.  One of the most powerful assassins of the land, he can
 take out almost foe.
 ~
 human~
-AG D -999 0
+AG DJ -999 0
 29 0 6d12+778 5d5+1000 2d12+8 pound
 -9 -9 -9 3
 EIKN 0 0 0
@@ -1574,7 +1574,7 @@ beyond just fighting, he is versed in the art of death.  He has practised
 many long hours to learn how to hit the critical spot.
 ~
 human~
-AG D -999 0
+AG DJ -999 0
 31 0 6d12+928 5d5+1000 4d6+9 pound
 -10 -10 -10 3
 EIKN 0 0 0
@@ -1588,7 +1588,7 @@ An assassin of awesome repute stands here debating to kill you
 This is the most powerful assassin in the realm, he has the ability to kill
 any mortal.  His price is extremely high, but he has never failed. ~
 human~
-AG D -999 0
+AG DJ -999 0
 46 0 25d10+3250 5d5+1000 6d6+16 pound
 -16 -16 -16 2
 EIKN 0 0 0
@@ -1603,7 +1603,7 @@ This is a figure of extreme power.  He can defeat anything that walks the
 land and is mortal.
 ~
 human~
-ABK DN 0 0
+ABK DJN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 EIKN 0 0 0
@@ -1620,7 +1620,7 @@ pulsating through them.  The beast's eyes are a dirty reddish colour and the
 focus right at you.
 ~
 bat~
-AG F -500 0
+AG FJ -500 0
 44 0 25d10+2750 5d5+1000 8d4+15 charge
 -15 -15 -15 2
 EIK 0 0 0
@@ -1640,7 +1640,7 @@ developed pincer-hands on the two uppermost and dagger-like claws on
 the two lower ones.
 ~
 unique~
-AG F -600 0
+AG FJ -600 0
 45 0 25d10+3000 5d5+1000 8d4+16 claw
 -15 -15 -15 2
 EIK 0 0 0
@@ -1658,7 +1658,7 @@ slanted downward and the nose appears to be squashed.  The mouth is
 slack and slobbering with many small fangs.
 ~
 unique~
-AG F -800 0
+AG FJ -800 0
 46 0 25d10+3250 5d5+1000 6d6+16 slash
 -16 -16 -16 2
 EFNU 0 0 0
@@ -1673,7 +1673,7 @@ This is a huge golem, but not like any you have seen before.  This golem is
 made out of platinum and it looks to be very strong.  You wouldn't want to
 end up in a battle with a foe like this if you were weak. ~
 golem~
-AG H 0 0
+AG HJ 0 0
 47 0 25d10+3500 5d5+1000 6d6+17 pound
 -17 -17 -17 2
 EFNU 0 0 0
@@ -1706,7 +1706,7 @@ which he holds back in braids.  He is very handsome, but his eyes give
 away his insanity.
 ~
 human~
-AGR H -999 0
+AGR HJ -999 0
 47 0 25d10+3500 5d5+1000 6d6+17 pound
 -17 -17 -17 2
 EIK 0 0 0
@@ -1723,7 +1723,7 @@ darkness between you and him and penetrates into your mind.  You can
 tell that this man is extremely powerful.
 ~
 human~
-AGT DH 0 0
+AGT DHJ 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
 EFIK 0 0 0
@@ -1742,7 +1742,7 @@ you are two large eyes.  The skin of this creature looks just like rock and
 thus it seems to fade into the background.
 ~
 unique~
-AB D -500 0
+AB DJ -500 0
 48 0 25d10+3750 5d5+1000 6d6+18 claw
 -18 -18 -18 1
 EFIK 0 0 0
@@ -1761,7 +1761,7 @@ impossible to distinguish from a real cloak.  In the middle of the front is a
 large gaping mouth and two glowing eyespots.
 ~
 unique~
-AB F -999 0
+AB FJ -999 0
 48 0 25d10+3750 5d5+1000 6d6+18 charge
 -18 -18 -18 1
 EFIK 0 0 0
@@ -1778,7 +1778,7 @@ muscles rippling all over his body.  He sports a long black beard and his
 hair is black.  He looks very evil.
 ~
 human~
-ABT 0 -500 0
+ABT J -500 0
 25 0 5d10+550 5d5+1000 2d10+7 slash
 -7 -7 -7 4
 EIK 0 0 0
@@ -1811,7 +1811,7 @@ politics of his homeland.  He is here to learn new destructive spells so he
 can become the most feared drow in the land
 ~
 human~
-ABR 0 -700 0
+ABR J -700 0
 26 0 5d10+600 5d5+1000 3d7+7 punch
 -7 -7 -7 4
 EIK 0 0 0
@@ -1827,7 +1827,7 @@ all his enemies fear him.  Even though he is a gnome, he has strength that
 rivals that of an ogre.
 ~
 human~
-ABT 0 -500 0
+ABT J -500 0
 24 0 5d10+500 5d5+1000 2d10+6 punch
 -6 -6 -6 4
 EIK 0 0 0
@@ -1841,7 +1841,7 @@ A drow cleric sits cross legged on the ground
 Sifrim is one of the few powerful drow clerics.  He is dressed all in black
 and stares at your with glowing eyes.  A dangerous fellow by far. ~
 human~
-ABQ 0 -800 0
+ABQ J -800 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 EIK 0 0 0
@@ -1856,7 +1856,7 @@ This is Wismarel, a duergar fighter.  Wismarel is here to find his fortune
 and hopes to find many powerful magical items.
 ~
 human~
-ABT 0 -500 0
+ABT J -500 0
 26 0 5d10+600 5d5+1000 3d7+7 punch
 -7 -7 -7 4
 EIK 0 0 0
@@ -1870,7 +1870,7 @@ A human mage opens his eyes as you barge into his room
 This is Methuen, a mage.  Methuen has come to the Underdark in search
 of magical items to enhance his considerable magical prowess. ~
 human~
-ABR 0 -400 0
+ABR J -400 0
 27 0 5d10+650 5d5+1000 5d4+7 slap
 -8 -8 -8 4
 EIK 0 0 0
@@ -1886,7 +1886,7 @@ her fighting abilities.  She is also seeking the fabled purple worms of the
 Underdark.
 ~
 human~
-ABT 0 -250 0
+ABT J -250 0
 25 0 5d10+550 5d5+1000 2d10+7 slash
 -7 -7 -7 4
 EIK 0 0 0
@@ -1900,7 +1900,7 @@ The inn keep stands ready to take your order
 This is the inn keep of the Traveller's Den.  He makes sure everyone gets
 what they want and provides soft beds for those who wish to stay here. ~
 human~
-ABT 0 0 0
+ABTe J 0 0
 95 10 50d10+22500 5d5+5000 16d15+68 pound
 -71 -71 -71 -37
 EFIK 0 0 0
@@ -1931,7 +1931,7 @@ This is one of the clan mages, he is dressed in flowing red and black robes.
 He is also wearing red and black bracers.
 ~
 human~
-ABGR N -600 0
+ABGR JN -600 0
 21 0 4d10+360 5d5+1000 4d4+5 punch
 -5 -5 -5 5
 EIK 0 0 0
@@ -1947,7 +1947,7 @@ black and red platemail.  He wields a glowing blade that seems to be
 possessed by an evil force.
 ~
 human~
-ABT N -900 0
+ABT JN -900 0
 23 0 5d10+450 5d5+1000 3d6+6 slash
 -6 -6 -6 4
 EIKU 0 0 0
@@ -2045,7 +2045,7 @@ face since the interior of the hood is an opaque black screen.  You can
 sense an aura of pure evil emanating from this creature.
 ~
 unique~
-ABG 0 -999 0
+ABG J -999 0
 25 0 5d10+550 5d5+1000 2d10+7 slash
 -7 -7 -7 4
 EIK 0 0 0
@@ -2060,7 +2060,7 @@ This humanoid figure presents a pale, corpse-like appearance, with pallid
 skin drawn tightly over hollow cheekbones; its flesh is unusually cold and
 clammy.  Its eyes - sunken in the face - are dull and heavy lidded. ~
 human~
-ABG 0 -500 0
+ABG J -500 0
 25 0 5d10+550 5d5+1000 2d10+7 punch
 -7 -7 -7 4
 EIK 0 0 0
@@ -2076,7 +2076,7 @@ stunted wings cannot support flight.  The upper part of its body is a dark
 grey-green while the lower part is a medium green flecked with dull
 yellow. Its eyes are disproportionably large and apparently lidless. ~
 snake~
-ABG 0 -700 0
+ABG J -700 0
 24 0 5d10+500 5d5+1000 2d10+6 charge
 -6 -6 -6 4
 EF L 0 0

@@ -346,7 +346,7 @@ This pathetic wretch has lost all hope. Squatting naked and shivering in the
 corner of the cell he gibbers insanely and begs for mercy.
 ~
 human~
-ABH 0 0 0
+ABH J 0 0
 10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 F 0 0 0
@@ -361,7 +361,7 @@ This pathetic wretch has lost all hope. Squatting naked and shivering in the
 corner of the cell she gibbers insanely and begs for mercy.
 ~
 human~
-ABH 0 0 0
+ABH J 0 0
 10 0 2d7+121 5d5+100 2d4+2 slap
 1 1 1 7
 F 0 0 0

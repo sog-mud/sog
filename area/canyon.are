@@ -74,7 +74,7 @@ A small, rather non-descript elemental.
 A small elemental, a resident of the canyon.
 ~
 human~
-ABG 0 0 0
+ABG J 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -88,7 +88,7 @@ A medium-sized elemental.
 A medium elemental, a resident of the canyon.
 ~
 human~
-ABG 0 10 0
+ABG J 10 0
 10 0 2d7+121 5d9+100 2d4+2 none
 1 1 1 8
 EFNU 0 0 0
@@ -117,7 +117,7 @@ secrets and knowledge of the Earth.  You can't really tell where
 he begins and the rock wall ends.
 ~
 human~
-ABKQe H 0 0
+ABKQe HJ 0 0
 30 0 6d12+853 30d9+100 5d4+8 none
 -9 -9 -9 4
 EIKU AB 0 0
@@ -217,7 +217,7 @@ A frozen snowflake water elemental.
 It looks a little blue.
 ~
 human~
-AG 0 520 0
+AG J 520 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 0
@@ -231,7 +231,7 @@ A small rock.
 It seems to be a small living pebble!
 ~
 human~
-AG 0 0 0
+AG J 0 0
 3 0 2d6+35 1d9+100 1d6+0 none
 7 7 7 10
 EFNU 0 0 0
@@ -273,7 +273,7 @@ A lava beast spews from place to place.
 The magical lava beast is a cross between fire and earth.
 ~
 human~
-AG 0 0 0
+AG J 0 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 EFNU 0 0 0
@@ -287,7 +287,7 @@ A mud monster slops around.
 The magical mud monster is a cross between water and earth.
 ~
 human~
-AG 0 0 0
+AG J 0 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 EFNU 0 0 0
@@ -315,7 +315,7 @@ A sub-atomic particle is too small for you to see.
 The magical manifestation of energy.
 ~
 human~
-AG 0 0 0
+AG J 0 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -329,7 +329,7 @@ A dust cloud blowing by makes you sneeze.
 The magical dust cloud is a cross between air and earth.
 ~
 human~
-AGS DF 0 0
+AGS DFJ 0 0
 6 0 2d6+60 3d9+100 1d6+1 none
 5 5 5 9
 BEFJNU 0 0 0
@@ -501,7 +501,7 @@ A little imp runs along being annoying.
 The little bugger steals stuff and is generally obnoxious.
 ~
 human~
-ACGH PQ -500 0
+ACGH JPQ -500 0
 5 0 2d6+60 2d9+100 1d6+1 none
 5 5 5 9
 EFNU 0 0 0
@@ -529,7 +529,7 @@ A vendor is willing to sell you elixirs.
 I WOULD NOT suggest you attack me ...!
 ~
 human~
-ABEGR 0 900 0
+ABEGRe 0 900 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU ABCD 0 0
