@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.22 2001-06-24 21:12:43 avn Exp $
+ * $Id: varr.h,v 1.23 2001-06-25 12:37:49 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -96,7 +96,7 @@ extern inline void *varr_get(varr *v, size_t i)
 	return i >= varr_size(v) ? NULL : VARR_GET(v, i);
 }
 
-#define varr_index(v, q) ((((const char*) q) - ((const char*) (v)->p)) / varr_size(v))
+#define varr_index(v, q) ((((const char*) q) - ((const char*) (v)->p)) / (v)->v_data->nsize)
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
 #define varr_isempty(v)	(!varr_size(v))
 
