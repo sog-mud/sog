@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.157 2000-03-25 17:01:38 avn Exp $
+ * $Id: save.c,v 1.158 2000-03-25 17:38:17 avn Exp $
  */
 
 /***************************************************************************
@@ -194,10 +194,11 @@ void char_save(CHAR_DATA *ch, int flags)
 
 	/* save the pets */
 	if ((pet = GET_PET(ch))
-	&&  (IS_SET(flags, SAVE_F_PSCAN) || pet->in_room == ch->in_room))
+	&&  (IS_SET(flags, SAVE_F_PSCAN) || pet->in_room == ch->in_room)) {
 		fwrite_pet(pet, fp, flags);
-	if (pet && pet->carrying)
-		fwrite_obj(ch, pet->carrying, fp, 0);
+		if (pet->carrying)
+			fwrite_obj(ch, pet->carrying, fp, 0);
+	}
 	fprintf(fp, "#END\n");
 	fclose(fp);
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
