@@ -584,10 +584,8 @@ effects and duration of the spell will also be shown.  Spell effects
 are no longer shown on score (this can be changed by using 'show' command).
 ~
 -1 LANGUAGE~
-Language command is used to switch native language. Now only russian and
-english is implemented.
-	
-	language [ russian | english ]
+Language command is used to switch native language.
+Use 'language help' to list supported languages.
 ~
 
 0 $~
