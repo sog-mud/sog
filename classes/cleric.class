@@ -107,6 +107,7 @@ Skill 'weaken' 24 1 0
 Skill 'word of recall' 28 1 0
 Skill 'flail' 1 2 0
 Skill 'mace' 1 2 0
+Skill 'staff' 1 1 0
 Skill 'shield block' 17 1 -20
 Skill 'whip' 1 2 0
 Skill 'enhanced damage' 33 2 -20
