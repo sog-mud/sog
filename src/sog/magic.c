@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.4 1999-06-29 18:28:42 avn Exp $
+ * $Id: magic.c,v 1.5 1999-06-30 15:42:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -167,6 +167,9 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (mem_is(vo, MT_CHAR)) {
 			bch = vo;
 			bane_damage = 3*bch->level;
+		} else if (!mem_is(vo, MT_OBJ)) {
+			char_puts("You can't do that.\n", ch);
+			return;
 		}
 		break;
 
@@ -174,18 +177,18 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (vo == NULL)
 			vo = ch;
 
+		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (mem_is(vo, MT_CHAR)) {
 			bch = vo;
 			bane_damage = 3*bch->level;
+		} else if (!mem_is(vo, MT_OBJ)) {
+			char_puts("You can't do that.\n", ch);
+			return;
 		}
 		break;
 	}
 
-	if (mem_is(vo, MT_OBJ)) {
-		OBJ_DATA *obj = (OBJ_DATA*) vo;
-		if (obj->extracted)
-			return;
-	} else if (mem_is(vo, MT_CHAR)) {
+	if (mem_is(vo, MT_CHAR)) {
 		victim = (CHAR_DATA*) vo;
 
 		switch (spell->target) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.43 1999-06-29 18:28:39 avn Exp $
+ * $Id: olc_area.c,v 1.44 1999-06-30 15:42:26 fjoe Exp $
  */
 
 #include "olc.h"
@@ -163,7 +163,7 @@ OLC_FUN(areaed_save)
 		}
 	}
 		
-	olc_printf(ch, "Saved zones:\n");
+	olc_printf(ch, "Saved zones:");
 	for (pArea = area_first; pArea; pArea = pArea->next) {
 		/* Builder must be assigned this area. */
 		if (ch && !IS_BUILDER(ch, pArea))

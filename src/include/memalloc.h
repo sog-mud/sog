@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.1 1999-06-10 11:49:20 fjoe Exp $
+ * $Id: memalloc.h,v 1.2 1999-06-30 15:42:24 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -37,6 +37,7 @@ enum {
 };
 
 #define MEM_VALID	0x5a	/* valid chunk signature	*/
+#define MEM_INVALID	0xa5	/* invalid chunk signature	*/
 
 typedef struct memchunk_t {
 	char		mem_type;	/* memory chunk type		*/
@@ -51,6 +52,7 @@ void	mem_free(const void *p);
 
 #define GET_CHUNK(p) ((memchunk_t*) (((char*) p) - sizeof(memchunk_t)))
 bool	mem_is(const void *p, int mem_type);
+void	mem_invalidate(const void *p);
 
 #endif
 

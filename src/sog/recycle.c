@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.59 1999-06-29 18:28:42 avn Exp $
+ * $Id: recycle.c,v 1.60 1999-06-30 15:42:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -187,6 +187,12 @@ void free_obj(OBJ_DATA *obj)
 	if (!obj)
 		return;
 
+	if (!mem_is(obj, MT_OBJ)) {
+		bug("free_obj: obj is not MT_OBJ");
+		return;
+	}
+	mem_invalidate(obj);
+
 	for (paf = obj->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
 		aff_free(paf);
@@ -262,6 +268,12 @@ void free_char(CHAR_DATA *ch)
 
 	if (!ch)
 		return;
+
+	if (!mem_is(ch, MT_CHAR)) {
+		bug("free_char: ch is not MT_CHAR");
+		return;
+	}
+	mem_invalidate(ch);
 
 	nuke_pets(ch);
 

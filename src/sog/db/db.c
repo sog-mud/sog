@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.164 1999-06-28 09:04:20 fjoe Exp $
+ * $Id: db.c,v 1.165 1999-06-30 15:42:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1328,7 +1328,6 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->material		= str_qdup(parent->material);
 	clone->timer		= parent->timer;
 	mlstr_cpy(&clone->owner, &parent->owner);
-	clone->extracted	= parent->extracted;
 
 	for (i = 0;  i < 5; i ++)
 		clone->value[i]	= parent->value[i];

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.120 1999-06-28 09:04:22 fjoe Exp $
+ * $Id: spellfun2.c,v 1.121 1999-06-30 15:42:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2612,37 +2612,42 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 {
-CHAR_DATA *gch,*coc;
-AFFECT_DATA af;
-int i;
+	CHAR_DATA *gch, *coc;
+	AFFECT_DATA af;
+	int i;
 
 	if (is_affected(ch,sn)) {
-	    act("You are still tired from growing previous one.",
-		ch, NULL, NULL, TO_CHAR);
-	    return;
+		act("You are still tired from growing previous one.",
+		    ch, NULL, NULL, TO_CHAR);
+		return;
 	}
 
-	for (gch = npc_list; gch; gch = gch->next)
-	    if (gch->master == ch
-	    && (gch->pIndexData->vnum == MOB_VNUM_COCOON
-		|| gch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON)) {
-		    char_puts("You cannot control two or more dragons.\n", ch);
-		    return;
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (gch->master == ch
+		&&  (gch->pIndexData->vnum == MOB_VNUM_COCOON ||
+		     gch->pIndexData->vnum == MOB_VNUM_BONE_DRAGON)) {
+			char_puts("You cannot control two or more dragons.\n",
+				  ch);
+			return;
+		}
 	}
 
 	coc = create_mob(get_mob_index(MOB_VNUM_COCOON));
 
-	for (i=0; i<MAX_STATS; i++) coc->perm_stat[i]=5;
+	for (i = 0; i < MAX_STATS; i++)
+		coc->perm_stat[i] = 5;
+
 	coc->max_hit = number_range (100*level, 200*level);
 	coc->hit = coc->max_hit;
 	coc->mana = coc->max_mana = 0;
 	coc->level = ch->level;
-	for (i=0; i<4; i++) coc->armor[i]=100-2*ch->level-number_range(0,50);
+	for (i = 0; i < 4; i++)
+		coc->armor[i] = 100 - 2*ch->level - number_range(0, 50);
 	coc->gold = 0;
 	coc->timer = 0;
-	coc->damage[DICE_NUMBER] = number_range(1,level/20);
-	coc->damage[DICE_TYPE]   = number_range(1,level/10);
-	coc->damage[DICE_BONUS]  = number_range(1,level/3);
+	coc->damage[DICE_NUMBER] = number_range(1, level/20);
+	coc->damage[DICE_TYPE]   = number_range(1, level/10);
+	coc->damage[DICE_BONUS]  = number_range(1, level/3);
 	coc->master = ch;
 
 	af.where	= TO_AFFECTS;
@@ -2652,14 +2657,15 @@ int i;
 	af.modifier	= 0;
 	af.bitvector	= 0;
 	af.location	= APPLY_NONE;
-	affect_to_char(coc,&af);
+	affect_to_char(coc, &af);
 
 	af.type		= sn;
 	af.duration	= 100;
-	affect_to_char(ch,&af);
+	affect_to_char(ch, &af);
 	char_to_room(coc,ch->in_room);
 
-	act("Half burrowed cocoon appears from the earth.\n",ch,NULL,NULL,TO_ALL);
+	act("Half burrowed cocoon appears from the earth.",
+	    ch, NULL, NULL, TO_ALL);
 }
 
 void spell_enhanced_armor(int sn, int level, CHAR_DATA *ch, void *vo) 
@@ -4520,20 +4526,20 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	int lev=0;
 
 	if (is_affected(ch,sn)) {
-	    act("Your flesh is already dead.", ch, NULL, NULL, TO_CHAR);
-	    return;
+		act("Your flesh is already dead.", ch, NULL, NULL, TO_CHAR);
+		return;
 	}
 
-	if (target_name == NULL || target_name[0] == '\0') {
-	    char_puts("Usage: cast 'lich' <type>",ch);
-	    return;
+	if (IS_NULLSTR(target_name)) {
+		char_puts("Usage: cast lich <type>", ch);
+		return;
 	}
 
 	race = rn_lookup(target_name);
 	r = RACE(race);
 	if (!r->pcdata || !IS_SET(r->race_flags, RACE_UNDEAD)) {
-	    char_puts("This is not an undead type.\n",ch);
-	    return;
+		char_puts("This is not an undead type.\n", ch);
+		return;
 	}
 
 	if (!strcmp(r->name, "undead")) lev=45;
@@ -4541,8 +4547,8 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (!strcmp(r->name, "lich"))   lev=81;
 
 	if (ch->level<lev) {
-	    char_puts("You lack the power to do it.\n",ch);
-	    return;
+		char_puts("You lack the power to do it.\n", ch);
+		return;
 	}
 
 	af.where	= TO_AFFECTS;
@@ -4558,7 +4564,6 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, r->name, NULL, TO_ROOM);
 	act("You deathen yourself, turning into $t.",
 	    ch, r->name, NULL, TO_CHAR);
-
 }
 
 void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo)

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.147 1999-06-29 18:28:43 avn Exp $
+ * $Id: update.c,v 1.148 1999-06-30 15:42:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1244,10 +1244,8 @@ void char_update(void)
 				if (paf->type == gsn_bone_dragon) {
 					hatchout_dragon(ch, paf);
 
-					if (IS_EXTRACTED(ch)) {
-						aff_free(paf);
+					if (IS_EXTRACTED(ch))
 						break;
-					}
 				}
 
 				affect_remove(ch, paf);
@@ -1681,7 +1679,7 @@ void obj_update_list(OBJ_DATA *obj)
 
 /* some diagnostics */
 	obj_next = obj;
-	for (i = 0; obj && obj->extracted; obj = obj->next, i++)
+	for (i = 0; obj && !mem_is(obj, MT_OBJ); obj = obj->next, i++)
 		;
 	if (i) {
 		log("obj_update_list: skipped %d extracted objs, "
@@ -1696,7 +1694,7 @@ void obj_update_list(OBJ_DATA *obj)
 	for (; obj; obj = obj_next) {
 		obj_next = obj->next;
 
-		if (obj->extracted) {
+		if (!mem_is(obj, MT_OBJ)) {
 			obj_update_list(last_updated_obj ?
 					last_updated_obj->next : object_list);
 			return;
@@ -1704,7 +1702,7 @@ void obj_update_list(OBJ_DATA *obj)
 
 		update_one_obj(obj);
 
-		if (!obj->extracted)
+		if (mem_is(obj, MT_OBJ))
 			last_updated_obj = obj;
 	}
 }
@@ -2164,19 +2162,19 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 		return;
 
 	if ((ch = coc->master) == NULL) {
-		log("Hatchout_dragon: no master set!");
+		bug("hatchout_dragon: no master set!");
 		extract_char(coc, 0);
 		return;
 	}
 
-	dlev = ch->level*2/3 + paf->level/14;
+	dlev = ch->level * 2 / 3 + paf->level / 14;
 
 	act("Cocoon explodes and nasty dracolich emerges!",
 	    coc, NULL, NULL, TO_ALL);
 
 	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
 	for (i=0; i < MAX_STATS; i++)
-		drag->perm_stat[i] = UMIN(25, 15+dlev/10);
+		drag->perm_stat[i] = UMIN(25, 15 + dlev / 10);
 	drag->perm_stat[STAT_STR] += 3;
 	drag->perm_stat[STAT_DEX] += 1;
 	drag->perm_stat[STAT_CON] += 1;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.219 1999-06-29 18:28:38 avn Exp $
+ * $Id: merc.h,v 1.220 1999-06-30 15:42:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1367,7 +1367,6 @@ struct char_data
 	flag32_t		start_pos;
 	flag32_t		default_pos;
 	int			mprog_delay;
-	bool			extracted;
 	const char *		in_mind;
 	int	 		religion;
 	CHAR_DATA *		hunting;	/* hunt data */
@@ -1550,7 +1549,6 @@ struct obj_data
 	int 			progtypes;
 	mlstring		owner;
 	altar_t *		altar;
-	bool			extracted;
 	int 			water_float;
 };
 
@@ -1811,7 +1809,8 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define IS_DRUNK(ch)	(IS_NPC(ch)  ? \
 			      FALSE : ch->pcdata->condition[COND_DRUNK] > 10)
 
-#define IS_EXTRACTED(ch)	(ch->extracted || ch->last_death_time >= current_time)
+#define IS_EXTRACTED(ch)	(!mem_is(ch, MT_CHAR) || \
+				 ch->last_death_time >= current_time)
 #define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
 				 (ch)->level < LEVEL_PK)
 /*

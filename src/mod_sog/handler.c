@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.169 1999-06-29 18:28:40 avn Exp $
+ * $Id: handler.c,v 1.170 1999-06-30 15:42:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1608,13 +1608,10 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	OBJ_DATA *obj_content;
 	OBJ_DATA *obj_next;
 
-	if (obj->extracted) {
-		log("extract_obj: %s, vnum %d: already extracted",
-			   obj->name, obj->pIndexData->vnum);
+	if (!mem_is(obj, MT_OBJ)) {
+		bug("extract_obj: obj is not MT_OBJ");
 		return;
 	}
-	else
-		obj->extracted = TRUE;
 
 	if (IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN))
 		return;
@@ -1668,19 +1665,17 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	else {
 		OBJ_DATA *prev;
 
-		for (prev = object_list; prev != NULL; prev = prev->next)
-		{
-		    if (prev->next == obj)
-		    {
-			prev->next = obj->next;
-			break;
-		    }
+		for (prev = object_list; prev != NULL; prev = prev->next) {
+			if (prev->next == obj) {
+				prev->next = obj->next;
+				break;
+			}
 		}
 
-		if (prev == NULL)
-		{
-		    bug("Extract_obj: obj %d not found.", obj->pIndexData->vnum);
-		    return;
+		if (prev == NULL) {
+			bug("extract_obj: obj %d not found.",
+			    obj->pIndexData->vnum);
+			return;
 		}
 	}
 
@@ -1715,25 +1710,9 @@ void extract_char(CHAR_DATA *ch, int flags)
 	OBJ_DATA *wield;
 	int extract_obj_flags;
 
-	if (!IS_SET(flags, XC_F_INCOMPLETE)) {
-		/*
-		 * only for total extractions should it check
-		 */
-		if (ch->extracted) {
-			/*
-			 * if it's already been extracted,
-			 * something bad is going on
-			 */
-			log("Warning! Extraction of %s.", ch->name);
-			return;
-		}
-		else {
-			/*
-			 * if it hasn't been extracted yet, now
-	                 * it's being extracted.
-			 */
-			ch->extracted = TRUE;
-		}
+	if (!mem_is(ch, MT_CHAR)) {
+		bug("extract_char: ch is not MT_CHAR");
+		return;
 	}
 	
 	strip_raff_owner(ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.36 1999-06-29 10:57:04 fjoe Exp $
+ * $Id: olc_help.c,v 1.37 1999-06-30 15:42:26 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,13 +72,6 @@ OLC_FUN(helped_create)
 
 	if (argument[0] == '\0') {
 		dofun("help", ch, "'OLC CREATE'");
-		return FALSE;
-	}
-
-	if ((pHelp = help_lookup(1, argument)) != NULL) {
-		char_printf(ch,
-			    "HelpEd: Help already exists in area %s (%s).\n",
-			    pHelp->area->name, pHelp->area->file_name);
 		return FALSE;
 	}
 

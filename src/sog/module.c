@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.5 1999-06-29 10:57:07 fjoe Exp $
+ * $Id: module.c,v 1.6 1999-06-30 15:42:30 fjoe Exp $
  */
 
 /*
@@ -77,8 +77,8 @@ int mod_load(module_t* m)
 	}
 
 	if (*abi_ver != ABI_VERSION) {
-		wizlog("mod_load: %s: incorrect version %d.%d, "
-		       "current version %d.%d",
+		wizlog("mod_load: %s: incompatible version %x.%x, "
+		       "current version %x.%x",
 		       m->file_name,
 		       VERSION_HI(*abi_ver), VERSION_LO(*abi_ver),
 		       VERSION_HI(ABI_VERSION), VERSION_LO(ABI_VERSION));

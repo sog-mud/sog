@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.1 1999-06-10 11:49:20 fjoe Exp $
+ * $Id: memalloc.c,v 1.2 1999-06-30 15:42:30 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -76,3 +76,12 @@ bool mem_is(const void *p, int mem_type)
 	return (m->mem_sign == MEM_VALID && m->mem_type == mem_type);
 }
 
+void mem_invalidate(const void *p)
+{
+	memchunk_t *m;
+
+	if (p == NULL)
+		return;
+	m = GET_CHUNK(p);
+	m->mem_sign = MEM_INVALID;
+}

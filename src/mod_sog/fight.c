@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.189 1999-06-29 18:28:39 avn Exp $
+ * $Id: fight.c,v 1.190 1999-06-30 15:42:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1460,7 +1460,7 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (IS_SET(victim->plr_flags, PLR_GHOST))
 			return TRUE;
 	}
-	else if (victim->extracted)
+	else if (IS_EXTRACTED(victim))
 		return TRUE;
 
 	if (victim->fighting == ch

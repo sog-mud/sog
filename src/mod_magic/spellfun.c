@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.170 1999-06-28 09:04:21 fjoe Exp $
+ * $Id: spellfun.c,v 1.171 1999-06-30 15:42:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2103,17 +2103,22 @@ void spell_draining_touch(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	int dam, gdam;
 
-	gdam = dam = dice (level, 3)+10;
-	if (saves_spell(level, victim, DAM_NEGATIVE)) {dam /=3; gdam=0;};
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE);
+	gdam = dam = dice (level, 3) + 10;
+	if (saves_spell(level, victim, DAM_NEGATIVE)) {
+		dam /=3;
+		gdam=0;
+	}
+
 	ch->hit += gdam;
 	act("$n touches $N with $s fingers.", ch, NULL, victim, TO_NOTVICT);
 	act("$n touches you with $s fingers.", ch, NULL, victim, TO_VICT);
 
-	if (IS_EXTRACTED(victim)) return;
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE);
+	if (IS_EXTRACTED(victim))
+		return;
 
-	if (!is_affected(victim,sn)
-	    && !saves_spell(level-5, victim, DAM_NEGATIVE)) {
+	if (!is_affected(victim, sn)
+	&&  !saves_spell(level-5, victim, DAM_NEGATIVE)) {
 		af.where	= TO_AFFECTS;
 		af.type		= sn;
 		af.level	= level;
@@ -2123,7 +2128,7 @@ void spell_draining_touch(int sn, int level, CHAR_DATA *ch, void *vo)
 		af.bitvector	= 0;
 		affect_to_char(victim, &af);
 
-		act("You feel drained!\n", victim, NULL, NULL, TO_ROOM);
+		act("You feel drained!", victim, NULL, NULL, TO_ROOM);
 	}
 }
 

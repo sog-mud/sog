@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.8 1999-06-29 10:57:07 fjoe Exp $
+ * $Id: olc_social.c,v 1.9 1999-06-30 15:42:26 fjoe Exp $
  */
 
 #include "olc.h"
@@ -39,7 +39,7 @@ DECLARE_OLC_FUN(soced_show		);
 DECLARE_OLC_FUN(soced_list		);
 
 DECLARE_OLC_FUN(soced_name		);
-DECLARE_OLC_FUN(soced_min_pos		);
+DECLARE_OLC_FUN(soced_minpos		);
 DECLARE_OLC_FUN(soced_found_char	);
 DECLARE_OLC_FUN(soced_found_vict	);
 DECLARE_OLC_FUN(soced_found_notvict	);
@@ -61,7 +61,7 @@ olc_cmd_t olc_cmds_soc[] =
 	{ "list",		soced_list				},
 
 	{ "name",		soced_name,		validate_name 	},
-	{ "min_pos",		soced_min_pos,		position_table	},
+	{ "minpos",		soced_minpos,		position_table	},
 
 	{ "found_char", 	soced_found_char			},
 	{ "found_vict",		soced_found_vict			},
@@ -254,7 +254,7 @@ OLC_FUN(soced_name)
 	return olced_str(ch, argument, cmd, &soc->name);
 }
 
-OLC_FUN(soced_min_pos)
+OLC_FUN(soced_minpos)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
