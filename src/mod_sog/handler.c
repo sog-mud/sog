@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.359 2002-11-22 16:53:28 fjoe Exp $
+ * $Id: handler.c,v 1.360 2002-11-22 18:00:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5233,8 +5233,7 @@ pc_name_ok(const char *name)
 				cleancaps = TRUE;
 			total_caps++;
 			adjcaps = TRUE;
-		}
-		else
+		} else
 			adjcaps = FALSE;
 
 		if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
