@@ -2839,6 +2839,10 @@ E 0 33410 0 17		*	magic scrool: held in the hands
 O 0 33412 0 33495	* a shelf (The Magic Shop)
 M 0 33403 1 33521 1	* Fiora (The Flower Shop)
 G 0 33414 0		*	a bouquet of dame's violet
+G 0 33415 0		*	a white lily
+G 0 33416 0		*	a white rose
+G 0 33417 0		*	a bouquet of the roses
+G 0 33413 0		*	a scarlet rose
 S
 
 #SHOPS

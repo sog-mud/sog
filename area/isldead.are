@@ -114,16 +114,64 @@ A tall black cloaked Ringwraith.
 ~
 A sorceress in life, Adunaphel quickly fell under Sauron's sway and 
 the power of the rings. Now she is set here, guarding the mysteries
-of the dungeon.  Cold radiating from him freezes your breath in the 
+of the dungeon.  Cold radiating from her freezes your breath in the 
 air.
 ~
 lich~
 ABFORTe DFNOTm -1000 0
-47 50 100d5+3000 100d2+1000 20d5+50 'drain'
-0 0 0 0
+47 50 100d5+4000 100d2+1000 20d5+50 'drain'
+-50 -50 -50 -50
 0 0 0 S
 stand stand female 20000
 0 0 large unknown
+#22307
+uvatha ringwraith~
+Uvatha the Horseman~
+A tall black cloaked Ringwraith.
+~
+A tall black cloaked Ringwraith, he is a master at horsemanship. 
+He longs to taste your blood. Now he is set here, guarding the 
+mysteries of the dungeon.  Cold radiating from him freezes your 
+breath in the air.
+~
+lich~
+ABFORTe DFNOTm -1000 0
+47 50 100d5+4000 100d2+1000 20d5+50 'drain'
+-50 -50 -50 -50
+K 0 0 S
+stand stand male 20000
+0 0 large unknown
+#22308
+alhorahil ringwraith~
+Alhorahil the Blind~
+
+~
+A mighty sorcerer King, Akhorahil was blind in life. With powerful
+enchantment he created jewelled eyes that enabled to see better 
+than any ordinary man ever could. Now he is set here, guarding the 
+mysteries of the dungeon.  Cold radiating from him freezes your 
+breath in the air.
+~
+lich~
+ABFORTe 0 -1000 0
+47 0 100d5+4000 100d2+1000 20d5+50 'drain'
+0 0 0 0
+0 0 0 S
+stand stand male 20000
+0 0 large unknown
+#22309
+ren ringwraith~
+Ren the Unclean~
+A tall black cloaked Ringwraith.
+~
+~
+lich~
+ABFORTe 0 -1000 0
+49 55 100d5+4500 100d2+1000 20d6+40 'drain'
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium unknown
 #22399
 as~
 as~
@@ -171,8 +219,10 @@ the Kabuto~
 A horned battle helm sits on the floor.~
 steel~
 armor T AE
-8 8 8 5 0
+15 15 13 10 0
 45 8 30000 P
+A
+17 -10
 A
 19 2
 A
@@ -187,9 +237,11 @@ hi-kane-do battle gown~
 the Hi-Kane-Do battle gown~
 A scaled battle gown lies here.~
 steel~
-armor 0 AD
-10 10 10 7 0
+armor T AD
+20 20 20 15 0
 45 20 30000 P
+A
+17 -15
 A
 19 2
 A
@@ -200,9 +252,11 @@ hi-kane-do battle leggings~
 the Hi-Kane-Do battle leggings~
 Some scaled battle leggins lie here.~
 steel~
-armor 0 AF
-10 9 9 6 0
+armor T AF
+17 17 15 13 0
 45 11 30000 P
+A
+17 -10
 A
 19 2
 A
@@ -215,7 +269,7 @@ hi-kane-do battle sleeves~
 the Hi-Kane-Do battle sleeves~
 Some scaled battle sleeves lie here.~
 steel~
-armor 0 AI
+armor T AI
 10 10 10 9 0
 45 9 30000 P
 A
@@ -230,9 +284,11 @@ hi-kane-do battle gloves~
 the Hi-Kane-Do battle gloves~
 Some scaled battle gloves lie here.~
 steel~
-armor 0 AH
+armor T AH
 10 10 10 9 0
 45 8 0 P
+A
+17 -5
 A
 19 2
 A
@@ -245,9 +301,11 @@ hi-kane-do battle boots~
 the Hi-Kane-Do battle boots~
 Some scaled battle boots lie here.~
 steel~
-armor 0 AG
+armor T AG
 10 10 10 7 0
 45 13 30000 P
+A
+17 -5
 A
 14 70
 A
@@ -370,7 +428,7 @@ mummy tomb~
 the tomb~
 A withered mummy lies inside a large carved tomb.~
 flesh~
-container RT P
+container RTY P
 1000 0 0 100 0
 0 1000 0 P
 G none
@@ -396,7 +454,7 @@ ankh death~
 the Ankh of Death~
 A small rusted ankh lies here discarded~
 iron~
-treasure CEHM AC
+treasure CEHMT AC
 0 0 0 0 0
 45 1 6666 P
 A
@@ -415,9 +473,9 @@ pa-ra-voz axel~
 the Axel of Pa-Ra-Voz~
 A huge glowing iron staff lies here.~
 iron~
-weapon ABR AN
-staff 10 5 'flbite' 0
-0 50 50000 P
+weapon ABRT AN
+staff 10 5 'flbite' F
+0 400 50000 P
 A
 18 3
 A
@@ -1547,10 +1605,10 @@ M 0 22301 12 22315 2	* Green Glutton Ghost (A Narrow Passage)
 M 0 22301 12 22316 2	* Green Glutton Ghost (A Narrow Passage)
 M 0 22301 12 22317 2	* Green Glutton Ghost (The End of Passage)
 O 0 22315 0 22318	* the tomb (A Crypt)
-P 0 22316 0 22315 1	* the tomb: the Wheel of Pa-Ra-Voz
-P 0 22317 0 22315 1	* the tomb: the Ankh of Death
 M 0 22305 1 22318 1	* Chu-gun the Guard of Pa-Ra-Voz (A Crypt)
 E 0 22318 0 16		*	the Axel of Pa-Ra-Voz: wielded
+P 0 22316 1 22315 1	* the tomb: the Wheel of Pa-Ra-Voz
+P 0 22317 1 22315 1	* the tomb: the Ankh of Death
 M 0 22303 12 22319 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
@@ -1582,6 +1640,9 @@ E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
 E 0 22311 0 17		*	the key of ringwraiths: held in the hands
 E 0 22308 0 15		*	a bracer of defence: on the right wrist
+M 0 22306 1 22327 1	* Adunaphel the Quiet (The northern hallway)
+M 0 22307 1 22339 1	* Uvatha the Horseman (The central hallway)
+M 0 22308 1 22350 1	* Alhorahil the Blind (The southern hallway)
 S
 
 #OLIMITS

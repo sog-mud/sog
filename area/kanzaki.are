@@ -749,6 +749,15 @@ furniture 0 0
 0 0 0 0 0
 0 1 1 P
 G none
+#47128
+hot spring горячий источник вода water яма~
+@eng a pool of hot water@rus ~~горячий~~ ~~источник~~~
+@eng A large pool of hot water is here.@rus Ты видишь большую яму(pool), полную горячей воды.~
+water~
+fountain RZ 0
+-1 -1 'water' 135137728 0
+0 100000 0 P
+G male
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -913,6 +922,12 @@ Z 0 47101
 S
 #47103
 @eng Path to the mountian@rus Дорога к горе~
+@eng A narrow trail stretches among the meadows. Road leading
+to the village is left behind and the majestic mountain rises
+up ahead of you, its basement surrounded by the forest.
+@rus Узкая тропинка тянется среди лугов. Позади тебя осталась
+ведущая к деревне дорога, впереди же величественно возвы-
+шается гора, окруженная у подножия лесом.
 ~
 0 0 field
 D0
@@ -1449,7 +1464,7 @@ D2
 Z 0 47130
 S
 #47132
-@eng Rice fields@rus Хозайские поля~
+@eng Rice fields@rus Рисовые поля~
 @eng The water here is up yo your ankles. Wherever you look, you see rice,
 much rice.  There are earthen paths dividing square pools with plants,
 spaced like ten feet from each other.. although they aren't wide enough   
@@ -1612,6 +1627,12 @@ Z 0 47136
 S
 #47138
 @eng Path to the mountain@rus Дорога к горе~
+@eng A narrow trail stretches among the meadows. Road leading
+to the village is left behind and the majestic mountain rises
+up ahead of you, its basement surrounded by the forest.
+@rus Узкая тропинка тянется среди лугов. Позади тебя осталась
+ведущая к деревне дорога, впереди же величественно возвы-
+шается гора, окруженная у подножия лесом.
 ~
 0 0 field
 D0
@@ -1625,6 +1646,14 @@ Z 0 47103
 S
 #47139
 @eng The meadows@rus Луга~
+@eng The trail is now completely lost among the grasses.
+Far to the southeast you can fields and small houses
+of the village and the light density forest begins
+right ahead of you.
+@rus Тропинка окончательно потерялась среди травы, впрочем,
+заблудиться тут все равно трудно. Вдали на юго-западе
+виднеются маленькие, словно игрушечные домики и поля, а
+прямо перед тобой начинается редкий лесок.
 ~
 0 0 field
 D0
@@ -1642,6 +1671,14 @@ Z 0 47138
 S
 #47140
 @eng The meadows@rus Луга~
+@eng The trail is now completely lost among the grasses.
+Far to the southeast you can fields and small houses
+of the village and the light density forest begins
+right ahead of you.
+@rus Тропинка окончательно потерялась среди травы, впрочем,
+заблудиться тут все равно трудно. Вдали на юго-западе
+виднеются маленькие, словно игрушечные домики и поля, а
+прямо перед тобой начинается редкий лесок.
 ~
 0 0 field
 D0
@@ -1659,6 +1696,15 @@ Z 0 47139
 S
 #47141
 @eng The meadows@rus Луга~
+@eng Meadows of emerald green grass lay around you,
+and merry chirping fills the air. At some distance
+to the east you can see the bamboo grove and to
+the northwest begins the forest surrounding the
+mountain.
+@rus Вокруг тебя расстилаются зеленые луга и раздается
+жизнерадостное стрекотание и щебетание. Чуть поодаль
+на востоке видны бамбуковые заросли а на северо-западе
+начинается лес, окружающий гору.
 ~
 0 0 field
 D0
@@ -1672,6 +1718,15 @@ Z 0 47140
 S
 #47142
 @eng The meadows@rus Луга~
+@eng Meadows of emerald green grass lay around you,
+and merry chirping fills the air. At some distance
+to the east you can see the bamboo grove and to
+the northwest begins the forest surrounding the
+mountain.
+@rus Вокруг тебя расстилаются зеленые луга и раздается
+жизнерадостное стрекотание и щебетание. Чуть поодаль
+на востоке видны бамбуковые заросли а на северо-западе
+начинается лес, окружающий гору.
 ~
 0 0 field
 D0
@@ -1693,6 +1748,15 @@ Z 0 47143
 S
 #47143
 @eng The meadows@rus Луга~
+@eng Meadows of emerald green grass lay around you,
+and merry chirping fills the air. At some distance
+to the east you can see the bamboo grove and to
+the northwest begins the forest surrounding the
+mountain.
+@rus Вокруг тебя расстилаются зеленые луга и раздается
+жизнерадостное стрекотание и щебетание. Чуть поодаль
+на востоке видны бамбуковые заросли а на северо-западе
+начинается лес, окружающий гору.
 ~
 0 0 field
 D0
@@ -1714,6 +1778,17 @@ Z 0 47144
 S
 #47144
 @eng Light forest@rus Лесок~
+@eng Various trees of medium height grow here and there,
+though not too densily. Sometimes you notice a lone
+deer among them, either chewing something or staring at
+you or a flock of birds flies noisily up in the air,
+troubled by something.
+@rus Разнообразные и не очень высокие деревца растут
+тут и там, но не слишком густо. Иногда среди них
+можно заметить одинокого оленя, что-нибудь жующего
+или пристально смотрящего на тебя. Временами стай-
+ка птиц с шумом поднимается в воздух, чем-нибудь
+потревоженная.
 ~
 0 0 forest
 D0
@@ -1731,6 +1806,16 @@ Z 0 47139
 S
 #47145
 @eng Bamboo grove@rus Заросли бамбука~
+@eng Tough green sprouts of bamboo grow around
+you like a palisade. Ground beneath your feet
+is wet and sometimes squelches. When the wind
+blows stronger, sprouts start hitting against
+each other loudly, muffling all other sounds.
+@rus Крепкие зеленые побеги бамбука частоколом растут вокруг
+тебя. Земля под ногами временами хлюпает - сказывается
+близость реки. Иногда, когда ветер подует чуть сильнее,
+стебли начинают стучать друг о друга, заглушая все осталь-
+ные звуки.
 ~
 0 0 forest
 D0
@@ -1744,6 +1829,16 @@ Z 0 47142
 S
 #47146
 @eng Bamboo grove@rus Заросли бамбука~
+@eng Tough green sprouts of bamboo grow around
+you like a palisade. Ground beneath your feet
+is wet and sometimes squelches. When the wind
+blows stronger, sprouts start hitting against
+each other loudly, muffling all other sounds.
+@rus Крепкие зеленые побеги бамбука частоколом растут вокруг
+тебя. Земля под ногами временами хлюпает - сказывается
+близость реки. Иногда, когда ветер подует чуть сильнее,
+стебли начинают стучать друг о друга, заглушая все осталь-
+ные звуки.
 ~
 0 0 forest
 D0
@@ -1765,6 +1860,16 @@ Z 0 47148
 S
 #47147
 @eng Bamboo grove@rus Заросли бамбука~
+@eng Tough green sprouts of bamboo grow around
+you like a palisade. Ground beneath your feet
+is wet and sometimes squelches. When the wind
+blows stronger, sprouts start hitting against
+each other loudly, muffling all other sounds.
+@rus Крепкие зеленые побеги бамбука частоколом растут вокруг
+тебя. Земля под ногами временами хлюпает - сказывается
+близость реки. Иногда, когда ветер подует чуть сильнее,
+стебли начинают стучать друг о друга, заглушая все осталь-
+ные звуки.
 ~
 0 0 forest
 D2
@@ -1778,6 +1883,14 @@ Z 0 47151
 S
 #47148
 @eng The meadows@rus Луга~
+@eng Meadows of emerald green grass lay around you,
+and merry chirping fills the air. Some east is
+a bamboo grove and to the west begins the forest
+surrounding the mountain.
+@rus Вокруг тебя расстилаются зеленые луга и раздается
+жизнерадостное стрекотание и щебетание. Чуть поодаль
+на востоке видны бамбуковые заросли а на западе начи-
+нается лес, окружающий гору.
 ~
 0 0 field
 D0
@@ -1799,6 +1912,17 @@ Z 0 47149
 S
 #47149
 @eng Light forest@rus Лесок~
+@eng Various trees of medium height grow here and there,
+though not too densily. Sometimes you notice a lone
+deer among them, either chewing something or staring at
+you or a flock of birds flies noisily up in the air,
+troubled by something.
+@rus Разнообразные и не очень высокие деревца растут
+тут и там, но не слишком густо. Иногда среди них
+можно заметить одинокого оленя, что-нибудь жующего
+или пристально разглядывающего тебя. Временами стай-
+ка птиц с шумом поднимается в воздух, чем-нибудь
+потревоженная.
 ~
 0 0 forest
 D0
@@ -1820,6 +1944,15 @@ Z 0 47150
 S
 #47150
 @eng Medium density forest@rus Лес на подступах к горе~
+@eng Suddenly the trees around you seem taller and more
+dense. There are only a few places where the sky, now
+gloomy grey, can be seen through the branches. The mo-
+untain rises up to the west of you, casting huge shadow
+over the forest.
+@rus Незаметно деревья вокруг словно стали выше и обступили
+тебя со всех сторон. Лишь кое-где среди ветвей можно уви-
+деть небо, которое тоже внезапно помрачнело и затянулось
+облаками. Огромная гора вздымается на западе неясной тенью.
 ~
 0 0 forest
 D0
@@ -1841,6 +1974,14 @@ Z 0 47157
 S
 #47151
 @eng The meadows@rus Луга~
+@eng Meadows of emerald green grass lay around you,
+and merry chirping fills the air. Some east is 
+a bamboo grove and to the west begins the forest
+surrounding the mountain.
+@rus Вокруг тебя расстилаются зеленые луга и раздается
+жизнерадостное стрекотание и щебетание. Чуть поодаль
+на востоке видны бамбуковые заросли а на западе начи-
+нается лес, окружающий гору.
 ~
 0 0 field
 D0
@@ -1862,6 +2003,17 @@ Z 0 47152
 S
 #47152
 @eng Light forest@rus Лесок~
+@eng Various trees of medium height grow here and there,
+though not too densily. Sometimes you notice a lone
+deer among them, either chewing something or staring at
+you or a flock of birds flies noisily up in the air,
+troubled by something.
+@rus Разнообразные и не очень высокие деревца растут
+тут и там, но не слишком густо. Иногда среди них
+можно заметить одинокого оленя, что-нибудь жующего
+или пристально смотрящего на тебя. Временами стай-
+ка птиц с шумом поднимается в воздух, чем-нибудь
+потревоженная.
 ~
 0 0 forest
 D0
@@ -1883,6 +2035,15 @@ Z 0 47153
 S
 #47153
 @eng Medium density forest@rus Лес на подступах к горе~
+@eng Suddenly the trees around you seem taller and more
+dense. There are only a few places where the sky, now
+gloomy grey, can be seen through the branches. The mo-
+untain rises up to the west of you, casting huge shadow
+over the forest.
+@rus Незаметно деревья вокруг словно стали выше и обступили
+тебя со всех сторон. Лишь кое-где среди ветвей можно уви-
+деть небо, которое тоже внезапно помрачнело и затянулось
+облаками. Огромная гора вздымается на западе неясной тенью.
 ~
 0 0 forest
 D0
@@ -1904,6 +2065,14 @@ Z 0 47158
 S
 #47154
 @eng The meadows@rus Луга~
+@eng Meadows of emerald green grass lay around you,
+and merry chirping fills the air. Some east is
+a bamboo grove and to the west begins the forest
+surrounding the mountain.
+@rus Вокруг тебя расстилаются зеленые луга и раздается
+жизнерадостное стрекотание и щебетание. Чуть поодаль
+на востоке видны бамбуковые заросли а на западе начи-
+нается лес, окружающий гору.
 ~
 0 0 field
 D2
@@ -1917,6 +2086,17 @@ Z 0 47155
 S
 #47155
 @eng Light forest@rus Лесок~
+@eng Various trees of medium height grow here and there,
+though not too densily. Sometimes you notice a lone
+deer among them, either chewing something or staring at
+you or a flock of birds flies noisily up in the air,
+troubled by something.
+@rus Разнообразные и не очень высокие деревца растут
+тут и там, но не слишком густо. Иногда среди них
+можно заметить одинокого оленя, что-нибудь жующего
+или пристально смотрящего на тебя. Временами стай-
+ка птиц с шумом поднимается в воздух, чем-нибудь
+потревоженная.
 ~
 0 0 forest
 D1
@@ -1934,6 +2114,15 @@ Z 0 47156
 S
 #47156
 @eng Medium density forest@rus Лес на подступах к горе~
+@eng Suddenly the trees around you seem taller and more
+dense. There are only a few places where the sky, now
+gloomy grey, can be seen through the branches. The mo-
+untain rises up to the west of you, casting huge shadow
+over the forest.
+@rus Незаметно деревья вокруг словно стали выше и обступили
+тебя со всех сторон. Лишь кое-где среди ветвей можно уви-
+деть небо, которое тоже внезапно помрачнело и затянулось
+облаками. Огромная гора вздымается на западе неясной тенью.
 ~
 0 0 forest
 D0
@@ -1955,8 +2144,24 @@ Z 0 47159
 S
 #47157
 @eng Forest below the mountain@rus Лес у подножия горы~
+@eng Grim twilight reigns here even in the middle of the day
+and rare animals dare to enter this area. Naked trees reach
+out to the skies for their piece of sun, sheltering every-
+thing below with their top branches. Dried pine needles along
+with dead branches cover the ground like a carpet, sometimes
+crunching under your feet. The air here definitely colder as
+if the mountain decided to drain all warmth off the surroun-
+ding forest and absorb it.
+@rus Здесь даже днем царит полумрак и немногие звери
+осмеливаются сюда заходить. Деревья, голые внизу,   
+тянутся вверх за своим кусочком солнца, не про-
+пуская свет вниз. Высохшая хвоя вперемежку с мер-
+твыми отломившимися ветками устилает землю ровным
+ковром, изредка похрустывая под ногами. Воздух тут
+ощутимо холоднее, словно гора задалась целью вы-
+тянуть все тепло и вобрать в себя.
 ~
-0 0 forest
+0 A forest
 D0
 ~
 ~
@@ -1972,8 +2177,24 @@ Z 0 47162
 S
 #47158
 @eng Forest below the mountain@rus Лес у подножия горы~
+@eng Grim twilight reigns here even in the middle of the day
+and rare animals dare to enter this area. Naked trees reach
+out to the skies for their piece of sun, sheltering every-
+thing below with their top branches. Dried pine needles along
+with dead branches cover the ground like a carpet, sometimes
+crunching under your feet. The air here definitely colder as
+if the mountain decided to drain all warmth off the surroun-
+ding forest and absorb it.
+@rus Здесь даже днем царит полумрак и немногие звери
+осмеливаются сюда заходить. Деревья, голые внизу,
+тянутся вверх за своим кусочком солнца, не про-
+пуская свет вниз. Высохшая хвоя вперемежку с мер-
+твыми отломившимися ветками устилает землю ровным
+ковром, изредка похрустывая под ногами. Воздух тут
+ощутимо холоднее, словно гора задалась целью вы-
+тянуть все тепло и вобрать в себя.
 ~
-0 0 forest
+0 A forest
 D0
 ~
 ~
@@ -1989,8 +2210,24 @@ Z 0 47157
 S
 #47159
 @eng Forest below the mountain@rus Лес у подножия горы~
+@eng Grim twilight reigns here even in the middle of the day
+and rare animals dare to enter this area. Naked trees reach
+out to the skies for their piece of sun, sheltering every-
+thing below with their top branches. Dried pine needles along
+with dead branches cover the ground like a carpet, sometimes
+crunching under your feet. The air here definitely colder as
+if the mountain decided to drain all warmth off the surroun-
+ding forest and absorb it.
+@rus Здесь даже днем царит полумрак и немногие звери
+осмеливаются сюда заходить. Деревья, голые внизу,
+тянутся вверх за своим кусочком солнца, не про-
+пуская свет вниз. Высохшая хвоя вперемежку с мер-
+твыми отломившимися ветками устилает землю ровным 
+ковром, изредка похрустывая под ногами. Воздух тут
+ощутимо холоднее, словно гора задалась целью вы-
+тянуть все тепло и вобрать в себя.
 ~
-0 0 forest
+0 A forest
 D0
 ~
 ~
@@ -2006,8 +2243,29 @@ Z 0 47158
 S
 #47160
 @eng Forest below the mountain@rus Лес у подножия горы~
+@eng Grim twilight reigns here even in the middle of the day
+and rare animals dare to enter this area. Naked trees reach
+out to the skies for their piece of sun, sheltering every-
+thing below with their top branches. Dried pine needles along
+with dead branches cover the ground like a carpet, sometimes
+crunching under your feet. The air here definitely colder as
+if the mountain decided to drain all warmth off the surroun-
+ding forest and absorb it.
+  Its slope doesn't seem as sheer here and you could try
+climbing up it.
+@rus Здесь даже днем царит полумрак и немногие звери
+осмеливаются сюда заходить. Деревья, голые внизу,
+тянутся вверх за своим кусочком солнца, не про-
+пуская свет вниз. Высохшая хвоя вперемежку с мер-
+твыми отломившимися ветками устилает землю ровным
+ковром, изредка похрустывая под ногами. Воздух тут
+ощутимо холоднее, словно гора задалась целью вы-
+тянуть все тепло и вобрать в себя.
+  В этом месте ее склон не выглядит таким отвесным
+как в других местах и можно попытаться вскарабкать-
+ся по нему.
 ~
-0 0 forest
+0 A forest
 D1
 ~
 ~
@@ -2023,6 +2281,18 @@ Z 0 47161
 S
 #47161
 @eng The mountain@rus Поднимаясь на гору~
+@eng Aware of falling down, sometimes using no senses other than
+touch, you climb upwards inch by inch. The tree tops still are
+higher than you, but nethertheless closer than the ground now.
+Somewhere the stone bears strange marks of undoubtfully unna-
+tural origin that hint on someone going this way before you.
+You wonder what he could be looking for.
+@rus Опасаясь соскользнуть вниз, едва ли не на ощупь, ты шаг
+за шагом поднимаешься вверх. Вершины деревьев все еще выше
+тебя, но до них уже ближе, чем до земли. Время от времени
+ты замечаешь в камне выбоины явно не природного происхож-
+дения - похоже, до тебя тут проходил кто-то, экипированный
+получше.. интересно, что он здесь искал?
 ~
 0 0 mountain
 D3
@@ -2036,8 +2306,24 @@ Z 0 47160
 S
 #47162
 @eng Forest below the mountain@rus Лес у подножия горы~
+@eng Grim twilight reigns here even in the middle of the day
+and rare animals dare to enter this area. Naked trees reach
+out to the skies for their piece of sun, sheltering all that
+is below with their top branches. Dried pine needles along
+with dead branches cover the ground like a carpet, sometimes
+crunching under your feet. The air here definitely colder as
+if the mountain decided to drain all warmth off the surroun-
+ding forest and absorb it.
+@rus Здесь даже днем царит полумрак и немногие звери
+осмеливаются сюда заходить. Деревья, голые внизу,
+тянутся вверх за своим кусочком солнца, и не про-
+пуская свет вниз. Высохшая хвоя вперемежку с мер-
+твыми отломившимися ветками устилает землю ровным
+ковром, изредка похрустывая под ногами. Воздух тут
+ощутимо холоднее, словно гора задалась целью вы-
+тянуть все тепло и вобрать в себя.
 ~
-0 0 forest
+0 A forest
 D1
 ~
 ~
@@ -2361,6 +2647,16 @@ ABCFGZ 0 47171
 S
 #47177
 @eng The mountain@rus На горе~
+@eng Nestling to the rock with your whole body and shivering
+from piercing cold, you keep moving forward. It isn't as
+dark here, as it was below, but somehow it doesn't please
+you. The sky, all covered with grey clouds, literally pres-
+ses at you.
+@rus Прижавшись всем телом к скале и неудержимо дрожа от
+пронизывающего холода, ты продолжаешь двигаться вперед.
+Здесь уже совсем не темно, но это почему-то не радует.
+Небо, затянутое серыми облаками, кажется совсем низким
+и это исподволь давит на тебя.
 ~
 0 0 mountain
 D1
@@ -2374,6 +2670,16 @@ Z 0 47178
 S
 #47178
 @eng The mountain@rus На горе~
+@eng Nestling to the rock with your whole body and shivering
+from piercing cold, you keep moving forward. It isn't as
+dark here, as it was below, but somehow it doesn't please
+you. The sky, all covered with grey clouds, literally pres-
+ses at you.
+@rus Прижавшись всем телом к скале и неудержимо дрожа от
+пронизывающего холода, ты продолжаешь двигаться вперед.
+Здесь уже совсем не темно, но это почему-то не радует.
+Небо, затянутое серыми облаками, кажется совсем низким
+и это исподволь давит на тебя.
 ~
 0 0 mountain
 D1
@@ -2387,6 +2693,18 @@ Z 0 47179
 S
 #47179
 @eng The mountain@rus На горе~
+@eng The cornice you're walking is wide enough here to
+sit and catch your breath and you decide to make use
+of it. Short glance at the mountain doesn't give any
+noticeable results - the rock is equally grey and fea-
+tureless wherever you can see. Whatever there is, it
+is further up the mountain.
+@rus Карниз, по которому ты взбираешься, здесь достаточно
+широк, чтобы можно было присесть и перевести дух, и ты
+решаешь этим воспользоваться. Непродолжительный осмотр
+не приносит никакого утешения - в пределах видимости
+поверхность горы одинаково сера и непримечательна -
+что бы здесь ни было, оно определенно находится выше.
 ~
 0 0 mountain
 D1
@@ -2868,7 +3186,16 @@ D1
 ABZ 0 47208
 S
 #47212
-@eng Bamboo grove@rus Заросли бамбука~
+@eng A small opening@rus Небольшая прогалина~
+@eng Sprouts of bamboo split here to reveal a small
+patch of dry and treaded ground. Logs of various
+height are driven into the ground at some distance
+from each other, obviously for training purposes.
+@rus В этом месте заросли бамбука расступаются, чтобы
+открыть небольшую утоптанную площадку сухой земли.
+На некотором расстоянии друг от друга в землю вбиты
+поленья различной высоты, предназначенные, очевидно,
+для тренировок.
 ~
 0 0 forest
 D3
@@ -2878,6 +3205,23 @@ Z 0 47146
 S
 #47213
 @eng By the hot spring@rus У горячего источника~
+@eng The steam rises up from filled with the hot water hole
+in the ground, half-surrounded by trees. A few large stones,
+polished by the wind, water and time stand along the other
+side and a bunch of funny, child-sized apes, all covered
+with thick grey fur. Obviously, the spring itself is hidden
+at the bottom of the hole, and these animals are simply
+lounging here. Sometimes they start a loud brawl, keep it
+for a while and end up trading places.
+@rus Пар поднимается из наполненной горячей водой ямы в земле,
+наполовину окруженной деревьями. Вдоль другого берега стоят
+несколько сглаженных ветром, водой и временем валунов, а меж-
+ду ними сидят смешные размером с большого ребенка обезьяны,
+заросшие густым серым мехом. Видимо, сам горячий источник
+скрыт на дне ямы, а эти животные тут попросту греются. Время
+от времени среди них возникает переполох, они оживленно и с
+гвалтом, словно бранясь, выясняют что-то друг с другом, после
+чего меняются местами и вновь чинно рассаживаются.
 ~
 0 0 mountain
 D2
@@ -2909,12 +3253,10 @@ sky, sun burns you ruthlessly and river seems the only salvation from the
 exhausting heat. The water is amazingly clear and transparent, and, even
 staying to the very neck in it, you still can see sandy bottom and shoals
 of small fishes, swimming around your feet.
- 
 @rus Ты стоишь у самой кромки воды. На небе ни облачка, солнце нещадно печет
 тебя и река кажется единственным спасением от изнуряющей жары. Вода совсем
 прозрачная и, даже стоя по шею в ней, можно увидеть песчаное дно и мелких
 рыбешек, стайками вьющихся у твоих ног.                                  
- 
 ~
 0 0 field
 D0
@@ -2935,14 +3277,12 @@ staying to the very neck in it, you still can see sandy bottom and shoals
 of small fishes, swimming around your feet.
   There is a bamboo grove to the west. The wall of stems appears to be very
 dense and you can't see further than six feet.                           
- 
 @rus Ты стоишь у самой кромки воды. На небе ни облачка, солнце нещадно печет
 тебя и река кажется единственным спасением от изнуряющей жары. Вода совсем
 прозрачная и, даже стоя по шею в ней, можно увидеть песчаное дно и мелких
 рыбешек, стайками вьющихся у твоих ног.                                  
   К западу ты видишь заросли бамбука. Стебли растут плотной стеной и уже в
 двух метрах ты ничего не можешь разглядеть.
- 
 ~
 0 0 field
 D2
@@ -3093,6 +3433,7 @@ O 0 47116 0 47209	* Mirror (Miyu's room)
 O 0 47117 0 47209	* Vase with flowers (Miyu's room)
 P 0 47118 0 47117 1	* Vase with flowers: A bouquet of flowers
 O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
+O 0 47128 0 47213	* a pool of hot water (By the hot spring)
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
