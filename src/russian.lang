@@ -617,3 +617,5 @@ SPECIAL_OK_MY_DEAR  sexdep
 UPDATE_CALMING_DOWN  sexdep  "Ты успокоилось.\n\r"
 			     "Ты успокоился.\n\r"
 			     "Ты успокоилась.\n\r"
+COMM_N_SAYS	"{W$n{x произносит '{G$t{x'"
+COMM_YOU_SAY	"Ты произносишь '{G$T{x'"

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.21 1998-05-24 15:59:27 efdi Exp $
+# $Id: english.lang,v 1.22 1998-05-24 21:19:38 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -508,3 +508,5 @@ SPECIAL_DO_I_KNOW_YOU	"{Wthe cityguard{x says '{GDo i know you?{x'"
 SPECIAL_DONT_REMEMBER_YOU	"{Wthe cityguard{x says '{GI don't remember you. Go away!{x'"
 SPECIAL_OK_MY_DEAR	"{Wthe cityguard{x says '{GOk, my dear. I have just remembered{x.'"
 UPDATE_CALMING_DOWN	"You're sowly calming down.\n\r"
+COMM_N_SAYS	"{W$n{x says '{G$t{x'"
+COMM_YOU_SAY	"You say '{G$T{x'"

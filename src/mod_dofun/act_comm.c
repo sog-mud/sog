@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.25 1998-05-24 15:41:45 efdi Exp $
+ * $Id: act_comm.c,v 1.26 1998-05-24 21:19:23 efdi Exp $
  */
 
 /***************************************************************************
@@ -408,13 +408,13 @@ void do_say(CHAR_DATA *ch, char *argument, ...)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
 		 strcpy(trans, translate(ch, vch, buf));
-		  act_puts("{W$n{x says '{G$t{x'",
-		            ch, trans, vch, TO_VICT,POS_RESTING);
-	}
+			act_printf(ch, trans, vch, TO_VICT, POS_RESTING, 
+					COMM_N_SAYS);
+		}
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts("You say '{G$T{x'", ch, NULL, buf, TO_CHAR,POS_RESTING);
+		act_printf(ch, NULL, buf, TO_CHAR, POS_RESTING, COMM_YOU_SAY);
 
 	for (room_char = ch->in_room->people; room_char != NULL;
 		 room_char = room_char->next_in_room)
