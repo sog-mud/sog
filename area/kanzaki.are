@@ -2496,14 +2496,14 @@ g @eng neutral@rus male~
 #47182
 kote gauntlets mithril коте мифрильные рукавицы~
 @eng a pait of mithril gauntlets, kote@rus ~~мифрильные~~ ~~рукавицы~~, коте~
-@eng A pair of gauntlets made from some bluish metal gleam dully here.@rus Рукавицы gauntlets), сделанные из синеватого металла, тускло поблескивают здесь.~
+@eng A pair of gauntlets made from some bluish metal gleam dully here.@rus Рукавицы (gauntlets), сделанные из синеватого металла, тускло поблескивают здесь.~
 mithril~
 armor BGI 0 AH
 15 15 15 20 0
 43 15 30000 P
+S 'staff' 10 A
 S 'bow' 10 0
 S 'polearm' 10 0
-S 'dagger' 10 0
 S 'sword' 10 0
 A
 19 5

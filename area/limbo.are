@@ -578,7 +578,7 @@ meat~
 food 0 0 A
 AC AC 0 A 0
 0 20 0 D
-g plural~
+g @eng neutral@rus plural~
 #17
 brains brain мозги~
 @eng the brains of %s@rus ~~мозги~~ %s~

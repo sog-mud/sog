@@ -139,7 +139,7 @@ human~
 BCFJ 0 0 G AH -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ACFHIK
+ACFHIKU
 stand stand male 999
 0 0 medium unknown
 r fire 33
@@ -561,76 +561,6 @@ stand stand male 4111
 D 0 medium unknown
 F for Z
 F par AD
-#25022
-king goblin~
-The goblin king~
-The goblin king is here.
-~
-He looks like david bowie.
-~
-goblin~
-0 0 0 0 A -351 0
-18 0 3d9+283 179d1+1 2d7+4 'punch'
--3 -3 -3 7
-0
-stand stand male 940
-0 0 medium unknown
-#25023
-goblin cannon~
-A goblin cannon~
-A goblin cannon is here, warming up.
-~
-He looks like a tank.
-~
-goblin~
-B 0 0 0 0 -351 0
-30 0 6d12+853 299d1+1 4d6+8 'punch'
--9 -9 -9 5
-0
-stand stand male 4500
-0 0 medium unknown
-#25024
-goblin gatling~
-A gatling goblin~
-A gatling goblin is here!  Duck!
-~
-He looks like a walking gatling gun.
-~
-goblin~
-B 0 0 0 0 -351 0
-30 0 6d12+853 299d1+1 4d6+8 'punch'
--9 -9 -9 5
-0
-stand stand male 5400
-0 0 medium unknown
-#25025
-acid blob~
-An acid blob~
-An acid blob is here
-~
-He looks like a big blob of acid
-~
-human~
-B 0 0 0 0 0 0
-20 0 3d9+333 199d1+1 2d8+5 'punch'
--4 -4 -4 7
-0
-stand stand either 999
-0 0 medium unknown
-#25026
-acid blob giant~
-A giant acid blob~
-A gaint acid blob is here
-~
-He looks like a huge blob of acid
-~
-human~
-B 0 0 0 0 0 0
-50 0 50d10+4500 499d1+1 5d8+19 'punch'
--20 -20 -20 3
-0
-stand stand either 11111
-0 0 medium unknown
 #25030
 demon vrock демон врок~
 @eng A vrock@rus ~~Врок~~~
@@ -928,7 +858,7 @@ rune breast plate~
 The breast plate is of no metal you have ever seen, strange markings 
 cover the plate.
 ~
-g none~
+g @eng none@rus male~
 #25006
 pair silver boot boots серебряный ботинки пара~
 @eng a Pair of Silver Boots@rus ~~серебряные~~ ~~ботинки~~~
@@ -941,12 +871,12 @@ E
 pair silver boots~
 They are made of pure silver.... they radiate a strong sense of magic.
 ~
-g none~
+g @eng none@rus plural~
 #25007
 silver shield серебряный щит~
 @eng silver Shield@rus ~~серебряный~~ ~~щит~~~
 @eng A Sturdy looking shield of silver rests against a nearby wall, gleaming
-brightly.@rus Прочный серебряный щит (shield) прслонен к стене и ярко сияет.~
+brightly.@rus Прочный серебряный щит (shield) прислонен к стене и ярко сияет.~
 silver~
 armor GL A AJ
 12 12 12 2 0
@@ -956,7 +886,7 @@ silver shield~
 The shield is made of a silvery substance.. It is like nothing you have
 ever seen.
 ~
-g none~
+g @eng none@rus male~
 #25008
 black silver cloak черный плащ серебро~
 @eng a Black and Silver Cloak@rus ~~черный~~ с серебром ~~плащ~~~
@@ -970,7 +900,7 @@ black silver cloak~
 It is of a fine, black material that is as dark as night......
 Silver runes and symbols are carefully inscribed on the back of the cloak.
 ~
-g none~
+g @eng none@rus male~
 #25009
 metallic leg plates металлические поножи~
 @eng a Pair of Metallic Leg Plates@rus ~~металлические~~ ~~поножи~~~
@@ -979,7 +909,7 @@ steel~
 armor EGL 0 AF
 9 9 9 1 0
 25 3500 0 G
-g none~
+g @eng none@rus plural~
 #25010
 pair jeweled gauntlets~
 @eng a Pair of Jeweled Gauntlets@rus богато ~~украшенные~~ ~~рукавицы~~~
@@ -996,7 +926,7 @@ E
 gauntlets~
 Looks very useful in combat.  They are made of fine chain mail.
 ~
-g none~
+g @eng none@rus plural~
 #25011
 pitch black cloak угольно-черный плащ~
 @eng a Pitch-Black Cloak@rus угольно-~~черный~~ ~~плащ~~~
@@ -1005,11 +935,11 @@ energy~
 armor GHLM 0 AK
 12 11 10 2 0
 35 60 26620 G
-g none~
+g @eng none@rus male~
 #25012
-flaming bracelet~
-a Flaming Bracelet~
-A diamond studded bracelet lies here, burning fiercely.~
+flaming bracelet огненный браслет~
+@eng a Flaming Bracelet@rus ~~огненный~~ ~~браслет~~~
+@eng A diamond studded bracelet lies here, burning fiercely.@rus Украшенный бриллиантами браслет (bracelet) лежит здесь, объятый пламенем.~
 diamond~
 armor GHLM A AM
 11 11 11 2 0
@@ -1022,11 +952,11 @@ E
 flaming bracelet~
 It had several large diamonds placed on it... it burns fiercely!
 ~
-g none~
+g @eng none@rus male~
 #25013
-black onyx ring~
-a Black Onyx Ring~
-A black onyx ring lies here, just barely visible.~
+black onyx ring кольцо черное оникс~
+@eng a Black Onyx Ring@rus ~~кольцо~~ из черного оникса~
+@eng A black onyx ring lies here, just barely visible.@rus Кольцо (ring) из черного оникса едва заметно на фоне земли.~
 stone~
 armor GL 0 AB
 0 0 0 0 0
@@ -1035,11 +965,11 @@ A
 17 -10
 A
 18 4
-g none~
+g neutral~
 #25014
-shadowshiv~
-the Shadowshiv~
-A small, wicked looking dagger lies here, its blade as black as night.~
+shadowshiv кинжал dagger~
+@eng the Shadowshiv@rus ~~кинжал~~ Shadowshiv~
+@eng A small, wicked looking dagger lies here, its blade as black as night.@rus Небольшой, но острый кинжал (dagger) с черным как ночь клинком лежит тут.~
 steel~
 weapon BGHLM 0 AN
 dagger 5 7 'stab' C
@@ -1048,11 +978,11 @@ A
 18 -1
 A
 19 4
-g none~
+g @eng none@rus male~
 #25015
-two handed sword flaming~
-a Flaming Two-Handed Sword~
-An finely crafted two handed sword lies here engulfed in flamed.~
+two handed sword flaming меч огненный двуручный~
+@eng a Flaming Two-Handed Sword@rus ~~двуручный~~ ~~огненный~~ ~~меч~~~
+@eng An finely crafted two handed sword lies here engulfed in flamed.@rus Великолепный двуручный меч (sword) лежит здесь, объятый пламенем.~
 flame~
 weapon GL A AN
 sword 5 11 'blast' AF
@@ -1062,11 +992,11 @@ A
 18 3
 A
 19 12
-g none~
+g @eng none@rus male~
 #25016
-silver trident~
-a Silver Trident~
-A trident crafted from fine silver has been placed here.~
+silver trident серебряный трезубец~
+@eng a Silver Trident@rus ~~серебряный~~ ~~трезубец~~~
+@eng A trident crafted from fine silver has been placed here.@rus Серебряный трезубец (trident) кем-то оставлен здесь.~
 silver~
 weapon BCGHJLM 0 AN
 spear 5 8 'pierce' K
@@ -1075,11 +1005,11 @@ A
 18 2
 A
 19 2
-g none~
+g @eng none@rus male~
 #25017
-sword sharpness~
-sword of Sharpness~
-A sword with a razor sharp blade lies here.~
+sword sharpness меч острый клинок~
+@eng sword of Sharpness@rus ~~острый~~ ~~меч~~~
+@eng A sword with a razor sharp blade lies here.@rus Острый как бритва клинок (sword) лежит здесь.~
 steel~
 weapon GL A AN
 sword 5 7 'pierce' D
@@ -1088,40 +1018,40 @@ A
 18 2
 A
 19 5
-g none~
+g @eng none@rus male~
 #25018
-crystal ring~
-a Crystal Ring~
-A small crystal ring lies here.~
+crystal ring кольцо кристаллическое~
+@eng a Crystal Ring@rus ~~кристаллическое~~ ~~кольцо~~~
+@eng A small crystal ring lies here.@rus Маленькое кристаллическое кольцо (ring) лежит тут.~
 crystal~
 treasure AGL 0 AB
 0 0 0 0 0
 22 100 5000 G
 A
 12 25
-g none~
+g @eng none@rus neutral~
 #25019
-jeweled dagger~
-a Jeweled Dagger~
-A small dagger, encrusted with jewels lies here.~
+jeweled dagger кинжал украшенный камнями~
+@eng a Jeweled Dagger@rus ~~украшенный~~ драгоценными камнями ~~кинжал~~~
+@eng A small dagger, encrusted with jewels lies here.@rus Небольшой кинжал, украшенный драгоценными камнями, лежит тут.~
 steel~
 weapon GLM 0 AN
 dagger 6 7 'stab' 0
 37 70 22342 G
-g none~
+g @eng none@rus male~
 #25020
-jewel encrusted helmet~
-a Jewel Encrusted Helmet~
-A small, jewel encrusted helmet lies here.~
+jewel encrusted helmet шлем украшенный драгоценностями~
+@eng a Jewel Encrusted Helmet@rus ~~украшенный~~ драгоценностями ~~шлем~~~
+@eng A small, jewel encrusted helmet lies here.@rus Небольшой, богато изукрашенный шлем (helm) лежит тут.~
 silver~
 armor GJL A AE
 12 12 12 2 0
 37 170 23679 G
-g none~
+g @eng none@rus male~
 #25021
-small medallion~
-a Small Medallion~
-A small medallion lies here among the dirt.~
+small medallion медальон quartz кварц~
+@eng a Small Medallion@rus ~~небольшой~~ ~~медальон~~~
+@eng A small medallion lies here among the dirt.@rus Небольшой кварцевый медальон (medallion) лежит тут.~
 quartz~
 armor AGLP 0 AC
 13 14 13 2 0
@@ -1130,32 +1060,32 @@ A
 12 50
 g none~
 #25022
-ivory bracelet~
-an Ivory Bracelet~
-A bracelet made of the finest ivory rests here.~
+ivory bracelet браслет слоновой кости~
+@eng an Ivory Bracelet@rus ~~браслет~~ из слоновой кости~
+@eng A bracelet made of the finest ivory rests here.@rus Сделанный из слоновой кости браслет (bracelet) лежит тут.~
 ivory~
 armor GL 0 AM
 9 9 9 2 0
 31 16 13420 G
 A
-27 33
+28 15
 A
-28 33
+29 15
 A
-29 33
+27 15
 F A 0 0 KT
-g none~
+g @eng none@rus male~
 #25023
-green cape~
-a Bright Green Cape~
-An ugly, bright green cape lies ruffled in a nearby corner.~
+green cape накидка зеленая~
+@eng a Bright Green Cape@rus ярко-~~зеленая~~ ~~накидка~~~
+@eng An ugly, bright green cape lies ruffled in a nearby corner.@rus Ядовито-зеленая накидка (cape) лежит здесь бесформенной грудой ткани.~
 snakeskin~
 armor GL 0 AC
 9 9 9 1 3
 33 120 10404 G
 A
 13 10
-g none~
+g @eng none@rus female~
 #25024
 fire blade~
 the fire blade~
@@ -1166,31 +1096,27 @@ sword 5 5 'blast' A
 25 400 13780 G
 g none~
 #25025
-glaive~
-glaive~
-A glaive rests here in the dirt.~
+glaive шестопер~
+@eng glaive@rus ~~шестопер~~~
+@eng A glaive rests here in the dirt.@rus Шестопер (glaive) лежит на земле.~
 steel~
 weapon GL 0 AN
 polearm 9 5 'slash' 0
 44 120 18734 G
-E
-glaive~
-You see nothing special.
-~
-g none~
+g @eng none@rus male~
 #25026
-soul amulet~
-the Soul Amulet~
-A magical looking amulet lies here, gleaming.~
+soul amulet амулет души~
+@eng the Soul Amulet@rus ~~амулет~~ Души~
+@eng A magical looking amulet lies here, gleaming.@rus Магический амулет (amulet) сверкает на земле.~
 quartz~
 armor GL 0 AC
 11 11 11 3 0
 36 30 16400 G
-g none~
+g @eng none@rus male~
 #25027
-circlet concentration~
-the Silver Circlet of Concentration~
-A small tiara of silver lies on the ground.~
+circlet concentration silver серебряный обруч~
+@eng the Silver Circlet of Concentration@rus ~~серебряный~~ ~~обруч~~~
+@eng A small circlet of silver lies on the ground.@rus Серебряный обруч (circlet) лежит на земле.~
 silver~
 armor GL 0 AE
 12 12 12 2 0
@@ -1198,154 +1124,74 @@ armor GL 0 AE
 A
 12 88
 E
-silver~
-A small inscription says "I hated it when i lost concentration in battle"
+silver обруч серебряный circlet~
+@eng A small inscription says "I hated it when i lost concentration in battle"
+@rus На внутренней стороне обруча написано:
+Ненавижу терять концентрацию во время боя!
 ~
-g none~
+g @eng none@rus male~
 #25028
-portal~
-portal~
-Small portal is here.~
+portal портал~
+@eng portal@rus ~~портал~~~
+@eng Small portal is here.@rus Ты видишь небольшой портал (portal).~
 energy~
-portal ABG 0 0
-ABCDIJKN 0 A 3054 0
+portal ABG B 0
+0 0 A 3054 0
 0 0 0 G
-g none~
+g @eng none@rus male~
 #25050
-runed key~
-a Huge Runed Key~
-A huge rune covered key lies here in the dirt.~
+runed key ключ руны~
+@eng a Huge Runed Key@rus ~~большой~~ ~~исписанный~~ рунами ~~ключ~~~
+@eng A huge rune covered key lies here in the dirt.@rus Большой исписанный рунами ключ (key) лежит в грязи.~
 stone~
 key 0 0 AO
 0 0 0 0 0
 1 0 0 G
-g none~
+g @eng none@rus male~
 #25051
-runed key~
-a Runed Key~
-A small rune covered key lies here in the dirt.~
+runed key ключ руны~
+@eng a Runed Key@rus ~~покрытый~~ рунами ~~ключ~~~
+@eng A small rune covered key lies here in the dirt.@rus Маленький ключ, покрытый рунами, лежит тут.~
 stone~
 key 0 0 AO
 0 0 0 0 0
 1 0 0 G
-E
-runed key~
-You see nothing special.
-~
-g none~
-#25052
-runed key~
-a Runed Key~
-A small rune covered key lies here in the dirt.~
-stone~
-key 0 0 AO
-0 0 0 0 0
-1 0 0 G
-E
-runed key~
-You see nothing special.
-~
-g none~
-#25053
-runed key~
-a Runed Key~
-A small runed key lies here in the dirt.~
-stone~
-key 0 0 AO
-0 0 0 0 0
-1 0 0 G
-E
-runed key~
-You see nothing special.
-~
-g none~
-#25054
-runed key~
-a Runed Key~
-A rune covered key lies here in the dirt.~
-stone~
-key 0 0 AO
-0 0 0 0 0
-1 0 0 G
-E
-runed key~
-You see nothing special.
-~
-g none~
+g @eng none@rus male~
 #25056
-crystal key~
-a Crystal Key~
-A crystal key lies here in the dirt.~
+crystal key кристаллический ключ~
+@eng a Crystal Key@rus ~~кристаллический~~ ~~ключ~~~
+@eng A crystal key lies here in the dirt.@rus Кристаллический ключ (key) выляется в грязи.~
 crystal~
 key I 0 AO
 0 0 0 0 0
 1 1 0 G
-E
-crystal key~
-You see nothing special.
-~
-g none~
-#25057
-silvery key~
-a silvery key~
-A silvery key lies here in the dirt.~
-silver~
-key I 0 AO
-0 0 0 0 0
-1 0 0 G
-E
-silvery key~
-You see nothing special.
-~
-g none~
-#25058
-emerald key~
-an emerald key~
-An emerald key lies here in the dirt.~
-granite~
-key 0 0 AO
-0 0 0 0 0
-1 0 0 G
-E
-emerald key~
-You see nothing special.
-~
-g none~
-#25059
-diamond key~
-a diamond key~
-A diamond key lies here in the dirt.~
-diamond~
-key 0 0 AO
-0 0 0 0 0
-1 0 0 G
 g none~
 #25060
-breast plate~
-The Silver Breast Plate~
-A silver breast plate lies here in the dirt~
+breast plate нагрудный доспех silver серебряный~
+@eng The Silver Breast Plate@rus ~~серебряный~~ ~~нагрудный~~ ~~доспех~~~
+@eng A silver breast plate lies here in the dirt@rus Серебряный доспех (breast plate) лежит на земле.~
 silver~
 armor GJL 0 AD
 16 17 16 3 0
 48 150 19394 G
 A
 17 -20
-g none~
+g @eng none@rus male~
 #25061
-helm~
-the Silver Helm~
-A strange, silver helm lies here.~
+helm silver шлем серебряный~
+@eng the Silver Helm@rus ~~серебряный~~ ~~шлем~~~
+@eng A strange, silver helm lies here.@rus Странный шлем (helm), сделанный из серебра, лежит тут.~
 silver~
 armor GJL 0 AE
 17 17 16 12 0
 48 280 21450 G
 A
 17 -25
-g none~
+g @eng none@rus male~
 #25062
-pair boot boots~
-a Pair of Runed Covered Boots~
-A pair of runed covered boots stands neatly in the corner~
+pair boot boots ботинки rune руны~
+@eng A pair of rune covered boots@rus ~~покрытые~~ рунами ~~ботинки~~~
+@eng A pair of runed covered boots stands neatly in the corner@rus Покрытые рунами кожаные ботинки (boots) стоят в углу.~
 leather~
 armor GL A AG
 12 12 12 2 0
@@ -1353,9 +1199,9 @@ armor GL A AG
 g none~
 #25063
 portal shimmering портал сияющий~
-a shimmering portal~
-A portal shimmers here, emitting a faint glow.~
-unknown~
+@eng a shimmering portal@rus ~~сияющий~~ ~~портал~~~
+@eng A portal shimmers here, emitting a faint glow.@rus Портал (portal) озаряет комнату своим сиянием.~
+energy~
 portal AGY B 0
 0 0 A 25002 0
 45 100000000 0 P
@@ -3424,7 +3270,7 @@ E 0 25013 0 2		*	a Black Onyx Ring: on the right finger
 E 0 25060 0 5		*	The Silver Breast Plate: on the body
 E 0 25007 0 11		*	silver Shield: as a shield
 E 0 25061 0 6		*	the Silver Helm: over the head
-E 0 25062 0 8		*	a Pair of Runed Covered Boots: on the feet
+E 0 25062 0 8		*	A pair of rune covered boots: on the feet
 E 0 25010 0 9		*	a Pair of Jeweled Gauntlets: on the hands
 E 0 25015 0 16		*	a Flaming Two-Handed Sword: wielded
 M 0 25003 1 25089 1	* A Mist Daemon (The Mist)

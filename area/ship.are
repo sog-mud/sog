@@ -49,6 +49,37 @@ r fire 50
 r cold 100
 r acid 99
 r sound -70
+#10603
+гравитация gravity~
+@eng gravity@rus ~~гравитация~~~
+~
+~
+school monster~
+0 0 V 0 ABCDFG 0 0
+12 0 50d100+5000 2d2+2 2d2+2 'shock'
+-100 -100 -100 -100
+0
+stand stand none 0
+D 0 huge unknown
+g @eng none@rus female~
+F for A
+F par ABCDEFHJKQ
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r holy 100
+r negative 100
+r energy -90
+r mental 0
+r sound 100
+r disease 100
+r poison 100
+r charm 100
+r harm 100
 #0
 
 #OBJECTS
@@ -2396,6 +2427,268 @@ S
 палуба раскачивается из стороны в сторону.
 ~
 0 JNX inside
+D2
+~
+~
+Z 0 10752
+D5
+~
+~
+Z 0 10753
+M -1 H -1
+S
+#10752
+@eng In air@rus В воздухе~
+~
+0 NX air
+D0
+~
+~
+Z 0 10751
+M -1 H -1
+S
+#10753
+@rus На мачте~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10755
+D3
+~
+~
+Z 0 10756
+D4
+~
+~
+Z 0 10751
+D5
+~
+~
+Z 0 10757
+S
+#10755
+@rus На рее~
+~
+0 NX inside
+D3
+~
+~
+Z 0 10753
+S
+#10756
+@rus На рее~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10753
+S
+#10757
+@rus На мачте~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10759
+D3
+~
+~
+Z 0 10758
+D4
+~
+~
+Z 0 10753
+D5
+~
+~
+Z 0 10760
+S
+#10758
+@rus На рее~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10757
+S
+#10759
+@rus На рее~
+~
+0 NX inside
+D3
+~
+~
+Z 0 10757
+S
+#10760
+@rus На мачте~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10761
+D3
+~
+~
+Z 0 10762
+D4
+~
+~
+Z 0 10757
+D5
+~
+~
+Z 0 10763
+S
+#10761
+@rus На рее~
+~
+0 NX inside
+D3
+~
+~
+Z 0 10760
+S
+#10762
+@rus На рее~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10760
+S
+#10763
+@rus На мачте~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10764
+D3
+~
+~
+Z 0 10765
+D4
+~
+~
+Z 0 10760
+D5
+~
+~
+Z 0 10767
+S
+#10764
+@rus На рее~
+~
+0 NX inside
+D3
+~
+~
+Z 0 10763
+S
+#10765
+@rus На рее~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10763
+S
+#10767
+@rus На палубе~
+~
+0 NX inside
+D0
+~
+~
+Z 0 10768
+D1
+~
+~
+Z 0 10769
+D3
+~
+~
+Z 0 10770
+D4
+~
+~
+Z 0 10763
+S
+#10768
+@eng Stem@rus На носу~
+~
+0 NX inside
+D2
+~
+~
+Z 0 10767
+S
+#10769
+~
+~
+0 NX inside
+D3
+~
+~
+Z 0 10767
+S
+#10770
+~
+~
+0 NX inside
+D1
+~
+~
+Z 0 10767
+D2
+~
+~
+Z 0 10771
+S
+#10771
+~
+~
+0 NX inside
+D0
+~
+~
+Z 0 10770
+D2
+~
+~
+Z 0 10772
+S
+#10772
+~
+~
+0 NX inside
+D0
+~
+~
+Z 0 10771
+D2
+~
+~
+Z 0 10773
+S
+#10773
+~
+~
+0 NX inside
+D0
+~
+~
+Z 0 10772
 S
 #0
 
@@ -2439,6 +2732,7 @@ O 0 10602 0 10686	* gun (Porthole)
 O 0 10602 0 10688	* gun (Porthole)
 O 0 10602 0 10689	* gun (Porthole)
 O 0 10602 0 10691	* gun (Porthole)
+M 0 10603 1 10752 1	* gravity (In air)
 S
 
 #OLIMITS

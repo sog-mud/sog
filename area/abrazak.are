@@ -323,7 +323,6 @@ mace 2000 2000 'divine' BCDEGHI
 g none~
 R
 deny race !race("lich")~
-deny class !class("warrior")~
 end
 #15010
 scythe~
