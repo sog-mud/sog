@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.90 1998-12-23 16:11:18 fjoe Exp $
+ * $Id: save.c,v 1.91 1998-12-23 16:59:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -413,12 +413,16 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	/*
 	 * Castrate storage characters.
 	 */
-	if (!IS_IMMORTAL(ch)
-	&&  ((get_wear_level(ch, obj) < obj->level &&
-	      obj->pIndexData->item_type != ITEM_CONTAINER) ||
-	     (ch->level > obj->level + 20 && obj->pIndexData->limit > 0))) {
-		extract_obj(obj);
-		return;
+	if (!IS_IMMORTAL(ch)) {
+		if ((get_wear_level(ch, obj) < obj->level &&
+		     obj->pIndexData->item_type != ITEM_CONTAINER)
+		||  (ch->level > obj->level + 20 &&
+		     obj->pIndexData->limit > 0)
+		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST) &&
+		     ch->level < obj->pIndexData->level)) {
+			extract_obj_raw(obj, X_F_NORECURSE);
+			return;
+		}
 	}
 
 /* do not save named objs if ch is not owner */

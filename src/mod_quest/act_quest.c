@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.86 1998-12-21 08:06:26 fjoe Exp $
+ * $Id: act_quest.c,v 1.87 1998-12-23 16:59:22 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -750,12 +750,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	QTROUBLE_DATA *qt;
 	OBJ_INDEX_DATA *pObjIndex = get_obj_index(item_vnum);
 
-	if (!pObjIndex || !IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
-		quest_tell(ch, questor,
-			   "This item is beyond the trouble option.");
-		return FALSE;
-	}
-
 	/*
 	 * check quest trouble data
 	 */
@@ -775,8 +769,12 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 				   ch->name);
 			return FALSE;
 		}
-		else if (qt->count > count_max) {
-			/* ch requested this item too many times */
+		else if (qt->count > count_max ||
+			 !IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+
+			/* ch requested this item too many times	*
+			 * or the item is not quest			*/
+
 			quest_tell(ch, questor,
 				   "This item is beyond the trouble option.");
 			return FALSE;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.100 1998-12-23 16:11:14 fjoe Exp $
+ * $Id: handler.c,v 1.101 1998-12-23 16:59:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1416,7 +1416,7 @@ void obj_from_char(OBJ_DATA *obj)
 		const char *p = mlstr_mval(obj->short_descr);
 
 		if (p && strstr(p, ch->name)
-		&&  get_wear_level(ch, obj) < obj->level
+		&&  ch->level < obj->pIndexData->level
 		&&  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)) {
 			ch->pcdata->questpoints += 1000;
 			qtrouble_set(ch, vnum, 4);
