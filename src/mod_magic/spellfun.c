@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.130 1999-02-25 14:27:17 fjoe Exp $
+ * $Id: spellfun.c,v 1.131 1999-02-25 14:51:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4317,7 +4317,7 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	transfer_char(victim, NULL, get_random_room(victim, NULL),
+	transfer_char(victim, ch, get_random_room(victim, NULL),
 		      "$N vanishes!",
 		      "You have been teleported!", 
 		      "$N slowly fades into existence.");
@@ -4332,7 +4332,7 @@ void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	transfer_char(victim, NULL,
+	transfer_char(victim, ch,
 		      get_random_room(victim, victim->in_room->area),
 		      "$N vanishes!",
 		      "You have been teleported.",
