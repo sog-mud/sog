@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.40 2001-11-11 20:37:09 avn Exp $
+ * $Id: fight.c,v 1.202.2.41 2001-11-12 08:31:48 avn Exp $
  */
 
 /***************************************************************************
@@ -874,23 +874,24 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		if (((katana = get_eq_char(ch,WEAR_WIELD)) ||
 		     (katana = get_eq_char(ch, WEAR_SECOND_WIELD)))
 		&&  IS_WEAPON_STAT(katana, WEAPON_KATANA)
-		&&  strstr(mlstr_mval(&katana->ed->description), ch->name)) {
+		&&  katana->ed != NULL) {
 			AFFECT_DATA *paf;
+			char nmbuf[MAX_STRING_LENGTH], *p;
 
-			if ((katana->cost = ++katana->cost % 250) == 0
+			snprintf(nmbuf, sizeof(nmbuf), "'%s'", ch->name);
+			if ((p = mlstr_mval(&katana->ed->description)) != NULL
+			&&  strstr(p, nmbuf) != NULL
+			&&  (katana->cost = ++katana->cost % 250) == 0
 			&&  (paf = affect_find(katana->affected, gsn_katana))) {
 				int old_mod = paf->modifier;
+
 				paf->modifier = UMIN(paf->modifier+1,
 						     ch->level / 3);
-				if (paf->next != NULL) {
+				ch->hitroll += paf->modifier - old_mod;
+				if (paf->next != NULL
+				&& paf->next->type == gsn_katana) {
 					paf->next->modifier = paf->modifier;
-					ch->hitroll += paf->modifier - old_mod;
-					if (paf->next->next) {
-						paf->next->next->modifier =
-							paf->modifier;
-						ch->damroll +=
-							paf->modifier - old_mod;
-					}
+					ch->damroll += paf->modifier - old_mod;
 				}
 				act("$n's katana glows blue.\n",
 				    ch, NULL, NULL, TO_ROOM);
