@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.19 2001-05-21 18:59:17 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.20 2001-12-04 12:57:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -1432,7 +1432,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		char_puts("Huh?\n", ch);
 		return;
 	}
-	
+
 	if (arg[0] =='\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -1440,11 +1440,11 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
+
 	else if ((victim=get_char_room(ch, arg)) == NULL) {
 			char_puts("They aren't here.\n", ch);
 			return;
 	}
-
 
 	if (is_affected(victim, gsn_nerve)) {
 		char_puts("You cannot weaken that character any more.\n",
@@ -1461,18 +1461,24 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 
 
 	if (IS_NPC(ch)
-	||  number_percent() < (chance + ch->level 
-			                 + get_curr_stat(ch,STAT_DEX))/2) {
+	||  number_percent() < (chance + (LEVEL(ch) - LEVEL(victim))
+	    + get_curr_stat(ch,STAT_DEX))/2
+	    - get_curr_stat(victim, STAT_CON) || (ch == victim)) {
 		AFFECT_DATA af;
 		af.where	= TO_AFFECTS;
-		af.type 	= gsn_nerve;
-		af.level 	= ch->level;
+		af.type		= gsn_nerve;
+		af.level	= ch->level;
 		af.duration	= LEVEL(ch) * PULSE_VIOLENCE/PULSE_TICK;
 		af.location	= APPLY_STR;
 		af.modifier	= -3;
 		af.bitvector	= 0;
 
 		affect_to_char(victim,&af);
+		if (ch == victim) {
+			char_puts("You can't resist your own nerve pressure.",
+			    ch);
+			return;
+		}
 		act("You weaken $N with your nerve pressure.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n weakens you with $s nerve pressure.",
