@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.101 1998-09-04 05:28:17 fjoe Exp $
+# $Id: russian.lang,v 1.102 1998-09-10 22:16:19 fjoe Exp $
 #
 
 MSG_NOTHING  		"Ничего.\n\r",	
@@ -242,7 +242,7 @@ MSG_THERES_NO_ROOM_ON_P_FOR_YOU "На $p больше нет места."
 MSG_YOU_GO_TO_SLEEP_AT	"Ты засыпаешь около $p."
 MSG_N_GOES_TO_SLEEP_AT 	"$n засыпает около $p."
 MSG_YOU_GO_TO_SLEEP_ON 	"Ты засыпаешь на $p."
-MSG_N_GOES_TO_SLEEP_ON 	"$n засыпет на $p."
+MSG_N_GOES_TO_SLEEP_ON 	"$n засыпает на $p."
 MSG_YOU_GO_TO_SLEEP_IN 	"Ты засыпаешь в $p."
 MSG_N_GOES_TO_SLEEP_IN 	"$n засыпает в $p."
 MSG_YOU_ARE_ASLEEP_YOURSELF "Но ты же сам спишь!\n\r"
