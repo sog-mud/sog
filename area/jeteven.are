@@ -4,14 +4,16 @@ Name Jeteven~
 VNUMs 26100 26299
 Credits Arborn~
 Security 5
-LevelRange 80 91
+LevelRange 35 45
 Flags closed~
 End
 
 #MOBILES
 #26100
-illari~
+illari иллари~
 @eng Illari@rus Иллари~
+@eng Man stands ready to defend himself.
+@rus Мужчина готов к отражению нападения.
 ~
 ~
 human~
@@ -19,12 +21,22 @@ human~
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 F for AHMV
+r bash 70
+r pierce 50
+r slash 50
+r fire 20
+r cold 20
+r lightning 30
+r mental 50
+r charm 100
 #26101
-jet~
+jet джет~
 @eng Jet@rus ~~Джет~~~
+@eng Young slender man has his eyes covered with his hair.
+@rus Молодой человек с челкой, закрывающей его глаза.
 ~
 ~
 human~
@@ -36,8 +48,10 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 #26102
-keravar master~
+keravar master мастер керавар~
 @eng Master Keravar@rus ~~Мастер~~ ~~Керавар~~~
+@eng Tall man prepares to cast a deadly spell.
+@rus Высокий человек явно готовит какое-то страшное заклинание.
 ~
 ~
 human~
@@ -45,12 +59,14 @@ human~
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 F for AHMV
 #26103
-master pain~
+master pain мастер боли~
 @eng Master of Pain@rus ~~Мастер~~ Боли ~
+@eng Nasty smile is on the face of a stout man.
+@rus Злорадная ухмылка играет на губах коренастого мужчины.
 ~
 ~
 human~
@@ -58,12 +74,14 @@ human~
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 F for AHMV
 #26104
-master curses~
+master curses мастер проклятий~
 @eng Master of Curses@rus ~~Мастер~~ Проклятий~
+@eng A slim man mumbles something.
+@rus Худой мужчина бормочет что-то под нос.
 ~
 ~
 human~
@@ -71,20 +89,22 @@ human~
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 F for AHMV
 #26105
-ahae-te~
-@eng Ahae-Te@rus Ахаэ-Тэ~
+ahae-te mistress госпожа ахаэ-тэ~
+@eng Ahae-Te, the mistress of seven times.@rus Ахаэ-Тэ, ~~госпожа~~ семи времен~
+@eng A silhoutte of a beatiful woman almost fades into thin air.
+@rus Силуэт прекрасной женщины едва заметен.
 ~
 ~
 human~
-0 0 0 0 0 0 0
+0 0 0 D 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
-stand stand none 0
+stand stand female 0
 0 0 medium unknown
 F for AHMV
 #26106
@@ -152,6 +172,39 @@ human~
 stand stand none 0
 0 0 medium unknown
 F for AHMV
+#26111
+bathoo батху~
+@eng Bathoo@rus Батху~
+@eng Bald man sits at the verandah of his house.
+@rus Совершенно лысый человек сидит на крыльце.
+~
+~
+human~
+0 0 0 0 0 0 0
+0 -3 1d100+350 1d1+49 5d5+20 ''
+0 0 0 0
+0
+stand stand male 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26112
+cat кошка~
+@eng bare cat@rus ~~облезлая~~ ~~кошка~~~
+@eng Cat as bald as her master bathes in the sunlight.
+@rus Кошка, плешивая как ее хозяин, греется на солнце.
+~
+~
+human~
+0 0 0 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0
+stand stand none 0
+0 0 medium unknown
+g @eng none@rus female~
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -177,6 +230,19 @@ A
 12 200
 g none~
 #0
+
+#ROOMS
+#26100
+@eng Bathoo's house@rus Дом Батху~
+~
+0 0 city
+S
+#0
+
+#RESETS
+M 0 26112 1 26100 1	* bare cat (Bathoo's house)
+M 0 26111 1 26100 1	* Bathoo (Bathoo's house)
+S
 
 #OLIMITS
 O 26100 3	* talisman of sanity

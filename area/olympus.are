@@ -1,6 +1,7 @@
 #AREADATA
 Ver 2
 Name Olympus~
+Builders orail~
 VNUMs 900 999
 Credits Generic~
 Security 9
@@ -19,11 +20,13 @@ You now know what true fear is.
 ~
 human~
 BCQ 0 HNT A AB 1000 0
-60 30 50d10+11000 60d9+100 5d10+28 'none'
+60 30 50d10+3000 60d9+100 8d13+40 'none'
 -30 -30 -30 -3
 EIKU
 stand stand male 5000
 0 0 medium unknown
+r lightning 100
+r holy 50
 r charm 100
 #902
 prometheus~
@@ -35,7 +38,7 @@ looks up at you and smiles.
 ~
 human~
 BC 0 HNT A ABH 1000 0
-51 0 50d10+5000 25d9+100 5d8+20 'none'
+51 0 50d10+2000 25d9+100 5d8+20 'none'
 -21 -21 -21 3
 EFNU
 stand stand male 2000
@@ -51,12 +54,14 @@ darts from place to place.  He looks very busy, and it seems as if he doesn't
 even notice your presence.
 ~
 human~
-CS 0 HNT AG AB 1000 0
-56 0 50d10+7000 28d9+100 10d4+23 'none'
+CEJS 0 HNT AG AB 1000 0
+55 25 50d10+2000 28d9+100 10d4+23 'none'
 -25 -25 -25 -1
 BEFJNU
 stand stand male 2500
 0 0 medium unknown
+r mental 50
+r charm 100
 #904
 poseidon~
 Poseidon~
@@ -67,12 +72,13 @@ visiting Mount Olympus.  He nods at you and motions for you to enter and
 have a seat.
 ~
 human~
-BCR 0 HNT A AB 1000 0
-59 0 50d10+8500 59d9+100 10d4+24 'none'
+BCEJR 0 HNT A AB 1000 0
+59 30 50d10+3000 59d9+100 10d4+24 'none'
 -28 -28 -28 -9
 FU
 sit stand male 5000
 0 0 medium unknown
+r acid 66
 r charm 100
 #905
 apollo~
@@ -84,8 +90,8 @@ join him.  You notice a dangerous looking bow by his side, however, and think
 that he knows more than music.
 ~
 human~
-BC 0 HNT A AB 1000 0
-58 0 50d10+8500 29d9+100 5d10+25 'none'
+BCEJ 0 HNT A AB 1000 0
+58 30 50d10+3000 29d9+100 5d10+25 'none'
 -28 -28 -28 1
 EFNU
 stand stand male 2000
@@ -100,12 +106,15 @@ The God of War is here, studying some maps.  He scowls at you as you enter
 and says 'I am very busy.  What do you want?'
 ~
 human~
-BCF 0 JT A ABH -1000 0
-59 0 50d10+9000 29d9+100 8d6+26 'none'
+BCEFJ 0 JT A ABH -1000 0
+59 30 50d10+3000 29d9+100 8d6+26 'none'
 -29 -29 -29 1
 EFNU
 stand stand male 2500
 0 0 medium unknown
+r bash 33
+r pierce 33
+r slash 33
 r charm 100
 #907
 athena~
@@ -116,8 +125,8 @@ Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
 you and invites you to join her.
 ~
 human~
-BC 0 HNT A AB 1000 0
-56 0 50d10+7500 28d9+100 10d4+24 'none'
+BCEJ 0 HNT A AB 1000 0
+56 25 50d10+2500 28d9+100 10d4+24 'none'
 -26 -26 -26 1
 EFNU
 stand stand female 3000
@@ -132,8 +141,8 @@ ugly.  You get the impression that he is kind, however, and would go out of his
 way to help you.  He is attended by three golden maidens.
 ~
 human~
-BC 0 HNT A AB 1000 0
-55 0 50d10+7000 27d9+100 10d4+23 'none'
+BCEJ 0 HNT A AB 1000 0
+55 25 50d10+2500 27d9+100 10d4+23 'none'
 -25 -25 -25 2
 EFNU
 stand stand male 3000
@@ -178,7 +187,7 @@ immortal Apollo.
 ~
 human~
 BC 0 HT A AB 1000 0
-14 0 2d10+190 7d9+100 1d12+3 'none'
+14 5 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU
 stand stand male 125
@@ -192,7 +201,7 @@ This boy is truly lucky to be able to serve Athena herself.
 ~
 human~
 BC 0 HT A AB 1000 0
-6 0 2d7+71 3d9+100 1d7+1 'none'
+6 3 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 EFNU
 stand stand male 25
@@ -222,12 +231,13 @@ over you, and is so intent on his activities that he barely recognizes your
 presence.
 ~
 human~
-BC 0 HNT A AB 1000 0
-60 30 50d10+9500 30d9+100 8d6+28 'none'
+BCJ 0 HNT A AB 1000 0
+55 25 50d10+2500 30d9+100 8d6+28 'none'
 -50 -50 -50 -20
 EFNU
 stand stand male 5000
 0 0 medium unknown
+r charm 100
 #915
 grocer greengrocer julius~
 Julius the Green Grocer~
@@ -239,12 +249,13 @@ not to underestimate him.  He smiles warmly at you and shows you his selection
 of delicious looking foods.
 ~
 human~
-BCe 0 HNT A AB 1000 0
-50 0 50d10+4500 25d9+100 5d8+19 'none'
+BCJe 0 HNT A AB 1000 0
+50 20 50d10+2000 25d9+100 5d8+19 'none'
 -40 -40 -40 -13
 EFNU
 stand stand male 500
 0 0 medium unknown
+r charm 100
 #916
 alchemist~
 the Alchemist~
@@ -255,12 +266,13 @@ stands ready to supply the citizens here (but not you) with all manner of
 arcane supplies.
 ~
 human~
-BC 0 HNT A AB 1000 0
-50 0 50d10+9500 25d9+100 5d8+19 'none'
+BCEJ 0 HNT A AB 1000 0
+50 25 50d10+2500 25d9+100 5d8+19 'none'
 -40 -40 -40 -13
 EFNU
 stand stand male 500
 0 0 medium unknown
+r charm 100
 #917
 clive~
 Clive the Weapons Master~
@@ -302,12 +314,14 @@ to be trifled with.
 ~
 human~
 BC 0 HNT A AB 1000 0
-60 85 50d10+12000 30d9+100 8d6+28 'none'
+60 30 50d10+3000 30d9+100 8d6+28 'none'
 -40 -40 -40 0
 ENR
 stand stand male 5000
 0 0 medium unknown
+r fire 100
 r charm 100
+r light 100
 #920
 chimera~
 a chimera~
@@ -362,10 +376,10 @@ A citizen of this town is strolling down the street here.
 He looks happy and carefree.  He smiles and tips his hat to you.
 ~
 human~
-CS 0 HNT A AB 1000 0
+CS 0 NT A AB 1000 0
 6 0 2d6+60 3d9+100 1d6+1 'none'
 5 5 5 9
-BEFJNU
+EFJNU
 stand stand male 3
 0 0 medium unknown
 #924
@@ -377,7 +391,7 @@ This horse is snow white with large wings.  Although it doesn't look very
 threatening, it seems as though it would be dangerous if provoked.
 ~
 human~
-CZ 0 HNT A AB 0 0
+CZ 0 NT A AB 0 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU
@@ -458,7 +472,7 @@ the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
 weapon FGJ 0 AN
-spear 5 10 'thrust' K
+spear 5 10 'thrust' FK
 48 180 2000 P
 A
 19 4
@@ -1826,10 +1840,10 @@ M 0 911 4 926 4	* an apprentice musician (Residence)
 E 0 916 0 17		*	a lute: held in the hands
 G 0 921 0		*	a kiwi
 M 0 916 1 927 1	* the Alchemist (Mystic Shop)
-G 0 905 0		*	an ivory staff
 G 0 909 0		*	ambrosia
-G 0 910 0		*	a glowing necklace
 G 0 926 0		*	nectar
+E 0 910 0 3		*	a glowing necklace: around the neck (1)
+E 0 905 0 17		*	an ivory staff: held in the hands
 M 0 923 10 928 2	* A citizen (Ares Street)
 M 0 914 1 929 1	* Odin (Guest Quarters)
 E 0 924 0 12		*	a blue robe: about the shoulders
@@ -1891,7 +1905,10 @@ S
 
 #OLIMITS
 O 901 1	* the Thunder Bolt
-O 903 6	* the spear of Ares
+O 903 9	* the spear of Ares
+O 905 9	* an ivory staff
+O 906 9	* poseidon's Trident
+O 907 10	* a silver bow
 O 908 2	* flaming gauntlets
 O 923 1	* the Sword of the Sun
 S

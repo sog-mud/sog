@@ -27,9 +27,9 @@ stand stand none 1000
 0 0 large unknown
 #5301
 lamia pet ламия~
-@eng the pet lamia@rus Домашняя ламия~
+@eng the pet lamia@rus ~~домашняя~~ ~~ламия~~~
 @eng A pet lamia stands here waiting for her next command.
-@rus Здесь стоит домашняя ламия (lamia), ждущая приказов от хозяина
+@rus Здесь стоит домашняя ламия (lamia), ждущая приказов от хозяина.
 ~
 @eng This is a creature with the upper torso of a beautiful woman, but the lower
 body of a four-legged beast.
@@ -955,7 +955,7 @@ collar ошейник~
 @eng Beautiful collar.
 @rus Cимпатичный ошейничек.
 ~
-g male~
+g @eng neutral@rus male~
 #5301
 breast plate iron кираса~
 @eng a beautiful iron breast plate@rus ~~красивая~~ ~~железная~~ ~~кираса~~~
@@ -966,7 +966,7 @@ armor 0 0 AD
 20 450 3200 P
 A
 18 1
-g female~
+g @eng neutral@rus female~
 #5302
 staff serpentine жезл~
 @eng a green serpentine staff@rus ~~зеленый~~ ~~извилистый~~ ~~жезл~~~
@@ -975,7 +975,7 @@ oak~
 staff FG 0 AO
 20 2 2 'earthquake' 0
 7 120 2000 P
-g male~
+g @eng neutral@rus male~
 #5303
 cloak green плащ~
 @eng a dark green cloak@rus ~~темно-зеленый~~ ~~плащ~~~
@@ -986,7 +986,7 @@ armor G 0 AC
 20 120 1600 P
 A
 13 5
-g male~
+g @eng neutral@rus male~
 #5304
 scroll magic свиток~
 @eng a scroll of enchantment@rus ~~волшебный~~ ~~свиток~~~
@@ -995,20 +995,20 @@ vellum~
 scroll G 0 A
 30 'enchant weapon' '' '' ''
 8 150 1420 P
-g male~
+g @eng neutral@rus male~
 #5305
 scroll bound переплетенный манускрипт~
 @eng a bound scroll@rus ~~манускрипт~~ в переплете~
-@eng A bound scroll of detection lies at your feet.@rus Тут лежит переплетенный Манускрипт Обнаружения (scroll).~
+@eng A bound scroll of detection lies at your feet.@rus Тут лежит манускрипт (scroll) в переплете.~
 vellum~
 scroll G 0 A
 30 'detect evil' 'detect invis' 'detect magic' ''
 0 150 800 P
-g male~
+g @eng neutral@rus male~
 #5306
 fountain фонтан~
 @eng a large beautiful fountain@rus ~~большой~~ ~~красивый~~ ~~фонтан~~~
-@eng An elaborate white marble fountain is here.@rus Тут стоит прекрасный белый фонтан из мрамора (fountain).~
+@eng An elaborate white marble fountain is here.@rus Прекрасный фонтан (fountain) из белого мрамора.~
 marble~
 fountain 0 0 0
 10 10 'water' 0 0
@@ -1022,10 +1022,10 @@ an exterior fountain is reserved just for drinking.
 блестит под падающими на его мокрую поверхность солнечными лучами. Под водой 
 плавают рыбки, а весь внешний вид фонтана говорит что и него пить можно.
 ~
-g male~
+g @eng neutral@rus male~
 #5307
 desk конторка~
-@eng the curved desk@rus ~~изогнутая~~ ~~конторка~~~
+@eng the curved desk@rus ~~резная~~ ~~конторка~~~
 @eng A beautiful desk made from a gigantic sea shell is here.@rus Здесь стоит красивая конторка (desk), изготовленная из гигантской морской раковины.~
 wood~
 container 0 0 0
@@ -1039,7 +1039,7 @@ surface makes you dream of being in a pool swimming among mermaids.
 белизна поверхности стола вызывает у тебя грезы... как приятно плескаться в
 бассейне среди русалок... м-да.
 ~
-g female~
+g @eng neutral@rus female~
 #5308
 cabinet шкаф~
 @eng the glass cabinet@rus ~~стеклянный~~ ~~шкаф~~~
@@ -1056,7 +1056,7 @@ would last longer than the cabinet itself.
 @rus Шкаф отделан дубом и красным деревом, причем выглядит он просто превосходно. Дерево
 покрыто настолько крепким лаком, что кажется, что он продержится дольше, чем сам шкаф.
 ~
-g male~
+g @eng neutral@rus male~
 #5309
 mandolin мандолина~
 @eng a mandolin@rus ~~мандолина~~~
@@ -1065,7 +1065,7 @@ wood~
 staff G 0 AO
 18 5 5 'cure critical' 0
 10 200 2800 P
-g female~
+g @eng neutral@rus female~
 #5310
 harp golden золотая арфа~
 @eng a golden harp@rus ~~золотая~~ ~~арфа~~~
@@ -1076,7 +1076,7 @@ staff G 0 AO
 7 1000 3200 P
 A
 2 -2
-g female~
+g @eng neutral@rus female~
 #5311
 flute silver серебряная флейта~
 @eng a silver flute@rus ~~серебряная~~ ~~флейта~~~
@@ -1087,7 +1087,7 @@ staff AG 0 AO
 9 60 3900 P
 A
 2 -2
-g female~
+g @eng neutral@rus female~
 #5312
 potion green зеленое снадобье~
 @eng a green potion@rus ~~зеленое~~ ~~снадобье~~~
@@ -1099,40 +1099,40 @@ potion 0 0 A
 g none~
 #5313
 bluish herbs голубоватая травка~
-@eng some bluish herbs@rus ~~немного голубоватой травки~~~
+@eng some bluish herbs@rus ~~голубоватая~~ ~~травка~~~
 @eng Some bluish herbs are scattered here.@rus Здесь на полу разбросано немного голубоватой травки (herb).~
 unknown~
 pill 0 0 A
 15 '' '' 'bless' ''
 1 10 270 P
-g female~
+g @eng neutral@rus female~
 #5314
 purplish herbs багрянистая травка~
-some purplish herbs~
+@eng some purplish herbs@rus ~~багрянистая~~ ~~травка~~~
 @eng Some purplish herbs are scattered here.@rus Здесь на полу разбросано немного багрянистой травки (herb).~
 unknown~
 pill 0 0 A
 15 '' '' 'detect evil' ''
 0 10 250 P
-g female~
+g @eng neutral@rus female~
 #5315
 grayish herbs сероватая травка~
-@eng some grayish herbs@rus ~~немного сероватой травки~~~
+@eng some grayish herbs@rus ~~сероватая~~ ~~травка~~~
 @eng Some grayish herbs are scattered here.@rus Здесь на полу разбросано немного сероватой травки (herb).~
 unknown~
 pill 0 0 A
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
-g female~
+g @eng neutral@rus female~
 #5316
 orangish herbs оранжевая травка~
-@eng some orangish herbs@rus ~~немного оранжевой травки~~~
+@eng some orangish herbs@rus ~~оранжевая~~ ~~травка~~~
 @eng Some orangish herbs are scattered here.@rus Здесь на полу разбросано немного оранжевой травки (herb).~
 plant~
 pill 0 0 A
 5 '' '' 'cure light' ''
 0 10 150 P
-g female~
+g @eng neutral@rus female~
 #5317
 sword меч~
 @eng an imperial sword@rus ~~имперский~~ ~~меч~~~
@@ -1148,11 +1148,11 @@ A
 E
 sword~
 @eng You see a sword of great craftsmanship.  Imprinted on the side is:
-(c) Merc. Ind.
+Merc Industries.
 @rus Ты видишь меч, изготовленный с огромным мастерством. На его лезвии выгравировано:
-(c) Merc. Ind.
+Merc Industries.
 ~
-g male~
+g @eng neutral@rus male~
 #5318
 mace булава~
 @eng an imperial mace@rus ~~имперская~~ ~~булава~~~
@@ -1168,11 +1168,11 @@ A
 E
 mace~
 @eng You see a mace of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь булаву, изготовленную с огромным мастерством. На ее рукояти выгравировано:
-(c) Merc Inc.
+Merc Industries.
 ~
-g female~
+g @eng neutral@rus female~
 #5319
 chest plate нагрудная пластина~
 @eng an imperial chest plate@rus ~~имперская~~ ~~нагрудная~~ ~~пластина~~~
@@ -1184,11 +1184,11 @@ armor 0 0 AD
 E
 chest plate~
 @eng You see a chest plate of great craftsmanship.  Stamped on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь нагрудную пластину, сделанную с огромным мастерством. На ней выгравировано:
-(c) Merc Inc.
+Merc Industries.
 ~
-g female~
+g @eng neutral@rus female~
 #5320
 shield щит~
 @eng an imperial shield@rus ~~имперский~~ ~~щит~~~
@@ -1200,11 +1200,11 @@ armor 0 0 AJ
 E
 shield~
 @eng You see a shield of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь щит, сделанный с огромным мастерством. На нем выгравировано:
-(c) Merc Inc.
+Merc Industries.
 ~
-g male~
+g @eng neutral@rus male~
 #5321
 cloak плащ~
 @eng an imperial cloak@rus ~~имперский~~ ~~плащ~~~
@@ -1216,11 +1216,11 @@ armor 0 0 AC
 E
 cloak~
 @eng You see a cloak of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь плащ, сшитый с огромным мастерством. На нем вышито:
-(c) Merc Inc.
+Merc Industries.
 ~
-g male~
+g @eng neutral@rus male~
 #5322
 helm шлем~
 @eng an imperial helm@rus ~~имперский~~ ~~шлем~~~
@@ -1232,14 +1232,14 @@ armor 0 0 AE
 E
 helm~
 @eng You see a helm of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь шлем, сделанный с огромным мастерством. На нем выгравировано:
-(c) Merc Inc.
+Merc Industries.
 ~
-g male~
+g @eng neutral@rus male~
 #5323
 plate leggings пластинчатые гамаши~
-@eng a pair of imperial plate leggings@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~гамаш~~~
+@eng a pair of imperial plate leggings@rus ~~пара~~ имперских пластинчатых гамаш~
 @eng You see a pair of imperial plate leggings here.@rus Ты видишь пару имперских пластинчатых гамаш (leggings).~
 mithril~
 armor 0 0 AF
@@ -1248,14 +1248,14 @@ armor 0 0 AF
 E
 plate leggings~
 @eng You see plate leggings of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь пластинчатые гамаши, сделанные с огромным мастерством. На них выгравировано:
-(c) Merc Inc.
+Merc Industries.
 ~
 g plural~
 #5324
 plate boots пластинчатые сапоги~
-@eng a pair of imperial plate boots@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~сапог~~~
+@eng a pair of imperial plate boots@rus ~~пара~~ имперских пластинчатых сапог~
 @eng You see a pair of imperial plate boots here.@rus Ты видишь пару имперских пластинчатых сапог (boots).~
 mithril~
 armor 0 0 AG
@@ -1264,9 +1264,9 @@ armor 0 0 AG
 E
 plate boots~
 @eng You see plate boots of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь пластинчатые сапоги, сделанные с огромным мастерством. На них выгравировано:
-(c) Merc Inc.
+Merc Industries.
 ~
 g plural~
 #5325
@@ -1280,10 +1280,9 @@ armor 0 0 AH
 E
 plate gloves~
 @eng You see plate gloves of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь пластинчатые перчатки, сделанные с огромным мастерством. На них
-выгравировано:
-(c) Merc Inc.
+выгравировано Merc Industries.
 ~
 g plural~
 #5326
@@ -1297,10 +1296,9 @@ armor 0 0 AI
 E
 plate sleeves~
 @eng You see plate sleeves of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь пластинчатые наручи, сделанные с огромным мастерством. На них
-выгравировано:
-(c) Merc Inc.
+выгравировано Merc Industries.
 ~
 g plural~
 #5327
@@ -1314,11 +1312,11 @@ armor 0 0 AK
 E
 cape~
 @eng You see a cape of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь накидку, сшитую с огромным мастерством. На ней вышито:
-(c) Merc Inc.
+Merc Industries.
 ~
-g female~
+g @eng neutral@rus female~
 #5328
 belt портупея~
 @eng an imperial belt@rus ~~имперская~~ ~~портупея~~~
@@ -1330,11 +1328,11 @@ armor 0 0 AL
 E
 belt~
 @eng You see a belt of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь портупею, изготовленную с огромным мастерством. На ней выбито:
-(c) Merc Inc.
+Merc Industries.
 ~
-g female~
+g @eng neutral@rus female~
 #5329
 metal bracer металлический браслет~
 @eng an imperial metal bracer@rus ~~имперский~~ ~~металлический~~ ~~нарукавник~~~
@@ -1346,7 +1344,7 @@ armor 0 0 AM
 E
 metal bracer~
 @eng You see a metal bracer of great craftsmanship.  Imprinted on the side is:
-(c) Merc Inc.
+Merc Industries.
 @rus Ты видишь металлический нарукавник, изготовленный с огромным мастерством.
 ~
 g male~
@@ -1445,7 +1443,7 @@ map old~
                             имперской стражой
 *****************************************************************************
 ~
-g female~
+g @eng neutral@rus male~
 #5340
 quest blade меч~
 @eng quest's sword@rus ~~меч~~ Квестора~
@@ -1492,9 +1490,6 @@ E
 plaque sign~
 @eng This zone has been heavily modified by Kahn and Hatchet of MERC
 Industries and integrated by Kahn of MERC Industries.  Copyright 1993 
-@rus Эта зона быда создана крутыми ребятами из MERC Industries товарищами Kahn
-и Hatchet в 1993 году Переведена эта зона была в 1999 году товарищем Hlodvig
-
 ~
 D1
 @eng You are saddened at the thought of leaving this beautiful place.

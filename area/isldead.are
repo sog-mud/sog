@@ -688,12 +688,13 @@ of patrolmens. He continues: "They will eliminate you. So it will
 be better if you leave this place."
 ~
 undead~
-BORT 0 V G CDG -1000 0
+ORT 0 V G CDG -1000 0
 60 50 100d8+7000 100d2+1000 10d7+40 'none'
 -55 -55 -55 -55
 AFGHKP
 stand stand random 1000
 0 0 large unknown
+M act 22303 open chest~
 r pierce 20
 r slash -10
 r fire -30
@@ -720,6 +721,7 @@ BORT 0 Vc G CD -1000 0
 FGHJKP
 stand stand none 500
 0 0 large unknown
+M act 22303 opens chest~
 r pierce 20
 r slash -10
 r fire -30
@@ -4907,8 +4909,6 @@ O 0 22363 0 22396	* chest (The North-East Corner of Treasure Keep)
 M 0 22330 42 22396 2	* the undead guard (The North-East Corner of Treasure Keep)
 M 0 22330 42 22397 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22398 1	* the high guard (The Treasure Keep)
-G 0 22356 0		*	the bone key
-M 0 22330 42 22398 1	* the undead guard (The Treasure Keep)
 E 0 22356 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
@@ -4918,9 +4918,9 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
+M 0 22330 42 22398 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22399 1	* the high guard (The Treasure Keep)
 E 0 22357 0 17		*	the bone key: held in the hands
-M 0 22330 42 22399 1	* the undead guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
 E 0 22371 0 8		*	a silver boots: on the feet
@@ -4929,9 +4929,9 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22379 0 16		*	a small silver flail named "Death Bringer": wielded
+M 0 22330 42 22399 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22400 1	* the high guard (The Treasure Keep)
 E 0 22355 0 17		*	the bone key: held in the hands
-M 0 22330 42 22400 1	* the undead guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
 E 0 22371 0 8		*	a silver boots: on the feet
@@ -4940,12 +4940,11 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
+M 0 22330 42 22400 1	* the undead guard (The Treasure Keep)
 M 0 22330 42 22401 2	* the undead guard (The East Wall of Treasure Keep)
 O 0 22364 0 22402	* chest (The West Wall of Treasure Keep)
 M 0 22330 42 22402 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22403 1	* the high guard (The Treasure Keep)
-E 0 22360 0 17		*	the bone key: held in the hands
-M 0 22330 42 22403 1	* the undead guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
 E 0 22371 0 8		*	a silver boots: on the feet
@@ -4954,10 +4953,11 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22378 0 16		*	a small silver axe named "Meat Cleaver": wielded
+E 0 22360 0 17		*	the bone key: held in the hands
+M 0 22330 42 22403 1	* the undead guard (The Treasure Keep)
 M 0 22330 42 22404 2	* the undead guard (The Entrance to Treasure Keep)
 M 0 22329 8 22405 1	* the high guard (The Treasure Keep)
 E 0 22358 0 17		*	the bony key: held in the hands
-M 0 22330 42 22405 1	* the undead guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
 E 0 22371 0 8		*	a silver boots: on the feet
@@ -4966,12 +4966,12 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22378 0 16		*	a small silver axe named "Meat Cleaver": wielded
+M 0 22330 42 22405 1	* the undead guard (The Treasure Keep)
 O 0 22365 0 22406	* chest (The East Wall of Treasure Keep)
 M 0 22330 42 22406 2	* the undead guard (The East Wall of Treasure Keep)
 M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
 E 0 22353 0 17		*	the bone key: held in the hands
-M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
 E 0 22371 0 8		*	a silver boots: on the feet
@@ -4980,12 +4980,20 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
+M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
 E 0 22359 0 17		*	the bone key: held in the hands
+E 0 22369 0 6		*	a silver helm: over the head
+E 0 22370 0 5		*	a silver vest: on the body
+E 0 22371 0 8		*	a silver boots: on the feet
+E 0 22372 0 10		*	a silver sleeves: on the arms
+E 0 22373 0 9		*	a pair of silver gloves: on the hands
+E 0 22374 0 7		*	a set of silver leggings: on the legs
+E 0 22375 0 11		*	a silver shield: as a shield
+E 0 22379 0 16		*	a small silver flail named "Death Bringer": wielded
 M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
 E 0 22354 0 17		*	the bone key: held in the hands
-M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
 E 0 22371 0 8		*	a silver boots: on the feet
@@ -4994,6 +5002,7 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
+M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
 M 0 22330 42 22411 2	* the undead guard (The East Wall of Treasure Keep)
 O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
 M 0 22330 42 22412 2	* the undead guard (The South-West Corner  of Treasure Keep)
@@ -5059,6 +5068,11 @@ endif
 , thinks deeply.
 say I think that you can visit the Treasure Keep.
 mob transfer $n 22404
+~
+#22303
+yell You are loosy thief $n. So you MUST DIE!
+yell GUARDS! GUARDS! GUARDS!
+mob kill $n
 ~
 #0
 

@@ -57,7 +57,7 @@ r disease 100
 r poison 100
 r charm 33
 r harm 33
-r light 33
+r light 0
 #47100
 duck утка~
 @eng a duck@rus ~~утка~~~
@@ -6357,7 +6357,8 @@ mob transfer $n 47000
 * autumn'98, finished by Megissogwon on *
 *               December'99.            *
 *                                       *
-*****************************************~
+*****************************************
+~
 -1 $~
 
 #$

@@ -336,9 +336,17 @@ helm seeing~
 @eng Helm of Seeing@rus Шлем Видения~
 @eng Helm of seeing@rus Helm of seeing~
 unknown~
-armor 0 0 AE
+armor 0 0 AB
 100 100 100 100 0
 48 0 0 P
+A
+19 2000
+A
+18 2000
+A
+8 50000
+A
+8 4000
 A
 8 2000
 F d 0 0 F
