@@ -3424,3 +3424,34 @@ Text
  
 {WPhrinn{x, {cThe Goddess of Truth{x.
 ~
+Sender  Tyan~
+Date    Tue Jun 26 22:52:09 2001~
+Stamp   993581529
+To      all~
+Subject toggle short, range attacks, crucify~
+Text
+hi, there!
+ 
+появился toggle short ([не] показывать пустые слоты в eq)
+по-умолчанию щас у всех off (т.е. пустые слоты показываться будут)
+ 
+при range атаках (cast/shoot/throw) (скорее всего) больше не будет проблемы
+с перемещением (у жертвы). если что не так -- пишите
+ 
+crucify больше не работает на crossroads
+
+{WTyan{x
+~
+Sender  Nergal~
+Date    Wed Jul 25 11:09:11 2001~
+Stamp   996044951
+To      all~
+Subject Mages~
+Text
+Hi, there!
+ 
+Mage classes no longer have 'dodge' skill, they have blur and blink
+- it's enough.
+ 
+/Nergal, the god of death and decay
+~
