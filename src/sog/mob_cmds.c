@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.8 2004-02-19 00:07:55 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.42.2.9 2004-02-19 18:55:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -647,7 +647,37 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
 	if (!IS_EXTRACTED(ch))
 		ch->on = on;
 }
- 
+
+static CHAR_DATA *
+mptransfer_char(CHAR_DATA *ch, ROOM_INDEX_DATA *location, CHAR_DATA *ch_next)
+{
+	CHAR_DATA *pet;
+
+	pet = GET_PET(ch);
+	if (pet != NULL && pet->in_room != ch->in_room)
+		pet = NULL;
+
+	if (ch->fighting != NULL)
+		stop_fighting(ch, TRUE);
+	char_from_room(ch);
+	char_to_room(ch, location);
+	if (!IS_EXTRACTED(ch))
+		dofun("look", ch, "auto");
+
+	if (pet != NULL && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		ch_next = pet == ch_next ? pet->next_in_room : ch_next;
+
+		if (pet->position != POS_STANDING)
+			dofun("stand", pet, str_empty);
+		if (pet->fighting != NULL)
+			stop_fighting(pet, TRUE);
+		char_from_room(pet);
+		char_to_room(pet, location);
+	}
+
+	return ch_next;
+}
+
 /*
  * Lets the mobile transfer people.  The 'all' argument transfers
  *  everyone in the current room to the specified location
@@ -659,28 +689,14 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
     ROOM_INDEX_DATA *location;
-    CHAR_DATA       *victim, *pet = NULL;
+    CHAR_DATA       *victim;
 
     argument = one_argument(argument, arg1, sizeof(arg1));
     argument = one_argument(argument, arg2, sizeof(arg2));
 
-    if (arg1[0] == '\0')
-    {
-	bug("Mptransfer - Bad syntax from vnum %d.", 
+    if (arg1[0] == '\0') {
+	bug("Mptransfer - Bad syntax from vnum %d.",
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
-	return;
-    }
-
-    if (!str_cmp(arg1, "all"))
-    {
-	CHAR_DATA *victim_next;
-
-	for (victim = ch->in_room->people; victim != NULL; victim = victim_next)
-	{
-	    victim_next = victim->next_in_room;
-	    if (!IS_NPC(victim))
-		dofun("mob", ch, "transfer '%s' %s", victim->name, arg2);
-	}
 	return;
     }
 
@@ -688,13 +704,9 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
      * Thanks to Grodyn for the optional location parameter.
      */
     if (arg2[0] == '\0')
-    {
 	location = ch->in_room;
-    }
-    else
-    {
-	if ((location = find_location(ch, arg2)) == NULL)
-	{
+    else {
+	if ((location = find_location(ch, arg2)) == NULL) {
 	    bug("Mptransfer - No such location from vnum %d.",
 	        IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	    return;
@@ -704,29 +716,22 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	    return;
     }
 
+    if (!str_cmp(arg1, "all")) {
+	CHAR_DATA *v_next;
+
+	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	    v_next = victim->next_in_room;
+	    if (IS_NPC(victim))
+		continue;
+	    v_next = mptransfer_char(victim, location, v_next);
+	}
+	return;
+    }
+
     if ((victim = get_char_world(ch, arg1)) == NULL)
 	return;
 
-    if (victim->in_room == NULL)
-	return;
-
-    if (victim->fighting != NULL)
-	stop_fighting(victim, TRUE);
-
-	pet = GET_PET(victim);
-
-	char_from_room(victim);
-	char_to_room(victim, location);
-	if (!IS_EXTRACTED(victim))
-		dofun("look", victim, "auto");
-
-	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
-		if (pet->position != POS_STANDING)
-			dofun("stand", pet, str_empty);
-
-		char_from_room(pet);
-		char_to_room(pet, location);
-	}
+    mptransfer_char(victim, location, NULL);
 }
 
 /*
@@ -738,26 +743,42 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
 {
     char             arg1[ MAX_INPUT_LENGTH ];
     char             arg2[ MAX_INPUT_LENGTH ];
-    CHAR_DATA       *who, *victim, *victim_next;
+    ROOM_INDEX_DATA *location;
+    CHAR_DATA       *who, *victim, *v_next;
 
     argument = one_argument(argument, arg1, sizeof(arg1));
     argument = one_argument(argument, arg2, sizeof(arg2));
 
-    if (arg1[0] == '\0')
-    {
-	bug("Mpgtransfer - Bad syntax from vnum %d.", 
+    if (arg1[0] == '\0') {
+	bug("Mpgtransfer - Bad syntax from vnum %d.",
 		IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
+    }
+
+    /*
+     * Thanks to Grodyn for the optional location parameter.
+     */
+    if (arg2[0] == '\0')
+	location = ch->in_room;
+    else {
+	if ((location = find_location(ch, arg2)) == NULL) {
+	    bug("Mptransfer - No such location from vnum %d.",
+	        IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
+	    return;
+	}
+
+	if (room_is_private(location))
+	    return;
     }
 
     if ((who = get_char_room(ch, arg1)) == NULL)
 	return;
 
-    for (victim = ch->in_room->people; victim; victim = victim_next)
-    {
-    	victim_next = victim->next_in_room;
-    	if (is_same_group(who, victim))
-		dofun("mob", ch, "transfer '%s' %s", victim->name, arg2);
+    for (victim = who->in_room->people; victim; victim = v_next) {
+	v_next = victim->next_in_room;
+	if (!is_same_group(who, victim))
+	    continue;
+	v_next = mptransfer_char(victim, location, v_next);
     }
 }
 
