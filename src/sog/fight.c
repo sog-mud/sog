@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.30 2001-06-26 18:24:46 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.31 2001-06-28 08:59:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1280,22 +1280,19 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		 * Certain attacks are forbidden.
 		 * Most other attacks are returned.
 		 */
-		if (victim->position > POS_STUNNED
-		&&  ch->in_room == victim->in_room) {
+		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
 				if (IS_NPC(victim)
-				&&  HAS_TRIGGER(victim, TRIG_KILL))
+				&&  HAS_TRIGGER(victim, TRIG_KILL)) {
 					mp_percent_trigger(victim, ch, NULL,
 							   NULL, TRIG_KILL);
+				}
 			}
-			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
-				victim->position = POS_FIGHTING;
 		}
 
 		if (victim->position > POS_STUNNED) {
-			if (ch->fighting == NULL
-			&&  ch->in_room == victim->in_room)
+			if (ch->fighting == NULL)
 				set_fighting(ch, victim);
 
 			/*
@@ -2010,9 +2007,13 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
 	}
 
-	ch->fighting = victim;
 	ch->on = NULL;
-	ch->position = POS_FIGHTING;
+
+	if (ch->in_room == victim->in_room) {
+		ch->fighting = victim;
+		ch->position = POS_FIGHTING;
+	} else
+		ch->position = POS_STANDING;
 }
 
 static void STOP_FIGHTING(CHAR_DATA *ch)
