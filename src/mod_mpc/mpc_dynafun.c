@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.19 2001-09-15 19:23:33 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.20 2001-09-16 12:04:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -383,6 +383,18 @@ char_quest_time(CHAR_DATA *ch)
 		return -1;
 
 	return PC(ch)->questtime;
+}
+
+bool
+can_wear(OBJ_DATA *obj, int wear)
+{
+	return CAN_WEAR(obj, wear);
+}
+
+int
+obj_cost(OBJ_DATA *obj)
+{
+	return obj->cost;
 }
 
 #else /* !defined(MPC) */

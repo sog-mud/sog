@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.135 2001-09-13 19:59:41 fjoe Exp $
+ * $Id: db_area.c,v 1.136 2001-09-16 12:04:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -734,7 +734,7 @@ struct spec_subst_t spec_substs[] =
   { "spec_nasty",		TRIG_MOB_RANDOM,"nasty"		}, // notrans
   { "spec_nasty",		TRIG_MOB_FIGHT,	"nasty"		}, // notrans
   { "spec_poison",		TRIG_MOB_FIGHT,	"poison_bite"	}, // notrans
-  { "spec_special_guard",	TRIG_MOB_RANDOM,"special_guard" }, // notrans
+  { "spec_special_guard",	TRIG_MOB_RANDOM,"executioner"	}, // notrans
   { "spec_thief",		TRIG_MOB_RANDOM,"thief"		}, // notrans
 };
 

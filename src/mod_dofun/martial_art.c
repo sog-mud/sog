@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.200 2001-09-12 12:32:27 fjoe Exp $
+ * $Id: martial_art.c,v 1.201 2001-09-16 12:04:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1692,39 +1692,17 @@ DO_FUN(do_backstab, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	OBJ_DATA *weapon;
 	int chance;
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (MOUNTED(ch)) {
-		act_char("You can't backstab while riding!", ch);
+	if ((chance = backstab_chance(ch)) == 0)
 		return;
-	}
-
-	if ((chance = get_skill(ch, "backstab")) == 0) {
-		act_char("You don't know how to backstab.", ch);
-		return;
-	}
-
-	if (IS_NPC(ch)
-	&&  get_dam_class(ch, get_eq_char(ch, WEAR_WIELD)) != DAM_PIERCE) {
-		act_char("You need piercing weapon to backstab.", ch);
-		return;
-	}
-
-	if (!IS_NPC(ch) && !((weapon = get_eq_char(ch, WEAR_WIELD))
-		&& (WEAPON_IS(weapon, WEAPON_DAGGER)))) {
-		act_char("You need a dagger for backstab.", ch);
-		return;
-	}
 
 	if (arg[0] == '\0') {
 		act_char("Backstab whom?", ch);
 		return;
 	}
-
-	WAIT_STATE(ch, skill_beats("backstab"));
 
 	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -1732,41 +1710,7 @@ DO_FUN(do_backstab, ch, argument)
 		return;
 	}
 
-	if (victim == ch) {
-		act_char("How can you sneak up on yourself?", ch);
-		return;
-	}
-
-	if (is_safe(ch, victim))
-		return;
-
-	if (victim->fighting) {
-		if (ch)
-			act_char("You can't backstab a fighting person.", ch);
-		return;
-	}
-
-	if (victim->hit < 7 * victim->max_hit / 10) {
-		if (ch) {
-			act("$N is hurt and suspicious... you couldn't sneak up.",
-			    ch, NULL, victim, TO_CHAR);
-		}
-		return;
-	}
-
-	if (!IS_AWAKE(victim) ||  number_percent() < chance) {
-		one_hit(ch, victim, "backstab", WEAR_WIELD);
-		if (number_percent() < get_skill(ch, "dual backstab") * 8 / 10) {
-			check_improve(ch, "dual backstab", TRUE, 1);
-			one_hit(ch, victim, "dual backstab", WEAR_WIELD);
-		} else
-			check_improve(ch, "dual backstab", FALSE, 1);
-	} else {
-		check_improve(ch, "backstab", FALSE, 1);
-		damage(ch, victim, 0, "backstab", DAM_NONE, DAMF_SHOW);
-	}
-
-	yell(victim, ch, "Die, $N! You are backstabbing scum!");
+	backstab_char(ch, victim, chance);
 }
 
 DO_FUN(do_knife, ch, argument)

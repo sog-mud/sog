@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.21 2001-09-15 20:20:20 fjoe Exp $
+ * $Id: trig.c,v 1.22 2001-09-16 12:04:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -314,17 +314,18 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		return MPC_ERR_TYPE_MISMATCH;
 
 	trig_arg = trig->trig_arg;
-	if (mp->type == MP_T_MOB
-	&&  trig_arg[0] == '+') {
-		CHAR_DATA *ch = (CHAR_DATA *) arg1;
+	if (mp->type == MP_T_MOB) {
+		if (trig_arg[0] == '+')
+			trig_arg++;
+		else {
+			CHAR_DATA *ch = (CHAR_DATA *) arg1;
 
-		if (trig->trig_type != TRIG_MOB_FIGHT
-		&&  trig->trig_type != TRIG_MOB_DEATH
-		&&  trig->trig_type != TRIG_MOB_KILL
-		&&  ch->position != ch->pMobIndex->default_pos)
-			return MPC_ERR_COND_FAILED;
-
-		trig_arg++;
+			if (trig->trig_type != TRIG_MOB_FIGHT
+			&&  trig->trig_type != TRIG_MOB_DEATH
+			&&  trig->trig_type != TRIG_MOB_KILL
+			&&  ch->position != ch->pMobIndex->default_pos)
+				return MPC_ERR_COND_FAILED;
+		}
 	}
 
 	if (trig->trig_type == TRIG_MOB_BRIBE) {

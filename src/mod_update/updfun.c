@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.46 2001-09-15 19:23:38 fjoe Exp $
+ * $Id: updfun.c,v 1.47 2001-09-16 12:04:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1797,6 +1797,7 @@ FOREACH_CB_FUN(find_aggr_cb, vo, ap)
 	NPC_DATA *npc;
 	int count;
 	CHAR_DATA *victim;
+	int chance;
 
 	if (!IS_NPC(ch))
 		return NULL;
@@ -1863,11 +1864,12 @@ FOREACH_CB_FUN(find_aggr_cb, vo, ap)
 		return NULL;
 
 	victim = check_guard(victim, ch);
-	if (get_skill(ch, "backstab")) {
-		dofun("backstab", ch, victim->name);
+	if ((chance = backstab_chance(ch))) {
+		backstab_char(ch, victim, chance);
 		if (IS_EXTRACTED(victim) || ch->fighting != NULL)
 			return NULL;
 	}
+
 	multi_hit(ch, victim, NULL);
 	return NULL;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.35 2001-09-15 19:23:33 fjoe Exp $
+ * $Id: init_mpc.c,v 1.36 2001-09-16 12:04:28 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -253,7 +253,11 @@ const char *mpc_dynafuns[] = {
 	"act_yell",
 	"affect_char",
 	"affect_strip",
+	"backstab_chance",
+	"backstab_char",
+	"can_loot",
 	"can_see",
+	"can_wear",
 	"cast",
 	"cast_char",
 	"cast_obj",
@@ -273,6 +277,7 @@ const char *mpc_dynafuns[] = {
 	"close_door",
 	"close_obj",
 	"cold_effect",
+	"create_mob",
 	"create_obj",
 	"damage",
 	"dice",
@@ -307,6 +312,8 @@ const char *mpc_dynafuns[] = {
 	"is_neutral",
 	"is_npc",
 	"is_owner",
+	"is_safe",
+	"is_safe_nomessage",
 	"is_sn_affected",
 	"is_wanted",
 	"load_obj",
@@ -319,6 +326,7 @@ const char *mpc_dynafuns[] = {
 	"number_percent",
 	"number_range",
 	"obj_cast_spell",
+	"obj_cost",
 	"obj_item_type",
 	"obj_level",
 	"obj_timer",

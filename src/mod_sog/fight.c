@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.330 2001-09-15 19:23:35 fjoe Exp $
+ * $Id: fight.c,v 1.331 2001-09-16 12:04:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1908,6 +1908,78 @@ in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
+int
+backstab_chance(CHAR_DATA *ch)
+{
+	int chance;
+	OBJ_DATA *weapon;
+
+	if ((chance = get_skill(ch, "backstab")) == 0) {
+		act_char("You don't know how to backstab.", ch);
+		return 0;
+	}
+
+	if (MOUNTED(ch)) {
+		act_char("You can't backstab while riding!", ch);
+		return 0;
+	}
+
+	weapon = get_eq_char(ch, WEAR_WIELD);
+	if (IS_NPC(ch)) {
+		if (get_dam_class(ch, weapon) != DAM_PIERCE) {
+			act_char("You need piercing weapon to backstab.", ch);
+			return 0;
+		}
+	} else {
+		if (weapon == NULL
+		||  !WEAPON_IS(weapon, WEAPON_DAGGER)) {
+			act_char("You need a dagger for backstab.", ch);
+			return 0;
+		}
+	}
+
+	return chance;
+}
+
+void
+backstab_char(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
+{
+	WAIT_STATE(ch, skill_beats("backstab"));
+
+	if (victim == ch) {
+		act_char("How can you sneak up on yourself?", ch);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	if (victim->fighting != NULL) {
+		act_char("You can't backstab a fighting person.", ch);
+		return;
+	}
+
+	if (victim->hit < 7 * victim->max_hit / 10) {
+		act("$N is hurt and suspicious... you couldn't sneak up.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (!IS_AWAKE(victim) ||  number_percent() < chance) {
+		one_hit(ch, victim, "backstab", WEAR_WIELD);
+		if (number_percent() < get_skill(ch, "dual backstab") * 8 / 10) {
+			check_improve(ch, "dual backstab", TRUE, 1);
+			one_hit(ch, victim, "dual backstab", WEAR_WIELD);
+		} else
+			check_improve(ch, "dual backstab", FALSE, 1);
+	} else {
+		check_improve(ch, "backstab", FALSE, 1);
+		damage(ch, victim, 0, "backstab", DAM_NONE, DAMF_SHOW);
+	}
+
+	yell(victim, ch, "Die, $N! You are backstabbing scum!");
+}
+
 /*------------------------------------------------------------------------
  * static functions
  */
@@ -3240,4 +3312,3 @@ is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 	affect_remove_room(victim->in_room, af);
 	return TRUE; /* protected from broken room affects */
 }
-
