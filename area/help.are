@@ -19,15 +19,15 @@ End
 
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
-@@rus @rus {DShades of Gray{x составлен на основе MUDа {GAnatolia{x -- смотри {CHELP ANATOLIA{x.
+@rus {DShades of Gray{x составлен на основе MUDа Anatolia -- смотри {CHELP ANATOLIA{x.
                  Первоначальная идея, концепция и кодирование:
-        fjoe                         [{cIluvatar{x] ({rfjoe@@iclub.nsu.ru{x)
-        Константин Свинцов             [{cNergal{x] ({rkostik@@iclub.nsu.ru{x)
-        Александр Мороховец              [{cEros{x] ({refdi@@iclub.nsu.ru{x)
-        Алексей Нейман                 [{cArborn{x] ({ravn@@org.chem.msu.su{x)
+        fjoe                         [{cIluvatar{x] (fjoe@@iclub.nsu.ru{x)
+        Константин Свинцов             [{cNergal{x] (kostik@@iclub.nsu.ru{x)
+        Александр Мороховец              [{cEros{x] (efdi@@iclub.nsu.ru{x)
+        Алексей Нейман                 [{cArborn{x] (avn@@org.chem.msu.su{x)
  
                              Дизайн Web-страницы:
-        Денис Петраков                          ({rden@@oapmg.sscc.ru{x)
+        Денис Петраков                          (den@@oapmg.sscc.ru{x)
 ~
 -1 DIKU~
 @eng .                    Original game idea, concept, and design:
@@ -41,8 +41,7 @@ End
 
 Developed at: DIKU -- The Department of Computer Science
                       at the University of Copenhagen.
-
-@@rus @rus                 Первоначальная игровая идея, концепция, и дизайн:
+@rus                 Первоначальная игровая идея, концепция, и дизайн:
   
           Katja Nyboe               [{cSuperwoman{x] ({rkatz@@freja.diku.dk{x)
           Tom Madsen              [{cStormbringer{x] ({rnoop@@freja.diku.dk{x)
@@ -129,43 +128,41 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
 Example:  PROMPT <%hhp %mm %vmv>
         Will set your prompt to "<10hp 100m 100mv>"
  
-@rus Синтаксис: {Gprompt{x
-Синтаксис: {Gprompt show{x
-Синтаксис: {Gprompt all{x
-Синтаксис: {Gprompt {C<%*>{x
+@rus Синтаксис: {cprompt{x
+Синтаксис: {cprompt show{x
+Синтаксис: {cprompt all{x
+Синтаксис: {cprompt <...>{x
  
-{GPROMPT{x без аргументов выведет твое текущее приглашение.
-{GPROMPT SHOW{x покажет твою текущую конфигурацию строки приглавшения.
-{GPROMPT ALL{x установит тебе стандартное приглашение.
+Команда PROMPT без аргументов выведет тебе твое текущее приглашение.
+Команда PROMPT SHOW покажет текущую конфигурацию строки приглашения.
+Команда PROMPT ALL установит тебе стандартное приглашение.
+С помощью команды PROMPT <...> ты можешь установить свое собственное
+приглашение. При этом в угловых скобках могут стоять следующие аргументы:
+       %h : покажет твое текущее здоровье (hp)
+       %H : покажет твое максимальное здоровье (hp)
+       %m : покажет твою текущую ману (mana)
+       %M : покажет твою максимальную ману (mana)
+       %v : покажет твои текущие шаги (moves)
+       %V : покажет твои максимальные шаги (moves)
+       %x : покажет твой текущий опыт (xp)
+       %X : покажет количество опыта (exp), необходимое до следующего уровня
+       %g : покажет количество золота (gold), которое у тебя с собой
+       %s : покажет количество серебра (silver), которое у тебя с собой
+       %a : покажет твой alignment
+       %y : покажет твое здоровье в процентах от максимума
+       %o : покажет здоровье твоего противника в процентах от максимума
+       %r : покажет название комнаты, в которой ты находишься 
+       %e : покажет выходы из комнаты в виде NWSEU
+       %R : покажет номер комнаты, в которой ты находишься (для богов)
+       %z : покажет название зоны, в которой ты находишься (для богов)
+       %n : покажет твое имя
+       %S : покажет твой пол
+       %t : покажет текущее время MUD'а
+       %W : покажет уровень wisinvis (для богов)
+       %I : покажет уровень incognito (для богов)
  
-{GPROMPT {C<%*>{x где %* -это различные аргументы, позволяющие вам самостоятельно
-установить приглашение
-
-        {M%h{x :  Отобразит твое текущее здоровье (hp)
-        {M%H{x :  Отобразит твое максимальное здоровье (hp)
-        {M%m{x :  Отобразит твою текущую ману (mana)
-        {M%M{x :  Отобразит твою максимальную ману (mana)
-        {M%v{x :  Отобразит твои текущие шаги (moves)
-        {M%V{x :  Отобразит твои максимальние шаги (moves)
-        {M%x{x :  Отобразит твой текущий опыт (exp)
-        {M%X{x :  Отобразит необходимый тебе опыт (exp) до следующего уровня
-        {M%g{x :  Отобразит сумму золотом которую ты несешь
-        {M%s{x :  Отобразит сумму серебром которую ты несешь
-        {M%a{x :  Отобразит твой alignment
-        {M%y{x :  Отобразит твое здоровье в процентах от максимума
-        {M%o{x :  Отобразит здоровье противника в процентах от максимума
-        {M%r{x :  Отобразит название комнаты в которой ты находишся
-        {M%e{x :  Отобразит выходы из комнаты в стиле NESWDU
-        {M%R{x :  Отобразит номер комнаты в которой ты находишся ({RТОЛЬКО ДЛЯ БОГОВ{x)
-        {M%z{x :  Отобразит название зоны в которой ты находишся ({RТОЛЬКО ДЛЯ БОГОВ{x)
-        {M%n{x :  Отобразит твое имя
-        {M%S{x :  Отобразит твой пол
-        {M%t{x :  Отобразит время в MUDе
-        {M%W{x :  Отобразит твой уровень невидимости ({RТОЛЬКО ДЛЯ БОГОВ{x)
-        {M%I{x :  Отобразит твой уровень инкогнито ({RТОЛЬКО ДЛЯ БОГОВ{x)
-
-Пример:  {GPROMPT <%hhp %mm %vmv>{x
-         Установит тебе приглашение "<10hp 100m 100mv>"
+Пример: prompt <%hhp %mmana %vmv> -- установит тебе следующее
+приглашение: <10hp 100mana 120mv>
 ~
 -1 SUMMARY~
 @eng ____________________________________________________________________________
@@ -189,7 +186,6 @@ Example:  PROMPT <%hhp %mm %vmv>
 ||________________________________|_______________________________________||
      For more help, type 'help <topic>' for any command, skill, or spell.
      Also help on: DAMAGE DEATH EXPERIENCE NEWS TICK WIZLIST QUESTS
-
 @rus {g____________________________________________________________________________
 || {YПЕРЕМЕЩЕНИЕ                    {g|    {YГРУППЫ                             {g||
 || {xnorth south east west up down  {g|    {xfollow group gtell split           {g||
@@ -278,22 +274,20 @@ lately; and some random variation.
 @rus Персонаж становится сильнее, получая опыт. Количесво единиц опыта, необхо-
 димого для получения следующего уровня, растет по мере твоего продвижения.
 
-{gТы получаешь опыт за:{x
+Ты получаешь опыт за:
+    -- убийство монстра
+    -- то, что являешься частью группы, убившей монстра
 
-    то что являешься частью группы, убившей монстра
+Ты теряешь опыт за:
+    -- бегство из боя
+    -- в результате использования на тебя некоторых заклинаний
+    -- смерти
 
-{gТы теряешь опыт за:{x
-
-    бегство из боя
-    в результате использования на тебя некоторых заклинаний
-    смерти
-
-{gОпыт, который ты получаете за убийства, зависит от нескольких вещей:{x
-
-    сколько игроков находятся в твоей группе;
-    разницы твоего уровня и уровня монстра;
-    твоего alignment`а и alignment`а монстра;
-    некоторого случайного фактора.
+Опыт, который ты получаете за убийства, зависит от нескольких вещей:
+    -- сколько игроков находятся в твоей группе;
+    -- разницы твоего уровня и уровня монстра;
+    -- твоего alignment`а и alignment`а монстра;
+    -- некоторого случайного фактора.
 
 Группы из 2 или 3 персонажей получают большее количество очков опыта.
 ~
@@ -325,7 +319,7 @@ Other {{? sequences are:
 Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
-@@@rus Ты можешь использовать цвет в своих сообщениях и нотах. Формат таких сообщений
+@rus Ты можешь использовать цвет в своих сообщениях и нотах. Формат таких сообщений
 таков: левая фигурная скобка '{{', за которой идет символ цвета. Допустимы
 следующие варианты:
 
@@ -377,7 +371,7 @@ the ground will not be regenerated if anyone is in the area when it resets.
 ные действия монстра, восстановление hp/mana/move, длительность заклинаний,
 изменения погоды, обновление зон.  
 
-Из этих интервалов, периов восстановления hp/mana/move обычно называется '{Mтик{x'.
+Из этих интервалов, периов восстановления hp/mana/move обычно называется 'тик'.
 
 Обновление зоны случается приблизительно каждые 106 секунд, если никто не нахо-
 дится в зоне; реже (15 минут) если кто-то есть в зоне. Также обратите внимание,
@@ -401,12 +395,12 @@ Syntax: up
 Syntax: down
 
 Use these commands to walk in a particular direction.
-@rus Синтаксис: {Gnorth{x
-Синтаксис: {Gsouth{x
-Синтаксис: {Geast{x
-Синтаксис: {Gwest{x
-Синтаксис: {Gup{x
-Синтаксис: {Gdown{x
+@rus Синтаксис: {cnorth{x
+Синтаксис: {csouth{x
+Синтаксис: {ceast{x
+Синтаксис: {cwest{x
+Синтаксис: {cup{x
+Синтаксис: {cdown{x
 
 Эти команды используются для перемещений в соответствующем направлении.
 ~
@@ -428,31 +422,33 @@ UNACCEPTABLE:
 6)  Object names. (Necklace, Staff, Sword etc)              
 7)  Compound names. (FarmerJoe, Maryjane etc.)
  
-Anyway, immortals may ask you to choose another name if they consider your name inappropriate.
-
-If your name fits above restrictions, type Y. Otherwise choose another name.
-Last decision depend upon Immortals of Shades of Gray. Do you accept? @rus .              {R*** {YВЫБОР ИМЕНИ {R***{x
+Anyway, immortals may ask you to choose another name if they consider 
+your name inappropriate.
+If your name fits above restrictions, type Y. Otherwise choose another 
+name. Last decision depend upon Immortals of Shades of Gray.
+@rus                            {cВыбор имени.{x
 
 Для создания ролевой атмосферы в этом мире, ты должен выбрать имя согласно 
 указанным ниже правилам:
 
-{GПРИЕМЛЕМО{x:
-{M1){x  Имена соответствующие средневековой эпохе (Takasi, Mitra)
-{M2){x  Выдуманные имена с красивым звучанием.  (Priatros, Sansoles)
+{cПриемлимо:{x
+    -- имена, соответствующие средневековой эпохе (Takasi, Mitra)
+    -- выдуманные имена с красивым звучанием (Priatros, Sansoles)
 
-{RНЕПРИЕМЛЕМО{x:                                                        
-{M1){x  Грубые или сексуально-ориентированные имена.  (.........)
-{M2){x  Названия и имена животных.  (Horse, Doll)          
-{M3){x  Наборы случайных символов.  (Asdfg, Qwdldkf)                
-{M4){x  Имена, включающие ранг или титул.   (Lord, Sir,...)
-{M5){x  Наукообразные изречения. (Proof, Logic, Electrics...)
-{M6){x  Названия предметов. (Necklace, Staff, Sword etc)              
-{M7){x  Составные имена. (FarmerJoe, Maryjane etc.)
+{cНеприемлимо:{x
+    -- грубые или сексуально-ориентированные имена
+    -- названия и имена животных (Horse, Doll)
+    -- наборы случайных символов (Asdfg, Qwdldkf)
+    -- имена, включающие ранг или титул (Lord, Sir)
+    -- наукообразные изречения (Proof, Logic, Electries...)
+    -- названия предметов (Necklace, Staff, Sword)
+    -- составные имена (FarmerJoe, Maryjane)
 
-В любоом случае Боги могут "предложить" тебе сменить имя.
-
-Если твое имя удовлетворяет вышеуказанным требованиям нажмите {CY{x, иначе выберите
-другое имя. Последнее решение зависит от Богов. Ты согласен? ~
+В любом случае Боги могут "предложить" тебе сменить имя.
+Если твое имя удовлетворяет вышеуказанным требованиям, нажми Y,
+иначе выбели себе другое имя. Но окончательное решение за Богами
+этого мира.
+~
 0 CAST~
 @eng Syntax: cast <spell> <target>
 
@@ -472,7 +468,7 @@ The effect of the spell is reduced or eliminated if the victim makes the
 saving throw successfully.
 
 See also the help sections for individual spells.
-@rus Синтаксис: {Gcast {C<заклинание> <цель>{x
+@rus Синтаксис: {ccast <название> <цель>{x
 
 Прежде, чем ты сможешь произносить заклинание, ты должен практиковать его. Чем 
 больше ты практикуешь, тем более высок шанс успеха. Произнесение заклинания 
@@ -484,7 +480,7 @@ See also the help sections for individual spells.
 
 Если название заклинания состоит более чем из одного слова, ты должен заключить
 его в апострофы.
-Например: {Gcast 'cure critical' frag.{x
+Например: {ccast 'cure critical' frag{x.
 
 Когда ты используете боевое заклинание, жертва обычно получает возможность 
 полностью или частично избежать действия этого заклинания. Эффект заклинания
@@ -500,7 +496,7 @@ See also the help sections for individual spells.
 Tells you the visible exits of the room you are in.  Not all exits are visible.
 You can use the 'bump' technique to find hidden exits.  (Try to walk in a
 certain direction and see what you bump into).
-@rus Синтаксис: {Gexits{x
+@rus Синтаксис: {cexits{x
 
 Сообщает вам очевидные выходы из комнаты, в которой вы находитесь.  Не все 
 выходы могут быть легко обнаружены. Для поиска скрытых выходов можно использо-
@@ -527,26 +523,24 @@ PUT puts an object into a container.
 
 DROP, GET and PUT understand the object names 'ALL' for all objects and
 'ALL.object' for all objects with the same name.
-@rus Синтаксис: {Gdrop {C<объект>{x
-Синтаксис: {Gdrop {C<сумма> {Ggold{x
-Синтаксис: {Gdrop {C<сумма> {Gsilver{x
-Синтаксис: {Gget  {C<объект>{x
-Синтаксис: {Gget  {C<объект> <контейнер>{x
-Синтаксис: {Ggive {C<объект> <персонаж>{x
-Синтаксис: {Ggive {C<сумма> {Ggold {C<персонаж>{x
-Синтаксис: {Ggive {C<сумма> {Gsilver {C<персонаж>{x
-Синтаксис: {Gput  {C<объект> <контейнер>{x
+@rus Синтаксис: {cdrop{x <обьект>
+Синтаксис: {cdrop{x <сумма> {cgold{x
+Синтаксис: {cdrop{x <сумма> {csilver{x
+Синтаксис: {cget{x <обьект>
+Синтаксис: {cget{x <обьект> [{cfrom{x] <контейнер>
+Синтаксис: {cgive{x <обьект> [{cto{x] <персонаж>
+Синтаксис: {cgive{x <сумма> {cgold{x [{cto{x] <персонаж>
+Синтаксис: {cgive{x <сумма> {csilver{x [{cto{x] <персонаж>
+Синтаксис: {cput{x <обьект> <контейнер>
 
-{GDROP{x бросает объект или деньги на землю.
+{cDROP{x бросает объект или деньги на землю.
+{cGET{x или {cTAKE{x берет объект лежащий на земле или в контейнере (даже в трупе) 
+{cPUT{x кладет обьект в контейнер.
+{cGIVE{x передает объект или деньги другому персонажу.
 
-{GGET{x или {GTAKE{x берет объект лежащий на земле или в контейнере (даже в трупе) 
-
-{GGIVE{x передает объект или деньги другому персонажу.
-
-{GPUT{x кладет объект в контейнер.
-
-{GDROP{x, {GGET{x и {GPUT{x под названием 'all' понимают все объекты и
-под 'all.object' все объекты с одинаковым названием {C<object>{x.
+drop all, get all и put all выполняют действия со всеми доступными обьектами
+drop all.xxx, get all.xxx или put all.xxx выполняют действия со всеми
+доступными обьектами с названием xxx.
 ~
 0 EQUIPMENT INVENTORY~
 @eng Syntax: equipment
@@ -554,11 +548,11 @@ Syntax: inventory
 
 EQUIPMENT lists your equipment (armor, weapons, and held items).
 INVENTORY lists your inventory.
-@rus Синтаксис: {Gequipment{x
-Синтаксис: {Ginventory{x
+@rus Синтаксис: {cequipment{x
+Синтаксис: {cinventory{x
 
-{GEQUIPMENT{x показывает твое снаряжение (броня, оружие и другие вещи).
-{GINVENTORY{x показывает содержимое твоего мешка ({cinventory{x).
+EQUIPMENT показывает твое снаряжение (броня, оружие и другие вещи).
+INVENTORY показывает содержимое твоего мешка (inventory).
 ~
 0 COMPARE~
 @eng Syntax: compare <object-1> <object-2>
@@ -791,44 +785,42 @@ idea read 5 will read idea #5.  Posting to the news and changes boards is
 restricted. The 'unread' command can be used to show your unread notes on
 all the note spools.
  
-@rus Обьявления в мире {DСерых Теней{x заменяют почту, распространенную в других мирах.
+@rus {wОбьявления в мире Серых Теней заменяют почту, распространенную в других мирах.
 Доступны следующие команды:
 
-{Cчтение обьявлений{x
-{Gnote list{x     : показ списка обьявлений (непрочитанные помечены буквой N)
-{Gnote read{x     : чтение обьявления по номеру. read next покажет первое 
+{cnote list{x     : показ списка обьявлений (непрочитанные помечены буквой N)
+{c{cnote read{x{x     : чтение обьявления по номеру. read next покажет первое 
               : непрочитанное обьявление
-{Gnote remove{x   : удаляет обьявление, написанное тебе или тобой
-{Gnote catchup{x  : помечает все обьявления как прочитанные
+{cnote remove{x   : удаляет обьявление, написанное тебе или тобой
+{cnote catchup{x  : помечает все обьявления как прочитанные
 
-{Gnote read{x получает номер обьявления как аргумент
-{Gnote list{x можно использовать с расширенным синтаксисом для фильтрования
+note list можно использовать с расширенным синтаксисом для фильтрования
 сообщений по отправителю или получателю:
-{Gnote list from {C<имя>{x
-{Gnote list to {C<имя>{x
+                               note list from <имя>
+                               note list to <имя>
 
-{Cнаписание обьявлений{x
-{Gnote to{x         : устанавливает получателей обьявления (all - всем, 
+{cnote to{x         : устанавливает получателей обьявления (all - всем, 
                 : immortal - богам, clan - всем клановым игрокам, 
                 : <название клана> - всем его членам, <имя> - одному игроку)
-{Gnote subject{x    : устанавливает заголовок обьявления
-{Gnote edit{x       : вызывает текстовый редактор для воода текста обьявления
-{Gnote clear{x      : сбрасывает написание обьявления
-{Gnote show{x       : показывает вид обьявления
-{Gnote post{x       : помещает обьявление на доску обьявлений
-{Gnote forward num{x: пересылает обьявление другому получателю
-{Gnote quote num{x  : аналогично note forward, но все оригинальные строки помечаются
-                : символом '>'
+{cnote subject{x    : устанавливает заголовок обьявления
+{cnote edit{x       : вызывает текстовый редактор для воода текста обьявления
+{cnote clear{x      : сбрасывает написание обьявления
+{cnote show{x       : показывает вид обьявления
+{cnote post{x       : помещает обьявление на доску обьявлений
+{cnote forward num{x: пересылает обьявление другому получателю
+{cnote quote num{x  : аналогично note forward, но все оригинальные строки
+                : помечаются символом '>'
 
-'{Gnote cancel{x' является синонимом для '{Gnote clear{x'
-'{Gnote reply{x' является синонимом для '{Gnote quote{x'
-'{Gnote{x' без аргументов является синонимом для '{Gnote read next{x'
+'note cancel' является синонимом для 'note clear'
+'note reply' является синонимом для 'note quote'
+'note' без аргументов является синонимом для 'note read next'
 При входе в игру, тебе сообщат, сколько непрочитанных сообщений тебя ждет.
 
-Существует еще четыре доски обьявлений, это {Gideas, news, changes{x и {Gpenalties{x
-({rтолько для богов{x). Они используются точно так же. Написание обьявлений на доски
-обьявлений {Gnews{x и {Gchanges{x доступно только Богам. Команда {GUNREAD{x используется для
-выяснения количества непрочитанных сообщений на всех досках обьявлений. 
+Существует еще четыре доски обьявлений, это {cideas{x, {cnews{x, {cchanges{x и 
+{cpenalties{x (только для богов). Они используются точно так же.
+Написание обьявлений на доски news и changes доступно только богам.
+С помощью команды {cunread{x ты можешь сколько непрочитанных у тебя
+сообщений.
 ~
 0 SHOUT YELL GOSSIP MUSIC~
 @eng Syntax: shout   <message>
@@ -1058,7 +1050,6 @@ Syntax: cast 'protection cold'
 ~
 0 BASH DOOR~
 Syntax: bashdoor <direction>
-
 ~
 0 FIRE SHIELD~
 Syntax: cast 'fire shield' cold
@@ -1105,14 +1096,12 @@ Syntax: tail <opponent>
         This skill enables tailed creatures to hit its opponent with its
 tail. The chance to hit with tail is very small. But when hits gives great 
 damage to victim.
-
 ~
 0 'DARGON SKIN' DRAGONSKIN~
 Syntax: cast 'dragon skin'
 
         This spell enables dragons to increase its AC so that they can
 fight more easily. 
-
 ~
 0 FEAR~
 Syntax: cast 'fear' <victim>
@@ -1181,7 +1170,6 @@ paladin and this energy force the evil victims to flee.
 Syntax: vampiric touch <victim>
 
         You deadly touch your victim's neck and put it/him/her to nightmares.
-
 ~
 0 KATANA~
 Master Samurai's can make their special sword to punish the
@@ -1514,7 +1502,6 @@ Syntax:  teach
 
         Allows the hero to teach his/her 100% skills to the players
 in the room. Puts hero in teach mode.
-
 ~
 0 LEARN~
 Syntax: learn <spell | skill> <hero>
@@ -1522,7 +1509,6 @@ Syntax: learn <spell | skill> <hero>
         Allows player to learn any group of skills or spells from
 a hero. But the hero's corresponding skills must be 100% and hero must
 be in teach mode.
-
 ~
 0 TRAIN~
 Syntax: train <str int wis dex con>
@@ -2056,7 +2042,6 @@ opponents.
 
 The curse spell can also be casted on objects. Spell will cause the 
 object to be more evil, but if protected by some other magic it may fail.
-
 ~
 0 'DETECT EVIL'~
 Syntax: cast 'detect evil'
@@ -2110,7 +2095,6 @@ Syntax: cast 'earthquake'
 This spell inflicts damage on every enemy character in the room.
 Beware that other characters who are not yet fighting may attack
 you as a result!
-
 ~
 0 'SEVERITY''SEVERITY FORCE'~
 Syntax: cast 'severity force'
@@ -2118,7 +2102,6 @@ Syntax: cast 'severity force'
 This spell is similar to earthquake but much more powerful to inflicts  
 damage on only your enemy character in the room. From now on you can
 separate the land through your enemy.
-
 ~
 0 'ENCHANT WEAPON'~
 Syntax: cast 'enchant weapon' <weapon>
@@ -2137,7 +2120,6 @@ points, and raises its level by one.
 
 It is said to be that the enchantment of powerful items by powerful
 mages can cause the item act in different ways.
-
 ~
 0 'ENERGY DRAIN'~
 Syntax: cast 'energy drain' <victim>
@@ -2252,7 +2234,6 @@ class.  SHIELD provides 20 points of armor.  STONE SKIN provides 40 points of
 armor.  ENHANCED ARMOR provides 60 points of armor. MELD INTO STONE 
 provides 100 points of armor.But MELD INTO STONE is available only for 
 RockSeer RACE.
-
 ~
 0 'SHIELD CLEAVE'~
 Syntax: shield cleave
@@ -2387,9 +2368,10 @@ P.S.	: Remember that some races have their specific spells, i.e rockseers
 	  to read helps of each races.
 
 See also:  CLASS, WORLD
-
 ~
 -2 'RACETABLE'~
+Shades Of Gray is the home for the following races:
+
 RACE       ACRONYM   GOOD_AT  BAD_AT   EXTRA    COMMENTS
 -----      -------   -------  ------   -----    -------------------
 Human       Human     None     None      0      average race
@@ -2410,15 +2392,13 @@ Githyanki   Githy    Int,Dex  Wis,Con   250     evil, "sword", "dagger"
 Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
 Felar       Felar    Dex,Con  Str,Int   450     "hand to hand", "tail"
 Troll       Troll    Str,Con  Int,Dex   400     evil, regen., "fast healing"
-
-What is your race ("help <race>" for more information)? ~
+~
 -1 GNOME GNOMES~
 Gnomes are a race of small, wiry, but tough creatures.  They live a very
 long time and accumulate much wisdom. They are resistant to poisons, but
 they are vulnerable to bashing because of their small size. Gnomes can see
 in the dark with infravision.  Gnomes, due to their large stock of wisdom,
 always stay neutral, else they will lose their spells and are frowned upon.
-
 ~
 -1 'STORM GIANT' STORMGIANTS~
 Storm giants are the largest of the giant races, ranging from 12-20 feet in 
@@ -2430,7 +2410,6 @@ ill-suited for any other profession.
 Storm giants resist lightning, can fly.  However, they are the most clever 
 of giants. Storm giants, due to their  size and stamina, receive the fast 
 healing and bash skills for free. Cloud giants have weapon resistance.
-
 ~
 -1 'FIRE GIANT' FIREGIANTS~
 Storm giants are the large, ranging from 9-12 feet in height.  They are 
@@ -2442,7 +2421,6 @@ ill-suited for any other profession.
 Fire giants resist fire .  However, their slow minds make them extremely 
 vulnerable to mental attacks.  Storm giants, due to their  size and 
 stamina, receive the fast healing and bash skills for free. 
-
 ~
 -1 'CLOUD GIANT' CLOUDGIANTS~
 Cloud giants are the large, ranging from 9-12 feet in height.  They are 
@@ -2475,14 +2453,12 @@ They aren't too bright, however, and their huge size makes them more clumsy
 than the other races.  Giants make the best warriors of any race, but are
 ill-suited for any other profession. Giants, due to their size and 
 stamina, receive the fast healing and bash skills for free. 
-
 ~
 -1 HUMAN HUMANS MAN~
 Humans are the most common race in the world, and make up the majority of
 adventurers.  Although they have no special talents like the other races,
 they are more versatile, being skilled in all classes.  Humans are able to
 gain more benefit from magical devices.
-
 ~
 -1 DWARF DWARVES~
 Dwarves are short, stocky demi-humans, known for foul temper and great
@@ -2492,7 +2468,6 @@ lifespans.  Dwarves make lots of noise wherever they go and cannot be
 thieves.  Dwarves can be good or neutral.
 Dwarves are resistant to magic, poison and disease, but cannot swim, and so
 are very vulnerable to drowning.  They can see in the dark with infravision.
-
 ~
 -1 ELF ELVES~
 Elves are slightly taller than humans, but have a much lighter build.  They
@@ -2504,13 +2479,11 @@ use of iron in their adventuring careers.  Elves are notoriously
 hard to spot and walk unnoticed automatically. They may see in the dark
 with infravision.  Elves must stay good to cast any spells they know.
 Elves who have turned to evil are frowned upon.
-
 ~
 -1 'HALF-ELF' HALFELF HALFELVES~
 Half-elves are a cross-breed between a human and an elf. They are not quite
 as intelligent as pure elves but have a greater constitution. Like pure
 elves, half-elves see in the dark with infravision.
-
 ~
 -1 SVIRF SVIRFNEBLI DEEP-GNOME~
 The Svirfnebli, also known as deep gnomes, have made their way into
@@ -2522,7 +2495,6 @@ cousins, but yet they are still regarded as very wise. With their singular
 dedication to the stone, svirfnebli must be neutral in all aspects of their
 lives. They have the same ability in learning the powers of items as their
 surface cousins.
-
 ~
 -1 FELAR~
 The Felar are a race descended from the great cats. For long years in their
@@ -2543,7 +2515,6 @@ to be pure magic-users, and some of the Felar still resent the mages, anyway.
 The wars of freedom were long ago, however, so many younger Felar are willing
 to forgive and forget, and some have even begun to dabble in the magic that
 once imprisoned them.
-
 ~
 -1 DUERGAR DARK-DWARF DARK-DWARVES~
 With the recent excavations unearthing paths to the Underdark, the race of
@@ -2553,7 +2524,6 @@ changed them in other areas. Unlike their cousins, they are not known for
 working stone and metal, something which has made them less hearty over time.
 They have become more dexterous through centuries of thievery and deceit.
 All Duergars are evil.
-
 ~
 -1 'DARK-ELF' DARKELF DARKELVES DARK~
 Dark-elves are a race of renegade elves who have turned their energy toward
@@ -2563,20 +2533,17 @@ mischief.  Like elves, dark-elves have infravision and can walk unnoticed.
 Dark elves must stay evil to cast any spells they might know.  Those who
 turn to good are frowned upon.  Dark-Elves are burned by the touch of
 mithril.
-
 ~
 -1 SATYR~
 Satyrs are a race of half human and half goat race.They are evil.  They are 
 inherently dextrerious. But not strengthful. Due the desterity they can
 steal from someone, camuflage themselves and ambush opponents very easly.
-
 ~
 -1 GITHYANKI~
 Githyanki's are more intelligient then humanbeings. But they are constitutive
 as human race. But they are evil. And they can be either fighter, caster or
 fighter/caster races.They are good warriors . But casters use only offensive 
 spells.
-
 ~
 -1 ROCKSEER ROCKSEERS~
 Rockseers are a race of renegade elves who lives underworld in rock caves.
@@ -2586,7 +2553,6 @@ rocks.  Like elves, rockseers have infravision and can walk innocent and
 can pass doors easily.Rockseers must stay neutral to cast any spells they 
 might know. And because of their organism they are vulnerable to woods.
 They have a specific spell called 'meld into stone'.
-
 ~
 -1 TROLL TROLLS~
 Long hidden within the sanctity of their mountain caves, a race known in the
@@ -2615,8 +2581,7 @@ Paladin      Pal      STR	 ANY	400	warrior/cleric
 Samurai      Sam      STR        ANY    500  	masters of ancient battlearts 
 Vampire      Vam      INT	 ANY	300	simply vampire
 Necromancer  Nec      INT	  M	300	simply necromancer
-
-What is your class ("help <class>" for more information)? ~
+~
 -1 RANGER RANGERS~
 RANGER
 Outdoorsmen, hunters, master of woodcraft, Rangers are the guardians of 
@@ -2625,7 +2590,6 @@ also wielders of some powerful magic.  Some Rangers have been known to call
 large bears to their aid, fashion mystical staves, and be able to camouflage
 beyond detection.  Their ability to ambush opponents makes them deadly 
 foes.
-
 ~
 -1 NINJA NINJAS~
 NINJA
@@ -2635,7 +2599,6 @@ silently before fading into the shadows.  Ninjas are skilled in the
 knowledge of nerve pressure, and can weaken their foes with a well placed
 strike. At high levels, Ninjas learn the art of assassination,
 killing their foe instantly and silently.
-
 ~
 -1 ANTI-PALADIN ANTI-PALADINS ANTIPALADIN ANTIPALADINS ANTI~
 - ANTI-PALADIN -
@@ -2644,7 +2607,6 @@ Such fervor and zeal gives them deadly spells to compliment their already
 superb fighting skills.  They seek only personal gain and to cause suffering
 and pain to good.  Anti-paladins must stay evil in order to cast their 
 spells. Those who forsake evilness are frowned upon.
-
 ~
 -1 PALADIN PALADINS~
 These warriors have chosen the path of virtue and chivalry above all others.
@@ -2654,7 +2616,6 @@ Paladins must stay good in order to cast their spells.  Those who forsake
 goodness are frowned upon.  Paladins are expected to be truthful, 
 chivalrous, humble, merciful, kind, bold, and noble of spirit.  Paladins 
 must be Lawful Good.
-
 ~
 -1 CLERIC CLERICS~
 Clerics are the most defensively oriented of all the classes.  Most of their
@@ -2662,7 +2623,6 @@ spells focus on healing or defending the faithful, with their few combat
 spells being far less powerful than those of mages. However, clerics are the 
 best class by far at healing magics, and they possess an impressive area of
 protective magics, as well as fair combat prowess.
-
 ~
 -1 THIEF THIEVES~
 Thieves are a marginal class. They do few things better than any other class,
@@ -2670,23 +2630,19 @@ but have the widest range of skills available.  Thieves are specialists at
 thievery and covert actions, being capable of entering areas undetected where
 more powerful adventurers would fear to tread.  They are better fighters than
 clerics, but lack the wide weapon selection of warriors.
-
 ~
 -1 WARRIOR WARRIORS~
 Warriors live for combat and the thrill of battle. They are the best fighters
 of all the classes, but lack the subtle skills of thieves and the magical
 talents of mages and priests.  Warriors are best for those who don't mind
 taking the direct approach, even when another method might be called for.
-
 ~
 -1 WARLOCK WARLOCKS~
 Male Magicians...Stronger, but less efective on charm..
-
 ~
 -1 SAMURAI SAMURAIS~
 More powerful honour warriors..But after level 10 they cannot flee 
 because they are thought like that.
-
 ~
 -1 VAMPIRE VAMPIRES~
 Powerful mage/warriors..But after they can only transform into VAMPIRE 
@@ -2694,18 +2650,15 @@ after level 10.And they cannot practice the vampire skill.The vampire skill
 is gained in 50 questpoints. When they use this skill at the nights their
 size increase, they gets damage from light, and their damroll increases. You
 cannot realize a vampire in nights. It is only written "An uggly creature".
-
 ~
 -1 NECROMANCER NECROMANCERS~
 Powerful mage. But powerful in necromantic spells. 
-
 ~
 -2 HOMETOWN HOMETOWNS~
 You can pick one of six cities as your hometown: New Thalos and Midgaard are
 all alignments. Ofcol is neutral only. Your hometown is where you will 
 recall to and is where the pit is to which your corpse will decay. 
 Everyone starts at mud school, which is connected to each of the hometowns.
-
 ~
 -1 ETHOS~
 You may pick a Lawful, Neutral or Chaotic ethos.  This shows your opinion
@@ -2714,7 +2667,6 @@ laws no matter what, you take a lawful ethos, if you will obey the laws
 some of the time, then you are neutral.  If you plan on breaking the laws
 and only obeying them when you just happen to obey the laws, then you are
 chaotic.  Ethos can only be set once.
-
 ~
 -2 'NEWBIE INFO' NEWBIE~
 Ah! Another mortal, seeking adventure.  You should go through mudschool 
@@ -2725,7 +2677,6 @@ Type 'equipment' to see what your are wielding, 'spells' to see your spells,
 available on most commands and abilities.  It is strongly recommended 
 that you  go through all the helps at a low level, especially for first 
 time mudders.
-
 ~
 0 ASSASSINATE~
 Syntax: assassinate <victim>
@@ -2735,7 +2686,6 @@ attack must be on a fully healed target. Ninja aproaches his or her
 victims from behind, and with a fast move, twists their head, breaking
 the neck. The skill must be used both hands free, and it has a little
 chance for an instant kill.
-
 ~
 0 'QUIET MOVEMENT' HERBS TAME BUTCHER BARKSKIN 'BARK SKIN' 'BEAR CALL'
   'RANGER STAFF'~
@@ -2756,7 +2706,6 @@ Bark skin is a protection spell, making strong barks to cover your skin.
 Bear call calls 2 powerful bears to your rescue.
 Ranger staff creates a staff whose power depends upon the caster's
 level. The weapon created may only be wielded by rangers.
-
 ~
 0 LIONCALL 'LION CALL' 'TIGER POWER' TIGER~
 LIONCALL
@@ -2770,24 +2719,20 @@ damroll & hitroll.
 0 HARA 'HARA KIRI'~
 A Samurai kills himself, in other words set him/her self hitpoint, mana
 and movement 1 . Then gains them very quickly.
-
 ~
 0 MOUSE~
 A vampire can flee a fight, or can live a place by dividing himself into
 too many mouses. At this moment you must kill all mouses to kill the vampire.
-
 ~
 0 'VAMPIRIC BITE'~
 Syntax: bite <victim>
 
    A vampire bites a sleeping victim and gains victim's hitpoint to itself.
 But then fight starts.
-
 ~
 0 'RESISTANCE LIGHT' 'LIGHT RESISTANCE'~
 A vampire get damages from light. But a high level vampire can teach 
 itself how to resist light.
-
 ~
 0 'ENCHANT SWORD'~
 Syntax: enchant <sword name>
@@ -2813,7 +2758,6 @@ Syntax: target <victim>
 
    A samurai can change his/her target when fighting with a group of mobiles
 or characters.
-
 ~
 0 'SECOND WEAPON'~
 Syntax: second <weapon>
@@ -2838,7 +2782,6 @@ Syntax: cleave <victim>
 
 This attack is similar to backstab, but not quite as powerful. There
 is a small chance that your victim will be killed instantly.  
-
 ~
 1 VANISH~
 Syntax: vanish
@@ -2846,7 +2789,6 @@ Syntax: vanish
 Pulling forth a small globe, the ninja casts it on the ground where it
 explodes in a puff of smoke.  When it clears, the ninja is gone!  This
 skill will teleport him in random room.
-
 ~
 1 CALTROPS~
 Syntax: caltrops
@@ -2854,13 +2796,11 @@ Syntax: caltrops
 Taking a handful of small spikes, the ninja throws them at his opponent's
 feet.  Damage taken from them is minor, but the victim's dexterity and hit/dam
 roll are reduced.
-
 ~
 1 COUNTER~
 This skill, when practiced, gives a player a chance to turn an
 attacker's first blow against him, causing double damage.  You need
 not type "counter" -- it happens automatic.
-
 ~
 0 ROLE-PLAYING ROLEPLAYING~
 Welcome to the world of Shades of Gray which is based on role-playing
@@ -2980,7 +2920,6 @@ NOFOL is a toggle which makes you no longer accept followers.  This also
 causes all people and mobs from following you at that time including who
 you are following.  Type NOFOL again to reset the toggle back to accepting
 followers.  No one can follow you when this toggle is set.
-
 ~
 0 RULES~
 These are the rules of the Shades of Gray. Disobeying is grounds
@@ -3021,7 +2960,6 @@ for deletion. For other matters, use common sense.
 
   Changes  to these rules are at the discretion of the immortals, and
   may be done withoutwarning, notice, or even evidence of sanity.
-
 ~
 0 LAWS LAW ~
 @eng The laws of the land that shall be enforced by the Ruler Clan are as
@@ -3061,7 +2999,6 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
  Enforcement of these laws will be carried out by Ruler members. Midgaard,
 New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
 command. Old midgaard is not a holy town.
-
 @rus Законы, за выполнением которых должен следить клан Ruler:
  
 Области в которых действует Закон - Midgaard, New Thalos, Valley of Titans
@@ -3110,7 +3047,6 @@ victims head in the hopes of rendering them unconscious.  "It is not a
 killing stroke.  Thieves know what happens to thieves that killed 
 people.  The Ninja's Guild came and talked briefly to them--in fact, 
 all they said was 'Good-bye'." -t.p.
-
 ~
 0 REQUEST ~
 Syntax: request <object> <mobile>
@@ -3183,7 +3119,6 @@ equipment breaks into pieces.
    To avoid this you can have your your equipment repaired by WEAPONSMITHS
 and ARMOURERS.
    You can learn how much that will cost by "estimate" command.
-
 ~
 0 PRAY ~
 Syntax: pray 
@@ -3197,7 +3132,6 @@ immortal, type a message after 'pray'.  Only immortals 93+ can see prays.
 
 DO NOT ABUSE this privilege!!!  Anyone who does multiple prays or prays
 without a good reason will be severely punished.
-
 ~
 1 RANDOMIZER ~
 Syntax: cast 'randomizer'
@@ -3298,7 +3232,6 @@ Quest rewards cannot be sacrificed and these items
 are special for the character. Any other character cannot get or wear 
 these items. Also these items cannot get damage. As you lost one of them 
 because of crashes note to gods.
-
 ~
 -1 'QUEST AUTOMAGIC'~
 quest points   : show quest points
@@ -3309,9 +3242,7 @@ quest points   : show quest points
 	quest list     : lists the available quest objects that you can buy
 	quest buy      : to buy a quest obj	
     quest trouble  : if you lose a quest obj, you can regain it. But
-                         at most 3 times.
-       
-Type `help 'quest reward'` for more information about the quest reward.
+                        at most 3 times.
 ~
 -1 AUCTION~
 Syntax of the auction command is:
@@ -3553,7 +3484,6 @@ Troll     :Hindered by their slow intellect and mobility, grow to obtain a
 
 P.S.	  :Remember that some races have their specific spells, i.e rockseers
 	   have their own spell 'meld into stone'.
-
 ~
 -1 DAMAGE~
 Here are the types of the damages, from small to...
@@ -3583,7 +3513,6 @@ Here are the types of the damages, from small to...
                              ### TERMINATE ###
                               [*] TEAR UP [*]
                              [*] POWER HIT [*]
-
 ~
 0 RUSSIAN~
 This help is only for players who use russian codepages.
@@ -4678,7 +4607,6 @@ Thanks to ...
   ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers
       of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,
       and hours of enjoyment.
-
 ~
 -1 MAP MAPS~
 Thanks to Ezra for drawing the originals of several maps on ROM.
@@ -4691,7 +4619,7 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 ``.    `:    .'     :           (  `\    ________________/'(_)`\_______________
     :    :   :        :          \   ~~~~~~ ____________   __   __   ____________~~
      :   :   :         :          )>  _               ~~-~~  ~~-~~  ~~-~~
-     :    :   :        :         <(  (_)   @@}-->     Shades of Gray      <--{{@@
+     :    :   :        :         <(  (_)   @@}-->     Shades of Grays      <--{{@@
       :    :   :..''''``::.        \
        : ...:..'     .''           |      Original DikuMUD by Hans Staerfeldt,
        .'   .'  .::::'             |  Katja Nyboe, Tom Madsen, Michael Seifert,
@@ -4801,7 +4729,6 @@ Not fulfilling the roles of your office can result in demotion or deletion.
     character.  If you do, your trust will be taken away.
 
 11) Take care of limited objects and quests.
-
 ~
 0 SUICIDE DELETE~
 Use the delete command to erase unwanted characters, so the name will be
@@ -4822,7 +4749,6 @@ been found. The following options can be used with gain:
 
 gain revert : turns one training session into 10 practice session 
 gain convert: turns 10 practices into one training session
-
 ~
 92 CLONE~
 Syntax:
@@ -5075,7 +5001,6 @@ damage instead of no damage.  The best chance of parrying occurs when the
 defender is skilled in both his and his opponent's weapon type.
 	Warriors and samurai's have more chance than the others to parry
 the attacks.  
-
 ~
 -1 RESCUE~
 A friend in need is a friend indeed.  And when in combat, a warrior with

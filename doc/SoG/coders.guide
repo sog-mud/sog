@@ -1,0 +1,6 @@
+Some notes for coders
+---------------------
+
+	Formatting style is fully described in 'man 9 style' (FreeBSD).
+
+	varrs and mlstrings never should be allocated dynamically.

@@ -771,6 +771,15 @@ treasure 0 AQ
 0 0 0 0 0
 0 0 0 P
 G none
+#36158
+~
+rope~
+Rope hangs from the ceiling.~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+G none
 #36195
 bag сумка~
 {Cstrangely light bag{x~

@@ -2642,6 +2642,15 @@ money A A
 5000 1000 0 0 0
 1 0 0 P
 G none
+#36436
+map town~
+map of the Festival Town~
+A brightly colored map lies here.~
+paper~
+map 0 AO
+0 0 0 0 0
+0 0 0 P
+G none
 #0
 
 #ROOMS
