@@ -101,11 +101,11 @@ This powerful Undead is actually Xantharus' former master, whom he betrayed
 and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
-human~
-ABFGO DFJ -1000 0
+lich~
+ABGOT DFJ -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 pierce
 -28 -28 -28 2
-EFNQ AB T K
+0 0 0 0
 stand stand male 5800
 0 0 medium unknown
 #8106

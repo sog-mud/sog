@@ -414,6 +414,24 @@ A
 A
 18 2
 G none
+#15025
+sword darkness меч тьмы~
+@eng {DSword of Darkness{x@rus {D Меч ТЬМЫ {x~
+@eng {DSword of Darkness{x lies here.@rus {DМеч ТЬМЫ{x лежит здесь.~
+darkness~
+weapon ABCGHIMO AN
+sword 100 100 slash CDE
+99 50 0 P
+A
+8 100
+F A 19 500 u
+A
+17 -1000
+A
+19 100
+A
+18 100
+G none
 #15026
 shtuchka~
 shtuchka~
@@ -620,10 +638,32 @@ container Yb AE
 1000 0 0 1000 10
 0 0 0 P
 G none
+#15198
+harp арфа~
+@eng a small harp of Hyperion@rus маленькая арфа Гипериона~
+@eng A harp is lying on the ground here.@rus Здесь на земле лежит арфа.~
+gold~
+wand G AO
+10 50 50 'word of recall' 0
+2 100 20000 P
+A
+12 30
+A
+17 -60
+A
+19 1
+A
+13 15
+E
+harp~
+On the side it says:
+                                Harp of safety.
+~
+G none
 #15199
 harp~
-a harp of Hyperion~
-A harp is lieing on the ground here.~
+@eng a harp of Hyperion@rus арфа Гипериона~
+@eng A harp is lying on the ground here.@rus Здесь на земле лежит арфа.~
 gold~
 wand G AO
 10 300 300 'word of recall' 0
@@ -789,6 +829,10 @@ S
 15005 0 0 0 0 0 100 100 0 23
 15016 0 0 0 0 0 100 100 0 23
 0
+
+#OLIMITS
+O 15025 1	* {DSword of Darkness{x
+S
 
 #MOBPROGS
 #15000

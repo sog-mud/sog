@@ -1307,7 +1307,7 @@ muscle.  He knows all the zones of realms of Shades of Gray.  It would be a
 Bad Thing to commit a crime in his presence.  
 ~
 giant~
-ABTVXe CDFJVZ 1000 3000
+AGTVXe CDFJVZ 1000 3000
 85 30 1d1+13999 1d1+1499 5d14+40 crush
 -50 -50 -50 -50
 ACDEFHIKLNOT ABP CD 0
@@ -2823,10 +2823,6 @@ spend the night with those rich people back east. To the north you see
 a giant plate. The exits are in an east-west and north directions.
 ~
 0 AS forest
-D0
-~
-~
-Z 0 30232
 D1
 The path continues.
 ~

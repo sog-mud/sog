@@ -230,11 +230,11 @@ completely shrunken around her skull, held together solely by the force of
 unholy magic and the powers of this plane of existence.  The cold glare of her
 hollow eyes sends you into paroxysms of fright.
 ~
-human~
-ABF DEFJu -750 0
+lich~
+ABFO DFl -750 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
-EFNU 0 0 0
+0 0 0 0
 stand stand female 5000
 0 0 medium unknown
 #7714

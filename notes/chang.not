@@ -1,92 +1,100 @@
-Sender Someone~
-Date Mon Jul  6 00:13:32 1998~
-Stamp 899658812
-To all~
+Sender  Someone~
+Date    Mon Jul  6 00:13:32 1998~
+Stamp   899658812
+To      all~
 Subject Safe rooms & auction~
-Text Hi, there!
+Text
+Hi, there!
 
 Now players cannot enter safe rooms with adrenalin gushing.
 Auction scheme changed
 
 Someone
 ~
-Sender Someone~
-Date Wed Jul  8 17:16:42 1998~
-Stamp 899893002
-To all~
+Sender  Someone~
+Date    Wed Jul  8 17:16:42 1998~
+Stamp   899893002
+To      all~
 Subject pets~
-Text hi, there!
+Text
+hi, there!
 
 Sleeping/resting/sitting (not standing) pets will not follow their master.
 (but nevertheless they will gate with master)
 
 Someone
 ~
-Sender Someone~
-Date Sat Jul 11 02:05:14 1998~
-Stamp 900097514
-To all~
+Sender  Someone~
+Date    Sat Jul 11 02:05:14 1998~
+Stamp   900097514
+To      all~
 Subject Emerald Forest and Mausoleum added~
-Text hi, there!
+Text
+hi, there!
 
 Added two new areas: Emerald Forest and Mausoleum
 (beer to area developers and Merlin)
 
 Someone
 ~
-Sender Someone~
-Date Sun Jul 12 05:18:20 1998~
-Stamp 900195500
-To all~
+Sender  Someone~
+Date    Sun Jul 12 05:18:20 1998~
+Stamp   900195500
+To      all~
 Subject desc and notes~
-Text hi, there!
+Text
+hi, there!
  
 Some changes in descriptions and note editing.
 use 'desc edit', 'note edit', 'idea edit' etc. to edit
  
 Good Luck
 ~
-Sender Someone~
-Date Tue Jul 14 20:36:20 1998~
-Stamp 900423380
-To all~
+Sender  Someone~
+Date    Tue Jul 14 20:36:20 1998~
+Stamp   900423380
+To      all~
 Subject mud school in russian~
-Text Hi, there!
+Text
+Hi, there!
  
 Now mud school is available in two languages. Thanks and beer to Leopold.
  
 Someone
 ~
-Sender Eros~
-Date Mon Jul 20 10:05:34 1998~
-Stamp 900903934
-To all~
+Sender  Eros~
+Date    Mon Jul 20 10:05:34 1998~
+Stamp   900903934
+To      all~
 Subject New clan~
-Text Hello!
+Text
+Hello!
  
 First clan in this world created.
 Called Confederacy or Серая Лига.
  
 Eros, the God of {CLove{x.
 ~
-Sender Askold~
-Date Mon Jul 27 23:30:47 1998~
-Stamp 901557047
-To all~
+Sender  Askold~
+Date    Mon Jul 27 23:30:47 1998~
+Stamp   901557047
+To      all~
 Subject new quest item~
-Text Hello all
+Text
+Hello all
  
 Questor now have new item for sale
  - Bottomless canteen with cranberry juice
  
 Askold
 ~
-Sender Someone~
-Date Mon Aug 10 16:33:46 1998~
-Stamp 902741626
-To all~
+Sender  Someone~
+Date    Mon Aug 10 16:33:46 1998~
+Stamp   902741626
+To      all~
 Subject last minute changes~
-Text Hi, there!
+Text
+Hi, there!
  
 У некоторых мобов появился иммунитет к steal (пока такой моб всего один и их количество со временем расти практически не будет)
 gate из боя больше не работает (и не будет)
@@ -98,12 +106,13 @@ PS да, до некоторого времени (а именно до 5 Aug IRL) note to imm не работало
 В общем-то это неважно, поскольку оно с 5 Aug работает, но все-таки стоит
 про это сказать, чтобы некоторые особо нервные не перевозбуждались в случае чего
 ~
-Sender Someone~
-Date Mon Aug 10 17:26:10 1998~
-Stamp 902744770
-To imm~
+Sender  Someone~
+Date    Mon Aug 10 17:26:10 1998~
+Stamp   902744770
+To      imm~
 Subject last minute changes~
-Text hi, there!
+Text
+hi, there!
  
 shutdown больше не перегружает сервер. вместо этого после следующего ребута сервер сам не встанет (что и требуется)
 у alist появился новый параметр -- подстрока в имени ареи (чтоб в список длинный не пялиться)
@@ -117,57 +126,62 @@ someone
 PS про alist и флажки -- появится после ребута, который произойдет через 48 тиков
 PPS про инфу не желательно, а, конечно, обязательно
 ~
-Sender Someone~
-Date Mon Aug 10 17:39:14 1998~
-Stamp 902745554
-To imm~
+Sender  Someone~
+Date    Mon Aug 10 17:39:14 1998~
+Stamp   902745554
+To      imm~
 Subject COMM_NOTELL~
-Text Нда, еще одно напоминание (в основном для абры) -- после ребута его наконец-то
+Text
+Нда, еще одно напоминание (в основном для абры) -- после ребута его наконец-то
 больше не будет.
  
 /fjoe
 ~
-Sender Someone~
-Date Fri Aug 14 12:59:40 1998~
-Stamp 903074380
-To all~
+Sender  Someone~
+Date    Fri Aug 14 12:59:40 1998~
+Stamp   903074380
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 Emotes, pmotes, socials, says and clan channels are now buffered when
 char is in disconnect and replayed with 'replay' command.
  
 Sincerely yours, ???
 ~
-Sender Someone~
-Date Fri Aug 14 13:29:21 1998~
-Stamp 903076161
-To all~
+Sender  Someone~
+Date    Fri Aug 14 13:29:21 1998~
+Stamp   903076161
+To      all~
 Subject quest time~
-Text hi, there!
+Text
+hi, there!
  
 при ребуте quest time преобразуется в time to next quest
  
 Sincerely yours, ???
 ~
-Sender Someone~
-Date Sat Aug 15 06:01:56 1998~
-Stamp 903135716
-To imm~
+Sender  Someone~
+Date    Sat Aug 15 06:01:56 1998~
+Stamp   903135716
+To      imm~
 Subject help OLC editor~
-Text hi, there!
+Text
+hi, there!
  
 сделал. тестируйте. hedit create keyword создает help в редактируемой арее либо в арее, в которой находится редактируемый на данный момент help
 help ищется по keyword первый попавшийся. чтобы посмотреть список всех хелпов используйте help pattern (чтобы полное имя узнать, чтобы точно указать какой хелп редактировать хотите)
  
 Sincerely yours, ???
 ~
-Sender Someone~
-Date Sat Aug 15 06:06:01 1998~
-Stamp 903135961
-To imm~
+Sender  Someone~
+Date    Sat Aug 15 06:06:01 1998~
+Stamp   903135961
+To      imm~
 Subject asave~
-Text hi, there!
+Text
+hi, there!
  
 забыл сказать, что asave vnum, asave без параметров (сохраняет текущую арею)
 и asave list снесены, чтобы не возникало несоответствий между area.lst и
@@ -176,24 +190,26 @@ Text hi, there!
  
 Sincerely yours, ???
 ~
-Sender Someone~
-Date Sat Aug 15 13:58:18 1998~
-Stamp 903164298
-To all~
+Sender  Someone~
+Date    Sat Aug 15 13:58:18 1998~
+Stamp   903164298
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 vampires fly in `vampire state'
 thirst, hunger etc. is not updated for disconnected players
  
 Sincerely yours, ???
 ~
-Sender Iluvatar~
-Date Tue Sep  1 17:42:18 1998~
-Stamp 904646538
-To all~
+Sender  Iluvatar~
+Date    Tue Sep  1 17:42:18 1998~
+Stamp   904646538
+To      all~
 Subject last minute changes~
-Text hi, there!
+Text
+hi, there!
  
 tra hp/mana снесено
 exp/level с левелом немного растет
@@ -204,23 +220,25 @@ exp/level с левелом немного растет
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Sep  1 23:13:16 1998~
-Stamp 904666396
-To all~
+Sender  Iluvatar~
+Date    Tue Sep  1 23:13:16 1998~
+Stamp   904666396
+To      all~
 Subject и еще~
-Text hi, there!
+Text
+hi, there!
  
 кроме всего прочего убраны ограничения на получаемый exp за мобов
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Sep  2 14:56:11 1998~
-Stamp 904722971
-To all~
+Sender  Iluvatar~
+Date    Wed Sep  2 14:56:11 1998~
+Stamp   904722971
+To      all~
 Subject more changes~
-Text hi, there!
+Text
+hi, there!
  
 пофиксены вампиры. пофиксен circle
 sco/osco теперь буферизуются
@@ -229,34 +247,37 @@ sco/osco теперь буферизуются
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Sep  2 15:01:33 1998~
-Stamp 904723293
-To all~
+Sender  Iluvatar~
+Date    Wed Sep  2 15:01:33 1998~
+Stamp   904723293
+To      all~
 Subject new quest reward~
-Text hi, there!
+Text
+hi, there!
  
 забыл сказать -- новый quest reward -- song, type: container, level 21
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Sep  2 16:12:04 1998~
-Stamp 904727524
-To all~
+Sender  Iluvatar~
+Date    Wed Sep  2 16:12:04 1998~
+Stamp   904727524
+To      all~
 Subject об exp~
-Text hi, there!
+Text
+hi, there!
  
 хочу сказать о том, что все, кто понижен по левелу (из-за нехватки exp) получали левела с 1-го до того, на который хватало с МАКСИМАЛЬНЫМИ статами (wis, int, con, dex)
  
 Eru
 ~
-Sender Iluvatar~
-Date Fri Sep 11 05:38:43 1998~
-Stamp 905467123
-To imm~
+Sender  Iluvatar~
+Date    Fri Sep 11 05:38:43 1998~
+Stamp   905467123
+To      imm~
 Subject OLC changes~
-Text hi, there!
+Text
+hi, there!
  
 опять поменял OLC (скорее всего в последний раз).
 aedit/redit снесены.
@@ -265,47 +286,51 @@ create clan, create area, create help. если че не так -- пишите письма
  
 /fjoe
 ~
-Sender Iluvatar~
-Date Fri Sep 11 14:56:10 1998~
-Stamp 905500570
-To all~
+Sender  Iluvatar~
+Date    Fri Sep 11 14:56:10 1998~
+Stamp   905500570
+To      all~
 Subject twit~
-Text hi, there!
+Text
+hi, there!
  
 twit command implemented. 'help twit' for details.
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Sep 11 15:25:18 1998~
-Stamp 905502318
-To all~
+Sender  Iluvatar~
+Date    Fri Sep 11 15:25:18 1998~
+Stamp   905502318
+To      all~
 Subject backresolv~
-Text hi, there!
+Text
+hi, there!
  
 backresolv распараллелен. если кто не знает что это такое то можно просто сказать, что лагов должно стать значительно меньше (особенно для тех, у кого пинг до нас хороший)
 если вам показалось, что лагов стало действительно меньше -- пишите ноты. your feedback is appreciated.
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Sep 14 19:33:12 1998~
-Stamp 905776392
-To imm~
+Sender  Iluvatar~
+Date    Mon Sep 14 19:33:12 1998~
+Stamp   905776392
+To      imm~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 edit/create mob fixed
 wizi/incog работают на минимальный иммовский левел
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Sep 15 21:24:32 1998~
-Stamp 905869472
-To all~
+Sender  Iluvatar~
+Date    Tue Sep 15 21:24:32 1998~
+Stamp   905869472
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 состояние ghost сбрасывается при первом агрессивном действии.
 (естественно, что kill/cast для ghost разрешены)
@@ -314,103 +339,112 @@ twit действует на say/все socials/gossips/music
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Sep 16 21:27:09 1998~
-Stamp 905956029
-To all~
+Sender  Iluvatar~
+Date    Wed Sep 16 21:27:09 1998~
+Stamp   905956029
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 ghost'ам разрешены все команды.
 where pk починен.
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Sep 16 21:39:53 1998~
-Stamp 905956793
-To all~
+Sender  Iluvatar~
+Date    Wed Sep 16 21:39:53 1998~
+Stamp   905956793
+To      all~
 Subject something i forgot to mention~
-Text hi, there!
+Text
+hi, there!
  
 yell при нападении отрублен. до тех пор, пока я не придумаю как его сделать правильно. twit действует на socials
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Sep 17 04:42:19 1998~
-Stamp 905982139
-To all~
+Sender  Iluvatar~
+Date    Thu Sep 17 04:42:19 1998~
+Stamp   905982139
+To      all~
 Subject help~
-Text hi, there!
+Text
+hi, there!
  
 еще одно изменение, про которое я забыл сказать:
 команда help теперь понимает номера. т.е. можно сказать help 2.sleep
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Sep 17 12:55:02 1998~
-Stamp 906011702
-To imm~
+Sender  Iluvatar~
+Date    Thu Sep 17 12:55:02 1998~
+Stamp   906011702
+To      imm~
 Subject create clan, edit/create help changes~
-Text hi, there!
+Text
+hi, there!
  
 Имена кланов и keyword'ы для хелпов при create больше не lowercase'ятся
 del в create/edit help пофиксен
  
 Iluvatar, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Sep 25 11:22:30 1998~
-Stamp 906697350
-To all~
+Sender  Iluvatar~
+Date    Fri Sep 25 11:22:30 1998~
+Stamp   906697350
+To      all~
 Subject ring reward~
-Text hi, there!
+Text
+hi, there!
  
 сняты pass door и fly с квестового колечка
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Sep 25 12:13:33 1998~
-Stamp 906700413
-To all~
+Sender  Iluvatar~
+Date    Fri Sep 25 12:13:33 1998~
+Stamp   906700413
+To      all~
 Subject ring reward~
-Text hi, there!
+Text
+hi, there!
  
 квествое колечко теперь имеет type weapon (чтобы воины не слишком страдали), добавлен affect на dr (+5)
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Sep 25 12:14:46 1998~
-Stamp 906700486
-To imm~
+Sender  Iluvatar~
+Date    Fri Sep 25 12:14:46 1998~
+Stamp   906700486
+To      imm~
 Subject help del~
-Text hi, there!
+Text
+hi, there!
  
 не помню писал я про это или нет, но del в help editor'е работает правильно
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Sep 29 17:40:59 1998~
-Stamp 907065659
-To all~
+Sender  Iluvatar~
+Date    Tue Sep 29 17:40:59 1998~
+Stamp   907065659
+To      all~
 Subject furniture on auction~
-Text hi, there!
+Text
+hi, there!
  
 objects with item type 'furniture' can be auctioned.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Oct  6 21:22:02 1998~
-Stamp 907683722
-To all~
+Sender  Iluvatar~
+Date    Tue Oct  6 21:22:02 1998~
+Stamp   907683722
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 fear и disperse работают в бою
 Сообщение при слете 'protective shield' теперь отличается от сообщения при слете 'shield'
@@ -425,35 +459,38 @@ tattoo религии enki пофиксена.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Oct  6 21:24:09 1998~
-Stamp 907683849
-To all~
+Sender  Iluvatar~
+Date    Tue Oct  6 21:24:09 1998~
+Stamp   907683849
+To      all~
 Subject и еще~
-Text hi, there!
+Text
+hi, there!
  
 да, забыл: добавлен charset translit (транслитерация, почти Волапюк)
 hunt вроде должен начать работать
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Oct  6 21:32:32 1998~
-Stamp 907684352
-To all~
+Sender  Iluvatar~
+Date    Tue Oct  6 21:32:32 1998~
+Stamp   907684352
+To      all~
 Subject steal~
-Text hi, there!
+Text
+hi, there!
  
 да, пофиксен steal. раньше при 100% steal вероятность успеха была 90% если жертва не видит ворующего и 100%, если видит. сейчас наоборот
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Oct  6 21:34:32 1998~
-Stamp 907684472
-To imm~
+Sender  Iluvatar~
+Date    Tue Oct  6 21:34:32 1998~
+Stamp   907684472
+To      imm~
 Subject OLC~
-Text hi, there!
+Text
+hi, there!
  
 ROOM_NOMAGIC (nomagic) теперь ставится из OLC
 есть OLC для языков и падежей/родов, но оно пока не доделано
@@ -461,12 +498,13 @@ ROOM_NOMAGIC (nomagic) теперь ставится из OLC
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Oct  7 02:33:01 1998~
-Stamp 907702381
-To all~
+Sender  Iluvatar~
+Date    Wed Oct  7 02:33:01 1998~
+Stamp   907702381
+To      all~
 Subject range casting~
-Text hi, there!
+Text
+hi, there!
  
 range casting fixed.
 
@@ -480,12 +518,13 @@ check it out. your feedback is appreciated.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Oct  8 20:52:36 1998~
-Stamp 907854756
-To all~
+Sender  Iluvatar~
+Date    Thu Oct  8 20:52:36 1998~
+Stamp   907854756
+To      all~
 Subject shout and gossip~
-Text hi, there!
+Text
+hi, there!
  
 shout теперь действует по всему миру (и даже мертвые слышат shouts)
 точка заалиасена на shout
@@ -497,12 +536,13 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Oct  9 20:57:55 1998~
-Stamp 907941475
-To all~
+Sender  Iluvatar~
+Date    Fri Oct  9 20:57:55 1998~
+Stamp   907941475
+To      all~
 Subject wear level и пр.~
-Text hi, there!
+Text
+hi, there!
  
 теперь левел, на котором могут одеваться вещи считается так:
 wands/scrolls/potions/staves/pills - левел чара
@@ -519,23 +559,25 @@ pair of talon extenders тоже
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Oct  9 22:36:01 1998~
-Stamp 907947361
-To all~
+Sender  Iluvatar~
+Date    Fri Oct  9 22:36:01 1998~
+Stamp   907947361
+To      all~
 Subject rangers~
-Text hi, there!
+Text
+hi, there!
  
 рейнджерам добавлен скилл 'camouflage move'
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Sat Oct 10 21:11:55 1998~
-Stamp 908028715
-To all~
+Sender  Iluvatar~
+Date    Sat Oct 10 21:11:55 1998~
+Stamp   908028715
+To      all~
 Subject мелочи~
-Text hi, there!
+Text
+hi, there!
  
 на аукцион можно выставлять еду (steak'и всякие :)
 пофиксены квестовые объекты -- теперь другой чар/моб (в основном
@@ -544,12 +586,13 @@ Text hi, there!
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Oct 12 00:52:16 1998~
-Stamp 908128336
-To all~
+Sender  Iluvatar~
+Date    Mon Oct 12 00:52:16 1998~
+Stamp   908128336
+To      all~
 Subject nocancel command implemented~
-Text hi, there!
+Text
+hi, there!
  
 новая командочка: 'nocancel'
 если у игрока установлен флаг nocancel (видно по 'autolist'), то другие
@@ -557,60 +600,65 @@ Text hi, there!
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Oct 12 00:53:31 1998~
-Stamp 908128411
-To imm~
+Sender  Iluvatar~
+Date    Mon Oct 12 00:53:31 1998~
+Stamp   908128411
+To      imm~
 Subject mob cast~
-Text hi, there!
+Text
+hi, there!
  
 в мобпрогах теперь надо писать просто 'cast ...' вместо 'mob cast...'
 имевшиеся на данный момент мобпроги поправлены
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Oct 12 00:59:53 1998~
-Stamp 908128793
-To all~
+Sender  Iluvatar~
+Date    Mon Oct 12 00:59:53 1998~
+Stamp   908128793
+To      all~
 Subject quest rewards~
-Text hi, there!
+Text
+hi, there!
  
 квестовые шмотки нельзя передавать другому чару через 'give...' 
 (если этот чар не имм) и нельзя складывать в контейнеры
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Oct 12 12:20:09 1998~
-Stamp 908169609
-To all~
+Sender  Iluvatar~
+Date    Mon Oct 12 12:20:09 1998~
+Stamp   908169609
+To      all~
 Subject battle arenas~
-Text hi, there!
+Text
+hi, there!
  
 steal, charm и attract other на battle аренах (Crossroads) не работают
 игроки и чармленные мобы (включая петов) не могут брать чужие трупы
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Oct 12 12:27:55 1998~
-Stamp 908170075
-To all~
+Sender  Iluvatar~
+Date    Mon Oct 12 12:27:55 1998~
+Stamp   908170075
+To      all~
 Subject mob casts~
-Text hi, there!
+Text
+hi, there!
  
 теперь все мобы кастуют через cast (соответственно должны работать bash,
 trip и пр., garble, shielding, deafen, spellbane, blind)
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Oct 13 16:08:37 1998~
-Stamp 908269717
-To all~
+Sender  Iluvatar~
+Date    Tue Oct 13 16:08:37 1998~
+Stamp   908269717
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 с 20 левела показываются аффекты от спеллов и (самое главное) объектов
 теллы и клановский канал сделаны неязыковыми
@@ -618,24 +666,26 @@ give понимает необязательный параметр to, т.е. можно сказать и give smth smbd и 
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Oct 15 16:29:18 1998~
-Stamp 908443758
-To imm~
+Sender  Iluvatar~
+Date    Thu Oct 15 16:29:18 1998~
+Stamp   908443758
+To      imm~
 Subject clan guards~
-Text hi, there!
+Text
+hi, there!
  
 ACT_CLAN_GUARD для клановских гвардов -- immune к blackjack, vampiric touch, strangle, pwk, disintegrate, witch curse, assasinate
 клановский канал ловится на act триггер
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Oct 15 16:31:32 1998~
-Stamp 908443892
-To all~
+Sender  Iluvatar~
+Date    Thu Oct 15 16:31:32 1998~
+Stamp   908443892
+To      all~
 Subject vampires and 'witch curse'~
-Text hi, there!
+Text
+hi, there!
  
 'witch curse' fixed (не проверялись saves и victim не умирал)
 вампиры пофиксены (в очередной раз)
@@ -644,34 +694,37 @@ more changes to come, happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Oct 15 16:36:57 1998~
-Stamp 908444217
-To all~
+Sender  Iluvatar~
+Date    Thu Oct 15 16:36:57 1998~
+Stamp   908444217
+To      all~
 Subject nocancel/nosummon, corruption~
-Text hi, there!
+Text
+hi, there!
  
 забыл совсем. вместе с 'witch curse' починил corruption. nocancel/nosummon нельзя приказать. также их нельзя поменять,будучи под charm
  
 {Iluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Oct 16 20:59:51 1998~
-Stamp 908546391
-To imm~
+Sender  Iluvatar~
+Date    Fri Oct 16 20:59:51 1998~
+Stamp   908546391
+To      imm~
 Subject room editor~
-Text hi, there!
+Text
+hi, there!
  
 edit room и прочие команды из него действуют на ту комнату, в которой чар находится в данный момент
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Sat Oct 17 18:04:41 1998~
-Stamp 908622281
-To imm~
+Sender  Iluvatar~
+Date    Sat Oct 17 18:04:41 1998~
+Stamp   908622281
+To      imm~
 Subject OLC, mob casts~
-Text hi, there!
+Text
+hi, there!
  
 новая командочка - ashow. help 'olc ashow'.
 в мобпрогах кажется можно будет написать 'cast nowait smth smbd'
@@ -686,23 +739,25 @@ if sameclan $n и if wait $n
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Oct 21 12:22:26 1998~
-Stamp 908947346
-To all~
+Sender  Iluvatar~
+Date    Wed Oct 21 12:22:26 1998~
+Stamp   908947346
+To      all~
 Subject 'witch curse', autolook~
-Text hi, there!
+Text
+hi, there!
  
 two minor changes: 'witch curse' is now in group 'maladictions', dam message for 'witch curse' fixed. new command {cautolook{x. help autolook for more info
  
 {WIluvatar{x, Eru, the One, в отпуске
 ~
-Sender Iluvatar~
-Date Wed Oct 21 12:25:38 1998~
-Stamp 908947538
-To imm~
+Sender  Iluvatar~
+Date    Wed Oct 21 12:25:38 1998~
+Stamp   908947538
+To      imm~
 Subject OLC~
-Text hi, there!
+Text
+hi, there!
  
 obj affects are shown/can be changed with OLC (help 'OLC ADDAFFECT' for
 more info)
@@ -710,23 +765,25 @@ hmm, OLC for rooms does not use ch->in_room anymore
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Oct 21 12:26:24 1998~
-Stamp 908947584
-To all~
+Sender  Iluvatar~
+Date    Wed Oct 21 12:26:24 1998~
+Stamp   908947584
+To      all~
 Subject lore~
-Text hi, there!
+Text
+hi, there!
  
 забыл совсем.  в lore показываются аффекты на вещичках (все)
  
 {WIluvatar{x, Eru, the One, в отпуске
 ~
-Sender Iluvatar~
-Date Fri Oct 23 17:53:57 1998~
-Stamp 909140037
-To imm~
+Sender  Iluvatar~
+Date    Fri Oct 23 17:53:57 1998~
+Stamp   909140037
+To      imm~
 Subject OLC~
-Text hi, there
+Text
+hi, there
  
 в MobEd/ObjEd добавлены команды clone <vnum>. для мобов не копируются только
 триггера. для объектов копируется все
@@ -737,12 +794,13 @@ Text hi, there
  
 * Origin: the number of the beast is vi vi vi (2:5000/79@fidonet)
 ~
-Sender Iluvatar~
-Date Thu Oct 29 02:35:39 1998~
-Stamp 909606939
-To all~
+Sender  Iluvatar~
+Date    Thu Oct 29 02:35:39 1998~
+Stamp   909606939
+To      all~
 Subject rockseers и пр. пр.~
-Text hi, there!
+Text
+hi, there!
  
 мобы бегают по следу в два раза медленнее
 у вампиров не должны меняться thirst, hunger и full
@@ -752,36 +810,39 @@ Text hi, there!
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Thu Oct 29 13:45:50 1998~
-Stamp 909647150
-To all~
+Sender  Iluvatar~
+Date    Thu Oct 29 13:45:50 1998~
+Stamp   909647150
+To      all~
 Subject limited eq~
-Text hi, there!
+Text
+hi, there!
  
 при смерти con/exp etc. теряется всегда
 limited eq, если левел чара превышает левел  eq больше чем на 20, не записывается
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Oct 30 13:25:00 1998~
-Stamp 909732300
-To all~
+Sender  Iluvatar~
+Date    Fri Oct 30 13:25:00 1998~
+Stamp   909732300
+To      all~
 Subject rockseers and felars~
-Text hi, there!
+Text
+hi, there!
  
 rockseers now have 'meld into stone' skill at level 20
 felars have 'tail' skill
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Nov  2 12:21:30 1998~
-Stamp 909987690
-To all~
+Sender  Iluvatar~
+Date    Mon Nov  2 12:21:30 1998~
+Stamp   909987690
+To      all~
 Subject last minute minor changes~
-Text hi, there!
+Text
+hi, there!
  
 - autolook fixed (at last)
 - players cannot quit the game being in the other clan's area.
@@ -794,23 +855,25 @@ anymore
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Nov  2 13:04:19 1998~
-Stamp 909990259
-To imm~
+Sender  Iluvatar~
+Date    Mon Nov  2 13:04:19 1998~
+Stamp   909990259
+To      imm~
 Subject cast nowait~
-Text hi, there!
+Text
+hi, there!
  
 cast nowait fixed.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Nov 18 12:19:52 1998~
-Stamp 911369992
-To all~
+Sender  Iluvatar~
+Date    Wed Nov 18 12:19:52 1998~
+Stamp   911369992
+To      all~
 Subject only for newbies~
-Text hi, there!
+Text
+hi, there!
  
 now there are one-way exits from all recalls to MUD School
 (down from The Temple of Midgaard, Old Midgaard, up from all the others)
@@ -818,12 +881,13 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Nov 18 14:24:41 1998~
-Stamp 911377481
-To all~
+Sender  Iluvatar~
+Date    Wed Nov 18 14:24:41 1998~
+Stamp   911377481
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 enki tattoo fixed.
 aggressive mobs with backstab skill will attack with backstab (if they
@@ -834,12 +898,13 @@ players can go AFK in all rooms (not just safe rooms as was before)
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Sat Nov 21 17:29:41 1998~
-Stamp 911647781
-To all~
+Sender  Iluvatar~
+Date    Sat Nov 21 17:29:41 1998~
+Stamp   911647781
+To      all~
 Subject questor, 'verbose' command~
-Text hi, there!
+Text
+hi, there!
  
 questor will not give quests to kill the mob of the same race
 new command 'verbose'. see 'help verbose' for details.
@@ -848,23 +913,25 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Nov 24 20:04:08 1998~
-Stamp 911916248
-To all~
+Sender  Iluvatar~
+Date    Tue Nov 24 20:04:08 1998~
+Stamp   911916248
+To      all~
 Subject group exp bonus~
-Text hi, there!
+Text
+hi, there!
  
 Exp bonus for groups of 2 and 3 players implemented
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Tue Dec  1 20:22:57 1998~
-Stamp 912522177
-To all~
+Sender  Iluvatar~
+Date    Tue Dec  1 20:22:57 1998~
+Stamp   912522177
+To      all~
 Subject WANTED~
-Text hi, there!
+Text
+hi, there!
  
 Players with WANTED will loose 1 level after death (WANTED will be automagically
 removed)
@@ -872,12 +939,13 @@ Players can join only one clan
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Dec  2 23:12:36 1998~
-Stamp 912618756
-To all~
+Sender  Iluvatar~
+Date    Wed Dec  2 23:12:36 1998~
+Stamp   912618756
+To      all~
 Subject polymorph, vampire~
-Text hi, there!
+Text
+hi, there!
  
 polymorph do not affect stats
 daytime is changed correctly (bug when vampires could not become vampires
@@ -885,12 +953,13 @@ because of incorrect daytime fixed)
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Dec 14 10:34:50 1998~
-Stamp 913610090
-To imm ahellair root maedhros~
+Sender  Iluvatar~
+Date    Mon Dec 14 10:34:50 1998~
+Stamp   913610090
+To      imm ahellair root maedhros~
 Subject under_construction, noquest~
-Text hi, there!
+Text
+hi, there!
  
 после ребута появятся два новых флажка на ареи -- under_construction
 и noquest. если стоит флажок under_construction, то transportation (всевозможные виды gate, summon, teleport, disperse) в эту арею не работает, квесты в нее не даются
@@ -899,24 +968,26 @@ noquest означает что квеста в арею не даются
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Dec 14 19:34:38 1998~
-Stamp 913642478
-To imm~
+Sender  Iluvatar~
+Date    Mon Dec 14 19:34:38 1998~
+Stamp   913642478
+To      imm~
 Subject wizard commands~
-Text hi, there!
+Text
+hi, there!
 
 тут с grant'ами немного все поменялось. чтобы поиметь назад свои команды (иммские) подойдите ко мне либо к абразаку
 sorry for inconviniences
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Dec 16 16:46:29 1998~
-Stamp 913805189
-To all~
+Sender  Iluvatar~
+Date    Wed Dec 16 16:46:29 1998~
+Stamp   913805189
+To      all~
 Subject WHO command, range casting~
-Text hi, there!
+Text
+hi, there!
  
 WHO command now can take extended arguments (see help 1.who for details).
 Range casting from private rooms on PCs allowed again.
@@ -925,12 +996,13 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender abrazak~
-Date Sat Dec 19 18:33:47 1998~
-Stamp 914070827
-To all~
+Sender  abrazak~
+Date    Sat Dec 19 18:33:47 1998~
+Stamp   914070827
+To      all~
 Subject {WSAFE ROOMS~
-Text Hi there!
+Text
+Hi there!
 After next reboot (or may be crash :-))
 {R SAFE rooms will no longer be peace room{x
 That means - you can be attacked {WANYWHERE{x
@@ -938,12 +1010,13 @@ That means - you can be attacked {WANYWHERE{x
  
 /abrazak, the master of shadows.
 ~
-Sender Iluvatar~
-Date Tue Dec 22 22:37:55 1998~
-Stamp 914344675
-To imm~
+Sender  Iluvatar~
+Date    Tue Dec 22 22:37:55 1998~
+Stamp   914344675
+To      imm~
 Subject quiver, objed/del~
-Text hi, there!
+Text
+hi, there!
  
 У контейнеров появился новый флажок -- quiver (точнее это старый
 cont_for_arrow) -- хранится в v1
@@ -972,12 +1045,13 @@ please измените гильдии ranger'ов и ninja чтобы они не были прямыми
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Dec 23 00:57:45 1998~
-Stamp 914353065
-To imm~
+Sender  Iluvatar~
+Date    Wed Dec 23 00:57:45 1998~
+Stamp   914353065
+To      imm~
 Subject ROOM_NOSUMMON~
-Text hi, there!
+Text
+hi, there!
  
 ROOM_NOSUMMON в Анатолии влиял и на summon и на gate (в обе стороны)
 вернул старую семантику назад (кстати, магазины с петами надо сделать тогда
@@ -987,12 +1061,13 @@ ROOM_NOSUMMON в Анатолии влиял и на summon и на gate (в обе стороны)
  
 PS это будет только после ребута
 ~
-Sender Iluvatar~
-Date Wed Dec 23 01:06:50 1998~
-Stamp 914353610
-To imm~
+Sender  Iluvatar~
+Date    Wed Dec 23 01:06:50 1998~
+Stamp   914353610
+To      imm~
 Subject ROOM_PEACE~
-Text hi, there!
+Text
+hi, there!
  
 Old ROOM_SAFE semantics moved to ROOM_PEACE. Use with care.
  
@@ -1002,24 +1077,26 @@ Old ROOM_SAFE semantics moved to ROOM_PEACE. Use with care.
  
 PS тожа после ребута
 ~
-Sender Iluvatar~
-Date Wed Dec 23 23:02:44 1998~
-Stamp 914432564
-To all~
+Sender  Iluvatar~
+Date    Wed Dec 23 23:02:44 1998~
+Stamp   914432564
+To      all~
 Subject quest & clan items~
-Text hi, there!
+Text
+hi, there!
  
 quest items will be removed soon. clan items will be created instead.
 quest points for quest items will be returned.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Dec 23 23:31:45 1998~
-Stamp 914434305
-To all~
+Sender  Iluvatar~
+Date    Wed Dec 23 23:31:45 1998~
+Stamp   914434305
+To      all~
 Subject 'quiet edit', {ctoggle{x command~
-Text hi, there!
+Text
+hi, there!
  
 show, brief, color, compact, combine, long, notelnet, noiac, and
 verbose commands moved to {ctoggle{x (new command)
@@ -1037,12 +1114,13 @@ Happy New Year, Merry Xmas and Happy mudding
  
 PS and do not forget to visit Grunting Boar Inn :)
 ~
-Sender Iluvatar~
-Date Mon Jan 18 10:50:26 1999~
-Stamp 916635026
-To all~
+Sender  Iluvatar~
+Date    Mon Jan 18 10:50:26 1999~
+Stamp   916635026
+To      all~
 Subject surrender~
-Text hi, there!
+Text
+hi, there!
  
 'surrender' command is no more
  
@@ -1050,12 +1128,13 @@ Text hi, there!
  
 PS (after next reboot)
 ~
-Sender abrazak~
-Date Thu Jan 21 19:07:43 1999~
-Stamp 916924063
-To all~
+Sender  abrazak~
+Date    Thu Jan 21 19:07:43 1999~
+Stamp   916924063
+To      all~
 Subject Some news.~
-Text Hi there!
+Text
+Hi there!
  
 Necromancers, vampires, ant-paladins and clerics gain new spell - 'black shroud'
 This spell is like sanctuary, but only evils can cast it. 
@@ -1065,23 +1144,25 @@ Happy mudding.
  
 /abrazak, the sovereign of shadows.
 ~
-Sender abrazak~
-Date Wed Feb  3 14:03:32 1999~
-Stamp 918029012
-To all~
+Sender  abrazak~
+Date    Wed Feb  3 14:03:32 1999~
+Stamp   918029012
+To      all~
 Subject Clan items.~
-Text Hi there!
+Text
+Hi there!
 С сегодняшнего дня, если clan item (тот, что обычно лежит в алтаре вашего клана)
 находится в алтаре другого клана, клан теряет свою силу (скиллы работать прекращают). Текущее местоположение clan item'a можно узнать при помощи команды item.
  
 /abrazak, the sovereign of shadows
 ~
-Sender Iluvatar~
-Date Mon Feb  8 20:37:09 1999~
-Stamp 918484629
-To all~
+Sender  Iluvatar~
+Date    Mon Feb  8 20:37:09 1999~
+Stamp   918484629
+To      all~
 Subject нумерованные мобы и объекты~
-Text hi, there!
+Text
+hi, there!
  
 теперь при всех операциях с объектами и мобами (кроме range casting -- will
 be fixed later) нумерация сквозная.
@@ -1097,12 +1178,13 @@ be fixed later) нумерация сквозная.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Feb  8 20:54:59 1999~
-Stamp 918485699
-To all~
+Sender  Iluvatar~
+Date    Mon Feb  8 20:54:59 1999~
+Stamp   918485699
+To      all~
 Subject last changes ERRATA =)~
-Text hi, there!
+Text
+hi, there!
  
 так, на самом деле range casting пофиксен =)
 silver будет пофиксен после следующего ребута
@@ -1110,12 +1192,13 @@ silver будет пофиксен после следующего ребута
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Feb  8 22:41:44 1999~
-Stamp 918492104
-To all~
+Sender  Iluvatar~
+Date    Mon Feb  8 22:41:44 1999~
+Stamp   918492104
+To      all~
 Subject upcoming changes~
-Text hi, there!
+Text
+hi, there!
  
 после следущего ребута пофиксится баг с покупкой чего-либо при наличии
 серебра меньше нужного количества
@@ -1126,57 +1209,62 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender abrazak~
-Date Tue Feb  9 17:56:50 1999~
-Stamp 918561410
-To all~
+Sender  abrazak~
+Date    Tue Feb  9 17:56:50 1999~
+Stamp   918561410
+To      all~
 Subject Some news.~
-Text Hi there!
+Text
+Hi there!
  
 Добавлена команда trust(help trust), за ненадобностью убрана команда nocancel.
 Demand - теперь skill.
  
 /abrazak, the sovereign of shadows.
 ~
-Sender Iluvatar~
-Date Tue Feb  9 20:46:49 1999~
-Stamp 918571609
-To all~
+Sender  Iluvatar~
+Date    Tue Feb  9 20:46:49 1999~
+Stamp   918571609
+To      all~
 Subject attract other, wanted and dishonor~
-Text hi, there!
+Text
+hi, there!
  
 'attract other' level is 2 levels higher now.
 wanted and dishonor are now skills.
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Feb 10 01:41:37 1999~
-Stamp 918589297
-To all~
+Sender  Iluvatar~
+Date    Wed Feb 10 01:41:37 1999~
+Stamp   918589297
+To      all~
 Subject clanlist is back~
-Text hi, there!
+Text
+hi, there!
  
 After next reboot 'clanlist' command will be back
 See 'help clanlist' for more info
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Diablo~
-Date Wed Feb 10 20:51:03 1999~
-Stamp 918658263
-To all~
+Sender  Diablo~
+Date    Wed Feb 10 20:51:03 1999~
+Stamp   918658263
+To      all~
 Subject clanrooms~
-Text All clanrooms are now safe. (nosummon&nogate)
+Text
+All clanrooms are now safe. (nosummon&nogate)
 
 Diablo The God of Death
 ~
-Sender Iluvatar~
-Date Wed Feb 10 21:36:52 1999~
-Stamp 918661012
-To all~
+Sender  Iluvatar~
+Date    Wed Feb 10 21:36:52 1999~
+Stamp   918661012
+To      all~
 Subject quest trouble~
-Text hi, there!
+Text
+hi, there!
  
 'quest trouble' seems to be fixed (btw abysmalities and magic rugs
 are beyond 'quest trouble' option)
@@ -1186,12 +1274,13 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Wed Feb 10 21:45:09 1999~
-Stamp 918661509
-To imm~
+Sender  Iluvatar~
+Date    Wed Feb 10 21:45:09 1999~
+Stamp   918661509
+To      imm~
 Subject OLC~
-Text hi, there!
+Text
+hi, there!
  
 в area editor'е появилась команда move -- мувить ареи
 лучше ее совсем не использовать =)
@@ -1200,21 +1289,23 @@ Text hi, there!
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Diablo~
-Date Thu Feb 11 17:08:37 1999~
-Stamp 918731317
-To all~
+Sender  Diablo~
+Date    Thu Feb 11 17:08:37 1999~
+Stamp   918731317
+To      all~
 Subject laerkai stealth~
-Text subj is now limited by 8.
+Text
+subj is now limited by 8.
  
 Diablo The God of Death
 ~
-Sender Iluvatar~
-Date Fri Feb 12 00:54:32 1999~
-Stamp 918759272
-To all~
+Sender  Iluvatar~
+Date    Fri Feb 12 00:54:32 1999~
+Stamp   918759272
+To      all~
 Subject last changes~
-Text hi, there!
+Text
+hi, there!
  
 'note forward', 'note quote', 'note list [from name] [to name]' implemented.
 see help 1.note for details
@@ -1227,24 +1318,26 @@ happy mudding
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Feb 12 11:51:33 1999~
-Stamp 918798693
-To all~
+Sender  Iluvatar~
+Date    Fri Feb 12 11:51:33 1999~
+Stamp   918798693
+To      all~
 Subject shooting~
-Text hi, there!
+Text
+hi, there!
  
 one more thing i forgot to mention: player can shoot i there is no
 other players in his room fighting with him
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Fri Feb 12 16:58:41 1999~
-Stamp 918817121
-To all~
+Sender  Iluvatar~
+Date    Fri Feb 12 16:58:41 1999~
+Stamp   918817121
+To      all~
 Subject minor changes~
-Text hi, there
+Text
+hi, there
  
 ':q!' in string editor will quit editor without saving changes.
 'delete' and 'pray' enabled under freeze :)
@@ -1252,31 +1345,33 @@ more changes to follow
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Sun Feb 14 13:24:50 1999~
-Stamp 918977090
-To all~
+Sender  Iluvatar~
+Date    Sun Feb 14 13:24:50 1999~
+Stamp   918977090
+To      all~
 Subject merlin's stuff~
-Text hi, there!
+Text
+hi, there!
  
 merlin's staff is now staff
 a ward major is now limited by number 10
  
 {WIluvatar{x, Eru, the One
 ~
-Sender Iluvatar~
-Date Mon Feb 15 19:07:27 1999~
-Stamp 919084047
-To imm~
+Sender  Iluvatar~
+Date    Mon Feb 15 19:07:27 1999~
+Stamp   919084047
+To      imm~
 Subject OLC for socials implemented~
 Text
 ~
-Sender Iluvatar~
-Date Tue Feb 16 06:30:17 1999~
-Stamp 919125017
-To imm~
+Sender  Iluvatar~
+Date    Tue Feb 16 06:30:17 1999~
+Stamp   919125017
+To      imm~
 Subject перевод~
-Text * Forwarded by: Iluvatar
+Text
+* Forwarded by: Iluvatar
 * Originally to: all
 * Originally by: Iluvatar, Tue Feb 16 06:27:23 1999
 
@@ -2217,6 +2312,43 @@ hi, there!
  
 1) будет после ребута
 2) и 3) -- сейчас
+ 
+{WTyan{x
+~
+Sender  Marewell~
+Date    Tue Mar 21 12:28:58 2000~
+Stamp   953630938
+To      all~
+Subject wanted~
+Text
+Привет.
+Два изменения связанных с wanted.
+    - стражники теперь не будут видеть разыскиваемого если он невидим
+      а они без соответствующего детекта.
+    - wanted теперь можно поставить только находясь в одной арии с
+      жертвой.
+Эти изменения вступят в силу после перезагрузки.
+
+{WMarewell{x
+~
+Sender  Tyan~
+Date    Tue Mar 21 12:31:54 2000~
+Stamp   953631114
+To      all~
+Subject wanted~
+Text
+On Tue Mar 21 12:28:58 2000 Marewell {xwrote to all:
+{x
+> Привет.
+> Два изменения связанных с wanted.
+>     - стражники теперь не будут видеть разыскиваемого если он невидим
+>       а они без соответствующего детекта.
+>     - wanted теперь можно поставить только находясь в одной арии с
+>       жертвой.
+> Эти изменения вступят в силу после перезагрузки.
+ 
+мааленькая поправочка -- change про wanted только в арее вступил в силу
+уже сейчас
  
 {WTyan{x
 ~

@@ -159,11 +159,11 @@ A pile of bones rises up to form a skeletal dracolich.
 The dracolich is now only bone with pieces of flesh hanging from it.
 Obviously it no longer fears death.
 ~
-human~
-ABF DJu -1000 0
+dracolich~
+AFOT 0 -1000 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
-EFNU 0 0 0
+0 0 0 0
 stand stand none 3750
 0 0 medium unknown
 #5011
@@ -1306,11 +1306,6 @@ you.  But this patch of desert looks different...the sand glows.  You see a
 futuristic city to the south.
 ~
 0 CD mountain
-D2
-You see a futuristic city.
-~
-~
-Z 0 8001
 D3
 Sand as far as the eye can see.
 ~

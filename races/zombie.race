@@ -1,8 +1,8 @@
 #RACE
 Name zombie~
 Aff slow~
-Imm charm magic poison~
-Res cold~
+Imm charm poison disease~
+Res magic cold~
 Vuln weapon~
 Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~

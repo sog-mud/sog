@@ -205,7 +205,7 @@ commit a crime in his presence.
 и у него огромные мускулы. Он хорошо знает каждый уголок королевств Анатолии.
 ~
 giant~
-ABTVXe CDFJVZ 1000 3000
+AGTVXe CDFJVZ 1000 3000
 85 30 1d1+28999 1d1+1499 5d14+80 crush
 -70 -70 -70 -50
 ACDEFHIKLNOT ABP CD 0
@@ -7599,12 +7599,6 @@ D0
 ~
 ~
 Z -1 3117
-D1
-@eng You see some dangerous looking slums...just the right place for a gang.
-@rus Ты видишь весьма негостеприимно выглядящие кварталы. Там заправляют банды.
-~
-~
-Z -1 2101
 D2
 ~
 ~
@@ -8189,12 +8183,6 @@ south.  It occurs to you that this isn't the happiest section of town.
 место в городе.
 ~
 0 S city
-D1
-@eng You see a run-down slum neighborood.
-@rus Ты видишь грязные трущобы.
-~
-~
-Z -1 2160
 D2
 @eng Elm street continues towards a graveyard.
 @rus Улица Вязов продолжается на юг. Чуть дальше видно кладбище.

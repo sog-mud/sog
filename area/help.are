@@ -3449,7 +3449,7 @@ Shades Of Gray is the home for the following races:
 RACE       ACRONYM   GOOD_AT  BAD_AT   EXTRA    COMMENTS
 -----      -------   -------  ------   -----    -------------------
 Human       Human     None     None      0      average race
-Elf	     Elf     Int,Dex  Str,Con   500     good
+Elf          Elf     Int,Dex  Str,Con   500     good, "mastering bow"
 Half-Elf    H-Elf    Int,Dex  Str,Con   200     half human, half elf
 Dark-Elf    D-Elf    Int,Dex  Str,Con   500     evil
 Rockseer    Rocks    Int,Dex  Str,Con   500     neutral, "wand", "meld into s."
@@ -3905,12 +3905,12 @@ a better playing environment.
 see also: PLAYERKILLING
 ~
 0 PLAYERKILL PLAYERKILLING PK PKING~
-Player killing in Shades of Gray is totally permitted. In fact, it is
+@eng Player killing in Shades of Gray is totally permitted. In fact, it is
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
 {Clevel 10{x. People you can pk are shown by a {r[{RPK{r]{x flag in front of their 
 names on the who and the where lists.  These people are anyone within a 
-range of your level.( minimum( 4, level / 10 ) level below and above levels)  
+range of your level.( maximum( 4, level / 10 ) level below and above levels)  
 
 Expect to be PK'ed, and don't take it too personally. Remember, there's
 safety in numbers. 
@@ -3922,6 +3922,26 @@ yourself killed, not by the attacker but by the immortals.
 
 See also: ROLEPLAYING GROUP ALIGNMENT
  
+@rus В Мире Серых Теней разрешено убийство других игроков.  Кроме того, многие
+хорошие вещи лимитированы; это значит, что скорее всего, ты сможешь добыть
+их только путем убийства других игроков.  Убийства других игроков разрешены
+после достижения убийцей и жертвой {C10-го уровня{x.  Игроки, которые могут
+напасть на тебя (и, соответственно, быть атакованными тобой) помечены
+символами {R[PK]{x перед их именем.  Доступность для убийство того или иного
+человека определяется разницей между твоим и его уровнями, которая не должна
+превышать max(4, уровень/10).  На территории клана нападающий может быть
+атакован вне зависимости ит уровня.  
+ 
+Ожидайте нападения, и не воспринимайте это слишком лично. Помните, будучи в
+группе, ты делаешь свою жизнь безопаснее.
+ 
+Пусть твои нападения не будут случайными, а будут определяться той ролью,
+которую играет твой персонаж.
+ 
+Не пытайтесь разорвать соединение, чтобы избежать убийства. Это верный путь
+быть наказанным если не атакующим тебя, то богами.
+ 
+Смотри также: {CROLEPLAY, ALIGN, GROUP{x
 ~
 0 ALIGNMENT~
 @eng In the interest of attracting the right caliber of followers, the
@@ -6043,7 +6063,7 @@ E.g., to ban all newbies from everywhere save for iclub.nsu.ru, enter:
  
 Команда BAN служит для задания правил пропуска игроков в игру. Выбрать тип
 ограничения входа можно при помощи опции <кого> - допустимы значения {call{x,
-{cplayers{x и {newbies{x. Маска задается как игрок@@сервер. Для указания сервера
+{cplayers{x и {cnewbies{x. Маска задается как игрок@@сервер. Для указания сервера
 можно использовать как IP-адреса, так и символьные имена.
  
 BAN DELETE удаляет правило с указанным номером.
