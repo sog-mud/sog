@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.30 2000-10-07 20:41:08 fjoe Exp $
+ * $Id: olc_rule.c,v 1.31 2000-10-21 19:41:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -87,8 +87,8 @@ DECLARE_OLC_FUN(ruleed_del	);
 DECLARE_OLC_FUN(ruleed_delete	);
 
 DECLARE_OLC_FUN(eruleed_name	);
+DECLARE_OLC_FUN(eruleed_auto	);
 DECLARE_OLC_FUN(iruleed_name	);
-DECLARE_OLC_FUN(eruleed_list	);
 
 olc_cmd_t olc_cmds_expl[] =
 {
@@ -100,6 +100,7 @@ olc_cmd_t olc_cmds_expl[] =
 	{ "list",	ruleed_list,	NULL,		&rops_expl	},
 
 	{ "name",	eruleed_name					},
+	{ "auto",	eruleed_auto					},
 	{ "base",	ruleed_base					},
 	{ "add",	ruleed_add					},
 	{ "del",	ruleed_del					},
@@ -318,9 +319,9 @@ OLC_FUN(ruleed_show)
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
-	for (i = 0; i < r->f->v.nused; i++) {
+	for (i = 0; i < r->forms.nused; i++) {
 		int i2;
-		char **p = VARR_GET(&r->f->v, i);
+		char **p = VARR_GET(&r->forms, i);
 
 		/* gender shift */
 		if (rcl->rulecl == RULES_GENDER) {
@@ -456,6 +457,29 @@ OLC_FUN(eruleed_name)
 	return TRUE;
 }
 
+OLC_FUN(eruleed_auto)
+{
+	rule_t *r;
+	rulecl_t *rcl;
+	rule_t *impl;
+
+	EDIT_RULE(ch, r);
+	EDIT_RCL(ch, rcl);
+
+	/*
+	 * lookup implicit rule
+	 */
+	if ((impl = irule_find(rcl, r->name)) == NULL) {
+		act_char("No matching implicit rules found.", ch);
+		return FALSE;
+	}
+
+	r->arg = strlen(r->name) + impl->arg;
+	varr_destroy(&r->forms);
+	varr_cpy(&r->forms, &impl->forms);
+	return TRUE;
+}
+
 OLC_FUN(iruleed_name)
 {
 	rule_t *r;
@@ -533,8 +557,8 @@ static void rule_save(FILE *fp, rule_t *r)
 		    "Name %s~\n", r->name);
 	if (r->arg)
 		fprintf(fp, "BaseLen %d\n", r->arg);
-	for (i = 0; i < r->f->v.nused; i++) {
-		char **p = VARR_GET(&r->f->v, i);
+	for (i = 0; i < r->forms.nused; i++) {
+		char **p = VARR_GET(&r->forms, i);
 		if (IS_NULLSTR(*p))
 			continue;
 		fprintf(fp, "Form %d %s~\n", i, *p);

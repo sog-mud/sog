@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.359 2000-10-21 18:15:48 fjoe Exp $
+ * $Id: act_info.c,v 1.360 2000-10-21 19:41:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -228,7 +228,7 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
 #define do_print_sw(ch, swname, sw)					\
-		act_puts("$F16{$t} $T\n",				\
+		act_puts("$F16{$t} $T",					\
 			 (ch), (swname), (sw) ? "ON" : "OFF",		\
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 

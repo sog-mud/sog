@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.18 1999-12-20 08:31:19 fjoe Exp $
+ * $Id: lang.h,v 1.19 2000-10-21 19:41:05 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -37,22 +37,6 @@
 const char *	word_form(const char* word, int form, int lang, int rulecl);
 
 /*
- * vform_t -- just a varr of forms with ref count
- */
-typedef struct vform_t vform_t;
-struct vform_t {
-	varr	v;
-	int	ref;
-};
-
-vform_t *vform_new	(void);
-vform_t *vform_dup	(vform_t *f);
-void	vform_free	(vform_t *f);
-
-void	vform_add	(vform_t *f, size_t fnum, const char *s);
-void	vform_del	(vform_t *f, size_t fnum);
-
-/*
  * rule_t: rules can be of two types
  *	- explicit rule -- shows how to create word forms explicitly
  *	- implicit rule -- shows how to create explicit rules
@@ -63,17 +47,17 @@ void	vform_del	(vform_t *f, size_t fnum);
  */
 struct rule_t {
 	const char *	name;
-	vform_t *	f;		/* forms */
+	varr		forms;
 	int		arg;		/* length of base for explicit rules */
 					/* offset (always < 0) from the end  */
 					/* of the word for implicit rules    */
 };
 
-/* create explicit rule from implicit rule and word itself */
-void 	erule_create	(rule_t *expl, rule_t *impl, const char* word);
-
 void	rule_init(rule_t*);
 void	rule_destroy(rule_t*);
+
+void	rule_form_add	(rule_t *r, size_t fnum, const char *s);
+void	rule_form_del	(rule_t *r, size_t fnum);
 
 #define MAX_RULE_HASH	256
 

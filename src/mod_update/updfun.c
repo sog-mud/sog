@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.19 2000-10-13 11:02:06 fjoe Exp $
+ * $Id: updfun.c,v 1.20 2000-10-21 19:41:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1112,12 +1112,6 @@ clan_update(void)
 		return;
 
 	hash_foreach(&clans, clan_item_update_cb);
-}
-
-void
-olc_asave_update(void)
-{
-	dofun("asave", NULL, "explicit");
 }
 
 void
