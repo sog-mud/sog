@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.43 1998-10-26 08:38:22 fjoe Exp $
+ * $Id: obj_prog.c,v 1.44 1998-10-28 06:31:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -492,15 +492,6 @@ int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 				 POS_DEAD);
 			spell_cure_poison(gsn_cure_poison, 30,
 					  ch, ch, TARGET_CHAR);
-			return 0;
-		}
-
-		if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1, 5) == 1)) {
-			act("$p glows blue.", ch, obj, NULL, TO_ROOM);
-			act_puts("$p glows blue.", ch, obj, NULL, TO_CHAR,
-				 POS_DEAD);
-			spell_remove_curse(gsn_remove_curse, 30,
-					   ch, ch, TARGET_CHAR);
 			return 0;
 		}
 

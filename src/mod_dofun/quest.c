@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.75 1998-10-12 08:47:46 fjoe Exp $
+ * $Id: quest.c,v 1.76 1998-10-28 06:31:58 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -726,8 +726,7 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max)
 {
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
+	OBJ_DATA *reward;
 	QTROUBLE_DATA *qt;
 
 	/* check quest trouble data */
@@ -750,13 +749,23 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* update quest trouble data */
 
+	reward = create_named_obj(get_obj_index(item_vnum), ch->level, ch->name);
+	if (get_wear_level(ch, reward) < reward->level) {
+		quest_tell(ch, questor, "This item is too powerful for you.\n\r");
+		extract_obj(reward);
+		return FALSE;
+	}
+
 	if (qt != NULL && count_max) {
+		OBJ_DATA *obj;
+		OBJ_DATA *obj_next;
+
 		/* `quest trouble' */
 		for (obj = object_list; obj != NULL; obj = obj_next) {
 			obj_next = obj->next;
 			/* XXX */
 			if (obj->pIndexData->vnum == item_vnum 
-			&&  strstr(mlstr_mval(obj->short_descr), ch->name)) {
+			&&  !str_cmp(obj->owner, ch->name)) {
 				extract_obj(obj);
 				break;
 			}
@@ -776,7 +785,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		ch->pcdata->qtrouble = qt;
 	}
 
-
 	if (count_max)
 		qt->count++;
 	else
@@ -784,18 +792,17 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* ok, give him requested item */
 
-	obj = create_named_obj(get_obj_index(item_vnum), ch->level, ch->name);
-	obj->owner = str_dup(ch->name);
-	mlstr_free(obj->short_descr);
-	obj->short_descr = mlstr_printf(obj->pIndexData->short_descr,
+	reward->owner = str_dup(ch->name);
+	mlstr_free(reward->short_descr);
+	reward->short_descr = mlstr_printf(reward->pIndexData->short_descr,
 			IS_GOOD(ch) ?		"holy" :
 			IS_NEUTRAL(ch) ?	"blue-green" : 
 						"evil", 
 			ch->name);
-	obj_to_char(obj, ch);
+	obj_to_char(reward, ch);
 
-	act("$N gives {W$p{x to $n.", ch, obj, questor, TO_ROOM);
-	act_puts("$N gives you {W$p{x.", ch, obj, questor, TO_CHAR, POS_DEAD);
+	act("$N gives {W$p{x to $n.", ch, reward, questor, TO_ROOM);
+	act_puts("$N gives you {W$p{x.", ch, reward, questor, TO_CHAR, POS_DEAD);
 
 	return TRUE;
 }

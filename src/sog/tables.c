@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.19 1998-10-26 08:38:23 fjoe Exp $
+ * $Id: tables.c,v 1.20 1998-10-28 06:31:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1645,7 +1645,7 @@ const	struct	pc_race_type	pc_race_table	[MAX_PC_RACE]	=
 
     {
 	"rockseer","Rocks",500,{ 100, 100, 100, 100,-1,-1,100,100,100 ,-1,-1,-1,100},
-	{ "wand", "meld into stone" },
+	{ "meld into stone" },
 	{ -1, 2, 0, 4, -2 ,0},	{ 18, 24, 21, 24, 16,25 }, SIZE_MEDIUM,
 	-10,20,0,CR_NEUTRAL,SLANG_ELVISH
     },

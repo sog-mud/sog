@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.153 1998-10-26 08:38:16 fjoe Exp $
+ * $Id: act_info.c,v 1.154 1998-10-28 06:31:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2124,7 +2124,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 void set_title(CHAR_DATA *ch, const char *title)
 {
 	char buf[MAX_TITLE_LENGTH];
-	static char nospace[] = ".,!?':";
+	static char nospace[] = "-.,!?':";
 
 	buf[0] = '\0';
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.81 1998-10-26 08:38:19 fjoe Exp $
+ * $Id: handler.c,v 1.82 1998-10-28 06:31:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -836,6 +836,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 			ch->form = race_table[to].form;
 			ch->parts = race_table[to].parts;
+			update_skills(ch);
 		}
 		break;
 	}
