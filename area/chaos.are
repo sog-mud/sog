@@ -1,0 +1,71 @@
+#AREADATA
+Name Chaos~
+Builders Chaos~
+VNUMs 36100 36199
+Credits Chaos~
+Security 1
+LevelRange 0 0
+End
+
+#MOBILES
+#36100
+demon~
+@eng {rChaos Demon{x@rus {rChaos Demon{x~
+@eng {mA strange condensed flame is here.{x
+@rus {mПеред тобой плавает в воздухе странный сгусток энергии.{x
+~
+@eng {x
+@rus ~
+human~
+AQ HVc 0 0
+95 300 1d1+25000 10d10+200 10d10+3000 none
+-100 -100 -100 -100
+0 AB CD 0
+stand stand none 0
+C PW medium unknown
+A det ADFHZe
+F for AHMV
+F par ABDEFHIJK
+M act 36100 sacrifice~
+#0
+
+#OBJECTS
+#36100
+altar~
+@eng {rFlaming Altar{x@rus {rПылающий Алтарь{x~
+@eng {rA huge Altar in flame is here.{x@rus {rОгромный Алтарь обьЯтый пламенем пылает перед тобой.{x~
+chaos~
+treasure 0 0
+0 0 0 0 0
+0 1000000 1000000 P
+#0
+
+#ROOMS
+#36100
+@eng {x      {gTemple of Chaos      {x@rus {x       {gХрам Хаоса{x~
+@eng {gSpacious room surround you.{x
+@rus {gПросторное помещение окружает тебя со всех сторон.{x
+~
+0 0 0
+S
+#0
+
+#RESETS
+O 0 36100 0 36100	* {rFlaming Altar{x ({x      {gTemple of Chaos      {x)
+M 0 36100 1 36100 1	* {rChaos Demon{x ({x      {gTemple of Chaos      {x)
+S
+
+#MOBPROGS
+#36100
+if rand 97
+mob cast 'armor' $n
+endif
+if rand 97
+smile $n
+endif
+~
+#36101
+~
+#0
+
+#$
