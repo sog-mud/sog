@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.8 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: db_socials.c,v 1.9 1999-12-18 11:01:44 fjoe Exp $
  */
 
 #include <limits.h>
@@ -43,17 +43,32 @@
 
 DECLARE_DBLOAD_FUN(load_social);
 
+DECLARE_DBINIT_FUN(init_socials);
+
 DBFUN dbfun_socials[] =
 {
 	{ "SOCIAL",	load_social	},
 	{ NULL }
 };
 
-DBDATA db_socials = { dbfun_socials };
+DBDATA db_socials = { dbfun_socials, init_socials };
+
+static varrdata_t v_socials =
+{
+	sizeof(social_t), 8,
+	(e_init_t) social_init,
+	(e_destroy_t) social_destroy
+};
+
+DBINIT_FUN(init_socials)
+{
+	if (!DBDATA_VALID(dbdata))
+		varr_init(&socials, &v_socials);
+}
 
 DBLOAD_FUN(load_social)
 {
-	social_t *soc = social_new();
+	social_t *soc = varr_enew(&socials);
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -65,8 +80,7 @@ DBLOAD_FUN(load_social)
 				if (IS_NULLSTR(soc->name)) {
 					db_error("load_social",
 						 "social name not defined");
-					social_free(soc);
-					socials.nused--;
+					varr_edelete(&socials, soc);
 				}
 				return;
 			}

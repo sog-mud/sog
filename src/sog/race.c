@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.20 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: race.c,v 1.21 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ race_init(race_t *r)
 }
 
 race_t *
-race_cpy(race_t *dst, race_t *src)
+race_cpy(race_t *dst, const race_t *src)
 {
 	int i;
 	dst->name = str_qdup(src->name);
@@ -84,15 +84,20 @@ race_destroy(race_t *r)
 		pcrace_free(r->race_pcdata);
 }
 
+static varrdata_t v_classes =
+{
+	sizeof(rclass_t), 4,
+	strkey_init,
+	strkey_destroy
+};
+
 pcrace_t *
 pcrace_new(void)
 {
 	pcrace_t *pcr;
 	pcr = calloc(1, sizeof(*pcr));
 	pcr->skill_spec = str_empty;
-	varr_init(&pcr->classes, sizeof(rclass_t), 4);
-	pcr->classes.e_init = strkey_init;
-	pcr->classes.e_destroy = strkey_destroy;
+	varr_init(&pcr->classes, &v_classes);
 	pcr->refcnt = 1;
 	return pcr;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.99 1999-12-17 12:40:36 fjoe Exp $
+ * $Id: skills.c,v 1.100 1999-12-18 11:01:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -269,17 +269,6 @@ pc_skill_t *
 pc_skill_lookup(CHAR_DATA *ch, const char *sn)
 {
 	return (pc_skill_t*) varr_bsearch(&PC(ch)->learned, &sn, cmpstr);
-}
-
-/*
- * Lookup skill by prefix in varr.
- * First field of structure assumed to be sn
- */
-void *skill_vsearch(varr *v, const char *psn)
-{
-	if (IS_NULLSTR(psn))
-		return NULL;
-	return varr_foreach(v, strkey_search_cb, psn);
 }
 
 /* for returning weapon information */

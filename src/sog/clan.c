@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.52 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: clan.c,v 1.53 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -59,7 +59,7 @@ clan_init(clan_t *clan)
 }
 
 clan_t *
-clan_cpy(clan_t *dst, clan_t *src)
+clan_cpy(clan_t *dst, const clan_t *src)
 {
 	dst->name = str_qdup(src->name);
 	dst->recall_vnum = src->recall_vnum;

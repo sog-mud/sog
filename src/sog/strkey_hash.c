@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.10 1999-12-17 12:40:36 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.11 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <limits.h>
@@ -106,7 +106,7 @@ strkey_search(hash_t *h, const char *name)
 	/*
 	 * search by prefix
 	 */
-	return hash_foreach(h, strkey_search_cb, name);
+	return hash_foreach(h, vstr_search_cb, name);
 }
 
 void *

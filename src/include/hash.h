@@ -23,28 +23,38 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.6 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: hash.h,v 1.7 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _HASH_H_
 #define _HASH_H_
 
-typedef int (*hash_k_hash_t)(const void *k, size_t hsize);
-typedef int (*hash_ke_cmp_t)(const void *k, const void *e);
-typedef void *(*hash_e_cpy_t)(void *dst, const void *src);
+typedef int (*k_hash_t)(const void *k, size_t hsize);
+typedef int (*ke_cmp_t)(const void *k, const void *e);
+
+/*
+ * first five elems must be the same as in varrdata_t
+ */
+typedef struct hashdata_t {
+	size_t nsize;			/* size of elem */
+	size_t nstep;			/* allocation step */
+
+	e_init_t e_init;		/* init elem */
+	e_destroy_t e_destroy;		/* destroy elem */
+	e_cpy_t e_cpy;			/* copy elem */
+
+	size_t hsize;
+	k_hash_t k_hash;		/* hash of key	*/
+	ke_cmp_t ke_cmp;		/* cmp key and elem */
+} hashdata_t;
 
 typedef struct hash_t hash_t;
 struct hash_t {
-	size_t hsize;
 	varr *v;
-
-	hash_k_hash_t k_hash;	/* hash of key	*/
-	hash_ke_cmp_t ke_cmp;	/* cmp key and elem */
-	hash_e_cpy_t e_cpy;	/* copy elems */
+	hashdata_t *h_data;
 };
 
-void	hash_init(hash_t*, size_t hsize, size_t nsize,
-		  varr_e_init_t e_einit, varr_e_destroy_t e_destroy);
+void	hash_init(hash_t*, hashdata_t *h_data);
 void	hash_destroy(hash_t*);
 
 void *	hash_lookup(hash_t*, const void *k);

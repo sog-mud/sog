@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.21 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: db_skill.c,v 1.22 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,16 +44,22 @@ DBFUN dbfun_skills[] =
 
 DBDATA db_skills = { dbfun_skills, init_skills };
 
+static hashdata_t h_skills =
+{
+	sizeof(skill_t), 1,
+	(e_init_t) skill_init,
+	(e_destroy_t) skill_destroy,
+	(e_cpy_t) skill_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_mlstruct_cmp
+};
+
 DBINIT_FUN(init_skills)
 {
-	if (!DBDATA_VALID(dbdata)) {
-		hash_init(&skills, STRKEY_HASH_SIZE, sizeof(skill_t),
-			  (varr_e_init_t) skill_init,
-			  (varr_e_destroy_t) skill_destroy);
-		skills.k_hash = strkey_hash;
-		skills.ke_cmp = strkey_mlstruct_cmp;
-		skills.e_cpy = (hash_e_cpy_t) skill_cpy;
-	}
+	if (!DBDATA_VALID(dbdata))
+		hash_init(&skills, &h_skills);
 }
 
 DBLOAD_FUN(load_skill)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.2 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: forms.c,v 1.3 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ void form_init(form_index_t *f)
 		f->stats[i] = 10;
 }
 
-form_index_t* form_cpy(form_index_t *dst, form_index_t *src)
+form_index_t* form_cpy(form_index_t *dst, const form_index_t *src)
 {
 	int i;
 	dst->name 		= str_qdup(src->name);

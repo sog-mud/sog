@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.6 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: db_hometown.c,v 1.7 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,18 +33,28 @@
 
 DECLARE_DBLOAD_FUN(load_hometown);
 
+DECLARE_DBINIT_FUN(init_hometowns);
+
 DBFUN dbfun_hometowns[] =
 {
 	{ "HOMETOWN",	load_hometown	},
 	{ NULL }
 };
 
-DBDATA db_hometowns = { dbfun_hometowns };
+DBDATA db_hometowns = { dbfun_hometowns, init_hometowns };
 
 static void fread_altar(hometown_t *h, rfile_t *fp);
 static void fread_recall(hometown_t *h, rfile_t *fp);
 static void fread_map(hometown_t *h, rfile_t *fp);
 static bool check_hometown(hometown_t *h);
+
+static varrdata_t v_hometowns = { sizeof(hometown_t), 4 };
+
+DBINIT_FUN(init_hometowns)
+{
+	if (!DBDATA_VALID(dbdata))
+		varr_init(&hometowns, &v_hometowns);
+}
 
 DBLOAD_FUN(load_hometown)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.c,v 1.6 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: socials.c,v 1.7 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -34,14 +34,29 @@
 #include "socials.h"
 #include "str.h"
 
-varr socials = { sizeof(social_t), 8 };
+varr socials;
 
-social_t *social_new()
+void
+social_init(social_t *soc)
 {
-	return varr_enew(&socials);
+	soc->name = str_empty;
+	soc->min_pos = 0;
+
+	soc->found_char = str_empty;
+	soc->found_vict = str_empty;
+	soc->found_notvict = str_empty;
+
+	soc->noarg_char = str_empty;
+	soc->noarg_room = str_empty;
+
+	soc->self_char = str_empty;
+	soc->self_room = str_empty;
+
+	soc->notfound_char = str_empty;
 }
 
-void social_free(social_t *soc)
+void
+social_destroy(social_t *soc)
 {
 	free_string(soc->name);
 
@@ -56,34 +71,4 @@ void social_free(social_t *soc)
 	free_string(soc->self_room);
 
 	free_string(soc->notfound_char);
-}
-
-social_t *social_lookup(const char *name)
-{
-	int i;
-
-	for (i = 0; i < socials.nused; i++) {
-		social_t *soc = VARR_GET(&socials, i);
-		if (!str_cmp(name, soc->name))
-			return soc;
-	}
-
-	return NULL;
-}
-
-social_t *social_search(const char *name)
-{
-	int i;
-	social_t *soc;
-
-	if ((soc = social_lookup(name)))
-		return soc;
-
-	for (i = 0; i < socials.nused; i++) {
-		soc = VARR_GET(&socials, i);
-		if (!str_prefix(name, soc->name))
-			return soc;
-	}
-
-	return NULL;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.310 1999-12-17 12:58:58 fjoe Exp $
+ * $Id: act_info.c,v 1.311 1999-12-18 11:01:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2932,7 +2932,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
+	pc_sk = (pc_skill_t*) vstr_search(&pc->learned, arg);
 	if (pc_sk == NULL
 	||  (sk = skill_lookup(pc_sk->sn)) == NULL
 	||  pc_sk->percent == 0
@@ -3035,7 +3035,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	pc_sk = (pc_skill_t*) skill_vsearch(&pc->learned, arg);
+	pc_sk = (pc_skill_t*) vstr_search(&pc->learned, arg);
 	if (pc_sk == NULL
 	||  skill_lookup(pc_sk->sn) == NULL
 	||  pc_sk->percent == 0
@@ -3439,7 +3439,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch))
-		pc_sk = (pc_skill_t*) skill_vsearch(&PC(ch)->learned, arg);
+		pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg);
 
 	if (pc_sk == NULL)
 		sk = skill_search(arg);

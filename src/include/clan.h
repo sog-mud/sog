@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.22 1999-12-16 12:24:43 fjoe Exp $
+ * $Id: clan.h,v 1.23 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -67,7 +67,7 @@ struct clan_t
 #define CLAN_CHANGED	(Z)
 
 void	clan_init(clan_t *);
-clan_t *clan_cpy(clan_t *dst, clan_t *src);
+clan_t *clan_cpy(clan_t *dst, const clan_t *src);
 void	clan_destroy(clan_t *);
 
 extern hash_t clans;

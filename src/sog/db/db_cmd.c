@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.5 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: db_cmd.c,v 1.6 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,17 +32,32 @@
 
 DECLARE_DBLOAD_FUN(load_cmd);
 
+DECLARE_DBINIT_FUN(init_cmds);
+
 DBFUN dbfun_cmd[] =
 {
 	{ "CMD",	load_cmd	},
 	{ NULL }
 };
 
-DBDATA db_cmd = { dbfun_cmd };
+DBDATA db_cmd = { dbfun_cmd, init_cmds };
+
+static varrdata_t v_commands =
+{
+	sizeof(cmd_t), 16,
+	(e_init_t) cmd_init,
+	(e_destroy_t) cmd_destroy
+};
+
+DBINIT_FUN(init_cmds)
+{
+	if (!DBDATA_VALID(dbdata))
+		varr_init(&commands, &v_commands);
+}
 
 DBLOAD_FUN(load_cmd)
 {
-	cmd_t *cmd = cmd_new();
+	cmd_t *cmd = varr_enew(&commands);
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -60,8 +75,7 @@ DBLOAD_FUN(load_cmd)
 			if (IS_TOKEN(fp, "end")) {
 				if (IS_NULLSTR(cmd->name)) {
 					db_error("load_cmd", "NULL name");
-					cmd_free(cmd);
-					commands.nused--;
+					varr_edelete(&commands, cmd);
 				}
 				return;
 			}

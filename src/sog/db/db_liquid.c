@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.9 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: db_liquid.c,v 1.10 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,16 +44,22 @@ DBFUN dbfun_liquids[] =
 
 DBDATA db_liquids = { dbfun_liquids, init_liquids };
 
+static hashdata_t h_liquids =
+{
+	sizeof(liquid_t), 1,
+	(e_init_t) liquid_init,
+	(e_destroy_t) liquid_destroy,
+	(e_cpy_t) liquid_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_mlstruct_cmp
+};
+
 DBINIT_FUN(init_liquids)
 {
-	if (DBDATA_VALID(dbdata)) {
-		hash_init(&liquids, STRKEY_HASH_SIZE, sizeof(liquid_t),
-			  (varr_e_init_t) liquid_init,
-			  (varr_e_destroy_t) liquid_destroy);
-		liquids.k_hash = strkey_hash;
-		liquids.ke_cmp = strkey_mlstruct_cmp;
-		liquids.e_cpy = (hash_e_cpy_t) liquid_cpy;
-	}
+	if (DBDATA_VALID(dbdata))
+		hash_init(&liquids, &h_liquids);
 }
 
 DBLOAD_FUN(load_liquid)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.222 1999-12-17 12:59:02 fjoe Exp $
+ * $Id: handler.c,v 1.223 1999-12-18 11:01:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3549,8 +3549,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	if (obj->pObjIndex->item_type == ITEM_MONEY) {
 		if (carry_w >= 0
 		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
-			act_puts("$p: you can't carry that much weight.",
-				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act_puts("$P: you can't carry that much weight.",
+				 ch, NULL, obj, TO_CHAR, POS_DEAD);
 			return;
 		}
 	}

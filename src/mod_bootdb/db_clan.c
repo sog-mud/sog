@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.26 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: db_clan.c,v 1.27 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,19 +55,25 @@ DBFUN dbfun_plists[] =
 
 DBDATA db_plists = { dbfun_plists };
 
+static hashdata_t h_clans =
+{
+	sizeof(clan_t), 1,
+	(e_init_t) clan_init,
+	(e_destroy_t) clan_destroy,
+	(e_cpy_t) clan_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_struct_cmp
+};
+
 DBINIT_FUN(init_clans)
 {
 	
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PLISTS", NULL);
-	else {
-		hash_init(&clans, STRKEY_HASH_SIZE, sizeof(clan_t),
-			  (varr_e_init_t) clan_init,
-			  (varr_e_destroy_t) clan_destroy);
-		clans.k_hash = strkey_hash;
-		clans.ke_cmp = strkey_struct_cmp;
-		clans.e_cpy = (hash_e_cpy_t) clan_cpy;
-	}
+	else
+		hash_init(&clans, &h_clans);
 }
 
 DBLOAD_FUN(load_clan)

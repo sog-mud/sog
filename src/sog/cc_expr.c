@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.5 1999-12-16 13:24:49 fjoe Exp $
+ * $Id: cc_expr.c,v 1.6 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -57,13 +57,19 @@ static void		cc_expr_destroy	(cc_expr_t *e);
 
 varr cc_eclasses;
 
+static varrdata_t v_efuns =
+{
+	sizeof(cc_efun_t), 1,
+	(e_init_t) cc_efun_init,
+	(e_destroy_t) cc_efun_destroy,
+	NULL
+};
+
 void
 cc_eclass_init(cc_eclass_t *ecl)
 {
 	ecl->name = str_empty;
-	varr_init(&ecl->efuns, sizeof(cc_efun_t), 1);
-	ecl->efuns.e_init = (varr_e_init_t) cc_efun_init;
-	ecl->efuns.e_destroy = (varr_e_destroy_t) cc_efun_destroy;
+	varr_init(&ecl->efuns, &v_efuns);
 }
 
 void
@@ -88,13 +94,18 @@ cc_efun_lookup(cc_eclass_t *ecl, const char *type)
 	return (cc_efun_t *) varr_bsearch(&ecl->efuns, &type, cmpstr);
 }
 
+static varrdata_t v_cc_expr =
+{
+	sizeof(cc_expr_t), 1,
+	(e_init_t) cc_expr_init,
+	(e_destroy_t) cc_expr_destroy,
+	(e_cpy_t) cc_expr_cpy,
+};
+
 void
 cc_vexpr_init(varr *v)
 {
-	varr_init(v, sizeof(cc_expr_t), 1);
-	v->e_init = (varr_e_init_t) cc_expr_init;
-	v->e_cpy = (varr_e_cpy_t) cc_expr_cpy;
-	v->e_destroy = (varr_e_destroy_t) cc_expr_destroy;
+	varr_init(v, &v_cc_expr);
 }
 
 void

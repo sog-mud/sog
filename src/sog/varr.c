@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.17 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: varr.c,v 1.18 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,23 +33,18 @@
 
 #include "typedef.h"
 #include "varr.h"
+#include "str.h"
 
 /*
  * Variable size array implementation
  */
 
-void varr_init(varr *v, size_t nsize, size_t nstep)
+void varr_init(varr *v, varrdata_t *v_data)
 {
-	v->nsize = nsize;
-	v->nstep = nstep;
-
 	v->p = NULL;
 	v->nused = NULL;
 	v->nalloc = NULL;
-
-	v->e_init = NULL;
-	v->e_cpy = NULL;
-	v->e_destroy = NULL;
+	v->v_data = v_data;
 }
 
 static void *
@@ -57,44 +52,39 @@ varr_cpy_cb(void *p, va_list ap)
 {
 	varr *v = va_arg(ap, varr *);
 
-	v->e_cpy(VARR_GET(v, varr_index(v, p)), p);
+	v->v_data->e_cpy(VARR_GET(v, varr_index(v, p)), p);
 	return NULL;
 }
 
 varr *
-varr_cpy(varr *dst, varr *src)
+varr_cpy(varr *dst, const varr *src)
 {
-	dst->nsize = src->nsize;
-	dst->nstep = src->nstep;
-
 	dst->nused = src->nused;
 	dst->nalloc = src->nalloc;
+	dst->v_data = src->v_data;
 
-	dst->e_init = src->e_init;
-	dst->e_cpy = src->e_cpy;
-	dst->e_destroy = src->e_destroy;
-
-	dst->p = malloc(dst->nsize * dst->nalloc);
-	if (dst->e_cpy)
-		varr_foreach(src, varr_cpy_cb, dst);
+	dst->p = malloc(dst->v_data->nsize * dst->nalloc);
+	if (dst->v_data->e_cpy)
+		varr_foreach((varr *) src, varr_cpy_cb, dst);
 	else
-		memcpy(dst->p, src->p, dst->nsize * dst->nused);
+		memcpy(dst->p, src->p, dst->v_data->nsize * dst->nused);
 	return dst;
 }
 
 static void *
 varr_destroy_cb(void *p, va_list ap)
 {
-	varr_e_destroy_t e_destroy = va_arg(ap, varr_e_destroy_t);
-	e_destroy(p);
+	varr *v = va_arg(ap, varr *);
+
+	v->v_data->e_destroy(p);
 	return NULL;
 }
 
 void varr_destroy(varr *v)
 {
 	v->nalloc = v->nused = 0;
-	if (v->e_destroy)
-		varr_foreach(v, varr_destroy_cb, v->e_destroy);
+	if (v->v_data->e_destroy)
+		varr_foreach(v, varr_destroy_cb, v);
 	free(v->p);
 }
 	
@@ -103,8 +93,8 @@ void *varr_touch(varr *v, size_t i)
 	void *p;
 
 	if (i >= v->nalloc) {
-		int nalloc = (i/v->nstep + 1) * v->nstep;
-		p = realloc(v->p, nalloc*v->nsize);
+		int nalloc = (i/v->v_data->nstep + 1) * v->v_data->nstep;
+		p = realloc(v->p, nalloc*v->v_data->nsize);
 		if (p == NULL)
 			return NULL;
 		v->nalloc = nalloc;
@@ -116,9 +106,10 @@ void *varr_touch(varr *v, size_t i)
 		int j;
 
 		for (j = v->nused; j < i+1; j++) {
-			memset(VARR_GET(v, j), 0, v->nsize);
-			if (v->e_init)
-				v->e_init(VARR_GET(v, j));
+			if (v->v_data->e_init)
+				v->v_data->e_init(VARR_GET(v, j));
+			else
+				memset(VARR_GET(v, j), 0, v->v_data->nsize);
 		}
 		v->nused = i+1;
 	}
@@ -132,10 +123,11 @@ void *varr_insert(varr *v, size_t i)
 	if (i >= v->nused)
 		return varr_touch(v, i);
 	varr_enew(v);
-	memmove(VARR_GET(v, i+1), p, v->nsize*(v->nused-1 - i));
-	memset(p, 0, v->nsize);
-	if (v->e_init)
-		v->e_init(p);
+	memmove(VARR_GET(v, i+1), p, v->v_data->nsize*(v->nused-1 - i));
+	if (v->v_data->e_init)
+		v->v_data->e_init(p);
+	else
+		memset(p, 0, v->v_data->nsize);
 	return p;
 }
 
@@ -144,20 +136,20 @@ void varr_delete(varr *v, size_t i)
 	if (!v->nused || i >= v->nused)
 		return;
 
-	if (v->e_destroy)
-		v->e_destroy(VARR_GET(v, i));
+	if (v->v_data->e_destroy)
+		v->v_data->e_destroy(VARR_GET(v, i));
 
 	if (i >= --v->nused)
 		return;
 
-	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->nsize*(v->nused - i));
+	memmove(VARR_GET(v, i), VARR_GET(v, i+1), v->v_data->nsize*(v->nused - i));
 }
 
 void varr_qsort(varr* v, int (*cmpfun)(const void*, const void*))
 {
 	if (v == NULL || v->nused == 0)
 		return;
-	qsort(v->p, v->nused, v->nsize, cmpfun);
+	qsort(v->p, v->nused, v->v_data->nsize, cmpfun);
 }
 
 void *varr_bsearch(varr* v, const void *e,
@@ -165,7 +157,7 @@ void *varr_bsearch(varr* v, const void *e,
 {
 	if (v == NULL || v->nused == 0)
 		return NULL;
-	return bsearch(e, v->p, v->nused, v->nsize, cmpfun);
+	return bsearch(e, v->p, v->nused, v->v_data->nsize, cmpfun);
 }
 
 void *varr_foreach(varr *v, foreach_cb_t cb, ...)
@@ -219,3 +211,50 @@ varr_anforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
 	return NULL;
 }
 
+void *
+vstr_lookup_cb(void *p, va_list ap)
+{
+	const char *name = va_arg(ap, const char *);
+
+	if (!str_cmp(name, *(const char **) p))
+		return p;
+
+	return NULL;
+}
+
+void *
+vstr_search_cb(void *p, va_list ap)
+{
+	const char *name = va_arg(ap, const char *);
+
+	if (!str_prefix(name, *(const char **) p))
+		return p;
+
+	return NULL;
+}
+
+void *
+vstr_lookup(varr *v, const char *name)
+{
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	return varr_foreach(v, vstr_lookup_cb, name);
+}
+
+void *
+vstr_search(varr *v, const char *name)
+{
+	void *p;
+
+	if (IS_NULLSTR(name))
+		return NULL;
+
+	/*
+	 * try exact match first
+	 */
+	if ((p = vstr_lookup(v, name)) != NULL)
+		return p;
+
+	return varr_foreach(v, vstr_search_cb, name);
+}

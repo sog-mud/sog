@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.32 1999-12-17 12:40:35 fjoe Exp $
+ * $Id: skills.h,v 1.33 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -103,9 +103,6 @@ void	check_events	(CHAR_DATA *ch, AFFECT_DATA *list,
 /* fast skill lookup by precise name */
 #define skill_lookup(sn)	((skill_t*) strkey_lookup(&skills, (sn)))
 #define skill_search(sn)	((skill_t*) mlstrkey_search(&skills, (sn)))
-
-/* lookup skill by prefix in skill list */
-void *		skill_vsearch	(varr *v, const char *sn);
 
 const char *	get_weapon_sn	(OBJ_DATA *obj);
 int		get_weapon_skill(CHAR_DATA *ch, const char *sn);

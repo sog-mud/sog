@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.10 1999-12-16 12:24:51 fjoe Exp $
+ * $Id: cmd.c,v 1.11 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -38,47 +38,26 @@
 #include "log.h"
 #include "module.h"
 
-varr commands = { sizeof(cmd_t), 16 };
+varr commands;
 
-cmd_t *cmd_new(void)
+void
+cmd_init(cmd_t *cmd)
 {
-	return varr_enew(&commands);
+	cmd->name = str_empty;
+	cmd->dofun_name = str_empty;
+	cmd->min_pos = 0;
+	cmd->min_level = 0;
+	cmd->cmd_log = LOG_NORMAL;
+	cmd->cmd_flags = 0;
+	cmd->cmd_class = CC_ORDINARY;
+	cmd->do_fun = NULL;
 }
 
-void cmd_free(cmd_t *cmd)
+void
+cmd_destroy(cmd_t *cmd)
 {
 	free_string(cmd->name);
 	free_string(cmd->dofun_name);
-}
-
-cmd_t *cmd_lookup(const char *name)
-{
-	int i;
-
-	for (i = 0; i < commands.nused; i++) {
-		cmd_t *cmd = VARR_GET(&commands, i);
-		if (!str_cmp(cmd->name, name))
-			return cmd;
-	}
-
-	return NULL;
-}
-
-cmd_t *cmd_search(const char *name)
-{
-	int i;
-	cmd_t *cmd;
-
-	if ((cmd = cmd_lookup(name)))
-		return cmd;
-
-	for (i = 0; i < commands.nused; i++) {
-		cmd = VARR_GET(&commands, i);
-		if (!str_prefix(cmd->name, name))
-			return cmd;
-	}
-
-	return NULL;
 }
 
 void *
@@ -113,7 +92,8 @@ cmd_unload_cb(void *p, va_list ap)
 	return NULL;
 }
 
-void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
+void
+dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
 {
 	cmd_t *cmd;
 	char buf[MAX_STRING_LENGTH];

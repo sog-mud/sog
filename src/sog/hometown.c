@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.7 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: hometown.c,v 1.8 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 
 static hometown_t *	get_hometown	(int htn);
 
-varr hometowns = { sizeof(hometown_t), 4 };
+varr hometowns;
 
 /*
  * lookup hometown number by name

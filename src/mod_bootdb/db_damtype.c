@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.8 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: db_damtype.c,v 1.9 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,16 +44,22 @@ DBFUN dbfun_damtype[] =
 
 DBDATA db_damtype = { dbfun_damtype, init_damtype };
 
+static hashdata_t h_damtypes =
+{
+	sizeof(damtype_t), 1,
+	(e_init_t) damtype_init,
+	(e_destroy_t) damtype_destroy,
+	(e_cpy_t) damtype_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_struct_cmp
+};
+
 DBINIT_FUN(init_damtype)
 {
-	if (!DBDATA_VALID(dbdata)) {
-		hash_init(&damtypes, STRKEY_HASH_SIZE, sizeof(damtype_t),
-			  (varr_e_init_t) damtype_init,
-			  (varr_e_destroy_t) damtype_destroy);
-		damtypes.k_hash = strkey_hash;
-		damtypes.ke_cmp = strkey_struct_cmp;
-		damtypes.e_cpy = (hash_e_cpy_t) damtype_cpy;
-	}
+	if (!DBDATA_VALID(dbdata))
+		hash_init(&damtypes, &h_damtypes);
 }
 
 DBLOAD_FUN(load_damtype)

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.214 1999-12-14 07:24:50 fjoe Exp $
+ * $Id: comm.c,v 1.215 1999-12-18 11:01:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -186,9 +186,9 @@ void	read_from_buffer	(DESCRIPTOR_DATA *d);
 void	stop_idling		(DESCRIPTOR_DATA *d);
 void 	log_area_popularity	(void);
 
-varr 	control_sockets = { sizeof(int), 2 };
-varr	info_sockets = { sizeof(int), 2 };
-varr	info_trusted = { sizeof(struct in_addr), 2 };
+varr 	control_sockets;
+varr	info_sockets;
+varr	info_trusted;
 
 static void usage(const char *name)
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.26 1999-12-16 12:24:51 fjoe Exp $
+ * $Id: class.c,v 1.27 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,8 +33,18 @@
 hash_t classes;
 
 static void	pose_init(pose_t *p);
-static pose_t *	pose_cpy(pose_t *dst, pose_t *src);
+static pose_t *	pose_cpy(pose_t *dst, const pose_t *src);
 static void	pose_destroy(pose_t *p);
+
+static varrdata_t v_guilds = { sizeof(int), 4 };
+
+static varrdata_t v_poses =
+{
+	sizeof(pose_t), 4,
+	(e_init_t) pose_init,
+	(e_destroy_t) pose_destroy,
+	(e_cpy_t) pose_cpy
+};
 
 void
 class_init(class_t *cl)
@@ -57,17 +67,14 @@ class_init(class_t *cl)
 	cl->death_limit = -1;
 	cl->skill_spec = str_empty;
 
-	varr_init(&cl->guilds, sizeof(int), 4);
-	varr_init(&cl->poses, sizeof(pose_t), 4);
-	cl->poses.e_init = (varr_e_init_t) pose_init;
-	cl->poses.e_cpy = (varr_e_cpy_t) pose_cpy;
-	cl->poses.e_destroy = (varr_e_destroy_t) pose_destroy;
+	varr_init(&cl->guilds, &v_guilds);
+	varr_init(&cl->poses, &v_poses);
 	for (i = 0; i < MAX_STAT; i++)
 		cl->mod_stat[i] = 0;
 }
 
 class_t *
-class_cpy(class_t *dst, class_t *src)
+class_cpy(class_t *dst, const class_t *src)
 {
 	int i;
 
@@ -181,7 +188,7 @@ pose_init(pose_t *p)
 }
 
 static pose_t *
-pose_cpy(pose_t *dst, pose_t *src)
+pose_cpy(pose_t *dst, const pose_t *src)
 {
 	dst->self = str_qdup(src->self);
 	dst->others = str_qdup(src->others);

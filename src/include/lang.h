@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.16 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: lang.h,v 1.17 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -132,8 +132,9 @@ struct lang_t {
 
 extern varr	langs;
 
-lang_t *	lang_new(void);
-int		lang_lookup(const char*);
-int		lang_nlookup(const char*, size_t len);
+void	lang_init(lang_t *);
+
+int	lang_lookup(const char*);
+int	lang_nlookup(const char*, size_t len);
 
 #endif

@@ -23,33 +23,37 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.14 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: varr.h,v 1.15 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
 
-typedef void (*varr_e_init_t)(void *);
-typedef void *(*varr_e_cpy_t)(void *, void *);
-typedef void (*varr_e_destroy_t)(void *);
+typedef void (*e_init_t)(void *);
+typedef void *(*e_cpy_t)(void *, const void *);
+typedef void (*e_destroy_t)(void *);
 
-typedef struct varr varr;
-struct varr {
+typedef struct varrdata_t {
 	size_t nsize;			/* size of elem */
 	size_t nstep;			/* allocation step */
 
+	e_init_t e_init;		/* init elem */
+	e_destroy_t e_destroy;		/* destroy elem */
+	e_cpy_t e_cpy;			/* copy elem */
+} varrdata_t;
+
+typedef struct varr varr;
+struct varr {
 	void *p;
 
 	size_t nused;			/* elems used */
 	size_t nalloc;			/* elems allocated */
 
-	varr_e_init_t e_init;		/* init elem */
-	varr_e_cpy_t e_cpy;		/* copy elem */
-	varr_e_destroy_t e_destroy;	/* destroy elem */
+	varrdata_t *v_data;
 };
 
-void	varr_init	(varr*, size_t nsize, size_t nstep);
-varr *	varr_cpy	(varr* dst, varr *src);
+void	varr_init	(varr*, varrdata_t *v_data);
+varr *	varr_cpy	(varr* dst, const varr *src);
 void	varr_destroy	(varr*);
 
 void *	varr_touch	(varr*, size_t i);
@@ -68,11 +72,22 @@ void *	varr_nforeach	(varr *, size_t i, foreach_cb_t, ...);
 void *	varr_anforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
 
 #define varr_enew(v)	(varr_touch((v), (v)->nused))
-#define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->nsize))
+#define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->v_data->nsize))
 #define varr_get(v, i)	((i) < 0 || (i) >= (v)->nused ? \
 			 NULL : VARR_GET((v), (i)))
-#define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->nsize)
+#define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->v_data->nsize)
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
 #define varr_isempty(v)	(!(v)->nused)
+
+/*
+ * `vstr_lookup' does precise search of name (str_cmp)
+ * `vstr_search' does `vstr_lookup', if not found prefix search (str_prefix)
+ * is performed
+ */
+void *	vstr_lookup_cb(void *p, va_list ap);
+void *	vstr_search_cb(void *p, va_list ap);
+
+void *	vstr_lookup(varr *v, const char *name);
+void *	vstr_search(varr *v, const char *name);
 
 #endif

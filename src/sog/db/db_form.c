@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.2 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: db_form.c,v 1.3 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,16 +44,22 @@ DBFUN dbfun_forms[] =
 
 DBDATA db_forms = { dbfun_forms, init_form };
 
+static hashdata_t h_forms =
+{
+	sizeof(form_index_t), 1,
+	(e_init_t) form_init,
+	(e_destroy_t) form_destroy,
+	(e_cpy_t) form_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_struct_cmp
+};
+
 DBINIT_FUN(init_form)
 {
-	if (!DBDATA_VALID(dbdata)) {
-		hash_init(&forms, STRKEY_HASH_SIZE, sizeof(form_index_t),
-			  (varr_e_init_t) form_init,
-			  (varr_e_destroy_t) form_destroy);
-		forms.k_hash = strkey_hash;
-		forms.ke_cmp = strkey_struct_cmp;
-		forms.e_cpy = (hash_e_cpy_t) form_cpy;
-	}
+	if (!DBDATA_VALID(dbdata))
+		hash_init(&forms, &h_forms);
 }
 
 DBLOAD_FUN(load_form)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.17 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: spec.c,v 1.18 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,15 @@
 hash_t specs;
 
 static void		spec_skill_init(spec_skill_t *spec_sk);
-static spec_skill_t *	spec_skill_cpy(spec_skill_t *, spec_skill_t *);
+static spec_skill_t *	spec_skill_cpy(spec_skill_t *, const spec_skill_t *);
+
+static varrdata_t v_spec_skills =
+{
+	sizeof(spec_skill_t), 4,
+	(e_init_t) spec_skill_init,
+	strkey_destroy,
+	(e_cpy_t) spec_skill_cpy,
+};
 
 void
 spec_init(spec_t *spec)
@@ -59,16 +67,12 @@ spec_init(spec_t *spec)
 	spec->spec_name = str_empty;
 	spec->spec_class = 0;
 
-	varr_init(&spec->spec_skills, sizeof(spec_skill_t), 4);
-	spec->spec_skills.e_init = (varr_e_init_t) spec_skill_init;
-	spec->spec_skills.e_cpy = (varr_e_cpy_t) spec_skill_cpy;
-	spec->spec_skills.e_destroy = strkey_destroy;
-
+	varr_init(&spec->spec_skills, &v_spec_skills);
 	cc_vexpr_init(&spec->spec_deps);
 }
 
 spec_t *
-spec_cpy(spec_t *dst, spec_t *src)
+spec_cpy(spec_t *dst, const spec_t *src)
 {
 	dst->spec_name = str_qdup(src->spec_name);
 	dst->spec_class = src->spec_class;
@@ -516,7 +520,7 @@ spec_skill_init(spec_skill_t *spec_sk)
 }
 
 static spec_skill_t *
-spec_skill_cpy(spec_skill_t *dst, spec_skill_t *src)
+spec_skill_cpy(spec_skill_t *dst, const spec_skill_t *src)
 {
 	dst->sn = str_qdup(src->sn);
 	dst->level = src->level;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.h,v 1.6 1999-12-16 12:24:46 fjoe Exp $
+ * $Id: socials.h,v 1.7 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _SOCIALS_H_
@@ -53,9 +53,10 @@ typedef struct social_t social_t;
 
 extern varr socials;
 
-social_t *	social_new();
-void		social_free(social_t *soc);
-social_t *	social_lookup(const char *name);
-social_t *	social_search(const char *name);
+void	social_init	(social_t *soc);
+void	social_destroy	(social_t *soc);
+
+#define social_lookup(name)	((social_t *) vstr_lookup(&socials, (name)))
+#define social_search(name)	((social_t *) vstr_search(&socials, (name)))
 
 #endif

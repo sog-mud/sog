@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.47 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: mlstring.c,v 1.48 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -260,7 +260,7 @@ bool mlstr_null(const mlstring *mlp)
 static const char *
 mlstr_valid_cb(int lang, const char **p, va_list ap)
 {
-	if (!mem_is(*p, MT_STR))
+	if (!IS_NULLSTR(*p) && !mem_is(*p, MT_STR))
 		return *p;
 
 	return NULL;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.200 1999-12-17 12:59:03 fjoe Exp $
+ * $Id: db.c,v 1.201 1999-12-18 11:01:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2031,16 +2031,22 @@ void db_error(const char* fn, const char* fmt,...)
 	log("%s: %s", fn, buf);
 }
 
+static hashdata_t h_glob_gmlstr =
+{
+	sizeof(gmlstr_t), 1,
+	(e_init_t) gmlstr_init,
+	(e_destroy_t) gmlstr_destroy,
+	(e_cpy_t) gmlstr_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_mlstruct_cmp
+};
+
 DBINIT_FUN(init_glob_gmlstr)
 {
-	if (!DBDATA_VALID(dbdata)) {
-		hash_init(&glob_gmlstr, STRKEY_HASH_SIZE, sizeof(gmlstr_t),
-			  (varr_e_init_t) gmlstr_init,
-			  (varr_e_destroy_t) gmlstr_destroy);
-		glob_gmlstr.k_hash = strkey_hash;
-		glob_gmlstr.ke_cmp = strkey_mlstruct_cmp;
-		glob_gmlstr.e_cpy = (hash_e_cpy_t) gmlstr_cpy;
-	}
+	if (!DBDATA_VALID(dbdata))
+		hash_init(&glob_gmlstr, &h_glob_gmlstr);
 }
 
 DBLOAD_FUN(load_glob_gmlstr)

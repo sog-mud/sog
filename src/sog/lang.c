@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.21 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: lang.c,v 1.22 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <string.h>
@@ -160,10 +160,13 @@ const char *word_form(const char *word, int fnum, int lang, int rulecl)
 /*----------------------------------------------------------------------------
  * vform_t functions
  */
+
+static varrdata_t v_vform = { sizeof(char*), 4 };
+
 vform_t *vform_new(void)
 {
 	vform_t *f = calloc(1, sizeof(*f));
-	varr_init(&f->v, sizeof(char*), 4);
+	varr_init(&f->v, &v_vform);
 	f->ref = 1;
 	return f;
 }
@@ -331,39 +334,42 @@ rule_t *erule_lookup(rulecl_t *rcl, const char *name)
 /*----------------------------------------------------------------------------
  * rulecl_t functions
  */
+
+static varrdata_t v_rule =
+{
+	sizeof(rule_t), 4,
+	(e_init_t) rule_init,
+	(e_destroy_t) rule_destroy
+};
+
 static void rulecl_init(lang_t *l, int rulecl)
 {
 	int i;
 	rulecl_t *rcl = l->rules + rulecl;
 
 	rcl->rulecl = rulecl;
-	for (i = 0; i < MAX_RULE_HASH; i++) {
-		varr_init(rcl->expl+i, sizeof(rule_t), 4);
-		rcl->expl[i].e_init = (varr_e_init_t) rule_init;
-		rcl->expl[i].e_destroy = (varr_e_destroy_t) rule_destroy;
-	}
-	varr_init(&rcl->impl, sizeof(rule_t), 4);
-	rcl->impl.e_init = (varr_e_init_t) rule_init;
-	rcl->impl.e_destroy = (varr_e_destroy_t) rule_destroy;
+	for (i = 0; i < MAX_RULE_HASH; i++)
+		varr_init(rcl->expl+i, &v_rule);
+	varr_init(&rcl->impl, &v_rule);
 }
 
 /*----------------------------------------------------------------------------
  * lang_t functions
  */
-varr langs = { sizeof(lang_t), 2 };
+varr langs;
 
-lang_t *lang_new(void)
+void lang_init(lang_t *l)
 {
 	int i;
-	lang_t *l = varr_enew(&langs);
 
-	l->slang_of = -1;
+	l->name = str_empty;
 	l->vnum = langs.nused-1;
+	l->file_name = str_empty;
+	l->lang_flags = 0;
+	l->slang_of = -1;
 
 	for (i = 0; i < MAX_RULECL; i++)
 		rulecl_init(l, i);
-
-	return l;
 }
 
 int lang_lookup(const char *name)

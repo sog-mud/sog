@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.9 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: db_system.c,v 1.10 1999-12-18 11:01:44 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -47,6 +47,8 @@ DECLARE_DBLOAD_FUN(load_system);
 DECLARE_DBLOAD_FUN(load_info);
 DECLARE_DBLOAD_FUN(load_module);
 
+DECLARE_DBINIT_FUN(init_system);
+
 DBFUN dbfun_system[] =
 {
 	{ "SYSTEM",	load_system	},
@@ -54,9 +56,24 @@ DBFUN dbfun_system[] =
 	{ NULL }
 };
 
-DBDATA db_system = { dbfun_system };
+DBDATA db_system = { dbfun_system, init_system };
 
 static void fread_host(rfile_t *fp, varr *v);
+
+static varrdata_t v_control_sockets = { sizeof(int), 2 };
+static varrdata_t v_info_sockets = { sizeof(int), 2 };
+static varrdata_t v_info_trusted = { sizeof(struct in_addr), 2 };
+static varrdata_t v_modules = { sizeof(module_t), 2 };
+
+DBINIT_FUN(init_system)
+{
+	if (!DBDATA_VALID(dbdata)) {
+		varr_init(&control_sockets, &v_control_sockets);
+		varr_init(&info_sockets, &v_info_sockets);
+		varr_init(&info_trusted, &v_info_trusted);
+		varr_init(&modules, &v_modules);
+	}
+}
 
 DBLOAD_FUN(load_system)
 {

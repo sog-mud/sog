@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.17 1999-12-16 12:24:42 fjoe Exp $
+ * $Id: act_magic.c,v 1.18 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -85,7 +85,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		} else if (ch->wait) 
 			return;
 	} else
-		pc_sk = (pc_skill_t*) skill_vsearch(&PC(ch)->learned, arg1);
+		pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
 
 	if (pc_sk != NULL)
 		spell = skill_lookup(pc_sk->sn);
@@ -486,7 +486,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		} else if (ch->wait) 
 			return;
 	} else
-		pc_sk = (pc_skill_t*) skill_vsearch(&PC(ch)->learned, arg1);
+		pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
 
 	if (pc_sk != NULL)
 		prayer = skill_lookup(pc_sk->sn);

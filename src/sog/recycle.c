@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.92 1999-12-17 12:40:36 fjoe Exp $
+ * $Id: recycle.c,v 1.93 1999-12-18 11:01:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -206,6 +206,27 @@ void pc_skill_init(pc_skill_t *pc_sk)
 	pc_sk->percent = 0;
 }
 
+static varrdata_t v_sk_affected =
+{
+	sizeof(saff_t), 1,
+	(e_init_t) saff_init,
+	(e_destroy_t) saff_destroy
+};
+
+static varrdata_t v_learned =
+{
+	sizeof(pc_skill_t), 8,
+	(e_init_t) pc_skill_init,
+	strkey_destroy
+};
+
+static varrdata_t v_specs =
+{
+	sizeof(const char *), 2,
+	strkey_init,
+	strkey_destroy
+};
+
 CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 {
 	CHAR_DATA *ch;
@@ -261,9 +282,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->mod_stat[i] = 0;
 	}
 
-	varr_init(&ch->sk_affected, sizeof(saff_t), 1);
-	ch->sk_affected.e_init = (varr_e_init_t) saff_init;
-	ch->sk_affected.e_destroy = (varr_e_destroy_t) saff_destroy;
+	varr_init(&ch->sk_affected, &v_sk_affected);
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
@@ -276,13 +295,8 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(-1);
 
-		varr_init(&pc->learned, sizeof(pc_skill_t), 8);
-		pc->learned.e_init = (varr_e_init_t) pc_skill_init;
-		pc->learned.e_destroy = strkey_destroy;
-
-		varr_init(&pc->specs, sizeof(pc_skill_t), 2);
-		pc->specs.e_init = strkey_init;
-		pc->specs.e_destroy = strkey_destroy;
+		varr_init(&pc->learned, &v_learned);
+		varr_init(&pc->specs, &v_specs);
 
 		pc->pwd = str_empty;
 		pc->bamfin = str_empty;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.25 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: class.h,v 1.26 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -71,7 +71,7 @@ extern hash_t classes;
 #define IS_CLASS(cl1, cl2)	(!str_cmp((cl1), (cl2)))
 
 void	class_init	(class_t *cl);
-class_t *class_cpy	(class_t *dst, class_t *src);
+class_t *class_cpy	(class_t *dst, const class_t *src);
 void	class_destroy	(class_t *cl);
 
 const char *	class_who_name(CHAR_DATA *ch);

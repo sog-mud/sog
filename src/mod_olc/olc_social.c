@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.17 1999-12-16 12:24:50 fjoe Exp $
+ * $Id: olc_social.c,v 1.18 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include "olc.h"
@@ -80,6 +80,7 @@ olc_cmd_t olc_cmds_soc[] =
 };
 
 static void *save_social_cb(void *fp, va_list ap);
+static void shadow_dump_cmds(BUFFER *output, const char *name);
 static void shadow_print_cmds(CHAR_DATA *ch, const char *name);
 
 #define check_shadow(name)	!!(cmd_search(name))
@@ -105,7 +106,7 @@ OLC_FUN(soced_create)
 	}
 
 	shadow_print_cmds(ch, arg);
-	soc		= social_new();
+	soc		= varr_enew(&socials);
 	soc->name	= str_dup(arg);
 
 	ch->desc->pEdit	= (void *) soc;
@@ -177,8 +178,6 @@ OLC_FUN(soced_show)
 	char arg[MAX_STRING_LENGTH];
 	BUFFER *output;
 	social_t *soc;
-	cmd_t *cmnd;
-	int i;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -186,8 +185,7 @@ OLC_FUN(soced_show)
 			EDIT_SOC(ch, soc);
 		else
 			OLC_ERROR("'OLC ASHOW'");
-	}
-	else {
+	} else {
 		if ((soc = social_search(arg)) == NULL) {
 			char_printf(ch, "SocEd: %s: No such social.\n", arg);
 			return FALSE;
@@ -211,16 +209,7 @@ OLC_FUN(soced_show)
 	SOC_SHOW("Self  char   [%s]\n", soc->self_char);
 	SOC_SHOW("Self  room   [%s]\n", soc->self_room);
 	SOC_SHOW("Notfound     [%s]\n", soc->notfound_char);
-	if (check_shadow(soc->name)) {
-		buf_add(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
-
-		for (i = 0; i < commands.nused; i++) {
-			cmnd = (cmd_t *)VARR_GET(&commands, i);
-			if (str_prefix(soc->name, cmnd->name))
-				continue;
-			buf_printf(output, "   [%s]\n", cmnd->name);
-		}
-	}
+	shadow_dump_cmds(output, soc->name);
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -416,25 +405,35 @@ static void *save_social_cb(void *p, va_list ap)
 	return NULL;
 }
 
-static void shadow_print_cmds(CHAR_DATA *ch, const char *name)
+static void *
+shadow_dump_cb(void *p, va_list ap)
 {
-	cmd_t *cmnd;
-	int i;
-	BUFFER *output;
+	cmd_t *cmd = (cmd_t *) p;
+	const char *name = va_arg(ap, const char *);
+	BUFFER *output = va_arg(ap, BUFFER *);
 
-	output = buf_new(-1);
+	if (!str_prefix(name, cmd->name))
+		buf_printf(output, "   [%s]\n", cmd->name);
+
+	return 0;
+}
+
+static void
+shadow_dump_cmds(BUFFER *output, const char *name)
+{
 	if (check_shadow(name))
 		return;
 
 	buf_add(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
+	varr_foreach(&commands, shadow_dump_cb, name, output);
+}
 
-	for (i = 0; i < commands.nused; i++) {
-		cmnd = (cmd_t *)VARR_GET(&commands, i);
-		if (str_prefix(name, cmnd->name))
-			continue;
-		buf_printf(output, "   [%s]\n", cmnd->name);
-	}
-
+static void
+shadow_print_cmds(CHAR_DATA *ch, const char *name)
+{
+	BUFFER *output = buf_new(-1);
+	shadow_dump_cmds(output, name);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
+

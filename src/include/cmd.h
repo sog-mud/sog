@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.10 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: cmd.h,v 1.11 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -70,11 +70,11 @@ struct cmd_t
 	DO_FUN *	do_fun;
 };
 
-cmd_t *	cmd_new		(void);
-void	cmd_free	(cmd_t*);
+void	cmd_init	(cmd_t *cmd);
+void	cmd_destroy	(cmd_t *cmd);
 
-cmd_t *	cmd_lookup	(const char *name);
-cmd_t *	cmd_search	(const char *name);
+#define cmd_lookup(name)	((cmd_t *) vstr_lookup(&commands, (name)))
+#define cmd_search(name)	((cmd_t *) vstr_search(&commands, (name)))
 
 void *	cmd_load_cb	(void *p, va_list ap);
 void *	cmd_unload_cb	(void *p, va_list ap);

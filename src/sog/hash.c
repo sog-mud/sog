@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.9 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: hash.c,v 1.10 1999-12-18 11:01:41 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -45,30 +45,22 @@ static void *hash_search(hash_t *h, const void *k, varr *v);
 static void *hash_add(hash_t *h, const void *k, const void *e, int flags);
 
 void
-hash_init(hash_t *h, size_t hsize, size_t nsize,
-	  varr_e_init_t e_init, varr_e_destroy_t e_destroy)
+hash_init(hash_t *h, hashdata_t *h_data)
 {
 	int i;
 
-	h->hsize = hsize;
-	h->v = malloc(hsize * sizeof(varr));
+	h->h_data = h_data;
+	h->v = malloc(h_data->hsize * sizeof(varr));
 
-	for (i = 0; i < hsize; i++) {
-		varr_init(h->v + i, nsize, 1);
-		h->v[i].e_init = e_init;
-		h->v[i].e_destroy = e_destroy;
-	}
-
-	h->k_hash = NULL;
-	h->ke_cmp = NULL;
-	h->e_cpy = NULL;
+	for (i = 0; i < h_data->hsize; i++)
+		varr_init(h->v + i, (varrdata_t *) h_data);
 }
 
 void hash_destroy(hash_t *h)
 {
 	int i;
 
-	for (i = 0; i < h->hsize; i++)
+	for (i = 0; i < h->h_data->hsize; i++)
 		varr_destroy(h->v + i);
 
 	free(h->v);
@@ -77,13 +69,13 @@ void hash_destroy(hash_t *h)
 void *
 hash_lookup(hash_t *h, const void *k)
 {
-	return hash_search(h, k, h->v + h->k_hash(k, h->hsize));
+	return hash_search(h, k, h->v + h->h_data->k_hash(k, h->h_data->hsize));
 }
 
 void
 hash_delete(hash_t *h, const void *k)
 {
-	varr *v = h->v + h->k_hash(k, h->hsize);
+	varr *v = h->v + h->h_data->k_hash(k, h->h_data->hsize);
 	void *e = hash_search(h, k, v);
 
 	if (e == NULL)
@@ -115,8 +107,8 @@ hash_isempty(hash_t *h)
 {
 	int i;
 
-	for (i = 0; i < h->hsize; i++) {
-		if (h->v[i].nused != 0)
+	for (i = 0; i < h->h_data->hsize; i++) {
+		if (!varr_isempty(h->v+i))
 			return FALSE;
 	}
 
@@ -132,7 +124,7 @@ hash_random_item(hash_t *h)
 		return NULL;
 
 	for (;;) {
-		varr *v = h->v + number_range(0, h->hsize - 1);
+		varr *v = h->v + number_range(0, h->h_data->hsize - 1);
 		if (v->nused == 0)
 			continue;
 		return VARR_GET(v, number_range(0, v->nused - 1));
@@ -151,7 +143,7 @@ void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 	va_list ap;
 	
 	va_start(ap, cb);
-	for (i = 0; i < h->hsize; i++) {
+	for (i = 0; i < h->h_data->hsize; i++) {
 		void *p;
 		if ((p = varr_anforeach(h->v + i, 0, cb, ap)) != NULL) {
 			rv = p;
@@ -173,7 +165,7 @@ hash_search(hash_t *h, const void *k, varr *v)
 
 	for (i = 0; i < v->nused; i++) {
 		void *e = VARR_GET(v, i);
-		if (!h->ke_cmp(k, e))
+		if (!h->h_data->ke_cmp(k, e))
 			return e;
 	}
 
@@ -183,7 +175,7 @@ hash_search(hash_t *h, const void *k, varr *v)
 static void *
 hash_add(hash_t *h, const void *k, const void *e, int flags)
 {
-	varr *v = h->v + h->k_hash(k, h->hsize);
+	varr *v = h->v + h->h_data->k_hash(k, h->h_data->hsize);
 	void *elem = hash_search(h, k, v);	/* existing element */
 
 	if (elem == NULL) {
@@ -193,10 +185,10 @@ hash_add(hash_t *h, const void *k, const void *e, int flags)
 	} else {
 		if (!IS_SET(flags, HA_REPLACE))
 			return NULL;
-		if (v->e_destroy)
-			v->e_destroy(elem);
+		if (v->v_data->e_destroy)
+			v->v_data->e_destroy(elem);
 	}
 
-	return h->e_cpy(elem, e);
+	return h->h_data->e_cpy(elem, e);
 }
 

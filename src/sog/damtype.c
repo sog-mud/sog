@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.7 1999-12-16 12:24:51 fjoe Exp $
+ * $Id: damtype.c,v 1.8 1999-12-18 11:01:40 fjoe Exp $
  */
 
 #include <string.h>
@@ -42,7 +42,7 @@ void damtype_init(damtype_t *d)
 	d->dam_slot = -1;
 }
 
-damtype_t *damtype_cpy(damtype_t *dst, damtype_t *src)
+damtype_t *damtype_cpy(damtype_t *dst, const damtype_t *src)
 {
 	dst->dam_name = str_qdup(src->dam_name);
 	gmlstr_cpy(&dst->dam_noun, &src->dam_noun);

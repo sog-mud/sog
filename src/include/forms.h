@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.2 1999-12-16 12:24:44 fjoe Exp $
+ * $Id: forms.h,v 1.3 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _FORMS_H_
@@ -64,7 +64,7 @@ extern hash_t forms;
 #define form_search(fn)		((form_index_t*) strkey_search(&forms, (fn)))
 
 void form_init(form_index_t *f);
-form_index_t* form_cpy(form_index_t *dst, form_index_t *src);
+form_index_t* form_cpy(form_index_t *dst, const form_index_t *src);
 void form_destroy(form_index_t *f);
 
 bool shapeshift(CHAR_DATA *ch, const char *form);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.12 1999-12-16 12:24:55 fjoe Exp $
+ * $Id: db_spec.c,v 1.13 1999-12-18 11:01:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,19 +48,25 @@ DBFUN dbfun_specs[] =
 
 DBDATA db_spec = { dbfun_specs, init_specs };
 
+static hashdata_t h_specs =
+{
+	sizeof(spec_t), 1,
+	(e_init_t) spec_init,
+	(e_destroy_t) spec_destroy,
+	(e_cpy_t) spec_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_struct_cmp
+};
+
 DBINIT_FUN(init_specs)
 {
 	if (DBDATA_VALID(dbdata)) {
 		db_set_arg(dbdata, "R", NULL);
 		db_set_arg(dbdata, "SKILL", NULL);
-	} else {
-		hash_init(&specs, STRKEY_HASH_SIZE, sizeof(spec_t),
-			  (varr_e_init_t) spec_init,
-			  (varr_e_destroy_t) spec_destroy);
-		specs.k_hash = strkey_hash;
-		specs.ke_cmp = strkey_struct_cmp;
-		specs.e_cpy = (hash_e_cpy_t) spec_cpy;
-	}
+	} else 
+		hash_init(&specs, &h_specs);
 }
 
 DBLOAD_FUN(load_spec)

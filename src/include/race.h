@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.24 1999-12-16 12:24:45 fjoe Exp $
+ * $Id: race.h,v 1.25 1999-12-18 11:01:39 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -84,7 +84,7 @@ extern hash_t races;
 #define IS_RACE(r1, r2)		(!str_cmp((r1), (r2)))
 
 void	race_init	(race_t *r);
-race_t *race_cpy	(race_t *dst, race_t *src);
+race_t *race_cpy	(race_t *dst, const race_t *src);
 void	race_destroy	(race_t *r);
 
 pcrace_t *	pcrace_new();

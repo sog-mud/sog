@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.52 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: comm_act.c,v 1.53 1999-12-18 11:01:42 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -308,7 +308,7 @@ act_format_door(gmlstr_t *gml)
 
 #define CHECK_STRING(p)						\
 	if (p == NULL) {					\
-		log("act_buf: format '%s', NULL string arg",	\
+		log("act_buf: format '%s': NULL string arg",	\
 		    format);					\
 		i = NULL;					\
 		break;						\
@@ -316,7 +316,7 @@ act_format_door(gmlstr_t *gml)
 
 #define CHECK_STRING2(p)					\
 	if (p == NULL) {					\
-		log("act_buf: format '%s', NULL string arg",	\
+		log("act_buf: format '%s': NULL string arg",	\
 		    format);					\
 		sp--;						\
 		break;						\
@@ -324,7 +324,7 @@ act_format_door(gmlstr_t *gml)
 
 #define CHECK_GMLSTR(gml)						\
 	if (gml == NULL || !mlstr_valid(&(gml)->ml)) {			\
-		log("act_buf: format '%s', invalid mlstring arg",	\
+		log("act_buf: format '%s': invalid mlstring arg",	\
 		    format);						\
 		i = NULL;						\
 		break;							\
@@ -332,7 +332,7 @@ act_format_door(gmlstr_t *gml)
 
 #define CHECK_GMLSTR2(gml)						\
 	if (gml == NULL || !mlstr_valid(&(gml)->gender)) { 		\
-		log("act_buf: format '%s', invalid mlstring arg",	\
+		log("act_buf: format '%s': invalid mlstring arg (2)",	\
 		    format);						\
 		sp--;							\
 		break;							\
@@ -340,7 +340,7 @@ act_format_door(gmlstr_t *gml)
 
 #define CHECK_TYPE(p, mem_type)					\
 	if (!mem_is(p, mem_type)) {				\
-		log("act_buf: format '%s', expected type %d",	\
+		log("act_buf: format '%s': expected type %d",	\
 		    format, mem_type);				\
 		i = NULL;					\
 		break;						\
@@ -348,7 +348,7 @@ act_format_door(gmlstr_t *gml)
 
 #define CHECK_TYPE2(p, mem_type)				\
 	if (!mem_is(p, mem_type)) {				\
-		log("act_buf: format '%s', expected type %d",	\
+		log("act_buf: format '%s': expected type %d",	\
 		    format, mem_type);				\
 		sp--;						\
 		break;						\

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.28 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: db_class.c,v 1.29 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,18 +46,24 @@ DBFUN dbfun_classes[] =
 
 DBDATA db_classes = { dbfun_classes, init_class };
 
+static hashdata_t h_classes =
+{
+	sizeof(class_t), 1,
+	(e_init_t) class_init,
+	(e_destroy_t) class_destroy,
+	(e_cpy_t) class_cpy,
+
+	STRKEY_HASH_SIZE,
+	strkey_hash,
+	strkey_struct_cmp
+};
+
 DBINIT_FUN(init_class)
 {
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "POSE", NULL);
-	else {
-		hash_init(&classes, STRKEY_HASH_SIZE, sizeof(class_t),
-			  (varr_e_init_t) class_init,
-			  (varr_e_destroy_t) class_destroy);
-		classes.k_hash = strkey_hash;
-		classes.ke_cmp = strkey_struct_cmp;
-		classes.e_cpy = (hash_e_cpy_t) class_cpy;
-	}
+	else
+		hash_init(&classes, &h_classes);
 }
 
 DBLOAD_FUN(load_class)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.11 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: module.c,v 1.12 1999-12-18 11:01:41 fjoe Exp $
  */
 
 /*
@@ -42,7 +42,7 @@
 #include "module.h"
 #include "log.h"
 
-varr modules = { sizeof(module_t), 2 };
+varr modules;
 
 int mod_load(module_t* m)
 {

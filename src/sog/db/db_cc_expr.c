@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cc_expr.c,v 1.2 1999-12-16 12:24:54 fjoe Exp $
+ * $Id: db_cc_expr.c,v 1.3 1999-12-18 11:01:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,16 +45,20 @@ DBFUN dbfun_cc_eclass[] =
 
 DBDATA db_cc_expr = { dbfun_cc_eclass, init_cc_eclass };
 
+static varrdata_t v_cc_eclasses =
+{
+	sizeof(cc_eclass_t), 1,
+	(e_init_t) cc_eclass_init,
+	(e_destroy_t) cc_eclass_destroy
+};
+
 /*----------------------------------------------------------------------------
  * cc_eclass loader
  */
 DBINIT_FUN(init_cc_eclass)
 {
-	if (!DBDATA_VALID(dbdata)) {
-		varr_init(&cc_eclasses, sizeof(cc_eclass_t), 1);
-		cc_eclasses.e_init = (varr_e_init_t) cc_eclass_init;
-		cc_eclasses.e_destroy = (varr_e_destroy_t) cc_eclass_destroy;
-	}
+	if (!DBDATA_VALID(dbdata)) 
+		varr_init(&cc_eclasses, &v_cc_eclasses);
 }
 
 DBLOAD_FUN(load_cc_eclass)
