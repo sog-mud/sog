@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.23 2001-02-20 14:33:45 cs Exp $
+ * $Id: fight.c,v 1.202.2.24 2001-02-23 06:36:05 cs Exp $
  */
 
 /***************************************************************************
@@ -1054,7 +1054,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 
 			if (chance > number_range(1, 200000)
 			&&  !IS_IMMORTAL(victim)) {
-				act("$p makes an huge arc in the air, "
+				act("$p makes a huge arc in the air, "
 				    "chopping $n's head OFF!",
 				     victim, wield, NULL, TO_ROOM);
 				act("$p whistles in the air, "
