@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.11.2.8 2004-02-22 21:55:26 fjoe Exp $
+# $Id: Makefile,v 1.11.2.9 2004-06-10 09:20:16 tatyana Exp $
 #
 
 PROG=		sog
@@ -8,7 +8,7 @@ SRCS=		auction.c buffer.c chquest.c clan.c class.c cmd.c\
 		hometown.c imc.c interp.c lang.c log.c lookup.c magic.c\
 		memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c msg.c\
 		msgq.c namedp.c note.c obj_prog.c quest.c race.c raffect.c\
-		rating.c recycle.c religion.c save.c skills.c\
+		rating.c recycle.c religion.c roulette.c save.c skills.c\
 		socials.c special.c str.c string_edit.c tables.c update.c\
 		util.c varr.c vo_iter.c\
 		${COMM_SRCS} ${DB_SRCS} ${COMPAT_SRCS}

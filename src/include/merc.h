@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.51 2004-05-11 19:29:33 kets Exp $
+ * $Id: merc.h,v 1.234.2.52 2004-06-10 09:20:15 tatyana Exp $
  */
 
 /***************************************************************************
@@ -481,6 +481,7 @@ where_t *where_lookup(flag32_t where);
 #define ACT_TRAIN		(J)		/* Can train PC's	*/
 #define ACT_PRACTICE		(K)		/* Can practice PC's	*/
 #define ACT_HUNTER		(L)
+#define ACT_CROUPIER		(M)
 #define ACT_UNDEAD		(O)
 #define ACT_CLERIC		(Q)
 #define ACT_MAGE		(R)
@@ -1035,6 +1036,7 @@ where_t *where_lookup(flag32_t where);
 #define ROOM_NOSUMMON		(X)
 #define ROOM_GUILD		(Y)
 #define ROOM_BATTLE_ARENA	(Z)
+#define ROOM_CASINO		(aa)
 #define ROOM_REGISTRY		(bb)
 
 /*

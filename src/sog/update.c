@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.60 2004-02-24 11:25:22 fjoe Exp $
+ * $Id: update.c,v 1.157.2.61 2004-06-10 09:20:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,7 @@ void	track_update	args((void));
 
 void	magic_update	args((void));
 void    check_fishing   args((void));
+void	roulette_update args((void));
 
 /* used for saving */
 int	rebooter = 0;
@@ -2048,6 +2049,7 @@ void update_handler(void)
 		char_update();
 		quest_update();
 		obj_update();
+		roulette_update();
 		if (time_info.hour == 0)
 			clan_item_update();
 		check_reboot();

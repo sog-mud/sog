@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.24 2004-05-11 19:29:45 kets Exp $
+ * $Id: tables.c,v 1.89.2.25 2004-06-10 09:20:16 tatyana Exp $
  */
 
 /***************************************************************************
@@ -120,6 +120,7 @@ flag_t act_flags[] =
 	{ "sage",		ACT_SAGE,		TRUE	},
 	{ "repairman",		ACT_REPAIRMAN,		TRUE	},
 	{ "familiar",		ACT_FAMILIAR,		TRUE	},
+	{ "croupier",		ACT_CROUPIER,		TRUE	},
 
 	{ NULL }
 };
@@ -499,6 +500,7 @@ flag_t room_flags[] =
 	{ "registry",		ROOM_REGISTRY,		TRUE	},
 	{ "saltwater",		ROOM_SALTWATER,		TRUE	},
 	{ "freshwater",		ROOM_FRESHWATER,	TRUE	},
+	{ "casino",		ROOM_CASINO,		TRUE	},
 
 	{ NULL }
 };

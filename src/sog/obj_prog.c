@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.29 2004-06-09 10:14:25 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.30 2004-06-10 09:20:16 tatyana Exp $
  */
 
 /***************************************************************************
@@ -275,6 +275,7 @@ OPROG_DATA oprog_table[] = {
 	{ "remove_prog_chameleon_poncho", remove_prog_chameleon_poncho },
 	{ "speech_prog_scarab", speech_prog_scarab },
 	{ "speech_prog_cauldron", speech_prog_cauldron },
+	{ "wear_prog_owner", wear_prog_owner },
 	{ NULL }
 };
 
