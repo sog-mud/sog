@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.8 2002-10-16 12:07:09 tatyana Exp $
+ * $Id: act_auction.c,v 1.9 2002-12-03 17:15:54 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -112,7 +112,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 
 			/* return money to the buyer */
 			if (auction.buyer != NULL) {
-				auction.buyer->gold += auction.bet;
+				PC(auction.buyer)->bank_g += auction.bet;
 				act_puts("Your money has been returned.",
 					 auction.buyer, NULL, NULL,
 					 TO_CHAR, POS_DEAD);
@@ -155,7 +155,8 @@ do_auction(CHAR_DATA *ch, const char *argument)
 
 		newbet = parsebet(auction.bet, argument);
 
-	        if (newbet > ch->gold) {
+	        if (newbet > ch->gold
+		&&  newbet > PC(ch)->bank_g) {
 			act_puts("You don't have that much money!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
@@ -183,7 +184,10 @@ do_auction(CHAR_DATA *ch, const char *argument)
 	        if (auction.buyer != NULL)
 			auction.buyer->gold += auction.bet;
 
-	        ch->gold -= newbet; /* substract the gold - important :) */
+		if (newbet > PC(ch)->bank_g)
+			ch->gold -= newbet;
+		else
+			PC(ch)->bank_g -= newbet;
 	        auction.buyer = ch;
 	        auction.bet   = newbet;
 	        auction.going = 0;
