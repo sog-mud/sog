@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.30 1998-06-07 07:15:40 fjoe Exp $
+ * $Id: fight.c,v 1.31 1998-06-07 20:44:02 efdi Exp $
  */
 
 /***************************************************************************
@@ -989,11 +989,11 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			}
 
 			if (IS_SET(ch->act, PLR_AUTOSAC))
-			  if (IS_SET(ch->act,PLR_AUTOLOOT) && corpse
+/*			  if (IS_SET(ch->act,PLR_AUTOLOOT) && corpse
 			      && corpse->contains)
-			    return;  /* leave if corpse has treasure */
+			    return;
 			  else
-			    do_sacrifice(ch, "corpse");
+*/			    do_sacrifice(ch, "corpse");
 		      }
 		    return;
 		  }
@@ -1028,11 +1028,11 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 				get_gold_corpse(ch, corpse);
 
 			if (IS_SET(ch->act, PLR_AUTOSAC))
-			  if (IS_SET(ch->act,PLR_AUTOLOOT) && corpse
+/*			  if (IS_SET(ch->act,PLR_AUTOLOOT) && corpse
 			      && corpse->contains)
-			    return;  /* leave if corpse has treasure */
+			    return; 
 			  else
-			    do_sacrifice(ch, "corpse");
+*/			    do_sacrifice(ch, "corpse");
 		      }
 		    return;
 
@@ -1277,7 +1277,7 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			else if (IS_SET(ch->act, PLR_AUTOGOLD))
 				get_gold_corpse(ch, corpse);
 
-		if (IS_SET(ch->act, PLR_AUTOSAC) && corpse->contains == NULL)
+		if (IS_SET(ch->act, PLR_AUTOSAC))
 			do_sacrifice(ch, "corpse");
 	}
 }
