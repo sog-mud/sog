@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.63 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_save.c,v 1.64 1999-03-10 17:23:35 fjoe Exp $
  */
 
 /**************************************************************************
@@ -446,7 +446,7 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 
 	for (door = 0; door < max_door; door++) {
 		pExit = exit[door];
-		if (pExit->u1.to_room) {
+		if (pExit->to_room.r) {
  
 	 		/* HACK : TO PREVENT EX_LOCKED etc without EX_ISDOOR
  			   to stop booting the mud */
@@ -469,7 +469,7 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 			fprintf(fp, "%s %d %d\n",
 				format_flags(pExit->rs_flags | EX_BITVAL),
 				pExit->key,
-				pExit->u1.to_room->vnum);
+				pExit->to_room.r->vnum);
 		}
 	}
 
@@ -698,7 +698,7 @@ void save_resets(FILE *fp, AREA_DATA *pArea)
 		if ((pRoomIndex = get_room_index(i)))
 			for (door = 0; door < MAX_DIR; door++)
 				if ((pExit = pRoomIndex->exit[door])
-				&&  pExit->u1.to_room 
+				&&  pExit->to_room.r 
 				&&  (IS_SET(pExit->rs_flags, EX_CLOSED) ||
 				     IS_SET(pExit->rs_flags, EX_LOCKED))) {
 					if (!found) {

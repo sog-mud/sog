@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.126 1999-03-08 13:56:04 fjoe Exp $
+ * $Id: handler.c,v 1.127 1999-03-10 17:23:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "merc.h"
-#include "hometown.h"
 #include "obj_prog.h"
 #include "raffects.h"
 #include "fight.h"
@@ -1723,7 +1722,7 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	obj->in_obj		= obj_to;
 	obj->in_room		= NULL;
 	obj->carried_by		= NULL;
-	if (obj_is_pit(obj_to))
+	if (IS_SET(obj_to->pIndexData->extra_flags, ITEM_PIT))
 		obj->cost = 0; 
 
 	for (; obj_to != NULL; obj_to = obj_to->in_obj) {
@@ -1881,7 +1880,6 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	OBJ_DATA *wield;
-	int i;    
 
 	if (fPull) {
 		/*
@@ -1927,13 +1925,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 		char_from_room(ch);
 
 	if (!fPull) {
-	    if (IS_GOOD(ch))
-	      i = 0;
-	    if (IS_EVIL(ch))
-	      i = 2;
-	    else
-	      i = 1;
-	    char_to_room(ch, get_room_index(hometown_table[ch->hometown].altar[i]));
+		char_to_room(ch, get_altar(ch)->room);
 		return;
 	}
 
@@ -2141,12 +2133,12 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 		/* find target room */
 		back_room = dest_room;
 		if ((pExit = dest_room->exit[door]) == NULL
-		||  (dest_room = pExit->u1.to_room) == NULL
+		||  (dest_room = pExit->to_room.r) == NULL
 		||  IS_SET(pExit->exit_info, EX_CLOSED))
 			break;
 
 		if ((bExit = dest_room->exit[opdoor]) == NULL
-		||  bExit->u1.to_room != back_room) {
+		||  bExit->to_room.r != back_room) {
 			char_puts("The path you choose prevents your power "
 				  "to pass.\n",ch);
 			return NULL;
@@ -2969,7 +2961,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	  range++;
 	  if (victim->in_room == temp) break;
 	  if ((pExit = temp->exit[ door ]) == NULL
-		  || (temp = pExit->u1.to_room) == NULL)
+		  || (temp = pExit->to_room.r) == NULL)
 	   {
 		bug("In path_to_track: couldn't calculate range %d",range);
 		return;
@@ -2986,7 +2978,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	   {
 	    room_record(ch->name,temp, opdoor);
 	    if ((pExit = temp->exit[opdoor]) == NULL
-		    || (temp = pExit->u1.to_room) == NULL)
+		    || (temp = pExit->to_room.r) == NULL)
 		{
 		 log_printf("[*****] Path to track: Range: %d Room: %d opdoor:%d",
 			range,temp->vnum,opdoor); 
@@ -3031,7 +3023,7 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 					    ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
-	||  IS_SET(ch->in_room->area->flags, AREA_UNDER_CONSTRUCTION)
+	||  IS_SET(ch->in_room->area->flags, AREA_CLOSED)
 	||  room_is_private(victim->in_room)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON))
 		return FALSE;
@@ -3123,7 +3115,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 		if (can_see_room(ch, room)
 		&&  !room_is_private(room)
 		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
-		&&  !IS_SET(room->area->flags, AREA_UNDER_CONSTRUCTION)
+		&&  !IS_SET(room->area->flags, AREA_CLOSED)
 		&&  (!IS_NPC(ch) ||
 		     !IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) ||
 		     !IS_SET(room->room_flags, ROOM_LAW)))
@@ -3168,21 +3160,6 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, flag32_t flags)
 	}
 
 	return "someone";
-}
-
-bool obj_is_pit(OBJ_DATA *obj)
-{
-	HOMETOWN_DATA *h;
-
-	for (h = hometown_table; h->name != NULL; h++) {
-		int i;
-
-		for (i = 0; i < 3; i++)
-			if (obj->pIndexData->vnum == h->pit[i])
-				return TRUE;
-	}
-
-	return FALSE;
 }
 
 void format_obj(BUFFER *output, OBJ_DATA *obj)

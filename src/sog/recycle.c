@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.42 1999-02-27 07:26:16 fjoe Exp $
+ * $Id: recycle.c,v 1.43 1999-03-10 17:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "hometown.h"
 #include "db/db.h"
 
 /* stuff for recycling extended descs */
@@ -87,9 +86,6 @@ ED_DATA *ed_dup(const ED_DATA *ed)
 void ed_free(ED_DATA *ed)
 {
 	ED_DATA *ed_next;
-
-	if (!ed)
-		return;
 
 	for (; ed; ed = ed_next) {
 		ed_next = ed->next;
@@ -157,9 +153,6 @@ OBJ_DATA *new_obj(void)
 		obj = calloc(1, sizeof(*obj));
 		obj_count++;
 	}
-
-	obj->altar = ROOM_VNUM_ALTAR;
-	obj->pit = OBJ_VNUM_PIT;
 
 	return obj;
 }

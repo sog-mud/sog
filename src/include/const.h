@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.26 1999-02-24 08:42:43 kostik Exp $
+ * $Id: const.h,v 1.27 1999-03-10 17:23:26 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -82,6 +82,7 @@
 #	define PLISTS_PATH	CLANS_PATH"/plists"
 #endif
 
+#define HOMETOWNS_CONF	"hometowns.conf"/* hometowns */
 #define SKILLS_CONF	"skills.conf"	/* skills */
 #define SOCIALS_CONF	"socials.conf"	/* socials */
 #define LANG_CONF	"lang.conf"	/* lang definitions */

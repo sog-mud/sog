@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.100 1999-02-26 13:26:58 fjoe Exp $
+ * $Id: act_quest.c,v 1.101 1999-03-10 17:23:31 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -34,7 +34,6 @@
 #include <time.h>
 
 #include "merc.h"
-#include "hometown.h"
 #include "quest.h"
 
 #ifdef SUNOS
@@ -533,9 +532,10 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
 		     IS_SET(victim->in_room->room_flags,
 			    ROOM_PRIVATE | ROOM_SOLITARY))
+		||  !str_cmp(victim->in_room->area->name,
+			     hometown_name(ch->hometown))
 		||  IS_SET(victim->in_room->area->flags,
-			   AREA_UNDER_CONSTRUCTION | AREA_NOQUEST |
-			   AREA_HOMETOWN))
+			   AREA_CLOSED | AREA_NOQUEST))
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)
@@ -566,8 +566,6 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
 		eyed = create_obj(get_obj_index(obj_vnum), ch->level);
 		eyed->owner = mlstr_dup(ch->short_descr);
-		eyed->altar = hometown_table[ch->hometown].altar[i];
-		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
 		eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 		eyed->cost = 0;

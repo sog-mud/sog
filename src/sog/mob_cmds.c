@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.30 1999-02-26 13:26:58 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.31 1999-03-10 17:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -267,10 +267,10 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
     	EXIT_DATA       *pexit;
       
       	if ((pexit = was_in_room->exit[door]) != NULL
-	  &&   pexit->u1.to_room != NULL
-	  &&   pexit->u1.to_room != was_in_room)
+	  &&   pexit->to_room.r != NULL
+	  &&   pexit->to_room.r != was_in_room)
       	{
-	    ch->in_room = pexit->u1.to_room;
+	    ch->in_room = pexit->to_room.r;
 	    act(argument, ch, NULL, NULL, TO_ROOM | ACT_NOTRIG);
 	}
     }
@@ -1097,10 +1097,10 @@ void do_mpflee(CHAR_DATA *ch, const char *argument)
     {
         door = number_door();
         if ((pexit = was_in->exit[door]) == 0
-        ||   pexit->u1.to_room == NULL
+        ||   pexit->to_room.r == NULL
         ||   IS_SET(pexit->exit_info, EX_CLOSED)
         || (IS_NPC(ch)
-        &&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)))
+        &&   IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
             continue;
 
         move_char(ch, door, FALSE);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.4 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: db_race.c,v 1.5 1999-03-10 17:23:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,7 +67,6 @@ DBLOAD_FUN(load_race)
 			KEY("Act", race->act,
 			    fread_fstring(act_flags, fp));
 			break;
-
 		case 'E':
 			if (!str_cmp(word, "End")) {
 				if (IS_NULLSTR(race->name)) {
@@ -79,36 +78,31 @@ DBLOAD_FUN(load_race)
 				return;
 			}
 			break;
-
 		case 'F':
 			KEY("Form", race->form,
 			    fread_fstring(form_flags, fp));
+			KEY("Flags", race->flags,
+			    fread_fstring(race_flags, fp));
 			break;
-
 		case 'I':
 			KEY("Imm", race->imm,
 			    fread_fstring(imm_flags, fp));
 			break;
-
 		case 'N':
 			SKEY("Name", race->name);
 			break;
-
 		case 'O':
 			KEY("Off", race->off,
 			    fread_fstring(off_flags, fp));
 			break;
-
 		case 'P':
 			KEY("Parts", race->parts,
 			    fread_fstring(part_flags, fp));
 			break;
-
 		case 'R':
 			KEY("Res", race->res,
 			    fread_fstring(res_flags, fp));
 			break;
-
 		case 'V':
 			KEY("Vuln", race->vuln,
 			    fread_fstring(vuln_flags, fp));
@@ -186,13 +180,13 @@ DBLOAD_FUN(load_pcrace)
 
 		case 'R':
 			KEY("RestrictAlign", pcr->restrict_align,
-			    fread_fstring(align_names, fp));
+			    fread_fstring(ralign_names, fp));
 			KEY("RestrictEthos", pcr->restrict_ethos,
 			    fread_fstring(ethos_table, fp));
-			SKEY("RestrictHometown", pcr->restrict_hometown);
 			break;
 
 		case 'S':
+			SKEY("StrictHometown", pcr->strict_hometown);
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
 			if (!str_cmp(word, "ShortName")) {

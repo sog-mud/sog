@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.149 1999-03-09 09:49:56 kostik Exp $
+ * $Id: fight.c,v 1.150 1999-03-10 17:23:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,6 @@
 #endif
 
 #include "merc.h"
-#include "hometown.h"
 #include "quest.h"
 #include "fight.h"
 #include "rating.h"
@@ -1907,9 +1906,8 @@ void make_corpse(CHAR_DATA *ch)
 		else
 		  i = 1;
 
-		corpse->timer	= number_range(25, 40);
-		corpse->altar = hometown_table[ch->hometown].altar[i];
-		corpse->pit = hometown_table[ch->hometown].pit[i];
+		corpse->timer= number_range(25, 40);
+		corpse->altar = get_altar(ch);
 
 		if (ch->gold > 0 || ch->silver > 0)
 			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
@@ -2051,9 +2049,9 @@ void death_cry_org(CHAR_DATA *ch, int part)
 			EXIT_DATA *pexit;
 
 			if ((pexit = was_in_room->exit[door]) != NULL
-			&&   pexit->u1.to_room != NULL
-			&&   pexit->u1.to_room != was_in_room) {
-				ch->in_room = pexit->u1.to_room;
+			&&   pexit->to_room.r != NULL
+			&&   pexit->to_room.r != was_in_room) {
+				ch->in_room = pexit->to_room.r;
 				act(msg, ch, NULL, NULL, TO_ROOM);
 			}
 		}
@@ -2762,14 +2760,14 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 
 		door = number_door();
 		if ((pexit = was_in->exit[door]) == 0
-		     || pexit->u1.to_room == NULL
+		     || pexit->to_room.r == NULL
 		     || (IS_SET(pexit->exit_info, EX_CLOSED)
 		         && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
 		             || IS_SET(pexit->exit_info,EX_NOPASS))
 		             && !IS_TRUSTED(ch,ANGEL))
 		         || (IS_SET(pexit->exit_info , EX_NOFLEE))
 		         || (IS_NPC(ch)
-		             && IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)))
+		             && IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
 			continue;
 
 		move_char(ch, door, FALSE);
@@ -2938,14 +2936,14 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 
 		door = number_door();
 		if ((pexit = was_in->exit[door]) == 0
-		||  pexit->u1.to_room == NULL
+		||  pexit->to_room.r == NULL
 		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
 		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
 		     !IS_TRUSTED(ch,ANGEL))
 		|| IS_SET(pexit->exit_info, EX_NOFLEE)
 		|| (IS_NPC(ch) &&
-		    IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)))
+		    IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
 			continue;
 
 		move_char(ch, door, FALSE);

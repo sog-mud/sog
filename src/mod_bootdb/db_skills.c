@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.7 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db_skills.c,v 1.8 1999-03-10 17:23:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,11 +52,10 @@ DBLOAD_FUN(load_skill)
 		char *word = feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
 
-		switch(UPPER(word[0])) {
+		switch (UPPER(word[0])) {
 		case 'B':
 			KEY("Beats", skill->beats, fread_number(fp));
 			break;
-
 		case 'E':
 			if (!str_cmp(word, "End")) {
 				if (IS_NULLSTR(skill->name)) {
@@ -67,12 +66,10 @@ DBLOAD_FUN(load_skill)
 				return;
 			}
 			break;
-
 		case 'F':
 			KEY("Flags", skill->flags,
 			    fread_fstring(skill_flags, fp));
 			break;
-
 		case 'G':
 			KEY("Group", skill->group,
 			    fread_fword(skill_groups, fp));
@@ -82,28 +79,23 @@ DBLOAD_FUN(load_skill)
 				fMatch = TRUE;
 			}
 			break;
-
 		case 'M':
 			KEY("MinMana", skill->min_mana, fread_number(fp));
 			KEY("MinPos", skill->minimum_position,
 			    fread_fword(position_table, fp));
 			break;
-
 		case 'N':
 			SKEY("Name", skill->name);
 			SKEY("NounDamage", skill->noun_damage);
 			break;
-
 		case 'O':
 			SKEY("ObjWearOff", skill->msg_obj);
 			break;
-
 		case 'S':
 			KEY("Slot", skill->slot, fread_number(fp));
 			KEY("SpellFun", skill->spell_fun,
 			    fread_namedp(spellfn_table, fp));
 			break;
-
 		case 'T':
 			KEY("Type", word, fread_word(fp));	/* just skip */
 			KEY("Target", skill->target,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.14 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: db_class.c,v 1.15 1999-03-10 17:23:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -69,12 +69,10 @@ DBLOAD_FUN(load_class)
 		case 'A':
 			KEY("AddExp", class->points, fread_number(fp));
 			break;
-
 		case 'D':
 			KEY("DeathLimit", class->death_limit,
 			    fread_number(fp));
 			break;
-
 		case 'E':
 			if (!str_cmp(word, "End")) {
 				if (IS_NULLSTR(class->name)) {
@@ -86,12 +84,10 @@ DBLOAD_FUN(load_class)
 				varr_qsort(&class->skills, cmpint);
 				return;
 			}
-
 		case 'F':
 			KEY("Flags", class->flags,
 			    fread_fstring(class_flags, fp));
 			break;
-
 		case 'G':
 			if (!str_cmp(word, "GuildRoom")) {
 				int vnum = fread_number(fp);
@@ -100,35 +96,29 @@ DBLOAD_FUN(load_class)
 				fMatch = TRUE;
 			}
 			break;
-
 		case 'H':
 			KEY("HPRate", class->hp_rate, fread_number(fp));
 			break;
-
 		case 'M':
 			KEY("ManaRate", class->mana_rate, fread_number(fp));
 			break;
-
 		case 'N':
 			SKEY("Name", class->name);
 			break;
-
 		case 'P':
 			KEY("PrimeStat", class->attr_prime,
 			    fread_fword(stat_names, fp));
 			break;
-
 		case 'R':
 			KEY("RestrictAlign", class->restrict_align,
-			    fread_fstring(align_names, fp));
+			    fread_fstring(ralign_names, fp));
 			KEY("RestrictSex", class->restrict_sex,
 			    fread_fstring(sex_table, fp));
 			KEY("RestrictEthos", class->restrict_ethos,
 			    fread_fstring(ethos_table, fp));
-			SKEY("RestrictHometown", class->restrict_hometown);
 			break;
-
 		case 'S':
+			SKEY("StrictHometown", class->strict_hometown);
 			KEY("SkillAdept", class->skill_adept,
 			    fread_number(fp));
 			KEY("SchoolWeapon", class->weapon,
@@ -155,7 +145,6 @@ DBLOAD_FUN(load_class)
 				fMatch = TRUE;
 			}
 			break;
-
 		case 'T':
 			KEY("Thac0_00", class->thac0_00, fread_number(fp));
 			KEY("Thac0_32", class->thac0_32, fread_number(fp));

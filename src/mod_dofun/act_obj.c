@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.130 1999-03-08 13:56:03 fjoe Exp $
+ * $Id: act_obj.c,v 1.131 1999-03-10 17:23:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,9 +138,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 				return;
 			}
 	}
-	if (container != NULL) {
-		if (obj_is_pit(container)
-		&&  !CAN_WEAR(container, ITEM_TAKE)
+	if (container) {
+		if (IS_SET(container->pIndexData->extra_flags, ITEM_PIT)
 		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
 			obj->timer = 0;
 		act_puts("You get $p from $P.",
@@ -2328,8 +2327,7 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 		return NULL;
 	}
 
-	if (IS_SET(keeper->in_room->area->flags, AREA_HOMETOWN)
-	&&  !IS_NPC(ch)
+	if (!IS_NPC(ch)
 	&&  IS_SET(ch->plr_flags, PLR_WANTED)) {
 		do_say(keeper, "Criminals are not welcome!");
 		doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n",

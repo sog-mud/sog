@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.111 1999-02-26 13:26:59 fjoe Exp $
+ * $Id: update.c,v 1.112 1999-03-10 17:23:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -778,18 +778,18 @@ void mobile_update(void)
 		&&  (door = number_bits(5)) <= 5
 		&&  !RIDDEN(ch)
 		&&  (pexit = ch->in_room->exit[door]) != NULL
-		&&  pexit->u1.to_room != NULL
+		&&  pexit->to_room.r != NULL
 		&&  !IS_SET(pexit->exit_info, EX_CLOSED)
-		&&  !IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)
+		&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)
 		&&  (!IS_SET(act, ACT_STAY_AREA) ||
-		     pexit->u1.to_room->area == ch->in_room->area) 
+		     pexit->to_room.r->area == ch->in_room->area) 
 		&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
-		     !IS_SET(pexit->u1.to_room->room_flags,
+		     !IS_SET(pexit->to_room.r->room_flags,
 			     ROOM_PEACE | ROOM_SAFE))
 		&&  (!IS_SET(act, ACT_OUTDOORS) ||
-		     !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)) 
+		     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)) 
 		&&  (!IS_SET(act, ACT_INDOORS) ||
-		     IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS)))
+		     IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)))
 			move_char(ch, door, FALSE);
 	}
 }
@@ -1454,17 +1454,76 @@ void update_pit(OBJ_DATA *obj)
 	/* more or less an hour */
 	pit_count = ++pit_count % 120;
 
-	if (obj_is_pit(obj) && !pit_count)
-		for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
-			next_obj = t_obj->next_content;
-			obj_from_obj(t_obj);
-			extract_obj(t_obj);
+	if (!IS_SET(obj->pIndexData->extra_flags, ITEM_PIT)
+	||  pit_count)
+		return;
+
+	for (t_obj = obj->contains; t_obj; t_obj = next_obj) {
+		next_obj = t_obj->next_content;
+		obj_from_obj(t_obj);
+		extract_obj(t_obj);
+	}
+}
+
+void contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj)
+{
+	OBJ_DATA *obj_next;
+
+	for (; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		obj_from_obj(obj);
+		obj_to_obj(obj, to_obj);
+	}
+}
+
+static inline void
+save_corpse_contents(OBJ_DATA *corpse)
+{
+	OBJ_DATA *obj, *obj_next;
+	OBJ_DATA *pit;
+	altar_t *altar;
+
+/* in another object */
+	if (corpse->in_obj) {
+		contents_to_obj(corpse->contains, corpse->in_obj);
+		return;
+	}
+
+/* carried by */
+	if (corpse->carried_by) {
+		for (obj = corpse->contains; obj; obj = obj_next) {
+			obj_next = obj->next_content;
+			obj_from_obj(obj);
+			obj_to_char(obj, corpse->carried_by);
 		}
+		return;
+	}
+
+/* pit lookup */
+	pit = NULL;
+	altar = corpse->altar;
+	for (pit = altar->room->contents; pit; pit = pit->next_content) {
+		if (pit->pIndexData == altar->pit)
+			break;
+	}
+
+/* put contents into altar */
+	if (!pit) {
+		for (obj = corpse->contains; obj; obj = obj_next) {
+			obj_next = obj->next_content;
+			obj_from_obj(obj);
+			obj_to_room(obj, altar->room);
+		}
+		return;
+	}
+
+/* put contents into pit */
+	contents_to_obj(corpse->contains, pit);
 }
 
 void update_one_obj(OBJ_DATA *obj)
 {
-	OBJ_DATA *pit, *t_obj;
+	OBJ_DATA *t_obj;
 	CHAR_DATA *rch;
 	char *message;
 
@@ -1527,7 +1586,7 @@ void update_one_obj(OBJ_DATA *obj)
 			break;
 	}
 
-	if (obj->carried_by != NULL)
+	if (obj->carried_by)
 		if (IS_NPC(obj->carried_by) 
 		&&  obj->carried_by->pIndexData->pShop != NULL)
 			obj->carried_by->silver += obj->cost/5;
@@ -1537,44 +1596,13 @@ void update_one_obj(OBJ_DATA *obj)
 				act(message, obj->carried_by, obj, NULL,
 				    TO_ROOM);
 		}
+
 	if (obj->in_room && (rch = obj->in_room->people)
-	&&  !(obj->in_obj && obj_is_pit(obj->in_obj)
-	      && !CAN_WEAR(obj->in_obj, ITEM_TAKE)))
+	&&  !(obj->in_obj && IS_SET(obj->pIndexData->extra_flags, ITEM_PIT)))
 		act(message, rch, obj, NULL, TO_ALL);
 
-	if ((obj->pIndexData->item_type == ITEM_CORPSE_PC
-	     || obj->wear_loc == WEAR_FLOAT)
-	&&  obj->contains) {
-		/* save the contents */
-		OBJ_DATA *t_obj, *next_obj;
-
-		for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
-			next_obj = t_obj->next_content;
-			obj_from_obj(t_obj);
-
-			/* in another object */
-			if (obj->in_obj)
-				obj_to_obj(t_obj, obj->in_obj);
-			/* carried */
-			else if (obj->carried_by)
-				if (obj->wear_loc == WEAR_FLOAT
-				&&  obj->carried_by->in_room)
-					obj_to_room(t_obj,
-						    obj->carried_by->in_room);
-				else
-					obj_to_char(t_obj, obj->carried_by);
-			/* to the pit */
-			else {
-				for (pit = get_room_index(obj->altar)->contents;
-				     pit && pit->pIndexData->vnum != obj->pit;
-				     pit = pit->next);
-				if (pit)
-					obj_to_obj(t_obj, pit);
-				else if(obj->in_room)
-					obj_to_room(t_obj, obj->in_room);
-			}
-		}
-	}
+	if (obj->pIndexData->item_type == ITEM_CORPSE_PC && obj->contains)
+		save_corpse_contents(obj);
 	extract_obj(obj);
 }
 

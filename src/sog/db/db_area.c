@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.32 1999-02-23 22:06:49 fjoe Exp $
+ * $Id: db_area.c,v 1.33 1999-03-10 17:23:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -892,7 +892,7 @@ DBLOAD_FUN(load_rooms)
 				pexit->rs_flags		= 0;	/* OLC */
 				locks			= fread_flags(fp);
 				pexit->key		= fread_number(fp);
-				pexit->u1.vnum		= fread_number(fp);
+				pexit->to_room.vnum	= fread_number(fp);
 				pexit->orig_door	= door;	/* OLC */
 
 				if (!IS_SET(locks, EX_BITVAL)) {

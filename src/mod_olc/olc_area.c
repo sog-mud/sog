@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.37 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: olc_area.c,v 1.38 1999-03-10 17:23:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -650,10 +650,10 @@ static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 	for (i = 0; i < MAX_DIR; i++) {
 		EXIT_DATA *pExit = room->exit[i];
 
-		if (!pExit || !pExit->u1.to_room)
+		if (!pExit || !pExit->to_room.r)
 			continue;
 
-		if (IN_RANGE(pExit->u1.to_room->vnum, pArea->min_vnum+delta,
+		if (IN_RANGE(pExit->to_room.r->vnum, pArea->min_vnum+delta,
 			     pArea->max_vnum+delta))
 			touched = TRUE;
 	}

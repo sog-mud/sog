@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.167 1999-03-08 13:56:05 fjoe Exp $
+ * $Id: merc.h,v 1.168 1999-03-10 17:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,27 @@
 #include "typedef.h"
 #include "const.h"
 
+/* general align */
+#define ALIGN_NONE		-1
+#define ALIGN_GOOD		1000
+#define ALIGN_NEUTRAL		0
+#define ALIGN_EVIL		-1000
+
+/* align numbers */
+enum {
+	ANUM_GOOD,
+	ANUM_NEUTRAL,
+	ANUM_EVIL,
+
+	MAX_ANUM
+};
+
+/* align restrictions */
+#define RA_NONE			(0)
+#define RA_GOOD			(A)
+#define RA_NEUTRAL		(B)
+#define RA_EVIL			(C)
+
 /* basic types */
 #include "namedp.h"
 #include "buffer.h"
@@ -69,6 +90,7 @@
 #include "db/gsn.h"
 #include "db/spellfn.h"
 #include "db/msg.h"
+#include "db/hometown.h"
 
 /* utils */
 #include "log.h"
@@ -88,10 +110,6 @@
 #define CMD_HIDDEN	(D)
 #define CMD_DISABLED	(E)
 #define CMD_FROZEN_OK	(F)
-
-struct ethos_type {
-	char *name;
-};
 
 /*
  * Time and weather stuff.
@@ -361,18 +379,6 @@ struct kill_data
  *									   *
  ***************************************************************************/
 
-/* general align */
-#define ALIGN_NONE		-1
-#define ALIGN_GOOD		1000
-#define ALIGN_NEUTRAL		0
-#define ALIGN_EVIL		-1000
-
-/* class align restrictions */
-#define CR_NONE			(0)
-#define CR_GOOD			(A)
-#define CR_NEUTRAL		(B)
-#define CR_EVIL			(C)
-
 /* skills group numbers*/
 #define GROUP_NONE		0
 #define GROUP_WEAPONSMASTER	(A)
@@ -403,8 +409,7 @@ struct kill_data
 /*
  * AREA FLAGS
  */
-#define AREA_HOMETOWN		(A)	/* area is a hometown		*/
-#define AREA_UNDER_CONSTRUCTION	(B)	/* transportation does not work,
+#define AREA_CLOSED		(B)	/* transportation does not work,
 					   no quests			*/
 #define AREA_NOQUEST		(C)	/* no quests in this area	*/
 #define AREA_CHANGED		(Z)	/* area has been modified	*/
@@ -802,6 +807,7 @@ enum {
 #define ITEM_ENCHANTED		(dd)	/* obj is enchanted */
 #define ITEM_CLAN		(ee)
 #define ITEM_QUIT_DROP		(ff)
+#define ITEM_PIT		(gg)
 #define ITEM_OLDSTYLE		(zz)	/* obj is in oldstyle format */
 
 /*
@@ -1399,7 +1405,7 @@ struct pc_data
 	int			petition;
 
 	int			plevels;	/* penalty levels */
-	int 			homepoint;
+	ROOM_INDEX_DATA	*	homepoint;
 };
 
 /*
@@ -1512,8 +1518,7 @@ struct obj_data
 	int 			value	[5];
 	int 			progtypes;
 	mlstring *		owner;
-	int 			altar;
-	int 			pit;
+	altar_t *		altar;
 	bool			extracted;
 	int 			water_float;
 };
@@ -1523,11 +1528,7 @@ struct obj_data
  */
 struct exit_data
 {
-	union
-	{
-		ROOM_INDEX_DATA *	to_room;
-		int			vnum;
-	} u1;
+	vo_t		to_room;
 	flag32_t	exit_info;
 	int		key;
 	const char *	keyword;
@@ -1729,6 +1730,13 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define IS_GOOD(ch)		(ch->alignment >= 350)
 #define IS_EVIL(ch)		(ch->alignment <= -350)
 #define IS_NEUTRAL(ch)		(!IS_GOOD(ch) && !IS_EVIL(ch))
+
+#define RALIGN(ch)	(IS_GOOD(ch) ? RA_GOOD :	\
+			 IS_EVIL(ch) ? RA_EVIL :	\
+				       RA_NEUTRAL)
+#define NALIGN(ch)	(IS_GOOD(ch) ? ANUM_GOOD :	\
+			 IS_EVIL(ch) ? ANUM_EVIL :	\
+				       ANUM_NEUTRAL)
 
 #define IS_AWAKE(ch)		(ch->position > POS_SLEEPING)
 #define GET_AC(ch,type) 	((ch)->armor[type]			    \
@@ -1978,7 +1986,6 @@ void	transfer_char(CHAR_DATA *ch, CHAR_DATA *vch,
 void	look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
 void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-bool	obj_is_pit(OBJ_DATA *obj);
 
 /* format_obj_affects flags */
 #define FOA_F_NODURATION	(A)	/* do not show duration		*/

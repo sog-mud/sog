@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.40 1999-02-26 13:26:59 fjoe Exp $
+ * $Id: special.c,v 1.41 1999-03-10 17:23:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "hometown.h"
 #include "fight.h"
 
 /* command procedures needed */
@@ -1004,11 +1003,10 @@ bool spec_guard(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 	
-		if (IS_SET(ch->in_room->area->flags, AREA_HOMETOWN) 
-			&& number_percent() < 2 && !IS_IMMORTAL(victim)) {
+		if (number_percent() < 2 && !IS_IMMORTAL(victim)) {
 			do_say(ch, "Do I know you?");
  			if (str_cmp(ch->in_room->area->name,
-				    hometown_table[victim->hometown].name))
+				    hometown_name(victim->hometown)))
 				do_say(ch, "I don't remember you. Go away!");
 			else {
 				do_say(ch, "Ok, my dear! I have just remembered.");

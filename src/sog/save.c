@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.106 1999-03-02 09:37:39 kostik Exp $
+ * $Id: save.c,v 1.107 1999-03-10 17:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,6 @@
 #endif
 
 #include "merc.h"
-#include "hometown.h"
 #include "quest.h"
 #include "db/db.h"
 
@@ -171,7 +170,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Vers %d\n", 6);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
-	fprintf(fp, "Home %d\n", ch->hometown);
+	fwrite_string(fp, "Hometown", hometown_name(ch->hometown));
 
 	if (ch->clan) {
 		fwrite_string(fp, "Clan", clan_name(ch->clan));
@@ -185,7 +184,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fwrite_string(fp, "Prom", ch->prompt);
 	fwrite_string(fp, "Race", race_name(ch->race));
 	fprintf(fp, "Sex  %d\n", ch->sex);
-	fprintf(fp, "Cla  %d\n", ch->class);
+	fwrite_string(fp, "Class", class_name(ch));
 	fprintf(fp, "Levl %d\n", ch->level);
 	fprintf(fp, "Scro %d\n", ch->lines);
 	fprintf(fp, "Room %d\n",
@@ -281,7 +280,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 
 		fprintf(fp, "Dead %d\n", pcdata->death);
 		if (pcdata->homepoint)
-			fprintf(fp, "Homepoint %d\n", pcdata->homepoint);
+			fprintf(fp, "Homepoint %d\n", pcdata->homepoint->vnum);
 
 		if (pcdata->bank_s)
 			fprintf(fp, "Banks %d\n", pcdata->bank_s);
@@ -582,7 +581,8 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 			 PLAYER_PATH, PATH_SEPARATOR, filename);
 		system(buf);
 	}
-	if ((fp = dfopen(PLAYER_PATH, name, "r")) != NULL) {
+	if (dfexist(PLAYER_PATH, name)
+	&&  (fp = dfopen(PLAYER_PATH, name, "r")) != NULL) {
 		int             iNest;
 		for (iNest = 0; iNest < MAX_NEST; iNest++)
 			rgObjNest[iNest] = NULL;
@@ -794,7 +794,13 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'C':
-			KEY("Class", ch->class, fread_number(fp));
+			if (!str_cmp(word, "Class")) {
+				const char *cl = fread_string(fp);
+				ch->class = cln_lookup(cl);
+				free_string(cl);
+				fMatch = TRUE;
+				break;
+			}
 			KEY("Cla", ch->class, fread_number(fp));
 			KEY("Clan", ch->clan, fread_clan(fp));
 			KEY("ClanStatus", ch->pcdata->clan_status,
@@ -905,11 +911,20 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'H':
+			if (!str_cmp(word, "Hometown")) {
+				const char *s = fread_string(fp);
+				ch->hometown = htn_lookup(s);
+				free_string(s);
+				fMatch = TRUE;
+			}
+
 			KEY("Hitroll", ch->hitroll, fread_number(fp));
 			KEY("Hit", ch->hitroll, fread_number(fp));
 			KEY("Home", ch->hometown, fread_number(fp));
-			KEY("Haskilled", ch->pcdata->has_killed, fread_number(fp));
-			KEY("Homepoint", ch->pcdata->homepoint, fread_number(fp));
+			KEY("Haskilled", ch->pcdata->has_killed,
+			    fread_number(fp));
+			KEY("Homepoint", ch->pcdata->homepoint,
+			    get_room_index(fread_number(fp)));
 
 			if (!str_cmp(word, "HpManaMove") || !str_cmp(word, "HMV")) {
 				ch->hit = fread_number(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.155 1999-02-26 03:18:01 fjoe Exp $
+ * $Id: act_move.c,v 1.156 1999-03-10 17:23:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "merc.h"
-#include "hometown.h"
 #include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
@@ -178,8 +177,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
-	||  (to_room = pexit->u1.to_room) == NULL 
-	||  !can_see_room(ch, pexit->u1.to_room)) {
+	||  (to_room = pexit->to_room.r) == NULL 
+	||  !can_see_room(ch, pexit->to_room.r)) {
 		char_puts("Alas, you cannot go that way.\n", ch);
 		return FALSE;
 	}
@@ -189,8 +188,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		while (1) {
 			d0 = number_range(0, MAX_DIR-1);
 			if ((pexit = in_room->exit[d0]) == NULL
-			||  (to_room = pexit->u1.to_room) == NULL 
-			||  !can_see_room(ch, pexit->u1.to_room))
+			||  (to_room = pexit->to_room.r) == NULL 
+			||  !can_see_room(ch, pexit->to_room.r))
 				continue;	  
 			door = d0;
 			break;
@@ -649,9 +648,9 @@ void do_open(CHAR_DATA *ch, const char *argument)
 		char_puts("Ok.\n", ch);
 
 		/* open the other side */
-		if ((to_room   = pexit->u1.to_room           ) != NULL
+		if ((to_room   = pexit->to_room.r           ) != NULL
 		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-		&&   pexit_rev->u1.to_room == ch->in_room) {
+		&&   pexit_rev->to_room.r == ch->in_room) {
 			ROOM_INDEX_DATA *in_room;
 
 			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
@@ -731,9 +730,9 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		char_puts("Ok.\n", ch);
 
 		/* close the other side */
-		if ((to_room   = pexit->u1.to_room           ) != NULL
+		if ((to_room   = pexit->to_room.r           ) != NULL
 		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != 0
-		&&   pexit_rev->u1.to_room == ch->in_room) {
+		&&   pexit_rev->to_room.r == ch->in_room) {
 			ROOM_INDEX_DATA *in_room;
 
 			SET_BIT(pexit_rev->exit_info, EX_CLOSED);
@@ -862,9 +861,9 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 		act("$n locks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
 
 		/* lock the other side */
-		if ((to_room   = pexit->u1.to_room           ) != NULL
+		if ((to_room   = pexit->to_room.r           ) != NULL
 		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != 0
-		&&   pexit_rev->u1.to_room == ch->in_room) {
+		&&   pexit_rev->to_room.r == ch->in_room) {
 			ROOM_INDEX_DATA *in_room;
 
 			SET_BIT(pexit_rev->exit_info, EX_LOCKED);
@@ -968,9 +967,9 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 		act("$n unlocks the $d.", ch, NULL, pexit->keyword, TO_ROOM);
 
 		/* unlock the other side */
-		if ((to_room   = pexit->u1.to_room           ) != NULL
+		if ((to_room   = pexit->to_room.r           ) != NULL
 		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-		&&   pexit_rev->u1.to_room == ch->in_room) {
+		&&   pexit_rev->to_room.r == ch->in_room) {
 			ROOM_INDEX_DATA *in_room;
 
 			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
@@ -1101,9 +1100,9 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_pick, TRUE, 2);
 
 		/* pick the other side */
-		if ((to_room   = pexit->u1.to_room           ) != NULL
+		if ((to_room   = pexit->to_room.r           ) != NULL
 		&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-		&&   pexit_rev->u1.to_room == ch->in_room)
+		&&   pexit_rev->to_room.r == ch->in_room)
 			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 	}
 }
@@ -1765,7 +1764,6 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *pet;
-	int point;
  
 	if (IS_NPC(ch)) {
 		char_puts("Only players can recall.\n", ch);
@@ -1783,18 +1781,13 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
-		point = get_recall(ch);
+		location = get_recall(ch);
 	}
 	else 
-		point =	hometown_table[number_range(0, 4)].recall[number_range(0,2)];
+		location = get_random_recall();
 
 	act("$n prays for transportation!", ch, NULL, NULL, TO_ROOM);
 	
-	if ((location = get_room_index(point))== NULL) {
-		char_puts("You are completely lost.\n", ch);
-		return;
-	}
-
 	if (ch->in_room == location)
 		return;
 
@@ -2224,9 +2217,9 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 /* open the other side */
-		if ((to_room = pexit->u1.to_room) != NULL
+		if ((to_room = pexit->to_room.r) != NULL
 		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-		&&  pexit_rev->u1.to_room == ch->in_room) {
+		&&  pexit_rev->to_room.r == ch->in_room) {
 			ROOM_INDEX_DATA *in_room;
 
 			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
@@ -2728,14 +2721,14 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((pexit = was_in->exit[door]) == 0
-	||  pexit->u1.to_room == NULL
+	||  pexit->to_room.r == NULL
 	||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
 	     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
 	      IS_SET(pexit->exit_info, EX_NOPASS)) &&
 	     !IS_TRUSTED(ch, ANGEL))
 	||  IS_SET(pexit->exit_info, EX_NOFLEE)
 	||  (IS_NPC(ch) &&
-	     IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB))) {
+	     IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB))) {
 		char_puts("Something prevents you to escape that direction.\n", ch); 
 		return;
 	}
@@ -3126,7 +3119,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		pExit = dest_room->exit[ door ];
 		 if (!pExit) break;
 		else {
-			dest_room = pExit->u1.to_room;
+			dest_room = pExit->to_room.r;
 			if (dest_room->people) {
 			 	act("$p sails into the room from the $T!",
 				    dest_room->people, arrow,
@@ -3242,7 +3235,7 @@ DO_FUN(do_charge)
 		check_improve(ch, gsn_charge, FALSE, 1);
 		if (number_percent() > get_skill(ch, gsn_riding)) {
 			if ((pexit=ch->in_room->exit[direction]) == NULL
-			|| (to_room = pexit->u1.to_room) == NULL
+			|| (to_room = pexit->to_room.r) == NULL
 			|| !can_see_room(ch, to_room)
 			|| IS_ROOM_AFFECTED(ch->in_room, RAFF_RANDOMIZER)
 			|| IS_SET(pexit->exit_info, EX_CLOSED)) {
@@ -3413,7 +3406,7 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 			return buf;
 		}
 		else
-			rstart = pExit->u1.to_room;
+			rstart = pExit->to_room.r;
 	}
 }	
 

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.19 1999-02-17 07:53:21 fjoe Exp $
+ * $Id: hunt.c,v 1.20 1999-03-10 17:23:28 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -281,7 +281,7 @@ int exit_ok(EXIT_DATA *pexit)
   ROOM_INDEX_DATA *to_room;
 
   if ((pexit == NULL)
-  ||   (to_room = pexit->u1.to_room) == NULL)
+  ||   (to_room = pexit->to_room.r) == NULL)
 	return 0;
 
   return 1;
@@ -338,7 +338,7 @@ int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 	      if(exit_ok(exitp) && (thru_doors ? GO_OK_SMARTER : GO_OK))
 		{
 		  /* next room */
-		  tmp_room = herep->exit[i]->u1.to_room->vnum;
+		  tmp_room = herep->exit[i]->to_room.r->vnum;
 		  if(tmp_room != out_room_vnum)
 		    {
 		      /* shall we add room to queue ?
@@ -522,7 +522,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 				direction = number_door();
 			}
 			while ((ch->in_room->exit[direction] == NULL) ||
-			       (ch->in_room->exit[direction]->u1.to_room == NULL));
+			       (ch->in_room->exit[direction]->to_room.r == NULL));
 		}
 		else {
 			log("Do hunt, player hunt, no exits from room!");

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.120 1999-03-08 13:56:06 fjoe Exp $
+ * $Id: db.c,v 1.121 1999-03-10 17:23:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -344,7 +344,7 @@ void boot_db(void)
 	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
 	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
-
+	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
 	fBootDb = FALSE;
 
 	/*
@@ -361,7 +361,6 @@ void boot_db(void)
 	area_update();
 	load_notes();
 	load_bans();
-
 }
 
 /*
@@ -449,7 +448,7 @@ void fix_exits_room(ROOM_INDEX_DATA *room)
 		if ((pexit = room->exit[door]) == NULL)
 			continue;
 
-		pexit->u1.to_room = get_room_index(pexit->u1.vnum);
+		pexit->to_room.r = get_room_index(pexit->to_room.vnum);
 	}
 }
 
@@ -602,8 +601,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 	  /*  && !IS_SET(pExit->exit_info, EX_BASHED)   ROM OLC */)  
         {
             pExit->exit_info = pExit->rs_flags;
-            if ((pExit->u1.to_room != NULL)
-              && ((pExit = pExit->u1.to_room->exit[rev_dir[iExit]])))
+            if ((pExit->to_room.r != NULL)
+              && ((pExit = pExit->to_room.r->exit[rev_dir[iExit]])))
             {
                 /* nail the other side */
                 pExit->exit_info = pExit->rs_flags;
@@ -1247,7 +1246,7 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	obj->weight		= pObjIndex->weight;
 	obj->owner		= NULL;
 	obj->condition		= pObjIndex->condition;
-	obj->cost = pObjIndex->cost;
+	obj->cost		= pObjIndex->cost;
 
 	/*
 	 * Mess with object properties.
@@ -1326,8 +1325,6 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->timer		= parent->timer;
 	clone->owner		= mlstr_dup(parent->owner);
 	clone->extracted	= parent->extracted;
-	clone->pit		= parent->pit;
-	clone->altar		= parent->altar;
 
 	for (i = 0;  i < 5; i ++)
 		clone->value[i]	= parent->value[i];

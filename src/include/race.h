@@ -23,11 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.4 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: race.h,v 1.5 1999-03-10 17:23:31 fjoe Exp $
  */
 
 #ifndef _RACE_H_
 #define _RACE_H_
+
+#define RACE_UNDEAD		(A)	/* undead race */
 
 struct race_data
 {
@@ -62,7 +64,7 @@ struct race_pcdata
 	int	slang;			/* spoken language		*/
 	flag32_t	restrict_align;	/* alignment restrictions	*/
 	flag32_t	restrict_ethos;	/* ethos restrictions		*/
-	const char *restrict_hometown;	/* hometown restrictions	*/
+	const char *	strict_hometown;/* strict hometown		*/
 };
 
 /* additional data for available classes for race */

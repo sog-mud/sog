@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.157 1999-03-08 13:56:05 fjoe Exp $
+ * $Id: comm.c,v 1.158 1999-03-10 17:23:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,7 +88,6 @@
 #endif
 
 #include "merc.h"
-#include "hometown.h"
 #include "interp.h"
 #include "quest.h"
 #include "update.h"
@@ -1180,9 +1179,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 			found = FALSE;
 			buf2[0] = '\0';
 			for (door = 0; door < 6; door++)
-				if ((pexit = ch->in_room->exit[door]) != NULL
-				&&  pexit ->u1.to_room != NULL
-				&&  can_see_room(ch, pexit->u1.to_room)
+				if ((pexit = ch->in_room->exit[door])
+				&&  pexit->to_room.r
+				&&  can_see_room(ch, pexit->to_room.r)
 				&&  check_blind_raw(ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
 				     IS_IMMORTAL(ch))) {
@@ -1478,11 +1477,46 @@ int search_sockets(DESCRIPTOR_DATA *inp)
 }
   
 int align_restrict(CHAR_DATA *ch);
-int hometown_check(CHAR_DATA *ch);
-int hometown_ok(CHAR_DATA *ch, int home);
 int ethos_check(CHAR_DATA *ch);
 
 void advance(CHAR_DATA *victim, int level);
+
+static void print_hometown(CHAR_DATA *ch)
+{
+	RACE_DATA *r;
+	CLASS_DATA *cl;
+	const char *strict_hometown = NULL;
+
+	if ((r = race_lookup(ORG_RACE(ch))) == NULL
+	||  !r->pcdata
+	||  (cl = class_lookup(ch->class)) == NULL) {
+		char_puts("You should create your character anew.\n", ch);
+		close_descriptor(ch->desc);
+		return;
+	}
+
+	if (r->pcdata->strict_hometown)
+		strict_hometown = r->pcdata->strict_hometown;
+	else if (cl->strict_hometown)
+		strict_hometown = cl->strict_hometown;
+
+	if (strict_hometown) {
+		ch->hometown = htn_lookup(strict_hometown);
+		char_printf(ch, "Your hometown is %s, permanently.\n"
+				"[Hit Return to continue]\n",
+			    hometown_name(ch->hometown));
+
+/* XXX */
+		ch->endur = 100;
+		ch->desc->connected = CON_GET_ETHOS;
+		return;
+	}
+
+	do_help(ch, "HOMETOWN");
+	hometown_print_avail(ch);
+	char_puts("? ", ch);
+	ch->desc->connected = CON_PICK_HOMETOWN;
+}
 
 /*
  * Deal with sockets that haven't logged in yet.
@@ -1661,7 +1695,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
 			}
  	    
- 			do_help(ch,"NAME");
+ 			do_help(ch, "NAME");
 			d->connected = CON_CONFIRM_NEW_NAME;
 			return;
 		}
@@ -1948,11 +1982,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    write_to_buffer(d, "Which alignment (G/N/E)? ",0);
 	    d->connected = CON_GET_ALIGNMENT;
 	    }
-	    else 
-	    {
-	     write_to_buffer(d, "[Hit Return to Continue]\n\r",0);
-	     ch->endur = 100; 
-	     d->connected = CON_PICK_HOMETOWN;
+	    else {
+		write_to_buffer(d, "[Hit Return to Continue]\n\r",0);
+		print_hometown(ch);
 	    }
 	    break;
 	    
@@ -1999,70 +2031,28 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    write_to_buffer(d,"Which alignment (G/N/E)? ",0);
 	    return;
 	  }
-	      write_to_buffer(d, "\n\r[Hit Return to Continue]\n\r",0);	  
-	      ch->endur = 100; 
-	      d->connected = CON_PICK_HOMETOWN;
-	break;
+		write_to_buffer(d, "\n\r[Hit Return to Continue]\n\r", 0);
+		print_hometown(ch);
+		break;
 	
-	  case CON_PICK_HOMETOWN:
-	snprintf(buf1, sizeof(buf1), ", [O]fcol");
-	snprintf(buf, sizeof(buf),"[M]idgaard, [N]ew Thalos%s?",
-		IS_NEUTRAL(ch) ? buf1 : str_empty);
-	if (ch->endur)
-	 {
-	  ch->endur = 0;
-	  if (!hometown_check(ch))
-	   {
-	    do_help(ch,"hometown");
-	        write_to_buffer(d, buf,0);	  
-	    d->connected = CON_PICK_HOMETOWN;
-	    return;
-	   }
-	      else
-	   {
-	        write_to_buffer(d, "[Hit Return to Continue]\n\r",0);	  
-	    ch->endur = 100;
-	    d->connected = CON_GET_ETHOS;
-	   }
-	      break;
-	 }
-	switch(argument[0]) 
-	     {
-	  case 'H' : case 'h' : case '?' : 
-		do_help(ch, "hometown"); 
-	            write_to_buffer(d, buf,0);	  
-		return;
-	  case 'M' : case 'm' : 
-		if (hometown_ok(ch,0)) 
-		 {
-		  ch->hometown = 0; 
-		  write_to_buffer(d,"Now your hometown is Midgaard.\n\r",0);
-		  break;
-		 }
- 	  case 'N' : case 'n' : 
-		if (hometown_ok(ch,1)) 
-		 {
-		  ch->hometown = 1; 
-		  write_to_buffer(d,"Now your hometown is New Thalos.\n\r",0);
-		  break;
-		 }
-	  case 'O' : case 'o' :
-		if (hometown_ok(ch,3)) 
-		 {
-		  ch->hometown = 3; 
-		  write_to_buffer(d,"Now your hometown is Ofcol.\n\r",0);
-		  break;
-		 }
-	  default:
-	   write_to_buffer(d, "\n\rThat is not a valid hometown.\n\r", 0);
-	   write_to_buffer(d, 
-		"Which hometown do you want <type help for more info>? ", 0);
-	   return;
-	 }
-	    ch->endur = 100;
-	    write_to_buffer(d, "\n\r[Hit Return to Continue]\n\r",0);	  
-	    d->connected = CON_GET_ETHOS;
-	    break;
+	case CON_PICK_HOMETOWN: {
+		int htn = 0;
+
+		if (argument[0] == '\0'
+		||  (htn = htn_lookup(argument)) < 0
+		||  hometown_restrict(HOMETOWN(htn), ch)) {
+			char_puts("That's not a valid hometown.\n", ch);
+			print_hometown(ch);
+		}
+
+		ch->hometown = htn; 
+		char_printf(ch, "Now your hometown is %s.\n"
+				"[Hit Return to continue]\n",
+			    hometown_name(htn));
+		ch->endur = 100;
+		d->connected = CON_GET_ETHOS;
+		break;
+	}
 	
 	  case CON_GET_ETHOS:
 	if (!ch->endur)
@@ -2621,61 +2611,30 @@ int align_restrict(CHAR_DATA *ch)
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->pcdata)
-		return CR_NONE;
+		return RA_NONE;
 
-	if (r->pcdata->restrict_align == CR_GOOD
-	||  CLASS(ch->class)->restrict_align == CR_GOOD) {
+	if (r->pcdata->restrict_align == RA_GOOD
+	||  CLASS(ch->class)->restrict_align == RA_GOOD) {
 		write_to_buffer(d, "Your character has good tendencies.\n\r",0);
 		ch->alignment = 1000;
-		return CR_GOOD;
+		return RA_GOOD;
 	}
 
-	if (r->pcdata->restrict_align == CR_NEUTRAL
-	||  CLASS(ch->class)->restrict_align == CR_NEUTRAL) {
+	if (r->pcdata->restrict_align == RA_NEUTRAL
+	||  CLASS(ch->class)->restrict_align == RA_NEUTRAL) {
 		write_to_buffer(d, "Your character has neutral tendencies.\n\r",0);
 		ch->alignment = 0;
-		return CR_NEUTRAL;
+		return RA_NEUTRAL;
 	}
 
-	if (r->pcdata->restrict_align == CR_EVIL
-	||  CLASS(ch->class)->restrict_align == CR_EVIL) {
+	if (r->pcdata->restrict_align == RA_EVIL
+	||  CLASS(ch->class)->restrict_align == RA_EVIL) {
 		write_to_buffer(d, "Your character has evil tendencies.\n\r",0);
 		ch->alignment = -1000;
-		return CR_EVIL;
+		return RA_EVIL;
 	}		
 
-	return CR_NONE;		
-}
-
-int hometown_check(CHAR_DATA *ch)
-{
- DESCRIPTOR_DATA *d = ch->desc;
-
-  if (ch->class == 10 || ch->class == 11)
-   {
-	write_to_buffer(d,"\n\r",0);
-	write_to_buffer(d,"Your hometown is Old midgaard, permanently.\n\r",0);
-	ch->hometown = 4;
-	write_to_buffer(d,"\n\r",0);
-	return 1;
-   }
-
-  if (ORG_RACE(ch) == 11 || ORG_RACE(ch) == 12
-	|| ORG_RACE(ch) == 13 || ORG_RACE(ch) == 14)
-   {
-	write_to_buffer(d,"\n\r",0);
-	write_to_buffer(d,"Your hometown is Valley of Titans, permanently.\n\r",0);
-	ch->hometown = 2;
-	write_to_buffer(d,"\n\r",0);
-	return 1;
-   }
- return 0;
-}
-
-int hometown_ok(CHAR_DATA *ch, int home)
-{
-	if (!IS_NEUTRAL(ch) && home == 3) return 0;
-		return 1;
+	return RA_NONE;
 }
 
 int ethos_check(CHAR_DATA *ch)

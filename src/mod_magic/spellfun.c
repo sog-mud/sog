@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.133 1999-03-09 09:49:57 kostik Exp $
+ * $Id: spellfun.c,v 1.134 1999-03-10 17:23:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "hometown.h"
 #include "update.h"
 #include "fight.h"
 
@@ -4260,7 +4259,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 					    ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 						ROOM_PEACE | ROOM_NOSUMMON)
-	||  IS_SET(ch->in_room->area->flags, AREA_UNDER_CONSTRUCTION)
+	||  IS_SET(ch->in_room->area->flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON)
 	||  (victim->in_room->exit[0] == NULL &&
@@ -4386,7 +4385,6 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	ROOM_INDEX_DATA *location;
-	int to_room_vnum;
 	CLASS_DATA *vcl;
 	CHAR_DATA *pet;
 
@@ -4404,14 +4402,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 		return;
 	}
 
-	to_room_vnum = get_recall(victim);
-
-	if ((location = get_room_index(to_room_vnum)) == NULL) {
-		char_puts("You are completely lost.\n",victim);
-		return;
-	}
-
-	if (victim->desc != NULL && IS_PUMPED(victim)) {
+	if (victim->desc && IS_PUMPED(victim)) {
 		act_puts("You are too pumped to pray now.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
@@ -4434,6 +4425,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 
 	ch->move /= 2;
 	pet = victim->pet;
+	location = get_recall(victim);
 	recall(victim, location);
 
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.42 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_room.c,v 1.43 1999-03-10 17:23:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -288,8 +288,8 @@ OLC_FUN(roomed_show)
 
 			buf_printf(output, "-%-5s to [%5d] Key: [%5d] ",
 				   dir_name[door],
-				   pexit->u1.to_room ?
-						pexit->u1.to_room->vnum : 0,
+				   pexit->to_room.r ?
+						pexit->to_room.r->vnum : 0,
 				   pexit->key);
 
 			/*
@@ -898,7 +898,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		 * Connected room.
 		 */
 		rev = rev_dir[door];
-		pToRoom = pRoom->exit[door]->u1.to_room;     /* ROM OLC */
+		pToRoom = pRoom->exit[door]->to_room.r;     /* ROM OLC */
 		if (pToRoom && pToRoom->exit[rev] != NULL) {
 			TOGGLE_BIT(pToRoom->exit[rev]->rs_flags,  value);
 			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
@@ -944,7 +944,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		 * Remove ToRoom Exit.
 		 */
 		rev = rev_dir[door];
-		pToRoom = pRoom->exit[door]->u1.to_room;       /* ROM OLC */
+		pToRoom = pRoom->exit[door]->to_room.r;       /* ROM OLC */
 		if (pToRoom && pToRoom->exit[rev]) {
 			free_exit(pToRoom->exit[rev]);
 			pToRoom->exit[rev] = NULL;
@@ -989,12 +989,12 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		if (!pRoom->exit[door])
 			pRoom->exit[door] = new_exit();
 
-		pRoom->exit[door]->u1.to_room = pToRoom;
+		pRoom->exit[door]->to_room.r = pToRoom;
 		pRoom->exit[door]->orig_door = door;
 		
 		door			= rev_dir[door];
 		pExit			= new_exit();
-		pExit->u1.to_room	= pRoom;
+		pExit->to_room.r	= pRoom;
 		pExit->orig_door	= door;
 		pToRoom->exit[door]	= pExit;
 
@@ -1035,7 +1035,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 
-		pRoom->exit[door]->u1.to_room = get_room_index(value);
+		pRoom->exit[door]->to_room.r = get_room_index(value);
 		pRoom->exit[door]->orig_door = door;
 
 		char_puts("One-way link established.\n", ch);

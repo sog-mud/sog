@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.93 1999-03-10 11:06:14 fjoe Exp $
+ * $Id: spellfun2.c,v 1.94 1999-03-10 17:23:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include <time.h>
 
 #include "merc.h"
-#include "hometown.h"
 #include "fight.h"
 #include "quest.h"
 #include "rating.h"
@@ -84,7 +83,7 @@ ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument)
 	number--;
 	if (--range < 1) return NULL;
 	if ((pExit = dest_room->exit[door]) == NULL
-	  || (dest_room = pExit->u1.to_room) == NULL
+	  || (dest_room = pExit->to_room.r) == NULL
 	  || IS_SET(pExit->exit_info,EX_CLOSED))
 	 break;
 	if (number < 1)    return dest_room;
@@ -2956,8 +2955,6 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	eyed	= create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
 				ch->short_descr);
 	eyed->owner = mlstr_dup(ch->short_descr);
-	eyed->altar = hometown_table[ch->hometown].altar[i];
-	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 	eyed->ed = ed_new2(eyed->pIndexData->ed, ch->name);
 	eyed->value[2] = (ch->level / 10) + 3;  
@@ -3107,8 +3104,6 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
 				victim->short_descr);
 	fire->owner = mlstr_dup(ch->short_descr);
-	fire->altar = hometown_table[ch->hometown].altar[i];
-	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
 	fire->ed = ed_new2(fire->pIndexData->ed, victim->name);
@@ -3342,8 +3337,6 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	name_add(&fire->name, arg, NULL, NULL);
 
 	fire->owner = mlstr_dup(ch->short_descr);
-	fire->altar = hometown_table[ch->hometown].altar[i];
-	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 	fire->ed = ed_new2(fire->pIndexData->ed, arg);
 
@@ -3450,9 +3443,9 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	/* open the other side */
-	if ((to_room   = pexit->u1.to_room           ) != NULL
+	if ((to_room   = pexit->to_room.r           ) != NULL
 	&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-	&&   pexit_rev->u1.to_room == ch->in_room)
+	&&   pexit_rev->to_room.r == ch->in_room)
 	{
 	    CHAR_DATA *rch;
 
@@ -4607,7 +4600,6 @@ void spell_ruler_aura(int sn, int level, CHAR_DATA *ch, void *vo, int target)
  return;
 }
 
-
 void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
  AREA_DATA *pArea = ch->in_room->area;
@@ -4628,20 +4620,18 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
-	|| IS_SET(ch->in_room->area->flags, AREA_HOMETOWN))
-	{
-	  char_puts("Holy aura in this room prevents your powers to work on it.\n",ch);
-	  return;
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		char_puts("Holy aura in this room prevents your powers to work on it.\n",ch);
+		return;
 	}
 
-	af2.where     = TO_AFFECTS;
-	af2.type      = sn;
-	af2.level	  = ch->level;
-	af2.duration  = level / 5;
-	af2.modifier  = 0;
-	af2.location  = APPLY_NONE;
-	af2.bitvector = 0;
+	af2.where	= TO_AFFECTS;
+	af2.type	= sn;
+	af2.level	= ch->level;
+	af2.duration	= level / 5;
+	af2.modifier	= 0;
+	af2.location	= APPLY_NONE;
+	af2.bitvector	= 0;
 	affect_to_char(ch, &af2);
 
 	af.where     = TO_ROOM_AFFECTS;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.131 1999-02-26 13:26:50 fjoe Exp $
+ * $Id: act_wiz.c,v 1.132 1999-03-10 17:23:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,6 @@
 #include <limits.h>
 
 #include "merc.h"
-#include "hometown.h"
 #include "interp.h"
 #include "update.h"
 #include "quest.h"
@@ -1080,8 +1079,8 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		if ((pexit = location->exit[door]) != NULL) {
 			buf_printf(output, "Door: %d.  To: %d.  Key: %d.  Exit flags: %d.\nKeyword: '%s'.\n",
 				door,
-				pexit->u1.to_room == NULL ?
-				-1 : pexit->u1.to_room->vnum,
+				pexit->to_room.r == NULL ?
+				-1 : pexit->to_room.r->vnum,
 		    		pexit->key,
 		    		pexit->exit_info,
 		    		pexit->keyword);

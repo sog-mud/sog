@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.36 1999-02-17 18:58:06 fjoe Exp $
+ * $Id: db.h,v 1.37 1999-03-10 17:23:34 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -93,6 +93,7 @@ struct dbdata {
 extern DBDATA db_areas;
 extern DBDATA db_clans;
 extern DBDATA db_classes;
+extern DBDATA db_hometowns;
 extern DBDATA db_langs;
 extern DBDATA db_skills;
 extern DBDATA db_races;

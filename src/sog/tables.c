@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.48 1999-03-08 13:56:05 fjoe Exp $
+ * $Id: tables.c,v 1.49 1999-03-10 17:23:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -381,8 +381,7 @@ FLAG area_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "hometown",		AREA_HOMETOWN,		TRUE	},
-	{ "under_construction",	AREA_UNDER_CONSTRUCTION,TRUE	},
+	{ "closed",		AREA_CLOSED,		TRUE	},
 	{ "noquest",		AREA_NOQUEST,		TRUE	},
 	{ "changed",		AREA_CHANGED,		FALSE	},
 
@@ -564,6 +563,7 @@ FLAG extra_flags[] =
 	{ "quest",		ITEM_QUEST,		TRUE	},
 	{ "clan_item",		ITEM_CLAN,		TRUE	},
 	{ "quit_drop",		ITEM_QUIT_DROP,		TRUE	},
+	{ "pit",		ITEM_PIT,		TRUE	},
 	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 
@@ -1063,13 +1063,33 @@ FLAG class_flags[] =
 	{ NULL }
 };
 
+FLAG race_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "undead",		RACE_UNDEAD,		TRUE	},
+
+	{ NULL }
+};
+
+FLAG ralign_names[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "evil",		RA_EVIL,		TRUE	},
+	{ "neutral",		RA_NEUTRAL,		TRUE	},
+	{ "good",		RA_GOOD,		TRUE	},
+
+	{ NULL }
+};
+
 FLAG align_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
-	{ "evil",		CR_EVIL,		TRUE	},
-	{ "neutral",		CR_NEUTRAL,		TRUE	},
-	{ "good",		CR_GOOD,		TRUE	},
+	{ "good",		ANUM_GOOD,		TRUE	},
+	{ "neutral",		ANUM_NEUTRAL,		TRUE	},
+	{ "evil",		ANUM_EVIL,		TRUE	},
 
 	{ NULL }
 };

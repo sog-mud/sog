@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.214 1999-03-04 14:31:52 fjoe Exp $
+ * $Id: act_info.c,v 1.215 1999-03-10 17:23:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 #include <ctype.h>
 
 #include "merc.h"
-#include "hometown.h"
 #include "update.h"
 #include "quest.h"
 #include "obj_prog.h"
@@ -1352,8 +1351,8 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	found = FALSE;
 	for (door = 0; door < MAX_DIR; door++) {
 		if ((pexit = ch->in_room->exit[door]) != NULL
-		&&  pexit->u1.to_room != NULL
-		&&  can_see_room(ch, pexit->u1.to_room)
+		&&  pexit->to_room.r != NULL
+		&&  can_see_room(ch, pexit->to_room.r)
 		&&  check_blind_raw(ch)) { 
 			bool show_closed = FALSE;
 
@@ -1380,14 +1379,14 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				char_printf(ch, "{C%-5s%s{x - %s",
 					    capitalize(dir_name[door]),
 					    show_closed ? "*" : str_empty,
-					    room_dark(pexit->u1.to_room) ?
+					    room_dark(pexit->to_room.r) ?
 					    GETMSG("Too dark to tell", ch->lang) :
-					    mlstr_cval(pexit->u1.to_room->name,
+					    mlstr_cval(pexit->to_room.r->name,
 							ch));
 				if (IS_IMMORTAL(ch)
-				||  IS_BUILDER(ch, pexit->u1.to_room->area))
+				||  IS_BUILDER(ch, pexit->to_room.r->area))
 					char_printf(ch, " (room %d)",
-						    pexit->u1.to_room->vnum);
+						    pexit->to_room.r->vnum);
 				char_puts("\n", ch);
 			}
 		}
@@ -2270,15 +2269,15 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 	scan_list(ch->in_room, ch, 0, -1);
 	for (door = 0; door < 6; door++) {
 		if ((pExit = ch->in_room->exit[door]) == NULL
-		|| !pExit->u1.to_room
-		|| !can_see_room(ch,pExit->u1.to_room))
+		|| !pExit->to_room.r
+		|| !can_see_room(ch,pExit->to_room.r))
 			continue;
 		char_printf(ch, "{C%s{x:\n", dir_name[door]);
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
 			char_puts("	You see closed door.\n", ch);
 			continue;
 		}
-		scan_list(pExit->u1.to_room, ch, 1, door);
+		scan_list(pExit->to_room.r, ch, 1, door);
 	}
 }
 
@@ -2345,12 +2344,12 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		exit = in_room->exit[door];
 		if (!exit)
 			return;
-		to_room = exit->u1.to_room;
+		to_room = exit->to_room.r;
 		if (!to_room)
 			return;
 
 		if (IS_SET(exit->exit_info,EX_CLOSED)
-		&&  can_see_room(ch,exit->u1.to_room)) {
+		&&  can_see_room(ch,exit->to_room.r)) {
 			char_puts("	You see closed door.\n", ch);
 			return;
 		}
@@ -2490,83 +2489,79 @@ void do_request(CHAR_DATA *ch, const char *argument)
 
 void do_hometown(CHAR_DATA *ch, const char *argument)
 {
-	int i;
 	int amount;
+	int htn;
 	RACE_DATA *r;
 	CLASS_DATA *cl;
-	const char *p;
 
 	if (IS_NPC(ch)) {
-		char_puts("You can't change your hometown!\n", ch);
+		act_puts("You can't change your hometown!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if ((r = race_lookup(ch->race)) == NULL
+	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->pcdata
 	||  (cl = class_lookup(ch->class)) == NULL)
 		return;
 
-	if ((p = r->pcdata->restrict_hometown)
-	||  (p = cl->restrict_hometown)) {
-		char_printf(ch, "Your hometown is permanently %s!\n", p);
+	if (!IS_SET(ch->in_room->room_flags, ROOM_REGISTRY)) {
+		act_puts("You have to be in the Registry "
+			 "to change your hometown.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if (!IS_SET(ch->in_room->room_flags, ROOM_REGISTRY)) {
-		char_puts("You have to be in the Registry "
-			  "to change your hometown.\n", ch);
+	if (r->pcdata->strict_hometown
+	||  cl->strict_hometown) {
+		act_puts("Your hometown is $t, permanently. "
+			 "You can't change your hometown.",
+			 ch, hometown_name(ch->hometown), NULL,
+			 TO_CHAR | ACT_TRANS, POS_DEAD);
 		return;
 	}
 
 	amount = (ch->level * 250) + 1000;
 
 	if (argument[0] == '\0') {
-		char_puts("Choose from", ch);
-		for (i = 0; hometown_table[i].name; i++) {
-			static char* comma = ", ";
-
-			char_printf(ch, "%s%s", i == 0 ? comma+1 : comma,
-				    hometown_table[i].name);
-		}
+		act_puts("The change of hometown will cost you $j gold.",
+			 ch, (const void*) amount, NULL, TO_CHAR, POS_DEAD);
+		char_puts("Choose from: ", ch);
+		hometown_print_avail(ch);
 		char_puts(".\n", ch);
-		char_printf(ch, "The change of hometown "
-				"will cost you %d gold.\n", amount);
+		return;
+	}
+
+	if ((htn = htn_lookup(argument)) < 0) {
+		act_puts("That's not a valid hometown.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (htn == ch->hometown) {
+		act_puts("But you already live in $t!",
+			 ch, hometown_name(htn), NULL,
+			 TO_CHAR | ACT_TRANS, POS_DEAD);
+		return;
+	}
+
+	if (hometown_restrict(HOMETOWN(htn), ch)) {
+		act_puts("You are not allowed there.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
 	if (ch->pcdata->bank_g < amount) {
-		char_puts("You don't have enough money in bank "
-			  "to change hometowns!\n", ch);
+		act_puts("You don't have enough money in bank "
+			 "to change hometowns!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	for (i = 0; hometown_table[i].name; i++) {
-		char* restrict_msg;
-
-		if (str_prefix(argument, hometown_table[i].name))
-			continue;
-
-		if (ch->hometown == i) {
-			char_printf(ch, "But you already live in %s!\n",
-				    hometown_table[i].name);
-			return;
-		}
-
-		restrict_msg = hometown_table[i].check_fn(ch);
-		if (restrict_msg != NULL) {
-			char_printf(ch, "%s.\n", restrict_msg);
-			return;
-		}
-
-		ch->pcdata->bank_g -= amount;
-		char_printf(ch, "Your hometown is changed to %s.\n",
-			    hometown_table[i].name);
-		ch->hometown = i;
-		return;
-	}
-
-	char_puts("Unknown hometown.\n", ch);
-	do_hometown(ch, "");
+	ch->hometown = htn;
+	act_puts("Now your hometown is $t.",
+		 ch, hometown_name(ch->hometown),
+		 NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
 }
 
 void do_detect_hidden(CHAR_DATA *ch, const char *argument)
@@ -2841,7 +2836,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		 GETMSG("You are", ch->lang),
 		 GETMSG(flag_string(position_names, ch->position), ch->lang));
 	buf_printf(output, "     {G| {RHome : {x%-31.31s {C|{x %-22.22s {G|{x\n",
-		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
+		IS_NPC(ch) ? "Midgaard" : hometown_name(ch->hometown),
 		buf2);
 
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");
@@ -2976,7 +2971,7 @@ DO_FUN(do_oscore)
 		race_name(ch->race),
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		IS_NPC(ch) ? "mobile" : cl->name,
-		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name);
+		IS_NPC(ch) ? "Midgaard" : hometown_name(ch->hometown));
 
 	buf_printf(output,
 		"You have {c%d{x/{c%d{x hit, {c%d{x/{c%d{x mana, "
@@ -3929,7 +3924,7 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         }
 
         if (is_affected(ch, sn)) {
-                char_puts("You fatigue for searshing new home.\n", ch) ;
+                char_puts("You fatigue for searching new home.\n", ch) ;
                 return;
         }
 
@@ -3961,7 +3956,6 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         check_improve(ch, sn, TRUE, 4);
         WAIT_STATE(ch, SKILL(sn)->beats);
 
-
         char_puts("You succeeded to make your homepoint.\n", ch);
         act("$n succeeded to make $s homepoint. ", ch, NULL, NULL, TO_ROOM);
 
@@ -3973,16 +3967,10 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         af.modifier     = 0;
         af.location     = APPLY_NONE;
         affect_to_char(ch, &af);
+
         argument = one_argument(argument, arg, sizeof(arg));
-	if(arg[0]=='\0' || !str_prefix(arg, "here")) {
-		ch->pcdata->homepoint = ch->in_room->vnum;
-		return;
-	}
-        if(!str_prefix(arg, "motherland")) 
-		ch->pcdata->homepoint = 0;
+	if (arg[0] && !str_prefix(arg, "motherland"))
+		ch->pcdata->homepoint = NULL;
         else 
-		ch->pcdata->homepoint = ch->in_room->vnum ; 
-
-
+		ch->pcdata->homepoint = ch->in_room; 
 }
-/*end*/

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.17 1999-03-08 13:56:05 fjoe Exp $
+ * $Id: typedef.h,v 1.18 1999-03-10 17:23:32 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -69,7 +69,6 @@ typedef struct room_history_data	ROOM_HISTORY_DATA;
 typedef struct mptrig			MPTRIG;
 typedef struct mpcode			MPCODE;
 typedef struct qtrouble_data		QTROUBLE_DATA;
-typedef struct hometown_data		HOMETOWN_DATA;
 typedef struct flag			FLAG; 
 typedef struct class_skill		CLASS_SKILL;
 typedef struct clan_skill		CLAN_SKILL;
@@ -90,6 +89,16 @@ typedef struct mlstring			mlstring;
 typedef struct rulecl_t			rulecl_t;
 typedef struct olced_t 			olced_t;	
 typedef struct rule_t			rule_t;
+typedef union vo_t			vo_t;
+typedef struct altar_t			altar_t;
+typedef struct hometown_t		hometown_t;
+
+union vo_t {
+	int			vnum;
+	ROOM_INDEX_DATA *	r;
+	OBJ_INDEX_DATA *	o;
+	MOB_INDEX_DATA *	m;
+};
 
 typedef void	DO_FUN		(CHAR_DATA *ch, const char *argument);
 typedef bool	SPEC_FUN	(CHAR_DATA *ch);
