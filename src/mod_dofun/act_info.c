@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.37 2001-07-11 04:40:25 kostik Exp $
+ * $Id: act_info.c,v 1.271.2.38 2001-09-01 19:30:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1861,7 +1861,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	if (obj->wear_loc != WEAR_NONE)
 		unequip_char(victim, obj);
 
-	if (!can_drop_obj(ch, obj)) {
+	if (!can_drop_obj(victim, obj)) {
 		do_say(victim, "Sorry, I can't let go of it.  It's cursed.");
 		return;
 	}
@@ -3525,8 +3525,8 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	if (obj->wear_loc != WEAR_NONE)
 		unequip_char(victim, obj);
 
-	if (!can_drop_obj(ch, obj)) {
-		do_say(victim, "It's cursed so, I can't let go of it. "
+	if (!can_drop_obj(victim, obj)) {
+		do_say(victim, "It's cursed, so I can't let go of it. "
 			       "Forgive me, my master");
 		return;
 	}
