@@ -97,7 +97,6 @@ tell_char($n, $N, "Do you wish to help us?");
 tell_char($n, $N, "It's nice!");
 return 1;
 ~
-m mob_tell mob_tell_wise_oak_sapling sapling~
 #35470
 bear forest brown~
 a forest bear~

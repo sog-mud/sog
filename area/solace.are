@@ -25,7 +25,6 @@ CDEFIJKLTU
 stand stand male 1000
 0 0 medium unknown
 m mob_fight mob_fight_cast_cleric 100~
-m mob_random mob_random_captain 100~
 #10202
 lieutenant commander~
 Lieutenant Commander~
@@ -1195,8 +1194,6 @@ if (!is_class($n, "wizard"))
 act("$p glows and pulses.", $n, $p, NULL, TO_ALL);
 return 1;
 ~
-m obj_entry obj_random_mage_masher 87~
-m obj_random obj_random_mage_masher 13~
 E
 hammer warhammer~
 This hammer has the words, "MAGE MASHER" engraved into it's head.

@@ -75,6 +75,20 @@ r charm 100
 r weapon 100
 r magic 100
 m mob_fight mob_fight_breath_any 100~
+#34403
+creature dark slayer~
+a dark slayer~
+A creature of darkest night stands here ready to slay the light.~
+It has no soul, no mind, just the essence that it was formed iwth when the
+Lord Bane called upon the night for service.
+~
+dragon~
+BF 0 0 0 0 -1000 0
+45 0 25d10+3000 1d1+100 8d4+16 'drain'
+-15 -15 -15 -5
+0
+stand stand male 0
+0 0 huge unknown
 #0
 
 #OBJECTS

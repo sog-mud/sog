@@ -91,7 +91,6 @@ close_door($n, "north");
 lock_door($n, "north");
 return 0;
 ~
-m mob_speech mob_speech_astral_guardian i wish to enter~
 #7701
 nightmare~
 pitch-black nightmare~
