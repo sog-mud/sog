@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.265 2001-09-07 15:40:14 fjoe Exp $
+ * $Id: spellfun.c,v 1.266 2001-09-07 15:59:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -7960,7 +7960,7 @@ SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
 	int hp_to_add;
 
 	if (is_sn_affected(ch,sn)) {
-		act_char("You are already protected.\n", ch);
+		act_char("You are already protected.", ch);
 		return;
 	}
 	hp_to_add = number_range(level * 3 / 4, level * 4 / 3) + 15;
@@ -7974,5 +7974,5 @@ SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
 	affect_to_char(ch, paf);
 	aff_free(paf);
 
-	act_char("Many green leaves cloak you.\n",ch);
+	act_char("Many green leaves cloak you.",ch);
 }
