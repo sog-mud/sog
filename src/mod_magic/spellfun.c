@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.13 1998-06-07 07:15:42 fjoe Exp $
+ * $Id: spellfun.c,v 1.14 1998-06-12 14:25:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "hometown.h"
 #include "act_comm.h"
 #include "update.h"
+#include "util.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -341,7 +342,6 @@ void do_cast(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	void *vo;
@@ -500,12 +500,9 @@ void do_cast(CHAR_DATA *ch, char *argument)
 	        if (!can_see(victim, ch))
 	            do_yell(victim, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(victim))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(victim,buf);
-	          }
 	      }
 	    if (is_affected(victim,gsn_spellbane) && 
 	        (number_percent() < 2*victim->pcdata->learned[gsn_spellbane]/3) 
@@ -1474,7 +1471,6 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	CHAR_DATA *tmp_vict,*last_vict,*next_vict;
-	char buf[MAX_STRING_LENGTH];
 	bool found;
 	int dam;
 
@@ -1499,12 +1495,9 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	    if (!can_see(victim, ch))
 	      do_yell(victim, "Help someone is attacking me!");
 	    else
-	      {
-	        sprintf(buf,"Die, %s, you sorcerous dog!",
+	        doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(victim))?
 	                ch->doppel->name : ch->name);
-	        do_yell(victim,buf);
-	      }
 	  }
 
 
@@ -1540,12 +1533,9 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	        if (!can_see(tmp_vict, ch))
 	            do_yell(tmp_vict, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",                    
+	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",                    
 			(is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(tmp_vict,buf);
-	          }
 	      }
 
 		      if (saves_spell(level,tmp_vict,DAM_LIGHTNING))
@@ -1842,7 +1832,7 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		{
 		    char buf[MAX_STRING_LENGTH];
 
-		    sprintf(buf, "%s water", obj->name);
+		    snprintf(buf, sizeof(buf), "%s water", obj->name);
 		    free_string(obj->name);
 		    obj->name = str_dup(buf);
 		}
@@ -3039,7 +3029,6 @@ void spell_iceball(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *tmp_vict;
 	CHAR_DATA *tmp_next;
-	char buf[MAX_STRING_LENGTH];
 	int dam;
 	int movedam;
 
@@ -3060,11 +3049,8 @@ void spell_iceball(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	        if (!can_see(tmp_vict, ch))
 	            do_yell(tmp_vict, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
 		(is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))? ch->doppel->name : ch->name);
-	             do_yell(tmp_vict,buf);
-	          }
 	      }
 
 	      if (saves_spell(level,tmp_vict, DAM_COLD))
@@ -3592,7 +3578,6 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
-	char buf[MAX_STRING_LENGTH];
 	int dam;
 	int bless_num, curse_num, frenzy_num;
 
@@ -3628,12 +3613,9 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	        if (!can_see(vch, ch))
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(vch,buf);
-	          }
 	      }
 
 	        spell_curse(curse_num,level,ch,(void *) vch, TARGET_CHAR);
@@ -3654,12 +3636,9 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	        if (!can_see(vch, ch))
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(vch,buf);
-	          }
 	      }
 
 	        spell_curse(curse_num,level/2,ch,(void *) vch, TARGET_CHAR);
@@ -3682,7 +3661,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	char buf[MAX_STRING_LENGTH];
 	AFFECT_DATA *paf;
 
-	sprintf(buf,
+	char_printf(ch,
 		"Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\r",
 
 		obj->name,
@@ -3692,23 +3671,18 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		obj->cost,
 		obj->level
 		);
-	send_to_char(buf, ch);
 
 		    if (obj->pIndexData->limit != -1)
-			{
-			 sprintf(buf,
+			 char_printf(ch,
 		"This equipment has been LIMITED by number %d \n\r", 
 					obj->pIndexData->limit);
-		 send_to_char(buf,ch);
-			}
 
 	switch (obj->item_type)
 	{
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
-		sprintf(buf, "Level %d spells of:", obj->value[0]);
-		send_to_char(buf, ch);
+		char_printf(ch, "Level %d spells of:", obj->value[0]);
 
 		if (obj->value[1] >= 0 && obj->value[1] < MAX_SKILL)
 		{
@@ -3743,9 +3717,8 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	case ITEM_WAND: 
 	case ITEM_STAFF: 
-		sprintf(buf, "Has %d charges of level %d",
+		char_printf(ch, "Has %d charges of level %d",
 		    obj->value[2], obj->value[0]);
-		send_to_char(buf, ch);
 	  
 		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
 		{
@@ -3758,22 +3731,17 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		break;
 
 	case ITEM_DRINK_CON:
-	    sprintf(buf,"It holds %s-colored %s.\n\r",
+	    char_printf(ch,"It holds %s-colored %s.\n\r",
 		    liq_table[obj->value[2]].liq_color,
 	        liq_table[obj->value[2]].liq_name);
-	    send_to_char(buf,ch);
 	    break;
 
 	case ITEM_CONTAINER:
-		sprintf(buf,"Capacity: %d#  Maximum weight: %d#  flags: %s\n\r",
+		char_printf(ch,"Capacity: %d#  Maximum weight: %d#  flags: %s\n\r",
 		    obj->value[0], obj->value[3], cont_bit_name(obj->value[1]));
-		send_to_char(buf,ch);
 		if (obj->value[4] != 100)
-		{
-		    sprintf(buf,"Weight multiplier: %d%%\n\r",
+		    char_printf(ch,"Weight multiplier: %d%%\n\r",
 			obj->value[4]);
-		    send_to_char(buf,ch);
-		}
 		break;
 			
 	case ITEM_WEAPON:
@@ -3795,26 +3763,21 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    default		: send_to_char("unknown.\n\r",ch);	break;
  	}
 		if (obj->pIndexData->new_format)
-		    sprintf(buf,"Damage is %dd%d (average %d).\n\r",
+		    char_printf(ch,"Damage is %dd%d (average %d).\n\r",
 			obj->value[1],obj->value[2],
 			(1 + obj->value[2]) * obj->value[1] / 2);
 		else
-		    sprintf(buf, "Damage is %d to %d (average %d).\n\r",
+		    char_printf(ch, "Damage is %d to %d (average %d).\n\r",
 		    	obj->value[1], obj->value[2],
 		    	(obj->value[1] + obj->value[2]) / 2);
-		send_to_char(buf, ch);
 	    if (obj->value[4])  /* weapon flags */
-	    {
-	        sprintf(buf,"Weapons flags: %s\n\r",weapon_bit_name(obj->value[4]));
-	        send_to_char(buf,ch);
-		}
+	        char_printf(ch,"Weapons flags: %s\n\r",weapon_bit_name(obj->value[4]));
 		break;
 
 	case ITEM_ARMOR:
-		sprintf(buf, 
+		char_printf(ch, 
 		"Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n\r", 
 		    obj->value[0], obj->value[1], obj->value[2], obj->value[3]);
-		send_to_char(buf, ch);
 		break;
 	}
 
@@ -3831,35 +3794,34 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	            switch(paf->where)
 	            {
 	                case TO_AFFECTS:
-	                    sprintf(buf,"Adds %s affect.\n",
+	                    char_printf(ch,"Adds %s affect.\n",
 	                        affect_bit_name(paf->bitvector));
 	                    break;
 	                case TO_OBJECT:
-	                    sprintf(buf,"Adds %s object flag.\n",
+	                    char_printf(ch,"Adds %s object flag.\n",
 	                        extra_bit_name(paf->bitvector));
 	                    break;
 	                case TO_IMMUNE:
-	                    sprintf(buf,"Adds immunity to %s.\n",
+	                    char_printf(ch,"Adds immunity to %s.\n",
 	                        imm_bit_name(paf->bitvector));
 	                    break;
 			    case TO_RESIST:
-	                    sprintf(buf,"Adds resistance to %s.\n\r",
+	                    char_printf(ch,"Adds resistance to %s.\n\r",
 	                        imm_bit_name(paf->bitvector));
 	                    break;
 	                case TO_VULN:
-				sprintf(buf,"Adds vulnerability to %s.\n\r",
+				char_printf(ch,"Adds vulnerability to %s.\n\r",
 	                        imm_bit_name(paf->bitvector));
 	                    break;
 	                case TO_DETECTS:
-				sprintf(buf,"Adds %s detection.\n\r",
+				char_printf(ch,"Adds %s detection.\n\r",
 	                        detect_bit_name(paf->bitvector));
 	                    break;
 	                default:
-	                    sprintf(buf,"Unknown bit %d: %d\n\r",
+	                    char_printf(ch,"Unknown bit %d: %d\n\r",
 	                        paf->where,paf->bitvector);
 	                    break;
 	            }
-		        send_to_char(buf, ch);
 		    }
 		}
 	}
@@ -3868,53 +3830,50 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	{
 		if (paf->location != APPLY_NONE && paf->modifier != 0)
 		{
-		    sprintf(buf, "Affects %s by %d",
+		    char_printf(ch, "Affects %s by %d",
 		    	affect_loc_name(paf->location), paf->modifier);
-		    send_to_char(buf, ch);
 		    if (paf->duration > -1)
-	            sprintf(buf,", %d hours.\n\r",paf->duration);
+	            char_printf(ch,", %d hours.\n\r",paf->duration);
 	        else
-	            sprintf(buf,".\n\r");
-		    send_to_char(buf,ch);
+	            char_puts(".\n\r", ch);
 
 	        if (paf->bitvector)
 	        {
 	            switch(paf->where)
 	            {
 	                case TO_AFFECTS:
-	                    sprintf(buf,"Adds %s affect.\n",
+	                    char_printf(ch,"Adds %s affect.\n",
 	                        affect_bit_name(paf->bitvector));
 	                    break;
 	                case TO_OBJECT:
-	                    sprintf(buf,"Adds %s object flag.\n",
+	                    char_printf(ch,"Adds %s object flag.\n",
 				    extra_bit_name(paf->bitvector));
 	                    break;
 			    case TO_WEAPON:
-				sprintf(buf,"Adds %s weapon flags.\n",
+				char_printf(ch,"Adds %s weapon flags.\n",
 				    weapon_bit_name(paf->bitvector));
 				break;
 	                case TO_IMMUNE:
-	                    sprintf(buf,"Adds immunity to %s.\n",
+	                    char_printf(ch,"Adds immunity to %s.\n",
 	                        imm_bit_name(paf->bitvector));
 	                    break;
 	                case TO_RESIST:
-	                    sprintf(buf,"Adds resistance to %s.\n\r",
+	                    char_printf(ch,"Adds resistance to %s.\n\r",
 	                        imm_bit_name(paf->bitvector));
 	                    break;
 	                case TO_VULN:
-	                    sprintf(buf,"Adds vulnerability to %s.\n\r",
+	                    char_printf(ch,"Adds vulnerability to %s.\n\r",
 	                        imm_bit_name(paf->bitvector));
 	                    break;
 	                case TO_DETECTS:
-	                    sprintf(buf,"Adds %s detection.\n\r",
+	                    char_printf(ch,"Adds %s detection.\n\r",
 	                        detect_bit_name(paf->bitvector));
 	                    break;
 	                default:
-	                    sprintf(buf,"Unknown bit %d: %d\n\r",
+	                    char_printf(ch,"Unknown bit %d: %d\n\r",
 				    paf->where,paf->bitvector);
 	                    break;
 	            }
-	            send_to_char(buf,ch);
 	        }
 		}
 	}
@@ -5176,7 +5135,6 @@ void spell_gas_breath(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
-	char buf[MAX_STRING_LENGTH];
 	int dam,hp_dam,dice_dam,hpch;
 
 	act("$n breathes out a cloud of poisonous gas!",ch,NULL,NULL,TO_ROOM);
@@ -5206,12 +5164,9 @@ void spell_gas_breath(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	        if (!can_see(vch, ch))
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, vch, "Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(vch,buf);
-	          }
 	      }
 
 		if (saves_spell(level,vch,DAM_POISON))
@@ -5683,8 +5638,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 	act("$n disappears in a flash of light!",ch,NULL,NULL,TO_ROOM);
-	sprintf(buf,"You travel via astral planes and go to %s.\n\r",victim->name);
-	send_to_char(buf,ch);
+	char_printf(ch,"You travel via astral planes and go to %s.\n\r",victim->name);
 	char_from_room(ch);
 	char_to_room(ch,victim->in_room);
 
@@ -5869,7 +5823,6 @@ void spell_hurricane(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
-	char buf[MAX_STRING_LENGTH];
 	int dam,hp_dam,dice_dam,hpch;
 
 	act("$n prays the gods of the storm for help.",ch,NULL,NULL,TO_NOTVICT);
@@ -5898,12 +5851,9 @@ void spell_hurricane(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	        if (!can_see(vch, ch))
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, vch,"Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(vch,buf);
-	          }
 	      }
 
 		if (!IS_AFFECTED(vch,AFF_FLYING)) dam /= 2;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.20 1998-06-10 06:53:03 efdi Exp $
+ * $Id: db.c,v 1.21 1998-06-12 14:25:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,10 +82,10 @@ extern	int	_filbuf		args((FILE *));
 #	include <unistd.h>
 #	include <time.h>
 #else
-		long random();
-		void srandom(unsigned int);
-		int getpid();
-		time_t time(time_t *tloc);
+	long random();
+	void srandom(unsigned int);
+	int getpid();
+	time_t time(time_t *tloc);
 #endif
 #endif
 
@@ -1469,12 +1469,14 @@ void area_update(void)
 		    ROOM_INDEX_DATA *pRoomIndex;
 
 		    reset_area(pArea);
-		    sprintf(buf,"%s has just been reset.",pArea->name);
-		    wiznet(buf,NULL,NULL,WIZ_RESETS,0,0);
+		    wiznet_printf(NULL, NULL, WIZ_RESETS, 0, 0,
+		    		"%s has just been reset.", pArea->name);
 
 		    if (pArea->resetmsg)
-		    	 sprintf(buf,"%s\n\r",pArea->resetmsg);		 
-		    else sprintf(buf,"You hear some squeaking sounds...\n\r");	
+		    	snprintf(buf, sizeof(buf), "%s\n\r",pArea->resetmsg);
+		    else
+			snprintf(buf, sizeof(buf),
+				"You hear some squeaking sounds...\n\r");	
 
 		    for (d = descriptor_list; d != NULL; d = d->next)
 		       {
@@ -3194,6 +3196,22 @@ void free_string(char *pstr)
 }
 
 
+/*
+ * str_printf -- like sprintf, but for str_ implementation
+ */
+void str_printf(char** pstr, const char* fmt, ...)
+{
+	va_list ap;
+	char buf[MAX_STRING_LENGTH];
+
+	va_start(ap, fmt);
+	vsnprintf(buf, sizeof(buf), fmt, ap);
+	va_end(ap);
+
+	if (*pstr != NULL)
+        	free_string(*pstr);
+        *pstr = str_dup(buf);
+}
 
 void do_areas(CHAR_DATA *ch, char *argument)
 {
@@ -3249,30 +3267,24 @@ void do_areas(CHAR_DATA *ch, char *argument)
 
 void do_memory(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
-
-	sprintf(buf, "Affects %5d\n\r", top_affect   ); send_to_char(buf, ch);
-	sprintf(buf, "Areas   %5d\n\r", top_area     ); send_to_char(buf, ch);
-	sprintf(buf, "ExDes   %5d\n\r", top_ed       ); send_to_char(buf, ch);
-	sprintf(buf, "Exits   %5d\n\r", top_exit     ); send_to_char(buf, ch);
-	sprintf(buf, "Helps   %5d\n\r", top_help     ); send_to_char(buf, ch);
-	sprintf(buf, "Socials %5d\n\r", social_count ); send_to_char(buf, ch);
-	sprintf(buf, "Mobs    %5d(%d new format)\n\r", top_mob_index,newmobs); 
-	send_to_char(buf, ch);
-	sprintf(buf, "(in use)%5d\n\r", mobile_count ); send_to_char(buf, ch);
-	sprintf(buf, "Objs    %5d(%d new format)\n\r", top_obj_index,newobjs); 
-	send_to_char(buf, ch);
-	sprintf(buf, "Resets  %5d\n\r", top_reset    ); send_to_char(buf, ch);
-	sprintf(buf, "Rooms   %5d\n\r", top_room     ); send_to_char(buf, ch);
-	sprintf(buf, "Shops   %5d\n\r", top_shop     ); send_to_char(buf, ch);
-
-	sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n\r",
+	char_printf(ch, "Affects %5d\n\r", top_affect   );
+	char_printf(ch, "Areas   %5d\n\r", top_area     );
+	char_printf(ch, "ExDes   %5d\n\r", top_ed       );
+	char_printf(ch, "Exits   %5d\n\r", top_exit     );
+	char_printf(ch, "Helps   %5d\n\r", top_help     );
+	char_printf(ch, "Socials %5d\n\r", social_count );
+	char_printf(ch, "Mobs    %5d(%d new format)\n\r",
+				top_mob_index,newmobs); 
+	char_printf(ch, "(in use)%5d\n\r", mobile_count );
+	char_printf(ch, "Objs    %5d(%d new format)\n\r",
+				top_obj_index,newobjs); 
+	char_printf(ch, "Resets  %5d\n\r", top_reset    );
+	char_printf(ch, "Rooms   %5d\n\r", top_room     );
+	char_printf(ch, "Shops   %5d\n\r", top_shop     );
+	char_printf(ch, "Strings %5d strings of %7d bytes (max %d).\n\r",
 		nAllocString, sAllocString, MAX_STRING);
-	send_to_char(buf, ch);
-
-	sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n\r",
+	char_printf(ch, "Perms   %5d blocks  of %7d bytes.\n\r",
 		nAllocPerm, sAllocPerm);
-	send_to_char(buf, ch);
 
 	return;
 }
@@ -3801,8 +3813,7 @@ void bug(const char *str, int param)
 		    fseek(fpArea, iChar, 0);
 		}
 
-		sprintf(buf, "[*****] FILE: %s LINE: %d", strArea, iLine);
-		log_string(buf);
+		log_printf("[*****] FILE: %s LINE: %d", strArea, iLine);
 /* RT removed because we don't want bugs shutting the mud 
 		if ((fp = fopen("shutdown.txt", "a")) != NULL)
 		{

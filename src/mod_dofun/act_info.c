@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.69 1998-06-12 13:19:28 efdi Exp $
+ * $Id: act_info.c,v 1.70 1998-06-12 14:25:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,7 @@
 #include "hometown.h"
 #include "interp.h"
 #include "update.h"
+#include "util.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -2483,10 +2484,10 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 void do_report(CHAR_DATA *ch, char *argument)
 {
-	do_say(ch, "I have {c%d/%d{x hp {c%d/%d{x mana {c%d/%d{x mv",
-	       ch->hit, ch->max_hit,
-	       ch->mana, ch->max_mana,
-	       ch->move, ch->max_move);
+	doprintf(do_say, ch, "I have {c%d/%d{x hp {c%d/%d{x mana {c%d/%d{x mv",
+		 ch->hit, ch->max_hit,
+		 ch->mana, ch->max_mana,
+		 ch->move, ch->max_move);
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.16 1998-06-06 10:51:53 fjoe Exp $
+ * $Id: act_hera.c,v 1.17 1998-06-12 14:25:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.16 1998-06-06 10:51:53 fjoe Exp $
+ * $Id: act_hera.c,v 1.17 1998-06-12 14:25:57 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -61,6 +61,7 @@
 #include "comm.h"
 #include "interp.h"
 #include "resource.h"
+#include "util.h"
 
 /* for bzero, bcopy */
 #if defined(SUNOS) || defined(SVR4)
@@ -1403,7 +1404,7 @@ void do_repair(CHAR_DATA *ch, char *argument)
     }
 
     if (obj->cost == 0) {
-	do_say(mob, "%s is beyond repair.\n\r", obj->short_descr);
+	doprintf(do_say, mob, "%s is beyond repair.\n\r", obj->short_descr);
    	return;
     }
 
@@ -1430,7 +1431,6 @@ void do_repair(CHAR_DATA *ch, char *argument)
 
 void do_estimate(CHAR_DATA *ch, char *argument)
 {
-    char buf[MAX_INPUT_LENGTH];
     OBJ_DATA *obj;
     CHAR_DATA *mob; 
     char arg[MAX_INPUT_LENGTH];
@@ -1481,8 +1481,7 @@ void do_estimate(CHAR_DATA *ch, char *argument)
 		((obj->cost * (100 - obj->condition)) /100)    );
     cost /= 100;
 
-    sprintf(buf, "It will cost %d to fix that item", cost);
-    do_say(mob,buf);
+	doprintf(do_say, mob, "It will cost %d to fix that item", cost);
 }
 
 void do_restring( CHAR_DATA *ch, char *argument )

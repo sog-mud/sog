@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.28 1998-06-10 06:53:05 efdi Exp $
+ * $Id: update.c,v 1.29 1998-06-12 14:26:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "resource.h"
 #include "magic.h"
 #include "update.h"
+#include "util.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -1630,7 +1631,6 @@ void aggr_update(void)
 	CHAR_DATA *ch, *ch_next;
 	CHAR_DATA *vch, *vch_next;
 	CHAR_DATA *victim;
-	char buf[MAX_STRING_LENGTH];
 
 	for (wch = char_list; wch != NULL; wch = wch_next) {
 		wch_next = wch->next;
@@ -1679,11 +1679,10 @@ void aggr_update(void)
 			/* Mad mob attacks! */
 			if (ch->last_fought == wch
 			&&  !IS_AFFECTED(ch,AFF_SCREAM)) {
-				sprintf(buf,"%s! Now you die!",
+				doprintf(do_yell, ch, "%s! Now you die!",
 					(is_affected(wch, gsn_doppelganger) &&
 					!IS_SET(ch->act,PLR_HOLYLIGHT)) ?
 					PERS(wch->doppel, ch) : PERS(wch,ch));
-				do_yell(ch,buf);
 				wch = check_guard(wch, ch); 
 
 				multi_hit(ch,wch,TYPE_UNDEFINED);
@@ -2229,7 +2228,6 @@ void check_reboot(void)
 void track_update(void)
 {   
 	CHAR_DATA *ch, *ch_next;
-	char buf[MAX_STRING_LENGTH];
 
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		CHAR_DATA *vch, *vch_next;
@@ -2264,8 +2262,8 @@ void track_update(void)
 			||  is_safe_nomessage(ch,vch)
 			||  !is_name(vch->name,ch->in_mind))
 				continue;
-			sprintf(buf, "So we meet again, %s", vch->name);
-			do_yell(ch, buf);
+			doprintf(do_yell, ch,
+			         "So we meet again, %s", vch->name);
 			do_murder(ch, vch->name);
 		}
 	}

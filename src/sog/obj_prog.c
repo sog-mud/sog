@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.8 1998-06-05 22:08:50 efdi Exp $
+ * $Id: obj_prog.c,v 1.9 1998-06-12 14:26:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -708,7 +708,6 @@ bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	OBJ_DATA *container;
 	OBJ_DATA *item;
-	char buf[160];
 	int i;
 
 	act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
@@ -739,15 +738,19 @@ bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
 	item = create_object(get_obj_index(clan_table[i].obj_vnum), 100);
 	obj_to_obj(item, container);
 	obj_to_room(container, get_room_index(clan_table[i].room_vnum));
-	sprintf(buf, "You see %s forming again slowly.\n\r", 
-		container->short_descr);
 	if (get_room_index(clan_table[i].room_vnum)->people != NULL)  {
-		act(buf, get_room_index(clan_table[i].room_vnum)->people,NULL,NULL, TO_CHAR);
-		act(buf, get_room_index(clan_table[i].room_vnum)->people,NULL,NULL, TO_ROOM);
+		act_printf(get_room_index(clan_table[i].room_vnum)->people,
+			   NULL,NULL, TO_CHAR, POS_RESTING,
+			   "You see %s forming again slowly.\n\r", 
+			   container->short_descr);
+		act_printf(get_room_index(clan_table[i].room_vnum)->people,
+			   NULL, NULL, TO_ROOM, POS_RESTING,
+			   "You see %s forming again slowly.\n\r", 
+			   container->short_descr);
 	}
 	}
 	else
-	bug("oprog: Sac_clan_item: Was not the clan's item.", 0);
+	bug("oprog: sac_clan_item: Was not the clan's item.", 0);
 
 	return FALSE; 
 } 

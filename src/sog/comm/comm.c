@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.41 1998-06-10 03:32:11 efdi Exp $
+ * $Id: comm.c,v 1.42 1998-06-12 14:25:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -464,8 +464,7 @@ void crash_chronos (int sig)
 	        ch = d->original ? d->original : d->character;
 	        if (IS_NPC(ch))  continue;
 	             save_char_obj (ch);	
-	    sprintf(buf,"%s is saved",ch->name);	
-	    log_string(buf);
+	    log_printf("%s is saved",ch->name);	
 	    write_to_descriptor(d->descriptor,"\007Rebooting By Server!!\007\n\r",0);
 	    write_to_descriptor(d->descriptor,"Saving.Remember that Rom has automatic saving now.\n\r",0);
 	    sprintf(buf,"%s last command %s",ch->name,ch->desc->inlast);    
@@ -679,7 +678,7 @@ static void cp_print(DESCRIPTOR_DATA* d)
 
 	write_to_buffer(d, "\n\r", 0);
 	for (i = 0; i < NCODEPAGES; i++) {
-		sprintf(buf, "%d) %s  ", i+1, codepages[i].name);
+		snprintf(buf, sizeof(buf), "%d) %s  ", i+1, codepages[i].name);
 		write_to_buffer(d, buf, 0);
 	}
 	write_to_buffer(d, "\n\rSelect your codepage: ", 0);

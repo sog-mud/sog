@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.40 1998-06-10 07:41:44 efdi Exp $
+ * $Id: act_comm.c,v 1.41 1998-06-12 14:25:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -210,7 +210,7 @@ void do_delete(CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(ch->name));
+		snprintf(strsave, sizeof(strsave), "%s%s", PLAYER_DIR, capitalize(ch->name));
 		wiznet("$N turns $Mself into line noise.",ch,NULL,0,0,0);
 		ch->last_fight_time = -1;
 		do_quit_count(ch,"");
@@ -384,32 +384,27 @@ void do_immtalk(CHAR_DATA *ch, char *argument)
 
 
 
-void do_say(CHAR_DATA *ch, char *argument, ...)
+void do_say(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *room_char;
 	OBJ_DATA *char_obj;
 	CHAR_DATA *vch;
 	char buf[MAX_STRING_LENGTH];
 	char trans[MAX_STRING_LENGTH];
-	va_list ap;
 
-
-	if (argument[0] == '\0')
-	{
-	send_to_char("Say what?\n\r", ch);
-	return;
+	if (argument[0] == '\0') {
+		send_to_char("Say what?\n\r", ch);
+		return;
 	}
 	if (ch->in_room == NULL)  {
 		 send_to_char("But, you are not in a room!\n\r", ch);
 		 return;
 	}
 
-	va_start(ap, argument);
-	vsprintf(buf, argument, ap);
-	va_end(ap);
-
-	if (is_affected(ch,gsn_garble))
-		 garble(buf,buf);
+	if (is_affected(ch, gsn_garble))
+		garble(buf, argument);
+	else
+		strcpy(buf, argument);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!is_affected(vch, gsn_deafen)) {
@@ -516,7 +511,7 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 	if (victim->desc == NULL && !IS_NPC(victim)) {
 		act("$N seems to have misplaced $S link...try again later.",
 		    ch, NULL, victim, TO_CHAR);
-		sprintf(buf,"%s tells you '%s'\n\r",PERS(ch,victim),msg);
+		snprintf(buf, sizeof(buf), "%s tells you '%s'\n\r", PERS(ch,victim),msg);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer,buf);
 		return;
@@ -1733,13 +1728,13 @@ void do_split(CHAR_DATA *ch, char *argument)
 		 amount_gold,share_gold + extra_gold);
 
 	if (share_gold == 0)
-	sprintf(buf,"$n splits %d silver coins. Your share is %d silver.",
+	snprintf(buf, sizeof(buf), "$n splits %d silver coins. Your share is %d silver.",
 		amount_silver,share_silver);
 	else if (share_silver == 0)
-	sprintf(buf,"$n splits %d gold coins. Your share is %d gold.",
+	snprintf(buf, sizeof(buf), "$n splits %d gold coins. Your share is %d gold.",
 		amount_gold,share_gold);
 	else
-	sprintf(buf,
+	snprintf(buf, sizeof(buf),
 "$n splits %d silver and %d gold coins, giving you %d silver and %d gold.\n\r",
 		amount_silver,amount_gold,share_silver,share_gold);
 
@@ -1847,7 +1842,7 @@ void do_cb(CHAR_DATA *ch, char *argument)
 	return;
 		 }
 
-	sprintf(buf, "[%s] $n: {C$t{x",clan_table[ch->clan].short_name);
+	snprintf(buf, sizeof(buf), "[%s] $n: {C$t{x",clan_table[ch->clan].short_name);
 
 	if (is_affected(ch,gsn_garble))
 		 garble(buf2,argument);
@@ -1919,27 +1914,27 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
 	int i;
 
 	if (*argument == '\0'
-		 || (ch == NULL) || (victim == NULL)
-		 || IS_NPC(ch) || IS_NPC(victim)
-		 || IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
-		 || ch->language == LANG_COMMON
-		 || ch->language == pc_race_table[ORG_RACE(victim)].language)
-	{
+	||  (ch == NULL) || (victim == NULL)
+	||  IS_NPC(ch) || IS_NPC(victim)
+	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
+	||  ch->language == LANG_COMMON
+	||  ch->language == pc_race_table[ORG_RACE(victim)].language) {
 		if (IS_IMMORTAL(victim))
-			sprintf(trans,"{{%s} %s",
+			snprintf(trans, sizeof(trans), "{{%s} %s",
 				language_table[ch->language].name, argument);
 		else
-			strcpy(trans, argument);
+			snprintf(trans, sizeof(trans), argument);
 		return trans;
 	}
 
-	for(i=0 ; *argument != '\0'; argument++,i++) {
+	for(i = 0 ; *argument != '\0'; argument++,i++) {
 		 c = char_lang_lookup(*argument);
 		 buf[i] = c;
 	}
 	buf[i] = '\0';
 
-	sprintf(trans,"{{%s} %s",language_table[ch->language].name,buf);
+	snprintf(trans, sizeof(trans), "{{%s} %s",
+		 language_table[ch->language].name, buf);
 	return trans;
 }
 

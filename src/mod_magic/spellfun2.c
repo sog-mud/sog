@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.10 1998-06-07 07:15:42 fjoe Exp $
+ * $Id: spellfun2.c,v 1.11 1998-06-12 14:25:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "act_comm.h"
 #include "fight.h"
 #include "rating.h"
+#include "util.h"
 
 DECLARE_DO_FUN(do_scan2);
 /* command procedures needed */
@@ -298,9 +299,7 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 }
 
 void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) {
-
 	CHAR_DATA *tmp_vict;
-	char buf[MAX_STRING_LENGTH];
 
 	send_to_char("A cloud of poison smoke fills the room.\n\r",ch);
 	act("A cloud of poison smoke fills the room.",ch,NULL,NULL,TO_ROOM);
@@ -316,12 +315,9 @@ void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 	    if (!can_see(tmp_vict, ch))
 		do_yell(tmp_vict, "Help someone is attacking me!");
 	    else 
-	      {
-	         sprintf(buf,"Die, %s, you sorcerous dog!",
+	         doprintf(do_yell, tmp_vict, "Die, %s, you sorcerous dog!",
 		    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
 		     ch->doppel->name : ch->name);
-	         do_yell(tmp_vict,buf);
-	      }
 	  }
 	  
 	spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
@@ -336,7 +332,6 @@ void spell_poison_smoke(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *tmp_vict;
-	char buf[MAX_STRING_LENGTH];
 
 	send_to_char("A cloud of dust fills in the room.\n\r",ch);
 	act("A cloud of dust fills the room.",ch,NULL,NULL,TO_ROOM);
@@ -353,12 +348,9 @@ void spell_blindness_dust(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	    if (!can_see(tmp_vict, ch))
 		do_yell(tmp_vict, "Help someone is attacking me!");
 	    else 
-	      {
-	         sprintf(buf,"Die, %s, you sorcerous dog!",
+	         doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
 		    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
 		     ch->doppel->name : ch->name);
-	         do_yell(tmp_vict,buf);
-	      }
 	  }
 	  
 	spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);
@@ -708,7 +700,6 @@ void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *tmp_vict;
 	CHAR_DATA *tmp_next;
-	char buf[MAX_STRING_LENGTH];
 	int dam;
 
 	if (ch->level < 40)
@@ -731,12 +722,9 @@ void spell_scourge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	      if (!can_see(tmp_vict, ch))
 		do_yell(tmp_vict, "Help someone is attacking me!");
 	      else 
-		{
-		  sprintf(buf,"Die, %s, you sorcerous dog!",
+		  doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
 		    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
 		     ch->doppel->name : ch->name);
-		  do_yell(tmp_vict,buf);
-		}
 	    }
 	    
 	  if (!is_affected(tmp_vict,sn)) {
@@ -905,7 +893,6 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *guard;
 	CHAR_DATA *guard2;
 	AFFECT_DATA af;
-	char buf[] = "Guards! Guards!";
 	int i;
 
 	if (is_affected(ch,sn))
@@ -914,7 +901,7 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  return;
 	}
 
-	do_yell(ch, buf);
+	do_yell(ch, "Guards! Guards!");
 
 	for (gch = char_list; gch != NULL; gch = gch->next)
 	{
@@ -976,7 +963,6 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *gch;
 	CHAR_DATA *walker;
 	AFFECT_DATA af;
-	char buf[100];
 	int i;
 
 	if (is_affected(ch,sn))
@@ -1024,10 +1010,9 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_to_room(walker,ch->in_room);
 	send_to_char("A Nightwalker rises from the shadows!\n\r",ch);
 	act("A Nightwalker rises from the shadows!",ch,NULL,NULL,TO_ROOM);
-	sprintf(buf, "A Nightwalker kneels before you.");
-	send_to_char(buf, ch);
-	sprintf(buf, "A Nightwalker kneels before %s!", ch->name);
-	act(buf, ch, NULL, NULL, TO_ROOM);
+	char_printf(ch, "A Nightwalker kneels before you.");
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		   "A Nightwalker kneels before %s!", ch->name);
 
 	af.where		= TO_AFFECTS;
 	af.type               = sn;
@@ -1162,12 +1147,11 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *gch;
 	CHAR_DATA *tmp_vict;
 	char long_buf[MAX_STRING_LENGTH];
-	char short_buf[20];
 	int order;
 
 	if (IS_NPC(victim)) {
-	send_to_char("Only players can be mirrored.\n\r",ch);
-	return;
+		send_to_char("Only players can be mirrored.\n\r",ch);
+		return;
 	}
 
 	for (mirrors = 0, gch = char_list; gch != NULL; gch = gch->next)
@@ -1192,8 +1176,7 @@ if (mirrors >= level/5) {
 	for (tmp_vict = victim; is_affected(tmp_vict,gsn_doppelganger);
 	   tmp_vict = tmp_vict->doppel);
 
-	sprintf(long_buf, "%s%s is here.\n\r", tmp_vict->name, tmp_vict->pcdata->title);
-	sprintf(short_buf, tmp_vict->name);
+	snprintf(long_buf, sizeof(long_buf), "%s%s is here.\n\r", tmp_vict->name, tmp_vict->pcdata->title);
 
 	order = number_range(0,level/5 - mirrors);
 
@@ -1205,7 +1188,7 @@ if (mirrors >= level/5) {
 	free_string(gch->long_descr);
 	free_string(gch->description);
 	gch->name = str_dup(tmp_vict->name);
-	gch->short_descr = str_dup(short_buf);
+	gch->short_descr = str_dup(tmp_vict->name);
 	gch->long_descr = str_dup(long_buf);
 	gch->description = (tmp_vict->description == NULL) ? 
 	                   NULL : str_dup(tmp_vict->description);
@@ -1599,7 +1582,6 @@ void spell_old_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	int d0;
 	int d1;
 	AFFECT_DATA af;
-	char log_buf[MAX_INPUT_LENGTH];
 
 	if (is_affected(ch, sn))
 	{
@@ -1653,9 +1635,7 @@ void spell_old_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	send_to_char("You feel very drained from the effort.\n\r", ch);
 	ch->hit -= UMIN(200, ch->hit/2);
 
-	sprintf(log_buf, "%s used randomizer in room %d", ch->name, ch->in_room->vnum);
-	log_string(log_buf);
-
+	log_printf("%s used randomizer in room %d", ch->name, ch->in_room->vnum);
 }
 
 void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -1664,7 +1644,6 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *stalker;
 	AFFECT_DATA af;
 	int i;
-	char log_buf[MAX_INPUT_LENGTH];
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	  ||   victim == ch || victim->in_room == NULL
@@ -1731,8 +1710,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("An invisible stalker arrives to stalk $n!",victim,NULL,NULL,TO_ROOM);
 	send_to_char("An invisible stalker has been sent.\n\r", ch);
 
-	sprintf(log_buf, "%s used stalker on %s", ch->name, victim->name);
-	log_string(log_buf);
+	log_printf("%s used stalker on %s", ch->name, victim->name);
 }
 
 	
@@ -1979,15 +1957,15 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->gold = 0;
 
 	name		= IS_NPC(victim) ? victim->short_descr : victim->name;
-	sprintf(buf, shadow->short_descr, name);
+	snprintf(buf, sizeof(buf), shadow->short_descr, name);
 	free_string(shadow->short_descr);
 	shadow->short_descr = str_dup(buf);
 
-	sprintf(buf, shadow->long_descr, name);
+	snprintf(buf, sizeof(buf), shadow->long_descr, name);
 	free_string(shadow->long_descr);
 	shadow->long_descr = str_dup(buf);
 	
-	sprintf(buf, shadow->description, name);
+	snprintf(buf, sizeof(buf), shadow->description, name);
 	free_string(shadow->description);
 	shadow->description = str_dup(buf);
 	
@@ -2284,15 +2262,15 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	squire->armor[3] = interpolate(squire->level,100,0);
 	squire->gold = 0;
 
-	sprintf(buf, squire->short_descr, ch->name);
+	snprintf(buf, sizeof(buf), squire->short_descr, ch->name);
 	free_string(squire->short_descr);
 	squire->short_descr = str_dup(buf);
 
-	sprintf(buf, squire->long_descr, ch->name);
+	snprintf(buf, sizeof(buf), squire->long_descr, ch->name);
 	free_string(squire->long_descr);
 	squire->long_descr = str_dup(buf);
 	
-	sprintf(buf, squire->description, ch->name);
+	snprintf(buf, sizeof(buf), squire->description, ch->name);
 	free_string(squire->description);
 	squire->description = str_dup(buf); 
 	
@@ -2639,7 +2617,6 @@ void spell_dragons_breath(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *vch, *vch_next;
 	int dam,hp_dam,dice_dam;
 	int hpch;
-	char buf[MAX_STRING_LENGTH];
 
 	act("You call the dragon lord to help you.",ch,NULL,NULL,TO_CHAR);
 	act("$n start to breath like a dragon.",ch,NULL,victim,TO_NOTVICT);
@@ -2771,12 +2748,9 @@ switch(dice(1,5))
 	        if (!can_see(vch, ch))
 	            do_yell(vch, "Help someone is attacking me!");
 	        else
-	          {
-	             sprintf(buf,"Die, %s, you sorcerous dog!",
+	             doprintf(do_yell, vch, "Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(vch))?
 	                 ch->doppel->name : ch->name);
-	             do_yell(vch,buf);
-	          }
 	      }
 
 	if (saves_spell(level,vch,DAM_POISON))
@@ -3055,9 +3029,9 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	undead->master = ch;
 	undead->leader = ch;
 
-	sprintf(buf, "%s body undead", obj->name);
+	snprintf(buf, sizeof(buf), "%s body undead", obj->name);
 	undead->name = str_dup(buf);
-	sprintf(buf2,"%s",obj->short_descr);
+	strcpy(buf2, obj->short_descr);
 	argument = alloc_perm (MAX_STRING_LENGTH);
 	arg = alloc_perm (MAX_STRING_LENGTH);
 	argument = buf2;
@@ -3075,9 +3049,9 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		}
 	 }
 	}
-	sprintf(buf, "The undead body of %s", buf3);
+	snprintf(buf, sizeof(buf), "The undead body of %s", buf3);
 	undead->short_descr = str_dup(buf);
-	sprintf(buf, "The undead body of %s slowly staggers around.\n\r", buf3);
+	snprintf(buf, sizeof(buf), "The undead body of %s slowly staggers around.\n\r", buf3);
 	undead->long_descr = str_dup(buf);
 
 	for(obj2 = obj->contains;obj2;obj2=next)
@@ -3098,10 +3072,10 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	affect_to_char(ch, &af);
 
 	send_to_char("With mystic power, you animate it!\n\r",ch);
-	sprintf(buf,"With mystic power, %s animates %s!",ch->name,obj->name); 
-	act(buf,ch,NULL,NULL,TO_ROOM);
-	sprintf(buf,"%s looks at you and plans to make you pay for distrurbing its rest!",obj->short_descr); 
-	act(buf,ch,NULL,NULL,TO_CHAR);
+	act_printf(ch,NULL,NULL,TO_ROOM, POS_RESTING,
+		"With mystic power, %s animates %s!",ch->name,obj->name); 
+	act_printf(ch,NULL,NULL,TO_CHAR, POS_RESTING,
+		"%s looks at you and plans to make you pay for distrurbing its rest!",obj->short_descr); 
 	extract_obj (obj);
 	return;
 	}
@@ -3520,15 +3494,15 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	sprintf(buf, eyed->short_descr, ch->name);
+	snprintf(buf, sizeof(buf), eyed->short_descr, ch->name);
 	free_string(eyed->short_descr);
 	eyed->short_descr = str_dup(buf);
 
-	sprintf(buf, eyed->description, ch->name	);
+	snprintf(buf, sizeof(buf), eyed->description, ch->name	);
 	free_string(eyed->description);
 	eyed->description = str_dup(buf);
 
-	    sprintf(buf, eyed->pIndexData->extra_descr->description, ch->name);
+	    snprintf(buf, sizeof(buf), eyed->pIndexData->extra_descr->description, ch->name);
 	    eyed->extra_descr = new_extra_descr();
 	    eyed->extra_descr->keyword = 
 	              str_dup(eyed->pIndexData->extra_descr->keyword);
@@ -3697,19 +3671,19 @@ void spell_magic_jar (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	sprintf(buf, fire->name, victim->name);
+	snprintf(buf, sizeof(buf), fire->name, victim->name);
 	free_string(fire->name);
 	fire->name = str_dup(buf);
 
-	sprintf(buf, fire->short_descr, victim->name);
+	snprintf(buf, sizeof(buf), fire->short_descr, victim->name);
 	free_string(fire->short_descr);
 	fire->short_descr = str_dup(buf);
 
-	sprintf(buf, fire->description, victim->name);
+	snprintf(buf, sizeof(buf), fire->description, victim->name);
 	free_string(fire->description);
 	fire->description = str_dup(buf);
 
-	    sprintf(buf,fire->pIndexData->extra_descr->description, victim->name);
+	    snprintf(buf, sizeof(buf), fire->pIndexData->extra_descr->description, victim->name);
 	    fire->extra_descr = new_extra_descr();
 	    fire->extra_descr->keyword = 
 	              str_dup(fire->pIndexData->extra_descr->keyword);
@@ -3720,8 +3694,7 @@ void spell_magic_jar (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->cost = 0;
 	obj_to_char(fire , ch);    
  SET_BIT(victim->act,PLR_NO_EXP);
- sprintf(buf,"You catch %s's spirit in to your vial.\n\r",victim->name);
- send_to_char(buf , ch);
+ char_printf(ch,"You catch %s's spirit in to your vial.\n\r",victim->name);
  return;
 }
 
@@ -3979,15 +3952,15 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
 
-	sprintf(buf, fire->short_descr, arg);
+	snprintf(buf, sizeof(buf), fire->short_descr, arg);
 	free_string(fire->short_descr);
 	fire->short_descr = str_dup(buf);
 
-	sprintf(buf, fire->description, arg	);
+	snprintf(buf, sizeof(buf), fire->description, arg	);
 	free_string(fire->description);
 	fire->description = str_dup(buf);
 
-	    sprintf(buf, fire->pIndexData->extra_descr->description, arg);
+	    snprintf(buf, sizeof(buf), fire->pIndexData->extra_descr->description, arg);
 	    fire->extra_descr = new_extra_descr();
 	    fire->extra_descr->keyword = 
 	              str_dup(fire->pIndexData->extra_descr->keyword);
@@ -4390,14 +4363,13 @@ void spell_improved_detection(int sn, int level, CHAR_DATA *ch, void *vo,int tar
 	return;
 }
 
-void spell_severity_force(int sn, int level, CHAR_DATA *ch, void *vo,int target) 
+void spell_severity_force(int sn, int level, CHAR_DATA *ch, void *vo,int target
+)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	char buf[MAX_STRING_LENGTH]; 
 	int dam;
 
-	sprintf(buf,"You cracked the ground towards the %s.\n\r",victim->name);
-	send_to_char(buf, ch);
+	char_printf(ch,"You cracked the ground towards the %s.\n\r",victim->name);
 	act("$n cracked the ground towards you!.", ch, NULL, victim, TO_VICT);
 	dam = dice(level , 12);
 	damage(ch,victim,dam,sn,DAM_NONE,TRUE);
@@ -5191,7 +5163,6 @@ void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	char buf[MAX_STRING_LENGTH];
 	int dam;
 
 	act("Many sharp blades appear around $n and crash $N.",
@@ -5213,12 +5184,9 @@ void spell_blade_barrier(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	    if (!can_see(victim, ch))
 	      do_yell(victim, "Help someone is attacking me!");
 	    else
-	      {
-	        sprintf(buf,"Die, %s, you sorcerous dog!",
+	        doprintf(do_yell, victim,"Die, %s, you sorcerous dog!",
 	                (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(victim))?
 	                ch->doppel->name : ch->name);
-	        do_yell(victim,buf);
-	      }
 	  }
 
 	act("The blade barriers crash $n!",victim,NULL,NULL,TO_ROOM);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.33 1998-06-10 10:50:48 efdi Exp $
+ * $Id: fight.c,v 1.34 1998-06-12 14:25:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 #include "fight.h"
 #include "rating.h"
 #include "update.h"
+#include "util.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -1995,11 +1996,11 @@ void make_corpse(CHAR_DATA *ch)
 
 	corpse->level = ch->level;
 
-	sprintf(buf, corpse->short_descr, name);
+	snprintf(buf, sizeof(buf), corpse->short_descr, name);
 	free_string(corpse->short_descr);
 	corpse->short_descr = str_dup(buf);
 
-	sprintf(buf, corpse->description, name);
+	snprintf(buf, sizeof(buf), corpse->description, name);
 	free_string(corpse->description);
 	corpse->description = str_dup(buf);
 
@@ -2124,11 +2125,11 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		obj		= create_object(get_obj_index(vnum), 0);
 		obj->timer	= number_range(4, 7);
 
-		sprintf(buf, obj->short_descr, name);
+		snprintf(buf, sizeof(buf), obj->short_descr, name);
 		free_string(obj->short_descr);
 		obj->short_descr = str_dup(buf);
 
-		sprintf(buf, obj->description, name);
+		snprintf(buf, sizeof(buf), obj->description, name);
 		free_string(obj->description);
 		obj->description = str_dup(buf);
 
@@ -2264,7 +2265,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 
 void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *gch;
 	CHAR_DATA *lch;
 	int xp;
@@ -2338,8 +2338,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 
 
 		xp = xp_compute(gch, victim, group_levels,members);
-		sprintf(buf, "You receive %d experience points.\n\r", xp);
-		send_to_char(buf, gch);
+		char_printf(gch, "You receive %d experience points.\n\r", xp);
 		gain_exp(gch, xp);
 
 		for (obj = ch->carrying; obj != NULL; obj = obj_next)
@@ -2372,7 +2371,6 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
  */
 int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels,int members)
 {
-  char buf[MAX_STRING_LENGTH];
   int xp;
   int base_exp;
   int level_range;
@@ -2476,12 +2474,11 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels,int members)
   {
 	if ((gch->pcdata->anti_killed % 100) == 99)
 		{
-		 sprintf(buf,"You have killed %d %s up to now.\n\r",
+		 char_printf(gch,"You have killed %d %s up to now.\n\r",
 				gch->pcdata->anti_killed,
 			IS_GOOD(gch) ? "goods" :
 			IS_NEUTRAL(gch) ? "neutrals" :
 			IS_EVIL(gch) ? "evils" : "nones");
-		 send_to_char(buf,gch);
 		 if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch))
 		 {
 		  send_to_char("So your charisma has reduced by one.\n\r", gch);
@@ -2493,12 +2490,11 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels,int members)
    {
 	if ((gch->pcdata->has_killed % 200) == 199)
 		{
-		 sprintf(buf,"You have killed %d %s up to now.\n\r",
+		 char_printf(gch,"You have killed %d %s up to now.\n\r",
 				gch->pcdata->anti_killed,
 			IS_GOOD(gch) ? "anti-goods" :
 			IS_NEUTRAL(gch) ? "anti-neutrals" :
 			IS_EVIL(gch) ? "anti-evils" : "nones");
-		  send_to_char(buf,gch);
 		  if (gch->perm_stat[STAT_CHA] < get_max_train(gch, STAT_CHA)
 			&& IS_GOOD(gch))
 		  {
@@ -2798,7 +2794,6 @@ void do_murde(CHAR_DATA *ch, char *argument)
 
 void do_murder(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -2842,12 +2837,13 @@ void do_murder(CHAR_DATA *ch, char *argument)
 		do_yell(victim, "Help! I am being attacked by someone!");
 	else {
 		if (IS_NPC(ch))
-			sprintf(buf, "Help! I am being attacked by %s!",
+			doprintf(do_yell, victim,
+				"Help! I am being attacked by %s!",
 				ch->short_descr);
 		else
-			sprintf(buf, "Help! I am being attacked by %s!",
+			doprintf(do_yell, victim,
+				"Help! I am being attacked by %s!",
 				(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?  ch->doppel->name : ch->name);
-		do_yell(victim, buf);
 	}
 
 	if (SKILL_OK(ch, gsn_mortal_strike)

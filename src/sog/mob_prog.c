@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.10 1998-06-02 21:49:19 fjoe Exp $
+ * $Id: mob_prog.c,v 1.11 1998-06-12 14:26:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,7 @@
 #include "hometown.h"
 #include "resource.h"
 #include "quest.h"
+#include "util.h"
 
 DECLARE_DO_FUN(do_yell);
 DECLARE_DO_FUN(do_cb);
@@ -508,7 +509,6 @@ void greet_prog_battle(CHAR_DATA *mob, CHAR_DATA *ch)
 void give_prog_keeper(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 {
   OBJ_DATA *rug;
-  char buf[100];
 
   if (obj->pIndexData->vnum == 90) 
     {
@@ -531,8 +531,7 @@ void give_prog_keeper(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
     }
     else
     {
-     sprintf(buf,"%s %s",obj->name,ch->name);
-     do_give(mob,buf);
+     doprintf(do_give, mob, "%s %s", obj->name, ch->name);
      do_say(mob,"Why do i need this?.");	
     }
  return;
@@ -558,7 +557,6 @@ void speech_prog_keeper(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 
 void greet_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-  char buf[100];
   OBJ_DATA *obj;
 
   if (!can_see(mob,ch) || IS_NPC(ch) || IS_IMMORTAL(ch))
@@ -575,8 +573,7 @@ void greet_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch)
       act("$n sneers at you.", mob, NULL, ch, TO_VICT);
       act("You sneer at $N.", mob, NULL, ch, TO_CHAR);
       act("$n sneers at $N.", mob, NULL, ch, TO_NOTVICT);
-      sprintf(buf, "papers %s", ch->name);
-      do_give(mob, buf);
+      doprintf(do_give, mob, "papers %s", ch->name);
       do_close(mob, "box");
       do_lock(mob, "box");
     }
@@ -584,8 +581,6 @@ void greet_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch)
 
 void give_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 {
-  char buf[100];
-
   if (!can_see(mob,ch))
        do_say(mob, "Is someone there?");
   else if (IS_NPC(ch))
@@ -595,8 +590,7 @@ void give_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
     {
       do_say(mob, "How interesting!  ...what's it for?");
       interpret(mob, "giggle", FALSE);
-      sprintf(buf,"%s %s",obj->name,ch->name);
-      do_give(mob,buf);
+      doprintf(do_give, mob, "%s %s", obj->name, ch->name);
     }
   else
     {
@@ -606,8 +600,7 @@ void give_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
       act("$n sticks $s hands in $s pockets.",mob,NULL,NULL,TO_ROOM);
       do_load(mob, "obj 2438");
       do_say(mob, "What's this?  A key?  Here, you can have it.");
-      sprintf(buf, "xxx %s",ch->name);
-      do_give(mob, buf);
+      doprintf(do_give, mob, "xxx %s",ch->name);
       act("$n absently pushes the rug under a chair.",mob,NULL,NULL,TO_ROOM);
       obj_from_char(obj);
       extract_obj(obj);
@@ -617,16 +610,12 @@ void give_prog_fireflash(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 
 void greet_prog_solamnia(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-  
   OBJ_DATA *obj;
-  char arg[100];
 
   if (!can_see(mob,ch) || IS_NPC(ch) || IS_IMMORTAL(ch))
     return;
 
-  sprintf(arg,"xxx");
-
-  if ((obj = get_obj_carry(ch, arg)) != NULL)
+  if ((obj = get_obj_carry(ch, "xxx")) != NULL)
     {
       do_say(mob, "I think you bring something for me....");
       interpret(mob, "smile", FALSE);
@@ -634,9 +623,7 @@ void greet_prog_solamnia(CHAR_DATA *mob, CHAR_DATA *ch)
 }  
 
 void give_prog_solamnia(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
-
 {
-  char buf[100];
   OBJ_DATA *kassandra;
 
   if (obj->pIndexData->vnum == 2438 ) 
@@ -645,8 +632,7 @@ void give_prog_solamnia(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
       kassandra = create_object(get_obj_index(89), 0);
       kassandra->timer = 500;
       obj_to_char(kassandra, mob);
-      sprintf(buf,"kassandra %s",ch->name);
-      do_give(mob, buf);
+      doprintf(do_give, mob, "kassandra %s", ch->name);
       do_say(mob, "This stone has some special powers, use it well.");
       obj_from_char(obj);
       extract_obj(obj);
@@ -655,13 +641,11 @@ void give_prog_solamnia(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 
 bool death_prog_stalker(CHAR_DATA *mob)
 {
-  char buf[100];
-
-  mob->clan = CLAN_RULER;
-  sprintf(buf, "I have failed trying to kill %s, I gasp my last breath.",
-	  mob->last_fought->name);
-  do_cb(mob, buf);
-  return FALSE;
+	mob->clan = CLAN_RULER;
+	doprintf(do_cb, mob,
+		 "I have failed trying to kill %s, I gasp my last breath.",
+		 mob->last_fought->name);
+	return FALSE;
 }
 
 void greet_prog_knight(CHAR_DATA *mob, CHAR_DATA *ch)
@@ -736,8 +720,7 @@ void greet_prog_keeper(CHAR_DATA *mob, CHAR_DATA *ch)
 
 void speech_prog_templeman(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 {
-char buf[160];
-int chosen = 0,correct = 1;
+	int chosen = 0,correct = 1;
 
     if ( !str_cmp( speech, "religion" ) )
 	mob->status = GIVE_HELP_RELIGION;
@@ -749,9 +732,8 @@ int chosen = 0,correct = 1;
    {
     if (( ch->religion > 0) && (ch->religion < MAX_RELIGION) )
 	{
-	 sprintf(buf,"You are already in the way of %s",
+	 doprintf(do_say, mob, "You are already in the way of %s",
 		religion_table[ch->religion].leader);
-	 do_say(mob,buf);
 	 return;
 	}
     switch( chosen )
@@ -792,9 +774,8 @@ int chosen = 0,correct = 1;
       }
 
     ch->religion = chosen;
-    sprintf(buf,"From now on and forever, you are in the way of %s",
+    doprintf(do_say, mob, "From now on and forever, you are in the way of %s",
 		religion_table[ch->religion].leader);
-    do_say(mob,buf);
     return; 
    } 
    do_say(mob,"Himm yes, religion.Do you really interested in that?.");
@@ -930,11 +911,12 @@ void greet_prog_hunter(CHAR_DATA *mob, CHAR_DATA *ch)
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
 
-	sprintf( buf, eyed->short_descr, ch->name );
+	snprintf(buf, sizeof(buf), eyed->short_descr, ch->name );
 	free_string( eyed->short_descr );
 	eyed->short_descr = str_dup( buf );
 
-        sprintf( buf, eyed->pIndexData->extra_descr->description, ch->name );
+        snprintf(buf, sizeof(buf),
+		eyed->pIndexData->extra_descr->description, ch->name );
         eyed->extra_descr = new_extra_descr();
         eyed->extra_descr->keyword = 
                   str_dup( eyed->pIndexData->extra_descr->keyword );
@@ -1027,13 +1009,11 @@ void fight_prog_diana( CHAR_DATA *mob, CHAR_DATA *ch )
 
 void fight_prog_ofcol_guard( CHAR_DATA *mob, CHAR_DATA *ch )
 {
-   char buf[MAX_STRING_LENGTH];	
    CHAR_DATA *ach;
    int door;
 
    if (number_percent() < 25) return;
-   sprintf(buf,"Help guards. %s is fighting with me.",ch->name);
-   do_yell(mob,buf);
+   doprintf(do_yell, mob, "Help guards. %s is fighting with me.",ch->name);
    for( ach = char_list; ach != NULL; ach = ach->next )
    { 
      if ( ach->in_room->area != ch->in_room->area || !IS_NPC(ach) ) continue;
@@ -1042,8 +1022,7 @@ void fight_prog_ofcol_guard( CHAR_DATA *mob, CHAR_DATA *ch )
 	 if (ach->fighting) continue;
 	 if (mob->in_room == ach->in_room)
 	  { 
-	   sprintf(buf,"Now %s , you will pay for attacking a guard.",ch->name);
-	   do_say(ach,buf);
+	   doprintf(do_say, ach, "Now %s , you will pay for attacking a guard.",ch->name);
 	   do_murder(ach,ch->name);
 	   continue;
 	  }
@@ -1074,15 +1053,12 @@ void speech_prog_wiseman(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 
 void greet_prog_armourer(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-  char buf[MAX_STRING_LENGTH];
-
   if (!can_see(mob,ch) || IS_NPC(ch) || IS_IMMORTAL(ch))
     return;
   interpret(mob,"smile", FALSE);
-  sprintf(buf,"Welcome to my Armoury, %s",
+  doprintf(do_say, mob, "Welcome to my Armoury, %s",
    str_cmp(mob->in_room->area->name,hometown_table[ch->hometown].name) ?
-   "traveler" : ch->name );
-  do_say(mob,buf);
+   "traveller" : ch->name );
   do_say(mob,"What can I interest you in?");
   do_say(mob,"I have only the finest armor in my store.");
   interpret(mob,"emote beams with pride.", FALSE);  
@@ -1090,27 +1066,21 @@ void greet_prog_armourer(CHAR_DATA *mob, CHAR_DATA *ch)
 
 void greet_prog_baker(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-  char buf[MAX_STRING_LENGTH];
-
   if (!can_see(mob,ch) || IS_NPC(ch) || IS_IMMORTAL(ch))
     return;
   interpret(mob,"smile", FALSE);
-  sprintf(buf,"Welcome to my Bakery, %s",
+  doprintf(do_say, mob,"Welcome to my Bakery, %s",
    str_cmp(mob->in_room->area->name,hometown_table[ch->hometown].name) ?
    "traveler" : ch->name );
-  do_say(mob,buf);
 }  
 
 void greet_prog_beggar(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-  char buf[MAX_STRING_LENGTH];
-
   if (!can_see(mob,ch) || IS_NPC(ch) || IS_IMMORTAL(ch))
     return;
-  sprintf(buf,"Beg %s",
+  doprintf(do_say, mob, "Beg %s",
    str_cmp(mob->in_room->area->name,hometown_table[ch->hometown].name) ?
    "traveler" : ch->name );
-  do_say(mob,buf);
   do_say(mob,"Spare some gold?");
 }  
 
@@ -1127,14 +1097,11 @@ void greet_prog_drunk(CHAR_DATA *mob, CHAR_DATA *ch)
 
 void greet_prog_grocer(CHAR_DATA *mob, CHAR_DATA *ch)
 {
-  char buf[MAX_STRING_LENGTH];
-
   if (!can_see(mob,ch) || IS_NPC(ch) || IS_IMMORTAL(ch))
     return;
-  sprintf(buf,"Welcome to my Store, %s",
+  doprintf(do_say, mob, "Welcome to my Store, %s",
    str_cmp(mob->in_room->area->name,hometown_table[ch->hometown].name) ?
    "traveler" : ch->name );
-  do_say(mob,buf);
 }  
 
 
@@ -1310,16 +1277,14 @@ void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 	     return;
 	    }
 	   
-	    sprintf( buf, "Your sword is carried by %s!",
+	    doprintf(do_say, mob, "Your sword is carried by %s!",
 		PERS(in_obj->carried_by, ch) );
-	    do_say(mob, buf);
 	    if ( in_obj->carried_by->in_room )
 	    {
-	     sprintf(buf, "%s is in general area of %s at %s!",
+	     doprintf(do_say, mob, "%s is in general area of %s at %s!",
 		PERS(in_obj->carried_by, ch),
 		in_obj->carried_by->in_room->area->name,
 		in_obj->carried_by->in_room->name );
-	     do_say(mob, buf);
 	     return;
 	    }
 	    else
@@ -1332,9 +1297,8 @@ void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
 	{
 	    if (in_obj->in_room != NULL)
 	    {
-		sprintf( buf, "Your sword is in general area of %s at %s!",
+		doprintf(do_say, mob, "Your sword is in general area of %s at %s!",
 			in_obj->in_room->area->name, in_obj->in_room->name );
-		do_say(mob,buf);
 		return;
 	    }
 	    else
@@ -1359,11 +1323,12 @@ void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
     obj->pit = hometown_table[ch->hometown].pit[i];
     obj->level = ch->level;
 
-    sprintf( buf, obj->short_descr, ch->name );
+    snprintf(buf, sizeof(buf), obj->short_descr, ch->name );
     free_string( obj->short_descr );
     obj->short_descr = str_dup( buf );
 
-    sprintf( buf, obj->pIndexData->extra_descr->description, ch->name );
+    snprintf(buf, sizeof(buf),
+		obj->pIndexData->extra_descr->description, ch->name );
     obj->extra_descr = new_extra_descr();
     obj->extra_descr->keyword = 
                   str_dup( obj->pIndexData->extra_descr->keyword );
@@ -1387,7 +1352,6 @@ void fight_prog_golem( CHAR_DATA *mob, CHAR_DATA *ch)
 {
     CHAR_DATA *master;
     CHAR_DATA *m_next;
-    char buf[MAX_INPUT_LENGTH];
     char *spell;
     int sn;
 
@@ -1406,10 +1370,7 @@ void fight_prog_golem( CHAR_DATA *mob, CHAR_DATA *ch)
 	return;
 
     if ( master->fighting->fighting == master)
-     {
-      sprintf(buf,"%s",master->name);
-      do_rescue(mob,buf);
-     }
+      doprintf(do_rescue, mob, "%s", master->name);
 
     switch ( number_bits( 4 ) )
      {

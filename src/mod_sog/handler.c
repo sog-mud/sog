@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.12 1998-06-11 12:32:20 efdi Exp $
+ * $Id: handler.c,v 1.13 1998-06-12 14:25:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2736,7 +2736,6 @@ void deduct_cost(CHAR_DATA *ch, int cost)
  */
 OBJ_DATA *create_money(int gold, int silver)
 {
-    char buf[MAX_STRING_LENGTH];
     OBJ_DATA *obj;
 
     if (gold < 0 || silver < 0 || (gold == 0 && silver == 0))
@@ -2757,9 +2756,7 @@ OBJ_DATA *create_money(int gold, int silver)
     else if (silver == 0)
     {
         obj = create_object(get_obj_index(OBJ_VNUM_GOLD_SOME), 0);
-        sprintf(buf, obj->short_descr, gold);
-        free_string(obj->short_descr);
-        obj->short_descr        = str_dup(buf);
+	str_printf(&obj->short_descr, obj->short_descr, gold);
         obj->value[1]           = gold;
         obj->cost               = gold;
 	obj->weight		= gold/5;
@@ -2767,9 +2764,7 @@ OBJ_DATA *create_money(int gold, int silver)
     else if (gold == 0)
     {
         obj = create_object(get_obj_index(OBJ_VNUM_SILVER_SOME), 0);
-        sprintf(buf, obj->short_descr, silver);
-        free_string(obj->short_descr);
-        obj->short_descr        = str_dup(buf);
+	str_printf(&obj->short_descr, obj->short_descr, silver);
         obj->value[0]           = silver;
         obj->cost               = silver;
 	obj->weight		= silver/20;
@@ -2778,9 +2773,7 @@ OBJ_DATA *create_money(int gold, int silver)
     else
     {
 	obj = create_object(get_obj_index(OBJ_VNUM_COINS), 0);
-	sprintf(buf, obj->short_descr, silver, gold);
-	free_string(obj->short_descr);
-	obj->short_descr	= str_dup(buf);
+	str_printf(&obj->short_descr, obj->short_descr, silver);
 	obj->value[0]		= silver;
 	obj->value[1]		= gold;
 	obj->cost		= 100 * gold + silver;
@@ -4129,21 +4122,15 @@ int count_charmed(CHAR_DATA *ch)
  */
 void add_mind(CHAR_DATA *ch, char *str)
 {
-	char buf[MAX_STRING_LENGTH];
-
 	if (!IS_NPC(ch) || ch->in_room == NULL)
 		return;
 
-	if (ch->in_mind == NULL) { 
-		sprintf(buf,"%d",ch->in_room->vnum); 
-		ch->in_mind = str_dup(buf); 
-	}
+	if (ch->in_mind == NULL)
+		/* remember a place to return */
+		str_printf(&ch->in_mind, "%d", ch->in_room->vnum);
 
-	if (!is_name(str,ch->in_mind)) {
-		sprintf(buf,"%s %s", ch->in_mind, str);
-		free_string(ch->in_mind);
-		ch->in_mind = str_dup(buf);
-	}
+	if (!is_name(str, ch->in_mind))
+		str_printf(&ch->in_mind, "%s %s", ch->in_mind, str);
 }
 
 /*
@@ -4167,7 +4154,7 @@ void remove_mind(CHAR_DATA *ch, char *str)
 			if (buf[0] == '\0')
 				strcpy(buff, arg);
 			else
-				sprintf(buff,"%s %s", buf, arg);
+				snprintf(buff, sizeof(buff), "%s %s", buf, arg);
 			strcpy(buf,buff);
 		}
 	}
@@ -4175,7 +4162,7 @@ void remove_mind(CHAR_DATA *ch, char *str)
  
 	free_string(ch->in_mind);
 	if (is_number(buf)) {
-		do_say(ch,"At last, I took my revenge!"); 
+		do_say(ch, "At last, I took my revenge!"); 
 		back_home(ch);
 		ch->in_mind = NULL;
 	}

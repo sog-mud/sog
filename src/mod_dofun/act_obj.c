@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.16 1998-06-06 02:19:29 efdi Exp $
+ * $Id: act_obj.c,v 1.17 1998-06-12 14:25:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "magic.h"
 #include "quest.h"
 #include "update.h"
+#include "util.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split		);
@@ -122,7 +123,6 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 	/* variables for AUTOSPLIT */
 	CHAR_DATA *gch;
 	int members;
-	char buffer[100];
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)) {
 		send_to_char("You can't take that.\n\r", ch);
@@ -228,11 +228,9 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 			}
 
 			if (members > 1 && (obj->value[0] > 1 
-			|| obj->value[1])) {
-				sprintf(buffer, "%d %d", obj->value[0], 
+			|| obj->value[1])) 
+				doprintf(do_split, ch, "%d %d", obj->value[0], 
 					obj->value[1]);
-				do_split(ch,buffer);	
-			}
 		}
  
 		extract_obj(obj);
@@ -818,13 +816,12 @@ void do_give(CHAR_DATA *ch, char *argument)
 {
 	  char arg1 [MAX_INPUT_LENGTH];
 	  char arg2 [MAX_INPUT_LENGTH];
-	  char buf[MAX_STRING_LENGTH];
 	  char buf2[MAX_STRING_LENGTH];
 	  CHAR_DATA *victim;
 	  OBJ_DATA  *obj;
 
 	  argument = one_argument(argument, arg1);
-	  sprintf(buf2,"%s",argument);
+	  strcpy(buf2,argument);
 	  argument = one_argument(argument, arg2);
 
 	  if (arg1[0] == '\0' || arg2[0] == '\0')
@@ -880,11 +877,11 @@ void do_give(CHAR_DATA *ch, char *argument)
 	    victim->gold	+= amount;
 	}
 
-	sprintf(buf,"$n gives you %d %s.",amount, silver ? "silver" : "gold");
-	act(buf, ch, NULL, victim, TO_VICT   );
+	act_printf(ch, NULL, victim, TO_VICT, POS_RESTING,
+		"$n gives you %d %s.",amount, silver ? "silver" : "gold");
 	act("$n gives $N some coins.",  ch, NULL, victim, TO_NOTVICT);
-	sprintf(buf,"You give $N %d %s.",amount, silver ? "silver" : "gold");
-	act(buf, ch, NULL, victim, TO_CHAR   );
+	act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
+		"You give $N %d %s.",amount, silver ? "silver" : "gold");
 	      if (IS_SET(victim->progtypes,MPROG_BRIBE))
 	        (victim->pIndexData->mprogs->bribe_prog) (victim,ch,amount);
 
@@ -908,21 +905,16 @@ void do_give(CHAR_DATA *ch, char *argument)
 	"$n tells you 'I'm sorry, you did not give me enough to change.'"
 		    ,victim,NULL,ch,TO_VICT);
 		ch->reply = victim;
-		sprintf(buf,"%d %s %s", 
+		doprintf(do_give, victim, "%d %s %s", 
 			amount, silver ? "silver" : "gold",ch->name);
-		do_give(victim,buf);
 	    }
 	    else if (can_see(victim,ch))
 	    {
-		sprintf(buf,"%d %s %s", 
+		doprintf(do_give, victim, "%d %s %s", 
 			change, silver ? "gold" : "silver",ch->name);
-		do_give(victim,buf);
 		if (silver)
-		{
-		    sprintf(buf,"%d silver %s", 
+		    doprintf(do_give, victim, "%d silver %s", 
 			(95 * amount / 100 - change * 100),ch->name);
-		    do_give(victim,buf);
-		}
 		act("$n tells you 'Thank you, come again.'",
 		    victim,NULL,ch,TO_VICT);
 		ch->reply = victim;
@@ -1129,7 +1121,6 @@ void do_envenom(CHAR_DATA *ch, char *argument)
 void do_fill(CHAR_DATA *ch, char *argument)
 {
 	  char arg[MAX_INPUT_LENGTH];
-	  char buf[MAX_STRING_LENGTH];
 	  OBJ_DATA *obj;
 	  OBJ_DATA *fountain;
 	  bool found;
@@ -1183,12 +1174,12 @@ void do_fill(CHAR_DATA *ch, char *argument)
 	return;
 	  }
 
-	  sprintf(buf,"You fill $p with %s from $P.",
-	liq_table[fountain->value[2]].liq_name);
-	  act(buf, ch, obj,fountain, TO_CHAR);
-	  sprintf(buf,"$n fills $p with %s from $P.",
-	liq_table[fountain->value[2]].liq_name);
-	  act(buf,ch,obj,fountain,TO_ROOM);
+	  act_printf(ch, obj,fountain, TO_CHAR, POS_RESTING,
+	  		"You fill $p with %s from $P.",
+			liq_table[fountain->value[2]].liq_name);
+	  act_printf(ch,obj,fountain,TO_ROOM, POS_RESTING,
+	  		"$n fills $p with %s from $P.",
+			liq_table[fountain->value[2]].liq_name);
 	  obj->value[2] = fountain->value[2];
 	  obj->value[1] = obj->value[0];
 
@@ -1196,7 +1187,7 @@ void do_fill(CHAR_DATA *ch, char *argument)
 
 void do_pour (CHAR_DATA *ch, char *argument)
 {
-	  char arg[MAX_STRING_LENGTH],buf[MAX_STRING_LENGTH];
+	  char arg[MAX_STRING_LENGTH];
 	  OBJ_DATA *out, *in;
 	  CHAR_DATA *vch = NULL;
 	  int amount;
@@ -1232,24 +1223,17 @@ void do_pour (CHAR_DATA *ch, char *argument)
 
 	out->value[1] = 0;
 	out->value[3] = 0;
-	      if (!IS_WATER(ch->in_room))  {
-	  sprintf(buf,"You invert $p, spilling %s all over the ground.",
-		liq_table[out->value[2]].liq_name);
-	  act(buf,ch,out,NULL,TO_CHAR);
+	  act_printf(ch,out,NULL,TO_CHAR, POS_RESTING,
+			"You invert $p, spilling %s %s.",
+			liq_table[out->value[2]].liq_name,
+			IS_WATER(ch->in_room) ? "in to the water"
+					      : "all over the ground");
 	
-	  sprintf(buf,"$n inverts $p, spilling %s all over the ground.",
-		liq_table[out->value[2]].liq_name);
-	  act(buf,ch,out,NULL,TO_ROOM);
-	}
-	else  {
-	  sprintf(buf,"You invert $p, spilling %s in to the water.",
-		liq_table[out->value[2]].liq_name);
-	  act(buf,ch,out,NULL,TO_CHAR);
-	
-	  sprintf(buf,"$n inverts $p, spilling %s in to the water.",
-		liq_table[out->value[2]].liq_name);
-	  act(buf,ch,out,NULL,TO_ROOM);
-	}
+	  act_printf(ch,out,NULL,TO_ROOM, POS_RESTING,
+	  		"$n inverts $p, spilling %s %s.",
+			liq_table[out->value[2]].liq_name,
+			IS_WATER(ch->in_room) ? "in to the water"
+					      : "all over the ground");
 	return;
 	  }
 
@@ -1310,24 +1294,24 @@ void do_pour (CHAR_DATA *ch, char *argument)
 	  
 	  if (vch == NULL)
 	  {
-	  	sprintf(buf,"You pour %s from $p into $P.",
-	    liq_table[out->value[2]].liq_name);
-	  	act(buf,ch,out,in,TO_CHAR);
-	  	sprintf(buf,"$n pours %s from $p into $P.",
-	    liq_table[out->value[2]].liq_name);
-	  	act(buf,ch,out,in,TO_ROOM);
+	  	act_printf(ch,out,in,TO_CHAR, POS_RESTING,
+			"You pour %s from $p into $P.",
+	    		liq_table[out->value[2]].liq_name);
+	  	act_printf(ch,out,in,TO_ROOM, POS_RESTING,
+			"$n pours %s from $p into $P.",
+	    		liq_table[out->value[2]].liq_name);
 	  }
 	  else
 	  {
-	      sprintf(buf,"You pour some %s for $N.",
+	      act_printf(ch,NULL,vch,TO_CHAR, POS_RESTING,
+			"You pour some %s for $N.",
 	          liq_table[out->value[2]].liq_name);
-	      act(buf,ch,NULL,vch,TO_CHAR);
-	sprintf(buf,"$n pours you some %s.",
-	    liq_table[out->value[2]].liq_name);
-	act(buf,ch,NULL,vch,TO_VICT);
-	      sprintf(buf,"$n pours some %s for $N.",
-	          liq_table[out->value[2]].liq_name);
-	      act(buf,ch,NULL,vch,TO_NOTVICT);
+		act_printf(ch,NULL,vch,TO_VICT, POS_RESTING,
+			"$n pours you some %s.",
+	    		liq_table[out->value[2]].liq_name);
+	      act_printf(ch,NULL,vch,TO_NOTVICT, POS_RESTING,
+			"$n pours some %s for $N.",
+	          	liq_table[out->value[2]].liq_name);
 	  }
 
 }
@@ -1536,6 +1520,7 @@ void do_eat(CHAR_DATA *ch, char *argument)
 	obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
 	obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
 	obj_cast_spell(obj->value[3], obj->value[0], ch, ch, NULL);
+	obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
 	break;
 	  }
 
@@ -2044,7 +2029,6 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 	  /* variables for AUTOSPLIT */
 	  CHAR_DATA *gch;
 	  int members;
-	  char buffer[100];
 
 
 	  one_argument(argument, arg);
@@ -2085,14 +2069,10 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 	  	silver = UMIN(silver,obj->cost);
 
 	  if (silver == 1)
-	      send_to_char(
-	    "Gods give you one silver coin for your sacrifice.\n\r", ch);
+	      send_to_char("Gods give you one silver coin for your sacrifice.\n\r", ch);
 	  else
-	  {
-	sprintf(buf,"Gods give you %d silver coins for your sacrifice.\n\r",
+	char_printf(ch,"Gods give you %d silver coins for your sacrifice.\n\r",
 		silver);
-	send_to_char(buf,ch);
-	  }
 
 	  ch->silver += silver;
 	  
@@ -2106,10 +2086,7 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 	  	}
 
 	if (members > 1 && silver > 1)
-	{
-	    sprintf(buffer,"%d",silver);
-	    do_split(ch,buffer);	
-	}
+	    doprintf(do_split, ch, "%d", silver);
 	  }
 
 	  act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
@@ -2141,8 +2118,8 @@ void do_sacr(CHAR_DATA *ch, char *argument)
 	act("Your sacrifice reveals $p and $P.", ch, two_objs[0], two_objs[1], TO_CHAR);
 	act("$p and $P are revealed by $n's sacrifice.", ch, two_objs[0], two_objs[1], TO_ROOM);
 	    }
-	    sprintf(buf, "As you sacrifice the corpse, ");
-	    sprintf(buf2, "As $n sacrifices the corpse, ");
+	    snprintf(buf, sizeof(buf), "As you sacrifice the corpse, ");
+	    snprintf(buf2, sizeof(buf2), "As $n sacrifices the corpse, ");
 	    if (iScatter < 3)
 		   fScatter = FALSE; 	
 	else if (iScatter < 5)  {
@@ -2238,6 +2215,7 @@ void do_quaff(CHAR_DATA *ch, char *argument)
 	  obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
 	  obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
 	  obj_cast_spell(obj->value[3], obj->value[0], ch, ch, NULL);
+	  obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
 
 	  if ((ch->last_fight_time != -1 &&
 	      (current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) ||
@@ -2320,6 +2298,7 @@ void do_recite(CHAR_DATA *ch, char *argument)
 	  	obj_cast_spell(scroll->value[1], scroll->value[0], ch, victim, obj);
 	  	obj_cast_spell(scroll->value[2], scroll->value[0], ch, victim, obj);
 	  	obj_cast_spell(scroll->value[3], scroll->value[0], ch, victim, obj);
+	  	obj_cast_spell(scroll->value[4], scroll->value[0], ch, victim, obj);
 	check_improve(ch,gsn_scrolls,TRUE,2);
 
 	      if ((ch->last_fight_time != -1 &&
@@ -2531,7 +2510,6 @@ void do_zap(CHAR_DATA *ch, char *argument)
 
 void do_steal(CHAR_DATA *ch, char *argument)
 {
-	  char buf  [MAX_STRING_LENGTH];
 	  char arg1 [MAX_INPUT_LENGTH];
 	  char arg2 [MAX_INPUT_LENGTH];
 	  CHAR_DATA *victim;
@@ -2608,24 +2586,25 @@ void do_steal(CHAR_DATA *ch, char *argument)
 	      }
 	act("$n tried to steal from $N.\n\r",  ch, NULL, victim,TO_NOTVICT);
 
+	if (IS_AWAKE(victim))
 	switch(number_range(0,3))
 	{
 	case 0 :
-	   sprintf(buf, "%s is a lousy thief!", tmp_ch->name);
+	   doprintf(do_yell, victim, "%s is a lousy thief!", tmp_ch->name);
 	   break;
-	      case 1 :
-	   sprintf(buf, "%s couldn't rob %s way out of a paper bag!",
+	case 1 :
+	   doprintf(do_yell, victim, "%s couldn't rob %s way out of a paper bag!",
 		    tmp_ch->name,(tmp_ch->sex == 2) ? "her" : "his");
 	   break;
 	case 2 :
-	    sprintf(buf,"%s tried to rob me!",tmp_ch->name);
+	    doprintf(do_yell, victim, "%s tried to rob me!",tmp_ch->name);
 	    break;
 	case 3 :
-	    sprintf(buf,"Keep your hands out of there, %s!",tmp_ch->name);
+	    doprintf(do_yell, victim, "Keep your hands out of there, %s!",
+			tmp_ch->name);
 	    break;
 	      }
-	if (IS_AWAKE(victim))
-	  do_yell(victim, buf);
+
 	if (!IS_NPC(ch))
 	{
 	    if (IS_NPC(victim))
@@ -2662,11 +2641,9 @@ void do_steal(CHAR_DATA *ch, char *argument)
 	victim->gold -= amount_g;
 	ch->silver     += amount_s;
 	victim->silver -= amount_s;
-	sprintf(buf, "Bingo!  You got %d %s coins.\n\r", 
+	char_printf(ch, "Bingo!  You got %d %s coins.\n\r", 
 	         amount_s!=0?amount_s:amount_g,
 	         amount_s!=0?"silver":"gold");
-
-	send_to_char(buf, ch);
 	check_improve(ch,gsn_steal,TRUE,2);
 	return;
 	  }
@@ -2721,7 +2698,6 @@ void do_steal(CHAR_DATA *ch, char *argument)
  */
 CHAR_DATA *find_keeper(CHAR_DATA *ch)
 {
-	  char buf[MAX_STRING_LENGTH];
 	  CHAR_DATA *keeper;
 	  SHOP_DATA *pShop;
 
@@ -2742,8 +2718,7 @@ CHAR_DATA *find_keeper(CHAR_DATA *ch)
 	 && !IS_NPC(ch) && IS_SET(ch->act,PLR_WANTED))
 	  {
 	do_say(keeper, "Criminals are not welcome!");
-	sprintf(buf, "%s the CRIMINAL is over here!\n\r", ch->name);
-	do_yell(keeper, buf);
+	doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n\r", ch->name);
 	return NULL;
 	  }
 
@@ -2906,7 +2881,6 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 
 void do_buy(CHAR_DATA *ch, char *argument)
 {
-	  char buf[MAX_STRING_LENGTH];
 	  int cost,roll;
 
 	  if (argument[0] == '\0')
@@ -3011,10 +2985,8 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	if (roll < get_skill(ch,gsn_haggle))
 	{
 	    cost -= cost / 2 * roll / 100;
-	    sprintf(buf,"You haggle the price down to %d coins.\n\r",cost);
-	    send_to_char(buf,ch);
+	    char_printf(ch,"You haggle the price down to %d coins.\n\r",cost);
 	    check_improve(ch,gsn_haggle,TRUE,4);
-	
 	}
 
 	deduct_cost(ch,cost);
@@ -3026,12 +2998,12 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 	if (arg[0] != '\0')
 	{
-	    sprintf(buf, "%s %s", pet->name, arg);
+	    snprintf(buf, sizeof(buf), "%s %s", pet->name, arg);
 	    free_string(pet->name);
 	    pet->name = str_dup(buf);
 	}
 
-	sprintf(buf, "%sA neck tag says 'I belong to %s'.\n\r",
+	snprintf(buf, sizeof(buf), "%sA neck tag says 'I belong to %s'.\n\r",
 	    pet->description, ch->name);
 	free_string(pet->description);
 	pet->description = str_dup(buf);
@@ -3132,16 +3104,17 @@ void do_buy(CHAR_DATA *ch, char *argument)
 
 	if (number > 1)
 	{
-	    sprintf(buf,"$n buys $p[%d].",number);
-	    act(buf,ch,obj,NULL,TO_ROOM);
-	    sprintf(buf,"You buy $p[%d] for %d silver.",number,cost * number);
-	    act(buf,ch,obj,NULL,TO_CHAR);
+	    act_printf(ch,obj,NULL,TO_ROOM, POS_RESTING,
+			"$n buys $p[%d].",number);
+	    act_printf(ch,obj,NULL,TO_CHAR, POS_RESTING,
+			"You buy $p[%d] for %d silver.",
+			number,cost * number);
 	}
 	else
 	{
 	    act("$n buys $p.", ch, obj, NULL, TO_ROOM);
-	    sprintf(buf,"You buy $p for %d silver.",cost);
-	    act(buf, ch, obj, NULL, TO_CHAR);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+	    		"You buy $p for %d silver.",cost);
 	}
 	deduct_cost(ch,cost * number);
 	keeper->gold += cost * number/100;
@@ -3172,13 +3145,10 @@ void do_buy(CHAR_DATA *ch, char *argument)
 
 void do_list(CHAR_DATA *ch, char *argument)
 {
-	  char buf[MAX_STRING_LENGTH];
-
-	  if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP))
-	  {
-	ROOM_INDEX_DATA *pRoomIndexNext;
-	CHAR_DATA *pet;
-	bool found;
+	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
+		ROOM_INDEX_DATA *pRoomIndexNext;
+		CHAR_DATA *pet;
+		bool found;
 
 	      /* hack to make new thalos pets work */
 
@@ -3205,11 +3175,10 @@ void do_list(CHAR_DATA *ch, char *argument)
 		    found = TRUE;
 		    send_to_char("Pets for sale:\n\r", ch);
 		}
-		sprintf(buf, "[%2d] %8d - %s\n\r",
+		char_printf(ch, "[%2d] %8d - %s\n\r",
 		    pet->level,
 		    10 * pet->level * pet->level,
 		    pet->short_descr);
-		send_to_char(buf, ch);
 	    }
 	}
 	if (!found)
@@ -3244,7 +3213,7 @@ void do_list(CHAR_DATA *ch, char *argument)
 		}
 
 		if (IS_OBJ_STAT(obj,ITEM_INVENTORY))
-		    sprintf(buf,"[%2d %5d -- ] %s\n\r",
+		    char_printf(ch,"[%2d %5d -- ] %s\n\r",
 			obj->level,cost,obj->short_descr);
 		else
 		{
@@ -3258,10 +3227,9 @@ void do_list(CHAR_DATA *ch, char *argument)
 			obj = obj->next_content;
 			count++;
 		    }
-		    sprintf(buf,"[%2d %5d %2d ] %s\n\r",
+		    char_printf(ch,"[%2d %5d %2d ] %s\n\r",
 			obj->level,cost,count,obj->short_descr);
 		}
-		send_to_char(buf, ch);
 	    }
 	}
 
@@ -3275,7 +3243,6 @@ void do_list(CHAR_DATA *ch, char *argument)
 
 void do_sell(CHAR_DATA *ch, char *argument)
 {
-	  char buf[MAX_STRING_LENGTH];
 	  char arg[MAX_INPUT_LENGTH];
 	  CHAR_DATA *keeper;
 	  OBJ_DATA *obj;
@@ -3341,15 +3308,17 @@ void do_sell(CHAR_DATA *ch, char *argument)
 	  gold   = cost/100;
  
 	  if (gold && silver)
-		sprintf(buf, "You sell $p for %d gold and %d silver pieces.",
+		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+				"You sell $p for %d gold and %d silver pieces.",
 				gold, silver);
 	  else if (gold)
-		sprintf(buf, "You sell $p for %d gold pieces%s.",
+		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+				"You sell $p for %d gold pieces%s.",
 				gold, gold > 1 ? "s" : "");
 	  else if (silver)
-		sprintf(buf, "You sell $p for %d silver pieces%s.",
+		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
+				"You sell $p for %d silver pieces%s.",
 				silver, silver > 1 ? "s" : "");
-	  act(buf, ch, obj, NULL, TO_CHAR);
 	  ch->gold     += gold;
 	  ch->silver 	 += silver;
 	  deduct_cost(keeper,cost);
@@ -3379,7 +3348,6 @@ void do_sell(CHAR_DATA *ch, char *argument)
 
 void do_value(CHAR_DATA *ch, char *argument)
 {
-	  char buf[MAX_STRING_LENGTH];
 	  char arg[MAX_INPUT_LENGTH];
 	  CHAR_DATA *keeper;
 	  OBJ_DATA *obj;
@@ -3422,10 +3390,9 @@ void do_value(CHAR_DATA *ch, char *argument)
 	return;
 	  }
 
-	  sprintf(buf, 
-	"$n tells you 'I'll give you %d silver and %d gold coins for $p'.", 
+	  act_printf(keeper, obj, ch, TO_VICT, POS_RESTING,
+	"$n tells you '{GI'll give you %d silver and %d gold coins for $p{x'.", 
 	cost - (cost/100) * 100, cost/100);
-	  act(buf, keeper, obj, ch, TO_VICT);
 	  ch->reply = keeper;
 
 	  return;
@@ -3584,11 +3551,10 @@ void do_lore(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	char buf[MAX_STRING_LENGTH];
 	AFFECT_DATA *paf;
 	int chance;
 	int skill;
-	int value0, value1, value2, value3;
+	int value0, value1, value2, value3, value4;
 
 	argument = one_argument(argument, arg1);
 	
@@ -3612,8 +3578,7 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	chance = number_percent();
 	
 	if (skill < 20) {
-	    sprintf(buf, "Object '%s'.\n\r", obj->name);
-	    send_to_char(buf, ch);
+	    char_printf(ch, "Object '%s'.\n\r", obj->name);
 	    ch->mana -= 30;
 	    check_improve(ch,gsn_lore,TRUE,8);
 	    return;
@@ -3621,17 +3586,14 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	
 	else if (get_skill(ch,gsn_lore) < 40)
 	  {    
-	    sprintf(buf,
+	    char_printf(ch,
 	  "Object '%s'.  Weight is %d, value is %d.\n\r",
 	      obj->name,
 	      chance < 60 ? obj->weight : number_range(1, 2 * obj->weight),
 	      chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost
 	     );
-	    send_to_char(buf, ch);
-	    if (str_cmp(obj->material, "oldstyle"))  {
-	      sprintf(buf, "Material is %s.\n\r", obj->material);
-	      send_to_char(buf, ch);
-	    }
+	    if (str_cmp(obj->material, "oldstyle")) 
+	      char_printf(ch, "Material is %s.\n\r", obj->material);
 	    ch->mana -= 30;
 	    check_improve(ch,gsn_lore,TRUE,7);
 	    return;
@@ -3639,7 +3601,7 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	
 	else if (get_skill(ch,gsn_lore) < 60)
 	  {
-	    sprintf(buf,
+	    char_printf(ch,
 	      "Object '%s' has weight %d.\n\rValue is %d, level is %d.\n\rMaterial is %s.\n\r",
 	      obj->name,
 	      obj->weight,
@@ -3647,7 +3609,6 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	      chance < 60 ? obj->level : number_range(1, 2 * obj->level),
 	  str_cmp(obj->material,"oldstyle")?obj->material:"unknown"
 	     );
-	    send_to_char(buf, ch);
 	    ch->mana -= 30;
 	    check_improve(ch,gsn_lore,TRUE,6);
 	    return;
@@ -3655,7 +3616,7 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	
 	else if (get_skill(ch,gsn_lore) < 80)
 	  {
-	    sprintf(buf,
+	    char_printf(ch,
 	      "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 	      obj->name,
 	      item_type_name(obj),
@@ -3665,15 +3626,13 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	      chance < 60 ? obj->level : number_range(1, 2 * obj->level),
 	  str_cmp(obj->material,"oldstyle")?obj->material:"unknown"
 	     );
-	    send_to_char(buf, ch);
 	    ch->mana -= 30;
 	    check_improve(ch,gsn_lore,TRUE,5);
 	    return;
 	  }
 
 	else if (get_skill(ch,gsn_lore) < 85)
-	  {
-	    sprintf(buf,
+	    char_printf(ch,
 	      "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 	      obj->name,
 	      item_type_name(obj),
@@ -3683,11 +3642,8 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	      obj->level,
 	  str_cmp(obj->material,"oldstyle")?obj->material:"unknown"
 	     );
-	    send_to_char(buf, ch);
-	  }
 	else
-	  {
-	    sprintf(buf,
+	    char_printf(ch,
 	      "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 	      obj->name,
 	      item_type_name(obj),
@@ -3697,8 +3653,6 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	      obj->level,
 	  str_cmp(obj->material,"oldstyle")?obj->material:"unknown"
 	     );
-	    send_to_char(buf, ch);
-	  }
 
 	ch->mana -= 30;
 	
@@ -3706,6 +3660,7 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	value1 = obj->value[1];
 	value2 = obj->value[2];
 	value3 = obj->value[3];
+	value4 = obj->value[4];
 	
 	switch (obj->item_type)
 	  {
@@ -3736,29 +3691,19 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	  }
 	}
 	    
-	    sprintf(buf, "Level %d spells of:", obj->value[0]);
-	    send_to_char(buf, ch);
+	    char_printf(ch, "Level %d spells of:", obj->value[0]);
 	    
 	    if (value1 >= 0 && value1 < MAX_SKILL)
-	{
-	  send_to_char(" '", ch);
-	  send_to_char(skill_table[value1].name, ch);
-	  send_to_char("'", ch);
-	}
+		char_printf(ch, " '%s'", skill_table[value1].name);
 	    
 	    if (value2 >= 0 && value2 < MAX_SKILL)
-	{
-	  send_to_char(" '", ch);
-	  send_to_char(skill_table[value2].name, ch);
-	  send_to_char("'", ch);
-	}
+		char_printf(ch, " '%s'", skill_table[value2].name);
 	    
 	    if (value3 >= 0 && value3 < MAX_SKILL)
-	{
-	  send_to_char(" '", ch);
-	  send_to_char(skill_table[value3].name, ch);
-	  send_to_char("'", ch);
-	}
+		char_printf(ch, " '%s'", skill_table[value3].name);
+
+	    if (value4 >= 0 && value4 < MAX_SKILL)
+		char_printf(ch, " '%s'", skill_table[value4].name);
 	    
 	    send_to_char(".\n\r", ch);
 	    break;
@@ -3789,9 +3734,8 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	  }
 	}
 	    
-	    sprintf(buf, "Has %d(%d) charges of level %d",
+	    char_printf(ch, "Has %d(%d) charges of level %d",
 	      value1, value2, value0);
-	    send_to_char(buf, ch);
 	    
 	    if (value3 >= 0 && value3 < MAX_SKILL)
 	  {
@@ -3840,14 +3784,13 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	default		: send_to_char("unknown.\n\r",ch);	break;
  	}
 	    if (obj->pIndexData->new_format)
-	sprintf(buf,"Damage is %dd%d (average %d).\n\r",
+	char_printf(ch,"Damage is %dd%d (average %d).\n\r",
 		value1,value2,
 		(1 + value2) * value1 / 2);
 	    else
-	sprintf(buf, "Damage is %d to %d (average %d).\n\r",
+	char_printf(ch, "Damage is %d to %d (average %d).\n\r",
 	    	value1, value2,
 	    	(value1 + value2) / 2);
-	    send_to_char(buf, ch);
 	    break;
 	    
 	  case ITEM_ARMOR:
@@ -3880,10 +3823,9 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	  }
 	}
 
-	    sprintf(buf, 
+	    char_printf(ch, 
 	      "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n\r", 
 	      value0, value1, value2, value3);
-	    send_to_char(buf, ch);
 	    break;
 	  }
 	
@@ -3893,24 +3835,14 @@ void do_lore(CHAR_DATA *ch, char *argument)
 
 	if (!obj->enchanted)
 	  for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-	    {
 	if (paf->location != APPLY_NONE && paf->modifier != 0)
-	  {
-	    sprintf(buf, "Affects %s by %d.\n\r",
+	    char_printf(ch, "Affects %s by %d.\n\r",
 		    affect_loc_name(paf->location), paf->modifier);
-	    send_to_char(buf, ch);
-	  }
-	    }
 	
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
-	  {
 	    if (paf->location != APPLY_NONE && paf->modifier != 0)
-	{
-	  sprintf(buf, "Affects %s by %d.\n\r",
+	  char_printf(ch, "Affects %s by %d.\n\r",
 		  affect_loc_name(paf->location), paf->modifier);
-	  send_to_char(buf, ch);
-	}
-	  }
 	check_improve(ch,gsn_lore,TRUE,5);
 	return;
 }
@@ -3920,7 +3852,6 @@ void do_lore(CHAR_DATA *ch, char *argument)
 void do_butcher(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj;
-	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_STRING_LENGTH];
 	OBJ_DATA *tmp_obj;
 	OBJ_DATA *tmp_next;
@@ -3977,13 +3908,11 @@ void do_butcher(CHAR_DATA *ch, char *argument)
 	      
 	    numsteaks = number_bits(2) + 1; 
 	    
-	    if (numsteaks > 1)
-	{
-	  sprintf(buf, "$n butchers $p and creates %i steaks.",numsteaks);
-	  act(buf,ch,obj,NULL,TO_ROOM);
-
-	  sprintf(buf, "You butcher $p and create %i steaks.",numsteaks);
-	  act(buf,ch,obj,NULL,TO_CHAR);
+	    if (numsteaks > 1) {
+	  act_printf(ch,obj,NULL,TO_ROOM, POS_RESTING,
+	  		"$n butchers $p and creates %i steaks.",numsteaks);
+	  act_printf(ch,obj,NULL,TO_CHAR, POS_RESTING,
+			"You butcher $p and create %i steaks.",numsteaks);
 	}
 
 	    else 
@@ -3996,14 +3925,15 @@ void do_butcher(CHAR_DATA *ch, char *argument)
 	}
 	    check_improve(ch,gsn_butcher,TRUE,1);
 
-	    for (i=0; i < numsteaks; i++)
-	{
+	    for (i=0; i < numsteaks; i++) {
+		char buf[MAX_STRING_LENGTH];
+
 	  steak = create_object(get_obj_index(OBJ_VNUM_STEAK),0);
-	  sprintf(buf, steak->short_descr, obj->short_descr);
+	  snprintf(buf, sizeof(buf), steak->short_descr, obj->short_descr);
 	  free_string(steak->short_descr);
 	  steak->short_descr = str_dup(buf);
 
-	  sprintf(buf, steak->description, obj->short_descr);
+	  snprintf(buf, sizeof(buf), steak->description, obj->short_descr);
 	  free_string(steak->description);
 	  steak->description = str_dup(buf);
 
@@ -4067,7 +3997,6 @@ void do_withdraw(CHAR_DATA *ch, char *argument)
 	long  amount_s;
 	long  amount_g;
 	char arg[MAX_INPUT_LENGTH];
-	char buf[100];
 
 	if (IS_NPC(ch))
 	  {
@@ -4117,18 +4046,17 @@ void do_withdraw(CHAR_DATA *ch, char *argument)
 	ch->silver += 0.90 * amount_s;
 	if (amount_s > 0  && amount_s < 10)  {
 	  if (amount_s == 1)
-	    sprintf(buf, "One coin??!!! You cheapskate!\n\r");
+	    char_printf(ch, "One coin??!!! You cheapskate!\n\r");
 	  else
-	    sprintf(buf, "%ld coins??!!! You cheapskate!\n\r", amount_s);
+	    char_printf(ch, "%ld coins??!!! You cheapskate!\n\r", amount_s);
 	}
 	else 
-	  sprintf(buf, 
+	  char_printf(ch, 
 	    "Here are your %ld %s coins, minus a %ld coin withdrawal fee.\n\r",
 	    amount_s!=0?amount_s:amount_g, 
 	    amount_s!=0?"silver":"gold",
 	    amount_s!=0?(long) UMAX(1, (0.10 * amount_s)):
 	                      (long) UMAX(1, (0.02 * amount_g)));
-	send_to_char(buf, ch);
 	act("$n steps up to the teller window.",ch,NULL,NULL,TO_ROOM);
 }
 
@@ -4136,7 +4064,6 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 {
 	long amount_s;
 	long amount_g;
-	char buf[100];
 	char arg[200];
 
 	if (IS_NPC(ch))
@@ -4191,12 +4118,10 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 	ch->silver -= amount_s;
 
 	if (amount_s == 1)
-	  sprintf(buf, "Oh boy! One gold coin!\n\r");
-	else sprintf(buf, "%ld %s coins deposited. Come again soon!\n\r",
+	  char_printf(ch, "Oh boy! One gold coin!\n\r");
+	else char_printf(ch, "%ld %s coins deposited. Come again soon!\n\r",
 	              amount_s!=0?amount_s:amount_g,
 	              amount_s!=0?"silver":"gold");
-
-	send_to_char(buf, ch);
 	act("$n steps up to the teller window.",ch,NULL,NULL,TO_ROOM);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.8 1998-06-10 06:53:04 efdi Exp $
+ * $Id: martial_art.c,v 1.9 1998-06-12 14:26:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,7 @@
 #include "comm.h"
 #include "magic.h"
 #include "act_comm.h"
+#include "util.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -234,7 +235,6 @@ void do_bash(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance, wait;
-	char buf[MAX_STRING_LENGTH];
 	bool FightingCheck;
 	int damage_bash;
 
@@ -379,14 +379,12 @@ void do_bash(CHAR_DATA *ch, char *argument)
 	&&  !FightingCheck) {
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone is bashing me!");
-		else {
-			snprintf(buf, sizeof(buf),
+		else
+			doprintf(do_yell, victim,
 				 "Help! %s is bashing me!",
 				 (is_affected(ch,gsn_doppelganger) &&
 				 !IS_IMMORTAL(victim)) ? ch->doppel->name
 						       : ch->name);
-			do_yell(victim, buf);
-		}
 	}
 }
 
@@ -395,7 +393,6 @@ void do_dirt(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
-	char buf[MAX_STRING_LENGTH];
 	bool FightingCheck;
 
 	if (MOUNTED(ch)) 
@@ -527,12 +524,9 @@ void do_dirt(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim,ch))
 			do_yell(victim, "Someone just kicked dirt in my eyes!");
 		else
-			{
-			  sprintf(buf, "Die, %s!  You dirty fool!", (is_affected(ch,
+			doprintf(do_yell, victim, "Die, %s!  You dirty fool!", (is_affected(ch,
 			gsn_doppelganger) && !IS_IMMORTAL(victim)) ? ch->doppel->name
 			: ch->name);
-			  do_yell(victim, buf);
-			}
 		}
 	
 }
@@ -542,7 +536,6 @@ void do_trip(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
-	char buf[MAX_STRING_LENGTH];
 	bool FightingCheck;
 
 	if (MOUNTED(ch)) 
@@ -666,12 +659,9 @@ void do_trip(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, " Help! Someone just tripped me!");
 		else
-			{
-			  sprintf(buf, "Help! %s just tripped me!", 
+			  doprintf(do_yell, victim, "Help! %s just tripped me!", 
 			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
 			ch->doppel->name : ch->name);
-			  do_yell(victim, buf);
-			}
 		}
 }
 
@@ -682,7 +672,6 @@ void do_backstab(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	char buf[MAX_STRING_LENGTH];
 	int chance;
 
 	one_argument(argument, arg);
@@ -789,12 +778,9 @@ void do_backstab(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I've been backstabbed!");
 		else
-			{
-			  sprintf(buf, "Die, %s, you backstabbing scum!", 
+			  doprintf(do_yell, victim, "Die, %s, you backstabbing scum!", 
 			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
 			ch->doppel->name : ch->name);
-			  do_yell(victim, buf);
-			  }
 		}
 	return;
 }
@@ -804,7 +790,6 @@ void do_cleave(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	char buf[MAX_STRING_LENGTH];
 	int chance;
 
 	if (MOUNTED(ch)) 
@@ -877,12 +862,9 @@ void do_cleave(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone is attacking me!");
 		else
-			{
-			  sprintf(buf, "Die, %s, you butchering fool!", 
+			  doprintf(do_yell, victim, "Die, %s, you butchering fool!", 
 			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
 			ch->doppel->name : ch->name);
-			  do_yell(victim, buf);
-			}
 		}
 	return;
 }
@@ -891,7 +873,6 @@ void do_ambush(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	char buf[MAX_STRING_LENGTH];
 	int chance;
 
 	if (MOUNTED(ch)) {
@@ -955,12 +936,9 @@ void do_ambush(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I've been ambushed by someone!");
 		else
-			{
-			  sprintf(buf, "Help! I've been ambushed by %s!", 
+			  doprintf(do_yell, victim, "Help! I've been ambushed by %s!", 
 			    (is_affected(ch,gsn_doppelganger)&& !IS_IMMORTAL(victim)) ?
 			    ch->doppel->name : ch->name);
-			  do_yell(victim, buf);
-			}
 		}
 	return;
 }
@@ -1262,7 +1240,6 @@ void do_nerve(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 	int chance;
 
 	if (MOUNTED(ch)) 
@@ -1330,12 +1307,9 @@ void do_nerve(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I'm being attacked by someone!");
 		else
-		{
-			sprintf(buf, "Help! I'm being attacked by %s!",
+			doprintf(do_yell, victim, "Help! I'm being attacked by %s!",
 			  (is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
 			  ch->doppel->name : ch->name);
-			do_yell(victim, buf);
-		}
 		}
 	return;
 }
@@ -1446,7 +1420,6 @@ void do_assassinate(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	char buf[MAX_STRING_LENGTH];
 
 	if (MOUNTED(ch)) 
 	{
@@ -1547,12 +1520,9 @@ void do_assassinate(CHAR_DATA *ch, char *argument)
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone tried to assassinate me!");
 		else
-			{
-			  sprintf(buf, "Help! %s tried to assassinate me!",
+			  doprintf(do_yell, victim, "Help! %s tried to assassinate me!",
 			    (is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
 			    ch->doppel->name : ch->name);
-			  do_yell(victim, buf);
-			}
 		}
 	return;
 	}
@@ -1809,22 +1779,17 @@ void do_strangle(CHAR_DATA *ch, char *argument)
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
 		}
-	else 
-		{
-		char buf[MAX_STRING_LENGTH];
+	else {
 
 		damage(ch,victim,0,gsn_strangle,DAM_NONE, TRUE);
 		check_improve(ch,gsn_strangle,FALSE,1);
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I'm being strangled by someone!");
-		else
-			{
-			  sprintf(buf, "Help! I'm being strangled by %s!",
+		else if (!IS_NPC(victim)) 
+			  doprintf(do_yell, victim, "Help! I'm being strangled by %s!",
 			    (is_affected(ch,gsn_doppelganger)&& !IS_IMMORTAL(victim))?
 			    ch->doppel->name : ch->name);
-			  if (!IS_NPC(victim)) do_yell(victim,buf);
-			}
-		}
+	}
 }
 
 void do_blackjack(CHAR_DATA *ch, char *argument)
@@ -1906,22 +1871,17 @@ void do_blackjack(CHAR_DATA *ch, char *argument)
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
 		}
-	else 
-		{
-		char buf[MAX_STRING_LENGTH];
+	else {
 
 		damage(ch,victim,ch->level / 2,gsn_blackjack,DAM_NONE, TRUE);
 		check_improve(ch,gsn_blackjack,FALSE,1);
 		if (!IS_NPC(victim))  
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! I'm being blackjacked by someone!");
-		else
-			{
-			  sprintf(buf, "Help! I'm being blackjacked by %s!",
+		else if (!IS_NPC(victim))
+			  doprintf(do_yell, victim, "Help! I'm being blackjacked by %s!",
 			    (is_affected(ch,gsn_doppelganger)&& !IS_IMMORTAL(victim))?
 			    ch->doppel->name : ch->name);
-			  if (!IS_NPC(victim)) do_yell(victim,buf);
-			}
 		}
 }
 
@@ -3084,7 +3044,6 @@ void do_tail(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance, wait;
-	char buf[MAX_STRING_LENGTH];
 	bool FightingCheck;
 	int damage_tail;
 
@@ -3235,12 +3194,9 @@ act_puts("$n's tail seems to slide around $N.",ch,NULL,victim,
 		if (!can_see(victim, ch))
 			do_yell(victim, "Help! Someone hit me!");
 		else
-			{
-			  sprintf(buf, "Help! %s try to hit me with its tail!",
+			  doprintf(do_yell, victim, "Help! %s try to hit me with its tail!",
 			(is_affected(ch,gsn_doppelganger) && !IS_IMMORTAL(victim)) ?
 			ch->doppel->name : ch->name);
-			  do_yell(victim, buf);
-			}
 		}
 }
 
@@ -3655,7 +3611,6 @@ void do_sense(CHAR_DATA *ch, char *argument)
 void do_poison_smoke(CHAR_DATA *ch, char *argument) 
 {
 	CHAR_DATA *tmp_vict;
-	char buf[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) return;
 	if (ch_skill_nok(ch,gsn_poison_smoke)) return;
@@ -3691,12 +3646,9 @@ void do_poison_smoke(CHAR_DATA *ch, char *argument)
 			  if (!can_see(tmp_vict, ch))
 			do_yell(tmp_vict, "Help someone is attacking me!");
 			  else 
-			    {
-			       sprintf(buf,"Die, %s, you sorcerous dog!",
+			       doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
 			    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
 			     ch->doppel->name : ch->name);
-			       do_yell(tmp_vict,buf);
-			    }
 			}
 			
 		spell_poison(gsn_poison,ch->level,ch,tmp_vict, TARGET_CHAR);
@@ -3710,7 +3662,6 @@ void do_poison_smoke(CHAR_DATA *ch, char *argument)
 void do_blindness_dust(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *tmp_vict;
-	char buf[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) return;
 	if (ch_skill_nok(ch,gsn_blindness_dust)) return;
@@ -3746,12 +3697,9 @@ void do_blindness_dust(CHAR_DATA *ch, char *argument)
 			  if (!can_see(tmp_vict, ch))
 			do_yell(tmp_vict, "Help someone is attacking me!");
 			  else 
-			    {
-			       sprintf(buf,"Die, %s, you sorcerous dog!",
+			       doprintf(do_yell, tmp_vict,"Die, %s, you sorcerous dog!",
 			    (is_affected(ch,gsn_doppelganger)&&!IS_IMMORTAL(tmp_vict))?
 			     ch->doppel->name : ch->name);
-			       do_yell(tmp_vict,buf);
-			    }
 			}
 			
 		spell_blindness(gsn_blindness,ch->level,ch,tmp_vict, TARGET_CHAR);

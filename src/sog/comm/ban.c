@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.4 1998-06-07 07:15:39 fjoe Exp $
+ * $Id: ban.c,v 1.5 1998-06-12 14:25:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -269,8 +269,7 @@ void ban_site(CHAR_DATA *ch, char *argument, bool fPerm)
     pban->next  = ban_list;
     ban_list    = pban;
     save_bans();
-    sprintf(buf,"%s has been banned.\n\r",pban->name);
-    send_to_char( buf, ch );
+    char_printf(ch, "%s has been banned.\n\r",pban->name);
     return;
 }
 
@@ -287,7 +286,6 @@ void do_permban(CHAR_DATA *ch, char *argument)
 void do_allow( CHAR_DATA *ch, char *argument )                        
 {
     char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_STRING_LENGTH];
     BAN_DATA *prev;
     BAN_DATA *curr;
 
@@ -316,8 +314,7 @@ void do_allow( CHAR_DATA *ch, char *argument )
                 prev->next = curr->next;
 
             free_ban(curr);
-	    sprintf(buf,"Ban on %s lifted.\n\r",arg);
-            send_to_char( buf, ch );
+	    char_printf(ch,"Ban on %s lifted.\n\r",arg);
 	    save_bans();
             return;
         }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.49 1998-06-12 10:10:14 efdi Exp $
+ * $Id: act_move.c,v 1.50 1998-06-12 14:25:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "hometown.h"
 #include "magic.h"
 #include "update.h"
+#include "util.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -2121,9 +2122,7 @@ void do_train(CHAR_DATA *ch, char *argument)
 		stat	    = STAT_CHA;
 		pOutput     = "charisma";
 /*
-		sprintf(buf,
- "You can't train charisma. That is about your behaviour.\n\r");
-		send_to_char(buf, ch);
+		char_printf(ch, "You can't train charisma. That is about your behaviour.\n\r");
 		return;
 */
 	}
@@ -2236,7 +2235,6 @@ void do_track(CHAR_DATA *ch, char *argument)
 {
   ROOM_HISTORY_DATA *rh;
   EXIT_DATA *pexit;
-  char buf[MAX_STRING_LENGTH];
   static char *door[] = { "north","east","south","west","up","down",
 		                      "that way" };
   int d;
@@ -2267,10 +2265,7 @@ void do_track(CHAR_DATA *ch, char *argument)
 		  if ((pexit = ch->in_room->exit[d]) != NULL
 		    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
 		    &&   pexit->keyword != NULL)
-		    {
-		     sprintf(buf,"%s",door[d]);
-		     do_open(ch,buf);
-		    }
+		     doprintf(do_open, ch,"%s",door[d]);
 		    move_char(ch,rh->went,FALSE);
 		    return;
 		}
@@ -2390,7 +2385,6 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	char buf[MAX_STRING_LENGTH];
 	int chance;
 
 	one_argument(argument, arg);
@@ -2467,10 +2461,7 @@ void do_vbite(CHAR_DATA *ch, char *argument)
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
 		&& victim->position == POS_FIGHTING)
-		{
-  	    sprintf(buf, msg(MOVE_HELP_TRIED_TO_BITE, victim));
-		    do_yell(victim, buf);
-		}
+  	    doprintf(do_yell, victim, msg(MOVE_HELP_TRIED_TO_BITE, victim));
 	return;
 }
 
@@ -2886,7 +2877,6 @@ void do_fly(CHAR_DATA *ch, char *argument)
 
 void do_push(CHAR_DATA *ch, char *argument)
 {
-	char buf  [MAX_STRING_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3001,10 +2991,10 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, 
 				MOVE_N_TRIED_PUSH_N);
 
-		sprintf(buf, msg(MOVE_KEEP_HANDS_OUT, ch), ch->name);
 
 		if (IS_AWAKE(victim))
-		  	do_yell(victim, buf);
+			doprintf(do_yell, victim,
+				 msg(MOVE_KEEP_HANDS_OUT, ch), ch->name);
 		if (!IS_NPC(ch))
 		{
 		    if (IS_NPC(victim))
@@ -3423,7 +3413,6 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 {
 	EXIT_DATA *pExit;
 	ROOM_INDEX_DATA *dest_room;
-	char buf[512];
 	AFFECT_DATA *paf;
 	int damroll = 0, hitroll = 0, sn;
 	AFFECT_DATA af;
@@ -3562,10 +3551,10 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		 {
 		  dest_room = pExit->u1.to_room;
 		  if (dest_room->people)
-			{
-			 sprintf(buf,"$p sails into the room from the %s!",dir_name[rev_dir[door]]);
-			 act(buf, dest_room->people, arrow, NULL, TO_ALL);
-			}
+			 act_printf(dest_room->people, arrow, NULL, TO_ALL,
+				    POS_RESTING,
+			 		"$p sails into the room from the %s!",
+					dir_name[rev_dir[door]]);
 		 }
 		}
  return 0;
@@ -3577,7 +3566,7 @@ void do_shoot(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
 	OBJ_DATA *arrow; 
-	char arg1[512],arg2[512],buf[512];
+	char arg1[512],arg2[512];
 	bool success;
 	int chance,direction;
 	int range = (ch->level / 10) + 1;
@@ -3630,8 +3619,7 @@ void do_shoot(CHAR_DATA *ch, char *argument)
 
 	if (is_safe(ch,victim))
 	{
-		sprintf(buf,"Gods protect %s.\n\r",victim->name);
-		send_to_char(buf,ch);
+		char_printf(ch,"Gods protect %s.\n\r",victim->name);
 		return;
 	}
 
@@ -3674,10 +3662,10 @@ void do_shoot(CHAR_DATA *ch, char *argument)
 		chance -= 40;
 	chance += GET_HITROLL(ch);
 
-	sprintf(buf, "You shoot $p to %s.", dir_name[ direction ]);
-	act(buf, ch, arrow, NULL, TO_CHAR);
-	sprintf(buf, "$n shoots $p to %s.", dir_name[ direction ]);
-	act(buf, ch, arrow, NULL, TO_ROOM);
+	act_printf(ch, arrow, NULL, TO_CHAR, POS_RESTING,
+		   "You shoot $p to %s.", dir_name[ direction ]);
+	act_printf(ch, arrow, NULL, TO_ROOM, POS_RESTING,
+		   "$n shoots $p to %s.", dir_name[ direction ]);
 
 	obj_from_char(arrow);
 	success = send_arrow(ch,victim,arrow,direction,chance,
@@ -3693,7 +3681,7 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
  EXIT_DATA *pExit;
  char buf2[2];
 
- sprintf(buf,"Bul: ");
+ snprintf(buf, sizeof(buf), "Bul: ");
  while (1)
  {
  if ((rend == rstart))
@@ -3747,7 +3735,7 @@ void do_throw_spear(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *spear;
-	char arg1[512],arg2[512],buf[512];
+	char arg1[512],arg2[512];
 	bool success;
 	int chance,direction;
 	int range = (ch->level / 10) + 1;
@@ -3800,8 +3788,7 @@ void do_throw_spear(CHAR_DATA *ch, char *argument)
 
 	if (is_safe(ch,victim))
 	{
-		sprintf(buf,"Gods protect %s.\n\r",victim->name);
-		send_to_char(buf,ch);
+		char_printf(ch,"Gods protect %s.\n\r",victim->name);
 		return;
 	}
 
@@ -3831,10 +3818,10 @@ void do_throw_spear(CHAR_DATA *ch, char *argument)
 		chance -= 40;
 	chance += GET_HITROLL(ch);
 
-	sprintf(buf, "You throw $p to %s.", dir_name[ direction ]);
-	act(buf, ch, spear, NULL, TO_CHAR);
-	sprintf(buf, "$n throws $p to %s.", dir_name[ direction ]);
-	act(buf, ch, spear, NULL, TO_ROOM);
+	act_printf(ch, spear, NULL, TO_CHAR, POS_RESTING,
+			"You throw $p to %s.", dir_name[ direction ]);
+	act_printf(ch, spear, NULL, TO_ROOM, POS_RESTING,
+			"$n throws $p to %s.", dir_name[ direction ]);
 
 	obj_from_char(spear);
 	success = send_arrow(ch,victim,spear,direction,chance,

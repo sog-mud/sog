@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.4 1998-06-03 07:27:18 fjoe Exp $
+ * $Id: db.h,v 1.5 1998-06-12 14:25:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,6 +80,7 @@ void *	alloc_perm	(int sMem);
 void	free_mem	(void *pMem, int sMem);
 char *	str_dup		(const char *str);
 void	free_string	(char *pstr);
+void	str_printf	(char **pstr, const char* fmt, ...);
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
 int	number_percent	(void);
