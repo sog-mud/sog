@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.46 1998-06-17 07:31:29 fjoe Exp $
+ * $Id: comm.c,v 1.47 1998-06-17 07:50:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3476,7 +3476,7 @@ bool class_ok(CHAR_DATA *ch , int class)
 	||  (ch->sex == SEX_FEMALE && class == CLASS_NECROMANCER)
 	||  (ch->sex == SEX_MALE && class == CLASS_WITCH)) 
 		return 0;
-	return class_ok(ch, class);
+	return 1;
 }
 
 int align_restrict(CHAR_DATA *ch)
