@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.5 2000-03-30 06:40:07 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.6 2000-03-30 16:21:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1182,7 +1182,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (wch->level < iLevelLower || wch->level > iLevelUpper
 		||  (IS_SET(flags, WHO_F_IMM) && wch->level < LEVEL_IMMORTAL)
-		||  (IS_SET(flags, WHO_F_PK) && !in_PK(ch, wch))
+		||  (IS_SET(flags, WHO_F_PK) && (IS_IMMORTAL(wch) ||
+						 !in_PK(ch, wch)))
 		||  (IS_SET(flags, WHO_F_CLAN) && !wch->clan)
 		||  (ralign && ((RALIGN(wch) & ralign) == 0))
 		||  (rethos && ((wch->ethos & rethos) == 0)))

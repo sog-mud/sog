@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.16 2000-03-28 11:03:02 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.17 2000-03-30 16:22:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3890,40 +3890,37 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	||  !r->race_pcdata)
 		return;
 
-	buf_add(output, "{x[");
-	if ((ch && (IS_IMMORTAL(ch) || ch == wch))
-	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
-		buf_printf(output, "%3d ", wch->level);
-	else
-		buf_add(output, "    ");
+	buf_add(output, "{x");
+	if (ch) {
+		if (IS_IMMORTAL(ch)) {
+			buf_printf(output, "[%3d %5.5s %3.3s] ",
+				   wch->level,
+				   r->race_pcdata->who_name,
+				   cl->who_name);
+		} else {
+			if (!IS_IMMORTAL(wch) && in_PK(ch, wch))
+				buf_add(output, "{r[{RPK{r]{x ");
+			else
+				buf_add(output, "     ");
+		}
+	}
 
 	if (wch->level >= LEVEL_HERO) {
-		if (ch && IS_IMMORTAL(ch))
-			buf_add(output, "  ");
-		buf_add(output, "{G");
+		buf_add(output, "[{G");
 		switch (wch->level) {
-		case LEVEL_IMP:		buf_add(output, " IMP "); break;
-		case LEVEL_CRE:		buf_add(output, " CRE "); break;
-		case LEVEL_SUP:		buf_add(output, " SUP "); break;
-		case LEVEL_DEI:		buf_add(output, " DEI "); break;
-		case LEVEL_GOD:		buf_add(output, " GOD "); break;
-		case LEVEL_IMM:		buf_add(output, " IMM "); break;
-		case LEVEL_DEM:		buf_add(output, " DEM "); break;
-		case LEVEL_ANG:		buf_add(output, " ANG "); break;
-		case LEVEL_AVA:		buf_add(output, " AVA "); break;
-		case LEVEL_HERO:	buf_add(output, "HERO "); break;
+		case LEVEL_IMP:		buf_add(output, "IMP"); break;
+		case LEVEL_CRE:		buf_add(output, "CRE"); break;
+		case LEVEL_SUP:		buf_add(output, "SUP"); break;
+		case LEVEL_DEI:		buf_add(output, "DEI"); break;
+		case LEVEL_GOD:		buf_add(output, "GOD"); break;
+		case LEVEL_IMM:		buf_add(output, "IMM"); break;
+		case LEVEL_DEM:		buf_add(output, "DEM"); break;
+		case LEVEL_ANG:		buf_add(output, "ANG"); break;
+		case LEVEL_AVA:		buf_add(output, "AVA"); break;
+		case LEVEL_HERO:	buf_add(output, "HERO"); break;
 		}
-		buf_add(output, "{x");
-		if (ch && IS_IMMORTAL(ch))
-			buf_add(output, "  ");
+		buf_add(output, "{x] ");
 	}
-	else {
-		buf_printf(output, "%5.5s", r->race_pcdata->who_name);
-
-		if (ch && IS_IMMORTAL(ch))
-			buf_printf(output, " %3.3s", cl->who_name);
-	}
-	buf_add(output, "] ");
 
 	if (wch->clan
 	&&  (clan = clan_lookup(wch->clan))
@@ -3934,13 +3931,10 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (IS_SET(wch->comm, COMM_AFK))
 		buf_add(output, "{c[AFK]{x ");
 
-	if (wch->invis_level >= LEVEL_HERO)
+	if (wch->invis_level)
 		buf_add(output, "[{WWizi{x] ");
-	if (wch->incog_level >= LEVEL_HERO)
+	if (wch->incog_level)
 		buf_add(output, "[{DIncog{x] ");
-
-	if (ch && in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
-		buf_add(output, "{r[{RPK{r]{x ");
 
 	if (IS_WANTED(wch))
 		buf_add(output, "{R(WANTED){x ");
@@ -3951,7 +3945,6 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		buf_add(output, wch->name);
 
 	buf_add(output, PC(wch)->title);
-
 	buf_add(output, "\n");
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.45.2.5 2000-03-28 07:22:18 fjoe Exp $
+ * $Id: const.h,v 1.45.2.6 2000-03-30 16:21:46 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -294,6 +294,7 @@ enum {
 #define OBJ_VNUM_RULER_SHIELD2		72
 #define OBJ_VNUM_RULER_SHIELD3		73
 #define OBJ_VNUM_RULER_SHIELD4		74
+#define OBJ_VNUM_RENEGADE_MARK		76
 
 #define OBJ_VNUM_CHAOS_BLADE		97
 
