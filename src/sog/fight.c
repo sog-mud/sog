@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.35 2001-07-25 16:40:49 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.36 2001-09-07 07:35:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -2472,6 +2472,12 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	int base_exp;
 	int level_range = victim->level - gch->level;
 	int neg_cha = 0, pos_cha = 0;
+	int ave_victim_hit = victim->pMobIndex->hit[DICE_BONUS] +
+	    (victim->pMobIndex->hit[DICE_TYPE] + 1) *
+	    victim->pMobIndex->hit[DICE_NUMBER];
+
+	/* Just in case */
+	ave_victim_hit = UMAX(ave_victim_hit, 1);
 
 /* base exp */
 	switch (level_range) {
@@ -2520,6 +2526,8 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 	/* randomize the rewards */
 	xp = number_range(xp * 3/4, xp * 5/4);
+
+	xp = xp * victim->max_hit / ave_victim_hit;
 
 /* adjust for grouping */
 	xp = xp * gch->level/total_levels;
