@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_young_crab.mpc,v 1.1 2001-08-30 19:06:37 fjoe Exp $
+ */
+
+dofun("say", $n, "Hold your tongue, ma! You're enough to try the patience of an oyster!");

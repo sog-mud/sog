@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_white_rabbit.mpc,v 1.1 2001-08-30 19:06:32 fjoe Exp $
+ */
+
+dofun("say", $n, "Bring me my gloves!");

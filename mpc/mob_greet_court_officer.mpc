@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_court_officer.mpc,v 1.1 2001-08-30 19:06:32 fjoe Exp $
+ */
+
+dofun("emote", $n, "glares at you suspiciously.");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_knave_of_hearts.mpc,v 1.1 2001-08-30 19:06:35 fjoe Exp $
+ */
+
+dofun("emote", $n, "hurriedly hides a tart behind his back.");

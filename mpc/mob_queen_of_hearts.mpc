@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_queen_of_hearts.mpc,v 1.1 2001-08-30 19:06:38 fjoe Exp $
+ */
+
+dofun("yell", $n, "Off with their heads!");

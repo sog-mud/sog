@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_flamingo.mpc,v 1.1 2001-08-30 19:06:34 fjoe Exp $
+ */
+
+dofun("emote", $n, "is fleeing madly away from some angry courtiers.");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_diamond_courtier.mpc,v 1.1 2001-08-30 19:06:29 fjoe Exp $
+ */
+
+dofun("emote", $n, "runs off after another hedgehog.");

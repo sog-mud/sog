@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_pigeon.mpc,v 1.1 2001-08-30 19:06:31 fjoe Exp $
+ */
+
+tell_char($n, $N, "Good riddance, snake!");

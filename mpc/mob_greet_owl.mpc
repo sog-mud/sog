@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_owl.mpc,v 1.1 2001-08-30 19:06:36 fjoe Exp $
+ */
+
+dofun("emote", $n, "runs about in circles.");

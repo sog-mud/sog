@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_greet_dodo.mpc,v 1.1 2001-08-30 19:06:33 fjoe Exp $
+ */
+
+dofun("say", $n, "The best thing to get us dry would be a Caucus race!");
+dofun("emote", $n, "marks out a race course, in a sort of circle.");
+tell_char($n, $N, "The size doesn't matter.");

@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_greet_mouse.mpc,v 1.1 2001-08-30 19:06:36 fjoe Exp $
+ */
+
+mob_interpret($n, "growl");
+dofun("say", $n, "Cats! Nasty, low, vulgar things!");

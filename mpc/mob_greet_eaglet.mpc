@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_greet_eaglet.mpc,v 1.1 2001-08-30 19:06:33 fjoe Exp $
+ */
+
+dofun("say", $n, "Speak English!");
+dofun("emote", $n, "stretches its wings and shakes them, soaking everyone!");

@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_death_lizard_bill.mpc,v 1.1 2001-08-30 19:06:29 fjoe Exp $
+ */
+
+dofun("yell", $n, "Aieee!");
+return 0;

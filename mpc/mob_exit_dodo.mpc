@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_dodo.mpc,v 1.1 2001-08-30 19:06:29 fjoe Exp $
+ */
+
+dofun("say", $n, "The race is over! But who has won?");

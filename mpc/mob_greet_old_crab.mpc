@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_old_crab.mpc,v 1.1 2001-08-30 19:06:36 fjoe Exp $
+ */
+
+dofun("say", $n, "Ah my dear! Let this be a lesson to you to never lose your temper!");

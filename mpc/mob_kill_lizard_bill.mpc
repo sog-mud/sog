@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_kill_lizard_bill.mpc,v 1.1 2001-08-30 19:06:38 fjoe Exp $
+ */
+
+act_yell($n, "$lu{$E}'s coming at me like a jack in the box!", $N, NULL);

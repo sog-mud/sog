@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_caterpillar.mpc,v 1.1 2001-08-30 19:06:29 fjoe Exp $
+ */
+
+tell_char($n, $N, "One side will make you stronger, the other will make you weaker.");

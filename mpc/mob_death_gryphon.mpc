@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_death_gryphon.mpc,v 1.1 2001-08-30 19:06:28 fjoe Exp $
+ */
+
+dofun("yell", $n, "I am slain!");
+return 0;

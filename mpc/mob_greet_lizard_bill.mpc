@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_greet_lizard_bill.mpc,v 1.1 2001-08-30 19:06:35 fjoe Exp $
+ */
+
+dofun("emote", $n, "yelps in surprise.");
+dofun("say", $n, "It's a giant!");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_exit_lory.mpc,v 1.1 2001-08-30 19:06:30 fjoe Exp $
+ */
+
+dofun("emote", $n, "sits and sulks.");
