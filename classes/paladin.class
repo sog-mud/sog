@@ -60,6 +60,7 @@ Skill 'dagger' 1 1 0
 Skill 'mace' 1 1 0
 Skill 'polearm' 1 1 0
 Skill 'shield block' 1 1 -10
+Skill 'spear' 5 1 0
 Skill 'sword' 1 1 0
 Skill 'second weapon' 48 1 0
 Skill 'bash' 6 1 0
