@@ -1333,6 +1333,8 @@ mob purge
 'You are so nice. Thank you. Take this branch as reward.
 mob oload 35467
 give branch to $n
+drop all
+mob purge
 ~
 #35485
 if wears $I 35482

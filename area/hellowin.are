@@ -504,7 +504,7 @@ bouquet rose букет роз~
 @eng a rose bouquet@rus ~~букет~~ роз~
 @eng A rose bouquet is lying on the ground.@rus Букет (bouquet) роз лежит на земле.~
 flower~
-treasure 0 A
+treasure 0 AO
 0 0 0 0 0
 0 150 0 P
 E
@@ -1141,6 +1141,16 @@ pole 0 AO
 0 0 0 0 0
 0 0 0 P
 G none
+#34484
+sharpstone точильный камень stone~
+@eng a sharpstone@rus ~~точильный~~ ~~камень~~~
+@eng A sharpstone is lying here.@rus Точильный камень (sharpstone) валяется на земле.~
+unknown~
+gem h AO
+0 0 0 0 0
+10 10 500 P
+S 'sharpen weapon' 75 A
+G male
 #0
 
 #ROOMS

@@ -286,7 +286,7 @@ pill anti invader~
 Anti-invader's pill~
 Someone has left an anti-invader's pill here.~
 energy~
-pill ABOT A
+pill ABOTi A
 15 'detect fade' 'bless' 'protection evil' 'cure critical'
 0 1 10000 P
 G none
@@ -612,7 +612,7 @@ chocolate sweet~
 @eng Chocolate sweet is here.@rus Шоколадная конфета валяется тут.~
 шоколад~
 pill GRYa AOP
-30 'haste' 'frenzy' 'enhanced armor' 'sanctuary'
+30 'haste' 'frenzy' 'enchant armor' 'black shroud'
 0 0 0 P
 G none
 #15037
@@ -927,7 +927,7 @@ pole~
 pole~
 pole~
 unknown~
-fishing_pole 0 AO
+unknown 0 AO
 0 0 0 0 0
 0 0 0 P
 G none

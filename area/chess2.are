@@ -440,7 +440,7 @@ coins gold black royal treasure монеты золото сокровище~
 @eng There are a LOT of coins here.@rus Большое количество старинных монет (coins) лежит у стены.~
 silver~
 money 0 A
-10000 0 0 0 0
+1000 10 0 0 0
 0 0 0 P
 G none
 #4217
@@ -449,7 +449,7 @@ coins gold white royal treasure сокровище монеты деньги~
 @eng There are a LOT of coins here.@rus Большое количество старинных монет (coins) лежит у стены.~
 silver~
 money 0 A
-10000 0 0 0 0
+1000 10 0 0 0
 0 0 0 P
 G none
 #4218

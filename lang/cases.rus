@@ -2880,6 +2880,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name точильный~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name мягкая~
 BaseLen 4
 Form 1 -ой~

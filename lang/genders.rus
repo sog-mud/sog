@@ -946,6 +946,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name отдохнувшим~
+BaseLen 9
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
 Name белый~
 BaseLen 3
 Form 1 -ая~
@@ -1840,6 +1848,14 @@ End
 #RULE
 Name выполнил~
 BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name сбил~
+BaseLen 3
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~

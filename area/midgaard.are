@@ -246,6 +246,41 @@ AGHW 0 900 0
 NU 0 0 C
 stand stand either 10
 0 0 medium unknown
+#3014
+paladine паладин~
+@eng the paladine@rus паладин~
+@eng A Paladine in glowing armor is here guarding entrance.
+@rus Паладин (paladine) в сверкающих доспехах стоит тут охраняя вход.
+~
+@eng A noble knight of the Crown with long  knight-lance  stands on his post at Paladine guild.
+@rus Благородный рыцарь короны с длинной пикой стоит  на посту у гилдии паладинов.
+~
+human~
+ABTVe DFm 1000 0
+35 0 5d5+1000 5d5+250 11d4+15 divine
+-14 -14 -14 -8
+ACFHK AB CD 0
+stand stand male 2000
+0 0 medium unknown
+M grall 3052 100~
+#3015
+samurai самурай~
+@eng the samurai@rus самурай~
+@eng A well-dressed samurai stands here guarding entrance.
+@rus Отлично одетый самурай (samurai) стоит тут охраняя вход.
+~
+@eng A noble busido warrior is holding a longsword in his hands. His  duty is to guard the Samurai guild.
+@rus Благородный воин бусидо сжимает меч в своих руках. Его долг  - охранять гильдию самураев.
+~
+human~
+ABTVe DFV 100 0
+35 0 5d5+1200 1d1+1 11d5+17 punch
+-12 -12 -12 -6
+ACFHIJKN AB CD 0
+stand stand none 1500
+0 0 medium unknown
+M grall 3054 100~
+M exall 3055 2~
 #3020
 guildmaster master наставница~
 @eng the guildmaster@rus наставница~
@@ -408,6 +443,7 @@ ABTVe DF 800 0
 ACDEHIK AB CD 0
 stand stand male 2000
 0 0 medium unknown
+M grall 3050 100~
 #3040
 bartender бармен~
 @eng the bartender@rus бармен~
@@ -549,6 +585,7 @@ ACGT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+M kill 3051 100~
 V 37001
 #3061
 janitor дворник~
@@ -667,6 +704,7 @@ ABT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+M kill 3051 100~
 #3068
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -683,6 +721,7 @@ ABT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+M kill 3051 100~
 #3069
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -699,6 +738,7 @@ ABT BQ 1000 3000
 CDEHKLTU 0 C 0
 stand stand either 500
 0 0 medium unknown
+M kill 3051 100~
 #3070
 shopkeeper old man аптекарь~
 @eng An old man@rus ~~старый~~ ~~аптекарь~~~
@@ -732,6 +772,7 @@ ABT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+M kill 3051 100~
 #3072
 cityguard guard стражник~
 @eng the cityguard@rus стражник~
@@ -748,6 +789,7 @@ ABT 0 1000 3000
 CDEKLTU 0 C 0
 stand stand either 150
 0 0 medium unknown
+M kill 3051 100~
 #3090
 kitten cat pet котенок~
 @eng the kitten@rus котенок~
@@ -1000,6 +1042,7 @@ ABCFT 0 1000 3000
 CDEHKLU 0 C 0
 stand stand either 150
 0 0 medium unknown
+M kill 3051 100~
 #3142
 secretary секретарь секретарша~
 @eng the secretary@rus секретарша~
@@ -2534,6 +2577,19 @@ The letter is written in a reserved and dignified Spencer hand.
     Midgaard City Bank
 ~
 G none
+#3141
+long spear копье~
+@eng a long spear@rus длинное копье~
+@eng A long spear is here.@rus Длинное копье (spear) лежит тут.~
+steel~
+weapon 0 AN
+spear 4 7 pierce K
+25 40 2000 P
+A
+18 3
+A
+19 3
+G none
 #3150
 coffee cup cinnamon~
 a cup of cinnamon coffee~
@@ -3637,7 +3693,7 @@ This is the official Merc war banner to see you through the darkest realm!
 G none
 #3370
 bottle vodka nemiroff~
-@eng the bottle of vodka '{yNemiroff{x'@rus бутылка горилки '{yNemiroff{W Украiнська {Yмедова з перцем{x'~
+@eng the bottle of vodka '{yNemiroff{x'@rus ~~бутылка~~ горилки '{yNemiroff {WУкраiнська {Yмедова з перцем{x'~
 @eng The bottle with golden liquid is left here.@rus Перчик плавает в стеклянной полулитровой бутылке.~
 glass~
 drink ETij AJ
@@ -5060,11 +5116,11 @@ poems about beer, and small beer-mugs.
 пивные кружки, выцарапанные на стойке.
 ~
 D2
-@eng You see the bar of Samurai's.
-@rus Вы видите бар самураев.
+@eng You see the cleaned hall.
+@rus Ты видишь чистый холл.
 ~
 ~
-Z -1 3075
+Z -1 3055
 D3
 @eng You see the exit to the entrance hall.
 @rus Вы видите вход в зал.
@@ -6560,6 +6616,21 @@ D4
 ~
 Z -1 1215
 S
+#3055
+@eng Entrance Hall to the Bar of Samurai@rus Вход в Бар Самураев~
+@eng You see a well cleaned hall. It goes to south where Samurai's Bar is placed.
+@rus Ты видишь чисто убранную прихожую. Она тЯнетсЯ на юг, к бару Самураев.
+~
+0 DS inside
+D0
+~
+~
+Z 0 3007
+D2
+~
+~
+Z 0 3075
+S
 #3056
 @eng The Fountain of Youth Apothecary@rus Аптека "Источник молодости"~
 @eng An old man putters around behind the counter, making strange love potions
@@ -7013,11 +7084,11 @@ they don't drink drinks with alcohol.
 ~
 0 CDKSY inside
 D0
-@eng You see the guarting board..
-@rus Ты видишь таверну 'Хрюкающий кабан'.
+@eng You see the cleaned hall.
+@rus Ты видишь чистый холл.
 ~
 ~
-Z -1 3007
+Z -1 3055
 D3
 @eng You see the practice yard of samurais..
 @rus Ты видишь тренировочную площадку самураев.
@@ -9538,6 +9609,7 @@ M 3005 spec_thief	* the thief
 M 3009 spec_cast_mage	* the jeweler
 M 3012 spec_cast_adept	* the healer
 M 3013 spec_janitor	* the janitor
+M 3014 spec_cast_cleric	* the paladine
 M 3020 spec_cast_mage	* the guildmaster
 M 3021 spec_cast_cleric	* the guildmaster
 M 3024 spec_cast_mage	* the sorcerer
@@ -9776,6 +9848,7 @@ G 0 3051 0		*	a canoe
 M 0 3007 1 3050 1	* the sailor (Abandoned Warehouse)
 O 0 3010 0 3054	* the donation pit (By the Temple Altar)
 M 0 3012 5 3054 1	* the healer (By the Temple Altar)
+M 0 3015 1 3055 1	* the samurai (Entrance Hall to the Bar of Samurai)
 M 0 3070 1 3056 1	* An old man (The Fountain of Youth Apothecary)
 G 0 3041 0		*	a swirling potion of return
 G 0 3080 0		*	a potion of healing
@@ -9791,6 +9864,8 @@ G 0 3090 0		*	a potion of negation
 G 0 3091 0		*	a potion of flying
 G 0 3092 0		*	a potion of true sight
 M 0 3169 1 3061 1	* the guildmaster (The Torture Chamber)
+M 0 3014 1 3063 1	* the paladine (Holy Temple)
+E 0 3141 0 16		*	a long spear: wielded
 M 0 3167 1 3064 1	* the guildmaster (Knight's Shrine)
 M 0 3164 1 3066 1	* the butcher (Butcher Shop)
 G 0 3380 0		*	some beef jerky
@@ -10118,6 +10193,70 @@ say Thank you for your kindness, $N.
 emote puts the coins into his beltpouch.
 thank $n
 say Sorry, I haven't got coppers for the exchange ;)
+~
+#3050
+if isimmort $n
+bow $n
+end
+endif
+if class $n warrior
+say Welcome to Fighter's guild!
+else
+say You can't enter till my death!
+end
+endif
+if isimmort $n
+bow $n
+end
+endif
+~
+#3051
+emote screams and attack
+yell HELP! $n is attacking me!
+~
+#3052
+if isimmort $n
+bow $n
+end
+endif
+if class $n paladin
+say Greetings protector of light!
+else
+say What can do for you, stranger?
+end
+endif
+~
+#3053
+if isimmort $n
+mob transfer $n 3075
+end
+endif
+~
+#3054
+if isimmort $n
+bow $n
+end
+endif
+if class $n samurai
+say Welcome, $n sun!
+else
+say Leave, its dangereous to stay here - samurais on training!
+end
+endif
+~
+#3055
+if isimmort $n
+mob transfer $n 3075
+break
+endif
+if class $n 'samurai'
+mob echoat $n $I пропускает тебя в гильдию.
+mob transfer $n 3075
+mob echo $I пропускает $n в гильдию.
+else
+mob transfer $n 3007
+end
+endif
 ~
 #3100
 sign

@@ -502,7 +502,7 @@ a humongous pile of gold~
 A humongous pile of gold is waiting to be picked up.~
 gold~
 money 0 A
-10000 0 0 0 0
+1500 10 0 0 0
 0 0 0 P
 G none
 #13419
@@ -511,7 +511,7 @@ a pile of gems~
 A pile of gems lies on the ground.~
 iron~
 money A A
-20000 0 0 0 0
+1000 0 0 0 0
 0 0 0 P
 G none
 #13420
@@ -1053,7 +1053,6 @@ S
 O 13400 5	* Ciquala's sword
 O 13402 1	* ciquala's staff
 O 13407 3	* a blue potion
-O 13408 1	* an emerald vial
 O 13413 1	* a vial with milky liquid
 S
 

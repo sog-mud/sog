@@ -5,9 +5,37 @@ VNUMs 34000 34199
 Credits Indra~
 Security 1
 LevelRange 0 0
+Flags closed~
 End
 
+#MOBILES
+#34001
+barl~
+barl~
+barl
+~
+~
+human~
+A 0 0 0
+1 0 1d1+1 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
 #OBJECTS
+#34001
+poisoned pill~
+pill~
+pill~
+unknown~
+pill 0 AO
+300 'cure poison' 'cure poison' 'reserved' 'reserved'
+0 0 0 P
+G none
 #34003
 asd~
 @eng spiked tree@rus колючий кустарник~

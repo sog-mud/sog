@@ -157,7 +157,7 @@ ABCFGRT DF -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
 AEFGHJKNQ AB K H
-stand stand none 10000
+stand stand none 1000
 AB ABCDEFGHIJK medium unknown
 #23010
 disfigured diseased flesh lump creature~

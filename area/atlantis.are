@@ -825,7 +825,7 @@ a black potion~
 A black potion bubbles while you watch.~
 glass~
 potion G AO
-20 'heal' 'heal' 'heal' ''
+20 'heal' 'reserved' 'reserved' 'reserved'
 20 50 3250 P
 G none
 #35041

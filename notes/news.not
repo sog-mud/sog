@@ -270,7 +270,6 @@ Stamp   991422750
 To      all~
 Subject re: война~
 Text
- 
 Война? Кто такие эти дуергары, чтобы обьявлять войну могучим эльфам?
 Тем, кто познал тайны природы и магии, кто научился делать прекрасное
 оружие и лечить раны.
@@ -508,7 +507,6 @@ Stamp   1008685798
 To      all~
 Subject Несколько филосовских вопросов...~
 Text
- 
 Привет, Мир!
  
 Поразмыслил я тут на досуге о причинах поразивших этот мир
@@ -710,7 +708,6 @@ Stamp   1033199060
 To      all~
 Subject skill 'improved curative' is gained to clerics~
 Text
- 
 hi, there!
  
 %subj% добавлен на 40 уровне. Лечите на здоровье.
@@ -763,4 +760,154 @@ Greeting.
 поверженной жертвы. (для доказательства выполнения заказа)
  
 {WФринн{x
+~
+Sender  Phrinn~
+Date    Sat Oct 19 09:51:31 2002~
+Stamp   1035006691
+To      all~
+Subject new channel~
+Text
+Greeting!
+ 
+   Появился новый канал. Команда ooc или sog. по нему можно улыбаться
+команды oocme/sogme. (E.g. sogme smiles. будет выглядеть как Phtinn smiles.)
+ 
+   Хантеры могут назначать начальную цену вещей на bm но не более чем
+level * 20 вещи.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Oct 23 01:32:54 2002~
+Stamp   1035322374
+To      all~
+Subject black market, step 3~
+Text
+Greeting!
+ 
+   Теперь если никто не хочет купить вещь в течении времени X,
+она распыляется на атомы. Если сделана ставка, но хантер не
+делает долго accept, вещь автоматически продается. И если
+на вещь сделана ставка, превышающая (level+9)*100 вещь прода-
+ется опять же автоматически в течении достаточно короткого срока.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Sun Oct 27 09:03:01 2002~
+Stamp   1035698581
+To      all~
+Subject new command: last~
+Text
+Greeting!
+ 
+  Новый сервис: возможность посмотреть полученные ранее сообщения
+и то, что было сказано тобой по различным каналам. Команда last
+(help last). В настоящий момент количество сообщений ограничено 16,
+а там посмотрим. Все сообщения, которые вы пропустили в общих
+каналах, пока были lost link, теперь можно будет увидеть!
+  Ситуация со 101% исправлена. У тех, кто получил 101% уже, при
+следующем learn from mistakes оно станет 100 как положено ;)
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Sun Oct 27 10:21:35 2002~
+Stamp   1035703295
+To      all~
+Subject new command: retell~
+Text
+Greeting!
+ 
+   Новая команда: retell. Отправляет сообщение тому, кому
+было адресовано предыдущее. (pc only)
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Fri Nov  1 12:41:35 2002~
+Stamp   1036143695
+To      all~
+Subject 'sharpen weapon' and new chquest item: sharpstone~
+Text
+Greeting!
+ 
+  Ищи и найдете! Новый chquest: a sharpstone. Дает умение 'sharpen weapon'.
+(help 'sharpen weapon')
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Fri Nov 22 21:33:58 2002~
+Stamp   1037990038
+To      all~
+Subject обновление~
+Text
+Greeting!
+ 
+  У нас появились русские aliases на комманды более известные
+в народе как русские команды, ака север, придушить etc.
+Поглядеть какие aliases есть у комманды можно при помощи
+'command <name>'. Список комманд теперь отсортирован по
+алфавиту и частично сокращен, за счет того что команды говорившие
+huh? теперь в нем не показываются.
+ 
+{WФринн{x.
+ 
+PS. гварды больше не летают стаями на север и 'снова с нами
+о желаемых русских коммандах которые непоявились можно нашептать
+мне и они появятся
+~
+Sender  Rakot~
+Date    Mon Dec  2 12:18:48 2002~
+Stamp   1038820728
+To      all~
+Subject New Leader BattleRagers~
+Text
+По желанию Morte он снимается с поста лидера клана BattleRagers и покидает этот клан. Odin призвал доблестого солдата к себе..
+Он был хорошим воином и солдатом. Вечная память ему.
+По согласованию с членами клана BR новым лидером назначен Hyperion. Прошу любить и жаловать
+~
+Sender  Phrinn~
+Date    Tue Dec  3 17:58:07 2002~
+Stamp   1038927487
+To      all~
+Subject disarm and battle arena (aka cr)~
+Text
+Greeting!
+ 
+  При disarm на battle arena оружие падает в inventory а не на землю.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Tue Dec  3 19:02:43 2002~
+Stamp   1038931363
+To      all~
+Subject low str, 'heat metal' and battle arena~
+Text
+Greeting!
+ 
+  При использовании 'heat metal' на battle arena объекты падают
+в inventory.
+  При спадении оружия при маленькой силе (poison, plague, etc) на
+battle arena, оно помещается в inventory (после ребута)
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Tue Dec  3 20:06:06 2002~
+Stamp   1038935166
+To      all~
+Subject battle arena, auction~
+Text
+Greeting!
+ 
+  При использовании на battle arena turn не вынуждает сбегать.
+На battle arena больше не работает disperse, чаров с battle arena
+нельзя засамонить.
+  Чары под аффектом fear не сбегают с battle arena (после ребута).
+  Денежные операции на аукционе проводятся через банк.
+ 
+{WPhrinn{x.
 ~

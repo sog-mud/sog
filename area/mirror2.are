@@ -60,10 +60,10 @@ powerful spell, splitting the land in two--but leaving him unable to
 face his failure.
 ~
 human~
-ABGT DFJNU 0 0
+ABGTe DFJNU 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 pound
 -19 -19 -19 1
-CDEFIJKN 0 0 0
+CDEFIJKN ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19000 100~
@@ -663,10 +663,10 @@ You can't tell anything about whatever this might be...the mists are just too
 thick.
 ~
 unique~
-ABFG BDFINQ -1000 0
+ABFGe BDFINQ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 magic
 -20 -20 -20 0
-F 0 0 0
+F ABU 0 0
 stand stand none 0
 0 0 medium unknown
 #19041
@@ -910,10 +910,10 @@ The Red Master's cloak completely covers his face and body; even his hands and
 feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19009 100~
@@ -928,10 +928,10 @@ The Amber Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19008 100~
@@ -946,10 +946,10 @@ The Green Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19007 100~
@@ -964,10 +964,10 @@ The Blue Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19006 100~
@@ -982,10 +982,10 @@ The Violet Master's cloak completely covers his hands and face; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19005 100~
@@ -1000,10 +1000,10 @@ The Yellow Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere in its folds.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M greet 19010 100~
@@ -1023,10 +1023,10 @@ and head--they contain no features at all, and only radiate a bright golden
 glow.
 ~
 human~
-ABG DFHJN 1000 0
+ABGe DFHJN 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand none 0
 0 0 medium unknown
 M give 19004 19138~
@@ -1042,10 +1042,10 @@ feathers intertwined with a few golden ones; its silvery beak glistens in the
 light, with faint sparkles shining on its razor-sharp edges.
 ~
 unique~
-ABCG DFIN 0 0
+ABCGe DFIN 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 pierce
 -20 -20 -20 0
-FH 0 0 0
+FH A 0 0
 stand stand none 0
 0 0 medium unknown
 M death 19003 100~
@@ -1075,10 +1075,10 @@ The White Master's cloak completely covers him; not even his hands and feet
 can be seen.
 ~
 human~
-ABFG DFJ -1000 0
+ABFGe DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M death 19024 100~
@@ -1091,10 +1091,10 @@ The White Master's cloak completely covers him; not even his face and hands
 can be seen.
 ~
 human~
-ABFG DFJ -1000 0
+ABFGe DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M death 19024 100~
@@ -1107,10 +1107,10 @@ The Black Master's cloak completely covers his body; not even his face
 and hands are visible.
 ~
 human~
-ABFG DFJ -1000 0
+ABFGe DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M death 19024 100~
@@ -1123,10 +1123,10 @@ The Black Master's cloak completely covers his body; not even his face
 and hands can be seen.
 ~
 human~
-ABFG DFJ -1000 0
+ABFGe DFJ -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 pound
 -20 -20 -20 0
-CDEFHK 0 0 0
+CDEFHK ABU 0 0
 stand stand male 0
 0 0 medium unknown
 M death 19024 100~
@@ -4956,7 +4956,7 @@ light throughout what appears to be a relatively small room.  The only exit,
 aside from the one leading out, is a spiral staircase leading upwards through
 a closed hatch in the ceiling.
 ~
-0 CDN field
+0 CDJNX field
 D1
 ~
 ~
@@ -4976,7 +4976,7 @@ right, while a long velvet couch sits against the southern wall.  An
 intricately patterned Persian rug covers the floor, with a small 
 octagonal section cut out above the hatch that allowed you into this room.
 ~
-0 DN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -4998,7 +4998,7 @@ wooden throne stands against the north wall, just below the Sign of the Light;
 two snapdragons grow on its left and right, while sprigs of goldenrod grow 
 upwards just behind its head.
 ~
-0 CN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -5018,7 +5018,7 @@ seem to amplify the outside light, giving it the power of several suns.  The
 throne on the north wall seems to blaze with its own light; the sunflowers and
 forsythia branches that surround it seem dull in comparison.
 ~
-0 CDN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -5039,7 +5039,7 @@ grow near the north wall; their drooping branches form a canopy for the carved
 wooden throne beneath them...and partially obscure the Sign of the Light on the
 wall.
 ~
-0 CDN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
@@ -5061,7 +5061,7 @@ platform, just below the Sign of the Light on the north wall.  A few
 bluebells grow in planters around the room, matching the blue 
 speedwell of the throne as well as the blue marble below your feet.
 ~
-0 CDN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow inside a circle of ivy.~
@@ -5084,7 +5084,7 @@ swirling them gently around your face and hands.  Sprigs of lilac grow
 from behind the dark throne on the north wall, brushing gently against 
 the Sign of the Light.
 ~
-0 CDN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
@@ -5107,7 +5107,7 @@ a smooth glass throne set underneath the northern part of the curving wall.
 Above the throne hangs the Sign of the Light; here, the unfiltered light allows
 it to sparkle with all its rainbow colors.
 ~
-0 CDN inside
+0 CDJNX inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
@@ -5850,7 +5850,7 @@ Entrance to the Dark Tower~
 Cold gray marble covers the walls and the floor, giving the entire room a dim, 
 dirty air.  Save for a staircase leading upwards, the room is entirely empty.
 ~
-0 D city
+0 CDJNX city
 D3
 ~
 ~
@@ -5869,7 +5869,7 @@ the room becomes clearer, two more items come into focus: a small hatch in the
 ceiling just a few inches above your head, as well as the sign of the Dark,
 painted in dull black on the shiny black wall.
 ~
-0 AD inside
+0 ACDJNX inside
 D4
 ~
 ~
@@ -5887,7 +5887,7 @@ providing the only sign of comfort and life; the curving wall stands unbroken
 and unblemished save for the barely visible sign of the Dark, etched in dull
 white against the bright white background.
 ~
-0 D inside
+0 CDJNX inside
 D4
 ~
 ~
@@ -5906,7 +5906,7 @@ the room becomes clearer, two more items come into focus: a small hatch in the
 ceiling just a few inches above your head, as well as the sign of the Dark,
 painted in dull black on the shiny black wall.
 ~
-0 AD inside
+0 ACDJNX inside
 D4
 ~
 ~
@@ -5924,7 +5924,7 @@ providing the only sign of comfort and life; the curving wall stands unbroken
 and unblemished, save for the barely visible sign of the Dark, etched in dull
 white against the bright white background.
 ~
-0 AD inside
+0 CDJNX inside
 D4
 ~
 ~
@@ -5940,7 +5940,7 @@ A thick grey fog swirls around you, blinding you entirely and swallowing up
 every ray of light in the room.  You can only vaguely see what might be the
 sign of the Dark, suspended somewhere in the distance.
 ~
-0 D inside
+0 ACDJNX inside
 D5
 ~
 ~

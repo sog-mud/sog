@@ -3988,3 +3988,98 @@ Text
  
 {WФринн{x.
 ~
+Sender  Phrinn~
+Date    Thu Oct 24 16:08:49 2002~
+Stamp   1035461329
+To      all~
+Subject 'find obj', 'locate obj'~
+Text
+Greeting!
+ 
+   Если объект, который локейтят, находится на аукционе, то об этом
+так и напишется (а не XXX is somewhere). Аналогично для объектов,
+продающихся на черном рынке.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Oct 30 21:20:07 2002~
+Stamp   1036002007
+To      all~
+Subject 'bless weapon', 'hunger weapon', spells~
+Text
+Greeting!
+ 
+  'Bless weapon' теперь нельзя колдовать только на оружие имеющее флаги
+vampiric, vorpal, antigood. 'Hunger weapon' теперь нельзя колдовать только
+на оружие имеющее флаги antievil, bless, holy.
+  Spells теперь показывает проценты.
+ 
+{WPhrinn{x.
+PS. После ребута перестанут терятся петы в pixie forest quest.
+~
+Sender  Phrinn~
+Date    Wed Nov  6 18:01:24 2002~
+Stamp   1036594884
+To      all~
+Subject request, fish~
+Text
+Greeting!
+ 
+В affects теперь пишется request а не reserved когда вы делаете request.
+Рыбка при ее съедении восстанавливает 10 hp и 10 mana.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Nov 13 18:47:49 2002~
+Stamp   1037202469
+To      all~
+Subject new mace~
+Text
+Greeting!
+ 
+У wooden mallet новые характеристики:
+Object 'a wooden mallet' is type weapon, extra flags none.
+Weight is 1, value is 7000, level is 90.
+This equipment has been LIMITED by number 1
+Weapon type is mace.
+Damage is 10d17 (average 90).
+Affects level by 1.
+Affects damroll by 20.
+Affects hitroll by 20.
+Affects mana by 50.
+Affects hp by 50.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Nov 20 18:08:28 2002~
+Stamp   1037804908
+To      all~
+Subject minor changes~
+Text
+Greeting!
+ 
+  У нас два небольших изменения:
+- укус вампира теперь никак не зависит от того, каким оружием
+тот пользуется и имеет тип наносимого урона negative.
+- спящий народ просыпается теперь если его бьют
+ну и в довесок BM теперь могут пользоваться все (продавать)
+
+{WPhrinn{x
+~
+Sender  Serre~
+Date    Mon Nov 25 12:57:45 2002~
+Stamp   1038218265
+To      all~
+Subject auto flags~
+Text
+Salut!
+ 
+Совсем небольшое изменение:
+появилась команда auto.
+Теперь надо писать не 'autoassist', а 'auto assist' соответственно.
+А список всех переключаемых данной командой флажков доступен
+если ввести auto без аргументов.
+~

@@ -692,7 +692,7 @@ a bone mace~
 A bone mace lies here.~
 copper~
 weapon 0 AN
-exotic 3 5 pound 0
+mace 3 5 pound 0
 10 20 100 P
 A
 18 -1
@@ -700,12 +700,12 @@ A
 19 1
 G none
 #24113
-dagger~
+dagger bronze~
 a bronze dagger~
 A bronze dagger lies here.~
 copper~
 weapon 0 AN
-exotic 3 5 pierce 0
+dagger 3 5 pierce 0
 10 15 100 P
 A
 18 -1
@@ -713,12 +713,12 @@ A
 19 -1
 G none
 #24114
-blade sword~
+blade sword bronze~
 a bronze sword~
 A broad, heavy bronze blade lies here.~
 copper~
 weapon 0 AN
-exotic 3 5 slash 0
+sword 3 5 slash 0
 10 25 100 P
 A
 18 -2
