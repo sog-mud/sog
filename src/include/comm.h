@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.26 1999-02-16 16:41:55 fjoe Exp $
+ * $Id: comm.h,v 1.27 1999-05-20 11:23:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 void	show_string	(struct descriptor_data *d, char *input);
 void	close_descriptor(DESCRIPTOR_DATA *dclose);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, unsigned int length);
+void	bust_a_prompt	(CHAR_DATA *ch);
 
 void	char_puts(const char *txt, CHAR_DATA *ch);
 #define char_nputs(msgid, ch) char_puts(msg(msgid, ch), ch)

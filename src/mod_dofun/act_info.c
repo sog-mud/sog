@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.235 1999-05-20 11:02:57 fjoe Exp $
+ * $Id: act_info.c,v 1.236 1999-05-20 11:23:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -930,8 +930,13 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 {
 	const char *prompt;
 
-	if (argument[0] == '\0'
-	||  !str_prefix(argument, "show")) {
+	if (argument[0] == '\0') {
+		bust_a_prompt(ch);
+		char_puts("\n", ch);
+		return;
+	}
+
+	if (!str_prefix(argument, "show")) {
 		char_printf(ch, "Current prompt is '%s'.\n", ch->prompt);
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.179 1999-05-19 08:05:37 fjoe Exp $
+ * $Id: comm.c,v 1.180 1999-05-20 11:23:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -193,7 +193,6 @@ void	nanny			(DESCRIPTOR_DATA *d, const char *argument);
 bool	process_output		(DESCRIPTOR_DATA *d, bool fPrompt);
 void	read_from_buffer	(DESCRIPTOR_DATA *d);
 void	stop_idling		(CHAR_DATA *ch);
-void    bust_a_prompt           (CHAR_DATA *ch);
 void 	log_area_popularity	(void);
 
 varr 	control_sockets = { sizeof(int), 2 };
@@ -1152,8 +1151,13 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				if (!IS_SET(ch->comm, COMM_COMPACT))
 					write_to_buffer(d, "\n\r", 2);
 
-				if (IS_SET(ch->comm, COMM_PROMPT))
-					bust_a_prompt(d->character);
+				if (IS_SET(ch->comm, COMM_PROMPT)) {
+					if (IS_SET(ch->comm, COMM_AFK)) 
+						char_printf(ch, "{c<AFK>{x %s",
+							    ch->prefix);
+					else
+						bust_a_prompt(d->character);
+				}
 				ga = TRUE;
 			}
 		}
@@ -1220,11 +1224,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 	const char *dir_name[] = {"N","E","S","W","U","D"};
 	int door;
  
-	if (IS_SET(ch->comm, COMM_AFK)) {
-		char_printf(ch, "{c<AFK>{x %s", ch->prefix);
-		return;
-	}
-
 	point = buf;
 	str = ch->prompt;
 	if (IS_NULLSTR(str))

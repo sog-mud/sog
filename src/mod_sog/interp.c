@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.142 1999-05-20 11:02:58 fjoe Exp $
+ * $Id: interp.c,v 1.143 1999-05-20 11:23:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -189,8 +189,6 @@ cmd_t cmd_table[] =
     { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, CMD_NOORDER },
     { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
-    { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL	},
-    { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_FROZEN_OK },
     { "reply",		do_reply,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "replay",		do_replay,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "say",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
@@ -235,6 +233,8 @@ cmd_t cmd_table[] =
     { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, CMD_KEEP_HIDE },
     { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
+    { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_FROZEN_OK },
+    { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL	},
     { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
     { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER | CMD_FROZEN_OK },
     { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER | CMD_FROZEN_OK },
