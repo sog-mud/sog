@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.120 1999-06-10 18:19:02 fjoe Exp $
+ * $Id: save.c,v 1.121 1999-06-17 05:46:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -851,7 +851,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 	affect_check(ch, -1, -1);
 
 	if (ch->pcdata->condition[COND_BLOODLUST] < 48
-	&&  !HAS_SKILL(ch, gsn_vampire))
+	&&  !IS_VAMPIRE(ch))
 		ch->pcdata->condition[COND_BLOODLUST] = 48;
 
 	reset_char(ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.20 1999-06-10 18:19:02 fjoe Exp $
+ * $Id: repair.c,v 1.21 1999-06-17 05:46:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,9 +129,8 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (obj->cost == 0) {
-		/* XXX */
-		doprintf(do_say, mob, "%s is beyond repair.\n",
-			 mlstr_mval(&obj->short_descr));
+		act_say(NULL, NULL, mob,
+			"$P is beyond repair.", obj, NULL);
    		return;
 	}
 
@@ -205,7 +204,9 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 		((obj->cost * (100 - obj->condition)) /100)   );
 	cost /= 100;
 
-	doprintf(do_say, mob, "It will cost %d to fix that item", cost);
+	act_say(NULL, NULL, mob,
+		"It will cost you $J gold to fix that item.",
+		NULL, (const void*) cost);
 }
 
 void do_restring(CHAR_DATA *ch, const char *argument)

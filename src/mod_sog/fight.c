@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.178 1999-06-10 18:18:55 fjoe Exp $
+ * $Id: fight.c,v 1.179 1999-06-17 05:46:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1113,7 +1113,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
-		if (HAS_SKILL(ch, gsn_vampire)) {
+		if (IS_VAMPIRE(ch)) {
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
 				 ch, NULL,victim,TO_ROOM,POS_SLEEPING);
 			char_puts("You suck {Rblood{x "
@@ -2172,9 +2172,9 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 		remove_mind(tmp_ch, victim->name);
 		if (tmp_ch->target == victim 
 		&&  tmp_ch->pIndexData->vnum == MOB_VNUM_STALKER) {
-			doprintf(do_clan, tmp_ch,
-				"%s is dead and I can leave the realm.",
-				PERS(victim, tmp_ch));
+			act_clan(NULL, tmp_ch,
+				 "$I is dead and I can leave the realm.",
+				 victim);
 			extract_char(tmp_ch, 0);
 		}
 	}
@@ -2588,17 +2588,17 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, attack,
-			  TO_ROOM | ACT_TRANS, POS_RESTING);
+			  TO_ROOM | ACT_TRANS | ACT_FIXSH, POS_RESTING);
 		act_puts3(msg_char, ch, vs, NULL, attack,
-			  TO_CHAR | ACT_TRANS, POS_RESTING);
+			  TO_CHAR | ACT_TRANS | ACT_FIXSH, POS_RESTING);
 	}
 	else {
 		act_puts3(msg_notvict, ch, vp, victim, attack,
-			  TO_NOTVICT | ACT_TRANS, POS_RESTING);
+			  TO_NOTVICT | ACT_TRANS | ACT_FIXSH, POS_RESTING);
 		act_puts3(msg_char, ch, vs, victim, attack,
-			  TO_CHAR | ACT_TRANS, POS_RESTING);
+			  TO_CHAR | ACT_TRANS | ACT_FIXSH, POS_RESTING);
 		act_puts3(msg_vict, ch, vp, victim, attack,
-			  TO_VICT | ACT_TRANS, POS_RESTING);
+			  TO_VICT | ACT_TRANS | ACT_FIXSH, POS_RESTING);
 	}
 }
 
@@ -2746,7 +2746,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	}
 
 	multi_hit(ch, victim, TYPE_UNDEFINED);
-	yell(victim, ch, "Help! %s is attacking me!");
+	yell(victim, ch, "Help! $I is attacking me!");
 }
 
 void do_flee(CHAR_DATA *ch, const char *argument)

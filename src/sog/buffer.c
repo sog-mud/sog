@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.12 1999-06-10 11:47:27 fjoe Exp $
+ * $Id: buffer.c,v 1.13 1999-06-17 05:46:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "buffer.h"
 #include "log.h"
 #include "db/msg.h"
+#include "comm/comm_act.h"
 
 struct buf_data
 {
@@ -118,15 +119,11 @@ void buf_free(BUFFER *buffer)
 	free_list	= buffer;
 }
 
-int buf_lang(BUFFER *buffer)
-{
-	return buffer->lang;
-}
-
 bool buf_add(BUFFER *buffer, const char *string)
 {
 	return buf_cat(buffer,
-		       buffer->lang < 0 ? string : GETMSG(string, buffer->lang));
+		       buffer->lang < 0 ? string :
+					  GETMSG(string, buffer->lang));
 }
 
 bool buf_printf(BUFFER *buffer, const char *format, ...)
@@ -141,6 +138,20 @@ bool buf_printf(BUFFER *buffer, const char *format, ...)
 	va_end(ap);
 
 	return buf_cat(buffer, buf);
+}
+
+bool buf_act(BUFFER *buffer, const char *format, CHAR_DATA *ch,
+	     const void *arg1, const void *arg2, const void *arg3,
+	     int act_flags)
+{
+	actopt_t opt;
+	char tmp[MAX_STRING_LENGTH];
+
+	opt.to_lang = UMAX(0, buffer->lang);
+	opt.act_flags = act_flags;
+
+	act_buf(format, ch, ch, arg1, arg2, arg3, &opt, tmp, sizeof(tmp));
+	return buf_cat(buffer, tmp);
 }
 
 void buf_clear(BUFFER *buffer)

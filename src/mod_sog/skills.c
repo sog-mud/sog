@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.65 1999-06-10 14:33:31 fjoe Exp $
+ * $Id: skills.c,v 1.66 1999-06-17 05:46:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -320,12 +320,15 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 		if (number_percent() < chance) {
 			ps->percent++;
 			gain_exp(ch, 2 * rating);
-			if (ps->percent == 100) char_printf(ch, 
-				"{gYou mastered {W%s{g!{x\n",
-				skill_name(sn));
-			else char_printf(ch, 
-		 		"{gYou have become better at {W%s{g!{x\n",
-				skill_name(sn));
+			if (ps->percent == 100) {
+				act_puts("{gYou mastered {W$t{g!{x",
+					 ch, skill_name(sn), NULL,
+					 TO_CHAR, POS_DEAD);
+			} else {
+				act_puts("{gYou have become better at {W$t{g!{x",
+					 ch, skill_name(sn), NULL,
+					 TO_CHAR, POS_DEAD);
+			}
 		}
 	}
 	else {
@@ -334,12 +337,15 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 			if ((ps->percent += number_range(1, 3)) > 100)
 				ps->percent = 100;
 			gain_exp(ch, 2 * rating);
-			if (ps->percent == 100) char_printf(ch,
-				"{gYou learn from your mistakes and you manage to master {W%s{g!{x\n",
-				skill_name(sn));
-			else char_printf(ch,
-				"{gYou learn from your mistakes and your {W%s{g skill improves!{x\n",
-				skill_name(sn));
+			if (ps->percent == 100) {
+				act_puts("{gYou learn from your mistakes and you manage to master {W%s{g!{x",
+					 ch, skill_name(sn), NULL,
+					 TO_CHAR, POS_DEAD);
+			} else {
+				act_puts("{gYou learn from your mistakes and your {W%s{g skill improves!{x",
+					 ch, skill_name(sn), NULL,
+					 TO_CHAR, POS_DEAD);
+			}
 
 		}
 	}

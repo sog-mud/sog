@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.172 1999-06-10 20:30:01 fjoe Exp $
+ * $Id: act_comm.c,v 1.173 1999-06-17 05:46:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -239,11 +239,8 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = garble(ch, argument);
-	act_puts("You say '{G$t{x'", ch, argument, NULL,
-		 TO_CHAR | ACT_NODEAF, POS_DEAD);
-	act("$n says '{G$t{x'", ch, argument, NULL,
-	    TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_STRANS | ACT_NODEAF |
-	    (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0));
+	act_say("You say '{G$t{x'", "$n says '{G$t{x'",
+		ch, argument, NULL, NULL);
 
 	if (!IS_NPC(ch)) {
  		CHAR_DATA *mob, *mob_next;
@@ -512,8 +509,6 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 
 void do_yell(CHAR_DATA *ch, const char *argument)
 {
-	DESCRIPTOR_DATA *d;
-
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
@@ -524,30 +519,14 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->in_room == NULL)
-		return;
-
 	argument = garble(ch, argument);
 	act_puts("You yell '{M$t{x'",
 		 ch, argument, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
-
-	for (d = descriptor_list; d; d = d->next) {
-		if (d->connected == CON_PLAYING
-		&&  d->character != ch
-		&&  d->character->in_room != NULL
-		&&  d->character->in_room->area == ch->in_room->area)
-			act_puts("$n yells '{M$t{x'",
-				 ch, argument, d->character,
-	    			 TO_VICT | ACT_STRANS | ACT_NODEAF,
-				 POS_DEAD);
-	}
+	act_yell("$n yells '{M$t{x'", ch, argument, NULL);
 }
 
 void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
 {
-	DESCRIPTOR_DATA *d;
-	char buf[MAX_INPUT_LENGTH];
-
 	if (IS_NPC(victim)
 	||  victim->in_room == NULL
 	||  victim->position <= POS_SLEEPING
@@ -555,23 +534,9 @@ void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
 	||  IS_SET(victim->plr_flags, PLR_GHOST))
 		return;
 
-	snprintf(buf, sizeof(buf), argument, PERS(ch, victim));
-	act_puts("You yell '{M$t{x'",
-		victim, buf, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
-
-	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *vch = d->character;
-
-		if (d->connected == CON_PLAYING
-		&&  vch != victim
-		&&  vch->in_room != NULL
-		&&  vch->in_room->area == victim->in_room->area) {
-			act_puts("$n yells in panic '{M$t{x'", 
-			victim, buf, d->character, 
-			TO_VICT | ACT_STRANS | ACT_NODEAF,
-			POS_RESTING);
-		}
-	}
+	act_puts3("You yell '{M$b{x'",
+		  victim, argument, NULL, ch, TO_CHAR | ACT_NODEAF, POS_DEAD);
+	act_yell("$n yells in panic '{M$b{x'", victim, argument, ch);
 }
 
 void do_shout(CHAR_DATA *ch, const char *argument)
@@ -703,8 +668,6 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 void do_clan(CHAR_DATA *ch, const char *argument)
 {
 	clan_t *clan;
-	CHAR_DATA *vch;
-	int flags;
 
 	if (!ch->clan) {
 		char_puts("You are not in a clan.\n", ch);
@@ -732,15 +695,7 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_puts("[CLAN] $n: {C$t{x",
 		 ch, argument, NULL, TO_CHAR | ACT_NODEAF, POS_DEAD);
-
-	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF |
-		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
-	for (vch = char_list; vch; vch = vch->next)
-		if (vch->clan == ch->clan
-		&&  vch != ch
-		&&  !IS_SET(vch->comm, COMM_NOCLAN))
-			act_puts("[CLAN] $n: {C$t{x",
-				 ch, argument, vch, flags, POS_DEAD);
+	act_clan("[CLAN] $n: {C$t{x", ch, argument, NULL);
 }
 
 void do_pray(CHAR_DATA *ch, const char *argument)
@@ -984,14 +939,12 @@ void quit_char(CHAR_DATA *ch, int flags)
 				continue;
 			}
 			if (IS_NPC(vch)
-			  && vch->pIndexData->vnum == MOB_VNUM_STALKER) {
-				doprintf(do_clan, vch, 
-					"%s has left the realm, I have to leave too.",
-					PERS(ch, vch));
+			&& vch->pIndexData->vnum == MOB_VNUM_STALKER) {
+				act_clan(NULL, vch, "$I has left the realm, I have to leave too.", ch);
 				act ("$n slowly fades away.", vch, NULL, NULL,
 					TO_ROOM);
 				extract_char(vch, 0);
-			  }
+			}
 		}
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.159 1999-06-10 18:18:56 fjoe Exp $
+ * $Id: handler.c,v 1.160 1999-06-17 05:46:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3234,18 +3234,9 @@ void show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
 	if (paf->duration < 0)
 		buf_add(output, "permanently.\n");
-	else {
-		actopt_t opt;
-		char buf[MAX_STRING_LENGTH];
-
-		opt.to_lang = buf_lang(output);
-		opt.act_flags = ACT_NOUCASE;
-
-		act_buf("for {c$j{x $qj{hours}.", NULL, NULL,
-			(const void*) paf->duration, NULL, NULL,
-			&opt, buf, sizeof(buf));
-		buf_add(output, buf);
-	}
+	else 
+		buf_act(output, "for {c$j{x $qj{hours}.", NULL,
+			(const void*) paf->duration, NULL, NULL, ACT_NOUCASE);
 }
 
 void show_loc_affect(CHAR_DATA *ch, BUFFER *output,

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.164 1999-06-10 18:18:57 fjoe Exp $
+ * $Id: spellfun.c,v 1.165 1999-06-17 05:46:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,6 +100,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			       DAM_NEGATIVE, TRUE);
 		}
 	        else {
+			check_improve(bch, gsn_spellbane, TRUE, 8);
 			act_puts("$N deflects your spell!",
 				 ch, NULL, bch, TO_CHAR, POS_DEAD);
 			act("You deflect $n's spell!",
@@ -109,7 +110,6 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			if (!is_safe(bch, ch))
 				damage(bch, ch, bane_damage, gsn_spellbane,
 				       DAM_NEGATIVE, TRUE);
-			check_improve(bch, gsn_spellbane, TRUE, 8);
 	        }
 	        return TRUE;
 	}
@@ -192,7 +192,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 	spell = SKILL(sn);
 	
-	if (HAS_SKILL(ch, gsn_vampire)
+	if (IS_VAMPIRE(ch)
 	&&  !is_affected(ch, gsn_vampire)
 	&&  !IS_SET(spell->skill_flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n",
@@ -406,7 +406,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				&&  victim->fighting != ch
 				&&  !is_same_group(ch, victim))
 					yell(victim, ch,
-					"Die, %s, you sorcerous dog!");
+					     "Die, $I, you sorcerous dog!");
 				break;
 			}
 		}
@@ -486,6 +486,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		spell->spell_fun(sn, IS_NPC(ch) ? ch->level : slevel,
 				 ch, vo, target);
+		if (victim && IS_EXTRACTED(victim))
+			return;
 	}
 		
 	if (cast_far && door != -1)
@@ -656,11 +658,14 @@ void obj_cast_spell(int sn, int level,
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
+		if (IS_EXTRACTED(victim))
+			return;
+			
 		for (vch = ch->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
 
 			if (victim == vch)
-				yell(victim,ch, "Help! %s is attacking me!");
+				yell(victim, ch, "Help! $I is attacking me!");
 
 			if (victim == vch && victim->fighting == NULL) {
 				multi_hit(victim, ch, TYPE_UNDEFINED);
@@ -3622,8 +3627,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (in_obj->carried_by != NULL
 		&&  can_see(ch, in_obj->carried_by)) {
 			buf_printf(buffer, "One is carried by %s\n",
-				   format_short(&in_obj->carried_by->short_descr,
-						in_obj->carried_by->name, ch));
+				   PERS2(in_obj->carried_by, ch, ACT_FORMSH));
 		}
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
@@ -4859,11 +4863,10 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 			;
 
 		if (in_obj->carried_by != NULL
-		&&  can_see(ch,in_obj->carried_by))
+		&&  can_see(ch,in_obj->carried_by)) {
 			buf_printf(buffer, "One is carried by %s\n",
-				   format_short(&in_obj->carried_by->short_descr,
-					        in_obj->carried_by->name, ch));
-		else {
+				   PERS2(in_obj->carried_by, ch, ACT_FORMSH));
+		} else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n",
 					mlstr_cval(&in_obj->in_room->name, ch),

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.139 1999-06-10 18:19:02 fjoe Exp $
+ * $Id: update.c,v 1.140 1999-06-17 05:46:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -419,7 +419,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return;
 
-	if (HAS_SKILL(ch, gsn_vampire)
+	if (IS_VAMPIRE(ch)
 	&&  (iCond == COND_THIRST ||
 	     iCond == COND_FULL ||
 	     iCond == COND_HUNGER))
@@ -1158,7 +1158,7 @@ void char_update(void)
 
 			if (!ch->was_in_room) {
 				gain_condition(ch, COND_DRUNK, -1);
-				if (HAS_SKILL(ch, gsn_vampire))
+				if (IS_VAMPIRE(ch))
 					gain_condition(ch, COND_BLOODLUST, -1);
 				gain_condition(ch, COND_FULL, 
 					     ch->size > SIZE_MEDIUM ? -4 : -2);
@@ -1754,8 +1754,7 @@ void aggr_update(void)
 			/* Mad mob attacks! */
 			if (ch->last_fought == wch
 			&&  !IS_AFFECTED(ch, AFF_SCREAM)) {
-				doprintf(do_yell, ch, "%s! Now you die!",
-					 PERS(wch,ch));
+				act_yell(NULL, ch, "$I! Now you die!", wch);
 				wch = check_guard(wch, ch); 
 				multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
@@ -1788,7 +1787,7 @@ void aggr_update(void)
 				||   !IS_AWAKE(vch))
 				&&  can_see(ch, vch)
 				/* do not attack vampires */
-				&&  !HAS_SKILL(vch, gsn_vampire)
+				&&  !IS_VAMPIRE(vch)
 				/* good vs good :( */
 				&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
 					if (number_range(0, count) == 0)
@@ -2057,8 +2056,7 @@ void track_update(void)
 			||  is_safe_nomessage(ch,vch)
 			||  !is_name(vch->name,ch->in_mind))
 				continue;
-			doprintf(do_yell, ch,
-			         "So we meet again, %s", vch->name);
+			act_yell(NULL, ch, "So we meet again, $I", vch);
 			do_murder(ch, vch->name);
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.149 1999-06-10 18:18:53 fjoe Exp $
+ * $Id: act_obj.c,v 1.150 1999-06-17 05:46:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -752,17 +752,19 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				    victim, NULL, ch, TO_VICT);
 				ch->reply = victim;
 				doprintf(do_give, victim, "%d %s %s",
-				amount, silver ? "silver" : "gold", ch->name);
+					 amount, silver ? "silver" : "gold",
+					 ch->name);
 			}
 			else if (can_see(victim, ch)) {
 				doprintf(do_give, victim, "%d %s %s",
-				change, silver ? "gold" : "silver", ch->name);
+					 change, silver ? "gold" : "silver",
+					 ch->name);
 				if (silver)
-					doprintf(do_give, victim, "%d silver %s",
+					doprintf(do_give, victim,
+						 "%d silver %s",
 						 (95 * amount / 100 - change * 100), ch->name);
-				act("$n tells you '{GThank you, come again.{x'",
-				    victim, NULL, ch, TO_VICT);
-				ch->reply = victim;
+				do_tell_raw(victim, ch,
+					    "Thank you, come again.");
 			}
 		}
 		return;
@@ -2353,27 +2355,27 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		}
 		act("$n tried to steal from $N.\n", ch, NULL, victim, TO_NOTVICT);
 
-		if (IS_AWAKE(victim))
+		if (IS_AWAKE(victim)) {
+			const char *msg;
+
 			switch (number_range(0, 3)) {
 			case 0:
-				doprintf(do_yell, victim, "%s is a lousy thief!", ch->name);
+				msg = "$I is a lousy thief!";
 				break;
 			case 1:
-				doprintf(do_yell, victim, "%s couldn't rob %s way out of a paper bag!",
-					ch->name,
-					(ch->sex == SEX_FEMALE) ? "her" :
-					(ch->sex == SEX_MALE) ? "his" :
-					"its");
+				msg = "$I couldn't rob $gI{his} way "
+				      "out of a paper bag!";
 				break;
 			case 2:
-				doprintf(do_yell, victim, "%s tried to rob me!",
-					 PERS(ch, victim));
+				msg = "$I tried to rob me!";
 				break;
-			case 3:
-				doprintf(do_yell, victim, "Keep your hands out of there, %s!",
-					 PERS(ch, victim));
+			default:
+				msg = "Keep your hands out of there, $I!";
 				break;
 			}
+
+			act_yell(NULL, victim, msg, ch);
+		}
 
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, sn, FALSE, 2);
@@ -2464,8 +2466,7 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 
 	if (IS_WANTED(ch)) {
 		do_say(keeper, "Criminals are not welcome!");
-		doprintf(do_yell, keeper, "%s the CRIMINAL is over here!\n",
-			 ch->name);
+		act_yell(NULL, keeper, "$I the CRIMINAL is over here!", ch);
 		return NULL;
 	}
 
@@ -2853,8 +2854,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				char_printf(ch, "[%2d] %8d - %s\n",
 					    pet->level,
 					    10 * pet->level * pet->level,
-					    format_short(&pet->short_descr,
-							 pet->name, ch));
+					    PERS2(pet, ch, ACT_FORMSH));
 			}
 		}
 		if (!found)

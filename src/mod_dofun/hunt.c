@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.21 1999-04-16 15:52:17 fjoe Exp $
+ * $Id: hunt.c,v 1.22 1999-06-17 05:46:40 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -610,8 +610,8 @@ void hunt_victim(CHAR_DATA *ch)
 			log("done2"); 
 			}
 		else { 
-			doprintf(do_say, ch,
-				 "I have lost %s!", ch->hunting->name);
+			act_say(NULL, NULL, ch,
+				"I have lost $N!", ch->hunting, NULL);
 			ch->hunting = NULL;
 		}
 		return;

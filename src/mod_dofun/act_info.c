@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.247 1999-06-10 22:29:47 fjoe Exp $
+ * $Id: act_info.c,v 1.248 1999-06-17 05:46:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -206,7 +206,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		opt.to_lang = ch->lang;
 		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
 
-		act_buf(format_descr(&obj->description, ch), ch, ch,
+		act_buf(format_long(&obj->description, ch), ch, ch,
 			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
 		strnzcat(buf, sizeof(buf), tmp);
 	}
@@ -413,7 +413,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_puts("[{DIncog{x] ", ch);
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		act_puts(format_descr(&victim->long_descr, ch),
+		act_puts(format_long(&victim->long_descr, ch),
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		return;
 	}
@@ -646,7 +646,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		msg = "{Ris nearly dead{x.";
 
 	/* vampire ... */
-	if (percent < 90 && HAS_SKILL(ch, gsn_vampire))
+	if (percent < 90 && IS_VAMPIRE(ch))
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(doppel)) {
@@ -1235,7 +1235,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		if (is_name(arg3, obj->name))
 			if (++count == number) {
-				act_puts(format_descr(&obj->description, ch),
+				act_puts(format_long(&obj->description, ch),
 					 ch, NULL, NULL, TO_CHAR,
 					 POS_DEAD);
 				return;
@@ -2290,8 +2290,7 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n",
-			    format_short(&rch->short_descr, rch->name, ch));
+		char_printf(ch, "	%s.\n", PERS2(rch, ch, ACT_FORMSH));
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.26 1999-06-10 18:19:04 fjoe Exp $
+ * $Id: comm_act.c,v 1.27 1999-06-17 05:46:43 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -93,7 +93,7 @@ const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *to)
  * eng name expected to be in form " (foo)" and is stripped
  * if ACT_NOENG is set
  */
-const char *format_descr(mlstring *ml, CHAR_DATA *to)
+const char *format_long(mlstring *ml, CHAR_DATA *to)
 {
 	const char *s;
 	const char *p, *q;
@@ -224,6 +224,8 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to, actopt_t *opt)
 		text = GETMSG(text, opt->to_lang);
 	if (IS_SET(opt->act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
+	if (IS_SET(opt->act_flags, ACT_FIXSH))
+		text = fix_short(text);
 	return text;
 }
 	
@@ -384,6 +386,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 	struct tdata	tstack[TSTACK_SZ];
 	int		sp = -1;
+	int		old_flags;
 
 	while(*s) {
 		char		code;
@@ -467,15 +470,21 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 			case 'b':
 				CHECK_STRING(arg1);
+				old_flags = opt->act_flags;
+				opt->act_flags |= ACT_NOLF;
 				act_buf(arg1, ch, to, arg1, arg2, arg3, opt,
 					tmp, sizeof(tmp));
+				opt->act_flags = old_flags;
 				i = tmp;
 				break;
 
 			case 'B':
 				CHECK_STRING(arg2);
+				old_flags = opt->act_flags;
+				opt->act_flags |= ACT_NOLF;
 				act_buf(arg2, ch, to, arg1, arg2, arg3, opt,
 					tmp, sizeof(tmp));
+				opt->act_flags = old_flags;
 				i = tmp;
 				break;
 
@@ -835,5 +844,57 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 		act_raw(ch, to, arg1, arg2, arg3,
 			format, act_flags);
 	}
+}
+
+void act_yell(const char *format, CHAR_DATA *ch,
+	      const void *arg1, const void *arg3)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (format == NULL)
+		format = "$n yells '{M$b{x'";
+
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected == CON_PLAYING
+		&&  d->character != ch
+		&&  d->character->in_room != NULL
+		&&  d->character->in_room->area == ch->in_room->area)
+			act_puts3(format, ch, arg1, d->character, arg3,
+	    			  TO_VICT | ACT_STRANS | ACT_NODEAF, POS_DEAD);
+	}
+}
+
+void act_clan(const char *format, CHAR_DATA *ch,
+	      const void *arg1, const void *arg3)
+{
+	CHAR_DATA *vch;
+	int flags;
+
+	if (format == NULL)
+		format = "[CLAN] $n: {C$b{x";
+
+	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF |
+		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
+	for (vch = char_list; vch; vch = vch->next)
+		if (vch->clan == ch->clan
+		&&  vch != ch
+		&&  !IS_SET(vch->comm, COMM_NOCLAN))
+			act_puts3(format, ch, arg1, vch, arg3, flags, POS_DEAD);
+}
+
+void act_say(const char *format_self, const char *format_others, CHAR_DATA *ch,
+	     const void *arg1, const void *arg2, const void *arg3)
+{
+	if (format_self == NULL)
+		format_self = "You say '{G$b{x'";
+	if (format_others == NULL)
+		format_others = "$n says '{G$b{x'";
+
+	act_puts3(format_self, ch, arg1, arg2, arg3,
+		  TO_CHAR | ACT_NODEAF, POS_DEAD);
+	act_puts3(format_others, ch, arg1, arg2, arg3,
+		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_STRANS | ACT_NODEAF |
+		  (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0),
+		  POS_RESTING);
 }
 

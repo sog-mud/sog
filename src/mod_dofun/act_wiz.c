@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.155 1999-06-10 22:29:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.156 1999-06-17 05:46:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1541,8 +1541,11 @@ DO_FUN(do_dstat)
 	output = buf_new(-1);
 
 	buf_printf(output, "Desc: [%d]  Conn: [%d]  "
-			   "Outsize: [%d]  Outtop:  [%d]\n",
-		   d->descriptor, d->connected, d->outsize, d->outtop);
+			   "Outsize: [%d]  Outtop:  [%d]\n"
+			   "Snoopsize: [%d]  Snooptop:  [%d]\n",
+		   d->descriptor, d->connected,
+		   d->out_buf.size, d->out_buf.top,
+		   d->snoop_buf.size, d->snoop_buf.top);
 	buf_printf(output, "Inbuf: [%s]\n", d->inbuf);
 	buf_printf(output, "Incomm: [%s]\n", d->incomm);
 	buf_printf(output, "Repeat: [%d]  Inlast: [%s]\n",

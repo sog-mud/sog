@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.47 1999-05-27 19:42:05 fjoe Exp $
+ * $Id: special.c,v 1.48 1999-06-17 05:46:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -685,28 +685,24 @@ bool spec_executioner(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *crime;
 
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
 		return FALSE;
 
-	crime = str_empty;
 	for (victim = ch->in_room->people; victim; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (IS_WANTED(victim) && can_see(ch, victim)) {
-			crime = "CRIMINAL";
+		if (IS_WANTED(victim) && can_see(ch, victim))
 			break;
-		}
 	}
 
 	if (victim == NULL)
 		return FALSE;
 
 	REMOVE_BIT(ch->comm, COMM_NOSHOUT);
-	doprintf(do_yell, ch,
-		 "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
-		 victim->name, crime);
+	act_yell(NULL, ch,
+		 "$I is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
+		 victim);
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
 }
@@ -995,7 +991,6 @@ bool spec_guard(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim, *v_next;
 	CHAR_DATA *ech;
-	char *crime;
 	int max_evil; 
  
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
@@ -1003,7 +998,6 @@ bool spec_guard(CHAR_DATA *ch)
 	
 	max_evil = 300; 
 	ech      = NULL;
-	crime    = str_empty;
 	
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
@@ -1019,10 +1013,8 @@ bool spec_guard(CHAR_DATA *ch)
 			}
 		}
 
-		if (IS_WANTED(victim)) {
-			crime = "CRIMINAL";
+		if (IS_WANTED(victim))
 			break;
-		}
 	
 		if (victim->fighting != NULL
 		&&  victim->fighting != ch
@@ -1037,9 +1029,9 @@ bool spec_guard(CHAR_DATA *ch)
 	}
 	
 	if (victim) {
-		doprintf(do_yell, ch,
-			 "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
-			 victim->name, crime);
+		act_yell(NULL, ch,
+			 "$I is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
+			 victim);
 		multi_hit(ch, victim, TYPE_UNDEFINED);
 		return TRUE;
 	}
@@ -1058,26 +1050,21 @@ bool spec_special_guard(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *v_next;
-	char *crime;
 
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
 		return FALSE;
 
-	crime    = str_empty;
-
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 		
-		if (IS_WANTED(victim)) {
-			crime = "CRIMINAL";
+		if (IS_WANTED(victim))
 			break;
-		}
 	}
 
 	if (victim) {
-		doprintf(do_yell, ch,
-			 "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
-			 victim->name, crime);
+		act_yell(NULL, ch,
+			 "$I is a CRIMINAL!  PROTECT THE INNOCENT!!  BANZAI!!",
+			 victim);
 		multi_hit(ch, victim, TYPE_UNDEFINED);
 		return TRUE;
 	}

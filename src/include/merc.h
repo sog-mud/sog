@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.200 1999-06-10 22:29:50 fjoe Exp $
+ * $Id: merc.h,v 1.201 1999-06-17 05:46:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -204,6 +204,12 @@ struct weather_data
 #define CON_GET_CODEPAGE		21
 #define CON_RESOLV			22
 
+typedef struct outbuf_t {
+	char *	buf;
+	uint 	size;
+	uint 	top;
+} outbuf_t;
+
 /*
  * Descriptor (channel) structure.
  */
@@ -223,9 +229,8 @@ struct descriptor_data
 	char			incomm		[MAX_INPUT_LENGTH];
 	char			inlast		[MAX_INPUT_LENGTH];
 	int 			repeat;
-	char *			outbuf;
-	uint 			outsize;
-	uint 			outtop;
+	outbuf_t		out_buf;
+	outbuf_t		snoop_buf;
 	const char *		showstr_head;
 	const char *		showstr_point;
 	struct codepage*	codepage;
@@ -1170,6 +1175,8 @@ where_t *where_lookup(flag32_t where);
 		(ch)->last_fight_time = -1;			\
 		REMOVE_BIT((ch)->plr_flags, PLR_PUMPED);	\
 	}
+
+#define IS_VAMPIRE(ch)	(get_skill(ch, gsn_vampire) == 100)
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)

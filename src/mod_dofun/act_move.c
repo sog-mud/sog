@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.176 1999-05-29 12:15:02 avn Exp $
+ * $Id: act_move.c,v 1.177 1999-06-17 05:46:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2111,7 +2111,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, DAMF_SHOW);
 	}
 	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
-		yell(victim, ch, "Help! %s tried to bite me!");
+		yell(victim, ch, "Help! $I tried to bite me!");
 }
 
 void do_bash_door(CHAR_DATA *ch, const char *argument)
@@ -2402,7 +2402,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		transfer_char(victim, NULL, to_room,
 			"$N disappears.", NULL, "$N appears from nowhere.");
 		check_improve(ch, sn, TRUE, 1);
-		yell(victim, ch, "Help! %s just kidnapped me!");
+		yell(victim, ch, "Help! $I just kidnapped me!");
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 	} else
 	{
@@ -2412,7 +2412,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 			ch, NULL, victim, TO_VICT);
 		act("$n grabs $N, but $E escaped.",
 			ch, NULL, victim, TO_NOTVICT);
-		yell(victim, ch, "Help! %s tried to kidnap me!");
+		yell(victim, ch, "Help! $I tried to kidnap me!");
 		check_improve(ch, sn, FALSE, 1);
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 	}
@@ -2515,7 +2515,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, sn, DAM_NONE, DAMF_SHOW);
 		check_improve(ch, sn, FALSE, 1);
 	}
-	yell(victim, ch, "Help! %s tried to touch me!");
+	yell(victim, ch, "Help! $I tried to touch me!");
 }
 
 void do_fly(CHAR_DATA *ch, const char *argument)
@@ -2687,9 +2687,8 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		act("$n tried to push $N.", ch, NULL, victim, TO_NOTVICT);
 
 		if (IS_AWAKE(victim))
-			doprintf(do_yell, victim,
-				 "Keep your hands out of me, %s!",
-				 ch->name);
+			act_yell(NULL, victim,
+				 "Keep your hands out of me, $I!", ch);
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
 			check_improve(ch, sn, FALSE, 2);
 			multi_hit(victim, ch, TYPE_UNDEFINED);
@@ -3087,15 +3086,13 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 	int damroll = 0, hitroll = 0, sn;
 	AFFECT_DATA af;
 
-	/* Added by Osya */
-	/* Patched by avn */
 	/* instant kill */
 	if (get_skill(ch, gsn_bow) > 90 
 	&& !IS_NPC(victim)
 	&& !IS_IMMORTAL(victim)
 	&& number_range(1, 10000) < get_skill(ch, gsn_mastering_bow) *
-		(get_curr_stat(ch, STAT_STR) + get_curr_stat(ch, STAT_DEX))/50)
-		{
+	   			    (get_curr_stat(ch, STAT_STR) +
+				     get_curr_stat(ch, STAT_DEX)) / 50) {
 		act("Your arrow hit $N's eye!", ch, NULL, victim, TO_CHAR);
 		act("$N's arrow hits $n's eye!", victim, NULL, ch,TO_ROOM);
 		act("$N's arrow hits your eye!", victim, NULL, ch, TO_CHAR);
@@ -3105,7 +3102,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		check_improve(ch, gsn_mastering_bow, TRUE, 6);
 		handle_death(ch, victim);
 		return TRUE;
-		}
+	}
 
 	if (number_percent() < get_skill(ch, gsn_mastering_bow)) {
 		bonus *= dice(2,4);
@@ -3230,8 +3227,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		        else obj_to_room(arrow,victim->in_room); 
 
 			damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
-			path_to_track(ch,victim,door);
-
+			if (!IS_EXTRACTED(victim))
+				path_to_track(ch,victim,door);
 		    }
 		    return TRUE;
 		  }
@@ -3378,7 +3375,7 @@ DO_FUN(do_charge)
 		}
 		WAIT_STATE(ch, SKILL(gsn_charge)->beats*2);
 	}
-	yell(victim, ch, "Help! %s is attacking me!");
+	yell(victim, ch, "Help! $I is attacking me!");
 }
 
 DO_FUN(do_shoot)
@@ -3495,7 +3492,7 @@ DO_FUN(do_shoot)
 	success = send_arrow(ch, victim, arrow, direction, chance,
 			     dice(wield->value[1],wield->value[2]));
 	check_improve(ch, gsn_bow, TRUE, 1);
-	yell(victim, ch, "Help! %s is trying to shoot me!");
+	yell(victim, ch, "Help! $I is trying to shoot me!");
 }
 
 char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend) 

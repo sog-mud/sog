@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.6 1999-05-21 13:04:27 fjoe Exp $
+ * $Id: comm_act.h,v 1.7 1999-06-17 05:46:43 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -55,7 +55,7 @@
 
 const char *fix_short	(const char *short_descr);
 const char *format_short(mlstring *mshort, const char *name, CHAR_DATA *to);
-const char *format_descr(mlstring *desc, CHAR_DATA *to);
+const char *format_long(mlstring *desc, CHAR_DATA *to);
 
 #define PERS(ch, looker) PERS2(ch, looker, 0)
 const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
@@ -85,5 +85,17 @@ void	act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 void    act_puts3(const char *format, CHAR_DATA *ch,
 		  const void *arg1, const void *arg2, const void *arg3,
 		  int act_flags, int min_pos);
+
+/*
+ * misc comm act-like functions
+ */
+void	act_yell(const char *format, CHAR_DATA *ch,
+		 const void *arg1, const void *arg3);
+void	act_clan(const char *format, CHAR_DATA *ch,
+		 const void *arg1, const void *arg3);
+
+void	act_say(const char *format_self, const char *format_others,
+		CHAR_DATA *ch,
+		const void *arg1, const void *arg2, const void *arg3);
 
 #endif

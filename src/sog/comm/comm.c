@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.184 1999-06-10 18:19:03 fjoe Exp $
+ * $Id: comm.c,v 1.185 1999-06-17 05:46:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,7 @@ void	process_who		(int port);
 void	init_descriptor		(int control);
 void	close_descriptor	(DESCRIPTOR_DATA *d);
 bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
-bool	write_to_descriptor	(int desc, char *txt, uint length);
+bool	write_to_descriptor	(int desc, const char *txt, uint length);
 void	game_loop_unix		(void);
 #if !defined(WIN32)
 void	resolv_done		(void);
@@ -359,6 +359,63 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+void outbuf_init(outbuf_t *o, size_t size)
+{
+	o->top = 0;
+	if ((o->size = size) != 0)
+		o->buf = malloc(o->size);
+}
+
+void outbuf_destroy(outbuf_t *o)
+{
+	free(o->buf);
+}
+
+bool outbuf_empty(DESCRIPTOR_DATA *d)
+{
+	return (d->out_buf.top == 0);
+}
+
+void outbuf_flush(DESCRIPTOR_DATA *d)
+{
+	d->out_buf.top = 0;
+	d->snoop_buf.top = 0;
+}
+
+/*
+ * Expand the buffer as needed to hold more 'len' characters.
+ */
+bool outbuf_adjust(outbuf_t *o, size_t len)
+{
+	char *newbuf;
+	size_t newsize;
+
+	len += o->top;
+	if (len < o->size)
+		return TRUE;
+
+	if ((newsize = o->size) == 0)
+		newsize = 1024;
+
+	while (newsize < len) {
+		if (newsize > 32768) {
+			log("outbuf_adjust: buffer overflow, closing");
+			return FALSE;
+		}
+
+		newsize <<= 1;
+	}
+
+	if ((newbuf = realloc(o->buf, newsize)) == NULL) {
+		log("outbuf_adjust: not enough memory to expand output buffer");
+		return FALSE;
+ 	}
+
+	o->buf = newbuf;
+	o->size  = newsize;
+	return TRUE;
+}
+
 /* stuff for recycling descriptors */
 DESCRIPTOR_DATA *descriptor_free;
 
@@ -384,7 +441,8 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 
 	free_string(d->host);
 	free_string(d->ip);
-	free(d->outbuf);
+	outbuf_destroy(&d->out_buf);
+	outbuf_destroy(&d->snoop_buf);
 	d->next = descriptor_free;
 	descriptor_free = d;
 }
@@ -568,7 +626,7 @@ void game_loop_unix(void)
 				FD_CLR(d->descriptor, &out_set);
 				if (d->character && d->character->level > 1)
 					save_char_obj(d->character, FALSE);
-				d->outtop = 0;
+				outbuf_flush(d);
 				close_descriptor(d);
 			}
 		}
@@ -590,7 +648,7 @@ void game_loop_unix(void)
 					&&  d->character->level > 1)
 						save_char_obj(d->character,
 							      FALSE);
-					d->outtop = 0;
+					outbuf_flush(d);
 					close_descriptor(d);
 					continue;
 				}
@@ -636,13 +694,12 @@ void game_loop_unix(void)
 		for (d = descriptor_list; d != NULL; d = d_next) {
 			d_next = d->next;
 
-			if ((d->fcommand || d->outtop > 0)
+			if ((d->fcommand || !outbuf_empty(d))
 			&&  FD_ISSET(d->descriptor, &out_set)) {
 				if (!process_output(d, TRUE)) {
 					if (d->character != NULL
 					&&  d->character->level > 1)
 						save_char_obj(d->character, FALSE);
-					d->outtop = 0;
 					close_descriptor(d);
 				}
 			}
@@ -768,8 +825,8 @@ void init_descriptor(int control)
 	dnew->olced		= NULL;
 	dnew->pEdit		= NULL;
 	dnew->pEdit2		= NULL;
-	dnew->outsize		= 2000;
-	dnew->outbuf		= malloc(dnew->outsize);
+	outbuf_init(&dnew->out_buf, 1024);
+	outbuf_init(&dnew->snoop_buf, 0);
 	dnew->wait_for_se	= 0;
 	dnew->codepage		= codepages;
 	dnew->host		= NULL;
@@ -815,7 +872,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose)
 	CHAR_DATA *ch;
 	DESCRIPTOR_DATA *d;
 
-	if (dclose->outtop > 0)
+	if (!outbuf_empty(dclose))
 		process_output(dclose, FALSE);
 
 	if (dclose->snoop_by != NULL) 
@@ -1124,6 +1181,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 {
 	extern bool merc_down;
 	bool ga = FALSE;
+	bool retval;
+	DESCRIPTOR_DATA *snoopy;
 
 	/*
 	 * Bust a prompt.
@@ -1169,32 +1228,45 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Short-circuit if nothing to write.
 	 */
-	if (d->outtop == 0)
+	if (outbuf_empty(d))
 		return TRUE;
 
 	/*
-	 * Snoop-o-rama.
+	 * Snoop-o-rama
 	 */
-	if (d->snoop_by) {
-		if (d->character)
-			write_to_buffer(d->snoop_by, d->character->name, 0);
-		write_to_buffer(d->snoop_by, "> ", 2);
-		write_to_buffer(d->snoop_by, d->outbuf, d->outtop);
+	if ((snoopy = d->snoop_by) != NULL && d->snoop_buf.top > 0) {
+		char buf[MAX_STRING_LENGTH];
+
+		snprintf(buf, sizeof(buf), "\n\r===> %s\n\r",
+			 d->character ? d->character->name : str_empty);
+		write_to_buffer(snoopy, buf, 0);
+		write_to_buffer(snoopy, d->snoop_buf.buf, d->snoop_buf.top);
+		write_to_buffer(snoopy, "\n\r", 0);
 	}
 
 	/*
 	 * OS-dependent output.
 	 */
-	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outtop)) {
-		d->outtop = 0;
-		return FALSE;
+	if (d->out_buf.top > 0) {
+		if (!write_to_descriptor(d->descriptor,
+					 d->out_buf.buf, d->out_buf.top)) {
+			retval = FALSE;
+			goto bail_out;
+		}
 	}
-	else {
-		if (ga)
-			write_to_descriptor(d->descriptor, go_ahead_str, 0);
-		d->outtop = 0;
-		return TRUE;
+
+	if (ga) {
+		if (!write_to_descriptor(d->descriptor, go_ahead_str, 0)) {
+			retval = FALSE;
+			goto bail_out;
+		}
 	}
+
+	retval = TRUE;
+
+bail_out:
+	outbuf_flush(d);
+	return retval;
 }
 
 void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
@@ -1432,10 +1504,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
+void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, size_t len)
 {
-	uint size;
-	int i;
+	size_t size;
 	bool noiac = (d->connected == CON_PLAYING &&
 		      d->character != NULL &&
 		      IS_SET(d->character->comm, COMM_NOIAC));
@@ -1443,63 +1514,75 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
 	/*
 	 * Find length in case caller didn't.
 	 */
-	if (length <= 0)
-		length = strlen(txt);
+	if (len == 0)
+		len = strlen(txt);
 
 	/*
-	 * Adjust size in case of IACs (they will be doubled)
+	 * Snoop-o-rama.
 	 */
-	size = length;
-	if (!noiac)
-		for (i = 0; i < length; i++)
-			if (d->codepage->to[(unsigned char) txt[i]] == IAC)
-				size++;
+	if (d->snoop_by)
+		write_to_snoop(d, txt, len);
 
 	/*
 	 * Initial \n\r if needed.
 	 */
-	if (d->outtop == 0
+	if (d->out_buf.top == 0
 	&&  !d->fcommand
 	&&  (!d->character || !IS_SET(d->character->comm, COMM_TELNET_GA))) {
-		d->outbuf[0]	= '\n';
-		d->outbuf[1]	= '\r';
-		d->outtop	= 2;
+		d->out_buf.buf[0]	= '\n';
+		d->out_buf.buf[1]	= '\r';
+		d->out_buf.top		= 2;
 	}
 
 	/*
-	 * Expand the buffer as needed.
+	 * Adjust size in case of IACs (they will be doubled)
 	 */
-	while (d->outtop + size >= d->outsize) {
-		char *outbuf;
+	size = len;
+	if (!noiac) {
+		size_t i;
 
-		if (d->outsize >= 32000) {
-			bug("Buffer overflow. Closing.\n\r",0);
-			close_descriptor(d);
-			return;
- 		}
-		outbuf = malloc(2 * d->outsize);
-		strncpy(outbuf, d->outbuf, d->outtop);
-		free(d->outbuf);
-		d->outbuf = outbuf;
-		d->outsize *= 2;
+		for (i = 0; i < len; i++) {
+			if (d->codepage->to[(unsigned char) txt[i]] == IAC)
+				size++;
+		}
 	}
 
-	/*
-	 * Copy.
-	 */
-	while (length--) {
+	/* adjust output buffer size */
+	if (!outbuf_adjust(&d->out_buf, size)) {
+		close_descriptor(d);
+		return;
+	}
+
+	/* copy */
+	while (len--) {
 		unsigned char c;
 
 		c = d->codepage->to[(unsigned char) *txt++];
-		d->outbuf[d->outtop] = c;
+		d->out_buf.buf[d->out_buf.top] = c;
 		if (c == IAC)
 			if (noiac)
-				d->outbuf[d->outtop] = IAC_REPL;
+				d->out_buf.buf[d->out_buf.top] = IAC_REPL;
 			else 
-				d->outbuf[++d->outtop] = IAC;
-		d->outtop++;
+				d->out_buf.buf[++d->out_buf.top] = IAC;
+		d->out_buf.top++;
 	}
-	return;
+}
+
+void write_to_snoop(DESCRIPTOR_DATA *d, const char *txt, size_t len)
+{
+	if (len == 0)
+		len = strlen(txt);
+
+	/* adjust snoop buffer size */
+	if (!outbuf_adjust(&d->snoop_buf, len)) {
+		close_descriptor(d);
+		return;
+	}
+
+	/* copy */
+	strnzncpy(d->snoop_buf.buf + d->snoop_buf.top, d->snoop_buf.size,
+		  txt, len);
+	d->snoop_buf.top += len;
 }
 
 /*
@@ -1508,7 +1591,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, uint length)
  * If this gives errors on very long blocks (like 'ofind all'),
  *   try lowering the max block size.
  */
-bool write_to_descriptor(int desc, char *txt, uint length)
+bool write_to_descriptor(int desc, const char *txt, uint length)
 {
 	uint iStart;
 	uint nWrite;

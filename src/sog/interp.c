@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.151 1999-06-10 22:29:49 fjoe Exp $
+ * $Id: interp.c,v 1.152 1999-06-17 05:46:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -617,21 +617,20 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Log and snoop.
 	 */
-	if (cmd->log == LOG_NEVER)
-		logline = str_empty;
-
-	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG))
-	||   fLogAll
-	||   cmd->log == LOG_ALWAYS) && logline[0] != '\0' 
-	&&   logline[0] != '\n') {
+	if (((!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_LOG)) ||
+	     fLogAll ||
+	     cmd->log == LOG_ALWAYS)
+	&&  cmd->log != LOG_NEVER
+	&&  logline[0] != '\0') {
 		log("Log %s: %s", ch->name, logline);
 		wiznet("Log $N: $t", ch, logline, WIZ_SECURE, 0, ch->level);
 	}
 
 	if (ch->desc && ch->desc->snoop_by) {
-		write_to_buffer(ch->desc->snoop_by, "# ", 2);
-		write_to_buffer(ch->desc->snoop_by, logline, 0);
-		write_to_buffer(ch->desc->snoop_by, "\n\r", 2);
+		char buf[MAX_INPUT_LENGTH];
+
+		snprintf(buf, sizeof(buf), "# %s\n\r", logline);
+		write_to_snoop(ch->desc, buf, 0);
 	}
 
 	if (!found) {
