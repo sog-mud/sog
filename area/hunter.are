@@ -65,18 +65,18 @@ C Hunter~
 #OBJECTS
 #95700
 platinum golden altar container~
-the golden sign~
-On the altar you see the sign of hunters with platinum carvings.~
+@eng the golden sign@rus золотой знак~
+@eng On the altar you see the sign of hunters with platinum carvings.@rus На алтаре (altar) выгравирован знак охотников.~
 golden~
 container CEORY P
 10 ABCD 95702 15 100
 60 1 20 P
 G none
 #95701
-golden tattoo~
-the golden tattoo~
-A small, golden tattoo floats in the air.
-~
+tattoo golden золотая татуировка~
+@eng the golden tattoo@rus золотая татуировка~
+@eng A small, golden tattoo floats in the air.
+@rus Маленькая золотая татуировка (tattoo) летает в воздухе.~
 golden~
 treasure CEORTe AO
 0 0 0 0 0

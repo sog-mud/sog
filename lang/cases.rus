@@ -372,6 +372,16 @@ Form 5 -е~
 End
 
 #WORD
+Name магическая~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+End
+
+#WORD
 Name серая~
 BaseLen 3
 Form 1 -ой~
@@ -458,6 +468,16 @@ Form 1 -ого~
 Form 2 -ому~
 Form 3 -ий~
 Form 4 -им~
+Form 5 -ом~
+End
+
+#WORD
+Name шейный~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
 Form 5 -ом~
 End
 
@@ -629,6 +649,16 @@ Form 2 -ю~
 Form 3 -е~
 Form 4 -ем~
 Form 5 -и~
+End
+
+#WORD
+Name шахматная~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
@@ -1011,6 +1041,16 @@ Form 5 -е~
 End
 
 #WORD
+Name браслет~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name водка~
 BaseLen 4
 Form 1 -и~
@@ -1046,6 +1086,16 @@ Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
+End
+
+#WORD
+Name платок~
+BaseLen 4
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
 End
 
 #WORD
@@ -1508,6 +1558,16 @@ End
 #WORD
 Name дворничиха~
 BaseLen 9
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name доска~
+BaseLen 4
 Form 1 -и~
 Form 2 -е~
 Form 3 -у~
