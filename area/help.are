@@ -7274,6 +7274,14 @@ These skills come from ninja's alchemy. Throwing some dust into someone's eyes
 can blind him for a quite long period of time. Even thrown into the air, this
 dust has a chance to blind everyone in the room. Another dust makes clouds of
 poisonous smoke,  poisoning everybody.
+@rus Синтаксис: {cblindness{x
+Синтаксис: {cblindness{x <жертва>
+Синтаксис: {cpoison{x
+ 
+Эти умения обычно применяются ниндзями. Бросив порошок в глаза врагу, ниндзя
+может ослепить его. Даже бросив этот порошок в воздух, ниндзя может ослепить
+всех, стоящих рядом с ним. Другой порошок из запасов ниндзи позволяет отравить
+тех, ктто стоит в той же комнате.
 ~
 92 BLOODTHIRST~
 @eng Syntax: {cbloodthirst{x
@@ -7297,6 +7305,16 @@ Warders practioce this skill.
 BLEND - улучшенный камуфляж, замаскировавшиеся таким образом, почти не могут
 могут быть обнаружены. Но, к сожалению, это умение можно применать только
 в десу. Это умение практикует клан Защитников природы.
+~
+0 'OLC CLASS POSES'~
+Syntax: {cpose add{x <number>
+Syntax: {cpose self{x <number> <message>
+Syntax: {cpose others{x <number> <message>
+Syntax: {cpose delete{x <number>
+Syntax: {cpose sort{x
+Syntax: {cpose list{x
+ 
+To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number> <msg>
 ~
 -1 $~
 

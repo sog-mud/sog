@@ -48,9 +48,9 @@ Wow !!! It's a kind of mutant troll ...
 ~
 troll~
 ABGRT FVu -1000 0
-25 200 1d1+12000 1d1+6000 1d1+250 crush
+25 200 1d1+3000 1d1+6000 1d1+250 crush
 -30 -10 0 0
-H BJLPX 0 0
+H BJLPUX 0 0
 stand stand male 0
 0 0 huge unknown
 #38003
@@ -274,13 +274,13 @@ M speech 38502 Я Степа~
 
 #OBJECTS
 #38001
-bed~
-@eng big bed@rus {Cбольшая кровать{w~
-@eng Big Bed@rus {CБольшая удобная кровать{w~
-wood~
-furniture G P
-B EIJKN EHK EIJKN EIJKN
-92 1 1 P
+~
+@eng {M---{Y*{M---{x Crown of Earth@rus {M---{Y*{M---{x корона Земли~
+Don't touch it !~
+Gold~
+armor CG AEP
+1000 1000 1000 1000 0
+94 1 1 P
 G none
 #38002
 armchair~
@@ -806,7 +806,7 @@ shield of seth~
 {YShield of Seth{x~
 Shield of Seth lies here.~
 divine~
-trash HIRTa AJ
+trash CGHRTa AJ
 0 0 0 0 0
 1 1 9000000 P
 G none
@@ -1062,6 +1062,23 @@ A
 A
 13 30
 S 'rescue' 100 A
+G none
+#38606
+ring water of~
+{B==={x ring of Water~
+Ring of water lies here in the dust.~
+water~
+jewelry Ia AB
+0 0 0 0 0
+25 1 1 P
+A
+19 2
+A
+18 1
+A
+12 10
+A
+13 10
 G none
 #0
 
@@ -1493,7 +1510,7 @@ S
 O 0 38201 0 38002	* {Wstrange armchair.{x (Torture room)
 O 0 38003 0 38101	* fountain (Coridor)
 O 0 38002 0 38101	* armchair (Coridor)
-O 0 38001 0 38102	* big bed (Bedroom)
+O 0 38001 0 38102	* {M---{Y*{M---{x Crown of Earth (Bedroom)
 O 0 38002 0 38103	* armchair (Cabinet)
 O 0 38004 0 38103	* table (Cabinet)
 O 0 38200 0 38200	* long wooden table (Budy's)

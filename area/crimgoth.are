@@ -1,0 +1,238 @@
+#AREADATA
+Name A Dungeon of the Lich Crimgoth~
+VNUMs 12400 12499
+Credits Nergal~
+Security 1
+LevelRange 30 50
+Flags closed noquest~
+End
+
+#ROOMS
+#12400
+@eng The Entrance to the Dungeon@rus Вход в подземелье~
+@eng You are in small dark room filled with a smell of putrefaction. The air is 
+cold and filled with a strange white fog. You notice a hole in the ground.
+@rus Ты в маленьком, тесном помещении, заполненном запахами разложения. Воздух
+холодный и скорее, представляет из себя странный белесый туман. Внизу - 
+отверстие, прикрытое камнем.
+~
+0 A inside
+D5
+~
+stone~
+ABIZ 0 12401
+S
+#12401
+@eng The Center of the Floor.@rus Центр первого этажа подземелья.~
+@eng You are in the center of the wide dungeon. Cracked bones, skulls and whole
+skeletons are everywhere. Ouch.. You notice, some of them seems to move.. 
+And they try to approach you. You feel very uncomfortable.
+@rus Ты в центре широкого подземелья. Вокруг тебя - сломанные кости, черепа и 
+целые скелеты. О - кажется часть скелетов движется, причем в твою сторону..
+Неприятное ощущение..
+~
+0 0 inside
+D0
+~
+~
+Z 0 12402
+D1
+~
+~
+Z 0 12405
+D2
+~
+~
+Z 0 12404
+D3
+~
+~
+Z 0 12403
+D4
+~
+~
+ABIZ 0 12400
+S
+#12402
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12410
+D1
+~
+~
+Z 0 12406
+D2
+~
+~
+Z 0 12401
+D3
+~
+~
+Z 0 12407
+S
+#12403
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12407
+D1
+~
+~
+Z 0 12401
+D2
+~
+~
+Z 0 12409
+S
+#12404
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12401
+D1
+~
+~
+Z 0 12408
+D3
+~
+~
+Z 0 12409
+S
+#12405
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12406
+D2
+~
+~
+Z 0 12408
+D3
+~
+~
+Z 0 12401
+S
+#12406
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12411
+D2
+~
+~
+Z 0 12405
+D3
+~
+~
+Z 0 12402
+S
+#12407
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12412
+D1
+~
+~
+Z 0 12402
+D2
+~
+~
+Z 0 12403
+S
+#12408
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12405
+D3
+~
+~
+Z 0 12404
+S
+#12409
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 12403
+D1
+~
+~
+Z 0 12404
+S
+#12410
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 12411
+D2
+~
+~
+Z 0 12402
+D3
+~
+~
+Z 0 12412
+S
+#12411
+~
+~
+0 0 inside
+D2
+~
+~
+Z 0 12406
+D3
+~
+~
+Z 0 12410
+S
+#12412
+~
+~
+0 0 inside
+D1
+~
+~
+Z 0 12410
+D2
+~
+~
+Z 0 12407
+S
+#0
+
+#RESETS
+D 0 12400 5 1	* The Entrance to the Dungeon: door to the down: closed
+D 0 12401 4 1	* The Center of the Floor.: door to the up: closed
+S
+
+#$
