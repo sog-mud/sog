@@ -2435,11 +2435,12 @@ if (victim == NULL) {
 room here = char_room($n);
 char pet;
 foreach (pet, char_in_room(here)) {
-        if (is_npc(pet))
+        if (is_npc(pet)) {
                 if (is_mount($n, pet)) {
                         act_char("You can't kick while riding!", $n);
                          return 0;
                 }
+        }
 }
 
 if (is_affected($n, AFF_FLYING))
