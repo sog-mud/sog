@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.82 2001-08-13 18:37:17 fjoe Exp $
+# $Id: Makefile,v 1.83 2001-08-13 19:10:22 fjoe Exp $
 #
 
 .include "${.CURDIR}/Makefile.modules"
@@ -21,7 +21,7 @@ module_decl.h: Makefile.modules mkdecl.pl mkutil.pl
 	@${.CURDIR}/mkdecl.pl ${MODULES}
 
 ctags:
-	ctags -dtw include/*.h sog/*.[ch] sog/*/*.[ch] mod_*/*.[ch]
+	ctags -dtw include/*.h sog/*.[ch] mod_*/*.[ch]
 
 gtags:
 	gtags -co .
