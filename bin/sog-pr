@@ -35,7 +35,7 @@ GNATS_ROOT=/usr/local/share/gnats/gnats-db
 GNATS_ADDR=sog-bugs-submit@sog.me.ru
 
 # The default release for this host.
-DEFAULT_RELEASE="SoG2"
+DEFAULT_RELEASE="SoG1"
 
 # Categories list
 CATEGORIES="
