@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.55 1998-08-14 05:45:17 fjoe Exp $
+ * $Id: update.c,v 1.56 1998-08-14 07:59:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -448,7 +448,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	int fdone;
 	CHAR_DATA *vch,*vch_next;
 
-	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
+	if (value == 0 || ch->desc == NULL || ch->level >= LEVEL_IMMORTAL)
 		return;
 
 	condition = ch->pcdata->condition[iCond];
