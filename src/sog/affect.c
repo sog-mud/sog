@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.55 2001-07-29 20:20:04 fjoe Exp $
+ * $Id: affect.c,v 1.56 2001-07-29 23:39:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -245,13 +245,5 @@ affect_to_room2(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *af = aff_dup(paf);
 	affect_to_room(room, af);
-	aff_free(af);
-}
-
-void
-affect_join2(CHAR_DATA *ch, AFFECT_DATA *paf)
-{
-	AFFECT_DATA *af = aff_dup(paf);
-	affect_join(ch, af);
 	aff_free(af);
 }

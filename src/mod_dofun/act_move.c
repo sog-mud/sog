@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.263 2001-07-29 20:14:37 fjoe Exp $
+ * $Id: act_move.c,v 1.264 2001-07-29 23:39:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1644,7 +1644,6 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
-	AFFECT_DATA af;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -1707,23 +1706,24 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		if (LEVEL(victim) > LEVEL(ch)
 		&&  number_percent() < (get_skill(ch, "resurrection") / 10 *
 					(LEVEL(victim) - LEVEL(ch)))) {
-			af.where	= TO_AFFECTS;
-			af.type		= "resurrection";
-			af.level	= LEVEL(ch);
-			af.duration	= number_fuzzy(4);
-			INT(af.location)= APPLY_NONE;
-			af.modifier	= 0;
-			af.bitvector	= 0;
-			af.owner	= NULL;
-			affect_join2(ch, &af);
+			AFFECT_DATA *paf;
+
+			paf = aff_new();
+			paf->where	= TO_AFFECTS;
+			paf->type	= "resurrection";
+			paf->level	= LEVEL(ch);
+			paf->duration	= number_fuzzy(4);
+			affect_join(ch, paf);
+			aff_free(paf);
+
 			act_char("You gain power of undead!", ch);
 			check_improve(ch, "resurrection", TRUE, 1);
-		} 
+		}
 	} else {
 		check_improve(ch, "vampiric bite", FALSE, 1);
 		damage(ch, victim, 0, "vampiric bite", DAM_NONE, DAMF_SHOW);
 	}
-	if (!IS_NPC(victim) && victim->position == POS_FIGHTING) 
+	if (!IS_NPC(victim) && victim->position == POS_FIGHTING)
 		yell(victim, ch, "Help! $lu{$i} tried to bite me!");
 }
 
@@ -2068,7 +2068,6 @@ void do_fade(CHAR_DATA *ch, const char *argument)
 void do_vtouch(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
 	int chance;
 
 	if ((chance = get_skill(ch, "vampiric touch")) == 0) {
@@ -2114,6 +2113,8 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance * 85 / 100
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim)) {
+		AFFECT_DATA *paf;
+
 		act_puts("You deadly touch $n's neck and put $m to nightmares.",
 			 victim, NULL, ch, TO_VICT, POS_DEAD);
 		act_puts("$N deadly touches your neck and puts you "
@@ -2123,15 +2124,14 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 		check_improve(ch, "vampiric touch", TRUE, 1);
 
-		af.type = "vampiric touch";
-		af.where = TO_AFFECTS;
-		af.level = ch->level;
-		af.duration = LEVEL(ch) / 20 + 1;
-		INT(af.location) = APPLY_NONE;
-		af.modifier = 0;
-		af.bitvector = AFF_SLEEP;
-		af.owner	= NULL;
-		affect_join2(victim,&af);
+		paf = aff_new();
+		paf->type = "vampiric touch";
+		paf->where = TO_AFFECTS;
+		paf->level = ch->level;
+		paf->duration = LEVEL(ch) / 20 + 1;
+		paf->bitvector = AFF_SLEEP;
+		affect_join(victim, paf);
+		aff_free(paf);
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
@@ -2330,7 +2330,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *location;
 	clan_t *clan;
 	CHAR_DATA *pet;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (get_skill(ch, "clan recall") == 0
 	||  (clan = clan_lookup(ch->clan)) == NULL) {
@@ -2362,21 +2362,20 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
-	||  IS_AFFECTED(ch, AFF_CURSE) 
+	||  IS_AFFECTED(ch, AFF_CURSE)
 	||  IS_AFFECTED(ch->in_room, RAFF_CURSE)) {
 		act_char("The gods have forsaken you.", ch);
 		return;
 	}
 
 	ch->move /= 2;
-	af.type      = "clan recall";
-	af.level     = ch->level;
-	af.duration  = skill_beats("clan recall");
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.owner     = NULL;
-	affect_to_char2(ch, &af);
+
+	paf = aff_new();
+	paf->type      = "clan recall";
+	paf->level     = ch->level;
+	paf->duration  = skill_beats("clan recall");
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	pet = GET_PET(ch);
 	recall(ch, location);
@@ -2632,7 +2631,6 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 	AFFECT_DATA *paf;
 	int damroll = 0, hitroll = 0;
 	int range_hit = -1;
-	AFFECT_DATA af;
 	const char *sn;
 
 	if (number_percent() < get_skill(ch, "mastering bow")) {
@@ -2687,8 +2685,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 					act("$p falls from $N doing no visible damage...",
 					    ch, arrow, victim, TO_CHAR);
 					obj_to_room(arrow, victim->in_room);
-				}
-				else {
+				} else {
 					int dam;
 
 					dam = dice(INT(arrow->value[1]),
@@ -2698,27 +2695,29 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 					if (IS_WEAPON_STAT(arrow,
 							   WEAPON_POISON)) {
 						int level;
-						AFFECT_DATA *poison, af;
+						AFFECT_DATA *poison;
 
 			 if ((poison = affect_find(arrow->affected, "poison")) == NULL)
 				level = arrow->level;
 			 else
 				level = poison->level;
-			 if (!saves_spell(level,victim,DAM_POISON))
-			 {
-		            act_char("You feel poison coursing through your veins.", victim);
-		            act("$n is poisoned by the venom on $p.",
-				victim,arrow,NULL,TO_ROOM);
+			 if (!saves_spell(level, victim, DAM_POISON)) {
+				 AFFECT_DATA *paf;
 
-		            af.where     = TO_AFFECTS;
-		            af.type      = "poison";
-		            af.level     = level * 3/4;
-		            af.duration  = level / 2;
-		            INT(af.location) = APPLY_STR;
-		            af.modifier  = -1;
-		            af.bitvector = AFF_POISON;
-			    af.owner	 = NULL;
-		            affect_join2(victim, &af);
+				act_char("You feel poison coursing through your veins.", victim);
+				act("$n is poisoned by the venom on $p.",
+				    victim, arrow, NULL, TO_ROOM);
+
+				paf = aff_new();
+		            paf->where     = TO_AFFECTS;
+		            paf->type      = "poison";
+		            paf->level     = level * 3/4;
+		            paf->duration  = level / 2;
+		            INT(paf->location) = APPLY_STR;
+		            paf->modifier  = -1;
+		            paf->bitvector = AFF_POISON;
+		            affect_join(victim, paf);
+			    aff_free(paf);
 			 }
 
 			}
@@ -2743,25 +2742,25 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		        }
 
 			if (dam > victim->max_hit / 10
-				&& number_percent() < 50)
-			{
-			  af.where     = TO_AFFECTS;
-			  af.type      = sn;
-			  af.level     = ch->level;
-			  af.duration  = -1;
-			  INT(af.location) = APPLY_HITROLL;
-			  af.modifier  = - (dam / 20);
-			  if (IS_NPC(victim))
-				af.bitvector = 0;
-			  else
-				af.bitvector = AFF_CORRUPTION;
-			  af.owner	= NULL;
-			  affect_join2(victim, &af);
+			&&  number_percent() < 50) {
+				AFFECT_DATA *paf;
 
-			  obj_to_char(arrow,victim);
-			  equip_char(victim,arrow,WEAR_STUCK_IN);
-			}
-		        else obj_to_room(arrow,victim->in_room);
+				paf = aff_new();
+				paf->where     = TO_AFFECTS;
+				paf->type      = sn;
+				paf->level     = ch->level;
+				paf->duration  = -1;
+				INT(paf->location) = APPLY_HITROLL;
+				paf->modifier  = - (dam / 20);
+				if (!IS_NPC(victim))
+					paf->bitvector = AFF_CORRUPTION;
+				affect_join(victim, paf);
+				aff_free(paf);
+
+				obj_to_char(arrow, victim);
+				equip_char(victim, arrow, WEAR_STUCK_IN);
+			} else
+				obj_to_room(arrow,victim->in_room);
 
 			damage(ch, victim, dam, sn,
 				damtype_class(arrow->value[3].s), DAMF_SHOW);
@@ -2769,8 +2768,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 				path_to_track(ch,victim,door);
 		    }
 		    return TRUE;
-		  }
-		  else {
+		  } else {
 			  obj_to_room(arrow,victim->in_room);
 		          act("$p sticks in the ground at your feet!",victim,arrow,NULL, TO_ALL);
 		          return FALSE;

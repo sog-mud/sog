@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.28 2001-07-29 20:14:43 fjoe Exp $
+ * $Id: eventfun.c,v 1.29 2001-07-29 23:39:21 fjoe Exp $
  */
 
 
@@ -168,8 +168,6 @@ EVENT_FUN(event_update_sleep, ch, af)
 
 EVENT_FUN(event_update_espirit, ch, af)
 {
-	AFFECT_DATA af2;
-
 	if (af->level < 1)
 		af->level = 2;
 	if (!is_safe_rspell(af, ch)
@@ -177,15 +175,16 @@ EVENT_FUN(event_update_espirit, ch, af)
 	&&  !saves_spell(af->level + 2, ch, DAM_MENTAL)
 	&&  !is_affected(ch, "evil spirit")
 	&&  number_bits(3) == 0) {
-		af2.where	= TO_AFFECTS;
-		af2.level	= af->level;
-		af2.type	= "evil spirit";
-		af2.duration	= number_range(1, af->level/30);
-		INT(af2.location) = APPLY_NONE;
-		af2.modifier	= 0;
-		af2.bitvector	= 0;
-		af2.owner	= NULL;
-		affect_join2(ch, &af2);
+		AFFECT_DATA *paf;
+
+		paf = aff_new();
+		paf->where	= TO_AFFECTS;
+		paf->level	= af->level;
+		paf->type	= "evil spirit";
+		paf->duration	= number_range(1, af->level/30);
+		affect_join(ch, paf);
+		aff_free(paf);
+
 		act_char("You feel worse than ever.", ch);
 		act("$n looks more evil.", ch, NULL, NULL, TO_ROOM);
 	}
@@ -193,7 +192,8 @@ EVENT_FUN(event_update_espirit, ch, af)
 
 EVENT_FUN(event_leave_lshield, ch, af)
 {
-	if (ch == af->owner) affect_strip_room(ch->in_room, af->type);
+	if (ch == af->owner)
+		affect_strip_room(ch->in_room, af->type);
 }
 
 EVENT_FUN(event_enter_rlight, ch, af)
@@ -254,7 +254,7 @@ EVENT_FUN(event_updatechar_wcurse, ch, af)
 
 EVENT_FUN(event_updatechar_plague, ch, af)
 {
-	AFFECT_DATA plague;
+	AFFECT_DATA *paf;
 	CHAR_DATA *vch;
 	int dam;
 
@@ -268,26 +268,29 @@ EVENT_FUN(event_updatechar_plague, ch, af)
 	if (af->level == 1)
 		return;
 
-	plague.where	 = TO_AFFECTS;
-	plague.type	 = "plague";
-	plague.level	 = af->level - 1;
-	plague.duration	 = number_range(1,2 * plague.level);
-	INT(plague.location) = APPLY_STR;
-	plague.modifier	 = -5;
-	plague.bitvector = AFF_PLAGUE;
-	plague.owner	= NULL;
+	paf = aff_new();
+
+	paf->where	 = TO_AFFECTS;
+	paf->type	 = "plague";
+	paf->level	 = af->level - 1;
+	paf->duration = number_range(1, 2 * paf->level);
+	INT(paf->location) = APPLY_STR;
+	paf->modifier = -5;
+	paf->bitvector= AFF_PLAGUE;
 
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
-		if (!saves_spell(plague.level + 2, vch, DAM_DISEASE)
+		if (!saves_spell(paf->level + 2, vch, DAM_DISEASE)
 		&&  !IS_IMMORTAL(vch)
 		&&  !IS_AFFECTED(vch, AFF_PLAGUE)
 		&&  number_bits(2) == 0) {
 			act_char("You feel hot and feverish.", vch);
 			act("$n shivers and looks very ill.",
 			    vch, NULL, NULL, TO_ROOM);
-			affect_join2(vch, &plague);
+			affect_join(vch, paf);
 		}
 	}
+
+	aff_free(paf);
 
 	dam = UMIN(ch->level, af->level/5 + 1);
 	ch->mana -= dam;

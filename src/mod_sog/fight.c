@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.308 2001-07-29 20:14:44 fjoe Exp $
+ * $Id: fight.c,v 1.309 2001-07-29 23:39:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -588,7 +588,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 		if (IS_WEAPON_STAT(wield, WEAPON_POISON)) {
 			int level;
-			AFFECT_DATA *poison, af;
+			AFFECT_DATA *poison;
 
 			if ((poison = affect_find(wield->affected, "poison"))
 								== NULL)
@@ -597,20 +597,23 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				level = poison->level;
 
 			if (!saves_spell(level / 2,victim, DAM_POISON)) {
+				AFFECT_DATA *paf;
+
 				act("You feel poison coursing through "
 				    "your veins.", victim, NULL, NULL, TO_CHAR);
 				act("$n is poisoned by the venom on $p.",
 				    victim, wield, NULL, TO_ROOM);
 
-				af.where     = TO_AFFECTS;
-				af.type      = "poison";
-				af.level     = level * 3/4;
-				af.duration  = level / 2;
-				INT(af.location) = APPLY_STR;
-				af.modifier  = -1;
-				af.bitvector = AFF_POISON;
-				af.owner = NULL;
-				affect_join2(victim, &af);
+				paf = aff_new();
+				paf->where     = TO_AFFECTS;
+				paf->type      = "poison";
+				paf->level     = level * 3/4;
+				paf->duration  = level / 2;
+				INT(paf->location) = APPLY_STR;
+				paf->modifier  = -1;
+				paf->bitvector = AFF_POISON;
+				affect_join(victim, paf);
+				aff_free(paf);
 			}
 
 			/* weaken the poison if it's temporary */

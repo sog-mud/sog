@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.241 2001-07-29 20:14:38 fjoe Exp $
+ * $Id: act_obj.c,v 1.242 2001-07-29 23:39:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1152,20 +1152,21 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 
 	if (INT(obj->value[3]) != 0) {
 		/* The drink was poisoned ! */
-		AFFECT_DATA     af;
+		AFFECT_DATA *paf;
 
 		act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
 		act_char("You choke and gag.", ch);
-		af.where = TO_AFFECTS;
-		af.type = "poison";
-		af.level = number_fuzzy(lq->sip);
-		af.duration = 3 * amount;
-		INT(af.location) = APPLY_NONE;
-		af.modifier = 0;
-		af.bitvector = AFF_POISON;
-		af.owner	= NULL;
-		affect_join2(ch, &af);
+
+		paf = aff_new();
+		paf->where = TO_AFFECTS;
+		paf->type = "poison";
+		paf->level = number_fuzzy(lq->sip);
+		paf->duration = 3 * amount;
+		paf->bitvector = AFF_POISON;
+		affect_join(ch, paf);
+		aff_free(paf);
 	}
+
 	if (INT(obj->value[0]) > 0)
 		INT(obj->value[1]) = UMAX(INT(obj->value[1]) - lq->sip, 0);
 }
@@ -1239,40 +1240,42 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				act_char("You feel empowered from the blood of your foe.", ch);
 			};
 		}
+
 		if (INT(obj->value[3]) != 0) {
 			/* The food was poisoned! */
-			AFFECT_DATA     af;
+			AFFECT_DATA *paf;
 
 			act("$n chokes and gags.", ch, NULL, NULL, TO_ROOM);
 			act_char("You choke and gag.", ch);
 
-			af.where = TO_AFFECTS;
-			af.type = "poison";
-			af.level = number_fuzzy(INT(obj->value[0]));
-			af.duration = 2 * INT(obj->value[0]);
-			INT(af.location) = APPLY_NONE;
-			af.modifier = 0;
-			af.bitvector = AFF_POISON;
-			af.owner	= NULL;
-			affect_join2(ch, &af);
+			paf = aff_new();
+			paf->where = TO_AFFECTS;
+			paf->type = "poison";
+			paf->level = number_fuzzy(INT(obj->value[0]));
+			paf->duration = 2 * INT(obj->value[0]);
+			paf->bitvector = AFF_POISON;
+			affect_join(ch, paf);
+			aff_free(paf);
 		}
+
 		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {
 			act_char("Magical heat flows through your blood.", ch);
 			ch->mana = UMIN(ch->max_mana, ch->mana + obj->level + number_range(1, 5));
 			if (number_percent() < 2) {
-				AFFECT_DATA af;
+				AFFECT_DATA *paf;
 
 				do_yell(ch, "Oh no! My eyes!");
 
-				af.where = TO_AFFECTS;
-				af.type = "blindness";
-				af.level = number_fuzzy(obj->level);
-				af.duration = obj->level / 25 + 1;
-				INT(af.location) = APPLY_HITROLL;
-				af.modifier = -4;
-				af.bitvector = AFF_BLIND;
-				af.owner	= NULL;
-				affect_join2(ch, &af);
+				paf = aff_new();
+				paf->where = TO_AFFECTS;
+				paf->type = "blindness";
+				paf->level = number_fuzzy(obj->level);
+				paf->duration = obj->level / 25 + 1;
+				INT(paf->location) = APPLY_HITROLL;
+				paf->modifier = -4;
+				paf->bitvector = AFF_BLIND;
+				affect_join(ch, paf);
+				aff_free(paf);
 			}
 		}
 		break;

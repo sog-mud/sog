@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.334 2001-07-29 20:14:29 fjoe Exp $
+ * $Id: merc.h,v 1.335 2001-07-29 23:39:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2152,6 +2152,5 @@ where_t *where_lookup(flag_t where);
 void	affect_to_char2(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj2(OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_to_room2(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
-void	affect_join2(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.37 2001-07-29 20:14:42 fjoe Exp $
+ * $Id: effects.c,v 1.38 2001-07-29 23:39:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -218,102 +218,100 @@ acid_effect(void *vo, int level, int dam)
 void
 cold_effect(void *vo, int level, int dam)
 {
-    if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
-        ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-        OBJ_DATA *obj, *obj_next;
- 
-        for (obj = room->contents; obj != NULL; obj = obj_next)
-        {
-            obj_next = obj->next_content;
-            cold_effect(obj,level,dam);
-        }
-        return;
-    }
+	if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
+		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
+		OBJ_DATA *obj, *obj_next;
 
-    if (mem_is(vo, MT_CHAR)) { /* whack a character */
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	OBJ_DATA *obj, *obj_next;
-	
-	/* chill touch effect */
-	if (!saves_spell(level/4 + dam / 20, victim, DAM_COLD))
-	{
-	    AFFECT_DATA af;
-
-            act("$n turns blue and shivers.",victim,NULL,NULL,TO_ROOM);
-	    act("A chill sinks deep into your bones.",victim,NULL,NULL,TO_CHAR);
-            af.where     = TO_AFFECTS;
-            af.type      = "chill touch";
-            af.level     = level;
-            af.duration  = 6;
-            INT(af.location) = APPLY_STR;
-            af.modifier  = -1;
-            af.bitvector = 0;
-	    af.owner = NULL;
-            affect_join2( victim, &af );
-	}
-
-	/* hunger! (warmth sucked out */
-	if (!IS_NPC(victim))
-	    gain_condition(victim,COND_HUNGER,dam/20);
-
-	/* let's toast some gear */
-	for (obj = victim->carrying; obj != NULL; obj = obj_next)
-	{
-	    obj_next = obj->next_content;
-	    cold_effect(obj,level,dam);
-	}
-	return;
-   }
-
-   if (mem_is(vo, MT_OBJ)) { /* toast an object */
-	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	int chance;
-	char *msg;
-
-	if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
-	||  OBJ_IS(obj, OBJ_NOPURGE)
-	||  number_range(0,4) == 0)
-	    return;
-
-	chance = level / 4 + dam / 10;
-
-	if (chance > 25)
-	    chance = (chance - 25) / 2 + 25;
-	if (chance > 50)
-	    chance = (chance - 50) / 2 + 50;
-
-	if (IS_OBJ_STAT(obj,ITEM_BLESS))
-	    chance -= 5;
-
- 	chance -= obj->level * 2;
-
-	switch(obj->item_type)
-	{
-	    default:
+		for (obj = room->contents; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			cold_effect(obj,level,dam);
+		}
 		return;
-	    case ITEM_POTION:
-		msg = "$p freezes and shatters!";
-		chance += 25;
-		break;
-	    case ITEM_DRINK_CON:
-		msg = "$p freezes and shatters!";
-		chance += 5;
-		break;
 	}
 
-	chance = URANGE(5,chance,95);
+	if (mem_is(vo, MT_CHAR)) { /* whack a character */
+		CHAR_DATA *victim = (CHAR_DATA *) vo;
+		OBJ_DATA *obj, *obj_next;
 
-	if (number_percent() > chance)
-	    return;
+		/* chill touch effect */
+		if (!saves_spell(level/4 + dam / 20, victim, DAM_COLD)) {
+			AFFECT_DATA *paf;
 
-	if (obj->carried_by != NULL)
-	    act(msg,obj->carried_by,obj,NULL,TO_ALL);
-	else if (obj->in_room != NULL && obj->in_room->people != NULL)
-	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
+			act("$n turns blue and shivers.",
+			    victim, NULL, NULL, TO_ROOM);
+			act("A chill sinks deep into your bones.",
+			    victim, NULL, NULL, TO_CHAR);
 
-	extract_obj(obj, 0);
-	return;
-    }
+			paf = aff_new();
+			paf->where	= TO_AFFECTS;
+			paf->type	= "chill touch";
+			paf->level	= level;
+			paf->duration	= 6;
+			INT(paf->location) = APPLY_STR;
+			paf->modifier	= -1;
+			affect_join(victim, paf);
+			aff_free(paf);
+		}
+
+		/* hunger! (warmth sucked out) */
+		if (!IS_NPC(victim))
+			gain_condition(victim, COND_HUNGER, dam/20);
+
+		/* let's toast some gear */
+		for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			cold_effect(obj, level, dam);
+		}
+		return;
+	}
+
+	if (mem_is(vo, MT_OBJ)) { /* toast an object */
+		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		int chance;
+		char *msg;
+
+		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+		||  OBJ_IS(obj, OBJ_NOPURGE)
+		||  number_range(0,4) == 0)
+			return;
+
+		chance = level / 4 + dam / 10;
+
+		if (chance > 25)
+			chance = (chance - 25) / 2 + 25;
+		if (chance > 50)
+			chance = (chance - 50) / 2 + 50;
+
+		if (IS_OBJ_STAT(obj,ITEM_BLESS))
+			chance -= 5;
+
+		chance -= obj->level * 2;
+
+		switch (obj->item_type) {
+		default:
+			return;
+		case ITEM_POTION:
+			msg = "$p freezes and shatters!";
+			chance += 25;
+			break;
+		case ITEM_DRINK_CON:
+			msg = "$p freezes and shatters!";
+			chance += 5;
+			break;
+		}
+
+		chance = URANGE(5, chance, 95);
+		if (number_percent() > chance)
+			return;
+
+		if (obj->carried_by != NULL)
+			act(msg, obj->carried_by, obj, NULL, TO_ALL);
+		else if (obj->in_room != NULL && obj->in_room->people != NULL)
+			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
+
+		extract_obj(obj, 0);
+		return;
+	}
 }
 
 void
@@ -456,87 +454,84 @@ fire_effect(void *vo, int level, int dam)
 void
 poison_effect(void *vo, int level, int dam)
 {
-    if (mem_is(vo, MT_ROOM)) {  /* nail objects on the floor */
-        ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-        OBJ_DATA *obj, *obj_next;
- 
-        for (obj = room->contents; obj != NULL; obj = obj_next)
-        {
-            obj_next = obj->next_content;
-            poison_effect(obj,level,dam);
-        }
-        return;
-    }
- 
-    if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
-        CHAR_DATA *victim = (CHAR_DATA *) vo;
-        OBJ_DATA *obj, *obj_next;
+	if (mem_is(vo, MT_ROOM)) {  /* nail objects on the floor */
+		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
+		OBJ_DATA *obj, *obj_next;
 
-	/* chance of poisoning */
-        if (!saves_spell(level / 4 + dam / 20,victim,DAM_POISON))
-        {
-	    AFFECT_DATA af;
-
-            act_char("You feel poison coursing through your veins.", victim);
-            act("$n looks very ill.", victim, NULL, NULL, TO_ROOM);
-
-            af.where     = TO_AFFECTS;
-            af.type      = "poison";
-            af.level     = level;
-            af.duration  = level / 2;
-            INT(af.location) = APPLY_STR;
-            af.modifier  = -1;
-            af.bitvector = AFF_POISON;
-	    af.owner = NULL;
-            affect_join2( victim, &af );
-        }
-
-	/* equipment */
-	for (obj = victim->carrying; obj != NULL; obj = obj_next)
-	{
-	    obj_next = obj->next_content;
-	    poison_effect(obj,level,dam);
-	}
-	return;
-    }
-
-    if (mem_is(vo, MT_OBJ)) {/* do some poisoning */
-	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	int chance;
-
-	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-  	||  IS_OBJ_STAT(obj,ITEM_BLESS)
-	||  number_range(0,4) == 0)
-	    return;
-
-	chance = level / 4 + dam / 10;
-	if (chance > 25)
-	    chance = (chance - 25) / 2 + 25;
-	if (chance > 50)
-	    chance = (chance - 50) / 2 + 50;
-
-	chance -= obj->level * 2;
-
-	switch (obj->item_type)
-	{
-	    default:
+		for (obj = room->contents; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			poison_effect(obj, level, dam);
+		}
 		return;
-	    case ITEM_FOOD:
-		break;
-	    case ITEM_DRINK_CON:
-		if (INT(obj->value[0]) == INT(obj->value[1]))
-		    return;
-		break;
 	}
 
-	chance = URANGE(5,chance,95);
+	if (mem_is(vo, MT_CHAR)) { /* do the effect on a victim */
+		CHAR_DATA *victim = (CHAR_DATA *) vo;
+		OBJ_DATA *obj, *obj_next;
 
-	if (number_percent() > chance)
-	    return;
+		/* chance of poisoning */
+		if (!saves_spell(level / 4 + dam / 20, victim, DAM_POISON)) {
+			AFFECT_DATA *paf;
 
-	INT(obj->value[3]) = 1;
-	return;
-    }
+			act_char("You feel poison coursing through your veins.",
+				 victim);
+			act("$n looks very ill.", victim, NULL, NULL, TO_ROOM);
+
+			paf = aff_new();
+			paf->where     = TO_AFFECTS;
+			paf->type      = "poison";
+			paf->level     = level;
+			paf->duration  = level / 2;
+			INT(paf->location) = APPLY_STR;
+			paf->modifier  = -1;
+			paf->bitvector = AFF_POISON;
+			affect_join(victim, paf);
+			aff_free(paf);
+		}
+
+		/* equipment */
+		for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			poison_effect(obj,level,dam);
+		}
+		return;
+	}
+
+	if (mem_is(vo, MT_OBJ)) {/* do some poisoning */
+		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		int chance;
+
+		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
+		||  IS_OBJ_STAT(obj, ITEM_BLESS)
+		||  number_range(0, 4) == 0)
+			return;
+
+		chance = level / 4 + dam / 10;
+		if (chance > 25)
+			chance = (chance - 25) / 2 + 25;
+		if (chance > 50)
+			chance = (chance - 50) / 2 + 50;
+
+		chance -= obj->level * 2;
+		switch (obj->item_type) {
+		default:
+			return;
+		case ITEM_FOOD:
+			break;
+		case ITEM_DRINK_CON:
+			if (INT(obj->value[0]) == INT(obj->value[1]))
+				return;
+			break;
+		}
+
+		chance = URANGE(5,chance,95);
+
+		if (number_percent() > chance)
+			return;
+
+		INT(obj->value[3]) = 1;
+		return;
+	}
 }
 
 void

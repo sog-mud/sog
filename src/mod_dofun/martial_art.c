@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.182 2001-07-29 20:14:40 fjoe Exp $
+ * $Id: martial_art.c,v 1.183 2001-07-29 23:39:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2814,7 +2814,6 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 void do_strangle(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
 	int chance;
 
 	if (MOUNTED(ch)) {
@@ -2871,6 +2870,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance * 6 /10
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim)) {
+		AFFECT_DATA *paf;
+
 		act("You grab hold of $N's neck and put $M to sleep.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n grabs hold of your neck and puts you to sleep.",
@@ -2878,16 +2879,15 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		act("$n grabs hold of $N's neck and puts $M to sleep.",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "strangle", TRUE, 1);
-	
-		af.type = "strangle";
-		af.where = TO_AFFECTS;
-		af.level = ch->level;
-		af.duration = LEVEL(ch) / 20 + 1;
-		INT(af.location) = APPLY_NONE;
-		af.modifier = 0;
-		af.bitvector = AFF_SLEEP;
-		af.owner	= NULL;
-		affect_join2 (victim,&af);
+
+		paf = aff_new();
+		paf->type = "strangle";
+		paf->where = TO_AFFECTS;
+		paf->level = ch->level;
+		paf->duration = LEVEL(ch) / 20 + 1;
+		paf->bitvector = AFF_SLEEP;
+		affect_join(victim, paf);
+		aff_free(paf);
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
@@ -2903,7 +2903,6 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 void do_headcrush(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
 	OBJ_DATA *wield;
 	int chance;
 
@@ -2981,7 +2980,8 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 	chance /= 2;
 
 	if (number_percent() > chance) {
-	
+		AFFECT_DATA *paf;
+
 		act("You hit $N's head with your mace and $E falls asleep.",
 			ch, NULL, victim, TO_CHAR);
 		act("You feel a sudden pain erupts through your skull!",
@@ -2989,15 +2989,14 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 		act("$n hits $N's head with $s mace and $N falls asleep.",
 			ch, NULL, victim, TO_NOTVICT);
 
-		af.type		= "head crush";
-		af.where	= TO_AFFECTS;
-		af.level	= ch->level;
-		af.duration	= LEVEL(ch) / 20 + 1;
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= AFF_SLEEP;
-		af.owner	= NULL;
-		affect_join2 (victim,&af);
+		paf = aff_new();
+		paf->type	= "head crush";
+		paf->where	= TO_AFFECTS;
+		paf->level	= ch->level;
+		paf->duration	= LEVEL(ch) / 20 + 1;
+		paf->bitvector	= AFF_SLEEP;
+		affect_join(victim, paf);
+		aff_free(paf);
 
 		check_improve(ch, "head crush", TRUE, 3);
 
@@ -3021,7 +3020,6 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 void do_blackjack(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
 	int chance;
 
 	if (MOUNTED(ch)) {
@@ -3080,6 +3078,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim)) {
+		AFFECT_DATA *paf;
+
 		act("You hit $N's head with a lead filled sack.",
 		    ch, NULL, victim, TO_CHAR);
 		act("You feel a sudden pain erupts through your skull!",
@@ -3087,16 +3087,15 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		act("$n whacks $N at the back of $S head with a heavy looking sack!  *OUCH*",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "blackjack", TRUE, 1);
-	
-		af.type		= "blackjack";
-		af.where	= TO_AFFECTS;
-		af.level	= ch->level;
-		af.duration	= LEVEL(ch) / 15 + 1;
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= AFF_SLEEP;
-		af.owner	= NULL;
-		affect_join2 (victim,&af);
+
+		paf = aff_new();
+		paf->type	= "blackjack";
+		paf->where	= TO_AFFECTS;
+		paf->level	= ch->level;
+		paf->duration	= LEVEL(ch) / 15 + 1;
+		paf->bitvector	= AFF_SLEEP;
+		affect_join(victim, paf);
+		aff_free(paf);
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
@@ -3154,7 +3153,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		af.level	= ch->level;
 		af.duration	= 2 + LEVEL(ch) / 18;
 		af.modifier	= 5 + LEVEL(ch) / 4;
-		af.bitvector 	= AFF_BLOODTHIRST;
+		af.bitvector	= AFF_BLOODTHIRST;
 		af.owner	= NULL;
 
 		INT(af.location)= APPLY_HITROLL;

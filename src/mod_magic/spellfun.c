@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.244 2001-07-29 20:14:49 fjoe Exp $
+ * $Id: spellfun.c,v 1.245 2001-07-29 23:39:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,22 +402,24 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_chill_touch(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
 	int dam;
-	
+
 	dam = dice(level, level / 6 + 1);
 
 	if (!saves_spell(level, victim, DAM_COLD)) {
+		AFFECT_DATA *paf;
+
 		act("$n turns blue and shivers.", victim, NULL, NULL, TO_ROOM);
-		af.where   	= TO_AFFECTS;
-		af.type    	= sn;
-		af.level   	= level;
-		af.duration 	= 6;
-		INT(af.location)= APPLY_STR;
-		af.modifier 	= -1;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_join2(victim, &af);
+
+		paf = aff_new();
+		paf->where	= TO_AFFECTS;
+		paf->type	= sn;
+		paf->level	= level;
+		paf->duration	= 6;
+		INT(paf->location)= APPLY_STR;
+		paf->modifier	= -1;
+		affect_join(victim, paf);
+		aff_free(paf);
 	} else
 		dam /= 2;
 
@@ -1006,7 +1008,6 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 void spell_energy_drain(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
 	int dam;
 
 	if (saves_spell(level, victim, DAM_NEGATIVE)) {
@@ -1026,16 +1027,17 @@ void spell_energy_drain(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (number_percent() < 15) {
-		af.where 		= TO_AFFECTS;
-		af.type			= sn;
-		af.level		= level/2;
-		af.duration		= 6+level/12;
-		INT(af.location)	= APPLY_LEVEL;
-		af.modifier		= -1;
-		af.bitvector		= 0;
-		af.owner		= NULL;
+		AFFECT_DATA *paf;
 
-		affect_join2(victim, &af);
+		paf = aff_new();
+		paf->where		= TO_AFFECTS;
+		paf->type		= sn;
+		paf->level		= level/2;
+		paf->duration		= 6+level/12;
+		INT(paf->location)	= APPLY_LEVEL;
+		paf->modifier		= -1;
+		affect_join(victim, paf);
+		aff_free(paf);
 	}
 
 	act_char("You feel your life slipping away!", victim);
@@ -1691,7 +1693,7 @@ void spell_pass_door(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (saves_spell(level, victim, DAM_DISEASE)
 	|| IS_SET(victim->form, FORM_CONSTRUCT)
@@ -1709,15 +1711,16 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level * 3/4;
-	af.duration	= (10 + level / 10);
-	INT(af.location)= APPLY_STR;
-	af.modifier	= -1 * UMAX(1,3 + level / 15); 
-	af.bitvector	= AFF_PLAGUE;
-	af.owner	= NULL;
-	affect_join2(victim,&af);
+	paf = aff_new();
+	paf->where	= TO_AFFECTS;
+	paf->type	= sn;
+	paf->level	= level * 3/4;
+	paf->duration	= (10 + level / 10);
+	INT(paf->location)= APPLY_STR;
+	paf->modifier	= -1 * UMAX(1,3 + level / 15);
+	paf->bitvector	= AFF_PLAGUE;
+	affect_join(victim, paf);
+	aff_free(paf);
 
 	act_char("You scream in agony as plague sores erupt from your skin.", victim);
 	act("$n screams in agony as plague sores erupt from $s skin.",
@@ -1727,56 +1730,58 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-		if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON)
-		{
-		    if (IS_OBJ_STAT(obj,ITEM_BLESS) || IS_OBJ_STAT(obj,ITEM_BURN_PROOF))
-		    {
-			act("Your spell fails to corrupt $p.",ch,obj,NULL,TO_CHAR);
+		if (obj->item_type == ITEM_FOOD
+		||  obj->item_type == ITEM_DRINK_CON) {
+			if (IS_OBJ_STAT(obj, ITEM_BLESS)
+			||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+				act("Your spell fails to corrupt $p.",
+				    ch, obj, NULL, TO_CHAR);
+				return;
+			}
+			INT(obj->value[3]) = 1;
+			act("$p is infused with poisonous vapors.",
+			    ch, obj, NULL, TO_ALL);
 			return;
-		    }
-		    INT(obj->value[3]) = 1;
-		    act("$p is infused with poisonous vapors.",ch,obj,NULL,TO_ALL);
-		    return;
 		}
 
-		if (obj->item_type == ITEM_WEAPON)
-		{
-		    if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)
-		    ||  IS_WEAPON_STAT(obj,WEAPON_FROST)
-		    ||  IS_WEAPON_STAT(obj,WEAPON_VAMPIRIC)
-		    ||  IS_WEAPON_STAT(obj,WEAPON_SHARP)
-		    ||  IS_WEAPON_STAT(obj,WEAPON_VORPAL)
-		    ||  IS_WEAPON_STAT(obj,WEAPON_SHOCKING)
-		    ||  IS_WEAPON_STAT(obj,WEAPON_HOLY)
-		    ||  IS_OBJ_STAT(obj,ITEM_BLESS) || IS_OBJ_STAT(obj,ITEM_BURN_PROOF))
-		    {
-			act("You can't seem to envenom $p.",ch,obj,NULL,TO_CHAR);
+		if (obj->item_type == ITEM_WEAPON) {
+			if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
+			||  IS_WEAPON_STAT(obj, WEAPON_FROST)
+			||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
+			||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
+			||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
+			||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
+			||  IS_WEAPON_STAT(obj, WEAPON_HOLY)
+			||  IS_OBJ_STAT(obj, ITEM_BLESS)
+			||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+				act("You can't seem to envenom $p.",
+				    ch, obj, NULL, TO_CHAR);
+				return;
+			}
+
+			if (IS_WEAPON_STAT(obj, WEAPON_POISON)) {
+				act("$p is already envenomed.",
+				    ch, obj, NULL, TO_CHAR);
+				return;
+			}
+
+			paf = aff_new();
+			paf->where	= TO_WEAPON;
+			paf->type	= sn;
+			paf->level	= level / 2;
+			paf->duration	= level/8;
+			paf->bitvector	= WEAPON_POISON;
+			affect_to_obj(obj, paf);
+			aff_free(paf);
+
+			act("$p is coated with deadly venom.",
+			    ch, obj, NULL, TO_ALL);
 			return;
-		    }
-
-		    if (IS_WEAPON_STAT(obj,WEAPON_POISON))
-		    {
-			act("$p is already envenomed.",ch,obj,NULL,TO_CHAR);
-			return;
-		    }
-
-		    af.where	 = TO_WEAPON;
-		    af.type	 = sn;
-		    af.level	 = level / 2;
-		    af.duration	 = level/8;
-		    INT(af.location) = 0;
-		    af.modifier	 = 0;
-		    af.bitvector = WEAPON_POISON;
-		    af.owner	= NULL;
-		    affect_to_obj2(obj,&af);
-
-		    act("$p is coated with deadly venom.",ch,obj,NULL,TO_ALL);
-		    return;
 		}
 
 		act("You can't poison $p.", ch, obj, NULL, TO_CHAR);
@@ -1788,17 +1793,19 @@ void spell_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (saves_spell(level, victim, DAM_POISON))
 		return;
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (10 + level / 10);
-	INT(af.location) = APPLY_STR;
-	af.modifier  = -2;
-	af.bitvector = AFF_POISON;
-	af.owner	= NULL;
-	affect_join2(victim, &af);
+	paf = aff_new();
+	paf->where     = TO_AFFECTS;
+	paf->type      = sn;
+	paf->level     = level;
+	paf->duration  = (10 + level / 10);
+	INT(paf->location) = APPLY_STR;
+	paf->modifier  = -2;
+	paf->bitvector = AFF_POISON;
+	affect_join(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel very sick.", victim);
-	act("$n looks very ill.",victim,NULL,NULL,TO_ROOM);
+	act("$n looks very ill.", victim, NULL, NULL, TO_ROOM);
 }
 
 void spell_recharge(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -1921,29 +1928,27 @@ void spell_shocking_grasp(const char *sn, int level,CHAR_DATA *ch,void *vo)
 void spell_sleep(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
-
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, "free action"))
 		level -= 5;
+
 	if (IS_AFFECTED(victim, AFF_SLEEP)
 	||  IS_SET(victim->form, FORM_UNDEAD)
 	||  IS_SET(victim->form, FORM_CONSTRUCT)
 	||  saves_spell(level, victim, DAM_CHARM))
 		return;
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 1 + level/10;
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = AFF_SLEEP;
-	af.owner	= NULL;
-	affect_join2(victim, &af);
+	paf = aff_new();
+	paf->where	= TO_AFFECTS;
+	paf->type	= sn;
+	paf->level	= level;
+	paf->duration	= 1 + level/10;
+	paf->bitvector	= AFF_SLEEP;
+	affect_join(victim, paf);
+	aff_free(paf);
 
-	if (IS_AWAKE(victim))
-	{
+	if (IS_AWAKE(victim)) {
 		act_char("You feel very sleepy ..... zzzzzz.", victim);
 		act("$n goes to sleep.", victim, NULL, NULL, TO_ROOM);
 		victim->position = POS_SLEEPING;
@@ -2769,7 +2774,7 @@ void spell_helical_flow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_corruption(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_AFFECTED(victim, AFF_CORRUPTION)) {
 		act("$N is already corrupting.", ch, NULL, victim, TO_CHAR);
@@ -2789,15 +2794,14 @@ void spell_corruption(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type 	= sn;
-	af.level	= level * 3 / 4;
-	af.duration	= 10 + level / 5;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0; 
-	af.bitvector	= AFF_CORRUPTION;
-	af.owner	= NULL;
-	affect_join2(victim,&af);
+	paf = aff_new();
+	paf->where	= TO_AFFECTS;
+	paf->type	= sn;
+	paf->level	= level * 3 / 4;
+	paf->duration	= 10 + level / 5;
+	paf->bitvector	= AFF_CORRUPTION;
+	affect_join(victim, paf);
+	aff_free(paf);
 
 	act("You scream in agony as you start to decay into dust.",
 	    victim, NULL, NULL, TO_CHAR);
@@ -3826,28 +3830,28 @@ void spell_confuse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_terangreal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
-	
-	if (IS_NPC(victim))
-	return;
+	AFFECT_DATA *paf;
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 10;
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = AFF_SLEEP;
-	af.owner	= NULL;
-	affect_join2(victim, &af);
+	if (IS_NPC(victim))
+		return;
+
+	paf = aff_new();
+	paf->where	= TO_AFFECTS;
+	paf->type	= sn;
+	paf->level	= level;
+	paf->duration	= 10;
+	paf->bitvector	= AFF_SLEEP;
+	affect_join(victim, paf);
+	aff_free(paf);
 
 	if (IS_AWAKE(victim)) {
-		act_char("You are overcome by a sudden surge of fatigue.", victim);
+		act_char("You are overcome by a sudden surge of fatigue.",
+			 victim);
 		act("$n falls into a deep sleep.", victim, NULL, NULL, TO_ROOM);
 		victim->position = POS_SLEEPING;
 	}
 }
-	
+
 void spell_kassandra(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 
@@ -5587,7 +5591,7 @@ void spell_mend(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void spell_shielding(const char *sn, int level, CHAR_DATA *ch, void *vo )
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (saves_spell(level, victim, DAM_NONE)) {
 		act("$N shivers slightly, but it passes quickly.",
@@ -5597,30 +5601,27 @@ void spell_shielding(const char *sn, int level, CHAR_DATA *ch, void *vo )
 	}
 
 	if (is_affected(victim, sn)) {
-		af.where	= TO_AFFECTS;
-		af.type		= sn;
-		af.level	= level;
-		af.duration	= level / 20;
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_to_char2(victim, &af);
+		paf = aff_new();
+		paf->where	= TO_AFFECTS;
+		paf->type	= sn;
+		paf->level	= level;
+		paf->duration	= level / 20;
+		affect_join(victim, paf);
+		aff_free(paf);
+
 		act("You wrap $N in more flows of Spirit.",
 		    ch, NULL, victim, TO_CHAR);
 		act_char("You feel the shielding get stronger.", victim);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 15;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_join2(victim, &af);
+	paf = aff_new();
+	paf->where	= TO_AFFECTS;
+	paf->type	= sn;
+	paf->level	= level;
+	paf->duration	= level / 15;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	act_char("You feel as if you have lost touch with something.", victim);
 	act("You shield $N from the True Source.", ch, NULL, victim, TO_CHAR);
