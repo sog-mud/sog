@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.14 1998-08-06 16:46:15 fjoe Exp $
+ * $Id: skills.c,v 1.15 1998-08-07 09:21:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -145,23 +145,24 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	/* initialize data */
 	output[0] = '\0';
 	for (lev = 0; lev < LEVEL_HERO; lev++) {
-			spell_columns[lev] = 0;
-			spell_list[lev][0] = '\0';
+		spell_columns[lev] = 0;
+		spell_list[lev][0] = '\0';
 	}
 	
 	for (sn = 0; sn < MAX_SKILL; sn++) {
 		if (skill_table[sn].name == NULL)
 			break;
 
-		if ((skill_table[sn].skill_level[ch->class] >= LEVEL_HERO
-		&&   !skill_is_native(ch, sn))
+		lev = skill_is_native(ch, sn) ?
+			1 : skill_table[sn].skill_level[ch->class];
+
+		if (lev >= LEVEL_HERO
 		||  skill_table[sn].spell_fun == spell_null
-		||  !SKILL_RACE_OK(ch, sn) || !SKILL_CLAN_OK(ch, sn))
+		||  !SKILL_RACE_OK(ch, sn) || !SKILL_CLAN_OK(ch, sn)
+		||  ch->pcdata->learned[sn] == 0)
 			continue;
 
 		found = TRUE;
-		lev = skill_is_native(ch, sn) ?
-			1 : skill_table[sn].skill_level[ch->class];
 		if (ch->level < lev)
 			sprintf(buf, "%-18s  n/a      ", skill_table[sn].name);
 		else {
@@ -189,7 +190,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	
 	for (lev = 0; lev < LEVEL_HERO; lev++)
 		if (spell_list[lev][0] != '\0')
-			strcat(output,spell_list[lev]);
+			strcat(output, spell_list[lev]);
 	strcat(output, "\n\r");
 	page_to_char(output, ch);
 }
@@ -215,15 +216,16 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		if (skill_table[sn].name == NULL)
 			break;
 
-		if ((skill_table[sn].skill_level[ch->class] >= LEVEL_HERO
-		&&   !skill_is_native(ch, sn))
+		lev = skill_is_native(ch, sn) ?
+		      1 : skill_table[sn].skill_level[ch->class];
+
+		if (lev >= LEVEL_HERO
 		||  skill_table[sn].spell_fun != spell_null
-		||  !SKILL_RACE_OK(ch, sn) || !SKILL_CLAN_OK(ch, sn))
+		||  !SKILL_RACE_OK(ch, sn) || !SKILL_CLAN_OK(ch, sn)
+		||  ch->pcdata->learned[sn] == 0)
 			continue;
 
 		found = TRUE;
-		lev = skill_is_native(ch, sn) ?
-		      1 : skill_table[sn].skill_level[ch->class];
 
 		if (ch->level < lev)
 			sprintf(buf, "%-18s n/a      ", skill_table[sn].name);
@@ -242,15 +244,14 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	
 	/* return results */
 	
-	if (!found)
-	{
+	if (!found) {
 		send_to_char("You know no skills.\n\r",ch);
 		return;
 	}
 	
 	for (lev = 0; lev < LEVEL_HERO; lev++)
 		if (skill_list[lev][0] != '\0')
-		send_to_char(skill_list[lev],ch);
+			send_to_char(skill_list[lev],ch);
 	send_to_char("\n\r",ch);
 }
 

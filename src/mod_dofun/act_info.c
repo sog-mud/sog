@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.112 1998-08-05 12:00:11 fjoe Exp $
+ * $Id: act_info.c,v 1.113 1998-08-07 09:21:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3521,7 +3521,8 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		for (sn = 0; sn < MAX_SKILL; sn++) {
 			if (skill_table[sn].name == NULL)
 				break;
-			if (!SKILL_OK(ch, sn))
+			if (!SKILL_OK(ch, sn)
+			||  ch->pcdata->learned[sn] == 0)
 				continue;
 
 			buf_printf(output, "%-18s %3d%%  ",
@@ -3541,17 +3542,13 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_AWAKE(ch)) {
-		char_nputs(I_YOUR_DREAMS, ch);
-		return;
-	}
-
 	if (ch->practice <= 0) {
 		send_to_char("You have no practice sessions left.\n\r", ch);
 		return;
 	}
 
-	if ((sn = find_spell(ch, argument)) < 0) {
+	if ((sn = find_spell(ch, argument)) < 0
+	||  ch->pcdata->learned[sn] == 0) {
 		send_to_char("You can't practice that.\n\r", ch);
 		return;
 	}
@@ -3595,12 +3592,6 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		char_printf(ch, "You are already learned at %s.\n\r",
 			    skill_table[sn].name);
 		return;
-	}
-
-	if (!ch->pcdata->learned[sn]) {
-		log_printf("do_practice: %s: %s (0%%)",
-			ch->name, skill_table[sn].name);
-		ch->pcdata->learned[sn] = 1;
 	}
 
 	ch->practice--;

@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.58 1998-08-06 08:48:36 fjoe Exp $
+ * $Id: quest.c,v 1.59 1998-08-07 09:21:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,7 +235,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++)
 		if (str_prefix(cmd, qcmd->name) == 0) {
 			if (ch->position < qcmd->min_position) {
-				char_nputs(I_YOUR_DREAMS, ch);
+				char_nputs(IN_YOUR_DREAMS, ch);
 				return;
 			}
 			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.64 1998-08-07 07:48:53 fjoe Exp $
+ * $Id: merc.h,v 1.65 1998-08-07 09:21:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1907,7 +1907,6 @@ struct	char_data
 	int			slang;	/* spoken language */
 	int			lang; /* interface language */
 	CHAR_DATA *		hunter;	/* who quested to slay */
-	int			is_aff_holler;
 };
 
 

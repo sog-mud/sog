@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.50 1998-08-06 13:50:11 fjoe Exp $
+ * $Id: interp.c,v 1.51 1998-08-07 09:21:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -430,6 +430,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "poofin",		do_bamfin,	POS_DEAD,	L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "poofout",	do_bamfout,	POS_DEAD,	L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "gecho",		do_echo,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { ">",		do_echo,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "holylight",	do_holylight,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "incognito",	do_incognito,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "invis",		do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
@@ -674,7 +675,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				break;
 
 			case POS_SLEEPING:
-				char_nputs(I_YOUR_DREAMS, ch);
+				char_nputs(IN_YOUR_DREAMS, ch);
 				break;
 
 			case POS_RESTING:
@@ -749,7 +750,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 		 */
 		if (!str_cmp(social_table[cmd].name, "snore"))
 			break;
-		char_nputs(I_YOUR_DREAMS, ch);
+		char_nputs(IN_YOUR_DREAMS, ch);
 		return TRUE;
 
 	}

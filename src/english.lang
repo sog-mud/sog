@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.70 1998-08-06 08:48:36 fjoe Exp $
+# $Id: english.lang,v 1.71 1998-08-07 09:21:29 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -665,7 +665,7 @@ TOO_STUNNED	"You are STUNNED to do that.\n\r"
 YOU_ARE_DEAD	"Lie still; you are DEAD.\n\r"
 HURT_FAR_TOO_BAD	"You are hurt far too bad for that.\n\r"
 YOU_TOO_STUNNED	"You are too stunned to do that.\n\r"
-I_YOUR_DREAMS	"In your dreams, or what?\n\r"
+IN_YOUR_DREAMS	"In your dreams, or what?\n\r"
 TOO_RELAXED	"Nah... You feel too relaxed...\n\r"
 BETTER_STANDUP	"Better stand up first.\n\r"
 NO_WAY_FIGHT	"No way!  You are still fighting!\n\r"

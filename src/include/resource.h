@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.86 1998-07-23 12:11:47 efdi Exp $
+ * $Id: resource.h,v 1.87 1998-08-07 09:21:30 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -668,7 +668,7 @@ enum {
 	YOU_ARE_DEAD,
 	HURT_FAR_TOO_BAD,
 	YOU_TOO_STUNNED,
-	I_YOUR_DREAMS,
+	IN_YOUR_DREAMS,
 	TOO_RELAXED,
 	BETTER_STANDUP,
 	NO_WAY_FIGHT,
