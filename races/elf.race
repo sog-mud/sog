@@ -22,7 +22,7 @@ MaxStats 18 25 21 23 16 25
 Size medium
 HPBonus -10
 ManaBonus 30
-BonusSkill 'mastering bow'
+BonusSkills 'mastering bow'~
 RestrictAlign good~
 Slang elvish
 End
