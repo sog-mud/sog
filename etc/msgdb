@@ -64,6 +64,12 @@ channel    | status@rus .
 @eng .  You are guarded by: {W%s{x
 @rus Тебя охраняет: {W%s{x
 ~
+@eng .  You have a chaotic ethos.
+@rus .  В основе твоего характера лежит хаос.
+~
+@eng .  You have a lawful ethos.
+@rus .  Ты во всем и всегда следуешь законам.
+~
 @eng . [Room $j]@rus . [Комната $j]~
 @eng . and $j $T.@rus . и $j $T.~
 @eng . for {c$j{x $qj{hours}.@rus . на {c$j{x $qj{часов}.~
@@ -75,12 +81,12 @@ channel    | status@rus .
 @rus . постоянно.
 ~
 . спокойно покачивается на поверхности.~
-@eng $E can already breath under water.@rus $E и так умеет дышать под водой.~
-@eng $E didn't believe.@rus $E не $gE{поверил}.~
-@eng $E is already asleep.@rus $E уже $gE{спит}.~
-@eng $E is already hallucinating.@rus У $c1{$E} уже давно галюцинации.~
+@eng $E can already breath under water.@rus $gN{Он} и так умеет дышать под водой.~
+@eng $E didn't believe.@rus $gN{Он} не $gN{поверил}.~
+@eng $E is already asleep.@rus $gN{Он} уже $gN{спит}.~
+@eng $E is already hallucinating.@rus У $gN{него} уже давно галлюцинации.~
 @eng $E is moving too quickly.@rus $E $gE{движется} слишком быстро.~
-@eng $E is not receiving tells.@rus $E не $gE{желает}, чтобы $gE{его} отвлекали разговорами.~
+@eng $E is not receiving tells.@rus $gN{Он} не $gN{желает}, чтобы $gN{его} отвлекали разговорами.~
 @eng $F-20{$T} : $j gold@rus $F-30{$T} : $j $qj{золотых}~
 @eng $N act as no align.@rus $N не $gN{злой}, но и не $gN{добрый}.~
 @eng $N already has divine favor.@rus Божественное благословение уже пребывает с $c4{$N}.~
@@ -138,8 +144,8 @@ channel    | status@rus .
 @eng $N doesn't appear to be diseased.@rus Но $N вроде бы вовсе не болен.~
 @eng $N doesn't appear to be poisoned.@rus $N вроде бы не $gN{отравлен}.~
 @eng $N doesn't know where they stand on the laws.@rus $N никогда ничего не $gN{слышал} о законах общества.~
-@eng $N doesn't like the way $n has been treating $M.@rus $N не понравилось поведение $n.~
-@eng $N doesn't like the way you've been treating $M.@rus $N не понравилось твое поведение.~
+@eng $N doesn't like the way $n has been treating $M.@rus $c2{$N} не понравилось поведение $c1{$n}.~
+@eng $N doesn't like the way you've been treating $M.@rus $c2{$N} не понравилось твое поведение.~
 @eng $N doesn't look like $e wants to fight anymore.@rus $N больше не $gN{хочет} сражаться.~
 @eng $N doesn't need any of your help!@rus $N не $gN{нуждается} в твоей помощи!~
 @eng $N doesn't need your help to fly.@rus $N не нуждается в твоей помощи, чтобы взлететь.~
@@ -151,6 +157,7 @@ channel    | status@rus .
 @eng $N gives you some herbs to eat.@rus $N $gN{дает} тебе несколько лекарственных растений, рекомендуя их съесть.~
 @eng $N gives you {W$p{x.@rus $N $gN{дает} тебе {W$c3{$p}{x.~
 @eng $N gives {W$p{x to $n.@rus $N $gN{дает} {W$p{x $c2{$n}.~
+@eng $N grabs you and throws to the ground.@rus $N $gN{обхватил} тебя и $gN{бросил} на землю.~
 @eng $N grants $i right to write notes.@rus $N $gN{пожаловал} $c2{$i} право писать обьявления.~
 @eng $N greets you warmly.@rus $N тепло $gN{приветствует} тебя.~
 @eng $N grins evilly at you.@rus $N зло ухмыляется тебе.~
@@ -183,6 +190,7 @@ channel    | status@rus .
 @eng $N is already cursed.@rus $N уже $gN{проклят}.~
 @eng $N is already deaf.@rus $N уже $gN{оглушен}.~
 @eng $N is already decays.@rus $N уже $gN{болен}.~
+@eng $N is already down.@rus $N уже на земле.~
 @eng $N is already in a frenzy.@rus Бешенство уже переполняет $c6{$N}.~
 @eng $N is already in sanctuary.@rus Белая аура уже защищает $c6{$N}.~
 @eng $N is already inspired.@rus $N и так $gN{преисполнен} вдохновения.~
@@ -211,10 +219,12 @@ channel    | status@rus .
 @eng $N is hurt and suspicious ... you can't sneak up.@rus $N слишком $gN{подозрителен}... ты не можешь подкрасться.~
 @eng $N is hurt and suspicious... you couldn't sneak up.@rus $N $gN{ранен} и $gN{подозрителен}... ты не можешь подкрасться незаметно.~
 @eng $N is immune to your attacks.@rus $N $gN{неуязвим} для твоих ударов.~
+@eng $N is no longer snoop-proof.@rus За $c4{$N} снова можно подсматривать.~
 @eng $N is no longer wanted.@rus $N больше не $gN{разыскивается}.~
 @eng $N is no match for you.@rus $N не соперник тебе.~
 @eng $N is not affected by any spells.@rus $N не $gN{находится} под воздействием чего-либо.~
 @eng $N is not usually aggressive.@rus $N обычно не $gN{агрессивен}.~
+@eng $N is now snoop-proof.@rus За $c4{$N} теперь нельзя подсматривать.~
 @eng $N is protected against cold.@rus $N $gN{имеет} защиту от холода.~
 @eng $N is protected against heat.@rus $N теперь $gN{обладает} защитой от жара.~
 @eng $N is protected by $S evil.@rus Тьма в душе $c1{$N} защищает $gN{его}.~
@@ -265,21 +275,25 @@ channel    | status@rus .
 @eng $N says '{GDo you feel lucky, punk?{x'.@rus $N $gN{говорит} тебе: "{GЧувствуешь удачу, шпана?{x"~
 @eng $N seems ambivalent to society.@rus $N $gN{имеет} двойственное отношение к обществу.~
 @eng $N seems to be unaffected.@rus На $c6{$N} это не действует.~
+@eng $N seems to ignore your cowardly act!@rus $N $gN{проигнорировал} твое малодушие!~
 @eng $N seems very chaotic.@rus $N $gN{служит} хаосу.~
 @eng $N sends up $p as a burnt offering.@rus $N $gN{принес} в жертву $c3{$p}.~
 @eng $N sets your password to '$t'.@rus $N $gN{сделал} твоим паролем '$t'.~
+@eng $N shivers slightly, but it passes quickly.@rus $c6{$N} слегка передернуло, но все прошло.~
 @eng $N slowly fades into existence.@rus $N медленно $gn{вернулся} в реальность.~
 @eng $N smiles at you, hoping you will turn from your evil path.@rus $N $gN{улыбается} тебе и $gN{надеется}, что ты свернешь с пути зла.~
 @eng $N smiles happily.@rus $N благожелательно $gN{улыбнулся}.~
 @eng $N snarls and attacks $n!@rus $N $gN{зарычал} и $gN{бросился} на $c1{$n}!~
 @eng $N snarls and attacks you!@rus $N $gN{зарычал} и $gN{напал} на тебя.~
 @eng $N starts hallucinating.@rus У $c1{$N} начались галлюцинаци.~
+@eng $N starts limping.@rus $N $gN{стал} хромать.~
 @eng $N starts snooping on $i.@rus $N $gN{начал} подглядывать за $c5{$i}.~
 @eng $N steps through a gate and vanishes.@rus $N $gN{ступил} сквозь врата и $gN{исчез}.~
 @eng $N stops guarding $n.@rus $N $gN{прекратил} охранять $c6{$n}.~
 @eng $N switches into $i.@rus $N $gN{вселился} в $c6{$i}.~
 @eng $N tells you '{G@rus $N $gN{говорит} тебе: "{G~
 @eng $N transfers 50,000 gold pieces to your bank account.@rus $N $gN{переводит} 50,000 золотых монет на твой банковский счет.~
+@eng $N tries to throw you, but fails.@rus $N $gN{пытался} уронить тебя, но у $gN{него} не вышло.~
 @eng $N turns $Mself into line noise.@rus $N $gN{превратил} себя в воспоминание.~
 @eng $N turns $n's attack against $m!@rus $N $gN{обратил} атаку $c1{$n} против $gn{него} $gn{самого}!~
 @eng $N turns your attack against you!@rus $N $gN{обратил} твой удар против тебя $gn{самого}!~
@@ -363,10 +377,12 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n attempts to create an Adamantite golem.@rus $n $gn{попытался} создать адаматитового голема.~
 @eng $n attempts to create an iron golem.@rus $n $gn{попытался} создать железного голема.~
 @eng $n attempts to crucify $p, but fails and ruins it.@rus $n $gn{приступил} к ритуальному распятию $c1{$p}, но, сделав неверное движение, уничтожил $gp{его}.~
-@eng $n attempts to cut you with $s weapon.@rus $n $gn{попытался} разрезать тебя своим оружием.~
+@eng $n attempts to cut you with $s weapon.@rus $n $gn{попытался} разрезать тебя своим оружием надвое.~
 @eng $n attempts to push $n, but fails as the webs hold $n in place.@rus $n $gn{пытался} сдвинуть $c6{$n}, но паутина удержала $gn{его} на месте.~
+@eng $n attempts to summon a demon.@rus $n $gn{пытается} вызвать демона.~
 @eng $n attempts to summon a shadow.@rus $n $gn{попытался} призвать тень себе на помощь.~
 @eng $n attempts to summon a squire.@rus $n $gn{попытался} вызвать оруженосца.~
+@eng $n attempts to summon a stalker.@rus $n $gn{пытается} вызвать сталкера.~
 @eng $n attempts to summon a wolf.@rus $n $gn{попытался} призвать волка к себе на помощь.~
 @eng $n bashes $d and breaks the lock.@rus $n $gn{ударяется} с разбегу в $c3{$d} и выбивает замок.~
 @eng $n bites $N!@rus $n $gn{кусает} $c6{$N}!~
@@ -382,6 +398,8 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n breathes out a cloud of poisonous gas!@rus $n $gn{выдохнул} облако ядовитого газа!~
 @eng $n breathes out a freezing cone of frost!@rus $n $gn{выдохнул} облако ледяных снежинок!~
 @eng $n brews $p from $s resources!@rus $n $gn{изготовил} $c3{$p} из своих ресурсов.~
+@eng $n burns a cone of exploding material over you!@rus $n $gn{сжег} стопку горючего материала над тобой!~
+@eng $n burns something.@rus $n $gn{сжег} что-то.~
 @eng $n butchers $P and creates $j $qj{steaks}.@rus $n $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng $n buys $P.@rus $n $gn{покупает} $c3{$P}.~
 @eng $n buys $P[$j].@rus $n покупает $c3{$P}[$j].~
@@ -430,6 +448,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n disappears in a mushroom cloud.@rus $n $gn{растворился} в тумане, возникшем из ниоткуда.~
 @eng $n disappears into the void.@rus $n $gn{исчезает} в никуда.~
 @eng $n disarms $N!@rus $n $gn{обезоруживает} $c6{$N}!~
+@eng $n disintegrates $N.@rus $n $gn{расщепил} $c6{$N} на атомы.~
 @eng $n dismounts from $N.@rus $n $gn{спешивается} с $c1{$N}.~
 @eng $n dismounts from you.@rus $n $gn{спешивается} с тебя.~
 @eng $n dodges $p that had been shot to $m.@rus $n $gn{уклонился} от $c1{$p}, $c1{$gp{выпущенный}} в $gn{него}.~
@@ -439,16 +458,21 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n drops $p.@rus $n бросает $c3{$p}.~
 @eng $n drops some coins.@rus $n выбрасывает несколько монет.~
 @eng $n eats $p.@rus $n ест $c3{$p}.~
+@eng $n entangles you with $s $p.@rus $n $gn{опутал} тебя $gp{своим} $c4{$p}.~
 @eng $n fades into existance.@rus $N $gn{вернулся} в реальность.~
 @eng $n fades into existence.@rus $n $gn{появляется} словно ниоткуда.~
 @eng $n fades out of existence.@rus $n $gn{исчезает} из реальности.~
 @eng $n failed to knock $d.@rus У $n не получилось отпереть $c3{$d}.~
 @eng $n fails to butcher $p and destroys it.@rus $n $gn{пытался} освежевать $c3{$p}, но уничтожил $gp{его}.~
 @eng $n fails to focus $s spell properly.@rus У $c1{$n} не получается сосредоточиться над своим заклинанием как следует.~
+@eng $n fails to throw $N.@rus $c2{$n} не удалось уронить $c6{$N}.~
+@eng $n fails to throw you.@rus $c2{$n} не удалось уронить тебя.~
 @eng $n falls flat on $s face.@rus $n $gn{свалился} лицом вниз.~
 @eng $n falls into a deep sleep.@rus $n $gn{провалился} в глубогий сон.~
 @eng $n falls to the ground!@rus $n $gn{свалился} на землю!~
 @eng $n fills $p with $V from $P.@rus $n $gn{наполняет} $c3{$p} $c4{$V} из $c1{$P}.~
+@eng $n flash strike instantly slays $N!@rus Молниеносный выпад $c1{$n} сражает наповал $c6{$N}!~
+@eng $n flash strike instantly slays you!@rus Молниеносный выпад $c1{$n} сражает тебя наповал!~
 @eng $n flexes $s muscles, trying to look tough.@rus $n $gn{разминает} мускулы, стараясь добавить им выносливости.~
 @eng $n forces you to '$t'.@rus $n повелевает тебе '$t'.~
 @eng $n gallops from $t, charging $N!@rus Прискакав с $c2{$t}, $n $gn{атаковал} $c6{$N}!~
@@ -494,6 +518,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n has created $p!@rus $n $gn{создал} $c3{$p}!~
 @eng $n has created $p.@rus $n $gn{сотворил} $c3{$p}.~
 @eng $n has created a floating black disc.@rus $n $gn{сотворил} летающий черный диск.~
+@eng $n has dishonored $mself!@rus $n $gn{поступился} своей честью!~
 @eng $n has escaped!@rus $n $gn{сбежал}.~
 @eng $n has fled!@rus $n $gn{сбежал}!~
 @eng $n has left the game.@rus $n $gn{покинул} Мир Серых Теней.~
@@ -502,6 +527,8 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n has summoned you!@rus $n $gn{призвал} тебя к себе!~
 @eng $n has transferred you.@rus $n $gn{переместил} тебя.~
 @eng $n hits $N with a stunning force!@rus $n $gn{ударяет} $c6{$N}, оглушая $gN{его}!~
+@eng $n hits $N's head with $s mace and $N falls asleep.@rus $n $gn{ударил} $c6{$N} по голове дубиной, от чего $gN{он} $gN{потерял} сознание.~
+@eng $n hits $mself with $s mace.@rus $n $gn{ударил} себя булавой.~
 @eng $n hits the ground ... DEAD.@rus $n $gn{упал} замертво!~
 @eng $n hits you with a stunning force!@rus $n $gn{ударяет} тебя, оглушая!~
 @eng $n holds $p in $s hand.@rus $n $gn{берет} $c3{$p} в руку.~
@@ -549,7 +576,10 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n is surrounded by a white aura.@rus Белая аура окружила $c6{$n}.~
 @eng $n is surrounded by black aura.@rus Черная аура окружила $c6{$n}.~
 @eng $n is too stunned to respond your attack.@rus $n $gn{оглушен} и не может ответить на твой удар.~
+@eng $n is unaffected by $s own $V.@rus Ой! Чудовище встало и сражается опять, с новой силой!~
 @eng $n is zapped by $p and drops it.@rus Обжегшись об $c3{$p}, $n $gn{бросил} $gp{его}.~
+@eng $n jumps in front of $N!@rus $n $gn{бросился} вперед, загородив собой $c6{$N}!~
+@eng $n jumps in front of you!@rus $n $gn{бросился} вперед, загородив тебя собой!~
 @eng $n knocks $d and opens the lock.@rus $n тихонько $gn{постучал} и $gn{отпер} $c3{$d}. ~
 @eng $n knocks $d, and tries to open it.@rus $n постучал $c4{$d}, пытаясь открыть $gd{его}.~
 @eng $n learn $T.@rus $n $gn{изучает} умение '$T'.~
@@ -585,6 +615,8 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n looks wild.@rus В глазах $c1{$n} сверкает неистовство.~
 @eng $n looks with afraid eyes.@rus $n $gn{глядит} по сторонам испуганными глазами.~
 @eng $n looks with red eyes.@rus $n $gn{глядит} на мир сквозь красную пелену в глазах.~
+@eng $n lost $s position and fall down!@rus $n $gn{потерял} равновесие и $gn{упал}!~
+@eng $n lost his postion and fall down!@rus Потеряв равновесие, $n $gn{упал}!~
 @eng $n makes $N believe that large rock from the sky squeezes $M.@rus $n $gn{заставил} $c6{$N} поверить, что на $gN{него} упала скала с неба.~
 @eng $n makes a katana from $p!@rus $n $gn{сделал} катану $c1{$p}!~
 @eng $n makes a poncho from $p!@rus $n $gn{сделал} пончо из $c1{$p}!~
@@ -713,6 +745,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n stops guarding $N.@rus $n $gn{прекратил} охранять $c6{$N}.~
 @eng $n stops guarding you.@rus $n $gn{прекратил} охранять тебя.~
 @eng $n stops using $p.@rus $n $gn{снимает} $c3{$p}.~
+@eng $n struggles against the webs which hold $m in place, and break it.@rus $n $gn{бьется} в удерживающей его на месте паутине и $gn{рвет} ее.~
 @eng $n struggles vainly against the webs which hold $m in place.@rus $n безуспешно $gn{пытается} вырваться из держащей его паутины.~
 @eng $n stupidly tries to push $N while webbed.@rus $n безуспешно $gn{пытается} толкнуть $N, болтаясь в паутине.~
 @eng $n succeeded to make $s camp.@rus $n $gn{разбил} лагерь.~
@@ -759,12 +792,15 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n tries to disarm you, but your weapon won't budge!@rus $n $gn{пытается}выбить оружие из твоих рук, но оно даже не двигается!~
 @eng $n tries to enchant $p, but he forgets how for a moment.@rus $n $gn{пытался} наделить магической силой $c3{$p}, но на мгновение $gn{забыл} как это делается. ~
 @eng $n tries to enchant $p, but is too inexperienced.@rus $n $gn{пытается} наделить магической силой $c3{$p}, но $gn{он}, к сожалению, слишком $gn{неопытен}.~
+@eng $n tries to entangle you but fails.@rus $n $gn{попытался} опутать тебя, но у него не вышло.~
+@eng $n tries to grab $N's arm.@rus $n $gn{пытается} ухватить $c6{$N} за руки.~
 @eng $n tries to hold you, but fails.@rus $n $gn{пытался} сковать твои движения, но $gn{ему} не удалось.~
 @eng $n tries to leave through $d, but almost stucks there.@rus $n $gn{пытался} пройти сквозь $c3{$d}, но $gn{застрял}.~
 @eng $n tries to pass through $d, but $e fails.@rus $n $gn{пытался} пролезть сквозь $c6{$d}, но у $gn{него} ничего не вышло.~
 @eng $n tries to repair $p with the hammer but fails.@rus $n $gn{пытался} починить $c3{$p}, но у $gn{него} ничего не вышло.~
 @eng $n tries to surrender to $N!@rus $n $gn{попытался} сдаться $c2{$N}!~
 @eng $n tries to tame $mself but fails miserably.@rus $n $gn{попытался} приручить себя, но ничего не вышло.~
+@eng $n tries to trick you with $s feint, but you ignore it.@rus $n $gn{пытался} обмануть тебя своим притворством, но ты его $gN{проигнорировал}.~
 @eng $n tries to weaken $N with nerve pressure, but fails.@rus $n $gn{пытался} ослабить $c1{$N}, надавив на нервные центры, но у $gn{него} ничего не вышло.~
 @eng $n tries to weaken you with nerve pressure, but fails.@rus $n $gn{пытался} ослабить тебя, надавив на нервные центры, но у $gn{него} ничего не вышло.~
 @eng $n trips $N, sending $M to the ground.@rus $n подсекает $c6{$N}, посылая $gN{его} на землю.~
@@ -778,6 +814,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n turns into dragon and breathes fire at you!@rus $n $gn{превратился} в дракона и $gn{опалил} тебя огненным дыханием! ~
 @eng $n turns translucent.@rus $n $gn{стал} $gn{полупрозрачным}.~
 @eng $n twiddles $s thumbs and $p appears.@rus $n $gn{пошевелил} руками и $gp{появился} $c3{$p}.~
+@eng $n twists $s dagger in your wound.@rus $n $gn{повернул} кинжал в твоей ране.~
 @eng $n unlocks $d.@rus $n $gn{размыкает} $c3{$d}.~
 @eng $n unlocks $p.@rus $n $gn{размыкает} $c3{$p}.~
 @eng $n utters a word of divine power!@rus $n $gn{произносит} слова, призывающие божественные силы.~
@@ -817,7 +854,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n wields $p in $s off-hand.@rus $n $gn{взял} $c3{$p} во вторую руку. ~
 @eng $n wields $p.@rus $n $gn{вооружается} $c4{$p}.~
 @eng $n writhes in agony as plague sores erupt from $s skin.@rus $n $gn{мучается} от разрывающихся на теле язв.~
-@eng $n yells '{M$t{x'@rus $n $gn{прокричал}:" {M$t{x"~
+@eng $n yells '{M$t{x'@rus $n $gn{прокричал}: "{M$t{x"~
 @eng $n yells in panic '{M$t{x'@rus $n $gn{кричит} в панике:" {M$t{x"~
 @eng $n yelps and throws $p to the ground!@rus $n $gn{взвизгнул} и бросил $c3{$p} на землю!~
 @eng $n zaps $N with $p.@rus $n $gn{коснулся} $c1{$N} $c5{$p}.~
@@ -837,12 +874,15 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n's $w increases!@rus $w $c1{$n} $gw{улучшается}!~
 @eng $n's Honor protects $m.@rus Честь хранит $c6{$n}.~
 @eng $n's arm is sliced from $s dead body.@rus Рука $c1{$n} отсечена от бездыханного тела.~
+@eng $n's bash seems to slide around $N.@rus $n $gn{скользнул} мимо $c1{$N}.~
 @eng $n's bash slides off your protective shield.@rus Твое защитное поле остановило $c6{$n}.~
 @eng $n's body becomes blurred.@rus Тело $c1{$n} приобрело размытые очертания.~
 @eng $n's cleave chops $N IN HALF!@rus Могучий удар $c1{$n} рассекает $c6{$N} НАДВОЕ!~
 @eng $n's cleave chops you IN HALF!@rus Могучий удар $c1{$n} рассекает тебя НАДВОЕ!~
+@eng $n's crush seems to slide around $N.@rus Дробящий удар $c1{$n} скользнул мимо $c1{$N}.~
 @eng $n's crush slides off your protective shield.@rus Твое защитное поле остановило удар $c1{$n}.~
 @eng $n's dagger leaves a few scratches on your $p.@rus Кинжал $c1{$n} оставил несколько царапин на $gp{твоем} $c5{$p}.~
+@eng $n's dagger slides off your $p.@rus Кинжал $c1{$n} скользнул по $gp{твоему} $c2{$p}.~
 @eng $n's efforts with $p produce only smoke and sparks.@rus $n $gn{попытался} использовать $c1{$p}, но $gn{добился} лишь того, что во все стороны полетели искры, и повалил дым.~
 @eng $n's eyes glow red.@rus Глаза $c1{$n} горят красным светом.~
 @eng $n's feet rise off the ground.@rus Ноги $c1{$n} оторвались от земли.~
@@ -865,6 +905,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n's skin turns to stone.@rus Кожа $c1{$n} превратилась к камень.~
 @eng $n's spell fizzles out and fails.@rus Заклинание $c1{$n} не произвело видимого эффекта.~
 @eng $n's spellbane deflects the spell!@rus Проклятье на $n отразило заклинание!~
+@eng $n's tail seems to slide around $N.@rus Хвост $c1{$n} скользнул вокруг $c1{$N}.~
 @eng $n's tail slides off your protective shield.@rus Твое защитное поле остановило хвост $c1{$n}, не дав $gn{ему} ударить тебя.~
 @eng $n's thin light ray ###DISINTEGRATES### $N!@rus Луч света от $c1{$n} ###РАЗДЕЛЯЕТ### $c6{$N} на составные части!~
 @eng $n's weapon runs through $N's chest!@rus Оружие $c1{$n} пронзило грудь $c1{$N}!~
@@ -957,6 +998,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $p is on auction right now.@rus $p в данный момент продается на аукционе.~
 @eng $p is pitted and etched.@rus $p $gp{покрылся} пятнами и постепенно совсем $gp{растворился}.~
 @eng $p is prepared for holy attacks.@rus Ты благославляешь $c3{$p} на священную битву.~
+@eng $p is revealed by $n's sacrifice.@rus После жертвоприношения $c1{$n}, на месте трупа $gp{остался} $p.~
 @eng $p is somewhere.@rus $p где-то есть.~
 @eng $p is surrounded by a protective aura.@rus Защитное поле окружила $c3{$p}.~
 @eng $p is surrouned by sand.@rus $p $gp{окружен} песком.~
@@ -988,6 +1030,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $p: going $T for $J gold.@rus Лот "$p". Ставка $J $qJ{золотых} -- $T!~
 @eng $p: going $T, starting price $J gold.@rus Лот "$p". Начальная цена $J $qJ{золотых} -- $T!~
 @eng $p: sold to $N for $J gold.@rus $p: продано $c2{$N} за $J $c3{$qJ{золотых}}.~
+@eng $s hands are already crippled.@rus $gn{Его} руки уже искалечены.~
 @eng $t aliases to '$T'.@rus $t: сокращение для '$T'.~
 @eng $t has just been reset.@rus Зона '$t' обновлена.~
 @eng $t is now aliased to '$T'.@rus $t: теперь сокращение для '$T'.~
@@ -1041,9 +1084,11 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng , report it to the gods!
 @rus , сообщите об этом богам!
 ~
+@eng - %s (vnum %d) - @rus - %s (номер %d) - ~
 @eng ---------------------@rus -------------------------------~
 @eng ....and nothing happens.@rus и ничего не произошло.~
 @eng 50,000 gold pieces@rus 50.000 золотых монет~
+: [explicit]~
 @eng : modifies {c$T{x by {c$j{x @rus : изменяет {c$T{x на {c$j{x ~
 @eng <clan mark>         $t@rus <клановый знак>        $t~
 @eng <dual wielded>      $t@rus <второе оружие>        $t~
@@ -1135,6 +1180,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng As $n sacrifices the corpse, $t on it scatter $T.@rus После того, как $n $gn{принес} труп в жертву, $T осталось $c3{$t}.~
 @eng As long as you don't attack anything.@rus Или до тех пор, пока не нападешь на кого-нибудь.~
 @eng As you sacrifice the corpse, $t on it scatter $T.@rus После того, как ты $gn{принес} труп в жертву, $T осталось $c3{$t}.~
+@eng Assassinate whom?@rus Покончить с кем?~
 @eng Auction WHAT?@rus Тааак, и ЧТО будем продавать?~
 @eng Auction channel is now OFF.@rus Ты больше не принимаешь участия в торгах.~
 @eng Auction channel is now ON.@rus Ты снова принимаешь участие в торгах.~
@@ -1229,6 +1275,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng Current prompt is '$t'.@rus Твоя строка подсказки имеет вид: $t.~
 @eng Current twitlist is [$t]@rus Ты игнорируешь: [$t]~
 @eng Damn. It has just fallen from your hand!@rus Черт. Ты $gn{выронил} свое оружие!~
+@eng Deadly wave emanates from you.@rus Ты заставляешь эфир колебаться, неся всем смерть.~
 @eng Deafen who?@rus Оглушить кого?~
 @eng Death will thank you for your gift.@rus Ты станешь приятным подарком СМЕРТИ.~
 @eng Delete status removed.@rus Состояние самоуничтожения отменено.~
@@ -1239,6 +1286,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @rus Описание:
 ~
 @eng Desire range is -1 to 100.@rus Диапазон значений -1...100.~
+@eng Die, $i! You are backstabbing scum!@rus Умри, $i, бесчестная тварь!~
 @eng Die, $i, you butchering fool!@rus Умри, $i, мерзкий мясник!~
 @eng Die, $i, you sorcerous dog!@rus Умри, $i, мерзкая тварь!~
 @eng Disabled commands:@rus Недоступные комманды:~
@@ -1274,10 +1322,12 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng Find what?@rus Что отыскать?~
 @eng Find whom?@rus Отыскать кого?~
 @eng First ask your beloved master!@rus Сначала спроси у своего любимого хозяина!~
+@eng Flame? What is that?@rus Хммм? А что это такое?~
 @eng Follow whom?@rus Последовать за кем?~
 @eng For more information, type: help quests.@rus Для получения дополнительной информации набери: help quests.~
 @eng Form added.@rus Форма добавлена.~
 @eng Forward which number?@rus Переслать какой номер?~
+@eng Four flesh golems are more than you can control!@rus Четыре штуки -- это перебор!~
 @eng Four stone golems are more than you can control!@rus Четыре каменных голема -- это больше, чем ты можешь контролировать.~
 @eng From now on, you will only hear says and emotes.@rus С этого момента ты будешь слышать только то, что говорят рядом с тобой.~
 @eng From now on, you won't hear tells.@rus С этого момента ты не будешь слышать то, что тебе говорят.~
@@ -1313,10 +1363,12 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng Help! $lu{$i} just kicked dirt into my eyes!@rus Помогите! $lu{$i} $gi{кинул} пыль мне в глаза!~
 @eng Help! $lu{$i} just kidnapped me!@rus Помогите! $lu{$i} $gi{похитил} меня!~
 @eng Help! $lu{$i} just threw dust into my eyes!@rus Помогите! $lu{$i} $gi{кинул} мне в глаза пылью!~
+@eng Help! $lu{$i} just tripped me!@rus Помогите! $lu{$i} пытался подставить мне подножку!~
 @eng Help! $lu{$i} tried to bite me!@rus На помощь! $lu{$i} $gi{попыталcя} укусить меня!~
 @eng Help! $lu{$i} tried to hit me with his tail!@rus Помогите! $lu{$i} пытался ударить меня своим хвостом!~
 @eng Help! $lu{$i} tried to kidnap me!@rus Помогите! $lu{$i} только что $gi{пытался} похитить меня!~
 @eng Help! $lu{$i} tried to touch me!@rus Помогите! $lu{$i} пытался отправить меня в мир кошмаров!~
+@eng Help! $lu{$i} tries to assassinate me!@rus Помогите! $lu{$i} $gi{пытался} покончить со мной!~
 @eng Help! $lu{$i} tries to burn me!@rus Помогите! $lu{$i} $gi{пытался} сжечь меня!~
 @eng Help! I'm being strangled by $i!@rus Помогите! $i $gi{пытался} меня задушить!~
 @eng Help! I've been ambushed by $i!@rus Помогите! $i $gi{напал} на меня из засады!~
@@ -1498,7 +1550,9 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng No such hometown.@rus Нет такого домашнего города.~
 @eng No such location.@rus Нет такого места в этом мире.~
 @eng No such magic school.@rus Такой магической школы не существует.~
+@eng No such option.@rus Нет такой опции.~
 @eng No such player.@rus Нет такого игрока.~
+@eng No target@rus Цели нет~
 @eng No tigers can hear your call.@rus Тигры не слышат твоего зова.~
 @eng No way! You are fighting.@rus Куда?! Ты же сражаешься!~
 @eng No way! You are still fighting!@rus Нельзя! Ты сражаешься!~
@@ -1542,6 +1596,9 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng ON@rus вкл~
 @eng Obj must be in your inventory.@rus Тебе необходимо нести предмет.~
 @eng Object has been removed from auction.@rus Лот снимается с торгов.~
+@eng Objects under owned affects:
+@rus Обьекты, находящиеся под воздействием:
+~
 @eng Obvious exits from room %d:
 @rus Видимые выходы из комнаты %d:
 ~
@@ -1573,6 +1630,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng Oops.@rus Опс...~
 @eng Open what?@rus Открыть что?~
 @eng Order whom to do what?@rus Повелеть что и кому?~
+@eng Ouch! Beast stands and fight again, with new power!@rus Ой! Чудовище встало и сражается опять, с новой силой!~
 @eng PANIC! You couldn't escape!@rus КОШМАР! Тебе некуда бежать!~
 @eng Password must be at least five characters long.@rus Пароль должен быть не меньше пяти символов в длину.~
 @eng Password: @rus Пароль:~
@@ -1621,10 +1679,12 @@ Quest staff waits patiently to return.~
 @eng Rest a while, you're tired from previous one.@rus Отдохни, восстановись после предыдущей попытки.~
 @eng Restrictions:@rus Ограничения:~
 @eng Return to your natural form first.@rus Сначала вернись к своему нормальному виду.~
+@eng Room restored.@rus Комната восстановлена.~
 @eng SEdit: Invalid command.@rus Неправильная команда.~
 @eng Sale of $p has been stopped by $N.@rus Продажа $c1{$p} остановлена $c4{$N}.~
 @eng Saving.@rus Текущее состояние твоего персонажа сохранено.~
 @eng Say what?@rus Что сказать?~
+@eng Scan which direction?@rus Вглядеться в какую сторону?~
 @eng Scroll set to $j lines.@rus Тебе будет выводиться $j $qj{строк} на страницу.~
 @eng Seek their soul somewhere else.@rus Эту душу надо искать где-то в другом месте.~
 @eng Sell what?@rus Продать что?~
@@ -1639,6 +1699,7 @@ Quest staff waits patiently to return.~
 @eng Skill:@rus Умение:~
 @eng So we meet again, $i!@rus Вот мы и встретились снова, $i!~
 @eng So your charisma has increased by one.@rus Твое обаяние стало еще больше.~
+@eng So your charisma has reduced by one.@rus К сожалению, твое обаяние стало меньше.~
 @eng SoG is going down for rebooting NOW!
 @rus Мир Серых Теней умирает, чтобы возродиться заново!
 ~
@@ -1670,6 +1731,9 @@ Quest staff waits patiently to return.~
 @eng Starting price for this item is $j gold.@rus Начальная цена $j $qj{золотых}.~
 @eng Stat what?@rus Посмотреть характеристики чего/кого?~
 @eng Stat whom?@rus Узнать характеристики кого/чего?~
+@eng Status   Level Race  Class   Ethos-align   Name
+@rus статус уровень раса  класс   наклонности   имя
+~
 @eng Steal what from whom?@rus У кого что украсть?~
 @eng String formatted.@rus Редактируемый текст отформатирован.~
 @eng Such cowardice ill becomes you.@rus Такое малодушие тебе не к лицу.~
@@ -1682,6 +1746,8 @@ Quest staff waits patiently to return.~
 @eng Tasty. But let's finish that fight before meal!@rus Аппетитно. Но лучше бы сначала закончить сражаться!~
 @eng Tell whom what?@rus Сказать что и кому?~
 @eng Tell your group what?@rus Что ты хочешь сказать своей группе?~
+@eng Ten tigers come across $n, and connect with $n.@rus Десять тигров появились вокруг $c1{$n} и слились с $gn{ним}.~
+@eng Ten tigers come for your call, as you call them!@rus Десяток тигров явился на зов!~
 @eng Text cleared.@rus Редактируемый текст удален.~
 @eng Text so far (preview):
 $t{x@rus Редактируемый текст (просмотр):
@@ -1719,6 +1785,7 @@ $t~
 @eng That room is private right now.@rus ЗАНЯТО!~
 @eng That shall not be done!@rus Не пойдет!~
 @eng That will NOT be done.@rus Это не может быть исполнено.~
+@eng That would really hurt. Think twice more.@rus Это может быть весьма болезненно. Стоит подумать дважды.~
 @eng That's more than you've got.@rus Это больше, чем у тебя есть.~
 @eng That's not a class.@rus Нет такого класса.~
 @eng That's not a container.@rus Это не контейнер.~
@@ -1781,6 +1848,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng The gods refuse to listen to you right now.@rus Боги не расположены выслушивать тебя.~
 @eng The holy aura of $p is too powerful for you to overcome.@rus Светлое начало в $c5{$p} слишком сильно.~
 @eng The item must be carried to be blessed.@rus Для того чтобы благовлавить вещь нужно ее иметь.~
+@eng The item must be carried to be brewed.@rus Чтобы приготовить из обьекта зелье, его нужно иметь.~
 @eng The item must be carried to be cursed.@rus Вещь нужно нести, чтобы наложить на нее проклятие.~
 @eng The item must be carried to be enchanted.@rus Чтобы наделить обьект магической силой его нужно нести.~
 @eng The item must be carried to be mended.@rus Вещь, чтобы починить, необходимо нести.~
@@ -1792,6 +1860,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng The light in the room disturbs you.@rus Яркое освещение нервирует тебя.~
 @eng The light seems powerless to affect you.@rus Свет не может оказать воздействие на тебя.~
 @eng The lightning has stopped.@rus Гроза кончилась.~
+@eng The mosquito by your feet will not give you any money.@rus Насекомые, летающие вокруг, вряд ли могут дать тебе денег.~
 @eng The new name is illegal.@rus Новое имя неприемлимо.~
 @eng The night has begun.@rus Сгустились сумерки и наступила ночь.~
 @eng The pain pulses in your crippled hands.@rus Боль пульсирует в твоих искалеченных руках.~
@@ -1873,6 +1942,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng They must be sleeping.@rus Они должны спать.~
 @eng They're not here.@rus Таких нет.~
 @eng Thirst range is -1 to 100.@rus Допустимый диапазон значений -1...100.~
+@eng This $t appears to be blank.@rus Похоже, что тут ничего не написано.~
 @eng This beast is already ridden.@rus Этот зверь уже оседлан.~
 @eng This class isn't available yet.@rus Этот класс пока не доступен.~
 @eng This is not a valid undead type.@rus Такого рода нежити не существует.~
@@ -1906,9 +1976,11 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Too dark to tell@rus Слишком темно, для того чтобы что-то сказать.~
 @eng Too late.@rus Кажется ты немного $gn{припоздал} с этим.~
 @eng Training session range is 0 to 50 sessions.@rus Диапазон значений 0...50.~
+@eng Tripping? What's that?@rus А что это такое?~
 @eng Try again later - $p is being auctioned right now!@rus Обратитесь к нам позднее. Сейчас идут торги за лот "$p".~
 @eng Try flee. It may fit better to you.@rus Попробуй flee. Может быть это подойдет тебе лучше.~
 @eng Try your chance during fighting.@rus Попробуй, когда будешь драться.~
+@eng Two Nightwalkers are more than you can control!@rus Двоих под контролем тебе не удержать.~
 @eng Two adamantite golems are more than you can control!@rus У тебя недостаточно могущества, чтобы держать под контролем двух адаматитовых големов.~
 @eng Two bears come to $n's rescue!@rus Два медведя явились по зову $c1{$n} $gn{ему} на помощь!~
 @eng Two bears come to your rescue!@rus Услышав зов, два медведя явились тебе на помощь!~
@@ -1947,6 +2019,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Very funny.@rus Очень смешно.~
 @eng Vial of $p breaks and liquid spoils!@rus Сосуд с $c4{$p} $gp{раскололся} и жидкость вытекла!~
 @eng WARNING: this command is irreversible.@rus Но учти - эта команда - необратима.~
+@eng Wait for a while to request again.@rus Подожди немного прежде, чем просить снова.~
 @eng Wait till you have sold/bought the item on auction.@rus Сначала закончи учавствовать в аукционе.~
 @eng Wait until the fight finishes.@rus Подожди пока не кончится бой.~
 @eng Wait until the fighting stops.@rus Подожди пока не закончится битва.~
@@ -1961,6 +2034,8 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng What about fleeing instead?@rus Может вместо этого лучше сбежать?~
 @eng What is your race ('help <race>' for more information)? @rus К какой расе ты будешь принадлежать('help <название расы> для дополнительной информации)? ~
 @eng What should the spell be cast upon?@rus Какое заклинание ты хочешь наложить?~
+@eng What's wrong with the bear you've got?@rus Что-то не так с мишкой, который у тебя уже есть?~
+@eng What's wrong with the lion you've got?@rus Что-то не так со львов, который тебе помогает?~
 @eng What?@rus Что?~
 @eng What? And leave your beloved master?@rus Что? Ты уйдешь от своего любимого хозяина?~
 @eng When you attempt to leave the room, you break the webs holding you tight.@rus Тебе удалось разорвать паутину, удерживавшую тебя.~
@@ -1971,7 +2046,9 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Whom are you trying to hunt?@rus Кого ты хочешь выследить?~
 @eng Whom do you want to have killed?@rus Кого ты хочешь убить?~
 @eng Why don't you just ask the player?@rus Почему бы тебе просто не попросить?~
+@eng Why don't you just eat those instead?@rus Почему бы просто не съесть?~
 @eng Why don't you just relax for a while?@rus Почему бы тебе немного не отдохнуть?~
+@eng Why don't you let them stop fighting first?@rus Почему бы тебе сначала не подождать пока закончится драка?~
 @eng Why don't you tame yourself first?@rus Почему бы сначала $gn{самому} не успокоиться?~
 @eng Wimpy set to $j hit points.@rus Ты будешь пытаться сбежать, когда у тебя останется $j $qj{едениц} здоровья.~
 @eng Wimpy set to {c%d{x hit points.@rus Ты будешь сбегать, когда у тебя останется {c%d{x единиц здоровья.~
@@ -2013,6 +2090,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @rus Ты находишься под влиянием:
 ~
 @eng You are afraid as much as a rabbit.@rus Ты $gn{стал} $gn{труслив} словно кролик.~
+@eng You are aggressive as a battlerager.@rus Ты стал $gn{агрессивен}, словно один из яростных-в-битве.~
 @eng You are already a human.@rus Ты и так уже человек.~
 @eng You are already affected.@rus Ты и так это делаешь.~
 @eng You are already airborne.@rus Ты уже и так можешь передвигаться по воздуху.~
@@ -2039,6 +2117,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are already out of phase.@rus Ты уже обладаешь способностью проходить сквозь двери.~
 @eng You are already overflowing with health.@rus Здоровье переполняет тебя.~
 @eng You are already polymorphed.@rus Ты уже $gn{осуществил} это превращение.~
+@eng You are already protected by a globe.@rus Тебе уже окружает защитная сфера.~
 @eng You are already protected by a golden aura.@rus Золотая аура уже защищает тебя.~
 @eng You are already protected by a shadow cloak.@rus Тени уже защищают тебя.~
 @eng You are already protected from cold.@rus У тебя уже есть защита от холода.~
@@ -2108,6 +2187,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are not yet ready to make a sacrifice.@rus Ты пока не $gn{готов} к принесению жертвы.~
 @eng You are now commoner in the clan.@rus Отныне ты рядовой член клана.~
 @eng You are now guarding $N.@rus С этого момента ты охраняешь $c6{$N}.~
+@eng You are now immune to snooping.@rus Теперь за тобой нельзя подсматривать.~
 @eng You are now leader in your clan.@rus Отныне ты лидер клана.~
 @eng You are now learned at $T.@rus Ты $gn{изучил} умение '$T'.~
 @eng You are now learned at $v.@rus Ты $gn{изучил} умение '$v'.~
@@ -2196,8 +2276,11 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You attempt to create a stone golem.@rus Ты $gn{попытался} создать каменного голема.~
 @eng You attempt to create an Adamantite golem.@rus Ты $gn{попытался} создать адаматитового голема.~
 @eng You attempt to create an iron golem.@rus Ты пытаешься создать железного голема.~
+@eng You attempt to cut $N with your weapon.@rus Ты $gn{попытался} разрезать надвое $c6{$N} своим оружием.~
 @eng You attempt to fade.@rus Ты пытаешься исчезнуть.~
+@eng You attempt to find a familiar.@rus Ты пытаешься отыскать себе питомца и соратника.~
 @eng You attempt to hide.@rus Ты пытаешься спрятаться.~
+@eng You attempt to leave the room, but the webs hold you tight.@rus Ты пытаешься покинуть это место, но паутина удерживает тебя.~
 @eng You attempt to move silently.@rus Ты пытаешься двигаться бесшумно.~
 @eng You attempt to push $N, but the webs hold $m in place.@rus Ты пытаешься сдвинуть $c6{$N}, но паутина удерживает $gN{его} на месте.~
 @eng You attempt to summon a demon.@rus Ты $gn{попытался} призвать демона.~
@@ -2265,12 +2348,16 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't ambush while riding!@rus Верхом ты не можешь спрятаться в засаду!~
 @eng You can't animate deads here.@rus Ты не можешь в этом месте оживлять мертвецов.~
 @eng You can't animate here.@rus Ты не можешь заниматься оживлением трупов в этом месте.~
+@eng You can't assassinate a fighting person.@rus Ты не можешь проделать этого со сражающейся персоной.~
 @eng You can't assassinate while riding!@rus Вряд ли у тебя получится сделать это верхом!~
 @eng You can't backstab a fighting person.@rus Ты не можешь ударить в спину того, кто верхом.~
 @eng You can't backstab while riding!@rus Верхом подкрасться? и ударить в спину?~
+@eng You can't bash a riding one!@rus С верховым ты не можешь этого проделать.~
 @eng You can't bash doors while being ridden.@rus Ты не можешь выбивать двери оседланным.~
 @eng You can't bash doors while mounted.@rus Ты не можешь выбивать двери верхом.~
+@eng You can't bash while riding!@rus Вряд ли у тебя получится толкаться верхом!~
 @eng You can't bite a fighting person.@rus Ты не можешь укусить того, кто сражается.~
+@eng You can't blackjack a riding person.@rus С верховым не получится это проделать.~
 @eng You can't blackjack while riding!@rus Ты не можешь сделать это верхом!~
 @eng You can't blend while glowing.@rus Ты не можешь раствориться среди деревьев, $gn{окруженный} светящимся контуром.~
 @eng You can't bring $N into the city.@rus Ты не можешь внести $N в этот город.~
@@ -2314,7 +2401,9 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't fill that.@rus У тебя не получится это наполнить.~
 @eng You can't find any more herbs.@rus На растениях не осталось побегов, которые можно было бы использовать.~
 @eng You can't find it.@rus Ты не можешь найти этого.~
+@eng You can't find that much energy to fire.@rus У тебя недостаточно энергии, чтобы зажечь огонь.~
 @eng You can't find the power to control objects.@rus Ты не можешь изыскать достаточно сил.~
+@eng You can't find them.@rus Ты не можешь отыскать такого персонажа.~
 @eng You can't fly.@rus Ты не умеешь летать.~
 @eng You can't fold it into itself.@rus Те не можешь положить вещь саму в себя.~
 @eng You can't gain exp without your spirit.@rus Без души ты не можешь набираться опыта.~
@@ -2330,6 +2419,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't label this object with this label.@rus Ты не можешь добавить этому обьекту такое название.~
 @eng You can't learn that.@rus Ты не можешь научиться этому.~
 @eng You can't let go of it.@rus Ты не можешь избавиться от этой вещи.~
+@eng You can't make a Dragon Weapon like that!@rus Оружие Драконов не имеет такой разновидности!~
 @eng You can't make a trophy out of that!@rus Из этого не получится сделать трофей!~
 @eng You can't move any faster!@rus Двигаться еще быстрее ты не можешь!~
 @eng You can't move any slower!@rus Ты не можешь двигаться еще медленнее, чем сейчас.~
@@ -2344,6 +2434,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't quit here.@rus Ты не можешь покинуть мир в этом месте.~
 @eng You can't reach your items.@rus Ты не можешь дотянуться до своих вещей.~
 @eng You can't remove $p.@rus Ты не можешь снять $c3{$p}.~
+@eng You can't remove charmed mobs from your group.@rus Очарованных тобою мобов ты не можешь исключить из своей группы.~
 @eng You can't rest on that.@rus Ты не можешь на этом отдыхать.~
 @eng You can't rest while being ridden.@rus Ты не можешь отдыхать оседланным.~
 @eng You can't rest while mounted.@rus Ты не можешь отдыхать верхом.~
@@ -2365,6 +2456,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't sleep while mounted.@rus Ты не можешь спать верхом.~
 @eng You can't sneak while mounted.@rus Ты не можешь красться верхом.~
 @eng You can't speak in this form.@rus Ты не помошь разговаривать, находясь в этой форме.~
+@eng You can't strangle a riding one.@rus Ты не можешь придушить верхового.~
 @eng You can't strangle while riding!@rus Как ты собираешься кого-то душить верхом?!~
 @eng You can't swim.@rus Ты не умеешь плавать.~
 @eng You can't tail while riding!@rus Верхом ты не можешь пользоваться своим хвостом, чтобы поставить подножку.~
@@ -2375,7 +2467,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't trip a riding one!@rus Вряд ли у тебя получится подставить подножку верховому!~
 @eng You can't trip while riding!@rus Ты не можешь подставить подножку, сидя верхом.~
 @eng You can't use $p.@rus Ты не можешь использовать $c3{$p}.~
-@eng You can't wake $M!@rus Ты не можешь разбудить $c6{$M}!~
+@eng You can't wake $M!@rus Ты не можешь разбудить $gN{его}.~
 @eng You can't wake up!@rus Ты не можешь проснуться!~
 @eng You can't wear, wield or hold $p.@rus Ты не можешь надеть, вооружиться или взять в руку $c3{$p}.~
 @eng You can't wield that as your second weapon.@rus К сожалению, это нельзя использовать в качестве второго оружия.~
@@ -2395,6 +2487,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You cannot deafen that person.@rus Ты не можешь оглушить эту персону.~
 @eng You cannot do that to yourself.@rus Ты не можешь сделать этого с собой.~
 @eng You cannot do that.@rus Ты не можешь сделать этого.~
+@eng You cannot endure more concentration.@rus Ты не можешь приобрести еще большей устойчивости, чем есть.~
 @eng You cannot fill $p.@rus Ты не можешь наполнить $c3{$p}.~
 @eng You cannot force yourself to eat.@rus Ты не в состоянии сейчас есть.~
 @eng You cannot garble that person.@rus Ты не можешь исковеркать речь этой персоны.~
@@ -2402,6 +2495,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You cannot hide while glowing.@rus Ты не можешь спрятаться пока светишься.~
 @eng You cannot join $n's group.@rus Ты не можешь присоедениться к группе $c1{$n}.~
 @eng You cannot leave your clan this way.@rus Ты не можешь покинуть клан таким способом.~
+@eng You cannot muster up the energy.@rus Ты не можешь собрать достаточно сил.~
 @eng You cannot quit and leave your $N alone.@rus Ты не можешь уйти и оставить $c6{$N} в одиночестве.~
 @eng You cannot quit yet.@rus Ты пока не можешь покинуть мир.~
 @eng You cannot quit, you are in deep sleep.@rus Ты $gn{погружен} в глубокий сон, ты не можешь покинуть мир.~
@@ -2410,10 +2504,13 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You cannot say anything in this form.@rus Ты не $gn{способен} ничего произнести в этой форме.~
 @eng You cannot see that far.@rus Так далеко ты не видишь.~
 @eng You cannot see that much far.@rus Так далеко ты не видишь.~
+@eng You cannot seem to concentrate enough.@rus У тебя не получается достаточно сконцентрироваться.~
 @eng You cannot shout in this form.@rus В этой форме ты не можешь пользоваться этим каналом.~
 @eng You cannot show emotions.@rus Ты не можешь выражать эмоции.~
 @eng You cannot string clan marks.@rus Ты не можешь изменить внешний вид кланового знака.~
 @eng You cannot string limited objs.@rus Ты не можешь изменять внешний вид обьектов, имеющих ограничения по количеству.~
+@eng You cannot summon the strength to handle more bears right now.@rus Твои силы еще не восстановились после предыдущего зова.~
+@eng You cannot summon the strength to handle more lions right now.@rus У тебя пока нет сил, чтобы призвать львов.~
 @eng You cannot summon the strength to handle more undead bodies.@rus У тебя нет больше сил на работу с мертвецами.~
 @eng You cannot transfer yourself there.@rus Ты не можешь переместить себя туда.~
 @eng You cannot use Rename on NPCs.@rus Ты не можешь переименовывать мобов.~
@@ -2423,6 +2520,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You cannot yell in this form.@rus Кричать в этой форме не представляется возможным.~
 @eng You catch $N's spirit into your vial.@rus Ты $gn{лишил} $c6{$N} души, заточив ее в свой сосуд.~
 @eng You change form to look like $N.@rus Ты $gn{изменил} внешний вид и $gn{стал} выглядеть также, как и $N.~
+@eng You change your target to $N!@rus Теперь твоя цель -- $N!~
 @eng You choke and gag.@rus Ты мучаешься от удушья.~
 @eng You cleaved $N's shield into two.@rus Ты {расколол} щит $c1{$N} надвое.~
 @eng You cleaved $N's weapon into two.@rus Ты $gn{расколол} оружие $c1{$N} надвое.~
@@ -2436,6 +2534,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You conjure a cloud of purple smoke.@rus Ты $gn{сотворил} облако пурпурного дыма.~
 @eng You conjure forth the blue fire!@rus Ты $gn{сотворил} струю голубого огня и $gn{послал} ее вперед!~
 @eng You conjure forth the demons of hell!@rus Ты $gn{вызвал} злых духов ада!~
+@eng You couldn't cut your finger. It is not so easy, you know.@rus Ты не можешь отрезать себе палец. Это не так просто.~
 @eng You couldn't find a path to $N from here.@rus Ты не можешь найти путь отсюда до $c1{$N}.~
 @eng You couldn't find anyone who can teach you.@rus Ты не можешь найти никого, кто мог бы научить тебя.~
 @eng You couldn't find enough wood.@rus Ты не можешь найти подходящего куска дерева.~
@@ -2455,6 +2554,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You created an iron golem!@rus Ты $gn{создал} железного голема.~
 @eng You currently display $j $qj{lines} per page.@rus Тебе выводится $j $qj{строк} на одну страницу.~
 @eng You cut out $N's {Rheart{x! I bet that hurt!@rus {RТы вырываешь сердце из груди $c1{$N}!{x~
+@eng You cut your finger and wait till all your blood finishes.@rus Ты отрубаешь себе пальцы и ждешь, пока вся кровь вытечет.~
 @eng You dare disturb me??!!!@rus Кто посмел потревожить меня??!!!~
 @eng You deadly touch $n's neck and put $m to nightmares.@rus Смертоносным прикосновением ты касаешься шеи $c1{$n}, погружая $gn{его} в мир кошмаров.~
 @eng You deathen yourself, turning into $t.@rus Ты умервщляешь свою плоть, превращая себя в $c6{$t}.~
@@ -2468,6 +2568,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You die..@rus Ты умираешь..~
 @eng You disappear into the void.@rus Ты исчезаешь в никуда.~
 @eng You disarm $N!@rus Ты обезаруживаешь $c2{$N}!~
+@eng You dishonored yourself and flee from combat.@rus Поступившись своей честью, ты $gn{сбежал} из битвы.~
 @eng You dismount from $N.@rus Ты спешиваешься с $c1{$N}.~
 @eng You dissolve in a blinding flash of light!@rus Ты исчез в слепящей вспышке света!~
 @eng You dissolve into a cloud of glowing mist, then flow to your target.@rus Ты растворяешься в облаке сияющего тумана и улетаешь к своей цели.~
@@ -2533,9 +2634,11 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You don't know any spells of that name.@rus Ты не знаешь такого заклинания.~
 @eng You don't know how to ambush.@rus Ты не владеешь искусством нападения из засады.~
 @eng You don't know how to assassinate.@rus Ты не знаешь как это делается.~
+@eng You don't know how to backstab.@rus Ты не сладеешь умением вонзать нож в спину.~
 @eng You don't know how to bite creatures.@rus Ты не умеешь кусаться.~
 @eng You don't know how to camouflage yourself.@rus Ты не умеешь маскироваться.~
 @eng You don't know how to change the target while fighting a group.@rus Тебе неизвестно как менять цель, когда дерешься в группе.~
+@eng You don't know how to circle.@rus Тебе неизвестно такое умение.~
 @eng You don't know how to cleave opponents's shield.@rus Тебе неизвестно, как можно расколоть щит противника.~
 @eng You don't know how to cleave opponents's weapon.@rus Тебе неизвестно как можно расколоть оружие оппонента.~
 @eng You don't know how to cleave.@rus Ты не владеешь этим умением.~
@@ -2566,19 +2669,24 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You drop your $p, unable to hold it!@rus Не в силах удержать, ты $gn{бросил} $c3{$p}.~
 @eng You eat $p.@rus Ты ешь $c3{$p}.~
 @eng You emesh $N in a bundle of webs!@rus Ты $gn{опутал} паутиной $c6{$N}!~
+@eng You entangle $N with your $p.@rus Ты $gn{опутал} $c6{$N} $gp{своим} $c4{$p}.~
 @eng You enter $p.@rus Ты входишь в $c3{$p}.~
 @eng You escaped from combat!@rus Ты $gn{сбежал} из битвы!~
 @eng You fade into existence.@rus Ты становишься $c4{$gn{видимый}}.~
 @eng You fade out of existence.@rus Ты исчезаешь из реальности.~
+@eng You fail and destroy $p.@rus Ошибившись, ты уничтожаешь $c3{4p}.~
 @eng You fail the rescue.@rus У тебя не получилось прийти на помощь.~
 @eng You fail to cleave $N's shield.@rus У тебя не получилось расколоть щит $c6{$N}.~
 @eng You fail to cleave $N's weapon.@rus У тебя не получилось расколоть оружие $c1{$N}.~
 @eng You fail to disarm $N.@rus Тебе не удалось обезоружить $c6{$N}.~
+@eng You fail to entangle $N with your $p.@rus Тебе не удалось опутать $c6{$N} $c4{$p}.~
 @eng You fail to envenom $p.@rus У тебя не получилось отравить $c3{$p}.~
 @eng You fail to grab your opponent.@rus Тебе не удалось схватить противника.~
 @eng You fail to invoke $p.@rus У тебя не получилось использовать $c3{$p}.~
 @eng You fail to mount the beast.@rus Тебе не удалось оседлать это существо.~
 @eng You fail to poison $p.@rus Тебе не удается отравить $c3{$p}.~
+@eng You fail to reach $N.@rus У тебя не получилось подступится ближе к $c2{$N}!~
+@eng You fail to reach $s arm.@rus У тебя не получилось ухватиться за $c6{$n}.~
 @eng You fail to reach your mouth.  *Hic*@rus Ты не можешь дотянуться до рта. *Иик*~
 @eng You failed and destroyed it.@rus Ошибившись, ты $gn{уничтожил} свои ресурсы.~
 @eng You failed to escape.@rus Тебе не удалось сбежать.~
@@ -2591,8 +2699,10 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You failed to repair $p.@rus У тебя не получилось восстановить $c3{$p}.~
 @eng You failed to sharpen your vision.@rus Тебе не удалось придать необходимую остроту своему зрению.~
 @eng You failed.@rus Не получилось.~
+@eng You fall down!@rus Ты падаешь!~
 @eng You fall flat on your face!@rus Потеряв равновесие, ты $gn{упал}!~
 @eng You feel $j more life $qj{forms} in the room.@rus Ты чувствуешь присутствие еще $j $qj{живых} $qj{существ}.~
+@eng You feel $n's deadly wave passing through your body.@rus Ты ощущаешь как несущие смерть колебания эфира, вызванные $c4{$n}, проходят сквозь тебя.~
 @eng You feel $p drawing your life away.@rus Ты чувствуешь как $p $gp{вытягивает} твои жизненные силы.~
 @eng You feel a brief tingling sensation.@rus Ты на мгновение $gn{ощутил} покалывание во всем теле.~
 @eng You feel a golden aura around you.@rus Ты чувствуешь, как тебя окружает золотая аура.~
@@ -2613,6 +2723,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You feel inspired!@rus Ты чувствуешь как тебя наполняет вдохновение!~
 @eng You feel it is time to feed your dragon.@rus Ты чувствуешь, что настало время для кормления дракона.~
 @eng You feel less tired.@rus Ты чувствуешь себя менее $gn{уставшим}.~
+@eng You feel like taking, not giving, orders.@rus Тебе судьбой назначено выполнять, а не отдавать распоряжения.~
 @eng You feel momentarily faster.@rus На мгновение твои движения ускорились.~
 @eng You feel momentarily ill, but it passes.@rus На мгновение ты $gn{почувствовал} себя $gn{больным}, но все прошло.~
 @eng You feel momentarily warmer.@rus На мгновение ты $gn{почувствовал} жар.~
@@ -2622,13 +2733,16 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You feel quite confident with $p.@rus Ты достаточно уверенно владеешь $c4{$p}.~
 @eng You feel righteous as you yell out your warcry.@rus Издавая воинственный клич, ты чувствуешь как боевой задор переполняет тебя.~
 @eng You feel righteous.@rus Благословение богов пребывает с тобой.~
+@eng You feel so hungry now.@rus Ты ощущаешь себя $gn{таким} $gn{голодным}.~
 @eng You feel someone protecting you.@rus Ты чувствуешь как кто-то дает тебе дополнительную защиту.~
 @eng You feel strengthed against cold.@rus Ты теперь имеешь защиту от холода.~
 @eng You feel strengthed against heat.@rus Ты теперь имеешь защиту от жара.~
 @eng You feel the shadows protect you.@rus Ты чувствуешь, что тени теперь защищают тебя.~
+@eng You feel the shielding get stronger.@rus Ты ощущаешь как барьер становится прочнее.~
 @eng You feel too bloody to go in there now.@rus Ты чувствуешь, что $gn{способен} осквернить это место еще свежей кровью на твоих руках.~
 @eng You feel too exhausted from previous kidnap attempt.@rus Ты слишком $gn{утомлен} после предыдущей попытки похищения.~
 @eng You feel too weak to concentrate on a katana.@rus Ты чувствуешь себя слишком $gn{усталым}, чтобы заниматься катаной.~
+@eng You feel too weak to concentrate on a trophy.@rus Ты чувствуешь, что слишком $gn{устал}, чтобы думать о трофеях.~
 @eng You feel tough!@rus Ты становишься более $gn{выносливым}.~
 @eng You feel unclean.@rus Ты чувствуешь себя $gn{нечистым}, $gn{проклятым}.~
 @eng You feel very sick.@rus Ты чувствуешь себя очень $gn{больным}.~
@@ -2672,6 +2786,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You got one of them!@rus Ты $gn{утащил} одну штуку!~
 @eng You grab $N and take $m away.@rus Ты хватаешь $c6{$N} и утаскиваешь $gN{его} прочь.~
 @eng You grab $N, but $E escaped.@rus Ты $gn{схватил} $c6{$N}, но $gN{ему} удалось вырваться и убежать.~
+@eng You grab $n and throw $m to the ground.@rus Ты $gN{схватил} $c6{$n} и $gN{бросил} $gn{его} на землю.~
 @eng You grab hold of $N's neck and put $M to sleep.@rus Ты сдавливаешь шею $c1{$N} и погружаешь $gN{его} в сон.~
 @eng You grant $N a new title!@rus Ты жалуешь $c2{$N} новый титул!~
 @eng You grant $N favor of your god.@rus Ты жалуешь $c2{$N} милость, даруемую твоими богами.~
@@ -2711,6 +2826,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You have killed $j $T up to now.@rus Тобой убито $j $T.~
 @eng You have never heard about such a spell.@rus Ты никогда не $gn{слышал} о таком заклинании.~
 @eng You have no aliases defined.@rus У тебя нет ни одного сокращения.~
+@eng You have no endurance whatsoever.@rus У тебя нет ни к чему стойкости.~
 @eng You have no followers here.@rus Здесь тебе неким повелевать.~
 @eng You have no note in progress.@rus Ты не $gn{писал} обьявлений.~
 @eng You have no practice sessions left.@rus У тебя нет ни одного практического занятия.~
@@ -2751,20 +2867,27 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You inspire $N with the Creator's power!@rus Ты вдохновляешь $c6{$N} силой создателя!~
 @eng You invert $p, spilling $V $T.@rus Ты выливаешь $c3{$V} из $c1{$p} $T.~
 @eng You join $n's group.@rus Ты присоеденяешься к группе $c1{$n}.~
+@eng You jump in front of $N!@rus Ты $gn{бросился} вперед, загородив собой $c6{$N}!~
 @eng You knock $d, and try to open it.@rus Ты тихонько $gn{постучал} и $gn{попытался} открыть $c3{$d}.~
 @eng You know no skills.@rus У тебя нет никаких навыков и умений.~
 @eng You know no spells.@rus Ты не знаешь ни одного заклинания.~
+@eng You lack the concentration.@rus У тебя нет сил.~
 @eng You lack the key.@rus У тебя нет ключа.~
+@eng You lack the power to call another two guards now.@rus У тебя нет сил, чтобы призвать охранников.~
 @eng You lack the power to create another golem right now.@rus Ты чувствуешь, что у тебя сейчас недостаточно силы, чтобы создать еще одного голема.~
 @eng You lack the power to do it.@rus Ты не чувствуешь в себе сил, чтобы совершить это.~
+@eng You lack the power to summon another demon right now.@rus У тебя нет достаточно сил, чтобы призвать демона.~
 @eng You lack the power to summon another shadow right now.@rus У тебя появились силы, чтобы призвать еще тень.~
 @eng You lack the power to summon another wolf right now.@rus Ты чувствуешь, что $gn{способен} призвать к себе другого волка.~
 @eng You lack the proper component for this spell.@rus Необходимо иметь специальные компоненты, чтобы воспользоваться этим заклинанием.~
 @eng You lack the skill to crush people heads.@rus Ты чувствуешь в себе силу разбить еще несколько голов.~
 @eng You lack the skill to draining touch.@rus Тебе не достает мастерства иссушающего касания.~
+@eng You lack the skill to entangle people with your whip.@rus Ты чувствуешь в себе силу опутать еще кого-нить своим кнутом.~
 @eng You lack the skill to heal others with touching.@rus Ты не умеешь лечить других прикосновением.~
+@eng You lack the skill to strangle.@rus Ты не владеешь умением удушать.~
 @eng You learn $T.@rus Ты изучаешь '$c3{$T}'.~
 @eng You light $p and hold it.@rus Ты берешь $c3{$p} и зажигаешь $gp{его}.~
+@eng You like your master too much to leave $m!@rus Ты любишь $gn{своего} $gn{повелителя} так сильно, что не можешь $gn{его} оставить.~
 @eng You like yourself even better!@rus Ты теперь любишь себя даже еще больше!~
 @eng You like yourself even better.@rus Ты $gn{стал} любить себя даже еще больше.~
 @eng You lock $p.@rus Ты замыкаешь $c3{$p}.~
@@ -2776,6 +2899,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You loose a level!@rus Ты $gn{потерял} уровень!~
 @eng You lose $j exp.@rus Ты $gn{потерял} $j $qj{очков} опыта.~
 @eng You lost your concentration.@rus Тебе не удалось сконцентрироваться.~
+@eng You lost your position and fall down!@rus Потеряв равновесие, ты $gn{упал}!~
 @eng You make a katana from $p!@rus Ты $gn{изготовил} катану из $c1{$p}!~
 @eng You make a poncho from $p!@rus Ты $gn{сделал} пончо из $c1{$p}!~
 @eng You manage to get free.@rus Тебе удалось выпутаться.~
@@ -2810,6 +2934,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You must type the full command to delete yourself.@rus Для удаления тебе придется набрать "delete" полностью.~
 @eng You must wield a piercing weapon to circle stab.@rus Для этого необходимо вооружиться колющим оружием.~
 @eng You must wield a weapon to disarm.@rus Чтобы кого-то обезоруживать, надо сначало вооружиться $gn{самому}.~
+@eng You must wield a whip or flail to strip enemy weapon.@rus Вооружись кнутом или плетью, тогда возможно тебе удасться выдернуть оружие из руг противника.~
 @eng You must wield axe or sword to cleave.@rus Для этого тебе необходимо вооружиться секирой или мечом.~
 @eng You must wield spear or lance to impale.@rus Тебе нужно сначала вооружиться копьем или пикой.~
 @eng You need a axe to do that.@rus Для этого нужна секира или топор.~
@@ -2849,9 +2974,11 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You now trust your clan with questionable spells.@rus Ты доверяешь членам клана колдовать на тебя сомнительные заклинания.~
 @eng You now use $p as the tattoo of your religion.@rus Ты теперь используешь $p, как татуировку твоей религии.~
 @eng You now use $p as your clan mark.@rus Отныне ты используешь $c3{$p} как знак клановой принадлежности.~
+@eng You only damage your dagger against $N's $p.@rus Ты только $gn{повредил} свой кинжал о $c3{$p} $c1{$N}.~
 @eng You only see $j of those here.@rus Здесь только $j $qj{штук}.~
 @eng You only see one $t here.@rus Ты видишь всего один такой обьект.~
 @eng You open $p.@rus Ты открываешь $c3{$p}.~
+@eng You page through the $t, but haven't found anything new.@rus Пролистав $c6{$t}, ты не $gn{нашел} ничего нового.~
 @eng You parry $n's attack and manage to hit $m in a response.@rus Ты парируешь атаку $c1{$n} и ухитряешься ударить $gn{его} в ответ.~
 @eng You parry $n's attack.@rus Ты парируешь атаку $c1{$n}.~
 @eng You peek at the inventory:@rus Ты всматриваешься в снаряжение:~
@@ -2910,8 +3037,10 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You shield $N from the True Source.@rus Ты $gn{отрезал} $c6{$N} от Истинного Источника силы.~
 @eng You shift to your true form as your victim leaves.@rus Ты $gn{вернулся} к своей естественной форме, после того как твоя жертва покинула мир.~
 @eng You shiver and suffer.@rus Тебя лихорадит.~
+@eng You shiver slightly, but it passes quickly.@rus Тебя немного передернуло, но все прошло.~
 @eng You shoot $p to $T.@rus Ты выпускаешь $c3{$p} $T.~
 @eng You should ask to your rider!@rus Ты должен спросить своего наездника!~
+@eng You should have a free hand to catch your victim.@rus Тебе нужно две свободные руки, чтобы поймать свою жертву.~
 @eng You should wait for the evening or night to transform to a vampire.@rus Тебе нужно подождать вечера или ночи, чтобы стать вампиром.~
 @eng You shrink back to your normal size.@rus Ты $gn{сжался} до своего нормального размера.~
 @eng You sit at $p.@rus Ты садишься за $c3{$p}.~
@@ -2925,6 +3054,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You sit down.@rus Ты садишься.~
 @eng You sit in $p.@rus Ты садишься на $c3{$p}.~
 @eng You sit on $p.@rus Ты садишься на $c3{$p}.~
+@eng You slam into $N, and crush $M!@rus Ты ударяешь $c1{$N}, раздробляя $gN{его}!~
 @eng You slam into $N, and send $M flying!@rus Ты бросаешься на $c6{$N}, сбивая $gN{его} с ног!~
 @eng You slam into $d, and try to break it!@rus Ты с разбегу ударяешься в $d!~
 @eng You slap $N.@rus Ты $gn{дал} пощечину $c2{$N}.~
@@ -2947,6 +3077,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You stand up.@rus Ты встаешь.~
 @eng You start blinking.@rus Твое тело стало мерцать.~
 @eng You start to fly.@rus Ты взлетаешь.~
+@eng You start to limp.@rus Ты $gn{стал} хромать.~
 @eng You start to sense life forms in the room!@rus Ты начинаешь ощущать присутствие живых существ около себя.~
 @eng You stay out of $n's reach.@rus Ты остаешься вне досягаемости для $c1{$n}.~
 @eng You step back into the shadows.@rus Ты опять скрываешься в тени.~
@@ -2979,10 +3110,13 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You took a deep breath but fail to concentrate.@rus Ты делаешь глубокий вдох, но тебя отвлекают, и задержать дыхание не удается.~
 @eng You transmit part of your hunger to $p.@rus Ты перемещаешь часть своей жажды на $c3{$p}.~
 @eng You treat $p with deadly poison.@rus Ты $gn{обработал} $c3{$p} смертельным ядом.~
+@eng You tried, but you couldn't. But for honour try again!@rus У тебя не вышло, но во имя чести стоит попытаться еще!~
 @eng You trip $N and $N goes down!@rus Ты подсекаешь $c6{$N} и $gN{он} $gN{падает}!~
 @eng You trust your clan with questionable spells.@rus Члены твоего клана могут воздействовать на тебя сомнительными заклинаниями.~
 @eng You trust your group with questionable spells.@rus Члены твоей группы могут воздействовать на тебя сомнительными заклинаниями.~
+@eng You try to bash your brains out, but fail.@rus Ты $gn{попытался} выбить себе мозги, но, увы, не вышло.~
 @eng You try to concentrate for the next fight but fail.@rus Ты $gn{пытался} сконцентрироваться перед битвой, но тебя отвлекли.~
+@eng You try to concentrate on what is going on.@rus Ты пытаешься сконцентрироваться на том, что уже ушло.~
 @eng You try to hit $N, but $E didn't allow you to approach.@rus Ты пытаешься ударить $c6{$N}, но $gN{он} не $gN{позволяет} тебе приблизиться.~
 @eng You try to hit yourself by your tail, but failed.@rus Ты $gn{попытался} ударить себя своим же хвостом, но у тебя не вышло.~
 @eng You try to shatter your head into small pieces, but fail.@rus Ты $gn{попытался} размозжить себе голову, но у тебя не вышло.~
@@ -3059,11 +3193,15 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You'd better not -- you might get hit.@rus Лучше не стоит -- можно просто напасть.~
 @eng You'd better try your chance on other sex!@rus Лучше попытай счастья с противоположным полом!~
 @eng You'd destroy magic, not use it!@rus Ты уничтожаешь магию, а не пользуешься ей!~
+@eng You'll have to let $M get back up first.@rus Дай $gN{ему} возможность встать сначала.~
 @eng You're already guarding $N!@rus Ты уже охраняешь $c6{$N}!~
 @eng You're carrying too much to go further.@rus Ты $gn{набрал} слишком много вещей и не можешь идти дальше.~
+@eng You're feeling to mellow to be bloodthirsty.@rus Ты слишком $gn{расслаблен}, чтобы жаждать крови.~
+@eng You're feeling too mellow to berserk.@rus Ты слишком $gn{размяк} чтобы впадать в сумашедшую ярость.~
 @eng You're feeling too mellow to call ten tigers.@rus Ты чувствуешь себе слишком $gn{подобревшим}, чтобы призывать силу тигров.~
 @eng You're not DEAD yet.@rus Подожди пока умрешь, а потом уходи на все четыре стороны.~
 @eng You're not powerful enough to master this pet.@rus У тебя пока нет возможности иметь такого питомца.~
+@eng You're not that thirsty.@rus Такого рода жажда тебе не свойственна.~
 @eng You're too exhausted to hunt anyone!@rus Ты слишком $gn{устал}, чтобы еще кого то выслеживать!~
 @eng You're too full to drink more.@rus Ты больше не можешь сделать ни глоточка.~
 @eng You're totally frozen!@rus Ты заморожен!~
@@ -3084,6 +3222,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your adrenalin is gushing! You can't quit yet.@rus Ты не можешь уйти, пока в твоей крови бушует адреналин.~
 @eng Your are protected from harm.@rus Ты теперь обладаешь защитой от зла и ущерба.~
 @eng Your awareness improves.@rus Твое видение мира стало более полным.~
+@eng Your bash seems to slide around $N.@rus Ты $gn{скользнул} мимо $c1{$N}.~
 @eng Your blue fire turn upon you!@rus Твой голубой огонь повернул против тебя $gn{самого}!~
 @eng Your body becomes blurred.@rus Твое тело приобрело размытые очертания.~
 @eng Your body is already blurred.@rus Твое тело и так имеет размытые очертания.~
@@ -3098,9 +3237,11 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your container is full.@rus Твой сосуд уже полон.~
 @eng Your courage exceeds your wisdom.@rus Твоя отвага значительно больше твоей мудрости.~
 @eng Your crippled hands refuse to hold $p.@rus Ты не можешь взять $c3{$p} в свои искалеченные руки.~
+@eng Your crush seems to slide around $N.@rus Твой удар скользнул мимо $c1{$N}.~
 @eng Your current aliases are:@rus Имеющиеся у тебя сокращения:~
 @eng Your current quest has been cancelled.@rus $N отменяет твое задание.~
 @eng Your current settings are:@rus Твои текущие настройки:~
+@eng Your dagger only scratches $N's $p.@rus Твой кинжал только оцарапал $c3{$p} $c1{$N}.~
 @eng Your description is:@rus Твое описание:~
 @eng Your efforts with $p produce only smoke and sparks.@rus Ты $gn{попытался} использовать $c1{$p}, но $gn{добился} лишь того, что во все стороны полетели искры, и повалил дым.~
 @eng Your eyes are as sharp as they can get.@rus Твое зрение уже обострено насколько это возможно.~
@@ -3108,10 +3249,13 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your eyes tear up from sands...you can't see a thing!@rus Твои глаза слезятся от попавшего в них песка...ты ничего не видишь!~
 @eng Your eyes tear up from smoke...you can't see a thing!@rus Дым разъедает твои глаза и ты ничего не видишь!~
 @eng Your eyes tingle.@rus Ты чувствуешь легкое покалывание в глазах.~
+@eng Your feel stregthen up, but nothing happens.@rus Ты чувствуешь, как сила возросла, но она быстро тебя покинула.~
 @eng Your feet rise off the ground.@rus Твои ноги оторвались от земли.~
 @eng Your feet should touch the ground to balance.@rus Ты $gn{должен} стоять на земле.~
 @eng Your fighting doesn't worth to dishonor yourself.@rus Сбежать из подобной битвы ниже твоего достоинства.~
+@eng Your flash strike instantly slays $N!@rus Твой молниеносный выпад сражает наповал $c6{$N}!~
 @eng Your flesh is already dead.@rus Твое тело уже мертво.~
+@eng Your flesh is burned with the holy aura of $p.@rus Твоя кожа обожжена святой аурой $c1{$p}.~
 @eng Your flesh starts to decay.@rus Болезнь покрыла пятнами твою кожу.~
 @eng Your gain is $T {C$j{x prac.@rus Ты получаешь $T плюс {C$j{x $qj{практических} $qj{занятий}.~
 @eng Your globe protects you from $n's spell.@rus Сфера вокруг защишает тебя от заклинаний $c1{$n}.~
@@ -3122,6 +3266,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your group wouldn't like that.@rus Твоя группа в этом не нуждается.~
 @eng Your hand blocks $n's attack.@rus Рукой ты блокируешь удар $c1{$n}.~
 @eng Your hands are full.@rus Еще одну вещь ты не унесешь.~
+@eng Your hands pass through.@rus Твои руки прошли сквозь.~
 @eng Your health increases as you suck your victim's blood.@rus Испив крови своей жертвы, ты ощущаешь, что твое самочувствие стало лучше.~
 @eng Your hero doesn't want to teach you anything.@rus Этот человек не желает учить тебя чему бы то ни было.~
 @eng Your hometown is $t, permanently. You can't change your hometown.@rus Твоим домашним городом навсегда останется $t, и ты не сможешь этого изменить.~
@@ -3176,6 +3321,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your skin is seared by $p!@rus Твоя кожа опалена $c4{$p}!~
 @eng Your skin melds into stone.@rus Твоя кожа превратилась в камень.~
 @eng Your skin turns to stone.@rus Твоя кожа превратилась в камень.~
+@eng Your snoop-proofing was just removed.@rus За тобой теперь снова смогут подсматривать.~
 @eng Your spell cannot pass through the sphere protecting $n.@rus Твоя заклинаяния не могут воздействовать на $c6{$n} из-за сферы, окружающей $gn{его}.~
 @eng Your spell fails to corrupt $p.@rus Ты $gn{бессилен} испортить $c3{$p}.~
 @eng Your spell fizzles out and fails.@rus Твое заклинание не произвело видимого эффекта.~
@@ -3183,6 +3329,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your spellbane deflects the spell!@rus Проклятье на тебе отразило заклинание!~
 @eng Your spy network cannot find that player.@rus Твоя шпионская сеть не может отыскать этого игрока.~
 @eng Your spy network reveals no such player.@rus Твоя шпионская сеть не может найти этого игрока.~
+@eng Your tail seems to slide around $N.@rus Твой хвост скользнул вокруг $c1{$N}.~
 @eng Your thin light ray ###DISINTEGRATES### $N!@rus Луч света, пущенный тобой, ###РАЗДЕЛЯЕТ### $c6{$N} на составные части!~
 @eng Your thirst for blood continues.@rus Ты по-прежнему жаждешь крови.~
 @eng Your thirst is quenched.@rus Ты больше не испытываешь жажды.~
@@ -3248,6 +3395,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng do_ban: rule $j not found.@rus do_ban: правило за номером $j не найдено.~
 @eng do_ban: rule added.@rus do_ban: правило добавлено.~
 @eng do_chquest: $t: no object with that vnum.@rus do_chquest: $t: нет обьекта с таким номером.~
+@eng do_sset: '$T': $j%@rus do_sset: '$T': $j%~
+@eng do_sset: Cannot set non-zero value for unknown skill.@rus do_sset: Нельзя установить не нулевой процент владения неизвестным умением.~
 @eng down@rus вниз (down)~
 @eng east@rus на восток~
 @eng evening@rus вечер~
@@ -3342,6 +3491,12 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng somewhere@rus где-то~
 @eng south@rus на юг~
 @eng standing@rus стоишь~
+@eng status unknown.
+@rus статус неизвестен.
+~
+@eng stopped.
+@rus остановлен.
+~
 @eng tells          $t@rus разговор на расстоянии     $t~
 @eng the down@rus снизу (down)~
 @eng the east@rus с востока (east)~
@@ -3384,6 +3539,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng {R### NUKES ###{x@rus {R### РАЗНОСИТ НА ЧАСТИ ###{x~
 @eng {R### TERMINATE ###{x@rus {R### УНИЧТОЖАЕШЬ ###{x~
 @eng {R### TERMINATES ###{x@rus {R### УНИЧТОЖАЕТ ###{x~
+@eng {R$n gashes at $N's hands, producing a bleeding wound!{x@rus {R$n $gn{наносит} глубокие раны $c2{$N}, безжалостно калеча $gN{его} руки{x.~
 @eng {R$n's dagger strikes for your hands, producing a terrible wound!{x@rus {RКинжал $c1{$n} скользнул по твоим рукам, нанося ужастные раны!{x~
 @eng {R(WANTED){x @rus {R(В РОЗЫСКЕ){x ~
 @eng {R-==> ELECTRONIZE <==-{x@rus {R-==> ИСПЕПЕЛЯЕШЬ <==-{x~
@@ -3394,6 +3550,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng {R>>> ANNIHILATES <<<{x@rus {R>>> АННИГИЛИРУЕТ <<<{x~
 @eng {R>>> ERADICATE <<<{x@rus {R>>> ОПУСТОШАЕШЬ <<<{x~
 @eng {R>>> ERADICATES <<<{x@rus {R>>> ОПУСТОШАЕТ <<<{x~
+@eng {RYour gash at $N's hands, crippling it ruthlessly!{x@rus {RТы наносишь глубокие раны $c2{$N}, безжалостно калеча $gN{его} руки!{x~
 @eng {R[*] TEAR UP [*]{x@rus {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x~
 @eng {R[*] TEARS UP [*]{x@rus {R[*] РАЗРЫВАЕТ В КЛОЧЬЯ [*]{x~
 @eng {Ris convulsing on the ground{x.@rus {Rв ужасном состоянии{x.~
