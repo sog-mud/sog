@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.39 1998-06-23 15:22:46 fjoe Exp $
+ * $Id: act_quest.c,v 1.40 1998-06-23 17:41:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -586,7 +586,10 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  questor->pIndexData == victim->pIndexData
 		||  victim->in_room == NULL
 		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
-		     IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+		     (IS_SET(victim->in_room->room_flags, ROOM_SAFE) ||
+		      IS_SET(victim->in_room->room_flags, ROOM_PRIVATE) ||
+		      IS_SET(victim->in_room->room_flags, ROOM_SOLITARY))
+		    )
 		||  IS_SET(victim->in_room->area->area_flag, AREA_HOMETOWN))
 			continue;
 		mobs[mob_count++] = victim;
