@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.74 1999-12-16 05:34:36 fjoe Exp $
+ * $Id: olc_obj.c,v 1.75 1999-12-16 07:10:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -858,7 +858,7 @@ OLC_FUN(objed_restrictions)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_cc_vexpr(ch, argument, cmd, &pObj->restrictions, "obj");
+	return olced_cc_vexpr(ch, argument, cmd, &pObj->restrictions, "obj_wear");
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
