@@ -1,0 +1,25 @@
+#
+# $Id: mprogs.txt,v 1.1 2001-09-05 13:01:48 fjoe Exp $
+#
+
+MP functions:
+-------------
+
+dofun(str name, char ch, str argument)
+	Выполнить do-функцию 'name'
+
+get_obj(char ch, obj o, obj container, str msg)
+	container can be NULL
+	msg can be NULL
+
+Porting ROM 2.4 mob progs:
+--------------------------
+
+isvisible проверки излишни, потому что в SoG 2 триггера
+срабатывают только тогда, когда mob видит игрока
+
+echoat $N
+	act("...", $n, NULL, $N, TO_VICT);
+
+echoaround $N
+	act("...", $n, NULL, $N, TO_NOTVICT);	
