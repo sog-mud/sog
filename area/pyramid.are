@@ -159,7 +159,7 @@ ABF DJ -600 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
-stand stand male 550
+stand stand male 499
 0 0 medium unknown
 #8710
 caryatid column~
@@ -175,7 +175,7 @@ AB J 0 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
-stand stand female 1750
+stand stand female 1420
 0 0 medium unknown
 #8711
 djinn genie~
@@ -192,7 +192,7 @@ ABR J 600 0
 28 0 5d10+650 28d9+100 2d10+7 none
 -8 -8 -8 1
 FU 0 0 0
-stand stand male 3000
+stand stand male 1623
 0 0 medium unknown
 #8712
 hieracosphinx sphinx~
@@ -226,7 +226,7 @@ ABQ D 100 0
 19 0 3d9+308 19d9+100 3d4+5 none
 -4 -4 -4 6
 EIKU 0 0 0
-stand stand female 500
+stand stand female 454
 0 0 medium unknown
 #8714
 criosphinx sphinx~
@@ -242,7 +242,7 @@ ABQ D 300 0
 23 0 5d10+450 23d9+100 4d4+6 none
 -6 -6 -6 5
 EIKU 0 0 0
-stand stand male 1250
+stand stand male 1014
 0 0 medium unknown
 #8715
 androsphinx sphinx~
@@ -259,7 +259,7 @@ ABQ D 400 0
 27 0 5d10+650 27d9+100 2d10+7 none
 -8 -8 -8 4
 EIKU 0 0 0
-stand stand none 2500
+stand stand none 1353
 0 0 medium unknown
 #8716
 great sphinx~
@@ -277,7 +277,7 @@ AB DEHN 500 0
 41 0 25d10+2000 20d9+100 4d8+14 none
 -14 -14 -14 4
 EFNU 0 0 0
-stand stand none 6250
+stand stand none 2537
 0 0 medium unknown
 #8717
 ramses mummy~
@@ -295,7 +295,7 @@ ABQ DEHJN 150 0
 38 0 10d10+1600 38d9+100 3d10+12 none
 -13 -13 -13 3
 EIKU 0 0 0
-stand stand male 4400
+stand stand male 2381
 0 0 medium unknown
 #8718
 caryatid column~
@@ -311,7 +311,7 @@ A J 0 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
-stand stand female 1750
+stand stand female 1420
 0 0 medium unknown
 #0
 

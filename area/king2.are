@@ -22,7 +22,7 @@ AB DH 1000 0
 48 0 25d10+3750 479d1+11 6d6+18 punch
 -18 -18 -18 3
 ADEK 0 0 D
-stand stand male 10000
+stand stand male 1747
 0 0 medium unknown
 #15202
 ghost horrible~
@@ -52,7 +52,7 @@ AG 0 800 0
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CEFIKR 0 0 0
-stand stand male 5500
+stand stand male 960
 0 0 medium unknown
 #15204
 brian guard royal~
@@ -65,7 +65,7 @@ ABG 0 800 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 4
 DEFIKR 0 0 0
-stand stand male 5600
+stand stand male 978
 0 0 medium unknown
 #15205
 mick guard royal~
@@ -81,7 +81,7 @@ ABG 0 800 0
 37 0 10d10+1500 367d1+1 3d10+12 punch
 -12 -12 -12 4
 CDFIKR 0 0 0
-stand stand male 5700
+stand stand male 995
 0 0 medium unknown
 #15206
 matt guard royal~
@@ -97,7 +97,7 @@ AG 0 800 0
 38 0 10d10+1600 379d1+1 5d6+12 punch
 -13 -13 -13 4
 CDEIKR 0 0 0
-stand stand male 5800
+stand stand male 1013
 0 0 medium unknown
 #15207
 jochem guard royal~
@@ -113,7 +113,7 @@ AG 0 900 0
 39 0 15d10+1700 389d1+1 5d6+13 punch
 -13 -13 -13 4
 CDEFKR 0 0 0
-stand stand male 5900
+stand stand male 1030
 0 0 medium unknown
 #15208
 anne guard royal~
@@ -129,7 +129,7 @@ AG 0 900 0
 40 0 15d10+1850 399d1+1 4d8+13 punch
 -13 -13 -13 4
 CDEFIR 0 0 0
-stand stand female 6000
+stand stand female 1048
 0 0 medium unknown
 #15209
 andrew guard royal~
@@ -145,7 +145,7 @@ AG 0 900 0
 40 0 15d10+1850 399d1+1 4d8+13 punch
 -13 -13 -13 4
 CDEFIKR 0 0 0
-stand stand male 6000
+stand stand male 1048
 0 0 medium unknown
 #15210
 bertram bert guard royal~
@@ -161,7 +161,7 @@ AG 0 900 0
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 6
 EFIKR 0 0 0
-stand stand male 5500
+stand stand male 960
 0 0 medium unknown
 #15211
 jeanette guard royal~
@@ -177,7 +177,7 @@ AG 0 900 0
 42 0 25d10+1250 339d1+1 3d12+14 punch
 -14 -14 -14 4
 CDIKR 0 0 0
-stand stand female 5400
+stand stand female 943
 0 0 medium unknown
 #15212
 peter captain guard royal~
@@ -197,7 +197,7 @@ AG 0 900 0
 51 0 50d10+5000 469d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFIKR 0 0 0
-stand stand male 9700
+stand stand male 1694
 0 0 medium unknown
 #15213
 master trainingmaster~
@@ -212,7 +212,7 @@ ABGT 0 950 0
 48 0 25d10+3500 459d1+1 6d6+17 punch
 -17 -17 -17 3
 CDEFHIKNR 0 0 0
-stand stand male 10000
+stand stand male 1747
 0 0 medium unknown
 #15214
 herald royal~
@@ -227,7 +227,7 @@ A 0 800 0
 31 0 6d12+928 309d1+1 4d6+9 punch
 -10 -10 -10 5
 CDEFIKR 0 0 0
-stand stand male 3000
+stand stand male 698
 0 0 medium unknown
 #15215
 ergan murderer~
@@ -245,7 +245,7 @@ ABCFH 0 -1000 0
 42 0 25d10+2250 419d1+1 3d12+14 punch
 -14 -14 -14 4
 BDJ A 0 0
-stand stand male 1000
+stand stand male 349
 0 0 medium unknown
 #15216
 butler james~
@@ -260,7 +260,7 @@ A 0 500 0
 33 0 10d10+1100 229d1+1 6d4+10 punch
 -11 -11 -11 6
 0 0 0 0
-stand stand male 5300
+stand stand male 926
 0 0 large unknown
 #15217
 woman cleaning~
@@ -301,7 +301,7 @@ ABR 0 900 0
 45 0 25d10+2750 449d1+1 3d12+14 wrath
 -15 -15 -15 -2
 FG 0 0 CD
-stand stand male 10000
+stand stand male 1747
 0 0 tiny unknown
 #15220
 tim guard lifeguard~
@@ -317,7 +317,7 @@ AB D 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFHIKR 0 0 0
-stand stand male 10000
+stand stand male 1747
 0 0 medium unknown
 #15221
 tom guard lifeguard~
@@ -333,7 +333,7 @@ AB D 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 punch
 -21 -21 -21 2
 CDEFHIKR 0 0 0
-stand stand male 10000
+stand stand male 1747
 0 0 medium unknown
 #15222
 chef cook~
@@ -348,7 +348,7 @@ AH 0 500 0
 45 0 25d10+3000 449d1+1 8d4+16 punch
 -15 -15 -15 4
 EH 0 0 C
-stand stand male 4000
+stand stand male 931
 0 0 medium unknown
 #15223
 cook~
@@ -362,7 +362,7 @@ ABH 0 300 0
 41 0 25d10+2000 409d1+1 4d8+14 none
 -14 -14 -14 4
 EH 0 0 C
-stand stand male 3000
+stand stand male 698
 0 0 medium unknown
 #15224
 david guard~
@@ -377,7 +377,7 @@ AB D 250 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 CDEFIKR 0 0 0
-stand stand male 3600
+stand stand male 838
 0 0 medium unknown
 #15225
 dick guard~
@@ -392,7 +392,7 @@ AB D 250 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 CEFIKR 0 0 0
-stand stand male 3600
+stand stand male 838
 0 0 medium unknown
 #15226
 jerry guard royal~
@@ -408,7 +408,7 @@ AG 0 800 0
 43 0 25d10+2500 429d1+1 3d12+15 punch
 -15 -15 -15 4
 CDFIKR 0 0 0
-stand stand male 6700
+stand stand male 1170
 0 0 medium unknown
 #15227
 michael guard royal~
@@ -424,7 +424,7 @@ AG 0 800 0
 42 0 25d10+2250 419d1+1 3d12+14 punch
 -14 -14 -14 4
 CDFIKR 0 0 0
-stand stand male 6200
+stand stand male 1083
 0 0 medium unknown
 #15228
 hans guard royal~
@@ -440,7 +440,7 @@ AG 0 900 0
 44 0 25d10+2750 439d1+1 8d4+15 punch
 -15 -15 -15 4
 DEFIKR 0 0 0
-stand stand male 6400
+stand stand male 1118
 0 0 medium unknown
 #15229
 boris guard royal~
@@ -456,7 +456,7 @@ AG 0 900 0
 41 0 25d10+2000 409d1+1 4d8+14 punch
 -14 -14 -14 4
 DEIKR 0 0 0
-stand stand male 6100
+stand stand male 1065
 0 0 medium unknown
 #15230
 executioner~
@@ -470,7 +470,7 @@ ABFTc CDEFGNOVc 1000 0
 60 0 50d10+9500 599d1+1 8d6+28 punch
 -30 -30 -30 0
 CDEFGHIJKN 0 0 C
-stand stand male 8457
+stand stand male 1477
 0 0 large unknown
 #0
 

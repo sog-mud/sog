@@ -21,7 +21,7 @@ ABFGHTZ DFHZ 350 0
 40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 -2
 CFM AB 0 I
-stand stand male 4999
+stand stand male 2201
 0 0 huge unknown
 #2401
 White Dragon~
@@ -36,7 +36,7 @@ ABFGHT DFZu -350 0
 40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 -2
 CFM AB 0 I
-stand stand male 4999
+stand stand male 2201
 0 0 huge unknown
 #2402
 Pixie~
@@ -51,7 +51,7 @@ AFGH 0 -360 0
 36 0 10d10+1400 15d5+25 3d10+11 punch
 -12 -12 -12 0
 FHKN AB 0 D
-stand stand male 1499
+stand stand male 990
 0 0 small unknown
 #2403
 Time Dragon Spirit~
@@ -66,7 +66,7 @@ ABFGT DFHU 0 0
 55 0 50d10+5500 20d12+100 10d4+23 charge
 -25 -25 -25 -7
 CFM AB 0 0
-stand stand male 6499
+stand stand male 2146
 0 0 huge unknown
 #2404
 Ice Dragon Spirit~
@@ -81,7 +81,7 @@ ABFGT DFHU 0 0
 55 0 50d10+5500 20d12+100 10d4+23 charge
 -25 -25 -25 -7
 CFM AB 0 0
-stand stand male 6999
+stand stand male 2312
 0 0 huge unknown
 #2405
 Pixie King~
@@ -97,7 +97,7 @@ ABFG DF 1000 0
 48 0 25d10+3500 23d8+100 6d6+18 charge
 -16 -16 -16 -3
 EN AB 0 D
-stand stand male 2499
+stand stand male 1651
 0 0 small unknown
 #2406
 gate keeper gatekeeper~
@@ -113,7 +113,7 @@ ABFGT DF 0 0
 45 0 25d10+2750 24d7+100 8d4+16 pound
 -15 -15 -15 2
 EFHIKN AB 0 D
-stand stand male 2799
+stand stand male 1232
 0 0 small unknown
 #2407
 eternity dragon~
@@ -132,7 +132,7 @@ AT BDFHU 0 0
 65 0 50d15+8250 52d12+100 11d5+35 charge
 -37 -37 -37 -20
 CFM 0 0 0
-stand stand male 14999
+stand stand male 4954
 0 0 huge unknown
 #2408
 pixie guard~
@@ -148,7 +148,7 @@ ABGMT 0 1000 2405
 39 0 10d10+1700 5d10+50 5d6+13 pound
 -13 -13 -13 0
 EIN 0 0 D
-stand stand male 1799
+stand stand male 1188
 0 0 small unknown
 #2409
 mage pixie master~
@@ -165,7 +165,7 @@ ACGHR Du -500 0
 58 0 50d10+6000 34d10+100 5d10+25 pound
 -27 -27 -27 -10
 FHN 0 0 D
-stand stand male 4499
+stand stand male 1981
 0 0 small unknown
 #2410
 pixie guard~
@@ -181,7 +181,7 @@ ABGMT 0 1000 2405
 39 0 15d9+1700 5d10+50 3d10+11 scratch
 -13 -13 -13 0
 E 0 0 CD
-stand stand female 1899
+stand stand female 1254
 0 0 small unknown
 #2411
 Pixie~
@@ -196,7 +196,7 @@ AHS DEQZ -500 0
 36 0 10d30+1400 100d10+100 3d10+11 pound
 -11 -11 -11 0
 FHKN 0 0 D
-stand stand male 1499
+stand stand male 990
 0 0 small unknown
 #2412
 Keeper~
@@ -212,7 +212,7 @@ ABHS DEJPZu -500 2402
 91 0 10d30+19000 100d10+100 15d15+10 pound
 -81 -81 -81 -30
 FHKN 0 0 D
-stand stand male 1499
+stand stand male 990
 0 0 medium unknown
 M give 2400 90~
 M give 2401 all~
@@ -229,7 +229,7 @@ AHS DEPZ 1000 2402
 91 50 10d30+20400 100d10+100 5d35+60 punch
 -75 -75 -75 -30
 FHKN 0 0 D
-stand stand male 1499
+stand stand male 990
 0 0 small unknown
 M give 2404 91~
 M give 2403 all~
@@ -247,7 +247,7 @@ AFGH 0 -360 0
 33 0 10d10+1100 15d5+25 6d4+10 punch
 -10 -10 -10 0
 FHKN AB 0 D
-stand stand male 1499
+stand stand male 990
 0 0 small unknown
 #0
 

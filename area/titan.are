@@ -21,7 +21,7 @@ ABT CDEFHJV 1000 0
 45 0 25d10+3000 1d1+99 3d12+15 slash
 -15 -15 -15 4
 EIK ABL N K
-stand stand male 1200
+stand stand male 428
 0 0 large unknown
 #18002
 ally cat~
@@ -51,7 +51,7 @@ ABT CDEFJ -1000 18004
 25 0 5d10+750 1d1+99 2d10+7 pierce
 -7 -7 -7 0
 EIK ABL N K
-stand stand male 3100
+stand stand male 737
 0 0 large unknown
 #18004
 guitar player band~
@@ -67,7 +67,7 @@ AB CDEFJ -1000 18004
 25 0 5d10+650 1d1+99 2d10+7 pierce
 -7 -7 -7 0
 EIK ABL N K
-stand stand male 4330
+stand stand male 1029
 0 0 large unknown
 #18005
 pipe pipeplayer player~
@@ -83,7 +83,7 @@ AB CDEFJ -1000 18004
 25 0 5d10+650 1d1+99 2d10+7 blast
 -7 -7 -7 6
 EIK ABL N K
-stand stand female 5300
+stand stand female 945
 0 0 large unknown
 #18006
 armourer shop shopkeeper~
@@ -99,7 +99,7 @@ ABTei CDEFJ -500 0
 53 0 50d10+13000 1d1+99 6d7+41 slice
 -33 -33 -33 2
 EIK ABCDL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 M greet 3024 1~
 #18007
@@ -117,7 +117,7 @@ ABTe CDEFJ -500 0
 53 0 50d10+13000 1d1+99 6d7+31 slice
 -43 -43 -43 -10
 EIK ABCDL N K
-stand stand female 200000
+stand stand female 5000
 0 0 large unknown
 #18008
 grocer~
@@ -134,7 +134,7 @@ ABTe CDEFJ -1000 0
 51 0 50d10+14000 1d1+99 5d8+39 scratch
 -41 -41 -41 -3
 EIK ABDL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18009
 grocer~
@@ -150,7 +150,7 @@ ABTe CDEFJ -1000 0
 51 0 50d10+14000 1d1+140 5d8+49 scratch
 -41 -41 -41 -30
 EIK ABDL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18010
 weaponsmith weapon shopkeeper~
@@ -168,7 +168,7 @@ ABTei CDEFJ 0 0
 53 0 50d10+15000 1d1+99 6d7+41 sting
 -43 -43 -43 -30
 CDEFIKN ABDL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 M greet 3024 1~
 #18011
@@ -185,7 +185,7 @@ ABe CDEFJ 500 0
 48 0 25d10+13750 1d1+99 6d6+48 beating
 -38 -38 -38 -12
 CDEFIKN ABDL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18012
 shopkeeper designer~
@@ -202,7 +202,7 @@ ABe CDEFJ -600 0
 51 0 50d10+15000 1d1+99 5d8+40 pierce
 -41 -41 -41 -23
 CDEFIKN ABDL BN K
-stand stand female 200000
+stand stand female 5000
 0 0 large unknown
 #18013
 bartender pub owner~
@@ -218,7 +218,7 @@ ABTe CDEFJ -100 0
 51 0 50d10+15000 1d1+99 5d8+39 slash
 -41 -41 -41 -23
 CDEFIKN ABDL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18014
 waiter~
@@ -235,7 +235,7 @@ ABTe CDEFJ 200 0
 45 0 25d10+14000 1d1+99 8d4+36 pierce
 -15 -15 -15 -1
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18015
 innkeeper~
@@ -252,7 +252,7 @@ ABTe CDEFJ -1000 0
 51 0 50d10+5000 1d1+99 5d8+20 pierce
 -21 -21 -21 -3
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18016
 florist~
@@ -268,7 +268,7 @@ ABTe CDEFJ -300 0
 48 0 25d10+4750 1d1+99 6d6+18 slice
 -18 -18 -18 3
 CDEFIKN ABL N K
-stand stand female 200000
+stand stand female 5000
 0 0 large unknown
 #18017
 town sheriff~
@@ -284,7 +284,7 @@ ABT CDEFJ 500 0
 30 0 6d12+1000 1d1+99 4d6+8 pierce
 -9 -9 -9 6
 CDEFIKN ABL N K
-stand stand male 2100
+stand stand male 749
 0 0 large unknown
 #18018
 jail guard~
@@ -298,7 +298,7 @@ ABT CDEFJ -500 0
 28 0 6d12+703 1d1+99 2d12+8 claw
 -8 -8 -8 6
 CDEFIKN ABL BN K
-stand stand male 3100
+stand stand male 737
 0 0 large unknown
 #18020
 prisoner~
@@ -329,7 +329,7 @@ ABTe CDEFJ -100 0
 45 0 25d1+13000 1d1+100 8d4+26 slice
 -35 -35 -35 4
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18022
 icecream vendor shopkeeper~
@@ -345,7 +345,7 @@ ABTe CDEFJ -100 0
 30 0 6d12+853 1d1+99 4d6+15 slap
 -9 -9 -9 6
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18023
 apiarist lady shopkeeper~
@@ -361,7 +361,7 @@ ABTe CDEFJ -100 0
 40 0 15d10+7850 1d1+100 4d8+13 beating
 -33 -33 -33 -21
 CDEFIKN ABL BN K
-stand stand female 200000
+stand stand female 5000
 0 0 large unknown
 #18024
 baker shopkeeper~
@@ -377,7 +377,7 @@ ABTe CDEFJ -100 0
 48 0 25d10+15050 1d1+100 6d6+38 pierce
 -48 -48 -48 -24
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18025
 zanrich shopkeeper~
@@ -392,7 +392,7 @@ ABTe CDEFJ -100 0
 48 0 25d10+12750 1d1+100 6d6+38 pierce
 -38 -38 -38 -22
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18026
 master wands shopkeeper wizard~
@@ -407,7 +407,7 @@ ABTe CDEFJ -100 0
 55 0 10d10+15300 1d1+100 4d7+21 slash
 -51 -51 -51 -30
 CDEFIKN ABL N K
-stand stand male 200000
+stand stand male 5000
 0 0 large unknown
 #18027
 knight templar~
@@ -421,7 +421,7 @@ ABT CDEFJ 1000 0
 40 0 15d10+2200 1d1+90 4d8+13 scratch
 -13 -13 -13 4
 CDEFIKN ABL N K
-stand stand male 5250
+stand stand male 936
 0 0 large unknown
 #18028
 titan citizen~
@@ -436,7 +436,7 @@ ABT CDEFJ -1000 0
 28 0 6d12+703 1d1+100 2d12+8 pierce
 -8 -8 -8 6
 CDEFIKN ABL N K
-stand stand male 2500
+stand stand male 594
 0 0 large unknown
 #18029
 cook maid chef~
@@ -451,7 +451,7 @@ ABT CDEFJ -500 0
 30 0 6d12+953 1d1+100 4d6+8 blast
 -9 -9 -9 6
 CDEFIKN ABL N K
-stand stand female 3900
+stand stand female 927
 0 0 large unknown
 #18030
 serf~
@@ -466,7 +466,7 @@ ABT CDEFJ -500 0
 30 0 6d12+853 1d1+100 4d6+8 pierce
 -9 -9 -9 6
 CDEFIKN ABL N K
-stand stand male 5330
+stand stand male 950
 0 0 large unknown
 #18031
 grubby beggar~
@@ -496,7 +496,7 @@ ABT CDEFHJ 0 0
 40 0 15d10+2100 1d1+201 4d8+13 pierce
 -13 -13 -13 4
 CDEFIKN ABL N K
-stand stand male 3330
+stand stand male 791
 0 0 large unknown
 #18033
 villager~
@@ -511,7 +511,7 @@ ABT CDEFJu -1000 0
 30 0 6d12+953 299d1+1 4d6+8 punch
 -9 -9 -9 6
 CDEFIKN ABL N K
-stand stand male 4003
+stand stand male 952
 0 0 large unknown
 #18034
 tournament guard~
@@ -526,7 +526,7 @@ ABT CDEFJu -1000 0
 48 0 25d10+4750 1d1+120 6d6+18 crush
 -18 -18 -18 3
 CDEFIN ABL N K
-stand stand male 5100
+stand stand male 909
 0 0 large unknown
 #18035
 tournament warrior~
@@ -540,7 +540,7 @@ ABT CDEFJu -1000 0
 38 0 10d10+1800 1d1+100 5d6+12 slash
 -12 -12 -12 4
 CDEFIKN ABL N K
-stand stand male 11300
+stand stand male 2015
 0 0 large unknown
 #18036
 tournament anti-paladin~
@@ -555,7 +555,7 @@ ABR CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
-stand stand female 6100
+stand stand female 1088
 0 0 large unknown
 #18037
 tournament cleric~
@@ -570,7 +570,7 @@ ABQ CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
-stand stand female 6800
+stand stand female 1212
 0 0 large unknown
 #18038
 tournament ranger~
@@ -584,7 +584,7 @@ ABS CDEFJu -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 pierce
 -12 -12 -12 4
 CDEFIKN ABL N K
-stand stand male 9100
+stand stand male 1623
 0 0 large unknown
 #18039
 dragon baby evil~
@@ -743,7 +743,7 @@ ABCT FJ -1000 0
 40 0 15d10+2000 1d1+201 4d8+13 slash
 -12 -12 -12 -2
 BCDEFGHIK ABL N K
-stand stand male 7000
+stand stand male 1248
 0 0 large unknown
 #18049
 boy titan~
@@ -788,7 +788,7 @@ ABCT FJ -1000 0
 40 0 15d10+2000 1d1+111 4d8+13 pierce
 -13 -13 -13 4
 BCDEFGHIK ABL BN K
-sleep sleep male 5870
+sleep sleep male 1047
 0 0 large unknown
 #18052
 first advisor~
@@ -803,7 +803,7 @@ ABCT F -1000 0
 50 0 50d10+5000 1d1+212 5d8+19 beating
 -20 -20 -20 3
 BCDEFGHIK ABL N KSZ
-stand stand female 7100
+stand stand female 1266
 0 0 large unknown
 #18053
 keeper deadly pet owner shopkeeper~
@@ -937,7 +937,7 @@ ABT DFJV -1000 0
 53 0 50d10+7000 1d1+401 6d7+21 pierce
 -22 -22 -22 2
 CDEFGKNO BO J K
-stand stand male 19990
+stand stand male 3565
 0 0 large unknown
 #18062
 queen crystal titan~
@@ -951,7 +951,7 @@ ABT DFJV -1000 0
 51 0 50d10+5500 1d1+502 5d8+19 pierce
 -21 -21 -21 3
 CDEFGKNO BO J K
-stand stand female 16990
+stand stand female 3030
 0 0 large unknown
 #18063
 assassin~
@@ -967,7 +967,7 @@ ABT DFJV -1000 0
 45 0 25d10+3500 1d1+302 8d4+16 slash
 -15 -15 -15 4
 CDEFGKNO ABL N K
-stand stand male 8990
+stand stand male 1603
 0 0 large unknown
 #18064
 rat~
@@ -1010,7 +1010,7 @@ ABJKRVb DFJ 0 0
 40 0 15d10+8000 1d1+499 4d8+13 slash
 -13 -13 -13 4
 FHN AB 0 0
-stand stand male 8000
+stand stand male 1427
 0 0 large unknown
 #18067
 cleric guildstudent~
@@ -1024,7 +1024,7 @@ ABJKQV DFJ -250 0
 35 0 10d10+1300 1d1+499 4d7+11 pierce
 -11 -11 -11 5
 EFGIK AB 0 0
-stand stand male 4500
+stand stand male 1070
 0 0 large unknown
 #18068
 warrior guildstudent student~
@@ -1039,7 +1039,7 @@ ABJKTV DFJ 0 0
 35 0 10d10+1300 1d1+99 4d7+11 pierce
 -11 -11 -11 5
 ACEFHIK AB 0 0
-stand stand male 5500
+stand stand male 981
 0 0 large unknown
 #18069
 anti-paladin ranger guildmaster~
@@ -1055,7 +1055,7 @@ ABJKTVb DFJ -100 0
 40 0 15d10+4000 1d1+99 5d6+13 pierce
 -13 -13 -13 3
 BEFHJKN AB B Z
-stand stand male 3000
+stand stand male 713
 0 0 large unknown
 #18070
 anti-paladin guildguard~
@@ -1069,7 +1069,7 @@ ABRT DJ 0 0
 30 0 6d12+953 3d7+4 4d6+8 pierce
 -9 -9 -9 5
 0 0 0 0
-stand stand male 3345
+stand stand male 795
 0 0 large unknown
 #18071
 cleric guildguard~
@@ -1083,7 +1083,7 @@ ABQT DJ 0 0
 30 0 6d12+1003 3d7+4 4d6+8 pierce
 -9 -9 -9 5
 0 0 0 0
-stand stand male 4367
+stand stand male 1038
 0 0 large unknown
 #18072
 warrior guildguard~
@@ -1097,7 +1097,7 @@ ABTU DJ 0 0
 30 0 6d12+1100 3d7+4 4d6+8 pierce
 -9 -9 -9 -1
 0 0 0 0
-stand stand male 4278
+stand stand male 1017
 0 0 large unknown
 #18073
 ranger guildguard~
@@ -1112,7 +1112,7 @@ ABST DJ 0 0
 30 0 6d12+953 3d7+4 4d6+8 pierce
 -9 -9 -9 -1
 0 0 0 0
-stand stand male 5657
+stand stand male 1009
 0 0 large unknown
 #18074
 servant boy~
@@ -1126,7 +1126,7 @@ AG J 0 0
 25 0 5d10+650 1d6+1 2d10+7 beating
 -7 -7 -7 0
 0 0 0 0
-stand stand male 2267
+stand stand male 808
 0 0 large unknown
 #18075
 tourist~
@@ -1141,7 +1141,7 @@ ACGH J 0 0
 25 0 5d10+650 1d6+1 2d10+7 beating
 -7 -7 -7 6
 0 0 0 0
-stand stand male 3413
+stand stand male 811
 0 0 large unknown
 #18076
 store helper aid~
@@ -1156,7 +1156,7 @@ ABGH J -1000 0
 25 0 5d10+650 1d6+1 2d10+7 beating
 -17 -17 -17 5
 DEF 0 B Z
-stand stand male 2333
+stand stand male 832
 0 0 large unknown
 #18077
 worker leather~
@@ -1171,7 +1171,7 @@ ABGH J -1000 0
 30 0 6d12+953 1d8+100 4d6+8 pierce
 -9 -9 -9 5
 0 0 B 0
-stand stand female 4000
+stand stand female 951
 0 0 large unknown
 #18078
 blacksmith~
@@ -1186,7 +1186,7 @@ ABGH J -1000 0
 35 0 10d10+1800 1d8+100 4d7+11 slash
 -11 -11 -11 4
 0 0 B 0
-stand stand male 8900
+stand stand male 1587
 0 0 large unknown
 #18079
 lieutenant commander~
@@ -1202,7 +1202,7 @@ ABGH J -1000 18062
 42 0 25d10+3250 1d8+100 3d12+14 pierce
 -14 -14 -14 4
 0 0 D C
-stand stand male 6699
+stand stand male 1194
 0 0 large unknown
 #18080
 soldier~
@@ -1217,7 +1217,7 @@ AGH J -1000 18079
 38 0 10d10+1800 1d8+120 5d6+12 slash
 -13 -13 -13 5
 0 0 B 0
-stand stand male 6660
+stand stand male 1187
 0 0 large unknown
 #18087
 armourer~
@@ -1232,7 +1232,7 @@ ABGH J -1000 0
 40 0 15d10+3050 1d8+100 4d8+13 none
 -13 -13 -13 4
 0 0 B Z
-stand stand male 7999
+stand stand male 1426
 0 0 large unknown
 #18090
 hydra pet~
@@ -1262,7 +1262,7 @@ ABCT FJ -1000 0
 42 0 25d10+2250 1d1+1111 3d12+14 pierce
 -14 -14 -14 5
 BCDEFH ABL N KS
-stand stand male 9233
+stand stand male 1646
 0 0 large unknown
 #18098
 apothecary~
@@ -1278,7 +1278,7 @@ ABTe CDEFJ -1000 0
 45 0 25d10+3000 1d1+320 8d4+16 slash
 -15 -15 -15 -2
 CDEFIKN ABL BN K
-stand stand female 500000
+stand stand female 5000
 0 0 large unknown
 #18099
 villager happy~
@@ -1326,7 +1326,7 @@ ABKQVaef DFH 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 divine
 -15 -15 -15 -15
 FHIK ABC D 0
-stand stand male 5000
+stand stand male 891
 0 0 huge unknown
 #0
 

@@ -19,7 +19,7 @@ AG D 1000 2900
 16 0 3d9+233 159d1+1 1d12+3 crush
 -2 -2 -2 5
 CDF 0 0 0
-stand stand either 2000
+stand stand either 723
 0 0 medium unknown
 #2901
 planetar~
@@ -34,7 +34,7 @@ ABG BCDH 900 2901
 30 0 6d12+778 299d1+1 5d4+7 punch
 -9 -9 -9 6
 CDFK 0 0 0
-stand stand either 4500
+stand stand either 1084
 0 0 medium unknown
 #2902
 shedu~
@@ -49,7 +49,7 @@ AG F 850 2902
 25 0 5d10+550 249d1+1 2d10+7 pierce
 -7 -7 -7 6
 CDFJ 0 0 0
-stand stand either 500
+stand stand either 361
 0 0 medium unknown
 #2903
 dretch demon~
@@ -79,7 +79,7 @@ ACG DF -900 2904
 20 0 3d9+308 199d1+1 3d4+4 pound
 -4 -4 -4 2
 CDEFIKN 0 0 C
-stand stand either 2000
+stand stand either 723
 0 0 medium unknown
 #2905
 babau ebony~
@@ -95,7 +95,7 @@ AG u -1000 2905
 15 0 3d9+208 149d1+1 2d6+3 punch
 -2 -2 -2 7
 EF 0 0 0
-stand stand either 1400
+stand stand either 506
 0 0 medium unknown
 #2906
 yagnodemon demon~
@@ -110,7 +110,7 @@ ACG DEF -950 2906
 25 0 5d10+500 249d1+1 4d4+6 smash
 -7 -7 -7 8
 DFJ 0 0 0
-stand stand either 2900
+stand stand either 699
 0 0 medium unknown
 #2907
 kostchtchie demon kost~
@@ -125,7 +125,7 @@ ABEFG DFu -1000 2907
 40 0 15d10+1800 399d1+1 4d8+11 chill
 -13 -13 -13 4
 FI AB 0 0
-stand stand either 6900
+stand stand either 1247
 0 0 medium unknown
 #2908
 nabassu demon~
@@ -140,7 +140,7 @@ ACG D -950 2908
 15 0 2d10+190 149d1+1 1d10+3 slap
 -1 -1 -1 2
 FI 0 0 D
-stand stand either 1120
+stand stand either 404
 0 0 medium unknown
 #2909
 dragon cloud~
@@ -155,7 +155,7 @@ ABG DFH 0 2909
 35 0 10d10+1100 349d1+1 4d7+9 bite
 -11 -11 -11 5
 FIKLN 0 0 0
-stand stand either 8000
+stand stand either 1446
 0 0 large unknown
 #2910
 solar~
@@ -170,7 +170,7 @@ ABG CDFH 1000 2910
 47 0 25d10+3500 469d1+1 8d4+16 slash
 -17 -17 -17 0
 FI 0 0 0
-stand stand either 8000
+stand stand either 1446
 0 0 medium unknown
 #2911
 wemic~
@@ -200,7 +200,7 @@ ABFG DF -300 2912
 25 0 5d10+550 249d1+1 2d10+7 grep
 -7 -7 -7 6
 FJKN AB 0 0
-stand stand male 3400
+stand stand male 819
 0 0 large unknown
 #2913
 gorgimera~
@@ -215,7 +215,7 @@ ABFG D -750 2913
 20 0 3d9+300 199d1+1 2d8+2 claw
 -4 -4 -4 7
 FIKN AB 0 0
-stand stand either 2500
+stand stand either 602
 0 0 large unknown
 #2914
 ratatosk~
@@ -230,7 +230,7 @@ ACG CDFH 200 2914
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CDEFJKN 0 0 0
-stand stand male 6700
+stand stand male 1211
 0 0 large unknown
 #0
 

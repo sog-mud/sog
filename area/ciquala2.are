@@ -20,7 +20,7 @@ ABCF BJQT -1000 0
 43 0 25d10+2750 329d1+100 8d4+15 slash
 -15 -15 -15 5
 BCDEH AB T K
-stand stand male 4200
+stand stand male 1200
 0 0 medium unknown
 #13401
 vampire assistant~
@@ -36,7 +36,7 @@ ABCFH DFJ -1000 13401
 40 0 15d10+1850 219d1+100 4d8+13 beating
 -13 -13 -13 4
 BCDEH AB T K
-stand stand male 1200
+stand stand male 514
 0 0 medium unknown
 #13402
 creature nightmare~
@@ -52,7 +52,7 @@ AFGH DFJT -1000 0
 50 0 50d10+4500 399d1+100 5d8+19 beating
 -20 -20 -20 2
 BCDEH AB T K
-stand stand male 5800
+stand stand male 1243
 0 0 medium unknown
 #13403
 creature docile~
@@ -67,7 +67,7 @@ AB JNOu -1000 0
 45 0 25d10+3000 349d1+100 8d4+16 pierce
 -15 -15 -15 5
 HO BEJ PS K
-stand stand either 5199
+stand stand either 1114
 0 0 medium unknown
 #13404
 black pudding crate~
@@ -112,7 +112,7 @@ ABF BDJT -1000 0
 55 0 50d10+6000 449d1+100 6d8+21 beating
 -25 -25 -25 1
 BEF ABI 0 K
-stand stand male 7500
+stand stand male 1607
 0 0 medium unknown
 #13407
 roof ceiling lurker above~
@@ -143,7 +143,7 @@ ABF BDFJu -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 none
 -17 -17 -17 2
 BEF AB 0 K
-stand stand male 5300
+stand stand male 1136
 0 0 medium unknown
 #13409
 human automaton~
@@ -159,7 +159,7 @@ ABF JNO -1000 0
 42 0 25d10+2250 299d1+100 3d12+14 beating
 -14 -14 -14 4
 BEF AB 0 K
-stand stand male 3400
+stand stand male 971
 0 0 medium unknown
 #13410
 human automaton~
@@ -221,7 +221,7 @@ ABF Ju -1000 0
 51 0 50d10+4800 409d1+100 5d8+20 pierce
 -22 -22 -22 2
 B AB 0 K
-stand stand male 7500
+stand stand male 1607
 0 0 medium unknown
 #13414
 undead dragon~
@@ -235,7 +235,7 @@ ABF DFu -1000 0
 60 0 50d10+7600 499d1+100 6d8+24 beating
 -30 -30 -30 -10
 B AB 0 K
-stand stand female 9500
+stand stand female 2036
 0 0 medium unknown
 #13415
 Ciquala lich~
@@ -251,7 +251,7 @@ ABF DFJTu -1000 0
 62 0 50d15+10000 519d1+100 6d9+29 pierce
 -35 -35 -35 -1
 BCDEH AB T K
-stand stand female 10000
+stand stand female 2143
 0 0 medium unknown
 #13416
 lich~
@@ -266,7 +266,7 @@ ABCF BDJ -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 slash
 -17 -17 -17 1
 B AB 0 K
-stand stand male 6500
+stand stand male 1393
 0 0 medium unknown
 #13417
 vampire~
@@ -282,7 +282,7 @@ ABCF BDJT -1000 0
 57 0 50d10+6800 469d1+100 6d8+24 slash
 -27 -27 -27 1
 B AB 0 K
-stand stand male 7800
+stand stand male 1672
 0 0 medium unknown
 #13418
 vampire assistant~
@@ -298,7 +298,7 @@ ABCFH DFJ -1000 13401
 32 0 10d10+1000 219d1+100 6d4+9 beating
 -10 -10 -10 5
 BCDEH AB T K
-stand stand female 1200
+stand stand female 514
 0 0 medium unknown
 #0
 

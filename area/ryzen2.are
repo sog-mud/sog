@@ -65,7 +65,7 @@ AGO J -950 0
 36 0 5d25+1400 36d10+100 3d10+11 claw
 -12 -12 -12 3
 CDHK 0 0 N
-stand stand none 500
+stand stand none 454
 I 0 medium unknown
 #22006
 demon lemure lowest~
@@ -112,7 +112,7 @@ AGO JT -1000 0
 33 0 5d20+1200 39d10+1100 6d4+10 none
 -11 -11 -11 5
 DEFIKN 0 0 N
-stand stand none 500
+stand stand none 454
 I 0 medium unknown
 #22009
 ghoul lord~
@@ -128,7 +128,7 @@ ABO J -1000 0
 42 0 5d50+2250 42d10+4400 3d12+14 blast
 -14 -14 -14 0
 CDEFHK 0 0 NZ
-stand stand male 800
+stand stand male 727
 I 0 large unknown
 #22010
 dragon deep black~
@@ -144,7 +144,7 @@ ABG 0 -800 0
 45 0 10d100+3000 45d10+4100 8d4+16 claw
 -15 -15 -15 -1
 CDEKM 0 IJK 0
-sleep stand male 20000
+sleep stand male 6352
 c L medium unknown
 #22011
 beast undead~
@@ -160,7 +160,7 @@ ABFGO JZ -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 bite
 -13 -13 -13 3
 CDEF 0 0 NY
-stand stand none 500
+stand stand none 454
 AGIV ACDEFJKQV large unknown
 #22012
 cleric holy~
@@ -176,7 +176,7 @@ ABGQ J 800 0
 35 0 10d50+1300 40d10+4150 4d7+11 none
 -11 -11 -11 3
 CEKLS 0 0 0
-stand stand male 500
+stand stand male 454
 0 0 medium unknown
 #22013
 knight~
@@ -192,7 +192,7 @@ AGT CJ 1000 0
 26 0 5d10+600 26d10+1100 3d7+17 none
 -7 -7 -7 4
 CEFIKS 0 0 0
-stand stand male 500
+stand stand male 454
 0 0 medium unknown
 #22014
 halfling thief~
@@ -207,7 +207,7 @@ AGS J -400 0
 29 0 6d12+778 29d10+1100 4d6+8 pierce
 -9 -9 -9 4
 FJNS 0 0 Z
-stand stand male 1200
+stand stand male 762
 AHMV ABCDEFGHIJK small unknown
 #22015
 powerful enchantress~
@@ -223,7 +223,7 @@ AGR Ju -600 0
 31 0 10d10+928 50d10+2200 4d6+9 pierce
 0 0 0 0
 FNS 0 C 0
-stand stand female 1000
+stand stand female 635
 0 0 medium unknown
 #0
 

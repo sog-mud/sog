@@ -28,7 +28,7 @@ ABGRV u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40102
 GuildMaster Master наставник мастер~
@@ -49,7 +49,7 @@ ABGV H 900 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40103
 GuildMaster наставник~
@@ -67,7 +67,7 @@ ABGRV u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40104
 GuildMaster Master WeaponsMaster Weapons~
@@ -86,7 +86,7 @@ ABGTV H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40105
 GuildMaster Master~
@@ -104,7 +104,7 @@ ABGRV H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40106
 GuildMaster Master~
@@ -125,7 +125,7 @@ ABGQV u -1000 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40107
 GuildMaster Master Paladin~
@@ -146,7 +146,7 @@ ABGQV H 1000 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40108
 GuildMaster Master~
@@ -164,7 +164,7 @@ ABGQV H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40109
 GuildMaster Master~
@@ -183,7 +183,7 @@ ABGRV u -1000 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-sit sit male 3400
+sit sit male 1879
 0 0 medium unknown
 #40110
 GuildMaster~
@@ -203,7 +203,7 @@ ABGV u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40111
 GuildMaster~
@@ -221,7 +221,7 @@ ABGRV H 0 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40112
 GuildMaster~
@@ -239,7 +239,7 @@ ABGV u -900 0
 30 0 50d10+9500 8d6+28 8d6+28 none
 -30 -30 -30 -30
 E ABCD 0 0
-stand stand male 3400
+stand stand male 1879
 0 0 medium unknown
 #40113
 Bank President Banker~
@@ -256,7 +256,7 @@ ABGTV Hc 0 0
 50 0 50d10+4500 8d6+28 5d8+19 none
 -30 -30 -30 -30
 CDEFHIJKN ABCD 0 0
-stand stand male 5000
+stand stand male 2073
 0 0 medium unknown
 #40114
 cityguard guard captain~
@@ -272,7 +272,7 @@ ABGTV 0 0 0
 40 0 15d10+1850 1d1+400 4d8+13 none
 -13 -13 -13 -13
 EFHIJKT 0 EG 0
-sit sit male 500
+sit sit male 454
 0 0 medium unknown
 #40115
 cityguard guard~
@@ -371,7 +371,7 @@ ABGV 0 0 0
 20 0 3d9+333 1d1+400 2d8+5 none
 -4 -4 -4 -4
 IJN 0 P 0
-stand stand female 1000
+stand stand female 829
 0 0 medium unknown
 #40121
 Sam harpsichordist player~
@@ -558,7 +558,7 @@ AGHT 0 0 0
 48 2 15d10+1850 1d1+400 4d8+13 punch
 -13 -13 -13 -14
 CDEFIJKNS 0 MNO Q
-stand stand male 1999
+stand stand male 1657
 0 0 medium unknown
 #40133
 kitten cat~
@@ -856,7 +856,7 @@ ABGQVaf DFH 0 0
 55 0 50d10+4500 1d1+400 5d8+14 divine
 -20 -20 -20 -20
 AFH ABCD 0 0
-stand stand female 5000
+stand stand female 2073
 0 0 medium unknown
 #40151
 necromancer shopkeeper Xaixara~
@@ -882,7 +882,7 @@ ABGRV DNUZcu -1000 0
 51 0 50d10+4500 1d1+400 5d8+14 acbite
 -40 -40 -40 -40
 AFHK ABCD 0 0
-stand stand female 10000
+stand stand female 5000
 0 0 medium unknown
 #0
 

@@ -139,7 +139,7 @@ AH 0 -500 0
 24 0 5d15+500 1d1+239 2d10+6 punch
 -6 -6 -6 6
 CDEF A 0 0
-stand stand male 540
+stand stand male 490
 0 0 medium unknown
 M random 4200 20~
 #4207
@@ -157,7 +157,7 @@ A DN 500 0
 24 0 5d15+500 1d1+239 2d10+6 punch
 -6 -6 -6 6
 CDEF A 0 0
-stand stand male 590
+stand stand male 536
 0 0 medium unknown
 #4208
 queen черная королева black~
@@ -176,7 +176,7 @@ ABFH DFu -750 4210
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK A 0 0
-stand stand female 856
+stand stand female 778
 0 0 medium unknown
 M random 4200 20~
 #4209
@@ -197,7 +197,7 @@ ABH DFHN 750 2411
 32 0 10d10+1000 1d1+319 6d4+9 magic
 -10 -10 -10 5
 AFJK 0 0 0
-stand stand female 854
+stand stand female 776
 0 0 medium unknown
 #4210
 king черный король black~
@@ -215,7 +215,7 @@ ABH DFUu -999 0
 36 0 10d10+1400 1d35+99 3d10+12 beating
 -12 -12 -12 4
 BCDEF A 0 0
-stand stand male 984
+stand stand male 894
 0 0 medium unknown
 M random 4200 21~
 #4211
@@ -234,7 +234,7 @@ ABH DFHNU 999 0
 36 0 10d10+1400 1d1+359 3d10+12 beating
 -12 -12 -12 4
 BCDEF 0 0 0
-stand stand male 988
+stand stand male 898
 0 0 medium unknown
 #4212
 caliph omar ghost призрак омар халиф~
@@ -253,7 +253,7 @@ AHT BDFHPQTUV 0 0
 60 0 50d10+9500 599d1+1 8d6+28 wrath
 -30 -30 -30 0
 FGK 0 0 HIJK
-stand stand male 14999
+stand stand male 6431
 0 0 small unknown
 #0
 

@@ -25,7 +25,7 @@ ACGR BQV 900 0
 80 0 100d12+13500 1d10+850 13d5+50 punch
 -50 -52 -51 -50
 FGJN 0 CN M
-stand stand either 1000
+stand stand either 759
 Q 0 medium unknown
 #11601
 roc bird~
@@ -105,7 +105,7 @@ AB 0 0 0
 61 0 50d10+7500 1d10+1800 8d6+20 crush
 -29 -28 -29 -33
 FJ LQ CHIMN P
-stand stand male 3000
+stand stand male 1519
 HJM ABCEGIJK small unknown
 #11606
 unicorn white horse~
@@ -156,7 +156,7 @@ AGT CN 900 0
 65 3 65d10+9000 1d10+250 9d6+40 cleave
 -37 -38 -36 -27
 DEFIK N EG KMOP
-stand stand either 5000
+stand stand either 1899
 0 0 large unknown
 #11609
 ivory statue lady justice~
@@ -172,7 +172,7 @@ ABG G 0 0
 68 0 70d10+9500 1d10+680 9d6+45 pound
 -37 -38 -38 -35
 EFK HILQ F B
-stand stand female 4000
+stand stand female 2026
 HJM ABCGHIJK medium unknown
 #11610
 mad gardener gnome~
@@ -189,7 +189,7 @@ ACS V 0 0
 70 0 65d10+10300 1d10+620 9d6+25 bite
 -40 -39 -40 -38
 DFJ 0 BIMN P
-stand stand male 1000
+stand stand male 759
 C 0 small unknown
 #11611
 babbling sculptor~
@@ -205,7 +205,7 @@ ACGS J 0 0
 65 0 65d10+8500 1d10+500 9d6+20 punch
 -33 -32 -30 -30
 DEFJ 0 Q LO
-stand stand male 2500
+stand stand male 1266
 0 0 small unknown
 #11612
 bush denebi priest white cross~
@@ -394,7 +394,7 @@ ACGR DFPQ -900 0
 80 0 100d12+14000 1d10+1050 14d5+50 claw
 -50 -53 -52 -51
 EFHJ 0 CM E
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11624
 hellhawk hawk~
@@ -504,7 +504,7 @@ ABFG JOZ -800 0
 60 0 50d10+7500 1d10+700 8d6+24 claw
 -30 -31 -29 -28
 FGI EM B JNP
-stand stand female 8765
+stand stand female 3329
 0 0 medium unknown
 #11631
 wraith knight humanoid form~
@@ -519,7 +519,7 @@ ACGOT JOTUZ -400 0
 65 3 65d10+8900 1d10+250 9d6+40 drain
 -37 -38 -36 -27
 DEFK I KM HNO
-stand stand either 4000
+stand stand either 2026
 DHIM 0 medium unknown
 #11632
 bloody sadist~
@@ -535,7 +535,7 @@ ACFG JV -600 0
 68 0 70d10+9250 1d10+680 9d6+45 claw
 -37 -38 -38 -35
 DF 0 NQ HNS
-stand stand either 3500
+stand stand either 1772
 0 0 medium unknown
 #11633
 fanatic cultist~
@@ -550,7 +550,7 @@ ACG J 0 0
 70 0 65d10+10200 1d10+630 9d6+25 chomp
 -38 -39 -40 -38
 F 0 0 0
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11634
 grinner~
@@ -582,7 +582,7 @@ ACFGQ JOZ -900 0
 65 0 50d10+8200 1d10+1300 9d6+20 wrath
 -35 -34 -35 -33
 DEFG ILQ M NSY
-stand stand either 6200
+stand stand either 2355
 0 0 medium unknown
 #11636
 nothingness square area~
@@ -641,7 +641,7 @@ AFG BDFJOTZ -700 0
 70 0 100d10+10500 1d10+700 7d10+30 drain
 -40 -42 -41 -39
 FG B GJK NO
-stand stand either 5650
+stand stand either 2146
 CHI ABCDEFGHIJKU medium unknown
 #11640
 lost dreams~
@@ -770,7 +770,7 @@ ACG 0 0 0
 65 0 65d10+8700 1d10+500 9d6+25 punch
 -35 -34 -36 -33
 DFJ 0 BIMN P
-stand stand male 1000
+stand stand male 759
 C 0 small unknown
 #11649
 ghostly servant transparent form~
@@ -799,7 +799,7 @@ ACFGS FQVZ 0 0
 82 1 100d12+15500 1d10+850 8d10+30 pierce
 -55 -54 -54 -54
 BEFHJ B MN HI
-stand stand female 5000
+stand stand female 1899
 0 0 medium unknown
 #11651
 assassin~
@@ -813,7 +813,7 @@ ACFGS DFQZ 0 0
 51 0 50d10+4900 1d10+510 4d8+25 pierce
 -23 -23 -22 -21
 BEFJ 0 MN J
-stand stand either 4050
+stand stand either 2051
 0 0 medium unknown
 #11652
 night lynx cat form~
@@ -887,7 +887,7 @@ ACFG BJTUZ 0 0
 67 0 65d10+9000 1d10+670 9d6+40 drain
 -36 -37 -37 -35
 DEFG 0 G HO
-stand stand none 3250
+stand stand none 1646
 CHIL ABDEFJKU medium unknown
 #11657
 sillouhette~
@@ -915,7 +915,7 @@ ACGS QVZ 0 0
 72 1 100d12+11000 1d10+720 12d5+30 pierce
 -44 -44 -45 -43
 EFGJ 0 0 0
-stand stand either 2550
+stand stand either 1291
 0 0 medium unknown
 #11659
 shadowblade shadow blade sinister form~
@@ -929,7 +929,7 @@ ACGS QZ 0 0
 72 1 100d12+11000 1d10+720 12d5+27 pierce
 -45 -46 -44 -42
 EFGH 0 0 0
-stand stand either 4500
+stand stand either 2279
 0 0 medium unknown
 #11660
 grey ninja cloaked form~
@@ -943,7 +943,7 @@ ABCGS QZ 0 0
 80 2 100d12+14500 1d10+850 15d5+40 wrath
 -53 -52 -52 -51
 DEFGHJ 0 0 0
-stand stand either 6250
+stand stand either 2374
 0 0 medium unknown
 #11661
 black ninja figure~
@@ -958,7 +958,7 @@ ABCGS QZ 0 0
 78 1 100d12+13500 1d10+780 15d5+10 chill
 -49 -50 -50 -47
 EFGJ I 0 H
-stand stand female 5200
+stand stand female 1975
 0 0 medium unknown
 #11662
 white ninja figure~
@@ -972,7 +972,7 @@ ABCGS BZ 0 0
 78 1 100d12+13500 1d10+780 15d5+10 flame
 -51 -50 -49 -48
 EFGJ H 0 I
-stand stand male 5200
+stand stand male 1975
 0 0 medium unknown
 #11663
 shadow serpent~
@@ -1001,7 +1001,7 @@ ABCFGS DFQZ 0 11664
 85 2 100d12+17000 1d10+900 9d10+60 wrath
 -57 -57 -56 -55
 DEFK 0 MN IP
-stand stand female 6770
+stand stand female 2571
 0 0 medium unknown
 #11665
 reykas raven black wings~
@@ -1032,7 +1032,7 @@ ACGS IV 0 0
 81 0 100d12+14900 1d10+900 9d10+0 thwack
 -42 -42 -41 -39
 EFGJ 0 0 0
-stand stand male 3400
+stand stand male 1722
 C 0 small unknown
 #11667
 boggled brain~
@@ -1088,7 +1088,7 @@ ACG T 0 0
 65 0 65d10+8000 1d10+650 9d6+30 suction
 -35 -35 -35 -33
 ADEJ B D JP
-stand stand none 2500
+stand stand none 1266
 DHL 0 medium unknown
 #11671
 insanity~
@@ -1102,7 +1102,7 @@ ADEG Q 0 0
 67 0 65d10+8800 1d10+800 10d6+30 peck
 -38 -37 -38 -36
 DFGH B HI MN
-stand stand none 1780
+stand stand none 1352
 DHL 0 medium unknown
 #11672
 fool~
@@ -1131,7 +1131,7 @@ ABG J 0 0
 70 -1 100d10+10250 1d10+1000 12d5+30 slap
 -38 -39 -40 -37
 DEF 0 P MN
-stand stand female 4750
+stand stand female 2406
 0 0 medium unknown
 #11674
 normal person~
@@ -1145,7 +1145,7 @@ ABG 0 0 0
 61 0 50d10+7000 1d10+10 8d6+35 punch
 -31 -31 -31 -30
 F 0 0 0
-stand stand either 3400
+stand stand either 1722
 0 0 medium unknown
 #11675
 toilet monster mound stuff~
@@ -1189,7 +1189,7 @@ ABCGR TUVZ 0 11677
 86 0 100d12+16500 1d10+1000 9d10+60 magic
 -57 -57 -58 -56
 ACDEFG ST OP J
-stand stand male 6740
+stand stand male 2560
 ACHL ABCDEFGHIJK large unknown
 #11678
 fax parrot~
@@ -1466,7 +1466,7 @@ ABGe DF 0 0
 93 0 100d12+19000 1d10+1000 10d10+43 wrath
 -50 -50 -50 -50
 EFK A 0 0
-stand stand female 10000
+stand stand female 5000
 0 0 medium unknown
 M greet 11600 100~
 #11696
@@ -1484,7 +1484,7 @@ ABGe DF 0 0
 90 0 100d12+18000 1d10+1000 10d10+43 magic
 -50 -50 -50 -50
 EFK A 0 0
-stand stand female 10000
+stand stand female 5000
 0 0 medium unknown
 #11697
 zdreni avenger figure~
@@ -1505,7 +1505,7 @@ ABCFGS DFQa -500 11700
 88 5 100d12+17250 1d10+3000 10d10+49 pierce
 -70 -70 -70 -69
 BDEFHJK 0 CD 0
-stand stand either 10000
+stand stand either 3799
 0 0 medium unknown
 #11698
 zdreni avenger assassin figure~
@@ -1526,7 +1526,7 @@ ABCFGRS DFQ 0 11700
 88 5 100d12+17700 1d10+6000 10d10+48 pierce
 -70 -70 -70 -69
 BEFJK 0 CD 0
-stand stand either 10000
+stand stand either 3799
 0 0 medium unknown
 #11699
 zdreni deathmaster assassin~
@@ -1544,7 +1544,7 @@ ABCFGRS DFOQ -500 11700
 85 2 100d12+15750 1d10+1500 9d10+33 wrath
 -57 -57 -58 -56
 BEFHJK 0 0 0
-stand stand male 10000
+stand stand male 3799
 0 0 medium unknown
 #11700
 zdreni shadowmaster assassin dark elven form~
@@ -1559,7 +1559,7 @@ ABCFGS DFQ -500 11700
 80 2 100d12+13500 1d10+1200 9d10+28 pierce
 -53 -53 -52 -51
 BEFJK 0 0 0
-stand stand female 8000
+stand stand female 3039
 0 0 medium unknown
 #11701
 zdreni blademaster assassin~
@@ -1575,7 +1575,7 @@ ACFGS Q -500 11700
 75 1 100d10+11250 1d10+900 7d10+35 pierce
 -48 -48 -48 -44
 BDEFJ 0 0 0
-stand stand either 7500
+stand stand either 2849
 0 0 medium unknown
 #11702
 zdreni magemaster assassin elf form~
@@ -1591,7 +1591,7 @@ ACFGRS DOQT -500 11700
 75 1 100d10+11000 1d10+1500 7d10+34 pierce
 -49 -50 -49 -47
 BFGJ 0 0 0
-stand stand either 7500
+stand stand either 2849
 0 0 medium unknown
 #11703
 zdreni stalker assassin figure~
@@ -1612,7 +1612,7 @@ ACFGS Q -500 11700
 70 1 100d10+9500 1d10+900 7d10+30 pierce
 -43 -44 -43 -41
 BEFJK 0 0 0
-stand stand either 7000
+stand stand either 2659
 0 0 medium unknown
 #11704
 zdreni darkblade assassin form~
@@ -1627,7 +1627,7 @@ ACFGS Q -500 11700
 65 1 75d10+8000 1d10+750 8d6+34 pierce
 -37 -38 -38 -37
 BEFJK 0 0 0
-stand stand either 6500
+stand stand either 2469
 0 0 medium unknown
 #11705
 zdreni venomblade assassin elf~
@@ -1642,7 +1642,7 @@ ACFGS Q -500 11700
 60 1 50d10+8000 1d10+700 8d6+28 pierce
 -34 -33 -34 -32
 BEFJK L Q 0
-stand stand either 6000
+stand stand either 2279
 0 0 medium unknown
 #11706
 zdreni stiletto assassin~
@@ -1657,7 +1657,7 @@ ACFGS Q -500 11700
 55 1 50d10+5000 1d10+650 10d4+23 pierce
 -29 -28 -28 -26
 BEFJK 0 0 0
-stand stand either 5500
+stand stand either 2089
 0 0 medium unknown
 #11707
 zdreni apprentice assassin young~
@@ -1674,7 +1674,7 @@ ACFGS Q -50 11700
 50 0 50d10+4500 1d10+600 5d8+19 pierce
 -21 -21 -21 -19
 BFJ 0 0 0
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11708
 applicant young drow~
@@ -1691,7 +1691,7 @@ ABGS 0 -50 11700
 45 0 25d10+3000 1d10+500 8d4+16 pierce
 -15 -15 -15 -12
 BF 0 0 0
-stand stand either 500
+stand stand either 454
 0 0 medium unknown
 #11709
 shadow panther black~
@@ -1736,7 +1736,7 @@ ABCFGRS DOQT -500 11700
 75 1 100d10+11000 1d10+1500 7d10+34 pierce
 -49 -50 -49 -47
 BFGJ 0 0 0
-stand stand either 7500
+stand stand either 2849
 0 0 medium unknown
 #11712
 zdreni apprentice assassin~
@@ -1753,7 +1753,7 @@ ABCFGRS Q -50 11700
 50 0 50d10+4500 1d10+600 5d8+19 pierce
 -21 -21 -21 -19
 BFJ 0 0 0
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11713
 zdreni apprentice assassin~
@@ -1770,7 +1770,7 @@ ABCFGRS Q -50 11700
 50 0 50d10+4500 1d10+600 5d8+19 pierce
 -21 -21 -21 -19
 BFJ 0 0 0
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11714
 zdreni blademaster assassin~
@@ -1786,7 +1786,7 @@ ABCFGS Q -500 11700
 75 1 100d10+11250 1d10+900 7d10+35 pierce
 -48 -48 -48 -44
 BDEFJ 0 0 0
-stand stand either 7500
+stand stand either 2849
 0 0 medium unknown
 #11715
 zdreni apprentice assassin~
@@ -1803,7 +1803,7 @@ ABCFGS Q -50 11700
 50 0 50d10+4500 1d10+600 5d8+19 pierce
 -21 -21 -21 -19
 BFJ 0 0 0
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11716
 zdreni apprentice assassin~
@@ -1820,7 +1820,7 @@ ABCFGS Q -50 11700
 50 0 50d10+4500 1d10+600 5d8+19 pierce
 -21 -21 -21 -19
 BFJ 0 0 0
-stand stand either 1000
+stand stand either 759
 0 0 medium unknown
 #11717
 zdreni magemaster assassin~
@@ -1835,7 +1835,7 @@ ABCFGRS DOQT -500 11700
 75 1 100d10+11000 1d10+1500 7d10+34 pierce
 -49 -50 -49 -47
 BFGJ 0 0 0
-stand stand either 7500
+stand stand either 2849
 0 0 medium unknown
 #11718
 zdreni venomblade assassin elf~
@@ -1850,7 +1850,7 @@ ABCFGS Q -500 11700
 60 1 50d10+6750 1d10+700 8d6+28 pierce
 -24 -23 -24 -22
 BEFJK L Q 0
-stand stand male 6000
+stand stand male 2279
 0 0 medium unknown
 #11719
 zdreni stiletto assassin~
@@ -1865,7 +1865,7 @@ ABCFGS Q -500 11700
 55 1 50d10+5500 1d10+650 10d4+23 pierce
 -29 -28 -28 -26
 BEFJK 0 0 0
-stand stand female 5500
+stand stand female 2089
 0 0 medium unknown
 #11720
 zdreni venomblade assassin elf~
@@ -1880,7 +1880,7 @@ ABCFGS Q -500 11700
 60 1 50d10+6500 1d10+700 8d6+28 pierce
 -34 -33 -34 -32
 BEFJK L Q 0
-stand stand either 6000
+stand stand either 2279
 0 0 medium unknown
 #11721
 zdreni venomblade assassin elf~
@@ -1895,7 +1895,7 @@ ABCFGS Q -500 11700
 60 1 50d10+7200 1d10+700 8d6+28 pierce
 -34 -33 -34 -32
 BEFJK L Q 0
-stand stand either 6000
+stand stand either 2279
 0 0 medium unknown
 #11722
 screaming captive~
@@ -1925,7 +1925,7 @@ ABCG 0 -200 11700
 50 0 50d10+5000 1d10+500 5d8+20 crush
 -22 -21 -21 -18
 CDIK 0 0 0
-stand stand male 2500
+stand stand male 1266
 0 0 medium unknown
 #11724
 zdreni drow weaponsmith smith~
@@ -1940,7 +1940,7 @@ ABCG 0 -200 11700
 50 0 50d10+5000 1d10+500 5d8+20 smash
 -22 -21 -21 -18
 CDIK 0 0 0
-stand stand male 2500
+stand stand male 1266
 0 0 medium unknown
 #11725
 zdreni avenger leader figure~
@@ -1961,7 +1961,7 @@ ABCFGRS DFQa -500 11700
 89 5 100d12+18500 1d10+3500 10d10+51 wrath
 -74 -74 -74 -74
 BDEFHJK 0 CD 0
-stand stand either 10000
+stand stand either 3799
 0 0 medium unknown
 #0
 

@@ -21,7 +21,7 @@ AFGO T -1000 0
 48 0 25d10+3750 1d10+5000 6d6+18 slash
 -18 -18 -18 0
 EFNQ 0 0 X
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8101
 wraith дух~
@@ -42,7 +42,7 @@ AFGO T -1000 0
 47 0 25d10+3500 1d20+3440 6d6+17 pierce
 -17 -17 -17 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8102
 wight~
@@ -58,7 +58,7 @@ AFGO 0 -1000 0
 45 0 25d10+3000 10d10+330 8d4+16 slash
 -15 -15 -15 4
 EFNQ 0 0 X
-stand stand none 4500
+stand stand none 1556
 0 0 medium unknown
 #8103
 ghost~
@@ -74,7 +74,7 @@ AFGO T -1000 0
 48 0 25d10+3750 10d10+110 6d6+18 pound
 -18 -18 -18 2
 EFNU 0 0 X
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8104
 vampire~
@@ -90,7 +90,7 @@ ABFGO N -1000 0
 54 0 25d10+5250 10d10+1110 7d6+22 pierce
 -24 -24 -24 -1
 EFNQ B 0 X
-stand stand none 5300
+stand stand none 1374
 0 0 medium unknown
 #8105
 lich~
@@ -106,7 +106,7 @@ ABGOT DFJ -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 pierce
 -28 -28 -28 2
 0 0 0 0
-stand stand male 5800
+stand stand male 1504
 0 0 medium unknown
 #8106
 demon~
@@ -121,7 +121,7 @@ AFGHO 0 -1000 0
 52 0 50d10+4750 10d10+4440 6d7+20 pound
 -22 -22 -22 0
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8107
 revenant spirit~
@@ -139,7 +139,7 @@ AGO N 0 0
 57 0 50d10+6000 10d10+1000 6d8+24 pierce
 -27 -27 -27 -2
 EFNQ 0 0 0
-stand stand none 5300
+stand stand none 1374
 0 0 medium unknown
 #8108
 spirit haunt~
@@ -155,7 +155,7 @@ ABGO T 0 0
 48 0 25d10+3750 10d10+1000 6d6+18 pierce
 -18 -18 -18 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8109
 crypt thing~
@@ -170,7 +170,7 @@ ABGO 0 -1000 0
 55 0 50d10+5500 10d10+1000 10d4+23 pierce
 -25 -25 -25 0
 EFNQ 0 0 0
-stand stand none 5300
+stand stand none 1374
 0 0 medium unknown
 #8110
 greater demon~
@@ -185,7 +185,7 @@ ABFGO T -1000 0
 58 0 50d10+6250 10d10+1000 5d10+25 pound
 -28 -28 -28 -2
 EFNQ 0 0 0
-stand stand none 5600
+stand stand none 1452
 0 0 medium unknown
 #8111
 undead dragon~
@@ -201,7 +201,7 @@ ABFGO T -1000 0
 62 0 50d10+7250 10d10+1000 6d9+32 pound
 -32 -32 -32 -3
 EFNQ 0 0 0
-stand stand none 7000
+stand stand none 1815
 0 0 medium unknown
 #8112
 undead monster~
@@ -217,7 +217,7 @@ AFGO 0 -1000 0
 45 0 25d10+3000 10d10+1000 8d4+16 slash
 -15 -15 -15 10
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8113
 rat крыса giant~
@@ -233,7 +233,7 @@ ACFGHO DFQ -1000 0
 40 0 10d10+1850 10d10+100 4d8+13 charge
 -13 -13 -13 4
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8114
 spider паук giant~
@@ -249,7 +249,7 @@ ACFGHO Q -1000 0
 45 0 25d10+3000 10d10+1000 8d4+16 charge
 -15 -15 -15 4
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 P 0 medium unknown
 #8115
 lurker above~
@@ -264,7 +264,7 @@ ABFGHO T 0 0
 52 0 50d10+4750 10d10+1000 6d7+20 pierce
 -20 -20 -20 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8116
 succubus woman суккуб~
@@ -281,7 +281,7 @@ ABGO Tu -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 slash
 -20 -20 -20 2
 EFNQ 0 0 0
-stand stand female 5000
+stand stand female 1297
 0 0 medium unknown
 #8117
 necromancer xantharus~
@@ -298,7 +298,7 @@ ABGHO 0 -400 0
 50 0 50d10+4250 10d10+1000 5d8+19 pound
 -20 -20 -20 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8118
 rotting corpse~
@@ -314,7 +314,7 @@ AGO 0 0 0
 40 0 10d10+1850 10d10+1000 4d8+13 slash
 -13 -13 -13 3
 EFNQ 0 0 0
-stand stand none 3000
+stand stand none 1037
 0 0 medium unknown
 #8119
 master~
@@ -330,7 +330,7 @@ ABFGHO CDEFu -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
 EFNQ 0 0 0
-stand stand none 5300
+stand stand none 1374
 0 0 medium unknown
 #8120
 mound холм shambling~
@@ -347,7 +347,7 @@ AFGO JN 0 0
 45 -1 50d10+3000 10d10+1000 8d4+16 slash
 -15 -14 -15 4
 EFNQ 0 0 0
-stand stand none 5200
+stand stand none 1349
 0 0 medium unknown
 #8121
 kampflut кампфлут~
@@ -367,7 +367,7 @@ AFGO N 0 0
 50 0 50d10+4250 10d10+1000 5d8+19 pierce
 -20 -20 -20 2
 EFNQ 0 0 0
-stand stand male 5000
+stand stand male 1297
 0 0 medium unknown
 #8122
 black pudding пудинг~
@@ -385,7 +385,7 @@ AFGO N 0 0
 52 0 50d10+4750 10d10+1000 6d7+20 pierce
 -22 -22 -22 2
 EFNQ 0 0 0
-stand stand none 5100
+stand stand none 1323
 0 0 medium unknown
 #8123
 green slime слизь~
@@ -402,7 +402,7 @@ ABFGO 0 0 0
 40 0 50d10+1850 10d10+1000 4d8+13 slash
 -13 -13 -13 4
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8124
 ooze gray лужа~
@@ -418,7 +418,7 @@ AFGO N -1000 0
 58 0 50d10+6250 10d10+1000 5d10+25 pierce
 -28 -28 -28 0
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8125
 animated tree дерево~
@@ -434,7 +434,7 @@ AFGO 0 0 0
 45 0 50d10+3000 10d10+1000 8d4+16 pound
 -15 -15 -15 3
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8126
 tree spirit дух~
@@ -453,7 +453,7 @@ ABGO BN 400 0
 65 0 50d10+8250 10d10+1000 11d5+35 pierce
 -35 -35 -35 -5
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8127
 death knight~
@@ -470,7 +470,7 @@ ABFGO 0 -1000 0
 60 0 50d10+6250 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8128
 nightmare~
@@ -485,7 +485,7 @@ ABGO T -1000 0
 45 0 50d10+3000 10d10+1000 8d4+16 pound
 -15 -15 -15 4
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8129
 retriever~
@@ -500,7 +500,7 @@ ABFGO 0 -1000 0
 58 0 50d10+6250 10d10+1000 5d10+25 slash
 -28 -28 -28 0
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8130
 cambion scout~
@@ -518,7 +518,7 @@ ACGHO EQV -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 pound
 -40 -40 -40 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8131
 orcus~
@@ -536,7 +536,7 @@ ABGHO BENu -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 pierce
 -35 -35 -35 -4
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8132
 water weird~
@@ -566,7 +566,7 @@ ABCFGHO Q -1000 0
 48 0 50d10+3750 10d10+1000 6d6+18 charge
 -18 -18 -18 3
 EFNQ 0 0 0
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #8134
 baron vampire вампир~
@@ -582,7 +582,7 @@ ABFGO 0 -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 pierce
 -30 -30 -30 0
 EFNQ B 0 X
-stand stand none 5000
+stand stand none 1297
 0 0 medium unknown
 #0
 

@@ -22,7 +22,7 @@ ABFe DFJV -900 0
 45 0 25d10+3000 22d9+100 8d4+16 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10402
 pile coins~
@@ -36,7 +36,7 @@ ABS DFJ -800 0
 30 0 6d12+778 15d9+100 2d12+8 none
 -9 -9 -9 4
 BEFJNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10403
 male dee demon~
@@ -51,7 +51,7 @@ ABF JV -1000 0
 40 0 15d10+1850 20d9+100 4d8+13 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10404
 female dee demon~
@@ -66,7 +66,7 @@ ABF JV -1000 0
 40 0 15d10+1850 20d9+100 4d8+13 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand female 5000
+stand stand female 1185
 0 0 medium unknown
 #10405
 bar gold~
@@ -80,7 +80,7 @@ ABS DFJ -800 0
 37 0 10d10+1400 18d9+100 3d10+11 none
 -12 -12 -12 3
 BEFJNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10406
 chicken pot pie~
@@ -94,7 +94,7 @@ AB J -800 0
 42 0 25d10+2250 21d9+100 3d12+14 none
 -14 -14 -14 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10407
 beef pot pie~
@@ -108,7 +108,7 @@ AB J -800 0
 42 0 25d10+2250 21d9+100 3d12+18 none
 -14 -14 -14 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10408
 vegetable pot pie~
@@ -122,7 +122,7 @@ AB J -800 0
 42 0 25d10+2250 21d9+100 3d12+14 none
 -14 -14 -14 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10409
 damned soul~
@@ -137,7 +137,7 @@ AGQ J -700 0
 32 0 10d10+1000 32d9+100 4d6+9 none
 -10 -10 -10 4
 EIKU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10410
 tortured soul~
@@ -152,7 +152,7 @@ ABR J -800 0
 34 0 10d10+1100 34d9+100 4d6+9 none
 -11 -11 -11 0
 FU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10411
 half-eaten person~
@@ -168,7 +168,7 @@ ABD JV -757 0
 46 0 25d10+3250 23d9+100 6d6+16 none
 -16 -16 -16 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10412
 living wall~
@@ -184,7 +184,7 @@ AB JV -1000 0
 53 0 50d10+6500 50d10+100 6d7+21 none
 -30 -30 -30 -10
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10413
 skeletal warrior~
@@ -200,7 +200,7 @@ AD JV -743 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 E
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10414
 bloody severed arm~
@@ -215,7 +215,7 @@ AB J -884 0
 33 0 10d10+1100 16d9+100 6d4+10 none
 -11 -11 -11 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10415
 bloody severed foot~
@@ -229,7 +229,7 @@ AB J -800 0
 33 0 10d10+1100 16d9+100 6d4+10 none
 -11 -11 -11 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10416
 bloody severed nose~
@@ -244,7 +244,7 @@ AB J -800 0
 33 0 10d10+1100 16d9+100 6d4+10 none
 -11 -11 -11 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10417
 blood~
@@ -258,7 +258,7 @@ AB J -950 0
 45 0 25d10+3000 22d9+100 8d4+16 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10418
 Lost soul~
@@ -273,7 +273,7 @@ ABR J -500 0
 44 0 25d10+2500 44d9+100 4d8+14 none
 -15 -15 -15 -2
 FU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10419
 crispy critter~
@@ -289,7 +289,7 @@ AB J -800 0
 44 0 25d10+2750 22d9+100 8d4+15 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10420
 pile bones skeleton~
@@ -304,7 +304,7 @@ AB J -700 0
 37 0 10d10+1500 18d9+100 3d10+12 none
 -12 -12 -12 5
 EFNU 0 0 E
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10421
 manes sub-demon~
@@ -322,7 +322,7 @@ AH JV -900 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10422
 prisoner raiden~
@@ -338,7 +338,7 @@ AB J -1000 0
 35 0 10d10+1300 17d9+100 4d7+11 none
 -11 -11 -11 5
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10423
 prisoner hell~
@@ -354,7 +354,7 @@ AB JV -800 0
 38 0 10d10+1600 19d9+100 5d6+12 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand female 5000
+stand stand female 1185
 0 0 medium unknown
 #10424
 prisoner hell~
@@ -370,7 +370,7 @@ AB JV -800 0
 38 0 10d10+1600 19d9+100 5d6+12 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10425
 demonguard demon guard~
@@ -385,7 +385,7 @@ AFG J -800 0
 40 0 15d10+1850 20d9+100 4d8+13 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10426
 burning fool~
@@ -400,7 +400,7 @@ AB J -900 0
 42 0 25d10+2250 21d9+100 3d12+14 none
 -14 -14 -14 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10427
 construction worker male~
@@ -416,7 +416,7 @@ AB JV -666 0
 45 0 25d10+3000 22d9+100 8d4+16 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10428
 construction worker female~
@@ -432,7 +432,7 @@ AB JV -666 0
 46 0 25d10+3250 23d9+100 6d6+16 none
 -16 -16 -16 4
 EFNU 0 0 0
-stand stand female 5000
+stand stand female 1185
 0 0 medium unknown
 #10430
 fire devil~
@@ -449,7 +449,7 @@ AB J -1000 0
 50 0 40d10+4000 25d9+100 5d8+19 none
 -18 -18 -18 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10431
 wall fire~
@@ -465,7 +465,7 @@ AB JTV -600 0
 46 0 25d10+3250 23d9+100 6d6+16 none
 -16 -16 -16 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10432
 hell hound~
@@ -481,7 +481,7 @@ ABD DFJ -900 0
 45 0 25d10+3000 22d9+100 8d4+16 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10433
 frozen body~
@@ -497,7 +497,7 @@ AB J -900 0
 47 0 25d10+3500 23d9+100 6d6+17 none
 -17 -17 -17 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10434
 ice devil~
@@ -515,7 +515,7 @@ AB JTV -1000 0
 54 0 50d10+5500 26d10+100 6d8+20 none
 -22 -22 -22 2
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10435
 trapped soul ice~
@@ -532,7 +532,7 @@ AB J -789 0
 50 0 50d10+4000 24d9+100 5d8+18 none
 -19 -19 -19 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10436
 half frozen body~
@@ -548,7 +548,7 @@ AB J -876 0
 51 0 50d10+5000 25d9+100 5d8+20 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10437
 killer penguin~
@@ -563,7 +563,7 @@ ABFR J -876 0
 52 0 50d10+4700 52d9+100 4d10+18 none
 -21 -21 -21 -5
 FU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10438
 I-scream worker~
@@ -581,7 +581,7 @@ AB J -706 0
 52 0 50d10+4700 26d9+100 6d7+20 none
 -22 -22 -22 2
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10439
 Ice Screamer~
@@ -599,7 +599,7 @@ AB JV -706 0
 52 0 50d10+4700 26d9+100 6d7+20 none
 -22 -22 -22 2
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10440
 Construction Foreman Demonic~
@@ -618,7 +618,7 @@ ABFGT DFJV -1000 0
 53 0 50d10+5100 26d9+100 6d7+21 none
 -23 -23 -23 2
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10441
 Secretary of Hell~
@@ -634,7 +634,7 @@ AB DFJ -700 0
 46 0 25d10+3250 23d9+100 6d6+16 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand female 5000
+stand stand female 1185
 0 0 medium unknown
 #10442
 office worker hell~
@@ -649,7 +649,7 @@ ABS DFJ -1000 0
 48 0 25d10+3750 24d9+100 6d6+18 none
 -17 -17 -17 2
 BEFJNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10443
 records worker~
@@ -664,7 +664,7 @@ AB DFJ -1000 0
 48 0 25d10+3750 24d9+100 8d4+18 none
 -17 -17 -17 2
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10444
 santa claus~
@@ -679,7 +679,7 @@ AB DFJ -1000 0
 48 0 25d10+3750 24d9+100 6d6+18 none
 -17 -17 -17 4
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10445
 high priest ell~
@@ -694,7 +694,7 @@ ABFQ DFJV -1000 0
 56 0 50d10+6000 53d9+100 6d8+21 none
 -23 -23 -23 -1
 EIKU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10446
 bowl blood~
@@ -708,7 +708,7 @@ ABF DFJ -900 0
 52 0 50d10+4700 26d9+100 6d7+20 none
 -22 -22 -22 1
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10447
 jury member~
@@ -722,7 +722,7 @@ AB DFJ -1000 0
 46 0 25d10+3250 20d9+100 6d6+16 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10448
 Judge Whopper~
@@ -737,7 +737,7 @@ AB DFJV -1000 0
 56 0 50d10+6000 50d9+100 5d8+20 none
 -22 -22 -22 2
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10449
 lawyer hell~
@@ -751,7 +751,7 @@ AB DFJV -1000 0
 52 0 50d10+4700 26d9+100 8d7+20 none
 -22 -22 -22 2
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10450
 complaints officer~
@@ -767,7 +767,7 @@ AB DFJV -1000 0
 54 0 50d10+5500 25d9+100 5d8+22 none
 -23 -23 -23 3
 EFNU 0 0 0
-stand stand female 5000
+stand stand female 1185
 0 0 medium unknown
 #10451
 bastard hiramoto~
@@ -798,7 +798,7 @@ AB DFJ -1000 0
 52 0 50d10+5000 25d9+100 5d8+20 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10453
 weeds~
@@ -812,7 +812,7 @@ AB DFJ -1000 0
 46 0 25d10+3250 20d12+100 5d7+17 none
 -13 -13 -13 5
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10454
 stanley~
@@ -843,7 +843,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d9+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10456
 stomach dragon~
@@ -858,7 +858,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10457
 rancid turkey leg~
@@ -873,7 +873,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10458
 reactor specialist~
@@ -888,7 +888,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10459
 reactor worker~
@@ -903,7 +903,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10460
 homer simpson~
@@ -922,7 +922,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 6d8+20 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10461
 devil's food cake~
@@ -936,7 +936,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10462
 mad cook~
@@ -950,7 +950,7 @@ AB DFJ -800 0
 53 0 50d10+5100 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10463
 frantic lady~
@@ -963,7 +963,7 @@ AG JV -600 0
 46 0 25d10+3250 21d9+100 6d6+16 none
 -14 -14 -14 4
 EFNU 0 0 0
-stand stand female 5000
+stand stand female 1185
 0 0 medium unknown
 #10464
 nuclear technician~
@@ -976,7 +976,7 @@ AB DFJ -800 0
 54 0 50d10+5250 25d10+100 7d6+22 none
 -23 -23 -23 3
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10465
 stray proton~
@@ -989,7 +989,7 @@ AB DFJ -800 0
 54 0 50d10+5500 25d10+100 5d8+23 none
 -23 -23 -23 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10466
 radiation~
@@ -1002,7 +1002,7 @@ AB DFJ -800 0
 54 0 50d10+5500 25d10+100 5d8+23 none
 -23 -23 -23 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10467
 chief engineer hell~
@@ -1019,7 +1019,7 @@ AB DFJV -800 0
 56 0 50d10+6000 50d10+100 6d7+24 none
 -24 -24 -24 2
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1185
 0 0 medium unknown
 #10468
 Greater Fire Demon~
@@ -1037,7 +1037,7 @@ AB DFJ -800 0
 54 0 50d10+5500 25d10+100 5d8+22 none
 -21 -21 -21 3
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10469
 frozen side beef~
@@ -1052,7 +1052,7 @@ AB J -675 0
 48 0 25d10+3750 25d10+100 6d6+18 none
 -15 -15 -15 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10470
 guard dog~
@@ -1066,7 +1066,7 @@ ABD JV -900 0
 50 0 50d10+4000 25d10+100 5d8+19 none
 -18 -18 -18 4
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #10471
 juicy steak~
@@ -1080,7 +1080,7 @@ AB DFJ -800 0
 54 0 50d10+5500 25d10+100 7d6+22 none
 -23 -23 -23 0
 EFNU 0 0 0
-stand stand none 5000
+stand stand none 1185
 0 0 medium unknown
 #0
 

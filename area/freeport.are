@@ -173,7 +173,7 @@ ABCEe 0 300 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 EFNU 0 0 0
-stand stand male 8000
+stand stand male 5000
 0 0 medium unknown
 #29212
 apprentice shipbuilder~
@@ -249,7 +249,7 @@ ABCDEe 0 600 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 EFNU 0 0 0
-stand stand male 10000
+stand stand male 5000
 0 0 medium unknown
 #29217
 anwar~
@@ -266,7 +266,7 @@ ABCEVe 0 -300 0
 95 0 50d10+22500 5d5+5000 12d15+68 slash
 -71 -71 -71 -37
 EFNU 0 0 0
-stand stand male 15000
+stand stand male 5000
 0 0 medium unknown
 #29218
 raedner dwarf dwarven smith~
@@ -283,7 +283,7 @@ ABCESVe 0 700 0
 94 0 50d10+21500 5d5+5000 10d18+66 slash
 -69 -69 -69 -35
 EFNU 0 C 0
-stand stand male 15000
+stand stand male 5000
 0 0 medium unknown
 #29219
 samantha~
@@ -300,7 +300,7 @@ ABCERVe 0 -700 0
 94 0 50d10+21500 5d5+5000 10d18+66 pierce
 -69 -69 -69 -35
 EFNU 0 0 0
-stand stand female 15000
+stand stand female 5000
 0 0 medium unknown
 #29220
 apprentice merchant~
@@ -416,7 +416,7 @@ ABCEe 0 400 0
 94 0 50d10+21500 5d5+5000 10d18+66 pound
 -69 -69 -69 -35
 EFNU 0 0 0
-stand stand female 9000
+stand stand female 5000
 0 0 medium unknown
 #29228
 sailor scruffy pirate~

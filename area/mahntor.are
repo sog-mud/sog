@@ -25,7 +25,7 @@ AB DJu -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand male 1250
+stand stand male 708
 0 0 medium unknown
 #2301
 treant tree дерево~
@@ -101,7 +101,7 @@ AB DHJ 1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand female 1000
+stand stand female 567
 0 0 medium unknown
 #2305
 mist mistling элементаль~
@@ -137,7 +137,7 @@ ABCF J -1000 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
-stand stand male 1250
+stand stand male 708
 0 0 medium unknown
 #2307
 ogre villager~
@@ -182,7 +182,7 @@ ABCFG 0 -500 0
 19 0 3d9+308 9d9+100 2d7+5 none
 -4 -4 -4 7
 EFNU 0 0 0
-stand stand male 500
+stand stand male 454
 0 0 medium unknown
 #2310
 shaman ogre шаман~
@@ -201,7 +201,7 @@ ABCFGHQ Du -750 0
 20 0 3d9+333 20d9+100 2d7+5 none
 -4 -4 -4 6
 EIKU 0 0 0
-stand stand male 2500
+stand stand male 945
 0 0 medium unknown
 #2311
 chief chieftain ogre шеф~
@@ -220,7 +220,7 @@ ABCFGH Du -1000 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand male 2500
+stand stand male 945
 0 0 medium unknown
 #2312
 barbarian~
@@ -281,7 +281,7 @@ ABCGH 0 100 0
 15 0 3d9+208 7d9+100 2d6+3 none
 -2 -2 -2 7
 EFNU 0 0 0
-stand stand none 500
+stand stand none 454
 0 0 medium unknown
 #2316
 guard minotaur~
@@ -296,7 +296,7 @@ ABCFG 0 -330 0
 22 0 5d10+400 11d9+100 4d4+6 none
 -5 -5 -5 7
 EFNU 0 0 0
-stand stand male 1250
+stand stand male 708
 0 0 medium unknown
 #2317
 warrior minotaur~
@@ -311,7 +311,7 @@ ACFG 0 -330 0
 21 0 4d10+360 10d9+100 4d4+5 none
 -5 -5 -5 7
 EFNU 0 0 0
-stand stand male 1250
+stand stand male 708
 0 0 medium unknown
 #2318
 minotaur gatekeeper~
@@ -326,7 +326,7 @@ ABCG D -330 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand none 1250
+stand stand none 708
 0 0 medium unknown
 #2319
 minotaur high guard~
@@ -341,7 +341,7 @@ ABCFG D -330 0
 25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand male 2250
+stand stand male 1276
 0 0 medium unknown
 #2320
 minotaur royal guard~
@@ -356,7 +356,7 @@ ABCFG D -330 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand male 2500
+stand stand male 945
 0 0 medium unknown
 #2321
 guard minotaur elite~
@@ -371,7 +371,7 @@ ABCFG D -250 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
-stand stand male 3750
+stand stand male 1417
 0 0 medium unknown
 #2322
 girl haremgirl harem slave девушка~
@@ -418,7 +418,7 @@ ABCGR DH -300 0
 29 0 6d12+703 29d9+100 3d7+7 none
 -8 -8 -8 1
 FU 0 0 0
-stand stand male 2500
+stand stand male 945
 0 0 medium unknown
 #2325
 gorak minotaur warrior master~
@@ -433,7 +433,7 @@ ABF DH -300 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2326
 darkoth minotaur anti-paladin master~
@@ -448,7 +448,7 @@ ABF DJu -1000 0
 33 0 6d12+853 15d9+100 4d6+10 none
 -9 -9 -9 6
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2327
 tyrgoth minotaur paladin master~
@@ -463,7 +463,7 @@ AB DH 1000 0
 34 2 6d12+853 15d9+100 4d6+10 none
 -9 -9 -9 6
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2328
 amyrok minotaur mage master~
@@ -479,7 +479,7 @@ ABFR DH 300 0
 30 0 6d12+778 30d9+100 5d4+7 none
 -9 -9 -9 1
 FU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2329
 sumaron minotaur cleric master~
@@ -494,7 +494,7 @@ ABFQ DH 1000 0
 30 0 6d12+853 30d9+100 5d4+8 none
 -9 -9 -9 4
 EIKU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2330
 nasturn minotaur druid master~
@@ -509,7 +509,7 @@ ABQ DH 500 0
 30 0 6d12+853 30d9+100 5d4+8 none
 -9 -9 -9 4
 EIKU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2331
 belrak minotaur ranger master~
@@ -524,7 +524,7 @@ ABF DH 500 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2332
 dorgar minotaur thief master~
@@ -539,7 +539,7 @@ ABCF Q -500 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #2333
 mahn-tor minotaur grand master ман-тор~
@@ -559,7 +559,7 @@ ABCR BDTUu -500 0
 33 0 10d10+1000 33d9+100 4d6+8 none
 -10 -10 -10 0
 FU 0 0 0
-stand stand male 5000
+stand stand male 1417
 0 0 medium unknown
 #0
 

@@ -26,7 +26,7 @@ ABCF DJu -1000 0
 47 0 25d10+3500 469d1+1 6d6+17 punch
 -17 -17 -17 3
 CDIKLN AB E CK
-stand stand male 6700
+stand stand male 1265
 0 0 medium unknown
 #25001
 keftab~
@@ -47,7 +47,7 @@ ABC DJP -1000 0
 45 0 25d10+2300 449d1+1 8d4+10 beating
 -15 -15 -15 4
 CDEFH AB N C
-stand stand male 6500
+stand stand male 1227
 0 0 medium unknown
 #25002
 death crimson~
@@ -63,7 +63,7 @@ ABCF DJTUu -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 punch
 -12 -12 -12 5
 DEHIJK AB D FGNO
-stand stand either 5600
+stand stand either 1057
 0 0 medium unknown
 #25003
 mist daemon~
@@ -78,7 +78,7 @@ ABCF JU -1000 0
 34 0 10d10+1200 339d1+1 4d7+10 punch
 -11 -11 -11 5
 HIK AB R X
-stand stand either 10000
+stand stand either 1888
 0 0 medium unknown
 #25004
 black slayer~
@@ -93,7 +93,7 @@ ABCF DJP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 punch
 -7 -7 -7 6
 ACFHIK A C B
-stand stand male 999
+stand stand male 754
 0 0 medium unknown
 #25005
 lost soul~
@@ -107,7 +107,7 @@ ACF DJP -1000 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 FGJK A C DS
-stand stand female 666
+stand stand female 503
 0 0 medium unknown
 #25006
 storm giant~
@@ -122,7 +122,7 @@ ABCF DJP -1000 0
 40 0 15d10+1850 399d1+1 4d8+13 punch
 -13 -13 -13 4
 CEIKL AB D CIK
-stand stand male 10000
+stand stand male 1888
 0 0 large unknown
 #25007
 white gold manticore~
@@ -153,7 +153,7 @@ ABF Jb -1000 25008
 35 0 10d10+1200 349d1+1 4d7+10 punch
 -11 -11 -11 7
 CDEFGHIK AB H LNOS
-stand stand male 5612
+stand stand male 1059
 0 0 medium unknown
 #25009
 hydra~
@@ -216,7 +216,7 @@ ABCGH DJP -1000 25012
 26 0 5d10+600 259d1+1 2d10+7 punch
 -7 -7 -7 6
 ADEF 0 LM D
-stand stand male 1500
+stand stand male 566
 0 0 medium unknown
 #25013
 kalas~
@@ -232,7 +232,7 @@ ABF Ju -1000 0
 50 0 50d10+4500 499d1+1 5d8+19 punch
 -20 -20 -20 3
 ABCDEFGHJKN AB H IJK
-stand stand male 12045
+stand stand male 2274
 0 0 medium unknown
 #25014
 death knight~
@@ -248,7 +248,7 @@ ABCF Ju -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 punch
 -13 -13 -13 5
 BCEGK AB D H
-stand stand male 6860
+stand stand male 1295
 0 0 medium unknown
 #25015
 Neo Otyugh~
@@ -277,7 +277,7 @@ ACF DJ -1000 0
 28 0 6d12+703 279d1+1 2d12+8 punch
 -8 -8 -8 5
 CDHI AB MNO STZ
-stand stand male 1230
+stand stand male 464
 0 0 medium unknown
 #25017
 gatekeeper gate keeper~
@@ -292,7 +292,7 @@ ABFG DFJu -1000 25036
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CI AB C D
-stand stand male 5400
+stand stand male 1019
 0 0 medium unknown
 #25018
 elemental water prince~
@@ -348,7 +348,7 @@ AB D 0 0
 32 0 10d10+900 319d1+1 6d4+8 punch
 -10 -10 -10 5
 AHI 0 IJK 0
-stand stand male 4111
+stand stand male 1035
 0 0 medium unknown
 #25022
 king goblin~
@@ -362,7 +362,7 @@ A D -351 0
 18 0 3d9+283 179d1+1 2d7+4 punch
 -3 -3 -3 7
 0 0 0 0
-stand stand male 940
+stand stand male 710
 0 0 medium unknown
 #25023
 goblin cannon~
@@ -376,7 +376,7 @@ AB 0 -351 0
 30 0 6d12+853 299d1+1 4d6+8 punch
 -9 -9 -9 5
 0 0 0 0
-stand stand male 4500
+stand stand male 1133
 0 0 medium unknown
 #25024
 goblin gatling~
@@ -390,7 +390,7 @@ AB 0 -351 0
 30 0 6d12+853 299d1+1 4d6+8 punch
 -9 -9 -9 5
 0 0 0 0
-stand stand male 5400
+stand stand male 1019
 0 0 medium unknown
 #25025
 acid blob~
@@ -404,7 +404,7 @@ AB 0 0 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 0 0 0 0
-stand stand either 999
+stand stand either 754
 0 0 medium unknown
 #25026
 acid blob giant~
@@ -418,7 +418,7 @@ AB 0 0 0
 50 0 50d10+4500 499d1+1 5d8+19 punch
 -20 -20 -20 3
 0 0 0 0
-stand stand either 11111
+stand stand either 2098
 0 0 medium unknown
 #25030
 demon vrock~
@@ -432,7 +432,7 @@ ACF DFJ -666 25030
 21 0 4d10+360 209d1+1 4d4+5 punch
 -5 -5 -5 6
 FI AB C D
-stand stand male 999
+stand stand male 754
 0 0 medium unknown
 #25031
 demon hezrou~
@@ -474,7 +474,7 @@ ABCF DFJ -666 25033
 19 0 3d9+308 190d1+1 2d7+5 punch
 -4 -4 -4 7
 A AB 0 0
-stand stand either 890
+stand stand either 672
 0 0 medium unknown
 #25034
 demon marilith~
@@ -502,7 +502,7 @@ ACF DF -666 0
 20 0 3d9+333 199d1+1 2d8+5 punch
 -4 -4 -4 7
 I AB D C
-stand stand male 899
+stand stand male 679
 0 0 medium unknown
 #25036
 gatekeeper gate keeper~
@@ -517,7 +517,7 @@ ABFG DFJu -1000 25017
 35 0 10d10+1300 349d1+1 4d7+11 punch
 -11 -11 -11 5
 CDIK AB 0 0
-stand stand male 5400
+stand stand male 1019
 0 0 medium unknown
 #25037
 black slayer~
@@ -532,7 +532,7 @@ ABCF DJP -1000 0
 25 0 5d10+550 249d1+1 2d10+7 punch
 -7 -7 -7 6
 ACFHIK A C B
-stand stand male 999
+stand stand male 754
 0 0 medium unknown
 F par ABCDEFGHIJK
 #25038

@@ -33,7 +33,7 @@ ABFQT DF -700 0
 22 7 10d10+600 10d10+100 6d4+10 smash
 -7 -7 -7 -2
 ACDIO AB CD 0
-stand stand male 600
+stand stand male 545
 0 0 huge unknown
 #9203
 tiny elemental~
@@ -61,7 +61,7 @@ AB 0 0 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
-stand stand none 500
+stand stand none 454
 0 0 medium unknown
 #9205
 small elemental~
@@ -118,7 +118,7 @@ ABKQe HJ 0 0
 30 0 6d12+853 30d9+100 5d4+8 none
 -9 -9 -9 4
 EIKU AB 0 0
-stand stand none 5000
+stand stand none 2246
 0 0 medium unknown
 #9209
 fire elemental ruler~
@@ -132,7 +132,7 @@ ABKe H 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU AB 0 0
-stand stand none 5000
+stand stand none 2246
 0 0 medium unknown
 #9210
 air elemental ruler~
@@ -146,7 +146,7 @@ ABKe H 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU AB 0 0
-stand stand none 5000
+stand stand none 2246
 0 0 medium unknown
 #9211
 lightning elemental ruler~
@@ -161,7 +161,7 @@ ABKe H 0 0
 30 0 6d12+853 15d9+100 4d6+8 none
 -9 -9 -9 6
 EFNU AB 0 0
-stand stand none 5000
+stand stand none 2246
 0 0 medium unknown
 #9212
 water elemental ruler~
@@ -359,7 +359,7 @@ ABG 0 -100 0
 26 0 5d10+600 13d9+100 3d7+7 none
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand none 1250
+stand stand none 1123
 0 0 medium unknown
 #9227
 magneto~
@@ -373,7 +373,7 @@ ABG 0 -150 0
 22 0 5d10+400 11d9+100 4d4+6 none
 -5 -5 -5 7
 EFNU 0 0 0
-stand stand none 500
+stand stand none 454
 0 0 medium unknown
 #9228
 ice bandit~
@@ -387,7 +387,7 @@ ABGH P -250 0
 24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
-stand stand none 1500
+stand stand none 1347
 0 0 medium unknown
 #9229
 rock monster~
@@ -401,7 +401,7 @@ ABG 0 -310 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
-stand stand none 950
+stand stand none 863
 0 0 medium unknown
 #9230
 hurricane~
@@ -415,7 +415,7 @@ ABG P -10 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
-stand stand none 2054
+stand stand none 1845
 0 0 medium unknown
 #9231
 magician~
@@ -488,7 +488,7 @@ ABG DF 0 0
 16 0 3d9+233 8d9+100 2d6+4 none
 -2 -2 -2 7
 EFNU 0 0 0
-stand stand none 500
+stand stand none 454
 0 0 medium unknown
 #9236
 imp~
@@ -516,7 +516,7 @@ ABG 0 30 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
-stand stand none 500
+stand stand none 454
 0 0 medium unknown
 #9238
 vendor~

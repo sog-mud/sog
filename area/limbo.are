@@ -1186,7 +1186,7 @@ S 'benediction' 100 A
 G male
 #70
 badge значок~
-@eng silver ruler badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
+@eng silver enforcer badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
 @eng A silver bagde shines on the ground.@rus Серебрянный значок (badge) с надписью "Закон и Порядок" блестит на земле.~
 silver~
 treasure MOTWZ A
@@ -1195,27 +1195,27 @@ treasure MOTWZ A
 F A 0 0 F
 G male
 #71
-buckler ruler shield~
-@eng Rulers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
-@eng A buckler of a Ruler is on the ground.@rus Круглый щит (shield) с гербом клана Ruler лежит на земле.~
+buckler enforcer shield~
+@eng Enforcers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
+@eng A buckler of a Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcer лежит на земле.~
 steel~
 armor GIRYZ AJ
 8 8 8 3 0
 0 200 10000 P
 G male
 #72
-great ruler shield щит~
-@eng Rulers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
-@eng There is a Great Ruler Shield on the ground.@rus Большой щит (shield) с гербом клана Ruler лежит на земле.~
+great enforcer shield щит~
+@eng Enforcers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
+@eng There is a Great Enforcer Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcer лежит на земле.~
 steel~
 armor GIRYZ AJ
 20 20 20 10 0
 0 300 15000 P
 G male
 #73
-kite ruler shield щит~
-Rulers' Kite Shield~
-You see a large Kite Shield of Ruler on the ground.~
+kite enforcer shield щит~
+Enforcers' Kite Shield~
+You see a large Kite Shield of Enforcer on the ground.~
 steel~
 armor GIRYZ AJ
 20 20 20 10 0
@@ -1228,9 +1228,9 @@ A
 19 4
 G none
 #74
-tower ruler shield щит~
-@eng Rulers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
-@eng A very big shield with a symbol of Ruler covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Ruler лежит на земле.~
+tower enforcer shield щит~
+@eng Enforcers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
+@eng A very big shield with a symbol of Enforcer covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcer лежит на земле.~
 steel~
 armor GIRYZ AJ
 30 30 30 20 0
@@ -1702,10 +1702,10 @@ O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
 O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of seth, god of anger'
 O 66 fight_prog fight_prog_tattoo_enki	* `tattoo of enki, god of knowledge'
 O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
-O 71 wear_prog wear_prog_ruler_shield	* `Rulers' Buckler'
-O 72 wear_prog wear_prog_ruler_shield	* `Rulers' Great Shield'
-O 73 wear_prog wear_prog_ruler_shield	* `Rulers' Kite Shield'
-O 74 wear_prog wear_prog_ruler_shield	* `Rulers' Tower Shield'
+O 71 wear_prog wear_prog_enforcer_shield	* `Enforcers' Buckler'
+O 72 wear_prog wear_prog_enforcer_shield	* `Enforcers' Great Shield'
+O 73 wear_prog wear_prog_enforcer_shield	* `Enforcers' Kite Shield'
+O 74 wear_prog wear_prog_enforcer_shield	* `Enforcers' Tower Shield'
 O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
 O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
 O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'

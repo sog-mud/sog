@@ -1900,7 +1900,7 @@ their groups:
  {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. ) 
  {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
  {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
- {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
+ {cdraconian{x      >>> {gEnforcers{x                   (Elemental Can. )
  {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     ) 
  {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
  {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
@@ -1944,7 +1944,7 @@ PRACTICE с аргументом тренирует тебя во владении указанным умением или закли-
  {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. )
  {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
  {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
- {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
+ {cdraconian{x      >>> {gEnforcers{x                   (Elemental Can. )
  {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     )
  {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
  {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
@@ -4084,7 +4084,7 @@ for deletion. For other matters, use common sense.
   may be done withoutwarning, notice, or even evidence of sanity.
 ~
 0 LAWS LAW ~
-@eng The laws of the land that shall be enforced by the Ruler Clan are as
+@eng The laws of the land that shall be enforced by the Enforcer Clan are as
 follows :
  
     The areas that are defined as protected by the jurisdiction of the Law
@@ -4103,25 +4103,25 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
    Aggressive mobs may not be summoned/brought into any protected area.
 								       
 3. Aiding known criminals in any way by directly giving them equipment,
-   helping them to elude punishment, to kill Ruler guards, etc.
+   helping them to elude punishment, to kill Enforcer guards, etc.
    will result in a WANTED flag.
 								       
-4. Intrusion into the Ruler Clan is considered illegal and an attack upon
+4. Intrusion into the Enforcer Clan is considered illegal and an attack upon
    the laws themselves.  
 
 5. A dispersal that teleports the victim from a protected area directly into
    the room of an aggressive mob that causes their death is considered a
    player kill and will result in a WANTED flag on the caster.
 
-6. Garbling Ruler members is against the law.  This prevents them from
+6. Garbling Enforcer members is against the law.  This prevents them from
    doing their job and is considered an offensive attack upon the law itself.
 
 7. Criminals are outlaw. You can attack criminal in protected area.
 
- Enforcement of these laws will be carried out by Ruler members. Midgaard,
+ Enforcement of these laws will be carried out by Enforcer members. Midgaard,
 New Thalos, Valley of Titans and New Ofcol are defined by the 'where protector'
 command. Old midgaard is not a holy town.
-@rus Законы, за выполнением которых должен следить клан Ruler:
+@rus Законы, за выполнением которых должен следить клан Enforcer:
  
 Области в которых действует Закон - Midgaard, New Thalos, Valley of Titans
 и New Ofcol.
@@ -4139,13 +4139,13 @@ command. Old midgaard is not a holy town.
 3. Запрещено помогать криминальному элементу, давать ему вещи, помогать
 избежать наказания, убивать стражников охотящихся за ним.
  
-4. Вторжение в Клан Ruler запрещено и рассматривается как нарушение закона.
+4. Вторжение в Клан Enforcer запрещено и рассматривается как нарушение закона.
  
 5. Перенос с помощью заклинаний группы transportations жертвы из защищенной
 области непосредственно в комнату с агрессивными мобами, который приведет к
 смерти рассматривается как нападение на игрока в защищенной области.
  
-6. Использование garble на членов клана Ruler запрещено, так как мешает
+6. Использование garble на членов клана Enforcer запрещено, так как мешает
 нормальному выполнению их обязанностей и потому рассматривается как нарушение
 закона.
  
@@ -4157,8 +4157,8 @@ command. Old midgaard is not a holy town.
 1 WANTED ~
 @eng Syntax: {cwanted{x <player>
  
-This is clan skill of Rulers that mark a player as a criminal or removes this
-mark. Ruler commoner can remove wanted status only if he set it. Leaders and
+This is clan skill of Enforcers that mark a player as a criminal or removes this
+mark. Enforcer commoner can remove wanted status only if he set it. Leaders and
 secondaries can always remove wanted status.
 
 Wanted players are denied from the shops, suffer attacks of cityguards. If
@@ -4214,7 +4214,7 @@ offensive spell which can only be used in locations where you can also camo.
 0 PHILOSOPHY ~
 Here is a general philosophy of each of the known clans.
 
-Ruler:  The enforcement of the laws above all.  The world exists in two
+Enforcer:  The enforcement of the laws above all.  The world exists in two
 	halves: right and wrong.  The law comes first in all respects.
 	They control and decide what is lawful or not.  Their word is law.
 
@@ -4901,15 +4901,15 @@ shadow cloak -- spell - affects AC by -(caster's level).
 nightfall -- spell - гасит лампочки в комнате.
 shadowlife -- spell - делается моб тоакой же (почти) как victim и кидается на него.
  
-Ruler:
-ruler aura -- spell - make victim immune to charm.
+Enforcer:
+enforcer aura -- spell - make victim immune to charm.
 wanted -- comm  - ставит/снимает флажок wanted с любого игрока.
 judge -- comm  - говорит ethos и align любого игрока.
 manacles -- spell - ослябляет и чармит игрока с флажком WANTED.
-shield of ruler -- spell -- создает предмет -- довольно классный шилд.
+shield of enforcer -- spell -- создает предмет -- довольно классный шилд.
 guard call -- spell - делает двух мобох по параматрам похожих на кастующего
 stalker -- spell - для главных в клане - делает моба как victim и тут же стравливает их.
-ruler badge -- spell - создает шмотку на шею (по левелу).
+enforcer badge -- spell - создает шмотку на шею (по левелу).
 remove badge -- spell - соответственно.
  
 Shalafi:
@@ -7003,7 +7003,41 @@ ENABLE command cannot be disabled.
 постепенно, но неуклонно приближает их к достижению великой цели - воцарению
 Хаоса в мире.
 ~
-0 'CLAN RULER' RULER~
+0 'CLAN RULERS' 'CLAN ENFORCERS' RULERS ENFORCERS~
+@rus +----------------------------------------------------------------------------+
+|                                                                            |
+|        Справедливость превыше  всего!  Мир  состоит  из   двух   частей:   |
+|   правильной и неправильной.  Второй части быть НЕ ДОЛЖНО.  Каждый,  кто   |
+|   принял на себя обязанности Рулера,  должен  приложить  для  этого  все   |
+|   усилия. Наше слово - закон.                                              |
+|                                                                            |
+|        Неважно, кто,  когда и где совершил преступление.  Карающая длань   |
+|   Закона настигнет его,  где бы он ни был.  Вор должен сидеть в  тюрьме.   |
+|   Убийца   должен   быть   казнен.   Ни  один  преступник  не  останется   |
+|   безнаказанным.                                                           |
+|                                                                            |
+|        Сеющие беспорядок и неподчиняющиеся закону  члены  клана  Хаос  -   |
+|   наши  враги.  Жадные до власти и неразборчивые в средствах Invader'ы -   |
+|   тоже.  С  гордостью  мы  называем  нашими  союзниками  благородных   и   |
+|   справедливых Рыцарей.                                                    |
+|                                                                            |
+|                                                                            |
+|   2) Обязанности рулера                                                    |
+|                                                                            |
+|        Члены клана   обязаны   чтить   кодекс   и   беспрекословно   ему   |
+|   подчиняться.  Мы также должны следить  за  тем,  чтобы  все  остальные   |
+|   выполняли  это  правило.  Незнание  закона не только не освобождает от   |
+|   наказания, но и является отягчающим обстоятельством.                     |
+|                                                                            |
+|   3) Условия приема                                                        |
+|                                                                            |
+|        Любой законопослушный гражданин  обязан  оказывать  членам  клана   |
+|   посильную помощь.  Нам все равно,  как ты выглядишь.  Будь ты эльф или   |
+|   тролль,  мужчина или женщина,  воин или волшебник,  добрый или злой  -   |
+|   если ты достаточно лоялен (lawful),  ты можешь рассчитывать на то, что   |
+|   станешь одним из нас. Лишь Воры и Нинзи ни при каких условиях не будут   |
+|   приняты.                                                                 |
++----------------------------------------------------------------------------+
 ~
 0 AREAS COMMANDS~
 @eng Syntax: {careas{x
@@ -7207,7 +7241,7 @@ without any argument to see a list of learned languages.
 @eng Syntax: {cjudge{x <victim>
  
 This command is used to get to know victim's ethos and align.
-It is Rulers' clan skill.
+It is Enforcers' clan skill.
 @rus Синтаксис: {cjudge{x <жертва>
 При помощи этой команды Рулер может определить характер жертвы.
 ~

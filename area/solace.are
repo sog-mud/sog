@@ -22,7 +22,7 @@ ABT CDFH 900 0
 30 0 6d12+853 5d5+1000 4d6+8 slash
 -9 -9 -9 3
 CDEFIJKLTU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10202
 lieutenant commander~
@@ -40,7 +40,7 @@ ABGT CFH 800 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 CDEFIJKTU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10203
 Sergeant Arms~
@@ -56,7 +56,7 @@ ABGT CH 400 0
 20 0 3d9+333 5d5+1000 2d8+5 slash
 -4 -4 -4 5
 EFIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10204
 townguard guard~
@@ -71,7 +71,7 @@ ABGT 0 1000 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 CDEIKTU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10205
 townguard guard agg~
@@ -86,7 +86,7 @@ ABFGT 0 1000 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 CDEIKTU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10206
 citizen solace~
@@ -100,7 +100,7 @@ A 0 800 0
 10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 K 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10207
 woman~
@@ -114,7 +114,7 @@ A 0 800 0
 5 0 2d6+60 5d5+100 1d6+1 slap
 5 5 5 9
 0 0 0 0
-stand stand female 1000
+stand stand female 788
 0 0 medium unknown
 #10208
 matt brewmaster~
@@ -187,7 +187,7 @@ AB 0 900 0
 15 0 3d9+208 5d5+100 2d6+3 magic
 -2 -2 -2 6
 EIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10213
 ghost waiter~
@@ -202,7 +202,7 @@ AB 0 900 0
 15 0 3d9+208 5d5+100 2d6+3 magic
 -2 -2 -2 6
 EK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10214
 ghost barkeep~
@@ -232,7 +232,7 @@ AGT 0 1000 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 CDEIKTU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10216
 field rat~
@@ -246,7 +246,7 @@ AG Q 300 0
 10 0 2d7+121 5d5+100 2d4+2 charge
 1 1 1 7
 0 0 0 0
-stand stand none 1000
+stand stand none 788
 0 0 medium unknown
 #10217
 town clerk~
@@ -261,7 +261,7 @@ AB H 800 0
 17 0 3d9+258 5d5+1000 3d4+4 punch
 -3 -3 -3 6
 EIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10218
 treasury guards~
@@ -276,7 +276,7 @@ ABT CDFH 800 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 EIJKU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10219
 Jhen~
@@ -425,7 +425,7 @@ AB 0 800 0
 16 0 3d9+233 5d5+1000 2d6+4 punch
 -2 -2 -2 6
 EIK 0 0 0
-stand stand female 1000
+stand stand female 788
 0 0 medium unknown
 #10229
 thief cloaked figure~
@@ -440,7 +440,7 @@ ABS 0 800 0
 17 0 3d9+258 5d5+1000 3d4+4 pound
 -3 -3 -3 6
 EFIKN 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10230
 old man~
@@ -454,7 +454,7 @@ AB 0 800 0
 13 0 2d10+170 5d5+100 2d5+3 punch
 -1 -1 -1 6
 EK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10231
 boy~
@@ -472,7 +472,7 @@ AB 0 800 0
 7 0 2d6+85 5d5+100 1d8+1 punch
 4 4 4 8
 E 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10232
 brat boy~
@@ -486,7 +486,7 @@ AB 0 800 0
 10 0 2d7+121 5d5+100 2d4+2 punch
 1 1 1 7
 EK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10233
 Mage~
@@ -500,7 +500,7 @@ AB 0 800 0
 14 0 2d10+190 5d5+100 1d12+3 punch
 -1 -1 -1 6
 EIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10234
 Thief~
@@ -514,7 +514,7 @@ ABS 0 800 0
 12 0 2d10+150 5d5+100 1d10+3 punch
 0 0 0 7
 EFIJN 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10235
 Warrior~
@@ -528,7 +528,7 @@ AT 0 800 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 CDEIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10236
 Cleric~
@@ -542,7 +542,7 @@ ABQ 0 800 0
 19 0 3d9+308 5d5+1000 2d7+5 pound
 -4 -4 -4 5
 EIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10237
 ghost gambler~
@@ -556,7 +556,7 @@ AB 0 -200 0
 10 0 2d7+121 5d5+100 2d4+2 charge
 1 1 1 7
 E 0 0 0
-stand stand none 1000
+stand stand none 788
 0 0 medium unknown
 #10238
 child~
@@ -569,7 +569,7 @@ A 0 800 0
 5 0 2d6+60 5d5+100 1d6+1 punch
 5 5 5 9
 0 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10239
 rat~
@@ -582,7 +582,7 @@ ACG Q -100 0
 5 0 2d6+60 5d5+100 1d6+1 charge
 5 5 5 9
 0 0 0 0
-stand stand none 1000
+stand stand none 788
 0 0 medium unknown
 #10240
 bat~
@@ -608,7 +608,7 @@ ACG 0 100 0
 8 0 2d7+96 5d5+100 1d7+2 punch
 3 3 3 8
 0 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10242
 tired adventurer~
@@ -621,7 +621,7 @@ AB 0 100 0
 13 0 2d10+170 5d5+100 2d5+3 punch
 -1 -1 -1 6
 EIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10243
 Magnus wizard~
@@ -634,7 +634,7 @@ ABR 0 100 0
 19 0 3d9+308 5d5+1000 2d7+5 punch
 -4 -4 -4 5
 0 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10244
 Lord doom warrior~
@@ -647,7 +647,7 @@ ABT 0 100 0
 18 0 3d9+283 5d5+1000 2d7+4 pound
 -3 -3 -3 6
 CDEIJK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10245
 foreign trade representative~
@@ -660,7 +660,7 @@ AB 0 100 0
 14 0 2d10+190 5d5+100 1d12+3 punch
 -1 -1 -1 6
 EIK 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10246
 bodyguard~
@@ -673,7 +673,7 @@ ABT 0 100 0
 16 0 3d9+233 5d5+1000 2d6+4 pound
 -2 -2 -2 6
 CDEIKTU 0 0 0
-stand stand male 1000
+stand stand male 788
 0 0 medium unknown
 #10247
 Secretary captain~
@@ -689,7 +689,7 @@ AB 0 100 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EIK 0 0 0
-stand stand female 1000
+stand stand female 788
 0 0 medium unknown
 #10248
 Secretary Lieutenant ~
@@ -705,7 +705,7 @@ AB 0 100 0
 20 0 3d9+333 5d5+1000 2d8+5 slap
 -4 -4 -4 5
 EIK 0 0 0
-stand stand female 1000
+stand stand female 788
 0 0 medium unknown
 #10249
 Secretary Sergeant ~
@@ -721,7 +721,7 @@ AB 0 100 0
 15 0 3d9+208 5d5+100 2d6+3 pound
 -2 -2 -2 6
 EIK 0 0 0
-stand stand female 1000
+stand stand female 788
 0 0 medium unknown
 #10250
 Macaw~
@@ -749,7 +749,7 @@ ABCI 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 claw
 -2 -2 -2 6
 EK 0 0 0
-stand stand none 1000
+stand stand none 788
 0 0 medium unknown
 #10252
 hunting hawk~

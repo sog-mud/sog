@@ -21,7 +21,7 @@ ACF DFJP -500 0
 20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
-stand stand female 1525
+stand stand female 1089
 0 0 medium unknown
 #9102
 harpy leader~
@@ -38,7 +38,7 @@ ABCF DFJP -750 0
 23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
-stand stand female 2125
+stand stand female 1517
 0 0 medium unknown
 #9103
 air elemental~
@@ -68,7 +68,7 @@ AC DHJP -100 0
 27 0 5d10+650 13d9+100 5d4+7 none
 -8 -8 -8 6
 EFNU 0 0 0
-stand stand none 2500
+stand stand none 1190
 0 0 medium unknown
 #9105
 roc~
@@ -97,7 +97,7 @@ AG 0 50 0
 28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
-stand stand male 2000
+stand stand male 1428
 0 0 medium unknown
 #9107
 wicked witch~
@@ -113,7 +113,7 @@ ABCF DJu -600 0
 31 0 6d12+928 15d9+100 4d6+9 none
 -10 -10 -10 5
 EFNU 0 0 0
-stand stand female 3000
+stand stand female 1428
 0 0 medium unknown
 #0
 

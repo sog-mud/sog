@@ -23,7 +23,7 @@ AB 0 250 0
 31 0 10d10+1000 5d5+1000 6d4+9 pound
 -36 -36 -36 -36
 0 0 0 0
-stand stand male 9216
+stand stand male 5000
 0 0 medium unknown
 #4401
 child small малыш~
@@ -283,7 +283,7 @@ ABC O 0 0
 12 0 2d10+150 2d10+150 1d10+3 punch
 10 10 10 30
 0 0 0 0
-stand stand male 990
+stand stand male 899
 0 0 medium unknown
 #4416
 thrower~
@@ -332,7 +332,7 @@ AB 0 500 0
 7 0 2d6+85 2d7+71 1d8+1 punch
 20 20 20 40
 0 0 0 0
-stand stand male 560
+stand stand male 509
 0 0 medium unknown
 #4419
 lion~
@@ -380,7 +380,7 @@ AG N 1000 0
 1 0 3d6+0 0d1+0 0d1+0 punch
 75 75 75 80
 0 0 0 0
-stand stand female 540
+stand stand female 490
 0 0 medium unknown
 #4422
 elephant слон~
@@ -398,7 +398,7 @@ AB 0 0 0
 10 0 8d8+90 10d10+90 2d5+1 pound
 50 50 50 70
 0 0 0 0
-stand stand male 990
+stand stand male 899
 0 0 large unknown
 #4423
 bear~
@@ -464,7 +464,7 @@ ABCH 0 -1000 0
 10 0 2d7+121 2d7+127 2d4+2 punch
 30 30 30 50
 0 0 0 0
-stand stand male 891
+stand stand male 809
 0 0 medium unknown
 #4427
 vendor~
@@ -479,7 +479,7 @@ AB 0 1000 0
 8 0 2d7+96 2d6+10 1d7+2 punch
 40 40 40 60
 0 0 0 0
-stand stand male 80000
+stand stand male 5000
 0 0 medium unknown
 #4428
 Illusionist mage~
@@ -523,7 +523,7 @@ ABF 0 -1000 0
 8 0 2d7+96 2d7+96 1d7+2 pound
 30 30 30 40
 0 0 0 0
-stand stand male 800
+stand stand male 727
 0 0 medium unknown
 #4450
 chef~
@@ -536,7 +536,7 @@ AB 0 0 0
 18 0 3d9+283 3d9+283 2d7+4 punch
 0 0 0 20
 0 0 0 0
-stand stand none 3200
+stand stand none 1423
 0 0 medium unknown
 #4451
 midget thief~
@@ -551,7 +551,7 @@ AG 0 -900 0
 3 0 2d6+35 2d6+35 1d6+0 slice
 60 60 60 80
 0 0 0 0
-stand stand male 1000
+stand stand male 667
 0 0 medium unknown
 #0
 

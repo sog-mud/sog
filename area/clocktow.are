@@ -25,7 +25,7 @@ AGTY HV 0 0
 30 0 10d61+400 30d10+100 5d6+18 pound
 -30 -30 -30 -10
 CEFJK HKLTX 0 N
-stand stand male 3000
+stand stand male 1384
 AZc D large unknown
 #4901
 mechanic watch maker часовщик~
@@ -46,7 +46,7 @@ AGQ FH 0 0
 30 0 10d60+450 30d10+100 5d6+15 punch
 -30 -30 -30 -20
 EFIKNV P N 0
-stand stand male 1000
+stand stand male 692
 0 0 medium unknown
 #4902
 watchman clock tower смотритель~
@@ -66,7 +66,7 @@ AGQ DFHNV 0 0
 28 0 10d70+430 28d10+100 6d5+20 crush
 -40 -30 -30 -20
 CDEFHIJKNc BP HIKLMOPRS J
-stand stand male 5000
+stand stand male 1730
 0 0 medium unknown
 #4903
 pendulum маятник~
@@ -86,7 +86,7 @@ AGTY DFHTV 0 0
 25 0 10d40+300 25d10+100 4d6+12 pound
 -25 -25 -25 -20
 CEFHK 0 CD N
-stand stand male 3456
+stand stand male 1594
 AZc B large unknown
 #4904
 hand long big стрелка~
@@ -102,7 +102,7 @@ AGTW TV 0 0
 30 0 10d60+420 30d100+100 5d6+15 charge
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
-stand stand male 2430
+stand stand male 1681
 AZc B medium unknown
 #4905
 hand short small стрелка~
@@ -118,7 +118,7 @@ AGTW TV 0 0
 25 0 10d40+250 25d10+100 5d5+14 charge
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
-stand stand male 2340
+stand stand male 1619
 AZc B medium unknown
 #4906
 weather cock флюгер wearthercock~
@@ -265,7 +265,7 @@ ABGH TV 0 0
 12 0 4d20+115 12d10+100 3d5+6 punch
 -12 -13 -12 -8
 CEFKd 0 0 0
-stand stand male 620
+stand stand male 563
 AM ABCDEF medium unknown
 #4914
 seven clock семь~
@@ -283,7 +283,7 @@ ABGH TV 0 0
 14 0 5d25+140 14d10+100 3d5+7 punch
 -14 -16 -12 -10
 CEFKd 0 0 0
-stand stand male 520
+stand stand male 472
 AM ABCDEF medium unknown
 #4915
 eight clock восемь~
@@ -301,7 +301,7 @@ ABGH TV 0 0
 16 0 5d33+180 16d10+100 4d5+8 punch
 -16 -18 -16 -12
 CEFKd 0 0 0
-stand stand male 1120
+stand stand male 775
 AM ABCDEF medium unknown
 #4916
 nine clock девять~
@@ -319,7 +319,7 @@ ABGH TV 0 0
 18 0 5d40+200 18d10+100 4d5+9 punch
 -18 -23 -20 -15
 CEFKd 0 0 0
-stand stand male 920
+stand stand male 836
 AM ABCDEF medium unknown
 #4917
 ten clock десять~
@@ -337,7 +337,7 @@ ABGH TV 0 0
 20 0 5d50+230 20d10+100 5d4+10 punch
 -20 -23 -20 -18
 CEFKd 0 0 0
-stand stand male 1020
+stand stand male 705
 AM ABCDEF medium unknown
 #4918
 eleven clock одиннадцать~
@@ -355,7 +355,7 @@ ABGH TV 0 0
 22 0 6d50+270 22d10+100 4d6+12 punch
 -22 -23 -22 -19
 CEFKd 0 0 0
-stand stand male 1020
+stand stand male 705
 AM ABCDEF medium unknown
 #4919
 twelve clock двенадцать~
@@ -373,7 +373,7 @@ ABGH TV 0 0
 24 0 10d40+300 24d10+100 5d5+14 punch
 -25 -30 -24 -21
 CEFKd 0 0 0
-stand stand male 1200
+stand stand male 830
 AM ABCDEF medium unknown
 #4920
 gear шестеренка large~
@@ -553,7 +553,7 @@ AGTW TV 0 0
 30 0 10d60+420 30d100+100 5d6+15 charge
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
-stand stand male 2430
+stand stand male 1681
 AZc B medium unknown
 #4931
 hand short small~
@@ -567,7 +567,7 @@ AGTW TV 0 0
 25 0 10d40+250 25d10+100 5d5+14 charge
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
-stand stand male 2340
+stand stand male 1619
 AZc B medium unknown
 #4932
 hand long big~
@@ -581,7 +581,7 @@ AGTW TV 0 0
 30 0 10d60+420 30d100+100 5d6+15 charge
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
-stand stand male 2430
+stand stand male 1681
 AZc B medium unknown
 #4933
 hand short small~
@@ -595,7 +595,7 @@ AGTW TV 0 0
 25 0 10d40+250 25d10+100 5d5+14 charge
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
-stand stand male 2340
+stand stand male 1619
 AZc B medium unknown
 #4934
 hand long big~
@@ -609,7 +609,7 @@ AGTW TV 0 0
 30 0 10d60+420 30d100+100 5d6+15 charge
 -40 -30 -10 -10
 CDEFHIKNT 0 0 0
-stand stand male 2430
+stand stand male 1681
 AZc B medium unknown
 #4935
 hand short small~
@@ -623,7 +623,7 @@ AGTW TV 0 0
 25 0 10d40+250 25d10+100 5d5+14 charge
 -30 -20 -10 -10
 CEFHIKNT 0 0 0
-stand stand male 2340
+stand stand male 1619
 AZc B medium unknown
 #0
 

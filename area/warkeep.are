@@ -25,7 +25,7 @@ ABDGH CDEFJNTu -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 pound
 -9 -9 -9 3
 FHIJKN 0 0 0
-stand stand male 1000
+stand stand male 740
 0 0 medium unknown
 #15701
 woman witch alara~
@@ -42,7 +42,7 @@ ABGH DJN -1000 0
 28 0 6d12+703 5d5+1000 2d12+8 punch
 -8 -8 -8 4
 EIK 0 0 0
-stand stand female 1000
+stand stand female 740
 0 0 medium unknown
 #15702
 demon~
@@ -59,7 +59,7 @@ ABDFG DJTu -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 slash
 -11 -11 -11 3
 EIKQ 0 0 0
-stand stand none 1000
+stand stand none 740
 0 0 medium unknown
 #15703
 cat familiar~
@@ -103,7 +103,7 @@ A 0 -400 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
 EFIJKQ 0 0 0
-stand stand male 1000
+stand stand male 740
 0 0 medium unknown
 #15706
 flesh golem~
@@ -133,7 +133,7 @@ ABFG DJu -500 0
 28 0 6d12+703 5d5+1000 2d12+8 charge
 -8 -8 -8 4
 EFNU 0 0 0
-stand stand male 1000
+stand stand male 740
 0 0 large unknown
 #15708
 zombie servant~
@@ -150,7 +150,7 @@ AG 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 punch
 -2 -2 -2 6
 EFN 0 0 0
-stand stand none 1000
+stand stand none 740
 0 0 medium unknown
 #15709
 guard~
@@ -168,7 +168,7 @@ ABDG J -400 0
 18 0 3d9+283 5d5+1000 2d7+4 pound
 -3 -3 -3 6
 CDEFIJKQ 0 0 0
-stand stand male 1000
+stand stand male 740
 0 0 medium unknown
 #15710
 apprentice~
@@ -184,7 +184,7 @@ ABGH JN -400 0
 21 0 4d10+360 5d5+1000 4d4+5 punch
 -5 -5 -5 5
 EFU 0 0 0
-stand stand female 1000
+stand stand female 740
 0 0 medium unknown
 #15711
 grell~
@@ -199,7 +199,7 @@ ABFG JT -800 0
 24 0 5d10+500 5d5+1000 2d10+6 charge
 -6 -6 -6 4
 EFNU 0 0 0
-stand stand female 1000
+stand stand female 740
 0 0 medium unknown
 #15712
 mimic~
@@ -214,7 +214,7 @@ ABFG JN -400 0
 22 0 5d10+400 5d5+1000 4d4+6 charge
 -5 -5 -5 5
 EFNU 0 0 0
-stand stand none 1000
+stand stand none 740
 0 0 medium unknown
 #15713
 crocodile~
@@ -262,7 +262,7 @@ ABFGH JN -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 EFIJKN 0 0 0
-stand stand female 1000
+stand stand female 740
 0 0 medium unknown
 #15716
 dagar assassin~
@@ -278,7 +278,7 @@ ABG DFHJPQ 400 0
 27 0 5d10+650 5d5+1000 5d4+7 pound
 -8 -8 -8 4
 EFIJKN 0 0 0
-stand stand male 1000
+stand stand male 740
 0 0 medium unknown
 #15717
 gnoll slave~
@@ -324,7 +324,7 @@ ABFG JN -500 0
 20 0 3d9+333 5d5+1000 2d8+5 pound
 -4 -4 -4 5
 EFIJKNQ 0 0 0
-stand stand male 10000
+stand stand male 3704
 0 0 medium unknown
 #15720
 otyugh~

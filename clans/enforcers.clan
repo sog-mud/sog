@@ -1,16 +1,16 @@
 #CLAN
-Name Rulers~
+Name Enforcers~
 Item 95101
 Mark 95105
 Altar 95102
-Skill 'ruler aura' 33 1
+Skill 'enforcer aura' 33 1
 Skill 'wanted' 10 100
 Skill 'manacles' 20 1
 Skill 'guard call' 15 1
 Skill 'stalker' 23 1
-Skill 'ruler badge' 25 1
+Skill 'enforcer badge' 25 1
 Skill 'remove badge' 28 1
-Skill 'shield of ruler' 10 1
+Skill 'shield of enforcer' 10 1
 End
 
 #$

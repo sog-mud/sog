@@ -42,7 +42,7 @@ ABFGHO DFJZ -1000 0
 36 10 20d10+1700 1d1+400 9d3+15 claw
 -5 -5 -5 -5
 DEFKN 0 BM HSY
-stand stand none 1500
+stand stand none 296
 ABIc ABCDEF medium unknown
 #4602
 young vampire~
@@ -56,7 +56,7 @@ AFO DFJUZ -1000 0
 37 15 100d5+2000 0d0+100 7d4+20 magic
 -5 -5 -5 -5
 DEFIKNV A BIM FHNOSXY
-stand stand none 10000
+stand stand none 986
 ABCDHIKMc ABCDEFGHIJKV medium unknown
 #4603
 Kharzandra wizardress vampire~
@@ -74,7 +74,7 @@ ABFO DFUZu -1000 0
 56 30 100d5+6500 100d4+600 7d5+40 magic
 -10 -10 -10 -10
 EFIK AI IM FHNSY
-stand stand none 17000
+stand stand none 1677
 BCDIc 0 medium unknown
 #4604
 vampire shadar lunn~
@@ -90,7 +90,7 @@ ABFO DFJUZu -1000 0
 59 50 200d5+8300 100d3+2000 10d5+30 slash
 -40 -40 -40 -30
 AEFIKV AB BIM FHNSXY
-stand stand none 20000
+stand stand none 1973
 ABCDHIKMc ABCDEFGHIJKV medium unknown
 #4605
 ghoul creature~
@@ -149,7 +149,7 @@ ABFGT DFJUZ -1000 0
 42 15 20d10+3100 1d1+400 7d6+25 drain
 -15 -15 -15 -15
 DEFIJK ABH 0 IN
-stand stand none 5000
+stand stand none 493
 ACDG 0 medium unknown
 #4610
 dracolich~
@@ -163,7 +163,7 @@ ABFGT DFJZu -1000 0
 60 20 10d100+3500 1d1+400 7d8+40 claw
 -30 -30 -30 -30
 EFKN AB 0 0
-stand stand none 50000
+stand stand none 4933
 BCDI 0 medium unknown
 #4611
 priest vampire~
@@ -178,7 +178,7 @@ AGLQ DFJUZ -1000 0
 46 20 100d3+3500 1d1+500 6d8+25 divine
 -20 -20 -20 -20
 AFIK AB 0 0
-stand stand none 5000
+stand stand none 493
 CGI 0 medium unknown
 #4612
 dark spectre~

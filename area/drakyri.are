@@ -25,7 +25,7 @@ ABGR DFH 0 0
 93 0 100d12+19000 1d100+15000 13d13+63 magic
 -61 -63 -64 -33
 EFG 0 JK 0
-stand stand female 55000
+stand stand female 4016
 0 0 medium unknown
 #11801
 drakyri deriki noriek deiayan lord~
@@ -42,7 +42,7 @@ ABGR DFH 0 0
 93 0 100d12+19000 1d100+14700 12d13+63 wrath
 -63 -63 -61 -32
 FG 0 J F
-stand stand male 45700
+stand stand male 3337
 0 0 medium unknown
 #11802
 drakyri deriki dyrli sh'aya lady~
@@ -59,7 +59,7 @@ ABGR DFH 0 0
 89 0 100d12+17000 1d100+12000 14d10+59 wrath
 -58 -58 -59 -39
 FG 0 I H
-stand stand female 15000
+stand stand female 1095
 0 0 medium unknown
 #11803
 drakyri deriki roweni sequas~
@@ -75,7 +75,7 @@ ABGR BDFT 0 0
 85 0 100d12+15000 1d100+10500 10d13+55 magic
 -55 -55 -55 -25
 FG 0 I H
-stand stand female 10000
+stand stand female 730
 0 0 medium unknown
 #11804
 drakyri deriki xanil treye man~
@@ -91,7 +91,7 @@ ABGR DF 0 0
 82 0 100d10+13500 1d100+10000 10d12+52 magic
 -53 -54 -50 -22
 FG 0 K 0
-stand stand male 10000
+stand stand male 730
 0 0 medium unknown
 #11805
 drakyri deriki tyrena na'deia lady~
@@ -109,7 +109,7 @@ ABGR DFH 0 0
 87 0 100d12+16000 1d100+11500 12d11+57 magic
 -56 -55 -57 -27
 FGI 0 0 J
-stand stand female 25300
+stand stand female 1847
 0 0 medium unknown
 #11806
 drakyri deriki nalyss ira'deia girl~
@@ -125,7 +125,7 @@ ABCGR DFTV 0 0
 83 0 100d12+14000 1d100+10000 9d14+53 pierce
 -54 -53 -53 -23
 FGJ 0 0 0
-stand stand female 5700
+stand stand female 416
 0 0 medium unknown
 #11807
 drakyri deriki daeman ira'deian boy~
@@ -141,7 +141,7 @@ ABGR BDFT 0 0
 84 0 100d12+14500 1d100+10000 9d14+54 slash
 -55 -54 -53 -24
 FGHN 0 0 0
-stand stand male 6000
+stand stand male 438
 0 0 medium unknown
 #11808
 drakyri deriki ykandres ira'deian youth~
@@ -158,7 +158,7 @@ ACGR BDFTV 0 0
 83 0 100d12+14000 1d100+10000 9d14+53 punch
 -52 -52 -52 -14
 FGJ 0 J K
-stand stand male 7500
+stand stand male 547
 0 0 medium unknown
 #11809
 zeion snow owl~
@@ -186,7 +186,7 @@ ABCGR DT 0 0
 81 0 100d12+13000 1d50+9500 13d9+51 punch
 -50 -50 -52 -21
 DFG 0 0 0
-stand stand male 1500
+stand stand male 219
 0 0 medium unknown
 #11811
 mage training~
@@ -204,7 +204,7 @@ ACGR DFT 0 0
 80 0 100d12+12500 1d50+9500 13d9+50 scratch
 -49 -50 -50 -20
 FG 0 0 0
-stand stand either 5000
+stand stand either 365
 0 0 medium unknown
 #11812
 writhing form ghostly~
@@ -254,7 +254,7 @@ ABGT CHN 1000 0
 90 0 100d12+19000 1d10+1000 12d12+60 none
 -60 -58 -58 -26
 CDEIK N Y M
-stand stand male 65000
+stand stand male 4746
 0 0 medium unknown
 #11815
 drakyri treniste denylis deiaya lady~
@@ -270,7 +270,7 @@ ABGQ CHNT 1000 0
 89 0 100d12+17500 1d10+2000 12d11+59 none
 -59 -59 -58 -25
 DEF 0 N M
-stand stand female 45500
+stand stand female 3322
 0 0 medium unknown
 #11816
 drakyri treniste kaele sh'ayan~
@@ -286,7 +286,7 @@ ACGT CHNT 1000 0
 85 0 100d12+16500 1d10+950 10d13+55 wrath
 -56 -57 -56 -21
 CDEFK 0 N M
-stand stand male 25500
+stand stand male 1862
 0 0 medium unknown
 #11817
 drakyri treniste rexena sequas female~
@@ -303,7 +303,7 @@ ACGT CNT 900 0
 83 0 100d12+15500 1d10+930 9d14+53 cleave
 -54 -53 -54 -20
 CDEIK 0 IN HM
-stand stand female 15500
+stand stand female 1131
 0 0 medium unknown
 #11818
 drakyri treniste deis treye male~
@@ -319,7 +319,7 @@ AGQ CNT 900 0
 80 0 100d12+12500 1d50+5000 9d12+50 none
 -48 -48 -49 -19
 EFI 0 N M
-stand stand male 10200
+stand stand male 744
 0 0 medium unknown
 #11819
 drakyri treniste lyrene na'deia girl~
@@ -336,7 +336,7 @@ AGT CHNT 980 0
 86 1 100d12+17000 1d10+900 13d10+56 slash
 -57 -56 -55 -24
 CDEHIK 0 JN IM
-stand stand female 21000
+stand stand female 1533
 0 0 medium unknown
 #11820
 drakyri treniste josreke ira'deian youth~
@@ -352,7 +352,7 @@ ACGR CDFNT 920 0
 81 0 100d12+12500 1d100+10000 9d12+51 shock
 -51 -50 -50 -18
 FG 0 HN IM
-stand stand male 9400
+stand stand male 686
 0 0 medium unknown
 #11821
 drakyri treniste rodwen ira'deia girl~
@@ -369,7 +369,7 @@ AGT CNT 920 0
 82 0 100d12+15000 1d10+900 10d12+52 slash
 -53 -51 -50 -20
 EFHIK 0 N M
-stand stand female 9500
+stand stand female 693
 0 0 medium unknown
 #11822
 drakyri white paladin~
@@ -384,7 +384,7 @@ ABGT CNT 950 0
 85 0 100d12+16500 1d10+950 10d13+55 cleave
 -56 -52 -53 -23
 CDFIK 0 N M
-stand stand either 5500
+stand stand either 401
 0 0 medium unknown
 #11823
 drakyri reykaris rachal deia lady~
@@ -404,7 +404,7 @@ ABFGR DFGOTu -1000 0
 90 0 100d12+17000 1d100+12000 13d10+60 none
 -60 -60 -60 -20
 EFG M H IN
-stand stand female 35500
+stand stand female 2592
 0 0 medium unknown
 #11824
 drakyri reykaris toryan deiayan man~
@@ -420,7 +420,7 @@ ABFGT GOTu -1000 0
 89 0 100d12+18500 1d10+1000 14d10+59 slash
 -58 -58 -59 -27
 CDFK 0 M N
-stand stand male 30000
+stand stand male 2190
 0 0 medium unknown
 #11825
 drakyri reykaris janalis sh'aya lady~
@@ -437,7 +437,7 @@ AFG GOTu -990 0
 86 0 100d12+15500 1d10+960 9d14+56 slice
 -55 -56 -56 -24
 EFK 0 M N
-stand stand female 21200
+stand stand female 1548
 0 0 medium unknown
 #11826
 drakyri reykaris dreyva sequas~
@@ -452,7 +452,7 @@ AFG GOT -975 0
 83 0 100d12+15750 1d10+930 10d11+53 claw
 -54 -52 -53 -21
 FIK 0 M N
-stand stand female 15400
+stand stand female 1124
 0 0 medium unknown
 #11827
 drakyri reykaris delyrus treye man~
@@ -468,7 +468,7 @@ ACFGQ BGOT -970 0
 81 0 100d12+13000 1d100+9000 9d12+51 crush
 -50 -50 -50 -20
 FI 0 IM NO
-stand stand male 11250
+stand stand male 821
 0 0 medium unknown
 #11828
 drakyri reykaris kranali na'deian~
@@ -484,7 +484,7 @@ ABCFGR BDFGOTu -978 0
 85 0 100d12+15000 1d100+10500 13d9+55 slash
 -56 -56 -55 -25
 EFG 0 HM INP
-stand stand male 23400
+stand stand male 1708
 0 0 medium unknown
 #11829
 drakyri reykaris sorina ira'deia child~
@@ -502,7 +502,7 @@ ACG GTV -500 0
 81 0 100d12+13000 1d10+950 9d12+51 pound
 -50 -51 -50 -20
 FJ 0 0 0
-stand stand female 1000
+stand stand female 146
 0 0 medium unknown
 #11830
 drakyri reykaris loryn ira'deia girl~
@@ -519,7 +519,7 @@ ABCFGS FGQTV -900 0
 80 0 100d12+12500 1d10+2000 9d12+50 pierce
 -50 -45 -46 -18
 BEFJK 0 M N
-stand stand female 14300
+stand stand female 1044
 0 0 medium unknown
 #11831
 drakyri reykaris chake ira'deian man~
@@ -534,7 +534,7 @@ ABCFG GOT -900 0
 82 0 100d12+13500 1d10+950 9d12+52 slash
 -52 -51 -52 -20
 EFK 0 M N
-stand stand male 14300
+stand stand male 1044
 0 0 medium unknown
 #11832
 hellish guardian~
@@ -600,7 +600,7 @@ ABFGR DGJOZ -955 0
 80 0 100d12+12500 1d100+8500 9d11+50 claw
 -50 -52 -51 -20
 FG 0 M N
-stand stand either 7500
+stand stand either 547
 0 0 medium unknown
 #11836
 mass writhing tentacles~
@@ -630,7 +630,7 @@ ABG EJZc -900 0
 95 0 100d12+22500 1d100+7500 12d12+65 claw
 -65 -65 -63 -24
 EFG 0 MQ NSY
-stand stand none 10300
+stand stand none 752
 ACH ABCDEFJKQUV large unknown
 #11838
 drakyri myrxes jaena deia eyes~
@@ -648,7 +648,7 @@ ABFGS FHQTVZ 0 0
 73 0 100d12+10250 1d10+1000 8d10+43 pierce
 -46 -47 -46 -14
 BEFJK 0 0 0
-stand stand female 65500
+stand stand female 4782
 0 0 medium unknown
 #11839
 drakyri myrxes neraikis deiayan form~
@@ -664,7 +664,7 @@ ABFGS FHQT 0 0
 73 1 100d12+10250 1d10+900 8d10+43 slash
 -43 -43 -43 -12
 BEFJ 0 0 0
-stand stand male 65000
+stand stand male 4746
 0 0 medium unknown
 #11840
 drakyri myrxes katyre sh'aya figure~
@@ -680,7 +680,7 @@ ACGS FHQT 0 0
 70 0 100d12+9000 1d10+900 8d8+40 pierce
 -40 -40 -40 -11
 BEFJ 0 0 0
-stand stand female 52500
+stand stand female 3833
 0 0 medium unknown
 #11841
 drakyri myrxes ryxis sequen~
@@ -697,7 +697,7 @@ ACGS FQTV 0 0
 66 0 100d10+8000 1d10+800 11d5+36 pierce
 -36 -36 -36 -5
 BEFJ 0 0 0
-stand stand male 41400
+stand stand male 3023
 0 0 medium unknown
 #11842
 drakyri myrxes gydeas treye form~
@@ -714,7 +714,7 @@ ACGS FQTZ 0 0
 64 0 100d10+7250 1d10+800 6d9+34 slash
 -34 -34 -34 -4
 BEFJ 0 0 0
-stand stand male 15500
+stand stand male 1131
 0 0 medium unknown
 #11843
 drakyri myrxes dyraena na'deia lady~
@@ -732,7 +732,7 @@ ABCFGS FHQTZ 0 0
 71 1 100d12+9500 1d10+1000 7d11+41 slash
 -41 -41 -41 -11
 BEFJK 0 0 0
-stand stand female 25500
+stand stand female 1862
 0 0 medium unknown
 #11844
 drakyri myrxes nyxi ira'deia girl~
@@ -748,7 +748,7 @@ ABCGS FQTZ 0 0
 68 0 100d10+8500 1d10+870 7d9+38 slice
 -38 -38 -39 -4
 BEFHJ 0 0 0
-stand stand female 15560
+stand stand female 1136
 0 0 medium unknown
 #11845
 drakyri myrxes delise ira'deia~
@@ -762,7 +762,7 @@ ABCGS FQTZ 0 0
 68 0 100d12+8500 1d10+850 7d9+38 slash
 -39 -40 -41 -10
 BEFJ 0 0 0
-stand stand female 15500
+stand stand female 1131
 0 0 medium unknown
 #11846
 black panther~
@@ -823,7 +823,7 @@ ACFGS FQTZ 0 0
 71 0 100d10+9500 1d10+750 7d10+41 pierce
 -43 -43 -42 -11
 BEFJ 0 0 0
-stand stand male 5500
+stand stand male 401
 0 0 medium unknown
 #11850
 hunter arrow~
@@ -838,7 +838,7 @@ ACFG FQTZ 0 0
 72 0 100d10+10250 1d10+770 7d11+42 slash
 -44 -43 -44 -11
 EFJK 0 0 0
-stand stand female 7000
+stand stand female 511
 0 0 medium unknown
 #11851
 drakyri xaek dyana deia lady~
@@ -857,7 +857,7 @@ ABGT HT 0 0
 80 1 100d12+14000 1d10+700 13d9+50 cleave
 -48 -48 -47 -15
 CDEFIK 0 0 0
-stand stand female 65500
+stand stand female 4782
 0 0 medium unknown
 #11852
 drakyri xaek ryke deiayan lord~
@@ -873,7 +873,7 @@ ABGT HT 0 0
 79 1 100d10+13500 1d10+690 10d11+49 slash
 -46 -47 -47 -16
 CDEK 0 0 0
-stand stand male 61000
+stand stand male 4454
 0 0 medium unknown
 #11853
 drakyri xaek nyxil sh'aya~
@@ -891,7 +891,7 @@ AGT T 0 0
 67 1 100d10+9000 1d10+800 8d8+37 slash
 -37 -37 -37 -5
 CDEHIK 0 0 0
-stand stand female 22500
+stand stand female 1642
 0 0 medium unknown
 #11854
 drakyri xaek rakael sequas female warrior~
@@ -908,7 +908,7 @@ AGT T 0 0
 74 0 100d10+11000 1d10+640 9d10+44 cleave
 -44 -45 -43 -13
 EFHIK 0 0 0
-stand stand female 17500
+stand stand female 1277
 0 0 medium unknown
 #11855
 drakyri xaek yeven treye man~
@@ -925,7 +925,7 @@ AGT TZ 0 0
 71 0 100d10+10250 1d10+610 9d9+41 slice
 -38 -39 -40 -8
 CDIK 0 0 0
-stand stand male 12100
+stand stand male 883
 0 0 medium unknown
 #11856
 drakyri xaek versant na'deian boy~
@@ -942,7 +942,7 @@ ABGT Z 0 0
 76 1 100d10+12000 1d10+680 10d10+46 cleave
 -45 -44 -45 -14
 CDEIK 0 0 0
-stand stand male 16000
+stand stand male 1168
 0 0 large unknown
 #11857
 drakyri xaek saera ira'deia girl~
@@ -958,7 +958,7 @@ ABGT Z 0 0
 72 0 100d10+11000 1d10+700 8d11+42 slash
 -42 -42 -43 -11
 CEFIK 0 0 0
-stand stand female 12100
+stand stand female 883
 0 0 medium unknown
 #11858
 grey lion~
@@ -1002,7 +1002,7 @@ ABT 0 0 0
 71 0 100d10+10250 1d10+600 9d9+41 cleave
 -40 -40 -40 -10
 CDIK 0 0 0
-stand stand either 2500
+stand stand either 243
 0 0 large unknown
 #11861
 drakyri warrior training~
@@ -1017,7 +1017,7 @@ ABGT 0 0 0
 70 0 100d10+10000 1d10+650 8d10+40 slash
 -38 -37 -38 -6
 EFK 0 0 0
-stand stand either 1220
+stand stand either 178
 0 0 medium unknown
 #11862
 drakyri sparring warrior~
@@ -1031,7 +1031,7 @@ AGT 0 0 0
 86 0 100d10+17000 1d10+600 13d10+56 slice
 -49 -48 -49 -16
 EFIK 0 0 0
-stand stand either 1400
+stand stand either 204
 0 0 medium unknown
 #11863
 drakyri noriva yxanes deian man~
@@ -1049,7 +1049,7 @@ AGQ DFHT 0 0
 88 0 100d12+16500 1d100+5000 10d13+58 crush
 -58 -59 -58 -21
 FIK 0 MN HO
-stand stand male 62500
+stand stand male 4563
 0 0 medium unknown
 #11864
 drakyri noriva nerael deiaya lady~
@@ -1066,7 +1066,7 @@ AGQ DFHT 0 0
 84 0 100d12+14500 1d100+5000 13d9+54 pound
 -55 -55 -58 -25
 EFI 0 HMN IO
-stand stand female 61100
+stand stand female 4461
 0 0 medium unknown
 #11865
 drakyri noriva jorinne sh'aya woman~
@@ -1081,7 +1081,7 @@ ABGQ CDFGH 0 0
 77 0 100d10+11000 1d100+4800 9d10+47 pound
 -46 -47 -45 -16
 FI 0 HIP KO
-stand stand female 53000
+stand stand female 3870
 0 0 medium unknown
 #11866
 drakyri noriva lerylke sequen paladin~
@@ -1098,7 +1098,7 @@ ABGQT DFNOT 0 0
 74 0 100d10+10500 1d50+4000 9d10+44 cleave
 -43 -44 -44 -12
 CDEK 0 MN J
-rest stand male 25000
+rest stand male 1825
 0 0 medium unknown
 #11867
 drakyri noriva nerr treye male~
@@ -1114,7 +1114,7 @@ ABGQ DFT 0 0
 72 0 100d10+9750 1d100+4500 7d11+42 pound
 -41 -42 -42 -10
 FIK 0 0 0
-rest stand male 15500
+rest stand male 1131
 0 0 medium unknown
 #11868
 drakyri noriva yllyra na'deia lady~
@@ -1131,7 +1131,7 @@ ABQ DFH 0 0
 77 0 100d10+11000 1d100+4900 9d10+47 pound
 -46 -45 -47 -16
 FIK 0 0 0
-stand stand female 45500
+stand stand female 3322
 0 0 medium unknown
 #11869
 drakyri noriva dryna ira'deia girl~
@@ -1148,7 +1148,7 @@ ACGQ DFT 0 0
 72 0 100d10+9750 1d100+4300 7d11+42 punch
 -40 -42 -43 -11
 EFGHI 0 HIJ E
-stand stand female 10500
+stand stand female 766
 0 0 medium unknown
 #11870
 drakyri noriva voryl ira'deian boy~
@@ -1164,7 +1164,7 @@ ACGQ DFT 0 0
 86 0 100d10+15500 1d100+4250 10d12+56 pound
 -55 -55 -55 -21
 FI 0 H I
-stand stand male 10500
+stand stand male 766
 0 0 medium unknown
 #11871
 white cat~
@@ -1227,7 +1227,7 @@ AGR HT 0 0
 95 0 100d12+20000 1d100+15000 12d12+65 flame
 -68 -66 -65 -35
 FG H C I
-stand stand female 65000
+stand stand female 4746
 0 0 medium unknown
 #11875
 drakyri laerkai shield paladin~
@@ -1244,7 +1244,7 @@ AGT DHNT 1000 0
 92 0 100d12+20000 1d50+7500 15d10+66 none
 -63 -63 -63 -23
 CDIK N 0 M
-stand stand male 65000
+stand stand male 4746
 0 0 medium unknown
 #11876
 drakyri laerkai claw knight~
@@ -1259,7 +1259,7 @@ ACGT DOTu -1000 0
 92 5 100d12+20000 1d50+7000 15d10+62 none
 -60 -61 -61 -30
 DEFIK M 0 N
-stand stand female 65000
+stand stand female 4746
 0 0 medium unknown
 #11877
 drakyri laerkai shadow shadows~
@@ -1276,7 +1276,7 @@ ACGS FHQT 0 0
 92 0 100d12+19000 1d50+7000 12d12+62 pierce
 -62 -62 -61 -30
 BEFHJ 0 E O
-stand stand male 65000
+stand stand male 4746
 0 0 medium unknown
 #11878
 drakyri laerkai fist warrior~
@@ -1293,7 +1293,7 @@ AGT HT 0 0
 91 1 100d12+19500 1d10+4500 10d15+61 smash
 -60 -60 -60 -30
 CDEIK 0 D JKP
-stand stand female 65000
+stand stand female 4746
 0 0 large unknown
 #11879
 drakyri laerkai hand priest~
@@ -1308,7 +1308,7 @@ AGQ DFHNOT 0 0
 91 0 100d12+18000 10d101+10000 12d11+61 none
 -61 -60 -59 -30
 FIK 0 MN HO
-stand stand male 65000
+stand stand male 4746
 0 0 medium unknown
 #11880
 drakyri laerkai master~
@@ -1328,7 +1328,7 @@ ABCFGRS BDFHQTl 0 0
 100 12 100d12+29500 1d100+15000 18d11+85 wrath
 -86 -87 -87 -57
 EFGHJK 0 FHIK JOP
-stand stand female 89800
+stand stand female 6557
 0 0 medium unknown
 #11881
 drakyri guardian~
@@ -1344,7 +1344,7 @@ ABGQT DFHT 0 0
 94 1 100d12+20000 1d100+12500 15d10+64 shock
 -64 -63 -63 -33
 CDEFGK 0 IMN HJP
-stand stand female 10000
+stand stand female 730
 0 0 medium unknown
 #11882
 drakyri mediator light~
@@ -1363,7 +1363,7 @@ ABGQRU BCDEFGHTUZ 0 0
 90 16 100d12+16500 1d100+15000 10d13+60 none
 -60 -60 -60 -30
 EFIK BES JKLQ PT
-stand stand none 65000
+stand stand none 4746
 HK 0 huge unknown
 #11883
 drakyri knight protector~
@@ -1378,7 +1378,7 @@ AGT T 0 0
 66 0 75d10+8750 1d10+600 7d9+36 cleave
 -34 -33 -34 -1
 CDEK 0 0 0
-stand stand either 5500
+stand stand either 401
 0 0 medium unknown
 #11884
 drakyri mage protector~
@@ -1393,7 +1393,7 @@ AGR DT 0 0
 68 0 45d10+8500 1d50+4000 8d7+38 magic
 -40 -40 -40 -10
 FG 0 0 0
-stand stand either 6000
+stand stand either 438
 0 0 medium unknown
 #11885
 drakyri healer~
@@ -1410,7 +1410,7 @@ AGQ DNOT 0 0
 68 0 75d10+8500 1d50+3550 7d9+38 pound
 -36 -36 -37 -18
 IK 0 0 0
-stand stand either 6000
+stand stand either 438
 0 0 medium unknown
 #11886
 drakyri assassin~
@@ -1426,7 +1426,7 @@ ACS FQT 0 0
 67 1 50d10+8250 1d10+700 11d5+37 pierce
 -42 -42 -43 -19
 EFJ 0 0 0
-stand stand either 8000
+stand stand either 584
 0 0 medium unknown
 #11887
 drakyri shopkeeper frail old man~
@@ -1443,7 +1443,7 @@ ABGe DFT 0 0
 65 0 100d12+8000 1d100+17500 8d7+35 shock
 -35 -35 -35 -10
 EFGJK A 0 0
-stand stand male 500000
+stand stand male 5000
 0 0 medium unknown
 #11888
 drakyri warden~
@@ -1460,7 +1460,7 @@ ABGT DFHNOTZ 0 0
 88 2 100d12+18500 1d100+8000 15d9+58 none
 -58 -58 -58 -28
 CDEFHIK A D HIP
-stand stand female 82000
+stand stand female 5987
 0 0 medium unknown
 #0
 
