@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.70 2002-12-11 14:13:58 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.71 2003-02-26 18:54:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2853,6 +2853,9 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (IS_NPC(victim)) {
 		if (NPC(victim)->hunter)
+			return FALSE;
+		if (IS_AFFECTED(victim, AFF_CHARM)
+		&&  victim->master != ch)
 			return FALSE;
 		return TRUE;
 	}
