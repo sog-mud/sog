@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.2 1998-11-26 10:49:04 fjoe Exp $
+ * $Id: info.c,v 1.3 1998-12-16 11:21:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -34,7 +34,6 @@
 #	include <unistd.h>
 #else
 #	include <winsock.h>
-#	include <sys/timeb.h>
 #endif
 
 #include <errno.h>
@@ -113,8 +112,15 @@ void info_process_cmd(INFO_DESC *id)
 	DESCRIPTOR_DATA *d;
 	int nread;
 
-	if ((nread = read(id->fd, buf, sizeof(buf))) < 0) {
+#if !defined (WIN32)
+	if ((nread = read(id->fd, buf, sizeof(buf))) < 0)
+	 {
 		if (errno == EWOULDBLOCK)
+#else
+	if ((nread = recv(id->fd, buf, sizeof(buf), 0)) < 0)
+	 {
+        if ( WSAGetLastError() == WSAEWOULDBLOCK)
+#endif
 			return;
 		log_printf("info_input: read: %s", strerror(errno));
 		goto bail_out;
@@ -133,7 +139,11 @@ void info_process_cmd(INFO_DESC *id)
 
 	buf_printf(output, "%d\n", max_on);
 	p = buf_string(output);
+#if !defined (WIN32)
 	write(id->fd, p, strlen(p));
+#else
+	send(id->fd, p, strlen(p), 0);
+#endif
 
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch = d->original ? d->original : d->character;
@@ -149,7 +159,12 @@ void info_process_cmd(INFO_DESC *id)
 		buf_clear(output);
 		do_who_raw(NULL, wch, output);
 		parse_colors(buf_string(output), buf, sizeof(buf), format);
+#if !defined (WIN32)
 		write(id->fd, buf, strlen(buf));
+#else
+		send(id->fd, buf, strlen(buf), 0);
+#endif
+
 	}
 	buf_free(output);
 
