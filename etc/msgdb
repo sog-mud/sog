@@ -1234,7 +1234,7 @@ $t~
 @eng A mirror image of $n appears beside $M!@rus Зеркальное отражение $c1{$n} возникло рядом с $gn{ним}!~
 @eng A mirror image of yourself appears beside you!@rus Рядом с тобой возникло твое зеркальное отражение!~
 @eng A mirror of $N appears beside $M!@rus Зеркальное отражение $c1{$N} возникло рядом с $gN{ним}!~
-@eng A mystical power protects the room.@rus Таинственный силы защищают это место.~
+@eng A mystical power protects the room.@rus Таинственные силы защищают это место.~
 @eng A mystical shield protects $d.@rus Таинственный мерцающий щит защищает $c3{$d}.~
 @eng A mystical shield protects exit.@rus Мистический щит защищает этот проход.~
 @eng A new item has been received: {Y$p{x.@rus Получен новый лот: {Y$p{x.~
@@ -2029,7 +2029,7 @@ $t{x~
 $t@rus Редактируемый текст:
 $t~
 @eng Text too long, last line skipped.@rus Текст слишком длинный, последняя строка опущена.~
-@eng Text will be sent to you unmodified.@rus Текс будет посылаться без каких-либо изменений.~
+@eng Text will be sent to you unmodified.@rus Текст будет посылаться без каких-либо изменений.~
 @eng Thank you, come again.@rus Спасибо, приходи еще.~
 @eng That alias is not defined.@rus Такое сокращение не определено.~
 @eng That beast is too powerful for you to ride.@rus Сила этого монстра столь велика, что ты не можешь его оседлать.~
@@ -2387,8 +2387,8 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng With a crunch of bone and splash of blood $n nails $p to a sacrificial cross.@rus Разрушая кости и разбрызгивая кровь, $n $gn{распял} $c3{$p} на кресте.~
 @eng With a crunch of bone and splash of blood you nail $p to a sacrificial cross.@rus Разрушая кости и разбрызгивая кровь, ты $gn{распял} $c3{$p} на кресте.~
 @eng With a sudden flash of light, $n and $s friends disappear!@rus Во вспышке молнии, $n и $gn{его} друзья исчезли!~
-@eng With mystic power, $n animates $p!@rus Призвав на помощь таинственные силв, $n $gn{оживил} $c3{$p}!~
-@eng With mystic power, you animate it!@rus Призвав на помощь таинственные силв, $n $gn{оживил} его!~
+@eng With mystic power, $n animates $p!@rus Призвав на помощь таинственные силы, $n $gn{оживил} $c3{$p}!~
+@eng With mystic power, you animate it!@rus Призвав на помощь таинственные силы, $n $gn{оживил} его!~
 @eng Withdraw how much?@rus Сколько снять со счета?~
 @eng Wiznet status: %s
 @rus Статус: %s
@@ -3384,7 +3384,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You pray the gods of the storm to help you.@rus Ты молишь покровителей бурь и штормов о помощи.~
 @eng You prepare yourself for magical encounters.@rus Помедитировав, ты усиливаешь свою устойчивость к магическим атакам.~
 @eng You prepare yourself for swimming.@rus Ты задерживаешь дыхание, собираясь под воду.~
-@eng You press at $N's defences and manage to slip in another attack!@rus Прорвав защиту $c1{$N}, ты ухитряешься нанести еще один дополнительный урар!~
+@eng You press at $N's defenses and manage to slip in another attack!@rus Прорвав защиту $c1{$N}, ты ухитряешься нанести еще один дополнительный удар!~
 @eng You press the wrong points and fail.@rus Ты $gn{оказал} давление не в том месте, а потому это не имело эффекта.~
 @eng You protect $p from fire.@rus Ты ограждаешь $c3{$p} от воздействия огня.~
 @eng You push $N to $t.@rus Ты выталкиваешь $c6{$N} $t.~
@@ -3714,10 +3714,10 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your pet might get too fat and clumsy.@rus Твой питомец может стать толстым и неуклюжим.~
 @eng Your petition to $t has been accepted.@rus Твое прошение к $c2{$t} удовлетворено.~
 @eng Your petition to $t was rejected.@rus Твое прошение к $c2{$t} отклонено.~
-@eng Your poofin is '$t'@rus Сообщение при твоем будет появлении: '$t'~
+@eng Your poofin is '$t'@rus Сообщение при твоем появлении: '$t'~
 @eng Your poofin is now '$t'@rus Сообщение при твоем появлении будет: '$t'~
 @eng Your poofout is '$t'@rus Сообщение при твоем уходе: '$t'~
-@eng Your poofout is now '$t'@rus Сообщение при твоем будет уходе: '$t'~
+@eng Your poofout is now '$t'@rus Сообщение при твоем уходе будет: '$t'~
 @eng Your power of evil spirit is less for you, now.@rus У тебя пока что недостаточно сил для этого.~
 @eng Your power of randomness has been exhausted for now.@rus Твоя сила еще пока не восстановилась.~
 @eng Your power word doesn't seems to affect $N.@rus Твоя сила бесполезна против $c1{$N}.~
