@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.237 1999-12-13 14:02:20 avn Exp $
+ * $Id: fight.c,v 1.238 1999-12-14 05:25:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,6 +44,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include <string.h>
+#include <signal.h>
 #include <time.h>
 
 #if !defined (WIN32)
@@ -2158,27 +2159,31 @@ void make_corpse(CHAR_DATA *ch)
 					&ch->short_descr);
 			corpse->timer	= number_range(3, 6);
 		}
+
 		if (ch->gold > 0 || ch->silver > 0) {
 			OBJ_DATA *money = create_money(ch->gold, ch->silver);
-			if (IS_SET(ch->form,FORM_INSTANT_DECAY))
-				obj_to_room(money, ch->in_room);
-			else
+			if (corpse != NULL)
 				obj_to_obj(money, corpse);
+			else
+				obj_to_room(money, ch->in_room);
 		}
-	}
-	else {
+	} else {
 		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_PC),
 					&ch->short_descr);
 
 		corpse->timer= number_range(25, 40);
 		corpse->altar = get_altar(ch);
+		if (corpse->altar == NULL)
+			raise(SIGBUS);
 
 		if (ch->gold > 0 || ch->silver > 0)
 			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 	}
 
-	mlstr_cpy(&corpse->owner, &ch->short_descr);
-	corpse->level = ch->level;
+	if (corpse != NULL) {
+		mlstr_cpy(&corpse->owner, &ch->short_descr);
+		corpse->level = ch->level;
+	}
 
 	ch->gold = 0;
 	ch->silver = 0;
@@ -2187,38 +2192,30 @@ void make_corpse(CHAR_DATA *ch)
 		obj_next = obj->next_content;
 		obj_from_char(obj);
 		if (obj->pObjIndex->item_type == ITEM_POTION)
-		    obj->timer = number_range(500,1000);
+			obj->timer = number_range(500, 1000);
 		if (obj->pObjIndex->item_type == ITEM_SCROLL)
-		    obj->timer = number_range(1000,2500);
-		if (IS_OBJ_STAT(obj,ITEM_ROT_DEATH))  {
-		    obj->timer = number_range(5,10);
-		    if (obj->pObjIndex->item_type == ITEM_POTION)
-		       obj->timer += obj->level * 20;
+			obj->timer = number_range(1000, 2500);
+		if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH)) {
+			obj->timer = number_range(5, 10);
+			if (obj->pObjIndex->item_type == ITEM_POTION)
+				obj->timer += obj->level * 20;
 		}
 
 		REMOVE_OBJ_STAT(obj, ITEM_VIS_DEATH | ITEM_ROT_DEATH);
 
-		if (IS_OBJ_STAT(obj, ITEM_INVENTORY)  ||
-		    (obj->pObjIndex->limit != -1 &&
-			(obj->pObjIndex->count > obj->pObjIndex->limit)))
-		  {
-		    extract_obj(obj, 0);
-		    continue;
-		  }
-		else if (IS_SET(ch->form,FORM_INSTANT_DECAY))
-		  obj_to_room(obj, ch->in_room);
-
+		if (IS_OBJ_STAT(obj, ITEM_INVENTORY)
+		||  (obj->pObjIndex->limit != -1 &&
+		     obj->pObjIndex->count > obj->pObjIndex->limit)) {
+			extract_obj(obj, 0);
+			continue;
+		} else if (corpse != NULL)
+			obj_to_obj(obj, corpse);
 		else
-		  obj_to_obj(obj, corpse);
+			obj_to_room(obj, ch->in_room);
 	}
 
-	if (IS_NPC(ch) || corpse->altar)
-		obj_to_room(corpse, ch->in_room);
-	else
-	/* crash MUD now if ->altar is NULL, not to crash it later */
-		obj_to_room(corpse, corpse->altar->room);
+	obj_to_room(corpse, ch->in_room);
 }
-
 
 /*
  * Improved Death_cry contributed by Diavolo.

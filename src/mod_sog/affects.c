@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.15 1999-12-11 15:31:14 fjoe Exp $
+ * $Id: affects.c,v 1.16 1999-12-14 05:25:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,7 +117,7 @@ where_t where_table[] =
 	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
 	{ TO_RACE,	NULL,		"changes race to '%s'"		},
 	{ TO_DETECTS,	id_flags,	"detection of '%s'"		},
-	{ TO_INVIS,	id_flags,	"'%s' invis"			},
+	{ TO_INVIS,	id_flags,	"'%s'"				},
 	{ -1 }
 };
 
