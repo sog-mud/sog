@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.261 2001-12-04 20:38:25 tatyana Exp $
+ * $Id: act_comm.c,v 1.262 2001-12-08 00:08:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -293,6 +293,12 @@ DO_FUN(do_say, ch, argument)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't say anything.", ch);
+		return;
+	}
+
 	if (ch->shapeform
 	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
 		act("You cannot say anything in this form.",
@@ -318,6 +324,12 @@ DO_FUN(do_tell, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't tell.", ch);
+		return;
+	}
+
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		act_char("Tell whom what?", ch);
@@ -333,6 +345,13 @@ DO_FUN(do_reply, ch, argument)
 		act_char("Huh?", ch);
 		return;
 	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)
+	&&  !IS_IMMORTAL(PC(ch)->reply)) {
+		act_char("You are in silent room, you can't tell.", ch);
+		return;
+	}
 	tell_char(ch, PC(ch)->reply, argument);
 }
 
@@ -341,6 +360,13 @@ DO_FUN(do_gtell, ch, argument)
 	CHAR_DATA *gch;
 	int i;
 	int flags;
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't tell your group"
+			 " anything.", ch);
+		return;
+	}
 
 	if (argument[0] == '\0') {
 		act_char("Tell your group what?", ch);
@@ -535,6 +561,12 @@ DO_FUN(do_yell, ch, argument)
 	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
 		return;
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't yell.", ch);
+		return;
+	}
+
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
@@ -568,8 +600,14 @@ DO_FUN(do_shout, ch, argument)
 		TOGGLE_BIT(ch->chan, CHAN_NOSHOUT);
 		if (IS_SET(ch->chan, CHAN_NOSHOUT))
 			act_char("You will no longer hear shouts.", ch);
-		else 
+		else
 			act_char("You will now hear shouts.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't shout.", ch);
 		return;
 	}
 
@@ -577,9 +615,9 @@ DO_FUN(do_shout, ch, argument)
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
-	
-	if (ch->shapeform
-	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+
+	if (ch->shapeform != NULL
+	&&  IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
 		act("You cannot shout in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -595,10 +633,13 @@ DO_FUN(do_shout, ch, argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
-		&&  !IS_SET(d->character->chan, CHAN_NOSHOUT)) {
+		&&  !IS_SET(d->character->chan, CHAN_NOSHOUT)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
 			act_puts("$n shouts '{Y$t{x'",
 				 ch, argument, d->character,
-	    			 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
+				 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
 				 POS_DEAD);
 		}
 	}
@@ -615,8 +656,14 @@ DO_FUN(do_music, ch, argument)
 		TOGGLE_BIT(ch->chan, CHAN_NOMUSIC);
 		if (IS_SET(ch->chan, CHAN_NOMUSIC))
 			act_char("You will no longer hear music.", ch);
-		else 
+		else
 			act_char("You will now hear music.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't music.", ch);
 		return;
 	}
 
@@ -624,7 +671,7 @@ DO_FUN(do_music, ch, argument)
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
-	
+
 	if (IS_SET(ch->chan, CHAN_NOMUSIC))
 		do_music(ch, str_empty);
 	WAIT_STATE(ch, get_pulse("violence"));
@@ -636,10 +683,13 @@ DO_FUN(do_music, ch, argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
-		&&  !IS_SET(d->character->chan, CHAN_NOMUSIC)) {
+		&&  !IS_SET(d->character->chan, CHAN_NOMUSIC)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
 			act_puts("$n musics '{W$t{x'",
-		        	 ch, argument, d->character,
-	    			 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
+				 ch, argument, d->character,
+				 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
 				 POS_DEAD);
 		}
 	}
@@ -662,7 +712,7 @@ DO_FUN(do_gossip, ch, argument)
 		act("You cannot gossip in this form.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	if (argument[0] == '\0') {
 		act_char("Gossip what?", ch);
 		return;
@@ -686,8 +736,8 @@ DO_FUN(do_gossip, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch) {
 			act_puts("$n gossips '{R$t{x'",
-		        	 ch, argument, d->character,
-	    			 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
+				 ch, argument, d->character,
+				 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
 		}
 	}
 }
@@ -705,8 +755,15 @@ DO_FUN(do_clan, ch, argument)
 		TOGGLE_BIT(ch->chan, CHAN_NOCLAN);
 		if (IS_SET(ch->chan, CHAN_NOCLAN))
 			act_char("You will no longer hear clan talks.", ch);
-		else 
+		else
 			act_char("You will now hear clan talks.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, you can't tell to your "
+			 "clan anything.", ch);
 		return;
 	}
 

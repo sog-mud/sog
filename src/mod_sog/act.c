@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.91 2001-10-21 22:13:26 fjoe Exp $
+ * $Id: act.c,v 1.92 2001-12-08 00:08:39 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -1146,7 +1146,9 @@ act_yell(CHAR_DATA *ch, const char *text, const void *arg, const char *format)
 		||  (vch = d->character) == NULL
 		||  vch == ch
 		||  vch->in_room == NULL
-		||  vch->in_room->area != ch->in_room->area)
+		||  vch->in_room->area != ch->in_room->area
+		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
+		    !IS_IMMORTAL(vch)))
 			continue;
 
 		act_puts(format, ch, act_speech(ch, vch, text, arg), vch,
@@ -1162,7 +1164,9 @@ act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 	for (vch = char_list; vch; vch = vch->next) {
 		if (vch == ch
 		||  !IS_CLAN(vch->clan, ch->clan)
-		||  IS_SET(vch->chan, CHAN_NOCLAN))
+		||  IS_SET(vch->chan, CHAN_NOCLAN)
+		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
+		    !IS_IMMORTAL(vch)))
 			continue;
 
 		act_puts("[CLAN] $lu{$n}: {C$t{x", ch,
@@ -1274,6 +1278,14 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	if (victim == NULL
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
 		act_char("They aren't here.", ch);
+		return;
+	}
+
+	if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(victim)
+	&&  !IS_IMMORTAL(ch)) {
+		act_puts("$E is in silent room.", ch, 0, victim,
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 

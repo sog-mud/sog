@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.182 2001-12-07 21:31:02 fjoe Exp $
+ * $Id: tables.c,v 1.183 2001-12-08 00:08:45 tatyana Exp $
  */
 
 /***************************************************************************
@@ -457,6 +457,7 @@ flaginfo_t room_flags[] =
 	{ "",			TABLE_BITVAL,		FALSE	},
 
 	{ "dark",		ROOM_DARK,		TRUE	},
+	{ "silent",		ROOM_SILENT,		TRUE	},
 	{ "nomob",		ROOM_NOMOB,		TRUE	},
 	{ "indoors",		ROOM_INDOORS,		TRUE	},
 	{ "peace",		ROOM_PEACE,		TRUE	},

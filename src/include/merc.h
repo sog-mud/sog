@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.381 2001-12-07 21:30:41 fjoe Exp $
+ * $Id: merc.h,v 1.382 2001-12-08 00:08:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -981,6 +981,7 @@ struct wiznet_type
  * Used in #ROOMS.
  */
 #define ROOM_DARK		(A)
+#define ROOM_SILENT		(B)
 #define ROOM_NOMOB		(C)
 #define ROOM_INDOORS		(D)
 #define ROOM_PEACE		(H)

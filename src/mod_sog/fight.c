@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.342 2001-12-03 22:39:25 fjoe Exp $
+ * $Id: fight.c,v 1.343 2001-12-08 00:08:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -782,19 +782,22 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				gain_condition(ch, COND_BLOODLUST, 10);
 		}
 
-		if (IS_SET(f_plr, PLR_AUTOLOOK))
+		if (IS_SET(f_plr, PLR_AUTOLOOK)
+		&&  can_see_obj(ch, corpse))
 			dofun("examine", ch, "corpse");		// notrans
 
 		if (corpse->contains) {
 			/* corpse exists and not empty */
-			if (IS_SET(f_plr, PLR_AUTOLOOT))
+			if (IS_SET(f_plr, PLR_AUTOLOOT)
+			     &&  can_see_obj(ch, corpse))
 				dofun("get", ch, "all corpse");	// notrans
 			else if (IS_SET(f_plr, PLR_AUTOGOLD)
-			     &&  !IS_AFFECTED(ch, AFF_BLIND))
+			     &&  can_see_obj(ch, corpse))
 				get_gold_corpse(ch, corpse);
 		}
 
-		if (IS_SET(f_plr, PLR_AUTOSAC))
+		if (IS_SET(f_plr, PLR_AUTOSAC)
+		&&  can_see_obj(ch, corpse))
 			dofun("sacrifice", ch, "corpse");	// notrans
 	}
 

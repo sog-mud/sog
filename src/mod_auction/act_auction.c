@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.4 2001-09-01 19:08:23 fjoe Exp $
+ * $Id: act_auction.c,v 1.5 2001-12-08 00:08:37 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -61,6 +61,13 @@ do_auction(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->chan, CHAN_NOAUCTION)) {
 		act_char("Auction channel is now ON.", ch);
 		REMOVE_BIT(ch->chan, CHAN_NOAUCTION);
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+	&&  !IS_IMMORTAL(ch)) {
+		act_char("You are in silent room, auction"
+			 " is not available.", ch);
+		return;
 	}
 
 	if (arg1[0] == '\0') {

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.345 2001-12-03 22:39:29 fjoe Exp $
+ * $Id: handler.c,v 1.346 2001-12-08 00:08:43 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3163,8 +3163,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return FALSE;
 
 		if (!free_hands(ch)) {
-			act_puts("Your hands are already occuped, "
-				 "you can't wear $p.",
+			act_puts("Your hands are full, you can't wear $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
@@ -3229,8 +3228,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return FALSE;
 
 		if (!free_hands(ch)) {
-			act_puts("Your hands are already occuped, "
-				 "you can't hold $p.",
+			act_puts("Your hands are full, you can't hold $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return FALSE;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.45 2001-11-15 13:51:48 tatyana Exp $
+ * $Id: effects.c,v 1.46 2001-12-08 00:08:40 tatyana Exp $
  */
 
 /***************************************************************************
@@ -520,8 +520,8 @@ sand_effect(void *vo, int level, int dam)
 		const char *msg;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
-		||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 		||  OBJ_IS(obj, OBJ_NOPURGE)
+		||  CAN_WEAR(obj, ITEM_WEAR_CLANMARK)
 		||  number_range(0,4) == 0)
 			return;
 
