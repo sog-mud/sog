@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.28 1998-05-08 18:00:49 fjoe Exp $
+ * $Id: act_info.c,v 1.29 1998-05-08 19:10:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3849,28 +3849,31 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!str_cmp("vampire",skill_table[sn].name)) {
+	if (!str_cmp("vampire", skill_table[sn].name)) {
 		send_to_char("You can't practice that, only available "
 			     "at questor.\n\r",ch);
 		return;
 	}
 
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->act, ACT_PRACTICE)) {
-		      if (skill_table[sn].cabal == CABAL_NONE)
-				if ((mob->pIndexData->practicer == 0
-				&&  (skill_table[sn].group == GROUP_NONE
-				||   skill_table[sn].group == GROUP_CREATION
-				||   skill_table[sn].group == GROUP_HARMFUL
-				||   skill_table[sn].group == GROUP_PROTECTIVE
-				||   skill_table[sn].group == GROUP_DETECTION
-				||   skill_table[sn].group == GROUP_WEATHER))
-				|| (mob->pIndexData->practicer & (1 << prac_table[skill_table[sn].group].number)))
-					break;
-			else
-				if (ch->cabal == mob->cabal)
-					break;
+		if (!IS_NPC(mob) || !IS_SET(mob->act, ACT_PRACTICE))
+			continue;
+
+		if (skill_table[sn].cabal != CABAL_NONE) {
+			if (ch->cabal == mob->cabal)
+				break;
+			continue;
 		}
+
+		if ((mob->pIndexData->practicer == 0
+		&&  (skill_table[sn].group == GROUP_NONE
+		||   skill_table[sn].group == GROUP_CREATION
+		||   skill_table[sn].group == GROUP_HARMFUL
+		||   skill_table[sn].group == GROUP_PROTECTIVE
+		||   skill_table[sn].group == GROUP_DETECTION
+		||   skill_table[sn].group == GROUP_WEATHER))
+		||  (mob->pIndexData->practicer & (1 << skill_table[sn].group)))
+			break;
 	}
 
 	if (mob == NULL) {
@@ -3878,6 +3881,8 @@ void do_pracnew(CHAR_DATA *ch, char *argument)
 			       "USE glist, slook for more info.\n\r", ch);
 		  return;
 	}
+
+	log_printf("pracnew: %s (%d)\n", mob->name, mob->pIndexData->practicer);
 
 	adept = IS_NPC(ch) ? 100 : class_table[ch->class].skill_adept;
 
