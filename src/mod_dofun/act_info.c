@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.67 2002-11-19 14:15:50 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.68 2002-11-21 10:00:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4682,6 +4682,45 @@ static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			 TO_CHAR, POS_DEAD);
 }
 
+#define CMD_ALLOWED(cmd, ch)						\
+	((cmd)->min_level < LEVEL_HERO && (cmd)->min_level <= (ch)->level)
+
+#define WIZCMD_ALLOWED(cmd, ch)						\
+	((cmd)->min_level >= LEVEL_IMMORTAL &&				\
+	 ((ch)->level >= LEVEL_IMP ||					\
+	  is_name((cmd)->name, PC(ch)->granted)))
+
+static void
+show_aliases(CHAR_DATA *ch, const char *argument, bool wiz)
+{
+	int i;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg, sizeof(arg));
+	for (i = 0; i < commands.nused; i++) {
+		cmd_t *cmd = VARR_GET(&commands, i);
+
+		if ((wiz ? WIZCMD_ALLOWED(cmd, ch) : CMD_ALLOWED(cmd, ch))
+		&&  !str_prefix(arg, cmd->name)) {
+			if (!IS_NULLSTR(cmd->aliases)) {
+				act_puts("Aliases for '$t' are: [$T]",
+				    ch, cmd->name, cmd->aliases,
+				    TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			} else {
+				act_puts("$Tcommand '$t' does not have aliases.",
+				    ch, cmd->name, wiz ? "wiz" : "",
+				    TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			}
+
+			return;
+		}
+	}
+
+	act_puts("$t: No such $Tcommands found.",
+	    ch, arg, wiz ? "wiz" : "",
+	    TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+}
+
 /*
  * Contributed by Alander.
  */
@@ -4689,20 +4728,24 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 {
 	int col;
 	int i;
- 
+
+	if (!IS_NULLSTR(argument)) {
+		show_aliases(ch, argument, FALSE);
+		return;
+	}
+
 	col = 0;
 	for (i = 0; i < commands.nused; i++) {
 		cmd_t *cmd = VARR_GET(&commands, i);
 
-		if (cmd->min_level < LEVEL_HERO
-		&&  cmd->min_level <= ch->level 
+		if (CMD_ALLOWED(cmd, ch)
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
 			char_printf(ch, "%-12s", cmd->name);
 			if (++col % 6 == 0)
 				char_puts("\n", ch);
 		}
 	}
- 
+
 	if (col % 6 != 0)
 		char_puts("\n", ch);
 }
@@ -4711,9 +4754,14 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 	int col;
- 
+
 	if (IS_NPC(ch)) {
 		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if (!IS_NULLSTR(argument)) {
+		show_aliases(ch, argument, TRUE);
 		return;
 	}
 
@@ -4721,18 +4769,14 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < commands.nused; i++) {
 		cmd_t *cmd = VARR_GET(&commands, i);
 
-		if (cmd->min_level < LEVEL_IMMORTAL)
-			continue;
-
-		if (ch->level < LEVEL_IMP
-		&&  !is_name(cmd->name, PC(ch)->granted))
+		if (!WIZCMD_ALLOWED(cmd, ch))
 			continue;
 
 		char_printf(ch, "%-12s", cmd->name);
 		if (++col % 6 == 0)
 			char_puts("\n", ch);
 	}
- 
+
 	if (col % 6 != 0)
 		char_puts("\n", ch);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.1.2.1 1999-12-16 12:40:07 fjoe Exp $
+ * $Id: db_cmd.c,v 1.1.2.2 2002-11-21 10:00:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,6 +49,9 @@ DBLOAD_FUN(load_cmd)
 		bool fMatch = FALSE;
 
 		switch(UPPER(word[0])) {
+		case 'A':
+			SKEY("aliases", cmd->aliases);
+			break;
 		case 'C':
 			KEY("class", cmd->cmd_class,
 			    fread_fword(cmd_classes, fp));

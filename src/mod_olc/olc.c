@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.5 2002-11-21 09:28:01 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.6 2002-11-21 10:00:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -296,7 +296,7 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 		/*
 		 * call validator only if we are adding a name
 		 */
-		if (!is_name_strict(arg, *pStr)
+		if (!is_name_raw(arg, *pStr, str_cmp)
 		&&  (validator = cmd->arg1) && !validator(ch, arg))
 			return FALSE;
 

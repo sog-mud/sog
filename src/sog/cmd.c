@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.5.2.1 1999-12-16 12:40:01 fjoe Exp $
+ * $Id: cmd.c,v 1.5.2.2 2002-11-21 10:00:48 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -42,12 +42,20 @@ varr commands = { sizeof(cmd_t), 16 };
 
 cmd_t *cmd_new(void)
 {
-	return varr_enew(&commands);
+	cmd_t *cmd = varr_enew(&commands);
+
+	cmd->name = str_empty;
+	cmd->aliases = str_empty;
+	cmd->dofun_name = str_empty;
+	cmd->cmd_log = LOG_NORMAL;
+
+	return cmd;
 }
 
 void cmd_free(cmd_t *cmd)
 {
 	free_string(cmd->name);
+	free_string(cmd->aliases);
 	free_string(cmd->dofun_name);
 }
 

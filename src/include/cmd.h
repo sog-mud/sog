@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.7.2.1 1999-12-16 12:39:50 fjoe Exp $
+ * $Id: cmd.h,v 1.7.2.2 2002-11-21 10:00:39 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -60,7 +60,8 @@ enum {
  */
 struct cmd_t
 {
-	const char * 	name;
+	const char *	name;
+	const char *	aliases;
 	const char *	dofun_name;
 	int		min_pos;
 	int		min_level;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.4 2001-07-04 19:43:08 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.5 2002-11-21 10:00:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,7 +146,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	for (i = 0; i < commands.nused; i++) {
 		cmd = VARR_GET(&commands, i);
 
-		if (str_prefix(command, cmd->name))
+		if (!!str_prefix(command, cmd->name)
+		&&  !is_name(command, cmd->aliases))
 			continue;
 
 		/*
