@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.38 1998-06-07 07:15:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.39 1998-06-07 20:36:29 efdi Exp $
  */
 
 /***************************************************************************
@@ -515,11 +515,11 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 		return;
 	}
 
-	if (!IS_IMMORTAL(ch) && !IS_AWAKE(victim)) {
+/*	if (!IS_IMMORTAL(ch) && !IS_AWAKE(victim)) {
 		act("$E can't hear you.", ch, 0, victim, TO_CHAR);
 		return;
 	}
-
+*/
 	if ((IS_SET(victim->comm,COMM_QUIET) || IS_SET(victim->comm,COMM_DEAF))
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("$E is not receiving tells.", ch, 0, victim,
@@ -527,11 +527,11 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 		return;
 	}
 
-	if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch)) {
+/*	if (!IS_IMMORTAL(victim) && !IS_AWAKE(ch)) {
 		send_to_char("In your dreams, or what?\n\r", ch);
 		return;
 	}
-
+*/
 	if (!is_affected(ch, gsn_deafen))
 		act_nprintf(ch, buf, victim, TO_CHAR, 
 				POS_SLEEPING, COMM_YOU_TELL);
