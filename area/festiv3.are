@@ -6753,7 +6753,7 @@ M 0 36350 10 36338 1	* tiny bird (Entrance to the Mayor's Residence)
 M 0 36344 5 36339 1	* servant (Entrance Hall)
 E 0 36345 0 5		*	dark gray robe: on the body
 O 0 36377 0 36340	* bureau (Office)
-P 0 36376 1 36377 1	* bureau: room key
+P 0 36376 -1 36377 1	* bureau: room key
 O 0 36375 0 36341	* safe (Dark Room)
 P 0 36380 1 36375 1	* safe: secret key
 P 0 36315 10 36375 1	* safe: apple
@@ -6987,7 +6987,7 @@ E 0 36342 0 5		*	festival suit: on the body
 M 0 36350 10 36398 1	* tiny bird (Path to the Forest)
 M 0 36353 10 36398 2	* small insect (Path to the Forest)
 O 0 36379 0 36399	* oak (Deep in the Dark Forest)
-P 0 36378 1 36379 1	* oak: bureau key
+P 0 36378 -1 36379 1	* oak: bureau key
 O 0 36384 0 36399	* hole (Deep in the Dark Forest)
 M 0 36351 10 36402 2	* centipede (Wide Tunnel)
 M 0 36352 10 36403 2	* small snake (Wide Tunnel)
@@ -7050,7 +7050,6 @@ O 36330 3	* some moccasins
 O 36334 2	* old veteran's sword
 O 36344 1	* Grand Prize
 O 36415 2	* quartz crystall
-O 36423 3	* titanium-headed arrow
 S
 
 #MOBPROGS

@@ -3918,7 +3918,7 @@ by this burning. The burning affect fills the room. And potions bubles, and
 mobiles can be blind.
 ~
 0 'DRAGONS BREATH'~
-Syntax: cast 'dragons breath'
+Syntax: {ccast 'dragons breath'{x <victim>
 
     A warlock can't use dragon breaths, i.e 'fire breath', 'lightning 
 breath'. So he calls the Lord of Dragons to help.
@@ -4175,7 +4175,7 @@ may be done without warning, notice, or even evidence of sanity.
      щимся за игроком, summon ассистящих мобов и т.д.
      (правило не распространяется на клановые зоны)
 
-  5. Твое присутствие в мире -- не право, а привелегия. Повинуйся всем
+  5. Твое присутствие в мире -- не право, а привилегия. Повинуйся всем
      приказам богов, и ты будешь здоров. :-)
 
   6. MULTICHARRING: Ты можешь иметь более одного персонажа, но не разрешено
@@ -4265,7 +4265,7 @@ command. Old midgaard is not a holy town.
 смерти рассматривается как нападение на игрока в защищенной области.
  
 6. Использование garble на членов клана Enforcers, а так же другие агрессивные
-действия против них включая: disperce, summon мобов, установка ловушек и
+действия против них включая: disperse, summon мобов, установка ловушек и
 воровство.
  
 7. Криминальный элемент (WANTED) - вне закона и может быть атакован 
@@ -5471,7 +5471,7 @@ Forms can be created/edited with OLC via "create/edit form" commands.
 See "help 'OLC FORMS INTRO"' for more info.
  
 ~
-0 'CLAN KNIGHT' KNIGHT~
+0 'CLAN KNIGHTS' KNIGHTS~
 @eng ..Deep chaos fell on the World. Seven Clans had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
