@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.282 2003-03-16 20:26:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.283 2003-04-17 11:05:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -264,7 +264,9 @@ DO_FUN(do_put, ch, argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if (!str_cmp(arg2, "in") || !str_cmp(arg2, "on"))
+	if (!str_cmp(arg2, "in")
+	||  !str_cmp(arg2, "on")
+	||  !str_cmp(arg2, "into"))
 		argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
