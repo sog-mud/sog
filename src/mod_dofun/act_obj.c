@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.293 2004-02-09 20:25:58 sg Exp $
+ * $Id: act_obj.c,v 1.294 2004-02-18 21:43:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2307,6 +2307,7 @@ DO_FUN(do_sell, ch, argument)
 	OBJ_DATA       *obj;
 	int		roll;
 	uint		cost, gold, silver;
+	int		carry_w;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2357,6 +2358,12 @@ DO_FUN(do_sell, ch, argument)
 	}
 	silver = cost - (cost / 100) * 100;
 	gold = cost / 100;
+
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  get_carry_weight(ch) + SILVER_WEIGHT(silver) + GOLD_WEIGHT(gold)) {
+		tell_char(keeper, ch, "I'm afraid you can't carry that weight.");
+		return;
+	}
 
 	if (gold && silver) {
 		act_puts3("You sell $P for $j gold and $J silver $qJ{pieces}.",
@@ -3626,6 +3633,7 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	uint		silver;
 	CHAR_DATA      *gch;
 	int             members;
+	int		carry_w;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if (gch->on == obj) {
@@ -3652,23 +3660,25 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		silver = UMIN(silver, obj->cost);
 
 	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
-	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
-		 ch, (const void *) silver, NULL, TO_CHAR, POS_DEAD);
-	ch->silver += silver;
+	if ((carry_w = can_carry_w(ch)) < 0
+	||  get_carry_weight(ch) + SILVER_WEIGHT(silver) <= (uint) carry_w) {
+		act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
+			 ch, (const void *) silver, NULL, TO_CHAR, POS_DEAD);
+		ch->silver += silver;
+		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
+			/* AUTOSPLIT code */
+			members = 0;
+			for (gch = ch->in_room->people; gch != NULL;
+			     gch = gch->next_in_room)
+				if (is_same_group(gch, ch))
+					members++;
 
-	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
-		/* AUTOSPLIT code */
-		members = 0;
-		for (gch = ch->in_room->people; gch != NULL;
-		     gch = gch->next_in_room)
-			if (is_same_group(gch, ch))
-				members++;
+			if (members > 1 && silver > 1) {
+				char buf[MAX_INPUT_LENGTH];
 
-		if (members > 1 && silver > 1) {
-			char buf[MAX_INPUT_LENGTH];
-
-			snprintf(buf, sizeof(buf), "%d", silver);
-			dofun("split", ch, buf);
+				snprintf(buf, sizeof(buf), "%d", silver);
+				dofun("split", ch, buf);
+			}
 		}
 	}
 
@@ -4062,4 +4072,3 @@ DO_FUN(do_sharpen_weapon, ch, argument)
 		}
 	}
 }
-

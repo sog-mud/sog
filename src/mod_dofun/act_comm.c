@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.281 2004-02-11 22:25:28 sg Exp $
+ * $Id: act_comm.c,v 1.282 2004-02-18 21:43:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1163,32 +1163,23 @@ DO_FUN(do_split, ch, argument)
 		return;
 	}
 
-	ch->silver	-= amount_silver;
-	ch->silver	+= share_silver + extra_silver;
-	ch->gold	-= amount_gold;
-	ch->gold	+= share_gold + extra_gold;
-
-	if (share_silver > 0) {
-		act_puts3("You split $j $qj{silver coins}. "
-			  "Your share is $J silver.",
-			  ch, (const void*) amount_silver, NULL,
-			  (const void *) (share_silver + extra_silver),
-			  TO_CHAR, POS_DEAD);
-	}
-
-	if (share_gold > 0) {
-		act_puts3("You split $j $qj{gold coins}. "
-			  "Your share is $J gold.",
-			  ch, (const void*) amount_gold, NULL,
-			  (const void *) (share_gold + extra_gold),
-			  TO_CHAR, POS_DEAD);
-	}
-
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+		int carry_w;
+
 		if (gch == ch
 		||  !is_same_group(gch, ch)
 		||  IS_AFFECTED(gch, AFF_CHARM))
 			continue;
+
+		if ((carry_w = can_carry_w(gch)) >= 0
+		&&  get_carry_weight(gch) + SILVER_WEIGHT(share_silver) +
+		    GOLD_WEIGHT(share_gold) > carry_w) {
+			act("$N can't carry that much weight.",
+			    ch, NULL, gch, TO_CHAR);
+			extra_silver += share_silver;
+			extra_gold += share_gold;
+			continue;
+		}
 
 		if (share_gold == 0) {
 			act_puts3("$n splits $j $qj{silver coins}. "
@@ -1215,6 +1206,27 @@ DO_FUN(do_split, ch, argument)
 
 		gch->gold += share_gold;
 		gch->silver += share_silver;
+	}
+
+	ch->silver	-= amount_silver;
+	ch->silver	+= share_silver + extra_silver;
+	ch->gold	-= amount_gold;
+	ch->gold	+= share_gold + extra_gold;
+
+	if (share_silver > 0) {
+		act_puts3("You split $j $qj{silver coins}. "
+			  "Your share is $J silver.",
+			  ch, (const void*) amount_silver, NULL,
+			  (const void *) (share_silver + extra_silver),
+			  TO_CHAR, POS_DEAD);
+	}
+
+	if (share_gold > 0) {
+		act_puts3("You split $j $qj{gold coins}. "
+			  "Your share is $J gold.",
+			  ch, (const void*) amount_gold, NULL,
+			  (const void *) (share_gold + extra_gold),
+			  TO_CHAR, POS_DEAD);
 	}
 }
 
