@@ -1,0 +1,45 @@
+/*
+ * $Id: mob_random_assassinater.mpc,v 1.1 2001-09-16 18:49:35 fjoe Exp $
+ */
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+ 
+        if (!is_npc(victim)
+        &&  !is_immortal(victim)
+        &&  !is_class(victim, "thief")
+        &&  !is_class(victim, "assassin")
+        &&  char_hit(victim) >= char_max_hit(victim)
+        &&  char_level(victim) <= char_level($n) + 3)
+                break;
+}
+ 
+if (victim == NULL
+||  number_percent() > 15)
+        return 0;
+ 
+string msg;
+switch (dice(1, 6)) {
+case 1:
+        msg = "Death to is the true end...";
+        break;
+case 2:
+        msg = "Time to die....";
+        break;
+case 3:
+        msg = "Cabrone....";
+        break;
+case 4:
+        msg = "Welcome to your fate....";
+        break;
+case 5:
+        msg = "A sacrifice to immortals.. ";
+        break;
+case 6:
+        msg = "Ever dance with the devil....";
+        break;
+}
+
+dofun("say", $n, msg);
+multi_hit($n, victim, "assassinate");
+return 0;

@@ -1,7 +1,8 @@
 /*
- * $Id: mob_tell_gargamel.mpc,v 1.1 2001-09-14 18:26:37 fjoe Exp $
+ * $Id: mob_tell_gargamel.mpc,v 1.2 2001-09-16 18:49:35 fjoe Exp $
  */
 
 tell_char($n, $N, "Don't speak about these silly smurfes!");
 tell_char($n, $N, "I hate them! Kill them all!!");
+tell_char($n, $N, "Bring me corpse of the last smurf, and I'll reward you.");
 return 0;
