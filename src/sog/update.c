@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.18 2000-04-17 12:48:51 osya Exp $
+ * $Id: update.c,v 1.157.2.19 2000-04-17 13:56:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1343,7 +1343,6 @@ void char_update(void)
 					ch->hit = 1;
 				else {
 					ch->hit = 0;
-					ch->position = POS_STUNNED;
 					update_pos(ch);
 					continue;
 				}

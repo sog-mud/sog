@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.17 2000-04-17 12:48:46 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.18 2000-04-17 13:56:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3107,17 +3107,17 @@ void spell_power_word_kill(int sn, int level, CHAR_DATA *ch, void *vo)
 	int dam;
 	race_t *r;
 
-        r = RACE(ch->race);
-        if (!IS_SET(r->form, FORM_UNDEAD)
-        && !(IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_UNDEAD))) {
-                act_puts("You must be undead for to use this power.", ch, NULL, NULL, TO_CHAR, POS_RESTING);
+        if ((r = race_lookup(ch->race)) == NULL
+	||  !IS_UNDEAD(ch, r)) {
+                act_puts("You must be undead to use this power.",
+			 ch, NULL, NULL, TO_CHAR, POS_RESTING);
                 return;
         }
 
-	r = RACE(victim->race);
-	if (IS_SET(r->form, FORM_UNDEAD)
-	|| (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
-		act_puts("Your victim already dead.", ch, NULL, NULL, TO_CHAR, POS_RESTING);
+	if ((r = race_lookup(victim->race)) == NULL
+	||  IS_UNDEAD(victim, r)) {
+		act_puts("$N is already dead.",
+			 ch, NULL, victim, TO_CHAR, POS_RESTING);
 		return;
 	}
 
@@ -4623,9 +4623,11 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_SET(r->form, FORM_UNDEAD)) {
-		char_puts("You posess no necromantic powers to do this.\n",ch);
+		act_puts("You posess no necromantic powers to do this.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
+
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level;
@@ -4657,13 +4659,11 @@ void spell_deathen(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
         race = rn_lookup("ghoul");
-        r = RACE(race);
- 
-       if (!r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
+        r = race_lookup(race);
+	if (!r || !r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
                 char_puts("This is not a valid undead type.\n", ch);
                 return;
         }
- 
 
         af.where        = TO_AFFECTS;
         af.type         = gsn_deathen;
@@ -4697,8 +4697,8 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	race = rn_lookup(target_name);
-	r = RACE(race);
-	if (!r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
+	r = race_lookup(race);
+	if (!r || !r->race_pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
 		char_puts("This is not a valid undead type.\n", ch);
 		return;
 	}
@@ -4942,18 +4942,17 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
  		return;
  	}
  
- 	r = RACE(victim->race);
-  
- 	if  ((!IS_NPC(victim) || !IS_SET(victim->pMobIndex->act, ACT_UNDEAD)) 
-             && (!IS_SET(r->form, FORM_UNDEAD))) {
-  		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
+ 	if ((r = race_lookup(victim->race)) == NULL
+	||  !IS_UNDEAD(victim, r)) {
+  		act("$N doesn't seem to be an undead.",
+		    ch, NULL, victim, TO_CHAR);
   		return;
   	}
  
- 	if (!IS_NPC(victim) && !IS_NPC(ch)) 
+ 	if (!IS_NPC(victim) && !IS_NPC(ch)) {
  		level += get_curr_stat(ch, STAT_CHA) -
  			 get_curr_stat(victim, STAT_CHA); 
- 
+	} 
  
  	if (IS_IMMORTAL(victim)
 	||  IS_AFFECTED(victim, AFF_CHARM)
@@ -5603,22 +5602,20 @@ int damage_to_all_in_room(int sn, int level, CHAR_DATA *ch,
 	} else {
 		dam = dice(level,14);
 	}
+
 	v_counter = 0;
 	for (vch = room->people; vch != NULL; vch = vch_next) {
 		vch_next = vch->next_in_room;
 
-		r = RACE(vch->race);
-
-		if (IS_SET(r->form, FORM_UNDEAD) 
-		|| (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_UNDEAD)))
+		if ((r = race_lookup(vch->race)) == NULL
+		||  IS_UNDEAD(vch, r))
 			continue;
 
                 if (is_safe_spell(ch,vch,TRUE)
                 ||  (IS_NPC(vch) && IS_NPC(ch))
-                ||  (IS_NPC(vch) 
-                    && IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
+                ||  (IS_NPC(vch) &&
+		     IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
 	                continue;
-
 
 		v_counter++;
                 if (saves_spell(level,vch,DAM_NEGATIVE)) {
@@ -5643,9 +5640,8 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 	prev_room = ch->in_room;
 	range = level/10;
 
-	r = RACE(ch->race);
-	if (!IS_SET(r->form, FORM_UNDEAD)
-	&& !(IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_UNDEAD))) {
+	if ((r = race_lookup(ch->race)) == NULL
+	||  !IS_UNDEAD(ch, r)) {
 		act_puts("You must be undead for to use this power.", ch, NULL, NULL, TO_CHAR, POS_RESTING);
 		return;	
 	}	
@@ -5722,15 +5718,15 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 	race_t *r;
 
 	if  (ch->alignment < 1) {
-                act("You are not of the Light.",ch,NULL,victim,TO_CHAR);
+                act("You are not of the Light.", ch, NULL, victim, TO_CHAR);
                 return;
 	}
 	
-        r = RACE(victim->race);
-
-        if ((!IS_SET(r->form, FORM_UNDEAD)) 
-	&&  !is_affected(victim, gsn_vampire)) {
-                act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
+        if ((r = race_lookup(victim->race)) == NULL
+	||  (!IS_UNDEAD(victim, r) &&
+	     !is_affected(victim, gsn_vampire))) {
+                act("$N doesn't seem to be an undead.",
+		    ch, NULL, victim, TO_CHAR);
                 return;
         }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.8 2000-03-31 13:56:41 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.9 2000-04-17 13:56:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1183,6 +1183,9 @@ enum {
 #define SET_HIT(_ch, _hit) ((_ch)->hit = (_ch)->max_hit = (_ch)->perm_hit = (_hit))
 #define SET_MANA(_ch, _mana) ((_ch)->mana = (_ch)->max_mana = (_ch)->perm_mana = (_mana))
 #define SET_MOVE(_ch, _move) ((_ch)->move = (_ch)->max_move = (_ch)->perm_move = (_move))
+
+#define IS_UNDEAD(ch, r)	(IS_SET((r)->form, FORM_UNDEAD) || \
+				 (IS_NPC(ch) && IS_SET((ch)->pMobIndex->act, ACT_UNDEAD)))
 
 /*
  * this should be used for !IS_NPC only
