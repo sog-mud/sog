@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_accessor.c,v 1.1 2003-04-25 12:49:32 fjoe Exp $
+ * $Id: mpc_accessor.c,v 1.2 2003-05-01 07:37:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -139,6 +139,7 @@ CHAR_SET_INT(silver)
 GET_INT(char, level, LEVEL(vo->ch))
 GET_INT(char, real_level, vo->ch->level)
 
+GET_STR(char, clan, IS_NULLSTR(vo->ch->clan) ? NULL : vo->ch->clan)
 GET_INT(char, ethos, IS_NPC(vo->ch) ? ETHOS_NONE : PC(vo->ch)->ethos)
 CHAR_GET_CHAR(fighting)
 GET_STR(char, hometown,
@@ -177,6 +178,7 @@ mpc_accessor_t char_acstab[] =
 	DEF_CHAR_INT(level),
 	DEF_CHAR_INT(real_level),
 
+	DEF_CHAR_STR(clan),
 	DEF_CHAR_INT(ethos),
 	DEF_CHAR_CHAR(fighting),
 	DEF_CHAR_STR(hometown),
