@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.60 2000-06-07 08:55:59 fjoe Exp $
+ * $Id: mob_prog.c,v 1.61 2000-10-21 18:15:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -608,7 +608,7 @@ int cmd_eval(int vnum, const char *line, int check,
 		    return(lval_char != NULL && is_name(buf, lval_char->name));
 		case 'o':
 		case 'p':
-		    return(lval_obj != NULL && is_name(buf, lval_obj->name));
+		    return(lval_obj != NULL && is_name(buf, lval_obj->pObjIndex->name));
 	    }
 	case CHK_POS:
 	    return(lval_char != NULL && lval_char->position == flag_value(position_table, buf));
@@ -860,7 +860,7 @@ void expand_arg(char *buf,
 		i = something;
 		if (obj1 != NULL && can_see_obj(mob, obj1))
 		{
-            	    one_argument(obj1->name, fname, sizeof(fname));
+            	    one_argument(obj1->pObjIndex->name, fname, sizeof(fname));
                     i = fname;
 		} 						break;
             case 'O':
@@ -873,7 +873,7 @@ void expand_arg(char *buf,
 		i = something;
 		if (obj2 != NULL && can_see_obj(mob, obj2))
 		{
-            	    one_argument(obj2->name, fname, sizeof(fname));
+            	    one_argument(obj2->pObjIndex->name, fname, sizeof(fname));
             	    i = fname;
 		} 						break;
             case 'P':
@@ -1267,7 +1267,7 @@ void mp_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 	    	{
 		    p = one_argument(p, buf, sizeof(buf));
 
-		    if (is_name(buf, obj->name)
+		    if (is_name(buf, obj->pObjIndex->name)
 		    ||   !str_cmp("all", buf))
 		    {
 		    	program_flow(prg->vnum, mob, ch, (void *) obj, NULL);

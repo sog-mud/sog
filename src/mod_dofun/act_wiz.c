@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.258 2000-10-21 17:00:50 fjoe Exp $
+ * $Id: act_wiz.c,v 1.259 2000-10-21 18:15:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -962,13 +962,13 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	if (location->ed != NULL) {
 		ED_DATA *ed;
 
-		buf_append(output, "Extra description keywords: '");
+		buf_append(output, "Exd keywords: [");
 		for (ed = location->ed; ed; ed = ed->next) {
 			buf_append(output, ed->keyword);
 			if (ed->next != NULL)
 				buf_append(output, " ");
 		}
-		buf_append(output, "'.\n");
+		buf_append(output, "]\n");
 	}
 
 	buf_append(output, "Characters:");
@@ -983,7 +983,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_append(output, ".\nObjects:   ");
 	for (obj = location->contents; obj; obj = obj->next_content) {
 		buf_append(output, " ");
-		one_argument(obj->name, buf, sizeof(buf));
+		one_argument(obj->pObjIndex->name, buf, sizeof(buf));
 		buf_append(output, buf);
 	}
 	buf_append(output, ".\n");
@@ -1031,9 +1031,9 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	}
 
 	output = buf_new(-1);
-	buf_printf(output, BUF_END, "Name(s): %s\n", obj->name);
+	buf_printf(output, BUF_END, "Name:  [%s]\n", obj->pObjIndex->name);
 	if (!IS_NULLSTR(obj->label))
-		buf_printf(output, BUF_END, "Label(s):%s\n", obj->label);
+		buf_printf(output, BUF_END, "Label: [%s]\n", obj->label+1);
 	if (!mlstr_null(&obj->owner))
 		buf_printf(output, BUF_END, "Owner: [%s]\n", mlstr_mval(&obj->owner));
 	buf_printf(output, BUF_END, "Vnum: %d  Type: %s  Resets: %d\n",
@@ -1042,13 +1042,13 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		obj->pObjIndex->reset_num);
 
 	mlstr_dump(output, "Short description: ", &obj->short_descr);
-	mlstr_dump(output, "Long description: ", &obj->description);
+	mlstr_dump(output, "Long description:  ", &obj->description);
 
-	buf_printf(output, BUF_END, "Wear bits: %s\n",
+	buf_printf(output, BUF_END, "Wear bits: [%s]\n",
 		   flag_string(wear_flags, obj->wear_flags));
-	buf_printf(output, BUF_END, "Stat bits: %s\n",
+	buf_printf(output, BUF_END, "Stat bits: [%s]\n",
 		   flag_string(stat_flags, obj->stat_flags));
-	buf_printf(output, BUF_END, "Obj bits: %s\n",
+	buf_printf(output, BUF_END, "Obj bits:  [%s]\n",
 		   flag_string(obj_flags, obj->pObjIndex->obj_flags));
 	buf_printf(output, BUF_END, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n",
 		1,           get_obj_number(obj),
@@ -1082,7 +1082,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	if (obj->ed) {
 		ED_DATA *ed;
 
-		buf_append(output, "Extra description keywords: '");
+		buf_append(output, "Exd keywords: [");
 
 		for (ed = obj->ed; ed; ed = ed->next) {
 			buf_append(output, ed->keyword);
@@ -1090,13 +1090,13 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 				buf_append(output, " ");
 		}
 
-		buf_append(output, "'\n");
+		buf_append(output, "]\n");
 	}
 
 	if (obj->pObjIndex->ed) {
 		ED_DATA *ed;
 
-		buf_append(output, "pObjIndex extra description keywords: '");
+		buf_append(output, "Obj index exd keywords: [");
 
 		for (ed = obj->pObjIndex->ed; ed; ed = ed->next) {
 			buf_append(output, ed->keyword);
@@ -1104,7 +1104,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 				buf_append(output, " ");
 		}
 
-		buf_append(output, "'\n");
+		buf_append(output, "]\n");
 	}
 
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
@@ -1254,10 +1254,20 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		victim->wimpy);
 
 	if (IS_NPC(victim)) {
+		MOB_INDEX_DATA *pMobIndex = victim->pMobIndex;
+
 		buf_printf(output, BUF_END, "Damage: %dd%d  Message:  %s\n",
 			   NPC(victim)->dam.dice_number,
 			   NPC(victim)->dam.dice_type,
 			   victim->damtype);
+		buf_printf(output, BUF_END, "Act: [%s]\n",
+			   flag_string(act_flags, pMobIndex->act));
+		if (pMobIndex->mob_flags) {
+			buf_printf(output, BUF_END, "Mob: [%s]\n",
+				   flag_string(mob_flags, pMobIndex->mob_flags));
+		}
+		buf_printf(output, BUF_END, "Off: [%s]\n",
+			   flag_string(off_flags, pMobIndex->off_flags));
 	}
 
 	buf_printf(output, BUF_END, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %d\n",
@@ -1326,7 +1336,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	mlstr_dump(output, "Short description: ", &victim->short_descr);
 	if (IS_NPC(victim)) {
-		mlstr_dump(output, "Long description: ", &victim->long_descr);
+		mlstr_dump(output, "Long description:  ", &victim->long_descr);
 		if (victim->pMobIndex->spec_fun != 0) {
 			buf_printf(output, BUF_END, "Mobile has special procedure %s.\n",
 				   mob_spec_name(victim->pMobIndex->spec_fun));

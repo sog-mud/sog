@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.266 2000-10-21 17:00:55 fjoe Exp $
+ * $Id: handler.c,v 1.267 2000-10-21 18:15:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -296,7 +296,7 @@ void obj_from_char(OBJ_DATA *obj)
 
 	if ((ch = obj->carried_by) == NULL) {
 		log(LOG_BUG, "obj_from_char: null ch (obj->name  = '%s')",
-		    obj->name);
+		    obj->pObjIndex->name);
 		return;
 	}
 
@@ -2002,7 +2002,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	buf_printf(output, BUF_END,
 		"Object '%s%s' is type %s, stat flags %s.\n"
 		"Weight is %d, value is %d, level is %d.\n",
-		obj->name, obj->label,
+		obj->pObjIndex->name, obj->label,
 		flag_string(item_types, obj->item_type),
 		flag_string(stat_flags, obj->stat_flags & ~ITEM_ENCHANTED),
 		obj->weight,

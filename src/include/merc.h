@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.310 2000-10-21 17:00:48 fjoe Exp $
+ * $Id: merc.h,v 1.311 2000-10-21 18:15:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1225,6 +1225,7 @@ enum {
 #define COMM_DEAF		(B)
 #define COMM_NOFLEE		(C)
 #define COMM_NONOTE		(D)
+#define COMM_SHOWRACE		(E)
 #define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)
@@ -1652,7 +1653,6 @@ struct obj_data
 	AFFECT_DATA *		affected;
 	OBJ_INDEX_DATA *	pObjIndex;
 	ROOM_INDEX_DATA *	in_room;
-	const char *		name;
 	const char *		label;
 	mlstring		short_descr;
 	mlstring		description;
@@ -2120,7 +2120,7 @@ bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
 int free_hands	(CHAR_DATA * ch);
 
-#define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->name) ||	\
+#define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->pObjIndex->name) ||\
 				 is_name(_name, (obj)->label))
 void	label_add(OBJ_DATA *obj, const char *name);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.64 2000-10-21 17:00:58 fjoe Exp $
+ * $Id: act.c,v 1.65 2000-10-21 18:15:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -294,7 +294,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 		return GETMSG("something", to_lang);
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
-		return _format_short(&obj->short_descr, obj->name,
+		return _format_short(&obj->short_descr, obj->pObjIndex->name,
 				     to, to_lang, act_flags);
 	}
 

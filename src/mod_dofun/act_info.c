@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.358 2000-10-21 17:00:49 fjoe Exp $
+ * $Id: act_info.c,v 1.359 2000-10-21 18:15:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4006,7 +4006,8 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (fShort) {
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->name, ch));
+			 format_short(&obj->short_descr,
+				      obj->pObjIndex->name, ch));
 		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -4023,7 +4024,8 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 		p = strchr(buf, '\0');
 		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->name, ch));
+			 format_short(&obj->short_descr,
+				      obj->pObjIndex->name, ch));
 		p[0] = UPPER(p[0]);
 		switch(number_range(1, 3)) {
 		case 1:
@@ -4220,9 +4222,15 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_append(output, "({gCamf{x) ");
 		if (HAS_INVIS(victim, ID_BLEND))
 			buf_append(output, "({gBlending{x) ");
+		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
+			buf_act(output, BUF_END,
+				"({c$t{x) ", ch, victim->race, NULL, NULL,
+				 TO_CHAR | ACT_NOLF);
+		}
 	} else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
+		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.";
 		char buf[sizeof(FLAGS)];
+		bool diff;
 
 		strnzcpy(buf, sizeof(buf), FLAGS);
 		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS));
@@ -4251,8 +4259,18 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(41, 'C', HAS_INVIS(victim, ID_CAMOUFLAGE));
 		FLAG_SET(44, 'B', HAS_INVIS(victim, ID_BLEND));
 
-		if (strcmp(buf, FLAGS))
+		diff = strcmp(buf, FLAGS);
+		if (diff)
 			buf_append(output, buf);
+		else if (IS_SET(ch->comm, COMM_SHOWRACE))
+			buf_append(output, "{x[");
+
+		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
+			buf_act(output, BUF_END,
+				"{c$t{x] ", ch, victim->race, NULL, NULL,
+				 TO_CHAR | ACT_NOLF);
+		} else if (diff)
+			buf_append(output, "{x] ");
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)

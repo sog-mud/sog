@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.169 2000-10-21 17:00:56 fjoe Exp $
+ * $Id: save.c,v 1.170 2000-10-21 18:15:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -476,7 +476,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	&&  OBJ_IS(obj, OBJ_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
 		log(LOG_INFO, "fwrite_obj: %s: '%s' of %s",
-			   ch->name, obj->name,
+			   ch->name, obj->pObjIndex->name,
 			   mlstr_mval(&obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj, 0);
@@ -504,8 +504,14 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 			mlstr_fwrite(fp, "Desc", &obj->description);
 	}
 
-	if (!IS_NULLSTR(obj->label))
+	if (!IS_NULLSTR(obj->label)) {
+		if (obj->label[0] != ' ') {
+			const char *p = obj->label;
+			obj->label = str_printf(" %s", obj->label);
+			free_string(p);
+		}
 		fwrite_string(fp, "Label", obj->label);
+	}
 
 	if (obj->stat_flags != obj->pObjIndex->stat_flags)
 		fprintf(fp, "StatF %d\n", obj->stat_flags);

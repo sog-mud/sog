@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.197 2000-10-21 17:00:52 fjoe Exp $
+ * $Id: spellfun2.c,v 1.198 2000-10-21 18:15:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2563,7 +2563,7 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		undead->master = ch;
 		undead->leader = ch;
 
-		undead->name = str_printf(undead->name, obj->name);
+		undead->name = str_printf(undead->name, obj->pObjIndex->name);
 
 		for (obj2 = obj->contains; obj2; obj2 = next) {
 			next = obj2->next_content;
@@ -3416,7 +3416,7 @@ void spell_fire_shield (const char *sn, int level, CHAR_DATA *ch, void *vo)
 	pObjIndex = get_obj_index(OBJ_VNUM_FIRE_SHIELD);
 	fire = create_obj(pObjIndex, 0);
 	fire->level = ch->level;
-	name_add(&fire->name, arg, NULL, NULL);
+	label_add(fire, arg);
 
 	mlstr_cpy(&fire->owner, &ch->short_descr);
 	fire->ed = ed_new2(fire->pObjIndex->ed, arg);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.106 2000-10-21 17:00:55 fjoe Exp $
+ * $Id: recycle.c,v 1.107 2000-10-21 18:15:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -159,9 +159,6 @@ void free_obj(OBJ_DATA *obj)
 	ed_free(obj->ed);
 	obj->ed = NULL;
    
-	free_string(obj->name);
-	obj->name = NULL;
-
 	free_string(obj->label);
 	obj->label = str_empty;
 

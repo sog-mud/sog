@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.51 2000-10-07 20:41:10 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.52 2000-10-21 18:15:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -311,7 +311,7 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
       	for (obj = ch->carrying; obj != NULL; obj = obj_next)
       	{
             obj_next = obj->next_content;
-	    if (arg[3] == '\0' || is_name(&arg[4], obj->name))
+	    if (arg[3] == '\0' || is_name(&arg[4], obj->pObjIndex->name))
             {
           	if (obj->wear_loc != WEAR_NONE)
 	    	unequip_char(ch, obj);

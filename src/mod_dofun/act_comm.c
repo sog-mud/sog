@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.218 2000-10-21 17:00:49 fjoe Exp $
+ * $Id: act_comm.c,v 1.219 2000-10-21 18:15:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2102,6 +2102,12 @@ toggle_t toggle_table[] =
 	  comm_flags,	COMM_QUIET_EDITOR,
 	  "$t set.",
 	  "$t removed."
+	},
+
+	{ "show race",		"show race in long desc",
+	  comm_flags,	COMM_SHOWRACE,
+	  "You will now see race in long desc.",
+	  "You will no longer see race in long desc.",
 	},
 
 	{ NULL }

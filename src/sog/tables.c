@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.145 2000-10-15 17:19:33 fjoe Exp $
+ * $Id: tables.c,v 1.146 2000-10-21 18:15:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -323,6 +323,7 @@ flaginfo_t comm_flags[] =
 	{ "deaf",		COMM_DEAF,		TRUE	},
 	{ "noautoflee",		COMM_NOFLEE,		TRUE	},
 	{ "nonote",		COMM_NONOTE,		TRUE	},
+	{ "showrace",		COMM_SHOWRACE,		TRUE	},
 	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},

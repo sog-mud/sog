@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.222 2000-10-21 17:00:50 fjoe Exp $
+ * $Id: act_obj.c,v 1.223 2000-10-21 18:15:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -169,7 +169,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	if (IS_SET(INT(container->value[1]), CONT_CLOSED)) {
 		act_puts("$p is closed.",
-			 ch, container->name, NULL, TO_CHAR, POS_DEAD);
+			 ch, container, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
@@ -2175,7 +2175,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					buf_printf(buf, BUF_END,
 						   "[%2d %5d -- ] %s\n",
 						   obj->level, cost,
-						   format_short(&obj->short_descr, obj->name, ch));
+						   format_short(&obj->short_descr, obj->pObjIndex->name, ch));
 				else {
 					count = 1;
 
@@ -2190,7 +2190,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					buf_printf(buf, BUF_END,
 						   "[%2d %5d %2d ] %s\n",
 						   obj->level, cost, count,
-						   format_short(&obj->short_descr, obj->name, ch));
+						   format_short(&obj->short_descr, obj->pObjIndex->name, ch));
 				}
 			}
 		}
@@ -2444,7 +2444,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	if (percent < 20) {
 		buf_printf(output, BUF_END,
 			   "Object '%s%s'.\n",
-			   obj->name, obj->label);
+			   obj->pObjIndex->name, obj->label);
 		check_improve(ch, "lore", TRUE, 8);
 		return;
 	} else if (percent < 40) {
@@ -2452,7 +2452,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   "Object '%s%s'.\n"
 			   "Weight is %d, value is %d.\n"
 			   "Material is %s.\n",
-			   obj->name, obj->label,
+			   obj->pObjIndex->name, obj->label,
 			   chance < 60 ?
 				obj->weight :
 				number_range(obj->weight / 2, 2 * obj->weight),
@@ -2468,7 +2468,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   "Weight is %d.\n"
 			   "Value is %d, level is %d.\n"
 			   "Material is %s.\n",
-			   obj->name, obj->label,
+			   obj->pObjIndex->name, obj->label,
 			   obj->weight,
 			   chance < 60 ?
 				number_range(obj->cost / 2, 2 * obj->cost) :
@@ -2485,7 +2485,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   "Obj flags %s.\n"
 			   "Weight is %d, value is %d, level is %d.\n"
 			   "Material is %s.\n",
-			   obj->name, obj->label,
+			   obj->pObjIndex->name, obj->label,
 			   flag_string(item_types, obj->item_type),
 			   flag_string(stat_flags, obj->stat_flags),
 			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
@@ -2505,7 +2505,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			   "Obj flags %s.\n"
 			   "Weight is %d, value is %d, level is %d.\n"
 			   "Material is %s.\n",
-			   obj->name, obj->label,
+			   obj->pObjIndex->name, obj->label,
 			   flag_string(item_types, obj->item_type),
 			   flag_string(stat_flags, obj->stat_flags),
 			   flag_string(obj_flags, obj->pObjIndex->obj_flags),

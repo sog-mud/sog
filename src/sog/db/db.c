@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.231 2000-10-21 17:00:58 fjoe Exp $
+ * $Id: db.c,v 1.232 2000-10-21 18:15:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1411,7 +1411,6 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
  	obj->level = pObjIndex->level;
 	obj->wear_loc	= -1;
 
-	obj->name		= str_qdup(pObjIndex->name);
 	mlstr_cpy(&obj->short_descr, &pObjIndex->short_descr);
 	mlstr_cpy(&obj->description, &pObjIndex->description);
 	obj->material		= str_qdup(pObjIndex->material);
@@ -1469,9 +1468,8 @@ clone_obj(OBJ_DATA *parent)
 
 	clone = create_obj(parent->pObjIndex, 0);
 
-	/* start fixing the object */
-	free_string(clone->name);
-	clone->name 		= str_qdup(parent->name);
+	/* start copying the object */
+	free_string(clone->label);
 	clone->label 		= str_qdup(parent->label);
 
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);

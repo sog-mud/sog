@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.84 2000-10-21 17:00:53 fjoe Exp $
+ * $Id: olc_room.c,v 1.85 2000-10-21 18:15:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -236,7 +236,7 @@ OLC_FUN(roomed_show)
 	buf_append(output, "Objects:    [");
 	fcnt = FALSE;
 	for (obj = pRoom->contents; obj; obj = obj->next_content) {
-		one_argument(obj->name, buf, sizeof(buf));
+		one_argument(obj->pObjIndex->name, buf, sizeof(buf));
 		buf_append(output, buf);
 		if (obj->next_content != NULL)
 			buf_append(output, " ");
