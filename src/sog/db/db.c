@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.92 1998-12-17 21:06:22 fjoe Exp $
+ * $Id: db.c,v 1.93 1998-12-22 18:00:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1002,54 +1002,23 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 	for (i = 0; i < MAX_STATS; i ++)
 		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
 
-	if (pMobIndex->new_format) {
-		/* load in new style */
-		/* read from prototype */
+	mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
+	mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
 
-		mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
-		mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
-
-		mob->hitroll		= (mob->level / 2) + pMobIndex->hitroll;
-		mob->damroll		= pMobIndex->damage[DICE_BONUS];
-		mob->max_hit		= dice(pMobIndex->hit[DICE_NUMBER],
-					       pMobIndex->hit[DICE_TYPE])
-					  + pMobIndex->hit[DICE_BONUS];
-		mob->max_mana		= dice(pMobIndex->mana[DICE_NUMBER],
-					       pMobIndex->mana[DICE_TYPE])
-					  + pMobIndex->mana[DICE_BONUS];
-		mob->damage[DICE_NUMBER]= pMobIndex->damage[DICE_NUMBER];
-		mob->damage[DICE_TYPE]	= pMobIndex->damage[DICE_TYPE];
-		for (i = 0; i < 4; i++)
-			mob->armor[i]	= pMobIndex->ac[i]; 
-	}
-	else {
-		/* read in old format and convert */
-
-		mob->hitroll		= UMAX(pMobIndex->hitroll,pMobIndex->level/4);
-		mob->damroll		= pMobIndex->level / 2;
-		if (mob->level < 30)
-			mob->max_hit	= mob->level * 20 +
-					  number_range(mob->level,
-						       mob->level * 5);
-		else if (mob->level < 60)
-			mob->max_hit	= mob->level * 50 +
-					  number_range(mob->level * 10,
-						       mob->level * 50);
-		else
-			mob->max_hit	= mob->level * 100 +
-					  number_range(mob->level * 20,
-						       mob->level * 100);
-		if (IS_SET(pMobIndex->act, ACT_MAGE | ACT_CLERIC))
-			mob->max_hit = (mob->max_hit * 9) / 10;
-		mob->max_mana		= 100 + dice(mob->level,10);
-
-		for (i = 0; i < 3; i++)
-			mob->armor[i]	= interpolate(mob->level, 100, -100);
-		mob->armor[3]		= interpolate(mob->level, 100, 0);
-	}
-
+	mob->hitroll		= (mob->level / 2) + pMobIndex->hitroll;
+	mob->damroll		= pMobIndex->damage[DICE_BONUS];
+	mob->max_hit		= dice(pMobIndex->hit[DICE_NUMBER],
+				       pMobIndex->hit[DICE_TYPE])
+				  + pMobIndex->hit[DICE_BONUS];
 	mob->hit		= mob->max_hit;
+	mob->max_mana		= dice(pMobIndex->mana[DICE_NUMBER],
+				       pMobIndex->mana[DICE_TYPE])
+				  + pMobIndex->mana[DICE_BONUS];
 	mob->mana		= mob->max_mana;
+	mob->damage[DICE_NUMBER]= pMobIndex->damage[DICE_NUMBER];
+	mob->damage[DICE_TYPE]	= pMobIndex->damage[DICE_TYPE];
+	for (i = 0; i < 4; i++)
+		mob->armor[i]	= pMobIndex->ac[i]; 
 
 	if (IS_SET(pMobIndex->act, ACT_WARRIOR)) {
 		mob->perm_stat[STAT_STR] += 3;
@@ -2280,147 +2249,25 @@ void db_error(const char* fn, const char* fmt,...)
  Name:	        convert_objects
  Purpose:	Converts all old format objects to new format
  Called by:	boot_db (db.c).
- Note:          Loops over all resets to find the level of the mob
-                loaded before the object to determine the level of
-                the object.
-		It might be better to update the levels in load_resets().
-		This function is not pretty.. Sorry about that :)
- Author:        Hugin
  ****************************************************************************/
 void convert_objects(void)
 {
-    int vnum;
-    AREA_DATA  *pArea;
-    RESET_DATA *pReset;
-    MOB_INDEX_DATA *pMob = NULL;
-    OBJ_INDEX_DATA *pObj;
-    ROOM_INDEX_DATA *pRoom;
+	int i;
+	if (newobjs == top_obj_index)
+		return; /* all objects in new format */
 
-    if (newobjs == top_obj_index) return; /* all objects in new format */
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *pObj;
 
-    for (pArea = area_first; pArea; pArea = pArea->next)
-    {
-        for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-	{
-	    if (!(pRoom = get_room_index(vnum))) continue;
-
-	    for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
-	    {
-		switch (pReset->command)
-		{
-		case 'M':
-		    if (!(pMob = get_mob_index(pReset->arg1)))
-			bug("Convert_objects: 'M': bad vnum %d.", pReset->arg1);
-		    break;
-
-		case 'O':
-		    if (!(pObj = get_obj_index(pReset->arg1)))
-		    {
-			bug("Convert_objects: 'O': bad vnum %d.", pReset->arg1);
-			break;
-		    }
-
-		    if (pObj->new_format)
-			continue;
-
-		    if (!pMob)
-		    {
-			bug("Convert_objects: 'O': No mob reset yet.", 0);
-			break;
-		    }
-
-		    pObj->level = pObj->level < 1 ? pMob->level - 2
-			: UMIN(pObj->level, pMob->level - 2);
-		    break;
-
-		case 'P':
-		    {
-			OBJ_INDEX_DATA *pObj, *pObjTo;
-
-			if (!(pObj = get_obj_index(pReset->arg1)))
-			{
-			    bug("Convert_objects: 'P': bad vnum %d.", pReset->arg1);
-			    break;
-			}
-
-			if (pObj->new_format)
-			    continue;
-
-			if (!(pObjTo = get_obj_index(pReset->arg3)))
-			{
-			    bug("Convert_objects: 'P': bad vnum %d.", pReset->arg3);
-			    break;
-			}
-
-			pObj->level = pObj->level < 1 ? pObjTo->level
-			    : UMIN(pObj->level, pObjTo->level);
-		    }
-		    break;
-
-		case 'G':
-		case 'E':
-		    if (!(pObj = get_obj_index(pReset->arg1)))
-		    {
-			bug("Convert_objects: 'E' or 'G': bad vnum %d.", pReset->arg1);
-			break;
-		    }
-
-		    if (!pMob)
-		    {
-			bug("Convert_objects: 'E' or 'G': null mob for vnum %d.",
-			     pReset->arg1);
-			break;
-		    }
-
-		    if (pObj->new_format)
-			continue;
-
-		    if (pMob->pShop)
-		    {
-			switch (pObj->item_type)
-			{
-			default:
-			    pObj->level = UMAX(0, pObj->level);
-			    break;
-			case ITEM_PILL:
-			case ITEM_POTION:
-			    pObj->level = UMAX(5, pObj->level);
-			    break;
-			case ITEM_SCROLL:
-			case ITEM_ARMOR:
-			case ITEM_WEAPON:
-			    pObj->level = UMAX(10, pObj->level);
-			    break;
-			case ITEM_WAND:
-			case ITEM_TREASURE:
-			    pObj->level = UMAX(15, pObj->level);
-			    break;
-			case ITEM_STAFF:
-			    pObj->level = UMAX(20, pObj->level);
-			    break;
-			}
-		    }
-		    else
-			pObj->level = pObj->level < 1 ? pMob->level
-			    : UMIN(pObj->level, pMob->level);
-		    break;
-		} /* switch (pReset->command) */
-	    }
+		for (pObj = obj_index_hash[i]; pObj; pObj = pObj->next)
+ 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
+				convert_object(pObj);
 	}
-    }
-
-    /* do the conversion: */
-
-    for (pArea = area_first; pArea ; pArea = pArea->next)
-	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-	    if ((pObj = get_obj_index(vnum)))
- 		if (!pObj->new_format)
-		    convert_object(pObj);
 }
 
 /*****************************************************************************
  Name:		convert_object
- Purpose:	Converts an old_format obj to new_format
+ Purpose:	Converts an ITEM_OLDSTYLE obj to new format
  Called by:	convert_objects (db2.c).
  Note:          Dug out of create_obj (db.c)
  Author:        Hugin
@@ -2430,15 +2277,11 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
     int level;
     int number, type;  /* for dice-conversion */
 
-    if (!pObjIndex || pObjIndex->new_format) return;
-
     level = pObjIndex->level;
 
-    pObjIndex->level    = UMAX(0, pObjIndex->level); /* just to be sure */
     pObjIndex->cost     = 10*level;
 
-    switch (pObjIndex->item_type)
-    {
+    switch (pObjIndex->item_type) {
         default:
             bug("Obj_convert: vnum %d bad type.", pObjIndex->item_type);
             break;
@@ -2514,7 +2357,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
 	    break;
     }
 
-    pObjIndex->new_format = TRUE;
+    REMOVE_BIT(pObjIndex->extra_flags, ITEM_OLDSTYLE);
     ++newobjs;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.20 1998-12-01 10:54:47 fjoe Exp $
+ * $Id: db_area.c,v 1.21 1998-12-22 18:00:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -489,7 +489,6 @@ DBLOAD_FUN(load_old_obj)
 		pObjIndex->short_descr	= NULL;
 		pObjIndex->description	= NULL;
 		pObjIndex->vnum		= vnum;
-		pObjIndex->new_format	= FALSE;
 		pObjIndex->reset_num	= 0;
 
 		pObjIndex->name		= fread_string(fp);
@@ -499,7 +498,7 @@ DBLOAD_FUN(load_old_obj)
 		pObjIndex->material	= str_dup("copper");
 
 		pObjIndex->item_type	= fread_number(fp);
-		pObjIndex->extra_flags	= fread_flags(fp);
+		pObjIndex->extra_flags	= fread_flags(fp) | ITEM_OLDSTYLE;
 		pObjIndex->wear_flags	= fread_flags(fp);
 		pObjIndex->value[0]	= fread_number(fp);
 		pObjIndex->value[1]	= fread_number(fp);
@@ -585,22 +584,27 @@ DBLOAD_FUN(load_old_obj)
 }
 
 /*
- * Snarf a reset section.
+ * Snarf a reset section. Adjust levels of ITEM_OLDSTYLE objects on the fly.
+ * if loading an old-style area it's assumed that #SHOPS section
+ * (if any) has already been parsed
  */
 DBLOAD_FUN(load_resets)
 {
-	RESET_DATA *pReset;
-	int iLastRoom = 0;
-	int iLastObj  = 0;
+	MOB_INDEX_DATA *pLastMob = NULL;
+	ROOM_INDEX_DATA *pLastRoom = NULL;
 
-	if (area_current == NULL)
+	if (area_current == NULL) {
 		db_error("load_resets", "no #AREA seen yet.");
+		return;
+	}
 
 	for (; ;) {
-		ROOM_INDEX_DATA *pRoomIndex;
+		RESET_DATA *pReset;
+
+		ROOM_INDEX_DATA *pRoom;
 		EXIT_DATA *pexit = NULL;
 		char letter;
-		OBJ_INDEX_DATA *temp_index;
+		OBJ_INDEX_DATA *pObj;
 
 		if ((letter = fread_letter(fp)) == 'S')
 			break;
@@ -615,10 +619,10 @@ DBLOAD_FUN(load_resets)
 		/* if_flag */	  fread_number(fp);
 		pReset->arg1	= fread_number(fp);
 		pReset->arg2	= fread_number(fp);
-		pReset->arg3	= (letter == 'G' || letter == 'R')
-				    ? 0 : fread_number(fp);
-		pReset->arg4	= (letter == 'P' || letter == 'M')
-				    ? fread_number(fp) : 0;
+		pReset->arg3	= (letter == 'G' || letter == 'R') ?
+				  0 : fread_number(fp);
+		pReset->arg4	= (letter == 'P' || letter == 'M') ?
+				  fread_number(fp) : 0;
 				  fread_to_eol(fp);
 
 		/*
@@ -631,54 +635,134 @@ DBLOAD_FUN(load_resets)
 			break;
 
 		case 'M':
-			get_mob_index  (pReset->arg1);
-			if ((pRoomIndex = get_room_index(pReset->arg3))) {
-				new_reset(pRoomIndex, pReset);
-				iLastRoom = pReset->arg3;
-			}
+			if ((pLastMob = get_mob_index(pReset->arg1)) == NULL
+			||  (pRoom = get_room_index(pReset->arg3)) == NULL)
+				break;
+
+			new_reset(pRoom, pReset);
+			pLastRoom = pRoom;
 			break;
 
 		case 'O':
-			temp_index = get_obj_index  (pReset->arg1);
-			temp_index->reset_num++;
-			if ((pRoomIndex = get_room_index(pReset->arg3))) {
-				new_reset(pRoomIndex, pReset);
-				iLastObj = pReset->arg3;
+			if ((pObj = get_obj_index(pReset->arg1)) == NULL
+			||  (pRoom = get_room_index(pReset->arg3)) == NULL)
+				break;
+
+			pObj->reset_num++;
+			new_reset(pRoom, pReset);
+			pLastRoom = pRoom;
+
+			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
+				if (!pLastMob) {
+					db_error("load_resets",
+						 "can't calculate obj level: "
+						 "no mob reset yet");
+					break;
+				}
+				pObj->level = pObj->level < 1 ?
+					pLastMob->level :
+					UMIN(pLastMob->level, pObj->level);
 			}
 			break;
 
-		case 'P':
-			temp_index = get_obj_index  (pReset->arg1);
-			temp_index->reset_num++;
-			if ((pRoomIndex = get_room_index(iLastObj)))
-				new_reset(pRoomIndex, pReset);
+		case 'P': {
+			OBJ_INDEX_DATA *pObjTo;
+
+			if ((pObj = get_obj_index(pReset->arg1)) == NULL
+			||  (pObjTo = get_obj_index(pReset->arg3)) == NULL)
+				break;
+
+			if (!pLastRoom) {
+				db_error("load_resets", "room undefined");
+				break;
+			}
+
+			new_reset(pLastRoom, pReset);
+			pObj->reset_num++;
+
+			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
+				pObj->level = pObj->level < 1 ?
+					pObjTo->level :
+					UMIN(pObjTo->level, pObj->level);
 			break;
+		}
 
 		case 'G':
 		case 'E':
-			temp_index = get_obj_index  (pReset->arg1);
-			temp_index->reset_num++;
-			if ((pRoomIndex = get_room_index(iLastRoom))) {
-				new_reset(pRoomIndex, pReset);
-				iLastObj = iLastRoom;
+			if ((pObj = get_obj_index(pReset->arg1)) == NULL)
+				break;
+
+			if (!pLastRoom) {
+				db_error("load_resets", "room undefined");
+				break;
+			}
+
+			pObj->reset_num++;
+			new_reset(pLastRoom, pReset);
+
+			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
+				if (!pLastMob) {
+					db_error("load_resets",
+						 "can't calculate obj level: "
+						 "no mob reset yet");
+					break;
+				}
+				if (pLastMob->pShop) {
+					switch(pObj->item_type) {
+					default:
+						pObj->level =
+							UMAX(0, pObj->level);
+						break;
+					case ITEM_PILL:
+					case ITEM_POTION:
+						pObj->level =
+							UMAX(5, pObj->level);
+						break;
+					case ITEM_SCROLL:
+					case ITEM_ARMOR:
+					case ITEM_WEAPON:
+						pObj->level =
+							UMAX(10, pObj->level);
+						break;
+					case ITEM_WAND:
+					case ITEM_TREASURE:
+						pObj->level =
+							UMAX(15, pObj->level);
+						break;
+					case ITEM_STAFF:
+						pObj->level =
+							UMAX(20, pObj->level);
+						break;
+					}
+				}
+				else
+					pObj->level = pObj->level < 1 ?
+						pLastMob->level :
+						UMIN(pObj->level,
+						     pLastMob->level);
 			}
 			break;
 
 		case 'D':
-			pRoomIndex = get_room_index(pReset->arg1);
+			if ((pRoom = get_room_index(pReset->arg1)) == NULL)
+				break;
 
 			if (pReset->arg2 < 0
 			||  pReset->arg2 >= MAX_DIR
-			||  pRoomIndex == NULL
-			||  (pexit = pRoomIndex->exit[pReset->arg2]) == NULL
-			||  !IS_SET( pexit->rs_flags, EX_ISDOOR))
-				db_error("load_resets", "'D': exit %d not door.",
-					pReset->arg2);
+			||  (pexit = pRoom->exit[pReset->arg2]) == NULL
+			||  !IS_SET(pexit->rs_flags, EX_ISDOOR)) {
+				db_error("load_resets",
+					 "'D': exit %d not door.",
+					 pReset->arg2);
+				break;
+			}
 
 			switch (pReset->arg3) {
 			default:
-				db_error("load_resets", "'D': bad 'locks': %d.",
-					pReset->arg3);
+				db_error("load_resets",
+					 "'D': bad 'locks': %d.",
+					 pReset->arg3);
+				/* FALLTHRU */
 			case 0:
 				break;
 			case 1:
@@ -687,21 +771,25 @@ DBLOAD_FUN(load_resets)
 				break;
 			case 2:
 				SET_BIT(pexit->rs_flags, EX_CLOSED | EX_LOCKED);
-				SET_BIT(pexit->exit_info, EX_CLOSED | EX_LOCKED);
+				SET_BIT(pexit->exit_info, 
+					EX_CLOSED | EX_LOCKED);
 				break;
 			}
 
 			break;
 
 		case 'R':
-			pRoomIndex = get_room_index(pReset->arg1);
+			if ((pRoom = get_room_index(pReset->arg1)) == NULL)
+				break;
 
-			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR)
+			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR) {
 				db_error("load_resets", "'R': bad exit %d.",
 					pReset->arg2);
+				break;
+			}
 
-			if (pRoomIndex != NULL)
-				new_reset(pRoomIndex, pReset);
+			if (pRoom)
+				new_reset(pRoom, pReset);
 
 			break;
 		}
@@ -1097,7 +1185,6 @@ DBLOAD_FUN(load_mobiles)
         pMobIndex->description          = NULL;
 
         pMobIndex->vnum                 = vnum;
-	pMobIndex->new_format		= TRUE;
 	newmobs++;
         pMobIndex->name			= fread_string(fp);
         pMobIndex->short_descr		= mlstr_fread(fp);
@@ -1291,7 +1378,6 @@ DBLOAD_FUN(load_objects)
         pObjIndex->description          = NULL;
 
         pObjIndex->vnum                 = vnum;
-        pObjIndex->new_format           = TRUE;
 	pObjIndex->reset_num		= 0;
 	newobjs++;
         pObjIndex->name                 = fread_string(fp);
@@ -1522,7 +1608,7 @@ static int slot_lookup(int slot)
 
 /*****************************************************************************
  Name:		convert_mobile
- Purpose:	Converts an old_format mob into new_format
+ Purpose:	Converts an old format mob into new format
  Called by:	load_old_mob (db.c).
  Note:          Dug out of create_mob (db.c)
  Author:        Hugin
@@ -1597,14 +1683,13 @@ void convert_mobile(MOB_INDEX_DATA *pMobIndex)
 	}
 
 	for (i = 0; i < 3; i++)
-		pMobIndex->ac[i]         = interpolate(level, 100, -100);
-	pMobIndex->ac[3]             = interpolate(level, 100, 0);    /* exotic */
+		pMobIndex->ac[i]= interpolate(level, 100, -100);
+	pMobIndex->ac[3]	= interpolate(level, 100, 0);    /* exotic */
 
 	pMobIndex->wealth           /= 100;
 	pMobIndex->size              = SIZE_MEDIUM;
 	pMobIndex->material          = str_dup("none");
 
-	pMobIndex->new_format        = TRUE;
 	++newmobs;
 }
 
