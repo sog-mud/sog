@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.53 2002-01-03 21:33:37 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.54 2002-01-15 16:58:52 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2692,13 +2692,13 @@ void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (saves_spell(level,vch,DAM_SOUND)) {
 			scream_effect(vch,level/2,dam/4,TARGET_CHAR);
-			damage(ch,vch,dam/2,sn,DAM_SOUND,TRUE);
+//			damage(ch,vch,dam/2,sn,DAM_SOUND,TRUE);
 
 			if (vch->fighting)
 				stop_fighting(vch , TRUE);
 		} else {
 			scream_effect(vch,level,dam,TARGET_CHAR);
-			damage(ch, vch, dam, sn, DAM_SOUND, TRUE);
+//			damage(ch, vch, dam, sn, DAM_SOUND, TRUE);
 
 			if (vch->fighting)
 				stop_fighting(vch , TRUE);
