@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.377 2001-06-26 17:29:43 fjoe Exp $
+ * $Id: act_info.c,v 1.378 2001-06-26 17:58:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4493,7 +4493,13 @@ static char* wear_loc_names[] =
 static void
 show_obj_to_char(CHAR_DATA *ch, const OBJ_DATA *obj, flag_t wear_loc)
 {
-	bool can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
+	bool can_see;
+
+	if (obj == NULL
+	&&  (wear_loc == WEAR_TATTOO || wear_loc == WEAR_CLANMARK))
+		return;
+
+	can_see = obj == NULL ? FALSE : can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
 	    can_see ? format_obj_to_char(obj, ch, TRUE) :
 	    obj == NULL ? "nothing" : "something",
