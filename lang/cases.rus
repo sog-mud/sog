@@ -230,6 +230,17 @@ Form 6 -у~
 End
 
 #RULE
+Name желто-зеленое~
+BaseLen 11
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name Стиррап~
 BaseLen 7
 Form 1 -а~
@@ -788,6 +799,17 @@ Form 6 -у~
 End
 
 #RULE
+Name болотная~
+BaseLen 6
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name томагавк~
 BaseLen 8
 Form 1 -а~
@@ -1278,6 +1300,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name форменные~
+BaseLen 8
+Form 1 -х~
+Form 2 -м~
+Form 3 -е~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
 End
 
 #RULE
@@ -2215,6 +2248,17 @@ Form 3 -е~
 Form 4 -ем~
 Form 5 -и~
 Form 6 -е~
+End
+
+#RULE
+Name меняла~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -3946,6 +3990,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name охранник-скелет~
+BaseLen 8
+Form 1 -а-скелета~
+Form 2 -у-скелету~
+Form 3 -а-скелета~
+Form 4 -ом-скелетом~
+Form 5 -е-скелете~
+Form 6 -а-скелета~
 End
 
 #RULE
@@ -6494,6 +6549,17 @@ Form 6 -ень~
 End
 
 #RULE
+Name дупло~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -о~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -о~
+End
+
+#RULE
 Name бутоньерка~
 BaseLen 9
 Form 1 -и~
@@ -6513,6 +6579,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name садовая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -7387,6 +7464,17 @@ Form 6 -а~
 End
 
 #RULE
+Name темно-зеленая~
+BaseLen 11
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name сторожевой~
 BaseLen 8
 Form 1 -ого~
@@ -7667,6 +7755,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name волосатый~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -10414,6 +10513,17 @@ End
 #RULE
 Name серебряные~
 Form 1 серебряных~
+End
+
+#RULE
+Name длинное~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
 End
 
 #RULE

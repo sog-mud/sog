@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.210 1999-12-11 15:31:04 fjoe Exp $
+ * $Id: act_wiz.c,v 1.211 1999-12-13 14:02:15 avn Exp $
  */
 
 /***************************************************************************
@@ -1075,6 +1075,13 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		"Next: %s   Next_content: %s\n",
 		obj->next	== NULL	   ? "(none)" : mlstr_mval(&obj->next->short_descr),
 		obj->next_content == NULL  ? "(none)" : mlstr_mval(&obj->next_content->short_descr));
+	if (obj->altar) {
+		buf_printf(output, "Altar: %s (vnum %d)\n",
+			mlstr_mval(&obj->altar->room->name),
+			obj->altar->room->vnum);
+	}
+
+
 	buf_printf(output, "Values: %d %d %d %d %d\n",
 		obj->value[0], obj->value[1], obj->value[2], obj->value[3],
 		obj->value[4]);

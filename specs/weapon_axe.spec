@@ -4,9 +4,9 @@ Class weapon
 End
 
 #R
-order allow_deny
-allow has_spec("class_warrior")~
-end
+Order allow_deny
+Allow has_spec("class_warrior")~
+End
 
 #SKILL
 Skill 'cleave'

@@ -1078,13 +1078,17 @@ You can't see a thing!
 ~
 g none~
 #47006
-stone throwing~
-the throwing stone~
+throwing boulder~
+a throwing boulder~
 A large boulder lies here.~
 stone~
 weapon Bh 0 ANgt
 exotic 8 8 'crush' FKlq
 46 0 0 P
+A
+18 50
+A
+19 50
 g none~
 #47007
 breastplate white blazing~
@@ -1127,7 +1131,6 @@ armor GJLmpr 0 AKgq
 0 0 0 0 0
 46 0 0 P
 F A 0 0 Tz
-F A 0 0 b
 A
 35 100
 A
@@ -5718,7 +5721,7 @@ S
 0
 
 #OLIMITS
-O 47013 1	* the Staff of Thousand Souls
+O 47013 0	* the Staff of Thousand Souls
 O 47133 7	* a straw hat
 O 47134 5	* a long bamboo pole
 O 47136 5	* a woolly hide of the ape

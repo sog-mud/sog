@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.236 1999-12-13 07:33:47 fjoe Exp $
+ * $Id: fight.c,v 1.237 1999-12-13 14:02:20 avn Exp $
  */
 
 /***************************************************************************
@@ -2148,14 +2148,16 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
  */
 void make_corpse(CHAR_DATA *ch)
 {
-	OBJ_DATA *corpse;
+	OBJ_DATA *corpse = NULL;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 
 	if (IS_NPC(ch)) {
-		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
+		if (!IS_SET(ch->form, FORM_INSTANT_DECAY)) {
+			corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
 					&ch->short_descr);
-		corpse->timer	= number_range(3, 6);
+			corpse->timer	= number_range(3, 6);
+		}
 		if (ch->gold > 0 || ch->silver > 0) {
 			OBJ_DATA *money = create_money(ch->gold, ch->silver);
 			if (IS_SET(ch->form,FORM_INSTANT_DECAY))
@@ -2210,7 +2212,11 @@ void make_corpse(CHAR_DATA *ch)
 		  obj_to_obj(obj, corpse);
 	}
 
-	obj_to_room(corpse, ch->in_room);
+	if (IS_NPC(ch) || corpse->altar)
+		obj_to_room(corpse, ch->in_room);
+	else
+	/* crash MUD now if ->altar is NULL, not to crash it later */
+		obj_to_room(corpse, corpse->altar->room);
 }
 
 

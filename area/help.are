@@ -7198,6 +7198,7 @@ immortal IMOTD~
    #Arborn
 ~
 immortal 'OLC CC_RULESET'~
+{RHELP OBSOLETE{x. New one will be available ASAP.
 Syntax: <cmd> show
 Syntax: <cmd> order <type> <order>
 Syntax: <cmd> order <type> ?
