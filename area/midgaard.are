@@ -3241,7 +3241,7 @@ map newbie~
 	--->Dwarven Day Care :>>>> 	 {{ 1 - 5 }
 		from MSM   :>>>> 6e 3n 2e s..............................
 	--->Gnome Village		 {{ 1 - 15}
-		from MSM  :>>>> 6e s......................................
+		from MSM  :>>>> 8e s......................................
 	--->Graveyard 			 {{ 5 - 10}
 		from MSM  :>>>> 3e 7s w s.................................
 	--->Holy Grove 			 {{ 5 - 20}
@@ -3928,7 +3928,7 @@ page6~
 ~
 #3396
 old book~
-an old book. ~
+an old book~
 A book, has no title.~
 leather~
 trash 0 AO
