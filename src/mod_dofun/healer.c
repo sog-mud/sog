@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.16 1998-12-17 21:05:41 fjoe Exp $
+ * $Id: healer.c,v 1.17 1998-12-21 08:06:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -208,8 +208,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
     WAIT_STATE(ch,PULSE_VIOLENCE);
 
-    deduct_cost(ch,cost);
-    mob->gold += cost / 100;
+    deduct_cost(ch, cost);
 
     act("$n utters the words, '$t'.", mob, words, NULL, TO_ROOM);
     if (sn == -2)

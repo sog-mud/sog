@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.85 1998-12-19 12:26:26 kostik Exp $
+ * $Id: act_quest.c,v 1.86 1998-12-21 08:06:26 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -579,9 +579,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 			   "My court wizardess, with her magic mirror, "
 			   "has pinpointed its location.");
 		quest_tell(ch, questor,
-			   "That location is in general area of {W%s{z",
-			   victim->in_room->area->name);
-		quest_tell(ch, questor, "for {W%s{z.",
+			   "Look in the general area of {W%s{z for {W%s{z!",
+			   victim->in_room->area->name,
 			   mlstr_mval(victim->in_room->name));
 	}
 	else {	/* Quest to kill a mob */
@@ -606,12 +605,12 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		}
 
 		quest_tell(ch, questor,
-			   "Seek {W%s{z out in general area of {W%s{z",
+			   "Seek {W%s{z out in the vicinity of {W%s{z!",
 			   mlstr_mval(victim->short_descr),
-			   victim->in_room->area->name);
-		quest_tell(ch, questor,
-			   "in vicinity of {W%s{z!",
 			   mlstr_mval(victim->in_room->name));
+		quest_tell(ch, questor,
+			   "That location is in general area of {W%s{z.",
+			   victim->in_room->area->name);
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
@@ -749,6 +748,13 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 {
 	OBJ_DATA *reward;
 	QTROUBLE_DATA *qt;
+	OBJ_INDEX_DATA *pObjIndex = get_obj_index(item_vnum);
+
+	if (!pObjIndex || !IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+		quest_tell(ch, questor,
+			   "This item is beyond the trouble option.");
+		return FALSE;
+	}
 
 	/*
 	 * check quest trouble data
@@ -788,8 +794,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		}
 	}
 
-	reward = create_named_obj(get_obj_index(item_vnum), ch->level,
-				  ch->name);
+	reward = create_named_obj(pObjIndex, ch->level, ch->name);
 	if (get_wear_level(ch, reward) < reward->level) {
 		quest_tell(ch, questor,
 			   "This item is too powerful for you.\n");
