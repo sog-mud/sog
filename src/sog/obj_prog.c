@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.2 2000-04-06 05:28:39 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.3 2000-06-08 12:30:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1253,7 +1253,7 @@ int fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		return 0;
 
 	if ((get_eq_char(ch, WEAR_WIELD) != obj)
-	||  (get_eq_char(ch, WEAR_SECOND_WIELD) !=obj))
+	&&  (get_eq_char(ch, WEAR_SECOND_WIELD) !=obj))
 		return 0;
 
 	victim = ch->fighting;
