@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.53 1999-04-15 10:28:19 fjoe Exp $
+ * $Id: tables.c,v 1.54 1999-04-15 12:22:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1148,6 +1148,15 @@ FLAG note_types[] =
 	{ "penalty",		NOTE_PENALTY			},
 	{ "news",		NOTE_NEWS			},
 	{ "change",		NOTE_CHANGES			},
+
+	{ NULL }
+};
+
+FLAG options_table[] =
+{
+	{ "",			TABLE_BITVAL,			},
+
+	{ "ascii_only_names",	OPT_ASCII_ONLY_NAMES		},
 
 	{ NULL }
 };

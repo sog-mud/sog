@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.177 1999-04-15 10:42:27 fjoe Exp $
+ * $Id: merc.h,v 1.178 1999-04-15 12:22:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,11 @@
 
 #include "typedef.h"
 #include "const.h"
+
+/* mud server options (etc/system.conf) */
+#define OPT_ASCII_ONLY_NAMES	(A)
+
+extern flag32_t mud_options;
 
 /* general align */
 #define ALIGN_NONE		-1

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.1 1999-03-19 18:59:20 fjoe Exp $
+ * $Id: db_system.c,v 1.2 1999-04-15 12:22:59 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -72,6 +72,10 @@ DBLOAD_FUN(load_system)
 				*p = fread_number(fp);
 				fMatch = TRUE;
 			}
+			break;
+		case 'O':
+			KEY("Options", mud_options,
+			    fread_fstring(options_table, fp));
 			break;
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.127 1999-04-15 10:28:19 fjoe Exp $
+ * $Id: db.c,v 1.128 1999-04-15 12:22:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,6 +97,8 @@ extern  DESCRIPTOR_DATA *descriptor_free;
 /*
  * Globals.
  */
+flag32_t		mud_options;
+
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
 

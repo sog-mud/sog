@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.132 1999-04-15 11:56:12 fjoe Exp $
+ * $Id: handler.c,v 1.133 1999-04-15 12:22:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3521,16 +3521,8 @@ bool pc_name_ok(const char *name)
 	 */
 	fIll = TRUE;
 	for (pc = name; *pc != '\0'; pc++) {
-#if 1
-		/*
-		 * at this time we are using ru_RU.KOI8-R locale
-		 * but no russian names are permitted in our mud (yet)
-		 * so if you use another locale and wish
-		 * to enable TRUE isalpha names you must disable this code
-		 */
-		if (*pc > 127)
+		if (IS_SET(mud_options, OPT_ASCII_ONLY_NAMES) && !isascii(*pc))
 			return FALSE;
-#endif
 
 		if (!isalpha(*pc))
 			return FALSE;
