@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.308 2001-12-03 22:28:24 fjoe Exp $
+ * $Id: act_wiz.c,v 1.309 2002-01-15 20:29:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1070,20 +1070,26 @@ DO_FUN(do_rstat, ch, argument)
 		EXIT_DATA *pexit;
 
 		if ((pexit = location->exit[door]) != NULL) {
-			buf_printf(output, BUF_END, "Door: %d.  To: %d.  Key: %d.  Exit flags: %d.\nKeyword: '%s'.\n",				// notrans
+			buf_printf(output, BUF_END,
+				"Door: %s (%d).  To: %d.  Key: %d.  Exit flags: [%s].\n",	// notrans
+				dir_name[door],
 				door,
-				pexit->to_room.r == NULL ?
-				-1 : pexit->to_room.r->vnum,
+				pexit->to_room.r == NULL ? -1 : pexit->to_room.r->vnum,
 				pexit->key,
-				pexit->exit_info,
+				flag_string(exit_flags, pexit->exit_info));
+			buf_printf(output, BUF_END,
+				"Keyword: '%s'.\n",	// notrans
 				pexit->keyword);
 			mlstr_dump(output, "Description: ",	// notrans
 				   &pexit->description, DUMP_LEVEL(ch));
 		}
 	}
 	buf_append(output, "Tracks:\n");			// notrans
-	for (rh = location->history;rh != NULL;rh = rh->next)
-		buf_printf(output, BUF_END,"%s took door %i.\n", rh->name, rh->went);	// notrans
+	for (rh = location->history; rh != NULL; rh = rh->next) {
+		buf_printf(output, BUF_END,
+			   "%s took door %s (%d).\n",	// notrans
+			   rh->name, dir_name[rh->went], rh->went);
+	}
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
