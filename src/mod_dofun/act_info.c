@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.314 1999-12-21 06:36:11 fjoe Exp $
+ * $Id: act_info.c,v 1.315 1999-12-21 18:19:44 avn Exp $
  */
 
 /***************************************************************************
@@ -155,7 +155,7 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 
 #define SHOW_SOCIAL(prephrase, phrase)					\
 		act(prephrase, ch, NULL, NULL, TO_CHAR);		\
-		if (mlstr_valid(&(phrase)))				\
+		if (!mlstr_null(&(phrase)) && mlstr_valid(&(phrase)))	\
 			act_mlputs(&(phrase), ch, NULL, ch,		\
 				TO_CHAR, POS_RESTING);			\
 		else							\
