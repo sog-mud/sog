@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.145 1999-02-22 15:56:54 kostik Exp $
+ * $Id: fight.c,v 1.146 1999-02-23 08:03:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -950,7 +950,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 
 	if (dt == gsn_ambush)
-		dam *= UMIN(3, ch->level/12);
+		dam *= UMAX(3, ch->level/12);
 
 	if ((sk2 = get_skill(ch, gsn_deathblow)) > 1) {
 		if (number_percent() <  (sk2/8)) {
