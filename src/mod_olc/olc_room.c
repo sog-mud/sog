@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.73 1999-12-17 06:38:39 fjoe Exp $
+ * $Id: olc_room.c,v 1.74 2000-01-04 11:53:40 avn Exp $
  */
 
 #include "olc.h"
@@ -75,12 +75,12 @@ olc_cmd_t olc_cmds_room[] =
 	{ "mana",	roomed_mana					},
 	{ "clone",	roomed_clone					},
 
-	{ "north",	roomed_north,	NULL,		gender_table	},
-	{ "south",	roomed_south,	NULL,		gender_table	},
-	{ "east",	roomed_east,	NULL,		gender_table	},
-	{ "west",	roomed_west,	NULL,		gender_table	},
-	{ "up",		roomed_up,	NULL,		gender_table	},
-	{ "down",	roomed_down,	NULL,		gender_table	},
+	{ "north",	roomed_north					},
+	{ "south",	roomed_south					},
+	{ "east",	roomed_east					},
+	{ "west",	roomed_west					},
+	{ "up",		roomed_up					},
+	{ "down",	roomed_down					},
 
 /* New reset commands. */
 	{ "mreset",	roomed_mreset					},
@@ -862,6 +862,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 
+		cmd->arg1 = gender_table;
 		ok = olced_gender(ch, argument, cmd,
 				  &pRoom->exit[door]->short_descr.gender);
 		if (ok)
@@ -1077,6 +1078,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 
+		cmd->arg1 = size_table;
 		return olced_flag(ch, arg, cmd, &pRoom->exit[door]->size);
 	}
 

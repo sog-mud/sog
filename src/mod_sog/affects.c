@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.24 1999-12-22 08:29:07 fjoe Exp $
+ * $Id: affects.c,v 1.25 2000-01-04 11:53:40 avn Exp $
  */
 
 /***************************************************************************
@@ -1068,12 +1068,13 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
-			buf_add(output, "Number      Affects Modifier Affects Bitvector\n");
-			buf_add(output, "------ ------------ -------- ------- -----------------------------------------\n");
+			buf_add(output, "Number Skill          Affects Modifier Affects Bitvector\n");
+			buf_add(output, "------ --------- ------------ -------- ------- -----------------------------------------\n");
 		}
-		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
+		buf_printf(output, "[%4d] %9.9s %12.12s %8d %7.7s %s"
 				   "\n",
 			   cnt,
+			   paf->type,
 			   paf->where == TO_SKILLS ||
 			   paf->where == TO_RACE ?
 				STR(paf->location) :

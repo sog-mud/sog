@@ -24,7 +24,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id: who.cgi,v 1.2 1998-11-26 10:50:58 fjoe Exp $
+# $Id: who.cgi,v 1.3 2000-01-04 11:53:40 avn Exp $
 #
 
 $netcat = "/usr/local/bin/nc";
@@ -35,15 +35,15 @@ Content-type: text/HTML
 
 <html>
 <head><title>
-List of players, who are online now in the Muddy Realms"
+List of players, who are online now in the Shades of Gray"
 </title></head>
 <body bgcolor=#000000><font size=4>
-<font color=#C0C0C0>List of players, who are online now in the Muddy Realms:
+<font color=#C0C0C0>List of players, who are online now in the Shades of Gray:
 
 <pre>
 EOF
 
-open(LIST, "echo html | $netcat localhost $port |") || die "Cannot connect to server.";
+open(LIST, "echo who html | $netcat localhost $port |") || die "Cannot connect to server.";
 
 $max = <LIST>;
 $found = 0;

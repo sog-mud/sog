@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.11 2000-01-04 04:14:08 avn Exp $
+ * $Id: comm_info.c,v 1.12 2000-01-04 11:53:40 avn Exp $
  */
 
 #include <sys/types.h>
@@ -272,7 +272,7 @@ void	cmd_auth(const char *argument)
 	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 
 	ch = char_load(arg1, LOAD_F_NOCREATE);
-	if (!ch || strcmp(crypt(argument, ch->name), PC(ch)->pwd)) {
+	if (!ch || strcmp(crypt(arg2, ch->name), PC(ch)->pwd)) {
 		strncpy(buf, "AUTH FAILED.\n", sizeof(buf));
 		if (ch)
 			char_free(ch);
