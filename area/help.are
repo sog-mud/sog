@@ -1069,28 +1069,29 @@ You can practice your skills and spells with a practicer who knows the
 group corresponding that skill or spell. Below is a list of practicers and  
 their groups:
  
- Attack         >>> Towering Black Demon	(Camelot   	)
- Beguiling 	>>> Mighty Beholder		(Thalos    	)
- Benedictions	>>> Templeman			(Midgaard	)
- Combat		>>> Combat Magician		(Elemental Can.	) 
- Curative	>>> Grand Knight of Paladins	(Redfernes' R.	)
- Defensive	>>> Heimdall			(Valhalla	)
- Draconian	>>> Rulers			(Elemental Can.	)
- Enchantment	>>> Master Enchanter		(High Tower	)	
- Enhancement	>>> Healer			(Valley of Titan)
- Fightmaster	>>> Heimdall			(Valhalla	)
- Healing	>>> High Priestess of Ofcol	(Ofcol		)
- Illusion	>>> Master Illusionist		(High Tower	)
- Maladictions	>>> Diana			(Ofcol		)
- Meditation	>>> Hierophant (holy)		(Holy Grove	)
- Protective	>>> Gath			(City of Anon	)
- Transportation	>>> Grand Mistress of Magic	(High Tower	)
- Weaponsmaster  >>> Samurai			(New Thalos	)
- Wizard		>>> Wizard			(Midgaard	)
-	
-If you SLOOK the spell or skill and find in group `none', `weather',
-`creation', `harmful', `protective' or `detection', then you
-can practice that in your guild.
+ {cattack{x         >>> {gTowering Black Demon{x     (Camelot        )
+ {cbeguiling{x      >>> {gMighty Beholder{x          (Thalos         )
+ {cbenedictions{x   >>> {gTempleman{x                (Midgaard       )
+ {ccombat{x         >>> {gCombat Magician{x          (Elemental Can. ) 
+ {ccurative{x       >>> {gGrand Knight of Paladins{x (Redfernes' R.  )
+ {cdefensive{x      >>> {gHeimdall{x                 (Valhalla       )
+ {cdraconian{x      >>> {gRulers{x                   (Elemental Can. )
+ {cenchantment{x    >>> {gMaster Enchanter{x         (High Tower     ) 
+ {cenhancement{x    >>> {gHealer{x                   (Valley of Titan)
+ {cfightmaster{x    >>> {gHeimdall{x                 (Valhalla       )
+ {chealing{x        >>> {gHigh Priestess of Ofcol{x  (Ofcol          )
+ {cillusion{x       >>> {gMaster Illusionist{x       (High Tower     )
+ {cmaladictions{x   >>> {gDiana{x                    (Ofcol          )
+ {cmeditation{x     >>> {gHierophant (holy){x        (Holy Grove     )
+ {cprotective{x     >>> {gGath{x                     (City of Anon   )
+ {ctransportation{x >>> {gGrand Mistress of Magic{x  (High Tower     )
+ {cweaponsmaster{x  >>> {gSamurai{x                  (New Thalos     )
+ {cwizard{x         >>> {gWizard{x                   (Midgaard       )
+ 
+If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
+`{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you
+can practice that {cin your guild{x.
+
 
 FOR MORE HELP , look help of GLIST, SLOOK, TEACH, LEARN.
 ~
