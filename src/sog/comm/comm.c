@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.24 1998-05-16 08:41:57 efdi Exp $
+ * $Id: comm.c,v 1.25 1998-05-16 10:05:35 efdi Exp $
  */
 
 /***************************************************************************
@@ -3051,7 +3051,6 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
     bool	fColour = FALSE;
     va_list 	ap;
 
-
     if( !ch || !ch->in_room )
 	return;
 
@@ -3087,7 +3086,18 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
             continue;
  
         point   = buf;
+	
+	if(!vch)
+		vch = ch;
+	
         vsprintf(str, vmsg(msgid, to, vch), ap);
+	
+	/* *** FIX IT *** */
+	if(!strstr(str, "$N") && vch) {
+		vch = ch;
+        	vsprintf(str, vmsg(msgid, to, vch), ap);
+	}
+	/******************/
         while( *str )
         {
             if( *str != '$' && *str != '{' )

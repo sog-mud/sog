@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.13 1998-05-09 12:20:18 fjoe Exp $
+ * $Id: resource.c,v 1.14 1998-05-16 10:05:36 efdi Exp $
  */
 
 #include <sys/time.h>
@@ -26,7 +26,8 @@ enum {
 	DEP_VICTIM
 };
 
-#define FIX_SEX(ch) ((ch)->sex >= SEX_FEMALE  ?	SEX_FEMALE : \
+#define FIX_SEX(ch) (!(ch) ? SEX_NEUTRAL : \
+		     (ch)->sex >= SEX_FEMALE  ? SEX_FEMALE : \
 		     (ch)->sex <= SEX_NEUTRAL ?	SEX_NEUTRAL : \
 						SEX_MALE)
 
