@@ -230,6 +230,17 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_N_SITS_DOWN_AT */	"$n садится у $p.",
 /* MOVE_YOU_SIT_DOWN_IN */	"Ты садишься в $p.",
 /* MOVE_N_SITS_DOWN_IN */	"$n садится в $p.",
+/* MOVE_YOU_CANT_SLEEP_MOUNTED */"Ты не можешь спать верхом.\n\r",
+/* MOVE_YOU_CANT_SLEEP_RIDDEN */"Ты не можешь спать оседланным.\n\r",
+/* MOVE_YOU_GO_TO_SLEEP */	"Ты засыпаешь.\n\r",
+/* MOVE_N_GOES_TO_SLEEP */	"$n засыпает.\n\r",
+/* MOVE_YOU_CANT_SLEEP_ON_THAT */"Ты не можешь на этом спать.\n\r",
+/* MOVE_YOU_GO_TO_SLEEP_AT*/	"Ты засыпаешь у $p.",
+/* MOVE_N_GOES_TO_SLEEP_AT */	"$n засыпает у $p.",
+/* MOVE_YOU_GO_TO_SLEEP_ON */	"Ты засыпаешь на $p.",
+/* MOVE_N_GOES_TO_SLEEP_ON */	"$n засыпет на $p.",
+/* MOVE_YOU_GO_TO_SLEEP_IN */	"Ты засыпаешь в $p.",
+/* MOVE_N_GOES_TO_SLEEP_IN */	"$n засыпает в $p.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

@@ -230,6 +230,17 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_N_SITS_DOWN_AT */	"$n sits down at $p.",
 /* MOVE_YOU_SIT_DOWN_IN */	"You sit down in $p.",
 /* MOVE_N_SITS_DOWN_IN */	"$n sits down in $p.",
+/* MOVE_YOU_CANT_SLEEP_MOUNTED */"You can't sleep while mounted.\n\r",
+/* MOVE_YOU_CANT_SLEEP_RIDDEN */"You can't sleep while being ridden.\n\r",
+/* MOVE_YOU_GO_TO_SLEEP */	"You go to sleep.\n\r",
+/* MOVE_N_GOES_TO_SLEEP */	"$n goes to sleep.\n\r",
+/* MOVE_YOU_CANT_SLEEP_ON_THAT */"You can't sleep on that.\n\r",
+/* MOVE_YOU_GO_TO_SLEEP_AT*/	"You go to sleep at $p.",
+/* MOVE_N_GOES_TO_SLEEP_AT */	"$n goes to sleep at $p.",
+/* MOVE_YOU_GO_TO_SLEEP_ON */	"You go to sleep on $p.",
+/* MOVE_N_GOES_TO_SLEEP_ON */	"$n goes to sleep on $p.",
+/* MOVE_YOU_GO_TO_SLEEP_IN */	"You go to sleep in $p.",
+/* MOVE_N_GOES_TO_SLEEP_IN */	"$n goes to sleep in $p.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

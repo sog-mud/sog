@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.18 1998-04-29 03:06:19 efdi Exp $
+ * $Id: act_move.c,v 1.19 1998-04-29 03:27:27 efdi Exp $
  */
 
 /***************************************************************************
@@ -1651,19 +1651,19 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't sleep while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_SLEEP_MOUNTED, ch), ch);
         return;
     }
     if (RIDDEN(ch)) 
     {
-        send_to_char("You can't sleep while being ridden.\n\r", ch);
+        send_to_char(msg(MOVE_YOU_CANT_SLEEP_RIDDEN, ch), ch);
         return;
     }
 
     switch ( ch->position )
     {
     case POS_SLEEPING:
-	send_to_char( "You are already sleeping.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_ALREADY_SLEEPING, ch), ch);
 	break;
 
     case POS_RESTING:
@@ -1671,8 +1671,9 @@ void do_sleep( CHAR_DATA *ch, char *argument )
     case POS_STANDING: 
 	if (argument[0] == '\0' && ch->on == NULL)
 	{
-	    send_to_char( "You go to sleep.\n\r", ch );
-	    act( "$n goes to sleep.", ch, NULL, NULL, TO_ROOM );
+	    send_to_char(msg(MOVE_YOU_GO_TO_SLEEP, ch), ch);
+	    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_GOES_TO_SLEEP);
 	    ch->position = POS_SLEEPING;
 	}
 	else  /* find an object and sleep on it */
@@ -1684,7 +1685,7 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 
 	    if (obj == NULL)
 	    {
-		send_to_char("You don't see that here.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
 		return;
 	    }
 	    if (obj->item_type != ITEM_FURNITURE
@@ -1692,39 +1693,45 @@ void do_sleep( CHAR_DATA *ch, char *argument )
 	    &&   !IS_SET(obj->value[2],SLEEP_IN)
 	    &&	 !IS_SET(obj->value[2],SLEEP_AT)))
 	    {
-		send_to_char("You can't sleep on that!\n\r",ch);
+		send_to_char(msg(MOVE_YOU_CANT_SLEEP_ON_THAT, ch), ch);
 		return;
 	    }
 
 	    if (ch->on != obj && count_users(obj) >= obj->value[0])
 	    {
-		act_puts("There is no room on $p for you.",
-		    ch,obj,NULL,TO_CHAR,POS_DEAD);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_THERES_NO_ROOM_ON_P_FOR_YOU);
 		return;
 	    }
 
 	    ch->on = obj;
 	    if (IS_SET(obj->value[2],SLEEP_AT))
 	    {
-		act("You go to sleep at $p.",ch,obj,NULL,TO_CHAR);
-		act("$n goes to sleep at $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_GO_TO_SLEEP_AT);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_GOES_TO_SLEEP_AT);
 	    }
 	    else if (IS_SET(obj->value[2],SLEEP_ON))
 	    {
-	        act("You go to sleep on $p.",ch,obj,NULL,TO_CHAR);
-	        act("$n goes to sleep on $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_GO_TO_SLEEP_ON);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_GOES_TO_SLEEP_ON);
 	    }
 	    else
 	    {
-		act("You go to sleep in $p.",ch,obj,NULL,TO_CHAR);
-		act("$n goes to sleep in $p.",ch,obj,NULL,TO_ROOM);
+		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				MOVE_YOU_GO_TO_SLEEP_IN);
+		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+				MOVE_N_GOES_TO_SLEEP_IN);
 	    }
 	    ch->position = POS_SLEEPING;
 	}
 	break;
 
     case POS_FIGHTING:
-	send_to_char( "You are already fighting!\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_ALREADY_FIGHTING, ch), ch);
 	break;
     }
 
