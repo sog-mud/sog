@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_helpers.c,v 1.1 2001-09-07 19:34:45 fjoe Exp $
+ * $Id: mpc_helpers.c,v 1.2 2001-09-15 17:28:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -48,12 +48,6 @@ load_obj(CHAR_DATA *ch, int vnum)
 
 	obj_to_char(obj, ch);
 	return obj;
-}
-
-void
-purge_obj(OBJ_DATA *obj)
-{
-	extract_obj(obj, 0);
 }
 
 bool

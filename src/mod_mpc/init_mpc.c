@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.33 2001-09-15 17:12:42 fjoe Exp $
+ * $Id: init_mpc.c,v 1.34 2001-09-15 17:28:53 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -276,6 +276,7 @@ const char *mpc_dynafuns[] = {
 	"damage",
 	"dice",
 	"dofun",
+	"extract_obj",
 	"fire_effect",
 	"get_char_area",
 	"get_char_here",
@@ -329,7 +330,6 @@ const char *mpc_dynafuns[] = {
 	"open_door",
 	"open_obj",
 	"poison_effect",
-	"purge_obj",
 	"real_char_level",
 	"room_sector",
 	"sand_effect",

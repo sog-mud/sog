@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.24 2001-09-15 17:12:33 fjoe Exp $
+ * $Id: sog.h,v 1.25 2001-09-15 17:28:52 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -802,8 +802,6 @@ DECLARE_PROC2(mob_interpret,
 	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_FUN2(OBJ_DATA, load_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), vnum)
-DECLARE_PROC1(purge_obj,
-	      ARG(OBJ_DATA), obj)
 DECLARE_FUN2(bool, transfer_group,
 	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
 DECLARE_PROC8(affect_char,
