@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.159 1998-11-06 09:04:01 fjoe Exp $
+ * $Id: act_info.c,v 1.160 1998-11-07 09:09:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -670,11 +670,22 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 
 	for (rch = list; rch != NULL; rch = rch->next_in_room) {
 		if (rch == ch
-		||  !IS_TRUSTED(ch, rch->invis_level)
 		||  (!IS_TRUSTED(ch, rch->incog_level) &&
 		     ch->in_room != rch->in_room))
 			continue;
 			
+		if (!IS_TRUSTED(ch, rch->invis_level)) {
+			AREA_DATA *pArea;
+
+			if (!IS_NPC(rch))
+				continue;
+
+			pArea = area_vnum_lookup(rch->pIndexData->vnum);
+			if (pArea == NULL
+			||  !IS_BUILDER(ch, pArea))
+				continue;
+		}
+
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED)) {

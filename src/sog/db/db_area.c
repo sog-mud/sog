@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.17 1998-10-30 06:56:55 fjoe Exp $
+ * $Id: db_area.c,v 1.18 1998-11-07 09:09:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -280,7 +280,7 @@ DBLOAD_FUN(load_old_mob)
 	char name[MAX_STRING_LENGTH];
 
 	if (!area_current) {  /* OLC */
-		log("load_mobiles: no #AREA seen yet.");
+		log("load_old_mob: no #AREA seen yet.");
 		exit(1);
 	}
 
@@ -291,7 +291,7 @@ DBLOAD_FUN(load_old_mob)
 
 		letter	= fread_letter(fp);
 		if (letter != '#') {
-			log("load_mobiles: # not found.");
+			log("load_old_mob: # not found.");
 			exit(1);
 		}
 
@@ -301,7 +301,7 @@ DBLOAD_FUN(load_old_mob)
 
 		fBootDb = FALSE;
 		if (get_mob_index(vnum)) {
-			log_printf("load_mobiles: vnum %d duplicated.", vnum);
+			log_printf("load_old_mob: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 		fBootDb = TRUE;
@@ -394,7 +394,7 @@ DBLOAD_FUN(load_old_mob)
 		}
 
 		if (letter != 'S') {
-			log_printf("load_mobiles: vnum %d non-S.", vnum);
+			log_printf("load_old_mob: vnum %d non-S.", vnum);
 			exit(1);
 		}
 
@@ -1189,6 +1189,8 @@ DBLOAD_FUN(load_mobiles)
 		}
 		pMobIndex->clan = fread_clan(fp);
 	    }
+	    else if (letter == 'I') 
+		pMobIndex->invis_level = fread_number(fp);
             else if (letter == 'F') {
 		char *word;
 		long vector;

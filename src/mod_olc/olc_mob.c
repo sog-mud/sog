@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.23 1998-10-30 06:56:59 fjoe Exp $
+ * $Id: olc_mob.c,v 1.24 1998-11-07 09:09:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,6 +81,7 @@ DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
 DECLARE_OLC_FUN(mobed_prac		); 
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
+DECLARE_OLC_FUN(mobed_invis		);
 
 OLC_CMD_DATA olc_cmds_mob[] =
 {
@@ -127,6 +128,7 @@ OLC_CMD_DATA olc_cmds_mob[] =
 	{ "trigadd",	mobed_trigadd				},
 	{ "trigdel",	mobed_trigdel				},
 	{ "clone",	mobed_clone				},
+	{ "invis",	mobed_invis				},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
@@ -322,13 +324,16 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, "Material:    [%s]\n\r",
 		 pMob->material);
 
-	buf_printf(buf, "Start pos.   [%s]\n\r",
+	buf_printf(buf, "Start pos:   [%s]\n\r",
 		flag_string(position_table, pMob->start_pos));
 
-	buf_printf(buf, "Default pos  [%s]\n\r",
+	buf_printf(buf, "Default pos: [%s]\n\r",
 		flag_string(position_table, pMob->default_pos));
 
 	buf_printf(buf, "Wealth:      [%5d]\n\r", pMob->wealth);
+
+	if (pMob->invis_level)
+		buf_printf(buf, "Invis level: [%d]\n\r", pMob->invis_level);
 
 /* ROM values end */
 
@@ -1162,6 +1167,13 @@ OLC_FUN(mobed_clone)
 		pMob->ac[i]	= pFrom->ac[i];
 
 	return TRUE;
+}
+
+OLC_FUN(mobed_invis)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_number(ch, argument, mobed_invis, &pMob->invis_level);
 }
 
 /* Local functions */

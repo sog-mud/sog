@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.83 1998-10-30 06:56:33 fjoe Exp $
+ * $Id: handler.c,v 1.84 1998-11-07 09:09:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2437,16 +2437,22 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (ch == NULL || victim == NULL)
 		dump_to_scr(">>>>>>>> CAN_ SEE ERROR <<<<<<<<<<<\n\r");
 	
-	if (!IS_TRUSTED(ch, victim->invis_level))
+	if (!IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level))
 		return FALSE;
 
 	if (!IS_TRUSTED(ch, victim->incog_level)
 	&&  ch->in_room != victim->in_room)
 		return FALSE;
 
-	if ((!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT)) 
-	||   (IS_NPC(ch) && IS_IMMORTAL(ch)))
+	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
 		return TRUE;
+
+	if (IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level)) {
+		AREA_DATA *pArea = area_vnum_lookup(victim->pIndexData->vnum);
+		if (pArea == NULL
+		||  !IS_BUILDER(ch, pArea))
+			return FALSE;
+	}
 
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;

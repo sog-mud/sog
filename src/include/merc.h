@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.112 1998-11-07 07:30:12 fjoe Exp $
+ * $Id: merc.h,v 1.113 1998-11-07 09:09:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1208,6 +1208,7 @@ struct mob_index_data
 	const char *		material;
 	flag_t			practicer;
 	int			clan;
+	int			invis_level;	/* mobinvis level */
 };
 
 /*

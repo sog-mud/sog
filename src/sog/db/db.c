@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.87 1998-11-02 05:28:50 fjoe Exp $
+ * $Id: db.c,v 1.88 1998-11-07 09:09:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1196,6 +1196,7 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 
 	mob->position = mob->start_pos;
 	mob->clan = pMobIndex->clan;
+	mob->invis_level = pMobIndex->invis_level;
 
 	/* link the mob to the world list */
 	mob->next		= char_list;
@@ -1279,6 +1280,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->status		= parent->status;
 	clone->hunting		= NULL;
 	clone->clan		= parent->clan;
+	clone->invis_level	= parent->invis_level;
 
 	for (i = 0; i < 4; i++)
 		clone->armor[i]	= parent->armor[i];
