@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.36 2002-03-21 13:30:31 fjoe Exp $
+ * $Id: db_skill.c,v 1.37 2002-11-23 22:03:52 fjoe Exp $
  */
 
 #include <assert.h>
@@ -84,7 +84,7 @@ DBLOAD_FUN(load_skill)
 			SKEY("Effect", sk->effect, fread_string(fp));
 
 			if (IS_TOKEN(fp, "Event")) {
-				flag_t event = fread_fword(events_classes, fp);
+				flag_t event = fread_fword(event_classes, fp);
 				evf_t *evf;
 
 				if (event < 0) {
@@ -95,7 +95,7 @@ DBLOAD_FUN(load_skill)
 
 				evf = varr_bsearch(&sk->events, &event, cmpint);
 				if (evf != NULL) {
-					log(LOG_ERROR, "load_skill: %s: duplicate event", flag_string(events_classes, event));
+					log(LOG_ERROR, "load_skill: %s: duplicate event", flag_string(event_classes, event));
 					fread_to_eol(fp);
 					break;
 				}

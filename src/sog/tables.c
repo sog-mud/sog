@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.190 2002-08-30 09:02:00 avn Exp $
+ * $Id: tables.c,v 1.191 2002-11-23 22:03:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1252,7 +1252,7 @@ flaginfo_t desc_con_table[] =
 	{ NULL, 0, FALSE }
 };
 
-flaginfo_t events_classes[] =
+flaginfo_t event_classes[] =
 {
 	{ "",			TABLE_INTVAL,			FALSE	},
 

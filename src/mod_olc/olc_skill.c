@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.32 2002-03-21 13:30:39 fjoe Exp $
+ * $Id: olc_skill.c,v 1.33 2002-11-23 22:03:53 fjoe Exp $
  */
 
 #include "olc.h"
@@ -81,7 +81,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "flags",	skilled_flags,	NULL,	skill_flags		},
 	{ "group",	skilled_group,	NULL,	skill_groups		},
 	{ "type",	skilled_type,	NULL,	skill_types		},
-	{ "event",	skilled_event, validate_funname, events_classes	},
+	{ "event",	skilled_event, validate_funname, event_classes	},
 	{ "rank",	skilled_rank, validate_skill_rank, NULL		},
 	{ "damclass",	skilled_damclass, NULL,	dam_classes		},
 	{ "effect",	skilled_effect, NULL,	&effects		},
@@ -198,7 +198,7 @@ OLC_FUN(skilled_save)
 		mlstr_fwrite(fp, "ObjWearOff", &sk->msg_obj);
 		C_FOREACH(ev, &sk->events) {
 			fprintf(fp, "Event %s %s\n",
-				flag_string(events_classes, ev->event),
+				flag_string(event_classes, ev->event),
 				ev->fun_name);
 		}
 		fprintf(fp, "End\n\n");
@@ -268,7 +268,7 @@ OLC_FUN(skilled_show)
 	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj, DUMP_LEVEL(ch));
 	C_FOREACH(ev, &sk->events) {
 		buf_printf(buf, BUF_END, "Event: [%s] %s\n",
-		    flag_string(events_classes, ev->event),
+		    flag_string(event_classes, ev->event),
 		    ev->fun_name);
 	}
 
@@ -418,11 +418,11 @@ OLC_FUN(skilled_event)
 
 	if (!str_cmp(arg, "?")) {
 		act_char("Valid event classes are:", ch);
-		show_flags(ch, events_classes);
+		show_flags(ch, event_classes);
 		return FALSE;
 	}
 
-	if ((event = flag_value(events_classes, arg)) < 0) {
+	if ((event = flag_value(event_classes, arg)) < 0) {
 		act_puts("SkillEd: $t: unknown event.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
@@ -440,14 +440,14 @@ OLC_FUN(skilled_event)
 
 		if (ev == NULL) {
 			act_puts("SkillEd: $t: event not found.",
-				 ch, flag_string(events_classes, event), NULL,
+				 ch, flag_string(event_classes, event), NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
 		varr_edelete(&sk->events, ev);
 		act_puts("SkillEd: $t: event deleted.",
-			 ch, flag_string(events_classes, event), NULL,
+			 ch, flag_string(event_classes, event), NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return TRUE;
 	}
@@ -463,7 +463,7 @@ OLC_FUN(skilled_event)
 		ev->event = event;
 	} else {
 		act_puts("SkillEd: $t: changing existing event, events module should be reloaded.",
-			 ch, flag_string(events_classes, event), NULL,
+			 ch, flag_string(event_classes, event), NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
