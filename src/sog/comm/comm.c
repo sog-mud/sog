@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.246 2001-07-29 20:15:06 fjoe Exp $
+ * $Id: comm.c,v 1.247 2001-07-31 14:56:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -164,7 +164,7 @@ bool		    merc_down;		/* Shutdown			*/
 bool		    wizlock;		/* Game is wizlocked		*/
 bool		    newlock;		/* Game is newlocked		*/
 char		    str_boot_time[26];
-time_t		    current_time;	/* time of this pulse */	
+time_t		    current_time;	/* time of this pulse */
 int                 iNumPlayers = 0; /* The number of players on */
 
 int	init_socket		(int port);
@@ -251,16 +251,16 @@ int main(int argc, char **argv)
 	 * Init time.
 	 */
 	gettimeofday(&now_time, NULL);
-	current_time 	= (time_t) now_time.tv_sec;
+	current_time	= (time_t) now_time.tv_sec;
 	strnzcpy(str_boot_time, sizeof(str_boot_time), strtime(current_time));
 
 	/*
 	 * Run the game.
 	 */
-	
+
 #if defined (WIN32)
 	srand((unsigned) time(NULL));
-	err = WSAStartup(wVersionRequested, &wsaData); 
+	err = WSAStartup(wVersionRequested, &wsaData);
 	if (err) {
 		log(LOG_INFO, "winsock.dll: %s", strerror(errno));
 		exit(1);

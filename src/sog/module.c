@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.21 2001-06-24 21:12:49 avn Exp $
+ * $Id: module.c,v 1.22 2001-07-31 14:56:24 fjoe Exp $
  */
 
 /*
@@ -49,9 +49,13 @@ static DECLARE_FOREACH_CB(mod_load_cb);
 static DECLARE_FOREACH_CB(mod_unload_cb);
 static DECLARE_FOREACH_CB(mod_lookup_cb);
 
+static DECLARE_FOREACH_CB(boot_load_cb);
+static DECLARE_FOREACH_CB(boot_cb);
+
 static int	modset_add	(varr *v, module_t *m, time_t curr_time);
 static module_t *modset_search	(varr *v, const char *name);
 static int	modset_elem_cmp	(const void *, const void *);
+static int	module_cmp	(const void *p, const void *q);
 
 static varrdata_t v_modset = {
 	sizeof(module_t*), 4,
@@ -86,26 +90,27 @@ mod_lookup(const char *name)
 	return varr_foreach(&modules, mod_lookup_cb, name);
 }
 
+void
+boot_modules()
+{
+	time_t curr_time;
+
+	time(&curr_time);
+
+	varr_qsort(&modules, module_cmp);
+	varr_foreach(&modules, boot_load_cb, curr_time);
+	varr_foreach(&modules, boot_cb);
+}
+
 /*--------------------------------------------------------------------
  * static functions
  */
 
-static FOREACH_CB_FUN(mod_lookup_cb, p, ap)
-{
-	module_t *m = (module_t *) p;
-
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_prefix(name, m->name))
-		return m;
-
-	return NULL;
-}
-
 /*
  * load module
  */
-static FOREACH_CB_FUN(mod_load_cb, arg, ap)
+static
+FOREACH_CB_FUN(mod_load_cb, arg, ap)
 {
 	module_t *m = *(module_t **) arg;
 
@@ -156,7 +161,8 @@ static FOREACH_CB_FUN(mod_load_cb, arg, ap)
 /*
  * unload previously loaded module
  */
-static FOREACH_CB_FUN(mod_unload_cb, arg, ap)
+static
+FOREACH_CB_FUN(mod_unload_cb, arg, ap)
 {
 	module_t *m = *(module_t **) arg;
 
@@ -175,7 +181,51 @@ static FOREACH_CB_FUN(mod_unload_cb, arg, ap)
 	return NULL;
 }
 
-static FOREACH_CB_FUN(modset_add_cb, p, ap)
+static
+FOREACH_CB_FUN(mod_lookup_cb, p, ap)
+{
+	module_t *m = (module_t *) p;
+
+	const char *name = va_arg(ap, const char *);
+
+	if (!str_prefix(name, m->name))
+		return m;
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(boot_load_cb, p, ap)
+{
+	module_t *m = (module_t *) p;
+
+	time_t curr_time = va_arg(ap, time_t);
+
+	if (mod_load(m, curr_time) < 0)
+		exit(1);
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(boot_cb, p, ap)
+{
+	module_t *m = (module_t *) p;
+
+	int (*cb)(void);
+
+	if (m->dlh == NULL
+	||  (cb = dlsym(m->dlh, "_module_boot")) == NULL) // notrans
+		return NULL;
+
+	if (cb() < 0)
+		exit(1);
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(modset_add_cb, p, ap)
 {
 	module_t *m = (module_t *) p;
 
@@ -239,7 +289,8 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 	return 0;
 }
 
-static FOREACH_CB_FUN(modset_search_cb, p, ap)
+static
+FOREACH_CB_FUN(modset_search_cb, p, ap)
 {
 	module_t *m = *(module_t **) p;
 
@@ -262,6 +313,15 @@ modset_elem_cmp(const void *p, const void *q)
 {
 	const module_t *m1 = *(const module_t **) p;
 	const module_t *m2 = *(const module_t **) q;
+
+	return m2->mod_prio - m1->mod_prio;
+}
+
+static int
+module_cmp(const void *p, const void *q)
+{
+	const module_t *m1 = (const module_t *) p;
+	const module_t *m2 = (const module_t *) q;
 
 	return m2->mod_prio - m1->mod_prio;
 }

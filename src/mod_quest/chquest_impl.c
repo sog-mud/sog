@@ -23,23 +23,46 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.2 2001-07-29 20:14:56 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.3 2001-07-31 14:56:18 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
+#include <db.h>
 
-#include "handler.h"
+#include <handler.h>
 
 #include "_chquest.h"
 
 chquest_t *chquest_list;		/* global list of chquests	     */
 
 void
+chquest_init(void)
+{
+	int i;
+
+	for (i = 0; i < MAX_KEY_HASH; i++) {
+		OBJ_INDEX_DATA *pObjIndex;
+
+		for (pObjIndex = obj_index_hash[i]; pObjIndex != NULL;
+		     pObjIndex = pObjIndex->next) {
+			if (IS_SET(pObjIndex->obj_flags, OBJ_CHQUEST))
+				chquest_add(pObjIndex);
+		}
+	}
+}
+
+void
 chquest_update(void)
 {
 	chquest_t *q;
+	static bool chquest_started;
+
+	if (!chquest_started) {
+		chquest_start(0);
+		chquest_started = TRUE;
+	}
 
 	for (q = chquest_list; q; q = q->next) {
 		if (!IS_WAITING(q))
@@ -61,7 +84,7 @@ chquest_startq(chquest_t *q)
 
 #if CHQUEST_DEBUG
 	log(LOG_INFO, "chquest_startq: started chquest for '%s' (vnum %d)",
-	   	   mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+	    mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 
 	SET_RUNNING(q);
@@ -113,4 +136,3 @@ chquest_lookup_obj(OBJ_DATA *obj)
 		return NULL;
 	return q;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.16 2001-07-29 20:14:30 fjoe Exp $
+ * $Id: quest.h,v 1.17 2001-07-31 14:55:56 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
@@ -34,9 +34,6 @@
 #undef MODULE_NAME
 #define MODULE_NAME MOD_QUEST
 #include <dynafun_decl.h>
-
-/* flags for chquest_start */
-#define CHQUEST_F_NODELAY	(A)
 
 __MODULE_START_DECL
 
@@ -49,9 +46,6 @@ DECLARE_PROC3(qtrouble_set,
 	      ARG(CHAR_DATA), ch, ARG(int), vnum, ARG(int), count)
 DECLARE_PROC2(qtrouble_dump,
 	      ARG(BUFFER), buf, ARG(CHAR_DATA), ch)
-
-DECLARE_PROC1(chquest_start,
-	      ARG(int), flags)
 
 DECLARE_PROC1(chquest_add,
 	      ARG(OBJ_INDEX_DATA), obj_index)

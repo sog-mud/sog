@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.30 2001-07-30 13:01:55 fjoe Exp $
+ * $Id: eventfun.c,v 1.31 2001-07-31 14:56:08 fjoe Exp $
  */
 
 
@@ -219,7 +219,7 @@ EVENT_FUN(event_update_rlight, ch, af)
 
 EVENT_FUN(event_updatechar_wcurse, ch, af)
 {
-	AFFECT_DATA  witch;
+	AFFECT_DATA *paf;
 
 	if (ch->in_room == NULL)
 		return;
@@ -228,17 +228,12 @@ EVENT_FUN(event_updatechar_wcurse, ch, af)
 	    ch, NULL, NULL, TO_ROOM);
 	act_char("The witch curse makes you feeling your life slipping away.", ch);
 
-	witch.where = af->where;
-	witch.type  = af->type;
-	witch.level = af->level;
-	witch.duration = af->duration;
-	witch.location = af->location;
-	witch.modifier = af->modifier * 2;
-	witch.bitvector = 0;
-	witch.owner = af->owner;
-
+	paf = aff_dup(af);
+	paf->modifier *= 2;
 	affect_remove(ch, af);
-	affect_to_char2(ch ,&witch);
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	ch->hit = UMIN(ch->hit, ch->max_hit);
 	if (ch->hit < 1) {
 		if (IS_IMMORTAL(ch))

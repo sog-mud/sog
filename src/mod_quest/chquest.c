@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.20 2000-06-08 19:43:57 fjoe Exp $
+ * $Id: chquest.c,v 1.21 2001-07-31 14:56:18 fjoe Exp $
  */
 
 /*
@@ -33,7 +33,7 @@
  * in the start of the game (chquest_start) or by request of an immortal
  * ('chquest start'). Challenge items can be located only if they are
  * carried by someone. Challenge items are dropped when the char quits
- * the game. All questors can locate challenge items and 
+ * the game. All questors can locate challenge items and
  * inform characters about current challenge items status ("carried by someone"
  * or "is somewhere (not found yet)").
  * If challenge items is extracted, the challenge is restarted automagically
@@ -91,7 +91,8 @@ chquest_add(OBJ_INDEX_DATA *obj_index)
  * chquest_delete -- delete obj_index from list of challenge quests
  *		     returns TRUE on success, FALSE on error
  */
-bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
+bool
+chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 {
 	chquest_t *q;
 	chquest_t *q_prev = NULL;
@@ -127,7 +128,7 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 
 /*
  * stop challenge quest if item is extracted. called from extract_obj
- * quest will be restarted automatically from chquest_update (mod_update) 
+ * quest will be restarted automatically from chquest_update (mod_update)
  * after random delay
  */
 void
@@ -161,4 +162,3 @@ chquest_carried_by(OBJ_DATA *obj)
 
 	return obj->carried_by;
 }
-

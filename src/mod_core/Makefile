@@ -1,8 +1,8 @@
 #
-# $Id: Makefile,v 1.7 2000-06-02 16:40:43 fjoe Exp $
+# $Id: Makefile,v 1.8 2001-07-31 14:55:59 fjoe Exp $
 #
 
 MODULE=		core
-SRCS=		core.c
+SRCS=		init_core.c core.c
 
 .include <bsd.prog.mk>

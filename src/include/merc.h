@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.338 2001-07-30 13:32:55 fjoe Exp $
+ * $Id: merc.h,v 1.339 2001-07-31 14:55:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2008,20 +2008,6 @@ void		help_free	(HELP_DATA*);
 void		boot_db_system	(void);
 void		boot_db		(void);
 
-#define CM_F_NOLIST	(A)	/* do not insert in char_list */
-
-CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex, int flags);
-CHAR_DATA *	create_mob_of	(MOB_INDEX_DATA *pMobIndex, mlstring *owner);
-CHAR_DATA *	clone_mob	(CHAR_DATA *parent);
-
-/* create_obj flags */
-#define CO_F_NOCOUNT	(A)	/* do not update obj count */
-
-OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int flags);
-OBJ_DATA *	create_obj_of	(OBJ_INDEX_DATA *pObjIndex, mlstring *owner);
-OBJ_DATA *	clone_obj	(OBJ_DATA *parent);
-
-void	clear_char	(CHAR_DATA *ch);
 ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
@@ -2038,7 +2024,6 @@ int	dice		(int number, int size);
 int	dice_wlb	(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim);
 int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
-void	tail_chain	(void);
 char *	format_flags	(flag_t flags);
 
 #define chance(num) (number_range(1, 100) <= num)
@@ -2140,8 +2125,5 @@ struct where_t
 };
 
 where_t *where_lookup(flag_t where);
-
-/* XXX temporary affects w/a */
-void	affect_to_char2(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 #endif

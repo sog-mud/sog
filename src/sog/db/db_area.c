@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.111 2001-07-30 13:02:11 fjoe Exp $
+ * $Id: db_area.c,v 1.112 2001-07-31 14:56:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,10 +43,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "merc.h"
-#include "db.h"
-
-#include "quest.h"
+#include <merc.h>
+#include <db.h>
 
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
@@ -1351,7 +1349,7 @@ DBLOAD_FUN(load_objects)
 {
 	bool done;
 	OBJ_INDEX_DATA *pObjIndex;
- 
+
 	if (!area_current) {
 		log(LOG_ERROR, "load_objects: no #AREA seen yet.");
 		return;
@@ -1361,33 +1359,33 @@ DBLOAD_FUN(load_objects)
 		int vnum;
 		char letter;
 		int iHash;
-	 
+
 		letter = fread_letter(fp);
 		if (letter != '#') {
 			log(LOG_ERROR, "load_objects: # not found.");
 			return;
 		}
-	 
+
 		vnum = fread_number(fp);
 		if (vnum == 0)
-		 	break;
-	 
+			break;
+
 		if (get_obj_index(vnum)) {
-		 	log(LOG_ERROR, "load_objects: vnum %d duplicated.", vnum);
+			log(LOG_ERROR, "load_objects: vnum %d duplicated.", vnum);
 			return;
 		}
-	 
+
 		pObjIndex                       = new_obj_index();
-	
+
 		pObjIndex->vnum                 = vnum;
 		pObjIndex->reset_num		= 0;
 		pObjIndex->name                 = fread_string(fp);
 		mlstr_fread(fp, &pObjIndex->short_descr);
-	
+
 		mlstr_fread(fp, &pObjIndex->description);
 		if (mlstr_stripnl(&pObjIndex->description))
 			TOUCH_AREA(area_current);
-	
+
 		free_string(pObjIndex->material);
 		pObjIndex->material		= fread_string(fp);
 
@@ -1452,7 +1450,9 @@ DBLOAD_FUN(load_objects)
 
 		for (done = FALSE; !done;) {
 			AFFECT_DATA *paf;
-			AFFECT_DATA af;
+			int where;
+			vo_t location;
+			int modifier;
 			int16_t resists[MAX_RESIST];
 			int64_t f;
 
@@ -1505,32 +1505,32 @@ DBLOAD_FUN(load_objects)
 			case 'F':
 				letter = fread_letter(fp);
 
-				INT(af.location)= fread_number(fp);
-				af.modifier	= fread_number(fp);
+				INT(location)	= fread_number(fp);
+				modifier	= fread_number(fp);
 				f		= fread_flags64(fp);
 
 				switch (letter) {
 				case 'A':
 				case 'D':
-					af.where = TO_AFFECTS;
+					where = TO_AFFECTS;
 					break;
 				case 'I':
-					af.where = V0_TO_IMMUNE;
+					where = V0_TO_IMMUNE;
 					set_percent_resistances((flag_t)f, 0, 0, resists);
 					break;
 				case 'R':
-					af.where = V0_TO_RESIST;
+					where = V0_TO_RESIST;
 					set_percent_resistances(0, (flag_t)f, 0, resists);
 					break;
 				case 'V':
-					af.where = V0_TO_VULN;
+					where = V0_TO_VULN;
 					set_percent_resistances(0, 0, (flag_t)f, resists);
 					break;
 				case 'i':
-					af.where = TO_INVIS;
+					where = TO_INVIS;
 					break;
 				case 'd':
-					af.where = TO_DETECTS;
+					where = TO_DETECTS;
 					break;
 				default:
 					log(LOG_ERROR, "load_objects: vnum %d: '%c': bad where on flag.", pObjIndex->vnum, letter);
@@ -1538,9 +1538,9 @@ DBLOAD_FUN(load_objects)
 				}
 
 				if (area_current->ver == 0
-				||  (af.where == V0_TO_IMMUNE)
-				||  (af.where == V0_TO_RESIST)
-				||  (af.where == V0_TO_VULN)) {
+				||  where == V0_TO_IMMUNE
+				||  where == V0_TO_RESIST
+				||  where == V0_TO_VULN) {
 					int i;
 					for (i = 0; i < MAX_RESIST; i++) {
 						if (resists[i]) {
@@ -1556,20 +1556,20 @@ DBLOAD_FUN(load_objects)
 						}
 					}
 
-					if (af.modifier) {
+					if (modifier) {
 						paf = aff_new(
 						    TO_AFFECTS, str_empty);
 						paf->level = pObjIndex->level;
 						paf->duration = -1;
-						paf->location = af.location;
+						paf->location = location;
 						paf->bitvector = 0;
-						paf->modifier = af.modifier;
+						paf->modifier = modifier;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
 					}
 					break;
 				}
 
-				if (af.where == TO_AFFECTS
+				if (where == TO_AFFECTS
 				&&  area_current->ver == 0) {
 					flag_t f2;
 
@@ -1581,12 +1581,12 @@ DBLOAD_FUN(load_objects)
 						paf = aff_new(
 						    TO_AFFECTS, str_empty);
 						paf->duration = -1;
-						paf->location = af.location;
-						paf->modifier = af.modifier;
+						paf->location = location;
+						paf->modifier = modifier;
 						paf->bitvector = f2;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						INT(af.location) = APPLY_NONE;
-						af.modifier = 0;
+						INT(location) = APPLY_NONE;
+						modifier = 0;
 					}
 
 					/*
@@ -1598,12 +1598,12 @@ DBLOAD_FUN(load_objects)
 						    TO_INVIS, str_empty);
 						paf->level = pObjIndex->level;
 						paf->duration = -1;
-						paf->location = af.location;
-						paf->modifier = af.modifier;
+						paf->location = location;
+						paf->modifier = modifier;
 						paf->bitvector = f2;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						INT(af.location) = APPLY_NONE;
-						af.modifier = 0;
+						INT(location) = APPLY_NONE;
+						modifier = 0;
 					}
 
 					/*
@@ -1615,42 +1615,42 @@ DBLOAD_FUN(load_objects)
 						    TO_DETECTS, str_empty);
 						paf->level = pObjIndex->level;
 						paf->duration = -1;
-						paf->location = af.location;
-						paf->modifier = af.modifier;
+						paf->location = location;
+						paf->modifier = modifier;
 						paf->bitvector = f2;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						INT(af.location) = APPLY_NONE;
-						af.modifier = 0;
+						INT(location) = APPLY_NONE;
+						modifier = 0;
 					}
 
-					if (!af.modifier)
+					if (!modifier)
 						break;
 
-					af.where = TO_AFFECTS;
+					where = TO_AFFECTS;
 					f = 0;
 				}
 
-				if (af.where == TO_AFFECTS
-				&&  INT(af.location) >= 27
+				if (where == TO_AFFECTS
+				&&  INT(location) >= 27
 				&&  area_current->ver < 4) {
 					paf = aff_new(TO_RESIST, str_empty);
 					paf->level = pObjIndex->level;
 					paf->duration = -1;
 					INT(paf->location) = damtbl[
-					    UMIN(INT(af.location)-27,
+					    UMIN(INT(location)-27,
 						 (int) DAMTBL_SZ-1)];
-					paf->modifier = af.modifier;
+					paf->modifier = modifier;
 					paf->bitvector = 0;
 					SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-					INT(af.location) = APPLY_NONE;
-					af.modifier = 0;
+					INT(location) = APPLY_NONE;
+					modifier = 0;
 				}
 
-				paf		= aff_new(af.where, str_empty);
+				paf		= aff_new(where, str_empty);
 				paf->level	= pObjIndex->level;
 				paf->duration	= -1;
-				paf->location	= af.location;
-				paf->modifier	= af.modifier;
+				paf->location	= location;
+				paf->modifier	= modifier;
 				paf->bitvector	= f;
 
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
@@ -1697,8 +1697,5 @@ DBLOAD_FUN(load_objects)
 		obj_index_hash[iHash]   = pObjIndex;
 		top_vnum_obj = UMAX(top_vnum_obj, vnum);
 		vnum_check(area_current, vnum);
-	
-		if (IS_SET(pObjIndex->obj_flags, OBJ_CHQUEST))
-			chquest_add(pObjIndex);
 	}
 }

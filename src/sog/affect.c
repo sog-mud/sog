@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.57 2001-07-30 13:02:06 fjoe Exp $
+ * $Id: affect.c,v 1.58 2001-07-31 14:56:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,8 +31,6 @@
 #include <merc.h>
 #include <rfile.h>
 #include <db.h>
-
-#include "affects.h"	/* XXX temporary w/a */
 
 AFFECT_DATA *
 aff_new(int where, const char *sn)
@@ -70,7 +68,7 @@ aff_dup(const AFFECT_DATA *paf)
 	switch (paf->where) {
 	case TO_RACE:
 	case TO_SKILLS:
-		naf->location.s = str_dup(paf->location.s);
+		naf->location.s = str_qdup(paf->location.s);
 		break;
 	default:
 		INT(naf->location) = INT(paf->location);
@@ -235,13 +233,4 @@ aff_fread(rfile_t *fp)
 	paf->bitvector = fread_flags(fp);
 
 	return paf;
-}
-
-/* XXX temporary w/a */
-void
-affect_to_char2(CHAR_DATA *ch, AFFECT_DATA *paf)
-{
-	AFFECT_DATA *af = aff_dup(paf);
-	affect_to_char(ch, af);
-	aff_free(af);
 }

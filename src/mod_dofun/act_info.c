@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.382 2001-07-30 13:01:49 fjoe Exp $
+ * $Id: act_info.c,v 1.383 2001-07-31 14:56:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -596,22 +596,19 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		/* Love potion */
 		if (is_affected(ch, "love potion") && (victim != ch)) {
-			AFFECT_DATA af;
+			AFFECT_DATA *paf;
 
 			affect_strip(ch, "love potion");
 
 			add_follower(ch, victim);
 			set_leader(ch, victim);
 
-			af.where = TO_AFFECTS;
-			af.type = "charm person";
-			af.level = ch->level;
-			af.duration =  number_fuzzy(victim->level / 4);
-			af.bitvector = AFF_CHARM;
-			af.modifier = 0;
-			af.owner = NULL;
-			INT(af.location) = 0;
-			affect_to_char2(ch, &af);
+			paf = aff_new(TO_AFFECTS, "charm person");
+			paf->level = ch->level;
+			paf->duration =  number_fuzzy(victim->level / 4);
+			paf->bitvector = AFF_CHARM;
+			affect_to_char(ch, paf);
+			aff_free(paf);
 
 			act("Isn't $n just so nice?",
 			    victim, NULL, ch, TO_VICT);
@@ -1815,7 +1812,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	char arg2 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int carry_w, carry_n;
 
 	if (is_affected(ch, "reserved")) {
@@ -1865,8 +1862,8 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (((obj = get_obj_carry(victim , arg1)) == NULL
-	&&  (obj = get_obj_wear(victim, arg1)) == NULL)
+	if (((obj = get_obj_carry(victim , arg1)) == NULL &&
+	     (obj = get_obj_wear(victim, arg1)) == NULL)
 	||  IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		do_say(victim, "Sorry, I don't have that.");
 		return;
@@ -1924,19 +1921,15 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	ch->hit -= 3 * (ch->level / 2);
 	ch->hit = UMAX(ch->hit, 0);
 
-	act("You feel grateful for the trust of $N.", ch, NULL, victim,
-	    TO_CHAR);
+	act("You feel grateful for the trust of $N.",
+	    ch, NULL, victim, TO_CHAR);
 	act_char("and for the goodness you have seen in the world.", ch);
 
-	af.type = "reserved";
-	af.where = TO_AFFECTS;
-	af.level = ch->level;
-	af.duration = ch->level / 10;
-	INT(af.location) = APPLY_NONE;
-	af.modifier = 0;
-	af.bitvector = 0;
-	af.owner = NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "reserved");
+	paf->level = ch->level;
+	paf->duration = ch->level / 10;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 }
 
 void do_hometown(CHAR_DATA *ch, const char *argument)
@@ -2014,7 +2007,7 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 
 void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA	af;
+	AFFECT_DATA	*paf;
 	int		chance;
 
 	if ((chance = get_skill(ch, "detect hide")) == 0) {
@@ -2033,22 +2026,20 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where     = TO_DETECTS;
-	af.type      = "detect hide";
-	af.level     = LEVEL(ch);
-	af.duration  = LEVEL(ch);
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = ID_HIDDEN;
-	af.owner     = NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_DETECTS, "detect hide");
+	paf->level     = LEVEL(ch);
+	paf->duration  = LEVEL(ch);
+	paf->bitvector = ID_HIDDEN;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	act_char("Your awareness improves.", ch);
 	check_improve(ch, "detect hide", TRUE, 1);
 }
 
 void do_awareness(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA	af;
+	AFFECT_DATA	*paf;
 	int		chance;
 
 	if ((chance = get_skill(ch, "awareness")) == 0) {
@@ -2067,17 +2058,12 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where     = TO_INVIS;
-	af.type      = "awareness";
-	af.level     = LEVEL(ch);
-	af.duration  = LEVEL(ch);
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = ID_BLEND | ID_CAMOUFLAGE;
-	af.owner     = NULL;
-	affect_to_char2(ch, &af);
-
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_INVIS, "awareness");
+	paf->level     = LEVEL(ch);
+	paf->duration  = LEVEL(ch);
+	paf->bitvector = ID_BLEND | ID_CAMOUFLAGE;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act_char("Your awareness improves.", ch);
 	check_improve(ch, "awareness", TRUE, 1);
@@ -2090,7 +2076,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *	gch;
 	CHAR_DATA *	bear;
 	CHAR_DATA *	bear2;
-	AFFECT_DATA	af;
+	AFFECT_DATA	*paf;
 	int		i;
 	int		chance;
 	int		mana;
@@ -2175,15 +2161,11 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	act_char("Two bears come to your rescue!", ch);
 	act("Two bears come to $n's rescue!", ch, NULL, NULL, TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type 	= "bear call";
-	af.level	= ch->level;
-	af.duration	= skill_beats("bear call");
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "bear call");
+	paf->level	= ch->level;
+	paf->duration	= skill_beats("bear call");
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	char_to_room(bear, ch->in_room);
 	char_to_room(bear2, ch->in_room);
@@ -2810,7 +2792,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *	gch;
 	CHAR_DATA *	lion;
 	CHAR_DATA *	lion2;
-	AFFECT_DATA	af;
+	AFFECT_DATA	*paf;
 	int		i;
 	int		chance;
 	int		mana;
@@ -2895,15 +2877,11 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	act_char("Two lions come to your rescue!", ch);
 	act("Two lions come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type 	= "lion call";
-	af.level	= ch->level;
-	af.duration	= skill_beats("lion call");
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "lion call");
+	paf->level	= ch->level;
+	paf->duration	= skill_beats("lion call");
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	char_to_room(lion, ch->in_room);
 	char_to_room(lion2, ch->in_room);

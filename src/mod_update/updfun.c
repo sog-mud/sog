@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.30 2001-07-29 20:14:58 fjoe Exp $
+ * $Id: updfun.c,v 1.31 2001-07-31 14:56:21 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -162,7 +162,7 @@ mobile_update_cb(void *vo, va_list ap)
 	&&  current_time - ch->last_fight_time >= FIGHT_DELAY_TIME
 	&&  IS_PUMPED(ch)) {
 		if (!IS_NPC(ch) && ch->desc != NULL
-		&&  ch->desc->pString == NULL 
+		&&  ch->desc->pString == NULL
 		&&  (ch->last_death_time == -1 ||
 		     ch->last_death_time < ch->last_fight_time)) {
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);
@@ -181,7 +181,7 @@ mobile_update_cb(void *vo, va_list ap)
 	if (IS_AFFECTED(ch, AFF_CORRUPTION) && ch->in_room != NULL) {
 		ch->hit -=  ch->level / 10;
 		if (ch->hit < 1) {
-			if (IS_IMMORTAL(ch)) 
+			if (IS_IMMORTAL(ch))
 				ch->hit = 1;
 			else {
 				ch->position = POS_DEAD;
@@ -255,7 +255,7 @@ mobile_update_cb(void *vo, va_list ap)
 				mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_DELAY);
 				return NULL;
 			}
-		} 
+		}
 		if (HAS_TRIGGER(ch, TRIG_RANDOM)) {
 			if(mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_RANDOM))
 			return NULL;
@@ -389,7 +389,7 @@ mobile_update_cb(void *vo, va_list ap)
 	}
 
 /* Wander */
-	if (!IS_SET(act, ACT_SENTINEL) 
+	if (!IS_SET(act, ACT_SENTINEL)
 	&&  number_bits(3) == 0
 	&&  (door = number_bits(5)) <= 5
 	&&  !RIDDEN(ch)
@@ -472,7 +472,7 @@ weather_update(void)
 	weather_info.mmhg  = UMIN(weather_info.mmhg, 1040);
 
 	switch (weather_info.sky) {
-	default: 
+	default:
 		log(LOG_BUG, "Weather_update: bad sky %d.", weather_info.sky);
 		weather_info.sky = SKY_CLOUDLESS;
 		break;
@@ -608,10 +608,10 @@ char_update_cb(void *vo, va_list ap)
 
 		/* check to see if we need to go home */
 		if (IS_NPC(ch)
-		&&  (npc = NPC(ch))->zone != NULL 
+		&&  (npc = NPC(ch))->zone != NULL
 		&&  ch->in_room != NULL
 		&&  npc->zone != ch->in_room->area
-		&&  ch->desc == NULL 
+		&&  ch->desc == NULL
 		&&  ch->fighting == NULL
 /* && ch->progtypes==0 */
 		&&  !IS_AFFECTED(ch, AFF_CHARM)
@@ -813,7 +813,7 @@ water_float_update_cb(void *vo, va_list ap)
 
 	if (obj->water_float == 0) {
 		act("$p sinks down the water.",
-		    obj->in_room->people, obj, NULL, TO_ALL); 
+		    obj->in_room->people, obj, NULL, TO_ALL);
 		extract_obj(obj, 0);
 	}
 
@@ -859,7 +859,7 @@ obj_update_cb(void *vo, va_list ap)
 		oprog_call(OPROG_AREA, obj, NULL, NULL);
 #endif
 
-	if (material_is(obj, MATERIAL_SUSC_HEAT) 
+	if (material_is(obj, MATERIAL_SUSC_HEAT)
 	&&  update_melt_obj(obj))
 		return NULL;
 
@@ -891,12 +891,12 @@ obj_update_cb(void *vo, va_list ap)
 		message = "$p decomposes.";
 		break;
 	case ITEM_POTION:
-		message = "$p has evaporated from disuse.";	
+		message = "$p has evaporated from disuse.";
 		break;
 	case ITEM_PORTAL:
 		message = "$p fades out of existence.";
 		break;
-	case ITEM_CONTAINER: 
+	case ITEM_CONTAINER:
 		if (CAN_WEAR(obj, ITEM_WEAR_FLOAT))
 			if (obj->contains)
 				message = "$p flickers and vanishes, spilling "
@@ -909,7 +909,7 @@ obj_update_cb(void *vo, va_list ap)
 	}
 
 	if (obj->carried_by) {
-		if (IS_NPC(obj->carried_by) 
+		if (IS_NPC(obj->carried_by)
 		&&  obj->carried_by->pMobIndex->pShop != NULL)
 			obj->carried_by->silver += obj->cost/5;
 		else {
@@ -954,7 +954,7 @@ aggr_update_cb(void *vo, va_list ap)
 
 void
 light_update(void)
-{   
+{
 	CHAR_DATA *ch;
 	int dam_light;
 	DESCRIPTOR_DATA *d;
@@ -1057,7 +1057,7 @@ check_reboot(void)
 		}
 
 		/* FALLTHRU */
-	default: 
+	default:
 		reboot_counter--;
 		break;
 	}
@@ -1065,7 +1065,7 @@ check_reboot(void)
 
 void *
 track_update_cb(void *vo, va_list ap)
-{   
+{
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 
 	CHAR_DATA *victim;
@@ -1076,7 +1076,7 @@ track_update_cb(void *vo, va_list ap)
 	if (IS_AFFECTED(ch, AFF_CALM | AFF_CHARM | AFF_SCREAM)
         ||  ch->fighting
 	||  !ch->in_room
-        ||  !IS_AWAKE(ch) 
+        ||  !IS_AWAKE(ch)
 	||  RIDDEN(ch))
 		return NULL;
 
@@ -1089,7 +1089,7 @@ track_update_cb(void *vo, va_list ap)
 	if (victim != NULL) {
 		add_mind(ch, victim->name);
 
-        	if (!IS_SET(ch->pMobIndex->act, ACT_NOTRACK)
+		if (!IS_SET(ch->pMobIndex->act, ACT_NOTRACK)
 		&&  (was_in_room = ch->in_room) != victim->in_room) {
 			dofun("track", ch, victim->name);
 			if (IS_EXTRACTED(ch))
@@ -1227,7 +1227,7 @@ area_update(void)
 			DESCRIPTOR_DATA *d;
 			CHAR_DATA *ch;
 
-	 		for (d = descriptor_list; d; d = d->next)  {
+			for (d = descriptor_list; d; d = d->next)  {
 				if (d->connected != CON_PLAYING)
 					continue;
 
@@ -1278,13 +1278,13 @@ void auction_update(void)
 	case 2 : /* going twice */
 	        if (auction.bet > 0) {
 			act_auction("$p: going $T for $J gold.",
-				    auction.item, 
+				    auction.item,
 				    (auction.going == 1) ? "once" : "twice",
 				    (const void*) auction.bet,
 				    ACT_FORMSH, POS_RESTING);
 	        } else {
-	        	act_auction("$p: going $T, starting price $J gold.",
-				    auction.item, 
+			act_auction("$p: going $T, starting price $J gold.",
+				    auction.item,
 				    (auction.going == 1) ? "once" : "twice",
 				    (const void*) auction.starting,
 				    ACT_FORMSH, POS_RESTING);
@@ -1296,7 +1296,7 @@ void auction_update(void)
 			int tax;
 			int pay;
 
-	        	act_auction("$p: sold to $N for $J gold.",
+			act_auction("$p: sold to $N for $J gold.",
 				    auction.item, auction.buyer,
 				    (const void*) auction.bet,
 				    ACT_FORMSH, POS_RESTING);
@@ -1314,7 +1314,7 @@ void auction_update(void)
 			PC(auction.seller)->bank_g += pay;
 		} else {
 			/* not sold */
-	        	act_auction("No bets received for $p.",
+			act_auction("No bets received for $p.",
 				    auction.item, NULL, NULL,
 				    ACT_FORMSH, POS_RESTING);
 			act_auction("Object has been removed from auction.",
@@ -1323,7 +1323,7 @@ void auction_update(void)
 			auction_give_obj(auction.seller);
 	        }
         }
-} 
+}
 
 /*----------------------------------------------------------------------------
  * locals
@@ -1466,7 +1466,7 @@ hit_gain(CHAR_DATA *ch)
 
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
- 		if (IS_AFFECTED(ch, AFF_REGENERATION))
+		if (IS_AFFECTED(ch, AFF_REGENERATION))
 			gain *= 2;
 
 		switch(ch->position) {
@@ -1474,7 +1474,7 @@ hit_gain(CHAR_DATA *ch)
 		case POS_SLEEPING:	gain = 3 * gain/2;	break;
 		case POS_RESTING:				break;
 		case POS_FIGHTING:	gain /= 3;		break;
- 		}
+		}
 	} else {
 		class_t *cl;
 
@@ -1482,9 +1482,9 @@ hit_gain(CHAR_DATA *ch)
 			return 0;
 
 		gain = UMAX(3, 2 * get_curr_stat(ch, STAT_CON) +
-			       (7 * ch->level) / 4); 
+			       (7 * ch->level) / 4);
 		gain = (gain * cl->hp_rate) / 100;
- 		number = number_percent();
+		number = number_percent();
 		if (number < get_skill(ch, "fast healing")) {
 			gain += number * gain / 100;
 			if (ch->hit < ch->max_hit)
@@ -1499,7 +1499,7 @@ hit_gain(CHAR_DATA *ch)
 
 		switch (ch->position) {
 		default:		gain /= 4;		break;
-		case POS_SLEEPING: 				break;
+		case POS_SLEEPING:				break;
 		case POS_RESTING:	gain /= 2;		break;
 		case POS_FIGHTING:	gain /= 6;		break;
 		}
@@ -1512,7 +1512,7 @@ hit_gain(CHAR_DATA *ch)
 	}
 
 	gain = gain * GET_HEAL_RATE(ch->in_room) / 100;
-	
+
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * INT(ch->on->value[3]) / 100;
 
@@ -1578,7 +1578,7 @@ mana_gain(CHAR_DATA *ch)
 
 		switch (ch->position) {
 		default:		gain /= 4;	break;
-		case POS_SLEEPING: 			break;
+		case POS_SLEEPING:			break;
 		case POS_RESTING:	gain /= 2;	break;
 		case POS_FIGHTING:	gain /= 6;	break;
 		}
@@ -1677,11 +1677,11 @@ update_obj_affects(OBJ_DATA *obj)
 	for (paf = obj->affected; paf != NULL; paf = paf_next) {
 		paf_next    = paf->next;
 		if (paf->duration > 0) {
-        		paf->duration--;
+			paf->duration--;
 			/* spell strength fades with time */
-        		if (number_range(0,4) == 0 && paf->level > 0)
+			if (number_range(0,4) == 0 && paf->level > 0)
 				paf->level--;
-        	} else if (paf->duration == 0) {
+		} else if (paf->duration == 0) {
 			skill_t *sk;
 
 			if ((paf_next == NULL || paf_next->type != paf->type ||
@@ -1695,15 +1695,15 @@ update_obj_affects(OBJ_DATA *obj)
 						   TO_CHAR, POS_DEAD);
 				}
 
-				if (obj->in_room != NULL 
+				if (obj->in_room != NULL
 				&&  obj->in_room->people) {
 					act_mlputs(&sk->msg_obj,
 						   obj->in_room->people, obj,
 						   NULL, TO_ALL, POS_DEAD);
 				}
-                	}
+			}
 			affect_remove_obj(obj, paf);
-        	}
+		}
 	}
 }
 
@@ -1874,7 +1874,7 @@ find_aggr_cb(void *vo, va_list ap)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  !IS_AWAKE(ch)
 	||  (IS_SET(act, ACT_WIMPY) && IS_AWAKE(wch))
-	||  !can_see(ch, wch) 
+	||  !can_see(ch, wch)
 	||  number_bits(1) == 0
 	||  is_safe_nomessage(ch, wch))
 		return NULL;
@@ -1889,7 +1889,7 @@ find_aggr_cb(void *vo, va_list ap)
 		if (npc->last_fought == wch
 		&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
 			act_yell(ch, "$i! Now you die!", wch, NULL);
-			wch = check_guard(wch, ch); 
+			wch = check_guard(wch, ch);
 			multi_hit(ch, wch, NULL);
 		}
 		return NULL;
@@ -1905,7 +1905,7 @@ find_aggr_cb(void *vo, va_list ap)
 	for (vch = wch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (!IS_NPC(vch)
 		&&  vch->level < LEVEL_IMMORTAL
-		&&  ch->level >= vch->level - 5 
+		&&  ch->level >= vch->level - 5
 		&&  (!IS_SET(act, ACT_WIMPY) || !IS_AWAKE(vch))
 		&&  can_see(ch, vch)
 		&&  !is_safe_nomessage(ch, vch)
@@ -1959,7 +1959,7 @@ clan_item_update_cb(void *p, va_list ap)
 
 	OBJ_DATA *obj;
 
-	if (clan->obj_ptr == NULL) 
+	if (clan->obj_ptr == NULL)
 		return NULL;
 
 	if (IS_AUCTIONED(clan->obj_ptr))
@@ -1996,7 +1996,7 @@ print_resetmsg(AREA_DATA *pArea)
 {
 	DESCRIPTOR_DATA *d;
 	bool is_empty = mlstr_null(&pArea->resetmsg);
-	
+
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *ch;
 

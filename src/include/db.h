@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.82 2001-07-08 20:16:30 fjoe Exp $
+ * $Id: db.h,v 1.83 2001-07-31 14:55:50 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -157,11 +157,6 @@ typedef struct {
 extern varr hints;
 
 void	vnum_check	(AREA_DATA *area, int vnum);
-
-void	reset_area      (AREA_DATA * pArea);
-
-#define RESET_F_NOPCHECK (A)
-void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 
 const char *	fix_word	(const char *s);
 char *		fix_string	(const char *s);

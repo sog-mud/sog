@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.180 2001-07-29 20:15:02 fjoe Exp $
+ * $Id: interp.c,v 1.181 2001-07-31 14:56:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,7 +51,7 @@
 #include <cmd.h>
 #include <socials.h>
 
-#include "handler.h"
+#include "handler.h"	// interpret_social
 
 #undef IMMORTALS_LOGS
 
@@ -185,7 +185,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (IS_AFFECTED(ch, AFF_CHARM)
 			&&  !IS_SET(cmd->cmd_flags, CMD_CHARMED_OK)
 			&&  ch->master != NULL
-			&&  cmd->min_level < LEVEL_IMMORTAL 
+			&&  cmd->min_level < LEVEL_IMMORTAL
 			&&  !IS_IMMORTAL(ch)) {
 				act("First ask your beloved master!",
 				    ch, NULL, ch->master, TO_CHAR);
@@ -193,7 +193,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 			}
 		}
 
-		if (IS_AFFECTED(ch, AFF_STUN) 
+		if (IS_AFFECTED(ch, AFF_STUN)
 		&&  !(cmd->cmd_flags & CMD_KEEP_HIDE)) {
 			act_char("You are STUNNED to do that.", ch);
 			return;
@@ -314,8 +314,6 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		log(LOG_BUG, "interpret: %s: NULL do_fun", cmd->name);
 	else
 		cmd->do_fun(ch, argument);
-
-	tail_chain();
 }
 
 void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
@@ -389,7 +387,7 @@ static uint x_argument(const char *argument, int c, char *arg, size_t len)
 	char *p;
 	char *q;
 	int number;
-    
+
 	if (IS_NULLSTR(argument)) {
 		arg[0] = '\0';
 		return 0;

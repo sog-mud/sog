@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.279 2001-07-29 20:14:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.280 2001-07-31 14:56:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2447,17 +2447,14 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 			/*
 			 * avoid aggressive mobs and hunting mobs attacks
 			 */
-			AFFECT_DATA af;
+			AFFECT_DATA *paf;
 
-			af.where	= TO_AFFECTS;
-			af.type		= "calm";
-			af.level	= MAX_LEVEL;
-			af.duration	= 15;
-			INT(af.location)= APPLY_NONE;
-			af.modifier	= 0;
-			af.bitvector	= AFF_CALM;
-			af.owner	= NULL;
-			affect_to_char2(rch, &af);
+			paf = aff_new(TO_AFFECTS, "calm");
+			paf->level	= MAX_LEVEL;
+			paf->duration	= 15;
+			paf->bitvector	= AFF_CALM;
+			affect_to_char(rch, paf);
+			aff_free(paf);
 		}
 	}
 
@@ -4276,7 +4273,7 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -4284,7 +4281,7 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 {
 	int low, high;
 	char arg[MAX_INPUT_LENGTH];
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	CHAR_DATA *vch;
 
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -4301,15 +4298,13 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= "qtarget";
-	af.level	= low;
-	af.duration	= -1;
-	af.modifier	= high;
-	af.bitvector	= AFF_QUESTTARGET;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(vch, &af);
+	paf = aff_new(TO_AFFECTS, "qtarget");
+	paf->level	= low;
+	paf->duration	= -1;
+	paf->modifier	= high;
+	paf->bitvector	= AFF_QUESTTARGET;
+	affect_to_char(vch, paf);
+	aff_free(paf);
 }
 
 void do_sla(CHAR_DATA *ch, const char *argument)

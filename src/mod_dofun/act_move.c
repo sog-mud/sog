@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.265 2001-07-30 13:01:50 fjoe Exp $
+ * $Id: act_move.c,v 1.266 2001-07-31 14:56:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1160,7 +1160,6 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 
 void do_sneak(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA	af;
 	int		chance;
 
 	if ((chance = get_skill(ch, "sneak")) == 0)
@@ -1182,16 +1181,16 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 	affect_strip(ch, "sneak");
 
 	if (number_percent() < chance) {
+		AFFECT_DATA *paf;
+
 		check_improve(ch, "sneak", TRUE, 3);
-		af.where     = TO_INVIS;
-		af.type      = "sneak";
-		af.level     = LEVEL(ch); 
-		af.duration  = LEVEL(ch);
-		INT(af.location) = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = ID_SNEAK;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+
+		paf = aff_new(TO_INVIS, "sneak");
+		paf->level     = LEVEL(ch);
+		paf->duration  = LEVEL(ch);
+		paf->bitvector = ID_SNEAK;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else
 		check_improve(ch, "sneak", FALSE, 3);
 }
@@ -1287,14 +1286,12 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 }
 
 void do_blend(CHAR_DATA *ch, const char *argument)
-{	
+{
 	int chance;
 	flag_t sector;
 
-	AFFECT_DATA af;
-
 	if ((chance = get_skill(ch, "forest blending")) == 0) {
-		act_puts("You do not know how to blend in the forests.", 
+		act_puts("You do not know how to blend in the forests.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
@@ -1318,28 +1315,28 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-	
+
 	act_puts("You attempt to blend in the forest.",
 		ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	act_puts("$n attempts to blend in the forest.",
 		ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	if (number_percent() < chance) {
-		af.where 	= TO_INVIS;
-		af.type		= "forest blending";
-		af.level	= LEVEL(ch);
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= ID_BLEND;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_INVIS, "forest blending");
+		paf->level	= LEVEL(ch);
+		paf->bitvector	= ID_BLEND;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
 		check_improve(ch, "forest blending", TRUE, 2);
-	} else 
+	} else
 		check_improve(ch, "forest blending", FALSE, 2);
 }
 
 void do_acute(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int chance, mana;
 
 	if (HAS_DETECT(ch, ID_CAMOUFLAGE)) {
@@ -1369,17 +1366,14 @@ void do_acute(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= "acute vision";
-	af.level	= LEVEL(ch);
-	af.duration	= 3 + LEVEL(ch) / 5;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_CAMOUFLAGE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
-	act_char("Your vision sharpens.", ch);
+	paf = aff_new(TO_DETECTS, "acute vision");
+	paf->level	= LEVEL(ch);
+	paf->duration	= 3 + LEVEL(ch) / 5;
+	paf->bitvector	= ID_CAMOUFLAGE;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
+	act_char("Your vision sharpens.", ch);
 	check_improve(ch, "acute vision", TRUE, 3);
 }
 
@@ -1557,10 +1551,9 @@ void do_track(CHAR_DATA *ch, const char *argument)
 
 void do_vampire(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
-	int level, duration;
+	AFFECT_DATA *paf;
 	int chance;
- 
+
 	if (is_affected(ch, "vampire")) {
 		act_char("But you are already vampire. Kill them! Kill them!", ch);
 		return;
@@ -1585,55 +1578,50 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	act_char("You feel yourself getting greater and greater.", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
 
-	level = LEVEL(ch);
-	duration = level / 10 + 5;
-
-	af.type      = "vampire";
-	af.level     = level;
-	af.duration  = duration;
-	af.owner     = NULL;
+	paf = aff_new(TO_RESIST, "vampire");
+	paf->level     = LEVEL(ch);
+	paf->duration  = LEVEL(ch) / 10 + 5;
 
 /* negative immunity */
-	af.where = TO_RESIST;
-	INT(af.location) = DAM_NEGATIVE;
-	af.modifier = 100;
-	af.bitvector = 0;
-	affect_to_char2(ch, &af);
+	INT(paf->location) = DAM_NEGATIVE;
+	paf->modifier = 100;
+	affect_to_char(ch, paf);
 
 /* haste */
-	af.where     = TO_AFFECTS;
-	INT(af.location) = APPLY_DEX;
-	af.modifier  = 1 + (level /20);
-	af.bitvector = AFF_HASTE | AFF_BERSERK | AFF_FLYING | AFF_TURNED;
-	affect_to_char2(ch, &af);
+	paf->where     = TO_AFFECTS;
+	INT(paf->location) = APPLY_DEX;
+	paf->modifier  = 1 + (LEVEL(ch) /20);
+	paf->bitvector = AFF_HASTE | AFF_BERSERK | AFF_FLYING | AFF_TURNED;
+	affect_to_char(ch, paf);
 
 /* giant strength + infrared */
-	INT(af.location) = APPLY_STR;
-	af.modifier  = 1 + (level / 20);
-	af.bitvector = 0;
-	affect_to_char2(ch, &af);
+	INT(paf->location) = APPLY_STR;
+	paf->modifier  = 1 + (LEVEL(ch) / 20);
+	paf->bitvector = 0;
+	affect_to_char(ch, paf);
 
 /* size */
-	INT(af.location) = APPLY_SIZE;
-	af.modifier  = 1 + (level / 50);
-	affect_to_char2(ch, &af);
+	INT(paf->location) = APPLY_SIZE;
+	paf->modifier  = 1 + (LEVEL(ch) / 50);
+	affect_to_char(ch, paf);
 
 /* damroll */
-	INT(af.location) = APPLY_DAMROLL;
-	af.modifier  = ch->damroll;
-	affect_to_char2(ch, &af);
+	INT(paf->location) = APPLY_DAMROLL;
+	paf->modifier  = ch->damroll;
+	affect_to_char(ch, paf);
 
 /* infrared */
-	af.where     = TO_DETECTS;
-	INT(af.location) = 0;
-	af.modifier  = 0;
-	af.bitvector = ID_INFRARED;
-	affect_to_char2(ch, &af);
+	paf->where     = TO_DETECTS;
+	INT(paf->location) = 0;
+	paf->modifier  = 0;
+	paf->bitvector = ID_INFRARED;
+	affect_to_char(ch, paf);
 
 /* sneak */
-	af.where = TO_INVIS;
-	af.bitvector = ID_SNEAK;
-	affect_to_char2(ch, &af);
+	paf->where = TO_INVIS;
+	paf->bitvector = ID_SNEAK;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	free_string(PC(ch)->form_name);
 	PC(ch)->form_name = str_dup("an ugly creature");
@@ -1872,20 +1860,16 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 		act("$n stops blinking.", ch, NULL, NULL, TO_ROOM);
 		affect_strip(ch, "blink");
 	} else {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		act("You start blinking.", ch, NULL, NULL, TO_CHAR);
 		act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
 
-		af.where	= TO_AFFECTS;
-		af.type		= "blink";
-		af.level	= LEVEL(ch);
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= 0;
-		af.duration	= -1;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, "blink");
+		paf->level	= LEVEL(ch);
+		paf->duration	= -1;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	}
 }
 
@@ -1921,7 +1905,7 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	act("$n throws down a small globe.", ch, NULL, NULL, TO_ROOM);
 	check_improve(ch, "vanish", TRUE, 1);
 
-  	if (!IS_NPC(ch) && ch->fighting && number_bits(1) == 1) {
+	if (!IS_NPC(ch) && ch->fighting && number_bits(1) == 1) {
 		act_char("You failed.", ch);
 		return;
 	}
@@ -1936,7 +1920,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 	CHAR_DATA * victim;
 	char arg[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA* to_room;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int chance;
 	int mana;
 
@@ -1990,16 +1974,11 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 	}
 	ch->mana -= mana;
 
-	af.where	= TO_AFFECTS;
-	af.type		= "kidnap";
-	af.level	= ch->level;
-	af.duration	= 3;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
-
+	paf = aff_new(TO_AFFECTS, "kidnap");
+	paf->level	= ch->level;
+	paf->duration	= 3;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE))
 		chance = 0;
@@ -2480,7 +2459,7 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 void do_layhands(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (get_skill(ch, "lay hands") == 0) {
 		act_char("You lack the skill to heal others with touching.", ch);
@@ -2499,21 +2478,16 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 		 return;
 	}
 
-	af.type = "lay hands";
-	af.where = TO_AFFECTS;
-	af.level = ch->level;
-	af.duration = 2;
-	INT(af.location) = APPLY_NONE;
-	af.modifier = 0;
-	af.bitvector= 0;
-	af.owner    = NULL;
-	affect_to_char2 (ch, &af);
+	paf = aff_new(TO_AFFECTS, "lay hands");
+	paf->duration = 2;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	victim->hit = UMIN(victim->hit + ch->level * 2, victim->max_hit);
 	update_pos(victim);
 	act_char("A warm feeling fills your body.", victim);
 
-	if (IS_AFFECTED(victim, AFF_BLIND)) 
+	if (IS_AFFECTED(victim, AFF_BLIND))
 		spellfun_call("cure blindness", NULL, ch->level, ch, victim);
 	if (IS_AFFECTED(victim, AFF_PLAGUE))
 		spellfun_call("cure disease", NULL, ch->level, ch, victim);
@@ -3384,7 +3358,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 void do_forest(CHAR_DATA* ch, const char* argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	bool attack;
 
 	if (!get_skill(ch, "forest fighting")) {
@@ -3421,36 +3395,35 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	if (is_affected(ch, "forest fighting"))
 		affect_strip(ch, "forest fighting");
 
-	af.where	= TO_AFFECTS;
-	af.type		= "forest fighting";
-	af.level	= ch->level;
-	af.duration	= -1;
-	af.bitvector	= 0;
-	af.owner	= NULL;
+	paf = aff_new(TO_AFFECTS, "forest fighting");
+	paf->level	= ch->level;
+	paf->duration	= -1;
 
 	if (attack) {
-		af.modifier	= ch->level/8;
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(ch, &af);
-		INT(af.location)= APPLY_DAMROLL;
+		paf->modifier	= ch->level/8;
+		INT(paf->location)= APPLY_HITROLL;
+		affect_to_char(ch, paf);
+
+		INT(paf->location)= APPLY_DAMROLL;
+
 		act_puts("You feel yourself wild.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n looks wild.", ch, NULL, NULL, TO_ROOM);
 	} else {
-		af.modifier	= -ch->level;
-		INT(af.location)= APPLY_AC;
+		paf->modifier	= -ch->level;
+		INT(paf->location)= APPLY_AC;
+
 		act_puts("You feel yourself protected.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n looks protected.", ch, NULL, NULL, TO_ROOM);
 	}
 
-	affect_to_char2(ch, &af);
+	affect_to_char(ch, paf);
+	aff_free(paf);
 }
 
 void do_breathhold(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
-
 	if (get_skill(ch, "hold breath") == 0) {
 		act_char("Huh?", ch);
 		return;
@@ -3467,19 +3440,17 @@ void do_breathhold(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() < get_skill(ch, "hold breath")) {
+		AFFECT_DATA *paf;
+
 		act_char("You prepare yourself for swimming.", ch);
 		check_improve(ch, "hold breath", TRUE, 1);
-		af.where	= TO_AFFECTS;
-		af.type		= "water breathing";
-		af.level	= LEVEL(ch); 
-		af.duration	= LEVEL(ch) / 20;
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af); 
-	}
-	else {
+
+		paf = aff_new(TO_AFFECTS, "water breathing");
+		paf->level	= LEVEL(ch);
+		paf->duration	= LEVEL(ch) / 20;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+	} else {
 		act_char("You took a deep breath but fail to concentrate.", ch);
 		check_improve(ch, "hold breath", FALSE, 1);
 	}

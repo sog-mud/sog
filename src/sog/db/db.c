@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.250 2001-07-30 13:02:10 fjoe Exp $
+ * $Id: db.c,v 1.251 2001-07-31 14:56:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,6 @@
 #endif
 
 #include <merc.h>
-#include <rating.h>
 #include <socials.h>
 #include <db.h>
 #include <module.h>
@@ -67,11 +66,6 @@
 #include <ban.h>
 #include <rfile.h>
 #include <dynafun.h>
-
-#include "affects.h"
-#include "handler.h"
-#include "update.h"
-#include "quest.h"
 
 #if defined(BSD44)
 #	include <fnmatch.h>
@@ -87,10 +81,6 @@
 #ifdef SVR4
 #	define d_namlen d_reclen
 #endif
-
-void scan_pfiles(void);
-
-extern	int	_filbuf		(FILE *);
 
 #if !defined(OLD_RAND)
 
@@ -138,7 +128,7 @@ const char PLISTS_PATH		[] = "clans/plists";	// notrans
 const char NULL_FILE		[] = "/dev/null";	// notrans
 #endif
 
-const char TMP_FILE		[] = "romtmp"; 		// notrans
+const char TMP_FILE		[] = "romtmp";		// notrans
 
 const char HOMETOWNS_CONF	[] = "hometowns.conf";	// notrans
 const char SKILLS_CONF		[] = "skills.conf";	// notrans
@@ -343,7 +333,7 @@ void db_parse_file(DBDATA *dbdata, const char *path, const char *file)
 			break;
 
 		fn = dbfun_lookup(dbdata, rfile_tok(fp));
-		if (fn) 
+		if (fn)
 			fn->fun(dbdata, fp, fn->arg);
 		else {
 			log(LOG_ERROR, "db_parse_file: bad section name");
@@ -432,32 +422,11 @@ void boot_db_system(void)
 	db_load_file(&db_system, ETC_PATH, SYSTEM_CONF);
 }
 
-static int
-module_cmp(const void *p, const void *q)
-{
-	const module_t *m1 = (const module_t *) p;
-	const module_t *m2 = (const module_t *) q;
-
-	return m2->mod_prio - m1->mod_prio;
-}
-
-#ifdef __FreeBSD__
-extern const char* malloc_options;
-#endif
-
 /*
  * Big mama top level function.
  */
 void boot_db(void)
 {
-	long lhour, lday, lmonth;
-	size_t i;
-	time_t curr_time;
-
-#ifdef __FreeBSD__
-	malloc_options = "X";			// notrans
-#endif
-
 #ifdef OLD_RAND
 	/*
 	 * Init random number generator.
@@ -472,10 +441,6 @@ void boot_db(void)
 	load_msgdb();
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
-#if 0
-	XXX
-	db_load_file(&db_cc_expr, ETC_PATH, CC_EXPR_CONF);
-#endif
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);
@@ -486,65 +451,21 @@ void boot_db(void)
 	db_load_dir(&db_races, RACES_PATH, RACE_EXT);
 	db_load_dir(&db_classes, CLASSES_PATH, CLASS_EXT);
 	db_load_dir(&db_clans, CLANS_PATH, CLAN_EXT);
-
-	/*
-	 * load modules
-	 */
-	varr_qsort(&modules, module_cmp);
-	time(&curr_time);
-	for (i = 0; i < modules.nused; i++) {
-		if (mod_load(VARR_GET(&modules, i), curr_time) < 0)
-			exit(1);
-	}
-
-	/*
-	 * Set time and weather.
-	 */
-
-	lhour	= (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
-	time_info.hour	= lhour  % 24;
-	lday		= lhour  / 24;
-	time_info.day	= lday   % 35;
-	lmonth		= lday   / 35;
-	time_info.month	= lmonth % 17;
-	time_info.year	= lmonth / 17;
-
-	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
-	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
-	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
-	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
-	else                          weather_info.sunlight = SUN_DARK;
-
-	weather_info.change	= 0;
-	weather_info.mmhg	= 960;
-	if (time_info.month >= 7 && time_info.month <= 12)
-		weather_info.mmhg += number_range(1, 50);
-	else
-		weather_info.mmhg += number_range(1, 80);
-
-	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
-	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
-	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
-	else                                weather_info.sky = SKY_CLOUDLESS;
-
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
 	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
+
 	load_hints();
-
-	/*
-	 * Fix up exits.
-	 * Reset all areas once.
-	 * Load up the songs, notes and ban files.
-	 */
-	fix_resets();
-	fix_exits();
-	scan_pfiles();
-
-	update_one("area");
 	load_notes();
 	load_bans();
-	chquest_start(0);
+
+	fix_resets();
+	fix_exits();
+
+	/*
+	 * load modules and call boot callbacks
+	 */
+	boot_modules();
 }
 
 /*
@@ -668,20 +589,6 @@ void fix_exits(void)
 			fix_exits_room(room);
 }
 
-static void *
-clan_item_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-	
-	OBJ_INDEX_DATA *pObjIndex = va_arg(ap, OBJ_INDEX_DATA *);
-
-	if (clan->obj_ptr == NULL
-	||  pObjIndex->vnum != clan->obj_vnum)
-		return NULL;
-
-	return p;
-}
-
 /*
  * lookup last obj ('E', 'G' or 'O') with specified vnum in room resets
  */
@@ -800,729 +707,6 @@ fix_resets(void)
 				fix_resets_room(room);
 		}
 	}
-}
-
-static int reset_room_vnum;	/* vnum of room being reset */
-static int reset_num;		/* number of reset in room being reset */
-
-static void logger_reset(const char *buf)
-{
-	char buf2[MAX_STRING_LENGTH];
-	snprintf(buf2, sizeof(buf2), "reset_room %d[%d]: %s",	// notrans
-		 reset_room_vnum, reset_num, buf);
-	logger_default(buf2);
-}
-
-/*
- * OLC
- * Reset one room.  Called by reset_area and olc.
- */
-void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
-{
-	RESET_DATA *pReset;
-
-	CHAR_DATA *last_mob = NULL;
-	bool lmob = FALSE;		/* last mob was reset */
-
-	OBJ_DATA *last_obj = NULL;
-	bool lobj = FALSE;		/* last obj was reset */
-
-	int iExit;
-	logger_t logger_old;
-
-	for (iExit = 0; iExit < MAX_DIR; iExit++) {
-		EXIT_DATA *pExit;
-
-		if ((pExit = pRoom->exit[iExit]) == NULL
-		/*  || IS_SET(pExit->exit_info, EX_BASHED) */)
-			continue;
-
-                /*
-		 * nail both sides
-		 */
-		pExit->exit_info = pExit->rs_flags;
-		if (pExit->to_room.r != NULL
-		&&  (pExit = pExit->to_room.r->exit[rev_dir[iExit]]) != NULL)
-			pExit->exit_info = pExit->rs_flags;
-	}
-
-	reset_room_vnum = pRoom->vnum;
-	logger_old = logger_set(LOG_BUG, logger_reset);
-
-	for (reset_num = 0, pReset = pRoom->reset_first; pReset != NULL;
-					pReset = pReset->next, reset_num++) {
-		MOB_INDEX_DATA *pMobIndex;
-		OBJ_INDEX_DATA *pObjIndex;
-		OBJ_DATA *obj;
-		int count, limit;
-		EXIT_DATA *pExit;
-		int d0;
-
-		switch (pReset->command) {
-		default:
-			log(LOG_BUG, "bad command %c", pReset->command);
-			break;
-
-		case 'M':
-			/*
-			 * mob to room
-			 *	arg1 - mob vnum
-			 *	arg2 - mob count limit (total)
-			 *	arg3 - room vnum
-			 *	arg4 - mob count limit (in room)
-			 */
-			if ((pMobIndex = get_mob_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such mob", pReset->arg1);
-				lmob = FALSE;
-				break;
-			}
-
-			if (pMobIndex->count >= pReset->arg2) {
-				lmob = FALSE;
-				break;
-			}
-
-			count = 0;
-			for (last_mob = pRoom->people; last_mob != NULL; last_mob = last_mob->next_in_room) {
-				if (last_mob->pMobIndex == pMobIndex)
-					count++;
-			}
-
-			if (count >= pReset->arg4) {
-				lmob = FALSE;
-				break;
-			}
-
-			last_mob = create_mob(pMobIndex, 0);
-			NPC(last_mob)->zone = pRoom->area;
-			char_to_room(last_mob, pRoom);
-			if (IS_EXTRACTED(last_mob)) {
-				lmob = FALSE;
-				break;
-			}
-			lmob = TRUE;
-			break;
-
-		case 'G':
-		case 'E':
-			/*
-			 * give obj to char or equip char (reset by 'M')
-			 *	arg1 - obj vnum
-			 *	arg2 -
-			 *	arg3 - wear location (for 'E')
-			 *	arg4 -
-			 */
-			if (!lmob)
-				break;
-
-			if (last_mob == NULL) {
-				log(LOG_BUG, "no previous mob");
-				lobj = FALSE;
-				break;
-			}
-
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such obj", pReset->arg1);
-				lobj = FALSE;
-				break;
-			}
-
-			if ((pObjIndex->limit != -1)
-			&&  pObjIndex->count >= pObjIndex->limit) {
-				lobj = FALSE;
-				break;
-			}
-
-			if (number_percent() < pReset->arg0) {
-				lobj = FALSE;
-				break;
-			}
-
-			last_obj = create_obj(pObjIndex, 0);
-			if (pReset->command == 'G'
-			&&  last_mob->pMobIndex->pShop) /* Shop-keeper? */
-				SET_OBJ_STAT(last_obj, ITEM_INVENTORY);
-
-			obj_to_char(last_obj, last_mob);
-			if (pReset->command == 'E')
-				equip_char(last_mob, last_obj, pReset->arg3);
-			lobj = TRUE;
-			break;
-
-		case 'O':
-			/*
-			 * obj to room
-			 *	arg1 - obj vnum
-			 *	arg2 -
-			 *	arg3 - room vnum
-			 *	arg3 -
-			 * obj limits are checked
-			 */
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such obj", pReset->arg1);
-				lobj = FALSE;
-				break;
-			}
-
-			if (number_percent() < pReset->arg0) {
-				lobj = FALSE;
-				break;
-			}
-
-			if ((pRoom->area->nplayer > 0 &&
-			     !IS_SET(flags, RESET_F_NOPCHECK))
-			||  count_obj_list(pObjIndex, pRoom->contents) > 0
-			||  (pObjIndex->limit != -1 &&
-			     pObjIndex->count >= pObjIndex->limit)) {
-				lobj = FALSE;
-				break;
-			}
-
-			last_obj = create_obj(pObjIndex, 0);
-			last_obj->cost = 0;
-			lobj = TRUE;
-			obj_to_room(last_obj, pRoom);
-			break;
-
-		case 'P':
-			/*
-			 * put obj in last obj (reset by 'E', 'G' or 'O')
-			 * 	arg1 - vnum of obj to put
-		 	 * 	arg2 - obj count limit (total)
-			 * 	arg3 - 
-			 * 	arg4 - min obj count (in obj)
-			 * obj limits are checked
-			 */
-
-			if (!lobj)
-				break;
-
-			if (last_obj == NULL) {
-				log(LOG_BUG, "no previous obj");
-				break;
-			}
-
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
-				log(LOG_BUG, "%d: no such obj", pReset->arg1);
-				break;
-			}
-	    
-			if (pReset->arg2 > 50) /* old format */
-				limit = 6;
-			else if (pReset->arg2 == -1) /* no limit */
-				limit = 999;
-			else
-				limit = pReset->arg2;
-
-			if (number_percent() < pReset->arg0)
-				break;
-
-			if (pRoom->area->nplayer > 0
-			&&  !IS_SET(flags, RESET_F_NOPCHECK))
-				break;
-
-			if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
-				clan_t* clan;
-
-				clan = hash_foreach(&clans, clan_item_cb,
-						    pObjIndex);
-				if (clan != NULL) {
-					obj = create_obj(pObjIndex, 0);
-					clan->obj_ptr = obj;
-					clan->altar_ptr = obj;
-					obj_to_obj(obj, last_obj);
-				}
-				break;
-			}
-
-			count = count_obj_list(pObjIndex, last_obj->contains);
-			for (;;) {
-				if (count >= pReset->arg4
-				||  (pObjIndex->count >= limit &&
-				     number_range(0, 4) != 0)
-				||  (pObjIndex->limit != -1 &&
-				     pObjIndex->count >= pObjIndex->limit))
-					break;
-
-				obj = create_obj(pObjIndex, 0);
-				obj_to_obj(obj, last_obj);
-				count++;
-			}
-
-			/* fix object lock state! */
-			last_obj->value[1] = last_obj->pObjIndex->value[1];
-			break;
-
-		case 'R':
-			/*
-			 * randomize exits
-			 */
-			for (d0 = 0; d0 < pReset->arg2 - 1; d0++) {
-				int d1 = number_range(d0, pReset->arg2 - 1);
-				pExit = pRoom->exit[d0];
-				pRoom->exit[d0] = pRoom->exit[d1];
-				pRoom->exit[d1] = pExit;
-			}
-			break;
-		} /* switch */
-	} /* for */
-
-	logger_set(LOG_BUG, logger_old);
-}
-
-/*
- * OLC
- * Reset one area.
- */
-void reset_area(AREA_DATA *pArea)
-{
-	ROOM_INDEX_DATA *pRoom;
-	int vnum;
-
-	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
-		if ((pRoom = get_room_index(vnum)) != NULL)
-			reset_room(pRoom, 0);
-}
-
-static MLSTR_FOREACH_FUN(cb_xxx_of, lang, p, ap)
-{
-	mlstring *owner = va_arg(ap, mlstring *);
-	const char *q;
-
-	if (IS_NULLSTR(*p))
-		return NULL;
-
-	q = str_printf(*p, word_form(mlstr_val(owner, lang), 1,
-				     lang, RULES_CASE));
-	free_string(*p);
-	*p = q;
-	return NULL;
-}
-
-/*
- * Create an instance of a mobile.
- */
-CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
-{
-	CHAR_DATA *mob;
-	int i;
-	race_t *r;
-	AFFECT_DATA af;
-	AFFECT_DATA *paf;
-
-	if (pMobIndex == NULL) {
-		log(LOG_BUG, "create_mob: NULL pMobIndex.");
-		exit(1);
-	}
-
-	mob = char_new(pMobIndex);
-
-	mob->name	= str_qdup(pMobIndex->name);
-	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
-	mlstr_cpy(&mob->long_descr, &pMobIndex->long_descr);
-	mlstr_cpy(&mob->description, &pMobIndex->description);
-	mob->class = str_empty;
-
-	if (pMobIndex->wealth) {
-		long wealth;
-
-		wealth = number_range(pMobIndex->wealth/2,
-				      3 * pMobIndex->wealth/2);
-		mob->gold = number_range(wealth/200,wealth/100);
-		mob->silver = wealth - (mob->gold * 100);
-	}
-
-	mob->affected_by	= pMobIndex->affected_by;
-	mob->has_invis		= pMobIndex->has_invis;
-	mob->has_detect		= pMobIndex->has_detect;
-	mob->alignment		= pMobIndex->alignment;
-	mob->level		= pMobIndex->level;
-	mob->position		= pMobIndex->start_pos;
-
-	for (i = 0; i < MAX_RESIST; i++)
-		mob->resists[i] = pMobIndex->resists[i];
-
-	free_string(mob->race);
-	mob->race		= str_qdup(pMobIndex->race);
-	if ((r = race_lookup(pMobIndex->race)) != NULL) {
-		for (i = 0; i < MAX_RESIST; i++) {
-			if (mob->resists[i] != MOB_IMMUNE)
-				mob->resists[i] += r->resists[i];
-			else
-				mob->resists[i] = 100;
-		}
-		mob->luck	+= r-> luck_bonus;
-	}
-
-	mob->form		= pMobIndex->form;
-	mob->parts		= pMobIndex->parts;
-	mob->size		= pMobIndex->size;
-	free_string(mob->clan);
-	mob->clan		= str_qdup(pMobIndex->clan);
-	mob->invis_level	= pMobIndex->invis_level;
-	mob->incog_level	= pMobIndex->incog_level;
-	mob->material		= str_qdup(pMobIndex->material);
-
-	mob->damtype		= str_qdup(pMobIndex->damtype);
-	if (IS_NULLSTR(mob->damtype)) {
-		switch (number_range(1, 3)) {
-		case 1:
-			mob->damtype = str_dup("slash");
-			break;
-		case 2:
-			mob->damtype = str_dup("pound");
-			break;
-		case 3:
-			mob->damtype = str_dup("pierce");
-			break;
-		}
-	}
-
-	if (flag_value(sex_table, mlstr_mval(&pMobIndex->gender)) == SEX_EITHER) {
-		MOB_INDEX_DATA *fmob;
-		int sex = number_range(SEX_MALE, SEX_FEMALE);
-
-		mlstr_destroy(&mob->gender);
-		mlstr_init2(&mob->gender, flag_string(gender_table, sex));
-
-		if (sex == SEX_FEMALE
-		&&  (fmob = get_mob_index(pMobIndex->fvnum))) {
-			mob->name	= str_qdup(fmob->name);
-			mlstr_cpy(&mob->short_descr, &fmob->short_descr);
-			mlstr_cpy(&mob->long_descr, &fmob->long_descr);
-			mlstr_cpy(&mob->description, &fmob->description);
-		}
-	} else {
-		mlstr_cpy(&mob->gender, &pMobIndex->gender);
-	}
-
-	for (i = 0; i < MAX_STAT; i ++)
-		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
-
-	mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
-	mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
-
-	mob->hitroll		= (mob->level / 2) + pMobIndex->hitroll;
-	mob->damroll		= pMobIndex->damage[DICE_BONUS];
-	SET_HIT(mob, dice(pMobIndex->hit[DICE_NUMBER],
-			  pMobIndex->hit[DICE_TYPE]) +
-		     pMobIndex->hit[DICE_BONUS]);
-	SET_MANA(mob, dice(pMobIndex->mana[DICE_NUMBER],
-			   pMobIndex->mana[DICE_TYPE]) +
-		      pMobIndex->mana[DICE_BONUS]);
-	NPC(mob)->dam.dice_number = pMobIndex->damage[DICE_NUMBER];
-	NPC(mob)->dam.dice_type = pMobIndex->damage[DICE_TYPE];
-	for (i = 0; i < 4; i++)
-		mob->armor[i]	= pMobIndex->ac[i];
-
-	if (IS_SET(pMobIndex->act, ACT_WARRIOR)) {
-		mob->perm_stat[STAT_STR] += 3;
-		mob->perm_stat[STAT_INT] -= 1;
-		mob->perm_stat[STAT_CON] += 2;
-	}
-
-	if (IS_SET(pMobIndex->act, ACT_THIEF)) {
-		mob->perm_stat[STAT_DEX] += 3;
-		mob->perm_stat[STAT_INT] += 1;
-		mob->perm_stat[STAT_WIS] -= 1;
-	}
-
-	if (IS_SET(pMobIndex->act, ACT_CLERIC)) {
-		mob->perm_stat[STAT_WIS] += 3;
-		mob->perm_stat[STAT_DEX] -= 1;
-		mob->perm_stat[STAT_STR] += 1;
-	}
-
-	if (IS_SET(pMobIndex->act, ACT_MAGE)) {
-		mob->perm_stat[STAT_INT] += 3;
-		mob->perm_stat[STAT_STR] -= 1;
-		mob->perm_stat[STAT_DEX] += 1;
-	}
-
-	if (IS_SET(pMobIndex->off_flags, OFF_FAST))
-		mob->perm_stat[STAT_DEX] += 2;
-
-	/* let's get some spell action */
-	if (IS_AFFECTED(mob, AFF_SANCTUARY)) {
-		af.where	= TO_AFFECTS;
-		af.type		= "sanctuary";
-		af.level	= mob->level;
-		af.duration	= -1;
-		INT(af.location)= APPLY_NONE;
-		af.modifier	= 0;
-		af.bitvector	= AFF_SANCTUARY;
-		af.owner = NULL;
-		affect_to_char2(mob, &af);
-	}
-
-	if (IS_AFFECTED(mob, AFF_HASTE)) {
-		af.where	= TO_AFFECTS;
-		af.type		= "haste";
-		af.level	= mob->level;
-		af.duration	= -1;
-		INT(af.location)= APPLY_DEX;
-		af.modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) +
-				  (mob->level >= 32);
-		af.bitvector	= AFF_HASTE;
-		af.owner = NULL;
-		affect_to_char2(mob, &af);
-	}
-
-	if (IS_AFFECTED(mob, AFF_PROTECT_EVIL)) {
-		af.where	= TO_AFFECTS;
-		af.type		= "protection evil";
-		af.level	= mob->level;
-		af.duration	= -1;
-		INT(af.location)= APPLY_SAVES;
-		af.modifier	= -1;
-		af.bitvector	= AFF_PROTECT_EVIL;
-		af.owner = NULL;
-		affect_to_char2(mob, &af);
-	}
-
-	if (IS_AFFECTED(mob, AFF_PROTECT_GOOD)) {
-		af.where	= TO_AFFECTS;
-		af.type		= "protection good";
-		af.level	= mob->level;
-		af.duration	= -1;
-		INT(af.location)= APPLY_SAVES;
-		af.modifier	= -1;
-		af.bitvector	= AFF_PROTECT_GOOD;
-		af.owner = NULL;
-		affect_to_char2(mob, &af);
-	}
-
-	for (paf = pMobIndex->affected; paf != NULL; paf = paf->next)
-		affect_to_char2(mob, paf);
-
-	/* link the mob to the world list */
-	/* if CM_F_NOLIST is not set */
-	if (!IS_SET(flags, CM_F_NOLIST)) {
-		if (char_list_lastpc) {
-			mob->next = char_list_lastpc->next;
-			char_list_lastpc->next = mob;
-		} else {
-			mob->next = char_list;
-			char_list = mob;
-		}
-	}
-
-	pMobIndex->count++;
-	return mob;
-}
-
-CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
-{
-	CHAR_DATA *mob = create_mob(pMobIndex, 0);
-
-	mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
-	mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
-	mlstr_foreach(&mob->description, cb_xxx_of, owner);
-
-	return mob;
-}
-
-/* duplicate a mobile exactly -- except inventory */
-CHAR_DATA *
-clone_mob(CHAR_DATA *parent)
-{
-	int i;
-	AFFECT_DATA *paf, *paf_next;
-	CHAR_DATA *clone;
-
-	clone = create_mob(parent->pMobIndex, 0);
-
-	/* start fixing values */
-	free_string(clone->name);
-	clone->name		= str_qdup(parent->name);
-	mlstr_cpy(&clone->short_descr, &parent->short_descr);
-	mlstr_cpy(&clone->long_descr, &parent->long_descr);
-	mlstr_cpy(&clone->description, &parent->description);
-	mlstr_cpy(&clone->gender, &parent->gender);
-	free_string(clone->class);
-	clone->class		= str_qdup(parent->class);
-	free_string(clone->race);
-	clone->race		= str_qdup(parent->race);
-	clone->level		= parent->level;
-	clone->wait		= parent->wait;
-
-	clone->hit		= parent->hit;
-	clone->max_hit		= parent->max_hit;
-	clone->perm_hit		= parent->perm_hit;
-
-	clone->mana		= parent->mana;
-	clone->max_mana		= parent->max_mana;
-	clone->perm_mana	= parent->perm_mana;
-
-	clone->move		= parent->move;
-	clone->max_move		= parent->max_move;
-	clone->perm_move	= parent->perm_move;
-
-	clone->gold		= parent->gold;
-	clone->silver		= parent->silver;
-	clone->comm		= parent->comm;
-	clone->invis_level	= parent->invis_level;
-	clone->incog_level	= parent->incog_level;
-	clone->affected_by	= parent->affected_by;
-	clone->has_invis	= parent->has_invis;
-	clone->has_detect	= parent->has_detect;
-	clone->position		= parent->position;
-	clone->saving_throw	= parent->saving_throw;
-	clone->alignment	= parent->alignment;
-	clone->hitroll		= parent->hitroll;
-	clone->damroll		= parent->damroll;
-	clone->wimpy		= parent->wimpy;
-	clone->form		= parent->form;
-	clone->parts		= parent->parts;
-	clone->size		= parent->size;
-	free_string(clone->material);
-	clone->material		= str_qdup(parent->material);
-	free_string(clone->damtype);
-	clone->damtype		= str_qdup(parent->damtype);
-	clone->hunting		= NULL;
-	free_string(clone->clan);
-	clone->clan	= str_qdup(parent->clan);
-	NPC(clone)->dam	= NPC(parent)->dam;
-
-	for (i = 0; i < 4; i++)
-		clone->armor[i]	= parent->armor[i];
-
-	for (i = 0; i < MAX_STAT; i++) {
-		clone->perm_stat[i]	= parent->perm_stat[i];
-		clone->mod_stat[i]	= parent->mod_stat[i];
-	}
-
-	/*
-	 * clone affects
-	 */
-	for (paf = clone->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		affect_remove(clone, paf);
-	}
-	clone->affected = NULL;
-
-	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_char2(clone, paf);
-
-	return clone;
-}
-
-/*
- * Create an instance of an object.
- */
-OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
-{
-	OBJ_DATA *obj;
-	int i;
-
-	if (pObjIndex == NULL) {
-		log(LOG_BUG, "create_obj: NULL pObjIndex");
-		exit(1);
-	}
-
-	obj = new_obj();
-
-	obj->pObjIndex	= pObjIndex;
-	obj->level = pObjIndex->level;
-	obj->wear_loc	= -1;
-
-	mlstr_cpy(&obj->short_descr, &pObjIndex->short_descr);
-	mlstr_cpy(&obj->description, &pObjIndex->description);
-	obj->material		= str_qdup(pObjIndex->material);
-	obj->stat_flags		= pObjIndex->stat_flags;
-	obj->wear_flags		= pObjIndex->wear_flags;
-	obj->weight		= pObjIndex->weight;
-	obj->condition		= pObjIndex->condition;
-	obj->cost		= pObjIndex->cost;
-
-	/*
-	 * objval_destroy is not needed since obj was just created
-	 */
-	obj->item_type = pObjIndex->item_type;
-	objval_cpy(obj->item_type, obj->value, pObjIndex->value);
-
-	/*
-	 * Mess with object properties.
-	 */
-	switch (obj->item_type) {
-	case ITEM_LIGHT:
-		if (INT(obj->value[2]) == 999)
-			INT(obj->value[2]) = -1;
-		break;
-
-	case ITEM_JUKEBOX:
-		for (i = 0; i < 5; i++)
-			INT(obj->value[i]) = -1;
-		break;
-	}
-
-	obj->next	= object_list;
-	object_list	= obj;
-	if (!IS_SET(flags, CO_F_NOCOUNT))
-		pObjIndex->count++;
-	return obj;
-}
-
-OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
-{
-	OBJ_DATA *obj = create_obj(pObjIndex, 0);
-
-	mlstr_foreach(&obj->short_descr, cb_xxx_of, owner);
-	mlstr_foreach(&obj->description, cb_xxx_of, owner);
-
-	return obj;
-}
-
-/* duplicate an object exactly -- except contents */
-OBJ_DATA *
-clone_obj(OBJ_DATA *parent)
-{
-	AFFECT_DATA *paf;
-	ED_DATA *ed, *ed2;
-	OBJ_DATA *clone;
-
-	clone = create_obj(parent->pObjIndex, 0);
-
-	/* start copying the object */
-	free_string(clone->label);
-	clone->label		= str_qdup(parent->label);
-
-	mlstr_cpy(&clone->short_descr, &parent->short_descr);
-	mlstr_cpy(&clone->description, &parent->description);
-	clone->stat_flags	= parent->stat_flags;
-	clone->wear_flags	= parent->wear_flags;
-	clone->weight		= parent->weight;
-	clone->cost		= parent->cost;
-	clone->level		= parent->level;
-	clone->condition	= parent->condition;
-	clone->material		= str_qdup(parent->material);
-	clone->timer		= parent->timer;
-	mlstr_cpy(&clone->owner, &parent->owner);
-
-	/*
-	 * obj values
-	 */
-	objval_destroy(parent->item_type, clone->value);
-	objval_cpy(parent->item_type, clone->value, parent->value);
-
-	/*
-	 * affects
-	 */
-	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_obj(clone, paf);
-
-	/*
-	 * extended desc
-	 */
-	for (ed = parent->ed; ed != NULL; ed = ed->next) {
-		ed2		= ed_new();
-		ed2->keyword	= str_qdup(ed->keyword);
-		mlstr_cpy(&ed2->description, &ed->description);
-		ed2->next	= clone->ed;
-		clone->ed	= ed2;
-	}
-
-	return clone;
 }
 
 /*
@@ -1836,8 +1020,8 @@ int dice(int number, int size)
  * ch wants roll to be bigger, victim wants roll to be smaller.
  */
 
- int dice_wlb(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim)
- {
+int dice_wlb(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim)
+{
 	int idice;
 	int sum;
 
@@ -1872,7 +1056,7 @@ int dice(int number, int size)
 		sum += cand;
 	}
 	return sum;
- }
+}
 
 /*
  * Simple linear interpolation.
@@ -1896,175 +1080,6 @@ char *capitalize(const char *str)
 	strcap[i] = '\0';
 	strcap[0] = UPPER(strcap[0]);
 	return strcap;
-}
-
-/*
- * This function is here to aid in debugging.
- * If the last expression in a function is another function call,
- *   gcc likes to generate a JMP instead of a CALL.
- * This is called "tail chaining."
- * It hoses the debugger call stack for that call.
- * So I make this the last call in certain critical functions,
- *   where I really need the call stack to be right for debugging!
- *
- * If you don't understand this, then LEAVE IT ALONE.
- * Don't remove any calls to tail_chain anywhere.
- *
- * -- Furey
- */
-void tail_chain(void)
-{
-	return;
-}
-
-/*
- * rip limited eq from containers
- */
-static void
-rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
-{
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-
-	for (obj = container->contains; obj != NULL; obj = obj_next) {
-		obj_next = obj->next_content;
-
-		obj->pObjIndex->count++;
-
-		/*
-		 * extract_obj(xxx, XO_F_NORECURSE) will add objects to the
-		 * beginning of the container->contains list --
-		 * check nested containers first
-		 */
-		if (obj->pObjIndex->item_type == ITEM_CONTAINER)
-			rip_limited_eq(ch, obj);
-
-		if (obj->pObjIndex->limit < 0)
-			continue;
-
-		extract_obj(obj, XO_F_NORECURSE);
-		log(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
-		    ch->name,
-		    mlstr_mval(&obj->pObjIndex->short_descr),
-		    obj->pObjIndex->vnum);
-	}
-}
-
-/*
- * Count all objects in pfiles
- * Remove limited objects (with probability 1/10)
- * Update rating list
- */
-void scan_pfiles()
-{
-	struct dirent *dp;
-	DIR *dirp;
-	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
-	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
-
-	log(LOG_INFO, "scan_pfiles: start (eqcheck: %s, save all: %s)",
-	    eqcheck ? "yes" : "no",				// notrans
-	    eqcheck_save_all ? "yes" : "no");			// notrans
-
-	if (eqcheck
-	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log(LOG_INFO, "scan_pfiles: unable to deactivate 'eqcheck' (%s)", strerror(errno));
-
-	if (eqcheck_save_all
-	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
-		log(LOG_INFO, "scan_pfiles: unable to deactivate 'save all' (%s)", strerror(errno));
-
-	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
-		log(LOG_ERROR, "scan_pfiles: unable to open player directory");
-		exit(1);
-	}
-
-	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-		CHAR_DATA *ch;
-		OBJ_DATA *obj, *obj_next;
-		bool changed = FALSE;
-		struct stat s;
-		bool should_clear = FALSE;
-		bool pet = FALSE;
-
-#if defined (LINUX) || defined (WIN32)
-		if (strlen(dp->d_name) < 3)
-			continue;
-#else
-		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
-			continue;
-#endif
-		if (strchr(dp->d_name, '.')
-		||  (ch = char_load(dp->d_name, LOAD_F_NOCREATE)) == NULL)
-			continue;
-
-		/* Remove limited eq from the pfile if it's two weeks old */
-		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) {
-			log(LOG_ERROR, "scan_pfiles: unable to stat %s.",
-			    dp->d_name);
-		} else {
-			should_clear =
-			    (current_time - s.st_mtime) > 60*60*24*14;
-		}
-
-		for (obj = ch->carrying; obj; obj = obj_next) {
-			obj_next = obj->next_content;
-
-			if (!obj_next && !pet && GET_PET(ch)) {
-				obj_next = GET_PET(ch)->carrying;
-				pet = TRUE;
-			}
-
-			obj->pObjIndex->count++;
-
-			/*
-			 * always rip limited eq from containers
-			 */
-			if (obj->pObjIndex->item_type == ITEM_CONTAINER)
-				rip_limited_eq(ch, obj);
-
-			/*
-			 * skip not limited objects
-			 * always clear if char is two weeks old
-			 * otherwise clear if we are doing eqcheck with
-			 * probability 6%
-			 *
-			 * !(should_clear || (eqcheck && number_percent() < 7))
-			 * <=>
-			 * !should_clear && !(eqcheck && number_percent() < 7)
-			 * <=>
-			 * !should_clear && (!eqcheck || number_percent() < 95)
-			 */
-			if (obj->pObjIndex->limit < 0
-			||  (!should_clear &&
-			     (!eqcheck || number_percent() < 95)))
-				continue;
-
-			changed = TRUE;
-			log(LOG_INFO, "scan_pfiles: %s: %s (vnum %d)",
-				   ch->name,
-				   mlstr_mval(&obj->pObjIndex->short_descr),
-				   obj->pObjIndex->vnum);
-			extract_obj(obj, XO_F_NORECURSE);
-		}
-
-		if (!IS_IMMORTAL(ch))
-			rating_add(ch);
-
-		if (eqcheck_save_all
-		||  changed
-		||  PC(ch)->version < PFILE_VERSION)
-			char_save(ch, SAVE_F_PSCAN);
-
-		char_nuke(ch);
-	}
-	closedir(dirp);
-
-	log(LOG_INFO, "scan_pfiles: end (eqcheck: %s, save all: %s)",
-	    dfexist(TMP_PATH, EQCHECK_FILE) ?
-		"yes" : "no",					// notrans
-	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ?
-		"yes" : "no");					// notrans
 }
 
 void move_pfiles(int minvnum, int maxvnum, int delta)
@@ -2108,9 +1123,9 @@ char *format_flags(flag_t flags)
 
 	for (count = 0; count < NBITS;  count++) {
 		if (IS_SET(flags, 1 << count)) {
-	        	if (count < 26)
-	        		buf[cnt][pos] = 'A' + count;
-	        	else
+			if (count < 26)
+				buf[cnt][pos] = 'A' + count;
+			else
 				buf[cnt][pos] = 'a' + (count - 26);
 			pos++;
 		}
@@ -2163,7 +1178,7 @@ DBLOAD_FUN(load_glob_gmlstr)
 			if (IS_TOKEN(fp, "End")) {
 				if (hash_insert(&glob_gmlstr, gmlstr_mval(&gml), &gml) == NULL) {
 					log(LOG_ERROR, "load_gmlstr: duplicate gmlstr");
-				} 
+				}
 				gmlstr_destroy(&gml);
 				return;
 			}
@@ -2222,7 +1237,7 @@ load_msgdb(void)
 
 		if (!hash_insert(&msgdb, key, &ml))
 			log(LOG_ERROR, "load_msgdb: %s: duplicate msg", key);
-		else  
+		else
 			msgcnt++;
 	}
 	mlstr_destroy(&ml);

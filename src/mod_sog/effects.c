@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.39 2001-07-30 13:01:54 fjoe Exp $
+ * $Id: effects.c,v 1.40 2001-07-31 14:56:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -264,21 +264,21 @@ fire_effect(void *vo, int level, int dam)
 		/* chance of blindness */
 		if (!IS_AFFECTED(victim,AFF_BLIND)
 		&&  !saves_spell(level / 4 + dam / 20, victim,DAM_FIRE)) {
-			AFFECT_DATA af;
+			AFFECT_DATA *paf;
+
 			act("$n is blinded by smoke!",
 			    victim, NULL, NULL, TO_ROOM);
 			act("Your eyes tear up from smoke...you can't see a thing!",
 			    victim, NULL, NULL, TO_CHAR);
 
-			af.where        = TO_AFFECTS;
-			af.type         = "fire breath";
-			af.level        = level;
-			af.duration     = number_range(0,level/10);
-			INT(af.location) = APPLY_HITROLL;
-			af.modifier     = -4;
-			af.bitvector    = AFF_BLIND;
-			af.owner = NULL;
-			affect_to_char2(victim,&af);
+			paf = aff_new(TO_AFFECTS, "fire breath");
+			paf->level        = level;
+			paf->duration     = number_range(0,level/10);
+			INT(paf->location) = APPLY_HITROLL;
+			paf->modifier     = -4;
+			paf->bitvector    = AFF_BLIND;
+			affect_to_char(victim, paf);
+			aff_free(paf);
 		}
 
 		/* getting thirsty */
@@ -494,23 +494,21 @@ sand_effect(void *vo, int level, int dam)
 
 		if (!IS_AFFECTED(victim, AFF_BLIND)
 		&&  !saves_spell(level / 4 + dam / 20, victim, DAM_COLD)) {
-			AFFECT_DATA af;
+			AFFECT_DATA *paf;
 
 			act("$n is blinded by flying sands!",
 			    victim, NULL, NULL, TO_ROOM);
 			act("Your eyes tear up from sands...you can't see a thing!",
 			    victim, NULL, NULL, TO_CHAR);
 
-			af.where        = TO_AFFECTS;
-			af.type         = "sand storm";
-			af.level        = level;
-			af.duration     = number_range(0,level/10);
-			INT(af.location) = APPLY_HITROLL;
-			af.modifier     = -4;
-			af.bitvector    = AFF_BLIND;
-			af.owner = NULL;
-
-			affect_to_char2(victim,&af);
+			paf = aff_new(TO_AFFECTS, "sand storm");
+			paf->level	= level;
+			paf->duration	= number_range(0,level/10);
+			INT(paf->location) = APPLY_HITROLL;
+			paf->modifier	= -4;
+			paf->bitvector	= AFF_BLIND;
+			affect_to_char(victim, paf);
+			aff_free(paf);
 		}
 
 		toast_obj_list(victim->carrying, sand_effect, level, dam);
@@ -626,21 +624,18 @@ scream_effect(void *vo, int level, int dam)
 		CHAR_DATA *victim = (CHAR_DATA *) vo;
 
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_SOUND)) {
-			AFFECT_DATA af;
+			AFFECT_DATA *paf;
+
 			act("$n can't hear anything!",
 			    victim, NULL, NULL, TO_ROOM);
 			act("You can't hear a thing!",
 			    victim, NULL, NULL, TO_CHAR);
 
-			af.where        = TO_AFFECTS;
-			af.type         = "scream";
-			af.level        = level;
-			af.duration     = 0;
-			INT(af.location) = APPLY_NONE;
-			af.modifier     = 0;
-			af.bitvector    = AFF_SCREAM;
-			af.owner = NULL;
-			affect_to_char2(victim,&af);
+			paf = aff_new(TO_AFFECTS, "scream");
+			paf->level	= level;
+			paf->bitvector	= AFF_SCREAM;
+			affect_to_char(victim, paf);
+			aff_free(paf);
 		}
 
 		/* daze and confused? */

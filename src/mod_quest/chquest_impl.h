@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.h,v 1.1 2000-06-02 16:41:01 fjoe Exp $
+ * $Id: chquest_impl.h,v 1.2 2001-07-31 14:56:18 fjoe Exp $
  */
 
 #ifndef __CHQUEST_H_
@@ -53,6 +53,12 @@ extern chquest_t *chquest_list;		/* global list of chquests	     */
 #define SET_STOPPED(q)		(q->delay = -1)
 #define SET_RUNNING(q)		(q->delay = 0)
 #define SET_WAITING(q, aticks)	(q->delay = aticks)
+
+/* chquest_start flags */
+#define CHQUEST_F_NODELAY	(A)
+
+void chquest_init(void);
+void chquest_start(int flags);
 
 void chquest_startq(chquest_t *q);
 void chquest_stopq(chquest_t *q);

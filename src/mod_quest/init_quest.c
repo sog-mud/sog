@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_quest.c,v 1.3 2001-06-16 18:50:02 fjoe Exp $
+ * $Id: init_quest.c,v 1.4 2001-07-31 14:56:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,11 +35,13 @@
 #include <hash.h>
 #include <cmd.h>
 
-#include "update.h"
+#include <update.h>
 
 #include <module.h>
 #define MODULE_INIT MOD_QUEST
-#include "quest.h"
+#include <quest.h>
+
+#include "_chquest.h"
 
 int
 _module_load(module_t *m)
@@ -47,6 +49,7 @@ _module_load(module_t *m)
 	varr_foreach(&commands, cmd_load_cb, MODULE, m);
 	dynafun_tab_register(__mod_tab(MODULE), m);
 	uhandler_load(m->name);
+	chquest_init();
 	return 0;
 }
 
@@ -58,4 +61,3 @@ _module_unload(module_t *m)
 	varr_foreach(&commands, cmd_unload_cb, MODULE);
 	return 0;
 }
-

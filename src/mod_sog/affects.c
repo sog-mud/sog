@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.57 2001-07-30 13:12:31 fjoe Exp $
+ * $Id: affects.c,v 1.58 2001-07-31 14:55:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,8 +115,8 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	if (paf->where == TO_SKILLS) {
 		if (fAdd) {
 			saff_t *sa = varr_enew(&ch->sk_affected);
-			sa->sn = str_dup(paf->location.s);
-			sa->type = str_dup(paf->type);
+			sa->sn = str_qdup(paf->location.s);
+			sa->type = str_qdup(paf->type);
 			sa->mod = paf->modifier;
 			sa->bit =  paf->bitvector;
 		} else {
@@ -131,7 +131,7 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		return;
 	} else if (paf->where == TO_RACE) {
 		free_string(ch->race);
-		ch->race = str_dup(fAdd ? paf->location.s : ORG_RACE(ch));
+		ch->race = str_qdup(fAdd ? paf->location.s : ORG_RACE(ch));
 		race_resetstats(ch);
 		affect_check(ch, -1, -1);
 		if (!IS_NPC(ch))

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.246 2001-07-30 13:02:01 fjoe Exp $
+ * $Id: spellfun.c,v 1.247 2001-07-31 14:56:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,51 +73,55 @@ void
 spell_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (victim == ch)
-		  act_char("You are already armored.", ch);
-		else
-		  act("$N is already armored.",ch,NULL,victim,TO_CHAR);
+			act_char("You are already armored.", ch);
+		else {
+			act("$N is already armored.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where	 = TO_AFFECTS;
-	af.type		 = sn;
-	af.level	 = level;
-	af.duration	 = 7 + level / 6;
-	af.modifier	 = -1 * UMAX(20,10 + level / 4); /* af.modifier  = -20;*/
-	INT(af.location) = APPLY_AC;
-	af.bitvector	 = 0;
-	af.owner	 = NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	 = level;
+	paf->duration	 = 7 + level / 6;
+	/* paf->modifier  = -20;*/
+	paf->modifier	 = -1 * UMAX(20, 10 + level / 4);
+	INT(paf->location) = APPLY_AC;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel someone protecting you.", victim);
-	if (ch != victim)
-		act("$N is protected by your magic.",ch,NULL,victim,TO_CHAR);
+	if (ch != victim) {
+		act("$N is protected by your magic.",
+		    ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void
 spell_blindness(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_AFFECTED(victim, AFF_BLIND)
 	||  saves_spell(level, victim, DAM_OTHER))  {
-	  act_char("You failed.", ch);
+		act_char("You failed.", ch);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	INT(af.location)= APPLY_HITROLL;
-	af.modifier	= -4;
-	af.duration	= 3 + level / 15;
-	af.bitvector	= AFF_BLIND;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= -4;
+	paf->duration	= 3 + level / 15;
+	paf->bitvector	= AFF_BLIND;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You are blinded!", victim);
 	act("$n appears to be blinded.", victim, NULL, NULL, TO_ROOM);
 }
@@ -345,7 +349,7 @@ void
 spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (count_charmed(ch))
 		return;
@@ -382,15 +386,13 @@ spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	add_follower(victim, ch);
 	set_leader(victim, ch);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= number_fuzzy(level / 5);
-	INT(af.location)= 0;
-	af.modifier	= 0;
-	af.bitvector	= AFF_CHARM;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= number_fuzzy(level / 5);
+	paf->bitvector	= AFF_CHARM;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
 	if (ch != victim)
 		act("$N looks at you with adoring eyes.",
@@ -494,7 +496,7 @@ void
 spell_detect_hidden(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_HIDDEN)) {
 		if (victim == ch)
@@ -506,15 +508,13 @@ spell_detect_hidden(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 5 + level / 3;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_HIDDEN;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= 5 + level / 3;
+	paf->bitvector	= ID_HIDDEN;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your awareness improves.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
@@ -524,7 +524,7 @@ void
 spell_detect_fade(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_FADE)) {
 		if (victim == ch)
@@ -536,15 +536,13 @@ spell_detect_fade(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 5 + level / 3;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_FADE;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= 5 + level / 3;
+	paf->bitvector	= ID_FADE;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your awareness improves.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
@@ -554,7 +552,7 @@ void
 spell_detect_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_INVIS)) {
 		if (victim == ch)
@@ -566,15 +564,13 @@ spell_detect_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= (5 + level / 3);
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= ID_INVIS;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= (5 + level / 3);
+	paf->bitvector	= ID_INVIS;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your eyes tingle.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
@@ -584,7 +580,7 @@ void
 spell_detect_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_MAGIC)) {
 		if (victim == ch)
@@ -596,15 +592,13 @@ spell_detect_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= (5 + level / 3);
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= ID_MAGIC;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= (5 + level / 3);
+	paf->bitvector	= ID_MAGIC;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your eyes tingle.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
@@ -614,7 +608,7 @@ void
 spell_true_seeing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_TRUESEEING)) {
 		if (victim == ch)
@@ -626,15 +620,13 @@ spell_true_seeing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= (2 + level / 5);
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= ID_TRUESEEING;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= (2 + level / 5);
+	paf->bitvector	= ID_TRUESEEING;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Now you have a god-like sight.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
@@ -1057,7 +1049,6 @@ void
 spell_draining_touch(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim=(CHAR_DATA *)vo;
-	AFFECT_DATA af;
 	int dam, gdam;
 
 	gdam = dam = dice (level, 3) + 10;
@@ -1076,15 +1067,15 @@ spell_draining_touch(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (!is_affected(victim, sn)
 	&&  !saves_spell(level-5, victim, DAM_NEGATIVE)) {
-		af.where	= TO_AFFECTS;
-		af.type		= sn;
-		af.level	= level;
-		af.duration	= 1;
-		INT(af.location)= APPLY_LEVEL;
-		af.modifier	= -1*level/15;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_to_char2(victim, &af);
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= 1;
+		INT(paf->location)= APPLY_LEVEL;
+		paf->modifier	= -1*level/15;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 
 		act("You feel drained!", victim, NULL, NULL, TO_VICT);
 	}
@@ -1168,19 +1159,20 @@ void
 spell_faerie_fire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_AFFECTED(victim, AFF_FAERIE_FIRE))
 		return;
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 10 + level / 5;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = 2 * level;
-	af.bitvector = AFF_FAERIE_FIRE;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 10 + level / 5;
+	INT(paf->location)= APPLY_AC;
+	paf->modifier	= 2 * level;
+	paf->bitvector	= AFF_FAERIE_FIRE;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You are surrounded by a pink outline.", victim);
 	act("$n is surrounded by a pink outline.", victim, NULL, NULL, TO_ROOM);
 }
@@ -1214,7 +1206,7 @@ void
 spell_floating_disc(const char *sn, int level,CHAR_DATA *ch,void *vo)
 {
 	OBJ_DATA *disc, *floating;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	floating = get_eq_char(ch, WEAR_FLOAT);
 	if (floating != NULL && IS_OBJ_STAT(floating, ITEM_NOREMOVE)) {
@@ -1225,17 +1217,13 @@ spell_floating_disc(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
 	INT(disc->value[0]) = level * 10; /* 10 pounds per level capacity */
 	INT(disc->value[3]) = level * 5; /* 5 pounds per level max per item */
-	disc->timer	= level / 2 - number_range(0, level / 4); 
+	disc->timer	= level / 2 - number_range(0, level / 4);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= disc->timer;
-	INT(af.location)= 0;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= disc->timer;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("$n has created $p.", ch, disc, NULL, TO_ROOM);
 	act("You create $p.", ch, disc, NULL, TO_CHAR);
@@ -1247,7 +1235,7 @@ void
 spell_fly(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_AFFECTED(victim, AFF_FLYING)
 	||  is_affected(victim, sn)) {
@@ -1260,15 +1248,13 @@ spell_fly(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level + 3;
-	INT(af.location)= 0;
-	af.modifier	= 0;
-	af.bitvector	= AFF_FLYING;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level + 3;
+	paf->bitvector	= AFF_FLYING;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your feet rise off the ground.", victim);
 	act("$n's feet rise off the ground.", victim, NULL, NULL, TO_ROOM);
 }
@@ -1312,7 +1298,7 @@ void
 spell_giant_strength(const char *sn, int level,CHAR_DATA *ch,void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn))
 	{
@@ -1323,15 +1309,14 @@ spell_giant_strength(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = (10 + level / 3);
-	INT(af.location) = APPLY_STR;
-	af.modifier  = UMAX(2,level / 10);
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= (10 + level / 3);
+	INT(paf->location)= APPLY_STR;
+	paf->modifier	= UMAX(2,level / 10);
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your muscles surge with heightened power!", victim);
 	act("$n's muscles surge with heightened power.",victim,NULL,NULL,TO_ROOM);
 }
@@ -1342,7 +1327,7 @@ void
 spell_haste(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)
 	||  IS_AFFECTED(victim,AFF_HASTE)
@@ -1366,18 +1351,18 @@ spell_haste(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
 	if (victim == ch)
-		af.duration  = level/2;
+		paf->duration  = level/2;
 	else
-		af.duration  = level/4;
-	INT(af.location) = APPLY_DEX;
-	af.modifier  = UMAX(2,level / 12);
-	af.bitvector = AFF_HASTE;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+		paf->duration  = level/4;
+	INT(paf->location) = APPLY_DEX;
+	paf->modifier  = UMAX(2,level / 12);
+	paf->bitvector = AFF_HASTE;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel yourself moving more quickly.", victim);
 	act("$n is moving more quickly.", victim, NULL, NULL, TO_ROOM);
 	if (ch != victim)
@@ -1420,7 +1405,7 @@ void
 spell_infravision(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_INFRARED)) {
 		if (victim == ch)
@@ -1435,15 +1420,12 @@ spell_infravision(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("Your eyes glow red.", victim);
 	act("$n's eyes glow red.", ch, NULL, NULL, TO_ROOM);
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 2 * level;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_INFRARED;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= 2 * level;
+	paf->bitvector	= ID_INFRARED;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 }
 
 void
@@ -1630,24 +1612,25 @@ mass_invis_cb(void *vo, va_list ap)
 
 	act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
 	act("You slowly fade out of existence.", gch, NULL, NULL, TO_CHAR);
+
 	paf = va_arg(ap, AFFECT_DATA *);
-	affect_to_char2(gch, paf);
+	affect_to_char(gch, paf);
+
 	return NULL;
 }
 
 void
 spell_mass_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
-	af.where	= TO_INVIS;
-	af.type		= sn;
-	af.level	= level/2;
-	af.duration	= 24;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_INVIS;
-	af.owner	= NULL;
-	vo_foreach(ch->in_room, &iter_char_room, mass_invis_cb, ch, &af);
+	AFFECT_DATA *paf;
+
+	paf = aff_new(TO_INVIS, sn);
+	paf->level	= level/2;
+	paf->duration	= 24;
+	paf->bitvector	= ID_INVIS;
+	vo_foreach(ch->in_room, &iter_char_room, mass_invis_cb, ch, paf);
+	aff_free(paf);
+
 	act_char("Ok.", ch);
 }
 
@@ -1655,7 +1638,7 @@ void
 spell_pass_door(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_AFFECTED(victim, AFF_PASS_DOOR)) {
 		if (victim == ch)
@@ -1667,15 +1650,13 @@ spell_pass_door(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= number_fuzzy(level / 4);
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= AFF_PASS_DOOR;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= number_fuzzy(level / 4);
+	paf->bitvector	= AFF_PASS_DOOR;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act("$n turns translucent.", victim, NULL, NULL, TO_ROOM);
 	act("You turn translucent.", victim, NULL, NULL, TO_CHAR);
 }
@@ -1864,26 +1845,27 @@ void
 spell_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
-	if (is_affected(victim, sn))
-	{
+	if (is_affected(victim, sn)) {
 		if (victim == ch)
-		  act_char("You are already shielded from harm.", ch);
-		else
-		  act("$N is already protected by a shield.",ch,NULL,victim,TO_CHAR);
+			act_char("You are already shielded from harm.", ch);
+		else {
+			act("$N is already protected by a shield.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (8 + level / 3);
-	INT(af.location) = APPLY_AC;
-	af.modifier  = -1 * UMAX(20,10 + level / 3); /* af.modifier  = -20;*/
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = (8 + level / 3);
+	INT(paf->location) = APPLY_AC;
+	paf->modifier  = -1 * UMAX(20, 10 + level/3);
+	/* paf->modifier  = -20;*/
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act("$n is surrounded by a force shield.", victim, NULL, NULL, TO_ROOM);
 	act_char("You are surrounded by a force shield.", victim);
 }
@@ -1949,7 +1931,7 @@ void
 spell_slow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn) || IS_AFFECTED(victim,AFF_SLOW)) {
 		if (victim == ch)
@@ -1972,15 +1954,15 @@ spell_slow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (4 + level / 12);
-	INT(af.location) = APPLY_DEX;
-	af.modifier  = - UMAX(2, level / 12);
-	af.bitvector = AFF_SLOW;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = (4 + level / 12);
+	INT(paf->location) = APPLY_DEX;
+	paf->modifier  = - UMAX(2, level / 12);
+	paf->bitvector = AFF_SLOW;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel yourself slowing d o w n...", victim);
 	act("$n starts to move in slow motion.", victim, NULL, NULL, TO_ROOM);
 }
@@ -1989,32 +1971,31 @@ void
 spell_stone_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
-	if (is_affected(ch, sn))
-	{
+	if (is_affected(ch, sn)) {
 		if (victim == ch)
-		  act_char("Your skin is already as hard as a rock.", ch);
-		else
-		  act("$N is already as hard as can be.",ch,NULL,victim,TO_CHAR);
+			act_char("Your skin is already as hard as a rock.", ch);
+		else {
+			act("$N is already as hard as can be.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where     = TO_RESIST;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (10 + level / 5);
-	af.bitvector = 0;
-	INT(af.location) = DAM_BASH;
-	af.modifier  = level / 7;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_RESIST, sn);
+	paf->level     = level;
+	paf->duration  = (10 + level / 5);
+	INT(paf->location) = DAM_BASH;
+	paf->modifier  = level / 7;
+	affect_to_char(victim, paf);
 
-	INT(af.location) = DAM_SLASH;
-	affect_to_char2(victim, &af);
+	INT(paf->location) = DAM_SLASH;
+	affect_to_char(victim, paf);
 
-	INT(af.location) = DAM_PIERCE;
-	affect_to_char2(victim, &af);
+	INT(paf->location) = DAM_PIERCE;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	act("$n's skin turns to stone.", victim, NULL, NULL, TO_ROOM);
 	act_char("Your skin turns to stone.", victim);
@@ -2149,20 +2130,20 @@ void
 spell_weaken(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn) || saves_spell(level, victim,DAM_OTHER))
 		return;
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (4 + level / 12);
-	INT(af.location) = APPLY_STR;
-	af.modifier  = -1 * (2 + level / 12);
-	af.bitvector = AFF_WEAKEN;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = (4 + level / 12);
+	INT(paf->location) = APPLY_STR;
+	paf->modifier  = -1 * (2 + level / 12);
+	paf->bitvector = AFF_WEAKEN;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel your strength slip away.", victim);
 	act("$n looks tired and weak.",victim,NULL,NULL,TO_ROOM);
 }
@@ -2868,7 +2849,7 @@ void
 spell_detect_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(victim, ID_UNDEAD)) {
 		if (victim == ch)
@@ -2880,15 +2861,13 @@ spell_detect_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= (5 + level / 3);
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= ID_UNDEAD;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_DETECTS, sn);
+	paf->level	= level;
+	paf->duration	= (5 + level / 3);
+	paf->bitvector	= ID_UNDEAD;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("Your eyes tingle.", victim);
 	if (ch != victim)
 		act_char("Ok.", ch);
@@ -3160,7 +3139,7 @@ void
 spell_bark_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		if (victim == ch)
@@ -3172,15 +3151,14 @@ spell_bark_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = -(level * 1.5);
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = level;
+	INT(paf->location) = APPLY_AC;
+	paf->modifier  = -(level * 1.5);
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act("$n's skin becomes covered in bark.", victim, NULL, NULL, TO_ROOM);
 	act_char("Your skin becomes covered in bark.", victim);
 }
@@ -3221,24 +3199,22 @@ spell_ranger_staff(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_transform(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
-	if (is_affected(ch,sn) || ch->hit > ch->max_hit) {
+	if (is_affected(ch, sn) || ch->hit > ch->max_hit) {
 		act_char("You are already overflowing with health.", ch);
 		return;
 	}
 
 	ch->hit += UMIN(30000 - ch->max_hit, ch->max_hit);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 24;
-	INT(af.location)= APPLY_HIT;
-	af.modifier	= UMIN(30000 - ch->max_hit, ch->max_hit);
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch,&af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= UMIN(30000 - ch->max_hit, ch->max_hit);
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act_char("Your mind clouds as your health increases.", ch);
 }
@@ -3266,7 +3242,6 @@ spell_mana_transfer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_mental_knife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
@@ -3285,21 +3260,25 @@ spell_mental_knife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (!is_affected(victim, sn)
 	&&  !saves_spell(level, victim, DAM_MENTAL)) {
-	  af.where		    = TO_AFFECTS;
-	  af.type               = sn;
-	  af.level              = level;
-	  af.duration           = level;
-	  INT(af.location) = APPLY_INT;
-	  af.modifier           = -7;
-	  af.bitvector          = 0;
-	  af.owner	= NULL;
-	  affect_to_char2(victim,&af);
+		AFFECT_DATA *paf;
 
-	  INT(af.location) = APPLY_WIS;
-	  affect_to_char2(victim,&af);
-	  act("Your mental knife sears $N's mind!",ch,NULL,victim,TO_CHAR);
-	  act("$n's mental knife sears your mind!",ch,NULL,victim,TO_VICT);
-	  act("$n's mental knife sears $N's mind!",ch,NULL,victim,TO_NOTVICT);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= level;
+		INT(paf->location) = APPLY_INT;
+		paf->modifier	= -7;
+		affect_to_char(victim, paf);
+
+		INT(paf->location) = APPLY_WIS;
+		affect_to_char(victim, paf);
+		aff_free(paf);
+
+		act("Your mental knife sears $N's mind!",
+		    ch, NULL, victim, TO_CHAR);
+		act("$n's mental knife sears your mind!",
+		    ch, NULL, victim, TO_VICT);
+		act("$n's mental knife sears $N's mind!",
+		    ch, NULL, victim, TO_NOTVICT);
 	}
 }
 
@@ -3310,7 +3289,7 @@ spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *demon;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (is_affected(ch, sn)) {
@@ -3351,15 +3330,11 @@ spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("A demon arrives from the underworld!", ch);
 	act("A demon arrives from the underworld!",ch,NULL,NULL,TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location) = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level              = level;
+	paf->duration           = 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	char_to_room(demon, ch->in_room);
 	if (IS_EXTRACTED(demon))
@@ -3419,7 +3394,7 @@ void
 spell_manacles(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (!IS_WANTED(victim)) {
 		act("But $N is not wanted.", ch, NULL, victim, TO_CHAR);
@@ -3430,23 +3405,21 @@ spell_manacles(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  saves_spell(ch->level, victim, DAM_CHARM))
 		return;
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 5 + level/5;
-	af.bitvector	= 0;
-	af.modifier	= -get_curr_stat(victim, STAT_DEX) + 4;
-	INT(af.location)= APPLY_DEX;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 5 + level/5;
+	paf->modifier	= -get_curr_stat(victim, STAT_DEX) + 4;
+	INT(paf->location)= APPLY_DEX;
+	affect_to_char(victim, paf);
 
-	af.modifier	= -5;
-	INT(af.location)= APPLY_HITROLL;
-	affect_to_char2(victim, &af);
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= -5;
+	affect_to_char(victim, paf);
 
-	af.modifier	= -10;
-	INT(af.location)= APPLY_DAMROLL;
-	affect_to_char2(victim, &af);
+	INT(paf->location)= APPLY_DAMROLL;
+	paf->modifier	= -10;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	spellfun_call("charm person", sn, level, ch, vo);
 }
@@ -3510,7 +3483,7 @@ spell_guard_call(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *gch;
 	CHAR_DATA *guard;
 	CHAR_DATA *guard2;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (is_affected(ch, sn)) {
@@ -3560,15 +3533,11 @@ spell_guard_call(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("Two guards come to your rescue!", ch);
 	act("Two guards come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 12;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 12;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	char_to_room(guard,ch->in_room);
 	char_to_room(guard2,ch->in_room);
@@ -3581,7 +3550,7 @@ spell_nightwalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *walker;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (is_affected(ch,sn)) {
@@ -3629,15 +3598,11 @@ spell_nightwalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		 ch, NULL, walker, TO_CHAR, POS_DEAD);
 	act("$N kneels before $n!", ch, NULL, walker, TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 24;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	walker->master = walker->leader = ch;
 
@@ -3669,7 +3634,7 @@ void
 spell_shadow_cloak(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (!IS_CLAN(ch->clan, victim->clan)) {
 		act_char("You may only cast this spell on your clannies.", ch);
@@ -3687,18 +3652,19 @@ spell_shadow_cloak(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 24;
-	af.modifier  = -level;
-	INT(af.location) = APPLY_AC;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	paf->modifier	= -level;
+	INT(paf->location)= APPLY_AC;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel the shadows protect you.", victim);
-	if (ch != victim)
-	act("A cloak of shadows protect $N.",ch,NULL,victim,TO_CHAR);
+	if (ch != victim) {
+		act("A cloak of shadows protect $N.",
+		    ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void
@@ -3706,7 +3672,7 @@ spell_nightfall(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *vch;
 	OBJ_DATA  *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("You can't find the power to control objects.", ch);
@@ -3741,22 +3707,19 @@ spell_nightfall(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		INT(obj->value[2]) = 0;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 2;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type	= sn;
+	paf->level	= level;
+	paf->duration	= 2;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 }
 
 void
 spell_garble(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (ch == victim) {
 		act_char("Garble whose speech?", ch);
@@ -3777,15 +3740,11 @@ spell_garble(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (saves_spell(level, victim, DAM_MENTAL))
 		return;
 
-	af.where	= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 10;
-	af.modifier  = 0;
-	INT(af.location) = 0;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim,&af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = 10;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	act("You have garbled $N's speech!",ch,NULL,victim,TO_CHAR);
 	act_char("You feel your tongue contort.", victim);
@@ -3795,7 +3754,7 @@ void
 spell_confuse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	CHAR_DATA *rch;
 	int count;
 
@@ -3808,15 +3767,11 @@ spell_confuse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (saves_spell(level, victim, DAM_MENTAL))
 		return;
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 10;
-	af.modifier	= 0;
-	INT(af.location)= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 10;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	count = 0;
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
@@ -3867,23 +3822,19 @@ spell_terangreal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_kassandra(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("The kassandra has been used for this purpose too recently.", ch);
 		return;
 	}
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 5;
-	INT(af.location) = 0;
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = 5;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	ch->hit = UMIN(ch->hit + 150, ch->max_hit);
 	update_pos(ch);
 	act_char("A warm feeling fills your body.", ch);
@@ -3893,7 +3844,7 @@ spell_kassandra(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_sebat(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("The kassandra has been used for that too recently.",
@@ -3901,15 +3852,14 @@ spell_sebat(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = -30;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level;
+	INT(paf->location) = APPLY_AC;
+	paf->modifier	= -30;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	act("$n is surrounded by a mystical shield.",ch, NULL,NULL,TO_ROOM);
 	act_char("You are surrounded by a mystical shield.", ch);
 }
@@ -3919,22 +3869,19 @@ spell_matandra(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("The kassandra has been used for this purpose too recently.", ch);
 		return;
 	}
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 5;
-	INT(af.location) = 0;
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = 5;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	dam = dice(level, 7);
 
 	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
@@ -3994,7 +3941,7 @@ spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *stalker;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
@@ -4014,15 +3961,11 @@ spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	stalker = create_mob(get_mob_index(MOB_VNUM_STALKER), 0);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 6;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 6;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	for (i = 0; i < MAX_STAT; i++)
 		stalker->perm_stat[i] = victim->perm_stat[i];
@@ -4259,7 +4202,7 @@ spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	CHAR_DATA *shadow;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (IS_NPC(victim)) {
@@ -4296,15 +4239,11 @@ spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	NPC(shadow)->target = victim;
 
-	af.where	= TO_AFFECTS;
-	af.type         = sn;
-	af.level        = level;
-	af.duration     = 24;
-	af.bitvector    = 0;
-	af.modifier     = 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level        = level;
+	paf->duration     = 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	char_to_room(shadow, ch->in_room);
 	multi_hit(shadow, victim, NULL);
@@ -4440,10 +4379,11 @@ spell_dragon_breath(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
 	CHAR_DATA *vch = vo;
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		AFFECT_DATA *paf;
+
 		if (!is_same_group(vch, ch))
 			continue;
 
@@ -4458,24 +4398,21 @@ spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			continue;
 		}
 
-		af.where	= TO_AFFECTS;
-		af.type		= sn;
-		af.level	= level;
-		af.duration	= 6 + level;
-		af.modifier	= 0;
-		INT(af.location)= APPLY_NONE;
-		af.bitvector	= AFF_PROTECT_EVIL;
-		af.owner	= NULL;
-		affect_to_char2(vch, &af);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= 6 + level;
+		paf->bitvector	= AFF_PROTECT_EVIL;
+		affect_to_char(vch, paf);
 
-		af.modifier	= level / 8;
-		af.bitvector	= 0;
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(vch, &af);
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= level / 8;
+		paf->bitvector	= 0;
+		affect_to_char(vch, paf);
 
-		af.modifier	=  -level / 8;
-		INT(af.location)= APPLY_SAVING_SPELL;
-		affect_to_char2(vch, &af);
+		INT(paf->location)= APPLY_SAVING_SPELL;
+		paf->modifier	=  -level / 8;
+		affect_to_char(vch, paf);
+		aff_free(paf);
 
 		act_char("You feel a golden aura around you.", vch);
 		if (ch != vch)
@@ -4487,7 +4424,7 @@ spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_NPC(ch))
 		return;
@@ -4504,27 +4441,25 @@ spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n turns $self into blue dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into blue dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level/10+8;
-	af.location.s	= str_dup("blue dragon");
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level/10 + 8;
+	paf->location.s	= str_dup("blue dragon");
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_AFFECTS;
-	INT(af.location)= APPLY_HIT;
-	af.modifier	= ch->max_hit/3;
-	af.bitvector	= AFF_FLYING|AFF_TURNED;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_SKILLS;
+	paf->location.s	= str_dup("enhanced damage");
+	paf->modifier	= 10 + level/20;
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_SKILLS;
-	af.location.s	= str_dup("enhanced damage");
-	af.modifier	= 10 + level/20;
-	af.bitvector	= 0;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_AFFECTS;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= ch->max_hit / 3;
+	paf->bitvector	= AFF_FLYING | AFF_TURNED;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	ch->hit += ch->max_hit/3;
 	update_pos(ch);
@@ -4533,7 +4468,7 @@ spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_NPC(ch))
 		return;
@@ -4550,27 +4485,25 @@ spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n turns $self into green dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into green dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level/10+8;
-	af.location.s	= str_dup("green dragon");
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level/10+8;
+	paf->location.s	= str_dup("green dragon");
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_AFFECTS;
-	INT(af.location)= APPLY_HIT;
-	af.modifier	= ch->max_hit/5;
-	af.bitvector	= AFF_FLYING|AFF_TURNED;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_SKILLS;
+	paf->location.s	= str_dup("enhanced damage");
+	paf->modifier	= 7 + level/20;
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_SKILLS;
-	af.location.s	= str_dup("enhanced damage");
-	af.modifier	= 7 + level/20;
-	af.bitvector	= 0;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_AFFECTS;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= ch->max_hit/5;
+	paf->bitvector	= AFF_FLYING | AFF_TURNED;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	ch->hit += ch->max_hit/5;
 }
@@ -4578,7 +4511,7 @@ spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_NPC(ch))
 		return;
@@ -4595,27 +4528,25 @@ spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n turns $self into white dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into white dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 10 + 8;
-	af.location.s	= str_dup("white dragon");
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level / 10 + 8;
+	paf->location.s	= str_dup("white dragon");
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_AFFECTS;
-	INT(af.location)= APPLY_HIT;
-	af.modifier	= ch->max_hit / 4;
-	af.bitvector	= AFF_FLYING | AFF_TURNED;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_SKILLS;
+	paf->location.s	= str_dup("enhanced damage");
+	paf->modifier	= 7 + level / 20;
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_SKILLS;
-	af.location.s	= str_dup("enhanced damage");
-	af.modifier	= 7 + level / 20;
-	af.bitvector	= 0;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_AFFECTS;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= ch->max_hit / 4;
+	paf->bitvector	= AFF_FLYING | AFF_TURNED;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	ch->hit += ch->max_hit/4;
 }
@@ -4623,7 +4554,7 @@ spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_NPC(ch))
 		return;
@@ -4640,27 +4571,24 @@ spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n turns $self into black dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into black dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level/10+8;
-	af.location.s	= str_dup("black dragon");
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level/10 + 8;
+	paf->location.s	= str_dup("black dragon");
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_AFFECTS;
-	INT(af.location)= APPLY_HIT;
-	af.modifier	= ch->max_hit/4;
-	af.bitvector	= AFF_FLYING|AFF_TURNED;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_SKILLS;
+	paf->location.s	= str_dup("enhanced damage");
+	paf->modifier	= 7 + level/20;
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_SKILLS;
-	af.location.s	= str_dup("enhanced damage");
-	af.modifier	= 7 + level/20;
-	af.bitvector	= 0;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_AFFECTS;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= ch->max_hit/4;
+	paf->bitvector	= AFF_FLYING|AFF_TURNED;
+	affect_to_char(ch, paf);
 
 	ch->hit += ch->max_hit/4;
 }
@@ -4668,7 +4596,7 @@ spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_NPC(ch))
 		return;
@@ -4685,32 +4613,29 @@ spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n turns $self into red dragon.", ch, NULL, NULL, TO_ROOM);
 	act("You turn yourself into red dragon.", ch, NULL, NULL, TO_CHAR);
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level/10+8;
-	af.location.s	= str_dup("red dragon");
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level/10+8;
+	paf->location.s	= str_dup("red dragon");
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	af.where	= TO_AFFECTS;
-	INT(af.location)= APPLY_HIT;
-	af.modifier	= ch->max_hit/2;
-	af.bitvector	= AFF_FLYING|AFF_TURNED;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_SKILLS;
+	paf->location.s	= str_dup("enhanced damage");
+	paf->modifier	= 12 + level/20;
+	paf->bitvector	= 0;
+	affect_to_char(ch, paf);
+	free_string(paf->location.s);
 
-	INT(af.location)= APPLY_DAMROLL;
-	af.modifier	= 5+level/10;
-	af.bitvector	= 0;
-	affect_to_char2(ch, &af);
+	paf->where	= TO_AFFECTS;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= ch->max_hit/2;
+	affect_to_char(ch, paf);
 
-	af.where	= TO_SKILLS;
-	af.location.s	= str_dup("enhanced damage");
-	af.modifier	= 12 + level/20;
-	af.bitvector	= 0;
-	affect_to_char2(ch, &af);
+	INT(paf->location)= APPLY_DAMROLL;
+	paf->modifier	= 5 + level/10;
+	paf->bitvector	= AFF_FLYING | AFF_TURNED;
+	affect_to_char(ch, paf);
 
 	ch->hit += ch->max_hit/2;
 }
@@ -4754,7 +4679,7 @@ spell_squire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *squire;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (is_affected(ch, sn)) {
@@ -4797,15 +4722,12 @@ spell_squire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_char("A squire arrives from nowhere!", ch);
 	act("A squire arrives from nowhere!",ch,NULL,NULL,TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 24;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type		= sn;
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	squire->master = squire->leader = ch;
 	char_to_room(squire, ch->in_room);
@@ -4906,38 +4828,36 @@ spell_entangle(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		victim->move = 0;
 
 	if (!is_affected(victim, sn)) {
-		AFFECT_DATA todex;
+		AFFECT_DATA *paf;
 
-		todex.type	= sn;
-		todex.level	= level;
-		todex.duration	= level / 10;
-		INT(todex.location) = APPLY_DEX;
-		todex.modifier	= -1;
-		todex.bitvector	= 0;
-		todex.owner	= NULL;
-		affect_to_char2(victim, &todex);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= level / 10;
+		INT(paf->location) = APPLY_DEX;
+		paf->modifier	= -1;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 	}
 }
 
 void
 spell_holy_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("You are already protected from harm.", ch);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = - UMAX(10, 10 * (level / 5));
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = level;
+	INT(paf->location) = APPLY_AC;
+	paf->modifier  = - UMAX(10, 10 * (level / 5));
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	act("$n is protected from harm.",ch,NULL,NULL,TO_ROOM);
 	act_char("You are protected from harm.", ch);
 
@@ -4946,25 +4866,22 @@ spell_holy_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_love_potion(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 50;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 50;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act_char("You feel like looking at people.", ch);
 }
 
 void
-spell_protective_shield(const char *sn, int level, CHAR_DATA *ch, void *vo) {
+spell_protective_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (victim == ch) {
@@ -4976,16 +4893,16 @@ spell_protective_shield(const char *sn, int level, CHAR_DATA *ch, void *vo) {
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = number_fuzzy(level / 30) + 3;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = 20;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
-	act("$n is surrounded by a protective shield.",victim,NULL,NULL,TO_ROOM);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= number_fuzzy(level / 30) + 3;
+	INT(paf->location) = APPLY_AC;
+	paf->modifier	= 20;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act("$n is surrounded by a protective shield.",
+	    victim, NULL, NULL, TO_ROOM);
 	act_char("You are surrounded by a protective shield.", victim);
 }
 
@@ -4993,7 +4910,7 @@ void
 spell_deafen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (ch == victim) {
 		act_char("Deafen who?", ch);
@@ -5013,15 +4930,11 @@ spell_deafen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (saves_spell(level,victim, DAM_NONE))
 		return;
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 10;
-	af.modifier  = 0;
-	INT(af.location) = 0;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim,&af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = 10;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	act("You have deafened $N!",ch,NULL,victim,TO_CHAR);
 	act_char("A loud ringing fills your ears...you can't hear anything!",
@@ -5031,9 +4944,8 @@ spell_deafen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_disperse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
-	AFFECT_DATA af;
+	CHAR_DATA *vch, *vch_next;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("You aren't up to dispersing this crowd.", ch);
@@ -5064,22 +4976,18 @@ spell_disperse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			      "$N slowly fades into existence.");
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 15;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 15;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 }
 
 void
 spell_honor_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (victim == ch) {
@@ -5092,15 +5000,13 @@ spell_honor_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 	}
 
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 24;
-	af.modifier  = -30;
-	INT(af.location) = APPLY_AC;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	paf->modifier	= -30;
+	INT(paf->location) = APPLY_AC;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	spellfun_call("remove curse", NULL, level, ch, victim);
 	spellfun_call("bless", NULL, level, ch, victim);
@@ -5276,7 +5182,6 @@ spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *undead;
-	AFFECT_DATA af;
 	int i;
 	int chance;
 	int u_level;
@@ -5286,6 +5191,7 @@ spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		OBJ_DATA *obj, *obj2, *next;
 		MOB_INDEX_DATA *undead_idx;
 		mlstring ml;
+		AFFECT_DATA *paf;
 
 		obj = (OBJ_DATA *) vo;
 
@@ -5382,15 +5288,11 @@ spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			obj_to_char(obj2, undead);
 		}
 
-		af.where     = TO_AFFECTS;
-		af.type      = sn;
-		af.level     = level;
-		af.duration  = level / 10;
-		af.modifier  = 0;
-		af.bitvector = 0;
-		INT(af.location) = APPLY_NONE;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level     = level;
+		paf->duration  = level / 10;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
 		act_puts("With mystic power, you animate it!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -5422,7 +5324,7 @@ void
 spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *coc;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (PC(ch)->pet) {
@@ -5454,20 +5356,15 @@ spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	coc->damroll  = number_range(1, level/3);
 	coc->master = ch;
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= 0;
-	af.duration	= 2 * level / 3;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(coc, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->duration	= 2 * level / 3;
+	affect_to_char(coc, paf);
 
-	af.duration	= 100;
-	affect_to_char2(ch, &af);
+	paf->duration	= 100;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
-	char_to_room(coc,ch->in_room);
+	char_to_room(coc, ch->in_room);
 
 	act("Half burrowed cocoon appears from the earth.",
 	    ch, NULL, NULL, TO_ALL);
@@ -5477,7 +5374,7 @@ void
 spell_enhanced_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (victim == ch)
@@ -5488,25 +5385,27 @@ spell_enhanced_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 		return;
 	}
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 24;
-	af.modifier  = -60;
-	INT(af.location) = APPLY_AC;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	paf->modifier	= -60;
+	INT(paf->location)= APPLY_AC;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel protected from all attacks.", victim);
-	if (ch != victim)
-	act("$N is protected by your magic.",ch,NULL,victim,TO_CHAR);
+	if (ch != victim) {
+		act("$N is protected by your magic.",
+		    ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void
 spell_meld_into_stone(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (victim == ch) {
@@ -5519,16 +5418,15 @@ spell_meld_into_stone(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 10;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = -100;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
-	act("$n's skin melds into stone.",victim,NULL,NULL,TO_ROOM);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = level / 10;
+	INT(paf->location) = APPLY_AC;
+	paf->modifier  = -100;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act("$n's skin melds into stone.", victim, NULL, NULL, TO_ROOM);
 	act_char("Your skin melds into stone.", victim);
 }
 
@@ -5536,7 +5434,7 @@ void
 spell_web(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (saves_spell (level, victim, DAM_OTHER))
 		return;
@@ -5549,24 +5447,23 @@ spell_web(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 1;
-	INT(af.location)= APPLY_HITROLL;
-	af.modifier	= -1 * (level / 6);
-	af.where	= TO_AFFECTS;
-	af.bitvector	= AFF_WEB;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 1;
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= -1 * (level / 6);
+	affect_to_char(victim, paf);
 
-	INT(af.location)= APPLY_DEX;
-	af.modifier	= -2;
-	af.bitvector	= 0;
-	affect_to_char2(victim, &af);
+	INT(paf->location)= APPLY_DAMROLL;
+	paf->modifier	= -1 * (level / 6);
+	affect_to_char(victim, paf);
 
-	INT(af.location)= APPLY_DAMROLL;
-	af.modifier	= -1 * (level / 6);
-	affect_to_char2(victim, &af);
+	INT(paf->location)= APPLY_DEX;
+	paf->modifier	= -2;
+	paf->bitvector	= AFF_WEB;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You are emeshed in thick webs!", victim);
 	if (ch != victim) {
 		act("You emesh $N in a bundle of webs!",
@@ -5740,7 +5637,7 @@ spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *lion;
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	char arg[MAX_INPUT_LENGTH];
 	int i;
 
@@ -5813,15 +5710,12 @@ spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("A hunter lion comes to kill $n's victim!",
 	    ch, NULL, NULL, TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= ch->level;
-	af.duration	= 24;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= ch->level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	lion->hunting = victim;
 	char_to_room(lion, ch->in_room);
 	if (!IS_EXTRACTED(lion))
@@ -5887,7 +5781,7 @@ void
 spell_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (!can_flee(victim)) {
 		if (victim == ch)
@@ -5901,15 +5795,13 @@ spell_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  saves_spell(level, victim, DAM_OTHER))
 		return;
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 10;
-	INT(af.location)= 0;
-	af.modifier	= 0;
-	af.bitvector	= AFF_FEAR;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 10;
+	paf->bitvector	= AFF_FEAR;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You are afraid as much as a rabbit.", victim);
 	act("$n looks with afraid eyes.", victim, NULL, NULL, TO_ROOM);
 }
@@ -5918,7 +5810,7 @@ void
 spell_protection_heat(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, "protection heat")) {
 		if (victim == ch)
@@ -5950,25 +5842,24 @@ spell_protection_heat(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where     = TO_RESIST;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level * 4 / 3;
-	INT(af.location) = DAM_FIRE;
-	af.modifier  = 25;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_RESIST, sn);
+	paf->level	= level;
+	paf->duration	= level * 4 / 3;
+	INT(paf->location) = DAM_FIRE;
+	paf->modifier	= 25;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel strengthed against heat.", victim);
 	if (ch != victim)
-	act("$N is protected against heat.",ch,NULL,victim,TO_CHAR);
+		act("$N is protected against heat.", ch, NULL, victim, TO_CHAR);
 }
 
 void
 spell_protection_cold(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, "protection cold")) {
 		if (victim == ch)
@@ -5999,18 +5890,18 @@ spell_protection_cold(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 		return;
 	}
-	af.where     = TO_RESIST;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level * 4 / 3;
-	INT(af.location) = DAM_COLD;
-	af.modifier  = 25;
-	af.bitvector = 0;
-	af.owner     = NULL;
-	affect_to_char2(victim, &af);
+
+	paf = aff_new(TO_RESIST, sn);
+	paf->level     = level;
+	paf->duration  = level * 4 / 3;
+	INT(paf->location) = DAM_COLD;
+	paf->modifier  = 25;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You feel strengthed against cold.", victim);
 	if (ch != victim)
-	act("$N is protected against cold.",ch,NULL,victim,TO_CHAR);
+		act("$N is protected against cold." ,ch, NULL, victim, TO_CHAR);
 }
 
 #define OBJ_VNUM_FIRE_SHIELD		92
@@ -6051,7 +5942,7 @@ spell_fire_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
 	if (is_affected(victim, sn)) {
@@ -6067,15 +5958,14 @@ spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	ch->hit -= (2 * level);
 
-	af.where	= TO_AFFECTS;
-	af.type         = sn;
-	af.level        = level;
-	af.duration     = 24;
-	INT(af.location)= APPLY_HIT;
-	af.modifier     = - level;
-	af.bitvector    = 0;
-	af.owner	= ch;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	INT(paf->location)= APPLY_HIT;
+	paf->modifier	= - level;
+	paf->owner	= ch;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
 	act("Now $n got the path to death.", victim, NULL, NULL, TO_ROOM);
 	act("Now you got the path to death.", victim, NULL, NULL, TO_CHAR);
@@ -6085,7 +5975,7 @@ void
 spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	char arg[MAX_INPUT_LENGTH];
-	int chance=0;
+	int chance = 0;
 	int door;
 	EXIT_DATA *pexit;
 
@@ -6165,7 +6055,7 @@ void
 spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (ch == victim) {
@@ -6182,21 +6072,18 @@ spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 7 + level / 5;
-	INT(af.location)= APPLY_AC;
-	af.modifier	= level * 3;
-	af.bitvector	= 0;
-	af.owner	= NULL;
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 7 + level / 5;
+	INT(paf->location)= APPLY_AC;
+	paf->modifier	= level * 3;
+	affect_to_char(victim, paf);
+	aff_free(paf);
 
-	affect_to_char2(victim, &af);
 	act_char("Wow! Everything looks so different.", victim);
 
-	if (victim != ch) {
+	if (victim != ch)
 		act("$N starts hallucinating.", ch, NULL, victim, TO_CHAR);
-	}
 }
 
 #define MOB_VNUM_WOLF			20
@@ -6206,7 +6093,7 @@ spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *demon;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (is_affected(ch, sn)) {
@@ -6246,17 +6133,13 @@ spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	demon->damroll = number_range(level/8, level/6);
 
 	act_char("The wolf arrives and bows before you!", ch);
-	act("A wolf arrives from somewhere and bows!",ch,NULL,NULL,TO_ROOM);
+	act("A wolf arrives from somewhere and bows!", ch, NULL, NULL, TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location) = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	demon->master = demon->leader = ch;
 	char_to_room(demon,ch->in_room);
@@ -6278,7 +6161,7 @@ void
 spell_dragon_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(victim, sn)) {
 		if (victim == ch)
@@ -6290,16 +6173,15 @@ spell_dragon_skin(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	INT(af.location) = APPLY_AC;
-	af.modifier  = - (2 * level);
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
-	act("$n's skin is now hard as rock.",victim,NULL,NULL,TO_ROOM);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level;
+	INT(paf->location) = APPLY_AC;
+	paf->modifier	= - (2 * level);
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act("$n's skin is now hard as rock.", victim, NULL, NULL, TO_ROOM);
 	act_char("Your skin is now hard as rock.", victim);
 }
 
@@ -6307,7 +6189,7 @@ void
 spell_insanity(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (IS_NPC(victim)) {
 		act_char("This spell can cast on PC's only.", ch);
@@ -6318,15 +6200,13 @@ spell_insanity(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  saves_spell(level, victim,DAM_OTHER))
 		return;
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 10;
-	INT(af.location) = 0;
-	af.modifier  = 0;
-	af.bitvector = AFF_BLOODTHIRST;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level     = level;
+	paf->duration  = level / 10;
+	paf->bitvector = AFF_BLOODTHIRST;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You are aggressive as a battlerager.", victim);
 	act("$n looks with red eyes.", victim, NULL, NULL, TO_ROOM);
 }
@@ -6335,29 +6215,29 @@ void
 spell_power_stun(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
-	if (is_affected(victim,sn) || saves_spell(level, victim,DAM_OTHER))
+	if (is_affected(victim, sn) || saves_spell(level, victim, DAM_OTHER))
 		return;
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 90;
-	INT(af.location) = APPLY_DEX;
-	af.modifier  = - 3;
-	af.bitvector = AFF_STUN;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / (LEVEL_HERO - 1);
+	INT(paf->location) = APPLY_DEX;
+	paf->modifier	= -3;
+	paf->bitvector	= AFF_STUN;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You are stunned.", victim);
-	act_puts("$n is stunned.",victim,NULL,NULL,TO_ROOM,POS_SLEEPING);
+	act_puts("$n is stunned.", victim, NULL, NULL, TO_ROOM, POS_SLEEPING);
 }
 
 void
 spell_improved_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (HAS_INVIS(victim, ID_IMP_INVIS))
 		return;
@@ -6370,15 +6250,13 @@ spell_improved_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
 
-	af.where	= TO_INVIS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 10 ;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= ID_IMP_INVIS;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_INVIS, sn);
+	paf->level	= level;
+	paf->duration	= level / 10 ;
+	paf->bitvector	= ID_IMP_INVIS;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act_char("You fade out of existence.", victim);
 }
 
@@ -6437,7 +6315,7 @@ spell_flesh_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *golem;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i = 0;
 
 	if (is_affected(ch, sn)) {
@@ -6483,18 +6361,14 @@ spell_flesh_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
 	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	golem->master = golem->leader = ch;
-	char_to_room(golem,ch->in_room);
+	char_to_room(golem, ch->in_room);
 }
 
 #define MOB_VNUM_STONE_GOLEM		22
@@ -6504,7 +6378,7 @@ spell_stone_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *golem;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i = 0;
 
 	if (is_affected(ch, sn)) {
@@ -6550,18 +6424,14 @@ spell_stone_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
 	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	golem->master = golem->leader = ch;
-	char_to_room(golem,ch->in_room);
+	char_to_room(golem, ch->in_room);
 }
 
 #define MOB_VNUM_IRON_GOLEM		23
@@ -6571,7 +6441,7 @@ spell_iron_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *golem;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i = 0;
 
 	if (is_affected(ch, sn)) {
@@ -6615,15 +6485,11 @@ spell_iron_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
 	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type			= sn;
-	af.level		= level;
-	af.duration		= 24;
-	af.bitvector		= 0;
-	af.modifier		= 0;
-	INT(af.location)	= APPLY_NONE;
-	af.owner		= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	golem->master = golem->leader = ch;
 	char_to_room(golem, ch->in_room);
@@ -6636,7 +6502,7 @@ spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *golem;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i = 0;
 
 	if (is_affected(ch, sn)) {
@@ -6680,18 +6546,14 @@ spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
 	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	golem->master = golem->leader = ch;
-	char_to_room(golem,ch->in_room);
+	char_to_room(golem, ch->in_room);
 }
 
 void
@@ -6752,23 +6614,19 @@ spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_ratform(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("You are rat already.", ch);
 		return;
 	}
 
-	af.where	= TO_FORM;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 10;
-	af.location.s	= str_dup("rat");
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_FORM, sn);
+	paf->level	= level;
+	paf->duration	= level / 10;
+	paf->location.s	= str_dup("rat");
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("You turn into a small rat for a few hours.",
 		ch, NULL, NULL, TO_CHAR);
@@ -6777,7 +6635,7 @@ spell_ratform(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	race_t *r;
 
 	if (is_affected(ch, sn) || is_affected(ch, "deathen")) {
@@ -6785,7 +6643,7 @@ spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (target_name == NULL || target_name[0]=='\0') {
+	if (target_name == NULL || target_name[0] == '\0') {
 		act_char("Usage: cast 'polymorph' <pcracename>.", ch);
 		return;
 	}
@@ -6801,15 +6659,12 @@ spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level/10;
-	af.location.s	= str_dup(r->name);
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level/10;
+	paf->location.s	= str_qdup(r->name);
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("$n polymorphes $mself to $t.", ch, r->name, NULL, TO_ROOM);
 	act("You polymorph yourself to $t.", ch, r->name, NULL, TO_CHAR);
@@ -6818,11 +6673,11 @@ spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-        AFFECT_DATA af;
+        AFFECT_DATA *paf;
         CHAR_DATA *victim = (CHAR_DATA *) vo;
 
         if (is_affected(victim, sn)) {
-	        act("$N is already decays.",ch,NULL,victim,TO_CHAR);
+	        act("$N is already decays.", ch, NULL, victim, TO_CHAR);
 	        return;
         }
 
@@ -6831,15 +6686,12 @@ spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	        return;
 	}
 
-        af.where        = TO_RACE;
-        af.type         = sn;
-        af.level        = level;
-        af.duration     = level/15;
-        af.location.s	= str_dup("ghoul");
-        af.modifier     = 0;
-        af.bitvector    = 0;
-	af.owner	= NULL;
-        affect_to_char2(victim, &af);
+	paf = aff_new(TO_RACE, sn);
+        paf->level	= level;
+        paf->duration	= level/15;
+        paf->location.s	= str_dup("ghoul");
+        affect_to_char(victim, paf);
+	aff_free(paf);
 
         act("$n's flesh starts to decay.", victim, NULL, NULL, TO_ROOM);
         act("Your flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
@@ -6848,7 +6700,7 @@ spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	race_t *r;
 	int lev = 0;
 
@@ -6880,15 +6732,12 @@ spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_RACE;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level/10;
-	af.location.s	= str_dup(r->name);
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_RACE, sn);
+	paf->level	= level;
+	paf->duration	= level/10;
+	paf->location.s	= str_qdup(r->name);
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("$n deathens $mself, turning into $t.",
 	    ch, r->name, NULL, TO_ROOM);
@@ -6897,22 +6746,20 @@ spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 }
 
 void
-spell_protection_negative (const char *sn, int level, CHAR_DATA *ch, void *vo)
+spell_protection_negative(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
-
 	if (!is_affected(ch, sn)) {
-		act_char("You are now immune to negative attacks.", ch);
+		AFFECT_DATA *paf;
 
-		af.where = TO_RESIST;
-		af.type = sn;
-		af.duration = level / 4;
-		af.level = level;
-		af.bitvector = 0;
-		INT(af.location) = DAM_NEGATIVE;
-		af.modifier = 100;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_RESIST, sn);
+		paf->duration = level / 4;
+		paf->level = level;
+		INT(paf->location) = DAM_NEGATIVE;
+		paf->modifier = 100;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
+		act_char("You are now immune to negative attacks.", ch);
 	} else
 		act_char("You are already immune to negative attacks.", ch);
 }
@@ -6920,19 +6767,18 @@ spell_protection_negative (const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_ruler_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
-
 	if (!is_affected(ch, sn)) {
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_RESIST, sn);
+		paf->duration	= level / 4;
+		paf->level	= level;
+		INT(paf->location) = DAM_CHARM;
+		paf->modifier	= 100;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
 		act_char("You now feel more self confident in rulership.", ch);
-		af.where = TO_RESIST;
-		af.type = sn;
-		af.duration = level / 4;
-		af.level = level;
-		af.bitvector = 0;
-		INT(af.location) = DAM_CHARM;
-		af.modifier = 100;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
 	} else
 		act_char("You are as much self confident as you can.", ch);
 }
@@ -6986,22 +6832,21 @@ spell_evil_spirit(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_disgrace(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!is_affected(victim,sn)
+	if (!is_affected(victim, sn)
 	&&  !saves_spell(level, victim, DAM_MENTAL)) {
-		af.where		= TO_AFFECTS;
-		af.type               = sn;
-		af.level              = level;
-		af.duration           = level;
-		INT(af.location)	= APPLY_CHA;
-		af.modifier           = - (5 + level / 10);
-		af.bitvector          = 0;
-		af.owner		= NULL;
-		affect_to_char2(victim,&af);
+		AFFECT_DATA *paf;
 
-		act("$N feels $M less confident!",ch,NULL,victim,TO_ALL);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= level;
+		INT(paf->location)= APPLY_CHA;
+		paf->modifier	= - (5 + level / 10);
+		affect_to_char(victim, paf);
+		aff_free(paf);
+
+		act("$N feels $M less confident!", ch, NULL, victim, TO_ALL);
 	} else
 		act_char("You failed.", ch);
 }
@@ -7010,7 +6855,7 @@ void
 spell_control_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	race_t *r;
 
 	if (count_charmed(ch))
@@ -7049,15 +6894,13 @@ spell_control_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	add_follower(victim, ch);
 	set_leader(victim, ch);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= number_fuzzy(level / 5);
-	INT(af.location)= 0;
-	af.modifier	= 0;
-	af.bitvector	= AFF_CHARM;
-	af.owner	= NULL;
-	affect_to_char2(victim, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= number_fuzzy(level / 5);
+	paf->bitvector	= AFF_CHARM;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
 	act("$N looks at you with adoring eyes.",
 		    ch, NULL, victim, TO_CHAR);
@@ -7077,22 +6920,18 @@ void
 spell_assist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("This power is used too recently.", ch);
 		return;
 	}
 
-	af.where	 = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 50;
-	INT(af.location) = 0;
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 50;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	victim->hit += 100 + level * 5;
 	update_pos(victim);
@@ -7109,7 +6948,7 @@ spell_summon_shadow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *shadow;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int i;
 
 	if (is_affected(ch,sn)) {
@@ -7148,15 +6987,11 @@ spell_summon_shadow(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	act("A shadow conjures!", ch, NULL, NULL, TO_ALL);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level;
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	INT(af.location)          = APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	shadow->master = shadow->leader = ch;
 	char_to_room(shadow,ch->in_room);
@@ -7189,7 +7024,7 @@ void
 spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf, *paf2;
 	int mirrors, new_mirrors;
 	CHAR_DATA *gch;
 	int order;
@@ -7219,12 +7054,13 @@ spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.level	= level;
-	af.modifier	= 0;
-	INT(af.location)= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= -1;
+
+	paf2 = aff_new(TO_AFFECTS, "doppelganger");
+	paf->level	= level;
+	paf->duration	= level;
 
 	order = number_range(0, level/5 - mirrors);
 
@@ -7238,13 +7074,8 @@ spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		mlstr_cpy(&gch->description, &victim->description);
 		mlstr_cpy(&gch->gender, &victim->gender);
 
-		af.type = "doppelganger";
-		af.duration = level;
-		affect_to_char2(gch, &af);
-
-		af.type = "mirror";
-		af.duration = -1;
-		affect_to_char2(gch,&af);
+		affect_to_char(gch, paf);
+		affect_to_char(gch, paf2);
 
 		gch->max_hit = gch->hit = 1;
 		gch->level = 1;
@@ -7255,8 +7086,7 @@ spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			act_char("A mirror image of yourself appears beside you!", ch);
 			act("A mirror image of $n appears beside $M!",
 			    ch, NULL, victim, TO_ROOM);
-		}
-		else {
+		} else {
 			act("A mirror of $N appears beside $M!",
 			    ch, NULL, victim, TO_CHAR);
 			act("A mirror of $N appears beside $M!",
@@ -7272,13 +7102,16 @@ spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				break;
 		}
 	}
+
+	aff_free(paf);
+	aff_free(paf2);
 }
 
 void
 spell_doppelganger(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (ch == victim || (is_affected(ch, sn) && ch->doppel == victim)) {
 		act("You already look like $M.", ch, NULL, victim, TO_CHAR);
@@ -7305,16 +7138,12 @@ spell_doppelganger(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n changes form to look like YOU!", ch, NULL, victim, TO_VICT);
 	act("$n changes form to look like $N!", ch, NULL, victim, TO_NOTVICT);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 2 * level / 3;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 2 * level / 3;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
-	affect_to_char2(ch, &af);
 	ch->doppel = victim;
 }
 
@@ -7381,7 +7210,6 @@ void
 spell_enlarge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
 
 	if (is_affected(victim, sn)) {
 		if (ch==victim)
@@ -7395,6 +7223,8 @@ spell_enlarge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (check_trust(ch, victim)
 	||  !saves_spell(level, victim, DAM_NEGATIVE)) {
+		AFFECT_DATA *paf;
+
 		if (is_affected(victim, "shrink")) {
 			affect_strip(victim, "shrink");
 			act("You grow back to your normal size.",
@@ -7403,28 +7233,27 @@ spell_enlarge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				victim, NULL, NULL, TO_ROOM);
 			return;
 		}
-		af.where	= TO_AFFECTS;
-		af.where	= TO_AFFECTS;
-		af.type		= sn;
-		af.level	= level;
-		af.duration	= 5 + level / 10;
-		INT(af.location)= APPLY_SIZE;
-		af.modifier	= 1;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_to_char2(victim, &af);
 
-		INT(af.location)= APPLY_STR;
-		af.modifier	= 1;
-		affect_to_char2(victim, &af);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= 5 + level/10;
 
-		INT(af.location)= APPLY_DEX;
-		af.modifier	= -1;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_SIZE;
+		paf->modifier	= 1;
+		affect_to_char(victim, paf);
 
-		INT(af.location)= APPLY_DAMROLL;
-		af.modifier	= level/18+1;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_STR;
+		paf->modifier	= 1;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_DEX;
+		paf->modifier	= -1;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_DAMROLL;
+		paf->modifier	= level/18 + 1;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 
 		act("Your body suddenly becomes much larger.",
 			victim, NULL, NULL, TO_CHAR);
@@ -7441,7 +7270,6 @@ void
 spell_shrink(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
 
 	if (is_affected(victim, sn)) {
 		if (ch == victim) {
@@ -7456,6 +7284,8 @@ spell_shrink(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (check_trust(ch, victim)
 	||  !saves_spell(level, victim, DAM_NEGATIVE)) {
+		AFFECT_DATA *paf;
+
 		if (is_affected(victim, "enlarge")) {
 			affect_strip(victim, "enlarge");
 			act("You shrink back to your normal size.",
@@ -7465,27 +7295,26 @@ spell_shrink(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			return;
 		}
 
-		af.where	= TO_AFFECTS;
-		af.type		= sn;
-		af.level	= level;
-		af.duration	= 5 + level / 10;
-		INT(af.location)= APPLY_SIZE;
-		af.modifier	= -1;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		affect_to_char2(victim, &af);
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->level	= level;
+		paf->duration	= 5 + level/10;
 
-		INT(af.location)= APPLY_STR;
-		af.modifier	= -1;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_SIZE;
+		paf->modifier	= -1;
+		affect_to_char(victim, paf);
 
-		INT(af.location)= APPLY_DEX;
-		af.modifier	= 1;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_STR;
+		paf->modifier	= -1;
+		affect_to_char(victim, paf);
 
-		INT(af.location)= APPLY_HITROLL;
-		af.modifier	= level/18+1;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_DEX;
+		paf->modifier	= 1;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= level/18 + 1;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 
 		act("Your body suddenly becomes much smaller.",
 			victim, NULL, NULL, TO_CHAR);
@@ -7499,7 +7328,7 @@ void
 spell_water_breathing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(vch, sn)) {
 		if (ch == vch)
@@ -7511,37 +7340,30 @@ spell_water_breathing(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 12;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(vch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 12;
+	affect_to_char(vch, paf);
+	aff_free(paf);
+
 	act_char("Breathing seems a bit easier.", vch);
 }
 
 void
 spell_blur(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("Your body is already blurred.", ch);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 12 + 2;
-	INT(af.location)= APPLY_NONE;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 12 + 2;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("$n's body becomes blurred.", ch, NULL, NULL, TO_ROOM);
 	act("Your body becomes blurred.", ch, NULL, NULL, TO_CHAR);
@@ -7720,7 +7542,7 @@ spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *illusion;
 	CHAR_DATA *gch;
 	int hitp, i;
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int count_illusions = 0;
 
 	if (!IS_NPC(victim) || (LEVEL(victim) - level) > 10) {
@@ -7751,15 +7573,12 @@ spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < MAX_RESIST; i++)
 		illusion->resists[i] = UMIN(victim->resists[i], 50);
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= -1;
-	af.bitvector	= AFF_CHARM;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(illusion, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= -1;
+	paf->bitvector	= AFF_CHARM;
+	affect_to_char(illusion, paf);
+	aff_free(paf);
 
 	act("You create a simulacrum of $N.", ch, NULL, victim, TO_CHAR);
 	act("$n creates a simulacrum of $N.", ch, NULL, victim, TO_NOTVICT);
@@ -7772,22 +7591,19 @@ spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 void
 spell_misleading(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act("You are already affected.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type	= sn;
+	paf->level	= level;
+	paf->duration	= level;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("You will now mislead the people who follow you.",
 		ch, NULL, NULL, TO_CHAR);
@@ -7969,22 +7785,18 @@ void
 spell_protection_from_missiles(const char *sn, int level,
 			       CHAR_DATA *ch, void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("You are already well protected from missiles.", ch);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 4;
-	af.bitvector	= 0;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 4;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act_char("You feel well protected from range attacks.", ch);
 }
@@ -8028,23 +7840,20 @@ void
 spell_globe_of_invulnerability(const char *sn, int level, CHAR_DATA *ch,
 			       void *vo)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 
 	if (is_affected(ch, sn)) {
 		act_char("You are already protected by a globe.", ch);
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= 2 + level / 14;
-	INT(af.location)= APPLY_SAVES;
-	af.modifier	= -2 - level / 10;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 2 + level / 14;
+	INT(paf->location)= APPLY_SAVES;
+	paf->modifier	= -2 - level / 10;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("$n is surrounded by the globe of invulnerability.", ch, NULL, NULL,
 	    TO_ROOM);

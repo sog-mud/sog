@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.13 2001-01-23 21:46:58 fjoe Exp $
+ * $Id: quest.c,v 1.14 2001-07-31 14:56:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -115,7 +115,7 @@ qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 	}
 }
 
-void 
+void
 qtrouble_dump(BUFFER *output, CHAR_DATA *victim)
 {
 	qtrouble_t *qt;

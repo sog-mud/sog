@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.114 2001-07-29 20:15:03 fjoe Exp $
+ * $Id: recycle.c,v 1.115 2001-07-31 14:56:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,8 +49,6 @@
 
 #include <merc.h>
 #include <db.h>
-
-#include "handler.h"	/* XXX extract_obj */
 
 ED_DATA *ed_new(void)
 {
@@ -315,9 +313,6 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 
 void char_free(CHAR_DATA *ch)
 {
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-
 	CHAR_DATA **free_list;
 	int *free_count;
 
@@ -358,17 +353,12 @@ void char_free(CHAR_DATA *ch)
 		free_string(pc->wanted_by);
 		buf_free(pc->buffer);
 		dvdata_free(pc->dvdata);
-
-		/* XXX nuke_pets should not be here */
-		nuke_pets(ch);
 	}
 
-	for (obj = ch->carrying; obj; obj = obj_next) {
-		obj_next = obj->next_content;
-		/* XXX extract_obj should not be here */
-		extract_obj(obj, XO_F_NOCOUNT | XO_F_NUKE);
+	if (ch->carrying != NULL) {
+		log(LOG_BUG, "char_free: ch->carrying != NULL");
+		ch->carrying = NULL;
 	}
-	ch->carrying = NULL;
 
 	aff_free_list(ch->affected);
 	ch->affected = NULL;

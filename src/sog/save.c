@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.181 2001-07-29 20:15:03 fjoe Exp $
+ * $Id: save.c,v 1.182 2001-07-31 14:56:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -148,13 +148,21 @@ void delete_player(CHAR_DATA *victim, const char* msg)
 	dunlink(PLAYER_PATH, name);
 }
 
-void char_nuke(CHAR_DATA *ch)
+void
+char_nuke(CHAR_DATA *ch)
 {
-	PC_DATA *pc = PC(ch);
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	PC_DATA *pc;
 
-	if (pc->pet) {
-		char_free(pc->pet);
+	if (!IS_NPC(ch) && (pc = PC(ch))->pet != NULL) {
+		char_nuke(pc->pet);
 		pc->pet = NULL;
+	}
+
+	for (obj = ch->carrying; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		extract_obj(obj, XO_F_NOCOUNT);
 	}
 
 	char_free(ch);
@@ -684,23 +692,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			}
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
-				if (PC(ch)->version < 12
-				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
-				&&  INT(paf->location) >=27) {
-					AFFECT_DATA af2;
-					af2.where = TO_RESIST;
-					af2.duration = paf->duration;
-					af2.level = paf->level;
-					af2.type = str_qdup(paf->type);
-					af2.owner = NULL;
-					INT(af2.location) = damtbl[INT(paf->location) - 27];
-					INT(paf->location) = APPLY_NONE;
-					af2.modifier = paf->modifier;
-					paf->modifier = 0;
-					af2.bitvector = 0;
-					affect_to_char2(ch, &af2);
-				}
-				affect_to_char2(ch, paf);
+				affect_to_char(ch, paf);
 				aff_free(paf);
 				fMatch = TRUE;
 				break;
@@ -1003,23 +995,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
-				if (PC(ch)->version < 12
-				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
-				&&  INT(paf->location) >=27) {
-					AFFECT_DATA af2;
-					af2.where = TO_RESIST;
-					af2.duration = paf->duration;
-					af2.type = str_qdup(paf->type);
-					af2.level = paf->level;
-					af2.owner = NULL;
-					INT(af2.location) = damtbl[INT(paf->location)-27];
-					INT(paf->location) = APPLY_NONE;
-					af2.modifier = paf->modifier;
-					paf->modifier = 0;
-					af2.bitvector = 0;
-					affect_to_char2(pet, &af2);
-				}
-				affect_to_char2(pet, paf);
+				affect_to_char(pet, paf);
 				aff_free(paf);
 				fMatch = TRUE;
 				break;
@@ -1160,19 +1136,6 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'A':
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
-				if (PC(ch)->version < 12
-				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS || paf->where == TO_OBJECT)
-				&&  INT(paf->location) >=27) {
-					AFFECT_DATA *paf2 = aff_dup(paf);
-					paf2->where = TO_RESIST;
-					INT(paf2->location) = damtbl[INT(paf->location)-27];
-					INT(paf->location) = APPLY_NONE;
-					paf2->modifier = paf->modifier;
-					paf->modifier = 0;
-					paf2->bitvector = 0;
-					affect_to_char2(ch, paf2);
-					SLIST_ADD(AFFECT_DATA, obj->affected, paf2);
-				}
 				SLIST_ADD(AFFECT_DATA, obj->affected, paf);
 				fMatch = TRUE;
 				break;

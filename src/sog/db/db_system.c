@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.17 2001-06-24 10:51:03 avn Exp $
+ * $Id: db_system.c,v 1.18 2001-07-31 14:56:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -100,7 +100,7 @@ DBLOAD_FUN(load_system)
 				m->name = fread_string(fp);
 				m->mod_id = flag_value(module_names, m->name);
 				m->file_name = str_printf("%s%c%s.so.%d",
-			 		MODULES_PATH, PATH_SEPARATOR,
+					MODULES_PATH, PATH_SEPARATOR,
 					m->name, ABI_VERSION);
 				fMatch = TRUE;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.299 2001-07-30 13:28:07 fjoe Exp $
+ * $Id: handler.c,v 1.300 2001-07-31 14:56:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,13 +51,13 @@
 #include <lang.h>
 #include <auction.h>
 
-#include "affects.h"
-#include "fight.h"
-#include "magic.h"
-#include "update.h"
-#include "quest.h"
+#include <affects.h>
+#include <fight.h>
+#include <magic.h>
+#include <update.h>
+#include <quest.h>
 
-#include "handler.h"
+#include <handler.h>
 
 static const char *	format_hmv	(int hp, int mana, int move);
 
@@ -376,109 +376,322 @@ obj_from_obj(OBJ_DATA *obj)
 }
 
 /*
- * Extract an obj from the world.
+ * Create an instance of a mobile.
  */
-void
-extract_obj(OBJ_DATA *obj, int flags)
+CHAR_DATA *
+create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 {
-	OBJ_DATA *obj_content;
-	OBJ_DATA *obj_next;
+	CHAR_DATA *mob;
+	int i;
+	race_t *r;
+	AFFECT_DATA *paf;
 
-	if (!mem_is(obj, MT_OBJ)) {
-		log(LOG_BUG, "extract_obj: obj is not MT_OBJ");
-		return;
+	if (pMobIndex == NULL) {
+		log(LOG_BUG, "create_mob: NULL pMobIndex.");
+		exit(1);
 	}
 
-	if (OBJ_IS(obj, OBJ_CLAN))
-		return;
+	mob = char_new(pMobIndex);
 
-	if (OBJ_IS(obj, OBJ_CHQUEST)) {
-		if (!IS_SET(flags, XO_F_NOCHQUEST))
-			chquest_extract(obj);
-		flags |= XO_F_NORECURSE;
+	mob->name	= str_qdup(pMobIndex->name);
+	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
+	mlstr_cpy(&mob->long_descr, &pMobIndex->long_descr);
+	mlstr_cpy(&mob->description, &pMobIndex->description);
+	mob->class = str_empty;
+
+	if (pMobIndex->wealth) {
+		long wealth;
+
+		wealth = number_range(pMobIndex->wealth/2,
+				      3 * pMobIndex->wealth/2);
+		mob->gold = number_range(wealth/200,wealth/100);
+		mob->silver = wealth - (mob->gold * 100);
 	}
 
-	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
-		obj_next = obj_content->next_content;
+	mob->affected_by	= pMobIndex->affected_by;
+	mob->has_invis		= pMobIndex->has_invis;
+	mob->has_detect		= pMobIndex->has_detect;
+	mob->alignment		= pMobIndex->alignment;
+	mob->level		= pMobIndex->level;
+	mob->position		= pMobIndex->start_pos;
 
-		if (!IS_SET(flags, XO_F_NORECURSE)
-		||  IS_SET(flags, XO_F_NUKE)) {
-			extract_obj(obj_content, flags);
-			continue;
+	for (i = 0; i < MAX_RESIST; i++)
+		mob->resists[i] = pMobIndex->resists[i];
+
+	free_string(mob->race);
+	mob->race		= str_qdup(pMobIndex->race);
+	if ((r = race_lookup(pMobIndex->race)) != NULL) {
+		for (i = 0; i < MAX_RESIST; i++) {
+			if (mob->resists[i] != MOB_IMMUNE)
+				mob->resists[i] += r->resists[i];
+			else
+				mob->resists[i] = 100;
 		}
-
-		obj_from_obj(obj_content);
-		if (obj->in_room)
-			obj_to_room(obj_content, obj->in_room);
-		else if (obj->carried_by)
-			obj_to_char(obj_content, obj->carried_by);
-		else if (obj->in_obj)
-			obj_to_obj(obj_content, obj->in_obj);
-		else
-			extract_obj(obj_content, 0);
+		mob->luck	+= r-> luck_bonus;
 	}
 
-	if (!IS_SET(flags, XO_F_NUKE)) {
-		if (obj->in_room)
-			obj_from_room(obj);
-		else if (obj->carried_by)
-			obj_from_char(obj);
-		else if (obj->in_obj)
-			obj_from_obj(obj);
-	}
+	mob->form		= pMobIndex->form;
+	mob->parts		= pMobIndex->parts;
+	mob->size		= pMobIndex->size;
+	free_string(mob->clan);
+	mob->clan		= str_qdup(pMobIndex->clan);
+	mob->invis_level	= pMobIndex->invis_level;
+	mob->incog_level	= pMobIndex->incog_level;
+	mob->material		= str_qdup(pMobIndex->material);
 
-	if (obj->pObjIndex->vnum == OBJ_VNUM_MAGIC_JAR) {
-		 CHAR_DATA *wch;
-
-		 for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
-			if (!mlstr_cmp(&obj->owner, &wch->short_descr)) {
-				REMOVE_BIT(PC(wch)->plr_flags, PLR_NOEXP);
-				act_char("Now you catch your spirit.", wch);
-				break;
-			}
-		}
-	}
-
-	if (object_list == obj)
-		object_list = obj->next;
-	else {
-		OBJ_DATA *prev;
-
-		for (prev = object_list; prev != NULL; prev = prev->next) {
-			if (prev->next == obj) {
-				prev->next = obj->next;
-				break;
-			}
-		}
-
-		if (prev == NULL) {
-			log(LOG_BUG, "extract_obj: obj %d not found.",
-			    obj->pObjIndex->vnum);
-			return;
+	mob->damtype		= str_qdup(pMobIndex->damtype);
+	if (IS_NULLSTR(mob->damtype)) {
+		switch (number_range(1, 3)) {
+		case 1:
+			mob->damtype = str_dup("slash");
+			break;
+		case 2:
+			mob->damtype = str_dup("pound");
+			break;
+		case 3:
+			mob->damtype = str_dup("pierce");
+			break;
 		}
 	}
 
-	if (obj == top_affected_obj)
-		top_affected_obj = obj->aff_next;
-	else {
-		OBJ_DATA *prev;
+	if (flag_value(sex_table, mlstr_mval(&pMobIndex->gender)) == SEX_EITHER) {
+		MOB_INDEX_DATA *fmob;
+		int sex = number_range(SEX_MALE, SEX_FEMALE);
 
-		for (prev = top_affected_obj; prev; prev = prev->aff_next)
-			if (prev->aff_next == obj)
-				break;
+		mlstr_destroy(&mob->gender);
+		mlstr_init2(&mob->gender, flag_string(gender_table, sex));
 
-		if (prev != NULL)
-			prev->aff_next = obj->aff_next;
+		if (sex == SEX_FEMALE
+		&&  (fmob = get_mob_index(pMobIndex->fvnum))) {
+			mob->name	= str_qdup(fmob->name);
+			mlstr_cpy(&mob->short_descr, &fmob->short_descr);
+			mlstr_cpy(&mob->long_descr, &fmob->long_descr);
+			mlstr_cpy(&mob->description, &fmob->description);
+		}
+	} else {
+		mlstr_cpy(&mob->gender, &pMobIndex->gender);
 	}
 
-	if (!IS_SET(flags, XO_F_NOCOUNT))
-		--obj->pObjIndex->count;
+	for (i = 0; i < MAX_STAT; i ++)
+		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
+
+	mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
+	mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
+
+	mob->hitroll		= (mob->level / 2) + pMobIndex->hitroll;
+	mob->damroll		= pMobIndex->damage[DICE_BONUS];
+	SET_HIT(mob, dice(pMobIndex->hit[DICE_NUMBER],
+			  pMobIndex->hit[DICE_TYPE]) +
+		     pMobIndex->hit[DICE_BONUS]);
+	SET_MANA(mob, dice(pMobIndex->mana[DICE_NUMBER],
+			   pMobIndex->mana[DICE_TYPE]) +
+		      pMobIndex->mana[DICE_BONUS]);
+	NPC(mob)->dam.dice_number = pMobIndex->damage[DICE_NUMBER];
+	NPC(mob)->dam.dice_type = pMobIndex->damage[DICE_TYPE];
+	for (i = 0; i < 4; i++)
+		mob->armor[i]	= pMobIndex->ac[i];
+
+	if (IS_SET(pMobIndex->act, ACT_WARRIOR)) {
+		mob->perm_stat[STAT_STR] += 3;
+		mob->perm_stat[STAT_INT] -= 1;
+		mob->perm_stat[STAT_CON] += 2;
+	}
+
+	if (IS_SET(pMobIndex->act, ACT_THIEF)) {
+		mob->perm_stat[STAT_DEX] += 3;
+		mob->perm_stat[STAT_INT] += 1;
+		mob->perm_stat[STAT_WIS] -= 1;
+	}
+
+	if (IS_SET(pMobIndex->act, ACT_CLERIC)) {
+		mob->perm_stat[STAT_WIS] += 3;
+		mob->perm_stat[STAT_DEX] -= 1;
+		mob->perm_stat[STAT_STR] += 1;
+	}
+
+	if (IS_SET(pMobIndex->act, ACT_MAGE)) {
+		mob->perm_stat[STAT_INT] += 3;
+		mob->perm_stat[STAT_STR] -= 1;
+		mob->perm_stat[STAT_DEX] += 1;
+	}
+
+	if (IS_SET(pMobIndex->off_flags, OFF_FAST))
+		mob->perm_stat[STAT_DEX] += 2;
+
+	/* let's get some spell action */
+	if (IS_AFFECTED(mob, AFF_SANCTUARY)) {
+		paf = aff_new(TO_AFFECTS, "sanctuary");
+		paf->level	= mob->level;
+		paf->duration	= -1;
+		paf->bitvector	= AFF_SANCTUARY;
+		affect_to_char(mob, paf);
+		aff_free(paf);
+	}
+
+	if (IS_AFFECTED(mob, AFF_HASTE)) {
+		paf = aff_new(TO_AFFECTS, "haste");
+		paf->level	= mob->level;
+		paf->duration	= -1;
+		INT(paf->location)= APPLY_DEX;
+		paf->modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) +
+				  (mob->level >= 32);
+		paf->bitvector	= AFF_HASTE;
+		affect_to_char(mob, paf);
+		aff_free(paf);
+	}
+
+	if (IS_AFFECTED(mob, AFF_PROTECT_EVIL)) {
+		paf = aff_new(TO_AFFECTS, "protection evil");
+		paf->level	= mob->level;
+		paf->duration	= -1;
+		INT(paf->location)= APPLY_SAVES;
+		paf->modifier	= -1;
+		paf->bitvector	= AFF_PROTECT_EVIL;
+		affect_to_char(mob, paf);
+		aff_free(paf);
+	}
+
+	if (IS_AFFECTED(mob, AFF_PROTECT_GOOD)) {
+		paf = aff_new(TO_AFFECTS, "protection good");
+		paf->level	= mob->level;
+		paf->duration	= -1;
+		INT(paf->location)= APPLY_SAVES;
+		paf->modifier	= -1;
+		paf->bitvector	= AFF_PROTECT_GOOD;
+		affect_to_char(mob, paf);
+		aff_free(paf);
+	}
+
+	for (paf = pMobIndex->affected; paf != NULL; paf = paf->next)
+		affect_to_char(mob, paf);
+
+	/* link the mob to the world list */
+	/* if CM_F_NOLIST is not set */
+	if (!IS_SET(flags, CM_F_NOLIST)) {
+		if (char_list_lastpc) {
+			mob->next = char_list_lastpc->next;
+			char_list_lastpc->next = mob;
+		} else {
+			mob->next = char_list;
+			char_list = mob;
+		}
+	}
+
+	pMobIndex->count++;
+	return mob;
+}
+
+static
+MLSTR_FOREACH_FUN(cb_xxx_of, lang, p, ap)
+{
+	mlstring *owner = va_arg(ap, mlstring *);
+	const char *q;
+
+	if (IS_NULLSTR(*p))
+		return NULL;
+
+	q = str_printf(*p, word_form(mlstr_val(owner, lang), 1,
+				     lang, RULES_CASE));
+	free_string(*p);
+	*p = q;
+	return NULL;
+}
+
+CHAR_DATA *
+create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
+{
+	CHAR_DATA *mob = create_mob(pMobIndex, 0);
+
+	mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
+	mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
+	mlstr_foreach(&mob->description, cb_xxx_of, owner);
+
+	return mob;
+}
+
+/* duplicate a mobile exactly -- except inventory */
+CHAR_DATA *
+clone_mob(CHAR_DATA *parent)
+{
+	int i;
+	AFFECT_DATA *paf, *paf_next;
+	CHAR_DATA *clone;
+
+	clone = create_mob(parent->pMobIndex, 0);
+
+	/* start fixing values */
+	free_string(clone->name);
+	clone->name		= str_qdup(parent->name);
+	mlstr_cpy(&clone->short_descr, &parent->short_descr);
+	mlstr_cpy(&clone->long_descr, &parent->long_descr);
+	mlstr_cpy(&clone->description, &parent->description);
+	mlstr_cpy(&clone->gender, &parent->gender);
+	free_string(clone->class);
+	clone->class		= str_qdup(parent->class);
+	free_string(clone->race);
+	clone->race		= str_qdup(parent->race);
+	clone->level		= parent->level;
+	clone->wait		= parent->wait;
+
+	clone->hit		= parent->hit;
+	clone->max_hit		= parent->max_hit;
+	clone->perm_hit		= parent->perm_hit;
+
+	clone->mana		= parent->mana;
+	clone->max_mana		= parent->max_mana;
+	clone->perm_mana	= parent->perm_mana;
+
+	clone->move		= parent->move;
+	clone->max_move		= parent->max_move;
+	clone->perm_move	= parent->perm_move;
+
+	clone->gold		= parent->gold;
+	clone->silver		= parent->silver;
+	clone->comm		= parent->comm;
+	clone->invis_level	= parent->invis_level;
+	clone->incog_level	= parent->incog_level;
+	clone->affected_by	= parent->affected_by;
+	clone->has_invis	= parent->has_invis;
+	clone->has_detect	= parent->has_detect;
+	clone->position		= parent->position;
+	clone->saving_throw	= parent->saving_throw;
+	clone->alignment	= parent->alignment;
+	clone->hitroll		= parent->hitroll;
+	clone->damroll		= parent->damroll;
+	clone->wimpy		= parent->wimpy;
+	clone->form		= parent->form;
+	clone->parts		= parent->parts;
+	clone->size		= parent->size;
+	free_string(clone->material);
+	clone->material		= str_qdup(parent->material);
+	free_string(clone->damtype);
+	clone->damtype		= str_qdup(parent->damtype);
+	clone->hunting		= NULL;
+	free_string(clone->clan);
+	clone->clan	= str_qdup(parent->clan);
+	NPC(clone)->dam	= NPC(parent)->dam;
+
+	for (i = 0; i < 4; i++)
+		clone->armor[i]	= parent->armor[i];
+
+	for (i = 0; i < MAX_STAT; i++) {
+		clone->perm_stat[i]	= parent->perm_stat[i];
+		clone->mod_stat[i]	= parent->mod_stat[i];
+	}
 
 	/*
-	 * untag memory
+	 * clone affects
 	 */
-	mem_untag(obj, -1);
-	free_obj(obj);
+	for (paf = clone->affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		affect_remove(clone, paf);
+	}
+	clone->affected = NULL;
+
+	for (paf = parent->affected; paf != NULL; paf = paf->next)
+		affect_to_char(clone, paf);
+
+	return clone;
 }
 
 /*
@@ -499,8 +712,15 @@ extract_char(CHAR_DATA *ch, int flags)
 	}
 
 	strip_raff_owner(ch);
-	if (!IS_NPC(ch))
-		nuke_pets(ch);
+
+	/* nuke pet */
+	if (!IS_NPC(ch)
+	&&  (wch = PC(ch)->pet) != NULL) {
+		stop_follower(wch);
+		act("$n slowly fades away.", wch, NULL, NULL, TO_ROOM);
+		extract_char(wch, 0);
+		PC(ch)->pet = NULL;
+	}
 
 	if (!IS_SET(flags, XC_F_INCOMPLETE))
 		die_follower(ch);
@@ -816,6 +1036,229 @@ quit_char(CHAR_DATA *ch, int flags)
 	}
 
 	free_string(name);
+}
+
+/*
+ * Create an instance of an object.
+ */
+OBJ_DATA *
+create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
+{
+	OBJ_DATA *obj;
+	int i;
+
+	if (pObjIndex == NULL) {
+		log(LOG_BUG, "create_obj: NULL pObjIndex");
+		exit(1);
+	}
+
+	obj = new_obj();
+
+	obj->pObjIndex	= pObjIndex;
+	obj->level = pObjIndex->level;
+	obj->wear_loc	= -1;
+
+	mlstr_cpy(&obj->short_descr, &pObjIndex->short_descr);
+	mlstr_cpy(&obj->description, &pObjIndex->description);
+	obj->material		= str_qdup(pObjIndex->material);
+	obj->stat_flags		= pObjIndex->stat_flags;
+	obj->wear_flags		= pObjIndex->wear_flags;
+	obj->weight		= pObjIndex->weight;
+	obj->condition		= pObjIndex->condition;
+	obj->cost		= pObjIndex->cost;
+
+	/*
+	 * objval_destroy is not needed since obj was just created
+	 */
+	obj->item_type = pObjIndex->item_type;
+	objval_cpy(obj->item_type, obj->value, pObjIndex->value);
+
+	/*
+	 * Mess with object properties.
+	 */
+	switch (obj->item_type) {
+	case ITEM_LIGHT:
+		if (INT(obj->value[2]) == 999)
+			INT(obj->value[2]) = -1;
+		break;
+
+	case ITEM_JUKEBOX:
+		for (i = 0; i < 5; i++)
+			INT(obj->value[i]) = -1;
+		break;
+	}
+
+	obj->next	= object_list;
+	object_list	= obj;
+	if (!IS_SET(flags, CO_F_NOCOUNT))
+		pObjIndex->count++;
+	return obj;
+}
+
+OBJ_DATA *
+create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
+{
+	OBJ_DATA *obj = create_obj(pObjIndex, 0);
+
+	mlstr_foreach(&obj->short_descr, cb_xxx_of, owner);
+	mlstr_foreach(&obj->description, cb_xxx_of, owner);
+
+	return obj;
+}
+
+/* duplicate an object exactly -- except contents */
+OBJ_DATA *
+clone_obj(OBJ_DATA *parent)
+{
+	AFFECT_DATA *paf;
+	ED_DATA *ed, *ed2;
+	OBJ_DATA *clone;
+
+	clone = create_obj(parent->pObjIndex, 0);
+
+	/* start copying the object */
+	free_string(clone->label);
+	clone->label		= str_qdup(parent->label);
+
+	mlstr_cpy(&clone->short_descr, &parent->short_descr);
+	mlstr_cpy(&clone->description, &parent->description);
+	clone->stat_flags	= parent->stat_flags;
+	clone->wear_flags	= parent->wear_flags;
+	clone->weight		= parent->weight;
+	clone->cost		= parent->cost;
+	clone->level		= parent->level;
+	clone->condition	= parent->condition;
+	clone->material		= str_qdup(parent->material);
+	clone->timer		= parent->timer;
+	mlstr_cpy(&clone->owner, &parent->owner);
+
+	/*
+	 * obj values
+	 */
+	objval_destroy(parent->item_type, clone->value);
+	objval_cpy(parent->item_type, clone->value, parent->value);
+
+	/*
+	 * affects
+	 */
+	for (paf = parent->affected; paf != NULL; paf = paf->next)
+		affect_to_obj(clone, paf);
+
+	/*
+	 * extended desc
+	 */
+	for (ed = parent->ed; ed != NULL; ed = ed->next) {
+		ed2		= ed_new();
+		ed2->keyword	= str_qdup(ed->keyword);
+		mlstr_cpy(&ed2->description, &ed->description);
+		ed2->next	= clone->ed;
+		clone->ed	= ed2;
+	}
+
+	return clone;
+}
+
+/*
+ * Extract an obj from the world.
+ */
+void
+extract_obj(OBJ_DATA *obj, int flags)
+{
+	OBJ_DATA *obj_content;
+	OBJ_DATA *obj_next;
+
+	if (!mem_is(obj, MT_OBJ)) {
+		log(LOG_BUG, "extract_obj: obj is not MT_OBJ");
+		return;
+	}
+
+	if (OBJ_IS(obj, OBJ_CLAN))
+		return;
+
+	if (OBJ_IS(obj, OBJ_CHQUEST)) {
+		if (!IS_SET(flags, XO_F_NOCHQUEST))
+			chquest_extract(obj);
+		flags |= XO_F_NORECURSE;
+	}
+
+	for (obj_content = obj->contains; obj_content; obj_content = obj_next) {
+		obj_next = obj_content->next_content;
+
+		if (!IS_SET(flags, XO_F_NORECURSE)) {
+			extract_obj(obj_content, flags);
+			continue;
+		}
+
+		obj_from_obj(obj_content);
+		if (obj->in_room)
+			obj_to_room(obj_content, obj->in_room);
+		else if (obj->carried_by)
+			obj_to_char(obj_content, obj->carried_by);
+		else if (obj->in_obj)
+			obj_to_obj(obj_content, obj->in_obj);
+		else
+			extract_obj(obj_content, 0);
+	}
+
+	if (obj->in_room)
+		obj_from_room(obj);
+	else if (obj->carried_by)
+		obj_from_char(obj);
+	else if (obj->in_obj)
+		obj_from_obj(obj);
+
+	if (obj->pObjIndex->vnum == OBJ_VNUM_MAGIC_JAR) {
+		 CHAR_DATA *wch;
+
+		 for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
+			if (!mlstr_cmp(&obj->owner, &wch->short_descr)) {
+				REMOVE_BIT(PC(wch)->plr_flags, PLR_NOEXP);
+				act_char("Now you catch your spirit.", wch);
+				break;
+			}
+		}
+	}
+
+	if (object_list == obj)
+		object_list = obj->next;
+	else {
+		OBJ_DATA *prev;
+
+		for (prev = object_list; prev != NULL; prev = prev->next) {
+			if (prev->next == obj) {
+				prev->next = obj->next;
+				break;
+			}
+		}
+
+		if (prev == NULL) {
+			log(LOG_BUG, "extract_obj: obj %d not found.",
+			    obj->pObjIndex->vnum);
+			return;
+		}
+	}
+
+	if (obj == top_affected_obj)
+		top_affected_obj = obj->aff_next;
+	else {
+		OBJ_DATA *prev;
+
+		for (prev = top_affected_obj; prev; prev = prev->aff_next)
+			if (prev->aff_next == obj)
+				break;
+
+		if (prev != NULL)
+			prev->aff_next = obj->aff_next;
+	}
+
+	if (!IS_SET(flags, XO_F_NOCOUNT))
+		--obj->pObjIndex->count;
+
+	/*
+	 * untag memory
+	 */
+	mem_untag(obj, -1);
+	free_obj(obj);
 }
 
 /*
@@ -3438,6 +3881,54 @@ can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 	return TRUE;
 }
 
+bool
+shapeshift(CHAR_DATA *ch, const char *shapeform)
+{
+	form_index_t *form_index;
+	form_t *form;
+	int i;
+
+	if ((form_index = form_lookup(shapeform)) == NULL) {
+		log(LOG_BUG, "shapeshift: unknown form %s.\n", shapeform);
+		return FALSE;
+	}
+
+	form = (form_t *) calloc(1, sizeof(form_t));
+
+	form->index = form_index;
+	form->damroll = form_index->damage[DICE_BONUS];
+	form->hitroll = form_index->hitroll;
+
+	for (i = 0; i < MAX_RESIST; i++)
+		form->resists[i] = form_index->resists[i];
+
+	ch->shapeform = form;
+
+	return TRUE;
+}
+
+bool
+revert(CHAR_DATA *ch)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
+
+	for (paf = ch->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		if (paf->where == TO_FORMAFFECTS)
+			affect_remove(ch, paf);
+	}
+
+	if (!ch->shapeform) {
+		log(LOG_BUG, "Revert: character is not shapeshifted.\n");
+		return FALSE;
+	}
+
+	free(ch->shapeform);
+	ch->shapeform = NULL;
+
+	return TRUE;
+}
 /*
  * Parse a name for acceptability.
  */
@@ -3538,19 +4029,6 @@ char_in_dark_room(CHAR_DATA *ch)
 void
 nuke_pets(CHAR_DATA *ch)
 {
-	CHAR_DATA *pet;
-
-	if (IS_NPC(ch)) {
-		log(LOG_BUG, "nuke_pets: IS_NPC");
-		return;
-	}
-
-	if ((pet = PC(ch)->pet) != NULL) {
-		stop_follower(pet);
-		act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
-		extract_char(pet, 0);
-		PC(ch)->pet = NULL;
-	}
 }
 
 void

@@ -23,15 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.9 2001-07-29 20:15:00 fjoe Exp $
+ * $Id: forms.c,v 1.10 2001-07-31 14:56:23 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <merc.h>
-
-#include "affects.h"
 
 hash_t forms;
 
@@ -87,51 +85,4 @@ void form_destroy(form_index_t *f)
 	mlstr_destroy(&f->long_desc);
 	free_string(f->damtype);
 	free_string(f->skill_spec);
-}
-
-bool shapeshift(CHAR_DATA* ch, const char* shapeform)
-{
-	form_index_t* form_index;
-	form_t * form;
-	int i;
-
-	if (!(form_index = form_lookup(shapeform))) {
-		log(LOG_BUG, "shapeshift: unknown form %s.\n", shapeform);
-		return FALSE;
-	}
-
-	form = (form_t*) calloc(1, sizeof(form_t));
-
-	form->index = form_index;
-	form->damroll = form_index->damage[DICE_BONUS];
-	form->hitroll = form_index->hitroll;
-
-	for (i = 0; i < MAX_RESIST; i++)
-		form->resists[i] = form_index->resists[i];
-
-	ch->shapeform = form;
-
-	return TRUE;
-}
-
-bool revert(CHAR_DATA* ch)
-{
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
-
-	for (paf = ch->affected; paf; paf = paf_next) {
-		paf_next = paf->next;
-		if (paf->where == TO_FORMAFFECTS)
-			affect_remove(ch, paf);
-	}
-
-	if (!ch->shapeform) {
-		log(LOG_BUG, "Revert: character is not shapeshifted.\n");
-		return FALSE;
-	}
-
-	free(ch->shapeform);
-
-	ch->shapeform = NULL;
-	return TRUE;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.198 2001-07-29 20:14:57 fjoe Exp $
+ * $Id: update.c,v 1.199 2001-07-31 14:56:20 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -41,6 +41,44 @@
 static void *uhandler_load_cb(void *p, va_list ap);
 static void *uhandler_unload_cb(void *p, va_list ap);
 static void *uhandler_tick_cb(void *p, va_list ap);
+
+void
+_module_boot()
+{
+	int hour, day, month;
+
+	/*
+	 * Set time and weather.
+	 */
+	hour = (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
+	time_info.hour	= hour  % 24;
+	day		= hour  / 24;
+	time_info.day	= day   % 35;
+	month		= day   / 35;
+	time_info.month	= month % 17;
+	time_info.year	= month / 17;
+
+	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
+	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
+	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
+	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
+	else                          weather_info.sunlight = SUN_DARK;
+
+	weather_info.change	= 0;
+	weather_info.mmhg	= 960;
+	if (time_info.month >= 7 && time_info.month <= 12)
+		weather_info.mmhg += number_range(1, 50);
+	else
+		weather_info.mmhg += number_range(1, 80);
+
+	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
+	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
+	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
+	else                                weather_info.sky = SKY_CLOUDLESS;
+
+	scan_pfiles();
+	update_one("area");
+}
 
 void
 uhandler_load(const char *mod_name)

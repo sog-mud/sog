@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.310 2001-07-30 13:01:56 fjoe Exp $
+ * $Id: fight.c,v 1.311 2001-07-31 14:56:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,18 +51,17 @@
 #	include <unistd.h>
 #endif
 
-#include "merc.h"
-#include "rating.h"
+#include <merc.h>
+#include <rating.h>
 
-#include "affects.h"
-#include "effects.h"
-#include "handler.h"
-#include "magic.h"
-#include "update.h"
+#include <affects.h>
+#include <effects.h>
+#include <handler.h>
+#include <magic.h>
+#include <update.h>
+#include <quest.h>
 
-#include "module.h"
-#include "fight.h"
-#include "quest.h"
+#include <fight.h>
 
 /*
  * Local functions.
@@ -256,7 +255,6 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	|| (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 		/* Miss. */
 		damage(ch, victim, 0, dt, dam_class, dam_flags);
-		tail_chain();
 		return;
 	}
 
@@ -266,7 +264,6 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
 		damage(ch, victim, 0, dt, dam_class, dam_flags);
-		tail_chain();
 		return;
 	}
 
@@ -674,8 +671,6 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			check_improve(ch, "twist", TRUE, 6);
 		}
 	}
-
-	tail_chain();
 }
 
 /*
@@ -1282,7 +1277,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	&&  victim->wait < get_pulse("violence") / 2)
 		dofun("flee", victim, str_empty);
 
-	tail_chain();
 	return TRUE;
 }
 
@@ -1292,8 +1286,8 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
  */
 
 void
-focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char *sn,
-    int amount)
+focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim,
+		      const char *sn, int amount)
 {
 	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
 		if (ch == victim)
@@ -1325,8 +1319,8 @@ focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char *sn,
  */
 
 void
-focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim, const char * sn,
-    int amount)
+focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim,
+		      const char *sn, int amount)
 {
 	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
 		if (ch == victim)
@@ -1718,7 +1712,8 @@ is_safe_raw(CHAR_DATA *ch, CHAR_DATA *victim)
  * all the checks are done is_safe_raw to properly strip PLR_GHOST
  * flag if victim is not safe. add you checks there
  */
-bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
+bool
+is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	bool safe;
 	CHAR_DATA *mount;
@@ -1778,7 +1773,8 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 	return safe;
 }
 
-bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
+bool
+is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (is_safe_nomessage(ch, victim)) {
 		act("The gods protect $N.",ch,NULL,victim,TO_CHAR);
@@ -1788,7 +1784,8 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
 	return FALSE;
 }
 
-bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
+bool
+is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 {
 #if 0
 	if (ch == victim && !area)
@@ -1806,25 +1803,26 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	return is_safe(ch, victim);
 }
 
-bool is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
+bool
+is_safe_rspell_nom(AFFECT_DATA *af, CHAR_DATA *victim)
 {
 	if (af->owner)
 		return is_safe_nomessage(victim, af->owner);
 	log(LOG_BUG, "is_safe_rspell_nom: no affect owner");
 	affect_remove_room(victim->in_room, af);
-	return TRUE; /* protected from broken room affects */ 
+	return TRUE; /* protected from broken room affects */
 }
 
-
-bool is_safe_rspell(AFFECT_DATA *af, CHAR_DATA *victim)
+bool
+is_safe_rspell(AFFECT_DATA *af, CHAR_DATA *victim)
 {
-  if (is_safe_rspell_nom(af,victim))
-	{
-	  act("The gods protect you from the spell of room.",
-	      victim, NULL, NULL, TO_CHAR);
-	  return TRUE;
+	if (is_safe_rspell_nom(af, victim)) {
+		act("The gods protect you from the spell of room.",
+		    victim, NULL, NULL, TO_CHAR);
+		return TRUE;
 	}
-  else return FALSE;
+
+	return FALSE;
 }
 
 int
@@ -1843,7 +1841,8 @@ get_dam_class(CHAR_DATA *ch, OBJ_DATA *wield)
  * finds guard for ch (if any) when mob attacks
  * ch is assumed to be !IS_NPC
  */
-CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
+CHAR_DATA *
+check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
 {
 	int chance;
 	CHAR_DATA *guarded_by = PC(ch)->guarded_by;
@@ -1852,7 +1851,7 @@ CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
 	||  get_char_room(ch, guarded_by->name) == NULL)
 		return ch;
 	else {
-		chance = get_skill(guarded_by, "guard") - 
+		chance = get_skill(guarded_by, "guard") -
 				3 * (ch->level - mob->level) / 2;
 		if (number_percent() < chance) {
 			act("$n jumps in front of $N!",
@@ -1876,7 +1875,8 @@ pk_range(int level)
 	return UMAX(4, level/10 + 2);
 }
 
-bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
+bool
+in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (IS_NPC(ch) || IS_NPC(victim))
 		return TRUE;
@@ -2143,7 +2143,7 @@ static void
 check_stun(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int chance;
-	if (get_eq_char(ch, WEAR_WIELD) 
+	if (get_eq_char(ch, WEAR_WIELD)
 	|| !(chance = get_skill(ch, "master hand")))
 		return;
 
@@ -2156,24 +2156,25 @@ check_stun(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (number_percent() < chance) {
 		SET_BIT(victim->affected_by, AFF_WEAK_STUN);
-		act_puts("You hit $N with a stunning force!", 
+		act_puts("You hit $N with a stunning force!",
 			ch, NULL, victim, TO_CHAR, POS_DEAD);
-		act_puts("$n hits you with a stunning force!", 
+		act_puts("$n hits you with a stunning force!",
 			ch, NULL, victim, TO_VICT, POS_DEAD);
-		act_puts("$n hits $N with a stunning force!", 
+		act_puts("$n hits $N with a stunning force!",
 			ch, NULL, victim, TO_NOTVICT, POS_RESTING);
 		check_improve(ch, "master hand", TRUE, 6);
 	}
 }
 
 static bool
-check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
+check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
 	int chance;
 	OBJ_DATA *weapon;
 	OBJ_DATA *ch_weapon;
 
 	weapon = get_eq_char(victim, WEAR_WIELD);
-	if (!weapon || !WEAPON_IS_LONG(weapon)) 
+	if (!weapon || !WEAPON_IS_LONG(weapon))
 		return FALSE;
 
 	if (!(chance = get_skill(victim, "distance")))
@@ -2185,7 +2186,7 @@ check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 	ch_weapon = get_eq_char(ch, loc);
 
 	if (!ch_weapon) {
-		chance /= 3; 
+		chance /= 3;
 	} else {
 		switch(INT(ch_weapon->value[1])) {
 		case WEAPON_DAGGER:
@@ -2205,7 +2206,7 @@ check_distance(CHAR_DATA *ch, CHAR_DATA *victim, int loc) {
 	if (number_percent() < chance) {
 		act("Using the length of your weapon, you manage to keep $n on"
 			" a distance.", ch, NULL, victim, TO_VICT);
-		act("You try to hit $N, but $E didn't allow you to approach.", 
+		act("You try to hit $N, but $E didn't allow you to approach.",
 			ch, NULL, victim, TO_CHAR);
 		check_improve(ch, "distance", TRUE, 7);
 		return TRUE;
@@ -2394,8 +2395,8 @@ check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (chance <= 1)
 		return FALSE;
 
-	if (check_forest(victim) == FOREST_DEFENCE 
-	&& (number_percent() < get_skill(victim, "forest fighting"))) {
+	if (check_forest(victim) == FOREST_DEFENCE
+	&&  (number_percent() < get_skill(victim, "forest fighting"))) {
 		chance *= 1.2;
 		check_improve (victim, "forest fighting", TRUE, 7);
 	}
@@ -2429,17 +2430,17 @@ check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int chance;
 
-	if (!IS_AWAKE(victim) 
+	if (!IS_AWAKE(victim)
 	|| get_eq_char(victim, WEAR_WIELD)
 	|| get_eq_char(victim, WEAR_SECOND_WIELD)
-	|| (chance = get_skill(victim, "hand block") == 0)) 
+	|| (chance = get_skill(victim, "hand block") == 0))
 		return FALSE;
 
 	chance = URANGE(5, chance * 3/7 + LEVEL(victim) - LEVEL(ch), 85);
 	chance = chance * 2 / UMAX(2, num_enemies(ch));
 
 	if (number_percent() < chance) {
-		act("Your hand blocks $n's attack.", 
+		act("Your hand blocks $n's attack.",
 			ch, NULL, victim, TO_VICT|ACT_VERBOSE);
 		act("$N blocks your attack with $S hand.",
 			ch, NULL, victim, TO_CHAR|ACT_VERBOSE);
@@ -2448,8 +2449,6 @@ check_hand_block(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 	return FALSE;
 }
-
-
 
 /*
  * Check for dodge.
@@ -2473,8 +2472,8 @@ check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* chance for high dex. */
 	chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
 
-	if (check_forest(victim) == FOREST_DEFENCE 
-	  && (get_skill(victim, "forest fighting") > number_percent())) {
+	if (check_forest(victim) == FOREST_DEFENCE
+	&&  (get_skill(victim, "forest fighting") > number_percent())) {
 		chance *= 1.2;
 		check_improve (victim, "forest fighting", TRUE, 7);
 	}
@@ -2545,9 +2544,9 @@ make_corpse(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		if (!IS_SET(ch->form, FORM_INSTANT_DECAY)) {
 			corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
-					(ch->shapeform) ? 
-					(&ch->shapeform->index->short_desc) 
-					: (&ch->short_descr));
+			    (ch->shapeform) ?
+			        (&ch->shapeform->index->short_desc) :
+				(&ch->short_descr));
 			corpse->timer	= number_range(3, 6);
 		}
 
@@ -3113,45 +3112,44 @@ static int
 critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 {
 	int diceroll;
-	AFFECT_DATA baf;
 	int chance;
 
-	if (get_eq_char(ch, WEAR_WIELD) != NULL 
+	if (get_eq_char(ch, WEAR_WIELD) != NULL
 	&&  get_eq_char(ch, WEAR_SECOND_WIELD) != NULL
-	&&  number_percent() > ((ch->hit * 100) / ch->max_hit)) 
+	&&  number_percent() > ((ch->hit * 100) / ch->max_hit))
 		return 0;
 
-	if ((chance = get_skill(ch, "critical strike") - 
+	if ((chance = get_skill(ch, "critical strike") -
 	   GET_LUCK(victim) + 50) <= 0)
 		return dam;
-	
+
 	diceroll = number_range(0, 100);
 	if (LEVEL(victim) > LEVEL(ch))
 		diceroll += (LEVEL(victim) - LEVEL(ch)) * 2;
 	else
 		diceroll -= (LEVEL(ch) - LEVEL(victim));
- 
-	if (diceroll <= chance /2)  {  
+
+	if (diceroll <= chance /2) {
 		check_improve(ch, "critical strike", TRUE, 2);
 		dam += dam * diceroll/200;
-	}  
+	}
 
 	if (diceroll > chance / 13)
 		return dam;
 
 	diceroll = number_percent();
-	if (diceroll <= 75) {  
-		act_puts("You take $N down with a weird judo move!", 
+	if (diceroll <= 75) {
+		act_puts("You take $N down with a weird judo move!",
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
-		act("$n takes you down with a weird judo move!", 
+		act("$n takes you down with a weird judo move!",
 		    ch, NULL, victim, TO_VICT);
-		act("$n takes $N down with a weird judo move!", 
+		act("$n takes $N down with a weird judo move!",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "critical strike", TRUE, 3);
 		WAIT_STATE(victim, 2 * get_pulse("violence"));
 		dam += (dam * number_range(2, 5)) / 5;
 		return dam;
-	} else if (diceroll > 75 && diceroll < 95) {   
+	} else if (diceroll > 75 && diceroll < 95) {
 		act_puts("You blind $N with your attack!",
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		act("You are blinded by $n's attack!",
@@ -3160,27 +3158,28 @@ critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "critical strike", TRUE, 4);
 		if (!IS_AFFECTED(victim, AFF_BLIND)) {
-			baf.where = TO_AFFECTS;
-			baf.type = "critical strike";
-			baf.level = ch->level; 
-			INT(baf.location) = APPLY_HITROLL; 
-			baf.modifier = -4;
-			baf.duration = number_range(1, 3); 
-			baf.bitvector = AFF_BLIND;
-			baf.owner = NULL;
-			affect_to_char2(victim, &baf);
-		}  
-		dam += dam * number_range(1, 2);			
-		return dam;
-	} 
+			AFFECT_DATA *paf;
 
-	act_puts("You cut out $N's {Rheart{x! I bet that hurt!",  
+			paf = aff_new(TO_AFFECTS, "critical strike");
+			paf->level = ch->level;
+			INT(paf->location) = APPLY_HITROLL;
+			paf->modifier = -4;
+			paf->duration = number_range(1, 3);
+			paf->bitvector = AFF_BLIND;
+			affect_to_char(victim, paf);
+			aff_free(paf);
+		}
+		dam += dam * number_range(1, 2);
+		return dam;
+	}
+
+	act_puts("You cut out $N's {Rheart{x! I bet that hurt!",
 		 ch, NULL, victim, TO_CHAR ,POS_RESTING);
-	act_puts("$n cuts out your {Rheart{x! OUCH!!",  
-		 ch, NULL, victim, TO_VICT ,POS_RESTING); 
-	act_puts("$n cuts out $N's {Rheart{x! I bet that hurt!",  
-		 ch, NULL, victim, TO_NOTVICT ,POS_RESTING); 
+	act_puts("$n cuts out your {Rheart{x! OUCH!!",
+		 ch, NULL, victim, TO_VICT ,POS_RESTING);
+	act_puts("$n cuts out $N's {Rheart{x! I bet that hurt!",
+		 ch, NULL, victim, TO_NOTVICT ,POS_RESTING);
 	check_improve(ch, "critical strike", TRUE, 5);
-	dam += dam * number_range(2, 5);			
+	dam += dam * number_range(2, 5);
 	return dam;
-}  
+}

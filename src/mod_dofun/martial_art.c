@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.184 2001-07-30 13:01:52 fjoe Exp $
+ * $Id: martial_art.c,v 1.185 2001-07-31 14:56:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -550,8 +550,6 @@ void do_entangle(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int chance;
 	OBJ_DATA *whip;
-	AFFECT_DATA af;
-
 
 	if (!(victim = ch->fighting)) {
 		act_char("You aren't fighting anyone.", ch);
@@ -582,24 +580,24 @@ void do_entangle(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("entanglement"));
 
 	if (number_percent() > chance) {
+		AFFECT_DATA *paf;
+
 		act("You entangle $N with your $p.",
 			ch, whip, victim, TO_CHAR);
 		act("$n entangles you with $s $p.",
 			ch, whip, victim, TO_VICT);
-		af.where	= TO_AFFECTS;
-		af.type		= "entanglement";
-		af.level	= ch->level;
-		af.duration	= -1;
-		af.modifier	= -5;
-		af.bitvector	= 0;
-		af.owner	= ch;
-		INT(af.location)= APPLY_DEX;
-		affect_to_char2(victim, &af);
 
-		af.owner	= victim;
-		af.modifier	= 0;
-		INT(af.location)= APPLY_NONE;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, "entanglement");
+		paf->level	= ch->level;
+		paf->duration	= -1;
+		paf->owner	= victim;
+		affect_to_char(ch, paf);
+
+		paf->owner	= ch;
+		INT(paf->location)= APPLY_DEX;
+		paf->modifier	= -5;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 
 		check_improve(ch, "entanglement", TRUE, 3);
 	} else {
@@ -643,13 +641,11 @@ static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 void
 do_gash(CHAR_DATA *ch, const char *argument)
 {
-
 	CHAR_DATA *victim;
 	int chance, wear_loc;
 	OBJ_DATA *weapon, *second_weap, *gauntlets, *dagger;
 	bool attack;
 	char arg[MAX_INPUT_LENGTH];
-	AFFECT_DATA af;
 
 	if (!(chance = get_skill(ch, "gash"))) {
 		act_char("Huh?", ch);
@@ -723,13 +719,15 @@ do_gash(CHAR_DATA *ch, const char *argument)
 	wear_loc = WEAPON_IS(weapon, WEAPON_DAGGER) ? WEAR_WIELD : WEAR_SECOND_WIELD;
 	dagger = WEAPON_IS(weapon, WEAPON_DAGGER) ? weapon : second_weap;
 
-	if((number_percent() > chance) || distance_check(ch, victim)) {
+	if ((number_percent() > chance) || distance_check(ch, victim)) {
 		act("$N notices your maneuver right in time. DOH!",
 		ch, NULL, victim, TO_CHAR);
 		act("You notice $n aiming $s weapon at your hands right in"
 		"time to avoid the attack.", ch, NULL, victim, TO_VICT);
 		check_improve(ch, "gash", FALSE, 3);
 	} else {
+		AFFECT_DATA *paf;
+
 		gauntlets = get_eq_char(victim, WEAR_HANDS);
 		if(gauntlets) {
 			if((gauntlets->item_type != ITEM_ARMOR)
@@ -761,18 +759,10 @@ do_gash(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 		}
-		af.where = TO_AFFECTS;
-		af.type = "crippled hands";
-		af.level = ch->level;
-		INT(af.location) = APPLY_HITROLL;
-		af.duration = ch->level/15;
-		af.modifier = -ch->level/5;
-		af.owner	= NULL;
 
 		gash_drop(ch, victim, WEAR_WIELD);
 		gash_drop(ch, victim, WEAR_SECOND_WIELD);
 		gash_drop(ch, victim, WEAR_HOLD);
-
 
 		act("{RYour gash at $N's hands, crippling it ruthlessly!{x",
 			ch, NULL, victim, TO_CHAR);
@@ -781,17 +771,25 @@ do_gash(CHAR_DATA *ch, const char *argument)
 		act("{R$n gashes at $N's hands, producing a bleeding wound!{x",
 			ch, NULL, victim, TO_ROOM);
 
-		if ((get_eq_char(victim, WEAR_WIELD) == NULL)
-		&&((weapon = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL)) {
+		if (get_eq_char(victim, WEAR_WIELD) == NULL
+		&&  (weapon = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {
 			unequip_char(victim, weapon);
 			equip_char(victim, weapon, WEAR_WIELD);
 		}
 
+		paf = aff_new(TO_AFFECTS, "crippled hands");
+		paf->level = ch->level;
+		INT(paf->location) = APPLY_HITROLL;
+		paf->duration = ch->level/15;
+		paf->modifier = -ch->level/5;
+		affect_to_char(victim, paf);
+		aff_free(paf);
+
 		one_hit(ch, victim, "gash", wear_loc);
-		affect_to_char2(victim, &af);
 		check_improve(ch, "gash", TRUE, 3);
 	}
-	if(attack)
+
+	if (attack)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
@@ -884,7 +882,7 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 				ch, NULL, victim, TO_CHAR);
 			act("$n attempts to cut you with $s weapon.",
 				ch, NULL, victim, TO_VICT);
-	
+
 			one_hit(ch, victim, "cut", WEAR_SECOND_WIELD);
 			check_improve(ch, "cut", TRUE, 3);
 		}
@@ -896,26 +894,24 @@ void do_cut(CHAR_DATA *ch, const char *argument)
 
 void do_hunger(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
+
 	if (!get_skill(ch, "hungry rat"))
 		return;
 
-	af.where	= TO_FORMAFFECTS;
-	af.type		= "hungry rat";
-	af.level	= LEVEL(ch);
-	af.duration	= number_fuzzy(ch->level / 8);
-	af.modifier	= UMAX(1,LEVEL(ch)/5);
-	af.bitvector 	= AFF_BERSERK;
-	INT(af.location)= APPLY_HITROLL;
-	af.owner	= NULL;
-	affect_to_char2(ch,&af);
+	paf = aff_new(TO_FORMAFFECTS, "hungry rat");
+	paf->level	= LEVEL(ch);
+	paf->duration	= number_fuzzy(ch->level / 8);
+	paf->modifier	= UMAX(1, LEVEL(ch)/5);
+	INT(paf->location)= APPLY_HITROLL;
+	affect_to_char(ch, paf);
 
-	af.bitvector 	= 0;
-	INT(af.location)= APPLY_DAMROLL;
-	affect_to_char2(ch,&af);
+	INT(paf->location)= APPLY_DAMROLL;
+	paf->bitvector	= AFF_BERSERK;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act("You feel so hungry now.", ch, NULL, NULL, TO_CHAR);
-
 }
 
 void do_whirl(CHAR_DATA *ch, const char *argument)
@@ -1139,9 +1135,9 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	chance += 25 - hp_percent/2;
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
-		WAIT_STATE(ch,get_pulse("violence"));
+		WAIT_STATE(ch, get_pulse("violence"));
 		ch->mana -= 50;
 		ch->move /= 2;
 
@@ -1154,23 +1150,22 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, "berserk", TRUE, 2);
 
-		af.where	= TO_AFFECTS;
-		af.type		= "berserk";
-		af.level	= ch->level;
-		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1,LEVEL(ch)/5);
-		af.bitvector	= AFF_BERSERK;
-		INT(af.location)= APPLY_HITROLL;
-		af.owner	= NULL;
-		affect_to_char2(ch,&af);
+		paf = aff_new(TO_AFFECTS, "berserk");
+		paf->level	= ch->level;
+		paf->duration	= number_fuzzy(ch->level / 8);
 
-		af.bitvector	= 0;
-		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= UMAX(1, LEVEL(ch)/5);
+		affect_to_char(ch, paf);
 
-		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
-		INT(af.location)= APPLY_AC;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_DAMROLL;
+		affect_to_char(ch, paf);
+
+		INT(paf->location)= APPLY_AC;
+		paf->modifier	= UMAX(10, 10 * (LEVEL(ch)/5));
+		paf->bitvector	= AFF_BERSERK;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else {
 		WAIT_STATE(ch,2 * get_pulse("violence"));
 		ch->mana -= 25;
@@ -1494,22 +1489,21 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 
 	/* now the attack */
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
+
 		act("$n is blinded by the dirt in $s eyes!",
 		    victim, NULL, NULL, TO_ROOM);
 		act_char("You can't see a thing!", victim);
 		check_improve(ch, "dirt kicking", TRUE, 2);
 
-		af.where	= TO_AFFECTS;
-		af.type 	= "dirt kicking";
-		af.level 	= ch->level;
-		af.duration	= 0;
-		INT(af.location)= APPLY_HITROLL;
-		af.modifier	= -4;
-		af.bitvector 	= AFF_BLIND;
-		af.owner	= NULL;
+		paf = aff_new(TO_AFFECTS, "dirt kicking");
+		paf->level	= ch->level;
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= -4;
+		paf->bitvector	= AFF_BLIND;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 
-		affect_to_char2(victim, &af);
 		damage(ch, victim, number_range(2, 5),
 		       "dirt kicking", DAM_NONE, DAMF_SHOW);
 	} else {
@@ -2419,17 +2413,16 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch)
 	||  number_percent() < (chance + ch->level
 			                 + get_curr_stat(ch,STAT_DEX))/2) {
-		AFFECT_DATA af;
-		af.where	= TO_AFFECTS;
-		af.type 	= "nerve";
-		af.level 	= ch->level;
-		af.duration	= LEVEL(ch) * get_pulse("violence")/get_pulse("char");
-		INT(af.location)= APPLY_STR;
-		af.modifier	= -3;
-		af.bitvector	= 0;
-		af.owner	= NULL;
+		AFFECT_DATA *paf;
 
-		affect_to_char2(victim,&af);
+		paf = aff_new(TO_AFFECTS, "nerve");
+		paf->level	= ch->level;
+		paf->duration	= LEVEL(ch) * get_pulse("violence") / UMAX(get_pulse("char"), 1);
+		INT(paf->location)= APPLY_STR;
+		paf->modifier	= -3;
+		affect_to_char(victim, paf);
+		aff_free(paf);
+
 		act("You weaken $N with your nerve pressure.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n weakens you with $s nerve pressure.",
@@ -2437,8 +2430,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		act("$n weakens $N with $s nerve pressure.",
 		    ch, NULL, victim, TO_NOTVICT);
 		check_improve(ch, "nerve", TRUE, 1);
-	}
-	else {
+	} else {
 		act_char("You press the wrong points and fail.", ch);
 		act("$n tries to weaken you with nerve pressure, but fails.",
 		    ch, NULL, victim, TO_VICT);
@@ -2453,7 +2445,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 
 void do_endure(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int chance;
 
 	if (IS_NPC(ch)) {
@@ -2465,7 +2457,7 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 		act_char("You lack the concentration.", ch);
 		return;
 	}
-		
+
 	if (is_affected(ch, "endure")) {
 		act_char("You cannot endure more concentration.", ch);
 		return;
@@ -2473,16 +2465,13 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, skill_beats("endure"));
 
-	af.where 	= TO_AFFECTS;
-	af.type 	= "endure";
-	af.level 	= ch->level;
-	af.duration	= ch->level / 4;
-	INT(af.location)= APPLY_SAVING_SPELL;
-	af.modifier	= - chance / 10;
-	af.bitvector	= 0;
-	af.owner	= NULL;
-
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "endure");
+	paf->level	= ch->level;
+	paf->duration	= ch->level / 4;
+	INT(paf->location)= APPLY_SAVING_SPELL;
+	paf->modifier	= - chance / 10;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 
 	act_char("You prepare yourself for magical encounters.", ch);
 	act("$n concentrates for a moment, then resumes $s position.",
@@ -2667,23 +2656,21 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!is_affected(victim, "caltrops")) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
-		af.where	= TO_AFFECTS;
-		af.type		= "caltrops";
-		af.level	= ch->level;
-		af.duration	= -1;
-		af.modifier	= -5;
-		af.bitvector	= 0;
-		af.owner	= NULL;
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(victim, &af);
+		paf = aff_new(TO_AFFECTS, "caltrops");
+		paf->level	= ch->level;
+		paf->duration	= -1;
+		paf->modifier	= -5;
+		INT(paf->location)= APPLY_HITROLL;
+		affect_to_char(victim, paf);
 
-		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_DAMROLL;
+		affect_to_char(victim, paf);
 
-		INT(af.location)= APPLY_DEX;
-		affect_to_char2(victim, &af);
+		INT(paf->location)= APPLY_DEX;
+		affect_to_char(victim, paf);
+		aff_free(paf);
 
 		act("$N starts limping.", ch, NULL, victim, TO_CHAR);
 		act("You start to limp.", ch, NULL, victim, TO_VICT);
@@ -3133,7 +3120,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 	chance += 25 - hp_percent/2;
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		WAIT_STATE(ch, get_pulse("violence"));
 
@@ -3142,23 +3129,22 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, "bloodthirst", TRUE, 2);
 
-		af.where	= TO_AFFECTS;
-		af.type		= "bloodthirst";
-		af.level	= ch->level;
-		af.duration	= 2 + LEVEL(ch) / 18;
-		af.modifier	= 5 + LEVEL(ch) / 4;
-		af.bitvector	= AFF_BLOODTHIRST;
-		af.owner	= NULL;
+		paf = aff_new(TO_AFFECTS, "bloodthirst");
+		paf->level	= ch->level;
+		paf->duration	= 2 + LEVEL(ch) / 18;
+		paf->modifier	= 5 + LEVEL(ch) / 4;
+		paf->bitvector	= AFF_BLOODTHIRST;
 
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(ch, &af);
+		INT(paf->location)= APPLY_HITROLL;
+		affect_to_char(ch, paf);
 
-		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char2(ch, &af);
+		INT(paf->location)= APPLY_DAMROLL;
+		affect_to_char(ch, paf);
 
-		af.modifier	= - UMIN(LEVEL(ch) - 5, 35);
-		INT(af.location)= APPLY_AC;
-		affect_to_char2(ch, &af);
+		INT(paf->location)= APPLY_AC;
+		paf->modifier	= - UMIN(LEVEL(ch) - 5, 35);
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else {
 		WAIT_STATE(ch,3 * get_pulse("violence"));
 		act_char("You feel bloodthirsty for a moment, but it passes.", ch);
@@ -3189,18 +3175,16 @@ void do_toughen(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("toughen"));
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
-	
-		af.where	= TO_AFFECTS;
-		af.type 	= "toughen";
-		af.level 	= ch->level;
-		af.duration	= LEVEL(ch) / 6;
-		INT(af.location)= APPLY_SAVES;
-		af.modifier	= -LEVEL(ch)/4;
-		af.owner	= NULL;
-		af.bitvector	= 0;
+		AFFECT_DATA *paf;
 
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, "toughen");
+		paf->level	= ch->level;
+		paf->duration	= LEVEL(ch) / 6;
+		INT(paf->location)= APPLY_SAVES;
+		paf->modifier	= -LEVEL(ch)/4;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
 		ch->mana -= mana;
 
 		act("You feel tough!", ch, NULL, NULL, TO_CHAR);
@@ -3222,7 +3206,6 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 {
 	int trophy_vnum;
 	OBJ_DATA *trophy;
-	AFFECT_DATA af;
 	OBJ_DATA *part;
 	char arg[MAX_INPUT_LENGTH];
 	int level;
@@ -3284,15 +3267,13 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch) && number_percent() < chance) {
-		af.where	= TO_AFFECTS;
-		af.type		= "trophy";
-		af.level	= ch->level;
-		af.duration	= ch->level/2;
-		af.modifier	= 0;
-		af.bitvector 	= 0;
-		INT(af.location)= 0;
-		af.owner	= NULL;
-		affect_to_char2(ch,&af);
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_AFFECTS, "trophy");
+		paf->level	= ch->level;
+		paf->duration	= ch->level/2;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
 		if (trophy_vnum != 0) {
 			AFFECT_DATA *paf;
@@ -3389,7 +3370,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 
 void do_warcry(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA *paf;
 	int chance;
 	int mana;
 
@@ -3422,19 +3403,18 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	ch->mana -= mana;
 	check_improve(ch, "warcry", TRUE, 1);
 
-	af.where	= TO_AFFECTS;
-	af.type		= "warcry";
-	af.level	= ch->level;
-	af.duration	= 6 + ch->level;
-	INT(af.location)= APPLY_HITROLL;
-	af.modifier	= UMAX(1, LEVEL(ch) / 8);
-	af.bitvector	= 0;
-	af.owner	= NULL;
-	affect_to_char2(ch, &af);
+	paf = aff_new(TO_AFFECTS, "warcry");
+	paf->level	= ch->level;
+	paf->duration	= 6 + ch->level;
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= UMAX(1, LEVEL(ch) / 8);
+	affect_to_char(ch, paf);
 
-	INT(af.location)= APPLY_SAVING_SPELL;
-	af.modifier	= 0 - UMAX(1, LEVEL(ch) / 8);
-	affect_to_char2(ch, &af);
+	INT(paf->location)= APPLY_SAVING_SPELL;
+	paf->modifier	= 0 - UMAX(1, LEVEL(ch) / 8);
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
 	act_char("You feel righteous as you yell out your warcry.", ch);
 }
 
@@ -3722,7 +3702,7 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 	ch->move /= 2;
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		WAIT_STATE(ch, skill_beats("tiger power"));
 		ch->mana -= mana;
@@ -3736,23 +3716,22 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, "tiger power", TRUE, 2);
 
-		af.where	= TO_AFFECTS;
-		af.type		= "tiger power";
-		af.level	= ch->level;
-		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1, LEVEL(ch)/5);
-		af.bitvector 	= AFF_BERSERK;
-		af.owner	= NULL;
+		paf = aff_new(TO_AFFECTS, "tiger power");
+		paf->level	= ch->level;
+		paf->duration	= number_fuzzy(ch->level / 8);
+		paf->modifier	= UMAX(1, LEVEL(ch)/5);
 
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_HITROLL;
+		affect_to_char(ch, paf);
 
-		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_DAMROLL;
+		affect_to_char(ch, paf);
 
-		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
-		INT(af.location)= APPLY_AC;
-		affect_to_char2(ch,&af);
+		paf->modifier	= UMAX(10,10 * (LEVEL(ch)/5));
+		INT(paf->location)= APPLY_AC;
+		paf->bitvector	= AFF_BERSERK;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else {
 		WAIT_STATE(ch, 2 * skill_beats("tiger power"));
 		ch->mana -= mana/2;
@@ -3764,7 +3743,6 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 void do_hara(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
-	AFFECT_DATA  af;
 
 	if (MOUNTED(ch)) {
 		act_char("You can't harakiri while riding!", ch);
@@ -3788,7 +3766,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		WAIT_STATE(ch, skill_beats("hara kiri"));
 
@@ -3808,27 +3786,20 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		do_sleep(ch, str_empty);
 		SET_BIT(PC(ch)->plr_flags,PLR_HARA_KIRI);
 
-		af.where     = TO_AFFECTS;
-		af.type      = "hara kiri";
-		af.level     = ch->level;
-		af.duration  = 10;
-		INT(af.location) = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = 0;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, "hara kiri");
+		paf->level     = ch->level;
+		paf->duration  = 10;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else {
+		AFFECT_DATA *paf;
+
 		WAIT_STATE(ch, 2 * skill_beats("hara kiri"));
 
-		af.where     = TO_AFFECTS;
-		af.type      = "hara kiri";
-		af.level     = ch->level;
-		af.duration  = 0;
-		INT(af.location) = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = 0;
-		af.owner	= NULL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, "hara kiri");
+		paf->level     = ch->level;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
 		act_char("You couldn't cut your finger. It is not so easy, you know.", ch);
 		check_improve(ch, "hara kiri", FALSE, 2);
@@ -4162,7 +4133,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 		act_char("You are already concentrated for the fight.", ch);
 		return;
 	}
-	
+
 	mana = skill_mana(ch, "concentrate");
 	if (ch->mana < mana) {
 		act_char("You can't get up enough energy.", ch);
@@ -4177,7 +4148,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, skill_beats("concentrate"));
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		ch->mana -= mana;
 		ch->move /= 2;
@@ -4188,23 +4159,21 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, "concentrate", TRUE, 2);
 
-		af.where	= TO_AFFECTS;
-		af.type		= "concentrate";
-		af.level	= ch->level;
-		af.duration	= number_fuzzy(ch->level / 8);
-		af.modifier	= UMAX(1, LEVEL(ch)/8);
-		af.bitvector 	= 0;
-		af.owner	= NULL;
+		paf = aff_new(TO_AFFECTS, "concentrate");
+		paf->level	= ch->level;
+		paf->duration	= number_fuzzy(ch->level / 8);
+		paf->modifier	= UMAX(1, LEVEL(ch)/8);
 
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_HITROLL;
+		affect_to_char(ch, paf);
 
-		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_DAMROLL;
+		affect_to_char(ch, paf);
 
-		af.modifier	= UMAX(1,ch->level/10);
-		INT(af.location)= APPLY_AC;
-		affect_to_char2(ch,&af);
+		INT(paf->location)= APPLY_AC;
+		paf->modifier	= UMAX(1,ch->level/10);
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else {
 		ch->mana -= mana/2;
 		act_char("You try to concentrate for the next fight but fail.", ch);
@@ -4229,7 +4198,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, skill_beats("bandage"));
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA *paf;
 
 		act_char("You place your bandage to your shoulder!", ch);
 		act("$n places a bandage to $s shoulder.",
@@ -4241,15 +4210,13 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		update_pos(ch);
 		act_char("You feel better!", ch);
 
-		af.where	= TO_AFFECTS;
-		af.type		= "bandage";
-		af.level	= ch->level;
-		af.duration	= ch->level / 10;
-		af.modifier	= UMIN(15,ch->level/2);
-		af.bitvector 	= AFF_REGENERATION;
-		INT(af.location)= 0;
-		af.owner	= NULL;
-		affect_to_char2(ch,&af);
+		paf = aff_new(TO_AFFECTS, "bandage");
+		paf->level	= ch->level;
+		paf->duration	= ch->level / 10;
+		paf->modifier	= UMIN(15, ch->level/2);
+		paf->bitvector	= AFF_REGENERATION;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 	} else {
 		act_char("You failed to place your bandage to your shoulder.", ch);
 		check_improve(ch, "bandage", FALSE, 2);

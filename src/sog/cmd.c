@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.17 2001-07-29 09:43:18 fjoe Exp $
+ * $Id: cmd.c,v 1.18 2001-07-31 14:56:23 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -69,7 +69,7 @@ cmd_cpy(cmd_t *dst, cmd_t *src)
 	dst->cmd_log =		src->cmd_log;
 	dst->cmd_flags =	src->cmd_flags;
 	dst->cmd_mod =		src->cmd_mod;
-	dst->do_fun = 		src->do_fun;
+	dst->do_fun =		src->do_fun;
 	return dst;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.h,v 1.5 2001-07-08 17:18:43 fjoe Exp $
+ * $Id: forms.h,v 1.6 2001-07-31 14:55:51 fjoe Exp $
  */
 
 #ifndef _FORMS_H_
@@ -65,8 +65,5 @@ extern hash_t forms;
 void form_init(form_index_t *f);
 form_index_t* form_cpy(form_index_t *dst, const form_index_t *src);
 void form_destroy(form_index_t *f);
-
-bool shapeshift(CHAR_DATA *ch, const char *form);
-bool revert(CHAR_DATA *ch);
 
 #endif

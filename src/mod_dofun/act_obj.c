@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.243 2001-07-30 13:01:51 fjoe Exp $
+ * $Id: act_obj.c,v 1.244 2001-07-31 14:56:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -759,7 +759,6 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch;
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf;
-	AFFECT_DATA af;
 
 	if (get_skill(ch, "bone dragon") == 0) {
 		act_char("Huh?", ch);
@@ -808,56 +807,53 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 		what = number_percent();
 		act("$n hungrily devours $P.", vch, NULL, obj, TO_ROOM);
-		af.type		= "bone dragon";
-		af.level	= obj->level;
-		af.modifier	= 0;
-		INT(af.location)= 0;
-		af.owner	= NULL;
+
+		paf = aff_new(TO_AFFECTS, "bone dragon");
+		paf->level	= obj->level;
 
 		if (what < 10) {
-			af.where	= TO_RESIST;
-			INT(af.location)= DAM_MENTAL;
-			af.bitvector	= 0;
-			af.duration	= obj->level/5;
-			af.modifier	= 100;
+			paf->where	= TO_RESIST;
+			INT(paf->location)= DAM_MENTAL;
+			paf->duration	= obj->level/5;
+			paf->modifier	= 100;
 			do_emote(vch, "looks clever!");
 		} else if (what < 40) {
-			af.where	= TO_AFFECTS;
-			af.bitvector	= AFF_HASTE; 
-			af.duration	= obj->level/3; 
+			paf->where	= TO_AFFECTS;
+			paf->bitvector	= AFF_HASTE;
+			paf->duration	= obj->level/3;
 			do_emote(vch, "looks filled with energy!");
 		} else if (what < 70) {
-			af.where	= TO_AFFECTS;
-			af.bitvector	= AFF_SLEEP;
-			af.duration	= obj->level/20; 
+			paf->where	= TO_AFFECTS;
+			paf->bitvector	= AFF_SLEEP;
+			paf->duration	= obj->level/20;
 			vch->position	= POS_SLEEPING;
 			do_emote(vch, "yawns and goes to sleep.");
 		} else {
-			af.where	= TO_RESIST;
-			af.bitvector	= 0;
-			INT(af.location)= DAM_BASH;
-			af.modifier	= 33;
-			af.duration	= 10; 
-			affect_to_char2(vch, &af);
+			paf->where	= TO_RESIST;
+			INT(paf->location)= DAM_BASH;
+			paf->modifier	= 33;
+			paf->duration	= 10;
+			affect_to_char(vch, paf);
 
-			INT(af.location)= DAM_PIERCE;
-			af.modifier	= 33;
-			af.duration	= 10; 
-			affect_to_char2(vch, &af);
+			INT(paf->location)= DAM_PIERCE;
+			paf->modifier	= 33;
+			paf->duration	= 10;
+			affect_to_char(vch, paf);
 
-			INT(af.location)= DAM_SLASH;
-			af.modifier	= 33;
-			af.duration	= 10;
-			affect_to_char2(vch, &af);
+			INT(paf->location)= DAM_SLASH;
+			paf->modifier	= 33;
+			paf->duration	= 10;
+			affect_to_char(vch, paf);
 
-			INT(af.location)= DAM_ENERGY;
-			af.modifier	= 33;
-			af.duration	= 10;
+			INT(paf->location)= DAM_ENERGY;
+			paf->modifier	= 33;
+			paf->duration	= 10;
 
 			do_emote(vch, "flexes his muscles, looking tough.");
 		}
 
-		affect_to_char2(vch, &af);
+		affect_to_char(vch, paf);
+		aff_free(paf);
 
 		extract_obj(obj, 0);
 		return;
@@ -2361,17 +2357,13 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	     ch->in_room->sector_type != SECT_CITY &&
 	     number_percent() < chance)) {
 		if (!is_healer) {
-			AFFECT_DATA af;
-			af.where	= TO_AFFECTS;
-			af.type		= "herbs";
-			af.level	= ch->level;
-			af.duration	= 5;
-			INT(af.location)= APPLY_NONE;
-			af.modifier	= 0;
-			af.bitvector	= 0;
-			af.owner	= NULL;
+			AFFECT_DATA *paf;
 
-			affect_to_char2(ch, &af);
+			paf = aff_new(TO_AFFECTS, "herbs");
+			paf->level	= ch->level;
+			paf->duration	= 5;
+			affect_to_char(ch, paf);
+			aff_free(paf);
 		}
 
 		if (is_healer) {
@@ -2780,7 +2772,6 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj2, *next;
 	OBJ_DATA *cross;
 	int chance;
-	AFFECT_DATA af;
 
 	if ((chance = get_skill(ch, "crucify")) == 0) {
 		act_char("Oh no, you can't do that.", ch);
@@ -2816,7 +2807,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (obj->item_type != ITEM_CORPSE_PC
-	 && obj->item_type != ITEM_CORPSE_NPC) {
+	&&  obj->item_type != ITEM_CORPSE_NPC) {
 		act_char("You cannot crucify that.", ch);
 		return;
 	 }
@@ -2827,12 +2818,12 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 	}
 
 	obj_from_room(obj);
-	for(obj2 = obj->contains; obj2; obj2 = next) {
+	for (obj2 = obj->contains; obj2; obj2 = next) {
 		next = obj2->next_content;
 		obj_from_obj(obj2);
 		obj_to_room(obj2, ch->in_room);
 	}
-	
+
 	if (number_percent() > chance) {
 		act("You attempt a ritual crucification of $p, "
 		   "but fail and ruin it.", ch, obj, NULL, TO_CHAR);
@@ -2841,6 +2832,8 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		extract_obj(obj, 0);
 		check_improve(ch, "crucify", FALSE, 1);
 	} else {
+		AFFECT_DATA *paf;
+
 		cross = create_obj_of(get_obj_index(OBJ_VNUM_CROSS),
 				      &obj->owner);
 		obj_to_room(cross, ch->in_room);
@@ -2850,23 +2843,23 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		    "$p to a sacrificial cross.", ch, obj, NULL, TO_ROOM);
 		act_char("You are filled with a dark energy.", ch);
 		ch->hit += obj->level*3/2;
-		af.where	= TO_AFFECTS;
-		af.type		= "crucify";
-		af.level	= ch->level;
-		af.duration	= 15;
-		af.modifier	= UMAX(1, obj->level/8);
-		af.bitvector	= AFF_BERSERK;
-		af.owner	= NULL;
 
-		INT(af.location)= APPLY_HITROLL;
-		affect_to_char2(ch, &af);
+		paf = aff_new(TO_AFFECTS, "crucify");
+		paf->level	= ch->level;
+		paf->duration	= 15;
 
-		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char2(ch, &af);
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= UMAX(1, obj->level/8);
+		affect_to_char(ch, paf);
 
-		af.modifier	= UMAX(10, obj->level);
-		INT(af.location)= APPLY_AC;
-		affect_to_char2(ch, &af);
+		INT(paf->location)= APPLY_DAMROLL;
+		affect_to_char(ch, paf);
+
+		INT(paf->location)= APPLY_AC;
+		paf->modifier	= UMAX(10, obj->level);
+		paf->bitvector	= AFF_BERSERK;
+		affect_to_char(ch, paf);
+		aff_free(paf);
 
 		extract_obj(obj, 0);
 		check_improve(ch, "crucify", TRUE, 1);
@@ -3937,7 +3930,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 				act_puts("Your money has been returned.",
 					 auction.buyer, NULL, NULL,
 					 TO_CHAR, POS_DEAD);
-	    		}
+			}
 
 			/* return money to the seller */
 			if (auction.seller != NULL) {

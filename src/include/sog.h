@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.2 2001-07-30 13:28:05 fjoe Exp $
+ * $Id: sog.h,v 1.3 2001-07-31 14:55:52 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -60,21 +60,37 @@ DECLARE_PROC1(obj_from_obj,
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/
 #define XO_F_NORECURSE	(B)	/* do not extract contained in objs	*/
 #define XO_F_NOCHQUEST	(C)	/* do not check for chquest objs	*/
-#define XO_F_NUKE	(D)	/* fast extract (used in char_free)
-				   does not call obj_from_xxx
-				   and is always recursive		*/
 
-DECLARE_PROC2(extract_obj,
-	      ARG(OBJ_DATA), obj, ARG(int), flags)
+/* create mob flags */
+#define CM_F_NOLIST	(A)	/* do not insert in char_list */
 
-/* quit_char/extract_char */
+/* quit_char/extract_char flags */
 #define XC_F_NOCOUNT	(A)	/* update obj count			*/
 #define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
 
+DECLARE_FUN2(CHAR_DATA, create_mob,
+	     ARG(MOB_INDEX_DATA), pMobIndex, ARG(int), flags)
+DECLARE_FUN2(CHAR_DATA, create_mob_of,
+	     ARG(MOB_INDEX_DATA), pMobIndex, ARG(mlstring), owner)
+DECLARE_FUN1(CHAR_DATA, clone_mob,
+	     ARG(CHAR_DATA), parent)
 DECLARE_PROC2(extract_char,
 	      ARG(CHAR_DATA), ch, ARG(int), flags)
 DECLARE_PROC2(quit_char,
 	      ARG(CHAR_DATA), ch, ARG(int), flags)
+
+/* create_obj flags */
+#define CO_F_NOCOUNT	(A)	/* do not update obj count */
+
+DECLARE_FUN2(OBJ_DATA, create_obj,
+	     ARG(OBJ_INDEX_DATA), pObjIndex, ARG(int), flags)
+DECLARE_FUN2(OBJ_DATA, create_obj_of,
+	     ARG(OBJ_INDEX_DATA), pObjIndex, ARG(mlstring), owner)
+DECLARE_FUN1(OBJ_DATA,	clone_obj,
+	     ARG(OBJ_DATA), parent)
+
+DECLARE_PROC2(extract_obj,
+	      ARG(OBJ_DATA), obj, ARG(int), flags)
 
 DECLARE_FUN2(bool, can_see,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
@@ -242,12 +258,25 @@ DECLARE_FUN2(bool, can_drop_obj,
 DECLARE_FUN2(bool, can_loot,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 
+DECLARE_FUN2(bool, shapeshift,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), form)
+DECLARE_FUN1(bool, revert,
+	     ARG(CHAR_DATA), ch)
+
+DECLARE_PROC0(scan_pfiles)
+
+/* reset_room flags */
+#define RESET_F_NOPCHECK (A)
+
+DECLARE_PROC2(reset_room,
+	      ARG(ROOM_INDEX_DATA), room, ARG(int), flags)
+DECLARE_PROC1(reset_area,
+	      ARG(AREA_DATA), pArea)
+
 DECLARE_FUN1(bool, pc_name_ok,
 	     ARG(cchar_t), name)
 DECLARE_FUN1(bool, char_in_dark_room,
 	     ARG(CHAR_DATA), ch)
-DECLARE_PROC1(nuke_pets,
-	      ARG(CHAR_DATA), ch)
 DECLARE_PROC3(do_who_raw,
 	      NULLABLE_ARG(CHAR_DATA), ch, ARG(CHAR_DATA), vch,
 	      ARG(BUFFER), output)
