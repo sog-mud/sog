@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.4 2001-09-04 19:32:56 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.5 2001-09-05 12:57:07 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -60,6 +60,10 @@ DECLARE_FUN1(bool, is_good,
 DECLARE_FUN1(bool, is_neutral,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(bool, is_evil,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(bool, transfer_group,
+	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
+DECLARE_FUN1(ROOM_INDEX_DATA, char_room,
 	     ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL

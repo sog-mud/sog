@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.294 2001-09-02 16:21:51 fjoe Exp $
+ * $Id: act_wiz.c,v 1.295 2001-09-05 12:57:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,7 +129,6 @@ DECLARE_DO_FUN(do_memory);
 DECLARE_DO_FUN(do_dump);
 DECLARE_DO_FUN(do_mob);
 DECLARE_DO_FUN(do_shapeshift);
-DECLARE_DO_FUN(do_mpstat);
 DECLARE_DO_FUN(do_maxrnd);
 DECLARE_DO_FUN(do_modules);
 DECLARE_DO_FUN(do_shutdown);
@@ -140,10 +139,7 @@ DECLARE_DO_FUN(do_rstat);
 DECLARE_DO_FUN(do_mstat);
 DECLARE_DO_FUN(do_dstat);
 DECLARE_DO_FUN(do_ostat);
-#if 0
-XXX
 DECLARE_DO_FUN(do_mpstat);
-#endif
 DECLARE_DO_FUN(do_rset);
 DECLARE_DO_FUN(do_mset);
 DECLARE_DO_FUN(do_oset);
@@ -969,13 +965,10 @@ DO_FUN(do_stat, ch, argument)
 		return;
 	}
 
-#if 0
-	XXX
 	if (!str_cmp(arg, "mp")) {
 		do_mpstat(ch, string);
 		return;
 	}
-#endif
 
 	/* do it the old way */
 	obj = get_obj_world(ch, argument);
@@ -4674,8 +4667,6 @@ DO_FUN(do_shapeshift, ch, argument)
 	shapeshift(ch, arg);
 }
 
-#if 0
-XXX
 /*
  * Displays MOBprogram triggers of a mobile
  *
@@ -4684,10 +4675,8 @@ XXX
 DO_FUN(do_mpstat, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	MPTRIG  *mptrig;
 	CHAR_DATA *victim;
 	NPC_DATA *npc;
-	int i;
 	BUFFER *buf;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -4712,28 +4701,23 @@ DO_FUN(do_mpstat, ch, argument)
 		   victim->pMobIndex->vnum, mlstr_mval(&victim->short_descr));
 
 	npc = NPC(victim);
+
+#if 0
+	XXX MPC
 	buf_printf(buf, BUF_END, "Delay   %-6d [%s]\n",		// notrans
 		   npc->mprog_delay,
 		   npc->mprog_target == NULL ?
 			"No target" : npc->mprog_target->name); // notrans
+#endif
 
-	if (!victim->pMobIndex->mptrig_types)
-		buf_append(buf, "[No programs set]");		// notrans
-	else {
-		i = 0;
-		for (mptrig = victim->pMobIndex->mptrig_list; mptrig != NULL;
-							mptrig = mptrig->next) {
-			buf_printf(buf, BUF_END,
-				   "[%2d] Trigger [%-8s] Program [%4d] Phrase [%s]\n", // notrans
-				   ++i, flag_string(mptrig_types, mptrig->type),
-				   mptrig->vnum, mptrig->phrase);
-		}
-	}
+	if (varr_size(&victim->pMobIndex->mp_trigs) == 0)
+		buf_append(buf, "No triggers set.\n");		// notrans
+	else
+		trig_dump_list(&victim->pMobIndex->mp_trigs, buf);
 
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
 }
-#endif
 
 extern int max_rnd_cnt;
 extern int rnd_cnt;

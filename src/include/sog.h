@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.20 2001-09-04 19:32:40 fjoe Exp $
+ * $Id: sog.h,v 1.21 2001-09-05 12:57:01 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -221,6 +221,8 @@ DECLARE_FUN3(OBJ_DATA, get_obj_carry,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), argument)
 DECLARE_FUN3(OBJ_DATA, get_obj_wear,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), argument)
+DECLARE_FUN3(OBJ_DATA, get_obj_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(cchar_t), argument)
 DECLARE_FUN2(OBJ_DATA, get_obj_here,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_FUN2(OBJ_DATA, get_obj_room,

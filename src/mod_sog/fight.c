@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.323 2001-09-02 16:22:01 fjoe Exp $
+ * $Id: fight.c,v 1.324 2001-09-05 12:57:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1026,8 +1026,9 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
 
-				pull_mob_trigger(
-				    TRIG_MOB_KILL, victim, ch, NULL);
+				if (pull_mob_trigger(
+				    TRIG_MOB_KILL, victim, ch, NULL) > 0)
+					return FALSE;
 			}
 
 			/*

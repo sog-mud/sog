@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.23 2001-09-04 19:32:53 fjoe Exp $
+ * $Id: init_mpc.c,v 1.24 2001-09-05 12:57:06 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -159,6 +159,7 @@ const char *mpc_dynafuns[] = {
 	"cast",
 	"cast_char",
 	"cast_obj",
+	"char_room",
 	"char_sex",
 	"close_door",
 	"close_obj",
@@ -168,8 +169,10 @@ const char *mpc_dynafuns[] = {
 	"get_char_here",
 	"get_char_room",
 	"get_char_world",
+	"get_obj",
 	"get_obj_carry",
 	"get_obj_here",
+	"get_obj_obj",
 	"get_obj_room",
 	"get_obj_wear",
 	"get_obj_world",
@@ -199,6 +202,7 @@ const char *mpc_dynafuns[] = {
 	"social_char",
 	"spclass_count",
 	"transfer_char",
+	"transfer_group",
 	"tell_char",
 	"unlock_door",
 	"unlock_obj",

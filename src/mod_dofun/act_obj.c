@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.258 2001-09-04 19:32:49 fjoe Exp $
+ * $Id: act_obj.c,v 1.259 2001-09-05 12:57:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -548,13 +548,10 @@ DO_FUN(do_give, ch, argument)
 			return;
 		}
 
-		if (silver) {
+		if (silver)
 			ch->silver -= amount;
-			victim->silver += amount;
-		} else {
+		else
 			ch->gold -= amount;
-			victim->gold += amount;
-		}
 
 		act_puts3("$n gives you $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
@@ -566,9 +563,10 @@ DO_FUN(do_give, ch, argument)
 			  (const void*) amount,
 			  TO_CHAR, POS_DEAD);
 
-		pull_mob_trigger(
+		if (pull_mob_trigger(
 		     TRIG_MOB_BRIBE, victim, ch,
-		     (void *) (silver ? amount : amount * 100));
+		     (void *) (silver ? amount : amount * 100)) > 0)
+			return;
 
 		if (IS_NPC(victim)
 		&&  MOB_IS(victim, MOB_CHANGER)) {
@@ -608,7 +606,13 @@ DO_FUN(do_give, ch, argument)
 
 				tell_char(victim, ch, "Thank you, come again.");
 			}
+		} else {
+			if (silver)
+				victim->silver += amount;
+			else
+				victim->gold += amount;
 		}
+
 		return;
 	}
 

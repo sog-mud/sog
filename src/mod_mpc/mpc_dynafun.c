@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.11 2001-09-04 19:32:55 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.12 2001-09-05 12:57:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -166,6 +166,30 @@ bool
 is_evil(CHAR_DATA *ch)
 {
 	return IS_EVIL(ch);
+}
+
+bool
+transfer_group(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	CHAR_DATA *victim, *victim_next;
+	bool found = FALSE;
+
+	for (victim = ch->in_room->people; victim != NULL; victim = victim_next) {
+		victim_next = victim->next_in_room;
+
+		if (is_same_group(ch, victim)
+		&&  transfer_char(victim, room)
+		&&  !found)
+			found = TRUE;
+	}
+
+	return found;
+}
+
+ROOM_INDEX_DATA *
+char_room(CHAR_DATA *ch)
+{
+	return ch->in_room;
 }
 
 #else /* !defined(MPC) */

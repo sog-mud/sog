@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.320 2001-09-04 19:33:00 fjoe Exp $
+ * $Id: handler.c,v 1.321 2001-09-05 12:57:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4150,7 +4150,8 @@ get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list, int flags)
 /*
  * Find an obj in player's inventory.
  */
-OBJ_DATA *get_obj_carry(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
+OBJ_DATA *
+get_obj_carry(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -4166,7 +4167,8 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 /*
  * Find an obj in player's equipment.
  */
-OBJ_DATA *get_obj_wear(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
+OBJ_DATA *
+get_obj_wear(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -4179,10 +4181,24 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 	    ch, arg, &number, victim->carrying, GETOBJ_F_WORN);
 }
 
+OBJ_DATA *
+get_obj_obj(CHAR_DATA *ch, OBJ_DATA *obj, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	uint number;
+
+	number = number_argument(argument, arg, sizeof(arg));
+	if (!number || arg[0] == '\0')
+		return NULL;
+
+	return get_obj_list_raw(ch, arg, &number, obj->contains, 0);
+}
+
 /*
  * Find an obj in the room or in inventory.
  */
-OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *
+get_obj_here(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -4194,7 +4210,8 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 	return get_obj_here_raw(ch, arg, &number);
 }
 
-OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *
+get_obj_room(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;

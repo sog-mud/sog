@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.10 2001-09-04 19:33:04 fjoe Exp $
+ * $Id: trig.c,v 1.11 2001-09-05 12:57:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -154,7 +154,6 @@ FOREACH_CB_FUN(trig_dump_list_cb, p, ap)
 	BUFFER *buf = va_arg(ap, BUFFER *);
 
 	if (*pcnt == 0) {
-		buf_printf(buf, BUF_END, "MP triggers:\n");
 		buf_append(buf, "Num  Trigger     Program                    Arg [Flags]\n");
 		buf_append(buf, "---- ----------- -------------------------- -----------------------------------\n");
 	}
