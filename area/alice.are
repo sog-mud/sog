@@ -286,6 +286,8 @@ BGT 0 N 0 0 400 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_duchess 100~
+m mob_random mob_random_duchess 1~
 #21019
 pig baby~
 the Duchess' baby~
@@ -301,6 +303,7 @@ BGT 0 0 0 0 0 0
 EFNR
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_duchess_baby 100~
 #21020
 cook~
 the cook~
@@ -316,6 +319,8 @@ BGT 0 0 0 0 0 0
 EFNU
 stand stand female 0
 0 0 medium unknown
+m mob_greet mob_greet_cook 100~
+m mob_exit mob_exit_cook all~
 #21021
 cheshire cat~
 a Cheshire Cat~
@@ -333,6 +338,9 @@ GHT 0 HNU 0 H 1000 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_cheshire_cat 100~
+m mob_random mob_random_cheshire_cat 1~
+m mob_exit mob_exit_cheshire_cat all~
 #21022
 mad hatter~
 the Mad Hatter~
@@ -357,6 +365,8 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_no_room 100~
+m mob_exit mob_exit_stuff_dormouse all~
 #21023
 march hare~
 the March Hare~
@@ -372,6 +382,8 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_no_room 100~
+m mob_exit mob_exit_stuff_dormouse all~
 #21024
 dormouse~
 the Dormouse~
@@ -430,6 +442,9 @@ BGHT 0 0 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
+m mob_greet mob_greet_gardener_two 100~
+m mob_random mob_random_gardener_two 1~
+m mob_exall mob_exall_gardener_two all~
 #21030
 soldier club card~
 a soldier~
