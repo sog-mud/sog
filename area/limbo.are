@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Limbo~
 VNUMs 1 99
 Credits Diku~
@@ -560,9 +560,9 @@ steel~
 trash 0 K AO
 0 0 0 0 0
 10 10 10000 P
-a '' to_skills 10 -1 100 'perception' A
-a '' to_skills 10 -1 100 'knock' A
-a '' to_skills 10 -1 100 'pick lock' A
+f skills 'perception' 100 A 10 -1
+f skills 'knock' 100 A 10 -1
+f skills 'pick lock' 100 A 10 -1
 g @rus female~
 #20
 mushroom грибок~
@@ -608,13 +608,13 @@ flesh~
 clothing Y K AF
 0 0 0 0 0
 10 1 10000 P
-a '' to_object 10 -1 20 19 0
-a '' to_object 10 -1 20 18 0
-a '' to_object 10 -1 200 12 0
-a '' to_object 10 -1 200 13 0
-a '' to_skills 10 -1 100 'dragon skin' A
-a '' to_skills 10 -1 100 'dragon breath' A
-a '' to_skills 10 -1 100 'dragon strength' A
+f object damroll 20 0 10 -1
+f object hitroll 20 0 10 -1
+f object mana 200 0 10 -1
+f object hp 200 0 10 -1
+f skills 'dragon skin' 100 A 10 -1
+f skills 'dragon breath' 100 A 10 -1
+f skills 'dragon strength' 100 A 10 -1
 g @rus male~
 #25
 gate portal ворота врата~
@@ -633,8 +633,8 @@ flesh~
 armor 0 0 AK
 0 0 0 0 0
 0 60 0 P
-a '' to_object 0 -1 35 13 0
-a '' to_object 0 -1 1 6 0
+f object hp 35 0 0 -1
+f object cha 1 0 0 -1
 g @rus none~
 #27
 steak бифштекс~
@@ -662,8 +662,8 @@ unknown~
 armor Y K AH
 20 20 20 20 0
 10 1 10000 P
-a '' to_skills 10 -1 100 'peek' A
-a '' to_skills 10 -1 100 'steal' A
+f skills 'peek' 100 A 10 -1
+f skills 'steal' 100 A 10 -1
 g @rus plural~
 #30
 dummy object~
@@ -691,15 +691,15 @@ energy~
 weapon AGIY ABG AN
 dagger 10 4 'pierce' D
 21 100 100000 G
-a '' to_object 21 -1 2 1 0
-a '' to_object 21 -1 2 2 0
-a '' to_object 21 -1 2 4 0
-a '' to_object 21 -1 1 6 0
-a '' to_object 21 -1 25 19 0
-a '' to_object 21 -1 25 18 0
-a '' to_object 21 -1 200 12 0
-a '' to_object 21 -1 200 13 0
-a '' to_object 21 -1 500 14 0
+f object str 2 0 21 -1
+f object dex 2 0 21 -1
+f object wis 2 0 21 -1
+f object cha 1 0 21 -1
+f object damroll 25 0 21 -1
+f object hitroll 25 0 21 -1
+f object mana 200 0 21 -1
+f object hp 200 0 21 -1
+f object move 500 0 21 -1
 g @rus male~
 #33
 mace hero~
@@ -709,15 +709,15 @@ energy~
 weapon AGIY ABG AN
 mace 10 4 'pound' D
 21 100 100000 G
-a '' to_object 21 -1 2 1 0
-a '' to_object 21 -1 2 2 0
-a '' to_object 21 -1 2 4 0
-a '' to_object 21 -1 1 6 0
-a '' to_object 21 -1 25 19 0
-a '' to_object 21 -1 25 18 0
-a '' to_object 21 -1 200 12 0
-a '' to_object 21 -1 200 13 0
-a '' to_object 21 -1 500 14 0
+f object str 2 0 21 -1
+f object dex 2 0 21 -1
+f object wis 2 0 21 -1
+f object cha 1 0 21 -1
+f object damroll 25 0 21 -1
+f object hitroll 25 0 21 -1
+f object mana 200 0 21 -1
+f object hp 200 0 21 -1
+f object move 500 0 21 -1
 g @rus male~
 #34
 arrow green стрела зеленая~
@@ -772,7 +772,7 @@ silver~
 jewelry AG K AO
 0 0 0 0 0
 10 0 0 P
-a '' to_skills 10 -1 100 'summon' A
+f skills 'summon' 100 A 10 -1
 g @rus male~
 #40
 song hero~
@@ -782,16 +782,16 @@ energy~
 container IY ABFG AQ
 150 0 0 600 5
 120 5 10000 P
-a '' to_object 120 -1 -15 24 0
-a '' to_object 120 -1 15 18 0
-a '' to_object 120 -1 2 1 0
-a '' to_object 120 -1 2 2 0
-a '' to_object 120 -1 2 4 0
-a '' to_object 120 -1 1 6 0
-a '' to_object 120 -1 15 19 0
-a '' to_object 120 -1 500 14 0
-a '' to_object 120 -1 150 12 0
-a '' to_object 120 -1 200 13 0
+f object saving_spell -15 0 120 -1
+f object hitroll 15 0 120 -1
+f object str 2 0 120 -1
+f object dex 2 0 120 -1
+f object wis 2 0 120 -1
+f object cha 1 0 120 -1
+f object damroll 15 0 120 -1
+f object move 500 0 120 -1
+f object mana 150 0 120 -1
+f object hp 200 0 120 -1
 g @rus female~
 #41
 sack sands мешок~
@@ -801,7 +801,7 @@ canvas~
 container 0 K AO
 0 C 0 500 5
 0 100 10000 P
-a '' to_skills 0 -1 100 'blackjack' A
+f skills 'blackjack' 100 A 0 -1
 g @rus male~
 #42
 vial potion пузырек~
@@ -851,19 +851,19 @@ energy~
 container GIY K AQ
 150 A 0 600 5
 10 5 10000 P
-a '' to_skills 10 -1 100 'control weather' A
-a '' to_skills 10 -1 100 'call lightning' A
-a '' to_skills 10 -1 100 'chain lightning' A
-a '' to_skills 10 -1 100 'lightning bolt' A
-a '' to_skills 10 -1 100 'lightning breath' A
-a '' to_object 10 -1 100 13 0
-a '' to_object 10 -1 500 12 0
-a '' to_object 10 -1 5 3 0
-a '' to_object 10 -1 5 4 0
-a '' to_object 10 -1 5 8 0
-a '' to_object 10 -1 -10 20 0
-a '' to_object 10 -1 10 19 0
-a '' to_object 10 -1 10 18 0
+f skills 'control weather' 100 A 10 -1
+f skills 'call lightning' 100 A 10 -1
+f skills 'chain lightning' 100 A 10 -1
+f skills 'lightning bolt' 100 A 10 -1
+f skills 'lightning breath' 100 A 10 -1
+f object hp 100 0 10 -1
+f object mana 500 0 10 -1
+f object int 5 0 10 -1
+f object wis 5 0 10 -1
+f object level 5 0 10 -1
+f object saves -10 0 10 -1
+f object damroll 10 0 10 -1
+f object hitroll 10 0 10 -1
 g @rus none~
 #47
 cloak плащ~
@@ -873,24 +873,24 @@ skin~
 armor GIY K AD
 -20 -20 -20 -20 0
 10 100 10000 P
-a '' to_skills 10 -1 100 'stone skin' A
-a '' to_skills 10 -1 100 'dragon skin' A
-a '' to_skills 10 -1 100 'bark skin' A
-a '' to_object 10 -1 5 2 0
-a '' to_object 10 -1 100 12 0
-a '' to_object 10 -1 100 13 0
-a '' to_object 10 -1 -10 20 0
-a '' to_object 10 -1 10 19 0
-a '' to_object 10 -1 10 18 0
-a '' to_skills 10 -1 100 'enhanced armor' A
-a '' to_skills 10 -1 100 'armor' A
-a '' to_skills 10 -1 100 'sanctuary' A
-a '' to_skills 10 -1 100 'shield' A
-a '' to_skills 10 -1 100 'protection good' A
-a '' to_skills 10 -1 100 'protection negative' A
-a '' to_skills 10 -1 100 'protection heat' A
-a '' to_skills 10 -1 100 'protection cold' A
-a '' to_skills 10 -1 100 'protection evil' A
+f skills 'stone skin' 100 A 10 -1
+f skills 'dragon skin' 100 A 10 -1
+f skills 'bark skin' 100 A 10 -1
+f object dex 5 0 10 -1
+f object mana 100 0 10 -1
+f object hp 100 0 10 -1
+f object saves -10 0 10 -1
+f object damroll 10 0 10 -1
+f object hitroll 10 0 10 -1
+f skills 'enhanced armor' 100 A 10 -1
+f skills 'armor' 100 A 10 -1
+f skills 'sanctuary' 100 A 10 -1
+f skills 'shield' 100 A 10 -1
+f skills 'protection good' 100 A 10 -1
+f skills 'protection negative' 100 A 10 -1
+f skills 'protection heat' 100 A 10 -1
+f skills 'protection cold' 100 A 10 -1
+f skills 'protection evil' 100 A 10 -1
 g @rus male~
 #48
 ring кольцо golden золотое колечко~
@@ -900,12 +900,12 @@ gold~
 jewelry Y K AB
 0 0 0 0 0
 10 0 10000 P
-a '' to_skills 10 -1 100 'camouflage move' A
-a '' to_invis 10 -1 100 13 G
-a '' to_object 10 -1 100 12 0
-a '' to_skills 10 -1 100 'hide' A
-a '' to_skills 10 -1 100 'camouflage' A
-a '' to_skills 10 -1 100 'invisibility' A
+f skills 'camouflage move' 100 A 10 -1
+f invis hp 100 G 10 -1
+f object mana 100 0 10 -1
+f skills 'hide' 100 A 10 -1
+f skills 'camouflage' 100 A 10 -1
+f skills 'invisibility' 100 A 10 -1
 g @rus none~
 #49
 ring кольцо silver серебряное колечко~
@@ -915,16 +915,16 @@ silver~
 jewelry Y K AB
 0 0 0 0 0
 10 0 0 P
-a '' to_detects 10 -1 10 13 J
-a '' to_detects 10 -1 10 13 F
-a '' to_detects 10 -1 10 13 F
-a '' to_detects 10 -1 10 13 I
-a '' to_detects 10 -1 10 13 D
-a '' to_detects 10 -1 10 13 M
-a '' to_detects 10 -1 10 13 B
-a '' to_detects 10 -1 10 13 A
-a '' to_detects 10 -1 10 13 K
-a '' to_detects 10 -1 10 13 L
+f detects hp 10 J 10 -1
+f detects hp 10 F 10 -1
+f detects hp 10 F 10 -1
+f detects hp 10 I 10 -1
+f detects hp 10 D 10 -1
+f detects hp 10 M 10 -1
+f detects hp 10 B 10 -1
+f detects hp 10 A 10 -1
+f detects hp 10 K 10 -1
+f detects hp 10 L 10 -1
 g @rus none~
 #50
 rug коврик~
@@ -1096,11 +1096,11 @@ skin~
 trash A K AG
 0 0 0 0 0
 10 0 0 P
-a '' to_affects 10 -1 -20 20 T
-a '' to_object 10 -1 20 19 0
-a '' to_object 10 -1 20 18 0
-a '' to_affects 10 -1 100 12 U
-a '' to_invis 10 -1 100 13 G
+f affects saves -20 T 10 -1
+f object damroll 20 0 10 -1
+f object hitroll 20 0 10 -1
+f affects mana 100 U 10 -1
+f invis hp 100 G 10 -1
 g @rus female~
 #69
 amulet амулет holy~
@@ -1110,14 +1110,14 @@ magic~
 jewelry GI K AC
 0 0 0 0 0
 10 1 10000 P
-a '' to_object 10 -1 250 12 0
-a '' to_object 10 -1 250 13 0
-a '' to_object 10 -1 5 6 0
-a '' to_object 10 -1 5 8 0
-a '' to_object 10 -1 -25 20 0
-a '' to_skills 10 -1 100 'holy word' A
-a '' to_skills 10 -1 100 'bless' A
-a '' to_skills 10 -1 100 'benediction' A
+f object mana 250 0 10 -1
+f object hp 250 0 10 -1
+f object cha 5 0 10 -1
+f object level 5 0 10 -1
+f object saves -25 0 10 -1
+f skills 'holy word' 100 A 10 -1
+f skills 'bless' 100 A 10 -1
+f skills 'benediction' 100 A 10 -1
 g @rus male~
 #70
 badge значок~
@@ -1127,7 +1127,7 @@ silver~
 treasure M ACDE A
 0 0 0 0 0
 50 4 0 P
-a '' to_detects 50 -1 0 0 B
+f detects none 0 B 50 -1
 g @rus male~
 #71
 buckler ruler shield~
@@ -1155,9 +1155,9 @@ steel~
 armor GIY BE AJ
 20 20 20 10 0
 0 350 20000 P
-a '' to_object 0 -1 -10 17 0
-a '' to_object 0 -1 3 18 0
-a '' to_object 0 -1 4 19 0
+f object ac -10 0 0 -1
+f object hitroll 3 0 0 -1
+f object damroll 4 0 0 -1
 g @rus none~
 #74
 tower ruler shield щит~
@@ -1211,9 +1211,9 @@ gold~
 armor GIY 0 AD
 30 30 30 30 0
 0 350 10000 P
-a '' to_object 0 -1 2 6 0
-a '' to_object 0 -1 5 19 0
-a '' to_object 0 -1 5 18 0
+f object cha 2 0 0 -1
+f object damroll 5 0 0 -1
+f object hitroll 5 0 0 -1
 g @rus none~
 #83
 sword golden меч~
@@ -1284,8 +1284,8 @@ platinum~
 weapon B G AN
 exotic 10 1 'pierce' D
 15 60 0 P
-a '' to_object 15 -1 20 18 0
-a '' to_object 15 -1 1 6 0
+f object hitroll 20 0 15 -1
+f object cha 1 0 15 -1
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -1357,46 +1357,32 @@ energy~
 armor AGIY ABG AL
 12 12 12 9 2
 120 30 100000 G
-a '' to_object 120 -1 2 1 0
-a '' to_object 120 -1 2 4 0
-a '' to_object 120 -1 3 5 0
-a '' to_object 120 -1 3 3 0
-a '' to_object 120 -1 1 6 0
-a '' to_object 120 -1 200 12 0
-a '' to_object 120 -1 200 13 0
-a '' to_object 120 -1 500 14 0
-a '' to_object 120 -1 10 18 0
-a '' to_resist 120 -1 33 3 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 4 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 5 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 6 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 9 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 8 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 10 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 11 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 18 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 12 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 7 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 17 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 16 0
-a '' to_object 120 -1 0 0 0
-a '' to_resist 120 -1 33 14 0
-a '' to_object 120 -1 0 0 0
-a '' to_object 120 -1 10 19 0
-a '' to_detects 120 -1 -30 17 H
-a '' to_detects 120 -1 0 0 AKLM
+f object str 2 0 120 -1
+f object wis 2 0 120 -1
+f object con 3 0 120 -1
+f object int 3 0 120 -1
+f object cha 1 0 120 -1
+f object mana 200 0 120 -1
+f object hp 200 0 120 -1
+f object move 500 0 120 -1
+f object hitroll 10 0 120 -1
+f resists fire 33 0 120 -1
+f resists cold 33 0 120 -1
+f resists lightning 33 0 120 -1
+f resists acid 33 0 120 -1
+f resists holy 33 0 120 -1
+f resists negative 33 0 120 -1
+f resists energy 33 0 120 -1
+f resists mental 33 0 120 -1
+f resists sound 33 0 120 -1
+f resists disease 33 0 120 -1
+f resists poison 33 0 120 -1
+f resists charm 33 0 120 -1
+f resists harm 33 0 120 -1
+f resists light 33 0 120 -1
+f object damroll 10 0 120 -1
+f detects ac -30 H 120 -1
+f detects none 0 AKLM 120 -1
 g @rus none~
 #95
 ring hero~
@@ -1406,13 +1392,13 @@ energy~
 weapon AGIY ABG AB
 exotic 0 0 'none' 0
 120 30 100000 G
-a '' to_object 120 -1 -30 17 0
-a '' to_object 120 -1 500 14 0
-a '' to_object 120 -1 5 19 0
-a '' to_object 120 -1 10 18 0
-a '' to_object 120 -1 1 6 0
-a '' to_object 120 -1 150 12 0
-a '' to_object 120 -1 150 13 0
+f object ac -30 0 120 -1
+f object move 500 0 120 -1
+f object damroll 5 0 120 -1
+f object hitroll 10 0 120 -1
+f object cha 1 0 120 -1
+f object mana 150 0 120 -1
+f object hp 150 0 120 -1
 g @rus none~
 #96
 weapon hero~
@@ -1422,15 +1408,15 @@ energy~
 weapon AGIY ABG AN
 exotic 10 4 'slash' D
 21 100 100000 G
-a '' to_object 21 -1 2 1 0
-a '' to_object 21 -1 2 2 0
-a '' to_object 21 -1 2 4 0
-a '' to_object 21 -1 1 6 0
-a '' to_object 21 -1 25 19 0
-a '' to_object 21 -1 25 18 0
-a '' to_object 21 -1 200 12 0
-a '' to_object 21 -1 200 13 0
-a '' to_object 21 -1 500 14 0
+f object str 2 0 21 -1
+f object dex 2 0 21 -1
+f object wis 2 0 21 -1
+f object cha 1 0 21 -1
+f object damroll 25 0 21 -1
+f object hitroll 25 0 21 -1
+f object mana 200 0 21 -1
+f object hp 200 0 21 -1
+f object move 500 0 21 -1
 g @rus none~
 #97
 chaos blade~
@@ -1440,7 +1426,7 @@ gold~
 weapon AIP CD AN
 dagger 8 1 'pierce' D
 20 200 0 P
-a '' to_object 20 -1 2 6 0
+f object cha 2 0 20 -1
 g @rus none~
 #98
 sword katana~

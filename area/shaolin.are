@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Shaolin Temple~
 VNUMs 20100 20199
 Credits Boom~
@@ -283,11 +283,11 @@ wax~
 light G 0 A
 0 0 5 0 0
 10 100 10 P
-a '' to_resist 10 -1 100 8 0
-a '' to_resist 10 -1 -16449 13 0
-a '' to_resist 10 -1 2058 15 0
-a '' to_resist 10 -1 26612 20 0
-a '' to_resist 10 -1 2055 21 0
+f resists negative 100 0 10 -1
+f resists unknown -16449 0 10 -1
+f resists other 2058 0 10 -1
+f resists wood 26612 0 10 -1
+f resists silver 2055 0 10 -1
 #20102
 candle lighted~
 a lighted candle~
@@ -328,11 +328,11 @@ fire~
 light ABGIJK 0 A
 0 0 -1 0 0
 30 1 8670 P
-a '' to_object 30 -1 20 13 0
-a '' to_object 30 -1 -10 17 0
-a '' to_object 30 -1 4 19 0
-a '' to_object 30 -1 -5 23 0
-a '' to_object 30 -1 -5 24 0
+f object hp 20 0 30 -1
+f object ac -10 0 30 -1
+f object damroll 4 0 30 -1
+f object saving_breath -5 0 30 -1
+f object saving_spell -5 0 30 -1
 E
 sparks flame mercy light~
 A gift to the mortal world from the Goddess of Mercy.
@@ -384,8 +384,8 @@ steel~
 weapon ABFHKL 0 AN
 sword 5 7 'pierce' A
 29 60 9920 P
-a '' to_object 29 -1 5 18 0
-a '' to_object 29 -1 5 19 0
+f object hitroll 5 0 29 -1
+f object damroll 5 0 29 -1
 E
 sabre dragon~
 This heavy weapon glows and hums as you lay it upon your laps. The dragon 
@@ -412,8 +412,8 @@ hard leather~
 weapon BG 0 AN
 whip 6 6 'whip' 0
 24 500 4158 P
-a '' to_object 24 -1 3 18 0
-a '' to_object 24 -1 3 19 0
+f object hitroll 3 0 24 -1
+f object damroll 3 0 24 -1
 E
 chain whip~
 Written on it : Made in Shaolin Temple.
@@ -434,8 +434,8 @@ wood~
 weapon G 0 AN
 spear 5 4 'crush' K
 15 250 2304 P
-a '' to_object 15 -1 4 18 0
-a '' to_object 15 -1 2 19 0
+f object hitroll 4 0 15 -1
+f object damroll 2 0 15 -1
 E
 horse spear~
 Used during the ancient times for hunting horses, it can be just as effective
@@ -449,8 +449,8 @@ paper~
 treasure H 0 AO
 0 0 0 0 0
 22 50 2333 P
-a '' to_object 22 -1 1 1 0
-a '' to_object 22 -1 1 2 0
+f object str 1 0 22 -1
+f object dex 1 0 22 -1
 E
 book sutra manual kamasutra~
 Are you really sure you want to do this?
@@ -463,8 +463,8 @@ cloth~
 armor BG 0 AF
 7 7 7 2 4
 26 125 4389 P
-a '' to_object 26 -1 1 2 0
-a '' to_object 26 -1 50 14 0
+f object dex 1 0 26 -1
+f object move 50 0 26 -1
 #20119
 robe~
 a monk's robe~
@@ -473,8 +473,8 @@ cloth~
 armor G 0 AK
 7 7 8 1 0
 27 200 4010 P
-a '' to_object 27 -1 1 5 0
-a '' to_object 27 -1 10 12 0
+f object con 1 0 27 -1
+f object mana 10 0 27 -1
 #20120
 cane armor~
 a cane armor~
@@ -483,7 +483,7 @@ steel~
 armor G 0 AD
 7 7 7 1 3
 19 300 3420 P
-a '' to_object 19 -1 -10 17 0
+f object ac -10 0 19 -1
 #20121
 Jiasha jiasha robe~
 Abbot's Jiasha~
@@ -492,9 +492,9 @@ cloth~
 armor AG 0 AK
 9 9 9 1 3
 27 250 8649 P
-a '' to_object 27 -1 1 3 0
-a '' to_object 27 -1 15 12 0
-a '' to_object 27 -1 -5 24 0
+f object int 1 0 27 -1
+f object mana 15 0 27 -1
+f object saving_spell -5 0 27 -1
 E
 jiasha Jiasha robe~
 This robe was tailor-made for the Abbot of Shaolin Temple by Boom's Workshop.
@@ -507,9 +507,9 @@ stone~
 armor BG 0 AC
 9 9 9 2 2
 29 100 10230 P
-a '' to_object 29 -1 1 1 0
-a '' to_object 29 -1 10 12 0
-a '' to_object 29 -1 -5 23 0
+f object str 1 0 29 -1
+f object mana 10 0 29 -1
+f object saving_breath -5 0 29 -1
 E
 fozhu necklace~
 Written on it: FOR EXPORT ONLY.
@@ -522,10 +522,10 @@ gold~
 armor BG 0 AO
 9 9 9 208 3
 30 0 9000 P
-a '' to_object 30 -1 20 13 0
-a '' to_object 30 -1 -10 17 0
-a '' to_object 30 -1 2 18 0
-a '' to_object 30 -1 2 19 0
+f object hp 20 0 30 -1
+f object ac -10 0 30 -1
+f object hitroll 2 0 30 -1
+f object damroll 2 0 30 -1
 E
 staff Abbot~
 Written on it : Compliments of Boom's Workshop.
@@ -546,8 +546,8 @@ steel~
 armor BG 0 AJ
 7 7 7 2 4
 19 350 3400 P
-a '' to_object 19 -1 2 4 0
-a '' to_object 19 -1 1 2 0
+f object wis 2 0 19 -1
+f object dex 1 0 19 -1
 #20131
 chain keys key~
 a chain of keys~

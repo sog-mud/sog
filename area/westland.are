@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Westland~
 VNUMs 10000 10099
 Credits Xavier~
@@ -725,10 +725,10 @@ unknown~
 weapon ABG 0 AN
 mace 12 7 'blast' 0
 70 150 1938 P
-a '' to_object 70 -1 6 19 0
-a '' to_object 70 -1 6 18 0
-a '' to_object 70 -1 20 13 0
-a '' to_object 70 -1 -1 2 0
+f object damroll 6 0 70 -1
+f object hitroll 6 0 70 -1
+f object hp 20 0 70 -1
+f object dex -1 0 70 -1
 E
 warden mace дубинка стража~
 @eng It is a giant mace clad with sharp deadly teeth. It was made for
@@ -745,9 +745,9 @@ stone~
 armor AB 0 AC
 30 30 30 20 0
 90 10 98504 P
-a '' to_object 90 -1 55 13 0
-a '' to_object 90 -1 3 3 0
-a '' to_object 90 -1 3 2 0
+f object hp 55 0 90 -1
+f object int 3 0 90 -1
+f object dex 3 0 90 -1
 E
 bone necklace костяное ожерелье~
 @eng This is a magical necklace that the bone woman HAD around her
@@ -764,8 +764,8 @@ stone~
 armor ABM 0 AC
 26 26 27 16 0
 80 10 100 P
-a '' to_object 80 -1 6 19 0
-a '' to_object 80 -1 3 1 0
+f object damroll 6 0 80 -1
+f object str 3 0 80 -1
 g @rus none~
 #10004
 jug beer кувшин~
@@ -784,9 +784,9 @@ leather~
 armor BC 0 AG
 20 20 20 10 0
 60 10 3000 P
-a '' to_object 60 -1 -10 13 0
-a '' to_object 60 -1 30 12 0
-a '' to_object 60 -1 2 1 0
+f object hp -10 0 60 -1
+f object mana 30 0 60 -1
+f object str 2 0 60 -1
 g @rus none~
 #10006
 glove warden gloves рукавицы boundary~
@@ -796,9 +796,9 @@ unknown~
 armor BC 0 AH
 20 20 20 9 0
 60 10 9684 P
-a '' to_object 60 -1 -2 24 0
-a '' to_object 60 -1 8 18 0
-a '' to_object 60 -1 2 1 0
+f object saving_spell -2 0 60 -1
+f object hitroll 8 0 60 -1
+f object str 2 0 60 -1
 g @rus none~
 #10007
 boot warden boots ботинки boundary~
@@ -808,9 +808,9 @@ unknown~
 armor BC 0 AG
 21 19 19 10 0
 60 10 9898 P
-a '' to_object 60 -1 -3 22 0
-a '' to_object 60 -1 6 19 0
-a '' to_object 60 -1 5 18 0
+f object saving_petri -3 0 60 -1
+f object damroll 6 0 60 -1
+f object hitroll 5 0 60 -1
 g @rus none~
 #10008
 sleeves warden нарукавники boundary~
@@ -820,9 +820,9 @@ unknown~
 armor BC 0 AI
 21 20 19 10 0
 60 10 9898 P
-a '' to_object 60 -1 20 13 0
-a '' to_object 60 -1 2 2 0
-a '' to_object 60 -1 2 1 0
+f object hp 20 0 60 -1
+f object dex 2 0 60 -1
+f object str 2 0 60 -1
 g @rus none~
 #10009
 shield warden щит boundary~
@@ -832,8 +832,8 @@ unknown~
 armor BC 0 AJ
 20 21 20 15 0
 60 100 9898 P
-a '' to_object 60 -1 40 13 0
-a '' to_object 60 -1 -9 17 0
+f object hp 40 0 60 -1
+f object ac -9 0 60 -1
 g @rus none~
 #10010
 tunic warden плащ boundary~
@@ -843,7 +843,7 @@ unknown~
 armor BC 0 AK
 20 20 20 10 0
 60 10 9898 P
-a '' to_object 60 -1 -21 17 0
+f object ac -21 0 60 -1
 g @rus none~
 #10011
 helmet warden шлем boundary~
@@ -853,8 +853,8 @@ unknown~
 armor BC 0 AE
 20 20 20 10 0
 60 10 9898 P
-a '' to_object 60 -1 -5 23 0
-a '' to_object 60 -1 2 1 0
+f object saving_breath -5 0 60 -1
+f object str 2 0 60 -1
 g @rus none~
 #10012
 ring warden кольцо boundary~
@@ -864,7 +864,7 @@ unknown~
 treasure BC 0 AB
 0 0 0 0 0
 60 10 9898 P
-a '' to_object 60 -1 75 13 0
+f object hp 75 0 60 -1
 g @rus none~
 #10013
 legging warden leggings штаны boundary~
@@ -874,8 +874,8 @@ unknown~
 armor BC 0 AF
 20 20 20 10 0
 60 10 9898 P
-a '' to_object 60 -1 -1 21 0
-a '' to_object 60 -1 30 14 0
+f object saving_rod -1 0 60 -1
+f object move 30 0 60 -1
 g @rus none~
 #10014
 robe dark плащ~
@@ -885,8 +885,8 @@ cloth~
 armor BC 0 AD
 23 23 22 11 0
 70 100 5060 P
-a '' to_object 70 -1 25 13 0
-a '' to_object 70 -1 50 12 0
+f object hp 25 0 70 -1
+f object mana 50 0 70 -1
 g @rus none~
 #10015
 collar heart hound ошейник~
@@ -896,9 +896,9 @@ unknown~
 armor BC 0 AC
 23 22 22 16 0
 70 10 8080 P
-a '' to_object 70 -1 -8 17 0
-a '' to_object 70 -1 50 13 0
-a '' to_object 70 -1 50 12 0
+f object ac -8 0 70 -1
+f object hp 50 0 70 -1
+f object mana 50 0 70 -1
 g @rus none~
 #10016
 pouch magical leather мешочек~
@@ -935,8 +935,8 @@ unknown~
 weapon ABCEJL 0 AN
 sword 9 6 'slash' 0
 50 300 3500 P
-a '' to_object 50 -1 4 19 0
-a '' to_object 50 -1 4 18 0
+f object damroll 4 0 50 -1
+f object hitroll 4 0 50 -1
 E
 boundary sword warden~
 This is a boundary warden sword that is made just for their use.
@@ -950,8 +950,8 @@ unknown~
 weapon ABCEJL 0 AN
 flail 7 7 'pound' 0
 50 300 3400 P
-a '' to_object 50 -1 3 19 0
-a '' to_object 50 -1 4 18 0
+f object damroll 3 0 50 -1
+f object hitroll 4 0 50 -1
 g @rus none~
 #10021
 mace warden палица стража границы boundary~
@@ -961,8 +961,8 @@ unknown~
 weapon ABCI 0 AN
 mace 7 7 'pound' 0
 50 300 2999 P
-a '' to_object 50 -1 2 18 0
-a '' to_object 50 -1 3 18 0
+f object hitroll 2 0 50 -1
+f object hitroll 3 0 50 -1
 g @rus none~
 #10022
 dagger warden кинжал boundary~
@@ -972,8 +972,8 @@ steel~
 weapon ABCEIJ 0 AN
 dagger 5 10 'pierce' 0
 50 300 2999 P
-a '' to_object 50 -1 3 19 0
-a '' to_object 50 -1 3 18 0
+f object damroll 3 0 50 -1
+f object hitroll 3 0 50 -1
 g @rus none~
 #10023
 agiel weapon эйджил~
@@ -983,10 +983,10 @@ unknown~
 weapon ABCEGM 0 AN
 exotic 18 7 'slash' 0
 90 200 9902 P
-a '' to_object 90 -1 4 19 0
-a '' to_object 90 -1 4 18 0
-a '' to_object 90 -1 20 13 0
-a '' to_object 90 -1 20 12 0
+f object damroll 4 0 90 -1
+f object hitroll 4 0 90 -1
+f object hp 20 0 90 -1
+f object mana 20 0 90 -1
 g @rus none~
 #10024
 bracer power браслет~
@@ -996,10 +996,10 @@ unknown~
 armor ABC 0 AM
 32 32 33 25 0
 90 20 9000 P
-a '' to_object 90 -1 7 19 0
-a '' to_object 90 -1 7 18 0
-a '' to_object 90 -1 50 13 0
-a '' to_object 90 -1 50 12 0
+f object damroll 7 0 90 -1
+f object hitroll 7 0 90 -1
+f object hp 50 0 90 -1
+f object mana 50 0 90 -1
 g @rus none~
 #10025
 westland sign знак указатель вывеска вестландия~

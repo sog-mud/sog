@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Nirvana~
 VNUMs 9000 9099
 Credits Fstall~
@@ -198,8 +198,8 @@ adamantite~
 weapon AGJK 0 AN
 sword 4 10 'slash' EF
 39 400 8800 P
-a '' to_object 39 -1 5 19 0
-a '' to_object 39 -1 5 18 0
+f object damroll 5 0 39 -1
+f object hitroll 5 0 39 -1
 E
 sword long the~
 This is an extremely long and heavy sword, with many magical runes inscribed

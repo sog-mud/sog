@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Thalos~
 VNUMs 5200 5299
 Credits Drkside~
@@ -150,8 +150,8 @@ mithril~
 armor GK 0 AD
 8 8 8 2 0
 26 400 7600 P
-a '' to_object 26 -1 2 1 0
-a '' to_object 26 -1 1 19 0
+f object str 2 0 26 -1
+f object damroll 1 0 26 -1
 g @rus none~
 #5201
 helm mithril~
@@ -161,7 +161,7 @@ mithril~
 armor GK 0 AE
 8 8 8 2 0
 27 100 3400 P
-a '' to_object 27 -1 2 18 0
+f object hitroll 2 0 27 -1
 g @rus none~
 #5202
 gauntlets mithril~
@@ -171,8 +171,8 @@ mithril~
 armor GK 0 AH
 8 8 8 2 0
 25 100 2700 P
-a '' to_object 25 -1 1 19 0
-a '' to_object 25 -1 1 18 0
+f object damroll 1 0 25 -1
+f object hitroll 1 0 25 -1
 g @rus none~
 #5203
 sleeves mithril~
@@ -182,8 +182,8 @@ mithril~
 armor GK 0 AI
 8 8 8 2 0
 25 100 2700 P
-a '' to_object 25 -1 1 19 0
-a '' to_object 25 -1 1 18 0
+f object damroll 1 0 25 -1
+f object hitroll 1 0 25 -1
 g @rus none~
 #5204
 boots mithril~
@@ -193,8 +193,8 @@ mithril~
 armor GK 0 AG
 8 8 8 2 0
 25 60 3100 P
-a '' to_object 25 -1 1 2 0
-a '' to_object 25 -1 1 18 0
+f object dex 1 0 25 -1
+f object hitroll 1 0 25 -1
 g @rus none~
 #5205
 leggings mithril~
@@ -204,8 +204,8 @@ mithril~
 armor GK 0 AF
 8 8 8 2 0
 25 100 3100 P
-a '' to_object 25 -1 1 2 0
-a '' to_object 25 -1 1 18 0
+f object dex 1 0 25 -1
+f object hitroll 1 0 25 -1
 g @rus none~
 #5206
 girth mithril~
@@ -215,7 +215,7 @@ mithril~
 armor GK 0 AL
 8 8 8 2 0
 26 60 5200 P
-a '' to_object 26 -1 2 5 0
+f object con 2 0 26 -1
 g @rus none~
 #5207
 breast plate iron~
@@ -225,7 +225,7 @@ iron~
 armor 0 0 AD
 5 5 5 0 0
 4 350 9100 P
-a '' to_object 4 -1 -6 18 0
+f object hitroll -6 0 4 -1
 g @rus none~
 #5208
 shield iron~
@@ -235,10 +235,9 @@ iron~
 armor GJ 0 AJ
 7 7 7 3 0
 24 100 4400 P
-a '' to_object 24 -1 -2 20 0
-a '' to_object 24 -1 -2 20 0
-a '' to_resist 24 -1 100 17 0
-a '' to_object 24 -1 0 0 0
+f object saves -2 0 24 -1
+f object saves -2 0 24 -1
+f resists charm 100 0 24 -1
 g @rus none~
 #5210
 potion black~
@@ -293,7 +292,7 @@ silver~
 staff AG 0 AO
 17 1 1 'charm person' 0
 9 10 3300 P
-a '' to_object 9 -1 -2 2 0
+f object dex -2 0 9 -1
 g @rus none~
 #5218
 talisman demon~
@@ -303,8 +302,8 @@ bronze~
 jewelry AG 0 AC
 0 0 0 0 0
 0 110 0 P
-a '' to_object 0 -1 -8 2 0
-a '' to_object 0 -1 -10 1 0
+f object dex -8 0 0 -1
+f object str -10 0 0 -1
 g @rus none~
 #5219
 venison chunk~
@@ -332,8 +331,8 @@ iron~
 weapon GK 0 AN
 sword 3 11 'chop' F
 26 240 3300 P
-a '' to_object 26 -1 3 19 0
-a '' to_object 26 -1 2 18 0
+f object damroll 3 0 26 -1
+f object hitroll 2 0 26 -1
 g @rus none~
 #5222
 robe black silk~
@@ -343,7 +342,7 @@ silk~
 armor 0 0 AK
 1 1 1 5 0
 5 60 410 P
-a '' to_object 5 -1 10 12 0
+f object mana 10 0 5 -1
 g @rus none~
 #5223
 cloak green~
@@ -353,7 +352,7 @@ cloth~
 armor GJ 0 AC
 7 7 7 2 0
 20 120 1600 P
-a '' to_object 20 -1 5 13 0
+f object hp 5 0 20 -1
 g @rus none~
 #5224
 seal ebony~
@@ -408,7 +407,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
-a '' to_object 5 -1 1 1 0
+f object str 1 0 5 -1
 g @rus none~
 #5231
 stone scarlet blue~
@@ -418,7 +417,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
-a '' to_object 5 -1 1 3 0
+f object int 1 0 5 -1
 g @rus none~
 #5232
 stone blue incandescent~
@@ -428,7 +427,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
-a '' to_object 5 -1 1 4 0
+f object wis 1 0 5 -1
 g @rus none~
 #5233
 stone red deep~
@@ -438,7 +437,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
-a '' to_object 5 -1 1 2 0
+f object dex 1 0 5 -1
 g @rus none~
 #5234
 stone pink~
@@ -448,7 +447,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
-a '' to_object 5 -1 1 5 0
+f object con 1 0 5 -1
 g @rus none~
 #5235
 stone pearly white~
@@ -458,7 +457,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 5 10 11 P
-a '' to_object 5 -1 1 13 0
+f object hp 1 0 5 -1
 g @rus none~
 #5237
 stone lavender green~
@@ -468,7 +467,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 0 10 150 P
-a '' to_object 0 -1 -1 20 0
+f object saves -1 0 0 -1
 g @rus none~
 #5239
 stone grey dull~
@@ -487,7 +486,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 0 10 500 P
-a '' to_object 0 -1 -5 18 0
+f object hitroll -5 0 0 -1
 g @rus none~
 #5243
 stone clear~
@@ -497,7 +496,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 0 10 100 P
-a '' to_object 0 -1 3 17 0
+f object ac 3 0 0 -1
 g @rus none~
 #5250
 mandolin~
@@ -516,7 +515,7 @@ gold~
 staff G 0 AO
 18 1 1 'call lightning' 0
 7 500 2700 P
-a '' to_object 7 -1 -2 2 0
+f object dex -2 0 7 -1
 g @rus none~
 #5252
 long dagger slim~
@@ -526,8 +525,8 @@ steel~
 weapon G 0 AN
 dagger 2 5 'pierce' 0
 8 10 590 P
-a '' to_object 8 -1 2 19 0
-a '' to_object 8 -1 1 18 0
+f object damroll 2 0 8 -1
+f object hitroll 1 0 8 -1
 g @rus none~
 #5253
 water fall waterfall~

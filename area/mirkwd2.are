@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Mirkwood~
 VNUMs 8800 8899
 Credits Yaegar~
@@ -272,7 +272,7 @@ adamantite~
 weapon G 0 AN
 sword 1 5 'slash' 0
 5 30 500 G
-a '' to_object 5 -1 2 18 0
+f object hitroll 2 0 5 -1
 #8802
 cloak elven plain простой эльфийский плащ~
 @eng a plain elven cloak@rus ~~простой~~ ~~эльфийский~~ ~~плащ~~~
@@ -281,8 +281,8 @@ cloth~
 armor G 0 AC
 3 3 3 0 1
 5 40 200 G
-a '' to_object 5 -1 5 13 0
-a '' to_object 5 -1 -2 17 0
+f object hp 5 0 5 -1
+f object ac -2 0 5 -1
 #8803
 boots elven plain простые эльфийские ботинки~
 @eng a pair of plain elven boots@rus ~~пара~~ эльфийских ботинок~
@@ -291,8 +291,8 @@ leather~
 armor G 0 AG
 3 4 4 0 2
 5 30 400 G
-a '' to_object 5 -1 1 2 0
-a '' to_object 5 -1 50 14 0
+f object dex 1 0 5 -1
+f object move 50 0 5 -1
 #8804
 water flask elven эльфийская фляга~
 @eng a water flask@rus ~~эльфийская~~ ~~фляга~~~
@@ -317,8 +317,8 @@ iron~
 weapon G 0 AN
 sword 1 6 'cleave' 0
 5 120 450 G
-a '' to_object 5 -1 1 1 0
-a '' to_object 5 -1 1 19 0
+f object str 1 0 5 -1
+f object damroll 1 0 5 -1
 #8807
 helm ugly spiked orcish уродливый орочий шлем~
 @eng an ugly spiked helm@rus ~~уродливый~~ ~~шипастый~~ ~~шлем~~~
@@ -327,7 +327,7 @@ bronze~
 armor G 0 AE
 4 3 3 0 2
 5 140 200 G
-a '' to_object 5 -1 -5 17 0
+f object ac -5 0 5 -1
 #8808
 flask wine фляга вино~
 @eng a flask of Dorwinion wine@rus ~~фляга~~ Дорвинионского вина~
@@ -360,9 +360,9 @@ metal~
 weapon AL 0 AN
 sword 2 12 'cleave' DF
 14 45 600 G
-a '' to_object 14 -1 1 2 0
-a '' to_object 14 -1 2 18 0
-a '' to_object 14 -1 3 19 0
+f object dex 1 0 14 -1
+f object hitroll 2 0 14 -1
+f object damroll 3 0 14 -1
 #8812
 key cell door ключ камеры~
 @eng a cell door key@rus ключ от камеры~

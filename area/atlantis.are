@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Atlantis~
 VNUMs 35000 35099
 Credits Jaromir~
@@ -423,9 +423,9 @@ bone~
 weapon ABGIK 0 AN
 sword 5 10 'frbite' D
 42 200 14380 P
-a '' to_object 42 -1 6 18 0
-a '' to_object 42 -1 6 19 0
-a '' to_object 42 -1 -2 5 0
+f object hitroll 6 0 42 -1
+f object damroll 6 0 42 -1
+f object con -2 0 42 -1
 E
 sharkbite sword~
 This is the sword of King Neptune from Atlantis.
@@ -462,8 +462,8 @@ bone~
 armor FGK 0 AJ
 14 11 13 6 4
 42 317 11380 P
-a '' to_object 42 -1 30 13 0
-a '' to_object 42 -1 2 19 0
+f object hp 30 0 42 -1
+f object damroll 2 0 42 -1
 E
 shield seaweed~
 Very strong shield named 'Seaweed'.
@@ -476,7 +476,7 @@ ice~
 armor AGHK 0 AE
 13 13 15 7 2
 42 110 10380 P
-a '' to_object 42 -1 2 5 0
+f object con 2 0 42 -1
 E
 crown~
 A crown made of ice, don't ask me why it doesn't melt.
@@ -489,7 +489,7 @@ leather~
 armor GK 0 AG
 13 13 13 9 0
 42 127 11380 P
-a '' to_object 42 -1 30 14 0
+f object move 30 0 42 -1
 E
 shoes~
 A pair of all fit shoes made of white leather.
@@ -514,7 +514,7 @@ iron~
 armor GK 0 AB
 11 11 11 3 0
 42 11 9380 P
-a '' to_object 42 -1 2 4 0
+f object wis 2 0 42 -1
 E
 ring~
 One ring of wisdom.
@@ -539,8 +539,8 @@ bone~
 weapon CEJ 0 AN
 exotic 5 5 'slash' 0
 19 250 3390 P
-a '' to_object 19 -1 4 18 0
-a '' to_object 19 -1 4 19 0
+f object hitroll 4 0 19 -1
+f object damroll 4 0 19 -1
 E
 black claw~
 This claw is very BIG and it sure looks sharp!
@@ -625,8 +625,8 @@ mithril~
 weapon A 0 AN
 axe 5 8 'slash' D
 28 310 5300 P
-a '' to_object 28 -1 3 18 0
-a '' to_object 28 -1 5 19 0
+f object hitroll 3 0 28 -1
+f object damroll 5 0 28 -1
 E
 axe~
 It's the axe of Samuel from Atlantis.
@@ -639,8 +639,8 @@ steel~
 weapon A 0 AN
 spear 5 5 'pierce' DK
 20 130 4210 P
-a '' to_object 20 -1 2 18 0
-a '' to_object 20 -1 4 19 0
+f object hitroll 2 0 20 -1
+f object damroll 4 0 20 -1
 E
 spear~
 Oooooh... don't touch it, it's so SHARP.
@@ -653,8 +653,8 @@ shell~
 armor B 0 AE
 8 7 8 3 3
 20 215 3240 P
-a '' to_object 20 -1 10 13 0
-a '' to_object 20 -1 -10 17 0
+f object hp 10 0 20 -1
+f object ac -10 0 20 -1
 E
 helmet shell~
 This is strange, a helmet like a very large shell.
@@ -667,8 +667,8 @@ pearl~
 armor A 0 AB
 7 6 7 4 1
 20 11 3250 P
-a '' to_object 20 -1 1 13 0
-a '' to_object 20 -1 1 24 0
+f object hp 1 0 20 -1
+f object saving_spell 1 0 20 -1
 E
 ring pearl~
 This ring looks very expensive and is glittering like a diamond.
@@ -681,7 +681,7 @@ ivory~
 armor AGY B AJ
 7 7 6 3 3
 20 310 4240 P
-a '' to_object 20 -1 1 18 0
+f object hitroll 1 0 20 -1
 E
 ivory shield~
 This shield looks very strong. You are sure nothing can break it.
@@ -702,8 +702,8 @@ iron~
 weapon A 0 AN
 spear 5 8 'pierce' DK
 31 350 6330 P
-a '' to_object 31 -1 3 18 0
-a '' to_object 31 -1 6 19 0
+f object hitroll 3 0 31 -1
+f object damroll 6 0 31 -1
 E
 spear~
 Oooooh... don't touch it, it's so SHARP.
@@ -716,7 +716,7 @@ pearl~
 armor A 0 AC
 8 8 8 16 3
 31 80 6330 P
-a '' to_object 31 -1 15 12 0
+f object mana 15 0 31 -1
 #35027
 fishing-rod~
 a fishing-rod~
@@ -733,8 +733,8 @@ steel~
 weapon 0 0 AN
 dagger 5 5 'slice' 0
 18 132 3100 P
-a '' to_object 18 -1 2 18 0
-a '' to_object 18 -1 5 19 0
+f object hitroll 2 0 18 -1
+f object damroll 5 0 18 -1
 #35029
 pitchfork~
 a pitchfork~
@@ -743,8 +743,8 @@ steel~
 weapon 0 0 AN
 exotic 5 6 'pierce' 0
 25 240 4250 P
-a '' to_object 25 -1 2 18 0
-a '' to_object 25 -1 4 19 0
+f object hitroll 2 0 25 -1
+f object damroll 4 0 25 -1
 #35030
 fish~
 a fish~

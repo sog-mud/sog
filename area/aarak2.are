@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Aarakocran City~
 VNUMs 5600 5699
 Credits Slash~
@@ -512,7 +512,7 @@ steel~
 armor 0 0 AH
 5 6 5 1 0
 5 100 800 G
-a '' to_object 5 -1 2 19 0
+f object damroll 2 0 5 -1
 g @rus none~
 #5606
 packet black centipede spice~
@@ -558,7 +558,7 @@ glass~
 treasure G 0 AO
 0 0 0 0 0
 8 10 640 P
-a '' to_object 8 -1 1 2 0
+f object dex 1 0 8 -1
 g @rus none~
 #5611
 shiny bit blue glass~
@@ -568,7 +568,7 @@ glass~
 treasure G 0 AO
 0 0 0 0 0
 8 10 650 P
-a '' to_object 8 -1 1 1 0
+f object str 1 0 8 -1
 g @rus none~
 #5612
 gold circlet~
@@ -578,7 +578,7 @@ gold~
 treasure G 0 AO
 0 0 0 0 0
 8 10 680 P
-a '' to_object 8 -1 1 5 0
+f object con 1 0 8 -1
 g @rus none~
 #5613
 piece string~
@@ -588,7 +588,7 @@ steel~
 treasure G 0 AO
 0 0 0 0 0
 10 10 600 P
-a '' to_object 10 -1 4 13 0
+f object hp 4 0 10 -1
 g @rus none~
 #5614
 silver coin disk~
@@ -724,7 +724,7 @@ glass~
 treasure G 0 AO
 0 0 0 0 0
 10 4 10 P
-a '' to_object 10 -1 3 3 0
+f object int 3 0 10 -1
 g @rus none~
 #5629
 glass eye~
@@ -759,7 +759,7 @@ gold~
 treasure G 0 AO
 0 0 0 0 0
 10 550 1000 P
-a '' to_object 10 -1 1 5 0
+f object con 1 0 10 -1
 g @rus none~
 #5632
 canoe~
@@ -809,8 +809,8 @@ steel~
 weapon AG 0 AN
 sword 5 6 'pierce' 0
 25 100 1000 P
-a '' to_object 25 -1 3 18 0
-a '' to_object 25 -1 3 19 0
+f object hitroll 3 0 25 -1
+f object damroll 3 0 25 -1
 g @rus none~
 #5637
 mace~
@@ -820,8 +820,8 @@ bronze~
 weapon AG 0 AN
 mace 5 7 'crush' 0
 27 100 3000 P
-a '' to_object 27 -1 3 18 0
-a '' to_object 27 -1 3 19 0
+f object hitroll 3 0 27 -1
+f object damroll 3 0 27 -1
 g @rus none~
 #5638
 vest~
@@ -846,7 +846,7 @@ steel~
 armor A A AJ
 5 5 5 1 1
 5 100 1000 G
-a '' to_object 5 -1 5 19 0
+f object damroll 5 0 5 -1
 g @rus none~
 #5640
 cloak~
@@ -889,8 +889,8 @@ snakeskin~
 armor A 0 AG
 5 5 5 1 1
 17 100 800 G
-a '' to_object 17 -1 1 17 0
-a '' to_object 17 -1 1 18 0
+f object ac 1 0 17 -1
+f object hitroll 1 0 17 -1
 E
 boots~
 These boots have large toe holes, to accommodate large Aarakocran feet.
@@ -904,7 +904,7 @@ tin~
 armor A A AH
 5 1 1 1 1
 5 100 1000 G
-a '' to_object 5 -1 4 19 0
+f object damroll 4 0 5 -1
 g @rus none~
 #5645
 wing guards wingguards~
@@ -965,7 +965,7 @@ steel~
 armor B A AJ
 5 5 5 5 5
 5 100 1000 G
-a '' to_object 5 -1 5 19 0
+f object damroll 5 0 5 -1
 g @rus none~
 #5651
 cloak~
@@ -1008,8 +1008,8 @@ brass~
 armor B 0 AG
 5 3 4 3 1
 5 110 1000 G
-a '' to_object 5 -1 1 17 0
-a '' to_object 5 -1 1 18 0
+f object ac 1 0 5 -1
+f object hitroll 1 0 5 -1
 E
 boots~
 These boots have large toe holes, to accommodate large Aarakocran feet.
@@ -1023,7 +1023,7 @@ bronze~
 armor B A AH
 5 1 1 1 0
 5 100 1000 G
-a '' to_object 5 -1 4 19 0
+f object damroll 4 0 5 -1
 g @rus none~
 #5656
 sleeves~
@@ -1114,7 +1114,7 @@ iron~
 armor 0 0 AH
 5 5 5 3 1
 17 70 700 G
-a '' to_object 17 -1 2 19 0
+f object damroll 2 0 17 -1
 g @rus none~
 #5666
 small mace~
@@ -1124,8 +1124,8 @@ wood~
 weapon 0 0 AN
 mace 5 5 'pound' 0
 16 10 999 G
-a '' to_object 16 -1 1 18 0
-a '' to_object 16 -1 1 19 0
+f object hitroll 1 0 16 -1
+f object damroll 1 0 16 -1
 g @rus none~
 #5667
 small sticker~
@@ -1135,8 +1135,8 @@ rubber~
 weapon 0 0 AN
 mace 5 5 'pound' 0
 15 100 8880 G
-a '' to_object 15 -1 -5 17 0
-a '' to_object 15 -1 2 18 0
+f object ac -5 0 15 -1
+f object hitroll 2 0 15 -1
 E
 small sticker~
 This is a medium length piercing blade, primarily used to catch rats.  It is
@@ -1152,8 +1152,8 @@ rubber~
 weapon 0 0 AN
 mace 5 5 'pound' 0
 17 140 7770 G
-a '' to_object 17 -1 1 18 0
-a '' to_object 17 -1 1 19 0
+f object hitroll 1 0 17 -1
+f object damroll 1 0 17 -1
 E
 sticker~
 This is a long metal blade, primarily used to catch rats.  It is about as big
@@ -1199,8 +1199,8 @@ brass~
 armor 0 0 AG
 5 6 7 1 1
 5 100 1000 G
-a '' to_object 5 -1 1 17 0
-a '' to_object 5 -1 1 18 0
+f object ac 1 0 5 -1
+f object hitroll 1 0 5 -1
 E
 boots~
 These boots have large toe holes, to accommodate large Aarakocran feet.
@@ -1223,7 +1223,7 @@ steel~
 treasure 0 0 AO
 0 0 0 0 0
 1 55 10 G
-a '' to_object 1 -1 1 2 0
+f object dex 1 0 1 -1
 g @rus none~
 #5674
 bottle alcohol rotgut~

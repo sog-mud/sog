@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Day Care~
 VNUMs 6600 6699
 Credits Sandman~
@@ -156,8 +156,8 @@ ice~
 treasure G 0 AB
 0 0 0 0 0
 3 10 620 G
-a '' to_object 3 -1 4 13 0
-a '' to_object 3 -1 1 1 0
+f object hp 4 0 3 -1
+f object str 1 0 3 -1
 E
 ring pink ice~
 How strange...it's made of ice, but it doesn't melt. It feels pleasantly 
@@ -172,8 +172,8 @@ cloth~
 armor G 0 AK
 1 2 1 1 1
 7 50 780 G
-a '' to_object 7 -1 5 12 0
-a '' to_object 7 -1 1 4 0
+f object mana 5 0 7 -1
+f object wis 1 0 7 -1
 E
 robe linen~
 It radiates an aura of peace and wisdom.  The perfect garb for a teacher.
@@ -187,8 +187,8 @@ wood~
 weapon 0 0 AN
 exotic 2 3 'pound' K
 4 30 270 W
-a '' to_object 4 -1 -1 18 0
-a '' to_object 4 -1 -1 17 0
+f object hitroll -1 0 4 -1
+f object ac -1 0 4 -1
 E
 broom~
 It's worn and tired, probably from swatting too many children.
@@ -234,7 +234,7 @@ wood~
 weapon 0 0 AN
 spear 2 3 'stab' FK
 4 20 300 G
-a '' to_object 4 -1 -1 17 0
+f object ac -1 0 4 -1
 E
 gun toy~
 It's just a toy...but the point looks kind of sharp.

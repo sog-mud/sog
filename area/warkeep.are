@@ -1,6 +1,7 @@
 #AREADATA
-Ver 5
+Ver 6
 Name The Keep of the Warlock~
+Builders vulfer~
 VNUMs 15700 15799
 Credits Yaegar~
 Security 9
@@ -10,7 +11,7 @@ End
 #MOBILES
 #15700
 warlock baragar~
-the warlock Baragar~
+@eng the warlock Baragar@rus ~~варлок~~ ~~Барагар~~~
 The warlock Baragar chuckles at you and dares you to attack him.~
 Before you stands the master of the keep, Baragar the warlock. And while
 Baragar is weak compared to sorcerers such as Krogthar and his minions,
@@ -333,8 +334,8 @@ copper~
 armor AGJ 0 AK
 9 9 9 0 0
 30 5 300 P
-a '' to_object 30 -1 2 3 0
-a '' to_object 30 -1 50 12 0
+f object int 2 0 30 -1
+f object mana 50 0 30 -1
 g @rus none~
 #15701
 staff~
@@ -344,7 +345,7 @@ copper~
 staff AGJ 0 AO
 30 12 12 'call lightning' 0
 30 2 300 P
-a '' to_object 30 -1 2 4 0
+f object wis 2 0 30 -1
 g @rus none~
 #15702
 sword~
@@ -354,8 +355,8 @@ copper~
 weapon AGJ 0 AN
 sword 5 7 'pierce' 0
 30 100 300 P
-a '' to_object 30 -1 4 18 0
-a '' to_object 30 -1 4 19 0
+f object hitroll 4 0 30 -1
+f object damroll 4 0 30 -1
 g @rus none~
 #15703
 helm~
@@ -365,9 +366,9 @@ copper~
 armor AGJ 0 AE
 9 9 9 0 0
 30 7 300 P
-a '' to_object 30 -1 -10 17 0
-a '' to_object 30 -1 -3 23 0
-a '' to_object 30 -1 -3 24 0
+f object ac -10 0 30 -1
+f object saving_breath -3 0 30 -1
+f object saving_spell -3 0 30 -1
 g @rus none~
 #15704
 bandolier~
@@ -377,7 +378,7 @@ copper~
 container 0 0 AD
 50 A 0 0 0
 28 40 280 P
-a '' to_object 28 -1 1 5 0
+f object con 1 0 28 -1
 g @rus none~
 #15705
 potion~
@@ -432,7 +433,7 @@ copper~
 weapon BEGJ 0 AN
 dagger 5 7 'pierce' 0
 28 50 280 P
-a '' to_object 28 -1 6 18 0
+f object hitroll 6 0 28 -1
 g @rus none~
 #15711
 staff~
@@ -442,7 +443,7 @@ copper~
 staff BEGJ 0 AO
 28 10 10 'energy drain' 0
 28 5 280 P
-a '' to_object 28 -1 25 12 0
+f object mana 25 0 28 -1
 g @rus none~
 #15712
 pentagram~
@@ -461,8 +462,8 @@ copper~
 weapon J B AN
 mace 5 6 'crush' 0
 25 200 250 P
-a '' to_object 25 -1 -4 18 0
-a '' to_object 25 -1 6 19 0
+f object hitroll -4 0 25 -1
+f object damroll 6 0 25 -1
 g @rus none~
 #15714
 leather hauberk~
@@ -481,7 +482,7 @@ copper~
 armor BJ 0 AK
 8 8 8 0 0
 28 25 280 P
-a '' to_object 28 -1 -25 17 0
+f object ac -25 0 28 -1
 g @rus none~
 #15716
 bronze plate~
@@ -527,8 +528,8 @@ copper~
 armor AGJ 0 AK
 7 7 7 0 0
 21 3 210 P
-a '' to_object 21 -1 20 12 0
-a '' to_object 21 -1 -3 24 0
+f object mana 20 0 21 -1
+f object saving_spell -3 0 21 -1
 g @rus none~
 #15721
 staff~
@@ -538,7 +539,7 @@ copper~
 weapon 0 B AN
 staff 5 5 'pound' 0
 21 90 210 P
-a '' to_object 21 -1 3 19 0
+f object damroll 3 0 21 -1
 g @rus none~
 #15722
 spellbook~
@@ -566,8 +567,8 @@ copper~
 armor 0 0 AC
 6 6 6 0 0
 16 5 160 P
-a '' to_object 16 -1 2 18 0
-a '' to_object 16 -1 2 19 0
+f object hitroll 2 0 16 -1
+f object damroll 2 0 16 -1
 g @rus male~
 #15725
 assassin robes~
@@ -577,8 +578,8 @@ copper~
 armor J 0 AO
 7 7 7 0 0
 20 3 200 P
-a '' to_object 20 -1 2 2 0
-a '' to_object 20 -1 -5 17 0
+f object dex 2 0 20 -1
+f object ac -5 0 20 -1
 g @rus none~
 #15726
 dagger~
@@ -588,7 +589,7 @@ copper~
 warp_stone 0 0 ANO
 0 0 0 0 0
 20 3 200 P
-a '' to_object 20 -1 2 18 0
+f object hitroll 2 0 20 -1
 g @rus none~
 #15727
 sword~
@@ -598,8 +599,8 @@ copper~
 weapon AG 0 AN
 sword 5 6 'slash' 0
 27 100 270 P
-a '' to_object 27 -1 4 18 0
-a '' to_object 27 -1 4 19 0
+f object hitroll 4 0 27 -1
+f object damroll 4 0 27 -1
 g @rus none~
 #15728
 ring~
@@ -609,9 +610,9 @@ copper~
 armor AGP 0 AB
 8 8 8 0 0
 27 1 270 P
-a '' to_object 27 -1 10 12 0
-a '' to_object 27 -1 -1 23 0
-a '' to_object 27 -1 -1 24 0
+f object mana 10 0 27 -1
+f object saving_breath -1 0 27 -1
+f object saving_spell -1 0 27 -1
 g @rus none~
 #15729
 boots~
@@ -621,8 +622,8 @@ copper~
 armor 0 0 AG
 8 8 8 0 0
 27 5 270 P
-a '' to_object 27 -1 2 2 0
-a '' to_object 27 -1 25 14 0
+f object dex 2 0 27 -1
+f object move 25 0 27 -1
 g @rus none~
 #15730
 elven cloak~
@@ -632,9 +633,9 @@ copper~
 armor 0 0 AC
 8 8 8 0 0
 27 3 270 P
-a '' to_object 27 -1 1 5 0
-a '' to_object 27 -1 10 13 0
-a '' to_object 27 -1 -5 17 0
+f object con 1 0 27 -1
+f object hp 10 0 27 -1
+f object ac -5 0 27 -1
 g @rus none~
 #15731
 pick~
@@ -680,7 +681,7 @@ copper~
 armor J 0 AO
 7 7 7 7 0
 20 5 200 P
-a '' to_object 20 -1 5 19 0
+f object damroll 5 0 20 -1
 g @rus none~
 #15736
 rubbish~
@@ -765,8 +766,8 @@ copper~
 armor M 0 AF
 5 5 5 0 0
 12 10 120 P
-a '' to_object 12 -1 -3 2 0
-a '' to_object 12 -1 -100 14 0
+f object dex -3 0 12 -1
+f object move -100 0 12 -1
 g @rus none~
 #0
 

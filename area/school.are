@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name MUD School~
 VNUMs 3700 3799
 Credits Hatchet~
@@ -358,7 +358,7 @@ bronze~
 weapon U 0 AN
 mace 1 6 'pound' 0
 1 60 250 P
-a '' to_object 1 -1 1 18 0
+f object hitroll 1 0 1 -1
 E
 mace булава~
 @eng You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
@@ -375,7 +375,7 @@ bronze~
 weapon U 0 AN
 dagger 1 4 'pierce' 0
 0 10 210 P
-a '' to_object 0 -1 1 18 0
+f object hitroll 1 0 0 -1
 E
 dagger кинжал~
 @eng You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
@@ -392,7 +392,7 @@ bronze~
 weapon U 0 AN
 sword 1 6 'slash' 0
 1 30 360 P
-a '' to_object 1 -1 1 18 0
+f object hitroll 1 0 1 -1
 E
 sword~
 @eng You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
@@ -664,8 +664,8 @@ vellum~
 treasure GU 0 AO
 0 0 0 0 0
 0 10 1140 P
-a '' to_object 0 -1 1 4 0
-a '' to_object 0 -1 1 5 0
+f object wis 1 0 0 -1
+f object con 1 0 0 -1
 E
 диплом~
 @eng This document shows that you have graduated from Mud School.
@@ -697,8 +697,8 @@ cloth~
 light AG 0 A
 0 0 200 0 0
 0 20 380 P
-a '' to_object 0 -1 -1 17 0
-a '' to_object 0 -1 -1 20 0
+f object ac -1 0 0 -1
+f object saves -1 0 0 -1
 E
 знамя~
 @eng This is the official Merc war banner to see you through the darkest realm!
@@ -718,7 +718,7 @@ wood~
 weapon U 0 AN
 spear 1 6 'thrust' K
 1 50 111 P
-a '' to_object 1 -1 1 18 0
+f object hitroll 1 0 1 -1
 E
 копье~
 @eng You see a spear of great but cheap craftsmanship.  Imprinted on the side is:
@@ -742,8 +742,8 @@ wood~
 weapon U 0 AN
 staff 1 5 'pound' F
 1 40 290 P
-a '' to_object 1 -1 2 18 0
-a '' to_object 1 -1 1 19 0
+f object hitroll 2 0 1 -1
+f object damroll 1 0 1 -1
 E
 посох~
 @eng You see a staff of great but cheap craftsmanship.  Imprinted on the side is:
@@ -767,7 +767,7 @@ bronze~
 weapon U 0 AN
 axe 1 6 'chop' 0
 1 50 350 P
-a '' to_object 1 -1 1 18 0
+f object hitroll 1 0 1 -1
 E
 топор~
 @eng You see an axe of great but cheap craftsmanship.  Imprinted on the side is:
@@ -791,7 +791,7 @@ bronze~
 weapon U 0 AN
 flail 1 5 'crush' 0
 1 50 310 P
-a '' to_object 1 -1 1 19 0
+f object damroll 1 0 1 -1
 E
 цеп~
 @eng You see a flail of great but cheap craftsmanship.  Imprinted on the side is:
@@ -815,7 +815,7 @@ leather~
 weapon U 0 AN
 whip 2 2 'whip' 0
 1 20 330 P
-a '' to_object 1 -1 2 18 0
+f object hitroll 2 0 1 -1
 E
 плеть~
 @eng You see a whip of great but cheap craftsmanship.  Imprinted on the side is:
@@ -839,7 +839,7 @@ wood~
 weapon U 0 AN
 polearm 1 7 'slash' F
 1 80 183 P
-a '' to_object 1 -1 1 19 0
+f object damroll 1 0 1 -1
 E
 алебарда~
 @eng You see a glaive of great but cheap craftsmanship.  Imprinted on the side is:
@@ -863,7 +863,7 @@ wood~
 weapon U 0 AN
 bow 1 7 'none' F
 1 80 183 P
-a '' to_object 1 -1 1 19 0
+f object damroll 1 0 1 -1
 E
 лук~
 @eng You see a bow of great but cheap craftsmanship.  Imprinted on the side is:
@@ -887,7 +887,7 @@ iron~
 weapon U 0 AN
 lance 1 7 'none' F
 1 80 183 P
-a '' to_object 1 -1 1 19 0
+f object damroll 1 0 1 -1
 E
 пика~
 @eng You see a lance of great but cheap craftsmanship.  Imprinted on the side is:

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Dark Continent~
 VNUMs 14500 14599
 Credits Mort~
@@ -321,7 +321,7 @@ steel~
 armor 0 0 AC
 7 7 7 0 2
 19 50 4700 P
-a '' to_object 19 -1 -10 17 0
+f object ac -10 0 19 -1
 E
 necklace elven~
 Engraved on the back are the words: "Protect that which is important"~
@@ -348,7 +348,7 @@ ash~
 boat A 0 AG
 0 0 0 0 0
 20 150 2000 P
-a '' to_object 20 -1 -25 14 0
+f object move -25 0 20 -1
 g @rus none~
 #14505
 dwarven keg go juice~
@@ -457,8 +457,8 @@ iron~
 weapon BGI 0 AN
 sword 1 12 'slash' 0
 7 50 500 P
-a '' to_object 7 -1 -2 3 0
-a '' to_object 7 -1 -8 4 0
+f object int -2 0 7 -1
+f object wis -8 0 7 -1
 g @rus none~
 #14516
 island sword~
@@ -477,8 +477,8 @@ silver~
 armor AGK 0 AE
 6 6 6 1 4
 15 5 1500 G
-a '' to_object 15 -1 2 3 0
-a '' to_object 15 -1 1 4 0
+f object int 2 0 15 -1
+f object wis 1 0 15 -1
 E
 helmet~
 You see an Island Helmet.  Imprinted on the side is: Gapcio Industries
@@ -505,8 +505,8 @@ mithril~
 weapon G 0 AN
 mace 5 5 'pound' 0
 17 300 2620 P
-a '' to_object 17 -1 5 19 0
-a '' to_object 17 -1 5 18 0
+f object damroll 5 0 17 -1
+f object hitroll 5 0 17 -1
 E
 island mace~
 You see a island mace.  Imprinted on the side is: Gapcio Industries
@@ -529,9 +529,9 @@ cloth~
 armor GK 0 AK
 6 8 7 1 3
 20 200 4600 G
-a '' to_object 20 -1 3 24 0
-a '' to_object 20 -1 3 23 0
-a '' to_object 20 -1 -20 17 0
+f object saving_spell 3 0 20 -1
+f object saving_breath 3 0 20 -1
+f object ac -20 0 20 -1
 g @rus none~
 #14522
 watcher thrusting dagger~
@@ -541,8 +541,8 @@ corundum~
 weapon GK 0 AN
 dagger 5 6 'thrust' 0
 20 50 3100 P
-a '' to_object 20 -1 3 18 0
-a '' to_object 20 -1 15 12 0
+f object hitroll 3 0 20 -1
+f object mana 15 0 20 -1
 g @rus none~
 #14523
 watcher signet ring~
@@ -552,7 +552,7 @@ bone~
 treasure GK 0 AB
 0 0 0 0 0
 20 1 4567 P
-a '' to_object 20 -1 5 2 0
+f object dex 5 0 20 -1
 g @rus none~
 #14524
 reed basket~
@@ -679,9 +679,9 @@ snakeskin~
 armor G 0 AD
 7 7 7 0 2
 12 20 2456 G
-a '' to_object 12 -1 -1 1 0
-a '' to_object 12 -1 -1 3 0
-a '' to_object 12 -1 -1 4 0
+f object str -1 0 12 -1
+f object int -1 0 12 -1
+f object wis -1 0 12 -1
 g @rus none~
 #14537
 dwarven flail~
@@ -700,7 +700,7 @@ wood~
 armor AG 0 AJ
 6 6 6 1 5
 17 100 4500 G
-a '' to_object 17 -1 4 5 0
+f object con 4 0 17 -1
 g @rus none~
 #0
 

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Firetop Mountain~
 VNUMs 5700 5899
 Credits Yaegar~
@@ -622,8 +622,8 @@ iron~
 weapon 0 0 AN
 polearm 2 9 'slash' 0
 10 130 350 P
-a '' to_object 10 -1 -2 18 0
-a '' to_object 10 -1 -2 19 0
+f object hitroll -2 0 10 -1
+f object damroll -2 0 10 -1
 E
 polearm~
 This polearm is old, rusty and in bad need of repair.
@@ -771,7 +771,7 @@ velvet~
 armor C 0 AH
 7 7 7 2 0
 10 20 0 G
-a '' to_object 10 -1 2 2 0
+f object dex 2 0 10 -1
 E
 glove~
 You have no idea what this glove may do...
@@ -828,8 +828,8 @@ iron~
 weapon 0 0 AN
 exotic 3 5 'chop' 0
 7 10 10 P
-a '' to_object 7 -1 -1 18 0
-a '' to_object 7 -1 -1 19 0
+f object hitroll -1 0 7 -1
+f object damroll -1 0 7 -1
 E
 leg~
 This really is a pathetic attempt at a weapon...
@@ -857,7 +857,7 @@ iron~
 weapon 0 0 AN
 dagger 3 5 'pierce' 0
 9 130 570 P
-a '' to_object 9 -1 4 19 0
+f object damroll 4 0 9 -1
 E
 knife~
 This vicious little Goblin weapon would make a GREAT backstabbing weapon...
@@ -884,10 +884,10 @@ iron~
 armor A 0 AJ
 5 5 5 -1 0
 12 150 1000 G
-a '' to_object 12 -1 -1 2 0
-a '' to_object 12 -1 5 13 0
-a '' to_object 12 -1 -10 17 0
-a '' to_object 12 -1 1 19 0
+f object dex -1 0 12 -1
+f object hp 5 0 12 -1
+f object ac -10 0 12 -1
+f object damroll 1 0 12 -1
 E
 shield~
 This shield seems to be a very good one, if rather large and cumbersome.
@@ -901,7 +901,7 @@ gold~
 staff A 0 AO
 10 5 5 'blindness' 0
 10 10 5000 P
-a '' to_object 10 -1 25 12 0
+f object mana 25 0 10 -1
 E
 jewel~
 This Jewel once served as the eye of an Iron Cyclops, and as such has potent
@@ -970,9 +970,9 @@ paper~
 furniture BEM 0 AO
 0 0 0 0 0
 0 25 0 P
-a '' to_object 0 -1 -1 1 0
-a '' to_object 0 -1 -1 5 0
-a '' to_object 0 -1 -10 13 0
+f object str -1 0 0 -1
+f object con -1 0 0 -1
+f object hp -10 0 0 -1
 E
 painting~
 Just looking at this painting makes you feel sick and uneasy.
@@ -1001,8 +1001,8 @@ stone~
 weapon 0 0 AN
 mace 3 6 'crush' 0
 12 130 1500 P
-a '' to_object 12 -1 -4 18 0
-a '' to_object 12 -1 6 19 0
+f object hitroll -4 0 12 -1
+f object damroll 6 0 12 -1
 E
 club~
 The Neanderthal who owns this doubtless would like it back...
@@ -1016,7 +1016,7 @@ wood~
 weapon 0 0 AN
 exotic 2 6 'crush' 0
 10 25 100 P
-a '' to_object 10 -1 -1 18 0
+f object hitroll -1 0 10 -1
 E
 wood~
 This piece of Y-shaped wood is so fashioned that you could use it for a
@@ -1031,8 +1031,8 @@ linen~
 trash EHM 0 AO
 0 0 0 0 0
 5 10 0 P
-a '' to_object 5 -1 -50 12 0
-a '' to_object 5 -1 -25 13 0
+f object mana -50 0 5 -1
+f object hp -25 0 5 -1
 E
 rope~
 This rope is magically cursed!
@@ -1046,10 +1046,10 @@ iron~
 weapon AG 0 AN
 sword 5 5 'slash' 0
 15 125 700 P
-a '' to_object 15 -1 1 1 0
-a '' to_object 15 -1 -5 17 0
-a '' to_object 15 -1 4 18 0
-a '' to_object 15 -1 4 19 0
+f object str 1 0 15 -1
+f object ac -5 0 15 -1
+f object hitroll 4 0 15 -1
+f object damroll 4 0 15 -1
 E
 sword~
 This sword looks as if it would GREATLY aid you in combat...
@@ -1063,7 +1063,7 @@ leather~
 armor M 0 AG
 2 2 2 0 0
 10 50 100 G
-a '' to_object 10 -1 -150 14 0
+f object move -150 0 10 -1
 E
 boots~
 These boots are finely crafted from deep red leather.
@@ -1077,7 +1077,7 @@ iron~
 weapon AG 0 AN
 dagger 4 4 'pierce' 0
 12 40 600 P
-a '' to_object 12 -1 2 19 0
+f object damroll 2 0 12 -1
 E
 chisel~
 This chisel has been enchanted to make it a decent weapon.
@@ -1091,8 +1091,8 @@ bronze~
 armor EM 0 AE
 8 8 8 -2 0
 10 120 1000 G
-a '' to_object 10 -1 -2 3 0
-a '' to_object 10 -1 -2 18 0
+f object int -2 0 10 -1
+f object hitroll -2 0 10 -1
 E
 helmet~
 This helmet looks like it would be a good fit.
@@ -1106,8 +1106,8 @@ iron~
 armor K 0 AE
 7 7 7 0 0
 12 158 1000 G
-a '' to_object 12 -1 2 3 0
-a '' to_object 12 -1 2 18 0
+f object int 2 0 12 -1
+f object hitroll 2 0 12 -1
 E
 helmet~
 This helmet looks like it would be a good fit.
@@ -1173,7 +1173,7 @@ silver~
 treasure A 0 AC
 0 0 0 0 0
 0 10 2000 P
-a '' to_object 0 -1 -15 17 0
+f object ac -15 0 0 -1
 E
 crucifix~
 This crucifix is dedicated to St. Christopher, patron saint of travellers.
@@ -1235,7 +1235,7 @@ plastic~
 armor 0 0 AG
 7 7 7 0 0
 11 50 100 G
-a '' to_object 11 -1 50 14 0
+f object move 50 0 11 -1
 E
 boots~
 These boots, once laced up properly, would make a great pair of hiking 
@@ -1290,7 +1290,7 @@ glass~
 potion A 0 AO
 10 'bless' 'cure serious wounds' 'cure poison' 'refresh'
 10 10 100 P
-a '' to_object 10 -1 2 4 0
+f object wis 2 0 10 -1
 E
 vial~
 This vial actually contains Holy Water, blessed by the Overpriest of
@@ -1321,7 +1321,7 @@ paper~
 scroll EGJ 0 AO
 10 'dispel magic' 'fly' 'charm person' 'sleep'
 10 10 100 P
-a '' to_object 10 -1 50 12 0
+f object mana 50 0 10 -1
 E
 book~
 The Warlock entrusted this book to his faithful Vampire Guardian to guard
@@ -1412,9 +1412,9 @@ paper~
 scroll GJ 0 AO
 20 'sleep' 'curse' 'blindness' 'inflict critical wounds'
 10 90 1450 P
-a '' to_object 10 -1 2 3 0
-a '' to_object 10 -1 1 4 0
-a '' to_object 10 -1 50 12 0
+f object int 2 0 10 -1
+f object wis 1 0 10 -1
+f object mana 50 0 10 -1
 E
 cards~
 These cards serve as a focus of the Warlock's power.
@@ -1428,10 +1428,10 @@ wool~
 armor GJ 0 AK
 7 7 7 0 0
 21 90 3500 G
-a '' to_object 21 -1 1 3 0
-a '' to_object 21 -1 1 4 0
-a '' to_object 21 -1 25 12 0
-a '' to_object 21 -1 -5 17 0
+f object int 1 0 21 -1
+f object wis 1 0 21 -1
+f object mana 25 0 21 -1
+f object ac -5 0 21 -1
 E
 robes~
 These robes contain a portion of the Warlock's power.
@@ -1445,11 +1445,11 @@ iron~
 weapon GJ 0 AN
 sword 5 6 'slice' C
 21 120 5300 P
-a '' to_object 21 -1 -2 5 0
-a '' to_object 21 -1 10 12 0
-a '' to_object 21 -1 10 13 0
-a '' to_object 21 -1 -5 17 0
-a '' to_object 21 -1 3 19 0
+f object con -2 0 21 -1
+f object mana 10 0 21 -1
+f object hp 10 0 21 -1
+f object ac -5 0 21 -1
+f object damroll 3 0 21 -1
 E
 sword~
 This sword looks quite sharp.
@@ -1511,7 +1511,7 @@ linen~
 weapon 0 0 AN
 whip 3 5 'whip' 0
 12 90 370 P
-a '' to_object 12 -1 -2 18 0
+f object hitroll -2 0 12 -1
 E
 bullwhip whip~
 This bullwhip once belonged to the Orc Chieftain of Firetop Mountain...
@@ -1526,7 +1526,7 @@ iron~
 armor 0 0 AC
 6 6 6 0 0
 12 120 650 G
-a '' to_object 12 -1 1 5 0
+f object con 1 0 12 -1
 E
 cloak~
 Despite its owner, this cloak is in reasonably good shape.
@@ -1683,9 +1683,9 @@ nothingness~
 furniture AG 0 AO
 0 0 0 0 0
 0 50 50 P
-a '' to_object 0 -1 1 5 0
-a '' to_object 0 -1 25 13 0
-a '' to_object 0 -1 -10 17 0
+f object con 1 0 0 -1
+f object hp 25 0 0 -1
+f object ac -10 0 0 -1
 E
 chair~
 This chair is actually quite beneficial if held.

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Небольшой изврат~
 VNUMs 34400 34499
 Credits Askold~
@@ -77,19 +77,19 @@ unknown~
 armor AJKY BCF AR
 0 0 0 0 0
 96 0 2147483647 P
-a '' to_object 96 -1 50 6 0
-a '' to_object 96 -1 50 5 0
-a '' to_object 96 -1 50 4 0
-a '' to_object 96 -1 50 3 0
-a '' to_object 96 -1 50 2 0
-a '' to_object 96 -1 50 1 0
-a '' to_object 96 -1 -200 23 0
-a '' to_object 96 -1 -1111 17 0
-a '' to_object 96 -1 -200 20 0
-a '' to_object 96 -1 200 18 0
-a '' to_object 96 -1 200 19 0
-a '' to_object 96 -1 -200 20 0
-a '' to_object 96 -1 200 18 0
+f object cha 50 0 96 -1
+f object con 50 0 96 -1
+f object wis 50 0 96 -1
+f object int 50 0 96 -1
+f object dex 50 0 96 -1
+f object str 50 0 96 -1
+f object saving_breath -200 0 96 -1
+f object ac -1111 0 96 -1
+f object saves -200 0 96 -1
+f object hitroll 200 0 96 -1
+f object damroll 200 0 96 -1
+f object saves -200 0 96 -1
+f object hitroll 200 0 96 -1
 g @rus none~
 #34402
 abysmality~
@@ -144,9 +144,9 @@ unknown~
 armor ABKY BCEF AE
 33 33 33 33 0
 91 0 2147483647 P
-a '' to_object 91 -1 -15 20 0
-a '' to_object 91 -1 15 18 0
-a '' to_object 91 -1 15 19 0
+f object saves -15 0 91 -1
+f object hitroll 15 0 91 -1
+f object damroll 15 0 91 -1
 g @rus none~
 #34409
 ring portal~
@@ -192,10 +192,10 @@ claw~
 clothing Y K AH
 0 0 0 0 0
 10 1 10000 P
-a '' to_skills 10 -1 75 'grip' A
-a '' to_skills 10 -1 50 'master hand' A
-a '' to_skills 10 -1 75 'hand block' A
-a '' to_skills 10 -1 75 'disarm' A
+f skills 'grip' 75 A 10 -1
+f skills 'master hand' 50 A 10 -1
+f skills 'hand block' 75 A 10 -1
+f skills 'disarm' 75 A 10 -1
 g @rus plural~
 #34451
 book справочник энциклопедия old~
@@ -205,9 +205,9 @@ paper~
 treasure A K AO
 0 0 0 0 0
 10 1 10000 P
-a '' to_skills 10 -1 75 'locate object' A
-a '' to_skills 10 -1 100 'identify' A
-a '' to_skills 10 -1 100 'lore' A
+f skills 'locate object' 75 A 10 -1
+f skills 'identify' 100 A 10 -1
+f skills 'lore' 100 A 10 -1
 g @rus none~
 #34452
 staff necromancy посох rod~
@@ -217,16 +217,15 @@ bone~
 staff CGJM EK AO
 70 100 100 'mana drain' 0
 10 20 0 P
-a '' to_resist 10 -1 100 8 0
-a '' to_object 10 -1 0 0 0
-a '' to_object 10 -1 -15 20 0
-a '' to_detects 10 -1 20 19 I
-a '' to_skills 10 -1 70 'lich' A
-a '' to_skills 10 -1 80 'animate dead' A
-a '' to_skills 10 -1 100 'draining touch' A
-a '' to_skills 10 -1 100 'mana drain' A
-a '' to_skills 10 -1 50 'control undead' A
-a '' to_skills 10 -1 80 'bone dragon' A
+f resists negative 100 0 10 -1
+f object saves -15 0 10 -1
+f detects damroll 20 I 10 -1
+f skills 'lich' 70 A 10 -1
+f skills 'animate dead' 80 A 10 -1
+f skills 'draining touch' 100 A 10 -1
+f skills 'mana drain' 100 A 10 -1
+f skills 'control undead' 50 A 10 -1
+f skills 'bone dragon' 80 A 10 -1
 g @rus male~
 #34453
 staff healing посох~
@@ -236,10 +235,10 @@ wood~
 staff 0 K AO
 100 5 5 'heal' 0
 1 0 0 P
-a '' to_skills 1 -1 100 'cure serious wounds' 0
-a '' to_skills 1 -1 100 'cure light wounds' 0
-a '' to_skills 1 -1 100 'cure critical wounds' 0
-a '' to_skills 1 -1 100 'heal' 0
+f skills 'cure serious wounds' 100 0 1 -1
+f skills 'cure light wounds' 100 0 1 -1
+f skills 'cure critical wounds' 100 0 1 -1
+f skills 'heal' 100 0 1 -1
 g @eng none@rus male~
 #34454
 aura~

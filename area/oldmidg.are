@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Old Midgaard~
 VNUMs 5300 5499
 Credits Kahn~
@@ -685,7 +685,7 @@ iron~
 armor 0 0 AD
 7 7 7 0 0
 20 150 3200 P
-a '' to_object 20 -1 1 18 0
+f object hitroll 1 0 20 -1
 g @eng neutral@rus female~
 #5302
 staff serpentine жезл~
@@ -704,7 +704,7 @@ cloth~
 armor G 0 AC
 7 7 7 2 0
 20 120 1600 P
-a '' to_object 20 -1 5 13 0
+f object hp 5 0 20 -1
 g @eng neutral@rus male~
 #5304
 scroll magic свиток~
@@ -793,7 +793,7 @@ gold~
 staff G 0 AO
 30 1 1 'call lightning' 0
 7 1000 3200 P
-a '' to_object 7 -1 -2 2 0
+f object dex -2 0 7 -1
 g @eng neutral@rus female~
 #5311
 flute silver серебряная флейта~
@@ -803,7 +803,7 @@ silver~
 staff AG 0 AO
 30 1 1 'charm person' 0
 9 60 3900 P
-a '' to_object 9 -1 -2 2 0
+f object dex -2 0 9 -1
 g @eng neutral@rus female~
 #5312
 potion green зеленое снадобье~
@@ -858,8 +858,8 @@ steel~
 weapon G 0 AN
 sword 3 6 'slash' 0
 14 50 1420 P
-a '' to_object 14 -1 2 19 0
-a '' to_object 14 -1 2 18 0
+f object damroll 2 0 14 -1
+f object hitroll 2 0 14 -1
 E
 sword~
 @eng You see a sword of great craftsmanship.  Imprinted on the side is:
@@ -876,8 +876,8 @@ mithril~
 weapon G 0 AN
 mace 3 7 'pound' 0
 15 50 1180 P
-a '' to_object 15 -1 2 19 0
-a '' to_object 15 -1 1 18 0
+f object damroll 2 0 15 -1
+f object hitroll 1 0 15 -1
 E
 mace~
 @eng You see a mace of great craftsmanship.  Imprinted on the side is:
@@ -1069,8 +1069,8 @@ ruby~
 jewelry G 0 AB
 0 0 0 0 0
 16 10 1280 P
-a '' to_object 16 -1 -1 20 0
-a '' to_object 16 -1 -4 17 0
+f object saves -1 0 16 -1
+f object ac -4 0 16 -1
 g @rus none~
 #5331
 imperial banner имперское знамя~
@@ -1080,8 +1080,8 @@ wood~
 light AG 0 A
 0 0 -1 0 0
 20 10 1440 P
-a '' to_object 20 -1 -2 17 0
-a '' to_object 20 -1 -2 20 0
+f object ac -2 0 20 -1
+f object saves -2 0 20 -1
 E
 banner~
 @eng This is the official Merc war banner to see you through the darkest realm!
@@ -1096,8 +1096,8 @@ iron~
 weapon GK 0 AN
 sword 5 7 'cleave' DF
 34 240 4400 P
-a '' to_object 34 -1 4 19 0
-a '' to_object 34 -1 2 18 0
+f object damroll 4 0 34 -1
+f object hitroll 2 0 34 -1
 g @rus male~
 #5333
 map old midgaard карта старого мидгаарда~
@@ -1174,7 +1174,7 @@ stone~
 gem G 0 AQ
 0 0 0 0 0
 0 10 100 P
-a '' to_object 0 -1 3 17 0
+f object ac 3 0 0 -1
 g @rus male~
 #0
 

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Magic Forest~
 Builders astonix~
 VNUMs 1800 1899
@@ -758,12 +758,15 @@ O 0 tiny unknown
 r lightning 33
 r energy -50
 #1834
-blue thrush bluebird bird~
-a blue bird~
-A blue bird sings in the pine tree.~
-This bird is almost entirely blue. Turquoise blue hood and back, with light
+bird bluebird blue thrush дрозд птица синий синяя~
+@eng a blue bird@rus ~~синий~~ ~~дрозд~~~
+@eng A blue bird sings in the pine tree.@rus Синий дрозд (blue bird) поет в кроне сосны.~
+@eng This bird is almost entirely blue. Turquoise blue hood and back, with light
 blue breast and white belly, it prefers to perch in the pine tree unless it
 drops down to the ground to catch insects.
+@rus Эта птица почти полностью синего цвета. Зеленовато-синий хохолок и спина,
+светло-синяя грудь и белое брюшко. Она предпочитает сидеть высоко на сосне
+и спускается на землю только чтобы поймать жучка.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -772,14 +775,18 @@ GU 0 V 0 0 0 0
 0
 stand stand either 0
 O 0 tiny unknown
+g @eng either@rus male~
 r lightning 33
 r energy -50
 #1835
-yellow bird gold finch goldfinch~
-a goldfinch~
-A bright yellow bird sings nearby.~
-Bright yellow with a black cap, white rump, and white edges on its black
+bird finch goldfinch yellow gold птичка канарейка желтая~
+@eng a goldfinch@rus ~~канарейка~~~
+@eng A bright yellow bird sings nearby.@rus Ярко-желтая птичка поет неподалеку.~
+@eng Bright yellow with a black cap, white rump, and white edges on its black
 wings and tail, this goldfinch is quite a pretty little bird.
+@rus Птичка с ярко-желтым оперением, черным хохолком, белым брюшком и белой
+окантовкой по краю черных крыльев и хвоста, эта канарейка -- просто прелестная
+маленькая птичка.
 ~
 song bird~
 GU 0 V 0 0 0 0
@@ -788,11 +795,12 @@ GU 0 V 0 0 0 0
 0
 stand stand either 0
 O 0 tiny unknown
+g @eng either@rus female~
 r lightning 33
 r energy -50
 #1836
-vireo red-eyed bird~
-a red-eyed vireo~
+bird red-eyed vireo ткачик красноглазый~
+@eng a red-eyed vireo@rus красноглазый ткачик~
 A red-eyed vireo fiercely guards its nest.~
 Greenish above and white below, with a grey crown and white eyebrow stripe,
 this bird's red eyes gaze piercingly at you. If you even think about looking
@@ -805,10 +813,11 @@ GU 0 V 0 0 0 0
 0
 stand stand either 0
 O 0 tiny unknown
+g @eng either@rus male~
 r lightning 33
 r energy -50
 #1837
-humming bird hummingbird~
+bird hummingbird humming колибри птичка птица~
 a tiny hummingbird~
 A tiny hummingbird hovers over a flower.~
 Metallic green above with a gorget of white with purple-violet rays, this
@@ -961,8 +970,8 @@ ivory~
 weapon 0 0 AN
 sword 7 7 'pierce' 0
 50 200 6700 P
-a '' to_object 50 -1 3 18 0
-a '' to_object 50 -1 4 19 0
+f object hitroll 3 0 50 -1
+f object damroll 4 0 50 -1
 E
 ivory~
 It is unicorn ivory, you can tell from the shape, one time a part of a
@@ -986,8 +995,8 @@ ivory~
 weapon 0 0 AN
 mace 4 13 'smash' F
 50 130 8950 P
-a '' to_object 50 -1 2 18 0
-a '' to_object 50 -1 2 19 0
+f object hitroll 2 0 50 -1
+f object damroll 2 0 50 -1
 E
 ivory~
 It is unicorn ivory, you can tell from the shape of the handle, one time
@@ -1002,9 +1011,9 @@ silk~
 armor E 0 AL
 9 9 9 9 0
 47 30 4500 P
-a '' to_object 47 -1 1 4 0
-a '' to_object 47 -1 -3 17 0
-a '' to_object 47 -1 -1 20 0
+f object wis 1 0 47 -1
+f object ac -3 0 47 -1
+f object saves -1 0 47 -1
 E
 embroidery golden gold~
 The delicate embroidery on the belt is in the shape of familiar symbols:
@@ -1019,9 +1028,9 @@ silk~
 armor L 0 AK
 10 10 10 10 0
 49 30 4800 P
-a '' to_object 49 -1 -5 17 0
-a '' to_object 49 -1 1 18 0
-a '' to_object 49 -1 1 19 0
+f object ac -5 0 49 -1
+f object hitroll 1 0 49 -1
+f object damroll 1 0 49 -1
 E
 robe~
 The robe is embroidered in brown thread. The pictures are of various
@@ -1036,8 +1045,8 @@ gold~
 weapon AHJ 0 AN
 dagger 7 7 'thrust' B
 51 30 4800 P
-a '' to_skills 51 -1 30 'parry' A
-a '' to_object 51 -1 -4 17 0
+f skills 'parry' 30 A 51 -1
+f object ac -4 0 51 -1
 g @rus none~
 #1812
 witch ring~
@@ -1047,10 +1056,10 @@ malachite~
 armor FG 0 AB
 11 11 11 11 0
 53 30 5200 P
-a '' to_object 53 -1 2 3 0
-a '' to_object 53 -1 50 12 0
-a '' to_object 53 -1 -5 17 0
-a '' to_object 53 -1 -3 20 0
+f object int 2 0 53 -1
+f object mana 50 0 53 -1
+f object ac -5 0 53 -1
+f object saves -3 0 53 -1
 g @rus none~
 #1813
 blue amulet~
@@ -1060,8 +1069,8 @@ lapis~
 armor FGI 0 AC
 9 9 9 9 0
 55 30 5600 P
-a '' to_object 55 -1 -5 17 0
-a '' to_object 55 -1 -6 20 0
+f object ac -5 0 55 -1
+f object saves -6 0 55 -1
 g @rus none~
 #1814
 indigo robe~
@@ -1071,10 +1080,10 @@ silk~
 armor IY 0 AK
 14 14 14 14 0
 57 30 5600 P
-a '' to_object 57 -1 -7 17 0
-a '' to_object 57 -1 3 18 0
-a '' to_object 57 -1 3 19 0
-a '' to_object 57 -1 -3 20 0
+f object ac -7 0 57 -1
+f object hitroll 3 0 57 -1
+f object damroll 3 0 57 -1
+f object saves -3 0 57 -1
 g @rus none~
 #1815
 violet robe~
@@ -1084,11 +1093,11 @@ silk~
 armor EIM 0 AK
 11 11 11 11 0
 59 30 5999 P
-a '' to_skills 59 -1 30 'mastering spell' A
-a '' to_object 59 -1 4 7 0
-a '' to_object 59 -1 20 12 0
-a '' to_object 59 -1 -3 17 0
-a '' to_object 59 -1 -4 20 0
+f skills 'mastering spell' 30 A 59 -1
+f object sex 4 0 59 -1
+f object mana 20 0 59 -1
+f object ac -3 0 59 -1
+f object saves -4 0 59 -1
 E
 skimpy~
 Worn by the right person, this robe could cause some major trouble. Or some
@@ -1109,10 +1118,10 @@ wood~
 staff I 0 AO
 60 5 5 'lightning bolt' 0
 48 50 3400 P
-a '' to_object 48 -1 2 6 0
-a '' to_object 48 -1 20 12 0
-a '' to_object 48 -1 20 13 0
-a '' to_object 48 -1 -10 17 0
+f object cha 2 0 48 -1
+f object mana 20 0 48 -1
+f object hp 20 0 48 -1
+f object ac -10 0 48 -1
 g @rus none~
 #1817
 orange boots~
@@ -1122,11 +1131,11 @@ soft leather~
 armor BGI 0 AG
 11 11 11 11 0
 50 50 3700 P
-a '' to_skills 50 -1 50 'kick' 0
-a '' to_object 50 -1 1 3 0
-a '' to_object 50 -1 20 13 0
-a '' to_object 50 -1 -10 17 0
-a '' to_object 50 -1 -5 20 0
+f skills 'kick' 50 0 50 -1
+f object int 1 0 50 -1
+f object hp 20 0 50 -1
+f object ac -10 0 50 -1
+f object saves -5 0 50 -1
 g @rus none~
 #1818
 golden eye sword~
@@ -1136,10 +1145,10 @@ gold~
 weapon AGY 0 AN
 sword 7 10 'cleave' B
 52 50 4340 P
-a '' to_object 52 -1 2 1 0
-a '' to_object 52 -1 1 2 0
-a '' to_object 52 -1 4 18 0
-a '' to_object 52 -1 3 19 0
+f object str 2 0 52 -1
+f object dex 1 0 52 -1
+f object hitroll 4 0 52 -1
+f object damroll 3 0 52 -1
 g @rus none~
 #1819
 green wristband~
@@ -1149,12 +1158,12 @@ soft leather~
 armor BJ 0 AM
 9 9 9 9 0
 54 50 4100 P
-a '' to_object 54 -1 2 8 0
-a '' to_object 54 -1 2 1 0
-a '' to_object 54 -1 1 5 0
-a '' to_object 54 -1 -6 17 0
-a '' to_object 54 -1 3 18 0
-a '' to_object 54 -1 2 19 0
+f object level 2 0 54 -1
+f object str 2 0 54 -1
+f object con 1 0 54 -1
+f object ac -6 0 54 -1
+f object hitroll 3 0 54 -1
+f object damroll 2 0 54 -1
 g @rus none~
 #1820
 blue leather whip~
@@ -1164,13 +1173,13 @@ leather~
 weapon BIM 0 AN
 whip 11 5 'thwack' G
 56 50 4400 P
-a '' to_object 56 -1 -1 1 0
-a '' to_object 56 -1 3 2 0
-a '' to_object 56 -1 -1 5 0
-a '' to_object 56 -1 -7 17 0
-a '' to_object 56 -1 2 18 0
-a '' to_object 56 -1 2 19 0
-a '' to_object 56 -1 -3 20 0
+f object str -1 0 56 -1
+f object dex 3 0 56 -1
+f object con -1 0 56 -1
+f object ac -7 0 56 -1
+f object hitroll 2 0 56 -1
+f object damroll 2 0 56 -1
+f object saves -3 0 56 -1
 g @rus none~
 #1821
 indigo tunic~
@@ -1180,11 +1189,11 @@ soft leather~
 armor 0 0 AD
 11 11 11 11 0
 58 50 4700 P
-a '' to_object 58 -1 25 13 0
-a '' to_object 58 -1 2 1 0
-a '' to_object 58 -1 -2 17 0
-a '' to_object 58 -1 3 18 0
-a '' to_object 58 -1 5 19 0
+f object hp 25 0 58 -1
+f object str 2 0 58 -1
+f object ac -2 0 58 -1
+f object hitroll 3 0 58 -1
+f object damroll 5 0 58 -1
 g @rus none~
 #1822
 tight violet leggings~
@@ -1194,8 +1203,8 @@ soft leather~
 armor EM 0 AF
 15 15 15 15 0
 60 50 5000 P
-a '' to_object 60 -1 50 13 0
-a '' to_object 60 -1 -3 17 0
+f object hp 50 0 60 -1
+f object ac -3 0 60 -1
 g @rus none~
 #1823
 one horn one-horned helm~
@@ -1205,11 +1214,11 @@ copper~
 armor HKL 0 AE
 8 8 8 8 0
 54 150 7500 P
-a '' to_object 54 -1 1 5 0
-a '' to_object 54 -1 20 12 0
-a '' to_object 54 -1 3 18 0
-a '' to_object 54 -1 3 19 0
-a '' to_object 54 -1 -4 20 0
+f object con 1 0 54 -1
+f object mana 20 0 54 -1
+f object hitroll 3 0 54 -1
+f object damroll 3 0 54 -1
+f object saves -4 0 54 -1
 g @rus none~
 #1824
 filigree gold golden pendant~
@@ -1219,8 +1228,8 @@ gold~
 armor 0 0 AC
 5 5 5 5 0
 35 20 4500 P
-a '' to_object 35 -1 10 12 0
-a '' to_object 35 -1 2 19 0
+f object mana 10 0 35 -1
+f object damroll 2 0 35 -1
 g @rus none~
 #1825
 orange tea rose~
@@ -1464,12 +1473,12 @@ velvet~
 armor ACEGHIJMY 0 AK
 15 15 15 15 0
 60 50 50000 P
-a '' to_skills 60 -1 80 'mana transfer' A
-a '' to_object 60 -1 3 2 0
-a '' to_object 60 -1 -2 4 0
-a '' to_object 60 -1 3 18 0
-a '' to_object 60 -1 3 19 0
-a '' to_object 60 -1 -5 20 0
+f skills 'mana transfer' 80 A 60 -1
+f object dex 3 0 60 -1
+f object wis -2 0 60 -1
+f object hitroll 3 0 60 -1
+f object damroll 3 0 60 -1
+f object saves -5 0 60 -1
 g @rus none~
 #1852
 huge cooking pot black cauldron~
@@ -1542,9 +1551,9 @@ cloth~
 armor 0 0 AH
 9 9 9 9 0
 48 30 8900 P
-a '' to_object 48 -1 2 2 0
-a '' to_object 48 -1 1 5 0
-a '' to_object 48 -1 -5 17 0
+f object dex 2 0 48 -1
+f object con 1 0 48 -1
+f object ac -5 0 48 -1
 g @rus none~
 #1860
 camouflage leggings~
@@ -1554,9 +1563,9 @@ cloth~
 armor 0 0 AF
 9 9 9 9 0
 48 100 10300 P
-a '' to_object 48 -1 -5 17 0
-a '' to_object 48 -1 3 18 0
-a '' to_object 48 -1 3 19 0
+f object ac -5 0 48 -1
+f object hitroll 3 0 48 -1
+f object damroll 3 0 48 -1
 g @rus none~
 #1861
 camouflage jacket~
@@ -1566,9 +1575,9 @@ cloth~
 armor 0 0 AD
 9 9 9 9 0
 48 90 10000 P
-a '' to_object 48 -1 1 1 0
-a '' to_object 48 -1 10 13 0
-a '' to_object 48 -1 -3 17 0
+f object str 1 0 48 -1
+f object hp 10 0 48 -1
+f object ac -3 0 48 -1
 g @rus none~
 #1862
 camouflage boots~
@@ -1578,7 +1587,7 @@ leather~
 armor 0 0 AG
 8 8 8 8 0
 48 130 15000 P
-a '' to_object 48 -1 50 14 0
+f object move 50 0 48 -1
 g @rus none~
 #1863
 camouflage cap~
@@ -1588,8 +1597,8 @@ cloth~
 armor 0 0 AE
 8 8 8 8 0
 48 40 9000 P
-a '' to_object 48 -1 2 4 0
-a '' to_object 48 -1 25 13 0
+f object wis 2 0 48 -1
+f object hp 25 0 48 -1
 g @rus none~
 #1899
 quiver~
@@ -1620,17 +1629,22 @@ E
 @eng {Gobjects     {W|  {Gtranslated  {W|  {G checked    {W|
 {W------------+--------------+--------------|
 {Grooms       {W| 1801 -- 1897 | 1801 -- 1804 |
-{Gmobs        {W| 1801 -- 1833 |              |
+{Gmobs        {W| 1801 -- 1835 |              |
 {Gthings      {W|              |              |{x
+ 
+{r I could use some help with word VIREO for mob #1836{x
 @rus {W.----------------.--------------.--------------.
 {W|    {Gобъекты     {W|  {Gпереведены  {W|  {Gпроверены   {W|
 {W|----------------+--------------+--------------|
 {W|    {Gкомнаты     {W| 1801 -- 1897 | 1801 -- 1804 |
 {W|----------------+--------------+--------------|
-{W|     {Gмобы       {W| 1801 -- 1833 |              |
+{W|     {Gмобы       {W| 1801 -- 1835 |              |
 {W|----------------+--------------+--------------|
 {W|     {Gвещи       {W|              |              |
 {W`----------------`--------------`--------------`{x
+ 
+{rНелишней была бы помощь со словом VIREO для моба 1836{x
+{wНу не ткачик это, а кто -- не знаю.. ;){x
 ~
 S
 #1801

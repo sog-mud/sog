@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Camelot~
 VNUMs 17300 17499
 Credits Lok~
@@ -1098,8 +1098,8 @@ iron~
 weapon 0 0 AN
 dagger 5 5 'pierce' 0
 20 20 500 P
-a '' to_object 20 -1 2 18 0
-a '' to_object 20 -1 2 19 0
+f object hitroll 2 0 20 -1
+f object damroll 2 0 20 -1
 g @eng none@rus male~
 #17302
 mace knight knight's шестопер~
@@ -1109,8 +1109,8 @@ iron~
 weapon 0 0 AN
 mace 5 6 'crush' 0
 23 50 800 P
-a '' to_object 23 -1 1 18 0
-a '' to_object 23 -1 3 19 0
+f object hitroll 1 0 23 -1
+f object damroll 3 0 23 -1
 g @eng none@rus male~
 #17303
 lance knight knight's копье~
@@ -1120,8 +1120,8 @@ iron~
 weapon 0 0 AN
 lance 5 4 'stab' 0
 25 150 1000 P
-a '' to_object 25 -1 3 18 0
-a '' to_object 25 -1 3 19 0
+f object hitroll 3 0 25 -1
+f object damroll 3 0 25 -1
 E
 pole~
 This pole looks alot like a lance.
@@ -1135,9 +1135,9 @@ mithril~
 armor GK 0 AD
 9 9 9 9 0
 31 400 2000 P
-a '' to_object 31 -1 10 13 0
-a '' to_object 31 -1 2 1 0
-a '' to_object 31 -1 -5 24 0
+f object hp 10 0 31 -1
+f object str 2 0 31 -1
+f object saving_spell -5 0 31 -1
 E
 crest hautdesert~
 The crest has a stag on a verdant field
@@ -1151,9 +1151,9 @@ iron~
 weapon GK 0 AN
 axe 5 7 'slash' 0
 31 70 2000 P
-a '' to_object 31 -1 4 18 0
-a '' to_object 31 -1 4 19 0
-a '' to_object 31 -1 -4 23 0
+f object hitroll 4 0 31 -1
+f object damroll 4 0 31 -1
+f object saving_breath -4 0 31 -1
 E
 crest~
 The crest has a stag on a verdant field
@@ -1167,12 +1167,12 @@ adamantite~
 armor ABGK 0 AM
 11 11 11 11 0
 40 2 3000 P
-a '' to_object 40 -1 1 1 0
-a '' to_object 40 -1 1 2 0
-a '' to_object 40 -1 1 5 0
-a '' to_object 40 -1 3 18 0
-a '' to_object 40 -1 3 19 0
-a '' to_object 40 -1 20 13 0
+f object str 1 0 40 -1
+f object dex 1 0 40 -1
+f object con 1 0 40 -1
+f object hitroll 3 0 40 -1
+f object damroll 3 0 40 -1
+f object hp 20 0 40 -1
 g @eng none@rus male~
 #17307
 grail holy грааль~
@@ -1191,8 +1191,8 @@ leather~
 armor GK 0 AK
 9 9 9 9 0
 34 4 1500 P
-a '' to_object 34 -1 2 2 0
-a '' to_object 34 -1 20 13 0
+f object dex 2 0 34 -1
+f object hp 20 0 34 -1
 g @eng none@rus male~
 #17309
 shield щит многоцветный~
@@ -1202,7 +1202,7 @@ silver~
 armor GK 0 AJ
 9 9 9 9 0
 34 40 1500 P
-a '' to_object 34 -1 4 19 0
+f object damroll 4 0 34 -1
 g @eng none@rus male~
 #17310
 sword excalibur меч экскалибур~
@@ -1212,10 +1212,10 @@ adamantite~
 weapon BKL 0 AN
 sword 5 8 'slice' D
 38 40 4500 P
-a '' to_object 38 -1 5 18 0
-a '' to_object 38 -1 5 19 0
-a '' to_object 38 -1 3 1 0
-a '' to_object 38 -1 20 13 0
+f object hitroll 5 0 38 -1
+f object damroll 5 0 38 -1
+f object str 3 0 38 -1
+f object hp 20 0 38 -1
 E
 sword excalibur~
 You run your fingers over the blue green steel of Excalibur, and you feel 
@@ -1235,10 +1235,10 @@ gold~
 container CIKL 0 AL
 30 0 -1 15 75
 38 3 1500 P
-a '' to_object 38 -1 2 19 0
-a '' to_object 38 -1 -10 13 0
-a '' to_object 38 -1 -5 23 0
-a '' to_object 38 -1 -5 24 0
+f object damroll 2 0 38 -1
+f object hp -10 0 38 -1
+f object saving_breath -5 0 38 -1
+f object saving_spell -5 0 38 -1
 g @eng none@rus plural~
 #17312
 armband armbands garlon garlon's наручи гарлон~
@@ -1248,8 +1248,8 @@ iron~
 armor FGJ 0 AI
 8 8 8 0 0
 28 4 1500 P
-a '' to_object 28 -1 -5 17 0
-a '' to_object 28 -1 2 5 0
+f object ac -5 0 28 -1
+f object con 2 0 28 -1
 g @eng none@rus plural~
 #17313
 helm horned gawaine gawaine's шлем гавэйн рогатый~
@@ -1268,8 +1268,8 @@ silver~
 armor 0 0 AG
 9 9 9 0 0
 30 0 2000 P
-a '' to_object 30 -1 2 18 0
-a '' to_object 30 -1 2 19 0
+f object hitroll 2 0 30 -1
+f object damroll 2 0 30 -1
 g @eng none@rus plural~
 #17315
 gauntlets bravery перчатки храбрости~
@@ -1279,8 +1279,8 @@ iron~
 armor GIKL 0 AH
 11 11 11 11 0
 44 3 5000 P
-a '' to_object 44 -1 5 18 0
-a '' to_object 44 -1 5 19 0
+f object hitroll 5 0 44 -1
+f object damroll 5 0 44 -1
 g @eng none@rus plural~
 #17316
 ring incubus crest gold кольцо инкуб~
@@ -1290,9 +1290,9 @@ gold~
 armor CMQ 0 AB
 11 11 11 6 0
 40 1 2800 P
-a '' to_object 40 -1 20 12 0
-a '' to_object 40 -1 1 3 0
-a '' to_object 40 -1 1 4 0
+f object mana 20 0 40 -1
+f object int 1 0 40 -1
+f object wis 1 0 40 -1
 g @rus none~
 #17317
 staff merlin merlin's посох мерлин~
@@ -1302,8 +1302,8 @@ wood~
 staff ABCGH 0 AO
 45 5 5 'dispel magic' 0
 40 10 5000 P
-a '' to_object 40 -1 10 12 0
-a '' to_object 40 -1 -3 24 0
+f object mana 10 0 40 -1
+f object saving_spell -3 0 40 -1
 E
 imm~
 This is type wand so you can dispel magic on others. Staff only works on self.
@@ -1319,8 +1319,8 @@ iron~
 armor CHM 0 AF
 7 7 7 0 0
 21 5 1 P
-a '' to_object 21 -1 -50 14 0
-a '' to_object 21 -1 -4 4 0
+f object move -50 0 21 -1
+f object wis -4 0 21 -1
 E
 inscription~
 You look at the inscription. It reads "I do hereby swear to not reveal my 
@@ -1483,8 +1483,8 @@ gold~
 armor EJL 0 AD
 9 9 9 9 0
 34 450 3000 P
-a '' to_object 34 -1 5000 15 0
-a '' to_object 34 -1 -12 17 0
+f object gold 5000 0 34 -1
+f object ac -12 0 34 -1
 g @eng none@rus female~
 #17329
 spear unholy копье бесовское~
@@ -1494,10 +1494,10 @@ adamantite~
 weapon ACEG 0 AN
 spear 5 8 'pierce' CK
 34 100 2500 P
-a '' to_object 34 -1 2 1 0
-a '' to_object 34 -1 4 18 0
-a '' to_object 34 -1 4 19 0
-a '' to_object 34 -1 15 14 0
+f object str 2 0 34 -1
+f object hitroll 4 0 34 -1
+f object damroll 4 0 34 -1
+f object move 15 0 34 -1
 E
 unholy spear light свет копье бесовское~
 @eng You look at the unholy light surrounding the spear. Your vision darkens. 
@@ -1536,7 +1536,7 @@ iron~
 weapon 0 0 AN
 flail 5 7 'crush' 0
 28 300 2300 P
-a '' to_object 28 -1 4 19 0
+f object damroll 4 0 28 -1
 g @eng none@rus male~
 #17333
 motley fool fools колпак шут~
@@ -1546,7 +1546,7 @@ cloth~
 armor 0 0 AE
 1 1 1 0 0
 31 3 5 P
-a '' to_object 31 -1 -1 3 0
+f object int -1 0 31 -1
 g @eng none@rus male~
 #17334
 helm wolf helmet шлем волчий волка~
@@ -1556,8 +1556,8 @@ iron~
 armor G 0 AE
 9 9 9 9 0
 33 10 3400 P
-a '' to_object 33 -1 3 18 0
-a '' to_object 33 -1 3 19 0
+f object hitroll 3 0 33 -1
+f object damroll 3 0 33 -1
 g @eng male@rus male~
 #17335
 armor shimmering red броня красная сверкающая~
@@ -1567,7 +1567,7 @@ mithril~
 armor AG 0 AD
 9 9 9 4 0
 31 400 1800 P
-a '' to_object 31 -1 -10 17 0
+f object ac -10 0 31 -1
 g @eng none@rus female~
 #17336
 key rusty ключ ржавый~
@@ -1613,8 +1613,8 @@ leather~
 armor 0 0 AK
 8 8 8 0 0
 29 10 600 P
-a '' to_object 29 -1 3 1 0
-a '' to_object 29 -1 -1 5 0
+f object str 3 0 29 -1
+f object con -1 0 29 -1
 g @eng none@rus male~
 #17341
 sword broad steel commander commander's меч стальной широкий командир~
@@ -1624,8 +1624,8 @@ iron~
 weapon 0 0 AN
 sword 5 6 'slash' 0
 24 50 1700 P
-a '' to_object 24 -1 3 18 0
-a '' to_object 24 -1 3 19 0
+f object hitroll 3 0 24 -1
+f object damroll 3 0 24 -1
 g @eng none@rus male~
 #17342
 skin whiskey бурдюк виски~
@@ -1653,8 +1653,8 @@ iron~
 weapon 0 0 AN
 sword 5 7 'slash' 0
 31 150 600 P
-a '' to_object 31 -1 -3 18 0
-a '' to_object 31 -1 4 19 0
+f object hitroll -3 0 31 -1
+f object damroll 4 0 31 -1
 g @eng none@rus male~
 #17345
 rod command жезл командования~
@@ -1664,9 +1664,9 @@ iron~
 staff CJL 0 AO
 40 24 24 'charm person' 0
 40 9 3500 P
-a '' to_object 40 -1 1 3 0
-a '' to_object 40 -1 1 4 0
-a '' to_object 40 -1 -10 17 0
+f object int 1 0 40 -1
+f object wis 1 0 40 -1
+f object ac -10 0 40 -1
 E
 runed runes metal rod~
 You look at the metal rod, and a sick feeling comes over you. Your vision 
@@ -1683,11 +1683,11 @@ wood~
 light AK 0 AO
 0 0 999 0 0
 35 20 3400 P
-a '' to_object 35 -1 -2 20 0
-a '' to_object 35 -1 -2 21 0
-a '' to_object 35 -1 -2 22 0
-a '' to_object 35 -1 -2 23 0
-a '' to_object 35 -1 -3 24 0
+f object saves -2 0 35 -1
+f object saving_rod -2 0 35 -1
+f object saving_petri -2 0 35 -1
+f object saving_breath -2 0 35 -1
+f object saving_spell -3 0 35 -1
 E
 banner blue~
 The banner depicts a Griffon on a pale blue sky
@@ -1701,9 +1701,9 @@ adamantite~
 weapon C 0 AN
 sword 5 7 'slash' C
 32 200 3200 P
-a '' to_object 32 -1 4 18 0
-a '' to_object 32 -1 4 19 0
-a '' to_object 32 -1 -10 13 0
+f object hitroll 4 0 32 -1
+f object damroll 4 0 32 -1
+f object hp -10 0 32 -1
 E
 sword~
 As you look at the sword, you hear inside your head the words "My name is
@@ -1719,7 +1719,7 @@ iron~
 armor 0 0 AD
 11 13 12 0 0
 30 450 300 P
-a '' to_object 30 -1 -8 17 0
+f object ac -8 0 30 -1
 g @eng none@rus male~
 #17349
 axe топор огромный~
@@ -1729,7 +1729,7 @@ iron~
 weapon 0 0 AN
 axe 9 4 'chop' F
 33 250 2000 P
-a '' to_object 33 -1 5 19 0
+f object damroll 5 0 33 -1
 E
 axe~
 The axe handle has the name 'Gaheris' inscibed on it.
@@ -1743,16 +1743,16 @@ unknown~
 armor 0 0 AE
 3 3 3 0 0
 100 0 0 P
-a '' to_object 100 -1 100 12 0
-a '' to_object 100 -1 100 14 0
-a '' to_object 100 -1 10 18 0
-a '' to_object 100 -1 10 19 0
-a '' to_object 100 -1 -50 17 0
-a '' to_object 100 -1 -20 20 0
-a '' to_object 100 -1 -20 21 0
-a '' to_object 100 -1 -20 22 0
-a '' to_object 100 -1 -20 23 0
-a '' to_object 100 -1 -20 24 0
+f object mana 100 0 100 -1
+f object move 100 0 100 -1
+f object hitroll 10 0 100 -1
+f object damroll 10 0 100 -1
+f object ac -50 0 100 -1
+f object saves -20 0 100 -1
+f object saving_rod -20 0 100 -1
+f object saving_petri -20 0 100 -1
+f object saving_breath -20 0 100 -1
+f object saving_spell -20 0 100 -1
 E
 hat~
 Inscribed in the hatband is the message 'I belong to Lok'
@@ -1766,7 +1766,7 @@ steel~
 armor AG 0 AD
 12 12 12 8 0
 33 400 2300 P
-a '' to_object 33 -1 5 5 0
+f object con 5 0 33 -1
 g @eng none@rus female~
 #17352
 daemon symbol символ демон дьявол~
@@ -1776,10 +1776,10 @@ adamantite~
 armor BCEGJL 0 AC
 15 15 15 25 0
 43 5 9000 P
-a '' to_object 43 -1 10 19 0
-a '' to_object 43 -1 8 18 0
-a '' to_object 43 -1 50 12 0
-a '' to_object 43 -1 60 13 0
+f object damroll 10 0 43 -1
+f object hitroll 8 0 43 -1
+f object mana 50 0 43 -1
+f object hp 60 0 43 -1
 g @eng none@rus male~
 #17353
 arthur plate доспехи артур~
@@ -1789,10 +1789,10 @@ gold~
 armor AGK 0 AD
 19 19 19 6 0
 43 450 4900 P
-a '' to_object 43 -1 -7 20 0
-a '' to_object 43 -1 30 13 0
-a '' to_object 43 -1 9 19 0
-a '' to_object 43 -1 7 18 0
+f object saves -7 0 43 -1
+f object hp 30 0 43 -1
+f object damroll 9 0 43 -1
+f object hitroll 7 0 43 -1
 g @eng none@rus plural~
 #17354
 arthur crown корона артур~
@@ -1802,10 +1802,10 @@ gold~
 armor 0 0 AE
 10 10 10 6 0
 42 5 3400 P
-a '' to_object 42 -1 30 12 0
-a '' to_object 42 -1 5 9 0
-a '' to_object 42 -1 5 4 0
-a '' to_object 42 -1 30 13 0
+f object mana 30 0 42 -1
+f object age 5 0 42 -1
+f object wis 5 0 42 -1
+f object hp 30 0 42 -1
 g @eng none@rus female~
 #17355
 staff посох~
@@ -1824,8 +1824,8 @@ steel~
 weapon 0 0 AN
 sword 4 6 '' F
 0 0 0 P
-a '' to_object 0 -1 5 19 0
-a '' to_object 0 -1 -1 18 0
+f object damroll 5 0 0 -1
+f object hitroll -1 0 0 -1
 g @eng none@rus male~
 #17357
 sword galantine меч галантин~
@@ -1835,8 +1835,8 @@ adamantite~
 weapon G 0 AN
 sword 8 5 'slash' D
 30 350 6500 P
-a '' to_object 30 -1 6 19 0
-a '' to_object 30 -1 5 18 0
+f object damroll 6 0 30 -1
+f object hitroll 5 0 30 -1
 g @eng none@rus male~
 #17358
 white cloak плащ белый~
@@ -1846,9 +1846,9 @@ wool~
 armor G 0 AK
 7 7 7 6 0
 0 0 0 P
-a '' to_object 0 -1 30 14 0
-a '' to_object 0 -1 -5 20 0
-a '' to_object 0 -1 -15 17 0
+f object move 30 0 0 -1
+f object saves -5 0 0 -1
+f object ac -15 0 0 -1
 g @eng none@rus male~
 #17359
 fountain marble фонтан мрамор~
@@ -1885,7 +1885,7 @@ mithril~
 weapon GHIM A AN
 dagger 8 5 'pierce' 0
 24 50 3900 P
-a '' to_object 24 -1 -2 19 0
+f object damroll -2 0 24 -1
 g @eng none@rus male~
 #17364
 scroll свиток~
@@ -1953,9 +1953,9 @@ adamantite~
 weapon ABGHM E AN
 sword 9 5 'slash' D
 42 150 8000 P
-a '' to_object 42 -1 14 19 0
-a '' to_object 42 -1 14 18 0
-a '' to_object 42 -1 3 1 0
+f object damroll 14 0 42 -1
+f object hitroll 14 0 42 -1
+f object str 3 0 42 -1
 g @eng none@rus male~
 #17369
 belt power пояс силы~
@@ -1965,9 +1965,9 @@ leather~
 armor AGHJM E AL
 -20 -20 -20 -20 0
 42 5 10000 P
-a '' to_object 42 -1 60 12 0
-a '' to_object 42 -1 80 13 0
-a '' to_object 42 -1 15 19 0
+f object mana 60 0 42 -1
+f object hp 80 0 42 -1
+f object damroll 15 0 42 -1
 g @eng none@rus male~
 #17370
 portal stone glowing портал мерцающий камень~
@@ -1986,10 +1986,10 @@ emerald~
 armor GIK 0 AC
 0 0 0 0 0
 25 3 2400 P
-a '' to_object 25 -1 -9 17 0
-a '' to_object 25 -1 20 13 0
-a '' to_object 25 -1 2 4 0
-a '' to_object 25 -1 2 1 0
+f object ac -9 0 25 -1
+f object hp 20 0 25 -1
+f object wis 2 0 25 -1
+f object str 2 0 25 -1
 g @eng none@rus male~
 #17373
 sword arondight меч арондит~
@@ -1999,9 +1999,9 @@ unknown~
 weapon IKM 0 AN
 sword 9 4 'slice' E
 40 250 8500 P
-a '' to_skills 40 -1 20 'sword' 0
-a '' to_object 40 -1 4 18 0
-a '' to_object 40 -1 9 19 0
+f skills 'sword' 20 0 40 -1
+f object hitroll 4 0 40 -1
+f object damroll 9 0 40 -1
 g @eng none@rus male~
 #17374
 workbench рабочий стол~

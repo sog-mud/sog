@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Troll Den~
 VNUMs 2800 2899
 Credits Merc~
@@ -191,7 +191,7 @@ skin~
 armor 0 0 AK
 5 5 5 0 0
 12 200 1380 P
-a '' to_object 12 -1 1 1 0
+f object str 1 0 12 -1
 E
 troll skin~
 @eng This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
@@ -208,7 +208,7 @@ opal~
 jewelry G 0 AB
 0 0 0 0 0
 10 10 1150 P
-a '' to_object 10 -1 2 19 0
+f object damroll 2 0 10 -1
 E
 ring opal~
 @eng It is a full circle of opal, smooth and simple.
@@ -238,8 +238,8 @@ bone~
 weapon 0 0 AN
 mace 3 3 'pound' 0
 6 30 350 P
-a '' to_object 6 -1 -1 18 0
-a '' to_object 6 -1 -1 19 0
+f object hitroll -1 0 6 -1
+f object damroll -1 0 6 -1
 E
 bone кость~
 @eng This piece of bone looks sturdy enough to be used as a weapon, but you

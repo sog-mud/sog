@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Midgaard~
 VNUMs 3000 3399
 Credits Diku~
@@ -1474,7 +1474,7 @@ wood~
 weapon 0 0 AN
 mace 1 7 'pound' 0
 3 30 220 G
-a '' to_object 3 -1 -1 18 0
+f object hitroll -1 0 3 -1
 g @rus female~
 #3024
 mace heavy палица~
@@ -1484,7 +1484,7 @@ iron~
 weapon 0 0 AN
 mace 2 4 'pound' 0
 6 100 390 G
-a '' to_object 6 -1 1 19 0
+f object damroll 1 0 6 -1
 g @rus female~
 #3025
 axe hand топорик~
@@ -1521,7 +1521,7 @@ wood~
 weapon 0 0 AN
 staff 1 8 'pound' F
 9 40 580 G
-a '' to_object 9 -1 -2 17 0
+f object ac -2 0 9 -1
 g @rus male~
 #3029
 flail цеп~
@@ -1531,7 +1531,7 @@ iron~
 weapon 0 0 AN
 flail 1 7 'pound' 0
 1 50 77 G
-a '' to_object 1 -1 1 17 0
+f object ac 1 0 1 -1
 g @rus male~
 #3030
 torch факел~
@@ -1646,8 +1646,8 @@ silver~
 treasure G 0 AB
 0 0 0 0 0
 8 10 640 P
-a '' to_object 8 -1 -2 17 0
-a '' to_object 8 -1 -1 20 0
+f object ac -2 0 8 -1
+f object saves -1 0 8 -1
 E
 ring~
 It's a silver ring set with a gleaming moonstone.
@@ -2033,8 +2033,8 @@ wood~
 weapon 0 0 AO
 arrow 6 7 'pierce' K
 33 10 500 P
-a '' to_object 33 -1 1 18 0
-a '' to_object 33 -1 1 19 0
+f object hitroll 1 0 33 -1
+f object damroll 1 0 33 -1
 g @rus female~
 #3094
 arrow silver стрела~
@@ -2044,8 +2044,8 @@ wood~
 weapon 0 0 AO
 arrow 7 8 'pierce' K
 49 20 500 P
-a '' to_object 49 -1 2 18 0
-a '' to_object 49 -1 2 19 0
+f object hitroll 2 0 49 -1
+f object damroll 2 0 49 -1
 g @rus female~
 #3095
 arrow golden стрела~
@@ -2055,8 +2055,8 @@ wood~
 weapon 0 0 AO
 arrow 8 9 'pierce' K
 61 20 500 P
-a '' to_object 61 -1 3 18 0
-a '' to_object 61 -1 3 19 0
+f object hitroll 3 0 61 -1
+f object damroll 3 0 61 -1
 g @rus female~
 #3096
 arrow adamantite стрела~
@@ -2066,8 +2066,8 @@ wood~
 weapon 0 0 AO
 arrow 9 10 'pierce' K
 72 20 500 P
-a '' to_object 72 -1 4 18 0
-a '' to_object 72 -1 4 19 0
+f object hitroll 4 0 72 -1
+f object damroll 4 0 72 -1
 g @rus female~
 #3097
 shield small metal щит~
@@ -2215,7 +2215,7 @@ unknown~
 furniture BY B 0
 1 10000 A 10 10
 0 0 0 P
-a '' to_skills 0 -1 75 'smithing' A
+f skills 'smithing' 75 A 0 -1
 g @rus female~
 #3119
 duck утка~
@@ -3337,8 +3337,8 @@ steel~
 weapon 0 0 AN
 sword 4 7 'slash' 0
 29 50 3100 G
-a '' to_object 29 -1 2 18 0
-a '' to_object 29 -1 2 19 0
+f object hitroll 2 0 29 -1
+f object damroll 2 0 29 -1
 E
 long sword~
 It looks exceptionally sharp and well-balanced. Maybe you should keep it.
@@ -3352,7 +3352,7 @@ steel~
 weapon G 0 AN
 sword 3 7 'slash' 0
 16 50 1280 P
-a '' to_object 16 -1 1 19 0
+f object damroll 1 0 16 -1
 E
 sword~
 You see a sword of great craftsmanship.  Imprinted on the side is:
@@ -3367,8 +3367,8 @@ steel~
 weapon G 0 AN
 dagger 2 5 'pierce' 0
 8 20 590 P
-a '' to_object 8 -1 1 18 0
-a '' to_object 8 -1 1 19 0
+f object hitroll 1 0 8 -1
+f object damroll 1 0 8 -1
 E
 dagger~
 You see a dagger of great craftsmanship.  Imprinted on the side is:
@@ -3383,8 +3383,8 @@ iron~
 weapon G 0 AN
 mace 2 4 'pound' 0
 7 100 620 P
-a '' to_object 7 -1 1 18 0
-a '' to_object 7 -1 2 19 0
+f object hitroll 1 0 7 -1
+f object damroll 2 0 7 -1
 E
 mace~
 You see a mace of great craftsmanship.  Imprinted on the side is:
@@ -3553,8 +3553,8 @@ copper~
 treasure G 0 AB
 0 0 0 0 0
 16 10 1280 P
-a '' to_object 16 -1 -4 17 0
-a '' to_object 16 -1 -1 20 0
+f object ac -4 0 16 -1
+f object saves -1 0 16 -1
 g @rus none~
 #3365
 banner war merc знамя~
@@ -3564,8 +3564,8 @@ cloth~
 light AG 0 A
 0 0 500 0 0
 8 10 640 P
-a '' to_object 8 -1 -1 20 0
-a '' to_object 8 -1 -2 17 0
+f object saves -1 0 8 -1
+f object ac -2 0 8 -1
 E
 banner~
 This is the official Merc war banner to see you through the darkest realm!
@@ -3579,7 +3579,7 @@ diamond~
 treasure I 0 AB
 0 0 0 0 0
 20 10 860 P
-a '' to_object 20 -1 -2 20 0
+f object saves -2 0 20 -1
 E
 ring diamond wedding~
 A slender gold band set with a marquise-cut four carat blue-white solitaire.
@@ -3594,7 +3594,7 @@ gold~
 treasure I 0 AB
 0 0 0 0 0
 20 10 860 P
-a '' to_object 20 -1 -2 20 0
+f object saves -2 0 20 -1
 E
 band gold wedding~
 A wide, plain circle of gold inscribed: 'Your loving wife, Vanya'.

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Freeport~
 VNUMs 29200 29299
 Credits Lok~
@@ -657,7 +657,7 @@ glass~
 light A 0 AO
 0 0 999 0 0
 20 5 200 P
-a '' to_object 20 -1 -5 24 0
+f object saving_spell -5 0 20 -1
 g @rus male~
 #29209
 mail броня scale чешуйчатая~
@@ -676,7 +676,7 @@ wood~
 weapon G 0 AN
 polearm 5 5 'none' 0
 20 90 200 P
-a '' to_object 20 -1 3 19 0
+f object damroll 3 0 20 -1
 g @rus male~
 #29211
 pie пирог meat мясной~
@@ -737,7 +737,7 @@ stone~
 armor G 0 AD
 13 13 13 10 0
 46 400 2000 P
-a '' to_object 46 -1 -30 17 0
+f object ac -30 0 46 -1
 g @rus female~
 #29217
 hammer молот dwarven гнома thrower метательный~
@@ -747,8 +747,8 @@ unknown~
 weapon GP 0 AN
 mace 9 5 'none' K
 40 200 1500 P
-a '' to_object 40 -1 4 18 0
-a '' to_object 40 -1 4 19 0
+f object hitroll 4 0 40 -1
+f object damroll 4 0 40 -1
 g @rus male~
 #29218
 sleeves наручи elven эльфийские chainmail кольчужные~
@@ -821,7 +821,7 @@ stone~
 armor G 0 AM
 12 12 12 6 0
 46 10 3500 P
-a '' to_object 46 -1 -20 17 0
+f object ac -20 0 46 -1
 g @rus male~
 #29226
 longsword длинный меч emerald изумрудный~
@@ -831,7 +831,7 @@ stone~
 weapon G 0 AN
 sword 5 10 'none' 0
 46 100 3200 P
-a '' to_object 46 -1 -10 17 0
+f object ac -10 0 46 -1
 g @rus male~
 #29227
 helm шлем emerald изумрудный~
@@ -841,7 +841,7 @@ stone~
 armor G 0 AE
 12 12 12 6 0
 46 15 1800 P
-a '' to_object 46 -1 -10 17 0
+f object ac -10 0 46 -1
 g @rus male~
 #29228
 weed трава devil's дьявольская сорняк~
@@ -860,11 +860,11 @@ cloth~
 armor GI 0 ACD
 12 12 12 6 0
 45 100 3200 P
-a '' to_object 45 -1 2 18 0
-a '' to_object 45 -1 2 19 0
-a '' to_object 45 -1 -20 17 0
-a '' to_object 45 -1 -5 23 0
-a '' to_object 45 -1 -5 24 0
+f object hitroll 2 0 45 -1
+f object damroll 2 0 45 -1
+f object ac -20 0 45 -1
+f object saving_breath -5 0 45 -1
+f object saving_spell -5 0 45 -1
 g @rus female~
 #29230
 signet печатка ring кольцо freeport~
@@ -874,9 +874,9 @@ gold~
 armor G 0 AB
 12 12 12 6 0
 45 1 1800 P
-a '' to_object 45 -1 100 14 0
-a '' to_object 45 -1 6 18 0
-a '' to_object 45 -1 3 19 0
+f object move 100 0 45 -1
+f object hitroll 6 0 45 -1
+f object damroll 3 0 45 -1
 g @rus none~
 #29231
 purse кошелек heavy тяжелый~
@@ -895,8 +895,8 @@ leather~
 armor 0 0 AG
 17 17 17 9 0
 52 5 3900 P
-a '' to_object 52 -1 5 19 0
-a '' to_object 52 -1 5 18 0
+f object damroll 5 0 52 -1
+f object hitroll 5 0 52 -1
 g @rus none~
 #29233
 cape накидка dimensional пространственная~
@@ -906,14 +906,14 @@ unknown~
 armor G 0 AC
 13 13 13 13 0
 52 3 5000 P
-a '' to_object 52 -1 1 1 0
-a '' to_object 52 -1 1 2 0
-a '' to_object 52 -1 1 3 0
-a '' to_object 52 -1 1 4 0
-a '' to_object 52 -1 1 5 0
-a '' to_object 52 -1 20 12 0
-a '' to_object 52 -1 20 13 0
-a '' to_object 52 -1 5 19 0
+f object str 1 0 52 -1
+f object dex 1 0 52 -1
+f object int 1 0 52 -1
+f object wis 1 0 52 -1
+f object con 1 0 52 -1
+f object mana 20 0 52 -1
+f object hp 20 0 52 -1
+f object damroll 5 0 52 -1
 g @rus female~
 #29234
 stone камень troll тролля~

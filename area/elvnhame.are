@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Elvenhame~
 Builders stark~
 VNUMs 40100 40199
@@ -1087,8 +1087,8 @@ tin~
 treasure G 0 AB
 0 0 0 0 0
 6 10 500 P
-a '' to_object 6 -1 1 2 0
-a '' to_object 6 -1 1 4 0
+f object dex 1 0 6 -1
+f object wis 1 0 6 -1
 g @rus none~
 #40113
 standard shield~
@@ -1107,8 +1107,8 @@ steel~
 weapon G 0 AN
 sword 2 5 'slash' D
 6 70 100 P
-a '' to_object 6 -1 2 18 0
-a '' to_object 6 -1 2 19 0
+f object hitroll 2 0 6 -1
+f object damroll 2 0 6 -1
 E
 sword blade~
 While it doesn't look like anything special, this
@@ -1124,8 +1124,8 @@ wood~
 weapon G 0 AN
 mace 2 6 'smash' 0
 6 90 90 P
-a '' to_object 6 -1 1 18 0
-a '' to_object 6 -1 3 19 0
+f object hitroll 1 0 6 -1
+f object damroll 3 0 6 -1
 E
 shillelagh stick club~
 It's a little worn in places where its former owner
@@ -1140,7 +1140,7 @@ steel~
 armor G 0 AD
 -5 -5 -5 -5 2
 8 140 300 P
-a '' to_object 8 -1 1 1 0
+f object str 1 0 8 -1
 g @rus none~
 #40117
 dashing cape~
@@ -1150,8 +1150,8 @@ cloth~
 armor G 0 AK
 -5 -5 -5 -5 0
 8 50 500 P
-a '' to_object 8 -1 1 5 0
-a '' to_object 8 -1 2 7 0
+f object con 1 0 8 -1
+f object sex 2 0 8 -1
 E
 dashing cape~
 There is something about this cape... You've seen them
@@ -1167,8 +1167,8 @@ steel~
 weapon G 0 AN
 sword 4 8 'slice' 0
 8 100 1000 P
-a '' to_object 8 -1 3 18 0
-a '' to_object 8 -1 2 19 0
+f object hitroll 3 0 8 -1
+f object damroll 2 0 8 -1
 g @rus none~
 #40119
 lieutenant helmet helm~
@@ -1178,7 +1178,7 @@ steel~
 armor G 0 AE
 -5 -5 -5 -5 2
 8 130 2000 P
-a '' to_object 8 -1 -5 20 0
+f object saves -5 0 8 -1
 g @rus none~
 #40120
 captain helmet helm~
@@ -1188,7 +1188,7 @@ silver~
 armor G 0 AE
 -6 -6 -6 -6 2
 10 140 2600 P
-a '' to_object 10 -1 1 3 0
+f object int 1 0 10 -1
 g @rus none~
 #40121
 captain jacket~
@@ -1198,9 +1198,9 @@ cloth~
 armor G 0 AD
 -6 -6 -6 -6 0
 10 100 1900 P
-a '' to_object 10 -1 1 2 0
-a '' to_object 10 -1 1 4 0
-a '' to_object 10 -1 1 5 0
+f object dex 1 0 10 -1
+f object wis 1 0 10 -1
+f object con 1 0 10 -1
 g @rus none~
 #40122
 captain cape blue~
@@ -1210,7 +1210,7 @@ velvet~
 armor G 0 AK
 -6 -7 -7 -6 0
 10 120 2300 P
-a '' to_object 10 -1 1 1 0
+f object str 1 0 10 -1
 g @rus none~
 #40123
 captain gloves blue~
@@ -1220,7 +1220,7 @@ velvet~
 armor G 0 AH
 -6 -6 -6 -6 0
 10 20 1000 P
-a '' to_object 10 -1 1 2 0
+f object dex 1 0 10 -1
 g @rus none~
 #40124
 golden scimitar captain~
@@ -1230,8 +1230,8 @@ gold~
 weapon G 0 AN
 sword 4 5 'slice' 0
 10 80 2190 P
-a '' to_object 10 -1 4 18 0
-a '' to_object 10 -1 3 19 0
+f object hitroll 4 0 10 -1
+f object damroll 3 0 10 -1
 g @rus none~
 #40125
 captain boots~
@@ -1241,8 +1241,8 @@ leather~
 armor G 0 AG
 -6 -6 -6 -6 1
 10 150 2900 P
-a '' to_object 10 -1 10 13 0
-a '' to_object 10 -1 25 14 0
+f object hp 10 0 10 -1
+f object move 25 0 10 -1
 g @rus none~
 #40126
 captain striped trousers~
@@ -1252,9 +1252,9 @@ cloth~
 armor G 0 AF
 -6 -6 -6 -6 0
 10 110 2600 P
-a '' to_object 10 -1 1 2 0
-a '' to_object 10 -1 10 13 0
-a '' to_object 10 -1 -5 20 0
+f object dex 1 0 10 -1
+f object hp 10 0 10 -1
+f object saves -5 0 10 -1
 g @rus none~
 #40127
 mug beer~
@@ -1300,9 +1300,9 @@ silver~
 armor GJK 0 AB
 -15 -14 -15 -16 0
 50 10 6500 P
-a '' to_object 50 -1 3 7 0
-a '' to_object 50 -1 20 13 0
-a '' to_object 50 -1 -9 20 0
+f object sex 3 0 50 -1
+f object hp 20 0 50 -1
+f object saves -9 0 50 -1
 E
 signet-ring ring~
 This silver ring looks flawless, close examination of 
@@ -1318,9 +1318,9 @@ silk~
 armor GY 0 AK
 -10 -14 -14 -9 0
 40 40 7000 P
-a '' to_object 40 -1 1 4 0
-a '' to_object 40 -1 2 7 0
-a '' to_object 40 -1 -10 17 0
+f object wis 1 0 40 -1
+f object sex 2 0 40 -1
+f object ac -10 0 40 -1
 E
 tuxedo~
 Although it is made of silk, it is a sturdy suit of clothing
@@ -1517,7 +1517,7 @@ corundum~
 gem G 0 AO
 0 0 0 0 0
 10 10 1000 P
-a '' to_object 10 -1 2 2 0
+f object dex 2 0 10 -1
 g @rus none~
 #40152
 emerald~
@@ -1527,7 +1527,7 @@ corundum~
 gem G 0 AO
 0 0 0 0 0
 14 10 1000 P
-a '' to_object 14 -1 2 3 0
+f object int 2 0 14 -1
 g @rus none~
 #40153
 sapphire~
@@ -1537,8 +1537,8 @@ corundum~
 gem G 0 AO
 0 0 0 0 0
 18 10 1300 P
-a '' to_object 18 -1 1 4 0
-a '' to_object 18 -1 20 12 0
+f object wis 1 0 18 -1
+f object mana 20 0 18 -1
 g @rus none~
 #40154
 diamond~
@@ -1548,8 +1548,8 @@ diamond~
 gem G 0 AO
 0 0 0 0 0
 23 10 2000 P
-a '' to_object 23 -1 2 1 0
-a '' to_object 23 -1 2 5 0
+f object str 2 0 23 -1
+f object con 2 0 23 -1
 g @rus none~
 #40155
 diamond ring~
@@ -1559,7 +1559,7 @@ diamond~
 jewelry 0 0 AB
 0 0 0 0 0
 30 10 4000 P
-a '' to_object 30 -1 1 7 0
+f object sex 1 0 30 -1
 g @rus none~
 #40156
 golden bracelet gold~
@@ -1587,8 +1587,8 @@ quartz~
 jewelry G 0 AB
 0 0 0 0 0
 25 40 14500 P
-a '' to_object 25 -1 3 3 0
-a '' to_object 25 -1 25 12 0
+f object int 3 0 25 -1
+f object mana 25 0 25 -1
 g @rus none~
 #40159
 dagger~

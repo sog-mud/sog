@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Kanzaki village~
 Builders lothar megissogwon orail~
 VNUMs 47000 47999
@@ -860,8 +860,8 @@ mithril~
 weapon B C AN
 sword 15 11 'chop' DF
 100 59 100000 P
-a '' to_object 100 -1 15 18 0
-a '' to_object 100 -1 15 19 0
+f object hitroll 15 0 100 -1
+f object damroll 15 0 100 -1
 g @rus none~
 #47005
 sun~
@@ -885,8 +885,8 @@ stone~
 weapon JL 0 AN
 exotic 8 8 'crush' FK
 46 600 0 P
-a '' to_object 46 -1 30 19 0
-a '' to_object 46 -1 30 18 0
+f object damroll 30 0 46 -1
+f object hitroll 30 0 46 -1
 g @rus none~
 #47009
 shirt wampum~
@@ -896,12 +896,10 @@ wampum~
 armor GJL 0 AK
 0 0 0 0 0
 46 0 0 P
-a '' to_affects 46 -1 0 0 T
-a '' to_resist 46 -1 100 8 0
-a '' to_object 46 -1 0 0 0
-a '' to_resist 46 -1 100 12 0
-a '' to_object 46 -1 0 0 0
-a '' to_object 46 -1 22 5 0
+f affects none 0 T 46 -1
+f resists negative 100 0 46 -1
+f resists disease 100 0 46 -1
+f object con 22 0 46 -1
 g @rus male~
 #47011
 crest eagle feathers~
@@ -929,8 +927,8 @@ bone~
 weapon BC 0 AN
 staff 8 8 'drain' CEFH
 46 600 0 P
-a '' to_object 46 -1 30 19 0
-a '' to_object 46 -1 45 18 0
+f object damroll 30 0 46 -1
+f object hitroll 45 0 46 -1
 g @rus male~
 #47024
 champautomat fountain champagne~
@@ -1359,8 +1357,8 @@ snakeskin~
 weapon Q F AN
 whip 4 8 'sting' H
 20 5 0 P
-a '' to_object 20 -1 2 19 0
-a '' to_object 20 -1 4 18 0
+f object damroll 2 0 20 -1
+f object hitroll 4 0 20 -1
 g @eng neutral@rus female~
 #47130
 belt пояс~
@@ -1370,11 +1368,11 @@ cotton~
 clothing 0 0 AL
 0 0 0 0 0
 15 5 100 P
-a '' to_object 15 -1 -10 17 0
-a '' to_object 15 -1 25 14 0
-a '' to_object 15 -1 1 2 0
-a '' to_object 15 -1 -2 20 0
-a '' to_object 15 -1 2 18 0
+f object ac -10 0 15 -1
+f object move 25 0 15 -1
+f object dex 1 0 15 -1
+f object saves -2 0 15 -1
+f object hitroll 2 0 15 -1
 g @eng neutral@rus male~
 #47131
 pants штаны short короткие~
@@ -1384,9 +1382,9 @@ cotton~
 clothing 0 0 AF
 0 0 0 0 0
 15 5 100 P
-a '' to_object 15 -1 2 18 0
-a '' to_object 15 -1 -15 17 0
-a '' to_object 15 -1 30 14 0
+f object hitroll 2 0 15 -1
+f object ac -15 0 15 -1
+f object move 30 0 15 -1
 g @eng neutral@rus plural~
 #47132
 pile feathers кучка перьев~
@@ -1405,13 +1403,13 @@ straw~
 armor 0 0 AE
 0 9 9 5 0
 25 3 250 P
-a '' to_object 25 -1 10 9 0
-a '' to_object 25 -1 1 8 0
-a '' to_object 25 -1 1 6 0
-a '' to_object 25 -1 -7 24 0
-a '' to_object 25 -1 4 18 0
-a '' to_object 25 -1 25 12 0
-a '' to_object 25 -1 2 4 0
+f object age 10 0 25 -1
+f object level 1 0 25 -1
+f object cha 1 0 25 -1
+f object saving_spell -7 0 25 -1
+f object hitroll 4 0 25 -1
+f object mana 25 0 25 -1
+f object wis 2 0 25 -1
 g @eng neutral@rus female~
 #47134
 pole бамбуковый шест bamboo~
@@ -1421,10 +1419,10 @@ bamboo~
 weapon 0 0 AN
 staff 6 7 'beating' F
 25 160 400 P
-a '' to_object 25 -1 2 2 0
-a '' to_object 25 -1 3 19 0
-a '' to_object 25 -1 5 18 0
-a '' to_object 25 -1 -20 17 0
+f object dex 2 0 25 -1
+f object damroll 3 0 25 -1
+f object hitroll 5 0 25 -1
+f object ac -20 0 25 -1
 g @eng neutral@rus male~
 #47135
 shirt рубашка выцветшая worn поношенная~
@@ -1434,7 +1432,7 @@ cotton~
 clothing 0 0 AD
 0 0 0 0 0
 20 40 250 P
-a '' to_object 20 -1 1 5 0
+f object con 1 0 20 -1
 g @eng neutral@rus female~
 #47136
 hide woolly ape шерсть шкура обезьянья~
@@ -1444,9 +1442,9 @@ fur~
 armor Q 0 AK
 9 9 9 9 0
 24 40 0 P
-a '' to_resist 24 -1 25 4 0
-a '' to_object 24 -1 -4 23 0
-a '' to_object 24 -1 25 13 0
+f resists cold 25 0 24 -1
+f object saving_breath -4 0 24 -1
+f object hp 25 0 24 -1
 g @eng neutral@rus female~
 #47137
 hoe мотыга~
@@ -1456,7 +1454,7 @@ wood~
 weapon 0 0 AN
 polearm 4 7 'stab' F
 15 160 2000 P
-a '' to_object 15 -1 1 1 0
+f object str 1 0 15 -1
 g @eng neutral@rus female~
 #47138
 shovel лопата~
@@ -1493,8 +1491,8 @@ iron~
 weapon 0 0 AN
 exotic 6 7 'bite' EF
 20 350 1000 P
-a '' to_object 20 -1 -2 2 0
-a '' to_object 20 -1 -3 18 0
+f object dex -2 0 20 -1
+f object hitroll -3 0 20 -1
 g @eng neutral@rus plural~
 #47142
 chunk iron кусок железа~
@@ -1513,10 +1511,10 @@ iron~
 weapon B 0 AN
 mace 13 3 'crush' 0
 27 400 2500 P
-a '' to_object 27 -1 2 1 0
-a '' to_object 27 -1 1 5 0
-a '' to_object 27 -1 2 18 0
-a '' to_object 27 -1 5 19 0
+f object str 2 0 27 -1
+f object con 1 0 27 -1
+f object hitroll 2 0 27 -1
+f object damroll 5 0 27 -1
 g @eng neutral@rus male~
 #47144
 sake drink сакэ hot горячий cup чашка~
@@ -1562,8 +1560,8 @@ silk~
 clothing 0 0 AD
 0 0 0 0 0
 22 40 10000 P
-a '' to_object 22 -1 -10 9 0
-a '' to_object 22 -1 3 6 0
+f object age -10 0 22 -1
+f object cha 3 0 22 -1
 g @rus neutral~
 #47149
 key ключ~
@@ -1582,10 +1580,10 @@ mithril~
 armor I 0 AD
 12 12 12 10 0
 30 75 30000 P
-a '' to_object 30 -1 15 13 0
-a '' to_object 30 -1 -5 20 0
-a '' to_object 30 -1 2 2 0
-a '' to_object 30 -1 -15 17 0
+f object hp 15 0 30 -1
+f object saves -5 0 30 -1
+f object dex 2 0 30 -1
+f object ac -15 0 30 -1
 g @eng neutral@rus male~
 #47151
 kimono платье кимоно dress elegant элегантное~
@@ -1595,8 +1593,8 @@ silk~
 container I 0 AD
 250 0 0 10 25
 30 40 20000 P
-a '' to_object 30 -1 4 6 0
-a '' to_object 30 -1 -5 9 0
+f object cha 4 0 30 -1
+f object age -5 0 30 -1
 g @rus neutral~
 #47152
 chest сундук~
@@ -1651,11 +1649,11 @@ bone~
 jewelry QY 0 AC
 0 0 0 0 0
 25 10 3000 P
-a '' to_object 25 -1 -6 24 0
-a '' to_object 25 -1 10 13 0
-a '' to_object 25 -1 2 5 0
-a '' to_object 25 -1 4 19 0
-a '' to_object 25 -1 3 1 0
+f object saving_spell -6 0 25 -1
+f object hp 10 0 25 -1
+f object con 2 0 25 -1
+f object damroll 4 0 25 -1
+f object str 3 0 25 -1
 E
 necklace teeth зубы ожерелье~
 @eng You sure would look like a savage hunter if worn
@@ -1700,11 +1698,9 @@ leather~
 armor 0 0 AD
 10 10 10 10 0
 25 100 8000 P
-a '' to_resist 25 -1 2 0 0
-a '' to_object 25 -1 0 0 0
-a '' to_resist 25 -1 2 2 0
-a '' to_object 25 -1 0 0 0
-a '' to_object 25 -1 1 2 0
+f resists bash 2 0 25 -1
+f resists slash 2 0 25 -1
+f object dex 1 0 25 -1
 g @rus neutral~
 #47161
 naginata нагината шест pole blade long длинный~
@@ -1714,8 +1710,8 @@ steel~
 weapon I 0 AN
 polearm 6 6 'slice' DF
 25 300 8000 P
-a '' to_object 25 -1 2 19 0
-a '' to_object 25 -1 4 18 0
+f object damroll 2 0 25 -1
+f object hitroll 4 0 25 -1
 g @eng neutral@rus female~
 #47162
 helmet splinted ornate изящный пластинчатый шлем~
@@ -1725,10 +1721,10 @@ mithril~
 armor IK 0 AE
 15 15 15 12 0
 35 15 20000 P
-a '' to_resist 35 -1 3 2 0
-a '' to_resist 35 -1 3 0 0
-a '' to_resist 35 -1 3 1 0
-a '' to_object 35 -1 -5 20 0
+f resists slash 3 0 35 -1
+f resists bash 3 0 35 -1
+f resists pierce 3 0 35 -1
+f object saves -5 0 35 -1
 E
 helm шлем~
 @eng Mithril splinted helm. designed in traditional style,
@@ -1753,11 +1749,11 @@ mithril~
 armor IK 0 AD
 18 18 18 15 0
 35 150 25000 P
-a '' to_resist 35 -1 5 1 0
-a '' to_resist 35 -1 5 2 0
-a '' to_resist 35 -1 5 0 0
-a '' to_object 35 -1 -7 20 0
-a '' to_object 35 -1 1 5 0
+f resists pierce 5 0 35 -1
+f resists slash 5 0 35 -1
+f resists bash 5 0 35 -1
+f object saves -7 0 35 -1
+f object con 1 0 35 -1
 E
 armor доспех~
 @eng Long splintmail can protect its wearer's body from the
@@ -1784,11 +1780,11 @@ mithril~
 armor IK 0 AH
 15 15 15 12 0
 35 25 20000 P
-a '' to_resist 35 -1 3 1 0
-a '' to_resist 35 -1 3 2 0
-a '' to_resist 35 -1 3 0 0
-a '' to_object 35 -1 -4 20 0
-a '' to_object 35 -1 4 19 0
+f resists pierce 3 0 35 -1
+f resists slash 3 0 35 -1
+f resists bash 3 0 35 -1
+f object saves -4 0 35 -1
+f object damroll 4 0 35 -1
 E
 gauntlets рукавицы~
 @eng An yellow shade of the metal hints on gilding and
@@ -1809,11 +1805,11 @@ mithril~
 armor IK 0 AG
 15 15 15 12 0
 35 20 20000 P
-a '' to_resist 35 -1 3 1 0
-a '' to_resist 35 -1 3 2 0
-a '' to_resist 35 -1 3 0 0
-a '' to_object 35 -1 30 14 0
-a '' to_object 35 -1 -5 20 0
+f resists pierce 3 0 35 -1
+f resists slash 3 0 35 -1
+f resists bash 3 0 35 -1
+f object move 30 0 35 -1
+f object saves -5 0 35 -1
 E
 boots ботинки~
 @eng An yellow shade of the metal hints on gilding and
@@ -1832,9 +1828,9 @@ mithril~
 weapon GIK 0 AN
 polearm 6 9 'slice' DFG
 35 400 25000 P
-a '' to_object 35 -1 -5 20 0
-a '' to_object 35 -1 3 18 0
-a '' to_object 35 -1 5 19 0
+f object saves -5 0 35 -1
+f object hitroll 3 0 35 -1
+f object damroll 5 0 35 -1
 E
 naignata нагината~
 @eng About three feet long blade of unusually blue mithril is
@@ -1859,11 +1855,10 @@ ivory~
 treasure GIK 0 AO
 0 0 0 0 0
 20 10 7500 P
-a '' to_resist 20 -1 10 11 0
-a '' to_object 20 -1 0 0 0
-a '' to_object 20 -1 -10 20 0
-a '' to_object 20 -1 50 12 0
-a '' to_object 20 -1 3 4 0
+f resists mental 10 0 20 -1
+f object saves -10 0 20 -1
+f object mana 50 0 20 -1
+f object wis 3 0 20 -1
 g @eng neutral@rus plural~
 #47168
 longbow long bow длинный лук battle~
@@ -1873,8 +1868,8 @@ wood~
 weapon 0 0 AN
 bow 5 9 'blast' F
 30 400 5000 P
-a '' to_object 30 -1 7 19 0
-a '' to_object 30 -1 3 18 0
+f object damroll 7 0 30 -1
+f object hitroll 3 0 30 -1
 g @eng neutral@rus male~
 #47169
 robes white priestly одежды священника белые~
@@ -1884,12 +1879,11 @@ cloth~
 clothing GIK 0 AD
 0 0 0 0 0
 35 70 10000 P
-a '' to_object 35 -1 2 8 0
-a '' to_resist 35 -1 15 8 0
-a '' to_object 35 -1 0 0 0
-a '' to_object 35 -1 -10 20 0
-a '' to_object 35 -1 80 12 0
-a '' to_object 35 -1 4 4 0
+f object level 2 0 35 -1
+f resists negative 15 0 35 -1
+f object saves -10 0 35 -1
+f object mana 80 0 35 -1
+f object wis 4 0 35 -1
 g @eng neutral@rus plural~
 #47170
 chest iron bound сундук окованный~
@@ -1935,15 +1929,13 @@ cloth~
 container CY 0 AD
 250 0 0 10 25
 40 20 10000 P
-a '' to_skills 40 -1 10 'dodge' A
-a '' to_object 40 -1 50 14 0
-a '' to_resist 40 -1 10 4 0
-a '' to_object 40 -1 0 0 0
-a '' to_resist 40 -1 10 3 0
-a '' to_object 40 -1 0 0 0
-a '' to_skills 40 -1 50 'hide' A
-a '' to_object 40 -1 -10 20 0
-a '' to_object 40 -1 3 2 0
+f skills 'dodge' 10 A 40 -1
+f object move 50 0 40 -1
+f resists cold 10 0 40 -1
+f resists fire 10 0 40 -1
+f skills 'hide' 50 A 40 -1
+f object saves -10 0 40 -1
+f object dex 3 0 40 -1
 E
 nijitsu gi облачение ниндзя~
 @eng These black clothes conceal most of its wearer's movements,
@@ -1977,8 +1969,8 @@ mithril~
 weapon C 0 AN
 dagger 12 4 'thrust' DH
 40 220 8000 P
-a '' to_object 40 -1 9 18 0
-a '' to_object 40 -1 7 19 0
+f object hitroll 9 0 40 -1
+f object damroll 7 0 40 -1
 E
 sai blade саи клинок~
 @eng This unusual item resembles a hairpin rather than a weapon,
@@ -1999,12 +1991,12 @@ adamantite~
 weapon GIK 0 AN
 sword 15 3 'wrath' DE
 43 400 40000 P
-a '' to_skills 43 -1 33 'mastering sword' A
-a '' to_object 43 -1 -7 24 0
-a '' to_object 43 -1 9 18 0
-a '' to_object 43 -1 7 19 0
-a '' to_object 43 -1 2 2 0
-a '' to_object 43 -1 2 1 0
+f skills 'mastering sword' 33 A 43 -1
+f object saving_spell -7 0 43 -1
+f object hitroll 9 0 43 -1
+f object damroll 7 0 43 -1
+f object dex 2 0 43 -1
+f object str 2 0 43 -1
 E
 sword ancient ivory меч древний~
 @eng .  Considerably light and extremely well balanced, this
@@ -2034,10 +2026,10 @@ mithril~
 weapon I 0 AN
 sword 6 8 'slice' D
 43 300 20000 P
-a '' to_skills 43 -1 33 'counter strike' A
-a '' to_skills 43 -1 33 'fence' A
-a '' to_object 43 -1 6 18 0
-a '' to_object 43 -1 4 19 0
+f skills 'counter strike' 33 A 43 -1
+f skills 'fence' 33 A 43 -1
+f object hitroll 6 0 43 -1
+f object damroll 4 0 43 -1
 E
 wakizashi вакизаши ivory~
 @eng This type of swords is usually wielded in off-hand and
@@ -2055,10 +2047,9 @@ dragonscale~
 armor GIQY C AJ
 20 20 20 30 0
 45 100 10000 P
-a '' to_object 45 -1 15 13 0
-a '' to_resist 45 -1 25 5 0
-a '' to_object 45 -1 0 0 0
-a '' to_object 45 -1 -15 20 0
+f object hp 15 0 45 -1
+f resists lightning 25 0 45 -1
+f object saves -15 0 45 -1
 E
 shield blue dragon scale щит синий драконьей чешуи~
 @eng This shield was made of a few blue dragon's scales.
@@ -2078,11 +2069,10 @@ sapphire~
 staff ABGIKQY 0 AO
 55 5 5 'call lightning' 0
 45 20 20000 P
-a '' to_object 45 -1 -12 23 0
-a '' to_object 45 -1 2 8 0
-a '' to_object 45 -1 100 12 0
-a '' to_resist 45 -1 40 5 0
-a '' to_object 45 -1 0 0 0
+f object saving_breath -12 0 45 -1
+f object level 2 0 45 -1
+f object mana 100 0 45 -1
+f resists lightning 40 0 45 -1
 E
 heart сердце бури gem sapphire сапфир storms~
 @eng You have never seen a gem of such size. It glows
@@ -2105,12 +2095,11 @@ divinity~
 weapon BGIKQ F AN
 mace 7 9 'shock' FG
 45 400 0 P
-a '' to_object 45 -1 40 12 0
-a '' to_object 45 -1 1 8 0
-a '' to_object 45 -1 -5 20 0
-a '' to_resist 45 -1 25 5 0
-a '' to_object 45 -1 0 0 0
-a '' to_object 45 -1 10 19 0
+f object mana 40 0 45 -1
+f object level 1 0 45 -1
+f object saves -5 0 45 -1
+f resists lightning 25 0 45 -1
+f object damroll 10 0 45 -1
 E
 hammer thunder молот грома~
 @eng This is the great hammer of Thunder, the one Raiden
@@ -2133,12 +2122,12 @@ mithril~
 armor BGI 0 AH
 15 15 15 20 0
 43 15 30000 P
-a '' to_skills 43 -1 10 'bow' 0
-a '' to_skills 43 -1 10 'polearm' 0
-a '' to_skills 43 -1 10 'sword' 0
-a '' to_object 43 -1 5 19 0
-a '' to_object 43 -1 -5 20 0
-a '' to_object 43 -1 2 1 0
+f skills 'bow' 10 0 43 -1
+f skills 'polearm' 10 0 43 -1
+f skills 'sword' 10 0 43 -1
+f object damroll 5 0 43 -1
+f object saves -5 0 43 -1
+f object str 2 0 43 -1
 E
 kote gauntlets mithril коте мифрильные рукавицы~
 @eng Overlapping plates of mithril were connected to the
@@ -2161,17 +2150,14 @@ obsidian~
 jewelry CEGHMQY CE AB
 0 0 0 0 0
 45 15 25000 P
-a '' to_affects 45 -1 0 0 K
-a '' to_affects 45 -1 0 0 L
-a '' to_object 45 -1 4000 9 0
-a '' to_resist 45 -1 -50 9 0
-a '' to_object 45 -1 0 0 0
-a '' to_object 45 -1 -10 22 0
-a '' to_resist 45 -1 50 12 0
-a '' to_object 45 -1 0 0 0
-a '' to_resist 45 -1 50 8 0
-a '' to_object 45 -1 0 0 0
-a '' to_object 45 -1 10 19 0
+f affects none 0 K 45 -1
+f affects none 0 L 45 -1
+f object age 4000 0 45 -1
+f resists holy -50 0 45 -1
+f object saving_petri -10 0 45 -1
+f resists disease 50 0 45 -1
+f resists negative 50 0 45 -1
+f object damroll 10 0 45 -1
 g @rus neutral~
 #47184
 talons sharp demon острые когти демона руки hands severed отрезанные~
@@ -2181,13 +2167,11 @@ claw~
 armor CEGJMQ E AH
 15 15 15 20 0
 45 25 0 P
-a '' to_object 45 -1 2 1 0
-a '' to_object 45 -1 -7 20 0
-a '' to_resist 45 -1 -25 9 0
-a '' to_object 45 -1 0 0 0
-a '' to_resist 45 -1 25 8 0
-a '' to_object 45 -1 0 0 0
-a '' to_object 45 -1 8 19 0
+f object str 2 0 45 -1
+f object saves -7 0 45 -1
+f resists holy -25 0 45 -1
+f resists negative 25 0 45 -1
+f object damroll 8 0 45 -1
 E
 talons sharp demon острые когти демона~
 @eng Severed hands of some unimaginable creature seem to be burnt
@@ -2210,10 +2194,9 @@ bone~
 weapon CEGJQ 0 AN
 exotic 12 5 'wrath' 0
 45 400 0 P
-a '' to_resist 45 -1 25 8 0
-a '' to_object 45 -1 0 0 0
-a '' to_object 45 -1 8 19 0
-a '' to_object 45 -1 -8 18 0
+f resists negative 25 0 45 -1
+f object damroll 8 0 45 -1
+f object hitroll -8 0 45 -1
 E
 horn huge curved огромный обгоревший рог charred~
 @eng This huge curved horn once belonged to some demon, that is,
@@ -2237,11 +2220,11 @@ demonskin~
 armor CEGJQ 0 AL
 12 12 12 20 0
 45 40 0 P
-a '' to_affects 45 -1 25 12 0
-a '' to_affects 45 -1 15 13 0
-a '' to_resist 45 -1 -10 9 0
-a '' to_resist 45 -1 15 8 0
-a '' to_affects 45 -1 -15 20 0
+f affects mana 25 0 45 -1
+f affects hp 15 0 45 -1
+f resists holy -10 0 45 -1
+f resists negative 15 0 45 -1
+f affects saves -15 0 45 -1
 E
 tail demon хвост демона coil шнур петля demonskin~
 @eng Even after the demon was slain, a part of his unholy power remains
@@ -2282,10 +2265,10 @@ unknown~
 weapon AG 0 AN
 staff 10 8 'smash' FI
 46 600 0 P
-a '' to_affects 46 -1 100 18 0
-a '' to_affects 46 -1 100 19 0
-a '' to_affects 46 -1 400 17 0
-a '' to_affects 46 -1 2000 13 0
+f affects hitroll 100 0 46 -1
+f affects damroll 100 0 46 -1
+f affects ac 400 0 46 -1
+f affects hp 2000 0 46 -1
 #47301
 plate holy~
 @eng a saintly plate of armorsmith~
@@ -2294,10 +2277,10 @@ platinum~
 armor 0 0 AD
 120 120 120 120 0
 100 5000 0 P
-a '' to_resist 100 -1 15 1 0
-a '' to_resist 100 -1 15 2 0
-a '' to_resist 100 -1 15 0 0
-a '' to_affects 100 -1 50 13 0
+f resists pierce 15 0 100 -1
+f resists slash 15 0 100 -1
+f resists bash 15 0 100 -1
+f affects hp 50 0 100 -1
 #47302
 shield~
 @eng a godly shield engagement with against evils~
@@ -2306,9 +2289,9 @@ diamond~
 armor 0 0 AJ
 50 50 50 50 0
 100 100 0 P
-a '' to_affects 100 -1 50 18 0
-a '' to_affects 100 -1 1000 13 0
-a '' to_affects 100 -1 50 19 0
+f affects hitroll 50 0 100 -1
+f affects hp 1000 0 100 -1
+f affects damroll 50 0 100 -1
 #47303
 sword~
 a straight sword with familiar of the sun~
@@ -2317,9 +2300,9 @@ steel~
 weapon GI 0 AN
 sword 11 7 'divine' DI
 100 100 0 P
-a '' to_affects 100 -1 50 18 0
-a '' to_affects 100 -1 1000 13 0
-a '' to_affects 100 -1 50 19 0
+f affects hitroll 50 0 100 -1
+f affects hp 1000 0 100 -1
+f affects damroll 50 0 100 -1
 #47304
 helm~
 a strangle helmet with a red plume~
@@ -2328,7 +2311,7 @@ mithril~
 armor AI 0 AE
 50 50 50 50 0
 100 400 0 P
-a '' to_affects 100 -1 3000 12 0
+f affects mana 3000 0 100 -1
 #0
 
 #ROOMS

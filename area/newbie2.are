@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Newbie Zone~
 VNUMs 18600 18699
 Credits Maynard~
@@ -243,7 +243,7 @@ steel~
 weapon AG 0 AN
 sword 1 7 'thrust' 0
 4 120 200 G
-a '' to_object 4 -1 1 19 0
+f object damroll 1 0 4 -1
 g @rus none~
 #18602
 vest newbie~
@@ -262,7 +262,7 @@ steel~
 armor AG 0 AE
 4 4 3 1 1
 4 50 220 G
-a '' to_object 4 -1 1 5 0
+f object con 1 0 4 -1
 g @rus none~
 #18604
 cloak dark newbie~
@@ -272,8 +272,8 @@ wool~
 armor AG 0 AK
 3 4 3 1 2
 2 100 180 G
-a '' to_object 2 -1 -3 17 0
-a '' to_object 2 -1 1 4 0
+f object ac -3 0 2 -1
+f object wis 1 0 2 -1
 g @rus none~
 #18605
 ring signet newbie~
@@ -283,7 +283,7 @@ silver~
 armor FG 0 AB
 4 3 3 1 1
 1 20 200 G
-a '' to_object 1 -1 -2 17 0
+f object ac -2 0 1 -1
 g @rus none~
 #18606
 dagger newbie~
@@ -293,7 +293,7 @@ iron~
 weapon AG 0 AN
 dagger 1 7 'stab' 0
 4 50 140 G
-a '' to_object 4 -1 1 19 0
+f object damroll 1 0 4 -1
 g @rus none~
 #18607
 collar dragon~
@@ -303,8 +303,8 @@ snakeskin~
 armor G 0 AC
 3 3 4 1 1
 4 20 300 G
-a '' to_object 4 -1 1 18 0
-a '' to_object 4 -1 -1 17 0
+f object hitroll 1 0 4 -1
+f object ac -1 0 4 -1
 g @rus none~
 #18608
 key newbie~
@@ -323,7 +323,7 @@ energy~
 light AG 0 A
 0 0 -1 0 0
 2 20 120 G
-a '' to_object 2 -1 -1 24 0
+f object saving_spell -1 0 2 -1
 g @rus none~
 #18610
 horns horn~
@@ -333,7 +333,7 @@ bone~
 armor G 0 AE
 3 4 4 1 1
 6 100 320 G
-a '' to_object 6 -1 1 1 0
+f object str 1 0 6 -1
 g @rus none~
 #18611
 hide skin~
@@ -343,8 +343,8 @@ air~
 armor 0 0 AK
 5 5 5 0 3
 6 190 366 G
-a '' to_object 6 -1 -6 17 0
-a '' to_object 6 -1 15 13 0
+f object ac -6 0 6 -1
+f object hp 15 0 6 -1
 g @rus none~
 #18612
 leggings newbie~
@@ -363,7 +363,7 @@ steel~
 armor G 0 AI
 4 4 3 1 1
 3 140 275 G
-a '' to_object 3 -1 1 2 0
+f object dex 1 0 3 -1
 g @rus none~
 #18614
 mace newbie~
@@ -373,7 +373,7 @@ wood~
 weapon AG 0 AN
 mace 1 7 'pound' 0
 3 170 245 G
-a '' to_object 3 -1 -2 17 0
+f object ac -2 0 3 -1
 g @rus none~
 #18615
 orb~
@@ -383,9 +383,9 @@ quartz~
 armor AEGJM 0 AQ
 3 3 3 1 1
 3 20 400 G
-a '' to_object 3 -1 1 3 0
-a '' to_object 3 -1 1 4 0
-a '' to_object 3 -1 1 2 0
+f object int 1 0 3 -1
+f object wis 1 0 3 -1
+f object dex 1 0 3 -1
 g @rus none~
 #0
 

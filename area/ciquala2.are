@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Ciquala's Lair~
 VNUMs 13400 13499
 Credits Binky~
@@ -389,12 +389,12 @@ iron~
 weapon BCHJM 0 AN
 sword 5 13 'slice' C
 55 80 34799 P
-a '' to_object 55 -1 10 18 0
-a '' to_object 55 -1 10 19 0
-a '' to_object 55 -1 100 13 0
-a '' to_object 55 -1 -50 14 0
-a '' to_object 55 -1 2 1 0
-a '' to_object 55 -1 2 5 0
+f object hitroll 10 0 55 -1
+f object damroll 10 0 55 -1
+f object hp 100 0 55 -1
+f object move -50 0 55 -1
+f object str 2 0 55 -1
+f object con 2 0 55 -1
 g @rus male~
 #13401
 robe мантия Цикуалы ciquala's~
@@ -404,9 +404,9 @@ leather~
 armor GHJM 0 AK
 17 17 17 2 0
 51 50 29470 G
-a '' to_object 51 -1 -5 20 0
-a '' to_object 51 -1 -15 17 0
-a '' to_object 51 -1 2 2 0
+f object saves -5 0 51 -1
+f object ac -15 0 51 -1
+f object dex 2 0 51 -1
 g @rus female~
 #13402
 staff посох Цикуалы ciquala's~
@@ -416,9 +416,9 @@ wood~
 staff GHJM 0 AO
 40 20 20 'cure critical wounds' 0
 54 20 22100 P
-a '' to_object 54 -1 6 19 0
-a '' to_object 54 -1 3 3 0
-a '' to_object 54 -1 -2 4 0
+f object damroll 6 0 54 -1
+f object int 3 0 54 -1
+f object wis -2 0 54 -1
 g @rus male~
 #13403
 crate ящик~
@@ -536,10 +536,10 @@ iron~
 armor 0 0 AD
 20 20 20 5 0
 33 100 0 G
-a '' to_object 33 -1 -400 13 0
-a '' to_object 33 -1 -5 5 0
-a '' to_object 33 -1 -5 1 0
-a '' to_object 33 -1 -1 2 0
+f object hp -400 0 33 -1
+f object con -5 0 33 -1
+f object str -5 0 33 -1
+f object dex -1 0 33 -1
 g @rus female~
 #13417
 torturer's whip хлыст мучителя~
@@ -549,9 +549,9 @@ iron~
 weapon ABFG 0 AN
 whip 5 10 'chop' C
 48 90 14700 P
-a '' to_object 48 -1 -10 18 0
-a '' to_object 48 -1 10 19 0
-a '' to_object 48 -1 -20 17 0
+f object hitroll -10 0 48 -1
+f object damroll 10 0 48 -1
+f object ac -20 0 48 -1
 g @rus male~
 #13418
 treasure сокровища coins монеты gold золото~

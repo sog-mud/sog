@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Haon Dor~
 VNUMs 6000 6199
 Credits Diku~
@@ -418,7 +418,7 @@ wood~
 weapon 0 0 AN
 mace 2 5 'pound' 0
 6 300 290 P
-a '' to_object 6 -1 -2 18 0
+f object hitroll -2 0 6 -1
 g @rus female~
 #6105
 branch ветка~

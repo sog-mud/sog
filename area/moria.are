@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Moria~
 VNUMs 3900 4199
 Credits Alfa~
@@ -561,7 +561,7 @@ copper~
 treasure 0 0 AB
 0 0 0 0 0
 0 10 0 A
-a '' to_object 0 -1 -2 1 0
+f object str -2 0 0 -1
 E
 ring ~
 @eng It feels heavy.
@@ -601,7 +601,7 @@ iron~
 weapon 0 0 AN
 dagger 1 5 'stab' 0
 0 10 165 W
-a '' to_object 0 -1 -1 18 0
+f object hitroll -1 0 0 -1
 E
 dagger кинжал~
 @eng It's old and rusted, but it still has a good edge.
@@ -616,7 +616,7 @@ leather~
 weapon 0 0 AN
 whip 1 7 'whip' 0
 3 30 240 G
-a '' to_object 3 -1 1 18 0
+f object hitroll 1 0 3 -1
 g @eng none@rus male~
 #4005
 club tree huge палица~
@@ -626,7 +626,7 @@ wood~
 weapon 0 0 AN
 mace 2 9 'crush' F
 14 250 780 G
-a '' to_object 14 -1 -2 18 0
+f object hitroll -2 0 14 -1
 E
 club tree палица~
 @eng This is the biggest club you have ever seen!  The giant didn't even bother to
@@ -642,7 +642,7 @@ fur~
 armor 0 0 AK
 5 6 5 1 3
 8 100 510 A
-a '' to_object 8 -1 -1 2 0
+f object dex -1 0 8 -1
 E
 furs мех~
 @eng They're heavy and smelly and would probably slow you down...but they do look
@@ -673,7 +673,7 @@ iron~
 armor G 0 AE
 4 4 3 2 1
 5 40 650 G
-a '' to_object 5 -1 -1 20 0
+f object saves -1 0 5 -1
 g @rus none~
 #4052
 mushroom мухомор~
@@ -697,8 +697,8 @@ steel~
 weapon G 0 AN
 dagger 2 5 'stab' 0
 8 20 590 G
-a '' to_object 8 -1 1 19 0
-a '' to_object 8 -1 1 18 0
+f object damroll 1 0 8 -1
+f object hitroll 1 0 8 -1
 E
 dirk нож~
 @eng It's a medium sized, beautifully crafted dirk made from grey alloy.
@@ -716,7 +716,7 @@ steel~
 weapon G 0 AN
 axe 3 4 'chop' 0
 12 70 930 P
-a '' to_object 12 -1 1 19 0
+f object damroll 1 0 12 -1
 E
 axe топор~
 @eng It has an edge sharp enough to cut a passing thought. A good find, this.
@@ -746,8 +746,8 @@ iron~
 weapon 0 0 AN
 flail 1 7 'smash' 0
 3 70 290 A
-a '' to_object 3 -1 1 17 0
-a '' to_object 3 -1 2 19 0
+f object ac 1 0 3 -1
+f object damroll 2 0 3 -1
 g @eng none@rus male~
 #4057
 mace heavy тяжелая булава~
@@ -757,7 +757,7 @@ iron~
 weapon 0 0 AN
 mace 2 4 'pound' 0
 6 100 390 G
-a '' to_object 6 -1 1 19 0
+f object damroll 1 0 6 -1
 g @eng none@rus male~
 #4058
 falchion sword ятаган~
@@ -782,7 +782,7 @@ iron~
 weapon 0 0 AN
 polearm 2 6 'slash' F
 10 120 520 A
-a '' to_object 10 -1 -1 17 0
+f object ac -1 0 10 -1
 g @eng none@rus female~
 #4100
 blade black demon черный клинок демон~
@@ -806,8 +806,8 @@ leather~
 armor G 0 AH
 1 3 3 1 1
 7 10 730 G
-a '' to_object 7 -1 1 19 0
-a '' to_object 7 -1 1 18 0
+f object damroll 1 0 7 -1
+f object hitroll 1 0 7 -1
 g @eng none@rus plural~
 #4102
 scroll ysafg свиток~
@@ -859,7 +859,7 @@ iron~
 weapon 0 0 AN
 spear 2 5 'pound' F
 10 60 630 G
-a '' to_object 10 -1 -2 17 0
+f object ac -2 0 10 -1
 g @rus male~
 #4150
 black potion черное зелье~
@@ -883,7 +883,7 @@ wood~
 staff G 0 AO
 15 4 2 'harm' 0
 13 50 5400 G
-a '' to_object 13 -1 -20 12 0
+f object mana -20 0 13 -1
 E
 runes~
 The runes says : Funthark.
@@ -901,8 +901,8 @@ silver~
 weapon 0 0 AN
 dagger 2 4 'stab' 0
 7 20 660 P
-a '' to_object 7 -1 -1 17 0
-a '' to_object 7 -1 1 18 0
+f object ac -1 0 7 -1
+f object hitroll 1 0 7 -1
 E
 dagger light silver кинжал~
 @eng It looks like an excellent weapon for thieves.
@@ -917,8 +917,8 @@ iron~
 weapon 0 0 AN
 mace 2 6 'smash' 0
 9 120 270 G
-a '' to_object 9 -1 -1 2 0
-a '' to_object 9 -1 1 19 0
+f object dex -1 0 9 -1
+f object damroll 1 0 9 -1
 E
 star morning утренняя звезда~
 It's a huge length of wood studded with iron spikes and bands. You wouldn't

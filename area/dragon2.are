@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Dragon Spyre~
 VNUMs 2400 2501
 Credits Anon~
@@ -306,8 +306,8 @@ steel~
 weapon AGL 0 AN
 sword 4 8 'slice' 0
 36 20 2700 G
-a '' to_object 36 -1 30 14 0
-a '' to_object 36 -1 2 19 0
+f object move 30 0 36 -1
+f object damroll 2 0 36 -1
 E
 pixie sword меч~
 @eng This elegant sword appears to have served its previous owner very well, but
@@ -400,9 +400,9 @@ silver~
 armor AGI 0 AC
 18 18 18 9 0
 40 120 3500 G
-a '' to_object 40 -1 -5 20 0
-a '' to_object 40 -1 5 18 0
-a '' to_object 40 -1 1 19 0
+f object saves -5 0 40 -1
+f object hitroll 5 0 40 -1
+f object damroll 1 0 40 -1
 E
 white pendant dragon scale брелок чешуя белый~
 @eng This pendant appears to be very ancient.  It is solid white, with a blue 
@@ -422,9 +422,9 @@ bone~
 armor AGI 0 AC
 18 18 18 9 0
 40 120 3500 G
-a '' to_object 40 -1 -6 20 0
-a '' to_object 40 -1 5 18 0
-a '' to_object 40 -1 2 19 0
+f object saves -6 0 40 -1
+f object hitroll 5 0 40 -1
+f object damroll 2 0 40 -1
 E
 copper pendant dragon scale медный брелок~
 @eng The pendant you now own appears to be very new, in fact it looks freshly
@@ -443,9 +443,9 @@ flame~
 light AG 0 A
 0 0 -1 0 0
 48 60 7500 G
-a '' to_object 48 -1 100 12 0
-a '' to_object 48 -1 125 13 0
-a '' to_object 48 -1 125 14 0
+f object mana 100 0 48 -1
+f object hp 125 0 48 -1
+f object move 125 0 48 -1
 E
 pixie wings пара крылья~
 @eng Just what they are called.  You feel sorry for the pixie who used to own these.
@@ -461,7 +461,7 @@ energy~
 armor AFGI 0 AC
 20 20 20 9 0
 51 1 31970 G
-a '' to_affects 51 -1 -60 17 U
+f affects ac -60 U 51 -1
 E
 pendant eternity брелок~
 @eng As you stare at the pendant, you begin to feel as if you are being sucked in.
@@ -478,8 +478,8 @@ steel~
 armor GJ 0 AD
 16 16 16 7 0
 40 190 6430 G
-a '' to_object 40 -1 5 9 0
-a '' to_object 40 -1 -10 24 0
+f object age 5 0 40 -1
+f object saving_spell -10 0 40 -1
 E
 white dragon scale breast plate нагрудник~
 @eng This is a very quickly strewn together breast plate.  It looks like it was
@@ -496,9 +496,9 @@ bone~
 armor GK 0 AD
 18 18 18 8 0
 40 200 6230 G
-a '' to_object 40 -1 -10 17 0
-a '' to_object 40 -1 5 18 0
-a '' to_object 40 -1 2 9 0
+f object ac -10 0 40 -1
+f object hitroll 5 0 40 -1
+f object age 2 0 40 -1
 E
 copper dragon scale breast plate нагрудник~
 @eng This is a very hastely strewn together breast plate.  It looks like it was
@@ -542,8 +542,8 @@ crystal~
 weapon AL 0 AN
 mace 5 7 'pound' D
 35 20 1700 G
-a '' to_object 35 -1 3 19 0
-a '' to_object 35 -1 3 18 0
+f object damroll 3 0 35 -1
+f object hitroll 3 0 35 -1
 E
 pixie stick посох~
 @eng This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
@@ -560,8 +560,8 @@ steel~
 armor A 0 AD
 15 15 15 7 0
 37 30 2230 G
-a '' to_object 37 -1 -7 17 0
-a '' to_object 37 -1 -1 1 0
+f object ac -7 0 37 -1
+f object str -1 0 37 -1
 E
 plate pixie breast нагрудник~
 @eng This is a piece of Pixie armor.  It looks very well crafted, but has an odd
@@ -577,8 +577,8 @@ steel~
 armor AG 0 AF
 15 15 15 7 0
 32 14 1900 G
-a '' to_object 32 -1 4 3 0
-a '' to_object 32 -1 -1 5 0
+f object int 4 0 32 -1
+f object con -1 0 32 -1
 E
 pixie greaves сильфийские поножи~
 @eng These are VERY small pants....although they do seem fairly stretchy.....
@@ -593,9 +593,9 @@ steel~
 armor AG 0 AI
 16 16 16 7 0
 35 19 2077 G
-a '' to_object 35 -1 2 19 0
-a '' to_object 35 -1 3 2 0
-a '' to_object 35 -1 -30 17 0
+f object damroll 2 0 35 -1
+f object dex 3 0 35 -1
+f object ac -30 0 35 -1
 E
 pixie arm plates нарукавники сильфа~
 @eng These arm plates would be a tad bit to small for you.....IF YOU WERE A
@@ -612,8 +612,8 @@ flame~
 light AL 0 A
 0 0 -1 0 0
 38 20 2300 G
-a '' to_object 38 -1 3 18 0
-a '' to_object 38 -1 3 19 0
+f object hitroll 3 0 38 -1
+f object damroll 3 0 38 -1
 E
 flame wisp dragon fyre fire факел из огня дракона~
 @eng You aren't quite sure how it is, but the DragonFyre is existing without its
@@ -629,9 +629,9 @@ steel~
 armor AGJ 0 AE
 16 16 16 8 0
 38 230 2460 G
-a '' to_object 38 -1 2 4 0
-a '' to_object 38 -1 -1 2 0
-a '' to_object 38 -1 3 1 0
+f object wis 2 0 38 -1
+f object dex -1 0 38 -1
+f object str 3 0 38 -1
 E
 helm dragon~
 @eng This helm appears to have been created from the scales of a freshly dead dragon.
@@ -648,9 +648,9 @@ bone~
 armor AGK 0 AE
 16 16 16 9 0
 38 250 2960 G
-a '' to_object 38 -1 2 4 0
-a '' to_object 38 -1 -1 2 0
-a '' to_object 38 -1 2 5 0
+f object wis 2 0 38 -1
+f object dex -1 0 38 -1
+f object con 2 0 38 -1
 E
 helm dragon~
 @eng This helm appears to be made from the scales of a recently dead dragon.
@@ -668,10 +668,10 @@ wood~
 weapon ABCFGHM 0 AN
 staff 5 11 'pound' 0
 52 200 45780 G
-a '' to_object 52 -1 100 12 0
-a '' to_object 52 -1 6 19 0
-a '' to_object 52 -1 6 18 0
-a '' to_object 52 -1 -50 13 0
+f object mana 100 0 52 -1
+f object damroll 6 0 52 -1
+f object hitroll 6 0 52 -1
+f object hp -50 0 52 -1
 E
 staff magius~
 @eng This is the Staff of the Magius.  Rumored to bring untold mystical 
@@ -689,8 +689,8 @@ steel~
 weapon AGL 0 AN
 dagger 4 8 'stab' 0
 33 5 647 G
-a '' to_object 33 -1 20 14 0
-a '' to_object 33 -1 4 19 0
+f object move 20 0 33 -1
+f object damroll 4 0 33 -1
 g @rus male~
 #2423
 diamond gem бриллиант~
@@ -772,7 +772,7 @@ flame~
 armor AG 0 AQ
 18 18 18 7 0
 45 20 4717 G
-a '' to_object 45 -1 -30 17 0
+f object ac -30 0 45 -1
 g @rus female~
 #2432
 foot magic магическая кроличья лапка rabbit's~
@@ -782,7 +782,7 @@ meat~
 armor AG 0 AQ
 11 11 11 5 0
 33 20 617 G
-a '' to_object 33 -1 -20 17 0
+f object ac -20 0 33 -1
 g @rus female~
 #2433
 shield сильфийский щит pixie~

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 5
+Ver 6
 Name Divided Souls~
 VNUMs 11600 11799
 Credits Ydri~
@@ -2420,10 +2420,10 @@ felt~
 armor 0 0 AE
 12 12 12 10 0
 36 40 1200 P
-a '' to_affects 36 -1 25 12 0
-a '' to_affects 36 -1 25 13 0
-a '' to_affects 36 -1 3 18 0
-a '' to_affects 36 -1 2 19 0
+f affects mana 25 0 36 -1
+f affects hp 25 0 36 -1
+f affects hitroll 3 0 36 -1
+f affects damroll 2 0 36 -1
 g @rus none~
 #11618
 circlets wonder arm bands~
@@ -2433,10 +2433,10 @@ etherealness~
 armor AF 0 AI
 12 12 12 10 0
 37 20 3000 P
-a '' to_affects 37 -1 1 3 0
-a '' to_affects 37 -1 35 12 0
-a '' to_affects 37 -1 3 19 0
-a '' to_object 37 -1 1 6 0
+f affects int 1 0 37 -1
+f affects mana 35 0 37 -1
+f affects damroll 3 0 37 -1
+f object cha 1 0 37 -1
 E
 circlets wonder arm bands~
 shimmering letters are visible amidst the swirling matter of the circlets:
@@ -2483,10 +2483,10 @@ light~
 armor AIK 0 AL
 14 14 14 12 0
 42 0 4000 P
-a '' to_affects 42 -1 1 4 0
-a '' to_affects 42 -1 40 12 0
-a '' to_affects 42 -1 3 19 0
-a '' to_affects 42 -1 3 18 0
+f affects wis 1 0 42 -1
+f affects mana 40 0 42 -1
+f affects damroll 3 0 42 -1
+f affects hitroll 3 0 42 -1
 g @rus none~
 #11621
 innocent dreams~
@@ -2496,11 +2496,11 @@ etherealness~
 armor AK 0 AQ
 27 27 28 20 0
 42 0 3500 P
-a '' to_affects 42 -1 45 12 0
-a '' to_affects 42 -1 -5 13 0
-a '' to_affects 42 -1 3 18 0
-a '' to_affects 42 -1 3 19 0
-a '' to_object 42 -1 -1 3 0
+f affects mana 45 0 42 -1
+f affects hp -5 0 42 -1
+f affects hitroll 3 0 42 -1
+f affects damroll 3 0 42 -1
+f object int -1 0 42 -1
 g @rus none~
 #11622
 gleaming white cross~
@@ -2510,10 +2510,10 @@ ivory~
 armor AK 0 AO
 14 14 14 12 0
 42 30 1500 P
-a '' to_affects 42 -1 1 4 0
-a '' to_affects 42 -1 35 12 0
-a '' to_affects 42 -1 15 13 0
-a '' to_affects 42 -1 2 19 0
+f affects wis 1 0 42 -1
+f affects mana 35 0 42 -1
+f affects hp 15 0 42 -1
+f affects damroll 2 0 42 -1
 g @rus none~
 #11623
 white kid gloves~
@@ -2523,10 +2523,10 @@ soft leather~
 armor AK 0 AH
 12 12 12 12 0
 42 30 3500 P
-a '' to_affects 42 -1 2 2 0
-a '' to_affects 42 -1 40 12 0
-a '' to_affects 42 -1 5 18 0
-a '' to_affects 42 -1 2 19 0
+f affects dex 2 0 42 -1
+f affects mana 40 0 42 -1
+f affects hitroll 5 0 42 -1
+f affects damroll 2 0 42 -1
 g @rus none~
 #11624
 mark gabrian white insignia hair~
@@ -2536,10 +2536,10 @@ flesh~
 armor BIM 0 AE
 11 11 10 10 32768
 40 0 2000 P
-a '' to_affects 40 -1 40 12 0
-a '' to_affects 40 -1 1 5 0
-a '' to_affects 40 -1 3 18 0
-a '' to_affects 40 -1 2 19 0
+f affects mana 40 0 40 -1
+f affects con 1 0 40 -1
+f affects hitroll 3 0 40 -1
+f affects damroll 2 0 40 -1
 E
 mark gabrian white insignia hair~
 an inscription is woven in gold around edge of the mark:
@@ -2577,9 +2577,9 @@ feathers~
 armor 0 0 AD
 10 11 11 9 0
 32 150 2700 P
-a '' to_affects 32 -1 1 18 0
-a '' to_affects 32 -1 3 19 0
-a '' to_affects 32 -1 20 13 0
+f affects hitroll 1 0 32 -1
+f affects damroll 3 0 32 -1
+f affects hp 20 0 32 -1
 g @rus none~
 #11626
 song nightingale~
@@ -2589,9 +2589,9 @@ nothingness~
 armor BFHI 0 AQ
 8 8 8 6 0
 23 0 1100 P
-a '' to_affects 23 -1 1 4 0
-a '' to_affects 23 -1 25 12 0
-a '' to_affects 23 -1 2 19 0
+f affects wis 1 0 23 -1
+f affects mana 25 0 23 -1
+f affects damroll 2 0 23 -1
 g @rus none~
 #11627
 scroll enlightenment white~
@@ -2601,8 +2601,8 @@ parchment~
 scroll B 0 AO
 30 'colour spray' 'curse' 'charm person' 'poison'
 30 10 550 P
-a '' to_affects 30 -1 -3 3 0
-a '' to_affects 30 -1 -2 5 0
+f affects int -3 0 30 -1
+f affects con -2 0 30 -1
 g @rus none~
 #11628
 sparkling wand~
@@ -2621,9 +2621,9 @@ mithril~
 armor AK 0 AG
 11 11 11 9 0
 33 50 2500 P
-a '' to_affects 33 -1 2 2 0
-a '' to_affects 33 -1 1 3 0
-a '' to_affects 33 -1 30 12 0
+f affects dex 2 0 33 -1
+f affects int 1 0 33 -1
+f affects mana 30 0 33 -1
 g @rus none~
 #11630
 golden bell silver neckchain chain~
@@ -2633,9 +2633,9 @@ gold~
 jewelry A 0 AC
 0 0 0 0 0
 33 20 5000 P
-a '' to_affects 33 -1 2 4 0
-a '' to_affects 33 -1 25 12 0
-a '' to_affects 33 -1 3 19 0
+f affects wis 2 0 33 -1
+f affects mana 25 0 33 -1
+f affects damroll 3 0 33 -1
 g @rus none~
 #11631
 rose tinted shades~
@@ -2645,9 +2645,9 @@ glass~
 armor 0 0 AC
 9 9 9 7 0
 27 20 5000 P
-a '' to_affects 27 -1 -2 4 0
-a '' to_affects 27 -1 50 12 0
-a '' to_affects 27 -1 0 0 A
+f affects wis -2 0 27 -1
+f affects mana 50 0 27 -1
+f affects none 0 A 27 -1
 g @rus none~
 #11632
 breastplate plate white cross~
@@ -2657,8 +2657,8 @@ mithril~
 armor AK 0 AD
 10 10 10 9 0
 30 350 2800 P
-a '' to_affects 30 -1 2 1 0
-a '' to_affects 30 -1 3 19 0
+f affects str 2 0 30 -1
+f affects damroll 3 0 30 -1
 g @rus none~
 #11633
 white legplates~
@@ -2668,9 +2668,9 @@ mithril~
 armor AK 0 AF
 10 10 10 9 0
 32 150 2200 P
-a '' to_affects 32 -1 1 5 0
-a '' to_affects 32 -1 1 18 0
-a '' to_affects 32 -1 2 19 0
+f affects con 1 0 32 -1
+f affects hitroll 1 0 32 -1
+f affects damroll 2 0 32 -1
 g @rus none~
 #11634
 diamond longsword sword~
@@ -2680,8 +2680,8 @@ diamond~
 weapon A 0 AN
 sword 6 7 'cleave' 0
 32 370 2500 P
-a '' to_affects 32 -1 2 18 0
-a '' to_affects 32 -1 2 19 0
+f affects hitroll 2 0 32 -1
+f affects damroll 2 0 32 -1
 g @rus none~
 #11635
 ivory scales~
@@ -2691,10 +2691,10 @@ ivory~
 treasure A 0 AH
 0 0 0 0 0
 34 150 2000 P
-a '' to_affects 34 -1 1 3 0
-a '' to_affects 34 -1 1 4 0
-a '' to_affects 34 -1 20 12 0
-a '' to_affects 34 -1 20 13 0
+f affects int 1 0 34 -1
+f affects wis 1 0 34 -1
+f affects mana 20 0 34 -1
+f affects hp 20 0 34 -1
 g @rus none~
 #11636
 pruning shears~
@@ -2704,8 +2704,8 @@ metal~
 weapon 0 0 AN
 exotic 11 3 'stab' 0
 35 370 500 P
-a '' to_affects 35 -1 1 18 0
-a '' to_affects 35 -1 2 19 0
+f affects hitroll 1 0 35 -1
+f affects damroll 2 0 35 -1
 g @rus none~
 #11637
 grass stained jumpsuit leather~
@@ -2715,8 +2715,8 @@ soft leather~
 armor 0 0 AD
 9 9 9 9 0
 35 70 300 P
-a '' to_affects 35 -1 1 2 0
-a '' to_object 35 -1 -1 6 0
+f affects dex 1 0 35 -1
+f object cha -1 0 35 -1
 g @rus none~
 #11638
 sculptor's chisel~
@@ -2726,8 +2726,8 @@ diamond~
 weapon 0 0 AN
 dagger 4 10 'pierce' D
 34 250 2200 P
-a '' to_affects 34 -1 2 18 0
-a '' to_affects 34 -1 1 19 0
+f affects hitroll 2 0 34 -1
+f affects damroll 1 0 34 -1
 g @rus none~
 #11639
 polished bone chip~
@@ -2746,9 +2746,9 @@ cloth~
 armor A 0 AK
 8 8 8 8 0
 29 70 200 P
-a '' to_affects 29 -1 2 4 0
-a '' to_affects 29 -1 1 5 0
-a '' to_affects 29 -1 30 12 0
+f affects wis 2 0 29 -1
+f affects con 1 0 29 -1
+f affects mana 30 0 29 -1
 E
 flowing white priest robes~
 A glowing white cross is emblazoned across the front of the robes.
@@ -2762,9 +2762,9 @@ nothingness~
 armor AU 0 AD
 9 9 9 8 0
 30 30 0 P
-a '' to_affects 30 -1 -3 2 0
-a '' to_affects 30 -1 -4 4 0
-a '' to_affects 30 -1 30 12 0
+f affects dex -3 0 30 -1
+f affects wis -4 0 30 -1
+f affects mana 30 0 30 -1
 g @rus none~
 #11642
 silver neckchain chain~
@@ -2774,9 +2774,9 @@ silver~
 jewelry A 0 AC
 0 0 0 0 0
 23 10 4000 P
-a '' to_affects 23 -1 1 5 0
-a '' to_affects 23 -1 15 13 0
-a '' to_affects 23 -1 20 12 0
+f affects con 1 0 23 -1
+f affects hp 15 0 23 -1
+f affects mana 20 0 23 -1
 g @rus none~
 #11643
 broken watch~
@@ -2786,9 +2786,9 @@ brass~
 armor B 0 AL
 8 8 8 7 0
 23 50 20 P
-a '' to_affects 23 -1 15 13 0
-a '' to_affects 23 -1 2 19 0
-a '' to_object 23 -1 3 9 0
+f affects hp 15 0 23 -1
+f affects damroll 2 0 23 -1
+f object age 3 0 23 -1
 g @rus none~
 #11644
 fluffy white tail~
@@ -2798,9 +2798,9 @@ cotton~
 armor 0 0 AF
 7 7 7 7 0
 23 0 10 P
-a '' to_affects 23 -1 1 2 0
-a '' to_affects 23 -1 20 12 0
-a '' to_affects 23 -1 2 19 0
+f affects dex 1 0 23 -1
+f affects mana 20 0 23 -1
+f affects damroll 2 0 23 -1
 g @rus none~
 #11645
 rabbit food pellet~
@@ -2819,9 +2819,9 @@ etherealness~
 armor AFI 0 AQ
 8 8 8 7 0
 25 10 0 P
-a '' to_affects 25 -1 1 4 0
-a '' to_affects 25 -1 25 12 0
-a '' to_affects 25 -1 2 19 0
+f affects wis 1 0 25 -1
+f affects mana 25 0 25 -1
+f affects damroll 2 0 25 -1
 g @rus none~
 #11647
 shattered dreams pieces~
@@ -2831,9 +2831,9 @@ nothingness~
 armor B 0 AQ
 13 13 13 10 0
 40 0 0 P
-a '' to_affects 40 -1 -10 12 0
-a '' to_affects 40 -1 35 13 0
-a '' to_affects 40 -1 3 19 0
+f affects mana -10 0 40 -1
+f affects hp 35 0 40 -1
+f affects damroll 3 0 40 -1
 g @rus none~
 #11648
 ice mask~
@@ -2843,10 +2843,10 @@ ice~
 armor A 0 AT
 12 13 12 10 0
 40 70 1100 P
-a '' to_affects 40 -1 2 1 0
-a '' to_affects 40 -1 -5 12 0
-a '' to_affects 40 -1 35 13 0
-a '' to_affects 40 -1 3 19 0
+f affects str 2 0 40 -1
+f affects mana -5 0 40 -1
+f affects hp 35 0 40 -1
+f affects damroll 3 0 40 -1
 E
 ice mask~
 A poem is engraved on the inside of the mask:
@@ -2873,9 +2873,9 @@ feathers~
 armor A 0 AO
 10 10 10 9 0
 33 10 2700 P
-a '' to_affects 33 -1 1 1 0
-a '' to_affects 33 -1 25 13 0
-a '' to_affects 33 -1 3 19 0
+f affects str 1 0 33 -1
+f affects hp 25 0 33 -1
+f affects damroll 3 0 33 -1
 g @rus none~
 #11650
 bloody cowl~
@@ -2885,10 +2885,10 @@ wool~
 armor 0 0 AE
 10 10 10 10 0
 32 50 100 P
-a '' to_affects 32 -1 -1 1 0
-a '' to_affects 32 -1 2 3 0
-a '' to_affects 32 -1 35 12 0
-a '' to_affects 32 -1 2 19 0
+f affects str -1 0 32 -1
+f affects int 2 0 32 -1
+f affects mana 35 0 32 -1
+f affects damroll 2 0 32 -1
 g @rus none~
 #11651
 dark eye nightmare~
@@ -2898,10 +2898,10 @@ flame~
 light AE 0 A
 0 0 -1 0 0
 33 10 350 P
-a '' to_affects 33 -1 2 1 0
-a '' to_affects 33 -1 25 13 0
-a '' to_affects 33 -1 1 18 0
-a '' to_affects 33 -1 3 19 0
+f affects str 2 0 33 -1
+f affects hp 25 0 33 -1
+f affects hitroll 1 0 33 -1
+f affects damroll 3 0 33 -1
 g @rus none~
 #11652
 nightmare breath dark cloud~
@@ -2911,9 +2911,9 @@ air~
 armor BCFHJ 0 AK
 10 10 10 9 0
 33 10 100 P
-a '' to_affects 33 -1 25 13 0
-a '' to_affects 33 -1 2 18 0
-a '' to_affects 33 -1 3 19 0
+f affects hp 25 0 33 -1
+f affects hitroll 2 0 33 -1
+f affects damroll 3 0 33 -1
 g @rus none~
 #11653
 sacrificial robes bloody~
@@ -2923,9 +2923,9 @@ linen~
 armor EJM 0 AK
 9 10 9 9 0
 30 50 1200 P
-a '' to_affects 30 -1 30 12 0
-a '' to_affects 30 -1 2 18 0
-a '' to_affects 30 -1 3 19 0
+f affects mana 30 0 30 -1
+f affects hitroll 2 0 30 -1
+f affects damroll 3 0 30 -1
 g @rus none~
 #11654
 deathblade blade~
@@ -2935,8 +2935,8 @@ adamantite~
 weapon BJ 0 AN
 sword 5 9 'drain' C
 32 400 2000 P
-a '' to_object 32 -1 2 19 0
-a '' to_object 32 -1 2 18 0
+f object damroll 2 0 32 -1
+f object hitroll 2 0 32 -1
 g @rus none~
 #11655
 gauntlets night black~
@@ -2946,8 +2946,8 @@ onyx~
 armor BJ 0 AH
 10 10 10 8 0
 30 60 2700 P
-a '' to_affects 30 -1 2 18 0
-a '' to_affects 30 -1 3 19 0
+f affects hitroll 2 0 30 -1
+f affects damroll 3 0 30 -1
 g @rus none~
 #11656
 blood drenched dagger~
@@ -2957,8 +2957,8 @@ obsidian~
 weapon AJ 0 AN
 dagger 5 8 'pierce' D
 33 250 1300 P
-a '' to_affects 33 -1 2 18 0
-a '' to_affects 33 -1 2 19 0
+f affects hitroll 2 0 33 -1
+f affects damroll 2 0 33 -1
 g @rus none~
 #11657
 hole~
@@ -2977,9 +2977,9 @@ flesh~
 armor 0 0 AH
 7 7 7 7 0
 23 10 600 P
-a '' to_affects 23 -1 20 12 0
-a '' to_affects 23 -1 15 13 0
-a '' to_affects 23 -1 2 19 0
+f affects mana 20 0 23 -1
+f affects hp 15 0 23 -1
+f affects damroll 2 0 23 -1
 g @rus none~
 #11659
 blood spattered shield obsidian~
@@ -2989,10 +2989,10 @@ obsidian~
 armor A 0 AJ
 10 10 10 9 0
 35 100 1050 P
-a '' to_affects 35 -1 1 1 0
-a '' to_affects 35 -1 25 13 0
-a '' to_affects 35 -1 3 18 0
-a '' to_affects 35 -1 4 19 0
+f affects str 1 0 35 -1
+f affects hp 25 0 35 -1
+f affects hitroll 3 0 35 -1
+f affects damroll 4 0 35 -1
 g @rus none~
 #11660
 bloody fang vampire~
@@ -3002,8 +3002,8 @@ bone~
 weapon B 0 AN
 dagger 8 5 'pierce' CD
 35 250 2000 P
-a '' to_affects 35 -1 2 18 0
-a '' to_affects 35 -1 2 19 0
+f affects hitroll 2 0 35 -1
+f affects damroll 2 0 35 -1
 g @rus none~
 #11661
 tattered cloak black~
@@ -3013,10 +3013,10 @@ wool~
 armor 0 0 AC
 10 10 10 10 0
 35 50 10 P
-a '' to_affects 35 -1 1 1 0
-a '' to_affects 35 -1 30 13 0
-a '' to_affects 35 -1 2 18 0
-a '' to_affects 35 -1 3 19 0
+f affects str 1 0 35 -1
+f affects hp 30 0 35 -1
+f affects hitroll 2 0 35 -1
+f affects damroll 3 0 35 -1
 g @rus none~
 #11662
 mark daemias black hair~
@@ -3026,10 +3026,10 @@ flesh~
 armor BCM 0 AE
 10 10 10 10 0
 40 0 5000 P
-a '' to_affects 40 -1 2 1 0
-a '' to_affects 40 -1 40 13 0
-a '' to_affects 40 -1 2 18 0
-a '' to_affects 40 -1 3 19 0
+f affects str 2 0 40 -1
+f affects hp 40 0 40 -1
+f affects hitroll 2 0 40 -1
+f affects damroll 3 0 40 -1
 E
 mark daemias black hair~
 silver threads interwoven with the black form the words:
@@ -3055,10 +3055,10 @@ shadow~
 light ACJ 0 A
 0 0 -1 0 0
 42 10 5000 P
-a '' to_affects 42 -1 35 12 0
-a '' to_affects 42 -1 35 13 0
-a '' to_affects 42 -1 2 18 0
-a '' to_affects 42 -1 4 19 0
+f affects mana 35 0 42 -1
+f affects hp 35 0 42 -1
+f affects hitroll 2 0 42 -1
+f affects damroll 4 0 42 -1
 g @rus none~
 #11664
 circle tears~
@@ -3068,10 +3068,10 @@ water~
 armor AFIJ 0 AL
 11 11 11 11 0
 42 50 3500 P
-a '' to_affects 42 -1 2 2 0
-a '' to_affects 42 -1 35 13 0
-a '' to_affects 42 -1 -1 18 0
-a '' to_affects 42 -1 3 19 0
+f affects dex 2 0 42 -1
+f affects hp 35 0 42 -1
+f affects hitroll -1 0 42 -1
+f affects damroll 3 0 42 -1
 g @rus none~
 #11665
 ashes lost~
@@ -3081,11 +3081,11 @@ ash~
 armor AJM 0 AQ
 10 10 10 10 0
 42 10 100 P
-a '' to_affects 42 -1 35 12 0
-a '' to_affects 42 -1 35 13 0
-a '' to_affects 42 -1 2 18 0
-a '' to_affects 42 -1 4 19 0
-a '' to_object 42 -1 -1 5 0
+f affects mana 35 0 42 -1
+f affects hp 35 0 42 -1
+f affects hitroll 2 0 42 -1
+f affects damroll 4 0 42 -1
+f object con -1 0 42 -1
 g @rus none~
 #11666
 broken bible~
@@ -3095,10 +3095,10 @@ soft leather~
 armor BJ 0 AO
 10 10 10 10 0
 42 50 10 P
-a '' to_affects 42 -1 -5 12 0
-a '' to_affects 42 -1 35 13 0
-a '' to_affects 42 -1 2 18 0
-a '' to_affects 42 -1 3 19 0
+f affects mana -5 0 42 -1
+f affects hp 35 0 42 -1
+f affects hitroll 2 0 42 -1
+f affects damroll 3 0 42 -1
 g @rus none~
 #11667
 bloodstained platter silver~
@@ -3108,9 +3108,9 @@ silver~
 armor A 0 AJ
 10 10 10 8 0
 30 100 1600 P
-a '' to_affects 30 -1 1 5 0
-a '' to_affects 30 -1 30 12 0
-a '' to_affects 30 -1 3 19 0
+f affects con 1 0 30 -1
+f affects mana 30 0 30 -1
+f affects damroll 3 0 30 -1
 g @rus none~
 #11668
 razor claws~
@@ -3120,9 +3120,9 @@ bone~
 armor ACF 0 AH
 10 10 10 10 0
 41 50 2000 P
-a '' to_affects 41 -1 25 13 0
-a '' to_affects 41 -1 3 18 0
-a '' to_affects 41 -1 4 19 0
+f affects hp 25 0 41 -1
+f affects hitroll 3 0 41 -1
+f affects damroll 4 0 41 -1
 g @rus none~
 #11669
 mark ykres shadow black~
@@ -3132,10 +3132,10 @@ shadow~
 armor BCF 0 AC
 10 10 10 10 0
 41 0 4000 P
-a '' to_affects 41 -1 2 2 0
-a '' to_affects 41 -1 15 12 0
-a '' to_affects 41 -1 35 13 0
-a '' to_affects 41 -1 3 19 0
+f affects dex 2 0 41 -1
+f affects mana 15 0 41 -1
+f affects hp 35 0 41 -1
+f affects damroll 3 0 41 -1
 g @rus none~
 #11670
 bracelet night darkness~
@@ -3145,9 +3145,9 @@ shadow~
 armor BCF 0 AM
 8 8 8 7 0
 27 20 1500 P
-a '' to_affects 27 -1 20 13 0
-a '' to_affects 27 -1 2 2 0
-a '' to_affects 27 -1 3 19 0
+f affects hp 20 0 27 -1
+f affects dex 2 0 27 -1
+f affects damroll 3 0 27 -1
 g @rus none~
 #11671
 onyx owl ring~
@@ -3157,9 +3157,9 @@ onyx~
 jewelry C 0 AB
 0 0 0 0 0
 27 10 2500 P
-a '' to_affects 27 -1 1 4 0
-a '' to_affects 27 -1 25 12 0
-a '' to_affects 27 -1 3 19 0
+f affects wis 1 0 27 -1
+f affects mana 25 0 27 -1
+f affects damroll 3 0 27 -1
 g @rus none~
 #11672
 sliver darkness~
@@ -3169,8 +3169,8 @@ shadow~
 weapon C 0 AN
 dagger 9 4 'pierce' D
 35 250 6230 P
-a '' to_affects 35 -1 1 18 0
-a '' to_affects 35 -1 2 19 0
+f affects hitroll 1 0 35 -1
+f affects damroll 2 0 35 -1
 g @rus none~
 #11673
 mask deception grey~
@@ -3180,10 +3180,10 @@ shadow~
 armor BCF 0 AT
 12 12 12 10 0
 40 30 2000 P
-a '' to_affects 40 -1 2 2 0
-a '' to_affects 40 -1 30 13 0
-a '' to_affects 40 -1 1 18 0
-a '' to_affects 40 -1 2 19 0
+f affects dex 2 0 40 -1
+f affects hp 30 0 40 -1
+f affects hitroll 1 0 40 -1
+f affects damroll 2 0 40 -1
 g @rus none~
 #11674
 cloak shadows~
@@ -3193,9 +3193,9 @@ shadow~
 container BCF 0 AC
 200 0 0 20 50
 32 70 1200 P
-a '' to_affects 32 -1 -6 17 0
-a '' to_affects 32 -1 2 2 0
-a '' to_affects 32 -1 3 19 0
+f affects ac -6 0 32 -1
+f affects dex 2 0 32 -1
+f affects damroll 3 0 32 -1
 g @rus none~
 #11675
 ice candle~
@@ -3205,9 +3205,9 @@ ice~
 light AF 0 A
 0 0 -1 0 0
 32 60 2200 P
-a '' to_affects 32 -1 2 3 0
-a '' to_affects 32 -1 2 18 0
-a '' to_affects 32 -1 4 19 0
+f affects int 2 0 32 -1
+f affects hitroll 2 0 32 -1
+f affects damroll 4 0 32 -1
 g @rus none~
 #11676
 stiletto shadow shadow's edge~
@@ -3217,8 +3217,8 @@ shadow~
 weapon C 0 AN
 dagger 13 4 'pierce' CD
 43 250 3300 P
-a '' to_affects 43 -1 3 19 0
-a '' to_affects 43 -1 8 18 0
+f affects damroll 3 0 43 -1
+f affects hitroll 8 0 43 -1
 g @rus none~
 #11677
 silhouette~
@@ -3228,10 +3228,10 @@ shadow~
 armor CF 0 AK
 12 12 12 10 0
 43 0 0 P
-a '' to_affects 43 -1 1 2 0
-a '' to_affects 43 -1 30 12 0
-a '' to_affects 43 -1 30 13 0
-a '' to_affects 43 -1 4 19 0
+f affects dex 1 0 43 -1
+f affects mana 30 0 43 -1
+f affects hp 30 0 43 -1
+f affects damroll 4 0 43 -1
 g @rus none~
 #11678
 silence~
@@ -3241,10 +3241,10 @@ nothingness~
 armor CF 0 AF
 12 12 12 11 0
 43 10 230 P
-a '' to_affects 43 -1 2 2 0
-a '' to_affects 43 -1 40 12 0
-a '' to_affects 43 -1 10 13 0
-a '' to_affects 43 -1 3 19 0
+f affects dex 2 0 43 -1
+f affects mana 40 0 43 -1
+f affects hp 10 0 43 -1
+f affects damroll 3 0 43 -1
 g @rus none~
 #11679
 black shadowhawk hawk talons~
@@ -3254,10 +3254,10 @@ bone~
 armor AC 0 AG
 13 13 13 10 0
 40 80 4000 P
-a '' to_affects 40 -1 1 1 0
-a '' to_affects 40 -1 30 13 0
-a '' to_affects 40 -1 1 18 0
-a '' to_affects 40 -1 3 19 0
+f affects str 1 0 40 -1
+f affects hp 30 0 40 -1
+f affects hitroll 1 0 40 -1
+f affects damroll 3 0 40 -1
 g @rus none~
 #11680
 bracers energy~
@@ -3267,10 +3267,10 @@ energy~
 armor AB 0 AI
 10 10 10 10 0
 38 40 2200 P
-a '' to_affects 38 -1 2 2 0
-a '' to_affects 38 -1 45 12 0
-a '' to_affects 38 -1 3 19 0
-a '' to_affects 38 -1 0 0 V
+f affects dex 2 0 38 -1
+f affects mana 45 0 38 -1
+f affects damroll 3 0 38 -1
+f affects none 0 V 38 -1
 g @rus none~
 #11681
 whirling disc energy~
@@ -3280,9 +3280,9 @@ energy~
 armor AB 0 AJ
 10 10 10 10 0
 40 50 1500 P
-a '' to_affects 40 -1 40 12 0
-a '' to_affects 40 -1 3 18 0
-a '' to_affects 40 -1 4 19 0
+f affects mana 40 0 40 -1
+f affects hitroll 3 0 40 -1
+f affects damroll 4 0 40 -1
 g @rus none~
 #11682
 brain cell~
@@ -3292,8 +3292,8 @@ skin~
 armor B 0 AE
 9 9 9 9 0
 32 10 1 P
-a '' to_affects 32 -1 2 3 0
-a '' to_affects 32 -1 30 12 0
+f affects int 2 0 32 -1
+f affects mana 30 0 32 -1
 g @rus none~
 #11683
 pink pig wings~
@@ -3303,9 +3303,9 @@ feathers~
 armor B 0 AI
 8 8 8 8 0
 29 60 2250 P
-a '' to_affects 29 -1 1 2 0
-a '' to_affects 29 -1 2 18 0
-a '' to_affects 29 -1 2 19 0
+f affects dex 1 0 29 -1
+f affects hitroll 2 0 29 -1
+f affects damroll 2 0 29 -1
 g @rus none~
 #11684
 effigy barney purple dinosaur~
@@ -3315,10 +3315,10 @@ cloth~
 armor AB 0 AO
 8 8 8 8 0
 30 50 0 P
-a '' to_affects 30 -1 -1 3 0
-a '' to_affects 30 -1 -1 4 0
-a '' to_affects 30 -1 35 13 0
-a '' to_affects 30 -1 2 19 0
+f affects int -1 0 30 -1
+f affects wis -1 0 30 -1
+f affects hp 35 0 30 -1
+f affects damroll 2 0 30 -1
 g @rus none~
 #11685
 white lab coat~
@@ -3328,8 +3328,8 @@ linen~
 armor AB 0 AK
 9 9 9 9 0
 32 40 1700 P
-a '' to_affects 32 -1 2 3 0
-a '' to_affects 32 -1 2 4 0
+f affects int 2 0 32 -1
+f affects wis 2 0 32 -1
 g @rus none~
 #11686
 trendy suit~
@@ -3339,10 +3339,10 @@ linen~
 armor 0 0 AD
 8 8 8 8 0
 30 90 3500 P
-a '' to_affects 30 -1 -1 3 0
-a '' to_affects 30 -1 -1 4 0
-a '' to_affects 30 -1 25 12 0
-a '' to_affects 30 -1 25 13 0
+f affects int -1 0 30 -1
+f affects wis -1 0 30 -1
+f affects mana 25 0 30 -1
+f affects hp 25 0 30 -1
 g @rus none~
 #11687
 energy shimmering circlet~
@@ -3352,9 +3352,9 @@ energy~
 armor ABHM 0 AB
 10 10 10 10 0
 43 10 3500 P
-a '' to_affects 43 -1 35 12 0
-a '' to_affects 43 -1 2 18 0
-a '' to_affects 43 -1 4 19 0
+f affects mana 35 0 43 -1
+f affects hitroll 2 0 43 -1
+f affects damroll 4 0 43 -1
 g @rus none~
 #11688
 bracelet delusions~
@@ -3364,9 +3364,9 @@ energy~
 armor ABM 0 AM
 10 10 10 10 0
 43 30 1000 P
-a '' to_affects 43 -1 -2 4 0
-a '' to_affects 43 -1 55 12 0
-a '' to_affects 43 -1 -5 18 0
+f affects wis -2 0 43 -1
+f affects mana 55 0 43 -1
+f affects hitroll -5 0 43 -1
 g @rus none~
 #11689
 idea~
@@ -3376,10 +3376,10 @@ energy~
 light AB 0 A
 0 0 -1 0 0
 43 0 5000 P
-a '' to_affects 43 -1 2 3 0
-a '' to_affects 43 -1 45 12 0
-a '' to_affects 43 -1 2 18 0
-a '' to_affects 43 -1 3 19 0
+f affects int 2 0 43 -1
+f affects mana 45 0 43 -1
+f affects hitroll 2 0 43 -1
+f affects damroll 3 0 43 -1
 g @rus none~
 #11690
 energy mail chainmail chain~
@@ -3389,10 +3389,10 @@ energy~
 armor AB 0 AD
 10 10 10 10 0
 43 100 3500 P
-a '' to_affects 43 -1 35 12 0
-a '' to_affects 43 -1 25 13 0
-a '' to_affects 43 -1 3 18 0
-a '' to_affects 43 -1 4 19 0
+f affects mana 35 0 43 -1
+f affects hp 25 0 43 -1
+f affects hitroll 3 0 43 -1
+f affects damroll 4 0 43 -1
 g @rus none~
 #11691
 red feather leggings~
@@ -3402,9 +3402,9 @@ feathers~
 armor AB 0 AF
 10 10 10 10 0
 38 80 3000 P
-a '' to_affects 38 -1 25 13 0
-a '' to_affects 38 -1 2 18 0
-a '' to_affects 38 -1 3 19 0
+f affects hp 25 0 38 -1
+f affects hitroll 2 0 38 -1
+f affects damroll 3 0 38 -1
 g @rus none~
 #11692
 brilliant red tailfeather feather~
@@ -3414,8 +3414,8 @@ feathers~
 weapon A 0 AN
 spear 5 10 'pierce' DGK
 40 380 1500 P
-a '' to_affects 40 -1 3 18 0
-a '' to_affects 40 -1 3 19 0
+f affects hitroll 3 0 40 -1
+f affects damroll 3 0 40 -1
 g @rus none~
 #11693
 musical bracers black feather~
@@ -3425,9 +3425,9 @@ feathers~
 armor AB 0 AI
 7 7 7 7 0
 22 20 2200 P
-a '' to_affects 22 -1 2 2 0
-a '' to_affects 22 -1 20 12 0
-a '' to_affects 22 -1 2 19 0
+f affects dex 2 0 22 -1
+f affects mana 20 0 22 -1
+f affects damroll 2 0 22 -1
 g @rus none~
 #11694
 silent flame dark~
@@ -3437,9 +3437,9 @@ shadow~
 light ACF 0 A
 0 0 -1 0 0
 25 0 1000 P
-a '' to_affects 25 -1 1 2 0
-a '' to_affects 25 -1 15 13 0
-a '' to_affects 25 -1 2 19 0
+f affects dex 1 0 25 -1
+f affects hp 15 0 25 -1
+f affects damroll 2 0 25 -1
 g @rus none~
 #11695
 shadowy handprints prints~
@@ -3449,9 +3449,9 @@ shadow~
 armor BCF 0 AH
 7 7 7 7 0
 30 0 0 P
-a '' to_affects 30 -1 1 2 0
-a '' to_affects 30 -1 30 12 0
-a '' to_affects 30 -1 3 19 0
+f affects dex 1 0 30 -1
+f affects mana 30 0 30 -1
+f affects damroll 3 0 30 -1
 g @rus none~
 #11696
 dark owl feather blanket~
@@ -3522,8 +3522,8 @@ stone~
 treasure C 0 AC
 0 0 0 0 0
 0 10 0 P
-a '' to_object 0 -1 1 5 0
-a '' to_object 0 -1 1 2 0
+f object con 1 0 0 -1
+f object dex 1 0 0 -1
 g @rus none~
 #11703
 steel key~
@@ -3587,13 +3587,13 @@ adamantite~
 armor AI 0 AI
 20 20 20 12 0
 45 50 10000 P
-a '' to_affects 45 -1 6 19 0
-a '' to_affects 45 -1 6 18 0
-a '' to_affects 45 -1 60 12 0
-a '' to_affects 45 -1 60 13 0
-a '' to_affects 45 -1 2 1 0
-a '' to_affects 45 -1 2 2 0
-a '' to_object 45 -1 -5 20 0
+f affects damroll 6 0 45 -1
+f affects hitroll 6 0 45 -1
+f affects mana 60 0 45 -1
+f affects hp 60 0 45 -1
+f affects str 2 0 45 -1
+f affects dex 2 0 45 -1
+f object saves -5 0 45 -1
 E
 dark crimson armbands arm bands pair circles blood~
 Engraved in the blood red metal is the inscription:  "Ir'vekire zai'Zdreni",
@@ -3608,32 +3608,32 @@ adamantite~
 armor B 0 AC
 20 20 20 12 0
 45 30 15000 P
-a '' to_resist 45 -1 20 5 0
-a '' to_resist 45 -1 20 14 0
-a '' to_resist 45 -1 20 12 0
-a '' to_resist 45 -1 20 7 0
-a '' to_resist 45 -1 20 11 0
-a '' to_resist 45 -1 20 10 0
-a '' to_resist 45 -1 20 9 0
-a '' to_resist 45 -1 20 8 0
-a '' to_resist 45 -1 20 17 0
-a '' to_resist 45 -1 20 4 0
-a '' to_resist 45 -1 20 3 0
-a '' to_resist 45 -1 20 1 0
-a '' to_resist 45 -1 20 2 0
-a '' to_resist 45 -1 20 0 0
-a '' to_affects 45 -1 2 1 0
-a '' to_affects 45 -1 2 2 0
-a '' to_affects 45 -1 2 3 0
-a '' to_affects 45 -1 2 4 0
-a '' to_affects 45 -1 2 5 0
-a '' to_affects 45 -1 150 14 0
-a '' to_affects 45 -1 150 12 0
-a '' to_affects 45 -1 100 13 0
-a '' to_affects 45 -1 8 18 0
-a '' to_affects 45 -1 8 19 0
-a '' to_affects 45 -1 0 0 c
-a '' to_object 45 -1 -10 20 0
+f resists lightning 20 0 45 -1
+f resists light 20 0 45 -1
+f resists disease 20 0 45 -1
+f resists poison 20 0 45 -1
+f resists mental 20 0 45 -1
+f resists energy 20 0 45 -1
+f resists holy 20 0 45 -1
+f resists negative 20 0 45 -1
+f resists charm 20 0 45 -1
+f resists cold 20 0 45 -1
+f resists fire 20 0 45 -1
+f resists pierce 20 0 45 -1
+f resists slash 20 0 45 -1
+f resists bash 20 0 45 -1
+f affects str 2 0 45 -1
+f affects dex 2 0 45 -1
+f affects int 2 0 45 -1
+f affects wis 2 0 45 -1
+f affects con 2 0 45 -1
+f affects move 150 0 45 -1
+f affects mana 150 0 45 -1
+f affects hp 100 0 45 -1
+f affects hitroll 8 0 45 -1
+f affects damroll 8 0 45 -1
+f affects none 0 c 45 -1
+f object saves -10 0 45 -1
 E
 oath vengeance band adamantite ruby~
 An inscription encircles the outside of the band:  "Ir'vekire zai'Zdreni"
@@ -3655,8 +3655,8 @@ adamantite~
 weapon AC 0 AN
 dagger 10 6 'pierce' CD
 45 180 12500 P
-a '' to_affects 45 -1 13 18 0
-a '' to_affects 45 -1 13 19 0
+f affects hitroll 13 0 45 -1
+f affects damroll 13 0 45 -1
 g @rus none~
 #11711
 midnight black insignia onyx ring~
@@ -3666,11 +3666,11 @@ onyx~
 treasure C 0 AB
 0 0 0 0 0
 41 10 2500 P
-a '' to_affects 41 -1 1 1 0
-a '' to_affects 41 -1 30 12 0
-a '' to_affects 41 -1 30 13 0
-a '' to_affects 41 -1 2 18 0
-a '' to_affects 41 -1 4 19 0
+f affects str 1 0 41 -1
+f affects mana 30 0 41 -1
+f affects hp 30 0 41 -1
+f affects hitroll 2 0 41 -1
+f affects damroll 4 0 41 -1
 g @rus none~
 #11712
 dark grey insignia chainmail chain mail~
@@ -3680,9 +3680,9 @@ adamantite~
 armor C 0 AD
 13 13 13 10 0
 39 80 2500 P
-a '' to_affects 39 -1 1 2 0
-a '' to_affects 39 -1 25 13 0
-a '' to_affects 39 -1 4 19 0
+f affects dex 1 0 39 -1
+f affects hp 25 0 39 -1
+f affects damroll 4 0 39 -1
 E
 dark grey insignia chainmail chain mail~
 An engraving of two crossed daggers shimmers above the left shoulder of
@@ -3697,8 +3697,8 @@ silk~
 armor C 0 AL
 10 10 10 9 0
 36 40 2000 P
-a '' to_affects 36 -1 25 13 0
-a '' to_affects 36 -1 3 19 0
+f affects hp 25 0 36 -1
+f affects damroll 3 0 36 -1
 g @rus none~
 #11714
 dark blue sash purple~
@@ -3708,9 +3708,9 @@ silk~
 armor C 0 AL
 10 10 10 10 0
 36 40 2000 P
-a '' to_affects 36 -1 1 3 0
-a '' to_affects 36 -1 35 12 0
-a '' to_affects 36 -1 3 19 0
+f affects int 1 0 36 -1
+f affects mana 35 0 36 -1
+f affects damroll 3 0 36 -1
 g @rus none~
 #11715
 smokey blue insignia cloak~
@@ -3720,10 +3720,10 @@ leather~
 armor C 0 AC
 10 10 10 8 0
 34 50 2000 P
-a '' to_affects 34 -1 1 2 0
-a '' to_affects 34 -1 1 5 0
-a '' to_affects 34 -1 25 13 0
-a '' to_affects 34 -1 3 19 0
+f affects dex 1 0 34 -1
+f affects con 1 0 34 -1
+f affects hp 25 0 34 -1
+f affects damroll 3 0 34 -1
 g @rus none~
 #11716
 indigo insignia pair gloves~
@@ -3733,10 +3733,10 @@ leather~
 armor C 0 AH
 9 9 9 8 0
 31 20 2000 P
-a '' to_affects 31 -1 1 2 0
-a '' to_affects 31 -1 30 12 0
-a '' to_affects 31 -1 20 13 0
-a '' to_affects 31 -1 2 19 0
+f affects dex 1 0 31 -1
+f affects mana 30 0 31 -1
+f affects hp 20 0 31 -1
+f affects damroll 2 0 31 -1
 g @rus none~
 #11717
 dark green insignia boots~
@@ -3746,10 +3746,10 @@ leather~
 armor C 0 AG
 8 8 8 7 0
 29 40 1500 P
-a '' to_affects 29 -1 1 2 0
-a '' to_affects 29 -1 30 12 0
-a '' to_affects 29 -1 2 19 0
-a '' to_object 29 -1 -2 20 0
+f affects dex 1 0 29 -1
+f affects mana 30 0 29 -1
+f affects damroll 2 0 29 -1
+f object saves -2 0 29 -1
 g @rus none~
 #11718
 grey insignia leggings~
@@ -3759,11 +3759,11 @@ leather~
 armor C 0 AF
 7 7 7 7 0
 26 30 1500 P
-a '' to_affects 26 -1 1 2 0
-a '' to_affects 26 -1 15 12 0
-a '' to_affects 26 -1 15 13 0
-a '' to_affects 26 -1 2 19 0
-a '' to_object 26 -1 1 1 0
+f affects dex 1 0 26 -1
+f affects mana 15 0 26 -1
+f affects hp 15 0 26 -1
+f affects damroll 2 0 26 -1
+f object str 1 0 26 -1
 g @rus none~
 #11719
 tan insignia bracer~
@@ -3773,10 +3773,10 @@ leather~
 armor 0 0 AM
 7 7 7 6 0
 24 20 1200 P
-a '' to_affects 24 -1 15 13 0
-a '' to_affects 24 -1 1 19 0
-a '' to_object 24 -1 1 5 0
-a '' to_object 24 -1 1 3 0
+f affects hp 15 0 24 -1
+f affects damroll 1 0 24 -1
+f object con 1 0 24 -1
+f object int 1 0 24 -1
 g @rus none~
 #11720
 applicants ring adamantite~
@@ -3786,10 +3786,10 @@ adamantite~
 treasure B 0 AB
 0 0 0 0 0
 21 10 500 P
-a '' to_affects 21 -1 1 18 0
-a '' to_affects 21 -1 2 19 0
-a '' to_object 21 -1 1 2 0
-a '' to_object 21 -1 1 1 0
+f affects hitroll 1 0 21 -1
+f affects damroll 2 0 21 -1
+f object dex 1 0 21 -1
+f object str 1 0 21 -1
 E
 applicants ring adamantite~
 Though plain, the adamantite band hums with a magic which identifies
@@ -3833,9 +3833,9 @@ adamantite~
 armor C 0 AD
 7 7 7 5 0
 22 40 2500 P
-a '' to_affects 22 -1 1 2 0
-a '' to_affects 22 -1 2 18 0
-a '' to_affects 22 -1 2 19 0
+f affects dex 1 0 22 -1
+f affects hitroll 2 0 22 -1
+f affects damroll 2 0 22 -1
 g @rus none~
 #11725
 adamantite shortsword short sword~
@@ -3845,8 +3845,8 @@ adamantite~
 weapon C 0 AN
 sword 11 4 'pierce' D
 40 220 2500 P
-a '' to_affects 40 -1 3 18 0
-a '' to_affects 40 -1 3 19 0
+f affects hitroll 3 0 40 -1
+f affects damroll 3 0 40 -1
 g @rus none~
 #11726
 adamantite kris~
@@ -3856,8 +3856,8 @@ adamantite~
 weapon C 0 AN
 dagger 5 8 'pierce' D
 36 150 2500 P
-a '' to_affects 36 -1 3 18 0
-a '' to_affects 36 -1 2 19 0
+f affects hitroll 3 0 36 -1
+f affects damroll 2 0 36 -1
 g @rus none~
 #11727
 adamantite stiletto~
@@ -3867,8 +3867,8 @@ adamantite~
 weapon C 0 AN
 dagger 5 7 'pierce' 0
 32 150 2500 P
-a '' to_affects 32 -1 3 18 0
-a '' to_affects 32 -1 2 19 0
+f affects hitroll 3 0 32 -1
+f affects damroll 2 0 32 -1
 g @rus none~
 #11728
 adamantite throwing knife blue black~
@@ -3878,8 +3878,8 @@ adamantite~
 weapon C 0 AN
 dagger 9 3 'pierce' HK
 27 150 2000 P
-a '' to_affects 27 -1 3 18 0
-a '' to_affects 27 -1 2 19 0
+f affects hitroll 3 0 27 -1
+f affects damroll 2 0 27 -1
 g @rus none~
 #11729
 adamantite dagger~
@@ -3889,8 +3889,8 @@ adamantite~
 weapon C 0 AN
 dagger 5 5 'pierce' 0
 24 150 2000 P
-a '' to_affects 24 -1 2 18 0
-a '' to_affects 24 -1 2 19 0
+f affects hitroll 2 0 24 -1
+f affects damroll 2 0 24 -1
 g @rus none~
 #0
 
