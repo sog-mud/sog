@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.159 1999-03-10 17:49:01 fjoe Exp $
+ * $Id: comm.c,v 1.160 1999-03-10 17:52:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2036,7 +2036,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 	
 	case CON_PICK_HOMETOWN: {
-		int htn = 0;
+		int htn;
 
 		if (argument[0] == '\0'
 		||  (htn = htn_lookup(argument)) < 0
