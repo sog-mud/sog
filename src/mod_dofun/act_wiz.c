@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.321 2003-05-08 14:00:07 fjoe Exp $
+ * $Id: act_wiz.c,v 1.322 2003-05-14 16:16:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2918,9 +2918,8 @@ DO_FUN(do_sockets, ch, argument)
 
 		count++;
 		if (d->d_type == D_NORMAL) {
-			strlcpy(tbuf,
-			    flag_string(desc_con_table, d->connected),
-			    sizeof(tbuf));
+			strnzcpy(tbuf, sizeof(tbuf),
+			    flag_string(desc_con_table, d->connected));
 		} else {
 			snprintf(tbuf, sizeof(tbuf), "%s#%s",
 			    flag_string(descriptor_types, d->d_type),
