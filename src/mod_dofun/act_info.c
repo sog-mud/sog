@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.298 1999-12-10 11:29:43 kostik Exp $
+ * $Id: act_info.c,v 1.299 1999-12-11 15:30:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,8 +84,8 @@ static void	show_char_to_char_0	(CHAR_DATA *victim, CHAR_DATA *ch);
 static void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
 static void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
 static void	show_obj_to_char	(CHAR_DATA *ch, OBJ_DATA *obj,
-					 flag32_t wear_loc);
-static void list_spells(flag32_t type, CHAR_DATA *ch, const char *argument);
+					 flag_t wear_loc);
+static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument);
 
 static int show_order[] = {
 	WEAR_LIGHT,
@@ -526,8 +526,8 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 
 static void do_look_room(CHAR_DATA *ch, int flags)
 {
-	if ((!room_is_dark(ch) || IS_AFFECTED(ch, AFF_DARK_VISION))
-	&& check_blind_raw(ch)) {
+	if (!room_is_dark(ch)
+	&&  check_blind_raw(ch)) {
 		const char *name;
 		const char *engname;
 
@@ -1037,9 +1037,9 @@ void do_who(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
-	flag32_t flags = 0;
-	flag32_t ralign = 0;
-	flag32_t rethos = 0;
+	flag_t flags = 0;
+	flag_t ralign = 0;
+	flag_t rethos = 0;
 
 	int iLevelLower = 0;
 	int iLevelUpper = MAX_LEVEL;
@@ -1862,7 +1862,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 
 	if (((obj = get_obj_carry(victim , arg1)) == NULL
 	&&  (obj = get_obj_wear(victim, arg1)) == NULL)
-	||  IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
+	||  IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		do_say(victim, "Sorry, I don't have that.");
 		return;
 	}
@@ -1898,7 +1898,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(obj->extra_flags, ITEM_QUIT_DROP)) {
+	if (OBJ_IS(obj, ITEM_QUIT_DROP)) {
 		do_say(victim, "Sorry, I must keep it myself.");
 		return;
 	}
@@ -2012,7 +2012,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_DETECT_HIDDEN)) {
+	if (HAS_INVIS(ch, ID_HIDDEN)) {
 		char_puts("You are already as alert as you can be. \n",ch);
 		return;
 	}
@@ -2024,13 +2024,13 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
+	af.where     = TO_INVIS;
 	af.type      = "detect hide";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
 	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_DETECT_HIDDEN;
+	af.bitvector = ID_HIDDEN;
 	affect_to_char(ch, &af);
 	char_puts("Your awareness improves.\n", ch);
 	check_improve(ch, "detect hide", TRUE, 1);
@@ -2046,7 +2046,7 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_AWARENESS)) {
+	if (is_affected(ch, "awareness")) {
 		char_puts("You are already as alert as you can be. \n",ch);
 		return;
 	}
@@ -2058,16 +2058,15 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
+	af.where     = TO_INVIS;
 	af.type      = "awareness";
 	af.level     = LEVEL(ch);
 	af.duration  = LEVEL(ch);
 	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_AWARENESS;
+	af.bitvector = ID_BLEND | ID_CAMOUFLAGE;
 	affect_to_char(ch, &af);
 
-	af.bitvector = AFF_ACUTE_VISION;
 	affect_to_char(ch, &af);
 
 	char_puts("Your awareness improves.\n", ch);
@@ -2190,7 +2189,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-		if (IS_NPC(rch) && IS_SET(rch->pMobIndex->act, ACT_SAGE))
+		if (IS_NPC(rch) && MOB_IS(rch, MOB_SAGE))
 			break;
 
 	if (!rch) {
@@ -2953,7 +2952,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	found = FALSE;
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-		if (!IS_NPC(mob) || !IS_SET(mob->pMobIndex->act, ACT_PRACTICE))
+		if (!IS_NPC(mob) || !MOB_IS(mob, MOB_PRACTICE))
 			continue;
 
 		found = TRUE;
@@ -3126,8 +3125,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 	/* find a trainer */
 	for (tr = ch->in_room->people; tr; tr = tr->next_in_room) {
 		if (IS_NPC(tr)
-		&&  IS_SET(tr->pMobIndex->act,
-			   ACT_PRACTICE | ACT_TRAIN | ACT_GAIN))
+		&&  MOB_IS(tr, MOB_PRACTICE | MOB_TRAIN | MOB_GAIN))
 			break;
 	}
 
@@ -3224,7 +3222,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	list_spells(ST_SPELL, ch, argument);
 }
 
-static void list_spells(flag32_t type, CHAR_DATA *ch, const char *argument)
+static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *list[LEVEL_IMMORTAL+1];
 	int lev;
@@ -3368,7 +3366,7 @@ glist_cb(void *p, va_list ap)
 	skill_t *sk = (skill_t*) p;
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	flag64_t group = va_arg(ap, flag64_t);
+	flag_t group = va_arg(ap, flag_t);
 	int *pcol = va_arg(ap, int *);
 
 	if (group == sk->group) {
@@ -3385,7 +3383,7 @@ glist_cb(void *p, va_list ap)
 void do_glist(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	flag64_t group = GROUP_NONE;
+	flag_t group = GROUP_NONE;
 	int col = 0;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -3569,12 +3567,12 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 
 	if (((obj = get_obj_carry(victim , arg1)) == NULL
 	&&   (obj = get_obj_wear(victim, arg1)) == NULL)
-	||  IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
+	||  IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		do_say(victim, "Sorry, I don't have that.");
 		return;
 	}
 
-	if (IS_SET(obj->extra_flags, ITEM_QUIT_DROP)) {
+	if (OBJ_IS(obj, ITEM_QUIT_DROP)) {
 		do_say(victim, "Forgive me, my master, I can't give it to anyone.");
 		return;
 	}
@@ -3955,15 +3953,15 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
 			strnzcat(buf, sizeof(buf),
 				 GETMSG("({DDark{x) ", GET_LANG(ch)));
-		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
+		if (HAS_DETECT(ch, ID_EVIL)
 		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
 			strnzcat(buf, sizeof(buf),
 				 GETMSG("({RRed Aura{x) ", GET_LANG(ch)));
-		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
+		if (HAS_DETECT(ch, ID_GOOD)
 		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
 			strnzcat(buf, sizeof(buf),
 				 GETMSG("({BBlue Aura{x) ", GET_LANG(ch)));
-		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
+		if (HAS_DETECT(ch, ID_MAGIC)
 		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
 			strnzcat(buf, sizeof(buf),
 				 GETMSG("({MMagical{x) ", GET_LANG(ch)));
@@ -3973,20 +3971,26 @@ static char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
 			strnzcat(buf, sizeof(buf),
 				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
-	}
-	else {
+	} else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
 		strnzcpy(buf, sizeof(buf), FLAGS);
-		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
-		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
-		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
-		&& IS_OBJ_STAT(obj, ITEM_EVIL)		)   buf[11] = 'E';
-		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
-		&&  IS_OBJ_STAT(obj,ITEM_BLESS)		)   buf[14] = 'B';
-		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
-		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[17] = 'M';
-		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[20] = 'G';
-		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[23] = 'H';
+		if (IS_OBJ_STAT(obj, ITEM_INVIS))
+			buf[5] = 'I';
+		if (IS_OBJ_STAT(obj, ITEM_DARK))
+			buf[8] = 'D';
+		if (HAS_DETECT(ch, ID_EVIL)
+		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
+			buf[11] = 'E';
+		if (HAS_DETECT(ch, ID_GOOD)
+		&&  IS_OBJ_STAT(obj,ITEM_BLESS))
+			buf[14] = 'B';
+		if (HAS_DETECT(ch, ID_MAGIC)
+		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
+			buf[17] = 'M';
+		if (IS_OBJ_STAT(obj, ITEM_GLOW))
+			buf[20] = 'G';
+		if (IS_OBJ_STAT(obj, ITEM_HUM))
+			buf[23] = 'H';
 		if (strcmp(buf, FLAGS) == 0)
 			buf[0] = '\0';
 	}
@@ -4170,9 +4174,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
-		if (IS_AFFECTED(victim, AFF_INVIS))
+		if (HAS_INVIS(victim, ID_INVIS))
 			char_puts("({yInvis{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_HIDE)) 
+		if (HAS_INVIS(victim, ID_HIDDEN)) 
 			char_puts("({DHidden{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_CHARM)) 
 			char_puts("({mCharmed{x) ", ch);
@@ -4182,56 +4186,58 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({MPink Aura{x) ", ch);
 		if (IS_NPC(victim)
 		&&  IS_SET(victim->pMobIndex->act, ACT_UNDEAD)
-		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
+		&&  HAS_DETECT(ch, ID_UNDEAD))
 			char_puts("({DUndead{x) ", ch);
 		if (RIDDEN(victim))
 			char_puts("({GRidden{x) ", ch);
-		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
+		if (HAS_INVIS(victim, ID_IMP_INVIS))
 			char_puts("({bImproved{x) ", ch);
-		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
+		if (IS_EVIL(victim) && HAS_DETECT(ch, ID_EVIL))
 			char_puts("({RRed Aura{x) ", ch);
-		if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
+		if (IS_GOOD(victim) && HAS_DETECT(ch, ID_GOOD))
 			char_puts("({YGolden Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
 			char_puts("({WWhite Aura{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 			char_puts("({DBlack Aura{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_FADE)) 
+		if (HAS_INVIS(victim, ID_FADE)) 
 			char_puts("({yFade{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
+		if (HAS_INVIS(victim, ID_CAMOUFLAGE)) 
 			char_puts("({gCamf{x) ", ch);
-		if (IS_AFFECTED(victim, AFF_BLEND))
+		if (HAS_INVIS(victim, ID_BLEND))
 			char_puts("({gBlending{x) ", ch);
-	}
-	else {
+	} else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
 		bool flags = FALSE;
 
-		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
-		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
+		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS));
+		FLAG_SET( 8, 'H', HAS_INVIS(victim, ID_HIDDEN));
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_NPC(victim) &&
 				  IS_SET(victim->pMobIndex->act, ACT_UNDEAD) &&
-				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
+				  HAS_DETECT(ch, ID_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
-		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
+		FLAG_SET(26, 'I', HAS_INVIS(victim, ID_IMP_INVIS));
 		FLAG_SET(29, 'E', IS_EVIL(victim) &&
-				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
+				  HAS_DETECT(ch, ID_EVIL));
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&
-				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
-		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
-		FLAG_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
+				  HAS_DETECT(ch, ID_GOOD));
+
+		if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
+			FLAG_SET(35, 'S', TRUE);
+			FLAG_SET(34, 'W', TRUE);
+		}
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 			FLAG_SET(35, 'B', TRUE);
 			FLAG_SET(34, 'D', TRUE);
 		}
 
-		FLAG_SET(38, 'F', IS_AFFECTED(victim, AFF_FADE));
-		FLAG_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
-		FLAG_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
+		FLAG_SET(38, 'F', HAS_INVIS(victim, ID_FADE));
+		FLAG_SET(41, 'C', HAS_INVIS(victim, ID_CAMOUFLAGE));
+		FLAG_SET(44, 'B', HAS_INVIS(victim, ID_BLEND));
 
 		if (flags)
 			char_puts(FLAGS, ch);
@@ -4392,7 +4398,7 @@ static char* wear_loc_names[] =
 	"<stuck in>          $t",
 };
 
-static void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag32_t wear_loc)
+static void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
 {
 	bool can_see = can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,
@@ -4554,7 +4560,7 @@ static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else {
-			if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED))
+			if (room_is_dark(ch) && HAS_DETECT(rch, ID_INFRARED))
 				char_puts("You see {rglowing red eyes{x watching YOU!\n", ch);
 			life_count++;
 		}
@@ -4562,7 +4568,7 @@ static void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 
 	if (list && list->in_room == ch->in_room
 	&&  life_count
-	&&  IS_AFFECTED(ch, AFF_DETECT_LIFE))
+	&&  HAS_DETECT(ch, ID_LIFE))
 		act_puts("You feel $j more life $qj{forms} in the room.",
 			 ch, (const void*) life_count, NULL,
 			 TO_CHAR, POS_DEAD);

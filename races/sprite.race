@@ -1,6 +1,7 @@
 #RACE
 Name sprite~
-Aff detect_evil flying~
+Aff flying~
+Det evil~
 Off fade~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.55 1999-12-03 22:33:09 avn Exp $
+ * $Id: olc.h,v 1.56 1999-12-11 15:31:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -154,10 +154,8 @@ bool olced_mlstr_text	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, mlstring *);
 bool olced_exd		(CHAR_DATA *ch, const char* argument,
 			 olc_cmd_t *cmd, ED_DATA **);
-bool olced_flag64	(CHAR_DATA *ch, const char* argument,
-			 olc_cmd_t *cmd, flag64_t *);
-bool olced_flag32	(CHAR_DATA *ch, const char* argument,
-			 olc_cmd_t *cmd, flag32_t *);
+bool olced_flag		(CHAR_DATA *ch, const char* argument,
+			 olc_cmd_t *cmd, flag_t *);
 bool olced_dice		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *dice);
 bool olced_rulecl	(CHAR_DATA *ch, const char *argument,
@@ -170,8 +168,8 @@ bool olced_ival		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *);
 bool olced_gender	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, mlstring *);
-bool olced_cc_rules	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, const char *rcn, varr *v);
+bool olced_cc_ruleset	(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, cc_ruleset_t *rs);
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.h,v 1.4 1999-10-21 14:06:57 fjoe Exp $
+ * $Id: material.h,v 1.5 1999-12-11 15:31:08 fjoe Exp $
  */
 
 #ifndef _MATERIAL_H_
@@ -41,7 +41,7 @@ struct material_t {
 	const char *name;
 	int float_time;
 	int dam_class;
-	flag32_t mat_flags;
+	flag_t mat_flags;
 };
 
 extern hash_t materials;
@@ -53,8 +53,8 @@ void		material_destroy	(material_t *sk);
 #define material_lookup(mn)	((material_t *) strkey_lookup(&materials, (mn)))
 #define material_search(mn)	((material_t *) strkey_search(&materials, (mn)))
 
-bool		material_is	(OBJ_DATA *obj, flag32_t flag);
-flag32_t	get_mat_flags	(OBJ_DATA *obj);
+bool		material_is	(OBJ_DATA *obj, flag_t flag);
+flag_t		get_mat_flags	(OBJ_DATA *obj);
 int		floating_time	(OBJ_DATA *obj);
 
 #endif

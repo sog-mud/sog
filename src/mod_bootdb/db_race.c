@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.18 1999-12-11 13:31:17 kostik Exp $
+ * $Id: db_race.c,v 1.19 1999-12-11 15:31:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -62,9 +62,6 @@ DBINIT_FUN(init_race)
 DBLOAD_FUN(load_race)
 {
 	race_t r;
-	flag64_t imm = 0;
-	flag64_t res = 0;
-	flag64_t vul = 0;
 
 	race_init(&r);
 	for (;;) {
@@ -76,8 +73,10 @@ DBLOAD_FUN(load_race)
 			KEY("Aff", r.aff, fread_fstring(affect_flags, fp));
 			KEY("Act", r.act, fread_fstring(act_flags, fp));
 			break;
-		case 'D': 
-			SKEY("Damtype", r.damtype, fread_string(fp));
+		case 'D':
+			KEY("Det", r.has_detect, fread_fstring(id_flags, fp));
+			KEY("Damtype", r.damtype, 
+			    fread_strkey(fp, &damtypes, "load_mobiles"));
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
@@ -88,17 +87,6 @@ DBLOAD_FUN(load_race)
 						 "race name undefined");
 					race_destroy(&r);
 					return;
-				}
-
-				if (imm | res | vul) {
-					if (IS_SET(imm, IMM_SUMMON)) 
-						SET_BIT(r.act, ACT_IMMSUMMON);
-
-					if (IS_SET(imm, IMM_STEAL))
-						SET_BIT(r.act, ACT_IMMSTEAL);
-
-					set_percent_resistances(imm, res, vul, 
-						r.resists);
 				}
 
 				if ((pr = hash_insert(&races, r.name,
@@ -118,7 +106,7 @@ DBLOAD_FUN(load_race)
 			KEY("Flags", r.race_flags, fread_fstring(race_flags, fp));
 			break;
 		case 'I':
-			KEY("Imm", imm, fread_fstring(imm_flags, fp));
+			KEY("Inv", r.has_invis, fread_fstring(id_flags, fp));
 			break;
 		case 'N':
 			SKEY("Name", r.name, fread_string(fp));
@@ -131,25 +119,16 @@ DBLOAD_FUN(load_race)
 			break;
 		case 'R':
 			if (IS_TOKEN(fp, "Resist")) {
-				const char *cres;
-				int res;
-				fread_word(fp);
-				cres = rfile_tok(fp);
-				res = flag_svalue(resist_flags, cres);
+				int res = fread_fword(resist_flags, fp);
 				if (res < 0) {
-					bug("Load race: unknown resistance name %s", cres);
+					db_error("load_race", "unknown resistance name");
 					fread_number(fp);
-				}
-				else {
+				} else {
 					r.resists[res] = fread_number(fp);
 				}
 				fMatch = TRUE;
 				break;
 			};
-			KEY("Res", res, fread_fstring(res_flags, fp));
-			break;
-		case 'V':
-			KEY("Vuln", vul, fread_fstring(vuln_flags, fp));
 			break;
 		}
 
@@ -191,6 +170,7 @@ DBLOAD_FUN(load_pcrace)
 				rcl->name = fread_sword(fp);
 				rcl->mult = fread_number(fp);
 				fMatch = TRUE;
+				break;
 			}
 			break;
 
@@ -217,7 +197,9 @@ DBLOAD_FUN(load_pcrace)
 				for (i = 0; i < MAX_STATS; i++)
 					pcr->max_stats[i] = fread_number(fp);
 				fMatch = TRUE;
+				break;
 			}
+			break;
 
 		case 'P':
 			KEY("Points", pcr->points, fread_number(fp));
@@ -242,12 +224,15 @@ DBLOAD_FUN(load_pcrace)
 					 p);
 				free_string(p);
 				fMatch = TRUE;
+				break;
 			}
 			if (IS_TOKEN(fp, "Stats")) {
 				for (i = 0; i < MAX_STATS; i++)
 					pcr->stats[i] = fread_number(fp);
 				fMatch = TRUE;
+				break;
 			}
+			break;
 		}
 
 		if (!fMatch) {

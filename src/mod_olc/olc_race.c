@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.19 1999-12-11 13:31:16 kostik Exp $
+ * $Id: olc_race.c,v 1.20 1999-12-11 15:31:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -39,10 +39,9 @@ DECLARE_OLC_FUN(raceed_list		);
 
 DECLARE_OLC_FUN(raceed_act		);
 DECLARE_OLC_FUN(raceed_affect		);
+DECLARE_OLC_FUN(raceed_invis		);
+DECLARE_OLC_FUN(raceed_detect		);
 DECLARE_OLC_FUN(raceed_off		);
-DECLARE_OLC_FUN(raceed_imm		);
-DECLARE_OLC_FUN(raceed_res		);
-DECLARE_OLC_FUN(raceed_vuln		);
 DECLARE_OLC_FUN(raceed_form		);
 DECLARE_OLC_FUN(raceed_parts		);
 DECLARE_OLC_FUN(raceed_flags		);
@@ -88,6 +87,8 @@ olc_cmd_t olc_cmds_race[] =
 	{ "name",	olced_strkey,	NULL,		&strkey_races	},
 	{ "act",	raceed_act,	NULL,		act_flags	},
 	{ "affect",	raceed_affect,	NULL,		affect_flags	},
+	{ "invis",	raceed_invis,	NULL,		id_flags	},
+	{ "detect",	raceed_detect,	NULL,		id_flags	},
 	{ "off",	raceed_off,	NULL,		off_flags	},
        	{ "form",	raceed_form,	NULL,		form_flags	},
 	{ "parts",	raceed_parts,	NULL,		part_flags	},
@@ -234,6 +235,12 @@ OLC_FUN(raceed_show)
 	if (r->aff)
 		buf_printf(output, "Aff flags:     [%s]\n",
 			   flag_string(affect_flags, r->aff));
+	if (r->has_invis)
+		buf_printf(output, "Invis flags:   [%s]\n",
+			   flag_string(id_flags, r->has_invis));
+	if (r->has_detect)
+		buf_printf(output, "Detect flags:  [%s]\n",
+			   flag_string(id_flags, r->has_detect));
 	if (r->off)
 		buf_printf(output, "Off flags:     [%s]\n",
 			   flag_string(off_flags, r->off));
@@ -357,63 +364,56 @@ OLC_FUN(raceed_act)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag64(ch, argument, cmd, &race->act);
+	return olced_flag(ch, argument, cmd, &race->act);
 }
 
 OLC_FUN(raceed_affect)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag64(ch, argument, cmd, &race->aff);
+	return olced_flag(ch, argument, cmd, &race->aff);
+}
+
+OLC_FUN(raceed_invis)
+{
+	race_t *race;
+	EDIT_RACE(ch, race);
+	return olced_flag(ch, argument, cmd, &race->has_invis);
+}
+
+OLC_FUN(raceed_detect)
+{
+	race_t *race;
+	EDIT_RACE(ch, race);
+	return olced_flag(ch, argument, cmd, &race->has_detect);
 }
 
 OLC_FUN(raceed_off)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->off);
-}
-
-OLC_FUN(raceed_imm)
-{
-	race_t *race;
-	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->imm);
-}
-
-OLC_FUN(raceed_res)
-{
-	race_t *race;
-	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->res);
-}
-
-OLC_FUN(raceed_vuln)
-{
-	race_t *race;
-	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->vuln);
+	return olced_flag(ch, argument, cmd, &race->off);
 }
 
 OLC_FUN(raceed_form)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->form);
+	return olced_flag(ch, argument, cmd, &race->form);
 }
 
 OLC_FUN(raceed_parts)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->parts);
+	return olced_flag(ch, argument, cmd, &race->parts);
 }
 
 OLC_FUN(raceed_flags)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->race_flags);
+	return olced_flag(ch, argument, cmd, &race->race_flags);
 }
 
 OLC_FUN(raceed_addpcdata)
@@ -564,7 +564,7 @@ OLC_FUN(raceed_size)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->race_pcdata->size);
+	return olced_flag(ch, argument, cmd, &race->race_pcdata->size);
 }
 
 OLC_FUN(raceed_hpbonus)
@@ -592,21 +592,21 @@ OLC_FUN(raceed_slang)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->race_pcdata->slang);
+	return olced_flag(ch, argument, cmd, &race->race_pcdata->slang);
 }
 
 OLC_FUN(raceed_align)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_align);
+	return olced_flag(ch, argument, cmd, &race->race_pcdata->restrict_align);
 }
 
 OLC_FUN(raceed_ethos)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
-	return olced_flag32(ch, argument, cmd, &race->race_pcdata->restrict_ethos);
+	return olced_flag(ch, argument, cmd, &race->race_pcdata->restrict_ethos);
 }
 
 OLC_FUN(raceed_resists) 
@@ -638,7 +638,7 @@ OLC_FUN(raceed_resists)
 
 	return TRUE;
 }
-			
+
 OLC_FUN(raceed_damtype)
 {
 	damtype_t *d;
@@ -876,6 +876,10 @@ save_race_cb(void *p, va_list ap)
 		fprintf(fp, "Act %s~\n", flag_string(act_flags, r->act));
 	if (r->aff)
 		fprintf(fp, "Aff %s~\n", flag_string(affect_flags, r->aff));
+	if (r->has_invis)
+		fprintf(fp, "Inv %s~\n", flag_string(id_flags, r->has_invis));
+	if (r->has_detect)
+		fprintf(fp, "Det %s~\n", flag_string(id_flags, r->has_detect));
 	if (r->off)
 		fprintf(fp, "Off %s~\n", flag_string(off_flags, r->off));
 	if (r->form)
@@ -892,7 +896,7 @@ save_race_cb(void *p, va_list ap)
 	}
 
 	if (strcmp(r->damtype, "punch"))
-		fprintf(fp, "Damtype %s", r->damtype);
+		fprintf(fp, "Damtype %s\n", r->damtype);
 
 	fprintf(fp, "End\n\n");
 

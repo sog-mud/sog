@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.9 1999-11-26 08:25:24 kostik Exp $
+ * $Id: db_spec.c,v 1.10 1999-12-11 15:31:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -120,7 +120,7 @@ DBLOAD_FUN(load_spec_r)
 		return;
 	}
 
-	fread_cc_rules(fp, "spec", &spec->spec_deps);
+	fread_cc_ruleset(&spec->spec_deps, "spec", fp);
 }
 
 DBLOAD_FUN(load_spec_skill)

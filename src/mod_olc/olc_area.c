@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.65 1999-12-10 11:30:06 kostik Exp $
+ * $Id: olc_area.c,v 1.66 1999-12-11 15:31:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -318,7 +318,7 @@ OLC_FUN(areaed_flags)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return olced_flag32(ch, argument, cmd, &pArea->area_flags);
+	return olced_flag(ch, argument, cmd, &pArea->area_flags);
 }
 
 OLC_FUN(areaed_security)
@@ -843,7 +843,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
 	race_t *r = race_lookup(pMobIndex->race);
 	MPTRIG *mptrig;
-	flag64_t temp;
+	flag_t temp;
 	const char *p;
 	int i;
 
@@ -859,9 +859,11 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	mlstr_fwrite(fp, NULL,	&pMobIndex->long_descr);
 	mlstr_fwrite(fp, NULL,	&pMobIndex->description);
 	fwrite_string(fp, NULL,	r->name);
-	pMobIndex->act |= ACT_NPC;
 	fprintf(fp, "%s ",	format_flags(pMobIndex->act & ~r->act));
+	fprintf(fp, "%s ",	format_flags(pMobIndex->mob_flags));
 	fprintf(fp, "%s ",	format_flags(pMobIndex->affected_by & ~r->aff));
+	fprintf(fp, "%s ",	format_flags(pMobIndex->has_invis & ~r->has_invis));
+	fprintf(fp, "%s ",	format_flags(pMobIndex->has_detect & ~r->has_detect));
 	fprintf(fp, "%d %d\n",	pMobIndex->alignment , pMobIndex->group);
 	fprintf(fp, "%d ",	pMobIndex->level);
 	fprintf(fp, "%d ",	pMobIndex->hitroll);
@@ -880,11 +882,8 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 				pMobIndex->ac[AC_BASH]   / 10, 
 				pMobIndex->ac[AC_SLASH]  / 10, 
 				pMobIndex->ac[AC_EXOTIC] / 10);
-	fprintf(fp, "%s ",	format_flags(pMobIndex->off_flags & ~r->off));
+	fprintf(fp, "%s\n",	format_flags(pMobIndex->off_flags & ~r->off));
 	
-	fprintf(fp, "0 0 0\n"); /* Write old-styled imm/res/vuln flags for
-				compatibility */
-
 	p = mlstr_mval(&pMobIndex->gender);
 	if (IS_NULLSTR(p))
 		p = flag_string(gender_table, SEX_NEUTRAL);
@@ -908,6 +907,12 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
 	if ((temp = DIFF_BIT(r->aff, pMobIndex->affected_by)))
 		fprintf(fp, "F aff %s\n", format_flags(temp));
+
+	if ((temp = DIFF_BIT(r->has_invis, pMobIndex->has_invis)))
+		fprintf(fp, "F inv %s\n", format_flags(temp));
+
+	if ((temp = DIFF_BIT(r->has_detect, pMobIndex->has_detect)))
+		fprintf(fp, "F det %s\n", format_flags(temp));
 
 	if ((temp = DIFF_BIT(r->off, pMobIndex->off_flags)))
 		fprintf(fp, "F off %s\n", format_flags(temp));
@@ -983,8 +988,8 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	mlstr_fwrite(fp, NULL,	&pObjIndex->description);
 	fwrite_string(fp, NULL,	pObjIndex->material);
 	fprintf(fp, "%s ",	flag_string(item_types, pObjIndex->item_type));
-	fprintf(fp, "%s ",	format_flags(pObjIndex->extra_flags &
-					     ~(ITEM_ENCHANTED | ITEM_OLDSTYLE)));
+	fprintf(fp, "%s ",	format_flags(pObjIndex->stat_flags));
+	fprintf(fp, "%s ",	format_flags(pObjIndex->obj_flags));
 	fprintf(fp, "%s\n",	format_flags(pObjIndex->wear_flags));
 	fwrite_objval(pObjIndex->item_type, pObjIndex->value, fp);
 
@@ -1015,6 +1020,12 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			case TO_AFFECTS:
 				letter = 'A';
 				break;
+			case TO_INVIS:
+				letter = 'i';
+				break;
+			case TO_DETECTS:
+				letter = 'd';
+				break;
 			default:
 				log("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
@@ -1032,8 +1043,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 		ed_fwrite(fp, pEd);
 
 	mlstr_fwrite(fp, "g", &pObjIndex->gender);
-	varr_foreach(&pObjIndex->restrictions, fwrite_cc_ruleset_cb,
-		     fp, "obj_wear", "R "); 
+	fwrite_cc_ruleset(&pObjIndex->restrictions, "R", fp);
 }
 
 /*****************************************************************************
@@ -1517,6 +1527,7 @@ static void save_area(CHAR_DATA *ch, AREA_DATA *pArea)
 		return;
 
 	fprintf(fp, "#AREADATA\n");
+	fprintf(fp, "Ver %d\n", AREA_VERSION);
 	fprintf(fp, "Name %s~\n",	pArea->name);
 	fwrite_string(fp, "Builders", pArea->builders);
 	fprintf(fp, "VNUMs %d %d\n",	pArea->min_vnum, pArea->max_vnum);

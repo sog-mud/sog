@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.194 1999-11-27 11:06:08 fjoe Exp $
+ * $Id: act_comm.c,v 1.195 1999-12-11 15:30:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,26 +117,26 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 	char_puts("---------------------\n",ch);
 	
 	char_puts("music          ", ch);
-	if (!IS_SET(ch->comm, COMM_NOMUSIC))
+	if (!IS_SET(ch->chan, CHAN_NOMUSIC))
 		 char_puts("ON\n", ch);
 	else
 		 char_puts("OFF\n", ch);
 
 	char_puts("shout          ", ch);
-	if (!IS_SET(ch->comm, COMM_NOSHOUT))
+	if (!IS_SET(ch->chan, CHAN_NOSHOUT))
 		 char_puts("ON\n", ch);
 	else
 		 char_puts("OFF\n", ch);
 
 	char_puts("auction        ", ch);
-	if (!IS_SET(ch->comm, COMM_NOAUCTION))
+	if (!IS_SET(ch->chan, CHAN_NOAUCTION))
 		 char_puts("ON\n", ch);
 	else
 		 char_puts("OFF\n", ch);
 
 	if (IS_IMMORTAL(ch)) {
 		char_puts("god channel    ", ch);
-		if (!IS_SET(ch->comm,COMM_NOWIZ))
+		if (!IS_SET(ch->chan, CHAN_NOWIZ))
 			char_puts("ON\n", ch);
 		else
 			char_puts("OFF\n", ch);
@@ -160,7 +160,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(ch->comm, COMM_NOTELL))
 		 char_puts("You cannot use tell.\n", ch);
 	
-	if (IS_SET(ch->comm, COMM_NOCHANNELS))
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS))
 		char_puts("You cannot use channels.\n", ch);
 
 	if (IS_SET(ch->comm, COMM_NOEMOTE))
@@ -406,20 +406,20 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	int flags;
 
 	if (argument[0] == '\0') {
-		TOGGLE_BIT(ch->comm, COMM_NOWIZ);
-		if (IS_SET(ch->comm, COMM_NOWIZ))
+		TOGGLE_BIT(ch->chan, CHAN_NOWIZ);
+		if (IS_SET(ch->chan, CHAN_NOWIZ))
 			char_puts("Immortal channel is now OFF\n",ch);
 		else
 			char_puts("Immortal channel is now ON\n",ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		char_puts("The gods have revoked your channel privileges.\n", ch);
 		return;
 	}
 	
-	if (IS_SET(ch->comm, COMM_NOWIZ))
+	if (IS_SET(ch->chan, CHAN_NOWIZ))
 		do_immtalk(ch, str_empty);
 
 	vch = GET_ORIGINAL(ch);
@@ -431,7 +431,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 
 		if (d->connected == CON_PLAYING
 		&&  IS_IMMORTAL(victim)
-		&&  !IS_SET(victim->comm, COMM_NOWIZ)) {
+		&&  !IS_SET(victim->chan, CHAN_NOWIZ)) {
 			act_puts("$n: {C$t{x", vch, argument, d->character,
 				 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 		}
@@ -440,7 +440,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 
 void do_yell(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
 	}
@@ -464,20 +464,20 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		TOGGLE_BIT(ch->comm, COMM_NOSHOUT);
-		if (IS_SET(ch->comm, COMM_NOSHOUT))
+		TOGGLE_BIT(ch->chan, CHAN_NOSHOUT);
+		if (IS_SET(ch->chan, CHAN_NOSHOUT))
 			char_puts("You will no longer hear shouts.\n",ch);
 		else 
 			char_puts("You will now hear shouts.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
 	}
 	
-	if (IS_SET(ch->comm, COMM_NOSHOUT))
+	if (IS_SET(ch->chan, CHAN_NOSHOUT))
 		do_shout(ch, str_empty);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
@@ -488,7 +488,7 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
-		&&  !IS_SET(d->character->comm, COMM_NOSHOUT)) {
+		&&  !IS_SET(d->character->chan, CHAN_NOSHOUT)) {
 			act_puts("$n shouts '{Y$t{x'",
 				 ch, argument, d->character,
 	    			 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
@@ -505,20 +505,20 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		TOGGLE_BIT(ch->comm, COMM_NOMUSIC);
-		if (IS_SET(ch->comm, COMM_NOMUSIC))
+		TOGGLE_BIT(ch->chan, CHAN_NOMUSIC);
+		if (IS_SET(ch->chan, CHAN_NOMUSIC))
 			char_puts("You will no longer hear music.\n",ch);
 		else 
 			char_puts("You will now hear music.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
 	}
 	
-	if (IS_SET(ch->comm, COMM_NOMUSIC))
+	if (IS_SET(ch->chan, CHAN_NOMUSIC))
 		do_music(ch, str_empty);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 
@@ -529,7 +529,7 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
-		&&  !IS_SET(d->character->comm, COMM_NOMUSIC)) {
+		&&  !IS_SET(d->character->chan, CHAN_NOMUSIC)) {
 			act_puts("$n musics '{W$t{x'",
 		        	 ch, argument, d->character,
 	    			 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
@@ -545,7 +545,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
 		return;
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
 	}
@@ -589,15 +589,15 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		TOGGLE_BIT(ch->comm, COMM_NOCLAN);
-		if (IS_SET(ch->comm, COMM_NOCLAN))
+		TOGGLE_BIT(ch->chan, CHAN_NOCLAN);
+		if (IS_SET(ch->chan, CHAN_NOCLAN))
 			char_puts("You will no longer hear clan talks.\n",ch);
 		else 
 			char_puts("You will now hear clan talks.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOCLAN))
+	if (IS_SET(ch->chan, CHAN_NOCLAN))
 		do_clan(ch, str_empty);
 
 	argument = garble(ch, argument);
@@ -613,7 +613,7 @@ void do_implore(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 char_puts("The gods refuse to listen to you right now.",ch);
 		 return;
 	}
@@ -629,7 +629,7 @@ void do_implore(CHAR_DATA *ch, const char *argument)
 
 		if (d->connected == CON_PLAYING
 		&&  IS_IMMORTAL(victim)
-		&&  !IS_SET(victim->comm, COMM_NOWIZ))
+		&&  !IS_SET(victim->chan, CHAN_NOWIZ))
 			act_puts("{W$n{x is PRAYING for '{W$t{x'",
 				 ch, argument, d->character,
 				 TO_VICT | ACT_TOBUF, POS_DEAD);
@@ -695,7 +695,7 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	quit_char(ch, 0);
+	quit_char(ch, XC_F_NOCOUNT);
 }
 
 void do_save(CHAR_DATA *ch, const char *argument)
@@ -1915,15 +1915,15 @@ typedef struct toggle_t toggle_t;
 struct toggle_t {
 	const char *name;	/* flag name				*/
 	const char *desc;	/* toggle description			*/
-	flag_t *f;		/* flag table				*/
-	flag64_t bit;		/* flag bit				*/
+	flaginfo_t *f;		/* flag table				*/
+	flag_t bit;		/* flag bit				*/
 	const char *msg_on;	/* msg to print when flag toggled on	*/
 	const char *msg_off;	/* ---//--- off				*/
 };
 
 static toggle_t *toggle_lookup(const char *name);
 static void toggle_print(CHAR_DATA *ch, toggle_t *t);
-static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
+static flag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
 
 /*
  * alphabetize these table by name if you are adding new entries
@@ -2037,7 +2037,7 @@ void do_toggle(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
-		flag64_t* bits;
+		flag_t* bits;
 		const char *p;
 
 		if ((t = toggle_lookup(arg)) == NULL
@@ -2074,7 +2074,7 @@ static toggle_t *toggle_lookup(const char *name)
 static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 {
 	char buf[MAX_STRING_LENGTH];
-	flag64_t *bits;
+	flag_t *bits;
 
 	if ((bits = toggle_bits(ch, t)) < 0)
 		return;
@@ -2084,7 +2084,7 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 	act_puts(buf, ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 }
 
-static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
+static flag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
 {
 	if (t->f == comm_flags)
 		return &ch->comm;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.45 1999-12-03 11:57:18 fjoe Exp $
+ * $Id: comm_act.c,v 1.46 1999-12-11 15:31:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -993,7 +993,7 @@ void act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 	for (vch = char_list; vch; vch = vch->next) {
 		if (vch == ch
 		||  !IS_CLAN(vch->clan, ch->clan)
-		||  IS_SET(vch->comm, COMM_NOCLAN))
+		||  IS_SET(vch->chan, CHAN_NOCLAN))
 			continue;
 
 		act_puts("[CLAN] $lu{$n}: {C$t{x", ch,

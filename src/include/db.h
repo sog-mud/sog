@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.60 1999-12-07 14:20:59 fjoe Exp $
+ * $Id: db.h,v 1.61 1999-12-11 15:31:08 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -124,9 +124,6 @@ void	xungetc	(rfile_t *fp);
 
 void	vnum_check	(AREA_DATA *area, int vnum);
 
-void	convert_objects	(void);
-void	convert_object	(OBJ_INDEX_DATA *pObjIndex);
-
 void	reset_area      (AREA_DATA * pArea);
 
 #define RESET_F_NOPCHECK (A)
@@ -156,8 +153,6 @@ void		db_error	(const char* fn, const char* fmt, ...);
 		(item)->next = NULL;					\
 	}
 
-extern int		newmobs;
-extern int		newobjs;
 extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
 extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
 extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];

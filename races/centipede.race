@@ -1,6 +1,5 @@
 #RACE
 Name centipede~
-Aff dark_vision~
 Form edible poison animal insect~
 Parts head legs eye~
 Resist bash -50

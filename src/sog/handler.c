@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.211 1999-12-10 11:30:08 kostik Exp $
+ * $Id: handler.c,v 1.212 1999-12-11 15:31:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,56 +104,6 @@ int count_users(OBJ_DATA *obj)
 	return count;
 }
 
-#define RES(i,r,v) (((i) && !(v)) ? 100 : ((i) && (v)) ? 33 : ((r) && (v)) ? 0 : ((v) ? -50 : ((r) ? 33 : 0)))
-void 
-set_percent_resistances(flag64_t imm, flag64_t res, flag64_t vul, int16_t resist[])
-{
-	bool iw, im, rw, rm, vw, vm;
-	iw = IS_SET(imm, IMM_WEAPON);
-	im = IS_SET(imm, IMM_MAGIC);
-	rw = IS_SET(res, RES_WEAPON);
-	rm = IS_SET(res, RES_MAGIC);
-	vw = IS_SET(vul, VULN_WEAPON);
-	vm = IS_SET(vul, VULN_MAGIC);
-	
-	resist[RESIST_BASH] 	= RES(iw || IS_SET(imm, IMM_BASH), rw || IS_SET(res, RES_BASH), vw || IS_SET(vul, VULN_BASH));
-
-	resist[RESIST_SLASH] 	= RES(iw || IS_SET(imm, IMM_SLASH), rw || IS_SET(res, RES_SLASH), vw || IS_SET(vul, VULN_SLASH));
-
-	resist[RESIST_PIERCE] 	= RES(iw || IS_SET(imm, IMM_PIERCE), rw || IS_SET(res, RES_PIERCE), vw || IS_SET(vul, VULN_PIERCE));
-
-
-	resist[RESIST_FIRE] 	= RES(im || IS_SET(imm, IMM_FIRE), rm || IS_SET(res, RES_FIRE), vm || IS_SET(vul, VULN_FIRE));
-
-	resist[RESIST_COLD] 	= RES(im || IS_SET(imm, IMM_COLD), rm || IS_SET(res, RES_COLD), vm || IS_SET(vul, VULN_COLD));
-
-	resist[RESIST_LIGHTNING] 	= RES(im || IS_SET(imm, IMM_LIGHTNING), rm || IS_SET(res, RES_LIGHTNING), vm || IS_SET(vul, VULN_LIGHTNING));
-
-	resist[RESIST_ACID] 	= RES(im || IS_SET(imm, IMM_ACID), rm || IS_SET(res, RES_ACID), vm || IS_SET(vul, VULN_ACID));
-
-	resist[RESIST_HOLY] 	= RES(im || IS_SET(imm, IMM_HOLY), rm || IS_SET(res, RES_HOLY), vm || IS_SET(vul, VULN_HOLY));
-
-	resist[RESIST_NEGATIVE] = RES(im || IS_SET(imm, IMM_NEGATIVE), rm || IS_SET(res, RES_NEGATIVE), vm || IS_SET(vul, VULN_NEGATIVE));
-
-	resist[RESIST_ENERGY] 	= RES(im || IS_SET(imm, IMM_ENERGY), rm || IS_SET(res, RES_ENERGY), vm || IS_SET(vul, VULN_ENERGY));
-
-	resist[RESIST_MENTAL] 	= RES(im || IS_SET(imm, IMM_MENTAL), rm || IS_SET(res, RES_MENTAL), vm || IS_SET(vul, VULN_MENTAL));
-
-	resist[RESIST_SOUND] 	= RES(im || IS_SET(imm, IMM_SOUND), rm || IS_SET(res, RES_SOUND), vm || IS_SET(vul, VULN_SOUND));
-
-	resist[RESIST_DISEASE] 	= RES(im || IS_SET(imm, IMM_DISEASE), rm || IS_SET(res, RES_DISEASE), vm || IS_SET(vul, VULN_DISEASE));
-
-	resist[RESIST_POISON] 	= RES(im || IS_SET(imm, IMM_POISON), rm || IS_SET(res, RES_POISON), vm || IS_SET(vul, VULN_POISON));
-
-	resist[RESIST_CHARM] 	= RES(im || IS_SET(imm, IMM_CHARM), rm || IS_SET(res, RES_CHARM), vm || IS_SET(vul, VULN_CHARM));
-
-	resist[RESIST_HARM] 	= RES(im, rm, vm );
-
-	resist[RESIST_LIGHT] 	= RES(im || IS_SET(imm, IMM_LIGHT), rm || IS_SET(res, RES_LIGHT), vm || IS_SET(vul, VULN_LIGHT));
-
-}
-
-
 int age_to_num(int age)
 {
 	return  age * 72000;
@@ -192,7 +142,7 @@ int can_carry_w(CHAR_DATA *ch)
 			return 0;
 		if (ch->pMobIndex->spec_fun == spec_janitor)
 			return -1;
-		if (IS_SET(ch->pMobIndex->act, ACT_CHANGER))
+		if (MOB_IS(ch, MOB_CHANGER))
 			return -1;
 	}
 
@@ -478,7 +428,7 @@ void _equip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	for (i = 0; i < 4; i++)
 		ch->armor[i] -= apply_ac(obj, obj->wear_loc, i);
 
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
 			affect_modify(ch, paf, TRUE);
 
@@ -568,7 +518,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		ch->armor[i] += apply_ac(obj, obj->wear_loc,i);
 	obj->wear_loc = -1;
 
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		strip_obj_affects(ch, obj, obj->pObjIndex->affected);
 	strip_obj_affects(ch, obj, obj->affected);
 
@@ -670,7 +620,7 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	obj->in_obj		= obj_to;
 	obj->in_room		= NULL;
 	obj->carried_by		= NULL;
-	if (IS_SET(obj_to->pObjIndex->extra_flags, ITEM_PIT))
+	if (OBJ_IS(obj_to, ITEM_PIT))
 		obj->cost = 0; 
 
 	for (; obj_to != NULL; obj_to = obj_to->in_obj) {
@@ -736,10 +686,10 @@ void extract_obj(OBJ_DATA *obj, int flags)
 		return;
 	}
 
-	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_CLAN))
+	if (OBJ_IS(obj, ITEM_CLAN))
 		return;
 
-	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST)) {
+	if (OBJ_IS(obj, ITEM_CHQUEST)) {
 		if (!IS_SET(flags, XO_F_NOCHQUEST))
 			chquest_extract(obj);
 		flags |= XO_F_NORECURSE;
@@ -838,7 +788,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL)
 		unequip_char(ch, wield); 
 
-	extract_obj_flags = (IS_SET(flags, XC_F_COUNT) ? 0 : XO_F_NOCOUNT);
+	extract_obj_flags = (IS_SET(flags, XC_F_NOCOUNT) ? XO_F_NOCOUNT : 0);
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		extract_obj(obj, extract_obj_flags);
@@ -1667,33 +1617,10 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
 
-	if (room_is_dark(ch) && !IS_AFFECTED(ch, AFF_INFRARED))
+	if (room_is_dark(ch) && !HAS_DETECT(ch, ID_INFRARED))
 		return FALSE;
 
-	if (IS_AFFECTED(victim, AFF_INVIS)
-	&&  !IS_AFFECTED(ch, AFF_DETECT_INVIS))
-		return FALSE;
-
-	if (IS_AFFECTED(victim, AFF_IMP_INVIS)
-	&&  !IS_AFFECTED(ch, AFF_DETECT_IMP_INVIS))
-		return FALSE;
-
-	if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)
-	&&  !IS_AFFECTED(ch, AFF_ACUTE_VISION))
-		return FALSE;
-
-	if (IS_AFFECTED(victim, AFF_BLEND)
-	&&  !IS_AFFECTED(ch, AFF_AWARENESS))
-		return FALSE;
-
-	if (IS_AFFECTED(victim, AFF_HIDE)
-	&&  !IS_AFFECTED(ch, AFF_DETECT_HIDDEN)
-	&&  victim->fighting == NULL)
-		return FALSE;
-
-	if (IS_AFFECTED(victim, AFF_FADE)
-	&&  !IS_AFFECTED(ch, AFF_DETECT_FADE)
-	&&  victim->fighting == NULL)
+	if ((victim->has_invis & ID_ALL_INVIS & ~ch->has_detect) != 0)
 		return FALSE;
 
 	return TRUE;
@@ -1707,7 +1634,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return TRUE;
 
-	if (IS_SET(obj->extra_flags, ITEM_VIS_DEATH))
+	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
 		return FALSE;
 
 	if (IS_AFFECTED(ch, AFF_BLIND) && obj->pObjIndex->item_type != ITEM_POTION)
@@ -1717,14 +1644,13 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&  INT(obj->value[2]) != 0)
 		return TRUE;
 
-	if (IS_SET(obj->extra_flags, ITEM_INVIS)
-	&&  !IS_AFFECTED(ch, AFF_DETECT_INVIS))
+	if (IS_OBJ_STAT(obj, ITEM_INVIS) && !HAS_DETECT(ch, ID_INVIS))
 		return FALSE;
 
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch) && !IS_AFFECTED(ch, AFF_INFRARED))
+	if (room_is_dark(ch) && !HAS_DETECT(ch, ID_INFRARED))
 		return FALSE;
 
 	return TRUE;
@@ -1735,7 +1661,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
  */
 bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (!IS_SET(obj->extra_flags, ITEM_NODROP))
+	if (!IS_OBJ_STAT(obj, ITEM_NODROP))
 		return TRUE;
 
 	if (IS_IMMORTAL(ch))
@@ -2060,11 +1986,11 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	liquid_t *lq;
 
 	buf_printf(output,
-		"Object '%s' is type %s, extra flags %s.\n"
+		"Object '%s' is type %s, stat flags %s.\n"
 		"Weight is %d, value is %d, level is %d.\n",
 		obj->name,
 		flag_string(item_types, obj->pObjIndex->item_type),
-		flag_string(extra_flags, obj->extra_flags & ~ITEM_ENCHANTED),
+		flag_string(stat_flags, obj->stat_flags & ~ITEM_ENCHANTED),
 		obj->weight / 10,
 		obj->cost,
 		obj->level);
@@ -2546,8 +2472,7 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 		if (obj->contains)
 			drop_objs(ch, obj->contains);
 
-		if (!IS_SET(obj->pObjIndex->extra_flags,
-			    ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+		if (!OBJ_IS(obj, ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
 			continue;
 
 		obj->last_owner = NULL;
@@ -2561,7 +2486,7 @@ static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		if (!IS_SET(obj->pObjIndex->extra_flags, ITEM_CLAN)) {
+		if (!OBJ_IS(obj, ITEM_CLAN)) {
 			if (ch->in_room != NULL)
 				obj_to_room(obj, ch->in_room);
 			else
@@ -2780,7 +2705,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 		tch = d->original ? d->original : d->character;
 		if (tch && !str_cmp(name, tch->name)) {
 			if (d->connected == CON_PLAYING)
-				extract_char(tch, 0);
+				extract_char(tch, XC_F_NOCOUNT);
 			close_descriptor(d, SAVE_F_NONE);
 		} 
 	}
@@ -3058,21 +2983,19 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
 		return move_char_org(ch->mount,door,follow,is_charge);
 
-	if (IS_AFFECTED(ch, AFF_DETECT_WEB) 
-	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_DETECT_WEB))) {
+	if (IS_AFFECTED(ch, AFF_WEB) 
+	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_WEB))) {
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		if (number_percent() < str_app[IS_NPC(ch) ?
 			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
 		 	affect_strip(ch, "web");
-		 	REMOVE_BIT(ch->affected_by, AFF_DETECT_WEB);
 		 	act_puts("When you attempt to leave the room, you "
 				 "break the webs holding you tight.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		 	act_puts("$n struggles against the webs which hold $m "
 				 "in place, and break it.",
 				 ch, NULL, NULL, TO_ROOM, POS_RESTING);
-		}
-		else {
+		} else {
 			act_puts("You attempt to leave the room, but the webs "
 				 "hold you tight.",
 				 ch, NULL, NULL, TO_ROOM, POS_DEAD);
@@ -3099,39 +3022,31 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		return FALSE;
 	}
 
-	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
-	&&  !IS_AFFECTED(ch, AFF_SNEAK)) {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+	if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)
+	&&  !HAS_INVIS(ch, ID_SNEAK)) {
+		REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 		act_puts("You step out of shadows.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n steps out of shadows.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
 
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))  {
-		int chance;
-
-		if ((chance = get_skill(ch, "camouflage move")) == 0) {
-			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-			act_puts("You step out from your cover.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $m's cover.",
-			    ch, NULL, NULL, TO_ROOM);
-		}	    
-		else if (number_percent() < chance)
+	if (HAS_INVIS(ch, ID_CAMOUFLAGE))  {
+		if (number_percent() < get_skill(ch, "camouflage move"))
 			check_improve(ch, "camouflage move", TRUE, 5);
 		else {
-			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+			REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 			act_puts("You step out from your cover.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $m's cover.",
+			act("$n steps out from $s cover.",
 			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, "camouflage move", FALSE, 5);
 		}	    
 	}
-	if (IS_AFFECTED(ch, AFF_BLEND)) {
-		REMOVE_BIT(ch->affected_by, AFF_BLEND);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
+
+	if (HAS_INVIS(ch, ID_BLEND)) {
+		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
+		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
 		act_puts("You step out from your cover.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $m's cover.",
@@ -3341,8 +3256,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		}
 	}
 
-	if (!IS_AFFECTED(ch, AFF_SNEAK)
-	&&  !IS_AFFECTED(ch, AFF_CAMOUFLAGE)
+	if (!HAS_INVIS(ch, ID_SNEAK | ID_CAMOUFLAGE)
 	&&  ch->invis_level < LEVEL_HERO) 
 		act_flags = TO_ROOM;
 	else
@@ -3367,11 +3281,11 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		    ch, dir_name[door], MOUNTED(ch), act_flags);
 	}
 
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
+	if (HAS_INVIS(ch, ID_CAMOUFLAGE)
 	&&  to_room->sector_type != SECT_FOREST
 	&&  to_room->sector_type != SECT_MOUNTAIN
 	&&  to_room->sector_type != SECT_HILLS) {
-		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $m's cover.",
@@ -3393,7 +3307,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	mount = MOUNTED(ch);
 	char_from_room(ch);
 
-	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
+	if (!HAS_INVIS(ch, ID_SNEAK) && ch->invis_level < LEVEL_HERO) 
 		act_flags = TO_ALL;
 	else
 		act_flags = TO_ALL | ACT_NOMORTAL;
@@ -3616,24 +3530,23 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	}
 
 	if (container) {
-		if (IS_SET(container->pObjIndex->extra_flags, ITEM_PIT)
+		if (OBJ_IS(container, ITEM_PIT)
 		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
 			obj->timer = 0;
-		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
+		REMOVE_OBJ_STAT(obj, ITEM_HAD_TIMER);
 
 		act_puts("You get $p from $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
 		act(msg_others == NULL ? "$n gets $p from $P." : msg_others,
 		    ch, obj, container,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 
 		obj_from_obj(obj);
-	}
-	else {
+	} else {
 		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
 		act(msg_others == NULL ? "$n gets $p." : msg_others,
 		    ch, obj, container,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 
 		obj_from_room(obj);
 	}
@@ -3702,7 +3615,7 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 	if (!fReplace)
 		return FALSE;
 
-	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
+	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act_puts("You can't remove $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
@@ -3748,7 +3661,7 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
  */
 void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
-	if (cc_rules_check("obj_wear", &obj->pObjIndex->restrictions, ch)) {
+	if (!cc_ruleset_check("obj_wear", &obj->pObjIndex->restrictions, ch)) {
 		act("You can't wear, wield or hold $p.",
 		    ch, obj, NULL, TO_CHAR);
 		return;
@@ -4086,7 +3999,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 }
 
 void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
-	    flag32_t flag, flag32_t flag_skip, int min_level)
+	    flag_t flag, flag_t flag_skip, int min_level)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -4187,10 +4100,10 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 		return;
 	}
  
-	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
-	&&  IS_SET(wield->extra_flags, ITEM_ANTI_NEUTRAL)
-	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL) 
-	&&  IS_SET(worn->extra_flags, ITEM_ANTI_NEUTRAL)) {
+	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL) 
+	&&  IS_OBJ_STAT(wield, ITEM_ANTI_NEUTRAL)
+	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL) 
+	&&  IS_OBJ_STAT(worn, ITEM_ANTI_NEUTRAL)) {
 		act_puts("$p doesn't want to fight against $P.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		act_puts("$p removes itself from you!",
@@ -4201,8 +4114,8 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 		return;
  	}
 
-	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
-	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL)) {
+	if (IS_OBJ_STAT(wield, ITEM_ANTI_EVIL) 
+	&&  IS_OBJ_STAT(worn, ITEM_ANTI_EVIL)) {
 		act_puts("The $p worries for the damage to $P.",
 			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		return;
@@ -4215,7 +4128,7 @@ bool make_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	OBJ_DATA *wield, *destroy;
 	const char *sn;
 	int skill, dam, chance = 0;
-	flag32_t wflags, dflags;
+	flag_t wflags, dflags;
 
 	if ((wield = get_eq_char(ch, loc_wield)) == NULL
 	|| (destroy = get_eq_char(victim, loc_destroy)) == NULL
@@ -4343,7 +4256,7 @@ int trust_level(CHAR_DATA *ch)
 }
 
 /* returns a flag for wiznet */
-flag32_t wiznet_lookup(const char *name)
+flag_t wiznet_lookup(const char *name)
 {
 	int flag;
 

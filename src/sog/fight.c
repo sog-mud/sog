@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.233 1999-12-11 07:23:00 kostik Exp $
+ * $Id: fight.c,v 1.234 1999-12-11 15:31:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -464,8 +464,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 {
 	CHAR_DATA *vch, *vch_next;
-	flag64_t act = ch->pMobIndex->act;
-	flag64_t off = ch->pMobIndex->off_flags;
+	flag_t act = ch->pMobIndex->act;
+	flag_t off = ch->pMobIndex->off_flags;
 	bool has_second = get_eq_char(ch, WEAR_SECOND_WIELD) ? TRUE : FALSE;
 
 	/* no attack by ridden mobiles except spec_casts */
@@ -665,7 +665,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	 * Calculate to-hit-armor-class-0 versus armor.
 	 */
 	if (IS_NPC(ch)) {
-		flag64_t act = ch->pMobIndex->act;
+		flag_t act = ch->pMobIndex->act;
 
 		thac0_00 = 20;
 		thac0_32 = -4;	 /* as good as a thief */
@@ -1198,7 +1198,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
-		flag32_t plr_flags = PC(ch)->plr_flags;
+		flag_t plr_flags = PC(ch)->plr_flags;
 
 		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
 			act_puts("$n sucks {Rblood{x from $p!",
@@ -1369,8 +1369,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * No one in combat can hide, be invis or camoed.
 	 */
-	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE | AFF_BLEND |
-			    AFF_INVIS | AFF_IMP_INVIS))
+	if (HAS_INVIS(ch, ID_ALL_INVIS))
 		dofun("visible", ch, str_empty);
 
 	/*
@@ -1530,20 +1529,19 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Wimp out?
 	 */
 	if (IS_NPC(victim) && dam > 0 && victim->wait < PULSE_VIOLENCE / 2) {
-		flag64_t act = victim->pMobIndex->act;
+		flag_t act = victim->pMobIndex->act;
 		if ((IS_SET(act, ACT_WIMPY) && number_bits(2) == 0 &&
 		     victim->hit < victim->max_hit / 5)
 		||  (IS_AFFECTED(victim, AFF_CHARM) &&
 		     victim->master != NULL &&
 		     victim->master->in_room != victim->in_room)
-		||  (IS_AFFECTED(victim, AFF_DETECT_FEAR) &&
-		     !IS_SET(act, ACT_NOTRACK)))
+		||  (IS_AFFECTED(victim, AFF_FEAR) && !IS_SET(act, ACT_NOTRACK)))
 			dofun("flee", victim, str_empty);
 	}
 
 	if (!IS_NPC(victim)
 	&&  victim->hit > 0
-	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_DETECT_FEAR))
+	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_FEAR))
 	&&  victim->wait < PULSE_VIOLENCE / 2)
 		dofun("flee", victim, str_empty);
 
@@ -2190,15 +2188,15 @@ void make_corpse(CHAR_DATA *ch)
 		    obj->timer = number_range(500,1000);
 		if (obj->pObjIndex->item_type == ITEM_SCROLL)
 		    obj->timer = number_range(1000,2500);
-		if (IS_SET(obj->extra_flags,ITEM_ROT_DEATH))  {
+		if (IS_OBJ_STAT(obj,ITEM_ROT_DEATH))  {
 		    obj->timer = number_range(5,10);
 		    if (obj->pObjIndex->item_type == ITEM_POTION)
 		       obj->timer += obj->level * 20;
 		}
-		REMOVE_BIT(obj->extra_flags,ITEM_VIS_DEATH);
-		REMOVE_BIT(obj->extra_flags,ITEM_ROT_DEATH);
 
-		if (IS_SET(obj->extra_flags, ITEM_INVENTORY)  ||
+		REMOVE_OBJ_STAT(obj, ITEM_VIS_DEATH | ITEM_ROT_DEATH);
+
+		if (IS_OBJ_STAT(obj, ITEM_INVENTORY)  ||
 		    (obj->pObjIndex->limit != -1 &&
 			(obj->pObjIndex->count > obj->pObjIndex->limit)))
 		  {
@@ -2292,9 +2290,9 @@ void death_cry(CHAR_DATA *ch)
 			if (IS_SET(ch->form, FORM_POISON))
 				INT(obj->value[3]) = 1;
 			if (IS_SET(ch->form, FORM_MAGICAL))
-				SET_BIT(obj->extra_flags, ITEM_MAGIC);
+				SET_OBJ_STAT(obj, ITEM_MAGIC);
 			if (!IS_SET(ch->form,FORM_EDIBLE))
-				SET_BIT(obj->extra_flags, ITEM_NOT_EDIBLE);
+				SET_OBJ_STAT(obj, ITEM_NOT_EDIBLE);
 		}
 
 		obj_to_room(obj, ch->in_room);
@@ -2405,6 +2403,8 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	while (victim->affected)
 		affect_remove(victim, victim->affected);
 	victim->affected_by	= 0;
+	victim->has_invis	= 0;
+	victim->has_detect	= 0;
 	for (i = 0; i < 4; i++)
 		victim->armor[i] = 100;
 	victim->position	= POS_RESTING;

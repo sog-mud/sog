@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.h,v 1.7 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: msg.h,v 1.8 1999-12-11 15:31:09 fjoe Exp $
  */
 
 #ifndef _MSG_H_
@@ -33,7 +33,7 @@
 
 typedef struct msg_t {
 	mlstring ml;
-	flag32_t gender;
+	flag_t gender;
 } msg_t;
 
 msg_t *	msg_add		(msg_t *mp);

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.93 1999-12-10 11:58:42 kostik Exp $
+ * $Id: skills.c,v 1.94 1999-12-11 15:31:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -542,7 +542,7 @@ void skill_destroy(skill_t *sk)
 /*
  *  routine that checks for matching events and calls event function
  */
-void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag32_t event)
+void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag_t event)
 {
 	skill_t *sk;
 	event_fun_t *evf;
@@ -562,7 +562,7 @@ void check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag32_t event)
 		(evf->fun)(ch, paf);
 }
 
-void check_events(CHAR_DATA *ch, AFFECT_DATA *list, flag32_t event)
+void check_events(CHAR_DATA *ch, AFFECT_DATA *list, flag_t event)
 {
 	AFFECT_DATA *paf, *paf_next;
 

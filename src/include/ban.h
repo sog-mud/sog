@@ -1,5 +1,5 @@
 /*
- * $Id: ban.h,v 1.5 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: ban.h,v 1.6 1999-12-11 15:31:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,8 +61,8 @@ typedef struct ban_t ban_t;
 struct ban_t
 {
 	int		ban_num;
-	flag32_t	ban_action;
-	flag32_t	ban_class;
+	flag_t		ban_action;
+	flag_t		ban_class;
 	const char *	ban_mask;
 	ban_t *		next;
 };

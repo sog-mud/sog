@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.36 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_msg.c,v 1.37 1999-12-11 15:31:12 fjoe Exp $
  */
 
 #include "olc.h"
@@ -296,7 +296,7 @@ OLC_FUN(msged_gender)
 {
 	msg_t *mp;
 	EDIT_MSG(ch, mp);
-	return olced_flag32(ch, argument, cmd, &mp->gender);
+	return olced_flag(ch, argument, cmd, &mp->gender);
 }
 
 OLC_FUN(msged_del)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.51 1999-12-10 11:30:05 kostik Exp $
+ * $Id: const.h,v 1.52 1999-12-11 15:31:08 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -50,6 +50,7 @@
 #endif
 
 #define PFILE_VERSION	10
+#define AREA_VERSION	1
 
 /*
  * sex or gender
@@ -312,75 +313,39 @@ extern const char TYPO_FILE	[];
 
 /* RT ASCII conversions */
 
-#define A	((flag64_t) 1 <<  0)
-#define B	((flag64_t) 1 <<  1)
-#define C	((flag64_t) 1 <<  2)
-#define D	((flag64_t) 1 <<  3)
-#define E	((flag64_t) 1 <<  4)
-#define F	((flag64_t) 1 <<  5)
-#define G	((flag64_t) 1 <<  6)
-#define H	((flag64_t) 1 <<  7)
+#define A	((flag_t) 1 <<  0)
+#define B	((flag_t) 1 <<  1)
+#define C	((flag_t) 1 <<  2)
+#define D	((flag_t) 1 <<  3)
+#define E	((flag_t) 1 <<  4)
+#define F	((flag_t) 1 <<  5)
+#define G	((flag_t) 1 <<  6)
+#define H	((flag_t) 1 <<  7)
 
-#define I	((flag64_t) 1 <<  8)
-#define J	((flag64_t) 1 <<  9)
-#define K	((flag64_t) 1 << 10)
-#define L	((flag64_t) 1 << 11)
-#define M	((flag64_t) 1 << 12)
-#define N	((flag64_t) 1 << 13)
-#define O	((flag64_t) 1 << 14)
-#define P	((flag64_t) 1 << 15)
+#define I	((flag_t) 1 <<  8)
+#define J	((flag_t) 1 <<  9)
+#define K	((flag_t) 1 << 10)
+#define L	((flag_t) 1 << 11)
+#define M	((flag_t) 1 << 12)
+#define N	((flag_t) 1 << 13)
+#define O	((flag_t) 1 << 14)
+#define P	((flag_t) 1 << 15)
 
-#define Q	((flag64_t) 1 << 16)
-#define R	((flag64_t) 1 << 17)
-#define S	((flag64_t) 1 << 18)
-#define T	((flag64_t) 1 << 19)
-#define U	((flag64_t) 1 << 20)
-#define V	((flag64_t) 1 << 21)
-#define W	((flag64_t) 1 << 22)
-#define X	((flag64_t) 1 << 23)
+#define Q	((flag_t) 1 << 16)
+#define R	((flag_t) 1 << 17)
+#define S	((flag_t) 1 << 18)
+#define T	((flag_t) 1 << 19)
+#define U	((flag_t) 1 << 20)
+#define V	((flag_t) 1 << 21)
+#define W	((flag_t) 1 << 22)
+#define X	((flag_t) 1 << 23)
 
-#define Y	((flag64_t) 1 << 24)
-#define Z	((flag64_t) 1 << 25)
-#define aa	((flag64_t) 1 << 26) /* letters doubled due to conflicts */
-#define bb	((flag64_t) 1 << 27)
-#define cc	((flag64_t) 1 << 28)
-#define dd	((flag64_t) 1 << 29)
-#define ee	((flag64_t) 1 << 30)
-#define ff	((flag64_t) 1 << 31)
-
-#define gg	((flag64_t) 1 << 32)
-#define hh	((flag64_t) 1 << 33)
-#define ii	((flag64_t) 1 << 34)
-#define jj	((flag64_t) 1 << 35)
-#define kk	((flag64_t) 1 << 36)
-#define ll	((flag64_t) 1 << 37)
-#define mm	((flag64_t) 1 << 38)
-#define nn	((flag64_t) 1 << 39)
-
-#define oo	((flag64_t) 1 << 40)
-#define pp	((flag64_t) 1 << 41)
-#define qq	((flag64_t) 1 << 42)
-#define rr	((flag64_t) 1 << 43)
-#define ss	((flag64_t) 1 << 44)
-#define tt	((flag64_t) 1 << 45)
-#define uu	((flag64_t) 1 << 46)
-#define vv	((flag64_t) 1 << 47)
-
-#define ww	((flag64_t) 1 << 48)
-#define xx	((flag64_t) 1 << 49)
-#define yy	((flag64_t) 1 << 50)
-#define zz	((flag64_t) 1 << 51)
-#define aaa	((flag64_t) 1 << 52)
-#define bbb	((flag64_t) 1 << 53)
-#define ccc	((flag64_t) 1 << 54)
-#define ddd	((flag64_t) 1 << 55)
-#define eee	((flag64_t) 1 << 56)
-#define fff	((flag64_t) 1 << 57)
-#define ggg	((flag64_t) 1 << 58)
-#define hhh	((flag64_t) 1 << 59)
-#define iii	((flag64_t) 1 << 60)
-#define jjj	((flag64_t) 1 << 61)
-#define kkk	((flag64_t) 1 << 62)
-#define lll	((flag64_t) 1 << 63)
+#define Y	((flag_t) 1 << 24)
+#define Z	((flag_t) 1 << 25)
+#define aa	((flag_t) 1 << 26) /* letters doubled due to conflicts */
+#define bb	((flag_t) 1 << 27)
+#define cc	((flag_t) 1 << 28)
+#define dd	((flag_t) 1 << 29)
+#define ee	((flag_t) 1 << 30)
 
 #endif

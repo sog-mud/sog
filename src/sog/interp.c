@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.165 1999-10-29 06:54:17 fjoe Exp $
+ * $Id: interp.c,v 1.166 1999-12-11 15:31:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -90,7 +90,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	cmd_t *cmd = NULL;
 	social_t *soc = NULL;
 	int min_pos;
-	flag64_t cmd_flags;
+	flag_t cmd_flags;
 	int cmd_log;
 	int i;
 	bool found = FALSE;
@@ -246,18 +246,18 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
-		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
+		if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)
 		&&  !IS_SET(cmd_flags, CMD_KEEP_HIDE)) {
-			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+			REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 			act_puts("You step out of shadows.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out of shadows.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
 
-		if (IS_AFFECTED(ch, AFF_IMP_INVIS)
+		if (HAS_INVIS(ch, ID_IMP_INVIS)
 		&&  min_pos == POS_FIGHTING) {
-			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
+			affect_bit_strip(ch, TO_INVIS, ID_IMP_INVIS);
 			act_puts("You fade into existence.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n fades into existence.",

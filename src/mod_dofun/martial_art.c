@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.140 1999-12-10 11:29:47 kostik Exp $
+ * $Id: martial_art.c,v 1.141 1999-12-11 15:31:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1887,7 +1887,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_AFFECTED(ch, AFF_CAMOUFLAGE) || can_see(victim, ch)) {
+	if (!HAS_INVIS(ch, ID_CAMOUFLAGE) || can_see(victim, ch)) {
 		char_puts("But they can see you.\n", ch);
 		return;
 	}
@@ -3282,36 +3282,23 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 		
-		af.where    = TO_AFFECTS;
+		af.where    = TO_DETECTS;
 		af.type     = "truesight";
 		af.level    = ch->level;
 		af.duration = LEVEL(ch)/2 + 5;
 		INT(af.location) = APPLY_NONE;
 		af.modifier = 0;
-		af.bitvector = AFF_DETECT_HIDDEN;
+		af.bitvector = ID_HIDDEN | ID_INVIS | ID_IMP_INVIS | ID_CAMOUFLAGE | ID_MAGIC;
 		affect_to_char(ch, &af);
-
-		af.bitvector = AFF_DETECT_INVIS;
-		affect_to_char(ch, &af);
-
-		af.bitvector = AFF_DETECT_IMP_INVIS;
-		affect_to_char(ch,&af);
-
-		af.bitvector = AFF_ACUTE_VISION;
-		affect_to_char(ch,&af);
-
-		af.bitvector = AFF_DETECT_MAGIC;
-		affect_to_char(ch,&af);
 
 		act("You look around sharply!", ch, NULL, NULL, TO_CHAR);
 		act("$n looks more enlightened.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, "truesight", TRUE, 1);
-	}
-	else {
+	} else {
 		char_puts("You look about sharply, but you don't see "
-			     "anything new.\n" ,ch);
+			  "anything new.\n", ch);
 		act("$n looks around sharply but doesn't seem enlightened.",
-			ch,NULL,NULL,TO_ROOM);
+		    ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, "truesight", FALSE, 1);
 	}
 }
@@ -4424,13 +4411,13 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 		
-		af.where	= TO_AFFECTS;
+		af.where	= TO_DETECTS;
 		af.type 	= "sense life";
 		af.level 	= ch->level;
 		af.duration	= ch->level;
 		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
-		af.bitvector	= AFF_DETECT_LIFE;
+		af.bitvector	= ID_LIFE;
 		affect_to_char(ch, &af);
 
 		ch->mana -= mana;
@@ -4439,8 +4426,7 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, NULL, TO_CHAR);
 		act("$n looks more sensitive.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, "sense life", TRUE, 1);
-	}
-	else {
+	} else {
 		ch->mana -= mana/2;
 		char_puts("You failed.\n" ,ch);
 		check_improve(ch, "sense life", FALSE, 1);

@@ -1,6 +1,7 @@
 #RACE
 Name wyvern~
-Aff detect_invis detect_hidden flying~
+Aff flying~
+Det invis hidden~
 Off bash dodge fast~
 Form edible poison animal dragon~
 Parts head legs heart brains guts feet ear eye tail fangs scales~

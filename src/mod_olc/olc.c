@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.89 1999-12-11 11:23:40 fjoe Exp $
+ * $Id: olc.c,v 1.90 1999-12-11 15:31:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -599,12 +599,12 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	return FALSE;
 }
 
-bool olced_flag64(CHAR_DATA *ch, const char *argument,
-		  olc_cmd_t* cmd, flag64_t *pflag)
+bool olced_flag(CHAR_DATA *ch, const char *argument,
+		  olc_cmd_t* cmd, flag_t *pflag)
 {
-	const flag_t *flag64_table;
-	const flag_t *f;
-	flag64_t ttype;
+	const flaginfo_t *flag_table;
+	const flaginfo_t *f;
+	flag_t ttype;
 	const char *tname;
 
 	if (!cmd->arg1) {
@@ -618,14 +618,14 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	flag64_table = cmd->arg1;
-	tname = flag64_table->name;
-	ttype = flag64_table->bit;
-	flag64_table++;
+	flag_table = cmd->arg1;
+	tname = flag_table->name;
+	ttype = flag_table->bit;
+	flag_table++;
 
 	switch (ttype) {
 	case TABLE_BITVAL: {
-		flag64_t marked = 0;
+		flag_t marked = 0;
 
 		/*
 		 * Accept multiple flags.
@@ -693,16 +693,6 @@ bool olced_flag64(CHAR_DATA *ch, const char *argument,
 	}
 }
 
-bool olced_flag32(CHAR_DATA *ch, const char *argument,
-		  olc_cmd_t *cmd, flag32_t *psflag)
-{
-	flag64_t flag = (flag64_t) (*psflag);
-	bool retval = olced_flag64(ch, argument, cmd, &flag);
-	if (retval)
-		*psflag = (flag32_t) flag;
-	return retval;
-}
-
 bool olced_dice(CHAR_DATA *ch, const char *argument,
 		olc_cmd_t *cmd, int *dice)
 {
@@ -768,7 +758,7 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 	}
 
 	if (!str_prefix(arg2, "flags")) {
-		return olced_flag32(ch, argument, cmd,
+		return olced_flag(ch, argument, cmd,
 				    &l->rules[rulecl].rcl_flags);
 	}
 
@@ -817,7 +807,7 @@ bool olced_ival(CHAR_DATA *ch, const char *argument,
 {
 	if (is_number(argument))
 		return olced_number(ch, argument, cmd, pInt);
-	return olced_flag32(ch, argument, cmd, pInt);
+	return olced_flag(ch, argument, cmd, pInt);
 }
 
 bool
@@ -850,137 +840,74 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	return TRUE;
 }
 
-#define CC_RULES_ERR					\
+#define CC_RULESET_ERR					\
 	do {						\
-		dofun("help", ch, "'OLC CC_RULES'");	\
+		dofun("help", ch, "'OLC CC_RULESET'");	\
 		return FALSE;				\
 	} while (0);
 		
 bool
-olced_cc_rules(CHAR_DATA *ch, const char *argument,
-	       olc_cmd_t *cmd, const char *rcn, varr *v)
+olced_cc_ruleset(CHAR_DATA *ch, const char *argument,
+	         olc_cmd_t *cmd, cc_ruleset_t *rs)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char type[MAX_INPUT_LENGTH];
-	varr *v2;
-	bool add;
-	cc_ruleset_t *rs;
+	varr *v = NULL;
+	bool del = FALSE;
+	const char **ps;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')
-		CC_RULES_ERR;
+		CC_RULESET_ERR;
 
 	if (!str_prefix(arg, "show")) {
 		BUFFER *buf = buf_new(-1);
-		varr_foreach(v, print_cc_ruleset_cb,
-			     buf, "obj_wear", "Restrictions:\n");
+		print_cc_ruleset(rs, "Restrictions:", buf);
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return FALSE;
 	}
 
-	argument = one_argument(argument, type, sizeof(type));
-	if (type[0] == '\0')
-		CC_RULES_ERR;
+	if (!str_prefix(arg, "order"))
+		return olced_flag(ch, argument, cmd, &rs->order);
 
-	/*
-	 * parse 'order'
-	 */
-	if (!str_prefix(arg, "order")) {
-		if ((rs = cc_ruleset_lookup(v, type)) == NULL) {
-			char_printf(ch, "%s: %s: no rules for type '%s' defined.\n",
-				    OLCED(ch)->name, cmd->name, type);
-			return FALSE;
-		}
+	if (!str_prefix(arg, "delete")) {
+		argument = one_argument(argument, arg, sizeof(arg));
+		del = TRUE;
+	}
+
+	if (!str_prefix(arg, "allow"))
+		v = &rs->allow;
+	else if (!str_prefix(arg, "deny"))
+		v = &rs->deny;
+
+	if (v == NULL || argument == NULL)
+		CC_RULESET_ERR;
 		
-		return olced_flag32(ch, argument, cmd, &rs->order);
-	}
-
-	/*
-	 * parse 'add' or 'delete'
-	 */
-	if (!str_prefix(arg, "add"))
-		add = TRUE;
-	else if (!str_prefix(arg, "delete"))
-		add = FALSE;
-	else
-		CC_RULES_ERR;
-
-	/*
-	 * sanity checking for 'xxx type add ...'
-	 */
-	if (add) {
-		cc_rulecl_t *rcl;
-
-		if ((rcl = cc_rulecl_lookup(rcn)) == NULL) {
-			char_printf(ch, "%s: %s: %s: unknown cc_rule class.\n",
-				    OLCED(ch)->name, cmd->name, rcn);
-			return FALSE;
-		}
-
-		if (cc_rulefun_lookup(rcl, type) == NULL) {
-			char_printf(ch, "%s: %s: %s: unknown type for cc_rule class '%s'.\n",
-				    OLCED(ch)->name, cmd->name, type, rcn);
-			return FALSE;
-		}
-	}
-
-	/*
-	 * lookup ruleset
-	 * if not found build new if adding, bail out if deleting
-	 */
-	if ((rs = cc_ruleset_lookup(v, type)) == NULL) {
-		if (add) {
-			rs = varr_enew(v);
-			rs->type = str_dup(type);
-		} else {
-			char_printf(ch, "%s: %s: no rules for type '%s' defined.\n",
-				    OLCED(ch)->name, cmd->name, type);
-			return FALSE;
-		}
-	}
-
-	/*
-	 * parse 'allow' or 'deny'
-	 */
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
-		CC_RULES_ERR;
-
-	if (!str_cmp(arg, "allow"))
-		v2 = &rs->allow;
-	else if (!str_cmp(arg, "deny"))
-		v2 = &rs->deny;
-	else
-		CC_RULES_ERR;
-
-	if (add) {
-		const char **ps = varr_enew(v2);
-		*ps = str_dup(argument);
-		char_printf(ch, "%s: %s: arg added.\n",
-			    OLCED(ch)->name, cmd->name);
-	} else {
+	if (del) {
 		int num;
 		void *p;
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (!is_number(arg))
-			CC_RULES_ERR;
+			CC_RULESET_ERR;
 
 		num = atoi(arg);
-		p = varr_get(v2, num);
+		p = varr_get(v, num);
 		if (p == NULL) {
-			char_printf(ch, "%s: %s: no arg with number '%s' for type '%s'.\n",
-				    OLCED(ch)->name, cmd->name, arg, type);
+			char_printf(ch, "%s: %s: no expr with number '%s'.\n",
+				    OLCED(ch)->name, cmd->name, arg);
 			return FALSE;
 		}
 
-		varr_edelete(v2, p);
-		if (cc_ruleset_isempty(rs))
-			varr_edelete(v, rs);
-		char_printf(ch, "%s: %s: arg deleted.\n",
+		varr_edelete(v, p);
+		char_printf(ch, "%s: %s: expr deleted.\n",
 			    OLCED(ch)->name, cmd->name);
-	}
+		return TRUE;
+	} 
+
+	ps = varr_enew(v);
+	*ps = str_dup(argument);
+	char_printf(ch, "%s: %s: expr added.\n", OLCED(ch)->name, cmd->name);
 
 	return TRUE;
 }

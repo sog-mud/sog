@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.29 1999-12-07 14:21:00 fjoe Exp $
+ * $Id: flag.c,v 1.30 1999-12-11 15:31:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -35,8 +35,8 @@
  *		  (impl. dependent values such as table type should
  *		   be skipped)
  */
-const flag_t *
-_flag_lookup(const flag_t *f, const char *name,
+const flaginfo_t *
+_flag_lookup(const flaginfo_t *f, const char *name,
 	     int (*cmpfun)(const char *, const char *))
 {
 	if (IS_NULLSTR(name))
@@ -55,18 +55,18 @@ _flag_lookup(const flag_t *f, const char *name,
  Purpose:	Returns the value of the flags entered.  Multi-flags accepted.
  Called by:	olc.c and olc_act.c.
  ****************************************************************************/
-flag64_t
-_flag_value(const flag_t *flag64_table, const char *argument,
+flag_t
+_flag_value(const flaginfo_t *flag_table, const char *argument,
 	    int (*cmpfun)(const char *, const char *))
 {
-	const flag_t *f;
-	const char *tname = flag64_table->name;
-	flag64_t ttype = flag64_table->bit;
+	const flaginfo_t *f;
+	const char *tname = flag_table->name;
+	flag_t ttype = flag_table->bit;
 
-	flag64_table++;
+	flag_table++;
 	switch (ttype) {
 	case TABLE_BITVAL: {
-		flag64_t marked = 0;
+		flag_t marked = 0;
 
 		/*
 		 * Accept multiple flags.
@@ -78,7 +78,7 @@ _flag_value(const flag_t *flag64_table, const char *argument,
 			if (word[0] == '\0')
 				break;
 
-			f = _flag_lookup(flag64_table, word, cmpfun);
+			f = _flag_lookup(flag_table, word, cmpfun);
 			if (f == NULL) {
 				log("_flag_value: %s: unknown flag name", word);
 				continue;
@@ -92,7 +92,7 @@ _flag_value(const flag_t *flag64_table, const char *argument,
 	}
 
 	case TABLE_INTVAL:
-		if ((f = _flag_lookup(flag64_table, argument, cmpfun)) == NULL)
+		if ((f = _flag_lookup(flag_table, argument, cmpfun)) == NULL)
 			return -1;
 		return f->bit;
 		/* NOT REACHED */
@@ -106,8 +106,8 @@ _flag_value(const flag_t *flag64_table, const char *argument,
 	return 0;
 }
 
-static const flag_t*
-flag_ilookup(const flag_t *f, flag64_t val)
+static const flaginfo_t*
+flag_ilookup(const flaginfo_t *f, flag_t val)
 {
 	for (f++; f->name != NULL; f++) {
 		if (f->bit == val)
@@ -118,7 +118,7 @@ flag_ilookup(const flag_t *f, flag64_t val)
 }
 
 const char *
-flag_istring(const flag_t *f, flag64_t val)
+flag_istring(const flaginfo_t *f, flag_t val)
 {
 	static char buf[MAX_STRING_LENGTH];
 
@@ -137,31 +137,31 @@ flag_istring(const flag_t *f, flag64_t val)
  Purpose:	Returns string with name(s) of the flags or stat entered.
  Called by:	act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
-const char *flag_string(const flag_t *flag64_table, flag64_t bits)
+const char *flag_string(const flaginfo_t *flag_table, flag_t bits)
 {
 	static char buf[NBUFS][BUFSZ];
 	static int cnt = 0;
 	int flag;
-	const char *tname = flag64_table->name;
-	flag64_t ttype = flag64_table->bit;
+	const char *tname = flag_table->name;
+	flag_t ttype = flag_table->bit;
 
 	cnt = (cnt + 1) % NBUFS;
 	buf[cnt][0] = '\0';
-	flag64_table++;
-	for (flag = 0; flag64_table[flag].name; flag++) {
+	flag_table++;
+	for (flag = 0; flag_table[flag].name; flag++) {
 		switch (ttype) {
 		case TABLE_BITVAL:
-			if (IS_SET(bits, flag64_table[flag].bit)) {
+			if (IS_SET(bits, flag_table[flag].bit)) {
 				strnzcat(buf[cnt], BUFSZ, " ");
 				strnzcat(buf[cnt], BUFSZ,
-					 flag64_table[flag].name);
+					 flag_table[flag].name);
 			}
 			break;
 
 		case TABLE_INTVAL:
-			if (flag64_table[flag].bit == bits) {
+			if (flag_table[flag].bit == bits) {
 				strnzcpy(buf[cnt], BUFSZ,
-					 flag64_table[flag].name);
+					 flag_table[flag].name);
 				return buf[cnt];
 			}
 			break;
@@ -195,16 +195,16 @@ const char *flag_string(const flag_t *flag64_table, flag64_t bits)
 	}
 }
 
-void show_flags_buf(BUFFER *output, const flag_t *flag64_table)
+void show_flags_buf(BUFFER *output, const flaginfo_t *flag_table)
 {
 	int  flag;
 	int  col = 0;
  
 	col = 0;
-	flag64_table++;
-	for (flag = 0; flag64_table[flag].name; flag++) {
-		if (flag64_table[flag].settable) {
-			buf_printf(output, "%-19.18s", flag64_table[flag].name);
+	flag_table++;
+	for (flag = 0; flag_table[flag].name; flag++) {
+		if (flag_table[flag].settable) {
+			buf_printf(output, "%-19.18s", flag_table[flag].name);
 			if (++col % 4 == 0)
 				buf_add(output, "\n");
 		}
@@ -218,12 +218,12 @@ void show_flags_buf(BUFFER *output, const flag_t *flag64_table)
  Name:		show_flags
  Purpose:	Displays settable flags and stats.
  ****************************************************************************/
-void show_flags(CHAR_DATA *ch, const flag_t *flag64_table)
+void show_flags(CHAR_DATA *ch, const flaginfo_t *flag_table)
 {
 	BUFFER *output;
 
 	output = buf_new(-1);
-	show_flags_buf(output, flag64_table);
+	show_flags_buf(output, flag_table);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }

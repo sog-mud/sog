@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.69 1999-12-07 08:50:04 avn Exp $
+ * $Id: olc_obj.c,v 1.70 1999-12-11 15:31:13 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -46,7 +46,6 @@ DECLARE_OLC_FUN(objed_name		);
 DECLARE_OLC_FUN(objed_short		);
 DECLARE_OLC_FUN(objed_long		);
 DECLARE_OLC_FUN(objed_addaffect		);
-DECLARE_OLC_FUN(objed_addapply		);
 DECLARE_OLC_FUN(objed_delaffect		);
 DECLARE_OLC_FUN(objed_value0		);
 DECLARE_OLC_FUN(objed_value1		);
@@ -58,7 +57,8 @@ DECLARE_OLC_FUN(objed_limit		);
 DECLARE_OLC_FUN(objed_cost		);
 DECLARE_OLC_FUN(objed_exd		);
 
-DECLARE_OLC_FUN(objed_extra		);
+DECLARE_OLC_FUN(objed_stat		);
+DECLARE_OLC_FUN(objed_obj		);
 DECLARE_OLC_FUN(objed_wear		);
 DECLARE_OLC_FUN(objed_type		);
 DECLARE_OLC_FUN(objed_affect		);
@@ -85,9 +85,8 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "delete_obj",	objed_del					},
 
 	{ "addaffect",	objed_addaffect					},
-	{ "addapply",	objed_addapply					},
-	{ "cost",	objed_cost					},
 	{ "delaffect",	objed_delaffect					},
+	{ "cost",	objed_cost					},
 	{ "exd",	objed_exd					},
 	{ "long",	objed_long					},
 	{ "name",	objed_name					},
@@ -100,7 +99,8 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "weight",	objed_weight					},
 	{ "limit",	objed_limit					},
 
-	{ "extra",	objed_extra,	NULL,		extra_flags	},
+	{ "stat",	objed_stat,	NULL,		stat_flags	},
+	{ "obj",	objed_obj,	NULL,		obj_flags	},
 	{ "wear",	objed_wear,	NULL,		wear_flags	},
 	{ "type",	objed_type,	NULL,		item_types	},
 	{ "material",	objed_material, NULL,		&materials	},
@@ -259,8 +259,11 @@ OLC_FUN(objed_show)
 	buf_printf(output, "Wear flags:  [%s]\n",
 		flag_string(wear_flags, pObj->wear_flags));
 
-	buf_printf(output, "Extra flags: [%s]\n",
-		flag_string(extra_flags, pObj->extra_flags));
+	buf_printf(output, "Stat flags:  [%s]\n",
+		flag_string(stat_flags, pObj->stat_flags));
+
+	buf_printf(output, "Obj flags:   [%s]\n",
+		flag_string(obj_flags, pObj->obj_flags));
 
 	buf_printf(output, "Material:    [%s]\n",                /* ROM */
 		pObj->material);
@@ -305,8 +308,7 @@ OLC_FUN(objed_show)
 	}
 
 	show_obj_values(output, pObj);
-	varr_foreach(&pObj->restrictions, print_cc_ruleset_cb,
-		     output, "obj_wear", "Restrictions:\n");
+	print_cc_ruleset(&pObj->restrictions, "Restrictions:", output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
@@ -466,8 +468,8 @@ OLC_FUN(objed_addaffect)
 	where_t *w;
 	vo_t location;
 	int modifier = 0;
-	flag32_t where;
-	flag64_t bitvector = 0;
+	flag_t where;
+	flag_t bitvector = 0;
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *paf;
 	char arg1[MAX_STRING_LENGTH];
@@ -585,69 +587,6 @@ OLC_FUN(objed_addaffect)
 	pObj->affected  = paf;
 
 	char_puts("Affect added.\n", ch);
-	return TRUE;
-}
-
-OLC_FUN(objed_addapply)
-{
-	int location, bv, where;
-	OBJ_INDEX_DATA *pObj;
-	AFFECT_DATA *pAf;
-	where_t *wd;
-	char loc[MAX_STRING_LENGTH];
-	char mod[MAX_STRING_LENGTH];
-	char type[MAX_STRING_LENGTH];
-	char bvector[MAX_STRING_LENGTH];
-
-	EDIT_OBJ(ch, pObj);
-
-	argument = one_argument(argument, type, sizeof(type));
-	argument = one_argument(argument, loc, sizeof(loc));
-	argument = one_argument(argument, mod, sizeof(mod));
-	one_argument(argument, bvector, sizeof(bvector));
-
-	if ((where = flag_value(apply_types, type)) < 0) {
-		char_puts("Invalid apply type. Valid apply types are:\n", ch);
-		show_flags(ch, apply_types);
-		return FALSE;
-	}
-
-	if ((location = flag_value(apply_flags, loc)) < 0) {
-		char_puts("Valid applies are:\n", ch);
-		show_flags(ch, apply_flags);
-		return FALSE;
-	}
-
-	if ((wd = where_lookup(where)) == NULL) {
-		char_puts("ObjEd: bit vector table undefined. "
-			  "Report it to implementors.\n", ch);
-		return FALSE;
-	}
-
-	if ((bv = flag_value(wd->table, bvector)) == 0) {
-		char_puts("Valid bitvector types are:\n", ch);
-		show_flags(ch, wd->table);
-		return FALSE;
-	}
-
-	if (!is_number(mod)) {
-		char_puts("Syntax: addapply type location "
-			  "mod bitvector\n", ch);
-		return FALSE;
-	}
-
-	pAf             = aff_new();
-	INT(pAf->location) = location;
-	pAf->modifier   = atoi(mod);
-	pAf->where	= where;
-	pAf->type	= str_empty;
-	pAf->duration   = -1;
-	pAf->bitvector  = bv;
-	pAf->level      = pObj->level;
-	pAf->next       = pObj->affected;
-	pObj->affected  = pAf;
-
-	char_puts("Apply added.\n", ch);
 	return TRUE;
 }
 
@@ -810,28 +749,35 @@ OLC_FUN(objed_exd)
 	return olced_exd(ch, argument, cmd, &pObj->ed);
 }
 
-OLC_FUN(objed_extra)
+OLC_FUN(objed_stat)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag64(ch, argument, cmd, &pObj->extra_flags);
+	return olced_flag(ch, argument, cmd, &pObj->stat_flags);
+}
+
+OLC_FUN(objed_obj)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_flag(ch, argument, cmd, &pObj->obj_flags);
 }
 
 OLC_FUN(objed_wear)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag32(ch, argument, cmd, &pObj->wear_flags);
+	return olced_flag(ch, argument, cmd, &pObj->wear_flags);
 }
 
 OLC_FUN(objed_type)
 {
 	bool changed;
-	flag32_t old_item_type;
+	flag_t old_item_type;
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
 	old_item_type = pObj->item_type;
-	changed = olced_flag32(ch, argument, cmd, &pObj->item_type);
+	changed = olced_flag(ch, argument, cmd, &pObj->item_type);
 	if (changed) {
 		objval_destroy(old_item_type, pObj->value);
 		objval_init(pObj->item_type, pObj->value);
@@ -897,7 +843,8 @@ OLC_FUN(objed_clone)
 	pObj->item_type		= pFrom->item_type;
 	objval_cpy(pFrom->item_type, pObj->value, pFrom->value);
 
-	pObj->extra_flags	= pFrom->extra_flags;
+	pObj->stat_flags	= pFrom->stat_flags;
+	pObj->obj_flags		= pFrom->obj_flags;
 	pObj->wear_flags	= pFrom->wear_flags;
 	pObj->level		= pFrom->level;
 	pObj->condition		= pFrom->condition;
@@ -936,7 +883,7 @@ OLC_FUN(objed_restrictions)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_cc_rules(ch, argument, cmd, "obj_wear", &pObj->restrictions);
+	return olced_cc_ruleset(ch, argument, cmd, &pObj->restrictions);
 }
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.15 1999-12-11 13:31:16 kostik Exp $
+ * $Id: race.c,v 1.16 1999-12-11 15:31:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,10 +40,9 @@ race_init(race_t *r)
 	r->name = str_empty;
 	r->act = 0;
 	r->aff = 0;
+	r->has_invis = 0;
+	r->has_detect = 0;
 	r->off = 0;
-	r->imm = 0;
-	r->res = 0;
-	r->vuln = 0;
 	r->form = 0;
 	r->parts = 0;
 	r->race_flags = 0;
@@ -51,10 +50,11 @@ race_init(race_t *r)
 	for (i = 0; i < MAX_RESIST; i++)
 		r->resists[i] = 0;
 	r->race_pcdata = NULL;
+	r->affected = NULL;
 }
 
 /*
- * r->race_pcdata is not copied intentionally
+ * r->race_pcdata and r->affected are not copied intentionally
  */
 race_t *
 race_cpy(race_t *dst, race_t *src)
@@ -63,10 +63,9 @@ race_cpy(race_t *dst, race_t *src)
 	dst->name = str_qdup(src->name);
 	dst->act = src->act;
 	dst->aff = src->aff;
+	dst->has_invis = src->has_invis;
+	dst->has_detect = src->has_detect;
 	dst->off = src->off;
-	dst->imm = src->imm;
-	dst->res = src->res;
-	dst->vuln = src->vuln;
 	dst->form = src->form;
 	dst->parts = src->parts;
 	dst->race_flags = src->race_flags;
@@ -81,6 +80,7 @@ race_destroy(race_t *r)
 {
 	free_string(r->name);
 	free_string(r->damtype);
+	aff_free_list(r->affected);
 	if (r->race_pcdata)
 		pcrace_free(r->race_pcdata);
 }
@@ -125,6 +125,8 @@ void race_resetstats(CHAR_DATA *ch)
 
 	ch->damtype = str_dup(r->damtype);
 	ch->affected_by = r->aff;
+	ch->has_invis = r->has_invis;
+	ch->has_detect = r->has_detect;
 	ch->form = r->form;
 	ch->parts = r->parts;
 

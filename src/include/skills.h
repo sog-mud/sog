@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.25 1999-11-27 08:57:16 fjoe Exp $
+ * $Id: skills.h,v 1.26 1999-12-11 15:31:10 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -58,18 +58,18 @@ struct skill_t {
 	const char *	name;			/* skill name */
 	const char *	fun_name;		/* skill function name */
 	SPELL_FUN *	fun;			/* skill function */
-	flag32_t	target;			/* legal target */
-	flag32_t	min_pos;		/* position for caster */
+	flag_t		target;			/* legal target */
+	flag_t		min_pos;		/* position for caster */
 	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
 	const char *	noun_damage;		/* damage message */
 	const char *	msg_off;		/* wear off message */
 	const char *	msg_obj;		/* wear off message for obj */
-	flag32_t	skill_flags;		/* skill flags */
+	flag_t		skill_flags;		/* skill flags */
 	const char *	restrict_race;		/* race restrictions */
-	flag32_t	group;			/* skill group */
-	flag32_t	skill_type;		/* skill type */
+	flag_t		group;			/* skill group */
+	flag_t		skill_type;		/* skill type */
 	event_fun_t *	eventlist;		/* list of events */
 };
 
@@ -77,7 +77,7 @@ struct event_fun_t {
 	struct event_fun_t	*next;
 	const char *		fun_name;
 	EVENT_FUN *		fun;
-	flag32_t		event;
+	flag_t			event;
 };
 
 extern hash_t skills;
@@ -90,10 +90,10 @@ void skill_init(skill_t *sk);
 skill_t *skill_cpy(skill_t *dst, const skill_t *src);
 void skill_destroy(skill_t *sk);
 
-void		check_one_event		(CHAR_DATA *ch, AFFECT_DATA *af,
-					flag32_t event);
-void		check_events		(CHAR_DATA *ch, AFFECT_DATA *list,
-					flag32_t event);
+void	check_one_event	(CHAR_DATA *ch, AFFECT_DATA *af,
+			 flag_t event);
+void	check_events	(CHAR_DATA *ch, AFFECT_DATA *list,
+			 flag_t event);
 
 /*
  * misc skill lookup functions

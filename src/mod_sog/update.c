@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.173 1999-12-02 13:09:30 fjoe Exp $
+ * $Id: update.c,v 1.174 1999-12-11 15:31:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -636,7 +636,7 @@ void mobile_update(void)
 	/* Examine all mobs. */
 	for (ch = char_list; ch; ch = ch_next) {
 		bool bust_prompt = FALSE;
-		flag64_t act;
+		flag_t act;
 
 		ch_next = ch->next;
 
@@ -1122,7 +1122,7 @@ void char_update(void)
 		}
 		
 		if (!ch->fighting) {
-			flag64_t skip = AFF_FLYING;
+			flag_t inv_skip = 0;
 
 			affect_check(ch, TO_AFFECTS, -1);
 
@@ -1131,20 +1131,19 @@ void char_update(void)
 				affect_strip(ch, "caltrops");
 
 			if (!MOUNTED(ch)) {
-				if (!IS_AFFECTED(ch, AFF_HIDE) 
-				&&  (r->aff & AFF_HIDE))
+				if (!HAS_INVIS(ch, ID_HIDDEN) 
+				&&  (r->has_invis & ID_HIDDEN))
 					char_puts("You step back into the shadows.\n", ch);
 
-				if (!IS_AFFECTED(ch, AFF_SNEAK)
-				&&  (r->aff & AFF_SNEAK))
+				if (!HAS_INVIS(ch, ID_SNEAK)
+				&&  (r->has_invis & ID_SNEAK))
 					char_puts("You move silently again.\n", ch);
-			}
-			else
-				skip |= AFF_HIDE | AFF_FADE | AFF_INVIS |
-					AFF_IMP_INVIS | AFF_SNEAK |
-					AFF_CAMOUFLAGE;
+			} else
+				inv_skip |= ID_ALL_INVIS;
 
-			SET_BIT(ch->affected_by, r->aff & ~skip);
+			SET_BIT(ch->affected_by, r->aff & ~AFF_FLYING);
+			SET_INVIS(ch, r->has_invis & ~inv_skip);
+			SET_DETECT(ch, r->has_detect);
 		}
 
 		/* Remove vampire effect when morning. */
@@ -1310,7 +1309,7 @@ void char_update(void)
 		for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 			ch_next = ch->next;
 			if (PC(ch)->idle_timer > 20)
-				quit_char(ch, 0);
+				quit_char(ch, XC_F_NOCOUNT);
 			else
 				char_save(ch, 0);
 		}
@@ -1458,7 +1457,7 @@ void update_pit(OBJ_DATA *obj)
 	/* more or less an hour */
 	pit_count = ++pit_count % 120;
 
-	if (!IS_SET(obj->pObjIndex->extra_flags, ITEM_PIT)
+	if (!OBJ_IS(obj, ITEM_PIT)
 	||  pit_count)
 		return;
 
@@ -1612,7 +1611,7 @@ void update_one_obj(OBJ_DATA *obj)
 	}
 
 	if (obj->in_room && (rch = obj->in_room->people)
-	&&  !IS_SET(obj->pObjIndex->extra_flags, ITEM_PIT))
+	&&  !OBJ_IS(obj, ITEM_PIT))
 		act(message, rch, obj, NULL, TO_ALL);
 
 	if (obj->pObjIndex->item_type == ITEM_CORPSE_PC && obj->contains)
@@ -1719,7 +1718,7 @@ void aggr_update(void)
 
 		for (ch = wch->in_room->people; ch; ch = ch_next) {
 			int count;
-			flag64_t act;
+			flag_t act;
 			NPC_DATA *npc;
 			CHAR_DATA *victim;
 

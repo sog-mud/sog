@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.144 1999-12-04 08:52:32 fjoe Exp $
+ * $Id: save.c,v 1.145 1999-12-11 15:31:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,7 +140,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 
 	RESET_FIGHT_TIME(victim);
 	name = capitalize(victim->name);
-	quit_char(victim, XC_F_COUNT);
+	quit_char(victim, 0);
 	dunlink(PLAYER_PATH, name);
 }
 
@@ -267,6 +267,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fprintf(fp, "Act %s\n", format_flags(PC(ch)->plr_flags));
 	if (ch->comm)
 		fprintf(fp, "Comm %s\n", format_flags(ch->comm));
+	if (ch->chan)
+		fprintf(fp, "Chan %s\n", format_flags(ch->chan));
 	if (ch->invis_level)
 		fprintf(fp, "Invi %d\n", ch->invis_level);
 	if (ch->incog_level)
@@ -424,6 +426,8 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		fprintf(fp, "Silv %d\n", pet->silver);
 	if (pet->comm != 0)
 		fprintf(fp, "Comm %s\n", format_flags(pet->comm));
+	if (pet->chan != 0)
+		fprintf(fp, "Chan %s\n", format_flags(pet->chan));
 	fprintf(fp, "Pos %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
 	if (pet->alignment != pet->pMobIndex->alignment)
 		fprintf(fp, "Alig %d\n", pet->alignment);
@@ -458,7 +462,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 
 /* do not save named quest rewards if ch is not owner */
 	if (!IS_IMMORTAL(ch)
-	&&  IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)
+	&&  OBJ_IS(obj, ITEM_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
 		log("fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->name,
@@ -468,8 +472,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		return;
 	}
 	
-	if (IS_SET(obj->pObjIndex->extra_flags,
-		   ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+	if (OBJ_IS(obj, ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
 		return;
 
 /* Do not save limited eq if player is not in PK */
@@ -492,8 +495,8 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 			mlstr_fwrite(fp, "Desc", &obj->description);
 	}
 
-	if (obj->extra_flags != obj->pObjIndex->extra_flags)
-		fprintf(fp, "ExtF %d\n", obj->extra_flags);
+	if (obj->stat_flags != obj->pObjIndex->stat_flags)
+		fprintf(fp, "StatF %d\n", obj->stat_flags);
 
 	fprintf(fp, "Wear %d\n", obj->wear_loc);
 	if (obj->level != obj->pObjIndex->level)
@@ -684,6 +687,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				break;
 			}
 			KEY("Comm", ch->comm, fread_flags(fp) & ~COMM_AFK);
+			KEY("Chan", ch->chan, fread_flags(fp));
 
 			break;
 
@@ -945,6 +949,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Clan", pet->clan,
 			    fread_strkey(fp, &clans, "fread_pet"));
 			KEY("Comm", pet->comm, fread_flags(fp));
+			KEY("Chan", pet->chan, fread_flags(fp));
 			break;
 
 		case 'D':
@@ -1068,7 +1073,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'E':
-			KEY("ExtF", obj->extra_flags, fread_number(fp));
+			KEY("ExtF", obj->stat_flags, fread_number(fp));
 
 			if (IS_TOKEN(fp, "ExDe")) {
 				ed_fread(fp, &obj->ed);
@@ -1077,8 +1082,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			}
 
 			if (IS_TOKEN(fp, "End")) {
-				if (IS_SET(obj->pObjIndex->extra_flags,
-					   ITEM_QUEST)
+				if (OBJ_IS(obj, ITEM_QUEST)
 				&&  mlstr_null(&obj->owner)) {
 					mlstr_cpy(&obj->owner, &ch->short_descr);
 				}
@@ -1117,6 +1121,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'S':
+			KEY("StatF", obj->stat_flags, fread_number(fp));
 			MLSKEY("ShD", obj->short_descr);
 
 			if (IS_TOKEN(fp, "Spell")) {

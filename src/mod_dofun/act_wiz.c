@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.209 1999-12-10 11:29:46 kostik Exp $
+ * $Id: act_wiz.c,v 1.210 1999-12-11 15:31:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -111,7 +111,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 			   mlstr_mval(&obj->short_descr),
 			   obj->pObjIndex->vnum);
 		format_obj(buf, obj);
-		if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+		if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 			format_obj_affects(buf, obj->pObjIndex->affected,
 					   FOA_F_NODURATION);
 		format_obj_affects(buf, obj->affected, 0);
@@ -371,15 +371,14 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	if (IS_SET(victim->comm, COMM_NOCHANNELS)) {
-	    REMOVE_BIT(victim->comm, COMM_NOCHANNELS);
+	TOGGLE_BIT(victim->chan, CHAN_NOCHANNELS);
+	if (!IS_SET(victim->chan, CHAN_NOCHANNELS)) {
 	    char_puts("The gods have restored your channel priviliges.\n", 
 			      victim);
 	    char_puts("NOCHANNELS removed.\n", ch);
 		wiznet("$N restores channels to $i",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
-	    SET_BIT(victim->comm, COMM_NOCHANNELS);
 	    char_puts("The gods have revoked your channel priviliges.\n", 
 			       victim);
 	    char_puts("NOCHANNELS set.\n", ch);
@@ -1051,8 +1050,10 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "Wear bits: %s\n",
 		   flag_string(wear_flags, obj->wear_flags));
-	buf_printf(output, "Extra bits: %s\n",
-		   flag_string(extra_flags, obj->extra_flags));
+	buf_printf(output, "Stat bits: %s\n",
+		   flag_string(stat_flags, obj->stat_flags));
+	buf_printf(output, "Obj bits: %s\n",
+		   flag_string(obj_flags, obj->pObjIndex->obj_flags));
 	buf_printf(output, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n",
 		1,           get_obj_number(obj),
 		obj->weight, get_obj_weight(obj),get_true_weight(obj));
@@ -1171,7 +1172,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		buf_add(output, "'\n");
 	}
 
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
 				   FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
@@ -1187,8 +1188,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "Damage condition: %d (%s)\n",
 		   obj->condition, get_cond_alias(obj));
-	varr_foreach(&obj->pObjIndex->restrictions, print_cc_ruleset_cb,
-		     output, "obj_wear", "Restrictions:\n");
+	print_cc_ruleset(&obj->pObjIndex->restrictions,
+			 "Restrictions:", output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -1338,6 +1339,10 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Comm: [%s]\n",
 			   flag_string(comm_flags, victim->comm));
 
+	if (victim->chan)
+		buf_printf(output, "Chan: [%s]\n",
+			   flag_string(chan_flags, victim->chan));
+
 	if (IS_NPC(victim) && victim->pMobIndex->off_flags)
 		buf_printf(output, "Offense: [%s]\n",
 			   flag_string(off_flags,
@@ -1351,6 +1356,14 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (victim->affected_by)
 		buf_printf(output, "Affected by %s\n", 
 			   flag_string(affect_flags, victim->affected_by));
+
+	if (victim->has_invis)
+		buf_printf(output, "Has '%s'\n", 
+			   flag_string(id_flags, victim->has_invis));
+
+	if (victim->has_detect)
+		buf_printf(output, "Has detection of '%s'\n", 
+			   flag_string(id_flags, victim->has_detect));
 
 	pet = GET_PET(victim);
 	buf_printf(output, "Master: %s  Leader: %s  Pet: %s\n",
@@ -4257,9 +4270,9 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    top_help, top_help * sizeof(HELP_DATA));
 	char_printf(ch, "Socials  : %d (%d bytes)\n",
 		    socials.nused, socials.nused * sizeof(social_t));
-	char_printf(ch, "Mob idx  : %d (%d bytes, %d old, max vnum %d)\n",
+	char_printf(ch, "Mob idx  : %d (%d bytes, max vnum %d)\n",
 		    top_mob_index, top_mob_index * sizeof(MOB_INDEX_DATA),
-		    top_mob_index - newmobs, top_vnum_mob); 
+		    top_vnum_mob); 
 	char_printf(ch, "Mobs     : %d (%d (%d) bytes), "
 			"%d free (%d (%d) bytes)\n",
 		    npc_count,
@@ -4280,9 +4293,9 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)),
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA) +
 				      sizeof(memchunk_t)));
-	char_printf(ch, "Obj idx  : %d (%d bytes, %d old, max vnum %d)\n",
+	char_printf(ch, "Obj idx  : %d (%d bytes, max vnum %d)\n",
 		    top_obj_index, top_obj_index * sizeof(OBJ_INDEX_DATA),
-		    top_obj_index - newobjs, top_vnum_obj); 
+		    top_vnum_obj); 
 	char_printf(ch, "Objs     : %d (%d (%d) bytes, %d free)\n",
 		    obj_count,
 		    obj_count * sizeof(OBJ_DATA),

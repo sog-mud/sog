@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.36 1999-11-27 08:57:12 fjoe Exp $
+ * $Id: healer.c,v 1.37 1999-12-11 15:31:06 fjoe Exp $
  */
 
 /*-
@@ -89,7 +89,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     /* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 		if (IS_NPC(mob)
-		&&  IS_SET(mob->pMobIndex->act, ACT_HEALER)
+		&&  MOB_IS(mob, MOB_HEALER)
 		&&  (IS_NULLSTR(mob->clan) || IS_CLAN(mob->clan, ch->clan)))
 		 	break;
  

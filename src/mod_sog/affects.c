@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.14 1999-12-10 11:30:07 kostik Exp $
+ * $Id: affects.c,v 1.15 1999-12-11 15:31:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,6 +87,16 @@ void aff_free(AFFECT_DATA *af)
 	top_affect--;
 }
 
+void aff_free_list(AFFECT_DATA *paf)
+{
+	AFFECT_DATA *paf_next;
+
+	for (; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		aff_free(paf);
+	}
+}
+
 void saff_init(saff_t *sa)
 {
 	sa->sn = str_empty;
@@ -106,10 +116,12 @@ where_t where_table[] =
 	{ TO_AFFECTS,	affect_flags,	"'%s' affect"			},
 	{ TO_SKILLS,	sk_aff_flags,	"'%s' skill by %d with flags %s"},
 	{ TO_RACE,	NULL,		"changes race to '%s'"		},
+	{ TO_DETECTS,	id_flags,	"detection of '%s'"		},
+	{ TO_INVIS,	id_flags,	"'%s' invis"			},
 	{ -1 }
 };
 
-where_t *where_lookup(flag32_t where)
+where_t *where_lookup(flag_t where)
 {
 	where_t *wd;
 
@@ -123,9 +135,9 @@ where_t *where_lookup(flag32_t where)
 void affect_enchant(OBJ_DATA *obj)
 {
 	/* okay, move all the old flags into new vectors if we have to */
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED)) {
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED)) {
 		AFFECT_DATA *paf;
-		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
+		SET_OBJ_STAT(obj, ITEM_ENCHANTED);
 
 		for (paf = obj->pObjIndex->affected;
 						paf != NULL; paf = paf->next) {
@@ -199,11 +211,23 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		case TO_AFFECTS:
 			SET_BIT(ch->affected_by, paf->bitvector);
 			break;
+		case TO_DETECTS:
+			SET_DETECT(ch, paf->bitvector);
+			break;
+		case TO_INVIS:
+			SET_INVIS(ch, paf->bitvector);
+			break;
 		}
 	} else {
 		switch (paf->where) {
 		case TO_AFFECTS:
 			REMOVE_BIT(ch->affected_by, paf->bitvector);
+			break;
+		case TO_DETECTS:
+			REMOVE_DETECT(ch, paf->bitvector);
+			break;
+		case TO_INVIS:
+			REMOVE_DETECT(ch, paf->bitvector);
 			break;
 		}
 		mod = 0 - mod;
@@ -331,7 +355,7 @@ AFFECT_DATA  *affect_find(AFFECT_DATA *paf, const char *sn)
 }
 
 void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
-		       int where, flag64_t vector)
+		       int where, flag_t vector)
 {
 	for (; paf; paf = paf->next) {
 		if ((where < 0 || paf->where == where)
@@ -340,13 +364,19 @@ void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
 			case TO_AFFECTS:
 				SET_BIT(ch->affected_by, paf->bitvector);
 				break;
+			case TO_DETECTS:
+				SET_DETECT(ch, paf->bitvector);
+				break;
+			case TO_INVIS:
+				SET_INVIS(ch, paf->bitvector);
+				break;
 			}
 		}
 	}
 }
 
 /* fix object affects when removing one */
-void affect_check(CHAR_DATA *ch, int where, flag64_t vector)
+void affect_check(CHAR_DATA *ch, int where, flag_t vector)
 {
 	OBJ_DATA *obj;
 
@@ -360,7 +390,7 @@ void affect_check(CHAR_DATA *ch, int where, flag64_t vector)
 			continue;
 		affect_check_list(ch, obj->affected, where, vector);
 
-		if (IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+		if (IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 			continue;
 
 		affect_check_list(ch, obj->pObjIndex->affected, where, vector);
@@ -391,11 +421,10 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	paf_new->next	= obj->affected;
 	obj->affected	= paf_new;
 
-	/* apply any affect vectors to the object's extra_flags */
 	if (paf->bitvector) {
 		switch (paf->where) {
 		case TO_OBJECT:
-			SET_BIT(obj->extra_flags, paf->bitvector);
+			SET_OBJ_STAT(obj, paf->bitvector);
 			break;
 		case TO_WEAPON:
 			if (obj->pObjIndex->item_type == ITEM_WEAPON)
@@ -461,7 +490,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	if (paf->bitvector)
 		switch(paf->where) {
 		case TO_OBJECT:
-			REMOVE_BIT(obj->extra_flags, paf->bitvector);
+			REMOVE_OBJ_STAT(obj, paf->bitvector);
 			break;
 		case TO_WEAPON:
 			if (obj->pObjIndex->item_type == ITEM_WEAPON)
@@ -521,7 +550,7 @@ void affect_strip(CHAR_DATA *ch, const char *sn)
 /*
  * strip all affects which affect given bitvector
  */
-void affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits)
+void affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
@@ -533,7 +562,7 @@ void affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits)
 	}
 }
 
-AFFECT_DATA *is_bit_affected(CHAR_DATA *ch, int where, flag64_t bits)
+AFFECT_DATA *is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
 {
 	AFFECT_DATA *paf;
 
@@ -558,7 +587,7 @@ bool has_obj_affect(CHAR_DATA *ch, int vector)
 	        	if (paf->bitvector & vector)
 				return TRUE;
 
-		if (IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+		if (IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 			continue;
 
 		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
@@ -900,7 +929,7 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 
 	for (obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE) {
-			if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+			if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 				show_obj_affects(ch, output,
 						 obj->pObjIndex->affected);
 			show_obj_affects(ch, output, obj->affected);

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.73 1999-12-10 11:30:09 kostik Exp $
+ * $Id: obj_prog.c,v 1.74 1999-12-11 15:31:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1608,7 +1608,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
-	  af.location = APPLY_RESIST_COLD;
+	  INT(af.location) = APPLY_RESIST_COLD;
 	  af.modifier = 50;
 	  affect_to_char(ch, &af);
 	}
@@ -1624,7 +1624,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	  af.duration = -2;
 	  af.level = LEVEL(ch);
 	  af.bitvector = 0;
-	  af.location = APPLY_RESIST_FIRE;
+	  INT(af.location) = APPLY_RESIST_FIRE;
 	  af.modifier = 50;
 	  affect_to_char(ch, &af);
 	}

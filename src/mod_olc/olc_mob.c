@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.53 1999-12-11 07:22:20 kostik Exp $
+ * $Id: olc_mob.c,v 1.54 1999-12-11 15:31:12 fjoe Exp $
  */
 
 #include "olc.h"
@@ -50,13 +50,13 @@ DECLARE_OLC_FUN(mobed_spec		);
 
 DECLARE_OLC_FUN(mobed_gender		);  /* ROM */
 DECLARE_OLC_FUN(mobed_act		);  /* ROM */
+DECLARE_OLC_FUN(mobed_mob		);  /* ROM */
 DECLARE_OLC_FUN(mobed_affect		);  /* ROM */
+DECLARE_OLC_FUN(mobed_invis		);
+DECLARE_OLC_FUN(mobed_detect		);
 DECLARE_OLC_FUN(mobed_ac		);  /* ROM */
 DECLARE_OLC_FUN(mobed_form		);  /* ROM */
 DECLARE_OLC_FUN(mobed_part		);  /* ROM */
-DECLARE_OLC_FUN(mobed_imm		);  /* ROM */
-DECLARE_OLC_FUN(mobed_res		);  /* ROM */
-DECLARE_OLC_FUN(mobed_vuln		);  /* ROM */
 DECLARE_OLC_FUN(mobed_material		);  /* ROM */
 DECLARE_OLC_FUN(mobed_off		);  /* ROM */
 DECLARE_OLC_FUN(mobed_size		);  /* ROM */
@@ -75,7 +75,7 @@ DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
 DECLARE_OLC_FUN(mobed_prac		); 
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
-DECLARE_OLC_FUN(mobed_invis		);
+DECLARE_OLC_FUN(mobed_wizi		);
 DECLARE_OLC_FUN(mobed_incog		);
 DECLARE_OLC_FUN(mobed_fvnum		);
 DECLARE_OLC_FUN(mobed_resist		);
@@ -103,7 +103,10 @@ olc_cmd_t olc_cmds_mob[] =
 
 	{ "gender",	mobed_gender,	NULL,		sex_table	},
 	{ "act",	mobed_act,	NULL,		act_flags	},
+	{ "mob",	mobed_mob,	NULL,		mob_flags	},
 	{ "affect",	mobed_affect,	NULL,		affect_flags	},
+	{ "invis",	mobed_invis,	NULL,		id_flags	},
+	{ "detect",	mobed_detect,	NULL,		id_flags	},
 	{ "prac",	mobed_prac,	NULL,		skill_groups	},
 	{ "armor",	mobed_ac					},
 	{ "form",	mobed_form,	NULL,		form_flags	},
@@ -125,7 +128,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "trigadd",	mobed_trigadd					},
 	{ "trigdel",	mobed_trigdel					},
 	{ "clone",	mobed_clone					},
-	{ "invis",	mobed_invis					},
+	{ "wizi",	mobed_wizi					},
 	{ "incog",	mobed_incog					},
 	{ "fvnum",	mobed_fvnum,	validate_fvnum			},
 	{ "resist",	mobed_resist					},
@@ -175,7 +178,6 @@ OLC_FUN(mobed_create)
 	if (value > top_vnum_mob)
 		top_vnum_mob = value;        
 
-	pMob->act		= ACT_NPC;
 	iHash			= value % MAX_KEY_HASH;
 	pMob->next		= mob_index_hash[iHash];
 	mob_index_hash[iHash]	= pMob;
@@ -260,6 +262,11 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, "Act:         [%s]\n",
 		flag_string(act_flags, pMob->act));
 
+	if (pMob->mob_flags) {
+		buf_printf(buf, "Mob:         [%s]\n",
+			flag_string(mob_flags, pMob->mob_flags));
+	}
+
 	buf_printf(buf, "Vnum:        [%5d]    Race: [%s]\n",
 		pMob->vnum,
 		pMob->race);
@@ -295,6 +302,12 @@ OLC_FUN(mobed_show)
 
 	buf_printf(buf, "Affected by: [%s]\n",
 		flag_string(affect_flags, pMob->affected_by));
+
+	buf_printf(buf, "Invis:       [%s]\n",
+		flag_string(id_flags, pMob->has_invis));
+
+	buf_printf(buf, "Detect:      [%s]\n",
+		flag_string(id_flags, pMob->has_detect));
 
 /* ROM values: */
 
@@ -756,21 +769,42 @@ OLC_FUN(mobed_act)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag64(ch, argument, cmd, &pMob->act);
+	return olced_flag(ch, argument, cmd, &pMob->act);
+}
+
+OLC_FUN(mobed_mob)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_flag(ch, argument, cmd, &pMob->mob_flags);
 }
 
 OLC_FUN(mobed_affect)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag64(ch, argument, cmd, &pMob->affected_by);
+	return olced_flag(ch, argument, cmd, &pMob->affected_by);
+}
+
+OLC_FUN(mobed_invis)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_flag(ch, argument, cmd, &pMob->has_invis);
+}
+
+OLC_FUN(mobed_detect)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_flag(ch, argument, cmd, &pMob->has_detect);
 }
 
 OLC_FUN(mobed_prac) 
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->practicer);
+	return olced_flag(ch, argument, cmd, &pMob->practicer);
 }
 
 OLC_FUN(mobed_resist)
@@ -867,14 +901,14 @@ OLC_FUN(mobed_form)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->form);
+	return olced_flag(ch, argument, cmd, &pMob->form);
 }
 
 OLC_FUN(mobed_part)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->parts);
+	return olced_flag(ch, argument, cmd, &pMob->parts);
 }
 
 OLC_FUN(mobed_material)
@@ -888,14 +922,14 @@ OLC_FUN(mobed_off)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->off_flags);
+	return olced_flag(ch, argument, cmd, &pMob->off_flags);
 }
 
 OLC_FUN(mobed_size)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->size);
+	return olced_flag(ch, argument, cmd, &pMob->size);
 }
 
 OLC_FUN(mobed_hitdice)
@@ -933,6 +967,8 @@ OLC_FUN(mobed_race)
 		pMob->race = str_qdup(r->name);
 		pMob->act	  = r->act;
 		pMob->affected_by = r->aff;
+		pMob->has_invis	  = r->has_invis;
+		pMob->has_detect  = r->has_detect;
 		pMob->off_flags   = r->off;
 		pMob->form        = r->form;
 		pMob->parts       = r->parts;
@@ -961,14 +997,14 @@ OLC_FUN(mobed_startpos)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->start_pos);
+	return olced_flag(ch, argument, cmd, &pMob->start_pos);
 }
 
 OLC_FUN(mobed_defaultpos)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->default_pos);
+	return olced_flag(ch, argument, cmd, &pMob->default_pos);
 }
 
 OLC_FUN(mobed_gold)
@@ -1179,6 +1215,8 @@ OLC_FUN(mobed_clone)
 	pMob->group		= pFrom->group;
 	pMob->act		= pFrom->act;
 	pMob->affected_by	= pFrom->affected_by;
+	pMob->has_invis		= pFrom->has_invis;
+	pMob->has_detect	= pFrom->has_detect;
 	pMob->alignment		= pFrom->alignment;
 	pMob->level		= pFrom->level;
 	pMob->hitroll		= pFrom->hitroll;
@@ -1212,7 +1250,7 @@ OLC_FUN(mobed_clone)
 	return TRUE;
 }
 
-OLC_FUN(mobed_invis)
+OLC_FUN(mobed_wizi)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);

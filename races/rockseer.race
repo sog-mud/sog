@@ -1,6 +1,8 @@
 #RACE
 Name rockseer~
-Aff infrared sneak pass_door~
+Aff pass_door~
+Det infrared~
+Inv sneak~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist charm 33

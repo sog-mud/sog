@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.4 1999-11-18 15:31:31 fjoe Exp $
+ * $Id: rwfile.c,v 1.5 1999-12-11 15:31:19 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -446,10 +446,10 @@ int fread_number(rfile_t *fp)
 	return number;
 }
 
-static flag64_t
+static flag_t
 flag_convert(char letter)
 {
-	flag64_t bitsum = 0;
+	flag_t bitsum = 0;
 	char i;
 
 	if ('A' <= letter && letter <= 'Z') {
@@ -466,9 +466,9 @@ flag_convert(char letter)
 	return bitsum;
 }
 
-flag64_t fread_flags(rfile_t *fp)
+int64_t fread_flagsxx(rfile_t *fp, int low_end)
 {
-	flag64_t number;
+	int64_t number;
 	bool negative = FALSE;
 	char c = fread_letter(fp);
 
@@ -480,7 +480,7 @@ flag64_t fread_flags(rfile_t *fp)
 	number = 0;
 
 	if (!isdigit(c)) {
-		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) {
+		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= low_end)) {
 			number += flag_convert(c);
 			c = xgetc(fp);
 		}
@@ -492,7 +492,7 @@ flag64_t fread_flags(rfile_t *fp)
 	}
 
 	if (c == '|')
-		number += fread_flags(fp);
+		number += fread_flagsxx(fp, low_end);
 	else if (c != ' ')
 		xungetc(fp);
 
@@ -502,10 +502,20 @@ flag64_t fread_flags(rfile_t *fp)
 	return number;
 }
 
+flag_t fread_flags(rfile_t *fp)
+{
+	return fread_flagsxx(fp, 'z');
+}
+
+int64_t fread_flags64(rfile_t *fp)
+{
+	return fread_flagsxx(fp, 'z');
+}
+
 /*
  * read flag word (not f-word :)
  */
-flag64_t fread_fword(const flag_t *table, rfile_t *fp)
+flag_t fread_fword(const flaginfo_t *table, rfile_t *fp)
 {
 	const char *name;
 
@@ -515,18 +525,18 @@ flag64_t fread_fword(const flag_t *table, rfile_t *fp)
 	if (is_number(name))
 		return atoi(name);
 
-	return flag_value(table, name);
+	return flag_svalue(table, name);
 }
 
-flag64_t fread_fstring(const flag_t *table, rfile_t *fp)
+flag_t fread_fstring(const flaginfo_t *table, rfile_t *fp)
 {
 	const char *s = fread_string(fp);
-	flag64_t val;
+	flag_t val;
 
 	if (is_number(s))
 		val = atoi(s);
 	else
-		val = flag_value(table, s);
+		val = flag_svalue(table, s);
 
 	free_string(s);
 	return val;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.2 1999-12-04 09:36:57 fjoe Exp $
+ * $Id: olc_skill.c,v 1.3 1999-12-11 15:31:14 fjoe Exp $
  */
 
 #include "olc.h"
@@ -284,7 +284,7 @@ OLC_FUN(skilled_target)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_flag32(ch, argument, cmd, &sk->target);
+	return olced_flag(ch, argument, cmd, &sk->target);
 }
 
 OLC_FUN(skilled_minpos)
@@ -292,7 +292,7 @@ OLC_FUN(skilled_minpos)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_flag32(ch, argument, cmd, &sk->min_pos);
+	return olced_flag(ch, argument, cmd, &sk->min_pos);
 }
 
 OLC_FUN(skilled_slot)
@@ -348,7 +348,7 @@ OLC_FUN(skilled_flags)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_flag32(ch, argument, cmd, &sk->skill_flags);
+	return olced_flag(ch, argument, cmd, &sk->skill_flags);
 }
 
 OLC_FUN(skilled_group)
@@ -356,7 +356,7 @@ OLC_FUN(skilled_group)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_flag32(ch, argument, cmd, &sk->group);
+	return olced_flag(ch, argument, cmd, &sk->group);
 }
 
 OLC_FUN(skilled_type)
@@ -364,7 +364,7 @@ OLC_FUN(skilled_type)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_flag32(ch, argument, cmd, &sk->skill_type);
+	return olced_flag(ch, argument, cmd, &sk->skill_type);
 }
 
 OLC_FUN(skilled_event)

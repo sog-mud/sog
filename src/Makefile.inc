@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.3 1999-10-12 13:56:06 avn Exp $
+# $Id: Makefile.inc,v 1.4 1999-12-11 15:30:58 fjoe Exp $
 #
 
 #
@@ -15,9 +15,9 @@ LD		= gcc
 INCLUDES	= -I ../include -I ..
 
 CFLAGS		= -g -Wall -O -pipe $(INCLUDES)
-LFLAGS		= -g -export-dynamic
+LDFLAGS		= -g -export-dynamic
 SO_CFLAGS	= -fPIC
-SO_LFLAGS	= -shared
+SO_LDFLAGS	= -shared
 INSTALL_FLAGS	= -c -m 770
 LIBS		=
 INSTALL_PATH	= ../..
@@ -28,6 +28,7 @@ MAKE		= make
 #
 
 OFILES?=$(CFILES:T:.c=.o)
+OFILES+=$(OFILES_ADD)
 
 MODULE_EXT=.so
 MODULE_NAME?=$(MODULE)$(MODULE_EXT).$(ABI_VERSION)
@@ -35,16 +36,16 @@ MODULE_NAME?=$(MODULE)$(MODULE_EXT).$(ABI_VERSION)
 all: $(MODULE_NAME)
 
 $(MODULE_NAME): $(OFILES)
-	$(LD) -o $(MODULE_NAME) $(LFLAGS) $(OFILES) $(LIBS)
+	$(LD) -o $(MODULE_NAME) $(LDFLAGS) $(OFILES) $(LIBS)
 
 depend:
-	mkdep $(CFLAGS) $(CFILES)
+	env MKDEP_CPP_OPTS=-MM mkdep $(CFLAGS) $(CFILES)
 
 module_clean:
 	rm -f $(MODULE_NAME) $(MODULE)$(MODULE_EXT).*
 
 clean: module_clean
-	rm -f $(OFILES) .depend
+	rm -f $(OFILES) .depend $(CLEAN_FILES)
 
 install: $(MODULE_NAME)
 	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/$(INSTALL_DIR)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.212 1999-12-10 11:29:45 kostik Exp $
+ * $Id: act_move.c,v 1.213 1999-12-11 15:31:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1133,18 +1133,18 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 	char_puts("You attempt to move silently.\n", ch);
 	affect_strip(ch, "sneak");
 
-	if (IS_AFFECTED(ch, AFF_SNEAK))
+	if (HAS_INVIS(ch, ID_SNEAK))
 		return;
 
 	if (number_percent() < chance) {
 		check_improve(ch, "sneak", TRUE, 3);
-		af.where     = TO_AFFECTS;
+		af.where     = TO_INVIS;
 		af.type      = "sneak";
 		af.level     = LEVEL(ch); 
 		af.duration  = LEVEL(ch);
 		INT(af.location) = APPLY_NONE;
 		af.modifier  = 0;
-		af.bitvector = AFF_SNEAK;
+		af.bitvector = ID_SNEAK;
 		affect_to_char(ch, &af);
 	} else
 		check_improve(ch, "sneak", FALSE, 3);
@@ -1153,7 +1153,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 void do_hide(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
-	flag32_t sector;
+	flag_t sector;
 
 	if (MOUNTED(ch)) {
 		  char_puts("You can't hide while mounted.\n", ch);
@@ -1186,11 +1186,10 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 		chance -= 15;
 	
 	if (number_percent() < chance) {
-		SET_BIT(ch->affected_by, AFF_HIDE);
+		SET_INVIS(ch, ID_HIDDEN);
 		check_improve(ch, "hide", TRUE, 3);
-	}
-	else  {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE);
+	} else  {
+		REMOVE_INVIS(ch, ID_HIDDEN);
 		check_improve(ch, "hide", FALSE, 3);
 	}
 }
@@ -1198,7 +1197,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 void do_camouflage(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
-	flag32_t sector;
+	flag_t sector;
 
 	if (MOUNTED(ch)) {
 		char_puts("You can't camouflage while mounted.\n", ch);
@@ -1233,11 +1232,11 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 	char_puts("You attempt to camouflage yourself.\n", ch);
 	WAIT_STATE(ch, skill_beats("camouflage"));
 
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))
-		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+	if (HAS_INVIS(ch, ID_CAMOUFLAGE))
+		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 
 	if (IS_NPC(ch) || number_percent() < chance) {
-		SET_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+		SET_INVIS(ch, ID_CAMOUFLAGE);
 		check_improve(ch, "camouflage", TRUE, 1);
 	} else
 		check_improve(ch, "camouflage", FALSE, 1);
@@ -1246,7 +1245,7 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 void do_blend(CHAR_DATA *ch, const char *argument)
 {	
 	int chance;
-	flag32_t sector;
+	flag_t sector;
 
 	AFFECT_DATA af;
 
@@ -1262,7 +1261,7 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_BLEND)) {
+	if (HAS_INVIS(ch, ID_BLEND)) {
 		act_puts("You are already blending.",
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
@@ -1281,17 +1280,16 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 	act_puts("$n attempts to blend in the forest.",
 		ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	if (number_percent() < chance) {
-		af.where 	= TO_AFFECTS;
+		af.where 	= TO_INVIS;
 		af.type		= "forest blending";
 		af.level	= LEVEL(ch);
 		INT(af.location)= APPLY_NONE;
 		af.modifier	= 0;
-		af.bitvector	= AFF_BLEND;
+		af.bitvector	= ID_BLEND;
 		affect_to_char(ch, &af);
 		check_improve(ch, "forest blending", TRUE, 2);
-	} else {
+	} else 
 		check_improve(ch, "forest blending", FALSE, 2);
-	}
 }
 
 /*
@@ -1299,26 +1297,26 @@ void do_blend(CHAR_DATA *ch, const char *argument)
  */
 void do_visible(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+	if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)) {
+		REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 		act_puts("You step out of shadows.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n steps out of shadows.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
 
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE) || IS_AFFECTED(ch, AFF_BLEND)) {
-		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE | AFF_BLEND);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
+	if (HAS_INVIS(ch, ID_CAMOUFLAGE | ID_BLEND)) {
+		REMOVE_INVIS(ch, ID_CAMOUFLAGE | ID_BLEND);
+		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $m's cover.",
 		    ch, NULL, NULL, TO_ROOM);
 	}
 
-	if (IS_AFFECTED(ch, AFF_INVIS | AFF_IMP_INVIS)) {
-		REMOVE_BIT(ch->affected_by, AFF_INVIS | AFF_IMP_INVIS);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS);
+	if (HAS_INVIS(ch, ID_INVIS | ID_IMP_INVIS)) {
+		REMOVE_INVIS(ch, ID_INVIS | ID_IMP_INVIS);
+		affect_bit_strip(ch, TO_INVIS, ID_INVIS | ID_IMP_INVIS);
 		act_puts("You fade into existence.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
@@ -1390,8 +1388,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	 */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 		if (IS_NPC(mob)
-		&&  IS_SET(mob->pMobIndex->act,
-			   ACT_PRACTICE | ACT_TRAIN | ACT_GAIN))
+		&&  MOB_IS(mob, MOB_PRACTICE | MOB_TRAIN | MOB_GAIN))
 			break;
 
 	if (mob == NULL) {
@@ -1558,7 +1555,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.where     = TO_AFFECTS;
 	INT(af.location) = APPLY_DEX;
 	af.modifier  = 1 + (level /20);
-	af.bitvector = AFF_HASTE | AFF_BERSERK;
+	af.bitvector = AFF_HASTE | AFF_BERSERK | AFF_FLYING | AFF_TURNED;
 	affect_to_char(ch, &af);
 
 /* giant strength + infrared */
@@ -1577,13 +1574,18 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.modifier  = ch->damroll;
 	affect_to_char(ch, &af);
 
-/* flying, infrared */
-	af.where     = TO_AFFECTS;
+/* infrared */
+	af.where     = TO_DETECTS;
 	INT(af.location) = 0;
 	af.modifier  = 0;
-	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED | AFF_TURNED;
+	af.bitvector = ID_INFRARED;
 	affect_to_char(ch, &af);
 	
+/* sneak */
+	af.where = TO_INVIS;
+	af.bitvector = ID_INFRARED;
+	affect_to_char(ch, &af);
+
 	PC(ch)->form_name = "an ugly creature";
 	char_puts("You feel yourself getting greater and greater.\n", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
@@ -1989,7 +1991,7 @@ void do_fade(CHAR_DATA *ch, const char *argument)
 
 	char_puts("You attempt to fade.\n", ch);
 	if (number_percent() <= chance) {
-		SET_BIT(ch->affected_by, AFF_FADE);
+		SET_INVIS(ch, ID_FADE);
 		check_improve(ch, "fade", TRUE, 3);
 	} else
 		check_improve(ch, "fade", FALSE, 3);
@@ -2194,15 +2196,14 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-
-	if (IS_AFFECTED(ch, AFF_DETECT_WEB)) {
+	if (IS_AFFECTED(ch, AFF_WEB)) {
 		char_puts("You're webbed, and want to do WHAT?!?\n", ch);
 		act("$n stupidly tries to push $N while webbed.",
 		    ch, NULL, victim, TO_ROOM);
 		return; 
 	}
 
-	if (IS_AFFECTED(victim, AFF_DETECT_WEB)) {
+	if (IS_AFFECTED(victim, AFF_WEB)) {
 		act_puts("You attempt to push $N, but the webs hold $m "
 			 "in place.", victim, NULL, ch, TO_VICT, POS_DEAD);
 		act("$n attempts to push $n, but fails as the webs hold "
@@ -2528,9 +2529,8 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	mount->mount = ch;
 	mount->riding = TRUE;
   
-	affect_bit_strip(ch, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS | AFF_SNEAK);
-	REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE |
-				    AFF_INVIS | AFF_IMP_INVIS | AFF_SNEAK);
+	affect_bit_strip(ch, TO_INVIS, ID_ALL_INVIS | ID_SNEAK);
+	REMOVE_INVIS(ch, ID_ALL_INVIS | ID_SNEAK);
 }
 
 void do_dismount(CHAR_DATA *ch, const char *argument)

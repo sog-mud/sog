@@ -3,9 +3,9 @@ Name weapon_axe~
 Class weapon
 End
 
-#R has_spec
+#R
 order allow_deny
-allow class_warrior~
+allow has_spec("class_warrior")~
 end
 
 #SKILL

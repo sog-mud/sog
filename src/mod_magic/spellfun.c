@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.194 1999-12-10 11:30:12 kostik Exp $
+ * $Id: spellfun.c,v 1.195 1999-12-11 15:31:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,7 +113,7 @@ void spell_bless(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			if (paf != NULL)
 			    affect_remove_obj(obj,paf);
 			act("$p glows a pale blue.",ch,obj,NULL,TO_ALL);
-			REMOVE_BIT(obj->extra_flags,ITEM_EVIL);
+			REMOVE_OBJ_STAT(obj, ITEM_EVIL);
 			return;
 		    }
 		    else
@@ -677,7 +677,7 @@ void spell_continual_light(const char *sn, int level,CHAR_DATA *ch,void *vo)
 		    return;
 		}
 
-		SET_BIT(light->extra_flags,ITEM_GLOW);
+		SET_OBJ_STAT(light, ITEM_GLOW);
 		act("$p glows with a white light.",ch,light,NULL,TO_ALL);
 		return;
 	}
@@ -889,7 +889,7 @@ void spell_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 					affect_remove_obj(obj,paf);
 				act("$p glows with a red aura.",
 				    ch, obj, NULL, TO_ALL);
-				REMOVE_BIT(obj->extra_flags, ITEM_BLESS);
+				REMOVE_OBJ_STAT(obj, ITEM_BLESS);
 				return;
 			}
 
@@ -1048,21 +1048,23 @@ void spell_detect_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_EVIL))
-	{
+	if (HAS_DETECT(victim, ID_EVIL)) {
 		if (victim == ch)
-		  char_puts("You can already sense evil.\n",ch);
-		else
-		  act("$N can already detect evil.",ch,NULL,victim,TO_CHAR);
+			char_puts("You can already sense evil.\n", ch);
+		else {
+			act("$N can already detect evil.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = (5 + level / 3);
-	af.modifier  = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = AFF_DETECT_EVIL;
+
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (5 + level / 3);
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_EVIL;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
 	if (ch != victim)
@@ -1074,21 +1076,23 @@ void spell_detect_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_GOOD))
-	{
+	if (HAS_DETECT(victim, ID_GOOD)) {
 		if (victim == ch)
-		  char_puts("You can already sense good.\n",ch);
-		else
-		  act("$N can already detect good.",ch,NULL,victim,TO_CHAR);
+			char_puts("You can already sense good.\n", ch);
+		else {
+			act("$N can already detect good.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (5 + level / 3);
-	af.modifier  = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = AFF_DETECT_GOOD;
+
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (5 + level / 3);
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_GOOD;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
 	if (ch != victim)
@@ -1100,23 +1104,23 @@ void spell_detect_hidden(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_HIDDEN)) {
+	if (HAS_DETECT(victim, ID_HIDDEN)) {
 		if (victim == ch)
-			char_puts("You are already as alert as you can be.\n",
-				  ch);
-		else
+			char_puts("You are already as alert as you can be.\n", ch);
+		else {
 			act("$N can already sense hidden lifeforms.",
 			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_DETECTS;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= 5 + level / 3;
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
-	af.bitvector	= AFF_DETECT_HIDDEN;
+	af.bitvector	= ID_HIDDEN;
 	affect_to_char(victim, &af);
 	char_puts("Your awareness improves.\n", victim);
 	if (ch != victim)
@@ -1128,23 +1132,23 @@ void spell_detect_fade(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_FADE)) {
+	if (HAS_DETECT(victim, ID_FADE)) {
 		if (victim == ch)
-			char_puts("You are already as alert as you can be.\n",
-				  ch);
-		else
+			char_puts("You are already as alert as you can be.\n", ch);
+		else {
 			act("$N can already sense faded lifeforms.",
 			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_DETECTS;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= 5 + level / 3;
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
-	af.bitvector	= AFF_DETECT_FADE;
+	af.bitvector	= ID_FADE;
 	affect_to_char(victim, &af);
 	char_puts("Your awareness improves.\n", victim);
 	if (ch != victim)
@@ -1156,22 +1160,23 @@ void spell_detect_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_INVIS))
-	{
+	if (HAS_DETECT(victim, ID_INVIS)) {
 		if (victim == ch)
-		  char_puts("You can already see invisible.\n",ch);
-		else
-		  act("$N can already see invisible things.",ch,NULL,victim,TO_CHAR);
+			char_puts("You can already see invisible.\n", ch);
+		else {
+			act("$N can already see invisible things.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (5 + level / 3);
-	af.modifier  = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = AFF_DETECT_INVIS;
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (5 + level / 3);
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_INVIS;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
 	if (ch != victim)
@@ -1183,22 +1188,23 @@ void spell_detect_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_MAGIC))
-	{
+	if (HAS_DETECT(victim, ID_MAGIC)) {
 		if (victim == ch)
-		  char_puts("You can already sense magical auras.\n",ch);
-		else
-		  act("$N can already detect magic.",ch,NULL,victim,TO_CHAR);
+			char_puts("You can already sense magical auras.\n", ch);
+		else {
+			act("$N can already detect magic.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = (5 + level / 3);
-	af.modifier  = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = AFF_DETECT_MAGIC;
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (5 + level / 3);
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_MAGIC;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
 	if (ch != victim)
@@ -1336,7 +1342,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	/* find the bonuses */
 
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		for (paf = obj->pObjIndex->affected; 
 	 	     paf != NULL; 
 		     paf = paf->next) {
@@ -1407,7 +1413,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 		obj->affected = NULL;
 
-		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
+		SET_OBJ_STAT(obj, ITEM_ENCHANTED);
 		return;
 	}
 
@@ -1421,12 +1427,12 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (result <= (90 - level / 5)) { /* success! */
 		act("$p shimmers with a gold aura.", ch, obj, NULL, TO_CHAR);
 		act("$p shimmers with a gold aura.", ch, obj, NULL, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
+		SET_OBJ_STAT(obj, ITEM_MAGIC);
 		added = -1;
 	} else { /* exceptional enchant */
 		act("$p glows a brillant gold!", ch, obj, NULL, TO_CHAR);
 		act("$p glows a brillant gold!", ch, obj, NULL, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC | ITEM_GLOW);
+		SET_OBJ_STAT(obj, ITEM_MAGIC | ITEM_GLOW);
 		added = -2;
 	}
 			
@@ -1516,7 +1522,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 
 	/* find the bonuses */
 
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
 			||  paf->where == TO_RACE)
@@ -1588,7 +1594,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 		}
 		obj->affected = NULL;
 
-		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
+		SET_OBJ_STAT(obj, ITEM_ENCHANTED);
 		return;
 	}
 
@@ -1602,12 +1608,12 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	if (result <= (100 - level/5)) { /* success! */
 		act("$p glows blue.", ch, obj, NULL, TO_CHAR);
 		act("$p glows blue.", ch, obj, NULL, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
+		SET_OBJ_STAT(obj, ITEM_MAGIC);
 		added = 1;
 	} else { /* exceptional enchant */
 		act("$p glows a brillant blue!", ch, obj, NULL, TO_CHAR);
 		act("$p glows a brillant blue!", ch, obj, NULL, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC | ITEM_GLOW);
+		SET_OBJ_STAT(obj, ITEM_MAGIC | ITEM_GLOW);
 		added = 2;
 	}
 			
@@ -1628,7 +1634,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 				paf->modifier += added;
 				paf->level = UMAX(paf->level, level);
 				if (paf->modifier > 4)
-					SET_BIT(obj->extra_flags, ITEM_HUM);
+					SET_OBJ_STAT(obj, ITEM_HUM);
 			}
 		}
 	} else { /* add a new affect */
@@ -1653,7 +1659,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 				paf->modifier += added;
 				paf->level = UMAX(paf->level, level);
 				if (paf->modifier > 4)
-				SET_BIT(obj->extra_flags, ITEM_HUM);
+				SET_OBJ_STAT(obj, ITEM_HUM);
 			}
 		}
 	} else { /* add a new affect */
@@ -1883,10 +1889,8 @@ void spell_faerie_fog(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
 			continue;
 
-		affect_bit_strip(ich, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS);
-		REMOVE_BIT(ich->affected_by, AFF_HIDE | AFF_FADE |
-					     AFF_CAMOUFLAGE | AFF_INVIS |
-					     AFF_IMP_INVIS);
+		affect_bit_strip(ich, TO_INVIS, ID_ALL_INVIS);
+		REMOVE_BIT(ich->affected_by, ID_ALL_INVIS);
 
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
 		char_puts("You are revealed!\n", ich);
@@ -2396,7 +2400,7 @@ void spell_identify(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	output = buf_new(-1);
 	format_obj(output, obj);
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
 				   FOA_F_NODURATION | FOA_F_NOAFFECTS);
 	format_obj_affects(output, obj->affected, FOA_F_NOAFFECTS);
@@ -2411,7 +2415,7 @@ void spell_improved_identify(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	output = buf_new(-1);
 	format_obj(output, obj);
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
 					FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
@@ -2424,25 +2428,27 @@ void spell_infravision(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_INFRARED)) {
+	if (HAS_DETECT(victim, ID_INFRARED)) {
 		if (victim == ch)
 			char_puts("You can already see in the dark.\n", ch);
-		else
-			act("$N already has infravision.\n",
+		else {
+			act("$N already has infravision.",
 			    ch, NULL, victim,TO_CHAR);
+		}
 		return;
 	}
+
+	char_puts("Your eyes glow red.\n", victim);
 	act("$n's eyes glow red.\n", ch, NULL, NULL, TO_ROOM);
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_DETECTS;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= 2 * level;
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
-	af.bitvector	= AFF_INFRARED;
+	af.bitvector	= ID_INFRARED;
 	affect_to_char(victim, &af);
-	char_puts("Your eyes glow red.\n", victim);
 }
 
 void spell_invisibility(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -2454,10 +2460,9 @@ void spell_invisibility(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (mem_is(vo, MT_OBJ)) {
 		OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-		if (IS_OBJ_STAT(obj,ITEM_INVIS))
-		{
-		    act("$p is already invisible.",ch,obj,NULL,TO_CHAR);
-		    return;
+		if (IS_OBJ_STAT(obj, ITEM_INVIS)) {
+			act("$p is already invisible.", ch, obj, NULL, TO_CHAR);
+			return;
 		}
 
 		af.where	= TO_OBJECT;
@@ -2469,30 +2474,30 @@ void spell_invisibility(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		af.bitvector	= ITEM_INVIS;
 		affect_to_obj(obj,&af);
 
-		act("$p fades out of sight.",ch,obj,NULL,TO_ALL);
+		act("$p fades out of sight.", ch, obj, NULL, TO_ALL);
 		return;
 	}
 
 	/* character invisibility */
 	victim = (CHAR_DATA *) vo;
 
-	if (IS_AFFECTED(victim, AFF_INVIS))
+	if (HAS_INVIS(victim, ID_INVIS))
 		return;
 
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
-
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = (level / 8 + 10);
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = AFF_INVIS;
-	affect_to_char(victim, &af);
 	char_puts("You fade out of existence.\n", victim);
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (level / 8 + 10);
+	INT(af.location)= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= ID_INVIS;
+	affect_to_char(victim, &af);
 }
 
-void spell_know_alignment(const char *sn, int level,CHAR_DATA *ch,void *vo)
+void spell_know_alignment(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	char *msg;
@@ -2537,7 +2542,7 @@ void spell_locate_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
 		||  IS_OBJ_STAT(obj, ITEM_NOLOCATE)
-		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST) &&
+		||  (OBJ_IS(obj, ITEM_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level)
@@ -2661,26 +2666,27 @@ void spell_mass_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	CHAR_DATA *gch;
 
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
-	{
-		if (!is_same_group(gch, ch) || IS_AFFECTED(gch, AFF_INVIS))
-		    continue;
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+		if (!is_same_group(gch, ch) || HAS_INVIS(gch, ID_INVIS))
+			continue;
+
 		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
 			if (IS_EXTRACTED(ch)) 
 				return;
 			else 
 				continue;
 		}
-		act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
+		act("$n slowly fades out of existence.",
+		    gch, NULL, NULL, TO_ROOM);
 		char_puts("You slowly fade out of existence.\n", gch);
 
-		af.where     = TO_AFFECTS;
-		af.type      = sn;
-		af.level     = level/2;
-		af.duration  = 24;
-		INT(af.location) = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = AFF_INVIS;
+		af.where	= TO_INVIS;
+		af.type		= sn;
+		af.level	= level/2;
+		af.duration	= 24;
+		INT(af.location)= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= ID_INVIS;
 		affect_to_char(gch, &af);
 	}
 	char_puts("Ok.\n", ch);
@@ -3008,8 +3014,7 @@ void spell_remove_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    if (!IS_OBJ_STAT(obj,ITEM_NOUNCURSE)
 		    &&  !saves_dispel(level + 2,obj->level,0))
 		    {
-			REMOVE_BIT(obj->extra_flags,ITEM_NODROP);
-			REMOVE_BIT(obj->extra_flags,ITEM_NOREMOVE);
+			REMOVE_OBJ_STAT(obj,ITEM_NODROP | ITEM_NOREMOVE);
 			act("$p glows blue.",ch,obj,NULL,TO_ALL);
 			return;
 		    }
@@ -3040,8 +3045,7 @@ void spell_remove_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    if (!saves_dispel(level,obj->level,0))
 		    {
 			found = TRUE;
-			REMOVE_BIT(obj->extra_flags,ITEM_NODROP);
-			REMOVE_BIT(obj->extra_flags,ITEM_NOREMOVE);
+			REMOVE_OBJ_STAT(obj, ITEM_NODROP | ITEM_NOREMOVE);
 			act("Your $p glows blue.",victim,obj,NULL,TO_CHAR);
 			act("$n's $p glows blue.",victim,obj,NULL,TO_ROOM);
 		    }
@@ -3701,7 +3705,7 @@ void spell_find_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level
-		||  (IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST) &&
+		||  (OBJ_IS(obj, ITEM_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL))
 			continue;
 
@@ -4204,22 +4208,23 @@ void spell_detect_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_UNDEAD)) {
+	if (HAS_DETECT(victim, ID_UNDEAD)) {
 		if (victim == ch)
 			char_puts("You can already sense undead.\n", ch);
-		else
+		else {
 			act("$N can already detect undead.",
 			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = (5 + level / 3);
-	af.modifier  = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = AFF_DETECT_UNDEAD;
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= (5 + level / 3);
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_UNDEAD;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
 	if (ch != victim)

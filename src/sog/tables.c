@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.108 1999-12-10 11:30:10 kostik Exp $
+ * $Id: tables.c,v 1.109 1999-12-11 15:31:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,11 +49,11 @@
 #include "note.h"
 
 /*
- * first element of each flag_t[] table describes type of values
+ * first element of each flaginfo_t[] table describes type of values
  * in the table.
  */
 
-flag_t slang_table[] =
+flaginfo_t slang_table[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
@@ -70,7 +70,7 @@ flag_t slang_table[] =
 	{ NULL }
 };
 
-flag_t size_table[] =
+flaginfo_t size_table[] =
 { 
 	{ "",			TABLE_INTVAL			},
 
@@ -85,19 +85,20 @@ flag_t size_table[] =
 	{ NULL }
 };
 
-flag_t act_flags[] =
+flaginfo_t act_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "npc",		ACT_NPC,		FALSE	},
+	{ "familiar",		ACT_FAMILIAR,		TRUE	},
 	{ "sentinel",		ACT_SENTINEL,		TRUE	},
 	{ "scavenger",		ACT_SCAVENGER,		TRUE	},
+	{ "summoned",		ACT_SUMMONED,		TRUE	},
+	{ "imm_summon",		ACT_IMMSUMMON,		TRUE	},
 	{ "aggressive",		ACT_AGGRESSIVE,		TRUE	},
 	{ "stay_area",		ACT_STAY_AREA,		TRUE	},
 	{ "wimpy",		ACT_WIMPY,		TRUE	},
 	{ "pet",		ACT_PET,		TRUE	},
-	{ "train",		ACT_TRAIN,		TRUE	},
-	{ "practice",		ACT_PRACTICE,		TRUE	},
+	{ "imm_steal",		ACT_IMMSTEAL,		TRUE	},
 	{ "hunter",		ACT_HUNTER,		TRUE	},
 	{ "undead",		ACT_UNDEAD,		TRUE	},
 	{ "cleric",		ACT_CLERIC,		TRUE	},
@@ -107,30 +108,35 @@ flag_t act_flags[] =
 	{ "noalign",		ACT_NOALIGN,		TRUE	},
 	{ "nopurge",		ACT_NOPURGE,		TRUE	},
 	{ "outdoors",		ACT_OUTDOORS,		TRUE	},
-	{ "questor",		ACT_QUESTOR,		TRUE	},
 	{ "indoors",		ACT_INDOORS,		TRUE	},
 	{ "rideable",		ACT_RIDEABLE,		TRUE	},
-	{ "healer",		ACT_HEALER,		TRUE	},
-	{ "gain",		ACT_GAIN,		TRUE	},
 	{ "update_always",	ACT_UPDATE_ALWAYS,	TRUE	},
-	{ "changer",		ACT_CHANGER,		TRUE	},
 	{ "notrack",		ACT_NOTRACK,		TRUE	},
-	{ "clan_guard",		ACT_CLAN_GUARD,		TRUE	},
-	{ "summoned",		ACT_SUMMONED,		TRUE	},
-	{ "sage",		ACT_SAGE,		TRUE	},
-	{ "repairman",		ACT_REPAIRMAN,		TRUE	},
-	{ "familiar",		ACT_FAMILIAR,		TRUE	},
-	{ "imm_summon",		ACT_IMMSUMMON,		TRUE	},
-	{ "imm_steal",		ACT_IMMSTEAL,		TRUE	},
 
 	{ NULL }
 };
 
-flag_t plr_flags[] =
+flaginfo_t mob_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "npc",		PLR_NPC,		FALSE	},
+	{ "changer",		MOB_CHANGER,		TRUE	},
+	{ "gain",		MOB_GAIN,		TRUE	},
+	{ "train",		MOB_TRAIN,		TRUE	},
+	{ "practice",		MOB_PRACTICE,		TRUE	},
+	{ "questor",		MOB_QUESTOR,		TRUE	},
+	{ "repairman",		MOB_REPAIRMAN,		TRUE	},
+	{ "sage",		MOB_SAGE,		TRUE	},
+	{ "healer",		MOB_HEALER,		TRUE	},
+	{ "clan_guard",		MOB_CLAN_GUARD,		TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t plr_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
 	{ "autolook",		PLR_AUTOLOOK,		FALSE	},
 	{ "autoassist",		PLR_AUTOASSIST,		FALSE	},
 	{ "autoexit",		PLR_AUTOEXIT,		FALSE	},
@@ -154,27 +160,27 @@ flag_t plr_flags[] =
 	{ NULL }
 };
 
-flag_t affect_flags[] =
+flaginfo_t affect_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
 	{ "blind",		AFF_BLIND,		TRUE	},
-	{ "invisible",		AFF_INVIS,		TRUE	},
-	{ "detect_evil",	AFF_DETECT_EVIL,	TRUE	},
-	{ "detect_invis",	AFF_DETECT_INVIS,	TRUE	},
-	{ "detect_magic",	AFF_DETECT_MAGIC,	TRUE	},
-	{ "detect_hidden",	AFF_DETECT_HIDDEN,	TRUE	},
-	{ "detect_good",	AFF_DETECT_GOOD,	TRUE	},
+	{ "scream",		AFF_SCREAM,		TRUE	},
+	{ "bloodthirst",	AFF_BLOODTHIRST,	TRUE	},
+	{ "stun",		AFF_STUN,		TRUE	},
+	{ "weak_stun",		AFF_WEAK_STUN,		TRUE	},
+	{ "fear",		AFF_FEAR,		TRUE	},
+	{ "web",		AFF_WEB,		TRUE	},
 	{ "sanctuary",		AFF_SANCTUARY,		TRUE	},
 	{ "faerie_fire",	AFF_FAERIE_FIRE,	TRUE	},
-	{ "infrared",		AFF_INFRARED,		TRUE	},
+	{ "black_shroud",	AFF_BLACK_SHROUD,	TRUE	},
 	{ "curse",		AFF_CURSE,		TRUE	},
 	{ "corruption",		AFF_CORRUPTION,		TRUE	},
 	{ "poison",		AFF_POISON,		TRUE	},
 	{ "protect_evil",	AFF_PROTECT_EVIL,	TRUE	},
 	{ "protect_good",	AFF_PROTECT_GOOD,	TRUE	},
-	{ "sneak",		AFF_SNEAK,		TRUE	},
-	{ "hide",		AFF_HIDE,		TRUE	},
+	{ "turned",		AFF_TURNED,		TRUE	},
+	{ "water_breathing",	AFF_WATER_BREATHING,	TRUE	},
 	{ "sleep",		AFF_SLEEP,		TRUE	},
 	{ "charm",		AFF_CHARM,		TRUE	},
 	{ "flying",		AFF_FLYING,		TRUE	},
@@ -183,38 +189,37 @@ flag_t affect_flags[] =
 	{ "calm",		AFF_CALM,		TRUE	},
 	{ "plague",		AFF_PLAGUE,		TRUE	},
 	{ "weaken",		AFF_WEAKEN,		TRUE	},
-	{ "dark_vision",	AFF_DARK_VISION,	TRUE	},
 	{ "berserk",		AFF_BERSERK,		TRUE	},
 	{ "swim",		AFF_SWIM,		TRUE	},
 	{ "regeneration",	AFF_REGENERATION,	TRUE	},
 	{ "slow",		AFF_SLOW,		TRUE	},
-	{ "camouflage",		AFF_CAMOUFLAGE,		TRUE	},
-	{ "imp_invis",		AFF_IMP_INVIS,		TRUE	},
-	{ "fade",		AFF_FADE,		TRUE	},
-	{ "scream",		AFF_SCREAM,		TRUE	},
-	{ "bloodthirst",	AFF_BLOODTHIRST,	TRUE	},
-	{ "stun",		AFF_STUN,		TRUE	},
-	{ "weak_stun",		AFF_WEAK_STUN,		TRUE	},
-	{ "detect_imp_invis",	AFF_DETECT_IMP_INVIS,	TRUE	},
-	{ "detect_fade",	AFF_DETECT_FADE,	TRUE	},
-	{ "detect_undead",	AFF_DETECT_UNDEAD,	TRUE	},
-	{ "detect_fear",	AFF_DETECT_FEAR,	TRUE	},
-	{ "detect_form_tree",	AFF_DETECT_FORM_TREE,	TRUE	},
-	{ "detect_form_grass",	AFF_DETECT_FORM_GRASS,	TRUE	},
-	{ "detect_web",		AFF_DETECT_WEB,		TRUE	},
-	{ "detect_life",	AFF_DETECT_LIFE,	TRUE	},
-	{ "acute_vision",	AFF_ACUTE_VISION,	TRUE	},
-	{ "black_shroud",	AFF_BLACK_SHROUD,	TRUE	},
-	{ "blending",		AFF_BLEND,		TRUE	},
-	{ "detect_blend",	AFF_AWARENESS,		TRUE	},
-	{ "form_changed",	AFF_TURNED,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},
-	{ "water_breathing",	AFF_WATER_BREATHING,	TRUE	},
 
 	{ NULL }
 };
 
-flag_t off_flags[] =
+flaginfo_t id_flags[] =
+{
+	{ "",			TABLE_BITVAL,		TRUE	},
+
+	{ "invis",		ID_INVIS,		TRUE	},
+	{ "hidden",		ID_HIDDEN,		TRUE	},
+	{ "fade",		ID_FADE,		TRUE	},
+	{ "imp_invis",		ID_IMP_INVIS,		TRUE	},
+	{ "blend",		ID_BLEND,		TRUE	},
+	{ "camouflage",		ID_CAMOUFLAGE,		TRUE	},
+	{ "sneak",		ID_SNEAK,		TRUE	},
+	{ "infrared",		ID_INFRARED,		TRUE	},
+	{ "undead",		ID_UNDEAD,		TRUE	},
+	{ "life",		ID_LIFE,		TRUE	},
+	{ "evil",		ID_EVIL,		TRUE	},
+	{ "magic",		ID_MAGIC,		TRUE	},
+	{ "good",		ID_GOOD,		TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t off_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -246,39 +251,7 @@ flag_t off_flags[] =
 	{ NULL }
 };
 
-flag_t imm_flags[] =
-{
-	{ "",			TABLE_BITVAL			},
-
-	{ "summon",		IMM_SUMMON,		TRUE	},
-	{ "charm",		IMM_CHARM,		TRUE	},
-	{ "magic",		IMM_MAGIC,		TRUE	},
-	{ "weapon",		IMM_WEAPON,		TRUE	},
-	{ "bash",		IMM_BASH,		TRUE	},
-	{ "pierce",		IMM_PIERCE,		TRUE	},
-	{ "slash",		IMM_SLASH,		TRUE	},
-	{ "fire",		IMM_FIRE,		TRUE	},
-	{ "cold",		IMM_COLD,		TRUE	},
-	{ "light",		IMM_LIGHT,		TRUE	},
-	{ "lightning",		IMM_LIGHTNING,		TRUE	},
-	{ "acid",		IMM_ACID,		TRUE	},
-	{ "poison",		IMM_POISON,		TRUE	},
-	{ "negative",		IMM_NEGATIVE,		TRUE	},
-	{ "holy",		IMM_HOLY,		TRUE	},
-	{ "energy",		IMM_ENERGY,		TRUE	},
-	{ "mental",		IMM_MENTAL,		TRUE	},
-	{ "disease",		IMM_DISEASE,		TRUE	},
-	{ "drowning",		IMM_DROWNING,		TRUE	},
-	{ "sound",		IMM_SOUND,		TRUE	},
-	{ "wood",		IMM_WOOD,		TRUE	},
-	{ "silver",		IMM_SILVER,		TRUE	},
-	{ "iron",		IMM_IRON,		TRUE	},
-	{ "steal",		IMM_STEAL,		TRUE	},
-
-	{ NULL }
-};
-
-flag_t form_flags[] =
+flaginfo_t form_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -312,7 +285,7 @@ flag_t form_flags[] =
 	{ NULL }
 };
 
-flag_t part_flags[] =
+flaginfo_t part_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -342,45 +315,54 @@ flag_t part_flags[] =
 	{ NULL }
 };
 
-flag_t comm_flags[] =
+flaginfo_t comm_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
 	{ "quiet",		COMM_QUIET,		TRUE	},
 	{ "deaf",		COMM_DEAF,		TRUE	},
-	{ "nowiz",		COMM_NOWIZ,		TRUE	},
-	{ "nogossip",		COMM_NOGOSSIP,		TRUE	},
-	{ "noquestion",		COMM_NOQUESTION,	TRUE	},
-	{ "noauction",		COMM_NOAUCTION,		TRUE	},
-	{ "nomusic",		COMM_NOMUSIC,		TRUE	},
-	{ "noquote",		COMM_NOQUOTE,		TRUE	},
-	{ "noclan",		COMM_NOCLAN,		TRUE	},
+	{ "noautoflee",		COMM_NOFLEE,		TRUE	},
+	{ "nonote",		COMM_NONOTE,		TRUE	},
 	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},
 	{ "prompt",		COMM_PROMPT,		TRUE	},
-	{ "long",		COMM_LONG,		TRUE	},
 	{ "combine",		COMM_COMBINE,		TRUE	},
 	{ "telnet_ga",		COMM_TELNET_GA,		TRUE	},
 	{ "showaff",		COMM_SHOWAFF,		TRUE	},
 	{ "color",		COMM_COLOR,		TRUE	},
 	{ "noemote",		COMM_NOEMOTE,		FALSE	},
-	{ "noshout",		COMM_NOSHOUT,		FALSE	},
 	{ "notell",		COMM_NOTELL,		FALSE	},
-	{ "nochannels",		COMM_NOCHANNELS,	FALSE	},
+	{ "noeng",		COMM_NOENG,		TRUE	},
 	{ "snoop_proof",	COMM_SNOOP_PROOF,	FALSE	},
 	{ "afk",		COMM_AFK,		TRUE	},
+	{ "long",		COMM_LONG,		TRUE	},
 	{ "notelnet",		COMM_NOTELNET,		TRUE	},
 	{ "noiac",		COMM_NOIAC,		TRUE	},
 	{ "noverbose",		COMM_NOVERBOSE,		TRUE	},
 	{ "nobust",		COMM_NOBUST,		TRUE	},
-	{ "noeng",		COMM_NOENG,		TRUE	},
-	{ "noautoflee",		COMM_NOFLEE,		TRUE	},
 
 	{ NULL }
 };
 
-flag_t clan_flags[] =
+flaginfo_t chan_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "nochannels",		CHAN_NOCHANNELS,	FALSE	},
+	{ "nowiz",		CHAN_NOWIZ,		TRUE	},
+	{ "nogossip",		CHAN_NOGOSSIP,		TRUE	},
+	{ "noquestion",		CHAN_NOQUESTION,	TRUE	},
+	{ "noauction",		CHAN_NOAUCTION,		TRUE	},
+	{ "nomusic",		CHAN_NOMUSIC,		TRUE	},
+	{ "noquote",		CHAN_NOQUOTE,		TRUE	},
+	{ "noclan",		CHAN_NOCLAN,		TRUE	},
+	{ "noshout",		CHAN_NOSHOUT,		FALSE	},
+
+	{ NULL }
+};
+
+flaginfo_t clan_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -390,7 +372,7 @@ flag_t clan_flags[] =
 	{ NULL }
 };
 
-flag_t area_flags[] =
+flaginfo_t area_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -403,7 +385,7 @@ flag_t area_flags[] =
 	{ NULL }
 };
 
-flag_t sex_table[] =
+flaginfo_t sex_table[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -418,7 +400,7 @@ flag_t sex_table[] =
 	{ NULL	}
 };
 
-flag_t gender_table[] =
+flaginfo_t gender_table[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -431,7 +413,7 @@ flag_t gender_table[] =
 	{ NULL	}
 };
 
-flag_t exit_flags[] =
+flaginfo_t exit_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -450,7 +432,7 @@ flag_t exit_flags[] =
 	{ NULL }
 };
 
-flag_t door_resets[] =
+flaginfo_t door_resets[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -461,7 +443,7 @@ flag_t door_resets[] =
 	{ NULL }
 };
 
-flag_t room_flags[] =
+flaginfo_t room_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -490,7 +472,7 @@ flag_t room_flags[] =
 	{ NULL }
 };
 
-flag_t sector_types[] =
+flaginfo_t sector_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -509,7 +491,7 @@ flag_t sector_types[] =
 	{ NULL }
 };
 
-flag_t item_types[] =
+flaginfo_t item_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -547,14 +529,13 @@ flag_t item_types[] =
 	{ NULL }
 };
 
-flag_t extra_flags[] =
+flaginfo_t stat_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
 	{ "glow",		ITEM_GLOW,		TRUE	},
 	{ "hum",		ITEM_HUM,		TRUE	},
 	{ "dark",		ITEM_DARK,		TRUE	},
-	{ "lock",		ITEM_LOCK,		TRUE	},
 	{ "evil",		ITEM_EVIL,		TRUE	},
 	{ "invis",		ITEM_INVIS,		TRUE	},
 	{ "magic",		ITEM_MAGIC,		TRUE	},
@@ -564,32 +545,38 @@ flag_t extra_flags[] =
 	{ "antievil",		ITEM_ANTI_EVIL,		TRUE	},
 	{ "antineutral",	ITEM_ANTI_NEUTRAL,	TRUE	},
 	{ "noremove",		ITEM_NOREMOVE,		TRUE	},
-	{ "inventory",		ITEM_INVENTORY,		TRUE	},
-	{ "nopurge",		ITEM_NOPURGE,		TRUE	},
+	{ "inventory",		ITEM_INVENTORY,		FALSE	},
 	{ "rotdeath",		ITEM_ROT_DEATH,		TRUE	},
 	{ "visdeath",		ITEM_VIS_DEATH,		TRUE	},
-	{ "nosac",		ITEM_NOSAC,		TRUE	},
-	{ "nonmetal",		ITEM_NONMETAL,		TRUE	},
-	{ "nolocate",		ITEM_NOLOCATE,		TRUE	},
 	{ "meltdrop",		ITEM_MELT_DROP,		TRUE	},
-	{ "hadtimer",		ITEM_HAD_TIMER,		TRUE	},
-	{ "sellextract",	ITEM_SELL_EXTRACT,	TRUE	},
+	{ "hadtimer",		ITEM_HAD_TIMER,		FALSE	},
 	{ "burnproof",		ITEM_BURN_PROOF,	TRUE	},
+	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
+	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
+
+	{ NULL }
+};
+
+flaginfo_t obj_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "nopurge",		ITEM_NOPURGE,		TRUE	},
+	{ "nosac",		ITEM_NOSAC,		TRUE	},
+	{ "nolocate",		ITEM_NOLOCATE,		TRUE	},
+	{ "sellextract",	ITEM_SELL_EXTRACT,	TRUE	},
 	{ "nouncurse",		ITEM_NOUNCURSE,		TRUE	},
 	{ "nosell",		ITEM_NOSELL,		TRUE	},
-	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
 	{ "quest",		ITEM_QUEST,		TRUE	},
 	{ "clan_item",		ITEM_CLAN,		TRUE	},
 	{ "quit_drop",		ITEM_QUIT_DROP,		TRUE	},
 	{ "pit",		ITEM_PIT,		TRUE	},
 	{ "chquest",		ITEM_CHQUEST,		TRUE	},
-	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
-	{ "oldstyle",		ITEM_OLDSTYLE,		FALSE	},
 
 	{ NULL }
 };
 
-flag_t wear_flags[] =
+flaginfo_t wear_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -608,9 +595,7 @@ flag_t wear_flags[] =
 	{ "wrist",		ITEM_WEAR_WRIST,	TRUE	},
 	{ "wield",		ITEM_WIELD,		TRUE	},
 	{ "hold",		ITEM_HOLD,		TRUE	},
-	{ "nosac",		ITEM_NO_SAC,		TRUE	},
 	{ "float_around",	ITEM_WEAR_FLOAT,	TRUE	},
-/*	{ "twohands",		ITEM_TWO_HANDS,		TRUE	}, */
 	{ "tattoo",		ITEM_WEAR_TATTOO,	TRUE	},
 	{ "clanmark",		ITEM_WEAR_CLANMARK,	TRUE	},
 
@@ -621,7 +606,7 @@ flag_t wear_flags[] =
 * Used when adding an affect to tell where it goes.
 * See addaffect and delaffect in act_olc.c
 */
-flag_t apply_flags[] =
+flaginfo_t apply_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -673,7 +658,7 @@ flag_t apply_flags[] =
 	{ NULL }
 };
 
-flag_t rapply_flags[] =
+flaginfo_t rapply_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -683,7 +668,7 @@ flag_t rapply_flags[] =
 	{ NULL }
 };
 
-flag_t resist_flags[] =
+flaginfo_t resist_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -708,7 +693,7 @@ flag_t resist_flags[] =
 	{ NULL }
 };
 
-flag_t resist_info_flags[] =
+flaginfo_t resist_info_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -735,7 +720,7 @@ flag_t resist_info_flags[] =
 /*
  * What is seen.
  */
-flag_t wear_loc_strings[] =
+flaginfo_t wear_loc_strings[] =
 {
 	{ "",				TABLE_INTVAL			},
 
@@ -767,7 +752,7 @@ flag_t wear_loc_strings[] =
 	{ NULL }
 };
 
-flag_t wear_loc_flags[] =
+flaginfo_t wear_loc_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -800,7 +785,7 @@ flag_t wear_loc_flags[] =
 	{ NULL }
 };
 
-flag_t cont_flags[] =
+flaginfo_t cont_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -814,7 +799,7 @@ flag_t cont_flags[] =
 	{ NULL }
 };
 
-flag_t ac_type[] =
+flaginfo_t ac_type[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -826,7 +811,7 @@ flag_t ac_type[] =
 	{ NULL }
 };
 
-flag_t weapon_class[] =
+flaginfo_t weapon_class[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -847,7 +832,7 @@ flag_t weapon_class[] =
 	{ NULL }
 };
 
-flag_t weapon_type2[] =
+flaginfo_t weapon_type2[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -866,69 +851,7 @@ flag_t weapon_type2[] =
 	{ NULL }
 };
 
-flag_t res_flags[] =
-{
-	{ "",			TABLE_BITVAL			},
-
-	{ "summon",		RES_SUMMON,		TRUE	},
-	{ "charm",		RES_CHARM,		TRUE	},
-	{ "magic",		RES_MAGIC,		TRUE	},
-	{ "weapon",		RES_WEAPON,		TRUE	},
-	{ "bash",		RES_BASH,		TRUE	},
-	{ "pierce",		RES_PIERCE,		TRUE	},
-	{ "slash",		RES_SLASH,		TRUE	},
-	{ "fire",		RES_FIRE,		TRUE	},
-	{ "cold",		RES_COLD,		TRUE	},
-	{ "light",		RES_LIGHT,		TRUE	},
-	{ "lightning",		RES_LIGHTNING,		TRUE	},
-	{ "acid",		RES_ACID,		TRUE	},
-	{ "poison",		RES_POISON,		TRUE	},
-	{ "negative",		RES_NEGATIVE,		TRUE	},
-	{ "holy",		RES_HOLY,		TRUE	},
-	{ "energy",		RES_ENERGY,		TRUE	},
-	{ "mental",		RES_MENTAL,		TRUE	},
-	{ "disease",		RES_DISEASE,		TRUE	},
-	{ "drowning",		RES_DROWNING,		TRUE	},
-	{ "sound",		RES_SOUND,		TRUE	},
-	{ "wood",		RES_WOOD,		TRUE	},
-	{ "silver",		RES_SILVER,		TRUE	},
-	{ "iron",		RES_IRON,		TRUE	},
-
-	{ NULL }
-};
-
-flag_t vuln_flags[] =
-{
-	{ "",			TABLE_BITVAL			},
-
-	{ "summon",		VULN_SUMMON,		TRUE	},
-	{ "charm",		VULN_CHARM,		TRUE	},
-	{ "magic",		VULN_MAGIC,		TRUE	},
-	{ "weapon",		VULN_WEAPON,		TRUE	},
-	{ "bash",		VULN_BASH,		TRUE	},
-	{ "pierce",		VULN_PIERCE,		TRUE	},
-	{ "slash",		VULN_SLASH,		TRUE	},
-	{ "fire",		VULN_FIRE,		TRUE	},
-	{ "cold",		VULN_COLD,		TRUE	},
-	{ "light",		VULN_LIGHT,		TRUE	},
-	{ "lightning",		VULN_LIGHTNING,		TRUE	},
-	{ "acid",		VULN_ACID,		TRUE	},
-	{ "poison",		VULN_POISON,		TRUE	},
-	{ "negative",		VULN_NEGATIVE,		TRUE	},
-	{ "holy",		VULN_HOLY,		TRUE	},
-	{ "energy",		VULN_ENERGY,		TRUE	},
-	{ "mental",		VULN_MENTAL,		TRUE	},
-	{ "disease",		VULN_DISEASE,		TRUE	},
-	{ "drowning",		VULN_DROWNING,		TRUE	},
-	{ "sound",		VULN_SOUND,		TRUE	},
-	{ "wood",		VULN_WOOD,		TRUE	},
-	{ "silver",		VULN_SILVER,		TRUE	},
-	{ "iron",		VULN_IRON,		TRUE	},
-
-	{ NULL }
-};
-
-flag_t sk_aff_flags[] =
+flaginfo_t sk_aff_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -939,7 +862,7 @@ flag_t sk_aff_flags[] =
 	{ NULL }
 };
 
-flag_t position_table[] =
+flaginfo_t position_table[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -956,7 +879,7 @@ flag_t position_table[] =
 	{ NULL }
 };
 
-flag_t position_names[] =
+flaginfo_t position_names[] =
 {
 	{ "",			TABLE_INTVAL	},
 
@@ -973,7 +896,7 @@ flag_t position_names[] =
 	{ NULL }
 };
 
-flag_t portal_flags[]=
+flaginfo_t portal_flags[]=
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -986,7 +909,7 @@ flag_t portal_flags[]=
 	{ NULL }
 };
 
-flag_t furniture_flags[]=
+flaginfo_t furniture_flags[]=
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1010,7 +933,7 @@ flag_t furniture_flags[]=
 	{ NULL }
 };
 
-flag_t apply_types[] =
+flaginfo_t apply_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1021,12 +944,14 @@ flag_t apply_types[] =
 	{ "vuln",		TO_VULN,		TRUE	},
 	{ "skill",		TO_SKILLS,		TRUE	},
 	{ "race",		TO_RACE,		TRUE	},
+	{ "invis",		TO_INVIS,		TRUE	},
+	{ "detects",		TO_DETECTS,		TRUE	},
 /*	{ "weapon",		TO_WEAPON,		TRUE	}, */
 
 	{ NULL }
 };
 
-flag_t raffect_flags[] =
+flaginfo_t raffect_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1037,7 +962,7 @@ flag_t raffect_flags[] =
 	{ NULL }
 };
 
-flag_t skill_groups[] =
+flaginfo_t skill_groups[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1077,7 +1002,7 @@ flag_t skill_groups[] =
 	{ NULL }
 };
 
-flag_t mptrig_types[] =
+flaginfo_t mptrig_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1101,7 +1026,7 @@ flag_t mptrig_types[] =
 	{ NULL }
 };
 
-flag_t mptrig_flags[] =
+flaginfo_t mptrig_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1110,7 +1035,7 @@ flag_t mptrig_flags[] =
 	{ NULL }
 };
 
-flag_t skill_targets[] =
+flaginfo_t skill_targets[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1125,7 +1050,7 @@ flag_t skill_targets[] =
 	{ NULL }
 };
 
-flag_t stat_names[] =
+flaginfo_t stat_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1139,7 +1064,7 @@ flag_t stat_names[] =
 	{ NULL }
 };
 
-flag_t material_flags[] =
+flaginfo_t material_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1153,7 +1078,7 @@ flag_t material_flags[] =
 	{ NULL }
 };
 
-flag_t skill_flags[] =
+flaginfo_t skill_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1165,7 +1090,7 @@ flag_t skill_flags[] =
 	{ NULL }
 };
 
-flag_t skill_types[] =
+flaginfo_t skill_types[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
@@ -1176,7 +1101,7 @@ flag_t skill_types[] =
 	{ NULL }
 };
 
-flag_t class_flags[] =
+flaginfo_t class_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1187,7 +1112,7 @@ flag_t class_flags[] =
 	{ NULL }
 };
 
-flag_t race_flags[] =
+flaginfo_t race_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1197,7 +1122,7 @@ flag_t race_flags[] =
 	{ NULL }
 };
 
-flag_t ralign_names[] =
+flaginfo_t ralign_names[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1208,7 +1133,7 @@ flag_t ralign_names[] =
 	{ NULL }
 };
 
-flag_t align_names[] =
+flaginfo_t align_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1219,7 +1144,7 @@ flag_t align_names[] =
 	{ NULL }
 };
 
-flag_t lang_flags[] =
+flaginfo_t lang_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1229,7 +1154,7 @@ flag_t lang_flags[] =
 	{ NULL }
 };
 
-flag_t ethos_table[] =
+flaginfo_t ethos_table[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1240,7 +1165,7 @@ flag_t ethos_table[] =
 	{ NULL }
 };
 
-flag_t rulecl_names[] =
+flaginfo_t rulecl_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1251,7 +1176,7 @@ flag_t rulecl_names[] =
 	{ NULL }
 };
 
-flag_t rulecl_flags[] =
+flaginfo_t rulecl_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1261,7 +1186,7 @@ flag_t rulecl_flags[] =
 	{ NULL }
 };
 
-flag_t note_types[] =
+flaginfo_t note_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1274,7 +1199,7 @@ flag_t note_types[] =
 	{ NULL }
 };
 
-flag_t options_table[] =
+flaginfo_t options_table[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1283,7 +1208,7 @@ flag_t options_table[] =
 	{ NULL }
 };
 
-flag_t ban_actions[] =
+flaginfo_t ban_actions[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1293,7 +1218,7 @@ flag_t ban_actions[] =
 	{ NULL }
 };
 
-flag_t ban_classes[] =
+flaginfo_t ban_classes[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1304,7 +1229,7 @@ flag_t ban_classes[] =
 	{ NULL }
 };
 
-flag_t cmd_flags[] =
+flaginfo_t cmd_flags[] =
 {
 	{ "",			TABLE_BITVAL,			},
 
@@ -1318,7 +1243,7 @@ flag_t cmd_flags[] =
 	{ NULL }
 };
 
-flag_t cmd_logtypes[] =
+flaginfo_t cmd_logtypes[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
@@ -1329,7 +1254,7 @@ flag_t cmd_logtypes[] =
 	{ NULL }
 };
 
-flag_t cmd_classes[] =
+flaginfo_t cmd_classes[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1344,7 +1269,7 @@ flag_t cmd_classes[] =
  * "imm" should be before "immortal" for flag_lookup to work properly
  * "immortal" should be before "ava" for convenience
  */
-flag_t level_table[] =
+flaginfo_t level_table[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
@@ -1390,7 +1315,7 @@ const struct wiznet_type wiznet_table[] =
 	{ NULL }
 };
 
-flag_t desc_con_table[] =
+flaginfo_t desc_con_table[] =
 {
 	{ "",			TABLE_INTVAL				},
 
@@ -1416,7 +1341,7 @@ flag_t desc_con_table[] =
 	{ NULL }
 };
 
-flag_t events_table[] =
+flaginfo_t events_table[] =
 {
 	{ "",			TABLE_BITVAL				},
 
@@ -1430,7 +1355,7 @@ flag_t events_table[] =
 	{ NULL }
 };
 
-flag_t dam_classes[] =
+flaginfo_t dam_classes[] =
 {
 	{ "",			TABLE_INTVAL				},
 
@@ -1464,7 +1389,7 @@ flag_t dam_classes[] =
 	{ NULL }
 };
 
-flag_t spec_classes[] =
+flaginfo_t spec_classes[] =
 {
 	{ "",			TABLE_INTVAL				},
 
@@ -1476,7 +1401,7 @@ flag_t spec_classes[] =
 	{ NULL }
 };
 
-flag_t cond_table[] =
+flaginfo_t cond_table[] =
 {
 	{ "",			TABLE_INTVAL				},
 
@@ -1490,7 +1415,7 @@ flag_t cond_table[] =
 	{ NULL }
 };
 
-flag_t cc_order_types[] =
+flaginfo_t cc_order_types[] =
 {
 	{ "",			TABLE_INTVAL				},
 

@@ -10,7 +10,8 @@ Resist fire -40
 Resist cold 50
 Resist lightning -30
 Resist mental -30
-Damtype smashEnd
+Damtype smash
+End
 
 #PCRACE
 Shortname FrGia~

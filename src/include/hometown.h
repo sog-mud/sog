@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.h,v 1.4 1999-09-08 10:40:02 fjoe Exp $
+ * $Id: hometown.h,v 1.5 1999-12-11 15:31:08 fjoe Exp $
  */
 
 #ifndef _HOMETOWN_H_
@@ -42,7 +42,7 @@ struct hometown_t {
 	altar_t			altar[MAX_ANUM];
 	const char *		restrict_race;
 	const char *		restrict_class;
-	flag32_t		restrict_align;
+	flag_t			restrict_align;
 };
 
 extern varr hometowns;

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.86 1999-12-07 14:21:00 fjoe Exp $
+ * $Id: recycle.c,v 1.87 1999-12-11 15:31:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,8 +58,6 @@ extern int	top_exit;
 extern int	top_room;
 extern int	top_mprog_index;
 extern int	top_ed;
-
-void	aff_free(AFFECT_DATA *af);
 
 event_fun_t *evf_new(void)
 {
@@ -157,8 +155,6 @@ OBJ_DATA *new_obj(void)
 
 void free_obj(OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf, *paf_next;
-
 	if (!obj)
 		return;
 
@@ -168,10 +164,7 @@ void free_obj(OBJ_DATA *obj)
 	}
 	mem_invalidate(obj);
 
-	for (paf = obj->affected; paf; paf = paf_next) {
-		paf_next = paf->next;
-		aff_free(paf);
-    	}
+	aff_free_list(obj->affected);
 	obj->affected = NULL;
 
 	ed_free(obj->ed);
@@ -274,7 +267,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
-		ch->comm = COMM_NOSHOUT | COMM_NOMUSIC;
+		ch->chan = CHAN_NOSHOUT | CHAN_NOMUSIC;
 	} else {
 		PC_DATA *pc = PC(ch);
 
@@ -319,8 +312,6 @@ void char_free(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
 
 	CHAR_DATA **free_list;
 	int *free_count;
@@ -371,10 +362,7 @@ void char_free(CHAR_DATA *ch)
 	}
 	ch->carrying = NULL;
 
-	for (paf = ch->affected; paf; paf = paf_next) {
-		paf_next = paf->next;
-		aff_free(paf);
-	}
+	aff_free_list(ch->affected);
 	ch->affected = NULL;
 
 	free_string(ch->name);
@@ -636,9 +624,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	pObj->material		= str_dup("unknown");
 	pObj->condition		= 100;
 	pObj->limit		= -1;
-	varr_init(&pObj->restrictions, sizeof(cc_ruleset_t), 1);
-	pObj->restrictions.e_init = (varr_e_init_t) cc_ruleset_init;
-	pObj->restrictions.e_destroy = (varr_e_destroy_t) cc_ruleset_destroy;
+	cc_ruleset_init(&pObj->restrictions);
 	mlstr_init(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
         top_obj_index++;
 	return pObj;
@@ -646,8 +632,6 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
 void free_obj_index(OBJ_INDEX_DATA *pObj)
 {
-	AFFECT_DATA *paf, *paf_next;
-
 	if (!pObj)
 		return;
 
@@ -657,14 +641,10 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	mlstr_destroy(&pObj->short_descr);
 	mlstr_destroy(&pObj->description);
 
-	for (paf = pObj->affected; paf; paf = paf_next) {
-		paf_next = paf->next;
-		aff_free(paf);
-	}
-
+	aff_free_list(pObj->affected);
 	ed_free(pObj->ed);
 	objval_destroy(pObj->item_type, pObj->value);
-	varr_destroy(&pObj->restrictions);
+	cc_ruleset_destroy(&pObj->restrictions);
 
 	top_obj_index--;
 	free(pObj);
@@ -677,7 +657,6 @@ MOB_INDEX_DATA *new_mob_index(void)
         pMob = calloc(1, sizeof(*pMob));
 
 	pMob->name		= str_dup(str_empty);
-	pMob->act		= ACT_NPC;
 	pMob->race		= str_dup("human");
 	pMob->material		= str_dup("unknown");
 	pMob->size		= SIZE_MEDIUM;
@@ -705,6 +684,7 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 	mlstr_destroy(&pMob->description);
 	mptrig_free(pMob->mptrig_list);
 	free_shop(pMob->pShop);
+	aff_free_list(pMob->affected);
 
 	top_mob_index--;
 	free(pMob);
@@ -753,7 +733,7 @@ void mpcode_free(MPCODE *mpcode)
 	free(mpcode);
 }
 
-void objval_init(flag32_t item_type, vo_t *v)
+void objval_init(flag_t item_type, vo_t *v)
 {
 	int i;
 
@@ -795,7 +775,7 @@ void objval_init(flag32_t item_type, vo_t *v)
  * copy obj values from src to dst
  * dst is assumed to be freed before the call
  */
-void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
+void objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 {
 	int i;
 
@@ -834,7 +814,7 @@ void objval_cpy(flag32_t item_type, vo_t *dst, vo_t *src)
 	}
 }
 
-void objval_destroy(flag32_t item_type, vo_t *v)
+void objval_destroy(flag_t item_type, vo_t *v)
 {
 	int i;
 
@@ -859,7 +839,7 @@ void objval_destroy(flag32_t item_type, vo_t *v)
 	}
 }
 
-void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
+void fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 {
 	/*
 	 *  Using format_flags to write most values gives a strange
@@ -959,7 +939,7 @@ void fwrite_objval(flag32_t item_type, vo_t *v, FILE *fp)
 	}
 }
 
-void fread_objval(flag32_t item_type, vo_t *v, rfile_t *fp)
+void fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 {
 	int i;
 

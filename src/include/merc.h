@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.267 1999-12-10 11:30:05 kostik Exp $
+ * $Id: merc.h,v 1.268 1999-12-11 15:31:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -111,7 +111,7 @@ extern varr info_trusted;
 /* mud server options (etc/system.conf) */
 #define OPT_ASCII_ONLY_NAMES	(A)
 
-extern flag32_t mud_options;
+extern flag_t mud_options;
 
 /* general align */
 #define ALIGN_NONE		-1
@@ -339,7 +339,7 @@ struct shop_data
 struct wiznet_type
 {
 	const char *	name;
-	flag32_t	flag;
+	flag_t		flag;
 	int 		level;
 };
 
@@ -401,20 +401,20 @@ struct spec_type
 					/* (every 3 ticks)		*/   
 #define AREA_CHANGED		(Z)	/* area has been modified	*/
 
-
 /*
  * ACT bits for mobs.  *ACT*
  * Used in #MOBILES.
  */
-#define ACT_NPC			(A)		/* Auto set for mobs	*/
+#define ACT_FAMILIAR		(A)		/* familiar 		*/
 #define ACT_SENTINEL		(B)		/* Stays in one room	*/
 #define ACT_SCAVENGER		(C)		/* Picks up objects	*/
+#define ACT_SUMMONED		(D)
+#define ACT_IMMSTEAL		(E)
 #define ACT_AGGRESSIVE		(F)		/* Attacks PC's		*/
 #define ACT_STAY_AREA		(G)		/* Won't leave area	*/
 #define ACT_WIMPY		(H)
 #define ACT_PET 		(I)		/* Auto set for pets	*/
-#define ACT_TRAIN		(J)		/* Can train PC's	*/
-#define ACT_PRACTICE		(K)		/* Can practice PC's	*/
+#define ACT_IMMSUMMON		(J)
 #define ACT_HUNTER		(L)
 #define ACT_UNDEAD		(O)
 #define ACT_CLERIC		(Q)
@@ -424,21 +424,23 @@ struct spec_type
 #define ACT_NOALIGN		(U)
 #define ACT_NOPURGE		(V)
 #define ACT_OUTDOORS		(W)
-#define ACT_QUESTOR		(X)
 #define ACT_INDOORS		(Y)
 #define ACT_RIDEABLE		(Z)
-#define ACT_HEALER		(aa)
-#define ACT_GAIN		(bb)
 #define ACT_UPDATE_ALWAYS	(cc)
-#define ACT_CHANGER		(dd)
 #define ACT_NOTRACK		(ee)
-#define ACT_CLAN_GUARD		(ff)
-#define ACT_SUMMONED		(gg)		/* summoned (golem etc.)*/
-#define ACT_SAGE		(hh)		/* sage (Otho etc.)	*/
-#define ACT_REPAIRMAN		(ii)
-#define ACT_FAMILIAR		(jj)		/* familiar 		*/
-#define ACT_IMMSTEAL		(kk)
-#define ACT_IMMSUMMON		(ll)
+
+/* mob_index_data->mob_flags */
+#define MOB_CHANGER		(A)
+#define MOB_GAIN		(B)
+#define MOB_TRAIN		(C)		/* Can train PC's	*/
+#define MOB_PRACTICE		(D)		/* Can practice PC's	*/
+#define MOB_QUESTOR		(E)
+#define MOB_REPAIRMAN		(F)
+#define MOB_SAGE		(G)		/* sage (Otho etc.)	*/
+#define MOB_HEALER		(H)
+#define MOB_CLAN_GUARD		(I)
+
+#define MOB_IS(mob, f)		(IS_SET((mob)->pMobIndex->mob_flags, (f)))
 
 /* OFF bits for mobiles *OFF  */
 #define OFF_AREA_ATTACK 	(A)
@@ -465,88 +467,6 @@ struct spec_type
 #define OFF_DISTANCE		(X)
 #define OFF_SPELLBANE		(Y)
 #define OFF_DEATHBLOW		(Z)
-
-/* return values for check_imm */
-#define IS_NORMAL		0
-#define IS_IMMUNE		1
-#define IS_RESISTANT		2
-#define IS_VULNERABLE		3
-
-/* IMM bits for mobs */
-#define IMM_SUMMON		(A)
-#define IMM_CHARM		(B)
-#define IMM_MAGIC		(C)
-#define IMM_WEAPON		(D)
-#define IMM_BASH		(E)
-#define IMM_PIERCE		(F)
-#define IMM_SLASH		(G)
-#define IMM_FIRE		(H)
-#define IMM_COLD		(I)
-#define IMM_LIGHTNING		(J)
-#define IMM_ACID		(K)
-#define IMM_POISON		(L)
-#define IMM_NEGATIVE		(M)
-#define IMM_HOLY		(N)
-#define IMM_ENERGY		(O)
-#define IMM_MENTAL		(P)
-#define IMM_DISEASE		(Q)
-#define IMM_DROWNING		(R)
-#define IMM_LIGHT		(S)
-#define IMM_SOUND		(T)
-#define IMM_STEAL		(U)
-#define IMM_WOOD		(X)
-#define IMM_SILVER		(Y)
-#define IMM_IRON		(Z)
-
-/* RES bits for mobs *RES */
-#define RES_SUMMON		(A)
-#define RES_CHARM		(B)
-#define RES_MAGIC		(C)
-#define RES_WEAPON		(D)
-#define RES_BASH		(E)
-#define RES_PIERCE		(F)
-#define RES_SLASH		(G)
-#define RES_FIRE		(H)
-#define RES_COLD		(I)
-#define RES_LIGHTNING		(J)
-#define RES_ACID		(K)
-#define RES_POISON		(L)
-#define RES_NEGATIVE		(M)
-#define RES_HOLY		(N)
-#define RES_ENERGY		(O)
-#define RES_MENTAL		(P)
-#define RES_DISEASE		(Q)
-#define RES_DROWNING		(R)
-#define RES_LIGHT		(S)
-#define RES_SOUND		(T)
-#define RES_WOOD		(X)
-#define RES_SILVER		(Y)
-#define RES_IRON		(Z)
-
-/* VULN bits for mobs */
-#define VULN_SUMMON		(A)
-#define VULN_CHARM		(B)
-#define VULN_MAGIC		(C)
-#define VULN_WEAPON		(D)
-#define VULN_BASH		(E)
-#define VULN_PIERCE		(F)
-#define VULN_SLASH		(G)
-#define VULN_FIRE		(H)
-#define VULN_COLD		(I)
-#define VULN_LIGHTNING		(J)
-#define VULN_ACID		(K)
-#define VULN_POISON		(L)
-#define VULN_NEGATIVE		(M)
-#define VULN_HOLY		(N)
-#define VULN_ENERGY		(O)
-#define VULN_MENTAL		(P)
-#define VULN_DISEASE		(Q)
-#define VULN_DROWNING		(R)
-#define VULN_LIGHT		(S)
-#define VULN_SOUND		(T)
-#define VULN_WOOD		(X)
-#define VULN_SILVER		(Y)
-#define VULN_IRON		(Z)
 
 /* body form */
 #define FORM_EDIBLE		(A)
@@ -605,28 +525,27 @@ struct spec_type
 #define PART_SCALES		(X)
 #define PART_TUSKS		(Y)
 
-
 /*
  * Bits for 'affected_by'.  *AFF*
  * Used in #MOBILES.
  */
 #define AFF_BLIND		(A)
-#define AFF_INVIS		(B)
-#define AFF_DETECT_EVIL		(C)
-#define AFF_DETECT_INVIS	(D)
-#define AFF_DETECT_MAGIC	(E)
-#define AFF_DETECT_HIDDEN	(F)
-#define AFF_DETECT_GOOD		(G)
+#define AFF_SCREAM		(B)
+#define AFF_BLOODTHIRST 	(C)
+#define AFF_STUN		(D)
+#define AFF_WEAK_STUN		(E)
+#define AFF_FEAR		(F)
+#define AFF_WEB			(G)
 #define AFF_SANCTUARY		(H)
 #define AFF_FAERIE_FIRE 	(I)
-#define AFF_INFRARED		(J)
+#define AFF_BLACK_SHROUD	(J)
 #define AFF_CURSE		(K)
 #define AFF_CORRUPTION		(L)
 #define AFF_POISON		(M)
 #define AFF_PROTECT_EVIL	(N)
 #define AFF_PROTECT_GOOD	(O)
-#define AFF_SNEAK		(P)
-#define AFF_HIDE		(Q)
+#define AFF_TURNED		(P)/* Character is turned into other creature */
+#define AFF_WATER_BREATHING	(Q)
 #define AFF_SLEEP		(R)
 #define AFF_CHARM		(S)
 #define AFF_FLYING		(T)
@@ -635,35 +554,39 @@ struct spec_type
 #define AFF_CALM		(W)
 #define AFF_PLAGUE		(X)
 #define AFF_WEAKEN		(Y)
-#define AFF_DARK_VISION		(Z)
 #define AFF_BERSERK		(aa)
 #define AFF_SWIM		(bb)
 #define AFF_REGENERATION	(cc)
 #define AFF_SLOW		(dd)
-#define AFF_CAMOUFLAGE		(ee)
+#define AFF_QUESTTARGET		(ee)
 
-#define AFF_IMP_INVIS		(ff)	/* improved invis */
-#define AFF_FADE		(gg)
-#define AFF_SCREAM		(hh)
-#define AFF_BLOODTHIRST 	(ii)
-#define AFF_STUN		(jj)
-#define AFF_WEAK_STUN		(kk)
+/*
+ * invis/detect flags
+ */
+#define ID_INVIS		(A)
+#define ID_HIDDEN		(B)
+#define ID_FADE			(C)
+#define ID_IMP_INVIS		(D)	/* improved invis */
+#define ID_BLEND		(E)	/* forest blending */
+#define ID_CAMOUFLAGE		(F)
+#define ID_SNEAK		(G)
+#define ID_INFRARED		(H)
+#define ID_UNDEAD		(I)
+#define ID_LIFE			(J)
+#define ID_EVIL			(K)
+#define ID_MAGIC		(L)
+#define ID_GOOD			(M)
 
-#define AFF_DETECT_IMP_INVIS	(ll)	/* detect improved invis */
-#define AFF_DETECT_FADE		(mm)
-#define AFF_DETECT_UNDEAD	(nn)
-#define AFF_DETECT_FEAR		(oo)
-#define AFF_DETECT_FORM_TREE	(pp)
-#define AFF_DETECT_FORM_GRASS 	(qq)
-#define AFF_DETECT_WEB		(rr)
-#define AFF_DETECT_LIFE		(ss)
-#define AFF_ACUTE_VISION	(tt)
-#define AFF_BLACK_SHROUD	(uu)
-#define AFF_QUESTTARGET		(vv)
-#define AFF_BLEND		(ww)	/* Forest blending */
-#define AFF_AWARENESS		(xx)	/* Detect blend and camouflage */
-#define AFF_TURNED		(yy)	/* Character is turned into other creature */
-#define AFF_WATER_BREATHING	(zz)
+#define ID_ALL_INVIS	(ID_INVIS | ID_HIDDEN | ID_FADE | \
+			 ID_IMP_INVIS | ID_BLEND | ID_CAMOUFLAGE)
+
+#define HAS_INVIS(ch, f)	(IS_SET((ch)->has_invis, (f)))
+#define SET_INVIS(ch, f)	(SET_BIT((ch)->has_invis, (f)))
+#define REMOVE_INVIS(ch, f)	(REMOVE_BIT((ch)->has_invis, (f)))
+
+#define HAS_DETECT(ch, f)	(IS_SET((ch)->has_detect, (f)))
+#define SET_DETECT(ch, f)	(SET_BIT((ch)->has_detect, (f)))
+#define REMOVE_DETECT(ch, f)	(REMOVE_BIT((ch)->has_detect, (f)))
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
@@ -739,13 +662,11 @@ struct spec_type
 #define ITEM_TATTOO		35
 
 /*
- * Extra flags.  *EXT*
- * Used in #OBJECTS.
+ * obj_data->stat_flags (variable obj flags)
  */
 #define ITEM_GLOW		(A)
 #define ITEM_HUM		(B)
 #define ITEM_DARK		(C)
-#define ITEM_LOCK		(D)
 #define ITEM_EVIL		(E)
 #define ITEM_INVIS		(F)
 #define ITEM_MAGIC		(G)
@@ -756,26 +677,34 @@ struct spec_type
 #define ITEM_ANTI_NEUTRAL	(L)
 #define ITEM_NOREMOVE		(M)
 #define ITEM_INVENTORY		(N)
-#define ITEM_NOPURGE		(O)
 #define ITEM_ROT_DEATH		(P)
 #define ITEM_VIS_DEATH		(Q)
-#define ITEM_NOSAC		(R)
-#define ITEM_NONMETAL		(S)
-#define ITEM_NOLOCATE		(T)
 #define ITEM_MELT_DROP		(U)
 #define ITEM_HAD_TIMER		(V)
-#define ITEM_SELL_EXTRACT	(W)
 #define ITEM_BURN_PROOF 	(Y)
-#define ITEM_NOUNCURSE		(Z)
-#define ITEM_NOSELL		(aa)
 #define ITEM_NOT_EDIBLE		(bb)
-#define ITEM_QUEST		(cc)
 #define ITEM_ENCHANTED		(dd)	/* obj is enchanted */
-#define ITEM_CLAN		(ee)
-#define ITEM_QUIT_DROP		(ff)
-#define ITEM_PIT		(gg)
-#define ITEM_CHQUEST		(hh)
-#define ITEM_OLDSTYLE		(zz)	/* obj is in oldstyle format */
+
+#define IS_OBJ_STAT(obj, stat)		(IS_SET((obj)->stat_flags, (stat)))
+#define SET_OBJ_STAT(obj, stat)		(SET_BIT((obj)->stat_flags, (stat)))
+#define REMOVE_OBJ_STAT(obj, stat)	(REMOVE_BIT((obj)->stat_flags, (stat)))
+
+/*
+ * obj_index_data->obj_flags (permanent obj flags)
+ */
+#define ITEM_NOPURGE		(A)
+#define ITEM_NOSAC		(B)
+#define ITEM_NOLOCATE		(C)
+#define ITEM_SELL_EXTRACT	(D)
+#define ITEM_NOUNCURSE		(E)
+#define ITEM_NOSELL		(F)
+#define ITEM_QUEST		(G)
+#define ITEM_CLAN		(H)
+#define ITEM_QUIT_DROP		(I)
+#define ITEM_PIT		(J)
+#define ITEM_CHQUEST		(K)
+
+#define OBJ_IS(obj, f)		(IS_SET((obj)->pObjIndex->obj_flags, (f)))
 
 /*
  * Wear flags.	 *WEAR*
@@ -796,7 +725,6 @@ struct spec_type
 #define ITEM_WEAR_WRIST 	(M)
 #define ITEM_WIELD		(N)
 #define ITEM_HOLD		(O)
-#define ITEM_NO_SAC		(P)
 #define ITEM_WEAR_FLOAT 	(Q)
 #define ITEM_WEAR_TATTOO	(R)
 #define ITEM_WEAR_CLANMARK	(S)
@@ -1064,10 +992,7 @@ enum {
 /*
  * ACT bits for players.
  */
-#define PLR_NPC			ACT_NPC		/* Don't EVER set.	*/
 #define PLR_BOUGHT_PET		(B)
-
-/* RT auto flags */
 #define PLR_AUTOASSIST		(C)
 #define PLR_AUTOEXIT		(D)
 #define PLR_AUTOLOOT		(E)
@@ -1075,7 +1000,6 @@ enum {
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
 #define PLR_NOTITLE		(K)
-/* RT personal flags */
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)
@@ -1084,8 +1008,6 @@ enum {
 #define PLR_NOFOLLOW		(R)
 #define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
-
-/* penalty flags */
 #define PLR_PERMIT		(U)
 #define PLR_LOG 		(W)
 #define PLR_FREEZE		(Y)
@@ -1093,7 +1015,7 @@ enum {
 #define PLR_PRACTICER		(aa)
 #define PLR_CONFIRM_DELETE	(cc)
 #define PLR_HARA_KIRI		(dd)
-#define PLR_NEW			(ff)
+#define PLR_NEW			(ee)
 
 /* Trust stuff */
 #define TRUST_GROUP		(A)
@@ -1103,7 +1025,7 @@ enum {
 #define IS_HARA_KIRI(ch)	(!IS_NPC(ch) &&	\
 				 IS_SET(PC(ch)->plr_flags, PLR_HARA_KIRI))
 #define IS_CLAN_GUARD(ch)	(IS_NPC(ch) && \
-				 IS_SET(ch->pMobIndex->act, ACT_CLAN_GUARD))
+				 IS_SET(ch->pMobIndex->mob_flags, MOB_CLAN_GUARD))
 #define IS_OWNER(ch, obj) (!mlstr_cmp(&ch->short_descr, &obj->owner))
 
 #define IS_WANTED(ch)	(!IS_NPC(ch) && !IS_NULLSTR(PC(ch)->wanted_by))
@@ -1141,18 +1063,21 @@ enum {
 
 #define IS_VAMPIRE(ch)	(get_skill(ch, "vampire") == 100)
 
+#define CHAN_NOCHANNELS		(A)
+#define CHAN_NOWIZ		(B)
+#define CHAN_NOAUCTION		(C)
+#define CHAN_NOGOSSIP		(D)
+#define CHAN_NOQUESTION 	(E)
+#define CHAN_NOMUSIC		(F)
+#define CHAN_NOQUOTE		(G)
+#define CHAN_NOCLAN		(H)
+#define CHAN_NOSHOUT		(I)
+
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)
 #define COMM_DEAF		(B)
-#define COMM_NOWIZ		(C)
-#define COMM_NOAUCTION		(D)
-#define COMM_NOGOSSIP		(E)
-#define COMM_NOQUESTION 	(F)
-#define COMM_NOMUSIC		(G)
-#define COMM_NOQUOTE		(I)
-#define COMM_NOCLAN		(J)
-
-/* display flags */
+#define COMM_NOFLEE		(C)
+#define COMM_NONOTE		(D)
 #define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)
@@ -1161,26 +1086,19 @@ enum {
 #define COMM_TELNET_GA		(P)
 #define COMM_SHOWAFF		(Q)
 #define COMM_COLOR		(S)
-
-/* penalties */
 #define COMM_NOEMOTE		(T)
-#define COMM_NOSHOUT		(U)
 #define COMM_NOTELL		(V)
-#define COMM_NOCHANNELS 	(W)
 #define COMM_NOENG		(X)
 #define COMM_SNOOP_PROOF	(Y)
 #define COMM_AFK		(Z)
-
 #define COMM_LONG		(aa)
 #define COMM_NOTELNET		(bb)
 #define COMM_NOIAC		(cc)
 #define COMM_NOVERBOSE		(dd)
 #define COMM_NOBUST		(ee)
-#define COMM_NOFLEE		(ff)
-#define COMM_NONOTE		(gg)
 
 /* IAC replacement if COMM_NOIAC is set */
-/* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
+/* COMM_NOIAC is used to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
 #define IAC_REPL	223
 
 /* WIZnet flags */
@@ -1226,7 +1144,11 @@ struct mob_index_data
 	mlstring		short_descr;
 	mlstring		long_descr;
 	mlstring		description;
-	flag64_t		affected_by;
+
+	flag_t			affected_by;
+	flag_t			has_invis;
+	flag_t			has_detect;
+
 	int			alignment;
 	int			level;
 	int			hitroll;
@@ -1235,22 +1157,24 @@ struct mob_index_data
 	int			damage[3];
 	int			ac[4];
 	const char *		damtype;
-	flag64_t		act;
-	flag32_t		off_flags;
-	flag32_t		start_pos;
-	flag32_t		default_pos;
+	flag_t			act;
+	flag_t			mob_flags;
+	flag_t			off_flags;
+	flag_t			start_pos;
+	flag_t			default_pos;
 	mlstring		gender;
 	const char *		race;		/* race */
 	int			wealth;
-	flag32_t		form;
-	flag32_t		parts;
-	flag32_t		size;
+	flag_t			form;
+	flag_t			parts;
+	flag_t			size;
 	int16_t			resists[MAX_RESIST]; /* Resistances */
 	const char *		material;
-	flag32_t		practicer;
+	flag_t			practicer;
 	const char *		clan;
 	int			invis_level;	/* mobinvis level */
 	int			incog_level;	/* mobincog level */
+	AFFECT_DATA *		affected;
 };
 
 #define NPC(ch)	((NPC_DATA *) ((ch) + 1))
@@ -1276,12 +1200,12 @@ void		move_pfile	(const char *name,
 				 int minvnum, int maxvnum, int delta);
 void		move_pfiles	(int minvnum, int maxvnum, int delta);
 
-void	objval_init	(flag32_t item_type, vo_t *v);
-void	objval_cpy	(flag32_t item_type, vo_t *dst, vo_t *src);
-void	objval_destroy	(flag32_t item_type, vo_t *v);
+void	objval_init	(flag_t item_type, vo_t *v);
+void	objval_cpy	(flag_t item_type, vo_t *dst, vo_t *src);
+void	objval_destroy	(flag_t item_type, vo_t *v);
 
-void	fwrite_objval	(flag32_t item_type, vo_t *v, FILE *fp);
-void	fread_objval	(flag32_t item_type, vo_t *v, rfile_t *fp);
+void	fwrite_objval	(flag_t item_type, vo_t *v, FILE *fp);
+void	fread_objval	(flag_t item_type, vo_t *v, rfile_t *fp);
 
 /*
  * Common data for both PC and NPC.
@@ -1340,11 +1264,16 @@ struct char_data
 
 	int			gold;
 	int			silver;
-	flag64_t		comm;	/* RT added to pad the vector */
+	flag_t			comm;	/* RT added to pad the vector */
+	flag_t			chan;	/* channels */
 	int			invis_level;
 	int			incog_level;
-	flag64_t		affected_by;
-	flag32_t		position;
+
+	flag_t			affected_by;
+	flag_t			has_invis;
+	flag_t			has_detect;
+
+	flag_t			position;
 	int			carry_weight;
 	int			carry_number;
 	int			saving_throw;
@@ -1363,9 +1292,9 @@ struct char_data
 	int16_t			resists[MAX_RESIST];
 
 	/* parts stuff */
-	flag32_t		form;
-	flag32_t		parts;
-	flag32_t		size;
+	flag_t			form;
+	flag_t			parts;
+	flag_t			size;
 	const char *		material;
 
 	bool			riding;		/* mount data */
@@ -1417,9 +1346,9 @@ struct pc_data
 	time_t			last_news;
 	time_t			last_changes;
 	time_t			last_offence;
-	flag32_t		trust;
-	flag32_t		plr_flags;
-	flag32_t		wiznet;		/* wiz stuff */
+	flag_t			trust;
+	flag_t			plr_flags;
+	flag_t			wiznet;		/* wiz stuff */
 	int			condition	[MAX_COND];
 	varr			learned;	/* pc_skill_t */
 	varr			specs;		/* spec names */
@@ -1530,9 +1459,10 @@ struct obj_index_data
 	int			vnum;
 	int			reset_num;
 	const char *		material;
-	flag32_t		item_type;
-	flag64_t		extra_flags;
-	flag32_t		wear_flags;
+	flag_t			item_type;
+	flag_t			stat_flags;
+	flag_t			obj_flags;
+	flag_t			wear_flags;
 	int			level;
 	int			condition;
 	int			count;
@@ -1542,7 +1472,7 @@ struct obj_index_data
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	mlstring		gender;
-	varr			restrictions; /* varr of cc_ruleset_t */
+	cc_ruleset_t		restrictions;
 };
 
 /*
@@ -1564,9 +1494,9 @@ struct obj_data
 	const char *		name;
 	mlstring		short_descr;
 	mlstring		description;
-	flag32_t 		extra_flags;
-	flag32_t 		wear_flags;
-	flag32_t		wear_loc;
+	flag_t	 		stat_flags;
+	flag_t 			wear_flags;
+	flag_t			wear_loc;
 	int			weight;
 	uint 			cost;
 	int			level;
@@ -1586,13 +1516,13 @@ struct obj_data
 struct exit_data
 {
 	vo_t		to_room;
-	flag32_t	exit_info;
-	flag32_t	size;
+	flag_t		exit_info;
+	flag_t		size;
 	int		key;
 	const char *	keyword;
 	mlstring	description;
 	EXIT_DATA *	next;		/* OLC */
-	flag32_t	rs_flags;	/* OLC */
+	flag_t		rs_flags;	/* OLC */
 	int		orig_door;	/* OLC */
 };
 
@@ -1645,10 +1575,11 @@ struct area_data
 	const char *	clan;
 	const char *	builders;	/* name list of builders	*/
 	int		vnum;		/* area vnum			*/
-	flag32_t	area_flags;
+	flag_t		area_flags;
 	int		security;	/* area security (1..9)		*/
 	uint		count;
 	mlstring	resetmsg;	/* reset message		*/
+	int		ver;		/* area file version		*/
 };
 
 struct room_history_data
@@ -1675,14 +1606,14 @@ struct room_index_data
 	mlstring		name;
 	mlstring		description;
 	int			vnum;
-	flag32_t		room_flags;
+	flag_t			room_flags;
 	int			light;
-	flag32_t		sector_type;
+	flag_t			sector_type;
 	int			heal_rate;
 	int			mana_rate;
 	ROOM_HISTORY_DATA * 	history;
 	AFFECT_DATA *		affected;
-	flag32_t		affected_by;
+	flag_t			affected_by;
 };
 
 /*
@@ -1713,7 +1644,7 @@ struct mptrig
 {
 	int		type;
 	const char *	phrase;
-	flag32_t	mptrig_flags;
+	flag_t		mptrig_flags;
 	int		vnum;		/* mob prog code vnum */
 	void *		extra;
 	MPTRIG * 	next;
@@ -1821,7 +1752,6 @@ int trust_level(CHAR_DATA *ch);
  * Object macros.
  */
 #define CAN_WEAR(obj, part)	(IS_SET((obj)->wear_flags,  (part)))
-#define IS_OBJ_STAT(obj, stat)	(IS_SET((obj)->extra_flags, (stat)))
 #define IS_WEAPON_STAT(obj,stat)(IS_SET(INT((obj)->value[4]), (stat)))
 #define WEIGHT_MULT(obj)	((obj)->pObjIndex->item_type == ITEM_CONTAINER ? \
 	INT((obj)->value[4]) : 100)
@@ -1931,9 +1861,6 @@ void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
 void	obj_from_obj	(OBJ_DATA *obj);
 
-void 	set_percent_resistances
-		(flag64_t imm, flag64_t res, flag64_t vul, int16_t resist[]);
-
 /* extract obj flags */
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/
 #define XO_F_NORECURSE	(B)	/* do not extract contained in objs	*/
@@ -1943,7 +1870,7 @@ void 	set_percent_resistances
 				   and is always recursive		*/
 
 /* quit_char/extract_char */
-#define XC_F_COUNT	(A)	/* update obj count			*/
+#define XC_F_NOCOUNT	(A)	/* update obj count			*/
 #define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
 
 /*
@@ -2146,7 +2073,7 @@ int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, const char *file, const char *str);
 void	tail_chain	(void);
-char *format_flags(flag64_t flags);
+char *	format_flags	(flag_t flags);
 
 #define chance(num) (number_range(1, 100) <= num)
 
@@ -2193,7 +2120,7 @@ void set_title		(CHAR_DATA *ch, const char *argument);
 
 /* act_wiz.h */
 void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
-	    flag32_t flag, flag32_t flag_skip, int min_level);
+	    flag_t flag, flag_t flag_skip, int min_level);
 void reboot_mud(void);
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 
@@ -2219,7 +2146,7 @@ void	obj_update	(void);
 void *	clan_item_update_cb(void *p, va_list ap);
 void	weather_update	(void);
 
-flag32_t wiznet_lookup	(const char *name);
+flag_t wiznet_lookup	(const char *name);
 
 #endif
 

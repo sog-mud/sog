@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.17 1999-12-03 22:33:09 avn Exp $
+ * $Id: db_skills.c,v 1.18 1999-12-11 15:31:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -83,7 +83,7 @@ DBLOAD_FUN(load_skill)
 				return;
 			}
 			if (IS_TOKEN(fp, "Event")) {
-				flag32_t event = fread_fword(events_table, fp);
+				flag_t event = fread_fword(events_table, fp);
 				const char *fun_name = fread_sword(fp);
 				event_fun_t *evf;
 

@@ -3,9 +3,9 @@ Name weapon_hands~
 Class weapon
 End
 
-#R has_spec
+#R
 order allow_deny
-allow all~
+allow has_spec("all")~
 end
 
 #SKILL

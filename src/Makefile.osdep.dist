@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.4 1999-10-25 12:05:17 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.5 1999-12-11 15:30:58 fjoe Exp $
 #
 
 .if exists(${.CURDIR}/../Makefile.inc)
@@ -15,7 +15,7 @@
 # for Linux
 #CFLAGS	+=-DLINUX -DUSE_MMAP
 #LIBS	+=-lcrypt -ldl
-#SO_LFLAGS += -rdynamic
+#SO_LDFLAGS += -rdynamic
 #COMPAT_CFILES = ../compat/fnmatch.c
 #MAKE = pmake
 

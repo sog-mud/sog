@@ -1,6 +1,7 @@
 #RACE
 Name undead~
-Aff detect_evil detect_invis detect_hidden detect_good infrared pass_door~
+Aff pass_door~
+Det evil invis hidden good infrared~
 Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist holy -50

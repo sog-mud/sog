@@ -10,7 +10,8 @@ Resist fire 50
 Resist cold -40
 Resist lightning -30
 Resist mental -30
-Damtype smashEnd
+Damtype smash
+End
 
 #PCRACE
 Shortname FiGia~

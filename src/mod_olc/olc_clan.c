@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.36 1999-11-22 14:54:24 fjoe Exp $
+ * $Id: olc_clan.c,v 1.37 1999-12-11 15:31:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -252,7 +252,7 @@ OLC_FUN(claned_flags)
 {
 	clan_t *clan;
 	EDIT_CLAN(ch, clan);
-	return olced_flag32(ch, argument, cmd, &clan->clan_flags);
+	return olced_flag(ch, argument, cmd, &clan->clan_flags);
 }
 
 OLC_FUN(claned_plist)

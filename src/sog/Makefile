@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.18 1999-11-22 14:54:25 fjoe Exp $
+# $Id: Makefile,v 1.19 1999-12-11 15:31:14 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -24,4 +24,14 @@ CFILES = auction.c affect.c buffer.c cc_rule.c chquest.c clan.c class.c cmd.c\
 	 tables.c update.c util.c varr.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)
 
+OFILES_ADD = cc_parse.o cc_lex.o
+CLEAN_FILES = y.tab.h
+
 .include "../Makefile.osdep"
+
+cc_parse.o: cc_parse.y cc_lex.h ../include/typedef.h ../include/str.h\
+	    ../include/log.h
+
+cc_lex.o: cc_lex.l cc_lex.h ../include/typedef.h ../include/str.h\
+	  ../include/varr.h ../include/cc_rule.h
+

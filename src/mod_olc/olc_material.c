@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.7 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: olc_material.c,v 1.8 1999-12-11 15:31:12 fjoe Exp $
  */
 
 #include "olc.h"
@@ -224,7 +224,7 @@ OLC_FUN(mated_damclass)
 	material_t *mat;
 
 	EDIT_MAT(ch, mat);
-	return olced_flag32(ch, argument, cmd, &mat->dam_class);
+	return olced_flag(ch, argument, cmd, &mat->dam_class);
 }
 
 OLC_FUN(mated_material)
@@ -232,7 +232,7 @@ OLC_FUN(mated_material)
 	material_t *mat;
 
 	EDIT_MAT(ch, mat);
-	return olced_flag32(ch, argument, cmd, &mat->mat_flags);
+	return olced_flag(ch, argument, cmd, &mat->mat_flags);
 }
 
 OLC_FUN(mated_delete)

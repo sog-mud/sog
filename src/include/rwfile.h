@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.4 1999-11-18 15:31:30 fjoe Exp $
+ * $Id: rwfile.h,v 1.5 1999-12-11 15:31:10 fjoe Exp $
  */
 
 #ifndef _RFILE_H_
@@ -73,11 +73,12 @@ const char *	fread_sword	(rfile_t *fp);
 const char *	fread_string	(rfile_t *fp);
 char		fread_letter	(rfile_t *fp);
 int		fread_number	(rfile_t *fp);
-flag64_t 	fread_flags	(rfile_t *fp);
+flag_t 		fread_flags	(rfile_t *fp);
+int64_t		fread_flags64	(rfile_t *fp);
 void		fread_to_end	(rfile_t *fp);
 void		fread_to_eol	(rfile_t *fp);
-flag64_t	fread_fword	(const flag_t *table, rfile_t *fp); 
-flag64_t	fread_fstring	(const flag_t *table, rfile_t *fp);
+flag_t		fread_fword	(const flaginfo_t *table, rfile_t *fp); 
+flag_t		fread_fstring	(const flaginfo_t *table, rfile_t *fp);
 
 #define KEY(k, field, val)				\
 		if (IS_TOKEN(fp, (k))) {		\

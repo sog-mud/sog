@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.61 1999-11-27 15:15:27 kostik Exp $
+ * $Id: special.c,v 1.62 1999-12-11 15:31:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -669,9 +669,8 @@ bool spec_executioner(CHAR_DATA *ch)
 	if (victim == NULL)
 		return FALSE;
 
-	REMOVE_BIT(ch->comm, COMM_NOSHOUT);
 	act_yell(ch,
-		 "$i is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
+		 "$lu{$i} is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 		 victim, NULL);
 	multi_hit(ch, victim, NULL);
 	return TRUE;

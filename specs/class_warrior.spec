@@ -3,9 +3,9 @@ Name class_warrior~
 Class class
 End
 
-#R spclass_limit
+#R
 order allow_deny
-allow weapon 3~
+allow spclass_limit("weapon 3")~
 end
 
 #SKILL

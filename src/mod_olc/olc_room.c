@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.68 1999-12-07 14:21:00 fjoe Exp $
+ * $Id: olc_room.c,v 1.69 1999-12-11 15:31:13 fjoe Exp $
  */
 
 #include "olc.h"
@@ -681,9 +681,8 @@ OLC_FUN(roomed_oreset)
 
 			newobj = create_obj(pObjIndex, 0);
 			if (pReset->arg2 == WEAR_NONE)
-			SET_BIT(newobj->extra_flags, ITEM_INVENTORY);
-		}
-		else
+				SET_OBJ_STAT(newobj, ITEM_INVENTORY);
+		} else
 			newobj = create_obj(pObjIndex, 0);
 
 		obj_to_char(newobj, to_mob);
@@ -712,14 +711,14 @@ OLC_FUN(roomed_room)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag32(ch, argument, cmd, &room->room_flags);
+	return olced_flag(ch, argument, cmd, &room->room_flags);
 }
 
 OLC_FUN(roomed_sector)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag32(ch, argument, cmd, &room->sector_type);
+	return olced_flag(ch, argument, cmd, &room->sector_type);
 }
 
 OLC_FUN(roomed_reset)
@@ -1049,7 +1048,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			return FALSE;
 		}
 
-		return olced_flag32(ch, arg, cmd, &pRoom->exit[door]->size);
+		return olced_flag(ch, arg, cmd, &pRoom->exit[door]->size);
 	}
 
 	return FALSE;

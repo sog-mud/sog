@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.130 1999-12-10 11:29:48 kostik Exp $
+ * $Id: act_quest.c,v 1.131 1999-12-11 15:31:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -160,9 +160,8 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
-			&&  IS_SET(ch->affected_by, AFF_HIDE | AFF_FADE)) { 
-				REMOVE_BIT(ch->affected_by,
-					   AFF_HIDE | AFF_FADE);
+			&&  HAS_INVIS(ch, ID_HIDDEN | ID_FADE)) { 
+				REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 				act_puts("You step out of shadows.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				act("$n steps out of shadows.",
@@ -329,9 +328,7 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	CHAR_DATA *questor = NULL;
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (!IS_NPC(vch)) 
-			continue;
-		if (IS_SET(vch->pMobIndex->act, ACT_QUESTOR)) {
+		if (IS_NPC(vch) && MOB_IS(vch, MOB_QUESTOR)) {
 			questor = vch;
 			break;
 		}
@@ -586,10 +583,9 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  victim->pMobIndex->vnum < 100
+		||  MOB_IS(victim, MOB_TRAIN | MOB_PRACTICE | MOB_HEALER)
 		||  IS_SET(victim->pMobIndex->act,
-			   ACT_TRAIN | ACT_PRACTICE | ACT_HEALER |
-			   ACT_NOTRACK | ACT_PET)
-		||  IS_SET(victim->pMobIndex->act, ACT_IMMSUMMON)
+			   ACT_NOTRACK | ACT_PET | ACT_IMMSUMMON)
 		||  questor->pMobIndex == victim->pMobIndex
 		||  victim->in_room == NULL
 		||  victim->in_room->sector_type == SECT_UNDERWATER
@@ -868,7 +864,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 		 */
 
 		if ((qt && qt->count > count_max)
-		||  !IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+		||  !IS_SET(pObjIndex->obj_flags, ITEM_QUEST)) {
 
 			/* ch requested this item too many times	*
 			 * or the item is not quest			*/
@@ -928,7 +924,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
 	}
 
-	if (!qt && IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+	if (!qt && IS_SET(pObjIndex->obj_flags, ITEM_QUEST)) {
 		qt = malloc(sizeof(*qt));
 		qt->vnum = item_vnum;
 		qt->count = 0;
@@ -945,7 +941,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 
 	/* ok, give him requested item */
 
-	if (IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
+	if (IS_SET(pObjIndex->obj_flags, ITEM_QUEST)) {
 		mlstr_cpy(&reward->owner, &ch->short_descr);
 		mlstr_printf(&reward->short_descr,
 			     &reward->pObjIndex->short_descr,

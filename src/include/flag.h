@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.8 1999-12-07 14:20:59 fjoe Exp $
+ * $Id: flag.h,v 1.9 1999-12-11 15:31:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,29 +22,29 @@ enum {
 	TABLE_INTVAL	/* table contains integer values	*/
 };
 
-struct flag_t
+struct flaginfo_t
 {
 	const char *	name;
-	flag64_t	bit;
+	flag_t		bit;
 	bool		settable;
 };
 
-const flag_t *	_flag_lookup	(const flag_t *flag64_table, const char* name,
-				 int (*cmpfun)(const char *, const char *));
+const flaginfo_t *_flag_lookup(const flaginfo_t *flag_table, const char* name,
+			       int (*cmpfun)(const char *, const char *));
 #define flag_lookup(t, n)	(_flag_lookup((t), (n), str_prefix))
 #define flag_slookup(t, n)	(_flag_lookup((t), (n), str_cmp))
 
-flag64_t	_flag_value	(const flag_t *flag64_table,
-				 const char *argument,
-				 int (*cmpfun)(const char *, const char *));
+flag_t	_flag_value	(const flaginfo_t *flag_table,
+			 const char *argument,
+			 int (*cmpfun)(const char *, const char *));
 #define flag_value(t, arg)	(_flag_value((t), (arg), str_prefix))
 #define flag_svalue(t, arg)	(_flag_value((t), (arg), str_cmp))
 
-const char *	flag_string	(const flag_t *flag64_table, flag64_t bits);
-const char *	flag_istring	(const flag_t *flag64_table, flag64_t val);
+const char *	flag_string	(const flaginfo_t *flag_table, flag_t bits);
+const char *	flag_istring	(const flaginfo_t *flag_table, flag_t val);
 
-void show_flags_buf(BUFFER *output, const flag_t *flag64_table);
-void show_flags(CHAR_DATA *ch, const flag_t *flag64_table);
+void show_flags_buf(BUFFER *output, const flaginfo_t *flag_table);
+void show_flags(CHAR_DATA *ch, const flaginfo_t *flag_table);
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.192 1999-12-10 11:30:10 kostik Exp $
+ * $Id: db.c,v 1.193 1999-12-11 15:31:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,7 +161,7 @@ const char MAXON_FILE		[] = "maxon.txt";
 const char AREASTAT_FILE	[] = "areastat.txt";
 const char IMMLOG_FILE		[] = "immortals.log";
 
-flag32_t		mud_options;
+flag_t		mud_options;
 
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
@@ -200,9 +200,6 @@ int                     top_vnum_room;		/* OLC */
 int                     top_vnum_mob;		/* OLC */
 int                     top_vnum_obj;		/* OLC */
 int			top_mprog_index;	/* OLC */
-int			newmobs;
-int			newobjs;
-
 int			top_player;
 
 const char *dir_name[] =
@@ -482,7 +479,6 @@ void boot_db(void)
 	check_mob_progs();
 	scan_pfiles();
 
-	convert_objects();           /* ROM OLC */
 	area_update();
 	load_notes();
 	load_bans();
@@ -597,7 +593,7 @@ void fix_exits(void)
 }
 
 /*
- * check room resets and adjust levels of ITEM_OLDSTYLE objs
+ * check room resets
  */
 void fix_room_resets(ROOM_INDEX_DATA *pRoom)
 {
@@ -626,18 +622,6 @@ void fix_room_resets(ROOM_INDEX_DATA *pRoom)
 			}
 
 			pObj->reset_num++;
-
-			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
-				if (!pLastMob) {
-					db_error("fix_room_resets",
-						 "can't calculate obj level: "
-						 "no mob reset yet");
-					exit(1);
-				}
-				pObj->level = pObj->level < 1 ?
-					pLastMob->level :
-					UMIN(pLastMob->level, pObj->level);
-			}
 			break;
 
 		case 'P':
@@ -652,11 +636,6 @@ void fix_room_resets(ROOM_INDEX_DATA *pRoom)
 			}
 
 			pObj->reset_num++;
-
-			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
-				pObj->level = pObj->level < 1 ?
-					pObjTo->level :
-					UMIN(pObjTo->level, pObj->level);
 			break;
 
 		case 'G':
@@ -667,47 +646,6 @@ void fix_room_resets(ROOM_INDEX_DATA *pRoom)
 			}
 
 			pObj->reset_num++;
-
-			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE)) {
-				if (!pLastMob) {
-					db_error("load_resets",
-						 "can't calculate obj level: "
-						 "no mob reset yet");
-					exit(1);
-				}
-				if (pLastMob->pShop) {
-					switch(pObj->item_type) {
-					default:
-						pObj->level =
-							UMAX(0, pObj->level);
-						break;
-					case ITEM_PILL:
-					case ITEM_POTION:
-						pObj->level =
-							UMAX(5, pObj->level);
-						break;
-					case ITEM_SCROLL:
-					case ITEM_ARMOR:
-					case ITEM_WEAPON:
-						pObj->level =
-							UMAX(10, pObj->level);
-						break;
-					case ITEM_WAND:
-					case ITEM_TREASURE:
-						pObj->level =
-							UMAX(15, pObj->level);
-						break;
-					case ITEM_STAFF:
-						pObj->level =
-							UMAX(20, pObj->level);
-						break;
-					}
-				} else
-					pObj->level = pObj->level < 1 ?
-						pLastMob->level :
-						UMIN(pObj->level,
-						     pLastMob->level);
-			}
 			break;
 		}
 	}
@@ -1008,7 +946,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		        last = FALSE;
 		        break;
 		      }
-	    if (IS_SET(pObjIndex->extra_flags, ITEM_CLAN)) {
+	    if (IS_SET(pObjIndex->obj_flags, ITEM_CLAN)) {
 		clan = hash_foreach(&clans, clan_item_cb, pObjIndex);
 		if (clan != NULL) {
 			pObj = create_obj(pObjIndex, 0);
@@ -1054,7 +992,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 
             if (LastMob->pMobIndex->pShop) {  /* Shop-keeper? */
                 pObj = create_obj(pObjIndex, 0);
-		SET_BIT(pObj->extra_flags, ITEM_INVENTORY);
+		SET_OBJ_STAT(pObj, ITEM_INVENTORY);
             }
 		else {
 		        if ((pObjIndex->limit == -1)  ||
@@ -1183,6 +1121,8 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	} 
 
 	mob->affected_by	= pMobIndex->affected_by;
+	mob->has_invis		= pMobIndex->has_invis;
+	mob->has_detect		= pMobIndex->has_detect;
 	mob->alignment		= pMobIndex->alignment;
 	mob->level		= pMobIndex->level;
 	mob->position		= pMobIndex->start_pos;
@@ -1391,6 +1331,8 @@ clone_mob(CHAR_DATA *parent)
 	clone->invis_level	= parent->invis_level;
 	clone->incog_level	= parent->incog_level;
 	clone->affected_by	= parent->affected_by;
+	clone->has_invis	= parent->has_invis;
+	clone->has_detect	= parent->has_detect;
 	clone->position		= parent->position;
 	clone->saving_throw	= parent->saving_throw;
 	clone->alignment	= parent->alignment;
@@ -1449,7 +1391,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	mlstr_cpy(&obj->short_descr, &pObjIndex->short_descr);
 	mlstr_cpy(&obj->description, &pObjIndex->description);
 	obj->material		= str_qdup(pObjIndex->material);
-	obj->extra_flags	= pObjIndex->extra_flags;
+	obj->stat_flags		= pObjIndex->stat_flags;
 	obj->wear_flags		= pObjIndex->wear_flags;
 	obj->weight		= pObjIndex->weight;
 	obj->condition		= pObjIndex->condition;
@@ -1508,7 +1450,7 @@ clone_obj(OBJ_DATA *parent)
 
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->description, &parent->description);
-	clone->extra_flags	= parent->extra_flags;
+	clone->stat_flags	= parent->stat_flags;
 	clone->wear_flags	= parent->wear_flags;
 	clone->weight		= parent->weight;
 	clone->cost		= parent->cost;
@@ -2027,7 +1969,7 @@ void move_pfiles(int minvnum, int maxvnum, int delta)
 #define NBUF 5
 #define NBITS 52
 
-char *format_flags(flag64_t flags)
+char *format_flags(flag_t flags)
 {
 	static int cnt;
 	static char buf[NBUF][NBITS+1];
@@ -2036,7 +1978,7 @@ char *format_flags(flag64_t flags)
 	cnt = (cnt + 1) % NBUF;
 
 	for (count = 0; count < NBITS;  count++)
-		if (IS_SET(flags, (flag64_t) 1 << count)) {
+		if (IS_SET(flags, (flag_t) 1 << count)) {
 	        	if (count < 26)
 	        		buf[cnt][pos] = 'A' + count;
 	        	else
@@ -2067,125 +2009,5 @@ void db_error(const char* fn, const char* fmt,...)
 	}
 
 	log("%s: %s", fn, buf);
-}
-
-/*****************************************************************************
- Name:	        convert_objects
- Purpose:	Converts all old format objects to new format
- Called by:	boot_db (db.c).
- ****************************************************************************/
-void convert_objects(void)
-{
-	int i;
-	if (newobjs == top_obj_index)
-		return; /* all objects in new format */
-
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		OBJ_INDEX_DATA *pObj;
-
-		for (pObj = obj_index_hash[i]; pObj; pObj = pObj->next)
- 			if (IS_SET(pObj->extra_flags, ITEM_OLDSTYLE))
-				convert_object(pObj);
-	}
-}
-
-/*****************************************************************************
- Name:		convert_object
- Purpose:	Converts an ITEM_OLDSTYLE obj to new format
- Called by:	convert_objects (db2.c).
- Note:          Dug out of create_obj (db.c)
- Author:        Hugin
- ****************************************************************************/
-void convert_object(OBJ_INDEX_DATA *pObjIndex)
-{
-    int level;
-    int number, type;  /* for dice-conversion */
-
-    level = pObjIndex->level;
-
-    pObjIndex->cost     = 10*level;
-
-    switch (pObjIndex->item_type) {
-        default:
-            bug("Obj_convert: vnum %d bad type.", pObjIndex->item_type);
-            break;
-
-        case ITEM_LIGHT:
-		if (INT(pObjIndex->value[2]) == 999)
-			INT(pObjIndex->value[2]) = -1;
-		break;
-        case ITEM_TREASURE:
-        case ITEM_FURNITURE:
-        case ITEM_TRASH:
-        case ITEM_CONTAINER:
-        case ITEM_DRINK_CON:
-        case ITEM_KEY:
-        case ITEM_FOOD:
-        case ITEM_BOAT:
-        case ITEM_CORPSE_NPC:
-        case ITEM_CORPSE_PC:
-        case ITEM_FOUNTAIN:
-        case ITEM_MAP:
-        case ITEM_CLOTHING:
-        case ITEM_SCROLL:
-	    break;
-
-        case ITEM_WAND:
-        case ITEM_STAFF:
-            pObjIndex->value[2] = pObjIndex->value[1];
-	    break;
-
-        case ITEM_WEAPON:
-
-	    /*
-	     * The conversion below is based on the values generated
-	     * in one_hit() (fight.c).  Since I don't want a lvl 50 
-	     * weapon to do 15d3 damage, the min value will be below
-	     * the one in one_hit, and to make up for it, I've made 
-	     * the max value higher.
-	     * (I don't want 15d2 because this will hardly ever roll
-	     * 15 or 30, it will only roll damage close to 23.
-	     * I can't do 4d8+11, because one_hit there is no dice-
-	     * bounus value to set...)
-	     *
-	     * The conversion below gives:
-
-	     level:   dice      min      max      mean
-	       1:     1d8      1(2)    8(7)     5(5)
-	       2:     2d5      2(3)   10(8)     6(6)
-	       3:     2d5      2(3)   10(8)     6(6)
-	       5:     2d6      2(3)   12(10)     7(7)
-	      10:     4d5      4(5)   20(14)    12(10)
-	      20:     5d5      5(7)   25(21)    15(14)
-	      30:     5d7      5(10)   35(29)    20(20)
-	      50:     5d11     5(15)   55(44)    30(30)
-
-	     */
-
-	    number = UMIN(level/4 + 1, 5);
-	    type   = (level + 7)/number;
-
-            INT(pObjIndex->value[1]) = number;
-            INT(pObjIndex->value[2]) = type;
-	    break;
-
-        case ITEM_ARMOR:
-            INT(pObjIndex->value[0]) = level / 5 + 3;
-            pObjIndex->value[1] = pObjIndex->value[0];
-            pObjIndex->value[2] = pObjIndex->value[0];
-	    break;
-
-        case ITEM_POTION:
-        case ITEM_PILL:
-            break;
-
-        case ITEM_MONEY:
-	    INT(pObjIndex->value[0]) = pObjIndex->cost;
-	    break;
-    }
-
-    REMOVE_BIT(pObjIndex->extra_flags, ITEM_OLDSTYLE);
-    TOUCH_VNUM(pObjIndex->vnum);
-    ++newobjs;
 }
 

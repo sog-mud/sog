@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.185 1999-12-10 11:29:45 kostik Exp $
+ * $Id: act_obj.c,v 1.186 1999-12-11 15:31:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -177,8 +177,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
 			    && can_see_obj(ch, obj)) {
 				found = TRUE;
-				if (IS_SET(container->pObjIndex->extra_flags,
-					   ITEM_PIT)
+				if (OBJ_IS(container, ITEM_PIT)
 				&&  !IS_IMMORTAL(ch)) {
 					act_puts("Don't be so greedy!",
 						 ch, NULL, NULL, TO_CHAR,
@@ -379,13 +378,13 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		obj = create_money(gold, silver);
 		obj_to_room(obj, ch->in_room);
 		act("$n drops some coins.", ch, NULL, NULL,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 		char_puts("Ok.\n", ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj, 0);
 			act("The coins sink down, and disapear in the water.",
 			    ch, NULL, NULL,
-			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 			act_puts("The coins sink down, and disapear in the water.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		}
@@ -527,7 +526,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 					 silver ? amount : amount * 100);
 
 		if (IS_NPC(victim)
-		&&  IS_SET(victim->pMobIndex->act, ACT_CHANGER)) {
+		&&  MOB_IS(victim, MOB_CHANGER)) {
 			int             change;
 			change = (silver ? 95 * amount / 100 / 100
 				  : 95 * amount);
@@ -607,7 +606,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)
+	if (OBJ_IS(obj, ITEM_QUEST)
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("Even you are not that silly to give $p to $N.",
 			 ch, obj, victim, TO_CHAR, POS_DEAD);
@@ -723,7 +722,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			affect_to_obj(obj, &af);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
-			    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, "envenom", TRUE, 3);
 			return;
@@ -799,44 +798,41 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 		if (what < 10) {
 			af.where	= TO_AFFECTS;
-			af.location	= APPLY_RESIST_MENTAL;
+			INT(af.location)= APPLY_RESIST_MENTAL;
 			af.bitvector	= 0;
 			af.duration	= obj->level/5;
 			af.modifier	= 100;
 			do_emote(vch, "looks clever!");
-		}
-		else if (what < 40) {
+		} else if (what < 40) {
 			af.where	= TO_AFFECTS;
 			af.bitvector	= AFF_HASTE; 
 			af.duration	= obj->level/3; 
 			do_emote(vch, "looks filled with energy!");
-		}
-		else if (what < 70) {
+		} else if (what < 70) {
 			af.where	= TO_AFFECTS;
 			af.bitvector	= AFF_SLEEP;
 			af.duration	= obj->level/20; 
 			vch->position	= POS_SLEEPING;
 			do_emote(vch, "yawns and goes to sleep.");
-		}
-		else {
+		} else {
 			af.where	= TO_AFFECTS;
 			af.bitvector	= 0;
-			af.location	= APPLY_RESIST_BASH;
+			INT(af.location)= APPLY_RESIST_BASH;
 			af.modifier	= 33;
 			af.duration	= 10; 
 			affect_to_char(vch, &af);
 
-			af.location	= APPLY_RESIST_PIERCE;
+			INT(af.location)= APPLY_RESIST_PIERCE;
 			af.modifier	= 33;
 			af.duration	= 10; 
 			affect_to_char(vch, &af);
 
-			af.location	= APPLY_RESIST_SLASH;
+			INT(af.location)= APPLY_RESIST_SLASH;
 			af.modifier	= 33;
 			af.duration	= 10;
 			affect_to_char(vch, &af);
 
-			af.location	= APPLY_RESIST_ENERGY;
+			INT(af.location)= APPLY_RESIST_ENERGY;
 			af.modifier	= 33;
 			af.duration	= 10;
 
@@ -1159,7 +1155,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	}
 	if (!IS_IMMORTAL(ch)) {
 		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
-		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE))
+		     IS_OBJ_STAT(obj, ITEM_NOT_EDIBLE))
 		&& obj->pObjIndex->item_type != ITEM_PILL) {
 			char_puts("That's not edible.\n", ch);
 			return;
@@ -1677,8 +1673,8 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 		char_puts("Oops.\n", ch);
 
-		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)) {
-			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+		if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE) && !IS_NPC(ch)) {
+			REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 			act_puts("You step out of shadows.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out of shadows.",
@@ -1752,7 +1748,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (!can_drop_obj(ch, obj)
-	/* ||   IS_SET(obj->extra_flags, ITEM_INVENTORY) */
+	/* ||   IS_OBJ_STAT(obj, ITEM_INVENTORY) */
 	     /* ||  obj->level > ch->level */ ) {
 		char_puts("You can't pry it away.\n", ch);
 		return;
@@ -1770,14 +1766,14 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (!IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
+	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		obj_from_char(obj);
 		obj_to_char(obj, ch);
 		char_puts("You got it!\n", ch);
 		check_improve(ch, "steal", TRUE, 2);
 	} else {
 		obj_inve = clone_obj(obj);
-		REMOVE_BIT(obj_inve->extra_flags, ITEM_INVENTORY);
+		REMOVE_OBJ_STAT(obj_inve, ITEM_INVENTORY);
 		obj_to_char(obj_inve, ch);
 		char_puts("You got one of them!\n", ch);
 		check_improve(ch, "steal", TRUE, 1);
@@ -1793,7 +1789,6 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	int		cost, roll;
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA	*pet;
-	flag64_t		act;
 	ROOM_INDEX_DATA *pRoomIndexNext;
 	ROOM_INDEX_DATA *in_room;
 
@@ -1819,13 +1814,12 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 	if (!pet
 	||  !IS_NPC(pet)
-	||  !IS_SET(act = pet->pMobIndex->act, ACT_PET)) {
+	||  !IS_SET(pet->pMobIndex->act, ACT_PET)) {
 		char_puts("Sorry, you can't buy that here.\n", ch);
 		return;
 	}
 
-	
-	if (IS_SET(act, ACT_RIDEABLE)
+	if (IS_SET(pet->pMobIndex->act, ACT_RIDEABLE)
 	&&  get_skill(ch, "riding") && !MOUNTED(ch)) {
 		cost = 10 * pet->level * pet->level;
 
@@ -1840,7 +1834,8 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		}
 		deduct_cost(ch, cost);
 		pet = create_mob(pet->pMobIndex);
-		pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
+		pet->comm = COMM_NOTELL;
+		pet->chan = CHAN_NOSHOUT | CHAN_NOCHANNELS;
 
 		char_to_room(pet, ch->in_room);
 		if (IS_EXTRACTED(pet))
@@ -1877,7 +1872,8 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	deduct_cost(ch, cost);
 	pet = create_mob(pet->pMobIndex);
 	SET_BIT(pet->affected_by, AFF_CHARM);
-	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
+	pet->comm = COMM_NOTELL;
+	pet->chan = CHAN_NOSHOUT | CHAN_NOCHANNELS;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0')
@@ -2001,7 +1997,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	keeper->silver += cost * number - (cost * number / 100) * 100;
 
 	for (count = 0; count < number; count++) {
-		if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
+		if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 			t_obj = create_obj(obj->pObjIndex, 0);
 		else {
 			t_obj = obj;
@@ -2011,7 +2007,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 
 		if (t_obj->timer > 0 && !IS_OBJ_STAT(t_obj, ITEM_HAD_TIMER))
 			t_obj->timer = 0;
-		REMOVE_BIT(t_obj->extra_flags, ITEM_HAD_TIMER);
+		REMOVE_OBJ_STAT(t_obj, ITEM_HAD_TIMER);
 		obj_to_char(t_obj, ch);
 		if (cost < t_obj->cost)
 			t_obj->cost = cost;
@@ -2174,7 +2170,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	else {
 		obj_from_char(obj);
 		if (obj->timer)
-			SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
+			SET_OBJ_STAT(obj, ITEM_HAD_TIMER);
 		else
 			obj->timer = number_range(50, 100);
 		obj_to_keeper(obj, keeper);
@@ -2245,7 +2241,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	if ((ch->in_room->sector_type != SECT_INSIDE
 	  &&  ch->in_room->sector_type != SECT_CITY
 	  &&  number_percent() < get_skill(ch, "herbs"))
-	|| (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_HEALER))) {
+	|| (IS_NPC(ch) && MOB_IS(ch, MOB_HEALER))) {
 		AFFECT_DATA     af;
 		af.where = TO_AFFECTS;
 		af.type = "herbs";
@@ -2356,10 +2352,14 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else if (percent < 80) {
 		buf_printf(output,
-			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
+			    "Object '%s' is type %s, stat flags %s.\n"
+			    "Obj flags %s.\n"
+			    "Weight is %d, value is %d, level is %d.\n"
+			    "Material is %s.\n",
 			    obj->name,
 			    flag_string(item_types, obj->pObjIndex->item_type),
-			    flag_string(extra_flags, obj->extra_flags),
+			    flag_string(stat_flags, obj->stat_flags),
+			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			    obj->weight,
 		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
 		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
@@ -2369,28 +2369,37 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	} else if (percent < 85) 
 		buf_printf(output,
-			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
+			    "Object '%s' is type %s, extra flags %s.\n"
+			    "Obj flags %s.\n"
+			    "Weight is %d, value is %d, level is %d.\n"
+			    "Material is %s.\n",
 			    obj->name,
 			    flag_string(item_types, obj->pObjIndex->item_type),
-			    flag_string(extra_flags, obj->extra_flags),
+			    flag_string(stat_flags, obj->stat_flags),
+			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			    obj->weight,
 			    obj->cost,
 			    obj->level,
 			    str_cmp(obj->material, "oldstyle") ?
 				obj->material : "unknown"
 			);
-	else
+	else {
 		buf_printf(output,
-			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
+			    "Object '%s' is type %s, extra flags %s.\n"
+			    "Obj flags %s.\n"
+			    "Weight is %d, value is %d, level is %d.\n"
+			    "Material is %s.\n",
 			    obj->name,
 			    flag_string(item_types, obj->pObjIndex->item_type),
-			    flag_string(extra_flags, obj->extra_flags),
+			    flag_string(stat_flags, obj->stat_flags),
+			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
 			    obj->weight,
 			    obj->cost,
 			    obj->level,
 			    str_cmp(obj->material, "oldstyle") ?
 				obj->material : "unknown"
 			);
+	}
 
 	v0 = obj->value[0];
 	v1 = obj->value[1];
@@ -2523,7 +2532,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		return;
 	}
 
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
 		format_obj_affects(output, obj->pObjIndex->affected,
 				   FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
@@ -3047,7 +3056,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	int cost;
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_REPAIRMAN))
+		if (IS_NPC(mob) && MOB_IS(mob, MOB_REPAIRMAN))
 			break;
 	}
  
@@ -3111,7 +3120,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	int cost;
 	
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_REPAIRMAN))
+		if (IS_NPC(mob) && MOB_IS(mob, MOB_REPAIRMAN))
 			break;
 	}
  
@@ -3168,7 +3177,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
 	{
-	    if (IS_NPC(mob) && IS_SET(mob->pMobIndex->act, ACT_HEALER))
+	    if (IS_NPC(mob) && MOB_IS(mob, MOB_REPAIRMAN))
 	        break;
 	}
  
@@ -3470,7 +3479,7 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	CHAR_DATA      *gch;
 	int             members;
 
-	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
+	if (!CAN_WEAR(obj, ITEM_TAKE) || OBJ_IS(obj, ITEM_NOSAC)) {
 		act_puts("$p is not an acceptable sacrifice.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
@@ -3605,16 +3614,16 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		return FALSE;
 	}
 
-	if (IS_SET(container->pObjIndex->extra_flags, ITEM_PIT)
+	if (OBJ_IS(container, ITEM_PIT)
 	&&  !CAN_WEAR(obj, ITEM_TAKE)) {
 		if (obj->timer)
-			SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
+			SET_OBJ_STAT(obj, ITEM_HAD_TIMER);
 		else
 			obj->timer = number_range(100, 200);
 	}
 
 	if (obj->pObjIndex->limit != -1
-	||  IS_SET(obj->pObjIndex->extra_flags, ITEM_QUEST)) {
+	||  OBJ_IS(obj, ITEM_QUEST)) {
 		act_puts("This unworthy container won't hold $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return TRUE;
@@ -3663,7 +3672,7 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	obj_to_room(obj, ch->in_room);
 
 	act("$n drops $p.", ch, obj, NULL,
-	    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+	    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (obj->pObjIndex->vnum == OBJ_VNUM_POTION_VIAL
@@ -3689,13 +3698,12 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if (!floating_time(obj) && IS_WATER(ch->in_room)) {
 		act("$p sinks down the water.", ch, obj, NULL,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj, 0);
-	}
-	else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
+	} else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
 		act("$p dissolves into smoke.", ch, obj, NULL,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj, 0);
 	}
@@ -3769,13 +3777,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg1, "off")) {
 		char_puts("Auction channel is now OFF.\n",ch);
-		SET_BIT(ch->comm,COMM_NOAUCTION);
+		SET_BIT(ch->chan, CHAN_NOAUCTION);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOAUCTION)) {
+	if (IS_SET(ch->chan, CHAN_NOAUCTION)) {
 		char_puts("Auction channel is now ON.\n",ch);
-		REMOVE_BIT(ch->comm, COMM_NOAUCTION);
+		REMOVE_BIT(ch->chan, CHAN_NOAUCTION);
 	}
 
 	if (arg1[0] == '\0') {
@@ -3936,7 +3944,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	switch (obj->pObjIndex->item_type) {
 	default:
-		if (!IS_SET(obj->pObjIndex->extra_flags, ITEM_CHQUEST)) {
+		if (!OBJ_IS(obj, ITEM_CHQUEST)) {
 			act_puts("You cannot auction $T.",
 				 ch, NULL,
 				 flag_string(item_types,

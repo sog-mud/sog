@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.47 1999-12-01 09:07:10 fjoe Exp $
+ * $Id: auction_impl.c,v 1.48 1999-12-11 15:31:14 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -27,7 +27,7 @@ void act_auction(const char *fmt,
 		CHAR_DATA *ch = d->original ? d->original : d->character;
 
 		if (d->connected != CON_PLAYING
-		||  IS_SET(ch->comm, COMM_NOAUCTION))
+		||  IS_SET(ch->chan, CHAN_NOAUCTION))
 			continue;
 
 		act_puts("{YAUCTION{x: ", ch, NULL, NULL,

@@ -1,11 +1,12 @@
 #RACE
 Name felar~
-Aff infrared~
+Det infrared~
 Off tail~
 Form edible sentient biped mammal~
 Parts head legs heart brains guts feet ear eye tail claws fangs~
 Resist light 33
-Damtype clawEnd
+Damtype claw
+End
 
 #PCRACE
 Shortname Felar~

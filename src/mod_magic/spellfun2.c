@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.153 1999-12-10 11:30:12 kostik Exp $
+ * $Id: spellfun2.c,v 1.154 1999-12-11 15:31:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,7 +235,9 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	while (victim->affected)
 		affect_remove(victim, victim->affected);
-	victim->affected_by   = 0;
+	victim->affected_by	= 0;
+	victim->has_invis	= 0;
+	victim->has_detect	= 0;
 	for (i = 0; i < 4; i++)
 		victim->armor[i]= 100;
 	victim->position      = POS_RESTING;
@@ -1274,10 +1276,7 @@ void spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	stalker->armor[i] = interpolate(stalker->level, 100, -100);
 	stalker->armor[3] = interpolate(stalker->level, 100, 0);
 	stalker->gold = 0;
-	stalker->affected_by |=
-		(AFF_DETECT_IMP_INVIS | AFF_DETECT_FADE | AFF_DETECT_EVIL |
-		 AFF_DETECT_INVIS | AFF_DETECT_MAGIC | AFF_DETECT_HIDDEN |
-		 AFF_DETECT_GOOD | AFF_DARK_VISION | AFF_IMP_INVIS);
+	stalker->affected_by |= (ID_ALL_INVIS | ID_EVIL | ID_MAGIC | ID_GOOD);
 	
 	NPC(stalker)->target = victim;
 	free_string(stalker->clan);
@@ -2086,11 +2085,11 @@ void spell_dragonsword(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_obj(sword,&af);
 
 	if (IS_GOOD(ch))
-	 SET_BIT(sword->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL));
+		SET_OBJ_STAT(sword, ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL);
 	else if (IS_NEUTRAL(ch))
-	 SET_BIT(sword->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_EVIL));
+		SET_OBJ_STAT(sword, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
-	 SET_BIT(sword->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));	
+		SET_OBJ_STAT(sword, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);	
 	obj_to_char(sword, ch);
 	
 	act("You create $p!",ch,sword,NULL,TO_CHAR);
@@ -2324,22 +2323,23 @@ void spell_acute_vision(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_ACUTE_VISION)) {
+	if (HAS_DETECT(victim, ID_CAMOUFLAGE)) {
 		if (victim == ch)
 			char_puts("Your vision is already acute. \n",ch);
-		else
+		else {
 			act("$N already sees acutely.",
 			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_DETECTS;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= 3 + level / 5;
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;
-	af.bitvector	= AFF_ACUTE_VISION;
+	af.bitvector	= ID_CAMOUFLAGE;
 	affect_to_char(victim, &af);
 	char_puts("Your vision sharpens.\n", victim);
 	if (ch != victim)
@@ -2864,36 +2864,39 @@ void spell_web(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	 if (saves_spell (level, victim,DAM_OTHER)) return; 
+	if (saves_spell (level, victim, DAM_OTHER))
+		return; 
 
-	if (is_affected(victim, sn))
-	{
-	if (victim == ch)
-	  char_puts("You are already webbed.\n",ch);
-	else
-	  act("$N is already webbed.",ch,NULL,victim,TO_CHAR);
-	return;
+	if (is_affected(victim, sn)) {
+		if (victim == ch)
+			char_puts("You are already webbed.\n", ch);
+		else
+			act("$N is already webbed.", ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 1;
-	INT(af.location) = APPLY_HITROLL;
-	af.modifier  = -1 * (level / 6); 
-	af.where	 = TO_AFFECTS;
-	af.bitvector = AFF_DETECT_WEB;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 1;
+	INT(af.location)= APPLY_HITROLL;
+	af.modifier	= -1 * (level / 6); 
+	af.where	= TO_AFFECTS;
+	af.bitvector	= AFF_WEB;
 	affect_to_char(victim, &af);
 
-	INT(af.location) = APPLY_DEX;
-	af.modifier  = -2;
+	INT(af.location)= APPLY_DEX;
+	af.modifier	= -2;
+	af.bitvector	= 0;
 	affect_to_char(victim, &af);
 
-	INT(af.location) = APPLY_DAMROLL;
-	af.modifier  = -1 * (level / 6);  
+	INT(af.location)= APPLY_DAMROLL;
+	af.modifier	= -1 * (level / 6);  
 	affect_to_char(victim, &af);
 	char_puts("You are emeshed in thick webs!\n", victim);
-	if (ch != victim)
-	act("You emesh $N in a bundle of webs!",ch,NULL,victim,TO_CHAR);
+	if (ch != victim) {
+		act("You emesh $N in a bundle of webs!",
+		    ch, NULL, victim, TO_CHAR);
+	}
 }
 
 void spell_group_defense(const char *sn, int level, CHAR_DATA *ch, void *vo ) 
@@ -3414,7 +3417,7 @@ void spell_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.duration	= level / 10;
 	INT(af.location)= 0;
 	af.modifier	= 0;
-	af.bitvector	= AFF_DETECT_FEAR;
+	af.bitvector	= AFF_FEAR;
 	affect_to_char(victim, &af);
 	char_puts("You are afraid as much as a rabbit.\n", victim);
 	act("$n looks with afraid eyes.", victim, NULL, NULL, TO_ROOM);
@@ -3540,11 +3543,11 @@ void spell_fire_shield (const char *sn, int level, CHAR_DATA *ch, void *vo)
 	fire->cost = 0;
 	fire->timer = 5 * ch->level ;
 	if (IS_GOOD(ch))
-		SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL));
+		SET_OBJ_STAT(fire, ITEM_ANTI_NEUTRAL | ITEM_ANTI_EVIL);
 	else if (IS_NEUTRAL(ch))
-		SET_BIT(fire->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_EVIL));
+		SET_OBJ_STAT(fire, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
-		SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));
+		SET_OBJ_STAT(fire, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
 	obj_to_char(fire, ch);
 	char_puts("You create the fire shield.\n",ch);
 }
@@ -3855,18 +3858,18 @@ void spell_improved_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_IMP_INVIS))
-	return;
+	if (HAS_INVIS(victim, ID_IMP_INVIS))
+		return;
 
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 10 ;
-	INT(af.location) = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = AFF_IMP_INVIS;
+	af.where	= TO_INVIS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 10 ;
+	INT(af.location)= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= ID_IMP_INVIS;
 	affect_to_char(victim, &af);
 	char_puts("You fade out of existence.\n", victim);
 }
@@ -3876,26 +3879,27 @@ void spell_improved_detect(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_IMP_INVIS))
-	{
-	if (victim == ch)
-	  char_puts("You can already see improved invisible.\n",ch);
-	else
-	  act("$N can already see improved invisible mobiles.",ch,NULL,victim,TO_CHAR);
-	return;
+	if (HAS_DETECT(victim, ID_IMP_INVIS)) {
+		if (victim == ch)
+			char_puts("You can already see improved invisible.\n", ch);
+		else {
+			act("$N can already see improved invisible.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 3;
-	af.modifier  = 0;
-	INT(af.location) = APPLY_NONE;
-	af.bitvector = AFF_DETECT_IMP_INVIS;
+	af.where	= TO_DETECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 3;
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.bitvector	= ID_IMP_INVIS;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n", victim);
 	if (ch != victim)
-	char_puts("Ok.\n", ch);
+		char_puts("Ok.\n", ch);
 }
 
 void spell_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo
@@ -4027,21 +4031,19 @@ void spell_resilience(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af;
 
-	if (!is_affected(ch, sn))
-	{
-	  char_puts("You are now resistive to draining attacks.\n", ch);
+	if (!is_affected(ch, sn)) {
+		char_puts("You are now resistive to draining attacks.\n", ch);
 
-	  af.where = TO_AFFECTS;
-	  af.type = sn;
-	  af.duration = level / 10;
-	  af.level = level;
-	  af.bitvector = 0;
-	  af.location = APPLY_RESIST_NEGATIVE;
-	  af.modifier = 45;
-	  affect_to_char(ch, &af);
-	}
-	else 
-	  char_puts("You are already resistive to draining attacks.\n",ch);
+		af.where	= TO_AFFECTS;
+		af.type		= sn;
+		af.duration	= level / 10;
+		af.level	= level;
+		af.bitvector	= 0;
+		INT(af.location)= APPLY_RESIST_NEGATIVE;
+		af.modifier	= 45;
+		affect_to_char(ch, &af);
+	} else 
+		char_puts("You are already resistive to draining attacks.\n", ch);
 }
 
 void spell_superior_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -4685,43 +4687,6 @@ void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, r->name, NULL, TO_CHAR);
 }
 
-void spell_plant_form(const char *sn, int level, CHAR_DATA *ch, void *vo)
-{
-	AFFECT_DATA af;
-
-	if (!ch->in_room
-	||   IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
-	||   (ch->in_room->sector_type != SECT_FOREST
-		  &&   ch->in_room->sector_type != SECT_FIELD)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NORECALL))
-	{
-	 char_puts("Not here.\n",ch);
-	 return;
-	}
-
-	af.where     = TO_AFFECTS;
-	af.type      = "fear";
-	af.level     = level;
-	af.duration  = level / 10;
-	INT(af.location) = 0;
-	af.modifier  = 0;
-
-	if (ch->in_room->sector_type == SECT_FOREST)
-	{
-	  char_puts("You start to look like a nearby tree!\n",ch);
-	  act("$n starts look like a nearby tree!", ch, NULL, NULL,TO_ROOM);
-	  af.bitvector = AFF_DETECT_FORM_TREE;
-	}
-	else
-	{
-	  char_puts("You start to look like some grass!\n",ch);
-	  act("$n starts to look like some grass!", ch, NULL, NULL, TO_ROOM);
-	  af.bitvector = AFF_DETECT_FORM_GRASS;
-	}
-	affect_to_char(ch, &af);
-}
-
 void spell_blade_barrier(const char *sn, int level,CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -5292,7 +5257,7 @@ void spell_hunger_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		af.modifier	= 0;
 		af.bitvector	= WEAPON_VAMPIRIC;
 		affect_to_obj(obj, &af);
-		SET_BIT(obj->extra_flags, ITEM_ANTI_GOOD | ITEM_ANTI_NEUTRAL);
+		SET_OBJ_STAT(obj, ITEM_ANTI_GOOD | ITEM_ANTI_NEUTRAL);
 		act("You transmit part of your hunger to $p.",
 		    ch, obj, NULL, TO_CHAR);
 	} else 

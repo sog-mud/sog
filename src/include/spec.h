@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.5 1999-11-27 08:57:16 fjoe Exp $
+ * $Id: spec.h,v 1.6 1999-12-11 15:31:10 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -42,9 +42,9 @@ enum {
 typedef struct spec_t spec_t;
 struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
-	flag32_t spec_class;	/* spec class				*/
+	flag_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
-	varr spec_deps;		/* cc_ruleset_t -- spec deps		*/
+	cc_ruleset_t spec_deps;	/* spec deps				*/
 };
 
 extern hash_t specs;

@@ -1,5 +1,5 @@
 /*
- * $Id: note.h,v 1.1 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: note.h,v 1.2 1999-12-11 15:31:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,7 @@ struct note_t
 	const char *	subject;
 	const char *	text;
 	time_t		date_stamp;
-	flag32_t	type;
+	flag_t		type;
 };
 
 note_t *	new_note	(void);

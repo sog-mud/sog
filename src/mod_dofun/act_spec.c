@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.4 1999-11-30 06:12:29 kostik Exp $
+ * $Id: act_spec.c,v 1.5 1999-12-11 15:31:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -56,9 +56,11 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
 		if (IS_NPC(mob)  
-		&&  IS_SET(mob->pMobIndex->act, ACT_PRACTICE)
-		&&  IS_SET(mob->pMobIndex->practicer, GROUP_WEAPONSMASTER))
+		&&  MOB_IS(mob, MOB_PRACTICE)
+		&&  IS_SET(mob->pMobIndex->practicer, GROUP_WEAPONSMASTER)) {
 			found = TRUE;
+			break;
+		}
 	}
 
 	if (!found) {

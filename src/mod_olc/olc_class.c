@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.13 1999-12-03 11:57:16 fjoe Exp $
+ * $Id: olc_class.c,v 1.14 1999-12-11 15:31:11 fjoe Exp $
  */
 
 #include "olc.h"
@@ -279,7 +279,7 @@ OLC_FUN(classed_primary		)
 	class_t *class;
 	EDIT_CLASS(ch, class);
 
-	return olced_flag32(ch, argument, cmd, &class->attr_prime);
+	return olced_flag(ch, argument, cmd, &class->attr_prime);
 }
 
 OLC_FUN(classed_weapon		)
@@ -345,7 +345,7 @@ OLC_FUN(classed_flags		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-	return olced_flag32(ch, argument, cmd, &class->class_flags);
+	return olced_flag(ch, argument, cmd, &class->class_flags);
 }
 
 OLC_FUN(classed_stats)
@@ -376,14 +376,14 @@ OLC_FUN(classed_align		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-	return olced_flag32(ch, argument, cmd, &class->restrict_align);
+	return olced_flag(ch, argument, cmd, &class->restrict_align);
 }
 
 OLC_FUN(classed_ethos		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-	return olced_flag32(ch, argument, cmd, &class->restrict_ethos);
+	return olced_flag(ch, argument, cmd, &class->restrict_ethos);
 }
 
 OLC_FUN(classed_sex		)

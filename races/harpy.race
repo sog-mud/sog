@@ -1,6 +1,7 @@
 #RACE
 Name harpy~
-Aff detect_invis detect_hidden flying~
+Aff flying~
+Det invis hidden~
 Off disarm~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye wings~

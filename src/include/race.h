@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.20 1999-12-11 13:31:16 kostik Exp $
+ * $Id: race.h,v 1.21 1999-12-11 15:31:09 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -35,19 +35,19 @@
 struct race_t
 {
 	const char *	name;		/* name of the race		*/
-	flag64_t	act;		/* act bits			*/
-	flag64_t	aff;		/* aff bits			*/
-	flag32_t	off;		/* off bits			*/
-	flag32_t	imm;		/* imm bits			*/
-	flag32_t	res;		/* res bits			*/
-	flag32_t	vuln;		/* vuln bits			*/
-	flag32_t	form;		/* default form flag		*/
-	flag32_t	parts;		/* default body parts		*/
-	flag32_t	race_flags;	/* race flags			*/
+	flag_t		act;		/* act bits			*/
+	flag_t		aff;		/* aff bits			*/
+	flag_t		has_invis;	/* invisibilities		*/
+	flag_t		has_detect;	/* detects			*/
+	flag_t		off;		/* off bits			*/
+	flag_t		form;		/* default form flag		*/
+	flag_t		parts;		/* default body parts		*/
+	flag_t		race_flags;	/* race flags			*/
 	const char *	damtype;	/* default dam_type for race	*/
-	int16_t		resists[MAX_RESIST];
+	int		resists[MAX_RESIST];
 					/* initial resistances		*/
 	pcrace_t *	race_pcdata;	/* additional data for pc races */
+	AFFECT_DATA *	affected;	/* initial affected by		*/
 };
 
 /* additional data for pc races */
@@ -60,13 +60,13 @@ struct pcrace_t
 	const char *	skill_spec;	/* skill spec for this race	*/
 	int	stats[MAX_STATS];	/* starting stats		*/
 	int	max_stats[MAX_STATS];	/* maximum stats		*/
-	flag32_t size;			/* aff bits for the race	*/
+	flag_t	size;			/* aff bits for the race	*/
 	int 	hp_bonus;		/* initial hp bonus		*/
 	int 	mana_bonus;		/* initial mana bonus		*/
 	int 	prac_bonus;		/* initial practice bonus	*/
 	int	slang;			/* spoken language		*/
-	flag32_t	restrict_align;	/* alignment restrictions	*/
-	flag32_t	restrict_ethos;	/* ethos restrictions		*/
+	flag_t	restrict_align;		/* alignment restrictions	*/
+	flag_t	restrict_ethos;		/* ethos restrictions		*/
 };
 
 /* additional data for available classes for race */

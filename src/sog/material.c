@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: material.c,v 1.2 1999-10-19 19:22:57 avn Exp $
+ * $Id: material.c,v 1.3 1999-12-11 15:31:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ void material_destroy(material_t *mat)
 	free_string(mat->name);
 }
 
-bool material_is(OBJ_DATA *obj, flag32_t flag)
+bool material_is(OBJ_DATA *obj, flag_t flag)
 {
 	material_t *mat;
 
@@ -64,7 +64,7 @@ bool material_is(OBJ_DATA *obj, flag32_t flag)
 	return IS_SET(mat->mat_flags, flag);
 }
 
-flag32_t get_mat_flags(OBJ_DATA *obj)
+flag_t get_mat_flags(OBJ_DATA *obj)
 {
 	material_t *mat;
 
