@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.5 2002-10-27 10:08:33 tatyana Exp $
+ * $Id: mob_cmds.c,v 1.42.2.6 2002-12-09 22:51:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -225,8 +225,15 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
     if ((victim = get_char_room(ch, arg)) == NULL)
 	return;
 
-    if (victim == ch || IS_NPC(victim) || ch->position == POS_FIGHTING)
+    if (victim == ch
+    ||  (IS_NPC(victim) && !is_affected(victim, gsn_mirror))
+    ||  ch->position == POS_FIGHTING)
 	return;
+
+    if (IS_NPC(victim) && is_affected(victim, gsn_mirror)) {
+	    if (victim->master != NULL)
+		    victim = victim->master;
+    }
 
     if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim)
     {
