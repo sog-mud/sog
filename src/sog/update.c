@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.53 2002-12-11 17:32:39 tatyana Exp $
+ * $Id: update.c,v 1.157.2.54 2003-03-06 10:08:48 avn Exp $
  */
 
 /***************************************************************************
@@ -1603,24 +1603,6 @@ bool update_glass_obj(OBJ_DATA *obj)
 		return TRUE;
 	}
 	return FALSE;
-}
-
-void update_pit(OBJ_DATA *obj)
-{
-	OBJ_DATA *t_obj, *next_obj;
-	static int pit_count = 1;
-	/* more or less an hour */
-	pit_count = ++pit_count % 120;
-
-	if (!IS_SET(obj->pObjIndex->extra_flags, ITEM_PIT)
-	||  pit_count)
-		return;
-
-	for (t_obj = obj->contains; t_obj; t_obj = next_obj) {
-		next_obj = t_obj->next_content;
-		obj_from_obj(t_obj);
-		extract_obj(t_obj, 0);
-	}
 }
 
 void contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj)
