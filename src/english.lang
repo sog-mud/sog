@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.33 1998-06-03 20:59:10 fjoe Exp $
+# $Id: english.lang,v 1.34 1998-06-05 22:22:02 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -558,3 +558,6 @@ MOVE_N_SNARLS_N		"$N snarls and attacks $n!"
 MOVE_YOU_SNARL_N	"You snarl and attack $n!"
 INFO_FIGHTING_YOU	"YOU!"
 UPDATE_REBOOT_IN	"{*{W*****{R REBOOT IN {W%d{R MIN. {W*****{x\n\r",
+MOVE_P_STRIKES_YOU	"$p strikes you!"
+MOVE_YOU_P_STRIKES_N	"Your $p strikes $N!"
+MOVE_N_P_STRIKES_N	"$n's $p strikes $N!"
