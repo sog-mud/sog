@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.123 2001-08-21 09:35:16 fjoe Exp $
+ * $Id: db_area.c,v 1.124 2001-08-21 11:35:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1351,25 +1351,6 @@ flag_subst_t v0_subst_obj[] =
 #define	V0_TO_RESIST	-3
 #define V0_TO_VULN	-4
 
-static void
-dump_affects(OBJ_INDEX_DATA *pObjIndex)
-{
-	FILE *fp;
-	AFFECT_DATA *paf;
-
-	if ((fp = fopen("aff.dmp", "a")) == NULL) {
-		log(LOG_ERROR, "aff.dmp: can't open file");
-		return;
-	}
-
-	fprintf(fp, "#%d\n", pObjIndex->vnum);
-	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next)
-		aff_fwrite(paf, fp, AFF_X_NOLD);
-	fprintf(fp, "\n");
-
-	fclose(fp);
-}
-
 /*
  * Snarf an obj section. new style
  */
@@ -1387,7 +1368,6 @@ DBLOAD_FUN(load_objects)
 		int vnum;
 		char letter;
 		int iHash;
-		bool dump_aff = FALSE;
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
@@ -1616,7 +1596,6 @@ DBLOAD_FUN(load_objects)
 						paf->modifier = resists[i];
 						paf->bitvector = 0;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						dump_aff = TRUE;
 					}
 
 					if (modifier) {
@@ -1628,7 +1607,6 @@ DBLOAD_FUN(load_objects)
 						paf->bitvector = 0;
 						paf->modifier = modifier;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						dump_aff = TRUE;
 					}
 					break;
 				}
@@ -1649,7 +1627,6 @@ DBLOAD_FUN(load_objects)
 						paf->modifier = modifier;
 						paf->bitvector = f2;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						dump_aff = TRUE;
 						INT(location) = APPLY_NONE;
 						modifier = 0;
 					}
@@ -1667,7 +1644,6 @@ DBLOAD_FUN(load_objects)
 						paf->modifier = modifier;
 						paf->bitvector = f2;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						dump_aff = TRUE;
 						INT(location) = APPLY_NONE;
 						modifier = 0;
 					}
@@ -1685,7 +1661,6 @@ DBLOAD_FUN(load_objects)
 						paf->modifier = modifier;
 						paf->bitvector = f2;
 						SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-						dump_aff = TRUE;
 						INT(location) = APPLY_NONE;
 						modifier = 0;
 					}
@@ -1721,9 +1696,6 @@ DBLOAD_FUN(load_objects)
 				paf->bitvector	= f;
 
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
-				if (paf->where == TO_AFFECTS)
-					dump_aff = TRUE;
-
 				break;
 
 			case 'g':
@@ -1768,9 +1740,6 @@ DBLOAD_FUN(load_objects)
 		vnum_check(area_current, vnum);
 		if (vnum > top_vnum_obj)
 			top_vnum_obj = vnum;
-
-		if (dump_aff)
-			dump_affects(pObjIndex);
 	}
 }
 
