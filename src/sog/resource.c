@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.24 1998-07-09 14:02:24 fjoe Exp $
+ * $Id: resource.c,v 1.25 1998-07-09 14:12:11 fjoe Exp $
  */
 
 #include <limits.h>
@@ -111,6 +111,7 @@ void do_lang(CHAR_DATA *ch, char *argument)
 	}
 
 	ch->lang = lang;
+	do_lang(ch, "");
 }
 
 /*
