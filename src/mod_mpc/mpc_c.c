@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.5 2001-06-19 11:46:03 fjoe Exp $
+ * $Id: mpc_c.c,v 1.6 2001-06-22 15:28:47 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <setjmp.h>
 
 #include <typedef.h>
 #include <log.h>
@@ -35,7 +36,7 @@
 #include <varr.h>
 #include <hash.h>
 #include <dynafun.h>
-#include <setjmp.h>
+#include <util.h>
 
 #include "_mpc.h"
 
@@ -122,7 +123,7 @@ c_push_retval(prog_t *prog)
 	argtype = (int *) VARR_GET(&prog->code, prog->ip);
 	prog->ip += nargs;
 	mpc_assert(prog, __FUNCTION__,
-	    prog->ip <= prog->code.nused, "program code exhausted");
+	    prog->ip <= varr_size(&prog->code), "program code exhausted");
 
 #if 0
 	/*
@@ -169,13 +170,13 @@ c_push_retval(prog_t *prog)
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
 	 */
 	args = (dynafun_args_t *) VARR_GET(
-	    &prog->data, prog->data.nused - nargs);
+	    &prog->data, varr_size(&prog->data) - nargs);
 	mpc_assert(prog, __FUNCTION__,
-	    prog->data.nused >= nargs, "data stack underflow");
-	prog->data.nused -= nargs;
+	    varr_size(&prog->data) >= nargs, "data stack underflow");
+	varr_size(&prog->data) -= nargs;
 
 	if (rv_tag == MT_VOID) {
-		vo.s = 0;
+		vo.s = NULL;
 		d->fun(*args);
 	} else
 		vo.s = d->fun(*args);
@@ -187,26 +188,76 @@ c_push_retval(prog_t *prog)
 }
 
 void
+c_jmp(prog_t *prog)
+{
+	TRACE;
+
+	prog->ip = (int) code_get(prog);
+}
+
+void
 c_if(prog_t *prog)
 {
-	int then_ip;
-	int else_ip;
-	int next_ip;
+	int then_addr;
+	int else_addr;
+	int next_addr;
 	vo_t *v;
 
 	TRACE;
 
-	then_ip = (int) code_get(prog);
-	else_ip = (int) code_get(prog);
-	next_ip = (int) code_get(prog);
+	then_addr = (int) code_get(prog);
+	else_addr = (int) code_get(prog);
+	next_addr = (int) code_get(prog);
 
 	execute(prog, prog->ip);
 	v = pop(prog);
 	if (v->i)
-		execute(prog, then_ip);
-	else
-		execute(prog, else_ip);
-	prog->ip = next_ip;
+		execute(prog, then_addr);
+	else if (else_addr != INVALID_ADDR)
+		execute(prog, else_addr);
+	prog->ip = next_addr;
+}
+
+void
+c_switch(prog_t *prog)
+{
+	vo_t *v;
+
+	int jt_offset;
+	int next_addr;
+
+	varr *jumptab;
+	swjump_t *jump;
+	swjump_t *default_jump;
+
+	TRACE;
+
+	jt_offset = (int) code_get(prog);
+	next_addr = (int) code_get(prog);
+
+	/*
+	 * get jumptab and its size
+	 */
+	jumptab = varr_get(&prog->jumptabs, jt_offset);
+	mpc_assert(prog, __FUNCTION__,
+	    jumptab != NULL, "jt_offset outside jumptab");
+	default_jump = varr_get(jumptab, 0);
+	mpc_assert(prog, __FUNCTION__,
+	    default_jump != NULL, "invalid jumptab");
+
+	execute(prog, prog->ip);
+	v = pop(prog);
+
+	/*
+	 * lookup value in jumptab
+	 */
+	jump = (swjump_t *) bsearch(
+	    &v->i, ((char *) jumptab->p) + jumptab->v_data->nsize,
+	    jumptab->nused - 1, jumptab->v_data->nsize, cmpint);
+	execute(prog,
+	    jump != NULL ? jump->addr : default_jump->addr);
+
+	prog->ip = next_addr;
 }
 
 /*--------------------------------------------------------------------
@@ -236,9 +287,9 @@ c_if(prog_t *prog)
 
 INT_BOP(c_bop_lor, ||)
 INT_BOP(c_bop_land, &&)
-INT_BOP(c_bop_or, ^)
+INT_BOP(c_bop_or, |)
 INT_BOP(c_bop_xor, ^)
-INT_BOP(c_bop_and, ^)
+INT_BOP(c_bop_and, &)
 
 INT_BOP(c_bop_ne, !=)
 INT_BOP(c_bop_eq, ==)
@@ -408,7 +459,7 @@ static vo_t *
 pop(prog_t *prog)
 {
 	vo_t *vo = peek(prog, 0);
-	prog->data.nused--;
+	varr_size(&prog->data)--;
 	return vo;
 }
 
@@ -416,7 +467,7 @@ static vo_t *
 peek(prog_t *prog, size_t depth)
 {
 	vo_t *vo = (vo_t *) varr_get(
-	    &prog->data, prog->data.nused - 1 - depth);
+	    &prog->data, varr_size(&prog->data) - 1 - depth);
 	mpc_assert(prog, __FUNCTION__, vo != NULL, "data stack underflow");
 	return vo;
 }

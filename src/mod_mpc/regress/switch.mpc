@@ -1,0 +1,20 @@
+int i = number_range(1, 10);
+switch (i) {
+case 2:
+	print2(i, i << 1);
+	break;
+
+case 1:
+case 3:
+	print2(i, i);
+
+default:
+	switch (i >> 1) {
+	case 1:
+	case 0:
+	default:
+		print2(i, i >> 1);
+		break;
+	}
+	break;
+}

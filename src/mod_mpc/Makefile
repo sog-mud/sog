@@ -1,10 +1,10 @@
 #
-# $Id: Makefile,v 1.4 2001-06-18 17:11:52 fjoe Exp $
+# $Id: Makefile,v 1.5 2001-06-22 15:28:47 fjoe Exp $
 #
 
 .undef MODULE
 
-SRCS=		mpc.y mpc_c.c mpc_const.c
+SRCS=		mpc.y mpc_lex.c mpc_c.c mpc_const.c
 CLEANFILES+=	mpc_const.c
 
 mpc_const.c:	../include/merc.h genconst.sh genconst.sed

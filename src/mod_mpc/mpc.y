@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.7 2001-06-22 07:13:40 avn Exp $
+ * $Id: mpc.y,v 1.8 2001-06-22 15:28:47 fjoe Exp $
  */
 
 /*
@@ -39,7 +39,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <assert.h>
-#include <ctype.h>
 #include <errno.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -58,6 +57,7 @@
 #include <buffer.h>
 #include <strkey_hash.h>
 #include <log.h>
+#include <util.h>
 
 #if defined(MPC)
 #include <module.h>
@@ -69,7 +69,7 @@
 #define YYPARSE_PARAM prog
 #define YYPARSE_PARAM_TYPE prog_t *
 
-#if 0
+#if 1
 #if defined(MPC)
 #define YYDEBUG 1
 #endif
@@ -104,8 +104,8 @@ argtype_push(prog_t *prog, int type_tag)
 static void
 argtype_popn(prog_t *prog, int n)
 {
-	assert(prog->args.nused >= n);
-	prog->args.nused -= n;
+	assert(varr_size(&prog->args) >= n);
+	varr_size(&prog->args) -= n;
 }
 
 /**
@@ -114,7 +114,7 @@ argtype_popn(prog_t *prog, int n)
 static int
 argtype_get(prog_t *prog, int n, int index)
 {
-	int *t = varr_get(&prog->args, prog->args.nused - n + index);
+	int *t = varr_get(&prog->args, varr_size(&prog->args) - n + index);
 	if (t == NULL)
 		return MT_NONE;
 	return *t;
@@ -130,7 +130,7 @@ argtype_get(prog_t *prog, int n, int index)
 static int
 code(prog_t *prog, const void *opcode)
 {
-	int old_ip = prog->code.nused;
+	int old_ip = varr_size(&prog->code);
 	const void **o = varr_enew(&prog->code);
 	*o = opcode;
 	return old_ip;
@@ -181,7 +181,7 @@ code3(prog_t *prog,
 #define OP_INVALID_OPERAND(opname, type_tag)				\
 	do {								\
 		compile_error(prog,					\
-		    "Invalid operand for '%s' (%d)",			\
+		    "invalid operand for '%s' (%d)",			\
 		    (opname), (type_tag));				\
 		YYERROR;						\
 	} while (0)
@@ -203,7 +203,7 @@ code3(prog_t *prog,
 	do {								\
 		if ((type_tag1) != (type_tag2)) {			\
 			compile_error(prog,				\
-			    "Invalid operand types for '%s' (%d vs. %d)",\
+			    "invalid operand types for '%s' (%d vs. %d)",\
 			    (opname), (type_tag1), (type_tag2));	\
 			YYERROR;					\
 		}							\
@@ -230,16 +230,18 @@ code3(prog_t *prog,
 		code(prog, sym->name);					\
 	} while (0)
 
-#define PUSH_ADDRESS()							\
+#define PUSH_EXPLICIT(addr)						\
 	do {								\
 		int *p = (int *) varr_enew(&prog->cstack);		\
-		*p = prog->code.nused;					\
+		*p = addr;						\
 	} while (0)
 
-#define PEEK_ADDRESS(addr)						\
+#define PUSH_ADDR()	PUSH_EXPLICIT(varr_size(&prog->code))
+
+#define PEEK_ADDR(addr)						\
 	do {								\
 		int *p = (int *) varr_get(				\
-		    &prog->cstack, prog->cstack.nused - 1);		\
+		    &prog->cstack, varr_size(&prog->cstack) - 1);	\
 		if (p == NULL) {					\
 			compile_error(prog, "compiler stack underflow");\
 			YYERROR;					\
@@ -247,11 +249,15 @@ code3(prog_t *prog,
 		addr = *p;						\
 	} while (0)
 
-#define POP_ADDRESS(addr)						\
+#define POP_ADDR(addr)						\
 	do {								\
-		PEEK_ADDRESS(addr);					\
-		prog->cstack.nused--;					\
+		PEEK_ADDR(addr);					\
+		varr_size(&prog->cstack)--;				\
 	} while (0)
+
+#define CODE(addr)	((int *) VARR_GET(&prog->code, addr))
+
+#define DELIMITER_ADDR	-2
 
 %}
 
@@ -263,7 +269,7 @@ code3(prog_t *prog,
 }
 
 %token L_IDENT L_TYPE L_INT L_STRING
-%token L_IF L_ELSE L_FOREACH L_CONTINUE L_BREAK
+%token L_IF L_SWITCH L_CASE L_DEFAULT L_ELSE L_FOREACH L_CONTINUE L_BREAK
 %token L_ADD_EQ L_SUB_EQ L_DIV_EQ L_MUL_EQ L_MOD_EQ L_AND_EQ L_OR_EQ L_XOR_EQ
 %token L_SHL_EQ L_SHR_EQ
 
@@ -281,8 +287,8 @@ code3(prog_t *prog,
 %right L_NOT '~'
 %nonassoc L_INC L_DEC
 
-%type <type_tag> expr L_TYPE
-%type <number> expr_list expr_list_ne L_INT
+%type <type_tag> expr cond L_TYPE
+%type <number> expr_list expr_list_ne L_INT int_const
 %type <string> L_IDENT L_STRING
 %type <cfun> assign
 
@@ -309,7 +315,7 @@ stmt:	';'
 
 		switch ($1) {
 		case MT_STR:
-			sym.s.var.data.s = 0;
+			sym.s.var.data.s = NULL;
 			break;
 
 		case MT_INT:
@@ -318,7 +324,7 @@ stmt:	';'
 			break;
 		};
 
-		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+		if ((p = hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
 			compile_error(prog, "%s: duplicate symbol", sym.name);
 			YYERROR;
@@ -344,7 +350,7 @@ stmt:	';'
 		sym.s.var.type_tag = $1;
 		sym.s.var.is_const = FALSE;
 
-		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
+		if ((p = hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
 			compile_error(prog, "%s: duplicate symbol", sym.name);
 			YYERROR;
@@ -359,26 +365,8 @@ stmt:	';'
 		 */
 		code2(prog, c_pop, (const void *) $1);
 	}
-	| if {
-		/* next */
-		int addr;
-		POP_ADDRESS(addr);
-		((int *) VARR_GET(&prog->code, addr))[2] = prog->code.nused;
-	}
+	| if | switch | case_label | default | break
 	| '{' stmt_list '}'
-	;
-
-if:	L_IF {
-		code(prog, c_if);
-		PUSH_ADDRESS();
-		/* then, else, next */
-		code3(prog, (void *) -1, (void *) -1, (void *) -1);
-	} '(' cond ')' {
-		/* then */
-		int addr;
-		PEEK_ADDRESS(addr);
-		((int *) VARR_GET(&prog->code, addr))[0] = prog->code.nused;
-	} statement optional_else
 	;
 
 cond:	expr	{ code(prog, c_stop); }
@@ -387,16 +375,194 @@ cond:	expr	{ code(prog, c_stop); }
 statement: stmt { code(prog, c_stop); }
 	;
 
+if:	L_IF {
+		code(prog, c_if);
+		PUSH_ADDR();
+		/* then, else, next stmt */
+		code(prog, (void *) INVALID_ADDR);
+		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
+	} '(' cond ')' {
+		/* save then addr */
+		int addr;
+		PEEK_ADDR(addr);
+		CODE(addr)[0] = varr_size(&prog->code);
+	} statement optional_else {
+		/* save next stmt addr */
+		int addr;
+		POP_ADDR(addr);
+		CODE(addr)[2] = varr_size(&prog->code);
+	}
+	;
+
 optional_else: /* empty */
 	| L_ELSE {
-		/* else */
+		/* save else addr */
 		int addr;
-		PEEK_ADDRESS(addr);
-		((int *) VARR_GET(&prog->code, addr))[1] = prog->code.nused;
+		PEEK_ADDR(addr);
+		CODE(addr)[1] = varr_size(&prog->code);
 	} statement
 	;
 
-expr:	  L_IDENT assign expr %prec '=' {
+switch:	L_SWITCH {
+		varr *jumptab;
+		swjump_t *jump;
+		code(prog, c_switch);
+
+		PUSH_ADDR();
+		PUSH_EXPLICIT(prog->curr_break_addr);
+		PUSH_EXPLICIT(prog->curr_jumptab);
+
+		/* jumptab[0] reserved for 'default:' */
+		jumptab = (varr *) varr_get(
+		    &prog->jumptabs, ++prog->curr_jumptab);
+		if (jumptab == NULL)
+			jumptab = varr_enew(&prog->jumptabs);
+		else
+			varr_erase(jumptab);
+		jump = varr_enew(jumptab);
+		jump->addr = INVALID_ADDR;
+
+		/* jt_offset, next_addr */
+		code(prog, (void *) prog->curr_jumptab);
+		code(prog, (void *) DELIMITER_ADDR);
+		prog->curr_break_addr = varr_size(&prog->code) - 1;
+	} '(' cond ')' statement {
+		int addr;
+		varr *jumptab;
+		/*
+		int next_break_addr;
+		*/
+
+		/*
+		 * traverse linked list of break addresses
+		 * and emit address to jump
+		 *
+		for (; prog->curr_break_addr != DELIMITER_ADDR;
+		     prog->curr_break_addr = next_break_addr) {
+			next_break_addr = CODE(prog->curr_break_addr)[0];
+			CODE(prog->curr_break_addr)[0] = varr_size(&prog->code);
+		}
+		*/
+
+		/* qsort jumptab */
+		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
+		if (jumptab == NULL) {
+			compile_error(prog, "invalid jumptab");
+			YYERROR;
+		}
+
+		if (jumptab->nused < 2) {
+			compile_error(prog,
+			     "switch without case labels");
+			YYERROR;
+		}
+
+		qsort(((char *) jumptab->p) + jumptab->v_data->nsize,
+		    jumptab->nused - 1, jumptab->v_data->nsize, cmpint);
+
+		POP_ADDR(prog->curr_jumptab);
+		POP_ADDR(prog->curr_break_addr);
+		POP_ADDR(addr);
+
+		CODE(addr)[1] = varr_size(&prog->code);
+	}
+	;
+
+case_label: L_CASE int_const ':' {
+		varr *jumptab;
+		swjump_t *jump;
+
+		if (prog->curr_jumptab < 0) {
+			compile_error(prog,
+			    "case label outside of switch");
+			YYERROR;
+		}
+
+		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
+		if (jumptab == NULL) {
+			compile_error(prog, "jumptab not found");
+			YYERROR;
+		}
+
+		jump = (swjump_t *) varr_enew(jumptab);
+		jump->val.i = $2;
+		jump->addr = varr_size(&prog->code);
+	}
+	;
+
+default: L_DEFAULT ':' {
+		varr *jumptab;
+		swjump_t *jump;
+
+		if (prog->curr_jumptab < 0) {
+			compile_error(prog,
+			    "default: label outside of switch");
+			YYERROR;
+		}
+
+		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
+		if (jumptab == NULL) {
+			compile_error(prog, "jumptab not found");
+			YYERROR;
+		}
+
+		jump = (swjump_t *) VARR_GET(jumptab, 0);
+		jump->addr = varr_size(&prog->code);
+	}
+	;
+
+break: L_BREAK ';' {
+		if (prog->curr_break_addr == INVALID_ADDR) {
+			compile_error(prog,
+			    "break outside of loop or switch");
+			YYERROR;
+		}
+
+		/*
+		code(prog, c_jmp);
+		code(prog, (void *) prog->curr_break_addr);
+		prog->curr_break_addr = varr_size(&prog->code) - 1;
+		*/
+		code(prog, c_stop);
+	}
+	;
+
+int_const: L_INT
+	| int_const '|' int_const	{ $$ = $1 | $3; }
+	| int_const '^' int_const	{ $$ = $1 ^ $3; }
+	| int_const '&' int_const	{ $$ = $1 & $3; }
+	| int_const L_EQ int_const	{ $$ = $1 == $3; }
+	| int_const L_NE int_const	{ $$ = $1 != $3; }
+	| int_const '>' int_const	{ $$ = $1 > $3; }
+	| int_const L_GE int_const	{ $$ = $1 >= $3; }
+	| int_const '<' int_const	{ $$ = $1 < $3; }
+	| int_const L_LE int_const	{ $$ = $1 <= $3; }
+	| int_const L_SHL int_const	{ $$ = $1 << $3; }
+	| int_const L_SHR int_const	{ $$ = $1 >> $3; }
+	| int_const '+' int_const	{ $$ = $1 + $3; }
+	| int_const '-' int_const	{ $$ = $1 - $3; }
+	| int_const '*' int_const	{ $$ = $1 * $3; }
+	| int_const '%' int_const {
+		if ($3)
+			$$ = $1 % $3;
+		else
+			compile_error(prog, "modulo by zero");
+	}
+	| int_const '/' int_const {
+		if ($3)
+			$$ = $1 / $3;
+		else
+			compile_error(prog, "division by zero");
+	}
+	| int_const L_LOR int_const	{ $$ = $1 || $3; }
+	| int_const L_LAND int_const	{ $$ = $1 && $3; }
+	| '(' int_const ')'		{ $$ = $2; }
+	| '-' int_const		{ $$ = -$2; }
+	| L_NOT int_const	{ $$ = !$2; }
+	| '~' int_const		{ $$ = ~$2; }
+	;
+
+expr:	L_IDENT assign expr %prec '=' {
 		sym_t *sym;
 
 		SYM_LOOKUP(sym, $1, SYM_VAR);
@@ -598,6 +764,78 @@ expr_list_ne: expr		{ argtype_push(prog, $1); $$ = 1; }
 
 %%
 
+struct codeinfo_t {
+	void *c_fun;
+	const char *name;
+	int gobble;
+};
+typedef struct codeinfo_t codeinfo_t;
+
+struct codeinfo_t codetab[] = {
+	{ c_pop,		"c_pop",		1 },
+	{ c_push_const,		"c_push_const",		1 },
+	{ c_push_var,		"c_push_var",		1 },
+	{ c_push_retval,	"c_push_retval",	3 },
+	{ c_stop,		"c_stop",		0 },
+	{ c_jmp,		"c_jmp",		1 },
+	{ c_if,			"c_if",			3 },
+	{ c_switch,		"c_switch",		2 },
+	{ c_bop_lor,		"c_bop_lor",		0 },
+	{ c_bop_land,		"c_bop_land",		0 },
+	{ c_bop_or,		"c_bop_or",		0 },
+	{ c_bop_xor,		"c_bop_xor",		0 },
+	{ c_bop_and,		"c_bop_and",		0 },
+	{ c_bop_ne,		"c_bop_ne",		0 },
+	{ c_bop_eq,		"c_bop_eq",		0 },
+	{ c_bop_gt,		"c_bop_gt",		0 },
+	{ c_bop_ge,		"c_bop_ge",		0 },
+	{ c_bop_lt,		"c_bop_lt",		0 },
+	{ c_bop_le,		"c_bop_le",		0 },
+	{ c_bop_shl,		"c_bop_shl",		0 },
+	{ c_bop_shr,		"c_bop_shr",		0 },
+	{ c_bop_add,		"c_bop_add",		0 },
+	{ c_bop_sub,		"c_bop_sub",		0 },
+	{ c_bop_mul,		"c_bop_mul",		0 },
+	{ c_bop_mod,		"c_bop_mod",		0 },
+	{ c_bop_div,		"c_bop_div",		0 },
+	{ c_bop_ne_string,	"c_bop_ne_string",	0 },
+	{ c_bop_eq_string,	"c_bop_eq_string",	0 },
+	{ c_uop_not,		"c_uop_not",		0 },
+	{ c_uop_compl,		"c_uop_compl",		0 },
+	{ c_uop_minus,		"c_uop_minus",		0 },
+	{ c_postinc,		"c_postinc",		1 },
+	{ c_postdec,		"c_postdec",		1 },
+	{ c_preinc,		"c_preinc",		1 },
+	{ c_predec,		"c_predec",		1 },
+	{ c_assign,		"c_assign",		1 },
+	{ c_add_eq,		"c_add_eq",		1 },
+	{ c_sub_eq,		"c_sub_eq",		1 },
+	{ c_div_eq,		"c_div_eq",		1 },
+	{ c_mul_eq,		"c_mul_eq",		1 },
+	{ c_mod_eq,		"c_mod_eq",		1 },
+	{ c_and_eq,		"c_and_eq",		1 },
+	{ c_or_eq,		"c_or_eq",		1 },
+	{ c_xor_eq,		"c_xor_eq",		1 },
+	{ c_shl_eq,		"c_shl_eq",		1 },
+	{ c_shr_eq,		"c_shr_eq",		1 },
+};
+
+#define CODETAB_SZ (sizeof(codetab) / sizeof(codeinfo_t))
+
+codeinfo_t *
+codeinfo_lookup(void *p)
+{
+	static bool codetab_initialized = FALSE;
+
+	if (!codetab_initialized) {
+		qsort(codetab, CODETAB_SZ, sizeof(codeinfo_t), cmpint);
+		codetab_initialized = TRUE;
+	}
+
+	return (codeinfo_t *) bsearch(
+	    &p, codetab, CODETAB_SZ, sizeof(codeinfo_t), cmpint);
+}
+
 int	mpc_parse(prog_t *prog);
 
 int
@@ -605,355 +843,6 @@ mpc_error(prog_t *prog, const char *errmsg)
 {
 	compile_error(prog, "%s", errmsg);
 	return 1;
-}
-
-/*--------------------------------------------------------------------
- * lexer stuff
- */
-
-static int
-mpc_getc(prog_t *prog)
-{
-	if (prog->cp - prog->text >= prog->textlen)
-		return EOF;
-
-	return *prog->cp++;
-}
-
-static void
-mpc_ungetc(int ch, prog_t *prog)
-{
-	if (prog->cp > prog->text)
-		prog->cp--;
-}
-
-static bool
-gobble(prog_t *prog, int ch)
-{
-	int c = mpc_getc(prog);
-	if (c == ch)
-		return TRUE;
-
-	mpc_ungetc(c, prog);
-	return FALSE;
-}
-
-static void
-skip_comment(prog_t *prog)
-{
-	for (; ;) {
-		switch (mpc_getc(prog)) {
-		case EOF:
-			compile_error(prog, "unterminated comment");
-			return;
-			/* NOTREACHED */
-
-		case '\n':
-			prog->lineno++;
-			break;
-
-		case '*':
-			if (gobble(prog, '/'))
-				return;
-			break;
-		}
-	}
-}
-
-static void
-skip_line(prog_t *prog)
-{
-	for (; ;) {
-		int ch;
-
-		switch ((ch = mpc_getc(prog))) {
-		case EOF:
-			return;
-			/* NOTREACHED */
-
-		case '\n':
-			mpc_ungetc(ch, prog);
-			return;
-			/* NOTREACHED */
-		}
-	}
-}
-
-#define TRY(c, rv)							\
-	do {								\
-		if (gobble(prog, (c)))					\
-			return (rv);					\
-	} while (0)
-
-#define STORE(c)							\
-	do {								\
-		if (yyp - yytext >= sizeof(yytext)) {			\
-			compile_error(prog, "Line too long");		\
-			return ' ';					\
-		}							\
-									\
-		*yyp++ = (c);						\
-	} while (0)
-
-#define IS_IDENT_CH(ch)							\
-	((isalpha(ch) && isascii(ch)) || ch == '$' || ch == '_')
-
-#define MAX_IDENT_LEN	64
-
-struct keyword_t {
-	const char *keyword;
-	int lexval;
-};
-typedef struct keyword_t keyword_t;
-
-keyword_t ktab[] = {
-	{ "if",		L_IF		},
-	{ "else",	L_ELSE		},
-	{ "foreach",	L_FOREACH	},
-	{ "continue",	L_CONTINUE	},
-	{ "break",	L_BREAK		}
-};
-#define KTAB_SIZE	(sizeof(ktab) / sizeof(keyword_t))
-
-static keyword_t *
-keyword_lookup(const char *keyword)
-{
-	static bool ktab_initialized;
-
-	if (!ktab_initialized) {
-		qsort(ktab, KTAB_SIZE, sizeof(keyword_t), cmpstr);
-		ktab_initialized = TRUE;
-	}
-
-	return bsearch(&keyword, ktab, KTAB_SIZE, sizeof(keyword_t), cmpstr);
-}
-
-struct type_t {
-	const char *name;
-	int type_tag;
-};
-
-typedef struct type_t type_t;
-
-static type_t ttab[] = {
-	{ "int",	MT_INT },
-	{ "string",	MT_STR },
-};
-
-#define TTAB_SIZE (sizeof(ttab) / sizeof(type_t))
-
-static type_t *
-type_lookup(const char *typename)
-{
-	static bool ttab_initialized;
-
-	if (!ttab_initialized) {
-		qsort(ttab, TTAB_SIZE, sizeof(type_t), cmpstr);
-		ttab_initialized = TRUE;
-	}
-
-	return bsearch(&typename, ttab, TTAB_SIZE, sizeof(type_t), cmpstr);
-}
-
-int
-mpc_lex(prog_t *prog)
-{
-	int ch;
-	static char yytext[MAX_IDENT_LEN];
-
-	for (; ; ) {
-		bool is_hex;
-		char *yyp;
-		keyword_t *k;
-		type_t *t;
-
-		switch ((ch = mpc_getc(prog))) {
-		case EOF:
-			return -1;
-			/* NOTREACHED */
-
-		case '\n':
-			prog->lineno++;
-			break;
-
-		case ' ':
-		case '\t':
-		case '\f':
-		case '\v':
-			break;
-
-		case '+':
-			TRY('+', L_INC);
-			TRY('=', L_ADD_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '-':
-			TRY('-', L_DEC);
-			TRY('=', L_SUB_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '&':
-			TRY('&', L_LAND);
-			TRY('=', L_AND_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '|':
-			TRY('|', L_LOR);
-			TRY('=', L_OR_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '^':
-			TRY('=', L_XOR_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '<':
-			if (gobble(prog, '<')) {
-				TRY('=', L_SHL_EQ);
-				return L_SHL;
-			}
-			TRY('=', L_LE);
-			return ch;
-			/* NOTREACHED */
-
-		case '>':
-			if (gobble(prog, '>')) {
-				TRY('=', L_SHR_EQ);
-				return L_SHR;
-			}
-			TRY('=', L_GE);
-			return ch;
-			/* NOTREACHED */
-
-		case '*':
-			TRY('=', L_MUL_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '%':
-			TRY('=', L_MOD_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '/':
-			if (gobble(prog, '*')) {
-				skip_comment(prog);
-				break;
-			} else if (gobble(prog, '/')) {
-				skip_line(prog);
-				break;
-			}
-
-			TRY('/', L_DIV_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '=':
-			TRY('=', L_EQ);
-			return ch;
-			/* NOTREACHED */
-
-		case '!':
-			TRY('=', L_NE);
-			return L_NOT;
-			/* NOTREACHED */
-
-		case ';':
-		case '(':
-		case ')':
-		case '{':
-		case '}':
-		case '~':
-		case ',':
-			return ch;
-			/* NOTREACHED */
-
-		case '[':
-		case ']':
-		case '?':
-		case ':':
-		case '.':
-			goto badch;		/* maybe later */
-			/* NOTREACHED */
-
-		case '"':
-			/* XXX */
-			yyp = yytext;
-
-			STORE('\0');
-			yylval.string = alloc_string(prog, yytext);
-			return L_STRING;
-			/* NOTREACHED */
-
-		case '0': case '1': case '2': case '3': case '4':
-		case '5': case '6': case '7': case '8': case '9':
-			yyp = yytext;
-			is_hex = FALSE;
-
-			STORE(ch);
-			if (ch == '0' && gobble(prog, 'x')) {
-				STORE('x');
-				is_hex = TRUE;
-			}
-
-			for (; ;) {
-				ch = mpc_getc(prog);
-				if (is_hex ? !isxdigit(ch) : !isdigit(ch))
-					break;
-
-				STORE(ch);
-			}
-			mpc_ungetc(ch, prog);
-			STORE('\0');
-
-			yylval.number = strtol(yytext, &yyp, 0);
-			if (*yyp != '\0') {
-				compile_error(prog,
-				    "Invalid number '%s'", yytext);
-				return ' ';
-			}
-			return L_INT;
-			/* NOTREACHED */
-
-		default:
-			if (!IS_IDENT_CH(ch))
-				goto badch;
-
-			yyp = yytext;
-
-			STORE(ch);
-			for (; ;) {
-				ch = mpc_getc(prog);
-				if (!IS_IDENT_CH(ch) && !isnumber(ch))
-					break;
-
-				STORE(ch);
-			}
-			mpc_ungetc(ch, prog);
-			STORE('\0');
-
-			if ((k = keyword_lookup(yytext)) != NULL)
-				return k->lexval;
-
-			if ((t = type_lookup(yytext)) != NULL) {
-				yylval.type_tag = t->type_tag;
-				return L_TYPE;
-			}
-
-			yylval.string = str_dup(yytext);
-			return L_IDENT;
-			/* NOTREACHED */
-		}
-	}
-
-badch:
-	compile_error(prog,
-	    "Illegal character (0x%02x) '%c'", (unsigned) ch, (char) ch);
-	return ' ';
 }
 
 hash_t glob_syms;
@@ -1000,8 +889,26 @@ sym_cpy(sym_t *dst, const sym_t *src)
 	return dst;
 }
 
+varrdata_t v_swjumps = {
+	sizeof(swjump_t), 4
+};
+
+static void
+jumptab_init(varr *v)
+{
+	varr_init(v, &v_swjumps);
+}
+
 varrdata_t v_ints = {
 	sizeof(int), 8
+};
+
+varrdata_t v_jumptabs = {
+	sizeof(varr), 4,
+
+	(e_init_t) jumptab_init,
+	(e_destroy_t) varr_destroy,
+	(e_cpy_t ) varr_cpy
 };
 
 hashdata_t h_strings = {
@@ -1044,11 +951,20 @@ prog_init(prog_t *prog)
 	prog->errbuf = buf_new(0);
 	prog->lineno = 0;
 
+	prog->ip = 0;
 	varr_init(&prog->code, &v_ints);
-	varr_init(&prog->cstack, &v_ints);
+
 	hash_init(&prog->strings, &h_strings);
 	hash_init(&prog->syms, &h_syms);
+
+	varr_init(&prog->cstack, &v_ints);
 	varr_init(&prog->args, &v_ints);
+	varr_init(&prog->jumptabs, &v_jumptabs);
+
+	prog->curr_jumptab = -1;
+	prog->curr_break_addr = INVALID_ADDR;
+	prog->curr_continue_addr = INVALID_ADDR;
+
 	varr_init(&prog->data, &v_vos);
 }
 
@@ -1056,13 +972,20 @@ void
 prog_destroy(prog_t *prog)
 {
 	free_string(prog->name);
+
 	free((void *) prog->text);
+
 	buf_free(prog->errbuf);
+
 	varr_destroy(&prog->code);
-	varr_destroy(&prog->cstack);
+
 	hash_destroy(&prog->strings);
 	hash_destroy(&prog->syms);
+
+	varr_destroy(&prog->cstack);
 	varr_destroy(&prog->args);
+	varr_destroy(&prog->jumptabs);
+
 	varr_destroy(&prog->data);
 }
 
@@ -1070,12 +993,22 @@ int
 prog_compile(prog_t *prog)
 {
 	prog->cp = prog->text;
+
 	buf_clear(prog->errbuf);
 	prog->lineno = 1;
+
 	varr_erase(&prog->code);
+
 	hash_erase(&prog->strings);
 	hash_erase(&prog->syms);
+
+	varr_erase(&prog->cstack);
 	varr_erase(&prog->args);
+	varr_erase(&prog->jumptabs);
+
+	prog->curr_jumptab = -1;
+	prog->curr_break_addr = INVALID_ADDR;
+	prog->curr_continue_addr = INVALID_ADDR;
 
 	if (mpc_parse(prog) < 0
 	||  !IS_NULLSTR(buf_string(prog->errbuf)))
@@ -1095,11 +1028,58 @@ prog_execute(prog_t *prog)
 	return rv;
 }
 
+void *
+print_swjump_cb(void *p, va_list ap)
+{
+	swjump_t *sw = (swjump_t *) p;
+
+	fprintf(stderr, "\n\t%d:\t0x%08x", sw->val.i, sw->addr);
+	return NULL;
+}
+
+void
+prog_dump(prog_t *prog)
+{
+	int ip;
+
+	for (ip = 0; ip < varr_size(&prog->code); ip++) {
+		void *p = (void *) CODE(ip)[0];
+		codeinfo_t *ci;
+
+		if ((ci = codeinfo_lookup(p)) == NULL) {
+			fprintf(stderr, "0x%08x: 0x%08x\n", ip, (int) p);
+			continue;
+		}
+
+		fprintf(stderr, "0x%08x: %s", ip, ci->name);
+		if (p == c_push_const) {
+			fprintf(stderr, " %d", CODE(ip)[1]);
+		} else if (p == c_push_var) {
+			fprintf(stderr, " %s", (const char *) CODE(ip)[1]);
+		} else if (p == c_push_retval) {
+			fprintf(stderr, " %s", (const char *) CODE(ip)[1]);
+			ip += CODE(ip)[3];
+		} else if (p == c_jmp) {
+			fprintf(stderr, " 0x%08x", CODE(ip)[1]);
+		} else if (p == c_switch) {
+			int jt_offset = CODE(ip)[1];
+			varr *jumptab;
+
+			jumptab = varr_get(&prog->jumptabs, jt_offset);
+			if (jumptab != NULL)
+				varr_foreach(jumptab, print_swjump_cb);
+		}
+
+		ip += ci->gobble;
+		fprintf(stderr, "\n");
+	}
+}
+
 void
 execute(prog_t *prog, int ip)
 {
 	prog->ip = ip;
-	while (prog->ip < prog->code.nused) {
+	while (prog->ip < varr_size(&prog->code)) {
 		c_fun *c = (c_fun *) VARR_GET(&prog->code, prog->ip++);
 
 		if (*c == c_stop)
@@ -1288,6 +1268,8 @@ main(int argc, char *argv[])
 		fprintf(stderr, "%s", buf_string(prog.errbuf));
 		exitcode = 3;
 	} else {
+		prog_dump(&prog);
+
 		exitcode = 0;
 
 		rv = prog_execute(&prog);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.5 2001-06-19 11:46:02 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.6 2001-06-22 15:28:47 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -65,6 +65,15 @@ typedef struct sym_t sym_t;
 
 extern hash_t glob_syms;		/* (sym_t) */
 
+/**
+ * Switch jump table
+ */
+struct swjump_t {
+	vo_t val;
+	int addr;
+};
+typedef struct swjump_t swjump_t;
+
 struct prog_t {
 	const char *name;	/**< program name			*/
 
@@ -77,10 +86,17 @@ struct prog_t {
 
 	int ip;			/**< program instruction pointer	*/
 	varr code;		/**< (void *) program code		*/
-	varr cstack;		/**< (void *) compiler stack		*/
+
 	hash_t strings;		/**< (const char *) string space	*/
 	hash_t syms;		/**< (sym_t) symbols			*/
+
+	varr cstack;		/**< (void *) compiler stack		*/
 	varr args;		/**< (int) argument type stack		*/
+	varr jumptabs;		/**< (varr ) 'switch' jump tables	*/
+
+	int curr_jumptab;	/**< current jumptab			*/
+	int curr_break_addr;	/**< current 'break' info		*/
+	int curr_continue_addr;	/**< current 'continue' info		*/
 
 	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
@@ -110,6 +126,11 @@ prog_compile(prog_t *prog);
  */
 int
 prog_execute(prog_t *prog);
+
+/**
+ * Lexer
+ */
+int mpc_lex(prog_t *prog);
 
 /**
  * Lookup symbol by name
@@ -171,8 +192,11 @@ void
 c_push_retval(prog_t *prog);
 
 #define c_stop 0
+#define INVALID_ADDR -1
 
+void	c_jmp(prog_t *prog);		/* jmp */
 void	c_if(prog_t *prog);		/* if */
+void	c_switch(prog_t *prog);		/* switch */
 
 /*--------------------------------------------------------------------
  * binary operations
