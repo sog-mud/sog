@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.39 2000-04-10 14:14:31 fjoe Exp $
+ * $Id: affect.c,v 1.40 2000-04-10 14:17:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -200,7 +200,7 @@ remove_sa_cb(void *p, va_list ap)
  */
 void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 {
-	OBJ_DATA *wield, *obj2;
+	OBJ_DATA *wield;
 	int mod, i;
 
 	mod = paf->modifier;
