@@ -1,285 +1,307 @@
 #AREADATA
+Ver 7
 Name Strange Carnival~
 VNUMs 27400 27499
 Credits Ceran~
 Security 9
 LevelRange 25 44
-ManualRare 5
 End
 
 #MOBILES
 #27400
 baba-yaga baba yaga witch woman~
 the Witch Baba-Yaga~
-A disgusting old lady beckons you with a withered finger.
-~
+A disgusting old lady beckons you with a withered finger.~
 This old woman embodies all that is demonic. Her small, hunched stature does
 nothing to hide her menacing aura and her eyes hold a glint of something truly
 wicked.
 ~
 human~
-ABGR CDEFJu -1000 0
-47 2 25d10+4300 50d10+2000 6d6+22 claw
+BGJR 0 J 0 ABHKL -1000 0
+47 2 25d10+4300 50d10+2000 6d6+22 'claw'
 -25 -25 -25 -25
-FK ABLM 0 0 stand stand female 3000
+FK
+stand stand female 3000
 0 0 medium unknown
-R cur 0 0 0 33 0 0 0 33 33 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact DF
+r poison 100
+r negative 100
+r charm 100
 #27401
 burning clown~
 a burning clown~
-A white faced clown screams in agony as his fire bubbles his skin.
-~
+A white faced clown screams in agony as his fire bubbles his skin.~
 This clown has a look of extreme pain on his face as he rushes about with fire
 burning his body. It seems that someone's idea of a good clown act is to set
 them on fire and watch them burn to death.
 ~
 human~
-ABFGT DEFI 0 0
-40 2 25d10+2500 1d1+1000 8d4+16 flbite
+BFGJT 0 I 0 ABL 0 0
+40 2 25d10+2500 1d1+1000 8d4+16 'flbite'
 -15 -15 -15 -15
-CDEFK AB 0 0 stand stand male 3000
+CDEFK
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #27402
 frozen ice clown~
 a frozen clown~
-A blue faced clown stares in horror at the ice encasing him.
-~
+A blue faced clown stares in horror at the ice encasing him.~
 This clown is encrusted in freezing ice. The look of terror and pain on his
 face shows that this is something unexpected and horrific to him. Something
 truly strange and evil has changed this carnival very recently...
 ~
 human~
-ABFGT DEFI 0 0
-40 2 25d10+3000 1d1+1000 8d4+16 frbite
+BFGJT 0 I 0 ABL 0 0
+40 2 25d10+3000 1d1+1000 8d4+16 'frbite'
 -15 -15 -15 -15
-CDEFK AB 0 0 stand stand male 3000
+CDEFK
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #27404
 vampire knifer thrower~
 the vampire knife-thrower~
-A dark man with piercing red eyes is here playing with a knife.
-~
+A dark man with piercing red eyes is here playing with a knife.~
 The eyes of this undead knife thrower are filled with immmense hate
 and resolve. He seems quite determined to land every knife he throws on his
 unfortunate target.
 ~
 human~
-ABFGOT DEFJu -1000 0
-46 3 25d10+4200 1d1+100 6d6+21 none
+BFGJT 0 J 0 ABHL -1000 0
+46 3 25d10+4200 1d1+100 6d6+21 'none'
 -25 -25 -25 -20
-ACDEFGHIKW ABLMQ 0 0 stand stand male 0
-0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ACDEFGHIKW
+stand stand male 0
+I 0 medium unknown
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #27405
 girl victim~
 a slashed girl~
-A young girl on a rotating target moans in pain as knives cut her body.
-~
+A young girl on a rotating target moans in pain as knives cut her body.~
 Unlike conventional circus acts involving knife throwing, this one
 seems to require that the knives actually hit the victim, rather than miss.
 The girl is in obvious pain as her body rotates slowly on the target wheel,
 blood splashing in large rivlets down her body and onto the floor.
 ~
 human~
-ABFGT DEFJ 0 0
-36 0 1d1+1500 1d1+100 3d10+11 pierce
+BFGJT 0 0 0 ABHL 0 0
+36 0 1d1+1500 1d1+100 3d10+11 'pierce'
 -12 -12 -12 -12
-KW AB 0 0 stand stand female 0
+KW
+stand stand female 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #27406
 ringmaster master~
 the Ring-Master~
-A stunted little man stands amidst a circle of burning candles.
-~
+A stunted little man stands amidst a circle of burning candles.~
 The Ringmaster of the carnival is a wicked and demonic man who's eyes
 light up at the sound of pain. He hisses with a forked tongue as he
 slowly recites a rite of dark invocation.
 ~
 dwarf~
-ABFGT DEFu -1000 0
-48 3 10d30+6000 1d1+100 6d6+23 wrath
+BFGJT 0 J 0 ABL -1000 0
+48 3 10d30+6000 1d1+100 6d6+23 'wrath'
 -28 -28 -28 -20
-ACDEFGHKWXZ AB 0 0 stand stand male 3000
+ACDEFGHKWXZ
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 30 25 0 0 0 0 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0
+r charm 100
+m mob_fight mob_fight_breath_lightning 100~
 #27407
 man victim~
 a sacrificial man~
-A man with wooden stakes through his hands and feet lies on the floor.
-~
+A man with wooden stakes through his hands and feet lies on the floor.~
 This man has a glazed look in his eyes. There is no pain in his eyes,
 just a strangely uncaring gaze as if he was under the influence of some spell.
 It appears that whatever ritual he is to be sacrificed in does not require
 much response from the sacrifice itself..
 ~
 human~
-ABFGT DEFJ -1000 0
-32 0 10d10+1000 1d1+100 6d4+10 punch
+BFGJT 0 0 0 ABHL -1000 0
+32 0 10d10+1000 1d1+100 6d4+10 'punch'
 -10 -10 -10 -5
-W AB 0 0 rest rest male 0
+W
+rest rest male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #27409
 wolfspider spider~
 a giant wolf-spider~
-A massive hairy spider scuttles beneath the mist.
-~
+A massive hairy spider scuttles beneath the mist.~
 It's as big as a dog, with spinldy hairy legs. And pincers as the size
 of your hands.
 ~
 unique~
-ACFGT DEFJ -1000 0
-40 2 25d10+2000 1d1+100 8d4+12 bite
+CFGJT 0 0 0 ABHL -1000 0
+40 2 25d10+2000 1d1+100 8d4+12 'bite'
 -15 -15 -15 -4
-DFN ABLMQ 0 0 stand stand male 0
+DFN
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r poison 100
+r negative 100
+r disease 100
+r charm 100
+m mob_fight mob_fight_poison_bite 100~
 #27410
 chimera~
 a chimera~
-A goat, dragon and lion headed beast stands here.
-~
+A goat, dragon and lion headed beast stands here.~
 A legendary chimera, composed of lion, dragon and goat. Smoke and
 flames erupt from the draconian part of it, while the lion and goat heads
 snap and thrash in an attempt to break and devour.
 ~
 human~
-ABFGT DEFJu -1000 0
-47 3 25d10+4300 1d1+100 6d6+22 none
+BFGJT 0 J 0 ABHL -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 'none'
 -25 -25 -25 -20
-CDEFGHIK AB 0 0 stand stand male 0
+CDEFGHIK
+stand stand male 0
 0 0 giant unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #27412
 lich gypsy~
 the Lich Gypsy~
-A disgusting gypsy man with a shrunken head spits at you.
-~
+A disgusting gypsy man with a shrunken head spits at you.~
 Not a very nice person in real life, and now even nastier in the
 undead life.
 ~
 lich~
-ABFGOT DEFJu -1000 0
-45 2 25d10+4000 1d1+100 6d6+20 claw
+BFGJOT 0 J 0 ABHL -1000 0
+45 2 25d10+4000 1d1+100 6d6+20 'claw'
 -25 -25 -25 -20
-CDEGIKZ A 0 0 stand stand male 0
+CDEGIKZ
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #27416
 woman gullveig witch~
 the witch Gullveig~
-A hideously deformed old woman is here stroking her golden robes.
-~
+A hideously deformed old woman is here stroking her golden robes.~
 Gullveig the Witch, maker of gold and bringer of misfortune. Her
 magic has brought down many as they seek to own the wealth that she alone
 can make from nothing.
 ~
 human~
-ABFGT DEFJu -1000 0
-47 3 25d10+4300 1d1+100 6d6+22 acbite
+BFGJT 0 J 0 ABHL -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 'acbite'
 -25 -25 -25 -20
-CDEFGHIKVX ABLMQ 0 0 stand stand female 3000
+CDEFGHIKVX
+stand stand female 3000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r poison 100
+r negative 100
+r disease 100
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #27417
 lady teller fortuneteller woman~
 the Teller of Ill-fortune~
-A large fat lady extends her hands as if seeking something.
-~
+A large fat lady extends her hands as if seeking something.~
 This fortune teller seems more interested in destroying your future
 than fortelling it...
 ~
 human~
-ABFGT DEFJu -1000 0
-47 3 25d10+4300 1d1+100 6d6+22 none
+BFGJT 0 J 0 ABHL -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 'none'
 -25 -25 -25 -20
-CDEFGHIKVX ABLMQ 0 0 stand stand female 3000
+CDEFGHIKVX
+stand stand female 3000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact C
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #27418
 lich monk blood brother~
 a Blood-brother Monk~
-A strange figure in brown robes stands here.
-~
+A strange figure in brown robes stands here.~
 One of the Blood Brothers who's act is to bring more blood into the
 world. He is a travesty of a true monk, seeking death and chaos rather than
 enlightenment and understanding.
 ~
 lich~
-ABFGOT DEFJu -1000 0
-47 3 25d10+4300 1d1+100 6d6+122 punch
+BFGJOT 0 J 0 ABHL -1000 0
+47 3 25d10+4300 1d1+100 6d6+122 'punch'
 -25 -25 -25 -20
-CDEGIKZ A 0 0 stand stand male 0
+CDEGIKZ
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #27419
 lich samurai~
 the Lich Samurai~
-A man in ceremonial armor makes complex motions with it's swords.
-~
+A man in ceremonial armor makes complex motions with it's swords.~
 One of the more exotic acts in the carnival of death. This man uses
 his skills in weaponry to slice and dice anyone who cares to visit him.
 ~
 lich~
-ABFGOT DEFJu -1000 0
-48 3 25d10+4500 1d1+100 6d6+133 punch
+BFGJOT 0 J 0 ABHL -1000 0
+48 3 25d10+4500 1d1+100 6d6+133 'punch'
 -27 -27 -27 -20
-CDEGIKVXZ A 0 0 stand stand male 0
+CDEGIKVXZ
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact CE
 #27422
 lich soothsayer~
 the Lich Soothsayer~
-The lich soothsayer raises it's burning eyes to regard you.
-~
+The lich soothsayer raises it's burning eyes to regard you.~
 Very dead, very evil. This lich seems to be stuck in the position
 it had when living. Only now it sooths a person's problems forever.
 ~
 human~
-ABFGOT DEFJu -1000 0
-47 2 25d10+4300 1d1+100 6d6+22 divine
+BFGJT 0 J 0 ABHL -1000 0
+47 2 25d10+4300 1d1+100 6d6+22 'divine'
 -25 -25 -25 -20
-ACDEFGHIKW ABLMQ 0 0 stand stand male 0
-0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ACDEFGHIKW
+stand stand male 0
+I 0 medium unknown
+r poison 100
+r negative 100
+r disease 100
+r charm 100
+m mob_fight mob_fight_cast_cleric 100~
 #27425
 man nailed~
 a nail-impaled man~
-A man impaled with dozens of nails looks up in pain and sneers.
-~
+A man impaled with dozens of nails looks up in pain and sneers.~
 A dark twist to a normal act. This man seems to actual being
 trying to see how many nails he can get piercing his body, rather than
 showing how he can lie unharmed upon them.
 ~
 human~
-ABFGOT DEFJ -1000 0
-46 3 25d10+4200 1d1+100 6d6+21 none
+BFGJT 0 0 0 ABHL -1000 0
+46 3 25d10+4200 1d1+100 6d6+21 'none'
 -25 -25 -25 -20
-ACDEFGHIK ABLMQ 0 0 stand stand male 0
-0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ACDEFGHIK
+stand stand male 0
+I 0 medium unknown
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #27426
 lich monk blood brother~
 a Blood-brother Monk~
-A man wearing sharp spikes is here making violent motions.
-~
+A man wearing sharp spikes is here making violent motions.~
 One of the Blood Brothers who's act is to bring more blood into the
 world. He is a travesty of a true monk, seeking death and chaos rather than
 enlightenment and understanding.
 ~
 human~
-ABFGOT DEFJu -1000 0
-47 3 25d10+4300 1d1+100 6d6+22 punch
+BFGJT 0 J 0 ABHL -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 'punch'
 -25 -25 -25 -20
-CDEFGHIKWXZ ABLMQ 0 0 stand stand male 0
-0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+CDEFGHIKWXZ
+stand stand male 0
+I 0 medium unknown
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #0
 
 #OBJECTS
@@ -288,322 +310,230 @@ baba-yaga baba yaga broom~
 Baba-yaga's broom~
 An oddly shaped broom lies on the ground.~
 wood~
-weapon ABCEFGHJ AN
-staff 7 6 pound F
+weapon ABCEFGHJ 0 AN
+staff 7 6 'pound' F
 35 149 3205 P
-F
-A 0 0 T
-A
-12 35
-A
-18 2
-A
-19 2
-V
-1 increase_sound_damage~
-100~
-G none
+f affects none 0 T
+f object mana 35 0
+f object hitroll 2 0
+f object damroll 2 0
 #27403
 throwing knife~
 a barbed throwing-knife~
 A barbed knife has been let protruding in the floor here.~
 steel~
-weapon CE AN
-dagger 7 7 pierce 0
+weapon CE 0 AN
+dagger 7 7 'pierce' 0
 29 80 3763 P
-A
-19 6
-G none
+f object damroll 6 0
 #27405
 belt barbed wire~
 a belt of entwined barbed wire~
 A piece of barbed wire lies dangerously on the ground.~
 steel~
-armor CEHM AL
+armor CEHM 0 AL
 3 2 3 0 0
 40 30 102 P
-A
-14 -20
-A
-18 -1
-A
-19 3
-G none
+f object move -20 0
+f object hitroll -1 0
+f object damroll 3 0
 #27406
 bracelet ringmaster blue emerald~
 the Ringmaster's Bracelet~
 A large wide bracelet of blue emerald lies here.~
 emerald~
-armor ABCE AM
+armor ABCE 0 AM
 18 19 19 20 10
 51 30 1552 P
-A
-18 4
-A
-1 5
-A
-20 -9
-A
-13 45
-A
-19 6
-G none
+f object hitroll 4 0
+f object str 5 0
+f object saves -9 0
+f object hp 45 0
+f object damroll 6 0
 #27407
 ringmaster whip black~
 the Ringmaster's whip~
 A whip of black leather lies upon the ground.~
 leather~
-weapon BCEHM AN
-whip 6 7 sting 0
+weapon BCEHM 0 AN
+whip 6 7 'sting' 0
 45 93 86 P
-A
-18 -2
-A
-19 3
-G none
+f object hitroll -2 0
+f object damroll 3 0
 #27408
 robe silver stars~
 a robe of silver-stars~
 A robe covered in silver stars lies on the floor.~
 cloth~
-armor 0 AD
+armor 0 0 AD
 7 8 7 15 15
 37 70 1372 P
-A
-1 1
-A
-13 40
-A
-18 2
-A
-19 2
-G none
+f object str 1 0
+f object hp 40 0
+f object hitroll 2 0
+f object damroll 2 0
 #27409
 toe-spikes toe spikes~
 a pair of toe-spikes~
 A pair of sharp spikes lie on the ground.~
 steel~
-armor M AG
+armor M 0 AG
 5 5 5 5 5
 51 10 362 P
-A
-2 -3
-A
-18 -2
-A
-19 5
-A
-24 -3
-G none
+f object dex -3 0
+f object hitroll -2 0
+f object damroll 5 0
+f object saving_spell -3 0
 #27410
 finger-spikes finger spikes~
 a set of finger-spikes~
 Some sharp finger spikes have been dropped here.~
 steel~
-armor 0 AH
+armor 0 0 AH
 5 5 5 5 5
 51 0 268 P
-A
-2 -3
-A
-18 -1
-A
-19 5
-A
-24 -3
-G none
+f object dex -3 0
+f object hitroll -1 0
+f object damroll 5 0
+f object saving_spell -3 0
 #27411
 blood iron nail~
 a blood-encrusted iron nail~
 An iron nail covered in blood lies here.~
 iron~
-weapon 0 AN
-dagger 8 5 flbite A
+weapon 0 0 AN
+dagger 8 5 'flbite' A
 36 70 2139 P
-G none
 #27412
 gold golden hood~
 the golden hood of Gullveig~
 A hood of gold lies on the floor waiting to be used.~
 gold~
-armor CEGH AE
+armor CEGH 0 AE
 7 8 6 15 15
 51 180 2969 P
-A
-3 2
-A
-4 1
-A
-12 25
-A
-19 2
-A
-24 -4
-G none
+f object int 2 0
+f object wis 1 0
+f object mana 25 0
+f object damroll 2 0
+f object saving_spell -4 0
 #27414
 leggings quickening~
 some leggings of quickening~
 A pair of strange leggings lie upon the ground.~
 energy~
-armor B AF
+armor B 0 AF
 8 9 6 12 12
 51 70 2858 P
-A
-2 3
-A
-13 4
-G none
+f object dex 3 0
+f object hp 4 0
 #27416
 bracelet sin avarice fifth~
 a bracelet inscribed with the Fifth Sin~
 An evil looking bracelet rests on the ground.~
 steel~
-armor CEF AM
+armor CEF 0 AM
 5 5 5 5 5
 46 40 328 P
-A
-13 10
-A
-12 20
-A
-3 -2
-A
-4 -3
-A
-18 2
-A
-19 2
-G none
+f object hp 10 0
+f object mana 20 0
+f object int -2 0
+f object wis -3 0
+f object hitroll 2 0
+f object damroll 2 0
 #27417
 ring blight~
 the ring of Blight~
 An oddly shaped ring lies on the floor.~
 steel~
-jewelry CDEJ AB
+jewelry CEJ 0 AB
 0 0 0 0 0
 36 10 2195 P
-A
-1 -2
-A
-2 -1
-A
-5 -3
-A
-12 50
-A
-18 2
-A
-19 2
-G none
+f object str -2 0
+f object dex -1 0
+f object con -3 0
+f object mana 50 0
+f object hitroll 2 0
+f object damroll 2 0
 #27418
 strange girdle~
 a strange girdle~
 A girdle made for some strange creature lies on the ground.~
 energy~
-armor BCEG AK
+armor BCEG 0 AK
 19 18 19 19 5
 52 220 10139 P
-A
-20 -5
-A
-12 50
-A
-13 50
-A
-18 2
-A
-19 2
-G none
+f object saves -5 0
+f object mana 50 0
+f object hp 50 0
+f object hitroll 2 0
+f object damroll 2 0
 #27419
 mask pumpkin~
 a pumpkin-head mask~
 A pumpkin that has been carved to look like a mask lies here.~
 energy~
-armor BCEJ AE
+armor BCEJ 0 AE
 9 9 10 10 10
 40 70 3494 P
-A
-13 25
-A
-18 -2
-A
-19 3
-G none
+f object hp 25 0
+f object hitroll -2 0
+f object damroll 3 0
 #27420
 brown robe~
 a brown robe~
 A pile of brown cloth lies here.~
 cloth~
-armor 0 AK
+armor 0 0 AK
 8 7 9 0 0
 38 40 1173 P
-A
-2 1
-A
-18 1
-A
-19 2
-G none
+f object dex 1 0
+f object hitroll 1 0
+f object damroll 2 0
 #27421
 leather gloves striking~
 some gloves of striking~
 A pair of reinforced leather gloves lies here.~
 leather~
-armor B AH
+armor B 0 AH
 6 6 6 6 6
 45 60 407 P
-A
-1 2
-A
-19 3
-G none
+f object str 2 0
+f object damroll 3 0
 #27422
 silver scimitar~
 the Silver-scimitar~
 A silver scimitar has been left here by someone.~
 silver~
-weapon GIM AN
-sword 8 6 slash 0
+weapon GIM 0 AN
+sword 8 6 'slash' 0
 51 148 6589 P
-A
-18 6
-A
-19 6
-G none
+f object hitroll 6 0
+f object damroll 6 0
 #27423
 hell scimitar~
 a Hell-forged scimitar~
 A scimitar wreathed in blackened flames lies here.~
 energy~
-weapon GIM AN
-sword 8 7 wrath AD
+weapon GIM 0 AN
+sword 8 7 'wrath' AD
 51 127 17931 P
-A
-20 -5
-A
-5 -3
-A
-18 6
-A
-19 6
-G none
+f object saves -5 0
+f object con -3 0
+f object hitroll 6 0
+f object damroll 6 0
 #27424
 samurai black belt~
 a Samurai black belt~
 A black belt inscribed with runes is on the ground.~
 cloth~
-armor ACE AL
+armor ACE 0 AL
 8 6 7 5 5
 48 10 922 P
-A
-1 1
-A
-13 40
-A
-18 2
-A
-19 3
-G none
+f object str 1 0
+f object hp 40 0
+f object hitroll 2 0
+f object damroll 3 0
 #0
 
 #ROOMS
@@ -619,8 +549,12 @@ here.
 D1
 ~
 ~
+~
+~
 Z 0 27401
 D2
+~
+~
 ~
 ~
 Z 0 9775
@@ -636,8 +570,12 @@ canopy. The river bank heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 27402
 D3
+~
+~
 ~
 ~
 Z 0 27400
@@ -654,8 +592,12 @@ south. North of here you can hear the sounds of bells and mutted voices.
 D0
 ~
 ~
+~
+~
 Z 0 27403
 D3
+~
+~
 ~
 ~
 Z 0 27401
@@ -672,8 +614,12 @@ tents and stalls.
 D0
 ~
 ~
+~
+~
 Z 0 27405
 D2
+~
+~
 ~
 ~
 Z 0 27402
@@ -689,12 +635,18 @@ this carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27407
 D1
 ~
 ~
+~
+~
 Z 0 27405
 D3
+~
+~
 ~
 ~
 Z 0 27416
@@ -710,16 +662,24 @@ this carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27408
 D1
+~
+~
 ~
 ~
 Z 0 27406
 D2
 ~
 ~
+~
+~
 Z 0 27403
 D3
+~
+~
 ~
 ~
 Z 0 27404
@@ -735,12 +695,18 @@ this carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27409
 D1
 ~
 ~
+~
+~
 Z 0 27423
 D3
+~
+~
 ~
 ~
 Z 0 27405
@@ -756,12 +722,18 @@ carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27410
 D1
 ~
 ~
+~
+~
 Z 0 27408
 D2
+~
+~
 ~
 ~
 Z 0 27404
@@ -777,16 +749,24 @@ carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27411
 D1
+~
+~
 ~
 ~
 Z 0 27409
 D2
 ~
 ~
+~
+~
 Z 0 27405
 D3
+~
+~
 ~
 ~
 Z 0 27407
@@ -802,12 +782,18 @@ carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27412
 D2
 ~
 ~
+~
+~
 Z 0 27406
 D3
+~
+~
 ~
 ~
 Z 0 27408
@@ -823,16 +809,24 @@ carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27413
 D1
+~
+~
 ~
 ~
 Z 0 27411
 D2
 ~
 ~
+~
+~
 Z 0 27407
 D3
+~
+~
 ~
 ~
 Z 0 27420
@@ -848,16 +842,24 @@ carved seats set on their backs.
 D0
 ~
 ~
+~
+~
 Z 0 27414
 D1
+~
+~
 ~
 ~
 Z 0 27412
 D2
 ~
 ~
+~
+~
 Z 0 27408
 D3
+~
+~
 ~
 ~
 Z 0 27410
@@ -873,16 +875,24 @@ carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27415
 D1
+~
+~
 ~
 ~
 Z 0 27421
 D2
 ~
 ~
+~
+~
 Z 0 27409
 D3
+~
+~
 ~
 ~
 Z 0 27411
@@ -898,8 +908,12 @@ carnival.
 D1
 ~
 ~
+~
+~
 Z 0 27414
 D2
+~
+~
 ~
 ~
 Z 0 27410
@@ -915,16 +929,24 @@ carnival.
 D0
 ~
 ~
+~
+~
 Z 0 27433
 D1
+~
+~
 ~
 ~
 Z 0 27415
 D2
 ~
 ~
+~
+~
 Z 0 27411
 D3
+~
+~
 ~
 ~
 Z 0 27413
@@ -940,8 +962,12 @@ carnival.
 D2
 ~
 ~
+~
+~
 Z 0 27412
 D3
+~
+~
 ~
 ~
 Z 0 27414
@@ -957,12 +983,18 @@ and tents erected, and motion can be seen within them.
 D1
 ~
 ~
+~
+~
 Z 0 27404
 D2
 ~
 ~
+~
+~
 Z 0 27424
 D3
+~
+~
 ~
 ~
 Z 0 27417
@@ -978,12 +1010,18 @@ and tents erected, and motion can be seen within them.
 D0
 ~
 ~
+~
+~
 Z 0 27418
 D1
 ~
 ~
+~
+~
 Z 0 27416
 D3
+~
+~
 ~
 ~
 Z 0 27425
@@ -999,16 +1037,24 @@ and tents erected, and motion can be seen within them.
 D0
 ~
 ~
+~
+~
 Z 0 27419
 D1
+~
+~
 ~
 ~
 Z 0 27429
 D2
 ~
 ~
+~
+~
 Z 0 27417
 D3
+~
+~
 ~
 ~
 Z 0 27426
@@ -1024,8 +1070,12 @@ and tents erected, and motion can be seen within them.
 D1
 ~
 ~
+~
+~
 Z 0 27420
 D2
+~
+~
 ~
 ~
 Z 0 27418
@@ -1041,12 +1091,18 @@ and tents erected, and motion can be seen within them.
 D0
 ~
 ~
+~
+~
 Z 0 27428
 D1
 ~
 ~
+~
+~
 Z 0 27410
 D3
+~
+~
 ~
 ~
 Z 0 27419
@@ -1062,12 +1118,18 @@ and tents erected, and motion can be seen within them.
 D1
 ~
 ~
+~
+~
 Z 0 27432
 D2
 ~
 ~
+~
+~
 Z 0 27422
 D3
+~
+~
 ~
 ~
 Z 0 27412
@@ -1083,12 +1145,18 @@ and tents erected, and motion can be seen within them.
 D0
 ~
 ~
+~
+~
 Z 0 27421
 D1
 ~
 ~
+~
+~
 Z 0 27431
 D2
+~
+~
 ~
 ~
 Z 0 27423
@@ -1104,12 +1172,18 @@ and tents erected, and motion can be seen within them.
 D0
 ~
 ~
+~
+~
 Z 0 27422
 D2
 ~
 ~
+~
+~
 Z 0 27430
 D3
+~
+~
 ~
 ~
 Z 0 27406
@@ -1125,6 +1199,8 @@ embedded in some of them.
 D0
 ~
 ~
+~
+~
 Z 0 27416
 S
 #27425
@@ -1138,6 +1214,8 @@ some of these, but the rest seem rusty and out of use.
 D1
 ~
 ~
+~
+~
 Z 0 27417
 S
 #27426
@@ -1149,6 +1227,8 @@ in from the side of the stall, and a strange stench fills the air.
 D1
 ~
 ~
+~
+~
 Z 0 27418
 S
 #27427
@@ -1158,6 +1238,8 @@ the signs of degredation and death can be smelled and felt.
 ~
 0 A inside
 D1
+~
+~
 ~
 ~
 ABZ 0 27428
@@ -1172,8 +1254,12 @@ There is a disgusting smell coming from the cage west.
 D2
 ~
 ~
+~
+~
 Z 0 27420
 D3
+~
+~
 ~
 ~
 ABZ 0 27427
@@ -1189,6 +1275,8 @@ the exit west is of much interest in here.
 D3
 ~
 ~
+~
+~
 Z 0 27418
 S
 #27430
@@ -1199,6 +1287,8 @@ blood from an entire human being in one minute!'.
 ~
 0 A inside
 D0
+~
+~
 ~
 ~
 Z 0 27423
@@ -1213,6 +1303,8 @@ some burnt cards and dried tea leaves is in the middle of the room.
 D3
 ~
 ~
+~
+~
 Z 0 27422
 S
 #27432
@@ -1223,6 +1315,8 @@ it all..almost as if it is some kind of trick.
 ~
 0 A inside
 D3
+~
+~
 ~
 ~
 Z 0 27421
@@ -1237,8 +1331,12 @@ nestled within the woodlands.
 D0
 ~
 ~
+~
+~
 Z 0 27434
 D2
+~
+~
 ~
 ~
 Z 0 27414
@@ -1254,16 +1352,24 @@ south away from here.
 D0
 ~
 ~
+~
+~
 ABZ 0 27458
 D1
+~
+~
 ~
 ~
 Z 0 27435
 D2
 ~
 ~
+~
+~
 Z 0 27433
 D3
+~
+~
 ~
 ~
 Z 0 27451
@@ -1278,8 +1384,12 @@ path heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 27436
 D3
+~
+~
 ~
 ~
 Z 0 27434
@@ -1294,8 +1404,12 @@ path contines north and west.
 D0
 ~
 ~
+~
+~
 Z 0 27437
 D3
+~
+~
 ~
 ~
 Z 0 27435
@@ -1310,8 +1424,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27438
 D2
+~
+~
 ~
 ~
 Z 0 27436
@@ -1326,8 +1444,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27439
 D2
+~
+~
 ~
 ~
 Z 0 27437
@@ -1342,8 +1464,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27440
 D2
+~
+~
 ~
 ~
 Z 0 27438
@@ -1358,8 +1484,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27441
 D2
+~
+~
 ~
 ~
 Z 0 27439
@@ -1374,8 +1504,12 @@ path continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 27440
 D3
+~
+~
 ~
 ~
 Z 0 27442
@@ -1390,8 +1524,12 @@ path continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 27441
 D3
+~
+~
 ~
 ~
 Z 0 27443
@@ -1407,12 +1545,18 @@ be seen.
 D0
 ~
 ~
+~
+~
 Z 0 27479
 D1
 ~
 ~
+~
+~
 Z 0 27442
 D3
+~
+~
 ~
 ~
 Z 0 27444
@@ -1427,8 +1571,12 @@ path continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 27443
 D3
+~
+~
 ~
 ~
 Z 0 27445
@@ -1443,8 +1591,12 @@ path continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 27444
 D2
+~
+~
 ~
 ~
 Z 0 27446
@@ -1459,8 +1611,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27445
 D2
+~
+~
 ~
 ~
 Z 0 27447
@@ -1475,12 +1631,18 @@ west a path through the woods has been cleared.
 D0
 ~
 ~
+~
+~
 Z 0 27446
 D2
 ~
 ~
+~
+~
 Z 0 27448
 D3
+~
+~
 ~
 ~
 Z 0 27452
@@ -1495,8 +1657,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27447
 D2
+~
+~
 ~
 ~
 Z 0 27449
@@ -1511,8 +1677,12 @@ path continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 27448
 D2
+~
+~
 ~
 ~
 Z 0 27450
@@ -1527,8 +1697,12 @@ path continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 27449
 D1
+~
+~
 ~
 ~
 Z 0 27451
@@ -1543,8 +1717,12 @@ path continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 27434
 D3
+~
+~
 ~
 ~
 Z 0 27450
@@ -1558,8 +1736,12 @@ and anguish can be heard from within, but nothing seems to be stirring.
 D1
 ~
 ~
+~
+~
 Z 0 27447
 D3
+~
+~
 ~
 ~
 Z 0 27453
@@ -1574,8 +1756,12 @@ the path heads towards a huge tent, while west it gets darker.
 D1
 ~
 ~
+~
+~
 Z 0 27452
 D2
+~
+~
 ~
 ~
 Z 0 27454
@@ -1590,8 +1776,12 @@ any purpose or direction.
 D0
 ~
 ~
+~
+~
 Z 0 27453
 D3
+~
+~
 ~
 ~
 Z 0 27455
@@ -1606,8 +1796,12 @@ by the very trees themselves.
 D1
 ~
 ~
+~
+~
 Z 0 27454
 D3
+~
+~
 ~
 ~
 Z 0 27456
@@ -1623,10 +1817,14 @@ the hut.
 D1
 ~
 ~
+~
+~
 Z 0 27455
 D4
 ~
 hut door~
+the hut~
+~
 ABZ 0 27457
 S
 #27457
@@ -1639,6 +1837,8 @@ boiling, bubbling potions scattered around the room.
 D5
 ~
 hut door~
+the hut~
+~
 ABZ 0 27456
 S
 #27458
@@ -1652,12 +1852,18 @@ walking into. To the east and west are spectator stands
 D1
 ~
 ~
+~
+~
 Z 0 27464
 D2
 ~
 ~
+~
+~
 ABZ 0 27434
 D3
+~
+~
 ~
 ~
 Z 0 27459
@@ -1674,8 +1880,12 @@ the air.
 D0
 ~
 ~
+~
+~
 Z 0 27460
 D1
+~
+~
 ~
 ~
 Z 0 27458
@@ -1692,8 +1902,12 @@ the air.
 D0
 ~
 ~
+~
+~
 Z 0 27461
 D2
+~
+~
 ~
 ~
 Z 0 27459
@@ -1710,8 +1924,12 @@ the air.
 D0
 ~
 ~
+~
+~
 Z 0 27462
 D2
+~
+~
 ~
 ~
 Z 0 27460
@@ -1728,8 +1946,12 @@ the air.
 D1
 ~
 ~
+~
+~
 Z 0 27463
 D2
+~
+~
 ~
 ~
 Z 0 27461
@@ -1745,8 +1967,12 @@ something evil comes from below...
 D3
 ~
 ~
+~
+~
 Z 0 27462
 D5
+~
+~
 ~
 ~
 Z 0 27471
@@ -1763,8 +1989,12 @@ the air.
 D0
 ~
 ~
+~
+~
 Z 0 27465
 D3
+~
+~
 ~
 ~
 Z 0 27458
@@ -1781,8 +2011,12 @@ the air.
 D0
 ~
 ~
+~
+~
 Z 0 27466
 D2
+~
+~
 ~
 ~
 Z 0 27464
@@ -1799,6 +2033,8 @@ the air.
 D2
 ~
 ~
+~
+~
 Z 0 27465
 S
 #27467
@@ -1812,16 +2048,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27473
 D1
+~
+~
 ~
 ~
 Z 0 27468
 D2
 ~
 ~
+~
+~
 Z 0 27470
 D3
+~
+~
 ~
 ~
 Z 0 27469
@@ -1837,16 +2081,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27477
 D1
+~
+~
 ~
 ~
 Z 0 27469
 D2
 ~
 ~
+~
+~
 Z 0 27471
 D3
+~
+~
 ~
 ~
 Z 0 27467
@@ -1862,16 +2114,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27475
 D1
+~
+~
 ~
 ~
 Z 0 27467
 D2
 ~
 ~
+~
+~
 Z 0 27472
 D3
+~
+~
 ~
 ~
 Z 0 27468
@@ -1887,16 +2147,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27467
 D1
+~
+~
 ~
 ~
 Z 0 27471
 D2
 ~
 ~
+~
+~
 Z 0 27473
 D3
+~
+~
 ~
 ~
 Z 0 27472
@@ -1913,20 +2181,30 @@ A ladder ascends out of the mist from here.
 D0
 ~
 ~
+~
+~
 Z 0 27468
 D1
+~
+~
 ~
 ~
 Z 0 27472
 D2
 ~
 ~
+~
+~
 Z 0 27474
 D3
 ~
 ~
+~
+~
 Z 0 27470
 D4
+~
+~
 ~
 ~
 Z 0 27463
@@ -1942,16 +2220,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27469
 D1
+~
+~
 ~
 ~
 Z 0 27476
 D2
 ~
 ~
+~
+~
 Z 0 27475
 D3
+~
+~
 ~
 ~
 Z 0 27471
@@ -1967,16 +2253,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27470
 D1
+~
+~
 ~
 ~
 Z 0 27474
 D2
 ~
 ~
+~
+~
 Z 0 27467
 D3
+~
+~
 ~
 ~
 Z 0 27478
@@ -1992,16 +2286,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27471
 D1
+~
+~
 ~
 ~
 Z 0 27475
 D2
 ~
 ~
+~
+~
 Z 0 27468
 D3
+~
+~
 ~
 ~
 Z 0 27473
@@ -2017,16 +2319,24 @@ moving, but it is hard to see exactly what they are, or what they are doing.
 D0
 ~
 ~
+~
+~
 Z 0 27472
 D1
+~
+~
 ~
 ~
 Z 0 27473
 D2
 ~
 ~
+~
+~
 Z 0 27469
 D3
+~
+~
 ~
 ~
 Z 0 27474
@@ -2043,16 +2353,24 @@ swirls and hides other such horrors.
 D0
 ~
 ~
+~
+~
 Z 0 27469
 D1
+~
+~
 ~
 ~
 Z 0 27470
 D2
 ~
 ~
+~
+~
 Z 0 27475
 D3
+~
+~
 ~
 ~
 Z 0 27472
@@ -2067,16 +2385,24 @@ appear to be of any real interest.
 D0
 ~
 ~
+~
+~
 Z 0 27474
 D1
+~
+~
 ~
 ~
 Z 0 27469
 D2
 ~
 ~
+~
+~
 Z 0 27468
 D3
+~
+~
 ~
 ~
 Z 0 27467
@@ -2091,16 +2417,24 @@ unholy shape and give it a strange hazy look amidst the chill mist.
 D0
 ~
 ~
+~
+~
 Z 0 27470
 D1
+~
+~
 ~
 ~
 Z 0 27473
 D2
 ~
 ~
+~
+~
 Z 0 27467
 D3
+~
+~
 ~
 ~
 Z 0 27475
@@ -2115,8 +2449,12 @@ you can make out a huge carnival tent.
 D0
 ~
 ~
+~
+~
 Z 0 27480
 D2
+~
+~
 ~
 ~
 Z 0 27443
@@ -2132,8 +2470,12 @@ you can make out smoke rising from what appears to be the very ground itself.
 D1
 ~
 ~
+~
+~
 Z 0 27481
 D2
+~
+~
 ~
 ~
 Z 0 27479
@@ -2148,8 +2490,12 @@ can make out a huge pit from which thick roiling smoke pours forth.
 D1
 ~
 ~
+~
+~
 Z 0 27482
 D3
+~
+~
 ~
 ~
 Z 0 27480
@@ -2165,50 +2511,38 @@ the pit, and right now it appears impossible to enter.
 D3
 ~
 ~
+~
+~
 Z 0 27481
 S
 #0
 
-#SPECIALS
-M 27401 spec_cast_mage	* a burning clown
-M 27406 spec_breath_lightning	* the Ring-Master
-M 27409 spec_poison	* a giant wolf-spider
-M 27416 spec_cast_mage	* the witch Gullveig
-M 27422 spec_cast_cleric	* the Lich Soothsayer
-S
-
 #RESETS
-D 0 27427 1 1	* Inside the Cage of Freaks: door to the east: closed
-D 0 27428 3 1	* The Freak House: door to the west: closed
-D 0 27434 0 1	* Before the Grand Tent: door to the north: closed
-D 0 27456 4 1	* Beneath a Strange Hut: door to the up: closed
-D 0 27457 5 1	* Inside Baba-Yaga's Hut: door to the down: closed
-D 0 27458 2 1	* Entrance to the Grand Tent: door to the south: closed
 M 0 27419 1 27424 1	* the Lich Samurai (The Swordmaster's Tent)
-E 0 27423 0 16		*	a Hell-forged scimitar: wielded
-E 0 27424 0 13		*	a Samurai black belt: around the waist
-E 0 27422 0 20		*	the Silver-scimitar: second wielded
+E 0 27423 0 16		*	the Lich Samurai<wielded>: a Hell-forged scimitar
+E 0 27424 0 13		*	the Lich Samurai<around the waist>: a Samurai black belt
+E 0 27422 0 20		*	the Lich Samurai<second wielded>: the Silver-scimitar
 M 0 27425 1 27425 1	* a nail-impaled man (In a Clearing of Nails)
-E 0 27411 0 16		*	a blood-encrusted iron nail: wielded
+E 0 27411 0 16		*	a nail-impaled man<wielded>: a blood-encrusted iron nail
 M 0 27412 1 27426 1	* the Lich Gypsy (The Gypsy's Stall)
-E 0 27408 0 5		*	a robe of silver-stars: on the body
+E 0 27408 0 5		*	the Lich Gypsy<on the body>: a robe of silver-stars
 M 0 27410 1 27427 1	* a chimera (Inside the Cage of Freaks)
-E 0 27418 0 12		*	a strange girdle: about the shoulders
+E 0 27418 0 12		*	a chimera<about the shoulders>: a strange girdle
 M 0 27422 1 27429 1	* the Lich Soothsayer (In a Star covered Tent)
-E 0 27417 0 1		*	the ring of Blight: on the left finger
+E 0 27417 0 1		*	the Lich Soothsayer<on the left finger>: the ring of Blight
 M 0 27418 2 27430 1	* a Blood-brother Monk (In a Blood-stained Stall)
-E 0 27409 0 8		*	a pair of toe-spikes: on the feet
-E 0 27410 0 9		*	a set of finger-spikes: on the hands
+E 0 27409 0 8		*	a Blood-brother Monk<on the feet>: a pair of toe-spikes
+E 0 27410 0 9		*	a Blood-brother Monk<on the hands>: a set of finger-spikes
 M 0 27426 2 27430 1	* a Blood-brother Monk (In a Blood-stained Stall)
-E 0 27421 0 9		*	some gloves of striking: on the hands
-E 0 27420 0 12		*	a brown robe: about the shoulders
+E 0 27421 0 9		*	a Blood-brother Monk<on the hands>: some gloves of striking
+E 0 27420 0 12		*	a Blood-brother Monk<about the shoulders>: a brown robe
 M 0 27417 1 27431 1	* the Teller of Ill-fortune (The Tent of Ill-fortune)
-E 0 27419 0 6		*	a pumpkin-head mask: over the head
+E 0 27419 0 6		*	the Teller of Ill-fortune<over the head>: a pumpkin-head mask
 M 0 27416 1 27432 1	* the witch Gullveig (A Gold-lined Tent)
-E 0 27412 0 6		*	the golden hood of Gullveig: over the head
-E 0 27416 0 14		*	a bracelet inscribed with the Fifth Sin: on the left wrist
+E 0 27412 0 6		*	the witch Gullveig<over the head>: the golden hood of Gullveig
+E 0 27416 0 14		*	the witch Gullveig<on the left wrist>: a bracelet inscribed with the Fifth Sin
 M 0 27400 1 27457 1	* the Witch Baba-Yaga (Inside Baba-Yaga's Hut)
-E 0 27401 0 16		*	Baba-yaga's broom: wielded
+E 0 27401 0 16		*	the Witch Baba-Yaga<wielded>: Baba-yaga's broom
 R 0 27467 3	* Lost in the Misty Ring: randomize
 M 0 27409 5 27468 2	* a giant wolf-spider (Lost in the Misty Ring)
 R 0 27468 3	* Lost in the Misty Ring: randomize
@@ -2224,16 +2558,16 @@ R 0 27474 3	* Lost in the Misty Ring: randomize
 M 0 27409 5 27475 2	* a giant wolf-spider (Lost in the Misty Ring)
 R 0 27475 3	* Lost in the Misty Ring: randomize
 M 0 27404 1 27476 1	* the vampire knife-thrower (Before the Turning Wheel)
-E 0 27403 0 16		*	a barbed throwing-knife: wielded
+E 0 27403 0 16		*	the vampire knife-thrower<wielded>: a barbed throwing-knife
 M 0 27405 1 27476 1	* a slashed girl (Before the Turning Wheel)
 R 0 27476 3	* Before the Turning Wheel: randomize
 M 0 27401 1 27477 1	* a burning clown (In the Clown Corner)
 M 0 27402 1 27477 1	* a frozen clown (In the Clown Corner)
 R 0 27477 3	* In the Clown Corner: randomize
 M 0 27406 1 27478 1	* the Ring-Master (In the Burning Pentegram)
-E 0 27405 0 13		*	a belt of entwined barbed wire: around the waist
-E 0 27406 0 14		*	the Ringmaster's Bracelet: on the left wrist
-E 0 27407 0 16		*	the Ringmaster's whip: wielded
+E 0 27405 0 13		*	the Ring-Master<around the waist>: a belt of entwined barbed wire
+E 0 27406 0 14		*	the Ring-Master<on the left wrist>: the Ringmaster's Bracelet
+E 0 27407 0 16		*	the Ring-Master<wielded>: the Ringmaster's whip
 M 0 27407 1 27478 1	* a sacrificial man (In the Burning Pentegram)
 R 0 27478 3	* In the Burning Pentegram: randomize
 S

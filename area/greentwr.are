@@ -1,130 +1,149 @@
 #AREADATA
+Ver 7
 Name The Green Tinged Tower~
 VNUMs 26560 26599
 Credits Ceran~
 Security 9
 LevelRange 35 45
-ManualRare 2
 End
 
 #MOBILES
 #26560
 spirit priest~
 a spirit priest~
-A tansparent figure in clerical garb floats in the air.
-~
+A tansparent figure in clerical garb floats in the air.~
 This ghostly apparition seems to float through the green air around it in
 total bliss. A gleam of dark red glistens in it's eyes as it turns to regard
 your warm flesh..
 ~
 human~
-AFGOQT DEFPT -1000 26560
-42 0 25d50+3000 1d1+100 5d6+15 drain
+FGJQT 0 T G ABL -1000 26560
+42 0 25d50+3000 1d1+100 5d6+15 'drain'
 -15 -15 -15 -15
-FGKU ABMN 0 0 stand stand none 0
-0 0 medium unknown
-R cur 0 0 40 60 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0
-R fact D
+FGKU
+stand stand none 0
+I 0 medium unknown
+r negative 100
+r holy 100
+r charm 100
+m mob_fight mob_fight_cast_cleric 100~
 #26561
 undead novice~
 an undead elven novice~
-A disfigured elf in torn black priest's robes is standing here.
-~
+A disfigured elf in torn black priest's robes is standing here.~
 This elf fell to the evil that destroyed the city and is now living forever
 in his room where he once sought to be a priest of healing.
 ~
 undead~
-ABFOQT EPTu -1000 26560
-45 0 25d10+4000 1d1+100 6d6+20 drain
+BFJOQT 0 JT G L -1000 26560
+45 0 25d10+4000 1d1+100 6d6+20 'drain'
 -21 -21 -21 -21
-ADFGKUW ABMP 0 0 stand stand none 0
+ADFGKUW
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 73 0 0 0 0 73 0 0 0 0 0 0 0
-R fact D
+r negative 100
+r mental 100
+r charm 100
+m mob_fight mob_fight_cast_cleric 100~
 #26562
 lich cleric~
 a lich cleric~
-An elf wearing robes of the inverted cross raises an arm to bless you.
-~
+An elf wearing robes of the inverted cross raises an arm to bless you.~
 This mighty cleric of ancient Myth Drannor has been preserved by the evil that
 rules the region as both a reminder of how weak willed good really are, and as
 a source of power to draw upon when the time grows near to release the lord
 of the ruins.
 ~
 lich~
-ABFGOQT DEFJVu -1000 26560
-47 0 25d10+4300 1d1+100 6d6+22 drain
+BFGJOQT 0 JV 0 ABHL -1000 26560
+47 0 25d10+4300 1d1+100 6d6+22 'drain'
 -25 -25 -25 -25
-ADGKUW AK 0 0 stand stand none 0
+ADGKUW
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 40 7 0 0 0 0 0 0 0 0 0 73 0 0 0 0 0 0 0 0 0 0 0 0
-R fact D
+r acid 100
+m mob_fight mob_fight_cast_cleric 100~
 #26563
 undead elven healder~
 the undead elven healer~
-A withered elf in priest's garb reaches out to cure your soul.
-~
+A withered elf in priest's garb reaches out to cure your soul.~
 He once healed those elves who fell in the fight against the evil, but now
 lives as a reminder of how the weak are used and the evil control them.
 ~
 undead~
-ABFGOQT Eu -1000 26560
-49 0 25d10+4700 1d1+100 6d8+40 wrath
+BFGJOQT 0 J 0 L -1000 26560
+49 0 25d10+4700 1d1+100 6d8+40 'wrath'
 -26 -26 -26 -26
-ADFGKUW ABIKMP 0 0 stand stand none 0
+ADFGKUW
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 73 0 0 0 0 63 0 0 0 0 0 0 0
+r cold 100
+r acid 100
+r negative 100
+r mental 100
+r charm 100
+m mob_fight mob_fight_cast_cleric 100~
 #26564
 undead elven bishop~
 the undead elven bishop~
-An undead elven bishop is here.
-~
+An undead elven bishop is here.~
 The undead elf's eyes stare back at you with unholy fury!
 ~
 undead~
-ABFGOQT EVu -1000 26560
-50 2 50d10+5500 1d1+100 6d7+45 wrath
+BFGJOQT 0 JV 0 L -1000 26560
+50 2 50d10+5500 1d1+100 6d7+45 'wrath'
 -28 -29 -29 -25
-ADFGHKUW ABIKMP 0 0 stand stand none 0
+ADFGHKUW
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 73 0 0 0 0 73 0 0 0 0 0 0 0
-R fact D
+r cold 100
+r acid 100
+r negative 100
+r mental 100
+r charm 100
 #26565
 dark angel~
 a dark angel~
-A dark angel is here.
-~
+A dark angel is here.~
 There is a darkness about these beings that defies words. Their faces are as
 cold as ice and their eyes burn with the fury of unholy wrath. They are here
 by summons of the Lord to help guard the power that is building up towards
 his release.
 ~
 human~
-ABFGQT DEF -1000 26560
-47 2 25d10+4300 1d1+1000 6d6+22 wrath
+BFGJQT 0 0 0 ABL -1000 26560
+47 2 25d10+4300 1d1+1000 6d6+22 'wrath'
 -25 -25 -25 -25
-CDEFKO ABKLM 0 0 stand stand none 0
+CDEFKO
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 40 65 0 0 0 0 15 0 0 0 0 40 0 0 0 0 15 0 0 0 0 0 0 0
-R fact E
+r acid 100
+r poison 100
+r negative 100
+r charm 100
+m mob_fight mob_fight_cast_cleric 100~
 #26567
 undead elven cardinal~
 the undead elven cardinal~
-An elf with a bare skull for a face prepares your final rites!
-~
+An elf with a bare skull for a face prepares your final rites!~
 Once one of the grand lords of Myth Drannor this cardinal is now the keeper
 of the unholy power building up within the tower. He has been restored to
 undead life as a cruel reminder that good will not always triumph, and he
 watches over the power that will one day help release the Lord of the ruins.
 ~
 undead~
-ABFGOQT EVu -1000 26560
-50 4 50d10+5500 1d1+100 6d8+30 divine
+BFGJOQT 0 JV 0 L -1000 26560
+50 4 50d10+5500 1d1+100 6d8+30 'divine'
 -30 -30 -30 -30
-ADFGHKUWX ABIKMP 0 0 stand stand none 0
+ADFGHKUWX
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 70 70 0 0 0 0 0 0 0 0 0 73 0 0 0 0 33 0 0 0 0 0 0 0
-R fact BD
+r cold 100
+r acid 100
+r negative 100
+r mental 100
+r charm 100
+m mob_fight mob_fight_cast_cleric 100~
 #0
 
 #OBJECTS
@@ -133,7 +152,7 @@ parchment green tinted seal~
 a green tinted seal~
 A piece of parchment scrawled with green writing is here.~
 paper~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
 E
@@ -147,84 +166,60 @@ something went wrong and now forces of darkness are fighting for the last
 keys to the power that lies hidden. Once the red, blue and green are finally
 joined the black tower will reveal it's secrets..
 ~
-G none
 #26561
 mace disruption~
 the mace of disruption~
 A large mace thrumming with power is on the floor.~
 steel~
-weapon BG AN
-mace 6 9 crush 0
+weapon BG 0 AN
+mace 6 9 'crush' 0
 33 180 4323 P
-A
-19 10
-G none
+f object damroll 10 0
 #26562
 chain shard obsidian crystal~
 an obsidian pendant~
 A shard of obsidian on a thin chain is here.~
 obsidian~
-jewelry G AC
+jewelry G 0 AC
 0 0 0 0 0
 24 10 10696 P
-A
-4 2
-A
-12 20
-A
-13 20
-A
-17 -8
-A
-24 -3
-G none
+f object wis 2 0
+f object mana 20 0
+f object hp 20 0
+f object ac -8 0
+f object saving_spell -3 0
 #26563
 sceptre heavenly heaven orders~
 a sceptre of the heavenly orders~
 A large ornate sceptre is lying here.~
 energy~
-armor AGIL AO
+armor AGIL 0 AO
 5 5 5 5 5
 36 70 18890 P
-A
-13 30
-A
-12 70
-P
-12 10
-V
-2 @say~
-obj_cmd_say~
-G none
+f object hp 30 0
+f object mana 70 0
 #26564
 green mitre~
 a green mitre~
 A green coloured mitre for the clergy is here.~
 cloth~
-armor CEGI AE
+armor CEGI 0 AE
 18 20 20 18 5
 30 10 10387 P
-A
-13 30
-A
-17 -8
-A
-24 -10
-A
-3 2
-A
-4 2
-G none
+f object hp 30 0
+f object ac -8 0
+f object saving_spell -10 0
+f object int 2 0
+f object wis 2 0
 #26565
 dark scimitar flesh-cutter cutter~
 a dark angel's flesh-cutter~
 A scimitar of dark material lies burning on the ground.~
 energy~
-weapon AGJ AN
-sword 6 6 slice 0
+weapon AGJ 0 AN
+sword 6 6 'slice' 0
 21 135 4474 P
-A
-13 -2
+f object hp -2 0
 E
 dark scimitar flesh-cutter cutter~
 This nasty looking scimitar is unlike any you have ever seen before. It has
@@ -234,130 +229,97 @@ it looks quite pathetic as far as weapons go, although the cruel form of it's
 serated flesh-cutting edges could do some serious damage to a person's body
 if they managed to cut it right.
 ~
-G none
 #26566
 green emerald bracer~
 a green emerald bracer~
 A loop of emerald lies here gathering dust.~
 emerald~
-armor G AM
+armor G 0 AM
 4 3 5 0 0
 20 10 241 P
-A
-3 2
-A
-12 20
-A
-19 1
-A
-18 1
-A
-17 -8
-G none
+f object int 2 0
+f object mana 20 0
+f object damroll 1 0
+f object hitroll 1 0
+f object ac -8 0
 #26567
 ivory amulet heaven~
 the amulet of heaven~
 A large amulet of ivory is lying on the ground.~
 ivory~
-jewelry A AC
+jewelry A 0 AC
 0 0 0 0 0
 31 10 5789 P
-A
-17 -35
-P
-13 3
-A
-18 3
-A
-19 3
-A
-13 20
-A
-12 20
-G none
+f object ac -35 0
+f object hitroll 3 0
+f object damroll 3 0
+f object hp 20 0
+f object mana 20 0
 #26568
 key~
 a key~
 A large plain key is lying here.~
 steel~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
-G none
 #26569
 key~
 a key~
 A large plain key is lying here.~
 steel~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
-G none
 #26570
 key~
 a key~
 A large plain key is lying here.~
 steel~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
-G none
 #26571
 key~
 a key~
 A large plain key is lying here.~
 steel~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
-G none
 #26572
 opal shield~
 an opal shield~
 A shield of polished opal is on the ground.~
 opal~
-armor AB AJ
+armor AB 0 AJ
 9 9 9 10 0
 28 80 3473 P
-A
-20 -3
-A
-13 35
-P
-8 3
-A
-18 1
-A
-19 3
-G none
+f object saves -3 0
+f object hp 35 0
+f object hitroll 1 0
+f object damroll 3 0
 #26574
 skull cap~
 a cap made from an elven skull~
 The remains of an elf's skull is on the ground.~
 bone~
-armor GHJ AE
+armor GHJ 0 AE
 6 5 6 10 10
 22 40 851 P
-A
-12 20
-A
-18 2
-A
-4 1
-A
-19 3
-A
-13 -15
-G none
+f object mana 20 0
+f object hitroll 2 0
+f object wis 1 0
+f object damroll 3 0
+f object hp -15 0
 #26576
 fountain~
 a glowing green fountain~
 A fountain with a sickly green aura is here.~
 stone~
-fountain A 0
+fountain A 0 0
 0 0 'water' 0 0
 0 0 0 P
-G none
 #0
 
 #ROOMS
@@ -372,12 +334,18 @@ large green door leading back to the ruins.
 D0
 ~
 ~
+~
+~
 Z 0 26562
 D1
 ~
 ~
+~
+~
 Z 0 26561
 D2
+~
+~
 ~
 ~
 Z 0 13767
@@ -392,8 +360,12 @@ were some kind of divine force watching from nearbye.
 D0
 ~
 ~
+~
+~
 Z 0 26563
 D3
+~
+~
 ~
 ~
 Z 0 26560
@@ -408,8 +380,12 @@ were some kind of divine force watching from nearbye.
 D1
 ~
 ~
+~
+~
 Z 0 26563
 D2
+~
+~
 ~
 ~
 Z 0 26560
@@ -424,12 +400,18 @@ were some kind of divine force watching from nearbye.
 D2
 ~
 ~
+~
+~
 Z 0 26561
 D3
 ~
 ~
+~
+~
 Z 0 26562
 D4
+~
+~
 ~
 ~
 Z 0 26564
@@ -444,8 +426,12 @@ a divine prescence watching you.
 D0
 ~
 door~
+the door~
+~
 ABZ -1 26565
 D5
+~
+~
 ~
 ~
 Z 0 26563
@@ -460,10 +446,14 @@ a divine prescence watching you.
 D0
 ~
 ~
+~
+~
 Z 0 26566
 D2
 ~
 door~
+the door~
+~
 ABZ -1 26564
 S
 #26566
@@ -476,8 +466,12 @@ a divine prescence watching you.
 D0
 ~
 door~
+the door~
+~
 ABZ -1 26567
 D2
+~
+~
 ~
 ~
 Z 0 26565
@@ -492,10 +486,14 @@ a divine prescence watching you.
 D1
 ~
 ~
+~
+~
 Z 0 26568
 D2
 ~
 door~
+the door~
+~
 ABZ -1 26566
 S
 #26568
@@ -508,8 +506,12 @@ a divine prescence watching you.
 D1
 ~
 ~
+~
+~
 Z 0 26569
 D3
+~
+~
 ~
 ~
 Z 0 26567
@@ -524,8 +526,12 @@ a divine prescence watching you.
 D3
 ~
 ~
+~
+~
 Z 0 26568
 D4
+~
+~
 ~
 ~
 Z 0 26571
@@ -541,20 +547,30 @@ down.
 D0
 ~
 door~
+the door~
+~
 ABCFZ 26568 26573
 D1
 ~
 door~
+the door~
+~
 ABCFZ -1 26572
 D2
 ~
 door~
+the door~
+~
 ABCFZ 26570 26575
 D3
 ~
 door~
+the door~
+~
 ABCFZ 26569 26574
 D5
+~
+~
 ~
 ~
 Z 0 26569
@@ -568,6 +584,8 @@ throughout the tower air. The only exit is a door in the west wall.
 D3
 ~
 door~
+the door~
+~
 ABCFZ -1 26571
 S
 #26573
@@ -581,6 +599,8 @@ doorway.
 D2
 ~
 door~
+the door~
+~
 ABCFZ 26568 26571
 S
 #26574
@@ -595,6 +615,8 @@ doorway.
 D1
 ~
 door~
+the door~
+~
 ABCFZ 26569 26571
 S
 #26575
@@ -608,8 +630,12 @@ There is a door leading north, and a stairway heading up.
 D0
 ~
 door~
+the door~
+~
 ABCFZ 26570 26571
 D4
+~
+~
 ~
 ~
 Z 0 26576
@@ -625,12 +651,18 @@ into a room, and there are doors in the north and south walls.
 D0
 ~
 door~
+the door~
+~
 ABCFZ 26571 26578
 D2
 ~
 door~
+the door~
+~
 ABCFZ 26571 26577
 D5
+~
+~
 ~
 ~
 Z 0 26575
@@ -646,8 +678,12 @@ level.
 D0
 ~
 door~
+the door~
+~
 AFZ 26571 26576
 D4
+~
+~
 ~
 ~
 Z 0 26579
@@ -663,8 +699,12 @@ level.
 D2
 ~
 door~
+the door~
+~
 AFZ 26571 26576
 D4
+~
+~
 ~
 ~
 Z 0 26579
@@ -681,8 +721,12 @@ is the source of the unholy energy that surges around you.
 D2
 ~
 ~
+~
+~
 Z 0 26581
 D5
+~
+~
 ~
 ~
 Z 0 26578
@@ -699,8 +743,12 @@ is the source of the unholy energy that surges around you.
 D0
 ~
 ~
+~
+~
 Z 0 26581
 D5
+~
+~
 ~
 ~
 Z 0 26577
@@ -717,64 +765,45 @@ and enjoying the light as it gathers power.
 D0
 ~
 ~
+~
+~
 Z 0 26579
 D2
+~
+~
 ~
 ~
 Z 0 26580
 S
 #0
 
-#SPECIALS
-M 26560 spec_cast_cleric	* a spirit priest
-M 26561 spec_cast_cleric	* an undead elven novice
-M 26562 spec_cast_cleric	* a lich cleric
-M 26563 spec_cast_cleric	* the undead elven healer
-M 26565 spec_cast_cleric	* a dark angel
-M 26567 spec_cast_cleric	* the undead elven cardinal
-S
-
 #RESETS
-D 0 26564 0 1	* In a corridor bathed in a green glow: door to the north: closed
-D 0 26565 2 1	* In a corridor bathed in a green glow: door to the south: closed
-D 0 26566 0 1	* In a corridor bathed in a green glow: door to the north: closed
-D 0 26567 2 1	* In a corridor bathed in a green glow: door to the south: closed
-D 0 26571 0 2	* In a room with a green fountain: door to the north: closed and locked
-D 0 26571 1 2	* In a room with a green fountain: door to the east: closed and locked
-D 0 26571 2 2	* In a room with a green fountain: door to the south: closed and locked
-D 0 26571 3 2	* In a room with a green fountain: door to the west: closed and locked
-D 0 26572 3 2	* In a sparse room: door to the west: closed and locked
-D 0 26573 2 2	* In a meditation room: door to the south: closed and locked
-D 0 26574 1 2	* In a room of healing: door to the east: closed and locked
-D 0 26575 0 2	* In the holy place: door to the north: closed and locked
-D 0 26576 0 2	* Ascending into an unholy green light: door to the north: closed and locked
-D 0 26576 2 2	* Ascending into an unholy green light: door to the south: closed and locked
 M 0 26560 4 26561 1	* a spirit priest (In a foyer filled with a green aura)
 M 0 26560 4 26563 1	* a spirit priest (In a foyer filled with a green aura)
 M 0 26560 4 26564 1	* a spirit priest (In a corridor bathed in a green glow)
 M 0 26560 4 26566 1	* a spirit priest (In a corridor bathed in a green glow)
 O 0 26576 0 26571	* a glowing green fountain (In a room with a green fountain)
 M 0 26561 1 26572 1	* an undead elven novice (In a sparse room)
-E 0 26572 0 11		*	an opal shield: as a shield
-E 0 26568 0 17		*	a key: held in the hands
+E 0 26572 0 11		*	an undead elven novice<as a shield>: an opal shield
+E 0 26568 0 17		*	an undead elven novice<held in the hands>: a key
 M 0 26562 1 26573 1	* a lich cleric (In a meditation room)
-E 0 26574 0 6		*	a cap made from an elven skull: over the head
-E 0 26569 0 17		*	a key: held in the hands
+E 0 26574 0 6		*	a lich cleric<over the head>: a cap made from an elven skull
+E 0 26569 0 17		*	a lich cleric<held in the hands>: a key
 M 0 26563 1 26574 1	* the undead elven healer (In a room of healing)
-E 0 26567 0 3		*	the amulet of heaven: around the neck (1)
-E 0 26562 0 4		*	an obsidian pendant: around the neck (2)
-E 0 26570 0 17		*	a key: held in the hands
+E 0 26567 0 3		*	the undead elven healer<around the neck>: the amulet of heaven
+E 0 26562 0 4		*	the undead elven healer<on the face>: an obsidian pendant
+E 0 26570 0 17		*	the undead elven healer<held in the hands>: a key
 M 0 26564 1 26575 1	* the undead elven bishop (In the holy place)
-E 0 26566 0 14		*	a green emerald bracer: on the left wrist
-E 0 26571 0 17		*	a key: held in the hands
+E 0 26566 0 14		*	the undead elven bishop<on the left wrist>: a green emerald bracer
+E 0 26571 0 17		*	the undead elven bishop<held in the hands>: a key
 M 0 26565 2 26577 1	* a dark angel (In an unholy green light)
-E 0 26565 0 16		*	a dark angel's flesh-cutter: wielded
+E 0 26565 0 16		*	a dark angel<wielded>: a dark angel's flesh-cutter
 M 0 26565 2 26578 1	* a dark angel (In an unholy green light)
-E 0 26565 0 16		*	a dark angel's flesh-cutter: wielded
+E 0 26565 0 16		*	a dark angel<wielded>: a dark angel's flesh-cutter
 M 0 26567 1 26581 1	* the undead elven cardinal (Within the unholy fire)
-E 0 26560 0 17		*	a green tinted seal: held in the hands
-E 0 26561 0 16		*	the mace of disruption: wielded
-E 0 26564 0 6		*	a green mitre: over the head
+E 0 26560 0 17		*	the undead elven cardinal<held in the hands>: a green tinted seal
+E 0 26561 0 16		*	the undead elven cardinal<wielded>: the mace of disruption
+E 0 26564 0 6		*	the undead elven cardinal<over the head>: a green mitre
 S
 
 #OLIMITS
@@ -782,10 +811,6 @@ O 26561 2	* the mace of disruption
 O 26564 2	* a green mitre
 O 26567 3	* the amulet of heaven
 O 26572 7	* an opal shield
-S
-
-#OMPROGS
-O 26561 fight_prog fight_prog_mace_disruption	* `the mace of disruption'
 S
 
 #$

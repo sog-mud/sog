@@ -1,67 +1,64 @@
 #AREADATA
+Ver 7
 Name Arkham Swamps~
 VNUMs 29400 29460
 Credits Ceran~
 Security 9
 LevelRange 15 25
-ManualRare 4
 End
 
 #MOBILES
 #29400
 ogre~
 a swamp ogre~
-A large swamp ogre wades towards you through the murky water.
-~
+A large swamp ogre wades towards you through the murky water.~
 This thing is big and stupid. All it really understands is hunger, and you 
 look like a viable meal.
 ~
 giant~
-AFGT 0 0 0
-20 0 3d10+360 1d1+100 4d4+6 bite
+FGT 0 0 0 0 0 0
+20 0 3d10+360 1d1+100 4d4+6 'bite'
 -5 -4 -6 7
-CDE 0 0 0 unknown unknown either 400
+CDE
+unknown unknown either 400
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #29401
 lizardman lizard man~
 a lizardman~
-A tall green lizardman hisses at you with a long pointed tongue.
-~
+A tall green lizardman hisses at you with a long pointed tongue.~
 ~
 human~
-AFGT 0 -500 0
-20 0 4d10+360 1d1+100 2d8+6 claw
+FGJT 0 0 0 0 -500 0
+20 0 4d10+360 1d1+100 2d8+6 'claw'
 -2 -3 -4 4
-CDF AB 0 0 stand stand either 413
+CDF
+stand stand either 413
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29402
 water snake~
 a water snake~
-A large slick snake slithers across the muddy ground.
-~
+A large slick snake slithers across the muddy ground.~
 ~
 snake~
-AFGT DEF 0 0
-15 0 3d9+300 1d1+100 2d6+3 bite
+FGT 0 0 0 ABL 0 0
+15 0 3d9+300 1d1+100 2d6+3 'bite'
 -4 -3 -4 7
-0 0 0 0 stand stand none 213
+0
+stand stand none 213
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #29403
 giant leech~
 a giant leech~
-A massive leech floats across the muddy waters and attaches itself to you!
-~
+A massive leech floats across the muddy waters and attaches itself to you!~
 ~
 human~
-AFGT DEF 0 0
-14 0 2d10+150 1d1+100 1d12+3 suction
+FGT 0 0 0 ABL 0 0
+14 0 2d10+150 1d1+100 1d12+3 'suction'
 -1 -1 -1 8
-0 0 0 0 stand stand unknown 203
+0
+stand stand unknown 203
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #0
 
 #OBJECTS
@@ -70,7 +67,7 @@ corpses bodies~
 a pile of bodies~
 A pile of bodies lie floating in the muddy water.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -78,7 +75,6 @@ corpses bodies corpse~
 Looks like the villagers who once lived here didn't all escape when whoever
 attacked them came by.
 ~
-G none
 #0
 
 #ROOMS
@@ -91,10 +87,14 @@ east from the city while the black gates of Arkham open out westwards into it.
 D1
 ~
 ~
+~
+~
 Z 0 29401
 D3
 ~
 gate~
+the gate~
+~
 ABZ 0 715
 S
 #29401
@@ -107,8 +107,12 @@ though here. The path continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 29402
 D3
+~
+~
 ~
 ~
 Z 0 29400
@@ -123,8 +127,12 @@ is being prepared for any real use.
 D2
 ~
 ~
+~
+~
 Z 0 29403
 D3
+~
+~
 ~
 ~
 Z 0 29401
@@ -139,8 +147,12 @@ The path continues north and gets even less clear to the east.
 D0
 ~
 ~
+~
+~
 Z 0 29402
 D1
+~
+~
 ~
 ~
 Z 0 29404
@@ -155,8 +167,12 @@ in from the east where the Arkham swamps begin.
 D1
 ~
 ~
+~
+~
 Z 0 29405
 D3
+~
+~
 ~
 ~
 Z 0 29403
@@ -171,12 +187,18 @@ Arkham's east into a useless swamp.
 D0
 ~
 ~
+~
+~
 Z 0 29418
 D2
 ~
 ~
+~
+~
 Z 0 29406
 D3
+~
+~
 ~
 ~
 Z 0 29404
@@ -191,8 +213,12 @@ east the swamp really begins.
 D0
 ~
 ~
+~
+~
 Z 0 29405
 D1
+~
+~
 ~
 ~
 Z 0 29407
@@ -208,16 +234,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29408
 D1
+~
+~
 ~
 ~
 Z 0 29415
 D2
 ~
 ~
+~
+~
 Z 0 29409
 D3
+~
+~
 ~
 ~
 Z 0 29406
@@ -227,6 +261,8 @@ Before a large bog~
 ~
 0 D forest
 D2
+~
+~
 ~
 ~
 Z 0 29407
@@ -242,8 +278,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29407
 D1
+~
+~
 ~
 ~
 Z 0 29410
@@ -259,16 +299,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29415
 D1
+~
+~
 ~
 ~
 Z 0 29413
 D2
 ~
 ~
+~
+~
 Z 0 29411
 D3
+~
+~
 ~
 ~
 Z 0 29409
@@ -284,8 +332,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29410
 D1
+~
+~
 ~
 ~
 Z 0 29412
@@ -301,8 +353,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29413
 D3
+~
+~
 ~
 ~
 Z 0 29412
@@ -318,16 +374,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29416
 D1
+~
+~
 ~
 ~
 Z 0 29414
 D2
 ~
 ~
+~
+~
 Z 0 29412
 D3
+~
+~
 ~
 ~
 Z 0 29410
@@ -343,8 +407,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29417
 D3
+~
+~
 ~
 ~
 Z 0 29413
@@ -360,12 +428,18 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29416
 D2
 ~
 ~
+~
+~
 Z 0 29410
 D3
+~
+~
 ~
 ~
 Z 0 29407
@@ -381,16 +455,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29421
 D1
+~
+~
 ~
 ~
 Z 0 29417
 D2
 ~
 ~
+~
+~
 Z 0 29413
 D3
+~
+~
 ~
 ~
 Z 0 29415
@@ -406,12 +488,18 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29422
 D2
 ~
 ~
+~
+~
 Z 0 29414
 D3
+~
+~
 ~
 ~
 Z 0 29416
@@ -427,8 +515,12 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29419
 D2
+~
+~
 ~
 ~
 Z 0 29405
@@ -444,12 +536,18 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29430
 D1
 ~
 ~
+~
+~
 Z 0 29425
 D3
+~
+~
 ~
 ~
 Z 0 29418
@@ -465,8 +563,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29425
 D1
+~
+~
 ~
 ~
 Z 0 29421
@@ -482,16 +584,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29426
 D1
+~
+~
 ~
 ~
 Z 0 29422
 D2
 ~
 ~
+~
+~
 Z 0 29416
 D3
+~
+~
 ~
 ~
 Z 0 29420
@@ -507,16 +617,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29427
 D1
+~
+~
 ~
 ~
 Z 0 29423
 D2
 ~
 ~
+~
+~
 Z 0 29417
 D3
+~
+~
 ~
 ~
 Z 0 29421
@@ -532,16 +650,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29428
 D1
+~
+~
 ~
 ~
 Z 0 29424
 D2
 ~
 ~
+~
+~
 Z 0 29435
 D3
+~
+~
 ~
 ~
 Z 0 29422
@@ -557,12 +683,18 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29429
 D2
 ~
 ~
+~
+~
 Z 0 29439
 D3
+~
+~
 ~
 ~
 Z 0 29423
@@ -578,16 +710,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29431
 D1
+~
+~
 ~
 ~
 Z 0 29426
 D2
 ~
 ~
+~
+~
 Z 0 29420
 D3
+~
+~
 ~
 ~
 Z 0 29419
@@ -603,16 +743,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29432
 D1
+~
+~
 ~
 ~
 Z 0 29427
 D2
 ~
 ~
+~
+~
 Z 0 29421
 D3
+~
+~
 ~
 ~
 Z 0 29425
@@ -628,16 +776,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29433
 D1
+~
+~
 ~
 ~
 Z 0 29428
 D2
 ~
 ~
+~
+~
 Z 0 29422
 D3
+~
+~
 ~
 ~
 Z 0 29426
@@ -653,12 +809,18 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29429
 D2
 ~
 ~
+~
+~
 Z 0 29423
 D3
+~
+~
 ~
 ~
 Z 0 29427
@@ -674,8 +836,12 @@ thick wisps of smoke all around.
 D2
 ~
 ~
+~
+~
 Z 0 29424
 D3
+~
+~
 ~
 ~
 Z 0 29428
@@ -691,8 +857,12 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29431
 D2
+~
+~
 ~
 ~
 Z 0 29419
@@ -708,12 +878,18 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29432
 D2
 ~
 ~
+~
+~
 Z 0 29426
 D3
+~
+~
 ~
 ~
 Z 0 29430
@@ -729,12 +905,18 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29433
 D2
 ~
 ~
+~
+~
 Z 0 29426
 D3
+~
+~
 ~
 ~
 Z 0 29431
@@ -750,12 +932,18 @@ thick wisps of smoke all around.
 D1
 ~
 ~
+~
+~
 Z 0 29434
 D2
 ~
 ~
+~
+~
 Z 0 29427
 D3
+~
+~
 ~
 ~
 Z 0 29432
@@ -771,8 +959,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29451
 D3
+~
+~
 ~
 ~
 Z 0 29433
@@ -788,12 +980,18 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29423
 D1
 ~
 ~
+~
+~
 Z 0 29439
 D2
+~
+~
 ~
 ~
 Z 0 29436
@@ -809,8 +1007,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29435
 D1
+~
+~
 ~
 ~
 Z 0 29437
@@ -826,12 +1028,18 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29439
 D1
 ~
 ~
+~
+~
 Z 0 29438
 D3
+~
+~
 ~
 ~
 Z 0 29436
@@ -847,8 +1055,12 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29440
 D3
+~
+~
 ~
 ~
 Z 0 29437
@@ -864,16 +1076,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29424
 D1
+~
+~
 ~
 ~
 Z 0 29440
 D2
 ~
 ~
+~
+~
 Z 0 29437
 D3
+~
+~
 ~
 ~
 Z 0 29435
@@ -889,16 +1109,24 @@ thick wisps of smoke all around.
 D0
 ~
 ~
+~
+~
 Z 0 29441
 D1
+~
+~
 ~
 ~
 Z 0 29442
 D2
 ~
 ~
+~
+~
 Z 0 29438
 D3
+~
+~
 ~
 ~
 Z 0 29439
@@ -915,8 +1143,12 @@ to be a hasty attempt to get somewhere.
 D1
 ~
 ~
+~
+~
 Z 0 29444
 D2
+~
+~
 ~
 ~
 Z 0 29440
@@ -933,12 +1165,18 @@ to be a hasty attempt to get somewhere.
 D0
 ~
 ~
+~
+~
 Z 0 29444
 D1
 ~
 ~
+~
+~
 Z 0 29443
 D3
+~
+~
 ~
 ~
 Z 0 29440
@@ -955,8 +1193,12 @@ to be a hasty attempt to get somewhere.
 D0
 ~
 ~
+~
+~
 Z 0 29447
 D3
+~
+~
 ~
 ~
 Z 0 29442
@@ -973,16 +1215,24 @@ to be a hasty attempt to get somewhere.
 D0
 ~
 ~
+~
+~
 Z 0 29445
 D1
+~
+~
 ~
 ~
 Z 0 29447
 D2
 ~
 ~
+~
+~
 Z 0 29442
 D3
+~
+~
 ~
 ~
 Z 0 29441
@@ -999,8 +1249,12 @@ to be a hasty attempt to get somewhere.
 D1
 ~
 ~
+~
+~
 Z 0 29446
 D2
+~
+~
 ~
 ~
 Z 0 29444
@@ -1017,8 +1271,12 @@ to be a hasty attempt to get somewhere.
 D2
 ~
 ~
+~
+~
 Z 0 29447
 D3
+~
+~
 ~
 ~
 Z 0 29445
@@ -1035,16 +1293,24 @@ to be a hasty attempt to get somewhere.
 D0
 ~
 ~
+~
+~
 Z 0 29446
 D1
+~
+~
 ~
 ~
 Z 0 29448
 D2
 ~
 ~
+~
+~
 Z 0 29443
 D3
+~
+~
 ~
 ~
 Z 0 29444
@@ -1061,8 +1327,12 @@ to be a hasty attempt to get somewhere.
 D2
 ~
 ~
+~
+~
 Z 0 29449
 D3
+~
+~
 ~
 ~
 Z 0 29447
@@ -1079,8 +1349,12 @@ attempt to make a pathway through it.
 D0
 ~
 ~
+~
+~
 Z 0 29448
 D1
+~
+~
 ~
 ~
 Z 0 29450
@@ -1095,8 +1369,12 @@ sounds of people far off in the distance.
 D1
 ~
 ~
+~
+~
 Z 0 29850
 D3
+~
+~
 ~
 ~
 Z 0 29449
@@ -1111,8 +1389,12 @@ and mud slurps noisily as you walk. The pathway continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29452
 D2
+~
+~
 ~
 ~
 Z 0 29434
@@ -1127,8 +1409,12 @@ and mud slurps noisily as you walk. The pathway continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29451
 D3
+~
+~
 ~
 ~
 Z 0 29453
@@ -1144,8 +1430,12 @@ the small region surrounded by the fence.
 D1
 ~
 ~
+~
+~
 Z 0 29452
 D3
+~
+~
 ~
 ~
 Z 0 29455
@@ -1160,6 +1450,8 @@ go north out of the hut.
 D0
 ~
 ~
+~
+~
 Z 0 29455
 S
 #29455
@@ -1172,16 +1464,24 @@ There are some claw marks in the mud that appear quite recent.
 D0
 ~
 ~
+~
+~
 Z 0 29457
 D1
+~
+~
 ~
 ~
 Z 0 29453
 D2
 ~
 ~
+~
+~
 Z 0 29454
 D3
+~
+~
 ~
 ~
 Z 0 29456
@@ -1196,6 +1496,8 @@ around.
 D1
 ~
 ~
+~
+~
 Z 0 29455
 S
 #29457
@@ -1207,16 +1509,24 @@ huts still stand to the east and west of you.
 D0
 ~
 ~
+~
+~
 Z 0 29458
 D1
+~
+~
 ~
 ~
 Z 0 29460
 D2
 ~
 ~
+~
+~
 Z 0 29455
 D3
+~
+~
 ~
 ~
 Z 0 29459
@@ -1231,6 +1541,8 @@ lies to the north and another is in the east.
 D2
 ~
 ~
+~
+~
 Z 0 29457
 S
 #29459
@@ -1240,6 +1552,8 @@ this village did a very good job.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z 0 29457
@@ -1253,12 +1567,13 @@ here in the Arkham swamps.
 D3
 ~
 ~
+~
+~
 Z 0 29457
 S
 #0
 
 #RESETS
-D 0 29400 3 1	* Outside the east gate of Arkham: door to the west: closed
 M 0 29400 1 29436 1	* a swamp ogre (In the Arkham swamps)
 S
 

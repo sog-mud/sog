@@ -1,401 +1,412 @@
 #AREADATA
+Ver 7
 Name Arkham Legion~
 VNUMs 29500 29899
 Credits Ceran~
 Security 9
 LevelRange 30 44
-ManualRare 5
 End
 
 #MOBILES
 #29700
 arkham guard~
 an Arkham guard~
-An Arkham guard in darkened armor is preparing for the oncoming battle.
-~
+An Arkham guard in darkened armor is preparing for the oncoming battle.~
 This man has been waiting for this moment for years. The assault on the tower
 of Arkham's Legion will put all his skills to test. The evil that resides here
 is strong, but he believes that good will triumph.
 ~
 human~
-AG F 900 0
-42 0 25d50+4000 1d1+1000 5d6+25 punch
+GJ 0 0 0 B 900 0
+42 0 25d50+4000 1d1+1000 5d6+25 'punch'
 -15 -15 -15 -4
-CDEK A 0 0 stand stand male 1000
+CDEK
+stand stand male 1000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
 #29701
 arkham ranger~
 an Arkham ranger~
-A tall ranger in forest green armor is watching out for signs of trouble.
-~
+A tall ranger in forest green armor is watching out for signs of trouble.~
 The Arkham templars have more than just the holy warriors on their side. The
 rangers of the local lands have joined their attack on the Legion tower and
 are providing forward warning of any surprise counter attacks.
 ~
 human~
-ABG DEF 400 0
-47 0 25d10+5300 1d1+1000 6d6+72 sting
+BGJ 0 0 0 ABL 400 0
+47 0 25d10+5300 1d1+1000 6d6+72 'sting'
 -25 -25 -25 -17
-DEK A 0 0 stand stand male 1000
+DEK
+stand stand male 1000
 0 0 medium unknown
-R cur 0 0 0 33 0 0 0 0 0 0 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
 #29702
 arkham crusader dwarf~
 arkham crusader~
-A powerful dwarf regards the darkness around him with utter hatred.
-~
+A powerful dwarf regards the darkness around him with utter hatred.~
 This dwarf is the last of the true crusaders of Arkham. His fellow crusaders
 were massacred by the ancients of Legion and now he has come for revenge and
 a final reckoning. Whether he finds peace of mind or eternal peace of body
 is yet to be decided...
 ~
 dwarf~
-ABG DEFVZ 0 0
-48 100 10d10+7000 1d1+1000 10d10+190 divine
+BGJ 0 V 0 ABL 0 0
+48 100 10d10+7000 1d1+1000 10d10+190 'divine'
 -30 -30 -30 -30
-CDEKO ABNQ 0 0 stand stand male 3000
+CDEKO
+stand stand male 3000
 0 0 large unknown
-R cur 0 0 60 60 0 0 0 0 0 0 0 0 50 33 0 0 0 20 0 40 0 0 0 0 0 0
-R fact CI
+r holy 100
+r disease 100
+r charm 100
 #29703
 templar arkham commander~
 the Arkham commander~
-A grand templar is here going over the final arrangements for the attack.
-~
+A grand templar is here going over the final arrangements for the attack.~
 This proud and royal paladin has lead the Arkham forces through the swamps to
 this island and is preparing for the assault on the Legion tower.
 ~
 human~
-ABGT DEFH 900 0
-49 1 25d10+5700 1d1+1000 6d6+124 punch
+BGJT 0 H 0 ABL 900 0
+49 1 25d10+5700 1d1+1000 6d6+124 'punch'
 -26 -25 -27 -20
-CDEKO AB 0 0 stand stand male 3000
+CDEKO
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 0 33 0 0 0 0 0 0 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0
-R fact C
+r charm 100
 #29704
 apprentice necromancer~
 an apprentice necromancer~
-A gaunt young student of necromancy glares at you with superior contempt.
-~
+A gaunt young student of necromancy glares at you with superior contempt.~
 Arrogant and evil, this young apprentice has the might of Legion behind him
 and has fears little. He is safe in his knowledge that the Masters will
 destroy the puny forces gathering outside the tower.
 ~
 human~
-AGR F -800 29700
-35 0 10d10+1200 1d1+1000 4d7+10 punch
+GJR 0 0 0 B -800 29700
+35 0 10d10+1200 1d1+1000 4d7+10 'punch'
 -11 -11 -11 -5
-E AB 0 0 stand stand male 1283
+E
+stand stand male 1283
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29705
 apprentice demonologist~
 an apprentice demonologist~
-A black robed student sketches a hexagram in the air and points at you!
-~
+A black robed student sketches a hexagram in the air and points at you!~
 Arrogant and evil, this young apprentice has the might of Legion behind him
 and has fears little. He is safe in his knowledge that the Masters will
 destroy the puny forces gathering outside the tower.
 ~
 human~
-AFGR F -900 29700
-35 0 10d10+1200 1d1+1000 4d7+10 punch
+FGJR 0 0 0 B -900 29700
+35 0 10d10+1200 1d1+1000 4d7+10 'punch'
 -11 -11 -11 -5
-F AB 0 0 stand stand male 1333
+F
+stand stand male 1333
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29706
 half nightwalker half-moon~
 a half-moon nightwalker~
-A nightwalker turns to watch you from the shadows.
-~
+A nightwalker turns to watch you from the shadows.~
 This nightwalker is silent and watchful, acting as he has been taught by the
 Masters, but not truly grasping the essence of his true destiny. Until his
 powers are properly controlled he will remain little more than a pawn to
 the Masters of Legion as they cull out their weak in the oncoming battles.
 ~
 human~
-AFGRT DEFQ -1000 29700
-35 0 10d10+1350 1d1+1000 4d7+11 punch
+FGJRT 0 0 B ABL -1000 29700
+35 0 10d10+1350 1d1+1000 4d7+11 'punch'
 -11 -11 -11 -5
-K ABKLM 0 0 stand stand male 0
+K
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r poison 100
+r negative 100
+r charm 100
 #29707
 apprentice anti-paladin anti~
 an apprentice anti-paladin~
-A strong looking man with harsh black eyes regards you with pure disdain.
-~
+A strong looking man with harsh black eyes regards you with pure disdain.~
 This young anti-paladin has the arrogance and evilness of one who hides
 amidst the might of Legion. He has yet to learn the true powers of darkness,
 and until then will be little more than battle-fodder to be used by the
 Masters until the weak have all been culled.
 ~
 human~
-AFGRT F -1000 29700
-36 0 10d10+1450 1d1+1000 3d10+11 punch
+FGJRT 0 0 0 B -1000 29700
+36 0 10d10+1450 1d1+1000 3d10+11 'punch'
 -12 -12 -12 -7
-F ABKLM 0 0 stand stand male 0
+F
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r poison 100
+r negative 100
+r charm 100
 #29708
 lesser zombie~
 a lesser zombie~
-A pale and badly formed zombie stumbles toward you.
-~
+A pale and badly formed zombie stumbles toward you.~
 This petty undead has been raised as practice for the new necromancers of
 Legion. The poor soul who's body was sacrificed for the studies was almost
 certainly an innocent person from nearby Arkham.
 ~
 zombie~
-AFGOT 0 -1000 0
-32 0 10d10+1000 1d1+100 6d4+9 none
+FGJOT 0 0 0 0 -1000 0
+32 0 10d10+1000 1d1+100 6d4+9 'none'
 -10 -10 -8 0
-EK AKM 0 0 stand stand none 0
+EK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r negative 100
 #29709
 skeleton~
 a staggering skeleton~
-A poorly preserved skeleton is here serving it's master.
-~
+A poorly preserved skeleton is here serving it's master.~
 One of the weaker and less subtle forms of necromantic magic. The raising of
 this skeleton is the work of some eager apprentice's application of his
 unholy power.
 ~
 undead~
-AFGOT 0 -1000 0
-30 0 6d12+853 1d1+100 4d6+8 none
+FGJOT 0 0 0 0 -1000 0
+30 0 6d12+853 1d1+100 4d6+8 'none'
 -7 -8 -15 -4
-EK ABKM 0 0 stand stand none 0
+EK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 -33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r negative 100
+r charm 100
 #29710
 minor imp~
 a minor imp~
-A small ghastly looking imp sits here watching you with malice.
-~
+A small ghastly looking imp sits here watching you with malice.~
 This little imps has the eyes of something truly wicked. It peers at you with
 hungry eyes and hisses, awaiting release from it's master so it may feed!
 ~
 human~
-ABGT DEF -1000 0
-28 0 6d12+710 1d1+100 2d12+8 bite
+BGJT 0 0 0 ABL -1000 0
+28 0 6d12+710 1d1+100 2d12+8 'bite'
 -5 -6 -7 -6
-EK AKL 0 0 rest stand male 0
+EK
+rest stand male 0
 0 0 small unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r poison 100
 #29711
 hellion familiar~
 a demonic familiar~
-A twisted hellion hisses and claws at you in hunger!
-~
+A twisted hellion hisses and claws at you in hunger!~
 This little beast from the abyss seems to have broken it's enslavement to it's
 master and now just wants to FEED!
 ~
 human~
-ABFGT DEF -1000 0
-32 0 10d10+1000 1d1+100 6d4+10 claw
+BFGJT 0 0 0 ABL -1000 0
+32 0 10d10+1000 1d1+100 6d4+10 'claw'
 -11 -11 -11 -4
-EK ABKLM 0 0 stand stand none 0
+EK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r poison 100
+r negative 100
+r charm 100
 #29712
 man black legion instructor~
 a Legion instructor~
-A man cloaked in black stands here watching the students.
-~
+A man cloaked in black stands here watching the students.~
 This man has risen high enough in the ranks of Legion to command the lower
 ranks of students, but has not the aptitude or influence to go further. He
 tasks his students hard, punishing them for his own failures and resents
 teaching those who may someday surpass his position.
 ~
 human~
-ABFGRT DEFPQu -1000 29700
-37 0 10d10+1600 1d1+100 3d10+12 punch
+BFGJRT 0 J BG ABL -1000 29700
+37 0 10d10+1600 1d1+100 3d10+12 'punch'
 -12 -12 -12 -8
-CDEFK ABKLM 0 0 stand stand male 0
+CDEFK
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r poison 100
+r negative 100
+r charm 100
 #29713
 legion guard~
 a Legion guard~
-A Legion guard is here preparing for the slaughter to come.
-~
+A Legion guard is here preparing for the slaughter to come.~
 Big, dumb and ugly. This guard was probably one of the rejects from Arkham's
 normal guards and was instead recruited by Legion as meat-fodder in both the
 battles it undergoes, and as convenient meat for necromancers to practice on.
 ~
 giant~
-AFGT F -800 29700
-36 0 10d10+1500 1d1+100 3d10+12 punch
+FGJT 0 0 0 B -800 29700
+36 0 10d10+1500 1d1+100 3d10+12 'punch'
 -13 -13 -13 -13
-CDEKU AB 0 0 stand stand either 1000
+CDEKU
+stand stand either 1000
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29714
 draconian legionaire legion~
 a draconian Legionaire~
-A draconian in black Legion robes hisses and glares with evil yellow eyes.
-~
+A draconian in black Legion robes hisses and glares with evil yellow eyes.~
 Very big, very dumb. This is the corps of Legion's dark mortal armies and
 serves as fodder in the fights it has against those that oppose Legion's
 might. Because of it's strength this one has been selected to remain in the
 tower during the oncoming raid by Arkham's guards.
 ~
 draconian~
-AFGT F -890 29700
-38 0 10d10+1700 1d1+100 5d6+13 claw
+FGJT 0 0 0 B -890 29700
+38 0 10d10+1700 1d1+100 5d6+13 'claw'
 -13 -14 -15 -5
-CDF AB 0 0 stand stand none 1000
+CDF
+stand stand none 1000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29715
 shadow~
 a shadow~
-A flickering shadow tears through the darkness!
-~
+A flickering shadow tears through the darkness!~
 It is nothing but a trick of the light, a mere illusion of shadows. But it
 also has essence and seems quite capable of inflicting serious wounds...
 ~
 human~
-AFGT DEF -1000 0
-39 0 15d10+1700 1d1+100 5d6+13 frbite
+FGJT 0 0 0 ABL -1000 0
+39 0 15d10+1700 1d1+100 5d6+13 'frbite'
 0 0 0 0
-F AB 0 0 stand stand none 0
+F
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29716
 legion necromancer~
 a legion animator~
-A necromancer walks amongst the corpses granting unlife to them.
-~
+A necromancer walks amongst the corpses granting unlife to them.~
 This necromancer is one of the last remaining mid-rank mages of Legion to
 remain in the tower during the oncoming siege. He has stayed in order to
 maintain the undead forces that will fight while the Masters prepare the
 great powers at the top of the tower.
 ~
 human~
-AFG Du -1000 0
-41 0 10d10+2500 1d1+100 1d1+20 punch
+FGJ 0 J 0 A -1000 0
+41 0 10d10+2500 1d1+100 1d1+20 'punch'
 -10 -10 -10 -16
-F AB 0 0 stand stand male 2400
+F
+stand stand male 2400
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+r charm 100
 #29717
 crescent nightwalker crescent-moon~
 a crescent-moon nightwalker~
-A powerful nightwalker stands in the shadows breathing heavily.
-~
+A powerful nightwalker stands in the shadows breathing heavily.~
 This mid-rank nightwalker has remained in the tower while the rest of the
 mid-ranks have left for another Legion tower. This one remains to help
 build up the shadows that will fight in the oncoming battles while the
 Master nightwalkers prepare the great powers on the roof of the tower.
 ~
 giant~
-ABFG DEF -1000 0
-41 1 15d10+3850 1d1+100 4d8+44 frbite
+BFGJ 0 0 0 ABL -1000 0
+41 1 15d10+3850 1d1+100 4d8+44 'frbite'
 -15 -15 -15 -10
-CDEFK ABKLM 0 0 stand stand none 0
+CDEFK
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r acid 100
+r poison 100
+r negative 100
+r charm 100
 #29718
 monster zombie~
 a monster zombie~
-A huge zombie stares at you with a hunger unmatched by the living.
-~
+A huge zombie stares at you with a hunger unmatched by the living.~
 This creature's corpse has been granted a new unlife, brought back for the
 duration to fight the invading knights of Arkham. It's dull, empty eyes
 show nothing but the emptiness of the undead.
 ~
 zombie~
-ABGO 0 -1000 0
-40 0 15d10+3750 1d1+100 4d8+33 none
+BGJO 0 0 0 0 -1000 0
+40 0 15d10+3750 1d1+100 4d8+33 'none'
 -12 -13 -16 -5
-DEF AM 0 0 stand stand none 0
+DEF
+stand stand none 0
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r negative 100
 #29719
 mummy~
 a mummy~
-A mummy wrapped in bloody rags shuffles towards you with outstretched arms.
-~
+A mummy wrapped in bloody rags shuffles towards you with outstretched arms.~
 This body is nothing more than the animated remains of some poor victim, but
 in it's new unlife it possess strength unmatched by it's living self. It's
 arms reach out for you, seeking warmth and life that it itself has lost.
 ~
 giant~
-AFGO DEF -1000 0
-41 0 15d10+3850 1d1+100 4d8+44 smash
+FGJ 0 0 0 ABL -1000 0
+41 0 15d10+3850 1d1+100 4d8+44 'smash'
 -17 -16 -18 -10
-CDEK ABLM 0 0 stand stand none 0
-0 0 large unknown
-R cur 0 0 0 33 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+CDEK
+stand stand none 0
+I 0 large unknown
+r poison 100
+r negative 100
+r charm 100
 #29720
 skeleton~
 a skeleton~
-A skeleton swivels it's skull around and stares right through you.
-~
+A skeleton swivels it's skull around and stares right through you.~
 This skeleton is all that remains of some unfortunate victim that was unlucky
 enough to fall into the hands of Legion. With his or her flesh stripped away
 all that has been left is the skeletal frame that now lives on by neromantic
 power.
 ~
 undead~
-AFGOT E -650 0
-35 0 10d10+1300 1d1+100 4d7+11 pierce
+FGJOT 0 0 0 L -650 0
+35 0 10d10+1300 1d1+100 4d7+11 'pierce'
 -11 -11 -11 -2
-EK AB 0 0 stand stand none 0
+EK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29721
 lord lich~
 a Lich lord of Legion~
-A demonic man points in your direction and his eyes burn bright blue!
-~
+A demonic man points in your direction and his eyes burn bright blue!~
 This dark archmage has remained behind in the tower to help raise the army
 that will fight the invading Arkham guards, and he is NOT pleased by your
 sudden intrusion!
 ~
 human~
-ABFGO DEFu -1000 0
-45 0 1d1+2200 1d1+100 6d6+80 scratch
+BFGJ 0 J 0 ABL -1000 0
+45 0 1d1+2200 1d1+100 6d6+80 'scratch'
 -20 -20 -20 -20
-ADFZ ABLM 0 0 stand stand none 3000
-0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+ADFZ
+stand stand none 3000
+I 0 medium unknown
+r poison 100
+r negative 100
+r charm 100
 #29722
 blackheart guard~
 the Blackheart guard~
-A huge guard that barely fits in the room is here guarding the way.
-~
+A huge guard that barely fits in the room is here guarding the way.~
 This massive giant has been assigned the duty of preventing any wayward
 undead from wandering from their room until the main battle begins. He also
 serves as a good deterant to anyone foolish enough to have come this far up
 into the tower.
 ~
 giant~
-ABG DEF -1000 0
-45 1 25d10+5000 1d1+100 6d6+80 punch
+BGJ 0 0 0 ABL -1000 0
+45 1 25d10+5000 1d1+100 6d6+80 'punch'
 -22 -22 -22 -10
-CDK A 0 0 stand stand male 0
+CDK
+stand stand male 0
 0 0 giant unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
 #29723
 master necromancer~
 a Master necromancer~
-A figure in black robes is weaving dweomers of ancient power.
-~
+A figure in black robes is weaving dweomers of ancient power.~
 This necromancer is at the highest echelon of the Legion's archmages. He
 now seeks the ultimate power, that of lich-hood. But before he can continue
 with his studies the rabble that are preparing to raid the tower must be
@@ -403,257 +414,288 @@ dealt with....with a soft hiss he prepares another powerful spell for the
 coming battle.
 ~
 human~
-ABFG DEFu -1000 29700
-46 0 25d10+3000 1d1+1000 6d6+91 wrath
+BFGJ 0 J 0 ABL -1000 29700
+46 0 25d10+3000 1d1+1000 6d6+91 'wrath'
 -20 -20 -20 -25
-FKX ABLM 0 0 stand stand male 2000
+FKX
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+r poison 100
+r negative 100
+r charm 100
 #29724
 master demon summoner~
 a Master demon summoner~
-A cowled figure raises it's arms and calls forth the darkness!
-~
+A cowled figure raises it's arms and calls forth the darkness!~
 This master of the abyss is pulling together his power to call forth the
 demons that will aid in the destruction of Arkham's guards and an end to
 the opposition Legion has been facing here.
 ~
 human~
-ABFG DEFu -1000 29700
-46 0 1d1+2700 1d1+1000 6d6+91 wrath
+BFGJ 0 J 0 ABL -1000 29700
+46 0 1d1+2700 1d1+1000 6d6+91 'wrath'
 -20 -20 -20 -25
-FKX ABLM 0 0 stand stand male 2000
+FKX
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact G
+r poison 100
+r negative 100
+r charm 100
 #29725
 eclipsed nightwalker eclipsed-moon~
 an eclipsed-moon nightwalker~
-A deadly nightwalker steps out of the shadows.
-~
+A deadly nightwalker steps out of the shadows.~
 This servant of ancient darkness walks between the planes of night and the
 material world, and has been called forth into the tower to guard against
 those who would oppose Legion's might.
 ~
 human~
-AFG DEFV -1000 0
-46 0 25d10+5200 1d1+1000 6d6+91 frbite
+FGJ 0 V 0 ABL -1000 0
+46 0 25d10+5200 1d1+1000 6d6+91 'frbite'
 -21 -21 -21 -16
-CDEFHK ABIKLM 0 0 stand stand none 0
+CDEFHK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 -33 0 0 0 0 0 0 0
-R fact A
+r cold 100
+r acid 100
+r poison 100
+r negative 100
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #29726
 anti anti-paladin~
 an evil incarnate~
-An anti-paladin of demonic power is preparing for battle.
-~
+An anti-paladin of demonic power is preparing for battle.~
 This anti-paladin stands powerful and dominating. There is nothing this
 evil incarnate will not do, and the blood that soaks them is their bath.
 ~
 giant~
-AFG D -1000 0
-46 1 25d10+5200 1d1+100 6d6+91 punch
+FGJ 0 0 0 A -1000 0
+46 1 25d10+5200 1d1+100 6d6+91 'punch'
 -21 -21 -22 -12
-CDEFK AB 0 0 stand stand either 3000
+CDEFK
+stand stand either 3000
 0 0 large unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact E
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #29727
 thuringwethil vampire~
 Thuringwethil~
-A vampire surrounded in a cloud of black smoke is guarding the way.
-~
+A vampire surrounded in a cloud of black smoke is guarding the way.~
 Upon closer inspection you can see that the mist that seems to surround this
 ancient vampire is, in fact, part of it. The darkness is so strong around
 it that it has formed a tangible, solid cloak of night.
 ~
 human~
-ABFG DEFu -1000 0
-45 0 25d10+4000 1d1+100 6d6+110 wrath
+BFGJ 0 J 0 ABL -1000 0
+45 0 25d10+4000 1d1+100 6d6+110 'wrath'
 -22 -22 -22 -22
-ACDFKV ABILM 0 0 stand stand none 0
+ACDFKV
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 0 0 33 0 33 0 0 0 0 0 0 -33 0 0 0 0 -33 0 0 0 0 0 0 0
-R fact A
+r cold 100
+r poison 100
+r negative 100
+r charm 100
+m mob_fight mob_fight_cast_undead 100~
 #29728
 greater demon pazuzu~
 Pazuzu~
-A huge demon with blackened wings rises up to meet you!
-~
+A huge demon with blackened wings rises up to meet you!~
 The wings of this demon are razor sharp and beat slowly with deadly cutting
 might. It turns it's fierce red eyes upon you and screeches!
 ~
 giant~
-ABFG DEFu -1000 0
-45 0 25d10+5000 1d1+100 6d6+80 claw
+BFGJ 0 J 0 ABL -1000 0
+45 0 25d10+5000 1d1+100 6d6+80 'claw'
 -25 -25 -25 -20
-ACDFKVX AB 0 0 stand stand none 0
+ACDFKVX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 50 30 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
+m mob_fight mob_fight_breath_gas 100~
 #29729
 shadow titan~
 the shadow of a greater titan~
-A massive shadow of a slain titan stands here in eternal service to the dark.
-~
+A massive shadow of a slain titan stands here in eternal service to the dark.~
 One of the lesser titan's imprisoned within Malebolge has had it's sentence
 temporarily removed. It now lives trapped here as a shadow, bound by powerful
 magic to keep it guarding the tower.
 ~
 giant~
-ABG DEF -1000 0
-45 0 25d10+5000 1d1+100 6d6+80 drain
+BGJ 0 0 0 ABL -1000 0
+45 0 25d10+5000 1d1+100 6d6+80 'drain'
 -25 -25 -25 -20
-ACDFKVX AB 0 0 stand stand none 0
+ACDFKVX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 0 0 0 0 0 -33 0 0 0 0 0 -33 0 0 0 0 -33 0 0 0 0 0 0 0
-R fact A
+r charm 100
+m mob_fight mob_fight_breath_frost 100~
 #29730
 black knight~
 the Black knight of Legion~
-The Black knight of Arkham's Legion stands here guarding his hall.
-~
+The Black knight of Arkham's Legion stands here guarding his hall.~
 This undead anti-paladin is hanging between full deathknight power and just
 mortal ability. He guards this turret as a way of showing his service to
 Legion, and in hope that the Lords of Legion will look upon him with favour
 and grant him the final step towards deathknight-hood, and immortality.
 ~
 giant~
-ABG DEFV -1000 0
-45 0 25d10+5000 1d1+100 6d6+80 punch
+BGJ 0 V 0 ABL -1000 0
+45 0 25d10+5000 1d1+100 6d6+80 'punch'
 -25 -25 -25 -20
-ACDFHKOVX AB 0 0 stand stand none 0
+ACDFHKOVX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact E
+r charm 100
 #29731
 hooded figure necromancer~
 a hooded necromancer~
-A hooded figure is here chanting soft necromantic words.
-~
+A hooded figure is here chanting soft necromantic words.~
 This is the head necromancer of the Arkham cabal of Legion. He serves as
 the prime mover of the region's undead power and is capable of calling upon
 even the most powerful undead in times of need. Right now he seems to be in
 the middle of an extremely powerful incantation...
 ~
 human~
-AB DEFu -1000 0
-48 0 25d10+2000 1d1+100 6d6+23 drain
+BJ 0 J 0 ABL -1000 0
+48 0 25d10+2000 1d1+100 6d6+23 'drain'
 -30 -30 -30 -25
-AFV ABLMQ 0 0 stand stand male 3000
+AFV
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+r poison 100
+r negative 100
+r disease 100
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #29732
 hooded figure demonologist~
 a hooded demonologist~
-A hooded figure raises it's hands and burns a flaming pentegram in the air.
-~
+A hooded figure raises it's hands and burns a flaming pentegram in the air.~
 You gaze upon a hooded figure who raises it's head briefly. Beneath the cowl
 a skeletal face stares back at you with a lich's burning red eyes!
 It's eyes glow briefly and then it resumes building up it's magical hex with
 little care for your mortal prescence.
 ~
 human~
-AB DEFu -1000 0
-48 0 25d10+2000 1d1+100 6d6+23 suction
+BJ 0 J 0 ABL -1000 0
+48 0 25d10+2000 1d1+100 6d6+23 'suction'
 -30 -30 -30 -25
-AFW ABLMQ 0 0 stand stand male 3000
+AFW
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #29733
 hooded figure nightwalker~
 a Darkstar nightwalker~
-A hooded figure is here breathing heavily.
-~
+A hooded figure is here breathing heavily.~
 Dark faced creature dressed in a black robe gazes at you with his green
 eyes. Waves of fear pass around him and greater power fill air with hatred 
 to all who can breath.
 ~
 giant~
-AB DEFu -1000 0
-48 1 25d10+4500 1d1+100 6d6+143 frbite
+BJ 0 J 0 ABL -1000 0
+48 1 25d10+4500 1d1+100 6d6+143 'frbite'
 -30 -30 -30 -25
-ACDEFKW ABILMQ 0 0 stand stand male 3000
+ACDEFKW
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact G
+r cold 100
+r poison 100
+r negative 100
+r disease 100
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #29734
 hooded figure anti anti-paladin~
 a hooded anti-paladin~
-A hooded figure stares through the darkness and right at you!
-~
+A hooded figure stares through the darkness and right at you!~
 You gaze upon one of the greatest anti-paladins of Legion, one who has fully
 attained immortal life in the form of a deathknight. He has remained here in
 the tower to destroy what puny forces Arkham may mount against Legion.
 ~
 giant~
-ABO DEFu -1000 0
-48 1 25d10+5500 1d1+100 6d6+113 beating
+BJ 0 J 0 ABL -1000 0
+48 1 25d10+5500 1d1+100 6d6+113 'beating'
 -30 -30 -30 -25
-ACDEFKOWX ABILMQ 0 0 stand stand male 3000
-0 0 giant unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact E
+ACDEFKOWX
+stand stand male 3000
+I 0 giant unknown
+r cold 100
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #29735
 shadowlord legionshadowlord~
 a shadowlord~
-A creature from the negative plane reaches for your soul!
-~
+A creature from the negative plane reaches for your soul!~
 Nothing but pure darkness and glowing red eyes stare back at YOU!
 This being of incredible undead power is not pleased to have been raised forth
 and seeks life as payment.
 ~
 human~
-ABFGORT DFZ -1000 0
-50 2 50d10+5500 1d1+2000 5d8+180 divine
+BFGJRT 0 0 0 AB -1000 0
+50 2 50d10+5500 1d1+2000 5d8+180 'divine'
 -30 -30 -30 -25
-CDEFJKWXZ ABCLMPQ 0 0 stand stand male 3000
-0 0 giant unknown
-R cur 0 0 33 33 0 0 0 -33 0 0 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0
-R fact CH
+CDEFJKWXZ
+stand stand male 3000
+I 0 giant unknown
+r poison 100
+r negative 100
+r mental 100
+r disease 100
+r charm 100
+r magic 100
+m mob_fight mob_fight_breath_any 100~
 #29736
 demogorgon legiondemogorgon~
 the Demogorgon~
-A massive creature with twin ape heads thrashes within the pentegram.
-~
+A massive creature with twin ape heads thrashes within the pentegram.~
 This is the Demogorgon, Queen of the Undead and ruler of one of the largest
 layers of the Abyss. Her prescence here on the mortal planes is almost unheard
 of and she herself is not pleased to be called forth. She turns her massive
 twin heads toward you and bellows in rage, demanding her release!
 ~
 giant~
-ABFGORT DFZu -1000 0
-50 2 50d10+5500 1d1+2000 5d8+180 bite
+BFGJRT 0 J 0 AB -1000 0
+50 2 50d10+5500 1d1+2000 5d8+180 'bite'
 -30 -30 -30 -25
-CDEFJKMOVXZ ABCLMPQ 0 0 stand stand female 3000
-0 0 giant unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact AG
+CDEFJKMOVXZ
+stand stand female 3000
+I 0 giant unknown
+r poison 100
+r negative 100
+r mental 100
+r disease 100
+r charm 100
+r magic 100
+m mob_fight mob_fight_breath_gas 100~
 #29737
 vortex~
 a vortex~
-A gigantic vortex of negative energy surges violently upon the roof!
-~
+A gigantic vortex of negative energy surges violently upon the roof!~
 This appears like a blackhole, where nothing that goes in comes back out. It
 would not be a good idea to stay around it too long...
 ~
 human~
-ABFGORT DFV -1000 0
-50 15 50d10+5500 1d1+2000 5d8+70 drain
+BFGJRT 0 V 0 AB -1000 0
+50 15 50d10+5500 1d1+2000 5d8+70 'drain'
 -30 -30 -30 -30
-AV ABCD 0 0 stand stand none 0
-0 0 giant unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact AG
+AV
+stand stand none 0
+I 0 giant unknown
+r charm 100
+r weapon 100
+r magic 100
 #29738
 ebon black titan~
 a black titan from Malebolge~
-A titanic man with beautiful ebon features stands chained to the roof.
-~
+A titanic man with beautiful ebon features stands chained to the roof.~
 This is one of the mighty titans sent to serve forever within the circle of
 hell named Malebolge. His summons here is both a release and an imprisonment.
 The relief from hell is only overcome by his overwhelming sense of pride and
@@ -661,35 +703,36 @@ anger at being trapped by mere mortals. His service, to fight for Legion in
 the coming days, has only been gained through very costly sacrifices.
 ~
 giant~
-ABFGT DEF -1000 0
-50 100 50d10+5500 1d1+100 5d8+180 drain
+BFGJT 0 0 0 ABL -1000 0
+50 100 50d10+5500 1d1+100 5d8+180 'drain'
 -30 -30 -30 -20
-ACDKOW ABE 0 0 stand stand male 0
+ACDKOW
+stand stand male 0
 0 0 giant unknown
-R cur 0 0 50 50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact CJ
+r bash 100
+r charm 100
 #29739
 ancient gold dragon~
 an ancient gold dragon~
-A massive gold dragon rests idly as it waits patiently for battle.
-~
+A massive gold dragon rests idly as it waits patiently for battle.~
 This dragon has come to aid in the coming battle against Legion. It's time
 is nearing and it is weaker than it's size would indicate, but it wishes to
 do one last great thing for the cause of good before it passes on.
 ~
 dragon~
-ABGRT DEFHZc 1000 0
-46 1 25d10+4200 1d1+100 6d6+121 claw
+BGJRT 0 Hc 0 ABL 1000 0
+46 1 25d10+4200 1d1+100 6d6+121 'claw'
 -25 -25 -25 -20
-CDKMW ABH 0 0 rest stand either 3000
+CDKMW
+rest stand either 3000
 0 0 giant unknown
-R cur 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r fire 100
+r charm 100
+m mob_fight mob_fight_breath_fire 100~
 #29740
 red dragon ancient~
 an ancient red dragon~
-A huge red dragon rises up and beats the air with it's massive wings!
-~
+A huge red dragon rises up and beats the air with it's massive wings!~
 This dragon is awaiting the battle with Arkham's forces and it looking forward
 to a nice tasty meal of human flesh. Afterwards it will join the ranks of the
 undead by sacrificing it's mortal flesh to become a powerful dracolich. It
@@ -697,18 +740,20 @@ wears an unholy amulet that will preserve it's essence during the transition,
 and is looking forward to the next stage of it's existence.
 ~
 draconian~
-ABFGO CDEFGJTu -1000 0
-46 1 25d10+5200 1d1+100 6d6+91 claw
+BFGJ 0 JT 0 ABHKLM -1000 0
+46 1 25d10+5200 1d1+100 6d6+91 'claw'
 -24 -26 -25 -17
-ACDK ABHLQR 0 0 stand stand either 3000
-0 0 giant unknown
-R cur 0 0 60 60 0 0 0 0 0 0 0 0 0 60 0 0 0 0 40 0 0 0 0 0 0 0
-R fact C
+ACDK
+stand stand either 3000
+I 0 giant unknown
+r fire 100
+r poison 100
+r disease 100
+r charm 100
 #29741
 black dragon~
 an ancient black dragon~
-A massive black silhoutte of a dragon stands out against the dark sky.
-~
+A massive black silhoutte of a dragon stands out against the dark sky.~
 The power of Legion has seduced this ancient wyrm with the one thing it cannot
 accomplish itself..the becoming of a dracolich. It wears an amulet that will
 preserve it's essence during the weeks of change, at the end of which it will
@@ -717,18 +762,18 @@ Legion in the oncoming battles, a small favour for the immortality it will
 obtain once raised in lich form.
 ~
 dracolich~
-ABFGO DEFu -1000 0
-46 1 25d10+5200 1d1+100 6d6+91 claw
+BFGJO 0 J 0 ABL -1000 0
+46 1 25d10+5200 1d1+100 6d6+91 'claw'
 -24 -26 -25 -17
-ACDK AK 0 0 stand stand either 3000
+ACDK
+stand stand either 3000
 0 0 giant unknown
-R cur 0 0 60 60 0 0 0 0 0 0 0 0 0 60 0 0 0 0 30 0 0 0 0 0 0 0
-R fact A
+r acid 100
+m mob_fight mob_fight_breath_acid 100~
 #29745
 master necromancer~
 a Master necromancer~
-A figure in black robes is invoking the powers of ancient magic.
-~
+A figure in black robes is invoking the powers of ancient magic.~
 This necromancer is at the highest echelon of the Legion's archmages. He
 now seeks the ultimate power, that of lich-hood. But before he can continue
 with his studies the rabble that are preparing to raid the tower must be
@@ -736,18 +781,19 @@ dealt with....with a soft hiss he prepares another powerful spell for the
 coming battle.
 ~
 human~
-ABFG DEFu -1000 29700
-46 0 25d10+2500 1d1+1000 6d6+21 wrath
+BFGJ 0 J 0 ABL -1000 29700
+46 0 25d10+2500 1d1+1000 6d6+21 'wrath'
 -20 -20 -20 -25
-FK ABLM 0 0 stand stand male 2000
+FK
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+r poison 100
+r negative 100
+r charm 100
 #29746
 master necromancer~
 a Master necromancer~
-A black robed necromancer is here preparing words of death.
-~
+A black robed necromancer is here preparing words of death.~
 This necromancer is at the highest echelon of the Legion's archmages. He
 now seeks the ultimate power, that of lich-hood. But before he can continue
 with his studies the rabble that are preparing to raid the tower must be
@@ -755,85 +801,87 @@ dealt with....with a soft hiss he prepares another powerful spell for the
 coming battle.
 ~
 human~
-ABFG DEFu -1000 29700
-46 0 1d1+2500 1d1+1000 6d6+21 wrath
+BFGJ 0 J 0 ABL -1000 29700
+46 0 1d1+2500 1d1+1000 6d6+21 'wrath'
 -20 -20 -20 -25
-FK ABLM 0 0 stand stand male 2000
+FK
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact H
+r poison 100
+r negative 100
+r charm 100
 #29747
 master demon summoner~
 a Master demon summoner~
-A cowled figure sketches symbols of darkness in the air before it.
-~
+A cowled figure sketches symbols of darkness in the air before it.~
 This master of the abyss is pulling together his power to call forth the
 demons that will aid in the destruction of Arkham's guards and an end to
 the opposition Legion has been facing here.
 ~
 human~
-ABFG DEFu -1000 29700
-46 0 1d1+2500 1d1+1000 6d6+21 wrath
+BFGJ 0 J 0 ABL -1000 29700
+46 0 1d1+2500 1d1+1000 6d6+21 'wrath'
 -20 -20 -20 -25
-FK ABLM 0 0 stand stand male 2000
+FK
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact G
+r poison 100
+r negative 100
+r charm 100
 #29748
 master demon summoner~
 a Master demon summoner~
-A cowled figure's red eyes flare up and reveal a glaring skull!
-~
+A cowled figure's red eyes flare up and reveal a glaring skull!~
 This master of the abyss is pulling together his power to call forth the
 demons that will aid in the destruction of Arkham's guards and an end to
 the opposition Legion has been facing here.
 ~
 human~
-ABFG DEFu -1000 29700
-46 0 1d1+2500 1d1+1000 6d6+21 wrath
+BFGJ 0 J 0 ABL -1000 29700
+46 0 1d1+2500 1d1+1000 6d6+21 'wrath'
 -20 -20 -20 -25
-FK ABLM 0 0 stand stand male 2000
+FK
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact G
+r poison 100
+r negative 100
+r charm 100
 #29749
 legion guard~
 a Legion guard~
-A Legion guard glares around himself looking for a fight.
-~
+A Legion guard glares around himself looking for a fight.~
 Big, dumb and ugly. This guard was probably one of the rejects from Arkham's
 normal guards and was instead recruited by Legion as meat-fodder in both the
 battles it undergoes, and as convenient meat for necromancers to practice on.
 ~
 giant~
-AFGT F -800 29700
-36 0 10d10+1500 1d1+100 3d10+12 punch
+FGJT 0 0 0 B -800 29700
+36 0 10d10+1500 1d1+100 3d10+12 'punch'
 -13 -13 -13 -13
-CDEKU AB 0 0 stand stand either 1000
+CDEKU
+stand stand either 1000
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29750
 legion guard~
 a Legion guard~
-A Legion guard stands here guarding the tower from the oncoming invasion.
-~
+A Legion guard stands here guarding the tower from the oncoming invasion.~
 Big, dumb and ugly. This guard was probably one of the rejects from Arkham's
 normal guards and was instead recruited by Legion as meat-fodder in both the
 battles it undergoes, and as convenient meat for necromancers to practice on.
 ~
 giant~
-AFGT F -800 29700
-36 0 10d10+1500 1d1+100 3d10+12 punch
+FGJT 0 0 0 B -800 29700
+36 0 10d10+1500 1d1+100 3d10+12 'punch'
 -13 -13 -13 -13
-CDEKU AB 0 0 stand stand either 1000
+CDEKU
+stand stand either 1000
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29751
 giant warrior~
 an giant warrior~
-A towering giant is here clearing the rubble to make way for the invasion.
-~
+A towering giant is here clearing the rubble to make way for the invasion.~
 This giant has been hired by the Arkham council to help in the purging of
 the Legion tower. The warrior seems quite disgusted with the swamp muck and
 has trouble walking in it as his massive weight bogs him down. However in the
@@ -841,70 +889,66 @@ coming battles his size will prove to be a match for even the most dangerous
 of Legion's undead forces.
 ~
 giant~
-ABG 0 900 0
-48 0 25d10+4500 1d1+100 6d6+143 none
+BG 0 0 0 0 900 0
+48 0 25d10+4500 1d1+100 6d6+143 'none'
 -20 -20 -20 -7
-CDEFK 0 0 0 stand stand male 3000
+CDEFK
+stand stand male 3000
 0 0 giant unknown
-R cur 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
 #29752
 arkham knight~
 an Arkham knight~
-A knight of Arkham is standing here ready for the battle to come.
-~
+A knight of Arkham is standing here ready for the battle to come.~
 This man has been waiting for this moment for years. The assault on the tower
 of Arkham's Legion will put all his skills to test. The evil that resides here
 is strong, but he believes that good will triumph.
 ~
 human~
-AGT F 900 0
-48 0 25d10+5500 1d1+1000 6d6+83 punch
+GJT 0 0 0 B 900 0
+48 0 25d10+5500 1d1+1000 6d6+83 'punch'
 -20 -20 -20 -10
-CDEK AB 0 0 stand stand male 2000
+CDEK
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29753
 arkham artillerist~
 an Arkham artillerist~
-An artillerist is here standing by to follow his orders.
-~
+An artillerist is here standing by to follow his orders.~
 This man has had a harrowing few days. The battle against the Legion has been
 tough on both him and his catapult, especially when the mages like to target
 them both for fiery destruction. Right now he's taking a breather as the next
 stages of the battle are prepared.
 ~
 human~
-ABG F 900 0
-46 0 25d10+5200 1d1+1000 6d6+61 punch
+BGJ 0 0 0 B 900 0
+46 0 25d10+5200 1d1+1000 6d6+61 'punch'
 -20 -20 -20 -10
-CDEKW AB 0 0 stand stand male 2000
+CDEKW
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29754
 legion archer~
 a Legion archer~
-An archer is here ready to repel the oncoming invasion.
-~
+An archer is here ready to repel the oncoming invasion.~
 This guard of Legion has been assigned a suicide mission. Left here to fire at
 the Arkham guards as they begin their assault, it is a job with no hope. The
 life of this insignificant soldier means nothing, and the few minutes his life
 will buy are all the lords of Legion want.
 ~
 human~
-ABFG F -800 0
-40 0 15d10+3250 1d1+100 4d8+13 punch
+BFGJ 0 0 0 B -800 0
+40 0 15d10+3250 1d1+100 4d8+13 'punch'
 -19 -9 -10 -1
-CDK AB 0 0 stand stand male 0
+CDK
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #29760
 legion finest zombie~
 one of Legion's finest~
-A giant figure devoid of expression stands unmoving in the chill mists.
-~
+A giant figure devoid of expression stands unmoving in the chill mists.~
 This is one of the zombies that will bring forth the damned on Judgement day.
 For now it remains in place without moving, waiting for the day when all life
 will end and the souls of the damned are brought forth for reckoning. Then,
@@ -912,36 +956,45 @@ and only then, shall Legion's finest enter the pentegrams and take themselves
 up to the world above to perform their duties.
 ~
 zombie~
-ABGO DEF -1000 0
-45 3 25d10+5000 1d1+100 6d6+80 wrath
+BGJO 0 0 0 ABL -1000 0
+45 3 25d10+5000 1d1+100 6d6+80 'wrath'
 -30 -30 -30 -30
-ACDKUV AIJKM 0 0 stand stand none 0
+ACDKUV
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 30 30 0 0 0 0 0 0 0 0 0 43 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r cold 100
+r lightning 100
+r acid 100
+r negative 100
+m mob_fight mob_fight_breath_any 100~
 #29761
 lord judgement~
 a Lord of Judgement~
-A black skeleton sits upon it's throne awaiting the day of Judgement.
-~
+A black skeleton sits upon it's throne awaiting the day of Judgement.~
 This is the face of all damnation, residing here until the Final day. When
 It's time comes It shall rise up with Legion and the other Lord's of Judgement
 to claim the souls that are to be damned for eternity. Until then it rests
 here unmoving and uncaring.
 ~
 human~
-ABGT DEFVu -1000 29790
-50 0 50d10+5500 1d1+1000 5d8+180 wrath
+BGJT 0 JV 0 ABL -1000 29790
+50 0 50d10+5500 1d1+1000 5d8+180 'wrath'
 -30 -30 -30 -30
-ACDEHKV ABIJKLMQ 0 0 stand stand none 0
+ACDEHKV
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact C
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r disease 100
+r charm 100
+m mob_fight mob_fight_cast_undead 100~
 #29762
 legion man cabal lord~
 A Legion cabal lord~
-A deathly looking man stands here silent and unmoving.
-~
+A deathly looking man stands here silent and unmoving.~
 This man has risen to the ultimate position in Legion through sheer power and
 evil. He nows stands here awaiting the Final call when he, and the select other
 few, will rise up through the pentegrams and call Judgement down upon all the
@@ -951,170 +1004,200 @@ He hold the final position in Legion's ranks and this is one of the two
 selected from the Arkham cabal of Legion.
 ~
 human~
-ABG DEFu -1000 29790
-41 0 15d10+3850 1d1+100 4d8+44 punch
+BGJ 0 J 0 ABL -1000 29790
+41 0 15d10+3850 1d1+100 4d8+44 'punch'
 -15 -15 -15 -15
-CDEKUW ABIJKLM 0 0 stand stand male 0
+CDEKUW
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r charm 100
 #29765
 elf girl~
 a captured elf girl~
-A young elven girl is lying huddled in the corner of the room.
-~
+A young elven girl is lying huddled in the corner of the room.~
 This girl is to be the next sacrifice in the calling of Legion's powers. She
 doesn't seem too hurt but she's cowering in the corner crying and has been
 dressed in a special gown designed for sacrificial ceremonies.
 ~
 elf~
-ABGH HN 1000 0
-43 0 25d10+3200 1d1+100 6d6+87 slap
+BGHJ 0 HN 0 0 1000 0
+43 0 25d10+3200 1d1+100 6d6+87 'slap'
 -18 -17 -17 -10
-DFW AB 0 0 rest stand female 0
+DFW
+rest stand female 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29766
 ethereal~
 an enslaved ethereal~
-An almost solid ethereal is here floating in despair.
-~
+An almost solid ethereal is here floating in despair.~
 This ethereal has been captured and imprisoned for Legion's use. It's essence
 is slowly being drained away from it and it's form has become almost solid as
 it loses it's misty form. Eventually all it's lifeforce will be taken and only
 the condensed mist of a vampiric ethereal will remain.
 ~
 unique~
-ABG DEFH 0 0
-44 0 25d10+3500 1d1+1000 6d6+18 suction
+BGJ 0 H 0 ABL 0 0
+44 0 25d10+3500 1d1+1000 6d6+18 'suction'
 -20 -20 -20 -10
-DEFK AB 0 0 stand stand either 0
+DEFK
+stand stand either 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29767
 ghoul~
 a disgusting ghoul~
-A disgusting ghoul cowers in the corner gnawing on some flesh.
-~
+A disgusting ghoul cowers in the corner gnawing on some flesh.~
 This is the hollow remains of what was once one of Legion's captives. He, or
 she now lives without any life or soul, trapped as a ghastly ghoul here in the
 cell.
 ~
 undead~
-ABGO 0 -1000 0
-40 0 15d10+3750 1d1+100 4d8+33 bite
+BGJO 0 0 0 0 -1000 0
+40 0 15d10+3750 1d1+100 4d8+33 'bite'
 -12 -12 -12 -3
-CDFK AB 0 0 stand stand none 0
+CDFK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29768
 brother arkham monk~
 an Arkham brother~
-A placid looking monk rests here meditating in his captivity.
-~
+A placid looking monk rests here meditating in his captivity.~
 This brother of the Arkham monks was kidnapped and imprisoned in order to steal
 his soul. Somehow he has overcome all the attempts and has been left here in
 his cell to rot during the oncoming raids. He himself seems unconcerned about
 it all and simply looks up at you momentarily before resuming his meditations.
 ~
 human~
-ABG DEFH 1000 0
-44 1 25d10+3500 1d1+100 6d6+98 punch
+BGJ 0 H 0 ABL 1000 0
+44 1 25d10+3500 1d1+100 6d6+98 'punch'
 -20 -20 -20 -15
-CEK AB 0 0 stand stand male 0
+CEK
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29769
 dwarf~
 a crazed dwarf~
-A wild looking dwarf stares at you and screams incoherently!
-~
+A wild looking dwarf stares at you and screams incoherently!~
 This poor dwarf seems to have had his mind and body tortured beyond his ability
 to withstand. He appears very mad and very insane, but the madness seems to
 have given him some unnatural strength too.
 ~
 dwarf~
-ABGT DEF 0 0
-44 3 25d10+4500 1d1+100 6d6+78 punch
+BGJT 0 0 0 ABL 0 0
+44 3 25d10+4500 1d1+100 6d6+78 'punch'
 -20 -20 -20 -14
-CDEFK AB 0 0 stand stand male 0
+CDEFK
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29770
 guard~
 a captured Arkham guard~
-An Arkham guard is resting here in strong thick chains.
-~
+An Arkham guard is resting here in strong thick chains.~
 This unfortunate guard was probably summoned away from the battles and taken
 prisoner for various tortures and interrogations. Now he rests here awaiting
 his final fate when the mages of Legion have time to reduce him to a mere
 undead zombie to fight against his former friends.
 ~
 human~
-ABGT 0 700 0
-41 0 15d10+3850 1d1+100 4d8+44 punch
+BGJT 0 0 0 0 700 0
+41 0 15d10+3850 1d1+100 4d8+44 'punch'
 -15 -14 -13 0
-CDEKW AB 0 0 rest stand male 0
+CDEKW
+rest stand male 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29771
 keeper prisonkeeper~
 the prison keeper~
-A fat, ugly man with a large key attached to his belt is here.
-~
+A fat, ugly man with a large key attached to his belt is here.~
 This prisonkeeper is disgusting. He spends most of his time tormenting his
 prisoners with food which he then eats in front of them as they starve...
 probably why he's so fat. He has no hopes of rising any further in Legion's
 forces, and is in fact a sacrificial pawn left here to die in the battles.
 ~
 human~
-ABGT DEF -700 0
-37 0 10d10+1500 1d1+100 3d10+12 punch
+BGJT 0 0 0 ABL -700 0
+37 0 10d10+1500 1d1+100 3d10+12 'punch'
 -12 -12 -12 -4
-CDEK AB 0 0 stand stand male 2000
+CDEK
+stand stand male 2000
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #29772
 summoner shadowlord~
 shadowlord summoner~
-Shadowlord summoner
-~
+Shadowlord summoner~
 ~
 human~
-ABe DFmt 0 0
-37 0 1d1+100000 0d0+0 0d0+0 none
+BJe 0 0 0 ABCF 0 0
+37 0 1d1+100000 0d0+0 0d0+0 'none'
 0 0 0 0
-0 ABCDEFGHIJKLMNOPQRSTVW 0 0 stand stand none 0
+0
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 F for AHMV
 F par ABCDEFGHIJK
-M speech 29702 yal nosferatu vampyri sothoth~
 I 37
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r holy 100
+r energy 100
+r mental 100
+r disease 100
+r light 100
+r charm 100
+r sound 100
+r weapon 100
+r magic 100
 #29773
 summoner demogorgon~
 demogorgon summoner~
-Demogorgon summoner
-~
+Demogorgon summoner~
 ~
 human~
-ABe DFmt 0 0
-37 0 1d1+100000 0d0+0 0d0+0 none
+BJe 0 0 0 ABCF 0 0
+37 0 1d1+100000 0d0+0 0d0+0 'none'
 0 0 0 0
-0 ABCDEFGHIJKLMNOPQRSTVW 0 0 stand stand none 0
+0
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 F for AHMV
 F par ABCDEFGHIJK
-M speech 29703 yal dagon nar sothoth~
 I 37
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r holy 100
+r energy 100
+r mental 100
+r disease 100
+r light 100
+r charm 100
+r sound 100
+r weapon 100
+r magic 100
 #0
 
 #OBJECTS
@@ -1123,250 +1206,190 @@ key~
 a black key~
 A small black key is here.~
 obsidian~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
-G none
 #29701
 key~
 a black key~
 A small black key is here.~
 obsidian~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
-G none
 #29702
 key~
 a black key~
 A small black key is here.~
 obsidian~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
-G none
 #29703
 key~
 a black key~
 A small black key is here.~
 obsidian~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
-G none
 #29704
 key~
 a black key~
 A small black key is here.~
 obsidian~
-key 0 A
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
-G none
 #29705
 guardian sword~
 a guardian sword~
 A guardian sword lies here.~
 steel~
-weapon L ANP
-sword 5 7 slash F
+weapon L B AN
+sword 5 7 'slash' F
 21 135 2389 P
-A
-18 -2
-A
-19 7
+f object hitroll -2 0
+f object damroll 7 0
 E
 guardian sword~
 This sword is heavy but deadly.
 ~
-G none
 #29706
 suit plate darkened~
 a suit of darkened platemail~
 A suit of darkened platemail rests here.~
 iron~
-armor 0 AD
+armor 0 0 AD
 11 12 10 3 3
 21 200 3120 P
-A
-13 20
-A
-5 1
-A
-19 2
+f object hp 20 0
+f object con 1 0
+f object damroll 2 0
 E
 darkened platemail~
 It is dark and heavy, but polished to a brilliant sheen.
 ~
-G none
 #29707
 helm darkened~
 a darkened helm~
 A darkened helm is on the ground.~
 iron~
-armor 0 AE
+armor 0 0 AE
 6 8 7 3 2
 21 100 1156 P
-A
-18 1
-A
-19 2
-A
-13 10
+f object hitroll 1 0
+f object damroll 2 0
+f object hp 10 0
 E
 darkened helm~
 The helm looks heavy and strong.
 ~
-G none
 #29708
 tesar guardian bow~
 a guardian bow~
 A finely made bow is resting on the ground here.~
 wood~
-weapon ABGKM AN
-exotic 7 7 magic F
+weapon ABGKM 0 AN
+exotic 7 7 'magic' F
 30 70 5151 P
-A
-13 50
-A
-19 1
-A
-18 1
+f object hp 50 0
+f object damroll 1 0
+f object hitroll 1 0
 E
 guardian bow~
 The bow appears to be made of some magically preserved wood. There is an almost
 holy warmth that can be felt coming off it's surface.
 ~
-G none
 #29709
 green battlemail battle mail suit~
 a suit of green tinted battlemail~
 A bulky suit of frest green battlemail is here.~
 steel~
-armor AK AD
+armor AK 0 AD
 15 15 15 20 5
 35 250 6320 P
-A
-20 -5
-P
-2 5
-A
-13 50
-A
-19 4
-G none
+f object saves -5 0
+f object hp 50 0
+f object damroll 4 0
 #29710
 green boots~
 a pair of green boots~
 A pair of fine forest green boots are here.~
 leather~
-armor K AG
+armor K 0 AG
 10 11 10 12 5
 30 40 1683 P
-F
-A 0 0 P
-A
-18 2
-A
-19 2
-A
-17 -5
-A
-2 3
-A
-14 25
-A
-24 -5
-G none
+f invis none 0 G
+f object hitroll 2 0
+f object damroll 2 0
+f object ac -5 0
+f object dex 3 0
+f object move 25 0
+f object saving_spell -5 0
 #29711
 spiked gauntlet blood striking~
 the gauntlets of striking~
 A spiked gauntlet lies in a pool of sticky red blood.~
 steel~
-armor BCM AH
+armor BCM 0 AH
 6 5 6 15 15
 36 70 432 P
-A
-24 -5
-A
-19 3
-V
-1 $deathblow~
-100~
-G none
+f object saving_spell -5 0
+f object damroll 3 0
 #29712
 guardian sword~
 a guardian sword~
 A guardian sword lies here.~
 steel~
-weapon 0 AN
-sword 11 3 slash F
+weapon 0 0 AN
+sword 11 3 'slash' F
 24 148 3840 P
-A
-18 -2
-A
-19 7
+f object hitroll -2 0
+f object damroll 7 0
 E
 guardian sword~
 This sword is heavy but deadly.
 ~
-G none
 #29713
 darkened shield~
 a darkened shield~
 A large darkened shield is here.~
 mithril~
-armor 0 AJ
+armor 0 0 AJ
 15 15 15 15 4
 30 90 1468 P
-A
-20 -8
-A
-13 40
-A
-19 3
-A
-18 2
-A
-1 1
-A
-17 -5
-G none
+f object saves -8 0
+f object hp 40 0
+f object damroll 3 0
+f object hitroll 2 0
+f object str 1 0
+f object ac -5 0
 #29714
 double double-edged bastard sword~
 a double-edged bastard sword~
 A huge double-edged bastard sword is here.~
 steel~
-weapon AIKMPS AN
-sword 7 6 slice D
+weapon AIKMP 0 AN
+sword 7 6 'slice' D
 27 330 5244 P
-A
-19 3
-A
-18 4
-G none
+f object damroll 3 0
+f object hitroll 4 0
 #29715
 suit darkened platemail~
 a suit of darkened platemail~
 A suit of darkened platemail is here.~
 steel~
-armor ABCEIKT AD
+armor ABCEIK C AD
 14 14 14 14 0
 34 4 6228 A
-F
-A 0 0 N
-A
-1 1
-A
-5 1
-A
-13 45
-A
-17 -9
-A
-18 4
-A
-19 3
+f affects none 0 N
+f object str 1 0
+f object con 1 0
+f object hp 45 0
+f object ac -9 0
+f object hitroll 4 0
+f object damroll 3 0
 E
 suit darkened platemail~
 This is the standard battlearmor given to the commanders of Arkham's guard. In
@@ -1374,105 +1397,82 @@ times past many other such suits have been made and been passed on, although
 some, such as Shadar Lunn's, have since become corrupt like their owners and
 now serve use for only the dark rather than the light.
 ~
-G none
 #29716
 wide belt darkened~
 a wide darkened belt~
 A wide belt made of some darkened metal is here.~
 steel~
-armor K AL
+armor K 0 AL
 15 15 15 15 0
 30 10 211 P
-A
-20 -18
-A
-19 3
-A
-17 -5
-A
-1 1
-A
-2 -2
+f object saves -18 0
+f object damroll 3 0
+f object ac -5 0
+f object str 1 0
+f object dex -2 0
 E
 belt darkened~
 This belt seems to be made of some stretched and bent pierce of darkened steel.
 It is not as flexible as normal belts but it provides much better protection
 and strength.
 ~
-G none
 #29717
 black longsword sword~
 a black longsword~
 A black longsword is here on the ground.~
 obsidian~
-weapon CJ AN
-sword 5 7 slash 0
+weapon CJ 0 AN
+sword 5 7 'slash' 0
 21 170 6339 P
-A
-18 -1
-A
-19 2
-G none
+f object hitroll -1 0
+f object damroll 2 0
 #29718
 black axe~
 a black axe~
 A large black axe is lying here.~
 obsidian~
-weapon CJ AN
-axe 5 7 slice D
+weapon CJ 0 AN
+axe 5 7 'slice' D
 24 172 7425 P
-A
-20 -8
-A
-18 -2
-A
-19 3
-G none
+f object saves -8 0
+f object hitroll -2 0
+f object damroll 3 0
 #29719
 wicked whip~
 a wicked whip~
 An evil looking whip is here waiting to be used on someone.~
 leather~
-weapon CJL AN
-whip 6 7 beating 0
+weapon CJL 0 AN
+whip 6 7 'beating' 0
 25 91 86 P
-A
-18 -2
-A
-19 1
-G none
+f object hitroll -2 0
+f object damroll 1 0
 #29720
 chainmail legion~
 chainmail marked with the symbol of Legion~
 A set of chainmail marked with an inverted cross is here.~
 steel~
-armor CJLM AD
+armor CJLM 0 AD
 7 7 6 5 5
 23 190 976 P
-A
-19 2
-A
-24 -2
-G none
+f object damroll 2 0
+f object saving_spell -2 0
 #29721
 crescent moon crescent-moon scimitar~
 a crescent-moon shaped scimitar~
 A deadly scimitar in the shape of a crescent moon is here.~
 steel~
-weapon BCGHJL AN
-sword 7 6 slice 0
+weapon BCGHJL 0 AN
+sword 7 6 'slice' 0
 30 159 3382 P
-F
-A 0 0 V
-A
-19 4
-G none
+f affects none 0 V
+f object damroll 4 0
 #29722
 rune death~
 a rune of death~
 A small rune with strange symbols of necromancy lies here.~
 obsidian~
-scroll CEGH AO
+scroll CEGH 0 AO
 45 'fireball' 'iceball' '' ''
 30 10 4083 P
 E
@@ -1480,68 +1480,49 @@ rune death~
 The symbols depict fire, ice and darkness, all combined into a single object
 of death.
 ~
-G none
 #29723
 pitch-black black robes~
 some pitch-black robes~
 A pile of pitch-black robes is lying here.~
 cloth~
-armor CEJ AD
+armor CEJ 0 AD
 8 7 8 18 18
 26 30 1911 P
-A
-13 20
-A
-20 -10
-A
-3 1
-A
-4 1
-A
-12 25
-A
-17 -5
-G none
+f object hp 20 0
+f object saves -10 0
+f object int 1 0
+f object wis 1 0
+f object mana 25 0
+f object ac -5 0
 #29724
 strife spear~
 the Strife spear~
 A large jagged spear of pure black material is here.~
 ebony~
-weapon CEGM AN
-spear 5 7 acbite F
+weapon CEGM 0 AN
+spear 5 7 'acbite' F
 30 210 2082 P
-A
-18 3
-A
-19 3
-V
-1 increase_acid_damage~
-19~
-G none
+f object hitroll 3 0
+f object damroll 3 0
 #29725
 pitch-black black ring~
 a pitch-black ring~
 A small pitch-black ring lies here.~
 obsidian~
-jewelry CEJ AB
+jewelry CEJ 0 AB
 0 0 0 0 0
 15 10 4792 P
-A
-18 1
-A
-19 1
-A
-13 20
-A
-12 20
-G none
+f object hitroll 1 0
+f object damroll 1 0
+f object hp 20 0
+f object mana 20 0
 #29726
 bloodstone dagger~
 a bloodstone dagger~
 A dagger made from blood-red rock is here.~
 stone~
-weapon CGHJ AN
-dagger 6 7 drain 0
+weapon CGHJ 0 AN
+dagger 6 7 'drain' 0
 28 90 1075 P
 E
 bloodstone dagger~
@@ -1549,130 +1530,95 @@ This dagger is made from the stone upon which an innocent victim was sacrificed
 in the name of the dark. The soul of the damned victim now resides within it
 forever seeking to drink upon the warm souls of the living.
 ~
-G none
 #29727
 obsidian  steel hexagram staff~
 a hexagram-headed steel staff~
 A long steel staff tipped with an obsidian hexagram is here.~
 steel~
-staff ABCEGH AO
+staff ABCEGH 0 AO
 45 3 3 'acid blast' 0
 30 80 6794 P
-G none
 #29728
 eyes darkness~
 eyes of darkness~
 An obsidian rock carved into the shape of an eye is here.~
 obsidian~
-wand CEG AO
+wand CEG 0 AO
 51 3 3 'blindness' 0
 35 10 3028 P
-G none
 #29729
 eclipsed-moon eclipsed moon ring~
 an eclipsed-moon signet ring~
 A ring with the picture of an eclipsed-moon on it is lying here.~
 steel~
-jewelry CEJL AB
+jewelry CEJL 0 AB
 0 0 0 0 0
 32 10 2236 P
-A
-17 -20
-P
-6 6
-A
-19 4
-A
-13 30
-G none
+f object ac -20 0
+f object damroll 4 0
+f object hp 30 0
 #29730
 shadow shield~
 a Nightwalker's shadow shield~
 A shield of pure black is lying on the ground.~
 energy~
-armor CEJL AJ
+armor CEJL 0 AJ
 8 8 8 5 5
 35 0 3352 P
-F
-A 0 0 OZ
-A
-19 3
-A
-18 3
-A
-24 -5
-G none
+f affects none 0 O
+f object damroll 3 0
+f object hitroll 3 0
+f object saving_spell -5 0
 #29731
 butchers butcher blade~
 a butcher's blade~
 A large serated butcher's blade is here.~
 steel~
-weapon CE AN
-axe 5 9 slice F
+weapon CE 0 AN
+axe 5 9 'slice' F
 40 139 4644 P
-A
-18 -3
-A
-19 1
-A
-17 10
-G none
+f object hitroll -3 0
+f object damroll 1 0
+f object ac 10 0
 #29732
 suit legion battle armor~
 a suit of Legion battle armor~
 A huge set of armor with an inverted cross burnt into it is here.~
 steel~
-armor AJ AD
+armor AJ 0 AD
 16 16 17 15 15
 25 20 7142 P
-A
-1 3
-A
-18 2
-A
-19 3
-A
-13 18
-G none
+f object str 3 0
+f object hitroll 2 0
+f object damroll 3 0
+f object hp 18 0
 #29733
 thuringwethil cloak~
 thuringwethil's cloak~
 A strange cloak lies on the ground.~
 energy~
-armor BCGH AK
+armor BCGH 0 AK
 5 5 5 5 5
 30 1 699 P
-A
-13 35
-A
-3 1
-A
-4 1
-A
-17 -15
-A
-18 3
-A
-19 3
-G none
+f object hp 35 0
+f object int 1 0
+f object wis 1 0
+f object ac -15 0
+f object hitroll 3 0
+f object damroll 3 0
 #29734
 wings demon black feather~
 wings of black demon feather~
 A huge pair of wings made from black demon feathers is here.~
 energy~
-trash CG AI
+trash CG 0 AI
 0 0 0 0 0
 34 200 8 P
-A
-13 45
-F
-A 0 0 T
-A
-19 4
-A
-17 15
-A
-1 3
+f object hp 45 0
+f affects none 0 T
+f object damroll 4 0
+f object ac 15 0
+f object str 3 0
 E
 wings demon black feather~
 These wings are HUGE. They provide little protecton, in fact they even hinder
@@ -1680,100 +1626,73 @@ movement and are probably going to get their wearer caught in some bad places
 when movement is desirable. But they do have some razor sharp feathers that
 provide extremely sharp edges.
 ~
-G none
 #29735
 claw demon burnt sigils~
 a massive claw etched with burnt sigils~
 A huge claw from some unspeakable beast lies here.~
 bone~
-weapon CE AN
-exotic 7 7 drain ACF
+weapon CE 0 AN
+exotic 7 7 'drain' ACF
 28 100 4843 P
-A
-13 15
-A
-1 3
-A
-18 -4
-A
-19 2
-G none
+f object hp 15 0
+f object str 3 0
+f object hitroll -4 0
+f object damroll 2 0
 #29737
 sword demonslayer~
 a Demonslayer~
 A large sword is lying here.~
 steel~
-weapon CEHMP AN
-sword 7 6 divine 0
+weapon CEHMP 0 AN
+sword 7 6 'divine' 0
 36 153 3666 P
-A
-18 4
-A
-19 6
-G none
+f object hitroll 4 0
+f object damroll 6 0
 #29738
 helm black horn~
 a helm with a single black horn~
 A helm adorned with a single sharp black horn is here.~
 iron~
-armor CEG AE
+armor CEG 0 AE
 12 13 13 15 5
 29 70 4799 P
-P
-13 5
-A
-12 30
-A
-20 -4
-A
-19 4
-G none
+f object mana 30 0
+f object saves -4 0
+f object damroll 4 0
 #29739
 scroll ancient necromancy~
 a scroll of Ancient Necromancy~
 A scroll with arcane symbols of necromancy is lying here.~
 paper~
-scroll ABCE AO
+scroll ABCE 0 AO
 72 '' 'animate dead' 'animate dead' ''
 35 10 4000 P
-F
-A 0 0 T
-G none
+f affects none 0 T
 #29740
 robes undead~
 robes of undeath~
 A pile of black cloth sits motionless in the room.~
 cloth~
-armor CEF AD
+armor CEF 0 AD
 7 5 5 10 10
 35 40 788 P
-A
-13 -100
-A
-14 100
-A
-1 -2
-A
-3 4
-A
-5 -4
-A
-24 -15
-G none
+f object hp -100 0
+f object move 100 0
+f object str -2 0
+f object int 4 0
+f object con -4 0
+f object saving_spell -15 0
 #29741
 lich hand~
 the severed hand of a lich~
 A horrible twitching hand is lying on the ground.~
 flesh~
-weapon CEGHJLMQ AN
-mace 13 3 frbite BC
+weapon CEGHJLMQ 0 AN
+mace 13 3 'frbite' BC
 30 130 3231 P
-A
-18 -6
-A
-17 10
-A
-24 -7
+f object hitroll -6 0
+f object ac 10 0
+f object saving_spell -7 0
 E
 hand lich~
 This hand provides a deadly conduit to the negative planes, unfortunately it
@@ -1781,49 +1700,37 @@ is very hard to make contact with a victim as it has little range. This also
 makes it very poor for defending oneself with, although by virtue of it's
 powerful magic it provides very good protection against magics.
 ~
-G none
 #29742
 pitch-black black bracelet~
 a pitch-black bracelet~
 A pitch-black bracelet is here.~
 obsidian~
-armor CEJ AM
+armor CEJ 0 AM
 4 4 4 0 0
 36 40 517 P
-A
-18 1
-A
-19 1
-A
-13 15
-A
-12 15
-G none
+f object hitroll 1 0
+f object damroll 1 0
+f object hp 15 0
+f object mana 15 0
 #29743
 sickle bone~
 a sickle of carved human bone~
 A large bone in the shape of a sickle is here.~
 bone~
-weapon CEG AN
-mace 7 7 drain CF
+weapon CEG 0 AN
+mace 7 7 'drain' CF
 36 100 4164 P
-A
-18 -3
-G none
+f object hitroll -3 0
 #29744
 armguards arm demon scale greater~
 armguards of greater demon scale~
 Some armguards fashioned from hardened demon scale is here.~
 bone~
-armor CE AI
+armor CE 0 AI
 13 14 15 15 5
 30 400 4054 P
-P
-13 5
-A
-13 30
-A
-19 5
+f object hp 30 0
+f object damroll 5 0
 E
 armguards arm demon scale greater~
 These scales have been forged into a set of extermely strong, very sharp
@@ -1831,185 +1738,136 @@ armguards. The edges are sharp enough to cut steel and in combat would be
 deadly. Unfortunately their massive weight and bulk make them quite hard to
 move about in, and greatly hinder ones ability to actually hit.
 ~
-G none
 #29745
 cloak shadows~
 a cloak of shadows~
 A strange shadowy cloak is floating in the air here.~
 energy~
-armor CEJ AK
+armor CEJ 0 AK
 12 10 9 11 5
 32 0 4064 P
-A
-13 20
-P
-12 9
-A
-2 3
-A
-18 2
-A
-19 3
-G none
+f object hp 20 0
+f object dex 3 0
+f object hitroll 2 0
+f object damroll 3 0
 #29746
 figurine death~
 a figurine of death~
 A small figurine of a hooded man is sitting here.~
 crystal~
-wand CEHJKT AO
+wand CEHJK C AO
 30 1 1 'deathspell' 0
 35 10 7892 P
-G none
 #29747
 unholy avenger sword~
 a two-handed Unholy avenger~
 A large two-handed sword with dark inscriptions upon it is here.~
 steel~
-weapon BCEJ ANP
-sword 9 6 divine CDF
+weapon BCEJ B AN
+sword 9 6 'divine' CDF
 36 365 11378 P
-A
-20 -8
-A
-18 8
-A
-19 8
+f object saves -8 0
+f object hitroll 8 0
+f object damroll 8 0
 E
 unholy avenger~
 This dark blade appears to be made for pure destruction and hasn't even been
 given a basic cross-piece for defence. The blade, however, is of superb make
 and thrums with an inner power that only the darkest mages could have empowered.
 ~
-V
-2 weapon_dam_msg~
-unholy divine power~
-G none
 #29748
 razor-edged razor ring~
 a razor-edged ring~
 A small ring with sharp razor-edges is here.~
 steel~
-jewelry BCE AB
+jewelry BCE 0 AB
 0 0 0 0 0
 35 10 2194 P
-P
-13 2
-A
-17 -10
-A
-19 4
-G none
+f object ac -10 0
+f object damroll 4 0
 #29749
 cloak underworld~
 a cloak of the Underworld~
 A deathly black cloak lies here unused and unmoving.~
 cloth~
-armor CEM AK
+armor CEM 0 AK
 10 10 10 10 10
 36 40 1758 P
-P
-16 100
-P
-11 100
-F
-A 0 0 J
-G none
+f detects none 0 H
 #29750
 sceptre dead~
 the sceptre of the Dead~
 A long bone sceptre is here.~
 bone~
-wand ABCEGHM AO
+wand ABCEGHM 0 AO
 50 5 5 'blindness' 0
 36 6 50000 P
-A
-12 50
-A
-13 40
+f object mana 50 0
+f object hp 40 0
 E
 sceptre dead~
 This piece of bone is one of the specially enchanted relics of the underworld.
 Lord of the dead use them to hold sway over their minions, and it is rumoured
 that such an item can command respect even from the most powerful undead.
 ~
-V
-1 spell_power~
-2~
-V
-1 increase_negative_damage~
-15~
-G none
 #29751
 hammer black flames~
 a hammer shrouded in black flames~
 A massive hammer wreathed in black unholy flames is here.~
 energy~
-weapon CEJL AN
-mace 10 5 drain F
+weapon CEJL 0 AN
+mace 10 5 'drain' F
 31 260 10327 P
-G none
 #29752
 girdle titanic strength~
 a girdle of titanic strength~
 A huge girdle from some giant is here.~
 steel~
-armor G AL
+armor G 0 AL
 20 20 20 20 5
 36 70 5815 P
-A
-19 5
-A
-13 50
-A
-1 4
-A
-5 3
-V
-1 $deathblow~
-100~
-G none
+f object damroll 5 0
+f object hp 50 0
+f object str 4 0
+f object con 3 0
 #29753
 corpse~
 the corpse of an elf~
 A corpse of a slain elf is here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29754
 corpse~
 the corpse of a dwarf~
 A corpse of burnt dwarf is lying here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29755
 corpse~
 the corpse of a creature~
 A corpse of some creature is rotting away here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29756
 skeleton~
 a skeleton of a decayed creature~
 A skeleton with sticky bits of decayed flesh is here.~
 bone~
-unknown O 0
+unknown 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29757
 pile bodies legionpilebodies~
 a pile of bodies~
 A pile of hacked and blood drenched bodies is here.~
 flesh~
-trash R 0
+trash 0 B 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -2018,13 +1876,12 @@ This pile of corpses seems to be arranged in a ritualistic pattern, as if being
 prepared for some kind of dark sacrifice. From the looks of it there seems to
 be several elf girls, some dwarf children and a baby of some kind here.
 ~
-G none
 #29759
 scroll paper~
 a scroll of paper~
 A scroll of paper with a few words written on it is here.~
 paper~
-trash 0 A
+trash 0 0 A
 0 0 0 0 0
 0 0 0 P
 E
@@ -2035,13 +1892,12 @@ There is a diagram of a pentegram and the words in the centre of it:
 Beneath this is a diagram of 4 small pentegrams with arrows going from
 one to another and the word, 'karguska'.
 ~
-G none
 #29760
 dark scroll paper~
 a scroll of paper~
 A dark scroll of paper with a few words written on it is here.~
 paper~
-trash 0 A
+trash 0 0 A
 0 0 0 0 0
 0 0 0 P
 E
@@ -2055,72 +1911,60 @@ the words of raising after the final preprations have been done.
 Beneath this is a diagram of 4 small pentegrams with arrows going from
 one to another and the word, 'karguska'.
 ~
-G none
 #29763
 guardian bow~
 a guardian bow~
 A finely made bow is resting on the ground here.~
 wood~
-weapon ABGKM ANP
-exotic 5 7 pierce F
+weapon ABGKM B AN
+exotic 5 7 'pierce' F
 21 70 1451 P
-A
-19 3
-A
-18 -1
+f object damroll 3 0
+f object hitroll -1 0
 E
 guardian bow~
 The bow appears to be made of some magically preserved wood. There is an almost
 holy warmth that can be felt coming off it's surface.
 ~
-G none
 #29764
 cowl black~
 a grim reaper's cowl~
 A pure black cowl of strange material is here.~
 energy~
-armor CEGJM AE
+armor CEGJM 0 AE
 1 1 1 10 10
 21 10 47 P
-A
-12 20
-A
-13 20
-A
-3 2
-A
-17 -5
-G none
+f object mana 20 0
+f object hp 20 0
+f object int 2 0
+f object ac -5 0
 #29765
 razor-edged razor ring~
 a razor-edged ring~
 A small ring with sharp razor-edges is here.~
 steel~
-jewelry CEh AB
+jewelry CE K AB
 0 0 0 0 0
 35 10 1000 P
-A
-19 3
-G none
+f object damroll 3 0
 #29766
 corpse~
 the corpse of an arkham guard~
 A corpse of an arkham guard is lying here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
 corpse~
 Looks like one of the guards of arkham has done his last day of duty.
 ~
-G none
 #29767
 corpse~
 the corpse of a young girl~
 A corpse of young girl is lying here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -2128,34 +1972,26 @@ corpse~
 Looks like the youth of this victim had some kind of appeal to the necromancers
 performing the deadly rituals in here.
 ~
-G none
 #29769
 cowl black~
 the grim reaper's cowl~
 A pure black cowl of strange material is here.~
 energy~
-armor CEGM AE
+armor CEGM 0 AE
 1 1 1 11 11
 30 10 47 P
-A
-12 30
-A
-13 30
-A
-3 2
-A
-19 2
-A
-17 -9
-A
-24 -5
-G none
+f object mana 30 0
+f object hp 30 0
+f object int 2 0
+f object damroll 2 0
+f object ac -9 0
+f object saving_spell -5 0
 #29770
 gold dragon orb~
 a gold dragon orb~
 A large orb of glinting gold is lying here.~
 gold~
-staff GIKL AO
+staff GIKL 0 AO
 40 4 4 'sanctuary' 0
 35 50 6821 P
 E
@@ -2164,75 +2000,54 @@ It looks almost like pure gold, but as you look closer at it you realise it
 is in fact the product of a gold dragon's magical influence on the rocks around
 it.
 ~
-G none
 #29771
 helm gold dragon skull~
 a helm stylized into a gold dragon skull~
 A beautifully crafted helm shaped like a gold dragon's skull is here.~
 gold~
-armor ABGIK AE
+armor ABGIK 0 AE
 10 10 10 9 0
 35 150 6196 P
-P
-12 8
-A
-17 -12
-A
-18 3
-A
-19 3
-A
-24 -2
-A
-13 15
+f object ac -12 0
+f object hitroll 3 0
+f object damroll 3 0
+f object saving_spell -2 0
+f object hp 15 0
 E
 gold dragon skull helm~
 This helm looks like the pride and honor of some extremely exceptional smith.
 The workmanship is superb and it is a great tribute to the race of Gold dragons.
 ~
-G none
 #29772
 gold dragon scale shield curved~
 a curved gold dragon scale~
 A large piece of curved gold scale is on the ground.~
 gold~
-armor AGIKL AJ
+armor AGIKL 0 AJ
 10 10 10 10 5
 30 200 7274 P
-A
-20 -8
-A
-19 2
-A
-13 15
-A
-17 -6
-G none
+f object saves -8 0
+f object damroll 2 0
+f object hp 15 0
+f object ac -6 0
 #29773
 gold dragon scale leggings~
 the leg scales of a gold dragon~
 Some large golden scales shaped to fit legs are here.~
 gold~
-armor GIK AF
+armor GIK 0 AF
 10 16 16 18 5
 30 230 5751 P
-A
-13 15
-P
-8 2
-A
-19 5
-A
-14 -50
-A
-2 -2
-G none
+f object hp 15 0
+f object damroll 5 0
+f object move -50 0
+f object dex -2 0
 #29777
 wood wooden barricade~
 a wooden barricade~
 A large wooden barricade has been erected here.~
 wood~
-trash O 0
+trash 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -2240,22 +2055,20 @@ wooden barricade~
 It looks pretty fragile but provides some small protection against normal arrows
 and rocks.
 ~
-G none
 #29778
 rubble~
 a pile of rubble~
 A huge pile of rocks and rubble lie here.~
 rock~
-trash O 0
+trash 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29779
 corpse~
 the corpse of an arkham guard~
 The corpse of a badly mangled Arkham guard is here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -2264,13 +2077,12 @@ This body seems to have been killed by some tremendous force. Strangely enough
 the other bodies nearby are all also of Arkham soldiers and there is a lack
 of Legion bodies.
 ~
-G none
 #29780
 catapult~
 a catapult~
 A large catapult is standing here loaded for battle.~
 wood~
-trash O 0
+trash 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -2280,31 +2092,28 @@ power it are worn and frayed and there are scorch marks all over it from where
 Legion mages have blasted it. Many of the parts seem recently bolted on as if
 it has been rebuilt multiple times.
 ~
-G none
 #29781
 corpse~
 the corpse of an arkham guard~
 An Arkham guard's corpse lies half buried in the mud.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29782
 corpse~
 the corpse of an arkham knight~
 A knight's corpse lies face down in the swampy waters.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
-G none
 #29783
 trebuchet~
 a trebuchet~
 A trebuchet with a broken draw-string is here.~
 wood~
-trash O 0
+trash 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -2312,21 +2121,17 @@ trebuchet~
 This huge crossbow is aimed inward at the blackened gates north of here. It
 seems broken now from constant use in the earlier battles.
 ~
-G none
 #29784
 hammer judgement~
 the Hammer of Judgement~
 A massive hammer is here thrumming with power!~
 energy~
-weapon ABCEFGHM AN
-mace 11 5 wrath CF
+weapon ABCEFGHM 0 AN
+mace 11 5 'wrath' CF
 35 300 19270 P
-A
-18 6
-A
-19 6
-A
-5 -10
+f object hitroll 6 0
+f object damroll 6 0
+f object con -10 0
 E
 hammer judgement~
 This is the hammer of Final judgement, used to condemn souls to the abyss. On
@@ -2334,26 +2139,24 @@ the Final day of Judgement when all souls are judged this hammer is one of the
 weapons that will be used to smite the accursed and to send them to hell for
 all eternity.
 ~
-G none
 #29785
 flask damnation~
 a flask of damnation~
 A flask of black liquid is here.~
 steel~
-potion AB AO
+potion AB 0 AO
 25 'black death' 'cursed lands' 'deathspell' 'mysterious dream'
 25 10 4595 P
 E
 damnation flask~
 This contains the essence of damnation and the destruction of all life.
 ~
-G none
 #29786
 redemption~
 a flask of redemption~
 A flash of black liquid is here.~
 steel~
-potion AB AO
+potion AB 0 AO
 51 'remove curse' 'word of recall' 'heal' 'cure blindness'
 25 10 2712 P
 E
@@ -2361,292 +2164,213 @@ flask redemption~
 This contains the essence of redemption to be granted to those who's souls are
 judged worthy of eternal reward.
 ~
-G none
 #29788
 blood red dragonstar amulet~
 the red Dragonstar~
 A blood-red amulet is lying here.~
 energy~
-trash ABG AC
+trash ABG 0 AC
 0 0 0 0 0
 36 10 15 P
-P
-7 33
-A
-17 -10
-A
-24 -4
-A
-18 3
-A
-19 3
-G none
+f object ac -10 0
+f object saving_spell -4 0
+f object hitroll 3 0
+f object damroll 3 0
 #29789
 black dragonstar amulet~
 the black Dragonstar~
 A pitch-black amulet is lying here.~
 energy~
-trash ABG AC
+trash ABG 0 AC
 0 0 0 0 0
 36 10 24 P
-P
-10 33
-A
-17 -10
-A
-24 -4
-A
-18 3
-A
-19 3
-G none
+f object ac -10 0
+f object saving_spell -4 0
+f object hitroll 3 0
+f object damroll 3 0
 #29792
 black key~
 a black key~
 A large black key is here.~
 iron~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
-G none
 #29793
 belt interlinking rose thorns~
 a belt of interlinking rose thorns~
 A blood soaked belt made from some interlinking rose thorns is here.~
 wood~
-trash CG AL
+trash CG 0 AL
 0 0 0 0 0
 15 20 2 P
-A
-1 -2
-A
-5 -2
-A
-13 -20
-A
-18 -1
-A
-19 3
+f object str -2 0
+f object con -2 0
+f object hp -20 0
+f object hitroll -1 0
+f object damroll 3 0
 E
 belt interlinking rose thorns~
 This belt is soaked in blood from it's previous owner. It seems to be made for
 torture rather than armor although anyone fighting with it could easily tear
 their opponents skin on it.
 ~
-G none
 #29794
 white sacrificial gown~
 a white sacrificial gown~
 A white gown covered in arcane runes is here.~
 cloth~
-armor CGM AD
+armor CGM 0 AD
 3 3 4 0 0
 15 10 144 P
-A
-5 -3
-A
-13 -25
+f object con -3 0
+f object hp -25 0
 E
 white sacrificial gown~
 It seems to be decorated in dark runes of pain and sacrifice. Not a nice item
 at all.
 ~
-G none
 #29795
 light harmony~
 a light called Harmony~
 A brilliant white light shines here against the darkness.~
 energy~
-light AGKL AO
+light AGKL 0 AO
 0 0 -1 0 0
 35 0 4000 P
-A
-20 -8
-A
-13 50
+f object saves -8 0
+f object hp 50 0
 E
 harmony light~
 This light is the lasting peace of an elven maiden's inner soul. It has
 gathered her energy and built into a real power that helps the elf in a
 time of great need.
 ~
-V
-1 increase_lightning_damage~
-15~
-V
-1 spell_power~
-2~
-G none
 #29796
 chewed flesh~
 a bit of half-chewed flesh~
 A large bit of half-eaten flesh is here.~
 flesh~
-pill CG AO
+pill CG 0 AO
 40 'poison' '' '' ''
 1 10 736 P
 E
 chewed flesh~
 It's disgusting, who knows what sort of germs are on it...
 ~
-G none
 #29797
 ring flesh~
 a ring embedded with flesh~
 A large ring with flesh grafted onto it is here.~
 steel~
-jewelry CEHh AB
+jewelry CEH K AB
 0 0 0 0 0
 22 10 2646 P
-A
-17 10
-A
-18 2
-A
-19 3
-G none
+f object ac 10 0
+f object hitroll 2 0
+f object damroll 3 0
 #29798
 cap abbott~
 a plain abbott's cap~
 A plain cloth cap is here.~
 cloth~
-armor AK AE
+armor AK 0 AE
 4 4 3 5 5
 22 10 560 P
-A
-4 2
-A
-12 20
-A
-13 20
-A
-18 1
-A
-19 1
-G none
+f object wis 2 0
+f object mana 20 0
+f object hp 20 0
+f object hitroll 1 0
+f object damroll 1 0
 #29799
 talisman inner strength~
 talisman of inner strength~
 A small talisman is here.~
 iron~
-jewelry AK AC
+jewelry AK 0 AC
 0 0 0 0 0
 20 10 5157 P
-A
-17 -7
-A
-18 1
-A
-19 1
-A
-13 15
-A
-12 15
-A
-14 25
-G none
+f object ac -7 0
+f object hitroll 1 0
+f object damroll 1 0
+f object hp 15 0
+f object mana 15 0
+f object move 25 0
 #29801
 spiked boots~
 a pair of spiked boots~
 A pair of large boots with a mean spike in them is here.~
 iron~
-armor h AG
+armor 0 K AG
 6 5 7 0 0
 27 80 518 P
-A
-2 -1
-A
-17 8
-A
-18 -1
-A
-19 3
-G none
+f object dex -1 0
+f object ac 8 0
+f object hitroll -1 0
+f object damroll 3 0
 #29802
 iron shackles~
 some heavy iron shackles~
 A set of iron shackles lie here.~
 iron~
-weapon CEH AN
-flail 7 7 beating 0
+weapon CEH 0 AN
+flail 7 7 'beating' 0
 30 290 1000 P
-A
-18 5
-A
-3 -3
-A
-2 -3
-G none
+f object hitroll 5 0
+f object int -3 0
+f object dex -3 0
 #29803
 firebrand sword~
 a Firebrand sword~
 A sword flickering with orange flames is here.~
 steel~
-weapon ACE AN
-sword 5 7 flbite 0
+weapon ACE 0 AN
+sword 5 7 'flbite' 0
 27 147 1595 P
-G none
 #29804
 armbands black~
 blackened armbands~
 Black sleeves lies here.~
 steel~
-armor AEJLT AI
+armor AEJL C AI
 15 15 15 15 0
 35 1 7800 P
-P
-5 5
-P
-6 5
-P
-7 5
-A
-19 4
-A
-13 40
-G none
+f object damroll 4 0
+f object hp 40 0
 #29805
 mist misty essence~
 a misty essence~
 A strange mist is floating in the air here.~
 energy~
-trash 0 AK
+trash 0 0 AK
 0 0 0 0 0
 35 0 4 P
-A
-2 3
-A
-24 -5
-G none
+f object dex 3 0
+f object saving_spell -5 0
 #29806
 infinite libram conjuration~
 the Libram of Infinite Conjuration~
 A strange libram with glowing runes lies on the ground.~
 energy~
-scroll ABG AO
+scroll ABG 0 AO
 70 'armor' 'detect invis' 'fly' ''
 35 40 474 P
-A
-3 3
-A
-4 3
-A
-12 30
-G none
+f object int 3 0
+f object wis 3 0
+f object mana 30 0
 #29807
 axe drow cleaver~
 the axe named "Drow Cleaver"~
 Huge shiny axe have been left here.~
 platinum~
-weapon ABHIKT AN
-axe 6 9 divine I
+weapon ABHIK C AN
+axe 6 9 'divine' I
 36 100 11939 P
 E
 drow cleaver axe~
 You see strange words on it: "Careful with that axe, Eugene".
 Nobody knnows what does it mean.
 ~
-G none
 #0
 
 #ROOMS
@@ -2662,8 +2386,12 @@ muddy grounds of the swamp island.
 D0
 ~
 ~
+~
+~
 Z 0 29501
 D2
+~
+~
 ~
 ~
 Z 0 29871
@@ -2681,8 +2409,12 @@ the rest of the region to ruins.
 D0
 ~
 ~
+~
+~
 Z 0 29502
 D2
+~
+~
 ~
 ~
 Z 0 29500
@@ -2699,8 +2431,12 @@ wear the armor of Arkham guards. The street continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29505
 D2
+~
+~
 ~
 ~
 Z 0 29501
@@ -2719,8 +2455,12 @@ quiet.
 D0
 ~
 ~
+~
+~
 Z 0 29700
 D2
+~
+~
 ~
 ~
 Z 0 29502
@@ -2735,6 +2475,8 @@ is to the south where the cave leads out into a narrow passage.
 D2
 ~
 ~
+~
+~
 Z 0 29524
 S
 #29521
@@ -2747,6 +2489,8 @@ is to the south where the cave leads out into a narrow passage.
 D2
 ~
 ~
+~
+~
 Z 0 29526
 S
 #29522
@@ -2757,6 +2501,8 @@ is to the north where the cave leads out into a narrow passage.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z 0 29524
@@ -2772,6 +2518,8 @@ is to the north where the cave leads out into a narrow passage.
 D0
 ~
 ~
+~
+~
 Z 0 29526
 S
 #29524
@@ -2785,12 +2533,18 @@ here you can see the passage ending at identical caves.
 D0
 ~
 ~
+~
+~
 Z 0 29520
 D1
 ~
 ~
+~
+~
 Z 0 29525
 D2
+~
+~
 ~
 ~
 Z 0 29522
@@ -2805,12 +2559,18 @@ passage continues and looks identical in both directions.
 D0
 ~
 ~
+~
+~
 Z 0 29527
 D1
 ~
 ~
+~
+~
 Z 0 29526
 D3
+~
+~
 ~
 ~
 Z 0 29524
@@ -2826,12 +2586,18 @@ here you can see the passage ending at identical caves.
 D0
 ~
 ~
+~
+~
 Z 0 29521
 D2
 ~
 ~
+~
+~
 Z 0 29523
 D3
+~
+~
 ~
 ~
 Z 0 29525
@@ -2846,8 +2612,12 @@ heads into a t-junction.
 D2
 ~
 ~
+~
+~
 Z 0 29525
 D5
+~
+~
 ~
 ~
 Z 0 29529
@@ -2863,12 +2633,18 @@ continues north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29531
 D1
 ~
 ~
+~
+~
 Z 0 29529
 D3
+~
+~
 ~
 ~
 Z 0 29530
@@ -2884,16 +2660,24 @@ north, east and west into the misty cavern.
 D0
 ~
 ~
+~
+~
 Z 0 29532
 D1
+~
+~
 ~
 ~
 Z 0 29530
 D3
 ~
 ~
+~
+~
 Z 0 29528
 D4
+~
+~
 ~
 ~
 Z 0 29527
@@ -2909,12 +2693,18 @@ continues north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29533
 D1
 ~
 ~
+~
+~
 Z 0 29528
 D3
+~
+~
 ~
 ~
 Z 0 29529
@@ -2930,16 +2720,24 @@ continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29534
 D1
+~
+~
 ~
 ~
 Z 0 29532
 D2
 ~
 ~
+~
+~
 Z 0 29528
 D3
+~
+~
 ~
 ~
 Z 0 29533
@@ -2955,16 +2753,24 @@ continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29535
 D1
+~
+~
 ~
 ~
 Z 0 29533
 D2
 ~
 ~
+~
+~
 Z 0 29529
 D3
+~
+~
 ~
 ~
 Z 0 29531
@@ -2980,16 +2786,24 @@ continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29536
 D1
+~
+~
 ~
 ~
 Z 0 29531
 D2
 ~
 ~
+~
+~
 Z 0 29530
 D3
+~
+~
 ~
 ~
 Z 0 29532
@@ -3005,16 +2819,24 @@ continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29537
 D1
+~
+~
 ~
 ~
 Z 0 29535
 D2
 ~
 ~
+~
+~
 Z 0 29531
 D3
+~
+~
 ~
 ~
 Z 0 29536
@@ -3031,20 +2853,30 @@ rest of the cave.
 D0
 ~
 ~
+~
+~
 Z 0 29538
 D1
+~
+~
 ~
 ~
 Z 0 29536
 D2
 ~
 ~
+~
+~
 Z 0 29532
 D3
 ~
 ~
+~
+~
 Z 0 29534
 D5
+~
+~
 ~
 ~
 Z 0 29542
@@ -3060,16 +2892,24 @@ continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29539
 D1
+~
+~
 ~
 ~
 Z 0 29534
 D2
 ~
 ~
+~
+~
 Z 0 29533
 D3
+~
+~
 ~
 ~
 Z 0 29535
@@ -3085,12 +2925,18 @@ continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29538
 D2
 ~
 ~
+~
+~
 Z 0 29534
 D3
+~
+~
 ~
 ~
 Z 0 29539
@@ -3106,12 +2952,18 @@ continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29539
 D2
 ~
 ~
+~
+~
 Z 0 29535
 D3
+~
+~
 ~
 ~
 Z 0 29537
@@ -3127,12 +2979,18 @@ continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29537
 D2
 ~
 ~
+~
+~
 Z 0 29536
 D3
+~
+~
 ~
 ~
 Z 0 29538
@@ -3147,8 +3005,12 @@ to the south you can make out the hole leading to a small ledge.
 D2
 ~
 ~
+~
+~
 Z 0 29543
 D4
+~
+~
 ~
 ~
 Z 0 29535
@@ -3165,8 +3027,12 @@ cross.
 D0
 ~
 ~
+~
+~
 Z 0 29542
 D5
+~
+~
 ~
 ~
 Z 0 29544
@@ -3182,8 +3048,12 @@ You can climb up out of the pit or go south along the length of the
 D2
 ~
 ~
+~
+~
 Z 0 29545
 D4
+~
+~
 ~
 ~
 Z 0 29543
@@ -3199,8 +3069,12 @@ the 'cross'.
 D0
 ~
 ~
+~
+~
 Z 0 29544
 D2
+~
+~
 ~
 ~
 Z 0 29546
@@ -3215,16 +3089,24 @@ billows out.
 D0
 ~
 ~
+~
+~
 Z 0 29545
 D1
+~
+~
 ~
 ~
 Z 0 29548
 D2
 ~
 ~
+~
+~
 Z 0 29549
 D3
+~
+~
 ~
 ~
 Z 0 29547
@@ -3245,6 +3127,8 @@ what sounds like faint demonic laughter echoing from deep, deep within...
 D1
 ~
 ~
+~
+~
 Z 0 29546
 S
 #29548
@@ -3261,6 +3145,8 @@ can see nothing through the thick mist coming out of it. You do, however, hear
 what sounds like faint demonic laughter echoing from deep, deep within...
 ~
 D3
+~
+~
 ~
 ~
 Z 0 29546
@@ -3281,6 +3167,8 @@ what sounds like faint demonic laughter echoing from deep, deep within...
 D0
 ~
 ~
+~
+~
 Z 0 29546
 S
 #29550
@@ -3293,16 +3181,24 @@ corridor that lead east and west from here.
 D1
 ~
 ~
+~
+~
 Z 0 29551
 D3
+~
+~
 ~
 ~
 Z 0 29554
 D4
 ~
 ~
+~
+~
 Z 0 29570
 D5
+~
+~
 ~
 ~
 Z 0 29766
@@ -3317,8 +3213,12 @@ corridor walls are etched with burn marks and show signs of corrosion.
 D1
 ~
 ~
+~
+~
 Z 0 29552
 D3
+~
+~
 ~
 ~
 Z 0 29550
@@ -3335,8 +3235,12 @@ blowing in from.
 D1
 ~
 ~
+~
+~
 Z 0 29553
 D3
+~
+~
 ~
 ~
 Z 0 29551
@@ -3352,8 +3256,12 @@ the platform or back west down the corridor.
 D3
 ~
 ~
+~
+~
 Z 0 29552
 D4
+~
+~
 ~
 ~
 Z 0 29558
@@ -3368,8 +3276,12 @@ of air. To the east you can see a large winding stairwell.
 D1
 ~
 ~
+~
+~
 Z 0 29550
 D3
+~
+~
 ~
 ~
 Z 0 29555
@@ -3385,8 +3297,12 @@ of stairs leading up to where the wind is blowing in from.
 D1
 ~
 ~
+~
+~
 Z 0 29554
 D3
+~
+~
 ~
 ~
 Z 0 29556
@@ -3402,8 +3318,12 @@ the platform or back west down the corridor.
 D1
 ~
 ~
+~
+~
 Z 0 29555
 D4
+~
+~
 ~
 ~
 Z 0 29557
@@ -3420,6 +3340,8 @@ balance. The only exit is back down the stairs.
 D5
 ~
 ~
+~
+~
 Z 0 29556
 S
 #29558
@@ -3431,6 +3353,8 @@ swamps rushes by. The only exit is back down the stairs.
 ~
 0 D inside
 D5
+~
+~
 ~
 ~
 Z 0 29553
@@ -3445,8 +3369,12 @@ out the black walls of another corridor.
 D2
 ~
 ~
+~
+~
 Z 0 29571
 D5
+~
+~
 ~
 ~
 Z 0 29550
@@ -3462,16 +3390,24 @@ west. To the north lies a dark stairwell leading down.
 D0
 ~
 ~
+~
+~
 Z 0 29570
 D1
+~
+~
 ~
 ~
 Z 0 29572
 D2
 ~
 door~
+the door~
+~
 ABZ 0 29579
 D3
+~
+~
 ~
 ~
 Z 0 29578
@@ -3486,12 +3422,18 @@ corridor continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29573
 D1
 ~
 door~
+the door~
+~
 ABCZ 29792 29580
 D3
+~
+~
 ~
 ~
 Z 0 29571
@@ -3506,12 +3448,18 @@ corridor continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29574
 D1
 ~
 door~
+the door~
+~
 ABCZ 29792 29581
 D2
+~
+~
 ~
 ~
 Z 0 29572
@@ -3526,12 +3474,18 @@ corridor continues south and west.
 D1
 ~
 door~
+the door~
+~
 ABCZ 29792 29582
 D2
 ~
 ~
+~
+~
 Z 0 29573
 D3
+~
+~
 ~
 ~
 Z 0 29575
@@ -3546,12 +3500,18 @@ a dark narrow stairwell going up onto a windy walkway.
 D1
 ~
 ~
+~
+~
 Z 0 29574
 D3
 ~
 ~
+~
+~
 Z 0 29576
 D4
+~
+~
 ~
 ~
 Z 0 29770
@@ -3566,14 +3526,20 @@ corridor continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29575
 D2
+~
+~
 ~
 ~
 Z 0 29577
 D3
 ~
 door~
+the door~
+~
 ABCZ 29792 29583
 S
 #29577
@@ -3586,14 +3552,20 @@ corridor continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29576
 D2
+~
+~
 ~
 ~
 Z 0 29578
 D3
 ~
 door~
+the door~
+~
 ABCZ 29792 29584
 S
 #29578
@@ -3606,14 +3578,20 @@ corridor continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29577
 D1
+~
+~
 ~
 ~
 Z 0 29571
 D3
 ~
 door~
+the door~
+~
 ABCZ 29792 29585
 S
 #29579
@@ -3623,6 +3601,8 @@ The prison keeper's Room~
 D0
 ~
 door~
+the door~
+~
 ABZ 0 29571
 S
 #29580
@@ -3636,6 +3616,8 @@ wall.
 D3
 ~
 door~
+the door~
+~
 ABCZ 29792 29572
 S
 #29581
@@ -3649,6 +3631,8 @@ wall.
 D3
 ~
 door~
+the door~
+~
 ABCZ 29792 29573
 S
 #29582
@@ -3662,6 +3646,8 @@ wall.
 D3
 ~
 door~
+the door~
+~
 ABCZ 29792 29574
 S
 #29583
@@ -3675,6 +3661,8 @@ wall.
 D1
 ~
 door~
+the door~
+~
 ABCZ 29792 29576
 S
 #29584
@@ -3687,6 +3675,8 @@ to drive the prisoners insane. The only exit is a door in the east wall.
 D1
 ~
 door~
+the door~
+~
 ABCZ 29792 29577
 S
 #29585
@@ -3700,6 +3690,8 @@ wall.
 D1
 ~
 door~
+the door~
+~
 ABCZ 29792 29578
 S
 #29599
@@ -3717,8 +3709,12 @@ or south out into the ruins.
 D0
 ~
 ~
+~
+~
 Z 0 29701
 D2
+~
+~
 ~
 ~
 Z 0 29505
@@ -3733,8 +3729,12 @@ a chilling breeze. Somewhere nearby you hear the cries of infernal suffering.
 D0
 ~
 ~
+~
+~
 Z 0 29702
 D2
+~
+~
 ~
 ~
 Z 0 29700
@@ -3749,8 +3749,12 @@ a chilling breeze. Somewhere nearby you hear the cries of infernal suffering.
 D0
 ~
 ~
+~
+~
 Z 0 29703
 D2
+~
+~
 ~
 ~
 Z 0 29701
@@ -3766,16 +3770,24 @@ that blow in on the cold arkham air.
 D0
 ~
 ~
+~
+~
 Z 0 29710
 D1
+~
+~
 ~
 ~
 Z 0 29705
 D2
 ~
 ~
+~
+~
 Z 0 29702
 D3
+~
+~
 ~
 ~
 Z 0 29704
@@ -3790,14 +3802,20 @@ doors lie set into the north and south walls.
 D0
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29706
 D1
+~
+~
 ~
 ~
 Z 0 29703
 D2
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29708
 S
 #29705
@@ -3810,12 +3828,18 @@ doors lie set into the north and south walls.
 D0
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29707
 D2
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29709
 D3
+~
+~
 ~
 ~
 Z 0 29703
@@ -3830,6 +3854,8 @@ leads back out.
 D2
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29704
 S
 #29707
@@ -3842,6 +3868,8 @@ leads back out.
 D2
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29705
 S
 #29708
@@ -3854,6 +3882,8 @@ leads back out.
 D0
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29704
 S
 #29709
@@ -3866,6 +3896,8 @@ leads back out.
 D0
 ~
 huge black door~
+the huge~
+~
 ABZ 0 29705
 S
 #29710
@@ -3879,12 +3911,12 @@ smelled.
 D2
 ~
 ~
+~
+~
 Z 0 29703
-D3
-~
-~
-Z 0 50301
 D4
+~
+~
 ~
 ~
 Z 0 29711
@@ -3901,8 +3933,12 @@ down the stairs.
 D2
 ~
 ~
+~
+~
 Z 0 29712
 D5
+~
+~
 ~
 ~
 Z 0 29710
@@ -3918,18 +3954,26 @@ magic. The corridor itself continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29711
 D1
 ~
 grey door~
+the grey~
+~
 ABZ 0 29716
 D2
+~
+~
 ~
 ~
 Z 0 29713
 D3
 ~
 grey door~
+the grey~
+~
 ABZ 0 29721
 S
 #29713
@@ -3942,8 +3986,12 @@ The corridor leads north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29712
 D2
+~
+~
 ~
 ~
 Z 0 29714
@@ -3960,18 +4008,26 @@ continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 29713
 D1
 ~
 grey door~
+the grey~
+~
 ABZ 0 29728
 D2
+~
+~
 ~
 ~
 Z 0 29715
 D3
 ~
 grey door~
+the grey~
+~
 ABZ 0 29725
 S
 #29715
@@ -3984,10 +4040,14 @@ darkness. The corridor you are in heads back north.
 D0
 ~
 ~
+~
+~
 Z 0 29714
 D2
 ~
 ebony grate~
+the ebony~
+~
 ABCZ 29700 29732
 S
 #29716
@@ -4002,14 +4062,20 @@ can leave it through the west door.
 D1
 ~
 ~
+~
+~
 Z 0 29717
 D2
+~
+~
 ~
 ~
 Z 0 29718
 D3
 ~
 grey door~
+the grey~
+~
 ABZ 0 29712
 S
 #29717
@@ -4023,8 +4089,12 @@ drenched in fresh blood and guts. The room continues to the south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29719
 D3
+~
+~
 ~
 ~
 Z 0 29716
@@ -4040,8 +4110,12 @@ drenched in fresh blood and guts. The room continues to the north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29716
 D1
+~
+~
 ~
 ~
 Z 0 29719
@@ -4057,8 +4131,12 @@ drenched in fresh blood and guts. The room continues to the north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29717
 D3
+~
+~
 ~
 ~
 Z 0 29718
@@ -4075,8 +4153,12 @@ east and south from here.
 D1
 ~
 ~
+~
+~
 Z 0 29721
 D2
+~
+~
 ~
 ~
 Z 0 29722
@@ -4093,12 +4175,18 @@ south and west from here, and there is a grey door in the eastern wall.
 D1
 ~
 grey door~
+the grey~
+~
 ABZ 0 29712
 D2
 ~
 ~
+~
+~
 Z 0 29723
 D3
+~
+~
 ~
 ~
 Z 0 29720
@@ -4115,8 +4203,12 @@ north and east from here.
 D0
 ~
 ~
+~
+~
 Z 0 29720
 D1
+~
+~
 ~
 ~
 Z 0 29723
@@ -4133,8 +4225,12 @@ north and west from here.
 D0
 ~
 ~
+~
+~
 Z 0 29721
 D3
+~
+~
 ~
 ~
 Z 0 29722
@@ -4147,8 +4243,12 @@ It's pitch-black in here...you can't see a thing!
 D1
 ~
 ~
+~
+~
 Z 0 29725
 D2
+~
+~
 ~
 ~
 Z 0 29726
@@ -4161,12 +4261,18 @@ It's pitch-black in here...you can't see a thing!
 D1
 ~
 grey door~
+the grey~
+~
 ABZ 0 29714
 D2
 ~
 ~
+~
+~
 Z 0 29727
 D3
+~
+~
 ~
 ~
 Z 0 29724
@@ -4179,8 +4285,12 @@ It's pitch-black in here...you can't see a thing!
 D0
 ~
 ~
+~
+~
 Z 0 29724
 D1
+~
+~
 ~
 ~
 Z 0 29727
@@ -4193,8 +4303,12 @@ It's pitch-black in here...you can't see a thing!
 D0
 ~
 ~
+~
+~
 Z 0 29725
 D3
+~
+~
 ~
 ~
 Z 0 29726
@@ -4212,14 +4326,20 @@ a large grey door.
 D1
 ~
 ~
+~
+~
 Z 0 29729
 D2
+~
+~
 ~
 ~
 Z 0 29730
 D3
 ~
 grey door~
+the grey~
+~
 ABZ 0 29714
 S
 #29729
@@ -4234,8 +4354,12 @@ some kind of practice place for the evil beings who live here.
 D2
 ~
 ~
+~
+~
 Z 0 29731
 D3
+~
+~
 ~
 ~
 Z 0 29728
@@ -4252,8 +4376,12 @@ some kind of practice place for the evil beings who live here.
 D0
 ~
 ~
+~
+~
 Z 0 29728
 D1
+~
+~
 ~
 ~
 Z 0 29731
@@ -4270,8 +4398,12 @@ some kind of practice place for the evil beings who live here.
 D0
 ~
 ~
+~
+~
 Z 0 29729
 D3
+~
+~
 ~
 ~
 Z 0 29730
@@ -4285,8 +4417,12 @@ confines of the tower. A huge ebony steel grate blocks the way north.
 D0
 ~
 ebony grate~
+the ebony~
+~
 ABCZ 29700 29715
 D4
+~
+~
 ~
 ~
 Z 0 29899
@@ -4304,12 +4440,18 @@ the guard quarters head off north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29736
 D1
 ~
 ebony grate~
+the ebony~
+~
 ABZ 29700 29899
 D3
+~
+~
 ~
 ~
 Z 0 29734
@@ -4326,12 +4468,18 @@ quarters head off north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29737
 D1
 ~
 ~
+~
+~
 Z 0 29733
 D3
+~
+~
 ~
 ~
 Z 0 29735
@@ -4348,8 +4496,12 @@ quarters head off north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29738
 D1
+~
+~
 ~
 ~
 Z 0 29734
@@ -4366,8 +4518,12 @@ quarters head off south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29733
 D3
+~
+~
 ~
 ~
 Z 0 29737
@@ -4384,12 +4540,18 @@ quarters continue east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29736
 D2
 ~
 ~
+~
+~
 Z 0 29734
 D3
+~
+~
 ~
 ~
 Z 0 29738
@@ -4407,12 +4569,18 @@ of an eclipsed moon in the north wall.
 D0
 ~
 eclipsed moon door~
+the eclipsed~
+~
 ABZ 29701 29739
 D1
 ~
 ~
+~
+~
 Z 0 29737
 D2
+~
+~
 ~
 ~
 Z 0 29735
@@ -4427,14 +4595,20 @@ breath.
 D0
 ~
 ~
+~
+~
 Z 0 29742
 D1
+~
+~
 ~
 ~
 Z 0 29740
 D2
 ~
 eclipsed moon door~
+the eclipsed~
+~
 ABZ 29701 29738
 S
 #29740
@@ -4447,12 +4621,18 @@ breath.
 D0
 ~
 ~
+~
+~
 Z 0 29743
 D1
 ~
 ~
+~
+~
 Z 0 29741
 D3
+~
+~
 ~
 ~
 Z 0 29739
@@ -4467,8 +4647,12 @@ breath.
 D0
 ~
 ~
+~
+~
 Z 0 29744
 D3
+~
+~
 ~
 ~
 Z 0 29740
@@ -4483,12 +4667,18 @@ breath.
 D0
 ~
 ~
+~
+~
 Z 0 29745
 D1
 ~
 ~
+~
+~
 Z 0 29743
 D2
+~
+~
 ~
 ~
 Z 0 29739
@@ -4503,16 +4693,24 @@ breath.
 D0
 ~
 ~
+~
+~
 Z 0 29746
 D1
+~
+~
 ~
 ~
 Z 0 29744
 D2
 ~
 ~
+~
+~
 Z 0 29740
 D3
+~
+~
 ~
 ~
 Z 0 29742
@@ -4527,12 +4725,18 @@ breath.
 D0
 ~
 ~
+~
+~
 Z 0 29747
 D2
 ~
 ~
+~
+~
 Z 0 29741
 D3
+~
+~
 ~
 ~
 Z 0 29743
@@ -4547,12 +4751,18 @@ breath. To the north is a grey door.
 D0
 ~
 grey door~
+the grey~
+~
 ABZ 29702 29748
 D1
 ~
 ~
+~
+~
 Z 0 29746
 D2
+~
+~
 ~
 ~
 Z 0 29742
@@ -4567,12 +4777,18 @@ breath.
 D1
 ~
 ~
+~
+~
 Z 0 29747
 D2
 ~
 ~
+~
+~
 Z 0 29743
 D3
+~
+~
 ~
 ~
 Z 0 29745
@@ -4587,8 +4803,12 @@ breath.
 D2
 ~
 ~
+~
+~
 Z 0 29744
 D3
+~
+~
 ~
 ~
 Z 0 29746
@@ -4604,10 +4824,14 @@ in rust coloured blood. The corridor heads east.
 D1
 ~
 ~
+~
+~
 Z 0 29749
 D2
 ~
 grey door~
+the grey~
+~
 ABZ 29702 29745
 S
 #29749
@@ -4620,8 +4844,12 @@ walls begin. The corridor continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 29750
 D3
+~
+~
 ~
 ~
 Z 0 29748
@@ -4637,8 +4865,12 @@ outlined in a blood red glow.
 D1
 ~
 ~
+~
+~
 Z 0 29751
 D3
+~
+~
 ~
 ~
 Z 0 29749
@@ -4653,8 +4885,12 @@ beyond you can hear the sounds of heavy rasping and scraping.
 D1
 ~
 obsidian blood door~
+the obsidian~
+~
 ABZ 0 29752
 D3
+~
+~
 ~
 ~
 Z 0 29750
@@ -4671,14 +4907,20 @@ the undead roaming grounds continue east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29753
 D2
+~
+~
 ~
 ~
 Z 0 29755
 D3
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29751
 S
 #29753
@@ -4692,12 +4934,18 @@ dark half-life. The undead roaming grounds continue east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29754
 D2
 ~
 ~
+~
+~
 Z 0 29756
 D3
+~
+~
 ~
 ~
 Z 0 29752
@@ -4714,12 +4962,18 @@ there is a blood soaked door in the eastern wall.
 D1
 ~
 blood door~
+the blood~
+~
 ABZ 0 29767
 D2
 ~
 ~
+~
+~
 Z 0 29757
 D3
+~
+~
 ~
 ~
 Z 0 29753
@@ -4735,12 +4989,18 @@ dark half-life. The undead roaming grounds continue north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 29752
 D1
 ~
 ~
+~
+~
 Z 0 29756
 D2
+~
+~
 ~
 ~
 Z 0 29758
@@ -4756,16 +5016,24 @@ dark half-life. The undead roaming grounds spread out all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29753
 D1
+~
+~
 ~
 ~
 Z 0 29757
 D2
 ~
 ~
+~
+~
 Z 0 29759
 D3
+~
+~
 ~
 ~
 Z 0 29755
@@ -4781,12 +5049,18 @@ dark half-life. The undead roaming grounds continue north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29754
 D2
 ~
 ~
+~
+~
 Z 0 29760
 D3
+~
+~
 ~
 ~
 Z 0 29756
@@ -4802,12 +5076,18 @@ dark half-life. The undead roaming grounds continue north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 29755
 D1
 ~
 ~
+~
+~
 Z 0 29759
 D2
+~
+~
 ~
 ~
 Z 0 29761
@@ -4823,16 +5103,24 @@ dark half-life. The undead roaming grounds spread out all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29756
 D1
+~
+~
 ~
 ~
 Z 0 29760
 D2
 ~
 ~
+~
+~
 Z 0 29762
 D3
+~
+~
 ~
 ~
 Z 0 29758
@@ -4848,12 +5136,18 @@ dark half-life. The undead roaming grounds continue north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29757
 D2
 ~
 ~
+~
+~
 Z 0 29763
 D3
+~
+~
 ~
 ~
 Z 0 29759
@@ -4870,14 +5164,20 @@ can see a blood soaked door in the western wall.
 D0
 ~
 ~
+~
+~
 Z 0 29758
 D1
+~
+~
 ~
 ~
 Z 0 29762
 D3
 ~
 blood door~
+the blood~
+~
 ABZ 0 29769
 S
 #29762
@@ -4893,16 +5193,24 @@ warding upon it.
 D0
 ~
 ~
+~
+~
 Z 0 29759
 D1
+~
+~
 ~
 ~
 Z 0 29763
 D2
 ~
 obsidan pentegram door~
+the obsidan~
+~
 ABCZ 29704 29764
 D3
+~
+~
 ~
 ~
 Z 0 29761
@@ -4919,12 +5227,18 @@ west, and you can see a blood soaked door in the eastern wall.
 D0
 ~
 ~
+~
+~
 Z 0 29760
 D1
 ~
 blood door~
+the blood~
+~
 ABZ 0 29768
 D3
+~
+~
 ~
 ~
 Z 0 29762
@@ -4940,8 +5254,12 @@ into the darkness.
 D0
 ~
 obsidian door~
+the obsidian~
+~
 ABCZ 29704 29762
 D3
+~
+~
 ~
 ~
 Z 0 29765
@@ -4956,8 +5274,12 @@ just make out a stairwell in the shadows.
 D1
 ~
 ~
+~
+~
 Z 0 29764
 D3
+~
+~
 ~
 ~
 Z 0 29766
@@ -4973,8 +5295,12 @@ of death comes wafting in from the darkness.
 D1
 ~
 ~
+~
+~
 Z 0 29765
 D4
+~
+~
 ~
 ~
 Z 0 29550
@@ -4991,6 +5317,8 @@ leading back into the undead roaming grounds.
 D3
 ~
 blood door~
+the blood~
+~
 ABZ 0 29754
 S
 #29768
@@ -5004,6 +5332,8 @@ the necromancers are left to roam.
 D3
 ~
 blood door~
+the blood~
+~
 ABZ 0 29763
 S
 #29769
@@ -5018,6 +5348,8 @@ where most of the necromantic end-products are left to wander.
 D1
 ~
 blood door~
+the blood~
+~
 ABZ 0 29761
 S
 #29770
@@ -5032,12 +5364,18 @@ continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 29771
 D3
 ~
 ~
+~
+~
 Z 0 29773
 D5
+~
+~
 ~
 ~
 Z 0 29575
@@ -5052,8 +5390,12 @@ echo faintly on the winds. The walkway continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 29772
 D3
+~
+~
 ~
 ~
 Z 0 29770
@@ -5070,12 +5412,18 @@ The walkway continues back west from here.
 D0
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29800
 D2
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29803
 D3
+~
+~
 ~
 ~
 Z 0 29771
@@ -5090,8 +5438,12 @@ echo faintly on the winds. The walkway continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 29770
 D3
+~
+~
 ~
 ~
 Z 0 29774
@@ -5108,14 +5460,20 @@ continues back east from here.
 D0
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29782
 D1
+~
+~
 ~
 ~
 Z 0 29773
 D2
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29785
 S
 #29775
@@ -5129,12 +5487,18 @@ around. A black stairwell is here, rising up into the tower.
 D1
 ~
 ~
+~
+~
 Z 0 29776
 D2
 ~
 ~
+~
+~
 Z 0 29778
 D4
+~
+~
 ~
 ~
 Z 0 29811
@@ -5150,12 +5514,18 @@ around. The turret room continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29777
 D2
 ~
 ~
+~
+~
 Z 0 29779
 D3
+~
+~
 ~
 ~
 Z 0 29775
@@ -5171,8 +5541,12 @@ around. The turret room continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29780
 D3
+~
+~
 ~
 ~
 Z 0 29776
@@ -5188,12 +5562,18 @@ around. The turret room continues north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 29775
 D1
 ~
 ~
+~
+~
 Z 0 29779
 D2
+~
+~
 ~
 ~
 Z 0 29781
@@ -5209,16 +5589,24 @@ around. The turret room continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29776
 D1
+~
+~
 ~
 ~
 Z 0 29780
 D2
 ~
 ~
+~
+~
 Z 0 29782
 D3
+~
+~
 ~
 ~
 Z 0 29778
@@ -5234,12 +5622,18 @@ around. The turret room continues north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29777
 D2
 ~
 ~
+~
+~
 Z 0 29783
 D3
+~
+~
 ~
 ~
 Z 0 29779
@@ -5255,8 +5649,12 @@ around. The turret room continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29778
 D1
+~
+~
 ~
 ~
 Z 0 29782
@@ -5274,16 +5672,24 @@ obsidian door lies in the south wall.
 D0
 ~
 ~
+~
+~
 Z 0 29779
 D1
+~
+~
 ~
 ~
 Z 0 29783
 D2
 ~
 obsidian door~
+the obsidian~
+~
 Z 0 29774
 D3
+~
+~
 ~
 ~
 Z 0 29781
@@ -5299,8 +5705,12 @@ turret room continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29780
 D3
+~
+~
 ~
 ~
 Z 0 29782
@@ -5317,8 +5727,12 @@ recently. The turret room heads east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29785
 D2
+~
+~
 ~
 ~
 Z 0 29787
@@ -5336,16 +5750,24 @@ door leading back out onto the open walkway.
 D0
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29774
 D1
+~
+~
 ~
 ~
 Z 0 29786
 D2
 ~
 ~
+~
+~
 Z 0 29788
 D3
+~
+~
 ~
 ~
 Z 0 29784
@@ -5362,8 +5784,12 @@ recently. The turret continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29789
 D3
+~
+~
 ~
 ~
 Z 0 29785
@@ -5380,12 +5806,18 @@ recently. The turret continues north, east and south from here.
 D0
 ~
 ~
+~
+~
 Z 0 29784
 D1
 ~
 ~
+~
+~
 Z 0 29788
 D2
+~
+~
 ~
 ~
 Z 0 29790
@@ -5402,16 +5834,24 @@ recently. The turret continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29785
 D1
+~
+~
 ~
 ~
 Z 0 29789
 D2
 ~
 ~
+~
+~
 Z 0 29791
 D3
+~
+~
 ~
 ~
 Z 0 29787
@@ -5428,12 +5868,18 @@ recently. The turrent continues to the north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29786
 D2
 ~
 ~
+~
+~
 Z 0 29792
 D3
+~
+~
 ~
 ~
 Z 0 29788
@@ -5448,12 +5894,18 @@ turret room continues north and east from here.
 D0
 ~
 ~
+~
+~
 Z 0 29787
 D1
 ~
 ~
+~
+~
 Z 0 29791
 D4
+~
+~
 ~
 ~
 Z 0 29835
@@ -5470,12 +5922,18 @@ recently. You can go north, east and west from here.
 D0
 ~
 ~
+~
+~
 Z 0 29788
 D1
 ~
 ~
+~
+~
 Z 0 29792
 D3
+~
+~
 ~
 ~
 Z 0 29790
@@ -5492,8 +5950,12 @@ recently. The turret continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29789
 D3
+~
+~
 ~
 ~
 Z 0 29791
@@ -5509,8 +5971,12 @@ single huge pentegram. The room continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29794
 D2
+~
+~
 ~
 ~
 Z 0 29796
@@ -5526,12 +5992,18 @@ single huge pentegram. The room continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29795
 D2
 ~
 ~
+~
+~
 Z 0 29797
 D3
+~
+~
 ~
 ~
 Z 0 29793
@@ -5548,12 +6020,18 @@ corner you can see a set of stairs leading up onto the top of the turret.
 D2
 ~
 ~
+~
+~
 Z 0 29798
 D3
 ~
 ~
+~
+~
 Z 0 29794
 D4
+~
+~
 ~
 ~
 Z 0 29822
@@ -5569,12 +6047,18 @@ single huge pentegram. The room continues north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 29793
 D1
 ~
 ~
+~
+~
 Z 0 29797
 D2
+~
+~
 ~
 ~
 Z 0 29799
@@ -5590,16 +6074,24 @@ single huge pentegram. The room continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29794
 D1
+~
+~
 ~
 ~
 Z 0 29798
 D2
 ~
 ~
+~
+~
 Z 0 29800
 D3
+~
+~
 ~
 ~
 Z 0 29796
@@ -5615,12 +6107,18 @@ single huge pentegram. The room continues north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29795
 D2
 ~
 ~
+~
+~
 Z 0 29801
 D3
+~
+~
 ~
 ~
 Z 0 29797
@@ -5636,8 +6134,12 @@ single huge pentegram. The room continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29796
 D1
+~
+~
 ~
 ~
 Z 0 29800
@@ -5654,16 +6156,24 @@ the south is a large obsidian door.
 D0
 ~
 ~
+~
+~
 Z 0 29797
 D1
+~
+~
 ~
 ~
 Z 0 29801
 D2
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29772
 D3
+~
+~
 ~
 ~
 Z 0 29799
@@ -5679,8 +6189,12 @@ single huge pentegram. The room continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29798
 D3
+~
+~
 ~
 ~
 Z 0 29800
@@ -5695,8 +6209,12 @@ kind of twisted arrangement. The room continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29803
 D2
+~
+~
 ~
 ~
 Z 0 29805
@@ -5712,16 +6230,24 @@ is a large obsidian door.
 D0
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 29772
 D1
+~
+~
 ~
 ~
 Z 0 29804
 D2
 ~
 ~
+~
+~
 Z 0 29806
 D3
+~
+~
 ~
 ~
 Z 0 29802
@@ -5736,8 +6262,12 @@ kind of twisted arrangement. The room continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29807
 D3
+~
+~
 ~
 ~
 Z 0 29803
@@ -5752,12 +6282,18 @@ kind of twisted arrangement. The room continues north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 29802
 D1
 ~
 ~
+~
+~
 Z 0 29806
 D2
+~
+~
 ~
 ~
 Z 0 29808
@@ -5772,16 +6308,24 @@ kind of twisted arrangement. The room continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29803
 D1
+~
+~
 ~
 ~
 Z 0 29807
 D2
 ~
 ~
+~
+~
 Z 0 29809
 D3
+~
+~
 ~
 ~
 Z 0 29805
@@ -5796,12 +6340,18 @@ kind of twisted arrangement. The room continues north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29804
 D2
 ~
 ~
+~
+~
 Z 0 29810
 D3
+~
+~
 ~
 ~
 Z 0 29806
@@ -5816,8 +6366,12 @@ kind of twisted arrangement. The room continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29805
 D1
+~
+~
 ~
 ~
 Z 0 29809
@@ -5832,12 +6386,18 @@ kind of twisted arrangement. The room continues north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29806
 D1
 ~
 ~
+~
+~
 Z 0 29810
 D3
+~
+~
 ~
 ~
 Z 0 29808
@@ -5854,12 +6414,18 @@ upwards onto the top of the turret.
 D0
 ~
 ~
+~
+~
 Z 0 29807
 D3
 ~
 ~
+~
+~
 Z 0 29809
 D4
+~
+~
 ~
 ~
 Z 0 29846
@@ -5875,12 +6441,18 @@ roof continues east and south, and there is an ebony stairwell going down.
 D1
 ~
 ~
+~
+~
 Z 0 29812
 D2
 ~
 ~
+~
+~
 Z 0 29814
 D5
+~
+~
 ~
 ~
 Z 0 29775
@@ -5895,12 +6467,18 @@ vortex of horrible darkness. The roof continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29813
 D2
 ~
 ~
+~
+~
 Z 0 29815
 D3
+~
+~
 ~
 ~
 Z 0 29811
@@ -5916,8 +6494,12 @@ tower. The roof continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29816
 D3
+~
+~
 ~
 ~
 Z 0 29812
@@ -5932,12 +6514,18 @@ pitch-black matter. The roof continues north, south and east.
 D0
 ~
 ~
+~
+~
 Z 0 29811
 D1
 ~
 ~
+~
+~
 Z 0 29815
 D2
+~
+~
 ~
 ~
 Z 0 29817
@@ -5953,16 +6541,24 @@ itself draws upwards into whatever abyss it comes from...
 D0
 ~
 ~
+~
+~
 Z 0 29812
 D1
+~
+~
 ~
 ~
 Z 0 29816
 D2
 ~
 ~
+~
+~
 Z 0 29818
 D3
+~
+~
 ~
 ~
 Z 0 29814
@@ -5977,12 +6573,18 @@ black vortex of nothingness. The roof continues north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29813
 D2
 ~
 ~
+~
+~
 Z 0 29819
 D3
+~
+~
 ~
 ~
 Z 0 29815
@@ -5998,8 +6600,12 @@ roof continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29814
 D1
+~
+~
 ~
 ~
 Z 0 29818
@@ -6014,12 +6620,18 @@ from all around it. The roof continues north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29815
 D1
 ~
 ~
+~
+~
 Z 0 29819
 D3
+~
+~
 ~
 ~
 Z 0 29817
@@ -6035,8 +6647,12 @@ roof continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29816
 D3
+~
+~
 ~
 ~
 Z 0 29818
@@ -6053,8 +6669,12 @@ blood. The roof continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29821
 D2
+~
+~
 ~
 ~
 Z 0 29823
@@ -6071,12 +6691,18 @@ blood. The roof continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29822
 D2
 ~
 ~
+~
+~
 Z 0 29824
 D3
+~
+~
 ~
 ~
 Z 0 29820
@@ -6093,12 +6719,18 @@ blood. The roof continues south and west, and there is a stairwell down.
 D2
 ~
 ~
+~
+~
 Z 0 29825
 D3
 ~
 ~
+~
+~
 Z 0 29821
 D5
+~
+~
 ~
 ~
 Z 0 29795
@@ -6115,12 +6747,18 @@ blood. The roof continues north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 29820
 D1
 ~
 ~
+~
+~
 Z 0 29824
 D2
+~
+~
 ~
 ~
 Z 0 29826
@@ -6136,16 +6774,24 @@ warding and protection. The roof continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29821
 D1
+~
+~
 ~
 ~
 Z 0 29825
 D2
 ~
 ~
+~
+~
 Z 0 29827
 D3
+~
+~
 ~
 ~
 Z 0 29823
@@ -6162,12 +6808,18 @@ blood. The roof continues north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29822
 D2
 ~
 ~
+~
+~
 Z 0 29828
 D3
+~
+~
 ~
 ~
 Z 0 29824
@@ -6184,8 +6836,12 @@ blood. The roof continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29823
 D1
+~
+~
 ~
 ~
 Z 0 29827
@@ -6202,12 +6858,18 @@ blood. The roof continues north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29824
 D1
 ~
 ~
+~
+~
 Z 0 29828
 D3
+~
+~
 ~
 ~
 Z 0 29826
@@ -6224,8 +6886,12 @@ blood. The roof continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29825
 D3
+~
+~
 ~
 ~
 Z 0 29827
@@ -6240,8 +6906,12 @@ and down to the ground far, far below. The roof continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29830
 D2
+~
+~
 ~
 ~
 Z 0 29832
@@ -6256,12 +6926,18 @@ and down to the ground far, far below. The roof continues east, south and west.
 D1
 ~
 ~
+~
+~
 Z 0 29831
 D2
 ~
 ~
+~
+~
 Z 0 29833
 D3
+~
+~
 ~
 ~
 Z 0 29829
@@ -6276,8 +6952,12 @@ and down to the ground far, far below. The roof continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29834
 D3
+~
+~
 ~
 ~
 Z 0 29830
@@ -6293,12 +6973,18 @@ south.
 D0
 ~
 ~
+~
+~
 Z 0 29829
 D1
 ~
 ~
+~
+~
 Z 0 29833
 D2
+~
+~
 ~
 ~
 Z 0 29835
@@ -6314,16 +7000,24 @@ around you.
 D0
 ~
 ~
+~
+~
 Z 0 29830
 D1
+~
+~
 ~
 ~
 Z 0 29834
 D2
 ~
 ~
+~
+~
 Z 0 29836
 D3
+~
+~
 ~
 ~
 Z 0 29832
@@ -6339,12 +7033,18 @@ west.
 D0
 ~
 ~
+~
+~
 Z 0 29831
 D2
 ~
 ~
+~
+~
 Z 0 29837
 D3
+~
+~
 ~
 ~
 Z 0 29833
@@ -6361,12 +7061,18 @@ turret.
 D0
 ~
 ~
+~
+~
 Z 0 29832
 D1
 ~
 ~
+~
+~
 Z 0 29836
 D5
+~
+~
 ~
 ~
 Z 0 29790
@@ -6382,12 +7088,18 @@ west.
 D0
 ~
 ~
+~
+~
 Z 0 29833
 D1
 ~
 ~
+~
+~
 Z 0 29837
 D3
+~
+~
 ~
 ~
 Z 0 29835
@@ -6402,8 +7114,12 @@ and down to the ground far, far below. The roof continues north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29834
 D3
+~
+~
 ~
 ~
 Z 0 29836
@@ -6420,8 +7136,12 @@ turret roof continues east and south.
 D1
 ~
 ~
+~
+~
 Z 0 29839
 D2
+~
+~
 ~
 ~
 Z 0 29841
@@ -6437,12 +7157,18 @@ and west.
 D1
 ~
 ~
+~
+~
 Z 0 29840
 D2
 ~
 ~
+~
+~
 Z 0 29842
 D3
+~
+~
 ~
 ~
 Z 0 29838
@@ -6459,8 +7185,12 @@ turret roof continues south and west.
 D2
 ~
 ~
+~
+~
 Z 0 29843
 D3
+~
+~
 ~
 ~
 Z 0 29839
@@ -6476,12 +7206,18 @@ and south.
 D0
 ~
 ~
+~
+~
 Z 0 29838
 D1
 ~
 ~
+~
+~
 Z 0 29842
 D2
+~
+~
 ~
 ~
 Z 0 29844
@@ -6496,16 +7232,24 @@ hard to balance on the slick surface. The turret roof continues all around.
 D0
 ~
 ~
+~
+~
 Z 0 29839
 D1
+~
+~
 ~
 ~
 Z 0 29843
 D2
 ~
 ~
+~
+~
 Z 0 29845
 D3
+~
+~
 ~
 ~
 Z 0 29841
@@ -6522,12 +7266,18 @@ turret roof continues north, south and west.
 D0
 ~
 ~
+~
+~
 Z 0 29840
 D2
 ~
 ~
+~
+~
 Z 0 29846
 D3
+~
+~
 ~
 ~
 Z 0 29842
@@ -6544,8 +7294,12 @@ turret roof continues north and east.
 D0
 ~
 ~
+~
+~
 Z 0 29841
 D1
+~
+~
 ~
 ~
 Z 0 29845
@@ -6562,12 +7316,18 @@ turret roof continues north, east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29842
 D1
 ~
 ~
+~
+~
 Z 0 29846
 D3
+~
+~
 ~
 ~
 Z 0 29844
@@ -6585,12 +7345,18 @@ leading back down into the turret.
 D0
 ~
 ~
+~
+~
 Z 0 29843
 D3
 ~
 ~
+~
+~
 Z 0 29845
 D5
+~
+~
 ~
 ~
 Z 0 29810
@@ -6607,8 +7373,12 @@ local beast. The walkway continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 29851
 D3
+~
+~
 ~
 ~
 Z 0 29450
@@ -6624,8 +7394,12 @@ and west.
 D1
 ~
 ~
+~
+~
 Z 0 29852
 D3
+~
+~
 ~
 ~
 Z 0 29850
@@ -6641,8 +7415,12 @@ and west.
 D1
 ~
 ~
+~
+~
 Z 0 29853
 D3
+~
+~
 ~
 ~
 Z 0 29851
@@ -6659,8 +7437,12 @@ leads west, or north to where it ends at the edge of the island.
 D0
 ~
 ~
+~
+~
 Z 0 29856
 D3
+~
+~
 ~
 ~
 Z 0 29852
@@ -6678,12 +7460,18 @@ east.
 D0
 ~
 ~
+~
+~
 Z 0 29862
 D1
 ~
 ~
+~
+~
 Z 0 29855
 D3
+~
+~
 ~
 ~
 Z 0 29884
@@ -6700,12 +7488,18 @@ east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29863
 D1
 ~
 ~
+~
+~
 Z 0 29856
 D3
+~
+~
 ~
 ~
 Z 0 29854
@@ -6722,16 +7516,24 @@ continues.
 D0
 ~
 ~
+~
+~
 Z 0 29864
 D1
+~
+~
 ~
 ~
 Z 0 29857
 D2
 ~
 ~
+~
+~
 Z 0 29853
 D3
+~
+~
 ~
 ~
 Z 0 29855
@@ -6748,12 +7550,18 @@ east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29865
 D1
 ~
 ~
+~
+~
 Z 0 29858
 D3
+~
+~
 ~
 ~
 Z 0 29856
@@ -6770,16 +7578,24 @@ around you.
 D0
 ~
 ~
+~
+~
 Z 0 29866
 D1
+~
+~
 ~
 ~
 Z 0 29859
 D2
 ~
 ~
+~
+~
 Z 0 29860
 D3
+~
+~
 ~
 ~
 Z 0 29857
@@ -6797,16 +7613,24 @@ of the island.
 D0
 ~
 ~
+~
+~
 Z 0 29867
 D1
+~
+~
 ~
 ~
 Z 0 29881
 D2
 ~
 ~
+~
+~
 Z 0 29861
 D3
+~
+~
 ~
 ~
 Z 0 29858
@@ -6823,8 +7647,12 @@ and east.
 D0
 ~
 ~
+~
+~
 Z 0 29858
 D1
+~
+~
 ~
 ~
 Z 0 29861
@@ -6841,12 +7669,18 @@ east and west.
 D0
 ~
 ~
+~
+~
 Z 0 29859
 D1
 ~
 ~
+~
+~
 Z 0 29888
 D3
+~
+~
 ~
 ~
 Z 0 29860
@@ -6864,12 +7698,18 @@ south.
 D0
 ~
 ~
+~
+~
 Z 0 29868
 D1
 ~
 ~
+~
+~
 Z 0 29863
 D2
+~
+~
 ~
 ~
 Z 0 29854
@@ -6887,16 +7727,24 @@ island continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29868
 D1
+~
+~
 ~
 ~
 Z 0 29864
 D2
 ~
 ~
+~
+~
 Z 0 29855
 D3
+~
+~
 ~
 ~
 Z 0 29862
@@ -6911,20 +7759,30 @@ north. The muddy grounds extend all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29870
 D1
+~
+~
 ~
 ~
 Z 0 29865
 D2
 ~
 ~
+~
+~
 Z 0 29856
 D3
 ~
 ~
+~
+~
 Z 0 29863
 D4
+~
+~
 ~
 ~
 Z 0 29891
@@ -6942,16 +7800,24 @@ continues all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29871
 D1
+~
+~
 ~
 ~
 Z 0 29866
 D2
 ~
 ~
+~
+~
 Z 0 29857
 D3
+~
+~
 ~
 ~
 Z 0 29864
@@ -6966,20 +7832,30 @@ north. The muddy grounds extend all around you.
 D0
 ~
 ~
+~
+~
 Z 0 29872
 D1
+~
+~
 ~
 ~
 Z 0 29867
 D2
 ~
 ~
+~
+~
 Z 0 29858
 D3
 ~
 ~
+~
+~
 Z 0 29865
 D4
+~
+~
 ~
 ~
 Z 0 29893
@@ -6996,12 +7872,18 @@ west, while to the east there seems to be a wide cleared path.
 D1
 ~
 ~
+~
+~
 Z 0 29882
 D2
 ~
 ~
+~
+~
 Z 0 29859
 D3
+~
+~
 ~
 ~
 Z 0 29866
@@ -7017,12 +7899,18 @@ south into the muddy grounds of the swamp island.
 D1
 ~
 ~
+~
+~
 Z 0 29869
 D2
 ~
 ~
+~
+~
 Z 0 29862
 D3
+~
+~
 ~
 ~
 Z 0 29874
@@ -7038,12 +7926,18 @@ south into the muddy grounds of the swamp island.
 D1
 ~
 ~
+~
+~
 Z 0 29870
 D2
 ~
 ~
+~
+~
 Z 0 29863
 D3
+~
+~
 ~
 ~
 Z 0 29868
@@ -7060,12 +7954,18 @@ of the swamp island lie south.
 D1
 ~
 ~
+~
+~
 Z 0 29871
 D2
 ~
 ~
+~
+~
 Z 0 29864
 D3
+~
+~
 ~
 ~
 Z 0 29869
@@ -7083,16 +7983,24 @@ lie the swampy grounds of the Arkham swamps.
 D0
 ~
 ~
+~
+~
 Z 0 29500
 D1
+~
+~
 ~
 ~
 Z 0 29872
 D2
 ~
 ~
+~
+~
 Z 0 29865
 D3
+~
+~
 ~
 ~
 Z 0 29870
@@ -7109,12 +8017,18 @@ of the swamp island lie south.
 D1
 ~
 ~
+~
+~
 Z 0 29873
 D2
 ~
 ~
+~
+~
 Z 0 29866
 D3
+~
+~
 ~
 ~
 Z 0 29871
@@ -7128,8 +8042,12 @@ leads north from here or you can go back west along it.
 D0
 ~
 ~
+~
+~
 Z 0 29878
 D3
+~
+~
 ~
 ~
 Z 0 29872
@@ -7144,8 +8062,12 @@ dug tunnel heads down here. The wall leads back east.
 D1
 ~
 ~
+~
+~
 Z 0 29868
 D5
+~
+~
 ~
 ~
 Z 0 29875
@@ -7162,8 +8084,12 @@ can go back up.
 D0
 ~
 ~
+~
+~
 Z 0 29876
 D4
+~
+~
 ~
 ~
 Z 0 29874
@@ -7180,8 +8106,12 @@ the trench to the north or south.
 D0
 ~
 ~
+~
+~
 Z 0 29877
 D2
+~
+~
 ~
 ~
 Z 0 29875
@@ -7198,6 +8128,8 @@ way back is south.
 D2
 ~
 ~
+~
+~
 Z 0 29876
 S
 #29878
@@ -7211,8 +8143,12 @@ has been dug here beside the ruined wall.
 D2
 ~
 ~
+~
+~
 Z 0 29873
 D5
+~
+~
 ~
 ~
 Z 0 29879
@@ -7229,8 +8165,12 @@ the trench to the north, or head back up.
 D0
 ~
 ~
+~
+~
 Z 0 29880
 D4
+~
+~
 ~
 ~
 Z 0 29878
@@ -7247,6 +8187,8 @@ way back is south.
 D2
 ~
 ~
+~
+~
 Z 0 29879
 S
 #29881
@@ -7259,8 +8201,12 @@ the tower platform.
 D3
 ~
 ~
+~
+~
 Z 0 29859
 D4
+~
+~
 ~
 ~
 Z 0 29886
@@ -7276,8 +8222,12 @@ and ash is wafting in. The island itself heads back west onto the muddy ground.
 D0
 ~
 ~
+~
+~
 Z 0 29883
 D3
+~
+~
 ~
 ~
 Z 0 29867
@@ -7287,6 +8237,8 @@ In a dried out clearing~
 ~
 0 D forest
 D2
+~
+~
 ~
 ~
 Z 0 29882
@@ -7301,8 +8253,12 @@ the tower platform.
 D1
 ~
 ~
+~
+~
 Z 0 29854
 D4
+~
+~
 ~
 ~
 Z 0 29885
@@ -7317,6 +8273,8 @@ cold dark swamplands to see. A ladder leads back down out of the tower.
 D5
 ~
 ~
+~
+~
 Z 0 29884
 S
 #29886
@@ -7329,6 +8287,8 @@ cold dark swamplands to see. A ladder leads back down out of the tower.
 D5
 ~
 ~
+~
+~
 Z 0 29881
 S
 #29888
@@ -7338,6 +8298,8 @@ made a small clearing to allow ease of movement.
 ~
 0 D city
 D3
+~
+~
 ~
 ~
 Z 0 29861
@@ -7354,8 +8316,12 @@ can go down the ladder to the muddy grounds below.
 D1
 ~
 ~
+~
+~
 Z 0 29892
 D5
+~
+~
 ~
 ~
 Z 0 29864
@@ -7372,8 +8338,12 @@ You can go east or west along the wooden catwalk.
 D1
 ~
 ~
+~
+~
 Z 0 29893
 D3
+~
+~
 ~
 ~
 Z 0 29891
@@ -7390,8 +8360,12 @@ can go down the ladder to the muddy grounds below.
 D3
 ~
 ~
+~
+~
 Z 0 29892
 D5
+~
+~
 ~
 ~
 Z 0 29866
@@ -7405,89 +8379,19 @@ stairwell leads down and there is an ebony grate in the west wall.
 D3
 ~
 ebony grate~
+the ebony~
+~
 ABZ 29700 29733
 D5
+~
+~
 ~
 ~
 Z 0 29732
 S
 #0
 
-#SPECIALS
-M 29705 spec_demonologist	* an apprentice demonologist
-M 29725 spec_cast_mage	* an eclipsed-moon nightwalker
-M 29726 spec_cast_mage	* an evil incarnate
-M 29727 spec_cast_undead	* Thuringwethil
-M 29728 spec_breath_gas	* Pazuzu
-M 29729 spec_breath_frost	* the shadow of a greater titan
-M 29731 spec_cast_mage	* a hooded necromancer
-M 29732 spec_demonologist	* a hooded demonologist
-M 29733 spec_cast_mage	* a Darkstar nightwalker
-M 29735 spec_breath_any	* a shadowlord
-M 29736 spec_breath_gas	* the Demogorgon
-M 29739 spec_breath_fire	* an ancient gold dragon
-M 29741 spec_breath_acid	* an ancient black dragon
-M 29760 spec_breath_any	* one of Legion's finest
-M 29761 spec_cast_undead	* a Lord of Judgement
-M 29762 spec_legionlord	* A Legion cabal lord
-S
-
 #RESETS
-D 0 29571 2 1	* In a dark corridor: door to the south: closed
-D 0 29572 1 2	* In a dark corridor: door to the east: closed and locked
-D 0 29573 1 2	* In a dark corridor: door to the east: closed and locked
-D 0 29574 1 2	* In a dark corridor: door to the east: closed and locked
-D 0 29576 3 2	* In a dark corridor: door to the west: closed and locked
-D 0 29577 3 2	* In a dark corridor: door to the west: closed and locked
-D 0 29578 3 2	* In a dark corridor: door to the west: closed and locked
-D 0 29579 0 1	* The prison keeper's Room: door to the north: closed
-D 0 29580 3 2	* In a small darkened cell: door to the west: closed and locked
-D 0 29581 3 2	* In a small darkened cell: door to the west: closed and locked
-D 0 29582 3 2	* In a small darkened cell: door to the west: closed and locked
-D 0 29583 1 2	* In a small darkened cell: door to the east: closed and locked
-D 0 29584 1 2	* In a small darkened cell: door to the east: closed and locked
-D 0 29585 1 2	* In a small darkened cell: door to the east: closed and locked
-D 0 29704 0 1	* Before some rune covered doors: door to the north: closed
-D 0 29704 2 1	* Before some rune covered doors: door to the south: closed
-D 0 29705 0 1	* Before some rune covered doors: door to the north: closed
-D 0 29705 2 1	* Before some rune covered doors: door to the south: closed
-D 0 29706 2 1	* A room inscribed with a huge pentegram: door to the south: closed
-D 0 29707 2 1	* A room inscribed with a huge pentegram: door to the south: closed
-D 0 29708 0 1	* A room inscribed with a huge pentegram: door to the north: closed
-D 0 29709 0 1	* A room inscribed with a huge pentegram: door to the north: closed
-D 0 29712 1 1	* In a pitch-black corridor: door to the east: closed
-D 0 29712 3 1	* In a pitch-black corridor: door to the west: closed
-D 0 29714 1 1	* In a pitch-black corridor: door to the east: closed
-D 0 29714 3 1	* In a pitch-black corridor: door to the west: closed
-D 0 29715 2 2	* Before a huge ebony grate: door to the south: closed and locked
-D 0 29716 3 1	* The apprentice necromancer room: door to the west: closed
-D 0 29721 1 1	* In a room covered in symbols of warding: door to the east: closed
-D 0 29725 1 1	* A pitch-black room: door to the east: closed
-D 0 29728 3 1	* In a torture room: door to the west: closed
-D 0 29732 0 2	* At the base of a dark winding stairwell: door to the north: closed and locked
-D 0 29733 1 1	* In a blood-soaked guard room: door to the east: closed
-D 0 29738 0 1	* In a blood-soaked guard room: door to the north: closed
-D 0 29739 2 1	* A room of blackest night: door to the south: closed
-D 0 29745 0 1	* A room of blackest night: door to the north: closed
-D 0 29748 2 1	* In a pitch-black corridor: door to the south: closed
-D 0 29751 1 1	* Before a door bathed in a blood red glow: door to the east: closed
-D 0 29752 3 1	* NW corner of the undead roaming grounds: door to the west: closed
-D 0 29754 1 1	* NE corner of the undead roaming grounds: door to the east: closed
-D 0 29761 3 1	* SW corner of the undead roaming grounds: door to the west: closed
-D 0 29762 2 2	* Southern end of the undead roaming grounds: door to the south: closed and locked
-D 0 29763 1 1	* SE corner of the undead roaming grounds: door to the east: closed
-D 0 29764 0 2	* At the end of a narrow corridor: door to the north: closed and locked
-D 0 29767 3 1	* The skeleton raising room: door to the west: closed
-D 0 29768 3 1	* A corpse filled room: door to the west: closed
-D 0 29769 1 1	* In a room filled with knee-deep blood: door to the east: closed
-D 0 29772 0 1	* Before a pair of black turrets: door to the north: closed
-D 0 29772 2 1	* Before a pair of black turrets: door to the south: closed
-D 0 29774 0 1	* Before a pair of black turrets: door to the north: closed
-D 0 29774 2 1	* Before a pair of black turrets: door to the south: closed
-D 0 29785 0 1	* The anti-paladin's abattoir: door to the north: closed
-D 0 29800 2 1	* The turret of Blood Summons: door to the south: closed
-D 0 29803 0 1	* The room of unspeakable Creators: door to the north: closed
-D 0 29899 3 1	* On a dark landing: door to the west: closed
 O 0 29777 0 29500	* a wooden barricade (Inside the blasted gates)
 O 0 29778 0 29501	* a pile of rubble (On a burnt and blasted street)
 M 0 29751 1 29501 1	* an giant warrior (On a burnt and blasted street)
@@ -7529,39 +8433,39 @@ M 0 29760 50 29539 4	* one of Legion's finest (In a mist filled cavern)
 M 0 29762 2 29547 1	* A Legion cabal lord (In the left arm of the deep cut inverted cross)
 M 0 29762 2 29548 1	* A Legion cabal lord (In the right arm of the deep cut inverted cross)
 M 0 29761 1 29549 1	* a Lord of Judgement (At the head of a deeply cut inverted cross)
-E 0 29784 0 16		*	the Hammer of Judgement: wielded
-G 0 29785 0		*	a flask of damnation
-G 0 29786 0		*	a flask of redemption
+E 0 29784 0 16		*	a Lord of Judgement<wielded>: the Hammer of Judgement
+G 0 29785 0		*	a Lord of Judgement: a flask of damnation
+G 0 29786 0		*	a Lord of Judgement: a flask of redemption
 M 0 29740 1 29557 1	* an ancient red dragon (On a blackened rocky platform)
-E 0 29788 0 3		*	the red Dragonstar: around the neck (1)
+E 0 29788 0 3		*	an ancient red dragon<around the neck>: the red Dragonstar
 M 0 29741 1 29558 1	* an ancient black dragon (On a windy rock platform)
-E 0 29789 0 3		*	the black Dragonstar: around the neck (1)
+E 0 29789 0 3		*	an ancient black dragon<around the neck>: the black Dragonstar
 M 0 29771 1 29579 1	* the prison keeper (The prison keeper's Room)
-G 0 29792 0		*	a black key
-E 0 29803 0 16		*	a Firebrand sword: wielded
+G 0 29792 0		*	the prison keeper: a black key
+E 0 29803 0 16		*	the prison keeper<wielded>: a Firebrand sword
 M 0 29768 1 29580 1	* an Arkham brother (In a small darkened cell)
-E 0 29798 0 6		*	a plain abbott's cap: over the head
-E 0 29799 0 3		*	talisman of inner strength: around the neck (1)
+E 0 29798 0 6		*	an Arkham brother<over the head>: a plain abbott's cap
+E 0 29799 0 3		*	an Arkham brother<around the neck>: talisman of inner strength
 M 0 29766 1 29581 1	* an enslaved ethereal (In a small darkened cell)
-E 0 29805 0 12		*	a misty essence: about the shoulders
+E 0 29805 0 12		*	an enslaved ethereal<about the shoulders>: a misty essence
 M 0 29765 1 29582 1	* a captured elf girl (In a small darkened cell)
-E 0 29793 0 13		*	a belt of interlinking rose thorns: around the waist
-E 0 29794 0 5		*	a white sacrificial gown: on the body
-E 0 29795 0 0		*	a light called Harmony: as a light
+E 0 29793 0 13		*	a captured elf girl<around the waist>: a belt of interlinking rose thorns
+E 0 29794 0 5		*	a captured elf girl<on the body>: a white sacrificial gown
+E 0 29795 0 0		*	a captured elf girl<as a light>: a light called Harmony
 M 0 29770 1 29583 1	* a captured Arkham guard (In a small darkened cell)
-E 0 29802 0 16		*	some heavy iron shackles: wielded
+E 0 29802 0 16		*	a captured Arkham guard<wielded>: some heavy iron shackles
 M 0 29767 1 29584 1	* a disgusting ghoul (In a small darkened cell)
-G 0 29796 0		*	a bit of half-chewed flesh
-E 0 29797 0 1		*	a ring embedded with flesh: on the left finger
+G 0 29796 0		*	a disgusting ghoul: a bit of half-chewed flesh
+E 0 29797 0 1		*	a disgusting ghoul<on the left finger>: a ring embedded with flesh
 M 0 29769 1 29585 1	* a crazed dwarf (In a small darkened cell)
-E 0 29801 0 8		*	a pair of spiked boots: on the feet
+E 0 29801 0 8		*	a crazed dwarf<on the feet>: a pair of spiked boots
 M 0 29735 1 29599 1	* a shadowlord (Death)
-E 0 29749 0 13		*	a cloak of the Underworld: around the waist
+E 0 29749 0 13		*	a shadowlord<around the waist>: a cloak of the Underworld
 M 0 29736 1 29599 1	* the Demogorgon (Death)
-E 0 29750 0 17		*	the sceptre of the Dead: held in the hands
+E 0 29750 0 17		*	the Demogorgon<held in the hands>: the sceptre of the Dead
 M 0 29750 1 29703 1	* a Legion guard (The foyer of the darkened tower)
-E 0 29720 0 5		*	chainmail marked with the symbol of Legion: on the body
-E 0 29717 0 16		*	a black longsword: wielded
+E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
+E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
 M 0 29704 3 29716 1	* an apprentice necromancer (The apprentice necromancer room)
 M 0 29708 1 29716 1	* a lesser zombie (The apprentice necromancer room)
 M 0 29704 3 29717 1	* an apprentice necromancer (The apprentice necromancer room)
@@ -7573,48 +8477,48 @@ M 0 29705 3 29722 1	* an apprentice demonologist (In a room covered in symbols o
 M 0 29705 3 29723 1	* an apprentice demonologist (In a room covered in symbols of warding)
 M 0 29711 1 29723 1	* a demonic familiar (In a room covered in symbols of warding)
 M 0 29706 3 29725 1	* a half-moon nightwalker (A pitch-black room)
-E 0 29717 0 16		*	a black longsword: wielded
+E 0 29717 0 16		*	a half-moon nightwalker<wielded>: a black longsword
 M 0 29706 3 29726 1	* a half-moon nightwalker (A pitch-black room)
-E 0 29718 0 16		*	a black axe: wielded
+E 0 29718 0 16		*	a half-moon nightwalker<wielded>: a black axe
 M 0 29706 3 29727 1	* a half-moon nightwalker (A pitch-black room)
-E 0 29717 0 16		*	a black longsword: wielded
+E 0 29717 0 16		*	a half-moon nightwalker<wielded>: a black longsword
 M 0 29707 3 29728 1	* an apprentice anti-paladin (In a torture room)
-E 0 29717 0 16		*	a black longsword: wielded
+E 0 29717 0 16		*	an apprentice anti-paladin<wielded>: a black longsword
 M 0 29707 3 29729 1	* an apprentice anti-paladin (In a torture room)
-E 0 29718 0 16		*	a black axe: wielded
+E 0 29718 0 16		*	an apprentice anti-paladin<wielded>: a black axe
 M 0 29707 3 29730 1	* an apprentice anti-paladin (In a torture room)
-E 0 29717 0 16		*	a black longsword: wielded
+E 0 29717 0 16		*	an apprentice anti-paladin<wielded>: a black longsword
 M 0 29712 1 29731 1	* a Legion instructor (In a torture room)
-E 0 29719 0 16		*	a wicked whip: wielded
-E 0 29720 0 5		*	chainmail marked with the symbol of Legion: on the body
-G 0 29700 0		*	a black key
+E 0 29719 0 16		*	a Legion instructor<wielded>: a wicked whip
+E 0 29720 0 5		*	a Legion instructor<on the body>: chainmail marked with the symbol of Legion
+G 0 29700 0		*	a Legion instructor: a black key
 M 0 29714 2 29734 1	* a draconian Legionaire (In a blood-soaked guard room)
-G 0 29701 0		*	a black key
+G 0 29701 0		*	a draconian Legionaire: a black key
 M 0 29749 1 29735 1	* a Legion guard (In a blood-soaked guard room)
-E 0 29720 0 5		*	chainmail marked with the symbol of Legion: on the body
-E 0 29717 0 16		*	a black longsword: wielded
-G 0 29701 0		*	a black key
+E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
+E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
+G 0 29701 0		*	a Legion guard: a black key
 M 0 29713 2 29737 1	* a Legion guard (In a blood-soaked guard room)
-E 0 29720 0 5		*	chainmail marked with the symbol of Legion: on the body
-E 0 29717 0 16		*	a black longsword: wielded
-E 0 29765 0 1		*	a razor-edged ring: on the left finger
-G 0 29701 0		*	a black key
+E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
+E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
+E 0 29765 0 1		*	a Legion guard<on the left finger>: a razor-edged ring
+G 0 29701 0		*	a Legion guard: a black key
 M 0 29714 2 29737 1	* a draconian Legionaire (In a blood-soaked guard room)
-G 0 29701 0		*	a black key
+G 0 29701 0		*	a draconian Legionaire: a black key
 M 0 29713 2 29738 1	* a Legion guard (In a blood-soaked guard room)
-E 0 29720 0 5		*	chainmail marked with the symbol of Legion: on the body
-E 0 29765 0 1		*	a razor-edged ring: on the left finger
-E 0 29717 0 16		*	a black longsword: wielded
-G 0 29701 0		*	a black key
+E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
+E 0 29765 0 1		*	a Legion guard<on the left finger>: a razor-edged ring
+E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
+G 0 29701 0		*	a Legion guard: a black key
 M 0 29715 6 29739 1	* a shadow (A room of blackest night)
 M 0 29715 6 29740 1	* a shadow (A room of blackest night)
 M 0 29717 1 29743 1	* a crescent-moon nightwalker (A room of blackest night)
-E 0 29721 0 16		*	a crescent-moon shaped scimitar: wielded
+E 0 29721 0 16		*	a crescent-moon nightwalker<wielded>: a crescent-moon shaped scimitar
 M 0 29715 6 29744 1	* a shadow (A room of blackest night)
 M 0 29715 6 29745 1	* a shadow (A room of blackest night)
 M 0 29715 6 29747 1	* a shadow (A room of blackest night)
 M 0 29722 1 29751 1	* the Blackheart guard (Before a door bathed in a blood red glow)
-E 0 29724 0 16		*	the Strife spear: wielded
+E 0 29724 0 16		*	the Blackheart guard<wielded>: the Strife spear
 O 0 29753 0 29752	* the corpse of an elf (NW corner of the undead roaming grounds)
 M 0 29720 15 29752 3	* a skeleton (NW corner of the undead roaming grounds)
 M 0 29718 18 29753 3	* a monster zombie (Northern undead roaming grounds)
@@ -7636,95 +8540,95 @@ M 0 29720 15 29761 3	* a skeleton (SW corner of the undead roaming grounds)
 M 0 29720 15 29762 3	* a skeleton (Southern end of the undead roaming grounds)
 O 0 29756 0 29767	* a skeleton of a decayed creature (The skeleton raising room)
 M 0 29716 1 29767 1	* a legion animator (The skeleton raising room)
-G 0 29704 0		*	a black key
-E 0 29726 0 16		*	a bloodstone dagger: wielded
+G 0 29704 0		*	a legion animator: a black key
+E 0 29726 0 16		*	a legion animator<wielded>: a bloodstone dagger
 M 0 29718 18 29767 3	* a monster zombie (The skeleton raising room)
 M 0 29720 15 29767 3	* a skeleton (The skeleton raising room)
 O 0 29755 0 29768	* the corpse of a creature (A corpse filled room)
 M 0 29718 18 29768 3	* a monster zombie (A corpse filled room)
 M 0 29721 1 29768 1	* a Lich lord of Legion (A corpse filled room)
-G 0 29704 0		*	a black key
-E 0 29722 0 17		*	a rune of death: held in the hands
-E 0 29723 0 5		*	some pitch-black robes: on the body
+G 0 29704 0		*	a Lich lord of Legion: a black key
+E 0 29722 0 17		*	a Lich lord of Legion<held in the hands>: a rune of death
+E 0 29723 0 5		*	a Lich lord of Legion<on the body>: some pitch-black robes
 O 0 29767 0 29769	* the corpse of a young girl (In a room filled with knee-deep blood)
 M 0 29718 18 29769 3	* a monster zombie (In a room filled with knee-deep blood)
 M 0 29718 18 29769 3	* a monster zombie (In a room filled with knee-deep blood)
 M 0 29719 2 29769 1	* a mummy (In a room filled with knee-deep blood)
 M 0 29729 1 29782 1	* the shadow of a greater titan (Entrance to the Nightwalker's domain)
 M 0 29730 1 29785 1	* the Black knight of Legion (The anti-paladin's abattoir)
-E 0 29737 0 16		*	a Demonslayer: wielded
-E 0 29738 0 6		*	a helm with a single black horn: over the head
+E 0 29737 0 16		*	the Black knight of Legion<wielded>: a Demonslayer
+E 0 29738 0 6		*	the Black knight of Legion<over the head>: a helm with a single black horn
 M 0 29726 3 29788 1	* an evil incarnate (The anti-paladin's abattoir)
-E 0 29742 0 14		*	a pitch-black bracelet: on the left wrist
-E 0 29731 0 16		*	a butcher's blade: wielded
-E 0 29732 0 5		*	a suit of Legion battle armor: on the body
+E 0 29742 0 14		*	an evil incarnate<on the left wrist>: a pitch-black bracelet
+E 0 29731 0 16		*	an evil incarnate<wielded>: a butcher's blade
+E 0 29732 0 5		*	an evil incarnate<on the body>: a suit of Legion battle armor
 M 0 29726 3 29789 1	* an evil incarnate (The anti-paladin's abattoir)
-E 0 29742 0 14		*	a pitch-black bracelet: on the left wrist
-E 0 29731 0 16		*	a butcher's blade: wielded
-E 0 29732 0 5		*	a suit of Legion battle armor: on the body
+E 0 29742 0 14		*	an evil incarnate<on the left wrist>: a pitch-black bracelet
+E 0 29731 0 16		*	an evil incarnate<wielded>: a butcher's blade
+E 0 29732 0 5		*	an evil incarnate<on the body>: a suit of Legion battle armor
 M 0 29726 3 29792 1	* an evil incarnate (The anti-paladin's abattoir)
-E 0 29742 0 14		*	a pitch-black bracelet: on the left wrist
-E 0 29731 0 16		*	a butcher's blade: wielded
-E 0 29732 0 5		*	a suit of Legion battle armor: on the body
+E 0 29742 0 14		*	an evil incarnate<on the left wrist>: a pitch-black bracelet
+E 0 29731 0 16		*	an evil incarnate<wielded>: a butcher's blade
+E 0 29732 0 5		*	an evil incarnate<on the body>: a suit of Legion battle armor
 M 0 29724 3 29793 1	* a Master demon summoner (The turret of Blood Summons)
-E 0 29742 0 14		*	a pitch-black bracelet: on the left wrist
-E 0 29725 0 1		*	a pitch-black ring: on the left finger
-E 0 29727 0 17		*	a hexagram-headed steel staff: held in the hands
+E 0 29742 0 14		*	a Master demon summoner<on the left wrist>: a pitch-black bracelet
+E 0 29725 0 1		*	a Master demon summoner<on the left finger>: a pitch-black ring
+E 0 29727 0 17		*	a Master demon summoner<held in the hands>: a hexagram-headed steel staff
 M 0 29747 1 29795 1	* a Master demon summoner (Beneath a small stairwell)
-E 0 29725 0 1		*	a pitch-black ring: on the left finger
-E 0 29742 0 14		*	a pitch-black bracelet: on the left wrist
-E 0 29727 0 17		*	a hexagram-headed steel staff: held in the hands
+E 0 29725 0 1		*	a Master demon summoner<on the left finger>: a pitch-black ring
+E 0 29742 0 14		*	a Master demon summoner<on the left wrist>: a pitch-black bracelet
+E 0 29727 0 17		*	a Master demon summoner<held in the hands>: a hexagram-headed steel staff
 M 0 29748 1 29797 1	* a Master demon summoner (The turret of Blood Summons)
-E 0 29742 0 14		*	a pitch-black bracelet: on the left wrist
-E 0 29725 0 1		*	a pitch-black ring: on the left finger
-E 0 29727 0 17		*	a hexagram-headed steel staff: held in the hands
+E 0 29742 0 14		*	a Master demon summoner<on the left wrist>: a pitch-black bracelet
+E 0 29725 0 1		*	a Master demon summoner<on the left finger>: a pitch-black ring
+E 0 29727 0 17		*	a Master demon summoner<held in the hands>: a hexagram-headed steel staff
 M 0 29728 1 29800 1	* Pazuzu (The turret of Blood Summons)
-E 0 29734 0 12		*	wings of black demon feather: about the shoulders
-E 0 29735 0 16		*	a massive claw etched with burnt sigils: wielded
+E 0 29734 0 12		*	Pazuzu<about the shoulders>: wings of black demon feather
+E 0 29735 0 16		*	Pazuzu<wielded>: a massive claw etched with burnt sigils
 M 0 29723 1 29802 1	* a Master necromancer (The room of unspeakable Creators)
-E 0 29725 0 1		*	a pitch-black ring: on the left finger
-E 0 29723 0 5		*	some pitch-black robes: on the body
-E 0 29764 0 6		*	a grim reaper's cowl: over the head
+E 0 29725 0 1		*	a Master necromancer<on the left finger>: a pitch-black ring
+E 0 29723 0 5		*	a Master necromancer<on the body>: some pitch-black robes
+E 0 29764 0 6		*	a Master necromancer<over the head>: a grim reaper's cowl
 M 0 29727 1 29803 1	* Thuringwethil (The room of unspeakable Creators)
-E 0 29733 0 12		*	thuringwethil's cloak: about the shoulders
+E 0 29733 0 12		*	Thuringwethil<about the shoulders>: thuringwethil's cloak
 M 0 29746 1 29806 1	* a Master necromancer (The room of unspeakable Creators)
-E 0 29725 0 1		*	a pitch-black ring: on the left finger
-E 0 29723 0 5		*	some pitch-black robes: on the body
-E 0 29764 0 6		*	a grim reaper's cowl: over the head
+E 0 29725 0 1		*	a Master necromancer<on the left finger>: a pitch-black ring
+E 0 29723 0 5		*	a Master necromancer<on the body>: some pitch-black robes
+E 0 29764 0 6		*	a Master necromancer<over the head>: a grim reaper's cowl
 M 0 29745 1 29810 1	* a Master necromancer (Beneath a blood stained stairwell)
-E 0 29725 0 1		*	a pitch-black ring: on the left finger
-E 0 29723 0 5		*	some pitch-black robes: on the body
-E 0 29764 0 6		*	a grim reaper's cowl: over the head
+E 0 29725 0 1		*	a Master necromancer<on the left finger>: a pitch-black ring
+E 0 29723 0 5		*	a Master necromancer<on the body>: some pitch-black robes
+E 0 29764 0 6		*	a Master necromancer<over the head>: a grim reaper's cowl
 M 0 29737 1 29815 1	* a vortex (Before a vortex of purest night)
-G 0 29729 0		*	an eclipsed-moon signet ring
+G 0 29729 0		*	a vortex: an eclipsed-moon signet ring
 M 0 29733 1 29819 1	* a Darkstar nightwalker (On the roof of a black turret)
-E 0 29745 0 13		*	a cloak of shadows: around the waist
-G 0 29746 0		*	a figurine of death
-E 0 29744 0 10		*	armguards of greater demon scale: on the arms
+E 0 29745 0 13		*	a Darkstar nightwalker<around the waist>: a cloak of shadows
+G 0 29746 0		*	a Darkstar nightwalker: a figurine of death
+E 0 29744 0 10		*	a Darkstar nightwalker<on the arms>: armguards of greater demon scale
 M 0 29773 1 29824 1	* demogorgon summoner (In the centre of a massive pentegram)
 M 0 29732 1 29826 1	* a hooded demonologist (On a pentegram inscribed roof)
-E 0 29743 0 16		*	a sickle of carved human bone: wielded
-G 0 29759 0		*	a scroll of paper
-E 0 29806 0 17		*	the Libram of Infinite Conjuration: held in the hands
+E 0 29743 0 16		*	a hooded demonologist<wielded>: a sickle of carved human bone
+G 0 29759 0		*	a hooded demonologist: a scroll of paper
+E 0 29806 0 17		*	a hooded demonologist<held in the hands>: the Libram of Infinite Conjuration
 M 0 29734 1 29831 1	* a hooded anti-paladin (On the roof of a black turret)
-E 0 29720 0 5		*	chainmail marked with the symbol of Legion: on the body
-E 0 29747 0 16		*	a two-handed Unholy avenger: wielded
-E 0 29748 0 1		*	a razor-edged ring: on the left finger
+E 0 29720 0 5		*	a hooded anti-paladin<on the body>: chainmail marked with the symbol of Legion
+E 0 29747 0 16		*	a hooded anti-paladin<wielded>: a two-handed Unholy avenger
+E 0 29748 0 1		*	a hooded anti-paladin<on the left finger>: a razor-edged ring
 M 0 29738 1 29833 1	* a black titan from Malebolge (Centre of a black turret's roof)
-E 0 29751 0 16		*	a hammer shrouded in black flames: wielded
-E 0 29752 0 13		*	a girdle of titanic strength: around the waist
-E 0 29804 0 10		*	blackened armbands: on the arms
+E 0 29751 0 16		*	a black titan from Malebolge<wielded>: a hammer shrouded in black flames
+E 0 29752 0 13		*	a black titan from Malebolge<around the waist>: a girdle of titanic strength
+E 0 29804 0 10		*	a black titan from Malebolge<on the arms>: blackened armbands
 M 0 29731 1 29838 1	* a hooded necromancer (On the blood soaked roof of a black turret)
-G 0 29739 0		*	a scroll of Ancient Necromancy
-E 0 29740 0 5		*	robes of undeath: on the body
-E 0 29741 0 16		*	the severed hand of a lich: wielded
-E 0 29760 0 17		*	a scroll of paper: held in the hands
-E 0 29769 0 6		*	the grim reaper's cowl: over the head
+G 0 29739 0		*	a hooded necromancer: a scroll of Ancient Necromancy
+E 0 29740 0 5		*	a hooded necromancer<on the body>: robes of undeath
+E 0 29741 0 16		*	a hooded necromancer<wielded>: the severed hand of a lich
+E 0 29760 0 17		*	a hooded necromancer<held in the hands>: a scroll of paper
+E 0 29769 0 6		*	a hooded necromancer<over the head>: the grim reaper's cowl
 O 0 29757 0 29842	* a pile of bodies (Centre of a blood soaked roof)
 M 0 29772 1 29842 1	* shadowlord summoner (Centre of a blood soaked roof)
 M 0 29700 7 29855 1	* an Arkham guard (On a muddy island battlefield)
-E 0 29705 0 16		*	a guardian sword: wielded
-E 0 29706 0 5		*	a suit of darkened platemail: on the body
+E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
+E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
 M 0 29752 7 29855 2	* an Arkham knight (On a muddy island battlefield)
 O 0 29780 0 29858	* a catapult (On a muddy island battlefield)
 O 0 29782 0 29858	* the corpse of an arkham knight (On a muddy island battlefield)
@@ -7734,54 +8638,54 @@ M 0 29752 7 29862 2	* an Arkham knight (On a muddy island battlefield)
 O 0 29780 0 29863	* a catapult (On a muddy island battlefield)
 M 0 29753 2 29863 1	* an Arkham artillerist (On a muddy island battlefield)
 M 0 29700 7 29865 1	* an Arkham guard (On a muddy island battlefield)
-E 0 29706 0 5		*	a suit of darkened platemail: on the body
+E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
 M 0 29752 7 29865 2	* an Arkham knight (On a muddy island battlefield)
 O 0 29777 0 29866	* a wooden barricade (Beneath a wooden battlement)
 O 0 29777 0 29869	* a wooden barricade (Outside a blackened wall)
 O 0 29781 0 29869	* the corpse of an arkham guard (Outside a blackened wall)
 M 0 29700 7 29869 1	* an Arkham guard (Outside a blackened wall)
-E 0 29705 0 16		*	a guardian sword: wielded
-E 0 29707 0 6		*	a darkened helm: over the head
+E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
+E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
 M 0 29752 7 29872 2	* an Arkham knight (Outside a blackened wall)
 M 0 29752 7 29874 2	* an Arkham knight (Corner of the ruined walls)
 M 0 29700 7 29875 1	* an Arkham guard (In a muddy trench)
-E 0 29707 0 6		*	a darkened helm: over the head
+E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
 O 0 29781 0 29877	* the corpse of an arkham guard (At the end of a muddy trench)
 M 0 29700 7 29877 1	* an Arkham guard (At the end of a muddy trench)
-E 0 29705 0 16		*	a guardian sword: wielded
-E 0 29706 0 5		*	a suit of darkened platemail: on the body
+E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
+E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
 M 0 29700 7 29879 1	* an Arkham guard (In a deep muddy trench)
-E 0 29706 0 5		*	a suit of darkened platemail: on the body
-E 0 29707 0 6		*	a darkened helm: over the head
+E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
+E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
 M 0 29739 1 29883 1	* an ancient gold dragon (In a dried out clearing)
-E 0 29770 0 17		*	a gold dragon orb: held in the hands
-E 0 29771 0 6		*	a helm stylized into a gold dragon skull: over the head
-G 0 29772 0		*	a curved gold dragon scale
-E 0 29773 0 7		*	the leg scales of a gold dragon: on the legs
+E 0 29770 0 17		*	an ancient gold dragon<held in the hands>: a gold dragon orb
+E 0 29771 0 6		*	an ancient gold dragon<over the head>: a helm stylized into a gold dragon skull
+G 0 29772 0		*	an ancient gold dragon: a curved gold dragon scale
+E 0 29773 0 7		*	an ancient gold dragon<on the legs>: the leg scales of a gold dragon
 M 0 29701 2 29885 1	* an Arkham ranger (On a small wooden watch-tower)
-E 0 29708 0 16		*	a guardian bow: wielded
-E 0 29709 0 5		*	a suit of green tinted battlemail: on the body
+E 0 29708 0 16		*	an Arkham ranger<wielded>: a guardian bow
+E 0 29709 0 5		*	an Arkham ranger<on the body>: a suit of green tinted battlemail
 M 0 29701 2 29886 1	* an Arkham ranger (On a small wooden watch-tower)
-E 0 29763 0 16		*	a guardian bow: wielded
-E 0 29710 0 8		*	a pair of green boots: on the feet
+E 0 29763 0 16		*	an Arkham ranger<wielded>: a guardian bow
+E 0 29710 0 8		*	an Arkham ranger<on the feet>: a pair of green boots
 M 0 29702 1 29888 1	* arkham crusader (In a muddy clearing)
-E 0 29711 0 9		*	the gauntlets of striking: on the hands
-E 0 29807 0 16		*	the axe named "Drow Cleaver": wielded
-G 0 29712 0		*	a guardian sword
-E 0 29713 0 11		*	a darkened shield: as a shield
-E 0 29706 0 5		*	a suit of darkened platemail: on the body
-E 0 29707 0 6		*	a darkened helm: over the head
+E 0 29711 0 9		*	arkham crusader<on the hands>: the gauntlets of striking
+E 0 29807 0 16		*	arkham crusader<wielded>: the axe named "Drow Cleaver"
+G 0 29712 0		*	arkham crusader: a guardian sword
+E 0 29713 0 11		*	arkham crusader<as a shield>: a darkened shield
+E 0 29706 0 5		*	arkham crusader<on the body>: a suit of darkened platemail
+E 0 29707 0 6		*	arkham crusader<over the head>: a darkened helm
 M 0 29752 7 29891 1	* an Arkham knight (On a wooden battlement)
 O 0 29783 0 29892	* a trebuchet (On a wooden battlement)
 M 0 29703 1 29892 1	* the Arkham commander (On a wooden battlement)
-E 0 29714 0 16		*	a double-edged bastard sword: wielded
-E 0 29715 0 5		*	a suit of darkened platemail: on the body
-E 0 29716 0 13		*	a wide darkened belt: around the waist
-E 0 29707 0 6		*	a darkened helm: over the head
+E 0 29714 0 16		*	the Arkham commander<wielded>: a double-edged bastard sword
+E 0 29715 0 5		*	the Arkham commander<on the body>: a suit of darkened platemail
+E 0 29716 0 13		*	the Arkham commander<around the waist>: a wide darkened belt
+E 0 29707 0 6		*	the Arkham commander<over the head>: a darkened helm
 M 0 29700 7 29893 1	* an Arkham guard (On a wooden battlement)
-E 0 29705 0 16		*	a guardian sword: wielded
-E 0 29706 0 5		*	a suit of darkened platemail: on the body
-E 0 29707 0 6		*	a darkened helm: over the head
+E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
+E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
+E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
 S
 
 #OLIMITS
@@ -7840,39 +8744,6 @@ O 29804 1	* blackened armbands
 O 29805 1	* a misty essence
 O 29806 1	* the Libram of Infinite Conjuration
 O 29807 1	* the axe named "Drow Cleaver"
-S
-
-#MOBPROGS
-#29700
-emote releases a deathly breath and you faintly hear the word, 'Karguska'.
-~
-#29701
-emote twitches momentarily then resumes It's silent waiting.
-~
-#29702
-if mobexists legionshadowlord
-mob echo The corpses explode into a bloody mist and something dark forms out of it!
-mob purge legionpilebodies
-mob transfer legionshadowlord
-mob force legionshadowlord say Feeeed me mortal!
-endif
-~
-#29703
-if mobexists legiondemogorgon
-mob echo The pentagram sizzles and steams and a huge demon steps out from a gate!
-mob transfer legiondemogorgon
-mob force legiondemogorgon yell You dare to summon me mortal!
-endif
-~
-#0
-
-#OMPROGS
-O 29749 wear_prog wear_prog_cloak_underworld	* `a cloak of the Underworld'
-O 29749 remove_prog remove_prog_cloak_underworld	* `a cloak of the Underworld'
-O 29788 wear_prog wear_prog_red_dragonstar	* `the red Dragonstar'
-O 29788 remove_prog remove_prog_red_dragonstar	* `the red Dragonstar'
-O 29789 wear_prog wear_prog_black_dragonstar	* `the black Dragonstar'
-O 29789 remove_prog remove_prog_black_dragonstar	* `the black Dragonstar'
 S
 
 #$

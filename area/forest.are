@@ -1,73 +1,69 @@
 #AREADATA
+Ver 7
 Name Dead Forest~
 VNUMs 26200 26299
 Credits Ceran~
 Security 9
 LevelRange 10 35
-SkyVnum 51310
 End
 
 #MOBILES
 #26202
 lesser troll~
 a lesser troll~
-A horrible troll is here scavenging through the wasted forest.
-~
+A horrible troll is here scavenging through the wasted forest.~
 This troll is big and disgusting. It's green hide partially hides it in
 the surrounding wastes, but not enough for your liking.
 ~
 troll~
-ACGT 0 -1000 0
-14 0 2d1+200 1d1+100 2d7+4 claw
+CGT 0 0 0 0 -1000 0
+14 0 2d1+200 1d1+100 2d7+4 'claw'
 -3 -3 -3 5
-EFKU 0 0 0 stand stand none 200
+EFKU
+stand stand none 200
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #26203
 greater troll~
 a greater troll~
-A greater troll is here scavenging through the wasted forest.
-~
+A greater troll is here scavenging through the wasted forest.~
 This troll is big and disgusting. It's green hide partially hides it in
 the surrounding wastes, but not enough for your liking.
 ~
 troll~
-ACGT 0 -1000 0
-19 1 2d1+350 1d1+100 4d5+15 claw
+CGT 0 0 0 0 -1000 0
+19 1 2d1+350 1d1+100 4d5+15 'claw'
 -7 -7 -7 0
-EFKU 0 0 0 stand stand none 400
+EFKU
+stand stand none 400
 0 0 large unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #26204
 lesser naga~
 a lesser forest naga~
-A huge serpent with a man's face hisses and slithers by.
-~
+A huge serpent with a man's face hisses and slithers by.~
 A demon naga, mean and cruel. Born of dark magic and wanting nothing
 but pain and suffering.
 ~
 human~
-ABCGT CDEFJ -1000 0
-30 1 10d10+1450 1d1+300 4d7+15 none
+BCGT 0 0 0 ABHKL -1000 0
+30 1 10d10+1450 1d1+300 4d7+15 'none'
 -12 -12 -12 -6
-EFKMU 0 0 0 stand stand none 951
+EFKMU
+stand stand none 951
 0 0 large unknown
-R cur 0 0 0 0 33 33 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #26205
 anti anti-ranger scout~
 an anti-ranger scout~
-An evil looking anti-ranger scout is here watching the forest.
-~
+An evil looking anti-ranger scout is here watching the forest.~
 This scout has been sent to check and make sure the devestation of the
 forest is still prevailing and that nobody has come to prevent the decay.
 ~
 human~
-ABGT DEFJ -1000 0
-34 1 10d10+1450 1d1+200 4d7+15 none
+BGT 0 0 0 ABHL -1000 0
+34 1 10d10+1450 1d1+200 4d7+15 'none'
 -14 -14 -14 -6
-DEFKU 0 0 0 stand stand male 1500
+DEFKU
+stand stand male 1500
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #0
 
 #OBJECTS
@@ -76,61 +72,48 @@ trollsword troll sword~
 a Troll-sword~
 A large double-bladed troll sword is here.~
 steel~
-weapon AE AN
-sword 4 9 slash 0
+weapon AE 0 AN
+sword 4 9 'slash' 0
 33 350 1913 P
-A
-18 3
-A
-19 3
-G none
+f object hitroll 3 0
+f object damroll 3 0
 #26201
 troll skin robe~
 a robe of toughened troll-skin~
 A piece of disgusting green troll skin lies on the ground.~
 flesh~
-armor CEHJ AK
+armor CEHJ 0 AK
 7 7 6 0 0
 35 10 909 P
-A
-1 1
-A
-18 2
-A
-19 2
-G none
+f object str 1 0
+f object hitroll 2 0
+f object damroll 2 0
 #26202
 slayer sword troll-slayer~
 a sword named 'Troll-slayer'~
 A large sword named 'Troll-slayer' is here.~
 steel~
-weapon AE AN
-sword 6 7 acbite 0
+weapon AE 0 AN
+sword 6 7 'acbite' 0
 40 138 3052 P
-A
-18 -2
-A
-19 2
+f object hitroll -2 0
+f object damroll 2 0
 E
 slayer sword troll-slayer~
 This sword seems to have been designed specifically for the slaying of trolls.
 Like someone wanted to have something special in case they needed to suddenly
 control a large number of trolls or something.
 ~
-G none
 #26203
 dagger naga-slayer~
 a dagger named 'naga-slayer'~
 A wickedly sharp dagger is sticking into the ground here.~
 steel~
-weapon AE AN
-dagger 5 9 slice 0
+weapon AE 0 AN
+dagger 5 9 'slice' 0
 42 50 2322 P
-A
-18 -2
-A
-19 4
-G none
+f object hitroll -2 0
+f object damroll 4 0
 #0
 
 #ROOMS
@@ -145,8 +128,12 @@ the very essence of it.
 D0
 ~
 ~
+~
+~
 Z 0 5265
 D2
+~
+~
 ~
 ~
 Z 0 26201
@@ -163,8 +150,12 @@ the life from them.
 D0
 ~
 ~
+~
+~
 Z 0 26200
 D2
+~
+~
 ~
 ~
 Z 0 26202
@@ -180,8 +171,12 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26201
 D1
+~
+~
 ~
 ~
 Z 0 26203
@@ -197,8 +192,12 @@ forest.
 D2
 ~
 ~
+~
+~
 Z 0 26204
 D3
+~
+~
 ~
 ~
 Z 0 26202
@@ -214,8 +213,12 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26203
 D2
+~
+~
 ~
 ~
 Z 0 26210
@@ -231,6 +234,8 @@ forest.
 D3
 ~
 ~
+~
+~
 Z 0 26206
 S
 #26206
@@ -244,8 +249,12 @@ forest.
 D1
 ~
 ~
+~
+~
 Z 0 26205
 D2
+~
+~
 ~
 ~
 Z 0 26207
@@ -261,8 +270,12 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26206
 D1
+~
+~
 ~
 ~
 Z 0 26208
@@ -278,8 +291,12 @@ forest.
 D1
 ~
 ~
+~
+~
 Z 0 26209
 D3
+~
+~
 ~
 ~
 Z 0 26207
@@ -295,8 +312,12 @@ forest.
 D1
 ~
 ~
+~
+~
 Z 0 26210
 D3
+~
+~
 ~
 ~
 Z 0 26208
@@ -312,12 +333,18 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26204
 D1
 ~
 ~
+~
+~
 Z 0 26211
 D3
+~
+~
 ~
 ~
 Z 0 26209
@@ -333,8 +360,12 @@ forest.
 D2
 ~
 ~
+~
+~
 Z 0 26212
 D3
+~
+~
 ~
 ~
 Z 0 26210
@@ -350,8 +381,12 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26211
 D1
+~
+~
 ~
 ~
 Z 0 26213
@@ -367,8 +402,12 @@ forest.
 D1
 ~
 ~
+~
+~
 Z 0 26214
 D3
+~
+~
 ~
 ~
 Z 0 26212
@@ -384,8 +423,12 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26215
 D3
+~
+~
 ~
 ~
 Z 0 26213
@@ -401,12 +444,18 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26216
 D1
 ~
 ~
+~
+~
 Z 0 26218
 D2
+~
+~
 ~
 ~
 Z 0 26214
@@ -422,6 +471,8 @@ forest.
 D2
 ~
 ~
+~
+~
 Z 0 26215
 S
 #26217
@@ -431,6 +482,8 @@ and twisted foliage surround it but nothing seems to be regrowing.
 ~
 0 A forest
 D0
+~
+~
 ~
 ~
 Z 0 26218
@@ -446,12 +499,18 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26219
 D2
 ~
 ~
+~
+~
 Z 0 26217
 D3
+~
+~
 ~
 ~
 Z 0 26215
@@ -468,8 +527,12 @@ shapes move slowly through the shadows and mist.
 D1
 ~
 ~
+~
+~
 Z 0 26222
 D2
+~
+~
 ~
 ~
 Z 0 26218
@@ -485,8 +548,12 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D1
 ~
 ~
+~
+~
 Z 0 26221
 D2
+~
+~
 ~
 ~
 Z 0 26222
@@ -502,8 +569,12 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D2
 ~
 ~
+~
+~
 Z 0 26223
 D3
+~
+~
 ~
 ~
 Z 0 26220
@@ -519,16 +590,24 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D0
 ~
 ~
+~
+~
 Z 0 26220
 D1
+~
+~
 ~
 ~
 Z 0 26223
 D2
 ~
 ~
+~
+~
 Z 0 26225
 D3
+~
+~
 ~
 ~
 Z 0 26219
@@ -544,16 +623,24 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D0
 ~
 ~
+~
+~
 Z 0 26221
 D1
+~
+~
 ~
 ~
 Z 0 26224
 D2
 ~
 ~
+~
+~
 Z 0 26226
 D3
+~
+~
 ~
 ~
 Z 0 26222
@@ -569,8 +656,12 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D2
 ~
 ~
+~
+~
 Z 0 26227
 D3
+~
+~
 ~
 ~
 Z 0 26223
@@ -586,8 +677,12 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D0
 ~
 ~
+~
+~
 Z 0 26222
 D1
+~
+~
 ~
 ~
 Z 0 26226
@@ -603,12 +698,18 @@ forest. Around you large ominous shapes move slowly through the shadows.
 D0
 ~
 ~
+~
+~
 Z 0 26223
 D1
 ~
 ~
+~
+~
 Z 0 26227
 D3
+~
+~
 ~
 ~
 Z 0 26225
@@ -625,12 +726,18 @@ To the south you can see the forest gets even darker...
 D0
 ~
 ~
+~
+~
 Z 0 26224
 D2
 ~
 ~
+~
+~
 Z 0 26228
 D3
+~
+~
 ~
 ~
 Z 0 26226
@@ -647,12 +754,18 @@ along with a lot of glutteral growling and hissing.
 D0
 ~
 ~
+~
+~
 Z 0 26227
 D1
 ~
 ~
+~
+~
 Z 0 26229
 D2
+~
+~
 ~
 ~
 Z 0 26247
@@ -669,8 +782,12 @@ along with a lot of glutteral growling and hissing.
 D1
 ~
 ~
+~
+~
 Z 0 26230
 D3
+~
+~
 ~
 ~
 Z 0 26228
@@ -687,8 +804,12 @@ along with a lot of glutteral growling and hissing.
 D0
 ~
 ~
+~
+~
 Z 0 26231
 D3
+~
+~
 ~
 ~
 Z 0 26229
@@ -703,12 +824,18 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26232
 D1
 ~
 ~
+~
+~
 Z 0 26235
 D2
+~
+~
 ~
 ~
 Z 0 26230
@@ -723,8 +850,12 @@ of dead foliage and carrion matter.
 D1
 ~
 ~
+~
+~
 Z 0 26233
 D2
+~
+~
 ~
 ~
 Z 0 26231
@@ -739,12 +870,18 @@ of dead foliage and carrion matter.
 D1
 ~
 ~
+~
+~
 Z 0 26234
 D2
 ~
 ~
+~
+~
 Z 0 26235
 D3
+~
+~
 ~
 ~
 Z 0 26232
@@ -759,8 +896,12 @@ of dead foliage and carrion matter.
 D2
 ~
 ~
+~
+~
 Z 0 26236
 D3
+~
+~
 ~
 ~
 Z 0 26233
@@ -775,16 +916,24 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26233
 D1
+~
+~
 ~
 ~
 Z 0 26236
 D2
 ~
 ~
+~
+~
 Z 0 26237
 D3
+~
+~
 ~
 ~
 Z 0 26231
@@ -799,16 +948,24 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26234
 D1
+~
+~
 ~
 ~
 Z 0 26241
 D2
 ~
 ~
+~
+~
 Z 0 26238
 D3
+~
+~
 ~
 ~
 Z 0 26235
@@ -823,8 +980,12 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26235
 D1
+~
+~
 ~
 ~
 Z 0 26238
@@ -839,12 +1000,18 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26236
 D1
 ~
 ~
+~
+~
 Z 0 26243
 D3
+~
+~
 ~
 ~
 Z 0 26237
@@ -859,8 +1026,12 @@ of dead foliage and carrion matter.
 D1
 ~
 ~
+~
+~
 Z 0 26240
 D2
+~
+~
 ~
 ~
 Z 0 26241
@@ -875,6 +1046,8 @@ of dead foliage and carrion matter.
 D3
 ~
 ~
+~
+~
 Z 0 26239
 S
 #26241
@@ -887,16 +1060,24 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26239
 D1
+~
+~
 ~
 ~
 Z 0 26242
 D2
 ~
 ~
+~
+~
 Z 0 26243
 D3
+~
+~
 ~
 ~
 Z 0 26236
@@ -911,8 +1092,12 @@ of dead foliage and carrion matter.
 D2
 ~
 ~
+~
+~
 Z 0 26244
 D3
+~
+~
 ~
 ~
 Z 0 26241
@@ -927,12 +1112,18 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26241
 D2
 ~
 ~
+~
+~
 Z 0 26245
 D3
+~
+~
 ~
 ~
 Z 0 26238
@@ -947,8 +1138,12 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26242
 D2
+~
+~
 ~
 ~
 Z 0 26246
@@ -963,8 +1158,12 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26243
 D1
+~
+~
 ~
 ~
 Z 0 26246
@@ -979,8 +1178,12 @@ of dead foliage and carrion matter.
 D0
 ~
 ~
+~
+~
 Z 0 26244
 D3
+~
+~
 ~
 ~
 Z 0 26245
@@ -996,8 +1199,12 @@ forest.
 D0
 ~
 ~
+~
+~
 Z 0 26228
 D3
+~
+~
 ~
 ~
 Z 0 26248
@@ -1013,8 +1220,12 @@ forest.
 D1
 ~
 ~
+~
+~
 Z 0 26247
 D3
+~
+~
 ~
 ~
 Z 0 26249
@@ -1030,8 +1241,12 @@ A makeshift bridge has been partially erected over the river.
 D1
 ~
 ~
+~
+~
 Z 0 26248
 D2
+~
+~
 ~
 ~
 Z 0 26250
@@ -1046,8 +1261,12 @@ and hissing within. The bridge heads north and south.
 D0
 ~
 ~
+~
+~
 Z 0 26249
 D2
+~
+~
 ~
 ~
 Z 0 26251
@@ -1062,8 +1281,12 @@ and hissing within. The bridge heads north and south.
 D0
 ~
 ~
+~
+~
 Z 0 26250
 D2
+~
+~
 ~
 ~
 Z 0 26252
@@ -1080,8 +1303,12 @@ to be a large dark clearing.
 D0
 ~
 ~
+~
+~
 Z 0 26251
 D2
+~
+~
 ~
 ~
 Z 0 26253
@@ -1097,12 +1324,18 @@ of real forest animals.
 D0
 ~
 ~
+~
+~
 Z 0 26252
 D1
 ~
 ~
+~
+~
 Z 0 26254
 D2
+~
+~
 ~
 ~
 Z 0 26257
@@ -1118,12 +1351,18 @@ of real forest animals.
 D1
 ~
 ~
+~
+~
 Z 0 26255
 D2
 ~
 ~
+~
+~
 Z 0 26258
 D3
+~
+~
 ~
 ~
 Z 0 26253
@@ -1139,12 +1378,18 @@ of real forest animals.
 D1
 ~
 ~
+~
+~
 Z 0 26256
 D2
 ~
 ~
+~
+~
 Z 0 26259
 D3
+~
+~
 ~
 ~
 Z 0 26254
@@ -1160,8 +1405,12 @@ of real forest animals.
 D2
 ~
 ~
+~
+~
 Z 0 26260
 D3
+~
+~
 ~
 ~
 Z 0 26255
@@ -1177,8 +1426,12 @@ sounds of real forest animals.
 D0
 ~
 ~
+~
+~
 Z 0 26253
 D1
+~
+~
 ~
 ~
 Z 0 26258
@@ -1194,16 +1447,24 @@ sounds of real forest animals.
 D0
 ~
 ~
+~
+~
 Z 0 26254
 D1
+~
+~
 ~
 ~
 Z 0 26259
 D2
 ~
 ~
+~
+~
 Z 0 26262
 D3
+~
+~
 ~
 ~
 Z 0 26257
@@ -1219,16 +1480,24 @@ of real forest animals.
 D0
 ~
 ~
+~
+~
 Z 0 26255
 D1
+~
+~
 ~
 ~
 Z 0 26260
 D2
 ~
 ~
+~
+~
 Z 0 26263
 D3
+~
+~
 ~
 ~
 Z 0 26258
@@ -1244,12 +1513,18 @@ of real forest animals.
 D0
 ~
 ~
+~
+~
 Z 0 26256
 D2
 ~
 ~
+~
+~
 Z 0 26264
 D3
+~
+~
 ~
 ~
 Z 0 26259
@@ -1265,8 +1540,12 @@ of real forest animals.
 D0
 ~
 ~
+~
+~
 Z 0 26258
 D1
+~
+~
 ~
 ~
 Z 0 26263
@@ -1282,16 +1561,24 @@ lush and green...
 D0
 ~
 ~
+~
+~
 Z 0 26259
 D1
+~
+~
 ~
 ~
 Z 0 26264
 D2
 ~
 ~
+~
+~
 Z 0 26265
 D3
+~
+~
 ~
 ~
 Z 0 26262
@@ -1307,8 +1594,12 @@ of the clearing...
 D0
 ~
 ~
+~
+~
 Z 0 26260
 D3
+~
+~
 ~
 ~
 Z 0 26263
@@ -1323,18 +1614,11 @@ the region seems to get greener and more like a REAL forest.
 D0
 ~
 ~
+~
+~
 Z 0 26263
-D2
-~
-~
-Z 0 26300
 S
 #0
-
-#SPECIALS
-M 26202 spec_troll_member	* a lesser troll
-M 26203 spec_troll_member	* a greater troll
-S
 
 #RESETS
 M 0 26202 22 26205 3	* a lesser troll (Within the Dead Forest)
@@ -1365,16 +1649,16 @@ M 0 26203 16 26232 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26234 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
-E 0 26200 0 16		*	a Troll-sword: wielded
+E 0 26200 0 16		*	a greater troll<wielded>: a Troll-sword
 M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26236 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26237 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26238 4	* a greater troll (A bloody part of the Dead Forest)
-E 0 26201 0 12		*	a robe of toughened troll-skin: about the shoulders
+E 0 26201 0 12		*	a greater troll<about the shoulders>: a robe of toughened troll-skin
 M 0 26203 16 26239 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26240 4	* a greater troll (A Bloody corner of the Dead Forest)
 M 0 26203 16 26241 4	* a greater troll (A bloody part of the Dead Forest)
-E 0 26201 0 12		*	a robe of toughened troll-skin: about the shoulders
+E 0 26201 0 12		*	a greater troll<about the shoulders>: a robe of toughened troll-skin
 M 0 26203 16 26242 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26243 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26244 4	* a greater troll (A bloody part of the Dead Forest)
@@ -1385,14 +1669,14 @@ M 0 26204 8 26256 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26257 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26258 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26205 2 26258 1	* an anti-ranger scout (Within a Dark Clearing)
-E 0 26202 0 16		*	a sword named 'Troll-slayer': wielded
-E 0 26203 0 20		*	a dagger named 'naga-slayer': second wielded
+E 0 26202 0 16		*	an anti-ranger scout<wielded>: a sword named 'Troll-slayer'
+E 0 26203 0 20		*	an anti-ranger scout<second wielded>: a dagger named 'naga-slayer'
 M 0 26204 8 26259 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26262 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26263 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26205 2 26264 1	* an anti-ranger scout (Within a Dark Clearing)
-E 0 26202 0 16		*	a sword named 'Troll-slayer': wielded
-E 0 26203 0 20		*	a dagger named 'naga-slayer': second wielded
+E 0 26202 0 16		*	an anti-ranger scout<wielded>: a sword named 'Troll-slayer'
+E 0 26203 0 20		*	an anti-ranger scout<second wielded>: a dagger named 'naga-slayer'
 S
 
 #OLIMITS

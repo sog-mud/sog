@@ -1,4 +1,5 @@
 #AREADATA
+Ver 7
 Name Forest of Myth Drannor~
 VNUMs 22500 22599
 Credits Ceran~
@@ -10,97 +11,99 @@ End
 #22500
 scout man~
 a Knight scout of Myth Drannor~
-A man forest armor is watching you from the trees.
-~
+A man forest armor is watching you from the trees.~
 This man has the bearing of one who is set in his ideals. He watches the
 forests for intruders and to prevent the further spread of it's evil beyond
 the forest confines.
 ~
 human~
-ABGT J 1000 22500
-25 0 5d10+550 1d1+100 2d10+7 punch
+BGT 0 0 0 H 1000 22500
+25 0 5d10+550 1d1+100 2d10+7 'punch'
 -7 -7 -7 1
-CDEFKU 0 0 0 stand stand male 636
+CDEFKU
+stand stand male 636
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #22501
 giant spider~
 a giant spider~
-A giant spider scuttles at you from out of the undergrowth.
-~
+A giant spider scuttles at you from out of the undergrowth.~
 This bloated spider is as large as a small horse. It's spindly legs twitch
 as it scuttles across the ground.
 ~
 unique~
-AGT 0 -1000 22501
-18 0 3d9+283 1d1+100 2d7+4 bite
+GJT 0 0 0 0 -1000 22501
+18 0 3d9+283 1d1+100 2d7+4 'bite'
 -3 -3 -3 8
-FU ABL 0 0 stand stand none 346
+FU
+stand stand none 346
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r poison 100
+r charm 100
 #22502
 treant tree~
 a treant~
-A huge tree opens it's eyes and regards you with disdain.
-~
+A huge tree opens it's eyes and regards you with disdain.~
 There is something almost majestic about the sheer power and size of this
 creature. A pair of deep brown eyes seem to reside within the tree-like
 creature and they stare at you in contempt.
 ~
 giant~
-AGNT J 0 0
-46 0 25d10+3250 1d1+100 6d6+16 pound
+GT 0 0 0 H 0 0
+46 0 25d10+3250 1d1+100 6d6+16 'pound'
 -25 -16 -16 -5
-CDK 0 0 0 stand stand none 0
+CDK
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 0 33 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #22503
 darkened beast~
 a darkened beast~
-A large darken beast stalks the forest for prey.
-~
+A large darken beast stalks the forest for prey.~
 This creature resembles a large black dog, but it's tail is spiked and it's
 eyes are a malevolent red. A snarl of fierce hate sounds from it's jaws.
 ~
 wolf~
-AFGT DEJ -1000 0
-30 0 6d12+850 1d1+100 4d6+8 bite
+FGJT 0 0 0 AHL -1000 0
+30 0 6d12+850 1d1+100 4d6+8 'bite'
 -9 -5 0 1
-DU AB 0 0 stand stand none 0
+DU
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #22504
 elf skeleton~
 an elven skeleton~
-The skeletal remains of an ancient elf rise up before you!
-~
+The skeletal remains of an ancient elf rise up before you!~
 This is one the the long dead elven warriors who vowed to forever keep watch
 over the city of Myth Drannor. Even in death his vows have been kept, and now
 he stands eternal watch over the dead city's gates.
 ~
 undead~
-ABFGOT Eu -1000 0
-32 1 10d10+1000 1d1+100 6d4+9 wrath
+BFGJOT 0 J 0 L -1000 0
+32 1 10d10+1000 1d1+100 6d4+9 'wrath'
 -10 -10 -10 -10
-CDEFK ABKMP 0 0 stand stand none 0
+CDEFK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r acid 100
+r negative 100
+r mental 100
+r charm 100
 #22505
 shade~
 a forest shade~
-A cold and insubstantial shadow moves amongst the trees.
-~
+A cold and insubstantial shadow moves amongst the trees.~
 A feeling of cold dread passes across you as this shadow slowly turns to
 regard you. Pale blue eyes can be seen in it's flickering form, but little
 else of substance seems to exist.
 ~
 human~
-AFGT DEFJ -1000 0
-35 0 10d10+1300 1d1+100 4d7+11 drain
+FGJT 0 0 0 ABHL -1000 0
+35 0 10d10+1300 1d1+100 4d7+11 'drain'
 -11 -11 -11 -5
-DEFGK AB 0 0 stand stand none 0
+DEFGK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 33 33 0 0 0 -33 0 0 0 0 0 0 -33 0 0 0 -33 0 0 0 0 0 0 0
+r charm 100
 #0
 
 #OBJECTS
@@ -109,29 +112,22 @@ rust iron sword~
 a rusted iron sword~
 A rust covered iron sword lies on the ground.~
 iron~
-weapon 0 AN
-sword 5 7 slash 0
+weapon 0 0 AN
+sword 5 7 'slash' 0
 25 150 1275 P
-A
-18 -2
-A
-19 -2
-G none
+f object hitroll -2 0
+f object damroll -2 0
 #22501
 cloth tunic forest green~
 a forest green tunic~
 A tunic of soft green cloth is on the ground.~
 cloth~
-armor L AD
+armor L 0 AD
 7 6 7 5 5
 25 20 1285 P
-A
-19 1
-A
-14 25
-A
-2 1
-G none
+f object damroll 1 0
+f object move 25 0
+f object dex 1 0
 #0
 
 #ROOMS
@@ -145,8 +141,12 @@ into the forest or west to what looks like a small outpost.
 D1
 ~
 ~
+~
+~
 Z 0 22501
 D3
+~
+~
 ~
 ~
 Z 0 13606
@@ -162,8 +162,12 @@ of creatures in the underbrush. The path heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 22502
 D3
+~
+~
 ~
 ~
 Z 0 22500
@@ -179,8 +183,12 @@ of creatures in the underbrush. The path heads south and west.
 D2
 ~
 ~
+~
+~
 Z 0 22503
 D3
+~
+~
 ~
 ~
 Z 0 22501
@@ -197,16 +205,24 @@ the path heads north and east.
 D0
 ~
 ~
+~
+~
 Z 0 22502
 D1
+~
+~
 ~
 ~
 Z 0 22504
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22536
@@ -222,16 +238,24 @@ of creatures in the underbrush. The path continues east and west.
 D0
 ~
 ~
+~
+~
 Z 0 22536
 D1
+~
+~
 ~
 ~
 Z 0 22505
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22503
@@ -247,12 +271,18 @@ of creatures in the underbrush. The path continues east and west.
 D1
 ~
 ~
+~
+~
 Z 0 22506
 D2
 ~
 ~
+~
+~
 Z 0 22553
 D3
+~
+~
 ~
 ~
 Z 0 22504
@@ -268,16 +298,24 @@ of creatures in the underbrush. The path continues east and west.
 D0
 ~
 ~
+~
+~
 Z 0 22535
 D1
+~
+~
 ~
 ~
 Z 0 22507
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22505
@@ -293,16 +331,24 @@ of creatures in the underbrush. The path continues east and west.
 D0
 ~
 ~
+~
+~
 Z 0 22534
 D1
+~
+~
 ~
 ~
 Z 0 22508
 D2
 ~
 ~
+~
+~
 Z 0 22552
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -318,16 +364,24 @@ of creatures in the underbrush. The path continues south and west.
 D0
 ~
 ~
+~
+~
 Z 0 22530
 D1
+~
+~
 ~
 ~
 Z 0 22559
 D2
 ~
 ~
+~
+~
 Z 0 22509
 D3
+~
+~
 ~
 ~
 Z 0 22507
@@ -343,16 +397,24 @@ of creatures in the underbrush. The path heads north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 22508
 D1
+~
+~
 ~
 ~
 Z 0 22510
 D2
 ~
 ~
+~
+~
 Z 0 22520
 D3
+~
+~
 ~
 ~
 Z 0 22553
@@ -369,16 +431,24 @@ the path heads east and west.
 D0
 ~
 ~
+~
+~
 Z 0 22536
 D1
+~
+~
 ~
 ~
 Z 0 22511
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22509
@@ -396,16 +466,24 @@ the trees.
 D0
 ~
 ~
+~
+~
 Z 0 22535
 D1
+~
+~
 ~
 ~
 Z 0 22512
 D2
 ~
 ~
+~
+~
 Z 0 22524
 D3
+~
+~
 ~
 ~
 Z 0 22510
@@ -422,16 +500,24 @@ the path heads east and west.
 D0
 ~
 ~
+~
+~
 Z 0 22536
 D1
+~
+~
 ~
 ~
 Z 0 22513
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22511
@@ -447,16 +533,24 @@ of creatures in the underbrush. The path heads south and west.
 D0
 ~
 ~
+~
+~
 Z 0 22536
 D1
+~
+~
 ~
 ~
 Z 0 22553
 D2
 ~
 ~
+~
+~
 Z 0 22514
 D3
+~
+~
 ~
 ~
 Z 0 22512
@@ -472,16 +566,24 @@ of creatures in the underbrush. The path heads north and east.
 D0
 ~
 ~
+~
+~
 Z 0 22513
 D1
+~
+~
 ~
 ~
 Z 0 22515
 D2
 ~
 ~
+~
+~
 Z 0 22553
 D3
+~
+~
 ~
 ~
 Z 0 22535
@@ -497,16 +599,24 @@ of creatures in the underbrush. The path heads east and west.
 D0
 ~
 ~
+~
+~
 Z 0 22542
 D1
+~
+~
 ~
 ~
 Z 0 22516
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22514
@@ -522,16 +632,24 @@ of creatures in the underbrush. The path heads south and west.
 D0
 ~
 ~
+~
+~
 Z 0 22536
 D1
+~
+~
 ~
 ~
 Z 0 22552
 D2
 ~
 ~
+~
+~
 Z 0 22517
 D3
+~
+~
 ~
 ~
 Z 0 22515
@@ -547,16 +665,24 @@ of creatures in the underbrush. The path heads north and south.
 D0
 ~
 ~
+~
+~
 Z 0 22516
 D1
+~
+~
 ~
 ~
 Z 0 22560
 D2
 ~
 ~
+~
+~
 Z 0 22518
 D3
+~
+~
 ~
 ~
 Z 0 22530
@@ -573,16 +699,24 @@ amidst the trees. The path heads north.
 D0
 ~
 ~
+~
+~
 Z 0 22517
 D1
+~
+~
 ~
 ~
 Z 0 22553
 D2
 ~
 ~
+~
+~
 Z 0 22536
 D3
+~
+~
 ~
 ~
 Z 0 22519
@@ -600,6 +734,8 @@ you can go west into the ruins of Myth Drannor.
 D1
 ~
 ~
+~
+~
 Z 0 22518
 S
 #22520
@@ -614,16 +750,24 @@ dark forest.
 D0
 ~
 ~
+~
+~
 Z 0 22509
 D1
+~
+~
 ~
 ~
 Z 0 22553
 D2
 ~
 ~
+~
+~
 Z 0 22521
 D3
+~
+~
 ~
 ~
 Z 0 22536
@@ -640,16 +784,24 @@ dark forest.
 D0
 ~
 ~
+~
+~
 Z 0 22520
 D1
+~
+~
 ~
 ~
 Z 0 22553
 D2
 ~
 ~
+~
+~
 Z 0 22522
 D3
+~
+~
 ~
 ~
 Z 0 22536
@@ -666,16 +818,24 @@ the path heads north.
 D0
 ~
 ~
+~
+~
 Z 0 22521
 D1
+~
+~
 ~
 ~
 Z 0 22523
 D2
 ~
 ~
+~
+~
 Z 0 22535
 D3
+~
+~
 ~
 ~
 Z 0 22554
@@ -693,8 +853,12 @@ you can go north into the ruins of Myth Drannor.
 D0
 ~
 ~
+~
+~
 Z 0 13700
 D3
+~
+~
 ~
 ~
 Z 0 22522
@@ -712,6 +876,8 @@ you can go south into the ruins of Myth Drannor.
 D0
 ~
 ~
+~
+~
 Z 0 22511
 S
 #22525
@@ -726,16 +892,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22537
 D1
+~
+~
 ~
 ~
 Z 0 22526
 D2
 ~
 ~
+~
+~
 Z 0 22531
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -752,16 +926,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22538
 D1
+~
+~
 ~
 ~
 Z 0 22527
 D2
 ~
 ~
+~
+~
 Z 0 22532
 D3
+~
+~
 ~
 ~
 Z 0 22525
@@ -778,16 +960,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22539
 D1
+~
+~
 ~
 ~
 Z 0 22528
 D2
 ~
 ~
+~
+~
 Z 0 22533
 D3
+~
+~
 ~
 ~
 Z 0 22526
@@ -804,16 +994,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22540
 D1
+~
+~
 ~
 ~
 Z 0 22529
 D2
 ~
 ~
+~
+~
 Z 0 22534
 D3
+~
+~
 ~
 ~
 Z 0 22527
@@ -830,16 +1028,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22541
 D1
+~
+~
 ~
 ~
 Z 0 22530
 D2
 ~
 ~
+~
+~
 Z 0 22535
 D3
+~
+~
 ~
 ~
 Z 0 22528
@@ -856,16 +1062,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22542
 D1
+~
+~
 ~
 ~
 Z 0 22525
 D2
 ~
 ~
+~
+~
 Z 0 22536
 D3
+~
+~
 ~
 ~
 Z 0 22529
@@ -882,16 +1096,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22525
 D1
+~
+~
 ~
 ~
 Z 0 22532
 D2
 ~
 ~
+~
+~
 Z 0 22537
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -908,16 +1130,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22526
 D1
+~
+~
 ~
 ~
 Z 0 22533
 D2
 ~
 ~
+~
+~
 Z 0 22538
 D3
+~
+~
 ~
 ~
 Z 0 22531
@@ -934,16 +1164,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22527
 D1
+~
+~
 ~
 ~
 Z 0 22534
 D2
 ~
 ~
+~
+~
 Z 0 22539
 D3
+~
+~
 ~
 ~
 Z 0 22532
@@ -960,16 +1198,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22528
 D1
+~
+~
 ~
 ~
 Z 0 22535
 D2
 ~
 ~
+~
+~
 Z 0 22540
 D3
+~
+~
 ~
 ~
 Z 0 22533
@@ -986,16 +1232,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22529
 D1
+~
+~
 ~
 ~
 Z 0 22536
 D2
 ~
 ~
+~
+~
 Z 0 22541
 D3
+~
+~
 ~
 ~
 Z 0 22534
@@ -1012,16 +1266,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22530
 D1
+~
+~
 ~
 ~
 Z 0 22541
 D2
 ~
 ~
+~
+~
 Z 0 22542
 D3
+~
+~
 ~
 ~
 Z 0 22535
@@ -1038,16 +1300,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22531
 D1
+~
+~
 ~
 ~
 Z 0 22538
 D2
 ~
 ~
+~
+~
 Z 0 22525
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -1064,16 +1334,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22532
 D1
+~
+~
 ~
 ~
 Z 0 22539
 D2
 ~
 ~
+~
+~
 Z 0 22526
 D3
+~
+~
 ~
 ~
 Z 0 22537
@@ -1090,16 +1368,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22533
 D1
+~
+~
 ~
 ~
 Z 0 22540
 D2
 ~
 ~
+~
+~
 Z 0 22527
 D3
+~
+~
 ~
 ~
 Z 0 22538
@@ -1116,16 +1402,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22534
 D1
+~
+~
 ~
 ~
 Z 0 22541
 D2
 ~
 ~
+~
+~
 Z 0 22528
 D3
+~
+~
 ~
 ~
 Z 0 22539
@@ -1142,16 +1436,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22535
 D1
+~
+~
 ~
 ~
 Z 0 22542
 D2
 ~
 ~
+~
+~
 Z 0 22529
 D3
+~
+~
 ~
 ~
 Z 0 22540
@@ -1168,16 +1470,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22536
 D1
+~
+~
 ~
 ~
 Z 0 22539
 D2
 ~
 ~
+~
+~
 Z 0 22530
 D3
+~
+~
 ~
 ~
 Z 0 22541
@@ -1194,16 +1504,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22555
 D1
+~
+~
 ~
 ~
 Z 0 22544
 D2
 ~
 ~
+~
+~
 Z 0 22549
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -1220,16 +1538,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22556
 D1
+~
+~
 ~
 ~
 Z 0 22545
 D2
 ~
 ~
+~
+~
 Z 0 22550
 D3
+~
+~
 ~
 ~
 Z 0 22543
@@ -1246,16 +1572,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22557
 D1
+~
+~
 ~
 ~
 Z 0 22546
 D2
 ~
 ~
+~
+~
 Z 0 22551
 D3
+~
+~
 ~
 ~
 Z 0 22544
@@ -1272,16 +1606,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22558
 D1
+~
+~
 ~
 ~
 Z 0 22547
 D2
 ~
 ~
+~
+~
 Z 0 22552
 D3
+~
+~
 ~
 ~
 Z 0 22545
@@ -1298,16 +1640,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22559
 D1
+~
+~
 ~
 ~
 Z 0 22548
 D2
 ~
 ~
+~
+~
 Z 0 22553
 D3
+~
+~
 ~
 ~
 Z 0 22546
@@ -1324,16 +1674,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22560
 D1
+~
+~
 ~
 ~
 Z 0 22559
 D2
 ~
 ~
+~
+~
 Z 0 22554
 D3
+~
+~
 ~
 ~
 Z 0 22547
@@ -1350,16 +1708,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22543
 D1
+~
+~
 ~
 ~
 Z 0 22550
 D2
 ~
 ~
+~
+~
 Z 0 22555
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -1376,16 +1742,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22544
 D1
+~
+~
 ~
 ~
 Z 0 22551
 D2
 ~
 ~
+~
+~
 Z 0 22556
 D3
+~
+~
 ~
 ~
 Z 0 22549
@@ -1402,16 +1776,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22545
 D1
+~
+~
 ~
 ~
 Z 0 22552
 D2
 ~
 ~
+~
+~
 Z 0 22557
 D3
+~
+~
 ~
 ~
 Z 0 22550
@@ -1428,16 +1810,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22546
 D1
+~
+~
 ~
 ~
 Z 0 22553
 D2
 ~
 ~
+~
+~
 Z 0 22558
 D3
+~
+~
 ~
 ~
 Z 0 22551
@@ -1454,16 +1844,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22547
 D1
+~
+~
 ~
 ~
 Z 0 22554
 D2
 ~
 ~
+~
+~
 Z 0 22559
 D3
+~
+~
 ~
 ~
 Z 0 22552
@@ -1480,16 +1878,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22548
 D1
+~
+~
 ~
 ~
 Z 0 22547
 D2
 ~
 ~
+~
+~
 Z 0 22560
 D3
+~
+~
 ~
 ~
 Z 0 22553
@@ -1506,16 +1912,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22549
 D1
+~
+~
 ~
 ~
 Z 0 22556
 D2
 ~
 ~
+~
+~
 Z 0 22543
 D3
+~
+~
 ~
 ~
 Z 0 22506
@@ -1532,16 +1946,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22550
 D1
+~
+~
 ~
 ~
 Z 0 22557
 D2
 ~
 ~
+~
+~
 Z 0 22544
 D3
+~
+~
 ~
 ~
 Z 0 22555
@@ -1558,16 +1980,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22551
 D1
+~
+~
 ~
 ~
 Z 0 22558
 D2
 ~
 ~
+~
+~
 Z 0 22545
 D3
+~
+~
 ~
 ~
 Z 0 22556
@@ -1584,16 +2014,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22552
 D1
+~
+~
 ~
 ~
 Z 0 22559
 D2
 ~
 ~
+~
+~
 Z 0 22546
 D3
+~
+~
 ~
 ~
 Z 0 22557
@@ -1610,16 +2048,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22553
 D1
+~
+~
 ~
 ~
 Z 0 22560
 D2
 ~
 ~
+~
+~
 Z 0 22547
 D3
+~
+~
 ~
 ~
 Z 0 22558
@@ -1636,16 +2082,24 @@ forest spreads out all around you, making it hard to see anything.
 D0
 ~
 ~
+~
+~
 Z 0 22554
 D1
+~
+~
 ~
 ~
 Z 0 22553
 D2
 ~
 ~
+~
+~
 Z 0 22548
 D3
+~
+~
 ~
 ~
 Z 0 22559
@@ -1654,20 +2108,20 @@ S
 
 #RESETS
 M 0 22500 4 22504 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a forest green tunic: on the body
+E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
 M 0 22502 5 22508 1	* a treant (On a rough dirt track through the forest)
 M 0 22500 4 22509 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a forest green tunic: on the body
+E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
 M 0 22500 4 22515 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a forest green tunic: on the body
+E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
 M 0 22504 3 22519 1	* an elven skeleton (Before some stone ruins)
-E 0 22500 0 16		*	a rusted iron sword: wielded
+E 0 22500 0 16		*	an elven skeleton<wielded>: a rusted iron sword
 M 0 22500 4 22521 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a forest green tunic: on the body
+E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
 M 0 22504 3 22523 1	* an elven skeleton (Before some stone ruins)
-E 0 22500 0 16		*	a rusted iron sword: wielded
+E 0 22500 0 16		*	an elven skeleton<wielded>: a rusted iron sword
 M 0 22504 3 22524 1	* an elven skeleton (Before some stone ruins)
-E 0 22500 0 16		*	a rusted iron sword: wielded
+E 0 22500 0 16		*	an elven skeleton<wielded>: a rusted iron sword
 M 0 22501 12 22525 2	* a giant spider (Within the Forest of Myth Drannor)
 M 0 22503 6 22525 2	* a darkened beast (Within the Forest of Myth Drannor)
 M 0 22501 12 22527 3	* a giant spider (Within the Forest of Myth Drannor)

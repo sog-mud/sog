@@ -2252,7 +2252,7 @@ a potion of cure light wounds~
 A potion of cure light wounds is here.~
 glass~
 potion G 0 AO
-5 'cure light' '' '' ''
+5 'cure light wounds' '' '' ''
 0 10 60 P
 #805
 potion cure serious~
@@ -2260,7 +2260,7 @@ a potion of cure serious wounds~
 A potion of cure serious wounds is here.~
 glass~
 potion G 0 AO
-10 'cure serious' '' '' ''
+10 'cure serious wounds' '' '' ''
 1 10 80 P
 #806
 potion cure critical critic~
@@ -2268,7 +2268,7 @@ a potion of cure critical wounds~
 A potion of cure critical wounds is here.~
 glass~
 potion G 0 AO
-15 'cure critical' '' '' ''
+15 'cure critical wounds' '' '' ''
 5 10 100 P
 #807
 potion antidote bottle~
@@ -2276,7 +2276,7 @@ a bottle of antidote~
 A bottle of antidote is here.~
 clay~
 potion G 0 AO
-14 'cure poison' 'cure light' 'cure disease' ''
+14 'cure poison' 'cure light wounds' 'cure disease' ''
 8 10 93 P
 #808
 potion cure blindness~

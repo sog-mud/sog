@@ -1,4 +1,5 @@
 #AREADATA
+Ver 7
 Name Ruins of Drannor~
 VNUMs 13700 13899
 Credits Ceran~
@@ -10,227 +11,241 @@ End
 #13700
 spirit~
 a spirit of Myth Drannor~
-A ghastly insubstantial elf wanders amongst the ruins.
-~
+A ghastly insubstantial elf wanders amongst the ruins.~
 The ghost of a lost elf, killed in violence without last rites and with nobody
 to guide the lost soul to where it belongs.
 ~
 human~
-AFGOT DEFJ -1000 13700
-40 0 15d10+3750 1d1+100 4d8+23 drain
+FGJT 0 0 0 ABHL -1000 13700
+40 0 15d10+3750 1d1+100 4d8+23 'drain'
 -13 -13 -13 -4
-CDFGK ABLMPQ 0 0 stand stand none 0
-0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
+CDFGK
+stand stand none 0
+I 0 medium unknown
+r poison 100
+r negative 100
+r mental 100
+r disease 100
+r charm 100
 #13701
 beast cacodaemon daemon~
 a horned cacodaemon~
-A huge beast with a twisted horn snarls and charges you!
-~
+A huge beast with a twisted horn snarls and charges you!~
 This unearthly creature is an example of what has replaced the once peaceful
 elves of the ancient city. It has eyes of darkness and seems at home amidst
 the ruins.
 ~
 giant~
-AFGT DEFJu -1000 13700
-42 0 25d50+4000 1d1+100 5d6+25 claw
+FGJT 0 J 0 ABHL -1000 13700
+42 0 25d50+4000 1d1+100 5d6+25 'claw'
 -18 -18 -18 -8
-CDEFKU AB 0 0 stand stand none 0
+CDEFKU
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 40 60 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #13702
 knight~
 a knight of Myth Drannor~
-A tall knight stands here watching for signs of evil.
-~
+A tall knight stands here watching for signs of evil.~
 This man stands watch over the ruins, making sure the evil within it stays
 there. 
 ~
 human~
-ABGT DFHJ 1000 13702
-43 0 25d10+4200 1d1+100 6d6+37 divine
+BGJT 0 H 0 ABH 1000 13702
+43 0 25d10+4200 1d1+100 6d6+37 'divine'
 -20 -20 -20 -10
-CDEFKU AN 0 0 stand stand male 0
+CDEFKU
+stand stand male 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 40 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact I
-M random 13705 10~
-M grall 13700 20~
-M grall 13701 20~
-M grall 13702 20~
-M grall 13703 20~
-M grall 13704 20~
+r holy 100
 #13703
 drow marauder~
 a drow marauder~
-An ebon skinned elf is here scowling at the shadows.
-~
+An ebon skinned elf is here scowling at the shadows.~
 This dark elven scout seems angry and disturbed. His rightful position, at
 least in his mind, is inside the lower level of the enclaves where the true
 power is held.
 ~
 drow~
-ABFGT DEFK -1000 0
-40 1 15d10+3750 1d1+100 4d8+23 punch
+BFGJT 0 K 0 ABL -1000 0
+40 1 15d10+3750 1d1+100 4d8+23 'punch'
 -20 -20 -20 -15
-CDEFK ABM 0 0 stand stand either 0
+CDEFK
+stand stand either 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 48 0 0 0 0 0 0 0 0 0 0 0 0
-R fact L
+r negative 100
+r charm 100
 #13704
 plant trap~
 a man-eater trap~
-A wickedly spiked plant sways gently in the breeze.
-~
+A wickedly spiked plant sways gently in the breeze.~
 The plants that are growing here in the ruins are not quite as harmless as the
 normal ones in the forests around the rest of Thera. This one has evil looking
 branches covered in sharp thorns, and it actually moves and lashes at you!
 ~
 human~
-ABGT 0 -1000 0
-24 0 5d10+500 1d1+100 2d10+6 grep
+BGJT 0 0 0 0 -1000 0
+24 0 5d10+500 1d1+100 2d10+6 'grep'
 -6 -6 -6 0
-AEFKW ABM 0 0 stand stand none 0
+AEFKW
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
+r negative 100
+r charm 100
 #13706
 golem~
 a golem of red stone~
-A golem carved from red stone stands here.
-~
+A golem carved from red stone stands here.~
 This huge automaton stands eternally vigilant over the tower before it.
 It's body is shaped like a giant but it has nothing in it's mind but the
 commands of it's long dead masters.
 ~
 giant~
-ABFGT DEFHJ 0 0
-40 0 15d10+2750 1d1+100 4d8+13 crush
+BFGJT 0 H 0 ABHL 0 0
+40 0 15d10+2750 1d1+100 4d8+13 'crush'
 -25 -25 -25 -15
-ACDEKWX ABDM 0 0 stand stand none 0
+ACDEKWX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 40 0 0 0 0 0 0 33 33 33 33 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r negative 100
+r charm 100
+r weapon 100
 #13707
 green dragon~
 an ancient green dragon~
-A massive green dragon stands amidst a cloud of toxic gas.
-~
+A massive green dragon stands amidst a cloud of toxic gas.~
 This is one of the largest dragons you have ever seen. Larger even than
 the massive reds that are found in the dragon towers. It's body is covered
 in thick green scales as hard as steel and a cloud of corrosive, poison gas
 clings to it like an outer shell.
 ~
 dragon~
-ABGT DEFu -1000 0
-48 1 25d10+4500 1d1+100 6d6+90 acbite
+BGJT 0 J 0 ABL -1000 0
+48 1 25d10+4500 1d1+100 6d6+90 'acbite'
 -28 -28 -28 -18
-ACDEKMX ABKLMV 0 0 stand stand none 3000
+ACDEKMX
+stand stand none 3000
 0 0 giant unknown
-R cur 0 0 40 40 -40 0 0 0 20 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r acid 100
+r poison 100
+r negative 100
+r charm 100
+m mob_fight mob_fight_breath_gas 100~
 #13708
 lizard man lizardman~
 a lizardman~
-A giant lizardman is here scavangeing amongst the ruins.
-~
+A giant lizardman is here scavangeing amongst the ruins.~
 A creature with green, dirty-looking skin gazes at you and grins evilly at
 your presence.
 ~
 draconian~
-AFGT J -1000 13708
-32 1 10d10+1000 1d1+100 6d4+10 claw
+FGJT 0 0 0 H -1000 13708
+32 1 10d10+1000 1d1+100 6d4+10 'claw'
 -10 -10 -10 5
-CDEFKMU AM 0 0 stand stand none 0
+CDEFKMU
+stand stand none 0
 0 0 large unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 60 0 0 0 0 0 0 0 0 0 0 0 0
+r negative 100
 #13709
 shadow demon~
 a shadow demon~
-A dark shadow is moving in silence between the rubble.
-~
+A dark shadow is moving in silence between the rubble.~
 A blood-red eyes looks at you with immense hatred, sharp claws flashing in
 the moonlight. Creation of Forgotten Gods shadow demon guards lost secrets
 of Myth Drannor.
 ~
 human~
-AFGT DEFJV -1000 13709
-37 0 10d10+1500 1d1+100 3d10+12 frbite
+FGJT 0 V 0 ABHL -1000 13709
+37 0 10d10+1500 1d1+100 3d10+12 'frbite'
 -13 -12 -13 -10
-CDEFGHKU ABIJKLMPQ 0 0 stand stand none 0
+CDEFGHKU
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 -33 0 0 0 0 0 40 0 0 0 0 -33 0 0 0 0 0 0 0
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r mental 100
+r disease 100
+r charm 100
 #13711
 blue golem~
 a golem of blue stone~
-A golem carved from blue stone stands here.
-~
+A golem carved from blue stone stands here.~
 This huge automaton stands eternally vigilant over the tower before it.
 It's body is shaped like a giant but it has nothing in it's mind but the
 commands of it's long dead masters.
 ~
 giant~
-ABFGT DEFHJ 0 0
-40 0 15d10+2750 1d1+100 4d8+13 crush
+BFGJT 0 H 0 ABHL 0 0
+40 0 15d10+2750 1d1+100 4d8+13 'crush'
 -25 -25 -25 -15
-ACDEKWX ABD 0 0 stand stand none 0
+ACDEKWX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 40 0 0 0 0 0 0 33 33 33 33 30 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
+r weapon 100
 #13712
 green golem~
 a golem of green stone~
-A golem carved from green stone stands here.
-~
+A golem carved from green stone stands here.~
 This huge automaton stands eternally vigilant over the tower before it.
 It's body is shaped like a giant but it has nothing in it's mind but the
 commands of it's long dead masters.
 ~
 giant~
-ABFGT DEFHJ 0 0
-40 0 15d10+2750 1d1+100 4d8+13 crush
+BFGJT 0 H 0 ABHL 0 0
+40 0 15d10+2750 1d1+100 4d8+13 'crush'
 -25 -25 -25 -15
-ACDEKWX ABDM 0 0 stand stand none 0
+ACDEKWX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 40 0 0 0 0 0 0 33 33 33 33 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r negative 100
+r charm 100
+r weapon 100
 #13713
 black golem~
 a golem of black stone~
-A golem carved from black stone stands here.
-~
+A golem carved from black stone stands here.~
 This huge automaton stands eternally vigilant over the tower before it.
 It's body is shaped like a giant but it has nothing in it's mind but the
 commands of it's long dead masters.
 ~
 giant~
-ABFGT DEFHJ 0 0
-40 0 15d10+2750 1d1+100 4d8+13 crush
+BFGJT 0 H 0 ABHL 0 0
+40 0 15d10+2750 1d1+100 4d8+13 'crush'
 -25 -25 -25 -15
-ACDEKWX ABDM 0 0 stand stand none 0
+ACDEKWX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 40 0 0 0 0 0 0 33 33 33 33 40 0 0 0 0 0 0 0 0 0 0 0 0
+r negative 100
+r charm 100
+r weapon 100
 #13715
 draconian three tyranthraxus~
 tyranthraxus~
-A massive three headed draconian hisses in fury!
-~
+A massive three headed draconian hisses in fury!~
 Creature with three heads hisses at you in primal fury. Lord of Astral
 planes Tyranthraxus now rides Thera.  
 ~
 giant~
-ABFGT DEFOu -1000 13700
-49 3 100d15+9000 1d1+100 6d10+50 acbite
+BFGJT 0 JO 0 ABL -1000 13700
+49 3 100d15+9000 1d1+100 6d10+50 'acbite'
 -30 -30 -30 -20
-ACDEKMOUX ABIKLMQ 0 0 stand stand none 0
+ACDEKMOUX
+stand stand none 0
 0 0 giant unknown
-R cur 0 0 55 45 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0
-R fact AE
+r cold 100
+r acid 100
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #13716
 dark prescence spectre king~
 the spectre of the elven First king~
-A cold and dark prescence forms out of the freezing air.
-~
+A cold and dark prescence forms out of the freezing air.~
 When the last of the elves had fallen in Myth Drannor the ancient evil that
 had been buried beneath it arose to return to the world. But there was still
 another unforseen step required and the darkness, while searching for that
@@ -238,219 +253,241 @@ last piece, required servants to guard It. The last elf king of Myth Drannor
 was one of these, and now his spectre guards the way to the greatest evil.
 ~
 giant~
-ABFGQT DEFOVu -1000 13700
-49 10 100d10+8000 1d1+100 10d5+50 chill
+BFGJQT 0 JOV 0 ABL -1000 13700
+49 10 100d10+8000 1d1+100 10d5+50 'chill'
 -33 -32 -34 -27
-AEFGHKUX ABIJKLMQ 0 0 stand stand male 0
+AEFGHKUX
+stand stand male 0
 0 0 giant unknown
-R cur 0 0 60 70 15 0 0 -33 0 0 0 0 0 50 0 0 0 0 40 0 0 0 0 0 0 0
-R fact AD
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r disease 100
+r charm 100
 #13717
 fallen angel~
 a Fallen Angel~
-A tall man with pale eyes and shredded bloody wings is here.
-~
+A tall man with pale eyes and shredded bloody wings is here.~
 As part of the evil one's final return to the world he has called upon all
 of his most powerful servants. When failing to find the last piece required
 to break the imprisonment this Fallen angel was posted as a guard to prevent
 anyone from entering while It was still vulnerable and imprisoned.
 ~
 giant~
-ABFGT DEFVuy -1000 13700
-50 3 100d9+6000 1d1+100 8d8+60 wrath
+BFGJT 0 JPV 0 ABL -1000 13700
+50 3 100d9+6000 1d1+100 8d8+60 'wrath'
 -35 -35 -35 -25
-CDEGOU ABKLMP 0 0 stand stand male 0
+CDEGOU
+stand stand male 0
 0 0 giant unknown
-R cur 0 0 60 50 0 0 0 85 0 0 0 0 0 35 95 0 0 0 0 0 80 0 0 0 0 0
-R fact Ed
+r acid 100
+r poison 100
+r negative 100
+r mental 100
+r charm 100
 #13718
 lord bane~
 the Lord Bane~
-A towering prescence of indescribable power dominates the room!
-~
+A towering prescence of indescribable power dominates the room!~
 You see nothing special about it. In fact it is so pure pitch-black around
 this being you can see nothing at all!
 ~
 giant~
-ABFGT DEFOuy -1000 13700
-50 3 10d100+11000 1d1+100 8d4+50 drain
+BFGJT 0 JOP 0 ABL -1000 13700
+50 3 10d100+11000 1d1+100 8d4+50 'drain'
 0 0 0 0
-ACDEKOU ABHIJKLM 0 0 stand stand male 0
+ACDEKOU
+stand stand male 0
 0 0 giant unknown
-R cur 0 0 50 60 0 0 0 0 0 0 0 0 0 50 0 48 0 0 35 0 80 90 0 0 0 0
-R fact Bd
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r charm 100
+m mob_fight mob_fight_cast_mage 100~
 #13719
 rock imp~
 a rock imp~
-A fiendish looking imp with stone-grey wings watches the ruins.
-~
+A fiendish looking imp with stone-grey wings watches the ruins.~
 ~
 human~
-AGT DEF -600 0
-40 0 15d10+2750 1d1+100 4d8+13 claw
+GJT 0 0 0 ABL -600 0
+40 0 15d10+2750 1d1+100 4d8+13 'claw'
 -15 -15 -15 -10
-CDFK AM 0 0 stand stand none 2000
+CDFK
+stand stand none 2000
 0 0 medium unknown
-R cur 0 33 40 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
+r negative 100
 #13721
 ogre~
 a rock ogre~
-A huge ogre is here gnawing on the bone of some unfortunate creature.
-~
+A huge ogre is here gnawing on the bone of some unfortunate creature.~
 This ogre has the look of someone who's prepetually hungry. It seems a little
 dull witted even for an ogre, and you notice it's eyes a red from lack of
 sleep. It seems even the creatures who prey on others are not safe in these
 ruins.
 ~
 giant~
-ABGT 0 0 0
-41 0 15d10+3850 1d1+100 4d8+24 smash
+BGT 0 0 0 0 0 0
+41 0 15d10+3850 1d1+100 4d8+24 'smash'
 -21 -20 -17 -2
-CDEKO 0 0 0 stand stand male 1900
+CDEKO
+stand stand male 1900
 0 0 large unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
 #13722
 stone giant~
 a stone giant~
-A grey skinned giant is grinning as he walks amongsth the ruins.
-~
+A grey skinned giant is grinning as he walks amongsth the ruins.~
 This giant is right at home here within the broken stones of Myth Drannor.
 It's skin matches the colour of the rocks and debri, making it very hard to
 see as it hunts for victims to satisfy it's hunger and bloodlust.
 ~
 giant~
-AGT 0 -600 13722
-45 1 25d10+5000 1d1+100 6d6+50 punch
+GT 0 0 0 0 -600 13722
+45 1 25d10+5000 1d1+100 6d6+50 'punch'
 -25 -25 -23 -7
-CDEFKOU E 0 0 stand stand male 2000
+CDEFKOU
+stand stand male 2000
 0 0 giant unknown
-R cur 0 0 30 30 0 0 0 0 0 0 0 0 0 20 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r bash 100
 #13723
 paladin lord knight~
 a paladin knight of Myth Drannor~
-A tall man rests upon a rock as he surveys the ruins.
-~
+A tall man rests upon a rock as he surveys the ruins.~
 This lord paladin has entered to find the greatest evil that resides within
 the ruins. His quest so far has been to no avail for he cannot breach the
 inner regions of the black tower and is unable to fight his way past what he
 suspects may hold the key.
 ~
 human~
-ABGQT CDEHJN 1000 0
-49 1 25d10+4700 1d1+1000 10d20+40 divine
+BGJQT 0 HN 0 AHKL 1000 0
+49 1 25d10+4700 1d1+1000 10d20+40 'divine'
 -28 -27 -28 -20
-ACDEFK AB 0 0 stand stand male 3000
+ACDEFK
+stand stand male 3000
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 40 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact AI
+r charm 100
 #13724
 hydra neo neohydra~
 a massive Neohydra~
-A huge triple headed hydra swings it's heads about in seach of prey!
-~
+A huge triple headed hydra swings it's heads about in seach of prey!~
 This thing is HUGE. It's body is the size of a house and the three heads that
 swing around scanning for victims are like dragon heads, only there are three
 of them at once.
 ~
 dragon~
-AGT DEF -1000 0
-47 2 25d10+5500 1d1+100 6d6+22 bite
+GJT 0 0 0 ABL -1000 0
+47 2 25d10+5500 1d1+100 6d6+22 'bite'
 -27 -25 -25 -20
-ACDKM ABLM 0 0 stand stand none 0
+ACDKM
+stand stand none 0
 D 0 giant unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
+r poison 100
+r negative 100
+r charm 100
 #13725
 skeletal elf skeleton~
 a skeletal elf~
-A heap of staggering bones is trying to seek out a new life.
-~
+A heap of staggering bones is trying to seek out a new life.~
 These bones are all that are left of one of the thousands of elves that tried
 to flee the destruction of Myth Drannor so many centuries ago. Now cursed to
 live forever in the state of undying hell in the bone graveyards, it seeks a
 new life to live and will kill for it...
 ~
 undead~
-AGOT 0 -1000 0
-27 0 5d10+650 1d1+100 5d4+8 none
+GOT 0 0 0 0 -1000 0
+27 0 5d10+650 1d1+100 5d4+8 'none'
 0 0 0 10
-CDK B 0 0 stand stand none 0
+CDK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+r charm 100
 #13726
 girl lady elf~
 a lady in green-blue~
-A stunning elven girl with crystal clear blue eyes stands here.
-~
+A stunning elven girl with crystal clear blue eyes stands here.~
 This girl is totally out of place here. She has a look of ancient sadness about
 her that is totally uncharacteristic for an elf. She seems to want you to do
 something for her...
 ~
 elf~
-ABGT DEFHV 1000 0
-50 0 50d10+5500 1d1+100 5d8+25 divine
+BGJT 0 HV 0 ABL 1000 0
+50 0 50d10+5500 1d1+100 5d8+25 'divine'
 -30 -30 -30 -30
-AW ABCDEFGHIJKLMNPQRST 0 0 stand stand female 0
+AW
+stand stand female 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-M grall 13707 100~
-M give 13708 hydra~
-M speech 13709 yes~
-M speech 13710 beast~
+r bash 100
+r pierce 100
+r slash 100
+r fire 100
+r cold 100
+r lightning 100
+r acid 100
+r poison 100
+r negative 100
+r holy 100
+r mental 100
+r disease 100
+r light 100
+r charm 100
+r sound 100
+r weapon 100
+r magic 100
 #13728
 mud dweller~
 a mud dweller~
-A slimy lump of mud oozes out of the ground and slides towards you.
-~
+A slimy lump of mud oozes out of the ground and slides towards you.~
 This piece of disgusting matter seems to be made of the very dirt and slime
 that you walk upon. It has very little sense other than it's hunger, but it is
 still a dangerous creature to be around.
 ~
 human~
-AGT 0 0 0
-35 0 10d10+1300 1d1+100 4d7+11 suction
+GT 0 0 0 0 0 0
+35 0 10d10+1300 1d1+100 4d7+11 'suction'
 -11 -11 -10 -2
-CDFK 0 0 0 stand stand none 0
+CDFK
+stand stand none 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #13729
 hissing frog~
 a hissing frog~
-A giant frog hisses and flicks it's pointed tongue out at you.
-~
+A giant frog hisses and flicks it's pointed tongue out at you.~
 This frog seems to have suffered from some kind of unnatural growth and dark
 mutation. It's body is about the size of a horse, and as it hisses a spray of
 burning acid lands on the ground sizzling.
 ~
 human~
-AFT 0 0 13729
-25 0 5d10+550 1d1+100 2d10+7 acbite
+FT 0 0 0 0 0 13729
+25 0 5d10+550 1d1+100 2d10+7 'acbite'
 -6 -5 -4 4
-CDFIU 0 0 0 rest stand either 0
+CDFIU
+rest stand either 0
 0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 #13730
 elf knight~
 an elven knight of ages past~
-A shimmering elven knight with a ghostly form is here.
-~
+A shimmering elven knight with a ghostly form is here.~
 The knights of ancient Myth Drannor still respond to the call of their horn and
 will return to serve in times of great need, as proven by this knights return
 from the dead.
 ~
 elf~
-AGT DEF 700 13730
-45 0 25d10+4000 1d1+100 6d6+20 none
+GJT 0 0 0 ABL 700 13730
+45 0 25d10+4000 1d1+100 6d6+20 'none'
 -15 -16 -15 -15
-CDEFKU AB 0 0 stand stand either 0
+CDEFKU
+stand stand either 0
 0 0 medium unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 48 32 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+r charm 100
 #13731
 bone demon~
 the bone demon~
-A huge creature composed of hundreds of elven bones stands here.
-~
+A huge creature composed of hundreds of elven bones stands here.~
 This being seems to be from the pieces of elven bones that lie scattered all
 around the region. It's size is tremendous, easily dwarfing even a giant or
 small dragon. There is something extremely evil about it's prescence here at
@@ -458,28 +495,33 @@ the blocked river, as if it were the symbol of the darkness that trapped the
 doomed elves here in their ships.
 ~
 human~
-ABGOT DEF -1000 0
-45 1 25d10+4000 1d1+100 6d6+20 pound
+BGJT 0 0 0 ABL -1000 0
+45 1 25d10+4000 1d1+100 6d6+20 'pound'
 -25 -25 -25 -15
-ABCDEFKOWX ABFLMPQ 0 0 stand stand none 0
-0 0 giant unknown
-R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0 0 0 0 0
-R fact A
+ABCDEFKOWX
+stand stand none 0
+I 0 giant unknown
+r pierce 100
+r poison 100
+r negative 100
+r mental 100
+r disease 100
+r charm 100
 #13732
 mist wraith~
 a mist wraith~
-A misty insubstantial wraith is rising out of the ground here.
-~
+A misty insubstantial wraith is rising out of the ground here.~
 There is little to see of this undead wraith, other than that it appears to be
 some kind of elven spirit seeking something long lost.
 ~
 human~
-AGOT CEFJ -700 13732
-22 0 5d10+550 1d1+100 2d10+7 none
+GJT 0 0 0 BHKL -700 13732
+22 0 5d10+550 1d1+100 2d10+7 'none'
 -5 -5 -5 0
-DFKU AB 0 0 stand stand none 0
-0 0 medium unknown
-R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+DFKU
+stand stand none 0
+I 0 medium unknown
+r charm 100
 #0
 
 #OBJECTS
@@ -488,219 +530,160 @@ spear rusty long~
 a rusty spear~
 A long rusted spear is on the ground.~
 iron~
-weapon 0 AN
-spear 6 6 stab F
+weapon 0 0 AN
+spear 6 6 'stab' F
 20 170 651 P
-A
-18 -2
-A
-19 2
-G none
+f object hitroll -2 0
+f object damroll 2 0
 #13701
 scimitar~
 a rusty scimitar~
 A large but rusted scimitar is on the ground.~
 iron~
-weapon 0 AN
-sword 6 5 slash 0
+weapon 0 0 AN
+sword 6 5 'slash' 0
 18 295 1037 P
-A
-18 -1
-A
-19 -1
-G none
+f object hitroll -1 0
+f object damroll -1 0
 #13702
 large iron shield~
 a large iron shield~
 A piece of iron battered into the shape of a shield is here.~
 iron~
-armor 0 AJ
+armor 0 0 AJ
 4 5 4 0 0
 5 70 567 P
-A
-19 1
-G none
+f object damroll 1 0
 #13703
 chainmail~
 chainmail armor~
 Some chainmail armor is on the ground.~
 steel~
-armor 0 AD
+armor 0 0 AD
 7 6 7 0 0
 12 160 1078 P
-A
-19 2
-G none
+f object damroll 2 0
 #13704
 longsword~
 a smooth-bladed longsword~
 A smooth-bladed longsword is on the ground.~
 steel~
-weapon 0 AN
-sword 6 6 slash 0
+weapon 0 0 AN
+sword 6 6 'slash' 0
 21 330 2821 P
-A
-18 2
-A
-19 3
-G none
+f object hitroll 2 0
+f object damroll 3 0
 #13705
 armor field plate~
 a suit of field plate~
 A set of light field armor is on the ground.~
 steel~
-armor 0 AD
+armor 0 0 AD
 11 10 12 9 5
 20 100 3416 P
-A
-18 1
-A
-19 2
-A
-13 15
-A
-14 25
-G none
+f object hitroll 1 0
+f object damroll 2 0
+f object hp 15 0
+f object move 25 0
 #13706
 leather gauntlets~
 a pair of leather gauntlets~
 A pair of hard leather gauntlets are on the ground.~
 leather~
-armor 0 AH
+armor 0 0 AH
 4 5 3 0 0
 12 300 193 P
-A
-18 1
-A
-19 1
-A
-2 1
-G none
+f object hitroll 1 0
+f object damroll 1 0
+f object dex 1 0
 #13707
 red quartz ring~
 a ring of red stained quartz~
 A ring made of some red stone is on the ground.~
 quartz~
-jewelry BCEF AB
+jewelry BCEF 0 AB
 0 0 0 0 0
 23 10 3393 P
-A
-20 -5
-A
-18 2
-A
-19 3
-A
-1 2
-G none
+f object saves -5 0
+f object hitroll 2 0
+f object damroll 3 0
+f object str 2 0
 #13708
 green quartz ring~
 a ring of green stained quartz~
 A ring made of some green stone is on the ground.~
 quartz~
-jewelry BCEF AB
+jewelry BCEF 0 AB
 0 0 0 0 0
 23 10 2748 P
-A
-4 2
-A
-13 30
-A
-18 1
-A
-19 1
-G none
+f object wis 2 0
+f object hp 30 0
+f object hitroll 1 0
+f object damroll 1 0
 #13709
 blue quartz ring~
 a ring of blue stained quartz~
 A ring made of some green stone is on the ground.~
 quartz~
-jewelry BCEF AB
+jewelry BCEF 0 AB
 0 0 0 0 0
 23 10 3099 P
-A
-13 25
-A
-3 2
-A
-12 40
-A
-18 1
-A
-19 1
-A
-24 -3
-G none
+f object hp 25 0
+f object int 2 0
+f object mana 40 0
+f object hitroll 1 0
+f object damroll 1 0
+f object saving_spell -3 0
 #13710
 black quartz ring~
 a ring of black stained quartz~
 A ring made of some black stone is on the ground.~
 quartz~
-jewelry BCEF AB
+jewelry BCEF 0 AB
 0 0 0 0 0
 23 10 3173 P
-A
-13 30
-A
-18 2
-A
-19 2
-A
-17 -5
-A
-24 -3
-G none
+f object hp 30 0
+f object hitroll 2 0
+f object damroll 2 0
+f object ac -5 0
+f object saving_spell -3 0
 #13711
 bloody shredded angel wings~
 the shredded wings of a fallen angel~
 The shredded and bloody remains of some creature's wings are here.~
 energy~
-boat CEGHMQ AK
+boat CEGHMQ 0 AK
 0 0 0 0 0
 36 200 1000 P
-A
-20 -8
-A
-13 50
-F
-A 0 0 T
-A
-18 2
-A
-19 2
-V
-1 increase_negative_damage~
-15~
-G none
+f object saves -8 0
+f object hp 50 0
+f affects none 0 T
+f object hitroll 2 0
+f object damroll 2 0
 #13712
 horns bane~
 the horns of Bane~
 A pair of black horns rimmed with blue-green flames is here.~
 energy~
-armor ABCEFGHJL AE
+armor ABCEFGHJL 0 AE
 18 19 18 20 0
 36 190 60000 P
-A
-20 -10
-A
-13 50
-A
-12 40
-F
-A 0 0 O
+f object saves -10 0
+f object hp 50 0
+f object mana 40 0
+f affects none 0 O
 E
 horns bane~
 These remains of the ancient god Bane still have the last flames of the magic
 used to imprison him. The blue-green fire burns softly around the horns and
 gives them an unreal appearance, as if they are ready to vanish into thin air.
 ~
-G none
 #13713
 scroll binding power~
 a scroll of binding power~
 A scroll with intricate writing has been left here.~
 energy~
-scroll ABGQ AO
+scroll ABGQ 0 AO
 270 'enchant weapon' 'enchant weapon' 'enchant weapon' ''
 35 10 218469 P
 E
@@ -711,73 +694,48 @@ enough to fight the evil that was coming, but they were defeated first and the
 scroll was taken by Bane in order to help him break the bonds that held him
 beneath the ancient city.
 ~
-G none
 #13714
 red sword planes~
 the sword of planes~
 A straight red sword lies on the ground.~
 energy~
-weapon FGI AN
-sword 7 7 chill D
+weapon FGI 0 AN
+sword 7 7 'chill' D
 28 126 10394 P
-A
-18 5
-A
-19 5
-V
-2 weapon_dam_msg~
-chilling wind~
-G none
+f object hitroll 5 0
+f object damroll 5 0
 #13715
 torque restoration silver circle~
 the torque of restoration~
 A shiny circle of silver is on the ground.~
 silver~
-treasure AGIMQ AC
+treasure AGIMQ 0 AC
 0 0 0 0 0
 35 20 21 P
-P
-7 5
-A
-13 30
-A
-19 4
-P
-13 5
-F
-A 0 0 c
-G none
+f object hp 30 0
+f object damroll 4 0
+f affects none 0 c
 #13716
 crown frozen blood red~
 a crown of frozen blood~
 A crown of frozen red blood is here.~
 blood~
-armor CEFGM AE
+armor CEFGM 0 AE
 15 15 15 20 0
 32 80 6551 P
-A
-20 -5
-P
-8 15
-A
-19 2
-A
-5 -2
-A
-2 -1
-G none
+f object saves -5 0
+f object damroll 2 0
+f object con -2 0
+f object dex -1 0
 #13717
 rod lordly might~
 the rod of lordly might~
 A beautifully carved rod of steel is on the ground.~
 steel~
-weapon BGIQ AO
-exotic 0 0 none 0
+weapon BGIQ 0 AO
+exotic 0 0 'none' 0
 36 90 45999 P
-A
-12 100
-P
-8 10
+f object mana 100 0
 E
 rod lordly might~
 It appears to be a dull and useless ceremonial staff.
@@ -804,180 +762,129 @@ sword~
 There are some words scrawled next to the symbol of the sword on the rod's
 surface, reading 'the strong rule the weak'.
 ~
-V
-2 @say~
-obj_cmd_say~
-G none
 #13718
 steel mace~
 a shiny steel mace~
 A shiny mace of steel is here.~
 steel~
-weapon K AN
-mace 6 6 pound 0
+weapon K 0 AN
+mace 6 6 'pound' 0
 21 170 2132 P
-A
-18 3
-A
-19 1
-G none
+f object hitroll 3 0
+f object damroll 1 0
 #13720
 circle bracelet frozen elf blood~
 a bracelet of frozen elf blood~
 A horrible circle of congealed, frozen blood is on the ground.~
 blood~
-armor CEFGHIJLMQ AM
+armor CEFGHIJLMQ 0 AM
 10 10 10 18 18
 33 20 1328 P
-A
-20 -5
-A
-13 30
+f object saves -5 0
+f object hp 30 0
 E
 circle bracelet frozen blood elf~
 The blood is congealed and disgustingly frozen, yet there almost seems to be
 some kind of life within it, screaming for release. It as is if the elf whose
 blood was taken is still contained, screaming for release.,
 ~
-G none
 #13722
 skull ancient god~
 the skull of an ancient god~
 A huge black skull with a demonic leer is watching you!~
 bone~
-light ABCEGHIJKMQ A
+light ABCEGHIJKMQ 0 A
 0 0 -1 0 0
 30 150 800 P
-A
-20 -10
-A
-13 20
-A
-18 4
-A
-19 8
-G none
+f object saves -10 0
+f object hp 20 0
+f object hitroll 4 0
+f object damroll 8 0
 #13723
 suffering~
 Suffering~
 An object of pure suffering is on the ground.~
 energy~
-trash CEGQ AC
+trash CEGQ 0 AC
 0 0 0 0 0
 30 10 25 P
-P
-6 7
-A
-20 -5
-A
-18 5
-A
-19 5
-G none
+f object saves -5 0
+f object hitroll 5 0
+f object damroll 5 0
 #13724
 wrath~
 Wrath~
 An object of unholy wrath is lying on the floor.~
 energy~
-jewelry CEGQ AB
+jewelry CEGQ 0 AB
 0 0 0 0 0
 30 10 6073 P
-A
-13 20
-A
-20 -5
-P
-7 5
-A
-18 5
-A
-19 5
-G none
+f object hp 20 0
+f object saves -5 0
+f object hitroll 5 0
+f object damroll 5 0
 #13725
 bracelet woven elf hair~
 a bracelet woven from the hair an elf~
 A beautiful bracelet made fomr woven elf hair is on the ground.~
 blood~
-armor AGIKL AM
+armor AGIKL 0 AM
 10 10 10 18 18
 30 20 1321 P
-A
-20 -5
-A
-13 30
-G none
+f object saves -5 0
+f object hp 30 0
 #13727
 stone club~
 a stone club~
 A large club made from a long piece of stone is here.~
 stone~
-weapon 0 AN
-mace 7 5 pound 0
+weapon 0 0 AN
+mace 7 5 'pound' 0
 24 490 822 P
-A
-18 -3
-A
-19 2
-G none
+f object hitroll -3 0
+f object damroll 2 0
 #13728
 poncho skin stone~
 a poncho from the skin of a stone giant~
 A piece of very tough skin the colour of stone is lying here.~
 skin~
-armor CEHJ AK
+armor CEHJ 0 AK
 12 11 10 0 0
 20 80 2525 P
-A
-17 -4
-A
-1 1
-A
-2 -1
-A
-19 3
-G none
+f object ac -4 0
+f object str 1 0
+f object dex -1 0
+f object damroll 3 0
 #13730
 rear green dragon claws~
 the rear claws of a green dragon~
 A large pair of green dragon claws lie on the ground.~
 bone~
-armor G AG
+armor G 0 AG
 14 15 18 20 0
 28 250 2639 P
-A
-13 30
-P
-6 2
-P
-4 5
-A
-19 5
-A
-2 -1
-G none
+f object hp 30 0
+f object damroll 5 0
+f object dex -1 0
 #13731
 stone green orb dragonorb~
 a green dragonorb~
 A large green stone lies on the ground.~
 stone~
-staff G AO
+staff G 0 AO
 40 3 3 'heal' 0
 35 30 2107 P
-A
-19 3
-G none
+f object damroll 3 0
 #13732
 shining mace~
 the mace of shining light~
 A ball of brilliant green light rests here.~
 energy~
-weapon ABGIKL AN
-mace 5 9 magic AI
+weapon ABGIKL 0 AN
+mace 5 9 'magic' AI
 30 200 5305 P
-A
-18 5
-A
-19 3
+f object hitroll 5 0
+f object damroll 3 0
 E
 mace shining~
 This weapon appears to be made of pure energy. The green light that constitutes
@@ -985,89 +892,71 @@ the mace's head radiates an aura of holy righteousness that seems to sooth your
 worries. It doesn't appear as powerful as many weapons you have heard of, yet
 there is something about it that suggests it is for a special purpose.
 ~
-G none
 #13733
 scroll protection~
 a scroll of divine protection~
 A white scroll is resting here waiting to be used.~
 paper~
-scroll BGI AO
+scroll BGI 0 AO
 50 'sanctuary' 'armor' 'shield' ''
 35 10 3985 P
-G none
 #13734
 helm brilliance~
 the helm of brilliance~
 A beautiful helm studded with glowing gems is here.~
 energy~
-armor BGIK AE
+armor BGIK 0 AE
 5 5 5 12 12
 30 50 1195 P
-A
-3 3
-A
-12 30
-A
-18 2
-A
-19 2
-G none
+f object int 3 0
+f object mana 30 0
+f object hitroll 2 0
+f object damroll 2 0
 #13735
 flawless cape white knights~
 the cape of white knights~
 A flowing white cape of flawless make is on the ground.~
 cloth~
-armor GIKL AK
+armor GIKL 0 AK
 4 5 5 10 10
 25 10 294 P
-A
-1 2
-A
-2 2
-A
-17 -5
-A
-24 -7
-A
-13 30
-G none
+f object str 2 0
+f object dex 2 0
+f object ac -5 0
+f object saving_spell -7 0
+f object hp 30 0
 #13736
 black key~
 the black key~
 A large sheer black key is here.~
 steel~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 0 0 P
-G none
 #13737
 hydra neohydra head~
 the head of a neohydra~
 A huge head of a decapitated hydra is here.~
 flesh~
-trash 0 A
+trash 0 0 A
 0 0 0 0 0
 0 300 0 P
-G none
 #13738
 cutter hydraslayer slayer~
 a flesh-cutter named 'Hydraslayer'~
 A sharp slicing instrument is lying on the ground.~
 steel~
-weapon BGM AN
-axe 6 9 acbite CD
+weapon BGM 0 AN
+axe 6 9 'acbite' CD
 35 152 10212 P
-A
-18 2
-A
-19 2
-G none
+f object hitroll 2 0
+f object damroll 2 0
 #13739
 horn valere~
 the horn of valere~
 A large horn of ancient elven make is on the ground.~
 steel~
-staff ABGK AO
+staff ABGK 0 AO
 51 1 1 'fireball' 0
 30 140 6916 P
 E
@@ -1076,59 +965,53 @@ The horn is made of some uniquely tempered steel and seems to be alive with
 some holy power. You can hear the faint sounds of royal battle calls echoing in
 the depths of the horn's recess.
 ~
-G none
 #13740
 rusty sword~
 a rusty sword~
 A rusty sword is lying half buried in the muck.~
 steel~
-weapon O AN
-sword 1 1 slash 0
+weapon 0 A AN
+sword 1 1 'slash' 0
 0 140 0 P
 E
 rusty rusted sword~
 The weapon is totally rusted through and almost attached to the ground now
 after all the time it has lain here in the swampy muck.
 ~
-G none
 #13741
 axe~
 a broken axe~
 A large decayed axe is sticking out of the muddy ground here.~
 steel~
-weapon 0 AN
-axe 1 1 slice 0
+weapon 0 0 AN
+axe 1 1 'slice' 0
 0 149 0 W
 E
 axe~
 This weapon of ages past is so broken it's even more useless than your bare
 hands would be in a fight.
 ~
-G none
 #13742
 rusted rusty armor~
 a rusty set of armor~
 A pile of rusted armor lies buried in the dirt.~
 steel~
-trash 0 AD
+trash 0 0 AD
 0 0 0 0 0
 0 100 0 P
-A
-17 10
-A
-2 -2
+f object ac 10 0
+f object dex -2 0
 E
 rusty armor~
 This armor is so far gone into decay and ruin that it actually hinders your
 ability to fight.
 ~
-G none
 #13745
 skeleton~
 a skeleton~
 A half buried skeleton is poking up from the ground.~
 bone~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -1136,13 +1019,12 @@ skeleton~
 It looks like one of the ancient elves that fell in the city's death, left here
 to rot away like garbage.
 ~
-G none
 #13746
 corpse~
 a blood soaked corpse~
 A blood soaked corpse of a dark elf is here.~
 flesh~
-npc_corpse O 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -1151,13 +1033,12 @@ This corpse looks very recent, and shows signs of violent beastial bites and
 claw wounding. The creatures that did this must have very little care for the
 lives of others.
 ~
-G none
 #13747
 rock boulder~
 a large boulder~
 A large smooth boulder rests on the ground here.~
 stone~
-trash O 0
+trash 0 A 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -1165,44 +1046,29 @@ boulder rock~
 This rock seems to be placed here rather purposefully compared to the rest of
 the chaotic ruins lying all around...perhaps there is something under it...
 ~
-G none
 #13748
 full plate ultimate~
 full plate of ultimate~
 Strange titanium plate softly glow here~
 titanium~
-armor ABT AD
+armor AB C AD
 25 25 25 25 0
 36 10 21238 P
-P
-2 5
-A
-18 3
-A
-19 7
-A
-20 -5
-A
-13 50
-G none
+f object hitroll 3 0
+f object damroll 7 0
+f object saves -5 0
+f object hp 50 0
 #13749
 blessed silver bracer~
 blessed silver bracer~
 Nice looking silver bracer lies here.~
 silver~
-armor HIKLT AM
+armor HIKL C AM
 15 15 16 15 0
 36 2 3233 P
-A
-20 -3
-A
-19 4
-A
-13 50
-V
-1 $adrenalin rush~
-100~
-G none
+f object saves -3 0
+f object damroll 4 0
+f object hp 50 0
 #0
 
 #ROOMS
@@ -1219,16 +1085,24 @@ battlements. South of here heads into the dark forests.
 D0
 ~
 ~
+~
+~
 Z 0 13736
 D1
+~
+~
 ~
 ~
 Z 0 13701
 D2
 ~
 ~
+~
+~
 Z 0 22523
 D3
+~
+~
 ~
 ~
 Z 0 13723
@@ -1244,8 +1118,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13702
 D3
+~
+~
 ~
 ~
 Z 0 13700
@@ -1261,8 +1139,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13703
 D3
+~
+~
 ~
 ~
 Z 0 13701
@@ -1278,12 +1160,18 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13704
 D3
 ~
 ~
+~
+~
 Z 0 13702
 D4
+~
+~
 ~
 ~
 Z 0 13735
@@ -1299,8 +1187,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13705
 D2
+~
+~
 ~
 ~
 Z 0 13703
@@ -1317,12 +1209,18 @@ forests. ~
 D0
 ~
 ~
+~
+~
 Z 0 13706
 D1
 ~
 ~
+~
+~
 Z 0 22519
 D2
+~
+~
 ~
 ~
 Z 0 13704
@@ -1338,8 +1236,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13707
 D2
+~
+~
 ~
 ~
 Z 0 13705
@@ -1355,8 +1257,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13708
 D2
+~
+~
 ~
 ~
 Z 0 13706
@@ -1372,8 +1278,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13709
 D2
+~
+~
 ~
 ~
 Z 0 13707
@@ -1389,12 +1299,18 @@ the wind that whistles softly down the rocks is chilling.
 D2
 ~
 ~
+~
+~
 Z 0 13708
 D3
 ~
 ~
+~
+~
 Z 0 13710
 D4
+~
+~
 ~
 ~
 Z 0 13730
@@ -1410,8 +1326,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13709
 D3
+~
+~
 ~
 ~
 Z 0 13711
@@ -1427,8 +1347,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13710
 D3
+~
+~
 ~
 ~
 Z 0 13712
@@ -1445,12 +1369,18 @@ a break in the shattered walls, leading out to the surrounding forests.
 D0
 ~
 ~
+~
+~
 Z 0 22524
 D1
 ~
 ~
+~
+~
 Z 0 13711
 D3
+~
+~
 ~
 ~
 Z 0 13713
@@ -1466,8 +1396,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13712
 D3
+~
+~
 ~
 ~
 Z 0 13714
@@ -1483,8 +1417,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13713
 D3
+~
+~
 ~
 ~
 Z 0 13715
@@ -1500,12 +1438,18 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13714
 D2
 ~
 ~
+~
+~
 Z 0 13716
 D4
+~
+~
 ~
 ~
 Z 0 13724
@@ -1521,8 +1465,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13715
 D2
+~
+~
 ~
 ~
 Z 0 13717
@@ -1539,12 +1487,18 @@ slight chip in the easter wall here.
 D0
 ~
 ~
+~
+~
 Z 0 13716
 D1
 ~
 secret wall~
+the secret~
+~
 ABZ 0 13875
 D2
+~
+~
 ~
 ~
 Z 0 13718
@@ -1560,8 +1514,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13717
 D2
+~
+~
 ~
 ~
 Z 0 13719
@@ -1577,8 +1535,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13718
 D2
+~
+~
 ~
 ~
 Z 0 13720
@@ -1594,8 +1556,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13719
 D2
+~
+~
 ~
 ~
 Z 0 13721
@@ -1611,8 +1577,12 @@ the wind that whistles softly down the rocks is chilling.
 D0
 ~
 ~
+~
+~
 Z 0 13720
 D1
+~
+~
 ~
 ~
 Z 0 13722
@@ -1628,8 +1598,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13723
 D3
+~
+~
 ~
 ~
 Z 0 13721
@@ -1645,8 +1619,12 @@ the wind that whistles softly down the rocks is chilling.
 D1
 ~
 ~
+~
+~
 Z 0 13700
 D3
+~
+~
 ~
 ~
 Z 0 13722
@@ -1663,8 +1641,12 @@ city's old walls.
 D1
 ~
 ~
+~
+~
 Z 0 13725
 D5
+~
+~
 ~
 ~
 Z 0 13715
@@ -1680,8 +1662,12 @@ everything. The walkway heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 13726
 D3
+~
+~
 ~
 ~
 Z 0 13724
@@ -1697,8 +1683,12 @@ everything. The walkway heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 13727
 D3
+~
+~
 ~
 ~
 Z 0 13725
@@ -1714,8 +1704,12 @@ everything. The walkway heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 13728
 D3
+~
+~
 ~
 ~
 Z 0 13726
@@ -1731,8 +1725,12 @@ everything. The walkway heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 13729
 D3
+~
+~
 ~
 ~
 Z 0 13727
@@ -1748,8 +1746,12 @@ everything. The walkway heads east and west.
 D1
 ~
 ~
+~
+~
 Z 0 13730
 D3
+~
+~
 ~
 ~
 Z 0 13728
@@ -1766,12 +1768,18 @@ rubble of the walkway around the city walls.
 D2
 ~
 ~
+~
+~
 Z 0 13731
 D3
 ~
 ~
+~
+~
 Z 0 13729
 D5
+~
+~
 ~
 ~
 Z 0 13709
@@ -1787,8 +1795,12 @@ everything. The walkway heads north and south.
 D0
 ~
 ~
+~
+~
 Z 0 13730
 D2
+~
+~
 ~
 ~
 Z 0 13732
@@ -1804,6 +1816,8 @@ north.
 D0
 ~
 ~
+~
+~
 Z 0 13731
 S
 #13733
@@ -1815,6 +1829,8 @@ south.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z 0 13734
@@ -1830,8 +1846,12 @@ everything. The walkway heads north and south.
 D0
 ~
 ~
+~
+~
 Z 0 13733
 D2
+~
+~
 ~
 ~
 Z 0 13735
@@ -1848,8 +1868,12 @@ of the city walls.
 D0
 ~
 ~
+~
+~
 Z 0 13734
 D5
+~
+~
 ~
 ~
 Z 0 13703
@@ -1866,8 +1890,12 @@ out of the city and toward the surrounding forest.
 D0
 ~
 ~
+~
+~
 Z 0 13739
 D2
+~
+~
 ~
 ~
 Z 0 13700
@@ -1884,8 +1912,12 @@ area.
 D0
 ~
 ~
+~
+~
 Z 0 13742
 D1
+~
+~
 ~
 ~
 Z 0 13738
@@ -1901,12 +1933,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13743
 D1
 ~
 ~
+~
+~
 Z 0 13739
 D3
+~
+~
 ~
 ~
 Z 0 13737
@@ -1922,16 +1960,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13744
 D1
+~
+~
 ~
 ~
 Z 0 13740
 D2
 ~
 ~
+~
+~
 Z 0 13736
 D3
+~
+~
 ~
 ~
 Z 0 13738
@@ -1947,12 +1993,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13745
 D1
 ~
 ~
+~
+~
 Z 0 13741
 D3
+~
+~
 ~
 ~
 Z 0 13739
@@ -1968,8 +2020,12 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13746
 D3
+~
+~
 ~
 ~
 Z 0 13740
@@ -1985,12 +2041,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13747
 D1
 ~
 ~
+~
+~
 Z 0 13743
 D2
+~
+~
 ~
 ~
 Z 0 13737
@@ -2006,16 +2068,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13748
 D1
+~
+~
 ~
 ~
 Z 0 13744
 D2
 ~
 ~
+~
+~
 Z 0 13738
 D3
+~
+~
 ~
 ~
 Z 0 13742
@@ -2031,12 +2101,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D1
 ~
 ~
+~
+~
 Z 0 13745
 D2
 ~
 ~
+~
+~
 Z 0 13739
 D3
+~
+~
 ~
 ~
 Z 0 13743
@@ -2052,16 +2128,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13749
 D1
+~
+~
 ~
 ~
 Z 0 13746
 D2
 ~
 ~
+~
+~
 Z 0 13740
 D3
+~
+~
 ~
 ~
 Z 0 13744
@@ -2077,16 +2161,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13750
 D1
+~
+~
 ~
 ~
 Z 0 13770
 D2
 ~
 ~
+~
+~
 Z 0 13741
 D3
+~
+~
 ~
 ~
 Z 0 13745
@@ -2102,16 +2194,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13751
 D1
+~
+~
 ~
 ~
 Z 0 13748
 D2
 ~
 ~
+~
+~
 Z 0 13742
 D3
+~
+~
 ~
 ~
 Z 0 13761
@@ -2127,12 +2227,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13752
 D2
 ~
 ~
+~
+~
 Z 0 13743
 D3
+~
+~
 ~
 ~
 Z 0 13747
@@ -2148,12 +2254,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13754
 D1
 ~
 ~
+~
+~
 Z 0 13750
 D2
+~
+~
 ~
 ~
 Z 0 13745
@@ -2169,12 +2281,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13755
 D2
 ~
 ~
+~
+~
 Z 0 13746
 D3
+~
+~
 ~
 ~
 Z 0 13749
@@ -2190,12 +2308,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13756
 D1
 ~
 ~
+~
+~
 Z 0 13752
 D2
+~
+~
 ~
 ~
 Z 0 13747
@@ -2211,16 +2335,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13757
 D1
+~
+~
 ~
 ~
 Z 0 13753
 D2
 ~
 ~
+~
+~
 Z 0 13748
 D3
+~
+~
 ~
 ~
 Z 0 13751
@@ -2236,12 +2368,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13758
 D1
 ~
 ~
+~
+~
 Z 0 13754
 D3
+~
+~
 ~
 ~
 Z 0 13752
@@ -2257,16 +2395,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13759
 D1
+~
+~
 ~
 ~
 Z 0 13755
 D2
 ~
 ~
+~
+~
 Z 0 13749
 D3
+~
+~
 ~
 ~
 Z 0 13753
@@ -2282,12 +2428,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13760
 D2
 ~
 ~
+~
+~
 Z 0 13750
 D3
+~
+~
 ~
 ~
 Z 0 13754
@@ -2303,8 +2455,12 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D1
 ~
 ~
+~
+~
 Z 0 13757
 D2
+~
+~
 ~
 ~
 Z 0 13751
@@ -2320,12 +2476,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D1
 ~
 ~
+~
+~
 Z 0 13758
 D2
 ~
 ~
+~
+~
 Z 0 13752
 D3
+~
+~
 ~
 ~
 Z 0 13756
@@ -2341,16 +2503,24 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13779
 D1
+~
+~
 ~
 ~
 Z 0 13759
 D2
 ~
 ~
+~
+~
 Z 0 13753
 D3
+~
+~
 ~
 ~
 Z 0 13757
@@ -2366,12 +2536,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D1
 ~
 ~
+~
+~
 Z 0 13760
 D2
 ~
 ~
+~
+~
 Z 0 13754
 D3
+~
+~
 ~
 ~
 Z 0 13758
@@ -2387,12 +2563,18 @@ puddles of mud in the ground here, almost like a swamp was starting to form.
 D0
 ~
 ~
+~
+~
 Z 0 13811
 D2
 ~
 ~
+~
+~
 Z 0 13755
 D3
+~
+~
 ~
 ~
 Z 0 13759
@@ -2411,8 +2593,12 @@ towers.
 D0
 ~
 ~
+~
+~
 Z 0 13762
 D1
+~
+~
 ~
 ~
 Z 0 13747
@@ -2429,8 +2615,12 @@ south to what appears to be a large broken archway.`
 D0
 ~
 ~
+~
+~
 Z 0 13763
 D2
+~
+~
 ~
 ~
 Z 0 13761
@@ -2447,8 +2637,12 @@ towers.
 D2
 ~
 ~
+~
+~
 Z 0 13762
 D3
+~
+~
 ~
 ~
 Z 0 13764
@@ -2464,8 +2658,12 @@ any indication of what once was. The ruins wind north towards a junction.
 D0
 ~
 ~
+~
+~
 Z 0 13765
 D1
+~
+~
 ~
 ~
 Z 0 13763
@@ -2483,16 +2681,24 @@ away from here.
 D0
 ~
 ~
+~
+~
 Z 0 13767
 D1
+~
+~
 ~
 ~
 Z 0 13766
 D2
 ~
 ~
+~
+~
 Z 0 13764
 D3
+~
+~
 ~
 ~
 Z 0 13768
@@ -2509,8 +2715,12 @@ tinged with some strange blue colour blocks the way east into the tower.
 D1
 ~
 ~
+~
+~
 Z 0 26130
 D3
+~
+~
 ~
 ~
 Z 0 13765
@@ -2527,8 +2737,12 @@ some green coloured stone is blocking the way north into the tower.
 D0
 ~
 ~
+~
+~
 Z 0 26560
 D2
+~
+~
 ~
 ~
 Z 0 13765
@@ -2545,8 +2759,12 @@ tinged with some strange red colour blocks the way west into the tower.
 D1
 ~
 ~
+~
+~
 Z 0 13765
 D3
+~
+~
 ~
 ~
 Z 0 26400
@@ -2560,12 +2778,18 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D0
 ~
 ~
+~
+~
 Z 0 13771
 D1
 ~
 ~
+~
+~
 Z 0 13773
 D3
+~
+~
 ~
 ~
 Z 0 13746
@@ -2579,8 +2803,12 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D1
 ~
 ~
+~
+~
 Z 0 13772
 D2
+~
+~
 ~
 ~
 Z 0 13770
@@ -2594,8 +2822,12 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D2
 ~
 ~
+~
+~
 Z 0 13773
 D3
+~
+~
 ~
 ~
 Z 0 13771
@@ -2609,16 +2841,24 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D0
 ~
 ~
+~
+~
 Z 0 13772
 D1
+~
+~
 ~
 ~
 Z 0 13775
 D2
 ~
 ~
+~
+~
 Z 0 13774
 D3
+~
+~
 ~
 ~
 Z 0 13770
@@ -2632,8 +2872,12 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D0
 ~
 ~
+~
+~
 Z 0 13773
 D1
+~
+~
 ~
 ~
 Z 0 13776
@@ -2647,8 +2891,12 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D2
 ~
 ~
+~
+~
 Z 0 13776
 D3
+~
+~
 ~
 ~
 Z 0 13773
@@ -2662,12 +2910,18 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D0
 ~
 ~
+~
+~
 Z 0 13775
 D1
 ~
 ~
+~
+~
 Z 0 13777
 D3
+~
+~
 ~
 ~
 Z 0 13774
@@ -2681,8 +2935,12 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D1
 ~
 ~
+~
+~
 Z 0 13778
 D3
+~
+~
 ~
 ~
 Z 0 13776
@@ -2696,8 +2954,12 @@ marsh gas rise up and hang in the air, almost burying the ruins beneath them.
 D1
 ~
 ~
+~
+~
 Z 0 13812
 D3
+~
+~
 ~
 ~
 Z 0 13777
@@ -2715,8 +2977,12 @@ small section can be seen cleared away to allow some exploration.
 D0
 ~
 ~
+~
+~
 Z 0 13781
 D2
+~
+~
 ~
 ~
 Z 0 13758
@@ -2733,8 +2999,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13784
 D1
+~
+~
 ~
 ~
 Z 0 13781
@@ -2751,16 +3021,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13785
 D1
+~
+~
 ~
 ~
 Z 0 13782
 D2
 ~
 ~
+~
+~
 Z 0 13779
 D3
+~
+~
 ~
 ~
 Z 0 13780
@@ -2777,12 +3055,18 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13786
 D1
 ~
 ~
+~
+~
 Z 0 13783
 D3
+~
+~
 ~
 ~
 Z 0 13781
@@ -2799,8 +3083,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13787
 D3
+~
+~
 ~
 ~
 Z 0 13782
@@ -2817,16 +3105,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13792
 D1
+~
+~
 ~
 ~
 Z 0 13785
 D2
 ~
 ~
+~
+~
 Z 0 13780
 D3
+~
+~
 ~
 ~
 Z 0 13792
@@ -2843,16 +3139,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13789
 D1
+~
+~
 ~
 ~
 Z 0 13786
 D2
 ~
 ~
+~
+~
 Z 0 13781
 D3
+~
+~
 ~
 ~
 Z 0 13784
@@ -2869,16 +3173,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13790
 D1
+~
+~
 ~
 ~
 Z 0 13787
 D2
 ~
 ~
+~
+~
 Z 0 13782
 D3
+~
+~
 ~
 ~
 Z 0 13785
@@ -2895,12 +3207,18 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13800
 D2
 ~
 ~
+~
+~
 Z 0 13783
 D3
+~
+~
 ~
 ~
 Z 0 13786
@@ -2917,12 +3235,18 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13789
 D2
 ~
 ~
+~
+~
 Z 0 13784
 D3
+~
+~
 ~
 ~
 Z 0 13791
@@ -2939,16 +3263,24 @@ that the city has been here. The ruins lead north, east, south and west.
 D0
 ~
 ~
+~
+~
 Z -1 13850
 D1
+~
+~
 ~
 ~
 Z 0 13790
 D2
 ~
 ~
+~
+~
 Z 0 13785
 D3
+~
+~
 ~
 ~
 Z 0 13788
@@ -2965,8 +3297,12 @@ that the city has been here.
 D2
 ~
 ~
+~
+~
 Z 0 13786
 D3
+~
+~
 ~
 ~
 Z 0 13789
@@ -2983,12 +3319,18 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13788
 D2
 ~
 ~
+~
+~
 Z 0 13792
 D3
+~
+~
 ~
 ~
 Z 0 13793
@@ -3005,12 +3347,18 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13791
 D1
 ~
 ~
+~
+~
 Z 0 13784
 D3
+~
+~
 ~
 ~
 Z 0 13870
@@ -3027,8 +3375,12 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13791
 D3
+~
+~
 ~
 ~
 Z 0 13794
@@ -3045,8 +3397,12 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13793
 D2
+~
+~
 ~
 ~
 Z 0 13795
@@ -3063,12 +3419,18 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13794
 D1
 ~
 ~
+~
+~
 Z 0 13870
 D2
+~
+~
 ~
 ~
 Z 0 13796
@@ -3085,8 +3447,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13795
 D1
+~
+~
 ~
 ~
 Z 0 13797
@@ -3103,8 +3469,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13870
 D3
+~
+~
 ~
 ~
 Z 0 13796
@@ -3121,8 +3491,12 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13799
 D2
+~
+~
 ~
 ~
 Z 0 13800
@@ -3139,8 +3513,12 @@ that the city has been here.
 D2
 ~
 ~
+~
+~
 Z 0 13801
 D3
+~
+~
 ~
 ~
 Z 0 13798
@@ -3157,16 +3535,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13798
 D1
+~
+~
 ~
 ~
 Z 0 13801
 D2
 ~
 ~
+~
+~
 Z 0 13802
 D3
+~
+~
 ~
 ~
 Z 0 13787
@@ -3183,12 +3569,18 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13799
 D2
 ~
 ~
+~
+~
 Z 0 13803
 D3
+~
+~
 ~
 ~
 Z 0 13800
@@ -3205,8 +3597,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13800
 D1
+~
+~
 ~
 ~
 Z 0 13803
@@ -3223,16 +3619,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13801
 D1
+~
+~
 ~
 ~
 Z 0 13804
 D2
 ~
 ~
+~
+~
 Z 0 13805
 D3
+~
+~
 ~
 ~
 Z 0 13802
@@ -3249,16 +3653,24 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13807
 D1
+~
+~
 ~
 ~
 Z 0 13809
 D2
 ~
 ~
+~
+~
 Z 0 13806
 D3
+~
+~
 ~
 ~
 Z 0 13803
@@ -3275,12 +3687,18 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13803
 D1
 ~
 ~
+~
+~
 Z 0 13806
 D3
+~
+~
 ~
 ~
 Z 0 13810
@@ -3297,8 +3715,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13804
 D3
+~
+~
 ~
 ~
 Z 0 13805
@@ -3316,12 +3738,18 @@ appears to have been restored by someone.
 D0
 ~
 ~
+~
+~
 Z 0 13901
 D1
 ~
 ~
+~
+~
 Z 0 13808
 D2
+~
+~
 ~
 ~
 Z 0 13804
@@ -3338,8 +3766,12 @@ that the city has been here.
 D2
 ~
 ~
+~
+~
 Z 0 13809
 D3
+~
+~
 ~
 ~
 Z 0 13807
@@ -3356,8 +3788,12 @@ that the city has been here.
 D0
 ~
 ~
+~
+~
 Z 0 13808
 D3
+~
+~
 ~
 ~
 Z 0 13804
@@ -3374,8 +3810,12 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13805
 D3
+~
+~
 ~
 ~
 Z 0 13811
@@ -3392,8 +3832,12 @@ that the city has been here.
 D1
 ~
 ~
+~
+~
 Z 0 13810
 D2
+~
+~
 ~
 ~
 Z 0 13760
@@ -3409,8 +3853,12 @@ notice that almost all the tracks lead out from the north, rather than into it.
 D0
 ~
 ~
+~
+~
 Z 0 13813
 D3
+~
+~
 ~
 ~
 Z 0 13778
@@ -3427,12 +3875,18 @@ darker path heading west. To the south the swamps seem to recede a little.
 D1
 ~
 ~
+~
+~
 Z -1 13814
 D2
 ~
 ~
+~
+~
 Z -1 13812
 D3
+~
+~
 ~
 ~
 Z -1 13819
@@ -3448,8 +3902,12 @@ blatantly obliterated part of the entire elven city.
 D1
 ~
 ~
+~
+~
 Z -1 13815
 D3
+~
+~
 ~
 ~
 Z -1 13813
@@ -3466,12 +3924,18 @@ and west, and to the east you can smell the faint smell of salty air.
 D0
 ~
 ~
+~
+~
 Z -1 13816
 D1
 ~
 ~
+~
+~
 Z -1 13890
 D3
+~
+~
 ~
 ~
 Z -1 13814
@@ -3487,8 +3951,12 @@ blatantly obliterated part of the entire elven city.
 D0
 ~
 ~
+~
+~
 Z -1 13817
 D2
+~
+~
 ~
 ~
 Z -1 13815
@@ -3505,8 +3973,12 @@ out what looks like a raised clearing of rock above the swampy waters.
 D1
 ~
 ~
+~
+~
 Z -1 13818
 D2
+~
+~
 ~
 ~
 Z -1 13816
@@ -3519,6 +3991,8 @@ fills the air.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 13817
@@ -3534,8 +4008,12 @@ is an unnerving stillness in this region.
 D0
 ~
 ~
+~
+~
 Z -1 13820
 D1
+~
+~
 ~
 ~
 Z -1 13813
@@ -3551,8 +4029,12 @@ is an unnerving stillness in this region.
 D2
 ~
 ~
+~
+~
 Z -1 13819
 D3
+~
+~
 ~
 ~
 Z -1 13821
@@ -3568,8 +4050,12 @@ is an unnerving stillness in this region.
 D0
 ~
 ~
+~
+~
 Z -1 13822
 D1
+~
+~
 ~
 ~
 Z -1 13820
@@ -3586,8 +4072,12 @@ looks like a black tower standing within the swampy ruins.
 D0
 ~
 ~
+~
+~
 Z -1 13823
 D2
+~
+~
 ~
 ~
 Z -1 13821
@@ -3604,8 +4094,12 @@ like a black tower standing within the swampy ruins.
 D1
 ~
 ~
+~
+~
 Z -1 13824
 D2
+~
+~
 ~
 ~
 Z -1 13822
@@ -3621,8 +4115,12 @@ it's height. There is a black door leading north into the tower.
 D0
 ~
 black door~
+the black~
+~
 ABZ -1 13825
 D3
+~
+~
 ~
 ~
 Z -1 13823
@@ -3638,12 +4136,18 @@ door in the south wall leading outside.
 D1
 ~
 ~
+~
+~
 Z -1 13826
 D2
 ~
 black door~
+the black~
+~
 ABZ -1 13824
 D3
+~
+~
 ~
 ~
 Z -1 13832
@@ -3658,8 +4162,12 @@ evil in the air here. The hallway heads north and west.
 D0
 ~
 ~
+~
+~
 Z -1 13827
 D3
+~
+~
 ~
 ~
 Z -1 13825
@@ -3674,8 +4182,12 @@ evil in the air here. The hallway heads north and south.
 D0
 ~
 ~
+~
+~
 Z -1 13828
 D2
+~
+~
 ~
 ~
 Z -1 13826
@@ -3690,8 +4202,12 @@ evil in the air here. The hallway heads south and west.
 D2
 ~
 ~
+~
+~
 Z -1 13827
 D3
+~
+~
 ~
 ~
 Z -1 13829
@@ -3705,12 +4221,18 @@ can almost feel a prescence of pure evil through a massive green door.
 D1
 ~
 ~
+~
+~
 Z -1 13828
 D2
 ~
 green door~
+the green~
+~
 ABCFGZ 26560 13833
 D3
+~
+~
 ~
 ~
 Z -1 13830
@@ -3725,8 +4247,12 @@ evil in the air here. The hallway heads south and east.
 D1
 ~
 ~
+~
+~
 Z -1 13829
 D2
+~
+~
 ~
 ~
 Z -1 13831
@@ -3741,8 +4267,12 @@ evil in the air here. The hallway heads north and south.
 D0
 ~
 ~
+~
+~
 Z -1 13830
 D2
+~
+~
 ~
 ~
 Z -1 13832
@@ -3757,8 +4287,12 @@ evil in the air here. The hallway heads north and east.
 D0
 ~
 ~
+~
+~
 Z -1 13831
 D1
+~
+~
 ~
 ~
 Z -1 13825
@@ -3774,8 +4308,12 @@ the northern wall and a stairwell heads up into the cold night.
 D0
 ~
 green door~
+the green~
+~
 ABCFGZ 26560 13829
 D4
+~
+~
 ~
 ~
 Z -1 13834
@@ -3790,8 +4328,12 @@ south, or you can take a staircase leading down.
 D2
 ~
 ~
+~
+~
 Z -1 13835
 D5
+~
+~
 ~
 ~
 Z -1 13833
@@ -3805,10 +4347,14 @@ be shivering. To the south there is a door of what looks like frozen blood.
 D0
 ~
 ~
+~
+~
 Z -1 13834
 D2
 ~
 blood red door~
+the blood~
+~
 ABCFGZ 26400 13836
 S
 #13836
@@ -3823,8 +4369,12 @@ leading up.
 D0
 ~
 blood red door~
+the blood~
+~
 ABCFGZ 26400 13835
 D4
+~
+~
 ~
 ~
 Z -1 13837
@@ -3840,8 +4390,12 @@ leading down, or you can go north along the hallway.
 D0
 ~
 ~
+~
+~
 Z -1 13838
 D5
+~
+~
 ~
 ~
 Z -1 13836
@@ -3856,8 +4410,12 @@ of pure hate and malice seems to come washing through it at you.
 D0
 ~
 blue door~
+the blue~
+~
 ABCFGZ 26130 13839
 D2
+~
+~
 ~
 ~
 Z -1 13837
@@ -3873,8 +4431,12 @@ the south is a huge dark blue door, and a staircase heads up.
 D2
 ~
 blue door~
+the blue~
+~
 ABCFGZ 26130 13838
 D4
+~
+~
 ~
 ~
 Z -1 13841
@@ -3890,8 +4452,12 @@ that has somehow been charred and blackend.
 D0
 ~
 black heartstone door~
+the black~
+~
 ABCFGZ 13736 13842
 D5
+~
+~
 ~
 ~
 Z -1 13839
@@ -3908,6 +4474,8 @@ way out is through the blackened heartstone door in the south wall.
 D2
 ~
 black heartstone door~
+the black~
+~
 ABCFGZ 13736 13841
 S
 #13843
@@ -3925,12 +4493,18 @@ here lie the marshlands of the Drannor ruins.
 D0
 ~
 ~
+~
+~
 Z 0 13848
 D1
 ~
 ~
+~
+~
 Z 0 13844
 D3
+~
+~
 ~
 ~
 Z 0 13894
@@ -3950,12 +4524,18 @@ waters of the harbour.
 D1
 ~
 ~
+~
+~
 Z 0 13845
 D2
 ~
 ~
+~
+~
 Z 0 13891
 D3
+~
+~
 ~
 ~
 Z 0 13843
@@ -3975,12 +4555,18 @@ waters of the harbour.
 D1
 ~
 ~
+~
+~
 Z 0 13846
 D2
 ~
 ~
+~
+~
 Z 0 13892
 D3
+~
+~
 ~
 ~
 Z 0 13844
@@ -4000,16 +4586,24 @@ waters of the harbour. There is a ruined old boat house to the north.
 D0
 ~
 ~
+~
+~
 Z 0 13849
 D1
+~
+~
 ~
 ~
 Z 0 13847
 D2
 ~
 ~
+~
+~
 Z 0 13853
 D3
+~
+~
 ~
 ~
 Z 0 13845
@@ -4028,8 +4622,12 @@ old boat house to the north, or the docks head west towards the harbour.
 D0
 ~
 ~
+~
+~
 Z 0 13893
 D3
+~
+~
 ~
 ~
 Z 0 13846
@@ -4043,6 +4641,8 @@ south to the ruined docks of the Drannor harbour.
 ~
 0 0 inside
 D2
+~
+~
 ~
 ~
 Z 0 13843
@@ -4060,6 +4660,8 @@ the south onto the ruined docks of the harbour.
 D2
 ~
 ~
+~
+~
 Z 0 13846
 S
 #13850
@@ -4073,8 +4675,12 @@ hangs all around you.
 D0
 ~
 ~
+~
+~
 Z -1 13851
 D2
+~
+~
 ~
 ~
 Z 0 13789
@@ -4090,8 +4696,12 @@ head south to the main ruins.
 D0
 ~
 ~
+~
+~
 Z -1 13852
 D2
+~
+~
 ~
 ~
 Z -1 13850
@@ -4104,6 +4714,8 @@ there it is only passable because someone has recently cleared a narrow path.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 13851
@@ -4123,12 +4735,18 @@ ruined docks.
 D0
 ~
 ~
+~
+~
 Z 0 13846
 D2
 ~
 ~
+~
+~
 Z 0 13856
 D3
+~
+~
 ~
 ~
 Z 0 13892
@@ -4148,12 +4766,18 @@ docks off to the north.
 D0
 ~
 ~
+~
+~
 Z 0 13891
 D1
 ~
 ~
+~
+~
 Z 0 13855
 D2
+~
+~
 ~
 ~
 Z 0 13857
@@ -4173,16 +4797,24 @@ distance to the north you can make out some docks.
 D0
 ~
 ~
+~
+~
 Z 0 13892
 D1
+~
+~
 ~
 ~
 Z 0 13856
 D2
 ~
 ~
+~
+~
 Z 0 13858
 D3
+~
+~
 ~
 ~
 Z 0 13854
@@ -4202,12 +4834,18 @@ just make out the docks in the distance to the north.
 D0
 ~
 ~
+~
+~
 Z 0 13853
 D2
 ~
 ~
+~
+~
 Z 0 13859
 D3
+~
+~
 ~
 ~
 Z 0 13855
@@ -4226,8 +4864,12 @@ region. The harbour waters head off to the north and east.
 D0
 ~
 ~
+~
+~
 Z 0 13854
 D1
+~
+~
 ~
 ~
 Z 0 13858
@@ -4247,16 +4889,24 @@ south the harbour narrows into a small channel of blood filled water.
 D0
 ~
 ~
+~
+~
 Z 0 13855
 D1
+~
+~
 ~
 ~
 Z 0 13859
 D2
 ~
 ~
+~
+~
 Z 0 13860
 D3
+~
+~
 ~
 ~
 Z 0 13857
@@ -4275,8 +4925,12 @@ region. The harbour waters head off to the north and west.
 D0
 ~
 ~
+~
+~
 Z 0 13856
 D3
+~
+~
 ~
 ~
 Z 0 13858
@@ -4294,8 +4948,12 @@ Drannor's ancient ports.
 D0
 ~
 ~
+~
+~
 Z 0 13858
 D2
+~
+~
 ~
 ~
 Z 0 13861
@@ -4312,8 +4970,12 @@ east or you can wade back north through it.
 D0
 ~
 ~
+~
+~
 Z 0 13860
 D1
+~
+~
 ~
 ~
 Z 0 13862
@@ -4330,8 +4992,12 @@ east or you can wade back west through it.
 D1
 ~
 ~
+~
+~
 Z 0 13863
 D3
+~
+~
 ~
 ~
 Z 0 13861
@@ -4348,8 +5014,12 @@ east or you can wade back west through it.
 D1
 ~
 ~
+~
+~
 Z 0 13864
 D3
+~
+~
 ~
 ~
 Z 0 13862
@@ -4366,8 +5036,12 @@ south or you can wade back west through it.
 D2
 ~
 ~
+~
+~
 Z 0 13865
 D3
+~
+~
 ~
 ~
 Z 0 13863
@@ -4387,8 +5061,12 @@ back north.
 D0
 ~
 ~
+~
+~
 Z 0 13864
 D1
+~
+~
 ~
 ~
 Z 0 13866
@@ -4406,8 +5084,12 @@ west, or you can go east onto the bone isle.
 D1
 ~
 ~
+~
+~
 Z 0 13867
 D3
+~
+~
 ~
 ~
 Z 0 13865
@@ -4427,12 +5109,18 @@ heads out to the river.
 D0
 ~
 ~
+~
+~
 Z 0 13884
 D1
 ~
 ~
+~
+~
 Z 0 13868
 D3
+~
+~
 ~
 ~
 Z 0 13866
@@ -4452,12 +5140,18 @@ massacre.
 D0
 ~
 ~
+~
+~
 Z 0 13871
 D1
 ~
 ~
+~
+~
 Z 0 13869
 D3
+~
+~
 ~
 ~
 Z 0 13867
@@ -4478,12 +5172,18 @@ the river flow.
 D0
 ~
 ~
+~
+~
 Z 0 13872
 D1
 ~
 ~
+~
+~
 Z 0 13873
 D3
+~
+~
 ~
 ~
 Z 0 13868
@@ -4502,16 +5202,24 @@ the city.
 D0
 ~
 ~
+~
+~
 Z 0 14000
 D1
+~
+~
 ~
 ~
 Z 0 13792
 D2
 ~
 ~
+~
+~
 Z 0 13797
 D3
+~
+~
 ~
 ~
 Z 0 13795
@@ -4531,16 +5239,24 @@ massacre.
 D0
 ~
 ~
+~
+~
 Z 0 13874
 D1
+~
+~
 ~
 ~
 Z 0 13872
 D2
 ~
 ~
+~
+~
 Z 0 13868
 D3
+~
+~
 ~
 ~
 Z 0 13884
@@ -4560,8 +5276,12 @@ flee the massacre.
 D2
 ~
 ~
+~
+~
 Z 0 13869
 D3
+~
+~
 ~
 ~
 Z 0 13871
@@ -4578,6 +5298,8 @@ there is no way through the solid blockade to the east.
 ~
 0 0 inside
 D3
+~
+~
 ~
 ~
 Z 0 13869
@@ -4598,6 +5320,8 @@ back south onto the isle of elf bones.
 D2
 ~
 ~
+~
+~
 Z 0 13871
 S
 #13875
@@ -4612,10 +5336,14 @@ wall.
 D2
 ~
 ~
+~
+~
 Z 0 13876
 D3
 ~
 secret rock~
+the secret~
+~
 ABZ -1 13717
 S
 #13876
@@ -4627,8 +5355,12 @@ and stinks of death. You can head south or north.
 D0
 ~
 ~
+~
+~
 Z 0 13875
 D2
+~
+~
 ~
 ~
 Z 0 13877
@@ -4643,8 +5375,12 @@ signs of life down below. The wall passage heads back north.
 D0
 ~
 ~
+~
+~
 Z 0 13876
 D5
+~
+~
 ~
 ~
 Z 0 13878
@@ -4660,8 +5396,12 @@ you can go north to what appears to be a door.
 D0
 ~
 ~
+~
+~
 Z 0 13879
 D4
+~
+~
 ~
 ~
 Z 0 13877
@@ -4681,8 +5421,12 @@ nothing that really seems special about it.
 D1
 ~
 oak door~
+the oak~
+~
 Z -1 13881
 D2
+~
+~
 ~
 ~
 Z 0 13878
@@ -4703,6 +5447,8 @@ nothing that really seems special about it.
 D3
 ~
 oak door~
+the oak~
+~
 Z -1 13879
 S
 #13884
@@ -4720,8 +5466,12 @@ flee the massacre.
 D1
 ~
 ~
+~
+~
 Z 0 13871
 D2
+~
+~
 ~
 ~
 Z 0 13867
@@ -4736,8 +5486,12 @@ and to the west the path heads back to a T-junction in the swamps.
 D1
 ~
 ~
+~
+~
 Z 0 13894
 D3
+~
+~
 ~
 ~
 Z 0 13815
@@ -4757,12 +5511,18 @@ ruined docks.
 D0
 ~
 ~
+~
+~
 Z 0 13844
 D1
 ~
 ~
+~
+~
 Z 0 13892
 D2
+~
+~
 ~
 ~
 Z 0 13854
@@ -4782,16 +5542,24 @@ the ruined docks.
 D0
 ~
 ~
+~
+~
 Z 0 13845
 D1
+~
+~
 ~
 ~
 Z 0 13853
 D2
 ~
 ~
+~
+~
 Z 0 13855
 D3
+~
+~
 ~
 ~
 Z 0 13891
@@ -4809,6 +5577,8 @@ You can head south onto the docks.
 D2
 ~
 ~
+~
+~
 Z 0 13847
 S
 #13894
@@ -4823,70 +5593,55 @@ the strong smell of salt water, or blood, in the air...
 D1
 ~
 ~
+~
+~
 Z 0 13843
 D3
+~
+~
 ~
 ~
 Z 0 13890
 S
 #0
 
-#SPECIALS
-M 13707 spec_breath_gas	* an ancient green dragon
-M 13717 spec_fallen_angel	* a Fallen Angel
-M 13718 spec_cast_mage	* the Lord Bane
-M 13724 spec_hydra	* a massive Neohydra
-S
-
 #RESETS
-D 0 13717 1 1	* In the ruins of the western wall: door to the east: closed
-D 0 13824 0 1	* Before the Black tinged tower in the swampy ruins: door to the north: closed
-D 0 13825 2 1	* In a black hallway: door to the south: closed
-D 0 13829 2 2	* Before a huge black door: door to the south: closed and locked
-D 0 13833 0 2	* A cold dark room: door to the north: closed and locked
-D 0 13835 2 2	* Before a door of frozen blood: door to the south: closed and locked
-D 0 13836 0 2	* In a pitch black room: door to the north: closed and locked
-D 0 13838 0 2	* Before a dark blue door: door to the north: closed and locked
-D 0 13839 2 2	* In a bare black room: door to the south: closed and locked
-D 0 13841 0 2	* Before a massive door of blackened heartstone: door to the north: closed and locked
-D 0 13842 2 2	* In the room of Binding Light: door to the south: closed and locked
-D 0 13875 3 1	* In the ruins of the city walls: door to the west: closed
 M 0 13702 8 13703 1	* a knight of Myth Drannor (In the ruins of the southern wall)
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
-E 0 13704 0 16		*	a smooth-bladed longsword: wielded
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
 M 0 13702 8 13706 1	* a knight of Myth Drannor (In the ruins of the eastern wall)
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
-E 0 13704 0 16		*	a smooth-bladed longsword: wielded
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
 O 0 13741 0 13707	* a broken axe (In the ruins of the eastern wall)
 M 0 13702 8 13709 1	* a knight of Myth Drannor (In the northeastern corner wall)
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
-E 0 13704 0 16		*	a smooth-bladed longsword: wielded
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
 M 0 13702 8 13713 1	* a knight of Myth Drannor (In the ruins of the northern wall)
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13704 0 16		*	a smooth-bladed longsword: wielded
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
 O 0 13740 0 13716	* a rusty sword (In the ruins of the western wall)
 M 0 13702 8 13717 1	* a knight of Myth Drannor (In the ruins of the western wall)
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13704 0 16		*	a smooth-bladed longsword: wielded
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
 O 0 13740 0 13720	* a rusty sword (In the ruins of the western wall)
 M 0 13702 8 13721 1	* a knight of Myth Drannor (In the southwest corner)
-E 0 13718 0 16		*	a shiny steel mace: wielded
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
+E 0 13718 0 16		*	a knight of Myth Drannor<wielded>: a shiny steel mace
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
 O 0 13742 0 13726	* a rusty set of armor (On the remains of the battlement walls)
 M 0 13702 8 13726 1	* a knight of Myth Drannor (On the remains of the battlement walls)
-E 0 13718 0 16		*	a shiny steel mace: wielded
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
+E 0 13718 0 16		*	a knight of Myth Drannor<wielded>: a shiny steel mace
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
 M 0 13702 8 13731 1	* a knight of Myth Drannor (On the remains of the battlement walls)
-E 0 13718 0 16		*	a shiny steel mace: wielded
-E 0 13705 0 5		*	a suit of field plate: on the body
-E 0 13706 0 9		*	a pair of leather gauntlets: on the hands
+E 0 13718 0 16		*	a knight of Myth Drannor<wielded>: a shiny steel mace
+E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
 M 0 13700 12 13733 1	* a spirit of Myth Drannor (On the remains of the battlement walls)
 O 0 13745 0 13738	* a skeleton (Swampy grounds amidst the ruins)
 M 0 13704 12 13738 1	* a man-eater trap (Swampy grounds amidst the ruins)
@@ -4895,8 +5650,8 @@ M 0 13700 12 13739 1	* a spirit of Myth Drannor (Swampy grounds amidst the ruins
 O 0 13740 0 13740	* a rusty sword (Swampy grounds amidst the ruins)
 M 0 13704 12 13741 1	* a man-eater trap (Swampy grounds amidst the ruins)
 M 0 13708 8 13741 1	* a lizardman (Swampy grounds amidst the ruins)
-E 0 13702 0 11		*	a large iron shield: as a shield
-E 0 13703 0 5		*	chainmail armor: on the body
+E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
 M 0 13701 3 13742 1	* a horned cacodaemon (Swampy grounds amidst the ruins)
 M 0 13704 12 13742 1	* a man-eater trap (Swampy grounds amidst the ruins)
 O 0 13741 0 13743	* a broken axe (Swampy grounds amidst the ruins)
@@ -4909,17 +5664,17 @@ O 0 13745 0 13749	* a skeleton (Swampy grounds amidst the ruins)
 M 0 13700 12 13749 1	* a spirit of Myth Drannor (Swampy grounds amidst the ruins)
 M 0 13704 12 13749 1	* a man-eater trap (Swampy grounds amidst the ruins)
 M 0 13708 8 13749 1	* a lizardman (Swampy grounds amidst the ruins)
-E 0 13700 0 16		*	a rusty spear: wielded
-E 0 13702 0 11		*	a large iron shield: as a shield
-E 0 13703 0 5		*	chainmail armor: on the body
+E 0 13700 0 16		*	a lizardman<wielded>: a rusty spear
+E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
 M 0 13704 12 13751 1	* a man-eater trap (Swampy grounds amidst the ruins)
 M 0 13709 9 13752 1	* a shadow demon (Swampy grounds amidst the ruins)
 M 0 13700 12 13753 1	* a spirit of Myth Drannor (Swampy grounds amidst the ruins)
 M 0 13709 9 13754 1	* a shadow demon (Swampy grounds amidst the ruins)
 O 0 13741 0 13755	* a broken axe (Swampy grounds amidst the ruins)
 M 0 13708 8 13755 1	* a lizardman (Swampy grounds amidst the ruins)
-E 0 13701 0 16		*	a rusty scimitar: wielded
-E 0 13702 0 11		*	a large iron shield: as a shield
+E 0 13701 0 16		*	a lizardman<wielded>: a rusty scimitar
+E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
 O 0 13740 0 13756	* a rusty sword (Swampy grounds amidst the ruins)
 O 0 13742 0 13756	* a rusty set of armor (Swampy grounds amidst the ruins)
 M 0 13704 12 13757 1	* a man-eater trap (Swampy grounds amidst the ruins)
@@ -4928,32 +5683,32 @@ O 0 13742 0 13762	* a rusty set of armor (Walking through the rubbled ruins)
 M 0 13703 1 13763 1	* a drow marauder (Walking through the rubbled ruins)
 M 0 13709 9 13763 1	* a shadow demon (Walking through the rubbled ruins)
 M 0 13711 1 13766 1	* a golem of blue stone (Before a tower of Blue tinged stone)
-E 0 13709 0 1		*	a ring of blue stained quartz: on the left finger
+E 0 13709 0 1		*	a golem of blue stone<on the left finger>: a ring of blue stained quartz
 M 0 13712 1 13767 1	* a golem of green stone (Before a tower of Green tinged stone)
-E 0 13708 0 1		*	a ring of green stained quartz: on the left finger
+E 0 13708 0 1		*	a golem of green stone<on the left finger>: a ring of green stained quartz
 M 0 13706 1 13768 1	* a golem of red stone (Before a tower of Red tinged stone)
-E 0 13707 0 1		*	a ring of red stained quartz: on the left finger
+E 0 13707 0 1		*	a golem of red stone<on the left finger>: a ring of red stained quartz
 M 0 13704 12 13770 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13709 9 13770 1	* a shadow demon (On a swampy part of the ruins)
 M 0 13708 8 13771 1	* a lizardman (On a swampy part of the ruins)
-E 0 13700 0 16		*	a rusty spear: wielded
-E 0 13702 0 11		*	a large iron shield: as a shield
+E 0 13700 0 16		*	a lizardman<wielded>: a rusty spear
+E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
 M 0 13704 12 13772 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13708 8 13773 1	* a lizardman (On a swampy part of the ruins)
-E 0 13702 0 11		*	a large iron shield: as a shield
-E 0 13703 0 5		*	chainmail armor: on the body
+E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
 M 0 13704 12 13774 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13708 8 13774 1	* a lizardman (On a swampy part of the ruins)
-E 0 13701 0 16		*	a rusty scimitar: wielded
-E 0 13703 0 5		*	chainmail armor: on the body
+E 0 13701 0 16		*	a lizardman<wielded>: a rusty scimitar
+E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
 O 0 13741 0 13775	* a broken axe (On a swampy part of the ruins)
 M 0 13704 12 13775 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13708 8 13776 1	* a lizardman (On a swampy part of the ruins)
-E 0 13703 0 5		*	chainmail armor: on the body
-E 0 13701 0 16		*	a rusty scimitar: wielded
+E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
+E 0 13701 0 16		*	a lizardman<wielded>: a rusty scimitar
 M 0 13708 8 13777 1	* a lizardman (On a swampy part of the ruins)
-E 0 13702 0 11		*	a large iron shield: as a shield
-E 0 13703 0 5		*	chainmail armor: on the body
+E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
 M 0 13701 3 13780 1	* a horned cacodaemon (In the ruins of an ancient city)
 O 0 13745 0 13784	* a skeleton (In the ruins of an ancient city)
 M 0 13700 12 13784 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
@@ -4965,15 +5720,15 @@ M 0 13719 3 13791 1	* a rock imp (In the ruins of an ancient city)
 M 0 13700 12 13794 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 M 0 13709 9 13794 1	* a shadow demon (In the ruins of an ancient city)
 M 0 13722 2 13794 1	* a stone giant (In the ruins of an ancient city)
-E 0 13727 0 16		*	a stone club: wielded
-E 0 13728 0 12		*	a poncho from the skin of a stone giant: about the shoulders
+E 0 13727 0 16		*	a stone giant<wielded>: a stone club
+E 0 13728 0 12		*	a stone giant<about the shoulders>: a poncho from the skin of a stone giant
 M 0 13721 1 13796 1	* a rock ogre (In the ruins of an ancient city)
-E 0 13727 0 16		*	a stone club: wielded
+E 0 13727 0 16		*	a rock ogre<wielded>: a stone club
 O 0 13741 0 13797	* a broken axe (In the ruins of an ancient city)
 M 0 13700 12 13797 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 M 0 13722 2 13799 1	* a stone giant (In the ruins of an ancient city)
-E 0 13727 0 16		*	a stone club: wielded
-E 0 13728 0 12		*	a poncho from the skin of a stone giant: about the shoulders
+E 0 13727 0 16		*	a stone giant<wielded>: a stone club
+E 0 13728 0 12		*	a stone giant<about the shoulders>: a poncho from the skin of a stone giant
 O 0 13740 0 13800	* a rusty sword (In the ruins of an ancient city)
 M 0 13700 12 13800 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 M 0 13701 3 13802 1	* a horned cacodaemon (In the ruins of an ancient city)
@@ -4984,35 +5739,35 @@ M 0 13709 9 13808 1	* a shadow demon (In the ruins of an ancient city)
 M 0 13700 12 13811 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 O 0 13741 0 13812	* a broken axe (Before a bloody signpost)
 M 0 13707 1 13818 1	* an ancient green dragon (The residence of an Ancient Green dragon)
-E 0 13730 0 8		*	the rear claws of a green dragon: on the feet
-E 0 13731 0 17		*	a green dragonorb: held in the hands
-G 0 13738 0		*	a flesh-cutter named 'Hydraslayer'
+E 0 13730 0 8		*	an ancient green dragon<on the feet>: the rear claws of a green dragon
+E 0 13731 0 17		*	an ancient green dragon<held in the hands>: a green dragonorb
+G 0 13738 0		*	an ancient green dragon: a flesh-cutter named 'Hydraslayer'
 M 0 13723 1 13822 1	* a paladin knight of Myth Drannor (In a quiet swampy part of the ruins)
-E 0 13732 0 16		*	the mace of shining light: wielded
-E 0 13733 0 17		*	a scroll of divine protection: held in the hands
-E 0 13734 0 6		*	the helm of brilliance: over the head
-E 0 13735 0 12		*	the cape of white knights: about the shoulders
-G 0 13749 0		*	blessed silver bracer
-G 0 13736 0		*	the black key
+E 0 13732 0 16		*	a paladin knight of Myth Drannor<wielded>: the mace of shining light
+E 0 13733 0 17		*	a paladin knight of Myth Drannor<held in the hands>: a scroll of divine protection
+E 0 13734 0 6		*	a paladin knight of Myth Drannor<over the head>: the helm of brilliance
+E 0 13735 0 12		*	a paladin knight of Myth Drannor<about the shoulders>: the cape of white knights
+G 0 13749 0		*	a paladin knight of Myth Drannor: blessed silver bracer
+G 0 13736 0		*	a paladin knight of Myth Drannor: the black key
 M 0 13729 4 13823 1	* a hissing frog (In a quiet swampy part of the ruins)
 M 0 13713 1 13824 1	* a golem of black stone (Before the Black tinged tower in the swampy ruins)
-E 0 13710 0 1		*	a ring of black stained quartz: on the left finger
+E 0 13710 0 1		*	a golem of black stone<on the left finger>: a ring of black stained quartz
 M 0 13716 1 13833 1	* the spectre of the elven First king (A cold dark room)
-E 0 13717 0 17		*	the rod of lordly might: held in the hands
-E 0 13716 0 6		*	a crown of frozen blood: over the head
-E 0 13720 0 1		*	a bracelet of frozen elf blood: on the left finger
+E 0 13717 0 17		*	the spectre of the elven First king<held in the hands>: the rod of lordly might
+E 0 13716 0 6		*	the spectre of the elven First king<over the head>: a crown of frozen blood
+E 0 13720 0 1		*	the spectre of the elven First king<on the left finger>: a bracelet of frozen elf blood
 M 0 13715 1 13836 1	* tyranthraxus (In a pitch black room)
-E 0 13714 0 16		*	the sword of planes: wielded
-E 0 13715 0 3		*	the torque of restoration: around the neck (1)
+E 0 13714 0 16		*	tyranthraxus<wielded>: the sword of planes
+E 0 13715 0 3		*	tyranthraxus<around the neck>: the torque of restoration
 M 0 13717 1 13839 1	* a Fallen Angel (In a bare black room)
-E 0 13711 0 12		*	the shredded wings of a fallen angel: about the shoulders
-E 0 13723 0 1		*	Suffering: on the left finger
+E 0 13711 0 12		*	a Fallen Angel<about the shoulders>: the shredded wings of a fallen angel
+E 0 13723 0 1		*	a Fallen Angel<on the left finger>: Suffering
 M 0 13718 1 13842 1	* the Lord Bane (In the room of Binding Light)
-E 0 13712 0 6		*	the horns of Bane: over the head
-E 0 13724 0 1		*	Wrath: on the left finger
-G 0 13713 0		*	a scroll of binding power
-G 0 13722 0		*	the skull of an ancient god
-E 0 13748 0 5		*	full plate of ultimate: on the body
+E 0 13712 0 6		*	the Lord Bane<over the head>: the horns of Bane
+E 0 13724 0 1		*	the Lord Bane<on the left finger>: Wrath
+G 0 13713 0		*	the Lord Bane: a scroll of binding power
+G 0 13722 0		*	the Lord Bane: the skull of an ancient god
+E 0 13748 0 5		*	the Lord Bane<on the body>: full plate of ultimate
 M 0 13729 4 13844 1	* a hissing frog (On a dock in a bloody harbour)
 M 0 13719 3 13850 1	* a rock imp (In the northern ruins of the city)
 O 0 13747 0 13852	* a large boulder (In the northern ruins of the city)
@@ -5023,7 +5778,7 @@ M 0 13728 5 13859 1	* a mud dweller (Wading through the bloody waters of the har
 M 0 13729 4 13861 1	* a hissing frog (Wading through the bloody river outlet)
 M 0 13728 5 13862 1	* a mud dweller (Wading through the bloody river outlet)
 M 0 13731 1 13873 1	* the bone demon (Before a dam built from elven bones)
-G 0 13738 0		*	a flesh-cutter named 'Hydraslayer'
+G 0 13738 0		*	the bone demon: a flesh-cutter named 'Hydraslayer'
 O 0 13745 0 13877	* a skeleton (Above a hole in the city walls)
 O 0 13740 0 13877	* a rusty sword (Above a hole in the city walls)
 M 0 13726 1 13881 1	* a lady in green-blue (Inside a small room beneath the crumbling walls)
@@ -5059,64 +5814,6 @@ O 13738 2	* a flesh-cutter named 'Hydraslayer'
 O 13739 3	* the horn of valere
 O 13748 1	* full plate of ultimate
 O 13749 1	* blessed silver bracer
-S
-
-#MOBPROGS
-#13700
-say Leave here adventurer, this place is tainted by an evil that would consume you.
-~
-#13701
-say Stay out of here, there is an evil within the towers that not even the gods can banish.
-~
-#13702
-say Stay clear of the dark-elves.
-say They seek to reclaim this land with the power that resides here.
-~
-#13703
-say Watch out for the rakshasa, they fight for their survival and are deadly.
-~
-#13704
-say Leave here adventurer.
-say The beholder corps has moved into the ruins and we know not what they seek.
-~
-#13705
-say The evil that was once buried is returning and we must prevent it!
-say We cannot allow the drow or rakshasa to meet It and join with It.
-~
-#13707
-emote looks at you sadly.
-say It is long since one came to help us, are you here to help?
-~
-#13708
-say Your worth is proven great adventurer.
-mob oload 13739
-drop horn
-say Take this artifact in your quest to slay the evil, brandish it when you
-face darkest evil.
-emote flickers for a moment then fades away.
-~
-#13709
-say Bring me the head of the beast that slew my people as they fled to the
-seas.
-say It lives in the bloody waters, feeding off bones of the elves it killed
-as they tried to flee.
-~
-#13710
-say The beast is dangerous beyond mortal comprehension.
-say Find the fallen knight in the towers and retrieve the slayer to kill the
-beast.
-emote flickers for a moment then resumes her tranquil position of waiting.
-~
-#0
-
-#OMPROGS
-O 13711 wear_prog wear_prog_wingsfallen	* `the shredded wings of a fallen angel'
-O 13711 remove_prog remove_prog_wingsfallen	* `the shredded wings of a fallen angel'
-O 13711 fight_prog fight_prog_wingsfallen	* `the shredded wings of a fallen angel'
-O 13714 fight_prog fight_prog_sword_planes	* `the sword of planes'
-O 13720 sac_prog sac_prog_bracelet_blood	* `a bracelet of frozen elf blood'
-O 13720 fight_prog fight_prog_blood_bracelets	* `a bracelet of frozen elf blood'
-O 13725 fight_prog fight_prog_hair_bracelets	* `a bracelet woven from the hair an elf'
 S
 
 #$
