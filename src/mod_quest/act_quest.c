@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.123.2.4 2000-04-10 11:18:58 fjoe Exp $
+ * $Id: act_quest.c,v 1.123.2.5 2000-05-06 14:22:28 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -51,6 +51,7 @@
 #define QUEST_VNUM_RUG		50
 #define QUEST_VNUM_SONG		40
 #define QUEST_VNUM_CANTEEN	34402
+#define QUEST_VNUM_AQUALUNG	15101
 
 #define TROUBLE_MAX 3
 
@@ -113,6 +114,9 @@ qitem_t qitem_table[] = {
 
 	{ "Vampire skill",		  50, "vampire",
 	   0, buy_vampire					},
+
+	{ "Aqualung",			 100, NULL,
+	   QUEST_VNUM_AQUALUNG, NULL				},
 
 	{ "Bottomless canteen with cranberry juice", 350, NULL,
 	   QUEST_VNUM_CANTEEN, NULL				},
