@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.24 1999-05-24 06:49:56 fjoe Exp $
+ * $Id: raffect.c,v 1.25 1999-05-24 07:05:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,6 +105,11 @@ void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	ROOM_AFFECT_DATA *paf_new;
 	ROOM_INDEX_DATA *pRoomIndex;
 
+	if (paf->owner == NULL) {
+		log_printf("[*****] BUG: affect_to_room: NULL owner");
+		return;
+	}
+
 	if (! room->affected)
 	{
 	 if (top_affected_room)
@@ -124,9 +129,6 @@ void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	*paf_new	= *paf;
 	paf_new->next	= room->affected;
 	room->affected	= paf_new;
-
-	if (!paf->owner)
-		log_printf("[*****] BUG: affect_to_room: NULL owner");
 
 	affect_modify_room(room , paf_new, TRUE);
 }
