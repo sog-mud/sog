@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.184 1999-09-15 11:15:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.185 1999-09-18 11:45:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4061,7 +4061,7 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		int lev = atoi(arg2);
 
 		if (lev < LEVEL_IMMORTAL) {
-			char_printf(ch, "grant: granted level must be at least %d\n", LEVEL_HERO);
+			char_printf(ch, "grant: granted level must be at least %d\n", LEVEL_IMMORTAL);
 			return;
 		}
 
@@ -4074,7 +4074,7 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		for (i = 0; i < commands.nused; i++) {
 			cmd = VARR_GET(&commands, i);
 
-			if (cmd->min_level < LEVEL_HERO
+			if (cmd->min_level < LEVEL_IMMORTAL
 			||  cmd->min_level > lev)
 				continue;
 

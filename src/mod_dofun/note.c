@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.3 1999-09-08 10:40:00 fjoe Exp $
+ * $Id: note.c,v 1.4 1999-09-18 11:45:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -582,7 +582,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if (!str_prefix(arg, "remove")) {
 		if (!is_number(argument)) {
-			char_puts("Note remove which number?\n", ch);
+			char_puts("Remove which number?\n", ch);
 			return;
 		}
  
@@ -600,26 +600,6 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
  
-	if (!str_prefix(arg, "delete") && ch->level >= MAX_LEVEL - 1) {
-		if (!is_number(argument)) {
-			char_puts("Note delete which number?\n", ch);
-			return;
-		}
- 
-		anum = atoi(argument);
-		vnum = 0;
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (is_note_to(ch, pnote) && vnum++ == anum) {
-				note_remove(ch, pnote, TRUE);
-				char_puts("Ok.\n", ch);
-				return;
-			}
-		}
-
-		char_printf(ch,"There aren't that many %s.", list_name);
-		return;
-	}
-
 	if (!str_prefix(arg, "catchup")) {
 		switch(type) {
 		case NOTE_NOTE:	
@@ -643,8 +623,8 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 /* below this point only certain people can edit notes */
 
-	if ((type == NOTE_NEWS && !IS_TRUSTED(ch, LEVEL_ANG))
-	||  (type == NOTE_CHANGES && !IS_TRUSTED(ch, LEVEL_CRE))) {
+	if ((type == NOTE_NEWS || type == NOTE_CHANGES)
+	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
 		char_printf(ch, "You aren't high enough level to write %s.",
 			    list_name);
 		return;
@@ -656,6 +636,26 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	pc = PC(ch);
+
+	if (!str_prefix(arg, "delete")) {
+		if (!is_number(argument)) {
+			char_puts("Delete which number?\n", ch);
+			return;
+		}
+ 
+		anum = atoi(argument);
+		vnum = 0;
+		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+			if (is_note_to(ch, pnote) && vnum++ == anum) {
+				note_remove(ch, pnote, TRUE);
+				char_puts("Ok.\n", ch);
+				return;
+			}
+		}
+
+		char_printf(ch,"There aren't that many %s.", list_name);
+		return;
+	}
 
 	if (!str_prefix(arg, "edit")) {
 		if (!note_attach(ch, type))
