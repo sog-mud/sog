@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.134 1999-03-17 15:27:32 kostik Exp $
+ * $Id: act_wiz.c,v 1.135 1999-03-19 12:07:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1340,10 +1340,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	else  {
 		snprintf(buf, sizeof(buf), "%s-%s", 
 			 flag_string(ethos_table, victim->ethos),
-			 IS_GOOD(victim)	? "good" :
-			 IS_NEUTRAL(victim)	? "neutral" :
-			 IS_EVIL(victim)	? "evil" :
-						  "unknown");
+			 flag_string(align_names, NALIGN(victim)));
 	}
 
 	buf_printf(output,

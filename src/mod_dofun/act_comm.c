@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.154 1999-03-19 07:33:16 fjoe Exp $
+ * $Id: act_comm.c,v 1.155 1999-03-19 12:07:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1829,10 +1829,7 @@ DO_FUN(do_judge)
 	char_printf(ch, "%s is %s-%s.\n",
 		    PERS(victim, ch),
 		    flag_string(ethos_table, victim->ethos),
-		    IS_GOOD(victim)	? "good" :
-		    IS_EVIL(victim)	? "evil" :
-		    IS_NEUTRAL(victim)	? "neutral" :
-					  "unknown");
+		    flag_string(align_names, NALIGN(victim)));
 }
 
 DO_FUN(do_trust)

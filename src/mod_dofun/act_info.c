@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.219 1999-03-19 07:33:17 fjoe Exp $
+ * $Id: act_info.c,v 1.220 1999-03-19 12:07:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1615,6 +1615,7 @@ DO_FUN(do_who)
 	const char *clan_names = str_empty;
 	const char *race_names = str_empty;
 	const char *class_names = str_empty;
+	char *p;
 
 	/*
 	 * Parse arguments.
@@ -1674,13 +1675,20 @@ DO_FUN(do_who)
 			continue;
 		}
 
-		if ((i = flag_value(ralign_names, arg))) {
-			SET_BIT(ralign, i);
-			continue;
-		}
-
-		if ((i = flag_value(ethos_table, arg))) {
-			SET_BIT(rethos, i);
+		if ((p = strchr(arg, '-'))) {
+			*p++ = '\0';
+			if (arg[0]) {
+				if ((i = flag_value(ethos_table, arg)))
+					SET_BIT(rethos, i);
+				else
+					char_printf(ch, "%s: unknown ethos.\n", arg);
+			}
+			if (*p) {
+				if ((i = flag_value(ralign_names, p)))
+					SET_BIT(ralign, i);
+				else
+					char_printf(ch, "%s: unknown align.\n", p);
+			}
 			continue;
 		}
 
@@ -2837,7 +2845,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_CON);
 	buf_printf(output,
 "     {G| {RAlign: {x%-12.12s {C| {RCon: {x%-11.11s {C| {R%-10.10s: {x%-3d        {G|{x\n",
-		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
+		flag_string(align_names, NALIGN(ch)),
 		buf2,
 		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
 		IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
@@ -2845,8 +2853,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_CHA);
 	buf_printf(output,
 "     {G| {REthos: {x%-12.12s {C| {RCha: {x%-11.11s {C| {R%s     : {x%-5d      {G|{x\n",
-		IS_NPC(ch) ? "mobile" : ch->ethos == ETHOS_LAWFUL ? "lawful" :
-	ch->ethos == ETHOS_NEUTRAL ? "neutral" : ch->ethos == ETHOS_CHAOTIC ? "chaotic" : "none",
+		IS_NPC(ch) ? "mobile" : flag_string(ethos_table, ch->ethos),
 		buf2,
 		can_flee ? "Wimpy" : "Death",
 		can_flee ? ch->wimpy : ch->pcdata->death);
