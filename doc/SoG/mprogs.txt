@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.16 2002-11-27 14:12:52 tatyana Exp $
+# $Id: mprogs.txt,v 1.17 2003-04-17 18:33:13 tatyana Exp $
 #
 
 MPC code style
@@ -267,6 +267,9 @@ int char_ethos(char ch)
 
 char char_fighting(char ch)
   возвращает чара, с которым дерется ch
+
+bool char_form_is(char ch, int form)
+  есть ли у чара данная форма (FORM_UNDEAD, etc)
 
 int char_gold(char ch)
   возвращает кол-во золотых монет у чара ch
@@ -602,6 +605,9 @@ int room_vnum(room r)
 
 say_spell(char ch, string sn)
   произносится заклинание sn (или возносится молитва)
+
+bool saves_spell(int ch_level, char victim, int dam_type)
+  проверяются saves в выбранному dam_type (DAM_ACID, DAM_ENERGY, etc)
 
 set_char_gold(char ch, int num)
   устанавливает чару ch количество золота num
