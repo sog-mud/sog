@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.77 1998-10-17 16:20:10 fjoe Exp $
+ * $Id: act_wiz.c,v 1.78 1998-10-17 16:49:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3304,10 +3304,9 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (level > ch->level) {
-		char_puts("Limited to your trust level.\n\r", ch);
+		char_puts("Limited to your level.\n\r", ch);
 		return;
 	}
-
 
 	/* Level counting */
 	if (ch->level <= 5 || ch->level > LEVEL_HERO) 

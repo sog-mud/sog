@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.75 1998-10-17 16:20:12 fjoe Exp $
+ * $Id: save.c,v 1.76 1998-10-17 16:49:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,8 +103,8 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 			bug("Save_char_obj: fopen", 0);
 			perror(ch->name);
 		}
-		fprintf(fp, "Lev %2d Trust %2d  %s%s\n",
-		      ch->level, ch->level, ch->name, ch->pcdata->title);
+		fprintf(fp, "Lev %2d %s%s\n",
+		      ch->level, ch->name, ch->pcdata->title);
 		fclose(fp);
 		fpReserve = fopen(NULL_FILE, "r");
 		if (fpReserve == NULL)
