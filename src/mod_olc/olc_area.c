@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.35 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_area.c,v 1.36 1999-02-20 12:54:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -594,8 +594,9 @@ static AREA_DATA *check_range(AREA_DATA *this, int ilower, int iupper)
 
 static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 {
-	bool touched;
+	bool touched = FALSE;
 	MPTRIG *mp;
+	int old_vnum = mob->vnum;
 
 	MOVE(mob->vnum);
 
@@ -604,6 +605,12 @@ static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 
 	for (mp = mob->mptrig_list; mp; mp = mp->next)
 		MOVE(mp->vnum);
+
+	MOVE(mob->fvnum);
+
+/* touch area if it is not area being moved */
+	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
+		touch_vnum(old_vnum);
 }
 
 static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.43 1999-02-19 15:22:24 fjoe Exp $
+ * $Id: olc.c,v 1.44 1999-02-20 12:54:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -333,6 +333,11 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 	return TRUE;
 }
 
+static void cb_format(int lang, const char **p, void *arg)
+{
+	*p = format_string(*p);
+}
+
 bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 {
 	ED_DATA *ed;
@@ -432,7 +437,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 			return FALSE;
 		}
 
-		mlstr_format(&ed->description);
+		mlstr_for_each(&ed->description, NULL, cb_format);
 		char_puts("Extra description formatted.\n", ch);
 		return TRUE;
 	}

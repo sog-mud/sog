@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.123 1999-02-19 09:47:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.124 1999-02-20 12:54:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -582,26 +582,10 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 
 			switch (obj->pIndexData->vnum) {
 			case OBJ_VNUM_SILVER_ONE:
-				silver += 1;
-				extract_obj(obj);
-				break;
-
 			case OBJ_VNUM_GOLD_ONE:
-				gold += 1;
-				extract_obj(obj);
-				break;
-
-			case OBJ_VNUM_SILVER_SOME:
-				silver += obj->value[0];
-				extract_obj(obj);
-				break;
-
-			case OBJ_VNUM_GOLD_SOME:
-				gold += obj->value[1];
-				extract_obj(obj);
-				break;
-
 			case OBJ_VNUM_COINS:
+			case OBJ_VNUM_GOLD_SOME:
+			case OBJ_VNUM_SILVER_SOME:
 				silver += obj->value[0];
 				gold += obj->value[1];
 				extract_obj(obj);
@@ -2729,7 +2713,8 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				char_printf(ch, "[%2d] %8d - %s\n",
 					    pet->level,
 					    10 * pet->level * pet->level,
-					    mlstr_cval(pet->short_descr, ch));
+					    format_short(pet->short_descr,
+							 pet->name, ch));
 			}
 		}
 		if (!found)
@@ -2758,8 +2743,9 @@ void do_list(CHAR_DATA * ch, const char *argument)
 				}
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 					char_printf(ch, "[%2d %5d -- ] %s\n",
-					 obj->level, cost,
-					mlstr_cval(obj->short_descr, ch));
+						obj->level, cost,
+						format_short(obj->short_descr,
+							     obj->name, ch));
 				else {
 					count = 1;
 
@@ -2771,8 +2757,9 @@ void do_list(CHAR_DATA * ch, const char *argument)
 						count++;
 					}
 					char_printf(ch, "[%2d %5d %2d ] %s\n",
-						    obj->level, cost, count,
-						    fix_short(mlstr_cval(obj->short_descr, ch)));
+						obj->level, cost, count,
+						format_short(obj->short_descr,
+							     obj->name, ch));
 				}
 			}
 		}
@@ -2870,12 +2857,9 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 void do_value(CHAR_DATA * ch, const char *argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
-	char		buf[MAX_STRING_LENGTH];
-	char		buf2[MAX_STRING_LENGTH];
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj;
 	int             cost;
-	int		silver;
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
@@ -2904,14 +2888,12 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	silver = cost % 100;
-	strnzcpy(buf2, GETMSG("silver", ch->lang), sizeof(buf2));
-	snprintf(buf, sizeof(buf),
-		 GETMSG("$n tells you '{GI'll give you %d %s and $J gold "
-		 	"$qJ{coins} for $p.{x'", ch->lang),
-		 silver, word_quantity(ch->lang, buf2, silver));
-	act_puts3(buf, keeper, obj, ch, (const void*) (cost / 100),
-		  TO_VICT, POS_DEAD);
+	act_puts("$N tells you '{G", ch, NULL, keeper,
+		 TO_CHAR | ACT_NOLF, POS_DEAD);
+	act_puts3("I'll give you $j silver and $J gold $qJ{coins} for $P.",
+		  ch, (const void*) (cost%100), obj, (const void*) (cost/100),
+		  TO_CHAR | ACT_NOLF, POS_DEAD);
+	act_puts("{x'", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 void do_herbs(CHAR_DATA * ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.119 1999-02-19 09:47:56 fjoe Exp $
+ * $Id: handler.c,v 1.120 1999-02-20 12:54:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2444,53 +2444,105 @@ void deduct_cost(CHAR_DATA *ch, uint cost)
 	ch->silver -= silver;
 } 
 
+static inline void
+money_form(int lang, char *buf, size_t len, int num, const char *name)
+{
+	char tmp[MAX_STRING_LENGTH];
+
+	if (num < 0)
+		return;
+
+	strnzcpy(tmp, word_case(lang, GETMSG(name, lang), 1), sizeof(tmp));
+	strnzcpy(buf, word_quantity(lang, tmp, num), len);
+}
+
+struct _data {
+	int num1;
+	const char *name1;
+	int num2;
+	const char *name2;
+};
+
+static void
+money_cb(int lang, const char **p, void *arg)
+{
+	char buf1[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+
+	const char *q;
+	struct _data *d = (struct _data *) arg;
+
+	if (IS_NULLSTR(*p))
+		return;
+
+	money_form(lang, buf1, sizeof(buf1), d->num1, d->name1);
+	money_form(lang, buf2, sizeof(buf2), d->num2, d->name2);
+
+	q = str_printf(*p, d->num1, buf1, d->num2, buf2);
+	free_string(*p);
+	*p = q;
+}
+
+static void
+money_descr(mlstring **descr,
+	    int num1, const char *name1,
+	    int num2, const char *name2)
+{
+	struct _data data;
+
+	data.num1 = num1;
+	data.num2 = num2;
+	data.name1 = name1;
+	data.name2 = name2;
+
+	mlstr_for_each(descr, &data, money_cb);
+}
+
 /*
  * Create a 'money' obj.
  */
 OBJ_DATA *create_money(int gold, int silver)
 {
+	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
 
-	if (gold < 0 || silver < 0 || (gold == 0 && silver == 0))
-	{
-		bug("Create_money: zero or negative money.",UMIN(gold,silver));
-		gold = UMAX(1,gold);
-		silver = UMAX(1,silver);
+	if (gold < 0 || silver < 0 || (gold == 0 && silver == 0)) {
+		log_printf("create_money: gold %d, silver %d",
+			   gold, silver);
+		gold = UMAX(1, gold);
+		silver = UMAX(1, silver);
 	}
 
 	if (gold == 0 && silver == 1)
-	{
 		obj = create_obj(get_obj_index(OBJ_VNUM_SILVER_ONE), 0);
-	}
 	else if (gold == 1 && silver == 0)
-	{
 		obj = create_obj(get_obj_index(OBJ_VNUM_GOLD_ONE), 0);
+	else if (silver == 0) {
+		pObjIndex = get_obj_index(OBJ_VNUM_GOLD_SOME);
+		obj = create_obj(pObjIndex, 0);
+		money_descr(&obj->short_descr, gold, "gold coins", -1, NULL);
+		obj->value[1]	= gold;
+		obj->cost	= 100*gold;
+		obj->weight	= gold/5;
 	}
-	else if (silver == 0)
-	{
-	    obj = create_obj(get_obj_index(OBJ_VNUM_GOLD_SOME), 0);
-		obj->short_descr = mlstr_printf(obj->pIndexData->short_descr, gold);
-	    obj->value[1]           = gold;
-	    obj->cost               = gold;
-		obj->weight		= gold/5;
+	else if (gold == 0) {
+		pObjIndex = get_obj_index(OBJ_VNUM_SILVER_SOME);
+		obj = create_obj(pObjIndex, 0);
+		money_descr(&obj->short_descr,
+			    silver, "silver coins", -1, NULL);
+		obj->value[0]	= silver;
+		obj->cost	= silver;
+		obj->weight	= silver/20;
 	}
-	else if (gold == 0)
-	{
-	    obj = create_obj(get_obj_index(OBJ_VNUM_SILVER_SOME), 0);
-		obj->short_descr = mlstr_printf(obj->pIndexData->short_descr, silver);
-	    obj->value[0]           = silver;
-	    obj->cost               = silver;
-		obj->weight		= silver/20;
-	}
- 
-	else
-	{
-		obj = create_obj(get_obj_index(OBJ_VNUM_COINS), 0);
-		obj->short_descr = mlstr_printf(obj->pIndexData->short_descr, silver, gold);
-		obj->value[0]		= silver;
-		obj->value[1]		= gold;
-		obj->cost		= 100 * gold + silver;
-		obj->weight		= gold / 5 + silver / 20;
+	else {
+		pObjIndex = get_obj_index(OBJ_VNUM_COINS);
+		obj = create_obj(pObjIndex, 0);
+		money_descr(&obj->short_descr,
+			    silver, "silver coins", gold, "gold coins");
+		obj->value[0]	= silver;
+		obj->value[1]	= gold;
+		obj->cost	= 100*gold + silver;
+		obj->weight	= gold/5 + silver/20;
 	}
 
 	return obj;

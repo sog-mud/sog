@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.156 1999-02-19 18:48:52 fjoe Exp $
+ * $Id: merc.h,v 1.157 1999-02-20 12:54:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2081,7 +2081,7 @@ void		help_free	(HELP_DATA*);
 
 void		boot_db		(void);
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
-CHAR_DATA *	create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name);
+CHAR_DATA *	create_mob_of	(MOB_INDEX_DATA *pMobIndex, mlstring *owner);
 void		clone_mob	(CHAR_DATA *parent, CHAR_DATA *clone);
 OBJ_DATA *	create_obj	(OBJ_INDEX_DATA *pObjIndex, int level);
 OBJ_DATA *	create_obj_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
@@ -2140,6 +2140,7 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 void	set_title	(CHAR_DATA *ch, const char *title);
 char	*get_cond_alias	(OBJ_DATA *obj);
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
+const char *format_short(mlstring *mshort, const char *name, CHAR_DATA *looker);
 const char *format_descr(mlstring *desc, CHAR_DATA *looker);
 
 /* act_move.h */

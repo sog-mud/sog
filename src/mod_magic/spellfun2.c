@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.83 1999-02-19 13:43:25 kostik Exp $
+ * $Id: spellfun2.c,v 1.84 1999-02-20 12:54:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1512,13 +1512,14 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  return;
 	}
 
-	act("You give life to $N's shadow!",ch, NULL, victim, TO_CHAR);
-	act("$n gives life to $N's shadow!",ch,NULL,victim,TO_NOTVICT);
+	act("You give life to $N's shadow!", ch, NULL, victim, TO_CHAR);
+	act("$n gives life to $N's shadow!", ch, NULL, victim, TO_NOTVICT);
 	act("$n gives life to your shadow!", ch, NULL, victim, TO_VICT);
 	
-	shadow = create_named_mob(get_mob_index(MOB_VNUM_SHADOW),
-				     victim->name);
-	for (i=0;i < MAX_STATS; i++)
+	shadow = create_mob_of(get_mob_index(MOB_VNUM_SHADOW),
+			       victim->short_descr);
+
+	for (i = 0; i < MAX_STATS; i++)
 		shadow->perm_stat[i] = ch->perm_stat[i];
 	
 	shadow->max_hit = (3 * ch->max_hit) / 4;
@@ -1533,7 +1534,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->sex = victim->sex;
 	shadow->gold = 0;
 
-	char_to_room(shadow,ch->in_room);
+	char_to_room(shadow, ch->in_room);
 	
 	shadow->target  = victim;
 	do_murder(shadow, victim->name);
@@ -1546,7 +1547,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.modifier     = 0;
 	af.location     = APPLY_NONE;
 	affect_to_char(ch, &af);  
-
 }  
 
 void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -1838,27 +1838,25 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA af;
 	int i;
 
-	if (is_affected(ch,sn))
-	{
-	  char_puts("You cannot command another squire right now.\n",
-		   ch);
-	  return;
+	if (is_affected(ch, sn)) {
+		char_puts("You cannot command another squire right now.\n", ch);
+		return;
 	}
 
 	char_puts("You attempt to summon a squire.\n",ch);
-	act("$n attempts to summon a squire.",ch,NULL,NULL,TO_ROOM);
+	act("$n attempts to summon a squire.", ch, NULL, NULL, TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  gch->pIndexData->vnum == MOB_VNUM_SQUIRE)
-	{
-	  char_puts("Two squires are more than you need!\n",ch);
-	  return;
-	}
+	for (gch = char_list; gch; gch = gch->next) {
+		if (IS_NPC(gch)
+		&&  IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_SQUIRE) {
+			char_puts("Two squires are more than you need!\n",ch);
+			return;
+		}
 	}
 
-	squire = create_named_mob(get_mob_index(MOB_VNUM_SQUIRE), ch->name);
+	squire = create_mob(get_mob_index(MOB_VNUM_SQUIRE));
 
 	for (i=0;i < MAX_STATS; i++)
 		squire->perm_stat[i] = ch->perm_stat[i];
@@ -1881,18 +1879,16 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("A squire arrives from nowhere!\n",ch);
 	act("A squire arrives from nowhere!",ch,NULL,NULL,TO_ROOM);
 
-	af.where		= TO_AFFECTS;
-	af.type               = sn;
-	af.level              = level; 
-	af.duration           = 24;
-	af.bitvector          = 0;
-	af.modifier           = 0;
-	af.location           = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level; 
+	af.duration	= 24;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(squire->affected_by, AFF_CHARM);
 	squire->master = squire->leader = ch;
-	
 }
 
 
@@ -2447,19 +2443,40 @@ void spell_attract_other(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	spell_charm_person(sn, level+2, ch, vo, target);
 }
 
+static void
+cb_strip(int lang, const char **p, void *arg)
+{
+	char buf[MAX_STRING_LENGTH];
+	const char *r = mlstr_val((mlstring*) arg, lang);
+	const char *q;
+
+	if (IS_NULLSTR(*p)
+	||  (q = strstr(r, "%s")) == NULL)
+		return;
+
+	strnzcpy(buf, r, UMIN(q-r+1, sizeof(buf)));
+	if (!str_prefix(buf, *p)) {
+		const char *s = strdup(*p + strlen(buf));
+		free_string(*p);
+		*p = s;
+	}
+}
+
 void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *undead;
 	OBJ_DATA *obj,*obj2,*next;
 	AFFECT_DATA af;
-	const char *p;
 	int i;
 	int chance;
 	int u_level;
 
 	/* deal with the object case first */
 	if (target == TARGET_OBJ) {
+		MOB_INDEX_DATA *undead_idx;
+		mlstring *ml;
+
 		obj = (OBJ_DATA *) vo;
 
 		if (!(obj->pIndexData->item_type == ITEM_CORPSE_NPC 
@@ -2500,25 +2517,26 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 			return;
 		}
 
-		/* XXX */
-
-		chance = URANGE(5, get_skill(ch,sn)+(level-obj->level)*7, 95);
-		if (number_percent()>chance) {
-			char_puts ("You failed and destroyed it.\n", ch);
-			act("$n tries to animate $p, but fails and destoys it",
-				ch, obj, NULL, TO_ROOM);
+		chance = URANGE(5, get_skill(ch, sn)+(level-obj->level)*7, 95);
+		if (number_percent() > chance) {
+			act_puts("You failed and destroyed it.\n",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("$n tries to animate $p, but fails and destroys it.",
+			    ch, obj, NULL, TO_ROOM);
 			extract_obj(obj);
 			return;
 		}
 
-		p = mlstr_mval(obj->short_descr);
-		if (!str_prefix("The corpse of ", p))
-			p += strlen("The corpse of ");
+		undead_idx = get_mob_index(MOB_VNUM_UNDEAD);
+		ml = mlstr_dup(obj->owner);
 
-		if (!str_prefix("The undead body of ", p))
-			p += strlen("The undead body of ");
+		/*
+		 * strip "The undead body of "
+		 */
+		mlstr_for_each(&ml, undead_idx->short_descr, cb_strip);
 
-		undead = create_named_mob(get_mob_index(MOB_VNUM_UNDEAD), p);
+		undead = create_mob_of(undead_idx, ml);
+		mlstr_free(ml);
 
 		for (i = 0; i < MAX_STATS; i++)
 			undead->perm_stat[i] = UMIN(25, 15+obj->level/10);

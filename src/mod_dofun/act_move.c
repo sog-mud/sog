@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.146 1999-02-19 13:43:23 kostik Exp $
+ * $Id: act_move.c,v 1.147 1999-02-20 12:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2930,9 +2930,9 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((mount->mount) && (!mount->riding) && (mount->mount != ch)) {
-		char_printf(ch, "%s belongs to %s, not you.\n",
-			    mlstr_cval(mount->short_descr, ch),
-		            mount->mount->name);
+		act_puts("$N belongs to $i, not you.",
+			 ch, mount->mount, mount,
+			 TO_CHAR, POS_DEAD);
 		return;
 	} 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.110 1999-02-19 09:48:05 fjoe Exp $
+ * $Id: db.c,v 1.111 1999-02-20 12:54:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,7 @@
 #include "socials.h"
 #include "update.h"
 #include "db.h"
+#include "db/word.h"
 
 #ifdef SUNOS
 #	include "compat.h"
@@ -934,10 +935,23 @@ void reset_area(AREA_DATA *pArea)
 			reset_room(pRoom);
 }
 
+static void obj_of_callback(int lang, const char **p, void *arg)
+{
+	mlstring *owner = (mlstring*) arg;
+	const char *q;
+
+	if (IS_NULLSTR(*p))
+		return;
+
+	q = str_printf(*p, word_case(lang, mlstr_val(owner, lang), 1));
+	free_string(*p);
+	*p = q;
+}
+
 /*
  * Create an instance of a mobile.
  */
-CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
+CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 {
 	CHAR_DATA *mob;
 	int i;
@@ -1111,31 +1125,15 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 	return mob;
 }
 
-CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
+CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
 {
-	return create_mob_org(pMobIndex, 0);
-}
+	CHAR_DATA *mob = create_mob(pMobIndex);
 
-CHAR_DATA *create_named_mob(MOB_INDEX_DATA *pMobIndex, const char *name)
-{
-	CHAR_DATA *res;
-	mlstring *ml;
+	mlstr_for_each(&mob->short_descr, owner, obj_of_callback);
+	mlstr_for_each(&mob->long_descr, owner, obj_of_callback);
+	mlstr_for_each(&mob->description, owner, obj_of_callback);
 
-	res = create_mob_org(pMobIndex, 0);
-
-	ml = mlstr_printf(res->short_descr, name);
-	mlstr_free(res->short_descr);
-	res->short_descr	= ml;
-
-	ml = mlstr_printf(res->long_descr, name);
-	mlstr_free(res->long_descr);
-	res->long_descr		= ml;
-
-	ml = mlstr_printf(res->description, name);
-	mlstr_free(res->description);
-	res->description	= ml;
-
-	return res;
+	return mob;
 }
 
 /* duplicate a mobile exactly -- except inventory */
@@ -1294,15 +1292,11 @@ OBJ_DATA *create_obj_nocount(OBJ_INDEX_DATA *pObjIndex, int level)
 
 OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 {
-	OBJ_DATA *obj;
+	OBJ_DATA *obj = create_obj_org(pObjIndex, 0, 0);
 
-	obj = create_obj_org(pObjIndex, 0, 0);
-	free_string(obj->name);
-	obj->name = str_dup(pObjIndex->name);
-	mlstr_free(obj->short_descr);
-	obj->short_descr = mlstr_obj_of(pObjIndex->short_descr, owner);
-	mlstr_free(obj->description);
-	obj->description = mlstr_obj_of(pObjIndex->description, owner);
+	mlstr_for_each(&obj->short_descr, owner, obj_of_callback);
+	mlstr_for_each(&obj->description, owner, obj_of_callback);
+
 	return obj;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.35 1999-02-19 20:06:04 fjoe Exp $
+ * $Id: olc_obj.c,v 1.36 1999-02-20 12:54:31 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1066,7 +1066,9 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj)
 		break;
 
 	case ITEM_MONEY:
-		buf_printf(output, "[v0] Gold:   [%d]\n", pObj->value[0]);
+		buf_printf(output, "[v0] Gold:   [%d]\n"
+				   "[v1] Silver: [%d]\n",
+			   pObj->value[0], pObj->value[1]);
 		break;
 	}
 }

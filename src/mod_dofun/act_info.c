@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.206 1999-02-19 18:48:52 fjoe Exp $
+ * $Id: act_info.c,v 1.207 1999-02-20 12:54:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -116,21 +116,21 @@ void	show_char_to_char_0	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
 
-char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
+const char *format_short(mlstring *mlshort, const char *name, CHAR_DATA *looker)
 {
         static char buf[MAX_STRING_LENGTH];
-        const char *name;
+        const char *sshort;
 
-        name = fix_short(mlstr_cval(obj->short_descr, ch));
-	strnzcpy(buf, name, sizeof(buf));
+        sshort = fix_short(mlstr_cval(mlshort, looker));
+	strnzcpy(buf, sshort, sizeof(buf));
 
-        if (!IS_SET(ch->comm, COMM_NOENG)
-	&&  name != mlstr_mval(obj->short_descr)) {
+        if (!IS_SET(looker->comm, COMM_NOENG)
+	&&  sshort != mlstr_mval(mlshort)) {
 		char buf2[MAX_STRING_LENGTH];
-        	char engname[MAX_STRING_LENGTH];
+        	char buf3[MAX_STRING_LENGTH];
 
-        	one_argument(obj->name, engname, sizeof(engname));
-		snprintf(buf2, sizeof(buf2), " (%s)", engname);
+        	one_argument(name, buf3, sizeof(buf3));
+		snprintf(buf2, sizeof(buf2), " (%s)", buf3);
 		strnzcat(buf, buf2, sizeof(buf));
 	}
 
@@ -217,7 +217,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	if (fShort) {
-		strnzcat(buf, obj_name(obj, ch), sizeof(buf));
+		strnzcat(buf, format_short(obj->short_descr, obj->name, ch),
+			 sizeof(buf));
 		if (obj->pIndexData->vnum > 5 /* not money, gold, etc */
 		&&  (obj->condition < COND_EXCELLENT ||
 		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
@@ -233,7 +234,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		char* p;
 
 		p = strchr(buf, '\0');
-		strnzcat(buf, obj_name(obj, ch), sizeof(buf));
+		strnzcat(buf, format_short(obj->short_descr, obj->name, ch),
+			 sizeof(buf));
 		p[0] = UPPER(p[0]);
 		switch(dice(1,3)) {
 		case 1:
@@ -1324,36 +1326,43 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 
 	do_look(ch, arg);
 
-	if ((obj = get_obj_here(ch, arg)) != NULL) {
-		switch (obj->pIndexData->item_type) {
-		case ITEM_MONEY:
-			if (obj->value[0] == 0) {
-				if (obj->value[1] == 0)
-					char_puts("Odd...there's no coins in the pile.\n", ch);
-				else if (obj->value[1] == 1)
-					char_puts("Wow. One gold coin.\n", ch);
-				else
-					char_printf(ch, "There are %d gold coins in the pile.\n",
-						     obj->value[1]);
-			}
-			else if (obj->value[1] == 0) {
-				if (obj->value[0] == 1)
-					char_puts("Wow. One silver coin.\n", ch);
-				else
-					char_printf(ch, "There are %d silver coins in the pile.\n",
-						     obj->value[0]);
-			}
-			else
-				char_printf(ch, "There are %d gold and %d silver coins in the pile.\n", 
-					    obj->value[1], obj->value[0]);
-			break;
+	if ((obj = get_obj_here(ch, arg)) == NULL)
+		return;
 
-		case ITEM_DRINK_CON:
-		case ITEM_CONTAINER:
-		case ITEM_CORPSE_NPC:
-		case ITEM_CORPSE_PC:
-			do_look_in(ch, argument);
+	switch (obj->pIndexData->item_type) {
+	case ITEM_MONEY: {
+		const char *msg;
+
+		if (obj->value[0] == 0) {
+			if (obj->value[1] == 0)
+				msg = "Odd...there's no coins in the pile.";
+			else if (obj->value[1] == 1)
+				msg = "Wow. One gold coin.";
+			else
+				msg = "There are $J $qJ{gold coins} in this pile.";
 		}
+		else if (obj->value[1] == 0) {
+			if (obj->value[0] == 1)
+				msg = "Wow. One silver coin.";
+			else
+				msg = "There are $j $qj{silver coins} in the pile.";
+		}
+		else {
+			msg = "There are $J gold and $j $qj{silver coins} in the pile."; 
+		}
+		act_puts3(msg, ch,
+			  (const void*) obj->value[0], NULL,
+			  (const void*) obj->value[1],
+			  TO_CHAR, POS_DEAD);
+		break;
+	}
+
+	case ITEM_DRINK_CON:
+	case ITEM_CONTAINER:
+	case ITEM_CORPSE_NPC:
+	case ITEM_CORPSE_PC:
+		do_look_in(ch, argument);
+		break;
 	}
 }
 
@@ -2272,10 +2281,11 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 	if (scan_room == NULL) 
 		return;
 
-	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
+	for (rch = scan_room->people; rch; rch = rch->next_in_room) {
 		if (rch == ch || !can_see(ch, rch))
 			continue;
-		char_printf(ch, "	%s.\n", PERS(rch, ch));
+		char_printf(ch, "	%s.\n",
+			    format_short(rch->short_descr, rch->name, ch));
 	}
 }
 
