@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.129 1999-03-19 07:33:19 fjoe Exp $
+ * $Id: handler.c,v 1.130 1999-04-09 08:39:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -3121,7 +3121,7 @@ ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
 		if (can_see_room(ch, room)
 		&&  !room_is_private(room)
 		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
-		&&  !IS_SET(room->area->flags, AREA_CLOSED)
+		&&  !(IS_SET(room->area->flags, AREA_CLOSED) && !area)
 		&&  (!IS_NPC(ch) ||
 		     !IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) ||
 		     !IS_SET(room->room_flags, ROOM_LAW)))
