@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.109 1998-10-17 16:49:40 fjoe Exp $
+ * $Id: act_move.c,v 1.110 1998-10-19 13:21:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -413,7 +413,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			continue;
 		}
 
-		act_puts("You follow $N", fch, NULL, ch, TO_CHAR, POS_DEAD);
+		act_puts("You follow $N.", fch, NULL, ch, TO_CHAR, POS_DEAD);
 		move_char(fch, door, TRUE);
 	}
 

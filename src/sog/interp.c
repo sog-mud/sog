@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.84 1998-10-17 16:20:11 fjoe Exp $
+ * $Id: interp.c,v 1.85 1998-10-19 13:21:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -149,7 +149,7 @@ CMD_DATA cmd_table[] =
     { "escape",		do_escape,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "examine",	do_examine,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK }, 
     { "help",		do_help,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "idea",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "ideas",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "rating",		do_rating,	POS_DEAD,	ML,  LOG_NORMAL, CMD_KEEP_HIDE },
@@ -186,7 +186,7 @@ CMD_DATA cmd_table[] =
     { ",",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "gtell",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
-    { "note",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "notes",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, CMD_NOORDER },
     { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
@@ -433,6 +433,7 @@ CMD_DATA cmd_table[] =
     { "owhere",		do_owhere,	POS_DEAD,	IM,  LOG_NORMAL	},
     { "peace",		do_peace,	POS_DEAD,	L5,  LOG_NORMAL	},
     { "penalty",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL	},
+    { "penalties",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL	},
     { "echo",		do_recho,	POS_DEAD,	L6,  LOG_ALWAYS	},
     { "return",         do_return,      POS_DEAD,       0,  LOG_NORMAL, CMD_CHARMED_OK | CMD_HIDDEN },
     { "snoop",		do_snoop,	POS_DEAD,	ML,  LOG_ALWAYS	},
