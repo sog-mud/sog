@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.312 1999-12-21 00:27:49 avn Exp $
+ * $Id: act_info.c,v 1.313 1999-12-21 03:40:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -186,7 +186,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	SHOW_SOCIAL("{xHaving targeted it to another character, you see:{W", soc->found_char);
 	SHOW_SOCIAL("{xYour victim see:{W", soc->found_vict);
 	SHOW_SOCIAL("{xAnd others see:{W", soc->found_notvict);
-	act("{x", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
+	act("{x", ch, NULL, NULL, TO_CHAR);
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
