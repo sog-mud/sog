@@ -2388,13 +2388,13 @@ steel~
 weapon 0 AN
 sword 3 10 slash D
 26 50 2000 P
-E
-sword long~
-This is the ceremonial sword of the Mayor of Midgaard.
 A
 13 20
 A
 12 20
+E
+sword long~
+This is the ceremonial sword of the Mayor of Midgaard.
 ~
 G male
 #3129
