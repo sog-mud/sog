@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.2 1999-10-21 12:51:56 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.3 1999-11-22 14:54:25 fjoe Exp $
  */
 
 #include "olc.h"
@@ -65,7 +65,7 @@ olc_cmd_t olc_cmds_liq[] =
 	{ NULL }
 };
 
-static void *liquid_save_cb(void *p, void *d);
+static void *liquid_save_cb(void *p, va_list ap);
 
 OLC_FUN(liqed_create)
 {
@@ -128,10 +128,12 @@ OLC_FUN(liqed_edit)
 	return FALSE;
 }
 
-static void *liquid_save_cb(void *p, void *d)
+static void *liquid_save_cb(void *p, va_list ap)
 {
 	liquid_t *lq = (liquid_t *)p;
-	FILE *fp = (FILE *)d;
+
+	FILE *fp = va_arg(ap, FILE *);
+
 	int i;
 
 	fprintf(fp, "#LIQUID\n");

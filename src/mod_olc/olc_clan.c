@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.35 1999-10-21 12:51:56 fjoe Exp $
+ * $Id: olc_clan.c,v 1.36 1999-11-22 14:54:24 fjoe Exp $
  */
 
 #include "olc.h"
@@ -70,11 +70,7 @@ olc_cmd_t olc_cmds_clan[] =
 	{ NULL }
 };
 
-typedef struct _save_clan_t {
-	CHAR_DATA *ch;
-	bool found;
-} _save_clan_t;
-static void *save_clan_cb(void *p, void *d);
+static void *save_clan_cb(void *p, va_list ap);
 
 OLC_FUN(claned_create)
 {
@@ -144,13 +140,11 @@ OLC_FUN(claned_edit)
 
 OLC_FUN(claned_save)
 {
-	_save_clan_t sc;
+	bool found = FALSE;
 
 	olc_printf(ch, "Saved clans:");
-	sc.ch = ch;
-	sc.found = FALSE;
-	hash_foreach(&clans, save_clan_cb, &sc);
-	if (!sc.found)
+	hash_foreach(&clans, save_clan_cb, ch, &found);
+	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
 }
@@ -320,11 +314,13 @@ bool touch_clan(clan_t *clan)
 }
 
 static void *
-save_clan_cb(void *p, void *d)
+save_clan_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
-	_save_clan_t *sc = (_save_clan_t *) d;
 	
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	bool *pfound = va_arg(ap, bool *);
+
 	FILE *fp;
 	char buf[PATH_MAX];
 
@@ -333,7 +329,7 @@ save_clan_cb(void *p, void *d)
 
 	snprintf(buf, sizeof(buf), "%s.%s",
 		 strkey_filename(clan->name), CLAN_EXT);
-	if ((fp = olc_fopen(CLANS_PATH, buf, sc->ch, -1)) == NULL)
+	if ((fp = olc_fopen(CLANS_PATH, buf, ch, -1)) == NULL)
 		return NULL;
 		
 	fprintf(fp, "#CLAN\n");
@@ -360,7 +356,7 @@ save_clan_cb(void *p, void *d)
 	fclose(fp);
 
 /* save plists */
-	if ((fp = olc_fopen(PLISTS_PATH, buf, sc->ch, -1)) == NULL)
+	if ((fp = olc_fopen(PLISTS_PATH, buf, ch, -1)) == NULL)
 		return NULL;
 
 	fprintf(fp, "#PLISTS\n");
@@ -373,8 +369,8 @@ save_clan_cb(void *p, void *d)
 		    "#$\n");
 	fclose(fp);
 
-	olc_printf(sc->ch, "    %s (%s)", clan->name, buf);
-	sc->found = TRUE;
+	olc_printf(ch, "    %s (%s)", clan->name, buf);
+	*pfound = TRUE;
 	return NULL;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.285 1999-11-19 13:11:46 fjoe Exp $
+ * $Id: act_info.c,v 1.286 1999-11-22 14:54:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3302,26 +3302,21 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-typedef struct _glist_t _glist_t;
-struct _glist_t {
-	CHAR_DATA *ch;
-	flag64_t group;
-	int col;
-};
-
 static void *
-glist_cb(void *p, void *d)
+glist_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
-	_glist_t *_g = (_glist_t*) d;
 
-	if (_g->group == sk->group) {
-		char_printf(_g->ch, "%c%-18s",
-			pc_skill_lookup(_g->ch, sk->name) ?  '*' : ' ',
-			sk->name);
-		if (_g->col)
-			char_puts("\n", _g->ch);
-		_g->col = 1 - _g->col;
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	flag64_t group = va_arg(ap, flag64_t);
+	int *pcol = va_arg(ap, int *);
+
+	if (group == sk->group) {
+		char_printf(ch, "%c%-18s",
+			pc_skill_lookup(ch, sk->name) ?  '*' : ' ', sk->name);
+		if (*pcol)
+			char_puts("\n", ch);
+		*pcol = 1 - *pcol;
 	}
 
 	return NULL;
@@ -3330,7 +3325,8 @@ glist_cb(void *p, void *d)
 void do_glist(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	_glist_t _g = { ch, GROUP_NONE, 0 };
+	flag64_t group = GROUP_NONE;
+	int col = 0;
 
 	one_argument(argument, arg, sizeof(arg));
 	
@@ -3346,16 +3342,16 @@ void do_glist(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (str_prefix(arg, "none")
-	&&  (_g.group = flag_value(skill_groups, arg)) == 0) {
+	&&  (group = flag_value(skill_groups, arg)) == 0) {
 		char_puts("That is not a valid group.\n", ch);
 		do_glist(ch, str_empty);
 		return;
 	}
 
 	char_printf(ch, "Now listing group '%s':\n",
-		    flag_string(skill_groups, _g.group));
-	hash_foreach(&skills, glist_cb, &_g);
-	if (_g.col)
+		    flag_string(skill_groups, group));
+	hash_foreach(&skills, glist_cb, ch, group, &col);
+	if (col)
 		char_puts("\n", ch);
 }
 
@@ -4629,10 +4625,11 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 }
 
 static void *
-item_cb(void *p, void *d)
+item_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
-	ROOM_INDEX_DATA *in_room = (ROOM_INDEX_DATA *) d;
+
+	ROOM_INDEX_DATA *in_room = va_arg(ap, ROOM_INDEX_DATA *);
 
 	if (in_room->vnum == clan->altar_vnum)
 		return p;

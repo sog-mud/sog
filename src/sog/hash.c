@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.6 1999-11-18 18:41:32 fjoe Exp $
+ * $Id: hash.c,v 1.7 1999-11-22 14:54:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -143,17 +143,23 @@ hash_random_item(hash_t *h)
  *		   if `cb' returns value < 0 then hash_foreach will
  *		   exit immediately
  */
-void *hash_foreach(hash_t *h, void *(*cb)(void *p, void *d), void *d)
+void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 {
 	int i;
-
+	void *rv = NULL;
+	va_list ap;
+	
+	va_start(ap, cb);
 	for (i = 0; i < h->hsize; i++) {
 		void *p;
-		if ((p = varr_foreach(h->v + i, cb, d)) != NULL)
-			return p;
+		if ((p = varr_anforeach(h->v + i, 0, cb, ap)) != NULL) {
+			rv = p;
+			break;
+		}
 	}
+	va_end(ap);
 
-	return NULL;
+	return rv;
 }
 
 /*-------------------------------------------------------------------

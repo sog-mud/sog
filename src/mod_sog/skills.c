@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.83 1999-11-19 13:05:27 fjoe Exp $
+ * $Id: skills.c,v 1.84 1999-11-22 14:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,29 +176,24 @@ void set_skill(CHAR_DATA *ch, const char *sn, int percent)
 	_set_skill(ch, sn, percent, TRUE);
 }
 
-typedef struct apply_sa_t {
-	skill_t *	sk;
-	int		percent;
-	int		mod;
-} apply_sa_t;
-
 static void *
-apply_sa_cb(void *p, void *d)
+apply_sa_cb(void *p, va_list ap)
 {
 	saff_t *sa = (saff_t *) p;
-	apply_sa_t *sa_data = (apply_sa_t *) d;
 
-	skill_t *sk = sa_data->sk;
+	skill_t *sk = va_arg(ap, skill_t *);
+	int percent = va_arg(ap, int);
+	int *pmod = va_arg(ap, int *);
 
 	if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
 	     !IS_SKILL(sa->sn, sk->name))
 	||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
 	     IS_SET(sk->skill_flags, SKILL_CLAN))
 	||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
-	     !sa_data->percent))
+	     !percent))
 		return NULL;
 
-	sa_data->mod += sa->mod;
+	(*pmod) += sa->mod;
 	return NULL;
 }
 
@@ -207,13 +202,9 @@ apply_sa_cb(void *p, void *d)
  */
 int get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 {
-	apply_sa_t sa_data;
-
-	sa_data.sk = sk;
-	sa_data.percent = percent;
-	sa_data.mod = 0;
-	varr_foreach(&ch->sk_affected, apply_sa_cb, &sa_data);
-	return sa_data.mod;
+	int mod = 0;
+	varr_foreach(&ch->sk_affected, apply_sa_cb, sk, percent, &mod);
+	return mod;
 }
 
 /* for returning skill information */
@@ -259,7 +250,7 @@ void *skill_vsearch(varr *v, const char *psn)
 {
 	if (IS_NULLSTR(psn))
 		return NULL;
-	return varr_foreach(v, strkey_search_cb, (void*) psn);
+	return varr_foreach(v, strkey_search_cb, psn);
 }
 
 /* for returning weapon information */
@@ -430,10 +421,11 @@ int skill_level(CHAR_DATA *ch, const char *sn)
 }
 
 static void *
-skill_slot_cb(void *p, void *d)
+skill_slot_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t *) p;
-	int slot = *(int *) d;
+
+	int slot = va_arg(ap, int);
 
 	if (sk->slot == slot)
 		return (void*) sk->name;
@@ -451,7 +443,7 @@ const char *skill_slot_lookup(int slot)
 	if (slot <= 0)
 		return NULL;
 
-	sn = hash_foreach(&skills, skill_slot_cb, &slot);
+	sn = hash_foreach(&skills, skill_slot_cb, slot);
 	if (IS_NULLSTR(sn))
 		db_error("skill_slot_lookup", "unknown slot %d", slot);
 	return str_qdup(sn);

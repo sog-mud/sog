@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.251 1999-11-22 10:16:44 kostik Exp $
+ * $Id: merc.h,v 1.252 1999-11-22 14:54:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -77,6 +77,7 @@
 #include "strkey_hash.h"
 #include "flag.h"
 #include "cmd.h"
+#include "cc_rule.h"
 
 #include "tables.h"
 #include "comm.h"
@@ -1524,6 +1525,7 @@ struct obj_index_data
 	int 			limit;
 	OPROG_FUN **		oprogs;
 	flag32_t		gender;
+	cc_ruleset_t		cc_rules;
 };
 
 /*
@@ -2196,7 +2198,7 @@ void	area_update	(void);
 void	room_update	(void);
 void	track_update	(void);
 void	obj_update	(void);
-void *	clan_item_update_cb(void *p, void *d);
+void *	clan_item_update_cb(void *p, va_list ap);
 void	weather_update	(void);
 
 flag32_t wiznet_lookup	(const char *name);

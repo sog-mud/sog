@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.79 1999-10-26 13:52:50 fjoe Exp $
+ * $Id: olc.c,v 1.80 1999-11-22 14:54:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -120,7 +120,7 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
 int _module_load(module_t *m)
 {
-	cmd_foreach(CC_OLC, m, cmd_load);
+	varr_foreach(&commands, cmd_load_cb, CC_OLC, m);
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL)
 		wizlog("_module_load: %s", dlerror());
@@ -142,7 +142,7 @@ int _module_unload(module_t *m)
 		edit_done(d);
 	}
 
-	cmd_foreach(CC_OLC, m, cmd_unload);
+	varr_foreach(&commands, cmd_unload_cb, CC_OLC);
 	olc_interpret = NULL;
 	return 0;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.11 1999-11-19 13:58:18 fjoe Exp $
+ * $Id: olc_class.c,v 1.12 1999-11-22 14:54:24 fjoe Exp $
  */
 
 #include "olc.h"
@@ -95,11 +95,7 @@ olc_cmd_t olc_cmds_class[] =
 	{ NULL }
 };
 
-typedef struct _save_class_t {
-	CHAR_DATA *	ch;
-	bool		found;
-} _save_class_t;
-static void * save_class_cb(void *p, void *d);
+static void * save_class_cb(void *p, va_list ap);
 
 OLC_FUN(classed_create)
 {
@@ -167,13 +163,11 @@ OLC_FUN(classed_edit)
 
 OLC_FUN(classed_save)
 {
-	_save_class_t sc;
+	bool found = FALSE;
 
 	olc_printf(ch, "Saved classes:");
-	sc.ch = ch;
-	sc.found = FALSE;
-	hash_foreach(&classes, save_class_cb, &sc);
-	if (!sc.found)
+	hash_foreach(&classes, save_class_cb, ch, &found);
+	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
 }
@@ -591,11 +585,13 @@ bool touch_class(class_t *class)
 }
 
 static void *
-whoname_cb(void *p, void *d)
+whoname_cb(void *p, va_list ap)
 {
 	class_t *cl = (class_t *) p;
 
-	if (!str_cmp(cl->who_name, d))
+	const char *arg = va_arg(ap, const char *);
+
+	if (!str_cmp(cl->who_name, arg))
 		return p;
 
 	return NULL;
@@ -613,7 +609,7 @@ static VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	if ((cl2 = hash_foreach(&classes, whoname_cb, (void*) arg)) != NULL
+	if ((cl2 = hash_foreach(&classes, whoname_cb, arg)) != NULL
 	&&  cl2 != cl) {
 		char_printf(ch, "ClassEd: %s: duplicate class whoname.\n", arg);
 		return FALSE;
@@ -625,17 +621,19 @@ static VALIDATE_FUN(validate_whoname)
 #define PROC_STR(s)	((s) ? (s) : (str_empty))
 
 static void *
-save_class_cb(void *p, void *d)
+save_class_cb(void *p, va_list ap)
 {
 	class_t *cl = (class_t *) p;
-	_save_class_t *sc = (_save_class_t *) d;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	bool *pfound = va_arg(ap, bool *);
 
 	int i;
 	FILE *fp;
 	char buf[PATH_MAX];
 
 	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(cl->name), CLASS_EXT);
-	if ((fp = olc_fopen(CLASSES_PATH, buf, sc->ch, -1)) == NULL)
+	if ((fp = olc_fopen(CLASSES_PATH, buf, ch, -1)) == NULL)
 		return NULL;
 
 	REMOVE_BIT(cl->class_flags, RACE_CHANGED);
@@ -688,7 +686,7 @@ save_class_cb(void *p, void *d)
 	fprintf(fp, "#$\n");
 	fclose(fp);
 
-	sc->found = TRUE;
-	olc_printf(sc->ch, "    %s (%s)", cl->name, buf);
+	olc_printf(ch, "    %s (%s)", cl->name, buf);
+	*pfound = TRUE;
 	return NULL;
 }

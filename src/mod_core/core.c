@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.6 1999-09-08 10:39:46 fjoe Exp $
+ * $Id: core.c,v 1.7 1999-11-22 14:54:21 fjoe Exp $
  */
 
 #include <errno.h>
@@ -37,7 +37,7 @@
 
 int _module_load(module_t *m)
 {
-	cmd_foreach(CC_CORE, m, cmd_load);
+	varr_foreach(&commands, cmd_load_cb, CC_CORE, m);
 	return 0;
 }
 

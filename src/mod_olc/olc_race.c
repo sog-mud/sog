@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.15 1999-11-18 18:41:32 fjoe Exp $
+ * $Id: olc_race.c,v 1.16 1999-11-22 14:54:25 fjoe Exp $
  */
 
 #include "olc.h"
@@ -119,12 +119,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ NULL }
 };
 
-static void * save_race_cb(void *p, void *d);
-
-typedef struct _save_race_t {
-	CHAR_DATA *ch;
-	bool found;
-} _save_race_t;
+static void * save_race_cb(void *p, va_list ap);
 
 OLC_FUN(raceed_create)
 {
@@ -192,13 +187,11 @@ OLC_FUN(raceed_edit)
 
 OLC_FUN(raceed_save)
 {
-	_save_race_t sr;
+	bool found = FALSE;
 
 	olc_printf(ch, "Saved races:");
-	sr.ch = ch;
-	sr.found = FALSE;
-	hash_foreach(&races, save_race_cb, &sr);
-	if (!sr.found)
+	hash_foreach(&races, save_race_cb, ch, &found);
+	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
 }
@@ -679,12 +672,14 @@ bool touch_race(race_t *race)
 }
 
 static void *
-search_whoname_cb(void *p, void *d)
+search_whoname_cb(void *p, va_list ap)
 {
 	race_t *r = (race_t *) p;
 	
+	const char *arg = va_arg(ap, const char *);
+
 	if (r->race_pcdata
-	&&  !str_cmp(r->race_pcdata->who_name, d))
+	&&  !str_cmp(r->race_pcdata->who_name, arg))
 		return p;
 	return NULL;
 }
@@ -700,7 +695,7 @@ static VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	if ((r2 = hash_foreach(&races, search_whoname_cb, (void *) arg)) != NULL
+	if ((r2 = hash_foreach(&races, search_whoname_cb, arg)) != NULL
 	&&  r2 != r) {
 		char_printf(ch, "RaceEd: %s: duplicate race whoname.\n", arg);
 		return FALSE;
@@ -740,10 +735,11 @@ fwrite_rstats(FILE *fp, const char *name, int *stats)
 }
 
 static void *
-save_race_class_cb(void *p, void *d)
+save_race_class_cb(void *p, va_list ap)
 {
 	rclass_t *rcl = (rclass_t *) p;
-	FILE *fp = (FILE *) d;
+
+	FILE *fp = va_arg(ap, FILE *);
 
 	if (!IS_NULLSTR(rcl->name))
 		fprintf(fp, "Class '%s' %d\n", rcl->name, rcl->mult);
@@ -776,10 +772,12 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 }
 
 static void *
-save_race_cb(void *p, void *d)
+save_race_cb(void *p, va_list ap)
 {
 	race_t *r = (race_t *) p;
-	_save_race_t *sr = (_save_race_t *) d;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	bool *pfound = va_arg(ap, bool *);
 
 	FILE *fp;
 	char buf[PATH_MAX];
@@ -788,7 +786,7 @@ save_race_cb(void *p, void *d)
 		return NULL;
 
 	snprintf(buf, sizeof(buf), "%s.%s", strkey_filename(r->name), RACE_EXT);
-	fp = olc_fopen(RACES_PATH, buf, sr->ch, SECURITY_RACE);
+	fp = olc_fopen(RACES_PATH, buf, ch, SECURITY_RACE);
 	if (fp == NULL)
 		return NULL;
 
@@ -822,7 +820,7 @@ save_race_cb(void *p, void *d)
 	fprintf(fp, "#$\n");
 	fclose(fp);
 
-	sr->found = TRUE;
-	olc_printf(sr->ch, "    %s (%s)", r->name, buf);
+	olc_printf(ch, "    %s (%s)", r->name, buf);
+	*pfound = TRUE;
 	return NULL;
 }

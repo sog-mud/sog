@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.4 1999-10-21 12:51:53 fjoe Exp $
+ * $Id: hash.h,v 1.5 1999-11-22 14:54:23 fjoe Exp $
  */
 
 #ifndef _HASH_H_
@@ -56,6 +56,6 @@ void *	hash_replace(hash_t*, const void *k, const void *e);
 
 bool	hash_isempty(hash_t*);
 void *	hash_random_item(hash_t *h);
-void *	hash_foreach(hash_t *h, void *(*cb)(void *p, void *d), void *d);
+void *	hash_foreach(hash_t *h, foreach_cb_t, ...);
 
 #endif

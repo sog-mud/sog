@@ -23,25 +23,23 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.5 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: cc_obj_wear.c,v 1.1 1999-11-22 14:54:24 fjoe Exp $
  */
 
 #include <stdio.h>
+#include "merc.h"
 
-#include "typedef.h"
-#include "varr.h"
-
-#include "module.h"
-#include "cmd.h"
-
-int _module_load(module_t *m)
+bool
+cc_obj_race(const char *arg, void *p)
 {
-	varr_foreach(&commands, cmd_load_cb, CC_ORDINARY, m);
-	return 0;
+	CHAR_DATA *ch = (CHAR_DATA *) p;
+	return _is_name(ch->race, arg, str_cmp);
 }
 
-int _module_unload(module_t *m)
+bool
+cc_obj_class(const char *arg, void *p)
 {
-	varr_foreach(&commands, cmd_unload_cb, CC_ORDINARY);
-	return 0;
+	CHAR_DATA *ch = (CHAR_DATA *) p;
+	return _is_name(ch->class, arg, str_cmp);
 }
+

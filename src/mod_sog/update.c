@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.169 1999-11-22 10:16:45 kostik Exp $
+ * $Id: update.c,v 1.170 1999-11-22 14:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1842,7 +1842,7 @@ void update_handler(void)
 		quest_update(); 
 		obj_update();
 		if (time_info.hour == 0)
-			hash_foreach(&clans, clan_item_update_cb, NULL);
+			hash_foreach(&clans, clan_item_update_cb);
 		check_reboot();
 
 		/* room counting */
@@ -2053,10 +2053,11 @@ void track_update(void)
 }
 
 static void *
-put_back_cb(void *p, void *d)
+put_back_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
-	OBJ_DATA *obj = (OBJ_DATA *) d;
+
+	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
 
 	if (obj->in_room->vnum == clan->altar_vnum)
 		return p;
@@ -2065,7 +2066,7 @@ put_back_cb(void *p, void *d)
 }
 
 void *
-clan_item_update_cb(void *p, void *d)
+clan_item_update_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
 

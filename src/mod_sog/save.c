@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.135 1999-11-22 10:16:45 kostik Exp $
+ * $Id: save.c,v 1.136 1999-11-22 14:54:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -182,26 +182,30 @@ void char_save(CHAR_DATA *ch, int flags)
 }
 
 static void *
-pc_skill_save_cb(void *p, void *d)
+pc_skill_save_cb(void *p, va_list ap)
 {
 	pc_skill_t *pc_sk = (pc_skill_t *) p;
+
+	FILE *fp = va_arg(ap, FILE *);
 
 	if (pc_sk->percent == 0)
 		return NULL;
 
-	fprintf((FILE *) d, "Sk %d '%s'\n", pc_sk->percent, pc_sk->sn);
+	fprintf(fp, "Sk %d '%s'\n", pc_sk->percent, pc_sk->sn);
 	return NULL;
 }
 
 static void *
-spn_save_cb(void *p, void *d)
+spn_save_cb(void *p, va_list ap)
 {
 	const char *spn = *(const char **) p;
+
+	FILE *fp = va_arg(ap, FILE *);
 
 	if (IS_NULLSTR(spn))
 		return NULL;
 
-	fprintf((FILE *) d, "Spec '%s'\n", spn);
+	fprintf(fp, "Spec '%s'\n", spn);
 	return NULL;
 }
 

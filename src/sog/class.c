@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.21 1999-11-18 18:41:32 fjoe Exp $
+ * $Id: class.c,v 1.22 1999-11-22 14:54:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -104,25 +104,21 @@ class_destroy(class_t *cl)
 	varr_destroy(&cl->guilds);
 }
 
-typedef struct _guild_ok_t {
-	int vnum;
-	const char *	cn;
-	const char *	cn_found;
-} _guild_ok_t;
-
 static void *
-guild_ok_cb(void *p, void *d)
+guild_ok_cb(void *p, va_list ap)
 {
 	class_t *cl = (class_t *) p;
-	_guild_ok_t *g = (_guild_ok_t *) d;
 
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int vnum = va_arg(ap, int);
+	const char **cn_found = va_arg(ap, const char **);
 	int iGuild;
 
 	for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
-	    	if (g->vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {
-			if (IS_CLASS(cl->name, g->cn))
+	    	if (vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {
+			if (IS_CLASS(cl->name, ch->class))
 				return p;
-			g->cn_found = cl->name;
+			*cn_found = cl->name;
 		}
 	}
 
@@ -134,19 +130,16 @@ guild_ok_cb(void *p, void *d)
  */
 int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 {
-	_guild_ok_t g;
+	const char *cn_found;
 
 	if (!IS_SET(room->room_flags, ROOM_GUILD)
 	||  IS_IMMORTAL(ch))
 		return TRUE;
 
-	g.vnum = room->vnum;
-	g.cn = ch->class;
-	g.cn_found = str_empty;
-	if (hash_foreach(&classes, guild_ok_cb, &g))
+	if (hash_foreach(&classes, guild_ok_cb, ch, room->vnum, &cn_found))
 		return TRUE;
 
-	if (IS_NULLSTR(g.cn_found)) {
+	if (IS_NULLSTR(cn_found)) {
 		/*
 		 * room was not found in the list of guild rooms
 		 * of all classes

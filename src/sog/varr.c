@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.14 1999-11-19 09:07:07 fjoe Exp $
+ * $Id: varr.c,v 1.15 1999-11-22 14:54:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,17 +51,12 @@ void varr_init(varr *v, size_t nsize, size_t nstep)
 	v->e_destroy = NULL;
 }
 
-typedef struct _varr_cpy_t {
-	varr *v;
-	int i;
-} _varr_cpy_t;
-
 static void *
-varr_cpy_cb(void *p, void *d)
+varr_cpy_cb(void *p, va_list ap)
 {
-	_varr_cpy_t *vc = (_varr_cpy_t *) d;
+	varr *v = va_arg(ap, varr *);
 
-	vc->v->e_cpy(VARR_GET(vc->v, vc->i++), p);
+	v->e_cpy(VARR_GET(v, varr_index(v, p)), p);
 	return NULL;
 }
 
@@ -79,21 +74,17 @@ varr_cpy(varr *dst, varr *src)
 	dst->e_destroy = src->e_destroy;
 
 	dst->p = malloc(dst->nsize * dst->nalloc);
-	if (dst->e_cpy) {
-		_varr_cpy_t vc;
-
-		vc.v = dst;
-		vc.i = 0;
-		varr_foreach(src, varr_cpy_cb, &vc);
-	} else
+	if (dst->e_cpy)
+		varr_foreach(src, varr_cpy_cb, dst);
+	else
 		memcpy(dst->p, src->p, dst->nsize * dst->nused);
 	return dst;
 }
 
 static void *
-varr_destroy_cb(void *p, void *d)
+varr_destroy_cb(void *p, va_list ap)
 {
-	varr_e_destroy_t e_destroy = (varr_e_destroy_t) d;
+	varr_e_destroy_t e_destroy = va_arg(ap, varr_e_destroy_t);
 	e_destroy(p);
 	return NULL;
 }
@@ -176,15 +167,54 @@ void *varr_bsearch(varr* v, const void *e,
 	return bsearch(e, v->p, v->nused, v->nsize, cmpfun);
 }
 
-void *varr_nforeach(varr *v, size_t from, void *(*cb)(void*, void*), void *d)
+void *varr_foreach(varr *v, foreach_cb_t cb, ...)
+{
+	void *rv;
+	va_list ap;
+
+	va_start(ap, cb);
+	rv = varr_anforeach(v, 0, cb, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+void *varr_eforeach(varr *v, void *e, foreach_cb_t cb, ...)
+{
+	void *rv;
+	va_list ap;
+
+	va_start(ap, cb);
+	rv = varr_anforeach(v, e ? varr_index(v, e) : 0, cb, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+void *
+varr_nforeach(varr *v, size_t from, foreach_cb_t cb, ...)
+{
+	void *rv;
+	va_list ap;
+
+	va_start(ap, cb);
+	rv = varr_anforeach(v, from, cb, ap);
+	va_end(ap);
+
+	return rv;
+}
+
+void *
+varr_anforeach(varr *v, size_t from, foreach_cb_t cb, va_list ap)
 {
 	size_t i;
 
 	for (i = from; i < v->nused; i++) {
 		void *p;
-		if ((p = cb(VARR_GET(v, i), d)) != NULL)
+		if ((p = cb(VARR_GET(v, i), ap)) != NULL)
 			return p;
 	}
 
 	return NULL;
 }
+

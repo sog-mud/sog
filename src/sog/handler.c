@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.196 1999-11-22 10:16:45 kostik Exp $
+ * $Id: handler.c,v 1.197 1999-11-22 14:54:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2589,12 +2589,14 @@ void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* text)
 }
 
 static void *
-drop_objs_cb(void *p, void *d)
+drop_objs_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
 
-	if (d == clan->obj_ptr) {
-		obj_to_room(d, get_room_index(clan->altar_vnum));
+	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
+
+	if (obj == clan->obj_ptr) {
+		obj_to_room(obj, get_room_index(clan->altar_vnum));
 		return p;
 	}
 

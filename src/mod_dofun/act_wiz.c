@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.196 1999-11-19 12:28:34 fjoe Exp $
+ * $Id: act_wiz.c,v 1.197 1999-11-22 14:54:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -296,7 +296,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg, "clan")) {
-		hash_foreach(&clans, clan_item_update_cb, NULL);
+		hash_foreach(&clans, clan_item_update_cb);
 		char_puts("Clan item location updated.\n", ch);
 		return;
 	}
@@ -1192,10 +1192,11 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 }
 
 static void *
-print_sa_cb(void *p, void *d)
+print_sa_cb(void *p, va_list ap)
 {
 	saff_t *sa = (saff_t *) p;
-	BUFFER *buf = (BUFFER *) d;
+
+	BUFFER *buf = va_arg(ap, BUFFER *);
 
 	buf_printf(buf, "        '%s' by %d",
 		   sa->sn, sa->mod);
@@ -2475,18 +2476,15 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	do_set(ch, str_empty);
 }
 
-typedef struct _sset_t _sset_t;
-struct _sset_t {
-	CHAR_DATA *victim;
-	int	val;
-};
-
 static void *
-sset_cb(void *p, void *d)
+sset_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
-	_sset_t *_s = (_sset_t*) d;
-	set_skill(_s->victim, sk->name, _s->val);
+
+	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
+	int val = va_arg(ap, int);
+
+	set_skill(victim, sk->name, val);
 	return NULL;
 }
 
@@ -2535,8 +2533,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg2, "all")) {
-		_sset_t _s = { victim, value };
-		hash_foreach(&skills, sset_cb, &_s);
+		hash_foreach(&skills, sset_cb, victim, value);
 		char_puts("Ok.\n", ch);
 	} else {
 		const char *sn;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.184 1999-11-19 12:28:37 fjoe Exp $
+ * $Id: db.c,v 1.185 1999-11-22 14:54:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -142,6 +142,7 @@ const char CMD_CONF		[] = "cmd.conf";	/* commands */
 const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
+const char CC_RULECL_CONF	[] = "cc_rulecl.conf";	/* cc rule classes */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
@@ -446,6 +447,7 @@ void boot_db(void)
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
 	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
+	db_load_file(&db_cc_rulecl, ETC_PATH, CC_RULECL_CONF);
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);
@@ -816,10 +818,11 @@ void area_update(void)
 }
 
 static void *
-clan_item_cb(void *p, void *d)
+clan_item_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
-	OBJ_INDEX_DATA *pObjIndex = (OBJ_INDEX_DATA *) d;
+	
+	OBJ_INDEX_DATA *pObjIndex = va_arg(ap, OBJ_INDEX_DATA *);
 
 	if (clan->obj_ptr == NULL
 	||  pObjIndex->vnum != clan->obj_vnum)

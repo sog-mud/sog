@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.100 1999-11-05 05:48:51 kostik Exp $
+ * $Id: tables.c,v 1.101 1999-11-22 14:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1417,6 +1417,15 @@ flag_t cond_table[] =
 	{ "bloodlust",		COND_BLOODLUST,			TRUE	},
 	{ "desire",		COND_DESIRE,			TRUE	},
 
+	{ NULL }
+};
+
+flag_t cc_order_types[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "deny_allow",		RSO_DENY_ALLOW,			TRUE	},
+	{ "allow_deny",		RSO_ALLOW_DENY,			TRUE	},
 
 	{ NULL }
 };

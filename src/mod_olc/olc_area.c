@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.55 1999-11-21 15:56:50 fjoe Exp $
+ * $Id: olc_area.c,v 1.56 1999-11-22 14:54:24 fjoe Exp $
  */
 
 #include "olc.h"
@@ -458,20 +458,15 @@ static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta);
 static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta);
 static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta);
 
-typedef struct _move_clan_t {
-	AREA_DATA *pArea;
-	int delta;
-	bool touched;
-} _move_clan_t;
-
 static void *
-move_clan_cb(void *p, void *d)
+move_clan_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
-	_move_clan_t *mc = (_move_clan_t *) d;
 
-	AREA_DATA *pArea = mc->pArea;
-	int delta = mc->delta;
+	AREA_DATA *pArea = va_arg(ap, AREA_DATA *);
+	int delta = va_arg(ap, int);
+	bool *ptouched = va_arg(ap, bool *);
+
 	bool touched = FALSE;
 
 	MOVE(clan->altar_vnum);
@@ -481,18 +476,20 @@ move_clan_cb(void *p, void *d)
 
 	if (touched) {
 		touch_clan(clan);
-		mc->touched = TRUE;
+		*ptouched = TRUE;
 	}
 	return NULL;
 }
 
 static void *
-move_print_clan_cb(void *p, void *d)
+move_print_clan_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
 
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+
 	if (IS_SET(clan->clan_flags, CLAN_CHANGED))
-		char_printf(d, "- %s\n", clan->name);
+		char_printf(ch, "- %s\n", clan->name);
 	return NULL;
 }
 
@@ -501,10 +498,9 @@ VALIDATE_FUN(validate_move)
 	int i;
 	int new_min = *(int*) arg;
 	int delta, oldmin, oldmax;
-	bool touched;
+	bool touched = FALSE;
 	AREA_DATA *pArea;
 	MPCODE *mpc;
-	_move_clan_t mc;
 	EDIT_AREA(ch, pArea);
 
 	if (PC(ch)->security < SECURITY_AREA_CREATE) {
@@ -531,11 +527,8 @@ VALIDATE_FUN(validate_move)
 /* everything is ok -- change vnums of all rooms, objs, mobs in area */
 
 /* fix clan recall, item and altar vnums */
-	mc.pArea = pArea;
-	mc.delta = delta;
-	mc.touched = FALSE;
-	hash_foreach(&clans, move_clan_cb, &mc);
-	if ((touched = mc.touched)) {
+	hash_foreach(&clans, move_clan_cb, pArea, delta, &touched);
+	if (touched) {
 		char_puts("AreaEd: Changed clans:\n", ch);
 		hash_foreach(&clans, move_print_clan_cb, ch);
 	}

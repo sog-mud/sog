@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.207 1999-11-19 12:28:36 fjoe Exp $
+ * $Id: comm.c,v 1.208 1999-11-22 14:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1684,47 +1684,46 @@ static void print_hometown(CHAR_DATA *ch)
 	ch->desc->connected = CON_PICK_HOMETOWN;
 }
 
-typedef struct _print_t {
-	CHAR_DATA *ch;
-	int col;
-} _print_t;
-
 static void
-print_cb(_print_t *pd, const char *s)
+print_cb(const char *s, CHAR_DATA *ch, int *pcol)
 {
-	if (pd->col > 60) {
-		char_puts("\n  ", pd->ch);
-		pd->col = 0;
+	if (*pcol > 60) {
+		char_puts("\n  ", ch);
+		*pcol = 0;
 	}
 
-	char_printf(pd->ch, "(%s) ", s);
-	pd->col += strlen(s) + 3;
+	char_printf(ch, "(%s) ", s);
+	*pcol += strlen(s) + 3;
 }
 
 static void *
-print_race_cb(void *p, void *d)
+print_race_cb(void *p, va_list ap)
 {
 	race_t *r = (race_t *) p;
-	_print_t *pd = (_print_t *) d;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int *pcol = va_arg(ap, int *);
 
         if (!r->race_pcdata
 	||  r->race_pcdata->classes.nused == 0)
 		return NULL;
 
-	print_cb(pd, r->name);
+	print_cb(r->name, ch, pcol);
 	return NULL;
 }
 
 static void *
-print_class_cb(void *p, void *d)
+print_class_cb(void *p, va_list ap)
 {
 	class_t *cl = (class_t *) p;
-	_print_t *pd = (_print_t *) d;
 
-	if (!class_ok(pd->ch, cl))
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int *pcol = va_arg(ap, int *);
+
+	if (!class_ok(ch, cl))
 		return NULL;
 
-	print_cb(pd, cl->name);
+	print_cb(cl->name, ch, pcol);
 	return NULL;
 }
 
@@ -1757,7 +1756,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	int size;
 	race_t *r;
 	class_t *cl;
-	_print_t pd;
+	int col;
 
 	while (isspace(*argument))
 		argument++;
@@ -2045,12 +2044,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (r == NULL
 		||  !r->race_pcdata
 		||  r->race_pcdata->classes.nused == 0) {
-			pd.ch = ch;
-			pd.col = 0;
-
 			char_puts("That is not a valid race.\n", ch);
 			char_puts("The following races are available:\n  ", ch);
-			hash_foreach(&races, print_race_cb, &pd);
+			col = 0;
+			hash_foreach(&races, print_race_cb, ch, &col);
 			char_puts("\n", ch);
 			char_puts("What is your race ('help <race>' for more information)? ", ch);
 			break;
@@ -2094,9 +2091,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		dofun("help", ch, "'CLASS HELP'");
 
 		char_puts("The following classes are available:\n", ch);
-		pd.ch = ch;
-		pd.col = 0;
-		hash_foreach(&classes, print_class_cb, &pd);
+		col = 0;
+		hash_foreach(&classes, print_class_cb, ch, &col);
 	        char_puts("\n", ch);
 		char_puts("What is your class ('help <class>' for more information)? ", ch);
 		d->connected = CON_GET_NEW_CLASS;

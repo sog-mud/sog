@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.50 1999-10-21 12:51:59 fjoe Exp $
+ * $Id: clan.c,v 1.51 1999-11-22 14:54:25 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -118,11 +118,13 @@ void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 }
 
 static void *
-item_ok_cb(void *p, void *d)
+item_ok_cb(void *p, va_list ap)
 {
 	clan_t *clan = (clan_t *) p;
 
-	if (*(int *) d == clan->altar_vnum)
+	int room_in_vnum = va_arg(ap, int);
+
+	if (room_in_vnum == clan->altar_vnum)
 		return p;
 	return NULL;
 }
@@ -148,7 +150,7 @@ bool clan_item_ok(const char *cln)
 	if (room_in == clan->altar_vnum)
 		return TRUE;
 
-	if (hash_foreach(&clans, item_ok_cb, &room_in) != NULL)
+	if (hash_foreach(&clans, item_ok_cb, room_in) != NULL)
 		return FALSE;
 
 	return TRUE;

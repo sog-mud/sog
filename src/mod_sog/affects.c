@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.8 1999-11-19 09:07:06 fjoe Exp $
+ * $Id: affects.c,v 1.9 1999-11-22 14:54:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -125,18 +125,13 @@ void affect_enchant(OBJ_DATA *obj)
 	}
 }
  
-typedef struct remove_sa_t {
-	varr *v;
-	AFFECT_DATA *paf;
-} remove_sa_t;
-
 static void *
-remove_sa_cb(void *p, void *d)
+remove_sa_cb(void *p, va_list ap)
 {
 	saff_t *sa = (saff_t *) p;
-	remove_sa_t *rsa = (remove_sa_t *) d;
 
-	AFFECT_DATA *paf = rsa->paf;
+	varr *v = va_arg(ap, varr *);
+	AFFECT_DATA *paf = va_arg(ap, AFFECT_DATA *);
 
 	if (!IS_SKILL(sa->sn, paf->location.s)
 	||  !IS_SKILL(sa->type, paf->type)
@@ -144,7 +139,7 @@ remove_sa_cb(void *p, void *d)
 	||  sa->bit != paf->bitvector)
 		return NULL;
 
-	varr_edelete(rsa->v, p);
+	varr_edelete(v, p);
 
 	/*
 	 * restart from this place
@@ -168,15 +163,12 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			sa->mod = paf->modifier;
 			sa->bit =  paf->bitvector;
 		} else {
-			remove_sa_t rsa;
 			void *p = NULL;
-
-			rsa.v = &ch->sk_affected;
-			rsa.paf = paf;
 
 			do {
 				p = varr_eforeach(&ch->sk_affected, p,
-						  remove_sa_cb, &rsa);
+						  remove_sa_cb,
+						  &ch->sk_affected, paf);
 			} while (p);
 		}
 		return;

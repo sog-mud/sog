@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.6 1999-10-21 12:51:56 fjoe Exp $
+ * $Id: olc_material.c,v 1.7 1999-11-22 14:54:25 fjoe Exp $
  */
 
 #include "olc.h"
@@ -65,7 +65,7 @@ olc_cmd_t olc_cmds_mat[] =
 	{ NULL }
 };
 
-static void *material_save_cb(void *p, void *d);
+static void *material_save_cb(void *p, va_list ap);
 
 OLC_FUN(mated_create)
 {
@@ -128,10 +128,11 @@ OLC_FUN(mated_edit)
 	return FALSE;
 }
 
-static void *material_save_cb(void *p, void *d)
+static void *material_save_cb(void *p, va_list ap)
 {
 	material_t *mat = (material_t *)p;
-	FILE *fp = (FILE *)d;
+
+	FILE *fp = va_arg(ap, FILE *);
 
 	fprintf(fp, "#MATERIAL\n");
 	fprintf(fp, "Name %s~\n", mat->name);

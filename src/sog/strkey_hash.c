@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.3 1999-10-26 13:52:53 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.4 1999-11-22 14:54:27 fjoe Exp $
  */
 
 #include <limits.h>
@@ -71,9 +71,10 @@ strkey_lookup(hash_t *h, const char *name)
 }
 
 void *
-strkey_search_cb(void *p, void *d)
+strkey_search_cb(void *p, va_list ap)
 {
-	if (!str_prefix((const char *) d, *(const char **) p))
+	const char *key = va_arg(ap, const char *);
+	if (!str_prefix(key, *(const char **) p))
 		return p;
 	return NULL;
 }
@@ -98,7 +99,7 @@ strkey_search(hash_t *h, const char *name)
 	/*
 	 * search by prefix
 	 */
-	return hash_foreach(h, strkey_search_cb, (void*) name);
+	return hash_foreach(h, strkey_search_cb, name);
 }
 
 const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
@@ -108,28 +109,23 @@ const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
 	return name;
 }
 
-typedef struct _bufout_t _bufout_t;
-struct _bufout_t {
-	BUFFER *buf;
-	int col;
-};
-
 static void *
-print_name_cb(void *p, void *d)
+print_name_cb(void *p, va_list ap)
 {
-	_bufout_t *_b = (_bufout_t*) d;
+	BUFFER *buf = va_arg(ap, BUFFER *);
+	int *pcol = va_arg(ap, int *);
 
-	if (++_b->col % 4 == 0)
-		buf_add(_b->buf, "\n");
-	buf_printf(_b->buf, "%-19.18s", *(const char**) p);
+	if (++(*pcol) % 4 == 0)
+		buf_add(buf, "\n");
+	buf_printf(buf, "%-19.18s", *(const char**) p);
 	return NULL;
 }
 
 void strkey_printall(hash_t *h, BUFFER *buf)
 {
-	_bufout_t _b = { buf, 0 };
-	hash_foreach(h, print_name_cb, &_b);
-	if (_b.col % 4)
+	int col = 0;
+	hash_foreach(h, print_name_cb, buf, &col);
+	if (col % 4)
 		buf_add(buf, "\n");
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.1 1999-10-12 13:56:16 avn Exp $
+ * $Id: events.c,v 1.2 1999-11-22 14:54:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,8 +37,8 @@
 #include "skills.h"
 #include "module.h"
 
-static void *load_cb(void *p, void *d);
-static void *unload_cb(void *p, void *d);
+static void *load_cb(void *p, va_list ap);
+static void *unload_cb(void *p, va_list ap);
 
 int _module_load(module_t* m)
 {
@@ -48,15 +48,17 @@ int _module_load(module_t* m)
 
 int _module_unload(module_t *m)
 {
-	hash_foreach(&skills, unload_cb, NULL);
+	hash_foreach(&skills, unload_cb);
 	return 0;
 }
 
 static void *
-load_cb(void *p, void *d)
+load_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
-	module_t *m = (module_t *) d;
+
+	module_t *m = va_arg(ap, module_t *);
+
 	event_fun_t *evf;
 
         for (evf = sk->eventlist; evf; evf = evf->next) {
@@ -69,9 +71,10 @@ load_cb(void *p, void *d)
 }
 
 static void *
-unload_cb(void *p, void *d)
+unload_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
+
 	event_fun_t *evf;
 
 	for (evf = sk->eventlist; evf; evf = evf->next)

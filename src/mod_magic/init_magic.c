@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.4 1999-11-19 13:05:28 fjoe Exp $
+ * $Id: init_magic.c,v 1.5 1999-11-22 14:54:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,8 +37,8 @@
 
 #include "module.h"
 
-static void *load_cb(void *p, void *d);
-static void *unload_cb(void *p, void *d);
+static void *load_cb(void *p, va_list ap);
+static void *unload_cb(void *p, va_list ap);
 
 int _module_load(module_t* m)
 {
@@ -53,10 +53,11 @@ int _module_unload(module_t *m)
 }
 
 static void *
-load_cb(void *p, void *d)
+load_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
-	module_t *m = (module_t*) d;
+
+	module_t *m = va_arg(ap, module_t *);
 
 	if (sk->skill_type == ST_SPELL
 	||  sk->skill_type == ST_PRAYER) {
@@ -68,7 +69,7 @@ load_cb(void *p, void *d)
 }
 
 static void *
-unload_cb(void *p, void *d)
+unload_cb(void *p, va_list ap)
 {
 	skill_t *sk = (skill_t*) p;
 

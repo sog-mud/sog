@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.57 1999-10-26 13:52:49 fjoe Exp $
+ * $Id: db.h,v 1.58 1999-11-22 14:54:23 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -97,6 +97,7 @@ struct dbdata {
 #define DBDATA_VALID(dbdata) (!!(dbdata)->tab_sz)
 
 extern DBDATA db_areas;
+extern DBDATA db_cc_rulecl;
 extern DBDATA db_clans;
 extern DBDATA db_classes;
 extern DBDATA db_cmd;
@@ -220,6 +221,7 @@ extern const char CMD_CONF	[];
 extern const char DAMTYPE_CONF	[];
 extern const char MATERIALS_CONF[];
 extern const char LIQUIDS_CONF	[];
+extern const char CC_RULECL_CONF[];
 
 extern const char AREA_LIST	[];
 extern const char LANG_LIST	[];
