@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.59 2002-08-27 08:34:11 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.60 2002-08-27 09:06:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5120,7 +5120,9 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "%30s%s\n", victim->name, PC(victim)->title);
 	buf_printf(output, "{x-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
 
-	if (same_clan || IS_IMMORTAL(ch) || (ch == victim)) {
+	if ((same_clan && inclan)
+	||  IS_IMMORTAL(ch)
+	||  (ch == victim)) {
 		buf_printf(output, " {CLevel     :{x %-3d                       {CAlignment:{x %s %s\n",
 			   victim->level,
 			   flag_string(ethos_table, victim->ethos),
