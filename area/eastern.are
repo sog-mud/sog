@@ -455,7 +455,7 @@ g @rus none~
 #5022
 scroll encrypted свиток~
 @eng an encrypted scroll@rus ~~свиток~~ с зашифрованной надписью~
-@eng An encrypted scroll lies at your feet.@rus Ты видишь cвиток (scroll).~
+@eng An encrypted scroll lies at your feet.@rus Ты видишь свиток (scroll).~
 vellum~
 scroll 0 0 A
 22 'cure blindness' 'remove curse' 'cure poison' ''

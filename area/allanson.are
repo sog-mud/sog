@@ -1,4 +1,4 @@
-#AREADATA
+/AREADATA
 Ver 8
 Name Allanson~
 VNUMs 40200 40599
@@ -79,7 +79,7 @@ owner bar хозяин~
 @eng the bar owner@rus ~~хозяин~~ забегаловки~
 @rus Хозяин (owner) забегаловки вежливо осведомился о твоем заказе.~
 @rus Невысокий пухленький человек. Он улыбается тебе и ждет,
-когда ты cделаешь заказ.
+когда ты сделаешь заказ.
 ~
 human~
 BEGJe 0 H 0 N 0 0
@@ -586,7 +586,7 @@ g @eng none@rus female~
 #40221
 statuette статуэтка undine ундина figurine~
 @eng figurine of the undine@rus ~~статуэтка~~ ундины~
-@eng The saphire statuette of the Undine on the gray granite pedestal.@rus Фигурка ундины (statuettе), сделанная из сапфира, на постаменте из серого мрамора.~
+@eng The saphire statuette of the Undine on the gray granite pedestal.@rus Фигурка ундины (statuette), сделанная из сапфира, на постаменте из серого мрамора.~
 sapphire~
 gem A 0 0
 0 0 0 0 0
