@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.41 2000-06-01 17:57:53 fjoe Exp $
+ * $Id: affects.c,v 1.42 2000-06-01 18:40:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +42,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "merc.h"
 #include "db.h"
 
