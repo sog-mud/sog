@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.388 2004-02-19 16:55:24 fjoe Exp $
+ * $Id: handler.c,v 1.389 2004-02-19 16:57:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -218,24 +218,27 @@ obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 void
 obj_to_char_check(OBJ_DATA *obj, CHAR_DATA *ch)
 {
-	if (!IS_OBJ_STAT(obj, ITEM_NODROP)) {
-		if (!can_carry_more_n(ch, get_obj_number(obj))) {
-			act("You have your hands full and drop $p.",
-			    ch, obj, NULL, TO_CHAR);
-			act("$n has $s hands full and drops $p.",
-			    ch, obj, NULL, TO_ROOM);
-			obj_to_room(obj, ch->in_room);
-			return;
-		}
+	if (IS_OBJ_STAT(obj, ITEM_NODROP)) {
+		obj_to_char(obj, ch);
+		return;
+	}
 
-		if (!can_carry_more_w(ch, get_obj_weight(obj))) {
-			act("You can't carry that much weight and drop $p.",
-			    ch, obj, NULL, TO_CHAR);
-			act("$n can't carry that much weight and drops $p.",
-			    ch, obj, NULL, TO_ROOM);
-			obj_to_room(obj, ch->in_room);
-			return;
-		}
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
+		act("You have your hands full and drop $p.",
+		    ch, obj, NULL, TO_CHAR);
+		act("$n has $s hands full and drops $p.",
+		    ch, obj, NULL, TO_ROOM);
+		obj_to_room(obj, ch->in_room);
+		return;
+	}
+
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
+		act("You can't carry that much weight and drop $p.",
+		    ch, obj, NULL, TO_CHAR);
+		act("$n can't carry that much weight and drops $p.",
+		    ch, obj, NULL, TO_ROOM);
+		obj_to_room(obj, ch->in_room);
+		return;
 	}
 
 	obj_to_char(obj, ch);
