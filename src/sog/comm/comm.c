@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.90 1998-09-10 22:07:52 fjoe Exp $
+ * $Id: comm.c,v 1.91 1998-09-10 22:26:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3114,7 +3114,9 @@ void resolv_done()
 	log_printf("resolv_done: %s@%s", buf, host);
 
 	for (d = descriptor_list; d; d = d->next) {
-		if (d->host || str_cmp(buf, d->character->name))
+		if (d->host
+		||  d->character == NULL
+		||  str_cmp(buf, d->character->name))
 			continue;
 		d->host = str_dup(host);
 		return;
