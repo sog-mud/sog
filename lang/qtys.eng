@@ -1,11 +1,35 @@
 #RULE
+Name notes~
+BaseLen 5
+Form 1 note~
+End
+
+#RULE
 Name gold coins~
 Form 1 gold coin~
 End
 
 #RULE
+Name articles~
+BaseLen 8
+Form 1 article~
+End
+
+#RULE
+Name are~
+BaseLen 3
+Form 1 is~
+End
+
+#RULE
 Name silver coins~
 Form 1 silver coin~
+End
+
+#RULE
+Name ideas~
+BaseLen 5
+Form 1 idea~
 End
 
 #RULE
@@ -29,6 +53,12 @@ Form 1 civilian~
 End
 
 #RULE
+Name changes~
+BaseLen 7
+Form 1 change~
+End
+
+#RULE
 Name coins~
 Form 1 coin~
 End
@@ -36,6 +66,12 @@ End
 #RULE
 Name pieces~
 Form 1 piece~
+End
+
+#RULE
+Name lines~
+BaseLen 5
+Form 1 line~
 End
 
 #RULE
@@ -53,9 +89,12 @@ Name th~
 Form 1 st~
 Form 2 nd~
 Form 3 rd~
-Form 11 th~
-Form 12 th~
-Form 13 th~
+End
+
+#RULE
+Name messages~
+BaseLen 8
+Form 1 message~
 End
 
 #$

@@ -15,6 +15,14 @@ Form 3 -ие~
 End
 
 #RULE
+Name -шелся~
+BaseLen -4
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name -ой~
 BaseLen -2
 Form 1 -ая~
@@ -24,10 +32,18 @@ End
 
 #RULE
 Name -лся~
-BaseLen -3
-Form 1 -лась~
-Form 2 -лось~
-Form 3 -лись~
+BaseLen -2
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
+Name -шел~
+BaseLen -2
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -103,6 +119,14 @@ Form 3 -ат~
 End
 
 #RULE
+Name -им~
+BaseLen -2
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
 Name -чит~
 BaseLen -2
 Form 1 -ит~
@@ -116,6 +140,14 @@ BaseLen -2
 Form 1 -ит~
 Form 2 -ит~
 Form 3 -ят~
+End
+
+#RULE
+Name -ым~
+BaseLen -2
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
 End
 
 #$
