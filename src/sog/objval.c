@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.20 2002-03-20 20:14:38 fjoe Exp $
+ * $Id: objval.c,v 1.21 2003-03-16 16:46:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,6 +41,9 @@
  * As three blind mice?
  *
  */
+
+static int objval_set_spell(BUFFER *output, vo_t *v, int value_num,
+			    const char *argument);
 
 void
 objval_init(flag_t item_type, vo_t *v)
@@ -86,6 +89,12 @@ objval_init(flag_t item_type, vo_t *v)
 		INT(v[2]) = 0;
 		INT(v[3]) = 0;
 		v[4].s = str_empty;
+		break;
+
+	case ITEM_HERB:
+		v[0].s = str_empty;
+		for (i = 1; i < 5; i++)
+			INT(v[i]) = 0;
 		break;
 	}
 }
@@ -139,6 +148,12 @@ objval_cpy(flag_t item_type, vo_t *dst, vo_t *src)
 		dst[3] = src[3];
 		dst[4].s = str_qdup(src[4].s);
 		break;
+
+	case ITEM_HERB:
+		dst[0].s = str_qdup(src[0].s);
+		for (i = 1; i < 5; i++)
+			dst[i] = src[i];
+		break;
 	}
 }
 
@@ -169,6 +184,10 @@ objval_destroy(flag_t item_type, vo_t *v)
 	case ITEM_BOOK:
 		free_string(v[1].s);
 		free_string(v[4].s);
+		break;
+
+	case ITEM_HERB:
+		free_string(v[0].s);
 		break;
 	}
 }
@@ -289,6 +308,14 @@ fwrite_objval(flag_t item_type, vo_t *v, FILE *fp)
 			INT(v[3]),
 			INT(v[4]));
 		break;
+	case ITEM_HERB:
+		fprintf(fp, "'%s' %d %d %d %d\n",
+			STR(v[0]),
+			INT(v[1]),
+			INT(v[2]),
+			INT(v[3]),
+			INT(v[4]));
+		break;
 	}
 }
 
@@ -346,6 +373,11 @@ fread_objval(flag_t item_type, vo_t *v, rfile_t *fp)
 		INT(v[2]) = fread_number(fp);
 		INT(v[3]) = fread_fword(fail_effects, fp);
 		STR_ASSIGN(v[4], fread_sword(fp));
+		break;
+	case ITEM_HERB:
+		STR_ASSIGN(v[0], fread_strkey(fp, &skills));
+		for (i = 1; i < 5; i++)
+			INT(v[i]) = fread_number(fp);
 		break;
 	}
 }
@@ -535,6 +567,18 @@ objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 			SFLAGS(fail_effects, v[3]),
 			STR(v[4]));
 		break;
+
+	case ITEM_HERB:
+		buf_printf(output, BUF_END,
+			"[v0] Spell:       [%s]\n"
+			"[v1] Hit points:  [%d]\n"
+			"[v2] Mana:        [%d]\n"
+			"[v3] Moves:       [%d]\n",
+			STR(v[0]),
+			INT(v[1]),
+			INT(v[2]),
+			INT(v[3]));
+		break;
 	}
 }
 
@@ -586,21 +630,8 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			INT(v[2]) = atoi(argument);
 			break;
 		case 3:
-			if (!str_cmp(argument, "none")) {
-				STR_ASSIGN(v[3], str_empty);
-				break;
-			}
-
-			if (!str_cmp(argument, "?")
-			||  (sk = skill_search(argument, ST_SPELL | ST_PRAYER)) == NULL) {
-				skills_dump(output, ST_SPELL | ST_PRAYER);
-				return 2;
-			}
-
-			buf_append(output, "SPELL/PRAYER TYPE SET.\n");
-			STR_ASSIGN(v[3],
-				   str_qdup(gmlstr_mval(&sk->sk_name)));
-			break;
+			return objval_set_spell(output, v, 3, argument);
+			/* NOTREACHED */
 		}
 		break;
 
@@ -616,23 +647,8 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 		case 2:
 		case 3:
 		case 4:
-			if (!str_cmp(argument, "none")) {
-				STR_ASSIGN(v[value_num],
-					       str_empty);
-				break;
-			}
-
-			if (!str_cmp(argument, "?")
-			||  (sk = skill_search(argument, ST_SPELL | ST_PRAYER)) == 0) {
-				skills_dump(output, ST_SPELL | ST_PRAYER);
-				return 2;
-			}
-
-			buf_printf(output, BUF_END,
-				   "SPELL/PRAYER TYPE %d SET.\n\n", value_num);
-			STR_ASSIGN(v[value_num],
-				   str_qdup(gmlstr_mval(&sk->sk_name)));
-			break;
+			return objval_set_spell(output, v, value_num, argument);
+			/* NOTREACHED */
 		}
 		break;
 
@@ -922,7 +938,51 @@ objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 			buf_append(output, "SUCCESS MESSAGE SET.\n\n");
 			break;
 		}
+		break;
+
+	case ITEM_HERB:
+		switch (value_num) {
+		case 0:
+			return objval_set_spell(output, v, 0, argument);
+		case 1:
+			buf_append(output, "HIT POINTS SET.\n\n");
+			INT(v[1]) = atoi(argument);
+			break;
+		case 2:
+			buf_append(output, "MANA SET.\n\n");
+			INT(v[2]) = atoi(argument);
+			break;
+		case 3:
+			buf_append(output, "MOVES SET.\n\n");
+			INT(v[3]) = atoi(argument);
+			break;
+		case 4:
+			return 1;
+		}
+		break;
 	}
 
+	return 0;
+}
+
+static int
+objval_set_spell(BUFFER *output, vo_t *v, int value_num, const char *argument)
+{
+	skill_t *sk;
+
+	if (!str_cmp(argument, "none")) {
+		STR_ASSIGN(v[value_num], str_empty);
+		return 0;
+	}
+
+	if (!str_cmp(argument, "?")
+	||  (sk = skill_search(argument, ST_SPELL | ST_PRAYER)) == 0) {
+		skills_dump(output, ST_SPELL | ST_PRAYER);
+		return 2;
+	}
+
+	buf_printf(output, BUF_END,
+	    "SPELL/PRAYER SET.\n\n", value_num);
+	STR_ASSIGN(v[value_num], str_qdup(gmlstr_mval(&sk->sk_name)));
 	return 0;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.395 2002-11-20 20:14:43 fjoe Exp $
+ * $Id: merc.h,v 1.396 2003-03-16 16:46:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -827,6 +827,7 @@ struct wiznet_type
 #define ITEM_JUKEBOX		34
 #define ITEM_TATTOO		35
 #define ITEM_BOOK		36
+#define ITEM_HERB		37
 
 /*
  * obj_data->stat_flags (variable obj flags)
