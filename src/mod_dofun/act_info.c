@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.43 2001-12-10 12:08:23 cs Exp $
+ * $Id: act_info.c,v 1.271.2.44 2001-12-11 14:53:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -304,6 +304,11 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	else
 		char_puts("You can be summoned by anyone.\n",ch);
 
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
+		char_puts("You do not take any giving object.\n",ch);
+	else
+		char_puts("You will take all objects giving to you.\n",ch);
+
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW))
 		char_puts("You do not welcome followers.\n",ch);
 	else
@@ -438,6 +443,22 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Prompt set to '%s'.\n", d->dvdata->prompt);
 }
 
+void do_nogive(CHAR_DATA *ch, const char *argument)
+{
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOGIVE);
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE)) {
+		char_puts("You no longer take any giving objects.\n", ch);
+	}
+	else
+		char_puts("You will take any giving objects.\n", ch);
+
+}
+
 void do_nofollow(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
@@ -446,7 +467,7 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOFOLLOW);
-	if (IS_SET(PC(ch)->plr_flags,PLR_NOFOLLOW)) {
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW)) {
 		char_puts("You no longer accept followers.\n", ch);
 		die_follower(ch);
 	}

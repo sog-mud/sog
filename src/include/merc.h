@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.23 2001-12-10 12:08:20 cs Exp $
+ * $Id: merc.h,v 1.234.2.24 2001-12-11 14:53:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1145,6 +1145,7 @@ enum {
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
 /* RT personal flags */
+#define PLR_NOGIVE		(K)
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)

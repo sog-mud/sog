@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.30 2001-12-08 00:04:06 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.31 2001-12-11 14:53:40 tatyana Exp $
  */
 
 /***************************************************************************
@@ -483,6 +483,12 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
+		if (IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+			act("$N do not wish take any.",
+			    ch, NULL, victim, TO_CHAR);
+			return;
+		}
+
 		if ((!silver && ch->gold < amount)
 		||  (silver && ch->silver < amount)) {
 			char_puts("You haven't got that much.\n", ch);
@@ -589,6 +595,12 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 	if (!can_drop_obj(ch, obj)) {
 		char_puts("You can't let go of it.\n", ch);
+		return;
+	}
+
+	if (IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+		act("$N do not wish take any.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
