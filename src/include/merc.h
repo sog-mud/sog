@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.28 1998-06-10 06:53:04 efdi Exp $
+ * $Id: merc.h,v 1.29 1998-06-16 16:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -568,19 +568,22 @@ struct	class_type
 };
 
 
-#define CLASS_WITCH		0
-#define CLASS_CLERIC		1
-#define CLASS_THIEF		2
-#define CLASS_WARRIOR		3
-#define CLASS_PALADIN		4
-#define CLASS_ANTI_PALADIN	5
-#define CLASS_NINJA		6
-#define CLASS_RANGER		7
-#define CLASS_WARLOCK		8
-#define CLASS_SAMURAI		9
-#define CLASS_VAMPIRE		10
-#define CLASS_NECROMANCER	11
-#define CLASS_DUMMY		12
+enum class_names {
+	CLASS_NONE,
+	CLASS_WITCH,
+	CLASS_CLERIC,
+	CLASS_THIEF,
+	CLASS_WARRIOR,
+	CLASS_PALADIN,
+	CLASS_ANTI_PALADIN,
+	CLASS_NINJA,
+	CLASS_RANGER,
+	CLASS_WARLOCK,
+	CLASS_SAMURAI,
+	CLASS_VAMPIRE,
+	CLASS_NECROMANCER,
+	CLASS_DUMMY
+};
 
 #define LANG_COMMON	     0
 #define LANG_HUMAN	     1
@@ -1749,7 +1752,6 @@ struct	kill_data
 
 
 /* quest done by chronos */
-#define IS_ON_QUEST(ch)	(ch->pcdata->questtime > 0)
 #define IS_VAMPIRE(ch)	(!IS_NPC(ch) && IS_SET((ch)->act , PLR_VAMPIRE))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
 #define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act , PLR_NO_TITLE))
@@ -1907,31 +1909,30 @@ struct mem_data
 
 struct mprog_data
 {
-  MPROG_FUN_BRIBE * bribe_prog;
-  MPROG_FUN_ENTRY * entry_prog;
-  MPROG_FUN_GIVE *  give_prog;
-  MPROG_FUN_GREET * greet_prog;
-  MPROG_FUN_FIGHT * fight_prog;
-  MPROG_FUN_DEATH * death_prog;
-  MPROG_FUN_AREA * area_prog;
-  MPROG_FUN_SPEECH * speech_prog;
-
+	MPROG_FUN_BRIBE		*bribe_prog;
+	MPROG_FUN_ENTRY		*entry_prog;
+	MPROG_FUN_GIVE		*give_prog;
+	MPROG_FUN_GREET		*greet_prog;
+	MPROG_FUN_FIGHT		*fight_prog;
+	MPROG_FUN_DEATH		*death_prog;
+	MPROG_FUN_AREA		*area_prog;
+	MPROG_FUN_SPEECH	*speech_prog;
 };
 
 struct oprog_data
 {
-  OPROG_FUN_WEAR *wear_prog;
-  OPROG_FUN_REMOVE *remove_prog;
-  OPROG_FUN_GET *get_prog;
-  OPROG_FUN_DROP *drop_prog;
-  OPROG_FUN_SAC *sac_prog;
-  OPROG_FUN_ENTRY *entry_prog;
-  OPROG_FUN_GIVE *give_prog;
-  OPROG_FUN_GREET *greet_prog;
-  OPROG_FUN_FIGHT *fight_prog;
-  OPROG_FUN_DEATH *death_prog;
-  OPROG_FUN_SPEECH *speech_prog;
-  OPROG_FUN_AREA *area_prog;
+	OPROG_FUN_WEAR		*wear_prog;
+	OPROG_FUN_REMOVE	*remove_prog;
+	OPROG_FUN_GET		*get_prog;
+	OPROG_FUN_DROP		*drop_prog;
+	OPROG_FUN_SAC		*sac_prog;
+	OPROG_FUN_ENTRY		*entry_prog;
+	OPROG_FUN_GIVE		*give_prog;
+	OPROG_FUN_GREET		*greet_prog;
+	OPROG_FUN_FIGHT		*fight_prog;
+	OPROG_FUN_DEATH		*death_prog;
+	OPROG_FUN_SPEECH	*speech_prog;
+	OPROG_FUN_AREA		*area_prog;
 };
 
 
@@ -2036,8 +2037,7 @@ struct	char_data
     int 		status;
     int 		progtypes;
     bool		extracted;
-    char	*	in_mind;
-    int 		quest;
+    char	*in_mind;
     int 		religion;
     CHAR_DATA	*	hunting;	/* hunt data */
     int 		endur;
@@ -2047,7 +2047,6 @@ struct	char_data
     int		i_lang; /* interface language */
     CHAR_DATA *		hunter;	/* who quested to slay */
 };
-
 
 
 /*
@@ -2089,6 +2088,7 @@ struct	pc_data
     int		questtime;	/* quest */
     int		questobj;	/* quest */
     int		questmob;	/* quest */
+    struct qtrouble_data *qtrouble;
     ROOM_INDEX_DATA *	questroom;	/* quest */
     int		race;	/* orginal race for polymorph */
     int		adr_stops_shown;

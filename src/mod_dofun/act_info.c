@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.73 1998-06-15 00:14:39 efdi Exp $
+ * $Id: act_info.c,v 1.74 1998-06-16 16:56:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,6 +64,7 @@
 #include "interp.h"
 #include "update.h"
 #include "util.h"
+#include "quest.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>

@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.5 1998-06-12 14:25:59 fjoe Exp $
+ * $Id: db.h,v 1.6 1998-06-16 16:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -102,6 +102,7 @@ void	bug		(const char *str, int param);
 void	log_printf	(const char *str, ...);
 void	tail_chain	(void);
 
+#define chance(num) (number_range(1, 100) <= num)
 
 /* from db2.c */
 extern int	social_count;

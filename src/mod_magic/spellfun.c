@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.15 1998-06-13 11:55:08 fjoe Exp $
+ * $Id: spellfun.c,v 1.16 1998-06-16 16:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1619,8 +1619,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (count_charmed(ch)) return;
 
-	if (victim == ch)
-	{
+	if (victim == ch) {
 		send_to_char("You like yourself even better!\n\r", ch);
 		return;
 	}

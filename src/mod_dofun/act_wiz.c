@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.20 1998-06-14 13:42:41 efdi Exp $
+ * $Id: act_wiz.c,v 1.21 1998-06-16 16:56:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "resource.h"
 #include "update.h"
 #include "util.h"
+#include "quest.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
@@ -89,7 +90,6 @@ extern int max_on;
 /*
  * Local functions.
  */
-ROOM_INDEX_DATA *	find_location	args((CHAR_DATA *ch, char *arg));
 bool write_to_descriptor  args((int desc, char *txt, int length));
 void reboot_anatolia(void);
 extern int rebooter;

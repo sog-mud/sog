@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.32 1998-06-14 13:42:41 efdi Exp $
+ * $Id: act_quest.c,v 1.33 1998-06-16 16:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,8 +59,10 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <string.h>
 #include <time.h>
+
 #include "merc.h"
 #include "recycle.h"
 #include "db.h"
@@ -69,643 +71,431 @@
 #include "hometown.h"
 #include "magic.h"
 #include "quest.h"
+#include "act_wiz.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
 #	include "compat.h"
 #endif
 
-void do_tell_quest(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
-extern	MOB_INDEX_DATA	*mob_index_hash [MAX_KEY_HASH];
+/* quest items */
+#define QUEST_VNUM_GIRTH	94
+#define QUEST_VNUM_RING		95
+#define QUEST_VNUM_WEAPON	96
 
+#define TROUBLE_MAX 3
 
-/* Local functions */
+static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...);
+static CHAR_DATA *questor_lookup(CHAR_DATA *ch);
+static QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
-void generate_quest	args((CHAR_DATA *ch, CHAR_DATA *questman));
-void quest_update	args((void));
-bool chance		args((int num));
-ROOM_INDEX_DATA *	find_location	args((CHAR_DATA *ch, char *arg));
+static void quest_points(CHAR_DATA *ch, char *arg);
+static void quest_info(CHAR_DATA *ch, char *arg);
+static void quest_time(CHAR_DATA *ch, char *arg);
+static void quest_list(CHAR_DATA *ch, char *arg);
+static void quest_buy(CHAR_DATA *ch, char *arg);
+static void quest_request(CHAR_DATA *ch, char *arg);
+static void quest_complete(CHAR_DATA *ch, char *arg);
+static void quest_trouble(CHAR_DATA *ch, char *arg);
 
-/* CHANCE function. I use this everywhere in my code, very handy :> */
+static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
+			    int item_vnum, int count_max);
 
-bool chance(int num)
-{
-	if (number_range(1,100) <= num) return TRUE;
-	else return FALSE;
-}
+static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor);
+static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor);
+
+enum qitem_type {
+	TYPE_ITEM,
+	TYPE_OTHER
+};
+
+typedef struct qitem_data QITEM_DATA;
+struct qitem_data {
+	char	*name;
+	int	price;
+	int	class;
+	int	vnum;
+	bool	(*do_buy)(CHAR_DATA *ch, CHAR_DATA *questor);
+};
+
+struct qitem_data qitem_table[] = {
+	{ "the Girth of Real Heroism",	1000, CLASS_NONE,
+	   QUEST_VNUM_GIRTH, NULL				},
+
+	{ "the Ring of Real Heroism",	1000, CLASS_NONE,
+	   QUEST_VNUM_RING, NULL				},
+
+	{ "the Real Hero's Weapon",	1000, CLASS_NONE,
+	   QUEST_VNUM_WEAPON, NULL				},
+
+	{ "350,000 gold pieces",	 500, CLASS_NONE,
+	   0, buy_gold						},
+
+	{ "60 practices",		 500, CLASS_NONE,
+	   0, buy_prac						},
+
+	{ "tattoo of your religion",	 200, CLASS_NONE,
+	   0, buy_tattoo					},
+
+	{ "Decrease number of deaths",	  50, CLASS_SAMURAI,
+	   0, buy_death						},
+
+	{ "Katana quest",		 100, CLASS_SAMURAI,
+	   0, buy_katana					},
+
+	{ "Vampire skill",		  50, CLASS_VAMPIRE,
+	   0, buy_vampire					},
+
+	{ NULL }
+};
+
+struct qcmd_data {
+	char *name;
+	void (*do_fn)(CHAR_DATA *ch, char* arg);
+};
+typedef struct qcmd_data QCMD_DATA;
+
+QCMD_DATA qcmd_table[] = {
+	{ "points",	quest_points   },
+	{ "info",	quest_info     },
+	{ "time",	quest_time     },
+	{ "list",	quest_list     },
+	{ "buy",	quest_buy      },
+	{ "request",	quest_request  },
+	{ "complete",	quest_complete },
+	{ "trouble",	quest_trouble  },
+	{ NULL}
+};
 
 /* The main quest function */
-
 void do_quest(CHAR_DATA *ch, char *argument)
 {
-	CHAR_DATA *questman;
-	OBJ_DATA *obj = NULL, *obj_next;
-	OBJ_INDEX_DATA *qinfoobj;
-	MOB_INDEX_DATA *questinfo;
-	char buf [MAX_STRING_LENGTH];
-	char bufvampire[100];
-	char bufsamurai[100];
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	int sn, trouble_vnum = 0, trouble_n;
+	char cmd[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
+	QCMD_DATA *qcmd;
 
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
+	argument = one_argument(argument, cmd);
+	argument = one_argument(argument, arg);
 
 	if (IS_NPC(ch)) 
 		return;
 
-	if (!strcmp(arg1, "info")) {
-		if (IS_ON_QUEST(ch)) {
-			if (ch->pcdata->questmob == -1) {
-				send_to_char(msg(QUEST_IS_ALMOST_COMPLETE, ch), 
-						ch);
-			} else if (ch->pcdata->questobj > 0) {
-				qinfoobj = get_obj_index(ch->pcdata->questobj);
-				if (qinfoobj != NULL) {
-					char_printf(ch, 
-						msg(QUEST_RECOVER_FABLED, ch), 
-						qinfoobj->name);
-					if (ch->pcdata->questroom)
-					  char_printf(ch, 
-					    msg(QUEST_INFO_LOCATION, ch),
-					    ch->pcdata->questroom->area->name, 
-					    ch->pcdata->questroom->name);
-				} else 
-					send_to_char(
-					     msg(QUEST_ARENT_ON_QUEST, ch), ch);
-					return;
-			} else if (ch->pcdata->questmob > 0) {
-				questinfo = 
-				    get_mob_index(ch->pcdata->questmob);
-				if (questinfo != NULL) {
-					char_printf(ch, 
-					    msg(QUEST_SLAY_DREADED, ch),
-					    questinfo->short_descr);
-					if (ch->pcdata->questroom)
-					  char_printf(ch, 
-					    msg(QUEST_INFO_LOCATION, ch),
-					    ch->pcdata->questroom->area->name, 
-					    ch->pcdata->questroom->name);
-				} else 
-					send_to_char(msg(QUEST_ARENT_ON_QUEST, 
-							ch), ch);
-				return;
-			}
-		} else
-			send_to_char(msg(QUEST_ARENT_ON_QUEST, ch), ch);
-		return;
-	}
-
-	if (!strcmp(arg1, "points")) {
-		char_printf(ch, msg(QUEST_YOU_HAVE_D_QP, ch), 
-				ch->pcdata->questpoints);
-		return;
-	} else if (!strcmp(arg1, "time")) {
-		if (!IS_ON_QUEST(ch)) {
-			send_to_char(msg(QUEST_ARENT_ON_QUEST, ch), ch);
-			if (ch->pcdata->questtime < -1) {
-				sprintf(buf, msg(QUEST_D_MIN_REMAINING, ch), 
-					    -ch->pcdata->questtime);
-				send_to_char(buf, ch);
-	    		} else if (ch->pcdata->questtime == -1) {
-				send_to_char(msg(QUEST_LESS_MINUTE, ch), ch);
-	    		}
-		} else if (ch->pcdata->questtime > 0) {
-			char_printf(ch, msg(QUEST_LEFT_FOR_QUEST, ch), 
-					ch->pcdata->questtime);
+	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++)
+		if (str_prefix(cmd, qcmd->name) == 0) {
+			qcmd->do_fn(ch, arg);
+			return;
 		}
-		return;
-	}
+		
+	char_nputs(QUEST_COMMANDS, ch);
+	char_nputs(QUEST_TYPE_HELP_QUEST, ch);
+}
 
-/* Checks for a character in the room with spec_questmaster set. This special
-   procedure must be defined in special.c. You could instead use an
-   ACT_QUESTMASTER flag instead of a special procedure. */
 
-	for (questman = ch->in_room->people; questman != NULL; 
-			questman = questman->next_in_room) {
-		if (!IS_NPC(questman)) 
-			continue;
-		if (questman->spec_fun == spec_lookup("spec_questmaster")) 
+void quest_cancel(CHAR_DATA *ch)
+{
+	CHAR_DATA *fch;
+	ch->pcdata->questtime = 0;
+	ch->pcdata->questgiver = 0;
+	ch->pcdata->questmob = 0;
+	ch->pcdata->questobj = 0;
+	ch->pcdata->questroom = NULL;
+
+	/* remove mob->hunter */
+	for (fch = char_list; fch; fch = fch->next)
+		if (fch->hunter == ch) {
+			fch->hunter = 0;
 			break;
-	}
-
-	if (questman == NULL 
-	    || questman->spec_fun != spec_lookup("spec_questmaster")) {
-		send_to_char(msg(YOU_CANT_DO_THAT_HERE, ch), ch);
-		return;
-	}
-
-	if (questman->fighting != NULL) {
-		send_to_char(msg(QUEST_WAIT_FIGHT_STOPS, ch), ch);
-		return;
-	}
-
-	ch->pcdata->questgiver = questman->pIndexData->vnum;
-
-	if (!strcmp(arg1, "list")) {
-		act_nprintf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
-				QUEST_N_ASKS_LIST);
-		act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
-				QUEST_YOU_ASK_LIST);
-		bufvampire[0] = '\0';
-		if (ch->class == CLASS_VAMPIRE)
-			sprintf(bufvampire,
-				"  50qp...........Vampire skill\n\r");
-		bufsamurai[0] = '\0';
-		if (ch->class == CLASS_SAMURAI)
-			sprintf(bufsamurai,"%s%s",
-				"  50qp...........Decrease number of death\n\r",
-				"  100qp..........Katana quest\n\r");
-			sprintf(buf, 
-			    "%s"
-			    "  1000qp.........the Girth of Real Heroism\n\r"
-			    "  1000qp.........the Ring of Real Heroism\n\r"
-			    "  1000qp.........the Real Hero's Weapon\n\r"
-			    "  500qp..........350,000 gold pieces\n\r"
-			    "  500qp..........60 Practices\n\r"
-			    "  200qp..........tattoo of your religion\n\r"
-			    "%s%s%s", msg(QUEST_ITEMS_AVAIL_PURCHASE, ch),
-			    bufvampire, bufsamurai, msg(QUEST_TYPE_BUY, ch));
-			send_to_char(buf, ch);
-			return;
-	} else if (!strcmp(arg1, "buy")) {
-		if (arg2[0] == '\0') {
-			send_to_char(msg(QUEST_TYPE_BUY, ch), ch);
-			return;
-		} else if (is_name(arg2, "girth")) {
-			if (ch->pcdata->questpoints >= 1000) {
-				ch->pcdata->questpoints -= 1000;
-				obj = create_object(get_obj_index(
-					QUEST_ITEM1), ch->level);
-				if (IS_SET(ch->quest,QUEST_GIRTH) ||
-				    IS_SET(ch->quest,QUEST_GIRTH2) ||
-				    IS_SET(ch->quest,QUEST_GIRTH3))
-					do_tell_quest(ch, questman, 
-					    msg(QUEST_ITEM_BEYOND, ch));
-				else 
-					SET_BIT(ch->quest,QUEST_GIRTH);
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch, questman, buf);
-				return;
-			}
-		} else if (is_name(arg2, "ring")) {
-			if (ch->pcdata->questpoints >= 1000) {
-				ch->pcdata->questpoints -= 1000;
-				obj = create_object(get_obj_index(
-					QUEST_ITEM2), ch->level);
-				if (IS_SET(ch->quest,QUEST_RING) ||
-				    IS_SET(ch->quest,QUEST_RING2) ||
-				    IS_SET(ch->quest,QUEST_RING3))
-					do_tell_quest(ch, questman, 
-					    msg(QUEST_ITEM_BEYOND, ch));
-				else 
-					SET_BIT(ch->quest, QUEST_RING);
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch, questman, buf);
-				return;
-			}
-		} else if (is_name(arg2, "weapon")) {
-			if (ch->pcdata->questpoints >= 1000) {
-				ch->pcdata->questpoints -= 1000;
-				obj = create_object(get_obj_index(
-					QUEST_ITEM3), ch->level);
-				if (IS_SET(ch->quest,QUEST_WEAPON) ||
-				    IS_SET(ch->quest,QUEST_WEAPON2) ||
-				    IS_SET(ch->quest,QUEST_WEAPON3))
-					do_tell_quest(ch, questman, 
-					    msg(QUEST_ITEM_BEYOND, ch));
-				else 
-					SET_BIT(ch->quest,QUEST_WEAPON);
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch, questman, buf);
-				return;
-			}
-		} else if (is_name(arg2, "practices pracs prac practice")) {
-			if (ch->pcdata->questpoints >= 500) {
-				ch->pcdata->questpoints -= 500;
-				ch->practice += 60;
-				act_nprintf(ch, NULL, questman, TO_ROOM,
-					    POS_RESTING, QUEST_N_GIVES_PRACS);
-				act_nprintf(ch, NULL, questman, TO_CHAR, 
-					    POS_DEAD, QUEST_N_GIVES_YOU_PRACS);
-				return;
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-		} else if (is_name(arg2, "vampire")) {
-			if (ch->class != CLASS_VAMPIRE) {
-				sprintf(buf, msg(QUEST_CANT_GAIN_VAMPIRE,ch),
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-			if (ch->pcdata->questpoints >= 50) {
-				ch->pcdata->questpoints -= 50;
-				sn = skill_lookup("vampire");
-				ch->pcdata->learned[sn] = 100;
-				act_nprintf(ch, NULL, questman, TO_ROOM, 
-					   POS_RESTING, QUEST_N_GIVES_SECRET);
-				act_nprintf(ch, NULL, questman, TO_CHAR, 
-					   POS_DEAD, QUEST_N_GIVES_YOU_SECRET);
-				act_nprintf(ch, NULL, questman, TO_ALL, POS_DEAD,
-					    WEATHER_LIGHTNING_FLASHES);
-				return;
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-		} else if (is_name(arg2, "dead samurai death")) {
-			if (ch->class != CLASS_SAMURAI) {
-				sprintf(buf, msg(QUEST_NOT_SAMURAI, ch),
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-
-			if (ch->pcdata->death < 1) {
-				sprintf(buf, msg(QUEST_NO_DEATHS, ch),
-						ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-
-			if (ch->pcdata->questpoints >= 50) {
-				ch->pcdata->questpoints -= 50;
-				ch->pcdata->death -= 1;
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-		} else if (is_name(arg2, "katana sword")) {
-			AFFECT_DATA af;
-			OBJ_DATA *katana;
-			if (ch->class != CLASS_SAMURAI) {
-				sprintf(buf, msg(QUEST_NOT_SAMURAI, ch),
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-
-			if ((katana = get_obj_list(ch,
-				"katana",ch->carrying)) == NULL) {
-				sprintf(buf, msg(QUEST_DONT_HAVE_KATANA, ch),
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-
-			if (ch->pcdata->questpoints >= 100) {
-				ch->pcdata->questpoints -= 100;
-				af.where	= TO_WEAPON;
-				af.type 	= gsn_katana;
-				af.level	= 100;
-				af.duration	= -1;
-				af.modifier	= 0;
-				af.bitvector	= WEAPON_KATANA;
-				af.location	= APPLY_NONE;
-				affect_to_obj(katana, &af);
-				sprintf(buf, msg(QUEST_AS_YOU_WIELD_IT, ch));
-				do_tell_quest(ch,questman,buf);
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch,questman,buf);
-				return;
-			}
-		} else if (is_name(arg2, "tattoo religion")) {
-			OBJ_DATA *tattoo;
-			if (!(ch->religion)) {
-				send_to_char(msg(QUEST_NO_RELIGION, ch), ch);
-				return;
-			}
-			tattoo = get_eq_char(ch, WEAR_TATTOO);
-			if (tattoo != NULL) {
-				send_to_char(msg(QUEST_ALREADY_TATTOOED,
-						     ch), ch);
-				return;
-			}
-
-			if (ch->pcdata->questpoints >= 200) {
-				ch->pcdata->questpoints -= 200;
-
-				tattoo = create_object(get_obj_index(
-					religion_table[ch->religion].vnum),100);
-
-				obj_to_char(tattoo, ch);
-				equip_char(ch, tattoo, WEAR_TATTOO);
-				act_nprintf(ch, tattoo, questman, TO_ROOM, 
-						POS_RESTING, QUEST_N_TATTOOS_N);
-				act_nprintf(ch, tattoo, questman, TO_CHAR, 
-						POS_DEAD, QUEST_N_TATTOOS_YOU);
-				return;
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch, questman, buf);
-				return;
-			}
-		} else if (is_name(arg2, "gold gp")) {
-			if (ch->pcdata->questpoints >= 500) {
-				ch->pcdata->questpoints -= 500;
-				ch->gold += 350000;
-				act_nprintf(ch, NULL, questman, TO_ROOM, 
-					POS_RESTING, QUEST_N_GIVES_GOLD);
-				act_nprintf(ch, NULL, questman, TO_CHAR, 
-					POS_DEAD, QUEST_N_GIVES_YOU_GOLD);
-				return;
-			} else {
-				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 
-					ch->name);
-				do_tell_quest(ch, questman, buf);
-				return;
-			}
-		} else {
-			sprintf(buf, msg(QUEST_NOT_HAVE_ITEM, ch), ch->name);
-			do_tell_quest(ch,questman,buf);
 		}
+}
 
-		if (obj != NULL) {
-			if (obj->pIndexData->vnum == QUEST_ITEM1
-		    	|| obj->pIndexData->vnum == QUEST_ITEM2
-		    	|| obj->pIndexData->vnum == QUEST_ITEM3) {
-				sprintf(buf, obj->short_descr,
-					IS_GOOD(ch) ? "holy" :
-						IS_NEUTRAL(ch) ? "blue-green" : 
-								"evil", 
-					ch->name);
-				free_string(obj->short_descr);
-				obj->short_descr = str_dup(buf);
-			}
-			act_nprintf(ch, obj, questman, TO_ROOM, POS_RESTING, 
-					QUEST_GIVES_P_TO_N);
-			act_nprintf(ch, obj, questman, TO_CHAR, POS_DEAD, 
-					QUEST_GIVES_YOU_P);
-			obj_to_char(obj, ch);
-		}
-		return;
-	} else if (!strcmp(arg1, "request")) {
-		act_nprintf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
-				QUEST_N_ASKS_FOR_QUEST);
-		act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
-				QUEST_YOU_ASK_FOR_QUEST);
-		if (IS_ON_QUEST(ch)) {
-	    		sprintf(buf, msg(QUEST_YOU_ALREADY_ON_QUEST, ch));
-	    		do_tell_quest(ch,questman,buf);
-	    		return;
-		} 
+
+/* Called from update_handler() by pulse_area */
+void quest_update(void)
+{
+	CHAR_DATA *ch, *ch_next;
+
+	for (ch = char_list; ch != NULL; ch = ch_next) {
+		ch_next = ch->next;
+
+		if (IS_NPC(ch)) 
+			continue;
 		if (ch->pcdata->questtime < 0) {
-	    		sprintf(buf, msg(QUEST_BRAVE_BUT_LET_SOMEONE_ELSE, ch), 
-				ch->name);
-	    		do_tell_quest(ch,questman,buf);
-			sprintf(buf, msg(QUEST_COME_BACK_LATER, ch));
-			do_tell_quest(ch, questman, buf);
-			return;
-		}
 
-		sprintf(buf, msg(QUEST_THANK_YOU_BRAVE, ch), ch->name);
-		do_tell_quest(ch,questman,buf);
-
-		generate_quest(ch, questman);
-
-		if (ch->pcdata->questmob > 0 
-		    || ch->pcdata->questobj > 0) {
-			ch->pcdata->questtime = number_range(15,30);
-			sprintf(buf, msg(QUEST_YOU_HAVE_D_MINUTES, ch), 
-				ch->pcdata->questtime);
-			do_tell_quest(ch,questman,buf);
-			sprintf(buf, msg(QUEST_MAY_THE_GODS_GO, ch));
-			do_tell_quest(ch, questman, buf);
-		}
-		return;
-	} else if (!strcmp(arg1, "complete")) {
-			act_nprintf(ch, NULL, questman, TO_ROOM, POS_RESTING, 
-					QUEST_INFORMS_COMPLETE);
-			act_nprintf(ch, NULL, questman, TO_CHAR, POS_DEAD, 
-					QUEST_YOU_INFORM_COMPLETE);
-			if (ch->pcdata->questgiver != questman->pIndexData->vnum) {
-				sprintf(buf, vmsg(QUEST_NEVER_QUEST, ch, questman));
-				do_tell_quest(ch,questman,buf);
+			if (!++ch->pcdata->questtime) {
+				char_nputs(QUEST_YOU_MAY_NOW_QUEST_AGAIN, ch);
 				return;
 			}
-
-			if (IS_ON_QUEST(ch)) {
-				if (ch->pcdata->questmob == -1) {
-					int reward = 0, pointreward = 0, 
-					    pracreward = 0, level;
-
-					level = ch->level;
-					reward = dice(level, 30);
-					reward=URANGE(00,reward,20*ch->level);
-					pointreward = number_range(20, 40);
-
-					sprintf(buf, msg(QUEST_GRATS_COMPLETE, 
-						ch));
-					do_tell_quest(ch,questman,buf);
-					sprintf(buf, msg(QUEST_AS_A_REWARD, ch), 
-						pointreward, reward);
-					do_tell_quest(ch, questman, buf);
-					if (chance(2)) {
-					pracreward = number_range(1, 6);
-					sprintf(buf, msg(QUEST_GAIN_PRACS, ch), 
-						pracreward);
-					send_to_char(buf, ch);
-					ch->practice += pracreward;
-					}
-
-					cancel_quest(ch);
-					ch->pcdata->questtime = -5;
-					ch->gold += reward;
-					ch->pcdata->questpoints += pointreward;
-
-					return;
-				} else if (ch->pcdata->questobj > 0) {
-					bool obj_found = FALSE;
-
-					for (obj = ch->carrying; obj != NULL;
-						 obj= obj_next) {
-						obj_next = obj->next_content;
-
-if (obj != NULL && obj->pIndexData->vnum == ch->pcdata->questobj && strstr(obj->extra_descr->description, ch->name) != NULL) {
-							obj_found = TRUE;
-							break;
-						}
-					}
-					if (obj_found == TRUE) {
-						int reward, pointreward, 
-							pracreward;
-
-					reward=number_range(350,20 * ch->level);
-					pointreward = number_range(15,40);
-
-					act_nprintf(ch, obj, questman, TO_CHAR, 
-						POS_DEAD, QUEST_YOU_HAND_P);
-					act_nprintf(ch, obj, questman, TO_ROOM, 
-						POS_RESTING, QUEST_N_HANDS_P);
-
-					sprintf(buf, 
-						msg(QUEST_GRATS_COMPLETE, ch));
-					do_tell_quest(ch,questman,buf);
-					sprintf(buf, msg(QUEST_AS_A_REWARD, ch), 
-							pointreward, reward);
-					do_tell_quest(ch,questman,buf);
-					if (chance(15)) {
-					pracreward = number_range(1, 6);
-						sprintf(buf, 
-						    msg(QUEST_GAIN_PRACS, ch), 
-						    pracreward);
-						send_to_char(buf, ch);
-						ch->practice += pracreward;
-					}
-
-					cancel_quest(ch);
-					ch->pcdata->questtime = -5;
-					ch->gold += reward;
-					ch->pcdata->questpoints += pointreward;
-					extract_obj(obj);
-					return;
-				} else {
-					sprintf(buf, msg(QUEST_HAVENT_COMPLETE, ch));
-					do_tell_quest(ch,questman,buf);
-					return;
-				}
-				return;
-			} else if (ch->pcdata->questmob > 0 
-				    || ch->pcdata->questobj > 0) {
-					sprintf(buf, msg(QUEST_HAVENT_COMPLETE, ch));
-					do_tell_quest(ch,questman,buf);
-					return;
-				}
-			}
-			if (ch->pcdata->questtime < 0)
-				sprintf(buf, 
-					msg(QUEST_DIDNT_COMPLETE_IN_TIME, ch));
-			else 
-				sprintf(buf, msg(QUEST_HAVE_TO_REQUEST, ch), 
-					ch->name);
-			do_tell_quest(ch,questman,buf);
-			return;
-		} else if (!strcmp(arg1, "trouble")) {
-			if (arg2[0] == '\0') {
-				send_to_char(msg(QUEST_TYPE_TROUBLE, ch), ch);
+		} else if (IS_ON_QUEST(ch)) {
+			if (!--ch->pcdata->questtime) {
+				char_nputs(QUEST_RUN_OUT_TIME, ch);
+				char_nputs(QUEST_YOU_MAY_NOW_QUEST_AGAIN, ch);
+				quest_cancel(ch);
+			} else if (ch->pcdata->questtime < 6) {
+				char_nputs(QUEST_BETTER_HURRY, ch);
 				return;
 			}
-
-			trouble_n = 0;
-			if (is_name(arg2, "girth")) {
-				if (IS_SET(ch->quest,QUEST_GIRTH)) {
-					REMOVE_BIT(ch->quest,QUEST_GIRTH);
-					SET_BIT(ch->quest,QUEST_GIRTH2);
-					trouble_n = 1;
-				} else if (IS_SET(ch->quest,QUEST_GIRTH2)) {
-					REMOVE_BIT(ch->quest,QUEST_GIRTH2);
-					SET_BIT(ch->quest,QUEST_GIRTH3);
-					trouble_n = 2;
-				} else if (IS_SET(ch->quest,QUEST_GIRTH3)) {
-					REMOVE_BIT(ch->quest,QUEST_GIRTH3);
-					trouble_n = 3;
-				}
-				if (trouble_n) 
-					trouble_vnum = QUEST_ITEM1;
-			} else if (is_name(arg2, "weapon")) {
-				if (IS_SET(ch->quest,QUEST_WEAPON)) {
-					REMOVE_BIT(ch->quest,QUEST_WEAPON);
-					SET_BIT(ch->quest,QUEST_WEAPON2);
-					trouble_n = 1;
-				} else if (IS_SET(ch->quest,QUEST_WEAPON2)) {
-					REMOVE_BIT(ch->quest,QUEST_WEAPON2);
-					SET_BIT(ch->quest,QUEST_WEAPON3);
-					trouble_n = 2;
-				} else if (IS_SET(ch->quest,QUEST_WEAPON3)) {
-					REMOVE_BIT(ch->quest,QUEST_WEAPON3);
-					trouble_n = 3;
-				}
-			if (trouble_n) 
-				trouble_vnum = QUEST_ITEM3;
-		} else if (is_name(arg2, "ring")) {
-			if (IS_SET(ch->quest,QUEST_RING)) {
-				REMOVE_BIT(ch->quest,QUEST_RING);
-				SET_BIT(ch->quest,QUEST_RING2);
-				trouble_n = 1;
-			} else if (IS_SET(ch->quest,QUEST_RING2)) {
-				REMOVE_BIT(ch->quest,QUEST_RING2);
-				SET_BIT(ch->quest,QUEST_RING3);
-				trouble_n = 2;
-			} else if (IS_SET(ch->quest,QUEST_RING3)) {
-				REMOVE_BIT(ch->quest,QUEST_RING3);
-				trouble_n = 3;
-			}
-			if (trouble_n) 
-				trouble_vnum = QUEST_ITEM2;
 		}
-		if (!trouble_n) {
-			sprintf(buf, msg(QUEST_HAVENT_BOUGHT, ch), ch->name);
-			do_tell_quest(ch,questman,buf);
-			return;
-		}
-
-		for (obj = object_list; obj != NULL; obj = obj_next) {
-			obj_next = obj->next;
-			if (obj->pIndexData->vnum == trouble_vnum 
-			    && strstr(obj->short_descr, ch->name)) {
-				extract_obj(obj);
-				break;
-			}
-		}
-		obj = create_object(get_obj_index(trouble_vnum),ch->level);
-		sprintf(buf, obj->short_descr,
-				IS_GOOD(ch) ? "holy" :
-				IS_NEUTRAL(ch) ? "blue-green" : "evil", 
-			ch->name);
-		free_string(obj->short_descr);
-		obj->short_descr = str_dup(buf);
-		act_nprintf(ch, obj, questman, TO_ROOM, POS_RESTING, 
-				QUEST_GIVES_P_TO_N);
-		act_nprintf(ch, obj, questman, TO_CHAR, POS_DEAD, 
-				QUEST_GIVES_YOU_P);
-		obj_to_char(obj, ch);
-		sprintf(buf, msg(QUEST_THIS_IS_THE_I_S, ch), trouble_n,
-			(trouble_n == 1) ? msg(QUEST_ST, ch) : 
-				(trouble_n == 2) ? msg(QUEST_ND, ch) : 
-					msg(QUEST_RD, ch));
-		do_tell_quest(ch,questman,buf);
-		if (trouble_n == 3) {
-			sprintf(buf, msg(QUEST_WONT_GIVE_AGAIN, ch));
-			do_tell_quest(ch,questman,buf);
-		}
-		return;
 	}
-
-	send_to_char(msg(QUEST_COMMANDS, ch), ch);
-	send_to_char(msg(QUEST_TYPE_HELP_QUEST, ch), ch);
 	return;
 }
 
+
+void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
+{
+	QTROUBLE_DATA *qt;
+
+	if ((qt = qtrouble_lookup(ch, vnum)) != NULL)
+		qt->count = count;
+	else {
+		qt = alloc_mem(sizeof(*qt));
+		qt->vnum = vnum;
+		qt->count = count;
+		qt->next = ch->pcdata->qtrouble;
+		ch->pcdata->qtrouble = qt;
+	}
+}
+
+
+/* local functions */
+
+static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...)
+{
+	va_list ap;
+	char buf[MAX_STRING_LENGTH];
+
+	va_start(ap, fmt);
+	vsnprintf(buf, sizeof(buf), fmt, ap);
+	va_end(ap);
+
+	act_nprintf(questor, buf, ch, TO_VICT, POS_DEAD, COMM_TELLS_YOU);
+}
+
+
+static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
+{
+	CHAR_DATA *vch;
+	CHAR_DATA *questor = NULL;
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (!IS_NPC(vch)) 
+			continue;
+		if (vch->spec_fun == spec_lookup("spec_questmaster")) {
+			questor = vch;
+			break;
+		}
+	}
+
+	if (questor == NULL) {
+		char_nputs(YOU_CANT_DO_THAT_HERE, ch);
+		return NULL;
+	}
+
+	if (questor->fighting != NULL) {
+		char_nputs(QUEST_WAIT_FIGHT_STOPS, ch);
+		return NULL;
+	}
+
+	return questor;
+}
+
+
+static QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
+{
+	QTROUBLE_DATA *qt;
+
+	for (qt = ch->pcdata->qtrouble; qt != NULL; qt = qt->next)
+		if (qt->vnum == vnum)
+			return qt;
+
+	return NULL;
+}
+
+
+/* quest do functions */
+
+static void quest_points(CHAR_DATA *ch, char* arg)
+{
+	char_nprintf(ch, QUEST_YOU_HAVE_D_QP, ch->pcdata->questpoints);
+}
+
+
+static void quest_info(CHAR_DATA *ch, char* arg)
+{
+	if (!IS_ON_QUEST(ch)) {
+		char_nputs(QUEST_ARENT_ON_QUEST, ch);
+		return;
+	}
+
+	if (ch->pcdata->questmob == -1) {
+		char_nputs(QUEST_IS_ALMOST_COMPLETE, ch);
+		return;
+	}
+
+	if (ch->pcdata->questobj > 0) {
+		OBJ_INDEX_DATA *qinfoobj;
+
+		qinfoobj = get_obj_index(ch->pcdata->questobj);
+		if (qinfoobj != NULL) {
+			char_nprintf(ch, QUEST_RECOVER_FABLED, qinfoobj->name);
+			if (ch->pcdata->questroom)
+				char_nprintf(ch, QUEST_INFO_LOCATION,
+					     ch->pcdata->questroom->area->name, 
+					     ch->pcdata->questroom->name);
+		}
+		else 
+			char_nputs(QUEST_ARENT_ON_QUEST, ch);
+		return;
+	}
+
+	if (ch->pcdata->questmob > 0) {
+		MOB_INDEX_DATA *questinfo;
+
+		questinfo = get_mob_index(ch->pcdata->questmob);
+		if (questinfo != NULL) {
+			char_nprintf(ch, QUEST_SLAY_DREADED,
+				     questinfo->short_descr);
+			if (ch->pcdata->questroom)
+				char_printf(ch, 
+					    msg(QUEST_INFO_LOCATION, ch),
+					    ch->pcdata->questroom->area->name, 
+					    ch->pcdata->questroom->name);
+		} else 
+			char_nputs(QUEST_ARENT_ON_QUEST, ch);
+		return;
+	}
+}
+
+
+static void quest_time(CHAR_DATA *ch, char* arg)
+{
+	if (!IS_ON_QUEST(ch)) {
+		char_nputs(QUEST_ARENT_ON_QUEST, ch);
+		if (ch->pcdata->questtime < -1)
+			char_nprintf(ch, QUEST_D_MIN_REMAINING,
+				     -ch->pcdata->questtime);
+	    	else if (ch->pcdata->questtime == -1)
+			char_nputs(QUEST_LESS_MINUTE, ch);
+	}
+	else
+		char_nprintf(ch, QUEST_LEFT_FOR_QUEST, ch->pcdata->questtime);
+	return;
+}
+
+
+static void quest_list(CHAR_DATA *ch, char *arg)
+{
+	CHAR_DATA *questor;
+	QITEM_DATA *qitem;
+
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
+
+	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING, QUEST_N_ASKS_LIST);
+	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD, 
+		    QUEST_YOU_ASK_LIST);
+
+	char_nputs(QUEST_ITEMS_AVAIL_PURCHASE, ch);
+	for (qitem = qitem_table; qitem->name; qitem++) {
+		if (qitem->class != CLASS_NONE
+		&&  qitem->class != ch->class)
+			continue;
+
+		if (arg[0] != '\0' && !is_name(arg, qitem->name))
+			continue;
+
+		char_printf(ch, "%5dqp...........%s\n\r",
+			    qitem->price, qitem->name);
+	}
+	char_nputs(QUEST_TYPE_BUY, ch);
+}
+
+
+static void quest_buy(CHAR_DATA *ch, char *arg)
+{
+	CHAR_DATA *questor;
+	QITEM_DATA *qitem;
+
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
+
+	if (arg[0] == '\0') {
+		char_nputs(QUEST_TYPE_BUY, ch);
+		return;
+	}
+
+	for (qitem = qitem_table; qitem->name; qitem++)
+		if (is_name(arg, qitem->name)) {
+			bool buy_ok = FALSE;
+
+			if (qitem->class != CLASS_NONE
+			&&  qitem->class != ch->class) {
+				quest_tell(ch, questor,
+					   msg(QUEST_WRONG_CLASS, ch),
+					   ch->name,
+					   class_table[qitem->class].name);
+				return;
+			}
+
+			if (ch->pcdata->questpoints < qitem->price) {
+				quest_tell(ch, questor,
+					   msg(QUEST_NOT_ENOUGH_QP, ch),
+					   ch->name);
+				return;
+			}
+
+			if (qitem->vnum == 0)
+				buy_ok = qitem->do_buy(ch, questor);
+			else
+				buy_ok = quest_give_item(ch, questor,
+						qitem->vnum, 0);
+
+			if (buy_ok) 
+				ch->pcdata->questpoints -= qitem->price;
+			return;
+		}
+
+	quest_tell(ch, questor, msg(QUEST_NOT_HAVE_ITEM, ch), ch->name);
+}
+
+
 #define MAX_QMOB_COUNT 512
 
-void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
+static void quest_request(CHAR_DATA *ch, char *arg)
 {
 	int i;
-	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mobs[MAX_QMOB_COUNT];
 	size_t mob_count;
 	CHAR_DATA *victim = NULL;
 	ROOM_INDEX_DATA* room = NULL; /* disable gcc
 					 'might be used uninitialized'
 					 warning */
+	CHAR_DATA *questor;
+
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
+
+	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING, 
+				QUEST_N_ASKS_FOR_QUEST);
+	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD, 
+				QUEST_YOU_ASK_FOR_QUEST);
+	if (IS_ON_QUEST(ch)) {
+    		quest_tell(ch, questor, msg(QUEST_YOU_ALREADY_ON_QUEST, ch));
+    		return;
+	} 
+
+	if (ch->pcdata->questtime < 0) {
+		quest_tell(ch, questor,
+			   msg(QUEST_BRAVE_BUT_LET_SOMEONE_ELSE, ch), ch->name);
+		quest_tell(ch, questor, msg(QUEST_COME_BACK_LATER, ch));
+		return;
+	}
+
+	quest_tell(ch, questor, msg(QUEST_THANK_YOU_BRAVE, ch), ch->name);
+
 	/*
 	 * find MAX_QMOB_COUNT quest mobs and store their vnums in mob_buf
 	 */
@@ -714,7 +504,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		int diff = victim->level - ch->level;
 
 		if (!IS_NPC(victim)
-		|| (ch->level < 51 && (diff > 4 || diff < -1))
+		||  (ch->level < 51 && (diff > 4 || diff < -1))
 		||  (ch->level > 50 && (diff > 6 || diff < 0))
 		||  victim->pIndexData->pShop != NULL
 		||  IS_SET(victim->pIndexData->act, ACT_TRAIN)
@@ -722,14 +512,14 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		||  IS_SET(victim->pIndexData->act, ACT_IS_HEALER)
 		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
 		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
-		||  questman->pIndexData == victim->pIndexData)
+		||  questor->pIndexData == victim->pIndexData)
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)
 			break;
 	}
 
-	log_printf("generate_quest: %s, %d mobs found", ch->name, mob_count);
+	log_printf("quest_generate: %s, %d mobs found", ch->name, mob_count);
 
 	/*
 	 * randomly select mob vnum
@@ -753,16 +543,14 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	}
 
 	if (victim == NULL) {
-		log_printf("generate_quest: no quests for %s", ch->name);
-		snprintf(buf, sizeof(buf), msg(QUEST_DONT_HAVE_QUESTS, ch));
-		do_tell_quest(ch, questman, buf);
-		snprintf(buf, sizeof(buf), msg(QUEST_TRY_AGAIN_LATER, ch));
-		do_tell_quest(ch, questman, buf);
+		log_printf("quest_generate: no quests for %s", ch->name);
+		quest_tell(ch, questor, msg(QUEST_DONT_HAVE_QUESTS, ch));
+		quest_tell(ch, questor, msg(QUEST_TRY_AGAIN_LATER, ch));
 		ch->pcdata->questtime = -5;
 		return;
 	}
 
-	log_printf("generate_quest: quest for %s (%d): %s (%d, %d), %s (%d)\n",
+	log_printf("quest_generate: quest for %s (%d): %s (%d, %d), %s (%d)\n",
 		   ch->name, ch->level,
 		   victim->name, victim->level, victim->pIndexData->vnum,
 		   room->name, room->vnum);
@@ -803,38 +591,29 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		obj_to_room(eyed, room);
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
 
-		snprintf(buf, sizeof(buf),
-			 msg(QUEST_VILE_PILFERERS, ch), eyed->short_descr);
-		do_tell_quest(ch, questman, buf);
-		do_tell_quest(ch, questman, msg(QUEST_MY_COURT_WIZARDESS, ch));
+		quest_tell(ch, questor, msg(QUEST_VILE_PILFERERS, ch),
+			   eyed->short_descr);
+		quest_tell(ch, questor, msg(QUEST_MY_COURT_WIZARDESS, ch));
 	}
 	else {	/* Quest to kill a mob */
 		if (IS_GOOD(ch)) {
-			snprintf(buf, sizeof(buf),
-				 msg(QUEST_RUNES_MOST_HEINOUS, ch),
-				 victim->short_descr);
-			do_tell_quest(ch, questman, buf);
-			snprintf(buf, sizeof(buf),
-				 vmsg(QUEST_HAS_MURDERED, ch, victim),
-				 victim->short_descr, number_range(2,20));
-			do_tell_quest(ch, questman, buf);
-			do_tell_quest(ch, questman,
-				      msg(QUEST_THE_PENALTY_IS, ch));
+			quest_tell(ch, questor,
+				   msg(QUEST_RUNES_MOST_HEINOUS, ch),
+				   victim->short_descr);
+			quest_tell(ch, questor,
+				   vmsg(QUEST_HAS_MURDERED, ch, victim),
+				   victim->short_descr, number_range(2, 20));
+			quest_tell(ch, questor, msg(QUEST_THE_PENALTY_IS, ch));
 		}
 		else {
-			snprintf(buf, sizeof(buf),
-				 msg(QUEST_ENEMY_OF_MINE, ch),
-				 victim->short_descr);
-			do_tell_quest(ch, questman, buf);
-			snprintf(buf, sizeof(buf),
-				 msg(QUEST_ELIMINATE_THREAT, ch));
-			do_tell_quest(ch, questman, buf);
+			quest_tell(ch, questor, msg(QUEST_ENEMY_OF_MINE, ch),
+				   victim->short_descr);
+			quest_tell(ch, questor,
+				   msg(QUEST_ELIMINATE_THREAT, ch));
 		}
 
-		snprintf(buf, sizeof(buf),
-			 msg(QUEST_SEEK_S_OUT, ch),
-			 victim->short_descr, room->name);
-		do_tell_quest(ch,questman,buf);
+		quest_tell(ch, questor, msg(QUEST_SEEK_S_OUT, ch),
+			   victim->short_descr, room->name);
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
@@ -845,62 +624,296 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	 * of the area and none of the level stuff. You may want
 	 * to comment these next two lines. - Vassago
 	 */
-	snprintf(buf, sizeof(buf), msg(QUEST_LOCATION_IS_IN_AREA, ch),
-		 room->area->name, room->name);
-	do_tell_quest(ch, questman, buf);
+	quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
+		   room->area->name, room->name);
+
+	ch->pcdata->questgiver = questor->pIndexData->vnum;
+	ch->pcdata->questtime = number_range(15, 30);
+	quest_tell(ch, questor, msg(QUEST_YOU_HAVE_D_MINUTES, ch), 
+			ch->pcdata->questtime);
+	quest_tell(ch, questor, msg(QUEST_MAY_THE_GODS_GO, ch));
 }
 
-/* Called from update_handler() by pulse_area */
-void cancel_quest(CHAR_DATA *ch)
-{
-	CHAR_DATA *fch;
-	ch->pcdata->questtime = 0;
-	ch->pcdata->questgiver = 0;
-	ch->pcdata->questmob = 0;
-	ch->pcdata->questobj = 0;
-	ch->pcdata->questroom = NULL;
 
-	/* remove mob->hunter */
-	for (fch = char_list; fch; fch = fch->next)
-		if (fch->hunter == ch) {
-			fch->hunter = 0;
-			break;
+static void quest_complete(CHAR_DATA *ch, char *arg)
+{
+	bool complete = FALSE;
+	CHAR_DATA *questor;
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+
+	int gold_reward = 0;
+	int qp_reward = 0;
+	int prac_reward = 0;
+
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
+
+	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING, 
+					QUEST_INFORMS_COMPLETE);
+	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD, 
+					QUEST_YOU_INFORM_COMPLETE);
+
+	if (!IS_ON_QUEST(ch)) {
+		quest_tell(ch, questor, msg(QUEST_HAVE_TO_REQUEST, ch),
+			   ch->name); 
+		return;
+	}
+
+	if (ch->pcdata->questgiver != questor->pIndexData->vnum) {
+		quest_tell(ch, questor, msg(QUEST_NEVER_QUEST, ch));
+		return;
+	}
+
+	if (ch->pcdata->questobj > 0)
+		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+
+			if (obj != NULL
+			&&  obj->pIndexData->vnum == ch->pcdata->questobj
+			&&  strstr(obj->extra_descr->description,
+							ch->name) != NULL) {
+				act_nprintf(ch, obj, questor, TO_CHAR, 
+					POS_DEAD, QUEST_YOU_HAND_P);
+				act_nprintf(ch, obj, questor, TO_ROOM, 
+					POS_RESTING, QUEST_N_HANDS_P);
+				extract_obj(obj);
+
+				if (chance(15))
+					prac_reward = number_range(1, 6);
+				qp_reward = number_range(15, 40);
+				gold_reward = number_range(350, 20*ch->level);
+
+				complete = TRUE;
+				break;
+			}
 		}
+	else if (ch->pcdata->questmob == -1) {
+		if (chance(2))
+			prac_reward = number_range(1, 6);
+		qp_reward = number_range(20, 40);
+		gold_reward = dice(ch->level, 30);
+		gold_reward = URANGE(0, gold_reward, 20*ch->level);
+		complete = TRUE;
+	}
+
+	if (!complete) {
+		quest_tell(ch, questor, msg(QUEST_HAVENT_COMPLETE, ch));
+		return;
+	}
+
+	ch->gold += gold_reward;
+	ch->pcdata->questpoints += qp_reward;
+
+	quest_tell(ch, questor, msg(QUEST_GRATS_COMPLETE, ch));
+	quest_tell(ch, questor, msg(QUEST_AS_A_REWARD, ch),
+		   qp_reward, gold_reward);
+
+	if (prac_reward) {
+		ch->practice += prac_reward;
+		quest_tell(ch, questor, msg(QUEST_GAIN_PRACS, ch), prac_reward);
+	}
+
+	quest_cancel(ch);
+	ch->pcdata->questtime = -5;
 }
 
-void quest_update(void)
+
+static void quest_trouble(CHAR_DATA *ch, char *arg)
 {
-	CHAR_DATA *ch, *ch_next;
+	CHAR_DATA *questor;
+	QITEM_DATA *qitem;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
-		ch_next = ch->next;
+	if ((questor = questor_lookup(ch)) == NULL)
+		return;
 
-		if (IS_NPC(ch)) 
-			continue;
-		if (ch->pcdata->questtime < 0) {
+	if (arg[0] == '\0') {
+		char_nputs(QUEST_TYPE_TROUBLE, ch);
+		return;
+	}
 
-			if (!++ch->pcdata->questtime) {
-				send_to_char(msg(QUEST_YOU_MAY_NOW_QUEST_AGAIN,
-						 ch), ch);
-				return;
-			}
-		} else if (IS_ON_QUEST(ch)) {
-			if (!--ch->pcdata->questtime) {
-				send_to_char(msg(QUEST_RUN_OUT_TIME, ch), ch);
-				cancel_quest(ch);
-			} else if (ch->pcdata->questtime < 6) {
-				send_to_char(msg(QUEST_BETTER_HURRY, ch), ch);
-				return;
-			}
+	for (qitem = qitem_table; qitem->name; qitem++)
+		if (qitem->vnum && is_name(arg, qitem->name)) {
+			quest_give_item(ch, questor, qitem->vnum, TROUBLE_MAX);
+			return;
+		}
+
+	quest_tell(ch, questor, msg(QUEST_HAVENT_BOUGHT, ch), ch->name);
+}
+
+
+/* quest buy functions */
+
+static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
+			    int item_vnum, int count_max)
+{
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	QTROUBLE_DATA *qt;
+
+	/* check quest trouble data */
+
+	qt = qtrouble_lookup(ch, item_vnum);
+
+	if (count_max) {
+		if (qt == NULL) {
+			/* ch has never bought this item, but requested it */
+			quest_tell(ch, questor, msg(QUEST_HAVENT_BOUGHT, ch),
+				   ch->name);
+			return FALSE;
+		}
+		else if (qt->count > count_max) {
+			/* ch requested this item too many times */
+			quest_tell(ch, questor, msg(QUEST_ITEM_BEYOND, ch));
+			return FALSE;
 		}
 	}
-	return;
+		 
+
+	/* ok, give him requested item */
+
+	obj = create_object(get_obj_index(item_vnum), ch->level);
+
+	str_printf(&obj->short_descr,
+		   obj->short_descr,
+		   IS_GOOD(ch) ?	"holy" :
+		   IS_NEUTRAL(ch) ?	"blue-green" : 
+					"evil", 
+		   ch->name);
+	obj_to_char(obj, ch);
+
+	act_nprintf(ch, obj, questor, TO_ROOM, POS_RESTING, 
+		    QUEST_GIVES_P_TO_N);
+	act_nprintf(ch, obj, questor, TO_CHAR, POS_DEAD, QUEST_GIVES_YOU_P);
+
+
+	/* update quest trouble data */
+
+	if (qt != NULL && count_max) {
+		for (obj = object_list; obj != NULL; obj = obj_next) {
+			obj_next = obj->next;
+			if (obj->pIndexData->vnum == item_vnum 
+			&&  strstr(obj->short_descr, ch->name)) {
+				extract_obj(obj);
+				break;
+			}
+		}
+
+		quest_tell(ch, questor,
+			   msg(QUEST_THIS_IS_THE_NTH_TIME, ch), qt->count);
+		if (qt->count == count_max) 
+			quest_tell(ch, questor, msg(QUEST_WONT_GIVE_AGAIN, ch));
+
+		qt->count++;
+	}
+
+	if (qt == NULL) {
+		qt = alloc_mem(sizeof(*qt));
+		qt->vnum = item_vnum;
+		qt->count = 1;
+		qt->next = ch->pcdata->qtrouble;
+		ch->pcdata->qtrouble = qt;
+	}
+
+	return TRUE;
 }
 
-void do_tell_quest(CHAR_DATA *ch, CHAR_DATA *victim, char *argument)
+
+static bool buy_gold(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	char_printf(ch, msg(QUEST_QUESTOR_TELLS_YOU, ch), victim->name,
-		    argument);
-	return;
+	ch->gold += 350000;
+	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
+						QUEST_N_GIVES_GOLD);
+	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
+						QUEST_N_GIVES_YOU_GOLD);
+	return TRUE;
+}
+
+
+static bool buy_prac(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	ch->practice += 60;
+	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
+					QUEST_N_GIVES_PRACS);
+	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
+					QUEST_N_GIVES_YOU_PRACS);
+	return TRUE;
+}
+
+
+static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	OBJ_DATA *tattoo;
+
+	if (ch->religion == NULL) {
+		char_nputs(QUEST_NO_RELIGION, ch);
+		return FALSE;
+	}
+
+	tattoo = get_eq_char(ch, WEAR_TATTOO);
+	if (tattoo != NULL) {
+		char_nputs(QUEST_ALREADY_TATTOOED, ch);
+		return FALSE;
+	}
+
+	tattoo = create_object(get_obj_index(religion_table[ch->religion].vnum),
+			       100);
+
+	obj_to_char(tattoo, ch);
+	equip_char(ch, tattoo, WEAR_TATTOO);
+	act_nprintf(ch, tattoo, questor, TO_ROOM, POS_RESTING,
+						QUEST_N_TATTOOS_N);
+	act_nprintf(ch, tattoo, questor, TO_CHAR, POS_DEAD,
+						QUEST_N_TATTOOS_YOU);
+	return TRUE;
+}
+
+
+static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	if (ch->pcdata->death < 1) {
+		quest_tell(ch, questor, msg(QUEST_NO_DEATHS, ch), ch->name);
+		return FALSE;
+	}
+
+	ch->pcdata->death -= 1;
+	return TRUE;
+}
+
+
+static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	AFFECT_DATA af;
+	OBJ_DATA *katana;
+
+	if ((katana = get_obj_list(ch, "katana", ch->carrying)) == NULL) {
+		quest_tell(ch, questor, msg(QUEST_DONT_HAVE_KATANA, ch),
+			   ch->name);
+		return FALSE;
+	}
+
+	af.where	= TO_WEAPON;
+	af.type 	= gsn_katana;
+	af.level	= 100;
+	af.duration	= -1;
+	af.modifier	= 0;
+	af.bitvector	= WEAPON_KATANA;
+	af.location	= APPLY_NONE;
+	affect_to_obj(katana, &af);
+	quest_tell(ch, questor, msg(QUEST_AS_YOU_WIELD_IT, ch));
+	return TRUE;
+}
+
+
+static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
+{
+	ch->pcdata->learned[skill_lookup("vampire")] = 100;
+	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
+					QUEST_N_GIVES_SECRET);
+	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,
+					QUEST_N_GIVES_YOU_SECRET);
+	act_nprintf(ch, NULL, questor, TO_ALL, POS_DEAD,
+		    WEATHER_LIGHTNING_FLASHES);
+	return TRUE;
 }
 

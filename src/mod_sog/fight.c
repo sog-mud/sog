@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.35 1998-06-13 11:55:08 fjoe Exp $
+ * $Id: fight.c,v 1.36 1998-06-16 16:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2252,34 +2252,37 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	int group_levels;
 
 	if (victim == ch
-		 || (IS_NPC(victim) && victim->pIndexData->vnum < 100))
+	||  (IS_NPC(victim) && victim->pIndexData->vnum < 100))
 		return;
 
 /* quest */
-
 	if (IS_GOLEM(ch) && ch->master != NULL
-		&& ch->master->class == CLASS_NECROMANCER)
+	&&  ch->master->class == CLASS_NECROMANCER)
 		gch = ch->master;
-	else gch = ch;
-	if (!IS_NPC(gch) && IS_ON_QUEST(gch) && IS_NPC(victim))
-	{
+	else
+		gch = ch;
+
+	if (victim->hunter != NULL)
 		if (victim->hunter == gch) {
-			send_to_char(msg(FIGHT_ALMOST_COMPLETE_QUEST, gch),gch);
-			send_to_char(msg(FIGHT_RETURN_TO_QUESTER, gch), gch);
+			char_nputs(ALMOST_COMPLETE_QUEST, gch);
+			char_nputs(RETURN_TO_QUESTER, gch);
 			gch->pcdata->questmob = -1;
-		} else if (victim->hunter) {
-			send_to_char(msg(FIGHT_YOU_COMPLETED_SOMEONES_QUEST, gch), gch);
-			send_to_char(msg(FIGHT_SOMEONE_COMPLETED_YOUR_QUEST, victim->hunter), victim->hunter);
-			cancel_quest(ch);
 		}
-	}
+		else {
+			char_nputs(YOU_COMPLETED_SOMEONES_QUEST, gch);
+			char_nputs(SOMEONE_COMPLETED_YOUR_QUEST,
+				   victim->hunter);
+			quest_cancel(victim->hunter);
+		}
+
 /* end quest */
 
 	if (!IS_NPC(victim))
-	  return;
+		return;
 
-	if (IS_NPC(victim) && (victim->master != NULL || victim->leader != NULL))
-	  return;
+	if (IS_NPC(victim)
+	&&  (victim->master != NULL || victim->leader != NULL))
+		return;
 
 	members = 1;
 	group_levels = 0;

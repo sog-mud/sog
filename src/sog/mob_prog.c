@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.12 1998-06-13 11:55:09 fjoe Exp $
+ * $Id: mob_prog.c,v 1.13 1998-06-16 16:56:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -894,9 +894,6 @@ void greet_prog_hunter(CHAR_DATA *mob, CHAR_DATA *ch)
     int i;
 
  	do_say(mob, "Welcome, my dear hunter.");
-        if (IS_SET(ch->quest,QUEST_EYE)) return;
-
-        SET_BIT(ch->quest,QUEST_EYE);
 
 	if (IS_GOOD(ch))
 		i=0;
@@ -1244,12 +1241,6 @@ void speech_prog_hunter_cleric(CHAR_DATA *mob, CHAR_DATA *ch, char *speech)
     if (ch->clan != CLAN_HUNTER)
     {
      do_say(mob,"You must try hard!");
-     return;
-    }
-
-    if (!IS_SET(ch->quest,QUEST_EYE)) 
-    {
-     do_say(mob,"What do you mean?");
      return;
     }
 

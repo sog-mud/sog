@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.44 1998-06-14 13:42:41 efdi Exp $
+ * $Id: comm.c,v 1.45 1998-06-16 16:56:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2331,7 +2331,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		
 		/* quest code */
 		nextquest = -abs(ch->pcdata->questtime);
-		cancel_quest(ch);
+		quest_cancel(ch);
 		ch->pcdata->questtime = nextquest;
 		/* !quest code */
 
