@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.13 1998-04-22 06:08:58 fjoe Exp $
+ * $Id: comm.c,v 1.14 1998-04-22 07:21:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1874,7 +1874,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
 	{
 	    write_to_buffer( d, "Wrong password.\n\r", 0 );
-	    sprintf(buf, "Wrong password by %s@%s (%s)", ch->name, d->host, argument);
+	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
 	    log_string(buf);
 	    if (ch->endur == 2)
 	    	close_socket( d );

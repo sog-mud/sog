@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.8 1998-04-21 22:03:57 efdi Exp $
+ * $Id: update.c,v 1.9 1998-04-22 07:21:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -835,30 +835,28 @@ void weather_update( void )
 	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	int diff;
-	if( ++time_info.hour == 24 ) {
+	if (++time_info.hour == 24) {
 		time_info.hour = 0;
 		time_info.day++;
 	}
 
-	if ( time_info.day   >= 35 )
-	{
-	time_info.day = 0;
-	time_info.month++;
+	if (time_info.day >= 35) {
+		time_info.day = 0;
+		time_info.month++;
 	}
 
-	if ( time_info.month >= 17 )
-	{
-	time_info.month = 0;
-	time_info.year++;
+	if (time_info.month >= 17) {
+		time_info.month = 0;
+		time_info.year++;
 	}
 
 	/*
 	 * Weather change.
 	 */
-	if ( time_info.month >= 9 && time_info.month <= 16 )
-	diff = weather_info.mmhg >  985 ? -2 : 2;
+	if (time_info.month >= 9 && time_info.month <= 16)
+		diff = weather_info.mmhg >  985 ? -2 : 2;
 	else
-	diff = weather_info.mmhg > 1015 ? -2 : 2;
+		diff = weather_info.mmhg > 1015 ? -2 : 2;
 
 	weather_info.change   += diff * dice(1, 4) + dice(2, 6) - dice(2, 6);
 	weather_info.change    = UMAX(weather_info.change, -12);
@@ -868,99 +866,89 @@ void weather_update( void )
 	weather_info.mmhg  = UMAX(weather_info.mmhg,  960);
 	weather_info.mmhg  = UMIN(weather_info.mmhg, 1040);
 
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *ch = d->character;
 
-	for ( d = descriptor_list; d != NULL; d = d->next )
-	{
-	CHAR_DATA *ch=d->character;
-	*buf = '\0';
-	switch ( time_info.hour )
-	{
-	case  5:
-	weather_info.sunlight = SUN_LIGHT;
-	strcpy( buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch));
-	break;
+		if (ch == NULL)
+			continue;
 
-	case  6:
-	weather_info.sunlight = SUN_RISE;
-	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch));
-	break;
+		*buf = '\0';
+		switch (time_info.hour) {
+		case  5:
+			weather_info.sunlight = SUN_LIGHT;
+			strcpy(buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch));
+			break;
 
-	case 19:
-	weather_info.sunlight = SUN_SET;
-	strcpy( buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch));
-	break;
+		case  6:
+			weather_info.sunlight = SUN_RISE;
+			strcpy(buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch));
+			break;
 
-	case 20:
-	weather_info.sunlight = SUN_DARK;
-	strcpy( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch));
-	break;
+		case 19:
+			weather_info.sunlight = SUN_SET;
+			strcpy(buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch));
+			break;
 
-	}
+		case 20:
+			weather_info.sunlight = SUN_DARK;
+			strcpy( buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch));
+			break;
+		}
 
-	switch ( weather_info.sky )
-	{
-	default: 
-	bug( "Weather_update: bad sky %d.", weather_info.sky );
-	weather_info.sky = SKY_CLOUDLESS;
-	break;
+		switch (weather_info.sky) {
+		default: 
+			bug("Weather_update: bad sky %d.", weather_info.sky);
+			weather_info.sky = SKY_CLOUDLESS;
+			break;
 
-	case SKY_CLOUDLESS:
-	if ( weather_info.mmhg <  990
-	|| ( weather_info.mmhg < 1010 && number_bits( 2 ) == 0 ) )
-	{
-	    strcat( buf, msg(UPDATE_WEATHER_GETTING_CLOUDY, ch));
-	    weather_info.sky = SKY_CLOUDY;
-	}
-	break;
+		case SKY_CLOUDLESS:
+			if (weather_info.mmhg < 990
+			|| (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
+				strcat(buf, msg(UPDATE_WEATHER_GETTING_CLOUDY, ch));
+				weather_info.sky = SKY_CLOUDY;
+			}
+			break;
 
-	case SKY_CLOUDY:
-	if ( weather_info.mmhg <  970
-	|| ( weather_info.mmhg <  990 && number_bits( 2 ) == 0 ) )
-	{
-	    strcat( buf, msg(UPDATE_WEATHER_IT_STARTS_TO_RAIN, ch));
-	    weather_info.sky = SKY_RAINING;
-	}
+		case SKY_CLOUDY:
+			if (weather_info.mmhg < 970
+			|| (weather_info.mmhg < 990 && number_bits(2) == 0 )) {
+				strcat(buf, msg(UPDATE_WEATHER_IT_STARTS_TO_RAIN, ch));
+				weather_info.sky = SKY_RAINING;
+			}
 
-	if ( weather_info.mmhg > 1030 && number_bits( 2 ) == 0 )
-	{
-	    strcat( buf, msg(UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
-	    weather_info.sky = SKY_CLOUDLESS;
-	}
-	break;
+			if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
+				strcat(buf, msg(UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
+				weather_info.sky = SKY_CLOUDLESS;
+			}
+			break;
 
-	case SKY_RAINING:
-	if ( weather_info.mmhg <  970 && number_bits( 2 ) == 0 )
-	{
-	    strcat( buf, msg(UPDATE_WEATHER_LIGHTNING_FLASHES, ch));
-	    weather_info.sky = SKY_LIGHTNING;
-	}
+		case SKY_RAINING:
+			if (weather_info.mmhg < 970 && number_bits(2) == 0) {
+				strcat(buf, msg(UPDATE_WEATHER_LIGHTNING_FLASHES, ch));
+				weather_info.sky = SKY_LIGHTNING;
+			}
 
-	if ( weather_info.mmhg > 1030
-	|| ( weather_info.mmhg > 1010 && number_bits( 2 ) == 0 ) )
-	{
-	    strcat( buf, msg(UPDATE_WEATHER_THE_RAIN_STOPPED, ch));
-	    weather_info.sky = SKY_CLOUDY;
-	}
-	break;
+			if (weather_info.mmhg > 1030
+			|| (weather_info.mmhg > 1010 && number_bits(2) == 0 )) {
+				strcat(buf, msg(UPDATE_WEATHER_THE_RAIN_STOPPED, ch));
+				weather_info.sky = SKY_CLOUDY;
+			}
+			break;
 
-	case SKY_LIGHTNING:
-	if ( weather_info.mmhg > 1010
-	|| ( weather_info.mmhg >  990 && number_bits( 2 ) == 0 ) )
-	{
-	    strcat( buf, msg(UPDATE_WEATHER_LIGHTNING_STOPPED, ch));
-	    weather_info.sky = SKY_RAINING;
-	    break;
-	}
-	break;
-	}
+		case SKY_LIGHTNING:
+			if (weather_info.mmhg > 1010
+			|| (weather_info.mmhg > 990 && number_bits(2) == 0)) {
+				strcat(buf, msg(UPDATE_WEATHER_LIGHTNING_STOPPED, ch));
+				weather_info.sky = SKY_RAINING;
+			}
+			break;
+		}
 
-	if ( buf[0] != '\0' )
-	{
-	    if ( d->connected == CON_PLAYING
-	    &&   IS_OUTSIDE(d->character)
-	    &&   IS_AWAKE(d->character) )
-		send_to_char( buf, d->character );
-	}
+		if (buf[0] != '\0'
+		&&  d->connected == CON_PLAYING
+		&&  IS_OUTSIDE(d->character)
+		&&  IS_AWAKE(d->character))
+			send_to_char(buf, d->character);
 	}
 
 	return;
