@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.195 2000-10-07 18:14:58 fjoe Exp $
+ * $Id: spellfun2.c,v 1.196 2000-10-13 11:01:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -487,7 +487,7 @@ void spell_demon_summon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			dofun("say", demon, "You dare disturb me??!!!");
 		else
 			dofun("say", demon, "Who dares disturb me??!!!");
-		dofun("murder", demon, ch->name);
+		multi_hit(demon, ch, NULL);
 	} else {
 		SET_BIT(demon->affected_by, AFF_CHARM);
 		demon->master = demon->leader = ch;
@@ -993,9 +993,9 @@ void spell_confuse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (rch)
-		dofun("murder", victim, rch->name); 
+		multi_hit(victim, rch, NULL);
 	else
-		dofun("murder", victim, ch->name);
+		multi_hit(victim, ch, NULL);
 }
 
 void spell_terangreal(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -1508,7 +1508,7 @@ void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);  
 
 	char_to_room(shadow, ch->in_room);
-	dofun("murder", shadow, victim->name);
+	multi_hit(shadow, victim, NULL);
 }  
 
 #define OBJ_VNUM_RULER_BADGE		70

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.18 2000-10-13 08:41:44 fjoe Exp $
+ * $Id: updfun.c,v 1.19 2000-10-13 11:02:06 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1089,7 +1089,7 @@ track_update_cb(void *vo, va_list ap)
 			continue;
 
 		act_yell(ch, "So we meet again, $i!", vch, NULL);
-		dofun("murder", ch, vch->name);
+		multi_hit(ch, vch, NULL);
 		break;
 	}
 
@@ -1329,7 +1329,7 @@ check_assist_cb(void *vo, va_list ap)
 	     IS_NPC(rch))
 	&&  is_same_group(ch, rch)
 	&&  !is_safe_nomessage(rch, victim)) {
-		multi_hit (rch, victim, NULL);
+		multi_hit(rch, victim, NULL);
 		return NULL;
 	}
 
@@ -1999,7 +1999,7 @@ bloodthirst_cb(void *vo, va_list ap)
 	&&  can_see(ch, vch)
 	&&  !is_safe_nomessage(ch, vch)) {
 		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
-		dofun("murder", ch, vch->name);
+		multi_hit(ch, vch, NULL);
 		if (IS_EXTRACTED(ch)
 		||  ch->fighting != NULL)
 			return vch;
