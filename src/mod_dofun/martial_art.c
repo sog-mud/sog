@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.215 2002-09-17 19:08:01 tatyana Exp $
+ * $Id: martial_art.c,v 1.216 2002-10-03 15:53:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1982,6 +1982,8 @@ DO_FUN(do_ambush, ch, argument)
 		one_hit(ch, victim, "ambush", WEAR_WIELD);
 	} else {
 		check_improve(ch, "ambush", FALSE, 1);
+		act("Your attack was not so much surprising.",
+		    ch, NULL, NULL, TO_CHAR);
 		damage(ch, victim, 0, "ambush", DAM_F_SHOW);
 	}
 	yell(victim, ch, "Help! I've been ambushed by $N!");

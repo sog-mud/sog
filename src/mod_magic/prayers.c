@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.39 2002-09-17 19:08:07 tatyana Exp $
+ * $Id: prayers.c,v 1.40 2002-10-03 15:53:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -142,6 +142,7 @@ DECLARE_SPELL_FUN(prayer_nightmare);
 DECLARE_SPELL_FUN(prayer_abolish_undead);
 DECLARE_SPELL_FUN(prayer_golden_aura);
 DECLARE_SPELL_FUN(prayer_fire_sphere);
+DECLARE_SPELL_FUN(prayer_sunburst);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3016,4 +3017,57 @@ SPELL_FUN(prayer_fire_sphere, sn, level, ch, vo)
 
 	act("Hot violent fire flashes around you.", ch, NULL, NULL, TO_CHAR);
 	act("Hot violent fire flashes around $n.", ch, NULL, NULL, TO_ROOM);
+}
+
+SPELL_FUN(prayer_sunburst, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+	int i = 1, dam;
+
+	if (ch == victim) {
+		act_char("You are not so stupid.", ch);
+		return;
+	}
+
+	if (ch->in_room->sector_type == SECT_INSIDE) {
+		act_char("You need sun light to use this ability.", ch);
+		return;
+	}
+
+	switch (weather_info.sunlight) {
+	case SUN_DARK:
+		act_char("You need sun light to use this ability.", ch);
+		return;
+	case SUN_RISE:
+	case SUN_SET:
+		i = 2;
+		break;
+	case SUN_LIGHT:
+		break;
+	default:
+		act_char("You need sun light to use this ability.", ch);
+		return;
+	}
+
+	dam = calc_spell_damage(ch, level, sn) / i;
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
+
+	if (IS_AFFECTED(victim, AFF_BLIND)
+	||  saves_spell(level, victim, DAM_LIGHT))  {
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	INT(paf->location)= APPLY_HITROLL;
+	paf->modifier	= -4;
+	paf->duration	= 1 + level / 25;
+	paf->bitvector	= AFF_BLIND;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act_char("Sun light bursts your eyes. You are blind!", victim);
+	act("Sun light bursts $N eyes. $gN{He} is blind!",
+	    ch, NULL, victim, TO_NOTVICT);
 }
