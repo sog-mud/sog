@@ -5866,33 +5866,42 @@ of available languages.
 Список доступных языков можно получить по команде 'LANG HELP'.
 ~
 immortal 'WIZ BAN' BAN~
-@eng Syntax: {cban add{x <num> {callow{x <who> <mask>
-Syntax: {cban add{x <num> {cdeny{x <who> <mask>
+@eng Syntax: {cban add{x <num> {callow{x <class> <mask>
+Syntax: {cban add{x <num> {cdeny{x <class> <mask>
 Syntax: {cban delete{x <num>
 Syntax: {cban{x {{ {cshow{x | {clist{x }
  
-BAN ADD defines a rule for banning hosts. <who> option can be {call{x,
-{cplayers{x or {cnewbies{x. <mask> is specified in form player@@host.
+BAN ADD defines a rule for banning hosts.
+<class> option can be any of {call{x, {cplayers{x, {cnewbies{x, {cinfo{x and {cmudftp{x.
+<mask> is specified in form player@@host.
 IP adresses can be used as well as symbolic host names. Wildcard can be used
 in mask
  
 BAN DELETE will delete rule with given number.
  
+Default policy is to deny access for {cinfo{x class and to allow
+access for all other classes.
+
 E.g., to ban all newbies from everywhere save for iclub.nsu.ru, enter:
    {cban add 100 allow newbies *@@iclub.nsu.ru{x
    {cban add 200 deny newbies *{x
-@rus Синтаксис: {cban add{x <номер> {cdeny{x <кого> <маска>
-Синтаксис: {cban add{x <номер> {callow{x <кого> <маска>
+@rus Синтаксис: {cban add{x <номер> {cdeny{x <класс> <маска>
+Синтаксис: {cban add{x <номер> {callow{x <класс> <маска>
 Синтаксис: {cban delete{x <номер>
 Синтаксис: {cban{x {{ {cshow{x | {clist{x }
  
-Команда BAN служит для задания правил пропуска игроков в игру. Выбрать тип
-ограничения входа можно при помощи опции <кого> - допустимы значения {call{x,
-{cplayers{x и {cnewbies{x. Маска задается как игрок@@сервер. Для указания сервера
+Команда BAN служит для задания правил допуска.
+Выбрать тип ограничения можно при помощи указания параметра <класс>.
+Допустимые значения параметра <класс>:
+{call{x, {cplayers{x, {cnewbies{x, {cinfo{x и {cmudftp{x.
+<маска> задается в формате игрок@@сервер. Для указания сервера
 можно использовать как IP-адреса, так и символьные имена.
  
 BAN DELETE удаляет правило с указанным номером.
  
+Политика по умолчанию -- deny для класса {cinfo{x и allow для всех
+остальных классов.
+
 Например, чтобы разрешить вход новых игроков только с iclub.nsu.ru, надо ввести:
    {cban add 100 allow newbies *@@iclub.nsu.ru
    ban add 200 deny newbies *{x
