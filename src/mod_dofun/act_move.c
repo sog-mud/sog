@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.74 1998-08-03 16:39:42 fjoe Exp $
+ * $Id: act_move.c,v 1.75 1998-08-06 09:06:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2915,7 +2915,7 @@ if ((door = find_exit(ch, arg2)) >= 0)
 	percent += can_see(victim, ch) ? -10 : 0;
 
 	if (victim->position == POS_FIGHTING
-	||  (IS_NPC(ch) && victim->pIndexData->pShop != NULL)
+	||  (IS_NPC(victim) && IS_SET(victim->act, ACT_NOTRACK))
 	||  (!IS_NPC(ch) && percent > get_skill(ch,gsn_push))) {
 		/*
 		 * Failure.

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.50 1998-08-03 16:39:43 fjoe Exp $
+ * $Id: act_obj.c,v 1.51 1998-08-06 09:06:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3039,7 +3039,7 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		ch->mana -= 30;
 		check_improve(ch, gsn_lore, TRUE, 5);
 		return;
-	} else if (get_skill(ch, gsn_lore) < 85)
+	} else if (get_skill(ch, gsn_lore) < 85) 
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
@@ -3247,9 +3247,10 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		break;
 	}
 
-	if (get_skill(ch, gsn_lore) < 87)
+	if (get_skill(ch, gsn_lore) < 87) {
 		check_improve(ch, gsn_lore, TRUE, 5);
-	return;
+		return;
+	}
 
 	if (!obj->enchanted)
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
