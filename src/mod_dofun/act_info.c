@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.80 1998-06-21 19:34:25 fjoe Exp $
+ * $Id: act_info.c,v 1.81 1998-06-22 10:04:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1619,8 +1619,8 @@ void do_weather(CHAR_DATA *ch, char *argument)
 
 void do_help(CHAR_DATA *ch, char *argument)
 {
-	bool found = FALSE;
 	HELP_DATA *pHelp;
+	BUFFER *output = NULL;
 	char argall[MAX_INPUT_LENGTH],argone[MAX_INPUT_LENGTH];
 
 	if (argument[0] == '\0')
@@ -1649,28 +1649,37 @@ void do_help(CHAR_DATA *ch, char *argument)
 			continue;
 
 		if (is_name(argall, pHelp->keyword)) {
-			if (found)
-				char_puts("\n\r-------------------------------------------------------------------------------\n\r\n\r", ch);
-			found = TRUE;
+			if (output == NULL)
+				output = new_buf();
+			else
+				add_buf(output, "\n\r-------------------------------------------------------------------------------\n\r\n\r");
 
 			if (pHelp->level > -2
-			&&  str_cmp(pHelp->keyword, "imotd"))
-				char_printf(ch, "{C%s{x\n\r\n\r",
-					    pHelp->keyword);
+			&&  str_cmp(pHelp->keyword, "imotd")) {
+				char buf[MAX_STRING_LENGTH];
+
+				snprintf(buf, sizeof(buf), "{C%s{x\n\r\n\r",
+					 pHelp->keyword);
+				add_buf(output, buf);
+			}
 
 			/*
 			 * Strip leading '.' to allow initial blanks.
 			 */
 			if (pHelp->text[0] == '.')
-				page_to_char(pHelp->text+1, ch);
+				add_buf(output, pHelp->text+1);
 			else
-				page_to_char(pHelp->text, ch);
+				add_buf(output, pHelp->text);
 
 		}
 	}
 
-	if (!found)
+	if (output == NULL)
 		send_to_char(msg(NO_HELP_ON_WORD, ch), ch);
+	else {
+		page_to_char(buf_string(output), ch);
+		free_buf(output);
+	}
 }
 
 
