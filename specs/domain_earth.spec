@@ -41,7 +41,7 @@ End
 
 #SKILL
 Skill 'desert fist'
-Level 35
+Level 9
 Rating 1
 Min 1
 Adept 75
@@ -87,6 +87,15 @@ End
 #SKILL
 Skill 'hail of stones'
 Level 25
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'severity force'
+Level 35
 Rating 1
 Min 1
 Adept 75
