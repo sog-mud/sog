@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.47 2001-12-10 19:28:32 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.48 2001-12-12 18:51:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3494,6 +3494,12 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 	}
 
+	if (victim == NULL 
+	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
         if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)
         &&  !IS_IMMORTAL(victim)
         &&  !IS_IMMORTAL(ch)) {
@@ -3501,12 +3507,6 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
                          TO_CHAR, POS_DEAD);
                 return;
         }
-
-	if (victim == NULL 
-	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		char_puts("They aren't here.\n", ch);
-		return;
-	}
 
 	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
