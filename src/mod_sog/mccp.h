@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mccp.h,v 1.2 2003-04-24 12:51:33 fjoe Exp $
+ * $Id: mccp.h,v 1.1 2003-09-08 16:13:22 fjoe Exp $
  */
 
 /*
@@ -39,8 +39,6 @@
 
 #ifndef _MCCP_H_
 #define _MCCP_H_
-
-#include <zlib.h>
 
 #define TELOPT_COMPRESS		85
 #define TELOPT_COMPRESS2	86

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.20 2003-04-24 12:42:11 fjoe Exp $
+ * $Id: comm.c,v 1.21 2003-09-08 16:13:20 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,6 +40,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <zlib.h>
 
 #include <merc.h>
 #include <resolver.h>
@@ -52,6 +53,7 @@
 #include "handler_impl.h"
 #include "charset.h"
 #include "comm.h"
+#include "mccp.h"
 
 DECLARE_RUNGAME_FUN(_run_game);
 DECLARE_RUNGAME_FUN(_run_game_bottom);

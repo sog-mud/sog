@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.404 2003-05-08 15:24:36 fjoe Exp $
+ * $Id: merc.h,v 1.405 2003-09-08 16:13:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -180,7 +180,6 @@ enum {
 #include <forms.h>
 #include <vo_iter.h>
 #include <trig.h>
-#include <mccp.h>
 #include <msgq.h>
 
 #define PFILE_VERSION	12
@@ -431,7 +430,7 @@ struct descriptor_data
 	uint			codepage;
 
 /* mccp data */
-	z_stream *		out_compress;
+	struct z_stream_s *	out_compress;
 	unsigned char *		out_compress_buf;
 	int			mccp_support;
 	unsigned int		bytes_sent;

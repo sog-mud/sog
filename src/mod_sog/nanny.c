@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.13 2003-04-24 12:42:13 fjoe Exp $
+ * $Id: nanny.c,v 1.14 2003-09-08 16:13:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 
 #include "handler_impl.h"
 #include "comm.h"
+#include "mccp.h"
 
 static bool	check_reconnect(DESCRIPTOR_DATA *d, bool fConn);
 static bool	check_playing(DESCRIPTOR_DATA *d, const char *name);
@@ -94,7 +95,6 @@ static const char echo_on_str[] = { IAC, WONT, TELOPT_ECHO, '\0' };
 /* mccp compression negotiation strings */
 static const char compress_do[] = { IAC, DO, TELOPT_COMPRESS, '\0' };
 static const char compress_dont[] = { IAC, DONT, TELOPT_COMPRESS, '\0' };
-
 
 static int iNumPlayers = 0;
 
