@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.81 1998-10-20 19:57:48 fjoe Exp $
+ * $Id: db.c,v 1.82 1998-10-26 08:39:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -308,6 +308,8 @@ void boot_db(void)
 	db_load_list(CLANS_PATH, CLAN_LIST, db_load_clans, NULL);
 	db_load_list(AREA_PATH, AREA_LIST, db_load_areas, init_area);
 
+	fBootDb = FALSE;
+
 	/*
 	 * Fix up exits.
 	 * Declare db booting over.
@@ -318,8 +320,6 @@ void boot_db(void)
 	check_mob_progs();
 	load_limited_objects();
 	log_printf("Total non-immortal levels > 5: %d", total_levels);
-
-	fBootDb = FALSE;
 
 	convert_objects();           /* ROM OLC */
 	area_update();
@@ -1817,7 +1817,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	for (iArea = 0; iArea < iAreaHalf; iArea++)
 		pArea2 = pArea2->next;
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_add(output, "Current areas of Muddy Realms: \n\r");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		buf_printf(output,"{W{{{x%2d %3d{W} {B%-20s {C%8s{x ",
