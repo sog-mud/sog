@@ -17,111 +17,111 @@ Flags magic~
 AddExp 300
 StatMod 0 3 0 0 0 5
 RestrictSex male~
-Skill 'acid arrow' 48 1
-Skill 'acid blast' 63 1
-Skill 'armor' 13 1
-Skill 'blindness' 20 1
-Skill 'burning hands' 14 1
-Skill 'cancellation' 28 1
-Skill 'caustic font' 41 1
-Skill 'chain lightning' 33 1
-Skill 'charm person' 35 1
-Skill 'chill touch' 5 1
-Skill 'colour spray' 22 1
-Skill 'continual light' 11 1
-Skill 'control weather' 30 1
-Skill 'create food' 15 1
-Skill 'create rose' 16 1
-Skill 'create spring' 24 1
-Skill 'create water' 8 1
-Skill 'curse' 31 1
-Skill 'detect evil' 12 1
-Skill 'detect good' 12 1
-Skill 'detect invis' 10 1
-Skill 'detect magic' 6 1
-Skill 'detect poison' 35 1
-Skill 'disintegrate' 83 1
-Skill 'dispel evil' 55 1
-Skill 'dispel good' 57 1
-Skill 'dispel magic' 41 1
-Skill 'dragons breath' 61 1
-Skill 'enchant weapon' 17 1
-Skill 'energy drain' 31 1
-Skill 'enhanced armor' 47 1
-Skill 'faerie fire' 15 1
-Skill 'faerie fog' 27 1
-Skill 'farsight' 22 1
-Skill 'fireball' 56 1
-Skill 'fireproof' 21 1
-Skill 'fire shield' 68 1
-Skill 'fly' 19 1
-Skill 'floating disc' 4 1
-Skill 'gate' 27 1
-Skill 'giant strength' 30 1
-Skill 'haste' 24 1
-Skill 'identify' 25 1
-Skill 'improved detect' 40 1
-Skill 'improved invis' 43 1
-Skill 'infravision' 18 1
-Skill 'invisibility' 13 1
-Skill 'knock' 64 1
-Skill 'know alignment' 29 1
-Skill 'lethargic mist' 56 1
-Skill 'lightning bolt' 23 1
-Skill 'link' 33 1
-Skill 'locate object' 29 1
-Skill 'magic missile' 1 1
-Skill 'magic resistance' 73 1
-Skill 'magnetic trust' 34 1
-Skill 'mass invis' 42 1
-Skill 'mend' 50 1
-Skill 'mysterious dream' 49 1
-Skill 'nexus' 60 1
-Skill 'pass door' 24 1
-Skill 'plague' 33 1
-Skill 'poison' 27 1
-Skill 'polymorph' 73 1
-Skill 'portal' 40 1
-Skill 'protection cold' 49 1
-Skill 'protection evil' 22 1
-Skill 'protection good' 22 1
-Skill 'protection heat' 46 1
-Skill 'protective shield' 26 1
-Skill 'recharge' 29 1
-Skill 'refresh' 7 1
-Skill 'sanctuary' 36 1
-Skill 'sand storm' 51 1
-Skill 'scream' 48 1
-Skill 'shield' 30 1
-Skill 'shielding' 53 1
-Skill 'shocking grasp' 9 1
-Skill 'shocking trap' 40 1
-Skill 'sleep' 39 1
-Skill 'slow' 23 1
-Skill 'stone skin' 33 1
-Skill 'sulfurus spray' 28 1
-Skill 'summon' 24 1
-Skill 'teleport' 23 1
-Skill 'ventriloquate' 1 1
-Skill 'web' 69 1
-Skill 'weaken' 19 1
-Skill 'word of recall' 32 1
-Skill 'dagger' 1 1
-Skill 'sword' 13 1
-Skill 'whip' 1 1
-Skill 'blink' 1 1
-Skill 'dodge' 43 1
-Skill 'hand to hand' 45 1
-Skill 'kick' 13 1
-Skill 'spell craft' 10 1
-Skill 'second attack' 25 1
-Skill 'fast healing' 15 1
-Skill 'haggle' 7 1
-Skill 'meditation' 6 1
-Skill 'scrolls' 1 2
-Skill 'staves' 1 2
-Skill 'trance' 14 1
-Skill 'wands' 1 1
+Skill 'acid arrow' 48 1 100
+Skill 'acid blast' 63 1 100
+Skill 'armor' 13 1 100
+Skill 'blindness' 20 1 100
+Skill 'burning hands' 14 1 100
+Skill 'cancellation' 28 1 100
+Skill 'caustic font' 41 1 100
+Skill 'chain lightning' 33 1 100
+Skill 'charm person' 35 1 100
+Skill 'chill touch' 5 1 100
+Skill 'colour spray' 22 1 100
+Skill 'continual light' 11 1 100
+Skill 'control weather' 30 1 100
+Skill 'create food' 15 1 100
+Skill 'create rose' 16 1 100
+Skill 'create spring' 24 1 100
+Skill 'create water' 8 1 100
+Skill 'curse' 31 1 100
+Skill 'detect evil' 12 1 100
+Skill 'detect good' 12 1 100
+Skill 'detect invis' 10 1 100
+Skill 'detect magic' 6 1 100
+Skill 'detect poison' 35 1 100
+Skill 'disintegrate' 83 1 100
+Skill 'dispel evil' 55 1 100
+Skill 'dispel good' 57 1 100
+Skill 'dispel magic' 41 1 100
+Skill 'dragons breath' 61 1 100
+Skill 'enchant weapon' 17 1 100
+Skill 'energy drain' 31 1 100
+Skill 'enhanced armor' 47 1 100
+Skill 'faerie fire' 15 1 100
+Skill 'faerie fog' 27 1 100
+Skill 'farsight' 22 1 100
+Skill 'fireball' 56 1 100
+Skill 'fireproof' 21 1 100
+Skill 'fire shield' 68 1 100
+Skill 'fly' 19 1 100
+Skill 'floating disc' 4 1 100
+Skill 'gate' 27 1 100
+Skill 'giant strength' 30 1 100
+Skill 'haste' 24 1 100
+Skill 'identify' 25 1 100
+Skill 'improved detect' 40 1 100
+Skill 'improved invis' 43 1 100
+Skill 'infravision' 18 1 100
+Skill 'invisibility' 13 1 100
+Skill 'knock' 64 1 100
+Skill 'know alignment' 29 1 100
+Skill 'lethargic mist' 56 1 100
+Skill 'lightning bolt' 23 1 100
+Skill 'link' 33 1 100
+Skill 'locate object' 29 1 100
+Skill 'magic missile' 1 1 100
+Skill 'magic resistance' 73 1 100
+Skill 'magnetic trust' 34 1 100
+Skill 'mass invis' 42 1 100
+Skill 'mend' 50 1 100
+Skill 'mysterious dream' 49 1 100
+Skill 'nexus' 60 1 100
+Skill 'pass door' 24 1 100
+Skill 'plague' 33 1 100
+Skill 'poison' 27 1 100
+Skill 'polymorph' 73 1 100
+Skill 'portal' 40 1 100
+Skill 'protection cold' 49 1 100
+Skill 'protection evil' 22 1 100
+Skill 'protection good' 22 1 100
+Skill 'protection heat' 46 1 100
+Skill 'protective shield' 26 1 100
+Skill 'recharge' 29 1 100
+Skill 'refresh' 7 1 100
+Skill 'sanctuary' 36 1 100
+Skill 'sand storm' 51 1 100
+Skill 'scream' 48 1 100
+Skill 'shield' 30 1 100
+Skill 'shielding' 53 1 100
+Skill 'shocking grasp' 9 1 100
+Skill 'shocking trap' 40 1 100
+Skill 'sleep' 39 1 100
+Skill 'slow' 23 1 100
+Skill 'stone skin' 33 1 100
+Skill 'sulfurus spray' 28 1 100
+Skill 'summon' 24 1 100
+Skill 'teleport' 23 1 100
+Skill 'ventriloquate' 1 1 100
+Skill 'web' 69 1 100
+Skill 'weaken' 19 1 100
+Skill 'word of recall' 32 1 100
+Skill 'dagger' 1 1 100
+Skill 'sword' 13 1 100
+Skill 'whip' 1 1 100
+Skill 'blink' 1 1 100
+Skill 'dodge' 43 1 100
+Skill 'hand to hand' 45 1 100
+Skill 'kick' 13 1 100
+Skill 'spell craft' 10 1 100
+Skill 'second attack' 25 1 100
+Skill 'fast healing' 15 1 100
+Skill 'haggle' 7 1 100
+Skill 'meditation' 6 1 100
+Skill 'scrolls' 1 2 100
+Skill 'staves' 1 2 100
+Skill 'trance' 14 1 100
+Skill 'wands' 1 1 100
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

@@ -14,73 +14,74 @@ Flags magic~
 AddExp 400
 StatMod 2 0 1 0 2 5
 RestrictAlign good~
-Skill 'armor' 12 1
-Skill 'bless' 14 1
-Skill 'bless weapon' 55 1
-Skill 'call lightning' 21 1
-Skill 'calm' 63 1
-Skill 'create food' 3 1
-Skill 'create rose' 20 1
-Skill 'create water' 4 1
-Skill 'cure blindness' 7 1
-Skill 'cure critical' 18 1
-Skill 'cure disease' 33 1
-Skill 'cure light' 5 1
-Skill 'cure poison' 33 1
-Skill 'cure serious' 10 1
-Skill 'detect invis' 23 1
-Skill 'dispel evil' 35 1
-Skill 'fireproof' 20 1
-Skill 'flamestrike' 32 1
-Skill 'group heal' 75 1
-Skill 'improved benediction' 30 1
-Skill 'heal' 29 1
-Skill 'holy word' 38 1
-Skill 'know alignment' 1 1
-Skill 'locate object' 19 1
-Skill 'master healing' 70 1
-Skill 'benediction' 80 1
-Skill 'protection evil' 11 1
-Skill 'ray of truth' 45 1
-Skill 'remove curse' 13 1
-Skill 'remove fear' 41 1
-Skill 'resilience' 56 1
-Skill 'sanctuary' 27 1
-Skill 'sanctify lands' 53 1
-Skill 'slow' 28 1
-Skill 'summon' 51 1
-Skill 'superior heal' 43 1
-Skill 'turn' 60 1
-Skill 'wrath' 34 1
-Skill 'wands' 1 2
-Skill 'scrolls' 1 2
-Skill 'staves' 1 2
-Skill 'word of recall' 32 1
-Skill 'dagger' 1 1
-Skill 'mace' 1 1
-Skill 'polearm' 1 1
-Skill 'shield block' 1 1
-Skill 'sword' 1 1
-Skill 'second weapon' 48 1
-Skill 'bash' 6 1
-Skill 'anathema' 65 1
-Skill 'bash door' 6 1
-Skill 'blind fighting' 32 1
-Skill 'counter' 35 1
-Skill 'disarm' 20 1
-Skill 'enhanced damage' 6 1
-Skill 'hand to hand' 11 1
-Skill 'parry' 3 1
-Skill 'rescue' 1 1
-Skill 'shield cleave' 29 1
-Skill 'weapon cleave' 34 1
-Skill 'second attack' 13 1
-Skill 'third attack' 27 1
-Skill 'fast healing' 7 1
-Skill 'haggle' 12 2
-Skill 'lay hands' 63 1
-Skill 'lore' 19 2
-Skill 'meditation' 14 1
+RestrictEthos lawful~
+Skill 'armor' 12 1 100
+Skill 'bless' 14 1 100
+Skill 'bless weapon' 55 1 100
+Skill 'call lightning' 21 1 100
+Skill 'calm' 63 1 100
+Skill 'create food' 3 1 100
+Skill 'create rose' 20 1 100
+Skill 'create water' 4 1 100
+Skill 'cure blindness' 7 1 100
+Skill 'cure critical' 18 1 100
+Skill 'cure disease' 33 1 100
+Skill 'cure light' 5 1 100
+Skill 'cure poison' 33 1 100
+Skill 'cure serious' 10 1 100
+Skill 'detect invis' 23 1 100
+Skill 'dispel evil' 35 1 100
+Skill 'fireproof' 20 1 100
+Skill 'flamestrike' 32 1 100
+Skill 'group heal' 75 1 100
+Skill 'improved benediction' 30 1 100
+Skill 'heal' 29 1 100
+Skill 'holy word' 38 1 100
+Skill 'know alignment' 1 1 100
+Skill 'locate object' 19 1 100
+Skill 'master healing' 70 1 100
+Skill 'benediction' 80 1 100
+Skill 'protection evil' 11 1 100
+Skill 'ray of truth' 45 1 100
+Skill 'remove curse' 13 1 100
+Skill 'remove fear' 41 1 100
+Skill 'resilience' 56 1 100
+Skill 'sanctuary' 27 1 100
+Skill 'sanctify lands' 53 1 100
+Skill 'slow' 28 1 100
+Skill 'summon' 51 1 100
+Skill 'superior heal' 43 1 100
+Skill 'turn' 60 1 100
+Skill 'wrath' 34 1 100
+Skill 'wands' 1 2 100
+Skill 'scrolls' 1 2 100
+Skill 'staves' 1 2 100
+Skill 'word of recall' 32 1 100
+Skill 'dagger' 1 1 100
+Skill 'mace' 1 1 100
+Skill 'polearm' 1 1 100
+Skill 'shield block' 1 1 90
+Skill 'sword' 1 1 100
+Skill 'second weapon' 48 1 100
+Skill 'bash' 6 1 100
+Skill 'anathema' 65 1 100
+Skill 'bash door' 6 1 100
+Skill 'blind fighting' 32 1 100
+Skill 'counter' 35 1 100
+Skill 'disarm' 20 1 100
+Skill 'enhanced damage' 6 1 95
+Skill 'hand to hand' 11 1 100
+Skill 'parry' 3 1 100
+Skill 'rescue' 1 1 100
+Skill 'shield cleave' 29 1 100
+Skill 'weapon cleave' 34 1 100
+Skill 'second attack' 13 1 100
+Skill 'third attack' 27 1 100
+Skill 'fast healing' 7 1 100
+Skill 'haggle' 12 2 100
+Skill 'lay hands' 63 1 100
+Skill 'lore' 19 2 100
+Skill 'meditation' 14 1 100
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Paladin Pupil~

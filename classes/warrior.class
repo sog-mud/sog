@@ -14,48 +14,48 @@ HPRate 100
 ManaRate 50
 AddExp 0
 StatMod 3 0 0 0 1 5
-Skill 'axe' 1 1
-Skill 'bow' 44 1
-Skill 'dagger' 1 1
-Skill 'flail' 1 1
-Skill 'mace' 1 1
-Skill 'polearm' 1 1
-Skill 'shield block' 1 1
-Skill 'spear' 1 1
-Skill 'sword' 1 1
-Skill 'whip' 1 1
-Skill 'second weapon' 23 1
-Skill 'area attack' 73 1
-Skill 'bash' 1 1
-Skill 'bash door' 1 1
-Skill 'berserk' 18 1
-Skill 'blind fighting' 13 1
-Skill 'concentrate' 59 1
-Skill 'counter' 28 1
-Skill 'dirt kicking' 8 1
-Skill 'disarm' 20 1
-Skill 'dodge' 13 1
-Skill 'enhanced damage' 3 1
-Skill 'hand to hand' 9 1
-Skill 'hand block' 15 1
-Skill 'kick' 5 1
-Skill 'parry' 1 1
-Skill 'rescue' 1 1
-Skill 'shield cleave' 26 1
-Skill 'smithing' 50 1
-Skill 'trip' 25 1
-Skill 'warcry' 31 1
-Skill 'weapon cleave' 29 1
-Skill 'second attack' 10 1
-Skill 'secondary attack' 57 1
-Skill 'third attack' 19 1
-Skill 'fourth attack' 30 1
-Skill 'fifth attack' 52 1
-Skill 'fast healing' 6 1
-Skill 'grip' 43 1
-Skill 'haggle' 14 2
-Skill 'lore' 21 2
-Skill 'meditation' 15 2
+Skill 'axe' 1 1 100
+Skill 'bow' 44 1 100
+Skill 'dagger' 1 1 100
+Skill 'flail' 1 1 100
+Skill 'mace' 1 1 100
+Skill 'polearm' 1 1 100
+Skill 'shield block' 1 1 100
+Skill 'spear' 1 1 100
+Skill 'sword' 1 1 100
+Skill 'whip' 1 1 100
+Skill 'second weapon' 23 1 100
+Skill 'area attack' 73 1 100
+Skill 'bash' 1 1 100
+Skill 'bash door' 1 1 100
+Skill 'berserk' 18 1 100
+Skill 'blind fighting' 13 1 100
+Skill 'concentrate' 59 1 100
+Skill 'counter' 28 1 100
+Skill 'dirt kicking' 8 1 100
+Skill 'disarm' 20 1 100
+Skill 'dodge' 13 1 120
+Skill 'enhanced damage' 3 1 100
+Skill 'hand to hand' 9 1 100
+Skill 'hand block' 15 1 100
+Skill 'kick' 5 1 100
+Skill 'parry' 1 1 120
+Skill 'rescue' 1 1 100
+Skill 'shield cleave' 26 1 100
+Skill 'smithing' 50 1 100
+Skill 'trip' 25 1 100
+Skill 'warcry' 31 1 100
+Skill 'weapon cleave' 29 1 100
+Skill 'second attack' 10 1 100
+Skill 'secondary attack' 57 1 100
+Skill 'third attack' 19 1 100
+Skill 'fourth attack' 30 1 100
+Skill 'fifth attack' 52 1 100
+Skill 'fast healing' 6 1 100
+Skill 'grip' 43 1 100
+Skill 'haggle' 14 2 100
+Skill 'lore' 21 2 100
+Skill 'meditation' 15 2 100
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Swordpupil~

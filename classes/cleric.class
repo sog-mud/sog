@@ -13,116 +13,116 @@ ManaRate 80
 Flags magic~
 AddExp 0
 StatMod 0 0 3 0 0 5
-Skill 'aid' 53 1
-Skill 'armor' 1 1
-Skill 'blade barrier' 60 1
-Skill 'bless' 14 1
-Skill 'blindness' 14 1
-Skill 'bluefire' 37 1
-Skill 'call lightning' 28 1
-Skill 'calm' 26 1
-Skill 'cancellation' 32 1
-Skill 'cause critical' 15 1
-Skill 'cause light' 2 1
-Skill 'cause serious' 8 1
-Skill 'continual light' 5 1
-Skill 'control weather' 21 1
-Skill 'create food' 8 1
-Skill 'create spring' 27 1
-Skill 'create water' 3 1
-Skill 'cure blindness' 11 1
-Skill 'cure critical' 18 1
-Skill 'cure disease' 19 1
-Skill 'cure light' 4 1
-Skill 'cure poison' 23 1
-Skill 'cure serious' 10 1
-Skill 'curse' 33 1
-Skill 'cursed lands' 41 1
-Skill 'demonfire' 37 1
-Skill 'desert fist' 58 1
-Skill 'detect evil' 11 1
-Skill 'detect good' 11 1
-Skill 'detect invis' 17 1
-Skill 'detect magic' 12 1
-Skill 'detect poison' 39 1
-Skill 'dispel evil' 27 1
-Skill 'dispel good' 27 1
-Skill 'dispel magic' 43 1
-Skill 'earthquake' 19 1
-Skill 'energy drain' 42 1
-Skill 'enhanced armor' 33 1
-Skill 'faerie fire' 6 1
-Skill 'faerie fog' 31 1
-Skill 'fireproof' 16 1
-Skill 'flamestrike' 42 1
-Skill 'fly' 30 1
-Skill 'floating disc' 10 1
-Skill 'frenzy' 34 1
-Skill 'gate' 63 1
-Skill 'giant strength' 39 1
-Skill 'group defense' 35 1
-Skill 'group heal' 65 1
-Skill 'harm' 26 1
-Skill 'heal' 28 1
-Skill 'healing light' 41 1
-Skill 'heat metal' 26 1
-Skill 'holy word' 48 1
-Skill 'identify' 36 1
-Skill 'infravision' 25 1
-Skill 'inspire' 49 1
-Skill 'know alignment' 13 1
-Skill 'locate object' 30 1
-Skill 'mass healing' 54 1
-Skill 'mass invis' 47 1
-Skill 'mass sanctuary' 62 1
-Skill 'master healing' 58 1
-Skill 'nexus' 55 1
-Skill 'pass door' 32 1
-Skill 'poison' 22 1
-Skill 'portal' 35 1
-Skill 'benediction' 73 1
-Skill 'protection cold' 44 1
-Skill 'protection evil' 9 1
-Skill 'protection good' 9 1
-Skill 'protection heat' 39 1
-Skill 'protective shield' 38 1
-Skill 'ray of truth' 37 1
-Skill 'refresh' 7 1
-Skill 'remove curse' 32 1
-Skill 'remove fear' 34 1
-Skill 'restoring light' 71 1
-Skill 'sanctuary' 29 1
-Skill 'black shroud' 30 1
-Skill 'sanctify lands' 41 1
-Skill 'severity force' 45 1
-Skill 'shield' 35 1
-Skill 'slow' 38 1
-Skill 'solar flight' 35 1
-Skill 'stone skin' 36 1
-Skill 'summon' 22 1
-Skill 'superior heal' 38 1
-Skill 'teleport' 32 1
-Skill 'turn' 50 1
-Skill 'weaken' 24 1
-Skill 'word of recall' 28 1
-Skill 'flail' 1 2
-Skill 'mace' 1 2
-Skill 'shield block' 17 1
-Skill 'whip' 1 2
-Skill 'enhanced damage' 33 2
-Skill 'hand to hand' 30 1
-Skill 'kick' 12 1
-Skill 'parry' 25 1
-Skill 'spell craft' 30 1
-Skill 'second attack' 28 1
-Skill 'fast healing' 9 1
-Skill 'haggle' 18 2
-Skill 'meditation' 6 1
-Skill 'scrolls' 1 1
-Skill 'staves' 1 1
-Skill 'trance' 15 1
-Skill 'wands' 1 1
-Skill 'anathema' 60 1
+Skill 'aid' 53 1 100
+Skill 'armor' 1 1 100
+Skill 'blade barrier' 60 1 100
+Skill 'bless' 14 1 100
+Skill 'blindness' 14 1 100
+Skill 'bluefire' 37 1 100
+Skill 'call lightning' 28 1 100
+Skill 'calm' 26 1 100
+Skill 'cancellation' 32 1 100
+Skill 'cause critical' 15 1 100
+Skill 'cause light' 2 1 100
+Skill 'cause serious' 8 1 100
+Skill 'continual light' 5 1 100
+Skill 'control weather' 21 1 100
+Skill 'create food' 8 1 100
+Skill 'create spring' 27 1 100
+Skill 'create water' 3 1 100
+Skill 'cure blindness' 11 1 100
+Skill 'cure critical' 18 1 100
+Skill 'cure disease' 19 1 100
+Skill 'cure light' 4 1 100
+Skill 'cure poison' 23 1 100
+Skill 'cure serious' 10 1 100
+Skill 'curse' 33 1 100
+Skill 'cursed lands' 41 1 100
+Skill 'demonfire' 37 1 100
+Skill 'desert fist' 58 1 100
+Skill 'detect evil' 11 1 100
+Skill 'detect good' 11 1 100
+Skill 'detect invis' 17 1 100
+Skill 'detect magic' 12 1 100
+Skill 'detect poison' 39 1 100
+Skill 'dispel evil' 27 1 100
+Skill 'dispel good' 27 1 100
+Skill 'dispel magic' 43 1 100
+Skill 'earthquake' 19 1 100
+Skill 'energy drain' 42 1 100
+Skill 'enhanced armor' 33 1 76
+Skill 'faerie fire' 6 1 100
+Skill 'faerie fog' 31 1 100
+Skill 'fireproof' 16 1 100
+Skill 'flamestrike' 42 1 100
+Skill 'fly' 30 1 100
+Skill 'floating disc' 10 1 100
+Skill 'frenzy' 34 1 100
+Skill 'gate' 63 1 100
+Skill 'giant strength' 39 1 100
+Skill 'group defense' 35 1 100
+Skill 'group heal' 65 1 100
+Skill 'harm' 26 1 100
+Skill 'heal' 28 1 100
+Skill 'healing light' 41 1 100
+Skill 'heat metal' 26 1 100
+Skill 'holy word' 48 1 100
+Skill 'identify' 36 1 100
+Skill 'infravision' 25 1 100
+Skill 'inspire' 49 1 100
+Skill 'know alignment' 13 1 100
+Skill 'locate object' 30 1 100
+Skill 'mass healing' 54 1 100
+Skill 'mass invis' 47 1 100
+Skill 'mass sanctuary' 62 1 100
+Skill 'master healing' 58 1 100
+Skill 'nexus' 55 1 100
+Skill 'pass door' 32 1 100
+Skill 'poison' 22 1 100
+Skill 'portal' 35 1 100
+Skill 'benediction' 73 1 100
+Skill 'protection cold' 44 1 100
+Skill 'protection evil' 9 1 100
+Skill 'protection good' 9 1 100
+Skill 'protection heat' 39 1 100
+Skill 'protective shield' 38 1 100
+Skill 'ray of truth' 37 1 100
+Skill 'refresh' 7 1 100
+Skill 'remove curse' 32 1 100
+Skill 'remove fear' 34 1 100
+Skill 'restoring light' 71 1 100
+Skill 'sanctuary' 29 1 100
+Skill 'black shroud' 30 1 100
+Skill 'sanctify lands' 41 1 100
+Skill 'severity force' 45 1 100
+Skill 'shield' 35 1 100
+Skill 'slow' 38 1 100
+Skill 'solar flight' 35 1 100
+Skill 'stone skin' 36 1 100
+Skill 'summon' 22 1 100
+Skill 'superior heal' 38 1 100
+Skill 'teleport' 32 1 100
+Skill 'turn' 50 1 100
+Skill 'weaken' 24 1 100
+Skill 'word of recall' 28 1 100
+Skill 'flail' 1 2 100
+Skill 'mace' 1 2 100
+Skill 'shield block' 17 1 80
+Skill 'whip' 1 2 100
+Skill 'enhanced damage' 33 2 100
+Skill 'hand to hand' 30 1 100
+Skill 'kick' 12 1 100
+Skill 'parry' 25 1 100
+Skill 'spell craft' 30 1 100
+Skill 'second attack' 28 1 100
+Skill 'fast healing' 9 1 100
+Skill 'haggle' 18 2 100
+Skill 'meditation' 6 1 100
+Skill 'scrolls' 1 1 100
+Skill 'staves' 1 1 100
+Skill 'trance' 15 1 100
+Skill 'wands' 1 1 100
+Skill 'anathema' 60 1 100
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Believer~

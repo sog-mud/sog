@@ -17,63 +17,63 @@ Flags magic noch~
 AddExp 300
 StatMod 1 2 0 0 0 5
 RestrictAlign evil~
-Skill 'animate dead' 42 1
-Skill 'armor' 13 1
-Skill 'blindness' 20 1
-Skill 'burning hands' 14 1
-Skill 'chain lightning' 33 1
-Skill 'attract other' 30 1
-Skill 'colour spray' 25 1
-Skill 'control weather' 24 1
-Skill 'create rose' 26 1
-Skill 'curse' 44 1
-Skill 'detect good' 13 1
-Skill 'detect invis' 23 1
-Skill 'detect poison' 31 1
-Skill 'dispel good' 32 1
-Skill 'dispel magic' 24 1
-Skill 'black shroud' 30 1
-Skill 'energy drain' 20 1
-Skill 'hunger weapon' 64 1
-Skill 'fly' 43 1
-Skill 'mist walk' 47 1
-Skill 'protection good' 27 1
-Skill 'shield' 20 1
-Skill 'slow' 28 1
-Skill 'stone skin' 60 1
-Skill 'vampiric blast' 38 1
-Skill 'weaken' 16 1
-Skill 'word of recall' 10 1
-Skill 'dagger' 1 1
-Skill 'spear' 8 1
-Skill 'sword' 1 1
-Skill 'whip' 1 1
-Skill 'bash' 11 1
-Skill 'bash door' 11 1
-Skill 'control animal' 43 1
-Skill 'dodge' 8 1
-Skill 'enhanced damage' 14 1
-Skill 'hand to hand' 19 1
-Skill 'kick' 4 1
-Skill 'light resistance' 50 1
-Skill 'parry' 22 1
-Skill 'sense life' 13 1
-Skill 'shield cleave' 39 1
-Skill 'vampire' 10 1
-Skill 'vampiric bite' 10 1
-Skill 'vampiric touch' 15 1
-Skill 'weapon cleave' 44 1
-Skill 'second attack' 12 1
-Skill 'third attack' 32 1
-Skill 'fast healing' 9 1
-Skill 'haggle' 5 1
-Skill 'lore' 20 2
-Skill 'meditation' 6 1
-Skill 'quiet movement' 10 1
-Skill 'scrolls' 1 1
-Skill 'staves' 1 1
-Skill 'trance' 21 1
-Skill 'wands' 1 1
+Skill 'animate dead' 42 1 100
+Skill 'armor' 13 1 100
+Skill 'blindness' 20 1 100
+Skill 'burning hands' 14 1 100
+Skill 'chain lightning' 33 1 100
+Skill 'attract other' 30 1 100
+Skill 'colour spray' 25 1 100
+Skill 'control weather' 24 1 100
+Skill 'create rose' 26 1 100
+Skill 'curse' 44 1 100
+Skill 'detect good' 13 1 100
+Skill 'detect invis' 23 1 100
+Skill 'detect poison' 31 1 100
+Skill 'dispel good' 32 1 100
+Skill 'dispel magic' 24 1 100
+Skill 'black shroud' 30 1 100
+Skill 'energy drain' 20 1 100
+Skill 'hunger weapon' 64 1 100
+Skill 'fly' 43 1 100
+Skill 'mist walk' 47 1 100
+Skill 'protection good' 27 1 100
+Skill 'shield' 20 1 100
+Skill 'slow' 28 1 100
+Skill 'stone skin' 60 1 100
+Skill 'vampiric blast' 38 1 100
+Skill 'weaken' 16 1 100
+Skill 'word of recall' 10 1 100
+Skill 'dagger' 1 1 100
+Skill 'spear' 8 1 100
+Skill 'sword' 1 1 100
+Skill 'whip' 1 1 100
+Skill 'bash' 11 1 100
+Skill 'bash door' 11 1 100
+Skill 'control animal' 43 1 100
+Skill 'dodge' 8 1 100
+Skill 'enhanced damage' 14 1 90
+Skill 'hand to hand' 19 1 100
+Skill 'kick' 4 1 100
+Skill 'light resistance' 50 1 100
+Skill 'parry' 22 1 100
+Skill 'sense life' 13 1 100
+Skill 'shield cleave' 39 1 100
+Skill 'vampire' 10 1 100
+Skill 'vampiric bite' 10 1 100
+Skill 'vampiric touch' 15 1 100
+Skill 'weapon cleave' 44 1 100
+Skill 'second attack' 12 1 100
+Skill 'third attack' 32 1 100
+Skill 'fast healing' 9 1 100
+Skill 'haggle' 5 1 100
+Skill 'lore' 20 2 100
+Skill 'meditation' 6 1 100
+Skill 'quiet movement' 10 1 100
+Skill 'scrolls' 1 1 100
+Skill 'staves' 1 1 100
+Skill 'trance' 21 1 100
+Skill 'wands' 1 1 100
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

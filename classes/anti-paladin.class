@@ -13,70 +13,70 @@ Flags magic~
 AddExp 300
 StatMod 2 1 0 1 1 5
 RestrictAlign evil~
-Skill 'black death' 64 1
-Skill 'blindness' 14 1
-Skill 'charm person' 38 1
-Skill 'chill touch' 6 1
-Skill 'cure light' 11 1
-Skill 'curse' 18 1
-Skill 'deadly venom' 58 1
-Skill 'deafen' 42 1
-Skill 'detect invis' 13 1
-Skill 'dispel good' 30 1
-Skill 'energy drain' 26 1
-Skill 'etheral fist' 50 1
-Skill 'fireball' 56 1
-Skill 'harm' 29 1
-Skill 'improved maladiction' 30 1
-Skill 'demand' 35 1
-Skill 'black shroud' 30 1
-Skill 'hurricane' 53 1
-Skill 'iceball' 58 1
-Skill 'invisibility' 9 1
-Skill 'know alignment' 5 1
-Skill 'lethargic mist' 62 1
-Skill 'lightning bolt' 13 1
-Skill 'magic missile' 1 1
-Skill 'mind wrack' 27 1
-Skill 'mind wrench' 40 1
-Skill 'mysterious dream' 35 1
-Skill 'plague' 46 1
-Skill 'poison' 15 1
-Skill 'protection good' 13 1
-Skill 'power word stun' 62 1
-Skill 'sleep' 25 1
-Skill 'summon' 50 1
-Skill 'crucify' 48 1
-Skill 'teleport' 7 1
-Skill 'axe' 1 1
-Skill 'dagger' 1 1
-Skill 'flail' 1 1
-Skill 'mace' 1 1
-Skill 'polearm' 1 1
-Skill 'shield block' 1 1
-Skill 'spear' 1 1
-Skill 'sword' 1 1
-Skill 'whip' 1 1
-Skill 'bash' 1 1
-Skill 'bash door' 1 1
-Skill 'cleave' 55 1
-Skill 'dirt kicking' 3 1
-Skill 'disarm' 21 1
-Skill 'enhanced damage' 3 1
-Skill 'hand to hand' 18 1
-Skill 'kick' 9 1
-Skill 'parry' 5 1
-Skill 'shield cleave' 29 1
-Skill 'trip' 10 1
-Skill 'weapon cleave' 34 1
-Skill 'second attack' 14 1
-Skill 'third attack' 26 1
-Skill 'fast healing' 7 1
-Skill 'haggle' 8 2
-Skill 'lore' 20 2
-Skill 'meditation' 15 1
-Skill 'scrolls' 1 2
-Skill 'wands' 1 2
+Skill 'black death' 64 1 100
+Skill 'blindness' 14 1 100
+Skill 'charm person' 38 1 100
+Skill 'chill touch' 6 1 100
+Skill 'cure light' 11 1 100
+Skill 'curse' 18 1 100
+Skill 'deadly venom' 58 1 100
+Skill 'deafen' 42 1 100
+Skill 'detect invis' 13 1 100
+Skill 'dispel good' 30 1 100
+Skill 'energy drain' 26 1 100
+Skill 'etheral fist' 50 1 100
+Skill 'fireball' 56 1 100
+Skill 'harm' 29 1 100
+Skill 'improved maladiction' 30 1 100
+Skill 'demand' 35 1 100
+Skill 'black shroud' 30 1 100
+Skill 'hurricane' 53 1 100
+Skill 'iceball' 58 1 100
+Skill 'invisibility' 9 1 100
+Skill 'know alignment' 5 1 100
+Skill 'lethargic mist' 62 1 100
+Skill 'lightning bolt' 13 1 100
+Skill 'magic missile' 1 1 100
+Skill 'mind wrack' 27 1 100
+Skill 'mind wrench' 40 1 100
+Skill 'mysterious dream' 35 1 100
+Skill 'plague' 46 1 100
+Skill 'poison' 15 1 100
+Skill 'protection good' 13 1 100
+Skill 'power word stun' 62 1 100
+Skill 'sleep' 25 1 100
+Skill 'summon' 50 1 100
+Skill 'crucify' 48 1 100
+Skill 'teleport' 7 1 100
+Skill 'axe' 1 1 100
+Skill 'dagger' 1 1 100
+Skill 'flail' 1 1 100
+Skill 'mace' 1 1 100
+Skill 'polearm' 1 1 100
+Skill 'shield block' 1 1 90
+Skill 'spear' 1 1 100
+Skill 'sword' 1 1 100
+Skill 'whip' 1 1 100
+Skill 'bash' 1 1 100
+Skill 'bash door' 1 1 100
+Skill 'cleave' 55 1 100
+Skill 'dirt kicking' 3 1 100
+Skill 'disarm' 21 1 100
+Skill 'enhanced damage' 3 1 95
+Skill 'hand to hand' 18 1 100
+Skill 'kick' 9 1 100
+Skill 'parry' 5 1 100
+Skill 'shield cleave' 29 1 100
+Skill 'trip' 10 1 100
+Skill 'weapon cleave' 34 1 100
+Skill 'second attack' 14 1 100
+Skill 'third attack' 26 1 100
+Skill 'fast healing' 7 1 100
+Skill 'haggle' 8 2 100
+Skill 'lore' 20 2 100
+Skill 'meditation' 15 1 100
+Skill 'scrolls' 1 2 100
+Skill 'wands' 1 2 100
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Scum~
