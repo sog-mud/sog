@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.289 2003-09-30 00:31:09 fjoe Exp $
+ * $Id: act_obj.c,v 1.290 2003-10-08 18:42:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1291,6 +1291,7 @@ DO_FUN(do_eat, ch, argument)
 			    ch, NULL, obj, TO_CHAR);
 			spellfun("hallucination", NULL, obj->level, ch,ch);
 		}
+		break;
 
 	case ITEM_HERB:
 		obj_cast_spell(obj->value[0].s, MAX_LEVEL, ch, ch);
