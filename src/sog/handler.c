@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.36 2000-12-28 05:18:21 osya Exp $
+ * $Id: handler.c,v 1.182.2.37 2001-01-11 18:37:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1376,7 +1376,11 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
 
-	oprog_call(OPROG_WEAR, obj, ch, NULL);
+	if (oprog_call(OPROG_WEAR, obj, ch, NULL)) {
+		// object was not equipped
+		return NULL;
+	}
+
 	return obj;
 }
 
@@ -4746,6 +4750,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_LIGHT);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_FINGER)) {
 		if (get_eq_char(ch, WEAR_FINGER_L) != NULL
 		&&  get_eq_char(ch, WEAR_FINGER_R) != NULL
@@ -4773,6 +4778,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		char_puts("You already wear two rings.\n", ch);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_NECK)) {
 		if (get_eq_char(ch, WEAR_NECK_1) != NULL
 		    && get_eq_char(ch, WEAR_NECK_2) != NULL
@@ -4800,6 +4806,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		char_puts("You already wear two neck items.\n", ch);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_BODY)) {
 		if (!remove_obj(ch, WEAR_BODY, fReplace))
 			return;
@@ -4809,6 +4816,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_BODY);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_HEAD)) {
 		if (!remove_obj(ch, WEAR_HEAD, fReplace))
 			return;
@@ -4818,6 +4826,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_HEAD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_LEGS)) {
 		if (!remove_obj(ch, WEAR_LEGS, fReplace))
 			return;
@@ -4827,6 +4836,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_LEGS);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_FEET)) {
 		if (!remove_obj(ch, WEAR_FEET, fReplace))
 			return;
@@ -4836,6 +4846,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_FEET);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_HANDS)) {
 		if (!remove_obj(ch, WEAR_HANDS, fReplace))
 			return;
@@ -4845,6 +4856,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_HANDS);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_ARMS)) {
 		if (!remove_obj(ch, WEAR_ARMS, fReplace))
 			return;
@@ -4854,6 +4866,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_ARMS);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_ABOUT)) {
 		if (!remove_obj(ch, WEAR_ABOUT, fReplace))
 			return;
@@ -4863,6 +4876,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_ABOUT);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_WAIST)) {
 		if (!remove_obj(ch, WEAR_WAIST, fReplace))
 			return;
@@ -4872,6 +4886,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_WAIST);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_WRIST)) {
 		if (get_eq_char(ch, WEAR_WRIST_L) != NULL
 		    && get_eq_char(ch, WEAR_WRIST_R) != NULL
@@ -4899,8 +4914,10 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		char_puts("You already wear two wrist items.\n", ch);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
 		OBJ_DATA       *weapon;
+
 		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
 			char_puts("You can't use a shield while using a second weapon.\n", ch);
 			return;
@@ -4909,90 +4926,99 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			return;
 
 		weapon = get_eq_char(ch, WEAR_WIELD);
-		if (weapon != NULL && ch->size < SIZE_LARGE
+		if (weapon != NULL
+		&&  ch->size < SIZE_LARGE
 		&&  IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)) {
 			char_puts("Your hands are tied up with your weapon!\n", ch);
 			return;
 		}
+
 		if (weapon && (weapon->value[0] == WEAPON_STAFF)) {
 			char_puts("You need both hands for this type of "
 				"weapon.\n", ch);
 			return;
 		}
+
 		act("$n wears $p as a shield.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p as a shield.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_SHIELD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
 		int             skill;
 		OBJ_DATA       *dual;
-		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
-			if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
-			    || obj->value[0] == WEAPON_STAFF) {
-				char_puts("You can't dual wield two-handed "
-					"weapon!\n", ch);
-				return;
-			} else
-				unequip_char(ch, dual);
-		}
-		if (!remove_obj(ch, WEAR_WIELD, fReplace))
+
+		/*
+		 * remove dual wielded weapon (otherwise `remove_obj'
+		 * will move it to WEAR_WIELD location when
+		 * WEAR_WIELD obj is removed a few lines below
+		 */
+		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
+			unequip_char(ch, dual);
+
+		if (!remove_obj(ch, WEAR_WIELD, fReplace)) {
+			// can't remove WEAR_WIELD obj
+			if (dual)
+				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
+		}
 
 		if (!IS_NPC(ch)
-		&& get_obj_weight(obj) >
-			  str_app[get_curr_stat(ch, STAT_STR)].wield * 10) {
+		&&  get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield * 10) {
 			char_puts("It is too heavy for you to wield.\n", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
-		if ((get_eq_char(ch, WEAR_SHIELD)
-			|| get_eq_char(ch, WEAR_SECOND_WIELD))
-		  && (obj->value[0] == WEAPON_STAFF
-		    || (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
-		       && !IS_NPC(ch) && ch->size < SIZE_LARGE))) {
-				char_puts("You need two hands free for that"
-					" weapon.\n", ch);
+
+		if ((get_eq_char(ch, WEAR_SHIELD) ||
+		     get_eq_char(ch, WEAR_HOLD) ||
+		     get_eq_char(ch, WEAR_SECOND_WIELD))
+		&&  (obj->value[0] == WEAPON_STAFF ||
+		     (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS) && 
+		      !IS_NPC(ch) && ch->size < SIZE_LARGE))) {
+			char_puts("You need two hands free for that weapon.\n", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
+
 		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wield $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		obj = equip_char(ch, obj, WEAR_WIELD);
 		if (dual)
 			equip_char(ch, dual, WEAR_SECOND_WIELD);
-
 		if (obj == NULL)
 			return;
 
 		skill = get_weapon_skill(ch, get_weapon_sn(obj));
-
-		if (skill >= 100)
+		if (skill >= 100) {
 			act_puts("$p feels like a part of you!",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 85)
+		} else if (skill > 85) {
 			act_puts("You feel quite confident with $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 70)
+		} else if (skill > 70) {
 			act_puts("You are skilled with $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 50)
+		} else if (skill > 50) {
 			act_puts("Your skill with $p is adequate.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 25)
+		} else if (skill > 25) {
 			act_puts("$p feels a little clumsy in your hands.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 1)
+		} else if (skill > 1) {
 			act_puts("You fumble and almost drop $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else
+		} else {
 			act_puts("You don't even know which end is up on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
 		OBJ_DATA *wield;
 
@@ -5001,12 +5027,13 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
-		if ((wield = get_eq_char(ch, WEAR_WIELD))
-		  && wield->value[0] == WEAPON_STAFF) {
-			char_puts("You cannot hold something with this weapon"
-				" wielded.\n", ch);
+
+		if ((wield = get_eq_char(ch, WEAR_WIELD)) != NULL
+		&&  wield->value[0] == WEAPON_STAFF) {
+			char_puts("You cannot hold something with the weapon you wield.\n", ch);
 			return;
 		}
+
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))
 			return;
 		act("$n holds $p in $s hand.", ch, obj, NULL, TO_ROOM);
@@ -5015,6 +5042,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_HOLD);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_FLOAT)) {
 		if (!remove_obj(ch, WEAR_FLOAT, fReplace))
 			return;
@@ -5025,6 +5053,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_FLOAT);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_TATTOO) && IS_IMMORTAL(ch)) {
 		if (!remove_obj(ch, WEAR_TATTOO, fReplace))
 			return;
@@ -5035,6 +5064,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_TATTOO);
 		return;
 	}
+
 	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)) {
 		if (!remove_obj(ch, WEAR_CLANMARK, fReplace))
 			return;
@@ -5045,6 +5075,7 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		equip_char(ch, obj, WEAR_CLANMARK);
 		return;
 	}
+
 	if (fReplace)
 		char_puts("You can't wear, wield, or hold that.\n", ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.7 2000-07-27 09:30:38 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.8 2001-01-11 18:37:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1086,6 +1086,7 @@ int wear_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		char_puts("Ranger staff slides off from your hand.\n", ch);
 		obj_from_char(obj);
 		obj_to_room(obj, ch->in_room);
+		return 1;
 	}
 	return 0;
 }
@@ -1667,10 +1668,9 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
-
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
-	return 0;
+	return 1;
 }
 
 int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
@@ -1700,6 +1700,7 @@ int wear_prog_enforcer_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		    ch, obj, NULL, TO_ROOM);
 		obj_from_char(obj);
 		obj_to_room(obj, ch->in_room);
+		return 1;
 	}
 
 	return 0;
