@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.20 1998-05-28 20:54:40 efdi Exp $
+ * $Id: fight.c,v 1.21 1998-05-29 07:45:19 efdi Exp $
  */
 
 /***************************************************************************
@@ -107,6 +107,20 @@ void	damage_to_object	args((CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int 
 int	critical_strike args((CHAR_DATA *ch, CHAR_DATA *victim, int dam));
 void	check_shield_destroyed	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second));
 void	check_weapon_destroyed	args((CHAR_DATA *ch, CHAR_DATA *victim, bool second));
+
+/*
+ * Gets all money from corpse
+ */
+void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
+{
+	OBJ_DATA *tmp, *tmp_next;
+	for (tmp = corpse->contains; tmp; tmp = tmp_next) {
+		tmp_next = tmp->next_content;
+		if (tmp->item_type == ITEM_MONEY)
+			get_obj(ch, tmp, corpse);
+	}
+}
+
 
 /*
  * Updates player's rating.
@@ -988,8 +1002,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			if (IS_SET(ch->act,PLR_AUTOGOLD) &&
 			    corpse && corpse->contains	&& /* exists and not empty */
 			    !IS_SET(ch->act,PLR_AUTOLOOT))  {
-			  do_get(ch, "gold corpse");
-			  do_get(ch, "coins corpse");
+				get_gold_corpse(ch, corpse);
 			}
 
 			if (IS_SET(ch->act, PLR_AUTOSAC))
@@ -1031,7 +1044,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 			if (IS_SET(ch->act,PLR_AUTOGOLD) &&
 			    corpse && corpse->contains	&& /* exists and not empty */
 			    !IS_SET(ch->act,PLR_AUTOLOOT))
-			  do_get(ch, "gold corpse");
+				get_gold_corpse(ch, corpse);
 
 			if (IS_SET(ch->act, PLR_AUTOSAC))
 			  if (IS_SET(ch->act,PLR_AUTOLOOT) && corpse
@@ -1518,7 +1531,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		    if (IS_SET(ch->act,PLR_AUTOGOLD) &&
 			corpse && corpse->contains  && /* exists and not empty */
 			!IS_SET(ch->act,PLR_AUTOLOOT))
-		      do_get(ch, "gold corpse");
+				get_gold_corpse(ch, corpse);
 
 		    if (ch->class == CLASS_VAMPIRE && ch->level > 10)
 			{
