@@ -305,63 +305,94 @@ key scarlet алый ключ~
 @eng {Rthe scarlet key{x@rus {R~~алый~~ ~~ключ{x~
 @eng A small scarlet key lies here.@rus Маленький алый ключик (key) лежит здесь.~
 silver~
-key 0 AO
+key Ti AO
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Дверцу, которую может отпереть этот ключик, ищи за троном
+повелителя Огня.
+~
 G male
 #34415
 key orange оранжевый ключ~
 @eng {ythe orange key{x@rus {y~~оранжевый~~ ~~ключ~~{x~
 @eng A small orange key lies here.@rus Маленький оранжевый ключик (key) лежит здесь.~
 silvery~
-key 0 AO
+key Ti AO
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Дверцу, которую может отпереть этот ключик, ты можешь
+найти у продавца зелени.
+~
 G none
 #34416
 key yellow желтый ключ~
 @eng {Ythe yellow key{x@rus {Y~~желтый~~ ~~ключ~~{x~
 @eng A small yellow key lies here.@rus Маленький желтый ключик (key) лежит здесь.~
 silvery~
-key 0 AO
+key Ti AO
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Ищи дверь в храме Света..
+~
 G male
 #34417
 key green ключ зеленый~
 @eng {gthe green key{x@rus {g~~зеленый~~ ~~ключ~~{x~
 @eng A small green key lies here.@rus Маленький зеленый ключ (key) лежит здесь.~
 silvery~
-key 0 AO
+key Ti AO
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Дверцу, отпираемую этим ключом, ты сможешь найти там,
+где живет дракон зеленый.
+~
 G male
 #34418
 key cyan ключ голубой~
 @eng {Cthe light-blue key{x@rus {C~~голубой~~ ~~ключ~~{x~
 @eng A small cyan key lies here.@rus Маленький голубой ключ (key) лежит здесь.~
 silvery~
-key 0 AO
+key Ti AO
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Ищи дверку там, где правит вечная зима и время остановилось.
+~
 G male
 #34419
 key blue синий ключ~
 @eng {Bthe blue key{x@rus {B~~синий~~ ~~ключ~~{x~
 @eng A small blue key lies here.@rus Маленький синий ключ (key) лежит здесь.~
 silvery~
-key 0 AO
+key Ti AO
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Дверцу найдешь ты в старой библиотеке, что в Геригхельме.
+~
 G male
 #34420
 key violet фиолетовый ключ~
 @eng {mthe violet key{x@rus {m~~фиолетовый~~ ~~ключ~~{x~
 @eng A small violet key lies here.@rus Маленький фиолетовый ключ (key) лежит здесь.~
 silvery~
-key 0 0
+key Ti 0
 0 0 0 0 0
 1 1 100 P
+E
+key~
+Сама Тиамат охраняет эту дверь...
+~
 G male
 #34421
 hive wasp осиное гнездо~
@@ -371,6 +402,96 @@ unknown~
 container RTij AO
 0 0 0 0 0
 0 1 15000 P
+G none
+#34422
+amulet fiery амулет огненный~
+@eng fiery amulet@rus ~~огненный~~ ~~амулет~~~
+@eng Sparkling fiery amulet lies here.@rus Сверкающий огненный амулет (amulet) лежит здесь.~
+fire~
+jewelry 0 AC
+0 0 0 0 0
+0 1 15000 P
+F R 0 0 H
+G male
+#34423
+amulet amber амулет янтарный~
+@eng amber amulet@rus ~~янтарный~~ ~~амулет~~~
+@eng Sparkling amber amulet lies here.@rus Сверкающий янтарный амулет (amulet) лежит здесь.~
+amber~
+jewelry 0 AC
+0 0 0 0 0
+0 1 16000 P
+F R 0 0 K
+G male
+#34424
+amulet sunlight солнечный амулет~
+@eng sunlight amulet@rus ~~солнечный~~ ~~амулет~~~
+@eng Sparkling sunlight amulet lies here.@rus Сверкающий солнечный амулет (amulet) lies here.~
+sunlight~
+jewelry 0 AC
+0 0 0 0 0
+0 1 15000 P
+F R 0 0 S
+G male
+#34425
+amulet green leaf зеленый амулет~
+@eng green leaf shaped amulet@rus ~~амулет~~ в форме зеленого листа~
+@eng Sparkling green amulet lies here.@rus Сверкающий зеленый амулет (amulet) lies here.~
+leaf~
+jewelry 0 AC
+0 0 0 0 0
+0 1 15000 P
+F R 0 0 Q
+F R 0 0 L
+G male
+#34426
+amulet light-blue небесно-голубой амулет~
+@eng light-blue amulet@rus ~~небесно-голубой~~ ~~амулет~~~
+@eng Sparkling light-blue amulet lies here.@rus Сверкающий небесно-голубой амулет (amulet) lies here.~
+sky~
+jewelry 0 AC
+0 0 0 0 0
+0 1 15000 P
+F R 0 0 P
+G male
+#34427
+amulet sapphire сапфировый амулет~
+@eng sapphire amulet@rus ~~сапфировый~~ ~~амулет~~~
+@eng Sparkling sapphire amulet lies here.@rus Сверкающий сапфировый амулет (amulet) lies here.~
+sapphire~
+jewelry 0 AC
+0 0 0 0 0
+0 1 15000 P
+F R 0 0 O
+F R 0 0 I
+G male
+#34428
+amulet violet фиотеловый амулет~
+@eng violet amulet@rus ~~фиолетовый~~ ~~амулет~~~
+@eng Sparkling violet amulet lies here.@rus Сверкающий фиолетовый амулет (amulet) lies here.~
+unknown~
+jewelry 0 AC
+0 0 0 0 0
+0 1 15000 P
+F R 0 0 B
+G male
+#34439
+amulet амулет~
+@eng golden amulet@rus ~~золотой~~ ~~амулет~~~
+@eng Beuatiful golden amulet on the chain lies here.@rus Прекрасный золотой амулет (amulet) на цепочке лежит здесь.~
+gold~
+jewelry 0 AC
+0 0 0 0 0
+0 1 13000 P
+G male
+#34440
+door дверь~
+@eng door@rus дверь~
+@eng You see known lands beside the door.@rus За дверью (door) угадывается знакомая местность.~
+unknown~
+portal 0 0
+0 0 0 3502 0
+0 0 150 P
 G none
 #34449
 mace дубина~
@@ -582,12 +703,22 @@ container AGIRTi 0
 G male
 #34463
 scroll свиток~
-@eng the magic scroll@rus ~~магический~~ ~~свиток~~~
+@eng the scroll@rus свиток~
 @eng The scroll emits blue-green radiance.@rus Свиток (scroll), излучающий голубовато-зеленое сияние, лежит здесь.~
 light~
 treasure AGI AO
 0 0 0 0 0
 1 1 15000 P
+E
+scroll~
+  Ключ первый, алый, ищи там, где огонь земли выходит на поверхность.
+  Ключ второй, оранжевый, ищи в саду, где земля дарит нам плоды щедрости своей.
+  Ключ третий, желтый, ищи у птицы, возраждающейся из пепла.
+  Ключ четвертый, зеленый, ищи у деревенской колдуньи, познавшей тайны природы.
+  Ключ пятый, голубой, ищи на облаках.
+  Ключ шестой, синий, ищи под водой.
+  Ключ седьмой, фиолетовый, в сокровищнице чьей-то припрятан, ищи...
+~
 G male
 #34464
 tablet табличка~
@@ -746,7 +877,7 @@ door scarlet дверь алая portal портал~
 @eng The scarlet door to unknown attracts and calls...@rus Алая дверь (door) в неизвестность манит и притягивает...~
 fire~
 portal 0 0
-0 0 0 0 0
+0 0 0 34405 0
 0 1 10 P
 G female
 #34476
@@ -755,7 +886,7 @@ door дверь portal портал orange оранжевая~
 @eng The orange door to unknown attracts and calls...@rus Оранжевая дверь (door) в неизвестность манит и притягивает...~
 sunlight~
 portal 0 0
-0 0 0 0 0
+0 0 0 34407 0
 0 1 100 P
 G female
 #34477
@@ -773,7 +904,7 @@ door дверь portal портал yellow желтая~
 @eng The yellow door to unknown attracts and calls...@rus Желтая дверь (door) в неизвестность манит и притягивает...~
 sunlight~
 portal 0 0
-0 0 0 0 0
+0 0 0 34409 0
 0 1 100 P
 G female
 #34479
@@ -782,7 +913,7 @@ door дверь portal портал green зеленая~
 @eng The green door to unknown attracts and calls...@rus Зеленая дверь (door) в неизвестность манит и притягивает...~
 grass~
 portal 0 0
-0 0 0 0 0
+0 0 0 34411 0
 0 1 100 P
 G female
 #34480
@@ -791,7 +922,7 @@ door дверь portal портал light-blue голубая~
 @eng The light-blue door to unknown attracts and calls...@rus Голубая дверь (door) в неизвестность манит и притягивает...~
 cloud~
 portal 0 0
-0 0 0 0 0
+0 0 0 34413 0
 0 1 100 P
 G female
 #34481
@@ -800,7 +931,7 @@ door дверь portal портал blue синяя~
 @eng The blue door to unknown attracts and calls...@rus Синяя дверь (door) в неизвестность манит и притягивает...~
 water~
 portal 0 0
-0 0 0 0 0
+0 0 0 34415 0
 0 1 100 P
 G female
 #34482
@@ -809,7 +940,7 @@ door дверь portal портал violet фиолетовая~
 @eng The violet door to unknown attracts and calls...@rus Фиолетовая дверь (door) в неизвестность манит и притягивает...~
 violet~
 portal 0 0
-0 0 0 0 0
+0 0 0 34417 0
 0 1 100 P
 G female
 #0
@@ -870,6 +1001,104 @@ D2
 ~
 Z 0 34402
 S
+#34404
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKNTX inside
+S
+#34405
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34406
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34407
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34408
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34409
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34410
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34411
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34412
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34413
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34414
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34415
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34416
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
+#34417
+@eng Nowhere@rus Нигде~
+@eng You are nowhere... out of reality...
+@rus Ты находишься где-то вне реальности.
+~
+0 CDHKTX inside
+S
 #0
 
 #SPECIALS
@@ -886,6 +1115,21 @@ O 0 34405 0 34400	* fallen tree ({GClearing in the woods{x)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{x)
 M 0 34406 1 34402 1	* the crystalline dragon (In the cave)
 O 0 34462 0 34403	* altar (Heart of the mountain)
+P 0 34463 100 34462 10	* altar: the scroll
+O 0 34475 0 34404	* scarlet door to unknown (Nowhere)
+O 0 34440 0 34405	* door (Nowhere)
+O 0 34476 0 34406	* orange door to unknown (Nowhere)
+O 0 34440 0 34407	* door (Nowhere)
+O 0 34478 0 34408	* yellow door to unknown (Nowhere)
+O 0 34440 0 34409	* door (Nowhere)
+O 0 34479 0 34410	* green door to unknown (Nowhere)
+O 0 34440 0 34411	* door (Nowhere)
+O 0 34480 0 34412	* light-blue door to unknown (Nowhere)
+O 0 34440 0 34413	* door (Nowhere)
+O 0 34481 0 34414	* blue door to unknown (Nowhere)
+O 0 34440 0 34415	* door (Nowhere)
+O 0 34482 0 34416	* violet door to unknown (Nowhere)
+O 0 34440 0 34417	* door (Nowhere)
 S
 
 #SHOPS
@@ -973,6 +1217,43 @@ say When You will be ready find me and ask to transfer.
 ~
 #34415
 say I know nothing about it.
+~
+#34416
+say Уж не в поисках ли ты ключа алого вы здесь оказались?
+say Коли так, вот он, ключ. Забирайте...
+mob oload 34414
+give key $n
+~
+#34417
+'Ключ ищешь? Если ты мне заплатишь 500 золотых, дам я тебе ключ...
+~
+#34418
+mob oload 34419
+give key $n
+drop 500 gold
+mob purge
+~
+#34419
+'И что привело тебя ко мне? Ключ? Если так, то тебе нужно сначала отгадать мою загадку. Отгадаешь правильно -- получишь ключ.. не отгадаешь -- придется нам сразиться с тобой...
+'Вот моя загадка: сколько лет живет феникс?
+~
+#34420
+'Это правильный ответ. Ты можешь забрать ключ..
+mob oload 34416
+give key $n
+~
+#34421
+mod oload 34416
+~
+#34422
+'Нужен ключ? Забирай его и уходи! Ты мне мешаешь!
+mod oload 34417
+give key $n
+~
+#34423
+'Забирай. Не нужно это мне.
+mod oload 34418
+give key $n
 ~
 #0
 
