@@ -1,8 +1,8 @@
 /*
- * $Id: obj_get_quest_reward.mpc,v 1.1 2001-09-14 16:48:19 fjoe Exp $
+ * $Id: obj_get_quest_reward.mpc,v 1.2 2001-10-21 21:33:55 fjoe Exp $
  */
 
-if (is_owner($n, $p)) {
+if (is_owner($p, $n)) {
         act("Your $p starts glowing.", $n, $p, NULL, TO_CHAR);
         return 0;
 }

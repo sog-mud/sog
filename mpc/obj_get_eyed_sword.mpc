@@ -1,8 +1,8 @@
 /*
- * $Id: obj_get_eyed_sword.mpc,v 1.1 2001-09-14 16:48:18 fjoe Exp $
+ * $Id: obj_get_eyed_sword.mpc,v 1.2 2001-10-21 21:33:54 fjoe Exp $
  */
 
-if (is_owner($n, $p)) {
+if (is_owner($p, $n)) {
         if (is_affected($n , AFF_POISON)
         &&  dice(1, 5) == 1) {
                  act("Your $p glows blue.", $n, $p, NULL, TO_CHAR);

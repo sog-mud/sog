@@ -1,8 +1,8 @@
 /*
- * $Id: obj_wear_quest_weapon.mpc,v 1.1 2001-09-14 16:48:19 fjoe Exp $
+ * $Id: obj_wear_quest_weapon.mpc,v 1.2 2001-10-21 21:33:55 fjoe Exp $
  */
 
-if (!is_owner($n, $p)) {
+if (!is_owner($p, $n)) {
         act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
         obj_to_room($p, char_room($n));
         return 1;
