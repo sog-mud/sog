@@ -1309,7 +1309,7 @@ a cannon~
 A mysterious thick metal tube rests here.~
 steel~
 wand 0 0 AO
-50 1 1 'high explosive' 0
+50 1 1 'magic missile' 0
 20 12 34570 G
 E
 tube cannon~

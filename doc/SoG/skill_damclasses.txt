@@ -1,5 +1,5 @@
 #
-# $Id: skill_damclasses.txt,v 1.1 2002-03-04 21:06:56 fjoe Exp $
+# $Id: skill_damclasses.txt,v 1.2 2002-03-11 14:07:17 cs Exp $
 #
 
 DAM_BASH
@@ -19,8 +19,6 @@ DAM_SLASH
 DAM_PIERCE
 	caltrops
 	blade barrier
-	general purpose
-	high explosive
 	entangle
 	thorns
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_cast_judge.mpc,v 1.1 2001-09-14 16:48:24 fjoe Exp $
+ * $Id: mob_fight_cast_judge.mpc,v 1.2 2002-03-11 14:07:18 cs Exp $
  */
 
 if (number_bits(2) != 0)
@@ -9,5 +9,5 @@ char victim = get_random_fighting($n);
 if (victim == NULL)
         return 0;
 
-cast_char("high explosive", $n, victim);
+cast_char("magic missile", $n, victim);
 return 0;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.286 2002-01-19 11:25:42 fjoe Exp $
+ * $Id: spellfun.c,v 1.287 2002-03-11 14:07:19 cs Exp $
  */
 
 /***************************************************************************
@@ -112,8 +112,6 @@ DECLARE_SPELL_FUN(spell_fire_breath);
 DECLARE_SPELL_FUN(spell_frost_breath);
 DECLARE_SPELL_FUN(spell_gas_breath);
 DECLARE_SPELL_FUN(spell_lightning_breath);
-DECLARE_SPELL_FUN(spell_general_purpose);
-DECLARE_SPELL_FUN(spell_high_explosive);
 DECLARE_SPELL_FUN(spell_find_object);
 DECLARE_SPELL_FUN(spell_lightning_shield);
 DECLARE_SPELL_FUN(spell_shocking_trap);
@@ -2585,31 +2583,6 @@ SPELL_FUN(spell_lightning_breath, sn, level, ch, vo)
 		shock_effect(victim, level, dam);
 		damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 	}
-}
-
-/*
- * Spells for mega1.are from Glop/Erkenbrand.
- */
-SPELL_FUN(spell_general_purpose, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = number_range(25, 100);
-	if (saves_spell(level, victim, DAM_PIERCE))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
-}
-
-SPELL_FUN(spell_high_explosive, sn, level, ch, vo)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam;
-
-	dam = number_range(30, 120);
-	if (saves_spell(level, victim, DAM_PIERCE))
-		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_find_object, sn, level, ch, vo)
