@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.47 2001-12-12 18:42:21 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.48 2001-12-12 19:10:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1365,9 +1365,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * No one in combat can hide, be invis or camoed.
 	 */
-	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE | AFF_BLEND |
-			    AFF_INVIS | AFF_IMP_INVIS))
+	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE |
+			    AFF_BLEND | AFF_INVIS | AFF_IMP_INVIS))
 		dofun("visible", ch, str_empty);
+	if (IS_AFFECTED(victim, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE |
+				AFF_BLEND | AFF_INVIS | AFF_IMP_INVIS))
+		dofun("visible", victim, str_empty);
 
 	/*
 	 * Damage modifiers.
