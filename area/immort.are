@@ -32,7 +32,7 @@ Nobody's coffin~
 A strange black coffin lies here.~
 wood~
 furniture CEJRY A
-0 2 L 0 100
+100 100 L 100 100
 5 500 5000000 P
 E
 coffin~
