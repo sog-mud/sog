@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.113 1999-02-15 08:16:10 fjoe Exp $
+ * $Id: interp.c,v 1.114 1999-02-15 12:51:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,10 +51,11 @@
 #include "interp.h"
 #include "olc/olc.h"
 #include "db/cmd.h"
+#include "db/socials.h"
 
 #undef IMMORTALS_LOGS
 
-bool	check_social	(CHAR_DATA *ch, char *command,const char *argument);
+void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument);
 
 /*
  * Command logging types.
@@ -508,6 +509,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	char logline[MAX_INPUT_LENGTH];
 	CMD_DATA *cmd;
 	bool found;
+	social_t *soc = NULL;
+	int min_pos;
+	flag_t cmd_flags;
 
 	/*
 	 * Strip leading spaces.
@@ -580,16 +584,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		else if (cmd->level > ch->level)
 			continue;
 
-#if 0
-		if (is_order && !IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
-			if (number_percent() < get_curr_stat(ch, STAT_CHA)) {
-				do_say(ch, "Nah, I won't do that.");
-				return;
-			}
-
-			if (number_percent() < get_curr_stat(ch, STAT_CHA)
-#endif
-
 		if (is_order) {
 			if (IS_SET(cmd->flags, CMD_NOORDER)
 			||  cmd->level >= LEVEL_IMMORTAL)
@@ -612,24 +606,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			return;
 		}
 
-		/* Come out of hiding for most commands */
-		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)
-		&& !(cmd->flags & CMD_KEEP_HIDE)) {
-			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-			char_puts("You step out of shadows.\n", ch);
-			act("$n steps out of shadows.",
-			    ch, NULL, NULL, TO_ROOM);
-
-        	}
-
-		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
-		&& (cmd->position == POS_FIGHTING)) {
-			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
-			char_puts("You fade into existence.\n", ch);
-			act("$n fades into existence.",
-			    ch, NULL, NULL, TO_ROOM);
-		}
-
 		found = TRUE;
 		break;
 	}
@@ -649,7 +625,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				"Log %s: %s", ch->name, logline);
 	}
 
-	if (ch->desc != NULL && ch->desc->snoop_by != NULL) {
+	if (ch->desc && ch->desc->snoop_by) {
 		write_to_buffer(ch->desc->snoop_by, "# ", 2);
 		write_to_buffer(ch->desc->snoop_by, logline, 0);
 		write_to_buffer(ch->desc->snoop_by, "\n\r", 2);
@@ -659,18 +635,47 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		/*
 		 * Look for command in socials table.
 		 */
-		if (!check_social(ch, command, argument)) {
+		if ((soc = social_lookup(command)) == NULL) {
 			char_puts("Huh?\n", ch);
 			return;
 		}
-		else
+
+		if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
+			char_puts("You are anti-social!\n", ch);
 			return;
+		}
+
+		min_pos = soc->min_pos;
+		cmd_flags = 0;
+	}
+	else {
+		min_pos = cmd->position;
+		cmd_flags = cmd->flags;
+	}
+
+	if (!IS_NPC(ch)) {
+		/* Come out of hiding for most commands */
+		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
+		&&  !IS_SET(cmd_flags, CMD_KEEP_HIDE)) {
+			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+			char_puts("You step out of shadows.\n", ch);
+			act("$n steps out of shadows.",
+			    ch, NULL, NULL, TO_ROOM);
+		}
+
+		if (IS_AFFECTED(ch, AFF_IMP_INVIS)
+		&&  min_pos == POS_FIGHTING) {
+			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
+			char_puts("You fade into existence.\n", ch);
+			act("$n fades into existence.",
+			    ch, NULL, NULL, TO_ROOM);
+		}
 	}
 
 	/*
 	 * Character not in position for command?
 	 */
-	if (ch->position < cmd->position) {
+	if (ch->position < min_pos) {
 		switch(ch->position) {
 			case POS_DEAD:
 				char_puts("Lie still; You are DEAD.\n", ch);
@@ -709,6 +714,11 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		return;
 	}
 
+	if (soc) {
+		interpret_social(soc, ch, argument);
+		return;
+	}
+
 	/*
 	 * Dispatch the command.
 	 */
@@ -717,123 +727,59 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	tail_chain();
 }
 
-bool check_social(CHAR_DATA *ch, char *command, const char *argument)
+void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *victim_room;
-	int cmd;
-	bool found;
-	found = FALSE;
-
-	for (cmd = 0; social_table[cmd].name != NULL; cmd++) {
-		if (command[0] == social_table[cmd].name[0]
-		&&  !str_prefix(command, social_table[cmd].name)) {
-			found = TRUE;
-			break;
-		}
-	}
-
-	if (!found)
-		return FALSE;
-
-	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-		char_puts("You are anti-social!\n", ch);
-		return TRUE;
-	}
-
-	switch (ch->position) {
-		case POS_DEAD:
-			char_puts("Lie still; You are DEAD.\n", ch);
-			return TRUE;
-
-		case POS_INCAP:
-		case POS_MORTAL:
-			char_puts("You are hurt far too bad for that.\n", ch);
-			return TRUE;
-
-		case POS_STUNNED:
-			char_puts("You are too stunned to do that.\n", ch);
-			return TRUE;
-
-		case POS_SLEEPING:
-		/*
-		 * I just know this is the path to a 12" 'if' statement.  :(
-		 * But two players asked for it already!  -- Furey
-		 */
-			if (!str_cmp(social_table[cmd].name, "snore"))
-				break;
-			char_puts("In your dreams, or what?\n", ch);
-			return TRUE;
-	}
-
-	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-		char_puts("You step out of shadows.\n", ch);
-		act_puts("$n steps out of shadows.",
-			 ch, NULL, NULL, TO_ROOM, POS_RESTING); 
-	}
-
-	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
-	&& (cmd_table[cmd].position == POS_FIGHTING)) {
-		affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
-		char_puts("You fade into existence.\n", ch);
-		act_puts("$n fades into existence.\n", ch, NULL, NULL, TO_ROOM,
-			  POS_RESTING);
-	}
 
 	one_argument(argument, arg);
-	victim = NULL;
 	if (arg[0] == '\0') {
-		act(social_table[cmd].val[SOC_OTHERS_NO_ARG],
-			ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
-		act(social_table[cmd].val[SOC_CHAR_NO_ARG],
-			ch, NULL, victim, TO_CHAR);
-		return TRUE;
+		act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
+		act(soc->noarg_room,
+		    ch, NULL, NULL, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
+		return;
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL
 	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		act(social_table[cmd].val[SOC_CHAR_NOT_FOUND],
-			ch, NULL, victim, TO_CHAR);
-		return TRUE;
+		act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
+		return;
 	}
 
 	if (victim == ch) {
-		act(social_table[cmd].val[SOC_OTHERS_AUTO],
-			ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
-		act(social_table[cmd].val[SOC_CHAR_AUTO],
-			ch, NULL, victim, TO_CHAR);
-		return TRUE;
+		act(soc->self_char, ch, NULL, victim, TO_CHAR);
+		act(soc->self_room,
+		    ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
+		return;
 	}
 
 	victim_room = victim->in_room;
 	victim->in_room = ch->in_room;
 
-	act(social_table[cmd].val[SOC_OTHERS_FOUND],
-		ch, NULL, victim, TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
-	act(social_table[cmd].val[SOC_CHAR_FOUND],
-		ch, NULL, victim, TO_CHAR);
-	act(social_table[cmd].val[SOC_VICT_FOUND],
-		ch, NULL, victim, TO_VICT | ACT_TOBUF | ACT_NOTWIT);
+	act(soc->found_char, ch, NULL, victim, TO_CHAR);
+	act(soc->found_vict,
+	    ch, NULL, victim, TO_VICT | ACT_TOBUF | ACT_NOTWIT);
+	act(soc->found_notvict,
+	    ch, NULL, victim, TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
 
 	victim->in_room = victim_room;
 
 	if (!IS_NPC(ch) && IS_NPC(victim) 
 	&&  !IS_AFFECTED(victim, AFF_CHARM)
-	&&  IS_AWAKE(victim) && victim->desc == NULL) {
+	&&  IS_AWAKE(victim) && !victim->desc) {
 		switch (number_bits(4)) {
 			case 0:
 
 			case 1: case 2: case 3: case 4:
 			case 5: case 6: case 7: case 8:
-				act(social_table[cmd].val[SOC_OTHERS_FOUND],
+				act(soc->found_char,
+				    victim, NULL, ch, TO_CHAR);
+				act(soc->found_vict,
+				    victim, NULL, ch, TO_VICT | ACT_TOBUF);
+				act(soc->found_notvict,
 				    victim, NULL, ch,
 				    TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
-				act(social_table[cmd].val[SOC_CHAR_FOUND],
-				    victim, NULL, ch, TO_CHAR);
-				act(social_table[cmd].val[SOC_VICT_FOUND],
-				    victim, NULL, ch, TO_VICT | ACT_TOBUF);
 				break;
 
 			case 9: case 10: case 11: case 12:
@@ -845,10 +791,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 				break;
 		}
 	}
-	return TRUE;
 }
-
-
 
 /*
  * Return true if an argument is completely numeric.

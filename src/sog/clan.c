@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.31 1999-02-12 10:33:28 kostik Exp $
+ * $Id: clan.c,v 1.32 1999-02-15 12:51:03 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -38,7 +38,8 @@
 #endif
 
 #include "merc.h"
-#include "olc/olc.h"		/* do_asave */
+
+DECLARE_DO_FUN(do_asave);
 
 varr clans = { sizeof(CLAN_DATA), 4 };
 

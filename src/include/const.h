@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.18 1999-02-12 16:22:40 fjoe Exp $
+ * $Id: const.h,v 1.19 1999-02-15 12:51:03 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -84,6 +84,7 @@
 #endif
 
 #define SKILLS_CONF	"skills.conf"	/* skills */
+#define SOCIALS_CONF	"socials.conf"	/* socials */
 #define LANG_CONF	"lang.conf"	/* lang definitions */
 #define MSG_FILE	"msgdb.txt"	/* msg db */
 
@@ -127,7 +128,6 @@
 /*
  * Game parameters.
  */
-#define MAX_SOCIALS		256
 #define MAX_RELIGION		18
 #define PK_MIN_LEVEL		10	/* min PK level */
 #define MAX_NEWBIES		120	/* number of newbies allowed */

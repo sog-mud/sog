@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.146 1999-02-12 16:22:40 fjoe Exp $
+ * $Id: merc.h,v 1.147 1999-02-15 12:51:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1789,27 +1789,6 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 /* new defines */
 #define MAX_CHARM(ch)	((get_curr_stat(ch,STAT_INT) / 4) + (ch->level / 30))
 
-enum {
-	SOC_CHAR_NO_ARG,
-	SOC_OTHERS_NO_ARG,
-	SOC_CHAR_FOUND,
-	SOC_OTHERS_FOUND,
-	SOC_VICT_FOUND,
-	SOC_CHAR_NOT_FOUND,
-	SOC_CHAR_AUTO,
-	SOC_OTHERS_AUTO,
-	SOC_MAX
-};
-
-/*
- * Structure for a social in the socials table.
- */
-struct social_type
-{
-	const char *	name;
-	const char *	val[SOC_MAX];
-};
-
 /*
  * Global constants.
  */
@@ -1823,7 +1802,6 @@ extern	const	struct wiznet_type	wiznet_table	[];
 extern	const	struct attack_type	attack_table	[];
 extern	const	struct spec_type	spec_table	[];
 extern	const	struct liq_type		liq_table	[];
-extern		struct social_type	social_table	[MAX_SOCIALS];
 
 /*
  * Global variables.

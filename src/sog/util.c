@@ -23,9 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.16 1998-11-25 15:17:46 fjoe Exp $
+ * $Id: util.c,v 1.17 1999-02-15 12:51:04 fjoe Exp $
  */
 
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -93,6 +95,16 @@ int d2rename(const char *dir1, const char *file1,
 	free_string(name1);
 	free_string(name2);
 	return res;
+}
+
+bool dfexist(const char *dir, const char *file)
+{
+	struct stat sb;
+	int res;
+	const char *name = str_add(dir, path_sep, file, NULL);
+	res = stat(name, &sb);
+	free_string(name);
+	return (res >= 0);
 }
 
 const char *get_filename(const char *name)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.192 1999-02-12 18:14:32 fjoe Exp $
+ * $Id: act_info.c,v 1.193 1999-02-15 12:51:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -71,6 +71,7 @@ DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_affects	);
 DECLARE_DO_FUN(do_murder	);
 DECLARE_DO_FUN(do_say		);
+DECLARE_DO_FUN(do_alist		);
 
 char *get_stat_alias(CHAR_DATA *ch, int which);
 
@@ -771,17 +772,7 @@ DO_FUN(do_scroll)
 /* RT does socials */
 void do_socials(CHAR_DATA *ch, const char *argument)
 {
-	int iSocial;
-	int col = 0;
-
-	for (iSocial = 0; social_table[iSocial].name != NULL; iSocial++) {
-		char_printf(ch, "%-12s", social_table[iSocial].name);
-		if (++col % 6 == 0)
-			char_puts("\n",ch);
-	}
-
-	if (col % 6)
-		char_puts("\n",ch);
+	do_alist(ch, "social");
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.43 1999-02-12 18:14:32 fjoe Exp $
+# $Id: Makefile,v 1.44 1999-02-15 12:51:02 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -43,18 +43,22 @@ COMM_OFILES = ban.o charset.o comm.o comm_act.o\
 	      comm_colors.o comm_info.o resolver.o
 
 DB_CFILES = db/cmd.c db/db.c db/db_area.c db/db_clan.c db/db_class.c\
-	    db/db_skills.c db/db_lang.c db/db_race.c\
-	    db/gsn.c db/lang.c db/msg.c db/spellfn.c db/word.c
+	    db/db_skills.c db/db_lang.c db/db_race.c db/db_socials.c\
+	    db/gsn.c db/lang.c db/msg.c db/spellfn.c db/socials.c\
+	    db/word.c
 DB_OFILES = cmd.o db.o db_area.o db_clan.o db_class.o\
-	    db_skills.o db_lang.o db_race.o\
-	    gsn.o lang.o msg.o spellfn.o word.o
+	    db_skills.o db_lang.o db_race.o db_socials.o\
+	    gsn.o lang.o msg.o spellfn.o socials.o\
+	    word.o
 
 OLC_CFILES = olc/olc.c olc/olc_area.c olc/olc_clan.c olc/olc_help.c\
 	     olc/olc_lang.c olc/olc_mob.c olc/olc_mpcode.c olc/olc_msg.c\
-	     olc/olc_room.c olc/olc_obj.c olc/olc_save.c olc/olc_word.c
+	     olc/olc_room.c olc/olc_obj.c olc/olc_save.c olc/olc_social.c\
+	     olc/olc_word.c
 OLC_OFILES = olc.o olc_area.o olc_clan.o olc_help.o\
 	     olc_lang.o olc_mob.o olc_mpcode.o olc_msg.o\
-	     olc_room.o olc_obj.o olc_save.o olc_word.o
+	     olc_room.o olc_obj.o olc_save.o olc_social.o\
+	     olc_word.o
 
 CFILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c auction.c\
          buffer.c clan.c class.c\
