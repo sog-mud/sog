@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.230 2001-06-16 18:49:58 fjoe Exp $
+ * $Id: act_comm.c,v 1.231 2001-06-16 19:07:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1171,7 +1171,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	if (language != SLANG_COMMON
 	&&  (language != r->race_pcdata->slang && !IS_IMMORTAL(ch))) {
 		act_puts("You do not know how to speak $t.",
-			 ch, flag_string(slang_table, r->race_pcdata->slang),
+			 ch, flag_string(slang_table, language),
 			 NULL, TO_CHAR | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
