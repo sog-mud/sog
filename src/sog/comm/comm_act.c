@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.2 1999-12-16 12:40:05 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.3 2000-04-28 08:18:18 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -130,12 +130,14 @@ _format_long(mlstring *ml, CHAR_DATA *to, int to_lang)
  */
 const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 {
+	bool visible = can_see(to, ch);
+
 	if (is_affected(ch, gsn_doppelganger)
 	&&  (IS_NPC(to) ||
 	     !IS_SET(PC(to)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 
-	if (can_see(to, ch)) {
+	if (visible) {
 		if (IS_NPC(ch)) {
 			const char *descr;
 
