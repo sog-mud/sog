@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.155 2001-08-13 18:24:04 fjoe Exp $
+ * $Id: tables.c,v 1.156 2001-08-19 18:18:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1267,9 +1267,11 @@ flaginfo_t dam_classes[] =
 	{ "",			TABLE_INTVAL,			FALSE	},
 
 	{ "none",		DAM_NONE,			TRUE	},
+
 	{ "bash",		DAM_BASH,			TRUE	},
 	{ "pierce",		DAM_PIERCE,			TRUE	},
 	{ "slash",		DAM_SLASH,			TRUE	},
+
 	{ "fire",		DAM_FIRE,			TRUE	},
 	{ "cold",		DAM_COLD,			TRUE	},
 	{ "lightning",		DAM_LIGHTNING,			TRUE	},
@@ -1280,15 +1282,18 @@ flaginfo_t dam_classes[] =
 	{ "energy",		DAM_ENERGY,			TRUE	},
 	{ "mental",		DAM_MENTAL,			TRUE	},
 	{ "disease",		DAM_DISEASE,			TRUE	},
-	{ "drowning",		DAM_DROWNING,			TRUE	},
 	{ "light",		DAM_LIGHT,			TRUE	},
-	{ "other",		DAM_OTHER,			TRUE	},
-	{ "harm",		DAM_HARM,			TRUE	},
 	{ "charm",		DAM_CHARM,			TRUE	},
 	{ "sound",		DAM_SOUND,			TRUE	},
+	{ "harm",		DAM_HARM,			TRUE	},
+
+	{ "iron",		DAM_IRON,			TRUE	},
 	{ "wood",		DAM_WOOD,			TRUE	},
 	{ "silver",		DAM_SILVER,			TRUE	},
-	{ "iron",		DAM_IRON,			TRUE	},
+	{ "other",		DAM_OTHER,			TRUE	},
+
+	{ "weapon",		DAM_WEAPON,			TRUE	},
+	{ "magic",		DAM_MAGIC,			TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1300,25 +1305,29 @@ flaginfo_t resist_info_flags[] =
 	{ "bashing",		DAM_BASH,		TRUE	},
 	{ "piercing",		DAM_PIERCE,		TRUE	},
 	{ "slashing",		DAM_SLASH,		TRUE	},
+
 	{ "fire attacks",	DAM_FIRE,		TRUE	},
 	{ "cold attacks",	DAM_COLD,		TRUE	},
 	{ "lightning",		DAM_LIGHTNING,		TRUE	},
 	{ "acid",		DAM_ACID,		TRUE	},
-	{ "holy energy",	DAM_HOLY,		TRUE	},
+	{ "poison",		DAM_POISON,		TRUE	},
 	{ "negative energy",	DAM_NEGATIVE,		TRUE	},
+	{ "holy energy",	DAM_HOLY,		TRUE	},
 	{ "energy attacks",	DAM_ENERGY,		TRUE	},
 	{ "mental attacks",	DAM_MENTAL,		TRUE	},
-	{ "sound based attack",	DAM_SOUND,		TRUE	},
 	{ "disease",		DAM_DISEASE,		TRUE	},
-	{ "poison",		DAM_POISON,		TRUE	},
-	{ "charming spells",	DAM_CHARM,		TRUE	},
-	{ "harm spells",	DAM_HARM,		TRUE	},
 	{ "light based attacks",DAM_LIGHT,		TRUE	},
-	{ "drowning",		DAM_DROWNING,		TRUE	},
-	{ "other weird attacks",DAM_OTHER,		TRUE	},
-	{ "wooden weapons",	DAM_WOOD,		TRUE	},
+	{ "charming spells",	DAM_CHARM,		TRUE	},
+	{ "sound based attack",	DAM_SOUND,		TRUE	},
+	{ "harm spells",	DAM_HARM,		TRUE	},
+
 	{ "iron weapons",	DAM_IRON,		TRUE	},
+	{ "wooden weapons",	DAM_WOOD,		TRUE	},
 	{ "silver weapons",	DAM_SILVER,		TRUE	},
+	{ "other weird attacks",DAM_OTHER,		TRUE	},
+
+	{ "magic atacks",	DAM_MAGIC,		TRUE	},
+	{ "physical attacks",	DAM_WEAPON,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };

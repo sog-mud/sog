@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.117 2001-08-18 18:52:20 fjoe Exp $
+ * $Id: db_area.c,v 1.118 2001-08-19 18:18:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,40 +155,57 @@ subst_flag(flag_subst_t *fs, int64_t from)
 #define V0_RES_SILVER		(Y)
 #define V0_RES_IRON		(Z)
 
-#define RES(i,r,v) (((i) && !(v)) ? 100 : ((i) && (v)) ? 33 : ((r) && (v)) ? 0 : ((v) ? -50 : ((r) ? 33 : 0)))
+#define RES(imm, res, vul, f)						\
+	(IS_SET((imm), (f)) && !IS_SET((vul), (f)) ? 100 :		\
+	 IS_SET((imm), (f)) && IS_SET((vul), (f)) ? 33 :		\
+	 IS_SET((res), (f)) && IS_SET((vul), (f)) ? 0 :			\
+	 IS_SET((vul), (f)) ? -50 :					\
+	 IS_SET((res), (f)) ? 33 : RES_UNDEF)
 
 static void
 set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t resist[])
 {
-	bool iw, im, rw, rm, vw, vm;
-	iw = IS_SET(imm, V0_RES_WEAPON);
-	im = IS_SET(imm, V0_RES_MAGIC);
-	rw = IS_SET(res, V0_RES_WEAPON);
-	rm = IS_SET(res, V0_RES_MAGIC);
-	vw = IS_SET(vul, V0_RES_WEAPON);
-	vm = IS_SET(vul, V0_RES_MAGIC);
+	/*
+	 * weapon resistances
+	 */
+	resist[DAM_BASH]	= RES(imm, res, vul, V0_RES_BASH);
+	resist[DAM_SLASH]	= RES(imm, res, vul, V0_RES_SLASH);
+	resist[DAM_PIERCE]	= RES(imm, res, vul, V0_RES_PIERCE);
 
-	resist[DAM_BASH]	= RES(iw || IS_SET(imm, V0_RES_BASH), rw || IS_SET(res, V0_RES_BASH), vw || IS_SET(vul, V0_RES_BASH));
-	resist[DAM_SLASH]	= RES(iw || IS_SET(imm, V0_RES_SLASH), rw || IS_SET(res, V0_RES_SLASH), vw || IS_SET(vul, V0_RES_SLASH));
-	resist[DAM_PIERCE]	= RES(iw || IS_SET(imm, V0_RES_PIERCE), rw || IS_SET(res, V0_RES_PIERCE), vw || IS_SET(vul, V0_RES_PIERCE));
+	/*
+	 * magic resistances
+	 */
+	resist[DAM_FIRE]	= RES(imm, res, vul, V0_RES_FIRE);
+	resist[DAM_COLD]	= RES(imm, res, vul, V0_RES_COLD);
+	resist[DAM_LIGHTNING]	= RES(imm, res, vul, V0_RES_LIGHTNING);
+	resist[DAM_ACID]	= RES(imm, res, vul, V0_RES_ACID);
+	resist[DAM_POISON]	= RES(imm, res, vul, V0_RES_POISON);
+	resist[DAM_NEGATIVE]	= RES(imm, res, vul, V0_RES_NEGATIVE);
+	resist[DAM_HOLY]	= RES(imm, res, vul, V0_RES_HOLY);
+	resist[DAM_ENERGY]	= RES(imm, res, vul, V0_RES_ENERGY);
+	resist[DAM_MENTAL]	= RES(imm, res, vul, V0_RES_MENTAL);
+	resist[DAM_DISEASE]	= RES(imm, res, vul, V0_RES_DISEASE);
+	resist[DAM_LIGHT]	= RES(imm, res, vul, V0_RES_LIGHT);
+	resist[DAM_CHARM]	= RES(imm, res, vul, V0_RES_CHARM);
+	resist[DAM_SOUND]	= RES(imm, res, vul, V0_RES_SOUND);
+	resist[DAM_HARM]	= RES_UNDEF;
+	resist[DAM_OTHER]	= RES_UNDEF;
 
-	resist[DAM_FIRE]	= RES(im || IS_SET(imm, V0_RES_FIRE), rm || IS_SET(res, V0_RES_FIRE), vm || IS_SET(vul, V0_RES_FIRE));
-	resist[DAM_COLD]	= RES(im || IS_SET(imm, V0_RES_COLD), rm || IS_SET(res, V0_RES_COLD), vm || IS_SET(vul, V0_RES_COLD));
-	resist[DAM_LIGHTNING]	= RES(im || IS_SET(imm, V0_RES_LIGHTNING), rm || IS_SET(res, V0_RES_LIGHTNING), vm || IS_SET(vul, V0_RES_LIGHTNING));
-	resist[DAM_ACID]	= RES(im || IS_SET(imm, V0_RES_ACID), rm || IS_SET(res, V0_RES_ACID), vm || IS_SET(vul, V0_RES_ACID));
-	resist[DAM_HOLY]	= RES(im || IS_SET(imm, V0_RES_HOLY), rm || IS_SET(res, V0_RES_HOLY), vm || IS_SET(vul, V0_RES_HOLY));
-	resist[DAM_NEGATIVE]	= RES(im || IS_SET(imm, V0_RES_NEGATIVE), rm || IS_SET(res, V0_RES_NEGATIVE), vm || IS_SET(vul, V0_RES_NEGATIVE));
-	resist[DAM_ENERGY]	= RES(im || IS_SET(imm, V0_RES_ENERGY), rm || IS_SET(res, V0_RES_ENERGY), vm || IS_SET(vul, V0_RES_ENERGY));
-	resist[DAM_MENTAL]	= RES(im || IS_SET(imm, V0_RES_MENTAL), rm || IS_SET(res, V0_RES_MENTAL), vm || IS_SET(vul, V0_RES_MENTAL));
-	resist[DAM_SOUND]	= RES(im || IS_SET(imm, V0_RES_SOUND), rm || IS_SET(res, V0_RES_SOUND), vm || IS_SET(vul, V0_RES_SOUND));
-	resist[DAM_DISEASE]	= RES(im || IS_SET(imm, V0_RES_DISEASE), rm || IS_SET(res, V0_RES_DISEASE), vm || IS_SET(vul, V0_RES_DISEASE));
-	resist[DAM_POISON]	= RES(im || IS_SET(imm, V0_RES_POISON), rm || IS_SET(res, V0_RES_POISON), vm || IS_SET(vul, V0_RES_POISON));
-	resist[DAM_CHARM]	= RES(im || IS_SET(imm, V0_RES_CHARM), rm || IS_SET(res, V0_RES_CHARM), vm || IS_SET(vul, V0_RES_CHARM));
-	resist[DAM_HARM]	= RES(im, rm, vm );
-	resist[DAM_LIGHT]	= RES(im || IS_SET(imm, V0_RES_LIGHT), rm || IS_SET(res, V0_RES_LIGHT), vm || IS_SET(vul, V0_RES_LIGHT));
+	/*
+	 * other resistances
+	 */
+	resist[DAM_WOOD]	= RES(imm, res, vul, V0_RES_WOOD);
+	resist[DAM_SILVER]	= RES(imm, res, vul, V0_RES_SILVER);
+	resist[DAM_IRON]	= RES(imm, res, vul, V0_RES_IRON);
+
+	/*
+	 * defaults
+	 */
+	resist[DAM_WEAPON]	= RES(imm, res, vul, V0_RES_WEAPON);
+	resist[DAM_MAGIC]	= RES(imm, res, vul, V0_RES_MAGIC);
 }
 
-int damtbl [] = {
+int damtbl[] = {
 	DAM_BASH, DAM_PIERCE, DAM_SLASH, DAM_FIRE, DAM_COLD, DAM_LIGHTNING,
 	DAM_ACID, DAM_HOLY, DAM_NEGATIVE, DAM_ENERGY, DAM_MENTAL, DAM_SOUND,
 	DAM_DISEASE, DAM_POISON, DAM_CHARM, DAM_HARM, DAM_LIGHT
@@ -955,12 +972,100 @@ flag_subst_t v0_subst_detect[] =
 	{ 0, 0 }
 };
 
+#if 0
+static int
+int_hash(const void *p, size_t hsize)
+{
+	return *(const int *) p % hsize;
+}
+
+struct resdmp_t {
+	int vnum;
+	int16_t resists[MAX_RESIST];
+};
+typedef struct resdmp_t resdmp_t;
+
+hashdata_t h_resdmp = {
+	MAX_RESIST * sizeof(resdmp_t), 32,
+	NULL, NULL, NULL,
+	MAX_KEY_HASH,
+	int_hash,
+	cmpint
+};
+
+hash_t resdmp;
+#endif
+
 /*
  * Snarf a mob section.  new style
  */
 DBLOAD_FUN(load_mobiles)
 {
 	MOB_INDEX_DATA *pMobIndex;
+#if 0
+	static bool resdmp_initialized = FALSE;
+
+	if (!resdmp_initialized) {
+		rfile_t *fp2;
+
+		resdmp_initialized = TRUE;
+
+		hash_init(&resdmp, &h_resdmp);
+		fp2 = rfile_open(".", "res.dmp.in");
+		if (fp2 == NULL) {
+			log(LOG_ERROR, "resdmp: can't open file");
+			exit(1);
+		}
+
+		for (; ;) {
+			char letter;
+			resdmp_t r;
+			int i;
+
+			letter = fread_letter(fp2);
+			if (letter != '#') {
+				log(LOG_ERROR, "resdmp: '#' not found");
+				exit(1);
+			}
+
+			r.vnum = fread_number(fp2);
+			if (r.vnum == 0)
+				break;
+
+			for (i = 0; i < MAX_RESIST; i++)
+				r.resists[i] = RES_UNDEF;
+
+			log(LOG_INFO, "#%d", r.vnum);
+
+			for (; ;) {
+				int res;
+				letter = fread_letter(fp2);
+				xungetc(fp2);
+
+				if (letter == '#')
+					break;
+
+				res = fread_fword(dam_classes, fp2);
+				if (res < 0 || res == DAM_NONE) {
+					log(LOG_ERROR, "resdmp: unknown resist name");
+					exit(1);
+				}
+				r.resists[res] = fread_number(fp2);
+				log(LOG_INFO, "%s %d",
+				    flag_string(dam_classes, res),
+				    r.resists[res]);
+			}
+
+			if (hash_insert(&resdmp, &r.vnum, &r) == NULL) {
+				log(LOG_ERROR, "resdmp: vnum %d: duplicate vnum",
+				    r.vnum);
+				exit(1);
+			}
+			log(LOG_INFO, "added");
+		}
+		rfile_close(fp2);
+	}
+#endif
 
 	if (!area_current) {
 		log(LOG_ERROR, "load_mobiles: no #AREA seen yet.");
@@ -972,15 +1077,9 @@ DBLOAD_FUN(load_mobiles)
 		int vnum;
 		char letter;
 		int iHash;
-		int i;
-		bool found_res = FALSE;
 		flag_t imm = 0;
 		flag_t res = 0;
 		flag_t vul = 0;
-
-		flag_t res_r = 0;
-		flag_t imm_r = 0;
-		flag_t vul_r = 0;
 
 		letter = fread_letter(fp);
 		if (letter != '#') {
@@ -1094,7 +1193,7 @@ DBLOAD_FUN(load_mobiles)
 		pMobIndex->wealth	= fread_number(fp);
 
 		pMobIndex->form		= fread_flags(fp) | (r ? r->form : 0);
-		if (area_current->ver <= 4
+		if (area_current->ver < 5
 		&&  IS_SET(pMobIndex->act, V4_ACT_UNDEAD)
 		&&  !IS_SET(pMobIndex->form, FORM_UNDEAD)) {
 			REMOVE_BIT(pMobIndex->act, V4_ACT_UNDEAD);
@@ -1106,11 +1205,6 @@ DBLOAD_FUN(load_mobiles)
 		pMobIndex->size		= fread_fword(size_table, fp);
 		free_string(pMobIndex->material);
 		pMobIndex->material	= fread_sword(fp);
-
-		/* Set mob resists to 0 */
-		/* race resists will be added in create_mob() */
-		for (i = 0; i < MAX_RESIST; i++)
-			pMobIndex->resists[i] = 0;
 
 		for (; ;) {
 			letter = fread_letter(fp);
@@ -1177,11 +1271,11 @@ DBLOAD_FUN(load_mobiles)
 					REMOVE_BIT(pMobIndex->off_flags,
 					    fread_flags(fp));
 				} else if (IS_TOKEN(fp, "imm"))
-					imm_r = fread_flags(fp);
+					fread_flags(fp);
 				else if (IS_TOKEN(fp, "res"))
-					res_r = fread_flags(fp);
+					fread_flags(fp);
 				else if (IS_TOKEN(fp, "vul"))
-					vul_r = fread_flags(fp);
+					fread_flags(fp);
 				else if (IS_TOKEN(fp, "for")) {
 					REMOVE_BIT(pMobIndex->form,
 					    fread_flags(fp));
@@ -1192,7 +1286,7 @@ DBLOAD_FUN(load_mobiles)
 					log(LOG_ERROR, "flag remove: flag not found.");
 					return;
 				}
-			} else if ( letter == 'M' ) {
+			} else if (letter == 'M') {
 				/* XXX */
 				int trig_vnum;
 				const char *phrase;
@@ -1218,7 +1312,6 @@ DBLOAD_FUN(load_mobiles)
 					fread_number(fp);
 				}
 				pMobIndex->resists[_res] = fread_number(fp);
-				found_res = TRUE;
 			} else {
 				xungetc(fp);
 				break;
@@ -1233,69 +1326,15 @@ DBLOAD_FUN(load_mobiles)
 		}
 
 		if (area_current->ver == 0
-		&&  !found_res && (imm | res | vul)) {
-			/* Calculate percent resistances for mobile */
-			int16_t rresists[MAX_RESIST];
-
-			if (IS_SET(imm, V0_RES_SUMMON)
-			&&  !IS_SET(imm_r, V0_RES_SUMMON))
+		&&  (imm || res || vul)) {
+			if (IS_SET(imm, V0_RES_SUMMON))
 				SET_BIT(pMobIndex->act, ACT_IMMSUMMON);
 
-			if (IS_SET(imm, V0_RES_STEAL)
-			&&  !IS_SET(imm_r, V0_RES_STEAL))
+			if (IS_SET(imm, V0_RES_STEAL))
 				SET_BIT(pMobIndex->act, ACT_IMMSTEAL);
 
 			set_percent_resistances(
 			    imm, res, vul, pMobIndex->resists);
-
-			for (i = 0; i < MAX_RESIST; i++) {
-				int max, min;
-				max = UMAX(r->resists[i], pMobIndex->resists[i]);
-				min = UMIN(r->resists[i], pMobIndex->resists[i]);
-				if ((max == 100) && (min < 0))
-					pMobIndex->resists[i] = 33;
-				else if (max == 100)
-					pMobIndex->resists[i] = 100;
-				else if ((max > 0) && (min < 0))
-					pMobIndex->resists[i] = 0;
-				else if (max > 0)
-					pMobIndex->resists[i] = max;
-				else if (min < 0)
-					pMobIndex->resists[i] = min;
-				else
-					pMobIndex->resists[i] = 0;
-			}
-
-			set_percent_resistances(imm_r, 0, 0, rresists);
-			for (i = 0; i < MAX_RESIST; i++) {
-				if ((rresists[i] == 100)
-				&& (pMobIndex->resists[i] == 100))
-					pMobIndex->resists[i] = 33;
-			}
-
-			set_percent_resistances(res_r, 0, 0, rresists);
-			for (i = 0; i < MAX_RESIST; i++) {
-				if ((rresists[i] == 100)
-				&& (pMobIndex->resists[i] < 100)
-				&& (pMobIndex->resists[i] > 0))
-					pMobIndex->resists[i] = 0;
-			}
-
-			set_percent_resistances(vul_r, 0, 0, rresists);
-			for (i = 0; i < MAX_RESIST; i++) {
-				if ((rresists[i] == 100)
-				&& (pMobIndex->resists[i] < 0))
-					pMobIndex->resists[i] = 0;
-			}
-		}
-
-		if (area_current->ver < 3) {
-			for (i = 0; i < MAX_RESIST; i++) {
-				if (pMobIndex->resists[i] >= 100)
-					pMobIndex->resists[i] = MOB_IMMUNE;
-				else if (r)
-					pMobIndex->resists[i] -= r->resists[i];
-			}
 		}
 
 		iHash                   = vnum % MAX_KEY_HASH;
@@ -1304,6 +1343,178 @@ DBLOAD_FUN(load_mobiles)
 		vnum_check(area_current, vnum);
 		if (vnum > top_vnum_mob)
 			top_vnum_mob = vnum;
+
+#if 0
+		{
+			resdmp_t *rd;
+
+			rd = hash_lookup(&resdmp, &pMobIndex->vnum);
+			if (rd != NULL) {
+				int i;
+
+				for (i = 0; i < MAX_RESIST; i++)
+					pMobIndex->resists[i] = rd->resists[i];
+			}
+		}
+#endif
+
+		{
+			int i;
+			FILE *fp2;
+			bool found = FALSE;
+
+#if 0
+			int weapon_count = 0;
+			int weapon_res = RES_UNDEF;
+
+			int magic_count = 0;
+			int magic_res = RES_UNDEF;
+
+			int magic_count2 = 0;
+			int magic_res2 = RES_UNDEF;
+
+			int magic_count3 = 0;
+			int magic_res3 = RES_UNDEF;
+#endif
+
+			fp2 = fopen("res.dmp", "a");
+			if (fp2 == NULL) {
+				perror("fopen");
+				exit(1);
+			}
+
+			for (i = 0; i < MAX_RESIST; i++) {
+				if (pMobIndex->resists[i] == RES_UNDEF)
+					continue;
+
+				if (pMobIndex->resists[i] == 999)
+					pMobIndex->resists[i] = 100;
+
+				if (!found)
+					found = TRUE;
+
+#if 0
+				switch (i) {
+				/* DAM_WEAPON damtypes */
+				case DAM_BASH:
+				case DAM_PIERCE:
+				case DAM_SLASH:
+					if (weapon_res == RES_UNDEF) {
+						weapon_count++;
+						weapon_res = pMobIndex->resists[i];
+					} else if (weapon_res == pMobIndex->resists[i])
+						weapon_count++;
+					break;
+
+				/* DAM_MAGIC damtypes */
+				case DAM_FIRE:
+				case DAM_COLD:
+				case DAM_LIGHTNING:
+				case DAM_ACID:
+				case DAM_POISON:
+				case DAM_NEGATIVE:
+				case DAM_HOLY:
+				case DAM_ENERGY:
+				case DAM_MENTAL:
+				case DAM_DISEASE:
+				case DAM_LIGHT:
+				case DAM_CHARM:
+				case DAM_SOUND:
+				case DAM_HARM:
+				case DAM_OTHER:
+					if (magic_res == RES_UNDEF) {
+						magic_count++;
+						magic_res = pMobIndex->resists[i];
+					} else if (magic_res == pMobIndex->resists[i])
+						magic_count++;
+					else if (magic_res2 == RES_UNDEF) {
+						magic_count2++;
+						magic_res2 = pMobIndex->resists[i];
+					} else if (magic_res2 == pMobIndex->resists[i])
+						magic_count2++;
+					else if (magic_res3 == RES_UNDEF) {
+						magic_count3++;
+						magic_res3 = pMobIndex->resists[i];
+					} else if (magic_res3 == pMobIndex->resists[i])
+						magic_count3++;
+					break;
+				}
+#endif
+			}
+
+#if 0
+			if (magic_count < magic_count2)
+				magic_res = magic_res2;
+
+			if (magic_count < magic_count3)
+				magic_res = magic_res3;
+
+			magic_count += magic_count2 + magic_count3;
+
+			if (pMobIndex->resists[DAM_OTHER] == RES_UNDEF)
+				magic_count++;
+
+			if (pMobIndex->resists[DAM_WEAPON] != RES_UNDEF)
+				weapon_count = 0;
+
+			if (pMobIndex->resists[DAM_MAGIC] != RES_UNDEF)
+				magic_count = 0;
+
+			for (i = 0; i < MAX_RESIST; i++) {
+				switch (i) {
+				/* DAM_WEAPON damtypes */
+				case DAM_BASH:
+				case DAM_PIERCE:
+				case DAM_SLASH:
+					if (weapon_count == 3)
+						pMobIndex->resists[i] = RES_UNDEF;
+					break;
+
+				/* DAM_MAGIC damtypes */
+				case DAM_FIRE:
+				case DAM_COLD:
+				case DAM_LIGHTNING:
+				case DAM_ACID:
+				case DAM_POISON:
+				case DAM_NEGATIVE:
+				case DAM_HOLY:
+				case DAM_ENERGY:
+				case DAM_MENTAL:
+				case DAM_DISEASE:
+				case DAM_LIGHT:
+				case DAM_CHARM:
+				case DAM_SOUND:
+				case DAM_HARM:
+				case DAM_OTHER:
+					if (magic_count == 15
+					&&  pMobIndex->resists[i] == magic_res)
+						pMobIndex->resists[i] = RES_UNDEF;
+					break;
+				}
+			}
+
+			if (weapon_count == 3)
+				pMobIndex->resists[DAM_WEAPON] = weapon_res;
+
+			if (magic_count == 15)
+				pMobIndex->resists[DAM_MAGIC] = magic_res;
+#endif
+
+			if (found) {
+				fprintf(fp2, "#%d\n", pMobIndex->vnum);
+				for (i = 0; i < MAX_RESIST; i++) {
+					if (pMobIndex->resists[i] == RES_UNDEF)
+						continue;
+
+					fprintf(fp2, "%s %d\n",
+						flag_string(dam_classes, i),
+						pMobIndex->resists[i]);
+				}
+				fprintf(fp2, "\n");
+			}
+
+			fclose(fp2);
+		}
 	}
 }
 

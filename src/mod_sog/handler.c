@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.307 2001-08-14 16:06:55 fjoe Exp $
+ * $Id: handler.c,v 1.308 2001-08-19 18:18:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -418,14 +418,18 @@ create_mob(int vnum, int flags)
 
 	free_string(mob->race);
 	mob->race		= str_qdup(pMobIndex->race);
+
+	/*
+	 * apply race modifiers
+	 */
 	if ((r = race_lookup(pMobIndex->race)) != NULL) {
 		for (i = 0; i < MAX_RESIST; i++) {
-			if (mob->resists[i] != MOB_IMMUNE)
-				mob->resists[i] += r->resists[i];
-			else
-				mob->resists[i] = 100;
+			if (mob->resists[i] != RES_UNDEF)
+				continue;
+
+			mob->resists[i] = r->resists[i];
 		}
-		mob->luck	+= r-> luck_bonus;
+		mob->luck	+= r->luck_bonus;
 	}
 
 	mob->form		= pMobIndex->form;
@@ -563,8 +567,10 @@ create_mob(int vnum, int flags)
 	for (paf = pMobIndex->affected; paf != NULL; paf = paf->next)
 		affect_to_char(mob, paf);
 
-	/* link the mob to the world list */
-	/* if CM_F_NOLIST is not set */
+	/*
+	 * link the mob to the world list
+	 * if CM_F_NOLIST is not set
+	 */
 	if (!IS_SET(flags, CM_F_NOLIST)) {
 		if (char_list_lastpc) {
 			mob->next = char_list_lastpc->next;
@@ -2198,18 +2204,74 @@ get_hours(CHAR_DATA *ch)
 	return get_played(ch, FALSE) / 3600;
 }
 
+typedef struct damsubst_t damsubst_t;
+struct damsubst_t {
+	int dam_class;
+	int dam_subst;
+};
+
+damsubst_t damsubst_tab[] = {
+	/* DAM_WEAPON damtypes */
+	{ DAM_BASH,		DAM_WEAPON },
+	{ DAM_PIERCE,		DAM_WEAPON },
+	{ DAM_SLASH,		DAM_WEAPON },
+
+	/* DAM_MAGIC damtypes */
+	{ DAM_FIRE,		DAM_MAGIC },
+	{ DAM_COLD,		DAM_MAGIC },
+	{ DAM_LIGHTNING,	DAM_MAGIC },
+	{ DAM_ACID,		DAM_MAGIC },
+	{ DAM_POISON,		DAM_MAGIC },
+	{ DAM_NEGATIVE,		DAM_MAGIC },
+	{ DAM_HOLY,		DAM_MAGIC },
+	{ DAM_ENERGY,		DAM_MAGIC },
+	{ DAM_MENTAL,		DAM_MAGIC },
+	{ DAM_DISEASE,		DAM_MAGIC },
+	{ DAM_LIGHT,		DAM_MAGIC },
+	{ DAM_CHARM,		DAM_MAGIC },
+	{ DAM_SOUND,		DAM_MAGIC },
+	{ DAM_HARM,		DAM_MAGIC },
+	{ DAM_OTHER,		DAM_MAGIC },
+};
+
+#define DAMSUBST_TAB_SZ	(sizeof(damsubst_tab) / sizeof(*damsubst_tab))
+
 int
 get_resist(CHAR_DATA *ch, int dam_class)
 {
 	int16_t *resists;
 	int16_t bonus=0;
+	int resist;
 
+	/*
+	 * immune to DAM_NONE and invalid damtypes
+	 */
+	if (dam_class == DAM_NONE)
+		return 100;
+
+	if (dam_class < 0) {
+		log(LOG_BUG, "get_resist: dam_class %d < 0", dam_class);
+		return 100;
+	}
+
+	if (dam_class >= MAX_RESIST) {
+		log(LOG_BUG, "get_resist: dam_class %d >= MAX_RESIST",
+		    dam_class);
+		return 100;
+	}
+
+	/*
+	 * take shapeforms into account
+	 */
 	if (ch->shapeform)
 		resists = ch->shapeform->resists;
 	else
 		resists = ch->resists;
 
-	switch(dam_class) {
+	/*
+	 * calculate bonuses based on dam_class
+	 */
+	switch (dam_class) {
 	case DAM_POISON:
 	case DAM_DISEASE:
 		bonus = get_curr_stat(ch, STAT_CON) - 18;
@@ -2218,6 +2280,8 @@ get_resist(CHAR_DATA *ch, int dam_class)
 		bonus = (get_curr_stat(ch, STAT_CON) - 18) / 2;
 		break;
 	case DAM_MENTAL:
+		if (IS_IMMORTAL(ch))
+			return 100;
 		bonus = (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 36) / 2;
 		break;
 	case DAM_HOLY:
@@ -2226,19 +2290,36 @@ get_resist(CHAR_DATA *ch, int dam_class)
 	case DAM_NEGATIVE:
 		bonus = - ch->alignment / 500;
 		break;
+	case DAM_CHARM:
+		if (IS_IMMORTAL(ch))
+			return 100;
+		break;
 	}
 
-	if (dam_class != DAM_NONE) {
-		if (dam_class < 0)
-			log(LOG_BUG, "get_resist: dam_class %d < 0", dam_class);
-		else if (dam_class >= MAX_RESIST) {
-			log(LOG_BUG, "get_resist: dam_class %d >= MAX_RESIST",
-			    dam_class);
-		} else
-			return URANGE(-100, resists[dam_class] + bonus, 100);
+	/*
+	 * check defaults if resist is undefined
+	 */
+	if ((resist = resists[dam_class]) == RES_UNDEF) {
+		static bool damsubsts_initialized = FALSE;
+		damsubst_t *d;
+
+		if (!damsubsts_initialized) {
+			damsubsts_initialized = TRUE;
+			qsort(damsubst_tab, DAMSUBST_TAB_SZ,
+			     sizeof(damsubst_t), cmpint);
+		}
+
+		d = bsearch(
+		    &dam_class, damsubst_tab, DAMSUBST_TAB_SZ,
+		    sizeof(damsubst_t), cmpint);
+		if (d != NULL)
+			resist = resists[d->dam_subst];
+
+		if (resist == RES_UNDEF)
+			resist = 0;
 	}
 
-	return IS_IMMORTAL(ch)? 100 : 0;
+	return URANGE(-100, resist + bonus, 100);
 }
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.48 2001-08-14 16:07:05 fjoe Exp $
+ * $Id: olc_race.c,v 1.49 2001-08-19 18:18:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -215,7 +215,6 @@ OLC_FUN(raceed_touch)
 
 OLC_FUN(raceed_show)
 {
-	int j;
 	size_t i;
 	BUFFER *output;
 	race_t *r;
@@ -266,27 +265,7 @@ OLC_FUN(raceed_show)
 
 	buf_printf(output, BUF_END, "Luck bonus:    [%d]\n", r->luck_bonus);
 
-	for (i = 0, j = 0; i < MAX_RESIST; i++) {
-		if (r->resists[i]) {
-			if (!j)
-				buf_append(output, "Resists");
-			if (strlen(flag_string(dam_classes, i)) > 7) {
-				buf_printf(output, BUF_END, "\t%s\t%d%%",
-					flag_string(dam_classes, i),
-					r->resists[i]);
-			} else {
-				buf_printf(output, BUF_END, "\t%s\t\t%d%%",
-					flag_string(dam_classes, i),
-					r->resists[i]);
-			}
-			if (++j % 3 == 0)
-				buf_append(output, "\n");
-		}
-	}
-
-	if (j)
-		buf_append(output, "\n");
-
+	dump_resists(output, r->resists);
 	aff_dump_list(r->affected, output);
 
 	if (!r->race_pcdata) {
@@ -309,8 +288,12 @@ OLC_FUN(raceed_show)
 	if (r->race_pcdata->bonus_skills)
 		buf_printf(output, BUF_END, "Bonus skills:  [%s]\n",
 			   r->race_pcdata->bonus_skills);
-	for (i = 0, found = FALSE; i < MAX_STAT; i++)
-		if (r->race_pcdata->mod_stat[i]) found = TRUE;
+
+	for (i = 0, found = FALSE; i < MAX_STAT; i++) {
+		if (r->race_pcdata->mod_stat[i])
+			found = TRUE;
+	}
+
 	if (found) {
 		buf_append(output, "Stats mod:     [");
 		for (i = 0; i < MAX_STAT; i++)
@@ -319,8 +302,12 @@ OLC_FUN(raceed_show)
 				   r->race_pcdata->mod_stat[i]);
 		buf_append(output, "]\n");
 	}
-	for (i = 0, found = FALSE; i < MAX_STAT; i++)
-		if (r->race_pcdata->max_stat[i]) found = TRUE;
+
+	for (i = 0, found = FALSE; i < MAX_STAT; i++) {
+		if (r->race_pcdata->max_stat[i])
+			found = TRUE;
+	}
+
 	if (found) {
 		buf_append(output, "Max stats:     [");
 		for (i = 0; i < MAX_STAT; i++)
@@ -329,6 +316,7 @@ OLC_FUN(raceed_show)
 				   r->race_pcdata->max_stat[i]);
 		buf_append(output, "]\n");
 	}
+
 	buf_printf(output, BUF_END, "Size:          [%s]\n",
 		   flag_string(size_table, r->race_pcdata->size));
 	if (r->race_pcdata->hp_bonus)
@@ -564,7 +552,7 @@ OLC_FUN(raceed_stats)
 		race->race_pcdata->mod_stat[i] = val;
 		st = TRUE;
 	}
-	
+
 	if (!st) {
 		act_puts("Syntax: $t <attr1> <attr2> ...",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -597,7 +585,7 @@ OLC_FUN(raceed_maxstats)
 		race->race_pcdata->max_stat[i] = val;
 		st = TRUE;
 	}
-	
+
 	if (!st) {
 		act_puts("Syntax: $t <attr1> <attr2> ...",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -674,7 +662,7 @@ OLC_FUN(raceed_ethos)
 	return olced_flag(ch, argument, cmd, &race->race_pcdata->restrict_ethos);
 }
 
-OLC_FUN(raceed_resists) 
+OLC_FUN(raceed_resists)
 {
 	race_t *race;
 	EDIT_RACE(ch, race);
@@ -979,11 +967,11 @@ save_race_cb(void *p, va_list ap)
 	if (r->race_flags)
 		fprintf(fp, "Flags %s~\n", flag_string(race_flags, r->race_flags));
 	for (i = 0; i < MAX_RESIST; i++) {
-		if (r->resists[i]) {
-			fprintf(fp,"Resist %s %d\n",
-				flag_string(dam_classes, i),
-				r->resists[i]);
-		}
+		if (r->resists[i] == RES_UNDEF)
+			continue;
+
+		fprintf(fp,"Resist %s %d\n",
+			flag_string(dam_classes, i), r->resists[i]);
 	}
 
 	if (strcmp(r->damtype, "punch"))
@@ -997,7 +985,7 @@ save_race_cb(void *p, va_list ap)
 
 	if (r->race_pcdata)
 		save_race_pcdata(r->race_pcdata, fp);
-	
+
 	fprintf(fp, "#$\n");
 	fclose(fp);
 

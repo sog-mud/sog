@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.80 2001-08-14 16:07:01 fjoe Exp $
+ * $Id: olc.h,v 1.81 2001-08-19 18:18:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,6 +209,8 @@ void		show_resets(CHAR_DATA *ch, int vnum, const char *xxx,
 			    BUFFER *(*show_xxx_resets)(int));
 
 const char *	format_dice(int *pdice);
+
+void		dump_resists(BUFFER *output, int16_t *resets);
 
 #define SECURITY_MATERIAL	2
 #define SECURITY_RACE		3

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.288 2001-08-14 16:06:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.289 2001-08-19 18:18:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1262,6 +1262,8 @@ DO_FUN(do_mstat, ch, argument)
 	CHAR_DATA *pet;
 	BUFFER *output;
 	bool loaded = FALSE;
+	int i, j;
+	bool found = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -1404,36 +1406,42 @@ DO_FUN(do_mstat, ch, argument)
 			   flag_string(plr_flags, PC(victim)->plr_flags));
 	}
 
-	if (victim->comm)
+	if (victim->comm) {
 		buf_printf(output, BUF_END, "Comm: [%s]\n",	// notrans
 			   flag_string(comm_flags, victim->comm));
+	}
 
-	if (victim->chan)
+	if (victim->chan) {
 		buf_printf(output, BUF_END, "Chan: [%s]\n",	// notrans
 			   flag_string(chan_flags, victim->chan));
+	}
 
-	if (IS_NPC(victim) && victim->pMobIndex->off_flags)
+	if (IS_NPC(victim) && victim->pMobIndex->off_flags) {
 		buf_printf(output, BUF_END, "Offense: [%s]\n",	// notrans
 			   flag_string(off_flags,
 				       victim->pMobIndex->off_flags));
+	}
 
 	buf_printf(output, BUF_END, "Form: [%s]\n",		// notrans
 		   flag_string(form_flags, victim->form));
 	buf_printf(output, BUF_END, "Parts: [%s]\n",		// notrans
 		   flag_string(part_flags, victim->parts));
 
-	if (victim->affected_by)
+	if (victim->affected_by) {
 		buf_printf(output, BUF_END, "Affected by %s\n",	// notrans
 			   flag_string(affect_flags, victim->affected_by));
+	}
 
-	if (victim->has_invis)
+	if (victim->has_invis) {
 		buf_printf(output, BUF_END, "Has '%s'\n",	// notrans
 			   flag_string(id_flags, victim->has_invis));
+	}
 
-	if (victim->has_detect)
+	if (victim->has_detect) {
 		buf_printf(output, BUF_END,
 			   "Has detection of '%s'\n",		// notrans
 			   flag_string(id_flags, victim->has_detect));
+	}
 
 	pet = GET_PET(victim);
 	buf_printf(output, BUF_END, "Master: %s  Leader: %s  Pet: %s\n", // notrans
@@ -1442,9 +1450,10 @@ DO_FUN(do_mstat, ch, argument)
 		pet		? pet->name		: "(none)"); // notrans
 
 	/* OLC */
-	if (!IS_NPC(victim))
+	if (!IS_NPC(victim)) {
 		buf_printf(output, BUF_END, "Security: [%d]\n",	     // notrans
 			   PC(victim)->security);
+	}
 
 	mlstr_dump(output, "Short description: ",		     // notrans
 		   &victim->short_descr, DUMP_LEVEL(ch));
@@ -1513,6 +1522,35 @@ DO_FUN(do_mstat, ch, argument)
 			   npc->in_mind ? npc->in_mind : "none",
 			   npc->target ? npc->target->name : "none");
 	}
+
+	for (i = 0, j = 0; i < MAX_RESIST; i++) {
+		const char *dam_class;
+		int resist;
+
+		if ((resist = get_resist(victim, i)) == 0)
+			continue;
+
+		if (!found) {
+			buf_append(output, "Resists:\n");		// notrans
+			found = TRUE;
+		}
+
+		dam_class = flag_string(dam_classes, i);
+		if (strlen(dam_class) > 7) {
+			buf_printf(output, BUF_END, "\t%s\t%d%%",	// notrans
+			    dam_class, resist);
+		} else {
+			buf_printf(output, BUF_END, "\t%s\t\t%d%%",// notrans
+			    dam_class, resist);
+		}
+
+		if (++j % 3 == 0)
+			buf_append(output, "\n");
+	}
+
+	if (j % 3 != 0)
+		buf_append(output, "\n");
+
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 

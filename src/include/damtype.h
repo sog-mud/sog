@@ -23,19 +23,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.12 2001-08-05 16:36:18 fjoe Exp $
+ * $Id: damtype.h,v 1.13 2001-08-19 18:18:40 fjoe Exp $
  */
 
 #ifndef _DAMTYPE_H_
 #define _DAMTYPE_H_
 
 /*
- * damage classes (DAM_NONE should be last)
+ * damage classes
  */
 enum {
+	/* DAM_WEAPON damtypes */
 	DAM_BASH,
 	DAM_PIERCE,
 	DAM_SLASH,
+
+	/* DAM_MAGIC damtypes */
 	DAM_FIRE,
 	DAM_COLD,
 	DAM_LIGHTNING,
@@ -46,21 +49,32 @@ enum {
 	DAM_ENERGY,
 	DAM_MENTAL,
 	DAM_DISEASE,
-	DAM_DROWNING,
 	DAM_LIGHT,
-	DAM_OTHER,
-	DAM_HARM,
 	DAM_CHARM,
 	DAM_SOUND,
+	DAM_HARM,
+	DAM_OTHER,
+
+	/*
+	 * material damtypes
+	 */
 	DAM_IRON,
 	DAM_WOOD,
 	DAM_SILVER,
 
-	DAM_NONE
+	/*
+	 * special damtypes (used ONLY as defaults for corresponding
+	 * damtype groups)
+	 */
+	DAM_WEAPON,
+	DAM_MAGIC,
+
+	DAM_NONE,	/* should be the last */
 };
 
 #define MAX_RESIST		DAM_NONE
-#define MOB_IMMUNE		999
+
+#define RES_UNDEF		666
 
 typedef struct damtype_t damtype_t;
 struct damtype_t {

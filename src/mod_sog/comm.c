@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.2 2001-08-14 16:06:54 fjoe Exp $
+ * $Id: comm.c,v 1.3 2001-08-19 18:18:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -657,11 +657,16 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 		d->fcommand	= FALSE;
 
 		if (FD_ISSET(d->descriptor, in_set)) {
+			/*
+			 * prevent reentering this block
+			 * in case of longjmp
+			 */
+			FD_CLR(d->descriptor, in_set);
+
 			if (d->character && !IS_NPC(d->character))
 				PC(d->character)->idle_timer = 0;
 
 			if (!read_from_descriptor(d)) {
-				FD_CLR(d->descriptor, out_set);
 				outbuf_flush(d);
 				close_descriptor(d, SAVE_F_NORMAL);
 				continue;

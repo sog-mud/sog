@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.134 2001-08-13 18:23:48 fjoe Exp $
+ * $Id: olc.c,v 1.135 2001-08-19 18:18:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1285,20 +1285,25 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 {
 	char arg[MAX_INPUT_LENGTH];
 	int res;
+	bool is_num;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
-		act_puts("Syntax: $t <damclass> <number>",
+		act_puts("Syntax: $t <damclass> [<number> | undef]",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	res = flag_svalue(dam_classes, arg);
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg) || res < 0 || res == DAM_NONE)
+	if (!((is_num = is_number(arg)) || !str_cmp(arg, "undef"))
+	||  res < 0 || res == DAM_NONE)
 		return olced_resists(ch, str_empty, cmd, resists);
 
-	resists[res] = atoi(arg);
+	if (is_num)
+		resists[res] = atoi(arg);
+	else
+		resists[res] = RES_UNDEF;
 	act_char("Resistance set.", ch);
 	return TRUE;
 }
@@ -1597,6 +1602,40 @@ format_dice(int *pdice)
 	snprintf(buf, sizeof(buf), "%dd%d+%d",
 		 pdice[DICE_NUMBER], pdice[DICE_TYPE], pdice[DICE_BONUS]);
 	return buf;
+}
+
+void
+dump_resists(BUFFER *buf, int16_t *resists)
+{
+	int i, j;
+	bool found = FALSE;
+
+	for (i = 0, j = 0; i < MAX_RESIST; i++) {
+		const char *dam_class;
+
+		if (resists[i] == RES_UNDEF)
+			continue;
+
+		if (!found) {
+			buf_append(buf, "Resists:\n");
+			found = TRUE;
+		}
+
+		dam_class = flag_string(dam_classes, i);
+		if (strlen(dam_class) > 7) {
+			buf_printf(buf, BUF_END, "\t%s\t%d%%",
+			    dam_class, resists[i]);
+		} else {
+			buf_printf(buf, BUF_END, "\t%s\t\t%d%%",
+			    dam_class, resists[i]);
+		}
+
+		if (++j % 3 == 0)
+			buf_append(buf, "\n");
+	}
+
+	if (j % 3 != 0)
+		buf_append(buf, "\n");
 }
 
 /******************************************************************************

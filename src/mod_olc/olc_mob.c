@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.79 2001-08-14 16:07:04 fjoe Exp $
+ * $Id: olc_mob.c,v 1.80 2001-08-19 18:18:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -225,7 +225,7 @@ OLC_FUN(mobed_edit)
 	pArea = area_vnum_lookup(pMob->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
 		act_char("MobEd: Insufficient security.", ch);
-	       	return FALSE;
+		return FALSE;
 	}
 
 	ch->desc->pEdit	= (void*) pMob;
@@ -251,7 +251,6 @@ OLC_FUN(mobed_show)
 	MPTRIG *mptrig;
 #endif
 	BUFFER *buf;
-	int i;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -270,7 +269,7 @@ OLC_FUN(mobed_show)
 	buf = buf_new(0);
 
 	pArea = area_vnum_lookup(pMob->vnum);
-	buf_printf(buf, BUF_END, 
+	buf_printf(buf, BUF_END,
 		   "Name:        [%s]\n"
 		   "Area:        [%5d] %s\n",
 		   pMob->name, pArea->vnum, pArea->name);
@@ -380,24 +379,7 @@ OLC_FUN(mobed_show)
 			   flag_string(skill_groups, pMob->practicer));
 	}
 
-	buf_append(buf, "Resist");
-
-	for (i = 0; i < MAX_RESIST; i++) {
-		if (strlen(flag_string(dam_classes, i)) > 7) {
-			buf_printf(buf, BUF_END, "\t%s\t%d%%",
-				flag_string(dam_classes, i),
-				pMob->resists[i]);
-		} else {
-			buf_printf(buf, BUF_END, "\t%s\t\t%d%%",
-				flag_string(dam_classes, i),
-			pMob->resists[i]);
-		}
-
-		if ((i + 1) % 3 == 0)
-			buf_append(buf, "\n");
-	}
-	buf_append(buf, "\n");
-
+	dump_resists(buf, pMob->resists);
 	aff_dump_list(pMob->affected, buf);
 
 	if (pMob->pShop) {
@@ -956,10 +938,9 @@ OLC_FUN(mobed_race)
 
 	if (argument[0]
 	&&  (r = race_search(argument)) != NULL) {
-		int i;
 		EDIT_MOB(ch, pMob);
 
-		ro = race_search(pMob->race);
+		ro = race_lookup(pMob->race);
 		free_string(pMob->race);
 		pMob->race = str_qdup(r->name);
 
@@ -971,10 +952,6 @@ OLC_FUN(mobed_race)
 			pMob->off_flags   = r->off;
 			pMob->form        = r->form;
 			pMob->parts       = r->parts;
-			for (i = 0; i < MAX_RESIST; i++) {
-				if (pMob->resists[i] != MOB_IMMUNE)
-					pMob->resists[i] = r->resists[i];
-			}
 		} else {
 			pMob->act	  = (pMob->act & ~ro->act) | r->act;
 			pMob->affected_by = (pMob->affected_by & ~ro->aff) |
@@ -989,12 +966,6 @@ OLC_FUN(mobed_race)
 							r->form;
 			pMob->parts       = (pMob->parts & ~ro->parts) |
 							r->parts;
-			for (i = 0; i < MAX_RESIST; i++) {
-				if (pMob->resists[i] != MOB_IMMUNE) {
-					pMob->resists[i] +=
-					    r->resists[i] - ro->resists[i];
-				}
-			}
 		}
 
 		act_char("Race set.", ch);
