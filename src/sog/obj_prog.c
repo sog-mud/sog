@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.25 2004-05-28 18:28:41 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.26 2004-05-29 16:19:36 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1997,6 +1997,8 @@ speech_prog_scarab(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		if (left && right) {
 			obj_from_char(obj_left);
 			obj_from_char(obj_right);
+			extract_obj(obj_left, 0);
+			extract_obj(obj_right, 0);
 			object = create_obj(get_obj_index(OBJ_VNUM_SCARAB), 0);
 			obj_to_char(object, ch);
 			act_char("Mystic scarab materializes into "
@@ -2009,6 +2011,7 @@ speech_prog_scarab(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 				act_char("Mystic scarab dissapears... and you "
 					 "notice glowing portal.", ch);
 				obj_from_char(object);
+				extract_obj(object, 0);
 				object = create_obj(get_obj_index(OBJ_VNUM_GATEWAY), 0);
 				obj_to_room(object, ch->in_room);
 				return 0;
