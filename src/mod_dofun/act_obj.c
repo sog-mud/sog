@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.140 1999-05-19 08:05:13 fjoe Exp $
+ * $Id: act_obj.c,v 1.141 1999-05-19 09:19:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,6 @@
 
 DECLARE_DO_FUN(do_split		);
 DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_scan		);
 DECLARE_DO_FUN(do_mount		);
 DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_emote		);
@@ -2477,7 +2476,7 @@ CHAR_DATA * find_keeper(CHAR_DATA * ch)
 	 */
 	if (!can_see(keeper, ch) && !IS_IMMORTAL(ch)) {
 		do_say(keeper, "I don't trade with folks I can't see.");
-		do_scan(keeper, str_empty);
+		do_emote(keeper, "looks all around.");
 		return NULL;
 	}
 	return keeper;
