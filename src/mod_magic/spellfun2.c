@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.68 1998-12-28 14:26:41 kostik Exp $
+ * $Id: spellfun2.c,v 1.69 1998-12-29 16:28:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2599,7 +2599,7 @@ void spell_enhanced_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	af.location  = APPLY_AC;
 	af.bitvector = 0;
 	affect_to_char(victim, &af);
-	char_puts("You feel protected for all attacks.\n", victim);
+	char_puts("You feel protected from all attacks.\n", victim);
 	if (ch != victim)
 	act("$N is protected by your magic.",ch,NULL,victim,TO_CHAR);
 	return;

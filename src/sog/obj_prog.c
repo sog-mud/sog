@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.52 1998-12-28 15:06:16 kostik Exp $
+ * $Id: obj_prog.c,v 1.53 1998-12-29 16:28:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,6 +152,8 @@ DECLARE_OPROG(remove_prog_fire_shield);
 DECLARE_OPROG(wear_prog_quest_weapon);
 DECLARE_OPROG(get_prog_quest_reward);
 
+DECLARE_OPROG(fight_prog_swordbreaker);
+
 char* optype_table[] = {
 	"wear_prog",
 	"remove_prog",
@@ -203,6 +205,7 @@ OPROG_DATA oprog_table[] = {
 	{ "fight_prog_tattoo_eros", fight_prog_tattoo_eros },
 	{ "fight_prog_golden_weapon", fight_prog_golden_weapon },
 	{ "death_prog_golden_weapon", death_prog_golden_weapon },
+	{ "fight_prog_breaker", fight_prog_swordbreaker },
 	{ "get_prog_heart", get_prog_heart },
 	{ "wear_prog_bracer", wear_prog_bracer },
 	{ "remove_prog_bracer", remove_prog_bracer },
@@ -1720,3 +1723,27 @@ int wear_prog_ruler_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	return 0;
 }
+
+int fight_prog_swordbreaker(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+  CHAR_DATA *victim;
+  OBJ_DATA *wield;
+  victim = ch->fighting;
+  if((wield = get_eq_char(victim, WEAR_WIELD)) == NULL) return 0 ;
+        if (
+            (wield->value[0] == WEAPON_SWORD)
+        &&  (get_eq_char(ch,WEAR_WIELD) == obj
+        ||   get_eq_char(ch,WEAR_SECOND_WIELD) == obj)
+        &&   number_percent() < 10) {
+                act("You {Wcleaved{x $N's sword into two.",
+                    ch, NULL, victim, TO_CHAR);
+                act("$n {Wcleaved{x your sword into two.",
+                    ch, NULL, victim, TO_VICT);
+                act("$n {Wcleaved{x $N's sword into two.",
+                    ch, NULL, victim, TO_NOTVICT);
+                check_improve(ch, gsn_weapon_cleave, TRUE, 1);
+                extract_obj(get_eq_char(victim, WEAR_WIELD));
+        }
+        return 0;
+}
+
