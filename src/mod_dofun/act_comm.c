@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.209 2000-06-01 17:57:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.210 2000-07-01 15:01:56 avn Exp $
  */
 
 /***************************************************************************
@@ -1017,7 +1017,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 	||  (has_spec(ch, "clan_battleragers") &&
 	     has_spec(victim, "clan_shalafi"))) {
 		act_puts("You hate $n's clan, how can you join $n's group?", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-		act_puts("You hate $N's clan, how can you want $N to join your group", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+		act_puts("You hate $N's clan, how can you want $N to join your group?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 		return;
 	}
 
