@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.272 2001-10-21 22:13:23 fjoe Exp $
+ * $Id: spellfun.c,v 1.273 2001-10-26 09:35:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -2619,6 +2619,11 @@ SPELL_FUN(spell_lightning_shield, sn, level, ch, vo)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
+	}
+
 	if (is_sn_affected(ch,sn)) {
 		act_char("This spell is used too recently.", ch);
 		return;
@@ -2646,7 +2651,13 @@ SPELL_FUN(spell_shocking_trap, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 
 	if (is_sn_affected_room(ch->in_room, sn)) {
-		act_char("This room has already trapped with shocks waves.", ch);
+		act_char("This room has already trapped with shocks waves.",
+		    ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
 		return;
 	}
 
@@ -3449,12 +3460,6 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-	        act_char("You can't summon a demon here.", ch);
-		return;
-	}
-
 	act_char("You attempt to summon a demon.", ch);
 	act("$n attempts to summon a demon.", ch, NULL, NULL, TO_ROOM);
 
@@ -3465,6 +3470,22 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 			act_char("Two demons are more than you can control!", ch);
 			return;
 		}
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level              = level;
+	paf->duration           = 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("A demon arrives from underworld!", ch);
+		act("A demon arrives from the underworld!",
+		    ch, NULL, NULL, TO_ROOM);
+		act_char("But suddenly returns back.", ch);
+		act("But suddenly returns back.", ch, NULL, NULL, TO_ROOM);
+		return;
 	}
 
 	demon = create_mob(MOB_VNUM_DEMON, 0);
@@ -3486,14 +3507,7 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 	NPC(demon)->dam.dice_type = number_range(level/3, level/2);
 	demon->damroll = number_range(level/8, level/6);
 
-	act_char("A demon arrives from the underworld!", ch);
 	act("A demon arrives from the underworld!", ch, NULL, NULL, TO_ROOM);
-
-	paf = aff_new(TO_AFFECTS, sn);
-	paf->level              = level;
-	paf->duration           = 24;
-	affect_to_char(ch, paf);
-	aff_free(paf);
 
 	char_to_room(demon, ch->in_room);
 	if (IS_EXTRACTED(demon))
@@ -3649,6 +3663,8 @@ SPELL_FUN(spell_guard_call, sn, level, ch, vo)
 		return;
 	}
 
+	dofun("yell", ch, "Guards! Guards!");
+
 	if (IS_SET(ch->in_room->room_flags,
 		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->exit[0] == NULL &&
@@ -3657,11 +3673,9 @@ SPELL_FUN(spell_guard_call, sn, level, ch, vo)
 	     ch->in_room->exit[3] == NULL &&
 	     ch->in_room->exit[4] == NULL &&
 	     ch->in_room->exit[5] == NULL)) {
-	        act_char("You can't call guards here.", ch);
+		act_char("No guard come to help you.", ch);
 		return;
 	}
-
-	dofun("yell", ch, "Guards! Guards!");
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch,AFF_CHARM)
@@ -3730,15 +3744,17 @@ SPELL_FUN(spell_nightwalker, sn, level, ch, vo)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-	        act_char("You can't summon a Nightwalker here.", ch);
-		return;
-	}
-
 	act_puts("You attempt to summon a Nightwalker.",
 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	act("$n attempts to summon a Nightwalker.", ch, NULL, NULL, TO_ROOM);
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("You notice some motions in shadows around you.", ch);
+		act_char("But nothing else happens.", ch);
+		act("But noone appears.", ch, NULL, NULL, TO_ROOM);
+		return;
+	}
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
@@ -3747,6 +3763,7 @@ SPELL_FUN(spell_nightwalker, sn, level, ch, vo)
 			act_puts("Two Nightwalkers are more than "
 				 "you can control!",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("But noone appears.", ch, NULL, NULL, TO_ROOM);
 			return;
 		}
 	}
@@ -4129,6 +4146,14 @@ SPELL_FUN(spell_stalker, sn, level, ch, vo)
 	act_char("You attempt to summon a stalker.", ch);
 	act("$n attempts to summon a stalker.",ch,NULL,NULL,TO_ROOM);
 
+	if (IS_SET(victim->in_room->room_flags,
+		   ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		/* This message was stolen from ADOM */
+		act_char("You sense imminent danger...", victim);
+		act_char("...but the feeling passes.", victim);
+		return;
+	}
+
 	stalker = create_mob(MOB_VNUM_STALKER, 0);
 	if (stalker == NULL)
 		return;
@@ -4384,6 +4409,12 @@ SPELL_FUN(spell_shadowlife, sn, level, ch, vo)
 
 	if (is_sn_affected(ch,sn)) {
 		act_char("You don't have the strength to raise a Shadow now.", ch);
+		return;
+	}
+	if (IS_SET(victim->in_room->room_flags,
+		   ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("You notice something unusual about your shadow.",
+		    victim);
 		return;
 	}
 
@@ -5471,7 +5502,7 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 	victim = (CHAR_DATA *) vo;
 
 	if (victim == ch) {
-		act_char("But you aren't dead!!", ch);
+		act_char("But you aren't dead, yet.", ch);
 		return;
 	}
 
@@ -5492,6 +5523,12 @@ SPELL_FUN(spell_bone_dragon, sn, level, ch, vo)
 	if (is_sn_affected(ch, sn)) {
 		act("You are still tired from growing previous one.",
 			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_LAW | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("This is not a best place to raise such a monster.",
+		    ch);
 		return;
 	}
 
@@ -6293,6 +6330,12 @@ SPELL_FUN(spell_wolf, sn, level, ch, vo)
 		}
 	}
 
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_LAW | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("But no wolves come.", ch);
+		return;
+	}
+
 	demon = create_mob(MOB_VNUM_WOLF, 0);
 	if (demon == NULL)
 		return;
@@ -6516,6 +6559,20 @@ SPELL_FUN(spell_flesh_golem, sn, level, ch, vo)
 		}
 	}
 
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB |
+	    ROOM_LAW | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("You create a golem, but it crumples into dust.", ch);
+		act("$n creates something, but it crumples into dust", ch,
+		    NULL, NULL, TO_ROOM);
+		return;
+	}
+
 	golem = create_mob(MOB_VNUM_FLESH_GOLEM, 0);
 	if (golem == NULL)
 		return;
@@ -6542,11 +6599,6 @@ SPELL_FUN(spell_flesh_golem, sn, level, ch, vo)
 	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
 	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
 
-	paf = aff_new(TO_AFFECTS, sn);
-	paf->level	= level;
-	paf->duration	= 24;
-	affect_to_char(ch, paf);
-	aff_free(paf);
 
 	golem->master = golem->leader = ch;
 	char_to_room(golem, ch->in_room);
@@ -6566,12 +6618,6 @@ SPELL_FUN(spell_stone_golem, sn, level, ch, vo)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-	        act_char("You can't create a stone golem here.", ch);
-		return;
-	}
-
 	act_char("You attempt to create a stone golem.", ch);
 	act("$n attempts to create a stone golem.", ch, NULL, NULL, TO_ROOM);
 
@@ -6584,6 +6630,17 @@ SPELL_FUN(spell_stone_golem, sn, level, ch, vo)
 				return;
 			}
 		}
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB | ROOM_LAW |
+	    ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char(
+		    "You create a golem, but it crumples into a heap of stone.",
+		    ch);
+		act(
+		   "$n creates something, but it crumples into a heap of stone",
+		   ch, NULL, NULL, TO_ROOM);
+		return;
 	}
 
 	golem = create_mob(MOB_VNUM_STONE_GOLEM, 0);
@@ -6636,12 +6693,6 @@ SPELL_FUN(spell_iron_golem, sn, level, ch, vo)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-	        act_char("You can't create a iron golem here.", ch);
-		return;
-	}
-
 	act_char("You attempt to create an iron golem.", ch);
 	act("$n attempts to create an iron golem.", ch, NULL, NULL, TO_ROOM);
 
@@ -6652,6 +6703,23 @@ SPELL_FUN(spell_iron_golem, sn, level, ch, vo)
 			act_char("Two iron golems are more than you can control!", ch);
 			return;
 		}
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB | ROOM_LAW |
+	    ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char(
+		    "You create a golem, but it crumples into a rusty heap.",
+		    ch);
+		act(
+		   "$n creates something, but it crumples into a rusty heap.",
+		   ch, NULL, NULL, TO_ROOM);
+		return;
 	}
 
 	golem = create_mob(MOB_VNUM_IRON_GOLEM, 0);
@@ -6679,12 +6747,6 @@ SPELL_FUN(spell_iron_golem, sn, level, ch, vo)
 
 	act_puts("You created $N!", ch, NULL, golem, TO_CHAR, POS_DEAD);
 	act("$n creates $N!", ch, NULL, golem, TO_ROOM);
-
-	paf = aff_new(TO_AFFECTS, sn);
-	paf->level	= level;
-	paf->duration	= 24;
-	affect_to_char(ch, paf);
-	aff_free(paf);
 
 	golem->master = golem->leader = ch;
 	char_to_room(golem, ch->in_room);
@@ -7145,12 +7207,6 @@ SPELL_FUN(spell_summon_shadow, sn, level, ch, vo)
 		return;
 	}
 
-        if (IS_SET(ch->in_room->room_flags,
-		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
-	        act_char("You can't summon a shadow here.", ch);
-		return;
-	}
-
 	act_char("You attempt to summon a shadow.", ch);
 	act("$n attempts to summon a shadow.",ch,NULL,NULL,TO_ROOM);
 
@@ -7161,6 +7217,11 @@ SPELL_FUN(spell_summon_shadow, sn, level, ch, vo)
 			act_char("Two shadows are more than you can control!", ch);
 			return;
 		}
+	}
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB | ROOM_LAW |
+	    ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("The shadows aren't deep enough here.", ch);
+		return;
 	}
 
 	shadow = create_mob(MOB_VNUM_SUM_SHADOW, 0);
