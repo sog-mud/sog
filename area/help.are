@@ -3902,8 +3902,8 @@ see also: PLAYERKILLING
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
 {Clevel 10{x. People you can pk are shown by a {r[{RPK{r]{x flag in front of their 
-names on the who and the where lists.  These people are anyone within a 
-range of your level.( maximum( 4, level / 10 ) level below and above levels)  
+names on the who and the where lists.  These people are anyone within 
+your pk range (max(4, level/10+2) levels below and above).  
 
 Expect to be PK'ed, and don't take it too personally. Remember, there's
 safety in numbers. 
@@ -3922,8 +3922,8 @@ See also: ROLEPLAYING GROUP ALIGNMENT
 напасть на тебя (и, соответственно, быть атакованными тобой) помечены
 символами {R[PK]{x перед их именем.  Доступность для убийства того или иного
 человека определяется разницей между твоим и его уровнями, которая не должна
-превышать max(4, уровень/10).  На территории клана нападающий может быть
-атакован вне зависимости ит уровня.  
+превышать max(4, уровень/10+2).  На территории клана нападающий может быть
+атакован вне зависимости от уровня.  
  
 Ожидайте нападения, и не воспринимайте это слишком лично. Помните, будучи в
 группе, ты делаешь свою жизнь безопаснее.
@@ -4119,8 +4119,9 @@ are the entirety of Midgaard, New Thalos, Valley of Titans and  New Ofcol.
    the room of an aggressive mob that causes their death is considered a
    player kill and will result in a WANTED flag on the caster.
 
-6. Garbling Enforcer members is against the law.  This prevents them from
-   doing their job and is considered an offensive attack upon the law itself.
+6. Garbling Ruler members is against the law, as well as any other offensive
+act against them, including: dispersal, mob summoning, setting traps,
+stealing equipment and inventory.
 
 7. Criminals are outlaw. You can attack criminal in protected area.
 
@@ -4151,9 +4152,9 @@ command. Old midgaard is not a holy town.
 области непосредственно в комнату с агрессивными мобами, который приведет к
 смерти рассматривается как нападение на игрока в защищенной области.
  
-6. Использование garble на членов клана Enforcer запрещено, так как мешает
-нормальному выполнению их обязанностей и потому рассматривается как нарушение
-закона.
+6. Использование garble на членов клана Enforcers, а так же другие агрессивные
+действия против них включая: disperce, summon мобов, установка ловушек и
+воровство.
  
 7. Криминальный элемент (WANTED) - вне закона и может быть атакован 
 в пределах защищенной области.
@@ -7010,6 +7011,37 @@ ENABLE command cannot be disabled.
 Хаоса в мире.
 ~
 0 'CLAN RULERS' 'CLAN ENFORCERS' RULERS ENFORCERS~
+@eng +----------------------------------------------------------------------------+
+|                                                                            |
+|        Justice  above  all!  The world consists of two parts:  right and   |
+|   wrong... And there should be NO second part. Every Enforcer must do as   |
+|   much as possible for that to happen.  Our word is the LAW.               |
+|                                                                            |
+|        It does not matter who commited a crime and when it happened. The   |
+|   Law will prevail and the punishment will be given to him not regarding   |
+|   of his location. A _thief_ should be in prison. A _murderer_ should be   |
+|   sentenced to death.  Every outlaw will be punished!                      |
+|                                                                            |
+|        Those of clan Chaos who are planting disorder and not obeying the   |
+|   rules are our enemies. The Invaders, thirsty for power and domination,   |
+|   are also our enemies. And we are proud to call the noble and righteous   |
+|   Knights our allies.                                                      |
+|                                                                            |
+|   2) Responsibilities of an Enforcer                                       |
+|                                                                            |
+|        All members of clan Enforcers must obey the code. We also have to   |
+|   make sure others follow the law. Not knowing the law is not an excuse,   |
+|   it makes the punishment even harsher.                                    |
+|                                                                            |
+|   3) Requirements for newcomers                                            |
+|                                                                            |
+|        Every lawful creature must help Enforcers to his/her full extent.   |
+|   It doesn't matter whether you are an elf or a troll, a man or a woman,   |
+|   a warrior or a mage. If you are loyal enough, you'll be able to become   |
+|   one of us.  The only exceptions are thieves and ninjas, who will never   |
+|   become Enforcers.                                                        |
+|                                                                            |
++----------------------------------------------------------------------------+
 @rus +----------------------------------------------------------------------------+
 |                                                                            |
 |        Справедливость превыше  всего!  Мир  состоит  из   двух   частей:   |
