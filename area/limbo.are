@@ -598,6 +598,14 @@ glass~
 potion G AO
 1 'bless' '' '' ''
 0 10 0 P
+#50
+rug~
+magic rug~
+{ra small magic rug{x~
+unknown~
+furniture RYa AP
+A EIJKN HK DGH DGH
+30 10 0 P
 #51
 tattoo atum ra~
 lawful good tattoo of atum-ra~

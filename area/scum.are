@@ -64,9 +64,9 @@ F par ABCDEFGHIJK
 witch~
 @eng Grand Witch@rus Верховная Ведьма~
 @eng Grand Witch
-@rus Верховная Ведьма, повелительница НЕЧИСТИ, она любила только одного,             и то он плохо кончил.
+@rus Верховная Ведьма, повелительница НЕЧИСТИ, она любила только одного, и то он плохо кончил.
 ~
-~
+@eng @rus ~
 human~
 ABGae J -1000 0
 100 0 0d0+0 0d0+0 0d0+0 none
@@ -85,6 +85,14 @@ child~
 unknown~
 fountain R P
 0 0 'blood' 0 0
+0 0 0 P
+#40001
+altar~
+@eng unholy altar@rus алтарь~
+@eng Unholy altar@rus {DАх! Похоже здесь когда-то была часовня - ее алтарь теперь служит прибежищем бесов.{x~
+камень~
+furniture IRSY 0
+CFG EIJKN HK CDFI CFG
 0 0 0 P
 #0
 
@@ -152,6 +160,7 @@ M 0 40000 1 40001 1	* Royal Mummy ({DDirty vault{x)
 M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
 O 0 40000 0 40002	* corpse of child ({DDark cave{x)
 M 0 40003 1 40002 1	* Grand Witch ({DDark cave{x)
+O 0 40001 0 40002	* unholy altar ({DDark cave{x)
 S
 
 #MOBPROGS
@@ -163,6 +172,12 @@ endif
 if clan $n scum
 bow $n 
 say Welcome, brother!
+end
+endif
+if isghost $n
+giggle
+say Wait a moment, please
+mob transfer $n 40000
 end
 endif
 yae $n

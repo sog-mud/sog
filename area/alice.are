@@ -886,6 +886,8 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21089 100~
+M act 21090 tells you~
 #21042
 court officer~
 a court officer~
@@ -895,13 +897,15 @@ A court officer stands ready to suppress rowdy members of the public.
 and sitting on them...
 ~
 human~
-ABGTX N 400 0
+ABGT N 400 0
 39 0 10d102+629 39d10+100 5d13+22 pierce
 -14 -14 -14 -2
 EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 F par GHIJK
+M greet 21091 100~
+M kill 21092 100~
 #0
 
 #OBJECTS
@@ -3152,6 +3156,19 @@ emote screeches and attacks!
 yell I am slain!
 ~
 #21089
+emote is scribbling furiously away on a slate.
+~
+#21090
+say YOU do it!
+mob oload 21062
+give slate $n
+~
+#21091
+emote glares at you suspiciously
+~
+#21092
+mob cast 'blindness' $n
+mob cast 'web' $n
 ~
 #0
 
