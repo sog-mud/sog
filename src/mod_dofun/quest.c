@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.43 1998-07-03 15:18:46 fjoe Exp $
+ * $Id: quest.c,v 1.44 1998-07-09 12:15:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -596,6 +596,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  IS_SET(victim->pIndexData->act, ACT_PRACTICE)
 		||  IS_SET(victim->pIndexData->act, ACT_HEALER)
 		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
+		||  IS_SET(victim->pIndexData->act, ACT_PET)
 		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
 		||  questor->pIndexData == victim->pIndexData
 		||  victim->in_room == NULL
