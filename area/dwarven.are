@@ -346,7 +346,7 @@ stick палка~
 @eng There is a long, black stick lying here.@rus Здесь валяется длинная черная палка (stick).~
 wood~
 staff 0 0 AO
-4 10 10 'cure critical' 0
+4 10 10 'cure critical wounds' 0
 11 10 4800 P
 g @rus female~
 #6507
@@ -468,7 +468,7 @@ pills таблетки коробочка~
 @eng There is a box of birth control pills here.@rus Здесь лежит коробочка противозачаточных таблеток (pills).~
 unknown~
 pill 0 0 A
-20 'cure light' 'cure light' 'cure light' ''
+20 'cure light wounds' 'cure light wounds' 'cure light wounds' ''
 0 10 300 P
 E
 birth control pills pill противозачаточные таблетки таблетка~

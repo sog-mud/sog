@@ -599,7 +599,7 @@ unknown potion~
 A unknown potion has been left here.~
 glass~
 potion 0 A
-30 'cure light' 'bless' 'armor' ''
+30 'cure light wounds' 'bless' 'armor' ''
 4 1 8000 P
 E
 potion~

@@ -168,7 +168,7 @@ potion magenta красное зелье~
 @eng Bright magenta potion gathers dust.@rus Переливающееся красное зелье (potion) собирает пыль.~
 glass~
 potion J 0 AO
-8 'armor' 'cure light' 'poison' ''
+8 'armor' 'cure light wounds' 'poison' ''
 3 20 320 P
 g @rus none~
 #9105

@@ -434,7 +434,7 @@ an neon blue potion~
 A neon blue potion stands on the floor.~
 glass~
 potion G 0 A
-14 'cure critical' 'invisibility' 'word of recall' ''
+14 'cure critical wounds' 'invisibility' 'word of recall' ''
 17 40 1490 P
 g @rus none~
 #7205

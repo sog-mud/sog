@@ -274,9 +274,9 @@ wood~
 staff 0 K AO
 100 5 5 'heal' 0
 1 0 0 P
-a '' to_skills 1 -1 100 'cure serious' 0
-a '' to_skills 1 -1 100 'cure light' 0
-a '' to_skills 1 -1 100 'cure critical' 0
+a '' to_skills 1 -1 100 'cure serious wounds' 0
+a '' to_skills 1 -1 100 'cure light wounds' 0
+a '' to_skills 1 -1 100 'cure critical wounds' 0
 a '' to_skills 1 -1 100 'heal' 0
 g @eng none@rus male~
 #34454

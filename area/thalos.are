@@ -537,7 +537,7 @@ a mandolin~
 A mandolin lies against the wall.~
 wood~
 staff G 0 AO
-13 3 3 'cure critical' 0
+13 3 3 'cure critical wounds' 0
 9 100 2500 P
 g @rus none~
 #5251

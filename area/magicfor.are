@@ -1238,7 +1238,7 @@ a silver harp~
 A small silver harp which glows magically sits in a corner.~
 silver~
 staff G 0 AO
-35 10 10 'cure critical' 0
+35 10 10 'cure critical wounds' 0
 35 60 1200 P
 g @rus none~
 #1834

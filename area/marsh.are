@@ -350,7 +350,7 @@ green potion зеленая микстура~
 @eng A murky green potion lies here in the mud.@rus Пузырек с темно-зеленой микстурой (potion) лежит в грязи.~
 glass~
 potion AB 0 A
-43 'cure critical' '' '' ''
+43 'cure critical wounds' '' '' ''
 5 10 690 P
 E
 potion микстура~

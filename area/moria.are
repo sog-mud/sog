@@ -1061,7 +1061,7 @@ black potion черное зелье~
 @eng A thick black potion is here.@rus Толстая банка с зельем (black potion) стоит тут.~
 glass~
 potion G 0 AO
-9 'cure critical' '' '' ''
+9 'cure critical wounds' '' '' ''
 5 10 320 G
 E
 potion black черное зелье~

@@ -1014,7 +1014,7 @@ a lude~
 A pill called a "lude" lies here collecting dust.~
 unknown~
 pill 0 0 A
-10 'bless' 'cure serious' 'cure light' ''
+10 'bless' 'cure serious wounds' 'cure light wounds' ''
 1 20 200 P
 g @rus none~
 #32058

@@ -1382,7 +1382,7 @@ a vial of liquid~
 A vial of liquid glows strangely here...~
 glass~
 potion A 0 AO
-10 'bless' 'cure serious' 'cure poison' 'refresh'
+10 'bless' 'cure serious wounds' 'cure poison' 'refresh'
 10 10 100 P
 a '' to_object 10 -1 2 4 0
 E
@@ -1504,7 +1504,7 @@ a deck of magical cards~
 A deck of magical cards covered in strange runes and glyphs is here.~
 paper~
 scroll GJ 0 AO
-20 'sleep' 'curse' 'blindness' 'cause critical'
+20 'sleep' 'curse' 'blindness' 'inflict critical wounds'
 10 90 1450 P
 a '' to_object 10 -1 2 3 0
 a '' to_object 10 -1 1 4 0

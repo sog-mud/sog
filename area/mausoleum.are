@@ -695,7 +695,7 @@ scroll truimph свиток триумфа~
 @eng A scroll with the title 'Truimph' lies here.@rus Свиток (scroll), надписанный 'Триумф', лежит тут.~
 parchment~
 scroll A C A
-43 'giant strength' 'cure serious' 'bless' ''
+43 'giant strength' 'cure serious wounds' 'bless' ''
 30 1 1500 P
 g @rus male~
 #4632
@@ -713,7 +713,7 @@ scroll redecoration свиток отделка комнат~
 @eng A scroll with the title 'Room-redecoration' lies here.@rus Свиток (scroll), надписанный 'Отделка комнат', лежит тут.~
 parchment~
 scroll A C A
-40 'cause serious' 'energy drain' 'demonfire' ''
+40 'inflict serious wounds' 'energy drain' 'demonfire' ''
 40 1 1500 P
 g @rus male~
 #4634
@@ -785,7 +785,7 @@ potion life снадобье жизни пузырек~
 @eng A reddish-brown potion lies here.@rus Красно-коричневый пузырек (potion) лежит тут.~
 glass~
 potion A 0 AO
-27 'cause critical' 'cause light' 'cure serious' ''
+27 'inflict critical wounds' 'inflict light wounds' 'cure serious wounds' ''
 5 0 1000 P
 g @rus neutral~
 #0

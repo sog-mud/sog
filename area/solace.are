@@ -1486,7 +1486,7 @@ mulburry extract~
 A small jar of mulburry extract has carelessly been left here.~
 copper~
 potion G 0 A
-20 'refresh' 'cure light' 'cure poison' ''
+20 'refresh' 'cure light wounds' 'cure poison' ''
 5 1 50 P
 g @rus none~
 #10271

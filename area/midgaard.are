@@ -2894,7 +2894,7 @@ a potion of cure light wounds~
 A potion of cure light wounds is here.~
 glass~
 potion G 0 AO
-5 'cure light' '' '' ''
+5 'cure light wounds' '' '' ''
 0 10 150 P
 g @rus none~
 #3084
@@ -2903,7 +2903,7 @@ a potion of cure serious wounds~
 A potion of cure serious wounds is here.~
 glass~
 potion G 0 AO
-10 'cure serious' '' '' ''
+10 'cure serious wounds' '' '' ''
 1 10 220 P
 g @rus none~
 #3085
@@ -2912,7 +2912,7 @@ a potion of cure critical wounds~
 A potion of cure critical wounds is here.~
 glass~
 potion G 0 AO
-15 'cure critical' '' '' ''
+15 'cure critical wounds' '' '' ''
 5 10 390 P
 g @rus none~
 #3086
@@ -2921,7 +2921,7 @@ a bottle of antidote~
 A bottle of antidote is here.~
 clay~
 potion G 0 AO
-14 'cure poison' 'cure light' 'cure disease' ''
+14 'cure poison' 'cure light wounds' 'cure disease' ''
 8 10 550 P
 g @rus none~
 #3087
@@ -4198,7 +4198,7 @@ a potion of cure light wounds~
 A potion of cure light wounds is here.~
 glass~
 potion G 0 AO
-5 'cure light' '' '' ''
+5 'cure light wounds' '' '' ''
 0 10 150 P
 g @rus none~
 #3284
@@ -4207,7 +4207,7 @@ a potion of cure serious wounds~
 A potion of cure serious wounds is here.~
 glass~
 potion G 0 AO
-10 'cure serious' '' '' ''
+10 'cure serious wounds' '' '' ''
 1 10 220 P
 g @rus none~
 #3285
@@ -4216,7 +4216,7 @@ a potion of cure critical wounds~
 A potion of cure critical wounds is here.~
 glass~
 potion G 0 AO
-15 'cure critical' '' '' ''
+15 'cure critical wounds' '' '' ''
 5 10 390 P
 g @rus none~
 #3286
@@ -4225,7 +4225,7 @@ a bottle of antidote~
 A bottle of antidote is here.~
 clay~
 potion G 0 AO
-14 'cure poison' 'cure light' 'cure disease' ''
+14 'cure poison' 'cure light wounds' 'cure disease' ''
 8 10 550 P
 g @rus none~
 #3287

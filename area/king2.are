@@ -654,7 +654,7 @@ a large vial~
 A large vial has been left here.~
 glass~
 potion G 0 A
-15 'cure critical' 'cure light' '' ''
+15 'cure critical wounds' 'cure light wounds' '' ''
 40 200 15500 G
 E
 vial large brown potion~

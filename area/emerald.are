@@ -2405,7 +2405,7 @@ heart сердце~
 @eng The heart of a nymph pumps horribly on the floor.@rus Сердце нимфы бьется на земле.~
 flesh~
 pill ABG 0 A
-30 'cure serious' '' '' ''
+30 'cure serious wounds' '' '' ''
 30 5 1000 W
 E
 heart сердце~

@@ -1122,7 +1122,7 @@ nectar нектар камелька~
 @eng A small drop af amber nectar.@rus Маленькая капелька янтарного нектара (nectar).~
 cloth~
 potion Q 0 A
-15 'refresh' 'cure critical' 'cure poison' 'cure blindness'
+15 'refresh' 'cure critical wounds' 'cure poison' 'cure blindness'
 11 1 0 P
 g @eng neutral@rus female~
 #12002
@@ -1427,7 +1427,7 @@ slime bit кусок~
 @eng A small bit of purple slime with luminescent blue streaks.@rus Кусок красноватой грязи (slime) с голубыми прожилками валяется здесь.~
 unknown~
 pill A 0 A
-20 'cure light' 'armor' '' ''
+20 'cure light wounds' 'armor' '' ''
 14 2 0 G
 g @eng neutral@rus male~
 #12030

@@ -1114,7 +1114,7 @@ a magic wand~
 A magic wand is here.~
 unknown~
 wand AG 0 AO
-45 9 9 'cure critical' 0
+45 9 9 'cure critical wounds' 0
 25 4 4000 P
 g @rus none~
 #14723

@@ -593,7 +593,7 @@ a magenta potion~
 A magenta potion.~
 glass~
 potion H 0 A
-30 'cure critical' 'protection evil' '' ''
+30 'cure critical wounds' 'protection evil' '' ''
 7 10 600 P
 g @rus none~
 #2254

@@ -350,7 +350,7 @@ vial moonlight bottled пузырек~
 @eng A vial of sparkling liquid emits a soft white glow.@rus Пузырек (vial), наполненный искрящийся жидкостью, излучает вокруг мягкое белое сияние.~
 glass~
 potion AG 0 AO
-15 'fly' 'cure poison' 'cure critical' ''
+15 'fly' 'cure poison' 'cure critical wounds' ''
 12 1 700 P
 g @rus male~
 #29106

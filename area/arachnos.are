@@ -330,7 +330,7 @@ a blue potion~
 A blue potion has been left here.~
 glass~
 potion G 0 A
-15 'cure poison' 'cure critical' 'cure critical' ''
+15 'cure poison' 'cure critical wounds' 'cure critical wounds' ''
 10 20 700 P
 E
 potion blue~

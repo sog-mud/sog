@@ -853,7 +853,7 @@ an energy scroll~
 A scroll of energy replacement lies here.~
 paper~
 scroll B 0 A
-19 'cure critical' 'refresh' '' ''
+19 'cure critical wounds' 'refresh' '' ''
 5 10 860 P
 g @rus none~
 #9224

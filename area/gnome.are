@@ -428,7 +428,7 @@ a bloody potion~
 A bloody potion lies here.~
 glass~
 potion 0 0 A
-15 'cure blindness' 'cure critical' 'giant strength' ''
+15 'cure blindness' 'cure critical wounds' 'giant strength' ''
 7 220 480 P
 g @rus none~
 #1507

@@ -2716,7 +2716,7 @@ This spell renders the target character blind.
 Syntax: {ccast 'acid arrow'{x     <victim>
 Syntax: {ccast 'acid blast'{x     <victim>
 Syntax: {ccast 'burning hands'{x  <victim>
-Syntax: {ccast 'cause critical'{x <victim>
+Syntax: {ccast 'inflict critical wounds'{x <victim>
                 ... and so on ...
  
 All these spells just inflict damage to the victim. Higher-level spells do
@@ -2727,7 +2727,7 @@ See also {CHELP RANGE CAST{x
 Синтаксис: {ccast 'acid arrow'{x     <жертва>
 Синтаксис: {ccast 'acid blast'{x     <жертва>
 Синтаксис: {ccast 'burning hands'{x  <жертва>
-Синтаксис: {ccast 'cause critical'{x <жертва>
+Синтаксис: {ccast 'inflict critical wounds'{x <жертва>
                     ... и так далее ...
  
 Все эти заклинания наносят ущерб жертве. Заклинания более высокого уровня
@@ -2839,7 +2839,7 @@ These spells cure blindness, poison and disease in those unlucky adventurers.
  
 Эти заклинания лечат слепоту, яд и чуму соответвенно у неудачливого персонажа.
 ~
-0 'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' HEAL 'SUPERIOR HEAL' 'MASTER HEALING'~
+0 'CURE LIGHT WOUNDS' 'CURE SERIOUS WOUNDS' 'CURE CRITICAL WOUNDS' HEAL 'SUPERIOR HEAL' 'MASTER HEALING'~
 @eng Syntax: {ccast 'cure light'{x <character>
 Syntax: {ccast 'cure serious'{x <character>
 Syntax: {ccast 'cure critical'{x <character>

@@ -301,7 +301,7 @@ some purplish herbs~
 Some purplish herbs are scattered here.~
 plant~
 pill 0 0 A
-15 '' '' 'cure light' ''
+15 '' '' 'cure light wounds' ''
 0 10 250 P
 g @rus none~
 #8915
@@ -337,7 +337,7 @@ some orangish herbs~
 Some orangish herbs are scattered here.~
 plant~
 pill 0 0 A
-5 '' '' 'cure light' ''
+5 '' '' 'cure light wounds' ''
 0 10 150 P
 g @rus none~
 #8919

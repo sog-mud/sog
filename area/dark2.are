@@ -508,7 +508,7 @@ an Elven potion~
 An Elven potion has been dropped here.~
 glass~
 potion G 0 AO
-10 'bless' 'cure critical' 'cure poison' 'heal'
+10 'bless' 'cure critical wounds' 'cure poison' 'heal'
 1 300 2000 P
 E
 potion~

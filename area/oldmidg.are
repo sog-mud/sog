@@ -1031,7 +1031,7 @@ mandolin мандолина~
 @eng A mandolin lies against the wall.@rus Около стены лежит мандолина (mandolin).~
 wood~
 staff G 0 AO
-18 5 5 'cure critical' 0
+18 5 5 'cure critical wounds' 0
 10 200 2800 P
 g @eng neutral@rus female~
 #5310
@@ -1096,7 +1096,7 @@ orangish herbs оранжевая травка~
 @eng Some orangish herbs are scattered here.@rus Здесь на полу разбросано немного оранжевой травки (herb).~
 plant~
 pill 0 0 A
-5 '' '' 'cure light' ''
+5 '' '' 'cure light wounds' ''
 0 10 150 P
 g @eng neutral@rus female~
 #5317

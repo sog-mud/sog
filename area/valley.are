@@ -394,7 +394,7 @@ potion зелье~
 @eng A potion is on the floor.@rus Небольшая склянка с непонятным зельем (potion) лежит здесь.~
 glass~
 potion G 0 A
-10 'cure critical' '' '' ''
+10 'cure critical wounds' '' '' ''
 5 10 330 P
 g @rus none~
 #7816
@@ -412,7 +412,7 @@ scroll свиток~
 @eng A scroll is on the floor.@rus На полу валяется свиток (scroll).~
 vellum~
 scroll G 0 A
-10 'cure critical' '' '' ''
+10 'cure critical wounds' '' '' ''
 5 10 660 P
 g @rus male~
 #7818

@@ -1632,7 +1632,7 @@ a bright red potion~
 A bright red potion is here.~
 glass~
 potion G 0 A
-15 'cure critical' '' '' ''
+15 'cure critical wounds' '' '' ''
 5 20 390 P
 g @rus none~
 #1368
@@ -1691,7 +1691,7 @@ a small figurine~
 A small figurine in the shape of a humanoid is standing here.~
 ivory~
 staff G 0 AO
-21 15 15 'cure serious' 0
+21 15 15 'cure serious wounds' 0
 8 40 3400 P
 g @rus none~
 #1374
@@ -1758,7 +1758,7 @@ an ashen wand~
 An ashen wand is here~
 wood~
 wand J 0 AO
-20 4 4 'cause critical' 0
+20 4 4 'inflict critical wounds' 0
 9 40 1860 P
 g @rus none~
 #1381

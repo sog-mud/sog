@@ -379,7 +379,7 @@ a Yijinjing manual~
 A book of some sort is left on the floor.~
 paper~
 scroll 0 A
-45 'cure critical' 'giant strength' 'heal' 'refresh'
+45 'cure critical wounds' 'giant strength' 'heal' 'refresh'
 10 1 7653 P
 E
 manual book Yijinjing yijinjing~

@@ -388,7 +388,7 @@ a jar of formaldehyde~
 A small jar lies here on the ground.~
 glass~
 potion 0 0 A
-10 'cure light' '' '' ''
+10 'cure light wounds' '' '' ''
 0 60 200 P
 E
 jar formaldehyde~

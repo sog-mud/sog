@@ -293,7 +293,7 @@ an amber potion~
 An amber potion sits in a corner.~
 glass~
 potion 0 0 A
-5 'cure light' 'armor' '' ''
+5 'cure light wounds' 'armor' '' ''
 0 10 150 G
 E
 potion~

@@ -2859,7 +2859,7 @@ moss red мох красный~
 @eng Some red moss lies on the ground@rus Немного красного мха (moss) лежит на земле.~
 food~
 pill I 0 A
-12 'cure critical' 'cure critical' 'giant strength' ''
+12 'cure critical wounds' 'cure critical wounds' 'giant strength' ''
 5 2 100 P
 g @rus male~
 #16058

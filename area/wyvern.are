@@ -504,7 +504,7 @@ a dark red potion~
 A dark red potion rests on the ground.~
 glass~
 potion AG 0 AO
-9 'cure blindness' 'cure critical' '' ''
+9 'cure blindness' 'cure critical wounds' '' ''
 5 10 320 P
 g @rus none~
 #1651

@@ -1398,7 +1398,7 @@ the King of Heart's sceptre~
 The King of Hearts has lost his sceptre.~
 copper~
 staff G 0 AO
-41 8 8 'cure critical' 0
+41 8 8 'cure critical wounds' 0
 41 5 410 P
 g @rus none~
 #21055
@@ -1440,7 +1440,7 @@ the Queen of Heart's sceptre~
 The Queen of Hearts has lost her sceptre...~
 copper~
 staff AGM 0 AO
-45 9 9 'cause critical' 0
+45 9 9 'inflict critical wounds' 0
 45 8 450 P
 g @rus none~
 #21059

@@ -1401,7 +1401,7 @@ healing трава herb green bunch кустик зеленая~
 @eng A bunch of healing herbs is growing here.@rus Кустик зеленой целебной травы (healing) тянется к солнцу.~
 food~
 pill 0 0 A
-1 'cure critical' 'remove curse' 'cure poison' 'cure disease'
+1 'cure critical wounds' 'remove curse' 'cure poison' 'cure disease'
 1 20 437 P
 g @rus male~
 #7509

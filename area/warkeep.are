@@ -445,7 +445,7 @@ a green potion~
 A bright green potion has been left here.~
 copper~
 potion BG 0 AO
-28 'stone skin' 'protection evil' 'cause light' ''
+28 'stone skin' 'protection evil' 'inflict light wounds' ''
 28 1 280 P
 g @rus none~
 #15706
@@ -454,7 +454,7 @@ a red potion~
 A bright red potion has been left here.~
 copper~
 potion BG 0 AO
-28 'curse' 'armor' 'cure serious' ''
+28 'curse' 'armor' 'cure serious wounds' ''
 28 1 280 P
 g @rus none~
 #15707
@@ -481,7 +481,7 @@ a wand~
 A wand inscribed with strange runes lies here.~
 copper~
 wand AGJ 0 AO
-28 7 7 'cause critical' 0
+28 7 7 'inflict critical wounds' 0
 28 1 280 P
 g @rus none~
 #15710

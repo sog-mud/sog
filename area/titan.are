@@ -2262,7 +2262,7 @@ a Magical Potion to Cure Battle Wounds~
 A potion lies here in the dirt.~
 glass~
 potion AB 0 A
-40 'cure serious' 'cure critical' 'heal' ''
+40 'cure serious wounds' 'cure critical wounds' 'heal' ''
 20 50 10500 P
 g @rus none~
 #18033

@@ -797,7 +797,7 @@ a manual of healing arts~
 A small book lies here.~
 paper~
 scroll 0 0 AO
-30 'cure light' 'cure light' 'cure light' ''
+30 'cure light wounds' 'cure light wounds' 'cure light wounds' ''
 0 50 800 P
 E
 manual arts healing book~
@@ -904,7 +904,7 @@ the horn of life~
 A severed minotaur horn lies here.~
 bone~
 wand G 0 AO
-30 8 8 'cure light' 0
+30 8 8 'cure light wounds' 0
 1 50 930 P
 E
 horn life~
