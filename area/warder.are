@@ -5,7 +5,7 @@ VNUMs 96000 96099
 Credits ParAvoz~
 Security 1
 LevelRange 0 0
-Flags closed noquest~
+Flags BC
 End
 
 #MOBILES
@@ -512,7 +512,7 @@ mob attack $n
 #0
 
 #PRACTICERS
-M 96000 clan~	* biomass
+M 96000 ac	* biomass
 S
 
 #$

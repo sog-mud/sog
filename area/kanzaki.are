@@ -7,7 +7,7 @@ Credits Megissogwon~
 Security 9
 LevelRange 20 50
 ResetMessage @eng The ground suddenly trembles, then all goes quiet.@rus Земля под твоими ногами внезапно вздрагивает.~
-Flags closed~
+Flags B
 End
 
 #MOBILES
