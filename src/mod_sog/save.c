@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.153 2000-03-05 17:14:49 avn Exp $
+ * $Id: save.c,v 1.154 2000-03-05 17:50:53 avn Exp $
  */
 
 /***************************************************************************
@@ -648,6 +648,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
 				if (PC(ch)->version < 12
+				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
 				&&  INT(paf->location) >=27) {
 					AFFECT_DATA *paf2 = aff_new();
 					paf2->where = TO_RESIST;
@@ -953,6 +954,7 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
 				if (PC(ch)->version < 12
+				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
 				&&  INT(paf->location) >=27) {
 					AFFECT_DATA *paf2 = aff_new();
 					paf2->where = TO_RESIST;
@@ -1093,6 +1095,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
 				if (PC(ch)->version < 12
+				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS || paf->where == TO_OBJECT)
 				&&  INT(paf->location) >=27) {
 					AFFECT_DATA *paf2 = aff_new();
 					paf2->where = TO_RESIST;
