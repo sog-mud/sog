@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.29 2000-10-10 15:33:34 fjoe Exp $
+ * $Id: update.c,v 1.157.2.30 2000-10-13 08:42:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2013,7 +2013,8 @@ void update_handler(void)
 		char_update();
 		quest_update(); 
 		obj_update();
-		if (time_info.hour == 0) clan_item_update();
+		if (time_info.hour == 0)
+			clan_item_update();
 		check_reboot();
 
 		/* room counting */
@@ -2231,6 +2232,9 @@ void clan_item_update(void)
 		clan_t *clan = CLAN(i);
 
 		if (clan->obj_ptr == NULL) 
+			continue;
+
+		if (IS_AUCTIONED(clan->obj_ptr))
 			continue;
 
 		for (obj = clan->obj_ptr; obj->in_obj; obj = obj->in_obj)
