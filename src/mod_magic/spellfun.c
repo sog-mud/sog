@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.14 2001-01-11 21:46:57 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.15 2001-01-21 11:19:05 cs Exp $
  */
 
 /***************************************************************************
@@ -1394,7 +1394,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (check_dispel(level,victim,sn_lookup("enhanced armor")))
 		found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("bless")))
 		found = TRUE;
 
@@ -1421,7 +1421,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 	    found = TRUE;
 	    act("$n regains $s free will.",victim,NULL,NULL,TO_ROOM);
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("chill touch")))
 	{
 	    found = TRUE;
@@ -1430,66 +1430,66 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (check_dispel(level,victim,sn_lookup("curse")))
 	    found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("detect evil")))
 	    found = TRUE;
 
 	if (check_dispel(level,victim,sn_lookup("detect good")))
 		found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("detect hidden")))
 	    found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("detect invis")))
 	    found = TRUE;
- 
+
 	    found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("detect hidden")))
 	    found = TRUE;
 
 	if (check_dispel(level,victim,sn_lookup("detect magic")))
 	    found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("faerie fire")))
 	{
 	    act("$n's outline fades.",victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("fly")))
 	{
 	    act("$n falls to the ground!",victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim, gsn_frenzy))
 	{
 	    act("$n no longer looks so wild.",victim,NULL,NULL,TO_ROOM);;
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("giant strength")))
 	{
 	    act("$n no longer looks so mighty.",victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("haste")))
 	{
 	    act("$n is no longer moving so quickly.",victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("infravision")))
 	    found = TRUE;
- 
+
 	if (check_dispel(level,victim,sn_lookup("invis")))
 	{
 	    act("$n fades into existance.",victim,NULL,NULL,TO_ROOM);
 		found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("mass invis")))
 	{
 	    act("$n fades into existance.",victim,NULL,NULL,TO_ROOM);
@@ -1498,14 +1498,14 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (check_dispel(level,victim,sn_lookup("pass door")))
 	    found = TRUE;
- 
+
 
 	if (check_dispel(level,victim,sn_lookup("protection evil")))
 	    found = TRUE;
 
 	if (check_dispel(level,victim,sn_lookup("protection good")))
 	    found = TRUE;
- 
+
 	if (check_dispel(level,victim, sn_lookup("sanctuary"))) {
 		act("The white aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
@@ -1518,7 +1518,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 		found = TRUE;
 	}
 
-	if (IS_AFFECTED(victim,AFF_SANCTUARY) 
+	if (IS_AFFECTED(victim,AFF_SANCTUARY)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, sn_lookup("sanctuary"))) {
 		REMOVE_BIT(victim->affected_by,AFF_SANCTUARY);
@@ -1526,7 +1526,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
 	}
- 
+
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, sn_lookup("black shroud"))) {
@@ -1540,7 +1540,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 	    act("The shield protecting $n vanishes.",victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("sleep")))
 	    found = TRUE;
 
@@ -1549,19 +1549,19 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 	    act("$n is no longer moving so slowly.",victim,NULL,NULL,TO_ROOM);
 		found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("stone skin")))
 	{
 	    act("$n's skin regains its normal texture.",victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("weaken")))
 	{
 	    act("$n looks stronger.",victim,NULL,NULL,TO_ROOM);
 		found = TRUE;
 	}
- 
+
 	if (check_dispel(level,victim,sn_lookup("shielding")))
 		found = TRUE;
 

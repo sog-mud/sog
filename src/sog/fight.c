@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.21 2000-12-28 05:18:20 osya Exp $
+ * $Id: fight.c,v 1.202.2.22 2001-01-21 11:19:06 cs Exp $
  */
 
 /***************************************************************************
@@ -2212,7 +2212,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	OBJ_DATA *obj, *obj_next;
 	int i;
 	OBJ_DATA *tattoo, *clanmark, *corpse;
-	
+
 
 	if (is_affected(victim, gsn_resurrection)) {
 		act_puts("Yess! Your Great Master resurrects you!",

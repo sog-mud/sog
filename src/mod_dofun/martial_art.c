@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.12 2000-11-21 16:47:04 osya Exp $
+ * $Id: martial_art.c,v 1.114.2.13 2001-01-21 11:19:04 cs Exp $
  */
 
 /***************************************************************************
@@ -2759,10 +2759,13 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		ch->mana = 1;
 		ch->move = 1;
 
-		if (PC(ch)->condition[COND_HUNGER] < 40) 
-			PC(ch)->condition[COND_HUNGER] = 40; 
-		if (PC(ch)->condition[COND_THIRST] < 40) 
-			PC(ch)->condition[COND_THIRST] = 40; 
+		while (ch->affected)
+			affect_remove(ch, ch->affected);
+
+		if (PC(ch)->condition[COND_HUNGER] < 40)
+			PC(ch)->condition[COND_HUNGER] = 40;
+		if (PC(ch)->condition[COND_THIRST] < 40)
+			PC(ch)->condition[COND_THIRST] = 40;
 
 		char_puts("Yo cut your finger and wait till all your blood "
 			  "finishes.\n",ch);
