@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.278 2001-11-26 12:51:08 kostik Exp $
+ * $Id: spellfun.c,v 1.279 2001-12-03 22:28:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4090,19 +4090,17 @@ SPELL_FUN(spell_matandra, sn, level, ch, vo)
 
 SPELL_FUN(spell_amnesia, sn, level, ch, vo)
 {
-	size_t i;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	pc_skill_t *pc_sk;
 
 	if (IS_NPC(victim))
 		return;
 
-	for (i = 0; i < c_size(&PC(victim)->learned); i++) {
-		pc_skill_t *pc_sk = VARR_GET(&PC(victim)->learned, i);
+	C_FOREACH(pc_sk, &PC(victim)->learned)
 		pc_sk->percent = UMAX(pc_sk->percent / 2, 1);
-	}
 
-	act("You feel your memories slip away.",victim,NULL,NULL,TO_CHAR);
-	act("$n gets a blank look on $s face.",victim,NULL,NULL,TO_ROOM);
+	act("You feel your memories slip away.", victim, NULL, NULL, TO_CHAR);
+	act("$n gets a blank look on $s face.", victim, NULL, NULL, TO_ROOM);
 }
 
 #define OBJ_VNUM_CHAOS_BLADE		97
@@ -6896,7 +6894,7 @@ SPELL_FUN(spell_polymorph, sn, level, ch, vo)
 	}
 
 	r = race_search(target_name);
-	if (!r || !r->race_pcdata || !r->race_pcdata->classes.nused) {
+	if (!r || !r->race_pcdata || c_isempty(&r->race_pcdata->classes)) {
 		act_char("That is not a valid race to polymorph.", ch);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.5 2001-09-12 19:43:09 fjoe Exp $
+ * $Id: reset.c,v 1.6 2001-12-03 22:28:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,20 +41,6 @@ logger_reset(const char *buf)
 	snprintf(buf2, sizeof(buf2), "reset_room %d[%d]: %s",	// notrans
 		 reset_room_vnum, reset_num, buf);
 	logger_default(buf2);
-}
-
-static void *
-clan_item_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	OBJ_INDEX_DATA *pObjIndex = va_arg(ap, OBJ_INDEX_DATA *);
-
-	if (clan->obj_ptr == NULL
-	||  pObjIndex->vnum != clan->obj_vnum)
-		return NULL;
-
-	return p;
 }
 
 /*
@@ -281,11 +267,13 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 
 			if (IS_SET(pObjIndex->obj_flags, OBJ_CLAN)) {
-				clan_t* clan;
+				clan_t *clan;
 
-				clan = c_foreach(
-				    &clans, clan_item_cb, pObjIndex);
-				if (clan != NULL) {
+				C_FOREACH(clan, &clans) {
+					if (clan->obj_ptr == NULL
+					||  pObjIndex->vnum != clan->obj_vnum)
+						continue;
+
 					/*
 					 * create_obj can't fail here because
 					 * get_obj_index returned not NULL
@@ -295,6 +283,7 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 					clan->obj_ptr = obj;
 					clan->altar_ptr = obj;
 					obj_to_obj(obj, last_obj);
+					break;
 				}
 				break;
 			}

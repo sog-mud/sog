@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.24 2001-10-21 21:33:58 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.25 2001-12-03 22:28:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,57 +34,31 @@
 
 #include "mpc_dynafun.h"
 
-static
-FOREACH_CB_FUN(has_sp_cb, p, ap)
-{
-	const char **pspn = (const char **) p;
-
-	const char *spn = va_arg(ap, const char *);
-	const char *spn_rm = va_arg(ap, const char *);
-
-	if (!str_cmp(*pspn, spn_rm))
-		return NULL;
-
-	if (is_name_strict(*pspn, spn))
-		return p;
-
-	return NULL;
-}
-
-int
+bool
 has_sp(CHAR_DATA *ch, const char *spn, const char *spn_rm, const char *spn_add)
 {
+	const char **pspn;
+
 	if (is_name_strict(spn_add, spn))
 		return TRUE;
 
-	return !!c_foreach(&PC(ch)->specs, has_sp_cb, spn, spn_rm);
-}
+	C_FOREACH(pspn, &PC(ch)->specs) {
+		if (!str_cmp(*pspn, spn_rm))
+			return FALSE;
 
-static
-FOREACH_CB_FUN(spclass_count_cb, p, ap)
-{
-	const char **pspn = (const char **) p;
+		if (is_name_strict(*pspn, spn))
+			return TRUE;
+	}
 
-	int spclass = va_arg(ap, int);
-	const char *spn_rm = va_arg(ap, const char *);
-	int *pcount = va_arg(ap, int *);
-
-	spec_t *spec;
-
-	if (!str_cmp(*pspn, spn_rm))
-		return NULL;
-
-	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  spec->spec_class == spclass)
-		(*pcount)++;
-
-	return NULL;
+	return FALSE;
 }
 
 int
 spclass_count(CHAR_DATA *ch, const char *spclass_name,
 	      const char *spn_rm, const char *spn_add)
 {
+	const char **pspn;
+
 	int count = 0;
 	int spclass;
 	spec_t *spec;
@@ -96,7 +70,15 @@ spclass_count(CHAR_DATA *ch, const char *spclass_name,
 	&&  spec->spec_class == spclass)
 		count++;
 
-	c_foreach(&PC(ch)->specs, spclass_count_cb, spclass, spn_rm, &count);
+	C_FOREACH(pspn, &PC(ch)->specs) {
+		if (!str_cmp(*pspn, spn_rm))
+			continue;
+
+		if ((spec = spec_lookup(*pspn)) != NULL
+		&&  spec->spec_class == spclass)
+			count++;
+	}
+
 	return count;
 }
 

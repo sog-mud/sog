@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.32 2001-11-30 21:18:03 fjoe Exp $
+ * $Id: module.c,v 1.33 2001-12-03 22:28:48 fjoe Exp $
  */
 
 /*
@@ -48,8 +48,6 @@
 #include <dynafun.h>
 
 varr modules;
-
-static DECLARE_FOREACH_CB_FUN(mod_unload_cb);
 
 static int	modset_add	(varr *v, module_t *m, time_t curr_time);
 static module_t *modset_search	(varr *v, const char *name);
@@ -79,7 +77,20 @@ mod_reload(module_t *m, time_t curr_time)
 	}
 
 	varr_qsort(&v, modset_elem_cmp);
-	varr_rforeach(&v, mod_unload_cb);
+
+	VARR_RFOREACH(mp, &v) {
+		MODINIT_FUN *callback;
+
+		if ((*mp)->dlh == NULL)
+			continue;
+
+		if ((callback = dlsym((*mp)->dlh, "_module_unload")) != NULL // notrans
+		&&  callback(*mp) < 0)
+			continue;
+
+		dlclose((*mp)->dlh);
+		(*mp)->dlh = NULL;
+	}
 
 	C_FOREACH(mp, &v) {
 		MODINIT_FUN *callback;
@@ -298,29 +309,6 @@ boot_modules()
 /*--------------------------------------------------------------------
  * static functions
  */
-
-/*
- * unload previously loaded module
- */
-static
-FOREACH_CB_FUN(mod_unload_cb, arg, ap)
-{
-	module_t *m = *(module_t **) arg;
-
-	MODINIT_FUN *callback;
-
-	if (m->dlh == NULL)
-		return NULL;
-
-	if ((callback = dlsym(m->dlh, "_module_unload")) != NULL // notrans
-	&&  callback(m) < 0)
-		return NULL;
-
-	dlclose(m->dlh);
-	m->dlh = NULL;
-
-	return NULL;
-}
 
 static int
 modset_add(varr *v, module_t *m, time_t curr_time)

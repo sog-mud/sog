@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.193 2001-11-21 14:33:32 kostik Exp $
+ * $Id: interp.c,v 1.194 2001-12-03 22:28:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -119,7 +119,6 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	int cmd_log;
 	const char *cmd_name;
 	int cmd_level;
-	size_t i;
 	bool found = FALSE;
 	CHAR_DATA *vch;
 
@@ -165,9 +164,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 	/*
 	 * Look for command in command table.
 	 */
-	for (i = 0; i < commands.nused; i++) {
-		cmd = VARR_GET(&commands, i);
-
+	C_FOREACH(cmd, &commands) {
 		if (!!str_prefix(command, cmd->name))
 			continue;
 

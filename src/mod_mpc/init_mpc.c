@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.43 2001-11-14 15:10:35 tatyana Exp $
+ * $Id: init_mpc.c,v 1.44 2001-12-03 22:28:29 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -189,22 +189,10 @@ avltree_info_t c_info_mpcodes = {
 	MT_PVOID, sizeof(mpcode_t), ke_cmp_csstr
 };
 
-static
-FOREACH_CB_FUN(compile_mprog_cb, p, ap)
-{
-	mprog_t *mp = (mprog_t *) p;
-
-	if (mprog_compile(mp) < 0) {
-		log(LOG_INFO, "load_mprog: %s (%s)",
-		    mp->name, flag_string(mprog_types, mp->type));
-		fprintf(stderr, "%s", buf_string(mp->errbuf));
-	}
-
-	return NULL;
-}
-
 MODINIT_FUN(_module_load, m)
 {
+	mprog_t *mp;
+
 	mprog_compile = dlsym(m->dlh, "_mprog_compile");	// notrans
 	if (mprog_compile == NULL) {
 		log(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
@@ -223,7 +211,13 @@ MODINIT_FUN(_module_load, m)
 	dynafun_tab_register(__mod_tab(MODULE), m);
 
 	c_init(&mpcodes, &c_info_mpcodes);
-	c_foreach(&mprogs, compile_mprog_cb);
+	C_FOREACH(mp, &mprogs) {
+		if (mprog_compile(mp) < 0) {
+			log(LOG_INFO, "load_mprog: %s (%s)",
+			    mp->name, flag_string(mprog_types, mp->type));
+			fprintf(stderr, "%s", buf_string(mp->errbuf));
+		}
+	}
 
 	return 0;
 }

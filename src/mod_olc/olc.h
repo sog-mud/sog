@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.86 2001-09-12 19:42:58 fjoe Exp $
+ * $Id: olc.h,v 1.87 2001-12-03 22:28:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -191,12 +191,7 @@ DECLARE_OLC_FUN(show_version	);
 
 AREA_DATA *get_edited_area(CHAR_DATA *ch);
 
-bool	touch_area	(AREA_DATA*);
 bool	touch_clan	(clan_t *clan);
-bool	touch_race	(race_t *race);
-bool	touch_class	(class_t *class);
-bool	touch_spec	(spec_t *spec);
-bool	touch_mprog	(mprog_t *mprog);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);

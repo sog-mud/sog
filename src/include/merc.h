@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.377 2001-11-26 12:51:04 kostik Exp $
+ * $Id: merc.h,v 1.378 2001-12-03 22:28:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2271,13 +2271,15 @@ extern AUCTION_DATA auction;
  * hints stuff
  */
 
-typedef struct {
+struct hint_t {
 	mlstring	phrase;
 	flag_t		hint_level;
-} hint_t;
+};
 
 extern varr hints;
 extern varr_info_t c_info_hints;
+
+#define hint_search(name) ((hint_t *) c_mlstrkey_search(&hints, (name)))
 
 /*----------------------------------------------------------------------
  * rating stuff

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.24 2001-09-14 10:01:09 fjoe Exp $
+ * $Id: olc_material.c,v 1.25 2001-12-03 22:28:34 fjoe Exp $
  */
 
 #include "olc.h"
@@ -67,8 +67,6 @@ olc_cmd_t olc_cmds_mat[] =
 
 	{ NULL, NULL, NULL, NULL }
 };
-
-static void *material_save_cb(void *p, va_list ap);
 
 OLC_FUN(mated_create)
 {
@@ -123,27 +121,10 @@ OLC_FUN(mated_edit)
 	return FALSE;
 }
 
-static void *material_save_cb(void *p, va_list ap)
-{
-	material_t *mat = (material_t *)p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	fprintf(fp, "#MATERIAL\n");
-	fprintf(fp, "Name %s~\n", mat->name);
-	if (mat->float_time)
-		fprintf(fp, "Float %d\n", mat->float_time);
-	if (mat->dam_class != DAM_NONE)
-		fprintf(fp, "Damc %s\n", flag_string(dam_classes, mat->dam_class));
-	if (mat->mat_flags)
-		fprintf(fp, "Flags %s~\n", flag_string(material_flags, mat->mat_flags));
-	fprintf(fp, "End\n\n");
-	return NULL;
-}
-
 OLC_FUN(mated_save)
 {
 	FILE *fp;
+	material_t *mat;
 
 	if (!IS_SET(changed_flags, CF_MATERIAL)) {
 		act_char("Materials are not changed.", ch);
@@ -153,7 +134,21 @@ OLC_FUN(mated_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&materials, material_save_cb, fp);
+	C_FOREACH(mat, &materials) {
+		fprintf(fp, "#MATERIAL\n");
+		fprintf(fp, "Name %s~\n", mat->name);
+		if (mat->float_time)
+			fprintf(fp, "Float %d\n", mat->float_time);
+		if (mat->dam_class != DAM_NONE) {
+			fprintf(fp, "Damc %s\n",
+				flag_string(dam_classes, mat->dam_class));
+		}
+		if (mat->mat_flags) {
+			fprintf(fp, "Flags %s~\n",
+				flag_string(material_flags, mat->mat_flags));
+		}
+		fprintf(fp, "End\n\n");
+	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);

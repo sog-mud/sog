@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.29 2001-09-15 17:12:49 fjoe Exp $
+ * $Id: olc_skill.c,v 1.30 2001-12-03 22:28:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -142,54 +142,10 @@ OLC_FUN(skilled_edit)
 	return FALSE;
 }
 
-static void *
-event_save_cb(void *p, va_list ap)
-{
-	evf_t *ev = (evf_t *) p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	fprintf(fp, "Event %s %s\n",
-		flag_string(events_classes, ev->event),
-		ev->fun_name);
-	return NULL;
-}
-
-static void *skill_save_cb(void *p, va_list ap)
-{
-	skill_t *sk = (skill_t *) p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	fprintf(fp, "#SKILL\n");
-	mlstr_fwrite(fp, "Name", &sk->sk_name.ml);
-	mlstr_fwrite(fp, "Gender", &sk->sk_name.gender);
-	fprintf(fp, "Type %s\n", flag_string(skill_types, sk->skill_type));
-	fprintf(fp, "Group %s\n", flag_string(skill_groups, sk->group));
-	fprintf(fp, "MinPos %s\n", flag_string(position_table, sk->min_pos));
-	fprintf(fp, "Target %s\n", flag_string(skill_targets, sk->target));
-	if (sk->beats)
-		fprintf(fp, "Beats %d\n", sk->beats);
-	if (sk->rank)
-		fprintf(fp, "Rank %d\n", sk->rank);
-	if (sk->skill_flags)
-		fprintf(fp, "Flags %s~\n", flag_string(skill_flags, sk->skill_flags));
-	if (sk->min_mana)
-		fprintf(fp, "MinMana %d\n", sk->min_mana);
-	mlstr_fwrite(fp, "NounDamage", &sk->noun_damage.ml);
-	mlstr_fwrite(fp, "NounGender", &sk->noun_damage.gender);
-	if (!IS_NULLSTR(sk->fun_name))
-		fprintf(fp, "SpellFun %s\n", sk->fun_name);
-	mlstr_fwrite(fp, "WearOff", &sk->msg_off);
-	mlstr_fwrite(fp, "ObjWearOff", &sk->msg_obj);
-	c_foreach(&sk->events, event_save_cb, fp);
-	fprintf(fp, "End\n\n");
-	return NULL;
-}
-
 OLC_FUN(skilled_save)
 {
 	FILE *fp;
+	skill_t *sk;
 
 	if (!IS_SET(changed_flags, CF_SKILL)) {
 		act_char("Skills are not changed.", ch);
@@ -199,7 +155,42 @@ OLC_FUN(skilled_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&skills, skill_save_cb, fp);
+	C_FOREACH(sk, &skills) {
+		evf_t *ev;
+
+		fprintf(fp, "#SKILL\n");
+		mlstr_fwrite(fp, "Name", &sk->sk_name.ml);
+		mlstr_fwrite(fp, "Gender", &sk->sk_name.gender);
+		fprintf(fp, "Type %s\n",
+			flag_string(skill_types, sk->skill_type));
+		fprintf(fp, "Group %s\n", flag_string(skill_groups, sk->group));
+		fprintf(fp, "MinPos %s\n",
+			flag_string(position_table, sk->min_pos));
+		fprintf(fp, "Target %s\n",
+			flag_string(skill_targets, sk->target));
+		if (sk->beats)
+			fprintf(fp, "Beats %d\n", sk->beats);
+		if (sk->rank)
+			fprintf(fp, "Rank %d\n", sk->rank);
+		if (sk->skill_flags) {
+			fprintf(fp, "Flags %s~\n",
+				flag_string(skill_flags, sk->skill_flags));
+		}
+		if (sk->min_mana)
+			fprintf(fp, "MinMana %d\n", sk->min_mana);
+		mlstr_fwrite(fp, "NounDamage", &sk->noun_damage.ml);
+		mlstr_fwrite(fp, "NounGender", &sk->noun_damage.gender);
+		if (!IS_NULLSTR(sk->fun_name))
+			fprintf(fp, "SpellFun %s\n", sk->fun_name);
+		mlstr_fwrite(fp, "WearOff", &sk->msg_off);
+		mlstr_fwrite(fp, "ObjWearOff", &sk->msg_obj);
+		C_FOREACH(ev, &sk->events) {
+			fprintf(fp, "Event %s %s\n",
+				flag_string(events_classes, ev->event),
+				ev->fun_name);
+		}
+		fprintf(fp, "End\n\n");
+	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -214,22 +205,10 @@ OLC_FUN(skilled_touch)
 	return FALSE;
 }
 
-static void *
-event_show_cb(void *p, va_list ap)
-{
-	evf_t *ev = (evf_t *) p;
-
-	BUFFER *buf = va_arg(ap, BUFFER *);
-
-	buf_printf(buf, BUF_END, "Event: [%s] %s\n",
-		   flag_string(events_classes, ev->event),
-		   ev->fun_name);
-	return NULL;
-}
-
 OLC_FUN(skilled_show)
 {
 	skill_t *sk;
+	evf_t *ev;
 	BUFFER *buf;
 
 	if (IS_NULLSTR(argument)) {
@@ -271,7 +250,11 @@ OLC_FUN(skilled_show)
 
 	mlstr_dump(buf, "WearOff    ", &sk->msg_off, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj, DUMP_LEVEL(ch));
-	c_foreach(&sk->events, event_show_cb, buf);
+	C_FOREACH(ev, &sk->events) {
+		buf_printf(buf, BUF_END, "Event: [%s] %s\n",
+		    flag_string(events_classes, ev->event),
+		    ev->fun_name);
+	}
 
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.259 2001-11-21 14:33:23 kostik Exp $
+ * $Id: act_comm.c,v 1.260 2001-12-03 22:28:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -758,7 +758,7 @@ DO_FUN(do_pose, ch, argument)
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
-	||  cl->poses.nused == 0)
+	||  c_isempty(&cl->poses))
 		return;
 
 	pose = c_random_elem(&cl->poses);
@@ -1288,11 +1288,10 @@ DO_FUN(do_twit, ch, argument)
 DO_FUN(do_lang, ch, argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	uint lang;
 	lang_t *l;
 	DESCRIPTOR_DATA *d;
 
-	if (langs.nused == 0) {
+	if (c_isempty(&langs)) {
 		act_char("No languages defined.", ch);
 		return;
 	}
@@ -1317,13 +1316,13 @@ DO_FUN(do_lang, ch, argument)
 	if ((l = lang_lookup(arg)) == NULL) {
 		act_puts("Usage: lang [ ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		for (lang = 0; lang < c_size(&langs); lang++) {
-			l = VARR_GET(&langs, lang);
+		C_FOREACH(l, &langs) {
 			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;
 			act_puts(" $T$t",			// notrans
 				 ch, l->name,
-				 lang == 0 ? str_empty : " | ", // notrans
+				 varr_index(&langs, l) == 0 ?
+					str_empty : " | ", // notrans
 				 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
 		}
 		act_char(" ]", ch);				// notrans

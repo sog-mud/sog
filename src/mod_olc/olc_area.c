@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.110 2001-09-23 16:24:18 fjoe Exp $
+ * $Id: olc_area.c,v 1.111 2001-12-03 22:28:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -466,51 +466,19 @@ VALIDATE_FUN(validate_maxvnum)
 	return TRUE;
 }
 
-#define IN_RANGE(i, l, u) ((l) <= (i) && (i) <= (u))
-#define MOVE(i) if (IN_RANGE(i, pArea->min_vnum, pArea->max_vnum)) {	\
-			i += delta;					\
-			touched = TRUE;					\
-		}
+#define IN_RANGE(i, l, u)	((l) <= (i) && (i) <= (u))
+#define MOVE(i)			MOVE2(i, touched)
+#define MOVE2(i, flag)							\
+	do {								\
+		if (IN_RANGE((i), pArea->min_vnum, pArea->max_vnum)) {	\
+			(i) += delta;					\
+			(flag) = TRUE;					\
+		}							\
+	} while (0)
 
 static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta);
 static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta);
 static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta);
-
-static void *
-move_clan_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	AREA_DATA *pArea = va_arg(ap, AREA_DATA *);
-	int delta = va_arg(ap, int);
-	bool *ptouched = va_arg(ap, bool *);
-
-	bool touched = FALSE;
-
-	MOVE(clan->altar_vnum);
-	MOVE(clan->recall_vnum);
-	MOVE(clan->obj_vnum);
-	MOVE(clan->mark_vnum);
-
-	if (touched) {
-		touch_clan(clan);
-		*ptouched = TRUE;
-	}
-	return NULL;
-}
-
-static void *
-move_print_clan_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	if (IS_SET(clan->clan_flags, CLAN_CHANGED))
-		act_puts("- $t",
-			 ch, clan->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-	return NULL;
-}
 
 VALIDATE_FUN(validate_move)
 {
@@ -519,6 +487,7 @@ VALIDATE_FUN(validate_move)
 	int delta, oldmin, oldmax;
 	bool touched = FALSE;
 	BUFFER *buf;
+	clan_t *clan;
 
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
@@ -546,10 +515,29 @@ VALIDATE_FUN(validate_move)
 /* everything is ok -- change vnums of all rooms, objs, mobs in area */
 
 /* fix clan recall, item and altar vnums */
-	c_foreach(&clans, move_clan_cb, pArea, delta, &touched);
+	C_FOREACH(clan, &clans) {
+		bool clan_touched = FALSE;
+
+		MOVE2(clan->altar_vnum, clan_touched);
+		MOVE2(clan->recall_vnum, clan_touched);
+		MOVE2(clan->obj_vnum, clan_touched);
+		MOVE2(clan->mark_vnum, clan_touched);
+
+		if (clan_touched) {
+			touch_clan(clan);
+			touched = TRUE;
+		}
+	}
+
 	if (touched) {
 		act_char("AreaEd: Changed clans:", ch);
-		c_foreach(&clans, move_print_clan_cb, ch);
+		C_FOREACH(clan, &clans) {
+			if (!IS_SET(clan->clan_flags, CLAN_CHANGED))
+				continue;
+
+			act_puts("- $t", ch, clan->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		}
 	}
 
 /* fix mobs */

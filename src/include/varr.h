@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.31 2001-09-15 17:12:33 fjoe Exp $
+ * $Id: varr.h,v 1.32 2001-12-03 22:28:21 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -78,16 +78,37 @@ void *	varr_bsearch_lower(const varr *, const void *e,
 /*
  * iterators
  */
-void *	varr_eforeach	(const varr *, void *, foreach_cb_t *, ...);
-void *	varr_nforeach	(const varr *, size_t i, foreach_cb_t *, ...);
-void *	varr_anforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
+void *varr_eforeach_first(varr *v, void *start_elem);
+void *varr_nforeach_first(varr *v, size_t pos);
+
+#define VARR_EFOREACH(elem, start_elem, v)				\
+	for ((elem) = varr_eforeach_first((v), (start_elem));		\
+	     C_OPS(v)->c_cond((v), (elem));				\
+	     (elem) = C_OPS(v)->c_next((v), (elem)))
+#define VARR_NFOREACH(elem, pos, v)					\
+	for ((elem) = varr_nforeach_first((v), (pos));			\
+	     C_OPS(v)->c_cond((v), (elem));				\
+	     (elem) = C_OPS(v)->c_next((v), (elem)))
 
 /*
  * reverse iterators
  */
-void *	varr_rforeach	(const varr *, foreach_cb_t *, ...);
-void *	varr_reforeach	(const varr *, void *, foreach_cb_t *, ...);
-void *	varr_rnforeach	(const varr *, size_t i, foreach_cb_t *, ...);
-void *	varr_arnforeach	(const varr *, size_t i, foreach_cb_t *, va_list ap);
+void *varr_rforeach_first(varr *v);
+void *varr_reforeach_first(varr *v, void *start_elem);
+
+void *varr_rforeach_next(varr *v, void *elem);
+
+#define VARR_RFOREACH(elem, v)						\
+	for ((elem) = varr_rforeach_first(v);				\
+	     C_OPS(v)->c_cond((v), (elem));				\
+	     (elem) = varr_rforeach_next((v), (elem)))
+#define VARR_REFOREACH(elem, start_elem, v)				\
+	for ((elem) = varr_reforeach_first((v), (start_elem));		\
+	     C_OPS(v)->c_cond((v), (elem));				\
+	     (elem) = varr_rforeach_next((v), (elem)))
+#define VARR_RNFOREACH(elem, pos, v)					\
+	for ((elem) = varr_nforeach_first((v), (pos));			\
+	     C_OPS(v)->c_cond((v), (elem));				\
+	     (elem) = varr_rforeach_next((v), (elem)))
 
 #endif

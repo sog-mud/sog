@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.19 2001-09-14 10:01:11 fjoe Exp $
+ * $Id: olc_spec.c,v 1.20 2001-12-03 22:28:36 fjoe Exp $
  */
 
 #include "olc.h"
@@ -69,8 +69,7 @@ olc_cmd_t olc_cmds_spec[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void *save_spec_cb(void *p, va_list ap);
-static void *show_spec_skill_cb(void *p, va_list ap);
+static bool touch_spec(spec_t *spec);
 
 OLC_FUN(speced_create)
 {
@@ -102,7 +101,7 @@ OLC_FUN(speced_create)
 
 OLC_FUN(speced_edit)
 {
-	spec_t *s;
+	spec_t *spec;
 
 	if (PC(ch)->security < SECURITY_SPEC) {
 		act_char("SpecEd: Insufficient security.", ch);
@@ -112,23 +111,70 @@ OLC_FUN(speced_edit)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if ((s = spec_search(argument)) == 0) {
+	if ((spec = spec_search(argument)) == 0) {
 		act_puts("SpecEd: $t: No such spec.",
 			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= s;
+	ch->desc->pEdit	= spec;
 	OLCED(ch)	= olced_lookup(ED_SPEC);
 	return FALSE;
 }
 
 OLC_FUN(speced_save)
 {
+	spec_t *spec;
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved specs:");
-	c_foreach(&specs, save_spec_cb, ch, &found);
+
+	C_FOREACH(spec, &specs) {
+		FILE *fp;
+		const char *filename;
+		spec_skill_t *spec_sk;
+
+		if (!IS_SET(spec->spec_flags, SPF_CHANGED))
+			continue;
+
+		filename = strkey_filename(spec->spec_name, SPEC_EXT);
+		if ((fp = olc_fopen(SPEC_PATH, filename, ch, SECURITY_SPEC)) == NULL)
+			continue;
+
+		REMOVE_BIT(spec->spec_flags, SPF_CHANGED);
+
+		fprintf(fp, "#SPEC\n");
+		fwrite_string(fp, "Name", spec->spec_name);
+		fprintf(fp, "Class %s\n",
+			flag_string(spec_classes, spec->spec_class));
+		fwrite_string(fp, "Trigger", spec->mp_trig.trig_prog);
+		if (spec->spec_flags) {
+			fprintf(fp, "Flags %s~\n",
+				flag_string(spec_flags, spec->spec_flags));
+		}
+		fprintf(fp, "End\n");
+
+		C_FOREACH(spec_sk, &spec->spec_skills) {
+			if (IS_NULLSTR(spec_sk->sn))
+				continue;
+
+			fprintf(fp, "\n#SKILL\n");
+			fprintf(fp, "Skill '%s'\n", spec_sk->sn);
+			fprintf(fp, "Level %d\n", spec_sk->level);
+			fprintf(fp, "Rating %d\n", spec_sk->rating);
+			fprintf(fp, "Min %d\n", spec_sk->min);
+			fprintf(fp, "Adept %d\n", spec_sk->adept);
+			fprintf(fp, "Max %d\n", spec_sk->max);
+			fprintf(fp, "End\n");
+		}
+
+		fprintf(fp, "\n#$\n");
+		fclose(fp);
+
+		olc_printf(ch, "    %s (%s)", spec->spec_name, filename);
+		found = TRUE;
+	}
+
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -144,17 +190,17 @@ OLC_FUN(speced_touch)
 OLC_FUN(speced_show)
 {
 	BUFFER *output;
-	spec_t *s;
+	spec_t *spec;
 
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_SPEC))
-			EDIT_SPEC(ch, s);
+			EDIT_SPEC(ch, spec);
 		else {
 			OLC_ERROR("'OLC ASHOW'");
 			return FALSE;
 		}
 	} else {
-		if ((s = spec_search(argument)) == NULL) {
+		if ((spec = spec_search(argument)) == NULL) {
 			act_puts("SpecEd: $t: No such spec.",
 				 ch, argument, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -163,21 +209,33 @@ OLC_FUN(speced_show)
 	}
 
 	output = buf_new(0);
-	buf_printf(output, BUF_END, "Name:          [%s]\n", s->spec_name);
+	buf_printf(output, BUF_END, "Name:          [%s]\n", spec->spec_name);
 	buf_printf(output, BUF_END, "Class:         [%s]   Flags: [%s]\n",
-			flag_string(spec_classes, s->spec_class),
-			flag_string(spec_flags, s->spec_flags));
-	if (s->mp_trig.trig_type != TRIG_NONE) {
+			flag_string(spec_classes, spec->spec_class),
+			flag_string(spec_flags, spec->spec_flags));
+	if (spec->mp_trig.trig_type != TRIG_NONE) {
 		buf_printf(output, BUF_END, "Trigger:       [%s]\n",
-			   s->mp_trig.trig_prog);
+			   spec->mp_trig.trig_prog);
 	}
 
-	if (s->spec_skills.nused == 0)
+	if (c_isempty(&spec->spec_skills))
 		buf_printf(output, BUF_END, "No skills defined for this spec.\n");
 	else {
+		spec_skill_t *spec_sk;
+
 		buf_printf(output, BUF_END, "Num   Skill name          Level  Rate    Min    Adept   Max\n");
 		buf_printf(output, BUF_END, "--------------------------------------------------------------\n");
-		c_foreach(&s->spec_skills, show_spec_skill_cb, output, &s->spec_skills);
+
+		C_FOREACH(spec_sk, &spec->spec_skills) {
+			if (IS_NULLSTR(spec_sk->sn))
+				continue;
+
+			buf_printf(output, BUF_END,
+			    "(%3d) %-18.17s  [%3d]  [%3d]  [%3d%%]  [%3d%%]  [%3d%%]\n",
+			    varr_index(&spec->spec_skills, spec_sk),
+			    spec_sk->sn, spec_sk->level, spec_sk->rating,
+			    spec_sk->min, spec_sk->adept, spec_sk->max);
+		}
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -197,34 +255,34 @@ OLC_FUN(speced_list)
 
 OLC_FUN(speced_class)
 {
-	spec_t *s;
-	EDIT_SPEC(ch, s);
-	return olced_flag(ch, argument, cmd, &s->spec_class);
+	spec_t *spec;
+	EDIT_SPEC(ch, spec);
+	return olced_flag(ch, argument, cmd, &spec->spec_class);
 }
 
 OLC_FUN(speced_skill)
 {
-	spec_t *s;
-	spec_skill_t *ssk;
+	spec_t *spec;
+	spec_skill_t *spec_sk;
 	bool ok, del = FALSE;
 	char arg[MAX_INPUT_LENGTH];
 	int num;
 
-	EDIT_SPEC(ch, s);
+	EDIT_SPEC(ch, spec);
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC SPEC SKILL'");
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_prefix(arg, "add")) {
-		if ((ssk = spec_skill_lookup(s, argument)) != NULL) {
+		if ((spec_sk = spec_skill_lookup(spec, argument)) != NULL) {
 			act_puts("SpecEd: add skill: $t: already there.",
-				 ch, ssk->sn, NULL,
+				 ch, spec_sk->sn, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
-		ssk = varr_enew(&s->spec_skills);
-		ok = olced_foreign_mlstrkey(ch, argument, cmd, &ssk->sn);
-		varr_qsort(&s->spec_skills, cmpstr);
+		spec_sk = varr_enew(&spec->spec_skills);
+		ok = olced_foreign_mlstrkey(ch, argument, cmd, &spec_sk->sn);
+		varr_qsort(&spec->spec_skills, cmpstr);
 		return ok;
 	}
 
@@ -239,16 +297,16 @@ OLC_FUN(speced_skill)
 		OLC_ERROR("'OLC SPEC SKILL'");
 
 	num = atoi(arg);
-	ssk = varr_get(&s->spec_skills, num);
+	spec_sk = varr_get(&spec->spec_skills, num);
 
-	if (!ssk) {
+	if (!spec_sk) {
 		act_puts("SpecEd: $j: no skill with such number.",
 			 ch, (const void *) num, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 
 	if (del) {
-		varr_edelete(&s->spec_skills, ssk);
+		varr_edelete(&spec->spec_skills, spec_sk);
 		act_char("SpecEd: skill deleted.", ch);
 		return TRUE;
 	}
@@ -256,15 +314,15 @@ OLC_FUN(speced_skill)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_prefix(arg, "min"))
-		return olced_number(ch, argument, cmd, &ssk->min);
+		return olced_number(ch, argument, cmd, &spec_sk->min);
 	if (!str_prefix(arg, "adept"))
-		return olced_number(ch, argument, cmd, &ssk->adept);
+		return olced_number(ch, argument, cmd, &spec_sk->adept);
 	if (!str_prefix(arg, "max"))
-		return olced_number(ch, argument, cmd, &ssk->max);
+		return olced_number(ch, argument, cmd, &spec_sk->max);
 	if (!str_prefix(arg, "level"))
-		return olced_number(ch, argument, cmd, &ssk->level);
+		return olced_number(ch, argument, cmd, &spec_sk->level);
 	if (!str_prefix(arg, "rating"))
-		return olced_number(ch, argument, cmd, &ssk->rating);
+		return olced_number(ch, argument, cmd, &spec_sk->rating);
 
 	act_puts("SpecEd: no such field '$t'.",
 		 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -273,100 +331,29 @@ OLC_FUN(speced_skill)
 
 OLC_FUN(speced_trigger)
 {
-	spec_t *s;
-	EDIT_SPEC(ch, s);
+	spec_t *spec;
+	EDIT_SPEC(ch, spec);
 #if 0
 	XXX MPC
-	return olced_cc_vexpr(ch, argument, cmd, &s->spec_deps, "spec");
+	return olced_cc_vexpr(ch, argument, cmd, &spec->spec_deps, "spec");
 #endif
 	return FALSE;
 }
 
 OLC_FUN(speced_flags)
 {
-	spec_t *s;
-	EDIT_SPEC(ch, s);
-	return olced_flag(ch, argument, cmd, &s->spec_flags);
+	spec_t *spec;
+	EDIT_SPEC(ch, spec);
+	return olced_flag(ch, argument, cmd, &spec->spec_flags);
 }
 
-/* --------------------------------------------------------------------- */
-bool touch_spec(spec_t *spec)
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static bool
+touch_spec(spec_t *spec)
 {
 	SET_BIT(spec->spec_flags, SPF_CHANGED);
 	return FALSE;
-}
-
-static void *
-save_spec_skill_cb(void *p, va_list ap)
-{
-	spec_skill_t *ssk = (spec_skill_t *) p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	if (!IS_NULLSTR(ssk->sn)) {
-		fprintf(fp, "\n#SKILL\n");
-		fprintf(fp, "Skill '%s'\n", ssk->sn);
-		fprintf(fp, "Level %d\n", ssk->level);
-		fprintf(fp, "Rating %d\n", ssk->rating);
-		fprintf(fp, "Min %d\n", ssk->min);
-		fprintf(fp, "Adept %d\n", ssk->adept);
-		fprintf(fp, "Max %d\n", ssk->max);
-		fprintf(fp, "End\n");
-	}
-	return NULL;
-}
-
-static void *
-save_spec_cb(void *p, va_list ap)
-{
-	spec_t *s = (spec_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	bool *pfound = va_arg(ap, bool *);
-
-	FILE *fp;
-	const char *filename;
-
-	if (!IS_SET(s->spec_flags, SPF_CHANGED))
-		return NULL;
-
-	filename = strkey_filename(s->spec_name, SPEC_EXT);
-	if ((fp = olc_fopen(SPEC_PATH, filename, ch, SECURITY_SPEC)) == NULL)
-		return NULL;
-
-	REMOVE_BIT(s->spec_flags, SPF_CHANGED);
-
-	fprintf(fp, "#SPEC\n");
-	fwrite_string(fp, "Name", s->spec_name);
-	fprintf(fp, "Class %s\n", flag_string(spec_classes, s->spec_class));
-	fwrite_string(fp, "Trigger", s->mp_trig.trig_prog);
-	if (s->spec_flags) {
-		fprintf(fp, "Flags %s~\n",
-				flag_string(spec_flags, s->spec_flags));
-	}
-	fprintf(fp, "End\n");
-
-	c_foreach(&s->spec_skills, save_spec_skill_cb, fp);
-	fprintf(fp, "\n#$\n");
-	fclose(fp);
-
-	olc_printf(ch, "    %s (%s)", s->spec_name, filename);
-	*pfound = TRUE;
-	return NULL;
-}
-
-static void *
-show_spec_skill_cb(void *p, va_list ap)
-{
-	spec_skill_t *ssk = (spec_skill_t *) p;
-
-	BUFFER *output = va_arg(ap, BUFFER *);
-	varr *v = va_arg(ap, varr *);
-
-	if (!IS_NULLSTR(ssk->sn))
-		buf_printf(output, BUF_END, "(%3d) %-18.17s  [%3d]  [%3d]  [%3d%%]  [%3d%%]  [%3d%%]\n",
-			varr_index(v, p),
-			ssk->sn, ssk->level, ssk->rating,
-			ssk->min, ssk->adept, ssk->max);
-	return NULL;
 }

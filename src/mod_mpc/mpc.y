@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.42 2001-10-21 21:33:57 fjoe Exp $
+ * $Id: mpc.y,v 1.43 2001-12-03 22:28:29 fjoe Exp $
  */
 
 /*
@@ -562,7 +562,7 @@ break: L_BREAK ';' {
 
 		if (CODE(sym->s.label.addr)[0] != (int) c_if
 		&&  CODE(sym->s.label.addr)[0] != (int) c_switch
-		&&  CODE(sym->s.label.addr)[0] != (int) c_op_foreach) {
+		&&  CODE(sym->s.label.addr)[0] != (int) c_foreach) {
 			compile_error(mpc,
 			    "break outside of if or switch or loop");
 			YYERROR;
@@ -574,7 +574,7 @@ break: L_BREAK ';' {
 
 foreach: L_FOREACH {
 		/* emit `foreach' */
-		code(mpc, c_op_foreach);
+		code(mpc, c_foreach);
 		PUSH_ADDR();
 
 		/* next addr, body */
@@ -694,7 +694,7 @@ continue: L_CONTINUE ';' {
 		sym_t *sym;
 		SYM_LOOKUP(sym, $2, SYM_LABEL);
 
-		if (CODE(sym->s.label.addr)[0] != (int) c_op_foreach) {
+		if (CODE(sym->s.label.addr)[0] != (int) c_foreach) {
 			compile_error(mpc,
 			    "continue outside of loop");
 			YYERROR;
@@ -1056,7 +1056,7 @@ struct codeinfo_t codetab[] = {
 	{ c_if,			"if",			3 },
 	{ c_switch,		"switch",		2 },
 	{ c_quecolon,		"quecolon",		2 },
-	{ c_op_foreach,		"foreach",		2 },
+	{ c_foreach,		"foreach",		2 },
 	{ c_foreach_next,	"foreach_next",		3 },
 	{ c_declare,		"declare",		3 },
 	{ c_declare_assign,	"declare_assign",	3 },
@@ -1151,15 +1151,6 @@ avltree_info_t c_info_syms = {
 	MT_PVOID, sizeof(sym_t), ke_cmp_csstr,
 };
 
-static
-FOREACH_CB_FUN(print_swjump_cb, p, ap)
-{
-	swjump_t *sw = (swjump_t *) p;
-
-	fprintf(stderr, "\n\t%d:\t0x%08x", sw->val.i, sw->addr);
-	return NULL;
-}
-
 void
 mpcode_dump(mpcode_t *mpc)
 {
@@ -1193,8 +1184,14 @@ mpcode_dump(mpcode_t *mpc)
 			varr *jumptab;
 
 			jumptab = varr_get(&mpc->jumptabs, jt_offset);
-			if (jumptab != NULL)
-				c_foreach(jumptab, print_swjump_cb);
+			if (jumptab != NULL) {
+				swjump_t *sw;
+
+				C_FOREACH(sw, jumptab) {
+					fprintf(stderr, "\n\t%d:\t0x%08x",
+						sw->val.i, sw->addr);
+				}
+			}
 		} else if (p == c_quecolon) {
 			fprintf(stderr, " (next: 0x%08x else: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2]);
@@ -1202,7 +1199,7 @@ mpcode_dump(mpcode_t *mpc)
 			fprintf(stderr,
 				" (next: 0x%08x, then: 0x%08x, else: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2], CODE(ip)[3]);
-		} else if (p == c_op_foreach) {
+		} else if (p == c_foreach) {
 			fprintf(stderr,
 				" (next: 0x%08x, body: 0x%08x)",
 				CODE(ip)[1], CODE(ip)[2]);
@@ -1249,40 +1246,24 @@ sym_lookup(mpcode_t *mpc, const char *name)
 	return (sym_t *) c_lookup(&mpc->syms, name);
 }
 
-static
-FOREACH_CB_FUN(find_var_cb, p, ap)
-{
-	sym_t *sym = (sym_t *) p;
-	int block = va_arg(ap, int);
-
-	if (sym->type == SYM_VAR && sym->s.var.block >= block)
-		return sym;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(iter_destroy_cb, p, ap)
-{
-	iterdata_t *id = (iterdata_t *) p;
-	int block = va_arg(ap, int);
-
-	if (id->block >= block && id->ftag) {
-		id->iter->destroy(id);
-		id->ftag = 0;
-	}
-
-	return NULL;
-}
-
 void
 cleanup_syms(mpcode_t *mpc, int block)
 {
+	iterdata_t *id;
+
 	for (; ;) {
 		sym_t *sym;
+		bool found = FALSE;
 
-		sym = (sym_t *) c_foreach(&mpc->syms, find_var_cb, block);
-		if (sym == NULL)
+		C_FOREACH(sym, &mpc->syms) {
+			if (sym->type == SYM_VAR
+			&&  sym->s.var.block >= block) {
+				found = TRUE;
+				break;
+			}
+		}
+
+		if (!found)
 			break;
 
 		if (IS_SET(mpc->mp->flags, MP_F_TRACE)) {
@@ -1293,7 +1274,12 @@ cleanup_syms(mpcode_t *mpc, int block)
 		c_delete(&mpc->syms, sym->name);
 	}
 
-	c_foreach(&mpc->iters, iter_destroy_cb, block);
+	C_FOREACH(id, &mpc->iters) {
+		if (id->block >= block && id->ftag) {
+			id->iter->destroy(id);
+			id->ftag = 0;
+		}
+	}
 }
 
 void
@@ -1480,8 +1466,8 @@ _mprog_compile(mprog_t *mp)
 	||  !IS_NULLSTR(buf_string(mpc->mp->errbuf)))
 		return MPC_ERR_COMPILE;
 
-	if (c_size(&mpc->code) == 0
-	||  *(void**) VARR_GET(&mpc->code, c_size(&mpc->code) - 1) != c_return) {
+	if (c_isempty(&mpc->code)
+	||  *(void **) VARR_GET(&mpc->code, c_size(&mpc->code) - 1) != c_return) {
 		compile_error(mpc, "missing return");
 		return MPC_ERR_COMPILE;
 	}

@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.14 2001-09-12 19:43:12 fjoe Exp $
+ * $Id: act_update.c,v 1.15 2001-12-03 22:28:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,42 +46,9 @@
 DECLARE_DO_FUN(do_settick);
 DECLARE_DO_FUN(do_tick);
 
-static
-FOREACH_CB_FUN(update_print_cb, p, ap)
-{
-	uhandler_t *hdlr = (uhandler_t *) p;
-	BUFFER *buf = va_arg(ap, BUFFER *);
-
-	buf_printf(buf, BUF_END,
-		   "[%9s] [%9s] [%10s] %5d %5d %c%s\n",		// notrans
-		   hdlr->name,
-		   flag_string(module_names, hdlr->mod),
-		   hdlr->iter != NULL ?
-			flag_string(iterator_names, (flag_t) hdlr->iter):
-			"none",
-		   hdlr->ticks,
-		   hdlr->cnt,
-		   hdlr->fun != NULL ? ' ' : '*',
-		   hdlr->fun_name);
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(update_set_cb, p, ap)
-{
-	uhandler_t *hdlr = (uhandler_t *) p;
-	const char *s = va_arg(ap, const char *);
-	int value = va_arg(ap, int);
-
-	if (str_cmp(s, hdlr->name))
-		return NULL;
-
-	hdlr->ticks = value;
-	return hdlr;
-}
-
 DO_FUN(do_settick, ch, argument)
 {
+	uhandler_t *hdlr;
 	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	int val;
 
@@ -93,7 +60,18 @@ DO_FUN(do_settick, ch, argument)
 		buf = buf_new(0);
 		buf_append(buf, "    Name       Module     Iterator    Max   Cur     Function\n");	// notrans
 		buf_append(buf, "----------- ----------- ------------ ----- ----- ---------------\n");	// notrans
-		c_foreach(&uhandlers, update_print_cb, buf);
+		C_FOREACH(hdlr, &uhandlers) {
+			buf_printf(buf, BUF_END,
+			    "[%9s] [%9s] [%10s] %5d %5d %c%s\n", // notrans
+			    hdlr->name,
+			    flag_string(module_names, hdlr->mod),
+			    hdlr->iter != NULL ?
+			        flag_string(iterator_names, (flag_t) hdlr->iter) : "none",
+			    hdlr->ticks,
+			    hdlr->cnt,
+			    hdlr->fun != NULL ? ' ' : '*',
+			    hdlr->fun_name);
+		}
 		page_to_char(buf_string(buf), ch);
 		buf_free(buf);
 		return;
@@ -106,9 +84,14 @@ DO_FUN(do_settick, ch, argument)
 		return;
 	}
 
-	if (!c_foreach(&uhandlers, update_set_cb, arg, val)) {
-		dofun("help", ch, "'WIZ SETTICK'");
+	C_FOREACH(hdlr, &uhandlers) {
+		if (!str_cmp(arg, hdlr->name)) {
+			hdlr->ticks = val;
+			return;
+		}
 	}
+
+	dofun("help", ch, "'WIZ SETTICK'");
 }
 
 DO_FUN(do_tick, ch, argument)
@@ -125,4 +108,3 @@ DO_FUN(do_tick, ch, argument)
 		return;
 	do_tick(ch, str_empty);
 }
-

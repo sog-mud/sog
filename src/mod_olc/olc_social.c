@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.36 2001-09-13 17:54:14 fjoe Exp $
+ * $Id: olc_social.c,v 1.37 2001-12-03 22:28:36 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -92,7 +92,6 @@ olc_cmd_t olc_cmds_soc[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void *save_social_cb(void *fp, va_list ap);
 static void shadow_dump_cmds(BUFFER *output, const char *name);
 static void shadow_print_cmds(CHAR_DATA *ch, const char *name);
 
@@ -156,6 +155,7 @@ OLC_FUN(soced_edit)
 
 OLC_FUN(soced_save)
 {
+	social_t *soc;
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_SOCIAL)) {
@@ -167,7 +167,21 @@ OLC_FUN(soced_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&socials, save_social_cb, fp);
+	C_FOREACH(soc, &socials) {
+		fprintf(fp, "#SOCIAL\n");
+		fprintf(fp, "name %s\n", soc->name);
+		fprintf(fp, "min_pos %s\n",
+			flag_string(position_table, soc->min_pos));
+		mlstr_fwrite(fp, "found_char", &soc->found_char);
+		mlstr_fwrite(fp, "found_vict", &soc->found_vict);
+		mlstr_fwrite(fp, "found_notvict", &soc->found_notvict);
+		mlstr_fwrite(fp, "noarg_char", &soc->noarg_char);
+		mlstr_fwrite(fp, "noarg_room", &soc->noarg_room);
+		mlstr_fwrite(fp, "self_char", &soc->self_char);
+		mlstr_fwrite(fp, "self_room", &soc->self_room);
+		mlstr_fwrite(fp, "notfound_char", &soc->notfound_char);
+		fprintf(fp, "end\n\n");
+	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -235,7 +249,7 @@ OLC_FUN(soced_show)
 
 OLC_FUN(soced_list)
 {
-	size_t i;
+	social_t *soc;
 	int col = 0;
 	char arg[MAX_STRING_LENGTH];
 	BUFFER *output;
@@ -243,14 +257,13 @@ OLC_FUN(soced_list)
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	for (i = 0; i < c_size(&socials); i++) {
-		social_t *soc = (social_t*) VARR_GET(&socials, i);
-
+	C_FOREACH(soc, &socials) {
 		if (arg[0] && str_prefix(arg, soc->name))
 			continue;
 
 		buf_printf(output, BUF_END, "[%1s%3d] %-12s",
-			check_shadow(soc->name) ? "*" : " ", i,	soc->name);
+			check_shadow(soc->name) ? "*" : " ",
+			varr_index(&socials, soc), soc->name);
 		if (++col % 4 == 0)
 			buf_append(output, "\n");
 	}
@@ -411,49 +424,19 @@ static VALIDATE_FUN(validate_soc_name)
 	return TRUE;
 }
 
-static void *save_social_cb(void *p, va_list ap)
-{
-	social_t *soc = (social_t *) p;
-	FILE *fp = va_arg(ap, FILE *);
-
-	fprintf(fp, "#SOCIAL\n");
-	fprintf(fp, "name %s\n", soc->name);
-	fprintf(fp, "min_pos %s\n",
-		flag_string(position_table, soc->min_pos));
-	mlstr_fwrite(fp, "found_char", &soc->found_char);
-	mlstr_fwrite(fp, "found_vict", &soc->found_vict);
-	mlstr_fwrite(fp, "found_notvict", &soc->found_notvict);
-	mlstr_fwrite(fp, "noarg_char", &soc->noarg_char);
-	mlstr_fwrite(fp, "noarg_room", &soc->noarg_room);
-	mlstr_fwrite(fp, "self_char", &soc->self_char);
-	mlstr_fwrite(fp, "self_room", &soc->self_room);
-	mlstr_fwrite(fp, "notfound_char", &soc->notfound_char);
-	fprintf(fp, "end\n\n");
-
-	return NULL;
-}
-
-static void *
-shadow_dump_cb(void *p, va_list ap)
-{
-	cmd_t *cmd = (cmd_t *) p;
-	const char *name = va_arg(ap, const char *);
-	BUFFER *output = va_arg(ap, BUFFER *);
-
-	if (!str_prefix(name, cmd->name))
-		buf_printf(output, BUF_END, "   [%s]\n", cmd->name);
-
-	return NULL;
-}
-
 static void
 shadow_dump_cmds(BUFFER *output, const char *name)
 {
+	cmd_t *cmd;
+
 	if (!check_shadow(name))
 		return;
 
 	buf_append(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");
-	c_foreach(&commands, shadow_dump_cb, name, output);
+	C_FOREACH(cmd, &commands) {
+		if (!str_prefix(name, cmd->name))
+			buf_printf(output, BUF_END, "   [%s]\n", cmd->name);
+	}
 }
 
 static void
@@ -464,4 +447,3 @@ shadow_print_cmds(CHAR_DATA *ch, const char *name)
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
-

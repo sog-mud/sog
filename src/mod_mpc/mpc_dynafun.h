@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.16 2001-10-21 21:33:58 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.17 2001-12-03 22:28:30 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -35,7 +35,7 @@
 
 __MODULE_START_DECL
 
-DECLARE_FUN4(int, has_sp,
+DECLARE_FUN4(bool, has_sp,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), spn,
 	     ARG(cchar_t), spn_add, ARG(cchar_t), spn_rm)
 DECLARE_FUN4(int, spclass_count,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.13 2001-09-12 19:42:52 fjoe Exp $
+ * $Id: events.c,v 1.14 2001-12-03 22:28:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,57 +35,33 @@
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
-static DECLARE_FOREACH_CB_FUN(load_cb);
-static DECLARE_FOREACH_CB_FUN(unload_cb);
-
 MODINIT_FUN(_module_load, m)
 {
-	c_foreach(&skills, load_cb, m);
+	skill_t *sk;
+
+	C_FOREACH(sk, &skills) {
+		evf_t *evf;
+
+		C_FOREACH(evf, &sk->events) {
+			evf->fun = dlsym(m->dlh, evf->fun_name);
+			if (evf->fun == NULL) {
+				log(LOG_INFO, "_module_load(events): %s",
+				    dlerror());
+			}
+		}
+	}
 	return 0;
 }
 
 MODINIT_FUN(_module_unload, m)
 {
-	c_foreach(&skills, unload_cb);
+	skill_t *sk;
+
+	C_FOREACH(sk, &skills) {
+		evf_t *evf;
+
+		C_FOREACH(evf, &sk->events)
+			evf->fun = NULL;
+	}
 	return 0;
-}
-
-static void *
-load_event_cb(void *p, va_list ap)
-{
-	evf_t *evf = (evf_t *) p;
-	module_t *m = va_arg(ap, module_t *);
-
-	evf->fun = dlsym(m->dlh, evf->fun_name);
-	if (evf->fun == NULL)
-		log(LOG_INFO, "_module_load(events): %s", dlerror());
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(load_cb, p, ap)
-{
-	skill_t *sk = (skill_t*) p;
-	module_t *m = va_arg(ap, module_t *);
-
-	c_foreach(&sk->events, load_event_cb, m);
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(unload_event_cb, p, ap)
-{
-	evf_t *evf = (evf_t *) p;
-
-	evf->fun = NULL;
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(unload_cb, p, ap)
-{
-	skill_t *sk = (skill_t*) p;
-
-	c_foreach(&sk->events, unload_event_cb);
-	return NULL;
 }

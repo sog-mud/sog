@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.59 2001-09-23 16:24:18 fjoe Exp $
+ * $Id: olc_race.c,v 1.60 2001-12-03 22:28:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -129,8 +129,8 @@ olc_cmd_t olc_cmds_race[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static DECLARE_FOREACH_CB_FUN(save_race_cb);
-static DECLARE_FOREACH_CB_FUN(dump_race_cb);
+static bool touch_race(race_t *race);
+static void save_race_pcdata(pcrace_t *pcr, FILE *fp);
 
 OLC_FUN(raceed_create)
 {
@@ -185,10 +185,87 @@ OLC_FUN(raceed_edit)
 
 OLC_FUN(raceed_save)
 {
+	race_t *r;
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved races:");
-	c_foreach(&races, save_race_cb, ch, &found);
+	C_FOREACH(r, &races) {
+		int i;
+		FILE *fp;
+		const char *filename;
+
+		if (!IS_SET(r->race_flags, RACE_CHANGED))
+			continue;
+
+		filename = strkey_filename(r->name, RACE_EXT);
+		if ((fp = olc_fopen(RACES_PATH, filename, ch, SECURITY_RACE)) == NULL)
+			continue;
+
+		fprintf(fp, "#RACE\n");
+		fprintf(fp, "Name %s~\n", r->name);
+
+		REMOVE_BIT(r->race_flags, RACE_CHANGED);
+		if (r->act) {
+			fprintf(fp, "Act %s~\n",
+				flag_string(mob_act_flags, r->act));
+		}
+		if (r->aff) {
+			fprintf(fp, "Aff %s~\n",
+				flag_string(affect_flags, r->aff));
+		}
+		if (r->has_invis) {
+			fprintf(fp, "Inv %s~\n",
+				flag_string(id_flags, r->has_invis));
+		}
+		if (r->has_detect) {
+			fprintf(fp, "Det %s~\n",
+				flag_string(id_flags, r->has_detect));
+		}
+		if (r->off) {
+			fprintf(fp, "Off %s~\n",
+				flag_string(off_flags, r->off));
+		}
+		if (r->form) {
+			fprintf(fp, "Form %s~\n",
+				flag_string(form_flags, r->form));
+		}
+		if (r->parts) {
+			fprintf(fp, "Parts %s~\n",
+				flag_string(part_flags, r->parts));
+		}
+		if (r->race_flags) {
+			fprintf(fp, "Flags %s~\n",
+				flag_string(race_flags, r->race_flags));
+		}
+
+		for (i = 0; i < MAX_RESIST; i++) {
+			if (r->resists[i] == RES_UNDEF)
+				continue;
+
+			fprintf(fp,"Resist %s %d\n",
+				flag_string(dam_classes, i), r->resists[i]);
+		}
+
+		if (!!strcmp(r->damtype, "punch"))
+			fprintf(fp, "Damtype %s\n", r->damtype);
+
+		if (r->luck_bonus)
+			fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
+
+		aff_fwrite_list("Affc", NULL, r->affected, fp, AFF_X_NOLD);
+
+		fprintf(fp, "End\n\n");
+
+		if (r->race_pcdata)
+			save_race_pcdata(r->race_pcdata, fp);
+
+		fprintf(fp, "#$\n");
+		fclose(fp);
+
+		olc_printf(ch, "    %s (%s)", r->name, filename);
+		found = TRUE;
+	}
+
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -206,6 +283,7 @@ OLC_FUN(raceed_show)
 	size_t i;
 	BUFFER *output;
 	race_t *r;
+	rclass_t *rcl;
 	bool found;
 
 	if (argument[0] == '\0') {
@@ -344,14 +422,12 @@ OLC_FUN(raceed_show)
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
 	}
 
-	for (i = 0; i < c_size(&r->race_pcdata->classes); i++) {
-		rclass_t *rc = VARR_GET(&r->race_pcdata->classes, i);
-
-		if (rc->name == NULL)
+	C_FOREACH(rcl, &r->race_pcdata->classes) {
+		if (rcl->name == NULL)
 			continue;
 		buf_printf(output, BUF_END, "Class '%s' (exp %d%%)",
-			   rc->name, rc->mult);
-		if (class_lookup(rc->name) == NULL)
+			   rcl->name, rcl->mult);
+		if (class_lookup(rcl->name) == NULL)
 			buf_append(output, " (UNDEF)");
 		buf_append(output, "\n");
 	}
@@ -364,10 +440,27 @@ OLC_FUN(raceed_show)
 
 OLC_FUN(raceed_list)
 {
-	BUFFER *buffer = buf_new(0);
-	c_dump(&races, buffer, dump_race_cb);
-	page_to_char(buf_string(buffer), ch);
-	buf_free(buffer);
+	race_t *r;
+	int col = 0;
+	BUFFER *output = buf_new(0);
+
+	C_FOREACH(r, &races) {
+		char buf[256];
+
+		snprintf(buf, sizeof(buf), "%s%s",
+			 r->race_pcdata ? "*" : " ", r->name);
+		buf_printf(output, BUF_END, "%-19.18s", buf);	// notrans
+
+		if (++col % 4 == 0)
+			buf_append(output, "\n");
+	}
+
+	if (col % 4 != 0)
+		buf_append(output, "\n");
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+
 	return FALSE;
 }
 
@@ -711,7 +804,7 @@ static
 OLC_FUN(raceed_addclass)
 {
 	class_t *cl;
-	rclass_t *rc;
+	rclass_t *rcl;
 	char	arg1[MAX_INPUT_LENGTH];
 	char	arg2[MAX_INPUT_LENGTH];
 	race_t *race;
@@ -740,9 +833,9 @@ OLC_FUN(raceed_addclass)
 		return FALSE;
 	}
 
-	rc = varr_enew(&race->race_pcdata->classes);
-	rc->name = str_qdup(cl->name);
-	rc->mult = atoi(arg2);
+	rcl = varr_enew(&race->race_pcdata->classes);
+	rcl->name = str_qdup(cl->name);
+	rcl->mult = atoi(arg2);
 	varr_qsort(&race->race_pcdata->classes, cmpstr);
         act_char("Ok.", ch);
 	return TRUE;
@@ -752,7 +845,7 @@ static
 OLC_FUN(raceed_delclass)
 {
 	char arg[MAX_INPUT_LENGTH];
-	rclass_t *rc;
+	rclass_t *rcl;
 	race_t *race;
 
 	EDIT_RACE(ch, race);
@@ -765,13 +858,13 @@ OLC_FUN(raceed_delclass)
 	if (arg[0] == '\0')
 		OLC_ERROR("'OLC RACE CLASS'");
 
-	if ((rc = rclass_lookup(race, arg)) == NULL) {
+	if ((rcl = rclass_lookup(race, arg)) == NULL) {
 		act_puts("RaceEd: $t: not found in race class list.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
-	varr_edelete(&race->race_pcdata->classes, rc);
+	varr_edelete(&race->race_pcdata->classes, rcl);
         act_char("Ok.", ch);
 	return TRUE;
 }
@@ -819,24 +912,15 @@ OLC_FUN(raceed_hungerrate)
 	return olced_number(ch, argument, cmd, &race->race_pcdata->hunger_rate);
 }
 
-bool
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static bool
 touch_race(race_t *race)
 {
 	SET_BIT(race->race_flags, RACE_CHANGED);
 	return FALSE;
-}
-
-static void *
-search_whoname_cb(void *p, va_list ap)
-{
-	race_t *r = (race_t *) p;
-
-	const char *arg = va_arg(ap, const char *);
-
-	if (r->race_pcdata
-	&&  !str_cmp(r->race_pcdata->who_name, arg))
-		return p;
-	return NULL;
 }
 
 static
@@ -851,11 +935,14 @@ VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	if ((r2 = c_foreach(&races, search_whoname_cb, arg)) != NULL
-	&&  r2 != r) {
-		act_puts("RaceEd: $t: duplicate race whoname.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		return FALSE;
+	C_FOREACH(r2, &races) {
+		if (r->race_pcdata != NULL
+		&&  !str_cmp(r->race_pcdata->who_name, arg)
+		&&  r2 != r) {
+			act_puts("RaceEd: $t: duplicate race whoname.",
+			    ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			return FALSE;
+		}
 	}
 
 	return TRUE;
@@ -893,25 +980,20 @@ fwrite_rstats(FILE *fp, const char *name, int *stats)
 	fprintf(fp, "\n");
 }
 
-static
-FOREACH_CB_FUN(save_race_class_cb, p, ap)
-{
-	rclass_t *rcl = (rclass_t *) p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	if (!IS_NULLSTR(rcl->name))
-		fprintf(fp, "Class '%s' %d\n", rcl->name, rcl->mult);
-	return NULL;
-}
-
 static void
 save_race_pcdata(pcrace_t *pcr, FILE *fp)
 {
+	rclass_t *rcl;
+
 	fprintf(fp, "#PCRACE\n");
 	fwrite_string(fp, "Shortname", pcr->who_name);
 	fwrite_number(fp, "Points", pcr->points);
-	c_foreach(&pcr->classes, save_race_class_cb, fp);
+	C_FOREACH(rcl, &pcr->classes) {
+		if (IS_NULLSTR(rcl->name))
+			continue;
+
+		fprintf(fp, "Class '%s' %d\n", rcl->name, rcl->mult);
+	}
 	fwrite_word(fp, "SkillSpec", pcr->skill_spec);
 	fwrite_string(fp, "BonusSkills", pcr->bonus_skills);
 	fwrite_rstats(fp, "Stats", pcr->mod_stat);
@@ -932,85 +1014,4 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	}
 	fprintf(fp, "Slang %s\n", flag_string(slang_table, pcr->slang));
 	fprintf(fp, "End\n\n");
-}
-
-static
-FOREACH_CB_FUN(save_race_cb, p, ap)
-{
-	race_t *r = (race_t *) p;
-	int i;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	bool *pfound = va_arg(ap, bool *);
-
-	FILE *fp;
-	const char *filename;
-
-	if (!IS_SET(r->race_flags, RACE_CHANGED))
-		return NULL;
-
-	filename = strkey_filename(r->name, RACE_EXT);
-	if ((fp = olc_fopen(RACES_PATH, filename, ch, SECURITY_RACE)) == NULL)
-		return NULL;
-
-	fprintf(fp, "#RACE\n");
-	fprintf(fp, "Name %s~\n", r->name);
-
-	REMOVE_BIT(r->race_flags, RACE_CHANGED);
-	if (r->act)
-		fprintf(fp, "Act %s~\n", flag_string(mob_act_flags, r->act));
-	if (r->aff)
-		fprintf(fp, "Aff %s~\n", flag_string(affect_flags, r->aff));
-	if (r->has_invis)
-		fprintf(fp, "Inv %s~\n", flag_string(id_flags, r->has_invis));
-	if (r->has_detect)
-		fprintf(fp, "Det %s~\n", flag_string(id_flags, r->has_detect));
-	if (r->off)
-		fprintf(fp, "Off %s~\n", flag_string(off_flags, r->off));
-	if (r->form)
-		fprintf(fp, "Form %s~\n", flag_string(form_flags, r->form));
-	if (r->parts)
-		fprintf(fp, "Parts %s~\n", flag_string(part_flags, r->parts));
-	if (r->race_flags)
-		fprintf(fp, "Flags %s~\n", flag_string(race_flags, r->race_flags));
-	for (i = 0; i < MAX_RESIST; i++) {
-		if (r->resists[i] == RES_UNDEF)
-			continue;
-
-		fprintf(fp,"Resist %s %d\n",
-			flag_string(dam_classes, i), r->resists[i]);
-	}
-
-	if (!!strcmp(r->damtype, "punch"))
-		fprintf(fp, "Damtype %s\n", r->damtype);
-
-	if (r->luck_bonus)
-		fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
-
-	aff_fwrite_list("Affc", NULL, r->affected, fp, AFF_X_NOLD);
-
-	fprintf(fp, "End\n\n");
-
-	if (r->race_pcdata)
-		save_race_pcdata(r->race_pcdata, fp);
-
-	fprintf(fp, "#$\n");
-	fclose(fp);
-
-	olc_printf(ch, "    %s (%s)", r->name, filename);
-	*pfound = TRUE;
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(dump_race_cb, p, ap)
-{
-	race_t *r = (race_t *) p;
-	char buf[256];
-	const char *pbuf = buf;
-
-	snprintf(buf, sizeof(buf), "%s%s",
-		 r->race_pcdata ? "*" : " ", r->name);
-
-	return str_dump_cb(&pbuf, ap);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.23 2001-09-15 17:12:47 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.24 2001-12-03 22:28:34 fjoe Exp $
  */
 
 #include "olc.h"
@@ -69,8 +69,6 @@ olc_cmd_t olc_cmds_liq[] =
 
 	{ NULL, NULL, NULL, NULL }
 };
-
-static void *liquid_save_cb(void *p, va_list ap);
 
 OLC_FUN(liqed_create)
 {
@@ -121,30 +119,10 @@ OLC_FUN(liqed_edit)
 	return FALSE;
 }
 
-static void *liquid_save_cb(void *p, va_list ap)
-{
-	liquid_t *lq = (liquid_t *)p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	int i;
-
-	fprintf(fp, "#LIQUID\n");
-	mlstr_fwrite(fp, "Name", &lq->lq_name.ml);
-	mlstr_fwrite(fp, "Gender", &lq->lq_name.gender);
-	mlstr_fwrite(fp, "Color", &lq->lq_color);
-	fprintf(fp, "Affect");
-	for (i = 0; i < MAX_COND; i++)
-		fprintf(fp, " %d", lq->affect[i]);
-	fprintf(fp, "\n");
-	fprintf(fp, "Sip %d\n", lq->sip);
-	fprintf(fp, "End\n\n");
-	return NULL;
-}
-
 OLC_FUN(liqed_save)
 {
 	FILE *fp;
+	liquid_t *lq;
 
 	if (!IS_SET(changed_flags, CF_LIQUID)) {
 		act_char("Liquids are not changed.", ch);
@@ -154,7 +132,20 @@ OLC_FUN(liqed_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&liquids, liquid_save_cb, fp);
+	C_FOREACH(lq, &liquids) {
+		int i;
+
+		fprintf(fp, "#LIQUID\n");
+		mlstr_fwrite(fp, "Name", &lq->lq_name.ml);
+		mlstr_fwrite(fp, "Gender", &lq->lq_name.gender);
+		mlstr_fwrite(fp, "Color", &lq->lq_color);
+		fprintf(fp, "Affect");
+		for (i = 0; i < MAX_COND; i++)
+			fprintf(fp, " %d", lq->affect[i]);
+		fprintf(fp, "\n");
+		fprintf(fp, "Sip %d\n", lq->sip);
+		fprintf(fp, "End\n\n");
+	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);

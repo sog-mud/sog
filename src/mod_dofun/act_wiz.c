@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.307 2001-11-21 14:33:26 kostik Exp $
+ * $Id: act_wiz.c,v 1.308 2001-12-03 22:28:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1202,25 +1202,6 @@ DO_FUN(do_ostat, ch, argument)
 	buf_free(output);
 }
 
-static void *
-print_sa_cb(void *p, va_list ap)
-{
-	saff_t *sa = (saff_t *) p;
-
-	BUFFER *buf = va_arg(ap, BUFFER *);
-
-	buf_printf(buf, BUF_END, "        '%s' by %d",	// notrans
-		   sa->sn, sa->mod);
-	if (!IS_NULLSTR(sa->type))
-		buf_printf(buf, BUF_END, " (skill '%s')", sa->type); // notrans
-	if (sa->bit) {
-		buf_printf(buf, BUF_END, " with bits '%s'", // notrans
-			   flag_string(sk_aff_flags, sa->bit));
-	}
-	buf_append(buf, "\n");
-	return NULL;
-}
-
 DO_FUN(do_mstat, ch, argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1433,8 +1414,25 @@ DO_FUN(do_mstat, ch, argument)
 	show_affects(ch, victim, output);
 
 	if (!c_isempty(&victim->sk_affected)) {
+		saff_t *sa;
+
 		buf_append(output, "Skill affects:\n");		// notrans
-		c_foreach(&victim->sk_affected, print_sa_cb, output);
+
+		C_FOREACH(sa, &victim->sk_affected) {
+			buf_printf(output, BUF_END,
+			    "        '%s' by %d",		// notrans
+			    sa->sn, sa->mod);
+			if (!IS_NULLSTR(sa->type)) {
+				buf_printf(output, BUF_END,
+				    " (skill '%s')", sa->type); // notrans
+			}
+			if (sa->bit) {
+				buf_printf(output, BUF_END,
+				    " with bits '%s'", // notrans
+				    flag_string(sk_aff_flags, sa->bit));
+			}
+			buf_append(output, "\n");
+		}
 	}
 
 	if (!IS_NPC(victim)) {
@@ -2601,18 +2599,6 @@ DO_FUN(do_set, ch, argument)
 	do_set(ch, str_empty);
 }
 
-static void *
-sset_cb(void *p, va_list ap)
-{
-	skill_t *sk = (skill_t*) p;
-
-	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
-	int val = va_arg(ap, int);
-
-	set_skill(victim, gmlstr_mval(&sk->sk_name), val);
-	return NULL;
-}
-
 DO_FUN(do_sset, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -2655,7 +2641,11 @@ DO_FUN(do_sset, ch, argument)
 	}
 
 	if (!str_cmp(arg2, "all")) {
-		c_foreach(&skills, sset_cb, victim, value);
+		skill_t *sk;
+
+		C_FOREACH(sk, &skills)
+			set_skill(victim, gmlstr_mval(&sk->sk_name), value);
+
 		act_char("Ok.", ch);
 	} else {
 		const char *sn;
@@ -4239,7 +4229,6 @@ DO_FUN(do_affrooms, ch, argument)
 
 DO_FUN(do_grant, ch, argument)
 {
-	cmd_t *cmd;
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4277,7 +4266,7 @@ DO_FUN(do_grant, ch, argument)
 	}
 
 	if (is_number(arg2)) {
-		size_t i;
+		cmd_t *cmd;
 		int lev = atoi(arg2);
 
 		if (lev < LEVEL_IMMORTAL) {
@@ -4292,9 +4281,7 @@ DO_FUN(do_grant, ch, argument)
 			goto cleanup;
 		}
 
-		for (i = 0; i < c_size(&commands); i++) {
-			cmd = VARR_GET(&commands, i);
-
+		C_FOREACH(cmd, &commands) {
 			if (cmd->min_level < LEVEL_IMMORTAL
 			||  cmd->min_level > lev)
 				continue;
@@ -4308,6 +4295,8 @@ DO_FUN(do_grant, ch, argument)
 	}
 
 	for (; arg2[0]; argument = one_argument(argument, arg2, sizeof(arg2))) {
+		cmd_t *cmd;
+
 		if ((cmd = cmd_lookup(arg2)) == NULL
 		&&  str_cmp(arg2, "none")
 		&&  str_cmp(arg2, "all")) {
@@ -4449,7 +4438,7 @@ DO_FUN(do_memory, ch, argument)
 	buf_printf(buf, BUF_END, "Helps    : %d (%d bytes)\n",	// notrans
 		   help_count, help_count * sizeof(HELP_DATA));
 	buf_printf(buf, BUF_END, "Socials  : %d (%d bytes)\n",	// notrans
-		   socials.nused, socials.nused * sizeof(social_t));
+		   c_size(&socials), c_size(&socials) * sizeof(social_t));
 	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes)\n",  // notrans
 		   mob_index_count, mob_index_count * sizeof(MOB_INDEX_DATA));
 	buf_printf(buf, BUF_END, "Mobs     : %d (%d (%d) bytes), "  // notrans
@@ -4695,7 +4684,7 @@ DO_FUN(do_mpstat, ch, argument)
 			"No target" : npc->mprog_target->name); // notrans
 #endif
 
-	if (c_size(trig_list) == 0)
+	if (c_isempty(trig_list))
 		buf_append(buf, "No triggers set.\n");		// notrans
 	else
 		trig_dump_list(trig_list, buf);
@@ -4843,10 +4832,10 @@ DO_FUN(do_modules, ch, argument)
 
 	if (!str_prefix(arg, "list")
 	||  !str_prefix(arg, "status")) {
-		size_t i;
+		module_t *m;
 		BUFFER *buf;
 
-		if (modules.nused == 0) {
+		if (c_isempty(&modules)) {
 			act_char("No modules found.", ch);
 			return;
 		}
@@ -4854,15 +4843,14 @@ DO_FUN(do_modules, ch, argument)
 		buf = buf_new(GET_LANG(ch));
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
 		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
-		for (i = 0; i < c_size(&modules); i++) {
-			module_t *m = VARR_GET(&modules, i);
-			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
-				   m->name,
-				   m->mod_prio,
-				   m->dlh == NULL ? "module was unloaded" :
-				   m->last_reload ? strtime(m->last_reload) :
-						    "never",
-				   m->mod_deps);
+		C_FOREACH(m, &modules) {
+			buf_printf(buf, BUF_END,
+			    "%9s %4d [%24s] %s\n", // notrans
+			    m->name,
+			    m->mod_prio,
+			    m->dlh == NULL ? "module was unloaded" :
+			    m->last_reload ? strtime(m->last_reload) : "never",
+			    m->mod_deps);
 		}
 
 		page_to_char(buf_string(buf), ch);

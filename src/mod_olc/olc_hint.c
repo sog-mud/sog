@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_hint.c,v 1.9 2001-09-14 10:01:09 fjoe Exp $
+ * $Id: olc_hint.c,v 1.10 2001-12-03 22:28:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -63,10 +63,6 @@ olc_cmd_t olc_cmds_hint[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void *save_hint_cb(void *p, va_list ap);
-static void *hint_search_cb(void *p, va_list ap);
-static void *hint_list_cb(void *p, va_list ap);
-
 OLC_FUN(hinted_create)
 {
 	hint_t *hint;
@@ -89,7 +85,7 @@ OLC_FUN(hinted_create)
 
 OLC_FUN(hinted_edit)
 {
-	hint_t *hint;
+	hint_t *hint = NULL;
 
 	if (PC(ch)->security < SECURITY_HELP) {
 		act_char("HintEd: Insufficient security.", ch);
@@ -99,8 +95,7 @@ OLC_FUN(hinted_edit)
 	if (argument[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	hint = c_foreach(&hints, hint_search_cb, argument);
-	if (!hint) {
+	if ((hint = hint_search(argument)) == NULL) {
 		act_char("HintEd: no such hint.", ch);
 		return FALSE;
 	}
@@ -113,6 +108,7 @@ OLC_FUN(hinted_edit)
 OLC_FUN(hinted_save)
 {
 	FILE *fp;
+	hint_t *hint;
 
 	if (!IS_SET(changed_flags, CF_HINT)) {
 		olc_printf(ch, "Hints are not changed.");
@@ -123,7 +119,13 @@ OLC_FUN(hinted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&hints, save_hint_cb, fp);
+	C_FOREACH(hint, &hints) {
+		if (mlstr_null(&hint->phrase))
+			continue;
+
+		fprintf(fp, "%s ", flag_string(hint_levels, hint->hint_level));
+		mlstr_fwrite(fp, str_empty, &hint->phrase);
+	}
 
 	fprintf(fp, "0\n");
 	fclose(fp);
@@ -150,7 +152,7 @@ OLC_FUN(hinted_show)
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
-		if ((hint = c_foreach(&hints, hint_search_cb, argument)) == NULL) {
+		if ((hint = hint_search(argument)) == NULL) {
 			act_char("HintEd: No such hint.", ch);
 			return FALSE;
 		}
@@ -172,10 +174,21 @@ OLC_FUN(hinted_show)
 OLC_FUN(hinted_list)
 {
 	BUFFER *output;
+	hint_t *hint;
 
 	output = buf_new(0);
 
-	c_foreach(&hints, hint_list_cb, argument, output);
+	C_FOREACH(hint, &hints) {
+		const char *name = mlstr_mval(&hint->phrase);
+
+		if (IS_NULLSTR(name))
+			continue;
+
+		if (argument[0] == '\0' || strstr(name, argument)) {
+			buf_printf(output, BUF_END, "[%3s] %s\n",
+			    flag_string(hint_levels, hint->hint_level), name);
+		}
+	}
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -208,49 +221,4 @@ OLC_FUN(hinted_delete)
 	varr_edelete(&hints, hint);
 	edit_done(ch->desc);
 	return TRUE;
-}
-
-static void *save_hint_cb(void *p, va_list ap)
-{
-	hint_t *hint = (hint_t *) p;
-	FILE *fp = va_arg(ap, FILE *);
-
-	if (mlstr_null(&hint->phrase))
-		return NULL;
-
-	fprintf(fp, "%s ", flag_string(hint_levels, hint->hint_level));
-	mlstr_fwrite(fp, str_empty, &hint->phrase);
-
-	return NULL;
-}
-
-static void *
-hint_search_cb(void *p, va_list ap)
-{
-	hint_t *hint = (hint_t *) p;
-	const char *phrase = va_arg(ap, const char *);
-
-	if (!str_prefix(phrase, mlstr_mval(&hint->phrase)))
-		return p;
-
-	return NULL;
-}
-
-static void *
-hint_list_cb(void *p, va_list ap)
-{
-	const char *arg = va_arg(ap, const char *);
-	BUFFER *output = va_arg(ap, BUFFER *);
-	hint_t *hint = (hint_t *) p;
-
-	const char *name = mlstr_mval(&hint->phrase);
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	if (arg[0] == '\0' || strstr(name, arg)) {
-		buf_printf(output, BUF_END, "[%3s] %s\n",
-			   flag_string(hint_levels, hint->hint_level), name);
-	}
-	return NULL;
 }

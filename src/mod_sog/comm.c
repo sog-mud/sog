@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.7 2001-11-21 18:30:53 avn Exp $
+ * $Id: comm.c,v 1.8 2001-12-03 22:28:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -749,29 +749,26 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
  * local functions
  */
 
-#define GETINT(v, i) (*(int*) VARR_GET(v, i))
-
 static void
 add_fds(varr *v, fd_set *in_set, int *maxdesc)
 {
-	size_t i;
+	int *pfd;
 
-	for (i = 0; i < v->nused; i++) {
-		int fd = GETINT(v, i);
-		FD_SET(fd, in_set);
-		if (*maxdesc < fd) *maxdesc = fd;
+	C_FOREACH(pfd, v) {
+		FD_SET(*pfd, in_set);
+		if (*maxdesc < *pfd)
+			*maxdesc = *pfd;
 	}
 }
 
 static void
 check_fds(varr *v, fd_set *in_set, void (*new_conn_cb)(int))
 {
-	size_t i;
+	int *pfd;
 
-	for (i = 0; i < v->nused; i++) {
-		int fd = GETINT(v, i);
-		if (FD_ISSET(fd, in_set))
-			new_conn_cb(fd);
+	C_FOREACH(pfd, v) {
+		if (FD_ISSET(*pfd, in_set))
+			new_conn_cb(*pfd);
 	}
 }
 

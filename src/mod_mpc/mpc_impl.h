@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.25 2001-09-15 17:12:43 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.26 2001-12-03 22:28:31 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -248,7 +248,7 @@ void	c_jmp_addr(mpcode_t *mpc);	/* jmp addr */
 void	c_if(mpcode_t *mpc);		/* if */
 void	c_switch(mpcode_t *mpc);	/* switch */
 void	c_quecolon(mpcode_t *mpc);	/* ?: */
-void	c_op_foreach(mpcode_t *mpc);	/* foreach */
+void	c_foreach(mpcode_t *mpc);	/* foreach */
 void	c_foreach_next(mpcode_t *mpc);	/* foreach_next */
 void	c_declare(mpcode_t *mpc);	/* declare variable */
 void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.76 2001-11-21 14:33:30 kostik Exp $
+ * $Id: affects.c,v 1.77 2001-12-03 22:28:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,28 +78,6 @@ affect_enchant(OBJ_DATA *obj)
 	}
 }
 
-static void *
-remove_sa_cb(void *p, va_list ap)
-{
-	saff_t *sa = (saff_t *) p;
-
-	varr *v = va_arg(ap, varr *);
-	AFFECT_DATA *paf = va_arg(ap, AFFECT_DATA *);
-
-	if (!IS_SKILL(sa->sn, paf->location.s)
-	||  !IS_SKILL(sa->type, paf->type)
-	||  sa->mod != paf->modifier
-	||  sa->bit != paf->bitvector)
-		return NULL;
-
-	varr_edelete(v, p);
-
-	/*
-	 * restart from this place
-	 */
-	return p;
-}
-
 /*
  * Apply or remove an affect to a character.
  */
@@ -121,13 +99,24 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 			sa->mod = paf->modifier;
 			sa->bit =  paf->bitvector;
 		} else {
-			void *p = NULL;
+			saff_t *sa = NULL;
 
 			do {
-				p = varr_eforeach(&ch->sk_affected, p,
-						  remove_sa_cb,
-						  &ch->sk_affected, paf);
-			} while (p);
+				VARR_EFOREACH(sa, sa, &ch->sk_affected) {
+					if (!IS_SKILL(sa->sn, paf->location.s)
+					||  !IS_SKILL(sa->type, paf->type)
+					||  sa->mod != paf->modifier
+					||  sa->bit != paf->bitvector)
+						continue;
+
+					varr_edelete(&ch->sk_affected, sa);
+
+					/*
+					 * restart from this place
+					 */
+					break;
+				}
+			} while (sa != NULL);
 		}
 		return;
 	} else if (paf->where == TO_RACE) {

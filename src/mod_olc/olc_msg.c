@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.60 2001-09-15 17:12:49 fjoe Exp $
+ * $Id: olc_msg.c,v 1.61 2001-12-03 22:28:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -128,19 +128,10 @@ OLC_FUN(msged_edit)
 	return FALSE;
 }
 
-static
-FOREACH_CB_FUN(msged_save_cb, p, ap)
-{
-	mlstring *ml = (mlstring *) p;
-	FILE *fp = va_arg(ap, FILE *);
-
-	mlstr_fwrite(fp, NULL, ml);
-	return NULL;
-}
-
 OLC_FUN(msged_save)
 {
 	FILE *fp;
+	mlstring *ml;
 
 	if (!IS_SET(changed_flags, CF_MSGDB)) {
 		olc_printf(ch, "Msgdb is not changed.");
@@ -150,7 +141,8 @@ OLC_FUN(msged_save)
 	if ((fp = olc_fopen(ETC_PATH, MSGDB_FILE, ch, SECURITY_MSGDB)) == NULL)
 		return FALSE;
 
-	c_foreach(&msgdb, msged_save_cb, fp);
+	C_FOREACH(ml, &msgdb)
+		mlstr_fwrite(fp, NULL, ml);
 
 	fprintf(fp, "$~\n");
 	fclose(fp);
@@ -189,36 +181,30 @@ OLC_FUN(msged_show)
 	return FALSE;
 }
 
-static void *
-msged_list_cb(void *p, va_list ap)
-{
-	const char *arg = va_arg(ap, const char *);
-	int *pnum = va_arg(ap, int *);
-	BUFFER *output = va_arg(ap, BUFFER *);
-
-	const char *name = mlstr_mval((mlstring *) p);
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	if (strstr(name, arg)) {
-		buf_printf(output, BUF_END, "%2d. [%s]\n",
-			   ++(*pnum), strdump(name, DL_ALL));
-	}
-	return NULL;
-}
-
 OLC_FUN(msged_list)
 {
 	int num = 0;
 	BUFFER *output;
+	mlstring *ml;
 
 	if (IS_NULLSTR(argument))
 		OLC_ERROR("'OLC ALIST'");
 
 	argument = atomsg(argument);
 	output = buf_new(0);
-	c_foreach(&msgdb, msged_list_cb, atomsg(argument), &num, output);
+
+	C_FOREACH(ml, &msgdb) {
+		const char *name = mlstr_mval(ml);
+
+		if (IS_NULLSTR(name))
+			continue;
+
+		if (strstr(name, argument)) {
+			buf_printf(output, BUF_END, "%2d. [%s]\n",
+				   ++num, strdump(name, DL_ALL));
+		}
+	}
+
 	if (num)
 		page_to_char(buf_string(output), ch);
 	else
@@ -255,38 +241,31 @@ OLC_FUN(msged_del)
 
 /* case-sensitive substring search with [num.]name syntax */
 
-static void *
-msg_search_cb(void *p, va_list ap)
-{
-	int *pnum = va_arg(ap, int *);
-	const char *arg = va_arg(ap, const char *);
-
-	const char *name = mlstr_mval((mlstring *) p);
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	if (strstr(name, arg) && !--(*pnum))
-		return p;
-
-	return NULL;
-}
-
 static mlstring *
 msg_search(const char *argument)
 {
-	char name[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	int num;
-	mlstring *mlp;
+	mlstring *ml;
 
-	num = number_argument(argument, name, sizeof(name));
-	if (name[0] == '\0' || num <= 0)
+	num = number_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0' || num <= 0)
 		return NULL;
 
-	if ((mlp = msg_lookup(argument)) != NULL)
-		return mlp;
+	if ((ml = msg_lookup(argument)) != NULL)
+		return ml;
 
-	return c_foreach(&msgdb, msg_search_cb, &num, name);
+	C_FOREACH(ml, &msgdb) {
+		const char *name = mlstr_mval(ml);
+
+		if (IS_NULLSTR(name))
+			continue;
+
+		if (strstr(name, arg) && !--num)
+			return ml;
+	}
+
+	return NULL;
 }
 
 static const char *

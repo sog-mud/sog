@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.10 2001-09-15 17:12:48 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.11 2001-12-03 22:28:35 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -50,7 +50,7 @@ olc_cmd_t olc_cmds_mprog[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static DECLARE_FOREACH_CB_FUN(save_mprog_cb);
+static bool touch_mprog(mprog_t *mprog);
 static void mprog_update_type(CHAR_DATA *ch, mprog_t *mp);
 
 OLC_FUN(mped_create)
@@ -114,9 +114,29 @@ OLC_FUN(mped_edit)
 OLC_FUN(mped_save)
 {
 	bool found = FALSE;
+	mprog_t *mp;
 
 	olc_printf(ch, "Saved mprogs:");
-	c_foreach(&mprogs, save_mprog_cb, ch, &found);
+
+	C_FOREACH(mp, &mprogs) {
+		FILE *fp;
+		const char *filename;
+
+		if (!IS_SET(mp->flags, MP_F_CHANGED))
+			continue;
+
+		filename = strkey_filename(mp->name, MPC_EXT);
+		if ((fp = olc_fopen(MPC_PATH, filename, ch, -1)) == NULL)
+			continue;
+
+		REMOVE_BIT(mp->flags, MP_F_CHANGED);
+		fwrite(mp->text, strlen(mp->text), 1, fp);
+		fclose(fp);
+
+		olc_printf(ch, "    %s (%s)", mp->name, filename);
+		found = TRUE;
+	}
+
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -241,42 +261,15 @@ OLC_FUN(mped_dump)
 	return FALSE;
 }
 
-bool
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static bool
 touch_mprog(mprog_t *mprog)
 {
 	SET_BIT(mprog->flags, MP_F_CHANGED);
 	return TRUE;
-}
-
-/*--------------------------------------------------------------------
- * local functions
- */
-
-static
-FOREACH_CB_FUN(save_mprog_cb, p, ap)
-{
-	mprog_t *mp = (mprog_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	bool *pfound = va_arg(ap, bool *);
-
-	FILE *fp;
-	const char *filename;
-
-	if (!IS_SET(mp->flags, MP_F_CHANGED))
-		return NULL;
-
-	filename = strkey_filename(mp->name, MPC_EXT);
-	if ((fp = olc_fopen(MPC_PATH, filename, ch, -1)) == NULL)
-		return NULL;
-
-	REMOVE_BIT(mp->flags, MP_F_CHANGED);
-	fwrite(mp->text, strlen(mp->text), 1, fp);
-	fclose(fp);
-
-	olc_printf(ch, "    %s (%s)", mp->name, filename);
-	*pfound = TRUE;
-	return NULL;
 }
 
 static void

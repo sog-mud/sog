@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.29 2001-09-15 17:17:31 fjoe Exp $
+ * $Id: mpc_c.c,v 1.30 2001-12-03 22:28:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -334,7 +334,7 @@ c_quecolon(mpcode_t *mpc)
 }
 
 void
-c_op_foreach(mpcode_t *mpc)
+c_foreach(mpcode_t *mpc)
 {
 	int next_addr;
 	int body_addr;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.55 2001-09-15 17:12:46 fjoe Exp $
+ * $Id: olc_clan.c,v 1.56 2001-12-03 22:28:32 fjoe Exp $
  */
 
 #include "olc.h"
@@ -71,8 +71,6 @@ olc_cmd_t olc_cmds_clan[] =
 
 	{ NULL, NULL, NULL, NULL }
 };
-
-static void *save_clan_cb(void *p, va_list ap);
 
 OLC_FUN(claned_create)
 {
@@ -131,10 +129,63 @@ OLC_FUN(claned_edit)
 
 OLC_FUN(claned_save)
 {
+	clan_t *clan;
 	bool found = FALSE;
 
 	olc_printf(ch, "Saved clans:");
-	c_foreach(&clans, save_clan_cb, ch, &found);
+
+	C_FOREACH(clan, &clans) {
+		FILE *fp;
+		const char *filename;
+
+		if (!IS_SET(clan->clan_flags, CLAN_CHANGED))
+			continue;
+
+		filename = strkey_filename(clan->name, CLAN_EXT);
+		if ((fp = olc_fopen(CLANS_PATH, filename, ch, -1)) == NULL)
+			continue;
+
+		fprintf(fp, "#CLAN\n");
+
+		fwrite_string(fp, "Name", clan->name);
+		if (!IS_NULLSTR(clan->skill_spec))
+			fprintf(fp, "SkillSpec '%s'\n", clan->skill_spec);
+		if (clan->recall_vnum)
+			fprintf(fp, "Recall %d\n", clan->recall_vnum);
+		if (clan->obj_vnum)
+			fprintf(fp, "Item %d\n", clan->obj_vnum);
+		if (clan->mark_vnum)
+			fprintf(fp, "Mark %d\n", clan->mark_vnum);
+		if (clan->altar_vnum)
+			fprintf(fp, "Altar %d\n", clan->altar_vnum);
+
+		REMOVE_BIT(clan->clan_flags, CLAN_CHANGED);
+		if (clan->clan_flags)
+			fprintf(fp, "Flags %s~\n",
+				flag_string(clan_flags, clan->clan_flags));
+
+		fprintf(fp, "End\n\n"
+		    "#$\n");
+		fclose(fp);
+
+		/* save plists */
+		if ((fp = olc_fopen(PLISTS_PATH, filename, ch, -1)) == NULL)
+			continue;
+
+		fprintf(fp, "#PLISTS\n");
+
+		fwrite_string(fp, "Leaders", clan->leader_list);
+		fwrite_string(fp, "Seconds", clan->second_list);
+		fwrite_string(fp, "Members", clan->member_list);
+
+		fprintf(fp, "End\n\n"
+			    "#$\n");
+		fclose(fp);
+
+		olc_printf(ch, "    %s (%s)", clan->name, filename);
+		found = TRUE;
+	}
+
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -290,7 +341,7 @@ OLC_FUN(claned_plist)
 			  TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
-			    
+
 	if (!pc_name_ok(arg2)) {
 		act_puts("ClanEd: $t: Illegal name",
 			 ch, arg2, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -301,69 +352,9 @@ OLC_FUN(claned_plist)
 	return TRUE;
 }
 
-bool touch_clan(clan_t *clan)
+bool
+touch_clan(clan_t *clan)
 {
 	SET_BIT(clan->clan_flags, CLAN_CHANGED);
 	return FALSE;
 }
-
-static void *
-save_clan_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-	
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	bool *pfound = va_arg(ap, bool *);
-
-	FILE *fp;
-	const char *filename;
-
-	if (!IS_SET(clan->clan_flags, CLAN_CHANGED))
-		return NULL;
-
-	filename = strkey_filename(clan->name, CLAN_EXT);
-	if ((fp = olc_fopen(CLANS_PATH, filename, ch, -1)) == NULL)
-		return NULL;
-		
-	fprintf(fp, "#CLAN\n");
-
-	fwrite_string(fp, "Name", clan->name);
-	if (!IS_NULLSTR(clan->skill_spec))
-		fprintf(fp, "SkillSpec '%s'\n", clan->skill_spec);
-	if (clan->recall_vnum)
-		fprintf(fp, "Recall %d\n", clan->recall_vnum);
-	if (clan->obj_vnum)
-		fprintf(fp, "Item %d\n", clan->obj_vnum);
-	if (clan->mark_vnum)
-		fprintf(fp, "Mark %d\n", clan->mark_vnum);
-	if (clan->altar_vnum)
-		fprintf(fp, "Altar %d\n", clan->altar_vnum);
-
-	REMOVE_BIT(clan->clan_flags, CLAN_CHANGED);
-	if (clan->clan_flags)
-		fprintf(fp, "Flags %s~\n",
-			flag_string(clan_flags, clan->clan_flags));
-
-	fprintf(fp, "End\n\n"
-		    "#$\n");
-	fclose(fp);
-
-/* save plists */
-	if ((fp = olc_fopen(PLISTS_PATH, filename, ch, -1)) == NULL)
-		return NULL;
-
-	fprintf(fp, "#PLISTS\n");
-
-	fwrite_string(fp, "Leaders", clan->leader_list);
-	fwrite_string(fp, "Seconds", clan->second_list);
-	fwrite_string(fp, "Members", clan->member_list);
-
-	fprintf(fp, "End\n\n"
-		    "#$\n");
-	fclose(fp);
-
-	olc_printf(ch, "    %s (%s)", clan->name, filename);
-	*pfound = TRUE;
-	return NULL;
-}
-

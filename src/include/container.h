@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.5 2001-11-30 21:17:57 fjoe Exp $
+ * $Id: container.h,v 1.6 2001-12-03 22:28:19 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -42,8 +42,6 @@ struct c_ops_t {
 	void *(*c_add)(void *c, const void *k, int flags);
 	void (*c_delete)(void *c, const void *k);
 	void (*c_move)(void *c, const void *k, const void *k_new);
-
-	void *(*c_foreach)(void *c, foreach_cb_t cb, va_list ap);
 
 	void *(*c_first)(void *c);
 	bool (*c_cond)(void *c, void *elem);
@@ -73,16 +71,13 @@ struct c_ops_t {
 #define c_size(c)		(C_OPS(c)->c_size(c))
 #define c_isempty(c)		(C_OPS(c)->c_isempty(c))
 
-void *	c_foreach(void *c, foreach_cb_t cb, ...);
-#define C_FOREACH(var, cont)					\
-	for ((var) = C_OPS(cont)->c_first(cont);		\
-	     C_OPS(cont)->c_cond((cont), (var));		\
-	     (var) = C_OPS(cont)->c_next((cont), (var)))
+#define C_FOREACH(elem, cont)					\
+	for ((elem) = C_OPS(cont)->c_first(cont);		\
+	     C_OPS(cont)->c_cond((cont), (elem));		\
+	     (elem) = C_OPS(cont)->c_next((cont), (elem)))
 
 #define c_random_elem(c)	(C_OPS(c)->c_random_elem(c))
 void *	c_random_elem_foreach(void *c);
-
-void	c_dump(void *c, BUFFER *buf, foreach_cb_t cb);
 
 int	vnum_ke_cmp(const void *k, const void *e);
 
@@ -101,9 +96,6 @@ void *	c_mlstrkey_search(void *c, const char *name);
 
 void	c_strkey_dump(void *c, BUFFER *buf);
 void	c_mlstrkey_dump(void *c, BUFFER *buf);
-
-DECLARE_FOREACH_CB_FUN(str_dump_cb);
-DECLARE_FOREACH_CB_FUN(mlstr_dump_cb);
 
 const char *c_fread_strkey(const char *ctx, rfile_t *fp, void *c);
 #define fread_strkey(fp, c)						\
@@ -137,8 +129,6 @@ char *	strkey_filename(const char *name, const char *ext);
 	static void name##_delete(void *c, const void *k);		\
 	static void name##_move(void *c, const void *k, const void *k_new); \
 									\
-	static void *name##_foreach(void *c, foreach_cb_t cb, va_list ap); \
-									\
 	static void *name##_first(void *c);				\
 	static bool name##_cond(void *c, void *elem);			\
 	static void *name##_next(void *c, void *elem);			\
@@ -157,8 +147,6 @@ char *	strkey_filename(const char *name, const char *ext);
 		name##_add,						\
 		name##_delete,						\
 		name##_move,						\
-									\
-		name##_foreach,						\
 									\
 		name##_first,						\
 		name##_cond,						\

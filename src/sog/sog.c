@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.5 2001-09-15 17:12:55 fjoe Exp $
+ * $Id: sog.c,v 1.6 2001-12-03 22:28:48 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -158,23 +158,23 @@ main(int argc, char **argv)
 	 */
 	load_notes();
 
-	if (!control_sockets.nused) {
+	if (c_isempty(&control_sockets)) {
 		log(LOG_INFO, "no control sockets defined");
 		exit(1);
 	}
-	check_info = (!!info_sockets.nused);
+	check_info = !c_isempty(&info_sockets);
 
 	open_sockets(&control_sockets,
 		     "ready to rock on port %d");		// notrans
 	open_sockets(&info_sockets,
 		     "info service started on port %d");	// notrans
 
-	if (!control_sockets.nused) {
+	if (c_isempty(&control_sockets)) {
 		log(LOG_INFO, "no control sockets could be opened");
 		exit(1);
 	}
 
-	if (check_info && !info_sockets.nused) {
+	if (check_info && c_isempty(&info_sockets)) {
 		log(LOG_INFO, "no info service sockets could be opened");
 		exit(1);
 	}
@@ -285,35 +285,38 @@ init_socket(int port)
 	return fd;
 }
 
-#define GETINT(v, i) (*(int*) VARR_GET(v, i))
-
 static void
 open_sockets(varr *v, const char *logm)
 {
-	size_t i, j;
+	size_t j = 0;
+	int *pport;
 
-	for (i = 0, j = 0; i < v->nused; i++) {
-		int port = GETINT(v, i);
+	C_FOREACH(pport, v) {
 		int sock;
-		if ((sock = init_socket(port)) < 0)
+		int *pport2;
+
+		if ((sock = init_socket(*pport)) < 0)
 			continue;
-		log(LOG_INFO, logm, port);
-		GETINT(v, j++) = sock;
+
+		log(LOG_INFO, logm, *pport);
+		pport2 = VARR_GET(v, j);
+		*pport2 = sock;
+		j++;
 	}
+
 	v->nused = j;
 }
 
 static void
 close_sockets(varr *v)
 {
-	size_t i;
+	int *pfd;
 
-	for (i = 0; i < v->nused; i++) {
-		int fd = GETINT(v, i);
+	C_FOREACH(pfd, v) {
 #if defined (WIN32)
-		closesocket(fd);
+		closesocket(*pfd);
 #else
-		close(fd);
+		close(*pfd);
 #endif
 	}
 }

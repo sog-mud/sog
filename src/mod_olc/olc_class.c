@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.36 2001-09-15 17:12:47 fjoe Exp $
+ * $Id: olc_class.c,v 1.37 2001-12-03 22:28:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -99,7 +99,7 @@ olc_cmd_t olc_cmds_class[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static DECLARE_FOREACH_CB_FUN(save_class_cb);
+static bool touch_class(class_t *class);
 
 OLC_FUN(classed_create)
 {
@@ -155,9 +155,82 @@ OLC_FUN(classed_edit)
 OLC_FUN(classed_save)
 {
 	bool found = FALSE;
+	class_t *cl;
 
 	olc_printf(ch, "Saved classes:");
-	c_foreach(&classes, save_class_cb, ch, &found);
+
+	C_FOREACH(cl, &classes) {
+		size_t i;
+		FILE *fp;
+		const char *filename;
+		int *pvnum;
+		pose_t *pose;
+
+		if (!IS_SET(cl->class_flags, CLASS_CHANGED))
+			continue;
+
+		filename = strkey_filename(cl->name, CLASS_EXT);
+		if ((fp = olc_fopen(CLASSES_PATH, filename, ch, -1)) == NULL)
+			continue;
+
+		REMOVE_BIT(cl->class_flags, CLASS_CHANGED);
+		fprintf(fp, "#CLASS\n");
+		fprintf(fp, "Name %s~\n", cl->name);
+		fprintf(fp, "ShortName %s~\n", cl->who_name);
+		fprintf(fp, "PrimeStat %s\n",
+			flag_string(stat_aliases, cl->attr_prime));
+		if (!IS_NULLSTR(cl->skill_spec))
+			fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
+		fprintf(fp, "SchoolWeapon %d\n", cl->weapon);
+		C_FOREACH(pvnum, &cl->guilds) {
+			if (!*pvnum)
+				continue;
+
+			fprintf(fp, "GuildRoom %d\n", *pvnum);
+		}
+		fprintf(fp, "Thac0_00 %d\n", cl->thac0_00);
+		fprintf(fp, "Thac0_32 %d\n", cl->thac0_32);
+		fprintf(fp, "HPRate %d\n", cl->hp_rate);
+		fprintf(fp, "LuckBonus %d\n", cl->luck_bonus);
+		fprintf(fp, "ManaRate %d\n", cl->mana_rate);
+		if (cl->class_flags) {
+			fprintf(fp, "Flags %s~\n",
+				flag_string(class_flags, cl->class_flags));
+		}
+		if (cl->points)
+			fprintf(fp, "AddExp %d\n", cl->points);
+		fprintf(fp, "StatMod");
+		for (i = 0; i < MAX_STAT; i++)
+			fprintf(fp, " %d", cl->mod_stat[i]);
+		fprintf(fp, "\n");
+		if (cl->restrict_align)
+			fprintf(fp, "RestrictAlign %s~\n",
+				flag_string(ralign_names, cl->restrict_align));
+		fwrite_string(fp, "RestrictSex", cl->restrict_sex);
+		if (cl->restrict_ethos)
+			fprintf(fp, "RestrictEthos %s~\n",
+				flag_string(ethos_table, cl->restrict_ethos));
+		if (cl->death_limit != -1)
+			fprintf(fp, "DeathLimit %d\n", cl->death_limit);
+		fprintf(fp, "End\n\n");
+
+		C_FOREACH(pose, &cl->poses) {
+			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
+				continue;
+
+			fprintf(fp, "#POSE\n");
+			fwrite_string(fp, "Self", pose->self);
+			fwrite_string(fp, "Others", pose->others);
+			fprintf(fp, "End\n\n");
+		}
+
+		fprintf(fp, "#$\n");
+		fclose(fp);
+
+		olc_printf(ch, "    %s (%s)", cl->name, filename);
+		found = TRUE;
+	}
+
 	if (!found)
 		olc_printf(ch, "    None.");
 	return FALSE;
@@ -205,13 +278,17 @@ OLC_FUN(classed_show)
 		   class->thac0_00, class->thac0_32);
 	buf_printf(output, BUF_END, "HP rate:        [%d%%] Mana rate:      [%d%%]\n",
 		   class->hp_rate, class->mana_rate);
-	if (class->class_flags)
+	if (class->class_flags) {
 		buf_printf(output, BUF_END, "Class flags:    [%s]\n",
 			   flag_string(class_flags, class->class_flags));
-	if (class->points)
-		buf_printf(output, BUF_END, "Exp points:     [%d]\n", class->points);
+	}
+	if (class->points) {
+		buf_printf(output, BUF_END, "Exp points:     [%d]\n",
+			   class->points);
+	}
 
-	buf_printf(output, BUF_END, "Luck bonus:     [%d]\n", class->luck_bonus);
+	buf_printf(output, BUF_END, "Luck bonus:     [%d]\n",
+		   class->luck_bonus);
 
 	for (i = 0, found = FALSE; i < MAX_STAT; i++) {
 		if (class->mod_stat[i])
@@ -409,22 +486,26 @@ OLC_FUN(classed_poses)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || !str_prefix(arg, "list")) {
-		size_t i;
 		BUFFER	*buffer;
 		bool st = FALSE;
 
 		buffer = buf_new(0);
-		for (i = 0; i < c_size(&class->poses); i++) {
-			pose = VARR_GET(&class->poses, i);
+
+		C_FOREACH(pose, &class->poses) {
 			if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 				continue;
 			st = TRUE;
-			buf_printf(buffer, BUF_END, "[%3d] Self:   %s\n      Others: %s\n",
-				   i, pose->self, pose->others);
+			buf_printf(buffer, BUF_END,
+			    "[%3d] Self:   %s\n      Others: %s\n",
+			    varr_index(&class->poses, pose),
+			    pose->self, pose->others);
 		}
-		if (!st)
-			buf_append(buffer, "No poses have been defined"
-					" for this class.\n");
+
+		if (!st) {
+			buf_append(buffer,
+			    "No poses have been defined for this class.\n");
+		}
+
 		page_to_char(buf_string(buffer), ch);
 		buf_free(buffer);
 		return FALSE;
@@ -512,28 +593,32 @@ OLC_FUN(classed_guilds)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || !str_prefix(arg, "list")) {
-		size_t i;
 		BUFFER	*buffer;
 		bool st = FALSE;
+		int *pvnum;
 
 		buffer = buf_new(0);
-		for (i = 0; i < c_size(&class->guilds); i++) {
-			vnum = *(int*) VARR_GET(&class->guilds, i);
-			if (!vnum)
+
+		C_FOREACH(pvnum, &class->guilds) {
+			if (!*pvnum)
 				continue;
-			if ((room = get_room_index(vnum)) == NULL) {
-				buf_printf(buffer, BUF_END, "[%5d] Nonexistant.\n",
-					   vnum);
+
+			if ((room = get_room_index(*pvnum)) == NULL) {
+				buf_printf(buffer, BUF_END,
+				    "[%5d] Nonexistent.\n", *pvnum);
 				continue;
 			}
+
 			st = TRUE;
 			buf_printf(buffer, BUF_END, "[%5d] %-25.24s\n",
-				   vnum, mlstr_mval(&room->name));
+				   *pvnum, mlstr_mval(&room->name));
 		}
 
-		if (!st)
-			buf_append(buffer, "No guild rooms have been defined"
-					" for this class.\n");
+		if (!st) {
+			buf_append(buffer,
+			    "No guild rooms have been defined for this class.\n");
+		}
+
 		page_to_char(buf_string(buffer), ch);
 		buf_free(buffer);
 		return FALSE;
@@ -587,26 +672,19 @@ OLC_FUN(classed_guilds)
 	OLC_ERROR("'OLC CLASS GUILDS'");
 }
 
-bool touch_class(class_t *class)
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static bool
+touch_class(class_t *class)
 {
 	SET_BIT(class->class_flags, CLASS_CHANGED);
 	return FALSE;
 }
 
-static void *
-whoname_cb(void *p, va_list ap)
-{
-	class_t *cl = (class_t *) p;
-
-	const char *arg = va_arg(ap, const char *);
-
-	if (!str_cmp(cl->who_name, arg))
-		return p;
-
-	return NULL;
-}
-
-static VALIDATE_FUN(validate_whoname)
+static
+VALIDATE_FUN(validate_whoname)
 {
 	class_t *cl;
 	class_t *cl2;
@@ -618,91 +696,15 @@ static VALIDATE_FUN(validate_whoname)
 		return FALSE;
 	}
 
-	if ((cl2 = c_foreach(&classes, whoname_cb, arg)) != NULL
-	&&  cl2 != cl) {
-		act_puts("ClassEd: $t: duplicate class whoname.",
-			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		return FALSE;
+	C_FOREACH(cl2, &classes) {
+		if (!str_cmp(cl2->who_name, arg)
+		&&  cl2 != cl) {
+			act_puts("ClassEd: $t: duplicate class whoname.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			return FALSE;
+		}
 	}
 
 	return TRUE;
-}
-
-#define PROC_STR(s)	((s) ? (s) : (str_empty))
-
-static
-FOREACH_CB_FUN(save_class_cb, p, ap)
-{
-	class_t *cl = (class_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	bool *pfound = va_arg(ap, bool *);
-
-	size_t i;
-	FILE *fp;
-	const char *filename;
-
-	if (!IS_SET(cl->class_flags, CLASS_CHANGED))
-		return NULL;
-
-	filename = strkey_filename(cl->name, CLASS_EXT);
-	if ((fp = olc_fopen(CLASSES_PATH, filename, ch, -1)) == NULL)
-		return NULL;
-
-	REMOVE_BIT(cl->class_flags, CLASS_CHANGED);
-	fprintf(fp, "#CLASS\n");
-	fprintf(fp, "Name %s~\n", cl->name);
-	fprintf(fp, "ShortName %s~\n", cl->who_name);
-	fprintf(fp, "PrimeStat %s\n", flag_string(stat_aliases, cl->attr_prime));
-	if (!IS_NULLSTR(cl->skill_spec))
-		fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
-	fprintf(fp, "SchoolWeapon %d\n", cl->weapon);
-	for (i = 0; i < c_size(&cl->guilds); i++) {
-		if (*(int*)VARR_GET(&cl->guilds, i) != 0) {
-			fprintf(fp, "GuildRoom %d\n",
-				*(int*)VARR_GET(&cl->guilds, i));
-		}
-	}
-	fprintf(fp, "Thac0_00 %d\n", cl->thac0_00);
-	fprintf(fp, "Thac0_32 %d\n", cl->thac0_32);
-	fprintf(fp, "HPRate %d\n", cl->hp_rate);
-	fprintf(fp, "LuckBonus %d\n", cl->luck_bonus);
-	fprintf(fp, "ManaRate %d\n", cl->mana_rate);
-	if (cl->class_flags) {
-		fprintf(fp, "Flags %s~\n",
-			flag_string(class_flags, cl->class_flags));
-	}
-	if (cl->points)
-		fprintf(fp, "AddExp %d\n", cl->points);
-	fprintf(fp, "StatMod");
-	for (i = 0; i < MAX_STAT; i++)
-		fprintf(fp, " %d", cl->mod_stat[i]);
-	fprintf(fp, "\n");
-	if (cl->restrict_align)
-		fprintf(fp, "RestrictAlign %s~\n",
-			flag_string(ralign_names, cl->restrict_align));
-	fwrite_string(fp, "RestrictSex", cl->restrict_sex);
-	if (cl->restrict_ethos)
-		fprintf(fp, "RestrictEthos %s~\n",
-			flag_string(ethos_table, cl->restrict_ethos));
-	if (cl->death_limit != -1)
-		fprintf(fp, "DeathLimit %d\n", cl->death_limit);
-	fprintf(fp, "End\n\n");
-
-	for (i = 0; i < c_size(&cl->poses); i++) {
-		pose_t *pose = VARR_GET(&cl->poses, i);
-		if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
-			continue;
-		fprintf(fp, "#POSE\n");
-		fwrite_string(fp, "Self", pose->self);
-		fwrite_string(fp, "Others", pose->others);
-		fprintf(fp, "End\n\n");
-	}
-
-	fprintf(fp, "#$\n");
-	fclose(fp);
-
-	olc_printf(ch, "    %s (%s)", cl->name, filename);
-	*pfound = TRUE;
-	return NULL;
 }

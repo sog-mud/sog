@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.35 2001-09-12 19:43:01 fjoe Exp $
+ * $Id: olc_lang.c,v 1.36 2001-12-03 22:28:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -91,7 +91,7 @@ OLC_FUN(langed_create)
 
 	l = varr_enew(&langs);
 	l->name = str_dup(arg);
-	l->file_name = str_printf("lang%02d.lang", langs.nused-1);
+	l->file_name = str_printf("lang%02d.lang", c_size(&langs) - 1);
 	ch->desc->pEdit	= l;
 	OLCED(ch)	= olced_lookup(ED_LANG);
 	act_char("LangEd: lang created.", ch);
@@ -125,16 +125,14 @@ OLC_FUN(langed_edit)
 
 OLC_FUN(langed_save)
 {
-	size_t lang;
 	FILE *fp;
+	lang_t *l;
 
 	fp = olc_fopen(LANG_PATH, LANG_LIST, ch, SECURITY_LANG);
 	if (fp == NULL)
 		return FALSE;
 
-	for (lang = 0; lang < c_size(&langs); lang++) {
-		lang_t *l = VARR_GET(&langs, lang);
-
+	C_FOREACH(l, &langs) {
 		fprintf(fp, "%s\n", l->file_name);
 		if (IS_SET(l->lang_flags, LANG_CHANGED)
 		&&  save_lang(ch, l)) {
@@ -217,12 +215,11 @@ OLC_FUN(langed_show)
 
 OLC_FUN(langed_list)
 {
-	size_t lang;
+	lang_t *l;
 
-	for (lang = 0; lang < c_size(&langs); lang++) {
-		lang_t *l = VARR_GET(&langs, lang);
+	C_FOREACH(l, &langs) {
 		act_puts("[$j] $T",
-			 ch, (const void *) lang, l->name,
+			 ch, (const void *) varr_index(&langs, l), l->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 

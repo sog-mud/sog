@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.206 2001-10-21 22:13:29 fjoe Exp $
+ * $Id: update.c,v 1.207 2001-12-03 22:28:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,10 +38,6 @@
 #include "update_impl.h"
 
 DECLARE_MODINIT_FUN(_module_boot);
-
-static void *uhandler_load_cb(void *p, va_list ap);
-static void *uhandler_unload_cb(void *p, va_list ap);
-static void *uhandler_tick_cb(void *p, va_list ap);
 
 MODINIT_FUN(_module_boot, m)
 {
@@ -85,28 +81,51 @@ MODINIT_FUN(_module_boot, m)
 void
 uhandler_load(const char *mod_name)
 {
-	module_t *m = mod_lookup(mod_name);
-	if (!m) {
+	module_t *m;
+	uhandler_t *hdlr;
+
+	if ((m = mod_lookup(mod_name)) == NULL) {
 		log(LOG_ERROR, "%s: %s: unknown module",
 		    __FUNCTION__, mod_name);
 		return;
 	}
-	c_foreach(&uhandlers, uhandler_load_cb, m, m->mod_id);
+
+	C_FOREACH(hdlr, &uhandlers) {
+		if (m->mod_id != hdlr->mod)
+			continue;
+
+		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
+		if (hdlr->fun == NULL)
+			log(LOG_ERROR, "%s: %s", __FUNCTION__, dlerror());
+	}
 }
 
 void
 uhandler_unload(const char *mod_name)
 {
-	module_t *m = mod_lookup(mod_name);
-	if (!m)
+	uhandler_t *hdlr;
+	module_t *m;
+
+	if ((m = mod_lookup(mod_name)) == NULL)
 		return;
-	c_foreach(&uhandlers, uhandler_unload_cb, m->mod_id);
+
+	C_FOREACH(hdlr, &uhandlers) {
+		if (m->mod_id == hdlr->mod)
+			hdlr->fun = NULL;
+	}
 }
 
 void
 update_handler(void)
 {
-	c_foreach(&uhandlers, uhandler_tick_cb);
+	uhandler_t *hdlr;
+
+	C_FOREACH(hdlr, &uhandlers) {
+		if (--hdlr->cnt == 0) {
+			hdlr->cnt = hdlr->ticks;
+			uhandler_update(hdlr);
+		}
+	}
 }
 
 int
@@ -251,49 +270,4 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 		}
 	}
-}
-
-/*--------------------------------------------------------------------
- * static functions
- */
-
-static void *
-uhandler_load_cb(void *p, va_list ap)
-{
-	uhandler_t *hdlr = (uhandler_t *) p;
-	module_t *m = va_arg(ap, module_t*);
-	int mod = va_arg(ap, int);
-
-	if (mod == hdlr->mod) {
-		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
-		if (hdlr->fun == NULL)
-			log(LOG_ERROR, "update_load: %s", dlerror());
-	}
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(uhandler_unload_cb, p, ap)
-{
-	uhandler_t *hdlr = (uhandler_t *) p;
-	int mod = va_arg(ap, int);
-
-	if (mod == hdlr->mod)
-		hdlr->fun = NULL;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(uhandler_tick_cb, p, ap)
-{
-	uhandler_t *hdlr = (uhandler_t *) p;
-
-	if (--hdlr->cnt == 0) {
-		hdlr->cnt = hdlr->ticks;
-		uhandler_update(hdlr);
-	}
-
-	return NULL;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.4 2001-11-30 21:18:03 fjoe Exp $
+ * $Id: container.c,v 1.5 2001-12-03 22:28:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,19 +37,6 @@
 #include <rwfile.h>
 #include <str.h>
 #include <util.h>
-
-void *
-c_foreach(void *c, foreach_cb_t cb, ...)
-{
-	va_list ap;
-	void *rv;
-
-	va_start(ap, cb);
-	rv = C_OPS(c)->c_foreach(c, cb, ap);
-	va_end(ap);
-
-	return rv;
-}
 
 void *
 c_random_elem_foreach(void *c)
@@ -68,15 +55,6 @@ c_random_elem_foreach(void *c)
 	}
 
 	return NULL;
-}
-
-void
-c_dump(void *c, BUFFER *buf, foreach_cb_t cb)
-{
-	int col = 0;
-	c_foreach(c, cb, buf, &col);
-	if (col % 4 != 0)
-		buf_append(buf, "\n");
 }
 
 int
@@ -186,37 +164,35 @@ c_mlstrkey_search(void *c, const char *name)
 void
 c_strkey_dump(void *c, BUFFER *buf)
 {
-	c_dump(c, buf, str_dump_cb);
+	int col = 0;
+	const char **p;
+
+	C_FOREACH(p, c) {
+		buf_printf(buf, BUF_END, "%-19.18s", *p);	// notrans
+
+		if (++col % 4 == 0)
+			buf_append(buf, "\n");
+	}
+
+	if (col % 4 != 0)
+		buf_append(buf, "\n");
 }
 
 void
 c_mlstrkey_dump(void *c, BUFFER *buf)
 {
-	c_dump(c, buf, mlstr_dump_cb);
-}
+	int col = 0;
+	mlstring *ml;
 
-FOREACH_CB_FUN(str_dump_cb, p, ap)
-{
-	BUFFER *buf = va_arg(ap, BUFFER *);
-	int *pcol = va_arg(ap, int *);
+	C_FOREACH(ml, c) {
+		buf_printf(buf, BUF_END, "%-19.18s",		// notrans
+			   mlstr_mval(ml));
+		if (++col % 4 == 0)
+			buf_append(buf, "\n");
+	}
 
-	buf_printf(buf, BUF_END, "%-19.18s",			// notrans
-		   *(const char**) p);
-	if (++(*pcol) % 4 == 0)
+	if (col % 4 != 0)
 		buf_append(buf, "\n");
-	return NULL;
-}
-
-FOREACH_CB_FUN(mlstr_dump_cb, p, ap)
-{
-	BUFFER *buf = va_arg(ap, BUFFER *);
-	int *pcol = va_arg(ap, int *);
-
-	buf_printf(buf, BUF_END, "%-19.18s",			// notrans
-		   mlstr_mval((mlstring *) p));
-	if (++(*pcol) % 4 == 0)
-		buf_append(buf, "\n");
-	return NULL;
 }
 
 const char *

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.18 2001-11-30 21:17:59 fjoe Exp $
+ * $Id: init_magic.c,v 1.19 2001-12-03 22:28:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,16 +38,23 @@
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
-static DECLARE_FOREACH_CB_FUN(load_cb);
-static DECLARE_FOREACH_CB_FUN(unload_cb);
-
 MODINIT_FUN(_module_load, m)
 {
 	cmd_t *cmd;
+	skill_t *sk;
 
 	C_FOREACH(cmd, &commands)
 		cmd_load(cmd, MODULE, m);
-	c_foreach(&skills, load_cb, m);
+	C_FOREACH(sk, &skills) {
+		if (sk->skill_type == ST_SPELL
+		||  sk->skill_type == ST_PRAYER) {
+			sk->fun = dlsym(m->dlh, sk->fun_name);
+			if (sk->fun == NULL) {
+				log(LOG_INFO, "_module_load(magic): %s",
+				    dlerror());
+			}
+		}
+	}
 	dynafun_tab_register(__mod_tab(MODULE), m);
 	return 0;
 }
@@ -55,37 +62,15 @@ MODINIT_FUN(_module_load, m)
 MODINIT_FUN(_module_unload, m)
 {
 	cmd_t *cmd;
+	skill_t *sk;
 
 	dynafun_tab_unregister(__mod_tab(MODULE));
-	c_foreach(&skills, unload_cb, NULL);
+	C_FOREACH(sk, &skills) {
+		if (sk->skill_type == ST_SPELL
+		||  sk->skill_type == ST_PRAYER)
+			sk->fun = NULL;
+	}
 	C_FOREACH(cmd, &commands)
 		cmd_unload(cmd, MODULE);
 	return 0;
-}
-
-static
-FOREACH_CB_FUN(load_cb, p, ap)
-{
-	skill_t *sk = (skill_t*) p;
-
-	module_t *m = va_arg(ap, module_t *);
-
-	if (sk->skill_type == ST_SPELL
-	||  sk->skill_type == ST_PRAYER) {
-		sk->fun = dlsym(m->dlh, sk->fun_name);
-		if (sk->fun == NULL)
-			log(LOG_INFO, "_module_load(magic): %s", dlerror());
-	}
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(unload_cb, p, ap)
-{
-	skill_t *sk = (skill_t*) p;
-
-	if (sk->skill_type == ST_SPELL
-	||  sk->skill_type == ST_PRAYER)
-		sk->fun = NULL;
-	return NULL;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.40 2001-11-30 21:18:04 fjoe Exp $
+ * $Id: varr.c,v 1.41 2001-12-03 22:28:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -93,13 +93,13 @@ varr_insert(varr *v, size_t i)
 void *
 varr_enew(varr *v)
 {
-	return varr_touch((v), c_size(v));
+	return varr_touch((v), v->nused);
 }
 
 void *
 varr_get(varr *v, size_t i)
 {
-	return i >= c_size(v) ? NULL : VARR_GET(v, i);
+	return i >= v->nused ? NULL : VARR_GET(v, i);
 }
 
 void
@@ -160,108 +160,44 @@ varr_bsearch_lower(const varr *v, const void *e,
 }
 
 void *
-varr_eforeach(const varr *v, void *e, foreach_cb_t cb, ...)
+varr_eforeach_first(varr *v, void *start_elem)
 {
-	void *rv;
-	va_list ap;
-
-	va_start(ap, cb);
-	rv = varr_anforeach(v, e ? varr_index(v, e) : 0, cb, ap);
-	va_end(ap);
-
-	return rv;
+	return varr_get(v, start_elem ? varr_index(v, start_elem) : 0);
 }
 
 void *
-varr_nforeach(const varr *v, size_t from, foreach_cb_t cb, ...)
+varr_nforeach_first(varr *v, size_t pos)
 {
-	void *rv;
-	va_list ap;
-
-	va_start(ap, cb);
-	rv = varr_anforeach(v, from, cb, ap);
-	va_end(ap);
-
-	return rv;
+	return varr_get(v, pos);
 }
 
 void *
-varr_anforeach(const varr *v, size_t from, foreach_cb_t cb, va_list ap)
+varr_rforeach_first(varr *v)
 {
-	size_t i;
-
-	for (i = from; i < v->nused; i++) {
-		void *p;
-		if ((p = cb(VARR_GET(v, i), ap)) != NULL)
-			return p;
-	}
-
-	return NULL;
-}
-
-void *
-varr_rforeach(const varr *v, foreach_cb_t cb, ...)
-{
-	void *rv;
-	va_list ap;
-
 	if (!v->nused)
 		return NULL;
 
-	va_start(ap, cb);
-	rv = varr_arnforeach(v, v->nused - 1, cb, ap);
-	va_end(ap);
-
-	return rv;
+	return varr_get(v, v->nused - 1);
 }
 
 void *
-varr_reforeach(const varr *v, void *e, foreach_cb_t cb, ...)
+varr_reforeach_first(varr *v, void *start_elem)
 {
-	void *rv;
-	va_list ap;
-
 	if (!v->nused)
 		return NULL;
 
-	va_start(ap, cb);
-	rv = varr_arnforeach(v, e ? varr_index(v, e) : v->nused - 1, cb, ap);
-	va_end(ap);
-
-	return rv;
+	return varr_get(v, start_elem ? varr_index(v, start_elem) : v->nused - 1);
 }
 
 void *
-varr_rnforeach(const varr *v, size_t from, foreach_cb_t cb, ...)
+varr_rforeach_next(varr *v, void *elem)
 {
-	void *rv;
-	va_list ap;
+	size_t pos = varr_index(v, elem);
 
-	va_start(ap, cb);
-	rv = varr_arnforeach(v, from, cb, ap);
-	va_end(ap);
+	if (!pos)
+		return NULL;
 
-	return rv;
-}
-
-void *
-varr_arnforeach(const varr *v, size_t from, foreach_cb_t cb, va_list ap)
-{
-	size_t i;
-
-	if (from > v->nused)
-		from = v->nused;
-
-	i = UMIN(from, v->nused);
-	for (;;) {
-		void *p;
-		if ((p = cb(VARR_GET(v, i), ap)) != NULL)
-			return p;
-		if (!i--)
-			break;
-	}
-
-	return NULL;
+	return varr_get(v, pos - 1);
 }
 
 /*-------------------------------------------------------------------
@@ -350,25 +286,19 @@ varr_move(void *c, const void *k, const void *k_new)
 }
 
 static void *
-varr_foreach(void *c, foreach_cb_t cb, va_list ap)
-{
-	return varr_anforeach(c, 0, cb, ap);
-}
-
-static void *
 varr_first(void *c)
 {
 	varr *v = (varr *) c;
 
-	return VARR_GET(v, 0);
+	return varr_get(v, 0);
 }
 
 static bool
 varr_cond(void *c, void *elem)
 {
-	varr *v = (varr *) c;
+	UNUSED_ARG(c);
 
-	return varr_index(v, elem) < varr_size(v);
+	return elem != NULL;
 }
 
 static void *
@@ -376,7 +306,7 @@ varr_next(void *c, void *elem)
 {
 	varr *v = (varr *) c;
 
-	return VARR_GET(v, varr_index(v, elem) + 1);
+	return varr_get(v, varr_index(v, elem) + 1);
 }
 
 static size_t
@@ -390,14 +320,16 @@ varr_size(void *c)
 static bool
 varr_isempty(void *c)
 {
-	return c_size(c) == 0;
+	varr *v = (varr *) c;
+
+	return v->nused == 0;
 }
 
 static void *
 varr_random_elem(void *c)
 {
 	varr *v = (varr *) c;
-	size_t size = c_size(c);
+	size_t size = v->nused;
 
 	if (!size)
 		return NULL;

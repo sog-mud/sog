@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.25 2001-09-15 17:12:47 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.26 2001-12-03 22:28:33 fjoe Exp $
  */
 
 #include "olc.h"
@@ -78,7 +78,6 @@ olc_cmd_t olc_cmds_cmd[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void *save_cmd_cb(void *fp, va_list ap);
 static void check_shadow(CHAR_DATA *ch, const char *name);
 
 OLC_FUN(cmded_create)
@@ -141,6 +140,7 @@ OLC_FUN(cmded_edit)
 OLC_FUN(cmded_save)
 {
 	FILE *fp;
+	cmd_t *cmnd;
 
 	if (!IS_SET(changed_flags, CF_CMD)) {
 		olc_printf(ch, "Commands are not changed.");
@@ -151,7 +151,34 @@ OLC_FUN(cmded_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&commands, save_cmd_cb, fp);
+	C_FOREACH(cmnd, &commands) {
+		fprintf(fp, "#CMD\n");
+		fwrite_string(fp, "name", cmnd->name);
+		fwrite_string(fp, "dofun", cmnd->dofun_name);
+		fprintf(fp, "min_pos %s\n",
+			flag_string(position_table, cmnd->min_pos));
+		if (cmnd->min_level) {
+			fprintf(fp, "min_level %s\n",
+				fix_word(flag_istring(level_table, cmnd->min_level)));
+		}
+
+		if (cmnd->cmd_log != LOG_NORMAL) {
+			fprintf(fp, "log %s\n",
+				flag_string(cmd_logtypes, cmnd->cmd_log));
+		}
+
+		if (cmnd->cmd_flags) {
+			fprintf(fp, "flags %s~\n",
+				flag_string(cmd_flags, cmnd->cmd_flags));
+		}
+
+		if (cmnd->cmd_mod != MOD_DOFUN) {
+			fprintf(fp, "module %s\n",
+				flag_string(module_names, cmnd->cmd_mod));
+		}
+
+		fprintf(fp, "end\n\n");
+	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -219,21 +246,20 @@ OLC_FUN(cmded_show)
 
 OLC_FUN(cmded_list)
 {
-	size_t i;
 	int col = 0;
 	char arg[MAX_STRING_LENGTH];
 	BUFFER *output;
+	cmd_t *cmnd;
 
 	one_argument(argument, arg, sizeof(arg));
 	output = buf_new(0);
 
-	for (i = 0; i < c_size(&commands); i++) {
-		cmd_t *cmnd = (cmd_t*) VARR_GET(&commands, i);
-
+	C_FOREACH(cmnd, &commands) {
 		if (arg[0] && str_prefix(arg, cmnd->name))
 			continue;
 
-		buf_printf(output, BUF_END, "[%3d] %-12s", i, cmnd->name);
+		buf_printf(output, BUF_END, "[%3d] %-12s",
+		    varr_index(&commands, cmnd), cmnd->name);
 		if (++col % 4 == 0)
 			buf_append(output, "\n");
 	}
@@ -374,56 +400,28 @@ static VALIDATE_FUN(validate_cmd_name)
 	return TRUE;
 }
 
-static void *
-save_cmd_cb(void *p, va_list ap)
-{
-	cmd_t *cmnd = (cmd_t *) p;
-	FILE *fp = va_arg(ap, FILE *);
-
-	fprintf(fp, "#CMD\n");
-	fwrite_string(fp, "name", cmnd->name);
-	fwrite_string(fp, "dofun", cmnd->dofun_name);
-	fprintf(fp, "min_pos %s\n",
-		flag_string(position_table, cmnd->min_pos));
-	if (cmnd->min_level)
-		fprintf(fp, "min_level %s\n",
-			fix_word(flag_istring(level_table, cmnd->min_level)));
-
-	if (cmnd->cmd_log != LOG_NORMAL)
-		fprintf(fp, "log %s\n",
-			flag_string(cmd_logtypes, cmnd->cmd_log));
-
-	if (cmnd->cmd_flags)
-		fprintf(fp, "flags %s~\n",
-			flag_string(cmd_flags, cmnd->cmd_flags));
-
-	if (cmnd->cmd_mod != MOD_DOFUN)
-		fprintf(fp, "module %s\n",
-			flag_string(module_names, cmnd->cmd_mod));
-
-	fprintf(fp, "end\n\n");
-
-	return NULL;
-}
-
-static void check_shadow(CHAR_DATA *ch, const char *name)
+static void
+check_shadow(CHAR_DATA *ch, const char *name)
 {
 	BUFFER *output;
 	social_t *soc;
-	size_t i;
 	bool found = FALSE;
 
 	output = buf_new(0);
 
-	for (i = 0; i < c_size(&socials); i++) {
-		soc = (social_t *)VARR_GET(&socials, i);
+	C_FOREACH(soc, &socials) {
 		if (str_prefix(soc->name, name))
 			continue;
-		if (!found)
-			buf_append(output, "The following social(s) will be shadowed:\n");
+
+		if (!found) {
+			buf_append(output,
+			    "The following social(s) will be shadowed:\n");
+		}
+
 		found = TRUE;
 		buf_printf(output, BUF_END, "  [%s]\n", soc->name);
 	}
+
 	if (!found)
 		buf_append(output, "This name will not shadow anything.\n");
 

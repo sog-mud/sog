@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.9 2001-11-30 21:18:02 fjoe Exp $
+ * $Id: avltree.c,v 1.10 2001-12-03 22:28:46 fjoe Exp $
  */
 
 #include <assert.h>
@@ -186,46 +186,18 @@ avltree_move(void *c, const void *k, const void *k_new)
 }
 
 static void *
-avltree_foreach(void *c, foreach_cb_t cb, va_list ap)
+avltree_node_next(avltree_t *avl, avlnode_t *curr)
 {
-	avltree_t *avl = (avltree_t *) c;
-	avlnode_t *curr = &avl->root;
-	void *rv = NULL;
-
-	avlnode_t *next = RIGHT(curr);
 	int rtag = RTAG(curr);
 
-	for (; ;) {
-		curr = next;
-		if (rtag == TAG_TREE) {
-			while (LEFT(curr) != NULL)
-				curr = LEFT(curr);
-		}
-
-		if (curr == &avl->root)
-			break;
-
-		next = RIGHT(curr);
-		rtag = RTAG(curr);
-
-		if ((rv = cb(GET_DATA(curr), ap)) != NULL)
-			break;
-	}
-
-	return rv;
-}
-
-static void *
-avltree_node_next(avlnode_t *curr)
-{
-	avlnode_t *next = RIGHT(curr);
-	int rtag = RTAG(curr);
-
-	curr = next;
+	curr = RIGHT(curr);
 	if (rtag == TAG_TREE) {
 		while (LEFT(curr) != NULL)
 			curr = LEFT(curr);
 	}
+
+	if (curr == &avl->root)
+		return NULL;
 
 	return GET_DATA(curr);
 }
@@ -234,22 +206,24 @@ static void *
 avltree_first(void *c)
 {
 	avltree_t *avl = (avltree_t *) c;
-	return avltree_node_next(&avl->root);
+
+	return avltree_node_next(avl, &avl->root);
 }
 
 static bool
 avltree_cond(void *c, void *elem)
 {
-	avltree_t *avl = (avltree_t *) c;
+	UNUSED_ARG(c);
 
-	return GET_AVLNODE(elem) == &avl->root;
+	return elem != NULL;
 }
 
 static void *
 avltree_next(void *c, void *elem)
 {
-	UNUSED_ARG(c);
-	return avltree_node_next(GET_AVLNODE(elem));
+	avltree_t *avl = (avltree_t *) c;
+
+	return avltree_node_next(avl, GET_AVLNODE(elem));
 }
 
 static size_t
@@ -262,7 +236,8 @@ avltree_size(void *c)
 static bool
 avltree_isempty(void *c)
 {
-	return c_size(c) == 0;
+	avltree_t *avl = (avltree_t *) c;
+	return avl->count == 0;
 }
 
 static void *

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.39 2001-09-15 17:12:54 fjoe Exp $
+ * $Id: lang.c,v 1.40 2001-12-03 22:28:47 fjoe Exp $
  */
 
 #include <string.h>
@@ -236,8 +236,8 @@ rule_t *
 irule_insert(rulecl_t *rcl, size_t num, rule_t *r)
 {
 	rule_t *rnew;
-	if (num > rcl->impl.nused)
-		num = rcl->impl.nused;
+	if (num > c_size(&rcl->impl))
+		num = c_size(&rcl->impl);
 	rnew = varr_insert(&rcl->impl, num);
 	*rnew = *r;
 	return rnew;
@@ -259,7 +259,7 @@ irule_lookup(rulecl_t *rcl, const char *num)
 		return NULL;
 
 	i = strtoul(num, &q, 0);
-	if (*q || i >= rcl->impl.nused)
+	if (*q || i >= c_size(&rcl->impl))
 		return NULL;
 
 	return VARR_GET(&rcl->impl, i);
@@ -268,10 +268,9 @@ irule_lookup(rulecl_t *rcl, const char *num)
 rule_t *
 irule_find(rulecl_t *rcl, const char *word)
 {
-	size_t i;
+	rule_t *r;
 
-	for (i = 0; i < rcl->impl.nused; i++) {
-		rule_t *r = VARR_GET(&rcl->impl, i);
+	C_FOREACH(r, &rcl->impl) {
 		if (r->name[0] == '-'
 		&&  !strchr(word, ' ')
 		&&  !str_suffix(r->name+1, word))
@@ -386,13 +385,12 @@ lang_lookup(const char *name)
 lang_t *
 lang_nlookup(const char *name, size_t len)
 {
-	size_t lang;
+	lang_t *l;
 
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	for (lang = 0; lang < langs.nused; lang++) {
-		lang_t *l = VARR_GET(&langs, lang);
+	C_FOREACH(l, &langs) {
 		if (str_ncmp(l->name, name, len) == 0)
 			return l;
 	}

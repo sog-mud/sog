@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.23 2001-09-15 17:12:53 fjoe Exp $
+ * $Id: hometown.c,v 1.24 2001-12-03 22:28:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,12 +46,11 @@ varr_info_t c_info_hometowns = {
 int
 htn_lookup(const char *name)
 {
-	size_t i;
+	hometown_t *h;
 
-	for (i = 0; i < hometowns.nused; i++) {
-		hometown_t *h = VARR_GET(&hometowns, i);
+	C_FOREACH(h, &hometowns) {
 		if (!str_prefix(name, h->area))
-			return i;
+			return varr_index(&hometowns, h);
 	}
 
 	return -1;
@@ -101,17 +100,15 @@ hometown_restrict(hometown_t *h, CHAR_DATA *ch)
 int
 hometown_permanent(CHAR_DATA *ch)
 {
-	size_t i;
 	int htn_perm = -1;
+	hometown_t *h;
 
-	for (i = 0; i < hometowns.nused; i++) {
-		hometown_t *h = VARR_GET(&hometowns, i);
-
+	C_FOREACH(h, &hometowns) {
 		if (hometown_restrict(h, ch))
 			continue;
 
 		if (htn_perm < 0)
-			htn_perm = i;
+			htn_perm = varr_index(&hometowns, h);
 		else
 			return -1;	/* more than one hometown */
 	}

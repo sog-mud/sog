@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.12 2001-09-14 10:01:08 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.13 2001-12-03 22:28:33 fjoe Exp $
  */
 
 /*
@@ -80,8 +80,6 @@ olc_cmd_t olc_cmds_damt[] =
 	{ NULL, NULL, NULL, NULL }
 };
 
-static void *damt_save_cb(void *p, va_list ap);
-
 OLC_FUN(damted_create)
 {
 	damtype_t *dt;
@@ -134,28 +132,10 @@ OLC_FUN(damted_edit)
 	return FALSE;
 }
 
-static void *damt_save_cb(void *p, va_list ap)
-{
-	damtype_t *dt = (damtype_t *)p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	fprintf(fp, "#DAMTYPE\n");
-	fprintf(fp, "Name %s\n", dt->dam_name);
-	mlstr_fwrite(fp, "Noun", &dt->dam_noun.ml);
-	mlstr_fwrite(fp, "Gender", &dt->dam_noun.gender);
-	fprintf(fp, "Class %s\n",
-		flag_string(dam_classes, dt->dam_class));
-	if (dt->dam_slot >= 0)
-		fprintf(fp, "Slot %d\n", dt->dam_slot);
-	fprintf(fp, "End\n\n");
-
-	return NULL;
-}
-
 OLC_FUN(damted_save)
 {
 	FILE *fp;
+	damtype_t *dt;
 
 	if (!IS_SET(changed_flags, CF_DAMT)) {
 		act_char("Damage types are not changed.", ch);
@@ -165,7 +145,17 @@ OLC_FUN(damted_save)
 	if (fp == NULL)
 		return FALSE;
 
-	c_foreach(&damtypes, damt_save_cb, fp);
+	C_FOREACH(dt, &damtypes) {
+		fprintf(fp, "#DAMTYPE\n");
+		fprintf(fp, "Name %s\n", dt->dam_name);
+		mlstr_fwrite(fp, "Noun", &dt->dam_noun.ml);
+		mlstr_fwrite(fp, "Gender", &dt->dam_noun.gender);
+		fprintf(fp, "Class %s\n",
+			flag_string(dam_classes, dt->dam_class));
+		if (dt->dam_slot >= 0)
+			fprintf(fp, "Slot %d\n", dt->dam_slot);
+		fprintf(fp, "End\n\n");
+	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);

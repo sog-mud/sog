@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.5 2001-11-09 16:09:18 kostik Exp $
+ * $Id: skills_impl.c,v 1.6 2001-12-03 22:28:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,35 +33,27 @@
 
 #include "skills_impl.h"
 
-static
-FOREACH_CB_FUN(apply_sa_cb, p, ap)
-{
-	saff_t *sa = (saff_t *) p;
-
-	skill_t *sk = va_arg(ap, skill_t *);
-	int percent = va_arg(ap, int);
-	int *pmod = va_arg(ap, int *);
-
-	if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
-	     !IS_SKILL(sa->sn, gmlstr_mval(&sk->sk_name)))
-	||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
-	     IS_SET(sk->skill_flags, SKILL_CLAN))
-	||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
-	     !percent))
-		return NULL;
-
-	(*pmod) += sa->mod;
-	return NULL;
-}
-
 /*
  * apply skill affect modifiers
  */
 int
 get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 {
+	saff_t *sa;
 	int mod = 0;
-	c_foreach(&ch->sk_affected, apply_sa_cb, sk, percent, &mod);
+
+	C_FOREACH(sa, &ch->sk_affected) {
+		if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
+		     !IS_SKILL(sa->sn, gmlstr_mval(&sk->sk_name)))
+		||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
+		     IS_SET(sk->skill_flags, SKILL_CLAN))
+		||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
+		     !percent))
+			continue;
+
+		mod += sa->mod;
+	}
+
 	return mod;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.40 2001-09-13 17:54:14 fjoe Exp $
+ * $Id: olc_rule.c,v 1.41 2001-12-03 22:28:35 fjoe Exp $
  */
 
 #include "olc.h"
@@ -236,8 +236,8 @@ OLC_FUN(ruleed_edit)
 
 OLC_FUN(ruleed_save)
 {
-	size_t lang;
 	ruleops_t *rops;
+	lang_t *l;
 
 	if (!olc_trusted(ch, SECURITY_MSGDB) < 0) {
 		olc_printf(ch, "Insufficient security.");
@@ -245,9 +245,8 @@ OLC_FUN(ruleed_save)
 	}
 
 	EDIT_ROPS(ch, rops);
-	for (lang = 0; lang < c_size(&langs); lang++) {
+	C_FOREACH(l, &langs) {
 		int i;
-		lang_t *l = VARR_GET(&langs, lang);
 
 		for (i = 0; i < MAX_RULECL; i++)
 			rops->rcl_save(ch, l, l->rules+i);
@@ -269,11 +268,11 @@ OLC_FUN(ruleed_touch)
 
 OLC_FUN(ruleed_show)
 {
-	size_t i;
 	rule_t *r;
 	rulecl_t *rcl;
 	ruleops_t *rops;
 	lang_t *l;
+	const char **p;
 
 	EDIT_LANG(ch, l);
 	EDIT_ROPS(ch, rops);
@@ -327,9 +326,9 @@ OLC_FUN(ruleed_show)
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
-	for (i = 0; i < c_size(&r->forms); i++) {
+	C_FOREACH(p, &r->forms) {
+		size_t i = varr_index(&r->forms, p);
 		int i2;
-		char **p = VARR_GET(&r->forms, i);
 
 		/* gender shift */
 		if (rcl->rulecl == RULES_GENDER) {
@@ -361,7 +360,6 @@ OLC_FUN(ruleed_show)
 
 OLC_FUN(ruleed_list)
 {
-	size_t i;
 	rulecl_t *rcl;
 	ruleops_t *rops;
 	lang_t *l;
@@ -396,28 +394,33 @@ OLC_FUN(ruleed_list)
 	}
 
 	if (rops->id == ED_IMPL) {
-		if (rcl->impl.nused) {
+		if (c_size(&rcl->impl)) {
+			rule_t *r;
+
 			output = buf_new(0);
-			for (i = 0; i < c_size(&rcl->impl); i++) {
-				rule_t *r = VARR_GET(&rcl->impl, i);
-				buf_printf(output, BUF_END, "%3d. %s\n", i, r->name);
+
+			C_FOREACH(r, &rcl->impl) {
+				buf_printf(output, BUF_END,
+				    "%3d. %s\n", varr_index(&rcl->impl, r),
+				    r->name);
 			}
 		}
 	} else {
+		size_t i;
+
 		if (argument[0] == '\0')
 			OLC_ERROR("'OLC ALIST'");
 
 		for (i = 0; i < MAX_RULE_HASH; i++) {
-			size_t j;
+			rule_t *r;
 
-			for (j = 0; j < c_size(rcl->expl + i); j++) {
-				rule_t *r = VARR_GET(rcl->expl+i, j);
+			C_FOREACH(r, rcl->expl + i) {
+				if (!!str_prefix(argument, r->name))
+					continue;
 
-				if (!str_prefix(argument, r->name)) {
-					if (!output)
-						output = buf_new(0);
-					buf_printf(output, BUF_END, "%s\n", r->name);
-				}
+				if (!output)
+					output = buf_new(0);
+				buf_printf(output, BUF_END, "%s\n", r->name);
 			}
 		}
 	}
@@ -425,8 +428,7 @@ OLC_FUN(ruleed_list)
 	if (output) {
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
-	}
-	else
+	} else
 		act_char("RuleEd: no rules found.", ch);
 
 	return FALSE;
@@ -463,22 +465,12 @@ OLC_FUN(eruleed_name)
 	return TRUE;
 }
 
-static
-FOREACH_CB_FUN(copy_form_cb, p, ap)
-{
-	const char **q = (const char **) p;
-	varr *v = va_arg(ap, varr *);
-	const char **r = varr_enew(v);
-
-	*r = str_qdup(*q);
-	return NULL;
-}
-
 OLC_FUN(eruleed_auto)
 {
 	rule_t *r;
 	rulecl_t *rcl;
 	rule_t *impl;
+	const char **p;
 
 	EDIT_RULE(ch, r);
 	EDIT_RCL(ch, rcl);
@@ -493,7 +485,10 @@ OLC_FUN(eruleed_auto)
 
 	r->arg = strlen(r->name) + impl->arg;
 	c_erase(&r->forms);
-	c_foreach(&impl->forms, copy_form_cb, &r->forms);
+	C_FOREACH(p, &impl->forms) {
+		const char **q = varr_enew(&r->forms);
+		*q = str_qdup(*p);
+	}
 	return TRUE;
 }
 
@@ -569,18 +564,19 @@ OLC_FUN(ruleed_delete)
 static void
 rule_save(FILE *fp, rule_t *r)
 {
-	size_t i;
+	const char **p;
 
 	fprintf(fp, "#RULE\n"
 		    "Name %s~\n", r->name);
 	if (r->arg)
 		fprintf(fp, "BaseLen %d\n", r->arg);
-	for (i = 0; i < c_size(&r->forms); i++) {
-		char **p = VARR_GET(&r->forms, i);
+
+	C_FOREACH(p, &r->forms) {
 		if (IS_NULLSTR(*p))
 			continue;
-		fprintf(fp, "Form %d %s~\n", i, *p);
+		fprintf(fp, "Form %d %s~\n", varr_index(&r->forms, p), *p);
 	}
+
 	fprintf(fp, "End\n\n");
 }
 
@@ -604,12 +600,10 @@ rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 		return;
 
 	for (i = 0; i < MAX_RULE_HASH; i++) {
-		size_t j;
+		rule_t *r;
 
-		for (j = 0; j < c_size(rcl->expl + i); j++) {
-			rule_t *r = VARR_GET(rcl->expl+i, j);
+		C_FOREACH(r, rcl->expl + i)
 			rule_save(fp, r);
-		}
 	}
 
 	fprintf(fp, "#$\n");
@@ -625,7 +619,7 @@ rcl_save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 static void
 rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 {
-	size_t i;
+	rule_t *r;
 	FILE *fp;
 
 	if (!IS_SET(rcl->rcl_flags, RULES_IMPL_CHANGED))
@@ -641,10 +635,8 @@ rcl_save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 	if ((fp = olc_fopen(LANG_PATH, rcl->file_impl, ch, -1)) == NULL)
 		return;
 
-	for (i = 0; i < c_size(&rcl->impl); i++) {
-		rule_t *r = VARR_GET(&rcl->impl, i);
+	C_FOREACH(r, &rcl->impl)
 		rule_save(fp, r);
-	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);

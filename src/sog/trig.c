@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.24 2001-11-30 21:18:04 fjoe Exp $
+ * $Id: trig.c,v 1.25 2001-12-03 22:28:48 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -106,7 +106,7 @@ trig_destroy_list(varr *v)
 {
 	/*
 	 * c_erase instead of c_destroy because trig_destroy_list is used
-	 * in free_room_index and x_room_del examines v->nused
+	 * in free_room_index and x_room_del examines c_size(v)
 	 */
 	c_erase(v);
 }
@@ -411,6 +411,9 @@ pull_trigger_list(int trig_type, varr *v, int mp_type,
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
+	/*
+	 * XXX varr_eforeach
+	 */
 	for (i = varr_index(v, trig); i < c_size(v); i++) {
 		trig = VARR_GET(v, i);
 

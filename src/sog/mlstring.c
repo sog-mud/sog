@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.66 2001-08-22 12:43:15 fjoe Exp $
+ * $Id: mlstring.c,v 1.67 2001-12-03 22:28:47 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -100,8 +100,8 @@ mlstr_fread(rfile_t *fp, mlstring *mlp)
 		return;
 	}
 
-	mlp->u.lstr = calloc(1, sizeof(char*) * langs.nused);
-	mlp->nlang = langs.nused;
+	mlp->u.lstr = calloc(1, sizeof(char *) * c_size(&langs));
+	mlp->nlang = c_size(&langs);
 
 	s = p+1;
 	for (;;) {
@@ -162,7 +162,7 @@ mlstr_fwrite(FILE *fp, const char* name, const mlstring *mlp)
 		return;
 	}
 
-	for (lang = 0; lang < mlp->nlang && lang < langs.nused; lang++) {
+	for (lang = 0; lang < mlp->nlang && lang < c_size(&langs); lang++) {
 		const char* p = mlp->u.lstr[lang];
 		lang_t *l;
 
@@ -290,7 +290,7 @@ MLSTR_FOREACH_FUN(mlstr_valid_cb, lang, p, ap)
 bool
 mlstr_valid(const mlstring *mlp)
 {
-	if (mlp->nlang > langs.nused)
+	if (mlp->nlang > c_size(&langs))
 		return FALSE;
 
 	return mlstr_foreach((mlstring*)(uintptr_t)mlp, mlstr_valid_cb) == NULL;
@@ -347,8 +347,8 @@ mlstr_convert(mlstring *mlp, lang_t *newlang)
 	/* convert to language-dependent */
 	if (mlp->nlang == 0) {
 		old = mlp->u.str;
-		mlp->nlang = langs.nused;
-		mlp->u.lstr = calloc(1, sizeof(char*) * langs.nused);
+		mlp->nlang = c_size(&langs);
+		mlp->u.lstr = calloc(1, sizeof(char *) * c_size(&langs));
 		mlp->u.lstr[0] = old;
 	}
 	return mlp->u.lstr + varr_index(&langs, newlang);
@@ -436,14 +436,14 @@ mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp, int dump_level)
 		return;
 	}
 
-	if (langs.nused == 0)
+	if (c_isempty(&langs))
 		return;
 
 	l = VARR_GET(&langs, 0);
 	buf_printf(buf, BUF_END, FORMAT,
 		   name, l->name, strdump(mlp->u.lstr[0], dump_level));
 
-	if (langs.nused < 1)
+	if (c_size(&langs) < 2)
 		return;
 
 	namelen = strlen(name);
@@ -451,7 +451,7 @@ mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp, int dump_level)
 	memset(space, ' ', namelen);
 	space[namelen] = '\0';
 
-	for (lang = 1; lang < mlp->nlang && lang < langs.nused; lang++) {
+	for (lang = 1; lang < mlp->nlang && lang < c_size(&langs); lang++) {
 		l = VARR_GET(&langs, lang);
 		buf_printf(buf, BUF_END, FORMAT,
 			   space, l->name,

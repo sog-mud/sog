@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.33 2001-09-17 18:42:31 fjoe Exp $
+ * $Id: info.c,v 1.34 2001-12-03 22:28:41 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -103,7 +103,8 @@ void info_newconn(int infofd)
 	struct sockaddr_in sock;
 	int size = sizeof(sock);
 	INFO_DESC *id;
-	size_t i;
+	struct in_addr *in_addr;
+	bool found = FALSE;
 
 	getsockname(infofd, (struct sockaddr*) &sock, &size);
 	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
@@ -121,15 +122,14 @@ void info_newconn(int infofd)
 		return;
 	}
 
-	log(LOG_INFO, "info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
-
-	for (i = 0; i < info_trusted.nused; i++) {
-		struct in_addr* in_addr = VARR_GET(&info_trusted, i);
-		if (!memcmp(in_addr, &sock.sin_addr, sizeof(struct in_addr)))
+	C_FOREACH(in_addr, &info_trusted) {
+		if (!memcmp(in_addr, &sock.sin_addr, sizeof(struct in_addr))) {
+			found = TRUE;
 			break;
+		}
 	}
 
-	if (i >= info_trusted.nused) {
+	if (!found) {
 		log(LOG_INFO, "info_newconn: incoming connection refused");
 #ifdef WIN32
 		closesocket(fd);

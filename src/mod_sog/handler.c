@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.343 2001-11-21 14:33:31 kostik Exp $
+ * $Id: handler.c,v 1.344 2001-12-03 22:28:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5051,18 +5051,6 @@ clan_update_lists(const char *cln, CHAR_DATA *victim, bool memb)
 		name_delete(&clan->member_list, victim->name, NULL, NULL);
 }
 
-static void *
-item_ok_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	int room_in_vnum = va_arg(ap, int);
-
-	if (room_in_vnum == clan->altar_vnum)
-		return p;
-	return NULL;
-}
-
 bool
 clan_item_ok(const char *cln)
 {
@@ -5077,16 +5065,17 @@ clan_item_ok(const char *cln)
 	for (obj = clan->obj_ptr; obj->in_obj != NULL; obj = obj->in_obj)
 		;
 
-	if (obj->in_room)
-		room_in=obj->in_room->vnum;
-	else
+	if (obj->in_room == NULL)
 		return TRUE;
 
+	room_in = obj->in_room->vnum;
 	if (room_in == clan->altar_vnum)
 		return TRUE;
 
-	if (c_foreach(&clans, item_ok_cb, room_in) != NULL)
-		return FALSE;
+	C_FOREACH(clan, &clans) {
+		if (clan->altar_vnum == room_in)
+			return FALSE;
+	}
 
 	return TRUE;
 }
@@ -6038,12 +6027,10 @@ get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
 void
 hometown_print_avail(CHAR_DATA *ch)
 {
-	size_t i;
 	int col = 0;
+	hometown_t *h;
 
-	for (i = 0; i < hometowns.nused; i++) {
-		hometown_t *h = VARR_GET(&hometowns, i);
-
+	C_FOREACH(h, &hometowns) {
 		if (hometown_restrict(h, ch))
 			continue;
 
@@ -6438,21 +6425,6 @@ min_move_gain(CHAR_DATA *ch)
 	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
 }
 
-static void *
-drop_objs_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
-
-	if (obj == clan->obj_ptr) {
-		obj_to_room(obj, get_room_index(clan->altar_vnum));
-		return p;
-	}
-
-	return NULL;
-}
-
 static void
 drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 {
@@ -6462,6 +6434,9 @@ drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 	 * drop OBJ_QUIT_DROP/OBJ_CHQUEST/OBJ_CLAN items
 	 */
 	for (obj = obj_list; obj != NULL; obj = obj_next) {
+		clan_t *clan;
+		bool found = FALSE;
+
 		obj_next = obj->next_content;
 
 		if (obj->contains)
@@ -6486,8 +6461,18 @@ drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
 			continue;
 		}
 
-		if (c_foreach(&clans, drop_objs_cb, obj) != NULL)
+		C_FOREACH(clan, &clans) {
+			if (obj != clan->obj_ptr)
+				continue;
+
+			obj_to_room(obj, get_room_index(clan->altar_vnum));
+			found = TRUE;
+			break;
+		}
+
+		if (found)
 			continue;
+
 		extract_obj(obj, 0);
 	}
 }

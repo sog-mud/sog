@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.413 2001-11-21 14:33:23 kostik Exp $
+ * $Id: act_info.c,v 1.414 2001-12-03 22:28:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2963,13 +2963,10 @@ DO_FUN(do_practice, ch, argument)
 	if (argument[0] == '\0') {
 		BUFFER *output;
 		int col = 0;
-		size_t i;
 
 		output = buf_new(GET_LANG(ch));
 
-		for (i = 0; i < c_size(&pc->learned); i++) {
-			pc_sk = VARR_GET(&pc->learned, i);
-
+		C_FOREACH(pc_sk, &pc->learned) {
 			spec_sk.sn = pc_sk->sn;
 			spec_stats(ch, &spec_sk);
 
@@ -3315,10 +3312,10 @@ list_spells(flag_t type, CHAR_DATA *ch,
 {
 	BUFFER *list[LEVEL_IMMORTAL+1];
 	int lev;
-	size_t i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
+	pc_skill_t *pc_sk;
 
 	if (IS_NPC(ch))
 		return;
@@ -3327,8 +3324,7 @@ list_spells(flag_t type, CHAR_DATA *ch,
 	for (lev = 0; lev <= LEVEL_IMMORTAL; lev++)
 		list[lev] = NULL;
 
-	for (i = 0; i < c_size(&PC(ch)->learned); i++) {
-		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
+	C_FOREACH(pc_sk, &PC(ch)->learned) {
 		skill_t *sk;
 		spec_skill_t spec_sk;
 		const char *knowledge;
@@ -3381,18 +3377,6 @@ list_spells(flag_t type, CHAR_DATA *ch,
 	buf_free(output);
 }
 
-static void *
-show_form_skill_cb(void *p, va_list ap)
-{
-	spec_skill_t *ssk = (spec_skill_t *) p;
-	BUFFER *output = va_arg(ap, BUFFER *);
-	if (!IS_NULLSTR(ssk->sn)) {
-		buf_printf(output, BUF_END, "%s\n", ssk->sn);
-	}
-
-	return NULL;
-}
-
 static bool
 list_form_skills(CHAR_DATA *ch, BUFFER *output)
 {
@@ -3409,9 +3393,18 @@ list_form_skills(CHAR_DATA *ch, BUFFER *output)
 		    ch->shapeform->index->name,
 		    ch->shapeform->index->skill_spec);
 		return FALSE;
-	} else if (fsp->spec_skills.nused) {
+	} else if (!c_isempty(&fsp->spec_skills)) {
+		spec_skill_t *spec_sk;
+
 		buf_printf(output, BUF_END, "Your form skills:\n");
-		c_foreach(&fsp->spec_skills, show_form_skill_cb, output);
+
+		C_FOREACH(spec_sk, &fsp->spec_skills) {
+			if (!IS_NULLSTR(spec_sk->sn)) {
+				buf_printf(output, BUF_END, "%s\n",
+					   spec_sk->sn);
+			}
+		}
+
 		return TRUE;
 	} else {
 		return FALSE;
@@ -3423,10 +3416,10 @@ DO_FUN(do_skills, ch, argument)
 	BUFFER *skill_list[LEVEL_IMMORTAL+1];
 	char skill_columns[LEVEL_IMMORTAL+1];
 	int lev;
-	size_t i;
 	bool found = FALSE;
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
+	pc_skill_t *pc_sk;
 
 	if (IS_NPC(ch))
 		return;
@@ -3437,8 +3430,7 @@ DO_FUN(do_skills, ch, argument)
 		skill_list[lev] = NULL;
 	}
 
-	for (i = 0; i < c_size(&PC(ch)->learned); i++) {
-		pc_skill_t *pc_sk = VARR_GET(&PC(ch)->learned, i);
+	C_FOREACH(pc_sk, &PC(ch)->learned) {
 		skill_t *sk;
 		spec_skill_t spec_sk;
 		const char *knowledge;
@@ -3497,32 +3489,11 @@ DO_FUN(do_skills, ch, argument)
 	buf_free(output);
 }
 
-static void *
-glist_cb(void *p, va_list ap)
-{
-	skill_t *sk = (skill_t*) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	flag_t group = va_arg(ap, flag_t);
-	int *pcol = va_arg(ap, int *);
-
-	if (group == sk->group) {
-		const char *sn = gmlstr_mval(&sk->sk_name);
-		act_puts("$t$f-18{$T}", ch,		           // notrans
-			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn, // notrans
-			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
-		if (*pcol)
-			send_to_char("\n", ch);
-		*pcol = 1 - *pcol;
-	}
-
-	return NULL;
-}
-
 DO_FUN(do_glist, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	flag_t group = GROUP_NONE;
+	skill_t *sk;
 	int col = 0;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -3547,7 +3518,22 @@ DO_FUN(do_glist, ch, argument)
 	act_puts("Now listing group '$t':",
 		 ch, flag_string(skill_groups, group), NULL,
 		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	c_foreach(&skills, glist_cb, ch, group, &col);
+
+	C_FOREACH(sk, &skills) {
+		const char *sn;
+
+		if (group != sk->group)
+			continue;
+
+		sn = gmlstr_mval(&sk->sk_name);
+		act_puts("$t$f-18{$T}", ch,		           // notrans
+			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn, // notrans
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+		if (col)
+			send_to_char("\n", ch);
+		col = 1 - col;
+	}
+
 	if (col)
 		send_to_char("\n", ch);
 }
@@ -4381,35 +4367,24 @@ show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			 TO_CHAR, POS_DEAD);
 }
 
-static
-FOREACH_CB_FUN(copy_cname_cb, p, ap)
-{
-	cmd_t *cmd = (cmd_t *) p;
-
-	varr *v = va_arg(ap, varr *);
-	cmd_t *ncmd = varr_enew(v);
-
-	*ncmd = *cmd;
-	return NULL;
-};
-
 /*
  * Contributed by Alander.
  */
 DO_FUN(do_commands, ch, argument)
 {
 	int col;
-	size_t i;
 	varr v;
+	cmd_t *cmd;
 
 	c_init(&v, &c_info_commands);
-	c_foreach(&commands, copy_cname_cb, &v);
+	C_FOREACH(cmd, &commands) {
+		cmd_t *ncmd = varr_enew(&v);
+		*ncmd = *cmd;
+	}
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	for (i = 0; i < c_size(&v); i++) {
-		cmd_t *cmd = VARR_GET(&v, i);
-
+	C_FOREACH(cmd, &v) {
 		if (cmd->min_level < LEVEL_HERO
 		&&  cmd->min_level <= ch->level
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
@@ -4429,7 +4404,7 @@ DO_FUN(do_commands, ch, argument)
 
 DO_FUN(do_wizhelp, ch, argument)
 {
-	size_t i;
+	cmd_t *cmd;
 	int col;
 	varr v;
 
@@ -4439,13 +4414,14 @@ DO_FUN(do_wizhelp, ch, argument)
 	}
 
 	c_init(&v, &c_info_commands);
-	c_foreach(&commands, copy_cname_cb, &v);
+	C_FOREACH(cmd, &commands) {
+		cmd_t *ncmd = varr_enew(&v);
+		*ncmd = *cmd;
+	}
 	varr_qsort(&v, cmpstr);
 
 	col = 0;
-	for (i = 0; i < c_size(&v); i++) {
-		cmd_t *cmd = VARR_GET(&v, i);
-
+	C_FOREACH(cmd, &v) {
 		if (cmd->min_level < LEVEL_IMMORTAL)
 			continue;
 
@@ -4559,19 +4535,6 @@ DO_FUN(do_clanlist, ch, argument)
 	do_clanlist(ch, str_empty);
 }
 
-static void *
-item_cb(void *p, va_list ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	ROOM_INDEX_DATA *in_room = va_arg(ap, ROOM_INDEX_DATA *);
-
-	if (in_room->vnum == clan->altar_vnum)
-		return p;
-
-	return NULL;
-}
-
 DO_FUN(do_item, ch, argument)
 {
 	clan_t* clan = NULL;
@@ -4610,10 +4573,12 @@ DO_FUN(do_item, ch, argument)
 		act_puts3("$p is in $R.",
 			  ch, clan->obj_ptr, NULL, in_obj->in_room,
 			  TO_CHAR, POS_DEAD);
-		clan = c_foreach(&clans, item_cb, in_obj->in_room);
-		if (clan) {
-			act_puts("It is altar of $t.",
-				 ch, clan->name, NULL, TO_CHAR, POS_DEAD);
+		C_FOREACH(clan, &clans) {
+			if (in_obj->in_room->vnum == clan->altar_vnum) {
+				act_puts("It is altar of $t.",
+				    ch, clan->name, NULL, TO_CHAR, POS_DEAD);
+				break;
+			}
 		}
 	} else {
 		act_puts("$p is somewhere.",

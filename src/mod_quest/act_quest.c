@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.161 2001-09-12 12:32:36 fjoe Exp $
+ * $Id: act_quest.c,v 1.162 2001-12-03 22:28:37 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -141,7 +141,7 @@ DO_FUN(do_quest, ch, argument)
 	argument = one_argument(argument, cmd, sizeof(cmd));
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if (IS_NPC(ch)) 
+	if (IS_NPC(ch))
 		return;
 
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {

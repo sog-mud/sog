@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.196 2001-09-17 18:42:32 fjoe Exp $
+ * $Id: save.c,v 1.197 2001-12-03 22:28:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,41 +135,13 @@ char_save(CHAR_DATA *ch, int flags)
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 
-static
-FOREACH_CB_FUN(pc_skill_save_cb, p, ap)
-{
-	pc_skill_t *pc_sk = (pc_skill_t *) p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	if (pc_sk->percent == 0)
-		return NULL;
-
-	fprintf(fp, "Sk %d '%s'\n", pc_sk->percent, pc_sk->sn);
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(spn_save_cb, p, ap)
-{
-	const char *spn = *(const char **) p;
-
-	FILE *fp = va_arg(ap, FILE *);
-
-	if (IS_NULLSTR(spn))
-		return NULL;
-
-	fprintf(fp, "Spec '%s'\n", spn);
-	return NULL;
-}
-
 /*
  * Write the char.
  */
 static void
 fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 {
-	AFFECT_DATA    *paf;
+	AFFECT_DATA *paf;
 
 	fprintf(fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER");
 
@@ -231,6 +203,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	} else {
 		PC_DATA *pc = PC(ch);
 		int i;
+		const char **pspn;
+		pc_skill_t *pc_sk;
 
 		if (pc->plr_flags) {
 			fprintf(fp, "Act %s\n",
@@ -323,8 +297,19 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		/* write pc_killed */
 		fprintf(fp, "PC_Killed %d\n", pc->pc_killed);
 
-		c_foreach(&pc->specs, spn_save_cb, fp);
-		c_foreach(&pc->learned, pc_skill_save_cb, fp);
+		C_FOREACH(pspn, &pc->specs) {
+			if (IS_NULLSTR(*pspn))
+				continue;
+
+			fprintf(fp, "Spec '%s'\n", *pspn);
+		}
+
+		C_FOREACH(pc_sk, &pc->learned) {
+			if (pc_sk->percent == 0)
+				continue;
+
+			fprintf(fp, "Sk %d '%s'\n", pc_sk->percent, pc_sk->sn);
+		}
 
 		if (pc->questpoints != 0)
 			fprintf(fp, "QuestPnts %d\n", pc->questpoints);
@@ -359,8 +344,10 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 /* write a pet */
 /* flags do not affect pet saving, reserved for future use */
 static void
-fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags __attribute__((unused)))
+fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags)
 {
+	UNUSED_ARG(flags);
+
 	fprintf(fp, "#PET\n");
 
 	fprintf(fp, "Vnum %d\n", pet->pMobIndex->vnum);

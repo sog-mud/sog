@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.33 2001-09-13 12:03:05 fjoe Exp $
+ * $Id: spec.c,v 1.34 2001-12-03 22:28:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -67,43 +67,6 @@ spec_apply(spec_skill_t *spec_sk, spec_skill_t *spec_sk2)
 	spec_sk->max = UMAX(spec_sk->max, spec_sk2->max);
 }
 
-static
-FOREACH_CB_FUN(spec_stats_cb, p, ap)
-{
-	const char *spn = *(const char **) p;
-
-	spec_skill_t *spec_sk = va_arg(ap, spec_skill_t *);
-	const char *bonus_skills = va_arg(ap, const char *);
-
-	spec_t *spec;
-	spec_skill_t *spec_sk2;
-
-/* lookup spec */
-	spec = spec_lookup(spn);
-	if (spec == NULL) {
-#ifdef C_STRKEY_STRICT_CHECKS
-		log(LOG_INFO, "spec_stats: %s: unknown spec", spn);
-#endif
-		return NULL;
-	}
-
-/* lookup skill in the given spec */
-	spec_sk2 = varr_bsearch(&spec->spec_skills,
-			        &spec_sk->sn, cmpstr);
-	if (spec_sk2 == NULL)
-		return NULL;
-
-/* apply spec skill */
-	spec_apply(spec_sk, spec_sk2);
-
-/* apply bonus skills for race */
-	if (spec->spec_class == SPEC_CLASS
-	&&  is_name(spec_sk->sn, bonus_skills))
-		spec_sk->level = 1;
-
-	return NULL;
-}
-
 /*
  * spec_stats -- find spec stats of the skill for char,
  */
@@ -113,6 +76,7 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 	race_t *r;
 	skill_t *sk;
 	const char *bonus_skills;
+	const char **pspn;
 
 	spec_sk->level = LEVEL_IMMORTAL;	/* will find min */
 	spec_sk->rating = 0;			/* will find min */
@@ -134,7 +98,34 @@ spec_stats(CHAR_DATA *ch, spec_skill_t *spec_sk)
 		bonus_skills = r->race_pcdata->bonus_skills;
 	else
 		bonus_skills = NULL;
-	c_foreach(&PC(ch)->specs, spec_stats_cb, spec_sk, bonus_skills);
+
+	C_FOREACH(pspn, &PC(ch)->specs) {
+		spec_t *spec;
+		spec_skill_t *spec_sk2;
+
+/* lookup spec */
+		spec = spec_lookup(*pspn);
+		if (spec == NULL) {
+#ifdef C_STRKEY_STRICT_CHECKS
+			log(LOG_INFO, "spec_stats: %s: unknown spec", *pspn);
+#endif
+			continue;
+		}
+
+/* lookup skill in the given spec */
+		spec_sk2 = varr_bsearch(&spec->spec_skills,
+					&spec_sk->sn, cmpstr);
+		if (spec_sk2 == NULL)
+			continue;
+
+/* apply spec skill */
+		spec_apply(spec_sk, spec_sk2);
+
+/* apply bonus skills for race */
+		if (spec->spec_class == SPEC_CLASS
+		&&  is_name(spec_sk->sn, bonus_skills))
+			spec_sk->level = 1;
+	}
 
 /* check skill affects */
 	if (get_skill_mod(ch, sk, 1))
@@ -156,68 +147,6 @@ bailout:
  * update_skills stuff
  */
 
-static
-FOREACH_CB_FUN(add_one_skill_cb, p, ap)
-{
-	spec_skill_t *spec_sk = (spec_skill_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	const char *bonus_skills = va_arg(ap, const char *);
-	spec_t *spec = va_arg(ap, spec_t *);
-
-	int percent;
-	int level;
-
-	if (spec->spec_class == SPEC_CLASS
-	&&  is_name(spec_sk->sn, bonus_skills)) {
-		percent = spec_sk->max;
-		level = 1;
-	} else {
-		percent = spec_sk->min;
-		level = spec_sk->level;
-	}
-
-	if (level <= ch->level)
-		_set_skill(ch, spec_sk->sn, percent, FALSE);
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(add_skills_cb, p, ap)
-{
-	const char *spn = *(const char **) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	const char *bonus_skills = va_arg(ap, const char *);
-	spec_t *spec = spec_lookup(spn);
-
-	if (spec == NULL) {
-#ifdef C_STRKEY_STRICT_CHECKS
-		log(LOG_INFO, "update_skills: %s: %s: unknown spec", ch->name, spn);
-#endif
-		return NULL;
-	}
-
-	c_foreach(&spec->spec_skills, add_one_skill_cb,
-		     ch, bonus_skills, spec);
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(check_one_skill_cb, p, ap)
-{
-	pc_skill_t *pc_sk = (pc_skill_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	spec_skill_t spec_sk;
-
-	spec_sk.sn = pc_sk->sn;
-	spec_stats(ch, &spec_sk);
-	pc_sk->percent = UMIN(pc_sk->percent, spec_sk.max);
-	return NULL;
-}
-
 /*
  * use for adding/updating all skills available for `ch'
  */
@@ -226,6 +155,8 @@ update_skills(CHAR_DATA *ch)
 {
 	race_t *r;
 	const char *bonus_skills;
+	const char **pspn;
+	pc_skill_t *pc_sk;
 
 /* NPCs do not have skills */
 	if (IS_NPC(ch))
@@ -237,11 +168,48 @@ update_skills(CHAR_DATA *ch)
 		bonus_skills = r->race_pcdata->bonus_skills;
 	else
 		bonus_skills = NULL;
-	c_foreach(&PC(ch)->specs, add_skills_cb, ch, bonus_skills);
+
+	C_FOREACH(pspn, &PC(ch)->specs) {
+		spec_t *spec = spec_lookup(*pspn);
+		spec_skill_t *spec_sk;
+
+		if (spec == NULL) {
+#ifdef C_STRKEY_STRICT_CHECKS
+			log(LOG_INFO, "update_skills: %s: %s: unknown spec",
+			    ch->name, *pspn);
+#endif
+			continue;
+		}
+
+		C_FOREACH(spec_sk, &spec->spec_skills) {
+			int percent;
+			int level;
+
+			if (spec->spec_class == SPEC_CLASS
+			&&  is_name(spec_sk->sn, bonus_skills)) {
+				percent = spec_sk->max;
+				level = 1;
+			} else {
+				percent = spec_sk->min;
+				level = spec_sk->level;
+			}
+
+			if (level <= ch->level)
+				_set_skill(ch, spec_sk->sn, percent, FALSE);
+		}
+	}
 
 /* remove not matched skills */
-	if (!IS_IMMORTAL(ch))
-		c_foreach(&PC(ch)->learned, check_one_skill_cb, ch);
+	if (IS_IMMORTAL(ch))
+		return;
+
+	C_FOREACH(pc_sk, &PC(ch)->learned) {
+		spec_skill_t spec_sk;
+
+		spec_sk.sn = pc_sk->sn;
+		spec_stats(ch, &spec_sk);
+		pc_sk->percent = UMIN(pc_sk->percent, spec_sk.max);
+	}
 }
 
 /*-------------------------------------------------------------------
@@ -255,75 +223,6 @@ update_skills(CHAR_DATA *ch)
 #define SU_F_SEEN_CLAN	(C)
 #define SU_F_ALTERED	(D)
 
-static
-FOREACH_CB_FUN(spec_update_cb, p, ap)
-{
-	const char **pspn = (const char **) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	race_t *r = va_arg(ap, race_t *);
-	class_t *cl = va_arg(ap, class_t *);
-	clan_t *clan = va_arg(ap, clan_t *);
-	int *pflags = va_arg(ap, int *);
-
-	const char *new_spn = NULL;
-	spec_t *spec = spec_lookup(*pspn);
-
-	if (spec == NULL) {
-		log(LOG_INFO, "spec_update: %s: %s: unknown spec",
-		    ch->name, *pspn);
-		return NULL;
-	}
-
-	switch (spec->spec_class) {
-	case SPEC_RACE:
-		if (!IS_SET(*pflags, SU_F_SEEN_RACE)
-		&&  r != NULL
-		&&  r->race_pcdata != NULL) {
-			SET_BIT(*pflags, SU_F_SEEN_RACE);
-			if (!str_cmp(r->race_pcdata->skill_spec, *pspn))
-				return NULL;			/* all ok */
-			new_spn = r->race_pcdata->skill_spec;
-		} else
-			new_spn = str_empty;
-		break;
-
-	case SPEC_CLASS:
-		if (!IS_SET(*pflags, SU_F_SEEN_CLASS)
-		&&  cl != NULL) {
-			SET_BIT(*pflags, SU_F_SEEN_CLASS);
-			if (!str_cmp(cl->skill_spec, *pspn))
-				return NULL;			/* all ok */
-			new_spn = cl->skill_spec;
-		} else
-			new_spn = str_empty;
-		break;
-	case SPEC_CLAN:
-		if (!IS_SET(*pflags, SU_F_SEEN_CLAN)
-		&&  clan != NULL) {
-			SET_BIT(*pflags, SU_F_SEEN_CLAN);
-			if (!str_cmp(clan->skill_spec, *pspn))
-				return NULL;			/* all ok */
-			new_spn = clan->skill_spec;
-		} else
-			new_spn = str_empty;
-		break;
-	}
-
-	if (new_spn != NULL) {
-		SET_BIT(*pflags, SU_F_ALTERED);
-
-		if (IS_NULLSTR(new_spn)) {
-			varr_edelete(&PC(ch)->specs, pspn);
-			return pspn;
-		}
-
-		free_string(*pspn);
-		*pspn = str_qdup(new_spn);
-	}
-	return NULL;
-}
-
 /*
  * spec_update -- update race, class and clan specs for character
  * Expects: !IS_NPC(ch)
@@ -331,16 +230,77 @@ FOREACH_CB_FUN(spec_update_cb, p, ap)
 void
 spec_update(CHAR_DATA *ch)
 {
-	int flags;
+	int flags = 0;
 	race_t *r = race_lookup(ch->race);
 	class_t *cl = class_lookup(ch->class);
 	clan_t *clan = clan_lookup(ch->clan);
-	void *p = NULL;
+	const char **pspn = NULL;
 
 	do {
-		p = varr_eforeach(&PC(ch)->specs, p, spec_update_cb,
-				  ch, r, cl, clan, &flags);
-	} while (p);
+		VARR_EFOREACH(pspn, pspn, &PC(ch)->specs) {
+			const char *new_spn = NULL;
+			spec_t *spec = spec_lookup(*pspn);
+
+			if (spec == NULL) {
+				log(LOG_INFO,
+				    "spec_update: %s: %s: unknown spec",
+				    ch->name, *pspn);
+				continue;
+			}
+
+			switch (spec->spec_class) {
+			case SPEC_RACE:
+				if (!IS_SET(flags, SU_F_SEEN_RACE)
+				&&  r != NULL
+				&&  r->race_pcdata != NULL) {
+					SET_BIT(flags, SU_F_SEEN_RACE);
+					if (!str_cmp(r->race_pcdata->skill_spec, *pspn))
+						continue;	/* all ok */
+					new_spn = r->race_pcdata->skill_spec;
+				} else
+					new_spn = str_empty;
+				break;
+
+			case SPEC_CLASS:
+				if (!IS_SET(flags, SU_F_SEEN_CLASS)
+				&&  cl != NULL) {
+					SET_BIT(flags, SU_F_SEEN_CLASS);
+					if (!str_cmp(cl->skill_spec, *pspn))
+						continue;	/* all ok */
+					new_spn = cl->skill_spec;
+				} else
+					new_spn = str_empty;
+				break;
+
+			case SPEC_CLAN:
+				if (!IS_SET(flags, SU_F_SEEN_CLAN)
+				&&  clan != NULL) {
+					SET_BIT(flags, SU_F_SEEN_CLAN);
+					if (!str_cmp(clan->skill_spec, *pspn))
+						continue;	/* all ok */
+					new_spn = clan->skill_spec;
+				} else
+					new_spn = str_empty;
+				break;
+			}
+
+			if (new_spn != NULL) {
+				SET_BIT(flags, SU_F_ALTERED);
+
+				if (IS_NULLSTR(new_spn)) {
+					varr_edelete(&PC(ch)->specs, pspn);
+
+					/*
+					 * restart from here
+					 */
+					break;
+				}
+
+				free_string(*pspn);
+				*pspn = str_qdup(new_spn);
+			}
+		}
+	} while (pspn != NULL);
 
 	if (IS_SET(flags, SU_F_ALTERED))
 		varr_qsort(&PC(ch)->specs, cmpstr);
@@ -363,27 +323,6 @@ spec_update(CHAR_DATA *ch)
 
 	if (IS_SET(flags, SU_F_ALTERED))
 		update_skills(ch);
-}
-
-static
-FOREACH_CB_FUN(replace_cb, p, ap)
-{
-	const char **pspn = (const char **) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	const char *spn_rm = va_arg(ap, const char *);
-	const char *spn_add = va_arg(ap, const char *);
-
-	spec_t *spec;
-
-	if (!str_cmp(*pspn, spn_rm))
-		return NULL;
-
-	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
-		return p;
-
-	return NULL;
 }
 
 /*
@@ -444,8 +383,8 @@ spec_del(CHAR_DATA *ch, const char *spn)
 bool
 spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 {
-	const char *rv;
 	spec_t *spec;
+	const char **pspn;
 
 	if (IS_NPC(ch))
 		return FALSE;
@@ -454,9 +393,14 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 	&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
 		return FALSE;
 
-	if ((rv = c_foreach(&PC(ch)->specs, replace_cb, ch,
-			       spn_rm, spn_add)) != NULL)
-		return FALSE;
+	C_FOREACH(pspn, &PC(ch)->specs) {
+		if (!str_cmp(*pspn, spn_rm))
+			continue;
+
+		if ((spec = spec_lookup(*pspn)) != NULL
+		&&  pull_spec_trigger(spec, ch, spn_rm, spn_add) > 0)
+			return FALSE;
+	}
 
 	if (!spec_del(ch, spn_rm))
 		return FALSE;

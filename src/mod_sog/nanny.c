@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.7 2001-11-21 18:30:53 avn Exp $
+ * $Id: nanny.c,v 1.8 2001-12-03 22:28:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -71,8 +71,6 @@ static bool	check_playing(DESCRIPTOR_DATA *d, const char *name);
 
 static bool	class_ok(CHAR_DATA *ch , class_t *cl);
 static void	print_cb(const char *s, CHAR_DATA *ch, int *pcol);
-static void *	print_class_cb(void *p, va_list ap);
-static void *	print_race_cb(void *p, va_list ap);
 
 static int	align_restrict(CHAR_DATA *ch);
 static int	ethos_check(CHAR_DATA *ch);
@@ -407,12 +405,18 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 		r = race_search(argument);
 		if (r == NULL
 		||  !r->race_pcdata
-		||  r->race_pcdata->classes.nused == 0) {
+		||  c_isempty(&r->race_pcdata->classes)) {
 			act_char("That is not a valid race.", ch);
 			act_char("The following races are available:", ch);
 			send_to_char("  ", ch);			// notrans
 			col = 0;
-			c_foreach(&races, print_race_cb, ch, &col);
+			C_FOREACH(r, &races) {
+				if (!r->race_pcdata
+				||  c_isempty(&r->race_pcdata->classes) == 0)
+					continue;
+
+				print_cb(r->name, ch, &col);
+			}
 			send_to_char("\n", ch);
 			act_puts("What is your race ('help <race>' for more information)? ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -456,7 +460,12 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		act_char("The following classes are available:", ch);
 		col = 0;
-		c_foreach(&classes, print_class_cb, ch, &col);
+		C_FOREACH(cl, &classes) {
+			if (!class_ok(ch, cl))
+				continue;
+
+			print_cb(cl->name, ch, &col);
+		}
 		send_to_char("\n", ch);
 		act_puts("What is your class ('help <class>' for more information)? ",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -905,21 +914,6 @@ class_ok(CHAR_DATA *ch, class_t *cl)
 	return TRUE;
 }
 
-static void *
-print_class_cb(void *p, va_list ap)
-{
-	class_t *cl = (class_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pcol = va_arg(ap, int *);
-
-	if (!class_ok(ch, cl))
-		return NULL;
-
-	print_cb(cl->name, ch, pcol);
-	return NULL;
-}
-
 static void
 print_cb(const char *s, CHAR_DATA *ch, int *pcol)
 {
@@ -931,22 +925,6 @@ print_cb(const char *s, CHAR_DATA *ch, int *pcol)
 	act_puts("($t) ", ch, s, NULL,				// notrans
 		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 	*pcol += strlen(s) + 3;
-}
-
-static void *
-print_race_cb(void *p, va_list ap)
-{
-	race_t *r = (race_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pcol = va_arg(ap, int *);
-
-        if (!r->race_pcdata
-	||  r->race_pcdata->classes.nused == 0)
-		return NULL;
-
-	print_cb(r->name, ch, pcol);
-	return NULL;
 }
 
 static int

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.51 2001-11-21 14:33:33 kostik Exp $
+ * $Id: updfun.c,v 1.52 2001-12-03 22:28:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -72,8 +72,6 @@ static inline void contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj);
 static void save_corpse_contents(OBJ_DATA *corpse);
 static DECLARE_FOREACH_CB_FUN(find_aggr_cb);
 static DECLARE_FOREACH_CB_FUN(raff_update_cb);
-static DECLARE_FOREACH_CB_FUN(put_back_cb);
-static DECLARE_FOREACH_CB_FUN(clan_item_update_cb);
 static void	print_resetmsg(AREA_DATA *pArea);
 
 static
@@ -1162,10 +1160,44 @@ UPDATE_FUN(raffect_update)
 
 UPDATE_FUN(clan_update)
 {
+	clan_t *clan;
+
 	if (time_info.hour != 0)
 		return;
 
-	c_foreach(&clans, clan_item_update_cb);
+	C_FOREACH(clan, &clans) {
+		OBJ_DATA *obj;
+
+		if (clan->obj_ptr == NULL)
+			continue;
+
+		if (IS_AUCTIONED(clan->obj_ptr))
+			continue;
+
+		if (clan->altar_ptr == NULL) {
+			log(LOG_BUG,
+			    "clan_item_update_cb: clan %s: no altar_ptr",
+			    clan->name);
+			continue;
+		}
+
+		for (obj = clan->obj_ptr; obj->in_obj; obj = obj->in_obj)
+			;
+
+		/*
+		 * do not move clan items which are in altars
+		 */
+		if (obj->in_room != NULL) {
+			clan_t *clan2;
+
+			C_FOREACH(clan2, &clans) {
+				if (obj->in_room->vnum == clan2->altar_vnum)
+					continue;
+			}
+		}
+
+		obj_to_obj(clan->obj_ptr, clan->altar_ptr);
+	}
 }
 
 UPDATE_FUN(song_update)
@@ -1913,51 +1945,6 @@ FOREACH_CB_FUN(raff_update_cb, vo, ap)
 {
 	ROOM_INDEX_DATA *room = va_arg(ap, ROOM_INDEX_DATA *);
 	check_events(vo, room->affected, EVENT_ROOM_UPDATE);
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(put_back_cb, p, ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
-
-	if (obj->in_room->vnum == clan->altar_vnum)
-		return p;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(clan_item_update_cb, p, ap)
-{
-	clan_t *clan = (clan_t *) p;
-
-	OBJ_DATA *obj;
-
-	if (clan->obj_ptr == NULL)
-		return NULL;
-
-	if (IS_AUCTIONED(clan->obj_ptr))
-		return NULL;
-
-	if (clan->altar_ptr == NULL) {
-		log(LOG_BUG, "clan_item_update_cb: clan %s: no altar_ptr", clan->name);
-		return NULL;
-	}
-
-	for (obj = clan->obj_ptr; obj->in_obj; obj = obj->in_obj)
-		;
-
-	/*
-	 * do not move clan items which are in altars
-	 */
-	if (obj->in_room
-	&&  c_foreach(&clans, put_back_cb, obj) != NULL)
-		return NULL;
-
-	obj_to_obj(clan->obj_ptr, clan->altar_ptr);
 	return NULL;
 }
 
