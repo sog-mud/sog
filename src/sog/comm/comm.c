@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.5 1998-04-17 09:45:03 fjoe Exp $
+ * $Id: comm.c,v 1.6 1998-04-17 11:27:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -1326,7 +1326,7 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
             else if (percent >= 50)
                 sprintf(wound, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch->i_lang));
             else if (percent >= 30)
-                sprintf(wound, msg(INFO_IS_GUSHING_BLOOD, ch->i_lang));
+                sprintf(wound, msg(ch->sex == SEX_FEMALE ? INFO_IS_GUSHING_BLOOD_F : INFO_IS_GUSHING_BLOOD_M, ch->i_lang));
             else if (percent >= 15)
                 sprintf(wound, msg(INFO_IS_WRITHING_IN_AGONY, ch->i_lang));
             else if (percent >= 0)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.6 1998-04-16 14:29:28 efdi Exp $
+ * $Id: act_info.c,v 1.7 1998-04-17 11:27:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -151,7 +151,7 @@ char *format_obj_to_char( OBJ_DATA *obj, CHAR_DATA *ch, bool fShort )
 
 	if (obj->pIndexData->vnum > 5)	/* money, gold, etc */
 		sprintf(buf_con," [{g%s{x]",
-		get_cond_alias(obj));
+		get_cond_alias(obj, ch));
 
 	if ((fShort && (obj->short_descr == NULL || obj->short_descr[0] == '\0'))
 	||  (obj->description == NULL || obj->description[0] == '\0'))
@@ -605,7 +605,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
             else if (percent >= 50)
                 sprintf(buf, msg(INFO_IS_COVERED_WITH_BLEEDING_WOUNDS, ch->i_lang));
             else if (percent >= 30)
-                sprintf(buf, msg(INFO_IS_GUSHING_BLOOD, ch->i_lang));
+                sprintf(buf, msg(ch->sex == SEX_FEMALE ? INFO_IS_GUSHING_BLOOD_F : INFO_IS_GUSHING_BLOOD_M, ch->i_lang));
             else if (percent >= 15)
                 sprintf(buf, msg(INFO_IS_WRITHING_IN_AGONY, ch->i_lang));
             else if (percent >= 0)
@@ -634,7 +634,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
 				msg(where_name[iWear], ch->i_lang), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
@@ -651,7 +651,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
 				msg(where_name[iWear], ch->i_lang), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
@@ -669,7 +669,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
 				msg(where_name[iWear], ch->i_lang), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
@@ -688,7 +688,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 		act( "$N is using:", ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
-	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s\n\r", 
+	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
 				msg(where_name[iWear], ch->i_lang), 
 				format_obj_to_char(obj, ch, TRUE));
 	}
@@ -1971,7 +1971,7 @@ void do_count ( CHAR_DATA *ch, char *argument )
 
 void do_inventory( CHAR_DATA *ch, char *argument )
 {
-	send_to_char( "You are carrying:\n\r", ch );
+	send_to_char( msg(INFO_YOU_ARE_CARRYING, ch->i_lang), ch );
 	show_list_to_char( ch->carrying, ch, TRUE, TRUE );
 	return;
 }
@@ -3336,7 +3336,7 @@ void do_score( CHAR_DATA *ch, char *argument )
 		IS_NPC(ch) ? 0 : ch->pcdata->nextquest);
     send_to_char(buf, ch);
     sprintf( buf, 
-"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :   {x%4d       {G|{x\n\r",
+"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :  {x%4d       {G|{x\n\r",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" : 
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
@@ -3344,7 +3344,7 @@ void do_score( CHAR_DATA *ch, char *argument )
 		ch->class == 9 ? ch->pcdata->death : ch->wimpy);
 	send_to_char(buf, ch);
 
-	sprintf(buf, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-21s {G|{x\n\r",		
+	sprintf(buf, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",		
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		msg(INFO_YOU_ARE, ch->i_lang ),
 		msg(pos_name[ch->sex == SEX_FEMALE ? ch->position+9 : ch->position], ch->i_lang));
@@ -3906,19 +3906,19 @@ void do_lion_call( CHAR_DATA *ch, char *argument )
 }
 
 /* object condition aliases */
-char *get_cond_alias( OBJ_DATA *obj)
+char *get_cond_alias( OBJ_DATA *obj, CHAR_DATA *ch )
 {
  char *stat;
  int istat;
 
  istat = obj->condition;
 
- if      ( istat >  99 ) stat = "excellent";
- else if ( istat >= 80 ) stat = "good";
- else if ( istat >= 60 ) stat = "fine";
- else if ( istat >= 40 ) stat = "average";
- else if ( istat >= 20 ) stat = "poor";
- else                    stat = "fragile";
+ if      ( istat >  99 ) stat = msg(INFO_COND_EXCELLENT, ch->i_lang); 
+ else if ( istat >= 80 ) stat = msg(INFO_COND_GOOD, ch->i_lang); 
+ else if ( istat >= 60 ) stat = msg(INFO_COND_FINE, ch->i_lang);
+ else if ( istat >= 40 ) stat = msg(INFO_COND_AVERAGE, ch->i_lang);
+ else if ( istat >= 20 ) stat = msg(INFO_COND_POOR, ch->i_lang);
+ else                    stat = msg(INFO_COND_FRAGILE, ch->i_lang);
 
  return stat;
 }
@@ -4349,6 +4349,7 @@ void do_who( CHAR_DATA *ch, char *argument )
 	nMatch = 0;
 	buf[0] = '\0';
 	output[0] = '\0';
+	act(" ", ch, NULL, NULL, TO_CHAR);
 	for ( d = descriptor_list; d != NULL; d = d->next )
 	{
 	CHAR_DATA *wch;

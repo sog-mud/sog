@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.4 1998-04-16 14:29:28 efdi Exp $
+ * $Id: act_comm.c,v 1.5 1998-04-17 11:27:02 efdi Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,7 @@
 #include "db.h"
 #include "tables.h"
 #include "interp.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -70,7 +71,20 @@ int lang_lookup		args( (const char *name ) );
 
 void do_i_lang( CHAR_DATA *ch, char *argument)
 {
-	ch->i_lang = atoi( argument );
+	if( *argument == '\0' ) {
+		act_printf(ch, NULL, NULL, TO_CHAR, 0, 
+			msg(COMM_SHOW_LANGUAGE, ch->i_lang),
+			ch->i_lang ? "russian" : "english");
+		return;
+	}
+	if( !strncmp("russian", argument, strlen(argument)) ) {
+		ch->i_lang = 1;
+		act(msg(COMM_SWITCH_TO_RUSSIAN, ch->i_lang), ch, NULL, NULL, TO_CHAR);
+	} else if( !strncmp("english", argument, strlen(argument)) ) {
+		ch->i_lang = 0;
+		act(msg(COMM_SWITCH_TO_ENGLISH, ch->i_lang), ch, NULL, NULL, TO_CHAR);
+	} else
+		act(msg(COMM_LANGUAGE_USAGE, ch->i_lang), ch, NULL, NULL, TO_CHAR);
 }
 
 /* RT code to delete yourself */

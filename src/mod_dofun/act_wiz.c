@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.2 1998-04-14 08:54:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.3 1998-04-17 11:27:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -1817,7 +1817,7 @@ void do_ostat( CHAR_DATA *ch, char *argument )
     strcat( buf, "\n\r" );
     send_to_char( buf, ch );
     sprintf(buf,"Damage condition : %d (%s) ", obj->condition,
-			get_cond_alias(obj) );	
+			get_cond_alias(obj, ch) );	
     send_to_char(buf,ch);
     send_to_char("\n\r",ch);
     return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.3 1998-04-14 11:36:16 efdi Exp $
+ * $Id: act_obj.c,v 1.4 1998-04-17 11:27:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -77,6 +77,7 @@ CD *	find_keeper	args( (CHAR_DATA *ch ) );
 int	get_cost	args( (CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy ) );
 void 	obj_to_keeper	args( (OBJ_DATA *obj, CHAR_DATA *ch ) );
 OD *	get_obj_keeper	args( (CHAR_DATA *ch,CHAR_DATA *keeper,char *argument));
+void	do_sacr		args( (CHAR_DATA *ch, char *argument) );
 
 #undef OD
 #undef CD
