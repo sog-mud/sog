@@ -4,7 +4,7 @@ VNUMs 34400 34499
 Credits Askold~
 Security 7
 LevelRange 0 0
-Flags closed~
+Flags closed update_frequently~
 End
 
 #MOBILES
@@ -59,6 +59,35 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#34404
+warderer странник saule~
+@eng the warderer@rus странник~
+@eng The warderer looks at you smiling.
+@rus Странник (wanderer), улыбаясь, глядит на тебя.
+~
+@eng He is cloaked well and you can't see his face.
+@rus Он закутан в темный плащ и ты не можешь разглядеть его лица.
+~
+dragon~
+Aef DEFHNOUVYc 0 0
+150 250 1d1+28000 1d1+25000 50d60+100 kiss
+-66 -66 -66 -66
+CDEFHIKNO ABCDU 0 0
+stand stand male 10000
+0 0 huge unknown
+M speech 34413 transfer~
+M speech 34413 перенос~
+M speech 34413 перенести~
+M speech 34413 perenos~
+M speech 34414 ancient knowledge~
+M speech 34414 knowledge~
+M speech 34414 древнее знание~
+M speech 34414 знание~
+M speech 34414 drevnee znanie~
+M speech 34414 znanie~
+M speech 34414 quest~
+M speech 34414 квест~
+M speech 34415 *.*~
 #34405
 master undead повелитель~
 @eng Master of Undead@rus ~~Повелитель~~ Нечисти~
@@ -104,6 +133,11 @@ CDEFHIKNO ABCDU 0 0
 stand stand male 0
 0 0 huge unknown
 F for H
+M exall 34410 north~
+M speech 34411 raduga~
+M speech 34411 радуга~
+M speech 34411 rainbow~
+M speech 34412 *.*~
 #0
 
 #OBJECTS
@@ -151,6 +185,15 @@ drink RYa AP
 -1 -1 'cranberry juice' 0 0
 1 10 -1 P
 G female
+#34403
+recycle bin recycle-bin grey altar serre алтарь корзина мусорная серая серрая~
+@eng {bgrey {Dbin{x@rus {b~~серрая~~ {D~~мусорка~~{x~
+@eng Grey bin is awaiting for your trash.@rus Серрая корзина для мусора (bin) установлена для игры.~
+plastic~
+container CERTYi 0
+65 B 0 40 100
+1 13 13 P
+G male
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
@@ -257,6 +300,69 @@ A
 F I 18 10 M
 F A 19 10 c
 G female
+#34414
+key scarlet алый ключ~
+@eng {Rthe scarlet key{x@rus {R~~алый~~ ~~ключ{x~
+@eng A small scarlet key lies here.@rus Маленький алый ключик (key) лежит здесь.~
+silver~
+key 0 AO
+0 0 0 0 0
+1 1 100 P
+G male
+#34415
+key orange оранжевый ключ~
+@eng {ythe orange key{x@rus {y~~оранжевый~~ ~~ключ~~{x~
+@eng A small orange key lies here.@rus Маленький оранжевый ключик (key) лежит здесь.~
+silvery~
+key 0 AO
+0 0 0 0 0
+1 1 100 P
+G none
+#34416
+key yellow желтый ключ~
+@eng {Ythe yellow key{x@rus {Y~~желтый~~ ~~ключ~~{x~
+@eng A small yellow key lies here.@rus Маленький желтый ключик (key) лежит здесь.~
+silvery~
+key 0 AO
+0 0 0 0 0
+1 1 100 P
+G male
+#34417
+key green ключ зеленый~
+@eng {gthe green key{x@rus {g~~зеленый~~ ~~ключ~~{x~
+@eng A small green key lies here.@rus Маленький зеленый ключ (key) лежит здесь.~
+silvery~
+key 0 AO
+0 0 0 0 0
+1 1 100 P
+G male
+#34418
+key cyan ключ голубой~
+@eng {Cthe light-blue key{x@rus {C~~голубой~~ ~~ключ~~{x~
+@eng A small cyan key lies here.@rus Маленький голубой ключ (key) лежит здесь.~
+silvery~
+key 0 AO
+0 0 0 0 0
+1 1 100 P
+G male
+#34419
+key blue синий ключ~
+@eng {Bthe blue key{x@rus {B~~синий~~ ~~ключ~~{x~
+@eng A small blue key lies here.@rus Маленький синий ключ (key) лежит здесь.~
+silvery~
+key 0 AO
+0 0 0 0 0
+1 1 100 P
+G male
+#34420
+key violet фиолетовый ключ~
+@eng {mthe violet key{x@rus {m~~фиолетовый~~ ~~ключ~~{x~
+@eng A small violet key lies here.@rus Маленький фиолетовый ключ (key) лежит здесь.~
+silvery~
+key 0 0
+0 0 0 0 0
+1 1 100 P
+G male
 #34449
 mace дубина~
 @eng wooden mace@rus ~~массивная~~ ~~дубина~~~
@@ -462,7 +568,7 @@ altar алтарь~
 @eng White stone altar is here.@rus Алтарь (altar) из белого камня предстал твоему взору.~
 magic~
 container AGIRTi 0
-500 E 0 10 100
+500 E 0 65 100
 0 10 0 P
 G male
 #34463
@@ -586,6 +692,117 @@ tablet табличка~
 @rus Табличка с выгравированным на ней символом 'Г'.
 ~
 G female
+#34472
+amulet winds амулет ветров~
+@eng {cAmulet of the Winds{x@rus {c~~амулет~~ ветров{x~
+@eng Strange, but beautiful amulet lies here forgotten.@rus Странный, но очень красивый амулет (amulet) кем-то забыт здесь.~
+silvery~
+treasure 0 AC
+0 0 0 0 0
+1 1 15000 P
+F A 0 0 t
+F A 0 0 F
+F A 0 0 l
+F A 0 0 D
+F R 0 0 D
+F R 0 0 C
+G male
+#34473
+amulet winds амулет ветров~
+@eng Amulet of the Winds@rus ~~амулет~~ ветров~
+@eng Strange, but beautiful amulet lies here forgotten.@rus Странный, но очень красивый амулет (amulet) кем-то забыт здесь.~
+silvery~
+treasure 0 AC
+0 0 0 0 0
+1 1 5000 P
+A
+19 5
+A
+13 10
+A
+20 -10
+G male
+#34474
+portal портал~
+@eng portal@rus портал~
+@eng Portal to nowhere appears before you.@rus Портал (portal) в никуда появился перед тобой.~
+nothing~
+portal 0 0
+A 0 0 34401 0
+0 1 100 P
+G male
+#34475
+door scarlet дверь алая portal портал~
+@eng scarlet door to unknown@rus ~~алая~~ ~~дверь~~ в неизвестность~
+@eng The scarlet door to unknown attracts and calls...@rus Алая дверь (door) в неизвестность манит и притягивает...~
+fire~
+portal 0 0
+0 0 0 0 0
+0 1 10 P
+G female
+#34476
+door дверь portal портал orange оранжевая~
+@eng orange door to unknown@rus ~~оранжевая~~ ~~дверь~~ в неизвестность~
+@eng The orange door to unknown attracts and calls...@rus Оранжевая дверь (door) в неизвестность манит и притягивает...~
+sunlight~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
+#34477
+door дверь portal портал orange оранжевая~
+@eng orange door to unknown@rus ~~оранжевая~~ ~~дверь~~ в неизвестность~
+@eng The orange door to unknown attracts and calls...@rus Оранжевая дверь (door) в неизвестность манит и притягивает...~
+sunlight~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
+#34478
+door дверь portal портал yellow желтая~
+@eng yellow door to unknown@rus ~~желтая~~ ~~дверь~~ в неизвестность~
+@eng The yellow door to unknown attracts and calls...@rus Желтая дверь (door) в неизвестность манит и притягивает...~
+sunlight~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
+#34479
+door дверь portal портал green зеленая~
+@eng green door to unknown@rus ~~зеленая~~ ~~дверь~~ в неизвестность~
+@eng The green door to unknown attracts and calls...@rus Зеленая дверь (door) в неизвестность манит и притягивает...~
+grass~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
+#34480
+door дверь portal портал light-blue голубая~
+@eng light-blue door to unknown@rus ~~голубая~~ ~~дверь~~ в неизвестность~
+@eng The light-blue door to unknown attracts and calls...@rus Голубая дверь (door) в неизвестность манит и притягивает...~
+cloud~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
+#34481
+door дверь portal портал blue синяя~
+@eng blue door to unknown@rus ~~синяя~~ ~~дверь~~ в неизвестность~
+@eng The blue door to unknown attracts and calls...@rus Синяя дверь (door) в неизвестность манит и притягивает...~
+water~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
+#34482
+door дверь portal портал violet фиолетовая~
+@eng violet door to unknown@rus ~~фиолетовая~~ ~~дверь~~ в неизвестность~
+@eng The violet door to unknown attracts and calls...@rus Фиолетовая дверь (door) в неизвестность манит и притягивает...~
+violet~
+portal 0 0
+0 0 0 0 0
+0 1 100 P
+G female
 #0
 
 #ROOMS
@@ -600,7 +817,7 @@ G female
 ягоды, по середине  -  журчит родник с кристальной чистой водой и
 маленький ручеек скрывается в глубине леса.
 ~
-0 C forest
+0 CT forest
 S
 #34401
 @eng Near the cave@rus Около входа в пещеру~
@@ -647,6 +864,7 @@ S
 #0
 
 #SPECIALS
+M 34404 spec_breath_any	* the warderer
 M 34405 spec_cast_undead	* Master of Undead
 M 34406 spec_breath_any	* the crystalline dragon
 S
@@ -659,7 +877,6 @@ O 0 34405 0 34400	* fallen tree ({GClearing in the woods{x)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{x)
 M 0 34406 1 34402 1	* the crystalline dragon (In the cave)
 O 0 34462 0 34403	* altar (Heart of the mountain)
-P 0 34463 1 34462 1	* altar: the magic scroll
 S
 
 #SHOPS
@@ -676,6 +893,77 @@ mob vforce 34405 yell Я уничтожу жизнь в этом мире!
 'Тебе хочется приобщится к величайшей мудрости тех, кто были до нас?
 'У меня есть лишь самая малая часть ключа, ведущего к тайнику...
 'И это все что я могу тебе дать. 
+~
+#34402
+mob oload 34464
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34403
+mob oload 34467
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34404
+mob oload 34465
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34405
+mob oload 34466
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34406
+mob oload 34468
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34407
+mob oload 34470
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34408
+mob oload 34471
+say Take this tablet. It's my part of the key.
+give tablet $n
+~
+#34409
+if mobexists saule
+else
+mob mload 34404
+endif
+if rand 75
+mob vforce 34404 mob goto 3014
+else
+if rand 50
+mob vforce 34404 mob goto 5381
+else
+mob vforce 34404 mob goto 9620
+endif
+endif
+~
+#34410
+say No pass.
+~
+#34411
+mob transfer $n 34403
+~
+#34412
+mob kill $n
+~
+#34413
+mob oload 34474
+say Are you sure? If so go through this portal.
+smile
+~
+#34414
+say Oh, it's easy. You must find part of the key and solve it.
+say When You will be ready find me and ask to transfer.
+~
+#34415
+say I know nothing about it.
 ~
 #0
 
