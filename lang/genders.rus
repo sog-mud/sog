@@ -3520,6 +3520,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name нем~
+BaseLen 1
+Form 1 -ей~
+Form 2 -ем~
+Form 3 -их~
+End
+
+#RULE
 Name желал~
 BaseLen 4
 Form 1 -ла~

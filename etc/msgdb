@@ -550,6 +550,8 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n grants you a new title!@rus $n $gn{пожаловал} тебе новый титул!~
 @eng $n grows back to $s normal size.@rus $n $gn{стал} своего нормального размера.~
 @eng $n hands {W$p{x to $N.@rus $n $gn{вручает} {W$p{x $c2{$N}.~
+@eng $n has arrived from $t, riding $I.@rus $n $gn{появился} $t верхом на $c5{$I}.~
+@eng $n has arrived from $t.@rus $n $gn{появился} $t.~
 @eng $n has arrived through $p, riding $N.@rus $n $gn{прибыл} из $c1{$p}, верхом на $c5{$N}.~
 @eng $n has arrived through $p.@rus $n $gn{появился} из $c1{$p}.~
 @eng $n has arrived through a gate.@rus $n $gn{появился} из врат.~
@@ -2825,7 +2827,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You can't rest on that.@rus Ты не можешь на этом отдыхать.~
 @eng You can't rest while being ridden.@rus Ты не можешь отдыхать оседланным.~
 @eng You can't rest while mounted.@rus Ты не можешь отдыхать верхом.~
-@eng You can't ride that.@rus На этом нельзя ездить верхом.~
+@eng You can't ride that.@rus На $gN{нем} нельзя ездить верхом.~
 @eng You can't see a thing!@rus Ты ничего не видишь!~
 @eng You can't see anything but stars!@rus Все, что ты видишь - звезды.~
 @eng You can't see anything, you're sleeping!@rus Ты сейчас спишь.~
