@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.105 1999-02-16 16:41:57 fjoe Exp $
+ * $Id: db.c,v 1.106 1999-02-16 20:26:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -541,8 +541,8 @@ void print_resetmsg(AREA_DATA *pArea)
 			act_puts("You hear some squeaking sounds...",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		else
-			act_mlputs(pArea->resetmsg,
-				   ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act_puts(mlstr_cval(pArea->resetmsg, ch),
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 }
 

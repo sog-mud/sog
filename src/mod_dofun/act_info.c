@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.197 1999-02-16 16:41:30 fjoe Exp $
+ * $Id: act_info.c,v 1.198 1999-02-16 20:25:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -302,8 +302,8 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	const char *msg = str_empty;
-	const char *title = str_empty;
-	void *arg = NULL;
+	const void *arg = NULL;
+	const void *arg3 = NULL;
 
 	if (is_affected(victim, gsn_doppelganger)
 	&&  (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)))
@@ -401,114 +401,116 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_IMMORTAL(victim))
 		char_puts("{W", ch);
+	else
+		char_puts("{x", ch);
 
-	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
-	&&  victim->position == POS_STANDING)
-		title = victim->pcdata->title;
-	
 	switch (victim->position) {
 	case POS_DEAD:
-		msg = "$N{x is {RDEAD!!{x";
+		msg = "$N {xis {RDEAD!!{x";
 		break;
 	
 	case POS_MORTAL:
-		msg = "$N{x is mortally wounded.";
+		msg = "$N {xis mortally wounded.";
 		break;
 	
 	case POS_INCAP:
-		msg = "$N{x is incapacitated.";
+		msg = "$N {xis incapacitated.";
 		break;
 	
 	case POS_STUNNED:
-		msg = "$N{x is lying here stunned.";
+		msg = "$N {xis lying here stunned.";
 		break;
 	
 	case POS_SLEEPING:
 		if (victim->on == NULL) {
-			msg = "$N{x is sleeping here.";
+			msg = "$N {xis sleeping here.";
 			break;
 		}
 	
 		arg = victim->on;
 		if (IS_SET(victim->on->value[2], SLEEP_AT))
-			msg = "$N{x is sleeping at $p.";
+			msg = "$N {xis sleeping at $p.";
 		else if (IS_SET(victim->on->value[2], SLEEP_ON))
-			msg = "$N{x is sleeping on $p.";
+			msg = "$N {xis sleeping on $p.";
 		else
-			msg = "$N{x is sleeping in $p.";
+			msg = "$N {xis sleeping in $p.";
 		break;
 	
 	case POS_RESTING:
 		if (victim->on == NULL) {
-			msg = "$N{x is resting here.";
+			msg = "$N {xis resting here.";
 			break;
 		}
 
 		arg = victim->on;
 		if (IS_SET(victim->on->value[2], REST_AT))
-			msg = "$N{x is resting at $p.";
+			msg = "$N {xis resting at $p.";
 		else if (IS_SET(victim->on->value[2], REST_ON))
-			msg = "$N{x is resting on $p.";
+			msg = "$N {xis resting on $p.";
 		else
-			msg = "$N{x is resting in $p.";
+			msg = "$N {xis resting in $p.";
 		break;
 	
 	case POS_SITTING:
 		if (victim->on == NULL) {
-			msg = "$N{x is sitting here.";
+			msg = "$N {xis sitting here.";
 			break;
 		}
 	
 		arg = victim->on;
 		if (IS_SET(victim->on->value[2], SIT_AT))
-			msg = "$N{x is sitting at $p.";
+			msg = "$N {xis sitting at $p.";
 		else if (IS_SET(victim->on->value[2], SIT_ON))
-			msg = "$N{x is sitting on $p.";
+			msg = "$N {xis sitting on $p.";
 		else
-			msg = "$N{x is sitting in $p.";
+			msg = "$N {xis sitting in $p.";
 		break;
 	
 	case POS_STANDING:
 		if (victim->on == NULL) {
+			if (!IS_NPC(victim)
+			&&  !IS_SET(ch->comm, COMM_BRIEF))
+				arg = victim->pcdata->title;
+	
 			if (MOUNTED(victim)) {
-				arg = MOUNTED(victim);
-				msg = "$N{x%s {xis here, riding $i.";
+				arg3 = MOUNTED(victim);
+				msg = "$N{x$t {xis here, riding $I.";
 			}
 			else
-				msg = "$N{x%s {xis here.";
+				msg = "$N{x$t {xis here.";
 			break;
 		}
 	
 		arg = victim->on;
 		if (IS_SET(victim->on->value[2],STAND_AT))
-			msg = "$N{x%s {xis standing at $p.";
+			msg = "$N {xis standing at $p.";
 		else if (IS_SET(victim->on->value[2],STAND_ON))
-			msg = "$N{x%s {xis standing on $p.";
+			msg = "$N {xis standing on $p.";
 		else
-			msg = "$N{x%s {xis standing here.";
+			msg = "$N {xis standing here.";
 		break;
 	
 	case POS_FIGHTING:
 		if (victim->fighting == NULL) {
 			arg = "thin air??";
-			msg = "$N{x {xis here, fighting with $t";
+			msg = "$N {xis here, fighting with $t";
 		}
 		else if (victim->fighting == ch) {
 			arg = "YOU!";
-			msg = "$N{x {xis here, fighting with $t";
+			msg = "$N {xis here, fighting with $t";
 		}
 		else if (victim->in_room == victim->fighting->in_room) {
 			arg = victim->fighting;
-			msg = "$N{x {xis here, fighting with $i";
+			msg = "$N {xis here, fighting with $i";
 		}
 		else {
 			arg = "someone who left??";
-			msg = "$N{x {xis here, fighting with $t";
+			msg = "$N {xis here, fighting with $t";
 		}
 		break;
 	}
 
-	act_printf(ch, arg, victim, TO_CHAR, POS_DEAD, msg, title);
+	act_puts3(msg, ch, arg, victim, arg3, TO_CHAR, POS_DEAD);
 }
 
 char* wear_loc_names[] =
@@ -1000,7 +1002,7 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 			break;
 		}
 
-		act_printf(ch, obj, NULL, TO_CHAR, POS_DEAD, "$p holds:");
+		act_puts("$p holds:", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		show_list_to_char(obj->contains, ch, TRUE, TRUE);
 		break;
 	}
@@ -1224,12 +1226,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	&&  pexit->keyword[0] != '\0'
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			act_printf(ch, NULL, pexit->keyword, TO_CHAR,
-				   POS_DEAD, "The $d is closed.");
+			act_puts("The $d is closed.",
+				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
 		}
 		else if (IS_SET(pexit->exit_info, EX_ISDOOR))
-			act_printf(ch, NULL, pexit->keyword, TO_CHAR,
-				   POS_DEAD, "The $d is open.");
+			act_puts("The $d is open.",
+				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -1423,18 +1425,14 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		    day_name[day % 7],
 		    day, suf, month_name[time_info.month]);
 
-	if (!IS_SET(ch->in_room->room_flags,ROOM_INDOORS) || IS_IMMORTAL(ch))
-		act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-			   "It's %s.",
-			   (time_info.hour>=5 && time_info.hour<9) ?
-						GETMSG("dawn", ch->lang) :
-			   (time_info.hour>=9 && time_info.hour<12) ?
-						GETMSG("morning", ch->lang) :
-			   (time_info.hour>=12 && time_info.hour<18) ?
-						GETMSG("mid-day", ch->lang) :
-			   (time_info.hour>=18 && time_info.hour<21) ?
-						GETMSG("evening", ch->lang) :
-			   GETMSG("night", ch->lang));
+	if (!IS_SET(ch->in_room->room_flags, ROOM_INDOORS) || IS_IMMORTAL(ch))
+		act_puts("It's $T.", ch, NULL,
+			(time_info.hour>=5 && time_info.hour<9) ?   "dawn"    :
+			(time_info.hour>=9 && time_info.hour<12) ?  "morning" :
+			(time_info.hour>=12 && time_info.hour<18) ? "mid-day" :
+			(time_info.hour>=18 && time_info.hour<21) ? "evening" :
+								    "night",
+			TO_CHAR | ACT_TRANS, POS_DEAD);
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -1980,9 +1978,10 @@ void do_where(CHAR_DATA *ch, const char *argument)
 				break;
 			}
 		}
-		if (!found)
-			act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD,
-				   "You didn't find any $T.");
+		if (!found) {
+			act_puts("You didn't find any $T.",
+				 ch, NULL, arg, TO_CHAR, POS_DEAD);
+		}
 	}
 }
 

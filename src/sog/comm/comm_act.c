@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.6 1999-02-16 16:41:55 fjoe Exp $
+ * $Id: comm_act.c,v 1.7 1999-02-16 20:25:58 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -44,11 +44,14 @@ static CHAR_DATA *	act_args(CHAR_DATA *ch, CHAR_DATA *vch,
 static bool		act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 				 int flags, int min_pos);
 static void		act_raw(CHAR_DATA *ch, CHAR_DATA *to,
-				const void *arg1, const void *arg2,
+				const void *arg1,
+				const void *arg2,
+				const void *arg3,
 				const char *str, int flags);
 
-void act_puts(const char *format, CHAR_DATA *ch,
-	      const void *arg1, const void *arg2, int flags, int min_pos)
+void act_puts3(const char *format, CHAR_DATA *ch,
+	       const void *arg1, const void *arg2, const void *arg3,
+	       int flags, int min_pos)
 {
 	CHAR_DATA *to;
 	CHAR_DATA *vch = (CHAR_DATA *) arg2;
@@ -59,45 +62,9 @@ void act_puts(const char *format, CHAR_DATA *ch,
 	for(; to ; to = to->next_in_room) {
 		if (act_skip(ch, vch, to, flags, min_pos))
 			continue;
-		act_raw(ch, to, arg1, arg2, GETMSG(format, to->lang), flags);
+		act_raw(ch, to, arg1, arg2, arg3,
+			GETMSG(format, to->lang), flags);
 	}
-}
-
-void act_mlputs(const mlstring *ml, CHAR_DATA *ch,
-	      const void *arg1, const void *arg2, int flags, int min_pos)
-{
-	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) arg2;
-
-	if ((to = act_args(ch, vch, flags, mlstr_mval(ml))) == NULL)
-		return;
-
-	for(; to ; to = to->next_in_room) {
-		if (act_skip(ch, vch, to, flags, min_pos))
-			continue;
-		act_raw(ch, to, arg1, arg2, mlstr_val(ml, to->lang), flags);
-	}
-}
-
-void act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2, int flags,
-		int min_pos, const char* format, ...)
-{
-	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) arg2;
-	va_list ap;
-
-	if ((to = act_args(ch, vch, flags, format)) == NULL)
-		return;
-
-	va_start(ap, format);
-	for(; to ; to = to->next_in_room) {
-		char buf[MAX_STRING_LENGTH];
-		if (act_skip(ch, vch, to, flags, min_pos))
-			continue;
-		vsnprintf(buf, sizeof(buf), GETMSG(format, to->lang), ap);
-		act_raw(ch, to, arg1, arg2, buf, flags);
-	}
-	va_end(ap);
 }
 
 /*----------------------------------------------------------------------------
@@ -224,12 +191,82 @@ static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 	return URANGE(0, ch->sex, SEX_MAX-1);
 }
 
+/*
+ * vch is (CHAR_DATA*) arg2
+ * vch1 is (CHAR_DATA*) arg1
+ * obj1 is (OBJ_DATA*) arg1
+ * obj2 is (OBJ_DATA*) arg2
+ *
+ * Known act_xxx format codes are:
+ *
+ * a
+ * A
+ * b
+ * B
+ * c - $cn{...} - case number ``n''
+ * C
+ * d - door name (arg2)
+ * D
+ * e - he_she(ch)
+ * E - he_she(vch)
+ * f
+ * F
+ * g - $gx{...} - gender form depending on sex of ``x'', where x is:
+ *	c - char
+ *	v - vch ((CHAR_DATA*) arg2)
+ *	t - to (char the message is being printed to)
+ * G
+ * h
+ * H
+ * i - name(vch1)
+ * I - name(vch3)
+ * j - num(arg1)
+ * J - num(arg3)
+ * k
+ * K
+ * l
+ * L
+ * m - him_her(ch)
+ * M - him_her(vch)
+ * n - name(ch)
+ * N - name(vch)
+ * o
+ * O
+ * p - name(obj1)
+ * P - name(obj2)
+ * q - $qx{...} - numeric form depending on ``x'' where x is:
+ *	j - num(arg1)
+ *	J - num(arg2)
+ * Q
+ * r - text(arg1)
+ * R - text(arg3)
+ * s - his_her(ch)
+ * S - his_her(vch)
+ * t - text(arg1)
+ * T - text(arg2)
+ * u
+ * U
+ * v
+ * V
+ * w
+ * W
+ * x
+ * X
+ * y
+ * Y
+ * z
+ * Z
+ *
+ */
 static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
-		    const void *arg1, const void *arg2,
+		    const void *arg1, const void *arg2, const void *arg3,
 		    const char *str, int flags)
 {
 	CHAR_DATA *	vch = (CHAR_DATA*) arg2;
 	CHAR_DATA *	vch1 = (CHAR_DATA*) arg1;
+	CHAR_DATA *	vch3 = (CHAR_DATA*) arg3;
+	int		num1 = (int) arg1;
+	int		num3 = (int) arg3;
 	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
 	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
 	char 		buf	[MAX_STRING_LENGTH];
@@ -258,7 +295,7 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			}
 
 			if (sp < TSTACK_SZ) {
-				const char *tr;
+				const char *tr = str_empty;
 
 				*point = '\0';
 
@@ -268,9 +305,13 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 								tstack[sp].arg);
 					break;
 
-				default:
+				case 'c':
 					tr = word_case(to->lang, tstack[sp].p,
 								tstack[sp].arg);
+					break;
+				case 'q':
+					tr = word_quantity(to->lang,
+						tstack[sp].p, tstack[sp].arg);
 					break;
 				}
 
@@ -301,7 +342,10 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	
 			case 't': 
 			case 'T':
-				i = code == 't' ? arg1 : arg2;
+			case 'r':
+			case 'R':
+				i = (code == 'R') ? arg3 :
+				    (code == 'T') ? arg2 : arg1;
 				if (IS_SET(flags, ACT_TRANS))
 					i = GETMSG(i, to->lang);
 				if (IS_SET(flags, ACT_STRANS))
@@ -320,9 +364,19 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				i = PERS(vch1, to);
 				break;
 
+			case 'I':
+				i = PERS(vch3, to);
+				break;
+
 			case 'j':
-				snprintf(tmp, sizeof(tmp), "%d", (int) arg1);
+				snprintf(tmp, sizeof(tmp), "%d", num1);
 				i = tmp;
+				break;
+
+			case 'J':
+				snprintf(tmp, sizeof(tmp), "%d", num3);
+				i = tmp;
+				break;
 
 			case 'e':
 				i = he_she[SEX(ch, to)];
@@ -371,6 +425,7 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 
 			case 'g':
 			case 'c':
+			case 'q':
 				if (*(s+1) != '{') {
 					log_printf("act_raw: '%s': "
 						   "syntax error", str);
@@ -388,29 +443,50 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				subcode = *s++;
 				s++;
 
-				if (code == 'c') {
-					tstack[sp].arg = subcode - '0';
-					continue;
-				}
-
-				switch (subcode) {
-				case 'v':
-					tstack[sp].arg = vch->sex;
-					break;
-
+				switch (code) {
 				case 'c':
-					tstack[sp].arg = ch->sex;
+					tstack[sp].arg = subcode - '0';
 					break;
 
-				case 't':
-					tstack[sp].arg = to->sex;
+				case 'g':
+					switch (subcode) {
+					case 'v':
+						tstack[sp].arg = vch->sex;
+						break;
+
+					case 'c':
+						tstack[sp].arg = ch->sex;
+						break;
+
+					case 't':
+						tstack[sp].arg = to->sex;
+						break;
+
+					default:
+						log_printf("act_raw: '%s': "
+							   "bad subcode '%c'",
+							   str, subcode);
+						sp--;
+						break;
+					}
 					break;
 
-				default:
-					log_printf("act_raw: '%s': "
-						   "bad subcode '%c'",
-						   str, subcode);
-					sp--;
+				case 'q':
+					switch(subcode) {
+					case 'j':
+						tstack[sp].arg = num1;
+						break;
+
+					case 'J':
+						tstack[sp].arg = num3;
+						break;
+					default:
+						log_printf("act_raw: '%s': "
+							   "bad subcode '%c'",
+							   str, subcode);
+						sp--;
+						break;
+					}
 					break;
 				}
 				continue;

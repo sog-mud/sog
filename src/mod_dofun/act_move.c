@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.139 1999-02-16 16:41:32 fjoe Exp $
+ * $Id: act_move.c,v 1.140 1999-02-16 20:25:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -194,9 +194,10 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			act("$n tries to pass through the $d, but $e fails.",
 			    ch, NULL, pexit->keyword, TO_ROOM);
 		}
-		else
-			act_printf(ch, NULL, pexit->keyword, TO_CHAR,
-				   POS_RESTING, "The $d is closed.");
+		else {
+			act_puts("The $d is closed.",
+				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
 
@@ -420,8 +421,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
 		&&  IS_NPC(fch)
 		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
-			act_printf(ch, NULL, fch, TO_CHAR, POS_DEAD,
-				   "You can't bring $N into the city.");
+			act_puts("You can't bring $N into the city.",
+				 ch, NULL, fch, TO_CHAR, POS_DEAD);
 			act("You aren't allowed in the city.",
 			    fch, NULL, NULL, TO_CHAR);
 			continue;
@@ -502,8 +503,8 @@ int find_exit(CHAR_DATA *ch, char *arg)
 	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
 	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
 	else {
-		act_printf(ch, NULL, arg, TO_CHAR, POS_DEAD,
-			   "I see no exit $T here.");
+		act_puts("I see no exit $T here.",
+			 ch, NULL, arg, TO_CHAR, POS_DEAD);
 		return -1;
 	}
 
@@ -2595,12 +2596,12 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act_printf(ch, NULL, victim, TO_CHAR, POS_SLEEPING,
-		   "You push $N to %s.", dir_name[door]);
-	act_printf(ch, NULL, victim, TO_VICT, POS_SLEEPING,
-		   "$n pushes you to %s.", dir_name[door]);
-	act_printf(ch, NULL, victim, TO_NOTVICT, POS_SLEEPING,
-		   "$n pushes $N to %s.", dir_name[door]);
+	act_puts("You push $N to $t.",
+		 ch, dir_name[door], victim, TO_CHAR | ACT_TRANS, POS_SLEEPING);
+	act_puts("$n pushes you to $t.",
+		 ch, dir_name[door], victim, TO_VICT | ACT_TRANS, POS_SLEEPING);
+	act("$n pushes $N to $t.",
+	    ch, dir_name[door], victim, TO_NOTVICT | ACT_TRANS);
 	move_char(victim, door, FALSE);
 
 	check_improve(ch, sn, TRUE, 1);
@@ -3115,18 +3116,19 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		          return FALSE;
 		        }
 		 }
- 	 pExit = dest_room->exit[ door ];
+		pExit = dest_room->exit[ door ];
 		 if (!pExit) break;
-		 else 
-		 {
-		  dest_room = pExit->u1.to_room;
-		  if (dest_room->people)
-			 act_printf(dest_room->people, arrow, NULL, TO_ALL,
-				    POS_RESTING,
-			 		"$p sails into the room from the %s!",
-					dir_name[rev_dir[door]]);
-		 }
+		else {
+			dest_room = pExit->u1.to_room;
+			if (dest_room->people) {
+			 	act("$p sails into the room from the $T!",
+				    dest_room->people, arrow,
+				    dir_name[rev_dir[door]],
+				    TO_ALL | ACT_TRANS);
+			}
+
 		}
+	}
 	return FALSE;
 }
 
@@ -3250,10 +3252,10 @@ DO_FUN(do_shoot)
 		chance -= 40;
 	chance += GET_HITROLL(ch);
 
-	act_printf(ch, arrow, NULL, TO_CHAR, POS_RESTING,
-		   "You shoot $p to %s.", dir_name[direction]);
-	act_printf(ch, arrow, NULL, TO_ROOM, POS_RESTING,
-		   "$n shoots $p to %s.", dir_name[direction]);
+	act_puts("You shoot $p to $T.",
+		 ch, arrow, dir_name[direction], TO_CHAR | ACT_TRANS, POS_DEAD);
+	act("$n shoots $p to $T.",
+	    ch, arrow, dir_name[direction], TO_ROOM | ACT_TRANS);
 
 	if (arrow->carried_by)
 		obj_from_char(arrow);
@@ -3387,10 +3389,10 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		chance -= 40;
 	chance += GET_HITROLL(ch);
 
-	act_printf(ch, spear, NULL, TO_CHAR, POS_RESTING,
-			"You throw $p to %s.", dir_name[ direction ]);
-	act_printf(ch, spear, NULL, TO_ROOM, POS_RESTING,
-			"$n throws $p to %s.", dir_name[ direction ]);
+	act_puts("You throw $p to $T.", 
+		 ch, spear, dir_name[direction], TO_CHAR, POS_DEAD);
+	act("$n throws $p to $T.",
+	    ch, spear, dir_name[direction], TO_ROOM | ACT_TRANS);
 
 	obj_from_char(spear);
 	success = send_arrow(ch,victim,spear,direction,chance,

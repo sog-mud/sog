@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.8 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: word.c,v 1.9 1999-02-16 20:26:04 fjoe Exp $
  */
 
 #include <limits.h>
@@ -137,6 +137,16 @@ const char *word_case(int lang, const char *word, int num)
 		return word;
 
 	return word_form_lookup(l->hash_cases, word, num);
+}
+
+const char *word_quantity(int lang, const char *word, int num)
+{
+	LANG_DATA *l = varr_get(&langs, lang);
+
+	if (l == NULL)
+		return word;
+
+	return word_form_lookup(l->hash_qtys, word, num % 10);
 }
 
 /* local functions */

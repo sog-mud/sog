@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.3 1999-02-12 18:14:37 fjoe Exp $
+ * $Id: comm_act.h,v 1.4 1999-02-16 20:25:58 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -47,12 +47,12 @@
 #define ACT_NOLF	(N)	/* do not append lf */
 
 #define act(format, ch, arg1, arg2, type) \
-		act_puts(format, ch, arg1, arg2, type, POS_RESTING)
-void    act_puts(const char *format, CHAR_DATA *ch,
-		 const void *arg1, const void *arg2, int flags, int min_pos);
-void    act_mlputs(const mlstring *ml, CHAR_DATA *ch,
-		   const void *arg1, const void *arg2, int flags, int min_pos);
-void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
-		   int flags, int min_pos, const char* format, ...);
+		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)
+#define act_puts(format, ch, arg1, arg2, type, min_pos)		\
+		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
+			  (type), (min_pos))
+void    act_puts3(const char *format, CHAR_DATA *ch,
+		  const void *arg1, const void *arg2, const void *arg3,
+		  int flags, int min_pos);
 
 #endif

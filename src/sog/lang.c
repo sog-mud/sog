@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.6 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: lang.c,v 1.7 1999-02-16 20:26:04 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -58,6 +58,9 @@ LANG_DATA *lang_new(void)
 		
 		lang->hash_cases[i].nsize = sizeof(WORD_DATA);
 		lang->hash_cases[i].nstep = 4;
+
+		lang->hash_qtys[i].nsize = sizeof(WORD_DATA);
+		lang->hash_qtys[i].nstep = 4;
 	}
 
 	return lang;

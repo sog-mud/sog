@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.117 1999-02-15 22:48:21 fjoe Exp $
+ * $Id: act_obj.c,v 1.118 1999-02-16 20:25:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"
+#include "db/word.h"
 
 DECLARE_DO_FUN(do_split		);
 DECLARE_DO_FUN(do_say		);
@@ -727,13 +728,15 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			victim->gold += amount;
 		}
 
-		act_printf(ch, silver ? "silver" : "gold", victim,
-			   TO_VICT | ACT_TRANS, POS_RESTING,
-			   "$n gives you %d $t.", amount);
+		act_puts3("$n gives you $J $t.",
+			  ch, silver ? "silver" : "gold", victim,
+			  (const void*) amount,
+			  TO_VICT | ACT_TRANS, POS_RESTING);
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
-		act_printf(ch, silver ? "silver" : "gold", victim,
-			   TO_CHAR | ACT_TRANS, POS_RESTING,
-			   "You give $N %d $t.", amount);
+		act_puts3("You give $N $J $t.",
+			  ch, silver ? "silver" : "gold", victim,
+			  (const void*) amount,
+			  TO_CHAR | ACT_TRANS, POS_DEAD);
 
 		/*
 		 * Bribe trigger
@@ -1000,12 +1003,13 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		char_puts("Your container is full.\n", ch);
 		return;
 	}
-	act_printf(ch, obj, fountain, TO_CHAR, POS_RESTING,
-		   "You fill $p with %s from $P.",
-		   liq_table[fountain->value[2]].liq_name);
-	act_printf(ch, obj, fountain, TO_ROOM, POS_RESTING,
-		   "$n fills $p with %s from $P.",
-		   liq_table[fountain->value[2]].liq_name);
+
+	act_puts3("You fill $p with $R from $P.",
+		   ch, obj, fountain, liq_table[fountain->value[2]].liq_name,
+		   TO_CHAR | ACT_TRANS, POS_DEAD);
+	act_puts3("$n fills $p with $R from $P.",
+		   ch, obj, fountain, liq_table[fountain->value[2]].liq_name,
+		   TO_ROOM | ACT_TRANS, POS_RESTING);
 	obj->value[2] = fountain->value[2];
 	obj->value[1] = obj->value[0];
 
@@ -1038,17 +1042,16 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		}
 		out->value[1] = 0;
 		out->value[3] = 0;
-		act_printf(ch, out, NULL, TO_CHAR, POS_RESTING,
-			   "You invert $p, spilling %s %s.",
-			   liq_table[out->value[2]].liq_name,
-			   IS_WATER(ch->in_room) ? "in to the water"
-			   : "all over the ground");
-
-		act_printf(ch, out, NULL, TO_ROOM, POS_RESTING,
-			   "$n inverts $p, spilling %s %s.",
-			   liq_table[out->value[2]].liq_name,
-			   IS_WATER(ch->in_room) ? "in to the water"
-			   : "all over the ground");
+		act_puts3("You invert $p, spilling $T $R.",
+			  ch, out, liq_table[out->value[2]].liq_name,
+			  IS_WATER(ch->in_room) ? "in to the water" :
+						  "all over the ground",
+			  TO_CHAR | ACT_TRANS, POS_DEAD);
+		act_puts3("$n inverts $p, spilling $T $R.",
+			  ch, out, liq_table[out->value[2]].liq_name,
+			  IS_WATER(ch->in_room) ? "in to the water" :
+						  "all over the ground",
+			  TO_ROOM | ACT_TRANS, POS_RESTING);
 		return;
 	}
 	if ((in = get_obj_here(ch, argument)) == NULL) {
@@ -1096,22 +1099,23 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	in->value[2] = out->value[2];
 
 	if (vch == NULL) {
-		act_printf(ch, out, in, TO_CHAR, POS_RESTING,
-			   "You pour %s from $p into $P.",
-			   liq_table[out->value[2]].liq_name);
-		act_printf(ch, out, in, TO_ROOM, POS_RESTING,
-			   "$n pours %s from $p into $P.",
-			   liq_table[out->value[2]].liq_name);
-	} else {
-		act_printf(ch, NULL, vch, TO_CHAR, POS_RESTING,
-			   "You pour some %s for $N.",
-			   liq_table[out->value[2]].liq_name);
-		act_printf(ch, NULL, vch, TO_VICT, POS_RESTING,
-			   "$n pours you some %s.",
-			   liq_table[out->value[2]].liq_name);
-		act_printf(ch, NULL, vch, TO_NOTVICT, POS_RESTING,
-			   "$n pours some %s for $N.",
-			   liq_table[out->value[2]].liq_name);
+		act_puts3("You pour $R from $p into $P.",
+			  ch, out, in, liq_table[out->value[2]].liq_name,
+			  TO_CHAR | ACT_TRANS, POS_DEAD);
+		act_puts3("$n pours $R from $p into $P.",
+			  ch, out, in, liq_table[out->value[2]].liq_name,
+			  TO_ROOM | ACT_TRANS, POS_RESTING);
+	}
+	else {
+		act_puts3("You pour some $R for $N.",
+			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
+			  TO_CHAR | ACT_TRANS, POS_DEAD);
+		act_puts3("$n pours you some $R.",
+			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
+			  TO_VICT | ACT_TRANS, POS_RESTING);
+		act_puts3("$n pours some $R for $N.",
+			  ch, NULL, vch, liq_table[out->value[2]].liq_name,
+			  TO_NOTVICT | ACT_TRANS, POS_RESTING);
 	}
 
 }
@@ -2672,15 +2676,16 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 	if (number > 1) {
-		act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-			   "$n buys $p[%d].", number);
-		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-			   "You buy $p[%d] for %d silver.",
-			   number, cost * number);
+		act_puts("$n buys $P[$j].",
+			 ch, (const void*) number, obj, TO_ROOM, POS_RESTING);
+		act_puts3("You buy $P[$j] for $J silver.",
+			  ch, (const void*) number,
+			  obj, (const void*) (cost*number),
+			  TO_CHAR, POS_DEAD);
 	} else {
-		act("$n buys $p.", ch, obj, NULL, TO_ROOM);
-		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-			   "You buy $p for %d silver.", cost);
+		act("$n buys $P.", ch, NULL, obj, TO_ROOM);
+		act_puts("You buy $P for $j silver.",
+			 ch, (const void*) cost, obj, TO_CHAR, POS_DEAD);
 	}
 
 	deduct_cost(ch, cost * number);
@@ -2838,18 +2843,19 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	silver = cost - (cost / 100) * 100;
 	gold = cost / 100;
 
-	if (gold && silver)
-		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-			   "You sell $p for %d gold and %d silver pieces.",
-			   gold, silver);
-	else if (gold)
-		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-			   "You sell $p for %d gold pieces%s.",
-			   gold, gold > 1 ? "s" : str_empty);
-	else if (silver)
-		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-			   "You sell $p for %d silver pieces%s.",
-			   silver, silver > 1 ? "s" : str_empty);
+	if (gold && silver) {
+		act_puts3("You sell $P for $j gold and $J silver $qJ{piece}.",
+			  ch, (const void*) gold, obj, (const void*) silver,
+			  TO_CHAR, POS_DEAD);
+	}
+	else if (gold) {
+		act_puts("You sell $P for $j gold $qj{piece}.",
+			 ch, (const void*) gold, obj, TO_CHAR, POS_DEAD);
+	}
+	else if (silver) {
+		act_puts("You sell $P for $j silver $qj{piece}.",
+			 ch, (const void*) silver, obj, TO_CHAR, POS_DEAD);
+	}
 	ch->gold += gold;
 	ch->silver += silver;
 	deduct_cost(keeper, cost);
@@ -2870,9 +2876,12 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 void do_value(CHAR_DATA * ch, const char *argument)
 {
 	char            arg[MAX_INPUT_LENGTH];
+	char		buf[MAX_STRING_LENGTH];
+	char		buf2[MAX_STRING_LENGTH];
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj;
 	int             cost;
+	int		silver;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -2900,12 +2909,15 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		act("$n looks uninterested in $p.", keeper, obj, ch, TO_VICT);
 		return;
 	}
-	act_printf(keeper, obj, ch, TO_VICT, POS_RESTING,
-		   "$n tells you '{GI'll give you %d silver and %d gold coins for $p.{x'",
-		   cost - (cost / 100) * 100, cost / 100);
-	ch->reply = keeper;
 
-	return;
+	silver = cost % 100;
+	strnzcpy(buf2, GETMSG("silver", ch->lang), sizeof(buf2));
+	snprintf(buf, sizeof(buf),
+		 "$n tells you '{GI'll give you %d %s and $J gold "
+		 "$qJ{coin} for $p.{x'",
+		 silver, word_quantity(ch->lang, buf2, silver));
+	act_puts3(buf2, keeper, obj, ch, (const void*) (cost / 100),
+		  TO_VICT, POS_DEAD);
 }
 
 void do_herbs(CHAR_DATA * ch, const char *argument)
@@ -3283,12 +3295,11 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 		numsteaks = number_bits(2) + 1;
 
 		if (numsteaks > 1) {
-			act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING,
-				   "$n butchers $p and creates %i steaks.",
-				   numsteaks);
-			act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
-				   "You butcher $p and create %i steaks.",
-				   numsteaks);
+			act("$n butchers $P and creates $j $qj{steak}.",
+			    ch, (const void*) numsteaks, obj, TO_ROOM);
+			act_puts("You butcher $P and create $j $qj{steak}.",
+				 ch, (const void*) numsteaks, obj,
+				 TO_CHAR, POS_DEAD);
 		} else {
 			act("$n butchers $p and creates a steak.",
 			    ch, obj, NULL, TO_ROOM);
