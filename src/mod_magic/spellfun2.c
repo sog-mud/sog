@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.121 1999-06-30 15:42:35 fjoe Exp $
+ * $Id: spellfun2.c,v 1.122 1999-07-05 12:47:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -1806,6 +1806,228 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 	act("A golden aura surrounds $N.",ch,NULL,vch,TO_CHAR);
 
 	}
+}
+
+void spell_blue_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	int race;
+
+	if(IS_AFFECTED(ch, AFF_TURNED)) {
+		act("Return to your natural form first.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	race = rn_lookup("blue dragon");
+
+	ch->pcdata->form_name = "blue dragon";
+
+	act("$n turns $self into blue dragon.", ch, NULL, NULL, TO_ROOM);
+	act("You turn yourself into blue dragon.", ch, NULL, NULL, TO_CHAR);
+
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level 	= level;
+	af.duration	= level/10+8;
+	af.location	= APPLY_RACE;
+	af.modifier	= race;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_AFFECTS;
+	af.location	= APPLY_HIT;
+	af.modifier	= ch->max_hit/3;
+	af.bitvector	= AFF_FLYING|AFF_TURNED;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_SKILLS;
+	af.type		= gsn_enhanced_damage;
+	af.modifier	= 10 + level/20;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af);
+
+	ch->hit += ch->max_hit/3;
+}
+
+
+void spell_green_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	int race;
+
+	if(IS_AFFECTED(ch, AFF_TURNED)) {
+		act("Return to your natural form first.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	race = rn_lookup("green dragon");
+
+	ch->pcdata->form_name = "green dragon";
+
+	act("$n turns $self into green dragon.", ch, NULL, NULL, TO_ROOM);
+	act("You turn yourself into green dragon.", ch, NULL, NULL, TO_CHAR);
+
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level 	= level;
+	af.duration	= level/10+8;
+	af.location	= APPLY_RACE;
+	af.modifier	= race;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_AFFECTS;
+	af.location	= APPLY_HIT;
+	af.modifier	= ch->max_hit/5;
+	af.bitvector	= AFF_FLYING|AFF_TURNED;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_SKILLS;
+	af.type		= gsn_enhanced_damage;
+	af.modifier	= 7 + level/20;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af);
+
+	ch->hit += ch->max_hit/5;
+}
+
+void spell_white_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	int race;
+
+	if(IS_AFFECTED(ch, AFF_TURNED)) {
+		act("Return to your natural form first.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	race = rn_lookup("white dragon");
+
+	ch->pcdata->form_name = "white dragon";
+
+	act("$n turns $self into white dragon.", ch, NULL, NULL, TO_ROOM);
+	act("You turn yourself into white dragon.", ch, NULL, NULL, TO_CHAR);
+
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level 	= level;
+	af.duration	= level/10+8;
+	af.location	= APPLY_RACE;
+	af.modifier	= race;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_AFFECTS;
+	af.location	= APPLY_HIT;
+	af.modifier	= ch->max_hit/4;
+	af.bitvector	= AFF_FLYING|AFF_TURNED;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_SKILLS;
+	af.type		= gsn_enhanced_damage;
+	af.modifier	= 7 + level/20;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af);
+
+	ch->hit += ch->max_hit/4;
+}
+
+
+void spell_black_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	int race;
+
+	if(IS_AFFECTED(ch, AFF_TURNED)) {
+		act("Return to your natural form first.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	race = rn_lookup("black dragon");
+
+	ch->pcdata->form_name = "black dragon";
+
+	act("$n turns $self into black dragon.", ch, NULL, NULL, TO_ROOM);
+	act("You turn yourself into black dragon.", ch, NULL, NULL, TO_CHAR);
+
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level 	= level;
+	af.duration	= level/10+8;
+	af.location	= APPLY_RACE;
+	af.modifier	= race;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_AFFECTS;
+	af.location	= APPLY_HIT;
+	af.modifier	= ch->max_hit/4;
+	af.bitvector	= AFF_FLYING|AFF_TURNED;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_SKILLS;
+	af.type		= gsn_enhanced_damage;
+	af.modifier	= 7 + level/20;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af);
+
+	ch->hit += ch->max_hit/4;
+}
+
+void spell_red_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+	int race;
+
+	if(IS_AFFECTED(ch, AFF_TURNED)) {
+		act("Return to your natural form first.", 
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	race = rn_lookup("red dragon");
+
+	ch->pcdata->form_name = "red dragon";
+
+	act("$n turns $self into red dragon.", ch, NULL, NULL, TO_ROOM);
+	act("You turn yourself into red dragon.", ch, NULL, NULL, TO_CHAR);
+
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level 	= level;
+	af.duration	= level/10+8;
+	af.location	= APPLY_RACE;
+	af.modifier	= race;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_AFFECTS;
+	af.location	= APPLY_HIT;
+	af.modifier	= ch->max_hit/2;
+	af.bitvector	= AFF_FLYING|AFF_TURNED;
+	affect_to_char(ch, &af);
+	
+	af.location	= APPLY_DAMROLL;
+	af.modifier	= 5+level/10;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	af.where	= TO_SKILLS;
+	af.type		= gsn_enhanced_damage;
+	af.modifier	= 12 + level/20;
+	af.bitvector	= 0;
+
+	affect_to_char(ch, &af);
+
+	ch->hit += ch->max_hit/2;
 }
 
 void spell_dragonplate(int sn, int level, CHAR_DATA *ch, void *vo)	

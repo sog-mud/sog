@@ -7,4 +7,13 @@ Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 End
 
+
+#PCRACE
+Shortname BluDr
+BonusSkills 'bash', 'breath', 'berserk'~
+Size huge~
+Skill 'bash' 1
+Skill 'breath' 1
+Skill 'berserk' 1
+End
 #$

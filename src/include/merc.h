@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.222 1999-07-01 18:13:46 avn Exp $
+ * $Id: merc.h,v 1.223 1999-07-05 12:47:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -705,6 +705,7 @@ where_t *where_lookup(flag32_t where);
 #define AFF_QUESTTARGET		(vv)
 #define AFF_BLEND		(ww)	/* Forest blending */
 #define AFF_AWARENESS		(xx)	/* Detect blend and camouflage */
+#define AFF_TURNED		(yy)	/* Character is turned into other creature */
 /*
  * *AFF* bits for rooms
  */
@@ -1393,6 +1394,7 @@ struct pc_data
 	const char *		title;
 	const char *		twitlist;
 	const char *		granted;	/* granted wiz commands */
+	const char *		form_name;
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_penalty;

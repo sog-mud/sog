@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.80 1999-07-01 18:13:46 avn Exp $
+ * $Id: tables.c,v 1.81 1999-07-05 12:47:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -205,6 +205,7 @@ flag_t affect_flags[] =
 	{ "black_shroud",	AFF_BLACK_SHROUD,	TRUE	},
 	{ "blending",		AFF_BLEND,		TRUE	},
 	{ "detect_blend",	AFF_AWARENESS,		TRUE	},
+	{ "form_changed",	AFF_TURNED,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},
 
 	{ NULL }

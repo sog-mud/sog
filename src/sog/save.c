@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.122 1999-06-24 16:33:17 fjoe Exp $
+ * $Id: save.c,v 1.123 1999-07-05 12:47:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -300,6 +300,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 		fwrite_string(fp, "Bout", pcdata->bamfout);
 		fwrite_string(fp, "Titl", pcdata->title);
 		fwrite_string(fp, "WantedBy", pcdata->wanted_by);
+		if (pcdata->form_name)
+			fwrite_string(fp, "FormName", pcdata->form_name);
 		fprintf(fp, "Pnts %d\n", pcdata->points);
 		fprintf(fp, "TSex %d\n", pcdata->true_sex);
 		fprintf(fp, "LLev %d\n", pcdata->last_level);
@@ -1107,6 +1109,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("ExpTL", ch->exp_tl, fread_number(fp));
 			KEY("Etho", ch->ethos, (1 << (fread_number(fp)-1)));
 			KEY("Ethos", ch->ethos, fread_fword(ethos_table, fp));
+			break;
+		case 'F':
+			SKEY("FormName", ch->pcdata->form_name);
 			break;
 
 		case 'G':

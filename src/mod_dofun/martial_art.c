@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.105 1999-07-01 02:55:20 kostik Exp $
+ * $Id: martial_art.c,v 1.106 1999-07-05 12:47:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -426,6 +426,59 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 			  ch);
 		check_improve(ch, gsn_berserk, FALSE, 2);
 	}
+}
+
+void do_breath(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *victim;
+	int sn;
+	int chance;
+	char *spell;
+	int mana;
+
+	sn = sn_lookup("breath");
+	if ((chance=get_skill(ch, sn)) == 0) {
+		char_puts("Huh?", ch);
+		return;
+	}
+
+	if (!(victim=ch->fighting)) {
+		char_puts("You aren't fighting anyone.", ch);
+		return;
+	}
+
+	if (ch->race == rn_lookup("blue dragon")) 
+		spell = "lightning breath";
+	else if (ch->race == rn_lookup("red dragon"))
+		spell = "fire breath";
+	else if (ch->race == rn_lookup("white dragon"))
+		spell = "frost breath";
+	else if (ch->race == rn_lookup("black dragon"))
+		spell = "acid breath";
+	else if (ch->race == rn_lookup("green dragon"))
+		spell = "gas breath";
+	else {
+		act("You are not a dragon.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	mana = SKILL(sn)->min_mana;
+
+	if (ch->mana < mana) {
+		act("You do not have enough energy.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
+
+	if (number_percent() > chance) {
+		char_puts("You failed.", ch);
+		ch->mana -= mana/2;
+		check_improve(ch, sn, FALSE, 1);
+		return;
+	}
+	ch->mana -= mana;
+	SKILL(sn_lookup(spell))->fun(sn_lookup(spell), LEVEL(ch), ch, (void *) victim);
 }
 
 void do_bash(CHAR_DATA *ch, const char *argument)

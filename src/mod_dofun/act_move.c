@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.189 1999-07-02 12:24:21 fjoe Exp $
+ * $Id: act_move.c,v 1.190 1999-07-05 12:47:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -1569,9 +1569,10 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.where     = TO_AFFECTS;
 	af.location  = 0;
 	af.modifier  = 0;
-	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED;
+	af.bitvector = AFF_SNEAK | AFF_FLYING | AFF_INFRARED | AFF_TURNED;
 	affect_to_char(ch, &af);
-
+	
+	ch->pcdata->form_name="an ugly creature";
 	char_puts("You feel yourself getting greater and greater.\n", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
 }

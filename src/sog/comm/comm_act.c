@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.37 1999-07-02 12:24:24 fjoe Exp $
+ * $Id: comm_act.c,v 1.38 1999-07-05 12:47:46 kostik Exp $
  */
 
 #include <stdarg.h>
@@ -145,8 +145,8 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags)
 				return descr;
 			return fix_short(descr);
 		}
-		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker)) {
-			return word_form(GETMSG("an ugly creature",
+		else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(looker)) {
+			return word_form(GETMSG(ch->pcdata->form_name,
 						looker->lang),
 					 ch->sex, looker->lang, RULES_GENDER);
 		}
