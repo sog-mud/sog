@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.24 2001-08-14 16:06:42 fjoe Exp $
+# $Id: Makefile.inc,v 1.25 2001-08-14 16:29:26 fjoe Exp $
 #
 
 #
@@ -18,11 +18,11 @@ CFLAGS=		-O -pipe -Wall
 LDFLAGS=	-export-dynamic
 
 #
-# BDECFLAGS
-CFLAGS+=	-W -Wbad-function-cast -Wcast-align -Wcast-qual\
-		-Wchar-subscripts -Winline -Wmissing-prototypes\
-		-Wnested-externs -Wpointer-arith -Wredundant-decls\
-		-Wshadow -Wstrict-prototypes -Wwrite-strings
+# BDECFLAGS minus -Wconversion, -ansi and -pedantic
+CFLAGS+=	-W -Wbad-function-cast -Wcast-align\
+		-Wcast-qual -Wchar-subscripts -Winline\
+		-Wmissing-prototypes -Wnested-externs -Wpointer-arith\
+		-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
 CFLAGS+=	-Werror
 
 #

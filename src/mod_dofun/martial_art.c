@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.190 2001-08-14 16:06:51 fjoe Exp $
+ * $Id: martial_art.c,v 1.191 2001-08-14 16:29:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4759,7 +4759,8 @@ DO_FUN(do_surrender, ch, argument)
 	}
 }
 
-static inline bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
+static inline bool
+check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
 {
 	return (!IS_NPC(ch) && !IS_NPC(victim) &&
 		victim->position > POS_STUNNED && !fighting);

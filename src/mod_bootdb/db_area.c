@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.115 2001-08-14 16:06:47 fjoe Exp $
+ * $Id: db_area.c,v 1.116 2001-08-14 16:29:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -993,8 +993,8 @@ DBLOAD_FUN(load_mobiles)
 			break;
 
 		if (get_mob_index(vnum)) {
-			log(LOG_ERROR,
-			    "load_mobiles: vnum %d duplicated.", vnum);
+			log(LOG_ERROR, "load_mobiles: vnum %d duplicated.",
+			    vnum);
 			return;
 		}
 
@@ -1148,8 +1148,7 @@ DBLOAD_FUN(load_mobiles)
 				}
 			} else if (letter == 'C') {
 				if (!IS_NULLSTR(pMobIndex->clan)) {
-					log(LOG_ERROR,
-					    "load_mobiles: duplicate clan.");
+					log(LOG_ERROR, "load_mobiles: duplicate clan.");
 					return;
 				}
 				pMobIndex->clan = fread_strkey(
@@ -1190,8 +1189,7 @@ DBLOAD_FUN(load_mobiles)
 					REMOVE_BIT(pMobIndex->parts,
 					    fread_flags(fp));
 				else {
-					log(LOG_ERROR,
-					    "flag remove: flag not found.");
+					log(LOG_ERROR, "flag remove: flag not found.");
 					return;
 				}
 			} else if ( letter == 'M' ) {
@@ -1216,8 +1214,7 @@ DBLOAD_FUN(load_mobiles)
 			else if (letter == 'r') {   /* Resists */
 				int _res = fread_fword(dam_classes, fp);
 				if (_res < 0 || _res == DAM_NONE) {
-					log(LOG_ERROR,
-					    "load_mobiles: unknown resist name");
+					log(LOG_ERROR, "load_mobiles: unknown resist name");
 					fread_number(fp);
 				}
 				pMobIndex->resists[_res] = fread_number(fp);
