@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.89 2001-01-11 18:44:27 fjoe Exp $
+ * $Id: obj_prog.c,v 1.90 2001-01-11 21:43:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -994,7 +994,7 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	{
 	  if (number_percent() < 4)
 		{
-		  act("Your $p glows bright blue!\n",ch, obj, NULL, TO_CHAR);
+		  act("Your $p glows bright blue!",ch, obj, NULL, TO_CHAR);
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
 		  
 		  obj_cast_spell("cure critical", LEVEL(ch), ch, ch);
@@ -1002,7 +1002,7 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		}
 	  else if (number_percent() > 92)
 		{
-		  act("Your $p glows bright blue!\n",ch, obj, NULL, TO_CHAR);
+		  act("Your $p glows bright blue!",ch, obj, NULL, TO_CHAR);
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
 		  
 		  obj_cast_spell("cure serious", LEVEL(ch), ch, ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.227 2001-01-07 21:16:42 fjoe Exp $
+ * $Id: act_obj.c,v 1.228 2001-01-11 21:43:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,8 +89,8 @@ void do_get(CHAR_DATA * ch, const char *argument)
 
 	if (ch->shapeform &&
 	IS_SET(ch->shapeform->index->flags, FORM_NOGET)) {
-		act("You aren't able to take anything in this form.\n", 
-			ch, NULL, NULL, TO_CHAR);
+		act("You aren't able to take anything in this form.", 
+		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
@@ -1751,9 +1751,10 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
 			victim->position = victim->position == POS_SLEEPING ? POS_STANDING :
 				victim->position;
-			act("$n tried to steal from you.\n", ch, NULL, victim, TO_VICT);
+			act("$n tried to steal from you.",
+			    ch, NULL, victim, TO_VICT);
 		}
-		act("$n tried to steal from $N.\n", ch, NULL, victim, TO_NOTVICT);
+		act("$n tried to steal from $N.", ch, NULL, victim, TO_NOTVICT);
 
 		if (IS_AWAKE(victim)) {
 			const char *msg;
@@ -3698,8 +3699,7 @@ static bool put_obj(CHAR_DATA *ch, OBJ_DATA *container,
 		act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
 		act_puts("You put $p on $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
-	}
-	else {
+	} else {
 		act("$n puts $p in $P.", ch, obj, container, TO_ROOM);
 		act_puts("You put $p in $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);

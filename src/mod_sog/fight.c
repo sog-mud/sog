@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.284 2001-01-11 12:41:10 cs Exp $
+ * $Id: fight.c,v 1.285 2001-01-11 21:43:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -363,7 +363,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 							paf->modifier - old_mod;
 					}
 				}
-				act("$n's katana glows blue.\n",
+				act("$n's katana glows blue.",
 				    ch, NULL, NULL, TO_ROOM);
 				act_char("Your katana glows blue.", ch);
 			}

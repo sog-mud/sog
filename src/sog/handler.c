@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.273 2001-01-11 18:44:27 fjoe Exp $
+ * $Id: handler.c,v 1.274 2001-01-11 21:43:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3034,7 +3034,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		return FALSE;
 	}
 
-	if (ch->size > pexit->size) {
+	if (ch->size > pexit->size && !IS_IMMORTAL(ch)) {
 		act_puts("$d is too narrow for you to pass.",
 			ch, &pexit->short_descr, NULL, TO_CHAR, POS_DEAD);
 		act("$n tries to leave through $d, but almost stucks there.",
@@ -3526,11 +3526,25 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 			obj->timer = 0;
 		REMOVE_OBJ_STAT(obj, ITEM_HAD_TIMER);
 
-		act_puts("You get $p from $P.",
-			 ch, obj, container, TO_CHAR, POS_DEAD);
-		act(msg_others == NULL ? "$n gets $p from $P." : msg_others,
-		    ch, obj, container,
-		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+		/*
+		 * this cases differ only in order of parameters
+		 * this is needed for more correct translation
+		 */
+		if (IS_SET(INT(container->value[1]), CONT_PUT_ON)) {
+			act_puts("You get $P from $p.",
+				 ch, container, obj, TO_CHAR, POS_DEAD);
+			act(msg_others == NULL ?
+			    "$n gets $P from $p." : msg_others,
+			    ch, container, obj,
+			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+		} else {
+			act_puts("You get $p from $P.",
+				 ch, obj, container, TO_CHAR, POS_DEAD);
+			act(msg_others == NULL ?
+			    "$n gets $p from $P." : msg_others,
+			    ch, obj, container,
+			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+		}
 
 		obj_from_obj(obj);
 	} else {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.6 2000-10-29 20:46:16 fjoe Exp $
+ * $Id: objval.c,v 1.7 2001-01-11 21:43:18 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -60,7 +60,8 @@ void objval_init(flag_t item_type, vo_t *v)
 		v[2].s = str_empty;
 		INT(v[3]) = 0;
 		INT(v[4]) = 0;
-		
+		break;
+
 	case ITEM_WEAPON:
 	case ITEM_STAFF:
 	case ITEM_WAND:
@@ -78,6 +79,7 @@ void objval_init(flag_t item_type, vo_t *v)
 		for (i = 1; i < 5; i++)
 			v[i].s = str_empty;
 		break;
+
 	case ITEM_BOOK:
 		INT(v[0]) = 0;
 		v[1].s = str_empty;
@@ -911,4 +913,3 @@ int objval_set(BUFFER *output, flag_t item_type, vo_t *v,
 
 	return 0;
 }
-

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.246 2001-01-07 17:52:33 fjoe Exp $
+ * $Id: act_move.c,v 1.247 2001-01-11 21:43:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2952,7 +2952,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 			else {
-				act("$n cannot hold $s $N.\n",
+				act("$n cannot hold $s $N.",
 				    ch, dir_name[direction], ch->mount, TO_NOTVICT);
 				act("You cannot hold your $N.",
 				    ch, NULL, ch->mount, TO_CHAR);

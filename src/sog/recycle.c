@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.107 2000-10-21 18:15:50 fjoe Exp $
+ * $Id: recycle.c,v 1.108 2001-01-11 21:43:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -636,6 +636,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
 
 	pObj->name		= str_dup(str_empty);
 	pObj->item_type		= ITEM_TRASH;
+	objval_init(pObj->item_type, pObj->value);
 	pObj->material		= str_dup("unknown");
 	pObj->condition		= 100;
 	pObj->limit		= -1;

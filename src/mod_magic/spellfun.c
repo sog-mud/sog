@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.225 2000-11-23 15:46:57 fjoe Exp $
+ * $Id: spellfun.c,v 1.226 2001-01-11 21:43:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -813,9 +813,8 @@ void spell_cure_blindness(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	if (check_dispel(level, victim, "blindness")) {
 		act_char("Your vision returns!", victim);
 		act("$n is no longer blinded.",victim,NULL,NULL,TO_ROOM);
-	}
-	else
-		act_char("Spell failed.", ch);
+	} else
+		act_char("Your god doesn't hear you.", ch);
 }
 
 void spell_cure_critical(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -838,16 +837,19 @@ void spell_cure_disease(const char *sn, int level, CHAR_DATA *ch,void *vo)
 
 	if (!is_affected(victim, "plague")) {
 		if (victim == ch)
-		  act_char("You aren't ill.", ch);
-		else
-		  act("$N doesn't appear to be diseased.",ch,NULL,victim,TO_CHAR);
+			act_char("You aren't ill.", ch);
+		else {
+			act("$N doesn't appear to be diseased.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	if (check_dispel(level, victim, "plague"))
-		act("$n looks relieved as $s sores vanish.",victim,NULL,NULL,TO_ROOM);
-	else
-		act_char("Spell failed.", ch);
+	if (check_dispel(level, victim, "plague")) {
+		act("$n looks relieved as $s sores vanish.",
+		    victim, NULL, NULL, TO_ROOM);
+	} else
+		act_char("Your god doesn't hear you.", ch);
 }
 
 void spell_cure_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -869,19 +871,19 @@ void spell_cure_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (!is_affected(victim, "poison")) {
 		if (victim == ch)
-		  act_char("You aren't poisoned.", ch);
-		else
-		  act("$N doesn't appear to be poisoned.",ch,NULL,victim,TO_CHAR);
+			act_char("You aren't poisoned.", ch);
+		else {
+			act("$N doesn't appear to be poisoned.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
-	if (check_dispel(level, victim, "poison"))
-	{
+	if (check_dispel(level, victim, "poison")) {
 		act_char("A warm feeling runs through your body.", victim);
 		act("$n looks much better.",victim,NULL,NULL,TO_ROOM);
-	}
-	else
-		act_char("Spell failed.", ch);
+	} else
+		act_char("Your god doesn't hear you.", ch);
 }
 
 void spell_cure_serious(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -2541,7 +2543,7 @@ void spell_infravision(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	act_char("Your eyes glow red.", victim);
-	act("$n's eyes glow red.\n", ch, NULL, NULL, TO_ROOM);
+	act("$n's eyes glow red.", ch, NULL, NULL, TO_ROOM);
 
 	af.where	= TO_DETECTS;
 	af.type		= sn;
@@ -2841,11 +2843,18 @@ void spell_plague(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (saves_spell(level,victim,DAM_DISEASE) ||
-		(IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD)))
-	{
-		if (ch->in_room == victim->in_room)
-		  act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
+	if (saves_spell(level, victim, DAM_DISEASE)
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
+		if (ch->in_room != victim->in_room)
+			return;
+
+		if (ch == victim) {
+			act("You seem to be unaffected.",
+			    ch, NULL, victim, TO_CHAR);
+		} else {
+			act("$N seems to be unaffected.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
@@ -3612,7 +3621,7 @@ void spell_word_of_recall(const char *sn, int level, CHAR_DATA *ch,void *vo)
 	if (IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(victim, AFF_CURSE)
 	||  IS_AFFECTED(victim->in_room, RAFF_CURSE)) {
-		act_char("Spell failed.", victim);
+		act_char("Your god doesn't hear you.", ch);
 		return;
 	}
 
@@ -4313,12 +4322,13 @@ void spell_corruption(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_IMMORTAL(victim)
 	||  saves_spell(level, victim, DAM_NEGATIVE)
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
-		if (ch == victim)
+		if (ch == victim) {
 			act_puts("You feel momentarily ill, but it passes.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		else
+		} else {
 			act_puts("$N seems to be unaffected.",
 				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
 

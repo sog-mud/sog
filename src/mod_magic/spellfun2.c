@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.201 2001-01-07 21:16:44 fjoe Exp $
+ * $Id: spellfun2.c,v 1.202 2001-01-11 21:43:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2515,7 +2515,7 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 		chance = URANGE(5, get_skill(ch, sn)+(level-obj->level)*7, 95);
 		if (number_percent() > chance) {
-			act_puts("You failed and destroyed it.\n",
+			act_puts("You failed and destroyed it.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n tries to animate $p, but fails and destroys it.",
 			    ch, obj, NULL, TO_ROOM);
@@ -2833,6 +2833,7 @@ inspire_cb(void *vo, va_list ap)
 {
 	CHAR_DATA *gch = (CHAR_DATA *) vo;
 
+	const char *sn = va_arg(ap, const char *);
 	int level = va_arg(ap, int);
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	AFFECT_DATA af;
@@ -2854,7 +2855,8 @@ inspire_cb(void *vo, va_list ap)
 		return NULL;
 	}
 
-	af.type		= "bless";
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
 	af.level	= level;
 	af.duration	= level + 6;
 	INT(af.location)= APPLY_HITROLL;
@@ -2878,7 +2880,7 @@ inspire_cb(void *vo, va_list ap)
 
 void spell_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
-	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, level, ch);
+	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, sn, level, ch);
 }
 
 static void *
@@ -4310,43 +4312,42 @@ void spell_adamantite_golem(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_sanctify_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
-	if (number_bits(1) == 0)
-	{
-	  act_char("You failed.", ch);
-	  return;
+	if (number_bits(1) == 0) {
+		act_char("You failed.", ch);
+		return;
 	}
 
-	if (is_affected_room(ch->in_room, "cursed lands"))
-	{
-	 affect_strip_room(ch->in_room, "cursed lands");
-	 act_char("The curse of the land wears off.", ch);
-	 act("The curse of the land wears off.\n", ch, NULL, NULL, TO_ROOM);
+	if (is_affected_room(ch->in_room, "cursed lands")) {
+		affect_strip_room(ch->in_room, "cursed lands");
+		act_char("The curse of the land wears off.", ch);
+		act("The curse of the land wears off.",
+		    ch, NULL, NULL, TO_ROOM);
 	}
-	if (is_affected_room(ch->in_room, "deadly venom"))
-	{
-	 affect_strip_room(ch->in_room, "deadly venom");
-	 act_char("The land seems more healthy.", ch);
-	 act("The land seems more healthy.\n", ch, NULL, NULL, TO_ROOM);
+
+	if (is_affected_room(ch->in_room, "deadly venom")) {
+		affect_strip_room(ch->in_room, "deadly venom");
+		act_char("The land seems more healthy.", ch);
+		act("The land seems more healthy.", ch, NULL, NULL, TO_ROOM);
 	}
-	if (is_affected_room(ch->in_room, "mysterious dream"))
-	{
-	 act_char("The land wake up from mysterious dream.", ch);
-	 act("The land wake up from mysterious dream.\n",
-			ch, NULL, NULL, TO_ROOM);
-	 affect_strip_room(ch->in_room, "mysterious dream");
+
+	if (is_affected_room(ch->in_room, "mysterious dream")) {
+		affect_strip_room(ch->in_room, "mysterious dream");
+		act_char("The land wake up from mysterious dream.", ch);
+		act("The land wake up from mysterious dream.",
+		    ch, NULL, NULL, TO_ROOM);
 	}
-	if (is_affected_room(ch->in_room, "black death"))
-	{
-	 act_char("The disease of the land has been treated.", ch);
-	 act("The disease of the land has been treated.\n",
-			 ch, NULL, NULL, TO_ROOM);
-	 affect_strip_room(ch->in_room, "black death");
+
+	if (is_affected_room(ch->in_room, "black death")) {
+		act_char("The disease of the land has been treated.", ch);
+		act("The disease of the land has been treated.",
+		    ch, NULL, NULL, TO_ROOM);
+		affect_strip_room(ch->in_room, "black death");
 	}
-	if (is_affected_room(ch->in_room, "lethargic mist"))
-	{
-	 act_char("The lethargic mist dissolves.", ch);
-	 act("The lethargic mist dissolves.\n", ch, NULL, NULL, TO_ROOM);
-	 affect_strip_room(ch->in_room, "lethargic mist");
+
+	if (is_affected_room(ch->in_room, "lethargic mist")) {
+		act_char("The lethargic mist dissolves.", ch);
+		act("The lethargic mist dissolves.", ch, NULL, NULL, TO_ROOM);
+		affect_strip_room(ch->in_room, "lethargic mist");
 	}
 }
 
@@ -4376,7 +4377,7 @@ void spell_deadly_venom(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_room(ch->in_room, &af);
 
 	act_char("The room starts to be filled by poison.", ch);   
-	act("The room starts to be filled by poison.\n",ch,NULL,NULL,TO_ROOM);
+	act("The room starts to be filled by poison.", ch, NULL, NULL, TO_ROOM);
 }
 
 void spell_light(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -4436,7 +4437,7 @@ void spell_cursed_lands(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_room(ch->in_room, &af);
 
 	act_char("The gods has forsaken the room.", ch);   
-	act("The gos has forsaken the room.\n",ch,NULL,NULL,TO_ROOM);
+	act("The gos has forsaken the room.", ch, NULL, NULL, TO_ROOM);
 }
 
 void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -4465,22 +4466,22 @@ void spell_lethargic_mist(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_room(ch->in_room, &af);
 
 	act_char("The air in the room makes you slowing down.", ch);   
-	act("The air in the room makes you slowing down.\n",ch,NULL,NULL,TO_ROOM);
+	act("The air in the room makes you slowing down.",
+	    ch, NULL, NULL, TO_ROOM);
 }
 
 void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
-	{
-	  act_char("This room is protected by gods.", ch);
-	  return;
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
 	}
-	if (is_affected_room(ch->in_room, sn))
-	{
-	 act_char("This room has already been diseased.", ch);
-	 return;
+
+	if (is_affected_room(ch->in_room, sn)) {
+		act_char("This room has already been diseased.", ch);
+		return;
 	}
 
 	af.where     = TO_ROOM_AFFECTS;
@@ -4494,22 +4495,22 @@ void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_room(ch->in_room, &af);
 
 	act_char("The room starts to be filled by disease.", ch);   
-	act("The room starts to be filled by disease.\n",ch,NULL,NULL,TO_ROOM);
+	act("The room starts to be filled by disease.",
+	    ch, NULL, NULL, TO_ROOM);
 }
 
 void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
-	{
-	  act_char("This room is protected by gods.", ch);
-	  return;
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
 	}
-	if (is_affected_room(ch->in_room, sn))
-	{
-	 act_char("This room has already been affected by sleep gas.", ch);
-	 return;
+
+	if (is_affected_room(ch->in_room, sn)) {
+		act_char("This room has already been affected by sleep gas.", ch);
+		return;
 	}
 
 	af.where     = TO_ROOM_AFFECTS;
@@ -4523,7 +4524,8 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_room(ch->in_room, &af);
 
 	act_char("The room starts to be seen good place to sleep.", ch);   
-	act("The room starts to be seen good place to you.\n",ch,NULL,NULL,TO_ROOM);
+	act("The room starts to be seen good place to you.",
+	    ch, NULL, NULL, TO_ROOM);
 }
 
 void spell_ratform(const char *sn, int level, CHAR_DATA *ch, void *vo)
