@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.31 1999-09-08 10:39:58 fjoe Exp $
+ * $Id: healer.c,v 1.32 1999-09-23 18:28:41 kostik Exp $
  */
 
 /*-
@@ -51,19 +51,19 @@ typedef struct
  */
 heal_t heal_table[] =
 {
-    { "light",	  "cure light wounds",	  "cure light",    0, 10	},
-    { "serious",  "cure serious wounds",  "cure serious",  0, 15	},
-    { "critical", "cure critical wounds", "cure critical", 0, 25	},
-    { "heal",	  "healing spell",	  "heal",          0, 50	},
-    { "blind",	  "cure blindness",	  "cure blindness",0, 20	},
-    { "disease",  "cure disease",	  "cure disease",  0, 15	},
-    { "poison",	  "cure poison",	  "cure poison",   0, 25	},
-    { "uncurse",  "remove curse",	  "remove curse",  0, 50	},
-    { "refresh",  "restore movement",	  "refresh",       0, 5,	},
-    { "mana",	  "restore mana",	  "mana restore", 20, 10	},
-    { "master",	  "master heal spell",	  "master healing",0, 200	},
-    { "energize", "restore 300 mana",	  "mana restore",  0, 200	},
-    { "herbs",	  "ranger's healing",	  "herbs",         0, -100	},
+    { "light",	  "cure light wounds",	  "cure light",    0, 1000	},
+    { "serious",  "cure serious wounds",  "cure serious",  0, 1500	},
+    { "critical", "cure critical wounds", "cure critical", 0, 2500	},
+    { "heal",	  "healing spell",	  "heal",          0, 5000	},
+    { "blind",	  "cure blindness",	  "cure blindness",0, 2000	},
+    { "disease",  "cure disease",	  "cure disease",  0, 1500	},
+    { "poison",	  "cure poison",	  "cure poison",   0, 2500	},
+    { "uncurse",  "remove curse",	  "remove curse",  0, 5000	},
+    { "refresh",  "restore movement",	  "refresh",       0, 500,	},
+    { "mana",	  "restore mana",	  "mana restore", 20, 1000	},
+    { "master",	  "master heal spell",	  "master healing",0, 20000	},
+    { "energize", "restore 300 mana",	  "mana restore",  0, 20000	},
+    { "herbs",	  "ranger's healing",	  "herbs",         0, -10000	},
 
     { NULL }
 };
@@ -102,7 +102,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	act("$N offers the following spells.",ch,NULL,mob,TO_CHAR);
 	for (h = heal_table; h->keyword; h++)
 	    char_printf(ch, "%-10.9s : %-20.19s : %3d gold\n",
-		h->keyword, h->name, get_heal_cost(h, mob, ch));
+		h->keyword, h->name, get_heal_cost(h, mob, ch)/100);
 	char_puts(" Type heal <type> to be healed.\n",ch);
 	return;
     }

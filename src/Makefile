@@ -1,8 +1,8 @@
 #
-# $Id: Makefile,v 1.58 1999-09-23 18:25:31 kostik Exp $
+# $Id: Makefile,v 1.59 1999-09-23 18:28:41 kostik Exp $
 #
 
-SUBDIR = core dofun sog spellfun olc rspells
+SUBDIR = core dofun olc rspells sog spellfun
 
 all: abi_version.h _SUBDIRUSE
 

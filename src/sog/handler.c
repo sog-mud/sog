@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.179 1999-09-15 10:57:46 fjoe Exp $
+ * $Id: handler.c,v 1.180 1999-09-23 18:28:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -3598,6 +3598,18 @@ void quit_char(CHAR_DATA *ch, int flags)
 		return;
 	}
 
+	for (vch=npc_list; vch; vch=vch->next) {
+		if (IS_AFFECTED(vch, AFF_CHARM)
+		&& IS_NPC(vch)
+		&& IS_SET(vch->pMobIndex->act, ACT_FAMILIAR)
+		&& vch->master == ch
+		&& vch->in_room != ch->in_room) {
+			act("You cannot quit and leave your $N alone.\n", 
+				ch, NULL, vch, TO_CHAR);
+			return;
+		}
+	}
+
 	if (auction.item != NULL
 	&&  ((ch == auction.buyer) || (ch == auction.seller))) {
 		char_puts("Wait till you have sold/bought the item "
@@ -3823,6 +3835,8 @@ void die_follower(CHAR_DATA *ch)
 
 	for (fch = char_list; fch != NULL; fch = fch_next) {
 		fch_next = fch->next;
+		if (IS_NPC(fch) && IS_SET(fch->pMobIndex->act, ACT_FAMILIAR))
+			continue;
 		if (fch->master == ch)
 			stop_follower(fch);
 		if (fch->leader == ch)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.4 1999-09-11 12:49:56 fjoe Exp $
+ * $Id: cast.c,v 1.5 1999-09-23 18:28:41 kostik Exp $
  */
 
 #include <stdio.h>
@@ -48,6 +48,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int chance = 0;
 	skill_t *spell;
 	class_t *cl;
+	CHAR_DATA *familiar=NULL;
+	CHAR_DATA *gch;
+
 
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */
@@ -128,6 +131,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		act("$n's spell fizzles out and fails.",
 		    ch, NULL, NULL, TO_ROOM);
 		return;
+	}
+
+	for(gch=ch->in_room->people; gch; gch=gch->next_in_room) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&& IS_NPC(gch)
+		&& IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
+		&& gch->master==ch) 	
+			familiar=gch;
 	}
 
 	if (!IS_NPC(ch)) {
@@ -379,6 +390,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, gsn_mastering_spell, TRUE, 1);
 		}
 
+		if (familiar && number_percent()<20 && familiar->mana > mana) {
+			act("You take some energy of your $N and power of your spell increases", ch, NULL, familiar, TO_CHAR);
+			slevel +=number_range(1,3);
+			familiar->mana -= mana/2;
+		}
+
 		if (!IS_NPC(ch) && get_curr_stat(ch, STAT_INT) > 21)
 			slevel += get_curr_stat(ch,STAT_INT) - 21;
 
@@ -386,6 +403,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			slevel = 1;
 
 		ch->mana -= mana;
+
+		if (familiar && number_percent()<20 && familiar->mana > mana) {
+			act("You take some energy of your $N to cast a spell.", ch, NULL, familiar, TO_CHAR);
+			slevel +=number_range(1,3);
+			familiar->mana -= mana/2;
+			ch->mana += mana/2;
+		}
+
 		check_improve(ch, sn, TRUE, 1);
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
