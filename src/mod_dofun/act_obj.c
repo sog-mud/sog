@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.108 1999-01-25 07:26:50 kostik Exp $
+ * $Id: act_obj.c,v 1.109 1999-01-25 09:31:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -1081,6 +1081,10 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		act("There's nothing in $p to pour.", ch, out, NULL, TO_CHAR);
 		return;
 	}
+	if (in->value[0] < 0) {
+		act("You cannot fill $p.", ch, in, NULL, TO_CHAR);
+		return;
+	}
 	if (in->value[1] >= in->value[0]) {
 		act("$p is already filled to the top.", ch, in, NULL, TO_CHAR);
 		return;
@@ -1164,7 +1168,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 			liquid = obj->value[2] = 0;
 		}
 		amount = liq_table[liquid].liq_affect[4];
-		amount = UMIN(amount, obj->value[1]);
+		if (obj->value[0]>=0) amount = UMIN(amount, obj->value[1]);
 		break;
 	}
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
