@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.346 2000-06-08 18:09:14 fjoe Exp $
+ * $Id: act_info.c,v 1.347 2000-07-05 13:15:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -171,7 +171,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	MOB_INDEX_DATA *mob_index;
 
 	if (argument[0] == '\0') {
-		char_puts("\nUse social <name> to view"
+		char_puts("\nUse social <name> to view "
 			"what that social does.\n\n", ch);
 		dofun("alist", ch, "social");
 		return;
