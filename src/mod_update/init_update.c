@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.1 2000-02-20 10:26:33 avn Exp $
+ * $Id: init_update.c,v 1.2 2000-02-28 18:21:54 avn Exp $
  */
 
 #include <stdarg.h>
@@ -33,15 +33,18 @@
 #include "merc.h"
 #include "module.h"
 
+extern void (*gain_cond)(CHAR_DATA*, int, int);
+
 int _module_load(module_t *m)
 {
 	varr_foreach(&updates, update_load_cb, m);
-	gain_condition = dlsym(m->dlh, "gain_cond");
+	gain_cond = dlsym(m->dlh, "gain_cond");
 	return 0;
 }
 
 int _module_unload(module_t *m)
 {
 	varr_foreach(&updates, update_unload_cb);
+	gain_cond = NULL;
 	return 0;
 }

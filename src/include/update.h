@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.h,v 1.1 2000-02-20 11:17:54 avn Exp $
+ * $Id: update.h,v 1.2 2000-02-28 18:21:54 avn Exp $
  */
 
 #ifndef _UPDATE_H_
@@ -53,6 +53,6 @@ int	get_pulse(const char *what);
 
 extern varr	updates;
 
-extern void (*gain_condition)(CHAR_DATA *ch, int iCond, int value);
+void gain_condition(CHAR_DATA *ch, int iCond, int value);
 
 #endif
