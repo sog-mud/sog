@@ -4145,7 +4145,7 @@ S
 @eng The Quarters of the Archmage@rus Апартаменты Архимага~
 @eng You have barged into the quarters of Axtraxes, arch mage of Krothgar, and
 ruined his experiment. He's BOUND to be upset.
-@rus Ты $gn{ворвался} в апартаменты Акстраксеса, архимага Кротгара, и загубил его
+@rus Ты $gn{ворвался} в апартаменты Акстраксеса, архимага Кротгара, и $gn{загубил} его
 эксперимент. Он весьма огорчен.
 ~
 0 D inside
@@ -4251,17 +4251,20 @@ D3
 Z -1 14783
 S
 #14787
-The Lower Chambers~
-You have entered the lower levels of the Fortress, where hideous creatures
+@eng The Lower Chambers@rus Нижние уровни~
+@eng You have entered the lower levels of the Fortress, where hideous creatures
 lurk and evil priests engage in foul ceremonies to their demonic deities.
+@rus Ты $gn{добрался} до нижних уровней Крепости, где обитают самые отвратительные
+существа, и где темные жрецы проводят свои непотребные ритуалы.
 ~
 0 AD inside
 D1
-You see an ancient crypt
+@eng You see an ancient crypt
+@rus Ты видишь древний склеп.
 ~
-crypt door~
-the crypt~
-~
+crypt door склеп~
+@eng the crypt@rus склеп~
+@rus male~
 ABCZ 0 14788
 D2
 ~
@@ -4277,18 +4280,20 @@ D4
 Z -1 14779
 S
 #14788
-An Ancient Crypt~
-This crypt has remained untouched for centuries. It houses the remains of
+@eng An Ancient Crypt@rus Древний склеп~
+@eng This crypt has remained untouched for centuries. It houses the remains of
 the foul lich king who once ruled this Fortress and much of the surrounding
 land under an iron fist (literally, Krothgar's golem now wears it). You
 better hope he stayed dead...
+@rus Сотни лет никто даже и не прикасался к этому склепу. Здесь хранятся останки
+страшного короля-мертвеца, который когда-то владел Крепостью и ее округой.
 ~
 0 ADN inside
 D3
 ~
-crypt door~
-the crypt~
-~
+crypt door склеп дверь~
+@eng the crypt@rus ~~дверь~~ склепа~
+@rus female~
 Z 0 14787
 S
 #14789

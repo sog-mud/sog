@@ -24,7 +24,7 @@ keeps some mighty weapon, which was used centures ago by divine beings.
 But beware: the Gods don't like persons who dare to enter..."
 ~
 unique~
-BJRe 0 HT 0 ABF 0 0
+BJRe 0 HT 0 ABCDF 0 0
 40 30 10d20+2000 100d2+700 7d7+40 'crush'
 -30 -30 -30 -25
 FKMO
@@ -36,6 +36,7 @@ r slash 20
 r fire 33
 r cold 33
 r lightning 33
+r acid 80
 r negative 33
 r mental 33
 r disease 100
@@ -52,13 +53,15 @@ you, seeking to suck the energy from your soul to feed its
 power.
 ~
 ghost~
-FT 0 U 0 ABC -1000 0
+FT 0 0 0 ABCD -1000 0
 38 25 10d50+1500 1d1+100 8d6+25 'drain'
 -20 -20 -20 -20
 FKP
 stand stand none 0
 0 0 medium unknown
 r charm 100
+r harm -30
+r light -30
 #22302
 cantoras skeltal lord~
 Cantoras the Skeletal Lord~
@@ -68,7 +71,7 @@ A legion of evil undead druj animating the skeleton of a once mighty
 sorcerer. His power is devastating in the underworld. Flee his wrath.
 ~
 unique~
-FJOT 0 Uc 0 ABC -1000 0
+FJOT 0 Uc 0 ABCD -1000 0
 45 40 100d10+5000 100d2+300 10d7+50 'blast'
 -40 -40 -40 -40
 AFJKP
@@ -100,7 +103,7 @@ A shadowy form clutches at you from the darkness, a powerful
 undead with a deadly touch.
 ~
 unique~
-BFOT 0 TU 0 ABC -1000 0
+BFOT 0 TU 0 ABCD -1000 0
 42 30 10d50+2000 1d1+100 8d7+30 'drain'
 -30 -30 -30 -30
 FGK
@@ -116,6 +119,8 @@ r negative 100
 r disease 100
 r poison 100
 r charm 100
+r harm -30
+r light -30
 #22304
 daemon faegwath~
 Faegwath the Undead Sorceror~
@@ -125,7 +130,7 @@ A stench of corruption and decay surrounds this sorceror, who has
 clearly risen from the grave to continue his foul plots and schemes .
 ~
 unique~
-BFGOR G JTUc 0 AB 0 0
+BFGOR G JTUc 0 ABCD 0 0
 47 35 100d40+3000 100d5+1000 10d7+30 'blast'
 -30 -30 -30 -30
 AFGK
@@ -138,6 +143,7 @@ r negative 100
 r disease 100
 r poison 100
 r charm 100
+r harm -20
 r light -50
 #22305
 guard chu-gun iron statue~
@@ -148,12 +154,15 @@ A lot of years ago he was a mightly fighter. After his death necromacers had put
 this golem and had ordered him to guard his master mummy.
 ~
 golem~
-BFT 0 Vc 0 ABC 0 0
+BFT 0 Vc 0 ABCD 0 0
 45 40 100d50+5000 0d0+0 10d6+60 'thwack'
 -50 -50 -50 -50
 EFK
 stand stand none 10000
 0 0 huge unknown
+r bash 50
+r pierce 50
+r slash 50
 r fire 0
 r cold 0
 r lightning 0
@@ -163,7 +172,9 @@ r negative 0
 r energy 0
 r mental 0
 r sound 0
-r charm 0
+r disease 100
+r poison 100
+r charm 100
 r harm 0
 r light 0
 #22306
@@ -177,12 +188,13 @@ of the dungeon.  Cold radiating from her freezes your breath in the
 air.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
 K
 stand stand female 20000
 0 0 large unknown
+r harm -30
 r light -50
 #22307
 uvatha ringwraith~
@@ -195,12 +207,13 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
 K
 stand stand male 20000
 0 0 large unknown
+r harm -30
 r light -50
 #22308
 alhorahil ringwraith~
@@ -214,12 +227,13 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 47 0 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
 K
 stand stand male 20000
 0 0 large unknown
+r harm -30
 r light -50
 #22309
 ren ringwraith~
@@ -233,12 +247,16 @@ is set here, guarding the mysteries of the dungeon. You can feel
 a furnace cold radiating from his form.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'drain'
 -55 -55 -55 -55
 K
 stand stand male 22000
 0 0 large unknown
+r bash 20
+r pierce 40
+r slash 30
+r harm -20
 r light -50
 #22310
 indur ringwraith~
@@ -251,12 +269,16 @@ mysteries of the dungeon. You can feel a furnace cold radiating
 from his form.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
 K
 stand stand male 21000
 0 0 large unknown
+r bash 20
+r pierce 40
+r slash 30
+r harm -20
 r light -50
 #22311
 dwar ringwraith~
@@ -270,12 +292,16 @@ of the dungeon. You can feel a furnace cold radiating from
 his form.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
 K
 stand stand male 21000
 0 0 large unknown
+r bash 20
+r pierce 40
+r slash 30
+r harm -20
 r light -50
 #22312
 hoarmurath ringwraith~
@@ -288,12 +314,16 @@ guarding the mysteries of the dungeon.  The air around you
 warps with energy as you come closer.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 51 60 100d5+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
 K
 stand stand male 22000
 0 0 large unknown
+r bash 25
+r pierce 45
+r slash 35
+r harm -10
 r light -50
 #22313
 khamul ringwraith~
@@ -307,12 +337,16 @@ dungeon.  The air around you warps with energy as you come
 closer.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 51 60 100d6+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
 K
 stand stand male 22000
 0 0 large unknown
+r bash 25
+r pierce 45
+r slash 35
+r harm -10
 r light -50
 #22314
 murazor ringwraith~
@@ -328,12 +362,23 @@ dungeon. The air around you warps with energy as you come
 closer.
 ~
 lich~
-BFORTVe 0 T 0 ABC -1000 0
+BFTVe 0 T 0 ABCD -1000 0
 52 60 100d7+5000 100d3+1200 20d8+50 'blast'
 -65 -65 -65 -65
 ACGIK
 stand stand male 25000
 0 0 huge unknown
+M exall 22304 1~
+r bash 30
+r pierce 50
+r slash 40
+r fire 50
+r acid 80
+r energy 90
+r mental 100
+r sound 100
+r harm 20
+r light 10
 #22315
 omarax beholder~
 Omarax the Eye tyrant~
@@ -459,7 +504,7 @@ She is a highly cunning, extremely magical being, spoken of in legends, this
 ancient shadow of death wilts any living thing it passes.
 ~
 lich~
-BCFOR 0 JT 0 ABC -1000 0
+BCF 0 JT 0 ABC -1000 0
 63 60 100d10+4500 100d2+3000 30d3+40 'crush'
 -50 -50 -50 -50
 AK
@@ -565,15 +610,13 @@ A phantasmal demon with glowing red eyes shining out in the dark.
 Its gaze drives the intense cold of pure evil deep within your body.
 ~
 lich~
-CFORT 0 T 0 ABC -1000 0
+CFT 0 T 0 ABC -1000 0
 59 55 100d7+4000 100d1+1000 10d7+30 'wrath'
 -50 -50 -50 -50
 GK
 stand stand none 0
 0 0 large unknown
 r slash 100
-r cold 100
-r charm 100
 r light -50
 #22325
 colbran demon~
@@ -715,7 +758,7 @@ You seean ancient guard. He wears very old armor.
 Also you feel that he isn't a living creature.
 ~
 undead~
-BORT 0 Vc G CD -1000 0
+ORT 0 Vc G CD -1000 0
 55 45 100d5+4000 100d1+500 20d2+35 'wrath'
 -45 -45 -45 -45
 FGHJKP
@@ -5023,8 +5066,26 @@ E 0 22386 0 7		*	a set of ancient leggings: on the legs
 E 0 22387 0 16		*	an ancient sword: wielded
 E 0 22388 0 11		*	an ancient shield: as a shield
 E 0 22381 0 6		*	an ancient helmet: over the head
-M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
 O 0 22380 0 22407	* a pile of coins (The West Wall of Treasure Keep)
+M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
+E 0 22381 0 6		*	an ancient helmet: over the head
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
+O 0 22380 0 22408	* a pile of coins (The Treasure Keep)
+M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
+E 0 22381 0 6		*	an ancient helmet: over the head
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
 M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
 E 0 22353 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -5035,8 +5096,16 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
-M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
-O 0 22380 0 22408	* a pile of coins (The Treasure Keep)
+O 0 22380 0 22409	* a pile of coins (The Treasure Keep)
+M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
+E 0 22381 0 6		*	an ancient helmet: over the head
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
 M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
 E 0 22359 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -5047,8 +5116,16 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22379 0 16		*	a small silver flail named "Death Bringer": wielded
-M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
-O 0 22380 0 22409	* a pile of coins (The Treasure Keep)
+O 0 22380 0 22410	* a pile of coins (The Treasure Keep)
+M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
+E 0 22381 0 6		*	an ancient helmet: over the head
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
 M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
 E 0 22354 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -5059,8 +5136,6 @@ E 0 22373 0 9		*	a pair of silver gloves: on the hands
 E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
-M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
-O 0 22380 0 22410	* a pile of coins (The Treasure Keep)
 O 0 22380 0 22411	* a pile of coins (The East Wall of Treasure Keep)
 M 0 22330 42 22411 2	* the undead guard (The East Wall of Treasure Keep)
 E 0 22381 0 6		*	an ancient helmet: over the head
@@ -5071,19 +5146,57 @@ E 0 22385 0 9		*	a pair of ancient gloves: on the hands
 E 0 22386 0 7		*	a set of ancient leggings: on the legs
 E 0 22387 0 16		*	an ancient sword: wielded
 E 0 22388 0 11		*	an ancient shield: as a shield
+O 0 22380 0 22412	* a pile of coins (The South-West Corner  of Treasure Keep)
 O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
 M 0 22330 42 22412 2	* the undead guard (The South-West Corner  of Treasure Keep)
-O 0 22380 0 22412	* a pile of coins (The South-West Corner  of Treasure Keep)
-M 0 22330 42 22413 2	* the undead guard (The South Wall of Treasure Keep)
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
+E 0 22381 0 6		*	an ancient helmet: over the head
 O 0 22380 0 22413	* a pile of coins (The South Wall of Treasure Keep)
+M 0 22330 42 22413 2	* the undead guard (The South Wall of Treasure Keep)
+E 0 22381 0 6		*	an ancient helmet: over the head
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
+O 0 22380 0 22414	* a pile of coins (The South Wall of Treasure Keep)
 O 0 22367 0 22414	* chest (The South Wall of Treasure Keep)
 M 0 22330 42 22414 2	* the undead guard (The South Wall of Treasure Keep)
-O 0 22380 0 22414	* a pile of coins (The South Wall of Treasure Keep)
-M 0 22330 42 22415 2	* the undead guard (The South Wall of Treasure Keep)
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
+E 0 22381 0 6		*	an ancient helmet: over the head
 O 0 22380 0 22415	* a pile of coins (The South Wall of Treasure Keep)
+M 0 22330 42 22415 2	* the undead guard (The South Wall of Treasure Keep)
+E 0 22381 0 6		*	an ancient helmet: over the head
+E 0 22382 0 5		*	an ancient chainmail: on the body
+E 0 22383 0 8		*	a pair of ancient boots: on the feet
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
+O 0 22380 0 22416	* a pile of coins (The South-East Corner of Treasure Keep)
 O 0 22368 0 22416	* chest (The South-East Corner of Treasure Keep)
 M 0 22330 42 22416 2	* the undead guard (The South-East Corner of Treasure Keep)
-O 0 22380 0 22416	* a pile of coins (The South-East Corner of Treasure Keep)
+E 0 22384 0 10		*	a set of ancient sleeves: on the arms
+E 0 22385 0 9		*	a pair of ancient gloves: on the hands
+E 0 22386 0 7		*	a set of ancient leggings: on the legs
+E 0 22387 0 16		*	an ancient sword: wielded
+E 0 22388 0 11		*	an ancient shield: as a shield
+E 0 22381 0 6		*	an ancient helmet: over the head
 S
 
 #OLIMITS
@@ -5146,6 +5259,8 @@ mob transfer $n 22404
 yell You are loosy thief $n. So you MUST DIE!
 yell GUARDS! GUARDS! GUARDS!
 mob kill $n
+~
+#22304
 ~
 #0
 

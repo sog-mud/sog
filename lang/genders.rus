@@ -850,6 +850,14 @@ Form 3 -ые~
 End
 
 #RULE
+Name ворвался~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name стоит~
 BaseLen 3
 Form 1 -ит~
@@ -1111,6 +1119,15 @@ Form 3 -ли~
 End
 
 #RULE
+Name путе-
+шествовал~
+BaseLen 14
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name успел~
 BaseLen 4
 Form 1 -ла~
@@ -1180,6 +1197,14 @@ BaseLen 7
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name загубил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE

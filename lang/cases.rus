@@ -1257,6 +1257,17 @@ Form 6 -х~
 End
 
 #RULE
+Name занятый~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name семь~
 BaseLen 3
 Form 1 -и~
@@ -5692,6 +5703,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name покрытые~
+BaseLen 7
+Form 1 -х~
+Form 2 -м~
+Form 3 -е~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name осел~
 BaseLen 2
 Form 1 -ла~
@@ -10080,6 +10102,17 @@ Form 6 -у~
 End
 
 #RULE
+Name украшенный~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name стрелка~
 BaseLen 6
 Form 1 -и~
@@ -10948,6 +10981,17 @@ Form 6 -у~
 End
 
 #RULE
+Name старец~
+BaseLen 4
+Form 1 -ца~
+Form 2 -цу~
+Form 3 -ец~
+Form 4 -цем~
+Form 5 -це~
+Form 6 -ца~
+End
+
+#RULE
 Name грязный~
 BaseLen 5
 Form 1 -ого~
@@ -11447,6 +11491,17 @@ Form 3 -е~
 Form 4 -ем~
 Form 5 -и~
 Form 6 -е~
+End
+
+#RULE
+Name нагрудный~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE

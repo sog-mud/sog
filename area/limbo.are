@@ -600,7 +600,7 @@ g @rus male~
 #19
 lock-pick picklock отмычка~
 @eng lock-pick@rus отмычка~
-@eng A small steel needle lies here.@rus Маленькая стальная игла блестит в пыли.~
+@eng A small steel needle lies here.@rus Маленькая стальная игла (needle) блестит в пыли.~
 steel~
 trash 0 K AO
 0 0 0 0 0
