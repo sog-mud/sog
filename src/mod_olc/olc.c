@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.155 2002-12-11 13:33:36 fjoe Exp $
+ * $Id: olc.c,v 1.156 2003-04-17 18:27:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1332,7 +1332,7 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		}
 
 		argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
-		if (arg2[0] == '\0') {
+		if (arg2[0] == '\0' || !strcmp(arg2, "@")) {
 			const char *mp_name;
 			int trignum = c_size(v);
 
@@ -1346,10 +1346,13 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 			trig = trig_new(v, trig_type);
 			trig->trig_prog = str_qdup(mp->name);
+			log_setchar(ch);
+			trig_set_arg(trig, str_dup(argument));
+			log_unsetchar();
 
 			if (mp_type == MP_T_ROOM)
 				x_room_add(vo);
-			act_puts("Trigger [$j] added.",
+			act_puts("Inline trigger [$j] added.",
 				 ch, (const void *) varr_index(v, trig), NULL,
 				 TO_CHAR, POS_DEAD);
 			return TRUE;
@@ -1377,7 +1380,7 @@ olced_trig(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 		if (mp_type == MP_T_ROOM)
 			x_room_add(vo);
-		act_puts("External trigger [$j] added.",
+		act_puts("Trigger [$j] added.",
 			 ch, (const void *) varr_index(v, trig), NULL,
 			 TO_CHAR, POS_DEAD);
 		return TRUE;
