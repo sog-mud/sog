@@ -14,6 +14,8 @@ alnum	[a-zA-Z0-9]
 #include "cc_expr.h"
 #include "str.h"
 
+#define yylval cc_yylval
+
 #include "y.tab.h"
 #include "cc_lex.h"
 
