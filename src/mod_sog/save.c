@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.70 1998-10-13 07:38:51 fjoe Exp $
+ * $Id: save.c,v 1.71 1998-10-13 12:38:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -610,7 +610,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		affect_check(ch, -1, -1);
 
 		if (ch->pcdata->condition[COND_BLOODLUST] < 48
-		&&  ch->class != CLASS_VAMPIRE)
+		&&  !get_skill(ch, gsn_vampire))
 			ch->pcdata->condition[COND_BLOODLUST] = 48;
 	}
 

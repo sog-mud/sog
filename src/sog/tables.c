@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.14 1998-10-13 07:38:52 fjoe Exp $
+ * $Id: tables.c,v 1.15 1998-10-13 12:38:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -523,7 +523,6 @@ FLAG apply_flags[] =
 	{ "constitution",	APPLY_CON,		TRUE	},
 	{ "charisma",		APPLY_CHA,		TRUE	},
 	{ "sex",		APPLY_SEX,		TRUE	},
-	{ "class",		APPLY_CLASS,		TRUE	},
 	{ "level",		APPLY_LEVEL,		TRUE	},
 	{ "age",		APPLY_AGE,		TRUE	},
 	{ "height",		APPLY_HEIGHT,		TRUE	},
@@ -543,6 +542,9 @@ FLAG apply_flags[] =
 	{ "savingbreath",	APPLY_SAVING_BREATH,	TRUE	},
 	{ "savingspell",	APPLY_SAVING_SPELL,	TRUE	},
 	{ "spellaffect",	APPLY_SPELL_AFFECT,	FALSE	},
+	{ "size",		APPLY_SIZE,		TRUE	},
+	{ "class",		APPLY_CLASS,		TRUE	},
+	{ "race",		APPLY_RACE,		TRUE	},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.72 1998-10-13 08:45:41 fjoe Exp $
+ * $Id: handler.c,v 1.73 1998-10-13 12:38:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2568,27 +2568,25 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	return FALSE;
 }
 
-bool isn_dark_safe(CHAR_DATA *ch)
+int isn_dark_safe(CHAR_DATA *ch)
 {
 	CHAR_DATA *rch;
 	OBJ_DATA *light;
 	int light_exist;
 
-	if (!is_affected(ch, gsn_vampire))
-		return FALSE;
-
-	if (IS_SET(ch->in_room->room_flags, ROOM_DARK))
-		return FALSE;
+	if (!is_affected(ch, gsn_vampire)
+	||  IS_SET(ch->in_room->room_flags, ROOM_DARK))
+		return 0;
 
 	if (weather_info.sunlight == SUN_LIGHT
 	||  weather_info.sunlight == SUN_RISE)
-		return TRUE;
+		return 2;
 
-	light_exist = FALSE;
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
+	light_exist = 0;
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if ((light = get_eq_char(rch, WEAR_LIGHT))
 		&&  IS_OBJ_STAT(light, ITEM_MAGIC)) {
-			light_exist = TRUE;
+			light_exist = 1;
 			break;
 		}
 	}
@@ -3211,7 +3209,8 @@ void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf,
 	WHERE_DATA *w;
 
 	if (paf->where != where
-	||  (w = where_lookup(paf->where)) == NULL)
+	||  (w = where_lookup(paf->where)) == NULL
+	||  !paf->bitvector)
 		return;
 
 	show_name(NULL, output, paf, *ppaf);

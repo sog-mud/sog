@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.84 1998-10-12 08:47:44 fjoe Exp $
+ * $Id: fight.c,v 1.85 1998-10-13 12:38:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1057,7 +1057,7 @@ static void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) != NULL) {
-		if (ch->class == CLASS_VAMPIRE && ch->level > 10) {
+		if (get_skill(ch, gsn_vampire)) {
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
 				 ch, NULL,victim,TO_ROOM,POS_SLEEPING);
 			char_puts("You suck {Rblood{x "
@@ -1364,13 +1364,6 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	     IS_SET(victim->in_room->room_flags, ROOM_SAFE))
 	||  (ch->in_room != NULL &&
 	     IS_SET(ch->in_room->room_flags, ROOM_SAFE)))
-		return TRUE;
-
-	/* Experimental vampires' coffins handle */
-	if (victim->on && IS_SET(victim->on->value[2], SLEEP_IN)
-	&&  victim->on->pIndexData->vnum == 1200
-	&&  time_info.hour >= 6 && time_info.hour <= 18
-	&&  victim->class == CLASS_VAMPIRE)
 		return TRUE;
 
 	/* link dead players whose adrenalin is not gushing are safe */

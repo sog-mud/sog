@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.68 1998-10-12 08:47:44 fjoe Exp $
+ * $Id: spellfun.c,v 1.69 1998-10-13 12:38:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 	spell = SKILL(sn);
 
-	if (ch->class == CLASS_VAMPIRE
+	if (!IS_IMMORTAL(ch)
+	&&  get_skill(ch, gsn_vampire)
 	&&  !is_affected(ch, gsn_vampire)
 	&&  !IS_SET(spell->flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n\r",

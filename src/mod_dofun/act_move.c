@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.104 1998-10-10 04:36:21 fjoe Exp $
+ * $Id: act_move.c,v 1.105 1998-10-13 12:38:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3240,11 +3240,6 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 
 void do_human(CHAR_DATA *ch, const char *argument)
 {
-	if (ch->class != CLASS_VAMPIRE) {
-		char_puts("Huh?\n\r", ch);
-		return;
-	}
-	 
 	if (!is_affected(ch, gsn_vampire)) {
 		char_puts("You are already a human.\n\r", ch);
 		return;

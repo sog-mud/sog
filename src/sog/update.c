@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.72 1998-10-11 16:52:46 fjoe Exp $
+ * $Id: update.c,v 1.73 1998-10-13 12:38:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1142,8 +1142,7 @@ void char_update(void)
 
 			if (!ch->was_in_room) {
 				gain_condition(ch, COND_DRUNK, -1);
-				if (ch->class == CLASS_VAMPIRE
-				&& ch->level > 10) 
+				if (get_skill(ch, gsn_vampire))
 					gain_condition(ch, COND_BLOODLUST, -1);
 				gain_condition(ch, COND_FULL, 
 					     ch->size > SIZE_MEDIUM ? -4 : -2);
@@ -1673,7 +1672,7 @@ void aggr_update(void)
 				||   !IS_AWAKE(vch))
 				&&  can_see(ch, vch)
 				/* do not attack vampires */
-				&&  vch->class != CLASS_VAMPIRE
+				&&  !get_skill(ch, gsn_vampire)
 				/* good vs good :( */
 				&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
 					if (number_range(0, count) == 0)
@@ -1781,43 +1780,39 @@ void light_update(void)
 	DESCRIPTOR_DATA *d;
 
 
-	for (d = descriptor_list; d != NULL; d = d->next)
-	{
-	 if (d->connected != CON_PLAYING)
-		continue;
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		if (d->connected != CON_PLAYING)
+			continue;
 
-	ch = (d->original != NULL) ? d->original : d->character;
+		ch = (d->original != NULL) ? d->original : d->character;
 
-	if (IS_IMMORTAL(ch)) continue;
+		if (IS_IMMORTAL(ch))
+			continue;
 
-	    if (ch->class != CLASS_VAMPIRE)   continue;
+		/* also checks vampireness */
+		if ((dam_light = isn_dark_safe(ch)) == 0) 	
+			continue;	
 
-	/* also checks vampireness */
-	if ((dam_light = isn_dark_safe(ch)) == 0) 	
-		continue;	
+		if (dam_light != 2
+		&&  number_percent() < get_skill(ch, gsn_light_resistance)) {
+			check_improve(ch, gsn_light_resistance, TRUE, 32);
+			continue;
+		}
 
-	if (dam_light != 2 && number_percent() < get_skill(ch,gsn_light_resistance))
-	{
-	    check_improve(ch,gsn_light_resistance,TRUE,32);
-	    continue;
+		if (dam_light == 1)
+			char_puts("The light in the room disturbs you.\n\r", ch);
+		else
+			char_puts("Sun light disturbs you.\n\r",ch);
+
+		dam_light = 1 + (ch->max_hit * 4)/ 100;
+		damage(ch, ch, dam_light, TYPE_HUNGER, DAM_LIGHT_V, TRUE);
+
+		if (ch->position == POS_STUNNED)
+			update_pos(ch);
+
+		if (number_percent() < 10)
+			gain_condition(ch, COND_DRUNK,  -1);
 	}
-
-	if (dam_light == 1)
-	      char_puts("The light in the room disturbs you.\n\r",ch);
-	    else char_puts("Sun light disturbs you.\n\r",ch);
-
-	dam_light = (ch->max_hit * 4)/ 100;
-	if (!dam_light) dam_light = 1;
-	damage(ch, ch, dam_light, TYPE_HUNGER, DAM_LIGHT_V , TRUE);
-
-	if (ch->position == POS_STUNNED)
-	    update_pos(ch);
-
-	if (number_percent() < 10)  gain_condition(ch, COND_DRUNK,  -1);
-	}
-
-
-	return;
 }
 
 void room_update(void)

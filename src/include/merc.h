@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.97 1998-10-13 07:38:50 fjoe Exp $
+ * $Id: merc.h,v 1.98 1998-10-13 12:38:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1963,7 +1963,7 @@ int	get_obj_weight	(OBJ_DATA *obj);
 int	get_true_weight (OBJ_DATA *obj);
 bool	room_is_dark	(CHAR_DATA *ch);
 bool	room_dark	(ROOM_INDEX_DATA *pRoomIndex);
-bool	isn_dark_safe	(CHAR_DATA *ch);
+int	isn_dark_safe	(CHAR_DATA *ch);
 bool	is_room_owner	(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 bool	room_is_private (ROOM_INDEX_DATA *pRoomIndex);
 bool	can_see 	(CHAR_DATA *ch, CHAR_DATA *victim);

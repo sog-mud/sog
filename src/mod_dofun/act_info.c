@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.145 1998-10-13 07:38:47 fjoe Exp $
+ * $Id: act_info.c,v 1.146 1998-10-13 12:38:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -612,7 +612,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		msg = "{Ris nearly dead{x.";
 
 	/* vampire ... */
-	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
+	if (percent < 90 && get_skill(ch, gsn_vampire))
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(victim)) {
@@ -2552,13 +2552,13 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 
 	if (ORG_RACE(ch) == 11 || ORG_RACE(ch) == 12
 	||  ORG_RACE(ch) == 13 || ORG_RACE(ch) == 14) {
-		char_puts("Your hometown is permenantly Titan Valley!\n\r",
+		char_puts("Your hometown is permanently Titan Valley!\n\r",
 			     ch);
 		return;
 	}
 
 	if (ch->class == CLASS_VAMPIRE || ch->class == CLASS_NECROMANCER) {
-		char_puts("Your hometown is permenantly Old Midgaard!\n\r",
+		char_puts("Your hometown is permanently Old Midgaard!\n\r",
 			     ch);
 		return;
 	}

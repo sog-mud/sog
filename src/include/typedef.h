@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.8 1998-10-09 15:34:33 fjoe Exp $
+ * $Id: typedef.h,v 1.9 1998-10-13 12:38:08 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -118,9 +118,9 @@ typedef u_int32_t sflag_t;	/* short flags (less memory usage) */
 #define VALIDATE(data)
 #define INVALIDATE(data)
 
-#define ISLOWER(c)		(islower(c))
-#define ISUPPER(c)		(isupper(c))
-#define LOWER(c)		(tolower(c))
-#define UPPER(c)		(toupper(c))
+#define ISLOWER(c)		(islower((unsigned char) c))
+#define ISUPPER(c)		(isupper((unsigned char) c))
+#define LOWER(c)		(tolower((unsigned char) c))
+#define UPPER(c)		(toupper((unsigned char) c))
 
 #endif
