@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.13 2001-12-15 13:47:46 matrim Exp $
+# $Id: Makefile.osdep.dist,v 1.14 2003-09-08 15:42:50 fjoe Exp $
 #
 
 #
@@ -11,12 +11,12 @@ BINGRP!=	id -gn
 #
 # for FreeBSD
 #CFLAGS+=	-DBSD44
-#LDADD+=		-lcrypt -lz
+#LDADD+=		-lcrypt
 
 #
 # for Linux
 #CFLAGS+=	-DLINUX
-#LDADD+=	-lcrypt -ldl -lz
+#LDADD+=	-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
 #COMPAT_SRCS=	fnmatch.c
 #MAKE=		pmake
@@ -25,7 +25,7 @@ BINGRP!=	id -gn
 #
 # for Linux RedHat 7.1
 #CFLAGS+=	-DLINUX
-#LDADD+=	-lcrypt -ldl -lz
+#LDADD+=	-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
 #MAKE=		pmake
 #MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
