@@ -1,0 +1,22 @@
+#RULE
+Name he~
+Form 1 she~
+Form 2 it~
+Form 3 they~
+End
+
+#RULE
+Name him~
+Form 1 her~
+Form 2 it~
+Form 3 them~
+End
+
+#RULE
+Name his~
+Form 1 her~
+Form 2 its~
+Form 3 theirs~
+End
+
+#$

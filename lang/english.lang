@@ -3,6 +3,11 @@ Name eng
 End
 
 #RULECLASS
+Class genders
+Expl genders.eng~
+End
+
+#RULECLASS
 Class qtys
 Expl qtys.eng~
 End

@@ -2479,6 +2479,17 @@ Form 6 -а~
 End
 
 #RULE
+Name оскверненный~
+BaseLen 10
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name мерцающие~
 BaseLen 8
 Form 1 -х~
