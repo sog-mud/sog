@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.47 1998-05-21 13:09:47 efdi Exp $
+ * $Id: act_info.c,v 1.48 1998-05-21 13:49:34 efdi Exp $
  */
 
 /***************************************************************************
@@ -2502,8 +2502,8 @@ void do_practice(CHAR_DATA *ch, char *argument)
 		for (sn = 0; sn < MAX_SKILL; sn++) {
 			if (skill_table[sn].name == NULL)
 				break;
-			if ((ch->level < skill_table[sn].skill_level[ch->class]
-			     &&  !RACE_OK(ch,sn))
+			if (ch->level < skill_table[sn].skill_level[ch->class]
+			||  !RACE_OK(ch,sn)
 			||  (skill_table[sn].cabal != ch->cabal
 			&&  skill_table[sn].cabal != CABAL_NONE))
 				continue;
