@@ -158,6 +158,14 @@ char *strings_engl[] =  {
 /* MOVE_YOU_UNLOCK_P */		"You unlock $p.",
 /* MOVE_N_UNLOCKS_P */		"$n unlocks $p.",
 /* MOVE_N_UNLOCKS_THE_D */	"$n unlocks the $d.",
+/* MOVE_PICK_WHAT */		"Pick what?\n\r",
+/* MOVE_CANT_PICK_MOUNTED */	"You can't pick while mounted.\n\r",
+/* MOVE_N_IS_STANDING_TOO_CLOSE_TO_LOCK */"$N is standing too close to lock.",
+/* MOVE_YOU_FAILED */		"You failed.\n\r",
+/* MOVE_YOU_PICK_THE_LOCK_ON_P */"You pick the lock on $p.",
+/* MOVE_N_PICKS_THE_LOCK_ON_P */"$n picks the lock on $p.",
+/* MOVE_IT_CANT_BE_PICKED */	"It can't be picked.\n\r",
+/* MOVE_N_PICKS_THE_D */	"$n picks the $d.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

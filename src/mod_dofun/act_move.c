@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.13 1998-04-26 23:08:08 efdi Exp $
+ * $Id: act_move.c,v 1.14 1998-04-27 00:29:26 efdi Exp $
  */
 
 /***************************************************************************
@@ -1094,13 +1094,13 @@ void do_pick( CHAR_DATA *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_char( "Pick what?\n\r", ch );
+	send_to_char(msg(MOVE_PICK_WHAT, ch), ch);
 	return;
     }
 
     if (MOUNTED(ch)) 
     {
-        send_to_char("You can't pick while mounted.\n\r", ch);
+        send_to_char(msg(MOVE_CANT_PICK_MOUNTED, ch), ch);
         return;
     }
 
@@ -1111,15 +1111,14 @@ void do_pick( CHAR_DATA *ch, char *argument )
     {
 	if ( IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level )
 	{
-	    act( "$N is standing too close to the lock.",
-		ch, NULL, gch, TO_CHAR );
+	    act_printf(ch, NULL, gch, TO_CHAR, POS_RESTING, MOVE_N_IS_STANDING_TOO_CLOSE_TO_LOCK);
 	    return;
 	}
     }
 
     if ( !IS_NPC(ch) && number_percent( ) > get_skill(ch,gsn_pick_lock))
     {
-	send_to_char( "You failed.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_FAILED, ch), ch);
 	check_improve(ch,gsn_pick_lock,FALSE,2);
 	return;
     }
@@ -1131,31 +1130,31 @@ void do_pick( CHAR_DATA *ch, char *argument )
 	{
 	    if (!IS_SET(obj->value[1],EX_ISDOOR))
 	    {	
-		send_to_char("You can't do that.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch),ch);
 		return;
 	    }
 
 	    if (!IS_SET(obj->value[1],EX_CLOSED))
 	    {
-		send_to_char("It's not closed.\n\r",ch);
+		send_to_char(msg(MOVE_ITS_NOT_CLOSED, ch),ch);
 		return;
 	    }
 
 	    if (obj->value[4] < 0)
 	    {
-		send_to_char("It can't be unlocked.\n\r",ch);
+		send_to_char(msg(MOVE_IT_CANT_BE_UNLOCKED, ch),ch);
 		return;
 	    }
 
 	    if (IS_SET(obj->value[1],EX_PICKPROOF))
 	    {
-		send_to_char("You failed.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_FAILED, ch), ch);
 		return;
 	    }
 
 	    REMOVE_BIT(obj->value[1],EX_LOCKED);
-	    act("You pick the lock on $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n picks the lock on $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_PICK_THE_LOCK_ON_P);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_LOCK_ON_P);
 	    check_improve(ch,gsn_pick_lock,TRUE,2);
 	    return;
 	}
@@ -1163,15 +1162,15 @@ void do_pick( CHAR_DATA *ch, char *argument )
 	
 	/* 'pick object' */
 	if ( obj->item_type != ITEM_CONTAINER )
-	    { send_to_char( "That's not a container.\n\r", ch ); return; }
+	    { send_to_char(msg(MOVE_THATS_NOT_A_CONTAINER, ch), ch ); return; }
 	if ( !IS_SET(obj->value[1], CONT_CLOSED) )
-	    { send_to_char( "It's not closed.\n\r",        ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_NOT_CLOSED, ch), ch); return; }
 	if ( obj->value[2] < 0 )
-	    { send_to_char( "It can't be unlocked.\n\r",   ch ); return; }
+	    { send_to_char(msg(MOVE_IT_CANT_BE_UNLOCKED, ch), ch); return; }
 	if ( !IS_SET(obj->value[1], CONT_LOCKED) )
-	    { send_to_char( "It's already unlocked.\n\r",  ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_UNLOCKED, ch), ch); return; }
 	if ( IS_SET(obj->value[1], CONT_PICKPROOF) )
-	    { send_to_char( "You failed.\n\r",             ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_FAILED, ch), ch); return; }
 
 	REMOVE_BIT(obj->value[1], CONT_LOCKED);
         act("You pick the lock on $p.",ch,obj,NULL,TO_CHAR);
@@ -1189,17 +1188,17 @@ void do_pick( CHAR_DATA *ch, char *argument )
 
 	pexit = ch->in_room->exit[door];
 	if ( !IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch))
-	    { send_to_char( "It's not closed.\n\r",        ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_NOT_CLOSED, ch), ch); return; }
 	if ( pexit->key < 0 && !IS_IMMORTAL(ch))
-	    { send_to_char( "It can't be picked.\n\r",     ch ); return; }
+	    { send_to_char(msg(MOVE_IT_CANT_BE_PICKED, ch), ch); return; }
 	if ( !IS_SET(pexit->exit_info, EX_LOCKED) )
-	    { send_to_char( "It's already unlocked.\n\r",  ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_UNLOCKED, ch), ch); return; }
 	if ( IS_SET(pexit->exit_info, EX_PICKPROOF) && !IS_IMMORTAL(ch))
-	    { send_to_char( "You failed.\n\r",             ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_FAILED, ch), ch); return; }
 
 	REMOVE_BIT(pexit->exit_info, EX_LOCKED);
-	send_to_char( "*Click*\n\r", ch );
-	act( "$n picks the $d.", ch, NULL, pexit->keyword, TO_ROOM );
+	send_to_char(msg(MOVE_CLICK, ch), ch);
+	act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_PICKS_THE_D);
 	check_improve(ch,gsn_pick_lock,TRUE,2);
 
 	/* pick the other side */
