@@ -3533,3 +3533,116 @@ Text
  
 {GDiogen{x
 ~
+Sender  Phrinn~
+Date    Mon Oct 15 00:08:14 2001~
+Stamp   1003090094
+To      all~
+Subject небольшие изменения~
+Text
+Привет!
+ 
+У нас небольшие изменения. Заклинания 'disintegrate' и 'abolish undead'
+больше не убивают на battle arena, заклинание 'turn' не вынуждает clan
+guards сбегать.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Thu Oct 25 23:20:04 2001~
+Stamp   1004037604
+To      all~
+Subject clan powers~
+Text
+Приветствую!
+ 
+Enforcers получили новое заклинание 'shield of law';
+Hunters получили новое заклинание 'prismatic sphere';
+У Invaders изменено заклинание 'shadow cloak';
+длительность 'golden aura' у Knights уменьшена.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Wed Dec  5 00:25:36 2001~
+Stamp   1007501136
+To      all~
+Subject изменения и добавления~
+Text
+Привет!
+ 
+-- Появилось toggle battle -- не показывается battle prompt (строка
+состояния моба, с которым вы деретесь) и toggle 'short aff' -- affects
+показываются в сжатом виде, а именно, показывается только длительность
+и название.
+-- Больше вампиры не могут колдовать днем, напившись.
+-- Могучие силы, таящиеся в lost ring of ra и sword excalibur больше
+не доступны в nomagic местах.
+-- Верояность nerve больше не 100%.
+-- Теперь на BR не действуют 'golden aura', 'mass healing', 'holy
+word' (та часть, что дает frenzy/bless).
+ 
+{WPhrinn{x.
+PS. Если я что-то опустила, то вам искать это самостоятельно :)
+~
+Sender  Phrinn~
+Date    Tue Dec 11 01:28:29 2001~
+Stamp   1008023309
+To      all~
+Subject teleport, summon и все все все~
+Text
+Приветствую!
+ 
+-- wand с телепортом больше не действует на всех подряд
+-- нельзя саммонить чужить лошадей, чармисов и петов (вне пк), в пк
+можно только если у хозяина зверья не стоит nosum включенным
+-- сообщения при спадении protection xxx сделаны разными, теперь
+будет писаться что конкретно слетело
+-- больше нельзя набирать вес больше положенного при помощи 'create
+rose', 'dragonplate' и т.п., если у вас вес уже критический (или
+количество вещей), то новая вещь бросается на пол
+-- татуировка религии и клановый знак больше не считаются в числе
+несомых вещей
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Tue Dec 11 18:04:00 2001~
+Stamp   1008083040
+To      all~
+Subject new command~
+Text
+Привет!
+ 
+Появилась новая команда: nogive. С ее помощью можно запретить
+давать своему персонажу деньги и вещи другими персонажами и не
+только. Статус можно поглядеть командой auto.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Wed Dec 12 23:13:00 2001~
+Stamp   1008187980
+To      all~
+Subject new races, skill claws~
+Text
+Привет!
+ 
+Появилось две новых расы: wyrm и centaur. Можно заводиться и тестить =)
+Переписан help RACETABLE.
+Felar'ы получили новый скилл claws. help'а пока нет.
+Исправлен баг, из-за которого последние два дня муд падал.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Thu Dec 13 12:25:52 2001~
+Stamp   1008235552
+To      all~
+Subject dwarves~
+Text
+Привет!
+ 
+Дварфы нынче не злы и получили axe, mace как bonus skills.
+ 
+{WPhrinn{x.
+~
