@@ -303,9 +303,9 @@ stand stand male 500
 0 0 medium unknown
 #22014
 halfling thief воришка хоббит~
-@eng A Halfling Thief@rus ~~воришка~~ ~~хоббит~~~
+@eng A Halfling Thief@rus ~~кожаные~~ ~~ножны~~ для кинжала ~
 @eng A halfling thief peers around, looking for something to steal
-@rus Хоббит глядит по сторонам, высматривая, что бы спереть.
+@rus Хоббит (halfling) глядит по сторонам, высматривая, что бы спереть.
 ~
 @eng Lost from his adventuring companions this little trouble maker is now
 just running around looking for things to slip into his purses.  
@@ -950,7 +950,7 @@ S
 yourself praying for the lost light of day as the darkness closes in on your
 soul.  
 @rus Темные коридоры уводят все глубже и глубже в толщу камня и
-шальная мысль о том, что ты заблудился и обречен умереть, не
+шальная мысль о том, что ты $gn{заблудился} и $gn{обречен} умереть, не
 дойдя до выхода и никогда больше не увидеть солнечный свет,
 заставляет тебя покрыться холодным потом и мелко задрожать.
 ~
@@ -1001,7 +1001,7 @@ S
 yourself wandering in circles only to end up in another room that looks the
 same as all of the others.  Exits lead north, down, and west from here.
 @rus Развилки следуют одна за другой, а различить пещеры практически
-невозможно. Иногда тебе кажется, что ты сделал круг, но, пойдя в
+невозможно. Иногда тебе кажется, что ты $gn{сделал} круг, но, пойдя в
 том же напавлении, что и в прошлый раз, ты оказываешься в совер-
 шенно новом месте.
 ~
@@ -1371,7 +1371,7 @@ you.
 @rus Стены пещеры целиком состоят из сверкающего хрусталя. Отраженный
 множеством крошечных зеркал свет твоего факела бросает сотни разно-
 цветных бликов на пол и мирно спящего дракона, которого ты сначала
-и не заметил. Возможно, стоит уйти отсюда, пока он не проснулся.
+и не $gn{заметил}. Возможно, стоит уйти отсюда, пока он не проснулся.
 ~
 0 AD inside
 D1

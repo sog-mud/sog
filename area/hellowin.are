@@ -11,7 +11,7 @@ End
 #MOBILES
 #34400
 bear~
-@eng {ysympathetic bear{w@rus {yсимпатичный педвежонок{w~
+@eng {ysympathetic bear{w@rus {y~~симпатичный~~ ~~педвежонок~~{x~
 @eng {ySmall sympathetic bear is munching raspberry here.{w
 @rus {yМаленький и симпатичный педвежонок жует малину.{w
 ~
@@ -250,22 +250,22 @@ staff necromancy посох rod~
 bone~
 staff CGJM EK AO
 70 100 100 'mana drain' 0
-40 20 0 P
-a '' to_resist 40 -1 100 8 0
-a '' to_object 40 -1 0 0 0
-a '' to_object 40 -1 -15 20 0
-a '' to_detects 40 -1 20 19 I
-a '' to_skills 40 -1 70 'lich' A
-a '' to_skills 40 -1 80 'animate dead' A
-a '' to_skills 40 -1 100 'draining touch' A
-a '' to_skills 40 -1 100 'mana drain' A
-a '' to_skills 40 -1 50 'control undead' A
-a '' to_skills 40 -1 80 'bone dragon' A
+10 20 0 P
+a '' to_resist 10 -1 100 8 0
+a '' to_object 10 -1 0 0 0
+a '' to_object 10 -1 -15 20 0
+a '' to_detects 10 -1 20 19 I
+a '' to_skills 10 -1 70 'lich' A
+a '' to_skills 10 -1 80 'animate dead' A
+a '' to_skills 10 -1 100 'draining touch' A
+a '' to_skills 10 -1 100 'mana drain' A
+a '' to_skills 10 -1 50 'control undead' A
+a '' to_skills 10 -1 80 'bone dragon' A
 g @rus male~
 #34453
 staff healing посох~
 @eng Staff of Healing@rus ~~Посох~~ лекаря~
-@eng Unsightly wooden staff lies here.@rus Невзрачный деревянных посох (staf) предстал твоему взору.~
+@eng Unsightly wooden staff lies here.@rus Невзрачный деревянных посох (staff) предстал твоему взору.~
 wood~
 staff 0 K AO
 100 5 5 'heal' 0

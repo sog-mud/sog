@@ -933,9 +933,12 @@ g @rus none~
 #ROOMS
 #9201
 @eng A Mountain Path@rus Горная тропинка~
-You are on a mountain path which ascends a steep mountainside.  The trail
+@eng You are on a mountain path which ascends a steep mountainside.  The trail
 curves around the mountain so that you cannot really see what lies ahead.
 You do sense great power though coming from the area behind the mountain.
+@rus Ты -- на горной тропе, которая поднимается вверх. Она петляет вокруг
+горы, так что ты не можешь понять что лежит впереди. Ты чувствуешь ог-
+ромную энергию, что исходит от области за горой.
 ~
 0 0 mountain
 D0
@@ -953,12 +956,15 @@ Z -1 9202
 S
 #9202
 @eng A Mountain Path@rus Горная тропинка~
-You are on a rocky mountain path leading up and around a steep mountainside.
+@eng You are on a rocky mountain path leading up and around a steep mountainside.
 You sense a glow from the area beyond the mountain, which you cannot see yet.
+@rus Ты стоишь на каменистой тропе которая поднимается вверх по горе.
+Впереди ты видишь сияние, но не место откуда оно исходит.
 ~
 0 0 mountain
 D0
-Gateway to abysis.
+@eng Gateway to abysis.
+@rus Дорога к бездне.
 ~
 ~
 ~
@@ -979,21 +985,27 @@ Z -1 9201
 S
 #9203
 @eng Mountainside Tombs@rus Могилы на склоне~
-There are a few stone heaps here and there, the tombs of those who did not
+@eng There are a few stone heaps here and there, the tombs of those who did not
 last the arduous journey up the mountain.  Curiously you notice a few
 uncovered bodies which don't seem to have died of exhaustion.  The path curves
 east around the mountain.
+@rus Ты видишь несколько куч камней -- могилы тех, кто не одолел подъема в гору.
+Также здесь несколько тел тех, кто погиб явно не от изнеможения. Тропа за-
+ворачивает на восток, продолжая свой путь вверх.
 ~
 0 0 mountain
 E
-bodies body dead~
-They look as if their necks have been broken and their flesh, chewed.
+bodies body dead тела мертвые~
+@eng They look as if their necks have been broken and their flesh, chewed.
+@rus Похоже, ему сломали шею и немного погрызли...
 ~
 E
-heaps stones tombs~
-You are sure glad that YOU aren't under one of those piles!
+heaps stones tombs камень камни могилы~
+@eng You are sure glad that YOU aren't under one of those piles!
 Many of the tombstones have the same name on them, 'Raff'.  He must come
 here a lot.
+@rus Очень приятно, что не ты лежишь под этими надгробиями! На многих из них
+одна и та же надпись, 'Raff'. Должно быть он часто приходил сюда.
 ~
 D4
 ~
@@ -1010,9 +1022,12 @@ Z -1 9202
 S
 #9204
 @eng A Blind Curve on the Mountain Path.@rus Изгиб горной тропы~
-This looks like a normal mountain path, but it is NOT!  This section of the
+@eng This looks like a normal mountain path, but it is NOT!  This section of the
 path is habitated by a huge (and of course, man-eating) Cyclops.  The path
 makes its final ascent to an overlook.
+@rus Похоже на обычный изгиб тропы, однако это не так! Эта часть дороги --
+обиталище огромных циклопов-людоедов. Но это последний этап подъема на
+гору.
 ~
 0 0 mountain
 D4
@@ -1029,8 +1044,8 @@ D5
 Z -1 9203
 S
 #9205
-@eng Vista@rus Перспектива~
-This is a stunning vista overlooking a canyon.  There is a sign here that says:
+@eng Vista@rus Вид на каньон~
+@eng This is a stunning vista overlooking a canyon.  There is a sign here that says:
 	BEHOLD -- ELEMENTAL CANYON
 Fire leaps up from firepits in the western part of the canyon.  The sky looks
 funny, and the air seems hazy to the northwest.  Electricity sparks
@@ -1038,6 +1053,13 @@ intermittently in the northeast.  To the east you see a strong, magic-looking
 river flowing through the canyon.  Also to the east you spy a cave entrance
 leading into the canyon wall.  The path descends to the north to another
 overlook.
+@rus Ты стоишь, обозревая весь каньон. Знак на входе гласит:
+              ВПЕРЕДИ - КАНЬОН ЭЛЕМЕНТАЛОВ.
+Огонь вспыхивает в западной части. Небо чисто и прозрачно в
+северо-восточной части. И отсюда видны вспышки электрических
+искр на северо-западе. На востоке ты видишь могучую, судя по
+всему, волшебную реку, текущую через каньон. Также на востоке
+виднеется вход в пещеру. Путь ведет на север.
 ~
 0 0 mountain
 D0
@@ -1055,9 +1077,11 @@ Z -1 9204
 S
 #9206
 @eng The Overlook@rus Смотровая площадка~
-You see various elemental servants wandering around the canyon.  The noise of
+@eng You see various elemental servants wandering around the canyon.  The noise of
 humming coming from the canyon gets louder.  The path makes a steep descent
 into the canyon here.
+@rus Ты видишь всевозможных слуг-элементалов, носящихся по каньону.
+Шум, создаваемый ими, оглушает. Путь ведет вниз, в каньон.
 ~
 0 0 mountain
 D2
@@ -1075,10 +1099,13 @@ Z -1 9207
 S
 #9207
 @eng Entrance to Elemental Canyon@rus Вход в Каньон элементалов~
-You are awed by the sounds and sights of great powers at works here.
+@eng You are awed by the sounds and sights of great powers at works here.
 Elemental servants bustle back and forth doing the biddings of the elemental
 rulers.  You see a sort of cross roads to the north, and you can climb up to
 the overlook here.
+@rus Мощь сил, работающих здесь, просто поражает. Слуги-элементалы носятся,
+выполняя поручения своих повелителей. Ты видишь места пересечения их
+путей на севере. Можно залезть наверх, на гору.
 ~
 0 0 forest
 D0
@@ -1096,10 +1123,12 @@ Z -1 9206
 S
 #9208
 @eng The Floor of the Canyon@rus Дно каньона~
-Various elemental forms wander the floor of the canyon.  Some seem to be
+@eng Various elemental forms wander the floor of the canyon.  Some seem to be
 going about their business, while others seem to have no business at all.
 In general, it is calm, yet there is always a incessant buzz of things
 going on about.  The canyon continues north and east.
+@rus Различные элементалы носятся по дну каньона. Некоторые заняты делом,
+а некоторые слоняются просто так. Каньон продолжается на север и восток.
 ~
 0 0 forest
 D0
@@ -1117,7 +1146,7 @@ Z -1 9209
 S
 #9209
 @eng Elemental Gateway@rus Ворота элементалов~
-To the west a path dips and winds among some flowing firepits.  To the
+@eng To the west a path dips and winds among some flowing firepits.  To the
 northeast a path goes toward the river.  Beyond toward the northeast and
 northwest are outcrops which rise up from the canyon floor. To the east there
 is a cave mouth which leads into the canyon wall.  And to the south the path
@@ -1125,6 +1154,11 @@ leads up, away, and out of the canyon.  Various pure and cross-breeds of
 elemental forms wander the canyon floor, which extends in a wide swath
 northwards. To the up you see the Combat Magician Chamber and a magical
 force helps you to fly through to chamber.
+@rus С запада ветер доносит огненные искры. На северо-востоке путь идет
+по реке. На востоке видно пещеру в скальном массиве. На юге -- дорога
+из каньона. Многочисленные чистые и смешанные формы элементалов носят-
+ся по каньону, который расширяется к северу. Вверху же ты видишь пала-
+ты какого-то мага, магические силы позволяют тебе подняться туда.
 ~
 0 CD inside
 D0

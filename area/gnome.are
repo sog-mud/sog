@@ -1954,7 +1954,7 @@ S
 @eng You enter into a large and luxurious house.  The floor is coated with carpets
 and the walls are covered in paintings.  You feel privileged just for stepping
 inside.
-@rus Ты вошел в большой богатый деревянный дом деревенского старосты. Дощатый
+@rus Ты $gn{вошел} в большой богатый деревянный дом деревенского старосты. Дощатый
 пол покрыт красивыми коврами, а на стенах висят различные картины. Ты
 чувствуешь, что даже войти сюда - уже привилегия.
 ~
@@ -2808,6 +2808,7 @@ G 0 1512 0		*	the fire bat: some peanuts
 G 0 1516 0		*	the fire bat: a pile of coins
 O 0 1517 0 1557	* a pile of coins (The Altar)
 M 0 1505 1 1558 1	* the chief gnome (The Chief's House)
+G 0 1523 0		*	the chief gnome: a potion of life healing
 E 0 1508 0 1		*	the chief gnome<on the left finger>: a bat ring
 E 0 1509 0 3		*	the chief gnome<around the neck>: a bead necklace
 E 0 1510 0 16		*	the chief gnome<wielded>: an electrum sword

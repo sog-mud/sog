@@ -2655,7 +2655,7 @@ native strain.
 @rus Вы находитесь на  Восточном Проспекте  Эльвенхейма.  Вдоль проспекта
 растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
 цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
-Расцветки, местной породы.
+Расцветки.
 ~
 0 0 city
 D1
@@ -2681,7 +2681,7 @@ native strain.
 @rus Вы находитесь на  Восточном Проспекте  Эльвенхейма.  Вдоль проспекта
 растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
 цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
-Расцветки, местной породы.
+Расцветки.
 ~
 0 0 city
 D0
@@ -2718,7 +2718,7 @@ native strain.
 @rus Вы находитесь на  Восточном Проспекте  Эльвенхейма.  Вдоль проспекта
 растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
 цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
-Расцветки, местной породы.
+Расцветки.
 ~
 0 0 city
 D0
@@ -2751,7 +2751,7 @@ S
 @eng Center Square is one of the busiest intersections in  Elvenhame.  It
 is equidistant from the fountains and the temples in the center of the
 city.
-@rus Центральная площадь - одна из самых оживленных плащадей Эльвенхейма.
+@rus Центральная площадь -- одна из самых оживленных плащадей Эльвенхейма.
 Она расположена посреди фонтанов и храмов в центре города.
 ~
 0 0 city
@@ -4534,7 +4534,7 @@ D0
 Z -1 40151
 S
 #40187
-@eng small house@rus небольшой дом~
+@eng Small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -4543,7 +4543,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -4601,7 +4601,7 @@ D2
 Z -1 40152
 S
 #40189
-@eng small house@rus небольшой дом~
+@eng Small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -4610,7 +4610,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -4658,7 +4658,7 @@ D0
 Z -1 40152
 S
 #40191
-@eng small house@rus небольшой дом~
+@eng Small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -4667,7 +4667,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -4720,7 +4720,7 @@ D2
 Z -1 40153
 S
 #40193
-@eng small house@rus небольшой дом~
+@eng Small house@rus Небольшой дом~
 @eng A  small  one-room house is all most elves need for shelter. This one
 is nicely furnished with beds along the north wall and a fireplace with
 a nice counter nearby and butcher-block along the south wall. Above the
@@ -4729,7 +4729,7 @@ place  pots,  pans,  and other cooking vessels. The house door was left
 open because, well, the citizens of Elvenhame expect that they are safe
 here and that there is nothing to steal or harm.
 @rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
-бельшинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
 камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
 меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
 ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
@@ -4779,15 +4779,22 @@ D0
 Z -1 40153
 S
 #40195
-small house~
-A small one-room house is all most elves need for shelter. This
-one is nicely furnished with beds along the north wall and a 
-fireplace with a nice counter nearby and butcher-block along the 
-south wall. Above the fire is a metal construct which allows the
-family which lives here to place pots, pans, and other cooking
-vessels. The house door was left open because, well, the citizens
-of Elvenhame expect that they are safe here and that there is
-nothing to steal or harm.
+@eng Small house@rus Небольшой дом~
+@eng A  small  one-room house is all most elves need for shelter. This one
+is nicely furnished with beds along the north wall and a fireplace with
+a nice counter nearby and butcher-block along the south wall. Above the
+fire  is  a metal construct which allows the family which lives here to
+place  pots,  pans,  and other cooking vessels. The house door was left
+open because, well, the citizens of Elvenhame expect that they are safe
+here and that there is nothing to steal or harm.
+@rus Маленький  однокомнатный  дом  удовлетворяет  потребность в жилье для
+большинства  эльфов. Он уютно обставлен кроватями вдоль северной стены,
+камином,  крепким  столом  и  кухней  на  южной  стене.  Над  огнем  --
+меналлическая  конструкция,  позволяющая  живущей  здесь  семье  эльфов
+ставить на нее горшки, кастрюли и другую посуду для приготовления пищи.
+Дверь  дома  оставлена  открытой,  так как жители Эльвенхейма чувствуют
+себя в безопасности, и не ожидают, что кто-то захочет их обокрасть, или
+чем-либо навредить.
 ~
 0 D inside
 D3
@@ -5178,9 +5185,9 @@ G 0 40133 0		*	Kal'ille M'Gorn: a canteen of water
 G 0 40134 0		*	Kal'ille M'Gorn: a large canvas sack
 G 0 40135 0		*	Kal'ille M'Gorn: a leather backpack
 G 0 40136 0		*	Kal'ille M'Gorn: a sleeping bag
-M 0 40137 1 40187 1	* a citizen (small house)
-M 0 40138 1 40187 1	* a citizen (small house)
-M 0 40139 1 40187 1	* the elf child (small house)
+M 0 40137 1 40187 1	* a citizen (Small house)
+M 0 40138 1 40187 1	* a citizen (Small house)
+M 0 40139 1 40187 1	* the elf child (Small house)
 M 0 40146 1 40188 1	* De'Lyron P'Gille the butcher (The Butcher Block)
 G 0 40137 0		*	De'Lyron P'Gille the butcher: a slice of bacon
 G 0 40138 0		*	De'Lyron P'Gille the butcher: a link of sausage
@@ -5188,9 +5195,9 @@ G 0 40139 0		*	De'Lyron P'Gille the butcher: some spicy chicken nuggets
 G 0 40140 0		*	De'Lyron P'Gille the butcher: some port ribs
 G 0 40141 0		*	De'Lyron P'Gille the butcher: some strips of barbecue brisket
 G 0 40142 0		*	De'Lyron P'Gille the butcher: a plateful of veal tenders
-M 0 40140 2 40189 1	* a citizen (small house)
-M 0 40141 2 40189 1	* a citizen (small house)
-M 0 40142 4 40189 1	* the drow child (small house)
+M 0 40140 2 40189 1	* a citizen (Small house)
+M 0 40141 2 40189 1	* a citizen (Small house)
+M 0 40142 4 40189 1	* the drow child (Small house)
 M 0 40147 1 40190 1	* Nech'lir the blacksmith (The Armory)
 G 0 40150 0		*	Nech'lir the blacksmith: a pair of plain steel bracers
 G 0 40148 0		*	Nech'lir the blacksmith: a pair of steel-reinforced gloves
@@ -5200,9 +5207,9 @@ G 0 40145 0		*	Nech'lir the blacksmith: a chainmail skirt
 G 0 40147 0		*	Nech'lir the blacksmith: a pair of steel-toed boots
 G 0 40146 0		*	Nech'lir the blacksmith: a pair of chainmail leggings
 G 0 40149 0		*	Nech'lir the blacksmith: a jacket of platemail
-M 0 40143 2 40191 1	* a citizen (small house)
-M 0 40144 2 40191 1	* a citizen (small house)
-M 0 40145 3 40191 1	* the grey-elven child (small house)
+M 0 40143 2 40191 1	* a citizen (Small house)
+M 0 40144 2 40191 1	* a citizen (Small house)
+M 0 40145 3 40191 1	* the grey-elven child (Small house)
 M 0 40148 1 40192 1	* Sarn'otha Vent'Mir the jeweller (All That Glitters)
 G 0 40156 0		*	Sarn'otha Vent'Mir the jeweller: a golden bracelet
 G 0 40151 0		*	Sarn'otha Vent'Mir the jeweller: a sparkling ruby
@@ -5212,10 +5219,10 @@ G 0 40153 0		*	Sarn'otha Vent'Mir the jeweller: a sapphire
 G 0 40154 0		*	Sarn'otha Vent'Mir the jeweller: a diamond
 G 0 40155 0		*	Sarn'otha Vent'Mir the jeweller: a diamond engagement ring
 G 0 40158 0		*	Sarn'otha Vent'Mir the jeweller: a topaz-encrusted collar
-M 0 40143 2 40193 1	* a citizen (small house)
-M 0 40144 2 40193 1	* a citizen (small house)
-M 0 40145 3 40193 2	* the grey-elven child (small house)
-M 0 40145 3 40193 2	* the grey-elven child (small house)
+M 0 40143 2 40193 1	* a citizen (Small house)
+M 0 40144 2 40193 1	* a citizen (Small house)
+M 0 40145 3 40193 2	* the grey-elven child (Small house)
+M 0 40145 3 40193 2	* the grey-elven child (Small house)
 M 0 40149 1 40194 1	* Gethnir'Rah F'nith the weaponsmith (He Who Lives By The Sword (R) Weapons Boutique)
 G 0 40159 0		*	Gethnir'Rah F'nith the weaponsmith: a dagger
 G 0 40160 0		*	Gethnir'Rah F'nith the weaponsmith: a sharp knife
@@ -5226,11 +5233,11 @@ G 0 40164 0		*	Gethnir'Rah F'nith the weaponsmith: a small mace
 G 0 40165 0		*	Gethnir'Rah F'nith the weaponsmith: a flail
 G 0 40166 0		*	Gethnir'Rah F'nith the weaponsmith: a leather whip
 G 0 40167 0		*	Gethnir'Rah F'nith the weaponsmith: a sturdy staff
-M 0 40140 2 40195 1	* a citizen (small house)
-M 0 40141 2 40195 1	* a citizen (small house)
-M 0 40142 4 40195 3	* the drow child (small house)
-M 0 40142 4 40195 3	* the drow child (small house)
-M 0 40142 4 40195 3	* the drow child (small house)
+M 0 40140 2 40195 1	* a citizen (Small house)
+M 0 40141 2 40195 1	* a citizen (Small house)
+M 0 40142 4 40195 3	* the drow child (Small house)
+M 0 40142 4 40195 3	* the drow child (Small house)
+M 0 40142 4 40195 3	* the drow child (Small house)
 M 0 40151 1 40196 1	* The Necromancer-Alchemist (Necromancers' Supply Shoppe)
 S
 

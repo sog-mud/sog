@@ -657,7 +657,7 @@ D2
 Z -1 6601
 D3
 @eng A rocky road leads back to Midgaard and the mines of Moria.
-@rus Каменистая дорога ведет назад в Митгард и к шахтам Мории.
+@rus Каменистая дорога ведет назад в Мидгаард и к шахтам Мории.
 ~
 ~
 ~
@@ -1776,7 +1776,7 @@ D4
 Z -1 6542
 S
 #6562
-The mountains of the dwarven kingdom~
+@eng The mountains of the dwarven kingdom@rus Горы королевства гномов~
 @eng You are standing at the foot of the mountains of the dwarven kingdom, where
 dwarves and giants toil endlessly to pry gems and mithril from the mother 
 earth.  Here lies the palace of the dwarven queen, and untold riches.

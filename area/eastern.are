@@ -10,10 +10,10 @@ End
 
 #MOBILES
 #5000
-dervish raggity~
-@eng The dervish@rus Дервиш~
+dervish raggity дервиш~
+@eng The dervish@rus дервиш~
 @eng The raggity dervish walks on aimlessly.
-@rus Усталый Дервиш бесцельно бродит здесь.
+@rus Усталый дервиш (dervish) бесцельно бродит здесь.
 ~
 @eng Dressed in loose fitting rags, this man looks like he could use
 some rest.
@@ -27,12 +27,14 @@ EFNU
 stand stand male 3
 0 0 medium unknown
 #5001
-dervish large~
-The dervish~
+dervish large дервиш~
+@eng The dervish@rus дервиш~
 The large dervish watches for signs of trouble.
 ~
-Dressed in loose fitting rags, this man looks like he could use
+@eng Dressed in loose fitting rags, this man looks like he could use
 LOTS of rest.
+@rus Множество бесформенных и грязных тряпок накинуто на него поверх
+грязного тела. Ему явно требуется отдых.
 ~
 human~
 FG 0 0 G 0 650 0
@@ -42,12 +44,15 @@ EFNU
 stand stand male 7
 0 0 medium unknown
 #5002
-snake coral~
-The coral snake~
-A brightly colored snake slithers along the sands.
+snake coral змея~
+@eng The coral snake@rus ~~коралловая~~ ~~змея~~~
+@eng A brightly colored snake slithers along the sands.
+@rus Пестро окрашенная змея (snake) скользит меж дюн.
 ~
-This relatively harmless snake has bright alternating bands of red, yellow
+@eng This relatively harmless snake has bright alternating bands of red, yellow
 and black.
+@rus Эта сравнительно безобидная змея окрашена в пеструю смесь красного,
+желтого и черного цветов.
 ~
 snake~
 G 0 0 0 0 -10 0
@@ -56,14 +61,18 @@ G 0 0 0 0 -10 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 r cold 50
 r poison -33
 #5003
-scorpion small~
-The small scorpion~
-A small, red scorpion scuttles away at your approach.
+scorpion small скорпион~
+@eng The small scorpion@rus ~~маленький~~ ~~скорпион~~~
+@eng A small, red scorpion scuttles away at your approach.
+@rus Маленький скорпион (scorpion) уползает прочь при твоем приближении.
 ~
-The little tail is mighty dangerous for such a small creature.
+@eng The little tail is mighty dangerous for such a small creature.
+@rus Его маленький хвост представляет большую опасность для таких же как он
+небольших созданий.
 ~
 human~
 G 0 0 0 0 -50 0
@@ -72,12 +81,15 @@ G 0 0 0 0 -50 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #5004
-worm giant purple~
-The giant, purple sand worm~
-A giant, purple sand worm thrusts up out of the sand and attacks!
+worm giant purple червь~
+@eng The giant, purple sand worm@rus ~~песчаный~~ ~~червь~~~
+@eng A giant, purple sand worm thrusts up out of the sand and attacks!
+@rus Гигантский пурпурный песчаный червь (worm) вылез из-под песка и напал.
 ~
-He's big, mean, and purple. Watch out!
+@eng He's big, mean, and purple. Watch out!
+@rus Большой пурпурный гадкий червь. Лучше обойти стороной...
 ~
 human~
 BF 0 0 0 0 -100 0
@@ -86,11 +98,13 @@ BF 0 0 0 0 -100 0
 EFNU
 stand stand none 127
 0 0 medium unknown
+g @eng none@rus male~
 #5005
-dragon brass~
-the brass dragon~
-The brass dragon steps out of the darkness and says 'Hello'.
+dragon brass дракон~
+@eng the brass dragon@rus ~~латунный~~ ~~дракон~~~
+@eng The brass dragon steps out of the darkness and says 'Hello'.
 Then adds to it, 'Prepare to die, have a nice day!'
+@rus Латунный дракон (dragon) выступил из темноты и сказал 'Привет'. А потом добавил 'Приготовься умереть, дружок'.
 ~
 ~
 dragon~
@@ -100,15 +114,17 @@ BCF 0 H 0 A 450 0
 EFNR
 stand stand female 275
 0 0 medium unknown
+g @eng female@rus male~
 r bash -33
 r pierce 50
 r fire -33
 r cold 50
 r charm -33
 #5006
-nomad leader~
-The nomad leader~
-The nomad leader sits silently in prayer.
+nomad leader предводитель кочевник~
+@eng The nomad leader@rus ~~предводитель~~ кочевников~
+@eng The nomad leader sits silently in prayer.
+@rus Предводитель кочевников (leader) сидит, погрузившись в молитву.
 ~
 He is clad in silk robes lined with gold thread. At his side
 is a large, engraved cutlass. He has an especially haughty air

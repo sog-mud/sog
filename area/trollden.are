@@ -275,7 +275,7 @@ g @rus male~
 #2805
 bone cracked кость~
 @eng a cracked bone@rus ~~сломанная~~ ~~кость~~~
-@eng A cracked piece of bone lies here.@rus Кусок сломанной кости лежет здесь.~
+@eng A cracked piece of bone lies here.@rus Кусок (bone) сломанной кости лежит здесь.~
 bone~
 weapon 0 0 AN
 mace 3 3 'pound' 0

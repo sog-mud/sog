@@ -326,9 +326,12 @@ D2
 Z -1 3525
 S
 #102
-Dimly Lit Path~
-This section of the road is badly worn and frequently traversed.  There is
+@eng Dimly Lit Path@rus Темная тропинка~
+@eng This section of the road is badly worn and frequently traversed.  There is
 faint singing to the north.  The path back to the road lies to the south.
+@rus Эта часть дорожки в очень плохом состоянии, вся в рытвинах. С севера
+слышится негромкое пение. Направившись на юг, можно выйти к большой
+дороге.
 ~
 0 C forest
 D0
@@ -347,9 +350,12 @@ The dimly lit path.
 Z -1 101
 S
 #103
-Dimly Lit Path~
-This section of the road is badly worn and frequently traversed.  Singing is
-getting stronger to the north.  The path back to the road lies to the south.
+@eng Dimly Lit Path@rus Темная тропинка~
+@eng This section of the road is badly worn and frequently traversed.  There is
+faint singing to the north.  The path back to the road lies to the south.
+@rus Эта часть дорожки в очень плохом состоянии, вся в рытвинах. С севера
+слышится негромкое пение. Направившись на юг, можно выйти к большой
+дороге.
 ~
 0 0 forest
 D0
@@ -369,10 +375,15 @@ Z -1 102
 S
 #104
 @eng Entrance to Smurf Village@rus На окраине селения смурфов~
-You stand at the entrance to a tiny village.  You can see across the whole
+@eng You stand at the entrance to a tiny village.  You can see across the whole
 village easily.  Little blue creatures with white hats and boots and little 
 fluffy tails scamper about.  They sing continuously.  The singing is getting
 on your nerves and you have the urge to squash them.
+@rus Совсем маленькое селение. Ты легко можешь охватить взглядом все его
+строения. Маленькие голубые создания в белых шляпках и туфлях с пушис-
+тыми белыми хвостами бегают вокруг и при этом непрерывно напевают. Это
+их пение нешуточно действует тебе на нервы, и ты испытываешь непреодо-
+лимое желание потоптать тут всех и все.
 ~
 0 0 field
 D0

@@ -228,11 +228,11 @@ N
 stand stand male 0
 0 0 medium unknown
 #21
-golem lesser голем~
-a lesser golem~
-A lesser golem is here.
+golem голем flesh~
+a flesh golem~
+A flesh golem is here.
 ~
-The golem appears to be made of some kind of clay, enchanted to come to life!.
+The golem appears to be made of flesh.
 ~
 golem~
 DT 0 SV 0 0 0 0

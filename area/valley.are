@@ -523,10 +523,14 @@ D3
 Z 0 8829
 S
 #7801
-Along the Path~
-You are on the path away from the Plains of Ofcol.  The main path leads north
+@eng Along the Path@rus На тропе~
+@eng You are on the path away from the Plains of Ofcol.  The main path leads north
 to an overlook and south back toward the Plains of Ofcol.  Western and eastern
 side paths can be seen, probably deer trails by the width of them.
+@rus Ты стоишь на тропе, ведущей прочь с равнин Офкола. Можно вернуться
+назад на равнины или пойти дальше на север на небольшое возвышение.
+На запал и на восток ответвляются едва заметные тропинки, видимо, ис-
+пользуемые животными.
 ~
 0 0 field
 D0
@@ -603,10 +607,14 @@ The main path is to the west.
 Z 0 7801
 S
 #7804
-The Overlook~
-You are above a large valley.  Below you, you see humanoid forms wandering
+@eng The Overlook@rus Над долиной~
+@eng You are above a large valley.  Below you, you see humanoid forms wandering
 around the valley.  Rich green grass covers the valley, with some small trees
 dotting the landscape.  To the south is the trail back toward Ofcol.
+@rus Ты стоишь на холме, над долиной эльфов. Внизу ты видишь человекоподобных
+существ, бродящих по долине. Сочная зеленая трава покрывает долину сплошным
+ковром, на котором темными точками выделяются небольшие деревья. Если пойти
+по тропе на юг, то выйдешь на равнины Офкола.
 ~
 0 0 field
 D2
@@ -625,10 +633,13 @@ You see the entrance to the valley.
 Z 0 7805
 S
 #7805
-The Entrance to the Valley of the Elves~
-You are at the entrance to the Valley of the Elves.  Elves stare at your
+@eng The Entrance to the Valley of the Elves@rus Долина эльфов~
+@eng You are at the entrance to the Valley of the Elves.  Elves stare at your
 intrusion, but most are too busy to bother with you.  The valley spreads to
 the north, while enlarging toward the east and west.
+@rus Здесь начинается благословенная долина эльфов. Местные жители удивлены
+твоим вторжением, но они слишком заняты, чтобы беспокоится из-за этого.
+Долина продолжается на север и расширяется на восток и на запад.
 ~
 0 0 field
 D0
@@ -661,10 +672,12 @@ The overlook is above you.
 Z 0 7804
 S
 #7806
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see
 a small trail circling the entire valley.  The valley continues north and
 east.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на север и на восток.
 ~
 0 0 field
 D0
@@ -683,10 +696,12 @@ The entrance to the valley is to the east.
 Z 0 7805
 S
 #7807
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see
 a small trail circling the entire valley.  The valley continues north and
 west.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на север и на запад.
 ~
 0 0 field
 D0
@@ -705,10 +720,12 @@ The entrance to the valley is to the west.
 Z 0 7805
 S
 #7808
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see
 a small trail circling the entire valley.  The valley continues north and
 east.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на север и на восток.
 ~
 0 0 field
 D0
@@ -836,9 +853,12 @@ The valley continues west.
 Z 0 7810
 S
 #7812
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
-trail circling the entire valley.  The valley continues north and west.
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues north and
+west.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на север и на запад.
 ~
 0 0 field
 D0
@@ -858,9 +878,11 @@ Z 0 7811
 S
 #7813
 @eng The Edge of the Valley@rus Окраина долины эльфов~
-You are at the edge of the Valley of the Elves.  A steep trail leads up
+@eng You are at the edge of the Valley of the Elves.  A steep trail leads up
 toward the deer trail circling the valley.  The valley continues north,
 south, and east.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на север, на юг и на восток.
 ~
 0 0 field
 D0
@@ -1001,10 +1023,12 @@ The valley continues west.
 Z 0 7815
 S
 #7817
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  A steep trail leads up toward
-the deer trail circling the valley.  The valley continues north, south, and
-west.
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  A steep trail leads up
+toward the deer trail circling the valley.  The valley continues north,
+south, and west.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на север, на юг и на запад.
 ~
 0 0 field
 D0
@@ -1037,9 +1061,12 @@ The steep trail leads up.
 Z 0 7853
 S
 #7818
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a
-small trail circling the entire valley.  The valley continues south and east.
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see
+a small trail circling the entire valley.  The valley continues south and
+east.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на восток и на юг.
 ~
 0 0 field
 D1
@@ -1166,9 +1193,11 @@ The valley continues west.
 Z 0 7820
 S
 #7822
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see a small
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see a small
 trail circling the entire valley.  The valley continues south and west.
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на запад и на юг.
 ~
 0 0 field
 D2
@@ -1187,10 +1216,12 @@ The valley continues west.
 Z 0 7821
 S
 #7823
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see
 a small trail circling the entire valley.  The valley continues south and
 east.  
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на восток и на юг.
 ~
 0 0 field
 D1
@@ -1209,7 +1240,7 @@ The valley continues south
 Z 0 7819
 S
 #7824
-The Edge of the Valley~
+@eng The Edge of the Valley@rus Окраина долины эльфов~
 @eng You are in the Valley of the Elves.  The valley continues in all directions.
 To the north, a small, narrow trail leads away from the valley.
 @rus Ты находишься в благословенной долине эльфов. Она простирается во всех
@@ -1247,10 +1278,11 @@ The valley continues west.
 Z 0 7823
 S
 #7825
-The Edge of the Valley~
-You are at the edge of the Valley of the Elves.  High above you, you see
-a small trail circling the entire valley.  The valley continues south and
-west.  
+@eng The Edge of the Valley@rus Окраина долины эльфов~
+@eng You are at the edge of the Valley of the Elves.  High above you, you see a small
+trail circling the entire valley.  The valley continues south and west.
+@rus Ты стоишь на окраине долины эльфов. Наверху ты видишь тропинку,
+огибающую долину. Долина продолжается на запад и на юг.
 ~
 0 0 field
 D2
@@ -1269,9 +1301,11 @@ The valley continues west.
 Z 0 7824
 S
 #7826
-A Trail Leading from the Valley~
-You are on a narrow trail leading away from the Valley of the Elves.  This
+@eng A Trail Leading from the Valley@rus Тропинка, уводящая прочь от долины~
+@eng You are on a narrow trail leading away from the Valley of the Elves.  This
 trail leads north and south.  A rope ladder leads up to a rope bridge.
+@rus Ты стоишь на узкой тропинке, ведущей прочь от долины. Тропинка ведет на
+юг и на север. Забравшись по веревке вверх, окажешься на веревочном мосту.
 ~
 0 0 field
 D0
@@ -1297,10 +1331,12 @@ You see the rope bridge above you.
 Z 0 7858
 S
 #7827
-Along the Trail~
-You are on the trail away from the Valley of the Elves.  The hills around you
+@eng Along the Trail@rus Тропинка~
+@eng You are on the trail away from the Valley of the Elves.  The hills around you
 keep this trail narrow.  The trail continues east, south, west and north.
 You see the the field beyond the north trail.
+@rus Тропинка уходит прочь от долины эльфов. Холмы вокруг делают ее очень
+узкой. На севере виднеются зеленые поля.
 ~
 0 0 field
 D0
@@ -1333,9 +1369,11 @@ The trail continues west.
 Z 0 7868
 S
 #7828
-A Bend in the Trail~
-You are on the trail away from the Valley of the Elves.  The hills around you
+@eng A Bend in the Trail@rus Изгиб тропы~
+@eng You are on the trail away from the Valley of the Elves.  The hills around you
 keep this trail narrow.  The trail continues north and back west.
+@rus Здесь тропа, уводящая тебя из долины эльфов делает изгиб. По
+ней можно пойти на запад или на север.
 ~
 0 0 field
 D0
@@ -1354,10 +1392,13 @@ The trail goes back to the west.
 Z 0 7827
 S
 #7829
-A Smaller Valley~
-You are in another valley within these hills. To the north, you can see a
+@eng A Smaller Valley@rus Маленькая долина~
+@eng You are in another valley within these hills. To the north, you can see a
 building, and to the south you see the trail away from this valley.  The
 west and east paths surround this building.
+@rus Ты $gn{набрел} на маленькую долину, спрятавшуюся в холмах. На севере
+прямо перед собой ты видишь какое-то строение. Его можно обойти с
+запада и с востока. Пойдя на юг, попадешь в основную долину.
 ~
 0 0 field
 D0
@@ -1390,9 +1431,11 @@ You see the trail around the building.
 Z 0 7830
 S
 #7830
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads north and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads north and
 east.  To the north-east is a building.
+@rus Ты идешь по одной из троп в долине. Можно пойти на север или на восток.
+На северо-востоке ты видишь какое-то строение.
 ~
 0 0 field
 D0
@@ -1434,9 +1477,11 @@ You see the trail.
 Z 0 7829
 S
 #7832
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads north and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads north and
 south.  To the east is a building.
+@rus Ты идешь по одной из троп в долине. На востоке возвышается какое-то
+строение. Отсюда можно пойти на юг или на север.
 ~
 0 0 field
 D0
@@ -1455,9 +1500,11 @@ You see the trail.
 Z 0 7830
 S
 #7833
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads north and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads north and
 west.  To the north-west is a building.
+@rus Ты идешь по одной из тропинок в долине. Дальше можно направиться на
+север или на запад. На северо-западе находится какое-то строение.
 ~
 0 0 field
 D0
@@ -1527,9 +1574,11 @@ The building continues to the west.
 Z 0 7834
 S
 #7836
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads north and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads north and
 south.  To the west is a building.
+@rus Ты идешь по одной из тропинок в долине. Дальше можно пойти или на юг,
+или на север. На западе ты видишь здание.
 ~
 0 0 field
 D0
@@ -1548,9 +1597,11 @@ You see the trail.
 Z 0 7833
 S
 #7837
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads north and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads north and
 south.  To the east is a building.
+@rus Ты идешь по одной из троп в долине. На востоке возвышается какое-то
+строение. Отсюда можно пойти на юг или на север.
 ~
 0 0 field
 D0
@@ -1625,9 +1676,11 @@ You see the second floor.
 Z 0 7848
 S
 #7840
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads north and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads north and
 south.  To the west is a building.
+@rus Ты идешь по одной из тропинок в долине. Дальше можно пойти или на юг,
+или на север. На западе ты видишь здание.
 ~
 0 0 field
 D0
@@ -1646,9 +1699,11 @@ You see the trail.
 Z 0 7836
 S
 #7841
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads south and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads south and
 east.  To the south-east is a building.
+@rus Ты идешь по одной из троп в долине. На юге-востоке ты видишь здание.
+Отсюда можно направиться на юг или на восток.
 ~
 0 0 field
 D1
@@ -1667,9 +1722,11 @@ You see the trail.
 Z 0 7837
 S
 #7842
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads west and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads west and
 east.  To the south is a building.
+@rus Ты идешь по одной из троп в долине. На юге -- какое-то строение.
+Можно пойти на запад и на восток.
 ~
 0 0 field
 D1
@@ -1688,9 +1745,11 @@ You see the trail.
 Z 0 7841
 S
 #7843
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads east and
-west.  To the south is a building.
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads west and
+east.  To the south is a building.
+@rus Ты идешь по одной из троп в долине. На юге -- какое-то строение.
+Можно пойти на запад и на восток.
 ~
 0 0 field
 D1
@@ -1709,9 +1768,11 @@ You see the trail.
 Z 0 7842
 S
 #7844
-A Trail in the Valley~
-You are on the trail in the Valley of the Elves.  This trail leads south and
+@eng A Trail in the Valley@rus Тропинка в долине~
+@eng You are on the trail in the Valley of the Elves.  This trail leads south and
 west.  To the south-west is a building.
+@rus Ты идешь по одной из троп в долине. На юго-западе ты видишь какое-то
+строение. Отсюда можно направиться на юг или на запад.
 ~
 0 0 field
 D2
@@ -2385,9 +2446,11 @@ The trail down doesn't look safe to travel on at all.
 Z 0 7883
 S
 #7868
-A Bend in the Trail~
-You are on a bend in the trail leading from the main valley.  The hills
+@eng A Bend in the Trail@rus Изгиб тропы~
+@eng You are on a bend in the trail leading from the main valley.  The hills
 around you make this trail quite narrow.  
+@rus Здесь узкая тропинка, уводящая в сторону от основной долины
+делает изгиб. По сторонам над тобой возвышаются холмы.
 ~
 0 0 field
 D0

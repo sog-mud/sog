@@ -641,9 +641,13 @@ g @rus none~
 
 #ROOMS
 #3405
-Inside the Chapel~
-You are in a small, dark chapel.  The dark brown glass in the tiny windows
+@eng Inside the Chapel@rus Внутри часовни~
+@eng You are in a small, dark chapel.  The dark brown glass in the tiny windows
 do not let much light through.  A few rows of worn wooden benches stand here.
+@rus Ты $gn{вошел} в маленькую темную часовню. Темно-коричневое стекло
+в маленьком оконце не пропускает достаточное количество света,
+чтобы осветить часовню. Несколько изношенных скамей стоят в два
+ряда.
 ~
 0 0 city
 E

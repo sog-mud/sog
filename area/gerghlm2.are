@@ -1238,7 +1238,7 @@ r charm 999
 r sound 999
 #7595
 pawn shop runner~
-@eng the pawn shop owner@rus Владелец ломбарда~
+@eng the pawn shop owner@rus ~~владелец~~ ломбарда~
 @eng The Pawn Shop owner is here selling and buying things.
 @rus Владелец ломбарда (pawn) покупает и продает всякие вещи.
 ~
@@ -7114,9 +7114,6 @@ G 0 7511 0		*	a guppy: corpse of a guppy
 M 0 7517 10 7537 1	* a guppy (The watery tunnel)
 G 0 7511 0		*	a guppy: corpse of a guppy
 M 0 7519 5 7539 1	* a bugbear (The end of the watery tunnel)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
-M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
 M 0 7514 4 7541 1	* a medium fish will pointy teeth (The Sewers)
 M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)
 M 0 7513 5 7543 1	* a small fish with pointy teeth (Underwater in the river)

@@ -264,7 +264,7 @@ BJRZ 0 Jd 0 ABCDFJL -1000 0
 -50 -50 -50 -60
 CXY
 stand stand none 20000
-Z QU huge unknown
+0 QU huge unknown
 g @eng none@rus male~
 r bash 62
 r pierce -30

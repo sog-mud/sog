@@ -284,9 +284,9 @@ g @rus none~
 @eng Beyond the water fall, you are in the caven. Things getting darker. You
 seek for the light but you couldn't find. But the light coming from the
 water fall still can light the enterance of the caven.
-@rus Пройдя сквозь водопад, ты оказался в пещере. Тут темно, и ты пытаешься найти
-какой-нибудь светильник, но не можешь. Однако, света, проходящего сквозь 
-водопад, достаточно для освещения входа.
+@rus Пройдя сквозь водопад, ты $gn{оказался} в пещере.  Тут темно, и ты пытаешься
+найти какой-нибудь светильник, но не можешь.  Однако, света, проходящего
+сквозь водопад, достаточно для освещения входа.  
 ~
 0 KWX hills
 D1

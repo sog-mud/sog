@@ -5,17 +5,23 @@ VNUMs 8100 8199
 Credits Yaegar~
 Security 9
 LevelRange 45 65
+ResetMessage @rus Раздался леденящий душу вой.~
 End
 
 #MOBILES
 #8100
 spectre призрак~
 @eng a spectre@rus призрак~
-A Spectre screams at you and attacks!
+@eng A Spectre screams at you and attacks!
+@rus Призрак (spectre) с криком бросился к тебе.
 ~
-The spirit of some former minion of this place, this foul Undead creature
+@eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
+@rus Этот дух -- порождение самой атмосферы этого мрачного места. Для этого
+мрачного создания ничто не важно. Оно служит одному -- смерти. А по
+кровожадности заняло бы первое место среди тех существ, что ты здесь
+$gn{встретил}.
 ~
 undead~
 FGO 0 T 0 0 -1000 0
@@ -41,9 +47,9 @@ wraith дух~
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
 @rus Этот дух -- порождение самой атмосферы этого мрачного места. Для этого
-мрачного создания ничто не важно. Он служит одному -- смерти. А по
-кровожадности он бы занял первое место среди тех существ, что ты здесь
-встретил.
+мрачного создания ничто не важно. Оно служит одному -- смерти. А по
+кровожадности заняло бы первое место среди тех существ, что ты здесь
+$gn{встретил}.
 ~
 undead~
 FGO 0 T 0 0 -1000 0
@@ -52,6 +58,7 @@ FGO 0 T 0 0 -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -60,12 +67,17 @@ r disease -100
 r light 50
 #8102
 wight~
-a wight~
-A ghastly wight, still clad in the armor it wore in life, strikes at you.
+@eng a wight@rus ~~призрачная~~ ~~фигура~~~
+@eng A ghastly wight, still clad in the armor it wore in life, strikes at you.
+@rus Призрачная фигура (wight), все еще одетая в то, что носила при жизни, ударила тебя.
 ~
-The spirit of some former minion of this place, this foul Undead creature
+@eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
+@rus Этот дух -- порождение самой атмосферы этого мрачного места. Для этого
+мрачного создания ничто не важно. Оно служит одному -- смерти. А по
+кровожадности заняло бы первое место среди тех существ, что ты здесь
+$gn{встретил}.
 ~
 undead~
 FGO 0 0 0 0 -1000 0
@@ -74,6 +86,7 @@ FGO 0 0 0 0 -1000 0
 EFNQ
 stand stand none 4500
 0 0 medium unknown
+g @eng none@rus female~
 r poison -100
 r negative -33
 r holy 50
@@ -81,13 +94,18 @@ r energy -33
 r disease -100
 r light 50
 #8103
-ghost~
-a ghost~
-The ghost of some long-dead adventurer howls maniacally at you.
+ghost привидение призрак~
+@eng a ghost@rus призрак~
+@eng The ghost of some long-dead adventurer howls maniacally at you.
+@rus Призрак (ghost) давно уже умершего путешественника, завывая, направляется к тебе.
 ~
-The spirit of some former minion of this place, this foul Undead creature
+@eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
+@rus Этот дух -- порождение самой атмосферы этого мрачного места. Для этого
+мрачного создания ничто не важно. Оно служит одному -- смерти. А по
+кровожадности заняло бы первое место среди тех существ, что ты здесь
+$gn{встретил}.
 ~
 undead~
 FGO 0 T 0 0 -1000 0
@@ -96,6 +114,7 @@ FGO 0 T 0 0 -1000 0
 EFNU
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -105,11 +124,15 @@ r light 50
 #8104
 vampire вампир~
 @eng a vampire@rus вампир~
-An evil vampire rises from the sarcophagus, bares its fangs and attacks!
+@eng An evil vampire rises from the sarcophagus, bares its fangs and attacks!
+@rus Вампир (vampire) вылез из саркофага, обнажил зубы и напал на тебя.
 ~
-The Evil Baron and his two brothers were vampires imprisoned here by Xanan
+@eng The Evil Baron and his two brothers were vampires imprisoned here by Xanan
 centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
+@rus Жестокий барон и два его брата -- вампиры, которых заточил здесь
+Ханан много лет назад, так как он не мог их уничтожить до конца.
+А теперь.. Спасибо тебе, что ты позволил им воскрестнуть вновь.
 ~
 vampire~
 BFG 0 N 0 0 -1000 0
@@ -118,6 +141,7 @@ BFG 0 N 0 0 -1000 0
 EFNQ
 stand stand none 5300
 0 0 medium unknown
+g @eng none@rus male~
 r fire 50
 r cold -50
 r lightning -50
@@ -127,13 +151,17 @@ r holy 50
 r light 100
 r charm -100
 #8105
-lich~
-a lich~
-An insane Lich cackles hideously and unleashes a volley of spells.
+lich лич~
+@eng a lich@rus лич~
+@eng An insane Lich cackles hideously and unleashes a volley of spells.
+@rus Безумный лич (lich), отвратительно захихикав, пробормотал заклинание.
 ~
-This powerful Undead is actually Xantharus' former master, whom he betrayed
+@eng This powerful Undead is actually Xantharus' former master, whom he betrayed
 and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
+@rus Этот могущественный призрак когда-то был учителем Ксантаруса, которого
+тот предал и убил. Однако Ксантарус недооценил силу учителя, и теперь
+последний вернулся, жаждя мщения.
 ~
 lich~
 BFGJ 0 0 0 ABH -1000 0
@@ -155,12 +183,15 @@ r disease -100
 r charm -100
 r sound 33
 #8106
-demon~
-a lesser demon~
-A Lesser Demon slobbers, drools and cackles insanely!
+demon демон~
+@eng a lesser demon@rus ~~малый~~ ~~демон~~~
+@eng A Lesser Demon slobbers, drolls and cackles insanely!
+@rus Малый демон (demon) паясничает, пускает слюни и хохочет как безумный.
 ~
-This grotesque is a minion of the lower planes drawn here by the intense
+@eng This grotesque is a minion of the lower planes drawn here by the intense
 concentration of negative material energy.
+@rus Это уродливое существо -- одно из низших созданий, очутившееся здесь
+из-за высокой концентрации негативной энергии.
 ~
 undead~
 FGHO 0 0 0 0 -1000 0
@@ -169,6 +200,7 @@ FGHO 0 0 0 0 -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -176,15 +208,20 @@ r energy -33
 r disease -100
 r light 50
 #8107
-revenant spirit~
-@eng a revenant@rus ~~ревенант~~~
-The spirit of a mortal horribly wronged has returned as a Revenant.
+revenant spirit призрак~
+@eng a revenant@rus призрак~
+@eng The spirit of a mortal horribly wronged has returned as a Revenant.
+@rus Дух смертного, несправедливо осужденного, вернулся в виде призрака (revenant).
 ~
-This poor soul was once a powerful, good priest of Soleil who was betrayed
+@eng This poor soul was once a powerful, good priest of Soleil who was betrayed
 by agents of the evil Gomez and tortured and slain by them. His spirit has
 returned here, seeking out the long-dead fellows who slew him. He will 
 ignore all else in his quest, but will not hesitate to attack you if you
 interfere.
+@rus Эта неприкаянная душа когда-то была могущественным, добрым адептом,
+которого обманули, замучили и убили агенты Гомеза. Его дух вернулся
+сюда в поисках своих обидчиков. И ничто кроме мести его сейчас не 
+интересует, но берегись, если ты попытаешься ему помешать.
 ~
 undead~
 GO 0 N 0 0 0 0
@@ -193,6 +230,7 @@ GO 0 N 0 0 0 0
 EFNQ
 stand stand none 5300
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -200,13 +238,18 @@ r energy -33
 r disease -100
 r light 50
 #8108
-spirit haunt~
-a haunt~
-The spirit of an adventurer slain here long ago is now bound here as a Haunt.
+spirit haunt дух призрак привидение~
+@eng a haunt@rus дух~
+@eng The spirit of an adventurer slain here long ago is now bound here as a Haunt.
+@rus Дух (haunt) путника, убитого здесь, неприкаянно бродит вокруг.
 ~
-This spirit was once a powerful warrior who, on a wager, entered Ghost Town.
+@eng This spirit was once a powerful warrior who, on a wager, entered Ghost Town.
 He was quickly slain by the inhabitants, but such was his distress at his
 death, his spirit remained behind to haunt the area where he met his end.
+@rus Это дух одного из сильнейших воинов мира, на пари, посетившего 
+этот город. Он был быстро убит обитателями этого мрачного места.
+И теперь его дух неприкаянно бродит здесь, в месте, где он нашел
+свой конец.
 ~
 undead~
 BGO 0 T 0 0 0 0
@@ -215,6 +258,7 @@ BGO 0 T 0 0 0 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -222,12 +266,15 @@ r energy -33
 r disease -100
 r light 50
 #8109
-crypt thing~
-a crypt thing~
-A Crypt Thing cackles evilly and taunts you.
+crypt thing создание~
+@eng a crypt thing@rus ~~могильное~~ ~~создание~~~
+@eng A Crypt Thing cackles evilly and taunts you.
+@rus Могильное создание (thing) злобно насмехается над тобой.
 ~
-This fell creature will not attack you, despite its evil- it will merely
+@eng This fell creature will not attack you, despite its evil- it will merely
 taunt you, though it will not hesitate to defend itself.
+@rus Это ужастное создание не собирается на тебя нападать. Не смотря на
+свою жестокость и злобность, оно пока всего лишь насмехается над тобой.
 ~
 undead~
 BGO 0 0 0 0 -1000 0
@@ -243,12 +290,15 @@ r energy -33
 r disease -100
 r light 50
 #8110
-greater demon~
-a greater demon~
-A Greater demon spews forth fire and gas!
+greater demon демон~
+@eng a greater demon@rus ~~большой~~ ~~демон~~~
+@eng A Greater demon spews forth fire and gas!
+@rus Большой демон (demon) возник из дыма и огня.
 ~
-This grotesque is a minion of the lower planes drawn here by the intense
+@eng This grotesque is a minion of the lower planes drawn here by the intense
 concentration of negative material energy.
+@rus Это уродливое существо -- одно из низших созданий, очутившееся здесь
+из-за высокой концентрации негативной энергии.
 ~
 undead~
 BFGO 0 T 0 0 -1000 0
@@ -264,13 +314,16 @@ r energy -33
 r disease -100
 r light 50
 #8111
-undead dragon~
-an undead dragon~
-An Undead Dragon belches forth poisonous fumes!
+dragon undead призрак~
+@eng an undead dragon@rus ~~дракон~~-~~призрак~~~
+@eng An Undead Dragon belches forth poisonous fumes!
+@rus Дракон-призрак (dragon) выдохнул облако ядовитого газа.
 ~
-This foul Dracolich is the undead spirit of a dragon that served Xantharus
+@eng This foul Dracolich is the undead spirit of a dragon that served Xantharus
 so well in life that he animated it to continue serving him after its
 death.
+@rus Эта нечисть -- дух дракона, служившего Ксантарусу при жизни, и которого
+некромансер призвал из мира духов, чтобы служил и после смерти.
 ~
 undead~
 BFGO 0 T 0 0 -1000 0
@@ -279,6 +332,7 @@ BFGO 0 T 0 0 -1000 0
 EFNQ
 stand stand none 7000
 0 0 medium unknown
+g @eng none@rus male~
 r poison -100
 r negative -33
 r holy 50
@@ -286,13 +340,18 @@ r energy -33
 r disease -100
 r light 50
 #8112
-undead monster~
-an undead monster~
-An undead monster shambles forth and attacks!
+monster нежить undead~
+@eng an undead monster@rus нежить~
+@eng An undead monster shambles forth and attacks!
+@rus Нежить (monster) шаркающей походкой направилась к тебе.
 ~
-The spirit of some former minion of this place, this foul Undead creature
+@eng The spirit of some former minion of this place, this foul Undead creature
 will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
+@rus Этот дух -- порождение самой атмосферы этого мрачного места. Для этого
+мрачного создания ничто не важно. Оно служит одному -- смерти. А по
+кровожадности заняло бы первое место среди тех существ, что ты здесь
+$gn{встретил}.
 ~
 undead~
 FGO 0 0 0 0 -1000 0
@@ -301,6 +360,7 @@ FGO 0 0 0 0 -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus female~
 r poison -100
 r negative -33
 r holy 50
@@ -342,12 +402,15 @@ P 0 medium unknown
 r bash 50
 r poison -50
 #8115
-lurker above~
-a lurker above~
-A Lurker Above seeks to enfold and suffocate you!
+lurker above притаившийся призрак~
+@eng a lurker above@rus ~~притаившийся~~ ~~призрак~~~
+@eng A Lurker Above seeks to enfold and suffocate you!
+@rus Притаившись, призрак (lurker) ждет момента, чтобы обнять и задушить жертву.
 ~
-This foul abberration feeds on any and all that enter its lair- even the
+@eng This foul abberration feeds on any and all that enter its lair- even the
 corporeal undead avoid it...
+@rus Это мерзкое создание питается всем, что попадает в его логово. Даже
+бестелесные создания обходят его стороной.
 ~
 lurker~
 BFGHO 0 T 0 0 0 0
@@ -356,6 +419,7 @@ BFGHO 0 T 0 0 0 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 #8116
 succubus woman суккуб~
 @eng a succubus@rus суккуб~
@@ -378,14 +442,20 @@ r cold -50
 r lightning -100
 r poison -100
 #8117
-necromancer xantharus~
-Xantharus~
-A timid-looking Necromancer begs to be freed.
+necromancer xantharus ксантарус некромансер~
+@eng Xantharus@rus Ксантарус~
+@eng A timid-looking Necromancer begs to be freed.
+@rus Дрожащий некромансер (necromancer) мечтает выбраться отсюда.
 ~
-This pathetic wretch is none other than Xantharus, the evil mage that brought
+@eng This pathetic wretch is none other than Xantharus, the evil mage that brought
 the Undead to this town, destroying it, before losing control of them. He
 has fled here, in the hopes that they won't find him before he finds a way
 to escape his terrible mistake.
+@rus Этот бедняга никто иной как сам Ксантарус, злой маг, открывший 
+нечистой силе дорогу в город и уничтоживший его, до того как
+потерял контроль над призванной им нечистью. Он сбежал и урылся
+здесь в надежде, что его не отыщут до того, как он исправит свою
+оплошность.
 ~
 human~
 BGHO 0 0 0 0 -400 0
@@ -394,14 +464,19 @@ BGHO 0 0 0 0 -400 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 #8118
-rotting corpse~
-a rotting corpse~
-A Rotting Corpse staggers clumsily toward you.
+corpse rotting разлагающийся труп~
+@eng a rotting corpse@rus ~~разлагающийся~~ ~~труп~~~
+@eng A Rotting Corpse staggers clumsily toward you.
+@rus Разлагающийся труп (corpse) медленно, пошатываясь, движется к тебе.
 ~
-This thing and its fellows are what remains of the citizens of this once-
+@eng This thing and its fellows are what remains of the citizens of this once-
 fine town, reduced to a horrid state of undeath. Slaying them would be the
 best thing you could do for them...
+@rus То, что ты видишь -- это житель этого когда-то прекрасного города,
+уничтоженного нечистой силой. Убить -- это лучшее, что ты можешь
+для него сделать.
 ~
 undead~
 GO 0 0 0 0 0 0
@@ -417,13 +492,17 @@ r energy -33
 r disease -100
 r light 50
 #8119
-master~
-the master~
-The Master surveys his domain and laughs evilly.
+master нечисти повелитель~
+@eng the master@rus ~~повелитель~~ нечисти~
+@eng The Master surveys his domain and laughs evilly.
+@rus Повелитель (master) нечисти оглядывает свою вотчину и злобно усмехается.
 ~
-Little is known of this mysterious stranger who came here and took control
+@eng Little is known of this mysterious stranger who came here and took control
 after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
+@rus Мало кто знает этого таинственного странника, который обрел контроль
+над нечистью после того, как Ксантарус его над ней потерял. Он очень
+могучий, дьявольски жестокий маг. И он, не колеблясь, уничтожит тебя.
 ~
 human~
 BFGHO 0 J 0 ABKL -1000 0
@@ -590,14 +669,18 @@ r pierce -50
 r slash -50
 r fire 50
 #8127
-death knight~
-a death knight~
-A Death Knight salutes you then attacks!
+death knight призрак рацарь~
+@eng a death knight@rus ~~призрак~~ рыцаря~
+@eng A Death Knight salutes you then attacks!
+@rus Призрак рыцаря (knight), отсалютовав, напал на тебя.
 ~
-This is the spirit of a Paladin corrupted by the evil of the Master, doomed
+@eng This is the spirit of a Paladin corrupted by the evil of the Master, doomed
 to an eternity as an undead servant. Clad in ornate, ancient armor and 
 wielding a shiny silver sword, he would look as he did in life save for his
 rotting face...
+@rus Это призрак паладина, порабощенный злой силой. Волею судьбы он
+превратился в призрачное послушное орудие сметри. Он одет в 
+старинные доспехи и держит в руках серебряный меч. 
 ~
 death knight~
 BFG 0 0 0 0 -1000 0
@@ -606,18 +689,22 @@ BFG 0 0 0 0 -1000 0
 FNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r fire -33
 r poison -100
 r negative -33
 r holy 50
 r disease -100
 #8128
-nightmare~
-a nightmare~
-A Nightmare, loyal steed of the denizens of the Lower Planes, rests here.
+nightmare кошмар~
+@eng a nightmare@rus кошмар~
+@eng A Nightmare, loyal steed of the denizens of the Lower Planes, rests here.
+@rus Кошмар (nightmare), верный спутник порождений мрака, отдыхает здесь.
 ~
-This black, winged equine hell-steed waits patiently for its master to finish 
+@eng This black, winged equine hell-steed waits patiently for its master to finish 
 its business here before bearing it to its next destination.
+@rus Черное, крылатое существо, ожидает, когда его хозяин окончит свои дела
+здесь, чтобы двинуться дальше.
 ~
 undead~
 BGO 0 T 0 0 -1000 0
@@ -633,12 +720,15 @@ r energy -33
 r disease -100
 r light 50
 #8129
-retriever~
-a retriever~
-A retriever rears on four of its legs and strikes.
+retriever собака~
+@eng a retriever@rus ~~охотничья~~ ~~собака~~~
+@eng A retriever rears on four of its legs and strikes.
+@rus Охотничья собака (retriever) бросилась к тебе.
 ~
-This demonic steed resembles a huge spider with razor sharp blades for legs
+@eng This demon resembles a huge dog with razor sharp blades for legs
 and glowing gems for eyes.
+@rus Этот демон похож на огромную собаку с острыми когтями похожими на
+лезвия и сверкающими самоцветами глаз.
 ~
 undead~
 BFGO 0 0 0 0 -1000 0
@@ -647,6 +737,7 @@ BFGO 0 0 0 0 -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus female~
 r poison -100
 r negative -33
 r holy 50
@@ -654,15 +745,19 @@ r energy -33
 r disease -100
 r light 50
 #8130
-cambion scout~
-a cambion scout~
-A Cambion Scout eyes you cautiously.
+cambion scout соглядатай~
+@eng a cambion scout@rus соглядатай~
+@eng A Cambion Scout eyes you cautiously.
+@rus Соглядатай (scout) внимательно за тобой наблюдает.
 ~
-This half-man, half-demon creature is a scout for Orcus, Prince of the 
+@eng This half-man, half-demon creature is a scout for Orcus, Prince of the 
 Undead. He is here on a covert mission, and thus will avoid trouble if at
 all possible. He is attempting to ascertain the degree of power of the
 master, and inform his master if the strange man poses a significant threat
 to his domination of all things Undead.
+@rus Полу-человек, полу-демон. Он служит соглядатаем у Оркуса, принца нечисти.
+Здесь он с тайной миссией: узнать о мощи существа, покорившего здешних
+призраков и рассказать об этом Оркусу.
 ~
 tanar'ri~
 CGHO 0 V B L -1000 0
@@ -671,20 +766,26 @@ CGHO 0 V B L -1000 0
 EFNQ
 stand stand none 5000
 0 0 medium unknown
+g @eng none@rus male~
 r fire -100
 r cold -50
 r lightning -100
 r poison -100
 #8131
-orcus~
-Orcus~
-Orcus, Prince of the Undead, glowers menacingly at you.
+orcus оркус~
+@eng Orcus@rus Оркус~
+@eng Orcus, Prince of the Undead, glowers menacingly at you.
+@rus Оркус (Orcus) сердито глядит на тебя.
 ~
-Whoa. You are standing before Orcus. He resembles a bloated man twenty
+@eng Whoa. You are standing before Orcus. He resembles a bloated man twenty
 feet tall with a bull's nose and eyes, and goat's horns and hooves. He
 grips a rod with a goat's head in one hoof, and glares suspiciously at you.
 He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
+@rus Ой. Это же Оркус. Он похож на раздувшегося мужика двадцати футов
+ростом с бычьими носом и глазами, с козлиными рогами и копытами.
+Он держит жезл с козлиной коловой на одном конце и очень недобро
+смотрит на тебя.
 ~
 unique~
 BGHO 0 JN A L -1000 0
@@ -694,11 +795,13 @@ EFNQ
 stand stand none 5000
 0 0 medium unknown
 #8132
-water weird~
-a water weird~
-A Water Weird lunges at you!
+weird ужас water~
+@eng a water weird@rus ~~водяной~~ ~~ужас~~~
+@eng A Water Weird lunges at you!
+@rus Водяной ужас (weird) стремительно бросился на тебя.
 ~
-This watery snake resides in the well, which it will fight to defend.
+@eng This watery snake resides in the well.
+@rus Водяной змей, обитающий в колодце.
 ~
 snake~
 BFGO 0 N 0 0 0 0
@@ -729,13 +832,17 @@ g @eng none@rus male~
 r bash 50
 r poison -50
 #8134
-baron vampire вампир~
-a baron vampire~
-The Baron vampire rises from the sarcophagus, bares its fangs and attacks!
+baron vampire вампир барон~
+@eng a baron vampire@rus ~~барон~~-~~вампир~~~
+@eng The Baron vampire rises from the sarcophagus, bares its fangs and attacks!
+@rus Барон-вампир (baron) вылез из саркофага, обнажил зубы и напал на тебя.
 ~
-The Evil Baron and his two brothers were vampires imprisoned here by Xanan
+@eng The Evil Baron and his two brothers were vampires imprisoned here by Xanan
 centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
+@rus Жестокий барон и два его брата -- вампиры, которых заточил здесь
+Ханан много лет назад, так как он не мог их уничтожить до конца. 
+А теперь.. Спасибо тебе, что ты позволил им воскрестнуть вновь.
 ~
 vampire~
 BFG 0 0 0 0 -1000 0
@@ -1034,12 +1141,17 @@ D2
 Z -1 9584
 S
 #8101
-The Town~
-You have reached the Ghost Town, a place rumored to be inhabited by the
+@eng The Town@rus Город~
+@eng You have reached the Ghost Town, a place rumored to be inhabited by the
 most ghastly of undead, as well as their fell minions. Should you proceed,
 you may find yourself unable to return home by conventional means, and
 instead have to travel through until you find another means of escape. Your
 choice.
+@rus Вот ты $gn{достиг} Города Призраков, места, где по слухам обитает
+ужасная нечисть. Если пойти дальше, то может оказаться, что у тебя
+не будет возможности вернуться тем путем, что ты $gn{пришел} сюда. И,
+возможно, тебе придется, пройти сквозь весь город, чтобы выбраться
+из него. Тебе выбирать.
 ~
 0 C city
 D0
@@ -1056,11 +1168,16 @@ D2
 Z -1 8100
 S
 #8102
-The Main Street~
-Stepping onto this street, you immediately feel a wave of fear and dread
+@eng The Main Street@rus Главная улица~
+@eng Stepping onto this street, you immediately feel a wave of fear and dread
 wash over you. Shaking, you collect yourself and prepare to advance into
 this literally god-forsaken area. Houses line the street to the left and
 right. Up ahead lies a small town square.
+@rus Сделав первые шаги по этой улице, ты $gn{почувствовал} как тебя охватывает
+ужас, и одна за другой накатывают волны страха. Тем не менее, собрав волю
+в кулак, ты решаешь двинуться дальше, вглубь этого покинутого богом места.
+Справа и слева от себя ты видишь полуразрушенные дома. Дальше на севере 
+видна городская площадь.
 ~
 0 N city
 D0
@@ -1121,11 +1238,15 @@ D3
 ABZ 0 8102
 S
 #8105
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D0
@@ -1142,11 +1263,15 @@ D1
 Z -1 8106
 S
 #8106
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D0
@@ -1175,11 +1300,15 @@ D3
 Z -1 8105
 S
 #8107
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D0
@@ -1196,11 +1325,15 @@ D3
 Z -1 8106
 S
 #8108
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D0
@@ -1230,9 +1363,13 @@ Z -1 8114
 S
 #8109
 @eng The Well in the Town Square@rus Колодец на городской площади~
-You are standing in the middle of the town square, at the well.  Paths
+@eng You are standing in the middle of the town square, at the well.  Paths
 stretch past houses and shops in every direction.  There must still be some
 water in the well, as a small amount of grass has managed to grow around it.
+@rus Ты стоишь в центре городской площади, около колодца. Похоже, что
+в нем еще осталась вода, ибо несколько кустиков травы растет рядом
+с ним. Пойдя отсюда в любую сторону, придешь к домам, окружающим
+площадь.
 ~
 0 N city
 D0
@@ -1261,11 +1398,15 @@ D3
 Z -1 8108
 S
 #8110
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D0
@@ -1294,11 +1435,15 @@ D3
 Z -1 8109
 S
 #8111
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D1
@@ -1315,11 +1460,15 @@ D2
 Z -1 8108
 S
 #8112
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D0
@@ -1348,11 +1497,15 @@ D3
 Z -1 8111
 S
 #8113
-The Town Square~
-You have come to the Town Square. You can proceed in several directions from
+@eng The Town Square@rus Городская площадь~
+@eng You have come to the Town Square. You can proceed in several directions from
 here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
+@rus Вот уже и городская площадь. Отсюда можно в нескольких различных
+направлениях пересечь саму площадь, представляющую собой гладкий
+квадрат вызженной земли без какой-либо растительности. В центре
+площади ты видишь колодец.
 ~
 0 N city
 D2
@@ -1834,9 +1987,12 @@ D3
 ABZ 0 8130
 S
 #8134
-Main Street~
-You are heading along Main Street, which heads south to the Town Square and
+@eng Main Street@rus Главная улица~
+@eng You are heading along Main Street, which heads south to the Town Square and
 North toward an intersection. Houses line the street.
+@rus Ты ступаешь по главной улице города, уходящей отсюда на север и на юг,
+к городской площади. По обеим сторонам улицы расположены полуразрушенные
+дома.
 ~
 0 N city
 D0
@@ -1903,11 +2059,15 @@ D3
 ABZ 0 8134
 S
 #8137
-An Intersection~
-You are standing at an intersection devoid of houses. A park looms to the
+@eng An Intersection@rus Перекресток~
+@eng You are standing at an intersection devoid of houses. A park looms to the
 northwest of here, while the former residences of the Mayor lie directly
 west. You aren't sure where the northern path goes, as that area is
 enshrouded in dark fog...
+@rus Ты стоишь на перекрестке, находящемся на приличном расстоянии от
+ближайшего к нему строения. На северо-западе выресовываются очерта-
+ния парка, на западе расположена городская ратуша. Непонятно куда
+ведет дорога на север, ибо ее скрывает густейший туман.
 ~
 0 N city
 D0
@@ -1930,11 +2090,15 @@ D3
 Z -1 8138
 S
 #8138
-The Road to the Mayor's House~
-This road was at one time spacious and beautiful, but is now cluttered with
+@eng The Road to the Mayor's House@rus Дорога к ратуше~
+@eng This road was at one time spacious and beautiful, but is now cluttered with
 debris and overgrown with tough, gray weeds that have sprouted through the
 carefully-laid cobblestones. There are junctions to the east and west of
 here.
+@rus Было время, когда эта дорога была широкой и красивой, но сейчас она
+заросла и по ней нелегко идти. Серые сорняки проросли скозь щели меж
+камнями, которыми была вымощена эта дорога. Да и многих камней уже не
+хватает. На востоке и на западе видны развилки.
 ~
 0 N city
 D1
@@ -1951,11 +2115,16 @@ D3
 Z -1 8139
 S
 #8139
-A Junction~
-At this point, a dirt track runs north toward a dismal-looking garden that
+@eng A Junction@rus Развилка~
+@eng At this point, a dirt track runs north toward a dismal-looking garden that
 once flourished with the most beautiful flora on the continent, but is now
 home to the same sickly-gray weeds that sprout through the footpath, as well
 as some very tall, sinister-looking trees.
+@rus Отсюда берет свое начало пыльная дорожка, ведущая на север, к
+мрачному саду, в котором когда-то были собраны красивейшие рас-
+тения со всего континента. Но теперь.. все заросло некрасивыми
+больными серыми сорняками. А вместо былых стройных деревьев, на
+ветру колышутся зловещие корявые ветви нынешних.
 ~
 0 N city
 D0
@@ -1978,11 +2147,15 @@ D3
 Z -1 8140
 S
 #8140
-Outside the Mayor's House~
-The path ends at a decrepit manse that once served as home for the Mayor
+@eng Outside the Mayor's House@rus Около ратуши~
+@eng The path ends at a decrepit manse that once served as home for the Mayor
 of this town. Since the incursion of the undead, it has fallen into
 disrepair, though not to the state that the other dwellings have, leading
 you to suspect that perhaps someone (or thing) important now resides here...
+@rus Улица закончилась около ветхого дома, который когда-то был резиденцией
+мэра этого города. После захвата города нечистью, дом пришел в плачевное
+состояние. Но надо отметить, что все остальные дома города обветшали куда
+сильнее. Наверное, нечисть устроила здесь себе свою резиденцию.
 ~
 0 N city
 D1
@@ -1999,11 +2172,15 @@ D3
 ABZ 0 8141
 S
 #8141
-The Hallway~
-You are advancing along a dimly-lit hall lined with garish paintings
+@eng The Hallway@rus Коридор~
+@eng You are advancing along a dimly-lit hall lined with garish paintings
 depicting rather macabre-looking members of some decadent family.  To the
 west lies a crooked stairway that leads up to the next level.  Doors lie to
 the north and south of here.  
+@rus Ты идешь по тускло освещенному коридору, по стенам которого развешаны
+кричащие картины, изображающие ужасных членов вырождающихся семей. На
+севере и на юге ты видишь закрытые двери. На западе находится винтовая
+лестница, ведущая на второй этаж.
 ~
 0 ADN inside
 D0
@@ -2032,11 +2209,15 @@ D3
 Z -1 8144
 S
 #8142
-A Room in the Mayor's Manse~
-This room reeks of decay, perhaps mainly due to the decaying corpses lying
+@eng A Room in the Mayor's Manse@rus Одна из комнат ратуши~
+@eng This room reeks of decay, perhaps mainly due to the decaying corpses lying
 about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
+@rus Эта комната пропиталась запахами разложения. Источником этой вони служат
+гниющие трупы валяющиеся повсюду. На стенах видны кровавые пятна. Больная
+виноградная лоза проникла внутрь через разбитое окно. Ты $gn{икнул} и $gn{постарался}
+не расстаться со своим обедом.
 ~
 0 ADN inside
 D0
@@ -2047,11 +2228,15 @@ D0
 ABZ 0 8141
 S
 #8143
-A Room in the Mayor's Manse~
-This room reeks of decay, perhaps mainly due to the decaying corpses lying
+@eng A Room in the Mayor's Manse@rus Одна из комнат ратуши~
+@eng This room reeks of decay, perhaps mainly due to the decaying corpses lying
 about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
+@rus Эта комната пропиталась запахами разложения. Источником этой вони служат
+гниющие трупы валяющиеся повсюду. На стенах видны кровавые пятна. Больная
+виноградная лоза проникла внутрь через разбитое окно. Ты $gn{икнул} и $gn{постарался}
+не расстаться со своим обедом.
 ~
 0 ADN inside
 D2
@@ -2062,11 +2247,15 @@ D2
 ABZ 0 8141
 S
 #8144
-The Hallway~
-You are advancing along a dimly-lit hall lined with garish paintings
+@eng The Hallway@rus Коридор~
+@eng You are advancing along a dimly-lit hall lined with garish paintings
 depicting rather macabre-looking members of some decadent family.  To the
 west lies a crooked stairway that leads up to the next level.  Doors lie to
 the north and south of here.  
+@rus Ты идешь по тускло освещенному коридору, по стенам которого развешаны
+кричащие картины, изображающие ужасных членов вырождающихся семей. На
+севере и на юге ты видишь закрытые двери. На западе находится винтовая
+лестница, ведущая на второй этаж.
 ~
 0 ADN inside
 D0
@@ -2095,11 +2284,15 @@ D3
 Z -1 8147
 S
 #8145
-A Room in the Mayor's Manse~
-This room reeks of decay, perhaps mainly due to the decaying corpses lying
+@eng A Room in the Mayor's Manse@rus Одна из комнат ратуши~
+@eng This room reeks of decay, perhaps mainly due to the decaying corpses lying
 about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
+@rus Эта комната пропиталась запахами разложения. Источником этой вони служат
+гниющие трупы валяющиеся повсюду. На стенах видны кровавые пятна. Больная
+виноградная лоза проникла внутрь через разбитое окно. Ты $gn{икнул} и $gn{постарался}
+не расстаться со своим обедом.
 ~
 0 ADN inside
 D0
@@ -2110,11 +2303,15 @@ D0
 ABZ 0 8144
 S
 #8146
-A Room in the Mayor's Manse~
-This room reeks of decay, perhaps mainly due to the decaying corpses lying
+@eng A Room in the Mayor's Manse@rus Одна из комнат ратуши~
+@eng This room reeks of decay, perhaps mainly due to the decaying corpses lying
 about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
+@rus Эта комната пропиталась запахами разложения. Источником этой вони служат
+гниющие трупы валяющиеся повсюду. На стенах видны кровавые пятна. Больная
+виноградная лоза проникла внутрь через разбитое окно. Ты $gn{икнул} и $gn{постарался}
+не расстаться со своим обедом.
 ~
 0 ADN inside
 D2
@@ -2125,9 +2322,12 @@ D2
 ABZ 0 8144
 S
 #8147
-The Stairway~
-This crooked staircase looks very unstable, and this, coupled with the 
+@eng The Stairway@rus Лестница~
+@eng This crooked staircase looks very unstable, and this, coupled with the 
 dreadful stench emanating from upstairs, makes you reluctant to proceed...
+@rus Эта винтовая лестница выглядит очень неустойчивой. И это, в паре с
+ужасной вонью, исходящей от чего-то, расположенного сверху, совсем
+не добавляет желания подниматься наверх.
 ~
 0 ADN inside
 D1
@@ -2144,10 +2344,13 @@ D4
 Z -1 8148
 S
 #8148
-The Stairway~
-At the top of the stairs you pause to catch your breath, and are immediately
+@eng The Stairway@rus Лестница~
+@eng At the top of the stairs you pause to catch your breath, and are immediately
 sorry as horrid-smelling air fills your lungs. Coughing, you fight to 
 breathe, and steel yourself to continue.
+@rus На верхней площадке лестницы ты $gn{остановился} перевести дыхание
+и неожиданно $gn{задохнулся} от страшной вони, ударившей тебе в нос.
+Откашлявшись, ты $gn{решил} идти дальше.
 ~
 0 ADN inside
 D1
@@ -2164,11 +2367,15 @@ D5
 Z -1 8147
 S
 #8149
-The Hallway~
-You are advancing along a dimly-lit hall lined with garish paintings
+@eng The Hallway@rus Коридор~
+@eng You are advancing along a dimly-lit hall lined with garish paintings
 depicting rather macabre-looking members of some decadent family.  Doors lie
 to the north and south of here.  The hall ends at an impressive portal to
 the east.  
+@rus Ты идешь по тускло освещенному коридору, по стенам которого развешаны
+кричащие картины, изображающие ужасных членов вырождающихся семей. На
+севере и на юге ты видишь закрытые двери. На востоке коридор заканчива-
+ется необычной дверью.
 ~
 0 ADN inside
 D0
@@ -2197,11 +2404,15 @@ D3
 Z -1 8148
 S
 #8150
-A Room in the Mayor's Manse~
-This room reeks of decay, perhaps mainly due to the decaying corpses lying
+@eng A Room in the Mayor's Manse@rus Одна из комнат ратуши~
+@eng This room reeks of decay, perhaps mainly due to the decaying corpses lying
 about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
+@rus Эта комната пропиталась запахами разложения. Источником этой вони служат
+гниющие трупы валяющиеся повсюду. На стенах видны кровавые пятна. Больная
+виноградная лоза проникла внутрь через разбитое окно. Ты $gn{икнул} и $gn{постарался}
+не расстаться со своим обедом.
 ~
 0 ADN inside
 D2
@@ -2212,11 +2423,15 @@ D2
 ABZ 0 8149
 S
 #8151
-A Room in the Mayor's Manse~
-This room reeks of decay, perhaps mainly due to the decaying corpses lying
+@eng A Room in the Mayor's Manse@rus Одна из комнат ратуши~
+@eng This room reeks of decay, perhaps mainly due to the decaying corpses lying
 about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
+@rus Эта комната пропиталась запахами разложения. Источником этой вони служат
+гниющие трупы валяющиеся повсюду. На стенах видны кровавые пятна. Больная
+виноградная лоза проникла внутрь через разбитое окно. Ты $gn{икнул} и $gn{постарался}
+не расстаться со своим обедом.
 ~
 0 ADN inside
 D0
@@ -2227,12 +2442,18 @@ D0
 ABZ 0 8149
 S
 #8152
-The Mayor's Study~
-As you enter this room, you are amazed to notice a complete absence of the
+@eng The Mayor's Study@rus Кабинет мэра~
+@eng As you enter this room, you are amazed to notice a complete absence of the
 stench you detected earlier. In addition, you are further amazed to notice
 the surprisingly good condition of this study, a comfortable den lined with
 shelves full of ancient texts. A large oak desk dominates the room, and
 behind this sits a plush leather chair. Wonder whose domain this is...?
+@rus Едва войдя в эту комнату, ты сразу $gn{заметил} полное отсутствие вони,
+домимавшей тебя ранее. В добавок, ты $gn{обратил} внимание на то, что все
+здесь находится в очень хорошем состоянии. На стенах кабинета висят
+полки, заполненные древними текстами. Большой дубовый стол доминирует
+в обстановке, за столом стоит кожаный стул с плюшевым сиденьем. Чье
+это владение, интересно?
 ~
 0 DN inside
 D0
@@ -2279,13 +2500,18 @@ D2
 ABZ 0 8152
 S
 #8154
-A Bedroom~
-This bedroom is as ruinous as its northern counterpart was lavish, as 
+@eng A Bedroom@rus Спальня~
+@eng This bedroom is as ruinous as its northern counterpart was lavish, as 
 decayed and despoiled as it was well-presented and comfortable. The furniture,
 while obviously once fine, is now ruined beyond repair. Blood stains coat
 the walls, and a corpse hangs by a rope from the chandelier in the center
 of the room. Whoever lives here must have a disagreeable personality to say
 the very least...
+@rus Эта спальня, в отличие от своего северного двойника, в полном беспорядке.
+Прекрасная  когда-то  мебель сейчас уже не подлежит восстановлению.  Пятна
+крови виднеются на стенах,  а в середине,  на лампе, висит подвешенный  на
+веревке труп. Тот,  кто здесь обитает,  явно неприветлив,  если не сказать
+больше...
 ~
 0 ADN inside
 D0
@@ -2296,11 +2522,15 @@ D0
 ABZ 0 8152
 S
 #8155
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха.
 ~
 0 AN city
 D1
@@ -2317,11 +2547,15 @@ D2
 Z -1 8137
 S
 #8156
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха.
 ~
 0 AN city
 D0
@@ -2345,9 +2579,13 @@ Z -1 8155
 S
 #8157
 @eng A Small House@rus Маленький дом~
-The mist clears suddenly, and you find yourself standing outside a rather
+@eng The mist clears suddenly, and you find yourself standing outside a rather
 creepy little stone dwelling, with no windows, but a stout oak door 
 directly to the east.
+@rus Туман неожиданно рассеялся и ты $gn{обнаружил}, что стоишь около 
+небольшого каменного строения без окон, но с прочной дубовой дверью,
+расположенной на востоке от тебя. Надо сказать, что даже вид этого
+здания не вызывает приятных эмоций.
 ~
 0 N city
 D0
@@ -2364,12 +2602,15 @@ D1
 ABZ 0 8158
 S
 #8158
-Temporary Residence of a Demon~
-OH NO!
+@eng Temporary Residence of a Demon@rus Резиденция демона~
+@eng OH NO!
 
 You have inadvertently stumbled upon the temporary Prime Material Plane lair
 of ORCUS! If he isn't here, leave quickly. If he is...
 
+@rus О нет. Ты совершенно случайно $gn{наткнулся} на это место, которое
+при внимательном рассмотрении оказалось резиденцией Оркуса! Если
+его тут нет, надо скорее бежать. Но если он здесь...
 ~
 0 DN inside
 D3
@@ -2380,11 +2621,15 @@ D3
 ABZ 0 8157
 S
 #8159
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха.
 ~
 0 AN city
 D0
@@ -2472,11 +2717,15 @@ D3
 Z -1 8161
 S
 #8163
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха.
 ~
 0 AN city
 D0
@@ -2493,12 +2742,16 @@ D2
 Z -1 8159
 S
 #8164
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart. You think you can make out a small stone building
 to the east.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха. Вроде бы на востоке виднеется какое-то строение.
 ~
 0 AN city
 D0
@@ -2521,16 +2774,22 @@ D2
 Z -1 8163
 S
 #8165
-Outside The Crypt~
-The small stone building is actually a crypt, which is in good condition,
+@eng Outside The Crypt@rus Около склепа~
+@eng The small stone building is actually a crypt, which is in good condition,
 not surprising considering the nature of the current inhabitants of this
 ghoulish town. A large iron door looms to the east, and you notice runes
 inscribed into its surface in silver.
+@rus Это небольшое каменное строение при ближайшем рассмотрении оказалось
+ни чем иным как склепом. Причем склеп по сравнению с другими строениями
+в городе находится в очень хорошом состоянии, что, собственно, не удиви-
+тельно, если принять во внимание наклонности жителей этого проклятого
+призрачного города. Большая железная дверь закрывает вход на востоке. 
+На двери начертаны серебряные руны.
 ~
 0 CN city
 E
-runes door~
-The runes on the door read-
+runes door руны символы дверь~
+@eng The runes on the door read-
 
   "Here is the final resting place of the Evil Baron Shereck, former
    tyrant of the Barony of Palem, and his two foul brothers. Imprisoned
@@ -2538,6 +2797,12 @@ The runes on the door read-
    rest may not be disturbed by their undead allies. Pray, whoever reads
    this, do not breach this portal, for you will once again unleash their
    undead madness upon the world."
+@rus Здесь нашел свое последнее пристанище жестокий барон Шерек, правивший
+Палемом, и два его брата. Их заключила здесь магия Ханада, бывшего
+архимагом Анона. И потому их заточение не могут нарушить их призрачные
+сотоварищи, обитающие в городе призраков. Прочитавший это, не нарушай
+магии этого места, чтобы не развязать войну этих сумашедших призраков
+против всего мира.
 ~
 D1
 ~
@@ -2554,10 +2819,15 @@ Z -1 8164
 S
 #8166
 @eng Inside The Crypt@rus Склеп~
-The interior of the crypt is dark, damp and cramped. It looks as though
+@eng The interior of the crypt is dark, damp and cramped. It looks as though
 no-one has been here in centuries. A layer of dust ankle-deep makes progress
 difficult, as do the hanging cobwebs, with strands as thick as your wrist.
 You hope you don't run into the spinner of these webs.
+@rus Внутренее убранство склепа темно, скорбно и уныло. Все выглядит так,
+словно ничья нога не ступала здесь в течении многих и многих лет. Слой
+пыли такой толстый, что ты по лодыжку утопаешь в нем, огромные паутины
+опутавшие все здесь, толстыми прядями прилипают к твоим рукам. Пожалуй,
+не хочется встретить их обитателей.
 ~
 0 AN inside
 D3
@@ -2574,11 +2844,15 @@ D5
 Z -1 8167
 S
 #8167
-The Crypt Proper~
-Three doors and a staircase allow escape from this area, and that is a
+@eng The Crypt Proper@rus Внутри склепа~
+@eng Three doors and a staircase allow escape from this area, and that is a
 prominent urge you have right now as you glance about the hellish murals
 on the walls, and the rotting corpses hanging in metal frames from the 
 arched ceiling.
+@rus Это помещение можно покинуть через одну из трех дверей или же
+подняться вверх по лестнице. И тебе очень хочется поскорее это
+сделать, особенно увидев адские фрески на стенах и гниющие трупы
+прикованные к стенам.
 ~
 0 AN inside
 D0
@@ -2607,11 +2881,15 @@ D4
 Z -1 8166
 S
 #8168
-A Room In the Crypt~
-These three resting places that lead off the Crypt's main chamber are all
+@eng A Room In the Crypt@rus Комната в склепе~
+@eng These three resting places that lead off the Crypt's main chamber are all
 identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
+@rus Это одна из трех комнат склепа, в которые можно попасть из центральной
+комнаты. В центре на возвышении стоит саркофаг, украшенный резными сценами
+из жизни того, кто в нем покоится. Кроме саркофага в комнате ничего нет. А
+может это не так...?
 ~
 0 AN inside
 D2
@@ -2622,11 +2900,15 @@ D2
 ABZ 0 8167
 S
 #8169
-A Room In the Crypt~
-These three resting places that lead off the Crypt's main chamber are all
+@eng A Room In the Crypt@rus Комната в склепе~
+@eng These three resting places that lead off the Crypt's main chamber are all
 identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
+@rus Это одна из трех комнат склепа, в которые можно попасть из центральной
+комнаты. В центре на возвышении стоит саркофаг, украшенный резными сценами
+из жизни того, кто в нем покоится. Кроме саркофага в комнате ничего нет. А
+может это не так...?
 ~
 0 AN inside
 D0
@@ -2637,11 +2919,15 @@ D0
 ABZ 0 8167
 S
 #8170
-A Room In the Crypt~
-These three resting places that lead off the Crypt's main chamber are all
+@eng A Room In the Crypt@rus Комната в склепе~
+@eng These three resting places that lead off the Crypt's main chamber are all
 identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
+@rus Это одна из трех комнат склепа, в которые можно попасть из центральной
+комнаты. В центре на возвышении стоит саркофаг, украшенный резными сценами
+из жизни того, кто в нем покоится. Кроме саркофага в комнате ничего нет. А
+может это не так...?
 ~
 0 AN inside
 D3
@@ -2652,10 +2938,13 @@ D3
 ABZ 0 8167
 S
 #8171
-The Path To The Garden~
-This path runs past some very ugly, dead plants that look like they've had
+@eng The Path To The Garden@rus Тропинка к парку~
+@eng This path runs past some very ugly, dead plants that look like they've had
 the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth...
+@rus Тропа проходит мимо безобразных мертвых деревьев. Словно их жизненную
+силу высосали их могучие соседи, сплошь покрытые шипами, похожими на
+острые зубы.
 ~
 0 N forest
 D0
@@ -2672,12 +2961,17 @@ D2
 Z -1 8139
 S
 #8172
-The Path To The Garden~
-This path runs past some very ugly, dead plants that look like they've had
+@eng The Path To The Garden@rus Тропинка к парку~
+@eng This path runs past some very ugly, dead plants that look like they've had
 the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth. You suddenly curse as you nearly fall into a
 small hole in the center of the path which was partially covered by a nest
 of branches.
+@rus Тропа проходит мимо безобразных мертвых деревьев. Словно их жизненную силу
+высосали их могучие соседи,  сплошь покрытые шипами, похожими на острые зубы.
+Невольно у тебя вырывается проклятье, когда ты обнаруживаешь, что чуть не про-
+$gn{валился} в самую настоящую дыру посреди дороги. Окруженная наваленными вокруг
+нее ветвями она напоминает чем-то гнездо.
 ~
 0 CN forest
 D0
@@ -2700,11 +2994,16 @@ D5
 Z -1 8174
 S
 #8173
-The Path To The Garden~
-This path runs past some very ugly, dead plants that look like they've had
+@eng The Path To The Garden@rus Тропинка к саду~
+@eng This path runs past some very ugly, dead plants that look like they've had
 the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth. The garden gates are directly ahead... Peering
 through, you become reluctant to enter. It looks like a virtual maze...
+@rus Тропа проходит мимо безобразных мертвых деревьев. Словно их жизненную
+силу высосали их могучие соседи, сплошь покрытые шипами, похожими на ос-
+трые зубы. Прямо перед собой ты видишь садовые ворота. Но глядя на то, 
+что находится за ними.. на лабиринт из мертвых деревьев и высоченных сор-
+няков.. Тебе совершенно не хочется идти в этот сад.
 ~
 0 CN forest
 D0
@@ -2721,10 +3020,13 @@ D2
 Z -1 8172
 S
 #8174
-A Bolthole~
-Here the cowardly necromancer Xantharus lurks, terrified of the evil he
+@eng A Bolthole@rus Тайное убежище~
+@eng Here the cowardly necromancer Xantharus lurks, terrified of the evil he
 brought to his village. He would do anything to escape, but is currently
 too petrified to leave his hole.
+@rus Здесь спрятался подлый некромансер Ксантарус, испугавшись мести за то,
+что он сотворил с родным городом. Он мог бы предпринять некоторые шаги
+к спасению, но слишком малодушен и испуган, чтобы покинуть свою нору.
 ~
 0 AN inside
 D4
@@ -3426,12 +3728,17 @@ D3
 Z -1 8193
 S
 #8195
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart. You think you can make out a small stone building
 to the east. A gaping hole looms out of the fog in the ground to the right.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха. Вроде бы на востоке виднеется какое-то каменное строение. 
+Темная дыра в земле вырисовывается сквозь туман.
 ~
 0 AN city
 D0
@@ -3454,11 +3761,15 @@ D5
 Z -1 8196
 S
 #8196
-The Dragon's Lair~
-Dragons of all types, alive or undead, keep certain habits, and one of them
+@eng The Dragon's Lair@rus Логовище дракона~
+@eng Dragons of all types, alive or undead, keep certain habits, and one of them
 is how they decorate their lair. So when you enter and see treasure splashed
 everywhere, along with a generous helping of blood and fried corpses, you are
 at least 90% sure you have entered the lair of one...
+@rus Любой дракон, живой он или призрак, не может устоять перед блеском
+золота и драгоценных камней. И судя по сокровищам, рассбросанным здесь
+повсюду, это логовище одного из таких зверей. Но помимо золота на полу
+валяются чьи-то останки и видны свежие кровавые пятна.
 ~
 0 AN inside
 D4
@@ -3469,12 +3780,16 @@ D4
 Z -1 8195
 S
 #8197
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart. You think you can make out a small stone building
 to the east.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха. Вроде бы на востоке виднеется какое-то строение.
 ~
 0 AN city
 D0
@@ -3491,13 +3806,19 @@ D2
 Z -1 8195
 S
 #8198
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
+@eng A Murky Mist@rus Плотный туман~
+@eng You are plowing through a thick mist that has suddenly enshrouded the trail.
 You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart. You think you can make out a small stone building
 to the east. You aren't sure, but you think you can see a dark tunnel up
 ahead.
+@rus Ты пробираешься сквозь плотный вязкий мрачный туман, окутавший дорожку.
+Сквозь его пелену ты еще видишь свои ноги, но едва едва. Вздохи, стоны,
+крики боли и ужаса доносятся со всех сторон, заставляя твое сердце зами-
+рать от страха. Вроде бы на востоке виднеется какое-то строение. И что-то
+похожее на тоннель вырисовывается на севере сквозь туман. А, возможно, что
+все это тебе только кажется.
 ~
 0 AN city
 D0
@@ -3623,15 +3944,15 @@ M 0 8131 1 8158 1	* Orcus (Temporary Residence of a Demon)
 E 0 8100 0 17		*	Orcus<held in the hands>: the Rod of Orcus
 M 0 8103 6 8159 1	* a ghost (A Murky Mist)
 M 0 8103 6 8164 1	* a ghost (A Murky Mist)
-M 0 8123 2 8165 1	* green slime (Outside The Crypt)
 M 0 8133 2 8166 1	* a giant spider (Inside The Crypt)
+M 0 8123 2 8166 1	* green slime (Inside The Crypt)
 M 0 8123 2 8167 1	* green slime (The Crypt Proper)
-M 0 8104 2 8168 2	* a vampire (A Room In the Crypt)
+M 0 8104 2 8168 1	* a vampire (A Room In the Crypt)
 E 0 8111 0 12		*	a vampire<about the shoulders>: a black cloak
 G 0 8121 0		*	a vampire: a jar of human blood
-M 0 8104 2 8168 2	* a vampire (A Room In the Crypt)
-E 0 8111 0 12		*	a vampire<about the shoulders>: a black cloak
+M 0 8104 2 8169 1	* a vampire (A Room In the Crypt)
 G 0 8121 0		*	a vampire: a jar of human blood
+E 0 8111 0 12		*	a vampire<about the shoulders>: a black cloak
 M 0 8134 1 8170 1	* a baron vampire (A Room In the Crypt)
 E 0 8111 0 12		*	a baron vampire<about the shoulders>: a black cloak
 G 0 8121 0		*	a baron vampire: a jar of human blood

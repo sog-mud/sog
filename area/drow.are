@@ -398,7 +398,7 @@ g @rus none~
 @eng You are at the entrance to a small underground city. A great adamantite
 gate lies open to the west allowing entrance into the city.
 @rus Ты стоишь на входе в небольшой подземный город. Огромные
-адамантитовые ворота открыты и ты решаешь, что путь свободен.
+адамантитовые ворота открыты, и ты решаешь, что путь свободен.
 ~
 0 AD inside
 E
@@ -434,7 +434,7 @@ S
 @eng You walk along a highly ornate street going north-south. A large gate
 lies to the east while a building lies to the west.
 @rus Ты бредешь по улице, идущей с севера на юг. На востоке находятся
-городские ворота, а на западе - какое-то здание.
+городские ворота, а на западе -- какое-то здание.
 ~
 0 AD inside
 D0
@@ -513,7 +513,7 @@ S
 @eng You stand inside the 3rd house of the city; it is fairly well decorated
 by drow standards having a few statues, murals and such. A door leads to the
 south.
-@rus Первое, что бросилось в глаза, чтоило тебе войти в Третий Дом -
+@rus Первое, что бросилось в глаза, стоило тебе войти в Третий Дом --
 это роскошное по здешним меркам убранство: несколько статуй стоят по
 обе стороны от тебя, а стены расписаны фресками. Дверь в южной стене
 ведет внутрь дома.
@@ -536,7 +536,7 @@ S
 @eng Throne Room@rus Тронная зала~
 @eng The throne room of the 3rd house is about as decorated as the inner
 courtyard except with a blood covered altar in the center of the room.
-@rus Тронная зала Третьего Дома убрана ничуть не скромнее предыдущей
+@rus Тронная зала Третьего Дома убрана ничуть не скромнее других комнат
 и лишь покрытый кровью алтарь, стоящий в центре комнаты, свидетель-
 ствует об особой роли этого помещения.
 ~
@@ -1426,7 +1426,7 @@ You've fallen, and you can't get up!!!
 назад уже не можешь.. впрочем, тебе недолго осталось переживать по
 этому поводу. Тысячи пауков покрывают тебя толстым шевелящимся слоем
 и каждый норовит отщипнуть кусочек живой плоти.
-Несомненно, Ллос оценила твое жертвоприношение.
+  Несомненно, Ллос оценила твое жертвоприношение.
 ~
 0 CD inside
 S
@@ -1457,7 +1457,7 @@ S
 @eng You are standing in front of a highly and freshly bloodstained altar.
 Engraved on the top of the altar is a giant spider with a human head. Looking
 down from the altar you see a large sacrificial pit.
-@rus Залитый свежей кровью алтарь - прямо перед тобой, изображение
+@rus Залитый свежей кровью алтарь -- прямо перед тобой, изображение
 огромного паука с человеческой головой выгравировано на его повер-
 хности. Опустив взгляд ниже, ты видишь черный провал жертвенного
 колодца.
@@ -1554,7 +1554,7 @@ D3
 ABZ -1 5149
 S
 #5149
-The Treasury~
+@eng The Treasury@rus Сокровищница~
 This is obviously only a temporary storage place for the collected
 treasure being rather bare.
 ~

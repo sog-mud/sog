@@ -24,6 +24,7 @@ BHJRe D 0 0 A -870 0
 F
 stand stand none 1128
 0 0 medium unknown
+g @eng none@rus male~
 r fire 999
 r cold 999
 r lightning 999
@@ -39,12 +40,15 @@ r harm 999
 r charm 999
 r sound 999
 #5201
-lamia beast~
-The lamia~
-A strange lamia stands here waiting for her next meal.
+lamia beast ламия чудовище~
+@eng the lamia@rus ламия~
+@eng A strange lamia stands here waiting for her next meal.
+@rus Ламия (lamia) бродит здесь в поисках кого бы съесть.
 ~
-This is a creature with the upper torso of a beautiful woman, but the lower
+@eng This is a creature with the upper torso of a beautiful woman, but the lower
 body of a four-legged beast.  She licks her lips as she looks at you greedily.
+@rus Верхняя часть ламии -- прекрасная женщина, нижняя -- четырехлапое
+чудовище. Жадно поглядывая на тебя, она облизнула губки.
 ~
 human~
 CFG 0 0 0 0 -999 0
@@ -54,12 +58,14 @@ EFNU
 stand stand female 50
 0 0 medium unknown
 #5202
-mimic chest~
-The mimic~
-A strong chest lies in one corner of the room.
+mimic chest подражатель сундук~
+@eng The mimic@rus подражатель~
+@eng A strong chest lies in one corner of the room.
+@rus Прочный сундук (chest) стоит в одном из углов.
 ~
-A strong, wooden chest bound with iron straps and a heavy pad-lock on the
+@eng A strong, wooden chest bound with iron straps and a heavy pad-lock on the
 front.
+@rus Прочный сундук, окованный железом, с большим тяжелым замком.
 ~
 human~
 BCFGH 0 0 G 0 10 0
@@ -68,10 +74,12 @@ BCFGH 0 0 G 0 10 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #5203
-mimic boulder~
-The mimic~
-Two skeletons lie crushed under a large boulder.
+mimic boulder подражатель валун~
+@eng The mimic@rus подражатель~
+@eng Two skeletons lie crushed under a large boulder.
+@rus Два скелета лежат, придавленные огромным валуном (boulder).
 ~
 ~
 human~
@@ -81,6 +89,7 @@ BCFGH 0 0 G 0 -10 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #5204
 mimic floor~
 The mimic~
@@ -95,9 +104,10 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 #5205
-mimic pottery~
-The mimic~
-Some broken shards of pottery lie strewn about the floor.
+mimic pottery подражатель глиняный горшок черепки~
+@eng The mimic@rus подражатель~
+@eng Some broken shards of pottery lie strewn about the floor.
+@rus Глиняные черепки (pottery) рассыпаны по всему полу.
 ~
 ~
 human~
@@ -107,10 +117,12 @@ BCFGH 0 0 G 0 200 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #5206
-mimic planks~
-The mimic~
-A few wooden planks lie stacked on a low shelf.
+mimic planks подражатель доски~
+@eng The mimic@rus подражатель~
+@eng A few wooden planks lie stacked on a low shelf.
+@rus Несколько деревянных досок (plank) сложены на нижней полке.
 ~
 ~
 human~
@@ -120,12 +132,15 @@ BCFGH 0 0 G 0 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #5207
-lizard horned~
-The horned lizard~
-A small horned lizard flicks his tongue and slithers away.
+lizard horned рогатая ящерица~
+@eng the horned lizard@rus ~~рогатая~~ ~~ящерица~~~
+@eng A small horned lizard flicks his tongue and slithers away.
+@rus Маленькая рогатая ящерица (lizard) ускользнула прочь.
 ~
-A cute little lizard, that is, if you like reptiles!
+@eng A cute little lizard, that is, if you like reptiles!
+@rus Милая маленькая ящерица, если тебе нравятся земноводные, конечно.
 ~
 lizard~
 H 0 0 0 0 0 0
@@ -134,15 +149,19 @@ H 0 0 0 0 0 0
 EFNR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 r cold 50
 r poison -33
 #5208
-golem stone~
-The stone golem~
-In the corner you see a large, stone golem faithfully standing watch.
+golem stone каменный голем~
+@eng the stone golem@rus ~~каменный~~ ~~голем~~~
+@eng In the corner you see a large, stone golem faithfully standing watch.
+@rus Каменный голем (golem) стоит, обозревая окрестности.
 ~
-It is a big chunk of rock that has been magically formed into a giant
+@eng It is a big chunk of rock that has been magically formed into a giant
 stone creature. He stands here still guarding the city.
+@rus Большая скала, магией превращенная в гигантское каменное создание.
+Он поставлен здесь, чтобы охранять город.
 ~
 golem~
 B 0 N 0 0 600 0
@@ -538,8 +557,8 @@ staff G 0 AO
 9 100 2500 P
 g @rus none~
 #5251
-harp golden~
-a golden harp~
+harp golden арфа~
+@eng a golden harp@rus ~~золотая~~ ~~арфа~~~
 A battered golden harp has been tipped over.~
 gold~
 staff G 0 AO
@@ -1718,7 +1737,7 @@ You've fallen, and you can't get up!!!
 0 C city
 S
 #5246
-The north-west watchtower~
+@eng The north-west watchtower@rus Северо-западная смотровая башня~
 You stand atop one of the city watchtowers. The view is magnificent
 from here and you can see all the way to the western mountains. No wonder
 this place stood for so long.
@@ -1933,7 +1952,7 @@ S
 A trail at the end of the dwarf forest~
 A side trail here leads from the dwarf forest.  It is definitely drier
 and hotter here.  The trail continues to the west, and to the east, you see
-the T-intersection.
+the intersection.
 ~
 0 0 field
 D1
@@ -1952,9 +1971,11 @@ You see the trail continue on.
 Z 0 5256
 S
 #5258
-The dwarf forest~
-You see more stunted trees here.  A side trail leads west from here.
+@eng The dwarf forest@rus Карликовый лес~
+@eng You see more stunted trees here.  A side trail leads west from here.
 To the east, you THINK you see a trail, but you can never be sure.
+@rus Множество небольших деревьев. На запад ответвляется тропинка.
+На восток, думается, тоже, но все же ты в этом не $gn{уверен}.
 ~
 0 0 forest
 D0
@@ -1986,9 +2007,12 @@ You see the trail branch off.
 Z 0 5257
 S
 #5259
-The dwarf forest~
-You see more stunted trees here.  It looks almost as if this place was
+@eng The dwarf forest@rus Карликовый лес~
+@eng You see more stunted trees here.  It looks almost as if this place was
 cursed by a god to be short and dry.  The trail leads north and south.
+@rus Множество небольших деревьев. Словно на место наложено проклятье,
+и все здесь обречено быть маленьким и иссохшим. Тропинка ведет на юг
+и на север.
 ~
 0 0 forest
 D0
@@ -2007,9 +2031,12 @@ You see the trail continue south.
 Z 0 5258
 S
 #5260
-The dwarf forest~
-You see more stunted trees here.  It looks almost as if this place was
+@eng The dwarf forest@rus Карликовый лес~
+@eng You see more stunted trees here.  It looks almost as if this place was
 cursed by a god to be short and dry.  The trail leads north and south.
+@rus Множество небольших деревьев. Словно на место наложено проклятье,
+и все здесь обречено быть маленьким и иссохшим. Тропинка ведет на юг
+и на север.
 ~
 0 0 forest
 D0
@@ -2028,9 +2055,11 @@ You see the trail continue south.
 Z 0 5259
 S
 #5261
-The dwarf forest~
-You see many stunted trees here.  You don't see any leaves on these barren
+@eng The dwarf forest@rus Карликовый лес~
+@eng You see many stunted trees here.  You don't see any leaves on these barren
 trees.  No grass grows on the ground.
+@rus Ты видишь множество совсем небольших деревьев. И никаких листьев
+на них. А у их корней не видно не травинки.
 ~
 0 0 forest
 D0
@@ -2049,10 +2078,13 @@ You see the trail continue south.
 Z 0 5260
 S
 #5262
-The dwarf forest~
-You see more stunted trees here.  It looks almost as if this place was
+@eng The dwarf forest@rus Карликовый лес~
+@eng You see more stunted trees here.  It looks almost as if this place was
 cursed by a god to be short and dry.  The trail leads east and west.  It looks
 dark toward the east.
+@rus Множество небольших деревьев. Словно на место наложено проклятье,
+и все здесь обречено быть маленьким и иссохшим. Тропинка ведет на
+восток и на запад. На востоке сгущается темнота.
 ~
 0 0 forest
 D1
@@ -2071,7 +2103,7 @@ You see the lighter forest and the T-intersection west.
 Z 0 5258
 S
 #5263
-The darker dwarf forest~
+@eng The darker dwarf forest@rus В чаще карликового леса~
 You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail turns south
 from the west.
@@ -2211,7 +2243,7 @@ S
 @eng You see a small cave.  Skeletons of many types of creatures litter the area.
 Obviously, no fox lives here!  The oppression makes you want to leave and
 vomit.
-@rus Ты попал в небольшую пещеру. Пол усеян скелетами самых разных
+@rus Ты $gn{попал} в небольшую пещеру. Пол усеян скелетами самых разных
 существ.. похоже, здесь обитает отнюдь не лиса! Ты чувствуешь
 позывы к рвоте и вертишь головой во все стороны в поисках выхода.
 ~
@@ -2285,7 +2317,7 @@ S
 @eng Down the path into a dead end@rus Тупик в конце пути~
 @eng You are down the path.  There is no obvious exit in this place, exit the
 one back up north.  All around you, you see skeletons.
-@rus Здесь путь заканчивается тупиком и единственный выход - 
+@rus Здесь путь заканчивается тупиком и единственный выход -- 
 назад через пещеру. Земля вокруг тебя сплошь усеяна скелетами.
 ~
 0 A forest
@@ -2316,9 +2348,12 @@ secret~
 ABZ -1 5100
 S
 #5271
-The Valley in the dark dwarf forest~
-You are in a valley in the forest.  To the north is a trail out of this
+@eng The Valley in the dark dwarf forest@rus Поляна в темном лесу~
+@eng You are in a valley in the forest.  To the north is a trail out of this
 dark valley.  South is more of this valley.
+@rus Ты стоишь на поляне в темном лесу, поросшей короткой черной
+травой. На север, петляя между деревьями, убегает тропинка.
+Поляна продолжается и к югу от тебя.
 ~
 0 A forest
 D0
@@ -2337,10 +2372,13 @@ You see more of this gloomy valley.
 Z 0 5267
 S
 #5272
-A dim trail in the dwarf forest~
-You are in a dim trail in the dwarf forest.  Not much light passes through
+@eng A dim trail in the dwarf forest@rus Тропинка в карликовом лесу~
+@eng You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  To the south is a gloomy valley, while to the north the light grows
 brighter.
+@rus Ты идешь по тропинке в карликовом лесу. Здесь почему-то совсем
+мало света достигает земли и потому под деревьями, хоть и невысо-
+кими, царит полумрак. Тропинка ведет на юг и на север.
 ~
 0 A forest
 D0
@@ -2359,10 +2397,14 @@ You can barely see the gloomy valley south of you.
 Z 0 5271
 S
 #5273
-A dim trail in the dwarf forest~
-You are in a dim trail in the dwarf forest.  Not much light passes through
+@eng A dim trail in the dwarf forest@rus Тропинка в карликовом лесу~
+@eng You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  The trail runs north and south, and the light seems to come from the
 north.  To the east, you see a small path into darkness.
+@rus Ты идешь по тропинке в карликовом лесу. Здесь почему-то совсем
+мало света достигает земли и потому под деревьями, хоть и невысо-
+кими, царит полумрак. Тропинка ведет на юг и на север. На восток
+ответвляется еще одна тропа, исчезая во мраке.
 ~
 0 0 forest
 D0
@@ -2388,10 +2430,13 @@ You see the dim trail lead south.
 Z 0 5272
 S
 #5274
-A dim trail in the dwarf forest~
-You are in a dim trail in the dwarf forest.  Not much light passes through
+@eng A dim trail in the dwarf forest@rus Тропинка в карликовом лесу~
+@eng You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  The trail runs north and south, and the light seems to come from the
 north.
+@rus Ты идешь по тропинке в карликовом лесу. Здесь почему-то совсем
+мало света достигает земли и потому под деревьями, хоть и невысо-
+кими, царит полумрак. Тропинка ведет на юг и на север.
 ~
 0 0 forest
 D0
@@ -2410,10 +2455,14 @@ You see the dim trail lead south.
 Z 0 5273
 S
 #5275
-A bend in the dim trail in the dwarf forest~
-You are in a dim trail in the dwarf forest.  Not much light passes through
+@eng A bend in the dim trail in the dwarf forest@rus Изгиб затемненной тропинки~
+@eng You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  The trail runs south and west.  The trail west looks much friendlier
 than the one leading south.
+@rus Ты идешь по тропинке в карликовом лесу. Здесь почему-то совсем
+мало света достигает земли и потому под деревьями, хоть и невысо-
+кими, царит полумрак. Тропинка ведет на юг и на запад, лес на за-
+паде выглядит более дружелюбным.
 ~
 0 0 forest
 D2
@@ -2432,10 +2481,13 @@ You see the trail lead west.
 Z 0 5276
 S
 #5276
-A trail in the dwarf forest~
-You are in a trail in the dwarf forest.  The trees are stunted and it
+@eng A trail in the dwarf forest@rus Тропинка в карликовом лесу~
+@eng You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.  It looks dimmer to
 the east.
+@rus Ты ступаешь по тропе в карликовом лесу. Деревья, что ты видишь вокруг,
+малы ростом, а почва здесь совсем сухая. Тропинка ведет на восток и на
+запад. Но на востоке ты видишь снущающуюся над тропой тьму.
 ~
 0 0 forest
 D1
@@ -2454,9 +2506,12 @@ The trail continues west.
 Z 0 5277
 S
 #5277
-A trail in the dwarf forest~
-You are in a trail in the dwarf forest.  The trees are stunted and it
+@eng A trail in the dwarf forest@rus Тропинка в карликовом лесу~
+@eng You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.
+@rus Ты идешь по тропинке сквозь карликовый лес. Деревья вокруг --
+маленькие и засохшие. Тропинка ведет на восток и на запад, на
+север ответвляется дорожка.
 ~
 0 0 forest
 D0
@@ -2481,9 +2536,11 @@ The trail continues west.
 Z 0 5278
 S
 #5278
-A trail in the dwarf forest~
-You are in a trail in the dwarf forest.  The trees are stunted and it
+@eng A trail in the dwarf forest@rus Тропинка в карликовом лесу~
+@eng You are in a trail in the dwarf forest.  The trees are stunted and it
 looks dry around here.  The trail leads east and west.
+@rus Ты идешь по тропинке в карликовом лесу. Деревья вокруг маленькие
+и совсем сухие. Тропинка ведет на восток и на запад.
 ~
 0 0 forest
 D1
@@ -2502,10 +2559,12 @@ The trail continues west.
 Z 0 5279
 S
 #5279
-The bend in the trail in the dwarf forest~
-You are in a bend in the trail in the forest.  The trees are stunted, but
+@eng The bend in the trail in the dwarf forest@rus Изгиб тропы~
+@eng You are in a bend in the trail in the forest.  The trees are stunted, but
 not so dry around here.  The trail leads east, and to the south, you see a
 waterfall.
+@rus Здесь тропа делает поворот. Деревья вокруг маленькие, но уже иссохшие.
+Тропинка ведет на восток, а на юге ты видишь водопад.
 ~
 0 0 forest
 D1
@@ -2524,10 +2583,14 @@ You see a beautiful waterfall.
 Z -1 5281
 S
 #5280
-A dark bend in the forest~
-You are in a dark bend in the forest.  To the west, you see the trail
+@eng A dark bend in the forest@rus Изгиб лесной тропы~
+@eng You are in a dark bend in the forest.  To the west, you see the trail
 leading back to the dwarven forest, and to the south, you see a dark and
 dismal path.
+@rus Здесь тропа делает изгиб. Солнечные лучи не проходят сюда, 
+задерживаемые кронами деревьев. Тропинка, уходящая на запад 
+ведет в карликовый лес. На юг уводит другая тропа: мрачная и
+темная.
 ~
 0 0 forest
 D2
@@ -2546,26 +2609,26 @@ You see the trail back to the Dwarven Forest.
 Z 0 5273
 S
 #5281
-By the beautiful waterfall~
-You see a VERY beautiful waterfall here.  It looks almost as if diamonds are
+@eng By the beautiful waterfall@rus Около водопада~
+@eng You see a VERY beautiful waterfall here.  It looks almost as if diamonds are
 falling down the mountain.  (You reach out and grab and no, it IS only water.)
 It looks so nice here, you feel like taking a nap.
 The trail leads north and west.
+@rus Ты видишь прекрасный водопад. Это выглядит так, словно с горы вниз
+устремился поток бриллиантов. Так и хочется взять несколько, но дот-
+ронувшись, ты убеждаешься, что это всего лишь вода. Водопад так пре-
+красен, что ты словно погружаешься в сон, глядя на него. Тропинка ве-
+дет на север и на запад.
 ~
 0 0 hills
 D0
-You see the trail leading north.
+@eng You see the trail leading north.
+@rus Тропинка уходит на север.
 ~
 ~
 ~
 ~
 Z 0 5279
-D3
-~
-~
-~
-~
-Z 0 95400
 S
 #0
 
@@ -2574,38 +2637,38 @@ M 5200 spec_cast_mage	* The mighty beholder
 S
 
 #RESETS
-M 0 5201 12 5204 1	* The lamia (A Garden Path)
-E 0 5251 0 17		*	The lamia<held in the hands>: a golden harp
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
-M 0 5201 12 5205 1	* The lamia (A Garden Path)
-E 0 5230 0 17		*	The lamia<held in the hands>: a pale blue stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
-M 0 5201 12 5216 1	* The lamia (A back alley)
-E 0 5233 0 17		*	The lamia<held in the hands>: a deep red stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
+M 0 5201 12 5204 1	* the lamia (A Garden Path)
+E 0 5251 0 17		*	the lamia<held in the hands>: a golden harp
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
+M 0 5201 12 5205 1	* the lamia (A Garden Path)
+E 0 5230 0 17		*	the lamia<held in the hands>: a pale blue stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
+M 0 5201 12 5216 1	* the lamia (A back alley)
+E 0 5233 0 17		*	the lamia<held in the hands>: a deep red stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
 O 0 5219 0 5217	* a chunk of venison (The meat stand)
-M 0 5207 4 5217 2	* The horned lizard (The meat stand)
-M 0 5201 12 5218 1	* The lamia (A back alley)
-E 0 5250 0 17		*	The lamia<held in the hands>: a mandolin
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
-M 0 5201 12 5219 1	* The lamia (The guild house)
-E 0 5231 0 17		*	The lamia<held in the hands>: a scarlet and blue stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
+M 0 5207 4 5217 2	* the horned lizard (The meat stand)
+M 0 5201 12 5218 1	* the lamia (A back alley)
+E 0 5250 0 17		*	the lamia<held in the hands>: a mandolin
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
+M 0 5201 12 5219 1	* the lamia (The guild house)
+E 0 5231 0 17		*	the lamia<held in the hands>: a scarlet and blue stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
 M 0 5204 1 5219 1	* The mimic (The guild house)
 G 0 5218 0		*	The mimic: a demon-faced talisman
 G 0 5211 0		*	The mimic: an orange potion
-M 0 5201 12 5220 1	* The lamia (The produce stand)
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
-M 0 5201 12 5224 1	* The lamia (Under the watchtower)
-E 0 5243 0 17		*	The lamia<held in the hands>: a clear stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
-M 0 5201 12 5226 1	* The lamia (A ruined clay dwelling)
-E 0 5235 0 17		*	The lamia<held in the hands>: a pearly white stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
+M 0 5201 12 5220 1	* the lamia (The produce stand)
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
+M 0 5201 12 5224 1	* the lamia (Under the watchtower)
+E 0 5243 0 17		*	the lamia<held in the hands>: a clear stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
+M 0 5201 12 5226 1	* the lamia (A ruined clay dwelling)
+E 0 5235 0 17		*	the lamia<held in the hands>: a pearly white stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
 M 0 5203 1 5226 1	* The mimic (A ruined clay dwelling)
 G 0 5215 0		*	The mimic: a tattered scroll
 G 0 5239 0		*	The mimic: a dull grey stone
-M 0 5207 4 5227 2	* The horned lizard (A collapsed stone dwelling)
+M 0 5207 4 5227 2	* the horned lizard (A collapsed stone dwelling)
 O 0 5207 0 5229	* a battered iron breast plate (An abandoned shop)
 M 0 5202 1 5229 1	* The mimic (An abandoned shop)
 G 0 5210 0		*	The mimic: a black potion
@@ -2613,48 +2676,48 @@ E 0 5214 0 17		*	The mimic<held in the hands>: a smooth quartz ball
 O 0 5225 0 5231	* the desk (South wing of the city hall)
 P 0 5215 4 0 1	* the desk: a tattered scroll
 P 0 5216 4 0 1	* the desk: a bound scroll
-M 0 5201 12 5232 1	* The lamia (The city hall)
-E 0 5217 0 17		*	The lamia<held in the hands>: a silver flute
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
-M 0 5207 4 5232 2	* The horned lizard (The city hall)
+M 0 5201 12 5232 1	* the lamia (The city hall)
+E 0 5217 0 17		*	the lamia<held in the hands>: a silver flute
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
+M 0 5207 4 5232 2	* the horned lizard (The city hall)
 O 0 5227 0 5233	* the glass cabinet (East wing of the city hall)
 P 0 3105 8 0 1	* the glass cabinet: a bronze bracer
-M 0 5201 12 5234 1	* The lamia (The private gardens and courtyard of Thalos)
-E 0 5232 0 17		*	The lamia<held in the hands>: an incandescent blue stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
+M 0 5201 12 5234 1	* the lamia (The private gardens and courtyard of Thalos)
+E 0 5232 0 17		*	the lamia<held in the hands>: an incandescent blue stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
 O 0 5220 0 5234	* a large cracked fountain (The private gardens and courtyard of Thalos)
-M 0 5201 12 5236 1	* The lamia (A collapsed home)
-E 0 5237 0 17		*	The lamia<held in the hands>: a lavender and green stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
+M 0 5201 12 5236 1	* the lamia (A collapsed home)
+E 0 5237 0 17		*	the lamia<held in the hands>: a lavender and green stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
 M 0 5206 1 5236 1	* The mimic (A collapsed home)
 E 0 5222 0 12		*	The mimic<about the shoulders>: a black silk robe
 M 0 5205 1 5238 1	* The mimic (A small shack)
 E 0 5214 0 17		*	The mimic<held in the hands>: a smooth quartz ball
-M 0 5201 12 5240 1	* The lamia (A back alley)
-E 0 5241 0 17		*	The lamia<held in the hands>: a pink and green stone
-E 0 5252 0 16		*	The lamia<wielded>: a long slim dagger
+M 0 5201 12 5240 1	* the lamia (A back alley)
+E 0 5241 0 17		*	the lamia<held in the hands>: a pink and green stone
+E 0 5252 0 16		*	the lamia<wielded>: a long slim dagger
 O 0 5228 0 5242	* a rotten arm (A bath house)
-M 0 5207 4 5244 1	* The horned lizard (An upright house)
-M 0 5208 8 5246 2	* The stone golem (The north-west watchtower)
-E 0 5221 0 16		*	The stone golem<wielded>: a two-handed sword
-E 0 5226 0 17		*	The stone golem<held in the hands>: an engraved ivory seal
-E 0 5203 0 10		*	The stone golem<on the arms>: some mithril sleeves
-M 0 5208 8 5247 2	* The stone golem (The south-west watchtower)
-E 0 5221 0 16		*	The stone golem<wielded>: a two-handed sword
-E 0 5224 0 17		*	The stone golem<held in the hands>: an engraved ebony seal
-E 0 5200 0 5		*	The stone golem<on the body>: a mithril vest
-E 0 5204 0 8		*	The stone golem<on the feet>: a pair of mithril boots
-M 0 5208 8 5248 2	* The stone golem (The north-east watchtower)
-E 0 5221 0 16		*	The stone golem<wielded>: a two-handed sword
-E 0 5205 0 7		*	The stone golem<on the legs>: a set of mithril leggings
-E 0 5206 0 13		*	The stone golem<around the waist>: a mithril girth
+M 0 5207 4 5244 1	* the horned lizard (An upright house)
+M 0 5208 8 5246 2	* the stone golem (The north-west watchtower)
+E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
+E 0 5226 0 17		*	the stone golem<held in the hands>: an engraved ivory seal
+E 0 5203 0 10		*	the stone golem<on the arms>: some mithril sleeves
+M 0 5208 8 5247 2	* the stone golem (The south-west watchtower)
+E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
+E 0 5224 0 17		*	the stone golem<held in the hands>: an engraved ebony seal
+E 0 5200 0 5		*	the stone golem<on the body>: a mithril vest
+E 0 5204 0 8		*	the stone golem<on the feet>: a pair of mithril boots
+M 0 5208 8 5248 2	* the stone golem (The north-east watchtower)
+E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
+E 0 5205 0 7		*	the stone golem<on the legs>: a set of mithril leggings
+E 0 5206 0 13		*	the stone golem<around the waist>: a mithril girth
 M 0 5200 1 5250 1	* The mighty beholder (The Temple of Thalos)
 E 0 5208 0 11		*	The mighty beholder<as a shield>: a sturdy iron shield
 E 0 5223 0 3		*	The mighty beholder<around the neck>: a dark green cloak
-M 0 5208 8 5254 2	* The stone golem (The south-east watchtower)
-E 0 5221 0 16		*	The stone golem<wielded>: a two-handed sword
-E 0 5201 0 6		*	The stone golem<over the head>: a mithril helm
-E 0 5202 0 9		*	The stone golem<on the hands>: a pair of mithril gauntlets
+M 0 5208 8 5254 2	* the stone golem (The south-east watchtower)
+E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
+E 0 5201 0 6		*	the stone golem<over the head>: a mithril helm
+E 0 5202 0 9		*	the stone golem<on the hands>: a pair of mithril gauntlets
 M 0 5111 2 5267 1	* the drow scout (A valley in the dark dwarf forest)
 E 0 5100 0 16		*	the drow scout<wielded>: a commoner's longsword
 M 0 5110 2 5270 2	* the drow guard (Down the path into a dead end)
@@ -2663,6 +2726,7 @@ M 0 5110 2 5270 2	* the drow guard (Down the path into a dead end)
 E 0 5100 0 16		*	the drow guard<wielded>: a commoner's longsword
 M 0 5111 2 5272 1	* the drow scout (A dim trail in the dwarf forest)
 E 0 5100 0 16		*	the drow scout<wielded>: a commoner's longsword
+O 0 5253 0 5281	* Waterfall (By the beautiful waterfall)
 S
 
 #OLIMITS
