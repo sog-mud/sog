@@ -3240,42 +3240,42 @@ Syntax : help 'siebele'
 	Don't forget that some of the tattoos can be seen powerful with respect
 to the others, but their probabities is much lower.
 ~
-0 'ATUM-RA' RA~
+0 'ATUM-RA' RA APOLLON~
 .
-	To enemy  : Holy word
-        To you    : Cure serious  
+	To enemy  : holy word
+        To you    : cure serious  
 ~
 0 ZEUS~
 .
-	To you : Cure critical
-	To you : Cure disease
-	To you : Cure plague
+	To you : cure critical
+	To you : cure disease
+	To you : cure poison
 ~
 0 SIEBELE~
 .
-	To enemy : Blue fire
-	To you	 : Cure serious
+	To enemy : blue fire
+	To you	 : cure serious
 ~
 0 AHURUMAZDA~
 
-	To victim : Dispel evil
-	To you	  : Cure light
-	To you	  : Cure serious
+	To enemy  : demon fire 
+	To you	  : cure serious
 ~
 0 EHRUMEN~
 .
-	To victim : Demon fire
-	To you	  : Cure serious
+	To victim : demon fire
+	To you	  : cure serious
+	To you	  : cure light
 ~
-0 SHAMASH~
+0 SHAMASH HEPHAESTUS~
 .
-	To victim : Scream
-	To you    : Cure serious
+	To victim : scream
+	To you    : cure serious
 ~
 0 DEIMOS~
 .
 	To victim : web
-	Tou you	  : cure serious
+	To you	  : cure serious
 ~
 0 PHOBOS~
 

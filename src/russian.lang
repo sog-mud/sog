@@ -390,3 +390,5 @@ MOVE_TOO_PUMPED_TO_PRAY sexdep
 	"Ты слишком возбужден для того чтобы молиться.\n\r"
 	"Ты слишком возбуждена для того чтобы молиться.\n\r"
 
+TATTOO_GLOWS_BLUE "The tattoo on your shoulder glows {Bblue{x.\n\r"
+TATTOO_GLOWS_RED "The tattoo on your shoulder glows {Rred{x.\n\r"

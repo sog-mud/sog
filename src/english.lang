@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.2 1998-05-05 18:07:13 fjoe Exp $
+# $Id: english.lang,v 1.3 1998-05-07 07:07:27 fjoe Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -344,3 +344,5 @@ MOVE_N_STEPS_OUT_COVER 	"$n steps out from $m's cover."
 MOVE_YOU_FAILED_TO_PASS 	"You failed to pass through the $d."
 MOVE_N_TRIES_TO_PASS_FAILED "$n tries to pass through the $d, but $e failes"
 MOVE_TOO_PUMPED_TO_PRAY 	"You are too pumped to pray now.\n\r"
+TATTOO_GLOWS_BLUE "The tattoo on your shoulder glows {Bblue{x.\n\r"
+TATTOO_GLOWS_RED "The tattoo on your shoulder glows {Rred{x.\n\r"
