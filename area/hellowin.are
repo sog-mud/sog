@@ -1267,7 +1267,21 @@ crystal~
 jewelry 0 AO
 0 0 0 0 0
 0 10 0 P
+E
+dragon~
+@eng You see little crystal sleeping dragon.
+@rus Ты видишь маленькую статуэтку. Похоже на спящего дракона.
+~
 G female
+#34491
+potion light-blue~
+light-blue potion~
+You see a potion on the ground.~
+unknown~
+potion 0 AO
+100 'sleep' 'reserved' 'reserved' 'reserved'
+0 0 0 P
+G none
 #0
 
 #ROOMS
@@ -1323,6 +1337,9 @@ Z 0 34402
 S
 #34402
 @eng In the cave@rus В пещере~
+@eng This mountain is a one huge crystal! And it's glowing brightly
+making you blind.. Every step make a loud clatter. You almost
+stumble over something and it is really big and rigid.
 @rus Эта гора на проверку оказалась огромным кристаллом. Она вся светится,
 ослепляя тебя. Каждый твой шаг гулко звучит под высокими сводами пещеры.
 Задумавшись, ты едва не $gn{воткнулся} носом во что-то большое и жесткое.
@@ -1339,6 +1356,10 @@ Z 0 34401
 S
 #34403
 @eng Heart of the mountain@rus Сердце горы~
+@eng Wheeee!.. You did it! You've passed all testing and solved all
+quests. And now you stands near legendary altar in the heart of
+crystal mountain. Many people were looking for this object and
+many others will be looking for it in future.
 @rus Вот оно... Ты, преодолев все препятствия на своем пути, $gn{достиг} цели
 своего путешествия. И вот Он -- легендарный алтарь в сердце кристальной
 горы. Вот то, что искали многие поколения до тебя и, видимо, будут искать,
@@ -1870,6 +1891,13 @@ mob echo You hear from nowhere: 'Please, tell me where lives little leprechaun?'
 #34426
 mob echo You hear from nowhere: 'True!'
 mob transfer $n 34424
+~
+#34427
+mob junk all.potion
+mob oload 34490
+drop all
+echo $I quaffs the potion and scatters into many crystals...
+mob goto 15000
 ~
 #34450
 say Если ты мне принесешь сосульку, я тебя награжу... тока поспеши..

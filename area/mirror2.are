@@ -4362,7 +4362,7 @@ gently at the ripples you leave behind you.  The reeds to the north and west,
 growing at the edge of the pond, provide food for a few more fish; the center
 of the pond lies to the south, just below a white gazebo covered with vines.
 ~
-0 C noswim
+0 C swim
 D1
 ~
 ~
@@ -4383,7 +4383,7 @@ odd, white light: pale, glowing fish fill the water, and small, almost
 microscopic animals have stuck their glowing bodies like barnacles onto the
 gazebo's bottom.
 ~
-0 CF noswim
+0 CF swim
 D0
 ~
 ~
@@ -4408,7 +4408,7 @@ and heading westwards towards a small gazebo.  The gazebo itself is high
 enough to travel under; the bridge rises fairly high off the water--
 high enough to prevent you from leaving the pond by the eastern bank.
 ~
-0 C noswim
+0 C swim
 D0
 ~
 ~
@@ -4428,7 +4428,7 @@ The pond's clear water ripples gently as you pass across its surface; small
 waves wash against the shores to the east and south.  A wooden bridge
 crosses the pond to the north, leading to a round gazebo covered with vines.
 ~
-0 C noswim
+0 C swim
 D0
 ~
 ~
@@ -4502,7 +4502,7 @@ floating here, with some algae growing around them.  The row of buildings lies
 to the east of here, just beyond the gravel pathway; from here, however, you
 can't see what any of them might hold.
 ~
-0 C noswim
+0 C swim
 D0
 ~
 ~
@@ -4527,7 +4527,7 @@ hundreds of them swim around here, poking gently at everything that passes
 by.  A large, almost pure white goldfish seems to be the center of attention--
 smaller goldfish nip at it almost endlessly.
 ~
-0 C noswim
+0 C swim
 D1
 ~
 ~
@@ -6593,7 +6593,7 @@ than the rest: the pond floor slopes downwards into a deep indentation. The
 gazebo casts a faint white reflection on the water above you....and you can 
 see what appears to be some sort of cave lying just ahead.
 ~
-0 C city
+0 C underwater
 D0
 ~
 ~
@@ -6613,7 +6613,7 @@ fresh, clean scent.  The waterfalls--as well as the water you came from--
 sparkle in the misty light that shines from a large altar in the center of
 the room.
 ~
-0 C city
+0 C underwater
 D2
 ~
 ~
