@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.31 2003-10-10 16:45:27 fjoe Exp $
+ * $Id: act_spec.c,v 1.32 2004-02-11 20:52:27 sg Exp $
  */
 
 #include <sys/time.h>
@@ -71,7 +71,7 @@ DO_FUN(do_read, ch, argument)
 
 	if (has_spec(ch, STR(book->value[1]))) {
 		act("You page through the $t, but haven't found anything new.",
-			ch, flag_string(book_class, INT(book->value[0])), 
+			ch, flag_string(book_class, INT(book->value[0])),
 			NULL, TO_CHAR);
 		return;
 	}
@@ -176,7 +176,7 @@ DO_FUN(do_magicschool, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (argument[0] == '\0') {
-		act("Syntax: school {major|minor} <school name>.",
+		act("Syntax: school {{major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -184,7 +184,7 @@ DO_FUN(do_magicschool, ch, argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (argument[0] == '\0') {
-		act("Syntax: school {major|minor} <school name>.",
+		act("Syntax: school {{major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -192,7 +192,7 @@ DO_FUN(do_magicschool, ch, argument)
 	if (!str_prefix(arg, "major"))
 		major = TRUE;
 	else if (!!str_prefix(arg, "minor")) {
-		act("Syntax: school {major|minor} <school name>.",
+		act("Syntax: school {{major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
