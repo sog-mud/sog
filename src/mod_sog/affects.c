@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.85 2004-02-09 21:16:53 fjoe Exp $
+ * $Id: affects.c,v 1.86 2004-02-09 21:19:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,8 +63,10 @@ static void strip_race_and_form_affects(CHAR_DATA *ch);
 static void reset_affects(CHAR_DATA *ch);
 static void calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo);
 
+static void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
 static void affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd);
 static void affect_modify_trig(varr *v, AFFECT_DATA *paf, bool fAdd);
+static void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd);
 
 /* enchanted stuff for eq */
 void
@@ -80,194 +82,6 @@ affect_enchant(OBJ_DATA *obj)
 			af_new = aff_dup(paf);
 			af_new->next = obj->affected;
 			obj->affected = af_new;
-		}
-	}
-}
-
-/*
- * Apply or remove an affect to a character.
- */
-static void
-affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
-{
-	OBJ_DATA *wield;
-	int mod, i;
-
-	mod = paf->modifier;
-	if (!fAdd)
-		mod = 0 - mod;
-
-	if (paf->where == TO_SKILLS) {
-		if (fAdd) {
-			saff_t *sa = varr_enew(&ch->sk_affected);
-			sa->sn = str_qdup(paf->location.s);
-			sa->type = str_qdup(paf->type);
-			sa->mod = paf->modifier;
-			sa->bit =  paf->bitvector;
-		} else {
-			saff_t *sa = NULL;
-
-			do {
-				VARR_EFOREACH(sa, sa, &ch->sk_affected) {
-					if (!IS_SKILL(sa->sn, paf->location.s)
-					||  !IS_SKILL(sa->type, paf->type)
-					||  sa->mod != paf->modifier
-					||  sa->bit != paf->bitvector)
-						continue;
-
-					varr_edelete(&ch->sk_affected, sa);
-
-					/*
-					 * restart from this place
-					 */
-					break;
-				}
-			} while (sa != NULL);
-		}
-		return;
-	} else if (paf->where == TO_RACE) {
-		free_string(ch->race);
-		ch->race = str_qdup(fAdd ? paf->location.s : ORG_RACE(ch));
-		reset_affects(ch);
-		if (!IS_NPC(ch))
-			spec_update(ch);
-		return;
-	} else if (IS_RESIST_AFFECT(paf)) {
-		int res = INT(paf->location);
-
-		if (res < 0)
-			printlog(LOG_BUG, "affect_modify: res %d < 0", res);
-		else if (res >= MAX_RESIST) {
-			printlog(LOG_BUG, "affect_modify: res %d >= MAX_RESIST",
-			    res);
-		} else {
-			if (ch->shapeform && paf->where == TO_FORMRESISTS)
-				ch->shapeform->res_mod[res] += mod;
-			ch->res_mod[res] += mod;
-		}
-		return;
-	} else if (paf->where == TO_TRIG) {
-		affect_modify_trig(&ch->mptrig_affected, paf, fAdd);
-		return;
-	}
-
-	if (fAdd) {
-		switch (paf->where) {
-		case TO_AFFECTS:
-		case TO_FORMAFFECTS:
-			SET_BIT(ch->affected_by, paf->bitvector);
-			break;
-		case TO_DETECTS:
-			SET_DETECT(ch, paf->bitvector);
-			break;
-		case TO_INVIS:
-			SET_INVIS(ch, paf->bitvector);
-			break;
-		case TO_FORM:
-			shapeshift(ch, paf->location.s);
-			reset_affects(ch);
-			return;
-		}
-	} else {
-		switch (paf->where) {
-		case TO_AFFECTS:
-		case TO_FORMAFFECTS:
-			REMOVE_BIT(ch->affected_by, paf->bitvector);
-			break;
-		case TO_DETECTS:
-			REMOVE_DETECT(ch, paf->bitvector);
-			break;
-		case TO_INVIS:
-			REMOVE_INVIS(ch, paf->bitvector);
-			break;
-		case TO_FORM:
-			revert(ch);
-			reset_affects(ch);
-			return;
-		}
-	}
-
-	switch (INT(paf->location)) {
-	case APPLY_NONE:
-	case APPLY_HEIGHT:
-	case APPLY_WEIGHT:
-	case APPLY_GOLD:
-	case APPLY_EXP:
-	case APPLY_SEX:
-		break;
-
-	case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod; break;
-	case APPLY_DEX:		ch->mod_stat[STAT_DEX]	+= mod;	break;
-	case APPLY_INT:		ch->mod_stat[STAT_INT]	+= mod;	break;
-	case APPLY_WIS:		ch->mod_stat[STAT_WIS]	+= mod;	break;
-	case APPLY_CON:		ch->mod_stat[STAT_CON]	+= mod;	break;
-	case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
-
-	case APPLY_MANA:	ch->max_mana		+= mod;	break;
-	case APPLY_HIT:		ch->max_hit		+= mod;	break;
-	case APPLY_MOVE:	ch->max_move		+= mod;	break;
-
-	case APPLY_HITROLL:
-				if ((paf->where == TO_FORMAFFECTS)
-				&& ch->shapeform)
-					ch->shapeform->hitroll += mod;
-				ch->hitroll		+= mod;	break;
-	case APPLY_DAMROLL:
-				if ((paf->where == TO_FORMAFFECTS)
-				&& ch->shapeform)
-					ch->shapeform->damroll += mod;
-				ch->damroll		+= mod;	break;
-	case APPLY_LEVEL:	ch->add_level		+= mod; break;
-
-	case APPLY_SIZE:	ch->size		+= mod;	break;
-	case APPLY_AGE:
-		if (!IS_NPC(ch))
-			PC(ch)->add_age += age_to_num(mod);
-		break;
-
-	case APPLY_AC:
-		for (i = 0; i < 4; i ++)
-			ch->armor[i] += mod;
-		break;
-
-	case APPLY_SAVES:		ch->saving_throw	+= mod;	break;
-	case APPLY_SAVING_ROD:		ch->saving_throw	+= mod;	break;
-	case APPLY_SAVING_PETRI:	ch->saving_throw	+= mod;	break;
-	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
-	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
-	case APPLY_LUCK:		ch->luck_mod		+= mod; break;
-
-	default:
-		if (IS_NPC(ch)) {
-			printlog(LOG_INFO, "affect_modify: vnum %d: in room %d: unknown location %d, where: %d",
-				   ch->pMobIndex->vnum,
-				   ch->in_room ? ch->in_room->vnum : -1,
-				   INT(paf->location), paf->where);
-		} else {
-			printlog(LOG_INFO, "affect_modify: %s: unknown location %d where: %d",
-			    ch->name, INT(paf->location), paf->where);
-		}
-		return;
-
-	}
-
-	/*
-	 * Check for weapon wielding.
-	 * Guard against recursion (for weapons with affects).
-	 * May be called from char_load (ch->in_room will be NULL)
-	 */
-	if (!IS_NPC(ch)
-	&&  ch->in_room != NULL
-	&&  (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
-	&&  get_obj_weight(wield) > str_app[get_curr_stat(ch,STAT_STR)].wield) {
-		static int depth;
-
-		if (depth == 0) {
-		    depth++;
-		    act("You drop $p.", ch, wield, NULL, TO_CHAR);
-		    act("$n drops $p.", ch, wield, NULL, TO_ROOM);
-		    obj_to_room(wield, ch->in_room);
-		    depth--;
 		}
 	}
 }
@@ -656,51 +470,6 @@ obj_magic_value(OBJ_DATA *obj)
 /*----------------------------------------------------------------------------
  * room affects stuff
  */
-
-/*
- * Apply or remove an affect to a room.
- */
-static void
-affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
-{
-	int mod;
-
-	if (paf->where == TO_TRIG) {
-		affect_modify_trig(&room->mptrig_affected, paf, fAdd);
-		return;
-	}
-
-	if (fAdd) {
-		switch (paf->where) {
-		case TO_ROOM_AFFECTS:
-			SET_BIT(room->affected_by, paf->bitvector);
-			break;
-		}
-		mod = paf->modifier;
-	} else {
-		switch (paf->where) {
-		case TO_ROOM_AFFECTS:
-			REMOVE_BIT(room->affected_by, paf->bitvector);
-			break;
-		}
-		mod = -paf->modifier;
-	}
-
-	switch (INT(paf->location)) {
-	default:
-		printlog(LOG_BUG, "affect_modify_room: unknown location %d",
-		    INT(paf->location));
-		break;
-	case APPLY_ROOM_NONE:
-		break;
-	case APPLY_ROOM_HEAL:
-		room->heal_rate_mod += mod;
-		break;
-	case APPLY_ROOM_MANA:
-		room->mana_rate_mod += mod;
-		break;
-	}
-}
 
 /*
  * Give an affect to a room.
@@ -1206,6 +975,197 @@ calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo)
 	}
 }
 
+/*
+ * Apply or remove an affect to a character.
+ */
+static void
+affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
+{
+	OBJ_DATA *wield;
+	int mod, i;
+
+	mod = paf->modifier;
+	if (!fAdd)
+		mod = 0 - mod;
+
+	if (paf->where == TO_SKILLS) {
+		if (fAdd) {
+			saff_t *sa = varr_enew(&ch->sk_affected);
+			sa->sn = str_qdup(paf->location.s);
+			sa->type = str_qdup(paf->type);
+			sa->mod = paf->modifier;
+			sa->bit =  paf->bitvector;
+		} else {
+			saff_t *sa = NULL;
+
+			do {
+				VARR_EFOREACH(sa, sa, &ch->sk_affected) {
+					if (!IS_SKILL(sa->sn, paf->location.s)
+					||  !IS_SKILL(sa->type, paf->type)
+					||  sa->mod != paf->modifier
+					||  sa->bit != paf->bitvector)
+						continue;
+
+					varr_edelete(&ch->sk_affected, sa);
+
+					/*
+					 * restart from this place
+					 */
+					break;
+				}
+			} while (sa != NULL);
+		}
+		return;
+	} else if (paf->where == TO_RACE) {
+		free_string(ch->race);
+		ch->race = str_qdup(fAdd ? paf->location.s : ORG_RACE(ch));
+		reset_affects(ch);
+		if (!IS_NPC(ch))
+			spec_update(ch);
+		return;
+	} else if (IS_RESIST_AFFECT(paf)) {
+		int res = INT(paf->location);
+
+		if (res < 0)
+			printlog(LOG_BUG, "affect_modify: res %d < 0", res);
+		else if (res >= MAX_RESIST) {
+			printlog(LOG_BUG, "affect_modify: res %d >= MAX_RESIST",
+			    res);
+		} else {
+			if (ch->shapeform && paf->where == TO_FORMRESISTS)
+				ch->shapeform->res_mod[res] += mod;
+			ch->res_mod[res] += mod;
+		}
+		return;
+	} else if (paf->where == TO_TRIG) {
+		affect_modify_trig(&ch->mptrig_affected, paf, fAdd);
+		return;
+	}
+
+	if (fAdd) {
+		switch (paf->where) {
+		case TO_AFFECTS:
+		case TO_FORMAFFECTS:
+			SET_BIT(ch->affected_by, paf->bitvector);
+			break;
+		case TO_DETECTS:
+			SET_DETECT(ch, paf->bitvector);
+			break;
+		case TO_INVIS:
+			SET_INVIS(ch, paf->bitvector);
+			break;
+		case TO_FORM:
+			shapeshift(ch, paf->location.s);
+			reset_affects(ch);
+			return;
+		}
+	} else {
+		switch (paf->where) {
+		case TO_AFFECTS:
+		case TO_FORMAFFECTS:
+			REMOVE_BIT(ch->affected_by, paf->bitvector);
+			break;
+		case TO_DETECTS:
+			REMOVE_DETECT(ch, paf->bitvector);
+			break;
+		case TO_INVIS:
+			REMOVE_INVIS(ch, paf->bitvector);
+			break;
+		case TO_FORM:
+			revert(ch);
+			reset_affects(ch);
+			return;
+		}
+	}
+
+	switch (INT(paf->location)) {
+	case APPLY_NONE:
+	case APPLY_HEIGHT:
+	case APPLY_WEIGHT:
+	case APPLY_GOLD:
+	case APPLY_EXP:
+	case APPLY_SEX:
+		break;
+
+	case APPLY_STR:		ch->mod_stat[STAT_STR]	+= mod; break;
+	case APPLY_DEX:		ch->mod_stat[STAT_DEX]	+= mod;	break;
+	case APPLY_INT:		ch->mod_stat[STAT_INT]	+= mod;	break;
+	case APPLY_WIS:		ch->mod_stat[STAT_WIS]	+= mod;	break;
+	case APPLY_CON:		ch->mod_stat[STAT_CON]	+= mod;	break;
+	case APPLY_CHA:		ch->mod_stat[STAT_CHA]	+= mod; break;
+
+	case APPLY_MANA:	ch->max_mana		+= mod;	break;
+	case APPLY_HIT:		ch->max_hit		+= mod;	break;
+	case APPLY_MOVE:	ch->max_move		+= mod;	break;
+
+	case APPLY_HITROLL:
+				if ((paf->where == TO_FORMAFFECTS)
+				&& ch->shapeform)
+					ch->shapeform->hitroll += mod;
+				ch->hitroll		+= mod;	break;
+	case APPLY_DAMROLL:
+				if ((paf->where == TO_FORMAFFECTS)
+				&& ch->shapeform)
+					ch->shapeform->damroll += mod;
+				ch->damroll		+= mod;	break;
+	case APPLY_LEVEL:	ch->add_level		+= mod; break;
+
+	case APPLY_SIZE:	ch->size		+= mod;	break;
+	case APPLY_AGE:
+		if (!IS_NPC(ch))
+			PC(ch)->add_age += age_to_num(mod);
+		break;
+
+	case APPLY_AC:
+		for (i = 0; i < 4; i ++)
+			ch->armor[i] += mod;
+		break;
+
+	case APPLY_SAVES:		ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_ROD:		ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_PETRI:	ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
+	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
+	case APPLY_LUCK:		ch->luck_mod		+= mod; break;
+
+	default:
+		if (IS_NPC(ch)) {
+			printlog(LOG_INFO, "affect_modify: vnum %d: in room %d: unknown location %d, where: %d",
+				   ch->pMobIndex->vnum,
+				   ch->in_room ? ch->in_room->vnum : -1,
+				   INT(paf->location), paf->where);
+		} else {
+			printlog(LOG_INFO, "affect_modify: %s: unknown location %d where: %d",
+			    ch->name, INT(paf->location), paf->where);
+		}
+		return;
+
+	}
+
+	/*
+	 * Check for weapon wielding.
+	 * Guard against recursion (for weapons with affects).
+	 * May be called from char_load (ch->in_room will be NULL)
+	 */
+	if (!IS_NPC(ch)
+	&&  ch->in_room != NULL
+	&&  (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
+	&&  get_obj_weight(wield) > str_app[get_curr_stat(ch,STAT_STR)].wield) {
+		static int depth;
+
+		if (depth == 0) {
+		    depth++;
+		    act("You drop $p.", ch, wield, NULL, TO_CHAR);
+		    act("$n drops $p.", ch, wield, NULL, TO_ROOM);
+		    obj_to_room(wield, ch->in_room);
+		    depth--;
+		}
+	}
+}
+
+/*
+ * Apply or remove an affect to an object.
+ */
 static void
 affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd)
 {
@@ -1243,6 +1203,54 @@ affect_modify_obj(OBJ_DATA *obj, AFFECT_DATA *paf, bool fAdd)
 	}
 }
 
+/*
+ * Apply or remove an affect to a room.
+ */
+static void
+affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
+{
+	int mod;
+
+	if (paf->where == TO_TRIG) {
+		affect_modify_trig(&room->mptrig_affected, paf, fAdd);
+		return;
+	}
+
+	if (fAdd) {
+		switch (paf->where) {
+		case TO_ROOM_AFFECTS:
+			SET_BIT(room->affected_by, paf->bitvector);
+			break;
+		}
+		mod = paf->modifier;
+	} else {
+		switch (paf->where) {
+		case TO_ROOM_AFFECTS:
+			REMOVE_BIT(room->affected_by, paf->bitvector);
+			break;
+		}
+		mod = -paf->modifier;
+	}
+
+	switch (INT(paf->location)) {
+	default:
+		printlog(LOG_BUG, "affect_modify_room: unknown location %d",
+		    INT(paf->location));
+		break;
+	case APPLY_ROOM_NONE:
+		break;
+	case APPLY_ROOM_HEAL:
+		room->heal_rate_mod += mod;
+		break;
+	case APPLY_ROOM_MANA:
+		room->mana_rate_mod += mod;
+		break;
+	}
+}
+
+/*
+ * Apply or remove trigger affect.
+ */
 static void
 affect_modify_trig(varr *v, AFFECT_DATA *paf, bool fAdd)
 {
