@@ -168,7 +168,6 @@ Use 'desc edit' to edit your description.
 @eng Sale of $p has been stopped by $N.@rus Продажа $c1{$p} остановлена $c4{$N}.~
 @eng ({cTranslucent{x) @rus ({cПрозрачно{x) ~
 @eng $n shoots $p to $T.@rus $n $gn{выпускает} $c3{$p} $T.~
-@eng $n fills $p with $U from $P.@rus $n $gn{наполняет} $c3{$p} $c4{$U} из $c1{$P}.~
 @eng $n asks $N for a quest.@rus $n $gn{просит} задание у $c1{$N}.~
 @eng $N {xis standing on $p.@rus $N {x$gN{стоит} на $c5{$p}.~
 @eng $N {xis resting at $p.@rus $N {x$gN{отдыхает} за $c4{$p}.~
@@ -320,7 +319,6 @@ Use 'desc edit' to edit your description.
 @rus Взять что?
 ~
 @eng ({gCamf{x) @rus ({gЗамаскированно{x) ~
-@eng $n inverts $p, spilling $T $U.@rus $n $gn{переворачивает} $c3{$p} и $gn{выливает} $c3{$T} $U.~
 @eng $n goes to sleep on $p.@rus $n $gn{ложится} спать на $c3{$p}.~
 @eng $N {xis sleeping at $p.@rus $N {x$gN{спит} за $c4{$p}.~
 @eng quest points@rus квестовые очки~
@@ -470,7 +468,7 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n's $V $u you.@rus $V $c1{$n} $u тебя.~
 @eng $n hands {W$p{x to $N.@rus $n $gn{вручает} {W$p{x $c2{$N}.~
-@eng You invert $p, spilling $T $U.@rus Ты переворачиваешь $c3{$p} и выливаешь $c3{$T} $U.~
+@eng You fill $p with $V from $P.@rus Ты наполняешь $c3{$p} $c4{$V} из $c1{$P}.~
 @eng $n leaves $t.@rus $n удаляется $t.~
 @eng {cdecimate{x@rus {cтяжело ранишь{x~
 @eng You compare $p to itself.  It looks about the same.@rus Ты сравниваешь $c3{$p} с $gp{ним} $gp{самим}. Естественно, они выглядят похожими.~
@@ -634,7 +632,6 @@ You peek at the inventory:
 @eng $n is poisoned by the venom on $p.@rus $n $gn{отравлен} ядом $c1{$p}.~
 @eng $N deadly touches your neck and puts you to nightmares.@rus $N касается твоей шеи и отправляет тебя в мир кошмаров.~
 @eng $n goes to sleep in $p.@rus $n $gn{ложится} спать в $c3{$p}.~
-@eng $n drinks $T from $p.@rus $n $gn{пьет} $c3{$T} из $c1{$p}.~
 @eng $N{x$t {xis here, riding $I.@rus $N{x$t {xздесь, верхом на $c5{$I}.~
 @eng door@rus дверь~
 @eng You wake and stand on $p.@rus Ты просыпаешься и встаешь на $c3{$p}.~
@@ -781,6 +778,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng Eat what?
 @rus Что съесть?
 ~
+@eng $n inverts $p, spilling $V $T.@rus $n $gn{выливает} $c3{$V} из $c1{$p} $T.~
 @eng {cresting{x@rus {cотдыхаешь{x~
 @eng Do I know you?@rus А ты кто такой?~
 @eng $p glows brightly, and is whole again.  Good Job!@rus $p окутывается сиянием и, когда оно рассеивается, ты уже не видишь ни одной царапины.~
@@ -948,6 +946,7 @@ Get back to questor before your time runs out!
 @rus Мистический щит защищает этот проход.
 ~
 @eng <worn on feet>      $t@rus <надето на ступни>     $t~
+@eng $n fills $p with $V from $P.@rus $n $gn{наполняет} $c3{$p} $c4{$V} из $c1{$P}.~
 @eng {MMASSACRE{x@rus {MУРОДУЕШЬ{x~
 @eng Your mount subbornly refuses to go that way.
 @rus Твое животное упорно отказывается идти в эту сторону.
@@ -970,7 +969,6 @@ Get back to questor before your time runs out!
 ~
 @eng $n writhes in agony as plague sores erupt from $s skin.@rus $n $gn{мучается} от разрывающихся на теле язв.~
 @eng $d is open.@rus $d $gd{открыт}.~
-@eng You fill $p with $U from $P.@rus Ты наполняешь $c3{$p} $c4{$U} из $c1{$P}. ~
 @eng To buy an item, type 'QUEST BUY <item>'.
 @rus Чтобы купить что-нибудь, набери 'QUEST BUY <item>'.
 ~
@@ -1107,6 +1105,7 @@ Get back to questor before your time runs out!
 ~
 @eng $n stupidly tries to push $N while webbed.@rus $n безуспешно $gn{пытается} толкнуть $N, болтаясь в паутине.~
 @eng     I do not have that item, $N.@rus     У меня такого к сожалению нет, $N.~
+@eng $n drinks $V from $p.@rus $n $gn{пьет} $c3{$V} из $c1{$p}.~
 @eng You put $p on $P.@rus Ты кладешь $c3{$p} на $c3{$P}.~
 @eng Nothing.
 @rus Ничего.
@@ -1570,6 +1569,7 @@ Quest staff waits patiently to return.
 ~
 @eng You deliver a blow of deadly force!@rus Ты наносишь удар сокрушительной силы!~
 @eng $n unlocks $p.@rus $n $gn{размыкает} $c3{$p}.~
+@eng You invert $p, spilling $V $T.@rus Ты выливаешь $c3{$V} из $c1{$p} $T.~
 @eng You don't like the way $n has been treating you.@rus Тебе не понравилось поведение $n.~
 @eng You bite $N!@rus Ты кусаешь $c6{$N}!~
 @eng The sky is getting cloudy.@rus Небо затянулось тучами.~
