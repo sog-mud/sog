@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.50 2001-02-12 19:07:19 fjoe Exp $
+ * $Id: affect.c,v 1.51 2001-03-11 21:59:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -326,8 +326,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 	default:
 		if (IS_NPC(ch)) {
-			log(LOG_INFO, "affect_modify: vnum %d: in room %d: "
-				   "unknown location %d, where: %d",
+			log(LOG_INFO, "affect_modify: vnum %d: in room %d: unknown location %d, where: %d",
 				   ch->pMobIndex->vnum,
 				   ch->in_room ? ch->in_room->vnum : -1,
 				   INT(paf->location), paf->where);
@@ -1149,7 +1148,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
-			buf_append(output, "Number Skill          Affects Modifier Affects Bitvector\n");
+			buf_append(output, "Number Skill          Affects Modifier Affects Bitvector\n");					// notrans
 			buf_append(output, "------ --------- ------------ -------- ------- --------------------------------\n");		// notrans
 		}
 		buf_printf(output, BUF_END,

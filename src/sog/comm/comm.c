@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.240 2001-02-11 14:35:44 fjoe Exp $
+ * $Id: comm.c,v 1.241 2001-03-11 21:59:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -313,8 +313,10 @@ int main(int argc, char **argv)
 
 	boot_db();
 
-	open_sockets(&control_sockets, "ready to rock on port %d");
-	open_sockets(&info_sockets, "info service started on port %d");
+	open_sockets(&control_sockets,
+		     "ready to rock on port %d");		// notrans
+	open_sockets(&info_sockets,
+		     "info service started on port %d");	// notrans
 
 	if (!control_sockets.nused) {
 		log(LOG_INFO, "no control sockets could be opened.");
@@ -1280,9 +1282,9 @@ void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
 {
 	if (ch->hit >= 0) {
 		snprintf(buf, sizeof(buf), "%d%%",		// notrans
-			 ((100 * ch->hit) / UMAX(1,ch->max_hit)));
+			 ((100 * ch->hit) / UMAX(1, ch->max_hit)));
 	} else
-		strnzcpy(buf, sizeof(buf), "BAD!");
+		strnzcpy(buf, sizeof(buf), "BAD!");		// notrans
 }
 
 /*
@@ -1298,7 +1300,8 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 	CHAR_DATA *ch = d->character;
 
 	if (IS_SET(ch->comm, COMM_AFK)) {
-		act_puts("{c<AFK>{x $t", ch, d->dvdata->prefix, NULL,
+		act_puts("{c<AFK>{x $t",			// notrans
+			 ch, d->dvdata->prefix, NULL,
 			 TO_CHAR | ACT_NOLF, POS_DEAD);
 		return;
 	}
@@ -1490,7 +1493,8 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		case 'W':
 			if (ch->invis_level) {
-				snprintf(buf2, sizeof(buf2), "Wizi %d ",
+				snprintf(buf2, sizeof(buf2),
+					 "Wizi %d ",		// notrans
 					 ch->invis_level);
 				i = buf2;
 			} else
@@ -1499,7 +1503,8 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		case 'I':
 			if (ch->incog_level) {
-				snprintf(buf2, sizeof(buf2), "Incog %d ",
+				snprintf(buf2, sizeof(buf2),
+					 "Incog %d ",		// notrans
 					 ch->incog_level);
 				i = buf2;
 			} else
@@ -1845,10 +1850,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			size = sizeof(sock);
 			if (getpeername(d->descriptor,
 					(struct sockaddr *) &sock, &size) < 0) {
-				d->ip = str_dup("(unknown)");
+				d->ip = str_dup("(unknown)");	// notrans
 				d->host = str_qdup(d->ip);
-			}
-			else {
+			} else {
 				d->ip = str_dup(inet_ntoa(sock.sin_addr));
 #if defined (WIN32)
 				printf("%s@%s\n",		// notrans
