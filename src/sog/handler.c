@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.134 1999-04-16 15:52:17 fjoe Exp $
+ * $Id: handler.c,v 1.135 1999-04-19 14:09:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3406,7 +3406,7 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
-	if (paf->duration == -1 || paf->duration == -2)
+	if (paf->duration < 0)
 		buf_add(output, "permanently.");
 	else
 		buf_printf(output, "for {c%d{x hours.", paf->duration);

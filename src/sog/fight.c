@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.163 1999-04-17 16:14:59 fjoe Exp $
+ * $Id: fight.c,v 1.164 1999-04-19 14:09:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1154,8 +1154,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	/* Dying penalty: 2/3 way back. */
 	if (IS_SET(victim->plr_flags, PLR_WANTED)
-	&&  victim->level > 1
-	&&  !is_duel) {
+	&&  victim->level > 1) {
 		REMOVE_BIT(victim->plr_flags, PLR_WANTED);
 		victim->level--;
 		victim->pcdata->plevels++;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.140 1999-04-17 06:56:33 fjoe Exp $
+ * $Id: act_wiz.c,v 1.141 1999-04-19 14:09:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -827,8 +827,6 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->level < LEVEL_IMMORTAL) {
-		AREA_DATA *area;
-
 		if (ch->fighting) {
 			char_puts("No way! You are fighting.\n", ch);
 			return;
@@ -846,8 +844,8 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 #endif
-		if ((area = area_vnum_lookup(location->vnum)) == NULL
-		||  !IS_BUILDER(ch, area)) {
+		if (!IS_BUILDER(ch, location->area)
+		||  !IS_BUILDER(ch, ch->in_room->area)) {
 			char_puts("You cannot transfer yourself there.\n", ch);
 			return;
 		}
