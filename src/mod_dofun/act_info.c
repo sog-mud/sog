@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.397 2001-09-01 19:08:24 fjoe Exp $
+ * $Id: act_info.c,v 1.398 2001-09-01 19:30:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3648,7 +3648,7 @@ DO_FUN(do_demand, ch, argument)
 		unequip_char(victim, obj);
 
 	if (!can_drop_obj(victim, obj)) {
-		do_say(victim, "It's cursed so, I can't let go of it. "
+		do_say(victim, "It's cursed, so I can't let go of it. "
 			       "Forgive me, my master.");
 		return;
 	}
