@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.180 1999-09-23 18:28:41 kostik Exp $
+ * $Id: handler.c,v 1.181 1999-09-24 04:16:07 avn Exp $
  */
 
 /***************************************************************************
@@ -5366,50 +5366,6 @@ void check_weapon_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 
 	if (number_percent() < (chance / 2) && chance > 20)
 		damage_to_obj(ch, wield, destroy, chance / 4);
-}
-
-bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (victim->fighting) {
-		if (ch)
-			char_puts("You can't backstab a fighting person.\n",
-				  ch);
-		return FALSE;
-	}
-
-	if (victim->hit < 7 * victim->max_hit / 10) {
-		if (ch)
-			act("$N is hurt and suspicious... "
-			    "you couldn't sneak up.",
-			    ch, NULL, victim, TO_CHAR);
-		return FALSE;
-	}
-
-	return TRUE;
-}
-
-void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
-{
-	if (!IS_AWAKE(victim)
-	||  number_percent() < chance) {
-		check_improve(ch, gsn_backstab, TRUE, 1);
-		if (number_percent() <
-				get_skill(ch, gsn_dual_backstab) * 8 / 10) {
-			check_improve(ch, gsn_dual_backstab, TRUE, 1);
-			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
-			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
-		}
-		else {
-			check_improve(ch, gsn_dual_backstab, FALSE, 1);
-			one_hit(ch, victim, gsn_backstab,WEAR_WIELD);
-		}
-	}
-	else {
-		check_improve(ch, gsn_backstab, FALSE, 1);
-		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
-	}
-
-	yell(victim, ch, "Die, $i! You are backstabbing scum!");
 }
 
 /*

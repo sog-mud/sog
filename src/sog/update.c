@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.153 1999-09-14 17:42:40 avn Exp $
+ * $Id: update.c,v 1.154 1999-09-24 04:16:08 avn Exp $
  */
 
 /***************************************************************************
@@ -1811,7 +1811,7 @@ void aggr_update(void)
 
 			/* Mad mob attacks! */
 			if (npc->last_fought == wch
-			&&  !IS_AFFECTED(ch, AFF_SCREAM)) {
+			&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
 				act_yell(ch, "$i! Now you die!", wch, NULL);
 				wch = check_guard(wch, ch); 
 				multi_hit(ch, wch, TYPE_UNDEFINED);
@@ -1852,17 +1852,11 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				int dt = TYPE_UNDEFINED;
-				int bs_chance;
 
 				victim = check_guard(victim, ch); 
-				if (get_dam_type(ch,
-					         get_eq_char(ch, WEAR_WIELD),
-						 &dt) == DAM_PIERCE
-				&&  (bs_chance = get_skill(ch, gsn_backstab))
-				&&  backstab_ok(NULL, victim))
-					backstab(ch, victim, bs_chance);
-				else
-					multi_hit(ch, victim, TYPE_UNDEFINED);
+				if (get_skill(ch, gsn_backstab))
+					dofun("backstab", ch, victim->name);
+				multi_hit(ch, victim, TYPE_UNDEFINED);
 			}
 		}
 	}

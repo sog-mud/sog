@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.6 1999-09-08 10:40:06 fjoe Exp $
+ * $Id: olc_race.c,v 1.7 1999-09-24 04:16:05 avn Exp $
  */
 
 #include "olc.h"
@@ -507,8 +507,10 @@ OLC_FUN(raceed_whoname)
 		for (i = 0; i < strlen(str); i++)
 			race->race_pcdata->who_name[i] = str[i];
 		race->race_pcdata->who_name[i] = '\0';
+		free_string(str);
 		return TRUE;
 		}
+	free_string(str);
 	return FALSE;
 }
 

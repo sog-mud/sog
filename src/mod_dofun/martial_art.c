@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.112 1999-09-14 03:10:53 avn Exp $
+ * $Id: martial_art.c,v 1.113 1999-09-24 04:16:03 avn Exp $
  */
 
 /***************************************************************************
@@ -892,8 +892,10 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+#if 0
 	OBJ_DATA *obj;
-	int chance;
+#endif
+	int chance, dt = TYPE_UNDEFINED;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -907,6 +909,12 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+
+	if (get_dam_type(ch, get_eq_char(ch, WEAR_WIELD), &dt) != DAM_PIERCE) {
+		char_puts("You need piercing weapon to backstab.\n", ch);
+		return;
+	}
+#if 0
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		char_puts("You need to wield a weapon to backstab.\n", ch);
 		return;
@@ -917,7 +925,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 			  "to backstab.\n", ch);
 		return;
 	}
-
+#endif
 	if (arg[0] == '\0') {
 		char_puts("Backstab whom?\n", ch);
 		return;
@@ -939,10 +947,39 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (!backstab_ok(ch, victim))
+	if (victim->fighting) {
+		if (ch)
+			char_puts("You can't backstab a fighting person.\n",
+				  ch);
 		return;
+	}
 
-	backstab(ch, victim, chance);
+	if (victim->hit < 7 * victim->max_hit / 10) {
+		if (ch)	act("$N is hurt and suspicious... "
+			    "you couldn't sneak up.",
+			    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (!IS_AWAKE(victim) ||  number_percent() < chance) {
+		check_improve(ch, gsn_backstab, TRUE, 1);
+		if (number_percent() <
+				get_skill(ch, gsn_dual_backstab) * 8 / 10) {
+			check_improve(ch, gsn_dual_backstab, TRUE, 1);
+			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
+			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
+		}
+		else {
+			check_improve(ch, gsn_dual_backstab, FALSE, 1);
+			one_hit(ch, victim, gsn_backstab,WEAR_WIELD);
+		}
+	}
+	else {
+		check_improve(ch, gsn_backstab, FALSE, 1);
+		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
+	}
+
+	yell(victim, ch, "Die, $i! You are backstabbing scum!");
 }
 
 void do_knife(CHAR_DATA *ch, const char *argument)

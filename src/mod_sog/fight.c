@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.201 1999-09-14 03:10:55 avn Exp $
+ * $Id: fight.c,v 1.202 1999-09-24 04:16:05 avn Exp $
  */
 
 /***************************************************************************
@@ -882,8 +882,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
 	else if (dt == gsn_knife)
 		dam = (LEVEL(ch)/28 + 1) * dam + LEVEL(ch);
-	else if (dt == gsn_vampiric_bite && is_affected(ch, gsn_vampire))
+	else if (dt == gsn_vampiric_bite)
 		dam = (LEVEL(ch)/13 + 1) * dam + LEVEL(ch);
+	else if (dt == gsn_charge)
+		dam = LEVEL(ch)/12 * dam + LEVEL(ch);
 	else if (dt == gsn_cleave && wield != NULL) {
 		if (number_percent() <
 				(URANGE(4, 5+LEVEL(ch)-LEVEL(victim), 10)
@@ -929,8 +931,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			dam *= 2;
 		}
 	}
-	if (dt == gsn_charge)
-		dam *= LEVEL(ch)/12;
 
 	dam += GET_DAMROLL(ch) * UMIN(100, sk) / 100;
 

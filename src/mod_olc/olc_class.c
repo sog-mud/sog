@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.2 1999-09-08 10:40:05 fjoe Exp $
+ * $Id: olc_class.c,v 1.3 1999-09-24 04:16:05 avn Exp $
  */
 
 #include "olc.h"
@@ -311,8 +311,10 @@ OLC_FUN(classed_whoname)
 		for (i = 0; i < strlen(str); i++)
 			class->who_name[i] = str[i];
 		class->who_name[i] = '\0';
+		free_string(str);
 		return TRUE;
 		}
+	free_string(str);
 	return FALSE;
 }
 
