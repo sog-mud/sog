@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.180 1999-06-18 04:57:08 kostik Exp $
+ * $Id: act_move.c,v 1.181 1999-06-18 09:15:57 avn Exp $
  */
 
 /***************************************************************************
@@ -3207,10 +3207,12 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 				if (is_safe(ch, victim)
 				||  (IS_NPC(victim) &&
 				     IS_SET(victim->pIndexData->act, ACT_NOTRACK))) {
+					act("$p falls from you doing no damage...",
+					    victim, arrow, NULL, TO_CHAR);
 					act("$p falls from $n doing no visible damage...",
-					    victim, arrow, NULL, TO_ALL);
-					act("$p falls from $n doing no visible damage...",
-					    ch, arrow, NULL, TO_CHAR);
+					    victim, arrow, NULL, TO_ROOM);
+					act("$p falls from $N doing no visible damage...",
+					    ch, arrow, victim, TO_CHAR);
 					obj_to_room(arrow, victim->in_room);
 				}
 				else {
