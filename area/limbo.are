@@ -1048,7 +1048,7 @@ S
 #SPECIALS
 M 11 spec_special_guard	* the guard
 M 13 spec_cast_mage	* a fiery demon
-M 15 spec_stalker	* the stalker
+*M 15 spec_stalker	* the stalker
 S
 
 
