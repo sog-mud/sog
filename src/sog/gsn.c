@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.16 1999-03-17 15:27:38 kostik Exp $
+ * $Id: gsn.c,v 1.17 1999-04-13 02:48:36 kostik Exp $
  */
 
 #include <stdio.h>
@@ -238,6 +238,7 @@ int gsn_forest_fighting;
 
 int gsn_doppelganger;
 int gsn_mirror;
+int gsn_knife;
 
 NAMEDP gsn_table[] =
 {
@@ -439,6 +440,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_doppelganger",		&gsn_doppelganger		},
 	{ "gsn_mirror",			&gsn_mirror			},
 	{ "gsn_hand_block",		&gsn_hand_block			},
+	{ "gsn_knife",			&gsn_knife			},
 	{ NULL }
 };
 

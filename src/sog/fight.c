@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.155 1999-04-05 11:38:48 fjoe Exp $
+ * $Id: fight.c,v 1.156 1999-04-13 02:48:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -387,7 +387,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	if (ch->fighting != victim || dt == gsn_backstab || dt == gsn_cleave
 	|| dt == gsn_ambush || dt == gsn_dual_backstab || dt == gsn_circle
-	|| dt == gsn_assassinate || dt == gsn_vampiric_bite)
+	|| dt == gsn_assassinate || dt == gsn_vampiric_bite || dt == gsn_knife)
 		return;
 
 	chance = get_skill(ch, gsn_second_attack) / 2;
@@ -488,7 +488,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	if (ch->fighting != victim || dt == gsn_backstab || dt == gsn_circle ||
 		dt == gsn_dual_backstab || dt == gsn_cleave || dt == gsn_ambush
-			|| dt == gsn_vampiric_bite)
+			|| dt == gsn_vampiric_bite || dt == gsn_knife)
 		return;
 
 	if (number_percent() < get_skill(ch, gsn_second_attack) / 2) {
@@ -893,7 +893,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam = LEVEL(ch) / 10 * dam + LEVEL(ch);
 	else if (dt == gsn_dual_backstab && (IS_NPC(ch) || wield))
 		dam = LEVEL(ch) / 14 * dam + LEVEL(ch);
-	else if (dt == gsn_circle)
+	else if (dt == gsn_circle || dt == gsn_knife)
 		dam = (LEVEL(ch)/40 + 1) * dam + LEVEL(ch);
 	else if (dt == gsn_vampiric_bite && is_affected(ch, gsn_vampire))
 		dam = (LEVEL(ch)/20 + 1) * dam + LEVEL(ch);
@@ -956,7 +956,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	   && dt != gsn_cleave
 	   && dt != gsn_assassinate
 	   && dt != gsn_ambush
-	   && dt != gsn_vampiric_bite) {
+	   && dt != gsn_vampiric_bite
+	   && dt != gsn_knife) {
 		if (number_percent() <  (sk2/8)) {
 			act("You deliver a blow of deadly force!",
 			    ch, NULL, NULL, TO_CHAR);

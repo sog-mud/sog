@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.77 1999-03-25 13:12:27 kostik Exp $
+ * $Id: martial_art.c,v 1.78 1999-04-13 02:48:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -625,19 +625,12 @@ bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 	}
 
-	if (victim->hit < 7 * victim->max_hit / 10 && IS_AWAKE(victim)) {
+	if (victim->hit < 7 * victim->max_hit / 10) {
 		if (ch)
 			act("$N is hurt and suspicious... "
 			    "you couldn't sneak up.",
 			    ch, NULL, victim, TO_CHAR);
 		return FALSE;
-	}
-
-	if (current_time - victim->last_fight_time < 300 && IS_AWAKE(victim)) {
-		if (ch)
-			act("$N is suspicious... you couldn't sneak up.",
-			    ch, NULL, victim, TO_CHAR);
-		return FALSE; 
 	}
 
 	return TRUE;
@@ -725,6 +718,59 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 
 	backstab(ch, victim, chance);
+}
+
+void do_knife(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	OBJ_DATA *knife;
+	int chance;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0]=='\0') {
+		char_puts("Knife whom?\n", ch);
+		return;
+	}
+	
+	if ((chance=get_skill(ch, gsn_knife))==0) {
+		act("You don't know how to knife.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((knife=get_eq_char(ch, WEAR_WIELD)) == NULL) {
+		act("You need a weapon.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (knife->value[0] != WEAPON_DAGGER) {
+		act("Your weapon must be dagger.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((victim=get_char_room(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n", ch);
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		return;
+	}
+
+	
+	if (victim->fighting != NULL) {
+		act("$N is fighting.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, SKILL(gsn_knife)->beats);
+
+	if (number_percent()<chance) {
+		one_hit(ch, victim, gsn_knife, WEAR_WIELD);
+		check_improve(ch, gsn_knife, TRUE, 1);
+	}
+	else {
+		damage(ch, victim, 0, gsn_knife,  DAM_NONE, TRUE);
+		check_improve(ch, gsn_knife, FALSE, 1);
+	}
 }
 
 void do_cleave(CHAR_DATA *ch, const char *argument)
@@ -1323,8 +1369,7 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
  
-	if (victim->hit < victim->max_hit
-	&&  can_see(victim, ch) && IS_AWAKE(victim)) {
+	if (victim->hit < victim->max_hit*0.9) {
 		act("$N is hurt and suspicious ... you can't sneak up.",
 		    ch, NULL, victim, TO_CHAR);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.129 1999-03-22 09:52:15 fjoe Exp $
+ * $Id: interp.c,v 1.130 1999-04-13 02:48:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -375,6 +375,7 @@ CMD_DATA cmd_table[] =
     { "vanish",		do_vanish,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "weapon",		do_weapon,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "blink",		do_blink,	POS_FIGHTING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "knife", 		do_knife,	POS_STANDING,	 0,  LOG_NORMAL },
 
 
     /*

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.159 1999-04-10 06:55:12 kostik Exp $
+ * $Id: act_move.c,v 1.160 1999-04-13 02:48:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -2084,17 +2084,12 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	if (victim->hit < (8 * victim->max_hit / 10) && (IS_AWAKE(victim))) {
+	if (victim->hit < (8 * victim->max_hit / 10) ) {
 		act_puts("$N is hurt and suspicious ... doesn't worth up.",
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if (current_time-victim->last_fight_time<300 && IS_AWAKE(victim)) {
-		act_puts("$N is hurt and suspicious ... doesn't worth to do.",
-			 ch, NULL, victim, TO_CHAR, POS_DEAD);
-		return;       
-	}
 
 	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
