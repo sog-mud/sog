@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.36 2004-02-25 22:26:39 fjoe Exp $
+ * $Id: comm.c,v 1.37 2004-02-25 22:29:14 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -932,6 +932,12 @@ init_descriptor(int control, int d_type)
 	}
 }
 
+#define DECODE_CHAR(d, p)					\
+	do {							\
+		*p = CODEPAGE(d->codepage).from[*p];		\
+		p++;						\
+	} while (0)
+
 static bool
 read_from_descriptor(DESCRIPTOR_DATA *d)
 {
@@ -1000,8 +1006,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 		u_char *r;
 
 		if (*p != IAC) {
-			*p = CODEPAGE(d->codepage).from[*p];
-			p++;
+			DECODE_CHAR(d, p);
 			continue;
 		}
 
@@ -1038,8 +1043,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 			break;
 
 		case IAC:
-			*p = CODEPAGE(d->codepage).from[*p];
-			p++;
+			DECODE_CHAR(d, p);
 			if (d->character != NULL
 			&&  IS_SET(d->character->comm, COMM_NOTELNET))
 				continue;
@@ -1049,8 +1053,7 @@ read_from_descriptor(DESCRIPTOR_DATA *d)
 		default:
 			if (d->character != NULL
 			&&  IS_SET(d->character->comm, COMM_NOTELNET)) {
-				*p = CODEPAGE(d->codepage).from[*p];
-				p++;
+				DECODE_CHAR(d, p);
 				continue;
 			}
 			q = p + 2;
