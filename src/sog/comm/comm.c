@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.167 1999-04-01 11:00:00 fjoe Exp $
+ * $Id: comm.c,v 1.168 1999-04-13 19:31:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -922,6 +922,8 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		return TRUE;
 
 	for (p = d->inbuf+iOld; *p;) {
+		unsigned char *r;
+
 		if (*p != IAC
 		||  (d->connected == CON_PLAYING &&
 		     d->character &&
@@ -938,10 +940,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		case DO:
 		case WONT:
 		case WILL:
-			if (p[2] == '\0')
-				q = p+2;
-			else
-				q = p+3;
+			q = p+3;
 			break;
 
 		wse:
@@ -965,7 +964,10 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			q = p+2;
 			break;
 		}
-		memmove(p, q, strlen(q)+1);
+		if ((r = strchr(p, '\0')) < q)
+			q = r;
+		if (*q != '\0')
+			memmove(p, q, strlen(q)+1);
 	} 
 
 	return TRUE;
