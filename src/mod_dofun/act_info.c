@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.442 2004-02-19 17:16:42 fjoe Exp $
+ * $Id: act_info.c,v 1.443 2004-02-19 20:55:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1650,7 +1650,7 @@ DO_FUN(do_password, ch, argument)
 	argument = first_arg(argument, arg2, sizeof(arg2), FALSE);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		act_char("Syntax: password <old> <new>.", ch);
+		act_char("Usage: password <old> <new>.", ch);
 		return;
 	}
 
@@ -3027,7 +3027,7 @@ DO_FUN(do_learn, ch, argument)
 	}	
 
 	if (argument[0] == '\0') {
-		act_char("Syntax: learn <skill | spell> <player>", ch);
+		act_char("Usage: learn <skill | spell> <player>", ch);
 		return;
 	}
 
@@ -3430,7 +3430,7 @@ DO_FUN(do_glist, ch, argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		act_char("Syntax: glist <group>.", ch);
+		act_char("Usage: glist <group>.", ch);
 		act_char("Use 'glist ?' to get the list of groups.", ch);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.66 2003-10-10 20:26:21 tatyana Exp $
+ * $Id: olc_race.c,v 1.67 2004-02-19 20:55:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -663,7 +663,7 @@ OLC_FUN(raceed_stats)
 	}
 
 	if (!st) {
-		act_puts("Syntax: $t <attr1> <attr2> ...",
+		act_puts("Usage: $t <attr1> <attr2> ...",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	} else
 		act_char("Ok.", ch);
@@ -696,7 +696,7 @@ OLC_FUN(raceed_maxstats)
 	}
 
 	if (!st) {
-		act_puts("Syntax: $t <attr1> <attr2> ...",
+		act_puts("Usage: $t <attr1> <attr2> ...",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	} else
 		act_char("Ok.", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.283 2004-02-19 13:31:41 fjoe Exp $
+ * $Id: act_comm.c,v 1.284 2004-02-19 20:55:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1444,7 +1444,7 @@ DO_FUN(do_trust, ch, argument)
 		return;
 	}
 
-	act_char("Syntax: trust {{ group | clan | all | none $}", ch);
+	act_char("Usage: trust {{ group | clan | all | none $}", ch);
 }
 
 DO_FUN(do_wanted, ch, argument)

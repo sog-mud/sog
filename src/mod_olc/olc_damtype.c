@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.16 2002-03-21 14:05:56 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.17 2004-02-19 20:55:51 fjoe Exp $
  */
 
 /*
@@ -222,7 +222,7 @@ OLC_FUN(damted_list)
 OLC_FUN(damted_name)
 {
 	if (IS_NULLSTR(argument)) {
-		act_puts("Syntax: $t <string>",
+		act_puts("Usage: $t <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.45 2003-09-30 00:31:23 fjoe Exp $
+ * $Id: olc_rule.c,v 1.46 2004-02-19 20:55:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -438,7 +438,7 @@ OLC_FUN(eruleed_name)
 	rulecl_t *rcl;
 
 	if (argument[0] == '\0') {
-		act_char("Syntax: name <word>", ch);
+		act_char("Usage: name <word>", ch);
 		return FALSE;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.118 2004-02-10 14:15:52 fjoe Exp $
+ * $Id: olc_area.c,v 1.119 2004-02-19 20:55:51 fjoe Exp $
  */
 
 #include "olc.h"
@@ -367,7 +367,7 @@ OLC_FUN(areaed_builders)
 
 	first_arg(argument, name, sizeof(name), FALSE);
 	if (name[0] == '\0') {
-		act_char("Syntax: builders <name list>", ch);
+		act_char("Usage: builders <name list>", ch);
 		return FALSE;
 	}
 

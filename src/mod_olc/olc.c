@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.164 2004-02-17 21:48:03 fjoe Exp $
+ * $Id: olc.c,v 1.165 2004-02-19 20:55:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -290,7 +290,7 @@ OLC_FUN(olced_strkey)
 
 	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (IS_NULLSTR(arg)) {
-		act_puts("Syntax: $t <string>",
+		act_puts("Usage: $t <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -345,7 +345,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	const char **pp;
 
 	if (IS_NULLSTR(argument)) {
-		act_puts("Syntax: $t <lang> <string>",
+		act_puts("Usage: $t <lang> <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -428,7 +428,7 @@ olced_number(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, int *pInt)
 	one_argument(argument, arg, sizeof(arg));
 	val = strtol(arg, &endptr, 0);
 	if (*arg == '\0' || *endptr != '\0') {
-		act_puts("Syntax: $t <number>",
+		act_puts("Usage: $t <number>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -450,7 +450,7 @@ olced_name(CHAR_DATA *ch, const char *argument,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		act_puts("Syntax: $t <string>",
+		act_puts("Usage: $t <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -486,7 +486,7 @@ olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 	void *p;
 
 	if (IS_NULLSTR(argument)) {
-		act_puts("Syntax: $t <name>",
+		act_puts("Usage: $t <name>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		act_puts("Use '$t ?' for list of valid $Ts.",
 			 ch, cmd->name, cmd->name,
@@ -533,7 +533,7 @@ olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 	void *p;
 
 	if (IS_NULLSTR(argument)) {
-		act_puts("Syntax: $t <name>",
+		act_puts("Usage: $t <name>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		act_puts("Use '$t ?' for list of valid $Ts.",
 			 ch, cmd->name, cmd->name,
@@ -577,7 +577,7 @@ olced_str(CHAR_DATA *ch, const char *argument,
 	  olc_cmd_t *cmd, const char **pStr)
 {
 	if (IS_NULLSTR(argument)) {
-		act_puts("Syntax: $t <string>",
+		act_puts("Usage: $t <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -600,7 +600,7 @@ olced_str_text(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	act_puts("Syntax: $t",
+	act_puts("Usage: $t",
 		 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return FALSE;
 }
@@ -610,7 +610,7 @@ olced_mlstr(CHAR_DATA *ch, const char *argument,
 	    olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_edit(mlp, argument)) {
-		act_puts("Syntax: $t <lang> <string>",
+		act_puts("Usage: $t <lang> <string>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -623,7 +623,9 @@ olced_mlstrnl(CHAR_DATA *ch, const char *argument,
 	      olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_editnl(mlp, argument)) {
-		act_puts("Syntax: $t <lang> <string>",
+		act_puts("Usage: $t <lang> <string>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Usage: $t reset",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -636,7 +638,9 @@ olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 		 olc_cmd_t *cmd, mlstring *mlp)
 {
 	if (!mlstr_append(ch, mlp, argument)) {
-		act_puts("Syntax: $t <lang>",
+		act_puts("Usage: $t <lang>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Usage: $t reset",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -842,7 +846,7 @@ olced_flag(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, flag_t *pflag)
 				break;
 
 			if ((f = flag_lookup(flag_table, word)) == NULL) {
-				act_puts("Syntax: $t <flag(s)>",
+				act_puts("Usage: $t <flag(s)>",
 					 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				act_puts("Type '$t ?' for a list of acceptable flags.",
 					 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -889,7 +893,7 @@ olced_flag(CHAR_DATA *ch, const char *argument, olc_cmd_t* cmd, flag_t *pflag)
 
 	case TABLE_INTVAL:
 		if ((f = flag_lookup(flag_table, argument)) == NULL) {
-			act_puts("Syntax: $t <value>",
+			act_puts("Usage: $t <value>",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			act_puts("Type '$t ?' for a list of acceptable values.",				 ch, cmd->name, NULL,
@@ -956,7 +960,7 @@ olced_dice(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, int *pdice)
 	return TRUE;
 
 bail_out:
-	act_puts("Syntax: $t <number>d<type>+<bonus>",
+	act_puts("Usage: $t <number>d<type>+<bonus>",
 		 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return FALSE;
 }
@@ -1051,7 +1055,7 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	    one_argument(p, arg, sizeof(arg));
 
 	if (flag_svalue(cmd->arg1, arg) < 0) {
-		act_char("Syntax: gender <lang> <value>", ch);
+		act_char("Usage: gender <lang> <value>", ch);
 		act_char("Valid values are:", ch);
 		show_flags(ch, cmd->arg1);
 		return FALSE;
@@ -1064,7 +1068,7 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 	}
 
 	if (!mlstr_edit(g, argument)) {
-		act_puts("Syntax: $t <lang> <value>",
+		act_puts("Usage: $t <lang> <value>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -1246,7 +1250,7 @@ olced_delaffect(CHAR_DATA *ch, const char *argument,
 	one_argument(argument, arg, sizeof(arg));
 
 	if (!is_number(arg)) {
-		act_char("Syntax: delaffect <num>", ch);
+		act_char("Usage: delaffect <num>", ch);
 		return FALSE;
 	}
 
@@ -1288,7 +1292,7 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
-		act_puts("Syntax: $t <damclass> [<number> | undef]",
+		act_puts("Usage: $t <damclass> [<number> | undef]",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
@@ -1515,9 +1519,9 @@ olced_damtype(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		act_puts("Syntax: $t <damage message>",
+		act_puts("Usage: $t <damage message>",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		act_puts("Syntax: $t ?",
+		act_puts("Usage: $t ?",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}

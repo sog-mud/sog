@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.33 2004-02-19 17:16:43 fjoe Exp $
+ * $Id: act_spec.c,v 1.34 2004-02-19 20:55:50 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -176,7 +176,7 @@ DO_FUN(do_magicschool, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (argument[0] == '\0') {
-		act("Syntax: school {{major|minor} <school name>.",
+		act("Usage: school {{major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -184,7 +184,7 @@ DO_FUN(do_magicschool, ch, argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (argument[0] == '\0') {
-		act("Syntax: school {{major|minor} <school name>.",
+		act("Usage: school {{major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -192,7 +192,7 @@ DO_FUN(do_magicschool, ch, argument)
 	if (!str_prefix(arg, "major"))
 		major = TRUE;
 	else if (!!str_prefix(arg, "minor")) {
-		act("Syntax: school {{major|minor} <school name>.",
+		act("Usage: school {{major|minor} <school name>.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}

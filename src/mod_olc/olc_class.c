@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.38 2003-09-29 23:11:41 fjoe Exp $
+ * $Id: olc_class.c,v 1.39 2004-02-19 20:55:51 fjoe Exp $
  */
 
 #include "olc.h"
@@ -448,7 +448,7 @@ OLC_FUN(classed_stats)
 	}
 
 	if (!st) {
-		act_puts("Syntax: $t <attr1> <attr2> ...",
+		act_puts("Usage: $t <attr1> <attr2> ...",
 			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	} else
 		act_char("Ok.", ch);

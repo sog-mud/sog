@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.109 2003-09-29 23:11:41 fjoe Exp $
+ * $Id: olc_room.c,v 1.110 2004-02-19 20:55:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -635,7 +635,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		bool ok;
 
 		if (argument[0] == '\0') {
-			act_puts("Syntax: $t name [string]",
+			act_puts("Usage: $t name [string]",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			act_puts("        $t name none",
@@ -736,7 +736,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		char buf[MAX_INPUT_LENGTH];
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			act_puts("Syntax: $t dig <vnum>",
+			act_puts("Usage: $t dig <vnum>",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
@@ -751,7 +751,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_cmp(command, "room")) {
 		if (arg[0] == '\0' || !is_number(arg)) {
-			act_puts("Syntax: $t room [vnum]",
+			act_puts("Usage: $t room [vnum]",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
@@ -778,7 +778,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		OBJ_INDEX_DATA *key;
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			act_puts("Syntax: $t key [vnum]",
+			act_puts("Usage: $t key [vnum]",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
@@ -814,7 +814,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			act_puts("Syntax: $t desc <lang>",
+			act_puts("Usage: $t desc <lang>",
 				 ch, cmd->name, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;

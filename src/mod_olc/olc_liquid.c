@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.24 2001-12-03 22:28:34 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.25 2004-02-19 20:55:51 fjoe Exp $
  */
 
 #include "olc.h"
@@ -241,7 +241,7 @@ OLC_FUN(liqed_affect)
 	EDIT_LIQ(ch, lq);
 
 	if (IS_NULLSTR(argument)) {
-		act_char("Syntax: affect <condition> <value>", ch);
+		act_char("Usage: affect <condition> <value>", ch);
 		return FALSE;
 	}
 	argument = one_argument(argument, arg, sizeof(arg));

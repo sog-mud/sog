@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.95 2003-05-08 14:00:10 fjoe Exp $
+ * $Id: olc_mob.c,v 1.96 2004-02-19 20:55:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -509,7 +509,7 @@ OLC_FUN(mobed_shop)
 	EDIT_MOB(ch, pMob);
 
 	if (command[0] == '\0') {
-		act_char("Syntax:  shop hours [#xopening] [#xclosing]", ch);
+		act_char("Usage:  shop hours [#xopening] [#xclosing]", ch);
 		act_char("         shop profit [#xbuying%] [#xselling%]", ch);
 		act_char("         shop type [#x0-4] [item type]", ch);
 		act_char("         shop assign", ch);
@@ -520,7 +520,7 @@ OLC_FUN(mobed_shop)
 	if (!str_cmp(command, "hours")) {
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument)) {
-			act_char("Syntax:  shop hours [#xopening] [#xclosing]", ch);
+			act_char("Usage:  shop hours [#xopening] [#xclosing]", ch);
 			return FALSE;
 		}
 
@@ -540,7 +540,7 @@ OLC_FUN(mobed_shop)
 	if (!str_cmp(command, "profit")) {
 		if (arg1[0] == '\0' || !is_number(arg1)
 		|| argument[0] == '\0' || !is_number(argument)) {
-			act_char("Syntax:  shop profit [#xbuying%] [#xselling%]", ch);
+			act_char("Usage:  shop profit [#xbuying%] [#xselling%]", ch);
 			return FALSE;
 		}
 
@@ -564,7 +564,7 @@ OLC_FUN(mobed_shop)
 		if (arg1[0] == '\0'
 		||  !is_number(arg1)
 		||  argument[0] == '\0') {
-			act_char("Syntax:  shop type [#x0-4] [item type]", ch);
+			act_char("Usage:  shop type [#x0-4] [item type]", ch);
 			return FALSE;
 		}
 
@@ -812,7 +812,7 @@ OLC_FUN(mobed_ac)
 		return TRUE;
 	} while (FALSE);    /* Just do it once.. */
 
-	act_char("Syntax: ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]", ch);
+	act_char("Usage: ac [ac-pierce [ac-bash [ac-slash [ac-exotic]]]]", ch);
 	act_char("'help MOB_AC' gives a list of reasonable ac values.", ch);
 	return FALSE;
 }
@@ -923,7 +923,7 @@ OLC_FUN(mobed_race)
 		return FALSE;
 	}
 
-	act_char("Syntax: race [race]", ch);
+	act_char("Usage: race [race]", ch);
 	act_char("Type 'race ?' for a list of races.", ch);
 	return FALSE;
 }
@@ -968,7 +968,7 @@ OLC_FUN(mobed_group)
 	EDIT_MOB(ch, pMob);
 
 	if (argument[0] == '\0') {
-		act_char("Syntax: group [number]", ch);
+		act_char("Usage: group [number]", ch);
 		act_char("        group show [number]", ch);
 		return FALSE;
 	}
@@ -1189,7 +1189,7 @@ OLC_FUN(mobed_where)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0') {
 		if (!is_number(arg)) {
-			act_char("Syntax: where [<vnum>]", ch);
+			act_char("Usage: where [<vnum>]", ch);
 			return FALSE;
 		}
 		vnum = atoi(arg);

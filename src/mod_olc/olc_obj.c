@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.102 2003-05-08 14:00:10 fjoe Exp $
+ * $Id: olc_obj.c,v 1.103 2004-02-19 20:55:52 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -623,7 +623,7 @@ OLC_FUN(objed_where)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0') {
 		if (!is_number(arg)) {
-			act_char("Syntax: where [<vnum>]", ch);
+			act_char("Usage: where [<vnum>]", ch);
 			return FALSE;
 		}
 		vnum = atoi(arg);
