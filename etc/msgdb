@@ -177,7 +177,7 @@ channel    | status@rus .
 @eng $N grins evilly at you.@rus $N зло ухмыляется тебе.~
 @eng $N grins evilly with you.@rus Вы с $N зло ухмыляетесь друг другу.~
 @eng $N grins evilly.@rus $N зло $gN{ухмыляется}.~
-@eng $N grips and prevent you to disarm $M!@rus $N лишь крепче $gN{сжимает} рукоять своего оружия!~
+@eng $N grips and prevents you to disarm $M!@rus $N лишь крепче $gN{сжимает} рукоять своего оружия!~
 @eng $N has $S hands full.@rus У $c1{$N} и так слишком много вещей. ~
 @eng $N has a pure and good aura.@rus $N $gN{излучает} целомудрие и доброту.~
 @eng $N has activated shutdown.@rus $N $gN{активизировал} останов.~
@@ -1064,7 +1064,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $p looks better than $P.@rus $p $gp{выглядит} лучше $c1{$P}.~
 @eng $p looks delicious.@rus $p $gp{выглядит} очень аппетитно.~
 @eng $p looks worse than $P.@rus $p $gp{выглядит} хуже, чем $c3{$P}.~
-@eng $p makes an huge arc in the air, chopping $n's head OFF!@rus Описав широкую дугу, $p сносит голову $c1{$n}!~
+@eng $p makes a huge arc in the air, chopping $n's head OFF!@rus Описав широкую дугу, $p сносит голову $c1{$n}!~
 @eng $p makes bubbles on the water.@rus $p $gp{покачивается} на водной глади, пуская пузыри.~
 @eng $p melts and drips!@rus $p $gp{расплавился}!~
 @eng $p melts and evaporates!@rus $p $gp{расплавился}!~
@@ -2068,6 +2068,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng There is no auction going on you can stop.@rus Сейчас нет торгов, которые было бы можно остановить.~
 @eng There is no fountain here!@rus Здесь нет никакого фонтана!~
 @eng There is no rent here.  Just save and quit.@rus Здесь не существует аренды. Просто сохрани свой персонаж и ты можешь быть $gn{свободен}.~
+@eng There is no such social.@rus Такой социальной команды нет.~
 @eng There is some mist flowing in the air.@rus В воздухе плавают клубы тумана.~
 @eng There isn't any dirt to kick.@rus Здесь нет ни пыли, ни земли.~
 @eng There isn't anything being auctioned right now.@rus Сейчас ничего не выставлено на аукцион.~
@@ -3004,7 +3005,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You have almost completed your QUEST!
 Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое задание!
 Вернись к тому, кто тебе его дал, до того, как истечет отведенное тебе время!~
-@eng You have already using your bandage.@rus Ты уже $gn{сделал} себе первязку.~
+@eng You are already using your bandage.@rus Ты уже $gn{сделал} себе первязку.~
 @eng You have an unfinished $t in progress.@rus У тебя нет $gt{незаконченого} $c1{$t}.~
 @eng You have been KILLED!@rus Тебя УБИЛИ!~
 @eng You have been KILLED!!@rus Ты $gn{УБИТ}!!~
@@ -3462,8 +3463,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your eyes tear up from smoke...you can't see a thing!@rus Дым разъедает твои глаза и ты ничего не видишь!~
 @eng Your eyes tingle.@rus Ты чувствуешь легкое покалывание в глазах.~
 @eng Your feel stregthen up, but nothing happens.@rus Ты чувствуешь, как сила возросла, но она быстро тебя покинула.~
+@eng Your feet must touch the ground to balance.@rus Ты $gn{должен} стоять на земле.~
 @eng Your feet rise off the ground.@rus Твои ноги оторвались от земли.~
-@eng Your feet should touch the ground to balance.@rus Ты $gn{должен} стоять на земле.~
 @eng Your fighting doesn't worth to dishonor yourself.@rus Сбежать из подобной битвы ниже твоего достоинства.~
 @eng Your flash strike instantly slays $N!@rus Твой молниеносный выпад сражает наповал $c6{$N}!~
 @eng Your flesh is already dead.@rus Твое тело уже мертво.~
@@ -3821,6 +3822,11 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng {gYou mastered {W$v{g!{x@rus {gТы $gn{узнал} все об умении "{W$v{g"!{x~
 @eng {r$P{g breaks into pieces.{x@rus {r$P{g $gP{разлетелся} на кусочки.{x~
 @eng {r[{RTARGET{r]{x @rus {r[{RЦЕЛЬ{r]{x ~
+@eng {x
+Players found: %d. Most so far today: %d.
+@rus {x
+Видно игроков: %d. Максимальное количество сегодня: %d.
+~
 @eng {xFrom: %s
 {xTo  : %s
 {xSubj: %s
