@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.280 2001-12-03 22:39:18 fjoe Exp $
+ * $Id: spellfun.c,v 1.281 2001-12-08 10:13:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -665,7 +665,7 @@ SPELL_FUN(spell_continual_light, sn, level, ch, vo)
 	act("You twiddle your thumbs and $p appears.", ch, light, NULL, TO_CHAR);
 }
 
-#define OBJ_VNUM_ROSE			1001
+#define OBJ_VNUM_ROSE			19
 
 SPELL_FUN(spell_create_rose, sn, level, ch, vo)
 {
