@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.41 1998-05-27 00:13:14 efdi Exp $
+ * $Id: act_move.c,v 1.42 1998-05-27 01:48:37 efdi Exp $
  */
 
 /***************************************************************************
@@ -3274,7 +3274,7 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 
   if (!IS_NPC(ch) && IS_DRUNK(ch)) {
 	percent += get_skill(ch,gsn_riding) / 2;
-	send_to_char("Due to your being under the influence, riding seems a bit harder...\n\r", ch);
+	send_to_char(msg(MOVE_MOUNT_DRUNKEN, ch), ch);
   }
 
   success = percent - get_skill(ch,gsn_riding);
@@ -3284,9 +3284,12 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
   } else {
 	check_improve(ch, gsn_riding, FALSE, 1);
 	if (success >= 10 && MOUNTED(ch) == mount) {
-		act("You lose control and fall off of $N.", ch, NULL, mount, TO_CHAR);
-		act("$n loses control and falls off of $N.", ch, NULL, mount, TO_ROOM);
-		act("$n loses control and falls off of you.", ch, NULL, mount, TO_VICT);
+		act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
+				MOVE_YOU_FALL_OFF_N);
+		act_printf(ch, NULL, mount, TO_ROOM, POS_RESTING, 
+				MOVE_N_FALLS_OFF_N);
+		act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
+				MOVE_N_FALLS_OFF_YOU);
 
 		ch->riding = FALSE;
 		mount->riding = FALSE;
@@ -3299,13 +3302,19 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 		
 	}
 	if (success >= 40 && canattack) {
-		act("$N doesn't like the way you've been treating $M.", ch, NULL, mount, TO_CHAR);
-		act("$N doesn't like the way $n has been treating $M.", ch, NULL, mount, TO_ROOM);
-		act("You don't like the way $n has been treating you.", ch, NULL, mount, TO_VICT);
+		act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD,
+				MOVE_N_DOESNT_LIKE_YOU);
+		act_printf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+				MOVE_N_DOESNT_LIKE_N);
+		act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
+				MOVE_YOU_DONT_LIKE_N);
 
-		act("$N snarls and attacks you!", ch, NULL, mount, TO_CHAR);
-		act("$N snarls and attacks $n!", ch, NULL, mount, TO_ROOM);
-		act("You snarl and attack $n!", ch, NULL, mount, TO_VICT);  
+		act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
+				MOVE_N_SNARLS_YOU);
+		act_printf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+				MOVE_N_SNARLS_N);
+		act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING,
+				MOVE_YOU_SNARL_N);  
 
 		damage(mount, ch, number_range(1, mount->level), gsn_kick,DAM_BASH,TRUE);
 
@@ -3321,76 +3330,69 @@ int mount_success (CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 void do_mount(CHAR_DATA *ch, char *argument)
 {
   char arg[MAX_INPUT_LENGTH];
-  char buf[MAX_STRING_LENGTH];
   struct char_data *mount;
 
   argument = one_argument(argument, arg);
 
-  if (IS_NPC(ch)) return;
+  if (IS_NPC(ch)) 
+	return;
 
-  if (arg[0] == '\0' && ch->mount && ch->mount->in_room == ch->in_room) 
-  {
+  if (arg[0] == '\0' && ch->mount && ch->mount->in_room == ch->in_room) {
 	mount = ch->mount;
-  } 
-  else if (arg[0] == '\0')
-  {
-	send_to_char("Mount what?\n\r", ch);
+  } else if (arg[0] == '\0') {
+	send_to_char(msg(MOVE_MOUNT_WHAT, ch), ch);
 	return;
   }
 
- if (!(mount = get_char_room(ch, arg))) 
- {
-	send_to_char("You don't see that here.\n\r", ch);
+ if (!(mount = get_char_room(ch, arg))) {
+	send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
 	return;
   }
  
-  if (ch_skill_nok_nomessage(ch,gsn_riding)) 
-  {
-	send_to_char("You don't know how to ride!\n\r", ch);
+  if (ch_skill_nok_nomessage(ch,gsn_riding)) {
+	send_to_char(msg(MOVE_DONT_KNOW_RIDE, ch), ch);
 	return;
   } 
 
   if (!IS_NPC(mount) 
 		|| !IS_SET(mount->act,ACT_RIDEABLE)
-		  || IS_SET(mount->act,ACT_NOTRACK)) 
-  { 
-	send_to_char("You can't ride that.\n\r",ch); 
+		  || IS_SET(mount->act,ACT_NOTRACK)) { 
+	send_to_char(msg(MOVE_CANT_RIDE_THAT, ch), ch); 
 	return;
   }
   
   if (mount->level - 5 > ch->level) {
-	send_to_char("That beast is too powerful for you to ride.", ch);
+	send_to_char(msg(MOVE_BEAST_TOO_POWERFUL, ch), ch);
 	return;
   }    
 
   if((mount->mount) && (!mount->riding) && (mount->mount != ch)) {
-	sprintf(buf, "%s belongs to %s, not you.\n\r", mount->short_descr,
+	char_printf(ch, msg(MOVE_S_BELONGS_TO_S, ch), mount->short_descr,
 		             mount->mount->name);
-	send_to_char(buf,ch);
 	return;
   } 
 
   if (mount->position < POS_STANDING) {
-	send_to_char("Your mount must be standing.\n\r", ch);
+	send_to_char(msg(MOVE_MOUNT_MUST_STAND, ch), ch);
 	return;
   }
 
   if (RIDDEN(mount)) {
-	send_to_char("This beast is already ridden.\n\r", ch);
+	send_to_char(msg(MOVE_ALREADY_RIDDEN, ch), ch);
 	return;
   } else if (MOUNTED(ch)) {
-	send_to_char("You are already riding.\n\r", ch);
+	send_to_char(msg(MOVE_ALREADY_RIDING, ch), ch);
 	return;
   }
 
   if(!mount_success(ch, mount, TRUE)) {
-	send_to_char("You fail to mount the beast.\n\r", ch);  
+	send_to_char(msg(MOVE_FAIL_TO_MOUNT, ch), ch);  
 	return; 
   }
 
-  act("You hop on $N's back.", ch, NULL, mount, TO_CHAR);
-  act("$n hops on $N's back.", ch, NULL, mount, TO_NOTVICT);
-  act("$n hops on your back!", ch, NULL, mount, TO_VICT);
+  act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, MOVE_YOU_HOP_ON_N);
+  act_printf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, MOVE_N_HOPS_ON_N);
+  act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING, MOVE_N_HOPS_ON_YOU);
  
   ch->mount = mount;
   ch->riding = TRUE;
@@ -3414,16 +3416,18 @@ void do_dismount(CHAR_DATA *ch, char *argument)
   if(MOUNTED(ch)) {
 	mount = MOUNTED(ch);
 
-	act("You dismount from $N.", ch, NULL, mount, TO_CHAR);
-	act("$n dismounts from $N.", ch, NULL, mount, TO_NOTVICT);
-	act("$n dismounts from you.", ch, NULL, mount, TO_VICT);
+	act_printf(ch, NULL, mount, TO_CHAR, POS_DEAD, MOVE_YOU_DISMOUNT_N);
+	act_printf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, 
+				MOVE_N_DISMOUNTS_N);
+	act_printf(ch, NULL, mount, TO_VICT, POS_SLEEPING, 
+				MOVE_N_DISMOUNTS_YOU);
 
 	ch->riding = FALSE;
 	mount->riding = FALSE;
   } 
   else 
   {
-	send_to_char("You aren't mounted.\n\r", ch);
+	send_to_char(msg(MOVE_YOU_ARENT_MOUNTED, ch), ch);
 	return;
   }
 } 
