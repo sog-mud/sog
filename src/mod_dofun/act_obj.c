@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.145 1999-05-31 12:10:21 fjoe Exp $
+ * $Id: act_obj.c,v 1.146 1999-05-31 12:36:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3388,8 +3388,7 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 
 	if ((sn = sn_lookup("butcher")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
-		char_puts("You don't have the precision instruments "
-			     "for that.", ch);
+		char_puts("You don't have the instruments for that.", ch);
 		return;
 	}
 

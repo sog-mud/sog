@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.154 1999-05-25 14:36:46 fjoe Exp $
+ * $Id: handler.c,v 1.155 1999-05-31 12:36:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1477,7 +1477,8 @@ void obj_from_room(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((in_room = obj->in_room) == NULL) {
-		bug("obj_from_room: NULL.", 0);
+		log_printf("obj_from_room: NULL obj->in_room (vnum %d)",
+			   obj->pIndexData->vnum);
 		return;
 	}
 
