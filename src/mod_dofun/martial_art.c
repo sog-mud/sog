@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.50 1998-11-06 09:04:03 fjoe Exp $
+ * $Id: martial_art.c,v 1.51 1998-11-17 08:06:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3118,7 +3118,7 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch,gsn_sense_life)) {
+	if (is_affected(ch, gsn_sense_life)) {
 		char_puts("You can already feel life forms.\n\r", ch);
 		return;
 	}

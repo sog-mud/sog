@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.162 1998-11-14 09:41:51 fjoe Exp $
+ * $Id: act_info.c,v 1.163 1998-11-17 08:06:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -686,9 +686,9 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 {
 	CHAR_DATA *rch;
-	int life_count=0;
+	int life_count = 0;
 
-	for (rch = list; rch != NULL; rch = rch->next_in_room) {
+	for (rch = list; rch; rch = rch->next_in_room) {
 		if (rch == ch
 		||  (!IS_TRUSTED(ch, rch->incog_level) &&
 		     ch->in_room != rch->in_room))
@@ -708,17 +708,16 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
-		else if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED)) {
-			char_puts("You see {rglowing red eyes{x watching YOU!\n\r",
-				  ch);
-			if (!IS_IMMORTAL(rch))
-				life_count++;
-		}
-		else if (!IS_IMMORTAL(rch))
+		else {
+			if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED))
+				char_puts("You see {rglowing red eyes{x watching YOU!\n\r", ch);
 			life_count++;
+		}
 	}
 
-	if (life_count && IS_AFFECTED(ch, AFF_DETECT_LIFE))
+	if (list->in_room == ch->in_room
+	&&  life_count
+	&&  IS_AFFECTED(ch, AFF_DETECT_LIFE))
 		char_printf(ch, "You feel %d more life %s in the room.\n\r",
 			    life_count, (life_count == 1) ? "form" : "forms");
 }
@@ -1163,9 +1162,6 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!check_blind(ch))
-		return;
-
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	number = number_argument(arg1, arg3);
@@ -1175,40 +1171,44 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		/* 'look' or 'look auto' */
 
-	    if (!room_is_dark(ch)) {
-		const char *name;
-		const char *engname;
+		if (!room_is_dark(ch) && check_blind_raw(ch)) {
+			const char *name;
+			const char *engname;
 
-		name = mlstr_cval(ch->in_room->name, ch);
-		engname = mlstr_mval(ch->in_room->name);
-		char_printf(ch, "{W%s", name);
-		if (ch->lang && name != engname)
-			char_printf(ch, " (%s){x", engname);
-		else
-			char_puts("{x", ch);
+			name = mlstr_cval(ch->in_room->name, ch);
+			engname = mlstr_mval(ch->in_room->name);
+			char_printf(ch, "{W%s", name);
+			if (ch->lang && name != engname)
+				char_printf(ch, " (%s){x", engname);
+			else
+				char_puts("{x", ch);
 		
-		if (IS_IMMORTAL(ch)
-		||  IS_BUILDER(ch, ch->in_room->area))
-			char_printf(ch, " [Room %d]",ch->in_room->vnum);
+			if (IS_IMMORTAL(ch)
+			||  IS_BUILDER(ch, ch->in_room->area))
+				char_printf(ch, " [Room %d]",ch->in_room->vnum);
 
-		char_puts("\n\r", ch);
-
-		if (arg1[0] == '\0'
-		||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)))
-			char_printf(ch, "  %s",
-				    mlstr_cval(ch->in_room->description, ch));
-
-		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
 			char_puts("\n\r", ch);
-			do_exits(ch, "auto");
+
+			if (arg1[0] == '\0'
+			||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)))
+				char_printf(ch, "  %s",
+					    mlstr_cval(ch->in_room->description, ch));
+
+			if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
+				char_puts("\n\r", ch);
+				do_exits(ch, "auto");
+			}
 		}
-	    } else 
-		char_puts("It is pitch black...\n\r", ch);
+		else 
+			char_puts("It is pitch black...\n\r", ch);
 
 		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
 		show_char_to_char(ch->in_room->people, ch);
 		return;
 	}
+
+	if (!check_blind(ch))
+		return;
 
 	if (!str_cmp(arg1, "i")
 	||  !str_cmp(arg1, "in")
