@@ -144,7 +144,7 @@ stand stand male 20000
 #22308
 alhorahil ringwraith~
 Alhorahil the Blind~
-
+A tall black cloaked Ringwraith.
 ~
 A mighty sorcerer King, Akhorahil was blind in life. With powerful
 enchantment he created jewelled eyes that enabled to see better 
@@ -153,10 +153,10 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-ABFORTe 0 -1000 0
+ABFORTe DFTm -1000 0
 47 0 100d5+4000 100d2+1000 20d5+50 'drain'
 0 0 0 0
-0 0 0 S
+K 0 0 S
 stand stand male 20000
 0 0 large unknown
 #22309
@@ -164,14 +164,19 @@ ren ringwraith~
 Ren the Unclean~
 A tall black cloaked Ringwraith.
 ~
+Ren was an insane eastern King who believed hiself to be the son
+of a volcano god. At an early age his sanity was destroyed by a 
+plague that wiped out his family and he never recovered. Now he 
+is set here, guarding the mysteries of the dungeon. You can feel
+a furnace cold radiating from his form.
 ~
 lich~
-ABFORTe 0 -1000 0
+ABFORTe DFTm -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'drain'
-0 0 0 0
-0 0 0 0
-stand stand male 0
-0 0 medium unknown
+-55 -55 -55 -55
+K 0 0 S
+stand stand male 22000
+0 0 large unknown
 #22399
 as~
 as~
@@ -1643,6 +1648,7 @@ E 0 22308 0 15		*	a bracer of defence: on the right wrist
 M 0 22306 1 22327 1	* Adunaphel the Quiet (The northern hallway)
 M 0 22307 1 22339 1	* Uvatha the Horseman (The central hallway)
 M 0 22308 1 22350 1	* Alhorahil the Blind (The southern hallway)
+M 0 22309 1 22352 1	* Ren the Unclean (The southern hallway)
 S
 
 #OLIMITS

@@ -1448,10 +1448,33 @@ G none
 hammer~
 hammer of vi~
 Huge hammer belongs Vi lays here.~
-unknown~
+steel~
 weapon ABI AN
-exotic 0 0 '' 0
-60 0 0 P
+mace 12 4 'chomp' A
+60 400 100000 P
+A
+6 -2
+A
+19 5
+A
+18 10
+G none
+#22156
+bracelet~
+bracelet of ko~
+Very strange bracelet with letters Ko lays here.~
+snakeskin~
+armor B AM
+18 18 18 10 0
+60 100 10000 P
+A
+4 -2
+A
+13 50
+A
+19 1
+A
+18 1
 G none
 #0
 
@@ -4440,6 +4463,7 @@ O 22152 1	* bracelet of ko
 O 22153 1	* tie of sa
 O 22154 1	* bracelet of sa
 O 22155 1	* hammer of vi
+O 22156 1	* bracelet of ko
 S
 
 #$
