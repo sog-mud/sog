@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.194 1999-06-29 04:09:18 fjoe Exp $
+ * $Id: comm.c,v 1.195 1999-07-01 16:09:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1490,7 +1490,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	send_to_char(buf, ch);
 
 	if (ch->prefix[0] != '\0')
-		send_to_char(ch->prefix, ch);
+		char_printf(ch, "%s ", ch->prefix);
 }
 
 /*
