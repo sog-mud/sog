@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200 1999-09-25 12:10:44 avn Exp $
+ * $Id: comm.c,v 1.200.2.1 1999-11-10 09:52:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1686,6 +1686,21 @@ static void print_hometown(CHAR_DATA *ch)
 	ch->desc->connected = CON_PICK_HOMETOWN;
 }
 
+static void
+adjust_hp_mana_move(CHAR_DATA *ch, int percent)
+{
+	if (percent > 0
+	&&  !IS_AFFECTED(ch, AFF_POISON)
+	&&  !IS_AFFECTED(ch, AFF_PLAGUE)) {
+		ch->hit += (ch->max_hit - ch->hit) * percent / 100;
+		ch->mana += (ch->max_mana - ch->mana) * percent / 100;
+		ch->move += (ch->max_move - ch->move) * percent / 100;
+		if (!IS_NPC(ch))
+			PC(ch)->questtime = -abs(PC(ch)->questtime *
+				(100 - UMIN(5 * percent, 100)) / 100);
+	}
+}
+
 /*
  * Deal with sockets that haven't logged in yet.
  */
@@ -2014,10 +2029,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->mod_stat[i] += r->race_pcdata->stats[i];	*/
 
 		/* Add race modifiers */
-		ch->max_hit += r->race_pcdata->hp_bonus;
-		ch->hit = ch->max_hit;
-		ch->max_mana += r->race_pcdata->mana_bonus;
-		ch->mana = ch->max_mana;
+		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
+		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
 
 		ch->affected_by = ch->affected_by| r->aff;
@@ -2037,10 +2050,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_GET_NEW_SEX:
 		switch (argument[0]) {
 		case 'm': case 'M':
-			ch->sex = PC(ch)->true_sex = SEX_MALE;
+			ch->sex = SEX_MALE;
 			break;
 		case 'f': case 'F':
-			ch->sex = PC(ch)->true_sex = SEX_FEMALE;
+			ch->sex = SEX_FEMALE;
 			break;
 		default:
 	    		char_puts("That's not a sex.\n", ch);
@@ -2344,9 +2357,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			ch->level		= 1;
 			PC(ch)->exp		= base_exp(ch);
-			ch->hit			= ch->max_hit;
-			ch->mana		= ch->max_mana;
-			ch->move		= ch->max_move;
 			PC(ch)->train	= 3;
 			PC(ch)->practice   += 5;
 			PC(ch)->death	= 0;
@@ -2368,10 +2378,21 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			dofun("help", ch, "NEWBIE INFO");
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
-		}
-		else {
+		} else {
 			CHAR_DATA *pet;
 			ROOM_INDEX_DATA *to_room;
+			int logoff = PC(ch)->logoff;
+			int percent;
+
+			if (!logoff)
+				logoff = current_time;
+
+			/*
+			 * adjust hp mana move up
+			 */
+			percent = (current_time - logoff) * 25 / (2 * 60 * 60);
+			percent = UMIN(percent, 100);
+			adjust_hp_mana_move(ch, percent);
 
 			if (ch->in_room
 			&&  (room_is_private(ch->in_room) ||
@@ -2392,6 +2413,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			char_to_room(ch, to_room);
 
 			if (pet) {
+				adjust_hp_mana_move(pet, percent);
 				act("$N has entered the game.",
 				    to_room->people, NULL, pet, TO_ROOM);
 				char_to_room(pet, to_room);

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182 1999-09-29 21:23:23 osya Exp $
+ * $Id: handler.c,v 1.182.2.1 1999-11-10 09:52:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -624,12 +624,12 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 	case APPLY_HITROLL:	ch->hitroll		+= mod;	break;
 	case APPLY_DAMROLL:	ch->damroll		+= mod;	break;
-	case APPLY_LEVEL:	ch->drain_level		+= mod; break;
+	case APPLY_LEVEL:	ch->add_level		+= mod; break;
 
 	case APPLY_SIZE:	ch->size	+= mod;			break;
-	case APPLY_AGE:		
+	case APPLY_AGE:	
 		if (!IS_NPC(ch))
-			PC(ch)->played += age_to_num(mod);
+			PC(ch)->add_age += age_to_num(mod);
 		break;
 
 	case APPLY_AC:
@@ -1278,14 +1278,29 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 	return NULL;
 }
 
+void _equip_char(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	int i;
+	AFFECT_DATA *paf;
+
+	if (obj->wear_loc == WEAR_STUCK_IN)
+		return;
+
+	for (i = 0; i < 4; i++)
+		ch->armor[i] -= apply_ac(obj, obj->wear_loc, i);
+
+	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
+			affect_modify(ch, paf, TRUE);
+	for (paf = obj->affected; paf; paf = paf->next)
+		affect_modify(ch, paf, TRUE);
+}
+
 /*
  * Equip a char with an obj. Return obj on success. Otherwise returns NULL.
  */
 OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
-	AFFECT_DATA *paf;
-	int i;
-
 	if (iWear == WEAR_STUCK_IN) {
 		obj->wear_loc = iWear;
 		return obj;
@@ -1300,8 +1315,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 				   ch->in_room ? ch->in_room->vnum : -1,
 				   obj->pObjIndex->vnum,
 				   flag_string(wear_loc_flags, iWear));
-		}
-		else {
+		} else {
 			log("equip_char: %s: location %s: "
 				   "already equipped.",
 				   ch->name,
@@ -1323,21 +1337,8 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return NULL;
 	}
 
-	for (i = 0; i < 4; i++)
-		ch->armor[i]      	-= apply_ac(obj, iWear,i);
-	obj->wear_loc	 = iWear;
-
-	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pObjIndex->affected; paf; paf = paf->next)
-			if (paf->location != APPLY_SPELL_AFFECT
-			    && paf->where != TO_SKILLS)
-				affect_modify(ch, paf, TRUE);
-	for (paf = obj->affected; paf; paf = paf->next)
-		if (paf->location == APPLY_SPELL_AFFECT
-		    || paf->where == TO_SKILLS)
-			affect_to_char(ch, paf);
-		else
-			affect_modify(ch, paf, TRUE);
+	obj->wear_loc = iWear;
+	_equip_char(ch, obj);
 
 	if (obj->pObjIndex->item_type == ITEM_LIGHT
 	&&  obj->value[2] != 0
@@ -3064,7 +3065,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	class_t *vcl;
 	int save;
 
-	save = 40 + (victim->level + victim->drain_level - level) * 4 - 
+	save = 40 + (LEVEL(victim) - level) * 4 - 
 		(victim->saving_throw * 90) / UMAX(45, victim->level);
 
 	if (IS_AFFECTED(victim, AFF_BERSERK))
@@ -5404,8 +5405,9 @@ static inline
 int
 get_played(CHAR_DATA *ch)
 {
-	return IS_NPC(ch) ?
-		0 : current_time - PC(ch)->logon + PC(ch)->played;
+	if (IS_NPC(ch))
+		return 0;
+	return current_time - PC(ch)->logon + PC(ch)->played + PC(ch)->add_age;
 }
 
 int get_age(CHAR_DATA *ch)

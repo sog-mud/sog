@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271 1999-09-25 12:10:42 avn Exp $
+ * $Id: act_info.c,v 1.271.2.1 1999-11-10 09:52:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2163,10 +2163,8 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	for (i=0;i < MAX_STATS; i++)
 		bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
 
-	bear->max_hit = IS_NPC(ch) ? ch->max_hit : PC(ch)->perm_hit;
-	bear->hit = bear->max_hit;
-	bear->max_mana = IS_NPC(ch) ? ch->max_mana : PC(ch)->perm_mana;
-	bear->mana = bear->max_mana;
+	SET_HIT(bear, ch->perm_hit);
+	SET_MANA(bear, ch->perm_mana);
 	bear->alignment = ch->alignment;
 	bear->level = UMIN(100, 1 * ch->level-2);
 	for (i=0; i < 3; i++)
@@ -2277,7 +2275,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_STR);
 	buf_printf(output, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RReligion  : {x%-10.10s {G|{x\n",
 		   ch->level,
-		   ch->drain_level,
+		   ch->add_level,
 		   buf2,
 		   religion_name(GET_RELIGION(ch)));
 
@@ -2454,7 +2452,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		IS_NPC(ch) ? " The Believer of Chronos." : PC(ch)->title);
 
 	buf_printf(output, "Level {c%d(%+d){x, {c%d{x years old (%d hours).\n",
-		ch->level, ch->drain_level, get_age(ch), get_hours(ch));
+		ch->level, ch->add_level, get_age(ch), get_hours(ch));
 
 	buf_printf(output,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
@@ -2822,10 +2820,8 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	for (i=0;i < MAX_STATS; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
 
-	lion->max_hit = IS_NPC(ch) ? ch->max_hit : PC(ch)->perm_hit;
-	lion->hit = lion->max_hit;
-	lion->max_mana = IS_NPC(ch) ? ch->max_mana : PC(ch)->perm_mana;
-	lion->mana = lion->max_mana;
+	SET_HIT(lion, ch->perm_hit);
+	SET_MANA(lion, ch->perm_mana);
 	lion->alignment = ch->alignment;
 	lion->level = UMIN(100,1 * ch->level-2);
 	for (i=0; i < 3; i++)

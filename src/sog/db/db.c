@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169 1999-09-25 12:10:45 avn Exp $
+ * $Id: db.c,v 1.169.2.1 1999-11-10 09:52:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -992,7 +992,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		mob->silver = wealth - (mob->gold * 100);
 	} 
 
-	mob->comm		= COMM_NOSHOUT | COMM_NOMUSIC;
 	mob->affected_by	= pMobIndex->affected_by;
 	mob->alignment		= pMobIndex->alignment;
 	mob->level		= pMobIndex->level;
@@ -1038,14 +1037,12 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 	mob->hitroll		= (mob->level / 2) + pMobIndex->hitroll;
 	mob->damroll		= pMobIndex->damage[DICE_BONUS];
-	mob->max_hit		= dice(pMobIndex->hit[DICE_NUMBER],
-				       pMobIndex->hit[DICE_TYPE])
-				  + pMobIndex->hit[DICE_BONUS];
-	mob->hit		= mob->max_hit;
-	mob->max_mana		= dice(pMobIndex->mana[DICE_NUMBER],
-				       pMobIndex->mana[DICE_TYPE])
-				  + pMobIndex->mana[DICE_BONUS];
-	mob->mana		= mob->max_mana;
+	SET_HIT(mob, dice(pMobIndex->hit[DICE_NUMBER],
+			  pMobIndex->hit[DICE_TYPE]) +
+		     pMobIndex->hit[DICE_BONUS]);
+	SET_MANA(mob, dice(pMobIndex->mana[DICE_NUMBER],
+			   pMobIndex->mana[DICE_TYPE]) +
+		      pMobIndex->mana[DICE_BONUS]);
 	NPC(mob)->dam.dice_number = pMobIndex->damage[DICE_NUMBER];
 	NPC(mob)->dam.dice_type = pMobIndex->damage[DICE_TYPE];
 	for (i = 0; i < 4; i++)
@@ -1168,12 +1165,19 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->race		= parent->race;
 	clone->level		= parent->level;
 	clone->wait		= parent->wait;
+
 	clone->hit		= parent->hit;
 	clone->max_hit		= parent->max_hit;
+	clone->perm_hit		= parent->perm_hit;
+
 	clone->mana		= parent->mana;
 	clone->max_mana		= parent->max_mana;
+	clone->perm_mana	= parent->perm_mana;
+
 	clone->move		= parent->move;
 	clone->max_move		= parent->max_move;
+	clone->perm_move	= parent->perm_move;
+
 	clone->gold		= parent->gold;
 	clone->silver		= parent->silver;
 	clone->comm		= parent->comm;
@@ -1653,6 +1657,18 @@ void fread_to_eol(FILE *fp)
 	} while (c == '\n' || c == '\r');
 
 	xungetc(c, fp);
+}
+
+void fread_to_end(FILE *fp)
+{
+	for (;;) {
+		const char *word;
+
+		fread_to_eol(fp);
+		word = feof(fp) ? "End" : fread_word(fp);
+		if (!str_cmp(word, "End"))
+			break;
+	}
 }
 
 /*

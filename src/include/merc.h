@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234 1999-09-25 12:10:44 avn Exp $
+ * $Id: merc.h,v 1.234.2.1 1999-11-10 09:52:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1173,6 +1173,10 @@ enum {
 	}							\
 }
 
+#define SET_HIT(_ch, _hit) ((_ch)->hit = (_ch)->max_hit = (_ch)->perm_hit = (_hit))
+#define SET_MANA(_ch, _mana) ((_ch)->mana = (_ch)->max_mana = (_ch)->perm_mana = (_mana))
+#define SET_MOVE(_ch, _move) ((_ch)->move = (_ch)->max_move = (_ch)->perm_move = (_move))
+
 /*
  * this should be used for !IS_NPC only
  */
@@ -1379,14 +1383,17 @@ struct char_data
 	int			ethos;
 	int			level;
 	int			wait;
-	int 			drain_level;
+	int 			add_level;
 	int			daze;
 	int			hit;
 	int 			max_hit;
+	int			perm_hit;
 	int 			mana;
 	int 			max_mana;
+	int			perm_mana;
 	int 			move;
 	int 			max_move;
+	int			perm_move;
 	int			gold;
 	int			silver;
 	flag64_t		comm;	/* RT added to pad the vector */
@@ -1463,10 +1470,6 @@ struct pc_data
 	time_t			last_penalty;
 	time_t			last_news;
 	time_t			last_changes;
-	int 			perm_hit;
-	int 			perm_mana;
-	int 			perm_move;
-	flag32_t		true_sex;
 	flag32_t		trust;
 	flag32_t		plr_flags;
 	flag32_t		wiznet; /* wiz stuff */
@@ -1511,7 +1514,10 @@ struct pc_data
 
 	time_t			logon;
 	time_t			logoff;
+
 	int 			played;
+	int			add_age;
+
 	int			idle_timer;
 
 	int	 		religion;
@@ -1837,7 +1843,7 @@ int trust_level(CHAR_DATA *ch);
 					(ch)->pMobIndex->race :		\
 					PC(ch)->race)
 
-#define LEVEL(ch)		((ch)->level + (ch)->drain_level)
+#define LEVEL(ch)		((ch)->level + (ch)->add_level)
 
 #if defined(WIN32)
 void SET_ORG_RACE(CHAR_DATA *ch, int race);
@@ -2043,6 +2049,7 @@ void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
 void	obj_from_char	(OBJ_DATA *obj);
 int	apply_ac	(OBJ_DATA *obj, int iWear, int type);
 OBJ_DATA *	get_eq_char	(CHAR_DATA *ch, int iWear);
+void		_equip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
 OBJ_DATA *	equip_char	(CHAR_DATA *ch, OBJ_DATA *obj, int iWear);
 void	unequip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
 int	count_obj_list	(OBJ_INDEX_DATA *obj, OBJ_DATA *list);

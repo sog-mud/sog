@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139 1999-09-30 10:41:22 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.1 1999-11-10 09:53:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -446,12 +446,8 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 		demon->perm_stat[i] = ch->perm_stat[i];
 	}
 
-	demon->max_hit = IS_NPC(ch) ?
-			URANGE(ch->max_hit, 1 * ch->max_hit, 30000) :
-			URANGE(PC(ch)->perm_hit, ch->hit, 30000);
-	demon->hit = demon->max_hit;
-	demon->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	demon->mana = demon->max_mana;
+	SET_HIT(demon, URANGE(ch->perm_hit, ch->hit, 30000));
+	SET_MANA(demon, ch->perm_mana);
 	demon->level = level;
 	for (i=0; i < 3; i++)
 	demon->armor[i] = interpolate(demon->level,100,-100);
@@ -759,10 +755,8 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < MAX_STATS; i++)
 		walker->perm_stat[i] = ch->perm_stat[i];
 
-	walker->max_hit = IS_NPC(ch) ? ch->max_hit : PC(ch)->perm_hit;
-	walker->hit = walker->max_hit;
-	walker->max_mana = ch->max_mana;
-	walker->mana = walker->max_mana;
+	SET_HIT(walker, ch->perm_hit);
+	SET_MANA(walker, ch->max_mana);
 	walker->level = level;
 	for (i = 0; i < 3; i++)
 		walker->armor[i] = interpolate(walker->level, 100, -100);
@@ -3767,11 +3761,8 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo)
 	  demon->perm_stat[i] = ch->perm_stat[i];
 	}
 
-	demon->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: URANGE(PC(ch)->perm_hit,ch->hit,30000);
-	demon->hit = demon->max_hit;
-	demon->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	demon->mana = demon->max_mana;
+	SET_HIT(demon, URANGE(ch->perm_hit, ch->hit, 30000));
+	SET_MANA(demon, ch->perm_mana);
 	demon->level = ch->level;
 	for (i=0; i < 3; i++)
 	demon->armor[i] = interpolate(demon->level,100,-100);
@@ -4228,11 +4219,8 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_INT] -= 1;
 	golem->perm_stat[STAT_CON] += 2;
 
-	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((2 * PC(ch)->perm_hit) + 400,30000);
-	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	golem->mana = golem->max_mana;
+	SET_HIT(golem, UMIN(2 * ch->perm_hit + 400, 30000));
+	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
@@ -4298,11 +4286,8 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_INT] -= 1;
 	golem->perm_stat[STAT_CON] += 2;
 
-	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((5 * PC(ch)->perm_hit) + 2000, 30000);
-	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	golem->mana = golem->max_mana;
+	SET_HIT(golem, UMIN(5 * ch->perm_hit + 2000, 30000));
+	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
@@ -4364,11 +4349,8 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_INT] -= 1;
 	golem->perm_stat[STAT_CON] += 2;
 
-	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((10 * PC(ch)->perm_hit) + 1000, 30000);
-	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	golem->mana = golem->max_mana;
+	SET_HIT(golem, UMIN(10 * ch->perm_hit + 1000, 30000));
+	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
@@ -4430,11 +4412,8 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->perm_stat[STAT_INT] -= 1;
 	golem->perm_stat[STAT_CON] += 2;
 
-	golem->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: UMIN((10 * PC(ch)->perm_hit) + 4000, 30000);
-	golem->hit = golem->max_hit;
-	golem->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	golem->mana = golem->max_mana;
+	SET_HIT(golem, UMIN(10 * ch->perm_hit + 4000, 30000));
+	SET_MANA(golem, ch->perm_mana);
 	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
@@ -5136,11 +5115,8 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo)
 	  shadow->perm_stat[i] = ch->perm_stat[i];
 	}
 
-	shadow->max_hit = IS_NPC(ch)? URANGE(ch->max_hit,1 * ch->max_hit,30000)
-		: URANGE(PC(ch)->perm_hit,ch->hit,30000);
-	shadow->hit = shadow->max_hit;
-	shadow->max_mana = IS_NPC(ch)? ch->max_mana : PC(ch)->perm_mana;
-	shadow->mana = shadow->max_mana;
+	SET_HIT(shadow, URANGE(ch->perm_hit, ch->hit, 30000));
+	SET_MANA(shadow, ch->perm_mana);
 	shadow->level = level;
 	for (i=0; i < 3; i++)
 	shadow->armor[i] = interpolate(shadow->level,100,-100);

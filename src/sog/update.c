@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157 1999-09-30 00:23:29 avn Exp $
+ * $Id: update.c,v 1.157.2.1 1999-11-10 09:52:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,9 +140,9 @@ void advance_level(CHAR_DATA *ch)
 	PC(ch)->practice += add_prac;
 	PC(ch)->train += ch->level % 5 ? 0 : 1;
 
-	PC(ch)->perm_hit += add_hp;
-	PC(ch)->perm_mana += add_mana;
-	PC(ch)->perm_move += add_move;
+	ch->perm_hit += add_hp;
+	ch->perm_mana += add_mana;
+	ch->perm_move += add_move;
 
 	char_printf(ch, "Your gain is {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x prac.\n",
 			add_hp, add_mana, add_move, add_prac);
@@ -175,20 +175,13 @@ void advance(CHAR_DATA *victim, int level)
 		temp_prac = PC(victim)->practice;
 		victim->level		= 1;
 		PC(victim)->exp	= base_exp(victim);
-		victim->max_hit		= 10;
-		victim->max_mana	= 100;
-		victim->max_move	= 100;
+		SET_HIT(victim, 20);
+		SET_MANA(victim, 100);
+		SET_MOVE(victim, 100);
 		PC(victim)->practice= 0;
-		victim->hit		= victim->max_hit;
-		victim->mana		= victim->max_mana;
-		victim->move		= victim->max_move;
-		PC(victim)->perm_hit	= victim->max_hit;
-		PC(victim)->perm_mana	= victim->max_mana;
-		PC(victim)->perm_move	= victim->max_move;
 		advance_level(victim);
 		PC(victim)->practice= temp_prac;
-	}
-	else 
+	} else 
 		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n", victim);
 
 	for (iLevel = victim->level; iLevel < level; iLevel++) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186 1999-09-23 09:35:54 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.1 1999-11-10 09:52:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1264,7 +1264,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"Lv: %d + %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n",
 		victim->level,
-		victim->drain_level,
+		victim->add_level,
 		class_name(victim),
 		buf,
 		victim->gold, victim->silver, GET_EXP(victim));
@@ -3307,8 +3307,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 		victim->sex = value;
-		if (!IS_NPC(victim))
-		    PC(victim)->true_sex = value;
 		return;
 	}
 
@@ -3376,9 +3374,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_puts("Hp range is -10 to 30,000 hit points.\n", ch);
 		    return;
 		}
-		victim->max_hit = value;
-	    if (!IS_NPC(victim))
-	        PC(victim)->perm_hit = value;
+	        victim->perm_hit = value;
 		return;
 	}
 
@@ -3389,9 +3385,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_puts("Mana range is 0 to 60,000 mana points.\n", ch);
 		    return;
 		}
-		victim->max_mana = value;
-	    if (!IS_NPC(victim))
-	        PC(victim)->perm_mana = value;
+	        victim->perm_mana = value;
 		return;
 	}
 
@@ -3400,10 +3394,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			char_puts("Move range is 0 to 60,000 move points.\n", ch);
 			return;
 		}
-		victim->max_move = value;
-
-		if (!IS_NPC(victim))
-		        PC(victim)->perm_move = value;
+		victim->perm_move = value;
 		return;
 	}
 
