@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.234 2001-02-25 12:28:07 fjoe Exp $
+ * $Id: act_obj.c,v 1.235 2001-05-09 14:20:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1949,7 +1949,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 			check_improve(ch, "haggle", TRUE, 4);
 		}
 	}
-	
+
 	deduct_cost(ch, cost);
 	pet = create_mob(pet->pMobIndex, 0);
 	pet->comm = COMM_NOTELL;
@@ -2065,7 +2065,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	roll = number_percent();
 	if (!OBJ_IS(obj, OBJ_SELL_EXTRACT)
 	    && roll < get_skill(ch, "haggle")) {
-		cost -= obj->cost / 2 * roll / 100;
+		cost -= cost / 2 * roll / 100;
 		act("You haggle with $N.", ch, NULL, keeper, TO_CHAR);
 		check_improve(ch, "haggle", TRUE, 4);
 	}
