@@ -2910,6 +2910,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name неоконченное~
+BaseLen 10
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
 Name набрел~
 BaseLen 5
 Form 1 -ла~

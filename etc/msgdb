@@ -670,8 +670,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n loses control and falls off of $N.@rus $n $gn{потерял} контроль и $gn{свалился} с $c2{$N}.~
 @eng $n loses control and falls off of you.@rus $n $gn{потерял} контроль и $gn{свалился} с тебя.~
 $n loses his position and falls down!~
-@eng $n lost $s position and fall down!@rus $n $gn{потерял} равновесие и $gn{упал}!~
-@eng $n lost his postion and fall down!@rus Потеряв равновесие, $n $gn{упал}!~
+@eng $n lost $gn{his} position and fall down!@rus Потеряв равновесие, $n $gn{упал}!~
 @eng $n makes $N believe that large rock from the sky squeezes $M.@rus $n $gn{заставил} $c6{$N} поверить, что на $gN{него} упала скала с неба.~
 @eng $n makes a katana from $p!@rus $n $gn{сделал} катану $c1{$p}!~
 @eng $n makes a poncho from $p!@rus $n $gn{сделал} пончо из $c1{$p}!~
@@ -1290,6 +1289,7 @@ $t~
 @eng An invisible stalker arrives to stalk you!@rus Невидимый сталкер прибыл, чтобы преследовать тебя!~
 @eng An invisible stalker has been sent.@rus Невидимый преследователь послан.~
 @eng An unseen energy moves nearby, causing your hair to stand on end!@rus Невидимая энергия окутала тебя, заставив твои волосы встать дыбом!~
+@eng And first my question. How many kinds of weapon you know?@rus Тогда первый мой вопрос. Сколько разных видов оружия ты знаешь?~
 @eng And others see:@rus Другие увидят:~
 @eng Are you crazy? You'd poison yourself!@rus Ты $gn{сумашедший}? Травить себя!~
 @eng Are you going to feed $M with blueberries?@rus Ты собираешься покормить $gN{его} брусничкой?~
@@ -1453,6 +1453,7 @@ $t~
 @eng Do not bust prompt if hp/mana/move changed mode off.@rus Строка подсказки будет обновляться при изменения твоего здоровья, маны или количества шагов.~
 @eng Do not bust prompt if hp/mana/move changed mode on.@rus Строка подсказки не будет перерисовываться при изменения твоего здоровья, маны или количества шагов.~
 @eng Do you want it to get better or worse?@rus Тебе хочется улучшить или ухудшить погоду?~
+@eng Do you wish to join our guild?@rus Ты хочешь вступить в нашу гильдию?~
 @eng Doesn't need your help!@rus Обойдется без твоей помощи!~
 @eng Don't be so greedy!@rus Не будь таким жадным!~
 @eng Don't even bother, cheapskate.@rus Можешь не беспокоиться.~
@@ -1490,6 +1491,7 @@ $t~
 @eng For more information, type: help quests.@rus Для получения дополнительной информации набери: help quests.~
 @eng Forgive me, my master, I can't give it to anyone.@rus Прости меня. Я никому не могу отдать это.~
 @eng Form added.@rus Форма добавлена.~
+@eng Form deleted.@rus Форма удалена.~
 @eng Forward which number?@rus Переслать какой номер?~
 @eng Four flesh golems are more than you can control!@rus Четыре штуки -- это перебор!~
 @eng Four stone golems are more than you can control!@rus Четыре каменных голема -- это больше, чем ты можешь контролировать.~
@@ -1722,6 +1724,7 @@ $t~
 @eng New password not acceptable, try again.@rus Новый пароль неприемлем, попробуй другой.~
 @eng Newlock removed.@rus Новых персонажей можно заводить.~
 @eng News pigeon refuses to take your letter.@rus Почтовый голубь отказывается взять твое письмо.~
+@eng Nice choice. Only the best of the best can join warriors brotherhood.@rus Хороший выбор. Только лучшие из лучших могут присоедениться к братству воинов.~
 @eng No affected rooms.
 @rus В мире нет мест, на которые наложены какие-либо заклинания.
 ~
@@ -2399,7 +2402,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng What? I'm not good enough?@rus А что? Я не достаточно $gn{хорош}?~
 @eng What? Try sell instead.@rus Что? Может ты сначала это продашь?~
 @eng When $n looks at $p cloud of darkness enshrouds $gn{his}.@rus Когда $n $gn{взглянул} на $c3{$p}, $gn{его} окутало темное облако.~
-@eng When cloud of darkness dissapers you find yourself on the chessboard.@rus Затем тьма рассеялась, и ты $gn{обнаружил}, что находишься на шахматной доске, среди фигур.~
+@eng When cloud of darkness dissapears you find yourself on the chessboard.@rus Затем тьма рассеялась, и ты $gn{обнаружил}, что находишься на шахматной доске, среди фигур.~
 @eng When you attempt to leave the room, you break the webs holding you tight.@rus Тебе удалось разорвать паутину, удерживавшую тебя.~
 @eng Which direction?@rus В каком направлении?~
 @eng Which honor?@rus Хм. О какой бесчестии речь?~
@@ -3225,7 +3228,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You have almost completed your QUEST!
 Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое задание!
 Вернись к тому, кто тебе его дал, до того, как истечет отведенное тебе время!~
-@eng You have an unfinished $t in progress.@rus У тебя есть $gt{неоконченное} $t.~
+@eng You have an unfinished $w in progress.@rus У тебя есть $gw{неоконченное} $w.~
 @eng You have been KILLED!@rus Тебя УБИЛИ!~
 @eng You have been KILLED!!@rus Ты $gn{УБИТ}!!~
 @eng You have been equipped by gods.@rus Боги даруют тебе обмундирование.~

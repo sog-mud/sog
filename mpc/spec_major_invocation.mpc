@@ -1,11 +1,12 @@
 /*
- * $Id: spec_major_invocation.mpc,v 1.4 2001-09-18 13:39:05 kostik Exp $
+ * $Id: spec_major_invocation.mpc,v 1.5 2001-09-30 20:15:29 fjoe Exp $
  */
 
 if (has_sp($n, "minor_invocation", $rm, $add)) {
 	act_char("You already have invocation as your minor magic school", $n);
 	return 1;
 }
+
 if (!has_sp($n, "class_wizard", $rm, $add)) {
 	act_char("You are not even wizard, how can you have major school?", $n);
 	return 1;

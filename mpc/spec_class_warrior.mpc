@@ -1,9 +1,10 @@
 /*
- * $Id: spec_class_warrior.mpc,v 1.6 2001-09-25 12:35:01 kostik Exp $
+ * $Id: spec_class_warrior.mpc,v 1.7 2001-09-30 20:15:28 fjoe Exp $
  */
 
-int spc_count = spclass_count($n, "weapon", $rm, $add);
 act_char("Yo!", $n);
+
+int spc_count = spclass_count($n, "weapon", $rm, $add);
 if ((real_char_level($n) < 15 && spc_count > 1)
 ||  (real_char_level($n) < 35 && spc_count > 2)) {
 	act_char("You aren't expierenced enough to specialize in other type of weapon.", $n);

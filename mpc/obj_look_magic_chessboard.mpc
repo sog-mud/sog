@@ -1,5 +1,5 @@
 /*
- * $Id: obj_look_magic_chessboard.mpc,v 1.2 2001-09-23 17:14:14 fjoe Exp $
+ * $Id: obj_look_magic_chessboard.mpc,v 1.3 2001-09-30 20:15:28 fjoe Exp $
  */
 
 if (char_fighting($n) != NULL)
@@ -14,11 +14,11 @@ room r = get_room_index(number_range(4201, 4264));
 if (r == NULL)
         return 0;
 
-act("As you look at $p you feel as darkness enshrouds you.",
+act("As you look at $p you feel as darkness enshrouds your.",
     $n, $p, NULL, TO_CHAR);
-act("When $n looks at $p cloud of darkness enshrouds $gn{his}.",
+act("When $n looks at $p, cloud of darkness enshrouds $gn{his}.",
     $n, $p, NULL, TO_ROOM);
-act("When cloud of darkness dissapers you find yourself on the chessboard.",
+act("When cloud of darkness dissapears you find yourself on the chessboard.",
     $n, NULL, NULL, TO_CHAR);
 act("Then darkness dissapears but $n vanishes.",
     $n, NULL, NULL, TO_ROOM);
@@ -28,15 +28,15 @@ char victim;
 transfer_char($n, r);
  
 foreach (victim, char_in_room(rr)) {
-        if (is_same_group($n, victim)) {
-                transfer_char(victim, r);
-                continue;
-        }
- 
-        if (is_mount($n, victim)) {
-                transfer_char(victim, r);
-                continue;
-        }
+       if (is_same_group($n, victim) && is_npc(victim)) {
+               transfer_char($n, r);
+               continue;
+       }
+     
+       if (is_mount($n, victim)) {
+               transfer_char($n, r);
+               continue;
+       }
 }
  
 extract_obj($p, 0);

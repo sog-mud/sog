@@ -195,6 +195,15 @@ Form 6 -ого~
 End
 
 #RULE
+Name удар~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name тирский~
 BaseLen 5
 Form 1 -ого~
@@ -255,6 +264,15 @@ Form 3 -ое~
 Form 4 -им~
 Form 5 -ом~
 Form 6 -ое~
+End
+
+#RULE
+Name дыхание~
+BaseLen 6
+Form 1 -я~
+Form 2 -ю~
+Form 4 -ем~
+Form 5 -и~
 End
 
 #RULE
@@ -1074,6 +1092,17 @@ Form 6 -его~
 End
 
 #RULE
+Name огненное~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
+End
+
+#RULE
 Name набор~
 BaseLen 5
 Form 1 -а~
@@ -1647,6 +1676,15 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name интеллект~
+BaseLen 9
+Form 1 -а~
+Form 2 -у ~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -2236,6 +2274,15 @@ Form 6 -юю~
 End
 
 #RULE
+Name сообщение~
+BaseLen 8
+Form 1 -я~
+Form 2 -ю~
+Form 4 -ем~
+Form 5 -и~
+End
+
+#RULE
 Name рабочий~
 BaseLen 5
 Form 1 -его~
@@ -2643,6 +2690,15 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name землетрясение~
+BaseLen 12
+Form 1 -я~
+Form 2 -ю~
+Form 4 -ем~
+Form 5 -и~
 End
 
 #RULE
@@ -6639,6 +6695,15 @@ Form 5 -е~
 End
 
 #RULE
+Name отряд~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name багровая~
 BaseLen 6
 Form 1 -ой~
@@ -7294,6 +7359,15 @@ Form 6 -у~
 End
 
 #RULE
+Name рой~
+BaseLen 2
+Form 1 -я~
+Form 2 -ю~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#RULE
 Name ящер~
 BaseLen 4
 Form 1 -а~
@@ -7881,6 +7955,17 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name идея~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -ю~
 End
 
 #RULE
@@ -10730,6 +10815,15 @@ Form 6 -ого~
 End
 
 #RULE
+Name новость~
+BaseLen 6
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
+End
+
+#RULE
 Name лекарственная~
 BaseLen 11
 Form 1 -ой~
@@ -10913,6 +11007,17 @@ Form 3 -ой~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name неоконченное~
+BaseLen 10
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
 End
 
 #RULE
@@ -12986,6 +13091,15 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name укус~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE

@@ -1,11 +1,12 @@
 /*
- * $Id: spec_minor_alteration.mpc,v 1.4 2001-09-18 13:39:06 kostik Exp $
+ * $Id: spec_minor_alteration.mpc,v 1.5 2001-09-30 20:15:30 fjoe Exp $
  */
 
 if (has_sp($n, "major_alteration", $rm, $add)) {
 	act_char("You already have alteration as your major magic school", $n);
 	return 1;
 }
+
 if (!has_sp($n, "class_wizard", $rm, $add)) {
 	act_char("You are not even wizard, how can you have magic school?", $n);
 	return 1;

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_random_guard.mpc,v 1.1 2001-09-17 19:18:45 fjoe Exp $
+ * $Id: mob_random_guard.mpc,v 1.2 2001-09-30 20:15:27 fjoe Exp $
  */
 
 char victim;
@@ -10,7 +10,6 @@ foreach (victim, char_in_room(char_room($n))) {
         &&  can_see($n, victim))
                 break;
 }
-
 if (victim != NULL) {
         act_yell($n, "$lu{$N} is a CRIMINAL! PROTECT THE INNOCENT!",
                  victim, NULL);
@@ -18,20 +17,44 @@ if (victim != NULL) {
         return 0;
 }
 
-/*
 foreach (victim, char_in_room(char_room($n))) {
-        if (!is_immortal(victim) 
-	&&  char_fighting(victim) != NULL {
+        if (char_fighting(victim) != NULL 
+        &&  can_see($n, victim)) {
 		break;
         }
 }
 	
-if (victim != NULL) {
-        act("$n screams 'PROTECT THE INNOCENT!", $n, NULL, NULL, TO_ROOM);
+if (victim != NULL && char_fighting(victim) != $n) {
+	char target = char_fighting(victim);
+
+        int bad = ((is_npc(victim) && is_act(victim, ACT_AGGRESSIVE)) +
+            (is_npc(victim) && is_act(victim, ACT_AGGRESSIVE)) +
+	    (!is_npc(victim) && char_ethos(victim) == ETHOS_CHAOTIC) +
+	    (!is_npc(victim) && char_ethos(victim) != ETHOS_LAWFUL) +
+	    is_npc(victim) + 
+	    is_evil(victim) + !is_good(victim));
+
+        int worst = ((is_npc(target) && is_act(victim, ACT_AGGRESSIVE)) +
+            (is_npc(target) && is_act(victim, ACT_AGGRESSIVE)) +
+	    (!is_npc(target) && char_ethos(victim) == ETHOS_CHAOTIC) +
+	    (!is_npc(target) && char_ethos(victim) != ETHOS_LAWFUL) +
+	    is_npc(target) + 
+	    is_evil(target) + !is_good(victim));
+
+        if (bad == worst) {
+	        if ((is_npc(victim) && is_npc(target))
+		||  (!is_npc(victim) && !is_npc(target))) {
+		        if (number_bits(1) == 0)
+		        	victim = target;
+		} else if (is_npc(target)) 
+			victim = target;
+        } else if (worst > bad)
+	        victim = target;
+
+        act("$n screams 'PROTECT THE INNOCENT!'", $n, NULL, NULL, TO_ROOM);
         multi_hit($n, victim, NULL);
 	return 0;
 }
-*/
 
 foreach (victim, char_in_room(char_room($n))) {
         if (!is_immortal(victim)
