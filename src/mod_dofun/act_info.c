@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.318 1999-12-22 08:49:51 fjoe Exp $
+ * $Id: act_info.c,v 1.319 1999-12-23 15:55:34 avn Exp $
  */
 
 /***************************************************************************
@@ -4308,20 +4308,20 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	
 	case POS_FIGHTING:
 		if (victim->fighting == NULL) {
-			arg = "thin air??";
-			msg = "$N {xis here, fighting with $t.";
+			arg = NULL;
+			msg = "$N {xis here, fighting with thin air??";
 		}
 		else if (victim->fighting == ch) {
-			arg = "YOU!";
-			msg = "$N {xis here, fighting with $t.";
+			arg = NULL;
+			msg = "$N {xis here, fighting with YOU!";
 		}
 		else if (victim->in_room == victim->fighting->in_room) {
 			arg = victim->fighting;
 			msg = "$N {xis here, fighting with $i.";
 		}
 		else {
-			arg = "someone who left??";
-			msg = "$N {xis here, fighting with $t.";
+			arg = NULL;
+			msg = "$N {xis here, fighting with someone who left??";
 		}
 		break;
 	}
