@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.3 1998-10-06 19:09:18 fjoe Exp $
+ * $Id: spellfn.h,v 1.4 1998-11-14 09:01:22 fjoe Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -269,6 +269,8 @@ DECLARE_SPELL_FUN(spell_summon_shadow);
 DECLARE_SPELL_FUN(spell_remove_fear);
 DECLARE_SPELL_FUN(spell_desert_fist);
 DECLARE_SPELL_FUN(spell_take_revenge);
+DECLARE_SPELL_FUN(spell_mirror);
+DECLARE_SPELL_FUN(spell_doppelganger);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.4 1998-10-17 16:20:40 fjoe Exp $
+ * $Id: gsn.h,v 1.5 1998-11-14 09:01:22 fjoe Exp $
  */
 
 #ifndef _GSN_H_
@@ -225,5 +225,8 @@ extern int gsn_frenzy;
 extern int gsn_riding;
 extern int gsn_thumbling;
 extern int gsn_pick;
+
+extern int gsn_doppelganger;
+extern int gsn_mirror;
 
 #endif

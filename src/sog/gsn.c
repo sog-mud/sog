@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.4 1998-10-17 16:20:40 fjoe Exp $
+ * $Id: gsn.c,v 1.5 1998-11-14 09:01:22 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -225,6 +225,9 @@ int gsn_riding;
 int gsn_thumbling;
 int gsn_pick;
 
+int gsn_doppelganger;
+int gsn_mirror;
+
 NAMEDP gsn_table[] =
 {
 	{ "gsn_backstab",		&gsn_backstab			},
@@ -411,6 +414,8 @@ NAMEDP gsn_table[] =
 	{ "gsn_riding",			&gsn_riding			},
 	{ "gsn_thumbling",		&gsn_thumbling			},
 	{ "gsn_pick",			&gsn_pick			},
+	{ "gsn_doppelganger",		&gsn_doppelganger		},
+	{ "gsn_mirror",			&gsn_mirror			},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.123 1998-11-12 12:35:57 fjoe Exp $
+ * $Id: comm.c,v 1.124 1998-11-14 09:01:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1326,10 +1326,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 		case 'r':
 			if (ch->in_room != NULL)
-				i = ((!IS_NPC(ch) &&
-				      IS_SET(ch->act,PLR_HOLYLIGHT)) ||
-				     (check_blind_raw(ch) &&
-				      !room_is_dark(ch))) ?
+				i = (check_blind_raw(ch) && !room_is_dark(ch)) ?
 				     mlstr_cval(ch->in_room->name, ch) :
 				     "darkness";
 			else
@@ -2750,6 +2747,14 @@ struct tdata {
 
 #define TSTACK_SZ 4
 
+static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
+{
+	if (is_affected(ch, gsn_doppelganger)
+	&&  (IS_NPC(looker) || !IS_SET(looker->act, PLR_HOLYLIGHT)))
+		ch = ch->doppel;
+	return URANGE(0, ch->sex, SEX_MAX-1);
+}
+
 static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	     const void *arg1, const void *arg2, char *str, int flags)
@@ -2842,27 +2847,27 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 	
 			case 'e':
-				i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
+				i = he_she[SEX(ch, to)];
 				break;
 	
 			case 'E':
-				i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
+				i = he_she[SEX(vch, to)];
 				break;
 	
 			case 'm':
-				i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
+				i = him_her[SEX(ch, to)];
 				break;
 	
 			case 'M':
-				i = him_her[URANGE(0, vch->sex, SEX_MAX-1)];
+				i = him_her[SEX(vch, to)];
 				break;
 	
 			case 's':
-				i = his_her[URANGE(0, ch->sex, SEX_MAX-1)];
+				i = his_her[SEX(ch, to)];
 				break;
 	
 			case 'S':
-				i = his_her[URANGE(0, vch->sex, SEX_MAX-1)];
+				i = his_her[SEX(vch, to)];
 				break;
 	
 			case 'p':
