@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.11 1999-06-23 04:41:34 fjoe Exp $
+ * $Id: comm_act.h,v 1.12 1999-06-28 10:13:03 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -47,9 +47,10 @@
 #define ACT_NOLF	(N)	/* do not append lf */
 #define ACT_NOUCASE	(O)	/* do not uppercase first letter */
 #define ACT_FORMSH	(P)	/* call format_short for short descrs */
-#define ACT_NOFIXSH	(Q)	/* do not call fix_short */
+#define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
+#define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
 
-#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXSH |	\
+#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.33 1999-06-24 16:33:20 fjoe Exp $
+ * $Id: act.c,v 1.34 1999-06-28 10:13:03 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -225,7 +225,7 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 		text = GETMSG(text, to_lang);
 	if (IS_SET(act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
-	if (IS_SET(act_flags, ACT_NOFIXSH))
+	if (IS_SET(act_flags, ACT_NOFIXTEXT))
 		return text;
 	return fix_short(text);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.12 1999-06-18 11:17:16 fjoe Exp $
+ * $Id: help.c,v 1.13 1999-06-28 10:13:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -84,45 +84,46 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 	HELP_DATA *pHelp;
 	HELP_DATA *pFirst = NULL;
 	bool topic_list = FALSE;
+	int num = -1;
+	char buf[MAX_STRING_LENGTH];
+
+	if (strchr(keyword, '.')) {
+		num = number_argument(keyword, buf, sizeof(buf));
+		keyword = buf;
+	}
 
 	if (IS_NULLSTR(keyword)) 
 		keyword = "summary";
 
-	if (strchr(keyword, '.')) {
-		int num;
-		char buf[MAX_STRING_LENGTH];
-		num = number_argument(keyword, buf, sizeof(buf));
-		pFirst = help_lookup(num, buf);
-	}
-	else {
-		for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
-			if (pHelp->level > ch->level)
+	for (pHelp = help_first; pHelp; pHelp = pHelp->next) {
+		if (pHelp->level > ch->level
+		||  !is_name(keyword, pHelp->keyword)) 
+			continue;
+
+		if (pFirst == NULL) {
+			if (num < 0) {
+				pFirst = pHelp;
 				continue;
-
-			if (is_name(keyword, pHelp->keyword)) {
-				if (pFirst == NULL) {
-					pFirst = pHelp;
-					continue;
-				}
-
-				/* found second matched help topic */
-				if (!topic_list) {
-					buf_add(output,
-						"Available topics:\n");
-					buf_printf(output, "    o %s\n",
-						   pFirst->keyword);
-					topic_list = TRUE;
-				}
-				buf_printf(output, "    o %s\n",
-					   pHelp->keyword);
 			}
+
+			if (!--num) {
+				pFirst = pHelp;
+				break;
+			}
+			continue;
 		}
+
+		/* found second matched help topic */
+		if (!topic_list) {
+			buf_add(output, "Available topics:\n");
+			buf_printf(output, "    o %s\n", pFirst->keyword);
+			topic_list = TRUE;
+		}
+		buf_printf(output, "    o %s\n", pHelp->keyword);
 	}
 
 	if (pFirst == NULL) {
-		buf_printf(output,
-			   "%s: no help on that word.\n",
-			   keyword);
+		buf_printf(output, "%s: no help on that word.\n", keyword);
 		return;
 	}
 
@@ -131,8 +132,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 
 		if (pFirst->level > -2
 		&&  str_cmp(pFirst->keyword, "imotd"))
-			buf_printf(output, "{C%s{x\n\n",
-				   pFirst->keyword);
+			buf_printf(output, "{C%s{x\n\n", pFirst->keyword);
 
 		text = mlstr_cval(&pFirst->text, ch);
 
