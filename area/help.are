@@ -190,29 +190,29 @@ Example:  PROMPT <%hhp %mm %vmv>
      For more help, type 'help <topic>' for any command, skill, or spell.
      Also help on: DAMAGE DEATH EXPERIENCE NEWS TICK WIZLIST QUESTS
 
-@rus {G____________________________________________________________________________
-|| {YПЕРЕМЕЩЕНИЕ                    {G|    {YГРУППЫ                             {G||
-|| {xnorth south east west up down  {G|    {xfollow group gtell split           {G||
-|| {xexits recall enter             {G|                                       {G||
-|| {xsleep wake rest stand          {G|                                       {G||
+@rus {g____________________________________________________________________________
+|| {YПЕРЕМЕЩЕНИЕ                    {g|    {YГРУППЫ                             {g||
+|| {xnorth south east west up down  {g|    {xfollow group gtell split           {g||
+|| {xexits recall                   {g|                                       {g||
+|| {xsleep wake rest stand          {g|                                       {g||
 ||________________________________|_______________________________________||
-|| {YПРЕДМЕТЫ                       {G|    {YИНФОРМАЦИЯ / ОБЩЕНИЕ               {G||
-|| {xget put drop give sacrifice    {G|    {xhelp credits commands areas        {G||
-|| {xwear wield hold                {G|    {xreport score time weather where who{G||
-|| {xrecite quaff zap brandish      {G|    {xdescription password title         {G||
-|| {xlock unlock open close pick    {G|    {xbug idea typo                      {G||
-|| {xinventory equipment look       {G|    {xgossip say shout tell yell         {G||
-|| {xeat drink fill compare         {G|    {xemote pose                         {G||
-|| {xlist buy sell value            {G|    {xnote pray worth raffect affect     {G||
+|| {YПРЕДМЕТЫ                       {g|    {YИНФОРМАЦИЯ / ОБЩЕНИЕ               {g||
+|| {xget put drop give sacrifice    {g|    {xhelp credits commands areas        {g||
+|| {xwear wield hold                {g|    {xreport score time weather where who{g||
+|| {xrecite quaff zap brandish      {g|    {xdescription password title         {g||
+|| {xlock unlock open close pick    {g|    {xbug idea typo                      {g||
+|| {xinventory equipment look       {g|    {xgossip say shout tell yell         {g||
+|| {xeat drink fill compare         {g|    {xemote pose                         {g||
+|| {xlist buy sell value            {g|    {xnote pray worth raffect affect     {g||
 ||________________________________|_______________________________________||
-|| {YБОЙ                            {G|    {YОСТАЛЬНОЕ                          {G||
-|| {xkill flee kick rescue disarm   {G|    {x! save quit demand request         {G||
-|| {xbackstab cast wimpy            {G|    {xpractice train quest               {G||
+|| {YБОЙ                            {g|    {YОСТАЛЬНОЕ                          {g||
+|| {xkill flee kick rescue disarm   {g|    {x! save quit demand request         {g||
+|| {xbackstab cast wimpy            {g|    {xpractice train quest               {g||
 ||________________________________|_______________________________________||{x
 
             Для того чтобы узнать больше наберите {CHELP {C<topic>{x
-                на любую комманду умение или заклинание.
-     А также {CHELP DAMAGE, DEATH, EXPERIENCE, NEWS, TICK, WIZLIST, QUESTS{x
+                на любую команду, умение или заклинание.
+   А также {CHELP DAMAGE, DEATH, EXPERIENCE, COLOR, NEWS, TICK, WIZLIST, QUESTS{x
 ~
 0 DEATH~
 @eng When your character dies, you are reincarnated back at the Altar of the Temple

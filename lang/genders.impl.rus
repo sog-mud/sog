@@ -38,4 +38,84 @@ Form 2 -ло~
 Form 3 -ли~
 End
 
+#RULE
+Name -рет~
+BaseLen -2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name -чет~
+BaseLen -2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name -нет~
+BaseLen -2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name -дет~
+BaseLen -2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ут~
+End
+
+#RULE
+Name -ет~
+BaseLen -2
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name -шит~
+BaseLen -2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name -жит~
+BaseLen -2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name -щит~
+BaseLen -2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name -чит~
+BaseLen -2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ат~
+End
+
+#RULE
+Name -ит~
+BaseLen -2
+Form 1 -ит~
+Form 2 -ит~
+Form 3 -ят~
+End
+
 #$

@@ -3720,6 +3720,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name поясок~
+BaseLen 4
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
+End
+
+#RULE
 Name темный~
 BaseLen 4
 Form 1 -ого~
@@ -4227,6 +4238,17 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name свет~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -~
 End
 
 #RULE
