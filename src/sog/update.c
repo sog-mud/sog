@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.24 1998-06-02 21:49:20 fjoe Exp $
+ * $Id: update.c,v 1.25 1998-06-03 20:44:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "act_info.h"
 #include "resource.h"
 #include "magic.h"
+#include "update.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -438,111 +439,117 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	CHAR_DATA *vch,*vch_next;
 
 	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
-	return;
+		return;
 
-	condition				= ch->pcdata->condition[iCond];
+	condition = ch->pcdata->condition[iCond];
 
-	ch->pcdata->condition[iCond]	= URANGE(-6, condition + value, 96);
+	ch->pcdata->condition[iCond] = URANGE(-6, condition + value, 96);
 
 	if (iCond == COND_FULL && (ch->pcdata->condition[COND_FULL] < 0))
-	   ch->pcdata->condition[COND_FULL] = 0;
+		ch->pcdata->condition[COND_FULL] = 0;
 
 	if ((iCond == COND_DRUNK) && (condition < 1)) 
-	  ch->pcdata->condition[COND_DRUNK] = 0;
+		ch->pcdata->condition[COND_DRUNK] = 0;
 
-	if (ch->pcdata->condition[iCond] < 1 && ch->pcdata->condition[iCond] > -6)
-	{
-	switch (iCond)
-	{
-	case COND_HUNGER:
-	    send_to_char("You are hungry.\n\r",  ch);
-	    break;
+	if (ch->pcdata->condition[iCond] < 1
+	&&  ch->pcdata->condition[iCond] > -6) {
+		switch (iCond) {
+		case COND_HUNGER:
+			send_to_char("You are hungry.\n\r",  ch);
+			break;
 
-	case COND_THIRST:
-	    send_to_char("You are thirsty.\n\r", ch);
-	    break;
+		case COND_THIRST:
+			send_to_char("You are thirsty.\n\r", ch);
+			break;
 	 
-	case COND_DRUNK:
-	    if (condition != 0)
-		send_to_char("You are sober.\n\r", ch);
-	    break;
+		case COND_DRUNK:
+			if (condition != 0)
+				send_to_char("You are sober.\n\r", ch);
+			break;
 
-	case COND_BLOODLUST:
-	    if (condition != 0)
-		send_to_char("You are hungry for blood.\n\r", ch);
-	    break;
+		case COND_BLOODLUST:
+			if (condition != 0)
+				send_to_char("You are hungry for blood.\n\r",
+					     ch);
+			break;
 
-	case COND_DESIRE:
-	    if (condition != 0)
-		send_to_char("You have missed your home.\n\r", ch);
-	    break;
-	}
-	}
-
-	if (ch->pcdata->condition[iCond] == -6 && ch->level >= PK_MIN_LEVEL)
-	{
-	switch (iCond)
-	{
-	case COND_HUNGER:
-	    send_to_char("You are starving!\n\r",  ch);
-	    act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
-	    damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-	    if (!damage_hunger) damage_hunger = 1;
-	    damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_HUNGER, TRUE);
-	    if (ch->position == POS_SLEEPING) 
-		return;       
-	    break;
-
-	case COND_THIRST:
-	    send_to_char("You are dying of thrist!\n\r", ch);
-	    act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
-	    damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-	    if (!damage_hunger) damage_hunger = 1;
-	    damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_THIRST, TRUE);
-	    if (ch->position == POS_SLEEPING) 
-		return;       
-	    break;
-
-	case COND_BLOODLUST:
-	    fdone = 0;
-	    send_to_char("You are suffering from thrist of blood!\n\r",ch);
-	    act("$n is suffering from thirst of blood!", ch,NULL,NULL,TO_ROOM);
-	    if (ch->in_room && ch->in_room->people && !ch->fighting)
-		{
-		 if (!IS_AWAKE(ch)) do_stand(ch,"");
-	             for (vch = ch->in_room->people;
-	           		vch != NULL && ch->fighting == NULL; vch = vch_next)
-	             {
-	              vch_next = vch->next_in_room;
-	              if (ch != vch && can_see(ch,vch) &&
-	                    !is_safe_nomessage(ch,vch))
-	               {
-	                do_yell(ch,"BLOOD! I NEED BLOOD!");
-	                do_murder(ch,vch->name);
-		    fdone = 1;
-	               }
-	             }
+		case COND_DESIRE:
+			if (condition != 0)
+				send_to_char("You have missed your home.\n\r",
+					     ch);
+			break;
 		}
-	    if (fdone) break;
-	    damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-	    if (!damage_hunger) damage_hunger = 1;
-	    damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_THIRST, TRUE);
-	    if (ch->position == POS_SLEEPING) 
-		return;       		
-	    break;
-
-	case COND_DESIRE:
-	    send_to_char("You want to go your home!\n\r", ch);
-	    act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
-	    if (ch->position >= POS_STANDING) 
-		move_char(ch,number_door(),FALSE);
-	    break;
-	}
 	}
 
+	if (ch->pcdata->condition[iCond] == -6 && ch->level >= PK_MIN_LEVEL) {
+		switch (iCond) {
+		case COND_HUNGER:
+			send_to_char("You are starving!\n\r",  ch);
+			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_HUNGER,
+			       TRUE);
+			if (ch->position == POS_SLEEPING) 
+				return;       
+			break;
 
+		case COND_THIRST:
+			send_to_char("You are dying of thrist!\n\r", ch);
+			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_THIRST,
+			       TRUE);
+			if (ch->position == POS_SLEEPING) 
+				return;       
+			break;
 
-	return;
+		case COND_BLOODLUST:
+			fdone = 0;
+			send_to_char("You are suffering "
+				     "from thrist of blood!\n\r",ch);
+			act("$n is suffering from thirst of blood!",
+			    ch, NULL, NULL, TO_ROOM);
+			if (ch->in_room && ch->in_room->people
+			&&  ch->fighting == NULL) {
+				if (!IS_AWAKE(ch)) do_stand(ch,"");
+			        for (vch = ch->in_room->people;
+			       	     vch != NULL && ch->fighting == NULL;
+				     vch = vch_next) {
+			        	vch_next = vch->next_in_room;
+			        	if (ch != vch && can_see(ch,vch)
+					&&  !is_safe_nomessage(ch,vch)) {
+						do_yell(ch,
+						        "BLOOD! I NEED BLOOD!");
+						do_murder(ch,vch->name);
+						fdone = 1;
+					}
+			         }
+			}
+
+			if (fdone)
+				break;
+
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, TYPE_HUNGER, DAM_THIRST,
+			       TRUE);
+			if (ch->position == POS_SLEEPING) 
+				return;       		
+			break;
+
+		case COND_DESIRE:
+			send_to_char("You want to go your home!\n\r", ch);
+			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
+			if (ch->position >= POS_STANDING) 
+				move_char(ch, number_door(), FALSE);
+			break;
+		}
+	}
 }
 
 

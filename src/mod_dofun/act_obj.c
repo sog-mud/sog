@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.14 1998-06-02 15:56:01 fjoe Exp $
+ * $Id: act_obj.c,v 1.15 1998-06-03 20:44:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,6 +52,7 @@
 #include "act_comm.h"
 #include "magic.h"
 #include "quest.h"
+#include "update.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split		);

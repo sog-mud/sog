@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.16 1998-06-03 07:27:18 fjoe Exp $
+ * $Id: db.c,v 1.17 1998-06-03 20:44:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,7 @@
 #include "magic.h"
 #include "act_comm.h"
 #include "rating.h"
+#include "update.h"
 
 void load_limited_objects();
 

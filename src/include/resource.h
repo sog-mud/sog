@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.57 1998-06-02 19:13:56 fjoe Exp $
+ * $Id: resource.h,v 1.58 1998-06-03 20:44:12 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -523,7 +523,9 @@ enum {
 	MOVE_SOMETHING_PREVENTS_ESCAPE,
 	MOVE_ESCAPE_FAILED,
 	MOVE_N_ESCAPED,
-	MOVE_ESCAPED_FROM_COMBAT,
+	YOU_ESCAPED_FROM_COMBAT,
+	YOU_FLED_FROM_COMBAT,
+	YOU_LOSE_D_EXPS,
 	MOVE_WRONG_DIRECTION,
 	MOVE_COULDNT_ESCAPE,
 	MOVE_CANT_LAY_HANDS,

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.26 1998-06-03 19:47:05 fjoe Exp $
+ * $Id: fight.c,v 1.27 1998-06-03 20:44:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,7 @@
 #include "quest.h"
 #include "fight.h"
 #include "rating.h"
+#include "update.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -2921,13 +2922,15 @@ void do_flee(CHAR_DATA *ch, char *argument)
 		act("$n has fled!", ch, NULL, NULL, TO_ROOM);
 		ch->in_room = now_in;
 
-		if (!IS_NPC(ch))
-		{
-		    send_to_char("You flee from combat!  You lose 10 exps.\n\r", ch);
-		    gain_exp(ch, -10);
+		if (!IS_NPC(ch)) {
+			char_nputs(YOU_FLED_FROM_COMBAT, ch);
+			if (ch->level < LEVEL_HERO) {
+				char_nprintf(ch, YOU_LOSE_D_EXPS, 10);
+				gain_exp(ch, -10);
+			}
 		}
 		else
-		  ch->last_fought = NULL;
+			ch->last_fought = NULL;
 
 		stop_fighting(ch, TRUE);
 		return;
@@ -3035,77 +3038,70 @@ void do_dishonor(CHAR_DATA *ch, char *argument)
 	ROOM_INDEX_DATA *was_in;
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *gch;
-	char buf[MAX_STRING_LENGTH];
 	int attempt,level = 0;
 
-	if (RIDDEN(ch))
-	{
+	if (RIDDEN(ch)) {
 		send_to_char("You should ask to your rider!\n\r", ch);
 		return;
 	}
 
-	if ((ch->class != 9) || (ch->level <10))
-		{
-		 send_to_char("Which honor?.\n\r", ch);
-		 return;
-		}
+	if ((ch->class != CLASS_SAMURAI) || (ch->level <10)) {
+		send_to_char("Which honor?.\n\r", ch);
+		return;
+	}
 
-	if (ch->fighting == NULL)
-	{
+	if (ch->fighting == NULL) {
 		if (ch->position == POS_FIGHTING)
-		    ch->position = POS_STANDING;
+			ch->position = POS_STANDING;
 		send_to_char("You aren't fighting anyone.\n\r", ch);
 		return;
 	}
 
 	for (gch = char_list; gch != NULL; gch = gch->next)
-		{
-		  if (is_same_group(gch, ch->fighting)
-			|| gch->fighting == ch)
+		  if (is_same_group(gch, ch->fighting) || gch->fighting == ch)
 			level += gch->level;
-		}
 
-	if ((ch->fighting->level - ch->level) < 5
-		 &&  ch->level > (level / 3))
-		{
-		 send_to_char("Your fighting doesn't worth to dishonor yourself.\n\r", ch);
+	if ((ch->fighting->level - ch->level) < 5 && ch->level > (level / 3)) {
+		 send_to_char("Your fighting doesn't worth "
+			      "to dishonor yourself.\n\r", ch);
 		 return;
-		}
+	}
 
 	was_in = ch->in_room;
-	for (attempt = 0; attempt < 6; attempt++)
-	{
+	for (attempt = 0; attempt < 6; attempt++) {
 		EXIT_DATA *pexit;
 		int door;
 
 		door = number_door();
 		if ((pexit = was_in->exit[door]) == 0
-		||   pexit->u1.to_room == NULL
-		|| (IS_SET(pexit->exit_info, EX_CLOSED)
-	  && (!IS_AFFECTED(ch, AFF_PASS_DOOR) || IS_SET(pexit->exit_info,EX_NOPASS))
-	  &&   !IS_TRUSTED(ch,ANGEL))
-		|| (IS_SET(pexit->exit_info , EX_NOFLEE))
-		|| (IS_NPC(ch)
-		&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
-		    continue;
+		||  pexit->u1.to_room == NULL
+		||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
+		     (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+		      IS_SET(pexit->exit_info,EX_NOPASS)) &&
+		     !IS_TRUSTED(ch,ANGEL))
+		|| IS_SET(pexit->exit_info, EX_NOFLEE)
+		|| (IS_NPC(ch) &&
+		    IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
+			continue;
 
 		move_char(ch, door, FALSE);
 		if ((now_in = ch->in_room) == was_in)
-		    continue;
+			continue;
 
 		ch->in_room = was_in;
 		act("$n has dishonored $mself!", ch, NULL, NULL, TO_ROOM);
 		ch->in_room = now_in;
 
-		if (!IS_NPC(ch))
-		{
-		  send_to_char("You dishonored yourself and flee from combat.\n\r",ch);
-		  sprintf(buf,"You lose %d exps.\n\r",ch->level);
-		  send_to_char(buf, ch);
-		  gain_exp(ch, -(ch->level));
+		if (!IS_NPC(ch)) {
+			send_to_char("You dishonored yourself "
+				     "and flee from combat.\n\r",ch);
+			if (ch->level < LEVEL_HERO) {
+				char_nprintf(ch, YOU_LOSE_D_EXPS, ch->level);
+				gain_exp(ch, -(ch->level));
+			}
 		}
 		else
-		  ch->last_fought = NULL;
+			ch->last_fought = NULL;
 
 		stop_fighting(ch, TRUE);
 		if (MOUNTED(ch))

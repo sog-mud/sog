@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.59 1998-06-03 11:15:08 fjoe Exp $
+ * $Id: act_info.c,v 1.60 1998-06-03 20:44:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,6 +62,7 @@
 #include "const.h"
 #include "hometown.h"
 #include "interp.h"
+#include "update.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_exits		);
@@ -566,7 +567,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	/* vampire ... */
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
-		gain_condition(ch, COND_BLOODLUST,-1);
+		gain_condition(ch, COND_BLOODLUST, -1);
 
 	char_printf(ch, "(%s) %s %s\n\r",
 		    race_table[RACE(vict)].name, PERS(vict, ch),

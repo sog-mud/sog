@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.44 1998-06-02 15:56:01 fjoe Exp $
+ * $Id: act_move.c,v 1.45 1998-06-03 20:44:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "resource.h"
 #include "hometown.h"
 #include "magic.h"
+#include "update.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -3184,8 +3185,11 @@ void do_escape(CHAR_DATA *ch, char *argument)
 		ch->in_room = now_in;
 
 		if (!IS_NPC(ch)) {
-			send_to_char(msg(MOVE_ESCAPED_FROM_COMBAT, ch), ch);
-			gain_exp(ch, -10);
+			char_nputs(YOU_ESCAPED_FROM_COMBAT, ch);
+			if (ch->level < LEVEL_HERO) {
+				char_nprintf(ch, YOU_LOSE_D_EXPS, 10);
+				gain_exp(ch, -10);
+			}
 		}
 		else
 			ch->last_fought = NULL;  /* Once fled, 

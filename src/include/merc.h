@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.24 1998-06-02 15:56:05 fjoe Exp $
+ * $Id: merc.h,v 1.25 1998-06-03 20:44:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3117,16 +3117,6 @@ char *	spec_name	args( ( SPEC_FUN *function ) );
 
 /* teleport.c */
 RID *	room_by_name	args( ( char *target, int level, bool error) );
-
-/* update.c */
-void	advance_level	args( ( CHAR_DATA *ch ) );
-void	gain_exp	args( ( CHAR_DATA *ch, int gain ) );
-void	gain_condition	args( ( CHAR_DATA *ch, int iCond, int value ) );
-void	update_handler	args( ( void ) );
-void	char_update	args( ( void ) );
-void	area_update	args( ( void ) );
-void	room_update	args( ( void ) );
-void	track_update	args( ( void ) );
 
 /*  obj_prog.c */
 void oprog_set(OBJ_INDEX_DATA *, const char *, const char *);
