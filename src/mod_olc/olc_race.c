@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.8.2.3 2001-11-21 07:46:36 avn Exp $
+ * $Id: olc_race.c,v 1.8.2.4 2001-12-12 19:18:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -903,9 +903,7 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 		fprintf(fp, "Class '%s' %d\n",
 			rc->name, rc->mult);
 	}
-	if (!IS_NULLSTR(race->race_pcdata->bonus_skills))
-		fprintf(fp, "BonusSkills %s~\n",
-			race->race_pcdata->bonus_skills);
+	fwrite_string(fp, "BonusSkills", race->race_pcdata->bonus_skills);
 	for (i = 0; i < race->race_pcdata->skills.nused; i++) {
 		rskill_t *rs = VARR_GET(&race->race_pcdata->skills, i);
 		skill_t *sk;
