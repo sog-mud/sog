@@ -59,8 +59,8 @@ char *strings_rus[] = {
 /* INFO_IS_USING */		"$N использует:",
 /* INFO_YOU_PEEK_AT_THE_INVENTORY */"\n\rТы всматриваешься в снаряжение:\n\r",
 
-/* SWITCH_TO_RUSSIAN */		"Русский язык включен.",
-/* SWITCH_TO_ENGLSH */		"Английский язык включен.",
+/* COMM_SWITCH_TO_RUSSIAN */	"Русский язык включен.",
+/* COMM_SWITCH_TO_ENGLSH */	"Английский язык включен.",
 /* COMM_SHOW_LANGUAGE */	"Текущий язык: %s.",
 /* COMM_LANGUAGE_USAGE */	"Использование: lang [ russian | english ]",
 
@@ -102,9 +102,6 @@ char *strings_rus[] = {
 /* INFO_TIME_NIGHT */		"ночь",
 
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Увы, ты не можешь идти туда.\n\r",
-/* MOVE_YOU_STEP_OUT_SHADOWS */	"Ты вышло из скрывавших тебя теней.\n\r",
-/* MOVE_YOU_STEP_OUT_SHADOWS_M */"Ты вышел из скрывавших тебя теней.\n\r",
-/* MOVE_YOU_STEP_OUT_SHADOWS_F */"Ты вышла из скрывавших тебя теней.\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
@@ -185,5 +182,8 @@ char *strings_rus[] = {
 /* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS */ "$n безуспешно попыталось вырватся из держащей $m паутины.",
 /* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS_M */ "$n безуспешно попытался вырватся из держащей $m паутины.",
 /* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS_F */ "$n безуспешно попыталась вырватся из держащей $m паутины.",
+/* MOVE_YOU_STEP_OUT_SHADOWS */	"Ты вышло из скрывавших тебя теней.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS_M */"Ты вышел из скрывавших тебя теней.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS_F */"Ты вышла из скрывавших тебя теней.\n\r",
 };
 
