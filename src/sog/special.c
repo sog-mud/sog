@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.46 1999-05-27 12:58:41 kostik Exp $
+ * $Id: special.c,v 1.47 1999-05-27 19:42:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -150,13 +150,19 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim);
  */
 SPEC_FUN *spec_lookup(const char *name)
 {
-	 int i;
+	char buf[MAX_INPUT_LENGTH];
+	int i;
  
-	 for (i = 0; spec_table[i].name != NULL; i++) {
+	if (str_prefix("spec_", name)) {
+		snprintf(buf, sizeof(buf), "spec_%s", name);
+		return spec_lookup(buf);
+	}
+
+	for (i = 0; spec_table[i].name != NULL; i++) {
 	 	if (LOWER(name[0]) == LOWER(spec_table[i].name[0])
 	 	&&  !str_prefix(name,spec_table[i].name))
 	 		return spec_table[i].function;
-	 }
+	}
  
 	return 0;
 }
