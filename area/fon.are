@@ -338,8 +338,8 @@ CF 0 HVa A AB 0 0
 stand stand none 0
 0 0 medium unknown
 F par AEJ
-m mob_random mob_random_nasty 100~
 m mob_fight mob_fight_nasty 100~
+m mob_random mob_random_nasty 100~
 #22472
 human sergeant~
 human sergeant~

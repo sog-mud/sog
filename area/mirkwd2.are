@@ -82,8 +82,8 @@ stand stand male 211
 r charm 100
 r weapon -50
 r magic -50
-m mob_random mob_random_nasty 100~
 m mob_fight mob_fight_nasty 100~
+m mob_random mob_random_nasty 100~
 #8803
 orc warrior орк воин~
 @eng an orc warrior@rus ~~орк~~-~~воин~~~
