@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.107 1999-02-11 17:38:03 fjoe Exp $
+ * $Id: interp.c,v 1.108 1999-02-12 10:39:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -522,14 +522,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		return;
 
 	/*
-	 * Implement freeze command.
-	 */
-	if (!IS_NPC(ch) && IS_SET(ch->plr_flags, PLR_FREEZE)) {
-		char_puts("You're totally frozen!\n", ch);
-		return;
-	}
-
-	/*
 	 * Grab the command word.
 	 * Special parsing so ' can be a command,
 	 * also no spaces needed after punctuation.
@@ -557,6 +549,16 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			argument++;
 	} else
 		argument = one_argument(argument, command);
+
+	/*
+	 * Implement freeze command.
+	 */
+	if (!IS_NPC(ch)
+	&&  IS_SET(ch->plr_flags, PLR_FREEZE)
+	&&  str_prefix(command, "pray")) {
+		char_puts("You're totally frozen!\n", ch);
+		return;
+	}
 
 	/*
 	 * Look for command in command table.
