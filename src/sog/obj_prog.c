@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.56 1999-04-15 09:14:17 fjoe Exp $
+ * $Id: obj_prog.c,v 1.57 1999-04-16 15:52:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1111,7 +1111,10 @@ int fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (ch->class != CLASS_RANGER) {
+	class_t *cl;
+
+	if ((cl = class_lookup(ch->class)) == NULL
+	||  str_cmp(cl->name, "ranger")) {
 		char_puts("You don't know to use this thing.\n", ch);
 		unequip_char(ch, obj);
 		char_puts("Ranger staff slides off from your hand.\n", ch);
@@ -1710,7 +1713,7 @@ int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_ruler_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	CLAN_DATA *clan = clan_lookup(ch->clan);
+	clan_t *clan = clan_lookup(ch->clan);
 
 	if (!clan || str_cmp(clan->name, "ruler")) {
 		act("You are zapped by $p and drop it.",

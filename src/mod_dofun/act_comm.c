@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.160 1999-04-15 11:36:57 fjoe Exp $
+ * $Id: act_comm.c,v 1.161 1999-04-16 15:52:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -672,7 +672,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 
 void do_clan(CHAR_DATA *ch, const char *argument)
 {
-	CLAN_DATA *clan;
+	clan_t *clan;
 	CHAR_DATA *vch;
 	int flags;
 
@@ -745,7 +745,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 void do_pose(CHAR_DATA *ch, const char *argument)
 {
-	CLASS_DATA *cl;
+	class_t *cl;
 	pose_t *pose;
 	int maxnum;
 
@@ -1464,7 +1464,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int language;
-	RACE_DATA *r;
+	race_t *r;
 
 	if (IS_NPC(ch)
 	||  (r = race_lookup(ch->pcdata->race)) == NULL
@@ -1519,7 +1519,7 @@ DO_FUN(do_lang)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
-	LANG_DATA *l;
+	lang_t *l;
 
 	if (langs.nused == 0) {
 		char_puts("No languages defined.\n", ch);
@@ -1725,7 +1725,7 @@ typedef struct toggle_t toggle_t;
 struct toggle_t {
 	const char *name;	/* flag name				*/
 	const char *desc;	/* toggle description			*/
-	FLAG *f;		/* flag table				*/
+	flag_t *f;		/* flag table				*/
 	flag64_t bit;		/* flag bit				*/
 	const char *msg_on;	/* msg to print when flag toggled on	*/
 	const char *msg_off;	/* ---//--- off				*/

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.16 1999-03-25 13:12:25 kostik Exp $
+ * $Id: clan.h,v 1.17 1999-04-16 15:52:16 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -43,7 +43,7 @@
 /*
  * Clan structure
  */
-struct clan_data
+struct clan_t
 {
 	const char *	name;		/* clan name */
 	const char *	file_name;	/* file name */
@@ -68,31 +68,31 @@ struct clan_data
 #define CLAN_HIDDEN	(A)		/* clan will not appear in who */
 #define CLAN_CHANGED	(Z)
 
-CLAN_DATA *	clan_new	(void);		/* allocate new clan data */
-void		clan_free	(CLAN_DATA*);	/* free clan data */
-int		cn_lookup	(const char* name); /* clan number lookup */
-const char*	clan_name	(int cn);	/* clan name lookup */
-bool		clan_item_ok	(int cn);	/* check clan item */
+clan_t *	clan_new	(void);		/* allocate new clan data */
+void		clan_free	(clan_t*);	/* free clan data */
+int		cln_lookup	(const char* name); /* clan number lookup */
+const char*	clan_name	(int cln);	/* clan name lookup */
+bool		clan_item_ok	(int cln);	/* check clan item */
 
 extern varr	clans;
 
-#define CLAN(cn)		((CLAN_DATA*) VARR_GET(&clans, cn))
-#define clan_lookup(cn)		((CLAN_DATA*) varr_get(&clans, cn))
+#define CLAN(cln)		((clan_t*) VARR_GET(&clans, cln))
+#define clan_lookup(cln)	((clan_t*) varr_get(&clans, cln))
 
-struct clan_skill {
+struct clskill_t {
 	int	sn;		/* skill number. leave this field first	 */
 				/* in order sn_vlookup to work properly  */
 	int	level;		/* level at which skill become available */
 	int	percent;	/* initial percent			 */
 };
 
-#define clan_skill_lookup(clan, sn) \
-	((CLAN_SKILL*) varr_bsearch(&clan->skills, &sn, cmpint))
+#define clskill_lookup(clan, sn) \
+	((clskill_t*) varr_bsearch(&clan->skills, &sn, cmpint))
 
 /*
  * clan lists utils
  */
-void	clan_update_lists	(CLAN_DATA *clan, CHAR_DATA *victim, bool memb);
-void	clan_save		(CLAN_DATA *clan);
+void	clan_update_lists	(clan_t *clan, CHAR_DATA *victim, bool memb);
+void	clan_save		(clan_t *clan);
 
 #endif

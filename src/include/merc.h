@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.178 1999-04-15 12:22:59 fjoe Exp $
+ * $Id: merc.h,v 1.179 1999-04-16 15:52:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,54 +67,6 @@
 #include "typedef.h"
 #include "const.h"
 
-/* mud server options (etc/system.conf) */
-#define OPT_ASCII_ONLY_NAMES	(A)
-
-extern flag32_t mud_options;
-
-/* general align */
-#define ALIGN_NONE		-1
-#define ALIGN_GOOD		1000
-#define ALIGN_NEUTRAL		0
-#define ALIGN_EVIL		-1000
-
-/* align numbers */
-enum {
-	ANUM_GOOD,
-	ANUM_NEUTRAL,
-	ANUM_EVIL,
-
-	MAX_ANUM
-};
-
-/* note types */
-#define NOTE_NOTE	0
-#define NOTE_IDEA	1
-#define NOTE_PENALTY	2
-#define NOTE_NEWS	3
-#define NOTE_CHANGES	4
-
-/*
- * Data structure for notes.
- */
-struct note_t
-{
-	note_t *	next;
-	const char *	sender;
-	const char *	date;
-	const char *	to_list;
-	const char *	subject;
-	const char *	text;
-	time_t		date_stamp;
-	flag32_t	type;
-};
-
-/* align restrictions */
-#define RA_NONE			(0)
-#define RA_GOOD			(A)
-#define RA_NEUTRAL		(B)
-#define RA_EVIL			(C)
-
 /* basic types */
 #include "namedp.h"
 #include "buffer.h"
@@ -149,6 +101,45 @@ struct note_t
 extern varr control_sockets;
 extern varr info_sockets;
 extern varr info_trusted;
+
+/* mud server options (etc/system.conf) */
+#define OPT_ASCII_ONLY_NAMES	(A)
+
+extern flag32_t mud_options;
+
+/* general align */
+#define ALIGN_NONE		-1
+#define ALIGN_GOOD		1000
+#define ALIGN_NEUTRAL		0
+#define ALIGN_EVIL		-1000
+
+/* align restrictions */
+#define RA_NONE			(0)
+#define RA_GOOD			(A)
+#define RA_NEUTRAL		(B)
+#define RA_EVIL			(C)
+
+/* note types */
+#define NOTE_NOTE	0
+#define NOTE_IDEA	1
+#define NOTE_PENALTY	2
+#define NOTE_NEWS	3
+#define NOTE_CHANGES	4
+
+/*
+ * Data structure for notes.
+ */
+struct note_t
+{
+	note_t *	next;
+	const char *	sender;
+	const char *	date;
+	const char *	to_list;
+	const char *	subject;
+	const char *	text;
+	time_t		date_stamp;
+	flag32_t	type;
+};
 
 #define	CMD_KEEP_HIDE	(A)
 #define CMD_NOORDER	(B)
@@ -312,31 +303,6 @@ struct shop_data
 /*
  * Per-class stuff.
  */
-
-#define STAT_STR	0
-#define STAT_INT	1
-#define STAT_WIS	2
-#define STAT_DEX	3
-#define STAT_CON	4
-#define STAT_CHA	5
-
-enum {
-	CLASS_WITCH,
-	CLASS_CLERIC,
-	CLASS_THIEF,
-	CLASS_WARRIOR,
-	CLASS_PALADIN,
-	CLASS_ANTI_PALADIN,
-	CLASS_NINJA,
-	CLASS_RANGER,
-	CLASS_WARLOCK,
-	CLASS_SAMURAI,
-	CLASS_VAMPIRE,
-	CLASS_NECROMANCER,
-	CLASS_DUMMY,
-	CLASS_NONE = -1
-};
-
 #define SLANG_COMMON	     0
 #define SLANG_HUMAN	     1
 #define SLANG_ELVISH	     2
@@ -390,33 +356,24 @@ struct affect_data
 #define TO_VULN 	4
 #define TO_WEAPON	5
 
-struct where_data
+struct where_t
 {
 	flag32_t	where;
-	FLAG *		table;
+	flag_t *		table;
 	const char *	format;
 };
 
-WHERE_DATA *where_lookup(flag32_t where);
+where_t *where_lookup(flag32_t where);
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
 #define TO_ROOM_CONST	1
-#define TO_ROOM_FLAGS	2
+#define TO_ROOM_flag_tS	2
 
 /* room applies */
 #define APPLY_ROOM_NONE 	0
 #define APPLY_ROOM_HEAL 	1
 #define APPLY_ROOM_MANA 	2
-
-/*
- * A kill structure (indexed by level).
- */
-struct kill_data
-{
-	int		number;
-	int		killed;
-};
 
 /***************************************************************************
  *									   *
@@ -453,7 +410,7 @@ struct kill_data
 #define GROUP_WIZARD		(X)
 
 /*
- * AREA FLAGS
+ * AREA flag_tS
  */
 #define AREA_CLOSED		(B)	/* transportation does not work,
 					   no quests			*/
@@ -468,7 +425,7 @@ struct kill_data
 #define ACT_NPC			(A)		/* Auto set for mobs	*/
 #define ACT_SENTINEL		(B)		/* Stays in one room	*/
 #define ACT_SCAVENGER		(C)		/* Picks up objects	*/
-#define ACT_AGGRESSIVE		(F)		/* Attacks PC's 	*/
+#define ACT_AGGRESSIVE		(F)		/* Attacks PC's		*/
 #define ACT_STAY_AREA		(G)		/* Won't leave area	*/
 #define ACT_WIMPY		(H)
 #define ACT_PET 		(I)		/* Auto set for pets	*/
@@ -492,6 +449,7 @@ struct kill_data
 #define ACT_CHANGER		(dd)
 #define ACT_NOTRACK		(ee)
 #define ACT_CLAN_GUARD		(ff)
+#define ACT_SUMMONED		(gg)		/* summoned (golem etc.)*/
 
 /* damage classes */
 #define DAM_NONE		0
@@ -1230,7 +1188,7 @@ enum {
 #define WIZ_DEATHS		(F)
 #define WIZ_RESETS		(G)
 #define WIZ_MOBDEATHS		(H)
-#define WIZ_FLAGS		(I)
+#define WIZ_flag_tS		(I)
 #define WIZ_PENALTIES		(J)
 #define WIZ_SACCING		(K)
 #define WIZ_LEVELS		(L)
@@ -1442,7 +1400,7 @@ struct pc_data
 	int			questtime;
 	int			questobj;
 	int			questmob;
-	QTROUBLE_DATA *		qtrouble;
+	qtrouble_t *		qtrouble;
 	ROOM_INDEX_DATA *	questroom;
 
 	int			race;
@@ -1458,14 +1416,14 @@ struct pc_data
 /*
  * PC learned skill
  */
-struct pc_skill {
+struct pcskill_t {
 	int sn;		/* skill number. leave this field first		*/
 			/* in order sn_vlookup to work properly		*/
 	int percent;	/* skill percentage				*/
 };
 
-#define pc_skill_lookup(ch, sn) \
-	((PC_SKILL*) varr_bsearch(&ch->pcdata->learned, &sn, cmpint))
+#define pcskill_lookup(ch, sn) \
+	((pcskill_t*) varr_bsearch(&ch->pcdata->learned, &sn, cmpint))
 
 /*
  * Liquids.
@@ -1831,7 +1789,7 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 				 || ch->pIndexData->vnum==MOB_VNUM_ADAMANTITE_GOLEM))
 #define JUST_KILLED(ch)		(ch->last_death_time >= current_time)
 #define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
-			         (ch)->level < PK_MIN_LEVEL)
+			         (ch)->level < MIN_PK_LEVEL)
 /*
  * Object macros.
  */
@@ -1880,7 +1838,6 @@ extern		ROOM_INDEX_DATA   *	top_affected_room;
 extern		char			bug_buf 	[];
 extern		time_t			current_time;
 extern		bool			fLogAll;
-extern		KILL_DATA		kill_table	[];
 extern		char			log_buf 	[];
 extern		TIME_INFO_DATA		time_info;
 extern		WEATHER_DATA		weather_info;

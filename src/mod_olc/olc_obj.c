@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.44 1999-04-15 09:14:19 fjoe Exp $
+ * $Id: olc_obj.c,v 1.45 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -217,7 +217,7 @@ OLC_FUN(objed_show)
 	AFFECT_DATA *paf;
 	int cnt;
 	BUFFER *output;
-	CLAN_DATA *clan;
+	clan_t *clan;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -289,7 +289,7 @@ OLC_FUN(objed_show)
 	mlstr_dump(output, "Long desc: ", pObj->description);
 
 	for (cnt = 0, paf = pObj->affected; paf; paf = paf->next) {
-		WHERE_DATA *w = where_lookup(paf->where);
+		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
 			buf_add(output, "Number      Affects Modifier Affects Bitvector\n");
@@ -503,7 +503,7 @@ OLC_FUN(objed_addaffect)
 		bitvector = 0;
 	}
 	else {
-		WHERE_DATA *w;
+		where_t *w;
 
 		if ((where = flag_value(apply_types, wh)) < 0) {
 			char_puts("Valid bitaffect locations are:\n", ch);
@@ -545,7 +545,7 @@ OLC_FUN(objed_addapply)
 	int location, bv, where;
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *pAf;
-	WHERE_DATA *wd;
+	where_t *wd;
 	char loc[MAX_STRING_LENGTH];
 	char mod[MAX_STRING_LENGTH];
 	char type[MAX_STRING_LENGTH];
@@ -1224,7 +1224,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				show_flags_buf(output, exit_flags);
 				return 2;
 			}
-			buf_add(output, "EXIT FLAGS TOGGLED.\n\n");
+			buf_add(output, "EXIT flag_tS TOGGLED.\n\n");
 			TOGGLE_BIT(pObj->value[1], val);
 			break;
 		case 2:
@@ -1233,7 +1233,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				show_flags_buf(output, portal_flags);
 				return 2;
 			}
-			buf_add(output, "PORTAL FLAGS TOGGLED.\n\n");
+			buf_add(output, "PORTAL flag_tS TOGGLED.\n\n");
 			TOGGLE_BIT(pObj->value[2], val);
 			break;
 		case 3:
@@ -1259,7 +1259,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 				show_flags_buf(output, furniture_flags);
 				return 2;
 			}
-		        buf_add(output, "FURNITURE FLAGS TOGGLED.\n\n");
+		        buf_add(output, "FURNITURE flag_tS TOGGLED.\n\n");
 			TOGGLE_BIT(pObj->value[2], val);
 			break;
 		case 3:
@@ -1415,7 +1415,7 @@ static void show_spells(BUFFER *output, int tar)
  
 	col = 0;
 	for (sn = 0; sn < skills.nused; sn++) {
-		SKILL_DATA *sk = SKILL(sn);
+		skill_t *sk = SKILL(sn);
 
 		if (!str_cmp(sk->name, "reserved") || sk->spell_fun == NULL)
 			continue;

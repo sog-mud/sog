@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.57 1999-03-17 15:27:38 kostik Exp $
+ * $Id: skills.c,v 1.58 1999-04-16 15:52:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include "update.h"
 
 extern int gsn_anathema;
-varr skills = { sizeof(SKILL_DATA), 8 };
+varr skills = { sizeof(skill_t), 8 };
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -139,8 +139,8 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	}
 	
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
-		SKILL_DATA *sk;
+		pcskill_t *ps = VARR_GET(&ch->pcdata->learned, i);
+		skill_t *sk;
 
 		if (ps->percent == 0
 		||  (sk = skill_lookup(ps->sn)) == NULL
@@ -209,8 +209,8 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	}
 	
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
-		SKILL_DATA *sk;
+		pcskill_t *ps = VARR_GET(&ch->pcdata->learned, i);
+		skill_t *sk;
 
 		if (ps->percent == 0
 		||  (sk = skill_lookup(ps->sn)) == NULL
@@ -259,15 +259,15 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 int base_exp(CHAR_DATA *ch)
 {
 	int expl;
-	CLASS_DATA *cl;
-	RACE_DATA *r;
-	RACE_CLASS_DATA *rcl;
+	class_t *cl;
+	race_t *r;
+	rclass_t *rcl;
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
 	||  (r = race_lookup(ch->pcdata->race)) == NULL
 	||  !r->pcdata
-	||  (rcl = race_class_lookup(r, cl->name)) == NULL)
+	||  (rcl = rclass_lookup(r, cl->name)) == NULL)
 		return 1500;
 
 	expl = 1000 + r->pcdata->points + cl->points;
@@ -288,20 +288,20 @@ int exp_to_level(CHAR_DATA *ch)
 /* checks for skill improvement */
 void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 {
-	PC_SKILL *ps;
-	CLASS_DATA *cl;
-	CLASS_SKILL *cs;
+	pcskill_t *ps;
+	class_t *cl;
+	cskill_t *cs;
 	int chance;
 	int rating;
 
 	if (IS_NPC(ch)
 	||  (cl = class_lookup(ch->class)) == NULL
-	||  (ps = pc_skill_lookup(ch, sn)) == NULL
+	||  (ps = pcskill_lookup(ch, sn)) == NULL
 	||  ps->percent == 0 || ps->percent == 100
 	||  skill_level(ch, sn) > ch->level)
 		return;
 
-	if ((cs = class_skill_lookup(cl, sn)))
+	if ((cs = cskill_lookup(cl, sn)))
 		rating = cs->rating;
 	else
 		rating = 1;
@@ -351,12 +351,12 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
  */
 void set_skill_raw(CHAR_DATA *ch, int sn, int percent, bool replace)
 {
-	PC_SKILL *ps;
+	pcskill_t *ps;
 
 	if (sn <= 0)
 		return;
 
-	if ((ps = pc_skill_lookup(ch, sn))) {
+	if ((ps = pcskill_lookup(ch, sn))) {
 		if (replace || ps->percent < percent)
 			ps->percent = percent;
 		return;
@@ -371,9 +371,9 @@ void set_skill_raw(CHAR_DATA *ch, int sn, int percent, bool replace)
 void update_skills(CHAR_DATA *ch)
 {
 	int i;
-	CLASS_DATA *cl;
-	RACE_DATA *r;
-	CLAN_DATA *clan;
+	class_t *cl;
+	race_t *r;
+	clan_t *clan;
 	const char *p;
 
 /* NPCs do not have skills */
@@ -385,13 +385,13 @@ void update_skills(CHAR_DATA *ch)
 
 /* add class skills */
 	for (i = 0; i < cl->skills.nused; i++) {
-		CLASS_SKILL *cs = VARR_GET(&cl->skills, i);
+		cskill_t *cs = VARR_GET(&cl->skills, i);
 		set_skill_raw(ch, cs->sn, 1, FALSE);
 	}
 
 /* add race skills */
 	for (i = 0; i < r->pcdata->skills.nused; i++) {
-		RACE_SKILL *rs = VARR_GET(&r->pcdata->skills, i);
+		rskill_t *rs = VARR_GET(&r->pcdata->skills, i);
 		set_skill_raw(ch, rs->sn, 100, FALSE);
 	}
 
@@ -414,14 +414,14 @@ void update_skills(CHAR_DATA *ch)
 /* add clan skills */
 	if ((clan = clan_lookup(ch->clan))) {
 		for (i = 0; i < clan->skills.nused; i++) {
-			CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
+			clskill_t *cs = VARR_GET(&clan->skills, i);
 			set_skill_raw(ch, cs->sn, cs->percent, FALSE);
 		}
 	}
 
 /* remove not matched skills */
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
+		pcskill_t *ps = VARR_GET(&ch->pcdata->learned, i);
 		if (skill_level(ch, ps->sn) > LEVEL_HERO && !IS_IMMORTAL(ch))
 			ps->percent = 0;
 	}
@@ -463,10 +463,10 @@ DO_FUN(do_glist)
 		    flag_string(skill_groups, group));
 
 	for (sn = 0; sn < skills.nused; sn++) {
-		SKILL_DATA *sk = VARR_GET(&skills, sn);
+		skill_t *sk = VARR_GET(&skills, sn);
 		if (group == sk->group) {
 			char_printf(ch, "%c%-18s",
-				    pc_skill_lookup(ch, sn) ? '*' : ' ',
+				    pcskill_lookup(ch, sn) ? '*' : ' ',
 				    sk->name);
 			if (col)
 				char_puts("\n", ch);
@@ -491,8 +491,8 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 /* search in known skills first */
 	if (!IS_NPC(ch)) {
-		PC_SKILL *ps;
-		ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
+		pcskill_t *ps;
+		ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg);
 		if (ps)
 			sn = ps->sn;
 	}
@@ -517,10 +517,10 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	int sn;
 	CHAR_DATA *practicer;
 	int adept;
-	CLASS_DATA *cl;
-	CLASS_SKILL *cs;
-	PC_SKILL *ps;
-	SKILL_DATA *sk;
+	class_t *cl;
+	cskill_t *cs;
+	pcskill_t *ps;
+	skill_t *sk;
 	int rating;
 
 	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
@@ -542,7 +542,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
+	ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg);
 	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't learn that.\n", ch);
 		return;
@@ -588,7 +588,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 
 	ch->practice--;
 
-	cs = class_skill_lookup(cl, sn);
+	cs = cskill_lookup(cl, sn);
 	rating = cs ? UMAX(cs->rating, 1) : 1;
 	ps->percent += int_app[get_curr_stat(ch,STAT_INT)].learn / rating;
 
@@ -619,7 +619,7 @@ void do_teach(CHAR_DATA *ch, const char *argument)
 
 const char *skill_name(int sn)
 {
-	SKILL_DATA *sk = varr_get(&skills, sn);
+	skill_t *sk = varr_get(&skills, sn);
 	if (sk)
 		return sk->name;
 	return "none";
@@ -629,16 +629,16 @@ const char *skill_name(int sn)
 int get_skill(CHAR_DATA *ch, int sn)
 {
 	int skill;
-	SKILL_DATA *sk;
+	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL
 	||  (IS_SET(sk->flags, SKILL_CLAN) && !clan_item_ok(ch->clan)))
 		return 0;
 
 	if (!IS_NPC(ch)) {
-		PC_SKILL *ps;
+		pcskill_t *ps;
 
-		if ((ps = pc_skill_lookup(ch, sn)) == NULL
+		if ((ps = pcskill_lookup(ch, sn)) == NULL
 		||  skill_level(ch, sn) > ch->level)
 			skill = 0;
 		else
@@ -765,7 +765,7 @@ void *skill_vlookup(varr *v, const char *name)
 		return NULL;
 
 	for (i = 0; i < v->nused; i++) {
-		SKILL_DATA *skill;
+		skill_t *skill;
 		int *psn = (int*) VARR_GET(v, i);
 
 		if ((skill = skill_lookup(*psn))
@@ -907,13 +907,13 @@ void say_spell(CHAR_DATA *ch, int sn)
 int skill_level(CHAR_DATA *ch, int sn)
 {
 	int slevel = LEVEL_IMMORTAL;
-	SKILL_DATA *sk;
-	CLAN_DATA *clan;
-	CLAN_SKILL *clan_skill;
-	CLASS_DATA *cl;
-	CLASS_SKILL *class_skill;
-	RACE_DATA *r;
-	RACE_SKILL *race_skill;
+	skill_t *sk;
+	clan_t *clan;
+	clskill_t *clan_skill;
+	class_t *cl;
+	cskill_t *class_skill;
+	race_t *r;
+	rskill_t *race_skill;
 
 /* noone can use ill-defined skills */
 /* broken chars can't use any skills */
@@ -925,16 +925,16 @@ int skill_level(CHAR_DATA *ch, int sn)
 		return slevel;
 
 	if ((clan = clan_lookup(ch->clan))
-	&&  (clan_skill = clan_skill_lookup(clan, sn)))
+	&&  (clan_skill = clskill_lookup(clan, sn)))
 		slevel = UMIN(slevel, clan_skill->level);
 
-	if ((class_skill = class_skill_lookup(cl, sn))) {
+	if ((class_skill = cskill_lookup(cl, sn))) {
 		slevel = UMIN(slevel, class_skill->level);
 		if (is_name(sk->name, r->pcdata->bonus_skills))
 			slevel = UMIN(slevel, 1);
 	}
 
-	if ((race_skill = race_skill_lookup(r, sn)))
+	if ((race_skill = rskill_lookup(r, sn)))
 		slevel = UMIN(slevel, race_skill->level);
 
 	return slevel;
@@ -945,7 +945,7 @@ int skill_level(CHAR_DATA *ch, int sn)
  */
 int mana_cost(CHAR_DATA *ch, int sn)
 {
-	SKILL_DATA *sk;
+	skill_t *sk;
 
 	if ((sk = skill_lookup(sn)) == NULL)
 		return 0;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.102 1999-04-15 09:14:17 fjoe Exp $
+ * $Id: act_quest.c,v 1.103 1999-04-16 15:52:20 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -48,13 +48,13 @@
 #define QUEST_VNUM_RING		95
 #define QUEST_VNUM_RUG		50
 #define QUEST_VNUM_SONG		40
-#define VNUM_CANTEEN		34402
+#define QUEST_VNUM_CANTEEN	34402
 
 #define TROUBLE_MAX 3
 
 static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...);
 static CHAR_DATA *questor_lookup(CHAR_DATA *ch);
-QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
+qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 static void quest_points(CHAR_DATA *ch, char *arg);
 static void quest_info(CHAR_DATA *ch, char *arg);
@@ -82,48 +82,37 @@ enum qitem_type {
 
 typedef struct qitem_data QITEM_DATA;
 struct qitem_data {
-	char	*name;
-	int	price;
-	int	class;
-	int	vnum;
-	bool	(*do_buy)(CHAR_DATA *ch, CHAR_DATA *questor);
+	char		*name;
+	int		price;
+	const char	*restrict_class;
+	int		vnum;
+	bool		(*do_buy)(CHAR_DATA *ch, CHAR_DATA *questor);
 };
 
 struct qitem_data qitem_table[] = {
-#ifdef 0
-	{ "the Girth of Real Heroism",	1000, CLASS_NONE,
-	   QUEST_VNUM_GIRTH, NULL				},
-
-	{ "the Ring of Real Heroism",	1000, CLASS_NONE,
-	   QUEST_VNUM_RING, NULL				},
-
-	{ "the Song of Real Hero",	1000, CLASS_NONE,
-	   QUEST_VNUM_SONG, NULL				},
-#endif
-
-	{ "small magic rug",		 750, CLASS_NONE,
+	{ "small magic rug",		 750, NULL,
 	   QUEST_VNUM_RUG, NULL					},
 
-	{ "50,000 gold pieces",		 500, CLASS_NONE,
+	{ "50,000 gold pieces",		 500, NULL,
 	   0, buy_gold						},
 
-	{ "60 practices",		 500, CLASS_NONE,
+	{ "60 practices",		 500, NULL,
 	   0, buy_prac						},
 
-	{ "tattoo of your religion",	 200, CLASS_NONE,
+	{ "tattoo of your religion",	 200, NULL,
 	   0, buy_tattoo					},
 
-	{ "Decrease number of deaths",	  50, CLASS_SAMURAI,
+	{ "Decrease number of deaths",	  50, "samurai",
 	   0, buy_death						},
 
-	{ "Katana quest",		 100, CLASS_SAMURAI,
+	{ "Katana quest",		 100, "samurai",
 	   0, buy_katana					},
 
-	{ "Vampire skill",		  50, CLASS_VAMPIRE,
+	{ "Vampire skill",		  50, "vampire",
 	   0, buy_vampire					},
 
-	{ "Bottomless canteen with cranberry juice", 350, CLASS_NONE,
-	   VNUM_CANTEEN, NULL					},
+	{ "Bottomless canteen with cranberry juice", 350, NULL,
+	   QUEST_VNUM_CANTEEN, NULL				},
 
 	{ NULL }
 };
@@ -134,9 +123,9 @@ struct qcmd_data {
 	int min_position;
 	int extra;
 };
-typedef struct qcmd_data QCMD_DATA;
+typedef struct qcmd_data Qcmd_t;
 
-QCMD_DATA qcmd_table[] = {
+Qcmd_t qcmd_table[] = {
 	{ "points",	quest_points,	POS_DEAD,	CMD_KEEP_HIDE},
 	{ "info",	quest_info,	POS_DEAD,	CMD_KEEP_HIDE},
 	{ "time",	quest_time,	POS_DEAD,	CMD_KEEP_HIDE},
@@ -155,7 +144,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	QCMD_DATA *qcmd;
+	Qcmd_t *qcmd;
 
 	argument = one_argument(argument, cmd, sizeof(cmd));
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -188,8 +177,9 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (IS_GOLEM(ch) && ch->master != NULL
-	&&  ch->master->class == CLASS_NECROMANCER)
+	if (IS_NPC(ch)
+	&&  IS_SET(ch->pIndexData->act, ACT_SUMMONED)
+	&&  ch->master != NULL)
 		ch = ch->master;
 
 	if (victim->hunter)
@@ -267,7 +257,7 @@ void quest_update(void)
 
 void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 {
-	QTROUBLE_DATA *qt;
+	qtrouble_t *qt;
 
 	if ((qt = qtrouble_lookup(ch, vnum)) != NULL)
 		qt->count = count;
@@ -323,9 +313,9 @@ static CHAR_DATA* questor_lookup(CHAR_DATA *ch)
 	return questor;
 }
 
-QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
+qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 {
-	QTROUBLE_DATA *qt;
+	qtrouble_t *qt;
 
 	for (qt = ch->pcdata->qtrouble; qt != NULL; qt = qt->next)
 		if (qt->vnum == vnum)
@@ -409,8 +399,10 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	QITEM_DATA *qitem;
+	class_t *cl;
 
-	if ((questor = questor_lookup(ch)) == NULL)
+	if ((questor = questor_lookup(ch)) == NULL
+	||  (cl = class_lookup(ch->class)) == NULL)
 		return;
 
 	act("$n asks $N for list of quest items.", ch, NULL, questor, TO_ROOM);
@@ -419,8 +411,8 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 
 	char_puts("Current Quest Items available for Purchase:\n", ch);
 	for (qitem = qitem_table; qitem->name; qitem++) {
-		if (qitem->class != CLASS_NONE
-		&&  qitem->class != ch->class)
+		if (qitem->restrict_class != NULL
+		&&  !is_name(cl->name, qitem->restrict_class))
 			continue;
 
 		if (arg[0] != '\0' && !is_name(arg, qitem->name))
@@ -436,8 +428,10 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	QITEM_DATA *qitem;
+	class_t *cl;
 
-	if ((questor = questor_lookup(ch)) == NULL)
+	if ((questor = questor_lookup(ch)) == NULL
+	||  (cl = class_lookup(ch->class)) == NULL)
 		return;
 
 	if (arg[0] == '\0') {
@@ -449,8 +443,8 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 		if (is_name(arg, qitem->name)) {
 			bool buy_ok = FALSE;
 
-			if (qitem->class != CLASS_NONE
-			&&  qitem->class != ch->class)
+			if (qitem->restrict_class != NULL
+			&&  !is_name(cl->name, qitem->restrict_class))
 				continue;
 
 			if (ch->pcdata->questpoints < qitem->price) {
@@ -719,8 +713,10 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	QITEM_DATA *qitem;
+	class_t *cl;
 
-	if ((questor = questor_lookup(ch)) == NULL)
+	if ((questor = questor_lookup(ch)) == NULL
+	||  (cl = class_lookup(ch->class)) == NULL)
 		return;
 
 	if (arg[0] == '\0') {
@@ -729,7 +725,8 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 	}
 
 	for (qitem = qitem_table; qitem->name; qitem++) {
-		if (qitem->class != CLASS_NONE && qitem->class != ch->class)
+		if (qitem->restrict_class != NULL
+		&&  !is_name(cl->name, qitem->restrict_class))
 			continue;
 
 		if (qitem->vnum && is_name(arg, qitem->name)) {
@@ -752,7 +749,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max)
 {
 	OBJ_DATA *reward;
-	QTROUBLE_DATA *qt;
+	qtrouble_t *qt;
 	OBJ_INDEX_DATA *pObjIndex = get_obj_index(item_vnum);
 
 	/*

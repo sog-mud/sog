@@ -23,66 +23,66 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.11 1999-04-15 12:22:59 fjoe Exp $
+ * $Id: tables.h,v 1.12 1999-04-16 15:52:22 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
 #define _TABLES_H_
 
 /* flag tables */
-extern FLAG	slang_table[];
-extern FLAG	size_table[];
-extern FLAG	act_flags[];
-extern FLAG	plr_flags[];
-extern FLAG	affect_flags[];
-extern FLAG	off_flags[];
-extern FLAG	imm_flags[];
-extern FLAG	form_flags[];
-extern FLAG	part_flags[];
-extern FLAG	comm_flags[];
-extern FLAG	clan_flags[];
-extern FLAG	area_flags[];
-extern FLAG	sex_table[];
-extern FLAG	gender_table[];
-extern FLAG	exit_flags[];
-extern FLAG	door_resets[];
-extern FLAG	room_flags[];
-extern FLAG	sector_types[];
-extern FLAG	item_types[];
-extern FLAG	extra_flags[];
-extern FLAG	wear_flags[];
-extern FLAG	apply_flags[];
-extern FLAG	rapply_flags[];
-extern FLAG	wear_loc_strings[];
-extern FLAG	wear_loc_flags[];
-extern FLAG	cont_flags[];
-extern FLAG	ac_type[];
-extern FLAG	weapon_class[];
-extern FLAG	weapon_type2[];
-extern FLAG	res_flags[];
-extern FLAG	vuln_flags[];
-extern FLAG	position_table[];
-extern FLAG	position_names[];
-extern FLAG	portal_flags[];
-extern FLAG	furniture_flags[];
-extern FLAG	apply_types[];
-extern FLAG	raffect_flags[];
-extern FLAG	skill_groups[];
-extern FLAG	mptrig_types[];
-extern FLAG	mptrig_flags[];
-extern FLAG	skill_targets[];
-extern FLAG	stat_names[];
-extern FLAG	skill_flags[];
-extern FLAG	class_flags[];
-extern FLAG	race_flags[];
-extern FLAG	lang_flags[];
-extern FLAG	ethos_table[];
-extern FLAG	ralign_names[];
-extern FLAG	align_names[];
-extern FLAG	rulecl_names[];
-extern FLAG	rulecl_flags[];
-extern FLAG	note_types[];
-extern FLAG	options_table[];
+extern flag_t	slang_table[];
+extern flag_t	size_table[];
+extern flag_t	act_flags[];
+extern flag_t	plr_flags[];
+extern flag_t	affect_flags[];
+extern flag_t	off_flags[];
+extern flag_t	imm_flags[];
+extern flag_t	form_flags[];
+extern flag_t	part_flags[];
+extern flag_t	comm_flags[];
+extern flag_t	clan_flags[];
+extern flag_t	area_flags[];
+extern flag_t	sex_table[];
+extern flag_t	gender_table[];
+extern flag_t	exit_flags[];
+extern flag_t	door_resets[];
+extern flag_t	room_flags[];
+extern flag_t	sector_types[];
+extern flag_t	item_types[];
+extern flag_t	extra_flags[];
+extern flag_t	wear_flags[];
+extern flag_t	apply_flags[];
+extern flag_t	rapply_flags[];
+extern flag_t	wear_loc_strings[];
+extern flag_t	wear_loc_flags[];
+extern flag_t	cont_flags[];
+extern flag_t	ac_type[];
+extern flag_t	weapon_class[];
+extern flag_t	weapon_type2[];
+extern flag_t	res_flags[];
+extern flag_t	vuln_flags[];
+extern flag_t	position_table[];
+extern flag_t	position_names[];
+extern flag_t	portal_flags[];
+extern flag_t	furniture_flags[];
+extern flag_t	apply_types[];
+extern flag_t	raffect_flags[];
+extern flag_t	skill_groups[];
+extern flag_t	mptrig_types[];
+extern flag_t	mptrig_flags[];
+extern flag_t	skill_targets[];
+extern flag_t	stat_names[];
+extern flag_t	skill_flags[];
+extern flag_t	class_flags[];
+extern flag_t	race_flags[];
+extern flag_t	lang_flags[];
+extern flag_t	ethos_table[];
+extern flag_t	ralign_names[];
+extern flag_t	align_names[];
+extern flag_t	rulecl_names[];
+extern flag_t	rulecl_flags[];
+extern flag_t	note_types[];
+extern flag_t	options_table[];
 
 #endif
 

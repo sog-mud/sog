@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.1 1998-10-17 16:21:47 fjoe Exp $
+ * $Id: cmd.h,v 1.2 1999-04-16 15:52:22 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -32,7 +32,7 @@
 /*
  * Structure for a command in the command lookup table.
  */
-struct cmd_data
+struct cmd_t
 {
 	char * const	name;
 	DO_FUN *	do_fun;
@@ -42,7 +42,7 @@ struct cmd_data
 	int		flags;
 };
 
-CMD_DATA *	cmd_lookup(const char *name);
+cmd_t *	cmd_lookup(const char *name);
 
 #endif
 

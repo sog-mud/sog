@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.42 1999-04-15 09:14:17 fjoe Exp $
+ * $Id: special.c,v 1.43 1999-04-16 15:52:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1141,11 +1141,15 @@ bool spec_assassinater(CHAR_DATA *ch)
 		return FALSE;
 
 	for (victim = ch->in_room->people; victim; victim = v_next) {
-		/* this should kill mobs as well as players */
+		class_t *vcl;
+
 		v_next = ch->next_in_room;
-		if ((victim->class != CLASS_THIEF)
-		&&  (victim->class != CLASS_NINJA))
-			break;
+
+		if (IS_NPC(ch)
+		||  (vcl = class_lookup(victim->class)) == NULL
+		||  !str_cmp(vcl->name, "thief")
+		||  !str_cmp(vcl->name, "ninja"))
+			continue;
 	}
 
 	if (victim == NULL || victim == ch || IS_IMMORTAL(victim))

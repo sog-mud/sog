@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.12 1999-03-26 20:04:44 kostik Exp $
+ * $Id: spellfn.c,v 1.13 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@
 #include "namedp.h"
 #include "spellfn.h"
 
-NAMEDP spellfn_table[] =
+namedp_t spellfn_table[] =
 {
 	{ "spell_acid_blast",		spell_acid_blast		},
 	{ "spell_armor",		spell_armor			},

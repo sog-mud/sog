@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.138 1999-04-15 09:14:13 fjoe Exp $
+ * $Id: act_wiz.c,v 1.139 1999-04-16 15:52:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,7 @@ DECLARE_DO_FUN(do_look	);
 DECLARE_DO_FUN(do_stand	);
 DECLARE_DO_FUN(do_help	);
 
-QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum);
+qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum);
 
 bool write_to_descriptor  (int desc, char *txt, int length);
 extern int rebooter;
@@ -305,7 +305,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 void do_outfit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	CLASS_DATA *cl = class_lookup(ch->class);
+	class_t *cl = class_lookup(ch->class);
 	int sn,vnum;
 
 	if ((ch->level > 5 && !IS_IMMORTAL(ch))
@@ -815,6 +815,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *rch;
+	CHAR_DATA *pet = NULL;
 
 	if (argument[0] == '\0') {
 		char_puts("Goto where?\n", ch);
@@ -866,6 +867,9 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 				act("$n leaves in a swirling mist.", ch, NULL,
 				    rch, TO_VICT);
 
+	if (ch->pet && ch->in_room == ch->pet->in_room)
+		pet = ch->pet;
+
 	char_from_room(ch);
 
 	for (rch = location->people; rch; rch = rch->next_in_room)
@@ -882,6 +886,13 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	if (JUST_KILLED(ch))
 		return;
 	do_look(ch, "auto");
+
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (ch->pet->position != POS_STANDING)
+			do_stand(pet, str_empty);
+		char_from_room(pet);
+		char_to_room(pet, location);
+	}
 }
 
 void do_violate(CHAR_DATA *ch, const char *argument)
@@ -1453,7 +1464,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		   );
 
 	if (!IS_NPC(victim)) {
-		QTROUBLE_DATA *qt;
+		qtrouble_t *qt;
 
 		if (IS_ON_QUEST(victim)) {
 			buf_printf(output,
@@ -3609,7 +3620,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		cl = cln_lookup(arg3);
+		cl = cn_lookup(arg3);
 		if (cl < 0) {
 			BUFFER *output;
 
@@ -3924,13 +3935,13 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if ((cn = cn_lookup(arg3)) < 0) {
+		if ((cn = cln_lookup(arg3)) < 0) {
 			char_puts("Incorrect clan name.\n", ch);
 			return;
 		}
 
 		if (cn != victim->clan) {
-			CLAN_DATA *clan;
+			clan_t *clan;
 
 			if (victim->clan
 			&&  (clan = clan_lookup(victim->clan))) {
@@ -4116,7 +4127,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	char *file_name;
 
 	CHAR_DATA *victim;
-	CLAN_DATA *clan;
+	clan_t *clan;
 		
 	argument = first_arg(argument, old_name, sizeof(old_name), FALSE); 
 		   first_arg(argument, new_name, sizeof(new_name), FALSE);
@@ -4275,7 +4286,7 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 	for (paf = victim->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
 		if (paf->duration >= 0) {
-			SKILL_DATA *sk;
+			skill_t *sk;
 
 			if ((sk = skill_lookup(paf->type))
 			&&  !IS_NULLSTR(sk->msg_off))
@@ -4438,7 +4449,7 @@ DO_FUN(do_strstat)
 
 DO_FUN(do_grant)
 {
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4510,7 +4521,7 @@ DO_FUN(do_grant)
 
 DO_FUN(do_disable)
 {
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 	char arg[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -4546,7 +4557,7 @@ DO_FUN(do_disable)
 
 DO_FUN(do_enable)
 {
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 	char arg[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));

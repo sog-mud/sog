@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.172 1999-04-15 12:58:46 fjoe Exp $
+ * $Id: comm.c,v 1.173 1999-04-16 15:52:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1543,8 +1543,8 @@ void advance(CHAR_DATA *victim, int level);
 
 static void print_hometown(CHAR_DATA *ch)
 {
-	RACE_DATA *r;
-	CLASS_DATA *cl;
+	race_t *r;
+	class_t *cl;
 	int htn;
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
@@ -1589,7 +1589,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	int nextquest = 0;
 	struct sockaddr_in sock;
 	int size;
-	RACE_DATA *r;
+	race_t *r;
 
 	while (isspace(*argument))
 		argument++;
@@ -1965,7 +1965,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    break;
 
 	case CON_GET_NEW_CLASS:
-	iClass = cln_lookup(argument);
+	iClass = cn_lookup(argument);
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_cmp(arg,"help"))
@@ -2593,15 +2593,15 @@ void log_area_popularity(void)
 
 bool class_ok(CHAR_DATA *ch, int class)
 {
-	RACE_DATA *r;
-	CLASS_DATA *cl;
+	race_t *r;
+	class_t *cl;
 
 	if ((cl = class_lookup(class)) == NULL
 	||  (r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->pcdata)
 		return FALSE;
 
-	if (race_class_lookup(r, cl->name) == NULL
+	if (rclass_lookup(r, cl->name) == NULL
 	||  (cl->restrict_sex >= 0 && cl->restrict_sex != ch->sex))
 		return FALSE;
 
@@ -2611,7 +2611,7 @@ bool class_ok(CHAR_DATA *ch, int class)
 int align_restrict(CHAR_DATA *ch)
 {
 	DESCRIPTOR_DATA *d = ch->desc;
-	RACE_DATA *r;
+	race_t *r;
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->pcdata)
@@ -2644,10 +2644,16 @@ int align_restrict(CHAR_DATA *ch)
 int ethos_check(CHAR_DATA *ch)
 {
 	DESCRIPTOR_DATA *d = ch->desc;
+	class_t *cl;
 
-	if (ch->class == CLASS_PALADIN) {
-		write_to_buffer(d, "You are Lawful.\n\r", 0);
-		return 1;
+	if ((cl = class_lookup(ch->class))) {
+		/*
+		 * temporary workaround for paladins
+		 */
+		if (IS_SET(cl->restrict_ethos, ETHOS_LAWFUL)) {
+			write_to_buffer(d, "You are Lawful.\n\r", 0);
+			return 1;
+		}
 	}
 	return 0;
 }

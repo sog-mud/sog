@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.38 1999-03-11 11:58:08 fjoe Exp $
+ * $Id: olc.h,v 1.39 1999-04-16 15:52:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,7 +146,7 @@ bool olced_dice		(CHAR_DATA *ch, const char *argument,
 bool olced_clan		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *clan);
 bool olced_rulecl	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, LANG_DATA *l);
+			 olc_cmd_t *cmd, lang_t *l);
 bool olced_vform_add	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, rule_t *r);
 bool olced_vform_del	(CHAR_DATA *ch, const char *argument,
@@ -162,7 +162,7 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch);
 
 bool	touch_area	(AREA_DATA*);
 bool	touch_vnum	(int vnum);
-bool	touch_clan	(CLAN_DATA *clan);
+bool	touch_clan	(clan_t *clan);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 olced_t *	olced_lookup	(const char * id);

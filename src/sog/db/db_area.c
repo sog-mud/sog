@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.34 1999-03-16 11:06:37 fjoe Exp $
+ * $Id: db_area.c,v 1.35 1999-04-16 15:52:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,7 +85,7 @@ DBFUN dbfun_areas[] = {
 	{ "SPECIALS",		load_specials	},
 	{ "PRACTICERS",		load_practicers	},
 	{ "RESETMESSAGE",	load_resetmsg	},
-	{ "FLAG",		load_aflag	},
+	{ "flag_t",		load_aflag	},
 	{ NULL }
 };
 
@@ -357,7 +357,7 @@ DBLOAD_FUN(load_old_mob)
 		one_argument(pMobIndex->name, name, sizeof(name));
  
 		if (name[0] == '\0' || (race =  rn_lookup(name)) == 0) {
-			RACE_DATA *r;
+			race_t *r;
 
 			/* fill in with blanks */
 			pMobIndex->race = rn_lookup("human");
@@ -375,7 +375,7 @@ DBLOAD_FUN(load_old_mob)
 				PART_HEART | PART_BRAINS | PART_GUTS;
 		}
 		else {
-			RACE_DATA *r = RACE(race);
+			race_t *r = RACE(race);
 
 			pMobIndex->race = race;
 			pMobIndex->affected_by = 
@@ -403,7 +403,6 @@ DBLOAD_FUN(load_old_mob)
 							/* OLC */
 		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
 		vnum_check(area_current, vnum);			/* OLC */
-		kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
 	}
 }
 
@@ -1125,7 +1124,7 @@ DBLOAD_FUN(load_mobiles)
     }
 
     for (; ;) {
-	RACE_DATA *r;
+	race_t *r;
         int vnum;
         char letter;
         int iHash;
@@ -1318,7 +1317,6 @@ DBLOAD_FUN(load_mobiles)
         top_mob_index++;
         top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
         vnum_check(area_current, vnum);                            /* OLC */
-        kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
     }
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.15 1999-04-15 06:51:05 fjoe Exp $
+ * $Id: class.h,v 1.16 1999-04-16 15:52:16 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -32,13 +32,14 @@
 /*--------------------------------------------------------------------
  * class stuff
  */
-struct class_skill {
+struct cskill_t {
 	int 	sn;		/* skill number */
 	int 	level;		/* level needed by class */
 	int 	rating;		/* how hard it is to learn */
+	int	mod;		/* damage or chance modifier (in %) */
 };
 
-struct class_data {
+struct class_t {
 	const char *	name;		/* full name */
 	const char *	file_name;
 	char		who_name[4];	/* three-letter name for 'who' */
@@ -73,17 +74,17 @@ struct pose_t {
 
 extern varr classes;
 
-#define CLASS(i)		((CLASS_DATA*) VARR_GET(&classes, i))
-#define class_lookup(i)		((CLASS_DATA*) varr_get(&classes, i))
-#define class_skill_lookup(class, sn) \
-	((CLASS_SKILL*) varr_bsearch(&class->skills, &sn, cmpint))
+#define CLASS(i)		((class_t*) VARR_GET(&classes, i))
+#define class_lookup(i)		((class_t*) varr_get(&classes, i))
+#define cskill_lookup(class, sn) \
+	((cskill_t*) varr_bsearch(&class->skills, &sn, cmpint))
 
-CLASS_DATA *	class_new(void);
-void		class_free(CLASS_DATA*);
+class_t *	class_new(void);
+void		class_free(class_t*);
 const char *	class_name(CHAR_DATA *ch);
 const char *	class_who_name(CHAR_DATA *ch);
 
-int		cln_lookup(const char *name);
+int		cn_lookup(const char *name);
 const char *	title_lookup(CHAR_DATA *ch);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.97 1999-04-15 09:14:16 fjoe Exp $
+ * $Id: spellfun2.c,v 1.98 1999-04-16 15:52:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -240,7 +240,6 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (IS_NPC(victim)) {
 		victim->pIndexData->killed++;
-		kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
 		extract_char(victim, 0);
 		return;
 	}
@@ -1119,7 +1118,7 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 
 	for (i = 0; i < ch->pcdata->learned.nused; i++) {
-		PC_SKILL *ps = VARR_GET(&ch->pcdata->learned, i);
+		pcskill_t *ps = VARR_GET(&ch->pcdata->learned, i);
 		ps->percent /= 2;
 	}
 
@@ -3243,7 +3242,7 @@ void spell_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
-	CLASS_DATA *vcl;
+	class_t *vcl;
 
 	if ((vcl = class_lookup(victim->class))
 	&&  !CAN_FLEE(victim, vcl)) {
@@ -4489,7 +4488,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	AFFECT_DATA af;
 	int race;
-	RACE_DATA *r;
+	race_t *r;
 
 	if (is_affected(ch, sn)) {
 		char_puts("You are already polymorphed.\n",ch); 

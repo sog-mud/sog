@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.20 1999-04-15 10:28:19 fjoe Exp $
+ * $Id: typedef.h,v 1.21 1999-04-16 15:52:22 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -53,7 +53,6 @@ typedef struct descriptor_data	 	DESCRIPTOR_DATA;
 typedef struct exit_data		EXIT_DATA;
 typedef struct ed_data			ED_DATA;
 typedef struct help_data		HELP_DATA;
-typedef struct kill_data		KILL_DATA;
 typedef struct mob_index_data		MOB_INDEX_DATA;
 typedef struct obj_data			OBJ_DATA;
 typedef struct obj_index_data		OBJ_INDEX_DATA;
@@ -66,23 +65,26 @@ typedef struct weather_data		WEATHER_DATA;
 typedef struct room_history_data	ROOM_HISTORY_DATA;
 typedef struct mptrig			MPTRIG;
 typedef struct mpcode			MPCODE;
-typedef struct qtrouble_data		QTROUBLE_DATA;
-typedef struct flag			FLAG; 
-typedef struct class_skill		CLASS_SKILL;
-typedef struct clan_skill		CLAN_SKILL;
-typedef struct pc_skill			PC_SKILL;
-typedef struct clan_data		CLAN_DATA;
-typedef struct where_data		WHERE_DATA;
-typedef struct class_data		CLASS_DATA;
-typedef struct skill_data		SKILL_DATA;
-typedef struct namedp			NAMEDP;
-typedef struct lang_data		LANG_DATA;
-typedef struct cmd_data			CMD_DATA;
-typedef struct race_data		RACE_DATA;
-typedef struct race_pcdata		RACE_PCDATA;
-typedef struct race_class_data		RACE_CLASS_DATA;
-typedef struct race_skill		RACE_SKILL;
+typedef struct qtrouble_t		qtrouble_t;
+typedef struct flag_t			flag_t; 
 typedef struct mlstring			mlstring;
+
+typedef struct class_t			class_t;
+typedef struct race_t			race_t;
+typedef struct clan_t			clan_t;
+typedef struct pcrace_t			pcrace_t;
+typedef struct rclass_t			rclass_t;
+
+typedef struct skill_t			skill_t;
+typedef struct cskill_t			cskill_t;
+typedef struct rskill_t			rskill_t;
+typedef struct clskill_t		clskill_t;
+typedef struct pcskill_t		pcskill_t;
+
+typedef struct where_t			where_t;
+typedef struct namedp_t			namedp_t;
+typedef struct lang_t			lang_t;
+typedef struct cmd_t			cmd_t;
 typedef struct pose_t			pose_t;
 typedef struct rulecl_t			rulecl_t;
 typedef struct olced_t 			olced_t;	

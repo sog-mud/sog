@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.45 1999-04-15 09:14:19 fjoe Exp $
+ * $Id: olc_room.c,v 1.46 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -194,7 +194,7 @@ OLC_FUN(roomed_show)
 	CHAR_DATA	*rch;
 	int		door;
 	bool		fcnt;
-	CLAN_DATA	*clan;
+	clan_t	*clan;
 	
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {

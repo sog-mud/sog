@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.3 1999-02-15 18:19:39 fjoe Exp $
+ * $Id: flag.h,v 1.4 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -14,27 +14,27 @@
  *                                                                         *
  ***************************************************************************/
 
-#ifndef _FLAG_H_
-#define _FLAG_H_
+#ifndef _flag_t_H_
+#define _flag_t_H_
 
 enum {
 	TABLE_BITVAL,	/* table contains bit values		*/
 	TABLE_INTVAL	/* table contains integer values	*/
 };
 
-struct flag
+struct flag_t
 {
 	const char *	name;
 	flag64_t	bit;
 	bool		settable;
 };
 
-const FLAG *	flag_lookup	(const FLAG *flag64_table, const char* name);
-flag64_t	flag_value	(const FLAG *flag64_table, const char *argument);
-const char *	flag_string	(const FLAG *flag64_table, flag64_t bits);
+const flag_t *	flag_lookup	(const flag_t *flag64_table, const char* name);
+flag64_t	flag_value	(const flag_t *flag64_table, const char *argument);
+const char *	flag_string	(const flag_t *flag64_table, flag64_t bits);
 
-void show_flags_buf(BUFFER *output, const FLAG *flag64_table);
-void show_flags(CHAR_DATA *ch, const FLAG *flag64_table);
+void show_flags_buf(BUFFER *output, const flag_t *flag64_table);
+void show_flags(CHAR_DATA *ch, const flag_t *flag64_table);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namedp.c,v 1.4 1998-10-06 19:09:01 fjoe Exp $
+ * $Id: namedp.c,v 1.5 1999-04-16 15:52:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include "str.h"
 #include "log.h"
 
-NAMEDP *namedp_lookup(NAMEDP *table, const char *name)
+namedp_t *namedp_lookup(namedp_t *table, const char *name)
 {
 	for (; table->name; table++)
 		if (!str_cmp(table->name, name))
@@ -42,7 +42,7 @@ NAMEDP *namedp_lookup(NAMEDP *table, const char *name)
 	return NULL;
 }
 
-const char *namedp_name(const NAMEDP *table, void *p)
+const char *namedp_name(const namedp_t *table, void *p)
 {
 	for (; table->name; table++)
 		if (table->p == p)
@@ -50,7 +50,7 @@ const char *namedp_name(const NAMEDP *table, void *p)
 	return NULL;
 }
 
-void namedp_check(const NAMEDP *np)
+void namedp_check(const namedp_t *np)
 {
 	for (; np->name; np++)
 		if (!np->touched) 

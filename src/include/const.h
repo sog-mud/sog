@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.28 1999-03-19 18:55:23 fjoe Exp $
+ * $Id: const.h,v 1.29 1999-04-16 15:52:16 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -108,6 +108,28 @@
 #define AREASTAT_FILE	"areastat.txt"
 #define IMMLOG_FILE	"immortals.log"
 
+/* align numbers */
+enum {
+	ANUM_GOOD,
+	ANUM_NEUTRAL,
+	ANUM_EVIL,
+
+	MAX_ANUM
+};
+
+enum {
+	STAT_STR,
+	STAT_INT,
+	STAT_WIS,
+	STAT_DEX,
+	STAT_CON,
+	STAT_CHA,
+
+	MAX_STAT			/* number of char stats */
+};
+
+#define MAX_STATS	MAX_STAT	/* ROM compatibility */
+
 /*
  * String and memory management parameters.
  */
@@ -128,11 +150,10 @@
  * Game parameters.
  */
 #define MAX_RELIGION		18
-#define PK_MIN_LEVEL		10	/* min PK level */
+#define MIN_PK_LEVEL		10	/* min PK level */
 #define MAX_NEWBIES		120	/* number of newbies allowed */
 #define MAX_OLDIES		999	/* number of newbies allowed */
 #define MAX_TRADE		5	/* number of trade types for shops */
-#define MAX_STATS		6	/* number of char stats */
 #define MAX_COND		6	/* number of char condition stats */
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */

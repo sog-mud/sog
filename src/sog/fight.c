@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.159 1999-04-16 09:55:09 fjoe Exp $
+ * $Id: fight.c,v 1.160 1999-04-16 15:52:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -674,7 +674,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 			thac0_32 = 6;
 	}
 	else {
-		CLASS_DATA *cl;
+		class_t *cl;
 
 		if ((cl = class_lookup(ch->class)) == NULL)
 			return;
@@ -816,11 +816,16 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	 */
 	if ((sk2 = get_skill(ch, gsn_enhanced_damage))
 	&&  (diceroll = number_percent()) <= sk2) {
-		int div;
+		class_t *cl;
+		cskill_t *csk;
+		int mul = 100;
+
 		check_improve(ch, gsn_enhanced_damage, TRUE, 6);
-		div = (ch->class == CLASS_WARRIOR) ?
-		      100 : (ch->class == CLASS_CLERIC) ? 130 : 114;
-		dam += dam * diceroll/div;
+
+		if ((cl = class_lookup(ch->class)) != NULL
+		&&  (csk = cskill_lookup(cl, gsn_enhanced_damage)))
+			mul = csk->mod;
+		dam += dam * mul / 100;
 	}
 
 	if (sn == gsn_sword
@@ -1111,7 +1116,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) 
 		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	group_gain(ch, victim);
 
@@ -1570,17 +1575,21 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (IS_NPC(victim))
 		chance	= UMIN(35, victim->level);
 	else {
+		class_t *vcl;
+		cskill_t *vcsk;
+
 		if (get_eq_char(victim, WEAR_WIELD) == NULL)
 			return FALSE;
+
 		chance = get_skill(victim, gsn_parry) / 2;
-		if (victim->class == CLASS_WARRIOR
-		||  victim->class == CLASS_SAMURAI)
-			chance *= 1.2;
+		if ((vcl = class_lookup(victim->class)) != NULL
+		&&  (vcsk = cskill_lookup(vcl, gsn_parry))) 
+			chance = chance * vcsk->mod / 100;
 	}
 
 	if (check_forest(victim) == FOREST_DEFENCE
 	 && (number_percent() < get_skill(victim, gsn_forest_fighting))) {
-		chance *= 1.2;
+		chance = chance * 120 / 100;
 		check_improve (victim, gsn_forest_fighting, TRUE, 7);
 	}
 
@@ -1686,10 +1695,16 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (IS_NPC(victim))
 		chance = 10;
 	else {
-		if (get_skill(victim,gsn_shield_block) <= 1)
+		class_t *vcl;
+		cskill_t *vcsk;
+
+		if (get_skill(victim, gsn_shield_block) <= 1)
 			return FALSE;
-		chance = get_skill(victim,gsn_shield_block) / 2;
-		chance -= (victim->class == CLASS_WARRIOR) ? 0 : 10;
+		chance = get_skill(victim, gsn_shield_block) / 2;
+
+		if ((vcl = class_lookup(victim->class)) != NULL
+		&&  (vcsk = cskill_lookup(vcl, gsn_shield_block))) 
+			chance = chance * vcsk->mod / 100;
 	}	
 
 	if (check_forest(victim) == FOREST_DEFENCE 
@@ -1760,13 +1775,16 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
-		chance  = get_skill(victim,gsn_dodge) / 2;
+		class_t *vcl;
+		cskill_t *vcsk;
+
+		chance  = get_skill(victim, gsn_dodge) / 2;
 		/* chance for high dex. */
 		chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
-		if (victim->class == CLASS_WARRIOR || victim->class == CLASS_SAMURAI)
-		    chance *= 1.2;
-		if (victim->class == CLASS_THIEF || victim->class ==CLASS_NINJA)
-		    chance *= 1.1;
+
+		if ((vcl = class_lookup(ch->class)) != NULL
+		&&  (vcsk = cskill_lookup(vcl, gsn_dodge))) 
+			chance = chance * vcsk->mod / 100;
 	}
 	
 	if (check_forest(victim) == FOREST_DEFENCE 
@@ -2125,7 +2143,6 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 
 	if (IS_NPC(victim)) {
 		victim->pIndexData->killed++;
-		kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
 		extract_char(victim, 0);
 		return;
 	}
@@ -2210,15 +2227,14 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	group_levels = 0;
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
 		if (is_same_group(gch, ch)) {
-			if (IS_NPC(gch)
-			&&  (gch->pIndexData->vnum == MOB_VNUM_LESSER_GOLEM ||
-			     gch->pIndexData->vnum == MOB_VNUM_STONE_GOLEM ||
-			     gch->pIndexData->vnum == MOB_VNUM_IRON_GOLEM ||
-			     gch->pIndexData->vnum == MOB_VNUM_ADAMANTITE_GOLEM))
-				continue;
-			if (!IS_NPC(gch)
-			&&  abs(gch->level - lch->level) <= 8)
-				members++;
+			if (IS_NPC(gch)) {
+				if (IS_SET(gch->pIndexData->act, ACT_SUMMONED))
+					continue;
+			}
+			else {
+				if (abs(gch->level - lch->level) <= 8)
+					members++;
+			}
 			group_levels += gch->level;
 		}
 	}
@@ -2238,8 +2254,10 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 
 		xp = xp_compute(gch, victim, group_levels, members);
-		char_printf(gch, "You receive %d experience points.\n", xp);
-		gain_exp(gch, xp);
+		if (gch->level < LEVEL_HERO) {
+			char_printf(gch, "You receive %d experience points.\n", xp);
+			gain_exp(gch, xp);
+		}
 	}
 }
 
@@ -2548,7 +2566,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		}
 	}
 	else {
-		SKILL_DATA *sk;
+		skill_t *sk;
 
 /* XXX */
 #define MAX_DAMAGE_MESSAGE 40
@@ -2758,7 +2776,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *victim;
 	int attempt;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if (RIDDEN(ch)) {
 		char_puts("You should ask to your rider!\n", ch);
@@ -2889,15 +2907,16 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
+		class_t *vcl;
+		cskill_t *vcsk;
+
 		chance  = get_skill(victim, gsn_dodge) / 2;
 		/* chance for high dex. */
 		chance += 2 * (get_curr_stat(victim, STAT_DEX) - 20);
-		if (victim->class == CLASS_WARRIOR
-		||  victim->class == CLASS_SAMURAI)
-			chance *= 1.2;
-		if (victim->class == CLASS_THIEF
-		||  victim->class ==CLASS_NINJA)
-			chance *= 1.1;
+
+		if ((vcl = class_lookup(ch->class)) != NULL
+		&&  (vcsk = cskill_lookup(vcl, gsn_dodge))) 
+			chance = chance * vcsk->mod / 100;
 	}
 
 	chance -= (bonus - 90);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.8 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: quest.h,v 1.9 1999-04-16 15:52:21 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
@@ -35,10 +35,10 @@
 #define QUEST_OBJ_FIRST 84
 #define QUEST_OBJ_LAST  87
 
-struct qtrouble_data {
+struct qtrouble_t {
 	int vnum;
 	int count;
-	QTROUBLE_DATA *next;
+	qtrouble_t *next;
 };
 
 #define IS_ON_QUEST(ch)	(ch->pcdata->questtime > 0)

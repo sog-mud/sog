@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.38 1999-03-19 18:55:34 fjoe Exp $
+ * $Id: db.h,v 1.39 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -131,9 +131,9 @@ int		fread_number	(FILE *fp);
 flag64_t 	fread_flags	(FILE *fp);
 void		fread_to_eol	(FILE *fp);
 char *		fread_word	(FILE *fp);
-flag64_t	fread_fword	(const FLAG *table, FILE *fp); 
-flag64_t	fread_fstring	(const FLAG *table, FILE *fp);
-void *		fread_namedp	(NAMEDP *table, FILE *fp);
+flag64_t	fread_fword	(const flag_t *table, FILE *fp); 
+flag64_t	fread_fstring	(const flag_t *table, FILE *fp);
+void *		fread_namedp	(namedp_t *table, FILE *fp);
 int		fread_clan	(FILE *fp);
 
 extern char	filename	[PATH_MAX];

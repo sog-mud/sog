@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.130 1999-04-16 09:44:09 fjoe Exp $
+ * $Id: db.c,v 1.131 1999-04-16 15:52:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,7 +104,6 @@ SHOP_DATA *		shop_last;
 
 CHAR_DATA *		char_list;
 CHAR_DATA *		char_list_lastpc;
-KILL_DATA		kill_table	[MAX_LEVEL];
 
 OBJ_DATA *		object_list;
 TIME_INFO_DATA		time_info;
@@ -619,8 +618,8 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
         OBJ_INDEX_DATA  *pObjToIndex;
         ROOM_INDEX_DATA *pRoomIndex;
 	int count,limit=0;
-	int cn;
-	CLAN_DATA* clan=NULL;
+	int cln;
+	clan_t* clan=NULL;
         EXIT_DATA *pExit;
         int d0;
         int d1;
@@ -757,14 +756,14 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 		        break;
 		      }
 	    if (IS_SET(pObjIndex->extra_flags, ITEM_CLAN)) {
-		for (cn=0; cn < clans.nused; cn++) 
-			if(pObjIndex->vnum == clan_lookup(cn)->obj_vnum)
-				clan=clan_lookup(cn);
+		for (cln = 0; cln < clans.nused; cln++) 
+			if(pObjIndex->vnum == clan_lookup(cln)->obj_vnum)
+				clan = clan_lookup(cln);
 		if (clan != NULL && clan->obj_ptr == NULL) {
 			pObj = create_obj(pObjIndex, 0);
 			clan->obj_ptr = pObj;
 			clan->altar_ptr = LastObj;
-			obj_to_obj(pObj,LastObj);
+			obj_to_obj(pObj, LastObj);
 		}
 		continue;
 	    }
@@ -924,7 +923,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
 	mob->description	= mlstr_dup(pMobIndex->description);
 	mob->spec_fun		= pMobIndex->spec_fun;
-	mob->class		= CLASS_CLERIC;
+	mob->class		= 0;
 
 	if (pMobIndex->wealth) {
 		long wealth;
@@ -2316,7 +2315,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
 /*
  * read flag word (not f-word :)
  */
-flag64_t fread_fword(const FLAG *table, FILE *fp)
+flag64_t fread_fword(const flag_t *table, FILE *fp)
 {
 	char *name = fread_word(fp);
 
@@ -2326,7 +2325,7 @@ flag64_t fread_fword(const FLAG *table, FILE *fp)
 	return flag_value(table, name);
 }
 
-flag64_t fread_fstring(const FLAG *table, FILE *fp)
+flag64_t fread_fstring(const flag_t *table, FILE *fp)
 {
 	const char *s = fread_string(fp);
 	flag64_t val;
@@ -2340,10 +2339,10 @@ flag64_t fread_fstring(const FLAG *table, FILE *fp)
 	return val;
 }
 
-void *fread_namedp(NAMEDP *table, FILE *fp)
+void *fread_namedp(namedp_t *table, FILE *fp)
 {
 	char *name = fread_word(fp);
-	NAMEDP *np = namedp_lookup(table, name);
+	namedp_t *np = namedp_lookup(table, name);
 
 	if (np == NULL)
 		db_error("fread_namedp", "%s: unknown named pointer", name);
@@ -2354,16 +2353,16 @@ void *fread_namedp(NAMEDP *table, FILE *fp)
 
 int fread_clan(FILE *fp)
 {
-	int cn;
+	int cln;
 	const char *name;
 
 	name = fread_string(fp);
-	cn = cn_lookup(name);
-	if (cn < 0) {
+	cln = cln_lookup(name);
+	if (cln < 0) {
 		db_error("fread_clan", "%s: unknown clan", name);
-		cn = 0;
+		cln = 0;
 	}
 	free_string(name);
-	return cn;
+	return cln;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.141 1999-04-15 09:44:52 fjoe Exp $
+ * $Id: spellfun.c,v 1.142 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,8 +138,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	bool offensive = FALSE;
 	int slevel;
 	int chance = 0;
-	SKILL_DATA *spell;
-	CLASS_DATA *cl;
+	skill_t *spell;
+	class_t *cl;
 
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */
@@ -182,8 +182,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		sn = sn_lookup(arg1);
 	}
 	else {
-		PC_SKILL *ps;
-		ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg1);
+		pcskill_t *ps;
+		ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg1);
 		if (ps)
 			sn = ps->sn;
 	}
@@ -525,7 +525,7 @@ void obj_cast_spell(int sn, int level,
 {
 	void *vo = NULL;
 	int target = TARGET_NONE;
-	SKILL_DATA *spell;
+	skill_t *spell;
 	CHAR_DATA *bch = NULL;
 	int bane_chance = 100;
 	int bane_damage = 0;
@@ -4403,7 +4403,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	ROOM_INDEX_DATA *location;
-	CLASS_DATA *vcl;
+	class_t *vcl;
 	CHAR_DATA *pet;
 
 	if (IS_NPC(victim))

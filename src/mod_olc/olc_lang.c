@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.14 1999-03-11 11:58:08 fjoe Exp $
+ * $Id: olc_lang.c,v 1.15 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,7 +33,7 @@
 #include "olc.h"
 #include "db/lang.h"
 
-#define EDIT_LANG(ch, l)	(l = (LANG_DATA*) (ch->desc->pEdit))
+#define EDIT_LANG(ch, l)	(l = (lang_t*) (ch->desc->pEdit))
 
 DECLARE_OLC_FUN(langed_create	);
 DECLARE_OLC_FUN(langed_edit	);
@@ -69,7 +69,7 @@ olc_cmd_t olc_cmds_lang[] =
 
 OLC_FUN(langed_create)
 {
-	LANG_DATA *l;
+	lang_t *l;
 	char arg[MAX_INPUT_LENGTH];
 
 	if (ch->pcdata->security < 9) {
@@ -126,7 +126,7 @@ OLC_FUN(langed_edit)
 
 OLC_FUN(langed_touch)
 {
-	LANG_DATA *l;
+	lang_t *l;
 	EDIT_LANG(ch, l);
 	SET_BIT(l->flags, LANG_CHANGED);
 	return FALSE;
@@ -136,8 +136,8 @@ OLC_FUN(langed_show)
 {
 	int i;
 	char arg[MAX_INPUT_LENGTH];
-	LANG_DATA *l;
-	LANG_DATA *sl;
+	lang_t *l;
+	lang_t *sl;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -193,7 +193,7 @@ OLC_FUN(langed_list)
 	int lang;
 
 	for (lang = 0; lang < langs.nused; lang++) {
-		LANG_DATA *l = VARR_GET(&langs, lang);
+		lang_t *l = VARR_GET(&langs, lang);
 		char_printf(ch, "[%d] %s\n", lang, l->name);
 	}
 
@@ -202,7 +202,7 @@ OLC_FUN(langed_list)
 
 OLC_FUN(langed_name)
 {
-	LANG_DATA *l;
+	lang_t *l;
 
 	if (ch->pcdata->security < 9) {
 		char_puts("LangEd: Insufficient security", ch);
@@ -215,7 +215,7 @@ OLC_FUN(langed_name)
 
 OLC_FUN(langed_flags)
 {
-	LANG_DATA *l;
+	lang_t *l;
 	EDIT_LANG(ch, l);
 	return olced_flag32(ch, argument, cmd, &l->flags);
 }
@@ -223,7 +223,7 @@ OLC_FUN(langed_flags)
 OLC_FUN(langed_slangof)
 {
 	char arg[MAX_STRING_LENGTH];
-	LANG_DATA *l;
+	lang_t *l;
 	int lang;
 
 	one_argument(argument, arg, sizeof(arg));
@@ -244,14 +244,14 @@ OLC_FUN(langed_slangof)
 
 OLC_FUN(langed_filename)
 {
-	LANG_DATA *l;
+	lang_t *l;
 	EDIT_LANG(ch, l);
 	return olced_str(ch, argument, cmd, &l->file_name);
 }
 
 OLC_FUN(langed_rulecl)
 {
-	LANG_DATA *l;
+	lang_t *l;
 	EDIT_LANG(ch, l);
 	return olced_rulecl(ch, argument, cmd, l);
 }
@@ -268,7 +268,7 @@ VALIDATE_FUN(validate_langname)
 	return TRUE;
 }
 
-bool touch_lang(LANG_DATA *l)
+bool touch_lang(lang_t *l)
 {
 	return FALSE;
 }

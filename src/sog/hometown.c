@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.2 1999-03-11 09:04:33 fjoe Exp $
+ * $Id: hometown.c,v 1.3 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -60,8 +60,8 @@ const char* hometown_name(int htn)
 
 bool hometown_restrict(hometown_t *h, CHAR_DATA *ch)
 {
-	RACE_DATA *r;
-	CLASS_DATA *cl;
+	race_t *r;
+	class_t *cl;
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->pcdata

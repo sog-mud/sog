@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.13 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: db_lang.c,v 1.14 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -75,7 +75,7 @@ DBINIT_FUN(init_lang)
 
 DBLOAD_FUN(load_lang)
 {
-	LANG_DATA *lang = lang_new();
+	lang_t *lang = lang_new();
 	lang->file_name = get_filename(filename);
 	db_set_arg(dbdata, "RULECLASS", lang);
 
@@ -114,7 +114,7 @@ DBLOAD_FUN(load_lang)
 
 DBLOAD_FUN(load_rulecl)
 {
-	LANG_DATA *l = arg;
+	lang_t *l = arg;
 	char *word;
 	rulecl_t *rcl = NULL;
 

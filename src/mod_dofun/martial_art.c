@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.82 1999-04-16 09:55:10 fjoe Exp $
+ * $Id: martial_art.c,v 1.83 1999-04-16 15:52:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1007,8 +1007,8 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_kick)->beats);
 	if (IS_NPC(ch) || number_percent() < chance) {
 		kick_dam = number_range(1, LEVEL(ch));
-		if ((ch->class == CLASS_SAMURAI)
-		&& (get_eq_char(ch, WEAR_FEET) == NULL))
+		if (HAS_SKILL(ch, gsn_katana)
+		&&  (get_eq_char(ch, WEAR_FEET) == NULL)) 
 			kick_dam *= 2;
 		kick_dam += ch->damroll / 2;
 		damage(ch, victim, kick_dam, gsn_kick, DAM_BASH, TRUE);
@@ -1849,11 +1849,11 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	int mana;
-	PC_SKILL* ps;
+	pcskill_t* ps;
 	
 	if (IS_NPC(ch)) 
 		return;
-	if ((ps = pc_skill_lookup(ch, gsn_resistance)) == NULL
+	if ((ps = pcskill_lookup(ch, gsn_resistance)) == NULL
 	||  skill_level(ch, gsn_resistance) > ch->level)
 		chance = 0;
 	else

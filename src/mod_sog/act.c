@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.17 1999-03-08 13:56:06 fjoe Exp $
+ * $Id: act.c,v 1.18 1999-04-16 15:52:22 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -92,7 +92,7 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 {
 	static char trans[MAX_STRING_LENGTH];
 	char *o;
-	RACE_DATA *r;
+	race_t *r;
 
 	if (*i == '\0'
 	||  (ch == NULL) || (victim == NULL)

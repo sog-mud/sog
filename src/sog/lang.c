@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.9 1999-03-11 11:58:06 fjoe Exp $
+ * $Id: lang.c,v 1.10 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <string.h>
@@ -40,7 +40,7 @@
  */
 
 static const char*
-word_form_lookup(LANG_DATA *l, rulecl_t *rcl, const char *word, int fnum)
+word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 {
 	rule_t *rule;
 	char **p;
@@ -128,7 +128,7 @@ word_form_lookup(LANG_DATA *l, rulecl_t *rcl, const char *word, int fnum)
 
 const char *word_form(const char *word, int fnum, int lang, int rulecl)
 {
-	LANG_DATA *l;
+	lang_t *l;
 
 	if ((rulecl < 0 || rulecl >= MAX_RULECL)
 	||  (l = varr_get(&langs, lang)) == NULL)
@@ -325,7 +325,7 @@ rule_t *erule_lookup(rulecl_t *rcl, const char *name)
 /*----------------------------------------------------------------------------
  * rulecl_t functions
  */
-static void rulecl_init(LANG_DATA *l, int rulecl)
+static void rulecl_init(lang_t *l, int rulecl)
 {
 	int i;
 	rulecl_t *rcl = l->rules + rulecl;
@@ -340,14 +340,14 @@ static void rulecl_init(LANG_DATA *l, int rulecl)
 }
 
 /*----------------------------------------------------------------------------
- * LANG_DATA functions
+ * lang_t functions
  */
-varr langs = { sizeof(LANG_DATA), 2 };
+varr langs = { sizeof(lang_t), 2 };
 
-LANG_DATA *lang_new(void)
+lang_t *lang_new(void)
 {
 	int i;
-	LANG_DATA *l = varr_enew(&langs);
+	lang_t *l = varr_enew(&langs);
 
 	l->slang_of = -1;
 	l->vnum = langs.nused-1;
@@ -371,7 +371,7 @@ int lang_nlookup(const char *name, size_t len)
 		return -1;
 
 	for (lang = 0; lang < langs.nused; lang++) {
-		LANG_DATA *l = VARR_GET(&langs, lang);
+		lang_t *l = VARR_GET(&langs, lang);
 		if (str_ncmp(l->name, name, len) == 0)
 			return lang;
 	}

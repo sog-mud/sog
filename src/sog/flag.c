@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.23 1999-03-08 13:56:04 fjoe Exp $
+ * $Id: flag.c,v 1.24 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -35,7 +35,7 @@
  *		  (impl. dependent values such as table type should
  *		   be skipped)
  */
-const FLAG* flag_lookup(const FLAG *f, const char *name)
+const flag_t* flag_lookup(const flag_t *f, const char *name)
 {
 	if (IS_NULLSTR(name))
 		return NULL;
@@ -53,9 +53,9 @@ const FLAG* flag_lookup(const FLAG *f, const char *name)
  Purpose:	Returns the value of the flags entered.  Multi-flags accepted.
  Called by:	olc.c and olc_act.c.
  ****************************************************************************/
-flag64_t flag_value(const FLAG *flag64_table, const char *argument)
+flag64_t flag_value(const flag_t *flag64_table, const char *argument)
 {
-	const FLAG *f;
+	const flag_t *f;
 	const char *tname = flag64_table->name;
 	flag64_t ttype = flag64_table->bit;
 
@@ -107,7 +107,7 @@ flag64_t flag_value(const FLAG *flag64_table, const char *argument)
  Purpose:	Returns string with name(s) of the flags or stat entered.
  Called by:	act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
-const char *flag_string(const FLAG *flag64_table, flag64_t bits)
+const char *flag_string(const flag_t *flag64_table, flag64_t bits)
 {
 	static char buf[NBUFS][BUFSZ];
 	static int cnt = 0;
@@ -165,7 +165,7 @@ const char *flag_string(const FLAG *flag64_table, flag64_t bits)
 	}
 }
 
-void show_flags_buf(BUFFER *output, const FLAG *flag64_table)
+void show_flags_buf(BUFFER *output, const flag_t *flag64_table)
 {
 	int  flag;
 	int  col = 0;
@@ -188,7 +188,7 @@ void show_flags_buf(BUFFER *output, const FLAG *flag64_table)
  Name:		show_flags
  Purpose:	Displays settable flags and stats.
  ****************************************************************************/
-void show_flags(CHAR_DATA *ch, const FLAG *flag64_table)
+void show_flags(CHAR_DATA *ch, const flag_t *flag64_table)
 {
 	BUFFER *output;
 

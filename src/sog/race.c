@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.1 1998-10-30 07:02:24 fjoe Exp $
+ * $Id: race.c,v 1.2 1999-04-16 15:52:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,41 +31,41 @@
 
 #include "merc.h"
 
-varr races = { sizeof(RACE_DATA), 8 };
+varr races = { sizeof(race_t), 8 };
 
-RACE_DATA *race_new(void)
+race_t *race_new(void)
 {
 	return varr_enew(&races);
 }
 
-RACE_PCDATA *race_pcdata_new(void)
+pcrace_t *pcrace_new(void)
 {
-	RACE_PCDATA *pcr;
+	pcrace_t *pcr;
 
 	pcr = calloc(1, sizeof(*pcr));
 
-	pcr->skills.nsize = sizeof(RACE_SKILL);
+	pcr->skills.nsize = sizeof(rskill_t);
 	pcr->skills.nstep = 2;
-	pcr->classes.nsize = sizeof(RACE_CLASS_DATA);
+	pcr->classes.nsize = sizeof(rclass_t);
 	pcr->classes.nstep = 4;
 
 	return pcr;
 }
 
-void race_free(RACE_DATA *r)
+void race_free(race_t *r)
 {
 	if (r->pcdata)
-		race_pcdata_free(r->pcdata);
+		pcrace_free(r->pcdata);
 	free_string(r->name);
 	free_string(r->file_name);
 }
 
-void race_pcdata_free(RACE_PCDATA *pcr)
+void pcrace_free(pcrace_t *pcr)
 {
 	int i;
 
 	for (i = 0; i < pcr->classes.nused; i++) {
-		RACE_CLASS_DATA *rcl = VARR_GET(&pcr->classes, i);
+		rclass_t *rcl = VARR_GET(&pcr->classes, i);
 		free_string(rcl->name);
 	}
 	varr_free(&pcr->classes);
@@ -76,7 +76,7 @@ void race_pcdata_free(RACE_PCDATA *pcr)
 
 const char *race_name(int i)
 {
-	RACE_DATA *r = race_lookup(i);
+	race_t *r = race_lookup(i);
 
 	if (r == NULL)
 		return "unique";
@@ -88,7 +88,7 @@ int rn_lookup(const char *name)
 	int num;
  
 	for (num = 0; num < races.nused; num++) {
-		RACE_DATA *r = RACE(num);
+		race_t *r = RACE(num);
 
 		if (LOWER(name[0]) == LOWER(r->name[0])
 		&&  !str_prefix(name, (r->name)))

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.36 1999-04-15 09:14:13 fjoe Exp $
+ * $Id: clan.c,v 1.37 1999-04-16 15:52:16 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -41,47 +41,47 @@
 
 DECLARE_DO_FUN(do_asave);
 
-varr clans = { sizeof(CLAN_DATA), 4 };
+varr clans = { sizeof(clan_t), 4 };
 
-CLAN_DATA *clan_new(void)
+clan_t *clan_new(void)
 {
-	CLAN_DATA *clan;
+	clan_t *clan;
 
 	clan = varr_enew(&clans);
-	clan->skills.nsize = sizeof(CLAN_SKILL);
+	clan->skills.nsize = sizeof(clskill_t);
 	clan->skills.nstep = 4;
 
 	return clan;
 }
 
-void clan_free(CLAN_DATA *clan)
+void clan_free(clan_t *clan)
 {
 	varr_free(&clan->skills);
 }
 
-void clan_save(CLAN_DATA *clan)
+void clan_save(clan_t *clan)
 {
 	SET_BIT(clan->flags, CLAN_CHANGED);
 	do_asave(NULL, "clans");
 }
 
-int cn_lookup(const char *name)
+int cln_lookup(const char *name)
 {
-	int cn;
+	int cln;
 
 	if (IS_NULLSTR(name))
 		return -1;
 
-	for (cn = 0; cn < clans.nused; cn++)
-		if (!str_cmp(name, CLAN(cn)->name))
-			return cn;
+	for (cln = 0; cln < clans.nused; cln++)
+		if (!str_cmp(name, CLAN(cln)->name))
+			return cln;
 
 	return -1;
 }
 
-const char *clan_name(int cn)
+const char *clan_name(int cln)
 {
-	CLAN_DATA *clan = clan_lookup(cn);
+	clan_t *clan = clan_lookup(cln);
 	if (clan)
 		return clan->name;
 	return "None";
@@ -97,7 +97,7 @@ void do_petitio(CHAR_DATA *ch, const char *argument)
  *		       if memb is TRUE 'victim' will be delete from members
  *		       list
  */
-void clan_update_lists(CLAN_DATA *clan, CHAR_DATA *victim, bool memb)
+void clan_update_lists(clan_t *clan, CHAR_DATA *victim, bool memb)
 {
 	const char **nl = NULL;
 
@@ -120,8 +120,8 @@ void clan_update_lists(CLAN_DATA *clan, CHAR_DATA *victim, bool memb)
 void do_petition(CHAR_DATA *ch, const char *argument)
 {
 	bool accept;
-	int cn = 0;
-	CLAN_DATA *clan = NULL;
+	int cln = 0;
+	clan_t *clan = NULL;
 	char arg1[MAX_STRING_LENGTH];
 	OBJ_DATA *mark;
 
@@ -144,8 +144,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_IMMORTAL(ch)) {
-		cn = cn_lookup(arg1);
-		if (cn <= 0) {
+		cln = cln_lookup(arg1);
+		if (cln <= 0) {
 			char_printf(ch, "%s: unknown clan\n", arg1);
 			do_petition(ch, str_empty);
 			return;
@@ -155,7 +155,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			do_petition(ch, str_empty);
 			return;
 		}
-		clan = CLAN(cn);
+		clan = CLAN(cln);
 	}
 
 	if ((accept = !str_prefix(arg1, "accept"))
@@ -169,7 +169,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				do_petition(ch, str_empty);
 				return;
 			}
-			cn = ch->clan;
+			cln = ch->clan;
 		}
 
 		argument = one_argument(argument, arg2, sizeof(arg2));
@@ -193,12 +193,12 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (accept) {
-			if (victim->pcdata->petition != cn) {
+			if (victim->pcdata->petition != cln) {
 				char_puts("They didn't petition.\n", ch);
 				return;
 			}
 
-			victim->clan = cn;
+			victim->clan = cln;
 			victim->pcdata->clan_status = CLAN_COMMONER;
 			update_skills(victim);
 
@@ -224,7 +224,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		}
 
 /* handle 'petition reject' */
-		if (victim->clan == cn) {
+		if (victim->clan == cln) {
 			if (victim->pcdata->clan_status == CLAN_LEADER
 			&&  !IS_IMMORTAL(ch)) {
 				char_puts("You don't have enough power "
@@ -252,7 +252,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (victim->pcdata->petition == cn) {
+		if (victim->pcdata->petition == cln) {
 			victim->pcdata->petition = CLAN_NONE;
 			char_puts("Petition was rejected.\n", ch);
 			char_printf(victim, "Your petition to %s was "
@@ -272,13 +272,13 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		bool found = FALSE;
 
 		if (IS_IMMORTAL(ch)) {
-			if ((cn = cn_lookup(arg1)) <= 0) {
+			if ((cln = cln_lookup(arg1)) <= 0) {
 				char_puts("No such clan.\n", ch);
 				return;
 			}
 		}
 		else
-			cn = ch->clan;
+			cln = ch->clan;
 			
 		for (d = descriptor_list; d; d = d->next) {
 			CHAR_DATA *vch = d->original ? d->original :
@@ -286,7 +286,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 			if (!vch
 			||  vch->clan
-			||  vch->pcdata->petition != cn)
+			||  vch->pcdata->petition != cln)
 				continue;
 
 			if (!found) {
@@ -302,7 +302,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((cn = cn_lookup(arg1)) <= 0) {
+	if ((cln = cln_lookup(arg1)) <= 0) {
 		char_puts("No such clan.\n", ch);
 		return;
 	}
@@ -312,7 +312,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	ch->pcdata->petition = cn;
+	ch->pcdata->petition = cln;
 	char_puts("Petition sent.\n", ch);
 }
 
@@ -321,7 +321,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
-	CLAN_DATA *clan;
+	clan_t *clan;
 
 	if (IS_NPC(ch)
 	||  (!IS_IMMORTAL(ch) && ch->pcdata->clan_status != CLAN_LEADER)) {
@@ -426,7 +426,7 @@ char *get_status_alias(int status)
 	return "commoner";
 }
 
-void show_clanlist(CHAR_DATA *ch, CLAN_DATA *clan,
+void show_clanlist(CHAR_DATA *ch, clan_t *clan,
 		   const char *list, const char *name_list)
 {
 	BUFFER *output;
@@ -453,19 +453,19 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	CLAN_DATA *clan = NULL;
+	clan_t *clan = NULL;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 		   one_argument(argument, arg2, sizeof(arg2));
 
 	if (IS_IMMORTAL(ch) && arg2[0]) {
-		int cn;
+		int cln;
 
-		if ((cn = cn_lookup(arg2)) < 0) {
+		if ((cln = cln_lookup(arg2)) < 0) {
 			char_printf(ch, "%s: no such clan.\n", arg2);
 			return;
 		}
-		clan = CLAN(cn);
+		clan = CLAN(cln);
 	}
 
 	if (!clan
@@ -494,18 +494,18 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 void do_item(CHAR_DATA* ch, const char* argument)
 {
-	CLAN_DATA* clan = NULL;
+	clan_t* clan = NULL;
 	OBJ_DATA* in_obj;
-	int cn;
+	int cln;
 	char arg[MAX_STRING_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
 	if (IS_IMMORTAL(ch) && arg[0]) {
-		if ((cn = cn_lookup(arg)) < 0) {
+		if ((cln = cln_lookup(arg)) < 0) {
 			char_printf(ch, "%s: no such clan.\n", arg);
 			return;
 		}
-		clan = CLAN(cn);
+		clan = CLAN(cln);
 	}
 
 	if (!clan
@@ -532,10 +532,10 @@ void do_item(CHAR_DATA* ch, const char* argument)
 		act_puts3("$p is in $R.",
 			  ch, clan->obj_ptr, NULL, in_obj->in_room,
 			  TO_CHAR, POS_DEAD);
-		for (cn = 0; cn < clans.nused; cn++) 
-			if (in_obj->in_room->vnum == CLAN(cn)->altar_vnum) {
+		for (cln = 0; cln < clans.nused; cln++) 
+			if (in_obj->in_room->vnum == CLAN(cln)->altar_vnum) {
 				act_puts("It is altar of $t",
-					 ch, CLAN(cn)->name, NULL,
+					 ch, CLAN(cln)->name, NULL,
 					 TO_CHAR | ACT_TRANS, POS_DEAD);
 			}
 	}
@@ -544,13 +544,13 @@ void do_item(CHAR_DATA* ch, const char* argument)
 			 ch, clan->obj_ptr, NULL, TO_CHAR, POS_DEAD);
 }
 
-bool clan_item_ok(int cn)
+bool clan_item_ok(int cln)
 {
-	CLAN_DATA* clan;
+	clan_t* clan;
 	OBJ_DATA* obj;
 	int room_in;
 	int i;
-	if (!(clan=clan_lookup(cn)) || !(clan->obj_ptr)) 
+	if (!(clan=clan_lookup(cln)) || !(clan->obj_ptr)) 
 		return TRUE;
 	for (obj=clan->obj_ptr; obj->in_obj!=NULL; obj=obj->in_obj);
 	if (obj->in_room) 

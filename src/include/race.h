@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.6 1999-03-11 09:04:31 fjoe Exp $
+ * $Id: race.h,v 1.7 1999-04-16 15:52:21 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -32,7 +32,7 @@
 #define RACE_UNDEAD		(A)	/* undead race */
 #define RACE_NOCH		(B)	/* can't live in common hometowns */
 
-struct race_data
+struct race_t
 {
 	const char *	name;		/* call name of the race	*/
 	const char *	file_name;	/* filename			*/
@@ -45,11 +45,11 @@ struct race_data
 	flag32_t	form;		/* default form flag		*/
 	flag32_t	parts;		/* default body parts		*/
 	flag32_t	flags;		/* race flags			*/
-	RACE_PCDATA *	pcdata;		/* additional data for pc races */
+	pcrace_t *	pcdata;		/* additional data for pc races */
 };
 
 /* additional data for pc races */
-struct race_pcdata
+struct pcrace_t
 {
 	char 	who_name[6];		/* 5-letter who-name		*/
 	int 	points; 		/* cost in exp of the race	*/
@@ -68,29 +68,29 @@ struct race_pcdata
 };
 
 /* additional data for available classes for race */
-struct race_class_data {
+struct rclass_t {
 	const char *	name;		/* class name */
 	int		mult;		/* exp multiplier */
 };
 
-struct race_skill {
+struct rskill_t {
 	int	sn;
 	int	level;
 };
 
 extern varr races;
 
-#define RACE(i)		((RACE_DATA*) VARR_GET(&races, i))
-#define race_lookup(i)	((RACE_DATA*) varr_get(&races, i))
-#define race_skill_lookup(race, sn) \
-	((RACE_SKILL*) varr_bsearch(&race->pcdata->skills, &sn, cmpint))
-#define race_class_lookup(race, name) \
-	((RACE_CLASS_DATA*) varr_bsearch(&race->pcdata->classes, &name, cmpstr))
+#define RACE(i)		((race_t*) VARR_GET(&races, i))
+#define race_lookup(i)	((race_t*) varr_get(&races, i))
+#define rskill_lookup(race, sn) \
+	((rskill_t*) varr_bsearch(&race->pcdata->skills, &sn, cmpint))
+#define rclass_lookup(race, name) \
+	((rclass_t*) varr_bsearch(&race->pcdata->classes, &name, cmpstr))
 
-RACE_DATA *	race_new(void);
-RACE_PCDATA *	race_pcdata_new(void);
-void		race_free(RACE_DATA*);
-void		race_pcdata_free(RACE_PCDATA*);
+race_t *	race_new(void);
+pcrace_t *	pcrace_new(void);
+void		race_free(race_t*);
+void		pcrace_free(pcrace_t*);
 
 const char *	race_name(int);
 int		rn_lookup(const char*);

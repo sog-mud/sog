@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.38 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: olc_area.c,v 1.39 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -408,7 +408,7 @@ VALIDATE_FUN(validate_move)
 	bool touched;
 	AREA_DATA *pArea;
 	MPCODE *mpc;
-	CLAN_DATA *clan;
+	clan_t *clan;
 	EDIT_AREA(ch, pArea);
 
 	if (ch->pcdata->security < SECURITY_AREA_CREATE) {

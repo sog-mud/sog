@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.163 1999-04-15 09:14:12 fjoe Exp $
+ * $Id: act_move.c,v 1.164 1999-04-16 15:52:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2429,7 +2429,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (!str_cmp(arg,"up")) {
-		RACE_DATA *r;
+		race_t *r;
 
 		if (is_affected(ch, gsn_thumbling)) {
 			char_puts("Stop jumping like a crazy rabbit first.\n",
@@ -2608,7 +2608,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 void do_crecall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
-	CLAN_DATA *clan;
+	clan_t *clan;
 	CHAR_DATA *pet;
 	AFFECT_DATA af;
 	int sn;

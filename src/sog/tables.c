@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.54 1999-04-15 12:22:59 fjoe Exp $
+ * $Id: tables.c,v 1.55 1999-04-16 15:52:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,11 +47,11 @@
 #include "db/lang.h"
 
 /*
- * first element of each FLAG[] table describes type of values
+ * first element of each flag_t[] table describes type of values
  * in the table.
  */
 
-FLAG slang_table[] =
+flag_t slang_table[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
@@ -68,7 +68,7 @@ FLAG slang_table[] =
 	{ NULL }
 };
 
-FLAG size_table[] =
+flag_t size_table[] =
 { 
 	{ "",			TABLE_INTVAL			},
 
@@ -83,7 +83,7 @@ FLAG size_table[] =
 	{ NULL }
 };
 
-FLAG act_flags[] =
+flag_t act_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -114,11 +114,12 @@ FLAG act_flags[] =
 	{ "changer",		ACT_CHANGER,		TRUE	},
 	{ "notrack",		ACT_NOTRACK,		TRUE	},
 	{ "clan_guard",		ACT_CLAN_GUARD,		TRUE	},
+	{ "summoned",		ACT_SUMMONED,		TRUE	},
 
 	{ NULL }
 };
 
-FLAG plr_flags[] =
+flag_t plr_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -149,7 +150,7 @@ FLAG plr_flags[] =
 	{ NULL }
 };
 
-FLAG affect_flags[] =
+flag_t affect_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -204,7 +205,7 @@ FLAG affect_flags[] =
 	{ NULL }
 };
 
-FLAG off_flags[] =
+flag_t off_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -233,7 +234,7 @@ FLAG off_flags[] =
 	{ NULL }
 };
 
-FLAG imm_flags[] =
+flag_t imm_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -265,7 +266,7 @@ FLAG imm_flags[] =
 	{ NULL }
 };
 
-FLAG form_flags[] =
+flag_t form_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -299,7 +300,7 @@ FLAG form_flags[] =
 	{ NULL }
 };
 
-FLAG part_flags[] =
+flag_t part_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -329,7 +330,7 @@ FLAG part_flags[] =
 	{ NULL }
 };
 
-FLAG comm_flags[] =
+flag_t comm_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -368,7 +369,7 @@ FLAG comm_flags[] =
 	{ NULL }
 };
 
-FLAG clan_flags[] =
+flag_t clan_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -378,7 +379,7 @@ FLAG clan_flags[] =
 	{ NULL }
 };
 
-FLAG area_flags[] =
+flag_t area_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -389,7 +390,7 @@ FLAG area_flags[] =
 	{ NULL }
 };
 
-FLAG sex_table[] =
+flag_t sex_table[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -403,7 +404,7 @@ FLAG sex_table[] =
 	{ NULL	}
 };
 
-FLAG gender_table[] =
+flag_t gender_table[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -414,7 +415,7 @@ FLAG gender_table[] =
 	{ NULL	}
 };
 
-FLAG exit_flags[] =
+flag_t exit_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -433,7 +434,7 @@ FLAG exit_flags[] =
 	{ NULL }
 };
 
-FLAG door_resets[] =
+flag_t door_resets[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -444,7 +445,7 @@ FLAG door_resets[] =
 	{ NULL }
 };
 
-FLAG room_flags[] =
+flag_t room_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -473,7 +474,7 @@ FLAG room_flags[] =
 	{ NULL }
 };
 
-FLAG sector_types[] =
+flag_t sector_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -492,7 +493,7 @@ FLAG sector_types[] =
 	{ NULL }
 };
 
-FLAG item_types[] =
+flag_t item_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -530,7 +531,7 @@ FLAG item_types[] =
 	{ NULL }
 };
 
-FLAG extra_flags[] =
+flag_t extra_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -571,7 +572,7 @@ FLAG extra_flags[] =
 	{ NULL }
 };
 
-FLAG wear_flags[] =
+flag_t wear_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -603,7 +604,7 @@ FLAG wear_flags[] =
 * Used when adding an affect to tell where it goes.
 * See addaffect and delaffect in act_olc.c
 */
-FLAG apply_flags[] =
+flag_t apply_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -640,7 +641,7 @@ FLAG apply_flags[] =
 	{ NULL }
 };
 
-FLAG rapply_flags[] =
+flag_t rapply_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -653,7 +654,7 @@ FLAG rapply_flags[] =
 /*
  * What is seen.
  */
-FLAG wear_loc_strings[] =
+flag_t wear_loc_strings[] =
 {
 	{ "",				TABLE_INTVAL			},
 
@@ -685,7 +686,7 @@ FLAG wear_loc_strings[] =
 	{ NULL }
 };
 
-FLAG wear_loc_flags[] =
+flag_t wear_loc_flags[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -718,7 +719,7 @@ FLAG wear_loc_flags[] =
 	{ NULL }
 };
 
-FLAG cont_flags[] =
+flag_t cont_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -732,7 +733,7 @@ FLAG cont_flags[] =
 	{ NULL }
 };
 
-FLAG ac_type[] =
+flag_t ac_type[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -744,7 +745,7 @@ FLAG ac_type[] =
 	{ NULL }
 };
 
-FLAG weapon_class[] =
+flag_t weapon_class[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -765,7 +766,7 @@ FLAG weapon_class[] =
 	{ NULL }
 };
 
-FLAG weapon_type2[] =
+flag_t weapon_type2[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -783,7 +784,7 @@ FLAG weapon_type2[] =
 	{ NULL }
 };
 
-FLAG res_flags[] =
+flag_t res_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -814,7 +815,7 @@ FLAG res_flags[] =
 	{ NULL }
 };
 
-FLAG vuln_flags[] =
+flag_t vuln_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -845,7 +846,7 @@ FLAG vuln_flags[] =
 	{ NULL }
 };
 
-FLAG position_table[] =
+flag_t position_table[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -862,7 +863,7 @@ FLAG position_table[] =
 	{ NULL }
 };
 
-FLAG position_names[] =
+flag_t position_names[] =
 {
 	{ "",			TABLE_INTVAL	},
 
@@ -879,7 +880,7 @@ FLAG position_names[] =
 	{ NULL }
 };
 
-FLAG portal_flags[]=
+flag_t portal_flags[]=
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -892,7 +893,7 @@ FLAG portal_flags[]=
 	{ NULL }
 };
 
-FLAG furniture_flags[]=
+flag_t furniture_flags[]=
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -916,7 +917,7 @@ FLAG furniture_flags[]=
 	{ NULL }
 };
 
-FLAG apply_types[] =
+flag_t apply_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -930,7 +931,7 @@ FLAG apply_types[] =
 	{ NULL }
 };
 
-FLAG raffect_flags[] =
+flag_t raffect_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -948,7 +949,7 @@ FLAG raffect_flags[] =
 	{ NULL }
 };
 
-FLAG skill_groups[] =
+flag_t skill_groups[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -981,7 +982,7 @@ FLAG skill_groups[] =
 	{ NULL }
 };
 
-FLAG mptrig_types[] =
+flag_t mptrig_types[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1005,7 +1006,7 @@ FLAG mptrig_types[] =
 	{ NULL }
 };
 
-FLAG mptrig_flags[] =
+flag_t mptrig_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1014,7 +1015,7 @@ FLAG mptrig_flags[] =
 	{ NULL }
 };
 
-FLAG skill_targets[] =
+flag_t skill_targets[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1029,7 +1030,7 @@ FLAG skill_targets[] =
 	{ NULL }
 };
 
-FLAG stat_names[] =
+flag_t stat_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1043,7 +1044,7 @@ FLAG stat_names[] =
 	{ NULL }
 };
 
-FLAG skill_flags[] =
+flag_t skill_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1055,7 +1056,7 @@ FLAG skill_flags[] =
 	{ NULL }
 };
 
-FLAG class_flags[] =
+flag_t class_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1065,7 +1066,7 @@ FLAG class_flags[] =
 	{ NULL }
 };
 
-FLAG race_flags[] =
+flag_t race_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1075,7 +1076,7 @@ FLAG race_flags[] =
 	{ NULL }
 };
 
-FLAG ralign_names[] =
+flag_t ralign_names[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1086,7 +1087,7 @@ FLAG ralign_names[] =
 	{ NULL }
 };
 
-FLAG align_names[] =
+flag_t align_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1097,7 +1098,7 @@ FLAG align_names[] =
 	{ NULL }
 };
 
-FLAG lang_flags[] =
+flag_t lang_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1107,7 +1108,7 @@ FLAG lang_flags[] =
 	{ NULL }
 };
 
-FLAG ethos_table[] =
+flag_t ethos_table[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1118,7 +1119,7 @@ FLAG ethos_table[] =
 	{ NULL }
 };
 
-FLAG rulecl_names[] =
+flag_t rulecl_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
@@ -1129,7 +1130,7 @@ FLAG rulecl_names[] =
 	{ NULL }
 };
 
-FLAG rulecl_flags[] =
+flag_t rulecl_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
@@ -1139,7 +1140,7 @@ FLAG rulecl_flags[] =
 	{ NULL }
 };
 
-FLAG note_types[] =
+flag_t note_types[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
@@ -1152,7 +1153,7 @@ FLAG note_types[] =
 	{ NULL }
 };
 
-FLAG options_table[] =
+flag_t options_table[] =
 {
 	{ "",			TABLE_BITVAL,			},
 
@@ -1175,7 +1176,7 @@ const   struct wiznet_type      wiznet_table    []              =
    {    "deaths",       WIZ_DEATHS,     IM },
    {    "resets",       WIZ_RESETS,     L4 },
    {    "mobdeaths",    WIZ_MOBDEATHS,  L4 },
-   {    "flags",	WIZ_FLAGS,	L5 },
+   {    "flags",	WIZ_flag_tS,	L5 },
    {	"penalties",	WIZ_PENALTIES,	L5 },
    {	"saccing",	WIZ_SACCING,	L5 },
    {	"levels",	WIZ_LEVELS,	IM },
@@ -1449,7 +1450,7 @@ const	struct	liq_type	liq_table	[]	=
     { NULL,			NULL,		{   0, 0,  0, 0,  0 }	}
 };
 
-WHERE_DATA where_table[] =
+where_t where_table[] =
 {
 	{ TO_AFFECTS,	affect_flags,	"'%s' affect"		},
 	{ TO_IMMUNE,	imm_flags,	"immunity to '%s'"	},
@@ -1458,9 +1459,9 @@ WHERE_DATA where_table[] =
 	{ -1 }
 };
 
-WHERE_DATA *where_lookup(flag32_t where)
+where_t *where_lookup(flag32_t where)
 {
-	WHERE_DATA *wd;
+	where_t *wd;
 
 	for (wd = where_table; wd->where != -1; wd++)
 		if (wd->where == where)

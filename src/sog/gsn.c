@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.17 1999-04-13 02:48:36 kostik Exp $
+ * $Id: gsn.c,v 1.18 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -240,7 +240,7 @@ int gsn_doppelganger;
 int gsn_mirror;
 int gsn_knife;
 
-NAMEDP gsn_table[] =
+namedp_t gsn_table[] =
 {
 	{ "gsn_backstab",		&gsn_backstab			},
 	{ "gsn_dodge",			&gsn_dodge			},

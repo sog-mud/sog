@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.10 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: lang.h,v 1.11 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -120,7 +120,7 @@ enum {
 	MAX_RULECL
 };
 
-struct lang_data {
+struct lang_t {
 	const char *	name;
 	int		vnum;
 	const char *	file_name;
@@ -136,7 +136,7 @@ struct lang_data {
 
 extern varr	langs;
 
-LANG_DATA *	lang_new(void);
+lang_t *	lang_new(void);
 int		lang_lookup(const char*);
 int		lang_nlookup(const char*, size_t len);
 

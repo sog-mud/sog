@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.1 1998-10-17 16:21:47 fjoe Exp $
+ * $Id: cmd.c,v 1.2 1999-04-16 15:52:22 fjoe Exp $
  */
 
 #include <string.h>
@@ -32,11 +32,11 @@
 #include "cmd.h"
 #include "str.h"
 
-extern CMD_DATA cmd_table[]; /* temporary fix before varr cmd impl */
+extern cmd_t cmd_table[]; /* temporary fix before varr cmd impl */
 
-CMD_DATA *cmd_lookup(const char *name)
+cmd_t *cmd_lookup(const char *name)
 {
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 
 	for (cmd = cmd_table; cmd->name; cmd++)
 		if (!str_cmp(cmd->name, name))

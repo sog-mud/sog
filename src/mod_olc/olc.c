@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.54 1999-03-19 18:55:35 fjoe Exp $
+ * $Id: olc.c,v 1.55 1999-04-16 15:52:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -446,8 +446,8 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 bool olced_flag64(CHAR_DATA *ch, const char *argument,
 		  olc_cmd_t* cmd, flag64_t *pflag)
 {
-	const FLAG *flag64_table;
-	const FLAG *f;
+	const flag_t *flag64_table;
+	const flag_t *f;
 	flag64_t ttype;
 	const char *tname;
 
@@ -582,7 +582,7 @@ bail_out:
 bool olced_clan(CHAR_DATA *ch, const char *argument,
 		olc_cmd_t *cmd, int *vnum)
 {
-	int cn;
+	int cln;
 
 	if (IS_NULLSTR(argument)) {
 		char_printf(ch, "Syntax: %s clan\n"
@@ -597,17 +597,17 @@ bool olced_clan(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
-	if ((cn = cn_lookup(argument)) < 0) {
+	if ((cln = cln_lookup(argument)) < 0) {
 		char_printf(ch, "'%s': unknown clan.\n", argument);
 		return FALSE;
 	}
 
-	*vnum = cn;
+	*vnum = cln;
 	return TRUE;
 }
 
 bool olced_rulecl(CHAR_DATA *ch, const char *argument,
-		  olc_cmd_t *cmd, LANG_DATA *l)
+		  olc_cmd_t *cmd, lang_t *l)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.51 1999-04-15 10:28:19 fjoe Exp $
+ * $Id: note.c,v 1.52 1999-04-16 15:52:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -345,7 +345,7 @@ void append_note(note_t *pnote)
 
 bool is_note_to(CHAR_DATA *ch, note_t *pnote)
 {
-	CLAN_DATA *clan;
+	clan_t *clan;
 
 	if (!str_cmp(ch->name, pnote->sender))
 		return TRUE;

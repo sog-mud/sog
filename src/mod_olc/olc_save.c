@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.65 1999-03-11 11:58:09 fjoe Exp $
+ * $Id: olc_save.c,v 1.66 1999-04-16 15:52:25 fjoe Exp $
  */
 
 /**************************************************************************
@@ -94,7 +94,7 @@ void save_mobprogs(FILE *fp, AREA_DATA *pArea)
  ****************************************************************************/
 void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
-    RACE_DATA *r = race_lookup(pMobIndex->race);
+    race_t *r = race_lookup(pMobIndex->race);
     MPTRIG *mptrig;
     flag64_t temp;
 
@@ -913,7 +913,7 @@ void save_skills()
 {
 }
 
-void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
+void save_clan(CHAR_DATA *ch, clan_t *clan)
 {
 	int i;
 	FILE *fp;
@@ -944,7 +944,7 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 			flag_string(clan_flags, clan->flags));
 
 	for (i = 0; i < clan->skills.nused; i++) {
-		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
+		clskill_t *cs = VARR_GET(&clan->skills, i);
 
 		if (cs->sn > 0) 
 			fprintf(fp, "Skill '%s' %d %d\n",
@@ -1047,11 +1047,11 @@ void save_msgdb(CHAR_DATA *ch)
 	save_print(ch, "Msgdb saved.");
 }
 
-bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
+bool save_lang(CHAR_DATA *ch, lang_t *l)
 {
 	int i;
 	FILE *fp;
-	LANG_DATA *sl;
+	lang_t *sl;
 	int flags;
 
 	if ((fp = dfopen(LANG_PATH, l->file_name, "w")) == NULL) {
@@ -1101,7 +1101,7 @@ void save_langs(CHAR_DATA *ch)
 	}
 
 	for (lang = 0; lang < langs.nused; lang++) {
-		LANG_DATA *l = VARR_GET(&langs, lang);
+		lang_t *l = VARR_GET(&langs, lang);
 
 		if (IS_SET(l->flags, LANG_CHANGED)
 		&&  save_lang(ch, l)) {
@@ -1124,7 +1124,7 @@ void save_langs(CHAR_DATA *ch)
 		}
 
 		for (lang = 0; lang < langs.nused; lang++) {
-			LANG_DATA *l = VARR_GET(&langs, lang);
+			lang_t *l = VARR_GET(&langs, lang);
 			fprintf(fp, "%s\n", l->file_name);
 		}
 		fprintf(fp, "$\n");
@@ -1149,7 +1149,7 @@ void save_rule(FILE *fp, rule_t *r)
 	fprintf(fp, "End\n\n");
 }
 
-void save_expl(CHAR_DATA *ch, LANG_DATA *l, rulecl_t *rcl)
+void save_expl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 {
 	int i;
 	FILE *fp;
@@ -1183,7 +1183,7 @@ void save_expl(CHAR_DATA *ch, LANG_DATA *l, rulecl_t *rcl)
 	rcl->flags &= ~RULES_EXPL_CHANGED;
 }
 
-void save_impl(CHAR_DATA *ch, LANG_DATA *l, rulecl_t *rcl)
+void save_impl(CHAR_DATA *ch, lang_t *l, rulecl_t *rcl)
 {
 	int i;
 	FILE *fp;
@@ -1225,7 +1225,7 @@ void save_rules(CHAR_DATA *ch)
 
 	for (lang = 0; lang < langs.nused; lang++) {
 		int i;
-		LANG_DATA *l = VARR_GET(&langs, lang);
+		lang_t *l = VARR_GET(&langs, lang);
 
 		for (i = 0; i < MAX_RULECL; i++) {
 			save_expl(ch, l, l->rules+i);

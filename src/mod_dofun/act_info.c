@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.223 1999-04-15 09:14:11 fjoe Exp $
+ * $Id: act_info.c,v 1.224 1999-04-16 15:52:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -147,8 +147,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 				 GETMSG("({YHumming{x) ", ch->lang));
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
-		strnzcpy(buf, sizeof(buf), FLAGS);
+		static char flag_tS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
+		strnzcpy(buf, sizeof(buf), flag_tS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
 		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
@@ -159,7 +159,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[17] = 'M';
 		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[20] = 'G';
 		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[23] = 'H';
-		if (strcmp(buf, FLAGS) == 0)
+		if (strcmp(buf, flag_tS) == 0)
 			buf[0] = '\0';
 	}
 
@@ -307,7 +307,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	free(prgnShow);
 }
 
-#define FLAG_SET(pos, c, exp) (FLAGS[pos] = (exp) ? (flags = TRUE, c) : '.')
+#define flag_t_SET(pos, c, exp) (flag_tS[pos] = (exp) ? (flags = TRUE, c) : '.')
 
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -366,36 +366,36 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({gCamf{x) ", ch);
 	}
 	else {
-		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
+		static char flag_tS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
 		bool flags = FALSE;
 
-		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
-		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
-		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
-		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
-		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
-		FLAG_SET(20, 'U', IS_NPC(victim) &&
+		flag_t_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
+		flag_t_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
+		flag_t_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
+		flag_t_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
+		flag_t_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
+		flag_t_SET(20, 'U', IS_NPC(victim) &&
 				  IS_SET(victim->pIndexData->act, ACT_UNDEAD) &&
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
-		FLAG_SET(23, 'R', RIDDEN(victim));
-		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
-		FLAG_SET(29, 'E', IS_EVIL(victim) &&
+		flag_t_SET(23, 'R', RIDDEN(victim));
+		flag_t_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
+		flag_t_SET(29, 'E', IS_EVIL(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
-		FLAG_SET(32, 'G', IS_GOOD(victim) &&
+		flag_t_SET(32, 'G', IS_GOOD(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
-		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
-		FLAG_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
+		flag_t_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
+		flag_t_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
-			FLAG_SET(35, 'B', TRUE);
-			FLAG_SET(34, 'D', TRUE);
+			flag_t_SET(35, 'B', TRUE);
+			flag_t_SET(34, 'D', TRUE);
 		}
 
-		FLAG_SET(38, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
-		FLAG_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
+		flag_t_SET(38, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
+		flag_t_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
 
 		if (flags)
-			char_puts(FLAGS, ch);
+			char_puts(flag_tS, ch);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
@@ -1514,9 +1514,9 @@ void do_help(CHAR_DATA *ch, const char *argument)
 
 void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
-	CLAN_DATA *clan;
-	CLASS_DATA *cl;
-	RACE_DATA *r;
+	clan_t *clan;
+	class_t *cl;
+	race_t *r;
 
 	if ((cl = class_lookup(wch->class)) == NULL
 	||  (r = race_lookup(wch->race)) == NULL
@@ -1656,7 +1656,7 @@ DO_FUN(do_who)
 			continue;
 		}
 
-		if ((i = cn_lookup(arg)) > 0) {
+		if ((i = cln_lookup(arg)) > 0) {
 			name_add(&clan_names, CLAN(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLAN);
 			continue;
@@ -1671,7 +1671,7 @@ DO_FUN(do_who)
 		if (!IS_IMMORTAL(ch))
 			continue;
 
-		if ((i = cln_lookup(arg)) >= 0) {
+		if ((i = cn_lookup(arg)) >= 0) {
 			name_add(&class_names, CLASS(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLASS);
 			continue;
@@ -1719,9 +1719,9 @@ DO_FUN(do_who)
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch;
 
-		CLAN_DATA *clan;
-		RACE_DATA *race;
-		CLASS_DATA *class;
+		clan_t *clan;
+		race_t *race;
+		class_t *class;
 
 		if (d->connected != CON_PLAYING)
 			continue;
@@ -2183,7 +2183,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int wimpy;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if ((cl = class_lookup(ch->class))
 	&&  !CAN_FLEE(ch, cl)) {
@@ -2520,8 +2520,8 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 {
 	int amount;
 	int htn;
-	RACE_DATA *r;
-	CLASS_DATA *cl;
+	race_t *r;
+	class_t *cl;
 
 	if (IS_NPC(ch)) {
 		act_puts("You can't change your hometown!",
@@ -2793,7 +2793,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	const char *name;
 	int ekle = 0;
 	int delta;
-	CLASS_DATA *cl;
+	class_t *cl;
 	BUFFER *output;
 	bool can_flee;
 
@@ -2973,7 +2973,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 DO_FUN(do_oscore)
 {
-	CLASS_DATA *cl;
+	class_t *cl;
 	char buf2[MAX_STRING_LENGTH];
 	int i;
 	BUFFER *output;
@@ -3373,10 +3373,10 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA	*mob;
 	int		sn;
-	SKILL_DATA	*sk;
-	PC_SKILL	*ps;
-	CLASS_DATA	*cl;
-	CLASS_SKILL	*cs;
+	skill_t	*sk;
+	pcskill_t	*ps;
+	class_t	*cl;
+	cskill_t	*cs;
 	int		adept;
 	bool		found;
 	int		rating;
@@ -3429,7 +3429,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	ps = (PC_SKILL*) skill_vlookup(&ch->pcdata->learned, arg);
+	ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg);
 	if (!ps || get_skill(ch, sn = ps->sn) == 0) {
 		char_puts("You can't practice that.\n", ch);
 		return;
@@ -3484,7 +3484,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	ch->practice--;
 
-	cs = class_skill_lookup(cl, sn);
+	cs = cskill_lookup(cl, sn);
 	rating = cs ? UMAX(cs->rating, 1) : 1;
 	ps->percent += int_app[get_curr_stat(ch,STAT_INT)].learn / rating;
 
@@ -3673,7 +3673,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int chance;
 	int sn;
-	RACE_DATA *r;
+	race_t *r;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 

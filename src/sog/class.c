@@ -23,21 +23,21 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.11 1999-04-15 06:51:05 fjoe Exp $
+ * $Id: class.c,v 1.12 1999-04-16 15:52:16 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include "merc.h"
 
-varr	classes = { sizeof(CLASS_DATA), 4 };
+varr	classes = { sizeof(class_t), 4 };
 
-CLASS_DATA *class_new(void)
+class_t *class_new(void)
 {
-	CLASS_DATA *class;
+	class_t *class;
 
 	class = varr_enew(&classes);
-	class->skills.nsize = sizeof(CLASS_SKILL);
+	class->skills.nsize = sizeof(cskill_t);
 	class->skills.nstep = 8;
 	class->restrict_sex = -1;
 	class->death_limit = -1;
@@ -49,7 +49,7 @@ CLASS_DATA *class_new(void)
 	return class;
 }
 
-void class_free(CLASS_DATA *class)
+void class_free(class_t *class)
 {
 	varr_free(&class->skills);
 	varr_free(&class->poses);
@@ -68,7 +68,7 @@ int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 		return TRUE;
 
 	for (iClass = 0; iClass < classes.nused; iClass++) {
-		CLASS_DATA *cl = CLASS(iClass);
+		class_t *cl = CLASS(iClass);
 		for (iGuild = 0; iGuild < cl->guild.nused; iGuild++) {
 		    	if (room->vnum == *(int*)VARR_GET(&cl->guild, iGuild)) {
 				if (iClass == ch->class)
@@ -93,7 +93,7 @@ int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 
 const char *class_name(CHAR_DATA *ch)
 {
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
 		return "Mobile";
@@ -102,7 +102,7 @@ const char *class_name(CHAR_DATA *ch)
 
 const char *class_who_name(CHAR_DATA *ch)
 {
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
 		return "Mob";
@@ -110,7 +110,7 @@ const char *class_who_name(CHAR_DATA *ch)
 }
 
 /* returns class number */
-int cln_lookup(const char *name)
+int cn_lookup(const char *name)
 {
 	int num;
  
@@ -139,8 +139,8 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 /* command for returning max training score */
 int get_max_train(CHAR_DATA *ch, int stat)
 {
-	CLASS_DATA *cl;
-	RACE_DATA *r;
+	class_t *cl;
+	race_t *r;
 
 	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		return 25;
@@ -161,7 +161,7 @@ bool clan_ok(CHAR_DATA *ch, int sn)
 
 const char *title_lookup(CHAR_DATA *ch)
 {
-	CLASS_DATA *class;
+	class_t *class;
 
 	if ((class = class_lookup(ch->class)) == NULL
 	||  (ch->level < 0 || ch->level > MAX_LEVEL))

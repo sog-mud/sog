@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.33 1999-02-23 22:06:46 fjoe Exp $
+ * $Id: mlstring.c,v 1.34 1999-04-16 15:52:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -154,7 +154,7 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 
 	for (lang = 0; lang < ml->nlang && lang < langs.nused; lang++) {
 		const char* p = ml->u.lstr[lang];
-		LANG_DATA *l;
+		lang_t *l;
 
 		if (IS_NULLSTR(p))
 			continue;
@@ -252,7 +252,7 @@ const char * mlstr_val(const mlstring *ml, int lang)
 	if (lang >= ml->nlang
 	||  lang < 0
 	||  IS_NULLSTR(ml->u.lstr[lang])) {
-		LANG_DATA *l;
+		lang_t *l;
 
 		if ((l = varr_get(&langs, lang))
 		&&  l->slang_of >= 0
@@ -402,7 +402,7 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	size_t namelen;
 	int lang;
 	static char FORMAT[] = "%s[%s] [%s]\n";
-	LANG_DATA *l;
+	lang_t *l;
 
 	if (ml == NULL || ml->nlang == 0) {
 		buf_printf(buf, FORMAT, name, "all",

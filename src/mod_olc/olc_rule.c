@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.6 1999-03-22 09:52:27 fjoe Exp $
+ * $Id: olc_rule.c,v 1.7 1999-04-16 15:52:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -117,7 +117,7 @@ OLC_FUN(ruleed_create)
 	int rulecl;
 	rulecl_t *rcl;
 	ruleops_t *rops;
-	LANG_DATA *l;
+	lang_t *l;
 	rule_t rnew;
 	char arg[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
@@ -170,7 +170,7 @@ OLC_FUN(ruleed_edit)
 	int rulecl;
 	rulecl_t *rcl;
 	ruleops_t *rops;
-	LANG_DATA *l;
+	lang_t *l;
 	rule_t *r;
 	char arg[MAX_INPUT_LENGTH];
 
@@ -222,7 +222,7 @@ OLC_FUN(ruleed_show)
 	rule_t *r;
 	rulecl_t *rcl;
 	ruleops_t *rops;
-	LANG_DATA *l;
+	lang_t *l;
 
 	EDIT_LANG(ch, l);
 	EDIT_ROPS(ch, rops);
@@ -291,7 +291,7 @@ OLC_FUN(ruleed_list)
 	rule_t *r;
 	rulecl_t *rcl;
 	ruleops_t *rops;
-	LANG_DATA *l;
+	lang_t *l;
 	BUFFER *output = NULL;
 
 	EDIT_LANG(ch, l);

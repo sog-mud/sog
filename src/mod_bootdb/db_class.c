@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.18 1999-04-15 11:36:58 fjoe Exp $
+ * $Id: db_class.c,v 1.19 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,7 +54,7 @@ DBINIT_FUN(init_class)
 DBLOAD_FUN(load_class)
 {
 	int i;
-	CLASS_DATA *class = class_new();
+	class_t *class = class_new();
 	class->file_name = get_filename(filename);
 	db_set_arg(dbdata, "POSE", class);
 
@@ -130,12 +130,13 @@ DBLOAD_FUN(load_class)
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "Skill")) {
-				CLASS_SKILL *class_skill;
+				cskill_t *csk;
 
-				class_skill = varr_enew(&class->skills);
-				class_skill->sn = sn_lookup(fread_word(fp));
-				class_skill->level = fread_number(fp);
-				class_skill->rating = fread_number(fp);
+				csk = varr_enew(&class->skills);
+				csk->sn = sn_lookup(fread_word(fp));
+				csk->level = fread_number(fp);
+				csk->rating = fread_number(fp);
+				csk->mod = fread_number(fp);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "StatMod")) {
@@ -176,7 +177,7 @@ DBLOAD_FUN(load_class)
 
 DBLOAD_FUN(load_pose)
 {
-	CLASS_DATA *class = arg;
+	class_t *class = arg;
 	pose_t *pose;
 
 	if (!class) {

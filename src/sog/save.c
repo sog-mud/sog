@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.111 1999-04-15 09:41:11 fjoe Exp $
+ * $Id: save.c,v 1.112 1999-04-16 15:52:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -82,7 +82,7 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
  */
 void delete_player(CHAR_DATA *victim, char* msg)
 {
-	CLAN_DATA *clan;
+	clan_t *clan;
 	char *name;
 
 	if (msg) {
@@ -250,7 +250,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	if (IS_NPC(ch)) {
 		fprintf(fp, "Vnum %d\n", ch->pIndexData->vnum);
 	} else {
-		QTROUBLE_DATA  *qt;
+		qtrouble_t  *qt;
 		PC_DATA *pcdata = ch->pcdata;
 		int i;
 
@@ -321,7 +321,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		}
 
 		for (i = 0; i < pcdata->learned.nused; i++) {
-			PC_SKILL *ps = VARR_GET(&pcdata->learned, i);
+			pcskill_t *ps = VARR_GET(&pcdata->learned, i);
 
 			if (ps->percent == 0)
 				continue;
@@ -617,7 +617,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 
 	/* initialize race */
 	if (found) {
-		RACE_DATA *r;
+		race_t *r;
 
 		if (ORG_RACE(ch) == 0)
 			SET_ORG_RACE(ch, rn_lookup("human"));
@@ -792,7 +792,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'C':
 			if (!str_cmp(word, "Class")) {
 				const char *cl = fread_string(fp);
-				ch->class = cln_lookup(cl);
+				ch->class = cn_lookup(cl);
 				free_string(cl);
 				fMatch = TRUE;
 				break;
@@ -841,7 +841,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				CLAN_DATA *clan;
+				clan_t *clan;
 				const char **nl = NULL;
 				bool touched = FALSE;
 
@@ -1545,7 +1545,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 
 void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
 {
-	SKILL_DATA *sk;
+	skill_t *sk;
 
 	if (paf->type == gsn_doppelganger
 	||  (sk = skill_lookup(paf->type)) == NULL)

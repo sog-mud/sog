@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.36 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_mob.c,v 1.37 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -234,7 +234,7 @@ OLC_FUN(mobed_show)
 	AREA_DATA	*pArea;
 	MPTRIG *mptrig;
 	BUFFER *buf;
-	CLAN_DATA *clan;
+	clan_t *clan;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -899,7 +899,7 @@ OLC_FUN(mobed_race)
 
 	if (argument[0]
 	&&  (!str_prefix(argument, "unique") || (race = rn_lookup(argument)))) {
-		RACE_DATA *r;
+		race_t *r;
 		EDIT_MOB(ch, pMob);
 
 		pMob->race = race;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.133 1999-04-15 12:22:58 fjoe Exp $
+ * $Id: handler.c,v 1.134 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -878,8 +878,8 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_RACE: {
 		int from;
 		int to;
-		RACE_DATA *rto;
-		RACE_DATA *rfrom;
+		race_t *rto;
+		race_t *rfrom;
 
 		if (fAdd) {
 			from = ORG_RACE(ch);
@@ -2988,7 +2988,7 @@ bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(ch) || IS_NPC(victim))
 		return TRUE;
 
-	if (victim->level < PK_MIN_LEVEL || ch->level < PK_MIN_LEVEL)
+	if (victim->level < MIN_PK_LEVEL || ch->level < MIN_PK_LEVEL)
 		return FALSE;
 
 	/* level adjustment */
@@ -3239,7 +3239,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 {
 	for (; paf; paf = paf->next) {
-		WHERE_DATA *w;
+		where_t *w;
 
 		if (paf->location != APPLY_NONE && paf->modifier) { 
 			buf_printf(output, "Affects %s by %d",
@@ -3267,7 +3267,7 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 int get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	int wear_level = ch->level;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return wear_level;
@@ -3300,7 +3300,7 @@ int get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj)
  */
 bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 {
-	CLASS_DATA *vcl;
+	class_t *vcl;
 	int save;
 
 	save = 40 + (victim->level + victim->drain_level - level) * 4 - 
@@ -3352,7 +3352,7 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, int sn)
 	    for (af = victim->affected; af != NULL; af = af->next) {
 	        if (af->type == sn) {
 	            if (!saves_dispel(dis_level,af->level,af->duration)) {
-			SKILL_DATA *sk;
+			skill_t *sk;
 
 	                affect_strip(victim,sn);
 			if ((sk = skill_lookup(sn))
@@ -3439,7 +3439,7 @@ void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf,
 		     flag32_t where)
 {
 	char buf[MAX_STRING_LENGTH];
-	WHERE_DATA *w;
+	where_t *w;
 
 	if (paf->where != where
 	||  (w = where_lookup(paf->where)) == NULL
@@ -3562,7 +3562,7 @@ bool pc_name_ok(const char *name)
 	}
 
 	for (i = 0; i < clans.nused; i++) {
-		CLASS_DATA *clan = VARR_GET(&clans, i);
+		class_t *clan = VARR_GET(&clans, i);
 		if (!str_cmp(name, clan->name))
 			return FALSE;
 	}

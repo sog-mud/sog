@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.134 1999-04-15 09:14:12 fjoe Exp $
+ * $Id: act_obj.c,v 1.135 1999-04-16 15:52:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1982,7 +1982,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	CHAR_DATA      *vch_next;
 	OBJ_DATA       *staff;
 	int             sn;
-	SKILL_DATA *	sk;
+	skill_t *	sk;
 
 	if (HAS_SKILL(ch, gsn_spellbane)) {
 		char_puts("BRANDISH? You are not a filthy magician!\n",ch);
@@ -2016,7 +2016,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 			check_improve(ch, sn, FALSE, 2);
 		}
 		else {
-			SKILL_DATA *spell = skill_lookup(staff->value[3]);
+			skill_t *spell = skill_lookup(staff->value[3]);
 
 			if (!spell)
 				return;

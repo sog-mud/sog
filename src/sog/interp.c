@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.131 1999-04-15 06:51:05 fjoe Exp $
+ * $Id: interp.c,v 1.132 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,7 +79,7 @@ FILE				*imm_log;
 /*
  * Command table.
  */
-CMD_DATA cmd_table[] =
+cmd_t cmd_table[] =
 {
     /*
      * Common movement commands.
@@ -512,7 +512,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
 	const char *logline;
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 	bool found;
 	social_t *soc = NULL;
 	int min_pos;
@@ -914,7 +914,7 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
  */
 void do_commands(CHAR_DATA *ch, const char *argument)
 {
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 	int col;
  
 	col = 0;
@@ -934,7 +934,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 
 void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
-	CMD_DATA *cmd;
+	cmd_t *cmd;
 	int col;
  
 	if (IS_NPC(ch)) {

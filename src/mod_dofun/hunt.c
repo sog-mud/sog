@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.20 1999-03-10 17:23:28 fjoe Exp $
+ * $Id: hunt.c,v 1.21 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -345,7 +345,7 @@ int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch,
 			 count determines total breadth and depth */
 		      if(!hash_find(&x_room, tmp_room)
 			 && (count < depth))
-			/* && !IS_SET(RM_FLAGS(tmp_room), DEATH)) */
+			/* && !IS_SET(RM_flag_tS(tmp_room), DEATH)) */
 			{
 			  count++;
 			  /* mark room as visted and put on queue */

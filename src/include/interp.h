@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.41 1999-04-13 02:48:35 kostik Exp $
+ * $Id: interp.h,v 1.42 1999-04-16 15:52:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,7 @@
 /* this is a listing of all the commands and command related data */
 
 /* the command table itself */
-extern	CMD_DATA cmd_table[];
+extern	cmd_t cmd_table[];
 
 void	substitute_alias (DESCRIPTOR_DATA *d, const char *input);
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.28 1999-03-11 09:04:34 fjoe Exp $
+ * $Id: olc_msg.c,v 1.29 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -360,7 +360,7 @@ static void msg_dump(BUFFER *buf, mlstring *ml)
 	}
 
 	for (lang = 0; lang < nlang; lang++) {
-		LANG_DATA *l = VARR_GET(&langs, lang);
+		lang_t *l = VARR_GET(&langs, lang);
 		buf_printf(buf, FORMAT, l->name, msgtoa(mlstr_val(ml, lang)));
 	}
 }

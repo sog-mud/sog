@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.8 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: db_skills.c,v 1.9 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -44,7 +44,7 @@ DBDATA db_skills = { dbfun_skills };
 
 DBLOAD_FUN(load_skill)
 {
-	SKILL_DATA *skill;
+	skill_t *skill;
 
 	skill = varr_enew(&skills);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.118 1999-04-16 10:59:35 fjoe Exp $
+ * $Id: update.c,v 1.119 1999-04-16 15:52:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -105,7 +105,7 @@ void advance_level(CHAR_DATA *ch)
 	int add_mana;
 	int add_move;
 	int add_prac;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if (IS_NPC(ch)) {
 		bug("Advance_level: a mob to advance!", 0);
@@ -176,11 +176,15 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp_tl += gain;
 
 	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
+		class_t *cl;
+
 		char_puts("{CYou raise a level!!{x ", ch);
-		ch->level += 1;
+		ch->level++;
 		ch->exp_tl = 0;
 
-		if ((ch->class == CLASS_SAMURAI) && (ch->level == 10))
+		if ((cl = class_lookup(ch->class)) != NULL
+		&&  cl->death_limit != 0
+		&&  ch->level == MIN_PK_LEVEL)
 			ch->wimpy = 0;
 
 		if (ch->level == 91)
@@ -200,7 +204,7 @@ int hit_gain(CHAR_DATA *ch)
 {
 	int gain;
 	int number;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if (ch->in_room == NULL || (cl = class_lookup(ch->class)) == NULL)
 		return 0;
@@ -277,7 +281,7 @@ int mana_gain(CHAR_DATA *ch)
 {
 	int gain;
 	int number;
-	CLASS_DATA *cl;
+	class_t *cl;
 
 	if (ch->in_room == NULL || (cl = class_lookup(ch->class)) == NULL)
 		return 0;
@@ -464,7 +468,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 		}
 	}
 
-	if (ch->pcdata->condition[iCond] == -6 && ch->level >= PK_MIN_LEVEL) {
+	if (ch->pcdata->condition[iCond] == -6 && ch->level >= MIN_PK_LEVEL) {
 		switch (iCond) {
 		case COND_HUNGER:
 			char_puts("You are starving!\n",  ch);
@@ -1012,7 +1016,7 @@ void char_update(void)
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
 		int chance;
-		RACE_DATA *r = race_lookup(ch->race);
+		race_t *r = race_lookup(ch->race);
 
 		ch_next = ch->next;
 		if (!r)
@@ -1182,7 +1186,7 @@ void char_update(void)
 				/* spell strength fades with time */
 			}
 			else if (paf->duration == 0) {
-				SKILL_DATA *sk;
+				skill_t *sk;
 
 				if ((paf_next == NULL ||
 				     paf_next->type != paf->type ||
@@ -1381,7 +1385,7 @@ void update_obj_affects(OBJ_DATA *obj)
 				paf->level--;
         	}
 		else if (paf->duration == 0) {
-			SKILL_DATA *sk;
+			skill_t *sk;
 
 			if ((paf_next == NULL || paf_next->type != paf->type ||
 			     paf_next->duration > 0)
@@ -2306,7 +2310,7 @@ void track_update(void)
 
 void clan_item_update(void)
 {	
-	CLAN_DATA *clan;
+	clan_t *clan;
 	OBJ_DATA *obj;
 	bool put_back;
 	int i;

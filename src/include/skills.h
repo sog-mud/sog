@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.12 1999-02-15 18:19:41 fjoe Exp $
+ * $Id: skills.h,v 1.13 1999-04-16 15:52:21 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -33,12 +33,12 @@
  * skills stuff
  */
 
-#define SKILL_CLAN	(A)
-#define SKILL_RANGE	(B)
+#define SKILL_CLAN		(A)
+#define SKILL_RANGE		(B)
 #define SKILL_AREA_ATTACK	(C)
 #define SKILL_QUESTIONABLE	(D)
 
-struct skill_data {
+struct skill_t {
 	const char *	name;			/* skill name */
 	SPELL_FUN *	spell_fun;		/* spell function */
 	flag32_t	target;			/* legal target */
@@ -59,8 +59,8 @@ extern varr skills;
 
 #define HAS_SKILL(ch, sn)	(skill_level(ch, sn) < LEVEL_IMMORTAL)
 
-#define SKILL(sn)		((SKILL_DATA*) VARR_GET(&skills, sn))
-#define skill_lookup(sn)	((SKILL_DATA*) varr_get(&skills, sn))
+#define SKILL(sn)		((skill_t*) VARR_GET(&skills, sn))
+#define skill_lookup(sn)	((skill_t*) varr_get(&skills, sn))
 
 const char *	skill_name	(int sn);
 int		sn_lookup	(const char *name);

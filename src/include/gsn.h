@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.16 1999-04-13 02:48:36 kostik Exp $
+ * $Id: gsn.h,v 1.17 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #ifndef _GSN_H_
 #define _GSN_H_
 
-extern NAMEDP gsn_table[];
+extern namedp_t gsn_table[];
 
 /*
  * These are sn_lookup return values for common skills and spells.

@@ -23,13 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.12 1999-03-26 20:04:44 kostik Exp $
+ * $Id: spellfn.h,v 1.13 1999-04-16 15:52:24 fjoe Exp $
  */
 
 #ifndef _SPELLFN_H_
 #define _SPELLFN_H_
 
-extern NAMEDP spellfn_table[];
+extern namedp_t spellfn_table[];
 
 /*
  * Spell functions.

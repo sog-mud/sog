@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.44 1999-02-21 19:19:26 fjoe Exp $
+ * $Id: mob_prog.c,v 1.45 1999-04-16 15:52:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -613,7 +613,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_RACE:
 	    return(lval_char != NULL && lval_char->race == rn_lookup(buf));
 	case CHK_CLASS:
-	    return(lval_char != NULL && !IS_NPC(lval_char) && lval_char->class == cln_lookup(buf));
+	    return(lval_char != NULL && !IS_NPC(lval_char) && lval_char->class == cn_lookup(buf));
 	case CHK_OBJTYPE:
 	    return(lval_obj != NULL && lval_obj->pIndexData->item_type == flag_value(item_types, buf));
 	default:;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.17 1999-02-25 14:27:25 fjoe Exp $
+ * $Id: db_clan.c,v 1.18 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,7 +55,7 @@ DBDATA db_plists = { dbfun_plists };
 
 DBLOAD_FUN(load_clan)
 {
-	CLAN_DATA *clan;
+	clan_t *clan;
 
 	clan = clan_new();
 	clan->file_name = get_filename(filename);
@@ -103,10 +103,10 @@ DBLOAD_FUN(load_clan)
 			break;
 		case 'S':
 			if (!str_cmp(word, "Skill")) {
-				CLAN_SKILL *sk = varr_enew(&clan->skills);
-				sk->sn = sn_lookup(fread_word(fp));	
-				sk->level = fread_number(fp);
-				sk->percent = fread_number(fp);
+				clskill_t *clsk = varr_enew(&clan->skills);
+				clsk->sn = sn_lookup(fread_word(fp));	
+				clsk->level = fread_number(fp);
+				clsk->percent = fread_number(fp);
 				fMatch = TRUE;
 			}
 		}
@@ -118,7 +118,7 @@ DBLOAD_FUN(load_clan)
 
 DBLOAD_FUN(load_plists)
 {
-	CLAN_DATA *clan = arg;
+	clan_t *clan = arg;
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);

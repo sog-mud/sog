@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.6 1999-03-11 09:04:33 fjoe Exp $
+ * $Id: db_race.c,v 1.7 1999-04-16 15:52:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,7 +52,7 @@ DBINIT_FUN(init_race)
 
 DBLOAD_FUN(load_race)
 {
-	RACE_DATA *race = race_new();
+	race_t *race = race_new();
 	race->file_name = get_filename(filename);
 	db_set_arg(dbdata, "PCRACE", race);
 
@@ -116,15 +116,15 @@ DBLOAD_FUN(load_race)
 
 DBLOAD_FUN(load_pcrace)
 {
-	RACE_DATA *race = arg;
-	RACE_PCDATA *pcr;
+	race_t *race = arg;
+	pcrace_t *pcr;
 
 	if (!race) {
 		db_error("load_pcrace", "#PCRACE before #RACE");
 		return;
 	}
 
-	pcr = race->pcdata = race_pcdata_new();
+	pcr = race->pcdata = pcrace_new();
 
 	for (;;) {
 		int i;
@@ -138,7 +138,7 @@ DBLOAD_FUN(load_pcrace)
 
 		case 'C':
 			if (!str_cmp(word, "Class")) {
-				RACE_CLASS_DATA *rcl;
+				rclass_t *rcl;
 
 				rcl = varr_enew(&pcr->classes);
 				rcl->name = str_dup(fread_word(fp));
@@ -152,7 +152,7 @@ DBLOAD_FUN(load_pcrace)
 				if (pcr->who_name[0] == '\0') {
 					db_error("load_pcrace",
 						 "race who_name undefined");
-					race_pcdata_free(pcr);
+					pcrace_free(pcr);
 					race->pcdata = NULL;
 				}
 				varr_qsort(&pcr->classes, cmpstr);
@@ -196,11 +196,11 @@ DBLOAD_FUN(load_pcrace)
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "Skill")) {
-				RACE_SKILL *race_skill;
+				rskill_t *rsk;
 
-				race_skill = varr_enew(&pcr->skills);
-				race_skill->sn = sn_lookup(fread_word(fp));
-				race_skill->level = fread_number(fp);
+				rsk = varr_enew(&pcr->skills);
+				rsk->sn = sn_lookup(fread_word(fp));
+				rsk->level = fread_number(fp);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "Stats")) {
