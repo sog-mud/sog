@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.8 1998-11-26 13:19:37 fjoe Exp $
+ * $Id: spellfn.c,v 1.9 1998-12-04 06:50:46 kostik Exp $
  */
 
 #include <stdio.h>
@@ -78,6 +78,7 @@ NAMEDP spellfn_table[] =
 	{ "spell_earthquake",		spell_earthquake		},
 	{ "spell_enchant_armor",	spell_enchant_armor		},
 	{ "spell_enchant_weapon",	spell_enchant_weapon		},
+	{ "spell_hunger_weapon",	spell_hunger_weapon		},
 	{ "spell_energy_drain",		spell_energy_drain		},
 	{ "spell_faerie_fire",		spell_faerie_fire		},
 	{ "spell_faerie_fog",		spell_faerie_fog		},

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.8 1998-11-26 13:19:37 fjoe Exp $
+ * $Id: spellfn.h,v 1.9 1998-12-04 06:50:46 kostik Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -79,6 +79,7 @@ DECLARE_SPELL_FUN(spell_dispel_magic);
 DECLARE_SPELL_FUN(spell_earthquake);
 DECLARE_SPELL_FUN(spell_enchant_armor);
 DECLARE_SPELL_FUN(spell_enchant_weapon);
+DECLARE_SPELL_FUN(spell_hunger_weapon);
 DECLARE_SPELL_FUN(spell_energy_drain);
 DECLARE_SPELL_FUN(spell_faerie_fire);
 DECLARE_SPELL_FUN(spell_faerie_fog);
