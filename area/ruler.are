@@ -5,7 +5,7 @@ VNUMs 95100 95199
 Credits Chronos~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Rulers
 End
 
@@ -292,7 +292,7 @@ mob attack $n
 #0
 
 #PRACTICERS
-M 95100 clan~	* the enforcer
+M 95100 V	* the enforcer
 S
 
 #$

@@ -5,7 +5,7 @@ VNUMs 95300 95399
 Credits Asena~
 Security 9
 LevelRange 90 100
-Flags noquest update_always~
+Flags CD
 Clan Shalafi
 End
 
@@ -572,7 +572,7 @@ mob attack $n
 #0
 
 #PRACTICERS
-M 95300 clan~	* The Seneschal
+M 95300 V	* The Seneschal
 S
 
 #$

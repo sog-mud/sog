@@ -5,7 +5,7 @@ VNUMs 3700 3799
 Credits Hatchet~
 Security 9
 LevelRange 1 5
-Flags update_frequently~
+Flags E
 End
 
 #MOBILES
@@ -3359,7 +3359,7 @@ S
 0
 
 #PRACTICERS
-M 3719 weaponsmaster combat harmful healing illusion protective fightmaster defensive wizard~	* the priest of Circe
+M 3719 AELMNPSWX	* the priest of Circe
 S
 
 #$
