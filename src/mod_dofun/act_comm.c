@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.145 1999-02-19 13:43:23 kostik Exp $
+ * $Id: act_comm.c,v 1.146 1999-02-19 15:21:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1946,11 +1946,13 @@ DO_FUN(do_wanted)
 
 	TOGGLE_BIT(victim->plr_flags, PLR_WANTED);
 	if (IS_SET(victim->plr_flags, PLR_WANTED)) {
-		act("$n is now WANTED!!!", victim, NULL, NULL, TO_ROOM);
+		act("$n is now WANTED!!!", victim, NULL, ch, TO_NOTVICT);
+		act("$n is now WANTED!!!", victim, NULL, ch, TO_VICT);
 		char_puts("You are now WANTED!!!\n", victim);
 	}
 	else {
-		act("$n is no longer wanted.", victim, NULL, NULL, TO_ROOM);
+		act("$n is no longer wanted.", victim, NULL, ch, TO_NOTVICT);
+		act("$n is no longer wanted.", victim, NULL, ch, TO_VICT);
 		char_puts("You are no longer wanted.\n", victim);
 	}
 }
