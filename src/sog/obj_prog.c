@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.13 2001-12-01 15:01:26 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.14 2001-12-05 15:27:10 avn Exp $
  */
 
 /***************************************************************************
@@ -1821,20 +1821,20 @@ int fight_prog_wasp_hive(OBJ_DATA *hive, CHAR_DATA *ch, const void *arg)
 
 	victim = ch->fighting;
 
-	act("   You take $p carefully and shake it!",
+	act("You take $p carefully and shake it!",
 	    ch, hive, victim, TO_CHAR);
-	act("   $n take $p carefully and shake it!",
+	act("$n takes $p carefully and shake it!",
 	    ch, hive, victim, TO_ROOM);
 
-	act("   The swarm of fury wasps pounce on $N!",
+	act("The swarm of fury wasps pounces on $N!",
 	    ch, NULL, victim, TO_CHAR);
-	act("   The swarm of fury wasps pounce on you!",
+	act("The swarm of fury wasps pounces on you!",
 	    ch, NULL, victim, TO_VICT);
-	act("   The swarm of fury wasps pounce on $N!",
+	act("The swarm of fury wasps pounces on $N!",
 	    ch, NULL, victim, TO_NOTVICT);
 
 	dam = dice(LEVEL(ch), 15);
-	damage(ch, victim, dam, NULL, DAM_ACID, DAMF_NONE);
+	damage(ch, victim, dam, TYPE_HIT, DAM_ACID, DAMF_NONE);
 	spellfun_call("poison", LEVEL(ch) - number_bits(2), ch, victim);
 	return 0;
 }
@@ -1883,7 +1883,7 @@ fight_prog_rainbow_amulet(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
 		    "strikes $N!", ch, amulet, victim, TO_NOTVICT);
 
 		dam = dice(level, 7);
-		damage(ch, victim, dam, NULL, DAM_LIGHT, DAMF_NONE);
+		damage(ch, victim, dam, TYPE_HIT, DAM_LIGHT, DAMF_NONE);
 		spellfun_call("blindness", level - URANGE(3, level / 10, 8),
 			      ch, victim);
 		return 0;
