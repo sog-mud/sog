@@ -13,7 +13,6 @@ AddExp 300
 StatMod 1 0 0 2 0 5
 Skill 'armor' 13 1 0
 Skill 'call lightning' 30 1 0
-Skill 'charm person' 32 1 0
 Skill 'control weather' 11 1 0
 Skill 'cure blindness' 9 1 0
 Skill 'cure critical' 25 1 0
