@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.93 1999-12-14 15:31:12 fjoe Exp $
+ * $Id: olc.c,v 1.94 1999-12-15 00:14:14 avn Exp $
  */
 
 /***************************************************************************
@@ -108,9 +108,8 @@ olced_t olced_table[] = {
 	{ ED_LIQUID,	"LiqEd",	olc_cmds_liq	},
 	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},
 	{ ED_SPEC,	"SpecEd",	olc_cmds_spec	},
-#if 0
 	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
-#endif
+
 	{ NULL }
 };
 
@@ -931,6 +930,19 @@ VALIDATE_FUN(validate_skill_spec)
 {
 	const char *spn = (const char *) arg;
 	STRKEY_CHECK(&specs, spn, OLCED(ch)->name); 
+	return TRUE;
+}
+
+VALIDATE_FUN(validate_funname)
+{
+	const char *name = (const char*) arg;
+
+	if (strpbrk(name, " \t")) {
+		char_printf(ch,
+			    "%s: %s: illegal character in command name.\n",
+			    OLCED(ch)->name, arg);
+		return FALSE;
+	}
 	return TRUE;
 }
 

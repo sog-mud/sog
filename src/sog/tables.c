@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.113 1999-12-14 15:31:15 fjoe Exp $
+ * $Id: tables.c,v 1.114 1999-12-15 00:14:14 avn Exp $
  */
 
 /***************************************************************************
@@ -1245,9 +1245,9 @@ flaginfo_t cmd_logtypes[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
-	{ "normal",		LOG_NORMAL,			},
-	{ "always",		LOG_ALWAYS,			},
-	{ "never",		LOG_NEVER,			},
+	{ "normal",		LOG_NORMAL,		TRUE	},
+	{ "always",		LOG_ALWAYS,		TRUE	},
+	{ "never",		LOG_NEVER,		TRUE	},
 
 	{ NULL }
 };
@@ -1256,9 +1256,9 @@ flaginfo_t cmd_classes[] =
 {
 	{ "",			TABLE_INTVAL			},
 
-	{ "ordinary",		CC_ORDINARY,			},
-	{ "core",		CC_CORE,			},
-	{ "olc",		CC_OLC				},
+	{ "ordinary",		CC_ORDINARY,		TRUE	},
+	{ "core",		CC_CORE,		TRUE	},
+	{ "olc",		CC_OLC,			TRUE	},
 
 	{ NULL }
 };

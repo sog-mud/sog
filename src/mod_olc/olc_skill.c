@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.4 1999-12-14 00:26:41 avn Exp $
+ * $Id: olc_skill.c,v 1.5 1999-12-15 00:14:14 avn Exp $
  */
 
 #include "olc.h"
@@ -63,7 +63,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "list",	skilled_list					},
 
 	{ "name",	olced_strkey,	NULL,	&strkey_skills		},
-	{ "funname",	skilled_funname					},
+	{ "funname",	skilled_funname, validate_funname		},
 	{ "target",	skilled_target, NULL,	skill_targets		},
 	{ "minpos",	skilled_minpos, NULL,	position_table		},
 	{ "slot",	skilled_slot					},
@@ -75,7 +75,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "flags",	skilled_flags,	NULL,	skill_flags		},
 	{ "group",	skilled_group,	NULL,	skill_groups		},
 	{ "type",	skilled_type,	NULL,	skill_types		},
-	{ "event",	skilled_event					},
+	{ "event",	skilled_event, validate_funname, events_table	},
 
 	{ "commands",	show_commands					},
 	{ NULL }
@@ -370,21 +370,28 @@ OLC_FUN(skilled_event)
 	EDIT_SKILL(ch, sk);
 	argument = one_argument(argument, arg, sizeof(arg));
 
-	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s add <event> <fun name>\n"
-			"        %s delete <number>\n", cmd->name, cmd->name);
-		return FALSE;
-	}
+	if (IS_NULLSTR(argument))
+		OLC_ERROR("'OLC SKILL EVENT'");
 
 	if (!str_prefix(arg, "add")) {
 		argument = one_argument(argument, arg, sizeof(arg));
 			   one_argument(argument, arg2, sizeof(arg2));
 
-		if (IS_NULLSTR(arg) || IS_NULLSTR(arg2))
-			return skilled_event(ch, str_empty, cmd);
+		if (IS_NULLSTR(arg))
+			OLC_ERROR("'OLC SKILL EVENT'");
 
 		ev = evf_new();
-		ev->event = flag_value(events_table, arg);
+		if (!olced_flag(ch, arg, cmd, &ev->event)) {
+			evf_free(ev);
+			return FALSE;
+		}
+
+		if (IS_NULLSTR(arg2))
+			OLC_ERROR("'OLC SKILL EVENT'");
+
+		if (!cmd->validator(ch, arg2))
+			return FALSE;
+
 		ev->fun_name = str_dup(arg2);
 		ev->next = sk->eventlist;
 		sk->eventlist = ev;

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.60 1999-12-14 15:31:12 fjoe Exp $
+ * $Id: olc.h,v 1.61 1999-12-15 00:14:14 avn Exp $
  */
 
 /***************************************************************************
@@ -176,6 +176,7 @@ bool olced_cc_vexpr	(CHAR_DATA *ch, const char *argument,
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);
 DECLARE_VALIDATE_FUN(validate_skill_spec);
+DECLARE_VALIDATE_FUN(validate_funname);
 
 DECLARE_OLC_FUN(show_commands	);
 DECLARE_OLC_FUN(show_version	);
@@ -197,17 +198,19 @@ FILE *		olc_fopen	(const char *path, const char *file,
 				 CHAR_DATA *ch, int min_sec);
 void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 
-#define	SECURITY_CLAN		5
-#define	SECURITY_CLAN_PLIST	9
-#define SECURITY_SOCIALS	5
-#define SECURITY_HELP		5
-#define SECURITY_AREA_CREATE	9
-#define SECURITY_MSGDB		3
-#define SECURITY_RACE		4
-#define SECURITY_CLASS		9
 #define SECURITY_MATERIAL	2
+#define SECURITY_RACE		3
+#define SECURITY_MSGDB		3
+#define SECURITY_HELP		4
+#define SECURITY_SOCIALS	5
+#define	SECURITY_CLAN		6
+#define SECURITY_CLASS		7
 #define SECURITY_SKILL		8
 #define SECURITY_SPEC		8
+#define	SECURITY_CLAN_PLIST	8
+#define SECURITY_AREA_CREATE	9
+#define SECURITY_CMDS		9
+#define SECURITY_LANG		9
 
 #define OLC_ERROR(topic)	do {					\
 					dofun("help", ch, (topic));	\

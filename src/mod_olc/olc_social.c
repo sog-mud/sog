@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.14 1999-12-14 00:26:41 avn Exp $
+ * $Id: olc_social.c,v 1.15 1999-12-15 00:14:14 avn Exp $
  */
 
 #include "olc.h"
@@ -79,7 +79,7 @@ olc_cmd_t olc_cmds_soc[] =
 	{ NULL }
 };
 
-static void save_social(FILE *fp, social_t *soc);
+static void *save_social_cb(void *fp, va_list ap);
 
 OLC_FUN(soced_create)
 {
@@ -137,7 +137,6 @@ OLC_FUN(soced_edit)
 
 OLC_FUN(soced_save)
 {
-	int i;
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_SOCIAL)) {
@@ -149,10 +148,7 @@ OLC_FUN(soced_save)
 	if (fp == NULL)
 		return FALSE;
 
-	for (i = 0; i < socials.nused; i++) {
-		social_t *soc = VARR_GET(&socials, i);
-		save_social(fp, soc);
-	}
+	varr_foreach(&socials, save_social_cb, fp);
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
@@ -195,20 +191,20 @@ OLC_FUN(soced_show)
 	output = buf_new(-1);
 
 	buf_printf(output,
-		   "name:          [%s]\n",
+		   "Name:          [%s]\n",
 		   soc->name);
 	buf_printf(output,
-		   "min_pos:       [%s]\n",
+		   "Min_pos:       [%s]\n",
 		   flag_string(position_table, soc->min_pos));
 
-	SOC_SHOW("found_char:    [%s]\n", soc->found_char);
-	SOC_SHOW("found_vict:    [%s]\n", soc->found_vict);
-	SOC_SHOW("found_notvict: [%s]\n", soc->found_notvict);
-	SOC_SHOW("noarg_char:    [%s]\n", soc->noarg_char);
-	SOC_SHOW("noarg_room:    [%s]\n", soc->noarg_room);
-	SOC_SHOW("self_char:     [%s]\n", soc->self_char);
-	SOC_SHOW("self_room:     [%s]\n", soc->self_room);
-	SOC_SHOW("notfound_char: [%s]\n", soc->notfound_char);
+	SOC_SHOW("Found char   [%s]\n", soc->found_char);
+	SOC_SHOW("Found vict   [%s]\n", soc->found_vict);
+	SOC_SHOW("Found other  [%s]\n", soc->found_notvict);
+	SOC_SHOW("Noarg char   [%s]\n", soc->noarg_char);
+	SOC_SHOW("Noarg room   [%s]\n", soc->noarg_room);
+	SOC_SHOW("Self  char   [%s]\n", soc->self_char);
+	SOC_SHOW("Self  room   [%s]\n", soc->self_room);
+	SOC_SHOW("Notfound     [%s]\n", soc->notfound_char);
 
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -221,8 +217,10 @@ OLC_FUN(soced_list)
 	int i;
 	int col = 0;
 	char arg[MAX_STRING_LENGTH];
+	BUFFER *output;
 
 	one_argument(argument, arg, sizeof(arg));
+	output = buf_new(-1);
 
 	for (i = 0; i < socials.nused; i++) {
 		social_t *soc = (social_t*) VARR_GET(&socials, i);
@@ -230,13 +228,16 @@ OLC_FUN(soced_list)
 		if (arg[0] && str_prefix(arg, soc->name))
 			continue;
 
-		char_printf(ch, "%-12s", soc->name);
+		buf_printf(output, "%-12s", soc->name);
 		if (++col % 6 == 0)
-			char_puts("\n", ch);
+			buf_add(output, "\n");
 	}
 
 	if (col % 6)
-		char_puts("\n", ch);
+		buf_add(output, "\n");
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 
 	return FALSE;
 }
@@ -333,20 +334,25 @@ static VALIDATE_FUN(validate_soc_name)
 	return TRUE;
 }
 
-static void save_social(FILE *fp, social_t *soc)
+static void *save_social_cb(void *p, va_list ap)
 {
+	social_t *soc = (social_t *) p;
+	FILE *fp = va_arg(ap, FILE *);
+
 	fprintf(fp, "#SOCIAL\n");
-	fprintf(fp, "name %s\n", soc->name);
-	fprintf(fp, "min_pos %s\n",
+	fprintf(fp, "Name %s\n", soc->name);
+	fprintf(fp, "Min_pos %s\n",
 		flag_string(position_table, soc->min_pos));
-	fwrite_string(fp, "found_char", soc->found_char);
-	fwrite_string(fp, "found_vict", soc->found_vict);
-	fwrite_string(fp, "found_notvict", soc->found_notvict);
-	fwrite_string(fp, "noarg_char", soc->noarg_char);
-	fwrite_string(fp, "noarg_room", soc->noarg_room);
-	fwrite_string(fp, "self_char", soc->self_char);
-	fwrite_string(fp, "self_room", soc->self_room);
-	fwrite_string(fp, "notfound_char", soc->notfound_char);
-	fprintf(fp, "end\n\n");
+	fwrite_string(fp, "Found_char", soc->found_char);
+	fwrite_string(fp, "Found_vict", soc->found_vict);
+	fwrite_string(fp, "Found_notvict", soc->found_notvict);
+	fwrite_string(fp, "Noarg_char", soc->noarg_char);
+	fwrite_string(fp, "Noarg_room", soc->noarg_room);
+	fwrite_string(fp, "Self_char", soc->self_char);
+	fwrite_string(fp, "Self_room", soc->self_room);
+	fwrite_string(fp, "Notfound_char", soc->notfound_char);
+	fprintf(fp, "End\n\n");
+
+	return NULL;
 }
 
