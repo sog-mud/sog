@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.dist,v 1.6 1999-04-15 10:42:27 fjoe Exp $
+# $Id: Makefile.dist,v 1.7 1999-04-15 10:45:43 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -21,7 +21,7 @@ INSTALL_PATH	= ..
 #LIBS	+= -lcrypt
 
 #
-# for SUNOS
+# for SunOS 5 (Solaris)
 #CFLAGS	+= -DSUNOS
 #LIBS	+= -lsocket -lnsl
 #CFILES	+= compat/strsep.c compat/snprintf.c
@@ -96,7 +96,7 @@ clean:
 	rm -f *.o *.core sog
 
 ctags:
-	ctags -dtw $(CFILES) *.h comm/*.h compat/*.h db/*.h mudprogs/*.h olc/*.h
+	ctags -dtw $(CFILES) *.h comm/*.h compat/*.h db/*.h olc/*.h
 
 gtags:
 	gtags -co .
