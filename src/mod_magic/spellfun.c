@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.37 2002-10-21 17:03:17 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.38 2002-10-23 07:05:23 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3033,7 +3033,6 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		if (buffer == NULL)
 			buffer = buf_new(-1);
-		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;
 						in_obj = in_obj->in_obj)
@@ -3043,6 +3042,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 		&&  can_see(ch, in_obj->carried_by)) {
 			buf_printf(buffer, "One is carried by %s\n",
 				   PERS(in_obj->carried_by, ch));
+			number++;
 		}
 		else {
 			if (in_obj->in_room == NULL)
@@ -3052,11 +3052,13 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 				buf_printf(buffer, "One is in %s [Room %d]\n",
 					   mlstr_cval(&in_obj->in_room->name, ch),
 					   in_obj->in_room->vnum);
+				number++;
 			} else {
 				buf_printf(buffer, "One is in %s\n",
 					   in_obj->in_room == NULL ?
 					   "somewhere" :
 					   mlstr_cval(&in_obj->in_room->name, ch));
+				number++;
 			}
 		}
 
@@ -3064,7 +3066,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 			break;
 	}
 
-	if (buffer == NULL)
+	if (number == 0)
 		char_puts("Nothing like that in heaven or earth.\n", ch);
 	else {
 		page_to_char(buf_string(buffer),ch);
