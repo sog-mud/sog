@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.90 2004-02-19 17:16:47 fjoe Exp $
+ * $Id: affects.c,v 1.91 2004-02-21 19:48:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -269,6 +269,9 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
+	if ((paf->where == TO_AFFECTS || paf->where == TO_FORMAFFECTS)
+	&&  IS_SET(paf->bitvector, AFF_CHARM))
+		ch->leader = NULL;
 	check_one_event(ch, paf, EVENT_CHAR_AFF_REMOVE);
 	aff_free(paf);
 	affect_check(ch, where, vector);

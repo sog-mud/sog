@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.284 2004-02-19 20:55:49 fjoe Exp $
+ * $Id: act_comm.c,v 1.285 2004-02-21 19:48:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1058,32 +1058,35 @@ DO_FUN(do_group, ch, argument)
 	}
 
 	for (gch = char_list; gch; gch = gch->next) {
-		if (is_same_group(gch, ch)) {
-			if (IS_GOOD(gch) && IS_EVIL(victim)) {
-				act_puts("You are too evil for $n's group.",
-				    ch, NULL, victim, TO_VICT, POS_SLEEPING);
-				act_puts("$N is too evil for your group!",
-				    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
-				return;
-			}
-			if (IS_GOOD(victim) && IS_EVIL(ch)) {
-				act_puts("You are too pure to join $n's group!",
-				    ch, NULL, victim, TO_VICT, POS_SLEEPING);
-				act_puts("$N is too pure for your group!",
-				    ch, NULL, victim, TO_CHAR,POS_SLEEPING);
-				return;
-			}
-			if (is_in_opposite_clans(ch, gch)) {
-				act_puts("You hate $n's clan, how can you join $n's group?",
-				    gch, NULL, victim, TO_VICT, POS_SLEEPING);
-				if (gch == ch) {
-					act_puts("You hate $N's clan, how can you want $N to join your group?",
-					    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
-				} else {
-					act_puts("There are $N clan enemies in your group, how can $E join you?", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
-				}
+		if (!is_same_group(gch, ch)
+		||  IS_AFFECTED(gch, AFF_CHARM))
+			continue;
+
+		if (IS_GOOD(gch) && IS_EVIL(victim)) {
+			act_puts("You are too evil for $n's group.",
+			    ch, NULL, victim, TO_VICT, POS_SLEEPING);
+			act_puts("$N is too evil for your group!",
+			    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 			return;
+		}
+		if (IS_GOOD(victim) && IS_EVIL(ch)) {
+			act_puts("You are too pure to join $n's group!",
+			    ch, NULL, victim, TO_VICT, POS_SLEEPING);
+			act_puts("$N is too pure for your group!",
+			    ch, NULL, victim, TO_CHAR,POS_SLEEPING);
+			return;
+		}
+		if (is_in_opposite_clans(ch, gch)) {
+			act_puts("You hate $n's clan, how can you join $n's group?",
+			    gch, NULL, victim, TO_VICT, POS_SLEEPING);
+			if (gch == ch) {
+				act_puts("You hate $N's clan, how can you want $N to join your group?",
+				    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
+			} else {
+				act_puts("There are $N clan enemies in your group, how can $E join you?",
+				    ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 			}
+			return;
 		}
 	}
 

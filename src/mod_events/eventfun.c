@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.47 2003-10-10 14:28:15 fjoe Exp $
+ * $Id: eventfun.c,v 1.48 2004-02-21 19:48:10 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -53,7 +53,6 @@ DECLARE_EVENT_FUN(event_updatefast_entangle);
 DECLARE_EVENT_FUN(event_updatechar_crippled_hands);
 DECLARE_EVENT_FUN(event_updatechar_bonedragon);
 DECLARE_EVENT_FUN(event_timeoutchar_bonedragon);
-DECLARE_EVENT_FUN(event_affectremove_charmperson);
 
 static void
 show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
@@ -440,9 +439,4 @@ EVENT_FUN(event_timeoutchar_bonedragon, ch, af)
 
 	char_to_room(drag, ch->in_room);
 	extract_char(ch, 0);
-}
-
-EVENT_FUN(event_affectremove_charmperson, ch, af)
-{
-	ch->leader = NULL;
 }
