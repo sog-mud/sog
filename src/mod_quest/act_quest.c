@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.165 2002-11-28 21:40:26 fjoe Exp $
+ * $Id: act_quest.c,v 1.166 2003-04-19 16:12:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -573,7 +573,8 @@ DO_FUN(quest_request, ch, arg)
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  victim->pMobIndex->vnum < 100
-		||  MOB_IS(victim, MOB_TRAIN | MOB_PRACTICE | MOB_HEALER)
+		||  MOB_IS(victim, MOB_TRAIN | MOB_GAIN | MOB_HEALER)
+		||  MOB_IS_PRACTICER(victim)
 		||  IS_SET(victim->pMobIndex->act,
 			   ACT_NOTRACK | ACT_IMMSUMMON | ACT_PET)
 		||  questor->pMobIndex == victim->pMobIndex

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.145 2003-04-18 19:07:28 tatyana Exp $
+ * $Id: db_area.c,v 1.146 2003-04-19 16:12:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,10 @@
 #include <rwfile.h>
 #include <mprog.h>
 
+static AREA_DATA *area_current;
+
+static void vnum_check(AREA_DATA *area, int vnum);
+
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
 DECLARE_DBLOAD_FUN(load_helps);
@@ -87,10 +91,6 @@ DBFUN dbfun_areas[] = {
 };
 
 DBDATA db_areas = { dbfun_areas, init_area, 0 };
-
-AREA_DATA *		area_current;
-
-static void vnum_check(AREA_DATA *area, int vnum);
 
 #define ff	((int64_t) 1 << 31)
 
@@ -814,6 +814,77 @@ DBLOAD_FUN(load_specials)
 	}
 }
 
+#define V7_MOB_PRACTICE		(D)
+
+#define V7_GROUP_NONE		0
+#define V7_GROUP_WEAPONSMASTER	(A)
+#define V7_GROUP_ATTACK		(B)
+
+#define V7_GROUP_BENEDICTIONS	(D)
+#define V7_GROUP_COMBAT		(E)
+#define V7_GROUP_CREATION	(F)
+#define V7_GROUP_CURATIVE	(G)
+#define V7_GROUP_DIVINATION	(H)
+#define V7_GROUP_DRACONIAN	(I)
+#define V7_GROUP_ENCHANTMENT	(J)
+#define V7_GROUP_ENHANCEMENT	(K)
+#define V7_GROUP_HARMFUL	(L)
+#define V7_GROUP_HEALING	(M)
+#define V7_GROUP_ILLUSION	(N)
+#define V7_GROUP_MALADICTIONS	(O)
+#define V7_GROUP_PROTECTIVE	(P)
+#define V7_GROUP_TRANSPORTATION	(Q)
+#define V7_GROUP_WEATHER	(R)
+#define V7_GROUP_FIGHTMASTER	(S)
+
+#define V7_GROUP_MEDITATION	(U)
+#define V7_GROUP_CLAN		(V)
+#define V7_GROUP_DEFENSIVE	(W)
+#define V7_GROUP_WIZARD		(X)
+#define V7_GROUP_NECROMANCY	(Y)
+#define V7_GROUP_EVOCATION	(Z)
+#define V7_GROUP_CONJURATION	(aa)
+#define V7_GROUP_SUMMONING	(bb)
+#define V7_GROUP_ALTERATION	(cc)
+#define V7_GROUP_ABJURATION	(dd)
+#define V7_GROUP_CHARM		(ee)
+
+flag_subst_t v7_subst_group[] =
+{
+	{ V7_GROUP_WEAPONSMASTER,	GROUP_WEAPONSMASTER	},
+	{ V7_GROUP_ATTACK,		GROUP_ATTACK		},
+
+	{ V7_GROUP_BENEDICTIONS,	GROUP_BENEDICTIONS	},
+	{ V7_GROUP_COMBAT,		GROUP_COMBAT		},
+	{ V7_GROUP_CREATION,		GROUP_CREATION		},
+	{ V7_GROUP_CURATIVE,		GROUP_CURATIVE		},
+	{ V7_GROUP_DIVINATION,		GROUP_DIVINATION	},
+	{ V7_GROUP_DRACONIAN,		GROUP_DRACONIAN		},
+	{ V7_GROUP_ENCHANTMENT,		GROUP_ENCHANTMENT	},
+	{ V7_GROUP_ENHANCEMENT,		GROUP_ENHANCEMENT	},
+	{ V7_GROUP_HARMFUL,		GROUP_HARMFUL		},
+	{ V7_GROUP_HEALING,		GROUP_HEALING		},
+	{ V7_GROUP_ILLUSION,		GROUP_ILLUSION		},
+	{ V7_GROUP_MALADICTIONS,	GROUP_MALADICTIONS	},
+	{ V7_GROUP_PROTECTIVE,		GROUP_PROTECTIVE	},
+	{ V7_GROUP_TRANSPORTATION,	GROUP_TRANSPORTATION	},
+	{ V7_GROUP_WEATHER,		GROUP_WEATHER		},
+	{ V7_GROUP_FIGHTMASTER,		GROUP_FIGHTMASTER	},
+
+	{ V7_GROUP_MEDITATION,		GROUP_MEDITATION	},
+	{ V7_GROUP_CLAN,		GROUP_CLAN		},
+	{ V7_GROUP_DEFENSIVE,		GROUP_DEFENSIVE		},
+	{ V7_GROUP_WIZARD,		GROUP_WIZARD		},
+	{ V7_GROUP_NECROMANCY,		GROUP_NECROMANCY	},
+	{ V7_GROUP_EVOCATION,		GROUP_EVOCATION		},
+	{ V7_GROUP_CONJURATION,		GROUP_CONJURATION	},
+	{ V7_GROUP_SUMMONING,		GROUP_SUMMONING		},
+	{ V7_GROUP_ALTERATION,		GROUP_ALTERATION	},
+	{ V7_GROUP_ABJURATION,		GROUP_ABJURATION	},
+	{ V7_GROUP_CHARM,		GROUP_CHARM		},
+	{ 0, 0 }
+};
+
 /*
  * Snarf can prac declarations.
  */
@@ -842,10 +913,37 @@ DBLOAD_FUN(load_practicers)
 				log(LOG_ERROR, "load_practicer: %d: no such mob", vnum);
 				break;
 			}
-			SET_BIT(pMobIndex->practicer,
-				area_current->ver < 4 ?
-					fread_fstring(skill_groups, fp) :
-					fread_flags(fp));
+			if (area_current->ver < 8) {
+				bool found = FALSE;
+				flag_subst_t *fs;
+				flag_t pr = area_current->ver < 4 ?
+				    fread_fstring(skill_groups, fp) :
+				    fread_flags(fp);
+
+				for (fs = v7_subst_group; fs->from; fs++) {
+					if (IS_SET(pr, fs->from)) {
+						TOUCH_VNUM(pMobIndex->vnum);
+						found = TRUE;
+						mob_add_practicer(
+						    pMobIndex, fs->to);
+					}
+				}
+				if (!found
+				&&  IS_SET(pMobIndex->mob_flags, V7_MOB_PRACTICE)) {
+					TOUCH_VNUM(pMobIndex->vnum);
+					REMOVE_BIT(pMobIndex->mob_flags,
+					    V7_MOB_PRACTICE);
+				}
+			} else {
+				int gr = fread_fword(skill_groups, fp);
+
+				if (gr < 0) {
+					log(LOG_ERROR,
+					    "load_practicer: %s: unknown skill group",
+					    rfile_tok(fp));
+				} else
+					mob_add_practicer(pMobIndex, gr);
+			}
 			break;
 		}
 
@@ -943,7 +1041,7 @@ flag_subst_t v0_subst_mob[] =
 	{ V0_ACT_CHANGER,	MOB_CHANGER			},
 	{ V0_ACT_GAIN,		MOB_GAIN			},
 	{ V0_ACT_TRAIN,		MOB_TRAIN			},
-	{ V0_ACT_PRACTICE,	MOB_PRACTICE			},
+	{ V0_ACT_PRACTICE,	V7_MOB_PRACTICE			},
 	{ V0_ACT_QUESTOR,	MOB_QUESTOR			},
 	{ V0_ACT_REPAIRMAN,	MOB_REPAIRMAN			},
 	{ V0_ACT_SAGE,		MOB_SAGE			},
@@ -1121,9 +1219,6 @@ DBLOAD_FUN(load_mobiles)
 		pMobIndex->affected_by |= (r ? r->aff : 0);
 		pMobIndex->has_invis |= (r ? r->has_invis : 0);
 		pMobIndex->has_detect |= (r ? r->has_detect : 0);
-
-		pMobIndex->practicer		= 0;
-		pMobIndex->pShop                = NULL;
 
 		pMobIndex->alignment            = fread_number(fp);
 		pMobIndex->group                = fread_number(fp);

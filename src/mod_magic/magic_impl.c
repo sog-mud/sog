@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.18 2003-04-17 17:20:40 fjoe Exp $
+ * $Id: magic_impl.c,v 1.19 2003-04-19 16:12:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -255,7 +255,7 @@ casting_allowed(CHAR_DATA *ch, cpdata_t *cp)
 	&&  !IS_IMMORTAL(ch)
 	&&  !is_sn_affected(ch, "vampire")
 	&&  (IS_NPC(ch) || c_strkey_search(&PC(ch)->learned, cp->sn) != NULL)
-	&&  !IS_SET(cp->sk->skill_flags, SKILL_CLAN)) {
+	&&  cp->sk->group != GROUP_CLAN) {
 		act_char("You must transform to vampire before casting!", ch);
 		return FALSE;
 	}

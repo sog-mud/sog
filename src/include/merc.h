@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.398 2003-04-19 00:26:38 fjoe Exp $
+ * $Id: merc.h,v 1.399 2003-04-19 16:12:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -184,7 +184,7 @@ enum {
 #include <msgq.h>
 
 #define PFILE_VERSION	12
-#define AREA_VERSION	7
+#define AREA_VERSION	8
 
 /*
  * Game parameters.
@@ -547,39 +547,45 @@ struct wiznet_type
  *									   *
  ***************************************************************************/
 
-/* skills group numbers*/
-#define GROUP_NONE		0
-#define GROUP_WEAPONSMASTER	(A)
-#define GROUP_ATTACK		(B)
+/* skill group numbers */
+enum {
+	GROUP_NONE,
+	GROUP_WEAPONSMASTER,
+	GROUP_ATTACK,
 
-#define GROUP_BENEDICTIONS	(D)
-#define GROUP_COMBAT		(E)
-#define GROUP_CREATION		(F)
-#define GROUP_CURATIVE		(G)
-#define GROUP_DIVINATION	(H)
-#define GROUP_DRACONIAN		(I)
-#define GROUP_ENCHANTMENT	(J)
-#define GROUP_ENHANCEMENT	(K)
-#define GROUP_HARMFUL		(L)
-#define GROUP_HEALING		(M)
-#define GROUP_ILLUSION		(N)
-#define GROUP_MALADICTIONS	(O)
-#define GROUP_PROTECTIVE	(P)
-#define GROUP_TRANSPORTATION	(Q)
-#define GROUP_WEATHER		(R)
-#define GROUP_FIGHTMASTER	(S)
+	GROUP_BENEDICTIONS,
+	GROUP_COMBAT,
+	GROUP_CREATION,
+	GROUP_CURATIVE,
+	GROUP_DIVINATION,
+	GROUP_DRACONIAN,
+	GROUP_ENCHANTMENT,
+	GROUP_ENHANCEMENT,
+	GROUP_HARMFUL,
+	GROUP_HEALING,
+	GROUP_ILLUSION,
+	GROUP_MALADICTIONS,
+	GROUP_PROTECTIVE,
+	GROUP_TRANSPORTATION,
+	GROUP_WEATHER,
+	GROUP_FIGHTMASTER,
 
-#define GROUP_MEDITATION	(U)
-#define GROUP_CLAN		(V)
-#define GROUP_DEFENSIVE		(W)
-#define GROUP_WIZARD		(X)
-#define GROUP_NECROMANCY	(Y)
-#define GROUP_EVOCATION		(Z)
-#define GROUP_CONJURATION	(aa)
-#define GROUP_SUMMONING		(bb)
-#define GROUP_ALTERATION	(cc)
-#define GROUP_ABJURATION	(dd)
-#define GROUP_CHARM		(ee)
+	GROUP_MEDITATION,
+	GROUP_CLAN,
+	GROUP_DEFENSIVE,
+	GROUP_WIZARD,
+	GROUP_NECROMANCY,
+	GROUP_EVOCATION,
+	GROUP_CONJURATION,
+	GROUP_SUMMONING,
+	GROUP_ALTERATION,
+	GROUP_ABJURATION,
+	GROUP_CHARM,
+};
+
+#define MOB_IS_PRACTICER(mob)	(!c_isempty(&(mob)->pMobIndex->practicer))
+#define MOB_PRACTICES(mob, g)					\
+	(varr_bsearch(&(mob)->pMobIndex->practicer, &(g), cmpint) != NULL)
 
 /*
  * area flags
@@ -627,7 +633,6 @@ struct wiznet_type
 #define MOB_CHANGER		(A)
 #define MOB_GAIN		(B)
 #define MOB_TRAIN		(C)		/* Can train PC's	*/
-#define MOB_PRACTICE		(D)		/* Can practice PC's	*/
 #define MOB_QUESTOR		(E)
 #define MOB_REPAIRMAN		(F)
 #define MOB_SAGE		(G)		/* sage (Otho etc.)	*/
@@ -1428,7 +1433,7 @@ struct mob_index_data
 	flag_t			size;
 	int16_t			resists[MAX_RESIST];	/* resistances */
 	const char *		material;
-	flag_t			practicer;
+	varr			practicer;
 	const char *		clan;
 	int			invis_level;	/* mobinvis level */
 	int			incog_level;	/* mobincog level */
@@ -2078,6 +2083,8 @@ OBJ_INDEX_DATA	*new_obj_index		(void);
 void		free_obj_index		(OBJ_INDEX_DATA *pObj);
 MOB_INDEX_DATA	*new_mob_index		(void);
 void		free_mob_index		(MOB_INDEX_DATA *pMob);
+bool		mob_add_practicer	(MOB_INDEX_DATA *pMob, int group);
+bool		mob_del_practicer	(MOB_INDEX_DATA *pMob, int group);
 void		show_liqlist		(CHAR_DATA *ch);
 void		show_damlist		(CHAR_DATA *ch);
 
@@ -2243,7 +2250,6 @@ extern avltree_info_t c_info_effects;
  */
 
 /* skill flags */
-#define SKILL_CLAN		(A)
 #define SKILL_RANGE		(B)
 #define SKILL_AREA_ATTACK	(C)
 #define SKILL_QUESTIONABLE	(D)
@@ -2542,7 +2548,6 @@ extern int		top_vnum_room;
 extern int		rebooter;
 extern AREA_DATA *	area_first;
 extern AREA_DATA *	area_last;
-extern AREA_DATA *	area_current;
 extern SHOP_DATA *	shop_last;
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.92 2002-03-20 19:39:43 fjoe Exp $
+ * $Id: olc_mob.c,v 1.93 2003-04-19 16:12:38 fjoe Exp $
  */
 
 #include "olc.h"
@@ -357,9 +357,13 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, BUF_END, "Expierence multiplier: [%d%%]\n",
 	    pMob->xp_multiplier);
 
-	if (pMob->practicer) {
-		buf_printf(buf, BUF_END, "Practicer:   [%s]\n",
-			   flag_string(skill_groups, pMob->practicer));
+	if (!c_isempty(&pMob->practicer)) {
+		int *gr;
+
+		buf_printf(buf, BUF_END, "Practicer:   [");
+		C_FOREACH(gr, &pMob->practicer)
+			buf_append(buf, flag_string(skill_groups, *gr));
+		buf_append(buf, "]\n");
 	}
 
 	dump_resists(buf, pMob->resists);
@@ -698,9 +702,62 @@ OLC_FUN(mobed_detect)
 
 OLC_FUN(mobed_prac)
 {
+	char arg[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	bool add;
+	bool changed;
+
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, cmd, &pMob->practicer);
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (arg[0] == '\0' || arg2[0] == '\0') {
+		dofun("help", ch, "'OLC MOB PRAC'");
+		return FALSE;
+	}
+
+	if (!str_prefix(arg, "add"))
+		add = TRUE;
+	else if (!str_prefix(arg, "remove"))
+		add = FALSE;
+	else
+		return cmd->olc_fun(ch, "", cmd);
+
+
+	if (!str_cmp(arg2, "?")) {
+		show_flags(ch, skill_groups);
+		return FALSE;
+	}
+
+	changed = FALSE;
+	for (; arg2[0] != '\0';
+	     argument = one_argument(argument, arg2, sizeof(arg2))) {
+		int gr;
+
+		gr = flag_value(skill_groups, arg2);
+		if (gr < 0) {
+			act("MobEd: $t: unknown skill group. Use 'prac ?' to see available skill groups",
+			    ch, arg2, NULL, TO_CHAR | ACT_NOTRANS);
+			continue;
+		}
+
+		if (add) {
+			if (mob_add_practicer(pMob, gr)) {
+				act("MobEd: $t: skill group added.",
+				    ch, arg2, NULL, TO_CHAR | ACT_NOTRANS);
+				changed = TRUE;
+			}
+		} else {
+			if (mob_del_practicer(pMob, gr)) {
+				act("MobEd: $t: skill group removed.",
+				    ch, arg2, NULL, TO_CHAR | ACT_NOTRANS);
+				changed = TRUE;
+			}
+		}
+	}
+
+	return changed;
 }
 
 OLC_FUN(mobed_ac)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.28 2001-10-21 21:33:53 fjoe Exp $
+ * $Id: act_spec.c,v 1.29 2003-04-19 16:12:32 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -105,11 +105,10 @@ DO_FUN(do_specialize, ch, argument)
 	bool found = FALSE;
 	const char *weapon;
 	const char *output;
+	int group = GROUP_WEAPONSMASTER;
 
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob)
-		&&  MOB_IS(mob, MOB_PRACTICE)
-		&&  IS_SET(mob->pMobIndex->practicer, GROUP_WEAPONSMASTER)) {
+		if (IS_NPC(mob) && MOB_PRACTICES(mob, group)) {
 			found = TRUE;
 			break;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.195 2003-04-19 00:26:49 fjoe Exp $
+ * $Id: tables.c,v 1.196 2003-04-19 16:12:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -125,7 +125,6 @@ flaginfo_t mob_flags[] =
 	{ "changer",		MOB_CHANGER,		TRUE	},
 	{ "gain",		MOB_GAIN,		TRUE	},
 	{ "train",		MOB_TRAIN,		TRUE	},
-	{ "practice",		MOB_PRACTICE,		TRUE	},
 	{ "questor",		MOB_QUESTOR,		TRUE	},
 	{ "repairman",		MOB_REPAIRMAN,		TRUE	},
 	{ "sage",		MOB_SAGE,		TRUE	},
@@ -897,8 +896,9 @@ flaginfo_t raffect_flags[] =
 
 flaginfo_t skill_groups[] =
 {
-	{ "",			TABLE_BITVAL,		FALSE	},
+	{ "",			TABLE_INTVAL,		FALSE	},
 
+	{ "none",		GROUP_NONE,		TRUE	},
 	{ "weaponsmaster",	GROUP_WEAPONSMASTER,	TRUE	},
 	{ "attack",		GROUP_ATTACK,		TRUE	},
 	{ "benedictions",	GROUP_BENEDICTIONS,	TRUE	},
@@ -993,7 +993,6 @@ flaginfo_t skill_flags[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
 
-	{ "clan",		SKILL_CLAN,		TRUE	},
 	{ "range",		SKILL_RANGE,		TRUE	},
 	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
 	{ "questionable",	SKILL_QUESTIONABLE,	TRUE	},

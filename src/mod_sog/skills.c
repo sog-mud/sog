@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.135 2002-11-23 15:28:03 fjoe Exp $
+ * $Id: skills.c,v 1.136 2003-04-19 16:12:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -144,8 +144,8 @@ get_skill(CHAR_DATA *ch, const char *sn)
 	if (!IS_NPC(ch)) {
 		pc_skill_t *pc_sk;
 
-		if ((IS_SET(sk->skill_flags, SKILL_CLAN)
-		&&  !clan_item_ok(ch->clan)))
+		if (sk->group == GROUP_CLAN
+		&&  !clan_item_ok(ch->clan))
 			return 0;
 
 		if ((pc_sk = pc_skill_lookup(ch, sn)) == NULL

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.112 2002-03-20 19:39:43 fjoe Exp $
+ * $Id: olc_area.c,v 1.113 2003-04-19 16:12:37 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1340,16 +1340,21 @@ save_practicers(FILE *fp, AREA_DATA *pArea)
 	bool found = FALSE;
 
 	for (i = pArea->min_vnum; i <= pArea->max_vnum; i++) {
-		if ((pMobIndex = get_mob_index(i)) != NULL
-		&&  pMobIndex->practicer != 0) {
+		int *gr;
+
+		if ((pMobIndex = get_mob_index(i)) == NULL)
+			continue;
+
+		C_FOREACH(gr, &pMobIndex->practicer) {
 			if (!found) {
 				fprintf(fp, "#PRACTICERS\n");
 				found = TRUE;
 			}
+
 			fprintf(fp, "M %d %s\t* %s\n",
-				pMobIndex->vnum,
-				format_flags(pMobIndex->practicer),
-				mlstr_mval(&pMobIndex->short_descr));
+			    pMobIndex->vnum,
+			    flag_string(skill_groups, *gr),
+			    mlstr_mval(&pMobIndex->short_descr));
 		}
 	}
 

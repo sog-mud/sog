@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.156 2003-04-19 00:26:48 fjoe Exp $
+ * $Id: recycle.c,v 1.157 2003-04-19 16:12:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1218,6 +1218,12 @@ get_obj_index(int vnum)
 int mob_index_count;
 MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
 
+static varr_info_t c_info_practicer =
+{
+	&varr_ops, NULL, NULL,
+	sizeof(int), 1
+};
+
 MOB_INDEX_DATA *
 new_mob_index(void)
 {
@@ -1227,6 +1233,7 @@ new_mob_index(void)
         pMob = mem_alloc(MT_MOB_INDEX, sizeof(*pMob));
 	memset(pMob, 0, sizeof(*pMob));
 
+	pMob->pShop		= NULL;
 	pMob->name		= str_dup(str_empty);
 	pMob->race		= str_dup("human");
 	pMob->material		= str_dup("unknown");
@@ -1238,6 +1245,7 @@ new_mob_index(void)
 	mlstr_init2(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
 	for (i = 0; i < MAX_RESIST; i++)
 		pMob->resists[i] = RES_UNDEF;
+	c_init(&pMob->practicer, &c_info_practicer);
 	trig_init_list(&pMob->mp_trigs);
 
 	mob_index_count++;
@@ -1260,11 +1268,39 @@ free_mob_index(MOB_INDEX_DATA *pMob)
 	mlstr_destroy(&pMob->long_descr);
 	mlstr_destroy(&pMob->description);
 	free_shop(pMob->pShop);
+	c_destroy(&pMob->practicer);
 	aff_free_list(pMob->affected);
 	trig_destroy_list(&pMob->mp_trigs);
 
 	mob_index_count--;
 	mem_free(pMob);
+}
+
+bool
+mob_add_practicer(MOB_INDEX_DATA *pMob, int group)
+{
+	int *gr;
+
+	if ((gr = varr_bsearch(&pMob->practicer, &group, cmpint)) != NULL)
+		return FALSE;
+
+	gr = varr_enew(&pMob->practicer);
+	*gr = group;
+	varr_qsort(&pMob->practicer, cmpint);
+	return TRUE;
+}
+
+bool
+mob_del_practicer(MOB_INDEX_DATA *pMob, int group)
+{
+	int *gr;
+
+	if ((gr = varr_bsearch(&pMob->practicer, &group, cmpint)) == NULL)
+		return FALSE;
+
+	varr_edelete(&pMob->practicer, gr);
+	varr_qsort(&pMob->practicer, cmpint);
+	return TRUE;
 }
 
 /*

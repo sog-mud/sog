@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.19 2002-11-20 20:14:51 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.20 2003-04-19 16:12:27 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -55,6 +55,7 @@ static void load_mprogs(void);
 static void fix_resets(void);
 static void fix_exits(void);
 static void fix_mprogs(void);
+static void fix_practicers(void);
 
 MODINIT_FUN(_module_load, m)
 {
@@ -96,6 +97,7 @@ MODINIT_FUN(_module_load, m)
 	fix_resets();
 	fix_exits();
 	fix_mprogs();
+	fix_practicers();
 
 	msgq_init(&msgq_immtalk, MSGQ_LEN_CHAN);
 
@@ -604,4 +606,48 @@ fix_mprogs(void)
 	} while (mp != NULL);
 
 	fclose(fp);
+}
+
+#define V7_MOB_PRACTICE	(D)
+
+static void
+fix_practicers()
+{
+	AREA_DATA *area;
+
+	for (area = area_first; area != NULL; area = area->next) {
+		int vnum;
+
+		if (area->ver >= 8)
+			continue;
+
+		for (vnum = area->min_vnum; vnum < area->max_vnum; vnum++) {
+			MOB_INDEX_DATA *mob = get_mob_index(vnum);
+
+			if (mob == NULL
+			||  !IS_SET(mob->mob_flags, V7_MOB_PRACTICE))
+				continue;
+
+			log(LOG_INFO, "fix_practicers: vnum %d", vnum);
+			REMOVE_BIT(mob->mob_flags, V7_MOB_PRACTICE);
+			TOUCH_AREA(area);
+			if (IS_SET(mob->mob_flags, MOB_CLAN_GUARD)) {
+				if (IS_SET(mob->mob_flags, MOB_GAIN | MOB_TRAIN)) {
+					REMOVE_BIT(mob->mob_flags,
+					    MOB_GAIN | MOB_TRAIN);
+					log(LOG_INFO,
+					    "fix_practicers: vnum %d: MOB_GAIN and MOB_TRAIN removed", vnum);
+				}
+				continue;
+			}
+
+			SET_BIT(mob->mob_flags, MOB_GAIN | MOB_TRAIN);
+			if (c_isempty(&mob->practicer)) {
+				mob_add_practicer(mob, GROUP_NONE);
+				log(LOG_INFO,
+				     "fix_practicers: vnum %d: group none",
+				     vnum);
+			}
+		}
+	}
 }

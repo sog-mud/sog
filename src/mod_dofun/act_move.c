@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.294 2003-04-17 17:20:35 fjoe Exp $
+ * $Id: act_move.c,v 1.295 2003-04-19 16:12:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1139,10 +1139,10 @@ DO_FUN(do_train, ch, argument)
 	/*
 	 * Check for trainer.
 	 */
-	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
-		if (IS_NPC(mob)
-		&&  MOB_IS(mob, MOB_PRACTICE | MOB_TRAIN | MOB_GAIN))
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
+		if (IS_NPC(mob) && MOB_IS(mob, MOB_TRAIN | MOB_GAIN))
 			break;
+	}
 
 	if (mob == NULL) {
 		act_char("You can't do that here.", ch);

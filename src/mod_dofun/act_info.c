@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.431 2003-04-17 17:20:34 fjoe Exp $
+ * $Id: act_info.c,v 1.432 2003-04-19 16:12:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2960,23 +2960,22 @@ DO_FUN(do_practice, ch, argument)
 
 	found = FALSE;
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-		if (!IS_NPC(mob) || !MOB_IS(mob, MOB_PRACTICE))
+		int group;
+
+		if (!IS_NPC(mob) || !MOB_IS_PRACTICER(mob))
 			continue;
 
 		found = TRUE;
-
-		if (IS_SET(sk->skill_flags, SKILL_CLAN)) {
-			if (!IS_CLAN(ch->clan, mob->clan))
-				break;
-			continue;
-		}
-
-		if ((mob->pMobIndex->practicer == 0 &&
-		    (sk->group == GROUP_NONE ||
-		     IS_SET(sk->group,	GROUP_CREATION | GROUP_HARMFUL |
-					GROUP_PROTECTIVE | GROUP_DIVINATION |
-					GROUP_WEATHER)))
-		||  IS_SET(mob->pMobIndex->practicer, sk->group))
+		if (sk->group == GROUP_CREATION
+		||  sk->group == GROUP_HARMFUL
+		||  sk->group == GROUP_PROTECTIVE
+		||  sk->group == GROUP_DIVINATION
+		||  sk->group == GROUP_WEATHER)
+			group = GROUP_NONE;
+		else
+			group = sk->group;
+		if (MOB_PRACTICES(mob, group)
+		&&  (group != GROUP_CLAN || IS_CLAN(ch->clan, mob->clan)))
 			break;
 	}
 
@@ -3133,8 +3132,7 @@ DO_FUN(do_gain, ch, argument)
 
 	/* find a trainer */
 	for (tr = ch->in_room->people; tr; tr = tr->next_in_room) {
-		if (IS_NPC(tr)
-		&&  MOB_IS(tr, MOB_PRACTICE | MOB_TRAIN | MOB_GAIN))
+		if (IS_NPC(tr) && MOB_IS(tr, MOB_TRAIN | MOB_GAIN))
 			break;
 	}
 

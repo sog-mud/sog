@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.7 2002-01-04 06:37:54 kostik Exp $
+ * $Id: skills_impl.c,v 1.8 2003-04-19 16:12:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,7 +46,7 @@ get_skill_mod(CHAR_DATA *ch, skill_t *sk, int percent)
 		if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
 		     !IS_SKILL(sa->sn, gmlstr_mval(&sk->sk_name)))
 		||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
-		     IS_SET(sk->skill_flags, SKILL_CLAN))
+		     sk->group == GROUP_CLAN)
 		||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
 		     !percent))
 			continue;
