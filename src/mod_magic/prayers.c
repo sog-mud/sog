@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.34 2002-08-02 09:35:55 tatyana Exp $
+ * $Id: prayers.c,v 1.35 2002-08-02 11:14:20 tatyana Exp $
  */
 
 /***************************************************************************
@@ -137,6 +137,7 @@ DECLARE_SPELL_FUN(prayer_treeform);
 DECLARE_SPELL_FUN(prayer_fly);
 DECLARE_SPELL_FUN(prayer_mist_walk);
 DECLARE_SPELL_FUN(prayer_air_walk);
+DECLARE_SPELL_FUN(prayer_nightmare);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2813,5 +2814,37 @@ SPELL_FUN(prayer_air_walk, sn, level, ch, vo)
 	aff_free(paf);
 
 	act_char("Air became solid and you now can stand on it.", victim);
-	act("Impossible! $n now stands on the air!", victim, NULL, NULL, TO_ROOM);
+	act("Impossible! $n now stands on the air!", victim, NULL, NULL,
+	    TO_ROOM);
 }
+
+SPELL_FUN(prayer_nightmare, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (ch == victim)
+		act_char("Even you is not so stupid.", ch);
+
+	if (IS_AFFECTED(victim, AFF_SLEEP)
+	||  IS_SET(victim->form, FORM_UNDEAD)
+	||  IS_SET(victim->form, FORM_CONSTRUCT)
+	||  saves_spell(level, victim, DAM_CHARM))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 1 + level/10;
+	paf->bitvector	= AFF_SLEEP;
+	affect_join(victim, paf);
+	aff_free(paf);
+
+	if (IS_AWAKE(victim)) {
+		act_char("Fear! Nightmares come to you.", victim);
+		act("$n puts $N into nightmares.", ch, NULL, victim,
+		    TO_NOTVICT);
+		act("You put $N into nightmares.", ch, NULL, victim, TO_CHAR);
+		victim->position = POS_SLEEPING;
+	}
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.292 2002-08-02 09:35:56 tatyana Exp $
+ * $Id: spellfun.c,v 1.293 2002-08-02 11:14:21 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2063,9 +2063,6 @@ SPELL_FUN(spell_sleep, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
-
-	if (is_sn_affected(victim, "free action"))
-		level -= 5;
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)
 	||  IS_SET(victim->form, FORM_UNDEAD)
