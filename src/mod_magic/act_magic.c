@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.34 2001-07-29 20:14:47 fjoe Exp $
+ * $Id: act_magic.c,v 1.35 2001-07-30 13:05:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,7 +37,8 @@
 
 static int allowed_other(CHAR_DATA *ch, skill_t *sk);
 
-void do_cast(CHAR_DATA *ch, const char *argument)
+void
+do_cast(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -68,7 +69,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "garble") || is_affected(ch, "deafen") 
+	if (is_affected(ch, "garble") || is_affected(ch, "deafen")
 	|| (ch->shapeform && IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
 		act_char("You can't get the right intonations.", ch);
 		return;
@@ -105,7 +106,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						   arg1, sizeof(arg1));
 				if (ch->wait)
 					ch->wait = 0;
-			} else if (ch->wait) 
+			} else if (ch->wait)
 				return;
 		} else
 			pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
@@ -445,7 +446,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 
 		if (shadow) {
-			AFFECT_DATA af;
+			AFFECT_DATA *paf;
 
 			if (victim == ch) {
 				act("You can't do that to yourself.",
@@ -453,35 +454,29 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			af.where 	= TO_AFFECTS;
-			af.type		= "shadow magic";
-			af.level	= slevel;
-			af.duration	= 0;
-			af.modifier	= 0;
-			INT(af.location)= APPLY_NONE;
-			af.owner	= NULL;
-			af.bitvector	= 0;
-
-			affect_to_char2(ch, &af);
+			paf = aff_new(TO_AFFECTS, "shadow magic");
+			paf->level	= slevel;
+			affect_to_char(ch, paf);
 
 			if (saves_spell(slevel, victim, DAM_MENTAL)) {
-
 				/*
 				 * check saves twice
 				 */
 
 				if (saves_spell(slevel, victim, DAM_MENTAL)) {
 					act_char("Your imitation doesn't seem to have any effect.", ch);
+					aff_free(paf);
 					return;
 				} else {
-					affect_to_char2(victim, &af);
+					affect_to_char(victim, paf);
 				}
 			}
+			aff_free(paf);
 		}
 
 		spell->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
 		if (shadow) {
-			if (!IS_EXTRACTED(ch)) 
+			if (!IS_EXTRACTED(ch))
 				affect_strip(ch, "shadow magic");
 		}
 		if (victim && IS_EXTRACTED(victim))
@@ -719,8 +714,9 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	if ((obj || (victim && victim != ch)) && (ch->shapeform) 
-	&& IS_SET(ch->shapeform->index->flags, FORM_CASTSELF)) {
+	if ((obj || (victim && victim != ch))
+	&&  (ch->shapeform != NULL)
+	&&  IS_SET(ch->shapeform->index->flags, FORM_CASTSELF)) {
 		act("You can only affect yourself in this form.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
@@ -802,7 +798,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		if (victim && IS_EXTRACTED(victim))
 			return;
 	}
-		
+
 	if (cast_far && door != -1) {
 		path_to_track(ch, victim, door);
 		return;
@@ -822,13 +818,13 @@ void do_pray(CHAR_DATA *ch, const char *argument)
  */
 
 /*
- * for casting different rooms 
- * returned value is the range 
+ * for casting different rooms
+ * returned value is the rang
  */
-static int allowed_other(CHAR_DATA *ch, skill_t *sk)
+static int
+allowed_other(CHAR_DATA *ch, skill_t *sk)
 {
 	if (IS_SET(sk->skill_flags, SKILL_RANGE))
 		return LEVEL(ch) / 20 + 1;
 	return 0;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.28 2001-07-29 20:14:48 fjoe Exp $
+ * $Id: magic.c,v 1.29 2001-07-30 13:05:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -248,7 +248,7 @@ saves_spell(int level, CHAR_DATA *victim, int dam_type)
 		save += get_curr_stat(victim, STAT_WIS) - 18;
 		save += get_curr_stat(victim, STAT_INT) - 18;
 	}
-	
+
 	if (get_resist(victim, dam_type) == 100)
 		return TRUE;
 

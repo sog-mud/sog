@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.12 2000-06-07 08:55:41 fjoe Exp $
+ * $Id: init_magic.c,v 1.13 2001-07-30 13:05:49 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -74,7 +74,7 @@ load_cb(void *p, va_list ap)
 	if (sk->skill_type == ST_SPELL
 	||  sk->skill_type == ST_PRAYER) {
 		sk->fun = dlsym(m->dlh, sk->fun_name);
-		if (sk->fun == NULL) 
+		if (sk->fun == NULL)
 			log(LOG_INFO, "_module_load(magic): %s", dlerror());
 	}
 	return NULL;
