@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.25 1998-10-06 13:20:13 fjoe Exp $
+ * $Id: olc.c,v 1.26 1998-10-13 12:38:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -519,12 +519,12 @@ bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
 		return FALSE;
 	}
 
-	if (!str_prefix(argument, "none")) {
+	if (!str_cmp(argument, "none")) {
 		*vnum = 0;
 		return TRUE;
 	}
 
-	if ((cn = cn_lookup(argument)) == NULL) {
+	if ((cn = cn_lookup(argument)) < 0) {
 		char_printf(ch, "'%s': unknown clan.\n\r", argument);
 		return FALSE;
 	}

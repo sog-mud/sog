@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.14 1998-10-12 04:58:17 fjoe Exp $
+ * $Id: olc_mob.c,v 1.15 1998-10-13 12:38:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -927,7 +927,7 @@ bool show_mob(CHAR_DATA *ch, MOB_INDEX_DATA *pMob)
 		race_table[pMob->race].name);
 
 	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
-		buf_printf(buf, "Clan      : [%s]\n\r", clan->name);
+		buf_printf(buf, "Clan:        [%s]\n\r", clan->name);
 
 	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
 		pMob->level,	pMob->alignment,
