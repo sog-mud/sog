@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.63 1998-06-07 20:44:21 efdi Exp $
+ * $Id: act_info.c,v 1.64 1998-06-10 06:53:01 efdi Exp $
  */
 
 /***************************************************************************
@@ -483,7 +483,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_STANDING:
 		if (victim->on == NULL) {
 			if (MOUNTED(victim))
-				sprintf(strend(buf), " is here, riding %s.",
+				sprintf(strend(buf), msg(INFO_HERE_RIDING, ch),
 					PERS(MOUNTED(victim),ch));
 			else
 				strcat(buf, msg(INFO_IS_HERE, ch));
@@ -1098,26 +1098,26 @@ void do_look_in(CHAR_DATA* ch, char* arg)
 	OBJ_DATA *obj;
 
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
-		send_to_char("You do not see that here.\n\r", ch);
+		send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
 		return;
 	}
 
 	switch (obj->item_type) {
 	default:
-		send_to_char("That is not a container.\n\r", ch);
+		send_to_char(msg(INFO_THATS_NOT_CONTAINER, ch), ch);
 		break;
 
 	case ITEM_DRINK_CON:
 		if (obj->value[1] <= 0) {
-			send_to_char("It is empty.\n\r", ch);
+			send_to_char(msg(INFO_IT_IS_EMPTY, ch), ch);
 			break;
 		}
 
-		char_printf(ch, "It's %sfilled with a %s liquid.\n\r",
+		char_printf(ch, msg(INFO_ITS_FILLED_S, ch),
 			    obj->value[1] < obj->value[0] / 4 ?
-			    "less than half-" :
+			    msg(INFO_LESS_THAN_HALF, ch) :
 			    obj->value[1] < 3 * obj->value[0] / 4 ?
-			    "about half-" : "more than half-",
+			    msg(INFO_ABOUT_HALF,ch):msg(INFO_MORE_THAN_HALF,ch),
 			    liq_table[obj->value[2]].liq_color);
 		break;
 
@@ -1125,11 +1125,11 @@ void do_look_in(CHAR_DATA* ch, char* arg)
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
 		if (IS_SET(obj->value[1], CONT_CLOSED)) {
-			send_to_char("It is closed.\n\r", ch);
+			send_to_char(msg(INFO_IT_IS_CLOSED, ch), ch);
 			break;
 		}
 
-		act("$p holds:", ch, obj, NULL, TO_CHAR);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, INFO_P_HOLDS);
 		show_list_to_char(obj->contains, ch, TRUE, TRUE);
 		break;
 	}
@@ -1151,13 +1151,12 @@ void do_look(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		send_to_char("You can't see anything but stars!\n\r", ch);
+		send_to_char(msg(INFO_CANT_SEE_BUT_STARS, ch), ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		send_to_char("You can't see anything, you're sleeping!\n\r",
-			     ch);
+		send_to_char(msg(INFO_CANT_SEE_SLEEPING, ch), ch);
 		return;
 	}
 
@@ -1167,7 +1166,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 	if (!IS_NPC(ch)
 	&&  !IS_SET(ch->act, PLR_HOLYLIGHT)
 	&&  room_is_dark(ch)) {
-		send_to_char("It is pitch black ... \n\r", ch);
+		send_to_char(msg(INFO_PITCH_BLACK, ch), ch);
 		show_char_to_char(ch->in_room->people, ch);
 		return;
 	}
@@ -1206,7 +1205,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
-			send_to_char("Look in what?\n\r", ch);
+			send_to_char(msg(INFO_LOOK_IN_WHAT, ch), ch);
 			return;
 		}
 
@@ -1273,8 +1272,8 @@ void do_look(CHAR_DATA *ch, char *argument)
 
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
-					send_to_char("You see nothing special "
-						     "about it.\n\r", ch);
+					send_to_char(
+					  msg(INFO_NOTHING_SPECIAL_IT, ch), ch);
 					return;
 				}
 		}
@@ -1317,10 +1316,9 @@ void do_look(CHAR_DATA *ch, char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			char_printf(ch, "You only see one %s here.\n\r", arg3);
+			char_printf(ch, msg(INFO_ONLY_SEE_ONE_S, ch), arg3);
 		else
-			char_printf(ch, "You only see %d of those here.\n\r",
-				    count);
+			char_printf(ch, msg(INFO_ONLY_SEE_D_THOSE, ch), count);
 		return;
 	}
 
@@ -1331,31 +1329,31 @@ void do_look(CHAR_DATA *ch, char *argument)
 	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up" )) door = 4;
 	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
 	else {
-		send_to_char("You do not see that here.\n\r", ch);
+		send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
 		return;
 	}
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		send_to_char("Nothing special there.\n\r", ch);
+		send_to_char(msg(INFO_NOTHING_SPECIAL_THERE, ch), ch);
 		return;
 	}
 
 	if (pexit->description != NULL && pexit->description[0] != '\0')
 		send_to_char(pexit->description, ch);
 	else
-		send_to_char("Nothing special there.\n\r", ch);
+		send_to_char(msg(INFO_NOTHING_SPECIAL_THERE, ch), ch);
 
 	if (pexit->keyword    != NULL
 	&&  pexit->keyword[0] != '\0'
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			act("The $d is closed.", ch, NULL, pexit->keyword,
-			    TO_CHAR);
+			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
+					POS_DEAD, MOVE_THE_D_IS_CLOSED);
 		}
 		else if (IS_SET(pexit->exit_info, EX_ISDOOR))
-			act("The $d is open.", ch, NULL, pexit->keyword,
-			    TO_CHAR);
+			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
+					POS_DEAD, INFO_THE_D_IS_OPEN);
 	}
 
 	return;

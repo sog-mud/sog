@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.27 1998-06-07 07:15:43 fjoe Exp $
+ * $Id: merc.h,v 1.28 1998-06-10 06:53:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -2432,7 +2432,7 @@ extern int  gsn_tame;
 extern int  gsn_butcher;
 extern int  gsn_assassinate;
 extern int  gsn_wanted;
-extern int  gsn_caltraps;
+extern int  gsn_caltrops;
 extern int  gsn_throw;
 extern int  gsn_strangle;
 extern int  gsn_blackjack;

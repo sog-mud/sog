@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.18 1998-06-07 07:51:18 fjoe Exp $
+ * $Id: interp.c,v 1.19 1998-06-10 06:53:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -329,7 +329,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "berserk",	do_berserk,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
     { "bloodthirst",	do_bloodthirst,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
     { "blackjack",	do_blackjack,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
-    { "caltraps",       do_caltraps,    POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
+    { "caltrops",       do_caltrops,    POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "explode",	do_explode, 	POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "camouflage",     do_camouflage,  POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "circle",         do_circle,      POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },

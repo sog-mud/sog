@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.7 1998-06-06 10:51:56 fjoe Exp $
+ * $Id: martial_art.c,v 1.8 1998-06-10 06:53:04 efdi Exp $
  */
 
 /***************************************************************************
@@ -1558,13 +1558,13 @@ void do_assassinate(CHAR_DATA *ch, char *argument)
 	}
 
 
-void do_caltraps(CHAR_DATA *ch, char *argument)
+void do_caltrops(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim = ch->fighting;
 
-	if (IS_NPC(ch) || ch->pcdata->learned[gsn_caltraps] < 1)
+	if (IS_NPC(ch) || ch->pcdata->learned[gsn_caltrops] < 1)
 	{
-		send_to_char("Caltraps? Is that a dance step?\n\r",ch);
+		send_to_char("Caltrops? Is that a dance step?\n\r",ch);
 		return;
 	}
 
@@ -1582,23 +1582,23 @@ void do_caltraps(CHAR_DATA *ch, char *argument)
 	act("$n throws a handful of sharp spikes at your feet!",
 		ch,NULL,victim,TO_VICT);
 
-	WAIT_STATE(ch,skill_table[gsn_caltraps].beats);
+	WAIT_STATE(ch,skill_table[gsn_caltrops].beats);
 
-	if (!IS_NPC(ch) && number_percent() >= get_skill(ch,gsn_caltraps))
+	if (!IS_NPC(ch) && number_percent() >= get_skill(ch,gsn_caltrops))
 	{
-		damage(ch,victim,0,gsn_caltraps,DAM_PIERCE, TRUE);
-		check_improve(ch,gsn_caltraps,FALSE,1);
+		damage(ch,victim,0,gsn_caltrops,DAM_PIERCE, TRUE);
+		check_improve(ch,gsn_caltrops,FALSE,1);
 		return;
 	}
 
-	damage(ch,victim,ch->level,gsn_caltraps,DAM_PIERCE, TRUE);
+	damage(ch,victim,ch->level,gsn_caltrops,DAM_PIERCE, TRUE);
 
-	if (!is_affected(victim,gsn_caltraps))
+	if (!is_affected(victim,gsn_caltrops))
 	{
 		AFFECT_DATA tohit,todam,todex;
 
 		tohit.where     = TO_AFFECTS;
-		tohit.type      = gsn_caltraps;
+		tohit.type      = gsn_caltrops;
 		tohit.level     = ch->level;
 		tohit.duration  = -1; 
 		tohit.location  = APPLY_HITROLL;
@@ -1607,7 +1607,7 @@ void do_caltraps(CHAR_DATA *ch, char *argument)
 		affect_to_char(victim, &tohit);
 
 		todam.where = TO_AFFECTS;
-		todam.type = gsn_caltraps;
+		todam.type = gsn_caltrops;
 		todam.level = ch->level;
 		todam.duration = -1;
 		todam.location = APPLY_DAMROLL;
@@ -1615,7 +1615,7 @@ void do_caltraps(CHAR_DATA *ch, char *argument)
 		todam.bitvector = 0;
 		affect_to_char(victim, &todam);
 
-		todex.type = gsn_caltraps;
+		todex.type = gsn_caltrops;
 		todex.level = ch->level;
 		todex.duration = -1;
 		todex.location = APPLY_DEX;
@@ -1625,7 +1625,7 @@ void do_caltraps(CHAR_DATA *ch, char *argument)
 
 		act("$N starts limping.",ch,NULL,victim,TO_CHAR);
 		act("You start to limp.",ch,NULL,victim,TO_VICT);
-		check_improve(ch,gsn_caltraps,TRUE,1);
+		check_improve(ch,gsn_caltrops,TRUE,1);
 	}
 }
 

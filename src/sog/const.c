@@ -1,5 +1,5 @@
 /*
- * $Id: const.c,v 1.8 1998-05-27 08:47:22 fjoe Exp $
+ * $Id: const.c,v 1.9 1998-06-10 06:53:02 efdi Exp $
  */
 
 /***************************************************************************
@@ -5218,11 +5218,11 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
     },
 
     {
-	"caltraps",         {  93, 93, 93, 93, 93, 93, 18, 93 ,93,36,93,93,93},
+	"caltrops",         {  93, 93, 93, 93, 93, 93, 18, 93 ,93,36,93,93,93},
         { 1,  1,  1,  1, 1, 1, 1, 1, 1, 1,1,1,1},
         spell_null,      TAR_IGNORE,          POS_FIGHTING,
-        &gsn_caltraps,       SLOT(0),        0,       18,
-	"caltraps", "Your feet feel less sore.", "",	CLAN_NONE , 
+        &gsn_caltrops,       SLOT(0),        0,       18,
+	"caltrops", "Your feet feel less sore.", "",	CLAN_NONE , 
 	RACE_NONE, ALIGN_NONE, GROUP_NONE
     },
 

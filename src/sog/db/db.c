@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.19 1998-06-07 07:15:40 fjoe Exp $
+ * $Id: db.c,v 1.20 1998-06-10 06:53:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -172,7 +172,7 @@ int  gsn_tame;
 int  gsn_butcher;
 int  gsn_assassinate;
 int  gsn_wanted;
-int  gsn_caltraps;
+int  gsn_caltrops;
 int  gsn_throw;
 int  gsn_strangle;
 int  gsn_blackjack;

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.27 1998-06-08 09:29:19 efdi Exp $
+ * $Id: update.c,v 1.28 1998-06-10 06:53:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -1014,9 +1014,9 @@ void char_update(void)
 	 if (!is_affected(ch,gsn_spellbane)) do_spellbane(ch,"");
 	}
 
-	    /* Remove caltraps effect after fight off */
-	    if (is_affected(ch,gsn_caltraps) && !ch->fighting)
-	      affect_strip(ch,gsn_caltraps);
+	    /* Remove caltrops effect after fight off */
+	    if (is_affected(ch,gsn_caltrops) && !ch->fighting)
+	      affect_strip(ch,gsn_caltrops);
 
 	    /* Remove vampire effect when morning. */
 	    if (IS_VAMPIRE(ch) && 
