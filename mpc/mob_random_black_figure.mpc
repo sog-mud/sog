@@ -1,0 +1,9 @@
+/*
+ * $Id: mob_random_black_figure.mpc,v 1.1 2001-09-02 16:05:18 fjoe Exp $
+ */
+
+char ch;
+if ((ch = get_char_here($n, "white")) != NULL) {
+        dofun("say", $n, "And WHAT are you doing here?");
+        multi_hit($n, ch, NULL);
+}

@@ -1,0 +1,17 @@
+/*
+ * $Id: mob_greet_baker.mpc,v 1.1 2001-09-02 16:05:17 fjoe Exp $
+ */
+
+social_char("bow", $n, $N);
+dofun("say", $n, "Would you like to taste a big pot pie today?");
+
+if (char_sex($N) != SEX_FEMALE
+||  number_percent() < 90)
+        return 0;
+
+act_say($n, "You're looking so beautiful today, $N!", $N);
+obj o = load_obj($n, 3009);
+if (!give_obj($n, $N, o))
+        return 0;
+ 
+dofun("say", $n, "It's tasty.");

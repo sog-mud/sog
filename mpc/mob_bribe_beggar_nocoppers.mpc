@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_bribe_beggar_nocoppers.mpc,v 1.1 2001-09-02 16:05:16 fjoe Exp $
+ */
+
+act("$n puts the coins into $s beltpouch.", $n, NULL, NULL, TO_ROOM);
+social_char("thank", $n, $N);
+dofun("say", $n, "Sorry, I haven't got coppers for the exchange.");

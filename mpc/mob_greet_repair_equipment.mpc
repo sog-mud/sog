@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_repair_equipment.mpc,v 1.1 2001-09-02 16:05:17 fjoe Exp $
+ */
+
+dofun("say", $n, "Now it's time to repair equipment.");
