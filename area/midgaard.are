@@ -2275,17 +2275,17 @@ Haon-Dor   |     Guild           .                 Guild        |
         Midgaard              Midgaard                       Midgaard
 ~
 #3163
-map anatolia~
-a map of Muddy~ 
+map thera~
+a map of Thera~ 
 A rolled up map is here.~
 paper~
 map 0 A
 1 0 0 0 0
 0 10 150 P
 E
-map anatolia~
+map thera~
 .
-                         * * * Northern Muddy  * * *
+                         * * * Northern Thera  * * *
                           = = ================== = =
 				DragonSpyre 	      /UnderDark
       Firetop-----Mirkwood            |             Moria
@@ -3133,17 +3133,17 @@ Shop---Western-Road---Square---------Boulevard
 *****************************************************************************
 ~
 #3383
-map anatolia~
-a map of West Muddy~ 
+map thera~
+a map of West Thera~ 
 A rolled up map is here.~
 paper~
 map 0 A
 1 0 0 0 0
 0 10 150 P
 E
-map west anatolia~
+map west thera~
 .
-                         * * * Western Muddy  * * *
+                         * * * Western Thera  * * *
                          = = ================== = =
         Mage 
 Dragon  Tower						Plains
@@ -3178,17 +3178,17 @@ respect to the other areas. Type "areas" for a complete list with suggested
 levels and the authors. 
 ~
 #3384
-map anatolia~
-a map of East Muddy~ 
+map thera~
+a map of East Thera~ 
 A rolled up map is here.~
 paper~
 map 0 A
 1 0 0 0 0
 0 10 150 P
 E
-map east anatolia~
+map east thera~
 .
-                         * * * East Muddy  * * *
+                         * * * East Thera  * * *
                          = = =============== = =
 				
 Olympus	King's Castle	Moria
@@ -3225,7 +3225,7 @@ suggested levels and the authors.
 ~
 #3385
 map newbie~
-a newbie map for east anatolia~
+a newbie map for East Thera~
 A rolled up map is here.~
 paper~
 map 0 A
@@ -3261,7 +3261,7 @@ map newbie~
 ~
 #3386
 map newbie~
-a newbie map for west anatolia~
+a newbie map for West Thera~
 A rolled up map is here.~
 paper~
 map 0 A
