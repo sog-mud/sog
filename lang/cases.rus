@@ -1301,6 +1301,17 @@ Form 6 -у~
 End
 
 #RULE
+Name шипованая~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name зашел~
 BaseLen 5
 Form 1 -а~
@@ -9185,6 +9196,17 @@ Form 6 -а~
 End
 
 #RULE
+Name сумка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name кролик~
 BaseLen 6
 Form 1 -а~
@@ -10411,6 +10433,17 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name ползучий~
+BaseLen 6
+Form 1 -его~
+Form 2 -ему~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ем~
+Form 6 -его~
 End
 
 #RULE
