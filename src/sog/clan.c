@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.23 1998-12-01 10:53:51 fjoe Exp $
+ * $Id: clan.c,v 1.24 1998-12-14 12:31:32 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -225,7 +225,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			CHAR_DATA *vch = d->original ? d->original :
 						       d->character;
 
-			if (vch->clan
+			if (!vch
+			||  vch->clan
 			||  vch->pcdata->petition != cn)
 				continue;
 

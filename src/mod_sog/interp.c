@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.96 1998-12-09 10:19:17 fjoe Exp $
+ * $Id: interp.c,v 1.97 1998-12-14 12:31:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -579,16 +579,16 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			return;
 		}
 
-		if (IS_NPC(ch)) {
-			if (cmd->level >= LEVEL_HERO
-			||  cmd->level > ch->level)
+		if (cmd->level >= LEVEL_IMMORTAL) {
+			if (IS_NPC(ch))
 				continue;
-		}
-		else {
-			if (cmd->level > ch->level
+
+			if (ch->level < IMPLEMENTOR
 			&&  !is_name(cmd->name, ch->pcdata->granted))
 				continue;
 		}
+		else if (cmd->level > ch->level)
+			continue;
 
 #if 0
 		if (is_order && !IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM)) {
@@ -985,14 +985,16 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 
 	col = 0;
 	for (cmd = cmd_table; cmd->name; cmd++) {
-		if (cmd->level >= LEVEL_HERO
-		&&  (cmd->level <= ch->level ||
-		     is_name(cmd->name, ch->pcdata->granted))
-		&&  !IS_SET(cmd->flags, CMD_HIDDEN)) {
-			char_printf(ch, "%-12s", cmd->name);
-			if (++col % 6 == 0)
-				char_puts("\n", ch);
-		}
+		if (cmd->level < LEVEL_IMMORTAL)
+			continue;
+
+		if (ch->level < IMPLEMENTOR
+		&&  !is_name(cmd->name, ch->pcdata->granted))
+			continue;
+
+		char_printf(ch, "%-12s", cmd->name);
+		if (++col % 6 == 0)
+			char_puts("\n", ch);
 	}
  
 	if (col % 6 != 0)

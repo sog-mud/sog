@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.99 1998-12-09 14:06:44 fjoe Exp $
+ * $Id: act_wiz.c,v 1.100 1998-12-14 12:31:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4311,17 +4311,43 @@ DO_FUN(do_grant)
 		return;
 	}
 
+	if (is_number(arg2)) {
+		int lev = atoi(arg2);
+
+		if (lev < LEVEL_IMMORTAL) {
+			char_printf(ch, "grant: granted level must be at least %d\n", LEVEL_HERO);
+			return;
+		}
+
+		if (lev > ch->level) {
+			char_puts("grant: granted level cannot be higher"
+				  " than yours.\n", ch);
+			return;
+		}
+
+		for (cmd = cmd_table; cmd->name; cmd++) {
+			if (cmd->level < LEVEL_HERO
+			||  cmd->level > lev
+			||  is_name(cmd->name, victim->pcdata->granted))
+				continue;
+			name_toggle(ch, cmd->name, "grant",
+				    &victim->pcdata->granted);
+		}
+
+		return;
+	}
+
 	for (; arg2[0]; argument = one_argument(argument, arg2)) {
 		if ((cmd = cmd_lookup(arg2)) == NULL) {
 			char_printf(ch, "%s: command not found.\n", arg2);
 			continue;
 		}
 
-		if (cmd->level <= LEVEL_HERO) {
+		if (cmd->level < LEVEL_IMMORTAL) {
 			char_printf(ch, "%s: not a wizard command.\n", arg2);
 			return;
 		}
-		name_toggle(ch, arg2, "Grant", &victim->pcdata->granted);
+		name_toggle(ch, arg2, "grant", &victim->pcdata->granted);
 	}
 }
 
