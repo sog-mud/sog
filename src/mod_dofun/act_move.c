@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.4 1998-04-21 22:03:52 efdi Exp $
+ * $Id: act_move.c,v 1.5 1998-04-24 16:11:47 efdi Exp $
  */
 
 /***************************************************************************
@@ -117,13 +117,13 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	{
 	 affect_strip(ch,gsn_web);
 	 REMOVE_BIT(ch->detection,ADET_WEB);
-	 send_to_char( "When you attempt to leave the room, you break the webs holding you tight.\n\r", ch );
-	 act( "$n struggles against the webs which hold $m in place, and break it.", ch, NULL, NULL, TO_ROOM );
+	 send_to_char( msg(MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS, ch), ch );
+	 act_printf( ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_BREAKS_THE_WEBS );
 	}
 	else 
 	{
-	 send_to_char( "You attempt to leave the room, but the webs hold you tight.\n\r", ch );
-	 act( "$n struggles vainly against the webs which hold $m in place.", ch, NULL, NULL, TO_ROOM );
+	 send_to_char( msg(MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU, ch), ch );
+	 act_printf( ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS );
 	 return; 
 	}
     }
@@ -138,7 +138,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
 	|| ( IS_AFFECTED( ch, AFF_FADE ) && !IS_AFFECTED(ch, AFF_SNEAK) )  )
     {
 	REMOVE_BIT(ch->affected_by, AFF_HIDE);
-	send_to_char( "You step out of shadows.\n\r", ch );
+	send_to_char( msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch );
 	act( "$n steps out of shadows.", ch, NULL, NULL, TO_ROOM);
     }
     if ( IS_AFFECTED( ch, AFF_CAMOUFLAGE ) )  
@@ -164,7 +164,7 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     ||   ( to_room = pexit->u1.to_room   ) == NULL 
     ||	 !can_see_room(ch,pexit->u1.to_room))
     {
-	send_to_char( "Alas, you cannot go that way.\n\r", ch );
+	send_to_char(msg(MOVE_ALAS_YOU_CANNOT_GO, ch), ch );
 	return;
     }
 

@@ -101,6 +101,8 @@ char *strings_engl[] =  {
 /* INFO_TIME_EVENING */		"evening",
 /* INFO_TIME_NIGHT */		"night",
 
+/* MOVE_ALAS_YOU_CANNOT_GO */	"Alas, you cannot go that way.\n\r",
+
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
 /* INFO_IS_GUSHING_BLOOD_M */	"{Yis gushing blood{x.",
@@ -167,5 +169,21 @@ char *strings_engl[] =  {
 /* HERA_STEPS_INTO */			"$n steps into $p",
 /* HERA_STEPS_INTO_M */			"$n steps into $p",
 /* HERA_STEPS_INTO_F */			"$n steps into $p",
+
+/* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS */ "When you attempt to leave the room, you break the webs holding you tight.\n\r",
+/* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_M */ "When you attempt to leave the room, you break the webs holding you tight.\n\r",
+/* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_F */ "When you attempt to leave the room, you break the webs holding you tight.\n\r",
+/* MOVE_N_BREAKS_THE_WEBS */	"$n struggles against the webs which hold $m in place, and break it.",
+/* MOVE_N_BREAKS_THE_WEBS_M */	"$n struggles against the webs which hold $m in place, and break it.",
+/* MOVE_N_BREAKS_THE_WEBS_F */	"$n struggles against the webs which hold $m in place, and break it.",
+/* MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU */ "You attempt to leave the room, but the webs hold you tight.\n\r",
+/* MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU_M */ "You attempt to leave the room, but the webs hold you tight.\n\r",
+/* MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU_F */ "You attempt to leave the room, but the webs hold you tight.\n\r",
+/* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS */ "$n struggles vainly against the webs which hold $m in place.",
+/* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS_M */ "$n struggles vainly against the webs which hold $m in place.",
+/* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS_F */ "$n struggles vainly against the webs which hold $m in place.",
+/* MOVE_YOU_STEP_OUT_SHADOWS */	"You step out of shadows.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS_M */"You step out of shadows.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS_F */"You step out of shadows.\n\r",
 };
 

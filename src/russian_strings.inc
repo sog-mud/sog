@@ -101,6 +101,11 @@ char *strings_rus[] = {
 /* INFO_TIME_EVENING */		"вечер",
 /* INFO_TIME_NIGHT */		"ночь",
 
+/* MOVE_ALAS_YOU_CANNOT_GO */	"Увы, ты не можешь идти туда.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS */	"Ты вышло из скрывавших тебя теней.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS_M */"Ты вышел из скрывавших тебя теней.\n\r",
+/* MOVE_YOU_STEP_OUT_SHADOWS_F */"Ты вышла из скрывавших тебя теней.\n\r",
+
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
 /* INFO_IS_GUSHING_BLOOD_M */	"{Yсерьезно ранен{x.",
@@ -167,5 +172,18 @@ char *strings_rus[] = {
 /* HERA_STEPS_INTO */			"$n вошло в $p",
 /* HERA_STEPS_INTO_M */			"$n вошел в $p",
 /* HERA_STEPS_INTO_F */			"$n вошла в $p",
+
+/* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS */ "Выходя из комнаты, ты разорвало связывавшую тебя паутину.\n\r",
+/* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_M */ "Выходя из комнаты, ты разорвал связывавшую тебя паутину.\n\r",
+/* MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS_F */ "Выходя из комнаты, ты разорвала связывавшую тебя паутину.\n\r",
+/* MOVE_N_BREAKS_THE_WEBS */	"$n разорвало паутину, которая держала $m.",
+/* MOVE_N_BREAKS_THE_WEBS_M */	"$n разорвал паутину, которая держала $m.",
+/* MOVE_N_BREAKS_THE_WEBS_F */	"$n разорвала паутину, которая держала $m.",
+/* MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU */ "Ты попыталось выйти из комнаты, но паутина держит тебя слишком сильно.\n\r",
+/* MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU_M */ "Ты попытался выйти из комнаты, но паутина держит тебя слишком сильно.\n\r",
+/* MOVE_YOU_ATTEMPT_WEBS_HOLD_YOU_F */ "Ты попыталась выйти из комнаты, но паутина держит тебя слишком сильно.\n\r",
+/* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS */ "$n безуспешно попыталось вырватся из держащей $m паутины.",
+/* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS_M */ "$n безуспешно попытался вырватся из держащей $m паутины.",
+/* MOVE_N_STRUGGLES_VAINLY_AGAINST_WEBS_F */ "$n безуспешно попыталась вырватся из держащей $m паутины.",
 };
 
