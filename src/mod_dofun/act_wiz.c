@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.38 1998-07-13 11:08:59 fjoe Exp $
+ * $Id: act_wiz.c,v 1.39 1998-07-13 11:46:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -796,7 +796,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	        if (d->descriptor == desc)
 	        {
 	        	close_socket(d);
-	        	char_puts("Ok.\n\r", ch);
+			char_nputs(OK, ch);
 	        	return;
 	        }
 		}
@@ -819,7 +819,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		if (d == victim->desc)
 		{
 		    close_socket(d);
-		    char_puts("Ok.\n\r", ch);
+		    char_nputs(OK, ch);
 		    return;
 		}
 	}
@@ -1023,7 +1023,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	if (ch != victim)
 		act("$n has transferred you.", ch, NULL, victim, TO_VICT);
 	do_look(victim, "auto");
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 }
 
 
@@ -2279,7 +2279,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	wiznet_printf(ch,NULL,WIZ_SNOOPS,WIZ_SECURE,get_trust(ch),
 		      "$N starts snooping on %s",
 		      (IS_NPC(ch) ? victim->short_descr : victim->name));
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -2315,7 +2315,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 
 	if (victim == ch)
 	{
-		char_puts("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 		return;
 	}
 
@@ -2350,7 +2350,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	    victim->prompt = str_dup(ch->prompt);
 	victim->comm = ch->comm;
 	victim->lines = ch->lines;
-	char_puts("Ok.\n\r", victim);
+	char_nputs(OK, victim);
 	return;
 }
 
@@ -2590,7 +2590,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet_printf(ch,NULL,WIZ_LOAD,WIZ_SECURE,get_trust(ch),
 			"$N loads %s.",victim->short_descr);
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -2642,7 +2642,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 		obj_to_room(obj, ch->in_room);
 	act("$n has created $p!", ch, obj, NULL, TO_ROOM);
 	wiznet("$N loads $p.",ch,obj,WIZ_LOAD,WIZ_SECURE,get_trust(ch));
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -2679,7 +2679,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		}
 
 		act("$n purges the room!", ch, NULL, NULL, TO_ROOM);
-		char_puts("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 		return;
 	}
 
@@ -2845,7 +2845,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	wiznet_printf(ch,NULL,WIZ_RESTORE,WIZ_SECURE,get_trust(ch),
 			"$N restored %s",
 		IS_NPC(victim) ? victim->short_descr : victim->name);
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -3122,7 +3122,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(rch->act,ACT_AGGRESSIVE);
 	}
 
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -3817,7 +3817,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		interpret(victim, argument);
 	}
 
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -4569,7 +4569,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		REMOVE_BIT(victim->act, PLR_GHOST);
-		char_puts("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	}
 
 	/*
@@ -4716,7 +4716,7 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_title(victim, argument);
-	char_puts("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 }
 
 /*
@@ -4847,12 +4847,12 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(victim->act, PLR_NOTITLE)) {
 	 	REMOVE_BIT(victim->act,PLR_NOTITLE);
 	 	char_puts("You can change your title again.\n\r",victim);
-	 	char_puts("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	}
 	else {		       
 		SET_BIT(victim->act,PLR_NOTITLE);
 		char_puts("You won't be able to change your title anymore.\n\r",victim);
-		char_puts("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	}
 }
 	   

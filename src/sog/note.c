@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.14 1998-07-13 11:20:42 fjoe Exp $
+ * $Id: note.c,v 1.15 1998-07-13 11:46:42 efdi Exp $
  */
 
 /***************************************************************************
@@ -754,7 +754,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	free_string(ch->pnote->subject);
 	ch->pnote->subject = str_dup(argument);
-	send_to_char("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
     }
 
@@ -767,7 +767,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
         }
 	free_string(ch->pnote->to_list);
 	ch->pnote->to_list = str_dup(argument);
-	send_to_char("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
     }
 

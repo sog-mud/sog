@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.23 1998-07-11 22:09:12 fjoe Exp $
+ * $Id: spellfun2.c,v 1.24 1998-07-13 11:46:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -2402,7 +2402,7 @@ void spell_acute_vision(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 	send_to_char("Your vision sharpens.\n\r", victim);
 	if (ch != victim)
-	    send_to_char("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	return;
 }
 
@@ -4111,7 +4111,7 @@ void spell_improved_detection(int sn, int level, CHAR_DATA *ch, void *vo,int tar
 	affect_to_char(victim, &af);
 	send_to_char("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
-	send_to_char("Ok.\n\r", ch);
+	char_nputs(OK, ch);
 	return;
 }
 
@@ -4275,7 +4275,7 @@ void spell_super_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-	send_to_char("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	return;
 }
 
@@ -4288,7 +4288,7 @@ void spell_master_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-	send_to_char("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	return;
 }
 
@@ -4346,7 +4346,7 @@ void spell_restoring_light(int sn, int level, CHAR_DATA *ch, void *vo,int target
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
-	send_to_char("Ok.\n\r", ch);
+		char_nputs(OK, ch);
 	return;
 }
 
@@ -5130,7 +5130,8 @@ void spell_assist(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	act("$n looks better.", victim, NULL, NULL, TO_ROOM);
-	if (ch != victim) send_to_char("Ok.\n\r",ch);
+	if (ch != victim)
+		char_nputs(OK, ch);
 	return;
 }  
 	
@@ -5160,7 +5161,8 @@ void spell_aid(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	update_pos(victim);
 	send_to_char("A warm feeling fills your body.\n\r", victim);
 	act("$n looks better.", victim, NULL, NULL, TO_ROOM);
-	if (ch != victim) send_to_char("Ok.\n\r",ch);
+	if (ch != victim)
+		char_nputs(OK, ch);
 	return;
 }  
 	
