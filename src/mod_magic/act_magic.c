@@ -23,13 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.33 2001-03-16 12:41:28 cs Exp $
+ * $Id: act_magic.c,v 1.34 2001-07-29 20:14:47 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
 
+#include "affects.h"
 #include "fight.h"
+#include "handler.h"
+
 #include "_magic.h"
 
 static int allowed_other(CHAR_DATA *ch, skill_t *sk);
@@ -459,7 +462,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			af.owner	= NULL;
 			af.bitvector	= 0;
 
-			affect_to_char(ch, &af);
+			affect_to_char2(ch, &af);
 
 			if (saves_spell(slevel, victim, DAM_MENTAL)) {
 
@@ -471,7 +474,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 					act_char("Your imitation doesn't seem to have any effect.", ch);
 					return;
 				} else {
-					affect_to_char(victim, &af);
+					affect_to_char2(victim, &af);
 				}
 			}
 		}

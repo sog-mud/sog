@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.19 2001-02-21 19:07:06 fjoe Exp $
+ * $Id: core.c,v 1.20 2001-07-29 20:14:33 fjoe Exp $
  */
 
 #include <errno.h>
@@ -32,23 +32,11 @@
 #include <string.h>
 #include <time.h>
 
-#include "merc.h"
-#include "db.h"
-#include "module.h"
+#include <merc.h>
+#include <db.h>
+#include <module.h>
 
-int
-_module_load(module_t *m)
-{
-	varr_foreach(&commands, cmd_load_cb, MODULE, m);
-	return 0;
-}
-
-int
-_module_unload(module_t *m)
-{
-	log(LOG_INFO, "_module_unload(core): core module could not be unloaded");
-	return -1;
-}
+#include "core.h"
 
 void
 do_modules(CHAR_DATA *ch, const char *argument)
@@ -109,7 +97,7 @@ do_modules(CHAR_DATA *ch, const char *argument)
 			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
 				   m->name,
 				   m->mod_prio,
-				   m->last_reload ? 
+				   m->last_reload ?
 					strtime(m->last_reload) : "never",
 				   m->mod_deps);
 		}
@@ -142,7 +130,7 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 	}
 
 	active = dfexist(TMP_PATH, SHUTDOWN_FILE);
-		
+
 	if (!str_prefix(arg, "status")) {
 		act_puts(active ? "Shutdown status: active" :
 				  "Shutdown status: inactive",
@@ -199,7 +187,7 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg, sizeof(arg));    
+	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
 		dofun("help", ch, "'WIZ REBOOT'");
@@ -219,7 +207,7 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_name(arg, "status")) {
-		if (reboot_counter == -1) 
+		if (reboot_counter == -1)
 			act_char("Automatic rebooting is inactive.", ch);
 		else {
 			act_puts("Reboot in $j $qj{minutes}.",
@@ -238,6 +226,35 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_reboot(ch, "");   
+	do_reboot(ch, "");
+}
+
+void
+reboot_mud(void)
+{
+	DESCRIPTOR_DATA *d,*d_next;
+
+	log(LOG_INFO, "Rebooting SoG");
+	for (d = descriptor_list; d != NULL; d = d_next) {
+		d_next = d->next;
+		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
+		close_descriptor(d, SAVE_F_REBOOT);
+	}
+
+	/*
+	 * activate eqcheck on next boot
+	 */
+	if (!rebooter) {
+		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
+		if (!fp) {
+			log(LOG_ERROR,
+			    "reboot_mud: unable to activate eqcheck");  // notrans
+		} else {
+			log(LOG_INFO, "reboot_mud: eqcheck activated"); // notrans
+			fclose(fp);
+		}
+	}
+
+	merc_down = TRUE;
 }
 

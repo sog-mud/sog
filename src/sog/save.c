@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.180 2001-07-08 17:22:14 fjoe Exp $
+ * $Id: save.c,v 1.181 2001-07-29 20:15:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,9 +51,12 @@
 #include <malloc.h>
 #endif
 
-#include "merc.h"
-#include "db.h"
-#include "rfile.h"
+#include <merc.h>
+#include <db.h>
+#include <rfile.h>
+
+#include "affects.h"
+#include "handler.h"
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -695,9 +698,9 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 					af2.modifier = paf->modifier;
 					paf->modifier = 0;
 					af2.bitvector = 0;
-					affect_to_char(ch, &af2);
+					affect_to_char2(ch, &af2);
 				}
-				affect_to_char(ch, paf);
+				affect_to_char2(ch, paf);
 				aff_free(paf);
 				fMatch = TRUE;
 				break;
@@ -1014,9 +1017,9 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 					af2.modifier = paf->modifier;
 					paf->modifier = 0;
 					af2.bitvector = 0;
-					affect_to_char(pet, &af2);
+					affect_to_char2(pet, &af2);
 				}
-				affect_to_char(pet, paf);
+				affect_to_char2(pet, paf);
 				aff_free(paf);
 				fMatch = TRUE;
 				break;
@@ -1167,7 +1170,7 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 					paf2->modifier = paf->modifier;
 					paf->modifier = 0;
 					paf2->bitvector = 0;
-					affect_to_char(ch, paf2);
+					affect_to_char2(ch, paf2);
 					SLIST_ADD(AFFECT_DATA, obj->affected, paf2);
 				}
 				SLIST_ADD(AFFECT_DATA, obj->affected, paf);

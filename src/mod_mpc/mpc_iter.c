@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.1 2001-06-23 13:07:35 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.2 2001-07-29 20:14:52 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -43,7 +43,7 @@ static bool	range_cond(vo_t *v, iterdata_t *);
 static void	range_next(vo_t *v, iterdata_t *);
 
 iter_t itertab[] = {
-	{ { "range",	MT_INT,	2,	{ MT_INT, MT_INT },
+	{ { "range",	MT_INT,	2,	{ { MT_INT }, { MT_INT } },
 	  (dynafun_t) range_init },
 	  range_cond, range_next },
 #if !defined(MPC)

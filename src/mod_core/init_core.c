@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999, 2000 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,31 +23,32 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.h,v 1.5 2001-07-29 20:14:29 fjoe Exp $
+ * $Id: init_core.c,v 1.1 2001-07-29 20:14:34 fjoe Exp $
  */
 
-#ifndef _MAGIC_H_
-#define _MAGIC_H_
+#include <stdio.h>
+#include <stdarg.h>
 
-#undef MODULE_NAME
-#define MODULE_NAME MOD_MAGIC
-#include <dynafun_decl.h>
+#include <typedef.h>
+#include <memalloc.h>
+#include <varr.h>
+#include <hash.h>
 
-__MODULE_START_DECL
+#include <module.h>
+#define MODULE_INIT MOD_CORE
+#include "core.h"
 
-DECLARE_PROC4(obj_cast_spell,
-	      ARG(cchar_t), sn, ARG(int), level, ARG(CHAR_DATA), ch,
-	      ARG(pvoid_t), vo)
-DECLARE_PROC5(spellfun_call,
-	      ARG(cchar_t), sn_fun, ARG(cchar_t), sn, ARG(int), level,
-	      ARG(CHAR_DATA), ch, ARG(pvoid_t), vo)
-DECLARE_FUN3(bool, saves_spell,
-	     ARG(int), level, ARG(CHAR_DATA), victim, ARG(int), dam_class)
-DECLARE_FUN3(bool, check_dispel,
-	     ARG(int), dis_level, ARG(CHAR_DATA), victim, ARG(cchar_t), sn)
+int
+_module_load(module_t *m)
+{
+	varr_foreach(&commands, cmd_load_cb, MODULE, m);
+	dynafun_tab_register(__mod_tab(MODULE), m);
+	return 0;
+}
 
-__MODULE_END_DECL
-
-#undef MODULE_NAME
-
-#endif
+int
+_module_unload(module_t *m)
+{
+	log(LOG_INFO, "_module_unload(core): core module could not be unloaded");
+	return -1;
+}

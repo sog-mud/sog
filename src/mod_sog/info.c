@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.23 2001-06-24 10:50:57 avn Exp $
+ * $Id: info.c,v 1.24 2001-07-29 20:15:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -46,11 +46,15 @@
 #	include <crypt.h>
 #endif
 
-#include "merc.h"
+#include <merc.h>
+#include <db.h>
+#include <lang.h>
+
+#include "affects.h"
+#include "handler.h"
+
 #include "comm_info.h"
 #include "comm_colors.h"
-#include "db.h"
-#include "lang.h"
 
 INFO_DESC *	id_list;
 int		top_id;
@@ -180,7 +184,7 @@ void info_process_cmd(INFO_DESC *id)
 	p = one_argument(buf, cmd_name, sizeof(cmd_name));
 
 	for (icmd = info_cmds; icmd->name; icmd++)
-		if (!str_cmp(icmd->name, cmd_name))			
+		if (!str_cmp(icmd->name, cmd_name))
 			break;
 
 	if (icmd->fun)

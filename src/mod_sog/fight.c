@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.307 2001-07-25 16:40:18 fjoe Exp $
+ * $Id: fight.c,v 1.308 2001-07-29 20:14:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,9 @@
 #include "merc.h"
 #include "rating.h"
 
+#include "affects.h"
 #include "effects.h"
+#include "handler.h"
 #include "magic.h"
 #include "update.h"
 
@@ -608,7 +610,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
 				af.owner = NULL;
-				affect_join(victim, &af);
+				affect_join2(victim, &af);
 			}
 
 			/* weaken the poison if it's temporary */
@@ -1917,10 +1919,10 @@ check_forest(CHAR_DATA* ch)
 
 	if (ch->in_room->sector_type != SECT_FOREST
 	&&  ch->in_room->sector_type != SECT_HILLS
-	&&  ch->in_room->sector_type != SECT_MOUNTAIN) 
+	&&  ch->in_room->sector_type != SECT_MOUNTAIN)
 		return FOREST_NONE;
 
-	if ((paf = is_affected(ch, "forest fighting")) == NULL)
+	if ((paf = affect_find(ch->affected, "forest fighting")) == NULL)
 		return FOREST_NONE;
 
 	if (INT(paf->location) == APPLY_AC)
@@ -1950,9 +1952,9 @@ secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	int chance;
 	AFFECT_DATA *paf;
 
-	if ((paf = is_affected(ch, "entanglement"))
+	if ((paf = affect_find(ch->affected, "entanglement")) != NULL
 	&&  (INT(paf->location) == APPLY_NONE))
-			return;
+		return;
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
 		chance = get_skill(ch, "dual wield") / 2;
@@ -2250,7 +2252,7 @@ check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 		}
 	}
 
-	if ((paf = is_affected(victim, "entanglement"))
+	if ((paf = affect_find(victim->affected, "entanglement")) != NULL
 	&& (INT(paf->location) == APPLY_DEX))
 		chance /= 3;
 
@@ -3165,7 +3167,7 @@ critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 			baf.duration = number_range(1, 3); 
 			baf.bitvector = AFF_BLIND;
 			baf.owner = NULL;
-			affect_to_char(victim, &baf);
+			affect_to_char2(victim, &baf);
 		}  
 		dam += dam * number_range(1, 2);			
 		return dam;

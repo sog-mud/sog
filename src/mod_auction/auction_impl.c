@@ -1,13 +1,16 @@
 /*
- * $Id: auction_impl.c,v 1.52 2001-07-29 09:43:17 fjoe Exp $
+ * $Id: auction_impl.c,v 1.53 2001-07-29 20:14:59 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include "merc.h"
-#include "auction.h"
+
+#include <merc.h>
+#include <auction.h>
+
+#include "handler.h"
 
 static int advatoi(const char *s);
 

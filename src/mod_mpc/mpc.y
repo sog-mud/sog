@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.17 2001-07-08 20:16:33 fjoe Exp $
+ * $Id: mpc.y,v 1.18 2001-07-29 20:14:51 fjoe Exp $
  */
 
 /*
@@ -610,11 +610,11 @@ foreach: L_FOREACH {
 		 */
 		for (i = 0; i < $6->init.nargs; i++) {
 			int got_type = argtype_get(prog, $8, i);
-			if (got_type != $6->init.argtype[i]) {
+			if (got_type != $6->init.argtype[i].type_tag) {
 				compile_error(prog,
 				    "%s: invalid arg %d type %d (%d expected)",
-				    $6->init.name, i + 1, got_type,
-				    $6->init.argtype[i]);
+				    $6->init.name, i+1, got_type,
+				    $6->init.argtype[i].type_tag);
 				YYERROR;
 			}
 		}
@@ -789,13 +789,13 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		for (i = 0; i < d->nargs; i++) {
 			int got_type = argtype_get(prog, $3, i);
-			if (got_type != d->argtype[i]) {
+			if (got_type != d->argtype[i].type_tag) {
 				compile_error(prog,
 				    "%s: invalid arg %d type %d (%d expected)",
-				    $1, i+1, got_type, d->argtype[i]);
+				    $1, i+1, got_type, d->argtype[i].type_tag);
 				YYERROR;
 			}
-			code(prog, (void *) d->argtype[i]);
+			code(prog, (void *) d->argtype[i].type_tag);
 		}
 
 		$$ = d->rv_tag;

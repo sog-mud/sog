@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.245 2001-07-16 18:42:12 fjoe Exp $
+ * $Id: comm.c,v 1.246 2001-07-29 20:15:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -86,18 +86,20 @@
 #	include <crypt.h>
 #endif
 
-#include "merc.h"
-#include "ban.h"
-#include "charset.h"
-#include "resolver.h"
-#include "comm_info.h"
-#include "comm_colors.h"
-#include "lang.h"
-#include "db.h"
-#include "string_edit.h"
+#include <merc.h>
+#include <ban.h>
+#include <lang.h>
+#include <db.h>
+#include <string_edit.h>
 
+#include "handler.h"
 #include "quest.h"
 #include "update.h"
+
+#include "charset.h"
+#include "comm_colors.h"
+#include "comm_info.h"
+#include "resolver.h"
 
 bool class_ok(CHAR_DATA *ch , class_t *cl);
 
@@ -1343,7 +1345,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				if ((pexit = ch->in_room->exit[door])
 				&&  pexit->to_room.r
 				&&  can_see_room(ch, pexit->to_room.r)
-				&&  check_blind_raw(ch)
+				&&  check_blind_nomessage(ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
 				     IS_IMMORTAL(ch))) {
 					found = TRUE;
@@ -1455,7 +1457,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		case 'r':
 			if (ch->in_room)
-				i = (check_blind_raw(ch) && !room_is_dark(ch)) ?
+				i = (check_blind_nomessage(ch) && !char_in_dark_room(ch)) ?
 				     mlstr_cval(&ch->in_room->name, ch) :
 				     "darkness";		// notrans
 			else

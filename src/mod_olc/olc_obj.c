@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.91 2001-06-25 16:51:24 fjoe Exp $
+ * $Id: olc_obj.c,v 1.92 2001-07-29 20:14:54 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -32,6 +32,8 @@
 
 #include "olc.h"
 
+#include "affects.h"
+#include "handler.h"
 #include "quest.h"
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.19 2001-07-16 18:42:04 fjoe Exp $
+ * $Id: note.c,v 1.20 2001-07-29 20:14:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,10 +44,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "merc.h"
-#include "note.h"
-#include "string_edit.h"
-#include "db.h"
+#include <merc.h>
+#include <note.h>
+#include <string_edit.h>
+#include <db.h>
+
+#include "handler.h"
 
 static int count_spool(CHAR_DATA *ch, note_t *spool);
 static void parse_note(CHAR_DATA *ch, const char *argument, int type);
@@ -58,7 +60,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 	bool found = FALSE;
 
 	if (IS_NPC(ch))
-		return; 
+		return;
 
 	if ((count = count_spool(ch, news_list)) > 0) {
 		found = TRUE;
@@ -412,7 +414,7 @@ static bool hide_note(CHAR_DATA *ch, note_t *pnote)
 		last_read = PC(ch)->last_changes;
 		break;
 	}
-    
+
 	if (pnote->date_stamp <= last_read)
 		return TRUE;
 
@@ -467,7 +469,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || !str_prefix(arg, "read")) {
-        	bool fAll;
+		bool fAll;
 		BUFFER *output;
 
 		if (!str_cmp(argument, "all")) {
@@ -492,16 +494,14 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 			act_char("You have no unread messages.", ch);
 			return;
-        	}
-		else if (is_number(argument)) {
+		} else if (is_number(argument)) {
 			fAll = FALSE;
 			anum = atoi(argument);
-		}
-		else {
+		} else {
 			act_char("Read which number?", ch);
 			return;
 		}
- 
+
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
@@ -513,7 +513,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 					return;
 			}
 		}
- 
+
 		act_puts("There aren't that many $t.",
 			 ch, list_name, NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -587,7 +587,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			act_char("Remove which number?", ch);
 			return;
 		}
- 
+
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
@@ -597,16 +597,16 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				return;
 			}
 		}
- 
+
 		act_puts("There aren't that many $t.",
 			 ch, list_name, NULL,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
- 
+
 	if (!str_prefix(arg, "catchup")) {
 		switch(type) {
-		case NOTE_NOTE:	
+		case NOTE_NOTE:
 			PC(ch)->last_note = current_time;
 			break;
 		case NOTE_IDEA:
@@ -647,7 +647,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			act_char("Delete which number?", ch);
 			return;
 		}
- 
+
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
@@ -935,4 +935,3 @@ static int count_spool(CHAR_DATA *ch, note_t *spool)
 
 	return count;
 }
-

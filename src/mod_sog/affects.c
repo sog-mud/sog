@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.54 2001-07-29 09:43:16 fjoe Exp $
+ * $Id: affects.c,v 1.55 2001-07-29 20:14:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,8 +43,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "merc.h"
-#include "db.h"
+
+#include <merc.h>
+#include <db.h>
+
+#include "affects.h"
+#include "handler.h"
 
 static void show_name(CHAR_DATA *ch, BUFFER *output,
 		      AFFECT_DATA *paf, AFFECT_DATA *paf_last);
@@ -55,126 +59,16 @@ static void show_bit_affect(BUFFER *output,
 		            AFFECT_DATA *paf, AFFECT_DATA **ppaf);
 static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf);
 
-AFFECT_DATA *aff_new(void)
-{
-	AFFECT_DATA *paf;
-
-	top_affect++;
-	paf = mem_alloc(MT_AFFECT, sizeof(*paf));
-	memset(paf, 0, sizeof(*paf));
-	return paf;
-}
-
-AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
-{
-	AFFECT_DATA *naf = aff_new();
-	naf->where	= paf->where;
-	naf->type	= str_dup(paf->type);
-	naf->level	= paf->level;
-	naf->duration	= paf->duration;
-	switch (paf->where) {
-	case TO_RACE:
-	case TO_SKILLS:
-		naf->location.s = str_dup(paf->location.s);
-		break;
-	default:
-		INT(naf->location) = INT(paf->location);
-		break;
-	}
-	naf->modifier	= paf->modifier;
-	naf->bitvector	= paf->bitvector;
-	naf->owner	= paf->owner;
-	return naf;
-}
-
-void aff_free(AFFECT_DATA *af)
-{
-	switch (af->where) {
-	case TO_RACE:
-	case TO_SKILLS:
-		free_string(af->location.s);
-		break;
-	}
-	free_string(af->type);
-	mem_free(af);
-	top_affect--;
-}
-
-AFFECT_DATA *
-aff_dup_list(AFFECT_DATA *paf, int level)
-{
-	AFFECT_DATA *rv = NULL;
-	AFFECT_DATA **ppaf = &rv;
-
-	while (paf) {
-		*ppaf = aff_dup(paf);
-		if (level >= 0)
-			(*ppaf)->level = level;
-		ppaf = &(*ppaf)->next;
-		paf = paf->next;
-	}
-
-	return rv;
-}
-
-void aff_free_list(AFFECT_DATA *paf)
-{
-	AFFECT_DATA *paf_next;
-
-	for (; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		aff_free(paf);
-	}
-}
-
-void saff_init(saff_t *sa)
-{
-	sa->sn = str_empty;
-	sa->type = str_empty;
-	sa->mod = 0;
-	sa->bit = 0;
-}
-
-void saff_destroy(saff_t *sa)
-{
-	free_string(sa->sn);
-	free_string(sa->type);
-}
-
-where_t where_table[] =
-{
-	{ TO_AFFECTS,	apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
-	{ TO_FORMAFFECTS,apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
-	{ TO_SKILLS,	NULL,		sk_aff_flags,	str_empty,				str_empty			},
-	{ TO_RACE,	NULL,		NULL,		"changes race to '{c%s{x'",		str_empty			},
-	{ TO_DETECTS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' detection"	},
-	{ TO_INVIS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x'"			},
-	{ TO_RESIST,	dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
-	{ TO_FORMRESIST,dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
-	{ TO_OBJECT,	apply_flags,	stat_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
-	{ -1,		NULL,		NULL,		str_empty,				str_empty			}
-};
-
-where_t *where_lookup(flag_t where)
-{
-	where_t *wd;
-
-	for (wd = where_table; wd->where != -1; wd++)
-		if (wd->where == where)
-			return wd;
-	return NULL;
-}
-
 /* enchanted stuff for eq */
-void affect_enchant(OBJ_DATA *obj)
+void
+affect_enchant(OBJ_DATA *obj)
 {
 	/* okay, move all the old flags into new vectors if we have to */
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED)) {
 		AFFECT_DATA *paf;
 		SET_OBJ_STAT(obj, ITEM_ENCHANTED);
 
-		for (paf = obj->pObjIndex->affected;
-						paf != NULL; paf = paf->next) {
+		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) {
 			AFFECT_DATA *af_new;
 			af_new = aff_dup(paf);
 			af_new->next = obj->affected;
@@ -208,7 +102,8 @@ remove_sa_cb(void *p, va_list ap)
 /*
  * Apply or remove an affect to a character.
  */
-void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
+void
+affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 {
 	OBJ_DATA *wield;
 	int mod, i;
@@ -370,7 +265,8 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 }
 
 /* find an affect in an affect list */
-AFFECT_DATA  *affect_find(AFFECT_DATA *paf, const char *sn)
+AFFECT_DATA  *
+affect_find(AFFECT_DATA *paf, const char *sn)
 {
 	STRKEY_CHECK(&skills, sn, "affect_find");		// notrans
 
@@ -382,8 +278,8 @@ AFFECT_DATA  *affect_find(AFFECT_DATA *paf, const char *sn)
 	return NULL;
 }
 
-void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
-		       int where, flag_t vector)
+void
+affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf, int where, flag_t vector)
 {
 	for (; paf; paf = paf->next) {
 		if ((where < 0 || paf->where == where)
@@ -404,7 +300,8 @@ void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
 }
 
 /* fix object affects when removing one */
-void affect_check(CHAR_DATA *ch, int where, flag_t vector)
+void
+affect_check(CHAR_DATA *ch, int where, flag_t vector)
 {
 	OBJ_DATA *obj;
 
@@ -430,18 +327,20 @@ void affect_check(CHAR_DATA *ch, int where, flag_t vector)
 /*
  * Give an affect to a char.
  */
-void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
+void
+affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new, *paf2;
 
 	STRKEY_CHECK(&skills, paf->type, "affect_to_char");	// notrans
 
 	if (paf->owner != NULL) {
-		for (paf2 = ch->affected; paf2; paf2 = paf2->next)
-			if (paf2->owner)
+		for (paf2 = ch->affected; paf2 != NULL; paf2 = paf2->next) {
+			if (paf2->owner != NULL)
 				break;
+		}
 
-		if (!paf2) {
+		if (paf2 == NULL) {
 			ch->aff_next = top_affected_char;
 			top_affected_char = ch;
 		}
@@ -455,18 +354,20 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 }
 
 /* give an affect to an object */
-void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
+void
+affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new, *paf2;
 
 	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");	// notrans
 
 	if (paf->owner != NULL) {
-		for (paf2 = obj->affected; paf2; paf2 = paf2->next)
-			if (paf2->owner)
+		for (paf2 = obj->affected; paf2 != NULL; paf2 = paf2->next) {
+			if (paf2->owner != NULL)
 				break;
+		}
 
-		if (!paf2) {
+		if (paf2 == NULL) {
 			obj->aff_next = top_affected_obj;
 			top_affected_obj = obj;
 		}
@@ -492,7 +393,8 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 /*
  * Remove an affect from a char.
  */
-void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
+void
+affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	int where;
 	int vector;
@@ -555,7 +457,8 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_check(ch, where, vector);
 }
 
-void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
+void
+affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	int where, vector;
 	AFFECT_DATA *paf2;
@@ -572,7 +475,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	hadowner = (paf->owner != NULL);
 
 	/* remove flags from the object if needed */
-	if (paf->bitvector)
+	if (paf->bitvector) {
 		switch(paf->where) {
 		case TO_OBJECT:
 			REMOVE_OBJ_STAT(obj, paf->bitvector);
@@ -583,27 +486,24 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 					   paf->bitvector);
 			break;
 		}
+	}
 
 	if (paf == obj->affected)
-	    obj->affected    = paf->next;
-	else
-	{
-	    AFFECT_DATA *prev;
+		obj->affected = paf->next;
+	else {
+		AFFECT_DATA *prev;
 
-	    for (prev = obj->affected; prev != NULL; prev = prev->next)
-	    {
-	        if (prev->next == paf)
-	        {
-	            prev->next = paf->next;
-	            break;
-	        }
-	    }
+		for (prev = obj->affected; prev != NULL; prev = prev->next) {
+			if (prev->next == paf) {
+				prev->next = paf->next;
+				break;
+			}
+		}
 
-	    if (prev == NULL)
-	    {
-	        log(LOG_BUG, "affect_remove_obj: cannot find paf");
-	        return;
-	    }
+		if (prev == NULL) {
+			log(LOG_BUG, "affect_remove_obj: cannot find paf");
+			return;
+		}
 	}
 
 	if (hadowner) {
@@ -617,7 +517,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 			if (top_affected_obj  == obj)
 				top_affected_obj = obj->aff_next;
 			else {
-				for(prev = top_affected_obj;
+				for (prev = top_affected_obj;
 					prev->aff_next && prev->aff_next != obj;
 					prev = prev->aff_next);
 				if (prev == NULL) {
@@ -639,7 +539,8 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 /*
  * Strip all affects of a given sn.
  */
-void affect_strip(CHAR_DATA *ch, const char *sn)
+void
+affect_strip(CHAR_DATA *ch, const char *sn)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
@@ -659,7 +560,8 @@ void affect_strip(CHAR_DATA *ch, const char *sn)
 /*
  * strip all affects which affect given bitvector
  */
-void affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
+void
+affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
@@ -671,7 +573,14 @@ void affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
 	}
 }
 
-AFFECT_DATA *is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
+bool
+is_affected(CHAR_DATA *ch, const char *sn)
+{
+	return affect_find(ch->affected, sn) != NULL;
+}
+
+AFFECT_DATA *
+is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
 {
 	AFFECT_DATA *paf;
 
@@ -682,7 +591,8 @@ AFFECT_DATA *is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
 	return NULL;
 }
 
-bool has_obj_affect(CHAR_DATA *ch, int vector)
+bool
+has_obj_affect(CHAR_DATA *ch, flag_t vector)
 {
 	OBJ_DATA *obj;
 
@@ -709,7 +619,8 @@ bool has_obj_affect(CHAR_DATA *ch, int vector)
 /*
  * Add or enhance an affect.
  */
-void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
+void
+affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_old;
 	bool found;
@@ -865,7 +776,8 @@ affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 /*
  * Strip all affects of a given sn.
  */
-void affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
+void
+affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
@@ -880,7 +792,8 @@ void affect_strip_room(ROOM_INDEX_DATA *room, const char *sn)
 /*
  * Return true if a room is affected by a spell.
  */
-bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
+bool
+is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 {
 	AFFECT_DATA *paf;
 
@@ -892,7 +805,8 @@ bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 	return FALSE;
 }
 
-void strip_raff_owner(CHAR_DATA *ch)
+void
+strip_raff_owner(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *room, *room_next;
 	CHAR_DATA *rch, *rch_next;
@@ -927,7 +841,8 @@ void strip_raff_owner(CHAR_DATA *ch)
 	}
 }
 
-void show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
+void
+show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
@@ -980,75 +895,6 @@ void show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 	}
 }
 
-void aff_fwrite(AFFECT_DATA *paf, FILE *fp)
-{
-	switch (paf->where) {
-	case TO_SKILLS:
-	case TO_RACE:
-		fprintf(fp, "'%s' %s %d %d %d '%s' %s\n",
-			paf->type,
-			flag_string(affect_where_types, paf->where),
-			paf->level, paf->duration, paf->modifier,
-			STR(paf->location), format_flags(paf->bitvector));
-		break;
-	default:
-		fprintf(fp, "'%s' %s %d %d %d %d %s\n",
-			paf->type,
-			flag_string(affect_where_types, paf->where),
-			paf->level, paf->duration, paf->modifier,
-			INT(paf->location), format_flags(paf->bitvector));
-		break;
-	}
-}
-
-void aff_fwrite_list(const char *pre, AFFECT_DATA *paf, FILE *fp)
-{
-	for (; paf != NULL; paf = paf->next) {
-		/* skip empty affects */
-		if ((paf->where == TO_AFFECTS || paf->where == TO_INVIS || paf->where == TO_DETECTS)
-		&&  INT(paf->location) == APPLY_NONE
-		&&  !paf->modifier
-		&&  !paf->bitvector
-		&&  IS_NULLSTR(paf->type))
-			continue;
-
-		if (IS_SKILL(paf->type, "doppelganger"))
-			continue;
-
-		fprintf(fp, "%s ", pre);
-		aff_fwrite(paf, fp);
-	}
-}
-
-AFFECT_DATA *aff_fread(rfile_t *fp)
-{
-	AFFECT_DATA *paf = aff_new();
-
-	paf->type = fread_strkey(fp, &skills, "aff_fread");	// notrans
-	paf->where = fread_fword(affect_where_types, fp);
-	if (paf->where < 0)
-		paf->where = TO_AFFECTS;
-	paf->level = fread_number(fp);
-	paf->duration = fread_number(fp);
-	paf->modifier = fread_number(fp);
-	switch (paf->where) {
-	case TO_SKILLS:
-		paf->location.s = fread_strkey(
-		    fp, &skills, "aff_fread");			// notrans
-		break;
-	case TO_RACE:
-		paf->location.s = fread_strkey(
-		    fp, &races, "aff_fread");			// notrans
-		break;
-	default:
-		INT(paf->location) = fread_number(fp);
-		break;
-	}
-	paf->bitvector = fread_flags(fp);
-
-	return paf;
-}
-
 void
 aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 {
@@ -1077,12 +923,55 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 	}
 }
 
+void
+format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
+{
+	for (; paf; paf = paf->next) {
+		where_t *w;
+
+		if ((w = where_lookup(paf->where)) == NULL)
+			continue;
+
+		if (!IS_NULLSTR(w->loc_format)
+		&& (paf->where == TO_RESIST
+			|| paf->where == TO_FORMRESIST
+			|| INT(paf->location) != APPLY_NONE)
+		&&  paf->modifier) {
+			buf_printf(output, BUF_END, w->loc_format,
+				paf->where != TO_RACE ?
+				SFLAGS(w->loc_table, paf->location) :
+				STR(paf->location),
+				paf->modifier);
+			if (!IS_SET(flags, FOA_F_NODURATION)
+			&&  paf->duration > -1)
+				buf_printf(output, BUF_END, " for %d hours",
+					   paf->duration);
+			buf_append(output, ".\n");
+		}
+
+		if (IS_SET(flags, FOA_F_NOAFFECTS))
+			continue;
+
+		if (paf->bitvector
+		&& !IS_NULLSTR(w->bit_format)) {
+			buf_printf(output, BUF_END, w->bit_format,
+					flag_string(w->bit_table, paf->bitvector));
+			if (!IS_SET(flags, FOA_F_NODURATION)
+			&&  paf->duration > -1)
+				buf_printf(output, BUF_END, " for %d hours",
+					   paf->duration);
+			buf_append(output, ".\n");
+		}
+	}
+}
+
 /*----------------------------------------------------------------------------
  * show affects stuff - local functions
  */
 
-static void show_name(CHAR_DATA *ch, BUFFER *output,
-	       AFFECT_DATA *paf, AFFECT_DATA *paf_last)
+static void
+show_name(CHAR_DATA *ch, BUFFER *output,
+	  AFFECT_DATA *paf, AFFECT_DATA *paf_last)
 {
 	skill_t *aff;
 	const char *aff_type;
@@ -1117,7 +1006,8 @@ static void show_name(CHAR_DATA *ch, BUFFER *output,
 	}
 }
 
-static void show_duration(BUFFER *output, AFFECT_DATA *paf)
+static void
+show_duration(BUFFER *output, AFFECT_DATA *paf)
 {
 	if (paf->duration < 0)
 		buf_append(output, " permanently.\n");
@@ -1127,8 +1017,9 @@ static void show_duration(BUFFER *output, AFFECT_DATA *paf)
 	}
 }
 
-static void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
-		 AFFECT_DATA *paf, AFFECT_DATA **ppaf)
+static void
+show_loc_affect(CHAR_DATA *ch, BUFFER *output,
+		AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
 	where_t *w;
 
@@ -1151,7 +1042,8 @@ static void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 	*ppaf = paf;
 }
 
-static void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
+static void
+show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 {
 	where_t *w;
 
@@ -1168,7 +1060,8 @@ static void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf
 	*ppaf = paf;
 }
 
-static void show_obj_affects(BUFFER *output, AFFECT_DATA *paf)
+static void
+show_obj_affects(BUFFER *output, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_last = NULL;
 

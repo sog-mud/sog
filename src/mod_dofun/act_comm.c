@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.235 2001-07-04 19:21:09 fjoe Exp $
+ * $Id: act_comm.c,v 1.236 2001-07-29 20:14:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,11 +51,13 @@
 #include <unistd.h>
 #endif
 
-#include "merc.h"
-#include "auction.h"
-#include "lang.h"
-#include "note.h"
+#include <merc.h>
+#include <auction.h>
+#include <lang.h>
+#include <note.h>
 
+#include "affects.h"
+#include "handler.h"
 #include "update.h"
 
 /* command procedures needed */
@@ -280,7 +282,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(ch, get_char_world(ch, arg), argument);
+	tell_char(ch, get_char_world(ch, arg), argument);
 }
 
 void do_reply(CHAR_DATA *ch, const char *argument)
@@ -289,7 +291,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		act_char("Huh?", ch);
 		return;
 	}
-	do_tell_raw(ch, PC(ch)->reply, argument);
+	tell_char(ch, PC(ch)->reply, argument);
 }
 
 void do_gtell(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.262 2001-07-06 08:32:13 fjoe Exp $
+ * $Id: act_move.c,v 1.263 2001-07-29 20:14:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,10 +44,13 @@
 #include <sys/time.h>
 #include <stdio.h>
 #include <string.h>
-#include "merc.h"
-#include "db.h"
 
+#include <merc.h>
+#include <db.h>
+
+#include "affects.h"
 #include "effects.h"
+#include "handler.h"
 #include "fight.h"
 #include "magic.h"
 
@@ -63,32 +66,32 @@ static bool	has_key_ground	(CHAR_DATA *ch, int key);
 
 void do_north(CHAR_DATA *ch, const char *argument)
 {
-	move_char(ch, DIR_NORTH, FALSE);
+	move_char(ch, DIR_NORTH, 0);
 }
 
 void do_east(CHAR_DATA *ch, const char *argument)
 {
-	move_char(ch, DIR_EAST, FALSE);
+	move_char(ch, DIR_EAST, 0);
 }
 
 void do_south(CHAR_DATA *ch, const char *argument)
 {
-	move_char(ch, DIR_SOUTH, FALSE);
+	move_char(ch, DIR_SOUTH, 0);
 }
 
 void do_west(CHAR_DATA *ch, const char *argument)
 {
-	move_char(ch, DIR_WEST, FALSE);
+	move_char(ch, DIR_WEST, 0);
 }
 
 void do_up(CHAR_DATA *ch, const char *argument)
 {
-	move_char(ch, DIR_UP, FALSE);
+	move_char(ch, DIR_UP, 0);
 }
 
 void do_down(CHAR_DATA *ch, const char *argument)
 {
-	move_char(ch, DIR_DOWN, FALSE);
+	move_char(ch, DIR_DOWN, 0);
 }
 
 void do_open(CHAR_DATA *ch, const char *argument)
@@ -1188,7 +1191,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = ID_SNEAK;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 	} else
 		check_improve(ch, "sneak", FALSE, 3);
 }
@@ -1328,7 +1331,7 @@ void do_blend(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= ID_BLEND;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 		check_improve(ch, "forest blending", TRUE, 2);
 	} else 
 		check_improve(ch, "forest blending", FALSE, 2);
@@ -1374,7 +1377,7 @@ void do_acute(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 0;
 	af.bitvector	= ID_CAMOUFLAGE;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 	act_char("Your vision sharpens.", ch);
 
 	check_improve(ch, "acute vision", TRUE, 3);
@@ -1543,7 +1546,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
 			&&  pexit->keyword != NULL)
 				dofun("open", ch, "%s", dir_name[d]);
-			move_char(ch, rh->went, FALSE);
+			move_char(ch, rh->went, 0);
 			return;
 		}
 	}
@@ -1595,42 +1598,42 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	INT(af.location) = DAM_NEGATIVE;
 	af.modifier = 100;
 	af.bitvector = 0;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 /* haste */
 	af.where     = TO_AFFECTS;
 	INT(af.location) = APPLY_DEX;
 	af.modifier  = 1 + (level /20);
 	af.bitvector = AFF_HASTE | AFF_BERSERK | AFF_FLYING | AFF_TURNED;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 /* giant strength + infrared */
 	INT(af.location) = APPLY_STR;
 	af.modifier  = 1 + (level / 20);
 	af.bitvector = 0;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 /* size */
 	INT(af.location) = APPLY_SIZE;
 	af.modifier  = 1 + (level / 50);
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 /* damroll */
 	INT(af.location) = APPLY_DAMROLL;
 	af.modifier  = ch->damroll;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 /* infrared */
 	af.where     = TO_DETECTS;
 	INT(af.location) = 0;
 	af.modifier  = 0;
 	af.bitvector = ID_INFRARED;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 /* sneak */
 	af.where = TO_INVIS;
 	af.bitvector = ID_SNEAK;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	free_string(PC(ch)->form_name);
 	PC(ch)->form_name = str_dup("an ugly creature");
@@ -1712,7 +1715,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 			af.modifier	= 0;
 			af.bitvector	= 0;
 			af.owner	= NULL;
-			affect_join(ch, &af);
+			affect_join2(ch, &af);
 			act_char("You gain power of undead!", ch);
 			check_improve(ch, "resurrection", TRUE, 1);
 		} 
@@ -1737,14 +1740,14 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit_rev;
 
 	one_argument(argument, arg, sizeof(arg));
- 
+
 	if ((chance = get_skill(ch, "bash door")) == 0) {
 		act_char("Bashing? What's that?", ch);
 		return;
 	}
- 
+
 	if (MOUNTED(ch)) {
-        	act_char("You can't bash doors while mounted.", ch);
+		act_char("You can't bash doors while mounted.", ch);
 		return;
 	}
 
@@ -1758,7 +1761,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->fighting) {	
+	if (ch->fighting) {
 		act_char("Wait until the fight finishes.", ch);
 		return;
 	}
@@ -1788,7 +1791,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
-		act_char("A mystical shield protects exit.", ch); 
+		act_char("A mystical shield protects exit.", ch);
 		return;
 	}
 
@@ -1811,7 +1814,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	act("$n slams into $d, and tries to break it!",
 	    ch, &pexit->short_descr, NULL, TO_ROOM);
 
-	if (room_dark(ch->in_room))
+	if (char_in_dark_room(ch))
 		chance /= 2;
 
 	beats = skill_beats("bash door");
@@ -1876,7 +1879,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 		act("You start blinking.", ch, NULL, NULL, TO_CHAR);
 		act("$n starts blinking.", ch, NULL, NULL, TO_ROOM);
 
-		af.where 	= TO_AFFECTS;
+		af.where	= TO_AFFECTS;
 		af.type		= "blink";
 		af.level	= LEVEL(ch);
 		INT(af.location)= APPLY_NONE;
@@ -1884,7 +1887,7 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= 0;
 		af.duration	= -1;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 	}
 }
 
@@ -1997,7 +2000,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 	af.modifier	= 0;
 	af.bitvector	= 0;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE))
@@ -2128,7 +2131,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
 		af.owner	= NULL;
-		affect_join(victim,&af);
+		affect_join2(victim,&af);
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
@@ -2317,7 +2320,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		 ch, dir_name[door], victim, TO_VICT, POS_SLEEPING);
 	act("$n pushes $N to $t.",
 	    ch, dir_name[door], victim, TO_NOTVICT);
-	move_char(victim, door, FALSE);
+	move_char(victim, door, 0);
 
 	check_improve(ch, "push", TRUE, 1);
 }
@@ -2373,7 +2376,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	pet = GET_PET(ch);
 	recall(ch, location);
@@ -2447,12 +2450,12 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	if (number_percent() > chance) {
 		act_puts("You failed to escape.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		check_improve(ch, "escape", FALSE, 1);	
+		check_improve(ch, "escape", FALSE, 1);
 		return;
 	}
 
-	check_improve(ch, "escape", TRUE, 1);	
-	move_char(ch, door, FALSE);
+	check_improve(ch, "escape", TRUE, 1);
+	move_char(ch, door, 0);
 	if ((now_in = ch->in_room) == was_in) {
 		act_char("It's pointless to escape there.", ch);
 		return;
@@ -2510,7 +2513,7 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 	af.modifier = 0;
 	af.bitvector= 0;
 	af.owner    = NULL;
-	affect_to_char (ch, &af);
+	affect_to_char2 (ch, &af);
 
 	victim->hit = UMIN(victim->hit + ch->level * 2, victim->max_hit);
 	update_pos(victim);
@@ -2533,7 +2536,7 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
  */
 void do_mount(CHAR_DATA *ch, const char *argument)
 {
-	char 		arg[MAX_INPUT_LENGTH];
+	char		arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *	mount;
 
 	argument = one_argument(argument, arg, sizeof(arg));
@@ -2549,15 +2552,15 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	else if ((mount = get_char_room(ch, arg)) == NULL) {
 		act_char("You don't see that here.", ch);
 		return;
-  	}
- 
+	}
+
 	if (!IS_NPC(mount)
 	||  !IS_SET(mount->pMobIndex->act, ACT_RIDEABLE)
-	||  IS_SET(mount->pMobIndex->act, ACT_NOTRACK)) { 
-		act_char("You can't ride that.", ch); 
+	||  IS_SET(mount->pMobIndex->act, ACT_NOTRACK)) {
+		act_char("You can't ride that.", ch);
 		return;
 	}
-  
+
 	if (LEVEL(ch) < LEVEL(mount)) {
 		act_char("That beast is too powerful for you to ride.", ch);
 		return;
@@ -2568,7 +2571,7 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 			 ch, mount->mount, mount,
 			 TO_CHAR, POS_DEAD);
 		return;
-	} 
+	}
 
 	if (mount->position < POS_STANDING) {
 		act_char("Your mount must be standing.", ch);
@@ -2583,20 +2586,20 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if(!mount_success(ch, mount, TRUE)) {
-		act_char("You fail to mount the beast.", ch);  
-		return; 
+	if (!mount_success(ch, mount, TRUE)) {
+		act_char("You fail to mount the beast.", ch);
+		return;
 	}
 
 	act_puts("You hop on $N's back.", ch, NULL, mount, TO_CHAR, POS_DEAD);
 	act("$n hops on $N's back.", ch, NULL, mount, TO_NOTVICT);
 	act_puts("$n hops on your back!", ch, NULL, mount, TO_VICT, POS_SLEEPING);
- 
+
 	ch->mount = mount;
 	ch->riding = TRUE;
 	mount->mount = ch;
 	mount->riding = TRUE;
-  
+
 	affect_bit_strip(ch, TO_INVIS, ID_ALL_INVIS | ID_SNEAK);
 	REMOVE_INVIS(ch, ID_ALL_INVIS | ID_SNEAK);
 }
@@ -2607,7 +2610,7 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 
 	if ((mount = MOUNTED(ch))) {
 		act_puts("You dismount from $N.",
-			 ch, NULL, mount, TO_CHAR, POS_DEAD); 
+			 ch, NULL, mount, TO_CHAR, POS_DEAD);
 		act("$n dismounts from $N.", ch, NULL, mount, TO_NOTVICT);
 		act_puts("$n dismounts from you.",
 			 ch, NULL, mount, TO_VICT, POS_SLEEPING);
@@ -2715,7 +2718,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            af.modifier  = -1;
 		            af.bitvector = AFF_POISON;
 			    af.owner	 = NULL;
-		            affect_join(victim, &af);
+		            affect_join2(victim, &af);
 			 }
 
 			}
@@ -2753,7 +2756,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			  else
 				af.bitvector = AFF_CORRUPTION;
 			  af.owner	= NULL;
-			  affect_join(victim, &af);
+			  affect_join2(victim, &af);
 
 			  obj_to_char(arrow,victim);
 			  equip_char(victim,arrow,WEAR_STUCK_IN);
@@ -2873,7 +2876,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 
 	chance = chance * get_skill(ch, "riding") / 100;
 
-	if (!move_char_org(ch, direction, FALSE, TRUE))
+	if (!move_char(ch, direction, MC_F_CHARGE))
 		return;
 	act("$n gallops from $t, charging you!",
 	    ch, from_dir_name[rev_dir[direction]], victim, TO_VICT);
@@ -2903,7 +2906,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 				    ch, dir_name[direction], ch->mount, TO_NOTVICT);
 				act("You cannot hold your $N.",
 				    ch, NULL, ch->mount, TO_CHAR);
-				move_char(ch, direction, FALSE);
+				move_char(ch, direction, 0);
 				WAIT_STATE(ch, beats * 5);
 				return;
 			}
@@ -3378,7 +3381,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.modifier	= 0;
 	  af.bitvector	= 0;
 	  af.owner	= ch;
-	  affect_to_room(ch->in_room, &af);
+	  affect_to_room2(ch->in_room, &af);
 
 	  af2.where     = TO_AFFECTS;
 	  af2.type      = "settraps";
@@ -3393,7 +3396,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af2.modifier  = 0;
 	  INT(af2.location) = APPLY_NONE;
 	  af2.bitvector = 0;
-	  affect_to_char(ch, &af2);
+	  affect_to_char2(ch, &af2);
 	  act_char("You set the room with your trap.", ch);
 	  act("$n set the room with $s trap.",ch,NULL,NULL,TO_ROOM);
 	  return;
@@ -3451,7 +3454,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	if (attack) {
 		af.modifier	= ch->level/8;
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 		INT(af.location)= APPLY_DAMROLL;
 		act_puts("You feel yourself wild.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -3464,7 +3467,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 		act("$n looks protected.", ch, NULL, NULL, TO_ROOM);
 	}
 
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 }
 
 void do_breathhold(CHAR_DATA *ch, const char *argument)
@@ -3497,7 +3500,7 @@ void do_breathhold(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= 0;
 		af.owner	= NULL;
-		affect_to_char(ch, &af); 
+		affect_to_char2(ch, &af); 
 	}
 	else {
 		act_char("You took a deep breath but fail to concentrate.", ch);

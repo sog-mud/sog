@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.5 2001-07-08 20:16:33 fjoe Exp $
+ * $Id: init_mpc.c,v 1.6 2001-07-29 20:14:51 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -58,22 +58,28 @@
 static void load_mudprogs();
 
 static dynafun_data_t local_dynafun_tab[] = {
-	{ "act_char",		MT_VOID, 2,	{ MT_STR, MT_CHAR }	},
+	{ "act_char",		MT_VOID, 2,
+	  { { MT_STR }, { MT_CHAR } }					},
 	{ "has_sp",		MT_INT, 4,
-	  { MT_CHAR, MT_STR, MT_STR, MT_STR }				},
-	{ "level",		MT_INT, 1,	{ MT_CHAR }		},
+	  { { MT_CHAR }, { MT_STR }, { MT_STR }, { MT_STR } }		},
+	{ "level",		MT_INT, 1,
+	  { { MT_CHAR }	}						},
 	{ "spclass_count",	MT_INT, 4,
-	  { MT_CHAR, MT_STR, MT_STR, MT_STR }				},
+	  { { MT_CHAR }, { MT_STR }, { MT_STR }, { MT_STR } }		},
 	{ NULL }
 };
 #endif
 
 static dynafun_data_t core_dynafun_tab[] = {
-	{ "number_range",	MT_INT, 2,	{ MT_INT, MT_INT }	},
+	{ "number_range",	MT_INT, 2,
+	  { { MT_INT }, { MT_INT } }					},
 #if defined(MPC)
-	{ "print",		MT_VOID, 1,	{ MT_INT }		},
-	{ "print2",		MT_VOID, 2,	{ MT_INT, MT_INT }	},
-	{ "prints",		MT_VOID, 1,	{ MT_STR }		},
+	{ "print",		MT_VOID, 1,
+	  { { MT_INT } }						},
+	{ "print2",		MT_VOID, 2,
+	  { { MT_INT }, { MT_INT } }					},
+	{ "prints",		MT_VOID, 1,
+	  { { MT_STR } }						},
 	{ "nonexistent",	MT_VOID, 0				},
 #endif
 	{ NULL }

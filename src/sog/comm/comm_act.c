@@ -23,21 +23,45 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.73 2001-07-04 19:21:24 fjoe Exp $
+ * $Id: comm_act.c,v 1.74 2001-07-29 20:15:07 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "merc.h"
+
+#include <merc.h>
+#include <lang.h>
+#include <memalloc.h>
+#include <db.h>
+
+#include "affects.h"
+#include "handler.h"
+
 #include "comm_colors.h"
-#include "lang.h"
-#include "memalloc.h"
-#include "db.h"
 
 /*
  * char/mob short/long formatting
  */
+
+static size_t
+GET_SEX(const mlstring *ml, size_t to_lang)
+{
+	int gender = flag_value(gender_table, mlstr_val(ml, to_lang));
+	return URANGE(0, gender, 4);
+}
+
+static int
+PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, size_t to_lang)
+{
+	if (ch != looker
+	&&  is_affected(ch, "doppelganger")
+	&&  ch->doppel != NULL
+	&&  (IS_NPC(looker) || !IS_SET(CPC(looker)->plr_flags, PLR_HOLYLIGHT)))
+		ch = ch->doppel;
+
+	return GET_SEX(&ch->gender, to_lang);
+}
 
 /*
  * smash '~'
@@ -132,7 +156,8 @@ _format_long(const mlstring *ml, const CHAR_DATA *to, size_t to_lang)
 /*
  * PERS formatting stuff
  */
-const char *PERS2(const CHAR_DATA *ch, const CHAR_DATA *to, size_t to_lang, int act_flags)
+const char *
+PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags)
 {
 	bool visible = can_see(to, ch);
 
@@ -194,8 +219,8 @@ char slang[] =
 	"âÂÿßõÕøØáÁõÕùÙ";					// notrans
 
 /* ch says, victim hears */
-static char *translate(const CHAR_DATA *ch, const CHAR_DATA *victim,
-		       const char *i)
+static char *
+translate(const CHAR_DATA *ch, const CHAR_DATA *victim, const char *i)
 {
 	static char trans[MAX_STRING_LENGTH];
 	char *o;
@@ -240,27 +265,6 @@ struct tdata {
 	char *	p;
 };
 
-#define TSTACK_SZ 4
-
-size_t
-GET_SEX(const mlstring *ml, size_t to_lang)
-{
-	int gender = flag_value(gender_table, mlstr_val(ml, to_lang));
-	return URANGE(0, gender, 4);
-}
-
-static int
-PERS_SEX(const CHAR_DATA *ch, const CHAR_DATA *looker, size_t to_lang)
-{
-	if (ch != looker
-	&&  is_affected(ch, "doppelganger")
-	&&  ch->doppel != NULL
-	&&  (IS_NPC(looker) || !IS_SET(CPC(looker)->plr_flags, PLR_HOLYLIGHT)))
-		ch = ch->doppel;
-
-	return GET_SEX(&ch->gender, to_lang);
-}
-
 static const char *
 act_format_text(const char *text, const CHAR_DATA *ch, const CHAR_DATA *to,
 		size_t to_lang, int act_flags)
@@ -281,7 +285,7 @@ act_format_mltext(const mlstring *mltext, const CHAR_DATA *ch,
 }
 
 static const char *
-act_format_obj(const OBJ_DATA *obj, const CHAR_DATA *to, size_t to_lang,
+act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, size_t to_lang,
 	       int act_flags)
 {
 	if (!IS_NPC(to) && is_affected(to, "hallucination"))
@@ -308,25 +312,25 @@ act_format_door(const gmlstr_t *gml)
 	return gml;
 }
 
-#define CHECK_STRING(p)						\
-	if (p == NULL) {					\
+#define CHECK_STRING(p)							\
+	if (p == NULL) {						\
 		log(LOG_INFO, "act_buf: format '%s': NULL string arg",	\
-		    format);					\
-		i = NULL;					\
-		break;						\
+		    format);						\
+		i = NULL;						\
+		break;							\
 	}
 
-#define CHECK_STRING2(p)					\
-	if (p == NULL) {					\
+#define CHECK_STRING2(p)						\
+	if (p == NULL) {						\
 		log(LOG_INFO, "act_buf: format '%s': NULL string arg",	\
-		    format);					\
-		sp--;						\
-		break;						\
+		    format);						\
+		sp--;							\
+		break;							\
 	}
 
 #define CHECK_GMLSTR(gml)						\
 	if (gml == NULL || !mlstr_valid(&(gml)->ml)) {			\
-		log(LOG_INFO, "act_buf: format '%s': invalid mlstring arg",	\
+		log(LOG_INFO, "act_buf: format '%s': invalid mlstring arg",\
 		    format);						\
 		i = NULL;						\
 		break;							\
@@ -334,26 +338,26 @@ act_format_door(const gmlstr_t *gml)
 
 #define CHECK_GMLSTR2(gml)						\
 	if (gml == NULL || !mlstr_valid(&(gml)->gender)) { 		\
-		log(LOG_INFO, "act_buf: format '%s': invalid mlstring arg (2)",	\
+		log(LOG_INFO, "act_buf: format '%s': invalid mlstring arg (2)",\
 		    format);						\
 		sp--;							\
 		break;							\
 	}
 
-#define CHECK_TYPE(p, mem_type)					\
-	if (!mem_is(p, mem_type)) {				\
+#define CHECK_TYPE(p, mem_type)						\
+	if (!mem_is(p, mem_type)) {					\
 		log(LOG_INFO, "act_buf: format '%s': expected type %d",	\
-		    format, mem_type);				\
-		i = NULL;					\
-		break;						\
+		    format, mem_type);					\
+		i = NULL;						\
+		break;							\
 	}
 
-#define CHECK_TYPE2(p, mem_type)				\
-	if (!mem_is(p, mem_type)) {				\
+#define CHECK_TYPE2(p, mem_type)					\
+	if (!mem_is(p, mem_type)) {					\
 		log(LOG_INFO, "act_buf: format '%s': expected type %d",	\
-		    format, mem_type);				\
-		sp--;						\
-		break;						\
+		    format, mem_type);					\
+		sp--;							\
+		break;							\
 	}
 
 #define ACT_FLAGS(flags)	((flags) | (inside_wform > 0 ? ACT_NOFIXSH : 0))
@@ -477,21 +481,24 @@ act_format_door(const gmlstr_t *gml)
  *
  */
 
-#define VCH	((const CHAR_DATA *) arg2)
-#define VCH1	((const CHAR_DATA *) arg1)
-#define VCH3	((const CHAR_DATA *) arg3)
+#define TSTACK_SZ 4
+
+#define VCH	((CHAR_DATA *) (uintptr_t) arg2)
+#define VCH1	((CHAR_DATA *) (uintptr_t) arg1)
+#define VCH3	((CHAR_DATA *) (uintptr_t) arg3)
 #define NUM1	((int) arg1)
 #define NUM3	((int) arg3)
 #define ROOM1	((const ROOM_INDEX_DATA *) arg1)
 #define ROOM3	((const ROOM_INDEX_DATA *) arg3)
-#define OBJ1	((const OBJ_DATA *) arg1)
-#define OBJ2	((const OBJ_DATA *) arg2)
+#define OBJ1	((OBJ_DATA *) (uintptr_t) arg1)
+#define OBJ2	((OBJ_DATA *) (uintptr_t) arg2)
 #define GML1	((const gmlstr_t *) arg1)
 #define GML3	((const gmlstr_t *) arg3)
 
-void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
-	     const void *arg1, const void *arg2, const void *arg3,
-	     actopt_t *opt, char *buf, size_t buf_len)
+void
+act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+	const void *arg1, const void *arg2, const void *arg3,
+	actopt_t *opt, char *buf, size_t buf_len)
 {
 	char		tmp	[MAX_STRING_LENGTH];
 	char		tmp2	[MAX_STRING_LENGTH];
@@ -540,7 +547,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 					rulecl = RULES_QTY;
 
 				*point = '\0';
-				strnzcpy(tstack[sp].p, 
+				strnzcpy(tstack[sp].p,
 					 buf_len - 3 - (tstack[sp].p - buf),
 					 word_form(tstack[sp].p,
 						   (unsigned)tstack[sp].arg,
@@ -555,7 +562,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 				*point = '\0';
 				snprintf(tmp2, sizeof(tmp2),
 				    tstack[sp].type == 'f' ?
-				 	"%%%ds" : "%%%d.%ds",	// notrans
+					"%%%ds" : "%%%d.%ds",	// notrans
 				    tstack[sp].arg, abs(tstack[sp].arg));
 				snprintf(tmp, sizeof(tmp), tmp2, tstack[sp].p);
 				strnzcpy(tstack[sp].p,
@@ -577,7 +584,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 			s++;
 
 			switch (code = *s++) {
-			default:  
+			default:
 				i = " <@@@> ";		// notrans
 				log(LOG_INFO, "act_buf: '%s': bad code $%c",
 					   format, code);
@@ -895,8 +902,8 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 	}
 }
 
-static const CHAR_DATA *
-act_args(const CHAR_DATA *ch, const CHAR_DATA *vch, int act_flags)
+static CHAR_DATA *
+act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags)
 {
 	if (IS_SET(act_flags, TO_CHAR))
 		return ch;
@@ -911,7 +918,7 @@ act_args(const CHAR_DATA *ch, const CHAR_DATA *vch, int act_flags)
 }
 
 static bool
-act_skip(const CHAR_DATA *ch, const CHAR_DATA *vch, const CHAR_DATA *to,
+act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 	 int act_flags, int min_pos)
 {
 	if (to->position < min_pos)
@@ -959,7 +966,7 @@ act_skip(const CHAR_DATA *ch, const CHAR_DATA *vch, const CHAR_DATA *to,
 }
 
 static void
-act_raw(const CHAR_DATA *ch, const CHAR_DATA *to,
+act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	const void *arg1, const void *arg2, const void *arg3,
 	const char *format, int act_flags)
 {
@@ -999,12 +1006,13 @@ act_raw(const CHAR_DATA *ch, const CHAR_DATA *to,
 	}
 }
 
-void act_puts3(const char *format, const CHAR_DATA *ch,
-	       const void *arg1, const void *arg2, const void *arg3,
-	       int act_flags, int min_pos)
+void
+act_puts3(const char *format, CHAR_DATA *ch,
+	  const void *arg1, const void *arg2, const void *arg3,
+	  int act_flags, int min_pos)
 {
-	const CHAR_DATA *to;
-	const CHAR_DATA *vch = (const CHAR_DATA *) arg2;
+	CHAR_DATA *to;
+	CHAR_DATA *vch = (CHAR_DATA *) (uintptr_t) arg2;
 
 	if (IS_NULLSTR(format)
 	||  (to = act_args(ch, vch, act_flags)) == NULL)
@@ -1027,12 +1035,13 @@ void act_puts3(const char *format, const CHAR_DATA *ch,
 	}
 }
 
-void act_mlputs3(mlstring *mlformat, const CHAR_DATA *ch,
-	         const void *arg1, const void *arg2, const void *arg3,
-	         int act_flags, int min_pos)
+void
+act_mlputs3(mlstring *mlformat, CHAR_DATA *ch,
+	    const void *arg1, const void *arg2, const void *arg3,
+	    int act_flags, int min_pos)
 {
-	const CHAR_DATA *to;
-	const CHAR_DATA *vch = (const CHAR_DATA *) arg2;
+	CHAR_DATA *to;
+	CHAR_DATA *vch = (CHAR_DATA *) (uintptr_t) arg2;
 
 	if (mlstr_null(mlformat)
 	||  (to = act_args(ch, vch, act_flags)) == NULL)
@@ -1108,7 +1117,8 @@ void act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 	}
 }
 
-void act_say(CHAR_DATA *ch, const char *text, const void *arg)
+void
+act_say(CHAR_DATA *ch, const char *text, const void *arg)
 {
 	CHAR_DATA *vch;
 
@@ -1124,4 +1134,137 @@ void act_say(CHAR_DATA *ch, const char *text, const void *arg)
 			 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
 			 POS_RESTING);
 	}
+}
+
+void
+wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
+       flag_t flag, flag_t flag_skip, int min_level)
+{
+	DESCRIPTOR_DATA *d;
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *vch = d->original ? d->original : d->character;
+
+		if (d->connected != CON_PLAYING
+		||  !vch
+		||  vch->level < LEVEL_IMMORTAL
+		||  !IS_SET(PC(vch)->wiznet, WIZ_ON)
+		||  (flag && !IS_SET(PC(vch)->wiznet, flag))
+		||  (flag_skip && IS_SET(PC(vch)->wiznet, flag_skip))
+		||  vch->level < min_level
+		||  vch == ch)
+			continue;
+
+		if (IS_SET(PC(vch)->wiznet, WIZ_PREFIX)) {
+			act_puts("--> ", d->character,		// notrans
+				 NULL, NULL, TO_CHAR | ACT_NOLF,
+				 POS_DEAD);
+		}
+		act_puts(msg, d->character, arg, ch,
+			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
+	}
+}
+
+void
+yell(CHAR_DATA *victim, CHAR_DATA *ch, const char *text)
+{
+	if (IS_NPC(victim)
+	||  IS_IMMORTAL(victim)
+	||  victim->in_room == NULL
+	||  victim->position <= POS_SLEEPING
+	||  IS_EXTRACTED(victim)
+	||  IS_SET(PC(victim)->plr_flags, PLR_GHOST))
+		return;
+
+	act_puts("You yell '{M$t{x'", victim,
+		 act_speech(victim, victim, text, ch), NULL,
+		 TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	act_yell(victim, text, ch, "$n yells in panic '{M$t{x'");
+}
+
+void
+tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
+{
+	if (ch == victim) {
+		act_char("Talking to yourself, eh?", ch);
+		return;
+	}
+
+	if (ch->shapeform
+	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
+		act("You can't speak in this form.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (IS_SET(ch->comm, COMM_NOTELL)) {
+		act_char("Your message didn't get through.", ch);
+		return;
+	}
+
+	if (victim == NULL
+	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
+		act_char("They aren't here.", ch);
+		return;
+	}
+
+	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
+	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
+		act_puts("$E is not receiving tells.", ch, 0, victim,
+			 TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	msg = garble(ch, msg);
+	act_puts("You tell $N '{G$t{x'",
+		 ch, msg, victim, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	act_puts("$n tells you '{G$t{x'",
+		 ch, msg, victim,
+		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+		 POS_SLEEPING);
+
+	if (IS_NPC(ch))
+		return;
+
+	if (IS_NPC(victim)) {
+#if 0
+		XXX
+		if (HAS_TRIGGER(victim, TRIG_SPEECH))
+			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
+#endif
+	} else {
+		if (!IS_IMMORTAL(victim)
+		&&  !IS_IMMORTAL(ch)
+		&&  is_name(ch->name, PC(victim)->twitlist))
+			return;
+
+		if (victim->desc == NULL)
+			act_puts("$N seems to have misplaced $S link but "
+				 "your tell will go through if $E returns.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		else if (IS_SET(victim->comm, COMM_AFK))
+			act_puts("$E is AFK, but your tell will go through "
+				 "when $E returns.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		PC(victim)->reply = ch;
+	}
+}
+
+const char *
+garble(CHAR_DATA *ch, const char *i)
+{
+	static char not_garbled[] = "?!()[]{},.:;'\" ";		// notrans
+	static char buf[MAX_STRING_LENGTH];
+	char *o;
+
+	if (!is_affected(ch, "garble"))
+		return i;
+
+	for (o = buf; *i && o < buf + sizeof(buf) - 1; i++, o++) {
+		if (strchr(not_garbled, *i))
+			*o = *i;
+		else
+			*o = number_range(' ', 254);
+	}
+	*o = '\0';
+	return buf;
 }

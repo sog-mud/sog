@@ -23,13 +23,15 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: forms.c,v 1.8 2001-07-29 09:43:18 fjoe Exp $
+ * $Id: forms.c,v 1.9 2001-07-29 20:15:00 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "merc.h"
+#include <merc.h>
+
+#include "affects.h"
 
 hash_t forms;
 

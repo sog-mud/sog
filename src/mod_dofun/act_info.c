@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.380 2001-07-16 18:42:00 fjoe Exp $
+ * $Id: act_info.c,v 1.381 2001-07-29 20:14:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,13 +52,15 @@
 #endif
 #include <ctype.h>
 
-#include "merc.h"
-#include "db.h"
-#include "socials.h"
-#include "rating.h"
-#include "string_edit.h"
+#include <merc.h>
+#include <db.h>
+#include <socials.h>
+#include <rating.h>
+#include <string_edit.h>
 
+#include "affects.h"
 #include "fight.h"
+#include "handler.h"
 #include "magic.h"
 #include "update.h"
 #include "quest.h"
@@ -78,16 +80,16 @@ DECLARE_DO_FUN(do_say		);
 /*
  * Local functions.
  */
-static char *	format_obj_to_char	(const OBJ_DATA *obj,
+static char *	format_obj_to_char	(OBJ_DATA *obj,
 					 CHAR_DATA *ch, bool fShort);
-static void	show_list_to_char	(const OBJ_DATA *list, CHAR_DATA *ch,
+static void	show_list_to_char	(OBJ_DATA *list, CHAR_DATA *ch,
 					 bool fShort, bool fShowNothing);
-static void	show_char_to_char_0	(const CHAR_DATA *victim,
+static void	show_char_to_char_0	(CHAR_DATA *victim,
 					 CHAR_DATA *ch);
-static void	show_char_to_char_1	(const CHAR_DATA *victim,
+static void	show_char_to_char_1	(CHAR_DATA *victim,
 					 CHAR_DATA *ch);
-static void	show_char_to_char	(const CHAR_DATA *list, CHAR_DATA *ch);
-static void	show_obj_to_char	(CHAR_DATA *ch, const OBJ_DATA *obj,
+static void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
+static void	show_obj_to_char	(CHAR_DATA *ch, OBJ_DATA *obj,
 					 flag_t wear_loc);
 static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument);
 
@@ -488,8 +490,8 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 
 static void do_look_room(CHAR_DATA *ch, int flags)
 {
-	if (!room_is_dark(ch)
-	&&  check_blind_raw(ch)) {
+	if (!char_in_dark_room(ch)
+	&&  check_blind_nomessage(ch)) {
 		const char *name;
 		const char *engname;
 
@@ -523,8 +525,7 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 			send_to_char("\n", ch);
 			do_exits(ch, "auto");
 		}
-	}
-	else 
+	} else
 		act_char("It is pitch black...", ch);
 
 	show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
@@ -610,7 +611,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			af.modifier = 0;
 			af.owner = NULL;
 			INT(af.location) = 0;
-			affect_to_char(ch, &af);
+			affect_to_char2(ch, &af);
 
 			act("Isn't $n just so nice?",
 			    victim, NULL, ch, TO_VICT);
@@ -707,7 +708,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((door = door_lookup(ch, arg1)) < 0)
+	if ((door = find_door_nomessage(ch, arg1)) < 0)
 		return;
 
 	/* 'look direction' */
@@ -831,7 +832,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		if ((pexit = ch->in_room->exit[door]) != NULL
 		&&  pexit->to_room.r != NULL
 		&&  can_see_room(ch, pexit->to_room.r)
-		&&  check_blind_raw(ch)) { 
+		&&  check_blind_nomessage(ch)) {
 			bool show_closed = FALSE;
 
 			if (IS_SET(pexit->exit_info, EX_CLOSED)) {
@@ -862,7 +863,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				    capitalize(dir_name[door]),
 				    show_closed ?
 					"*" : str_empty,	// notrans
-				    	room_dark(pexit->to_room.r) ?
+					room_is_dark(pexit->to_room.r) ?
 					    GETMSG("Too dark to tell", GET_LANG(ch)) :
 					    mlstr_cval(&pexit->to_room.r->name, ch));
 
@@ -1424,7 +1425,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 	if (!check_blind(ch))
 		return;
 
-	if (room_is_dark(ch)) {
+	if (char_in_dark_room(ch)) {
 		act_char("It's too dark to see.", ch);
 		return;
 	}
@@ -1935,7 +1936,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	af.modifier = 0;
 	af.bitvector = 0;
 	af.owner = NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 }
 
 void do_hometown(CHAR_DATA *ch, const char *argument)
@@ -2040,7 +2041,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = ID_HIDDEN;
 	af.owner     = NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 	act_char("Your awareness improves.", ch);
 	check_improve(ch, "detect hide", TRUE, 1);
 }
@@ -2074,9 +2075,9 @@ void do_awareness(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = ID_BLEND | ID_CAMOUFLAGE;
 	af.owner     = NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	act_char("Your awareness improves.", ch);
 	check_improve(ch, "awareness", TRUE, 1);
@@ -2182,7 +2183,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	char_to_room(bear, ch->in_room);
 	char_to_room(bear2, ch->in_room);
@@ -2902,7 +2903,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	char_to_room(lion, ch->in_room);
 	char_to_room(lion2, ch->in_room);
@@ -3186,7 +3187,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "revert")) {
 		if (pc->train < 1) {
-			do_tell_raw(tr, ch, "You are not ready yet.");
+			tell_char(tr, ch, "You are not ready yet.");
 			return;
 		}
 
@@ -3199,7 +3200,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "convert")) {
 		if (pc->practice < 10) {
-			do_tell_raw(tr, ch, "You are not ready yet.");
+			tell_char(tr, ch, "You are not ready yet.");
 			return;
 		}
 
@@ -3210,7 +3211,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(tr, ch, "I do not understand...");
+	tell_char(tr, ch, "I do not understand...");
 }
 
 static const char *
@@ -3555,7 +3556,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 0;
 	INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	af.where	= TO_ROOM_AFFECTS;
 	af.type		= "camp";
@@ -3565,11 +3566,11 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.modifier	= 2 * LEVEL(ch);
 	INT(af.location)= APPLY_ROOM_HEAL;
 	af.owner	= ch;
-	affect_to_room(ch->in_room, &af);
+	affect_to_room2(ch->in_room, &af);
 
 	af.modifier	= LEVEL(ch);
 	INT(af.location)= APPLY_ROOM_MANA;
-	affect_to_room(ch->in_room, &af);
+	affect_to_room2(ch->in_room, &af);
 }
 
 void do_demand(CHAR_DATA *ch, const char *argument)
@@ -3842,10 +3843,10 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		af.modifier	 = LEVEL(ch) / 10;
 		af.bitvector 	 = 0;
 		af.owner	 = NULL;
-		affect_to_obj(arrow, &af);
+		affect_to_obj2(arrow, &af);
 
 		INT(af.location) = APPLY_DAMROLL;
-		affect_to_obj(arrow, &af);
+		affect_to_obj2(arrow, &af);
 
 		obj_to_char(arrow, ch);
 		act_puts("You successfully make $p.",
@@ -3905,10 +3906,10 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	af.modifier	= LEVEL(ch) / 10;
 	af.bitvector 	= 0;
 	af.owner	= NULL;
-	affect_to_obj(bow, &af);
+	affect_to_obj2(bow, &af);
 
 	INT(af.location)= APPLY_DAMROLL;
-	affect_to_obj(bow, &af);
+	affect_to_obj2(bow, &af);
 
 	obj_to_char(bow, ch);
 	act_puts("You successfully make $p.", ch, bow, NULL, TO_CHAR, POS_DEAD);
@@ -3986,20 +3987,20 @@ void do_homepoint(CHAR_DATA *ch, const char *argument)
         af.modifier     = 0;
         INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
-        affect_to_char(ch, &af);
+        affect_to_char2(ch, &af);
 
         argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] && !str_prefix(arg, "motherland"))
 		PC(ch)->homepoint = NULL;
         else 
-		PC(ch)->homepoint = ch->in_room; 
+		PC(ch)->homepoint = ch->in_room;
 }
 
 /*
  * static functions
  */
 static char *
-format_obj_to_char(const OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
+format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MAX_STRING_LENGTH];
 
@@ -4114,14 +4115,13 @@ format_obj_to_char(const OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
  * Can coalesce duplicated items.
  */
 static void
-show_list_to_char(const OBJ_DATA *list, CHAR_DATA *ch,
-			      bool fShort, bool fShowNothing)
+show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing)
 {
 	BUFFER *output;
 	const char **prgpstrShow;
 	int *prgnShow;
 	char *pstrShow;
-	const OBJ_DATA *obj;
+	OBJ_DATA *obj;
 	int nShow;
 	int iShow;
 	int count;
@@ -4217,7 +4217,7 @@ show_list_to_char(const OBJ_DATA *list, CHAR_DATA *ch,
 
 #define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (c) : '.')
 
-static void show_char_to_char_0(const CHAR_DATA *victim, CHAR_DATA *ch)
+static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	const char *msg = str_empty;
 	const void *arg = NULL;
@@ -4491,7 +4491,7 @@ static char* wear_loc_names[] =
 };
 
 static void
-show_obj_to_char(CHAR_DATA *ch, const OBJ_DATA *obj, flag_t wear_loc)
+show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
 {
 	bool can_see;
 
@@ -4524,7 +4524,7 @@ show_obj_to_char(CHAR_DATA *ch, const OBJ_DATA *obj, flag_t wear_loc)
 }
 
 static void
-show_char_to_char_1(const CHAR_DATA *victim, CHAR_DATA *ch)
+show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
 	int i;
@@ -4532,8 +4532,8 @@ show_char_to_char_1(const CHAR_DATA *victim, CHAR_DATA *ch)
 	bool found;
 	char *msg;
 	const char *desc;
-	const CHAR_DATA *doppel = victim;
-	const CHAR_DATA *mirror = victim;
+	CHAR_DATA *doppel = victim;
+	CHAR_DATA *mirror = victim;
 	char buf[MAX_STRING_LENGTH];
 
 	if (is_affected(victim, "doppelganger")) {
@@ -4556,10 +4556,10 @@ show_char_to_char_1(const CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	if (is_affected(ch, "hallucination") && !IS_NPC(ch)) 
+	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
 		doppel = nth_char(doppel, PC(ch)->random_value);
 
-	if (doppel->shapeform) 
+	if (doppel->shapeform)
 		desc = mlstr_cval(&doppel->shapeform->index->description, ch);
 	else if (IS_NPC(doppel))
 		desc = mlstr_cval(&doppel->description, ch);
@@ -4670,9 +4670,9 @@ show_char_to_char_1(const CHAR_DATA *victim, CHAR_DATA *ch)
 }
 
 static void
-show_char_to_char(const CHAR_DATA *list, CHAR_DATA *ch)
+show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 {
-	const CHAR_DATA *rch;
+	CHAR_DATA *rch;
 	int life_count = 0;
 
 	for (rch = list; rch; rch = rch->next_in_room) {
@@ -4680,7 +4680,7 @@ show_char_to_char(const CHAR_DATA *list, CHAR_DATA *ch)
 		||  (!IS_TRUSTED(ch, rch->incog_level) &&
 		     ch->in_room != rch->in_room))
 			continue;
-			
+
 		if (!IS_TRUSTED(ch, rch->invis_level)) {
 			AREA_DATA *pArea;
 
@@ -4696,7 +4696,7 @@ show_char_to_char(const CHAR_DATA *list, CHAR_DATA *ch)
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else {
-			if (room_is_dark(ch) && HAS_DETECT(rch, ID_INFRARED))
+			if (char_in_dark_room(ch) && HAS_DETECT(rch, ID_INFRARED))
 				act_char("You see {rglowing red eyes{x watching YOU!", ch);
 			life_count++;
 		}
@@ -5019,7 +5019,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	}
 
 	buf_printf(output, BUF_END, "\n%d areas total.\n", maxArea);
-	page_to_char(buf_string(output), ch);	
+	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 

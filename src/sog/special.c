@@ -1,16 +1,16 @@
 /*
- * $Id: special.c,v 1.75 2001-07-04 19:21:22 fjoe Exp $
+ * $Id: special.c,v 1.76 2001-07-29 20:15:04 fjoe Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT		           *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Mandrake}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Mandrake}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -45,9 +45,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "merc.h"
 
+#include <merc.h>
+
+#include "affects.h"
 #include "fight.h"
+#include "handler.h"
 #include "magic.h"
 
 /*
@@ -769,7 +772,7 @@ bool spec_mayor(CHAR_DATA *ch)
 	case '1':
 	case '2':
 	case '3':
-		move_char(ch, path[pos] - '0', FALSE);
+		move_char(ch, path[pos] - '0', 0);
 		break;
 
 	case 'W':
@@ -1189,34 +1192,34 @@ bool spec_captain(CHAR_DATA *ch)
  
 	if (ch->fighting != NULL)
 		return spec_cast_cleric(ch);
- 
+
 	if (!move || ch->position < POS_SLEEPING)
 		return FALSE;
- 
+
 	switch (path[pos]) {
 	case '0':
 	case '1':
 	case '2':
 	case '3':
-		move_char(ch, path[pos] - '0' ,FALSE);
+		move_char(ch, path[pos] - '0', 0);
 		break;
- 
+
 	case 'W':
 		ch->position = POS_STANDING;
 		act_puts("$n awakens suddenly and yawns.", ch, NULL, NULL, TO_ROOM,
 			 POS_RESTING);
 		break;
- 
+
 	case 'S':
 		ch->position = POS_SLEEPING;
 		act_puts("$n lies down and falls asleep.", ch, NULL, NULL, TO_ROOM,
 			 POS_RESTING);
 	break;
- 
+
 	case 'a':
 		dofun("say", ch, "Greetings! Good Hunting to you!");
 		break;
- 
+
 	case 'b':
 		dofun("say", ch,
 		      "Keep the streets clean please. Keep Solace tidy.");
@@ -1226,29 +1229,29 @@ bool spec_captain(CHAR_DATA *ch)
 		dofun("say", ch, "I must do something about all these doors.");
 		dofun("say", ch, "I will never get out of here.");
 		break;
- 
+
 	case 'd':
 		dofun("say", ch, "Salutations Citizens of Solace!");
 		break;
- 
+
 	case 'y':
 		dofun("say", ch, "I hereby declare the city of Solace open!");
 		break;
- 
+
 	case 'E':
 		dofun("say", ch, "I hereby declare the city of Solace closed!");
 		break;
- 
+
 	case 'O':
 		dofun("unlock", ch, "gate");
 		dofun("open", ch, "gate");
 		break;
- 
+
 	case 'C':
 		dofun("close", ch, "gate");
 		dofun("lock", ch, "gate");
 		break;
- 
+
 	case 'n':
 		dofun("open", ch, "north");
 		break;
@@ -1256,7 +1259,7 @@ bool spec_captain(CHAR_DATA *ch)
 	case 'o':
 		dofun("close", ch, "south");
 		break;
- 
+
 	case 's':
 		dofun("open", ch, "south");
 		break;
@@ -1264,11 +1267,11 @@ bool spec_captain(CHAR_DATA *ch)
 	case 't':
 		dofun("close", ch, "north");
 		break;
- 
+
 	case 'e':
 		dofun("open", ch, "east");
 		break;
- 
+
 	case 'f':
 		dofun("close", ch, "west");
 		break;
@@ -1280,12 +1283,12 @@ bool spec_captain(CHAR_DATA *ch)
 	case 'x':
 		dofun("close", ch, "east");
 		break;
- 
+
 	case '.' :
 		move = FALSE;
 		break;
 	}
- 
+
 	pos++;
 	return FALSE;
 }
@@ -1319,7 +1322,7 @@ bool spec_headlamia(CHAR_DATA *ch)
 		case '1':
 		case '2':
 		case '3':
-		move_char(ch, path[pos] - '0', FALSE);
+		move_char(ch, path[pos] - '0', 0);
 		pos++;
 		break;
 

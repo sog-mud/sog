@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.113 2001-06-26 17:29:50 fjoe Exp $
+ * $Id: recycle.c,v 1.114 2001-07-29 20:15:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "merc.h"
-#include "db.h"
+
+#include <merc.h>
+#include <db.h>
+
+#include "handler.h"	/* XXX extract_obj */
 
 ED_DATA *ed_new(void)
 {
@@ -127,7 +130,7 @@ OBJ_DATA *new_obj(void)
 		obj_count++;
 	}
 
-	memset(obj, '\0', sizeof(*obj));
+	memset(obj, 0, sizeof(*obj));
 	obj->label = str_empty;
 	return obj;
 }
@@ -356,11 +359,13 @@ void char_free(CHAR_DATA *ch)
 		buf_free(pc->buffer);
 		dvdata_free(pc->dvdata);
 
+		/* XXX nuke_pets should not be here */
 		nuke_pets(ch);
 	}
 
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;
+		/* XXX extract_obj should not be here */
 		extract_obj(obj, XO_F_NOCOUNT | XO_F_NUKE);
 	}
 	ch->carrying = NULL;
@@ -420,7 +425,8 @@ AREA_DATA *new_area(void)
 {
 	AREA_DATA *pArea;
 
-	pArea = calloc(1, sizeof(*pArea));
+	pArea = mem_alloc(MT_AREA, sizeof(*pArea));
+	memset(pArea, 0, sizeof(*pArea));
 	pArea->vnum		= top_area;
 	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
 	pArea->builders		= str_empty;
@@ -468,7 +474,7 @@ void free_area(AREA_DATA *pArea)
 	free_string(pArea->builders);
 	free_string(pArea->credits);
 	top_area--;
-	free(pArea);
+	mem_free(pArea);
 }
 
 EXIT_DATA *new_exit(void)

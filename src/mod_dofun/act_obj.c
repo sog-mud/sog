@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.240 2001-07-16 18:42:02 fjoe Exp $
+ * $Id: act_obj.c,v 1.241 2001-07-29 20:14:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,11 +45,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "merc.h"
-#include "lang.h"
-#include "auction.h"
 
+#include <merc.h>
+#include <lang.h>
+#include <auction.h>
+
+#include "affects.h"
 #include "fight.h"
+#include "handler.h"
 #include "magic.h"
 #include "update.h"
 
@@ -287,7 +290,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		if (get_obj_weight(obj) + get_true_weight(container) >
+		if (get_obj_weight(obj) + get_obj_realweight(container) >
 		    (INT(container->value[0]) * 10)
 		||  get_obj_weight(obj) > (INT(container->value[3]) * 10)) {
 			act_char("It won't fit.", ch);
@@ -319,7 +322,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 			&&  obj->wear_loc == WEAR_NONE
 			&&  obj != container
 			&&  can_drop_obj(ch, obj)
-			&&  get_obj_weight(obj) + get_true_weight(container) <=
+			&&  get_obj_weight(obj) + get_obj_realweight(container) <=
 			    INT(container->value[0]) * 10
 			&&  get_obj_weight(obj) < INT(container->value[3]) * 10
 			&&  !put_obj(ch, container, obj, &count))
@@ -551,7 +554,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				victim->gold += change;
 
 			if (change < 1 && can_see(victim, ch)) {
-				do_tell_raw(victim, ch, "I'm sorry, you did not give me enough to change.");
+				tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
 				dofun("give", victim, "%d %s %s", // notrans
 				      amount, silver ? "silver" : "gold",
 				      ch->name);
@@ -564,7 +567,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 					dofun("give", victim,
 					      "%d silver %s",	  // notrans
 					      (95 * amount / 100 - change * 100), ch->name);
-				do_tell_raw(victim, ch,
+				tell_char(victim, ch,
 					    "Thank you, come again.");
 			}
 		}
@@ -599,7 +602,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	XXX
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
 #endif
-		do_tell_raw(victim, ch, "Sorry, you'll have to sell that.");
+		tell_char(victim, ch, "Sorry, you'll have to sell that.");
 		return;
 	}
 
@@ -737,7 +740,7 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			af.modifier = 0;
 			af.bitvector = WEAPON_POISON;
 			af.owner	= NULL;
-			affect_to_obj(obj, &af);
+			affect_to_obj2(obj, &af);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
 			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
@@ -838,17 +841,17 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			INT(af.location)= DAM_BASH;
 			af.modifier	= 33;
 			af.duration	= 10; 
-			affect_to_char(vch, &af);
+			affect_to_char2(vch, &af);
 
 			INT(af.location)= DAM_PIERCE;
 			af.modifier	= 33;
 			af.duration	= 10; 
-			affect_to_char(vch, &af);
+			affect_to_char2(vch, &af);
 
 			INT(af.location)= DAM_SLASH;
 			af.modifier	= 33;
 			af.duration	= 10;
-			affect_to_char(vch, &af);
+			affect_to_char2(vch, &af);
 
 			INT(af.location)= DAM_ENERGY;
 			af.modifier	= 33;
@@ -857,7 +860,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			do_emote(vch, "flexes his muscles, looking tough.");
 		}
 
-		affect_to_char(vch, &af);
+		affect_to_char2(vch, &af);
 
 		extract_obj(obj, 0);
 		return;
@@ -1161,7 +1164,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		af.modifier = 0;
 		af.bitvector = AFF_POISON;
 		af.owner	= NULL;
-		affect_join(ch, &af);
+		affect_join2(ch, &af);
 	}
 	if (INT(obj->value[0]) > 0)
 		INT(obj->value[1]) = UMAX(INT(obj->value[1]) - lq->sip, 0);
@@ -1251,7 +1254,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			af.modifier = 0;
 			af.bitvector = AFF_POISON;
 			af.owner	= NULL;
-			affect_join(ch, &af);
+			affect_join2(ch, &af);
 		}
 		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {
 			act_char("Magical heat flows through your blood.", ch);
@@ -1269,7 +1272,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 				af.modifier = -4;
 				af.bitvector = AFF_BLIND;
 				af.owner	= NULL;
-				affect_join(ch, &af);
+				affect_join2(ch, &af);
 			}
 		}
 		break;
@@ -2025,7 +2028,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	cost = get_cost(keeper, obj, TRUE);
 
 	if (cost <= 0 || !can_see_obj(ch, obj)) {
-		do_tell_raw(keeper, ch, "I don't sell that -- try 'list'");
+		tell_char(keeper, ch, "I don't sell that -- try 'list'");
 		return;
 	}
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
@@ -2039,14 +2042,14 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (count < number) {
-			do_tell_raw(keeper, ch,
+			tell_char(keeper, ch,
 				    "I don't have that many in stock.");
 			return;
 		}
 	}
 	if ((ch->silver + ch->gold * 100) < cost * number) {
 		if (number > 1) {
-			do_tell_raw(keeper, ch,
+			tell_char(keeper, ch,
 				    "You can't afford to buy that many.");
 		} else {
 			act("$n tells you '{GYou can't afford to buy $p.{x'",
@@ -2230,7 +2233,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		do_tell_raw(keeper, ch, "You don't have that item.");
+		tell_char(keeper, ch, "You don't have that item.");
 		return;
 	}
 	if (!can_drop_obj(ch, obj)) {
@@ -2310,7 +2313,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		do_tell_raw(keeper, ch, "You don't have that item.");
+		tell_char(keeper, ch, "You don't have that item.");
 		return;
 	}
 	if (!can_see_obj(keeper, obj)) {
@@ -2374,7 +2377,7 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			af.bitvector	= 0;
 			af.owner	= NULL;
 
-			affect_to_char(ch, &af);
+			affect_to_char2(ch, &af);
 		}
 
 		if (is_healer) {
@@ -2862,14 +2865,14 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		af.owner	= NULL;
 
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		af.modifier	= UMAX(10, obj->level);
 		INT(af.location)= APPLY_AC;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		extract_obj(obj, 0);
 		check_improve(ch, "crucify", TRUE, 1);

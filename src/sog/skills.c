@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.120 2001-06-30 11:45:53 kostik Exp $
+ * $Id: skills.c,v 1.121 2001-07-29 20:15:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,8 +45,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "merc.h"
-#include "db.h"
+
+#include <merc.h>
+#include <db.h>
+
+#include "handler.h"
 
 hash_t skills;
 

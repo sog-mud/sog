@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.13 2001-07-08 17:18:45 fjoe Exp $
+ * $Id: memalloc.h,v 1.14 2001-07-29 20:14:29 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -38,6 +38,7 @@ enum {
 	MT_CHAR,
 	MT_OBJ,
 	MT_ROOM,
+	MT_AREA,
 	MT_AFFECT,
 	MT_BUFFER,
 	MT_OBJ_INDEX,

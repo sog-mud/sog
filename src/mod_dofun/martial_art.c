@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.181 2001-07-16 18:42:04 fjoe Exp $
+ * $Id: martial_art.c,v 1.182 2001-07-29 20:14:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,8 +44,10 @@
 #include <stdio.h>
 #include "merc.h"
 
+#include "affects.h"
 #include "effects.h"
 #include "fight.h"
+#include "handler.h"
 #include "magic.h"
 #include "update.h"
 
@@ -432,7 +434,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		             && IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
 			continue;
 
-		move_char(ch, door, FALSE);
+		move_char(ch, door, 0);
 		if ((now_in = ch->in_room) == was_in)
 		    continue;
 
@@ -592,12 +594,12 @@ void do_entangle(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= 0;
 		af.owner	= ch;
 		INT(af.location)= APPLY_DEX;
-		affect_to_char(victim, &af);
+		affect_to_char2(victim, &af);
 
 		af.owner	= victim;
 		af.modifier	= 0;
 		INT(af.location)= APPLY_NONE;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		check_improve(ch, "entanglement", TRUE, 3);
 	} else {
@@ -786,7 +788,7 @@ do_gash(CHAR_DATA *ch, const char *argument)
 		}
 
 		one_hit(ch, victim, "gash", wear_loc);
-		affect_to_char(victim, &af);
+		affect_to_char2(victim, &af);
 		check_improve(ch, "gash", TRUE, 3);
 	}
 	if(attack)
@@ -906,11 +908,11 @@ void do_hunger(CHAR_DATA *ch, const char *argument)
 	af.bitvector 	= AFF_BERSERK;
 	INT(af.location)= APPLY_HITROLL;
 	af.owner	= NULL;
-	affect_to_char(ch,&af);
+	affect_to_char2(ch,&af);
 
 	af.bitvector 	= 0;
 	INT(af.location)= APPLY_DAMROLL;
-	affect_to_char(ch,&af);
+	affect_to_char2(ch,&af);
 
 	act("You feel so hungry now.", ch, NULL, NULL, TO_CHAR);
 
@@ -1160,15 +1162,15 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= AFF_BERSERK;
 		INT(af.location)= APPLY_HITROLL;
 		af.owner	= NULL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		af.bitvector	= 0;
 		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
 		INT(af.location)= APPLY_AC;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 	} else {
 		WAIT_STATE(ch,2 * get_pulse("violence"));
 		ch->mana -= 25;
@@ -1507,7 +1509,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	= AFF_BLIND;
 		af.owner	= NULL;
 
-		affect_to_char(victim, &af);
+		affect_to_char2(victim, &af);
 		damage(ch, victim, number_range(2, 5),
 		       "dirt kicking", DAM_NONE, DAMF_SHOW);
 	} else {
@@ -2427,7 +2429,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= 0;
 		af.owner	= NULL;
 
-		affect_to_char(victim,&af);
+		affect_to_char2(victim,&af);
 		act("You weaken $N with your nerve pressure.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n weakens you with $s nerve pressure.",
@@ -2480,7 +2482,7 @@ void do_endure(CHAR_DATA *ch, const char *argument)
 	af.bitvector	= 0;
 	af.owner	= NULL;
 
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	act_char("You prepare yourself for magical encounters.", ch);
 	act("$n concentrates for a moment, then resumes $s position.",
@@ -2675,13 +2677,13 @@ void do_caltrops(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= 0;
 		af.owner	= NULL;
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(victim, &af);
+		affect_to_char2(victim, &af);
 
 		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char(victim, &af);
+		affect_to_char2(victim, &af);
 
 		INT(af.location)= APPLY_DEX;
-		affect_to_char(victim, &af);
+		affect_to_char2(victim, &af);
 
 		act("$N starts limping.", ch, NULL, victim, TO_CHAR);
 		act("You start to limp.", ch, NULL, victim, TO_VICT);
@@ -2885,7 +2887,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
 		af.owner	= NULL;
-		affect_join (victim,&af);
+		affect_join2 (victim,&af);
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
@@ -2995,7 +2997,7 @@ void do_headcrush(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= AFF_SLEEP;
 		af.owner	= NULL;
-		affect_join (victim,&af);
+		affect_join2 (victim,&af);
 
 		check_improve(ch, "head crush", TRUE, 3);
 
@@ -3094,7 +3096,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= AFF_SLEEP;
 		af.owner	= NULL;
-		affect_join (victim,&af);
+		affect_join2 (victim,&af);
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
@@ -3156,14 +3158,14 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		af.owner	= NULL;
 
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		af.modifier	= - UMIN(LEVEL(ch) - 5, 35);
 		INT(af.location)= APPLY_AC;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 	} else {
 		WAIT_STATE(ch,3 * get_pulse("violence"));
 		act_char("You feel bloodthirsty for a moment, but it passes.", ch);
@@ -3205,7 +3207,7 @@ void do_toughen(CHAR_DATA *ch, const char *argument)
 		af.owner	= NULL;
 		af.bitvector	= 0;
 
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 		ch->mana -= mana;
 
 		act("You feel tough!", ch, NULL, NULL, TO_CHAR);
@@ -3297,7 +3299,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	= 0;
 		INT(af.location)= 0;
 		af.owner	= NULL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		if (trophy_vnum != 0) {
 			level = UMIN(part->level + 5, MAX_LEVEL);
@@ -3315,20 +3317,20 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			INT(af.location)= APPLY_DAMROLL;
 			af.modifier  = LEVEL(ch) / 5;
 			af.bitvector	= 0;
-			affect_to_obj(trophy, &af);
+			affect_to_obj2(trophy, &af);
 
 			INT(af.location)= APPLY_HITROLL;
 			af.modifier  = LEVEL(ch) / 5;
 			af.bitvector	= 0;
-			affect_to_obj(trophy, &af);
+			affect_to_obj2(trophy, &af);
 
 			INT(af.location)= APPLY_INT;
 			af.modifier	= level>20?-2:-1;
-			affect_to_obj(trophy, &af);
+			affect_to_obj2(trophy, &af);
 
 			INT(af.location)= APPLY_STR;
 			af.modifier	= level>20?2:1;
-			affect_to_obj(trophy, &af);
+			affect_to_obj2(trophy, &af);
 
 			INT(trophy->value[0]) = LEVEL(ch);
 			INT(trophy->value[1]) = LEVEL(ch);
@@ -3381,7 +3383,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		af.modifier = 0;
 		af.bitvector = ID_INVIS | ID_MAGIC;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		act("You look around sharply!", ch, NULL, NULL, TO_CHAR);
 		act("$n looks more enlightened.", ch, NULL, NULL, TO_ROOM);
@@ -3437,11 +3439,11 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	af.modifier	= UMAX(1, LEVEL(ch) / 8);
 	af.bitvector	= 0;
 	af.owner	= NULL;
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 
 	INT(af.location)= APPLY_SAVING_SPELL;
 	af.modifier	= 0 - UMAX(1, LEVEL(ch) / 8);
-	affect_to_char(ch, &af);
+	affect_to_char2(ch, &af);
 	act_char("You feel righteous as you yell out your warcry.", ch);
 }
 
@@ -3752,14 +3754,14 @@ void do_tiger(CHAR_DATA *ch, const char *argument)
 		af.owner	= NULL;
 
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		af.modifier	= UMAX(10,10 * (LEVEL(ch)/5));
 		INT(af.location)= APPLY_AC;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 	} else {
 		WAIT_STATE(ch, 2 * skill_beats("tiger power"));
 		ch->mana -= mana/2;
@@ -3823,7 +3825,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = 0;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 	} else {
 		WAIT_STATE(ch, 2 * skill_beats("hara kiri"));
 
@@ -3835,7 +3837,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = 0;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		act_char("You couldn't cut your finger. It is not so easy, you know.", ch);
 		check_improve(ch, "hara kiri", FALSE, 2);
@@ -4204,14 +4206,14 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 		af.owner	= NULL;
 
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		INT(af.location)= APPLY_DAMROLL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		af.modifier	= UMAX(1,ch->level/10);
 		INT(af.location)= APPLY_AC;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 	} else {
 		ch->mana -= mana/2;
 		act_char("You try to concentrate for the next fight but fail.", ch);
@@ -4256,7 +4258,7 @@ void do_bandage(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	= AFF_REGENERATION;
 		INT(af.location)= 0;
 		af.owner	= NULL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 	} else {
 		act_char("You failed to place your bandage to your shoulder.", ch);
 		check_improve(ch, "bandage", FALSE, 2);
@@ -4325,7 +4327,7 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.bitvector 	= 0;
 		INT(af.location)= 0;
 		af.owner	= NULL;
-		affect_to_char(ch,&af);
+		affect_to_char2(ch,&af);
 
 		katana = create_obj(get_obj_index(OBJ_VNUM_KATANA_SWORD), 0);
 		katana->level = ch->level;
@@ -4341,10 +4343,10 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		af.modifier	= ch->level / 10;
 		af.bitvector	= 0;
 		af.owner	= NULL;
-		affect_to_obj(katana, &af);
+		affect_to_obj2(katana, &af);
 
 		INT(af.location)= APPLY_HITROLL;
-		affect_to_obj(katana, &af);
+		affect_to_obj2(katana, &af);
 
 		INT(katana->value[2]) = ch->level / 10;
 		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
@@ -4505,7 +4507,7 @@ void do_sense(CHAR_DATA *ch, const char *argument)
 		af.modifier	= 0;
 		af.bitvector	= ID_LIFE;
 		af.owner	= NULL;
-		affect_to_char(ch, &af);
+		affect_to_char2(ch, &af);
 
 		ch->mana -= mana;
 
@@ -4693,7 +4695,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		    IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)))
 			continue;
 
-		move_char(ch, door, FALSE);
+		move_char(ch, door, 0);
 		if ((now_in = ch->in_room) == was_in)
 			continue;
 

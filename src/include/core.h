@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999, 2000 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,31 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.h,v 1.5 2001-07-29 20:14:29 fjoe Exp $
+ * $Id: core.h,v 1.1 2001-07-29 20:14:27 fjoe Exp $
  */
 
-#ifndef _MAGIC_H_
-#define _MAGIC_H_
+#ifndef _CORE_H_
+#define _CORE_H_
 
 #undef MODULE_NAME
-#define MODULE_NAME MOD_MAGIC
+#define MODULE_NAME MOD_CORE
 #include <dynafun_decl.h>
 
 __MODULE_START_DECL
 
-DECLARE_PROC4(obj_cast_spell,
-	      ARG(cchar_t), sn, ARG(int), level, ARG(CHAR_DATA), ch,
-	      ARG(pvoid_t), vo)
-DECLARE_PROC5(spellfun_call,
-	      ARG(cchar_t), sn_fun, ARG(cchar_t), sn, ARG(int), level,
-	      ARG(CHAR_DATA), ch, ARG(pvoid_t), vo)
-DECLARE_FUN3(bool, saves_spell,
-	     ARG(int), level, ARG(CHAR_DATA), victim, ARG(int), dam_class)
-DECLARE_FUN3(bool, check_dispel,
-	     ARG(int), dis_level, ARG(CHAR_DATA), victim, ARG(cchar_t), sn)
+DECLARE_PROC0(reboot_mud)
 
 __MODULE_END_DECL
 
-#undef MODULE_NAME
-
-#endif
+#endif /* _CORE_H_ */

@@ -23,13 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.2 2001-01-21 11:18:28 cs Exp $
+ * $Id: magic_impl.c,v 1.3 2001-07-29 20:14:47 fjoe Exp $
  */
 
 #include <stdio.h>
-#include "merc.h"
+
+#include <merc.h>
 
 #include "fight.h"
+#include "handler.h"
+
 #include "_magic.h"
 
 /*

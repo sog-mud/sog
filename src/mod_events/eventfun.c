@@ -23,14 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.27 2001-07-04 19:21:13 fjoe Exp $
+ * $Id: eventfun.c,v 1.28 2001-07-29 20:14:43 fjoe Exp $
  */
 
 
 #include <sys/time.h>
 #include <stdio.h>
-#include "merc.h"
 
+#include <merc.h>
+
+#include "affects.h"
+#include "handler.h"
 #include "fight.h"
 #include "magic.h"
 
@@ -182,7 +185,7 @@ EVENT_FUN(event_update_espirit, ch, af)
 		af2.modifier	= 0;
 		af2.bitvector	= 0;
 		af2.owner	= NULL;
-		affect_join(ch, &af2);
+		affect_join2(ch, &af2);
 		act_char("You feel worse than ever.", ch);
 		act("$n looks more evil.", ch, NULL, NULL, TO_ROOM);
 	}
@@ -237,7 +240,7 @@ EVENT_FUN(event_updatechar_wcurse, ch, af)
 	witch.owner = af->owner;
 
 	affect_remove(ch, af);
-	affect_to_char(ch ,&witch);
+	affect_to_char2(ch ,&witch);
 	ch->hit = UMIN(ch->hit, ch->max_hit);
 	if (ch->hit < 1) {
 		if (IS_IMMORTAL(ch))
@@ -282,7 +285,7 @@ EVENT_FUN(event_updatechar_plague, ch, af)
 			act_char("You feel hot and feverish.", vch);
 			act("$n shivers and looks very ill.",
 			    vch, NULL, NULL, TO_ROOM);
-			affect_join(vch, &plague);
+			affect_join2(vch, &plague);
 		}
 	}
 
@@ -309,10 +312,10 @@ EVENT_FUN(event_updatefast_entangle, ch, af)
 {
 	AFFECT_DATA *paf;
 
-	if (!(paf = is_affected(ch, "entanglement")))
+	if ((paf = affect_find(ch->affected, "entanglement")) == NULL)
 		return;
 
-	if (!paf->owner || !ch->fighting) {
+	if (paf->owner == NULL || ch->fighting == NULL) {
 		affect_strip(ch, "entanglement");
 		return;
 	}

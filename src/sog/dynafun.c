@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.9 2001-06-20 09:54:26 avn Exp $
+ * $Id: dynafun.c,v 1.10 2001-07-29 20:15:00 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -176,8 +176,10 @@ dynafun_init(dynafun_data_t *d)
 	d->name = str_empty;
 	d->rv_tag = MT_VOID;
 	d->nargs = 0;
-	for (i = 0; i < DYNAFUN_NARGS; i++)
-		d->argtype[i] = MT_PVOID;
+	for (i = 0; i < DYNAFUN_NARGS; i++) {
+		d->argtype[i].type_tag = MT_PVOID;
+		d->argtype[i].nullable = FALSE;
+	}
 	d->fun = NULL;
 }
 
@@ -227,7 +229,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 	for (i = 0; i < nargs; i++) {
 		const void *arg;
 
-		switch (d->argtype[i]) {
+		switch (d->argtype[i].type_tag) {
 		case MT_PVOID:
 			*(void **) args_ap = va_arg(ap, void *);
 			arg = va_arg(args_ap, void *);
@@ -255,6 +257,7 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 		case MT_CHAR:
 		case MT_OBJ:
 		case MT_ROOM:
+		case MT_AREA:
 		case MT_AFFECT:
 		case MT_BUFFER:
 		case MT_OBJ_INDEX:
@@ -263,14 +266,20 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 
 		default:
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: %d: invalid type in arg list", d->name, d->argtype[i]);
+			log(LOG_BUG, "dynafun_call: %s: %d: invalid type in arg list", d->name, d->argtype[i].type_tag);
 			return NULL;
 		}
 
 		arg = va_arg(ap, void *);
-		if (!mem_is(arg, d->argtype[i])) {
+		if (arg == NULL) {
+			if (!d->argtype[i].nullable) {
+				va_end(ap);
+				log(LOG_BUG, "dynafun_call: %s: arg[%d] type is not nullable", d->name, i+1);
+				return NULL;
+			}
+		} else if (!mem_is(arg, d->argtype[i].type_tag)) {
 			va_end(ap);
-			log(LOG_BUG, "dynafun_call: %s: arg[%d] type is not %d", d->name, i, d->argtype[i]);
+			log(LOG_BUG, "dynafun_call: %s: arg[%d] type is not %d", d->name, i+1, d->argtype[i].type_tag);
 			return NULL;
 		}
 

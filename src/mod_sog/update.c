@@ -23,17 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.197 2001-07-04 19:34:17 fjoe Exp $
+ * $Id: update.c,v 1.198 2001-07-29 20:14:57 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "merc.h"
-#include "module.h"
+#include <merc.h>
+#include <module.h>
 
 #include "fight.h"
+#include "handler.h"
+
 #include "_update.h"
 
 static void *uhandler_load_cb(void *p, va_list ap);
@@ -194,15 +196,15 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
 				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
-			if (ch->position == POS_SLEEPING) 
-				return; 
+			if (ch->position == POS_SLEEPING)
+				return;
 			break;
 
 		case COND_DESIRE:
 			act_char("You want to go your home!", ch);
 			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
-			if (ch->position >= POS_STANDING) 
-				move_char(ch, number_door(), FALSE);
+			if (ch->position >= POS_STANDING)
+				move_char(ch, number_door(), 0);
 			break;
 		}
 	}

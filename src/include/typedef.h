@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.47 2001-06-25 16:51:06 fjoe Exp $
+ * $Id: typedef.h,v 1.48 2001-07-29 20:14:30 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -39,12 +39,18 @@
 #define TRUE	 1
 #endif
 
+/*
+ * mpc and dynafun code relies on this to be the same width as int
+ */
 typedef int bool;
+typedef int flag_t;
+
 typedef const char *cchar_t;
 typedef void *pvoid_t;
 
 #if defined (WIN32)
-typedef unsigned int			uint;
+typedef unsigned int	u_int;
+typedef unsigned char	u_char;
 #endif
 
 typedef struct affect_data		AFFECT_DATA;
@@ -139,14 +145,6 @@ typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
 #	define snprintf		_snprintf
 #	define vsnprintf	_vsnprintf
 #	define inline
-#endif
-
-#if defined (WIN32)
-typedef __int32		flag_t;
-typedef unsigned int	u_int;
-typedef unsigned char	u_char;
-#else
-typedef int32_t		flag_t;
 #endif
 
 #define IS_SET(flag, bit)	((flag) & (bit))

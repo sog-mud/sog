@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.179 2001-07-09 06:18:39 fjoe Exp $
+ * $Id: interp.c,v 1.180 2001-07-29 20:15:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,9 +47,11 @@
 #include <time.h>
 #include <ctype.h>
 
-#include "merc.h"
-#include "cmd.h"
-#include "socials.h"
+#include <merc.h>
+#include <cmd.h>
+#include <socials.h>
+
+#include "handler.h"
 
 #undef IMMORTALS_LOGS
 

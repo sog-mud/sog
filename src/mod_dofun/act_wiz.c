@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.278 2001-07-16 18:42:03 fjoe Exp $
+ * $Id: act_wiz.c,v 1.279 2001-07-29 20:14:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,15 +61,17 @@
 #	include "../compat/fnmatch.h"
 #endif
 
-#include "merc.h"
-#include "cmd.h"
-#include "db.h"
-#include "ban.h"
-#include "socials.h"
-#include "string_edit.h"
+#include <merc.h>
+#include <cmd.h>
+#include <db.h>
+#include <ban.h>
+#include <socials.h>
+#include <string_edit.h>
 
-#include "quest.h"
+#include "affects.h"
+#include "handler.h"
 #include "fight.h"
+#include "quest.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -209,6 +211,19 @@ void do_limited(CHAR_DATA *ch, const char *argument)
 
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
+}
+
+static flag_t
+wiznet_lookup(const char *name)
+{
+	int flag;
+
+	for (flag = 0; wiznet_table[flag].name != NULL; flag++) {
+		if (!str_prefix(name,wiznet_table[flag].name))
+			return flag;
+	}
+
+	return -1;
 }
 
 void do_wiznet(CHAR_DATA *ch, const char *argument)
@@ -1070,7 +1085,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		   flag_string(obj_flags, obj->pObjIndex->obj_flags));
 	buf_printf(output, BUF_END, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n", // notrans
 		1,           get_obj_number(obj),
-		obj->weight, get_obj_weight(obj),get_true_weight(obj));
+		obj->weight, get_obj_weight(obj), get_obj_realweight(obj));
 
 	buf_printf(output, BUF_END,
 		  "Level: %d  Cost: %d  Condition: %d  Timer: %d Count: %d\n", // notrans
@@ -2442,7 +2457,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 			af.modifier	= 0;
 			af.bitvector	= AFF_CALM;
 			af.owner	= NULL;
-			affect_to_char(rch, &af);
+			affect_to_char2(rch, &af);
 		}
 	}
 
@@ -4294,7 +4309,7 @@ void do_qtarget(CHAR_DATA *ch, const char *argument)
 	af.bitvector	= AFF_QUESTTARGET;
 	INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
-	affect_to_char(vch, &af);
+	affect_to_char2(vch, &af);
 }
 
 void do_sla(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: mkdecl.pl,v 1.8 2001-06-24 10:50:36 avn Exp $
+# $Id: mkdecl.pl,v 1.9 2001-07-29 20:14:25 fjoe Exp $
 
 use strict;
 require "mkutil.pl";
@@ -24,9 +24,10 @@ print "Creating $module_decl_c\n";
 open(COUT, ">$module_decl_c") || die "$!: can't open $module_decl_c";
 print COUT << "__END__";
 #include <stdlib.h>
-#include "typedef.h"
-#include "$module_decl_h"
-#include "flag.h"
+
+#include <typedef.h>
+#include <$module_decl_h>
+#include <flag.h>
 
 flaginfo_t module_names[] =
 {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.h,v 1.6 2001-07-08 17:18:48 fjoe Exp $
+ * $Id: update.h,v 1.7 2001-07-29 20:14:30 fjoe Exp $
  */
 
 #ifndef _UPDATE_H_
@@ -36,18 +36,18 @@
 __MODULE_START_DECL
 
 DECLARE_PROC1(uhandler_load,
-	      cchar_t, mod_name)
+	      ARG(cchar_t), mod_name)
 DECLARE_PROC1(uhandler_unload,
-	      cchar_t, mod_name)
+	      ARG(cchar_t), mod_name)
 DECLARE_PROC0(update_handler)
 DECLARE_FUN1(int, get_pulse,
-	     cchar_t, hdlr_name)
+	     ARG(cchar_t), hdlr_name)
 DECLARE_FUN1(pvoid_t, update_one,
-	     cchar_t, hdlr_name)
+	     ARG(cchar_t), hdlr_name)
 DECLARE_PROC1(update_reset,
-	      cchar_t, hdlr_name)
+	      ARG(cchar_t), hdlr_name)
 DECLARE_PROC3(gain_condition,
-	      CHAR_DATA, ch, int, iCond, int, value)
+	      ARG(CHAR_DATA), ch, ARG(int), iCond, ARG(int), value)
 
 __MODULE_END_DECL
 

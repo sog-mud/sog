@@ -23,10 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.89 2001-06-22 07:13:47 avn Exp $
+ * $Id: olc_room.c,v 1.90 2001-07-29 20:14:55 fjoe Exp $
  */
 
 #include "olc.h"
+
+#include "affects.h"
+#include "handler.h"
 
 #define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
 
@@ -550,7 +553,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	EDIT_ROOM(ch, pRoom);
 
 	if (argument[0] == '\0') { /* Move command. */
-		move_char(ch, door, TRUE);                    /* ROM OLC */
+		move_char(ch, door, 0);                    /* ROM OLC */
 		return FALSE;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.248 2001-07-08 20:16:36 fjoe Exp $
+ * $Id: db.c,v 1.249 2001-07-29 20:15:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,8 @@
 #include <rfile.h>
 #include <dynafun.h>
 
+#include "affects.h"
+#include "handler.h"
 #include "update.h"
 #include "quest.h"
 
@@ -1128,7 +1130,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 				      3 * pMobIndex->wealth/2);
 		mob->gold = number_range(wealth/200,wealth/100);
 		mob->silver = wealth - (mob->gold * 100);
-	} 
+	}
 
 	mob->affected_by	= pMobIndex->affected_by;
 	mob->has_invis		= pMobIndex->has_invis;
@@ -1137,7 +1139,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 	mob->level		= pMobIndex->level;
 	mob->position		= pMobIndex->start_pos;
 
-	for (i = 0; i < MAX_RESIST; i++) 
+	for (i = 0; i < MAX_RESIST; i++)
 		mob->resists[i] = pMobIndex->resists[i];
 
 	free_string(mob->race);
@@ -1149,7 +1151,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 			else
 				mob->resists[i] = 100;
 		}
-		mob->luck 	+= r-> luck_bonus;
+		mob->luck	+= r-> luck_bonus;
 	}
 
 	mob->form		= pMobIndex->form;
@@ -1211,35 +1213,35 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 	NPC(mob)->dam.dice_number = pMobIndex->damage[DICE_NUMBER];
 	NPC(mob)->dam.dice_type = pMobIndex->damage[DICE_TYPE];
 	for (i = 0; i < 4; i++)
-		mob->armor[i]	= pMobIndex->ac[i]; 
+		mob->armor[i]	= pMobIndex->ac[i];
 
 	if (IS_SET(pMobIndex->act, ACT_WARRIOR)) {
 		mob->perm_stat[STAT_STR] += 3;
 		mob->perm_stat[STAT_INT] -= 1;
 		mob->perm_stat[STAT_CON] += 2;
 	}
-		
+
 	if (IS_SET(pMobIndex->act, ACT_THIEF)) {
 		mob->perm_stat[STAT_DEX] += 3;
 		mob->perm_stat[STAT_INT] += 1;
 		mob->perm_stat[STAT_WIS] -= 1;
 	}
-		
+
 	if (IS_SET(pMobIndex->act, ACT_CLERIC)) {
 		mob->perm_stat[STAT_WIS] += 3;
 		mob->perm_stat[STAT_DEX] -= 1;
 		mob->perm_stat[STAT_STR] += 1;
 	}
-		
+
 	if (IS_SET(pMobIndex->act, ACT_MAGE)) {
 		mob->perm_stat[STAT_INT] += 3;
 		mob->perm_stat[STAT_STR] -= 1;
 		mob->perm_stat[STAT_DEX] += 1;
 	}
-		
+
 	if (IS_SET(pMobIndex->off_flags, OFF_FAST))
 		mob->perm_stat[STAT_DEX] += 2;
-		    
+
 	/* let's get some spell action */
 	if (IS_AFFECTED(mob, AFF_SANCTUARY)) {
 		af.where	= TO_AFFECTS;
@@ -1250,23 +1252,23 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 		af.modifier	= 0;
 		af.bitvector	= AFF_SANCTUARY;
 		af.owner = NULL;
-		affect_to_char(mob, &af);
+		affect_to_char2(mob, &af);
 	}
 
 	if (IS_AFFECTED(mob, AFF_HASTE)) {
 		af.where	= TO_AFFECTS;
 		af.type		= "haste";
 		af.level	= mob->level;
-	  	af.duration	= -1;
+		af.duration	= -1;
 		INT(af.location)= APPLY_DEX;
-		af.modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) + 
+		af.modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) +
 				  (mob->level >= 32);
 		af.bitvector	= AFF_HASTE;
 		af.owner = NULL;
-		affect_to_char(mob, &af);
+		affect_to_char2(mob, &af);
 	}
 
-	if (IS_AFFECTED(mob,AFF_PROTECT_EVIL)) {
+	if (IS_AFFECTED(mob, AFF_PROTECT_EVIL)) {
 		af.where	= TO_AFFECTS;
 		af.type		= "protection evil";
 		af.level	= mob->level;
@@ -1275,10 +1277,10 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 		af.modifier	= -1;
 		af.bitvector	= AFF_PROTECT_EVIL;
 		af.owner = NULL;
-		affect_to_char(mob, &af);
+		affect_to_char2(mob, &af);
 	}
 
-	if (IS_AFFECTED(mob,AFF_PROTECT_GOOD)) {
+	if (IS_AFFECTED(mob, AFF_PROTECT_GOOD)) {
 		af.where	= TO_AFFECTS;
 		af.type		= "protection good";
 		af.level	= mob->level;
@@ -1287,11 +1289,11 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 		af.modifier	= -1;
 		af.bitvector	= AFF_PROTECT_GOOD;
 		af.owner = NULL;
-		affect_to_char(mob, &af);
-	}  
+		affect_to_char2(mob, &af);
+	}
 
 	for (paf = pMobIndex->affected; paf != NULL; paf = paf->next)
-		affect_to_char(mob, paf);
+		affect_to_char2(mob, paf);
 
 	/* link the mob to the world list */
 	/* if CM_F_NOLIST is not set */
@@ -1330,9 +1332,9 @@ clone_mob(CHAR_DATA *parent)
 
 	clone = create_mob(parent->pMobIndex, 0);
 
-	/* start fixing values */ 
+	/* start fixing values */
 	free_string(clone->name);
-	clone->name 		= str_qdup(parent->name);
+	clone->name		= str_qdup(parent->name);
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->long_descr, &parent->long_descr);
 	mlstr_cpy(&clone->description, &parent->description);
@@ -1400,7 +1402,7 @@ clone_mob(CHAR_DATA *parent)
 	clone->affected = NULL;
 
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_char(clone, paf);
+		affect_to_char2(clone, paf);
 
 	return clone;
 }
@@ -1421,7 +1423,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 	obj = new_obj();
 
 	obj->pObjIndex	= pObjIndex;
- 	obj->level = pObjIndex->level;
+	obj->level = pObjIndex->level;
 	obj->wear_loc	= -1;
 
 	mlstr_cpy(&obj->short_descr, &pObjIndex->short_descr);
@@ -1453,7 +1455,7 @@ OBJ_DATA *create_obj(OBJ_INDEX_DATA *pObjIndex, int flags)
 			INT(obj->value[i]) = -1;
 		break;
 	}
-	
+
 	obj->next	= object_list;
 	object_list	= obj;
 	if (!IS_SET(flags, CO_F_NOCOUNT))
@@ -1483,7 +1485,7 @@ clone_obj(OBJ_DATA *parent)
 
 	/* start copying the object */
 	free_string(clone->label);
-	clone->label 		= str_qdup(parent->label);
+	clone->label		= str_qdup(parent->label);
 
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->description, &parent->description);
@@ -1506,8 +1508,8 @@ clone_obj(OBJ_DATA *parent)
 	/*
 	 * affects
 	 */
-	for (paf = parent->affected; paf != NULL; paf = paf->next) 
-		affect_to_obj(clone, paf);
+	for (paf = parent->affected; paf != NULL; paf = paf->next)
+		affect_to_obj2(clone, paf);
 
 	/*
 	 * extended desc
@@ -1742,25 +1744,25 @@ int number_bits(int width)
  */
 
 /* I noticed streaking with this random number generator, so I switched
-	back to the system srandom call.  If this doesn't work for you, 
+	back to the system srandom call.  If this doesn't work for you,
 	define OLD_RAND to use the old system -- Alander */
 
 #if defined (OLD_RAND)
 static  int     rgiState[2+55];
 #endif
- 
+
 static void
 init_mm(void)
 {
 #if defined (OLD_RAND)
 	int *piState;
 	int iState;
- 
+
 	piState     = &rgiState[2];
- 
+
 	piState[-2] = 55 - 55;
 	piState[-1] = 55 - 24;
- 
+
 	piState[0]  = ((int) current_time) & ((1 << 30) - 1);
 	piState[1]  = 1;
 	for (iState = 2; iState < 55; iState++)
@@ -1774,7 +1776,7 @@ init_mm(void)
 #endif
 	return;
 }
- 
+
 #define MAX_RND_CNT	128
 
 int max_rnd_cnt	= MAX_RND_CNT;
@@ -1788,7 +1790,7 @@ number_mm(void)
 	int iState1;
 	int iState2;
 	int iRand;
- 
+
 	piState             = &rgiState[2];
 	iState1             = piState[-2];
 	iState2             = piState[-1];
@@ -1857,14 +1859,14 @@ int dice(int number, int size)
 		if (luck_diff >= 0) {
 			num = luck_diff / 20 + 1 +
 				(number_range(0, 19) < luck_diff % 20) ? 1 : 0;
-			
-			for (cand=0; num; num--) 
+
+			for (cand = 0; num; num--)
 				cand = UMAX(cand, number_range(1, size));
 		} else {
 			num = (-luck_diff) / 20 + 1 +
 				(number_range(0, 19) < (-luck_diff) % 20) ? 1 : 0;
-			
-			for (cand=0; num; num--) 
+
+			for (cand = 0; num; num--)
 				cand = UMIN(cand, number_range(1, size));
 		}
 		sum += cand;

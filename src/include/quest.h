@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.h,v 1.15 2001-07-08 17:18:47 fjoe Exp $
+ * $Id: quest.h,v 1.16 2001-07-29 20:14:30 fjoe Exp $
  */
 
 #ifndef _QUEST_H_
@@ -41,27 +41,27 @@
 __MODULE_START_DECL
 
 DECLARE_PROC2(quest_handle_death,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC1(quest_cancel,
-	      CHAR_DATA, ch)
+	      ARG(CHAR_DATA), ch)
 
 DECLARE_PROC3(qtrouble_set,
-	      CHAR_DATA, ch, int, vnum, int, count)
+	      ARG(CHAR_DATA), ch, ARG(int), vnum, ARG(int), count)
 DECLARE_PROC2(qtrouble_dump,
-	      BUFFER, buf, CHAR_DATA, ch)
+	      ARG(BUFFER), buf, ARG(CHAR_DATA), ch)
 
 DECLARE_PROC1(chquest_start,
-	      int, flags)
+	      ARG(int), flags)
 
 DECLARE_PROC1(chquest_add,
-	      OBJ_INDEX_DATA, obj_index)
+	      ARG(OBJ_INDEX_DATA), obj_index)
 DECLARE_FUN2(bool, chquest_delete,
-	     CHAR_DATA, ch, OBJ_INDEX_DATA, obj_index)
+	     ARG(CHAR_DATA), ch, ARG(OBJ_INDEX_DATA), obj_index)
 
 DECLARE_PROC1(chquest_extract,
-	      OBJ_DATA, obj)
+	      ARG(OBJ_DATA), obj)
 DECLARE_FUN1(CHAR_DATA, chquest_carried_by,
-	     OBJ_DATA, obj)
+	     ARG(OBJ_DATA), obj)
 
 __MODULE_END_DECL
 

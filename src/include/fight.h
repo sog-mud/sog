@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fight.h,v 1.30 2001-07-08 17:18:43 fjoe Exp $
+ * $Id: fight.h,v 1.31 2001-07-29 20:14:28 fjoe Exp $
  */
 
 #ifndef _FIGHT_H_
@@ -49,49 +49,51 @@
 __MODULE_START_DECL
 
 DECLARE_PROC4(one_hit,
-	      CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt, bool, secondary)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), dt,
+	      ARG(bool), secondary)
 DECLARE_PROC2(handle_death,
-	      CHAR_DATA, ch, CHAR_DATA, victim)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC3(multi_hit,
-	      CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), dt)
 DECLARE_FUN6(bool, damage,
-	     CHAR_DATA, ch, CHAR_DATA, victim, int, dam,
-	     cchar_t, dt, int, class, int, dam_flags)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(int), dam,
+	     ARG(cchar_t), dt, ARG(int), class, ARG(int), dam_flags)
 DECLARE_PROC1(update_pos,
-	      CHAR_DATA, victim)
+	      ARG(CHAR_DATA), victim)
 DECLARE_PROC2(set_fighting,
-	      CHAR_DATA, ch, CHAR_DATA, victim)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_PROC2(stop_fighting,
-	      CHAR_DATA, ch, bool, fBoth)
+	      ARG(CHAR_DATA), ch, ARG(bool), fBoth)
 DECLARE_FUN2(OBJ_DATA, raw_kill,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_FUN1(cchar_t, vs_dam_alias,
-	     int, dam)
+	     ARG(int), dam)
 DECLARE_FUN1(cchar_t, vp_dam_alias,
-	     int, dam)
+	     ARG(int), dam)
 DECLARE_FUN4(bool, check_obj_dodge,
-	     CHAR_DATA, ch, CHAR_DATA, victim,
-	     OBJ_DATA, obj, int, bonus)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,
+	     ARG(OBJ_DATA), obj, ARG(int), bonus)
 DECLARE_FUN2(bool, is_safe,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_FUN2(bool, is_safe_nomessage,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 DECLARE_FUN3(bool, is_safe_spell,
-	     CHAR_DATA, ch, CHAR_DATA, victim, bool, area)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(bool), area)
 DECLARE_FUN2(bool, is_safe_rspell,
-	     AFFECT_DATA, af, CHAR_DATA, victim)
+	     ARG(AFFECT_DATA), af, ARG(CHAR_DATA), victim)
 DECLARE_FUN2(int, get_dam_class,
-	     CHAR_DATA, ch, OBJ_DATA, wield)
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), wield)
 DECLARE_FUN2(CHAR_DATA, check_guard,
-	     CHAR_DATA, ch, CHAR_DATA, mob)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), mob)
 DECLARE_FUN2(bool, in_PK,
-	     CHAR_DATA, ch, CHAR_DATA, victim)
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 
-DECLARE_PROC4(focus_positive_energy, CHAR_DATA, ch, CHAR_DATA, victim,
-	     cchar_t, sn, int, amount)
-
-DECLARE_PROC4(focus_negative_energy, CHAR_DATA, ch, CHAR_DATA, victim,
-	     cchar_t, sn, int, amount)
+DECLARE_PROC4(focus_positive_energy,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), sn,
+	      ARG(int), amount)
+DECLARE_PROC4(focus_negative_energy,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), sn,
+	      ARG(int), amount)
 
 __MODULE_END_DECL
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.29 2001-07-08 17:18:42 fjoe Exp $
+ * $Id: comm_act.h,v 1.30 2001-07-29 20:14:27 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -70,7 +70,7 @@ const char *_format_long(const mlstring *desc, const CHAR_DATA *to,
 			 size_t to_lang);
 
 #define PERS(ch, to) PERS2(ch, to, GET_LANG(to), ACT_FORMSH)
-const char* PERS2(const CHAR_DATA *ch, const CHAR_DATA *to, size_t to_lang, int act_flags);
+const char* PERS2(CHAR_DATA *ch, CHAR_DATA *to, size_t to_lang, int act_flags);
 
 /*
  * act stuff
@@ -98,14 +98,13 @@ typedef struct actopt_t {
  * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
  * other formatting functions use opt->to_lang/opt->to_sex instead
  */
-void	act_buf		(const char *format, const CHAR_DATA *ch,
-			 const CHAR_DATA *to, const void *arg1,
-			 const void *arg2, const void *arg3,
+void	act_buf		(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+			 const void *arg1, const void *arg2, const void *arg3,
 			 actopt_t *opt, char *buf, size_t buf_len);
-void    act_puts3	(const char *format, const CHAR_DATA *ch,
+void    act_puts3	(const char *format, CHAR_DATA *ch,
 			 const void *arg1, const void *arg2, const void *arg3,
 			 int act_flags, int min_pos);
-void	act_mlputs3	(mlstring *mlformat, const CHAR_DATA *ch,
+void	act_mlputs3	(mlstring *mlformat, CHAR_DATA *ch,
 			 const void *arg1, const void *arg2, const void *arg3,
 			 int act_flags, int min_pos);
 
@@ -120,13 +119,10 @@ void	act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 void	act_clan(CHAR_DATA *ch, const char *text, const void *arg);
 void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
 
-/*
- * common declarations for act_xxx and mob progs
- */
-extern const char *he_she[];
-extern const char *him_her[];
-extern const char *his_her[];
-
-size_t GET_SEX(const mlstring *ml, size_t to_lang);
+void	wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
+	       flag_t flag, flag_t flag_skip, int min_level);
+void	yell(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
+void	tell_char(CHAR_DATA *ch, CHAR_DATA *victim, cchar_t msg);
+const char *garble(CHAR_DATA *ch, const char *txt);
 
 #endif

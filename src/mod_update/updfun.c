@@ -23,18 +23,23 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.29 2001-07-16 18:42:09 fjoe Exp $
+ * $Id: updfun.c,v 1.30 2001-07-29 20:14:58 fjoe Exp $
  */
 
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include "merc.h"
-#include "db.h"
-#include "auction.h"
 
+#include <merc.h>
+#include <db.h>
+#include <auction.h>
+
+#include "affects.h"
+#include "core.h"
 #include "fight.h"
+#include "handler.h"
+
 #include "_update.h"
 
 /* locals */
@@ -393,14 +398,14 @@ mobile_update_cb(void *vo, va_list ap)
 	&&  !IS_SET(pexit->exit_info, EX_CLOSED)
 	&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB | ROOM_GUILD)
 	&&  (!IS_SET(act, ACT_STAY_AREA) ||
-	     pexit->to_room.r->area == ch->in_room->area) 
+	     pexit->to_room.r->area == ch->in_room->area)
 	&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
 	     !IS_SET(pexit->to_room.r->room_flags, ROOM_PEACE))
 	&&  (!IS_SET(act, ACT_OUTDOORS) ||
-	     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)) 
+	     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS))
 	&&  (!IS_SET(act, ACT_INDOORS) ||
 	     IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)))
-		move_char(ch, door, FALSE);
+		move_char(ch, door, 0);
 
 	return NULL;
 }

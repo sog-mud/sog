@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.50 2001-07-04 19:21:12 fjoe Exp $
+ * $Id: healer.c,v 1.51 2001-07-29 20:14:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -31,8 +31,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "merc.h"
 
+#include <merc.h>
+
+#include "handler.h"
 #include "magic.h"
 #include "update.h"
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.333 2001-07-08 17:18:45 fjoe Exp $
+ * $Id: merc.h,v 1.334 2001-07-29 20:14:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,7 +136,6 @@ enum {
 #include <memalloc.h>
 
 #include <race.h>
-#include <affect.h>
 #include <class.h>
 #include <clan.h>
 #include <spec.h>
@@ -1796,7 +1795,6 @@ struct room_index_data
 #define IS_IMMORTAL(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)		(!IS_NPC(ch) && (ch)->level >= LEVEL_HERO)
 
-int trust_level(const CHAR_DATA *ch);
 #define GET_ORIGINAL(ch)	(ch->desc && ch->desc->original ?	\
 					ch->desc->original : ch)
 #define IS_TRUSTED(ch, lev)	(trust_level(ch) >= (lev))
@@ -1933,147 +1931,11 @@ extern		int			reboot_counter;
 #define crypt(s1, s2)	(s1)
 #endif
 
-/*
- * Our function prototypes.
- * One big lump ... this is every function in Merc.
- */
-
-ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
-CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
-const CHAR_DATA *nth_char(const CHAR_DATA *ch, int n);
-OBJ_DATA *random_obj(void);
-const OBJ_DATA *nth_obj(const OBJ_DATA* obj, int n);
-
-/* handler.c */
-const char *get_stat_alias(CHAR_DATA *ch, int st);
-int	count_users	(const OBJ_DATA *obj);
-void	deduct_cost	(CHAR_DATA *ch, int cost);
-int	check_exit	(const char *arg);
-
-int	get_hours	(const CHAR_DATA *ch);
-int	get_age		(const CHAR_DATA *ch);
-
 int	get_curr_stat	(const CHAR_DATA *ch, int st);
 int	get_max_train	(const CHAR_DATA *ch, int st);
-int	can_carry_n	(const CHAR_DATA *ch);
-int	can_carry_w	(const CHAR_DATA *ch);
-int	age_to_num	(int);
-
-bool	pc_name_ok	(const char *name);
-void	char_from_room	(CHAR_DATA *ch);
-void	char_to_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
-void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
-void	obj_from_char	(OBJ_DATA *obj);
-int	apply_ac	(OBJ_DATA *obj, int iWear, int type);
-OBJ_DATA *	get_eq_char	(const CHAR_DATA *ch, int iWear);
-void		_equip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
-OBJ_DATA *	equip_char	(CHAR_DATA *ch, OBJ_DATA *obj, int iWear);
-void	unequip_char	(CHAR_DATA *ch, OBJ_DATA *obj);
-int	count_obj_list	(OBJ_INDEX_DATA *obj, OBJ_DATA *list);
-void	obj_from_room	(OBJ_DATA *obj);
-void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
-void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
-void	obj_from_obj	(OBJ_DATA *obj);
-void	bad_effect	(CHAR_DATA *ch, int effect);
-
-/* extract obj flags */
-#define XO_F_NOCOUNT	(A)	/* do not update obj count		*/
-#define XO_F_NORECURSE	(B)	/* do not extract contained in objs	*/
-#define XO_F_NOCHQUEST	(C)	/* do not check for chquest objs	*/
-#define XO_F_NUKE	(D)	/* fast extract (used in char_free)
-				   does not call obj_from_xxx
-				   and is always recursive		*/
-
-/* quit_char/extract_char */
-#define XC_F_NOCOUNT	(A)	/* update obj count			*/
-#define XC_F_INCOMPLETE	(B)	/* do not extract char from char_list	*/
-
-/*
- * quit_char assumes !IS_NPC(ch)
- */
-void	extract_obj(OBJ_DATA *obj, int flags);
-void	extract_char(CHAR_DATA *ch, int flags);
-void	quit_char(CHAR_DATA *ch, int flags);
-
-CHAR_DATA *	get_char_room	(CHAR_DATA *ch, const char *argument);
-CHAR_DATA *	get_char_world	(CHAR_DATA *ch, const char *argument);
-CHAR_DATA *	get_char_area	(CHAR_DATA *ch, const char *argument);
-
-/*
- * get_obj_list flags
- */
-enum {
-	GETOBJ_F_ANY,		/* any obj->wear_loc			     */
-	GETOBJ_F_INV,		/* obj->wear_loc == WEAR_NONE (in inventory) */
-	GETOBJ_F_WORN,		/* obj->wear_loc != WEAR_NONE (worn)	     */
-};
-
-OBJ_DATA *	get_obj_list	(const CHAR_DATA *ch, const char *argument,
-				 OBJ_DATA *list, int flags);
-OBJ_DATA *	get_obj_carry	(const CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_wear	(const CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_here	(const CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_room	(const CHAR_DATA *ch, const char *argument);
-OBJ_DATA *	get_obj_world	(const CHAR_DATA *ch, const char *argument);
-
-OBJ_DATA *	create_money	(int gold, int silver);
-int	get_obj_number	(OBJ_DATA *obj);
-int	get_obj_realnumber	(OBJ_DATA *obj);
-int	get_obj_weight	(OBJ_DATA *obj);
-int	get_true_weight (OBJ_DATA *obj);
-bool	room_is_dark	(const CHAR_DATA *ch);
-bool	room_dark	(const ROOM_INDEX_DATA *pRoomIndex);
-int	isn_dark_safe	(const CHAR_DATA *ch);
-bool	room_is_private (const ROOM_INDEX_DATA *pRoomIndex);
-bool	can_see		(const CHAR_DATA *ch, const CHAR_DATA *victim);
-bool	can_see_obj	(const CHAR_DATA *ch, const OBJ_DATA *obj);
-bool	can_see_room	(const CHAR_DATA *ch, const ROOM_INDEX_DATA *pRoomIndex);
-bool	can_drop_obj	(const CHAR_DATA *ch, const OBJ_DATA *obj);
-void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
-int	count_charmed	(CHAR_DATA *ch);
-void	damage_to_obj	(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn,
-			int damage);
-bool	make_eq_damage	(CHAR_DATA *ch, CHAR_DATA *victim,
-			int loc_wield, int loc_destroy);
-bool	random_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
-			int loc_wield);
-
-/*
- * the followind three functions assume IS_NPC(ch)
- */
-void	add_mind	(CHAR_DATA *ch, const char *str);
-void	remove_mind	(CHAR_DATA *ch, const char *str);
-void	back_home	(CHAR_DATA *ch);
-
-CHAR_DATA*	find_char	(CHAR_DATA *ch, const char *argument, int door, int range);
-CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, const char *argument, int *door, int range);
-void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
-bool	can_gate(CHAR_DATA *ch, CHAR_DATA *victim);
-void	transfer_char(CHAR_DATA *ch, CHAR_DATA *vch,
-		      ROOM_INDEX_DATA *to_room,
-		      const char *msg_out,
-		      const char *msg_travel,
-		      const char *msg_in);
-void	look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-
-void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-
-bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
-void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
-int free_hands	(CHAR_DATA * ch);
 
 #define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->pObjIndex->name) ||\
 				 is_name(_name, (obj)->label))
-void	label_add(OBJ_DATA *obj, const char *name);
-
-bool	check_blind	(CHAR_DATA *ch);
-bool	check_blind_raw	(CHAR_DATA *ch);
-
-void	set_leader(CHAR_DATA *ch, CHAR_DATA *lch);
-int	need_hands(CHAR_DATA *ch, OBJ_DATA *weapon);
-inline bool	has_boat(CHAR_DATA *ch);
-bool	is_leader(CHAR_DATA *ch, CHAR_DATA *lch);
-int	opposite_door(int door);
 
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument, bool is_order);
@@ -2083,9 +1945,7 @@ const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 
-int	get_resist	(CHAR_DATA *ch, int dam_class);
 int	get_luck	(CHAR_DATA *ch);
-void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 
 /*
  * victim is assumed to be !IS_NPC
@@ -2198,62 +2058,11 @@ extern	const char *			from_dir_name	[];
 extern	const	int			rev_dir		[];
 extern	char				DEFAULT_PROMPT	[];
 
-void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
-void		stop_follower	(CHAR_DATA *ch);
-
-/*
- * ch is assumed to be !IS_NPC
- */
-void		nuke_pets	(CHAR_DATA *ch);
-void		die_follower	(CHAR_DATA *ch);
-void		do_afk		(CHAR_DATA *ch, const char *argument);
-void		do_lang		(CHAR_DATA *ch, const char *argument);
-void		do_music	(CHAR_DATA *ch, const char *argument);
-void		do_gossip	(CHAR_DATA *ch, const char *argument);
-const CHAR_DATA*leader_lookup	(const CHAR_DATA *ch);
-const char *	garble		(CHAR_DATA *ch, const char *txt);
-void		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
-				 const char *msg);
-#define	is_same_group(ach, bch)						\
-	(leader_lookup(ach) == leader_lookup(bch))
-
-void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
-
-void move_char(CHAR_DATA *ch, int door, bool follow);
-bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge);
 bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack);
-
-int	door_lookup	(CHAR_DATA *ch, const char *arg);
-int	find_door	(CHAR_DATA *ch, const char *arg);
-
-bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
-void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
-			 const char *msg_others);
-void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
-void set_title		(CHAR_DATA *ch, const char *argument);
-
-/* act_wiz.h */
-void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
-	    flag_t flag, flag_t flag_skip, int min_level);
-void reboot_mud(void);
-ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
 
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
-const char *get_cond_alias(const OBJ_DATA *obj);
-
-/*
- * `advance' and `gain_exp' assume !IS_NPC(victim)
- */
-void gain_exp		(CHAR_DATA *ch, int gain);
-void advance_level	(CHAR_DATA *ch);
-void delevel		(CHAR_DATA *ch);
-
-void make_visible(CHAR_DATA *ch, bool at_will);
 
 extern bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
-
-flag_t wiznet_lookup	(const char *name);
 
 /*
  * dump levels
@@ -2272,5 +2081,77 @@ const char *strdump	(const char *argument, int dump_level);
 
 /* rebooting flag */
 extern bool merc_down;
+
+/*-------------------------------------------------------------------
+ * affects stuff
+ */
+
+struct affect_data
+{
+	AFFECT_DATA *	next;
+	flag_t		where;
+	const char *	type;
+	int		level;
+	int		duration;
+	vo_t		location;
+	int		modifier;
+	flag_t		bitvector;
+	CHAR_DATA *	owner;
+};
+
+typedef struct saff_t {
+	const char *	sn;		/* affect which skill */
+	const char *	type;		/* affected by which skill */
+	int		mod;		/* modify skill knowledge by */
+	flag_t		bit;		/* with bits ... */
+} saff_t;
+
+AFFECT_DATA *	aff_new		(void);
+AFFECT_DATA *	aff_dup		(const AFFECT_DATA *af);
+void		aff_free	(AFFECT_DATA *af);
+
+AFFECT_DATA *	aff_dup_list	(AFFECT_DATA *af, int level);
+void		aff_free_list	(AFFECT_DATA *af);
+
+AFFECT_DATA *	aff_fread	(rfile_t *fp);
+
+void		aff_fwrite	(AFFECT_DATA *paf, FILE *fp);
+void		aff_fwrite_list	(const char *pre, AFFECT_DATA *paf, FILE *fp);
+
+void		saff_init(saff_t *sa);
+void		saff_destroy(saff_t *sa);
+
+/* where definitions */
+enum {
+	TO_AFFECTS,
+	TO_OBJECT,
+	TO_WEAPON,
+	TO_SKILLS,
+	TO_RACE,
+	TO_DETECTS,
+	TO_INVIS,
+	TO_FORM,
+	TO_FORMAFFECTS,
+	TO_FORMRESIST,
+	TO_RESIST
+};
+
+typedef struct where_t where_t;
+struct where_t
+{
+	flag_t		where;
+	flaginfo_t *	loc_table;
+	flaginfo_t *	bit_table;
+	const char *	loc_format;
+	const char *	bit_format;
+};
+
+where_t *where_lookup(flag_t where);
+
+/* XXX temporary affects w/a */
+void	affect_to_char2(CHAR_DATA *ch, AFFECT_DATA *paf);
+void	affect_to_obj2(OBJ_DATA *obj, AFFECT_DATA *paf);
+void	affect_to_room2(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
+void	affect_join2(CHAR_DATA *ch, AFFECT_DATA *paf);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.11 2001-06-23 17:17:15 fjoe Exp $
+ * $Id: mpc_c.c,v 1.12 2001-07-29 20:14:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -173,9 +173,9 @@ c_push_retval(prog_t *prog)
 	    d->name, rv_tag, d->rv_tag);
 	for (i = 0; i < nargs; i++) {
 		mpc_assert(prog, __FUNCTION__,
-		    argtype[i] == d->argtype[i],
+		    argtype[i] == d->argtype[i].type_tag,
 		    "%s: invalid arg %d type (want %d, got %d)",
-		    d->name, i+1, argtype[i], d->argtype[i]);
+		    d->name, i+1, argtype[i], d->argtype[i].type_tag);
 	}
 
 	/*

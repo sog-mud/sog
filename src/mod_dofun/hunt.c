@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.36 2001-03-16 12:41:27 cs Exp $
+ * $Id: hunt.c,v 1.37 2001-07-29 20:14:39 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -10,8 +10,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "merc.h"
+
+#include <merc.h>
+
 #include "fight.h"
+#include "handler.h"
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *
@@ -397,12 +400,12 @@ hunt_victim(CHAR_DATA *ch)
 		ch->hunting = NULL;
 		return;
 	}
-	move_char(ch, dir, FALSE);
+	move_char(ch, dir, 0);
 	hunt_victim_attack(ch);
 }
 
 static char *
-find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend) 
+find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 {
 	int direction;
 	static char buf[1024];

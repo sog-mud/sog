@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.9 2001-07-08 17:18:43 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.10 2001-07-29 20:14:28 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -59,6 +59,12 @@
 #include <module_decl.h>
 
 #if (MODULE_INIT == MODULE_NAME)
+
+#	undef ARG
+#	define ARG(a)		{ __tag(a), FALSE }
+#	undef NULLABLE_ARG
+#	define NULLABLE_ARG(a)	{ __tag(a), TRUE }
+
 #	undef __mod_tab_name
 #	define __mod_tab_name(name) __mod_tab_##name
 
@@ -73,6 +79,11 @@
 #	define __MODULE_END_DECL	{ NULL } };
 
 #else
+
+#	undef ARG
+#	define ARG(a)		__tag_t(a)
+#	undef NULLABLE_ARG
+#	define NULLABLE_ARG(a)	ARG(a)
 
 #	undef __MODULE_START_DECL
 #	define __MODULE_START_DECL
@@ -90,81 +101,78 @@
 
 #undef void_tag
 #define void_tag MT_VOID
-
 #undef void_tag_t
 #define void_tag_t void
 
 #undef pvoid_t_tag
 #define pvoid_t_tag MT_PVOID
-
 #undef pvoid_t_tag_t
 #define pvoid_t_tag_t pvoid_t
 
 #undef int_tag
 #define int_tag	MT_INT
-
 #undef int_tag_t
 #define int_tag_t	int
 
 #undef bool_tag
 #define bool_tag MT_INT
-
 #undef bool_tag_t
 #define bool_tag_t bool
 
 #undef cchar_t_tag
 #define cchar_t_tag MT_STR
-
 #undef cchar_t_tag_t
 #define cchar_t_tag_t cchar_t
 
 #undef va_list_tag
 #define va_list_tag MT_VA_LIST
-
 #undef va_list_tag_t
 #define va_list_tag_t va_list
 
+#undef flag_t_tag
+#define flag_t_tag MT_INT
+#undef flag_t_tag_t
+#define flag_t_tag_t flag_t
+
 #undef CHAR_DATA_tag
 #define CHAR_DATA_tag MT_CHAR
-
 #undef CHAR_DATA_tag_t
 #define CHAR_DATA_tag_t CHAR_DATA *
 
 #undef OBJ_DATA_tag
 #define OBJ_DATA_tag MT_OBJ
-
 #undef OBJ_DATA_tag_t
 #define OBJ_DATA_tag_t OBJ_DATA *
 
 #undef AFFECT_DATA_tag
 #define AFFECT_DATA_tag MT_AFFECT
-
 #undef AFFECT_DATA_tag_t
 #define AFFECT_DATA_tag_t AFFECT_DATA *
 
 #undef BUFFER_tag
 #define BUFFER_tag MT_BUFFER
-
 #undef BUFFER_tag_t
 #define BUFFER_tag_t BUFFER *
 
 #undef OBJ_INDEX_DATA_tag
 #define OBJ_INDEX_DATA_tag MT_OBJ_INDEX
-
 #undef OBJ_INDEX_DATA_tag_t
 #define OBJ_INDEX_DATA_tag_t OBJ_INDEX_DATA *
 
 #undef MOB_INDEX_DATA_tag
 #define MOB_INDEX_DATA_tag MT_MOB_INDEX
-
 #undef MOB_INDEX_DATA_tag_t
 #define MOB_INDEX_DATA_tag_t MOB_INDEX_DATA *
 
 #undef ROOM_INDEX_DATA_tag
 #define ROOM_INDEX_DATA_tag MT_ROOM
-
 #undef ROOM_INDEX_DATA_tag_t
 #define ROOM_INDEX_DATA_tag_t ROOM_INDEX_DATA *
+
+#undef AREA_DATA_tag
+#define AREA_DATA_tag MT_AREA
+#undef AREA_DATA_tag_t
+#define AREA_DATA_tag_t AREA_DATA *
 
 #if (MODULE_INIT == MODULE_NAME)
 
@@ -173,80 +181,104 @@
  */
 
 #	undef DECLARE_FUN0
-#	define DECLARE_FUN0(ret, name)	\
-	{ \
-	  #name, __tag(ret), 0 \
+#	define DECLARE_FUN0(ret, name)					\
+	{								\
+	  #name, __tag(ret), 0						\
 	},
 
 #	undef DECLARE_PROC0
-#	define DECLARE_PROC0(name)	\
-		DECLARE_FUN0(void, name)
+#	define DECLARE_PROC0(name)					\
+	{								\
+	  #name, __tag(void), 0						\
+	},
 
 #	undef DECLARE_FUN1
-#	define DECLARE_FUN1(ret, name, a1, n1)	\
-	{ \
-	  #name, __tag(ret), 1, \
-	  { __tag(a1) } \
+#	define DECLARE_FUN1(ret, name, a1, n1)				\
+	{								\
+	  #name, __tag(ret), 1,						\
+	  { a1 }							\
 	},
 
 #	undef DECLARE_PROC1
-#	define DECLARE_PROC1(name, a1, n1)	\
-		DECLARE_FUN1(void, name, a1, n1)
+#	define DECLARE_PROC1(name, a1, n1)				\
+	{								\
+	  #name, __tag(void), 1,					\
+	  { a1 }							\
+	},
 
 #	undef DECLARE_FUN2
-#	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)	\
-	{ \
-	  #name, __tag(ret), 2, \
-	  { __tag(a1), __tag(a2) } \
+#	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)			\
+	{								\
+	  #name, __tag(ret), 2,						\
+	  { a1, a2 }							\
 	},
 
 #	undef DECLARE_PROC2
-#	define DECLARE_PROC2(name, a1, n1, a2, n2)	\
-		DECLARE_FUN2(void, name, a1, n1, a2, n2)
+#	define DECLARE_PROC2(name, a1, n1, a2, n2)			\
+	{								\
+	  #name, __tag(void), 2,					\
+	  { a1, a2 }							\
+	},
 
 #	undef DECLARE_FUN3
-#	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)	\
-	{ \
-	  #name, __tag(ret), 3, \
-	  { __tag(a1), __tag(a2), __tag(a3) } \
+#	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)		\
+	{								\
+	  #name, __tag(ret), 3,						\
+	  { a1, a2, a3 }						\
 	},
 
 #	undef DECLARE_PROC3
-#	define DECLARE_PROC3(name, a1, n1, a2, n2, a3, n3)	\
-		DECLARE_FUN3(void, name, a1, n1, a2, n2, a3, n3)
+#	define DECLARE_PROC3(name, a1, n1, a2, n2, a3, n3)		\
+	{								\
+	  #name, __tag(void), 3,					\
+	  { a1, a2, a3 }						\
+	},
 
 #	undef DECLARE_FUN4
 #	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3, a4, n4)	\
-	{ \
-	  #name, __tag(ret), 4, \
-	  { __tag(a1), __tag(a2), __tag(a3), __tag(a4) } \
+	{								\
+	  #name, __tag(ret), 4,						\
+	  { a1, a2, a3, a4 }						\
 	},
 
 #	undef DECLARE_PROC4
 #	define DECLARE_PROC4(name, a1, n1, a2, n2, a3, n3, a4, n4)	\
-		DECLARE_FUN4(void, name, a1, n1, a2, n2, a3, n3, a4, n4)
+	{								\
+	  #name, __tag(void), 4,					\
+	  { a1, a2, a3, a4 }						\
+	},
 
 #	undef DECLARE_FUN5
-#	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5)	\
-	{ \
-	  #name, __tag(ret), 5, \
-	  { __tag(a1), __tag(a2), __tag(a3), __tag(a4), __tag(a5) } \
+#	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3, a4, n4,	\
+			    a5, n5)					\
+	{								\
+	  #name, __tag(ret), 5,						\
+	  { a1, a2, a3, a4, a5 }					\
 	},
 
 #	undef DECLARE_PROC5
-#	define DECLARE_PROC5(name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5)	\
-		DECLARE_FUN5(void, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5)
+#	define DECLARE_PROC5(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
+			     a5, n5)					\
+	{								\
+	  #name, __tag(void), 5,					\
+	  { a1, a2, a3, a4, a5 }					\
+	},
 
 #	undef DECLARE_FUN6
-#	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5, a6, n6)	\
-	{ \
-	  #name, __tag(ret), 6, \
-	  { __tag(a1), __tag(a2), __tag(a3), __tag(a4), __tag(a5), __tag(a6) } \
+#	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3, a4, n4,	\
+			    a5, n5, a6, n6)				\
+	{								\
+	  #name, __tag(ret), 6,						\
+	  { a1, a2, a3, a4, a5, a6 }					\
 	},
 
 #	undef DECLARE_PROC6
-#	define DECLARE_PROC6(name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5, a6, n6)	\
-		DECLARE_FUN6(void, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5, a6, n6)
+#	define DECLARE_PROC6(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
+			     a5, n5, a6, n6)				\
+	{								\
+	  #name, __tag(void), 6,					\
+	  { a1, a2, a3, a4, a5, a6 }					\
+	},
 
 #elif (MODULE == MODULE_NAME)
 
@@ -264,7 +296,7 @@
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)	\
-	__tag_t(ret) name(__tag_t(a1));
+	__tag_t(ret) name(a1);
 
 #	undef DECLARE_PROC1
 #	define DECLARE_PROC1(name, a1, n1)	\
@@ -272,7 +304,7 @@
 
 #	undef DECLARE_FUN2
 #	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)	\
-	__tag_t(ret) name(__tag_t(a1), __tag_t(a2));
+	__tag_t(ret) name(a1, a2);
 
 #	undef DECLARE_PROC2
 #	define DECLARE_PROC2(name, a1, n1, a2, n2)	\
@@ -280,7 +312,7 @@
 
 #	undef DECLARE_FUN3
 #	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)	\
-	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3));
+	__tag_t(ret) name(a1, a2, a3);
 
 #	undef DECLARE_PROC3
 #	define DECLARE_PROC3(name, a1, n1, a2, n2, a3, n3)	\
@@ -288,7 +320,7 @@
 
 #	undef DECLARE_FUN4
 #	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3, a4, n4)	\
-	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3), __tag_t(a4));
+	__tag_t(ret) name(a1, a2, a3, a4);
 
 #	undef DECLARE_PROC4
 #	define DECLARE_PROC4(name, a1, n1, a2, n2, a3, n3, a4, n4)	\
@@ -296,7 +328,7 @@
 
 #	undef DECLARE_FUN5
 #	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5)	\
-	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3), __tag_t(a4), __tag_t(a5));
+	__tag_t(ret) name(a1, a2, a3, a4, a5);
 
 #	undef DECLARE_PROC5
 #	define DECLARE_PROC5(name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5)	\
@@ -304,7 +336,7 @@
 
 #	undef DECLARE_FUN6
 #	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5, a6, n6)	\
-	__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3), __tag_t(a4), __tag_t(a5), __tag_t(a6));
+	__tag_t(ret) name(a1, a2, a3, a4, a5, a6);
 
 #	undef DECLARE_PROC6
 #	define DECLARE_PROC6(name, a1, n1, a2, n2, a3, n3, a4, n4, a5, n5, a6, n6)	\
@@ -341,9 +373,9 @@
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)				\
-		__tag_t(ret) name(__tag_t(a1));				\
+		__tag_t(ret) name(a1);					\
 		extern inline __tag_t(ret)				\
-		name(__tag_t(a1) n1)					\
+		name(a1 n1)						\
 		{							\
 			__tag_t(ret) rv;				\
 			void *v;					\
@@ -355,18 +387,18 @@
 
 #	undef DECLARE_PROC1
 #	define DECLARE_PROC1(name, a1, n1)				\
-		void name(__tag_t(a1));					\
+		void name(a1);						\
 		extern inline void					\
-		name(__tag_t(a1) n1)					\
+		name(a1 n1)						\
 		{							\
 			dynaproc_call(#name, 1, n1);			\
 		}
 
 #	undef DECLARE_FUN2
 #	define DECLARE_FUN2(ret, name, a1, n1, a2, n2)			\
-		__tag_t(ret) name(__tag_t(a1), __tag_t(a2));		\
+		__tag_t(ret) name(a1, a2);				\
 		extern inline __tag_t(ret)				\
-		name(__tag_t(a1) n1, __tag_t(a2) n2)			\
+		name(a1 n1, a2 n2)					\
 		{							\
 			__tag_t(ret) rv;				\
 			void *v;					\
@@ -378,18 +410,18 @@
 
 #	undef DECLARE_PROC2
 #	define DECLARE_PROC2(name, a1, n1, a2, n2)			\
-		void name(__tag_t(a1), __tag_t(a2));			\
+		void name(a1, a2);					\
 		extern inline void					\
-		name(__tag_t(a1) n1, __tag_t(a2) n2)			\
+		name(a1 n1, a2 n2)					\
 		{							\
 			dynaproc_call(#name, 2, n1, n2);		\
 		}
 
 #	undef DECLARE_FUN3
 #	define DECLARE_FUN3(ret, name, a1, n1, a2, n2, a3, n3)		\
-		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3));\
+		__tag_t(ret) name(a1, a2, a3);				\
 		extern inline __tag_t(ret)				\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3)	\
+		name(a1 n1, a2 n2, a3 n3)				\
 		{							\
 			__tag_t(ret) rv;				\
 			void *v;					\
@@ -401,21 +433,18 @@
 
 #	undef DECLARE_PROC3
 #	define DECLARE_PROC3(name, a1, n1, a2, n2, a3, n3)		\
-		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3));	\
+		void name(a1, a2, a3);					\
 		extern inline void					\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3)	\
+		name(a1 n1, a2 n2, a3 n3)				\
 		{							\
 			dynaproc_call(#name, 3, n1, n2, n3);		\
 		}
 
 #	undef DECLARE_FUN4
-#	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3,		\
-				       a4, n4)				\
-		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3),\
-				  __tag_t(a4));				\
+#	define DECLARE_FUN4(ret, name, a1, n1, a2, n2, a3, n3, a4, n4)	\
+		__tag_t(ret) name(a1, a2, a3, a4);			\
 		extern inline __tag_t(ret)				\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
-		     __tag_t(a4) n4)					\
+		name(a1 n1, a2 n2, a3 n3, a4 n4)			\
 		{							\
 			__tag_t(ret) rv;				\
 			void *v;					\
@@ -427,11 +456,9 @@
 
 #	undef DECLARE_PROC4
 #	define DECLARE_PROC4(name, a1, n1, a2, n2, a3, n3, a4, n4)	\
-		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3),	\
-			  __tag_t(a4));					\
+		void name(a1, a2, a3, a4);				\
 		extern inline void					\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
-		     __tag_t(a4) n4)					\
+		name(a1 n1, a2 n2, a3 n3, a4 n4)			\
 		{							\
 			dynaproc_call(#name, 4, n1, n2, n3, n4);	\
 		}
@@ -439,11 +466,9 @@
 #	undef DECLARE_FUN5
 #	define DECLARE_FUN5(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4, a5, n5)			\
-		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3),\
-				  __tag_t(a4), __tag_t(a5));		\
+		__tag_t(ret) name(a1, a2, a3, a4, a5);			\
 		extern inline __tag_t(ret)				\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
-		     __tag_t(a4) n4, __tag_t(a5) n5)			\
+		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5)			\
 		{							\
 			__tag_t(ret) rv;				\
 			void *v;					\
@@ -456,11 +481,9 @@
 #	undef DECLARE_PROC5
 #	define DECLARE_PROC5(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 				   a5, n5)				\
-		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3),	\
-			  __tag_t(a4), __tag_t(a5));			\
+		void name(a1, a2, a3, a4, a5);				\
 		extern inline void					\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
-		     __tag_t(a4) n4, __tag_t(a5) n5)			\
+		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5)			\
 		{							\
 			dynaproc_call(#name, 5, n1, n2, n3, n4, n5);	\
 		}
@@ -468,11 +491,9 @@
 #	undef DECLARE_FUN6
 #	define DECLARE_FUN6(ret, name, a1, n1, a2, n2, a3, n3,		\
 				       a4, n4, a5, n5, a6, n6)		\
-		__tag_t(ret) name(__tag_t(a1), __tag_t(a2), __tag_t(a3),\
-				  __tag_t(a4), __tag_t(a5), __tag_t(a6));\
+		__tag_t(ret) name(a1, a2, a3, a4, a5, a6);		\
 		extern inline __tag_t(ret)				\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
-		     __tag_t(a4) n4, __tag_t(a5) n5, __tag_t(a6) n6)	\
+		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5, a6 n6)		\
 		{							\
 			__tag_t(ret) rv;				\
 			void *v;					\
@@ -485,11 +506,9 @@
 #	undef DECLARE_PROC6
 #	define DECLARE_PROC6(name, a1, n1, a2, n2, a3, n3, a4, n4,	\
 				   a5, n5, a6, n6)			\
-		void name(__tag_t(a1), __tag_t(a2), __tag_t(a3),	\
-			  __tag_t(a4), __tag_t(a5), __tag_t(a6));	\
+		void name(a1, a2, a3, a4, a5, a6);			\
 		extern inline void					\
-		name(__tag_t(a1) n1, __tag_t(a2) n2, __tag_t(a3) n3,	\
-		     __tag_t(a4) n4, __tag_t(a5) n5, __tag_t(a6) n6)	\
+		name(a1 n1, a2 n2, a3 n3, a4 n4, a5 n5, a6 n6)		\
 		{							\
 			dynaproc_call(#name, 6, n1, n2, n3, n4, n5, n6);\
 		}

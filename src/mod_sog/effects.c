@@ -1,16 +1,16 @@
 /*
- * $Id: effects.c,v 1.36 2000-10-04 20:28:46 fjoe Exp $
+ * $Id: effects.c,v 1.37 2001-07-29 20:14:42 fjoe Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -29,7 +29,7 @@
  *  benefitting.  We hope that you share your changes too.  What goes      *
  *  around, comes around.                                                  *
  ***************************************************************************/
- 
+
 /***************************************************************************
 *	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
 *	ROM has been brought to you by the ROM consortium		   *
@@ -45,8 +45,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "merc.h"
 
+#include <merc.h>
+
+#include "affects.h"
+#include "handler.h"
 #include "magic.h"
 #include "update.h"
 
@@ -246,7 +249,7 @@ cold_effect(void *vo, int level, int dam)
             af.modifier  = -1;
             af.bitvector = 0;
 	    af.owner = NULL;
-            affect_join( victim, &af );
+            affect_join2( victim, &af );
 	}
 
 	/* hunger! (warmth sucked out */
@@ -349,7 +352,7 @@ fire_effect(void *vo, int level, int dam)
             af.bitvector    = AFF_BLIND;
 	    af.owner = NULL;
  
-            affect_to_char(victim,&af);
+            affect_to_char2(victim,&af);
 	}
 
 	/* getting thirsty */
@@ -485,7 +488,7 @@ poison_effect(void *vo, int level, int dam)
             af.modifier  = -1;
             af.bitvector = AFF_POISON;
 	    af.owner = NULL;
-            affect_join( victim, &af );
+            affect_join2( victim, &af );
         }
 
 	/* equipment */
@@ -658,7 +661,7 @@ sand_effect(void *vo, int level, int dam)
             af.bitvector    = AFF_BLIND;
 	    af.owner = NULL;
  
-            affect_to_char(victim,&af);
+            affect_to_char2(victim,&af);
 	}
 
 	/* let's toast some gear */
@@ -840,7 +843,7 @@ scream_effect(void *vo, int level, int dam)
             af.bitvector    = AFF_SCREAM;
 	    af.owner = NULL;
  
-            affect_to_char(victim,&af);
+            affect_to_char2(victim,&af);
 	}
 
 	/* daze and confused? */
