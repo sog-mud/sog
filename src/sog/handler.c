@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.24 2000-04-11 01:05:48 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.25 2000-04-17 15:15:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5232,8 +5232,6 @@ calc_eqdam_chance(CHAR_DATA *ch, OBJ_DATA *wield,
 	 
 	chance += skill - 85;
 	chance += get_curr_stat(ch, STAT_STR);
-	act_puts("{Weqdam_chance = $j{x",
-		 ch, (const void *) chance, NULL, TO_ALL, POS_DEAD);
 	return chance;
 }
 
