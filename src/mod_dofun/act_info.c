@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.311 1999-12-18 11:01:37 fjoe Exp $
+ * $Id: act_info.c,v 1.312 1999-12-21 00:27:49 avn Exp $
  */
 
 /***************************************************************************
@@ -153,11 +153,17 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Scroll set to %d lines.\n", pagelen);
 }
 
-/* RT does socials */
+#define SHOW_SOCIAL(prephrase, phrase)					\
+		act(prephrase, ch, NULL, NULL, TO_CHAR);		\
+		if (mlstr_valid(&(phrase)))				\
+			act_mlputs(&(phrase), ch, NULL, ch,		\
+				TO_CHAR, POS_RESTING);			\
+		else							\
+			act("Nothing", ch, NULL, NULL, TO_CHAR)
+
 void do_socials(CHAR_DATA *ch, const char *argument)
 {
 	social_t *soc;
-	bool found;
 
 	if (argument[0] == '\0') {
 		char_puts("\nUse social <name> to view"
@@ -171,89 +177,16 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	/* noarg */
-	char_puts("Using this social without an argument", ch);
-	found = FALSE;
 
-	if (soc->noarg_char) {
-		char_puts(", you'll see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
-
-	if (soc->noarg_room) {
-		if (found)
-			char_puts("O", ch);
-		else
-			char_puts(", o", ch);
-		char_puts("thers will see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->noarg_room, ch, NULL, NULL, TO_CHAR);
-
-	if (!found)
-		char_puts(" is pointless.\n", ch);
-
-	/* self */
-	char_puts("\nUsing it with your name as an argument", ch);
-	found = FALSE;
-
-	if (soc->self_char) {
-		char_puts(", you'll see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->self_char, ch, NULL, ch, TO_CHAR);
-
-	if (soc->self_room) {
-		if (found)
-			char_puts("O", ch);
-		else
-			char_puts(", o", ch);
-		char_puts("thers will see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->self_room, ch, NULL, ch, TO_CHAR);
-
-	if (!found)
-		char_puts(" is pointless.\n", ch);
-
-	/* notfound */
-	if (soc->notfound_char) {
-		char_puts("\nIf your victim is absent, you'll see:\n   ", ch);
-		act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
-	}
-
-	/* other */
-	char_puts("\nUsing it on other character", ch);
-	found = FALSE;
-	if (soc->found_char) {
-		char_puts(", you'll see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->found_char, ch, NULL, ch, TO_CHAR);
-
-	if (soc->found_vict) {
-		if (found)
-			char_puts("Y", ch);
-		else
-			char_puts(", y", ch);
-		char_puts("our victim will see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->found_vict, ch, NULL, ch, TO_CHAR);
-
-	if (soc->found_notvict) {
-		if (found)
-			char_puts("O", ch);
-		else
-			char_puts(", o", ch);
-		char_puts("thers will see:\n   ", ch);
-		found = TRUE;
-	}
-	act(soc->found_notvict, ch, NULL, ch, TO_CHAR);
-
-	if (!found)
-		char_puts(" is pointless.\n", ch);
+	SHOW_SOCIAL("Having used with no argument specified, you see:{W", soc->noarg_char);
+	SHOW_SOCIAL("{xAnd others see:{W", soc->noarg_room);
+	SHOW_SOCIAL("{xHaving targeted yourself, you see:{W", soc->self_char);
+	SHOW_SOCIAL("{xAnd others see:{W", soc->self_room);
+	SHOW_SOCIAL("{xIf your target is missing, you will see:{W", soc->notfound_char);
+	SHOW_SOCIAL("{xHaving targeted it to another character, you see:{W", soc->found_char);
+	SHOW_SOCIAL("{xYour victim see:{W", soc->found_vict);
+	SHOW_SOCIAL("{xAnd others see:{W", soc->found_notvict);
+	act("{x", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.169 1999-12-20 19:38:00 avn Exp $
+ * $Id: interp.c,v 1.170 1999-12-21 00:27:51 avn Exp $
  */
 
 /***************************************************************************
@@ -326,33 +326,33 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		act(soc->noarg_char, ch, NULL, NULL, TO_CHAR);
-		act(soc->noarg_room,
-		    ch, NULL, NULL, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
+		act_mlputs(&soc->noarg_char, ch, NULL, NULL, TO_CHAR, POS_RESTING);
+		act_mlputs(&soc->noarg_room,
+		    ch, NULL, NULL, TO_ROOM | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL
 	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		act(soc->notfound_char, ch, NULL, NULL, TO_CHAR);
+		act_mlputs(&soc->notfound_char, ch, NULL, NULL, TO_CHAR, POS_RESTING);
 		return;
 	}
 
 	if (victim == ch) {
-		act(soc->self_char, ch, NULL, victim, TO_CHAR);
-		act(soc->self_room,
-		    ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT);
+		act_mlputs(&soc->self_char, ch, NULL, victim, TO_CHAR, POS_RESTING);
+		act_mlputs(&soc->self_room,
+		    ch, NULL, victim, TO_ROOM | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
 		return;
 	}
 
 	victim_room = victim->in_room;
 	victim->in_room = ch->in_room;
 
-	act(soc->found_char, ch, NULL, victim, TO_CHAR);
-	act(soc->found_vict,
-	    ch, NULL, victim, TO_VICT | ACT_TOBUF | ACT_NOTWIT);
-	act(soc->found_notvict,
-	    ch, NULL, victim, TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
+	act_mlputs(&soc->found_char, ch, NULL, victim, TO_CHAR, POS_RESTING);
+	act_mlputs(&soc->found_vict,
+	    ch, NULL, victim, TO_VICT | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
+	act_mlputs(&soc->found_notvict,
+	    ch, NULL, victim, TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
 
 	victim->in_room = victim_room;
 
@@ -364,13 +364,13 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 
 			case 1: case 2: case 3: case 4:
 			case 5: case 6: case 7: case 8:
-				act(soc->found_char,
-				    victim, NULL, ch, TO_CHAR);
-				act(soc->found_vict,
-				    victim, NULL, ch, TO_VICT | ACT_TOBUF);
-				act(soc->found_notvict,
+				act_mlputs(&soc->found_char,
+				    victim, NULL, ch, TO_CHAR, POS_RESTING);
+				act_mlputs(&soc->found_vict,
+				    victim, NULL, ch, TO_VICT | ACT_TOBUF, POS_RESTING);
+				act_mlputs(&soc->found_notvict,
 				    victim, NULL, ch,
-				    TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT);
+				    TO_NOTVICT | ACT_TOBUF | ACT_NOTWIT, POS_RESTING);
 				break;
 
 			case 9: case 10: case 11: case 12:

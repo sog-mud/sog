@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_socials.c,v 1.9 1999-12-18 11:01:44 fjoe Exp $
+ * $Id: db_socials.c,v 1.10 1999-12-21 00:27:51 avn Exp $
  */
 
 #include <limits.h>
@@ -86,23 +86,23 @@ DBLOAD_FUN(load_social)
 			}
 			break;
 		case 'F':
-			SKEY("found_char", soc->found_char, fread_string(fp));
-			SKEY("found_vict", soc->found_vict, fread_string(fp));
-			SKEY("found_notvict", soc->found_notvict, fread_string(fp));
+			MLSKEY("found_char", soc->found_char);
+			MLSKEY("found_vict", soc->found_vict);
+			MLSKEY("found_notvict", soc->found_notvict);
 			break;
 		case 'N':
 			KEY("name", soc->name, fread_sword(fp));
-			SKEY("notfound_char", soc->notfound_char, fread_string(fp));
-			SKEY("noarg_char", soc->noarg_char, fread_string(fp));
-			SKEY("noarg_room", soc->noarg_room, fread_string(fp));
+			MLSKEY("notfound_char", soc->notfound_char);
+			MLSKEY("noarg_char", soc->noarg_char);
+			MLSKEY("noarg_room", soc->noarg_room);
 			break;
 		case 'M':
 			KEY("min_pos", soc->min_pos,
 			    fread_fword(position_table, fp));
 			break;
 		case 'S':
-			SKEY("self_char", soc->self_char, fread_string(fp));
-			SKEY("self_room", soc->self_room, fread_string(fp));
+			MLSKEY("self_char", soc->self_char);
+			MLSKEY("self_room", soc->self_room);
 			break;
 		}
 

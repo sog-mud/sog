@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.6 1999-12-19 08:10:30 avn Exp $
+ * $Id: olc_cmd.c,v 1.7 1999-12-21 00:27:51 avn Exp $
  */
 
 #include "olc.h"
@@ -315,14 +315,14 @@ OLC_FUN(cmded_move)
 	if (num <= num2)
 		cmnd = (cmd_t *)varr_get(&commands, num2 + 1);
 
-	ncmnd->name = cmnd->name;
-	ncmnd->dofun_name = cmnd->dofun_name;
-	ncmnd->do_fun = cmnd->do_fun;
-	ncmnd->cmd_class = cmnd->cmd_class;
-	ncmnd->cmd_log = cmnd->cmd_log;
-	ncmnd->cmd_flags = cmnd->cmd_flags;
-	ncmnd->min_pos = cmnd->min_pos;
-	ncmnd->min_level = cmnd->min_level;
+	ncmnd->name		= str_qdup(cmnd->name);
+	ncmnd->dofun_name	= str_qdup(cmnd->dofun_name);
+	ncmnd->do_fun		= cmnd->do_fun;
+	ncmnd->cmd_class	= cmnd->cmd_class;
+	ncmnd->cmd_log		= cmnd->cmd_log;
+	ncmnd->cmd_flags	= cmnd->cmd_flags;
+	ncmnd->min_pos		= cmnd->min_pos;
+	ncmnd->min_level	= cmnd->min_level;
 	
 	varr_edelete(&commands, cmnd);
 	ch->desc->pEdit	= ncmnd;

@@ -23,7 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.19 1999-12-19 08:10:30 avn Exp $
+ * $Id: olc_social.c,v 1.20 1999-12-21 00:27:51 avn Exp $
+ */
+
+/* I never wanted to be
+ * What they told me to be
+ * Fulfill my fate and I'll be free
+ * God knows how long
+ * I tried to change fate...
  */
 
 #include "olc.h"
@@ -65,17 +72,17 @@ olc_cmd_t olc_cmds_soc[] =
 	{ "name",	soced_name,	validate_soc_name 		},
 	{ "minpos",	soced_minpos,	NULL,		position_table	},
 
-	{ "found_char",	soced_found_char				},
-	{ "found_vict",	soced_found_vict				},
-	{ "found_notvict",soced_found_notvict				},
+	{ "fchar",	soced_found_char				},
+	{ "fvict",	soced_found_vict				},
+	{ "fnvict",	soced_found_notvict				},
 
-	{ "noarg_char",	soced_noarg_char				},
-	{ "noarg_room",	soced_noarg_room				},
+	{ "nchar",	soced_noarg_char				},
+	{ "nroom",	soced_noarg_room				},
 
-	{ "self_char",	soced_self_char					},
-	{ "self_room",	soced_self_room					},
+	{ "schar",	soced_self_char					},
+	{ "sroom",	soced_self_room					},
 
-	{ "notfound_char",soced_notfound_char				},
+	{ "nfchar",	soced_notfound_char				},
 
 	{ "move",	soced_move					},
 	{ "delete_so",	olced_spell_out					},
@@ -174,9 +181,9 @@ OLC_FUN(soced_touch)
 	return FALSE;
 }
 
-#define SOC_SHOW(format, s)			\
-	if (!IS_NULLSTR(s))			\
-		buf_printf(output, format, s);
+#define SOC_SHOW(preword, mlp)					\
+	if (!mlstr_null(mlp))					\
+		mlstr_dump(output, preword, mlp);
 
 OLC_FUN(soced_show)
 {
@@ -206,14 +213,14 @@ OLC_FUN(soced_show)
 		   "Min_pos:       [%s]\n",
 		   flag_string(position_table, soc->min_pos));
 
-	SOC_SHOW("Found char   [%s]\n", soc->found_char);
-	SOC_SHOW("Found vict   [%s]\n", soc->found_vict);
-	SOC_SHOW("Found other  [%s]\n", soc->found_notvict);
-	SOC_SHOW("Noarg char   [%s]\n", soc->noarg_char);
-	SOC_SHOW("Noarg room   [%s]\n", soc->noarg_room);
-	SOC_SHOW("Self  char   [%s]\n", soc->self_char);
-	SOC_SHOW("Self  room   [%s]\n", soc->self_room);
-	SOC_SHOW("Notfound     [%s]\n", soc->notfound_char);
+	SOC_SHOW("Found char   ", &soc->found_char);
+	SOC_SHOW("Found vict   ", &soc->found_vict);
+	SOC_SHOW("Found other  ", &soc->found_notvict);
+	SOC_SHOW("Noarg char   ", &soc->noarg_char);
+	SOC_SHOW("Noarg room   ", &soc->noarg_room);
+	SOC_SHOW("Self  char   ", &soc->self_char);
+	SOC_SHOW("Self  room   ", &soc->self_room);
+	SOC_SHOW("Notfound     ", &soc->notfound_char);
 	shadow_dump_cmds(output, soc->name);
 
 	page_to_char(buf_string(output), ch);
@@ -273,56 +280,56 @@ OLC_FUN(soced_found_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->found_char);
+	return olced_mlstr(ch, argument, cmd, &soc->found_char);
 }
 
 OLC_FUN(soced_found_vict)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->found_vict);
+	return olced_mlstr(ch, argument, cmd, &soc->found_vict);
 }
 
 OLC_FUN(soced_found_notvict)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->found_notvict);
+	return olced_mlstr(ch, argument, cmd, &soc->found_notvict);
 }
 
 OLC_FUN(soced_noarg_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->noarg_char);
+	return olced_mlstr(ch, argument, cmd, &soc->noarg_char);
 }
 
 OLC_FUN(soced_noarg_room)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->noarg_room);
+	return olced_mlstr(ch, argument, cmd, &soc->noarg_room);
 }
 
 OLC_FUN(soced_self_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->self_char);
+	return olced_mlstr(ch, argument, cmd, &soc->self_char);
 }
 
 OLC_FUN(soced_self_room)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->self_room);
+	return olced_mlstr(ch, argument, cmd, &soc->self_room);
 }
 
 OLC_FUN(soced_notfound_char)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_str(ch, argument, cmd, &soc->notfound_char);
+	return olced_mlstr(ch, argument, cmd, &soc->notfound_char);
 }
 
 OLC_FUN(soced_move)
@@ -349,15 +356,16 @@ OLC_FUN(soced_move)
 	if (num <= num2)
 		soc = (social_t *)varr_get(&socials, num2 + 1);
 
-	nsoc->name = soc->name;
-	nsoc->min_pos = soc->min_pos;
-	nsoc->found_char = soc->found_char;
-	nsoc->found_vict = soc->found_vict;
-	nsoc->found_notvict = soc->found_notvict;
-	nsoc->noarg_char = soc->noarg_char;
-	nsoc->noarg_room = soc->noarg_room;
-	nsoc->self_char = soc->self_char;
-	nsoc->self_room = soc->self_room;
+	nsoc->name		= str_qdup(soc->name);
+	nsoc->min_pos		= soc->min_pos;
+	mlstr_cpy(&nsoc->found_char, &soc->found_char);
+	mlstr_cpy(&nsoc->found_vict, &soc->found_vict);
+	mlstr_cpy(&nsoc->found_notvict, &soc->found_notvict);
+	mlstr_cpy(&nsoc->noarg_char, &soc->noarg_char);
+	mlstr_cpy(&nsoc->noarg_room, &soc->noarg_room);
+	mlstr_cpy(&nsoc->self_char, &soc->self_char);
+	mlstr_cpy(&nsoc->self_room, &soc->self_room);
+	mlstr_cpy(&nsoc->notfound_char, &soc->notfound_char);
 	
 	varr_edelete(&socials, soc);
 	ch->desc->pEdit	= nsoc;
@@ -407,14 +415,14 @@ static void *save_social_cb(void *p, va_list ap)
 	fprintf(fp, "Name %s\n", soc->name);
 	fprintf(fp, "Min_pos %s\n",
 		flag_string(position_table, soc->min_pos));
-	fwrite_string(fp, "Found_char", soc->found_char);
-	fwrite_string(fp, "Found_vict", soc->found_vict);
-	fwrite_string(fp, "Found_notvict", soc->found_notvict);
-	fwrite_string(fp, "Noarg_char", soc->noarg_char);
-	fwrite_string(fp, "Noarg_room", soc->noarg_room);
-	fwrite_string(fp, "Self_char", soc->self_char);
-	fwrite_string(fp, "Self_room", soc->self_room);
-	fwrite_string(fp, "Notfound_char", soc->notfound_char);
+	mlstr_fwrite(fp, "Found_char", &soc->found_char);
+	mlstr_fwrite(fp, "Found_vict", &soc->found_vict);
+	mlstr_fwrite(fp, "Found_notvict", &soc->found_notvict);
+	mlstr_fwrite(fp, "Noarg_char", &soc->noarg_char);
+	mlstr_fwrite(fp, "Noarg_room", &soc->noarg_room);
+	mlstr_fwrite(fp, "Self_char", &soc->self_char);
+	mlstr_fwrite(fp, "Self_room", &soc->self_room);
+	mlstr_fwrite(fp, "Notfound_char", &soc->notfound_char);
 	fprintf(fp, "End\n\n");
 
 	return NULL;
@@ -430,13 +438,13 @@ shadow_dump_cb(void *p, va_list ap)
 	if (!str_prefix(name, cmd->name))
 		buf_printf(output, "   [%s]\n", cmd->name);
 
-	return 0;
+	return NULL;
 }
 
 static void
 shadow_dump_cmds(BUFFER *output, const char *name)
 {
-	if (check_shadow(name))
+	if (!check_shadow(name))
 		return;
 
 	buf_add(output, "[*** SHADOWED BY FOLLOWING COMMANDS ***]\n");

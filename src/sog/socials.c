@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.c,v 1.7 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: socials.c,v 1.8 1999-12-21 00:27:51 avn Exp $
  */
 
 #include <stdarg.h>
@@ -42,17 +42,17 @@ social_init(social_t *soc)
 	soc->name = str_empty;
 	soc->min_pos = 0;
 
-	soc->found_char = str_empty;
-	soc->found_vict = str_empty;
-	soc->found_notvict = str_empty;
+	mlstr_init(&soc->found_char);
+	mlstr_init(&soc->found_vict);
+	mlstr_init(&soc->found_notvict);
 
-	soc->noarg_char = str_empty;
-	soc->noarg_room = str_empty;
+	mlstr_init(&soc->noarg_char);
+	mlstr_init(&soc->noarg_room);
 
-	soc->self_char = str_empty;
-	soc->self_room = str_empty;
+	mlstr_init(&soc->self_char);
+	mlstr_init(&soc->self_room);
 
-	soc->notfound_char = str_empty;
+	mlstr_init(&soc->notfound_char);
 }
 
 void
@@ -60,15 +60,15 @@ social_destroy(social_t *soc)
 {
 	free_string(soc->name);
 
-	free_string(soc->found_char);
-	free_string(soc->found_vict);
-	free_string(soc->found_notvict);
+	mlstr_destroy(&soc->found_char);
+	mlstr_destroy(&soc->found_vict);
+	mlstr_destroy(&soc->found_notvict);
 
-	free_string(soc->noarg_char);
-	free_string(soc->noarg_room);
+	mlstr_destroy(&soc->noarg_char);
+	mlstr_destroy(&soc->noarg_room);
 
-	free_string(soc->self_char);
-	free_string(soc->self_room);
+	mlstr_destroy(&soc->self_char);
+	mlstr_destroy(&soc->self_room);
 
-	free_string(soc->notfound_char);
+	mlstr_destroy(&soc->notfound_char);
 }

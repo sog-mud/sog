@@ -23,11 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.h,v 1.7 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: socials.h,v 1.8 1999-12-21 00:27:51 avn Exp $
  */
 
 #ifndef _SOCIALS_H_
 #define _SOCIALS_H_
+
+#include "mlstring.h"
 
 /*
  * Structure for a social in the socials table.
@@ -37,17 +39,17 @@ struct social_t
 	const char *	name;
 	flag_t		min_pos;
 
-	const char *	found_char;
-	const char *	found_vict;
-	const char *	found_notvict;
+	mlstring	found_char;
+	mlstring	found_vict;
+	mlstring	found_notvict;
 
-	const char *	noarg_char;
-	const char *	noarg_room;
+	mlstring	noarg_char;
+	mlstring	noarg_room;
 
-	const char *	self_char;
-	const char *	self_room;
+	mlstring	self_char;
+	mlstring	self_room;
 
-	const char *	notfound_char;
+	mlstring	notfound_char;
 };
 typedef struct social_t social_t;
 
