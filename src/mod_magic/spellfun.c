@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.301 2002-11-30 16:23:10 kostik Exp $
+ * $Id: spellfun.c,v 1.302 2002-12-03 17:08:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2201,7 +2201,8 @@ SPELL_FUN(spell_summon, sn, level, ch, vo)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 					    ROOM_PEACE | ROOM_NOSUMMON)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
-						ROOM_PEACE | ROOM_NOSUMMON)
+						ROOM_PEACE | ROOM_NOSUMMON |
+						ROOM_BATTLE_ARENA)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  IS_SET(victim->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
@@ -5069,6 +5070,11 @@ SPELL_FUN(spell_disperse, sn, level, ch, vo)
 
 	if (is_sn_affected(ch, sn)) {
 		act_char("You aren't up to dispersing this crowd.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("You can't use this power on battle arena.", ch);
 		return;
 	}
 

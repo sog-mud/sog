@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.57 2002-11-28 21:40:32 fjoe Exp $
+ * $Id: updfun.c,v 1.58 2002-12-03 17:08:40 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -118,7 +118,9 @@ FOREACH_CB_FUN(violence_update_cb, vo, ap)
 		}
 
 		if (!IS_NPC(ch) && ch->hit > 0
-		&&  (ch->hit <= ch->wimpy || IS_AFFECTED(ch, AFF_FEAR))
+		&&  (ch->hit <= ch->wimpy ||
+		     (IS_AFFECTED(ch, AFF_FEAR) &&
+		      !IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)))
 		&&  !ch->wait)
 			dofun("flee", ch, str_empty);
 

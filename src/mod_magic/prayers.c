@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.43 2002-12-03 16:01:41 tatyana Exp $
+ * $Id: prayers.c,v 1.44 2002-12-03 17:08:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -672,7 +672,9 @@ turn_cb(void *vo, va_list ap)
 
 	dam = dam * align * align / 1000000;
 	damage(ch, vch, dam, sn, DAM_F_SHOW);
-	if (!IS_EXTRACTED(vch) && !IS_CLAN_GUARD(vch))
+	if (!IS_EXTRACTED(vch)
+	&&  !IS_CLAN_GUARD(vch)
+	&&  !IS_SET(vch->in_room->room_flags, ROOM_BATTLE_ARENA))
 		dofun("flee", vch, str_empty);
 	return NULL;
 }
