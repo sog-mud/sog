@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.64 1998-09-24 14:07:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.65 1998-09-25 04:40:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1723,8 +1723,6 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 	snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
 	append_file(ch, SHUTDOWN_FILE, buf);
 	log(buf);
-	strnzcat(buf, "\n\r", sizeof(buf));
-	do_echo(ch, buf);
 }
 
 void do_protect(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.93 1998-09-24 14:07:38 fjoe Exp $
+ * $Id: act_move.c,v 1.94 1998-09-25 04:40:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -322,13 +322,13 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		&&  ch->in_room->sector_type != SECT_CITY
 		&&  number_percent() < get_skill(ch, gsn_quiet_movement)) {
 			act(MOUNTED(ch) ? "$n leaves, riding on $N." :
-					  "$n leaves",
+					  "$n leaves.",
 			    ch, NULL, MOUNTED(ch), TO_ROOM);
 			check_improve(ch,gsn_quiet_movement,TRUE,1);
 		}
 		else {
 			act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
-					  "$n leaves $t",
+					  "$n leaves $t.",
 			    ch, dir_name[door], MOUNTED(ch), TO_ROOM);
 		}
 	}
@@ -3514,7 +3514,8 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	        return;
 	}
 
-	act(MOUNTED(ch) ? "$n steps into $p, riding on $N" : "$n steps into $p",
+	act(MOUNTED(ch) ? "$n steps into $p, riding on $N." :
+			  "$n steps into $p.",
 	    ch, portal, MOUNTED(ch), TO_ROOM);
 	
 	act(IS_SET(portal->value[2], GATE_NORMAL_EXIT) ?
