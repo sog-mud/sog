@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.58 2004-02-26 11:26:25 tatyana Exp $
+ * $Id: prayers.c,v 1.59 2004-02-27 12:31:29 tatyana Exp $
  */
 
 /***************************************************************************
@@ -145,6 +145,7 @@ DECLARE_SPELL_FUN(prayer_power_word_fear);
 DECLARE_SPELL_FUN(prayer_windwall);
 DECLARE_SPELL_FUN(prayer_wail_of_the_banshee);
 DECLARE_SPELL_FUN(prayer_sunbeam);
+DECLARE_SPELL_FUN(prayer_acid_fog);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -844,6 +845,12 @@ SPELL_FUN(prayer_sanctify_lands, sn, level, ch, vo)
 		act_char("The lethargic mist dissolves.", ch);
 		act("The lethargic mist dissolves.", ch, NULL, NULL, TO_ROOM);
 		affect_strip_room(ch->in_room, "lethargic mist");
+	}
+
+	if (is_sn_affected_room(ch->in_room, "acid fog")) {
+		act("Acid fog turnes into steam and dissolves.",
+		    ch, NULL, NULL, TO_ALL);
+		affect_strip_room(ch->in_room, "acid fog");
 	}
 }
 
@@ -3224,7 +3231,7 @@ SPELL_FUN(prayer_wail_of_the_banshee, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int dam;
 
-	if (is_sn_affected(ch, "wail of the banshee")) {
+	if (is_sn_affected(ch, sn)) {
 		act_char("You can't use this power so soon.", ch);
 		return;
 	}
@@ -3345,4 +3352,48 @@ SPELL_FUN(prayer_sunbeam, sn, level, ch, vo)
 
 	if (i == 0)
 		act("    No shadows here.", ch, NULL, NULL, TO_ALL);
+}
+/* domen: water
+ * Prayer filles room with acid fog. Acid damages all creatures
+ * in roomi (owner has immunity), also can corrode items.
+ * Enter room event: event_enter_acid_fog
+ * Update room event: event_update_acid_fog
+ */
+SPELL_FUN(prayer_acid_fog, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
+	}
+
+	if (is_sn_affected_room(ch->in_room, sn)) {
+		act_char("The caustic acid fog is already hanging "
+			 "over this place.", ch);
+		return;
+	}
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("Try to create acid fog later.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= UMIN(1, level / 20);
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type      = sn;
+	paf->duration  = number_range(5, 7);
+	paf->level     = level;
+	paf->modifier  = 0;
+	paf->bitvector = 0;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Caustic acid drops fill air.", ch, NULL, NULL, TO_ALL);
 }

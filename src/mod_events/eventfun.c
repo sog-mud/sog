@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.48 2004-02-21 19:48:10 fjoe Exp $
+ * $Id: eventfun.c,v 1.49 2004-02-27 12:31:29 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -53,6 +53,8 @@ DECLARE_EVENT_FUN(event_updatefast_entangle);
 DECLARE_EVENT_FUN(event_updatechar_crippled_hands);
 DECLARE_EVENT_FUN(event_updatechar_bonedragon);
 DECLARE_EVENT_FUN(event_timeoutchar_bonedragon);
+DECLARE_EVENT_FUN(event_enter_acid_fog);
+DECLARE_EVENT_FUN(event_update_acid_fog);
 
 static void
 show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
@@ -439,4 +441,38 @@ EVENT_FUN(event_timeoutchar_bonedragon, ch, af)
 
 	char_to_room(drag, ch->in_room);
 	extract_char(ch, 0);
+}
+
+EVENT_FUN(event_enter_acid_fog, ch, af)
+{
+	act("There is some fog flowing in the air.",
+	    ch, NULL, NULL, TO_CHAR);
+}
+
+EVENT_FUN(event_update_acid_fog, ch, af)
+{
+	int dam;
+
+	if (ch == af->owner) {
+		act_char("Fog shimmers around you.", ch);
+		return;
+	}
+
+	if (IS_CLAN_GUARD(ch))
+		return;
+
+	dam = calc_spell_damage(af->owner, af->owner->level, "acid fog");
+	if (IS_NPC(ch))
+		dam /= 7;
+	else
+		dam /= 5;
+
+	act("Caustic acid fog burns your body!", ch, NULL, NULL, TO_CHAR);
+	if (saves_spell(af->owner->level, ch, DAM_ACID)) {
+		inflict_effect("acid", ch, af->owner->level/2, dam/2);
+		dam /= 2;
+	} else {
+		inflict_effect("acid", ch, af->owner->level, dam);
+	}
+	damage(ch, ch, dam, af->type, DAM_F_SHOW | DAM_F_TRAP_ROOM);
 }
