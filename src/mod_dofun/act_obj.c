@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.98 1998-12-01 10:53:49 fjoe Exp $
+ * $Id: act_obj.c,v 1.99 1998-12-04 06:50:24 kostik Exp $
  */
 
 /***************************************************************************
@@ -905,8 +905,9 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
 		||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
 		||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-		||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
-		||  IS_WEAPON_STAT(obj, WEAPON_HOLY)
+		||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)) chance/=2;
+
+		if (IS_WEAPON_STAT(obj, WEAPON_HOLY)
 		||  IS_OBJ_STAT(obj, ITEM_BLESS)
 		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You can't seem to envenom $p.",

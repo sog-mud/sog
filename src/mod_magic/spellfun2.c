@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.62 1998-12-01 10:53:53 fjoe Exp $
+ * $Id: spellfun2.c,v 1.63 1998-12-04 06:50:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -5037,3 +5037,73 @@ void spell_doppelganger(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	ch->doppel = victim;
 }
  
+
+
+/*Added by Osya*/
+void spell_hunger_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
+{
+        OBJ_DATA *obj = (OBJ_DATA *) vo;
+        AFFECT_DATA af;
+	int chance = get_skill(ch,sn) ;	
+
+        if (obj->pIndexData->item_type != ITEM_WEAPON)
+        {
+        char_puts("That isn't a weapon.\n",ch);
+        return;
+        } ;
+
+        if (obj->wear_loc != -1)
+        {
+        char_puts("The item must be carried to be cursed.\n",ch);
+        return;
+        } ;
+
+ 
+
+        if (obj->pIndexData->item_type == ITEM_WEAPON)
+        {
+        if (IS_WEAPON_STAT(obj,WEAPON_HOLY)
+         ||  IS_OBJ_STAT(obj,ITEM_BLESS)
+         || IS_OBJ_STAT(obj, ITEM_ANTI_EVIL))
+         {
+	         act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
+                 act("The gods are infuriated!",ch,NULL,NULL,TO_ROOM);
+                 damage(ch,ch,
+                 (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
+                 TYPE_HIT,DAM_HOLY, TRUE);
+                 return ;
+         } ;
+         if (IS_WEAPON_STAT(obj,WEAPON_FLAMING)) chance /=2;
+         if (IS_WEAPON_STAT(obj,WEAPON_FROST)) chance /=2;
+         if (IS_WEAPON_STAT(obj,WEAPON_SHARP)) chance /=2;
+         if (IS_WEAPON_STAT(obj,WEAPON_VORPAL)) chance /=2;
+         if (IS_WEAPON_STAT(obj,WEAPON_SHOCKING)) chance /=2;
+         } ;
+	 
+        if (IS_WEAPON_STAT(obj,WEAPON_VAMPIRIC))
+        {
+        act("$p is already hungry for enemy life.",ch,obj,NULL,TO_CHAR);
+        return;
+        } ;
+        if (number_percent() < chance ) 
+        {    
+         af.where         = TO_WEAPON;
+         af.type 	  = sn;
+         af.level         = level / 2;
+         af.duration      = level/8;
+         af.location      = 0;
+         af.modifier      = 0;
+         af.bitvector = WEAPON_VAMPIRIC;
+         affect_to_obj(obj,&af);
+         SET_BIT(obj->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_NEUTRAL)) ;         
+         act("You transmit part of your hunger to $p.",ch,obj,NULL,TO_CHAR);
+         } 
+         else
+          {
+ 	   act("You failed.",ch,obj,NULL,TO_ALL);
+          } ;
+
+  return ;
+
+}
+/*end*/
