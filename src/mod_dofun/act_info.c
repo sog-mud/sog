@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.39 1998-05-19 00:54:04 efdi Exp $
+ * $Id: act_info.c,v 1.40 1998-05-19 10:24:45 efdi Exp $
  */
 
 /***************************************************************************
@@ -1733,7 +1733,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	sprintf(level, "%2d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s%s%s%s\n\r",
+	sprintf(strend(output), "[{C%s{x %s {Y%s{x] %s{x%s{x%s{x%s{x\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
 		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name
