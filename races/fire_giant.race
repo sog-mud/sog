@@ -1,27 +1,27 @@
 #RACE
 Name fire giant~
-Resist fire 50
-Resist bash 23
-Resist slash 23
-Resist pierce 23
-Resist cold -40
-Resist lightning -30
-Resist mental -30
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~
-End
+Resist bash 23
+Resist pierce 23
+Resist slash 23
+Resist fire 50
+Resist cold -40
+Resist lightning -30
+Resist mental -30
+Damtype smashEnd
 
 #PCRACE
 Shortname FiGia~
 Points 500
-Class 'cleric' 100
-Class 'warrior' 100
 Class 'anti-paladin' 100
+Class 'cleric' 100
 Class 'ranger' 100
+Class 'warrior' 100
 BonusSkills 'bash' 'enhanced damage' 'sword'~
-Stats 5 -4 -3 -6 3 0
-MaxStats 25 15 17 16 23 25
+Stats 5 -4 -3 -6 3 0 
+MaxStats 25 15 17 16 23 25 
 Size huge
 HPBonus 20
 ManaBonus -20

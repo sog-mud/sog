@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.17 1999-12-10 12:03:03 kostik Exp $
+ * $Id: db_race.c,v 1.18 1999-12-11 13:31:17 kostik Exp $
  */
 
 #include <stdio.h>
@@ -75,6 +75,9 @@ DBLOAD_FUN(load_race)
 		case 'A':
 			KEY("Aff", r.aff, fread_fstring(affect_flags, fp));
 			KEY("Act", r.act, fread_fstring(act_flags, fp));
+			break;
+		case 'D': 
+			SKEY("Damtype", r.damtype, fread_string(fp));
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
@@ -133,7 +136,13 @@ DBLOAD_FUN(load_race)
 				fread_word(fp);
 				cres = rfile_tok(fp);
 				res = flag_svalue(resist_flags, cres);
-				r.resists[res] = fread_number(fp);
+				if (res < 0) {
+					bug("Load race: unknown resistance name %s", cres);
+					fread_number(fp);
+				}
+				else {
+					r.resists[res] = fread_number(fp);
+				}
 				fMatch = TRUE;
 				break;
 			};

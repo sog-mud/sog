@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.14 1999-12-11 11:23:57 fjoe Exp $
+ * $Id: race.c,v 1.15 1999-12-11 13:31:16 kostik Exp $
  */
 
 #include <stdio.h>
@@ -47,6 +47,7 @@ race_init(race_t *r)
 	r->form = 0;
 	r->parts = 0;
 	r->race_flags = 0;
+	r->damtype = str_dup("punch");
 	for (i = 0; i < MAX_RESIST; i++)
 		r->resists[i] = 0;
 	r->race_pcdata = NULL;
@@ -69,6 +70,7 @@ race_cpy(race_t *dst, race_t *src)
 	dst->form = src->form;
 	dst->parts = src->parts;
 	dst->race_flags = src->race_flags;
+	dst->damtype = str_dup(src->damtype);
 	for (i = 0; i < MAX_RESIST; i++)
 		dst->resists[i] = src->resists[i];
 	return dst;
@@ -78,6 +80,7 @@ void
 race_destroy(race_t *r)
 {
 	free_string(r->name);
+	free_string(r->damtype);
 	if (r->race_pcdata)
 		pcrace_free(r->race_pcdata);
 }
@@ -120,13 +123,12 @@ void race_resetstats(CHAR_DATA *ch)
 	if (r->race_pcdata != NULL)
 		ch->size = r->race_pcdata->size;
 
-	ch->damtype = str_dup("punch");
+	ch->damtype = str_dup(r->damtype);
 	ch->affected_by = r->aff;
 	ch->form = r->form;
 	ch->parts = r->parts;
 
 	for (i=0; i < MAX_RESIST; i++)
 		ch->resists[i] = r->resists[i];
-
 }
 

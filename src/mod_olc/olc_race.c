@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.18 1999-12-11 07:22:20 kostik Exp $
+ * $Id: olc_race.c,v 1.19 1999-12-11 13:31:16 kostik Exp $
  */
 
 #include "olc.h"
@@ -47,6 +47,7 @@ DECLARE_OLC_FUN(raceed_form		);
 DECLARE_OLC_FUN(raceed_parts		);
 DECLARE_OLC_FUN(raceed_flags		);
 DECLARE_OLC_FUN(raceed_resists		);
+DECLARE_OLC_FUN(raceed_damtype		);
 
 DECLARE_OLC_FUN(raceed_addpcdata	);
 DECLARE_OLC_FUN(raceed_delpcdata	);
@@ -93,6 +94,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "flags",	raceed_flags,	NULL,		race_flags	},
 
 	{ "resists",	raceed_resists					},
+	{ "damtype", 	raceed_damtype					},
 
 	{ "addpcdata",	raceed_addpcdata,validate_whoname		},
 	{ "delpcdata",	raceed_delpcdata				},
@@ -244,6 +246,9 @@ OLC_FUN(raceed_show)
 	if (r->race_flags)
 		buf_printf(output, "General flags: [%s]\n",
 			   flag_string(race_flags, r->race_flags));
+	if (str_cmp(r->damtype, "punch"))
+		buf_printf(output, "Damage type:   [%s]\n", r->damtype);
+
 	for (i = 0, j = 0; i < MAX_RESIST; i++) {
 		if (r->resists[i]) {
 			if (!j)
@@ -634,6 +639,38 @@ OLC_FUN(raceed_resists)
 	return TRUE;
 }
 			
+OLC_FUN(raceed_damtype)
+{
+	damtype_t *d;
+	race_t *race;
+	char arg[MAX_INPUT_LENGTH];
+	EDIT_RACE(ch, race);
+
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		char_puts("Syntax: damtype [damage message]\n", ch);
+		char_puts("Syntax: damtype ?\n", ch);
+		return FALSE;
+	}
+
+	if (!str_cmp(arg, "?")) {
+		BUFFER *output = buf_new(-1);
+		strkey_printall(&damtypes, output);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
+		return FALSE;
+	}
+
+	if ((d = damtype_lookup(arg)) == NULL) {
+		char_printf(ch, "MobEd: %s: unknown damage class.\n", arg);
+		return FALSE;
+	}
+
+	free_string(race->damtype);
+	race->damtype = str_qdup(d->dam_name);
+	char_puts("Damage type set.\n", ch);
+	return TRUE;
+}
 
 OLC_FUN(raceed_addclass)
 {
@@ -853,6 +890,9 @@ save_race_cb(void *p, va_list ap)
 				flag_string(resist_flags, i),
 				r->resists[i]);
 	}
+
+	if (strcmp(r->damtype, "punch"))
+		fprintf(fp, "Damtype %s", r->damtype);
 
 	fprintf(fp, "End\n\n");
 
