@@ -103,10 +103,9 @@ snake~
 ABFG DFJ 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'shbite'
 -4 -4 -4 5
-FH 0 0 0
+FH L 0 0
 stand stand none 0
 0 0 small unknown
-r poison 100
 #32707
 beorn~
 Beorn~
@@ -261,31 +260,14 @@ You see a little strange statue.. Hmmm... and how can it help you get out of her
 But.... if you have some spare gold.... 
 ~
 human~
-Al BDFHIJMNOPTXl 1000 0
+A BDFHIJMNOPTXl 1000 0
 1 10 1d1+10 1d1+10 1d1+1 'divine'
 0 0 0 0
-0 0 0 0
+0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand none 0
 K 0 small unknown
 F for AHMV
 M bribe 32700 100000~
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #0
 
 #OBJECTS

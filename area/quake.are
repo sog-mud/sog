@@ -21,13 +21,11 @@ giant~
 ABCFTY DFPad -1000 0
 98 100 90d12+25000 9d10+10000 20d10+100 'claw'
 -90 -90 -90 -50
-CO 0 0 0
+CO B G Y
 stand stand none 3000
 Bc U giant unknown
+F res I
 F for AH
-r slash 33
-r cold 0
-r charm 100
 #35261
 Fiend~
 @eng Fiend@rus Демон~
@@ -37,13 +35,12 @@ Fiend~
 @rus Рыжая тварь с огромными руками - бичами. 
 ~
 ghoul~
-AFTl JOVhs -1000 0
+AFT JOVhs -1000 0
 70 70 15d200+15000 70d10+100 5d6+90 'slash'
 -60 -60 -60 -35
-EN 0 0 0
+EN A N O
 stand stand either 250
 a NW large unknown
-r holy 0
 #35262
 chton~
 ~

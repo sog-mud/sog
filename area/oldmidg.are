@@ -538,29 +538,12 @@ wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
 ~
 human~
-ABVel DH 900 0
+ABVe DH 900 0
 43 5 25d10+3800 1d1+1999 4d8+32 'magic'
 -35 -35 -35 -15
-AF 0 0 0
+AF ABC D 0
 stand stand male 15000
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5336
 baker~
 the baker~
@@ -570,29 +553,12 @@ A fat, nice looking baker. But you can see that he has many scars on his
 body.
 ~
 human~
-ABVel H 900 0
+ABVe H 900 0
 60 10 20d10+18800 1d1+999 3d8+25 'beating'
 -55 -55 -55 -35
-CDF 0 0 0
+CDF AB CD 0
 stand stand male 500
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5337
 grocer~
 the grocer~
@@ -601,29 +567,12 @@ A grocer stands at the counter, with a slightly impatient look on his face.
 A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
 ~
 human~
-ABVel H 900 0
+ABVe H 900 0
 55 10 25d10+18000 1d1+999 6d5+20 'beating'
 -55 -55 -55 -15
-EFJ 0 0 0
+EFJ AB CD 0
 stand stand male 1300
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5338
 weaponsmith~
 the weaponsmith~
@@ -632,30 +581,13 @@ A weaponsmith.
 A young weaponsmith, who still has lots to learn.
 ~
 human~
-ABTVel H 900 0
+ABTVe H 900 0
 86 15 25d10+25000 1d1+999 6d8+20 'punch'
 -50 -50 -50 -25
-CEIK 0 0 0
+CEIK AB CD 0
 stand stand male 25000
 0 0 medium unknown
 M greet 3024 1~
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5339
 armourer armorer~
 the armourer~
@@ -665,30 +597,13 @@ An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
 human~
-ABVel 0 900 0
+ABVe 0 900 0
 65 10 25d10+23300 1d1+999 7d5+20 'punch'
 -55 -55 -55 -15
-CEFJKN 0 0 0
+CEFJKN AB CD 0
 stand stand male 25000
 0 0 medium unknown
 M greet 3024 1~
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5340
 jeweller~
 the jeweller~
@@ -697,29 +612,12 @@ The jeweller is standing behind the desk.
 He is fat and has a content although watchful look on his face.
 ~
 human~
-ABVel HV 900 0
+ABVe HV 900 0
 90 10 25d10+28500 1d1+999 5d15+25 'slap'
 -55 -55 -55 -50
-AF 0 0 0
+AF AB CD 0
 stand stand male 58000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5341
 Questor~
 Questor~
@@ -730,27 +628,12 @@ He knows all the zones of Shades of Gray. It would be a Bad Thing
 to commit a crime in his presence. 
 ~
 giant~
-ABTVXel CDFJVZ 1000 3000
+ABTVXe CDFJVZ 1000 3000
 85 30 1d1+27999 1d1+1499 5d14+40 'crush'
 -50 -50 -50 -50
-ACDEFHIKLNOT 0 0 0
+ACDEFHIKLNOT ABP CD 0
 stand stand male 0
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r lightning 0
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5342
 healer~
 the healer~
@@ -763,26 +646,9 @@ human~
 ABQVaefghijklmnopqrstuvwxyz DFH 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -45 -45 -45 -15
-FHIK 0 0 0
+FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5343
 guildmaster master~
 the guildmaster~
@@ -793,29 +659,12 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-ABKRVel DEFZ -1000 0
+ABKRVe DEFZ -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 'magic'
 -65 -65 -65 -35
-FG 0 0 0
+FG ABD C 0
 stand stand female 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5344
 guildmaster master~
 the guildmaster~
@@ -825,29 +674,12 @@ You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
-ABKQVel CDEFZ -1000 0
+ABKQVe CDEFZ -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 'divine'
 -65 -65 -65 -35
-EFHIK 0 0 0
+EFHIK ABD C 0
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #5345
 templeman~
 the templeman~
@@ -857,10 +689,10 @@ Although very handsome , the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
 human~
-ABQVel DFH 1000 0
+ABQVe DFH 1000 0
 80 10 1d1+20999 1d1+999 2d4+30 'divine'
 -65 -65 -65 -15
-FHIK 0 0 0
+FHIK ABC D 0
 stand stand male 5000
 0 0 huge unknown
 M speech 3018 eros~
@@ -882,23 +714,6 @@ M speech 3003 zeus~
 M speech 3002 atum-ra~
 M speech 3001 religion~
 M greet 3000 100~
-r bash 33
-r pierce 33
-r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5346
 junkseller junk seller~
 Junkseller~
@@ -925,20 +740,13 @@ He seems to be a guard in this city. But whom does he consider invaders of
 this god-cursed city? Maybe YOU?
 ~
 human~
-ACGHLOTl GOZc -5000 0
+ACGHLOT GOZc -5000 0
 50 200 1d10+5000 1d1+2000 4d7+150 'pound'
 -30 -30 -30 -5
-ACEFIQ 0 0 0
+ACEFIQ ABM DE JNY
 stand stand male 0
 0 0 gargantuan unknown
 M act 5499 says 'Great Tear'~
-r bash 33
-r pierce 33
-r slash 33
-r lightning -50
-r holy -50
-r negative 100
-r charm 100
 #0
 
 #OBJECTS

@@ -60,11 +60,9 @@ doll~
 ACGT 0 -300 0
 3 1 3d5+36 1d1+99 1d4+3 'punch'
 6 7 6 9
-IR 0 0 0
+IR 0 G E
 stand stand male 0
 0 0 small unknown
-r bash 0
-r slash 0
 #6604
 bear ugly~
 the ugly bear~

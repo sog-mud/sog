@@ -16,15 +16,13 @@ the Major Dragon~
 ~
 ~
 human~
-ABGal BDFHmt 1000 0
+ABGa BDFHmt 1000 0
 120 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0 ABQ 0 0
 stand stand none 0
 Z PU huge unknown
 F for AHMV
-r disease 100
-r charm 100
 #0
 
 #OBJECTS

@@ -16,14 +16,12 @@ spider dirty~
 ~
 ~
 undead~
-ABFLRl PQVaclmtu -1000 0
+ABFLR PQVaclmtu -1000 0
 80 200 1d1+15000 1d1+10000 1d1+150 'claw'
 -40 -40 -40 -40
-ACEFK 0 0 0
+ACEFK ABK 0 0
 stand stand none 0
 0 0 medium unknown
-r acid 100
-r charm 100
 #33301
 moth melancholy~
 @eng the melancholy moth@rus грустный мотылек~
@@ -60,13 +58,12 @@ octopus~
 ~
 ~
 snake~
-ABRTl DFQVfltu -1000 0
+ABRT DFQVfltu -1000 0
 85 500 1d1+20000 1d1+20000 1d1+250 'pound'
 -50 -50 -50 -50
-ADEFK 0 0 0
+ADEFK AB 0 0
 stand stand male 0
 0 0 giant unknown
-r charm 100
 #33304
 fisherman~
 @eng the fisherman@rus рыболов~
@@ -75,14 +72,13 @@ fisherman~
 ~
 ~
 human~
-ABGTel DFHJZlmt 1000 0
+ABGTe DFHJZlmt 1000 0
 80 100 1d1+15000 1d1+15000 1d1+100 'pound'
 -20 -10 -10 -10
-CEFIJKN 0 0 0
+CEFIJKN AB 0 0
 stand stand male 0
 0 0 medium unknown
 F for AHMV
-r charm 100
 #0
 
 #OBJECTS

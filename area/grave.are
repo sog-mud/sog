@@ -64,10 +64,9 @@ human~
 ABF J -750 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNU 0 0 E
 stand stand male 0
 0 0 medium unknown
-r bash -50
 #3604
 skeleton~
 a dusty skeleton~
@@ -80,10 +79,9 @@ human~
 AF J -750 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNU 0 0 E
 stand stand male 0
 0 0 medium unknown
-r bash -50
 #3605
 zombie~
 the rotting zombie~

@@ -36,15 +36,9 @@ human~
 AW JPVZf 0 0
 0 0 0d0+0 0d0+0 5d3+15 'slash'
 0 0 0 0
-EFN 0 0 0
+EFN EKL H IN
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r fire 33
-r cold -50
-r acid 100
-r holy -50
-r poison 100
 #11
 special guard~
 the guard~
@@ -56,11 +50,9 @@ human~
 ATc JNV 1000 0
 20 3 16d15+320 1d1+141 5d5+10 'punch'
 0 0 0 0
-QT 0 0 0
+QT 0 AB M
 stand stand male 0
 0 0 medium unknown
-r negative -50
-r charm 33
 #12
 bear~
 a bear~
@@ -101,13 +93,9 @@ human~
 AOTc DFJS -750 0
 20 3 16d15+240 1d1+152 5d3+20 'punch'
 0 0 0 0
-EJ 0 0 0
+EJ GM AB N
 stand stand male 0
 0 0 medium unknown
-r slash 100
-r holy -50
-r negative 100
-r charm 33
 #15
 stalker guard~
 the stalker~
@@ -119,11 +107,9 @@ storm giant~
 ATc FHJNVf 1000 0
 20 3 16d15+160 1d1+149 4d9+15 'slash'
 0 0 0 0
-0 0 0 0
+0 0 AB M
 stand stand male 0
 0 0 medium unknown
-r negative -50
-r charm 33
 #16
 squire оруженосец~
 @eng the squire@rus оруженосец~
@@ -140,11 +126,9 @@ human~
 ATc FHJNSVf 1000 0
 20 3 16d15+160 1d1+149 3d10+12 'slash'
 0 0 0 0
-EN 0 0 0
+EN 0 AB M
 stand stand male 0
 0 0 medium unknown
-r negative -50
-r charm 33
 #17
 mirror~
 the mirror~
@@ -157,15 +141,9 @@ human~
 AB 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
-EFN 0 0 0
+EFN EKL H IN
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r fire 33
-r cold -50
-r acid 100
-r holy -50
-r poison 100
 #18
 undead~
 the undead body of %s~
@@ -293,10 +271,9 @@ lion~
 AO S 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-N 0 0 0
+N M 0 0
 stand stand male 0
 0 0 medium unknown
-r negative 100
 #27
 cocoon~
 @eng cocoon@rus ~~кокон~~~
@@ -308,23 +285,12 @@ this?
 @rus Еще одно порождение черной магии. Какая гадость вылупится из этого?
 ~
 unique~
-ABVl AQZcd 0 0
+ABV AQZcd 0 0
 0 -5 0d0+0 0d0+0 0d0+0 'digestion'
 0 0 0 0
-CJ 0 0 0
+CJ ABEILQ DJT HK
 rest rest none 0
 BZc KMN large unknown
-r bash 100
-r pierce 33
-r slash 33
-r fire -50
-r cold 100
-r lightning 33
-r acid -50
-r sound 33
-r disease 100
-r poison 100
-r charm 100
 #28
 bone dragon lich~
 @eng bone dragon@rus ~~костяной~~ ~~дракон~~~
@@ -344,6 +310,7 @@ CFHLO 0 0 0
 stand stand none 0
 0 0 huge unknown
 F aff JT
+F vul FI
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
@@ -352,15 +319,12 @@ cat black кошка кот~
 ~
 ~
 cat~
-AIgjl PS 0 0
+AIgj PS 0 0
 0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-0 0 0 0
+0 AB I H
 stand stand female 0
 0 0 medium unknown
-r fire -50
-r cold 33
-r charm 100
 #31
 black familiar crow ворон~
 @eng a large black crow@rus большой черный ворон~
@@ -369,15 +333,12 @@ black familiar crow ворон~
 ~
 ~
 song bird~
-AIgjl S 0 0
+AIgj S 0 0
 0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-0 0 0 0
+0 AB I H
 stand stand female 0
 0 0 medium unknown
-r fire -50
-r cold 33
-r charm 100
 #50
 junkseller junk seller~
 Junkseller~
@@ -386,29 +347,12 @@ A HUGE dragon is here, selling junk.
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~
-Aekl DEFHNOUVYc 0 0
+Ae DEFHNOUVYc 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
-CDEFHIKNO 0 0 0
+CDEFHIKNO ABCDU 0 0
 stand stand male 100000
 0 0 huge unknown
-r bash 100
-r pierce 33
-r slash 100
-r fire 100
-r cold 33
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #0
 
 #OBJECTS
@@ -1476,36 +1420,7 @@ A
 14 500
 A
 18 10
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-A
-19 10
+F R 19 10 C
 F A 17 -30 J
 F A 0 0 CDEG
 g none~

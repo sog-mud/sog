@@ -21,33 +21,16 @@ some other magical materials.
 @rus Призрачная фигура плавает перед тобой и готова направить магическую смерть на всех, кто противостоит ее повелителям. Она создана из огня и некоторых других магических материалов.
 ~
 elf~
-ABJKRefl DFHTZlmt 0 0
+ABJKRef DFHTZlmt 0 0
 92 30 2d500+25000 1d1+3999 10d25+90 'slice'
 -79 -79 -79 -40
-FIKN 0 0 0
+FIKN ABH CD 0
 stand stand male 0
 0 0 medium unknown
 F aff JP
 M grall 95300 100~
 M exall 95302 0~
 C Shalafi
-r bash 33
-r pierce 33
-r slash 33
-r fire 100
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #95301
 healer adept cabal shalafi~
 @eng an adept@rus Адепт~
@@ -63,30 +46,13 @@ He has a nice smile on his face.
 красивые белые волосы.  На его лице застыла прекрасная улыбка.  
 ~
 human~
-ABQVael DFH 1000 0
+ABQVae DFH 1000 0
 90 10 1d1+28999 1d1+999 2d4+30 'divine'
 -75 -75 -75 -55
-FHIK 0 0 0
+FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
 C Shalafi
-r bash 33
-r pierce 33
-r slash 33
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #95302
 fiery red demon~
 a fiery demon~
@@ -103,10 +69,9 @@ unique~
 AB JZ -1000 0
 40 0 1d1+2000 1d1+1 2d4+20 'slash'
 -15 -15 -15 -15
-FHI 0 0 0
+FHI H 0 0
 stand stand male 0
 0 0 medium unknown
-r fire 100
 #95303
 vampire old старый вампир~
 @eng old vampire@rus ~~старый~~ ~~вампир~~~

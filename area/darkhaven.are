@@ -15,16 +15,13 @@ linran~
 ~
 ~
 human~
-Al BCDFPQTclmtu -1000 0
+A BCDFPQTclmtu -1000 0
 70 200 1d1+20000 1d1+10000 8d9+1 'stab'
 0 0 0 0
-ABDFHJKO 0 0 0
+ABDFHJKO ABP K 0
 stand stand male 1000000
 0 0 medium unknown
 F for AHMV
-r acid 33
-r mental 100
-r charm 100
 #0
 
 #OBJECTS
@@ -47,10 +44,7 @@ sword 12 11 'wrath' EGI
 87 10 1000000 P
 A
 17 200
-A
-35 -50
-A
-26 1
+F V 26 1 M
 S 'sword' 20 B
 S 'mastering sword' 20 A
 F A 8 1 K

@@ -20,7 +20,7 @@ undead~
 AFGO T -1000 0
 48 0 25d10+3750 1d10+5000 6d6+18 'slash'
 -18 -18 -18 0
-EFNQ 0 0 0
+EFNQ 0 0 X
 stand stand none 5000
 0 0 medium unknown
 #8101
@@ -57,7 +57,7 @@ undead~
 AFGO 0 -1000 0
 45 0 25d10+3000 10d10+330 8d4+16 'slash'
 -15 -15 -15 4
-EFNQ 0 0 0
+EFNQ 0 0 X
 stand stand none 4500
 0 0 medium unknown
 #8103
@@ -73,7 +73,7 @@ undead~
 AFGO T -1000 0
 48 0 25d10+3750 10d10+110 6d6+18 'pound'
 -18 -18 -18 2
-EFNU 0 0 0
+EFNU 0 0 X
 stand stand none 5000
 0 0 medium unknown
 #8104
@@ -89,10 +89,9 @@ undead~
 ABFGO N -1000 0
 54 0 25d10+5250 10d10+1110 7d6+22 'pierce'
 -24 -24 -24 -1
-EFNQ 0 0 0
+EFNQ B 0 X
 stand stand none 5300
 0 0 medium unknown
-r charm 100
 #8105
 lich~
 a lich~
@@ -103,15 +102,12 @@ and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
 human~
-ABFGOl DFJ -1000 0
+ABFGO DFJ -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 'pierce'
 -28 -28 -28 2
-EFNQ 0 0 0
+EFNQ AB T K
 stand stand male 5800
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #8106
 demon~
 a lesser demon~
@@ -585,10 +581,9 @@ undead~
 ABFGO 0 -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
-EFNQ 0 0 0
+EFNQ B 0 X
 stand stand none 5000
 0 0 medium unknown
-r charm 100
 #0
 
 #OBJECTS

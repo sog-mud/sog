@@ -19,26 +19,9 @@ human~
 ABGQRTe HV 0 0
 100 100 1d1+30000 0d0+0 20d20+100 'none'
 0 0 0 0
-EFJK 0 0 0
+EFJK CD 0 0
 stand stand male 0
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #35302
 guard arena~
 the arena guard~

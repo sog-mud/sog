@@ -19,19 +19,13 @@ dog~
 ALSc DFJPTUVZclmtu -1000 0
 101 100 50d10+35000 10d10+10000 35d30+98 'bite'
 -82 -82 -82 -80
-CDFL 0 0 0
+CDFL BELPQ 0 H
 stand stand male 0
 0 0 large unknown
 M entry 700 100~
 M grall 701 100~
 M act 702 JullyRoger says 'сидеть'~
 M act 703 JullyRoger says 'встать'~
-r bash 100
-r fire -50
-r mental 100
-r disease 100
-r poison 100
-r charm 100
 #0
 
 #OBJECTS

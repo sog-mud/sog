@@ -34,11 +34,10 @@ human~
 AB JP 0 0
 100 0 1d1+29999 1d1+1 1d1+1 'none'
 0 0 0 0
-0 0 0 0
+0 0 B Z
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus male~
-r charm 33
 #36102
 training~
 training mob~
@@ -49,13 +48,10 @@ human~
 ABT AHV 0 0
 1 50 1d1+29999 1d1+1 1d1+1 'none'
 0 0 0 0
-H 0 0 0
+H 0 D 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-r bash 33
-r pierce 33
-r slash 33
 #36103
 no name rancor~
 Rancor~
@@ -103,13 +99,12 @@ The very huge barbarian, Weapon CLeaver, stands here.
 ~
 ~
 fire giant~
-Al CDEFGTVlmnst 0 0
+A CDEFGTVlmnst 0 0
 10000 0 1d1+0 1d1+9999 1d1+0 ''
 -100 -100 -100 -100
-0 0 0 0
+0 AB 0 0
 stand stand male 1000
 0 0 huge unknown
-r charm 100
 #36110
 rediska~
 Solmyr~
@@ -121,13 +116,10 @@ modron~
 AFHR BDFHNUflty 0 0
 95 100 50000d50000+50000 500d2+3000 10d10+100 'magic'
 -100 -100 -100 -100
-0 0 0 0
+0 0 D X
 stand stand male 0
 ABDMPYZ E huge unknown
 V 36110
-r bash 33
-r pierce 33
-r slash 33
 #36111
 shadow watcher~
 @eng Shadow@rus ~~Тень~~~
@@ -139,16 +131,11 @@ undead~
 ABOci gl -1000 0
 92 0 1d1+100000 1d1+100000 0d0+0 'wrath'
 -100 -100 -100 -100
-0 0 0 0
+0 DKP 0 0
 stand stand none 0
 0 0 gargantuan unknown
 C Invaders
 W 92
-r bash 100
-r pierce 100
-r slash 100
-r acid 100
-r mental 100
 #36114
 irlaniel~
 @eng Irlaniel@rus Ирланиэль~
@@ -157,29 +144,12 @@ irlaniel~
 ~
 ~
 unique~
-AQRTl DFHJMNOPTUVZclm 0 0
+AQRT DFHJMNOPTUVZclm 0 0
 65 70 1d1+9999 1d1+14999 1d99+20 'shock'
 -40 -40 -40 -40
-ACDEFHKNO 0 0 0
+ACDEFHKNO ABJLMNPQR CDEFGHIK 0
 stand stand male 0
 DH 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 100
-r acid 33
-r holy 100
-r negative 100
-r energy 33
-r mental 100
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
-r light 33
 #36115
 remitoel~
 Remitoel~
@@ -188,29 +158,12 @@ Remitoel~
 ~
 ~
 unique~
-AQRTl DFHJMNOPTUVZclm 0 0
+AQRT DFHJMNOPTUVZclm 0 0
 65 70 1d1+9999 1d1+14999 1d99+20 'shock'
 -40 -40 -40 -40
-ACDEFHKNO 0 0 0
+ACDEFHKNO ABJLMNPQR CDEFGHIK 0
 stand stand male 0
 DH 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 100
-r acid 33
-r holy 100
-r negative 100
-r energy 33
-r mental 100
-r sound 33
-r disease 100
-r poison 100
-r charm 100
-r harm 33
-r light 33
 #36116
 mad stalker~
 mad stalker~
@@ -218,30 +171,13 @@ Stalker with an insane look in his eyes.
 ~
 ~
 human~
-Al 0 0 0
+A 0 0 0
 150 0 1d1+599 1d1+4999 5d5+80 'none'
 0 0 0 0
-0 0 0 0
+0 ABCD 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #36120
 horse~
 Arborn's war horse~
@@ -364,10 +300,8 @@ A
 24 -100
 A
 19 70
-A
-37 100
-A
-35 100
+F I 0 0 P
+F I 0 0 M
 g none~
 #36104
 dagger might~
@@ -394,40 +328,8 @@ light A A
 0 0 0 P
 F A 0 0 T
 F A 0 0 H
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-A
-27 33
-A
-28 33
-A
-29 33
+F R 0 0 C
+F R 0 0 D
 A
 19 20
 g none~
@@ -552,8 +454,7 @@ copper~
 jewelry ART ABP
 0 0 0 0 0
 35 2 250000 P
-A
-35 100
+F I 0 0 M
 A
 19 7
 A
@@ -567,8 +468,8 @@ unknown~
 staff HKRZ AOP
 50 20 20 'detect hide' 0
 45 0 0 P
-A
-36 33
+F I 0 0 A
+F R 0 0 O
 g none~
 #36117
 rancor sword~
@@ -629,10 +530,7 @@ energy~
 weapon AORa AN
 bow 7 17 'flame' AE
 65 50 700000 P
-A
-30 100
-A
-8 1
+F I 8 1 H
 A
 19 10
 A
@@ -646,12 +544,7 @@ steel~
 weapon AORa AN
 dagger 14 10 'stab' BDE
 75 50 900000 P
-A
-34 100
-A
-35 100
-A
-8 1
+F I 8 1 MN
 A
 19 25
 A
@@ -665,10 +558,7 @@ unknown~
 weapon AORa AN
 flail 10 9 'smash' ADE
 55 50 500000 P
-A
-28 33
-A
-8 1
+F R 8 1 F
 A
 19 15
 A
@@ -684,10 +574,7 @@ sword 4 17 'slash' DGI
 40 30 0 P
 A
 13 80
-A
-32 100
-A
-8 1
+F I 8 1 J
 A
 19 12
 A
@@ -957,42 +844,7 @@ armor FGHOTVZ AK
 A
 18 5
 F A 12 30 P
-A
-27 33
-A
-28 33
-A
-29 33
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-A
-13 30
+F R 13 30 BCD
 g none~
 #36140
 gloves glowing spiked~
@@ -1061,71 +913,22 @@ shadow~
 armor ABCEJSTYb AQ
 -10000 -10000 -10000 -10000 0
 0 0 1000 P
-A
-33 100
-A
-12 50000
-A
-34 -50
-A
-20 -10000
-A
-27 100
-A
-28 100
-A
-29 100
-A
-19 1000
-A
-27 100
-A
-18 1000
-A
-30 100
-A
-32 100
-A
-41 100
-A
-43 100
-A
-37 100
+F I 12 50000 K
+F V 20 -10000 N
+F I 19 1000 D
+F I 18 1000 E
+F I 0 0 H
+F I 0 0 J
+F I 0 0 B
+F I 0 0 S
+F I 0 0 P
 A
 8 100
-A
-30 100
-A
-31 100
-A
-32 100
-A
-33 100
-A
-34 100
-A
-35 100
-A
-36 100
-A
-37 100
-A
-38 100
-A
-39 100
-A
-40 100
-A
-41 100
-A
-42 100
-A
-43 100
+F I 0 0 C
 F A 0 0 u
-A
-36 100
-A
-38 100
+F I 0 0 O
+F I 0 0 U
+F I 0 0 T
 g female~
 #36164
 wand~
@@ -1213,9 +1016,16 @@ ring small~
 small ring~
 Small ring with spikes has been left here.~
 silver~
-trash AJKLUY AB
+trash AY AB
 0 0 0 0 0
 0 10 1000 P
+A
+19 100
+A
+13 1000
+F I 8 50 E
+S 'gate' 100 0
+F A 18 100 V
 g male~
 #36195
 bag сумка~

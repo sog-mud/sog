@@ -47,10 +47,9 @@ human~
 ABFGT J 0 2100
 13 0 2d20+170 1d1+99 2d5+5 'punch'
 -1 -1 -1 8
-CDEKU 0 0 0
+CDEKU 0 E 0
 stand stand male 100
 0 0 medium unknown
-r bash 33
 #2104
 bruiser troll~
 a bruiser~
@@ -62,23 +61,9 @@ human~
 ACFGHT D -333 2100
 11 0 4d8+134 1d1+99 1d10+3 'punch'
 1 1 1 8
-CDKU 0 0 0
+CDKU 0 C 0
 stand stand male 75
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #2105
 gang doll~
 a doll~
@@ -161,10 +146,9 @@ human~
 ABFGS J 0 2101
 13 0 2d10+160 1d1+99 2d5+3 'punch'
 -1 -1 -1 8
-EFHJKNU 0 0 0
+EFHJKNU 0 G 0
 stand stand male 100
 0 0 medium unknown
-r slash 33
 #2111
 thug~
 a thug~
@@ -177,23 +161,9 @@ human~
 ACFGHT DJ -333 2101
 11 0 2d8+134 1d1+99 1d10+2 'punch'
 1 1 1 8
-JKNU 0 0 0
+JKNU 0 C 0
 stand stand male 75
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #0
 
 #OBJECTS

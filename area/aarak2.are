@@ -95,29 +95,12 @@ jagged scar on the left side of the taxidermist's face suggests that he can
 hold his own in a scrape.
 ~
 song bird~
-ABGNl 0 -200 0
+ABGN 0 -200 0
 23 0 7d10+900 1d8+180 5d4+13 'crush'
 -25 -25 -25 -25
-ENU 0 0 0
+ENU ABCD 0 0
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5606
 bird taxidermist~
 Taxidermist~
@@ -161,10 +144,10 @@ The humming commander was moving tokens representing Aarakocran
 soldiers around a map, but he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFGl DFHQ 0 0
+ABCFG DFHQ 0 0
 30 0 3d30+1200 1d9+250 4d6+8 'crush'
 -9 -9 -9 5
-CER 0 0 0
+CER A 0 0
 stand stand male 1000
 0 0 medium unknown
 #5610
@@ -239,29 +222,12 @@ A fat bird with a bad slouch.  He is festooned with all kinds of shiny and dull
 metal objects.  His name is Fred.  He asks if you are interested in a bargain?
 ~
 song bird~
-ABCGNel 0 0 0
+ABCGNe 0 0 0
 34 0 1d1+30000 1d80+20 5d4+40 'crush'
 -25 -25 -25 -25
-CE 0 0 0
+CE ABCD 0 0
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5615
 bird aarakocran merchant~
 the merchant~
@@ -383,29 +349,12 @@ The shaman's plumage is generally a drab grey, but there is a tremendous
 orange and yellow starburst on her chest.
 ~
 song bird~
-ABGKOl H 0 0
+ABGKO H 0 0
 30 0 10d10+1200 1d1+99 5d9+16 'crush'
 -25 -25 -25 -25
-CEIKR 0 0 0
+CEIKR ABCD 0 0
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5623
 bird aarakocra aarakocran sneaky guildmaster thief assassin~
 the sneaky aarakocran guildmaster~
@@ -414,29 +363,12 @@ Your guildmaster is picking a *HUGE* (Glowing) Mithral lock.
 well, COUNT your money!
 ~
 song bird~
-ABGKSel J 0 0
+ABGKSe J 0 0
 19 0 10d10+400 1d8+20 10d5+10 'crush'
 -25 -25 -25 -25
-EIKNR 0 0 0
+EIKNR ABCD 0 0
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5624
 bird aarakocra aarakocran strong guildmaster warrior hero~
 the strong aarakocran guildmaster~
@@ -447,29 +379,12 @@ muscles rippling down his legs, wings, and chest.  He has an air of command and
 military discipline.
 ~
 song bird~
-ABKTl 0 0 0
+ABKT 0 0 0
 30 0 1d1+1500 1d8+200 5d9+15 'crush'
 -25 -25 -25 -25
-CDEIJKR 0 0 0
+CDEIJKR ABCD 0 0
 stand stand male 1000
 0 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #5625
 bird aarakocra aarakocran cityguard guard~
 the cityguard~

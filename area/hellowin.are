@@ -20,29 +20,12 @@ but same you can see than he is corking something in leaves.
 которая растет тут. Но ты замечаешь, что он что-то заныкивает в кустах...
 ~
 bear~
-AGVWZel DFGHZ 1000 0
+AGVWZe DFGHZ 1000 0
 50 0 1d1+1 0d0+0 0d0+0 'bite'
 0 0 0 0
-0 0 0 0
+0 ABCDEFGHIKLMNOPQRTXYZ 0 0
 stand stand male 10000
 H 0 small unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #34401
 tank t-34~
 @eng {DTank Abrams A1M1{w@rus {DТанк Т-34{w~
@@ -55,28 +38,12 @@ It's armor is covered by blood and squashed brains.
 Его броня заляпана мозгами и кровью тех кого он раздавил.
 ~
 human~
-AUVZl CDEFGHJNOQRTZbcd 0 0
+AUVZ CDEFGHJNOQRTZbcd 0 0
 96 1 1d1+29999 1d1+29999 1d1+0 'blast'
 -900 -900 -900 -900
-0 0 0 0
+0 ABDEFGHIJLMNPQRTXY CJK S
 stand stand either 0
 EIc X giant unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 33
-r holy 100
-r negative 100
-r energy 33
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 33
 #34403
 test~
 test~
@@ -87,27 +54,10 @@ human~
 AG AV 0 0
 15 0 1d1+99 0d0+0 0d0+0 'none'
 0 0 0 0
-FK 0 0 0
+FK CDEFGH 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #0
 
 #OBJECTS
@@ -266,10 +216,7 @@ bone~
 staff CGJMZh AO
 70 100 100 'mana drain' 0
 40 20 0 P
-A
-35 100
-A
-20 -15
+F I 20 -15 M
 F A 19 20 n
 S 'lich' 70 A
 S 'animate dead' 80 A

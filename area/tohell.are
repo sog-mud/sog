@@ -199,10 +199,9 @@ human~
 AD JV -743 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-EFNU 0 0 0
+EFNU 0 0 E
 stand stand none 5000
 0 0 medium unknown
-r bash -50
 #10414
 bloody severed arm~
 bloody severed arm~
@@ -304,10 +303,9 @@ human~
 AB J -700 0
 37 0 10d10+1500 18d9+100 3d10+12 'none'
 -12 -12 -12 5
-EFNU 0 0 0
+EFNU 0 0 E
 stand stand none 5000
 0 0 medium unknown
-r bash -50
 #10421
 manes sub-demon~
 the manes~

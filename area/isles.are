@@ -202,10 +202,9 @@ snake~
 A Q 0 0
 54 0 50d10+5250 5d5+5000 7d6+22 'bite'
 -24 -24 -24 -1
-FH 0 0 0
+FH L 0 0
 stand stand none 1000
 0 0 medium unknown
-r poison 100
 #17024
 crab black~
 the black crab~
@@ -320,10 +319,9 @@ unique~
 ABT DFHJ 0 0
 64 0 50d10+8000 5d5+5000 8d7+34 'wrath'
 -34 -34 -34 -4
-CEFIK 0 0 0
+CEFIK H 0 0
 stand stand none 1000
 0 0 medium unknown
-r fire 100
 #17031
 mizzenmast pirate lord~
 Mizzenmast~

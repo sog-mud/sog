@@ -116,23 +116,9 @@ human~
 AGT CDEFJ -1000 0
 40 0 15d10+1850 1d1+100 4d10+10 'slice'
 -13 -13 -13 -3
-CDEKM 0 0 0
+CDEKM 0 C 0
 stand stand female 0
 0 0 large unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #24307
 rimlarker juggernaut stone римлакер~
 @eng Rimlarker@rus ~~Римлакер~~~
@@ -147,10 +133,9 @@ giant~
 ABGT CDEFJa -1000 0
 58 3 50d10+8600 1d1+100 5d10+29 'crush'
 -28 -28 -28 -12
-CDEKO 0 0 0
+CDEKO E 0 0
 stand stand none 0
 0 0 giant unknown
-r bash 100
 #24308
 tree медагар medagar~
 @eng Medagar@rus Медагар~
@@ -185,12 +170,9 @@ human~
 AGT CDEFJ -1000 0
 55 3 50d10+7000 1d1+100 10d4+24 'beating'
 -25 -25 -24 -9
-DEKN 0 0 0
+DEKN 0 D 0
 stand stand male 0
 0 0 giant unknown
-r bash 33
-r pierce 33
-r slash 33
 #24310
 elemental Metagar earth~
 @eng Metagar@rus ~~Метагар~~~

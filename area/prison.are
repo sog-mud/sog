@@ -265,12 +265,9 @@ human~
 ABGe 0 0 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFHKN 0 0 0
+CDEFHKN 0 D 0
 stand stand male 100
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 #32017
 Thomas weaponmaster~
 Thomas the weaponmaster~
@@ -284,12 +281,9 @@ human~
 ABGe 0 0 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFHKN 0 0 0
+CDEFHKN 0 D 0
 stand stand male 100
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 #32018
 slice bologna~
 (processed aura) a slice of bologna~
@@ -318,23 +312,9 @@ human~
 ABGK HN 1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFHIJK 0 0 0
+CDEFHIJK B C 0
 stand stand male 100
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #32020
 towel boy~
 the towel boy~
@@ -408,23 +388,9 @@ human~
 ACHe H 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-BCDEFIJK 0 0 0
+BCDEFIJK 0 C 0
 stand stand male 100
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #0
 
 #OBJECTS

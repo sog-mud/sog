@@ -21,12 +21,9 @@ human~
 AB DH 1000 0
 48 0 25d10+3750 479d1+11 6d6+18 'punch'
 -18 -18 -18 3
-ADEK 0 0 0
+ADEK 0 0 D
 stand stand male 10000
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
 #15202
 ghost horrible~
 the horrible ghost~
@@ -35,15 +32,12 @@ You hear a frightening wail, and see a horrible Ghost approaching.
 The Ghost is almost translucent, and looks really SCARY!
 ~
 modron~
-ACFHRl BDFITU -900 0
+ACFHR BDFITU -900 0
 30 0 6d12+778 299d1+1 5d4+7 'wrath'
 -9 -9 -9 1
-FGK 0 0 0
+FGK A 0 D
 stand stand either 0
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
 #15203
 jim guard royal~
 Jim the Royal guard~
@@ -247,10 +241,10 @@ of the undoubtedly great warrior he once was, but still to be reckoned
 with.
 ~
 giant~
-ABCFHl 0 -1000 0
+ABCFH 0 -1000 0
 42 0 25d10+2250 419d1+1 3d12+14 'punch'
 -14 -14 -14 4
-BDJ 0 0 0
+BDJ A 0 0
 stand stand male 1000
 0 0 medium unknown
 #15216
@@ -279,12 +273,9 @@ elf~
 A 0 800 0
 20 -1 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-I 0 0 0
+I 0 0 D
 stand stand female 100
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
 #15218
 cockroach roach~
 the Cockroach~
@@ -296,11 +287,9 @@ centipede~
 A 0 -550 0
 28 0 6d12+703 279d1+1 2d12+7 'thrust'
 -8 -8 -8 6
-E 0 0 0
+E 0 0 D
 stand stand either 10000
 0 0 medium unknown
-r pierce 0
-r slash -50
 #15219
 astrologer~
 the Astrologer~
@@ -311,26 +300,9 @@ unique~
 ABR 0 900 0
 45 0 25d10+2750 449d1+1 3d12+14 'wrath'
 -15 -15 -15 -2
-FG 0 0 0
+FG 0 0 CD
 stand stand male 10000
 0 0 tiny unknown
-r bash -50
-r pierce -50
-r slash -50
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm -50
-r harm -50
-r light -50
 #15220
 tim guard lifeguard~
 Tim, the King's Lifeguard~
@@ -375,23 +347,9 @@ human~
 AH 0 500 0
 45 0 25d10+3000 449d1+1 8d4+16 'punch'
 -15 -15 -15 4
-EH 0 0 0
+EH 0 0 C
 stand stand male 4000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm -50
-r harm -50
-r light -50
 #15223
 cook~
 the Cook~
@@ -403,23 +361,9 @@ human~
 ABH 0 300 0
 41 0 25d10+2000 409d1+1 4d8+14 'none'
 -14 -14 -14 4
-EH 0 0 0
+EH 0 0 C
 stand stand male 3000
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm -50
-r harm -50
-r light -50
 #15224
 david guard~
 David~
@@ -525,21 +469,9 @@ giant~
 ABFTc CDEFGNOVc 1000 0
 60 0 50d10+9500 599d1+1 8d6+28 'punch'
 -30 -30 -30 0
-CDEFGHIJKN 0 0 0
+CDEFGHIJKN 0 0 C
 stand stand male 8457
 0 0 large unknown
-r fire 0
-r cold 0
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r sound -50
-r disease -50
-r poison -50
-r charm -50
-r harm -50
-r light -50
 #0
 
 #OBJECTS

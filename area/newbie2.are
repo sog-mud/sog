@@ -95,13 +95,12 @@ Yuck!  If they'd ever clean this place maybe it wouldn't attract vermin
 like this disgusting, little, six-legged, brown bug.
 ~
 snake~
-ABFGl 0 -250 0
+ABFG 0 -250 0
 1 0 2d6+8 9d1+1 1d4+0 'punch'
 9 9 9 10
-F 0 0 0
+F AB 0 0
 stand stand male 110
 0 0 medium unknown
-r charm 100
 #18607
 newbie zombie~
 the zombiefied newbie~
@@ -111,13 +110,12 @@ This guy has been lost in here too long... it is more zombie than man
 now.  You would feel sorry for it, but it is moving in to attack!
 ~
 human~
-ACFGl J -500 0
+ACFG J -500 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-G 0 0 0
+G AB 0 0
 stand stand male 140
 0 0 medium unknown
-r charm 100
 #18608
 quasit imp thing~
 the quasit~
@@ -145,13 +143,12 @@ a heck of a lot meaner than any bull you have ever seen... and he is
 coming this way!
 ~
 dog~
-ABFGl J -1000 0
+ABFG J -1000 0
 7 0 2d6+80 69d1+1 1d8+1 'blast'
 4 4 4 9
-I 0 0 0
+I AB 0 0
 stand stand male 170
 0 0 medium unknown
-r charm 100
 #18610
 spectre ghost~
 the dark spectre~
@@ -161,13 +158,12 @@ The soul of a long since passed on adventurer... it lurks here waiting for
 a chance to bring death to any who cross its path.
 ~
 water fowl~
-ABDFGl BDJ -850 0
+ABDFG BDJ -850 0
 6 0 2d7+71 59d1+1 1d7+0 'bite'
 4 4 4 9
-J 0 0 0
+J AB 0 0
 stand stand either 140
 0 0 medium unknown
-r charm 100
 #18611
 newbie annoying jerk~
 the annoying newbie~

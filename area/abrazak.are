@@ -17,30 +17,18 @@ Avatar of abrazak is here.
 @eng You see a huge man. He looks very strong and wise. You'd better never mess with him.
 ~
 aarakocra~
-Al 0 0 0
+A 0 0 0
 1000 0 5d5000+5000 1d1+666 5d300+1 'none'
 6 6 66 66
-YZ 0 0 0
+YZ ABDFGIJLMOPQRTXYZ 0 0
 stand stand female 2147483647
-0 0 unknown unknown
+0 0 huge unknown
 g @eng female@rus male~
 M random 15000 2~
 M random 15000 1~
 M bribe 15000 1~
 M speech 15001 shadow~
 M speech 15002 demon~
-r bash 100
-r pierce 100
-r slash 100
-r cold 100
-r lightning 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
 #15001
 prisoner karabas~
 @eng the prisoner@rus узник~
@@ -50,10 +38,10 @@ prisoner karabas~
 @rus Он большой и толстый. лучше не ссорься с ним.
 ~
 human~
-Al 0 0 0
+A 0 0 0
 200 0 10d10+25000 0d0+0 10d10+1000 'none'
 -66 -66 -66 -66
-0 0 0 0
+0 ABQ 0 0
 stand stand male 0
 0 0 huge unknown
 M act 15004 is dead!!~
@@ -61,8 +49,6 @@ M delay 15003 100~
 M random 15005 5~
 M bribe 15005 1~
 M fight 1 100~
-r disease 100
-r charm 100
 #15002
 cockroach~
 @eng cockroach@rus таракан~
@@ -75,14 +61,10 @@ song bird~
 AZ 0 1000 0
 1 0 1d1+1 0d0+0 1d1+1 'bite'
 0 0 0 0
-0 0 0 0
+0 BD 0 0
 stand stand either 0
 0 0 small unknown
 F aff T
-r bash 100
-r pierce 100
-r slash 100
-r charm 100
 #15003
 rat~
 @eng a rat@rus крыса~
@@ -95,11 +77,9 @@ human~
 A Z 0 0
 0 0 1d1+1 0d0+0 1d1+1 'bite'
 0 0 0 0
-FH 0 0 0
+FH B 0 S
 stand stand either 0
 G 0 small unknown
-r charm 100
-r light -50
 #15005
 kitten cat кошечка karapupa~
 @eng little furry kitten@rus ~~маленькая~~ ~~пушистая~~ ~~кошечка~~~
@@ -110,29 +90,12 @@ kitten cat кошечка karapupa~
 @rus Маленькое пушистое существо глядит на тебя большими влажными глазами.
 ~
 cat~
-Aek DHPTclmt 1000 0
+Ae DHPTclmt 1000 0
 150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
-ACDEIJKNO 0 0 0
+ACDEIJKNO BCDU 0 0
 stand stand female 100000
 0 0 small unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #15010
 devil~
 @eng {DDevil{x@rus {DЧерт{x~
@@ -141,29 +104,12 @@ devil~
 ~
 ~
 pig~
-AGRTel CDEFGVZacu -1000 0
+AGRTe CDEFGVZacu -1000 0
 150 1000 1d1+10000 1d1+10000 1d1+100 'shbite'
 -100 -100 -100 -100
-0 0 0 0
+0 ABCEFGHIJKLMNOPQRTXYZ 0 0
 stand stand male 0
 0 0 small unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #15015
 белочка серая squirrel~
 @eng gray squirrel@rus ~~серая~~ ~~белочка~~~
@@ -175,29 +121,12 @@ r light 100
 хвостом.
 ~
 unique~
-ABIXl BFHPQTVZcefglm 1000 0
+ABIX BFHPQTVZcefglm 1000 0
 95 1000 10d10+500 10d10+500 15d15+500 'bite'
 0 0 0 0
-ACDEFGHIJKNO 0 0 0
+ACDEFGHIJKNO ACD 0 0
 stand stand female 50
 G ABCQ medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #15016
 старая сосна pine~
 @eng pine@rus ~~старая~~ ~~сосна~~~
@@ -394,42 +323,7 @@ unknown~
 clothing GITY AE
 0 0 0 0 0
 95 0 0 P
-A
-27 100
-A
-28 100
-A
-29 100
-A
-30 100
-A
-31 100
-A
-32 100
-A
-33 100
-A
-34 100
-A
-35 100
-A
-36 100
-A
-37 100
-A
-38 100
-A
-39 100
-A
-40 100
-A
-41 100
-A
-42 100
-A
-43 100
-A
-20 -10
+F I 20 -10 CD
 F A 20 -10 E
 F A 20 -10 C
 F A 20 -10 G

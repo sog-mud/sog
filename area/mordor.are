@@ -20,13 +20,11 @@ orc~
 ABT DF -1000 0
 20 10 10d25+1000 1d1+99 5d4+8 'pound'
 -10 -10 -10 -12
-DEFIKNORU 0 0 0
+DEFIKNORU BM 0 0
 stand stand male 1000
 0 0 medium unknown
+F vul S
 M grall 30001 100~
-r negative 100
-r charm 100
-r light 0
 #30002
 orc capitan капитан орк~
 @eng orc capitan@rus ~~капитан~~ орков~
@@ -38,12 +36,10 @@ orc~
 ABT DFPQc -1000 0
 30 15 10d60+1400 1d1+99 5d6+12 'punch'
 0 14 -12 -14
-EFHJKMR 0 0 0
+EFHJKMR BL 0 0
 stand stand none 2500
 0 0 medium unknown
-r poison 100
-r charm 100
-r light 0
+F vul S
 #30003
 rat крыса~
 @eng rat@rus ~~крыса~~~
@@ -72,22 +68,9 @@ orc~
 ABR u -1000 0
 30 0 10d100+3000 1d1+999 5d10+7 'magic'
 -30 -30 -25 -35
-FHK 0 0 0
+FHK B CL 0
 stand stand none 1000
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r poison 33
-r charm 100
-r harm 33
-r light 0
 #30005
 orc leader предводитель орков~
 @eng leader@rus лидер~
@@ -101,13 +84,9 @@ orc~
 ABFT DFO -1000 0
 36 0 10d100+4000 1d1+99 10d4+15 'smash'
 -25 -30 -20 -20
-ADEFHJKR 0 0 0
+ADEFHJKR B GL 0
 stand stand none 1000
 0 ABCDEFU medium unknown
-r slash 33
-r poison 33
-r charm 100
-r light 0
 #30098
 moby~
 ~
@@ -127,10 +106,10 @@ mobby~
 ~
 ~
 human~
-AKabhil 0 0 0
+AKabhi 0 0 0
 1000 0 1d1+100000 0d0+0 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0 A 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV

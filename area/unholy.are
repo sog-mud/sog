@@ -20,12 +20,9 @@ human~
 AFG DFJN -400 0
 60 0 50d10+6750 5d5+5000 8d6+28 'pound'
 -30 -30 -30 -3
-EFHIJKNQ 0 0 0
+EFHIJKNQ L B J
 stand stand male 0
 0 0 medium unknown
-r lightning -50
-r poison 100
-r charm 33
 #30801
 clay golem~
 a clay golem~
@@ -54,12 +51,9 @@ human~
 AFG DFJu -800 0
 63 0 50d10+7500 5d5+5000 7d8+33 'pound'
 -33 -33 -33 -4
-EFHIJKNQ 0 0 0
+EFHIJKNQ L B J
 stand stand male 0
 0 0 medium unknown
-r lightning -50
-r poison 100
-r charm 33
 #30803
 necromancer~
 a necromancer~
@@ -89,12 +83,9 @@ human~
 ABFG CDEFJNu -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-EFHIJKNQ 0 0 0
+EFHIJKNQ L B J
 stand stand male 0
 0 0 medium unknown
-r lightning -50
-r poison 100
-r charm 33
 #30805
 wight~
 a wight~
@@ -187,10 +178,9 @@ human~
 ABG CDEFHJN 1000 0
 75 0 50d10+11000 5d5+5000 9d11+45 'pound'
 -45 -45 -45 -9
-EFIJKS 0 0 0
+EFIJKS N 0 0
 stand stand male 0
 0 0 medium unknown
-r holy 100
 #30811
 black dragon~
 a black dragon~

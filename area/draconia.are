@@ -22,6 +22,8 @@ ABG 0 -900 0
 EFNU 0 0 0
 stand stand none 100
 0 0 medium unknown
+F res H
+F vul I
 #2201
 draconian~
 the Draconian~
@@ -139,28 +141,12 @@ You see before you the master of this Tower, Tiamat.  She frowns at you as she
 prepares to make you pay for your insolence ... with your lives!
 ~
 human~
-ABCFl DFTV -1000 0
+ABCF DFTV -1000 0
 52 0 50d10+5500 26d9+100 6d7+20 'none'
 -22 -22 -22 2
-EFNU 0 0 0
+EFNU AB CD 0
 stand stand female 2500
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #2221
 dragon red~
 the Great Red Dragon~
@@ -173,11 +159,10 @@ dragon~
 ABCF DF -1000 0
 54 60 25d10+8000 22d9+900 11d11+26 'none'
 -85 -85 -85 -24
-EFNR 0 0 0
+EFNR H 0 0
 stand stand male 8000
 0 0 medium unknown
-r fire 100
-r cold 0
+F res H
 #2222
 dragon black~
 the Great Black Dragon~
@@ -190,13 +175,11 @@ dragon~
 ABCF DF -900 0
 40 40 15d10+3700 19d9+400 5d9+13 'none'
 -19 -19 -19 -1
-EFNR 0 0 0
+EFNR K 0 J
 stand stand male 1000
 0 0 medium unknown
-r fire 0
-r cold 0
-r lightning -50
-r acid 100
+F res H
+F vul I
 #2223
 dragon white~
 the Great White Dragon~
@@ -210,11 +193,11 @@ dragon~
 ABCF DF -1000 0
 39 20 10d10+3500 18d9+400 3d20+12 'none'
 -12 -12 -12 5
-EFNR 0 0 0
+EFNR I 0 H
 stand stand female 1750
 0 0 medium unknown
-r fire 0
-r cold 33
+F res H
+F vul I
 #2225
 dragon green~
 the Ancient Green Dragon~
@@ -228,13 +211,11 @@ dragon~
 ABCF DF -1000 0
 47 70 25d10+6000 20d9+800 4d8+24 'none'
 -34 -34 -34 -10
-EFNR 0 0 0
+EFNR L 0 P
 stand stand female 1000
 0 0 medium unknown
-r fire 0
-r cold 0
-r mental -50
-r poison 100
+F res H
+F vul I
 #2226
 hydra~
 a large hydra~

@@ -19,17 +19,12 @@ back down. As natives of Mirkwood, they are virtually imposssible to see
 if they don't want to be seen.
 ~
 elf~
-ABCFGl FQ 400 0
+ABCFG FQ 400 0
 5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 10
-DF 0 0 0
+DF ABIN AN GH
 stand sit male 103
 0 0 small unknown
-r slash -50
-r fire -50
-r cold 100
-r holy 100
-r charm 100
 #8801
 sylvan elf warrior~
 a sylvan elf warrior~
@@ -41,16 +36,12 @@ hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
 ~
 elf~
-ABCFGl 0 400 0
+ABCFG 0 400 0
 7 2 2d6+84 1d1+99 1d8+1 'slice'
 5 5 7 10
-CEF 0 0 0
+CEF AB 0 D
 rest stand male 150
 0 0 small unknown
-r bash -50
-r pierce -50
-r slash -50
-r charm 100
 #8802
 orc scout~
 an orc scout~
@@ -62,28 +53,12 @@ in their own demise, but eventually the Elves will be worn down by the
 sheer weight of numbers of the immense Orcish hordes.
 ~
 orc~
-ABCFGHl 0 -400 0
+ABCFGH 0 -400 0
 5 0 2d6+60 1d1+99 1d6+1 'slap'
 10 5 10 10
-CDF 0 0 0
+CDF AB 0 CD
 stand stand male 211
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease 0
-r poison -50
-r charm 33
-r harm -50
 #8803
 orc warrior~
 an orc warrior~
@@ -95,25 +70,12 @@ but eventually the Elves will be worn down by the sheer weight of numbers
 of the immense Orcish hordes.
 ~
 orc~
-ACFGl 0 -400 0
+ACFG 0 -400 0
 5 1 2d6+60 1d1+99 1d6+1 'grep'
 5 5 7 5
-EIN 0 0 0
+EIN AB 0 C
 stand stand male 0
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease 0
-r poison -50
-r charm 33
-r harm -50
 #8804
 guard~
 a wood elf guard~
@@ -123,16 +85,12 @@ This angry guard is incensed at your trespass in the hall of his king, and
 will attempt to forcibly eject you.
 ~
 elf~
-AFGQTl 0 400 8807
+AFGQT 0 400 8807
 8 0 2d7+98 1d1+99 1d7+2 'smash'
 3 3 3 5
-CKNRT 0 0 0
+CKNRT ABHLN 0 0
 stand stand male 50
 0 0 small unknown
-r fire 100
-r holy 100
-r poison 100
-r charm 100
 #8805
 chief guard~
 the chief of the guard~
@@ -147,22 +105,9 @@ elf~
 ABCFGQ 0 400 0
 12 1 2d10+150 1d1+99 1d10+3 'claw'
 1 1 0 7
-CDEFRTU 0 0 0
+CDEFRTU HLN C 0
 stand stand male 100
 0 0 medium unknown
-r fire 100
-r cold 33
-r lightning 33
-r acid 33
-r holy 100
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 100
-r harm 33
-r light 33
 #8806
 galion butler~
 Galion the butler~
@@ -172,13 +117,12 @@ Galion has a tremenous fondness for Dorwinion Wine, and he is now well and
 truly inebriated. However that does not mean he won't react to your intrusion.
 ~
 elf~
-ABCFGl 0 400 0
+ABCFG 0 400 0
 10 0 2d7+120 1d1+99 2d4+2 'punch'
 2 2 2 8
-KN 0 0 0
+KN AB 0 0
 stand stand male 0
 0 0 medium unknown
-r charm 100
 #8807
 thranduil king~
 Thranduil, king of the Wood Elves~
@@ -191,12 +135,9 @@ elf~
 ABGR H 500 0
 15 1 3d9+180 1d1+149 2d5+1 'claw'
 -1 -1 -1 2
-CDEK 0 0 0
+CDEK 0 D 0
 sit sit male 0
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
 #8808
 wood elf male~
 a male wood elf~
@@ -254,11 +195,9 @@ elf~
 ACGQ O 500 0
 14 0 2d10+190 1d1+99 1d12+3 'punch'
 -1 -1 -1 0
-IKNR 0 0 0
+IKNR 0 AIN 0
 stand stand male 40
 0 0 medium unknown
-r cold 33
-r holy 33
 #0
 
 #OBJECTS

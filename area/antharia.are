@@ -19,23 +19,9 @@ human~
 AGT bz 800 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-CDEKLTU 0 0 0
+CDEKLTU 0 C 0
 stand stand male 1000
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #12302
 Suretin~
 Suretin~

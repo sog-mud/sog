@@ -16,15 +16,12 @@ The Guardian lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
 human~
-ABCFl BJQT -1000 0
+ABCF BJQT -1000 0
 43 0 25d10+2750 329d1+100 8d4+15 'slash'
 -15 -15 -15 5
-BCDEH 0 0 0
+BCDEH AB T K
 stand stand male 4200
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #13401
 vampire assistant~
 the vampire lab assistant~
@@ -35,15 +32,12 @@ of magic, and his rather nasty disposition.  He revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
 ~
 human~
-ABCFHl DFJ -1000 13401
+ABCFH DFJ -1000 13401
 40 0 15d10+1850 219d1+100 4d8+13 'beating'
 -13 -13 -13 4
-BCDEH 0 0 0
+BCDEH AB T K
 stand stand male 1200
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #13402
 creature nightmare~
 a warped creature from a nightmare~
@@ -54,15 +48,12 @@ covered with scales, and others with hair.  It's head has 1 large bulbous eye,
 much like that of an insect.  Long talons reach out for you to shred you alive.
 ~
 human~
-AFGHl DFJT -1000 0
+AFGH DFJT -1000 0
 50 0 50d10+4500 399d1+100 5d8+19 'beating'
 -20 -20 -20 2
-BCDEH 0 0 0
+BCDEH AB T K
 stand stand male 5800
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #13403
 creature docile~
 a docile creature~
@@ -75,15 +66,9 @@ human~
 AB JNOu -1000 0
 45 0 25d10+3000 349d1+100 8d4+16 'pierce'
 -15 -15 -15 5
-HO 0 0 0
+HO BEJ PS K
 stand stand either 5199
 0 0 medium unknown
-r bash 100
-r lightning 100
-r acid -50
-r mental 33
-r charm 100
-r light 33
 #13404
 black pudding crate~
 the black pudding~
@@ -93,15 +78,12 @@ As you examine this crate, a black tarlike substance seeps between the boards
 slowly eating the wood away.  It is a black pudding!
 ~
 human~
-ABFl J -1000 0
+ABF J -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 3
-BEF 0 0 0
+BEF ABI 0 K
 stand stand either 0
 0 0 medium unknown
-r cold 100
-r acid -50
-r charm 100
 #13405
 gigantic automaton~
 a gigantic automaton~
@@ -111,15 +93,12 @@ This gigantic construct is made of a metallic substance that you do not
 recognize.  He stands about 8' tall, brushing the ceiling.
 ~
 human~
-ABl HJ 0 0
+AB HJ 0 0
 59 0 50d10+7600 499d1+100 8d6+25 'beating'
 -30 -30 -30 0
-BEF 0 0 0
+BEF ABI 0 K
 stand stand male 0
 0 0 medium unknown
-r cold 100
-r acid -50
-r charm 100
 #13406
 undead guardian~
 the undead guardian~
@@ -129,15 +108,12 @@ This creature is a hovering dark shape.  It does not seem to have a body so
 to speak.  As it approaches you, a harsh chill makes you shiver.
 ~
 human~
-ABFl BDJT -1000 0
+ABF BDJT -1000 0
 55 0 50d10+6000 449d1+100 6d8+21 'beating'
 -25 -25 -25 1
-BEF 0 0 0
+BEF ABI 0 K
 stand stand male 7500
 0 0 medium unknown
-r cold 100
-r acid -50
-r charm 100
 #13407
 roof ceiling lurker above~
 the lurker above~
@@ -147,15 +123,12 @@ that it isn't a ceiling, but a LURKER ABOVE!  You had better attack before
 it drops on you!
 ~
 human~
-ABFHl J -1000 0
+ABFH J -1000 0
 37 0 10d10+1500 269d1+100 3d10+12 'pierce'
 -12 -12 -12 4
-BCDEH 0 0 0
+BCDEH AB T K
 stand stand male 0
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #13408
 vampire servant~
 a vampire servant~
@@ -166,14 +139,12 @@ enough time at night to feed properly.  He is VERY happy that you walked in
 on him.
 ~
 human~
-ABFl BDFJu -1000 0
+ABF BDFJu -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'none'
 -17 -17 -17 2
-BEF 0 0 0
+BEF AB 0 K
 stand stand male 5300
 0 0 medium unknown
-r acid -50
-r charm 100
 #13409
 human automaton~
 the human automaton~
@@ -184,14 +155,12 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABFl JNO -1000 0
+ABF JNO -1000 0
 42 0 25d10+2250 299d1+100 3d12+14 'beating'
 -14 -14 -14 4
-BEF 0 0 0
+BEF AB 0 K
 stand stand male 3400
 0 0 medium unknown
-r acid -50
-r charm 100
 #13410
 human automaton~
 the human automaton~
@@ -202,14 +171,12 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABl JNO -250 0
+AB JNO -250 0
 43 0 25d10+2500 329d1+100 3d12+15 'beating'
 -15 -15 -15 4
-BEF 0 0 0
+BEF AB 0 K
 stand stand male 0
 0 0 medium unknown
-r acid -50
-r charm 100
 #13411
 human automaton~
 the human automaton~
@@ -220,14 +187,12 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABFl JNO 250 0
+ABF JNO 250 0
 46 0 25d10+3250 359d1+100 6d6+16 'beating'
 -16 -16 -16 4
-BEF 0 0 0
+BEF AB 0 K
 stand stand male 0
 0 0 medium unknown
-r acid -50
-r charm 100
 #13412
 human automaton~
 the human automaton~
@@ -238,14 +203,12 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABFl JNO 1000 0
+ABF JNO 1000 0
 49 0 50d10+4000 389d1+100 4d10+18 'beating'
 -20 -20 -20 2
-BEF 0 0 0
+BEF AB 0 K
 stand stand male 0
 0 0 medium unknown
-r acid -50
-r charm 100
 #13413
 torturer lich~
 the torturer lich~
@@ -254,14 +217,12 @@ A blackened creature stands here, ready to cause you excruciating pain.
 You'd better not look to close, he may charm you.
 ~
 human~
-ABFl Ju -1000 0
+ABF Ju -1000 0
 51 0 50d10+4800 409d1+100 5d8+20 'pierce'
 -22 -22 -22 2
-B 0 0 0
+B AB 0 K
 stand stand male 7500
 0 0 medium unknown
-r acid -50
-r charm 100
 #13414
 undead dragon~
 Ciquala's Undead Dragon~
@@ -270,14 +231,12 @@ Ciquala's undead pet dragon is here, snacking on a fresh corpse.
 This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
 dragon~
-ABFl DFu -1000 0
+ABF DFu -1000 0
 60 0 50d10+7600 499d1+100 6d8+24 'beating'
 -30 -30 -30 -10
-B 0 0 0
+B AB 0 K
 stand stand female 9500
 0 0 medium unknown
-r acid -50
-r charm 100
 #13415
 Ciquala lich~
 the lich Ciquala~
@@ -288,15 +247,12 @@ Ciquala still looks majestic after all these thousands of years.  But you can
 see the menace in her eye as she looks at you, and prepares her first spell.
 ~
 human~
-ABFl DFJTu -1000 0
+ABF DFJTu -1000 0
 62 0 50d15+10000 519d1+100 6d9+29 'pierce'
 -35 -35 -35 -1
-BCDEH 0 0 0
+BCDEH AB T K
 stand stand female 10000
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #13416
 lich~
 Lich~
@@ -306,14 +262,12 @@ The Lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
 human~
-ABCFl BDJ -1000 0
+ABCF BDJ -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 1
-B 0 0 0
+B AB 0 K
 stand stand male 6500
 0 0 medium unknown
-r acid -50
-r charm 100
 #13417
 vampire~
 vampire~
@@ -324,14 +278,12 @@ The vampire looks incredibly strong.  He is wearing musty clothes, and has
 large fangs that seem to grow longer as he looks back at you.
 ~
 human~
-ABCFl BDJT -1000 0
+ABCF BDJT -1000 0
 57 0 50d10+6800 469d1+100 6d8+24 'slash'
 -27 -27 -27 1
-B 0 0 0
+B AB 0 K
 stand stand male 7800
 0 0 medium unknown
-r acid -50
-r charm 100
 #13418
 vampire assistant~
 the vampire lab assistant~
@@ -342,15 +294,12 @@ of magic, and his rather nasty disposition.  She revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
 ~
 human~
-ABCFHl DFJ -1000 13401
+ABCFH DFJ -1000 13401
 32 0 10d10+1000 219d1+100 6d4+9 'beating'
 -10 -10 -10 5
-BCDEH 0 0 0
+BCDEH AB T K
 stand stand female 1200
 0 0 medium unknown
-r acid -50
-r sound 33
-r charm 100
 #0
 
 #OBJECTS

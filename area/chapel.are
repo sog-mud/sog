@@ -19,10 +19,9 @@ human~
 AF J 0 0
 1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
-EFNU 0 0 0
+EFNU 0 0 E
 stand stand male 0
 0 0 medium unknown
-r bash -50
 #3401
 undead zombie~
 the undead zombie~

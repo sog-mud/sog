@@ -57,23 +57,9 @@ human~
 ABH 0 500 0
 4 0 1d12+47 1d1+99 1d6+0 'beating'
 8 8 8 10
-I 0 0 0
+I 0 0 C
 rest rest male 0
 0 0 small unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm -50
-r harm -50
-r light -50
 #3503
 innkeeper владелец гостиницы~
 @eng the Innkeeper@rus владелец~
@@ -89,29 +75,12 @@ place that is used to be in days past.
 которым она была в прошлом.
 ~
 human~
-ABTl 0 500 0
+ABT 0 500 0
 10 1 1d12+200 1d1+149 2d8+1 'punch'
 2 2 2 8
-BFKQ 0 0 0
+BFKQ AB CD 0
 stand stand male 350
 0 0 medium unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 100
-r harm 33
-r light 33
 #3504
 bard бродячий певец~
 @eng the bard@rus бард~

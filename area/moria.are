@@ -21,10 +21,9 @@ snake~
 ABF D -200 0
 11 2 11d9+110 1d1+99 3d4+2 'bite'
 -1 0 3 6
-FHNOR 0 0 0
+FHNOR 0 F 0
 stand stand male 0
 0 0 large unknown
-r pierce 33
 #4001
 garter snake змейка садовая~
 @eng the garter snake@rus ~~садовая~~ ~~змейка~~~
@@ -38,10 +37,9 @@ snake~
 ABU J -100 0
 7 0 7d7+60 1d1+99 1d10+1 'bite'
 2 3 5 8
-FHR 0 0 0
+FHR 0 E 0
 stand stand either 0
 0 0 small unknown
-r bash 33
 #4002
 centipede сороконожка~
 @eng the centipede@rus сороконожка~
@@ -88,22 +86,9 @@ orc~
 ACFGT 0 -400 0
 5 2 6d5+50 1d1+199 1d6+3 'beating'
 7 7 7 10
-CDNR 0 0 0
+CDNR 0 C 0
 stand stand male 60
 B 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r poison 33
-r charm 33
-r harm 33
-r light 0
 #4005
 large orc большой орк~
 @eng the large orc@rus ~~большой~~ ~~орк~~~
@@ -150,23 +135,9 @@ human~
 ACFT J -400 0
 7 2 8d7+70 1d1+99 1d7+2 'punch'
 4 5 4 8
-CIQR 0 0 0
+CIQR 0 0 C
 stand stand male 140
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm -50
-r harm -50
-r light -50
 #4052
 hobgoblin хобгоблин~
 @eng the hobgoblin@rus хоб~~гоблин~~~
@@ -183,23 +154,9 @@ hobgoblin~
 ACGHT 0 -300 0
 6 0 6d6+40 1d1+99 1d6+1 'beating'
 6 5 5 8
-N 0 0 0
+N 0 0 C
 stand stand male 12
 0 0 medium unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease 0
-r poison 0
-r charm -50
-r harm -50
-r light -50
 #4053
 snake змея~
 @eng the snake@rus змея~
@@ -214,12 +171,10 @@ snake~
 ABFU J -600 0
 10 1 4d10+100 1d1+99 2d6+1 'bite'
 0 2 2 5
-FGNR 0 0 0
+FGNR 0 EF 0
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
-r bash 33
-r pierce 33
 #4054
 centipede многоножка~
 @eng the centipede@rus многоножка~
@@ -253,21 +208,9 @@ hobgoblin~
 ACGT 0 -500 0
 10 2 2d10+120 1d1+149 2d4+3 'punch'
 2 2 1 5
-CDJR 0 0 0
+CDJR 0 C 0
 stand stand male 210
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r charm 33
-r harm 33
-r light 33
 #4056
 orc орк~
 @eng the orc@rus орк~
@@ -301,11 +244,10 @@ cat~
 AFG 0 -100 0
 9 2 4d10+100 1d1+99 2d6+1 'claw'
 0 0 0 4
-ER 0 0 0
+ER 0 E 0
 stand stand none 0
 0 0 large unknown
 g @eng none@rus male~
-r bash 33
 #4058
 giant hill гигант холмов~
 @eng the hill giant@rus ~~гигант~~ с холмов~
@@ -323,12 +265,9 @@ giant~
 AGT 0 0 0
 13 2 10d10+150 10d10+100 2d6+6 'smash'
 0 -2 0 4
-DOR 0 0 0
+DOR 0 D 0
 stand stand male 500
 0 0 huge unknown
-r bash 33
-r pierce 33
-r slash 33
 #4100
 mage Маг~
 @eng the Mage@rus маг~
@@ -344,23 +283,9 @@ human~
 ABCFR D -100 0
 13 1 7d5+130 13d10+100 1d6+2 'punch'
 -2 -2 -2 2
-FQ 0 0 0
+FQ 0 C 0
 stand stand male 400
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #4101
 troll тролль~
 @eng the troll@rus тролль~
@@ -393,11 +318,9 @@ snake~
 ABCF J -700 0
 10 2 4d10+100 1d1+99 2d6+1 'bite'
 0 0 2 6
-HMNOR 0 0 0
+HMNOR 0 F G
 stand stand female 0
 0 0 medium unknown
-r pierce 33
-r slash -50
 #4103
 thief вор~
 @eng the thief@rus вор~
@@ -493,11 +416,10 @@ bat~
 ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'shbite'
 4 4 4 6
-R 0 0 0
+R J 0 RYZ
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r lightning 100
 #4151
 bat red красная летучая мышь~
 @eng the red bat@rus ~~красная~~ ~~летучая~~ ~~мышь~~~
@@ -512,12 +434,10 @@ bat~
 ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'flbite'
 4 4 4 6
-R 0 0 0
+R H 0 IR
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r fire 100
-r cold -50
 #4152
 bat green зеленая летучая мышь~
 @eng the green bat@rus ~~зеленая~~ ~~летучая~~ ~~мышь~~~
@@ -532,11 +452,10 @@ bat~
 ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'bite'
 4 4 4 6
-R 0 0 0
+R L 0 0
 stand stand none 0
 B 0 tiny unknown
 g @eng none@rus female~
-r poison 100
 #4153
 bat white белая летучая мышь~
 @eng the white bat@rus ~~белая~~ ~~летучая~~ ~~мышь~~~
@@ -551,12 +470,10 @@ bat~
 ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'frbite'
 4 4 4 6
-R 0 0 0
+R I 0 H
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r fire -50
-r cold 100
 #4154
 bat black черная летучая мышь~
 @eng the black bat@rus ~~черная~~ ~~летучая~~ ~~мышь~~~
@@ -570,11 +487,10 @@ bat~
 ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'acbite'
 4 4 4 6
-R 0 0 0
+R K 0 0
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
-r acid 100
 #4155
 thief вор~
 @eng the thief@rus вор~
@@ -604,23 +520,9 @@ troll~
 ABCFT 0 -700 0
 14 3 8d20+140 14d4+100 3d4+5 'claw'
 -1 -3 -1 4
-CEOR 0 0 0
+CEOR 0 0 C
 stand stand male 1000
 0 0 huge unknown
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm 0
-r harm -50
-r light -50
 #4157
 mage маг~
 @eng the Mage@rus маг~
@@ -636,23 +538,9 @@ human~
 ACFGR J -200 0
 11 0 4d10+100 11d12+100 1d6+1 'beating'
 0 0 0 2
-QU 0 0 0
+QU 0 C 0
 stand stand male 200
 0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r charm 33
-r harm 33
-r light 33
 #4158
 snake змея~
 @eng the snake@rus змея~
@@ -668,11 +556,9 @@ snake~
 ABFU J 200 0
 9 1 2d10+100 1d1+99 1d12+1 'bite'
 1 3 3 6
-FGNR 0 0 0
+FGNR 0 EF 0
 fight fight female 0
 0 0 medium unknown
-r bash 33
-r pierce 33
 #4159
 troll small троль маленький~
 @eng the small troll@rus ~~маленький~~ ~~тролль~~~

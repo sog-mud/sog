@@ -15,13 +15,12 @@ Grumm, King of the Goblins isn't happy to see you.
 You see a balding, overweight goblin, but he looks quite tough!
 ~
 goblin~
-ABFHTl b -600 0
+ABFHT b -600 0
 19 0 10d5+250 1d1+99 2d4+1 'none'
 4 4 4 1
-FKNPR 0 0 0
+FKNPR A B 0
 stand stand male 800
 0 0 medium unknown
-r charm 0
 #29002
 shaman goblin~
 The goblin shaman~
@@ -30,10 +29,10 @@ A goblin up from his writing and glares at your intrusion on his work.
 His face is sour and pale. He probably takes his religion very seriously.
 ~
 goblin~
-ABFHQl 0 -600 0
+ABFHQ 0 -600 0
 15 0 5d6+150 1d1+199 2d3+2 'none'
 5 5 5 0
-PR 0 0 0
+PR A 0 0
 stand stand male 90
 0 0 medium unknown
 #29003
@@ -47,10 +46,10 @@ your dog would not sleep in, he is much smaller than the other goblins in the
 stronghold.
 ~
 goblin~
-ABFHRl BCDEFVd -600 0
+ABFHR BCDEFVd -600 0
 15 0 5d6+150 1d1+199 1d4+1 'none'
 2 2 2 8
-PR 0 0 0
+PR A 0 0
 stand stand male 100
 0 0 medium unknown
 #29004
@@ -61,13 +60,12 @@ Before you is the biggest goblin you have ever seen.
 Knarl glares right back at you.
 ~
 goblin~
-ABFTl FPVb -1000 0
+ABFT FPVb -1000 0
 20 0 5d5+350 1d1+99 2d4+2 'none'
 5 5 5 0
-CDEFKPR 0 0 0
+CDEFKPR A B 0
 stand stand male 100
 0 0 medium unknown
-r charm 0
 #29005
 guard goblin~
 goblin guard~
@@ -76,10 +74,10 @@ A goblin guard eyes you suspiciously.
 A bit larger than your average goblin, guards are bullies to the others.
 ~
 goblin~
-ABFTl 0 -600 29005
+ABFT 0 -600 29005
 12 0 1d5+250 1d1+99 1d3+3 'none'
 3 3 3 0
-R 0 0 0
+R A 0 0
 stand stand male 100
 0 0 medium unknown
 #29006
@@ -90,26 +88,12 @@ A goblin guard eyes you suspiciously.
 A bit larger than your average goblin, guards are bullies to the others.
 ~
 goblin~
-AFTl 0 -600 29006
+AFT 0 -600 29006
 13 0 1d5+240 1d1+99 1d3+1 'none'
 3 3 3 0
-EKR 0 0 0
+EKR AQ C 0
 stand stand male 100
 0 0 medium unknown
-r fire 0
-r cold 0
-r lightning 0
-r acid 0
-r holy 0
-r negative 0
-r energy 0
-r mental 0
-r sound 0
-r disease 100
-r poison 0
-r charm 0
-r harm 0
-r light 0
 #29007
 goblin~
 The goblin~
@@ -118,10 +102,10 @@ A goblin is here, slacking off.
 He's ugly, green, and smelly... What's more to say?
 ~
 goblin~
-AFTl 0 -600 29007
+AFT 0 -600 29007
 12 0 5d12+105 1d1+99 1d3+2 'none'
 2 2 2 0
-R 0 0 0
+R A 0 0
 stand stand male 0
 0 0 small unknown
 #29008
@@ -146,14 +130,12 @@ This goblin looks very sick.
 He screams! Don't look at me!! Aaargh... leper outcast unclean!
 ~
 goblin~
-ACFGSl FPQXbd 0 29009
+ACFGS FPQXbd 0 29009
 15 0 5d5+200 1d1+99 2d3+3 'none'
 3 3 3 0
-BDEFR 0 0 0
+BDEFR AB 0 Q
 stand stand male 2
 0 0 small unknown
-r disease -50
-r charm 33
 #29010
 goblin~
 the goblin~
@@ -162,10 +144,10 @@ A goblin is here, peeling potatoes.
 He's ugly, green, and smelly... What's more to say?
 ~
 goblin~
-ABFTl 0 -600 29010
+ABFT 0 -600 29010
 14 0 10d2+230 1d1+99 2d3+1 'none'
 2 2 2 0
-R 0 0 0
+R A 0 0
 stand stand male 20
 0 0 small unknown
 #29011
@@ -176,17 +158,12 @@ A dark, horned figure is trapped inside the pentagram.
 He really wants to get out of that pentagram. Maybe you should let him out?
 ~
 human~
-ABGl Jbu -1000 0
+ABG Jbu -1000 0
 20 0 1d1+399 1d1+149 5d4+5 'none'
 -7 -7 -7 5
-CDEFIKMN 0 0 0
+CDEFIKMN AB HQ EN
 stand stand male 100
 0 0 large unknown
-r bash -50
-r fire 33
-r holy -50
-r disease 33
-r charm 100
 #29012
 girl dancing goblin Britta~
 the dancing girl~
@@ -195,10 +172,10 @@ A pretty female goblin entertains the court.
 She is quite pretty, even for a goblin.
 ~
 goblin~
-ABFTl 0 -600 0
+ABFT 0 -600 0
 9 0 10d2+120 1d1+99 1d4+1 'none'
 2 2 2 0
-R 0 0 0
+R A 0 0
 stand stand female 100
 0 0 small unknown
 #29013
@@ -209,10 +186,10 @@ A obnoxious little runt makes fun of you.
 He wears a stupid green suit with bells on it. You hate him.
 ~
 goblin~
-AFTl 0 -600 0
+AFT 0 -600 0
 11 0 10d2+145 1d1+99 1d4+1 'none'
 2 2 2 0
-0 0 0 0
+0 A 0 0
 stand stand male 10
 0 0 small unknown
 #0
