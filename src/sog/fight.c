@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.89 1998-10-21 05:00:28 fjoe Exp $
+ * $Id: fight.c,v 1.90 1998-10-22 08:48:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1354,14 +1354,24 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
+	/*
+	 * ghosts are safe
+	 * this check must be done first to avoid
+	 * suicyco muttafuckas who recite 'leather-bound book' (#5743)
+	 * without any target specified
+	 * extracted NPCs are safe too
+	 */
+	if (!IS_NPC(victim)) {
+		if (IS_SET(victim->act, PLR_GHOST))
+			return TRUE;
+	}
+	else if (victim->extracted)
+		return TRUE;
+
 	if (victim->fighting == ch
 	||  ch == victim
 	||  IS_IMMORTAL(ch))
 		return FALSE;
-
-	/* Ghosts are safe */
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-		return TRUE;
 
 	/* handle ROOM_SAFE flags */
 	if ((victim->in_room != NULL &&

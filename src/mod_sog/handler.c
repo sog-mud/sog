@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.78 1998-10-21 05:00:28 fjoe Exp $
+ * $Id: handler.c,v 1.79 1998-10-22 08:48:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1889,7 +1889,6 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	if (ch->desc != NULL)
 		ch->desc->character = NULL;
 	free_char(ch);
-	return;
 }
 
 /*

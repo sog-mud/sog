@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.31 1998-10-12 04:56:40 fjoe Exp $
+ * $Id: special.c,v 1.32 1998-10-22 08:48:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1450,8 +1450,15 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 	int num = 1;
 	CHAR_DATA *vch;
 	char name[MAX_STRING_LENGTH];
+	int sn;
+	sflag_t target;
 
-	if (ch->fighting == victim) {
+	if ((sn = sn_lookup(spell_name)) < 0)
+		return;
+	target = SKILL(sn)->target;
+
+	if (ch->fighting == victim
+	&&  (target == TAR_CHAR_OFFENSIVE || target == TAR_OBJ_CHAR_OFF)) {
 		doprintf(interpret, ch, "cast '%s'", spell_name);
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.72 1998-10-17 16:55:20 fjoe Exp $
+ * $Id: spellfun.c,v 1.73 1998-10-22 08:48:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -83,6 +83,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	SKILL_DATA *spell;
 	CLASS_DATA *cl;
 	PC_SKILL *ps;
+	int bane_chance;
 
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
@@ -167,6 +168,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	obj		= NULL;
 	vo		= NULL;
 	target		= TARGET_NONE;
+	bane_chance	= 100;
 
 	switch (spell->target) {
 	default:
@@ -174,15 +176,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 
 	case TAR_IGNORE:
-		if (is_affected(ch, gsn_spellbane)) {
-			act_puts("Your spellbane deflects the spell!",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n's spellbane deflects the spell!",
-			    ch, NULL, NULL, TO_ROOM);
-			damage(ch, ch, 3 * ch->level, gsn_spellbane,
-			       DAM_NEGATIVE, TRUE);
-			return;
-		}
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
@@ -219,30 +212,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-
-		if (is_affected(victim, gsn_spellbane)
-		&&  (number_percent() < 2*get_skill(ch, gsn_spellbane)/3)) {
-			if (ch == victim) {
-				act_puts("Your spellbane deflects the spell!",
-					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				act("$n's spellbane deflects the spell!",
-				    ch, NULL, NULL, TO_ROOM);
-				damage(ch, ch, 3 * ch->level,
-				       gsn_spellbane, DAM_NEGATIVE, TRUE);
-			}
-			else {
-	        		act_puts("$N deflects your spell!",
-					 ch, NULL, victim, TO_CHAR, POS_DEAD);
-	        		act("You deflect $n's spell!",
-				    ch, NULL, victim, TO_VICT);
-				act("$N deflects $n's spell!",
-				    ch, NULL, victim, TO_NOTVICT);
-				damage(victim, ch, 3 * victim->level,
-				       gsn_spellbane, DAM_NEGATIVE, TRUE);
-				multi_hit(victim, ch, TYPE_UNDEFINED);
-	        	}
-			return;
-		}
+		bane_chance = 2*get_skill(ch, gsn_spellbane)/3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -257,41 +227,23 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-	    if (is_affected(victim,gsn_spellbane))
-	      {
-	        if (ch==victim)
-	          {
-	            act_puts("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR, POS_DEAD);
-	            act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	            damage(victim,ch,3 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);              }
-	        else {
-	          act_puts("$N deflects your spell!",ch,NULL,victim,TO_CHAR, POS_DEAD);
-	          act("You deflect $n's spell!",ch,NULL,victim,TO_VICT);
-	          act("$N deflects $n's spell!",ch,NULL,victim,TO_NOTVICT);
-	          damage(victim,ch,3 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        }
-	        return;
-	      }
 		break;
 
 	case TAR_CHAR_SELF:
-		if (target_name[0] != '\0' && !is_name(target_name, ch->name)) {
-			char_puts("You cannot cast this spell on another.\n\r",
-				  ch);
-			return;
+		if (target_name[0] == '\0')
+			victim = ch;
+		else {
+			if ((victim = get_char_room(ch, target_name)) == NULL
+			||  (!IS_NPC(ch) && victim != ch)) {
+				char_puts("You cannot cast this spell "
+					  "on another.\n\r", ch);
+				char_puts("They aren't here.\n\r", ch);
+				return;
+			}
 		}
 
-		vo = (void *) ch;
+		vo = (void *) victim;
 		target = TARGET_CHAR;
-
-	    if (is_affected(ch,gsn_spellbane))
-	      {
-	        act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	        act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	        damage(ch,ch,3 * ch->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        return;
-	      }
-
 		break;
 
 	case TAR_OBJ_INV:
@@ -308,13 +260,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		vo = (void *) obj;
 		target = TARGET_OBJ;
-	    if (is_affected(ch,gsn_spellbane))
-	      {
-	        act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	        act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	        damage(ch,ch,3 * ch->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        return;
-	      }
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
@@ -357,27 +302,51 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
-		if (target_name[0] == '\0')
-		{
-		    vo = (void *) ch;
-		    target = TARGET_CHAR;
+		if (target_name[0] == '\0') {
+			vo = (void *) ch;
+			target = TARGET_CHAR;
 		}
-		else if ((victim = get_char_room(ch,target_name)) != NULL)
-		{
-		    vo = (void *) victim;
-		    target = TARGET_CHAR;
+		else if ((victim = get_char_room(ch,target_name))) {
+			vo = (void *) victim;
+			target = TARGET_CHAR;
 		}
-		else if ((obj = get_obj_carry(ch,target_name)) != NULL)
-		{
-		    vo = (void *) obj;
-		    target = TARGET_OBJ;
+		else if ((obj = get_obj_carry(ch,target_name))) {
+			vo = (void *) obj;
+			target = TARGET_OBJ;
 		}
-		else
-		{
-		    char_puts("You don't see that here.\n\r",ch);
-		    return;
+		else {
+			char_puts("You don't see that here.\n\r",ch);
+			return;
 		}
 		break;
+	}
+
+	if (!victim)
+		victim = ch;
+
+	if (victim && is_affected(victim, gsn_spellbane)
+	&&  number_percent() < bane_chance) {
+		if (ch == victim) {
+			act_puts("Your spellbane deflects the spell!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("$n's spellbane deflects the spell!",
+			    ch, NULL, NULL, TO_ROOM);
+			damage(ch, ch, 3 * ch->level, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+		}
+		else {
+	       		act_puts("$N deflects your spell!",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+	       		act("You deflect $n's spell!",
+			    ch, NULL, victim, TO_VICT);
+			act("$N deflects $n's spell!",
+			    ch, NULL, victim, TO_NOTVICT);
+			damage(victim, ch, 3 * victim->level, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+			if (!is_safe(victim, ch))
+				multi_hit(victim, ch, TYPE_UNDEFINED);
+	       	}
+		return;
 	}
 
 	if (str_cmp(spell->name, "ventriloquate"))
@@ -432,15 +401,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
-		for (vch = ch->in_room->people; vch; vch = vch_next)
-		{
-		    vch_next = vch->next_in_room;
-		    if (victim == vch && victim->fighting == NULL)
-		    {
-			if (victim->position != POS_SLEEPING)
-			multi_hit(victim, ch, TYPE_UNDEFINED);
-			break;
-		    }
+		for (vch = ch->in_room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
+			if (victim == vch && victim->fighting == NULL) {
+				if (victim->position != POS_SLEEPING)
+				multi_hit(victim, ch, TYPE_UNDEFINED);
+				break;
+			}
 		}
 	}
 }
@@ -454,10 +421,14 @@ void obj_cast_spell(int sn, int level,
 	void *vo;
 	int target = TARGET_NONE;
 	SKILL_DATA *spell;
+	int bane_chance;
 
-	if (sn <= 0 || (spell = skill_lookup(sn)) == NULL || spell->spell_fun == NULL)
+	if (sn <= 0
+	||  (spell = skill_lookup(sn)) == NULL
+	||  spell->spell_fun == NULL)
 		return;
 
+	bane_chance = 100;
 	switch (spell->target) {
 	default:
 		bug("Obj_cast_spell: bad target for sn %d.", sn);
@@ -469,11 +440,10 @@ void obj_cast_spell(int sn, int level,
 
 	case TAR_CHAR_OFFENSIVE:
 		if (victim == NULL)
-		    victim = ch->fighting;
-		if (victim == NULL)
-		{
-		    char_puts("You can't do that.\n\r", ch);
-		    return;
+			victim = ch->fighting;
+		if (victim == NULL) {
+			char_puts("You can't do that.\n\r", ch);
+			return;
 		}
 		if (is_safe(ch, victim)) {
 			char_puts("Something isn't right...\n\r",ch);
@@ -481,24 +451,7 @@ void obj_cast_spell(int sn, int level,
 		}
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-	    if (is_affected(victim,gsn_spellbane) && (/*IS_NPC(victim) ||*/
-	            number_percent() < 2*get_skill(ch, gsn_spellbane)/3))
-	      {
-	        if (ch==victim)
-	          {
-	            act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	            act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	            damage(victim,ch,10 * level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	          }
-	        else {
-	          act("$N deflects your spell!",ch,NULL,victim,TO_CHAR);
-	          act("You deflect $n's spell!",ch,NULL,victim,TO_VICT);
-	          act("$N deflects $n's spell!",ch,NULL,victim,TO_NOTVICT);
-	          damage(victim,ch,10 * victim->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        }
-	        return;
-	      }
-
+		bane_chance = 2 * get_skill(ch, gsn_spellbane) / 3;
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
@@ -507,87 +460,86 @@ void obj_cast_spell(int sn, int level,
 			victim = ch;
 		vo = (void *) victim;
 		target = TARGET_CHAR;
-		if (is_affected(victim,gsn_spellbane) && ch != victim) {
-			act("$N deflects your spell!", ch, NULL,
-			    victim, TO_CHAR);
-			act("You deflect $n's spell!", ch, NULL,
-			    victim, TO_VICT);
-			act("$N deflects $n's spell!", ch, NULL,
-			    victim, TO_NOTVICT);
-			damage(victim, ch, 10 * victim->level, gsn_spellbane,
-			       DAM_NEGATIVE, TRUE);
-			return;
-		}
 		break;
 
 	case TAR_OBJ_INV:
-		if (obj == NULL)
-		{
-		    char_puts("You can't do that.\n\r", ch);
-		    return;
+		if (obj == NULL) {
+			char_puts("You can't do that.\n\r", ch);
+			return;
 		}
 		vo = (void *) obj;
 		target = TARGET_OBJ;
-	    if (is_affected(ch,gsn_spellbane))
-	      {
-	        act("Your spellbane deflects the spell!",ch,NULL,NULL,TO_CHAR);
-	        act("$n's spellbane deflects the spell!",ch,NULL,NULL,TO_ROOM);
-	        damage(ch,ch,3 * ch->level,gsn_spellbane,DAM_NEGATIVE, TRUE);
-	        return;
-	      }
-
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
 		if (victim == NULL && obj == NULL)
-		    if (ch->fighting != NULL)
-			victim = ch->fighting;
-		    else
-		    {
-			char_puts("You can't do that.\n\r",ch);
-			return;
-		    }
+			if (ch->fighting != NULL)
+				victim = ch->fighting;
+			else {
+				char_puts("You can't do that.\n\r", ch);
+				return;
+			}
 
-		    if (victim != NULL)
-		    {
+		if (victim) {
 			if (is_safe(ch, victim)) {
-			    char_puts("Somehting isn't right...\n\r",ch);
+			    char_puts("Somehting isn't right...\n\r", ch);
 			    return;
 			}
 
 			vo = (void *) victim;
 			target = TARGET_CHAR;
-		    }
-		    else
-		    {
+		}
+		else {
 			vo = (void *) obj;
 			target = TARGET_OBJ;
-		    }
+		}
 		break;
 
-
 	case TAR_OBJ_CHAR_DEF:
-		if (victim == NULL && obj == NULL)
-		{
-		    vo = (void *) ch;
-		    target = TARGET_CHAR;
+		if (victim == NULL && obj == NULL) {
+			vo = (void *) ch;
+			target = TARGET_CHAR;
 		}
-		else if (victim != NULL)
-		{
-		    vo = (void *) victim;
-		    target = TARGET_CHAR;
+		else if (victim != NULL) {
+			vo = (void *) victim;
+			target = TARGET_CHAR;
 		}
-		else
-		{
-		    vo = (void *) obj;
-		    target = TARGET_OBJ;
+		else {
+			vo = (void *) obj;
+			target = TARGET_OBJ;
 		}
-
 		break;
 	}
 
-	if ((target == TARGET_CHAR && ((CHAR_DATA*) vo)->extracted)
-	||  (target == TARGET_OBJ && ((OBJ_DATA*) vo)->extracted))
+	if (!victim)
+		victim = ch;
+
+	if (is_affected(victim, gsn_spellbane)
+	&&  number_percent() < bane_chance) {
+		if (ch == victim) {
+	        	act_puts("Your spellbane deflects the spell!",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("$n's spellbane deflects the spell!",
+			    ch, NULL, NULL, TO_ROOM);
+			damage(ch, ch, 10 * level, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+		}
+	        else {
+			act_puts("$N deflects your spell!",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+			act("You deflect $n's spell!",
+			    ch, NULL, victim, TO_VICT);
+			act("$N deflects $n's spell!",
+			    ch, NULL, victim, TO_NOTVICT);
+			damage(victim, ch, 10 * victim->level, gsn_spellbane,
+			       DAM_NEGATIVE, TRUE);
+			if (!is_safe(victim, ch))
+				multi_hit(victim, ch, TYPE_UNDEFINED);
+	        }
+	        return;
+	}
+
+	if (target == TARGET_OBJ && ((OBJ_DATA*) vo)->extracted)
 		return;
 
 	target_name = str_empty;
@@ -600,19 +552,15 @@ void obj_cast_spell(int sn, int level,
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
-		for (vch = ch->in_room->people; vch; vch = vch_next)
-		{
-		    vch_next = vch->next_in_room;
-		    if (victim == vch && victim->fighting == NULL)
-		    {
-			multi_hit(victim, ch, TYPE_UNDEFINED);
-			break;
-		    }
+		for (vch = ch->in_room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
+			if (victim == vch && victim->fighting == NULL) {
+				multi_hit(victim, ch, TYPE_UNDEFINED);
+				break;
+			}
 		}
 	}
 }
-
-
 
 /*
  * Spell functions.
@@ -628,8 +576,6 @@ void spell_acid_blast(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	damage(ch, victim, dam, sn,DAM_ACID,TRUE);
 	return;
 }
-
-
 
 void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
@@ -2282,7 +2228,6 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 		act("$p glows brightly, then fades...oops.",ch,obj,NULL,TO_CHAR);
 		act("$p glows brightly, then fades.",ch,obj,NULL,TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 		/* remove all affects */
 		for (paf = obj->affected; paf != NULL; paf = paf_next)
@@ -2292,8 +2237,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		}
 		obj->affected = NULL;
 
-		/* clear all flags */
-		obj->extra_flags = 0;
+		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 		return;
 	}
 
@@ -2375,9 +2319,6 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 }
-
-
-
 
 void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 {
@@ -2474,7 +2415,6 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 		act("$p glows brightly, then fades...oops.",ch,obj,NULL,TO_CHAR);
 		act("$p glows brightly, then fades.",ch,obj,NULL,TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 
 		/* remove all affects */
 		for (paf = obj->affected; paf != NULL; paf = paf_next)
@@ -2484,8 +2424,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 		}
 		obj->affected = NULL;
 
-		/* clear all flags */
-		obj->extra_flags = 0;
+		SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
 		return;
 	}
 

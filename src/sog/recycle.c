@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.32 1998-10-20 19:57:42 fjoe Exp $
+ * $Id: recycle.c,v 1.33 1998-10-22 08:48:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,11 +107,20 @@ void free_affect(AFFECT_DATA *af)
 	free(af);
 }
 
+OBJ_DATA *free_obj_list;
+
 OBJ_DATA *new_obj(void)
 {
 	OBJ_DATA *obj;
 
-	obj = calloc(1, sizeof(*obj));
+	if (free_obj_list) {
+		obj = free_obj_list;
+		free_obj_list = free_obj_list->next;
+		memset(obj, '\0', sizeof(*obj));
+	}
+	else
+		obj = calloc(1, sizeof(*obj));
+
 	obj->altar = ROOM_VNUM_ALTAR;
 	obj->pit = OBJ_VNUM_PIT;
 
@@ -141,15 +150,26 @@ void free_obj(OBJ_DATA *obj)
 	mlstr_free(obj->short_descr);
 	free_string(obj->owner);
 	free_string(obj->material);
-	free(obj);
+
+	obj->next = free_obj_list;
+	free_obj_list = obj;
 }
+
+CHAR_DATA *free_char_list;
 
 CHAR_DATA *new_char (void)
 {
 	CHAR_DATA *ch;
 	int i;
 
-	ch = calloc(1, sizeof(*ch));
+	if (free_char_list) {
+		ch = free_char_list;
+		free_char_list = free_char_list->next;
+		memset(ch, '\0', sizeof(*ch));
+	}
+	else
+		ch = calloc(1, sizeof(*ch));
+
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
 	ch->prefix		= str_empty;
@@ -203,7 +223,9 @@ void free_char(CHAR_DATA *ch)
 
 	if (ch->pcdata != NULL)
 		free_pcdata(ch->pcdata);
-	free(ch);
+
+	ch->next = free_char_list;
+	free_char_list = ch;
 }
 
 PC_DATA *new_pcdata(void)
