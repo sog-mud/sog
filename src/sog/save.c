@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.13 1998-05-05 18:08:15 fjoe Exp $
+ * $Id: save.c,v 1.14 1998-05-07 07:05:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@
 #include "act_info.h"
 #include "resource.h"
 #include "hometown.h"
+#include "magic.h"
  
 extern  int     _filbuf         args( (FILE *) );
 

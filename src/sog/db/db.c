@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.7 1998-04-29 11:27:22 efdi Exp $
+ * $Id: db.c,v 1.8 1998-05-07 07:05:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,7 @@
 #include "lookup.h"
 #include "act_wiz.h"
 #include "comm.h"
+#include "magic.h"
 
 void load_limited_objects();
 

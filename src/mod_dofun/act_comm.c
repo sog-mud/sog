@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.13 1998-05-06 09:34:23 fjoe Exp $
+ * $Id: act_comm.c,v 1.14 1998-05-07 07:04:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "tables.h"
 #include "interp.h"
 #include "resource.h"
+#include "act_comm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);

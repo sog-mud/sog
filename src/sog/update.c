@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.12 1998-05-05 03:22:19 fjoe Exp $
+ * $Id: update.c,v 1.13 1998-05-07 07:05:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include "comm.h"
 #include "act_info.h"
 #include "resource.h"
+#include "magic.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);

@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.37 1998-05-05 18:08:15 fjoe Exp $
+ * $Id: resource.h,v 1.38 1998-05-07 07:05:05 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -348,6 +348,8 @@ enum {
 	MOVE_YOU_FAILED_TO_PASS,
 	MOVE_N_TRIES_TO_PASS_FAILED,
 	MOVE_TOO_PUMPED_TO_PRAY,
+	TATTOO_GLOWS_BLUE,
+	TATTOO_GLOWS_RED,
 };
 
 #endif

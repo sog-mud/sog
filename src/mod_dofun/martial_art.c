@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.3 1998-04-26 17:08:07 efdi Exp $
+ * $Id: martial_art.c,v 1.4 1998-05-07 07:05:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,8 @@
 #include "recycle.h"
 #include "db.h"
 #include "comm.h"
+#include "magic.h"
+#include "act_comm.h"
 
 DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_sleep		);

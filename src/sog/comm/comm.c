@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.20 1998-05-05 03:22:19 fjoe Exp $
+ * $Id: comm.c,v 1.21 1998-05-07 07:05:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -81,6 +81,7 @@
 #include "resource.h"
 #include "charset.h"
 #include "hometown.h"
+#include "magic.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -2619,6 +2620,17 @@ void char_printf (CHAR_DATA* ch, const char* format, ...)
 	va_end(ap);
 }
 
+void char_nprintf(CHAR_DATA* ch, int msgid, ...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, msgid);
+	vsprintf(buf, msg(msgid, ch), ap);
+	char_puts(buf, ch);
+	va_end(ap);
+}
+
 /*
  * Write to one char, new color version, by Lope. (taken from Rot)
  */
@@ -2753,12 +2765,6 @@ void fix_sex(CHAR_DATA *ch)
 {
     if (ch->sex < 0 || ch->sex > 2)
     	ch->sex = IS_NPC(ch) ? 0 : ch->pcdata->true_sex;
-}
-
-void act (const char *format, CHAR_DATA *ch, const void *arg1, 
-		const void *arg2, int type)
-{
-    act_puts(format,ch,arg1,arg2,type,POS_RESTING);
 }
 
 /*

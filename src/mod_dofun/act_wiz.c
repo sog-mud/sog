@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.7 1998-05-05 03:22:18 fjoe Exp $
+ * $Id: act_wiz.c,v 1.8 1998-05-07 07:04:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,7 @@
 #include "act_info.h"
 #include "act_wiz.h"
 #include "hometown.h"
+#include "magic.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.13 1998-05-06 09:25:26 fjoe Exp $
+ * $Id: merc.h,v 1.14 1998-05-07 07:05:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2934,14 +2934,6 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define SF	SPEC_FUN
 #define AD	AFFECT_DATA
 
-/* act_comm.c */
-void	check_sex	args( ( CHAR_DATA *ch) );
-void	add_follower	args( ( CHAR_DATA *ch, CHAR_DATA *master ) );
-void	stop_follower	args( ( CHAR_DATA *ch ) );
-void	nuke_pets	args( ( CHAR_DATA *ch ) );
-void	die_follower	args( ( CHAR_DATA *ch ) );
-bool	is_same_group	args( ( CHAR_DATA *ach, CHAR_DATA *bch ) );
-
 /* act_hera.c */
 /* enter.c */
 RID  *get_random_room	args ( (CHAR_DATA *ch) );
@@ -3121,14 +3113,6 @@ char *	one_argument	args( ( char *argument, char *arg_first ) );
 void	substitute_alias args( (DESCRIPTOR_DATA *d, char *input) );
 
 
-/* magic.c */
-int	find_spell	args( ( CHAR_DATA *ch, const char *name) );
-int	mana_cost	(CHAR_DATA *ch, int min_mana, int level);
-int	skill_lookup	args( ( const char *name ) );
-int	slot_lookup	args( ( int slot ) );
-bool	saves_spell	args( ( int level, CHAR_DATA *victim, int dam_type ) );
-bool	check_dispel	args(( int dis_level, CHAR_DATA *victim, int sn));
-void	obj_cast_spell	args( ( int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj ) );
 /* save.c */
 void	save_char_obj	args( ( CHAR_DATA *ch ) );
 bool	load_char_obj	args( ( DESCRIPTOR_DATA *d, char *name ) );

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.5 1998-05-05 01:18:44 fjoe Exp $
+ * $Id: spellfun.c,v 1.6 1998-05-07 07:05:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "comm.h"
 #include "db.h"
 #include "hometown.h"
+#include "act_comm.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -4174,21 +4175,20 @@ void spell_magic_missile( int sn, int level, CHAR_DATA *ch,void *vo,int target)
 
 void spell_mass_healing(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-    CHAR_DATA *gch;
-    int heal_num, refresh_num;
+	CHAR_DATA *gch;
+	int heal_num, refresh_num;
 
-    heal_num = skill_lookup("heal");
-    refresh_num = skill_lookup("refresh");
+	heal_num = skill_lookup("heal");
+	refresh_num = skill_lookup("refresh");
 
-    for ( gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room )
-    {
-	if ((IS_NPC(ch) && IS_NPC(gch)) ||
-	    (!IS_NPC(ch) && !IS_NPC(gch)))
-	{
-	    spell_heal(heal_num,level,ch,(void *) gch,TARGET_CHAR);
-	    spell_refresh(refresh_num,level,ch,(void *) gch,TARGET_CHAR);
-	}
-    }
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room)
+		if ((IS_NPC(ch) && IS_NPC(gch))
+		||  (!IS_NPC(ch) && !IS_NPC(gch))) {
+			spell_heal(heal_num, level, ch, (void *) gch,
+				   TARGET_CHAR);
+			spell_refresh(refresh_num, level, ch, (void *) gch,
+				      TARGET_CHAR);
+		}
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.5 1998-04-29 12:41:16 indra Exp $
+ * $Id: fight.c,v 1.6 1998-05-07 07:05:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,8 @@
 #include "db.h"
 #include "comm.h"
 #include "hometown.h"
+#include "act_comm.h"
+#include "magic.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
