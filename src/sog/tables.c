@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.134 2000-03-02 17:14:12 avn Exp $
+ * $Id: tables.c,v 1.135 2000-03-03 04:09:11 avn Exp $
  */
 
 /***************************************************************************
@@ -672,55 +672,6 @@ flaginfo_t rapply_flags[] =
 	{ NULL }
 };
 
-flaginfo_t resist_flags[] =
-{
-	{ "",			TABLE_INTVAL			},
-
-	{ "bash",		RESIST_BASH,		TRUE	},	
-	{ "pierce",		RESIST_PIERCE,		TRUE	},	
-	{ "slash",		RESIST_SLASH,		TRUE	},	
-	{ "fire",		RESIST_FIRE,		TRUE	},	
-	{ "cold",		RESIST_COLD,		TRUE	},	
-	{ "lightning",		RESIST_LIGHTNING,	TRUE	},	
-	{ "acid",		RESIST_ACID,		TRUE	},	
-	{ "holy",	 	RESIST_HOLY,		TRUE	},	
-	{ "negative",		RESIST_NEGATIVE,	TRUE	},	
-	{ "energy",		RESIST_ENERGY,		TRUE	},	
-	{ "mental",		RESIST_MENTAL,		TRUE	},	
-	{ "sound",		RESIST_SOUND,		TRUE	},	
-	{ "disease",		RESIST_DISEASE,		TRUE	},
-	{ "poison",		RESIST_POISON,		TRUE	},
-	{ "charm",		RESIST_CHARM,		TRUE	},
-	{ "harm",		RESIST_HARM,		TRUE	},
-	{ "light",		RESIST_LIGHT,		TRUE	},
-
-	{ NULL }
-};
-
-flaginfo_t resist_info_flags[] =
-{
-	{ "",			TABLE_INTVAL			},
-
-	{ "bashing",		RESIST_BASH,		TRUE	},	
-	{ "piercing",		RESIST_PIERCE,		TRUE	},	
-	{ "slashing",		RESIST_SLASH,		TRUE	},	
-	{ "fire attacks",	RESIST_FIRE,		TRUE	},	
-	{ "cold attacks",	RESIST_COLD,		TRUE	},	
-	{ "lightning",		RESIST_LIGHTNING,	TRUE	},	
-	{ "acid",		RESIST_ACID,		TRUE	},	
-	{ "holy energy", 	RESIST_HOLY,		TRUE	},	
-	{ "negative energy",	RESIST_NEGATIVE,	TRUE	},	
-	{ "energy attacks",	RESIST_ENERGY,		TRUE	},	
-	{ "mental attacks",	RESIST_MENTAL,		TRUE	},	
-	{ "sound based attack",	RESIST_SOUND,		TRUE	},	
-	{ "disease",		RESIST_DISEASE,		TRUE	},	
-	{ "poison",		RESIST_POISON,		TRUE	},
-	{ "charming spells",	RESIST_CHARM,		TRUE	},
-	{ "harm spells",	RESIST_HARM,		TRUE	},
-	{ "light based attacks",RESIST_LIGHT,		TRUE	},
-
-	{ NULL }
-};
 /*
  * What is seen.
  */
@@ -1383,6 +1334,37 @@ flaginfo_t dam_classes[] =
 	{ "sound",		DAM_SOUND,			TRUE	},
 	{ "wood",		DAM_WOOD,			TRUE	},
 	{ "silver",		DAM_SILVER,			TRUE	},
+	{ "iron",		DAM_IRON,			TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t resist_info_flags[] =
+{
+	{ "",			TABLE_INTVAL			},
+
+	{ "bashing",		DAM_BASH,		TRUE	},	
+	{ "piercing",		DAM_PIERCE,		TRUE	},	
+	{ "slashing",		DAM_SLASH,		TRUE	},	
+	{ "fire attacks",	DAM_FIRE,		TRUE	},	
+	{ "cold attacks",	DAM_COLD,		TRUE	},	
+	{ "lightning",		DAM_LIGHTNING,		TRUE	},	
+	{ "acid",		DAM_ACID,		TRUE	},	
+	{ "holy energy", 	DAM_HOLY,		TRUE	},	
+	{ "negative energy",	DAM_NEGATIVE,		TRUE	},	
+	{ "energy attacks",	DAM_ENERGY,		TRUE	},	
+	{ "mental attacks",	DAM_MENTAL,		TRUE	},	
+	{ "sound based attack",	DAM_SOUND,		TRUE	},	
+	{ "disease",		DAM_DISEASE,		TRUE	},	
+	{ "poison",		DAM_POISON,		TRUE	},
+	{ "charming spells",	DAM_CHARM,		TRUE	},
+	{ "harm spells",	DAM_HARM,		TRUE	},
+	{ "light based attacks",DAM_LIGHT,		TRUE	},
+	{ "drowning",		DAM_DROWNING,		TRUE	},
+	{ "other weird attacks",DAM_OTHER,		TRUE	},
+	{ "wooden weapons",	DAM_WOOD,		TRUE	},
+	{ "iron weapons",	DAM_IRON,		TRUE	},
+	{ "silver weapons",	DAM_SILVER,		TRUE	},
 
 	{ NULL }
 };

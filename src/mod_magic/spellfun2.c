@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.177 2000-02-19 14:35:22 avn Exp $
+ * $Id: spellfun2.c,v 1.178 2000-03-03 04:09:10 avn Exp $
  */
 
 /***************************************************************************
@@ -3084,7 +3084,7 @@ void spell_power_word_kill(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act("Your power word doesn't seems to affect $N.", 
 			ch, NULL, victim, TO_CHAR);
 		act("You are not affected by the power word of $n.",
-			ch, NULL, victim, TO_CHAR);
+			ch, NULL, victim, TO_VICT);
 	} else if (saves_mental || saves_nega) {
 		dam = dice(level , 20) ;
 		damage(ch, victim , dam , sn, 

@@ -23,39 +23,43 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.9 2000-03-02 17:14:11 avn Exp $
+ * $Id: damtype.h,v 1.10 2000-03-03 04:09:08 avn Exp $
  */
 
 #ifndef _DAMTYPE_H_
 #define _DAMTYPE_H_
 
 /*
- * damage classes
+ * damage classes (DAM_NONE should be last)
  */
-#define DAM_NONE		0
-#define DAM_BASH		1
-#define DAM_PIERCE		2
-#define DAM_SLASH		3
-#define DAM_FIRE		4
-#define DAM_COLD		5
-#define DAM_LIGHTNING		6
-#define DAM_ACID		7
-#define DAM_POISON		8
-#define DAM_NEGATIVE		9
-#define DAM_HOLY		10
-#define DAM_ENERGY		11
-#define DAM_MENTAL		12
-#define DAM_DISEASE		13
-#define DAM_DROWNING		14
-#define DAM_LIGHT		15
-#define DAM_OTHER		16
-#define DAM_HARM		17
-#define DAM_CHARM		18
-#define DAM_SOUND		19
-#define DAM_IRON		23
-#define DAM_WOOD		24
-#define DAM_SILVER		25
+enum {
+	DAM_BASH,
+	DAM_PIERCE,
+	DAM_SLASH,
+	DAM_FIRE,
+	DAM_COLD,
+	DAM_LIGHTNING,
+	DAM_ACID,
+	DAM_POISON,
+	DAM_NEGATIVE,
+	DAM_HOLY,
+	DAM_ENERGY,
+	DAM_MENTAL,
+	DAM_DISEASE,
+	DAM_DROWNING,
+	DAM_LIGHT, 
+	DAM_OTHER,
+	DAM_HARM,
+	DAM_CHARM,
+	DAM_SOUND,
+	DAM_IRON,
+	DAM_WOOD,
+	DAM_SILVER,
 
+	DAM_NONE
+};
+
+#define MAX_RESIST		DAM_NONE
 #define MOB_IMMUNE		999
 
 typedef struct damtype_t damtype_t;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.261 2000-03-02 17:14:12 avn Exp $
+ * $Id: fight.c,v 1.262 2000-03-03 04:09:11 avn Exp $
  */
 
 /***************************************************************************
@@ -1185,42 +1185,10 @@ int get_resist(CHAR_DATA *ch, int dam_class)
 	else
 		resists = ch->resists;
 
-	switch(dam_class) {
-	case DAM_BASH:
-		return URANGE(-100, resists[RESIST_BASH], 100);
-	case DAM_SLASH:
-		return URANGE(-100, resists[RESIST_SLASH], 100);
-	case DAM_PIERCE:
-		return URANGE(-100, resists[RESIST_PIERCE], 100);
-	case DAM_FIRE:
-		return URANGE(-100, resists[RESIST_FIRE], 100);
-	case DAM_COLD:
-		return URANGE(-100, resists[RESIST_COLD], 100);
-	case DAM_LIGHTNING:
-		return URANGE(-100, resists[RESIST_LIGHTNING], 100);
-	case DAM_ACID:
-		return URANGE(-100, resists[RESIST_ACID], 100);
-	case DAM_NEGATIVE:
-		return URANGE(-100, resists[RESIST_NEGATIVE], 100);
-	case DAM_HOLY:
-		return URANGE(-100, resists[RESIST_HOLY], 100);
-	case DAM_LIGHT:
-		return URANGE(-100, resists[RESIST_LIGHT], 100);
-	case DAM_ENERGY:
-		return URANGE(-100, resists[RESIST_ENERGY], 100);
-	case DAM_MENTAL:
-		return URANGE(-100, resists[RESIST_MENTAL], 100);
-	case DAM_DISEASE:
-		return URANGE(-100, resists[RESIST_DISEASE], 100);
-	case DAM_POISON:
-		return URANGE(-100, resists[RESIST_POISON], 100);
-	case DAM_SOUND:
-		return URANGE(-100, resists[RESIST_SOUND], 100);
-	case DAM_HARM:
-		return URANGE(-100, resists[RESIST_HARM], 100);
-	default:
-		return IS_IMMORTAL(ch)? 100 : 0;
-	}
+	if (dam_class != DAM_NONE)
+		return URANGE(-100, resists[dam_class], 100);
+
+	return IS_IMMORTAL(ch)? 100 : 0;
 }
 
 /*

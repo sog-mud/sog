@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.93 2000-03-02 17:14:13 avn Exp $
+ * $Id: db_area.c,v 1.94 2000-03-03 04:09:12 avn Exp $
  */
 
 /***************************************************************************
@@ -171,40 +171,40 @@ set_percent_resistances(flag_t imm, flag_t res, flag_t vul, int16_t resist[])
 	vw = IS_SET(vul, V0_RES_WEAPON);
 	vm = IS_SET(vul, V0_RES_MAGIC);
 	
-	resist[RESIST_BASH] 	= RES(iw || IS_SET(imm, V0_RES_BASH), rw || IS_SET(res, V0_RES_BASH), vw || IS_SET(vul, V0_RES_BASH));
+	resist[DAM_BASH] 	= RES(iw || IS_SET(imm, V0_RES_BASH), rw || IS_SET(res, V0_RES_BASH), vw || IS_SET(vul, V0_RES_BASH));
 
-	resist[RESIST_SLASH] 	= RES(iw || IS_SET(imm, V0_RES_SLASH), rw || IS_SET(res, V0_RES_SLASH), vw || IS_SET(vul, V0_RES_SLASH));
+	resist[DAM_SLASH] 	= RES(iw || IS_SET(imm, V0_RES_SLASH), rw || IS_SET(res, V0_RES_SLASH), vw || IS_SET(vul, V0_RES_SLASH));
 
-	resist[RESIST_PIERCE] 	= RES(iw || IS_SET(imm, V0_RES_PIERCE), rw || IS_SET(res, V0_RES_PIERCE), vw || IS_SET(vul, V0_RES_PIERCE));
+	resist[DAM_PIERCE] 	= RES(iw || IS_SET(imm, V0_RES_PIERCE), rw || IS_SET(res, V0_RES_PIERCE), vw || IS_SET(vul, V0_RES_PIERCE));
 
 
-	resist[RESIST_FIRE] 	= RES(im || IS_SET(imm, V0_RES_FIRE), rm || IS_SET(res, V0_RES_FIRE), vm || IS_SET(vul, V0_RES_FIRE));
+	resist[DAM_FIRE] 	= RES(im || IS_SET(imm, V0_RES_FIRE), rm || IS_SET(res, V0_RES_FIRE), vm || IS_SET(vul, V0_RES_FIRE));
 
-	resist[RESIST_COLD] 	= RES(im || IS_SET(imm, V0_RES_COLD), rm || IS_SET(res, V0_RES_COLD), vm || IS_SET(vul, V0_RES_COLD));
+	resist[DAM_COLD] 	= RES(im || IS_SET(imm, V0_RES_COLD), rm || IS_SET(res, V0_RES_COLD), vm || IS_SET(vul, V0_RES_COLD));
 
-	resist[RESIST_LIGHTNING] 	= RES(im || IS_SET(imm, V0_RES_LIGHTNING), rm || IS_SET(res, V0_RES_LIGHTNING), vm || IS_SET(vul, V0_RES_LIGHTNING));
+	resist[DAM_LIGHTNING] 	= RES(im || IS_SET(imm, V0_RES_LIGHTNING), rm || IS_SET(res, V0_RES_LIGHTNING), vm || IS_SET(vul, V0_RES_LIGHTNING));
 
-	resist[RESIST_ACID] 	= RES(im || IS_SET(imm, V0_RES_ACID), rm || IS_SET(res, V0_RES_ACID), vm || IS_SET(vul, V0_RES_ACID));
+	resist[DAM_ACID] 	= RES(im || IS_SET(imm, V0_RES_ACID), rm || IS_SET(res, V0_RES_ACID), vm || IS_SET(vul, V0_RES_ACID));
 
-	resist[RESIST_HOLY] 	= RES(im || IS_SET(imm, V0_RES_HOLY), rm || IS_SET(res, V0_RES_HOLY), vm || IS_SET(vul, V0_RES_HOLY));
+	resist[DAM_HOLY] 	= RES(im || IS_SET(imm, V0_RES_HOLY), rm || IS_SET(res, V0_RES_HOLY), vm || IS_SET(vul, V0_RES_HOLY));
 
-	resist[RESIST_NEGATIVE] = RES(im || IS_SET(imm, V0_RES_NEGATIVE), rm || IS_SET(res, V0_RES_NEGATIVE), vm || IS_SET(vul, V0_RES_NEGATIVE));
+	resist[DAM_NEGATIVE]	= RES(im || IS_SET(imm, V0_RES_NEGATIVE), rm || IS_SET(res, V0_RES_NEGATIVE), vm || IS_SET(vul, V0_RES_NEGATIVE));
 
-	resist[RESIST_ENERGY] 	= RES(im || IS_SET(imm, V0_RES_ENERGY), rm || IS_SET(res, V0_RES_ENERGY), vm || IS_SET(vul, V0_RES_ENERGY));
+	resist[DAM_ENERGY] 	= RES(im || IS_SET(imm, V0_RES_ENERGY), rm || IS_SET(res, V0_RES_ENERGY), vm || IS_SET(vul, V0_RES_ENERGY));
 
-	resist[RESIST_MENTAL] 	= RES(im || IS_SET(imm, V0_RES_MENTAL), rm || IS_SET(res, V0_RES_MENTAL), vm || IS_SET(vul, V0_RES_MENTAL));
+	resist[DAM_MENTAL] 	= RES(im || IS_SET(imm, V0_RES_MENTAL), rm || IS_SET(res, V0_RES_MENTAL), vm || IS_SET(vul, V0_RES_MENTAL));
 
-	resist[RESIST_SOUND] 	= RES(im || IS_SET(imm, V0_RES_SOUND), rm || IS_SET(res, V0_RES_SOUND), vm || IS_SET(vul, V0_RES_SOUND));
+	resist[DAM_SOUND] 	= RES(im || IS_SET(imm, V0_RES_SOUND), rm || IS_SET(res, V0_RES_SOUND), vm || IS_SET(vul, V0_RES_SOUND));
 
-	resist[RESIST_DISEASE] 	= RES(im || IS_SET(imm, V0_RES_DISEASE), rm || IS_SET(res, V0_RES_DISEASE), vm || IS_SET(vul, V0_RES_DISEASE));
+	resist[DAM_DISEASE] 	= RES(im || IS_SET(imm, V0_RES_DISEASE), rm || IS_SET(res, V0_RES_DISEASE), vm || IS_SET(vul, V0_RES_DISEASE));
 
-	resist[RESIST_POISON] 	= RES(im || IS_SET(imm, V0_RES_POISON), rm || IS_SET(res, V0_RES_POISON), vm || IS_SET(vul, V0_RES_POISON));
+	resist[DAM_POISON] 	= RES(im || IS_SET(imm, V0_RES_POISON), rm || IS_SET(res, V0_RES_POISON), vm || IS_SET(vul, V0_RES_POISON));
 
-	resist[RESIST_CHARM] 	= RES(im || IS_SET(imm, V0_RES_CHARM), rm || IS_SET(res, V0_RES_CHARM), vm || IS_SET(vul, V0_RES_CHARM));
+	resist[DAM_CHARM] 	= RES(im || IS_SET(imm, V0_RES_CHARM), rm || IS_SET(res, V0_RES_CHARM), vm || IS_SET(vul, V0_RES_CHARM));
 
-	resist[RESIST_HARM] 	= RES(im, rm, vm );
+	resist[DAM_HARM] 	= RES(im, rm, vm );
 
-	resist[RESIST_LIGHT] 	= RES(im || IS_SET(imm, V0_RES_LIGHT), rm || IS_SET(res, V0_RES_LIGHT), vm || IS_SET(vul, V0_RES_LIGHT));
+	resist[DAM_LIGHT] 	= RES(im || IS_SET(imm, V0_RES_LIGHT), rm || IS_SET(res, V0_RES_LIGHT), vm || IS_SET(vul, V0_RES_LIGHT));
 }
 
 DBINIT_FUN(init_area)
@@ -1222,7 +1222,11 @@ DBLOAD_FUN(load_mobiles)
 	     } else if (letter == 'g') {
 		mlstr_fread(fp, &pMobIndex->gender);
 	     } else if (letter == 'r') {   /* Resists */
-		int res = fread_fword(resist_flags, fp);
+		int res = fread_fword(dam_classes, fp);
+		if (res < 0 || res == DAM_NONE) {
+			log(LOG_ERROR, "load_mobiles: unknown resist value");
+			fread_number(fp);
+		}
 		pMobIndex->resists[res] = fread_number(fp);
 
 		/* Needs to be removed later */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.79 2000-03-02 17:14:11 avn Exp $
+ * $Id: olc_area.c,v 1.80 2000-03-03 04:09:10 avn Exp $
  */
 
 #include "olc.h"
@@ -942,7 +942,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	for (i = 0; i < MAX_RESIST; i++) {
 		if (pMobIndex->resists[i]) {
 			fprintf(fp, "r %s %d\n", 
-				flag_string(resist_flags, i), 
+				flag_string(dam_classes, i), 
 				pMobIndex->resists[i]);
 		}
 	}

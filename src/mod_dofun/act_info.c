@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.330 2000-02-20 09:59:40 avn Exp $
+ * $Id: act_info.c,v 1.331 2000-03-03 04:09:08 avn Exp $
  */
 
 /***************************************************************************
@@ -2631,7 +2631,7 @@ static const char * get_resist_alias(int resist)
 	if (resist < -90) 
 		return "eradicated by";
 	else if (resist < -70)
-		return "oblitirated by";
+		return "obliterated by";
 	else if (resist < -50)
 		return "massacred by";
 	else if (resist < -30)
@@ -2666,7 +2666,7 @@ void do_resistances(CHAR_DATA *ch, const char *argument)
 	else
 		resists = ch->resists;
 	for (i=0; i < MAX_RESIST; i++) {
-		if (!resists[i] || i == RESIST_CHARM)
+		if (!resists[i] || i == DAM_CHARM)
 			continue;
 		found = TRUE;
 		if (ch->level < MAX_LEVEL / 3) {
@@ -3592,7 +3592,7 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  number_percent() > chance
 	||  ch->level < (victim->level + 2)
-	||  (get_resist(victim, RESIST_CHARM) == 100)
+	||  (get_resist(victim, DAM_CHARM) == 100)
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)) {
 		check_improve(ch, "control animal", FALSE, 2);
 		do_say(victim, "I'm not about to follow you!");

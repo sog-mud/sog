@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.112 2000-02-29 17:14:58 avn Exp $
+ * $Id: olc.c,v 1.113 2000-03-03 04:09:09 avn Exp $
  */
 
 /***************************************************************************
@@ -1252,9 +1252,9 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		return FALSE;
 	}
 	
-	res = flag_svalue(resist_flags, arg);
+	res = flag_svalue(dam_classes, arg);
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg) || (res < 0))
+	if (!is_number(arg) || res < 0 || res == DAM_NONE)
 		return olced_resists(ch, str_empty, cmd, resists);
 	
 	resists[res] = atoi(arg);

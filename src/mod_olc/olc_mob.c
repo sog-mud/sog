@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.62 2000-01-19 06:51:45 fjoe Exp $
+ * $Id: olc_mob.c,v 1.63 2000-03-03 04:09:10 avn Exp $
  */
 
 #include "olc.h"
@@ -359,13 +359,13 @@ OLC_FUN(mobed_show)
 	buf_add(buf, "Resist");
 
 	for (i = 0; i < MAX_RESIST; i++) {
-		if (strlen(flag_string(resist_flags, i)) > 7)
+		if (strlen(flag_string(dam_classes, i)) > 7)
 			buf_printf(buf, "\t%s\t%d%%", 
-				flag_string(resist_flags, i),
+				flag_string(dam_classes, i),
 				pMob->resists[i]);
 		else
 			buf_printf(buf, "\t%s\t\t%d%%", 
-				flag_string(resist_flags, i),
+				flag_string(dam_classes, i),
 				pMob->resists[i]);
 			
 		if(!((i+1) % 3))

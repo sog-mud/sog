@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.31 2000-01-19 06:51:46 fjoe Exp $
+ * $Id: olc_race.c,v 1.32 2000-03-03 04:09:10 avn Exp $
  */
 
 #include "olc.h"
@@ -254,13 +254,13 @@ OLC_FUN(raceed_show)
 		if (r->resists[i]) {
 			if (!j)
 				buf_add(output, "Resists");
-			if (strlen(flag_string(resist_flags, i)) > 7)
+			if (strlen(flag_string(dam_classes, i)) > 7)
 				buf_printf(output, "\t%s\t%d%%",
-					flag_string(resist_flags, i),
+					flag_string(dam_classes, i),
 					r->resists[i]);
 			else 
 				buf_printf(output, "\t%s\t\t%d%%",
-					flag_string(resist_flags, i),
+					flag_string(dam_classes, i),
 					r->resists[i]);
 			if (!(++j % 3))
 				buf_add(output, "\n");
@@ -888,7 +888,7 @@ save_race_cb(void *p, va_list ap)
 	for (i = 0; i < MAX_RESIST; i++) {
 		if (r->resists[i])
 			fprintf(fp,"Resist %s %d\n", 
-				flag_string(resist_flags, i),
+				flag_string(dam_classes, i),
 				r->resists[i]);
 	}
 
