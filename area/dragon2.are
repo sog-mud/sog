@@ -305,7 +305,7 @@ Keeper Хранитель~
 Shades of Gray for many years and in working for three years in
 Midgaard he retired. And found this job.
 @rus Это хорошо обученный охранник. Он обучался с рыцарями Shades of Gray
-много лет и, проработав в течение трех лет в Мидгаарде, ушел в отставку.
+много лет и, проработав в течение трех лет в Мидгарде, ушел в отставку.
 И нашел эту работу.
 ~
 human~
@@ -975,7 +975,7 @@ adventuring was easy?
 @rus Пробираться становится все труднее и труднее, деревья снаружи,
 кажется, хотят задушить тебя. Ты чувствуешь себя абсолютно одино-
 $gn{ким}... Если бы не виднеющаяся вдалеке гора, ты бы, пожалуй, пере-
-$gn{несся} обратно в Мидгаард. Но с другой стороны, кто вообще когда-
+$gn{несся} обратно в Мидгард. Но с другой стороны, кто вообще когда-
 либо говорил, что путешествовать легко?
 ~
 0 0 forest
@@ -1005,9 +1005,9 @@ looming before you,  you begin to rethink the idea of recalling to Midgaard.
 @rus Ты, наконец-то, $gn{вырвался} из лесного плена, и для чего? -- чтобы
 обнаружить, что проторенный путь кончился. Дорога ведет на север,
 к горе, которая до сих пор была твоим единственным маяком. Впрочем,
-когда ты теперь можешь лучше видетьзловещую гору, неясно вырисовы-
+когда ты теперь можешь лучше видеть зловещую гору, неясно вырисовы-
 вающуюся перед тобой, ты $gn{начинаешь} заново обдумывать идею о возвра-
-щении в Мидгаард.
+щении в Мидгард.
 ~
 0 0 forest
 D0
@@ -1094,7 +1094,7 @@ is almost strong enough to disable you.  The only way you are able to stand it
 is by ripping of a piece of cloth, and covering your mouth and nose with it as
 you walk.  Far above you, you see what must be the entrance to the cave.
 @rus Ты $gn{достиг} подножия огромной горы. Тут зловоние дракона настолько
-сильно, что его достаточно, чтобы ты $gn{отключился}. Единственый способ
+сильно, что его достаточно, чтобы ты $gn{отключился}. Единственный способ
 выдержать это -- оторвать кусок одежды, и закрыть рот и нос на время
 путешествия. Высоко наверху ты видишь что-то похожее на вход в пещеру.
 ~
@@ -2365,7 +2365,7 @@ The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
 @rus Вы прошли через Ледяного Дракона, первого из Ваших противников. Теперь Вам
-достанутся его сокровища... если Вы их найете :-). Коридор здесь холоднее,
+достанутся его сокровища... если Вы их найдете :-). Коридор здесь холоднее,
 чем остальная часть пещеры. Наверно, дракон часто проходил здесь, проверяя,
 на месте ли его золото. Вы лихорадочно обшариваете все закоулки....
 ~
@@ -2395,7 +2395,7 @@ The hallway here is colder than the rest of the cave.  You assume that the
 white dragon made frequent passes through here to make sure his gold
 was still intact.  You begin to hope that it wasn't a baby....
 @rus Вы прошли через Ледяного Дракона, первого из Ваших противников. Теперь Вам
-достанутся его сокровища... если Вы их найете :-). Коридор здесь холоднее,
+достанутся его сокровища... если Вы их найдете :-). Коридор здесь холоднее,
 чем остальная часть пещеры. Наверно, дракон часто проходил здесь, проверяя,
 на месте ли его золото. Вы лихорадочно обшариваете все закоулки....
 ~
@@ -2597,7 +2597,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2627,7 +2627,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2657,7 +2657,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2687,7 +2687,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2717,7 +2717,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2747,7 +2747,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2777,7 +2777,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2807,7 +2807,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2837,7 +2837,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2867,7 +2867,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2897,7 +2897,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2927,7 +2927,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2957,7 +2957,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -2987,7 +2987,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3017,7 +3017,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.  To the west is a large gate.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты покинул последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти. На западе ты
 видишь большие ворота.
@@ -3056,7 +3056,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3086,7 +3086,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3139,7 +3139,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3169,7 +3169,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3199,7 +3199,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3237,7 +3237,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3298,7 +3298,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3328,7 +3328,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3358,7 +3358,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3388,7 +3388,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes o
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.  You have reached a dead end.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты покинула последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти. Хмм... кажется,
 это тупик.
@@ -3411,7 +3411,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3441,7 +3441,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3471,7 +3471,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3517,7 +3517,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3547,7 +3547,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3577,7 +3577,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3607,7 +3607,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3657,7 +3657,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3687,7 +3687,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3717,14 +3717,14 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
 0 0 mountain
 D1
 @eng Throne room of the Pixie King.
-@rus Троннный Зал Короля Сильфов.
+@rus Тронный Зал Короля Сильфов.
 ~
 door дверь~
 ~
@@ -3740,7 +3740,7 @@ D3
 Z 0 2492
 S
 #2494
-@eng Throne room of the Pixie King@rus Троннный Зал Короля Сильфов~
+@eng Throne room of the Pixie King@rus Тронный Зал Короля Сильфов~
 @eng The throne room is remarkably well kempt considering the anarchy
 of the Pixie hierarchy.  The power of the time dragon does not seem
 to affect this room in the least bit.  There is a humongous throne
@@ -3768,7 +3768,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3798,7 +3798,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3828,7 +3828,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -3858,7 +3858,7 @@ It feels like time itself is slowing down.  The hallway looks like it goes on
 for all eternity, but at the sluggish pace you are moving, eternity might
 not be that long of a distance.
 @rus Здесь коридор радикально изменяется. Тебе кажется, что само время
-замедляет свой ход. тены выглядят более мрачными, чем в том коридоре,
+замедляет свой ход. Стены выглядят более мрачными, чем в том коридоре,
 который ты $gn{покинул} последним. Коридор, похоже, тянется вечность...
 хотя, потихоньку-полегоньку эту вечность можно пройти.
 ~
@@ -4124,72 +4124,5 @@ O 2417 5	* a pair of Pixie armplates
 O 2418 3	* a wisp of DragonFyre
 O 2421 3	* the Staff of the Magius
 S
-
-#MOBPROGS
-#2400
-say Finally, the dress I sent for!
-, tucks the dress away under her desk.
-mob purge $o
-if carries $n 91
-say I suppose you'll want to see the FireFlash right now.
-say Be careful, he's been in a nasty mood.
-unlock door
-open door
-else
-say It doesn't look like you have any business with the FireFlash.
-say I suggest you leave and find something before coming here again.
-endif
-~
-#2401
-say Why do I need this?
-give $o $n
-~
-#2402
-if isvisible $n
-say What business do you have here? Is it that dress I ordered?
-endif
-~
-#2403
-if isvisible $n
-say How interesting!.. what's it for?
-giggle
-give $o $n
-else
-say Who is here?
-, looks around.
-endif
-~
-#2404
-if isvisible $n
-say What a wonderful rug! Let's see... where shall I put it?
-, starts wandering about the room, mumbling to himself.
-, sticks his hands in his pockets.
-mob oload 2438
-say What is it? A key? Here, you can have it.
-give xxx $n
-, absently pushes the rug under a chair.
-else
-say Huh, who is here?
-, looks around.
-mob purge $o
-endif
-~
-#2405
-if isvisible $n
-if carries $n 91
-else
-say I don't see that worthless rug anywhere near me.
-say Don't you give it to that silly Green sister from Tear?
-unlock box
-open box
-get papers box
-say These papers might help you.
-give papers $n
-close box
-lock box
-endif
-endif
-~
-#0
 
 #$

@@ -1953,13 +1953,4 @@ O 924 6	* a blue robe
 O 925 3	* a wide brimmed hat
 S
 
-#OMPROGS
-O 901 fight_prog fight_prog_shockwave	* `the Thunder Bolt'
-O 908 wear_prog wear_prog_firegauntlets	* `flaming gauntlets'
-O 908 remove_prog remove_prog_firegauntlets	* `flaming gauntlets'
-O 908 fight_prog fight_prog_firegauntlets	* `flaming gauntlets'
-O 923 wear_prog wear_prog_excalibur	* `the Sword of the Sun'
-O 923 fight_prog fight_prog_vorpalblade	* `the Sword of the Sun'
-S
-
 #$

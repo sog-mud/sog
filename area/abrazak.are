@@ -206,7 +206,7 @@ sidhe knight рыцарь сид~
 @eng A noble sidhe knight of the Seelie court is here on a quest.@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.~
 @eng This knight is the epitome of chivalry.  The embodyment of honor, 
 loyalty, courage and skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -288,7 +288,7 @@ ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
 g @rus none~
 #15007
 bottle vodka absolute~
-@eng a bottle of crystal clear vodka@rus литровый пузырь кристалльно чистой водки~
+@eng a bottle of crystal clear vodka@rus литровый пузырь кристально чистой водки~
 @eng A bottle of crystal clear vodka has been left here.@rus Темный властелин оставил здесь пузырь водки.~
 glass~
 drink ABCEHJLMY ABE AO
@@ -318,9 +318,6 @@ a '' to_object 100 -1 0 0 0
 a '' to_object 100 -1 10000 19 0
 a '' to_object 100 -1 2000 8 0
 g @rus none~
-R
-deny race !race("lich") && !race("human")~
-end
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~
@@ -505,7 +502,7 @@ treasure 0 0 AO
 0 0 0 P
 g @rus none~
 #15029
-bear медвеженок~
+bear медвежонок~
 @eng teddy bear@rus плюшевый медвежонок~
 @eng Teddy bear lies here, forgotten.@rus Уронили мишку на пол, оторвали мишке лапу...~
 unknown~
@@ -562,7 +559,7 @@ g @rus none~
 #15037
 box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
-@eng Box of chocolate sweets is here.@rus Коробка шоколадных кофет лежит тут.~
+@eng Box of chocolate sweets is here.@rus Коробка шоколадных конфет лежит тут.~
 paper~
 container GY BF AO
 100 0 0 0 0
@@ -781,81 +778,6 @@ S
 O 15009 1	* Abrazak's mace
 S
 
-#MOBPROGS
-#15000
-if mobexists junkseller
-else
-mob mload 50
-endif
-mob vforce 50 mob oload 15000
-mob vforce 50 say I'm very sorry but I must go to other places...
-mob vforce 50 wave
-mob vforce 50 mob goto 15000
-mob vforce 50 cast 'teleport'
-mob vforce 50 yell Hey! I have some funny junk for you!
-if rand 25
-mob vforce 50 mob oload 15008
-mob vforce 50 drop invader
-endif
-if mobexists karapupa
-else
-mob mload 15005
-endif
-mob vforce 15005 mob oload 34411
-mob vforce 15005 mob goto 15000 
-mob vforce 15005 cast 'teleport'
-~
-#15001
-cast 'shadowlife' $n
-~
-#15002
-cast 'demon summon'
-~
-#15003
-say ЩАс щас...
-mob transfer $q 15002
-say Ну вот. так просто ты от меня не избавишься.
-~
-#15004
-if ispc $n
-say Умер :(
-mob remember $n
-mob delay 1
-endif
-~
-#15005
-if rand 50
-babble
-end
-endif
-if rand 50 
-say $r, have you ever been here?
-end
-endif
-if rand 50 
-yawn
-end
-endif
-if rand 50
-smile cockroach
-endif
-if rand 50 
-burp
-end
-endif
-if rand 50
-cough
-end
-endif
-if rand 50 
-flex $r
-end
-endif
-~
-#15100
-~
-#0
-
 #HELPS
 0 'CLAN HUNTER' HUNTER~
 @rus Всегда, с образования мира, существовала нужда в  
@@ -865,7 +787,7 @@ endif
 И нашлись существа, способные оказать помощь нужда-
 ющимся. Никто из них всерьез не воспринимал законы
 окружающего мира и правила честных поединков. Ниндзи
-и рейджеры - отрезанные от остального мира и не зави
+и рейнджеры - отрезанные от остального мира и не зави-
 сящие от законов - составили основу зарождающегося клана. 
 Несмотря на презрение к законам мира, внутри клана
 с момента его появления существовала железная дисциплина.

@@ -171,7 +171,7 @@ D3
 Z -1 95503
 S
 #95502
-@eng Squire Barracs@rus Бараки скайров~
+@eng Squire Barracs@rus Бараки сквайров~
 @eng This room serves as a barracks of the squires of this chaos realms. The
 room is gloomy, wet and in a state of disorder. 
 @rus Эти бараки предназначены для сквайров лордов Хаоса. В них царит мрак,
@@ -227,43 +227,6 @@ M 0 95500 1 95504 1	* a Healer (The Altar)
 O 0 95501 0 95504	* the altar (The Altar)
 P 0 95502 1 0 1	* the altar: item of chaos
 S
-
-#MOBPROGS
-#95500
-if clan $n Chaos      
-'Welcome, mischievous one.
-end
-endif
-if isimmort $n 
-bow $n
-end
-endif
-if level $n < 10
-mob transfer $n 9786 
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place!
-mob transfer $n 9786 
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place!
-mob slay $n
-end
-endif
-clan We are attacked by $n !
-mob attack $n
-~
-#95501
-if clan $n chaos
-or isimmort $n
-mob transfer $n 95501
-end
-endif
-mob attack $n
-~
-#0
 
 #PRACTICERS
 M 95501 V	* Ivan the guardian of Chaos Realms

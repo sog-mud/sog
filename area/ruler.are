@@ -254,39 +254,6 @@ M 0 95101 1 95103 1	* ~лекарь~ (The Rulers' chapel)
 O 0 95103 0 95104	* a silk sofa (Resting Room)
 S
 
-#MOBPROGS
-#95100
-if clan $n rulers 
-bow $n
-end
-endif
-if isimmort $n 
-bow $n 
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place.
-mob transfer $n 697
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place.
-mob slay $n
-end
-endif
-clan We are attacked by $n!
-mob attack $n
-~
-#95101
-if clan $n rulers
-or isimmort $n
-mob transfer $n 95101
-end
-endif
-mob attack $n
-~
-#0
-
 #PRACTICERS
 M 95100 V	* the enforcer
 S

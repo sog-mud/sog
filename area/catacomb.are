@@ -2071,12 +2071,4 @@ S
 O 2005 1	* the sword Excalibur
 S
 
-#OMPROGS
-O 2005 wear_prog wear_prog_excalibur	* `the sword Excalibur'
-O 2005 remove_prog remove_prog_excalibur	* `the sword Excalibur'
-O 2005 sac_prog sac_prog_excalibur	* `the sword Excalibur'
-O 2005 death_prog death_prog_excalibur	* `the sword Excalibur'
-O 2005 speech_prog speech_prog_excalibur	* `the sword Excalibur'
-S
-
 #$

@@ -4416,21 +4416,4 @@ O 22479 5	* Ornately designed quiver
 O 22490 3	* box of matches
 S
 
-#MOBPROGS
-#22472
-mob purge $o
-if isvisible $n
-say Thanks a lot brave adventurer!
-say You return my favorite dagger.
-say And I regard you for it ...
-mob oload 22494
-give bracer $n
-mob purge $o
-else
-say Huh, who is here?
-mob purge $o
-endif
-~
-#0
-
 #$

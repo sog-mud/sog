@@ -5537,8 +5537,4 @@ S
 O 7221 1	* the shield of the rose
 S
 
-#OMPROGS
-O 7221 fight_prog fight_prog_rose_shield	* `the shield of the rose'
-S
-
 #$

@@ -2480,10 +2480,10 @@ inside than it is on the outside. Young mages walk about, completely
 oblivious to your presence.
   Exits lead north to the common room, west to the dinning room, east to
 a plain hallway and back south through the gate.
-@rus Ты находишься внутри колдовской башни.  Вид дейсивительно ошеломляющий. 
+@rus Ты находишься внутри колдовской башни.  Вид действительно ошеломляющий. 
 Отсюда становится видно, что почему-то башня внутри гораздо больше, чем она
 выглядит снаружи.  Маги бродят здесь, абсолютно не замечая твоего
-присутсивия.  Выходы ведут на север в зал отдыха, на запад в столовую, на
+присутствия.  Выходы ведут на север в зал отдыха, на запад в столовую, на
 восток в прямой коридор и назад на юг, сквозь ворота.  
 ~
 0 D inside
@@ -2558,7 +2558,7 @@ S
 @eng The Hallway@rus Коридор~
 @eng You are in a long hallway, it seems rather unremarkable.
   The hallway continues east and back west.
-@rus Ты находишся в длинном коридоре, он кажется вполне обыкновенным.
+@rus Ты находишься в длинном коридоре, он кажется вполне обыкновенным.
   Коридор продолжается на восток и назад на запад.
 ~
 0 D inside
@@ -2758,7 +2758,7 @@ S
 @eng You are at the end of a dark passage which ends in a stout wooden door.
 Other then through the door, the only apparent exit is back the way you
 came.
-@rus Ты находишься в темном коридоре, в коце которого можно различить прочную
+@rus Ты находишься в темном коридоре, в конце которого можно различить прочную
 деревянную дверь. Кроме выхода через дверь, есть еще один -- назад, по пути,
 по которому ты сюда $gn{пришел}.
 ~
@@ -2783,7 +2783,7 @@ shedding soft light around the edges. Faint snoring sounds can be heard
 behind the door.
   Exits lead east through the door, or back west.
 @rus Ты находишься в конце темного коридора. Из проема приоткрытой двери на
-востоке струится мягкий свет. За дверью зардается чей-то негромкий храп.
+востоке струится мягкий свет. За дверью задается чей-то негромкий храп.
 ~
 0 AD inside
 D1
@@ -2836,7 +2836,7 @@ dangerous just being this close.
 @rus Ты находишься в темном коридоре, который внезапно кончается возле странного
 разлома, походящего на вход в пещеру. Она слишком узкая, чтобы можно было
 пролезть сквозь нее, и, возможно, опасно даже просто находиться рядом с ней.
-  Единстенный выход ведет назад на восток.
+  Единственный выход ведет назад на восток.
 ~
 0 AD inside
 D1
@@ -2869,7 +2869,7 @@ S
 sleeping form of the Jailor on duty, you can surmise that very few, if any
 prisoners survive long enough to spend much time in these dank dungeons.
   The only exit leads back west.
-@rus Ты находишься окло поста тюремщика. Здесь царит беспорядок. Исходя из того,
+@rus Ты находишься около поста тюремщика. Здесь царит беспорядок. Исходя из того,
 что тюремщик спит на посту, ты понимаешь, что немногие из заключенных
 выживают в этих темных подземельях.
   Единственный выход ведет назад на запад.
@@ -2984,7 +2984,7 @@ S
 instruments have been left here, apparently unused (perhaps the maid quit?).
   The only exit leads back north to the hallway.
 @rus Ты находишься в темном чулане. По всему полу разбросаны веники, щетки и
-прочие чмстящие инструменты, видно, что используются они крайне редко.
+прочие мстящие инструменты, видно, что используются они крайне редко.
   Единственный выход -- назад на север, в коридор.
 ~
 0 AD inside
@@ -3032,7 +3032,7 @@ S
 furnished, but then again the odd occupants don't look to need furniture.
 Here and there a disembodied pair of hands or eyes flits about.
 @rus Ты находишься в комнате стражи башни. Она довольно скудно мебелирован, но,
-кажется, мебель ни кому и не нужна. То тут, то там мелькают безтелесые пары
+кажется, мебель ни кому и не нужна. То тут, то там мелькают бестелесные пары
 рук и глаз.
 ~
 0 D inside
@@ -3072,7 +3072,7 @@ S
 floats overhead, providing light. A small cot is in one corner looking
 ever so comfortable, so comfortable in fact ...someone is sleeping in it.
   The only apparent exit leads back west to the hallway.
-@rus Ты находишься в комфортной спальне. Небольшой заряд магической енергии парит
+@rus Ты находишься в комфортной спальне. Небольшой заряд магической энергии парит
 над твоей головой, излучая мягкий свет. Небольшая кровать в углу комнаты
 выглядит очень мягкой и удобной, на очень удобной ...на ней кто-то спит.
   Единственный выход ведет назад на запад в коридор.
@@ -6512,24 +6512,12 @@ O 1384 4	* a glinting silver bracelet
 O 1399 10	* a ward major
 S
 
-#MOBPROGS
-#1300
-MOB REMEMBER $n
-yell Die, $q !
-~
-#0
-
 #PRACTICERS
 M 1334 Je	* the Enchanter
 M 1337 ab	* the master summoner
 M 1338 Je	* the master charmer
 M 1348 N	* the master of illusions
 M 1364 Q	* The Grand Mistress
-S
-
-#OMPROGS
-O 1384 wear_prog wear_prog_bracer	* `a glinting silver bracelet'
-O 1384 remove_prog remove_prog_bracer	* `a glinting silver bracelet'
 S
 
 #$

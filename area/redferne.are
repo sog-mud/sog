@@ -560,26 +560,6 @@ P 0 7298 1 0 1	* a wooden chest: a huge treasure
 P 0 7208 6 0 1	* a wooden chest: a small stick
 S
 
-#MOBPROGS
-#7900
-if isvisible $n
-if carries $n 2438
-say I think you bring something for me...
-smile
-endif
-endif
-~
-#7901
-if isvisible $n
-say Here is your reward!
-mob oload 89
-give kassandra $n
-say This stone has some special powers, use it well.
-endif
-mob purge $o
-~
-#0
-
 #PRACTICERS
 M 7900 G	* the Grand Knight of paladins
 S

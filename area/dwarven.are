@@ -87,7 +87,7 @@ stand stand male 50
 #6505
 lizard ящерица~
 @eng the giant lizard@rus ~~гигантская~~ ~~ящерица~~~
-@eng A giant lizard is here.@rus Гигантская ящерица (lizard) немигая смотрит на тебя.~
+@eng A giant lizard is here.@rus Гигантская ящерица (lizard) не мигая смотрит на тебя.~
 This scaly creature looks like it is well adapted to it's underground
 habitat.  He looks very powerful.
 ~
@@ -619,7 +619,7 @@ D2
 Z -1 6601
 D3
 @eng A rocky road leads back to Midgaard and the mines of Moria.
-@rus Каменистая дорога ведет назад в Мидгаард и к шахтам Мории.
+@rus Каменистая дорога ведет назад в Мидгард и к шахтам Мории.
 ~
 ~
 ~
@@ -738,7 +738,7 @@ S
 @eng Entrance to Mountain@rus Вход в Гору~
 @eng Here is an entrance to the mountain.  The door looks very well built,
 and you can hear noise coming from within.
-@rus Здесь находится вход в гору. Дверь сработанна на славу, и
+@rus Здесь находится вход в гору. Дверь сработана на славу, и
 сквозь нее тебе слышен шум, доносящийся изнутри.
 ~
 0 0 field
@@ -1301,7 +1301,7 @@ get dizzy from going around and around and around and around and
 around.  The stairs continue up and down.
 @rus Ты все еще наматываешь круги по лестнице. От хождения кругом,
 кругом, кругом, кругом, кругом...   начинает кружиться голова. 
-Лестница ведет веерх и вниз.
+Лестница ведет вверх и вниз.
 ~
 0 D inside
 D4
@@ -1446,7 +1446,7 @@ S
 @eng Mine entrance@rus Вход в шахту~
 @eng The little path here leads down toward the mines, while the worn path
 continues to the west.
-@rus Узкий проход ведет отсюда вниз, к шахтам, хоженый проход
+@rus Узкий проход ведет отсюда вниз, к шахтам, хоженный проход
 продолжается на запад.
 ~
 0 D inside

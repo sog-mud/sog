@@ -162,13 +162,13 @@ r sound 33
 #29106
 queen faerie~
 @eng the Faerie Queen@rus ~~королева~~ фейри~
-@eng The Faerie Queen sits in a circle of dancing twinkling faeries! @rus Королева фейри (queen) сидит здесь, окруженная танцующими, веселящимися поддаными.~
+@eng The Faerie Queen sits in a circle of dancing twinkling faeries! @rus Королева фейри (queen) сидит здесь, окруженная танцующими, веселящимися подданными.~
 @eng The faerie queen is here teaching her subjects court in a gossamer gown  of 
 moonbeams. She towers at 4' tall. She is by far the most beautiful creature
  you have ever  seen. Maybe you should stay here a while. Hmmm. Why  bother
 going back?
 @rus Прекрасная королева фейри. Она самое прекрасное существо из всех, которых 
-ты когда-либо встречал. Правда, она гораздо выше своих подданых -- 4 фута
+ты когда-либо встречал. Правда, она гораздо выше своих подданных -- 4 фута
 ростом. 
 ~
 elf~
@@ -197,7 +197,7 @@ leprechaun faerie леприкон lucky~
 @eng Lucky@rus Лаки~
 @eng A little leprechaun garbed in green says 'Wooo-hooo-hoo' and tickles you! @rus Маленький леприкон (leprechaun), одетый в зеленое весело захихикал и пощекотал тебя.~
 @eng Lucky wears green and is mumbling something about blue diamonds. 
-@rus Маленький человечик, одетый в зеленое, что-то тихо бормочет о драгоценных
+@rus Маленький человечек, одетый в зеленое, что-то тихо бормочет о драгоценных
 камнях.
 ~
 unique~
@@ -227,7 +227,7 @@ faerie drunken фейри~
 @eng A drunken faerie snores happily on the floor.  @rus Пьяный фейри (faerie) счастливо храпит на полу.~
 @eng The drunken faerie lies nude on the floor, snoring happily away. Looks like 
 somebody is playing a practical joke on him.
-@rus Пьный фейри лежит на полу, счастливо похрапывая. Почему-то кажется что 
+@rus Пьяный фейри лежит на полу, счастливо похрапывая. Почему-то кажется что 
 кто-то сыграл с ним шутку.
 ~
 unique~
@@ -631,7 +631,7 @@ lies a door, and to the south is a normal sized door.
 прокопанной в земле. На пыльном полу отпечатки множества маленьких
 ножек, видимо этот проход пользуется большой популярностью. 
  На востоке видна маленькая дверца, а на юге -- дверь уже нормального
-размера, в нее можно пройпи совершенно спокойно, а не сгибаясь в три
+размера, в нее можно пройти совершенно спокойно, а не сгибаясь в три
 погибели, как надо было делать раньше.
 ~
 0 D inside
@@ -689,7 +689,7 @@ S
 room in a colorful display. Faerie folk flutter furiously fanning forge fires. 
 Say that 3 times fast. Maybe you should have had that faerie wine.
 @rus Ты находишься в резиденции королевы и повелительницы народа фейри. Все
-цвета радуги здесь словно ожили и устоили совершенно невообразимый танец
+цвета радуги здесь словно ожили и устроили совершенно невообразимый танец
 красок. Тебе хочется подольше задержаться здесь, чтобы познакомиться
 и с самим народом фейри и необычайно вкусным вином, которое они делают.
 ~

@@ -14,7 +14,7 @@ pawn черная пешка black~
 @eng You see a pawn standing here waiting for orders.@rus Черная пешка (Pawn) стоит здесь, ожидая указаний свыше. ~
 @eng The Black Pawn looks quite like a small knight without his powerful steed.
 His armor is shiny and black. He stands ready to give his life for the Crown.
-@rus Черная Пешка выглядит совсем как маленький рыцать, только без его
+@rus Черная Пешка выглядит совсем как маленький рыцарь, только без его
 боевого коня. Ее черные доспехи блестят и переливаются под солнцем. 
 Этот отважный воин в любой момент готов отдать свою жизнь за своих 
 повелителей.
@@ -220,7 +220,7 @@ caliph omar ghost призрак омар халиф~
 @eng Caliph Omar was person who sanctions chess for islamic people. 
 His ghost is here small, and looks like made from smoke.
 @rus Халиф Омар был тем человеком, который впервые показал людям игру в шахматы.
-Перед тобой колышится маленькое привидение, прозрачное и как будто сотканное
+Перед тобой колышется маленькое привидение, прозрачное и как будто сотканное
 из многочисленных искорок.
 ~
 human~
@@ -851,7 +851,7 @@ g @rus plural~
 #4274
 sleeves white knight нарукавники~
 @eng a pair of White Knight's Sleeves@rus ~~нарукавники~~ Белого Рыцаря~
-@eng You see a pair of White Knight's Sleeves here.@rus Белые кожаные нарукавники (sleeves) валябтся в пыли.~
+@eng You see a pair of White Knight's Sleeves here.@rus Белые кожаные нарукавники (sleeves) валяются в пыли.~
 leather~
 armor K 0 AI
 7 6 7 1 1
@@ -915,13 +915,13 @@ g @rus male~
 
 #ROOMS
 #4200
-@eng The Great Chessboard Of Midgaard@rus Большая Шахматная Арена Мидгаарда.~
+@eng The Great Chessboard Of Midgaard@rus Большая Шахматная Арена Мидгарда.~
 @eng You stand in the archway of the Chessboard of Midgaard.  The giant
 wooden gate is rusted open.
    A narrow dirt path leads eastwards into the thick grass and the
 chessboard opens up to the west.
      There is a small (Glowing) (Huming) tablet.
-@rus Ты стоишь под аркой, ведущей на Шахматную Арену Мидгаарда. Гигантские
+@rus Ты стоишь под аркой, ведущей на Шахматную Арену Мидгарда. Гигантские
 деревянные ворота всегда открыты и пройти могут все желающие. Узкая
 тропинка, приведшая тебя сюда, смело устремляется прямиком через ворота
 на Арену.
@@ -944,7 +944,7 @@ small tablet~
 ~
 D1
 @eng A dirt path leads away through the great field north of Midgaard.
-@rus Дома Мидраарда.
+@rus Дома Мидгарда.
 ~
 ~
 ~
@@ -3276,7 +3276,7 @@ of the White King's Rook.
 0 0 city
 D0
 @eng A black square lies to the north.
-@rus Черня Клетка.
+@rus Черная Клетка.
 ~
 ~
 ~
@@ -3635,15 +3635,6 @@ E 0 4205 0 5		*	the White Rook<on the body>: some White Rook Armour
 O 0 4216 0 4265	* the Black Royal Treasure (The Black Treasury)
 O 0 4217 0 4266	* the White Royal Treasure (The White Treasury)
 S
-
-#MOBPROGS
-#4200
-if mobhere white
-say And WHAT are you doing here ?
-kill white
-endif
-~
-#0
 
 #HELPS
 -1 chess chessboard~

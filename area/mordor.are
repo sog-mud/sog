@@ -665,10 +665,4 @@ O 30010 2	* black candle
 O 30011 3	* shaman girdle
 S
 
-#MOBPROGS
-#30001
-close south
-~
-#0
-
 #$

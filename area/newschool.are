@@ -2,10 +2,139 @@
 Ver 5
 Name New school~
 VNUMs 50200 50399
-Credits Arborn~
+Credits Phrinn~
 Security 1
 LevelRange 1 5
 End
+
+#OBJECTS
+#50201
+scroll свиток~
+@eng scroll@rus свиток~
+@eng The scroll lies on the ground.@rus Свиток (scroll) лежит на полу.~
+paper~
+trash 0 0 AO
+0 0 0 0 0
+1 1 100 P
+E
+scroll свиток~
+@eng To see the basic commands type {chelp{x.
+
+To move about use the basic directions: {cnorth{x, {csouth{x,
+{cwest{x, {ceast{x, {cup{x, {cdown{x. You can use only first letter:
+n,s,w,e,u,d. Use {center <portal's name>{x if you wish to
+enter portal.
+ 
+To check what you are carrying type {cINVentory{x.
+To check what you are wearing type {cEQuipment{x.
+ 
+To check your stats type {cSCOre{x.
+To see how much money you have type {cWORth{x.
+ 
+You can stop wearing or using something by typing
+{cremove <item>{x, this will put that item in your
+inventory, to use an item type {chold <item>{x, or if
+its a weapon {cwield <item>{x, or if it is clothing or
+armor {cwear <item>{x.
+ 
+Type {cauto{x and read {chelp auto{x to see what automatic
+features you can enable. Type {ctoggle{x and read {chelp
+toggle{x to see avialable options.
+@rus Перечень основных комманд можно узнать, набрав {Chelp{x.
+ 
+Чтобы перемещаться, используются названия направлений:
+{Cnorth{x, {Csouth{x, {Cwest{x, {Ceast{x, {Cup{x, {Cdown{x. Или первую букву:
+n,s,w,e,u,d. Используй {Center {c<название портала>{x, чтобы
+войти в портал.
+ 
+Чтобы увидеть, что у тебя есть с собой в заплечном мешке,
+напиши {Cinventory{x. Используй {Cequipment{x, чтобы посмотреть,
+что на тебе надето.
+ 
+Набери {Cscore{x, чтобы посмотреть свои характеристики. А с
+помощью команды {CWORth{x, ты узнаешь сколько у тебя с собой
+денег.
+ 
+Ты можешь снять то, что на тебе одето с помощью команды
+{Cremove <название вещи>{x. Одеть, взять в руки, или воору-
+житься можно с помощью комманд {Cwear{x, {Chold{x, {Cwield {c<предмет>{x
+соответственно.
+ 
+Используй комманду {Cauto{x и прочитай {Chelp auto{x, чтобы узнать
+о существующих здесь автоматических действиях. Также прочи-
+тай {Chelp toggle{x о возможных настройках. Комманда {Ctoggle{x
+{c<название настройки>{x переключит ее.
+~
+g @eng none@rus male~
+#50202
+chest oak сундук~
+@eng an oak chest@rus ~~дубовый~~ ~~сундук~~~
+@eng An oak chest stands near the wall.@rus Дубовый сундук (chest) стоит около стены.~
+oak~
+container 0 0 0
+1000 AC 0 10 10
+1 10 1000 P
+E
+chest сундук~
+@eng You see the massive oak chest.
+@rus Ты видишь огромный массивный сундук из дуба, стоящий у стены.
+~
+E
+inscription надпись~
+@eng This massive chest contains something. First you need to open
+it. Use {copen chest{x for it. After that you can {cexamine chest{x to
+realize chest's contents.  Type {cget <name> chest{x to take item
+from container. You may use {cclose chest{x to close container.
+@rus В этом сундуке что-то лежит. Чтобы узнать что, нужно сначала
+открыть сундук, используя команду {copen chest{x. Затем заглянуть
+в сундук, используя {cexamine chest{x или {clook in chest{x. После
+этого можно взять понравившуюся вещь: {cget <название> from chest{x.
+From может быть опущено. После всего этого, если ты захочеть, ты 
+можешь сундук закрыть: {cclose chest{x. Во всех местах вместо chest
+может использоваться 'сундук'.
+~
+g @eng none@rus male~
+#50203
+treasure сокровище~
+@eng the treasure@rus сокровище~
+@eng Sparkling treasures lies on the ground.@rus You see sparkling treasure.~
+gold~
+money A 0 A
+100 10 0 0 0
+1 1 1000 P
+#50204
+spring родник~
+@eng the spring@rus родник~
+@eng The beautiful spring babbles softly.@rus Чистый родник (spring) тихонько журчит.~
+water~
+fountain 0 0 0
+-1 -1 'water' 0 0
+1 1 10 P
+#50205
+mushroom гриб~
+@eng the mushroom@rus гриб~
+@eng The charming mushroom grows here.@rus Очаровательный гриб (mushroom) растет здесь.~
+unknown~
+food 0 0 0
+CE DF 0 0 0
+1 1 10 P
+E
+mushroom гриб~
+@eng This mushroom has fragrant smell. If you like you may {ceat{x it.
+@rus Гриб очень ароматен. Если хочешь, ты можешь его съесть.
+Используй для этого команду {ceat{x.
+~
+g @eng none@rus male~
+#50206
+boat лодка~
+@eng a small boat@rus ~~маленькая~~ ~~лодка~~~
+@eng A small wooden boat lies here.@rus Маленькая деревянная лодка (boat) оставлена здесь.~
+wood~
+boat 0 0 A
+0 0 0 0 0
+1 1 10 P
+g @eng none@rus female~
+#0
 
 #ROOMS
 #50200
@@ -13,6 +142,161 @@ End
 ~
 0 0 inside
 S
+#50201
+@eng The top of the Tower@rus На вершине башни~
+@eng You are on the top of the Tower. A cool wind fans you and
+while you are here you have a good change to see lands of
+Shades of Gray lying below. In this tower you will learn ba-
+se knowledges. You see small plaque on the tower's parapet.
+Type {clook plaque{x to read it.
+@rus Ты стоишь на вершине башни. Свежий ветерок овевает твое лицо и
+ты имеешь прекрастную возможность полюбоваться на раскинувшийся
+внизу Мир Серых Теней. Здесь, в этой башне, тебя обучат самым ос-
+новам, тому, что должен знать каждый. На парапете ты видишь таб-
+личку, чтобы прочитать написанное на ней, набери {clook plaque{x.
+~
+0 0 inside
+E
+plaque табличка~
+@eng There is a trapdoor going down. Type {copen down{x to
+open it. Then type {cdown{x to go that way.
+@rus Отсюда, с вершины башни, вниз ведет люк. Чтобы открыть его,
+набери {copen down{x. Затем набери {cdown{x, чтобы спуститься вниз.
+~
+D5
+~
+~
+@eng the trapdoor@rus люк~
+@rus male~
+ABZ 0 50202
+S
+#50202
+@eng The 7th floor@rus Седьмой этаж~
+@eng You made your first step across this tower. Now you stand on
+the seventh floor. Through arches you see beautiful chambers on
+the north, west and east. You must visit it. Small plaque hangs
+on the wall. Use {clook plaque{x to read it.
+@rus Ты $gn{сделал} свой первый шаг. Сейчас ты стоишь на седьмом этаже
+башни. Сквозь арочные проходы на севере, востоке и западе видны дру-
+гие помещения. Тебе обязательно нужно их посетить. На стене висит
+небольшая табличка. Используй {clook plaque{x или {clook табличка{x, чтобы
+прочитать написанное на ней.
+~
+0 0 inside
+E
+plaque табличка~
+@eng A scroll lies on the floor here. Type {cget scroll{x to take it
+and then {clook scroll{x or {cexamine scroll{x to read it.
+@rus Лежащий на полу свиток ты можешь поднять с помощью команды
+{cget scroll{x. Затем, чтобы прочитать написанное на нем, набери
+{clook scroll{x или {cexamine scroll{x.
+~
+D0
+~
+~
+~
+~
+Z 0 50203
+D1
+~
+~
+~
+~
+Z 0 50205
+D3
+~
+~
+~
+~
+Z 0 50204
+D4
+~
+~
+~
+~
+ABZ 0 50201
+S
+#50203
+@eng The northern chamber@rus Северная сторона~
+@eng The chamber is very beautiful. Walls are made from crystal and you
+see beautiful coloured pictures on it. All this pictures are made from
+different gems, like emerald, ruby, lapis lazuli, sapphire and other.
+You notice the big oak chest near the east wall. Also you see an inscri-
+ption on the chest. Use {cexamine{x or {clook chest{x to survey it, use {cexamine{x
+or {clook inscription{x to read it.
+@rus Это помещение очень красиво. Стены выполнены из кристаллов и
+украшены различными гемами, из которых выложены цветные картины.
+Здесть можно увидеть изумруды, рубины, сапфиры и многое другое.
+Около восточной стены ты замечаешь большой дубовый сундук. Также
+ты видишь на нем надпись. Используй {cexamine{x или {clook chest{x, что-
+бы посмотреть на сундук и {cexamine{x ({clook{x) {cinscription{x, чтобы про-
+читать надпись. Вместо chest и inscription ты можешь использовать
+'сундук' ({clook сундук{x) и надпись ({clook надпись{x).
+~
+0 0 inside
+D2
+~
+~
+~
+~
+Z 0 50202
+S
+#50204
+@eng The western chamber@rus Западная сторона~
+@eng This chamber is very strange. You seems that you are in the forest.
+Tall trees and many bushes surround you. You may {cdrink{x from spring
+and may {ctake mushroom{x to {ceat{x it. Be sure you eat and drink during your
+travels or you will surely perish.
+@rus Это место очень странное. Словно ты $gn{очутился} в самом настоящем
+лесу. Тебя окружат высокие деревья и пышные кустарники. Ты можешь
+попить из родника ({cdrink{x), если хочешь. А растущий здесь гриб мож-
+но взять ({ctake mushroom{x) и съесть ({ceat mushroom{x) Во время своих
+путешествий по миру не забывай есть и пить, иначе тебе будет плохо.
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 50202
+S
+#50205
+@eng The eastern chamber@rus Восточная сторона~
+@eng You are in the small shop. You see oak counter and
+goods of superior quality on it. Also you see a sign.
+Use {clook{x or {cexamine sign{x to read it.
+@rus Это магазин. Ты видишь небольшой прилавок, сделанный из дуба,
+на котором выложены товары. Рядом приколото обьявление. Сделай
+{clook{x или {cexamine sign{x ({cобьявление{x), чтобы прочитать написанное.
+~
+0 0 inside
+E
+sign обьявление~
+@eng You can {cbuy{x some things here. Use {clist{x to know about
+them. Also you can {csell{x objects (if shopkeeper like
+To know object value type {cvalue <object>{x.
+@rus Здесь ты можешь купить ({cbuy{x) некоторые вещи. Чтобы
+узнать, что предлагается к продаже, используй {clist{x.
+Можно продать лишние вещи, если обьекты такого типа
+продавец покупает. ({csell <обьект>{x) Чтобы оценить вещь,
+используй {cvalue <обьект>{x.
+~
+D3
+~
+~
+~
+~
+Z 0 50202
+S
 #0
+
+#RESETS
+O 0 50201 0 50202	* scroll (The 7th floor)
+O 0 50202 0 50203	* an oak chest (The northern chamber)
+P 0 50203 5 0 1	* an oak chest: the treasure
+O 0 50204 0 50204	* the spring (The western chamber)
+O 0 50205 0 50204	* the mushroom (The western chamber)
+S
 
 #$

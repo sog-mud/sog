@@ -5271,10 +5271,4 @@ O 17019 1	* the girdle of might
 O 17025 1	* armbands of the Volcanoes
 S
 
-#OMPROGS
-O 17025 wear_prog wear_prog_armbands	* `armbands of the Volcanoes'
-O 17025 remove_prog remove_prog_armbands	* `armbands of the Volcanoes'
-O 17025 fight_prog fight_prog_armbands	* `armbands of the Volcanoes'
-S
-
 #$

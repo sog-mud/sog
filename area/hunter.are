@@ -255,47 +255,6 @@ O 0 95700 0 95703	* the golden sign (Main chambers of Hunt)
 P 0 95701 1 0 1	* the golden sign: the golden tattoo
 S
 
-#MOBPROGS
-#95700
-if clan $n hunters     
-if sex $n == 1
-' Welcome, brother.
-else
-' Welcome, sister.
-endif
-end
-endif
-if isimmort $n 
-bow $n
-end
-endif
-if level $n < 10
-mob transfer $n 9783 
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place!
-mob transfer $n 9783 
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place!
-mob slay $n
-end
-endif
-clan We are attacked by $n !
-mob attack $n
-~
-#95701
-if clan $n hunters
-or isimmort $n
-mob transfer $n 95702
-else
-mob attack $n
-endif
-~
-#0
-
 #PRACTICERS
 M 95702 V	* the guardian
 S

@@ -320,7 +320,7 @@ S
 @eng In spite of the low level light, you notice that the caven continues to
 the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
-@rus Пол пещеры покрывают кости. Вам кажется что дальше на запад дороги нет. Однако, злясь на недостаточное количество света, вы помниче что вам следут двигаться именно в этом направлении.
+@rus Пол пещеры покрывают кости. Вам кажется что дальше на запад дороги нет. Однако, злясь на недостаточное количество света, вы помните что вам следут двигаться именно в этом направлении.
 ~
 0 KWX hills
 D1
@@ -426,7 +426,7 @@ the floor. You read the following on the wall:
     "After you kill your first magician, you become a BattleRager."
 
 @rus Вы находитесь в военном здании. На полу вы видите множество костей и сломанного оружия. На одной из стен написано:
-       "Ты становишся членом клана BattleRager после того, как ты убил своего первого мага."
+       "Ты становишься членом клана BattleRager после того, как ты убил своего первого мага."
 ~
 0 KWX hills
 D1
@@ -552,80 +552,6 @@ S
 #SHOPS
 95401 1 5 9 11 0 150 70 0 23
 0
-
-#MOBPROGS
-#95400
-if clan $n battleragers
-'Hail, brother!
-mob echoat $n $I snaps to attention, sharply saluting you!
-end
-endif
-if isimmort $n 
-mob echoat $n $I snaps to attention, sharply saluting you!
-end
-endif
-if level $n < 10
-mob transfer $n 5281 
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place!
-mob transfer $n 5281 
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place!
-mob slay $n
-end
-endif
-clan We are attacked by $n!
-mob attack $n
-~
-#95401
-if clan $n battleragers
-or isimmort $n
-mob transfer $n 95402
-end
-endif
-mob attack $n
-~
-#95402
-clan О! Ко мне в гости пожаловал $n
-if isimmort $n
-say Hail, $n
-bow $n
-end
-endif
-if level $n < 10
-clan Нее..он мелкий, с него никакого навара!
-say Иди отсюда мелочь пузатая! Нечего здесь тебе делать!
-mob transfer $n 5281
-end
-endif
-if clan $n battleragers
-say Здарова!
-end
-endif
-say Эй! Чего тебе тут надо?
-clan Думаю сегодня будет вкусный обед!
-~
-#95403
-mob echoat $n {x
-mob echoat $n {x
-mob echoat $n Передвигаясь по южной стенке пещеры ты случаяно наткнулся на какой-то камень,
-mob echoat $n который под твоим весом провалился и ты упал на холодную землю.
-mob echoat $n {x
-mob echoat $n {x
-mob echoaround $n $n шел по южной стенке пещеры и вдруг с криком куда-то провалился.
-mob echoaround $n You hear someone's death cry.
-mob transfer $n 95409
-~
-#95404
-mob transfer $n 95402
-~
-#95405
-~
-#0
 
 #PRACTICERS
 M 95400 V	* the Powerman

@@ -1924,7 +1924,7 @@ S
 over. The foliage here is thick, preventing you from approaching the wall and
 examining it more closely. The trees here are tall. From above come the songs
 of birds.
-@rus Стена, что возвышаетеся на западе, неплохо отстроена, но она слишком высока,
+@rus Стена, что возвышается на западе, неплохо отстроена, но она слишком высока,
 чтобы за ней можно было что-то увидеть. Подойти и рассмотреть ее поближе тебе
 мешает здешняя очень пышная растительность. Кругом высоченные деревья, а
 наверху птички поют.
@@ -2054,7 +2054,7 @@ S
 impassable. The trees are tall, and from above you can hear the songs of
 birds.
 @rus Лес здесь настолько густой и колючий, что путь на восток становится
-непроходимым. С макушек высоких деревьев доносятся птичиье пение.
+непроходимым. С макушек высоких деревьев доносятся птичье пение.
 ~
 0 0 forest
 D0
@@ -4758,69 +4758,5 @@ O 1819 4	* a green wristband
 O 1820 3	* a blue-tinted leather whip
 O 1851 3	* the Robe of the Warlock
 S
-
-#MOBPROGS
-#1807
-emote dives down upon $n.
-mob kill $n
-~
-#1808
-emote swoops down to the ground to catch an insect.
-emote eats an insect.
-emote flies back to its tree.
-~
-#1809
-emote screeches at $n.
-mob kill $n
-~
-#1810
-if sex $n == 2
-wink $n
-say Let's have a kiss, eh, cutie?
-break
-else
-spit $n
-endif
-~
-#1811
-if sex $n == 1
-pinch $n
-innocent
-else
-sigh
-say There's never a man around when you need one.
-endif
-~
-#1812
-emote pours an effervescent liquid into the cauldron.
-say Boil, bubble, toil and trouble...
-~
-#1813
-emote drops a tiny orb into the pot.
-say ... eye of newt ...
-~
-#1814
-emote drops a tiny green digital appendage into the pot.
-say ... and toe of frog!
-~
-#1815
-emote plucks the strings of her harp.
-~
-#1816
-emote sings 'Came he from a mage's guild,'
-emote sings 'In high magics he was skilled,'
-emote sings 'Upon his spells power he'd build...'
-emote plucks the strings of her harp.
-emote sings 'A magic-less knight had him killed,'
-emote sings 'Promises now unfulfilled,'
-emote sings 'Magic blood in the forest spilled.'
-~
-#1817
-emote sings 'The stranger came from way out east'
-emote sings 'To magic wood to kill a beast,'
-emote sings 'His sole intent to have a feast,'
-emote sings 'Some fresh meat at the very least.'
-~
-#0
 
 #$

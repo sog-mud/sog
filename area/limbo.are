@@ -308,7 +308,7 @@ r charm 50
 r sound 50
 #24
 golem adamantite~
-@eng an adamantite golem@rus ~~адамантитовый~~ ~~голем~~~
+@eng an adamantite golem@rus ~~адаматитовый~~ ~~голем~~~
 An adamantite golem stands here looking very dangerous.~
 It seems to be forged of dark metal.  It looks strong and durable,
 but somewhat un-intelligent.
@@ -547,7 +547,7 @@ bow 1 1 'blast' 0
 1 5 10 P
 g @rus male~
 #8
-cross крест распятье~
+cross крест распятие~
 A cross of %s~
 Torn remains of %s are here on the cross.~
 flesh~
@@ -1628,134 +1628,5 @@ S
 #SHOPS
 50 0 26 0 0 0 100 100 0 23
 0
-
-#MOBPROGS
-#1
-if affected $n 'sanctuary'
-or affected $n 'black shroud' 
-cast nowait 'dispel magic' 
-end
-endif
-if rand 25
-if rand 10 
-cast nowait 'plague' 
-end
-endif
-if rand 11
-cast nowait 'poison' 
-end 
-endif
-if affected $n 'blindness'
-else
-cast nowait 'blindness' 
-end
-endif
-endif
-if rand 16
-if affected $n 'weaken'
-else
-cast nowait 'weaken' 
-end
-endif
-endif
-if affected $n 'slow'
-else
-cast nowait 'slow' 
-endif
-endif
-if rand 18
-if affected $n 'curse' 
-else
-cast nowait 'curse' 
-end
-endif
-endif
-if rand 18
-if affected $n 'corruption' 
-else
-cast nowait 'corruption' 
-end
-endif
-endif
-if rand 18
-if affected $n 'faerie fire' 
-else
-cast nowait 'faerie fire' 
-end
-endif
-endif
-endif
-if rand 25 
-cast nowait 'acid blast' 
-end
-endif
-if rand 25 
-cast nowait 'fireball' 
-end
-endif
-if rand 25
-cast nowait 'frost breath' 
-end
-endif
-if rand 30 
-cast nowait 'heat metal' 
-end
-endif
-cast nowait 'lightning breath' 
-~
-#2
-clan yes, sir?
-~
-#0
-
-#OMPROGS
-O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'
-O 28 fight_prog fight_prog_ranger_staff	* `a ranger staff'
-O 40 get_prog get_prog_quest_reward	* `the %s Song of %s'
-O 51 fight_prog fight_prog_tattoo_atum_ra	* `lawful good tattoo of atum-ra'
-O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
-O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'
-O 54 fight_prog fight_prog_tattoo_shamash	* `tattoo of shamash, god of justice'
-O 55 fight_prog fight_prog_tattoo_ahuramazda	* `chaotic good tattoo of ahuramazda'
-O 56 fight_prog fight_prog_tattoo_ehrumen	* `chaotic evil tattoo of ehrumen'
-O 57 fight_prog fight_prog_tattoo_deimos	* `lawful evil tattoo of deimos'
-O 58 fight_prog fight_prog_tattoo_phobos	* `neutral evil tattoo of phobos'
-O 59 fight_prog fight_prog_tattoo_odin	* `lawful neutral tattoo of odin'
-O 60 fight_prog fight_prog_tattoo_teshub	* `chaotic neutral tattoo of teshub'
-O 61 fight_prog fight_prog_tattoo_ares	* `tattoo of ares, God of War'
-O 62 fight_prog fight_prog_tattoo_goktengri	* `tattoo of goktengri, God of Honor'
-O 63 fight_prog fight_prog_tattoo_hera	* `tattoo of hera, god of hate'
-O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
-O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of seth, god of anger'
-O 66 fight_prog fight_prog_tattoo_enki	* `tattoo of enki, god of knowledge'
-O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
-O 71 wear_prog wear_prog_ruler_shield	* `Rulers' Buckler'
-O 72 wear_prog wear_prog_ruler_shield	* `Rulers' Great Shield'
-O 73 wear_prog wear_prog_ruler_shield	* `Rulers' Kite Shield'
-O 74 wear_prog wear_prog_ruler_shield	* `Rulers' Tower Shield'
-O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
-O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
-O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'
-O 81 death_prog death_prog_golden_weapon	* `a golden mace'
-O 83 fight_prog fight_prog_golden_weapon	* `a golden sword'
-O 83 death_prog death_prog_golden_weapon	* `a golden sword'
-O 84 get_prog get_prog_quest_obj	* `quest staff of kio'
-O 85 get_prog get_prog_quest_obj	* `quest staff of conrad'
-O 86 get_prog get_prog_quest_obj	* `quest staff of powerman'
-O 87 get_prog get_prog_quest_obj	* `quest staff of mandrake'
-O 88 wear_prog wear_prog_eyed_sword	* `%s's eyed sword'
-O 88 get_prog get_prog_spec_weapon	* `%s's eyed sword'
-O 89 speech_prog speech_prog_kassandra	* `kassandra'
-O 92 wear_prog wear_prog_fire_shield	* `fire shield'
-O 92 remove_prog remove_prog_fire_shield	* `fire shield'
-O 94 get_prog get_prog_quest_reward	* `the %s Girth of %s'
-O 95 get_prog get_prog_quest_reward	* `the %s Ring of %s'
-O 96 wear_prog wear_prog_quest_weapon	* `the %s Weapon of %s'
-O 96 get_prog get_prog_quest_reward	* `the %s Weapon of %s'
-O 97 fight_prog fight_prog_chaos_blade	* `a chaos blade'
-O 98 wear_prog wear_prog_katana_sword	* `a katana sword'
-O 99 fight_prog fight_prog_golden_weapon	* `a golden lance'
-O 99 death_prog death_prog_golden_weapon	* `a golden lance'
-S
 
 #$

@@ -2581,9 +2581,4 @@ O 8716 1	* a lion's paw
 O 8728 1	* the lost ring of ra
 S
 
-#OMPROGS
-O 8716 fight_prog fight_prog_lion_claw	* `a lion's paw'
-O 8728 speech_prog speech_prog_ring_ra	* `the lost ring of ra'
-S
-
 #$

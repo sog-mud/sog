@@ -122,7 +122,7 @@ centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 @rus Жестокий барон и два его брата -- вампиры, которых заточил здесь
 Ханан много лет назад, так как он не мог их уничтожить до конца.
-А теперь.. Спасибо тебе, что ты позволил им воскрестнуть вновь.
+А теперь.. Спасибо тебе, что ты позволил им воскреснуть вновь.
 ~
 vampire~
 BFG 0 N 0 0 -1000 0
@@ -253,7 +253,7 @@ crypt thing создание~
 @eng A Crypt Thing cackles evilly and taunts you.@rus Могильное создание (thing) злобно насмехается над тобой.~
 @eng This fell creature will not attack you, despite its evil- it will merely
 taunt you, though it will not hesitate to defend itself.
-@rus Это ужастное создание не собирается на тебя нападать. Не смотря на
+@rus Это ужасное создание не собирается на тебя нападать. Не смотря на
 свою жестокость и злобность, оно пока всего лишь насмехается над тобой.
 ~
 undead~
@@ -344,7 +344,7 @@ r light 50
 #8113
 rat крыса giant~
 @eng a giant rat@rus ~~гигантская~~ ~~крыса~~~
-@eng A GIANT Rat savagely charges you!@rus Гиганская крыса (rat) вцепилась тебе в ногу.~
+@eng A GIANT Rat savagely charges you!@rus Гианская крыса (rat) вцепилась тебе в ногу.~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Существо аж десяти футов ростом с горящими красными глазами.
 ~
@@ -417,7 +417,7 @@ has fled here, in the hopes that they won't find him before he finds a way
 to escape his terrible mistake.
 @rus Этот бедняга никто иной как сам Ксантарус, злой маг, открывший 
 нечистой силе дорогу в город и уничтоживший его, до того как
-потерял контроль над призванной им нечистью. Он сбежал и урылся
+потерял контроль над призванной им нечистью. Он сбежал и укрылся
 здесь в надежде, что его не отыщут до того, как он исправит свою
 оплошность.
 ~
@@ -494,7 +494,7 @@ kampflut кампфлут~
 branches and a huge toothed maw. Despite its nasty demeanour, it is not
 evil- it is simply hungry.
 @rus Это дерево с расплывающимися очертаниями напоминает старый дуб с ветвями,
-похощими на щупальца и острыми похожими на зубы сучками. Оно не злое, оно
+похожими на щупальца и острыми похожими на зубы сучками. Оно не злое, оно
 просто ОЧЕНЬ голодное.
 ~
 undead~
@@ -615,7 +615,7 @@ r pierce -50
 r slash -50
 r fire 50
 #8127
-death knight призрак рацарь~
+death knight призрак рыцарь~
 @eng a death knight@rus ~~призрак~~ рыцаря~
 @eng A Death Knight salutes you then attacks!@rus Призрак рыцаря (knight), отсалютовав, напал на тебя.~
 @eng This is the spirit of a Paladin corrupted by the evil of the Master, doomed
@@ -623,7 +623,7 @@ to an eternity as an undead servant. Clad in ornate, ancient armor and
 wielding a shiny silver sword, he would look as he did in life save for his
 rotting face...
 @rus Это призрак паладина, порабощенный злой силой. Волею судьбы он
-превратился в призрачное послушное орудие сметри. Он одет в 
+превратился в призрачное послушное орудие смерти. Он одет в 
 старинные доспехи и держит в руках серебряный меч. 
 ~
 death knight~
@@ -720,7 +720,7 @@ He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
 @rus Ой. Это же Оркус. Он похож на раздувшегося мужика двадцати футов
 ростом с бычьими носом и глазами, с козлиными рогами и копытами.
-Он держит жезл с козлиной коловой на одном конце и очень недобро
+Он держит жезл с козлиной головой на одном конце и очень недобро
 смотрит на тебя.
 ~
 unique~
@@ -772,7 +772,7 @@ centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 @rus Жестокий барон и два его брата -- вампиры, которых заточил здесь
 Ханан много лет назад, так как он не мог их уничтожить до конца. 
-А теперь.. Спасибо тебе, что ты позволил им воскрестнуть вновь.
+А теперь.. Спасибо тебе, что ты позволил им воскреснуть вновь.
 ~
 vampire~
 BFG 0 0 0 0 -1000 0
@@ -1043,7 +1043,7 @@ g @rus male~
 is a horrid stench detectable even here. You see a sign up ahead.
 @rus Ты идешь по пыльной тропе, ведущей к городу, виднеющемуся впереди.
 Ужасающее зловоние заставляет сдерживать дыхание. Перед собой ты видишь
-знак, вкопаный в землю.
+знак, вкопанный в землю.
 ~
 0 C field
 E
@@ -1175,7 +1175,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1200,7 +1200,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1237,7 +1237,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1262,7 +1262,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1335,7 +1335,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1372,7 +1372,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1397,7 +1397,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1434,7 +1434,7 @@ scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 @rus Вот уже и городская площадь. Отсюда можно в нескольких различных
 направлениях пересечь саму площадь, представляющую собой гладкий
-квадрат вызженной земли без какой-либо растительности. В центре
+квадрат выжженной земли без какой-либо растительности. В центре
 площади ты видишь колодец.
 ~
 0 N city
@@ -1995,7 +1995,7 @@ northwest of here, while the former residences of the Mayor lie directly
 west. You aren't sure where the northern path goes, as that area is
 enshrouded in dark fog...
 @rus Ты стоишь на перекрестке, находящемся на приличном расстоянии от
-ближайшего к нему строения. На северо-западе выресовываются очерта-
+ближайшего к нему строения. На северо-западе вырисовываются очерта-
 ния парка, на западе расположена городская ратуша. Непонятно куда
 ведет дорога на север, ибо ее скрывает густейший туман.
 ~
@@ -2379,7 +2379,7 @@ the surprisingly good condition of this study, a comfortable den lined with
 shelves full of ancient texts. A large oak desk dominates the room, and
 behind this sits a plush leather chair. Wonder whose domain this is...?
 @rus Едва войдя в эту комнату, ты сразу $gn{заметил} полное отсутствие вони,
-домимавшей тебя ранее. В добавок, ты $gn{обратил} внимание на то, что все
+донимавшей тебя ранее. В добавок, ты $gn{обратил} внимание на то, что все
 здесь находится в очень хорошем состоянии. На стенах кабинета висят
 полки, заполненные древними текстами. Большой дубовый стол доминирует
 в обстановке, за столом стоит кожаный стул с плюшевым сиденьем. Чье
@@ -2611,7 +2611,7 @@ S
 Broken furniture and decaying corpses litter the floor. To the east, you
 can see a staircase leading down.
 @rus Этот дом, как и все в этом странном месте, разрушен. На полу валяется
-сломаная мебель и разлагающиеся трупы. На востоке ты замечаешь лестницу,
+сломанная мебель и разлагающиеся трупы. На востоке ты замечаешь лестницу,
 ведущую вниз.
 ~
 0 AN inside
@@ -2633,7 +2633,7 @@ S
 @eng This staircase is an ancient stone structure that looks far older than the
 other structures in the village. You peer down in an attempt to ascertain
 what may below, but can see only darkness.
-@rus Эта лесница -- древнее каменное сооружение, она выглядит гораздо
+@rus Эта лестница -- древнее каменное сооружение, она выглядит гораздо
 старше всего уже виденного тобой в этом мертвом городе. Ты глядишь
 вниз, пытаясь разглядеть, что там такое, но не видишь ничего кроме
 темноты.
@@ -2711,7 +2711,7 @@ ghoulish town. A large iron door looms to the east, and you notice runes
 inscribed into its surface in silver.
 @rus Это небольшое каменное строение при ближайшем рассмотрении оказалось
 ни чем иным как склепом. Причем склеп по сравнению с другими строениями
-в городе находится в очень хорошом состоянии, что, собственно, не удиви-
+в городе находится в очень хорошем состоянии, что, собственно, не удиви-
 тельно, если принять во внимание наклонности жителей этого проклятого
 призрачного города. Большая железная дверь закрывает вход на востоке. 
 На двери начертаны серебряные руны.
@@ -3697,7 +3697,7 @@ is how they decorate their lair. So when you enter and see treasure splashed
 everywhere, along with a generous helping of blood and fried corpses, you are
 at least 90% sure you have entered the lair of one...
 @rus Любой дракон, живой он или призрак, не может устоять перед блеском
-золота и драгоценных камней. И судя по сокровищам, рассбросанным здесь
+золота и драгоценных камней. И судя по сокровищам, разбросанным здесь
 повсюду, это логовище одного из таких зверей. Но помимо золота на полу
 валяются чьи-то останки и видны свежие кровавые пятна.
 ~

@@ -11,7 +11,7 @@ End
 
 #MOBILES
 #95300
-Seneschal~
+seneschal~
 @eng The Seneschal@rus Сенешаль~
 @eng The Seneschal of magic is here.@rus Сенешаль (Seneschal) магии стоит тут.~
 @eng A ghostly figure floats above you, ready to unleash magical death on all
@@ -518,55 +518,6 @@ O 0 95303 0 95307	* Magical White Portal (The Mystical Room)
 O 0 95304 0 95308	* Magical Black Portal (The Mystical Room)
 M 0 95303 1 95310 1	* old vampire (Dark Dungeon)
 S
-
-#MOBPROGS
-#95300
-if clan $n Shalafi
-'Welcome, mysterious one. 
-end
-endif
-if isimmort $n 
-bow $n
-end
-endif
-if level $n < 10
-mob transfer $n 1480 
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place!
-mob transfer $n 1480 
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place!
-mob slay $n
-end
-endif
-clan We are attacked by $n !
-mob attack $n
-~
-#95301
-mob mload 95304
-mob mload 95304
-mob mload 95304
-mob mload 95304
-mob mload 95304
-mob junk gold
-mob vforce 95304 mob kill $n
-~
-#95302
-if clan $n shalafi
-mob transfer $n 95305
-end
-endif
-if isimmort $n
-mob transfer $n 95305
-end
-endif
-mob attack $n
-~
-#0
 
 #PRACTICERS
 M 95300 V	* The Seneschal

@@ -703,7 +703,7 @@ r pierce 33
 r cold 50
 r poison -33
 #4159
-troll small троль маленький~
+troll small тролль маленький~
 @eng the small troll@rus ~~маленький~~ ~~тролль~~~
 @eng A 'small' troll is here happily dancing.  Trala-la-la.  La-la.@rus "Маленький" тролль (small troll) весело танцует тут. Тра-ля-ля, тра-ля-ля...~
 @eng He is so happy, you are disgusted.  Kill him now!
@@ -799,7 +799,7 @@ a '' to_object 0 -1 -1 18 0
 E
 dagger кинжал~
 @eng It's old and rusted, but it still has a good edge.
-@rus Он очень стар, от чиго и поржавел, но кажется он хорош и так.
+@rus Он очень стар, от чего и поржавел, но кажется он хорош и так.
 ~
 g @eng none@rus male~
 #4004
@@ -899,7 +899,7 @@ dirk нож~
 Its blade is double-edged and very thin ... this looks like a good
 thieves weapon.
 @rus Средних размеров, прекрасно изготовлен из серой аллои, двойное лезвие
-причем очень сильно заточеное ... выглядит хорошим оружием для вора.
+причем очень сильно заточенное ... выглядит хорошим оружием для вора.
 ~
 g @eng none@rus male~
 #4054
@@ -914,7 +914,7 @@ a '' to_object 12 -1 1 19 0
 E
 axe топор~
 @eng It has an edge sharp enough to cut a passing thought. A good find, this.
-@rus Этот топор зточен так, буд-то ты с одного маху смог бы срубить дерево.
+@rus Этот топор заточен так, буд-то ты с одного маху смог бы срубить дерево.
 Ты не капельки не жалеешь, что $gn{нашел} его здеcь.
 ~
 g @eng none@rus male~
@@ -1197,11 +1197,11 @@ g @eng none@rus female~
 
 #ROOMS
 #3900
-@eng West trail around Midgaard@rus Западный путь из Мидгаарда~
+@eng West trail around Midgaard@rus Западный путь из Мидгарда~
 @eng You are on a dusty trail following the outside wall of Midgaard.
 To the east the wall towers over you and to the west you see the
 forest of Haon-Dor. The trail leads north and south along the wall. 
-@rus Ты находишься на пыльной тропе за пределами Мидгаарда. На востоке находится
+@rus Ты находишься на пыльной тропе за пределами Мидгарда. На востоке находится
 стена,  возвышающаяся  над  тобой,  а на западе - лес Haon-Dor. Тропа ведет
 вдоль стены на север и юг.
 ~
@@ -1216,7 +1216,7 @@ D0
 Z -1 3901
 D2
 @eng The dusty trail leads to outside the west gate of Midgaard.
-@rus Пыльная тропа ведет к внешней стороне западных ворот Мидгаарда.
+@rus Пыльная тропа ведет к внешней стороне западных ворот Мидгарда.
 ~
 ~
 ~
@@ -1224,7 +1224,7 @@ D2
 Z -1 3052
 S
 #3901
-@eng West trail around Midgaard@rus Западный путь из Мидгаарда~
+@eng West trail around Midgaard@rus Западный путь из Мидгарда~
 @eng You are on a dusty trail following the outside wall of Midgaard.
 To the east the wall towers over you and to the west you see the
 forest of Haon-Dor. The trail leads north and south along the wall. 
@@ -1258,7 +1258,7 @@ The trail leads east following the north wall and south towards the gate.
 0 0 field
 D1
 @eng The dusty trail winds close up to the north wall of Midgaard.
-@rus Пыльная тропа на севере подходит вплотную к городской стене Мидгаарда.
+@rus Пыльная тропа на севере подходит вплотную к городской стене Мидгарда.
 ~
 ~
 ~
@@ -1266,7 +1266,7 @@ D1
 Z -1 3903
 D2
 @eng The dusty trail leads south towards the gate.
-@rus Пыльная тропа на севере подходит вплотную к городской стене Мидгаарда.
+@rus Пыльная тропа на севере подходит вплотную к городской стене Мидгарда.
 ~
 ~
 ~
@@ -1277,12 +1277,12 @@ S
 @eng Dusty trail along north wall.@rus Пыльная тропа вдоль северной стены~
 @eng You are walking on the trail following the outside of Midgaard's
 northern wall.  
-@rus Ты бредешь по тропе, ведущей вдоль северной городской стены Мидгаарда.
+@rus Ты бредешь по тропе, ведущей вдоль северной городской стены Мидгарда.
 ~
 0 0 field
 D1
 @eng The dusty trail is winding along the north wall of Midgaard.
-@rus Пыльная тропа продолжается дальше вдоль северной городской стены Мидгаарда.
+@rus Пыльная тропа продолжается дальше вдоль северной городской стены Мидгарда.
 ~
 ~
 ~
@@ -1304,9 +1304,9 @@ the trail to the east or west, head onwards to the plains of the north, or
 enter Midgaard to the south.  You can just barely make out the buildings of
 Midgaard from here, the Temple of Midgaard looks impressive even from this
 distance.  
-@rus Ты  сейчас снаружи северных ворот Мидгаарда. Ты можешь продолжить свой путь
+@rus Ты  сейчас снаружи северных ворот Мидгарда. Ты можешь продолжить свой путь
 на  запад  или  на  восток,  углубиться  в  равнины  на севере, или войти в
-Мидгаард,  двигаясь  на  юг. С такого рсстояния здания в городе практически
+Мидгард,  двигаясь  на  юг. С такого расстояния здания в городе практически
 неотличимы одно от другого, но храм Моты выглядит внушительно даже отсюда.
 ~
 0 0 field
@@ -1320,7 +1320,7 @@ D0
 Z -1 300
 D1
 @eng The dusty trail is winding along the north wall of Midgaard. 
-@rus Пыльный путь вьется вдоль северной стены Мидгаарда.
+@rus Пыльный путь вьется вдоль северной стены Мидгарда.
 ~
 ~
 ~
@@ -1328,7 +1328,7 @@ D1
 Z -1 3905
 D2
 @eng You see the south gate of Midgaard.
-@rus Ты видишь северные ворота Мидгаарда.
+@rus Ты видишь северные ворота Мидгарда.
 ~
 ~
 ~
@@ -1336,7 +1336,7 @@ D2
 Z -1 3268
 D3
 @eng The dusty trail is winding along the north wall of Midgaard.
-@rus Пыльный путь вьется вдоль северной стены Мидгаарда.
+@rus Пыльный путь вьется вдоль северной стены Мидгарда.
 ~
 ~
 ~
@@ -1347,7 +1347,7 @@ S
 @eng Dusty trail along north wall.@rus Пыльная тропа вдоль северной стены~
 @eng You are walking on the trail following the outside of Midgaard's
 northern wall.  
-@rus Ты бредешь по тропе, ведущей вдоль северной защитной стены Мидгаарда.
+@rus Ты бредешь по тропе, ведущей вдоль северной защитной стены Мидгарда.
 ~
 0 0 field
 D1
@@ -1362,7 +1362,7 @@ You notice some mountains in the distance.
 Z -1 3906
 D3
 @eng The dusty trail is winding along the north wall of Midgaard.
-@rus Пыльный путь вьется вдоль северной стены Мидгаарда.
+@rus Пыльный путь вьется вдоль северной стены Мидгарда.
 ~
 ~
 ~
@@ -1373,7 +1373,7 @@ S
 @eng Northeast corner of dusty trail.@rus Северо-восточный поворот пыльного пути~
 @eng You are standing outside the northeastern corner of the city wall.
 The trail leads west following the north wall and south towards the gate.  
-@rus Ты  находишься  за  городской  стеной Мидгаарда, в месте, где пыльная тропа
+@rus Ты  находишься  за  городской  стеной Мидгарда, в месте, где пыльная тропа
 делает  поворот  с  севера  на  восток.  Или с востока на север? Интересный
 вопрос...
 ~
@@ -1388,7 +1388,7 @@ D2
 Z -1 3907
 D3
 @eng The dusty trail winds close up to the north wall of Midgaard.
-@rus Пыльная тропа прижимается к северной стене Мидгаарда.
+@rus Пыльная тропа прижимается к северной стене Мидгарда.
 ~
 ~
 ~
@@ -1396,12 +1396,12 @@ D3
 Z -1 3905
 S
 #3907
-@eng East trail around Midgaard@rus Восточный путь вокруг Мидгаарда~
+@eng East trail around Midgaard@rus Восточный путь вокруг Мидгарда~
 @eng You are on a dusty trail following the outside wall of Midgaard.
 To the west the wall towers over you and far to the east you see
 some mountains. The trail leads north and south along the wall. 
 @rus Ты  находишься  на  пыльной  тропе,  идущей  вдоль  внешней городской стены
-Мидгаарда. На западе над тобой возвышаются городские башни, и далеко, очень
+Мидгарда. На западе над тобой возвышаются городские башни, и далеко, очень
 далеко  на  востоке  виднеются горы. Тропа вьется вдоль стены на север и на
 запад.
 ~
@@ -1425,18 +1425,18 @@ D2
 Z -1 3908
 S
 #3908
-@eng East trail around Midgaard@rus Восточный путь вокруг Мидгаарда~
+@eng East trail around Midgaard@rus Восточный путь вокруг Мидгарда~
 @eng You are on a dusty trail following the outside wall of Midgaard.
 To the west the wall towers over you and far to the east you see
 some mountains. The trail leads north and south along the wall. 
-@rus Ты находишься на пыльной тропе, ведущей вдоль городской стены Мидгаарда. На
+@rus Ты находишься на пыльной тропе, ведущей вдоль городской стены Мидгарда. На
 западе  над  тобой  возвышаются  городские башни, и далеко, очень далеко на
 востоке виднеются горы. Тропа вьется вдоль стены на север и на запад.
 ~
 0 0 field
 D0
 @eng The dusty trail winds north closely to the wall.
-@rus Пыльная тропа прижимается к стене Мидгаарда.
+@rus Пыльная тропа прижимается к стене Мидгарда.
 ~
 ~
 ~
@@ -1444,7 +1444,7 @@ D0
 Z -1 3907
 D2
 @eng The dusty trail leads to outside the east gate of Midgaard.
-@rus Пыльная тропа ведет к внешней части восточных ворот Мидгаарда.
+@rus Пыльная тропа ведет к внешней части восточных ворот Мидгарда.
 ~
 ~
 ~
@@ -1462,7 +1462,7 @@ The mountains of the dwarven kingdom rise up to your east, you can barely
 make out the queen's mines from here.
 @rus Ты  находишься  на  маленькой  извилистой  тропинке  между  холмами. На юге
 раскинулись  обширные пустынные холмы. К северу холмы становятся все темнее
-и  темнее.  Ты чуствуешь темную силу, исходящую от них. Оглянувшись вокруг,
+и  темнее.  Ты чувствуешь темную силу, исходящую от них. Оглянувшись вокруг,
 ты  замечаешь  лишь  одинокую  птицу  где-то далеко в вышине. Горы гномьего
 королевства возвышаются на востоке. Отсюда видны только королевские шахты.
 ~
@@ -1634,7 +1634,7 @@ To the south you sense a freshness in the air which is rather unusual in these
 damp, stuffy tunnels. To the north the tunnel continues.
 @rus Ты  прокладываешь свой путь через маленький, узкий туннель. Камни с острыми
 краями,  торчащие  из  стен и потолка, грозят обрушиться и похоронить тебя.
-Туннель  продолжается  на  север,  а  с  юга  ты чуствуешь легкое дуновение
+Туннель  продолжается  на  север,  а  с  юга  ты чувствуешь легкое дуновение
 свежего ветерка.
 ~
 0 AD forest
@@ -1701,7 +1701,7 @@ sharp rocks protruding everywhere, even from the floor making you stumble in
 the flickering light. To the south the tunnel narrows even more making it
 almost impossible to pass. To the north it slowly widens into a cave. There
 is a branch of the tunnel going west.
-@rus Ты  бредешь  по  узкому  туннелю.  Стены сделаны грубо, осрные бесформенные
+@rus Ты  бредешь  по  узкому  туннелю.  Стены сделаны грубо, осиные бесформенные
 камни  торчат отовсюду, мешая тебе идти. На юге туннель сужается настолько,
 что пройти почти невозможно, на севере же он медленно расширяется в пещеру.
 Ответвление тоннеля ведет на запад.
@@ -2006,7 +2006,7 @@ S
 @eng You are in a north-south leading tunnel, you also notice a tunnel to
 the west. From the north you sense the fresh air!
 @rus Ты  в  туннеле,  который ведет с севера на юг, ты также видишь ответвление,
-ведущее на запад. С севера ты чуствуешь дуновение свежего ветерка!
+ведущее на запад. С севера ты чувствуешь дуновение свежего ветерка!
 ~
 0 AD forest
 D0
@@ -2054,7 +2054,7 @@ S
 @eng You are in a cave that is filled with fresh air, you sense the
 wind blowing from the north. To the south you see a small tunnel
 continue into the mountain.
-@rus Ты  в  пещере,  которая  заполнена  свежим  воздухом. Ты чуствуешь ветерок,
+@rus Ты  в  пещере,  которая  заполнена  свежим  воздухом. Ты чувствуешь ветерок,
 дующий с севера. На юге ты видишь маленький туннель, уходящий вглубь горы.
 ~
 0 ACD field
@@ -2165,7 +2165,7 @@ S
 @eng The grass here is unusually high.  You notice several areas where
 someone or something large has crushed spots of the grass down.  Several very
 large rocks litter this area.  You can go north, west or south.
-@rus Трава  здесь необычайно высока. Ты замечаешь наколько мест, где кто-то (или
+@rus Трава  здесь необычайно высока. Ты замечаешь несколько мест, где кто-то (или
 что-то)  примял  траву. Несколько громадных камней портят эту местность. Ты
 можешь идти на север, запад или юг.
 ~
@@ -2195,7 +2195,7 @@ S
 to the north of here.  You can spot a small city in the distance from
 here.
 @rus В этой точке ты покидаешь поля. На севере видна равнина, а на юге виднеется
-малький город.
+маленький город.
 ~
 0 0 field
 D0
@@ -2495,7 +2495,7 @@ S
 #4055
 @eng The maze@rus Лабиринт~
 @eng You are in a maze of small damp tunnels.  The only exit is west.
-@rus Ты  находишься  в  лабиринте  маленьких сырых туннелей. Единственый выход -
+@rus Ты  находишься  в  лабиринте  маленьких сырых туннелей. Единственный выход -
 западный.
 ~
 0 AD forest
@@ -2897,7 +2897,7 @@ S
 #4100
 @eng The tunnel@rus Туннель~
 @eng Suddenly you feel that the tunnel leads slightly down.
-@rus Внезапно ты чуствуешь, что туннель уводит тебя куда-то вниз...
+@rus Внезапно ты чувствуешь, что туннель уводит тебя куда-то вниз...
 ~
 0 ACD forest
 D0
@@ -2914,7 +2914,7 @@ D3
 Z 0 4101
 S
 #4101
-@eng The long tunnel@rus Длинный тунель~
+@eng The long tunnel@rus Длинный туннель~
 @eng You are in a long east-west leading tunnel. The tunnel is quite
 wide at this point.
 @rus Ты  в  длинном  туннеле,  ведущем с запада на восток. Туннель очень широк в
@@ -2935,7 +2935,7 @@ D3
 Z 0 4102
 S
 #4102
-@eng The long tunnel@rus Длинный тунель~
+@eng The long tunnel@rus Длинный туннель~
 @eng You are in a long east-west leading tunnel. The tunnel becomes
 narrow to the west.
 @rus Ты  в  длинном  туннеле,  ведущем  с  запада на восток. Туннель сужается на
@@ -2956,7 +2956,7 @@ D3
 Z 0 4103
 S
 #4103
-@eng The long tunnel@rus Длинный тунель~
+@eng The long tunnel@rus Длинный туннель~
 @eng You are in a long east-west leading tunnel. The tunnel is quite
 narrow at this point. You notice a small hole leading south.
 @rus Ты  в  длинном  туннеле,  ведущем с запада на восток. Туннель очень широк в
@@ -2983,7 +2983,7 @@ D3
 Z 0 4104
 S
 #4104
-@eng The long tunnel@rus Длинный тунель~
+@eng The long tunnel@rus Длинный туннель~
 @eng You are in a long east-west leading tunnel. The tunnel starts sloping
 down towards the west.
 @rus Ты  в  длинном  туннеле,  ведущем  с  запада  на  восток.  Туннель начинает
@@ -3232,7 +3232,7 @@ S
 @eng You are in a dark passage, that leads east. In the ceiling you notice
 a small hole, just big enough to pass through.
 @rus Ты  в  темном  проходе,  который  ведет  на восток. На потолке ты замечаешь
-маленкую дыру, как раз такого размера, чтобы протиснуться в нее.
+маленькую дыру, как раз такого размера, чтобы протиснуться в нее.
 ~
 0 AD forest
 D1
@@ -3354,7 +3354,7 @@ S
 @eng The secret tunnel@rus Секретный туннель~
 @eng You are in a secret tunnel that leads west, you feel evilness
 approaching you as you continue west.
-@rus Ты  в  секретном  туннеле,  который  ведет на запад. На западе ты чуствуешь
+@rus Ты  в  секретном  туннеле,  который  ведет на запад. На западе ты чувствуешь
 чье-то враждебное присутствие.
 ~
 0 AD forest
@@ -3446,7 +3446,7 @@ S
 @eng You are in a passage, to the east you see a cave. Light from the
 cave lights up the passage. To the north the passage leads into
 the darkness.
-@rus Ты  в проходе, на востоке котороы ты видишь пещеру. Свет из пещеры освещает
+@rus Ты  в проходе, на востоке которой ты видишь пещеру. Свет из пещеры освещает
 проход. Северная часть прохода уходит в темноту.
 ~
 0 AD forest
@@ -3514,7 +3514,7 @@ S
 #4152
 @eng The tunnel@rus Туннель~
 @eng You suddenly feel that the tunnel leads down.
-@rus Внезапно ты чуствуешь, что туннель уходит вниз...
+@rus Внезапно ты чувствуешь, что туннель уходит вниз...
 ~
 0 ACD forest
 D1
@@ -3600,7 +3600,7 @@ D3
 Z 0 4154
 S
 #4156
-@eng The long tunnel@rus Длинный тунель~
+@eng The long tunnel@rus Длинный туннель~
 @eng You are standing in a long north-south tunnel.
 @rus Ты в длинном туннеле, который ведет с севера на юг.
 ~
@@ -3622,7 +3622,7 @@ S
 @eng The wet tunnel@rus Сырой туннель~
 @eng You are in a wet, north-south leading tunnel, the floor is
 partly covered by water.
-@rus Ты  в сыром туннеле, тенущемся с севера на юг. Туннель настолько сырой, что
+@rus Ты  в сыром туннеле, тянущимся с севера на юг. Туннель настолько сырой, что
 пол кое-где покрывают лужи воды. Пить из них я бы поостерегся.
 ~
 0 AD forest
@@ -3980,7 +3980,7 @@ S
 @eng End of maze@rus Конец лабиринта~
 @eng You are at the end of the small maze which continues north.
 Above you a hole leads up.
-@rus Ты  в  конце  маленького  лабиринта, который въется на север от тебя. Через
+@rus Ты  в  конце  маленького  лабиринта, который вьется на север от тебя. Через
 дыру в потолке ты можешь подняться вверх.
 ~
 0 ACD forest

@@ -471,43 +471,6 @@ P 0 96001 0 0 1	* the hollow: the Leaf of Great Oak
 O 0 96010 0 96010	* cap of milk (Desert)
 S
 
-#MOBPROGS
-#96000
-if clan $n warders
-mob echoat $n $I jumps around you!
-end
-endif
-if isimmort $n 
-mob echoat $n $I jumps around you!
-end
-endif
-if level $n < 10
-mob transfer $n 96000 
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place!
-mob transfer $n 96000
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place!
-mob slay $n
-end
-endif
-clan We are attacked by $n!
-mob attack $n
-~
-#96001
-if clan $n warders
-or isimmort $n
-mob transfer $n 95402
-end
-endif
-mob attack $n
-~
-#0
-
 #PRACTICERS
 M 96000 ac	* biomass
 S

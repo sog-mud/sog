@@ -8204,17 +8204,4 @@ O 11715 8	* a dark cloak embroidered with a smokey blue insignia
 O 11725 5	* an adamantite shortsword
 S
 
-#MOBPROGS
-#11600
-say Welcome to Zeinia International!  How may I help you?
-~
-#0
-
-#OMPROGS
-O 11680 wear_prog wear_prog_bracer	* `bracers of energy'
-O 11680 remove_prog remove_prog_bracer	* `bracers of energy'
-O 11693 wear_prog wear_prog_bracer	* `musical bracers'
-O 11693 remove_prog remove_prog_bracer	* `musical bracers'
-S
-
 #$

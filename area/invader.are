@@ -336,7 +336,7 @@ DZ 0 16081
 D5
 @eng A dim light of a flickering torch hits the southern wall of the well,
 far down the stone pipe.
-@rus Мерцающий свет догорающего факела отражаясь от южной стены колодца, погложается пастью небольшого туннеля.
+@rus Мерцающий свет догорающего факела отражаясь от южной стены колодца, поглощается пастью небольшого туннеля.
 ~
 entrance~
 the entrance~
@@ -358,7 +358,7 @@ well.
 0 ACDKNX inside
 D0
 @eng The doorway leads to a well lit chamber. On the wall is a huge shadow.
-@rus Путь ведет в хорошо освещенный зал.  На стене перед входом видна огромая
+@rus Путь ведет в хорошо освещенный зал.  На стене перед входом видна огромная
 тень.  
 ~
 ~
@@ -539,11 +539,11 @@ letters reads ' The Brotherhood of Invader's '. On the west wall there is
 a black stone with blood script on it. The title with big letters reads  
 'Death Angel'.
 @rus Ты заходишь в зал выложенный черным камнем.  Расчерченная алым
-пентаграмма как паутина облепила плиты пола.  Гиганский черный алтарь,
+пентаграмма как паутина облепила плиты пола.  Гигантский черный алтарь,
 похожий на человеческий череп возвышается в центре.  Множество огоньков
 расставленных повсюду свечей подрагивают при малейшем движении.  На
 восточной стене прибита исчерканная рунами шкура, на ней видна надпись
-"{RБратство Инвайдеров{x".  На черных камнях западной стены среди потеков
+"{RБратство Инвайдеров{x".  На черных камнях западной стены среди подтеков
 крови можно различить руны обозначающие - "{DАнгел Смерти{x".  
 ~
 0 ADKT inside
@@ -624,7 +624,7 @@ S
 @rus Удушливый запах гниения молотом обрушивается на твое сознание.  Повинуясь
 инстинкту самосохранения ты просто забываешь о дыхании.  Из глубины пещеры,
 разрывая плотную завесу ядовитых испарений вверх бьет темно-багровый поток. 
-Удараяя в свод пещеры, густая жидкость стекает по стенам и сталактитам
+Ударяя в свод пещеры, густая жидкость стекает по стенам и сталактитам
 заливая все вокруг.  Ты вдруг понимаешь - это кровь.  Стоя по колено в
 смрадной жиже свернувшейся крови ты потрясенно вспоминаешь старую легенду о
 Первом Вампире, возжелавшем попробовать крови самой Земли.  
@@ -700,88 +700,6 @@ M 0 95602 1 95610 1	* bruks (Vampires Lair)
 O 0 95607 0 95612	* bloody fountain (Bloody Grotto)
 M 0 95605 1 95615 1	* beast (Underground damp)
 S
-
-#MOBPROGS
-#95600
-if clan $n invaders
-if pos $i fight
-end
-else
-' Greetings, dark one.
-end
-endif
-endif
-if isimmort $n 
-bow $n
-end
-endif
-if level $n < 10
-mob transfer $n 95600
-end
-endif
-if ischarm $n 
-say Charmies are not allowed in this place!
-mob transfer $n 95600
-end
-endif
-if isghost $n
-say Ghosts are not allowed in this place!
-mob slay $n
-end
-endif
-clan We are attacked by $n
-mob attack $n
-~
-#95601
-if clan $n invaders
-mob echoaround $n $N vanishes.
-mob echoat $n the {DDarkness{x helps you.
-mob gtransfer $n 95610
-else
-mob transfer $n 95607
-endif
-~
-#95602
-mob echo $i unlocks and opens hole.
-mob echo Some slaves woman leaves from hole.
-mob mload 95604
-mob mload 95604
-mob mload 95604
-mob mload 95604
-mob mload 95604
-mob junk gold
-mob vforce 95604 emote screams and attacks! 
-mob vforce 95604 mob kill $n
-~
-#95603
-if clan $n invader
-mob gtransfer $n 95608
-end
-endif
-if isimmort $n 
-mob gtransfer $n 95608
-end
-endif
-mob attack $n
-~
-#95604
-cast black
-grin
-~
-#95605
-if isnpc $n
-mob echo Guard pushes a some lever and $N falls at the bottom of dangeon.
-mob transfer $n 95615
-endif
-~
-#95606
-if clan $n invaders
-end
-endif
-clan  {R Attention! Intruder by $n {x
-end
-~
-#0
 
 #PRACTICERS
 M 95600 V	* the invader guardian

@@ -1160,7 +1160,7 @@ S
 @eng The cave gleams as your light reflects off of it.  As you squint your eyes
 and try to look ahead, you think you see something move.
 @rus Ты $gn{вошел} в пещеру с каменными стенами, от которых отражается свет твоего
-факела. Пещера проболжается вглубь горы на север, и вглядываясь в темноту,
+факела. Пещера продолжается вглубь горы на север, и вглядываясь в темноту,
 ты замечаешь какое-то неясное движение.
 ~
 0 A forest
@@ -2507,7 +2507,7 @@ S
 @eng Small Mine Shaft@rus Маленькая шахта~
 @eng You are in a small extension of the mine shaft.  The dust on the floor is
 undisturbed by footprints.
-@rus Ты в небольшой щахте с низким потолком. Каменная пыль на полу нетронута,
+@rus Ты в небольшой шахте с низким потолком. Каменная пыль на полу нетронута,
 на ней нет отпечатков ничьих следов.
 ~
 0 D field

@@ -278,7 +278,7 @@ stand stand female 0
 #7517
 guppy гуппи small happy рыбка~
 @eng a guppy@rus ~~рыбка~~ гуппи~
-@eng A happy guppy is here, being, well you know, HAPPY!@rus Ты видишь маленькоую рыбку гуппи (guppy), счастливую до неприличия!~
+@eng A happy guppy is here, being, well you know, HAPPY!@rus Ты видишь маленькую рыбку гуппи (guppy), счастливую до неприличия!~
 @eng He is almost as cute as the goldfish.  You should help him too.
 @rus Она почти так же мила, как и золотая рыбка. Ты $gn{должен} помочь
 и ей тоже.
@@ -966,7 +966,7 @@ duke герцог gerighelm геригхельма~
 @eng the Duke of Gerighelm@rus ~~Герцог~~ Геригхельма~
 @eng The Duke of Gerighelm is here, watching over his proud lands.@rus Герцог Геригхельма (Duke) наблюдает за жизнью в своей цветущей земле.~
 @eng He looks worn, but happy.
-@rus Он выглядит немного устало, но, похоже, доволен своими поддаными.
+@rus Он выглядит немного устало, но, похоже, доволен своими подданными.
 ~
 human~
 BGJRT 0 0 0 0 1000 7550
@@ -1195,7 +1195,7 @@ r harm 999
 r charm 999
 r sound 999
 #7604
-herbalist торговей травами~
+herbalist торговец травами~
 @eng the herbalist@rus ~~торговец~~ травами~
 @eng The Herbalist is here, selling herbs.@rus Торговец травами (herbalist) продает травы на любой вкус.~
 @eng She looks like she is happy with her lot in life.
@@ -1380,7 +1380,7 @@ g @rus female~
 #7505
 magic кувшин water pitcher волшебный вода~
 @eng a magic water pitcher@rus ~~волшебный~~ ~~кувшин~~~
-@eng A pitcher is here.@rus Кувшин (pitcher) лежит тут, переливаясь странными отттенками.~
+@eng A pitcher is here.@rus Кувшин (pitcher) лежит тут, переливаясь странными оттенками.~
 glass~
 drink 0 0 A
 25 25 'water' 0 0
@@ -2606,7 +2606,7 @@ S
 @eng Care-Takers House@rus Дом Смотрителя~
 @eng You are in the home of the Caretaker of this Park.  You see shiny spades,
 hoes, and watering-cans that the Caretaker must like a lot.
-@rus Ты находишся в доме Смотрителя этого Парка. Ты видишь блестящие лопаты,
+@rus Ты находишься в доме Смотрителя этого Парка. Ты видишь блестящие лопаты,
 мотыги, и лейки. Должно быть, Смотритель, хорошо заботится о своем инструменте.
 ~
 0 D inside
@@ -4137,7 +4137,7 @@ D1
 Z -1 7573
 D2
 @eng You see the weapon shop.
-@rus Ты видищь оружейную лавку.
+@rus Ты видишь оружейную лавку.
 ~
 ~
 ~
@@ -4189,7 +4189,7 @@ S
 @eng End of Merchant Way@rus Конец Торговой Улицы~
 @eng You are at the end of merchant way, yet there is still another store
 south of here.
-@rus Торговая Улица здесь заканчивается. На юге расположена последная лавка.
+@rus Торговая Улица здесь заканчивается. На юге расположена подледная лавка.
 ~
 0 0 city
 D2
@@ -4276,7 +4276,7 @@ S
 @eng Magic Shop@rus Магическая лавка~
 @eng You are inside the magic shop.  There are many many many magical things
 of unknown nature.  There is a sign here.
-@rus Ты находишся в лавке магии. Тут продается множество непонятных магических
+@rus Ты находишься в лавке магии. Тут продается множество непонятных магических
 вещей. Знак с надписью привлекает твое внимание.
 ~
 0 D inside
@@ -5143,7 +5143,7 @@ S
 #7608
 @eng Water bottles and Beer@rus Пивнушка~
 @eng You are inside a shop with a small bar.
-@rus Ты нахидишься в обычном притоне, где продают пиво.
+@rus Ты находишься в обычном притоне, где продают пиво.
 ~
 0 D inside
 D2
@@ -6522,7 +6522,7 @@ a large garden.  Complete with birds, chipmunks, and bugs OUCH <stupid fly>
 0 D inside
 D0
 @eng You see the garden.
-@rus Ты видищь сад.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -6555,7 +6555,7 @@ D0
 Z -1 7671
 D2
 @eng You see the garden.
-@rus Ты видищь сад.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -6563,7 +6563,7 @@ D2
 Z -1 7668
 D3
 @eng You see the garden.
-@rus Ты видищь сад.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -6580,7 +6580,7 @@ But the flowers are still as pretty though.
 0 D inside
 D1
 @eng You see the garden.
-@rus Ты видищь сад.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -6592,7 +6592,7 @@ S
 @eng You are at the and of the garden.  To the north there is a GRAND hall.
 I wonder whats at the end of it?.
 @rus Ты стоишь в месте, где сад кончается. На севере ты видишь ОГРОМНЫЙ зал.
-Интересно, что же такое находится в коце этого зала?
+Интересно, что же такое находится в конце этого зала?
 ~
 0 D inside
 D0
@@ -6640,7 +6640,7 @@ D1
 Z -1 7673
 D2
 @eng You see the garden.
-@rus Ты видищь сад.
+@rus Ты видишь сад.
 ~
 ~
 ~
@@ -6658,7 +6658,7 @@ S
 #7673
 @eng The Altar@rus Алтарь~
 @eng What luck! It's the altar to your very own God! Better pray here and now!
-@rus Вот это удача привалила! Это же алтать твоего собственного Бога! Лучше молись
+@rus Вот это удача привалила! Это же алтарь твоего собственного Бога! Лучше молись
 здесь и сейчас!
 ~
 0 D inside

@@ -1684,9 +1684,4 @@ O 22007 2	* the Rod of Rulership
 O 22008 10	* a bloody collar
 S
 
-#OMPROGS
-O 22000 wear_prog wear_prog_girdle_giant	* `girdle of giant strength'
-O 22000 remove_prog remove_prog_girdle_giant	* `girdle of giant strength'
-S
-
 #$

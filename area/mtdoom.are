@@ -2439,15 +2439,15 @@ D3
 Z -1 14723
 S
 #14725
-@eng Outside the Fortress of Lord Korgthar@rus Перед крепостью Лорда Коргтара~
+@eng Outside the Fortress of Lord Korgthar@rus Перед крепостью Лорда Крогтара~
 @eng You have finally reached the summit, and are standing beneath the gates of
 the Fortress, which you may climb up to by means of an iron staircase. You
 can sense many pairs of eyes upon you, and you wonder how far you will be
 permitted to go before Korgthar's forces combine and crush you.
 @rus Наконец-то ты $gn{достиг} вершины. Ты стоишь под воротами Крепости, до которых
-можно добраться по железной лестнице. Ты чуствуешь, как множество глаз
+можно добраться по железной лестнице. Ты чувствуешь, как множество глаз
 внимательно наблюдают за тобой. Интересно, насколько далеко ты сможешь
-забраться, прежде чем армия Лорда Коргтара соберется и уничтожит тебя.
+забраться, прежде чем армия Лорда Крогтара соберется и уничтожит тебя.
 ~
 0 0 mountain
 D0
@@ -3391,7 +3391,7 @@ sconce or tattered tapestry. It is evident that this castle has known many
 inhabitants prior to its current ones.
 @rus Ты внутри ворот крепости, на перекрестке. Проходы - замечательно откровенны
 для этого прибежища Зла - простые плиты из серого камня на полу и стенах, 
-однообразие лишь изредко нарушается встречающимися на стенах кольцами для
+однообразие лишь изредка нарушается встречающимися на стенах кольцами для
 факелов, да обрывками гобеленов. Очевидно, крепость знала множество 
 обитателей, живших здесь раньше.
 ~
@@ -3433,7 +3433,7 @@ The Cell Block~
 Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
-@rus Здесь содержатся узники Крогтара. Камер не очень много, поскольку Крогтар
+@rus Здесь содержатся узники Крогтара. Камер не очень много, поскольку Крогтара
 предпочитает не брать пленников. Если тебе вдруг показалось, что охрана 
 недостаточна, подумай, что поджидает потенциальных беглецов снаружи...
 ~
@@ -3499,7 +3499,7 @@ The Cell Block~
 Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
-@rus Здесь содержатся узники Крогтара. Камер не очень много, поскольку Крогтар
+@rus Здесь содержатся узники Крогтара. Камер не очень много, поскольку Крогтара
 предпочитает не брать пленников. Если тебе вдруг показалось, что охрана 
 недостаточна, подумай, что поджидает потенциальных беглецов снаружи...
 ~
@@ -3630,7 +3630,7 @@ D3
 ABZ 0 14760
 S
 #14760
-@eng Assassins' Quarters@rus Апаратаменты убийц~
+@eng Assassins' Quarters@rus Апартаменты убийц~
 @eng In this room reside some of the assassins that serve Korthgar. He may not
 be the brightest of tyrants, but Krothgar was smart enough to work out it was
 easier to send a single assassin to slay a king and collapse an empire than
@@ -3670,7 +3670,7 @@ D2
 ABZ 0 14759
 S
 #14762
-@eng Assassins' Quarters@rus Апаратаменты убийц~
+@eng Assassins' Quarters@rus Апартаменты убийц~
 @eng In this room reside some of the assassins that serve Korthgar. He may not
 be the brightest of tyrants, but Krothgar was smart enough to work out it was
 easier to send a single assassin to slay a king and collapse an empire than
@@ -3716,7 +3716,7 @@ S
 @eng You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
 @rus Ты продвигаешься по темному коридору, ведущему к апартаментам стражи 
-Лорда Коргтара.
+Лорда Крогтара.
 ~
 0 AD inside
 D0
@@ -3783,7 +3783,7 @@ S
 @eng You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
 @rus Ты продвигаешься по темному коридору, ведущему к апартаментам стражи 
-Лорда Коргтара.
+Лорда Крогтара.
 ~
 0 AD inside
 D2
@@ -3805,7 +3805,7 @@ S
 stain the straw-covered floor while decomposing human, orc and ogre corpse
 hang from hooks in the ceiling, evidently used as practice dummies.
 @rus Двери ведут во все стороны. Покрытый соломой и пятнами крови, пива и
-пищи пол. C потолка свисают разлагающиеся человеческие и орчьи трупы,
+пищи пол. C потолка свисают разлагающиеся человеческие и орочьи трупы,
 которые, очевидно, используются в качестве манекенов для упражнений
 солдат.
 ~
@@ -3881,7 +3881,7 @@ S
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 @rus В конце этого южного коридора находятся комнаты для гостей, где сейчас 
-проживает множество эмисаров могущественных рас, которые Лорд Коргтар 
+проживает множество эмиссаров могущественных рас, которые Лорд Коргтар 
 хотел бы получить в союзники. Они не одобряют незванных гостей....
 ~
 0 D inside
@@ -4195,7 +4195,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 @rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
-мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+мензурки, банки, перегонные кубы и сотни других предметов разбросанных по
 столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
 как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
@@ -4226,13 +4226,13 @@ D3
 Z -1 14784
 S
 #14784
-@eng Western End of the Lab@rus Западный конец лабратории~
+@eng Western End of the Lab@rus Западный конец лаборатории~
 @eng This vast room extends in all directions. You see vats, urns, beakers, jars,
 alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 @rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
-мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+мензурки, банки, перегонные кубы и сотни других предметов разбросанных по
 столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
 как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
@@ -4251,7 +4251,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 @rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
-мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+мензурки, банки, перегонные кубы и сотни других предметов разбросанных по
 столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
 как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
@@ -4270,7 +4270,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 @rus Широкая комната тянется во всех направлениях.  Ты видишь баки, урны,
-мензурки, банки, перегонные кубы и сотни других предметов разбосанных по
+мензурки, банки, перегонные кубы и сотни других предметов разбросанных по
 столам, лавкам, стульям и просто по полу.  Все выглядит слегка поврежденным,
 как-будто тут недавно кто-то (или что-то) славно побушевало.  
 ~
@@ -4418,7 +4418,7 @@ S
 @eng Here Krothgar keeps his hydra, which guards the treasure of the evil temple.
 It is a wild and ferocious beast, which will tear apart anything that enters
 its lair save Krothgar or the high priest.
-@rus Здесь Крогтар содержит свю гидру, она охраняет сокровища церкви.  Гидра -
+@rus Здесь Крогтар содержит свою гидру, она охраняет сокровища церкви.  Гидра -
 дикий и свирепый зверь, она разорвет на части любого, кто попытается войти в
 ее логово.  
 ~
@@ -4605,7 +4605,7 @@ in between them stand members of his elite guard, ready to defend their lord.
 в центре зала в окружении пяти башен, расположенных на севере, на юге,
 на западе, на востоке от его трона. А еще одна башня возвышается прямо
 над ним. В каждой башне живет по могущественному дракону, являющихся
-союзниками Лорда. Длинная стена завешена изобрашениями множества побед
+союзниками Лорда. Длинная стена завешена изображениями множества побед
 Лорда Кротгара. И возле нее стоит член элитной гвардии, всегда готовый
 защитить своего повелителя.
 ~

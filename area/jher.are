@@ -1019,14 +1019,4 @@ S
 O 32703 3	* jher's curved dagger
 S
 
-#MOBPROGS
-#32700
-say Hey $n ... You wanna get out of here.... Ok..I'll help you...
-giggle
-MOB ECHO A small statue has teleported you.
-MOB TRANSFER $n 8102
- 
-~
-#0
-
 #$

@@ -591,7 +591,7 @@ S
 @eng The crevice is deep and a little dim and it is hard to make your
 way around.  A mist makes everything a little damp and slippery.
 Better take your time climbing through here.
-@rus Ращелина глубокая и слегка неясная и сложно осмотреть свой путь вокруг. Туман
+@rus Расщелина глубокая и слегка неясная и сложно осмотреть свой путь вокруг. Туман
 делает все влажным и скользким. Тебе потребуется время, чтоб пробраться здесь.
 ~
 0 0 mountain
@@ -1297,9 +1297,9 @@ S
 almost overpowering.  You hear strange creaks and groans ... is it
 the wind or did someone (something?) make that noise.  To the west
 is the house and there is a stairway leading up into the tower.
-@rus Ты в затхлой старой башне. Запах грибков и плесени здесь наиболее нереодолим.
+@rus Ты в затхлой старой башне. Запах грибков и плесени здесь наиболее непреодолим.
 Ты слышишь странные скрипы и трески...это ветер или что-то (кто-то ?) еще
-производит этот шум. На западе виден дом, а лесница ведет вверх в башню.
+производит этот шум. На западе виден дом, а лестница ведет вверх в башню.
 ~
 0 AD inside
 D3
@@ -1323,7 +1323,7 @@ On shelves lie jars of strange creatures you have never seen before, or
 hope to again.  A picture of a familiar temple hangs on the east wall.
 @rus Ты видишь странные вещи с загадочным смыслом. В углу стоит безумно кипящий
 котел, извергая отвратительное варево, которое, должно быть, принесено из ада.
-На полках леат статуэтки странных существ, которых ты никогда не видел и
+На полках лежат статуэтки странных существ, которых ты никогда не видел и
 надеешься, что и не увидишь. Изображение (picture) известного храма висит на
 восточной стене.
 ~
@@ -1836,7 +1836,7 @@ S
 @eng A croquet game has been set up and carelessly left out.  Who ever
 was playing blue was in the lead before they quit.  Benches have
 been set up for spectators and players to enjoy themselves.
-@rus Игра в крокет была начата и небрежно прошена. Тот кто когда-то играл голубыми
+@rus Игра в крокет была начата и небрежно брошена. Тот кто когда-то играл голубыми
 выигрывал. Для зрителей и игроков здесь расставлены скамейки.
 ~
 0 0 field

@@ -12,7 +12,7 @@ End
 #6000
 john lumberjack джон дровосек~
 @eng John the Lumberjack@rus ~~дровосек~~ Джон~
-@eng John the Lumberjack is here, looking for some trees to chop down.@rus Дровосек Джон (John) оглядывается вокруг, выбирая какое девево срубить.~
+@eng John the Lumberjack is here, looking for some trees to chop down.@rus Дровосек Джон (John) оглядывается вокруг, выбирая какое дерево срубить.~
 @eng He is six feet tall and looks quite strong, muscles bulging under his heavy,
 chequered shirt.  His features are worn with hard work and his expression is
 one of a peaceful man leading a simple life.
@@ -169,7 +169,7 @@ the nicks in the horns on its head.  It smells as disgusting as only dragons
 do.
 @rus Ужасная крылатая рептилия с темно-зеленой чешуей покрывающей
 большую часть ее громадного тела. Разрывы на ее больших кры-
-льях говорят о множестве схватов, в которых этот дракон при-
+льях говорят о множестве схваток, в которых этот дракон при-
 нимал участие. От него пахнет.. хмм.. воняет так, как обыкно-
 венного дракона.
 ~
@@ -207,7 +207,7 @@ stand stand male 50
 #6116
 elder druid старец друид~
 @eng the elder druid@rus ~~старец~~ ~~друид~~~
-@eng The elder druid is here ... he looks very upset at your presence in his home.@rus Старец (elder) друид... он выглядит расстроеным твоим вторжением в его дом.~
+@eng The elder druid is here ... he looks very upset at your presence in his home.@rus Старец (elder) друид... он выглядит расстроенным твоим вторжением в его дом.~
 @eng The druid looks quite old.  You would think him venerable, but you know
 he would be a tough foe.
 @rus Он выглядит очень старым. Но он может быть очень стойким противником.
@@ -282,7 +282,7 @@ armor 0 0 AD
 E
 shirt рубаха~
 @eng It is an extra large, chequered shirt made from heavy cloth.
-@rus Она очень большого размера, сшитая из тлотного хлопка в клетку.
+@rus Она очень большого размера, сшитая из плотного хлопка в клетку.
 ~
 g @rus female~
 #6002
@@ -556,14 +556,14 @@ g @rus female~
 West Gate of Midgaard and to the west is a narrow trail, leading in through
 the forest.  A dimly lit path leads north.  
 @rus Ты стоишь на восточном крае огромного леса. На востоке видны Западные
-Врата Мидгаарда, на запад, в лес, убегает узкая тропинка. На север ухо-
+Врата Мидгарда, на запад, в лес, убегает узкая тропинка. На север ухо-
 дит темная дорога.
 ~
 0 C field
 E
 trail тропа дорога~
 @eng The forest trail winds westwards through the trees.
-@rus Лесная тропа идущая, на запад, петляющаяя среди деревьев.
+@rus Лесная тропа идущая, на запад, петляющая среди деревьев.
 ~
 D0
 @eng You see a dimly lit path.
@@ -575,7 +575,7 @@ D0
 Z 0 1100
 D1
 @eng You see the West Gate of the City of Midgaard.
-@rus Западные Врата Мидгаарда.
+@rus Западные Врата Мидгарда.
 ~
 ~
 ~
@@ -737,7 +737,7 @@ total darkness.  A small path leads south through the trees.
 E
 tree trees дерево деревья~
 @eng The crowns of the old trees almost cut out all light.
-@rus Кроны старых деревьев поглащают почти все солнечные лучи.
+@rus Кроны старых деревьев поглощают почти все солнечные лучи.
 ~
 E
 trail тропа~
@@ -1016,7 +1016,7 @@ table стол~
 E
 chair стул~
 @eng It is made from oak and looks strong and sturdy.
-@rus Он сделан из дуба и выглядит кретким и массивным.
+@rus Он сделан из дуба и выглядит крепким и массивным.
 ~
 E
 bed кровать~
@@ -1767,7 +1767,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -1805,7 +1805,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -1843,7 +1843,7 @@ in a single blow.
 E
 tree trees trunk trunks деревья дерево стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D1
 @eng The narrow path winds its way through the trees to the east.
@@ -1875,7 +1875,7 @@ S
 @eng You are on a narrow path leading through the deep, dark forest.  Ancient grey
 trees loom all around you.  The path continues north and east.
 @rus Незаметная тропка, петляющая среди вековых деревьев, окружающих
-тебя совсех сторон. Тропинка идет на север и на восток.
+тебя со всех сторон. Тропинка идет на север и на восток.
 ~
 0 AD forest
 E
@@ -1888,7 +1888,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -2022,7 +2022,7 @@ E
 tree trees trunk trunks дерево деревья стволы~
 @eng Some of the trunks to the west are covered in a thin, almost transparent
 substance. 
-@rus Деревья изпачканы в каком-то странном веществе.
+@rus Деревья испачканы в каком-то странном веществе.
 ~
 E
 path дорожка~
@@ -2181,7 +2181,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D2
 @eng The narrow path winds its way through the trees to the south.
@@ -2219,7 +2219,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -2266,7 +2266,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -2304,7 +2304,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D1
 @eng The narrow path winds its way through the trees to the east.
@@ -2342,7 +2342,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -2388,7 +2388,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D2
 @eng The narrow path winds its way through the trees to the south.
@@ -2471,7 +2471,7 @@ above the dark river.
 E
 river река~
 @eng The river flows fast and strong.  It is black or looks so in the gloom.
-@rus В реке течение сильное и бысторое. А вода практически черна.
+@rus В реке течение сильное и быстрое. А вода практически черна.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -2517,7 +2517,7 @@ above the dark river.
 E
 river река~
 @eng The river flows fast and strong.  It is black or looks so in the gloom.
-@rus В реке течение сильное и бысторое. А вода практически черна.
+@rus В реке течение сильное и быстрое. А вода практически черна.
 ~
 D1
 @eng The narrow path winds its way through the trees to the east.
@@ -2547,7 +2547,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D1
 @eng The narrow path winds its way through the trees to the east.
@@ -2593,7 +2593,7 @@ above the dark river.
 E
 river река~
 @eng The river flows fast and strong.  It is black or looks so in the gloom.
-@rus В реке течение сильное и бысторое. А вода практически черна.
+@rus В реке течение сильное и быстрое. А вода практически черна.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -2653,7 +2653,7 @@ above the dark river.
 E
 river река~
 @eng The river flows fast and strong.  It is black or looks so in the gloom.
-@rus В реке течение сильное и бысторое. А вода практически черна.
+@rus В реке течение сильное и быстрое. А вода практически черна.
 ~
 D3
 @eng The narrow path winds its way through the trees to the west.
@@ -2690,7 +2690,7 @@ above the dark river.
 E
 river река~
 @eng The river flows fast and strong.  It is black or looks so in the gloom.
-@rus В реке течение сильное и бысторое. А вода практически черна.
+@rus В реке течение сильное и быстрое. А вода практически черна.
 ~
 D0
 @eng The narrow path winds its way through the trees to the north.
@@ -3011,7 +3011,7 @@ to a cave-like structure made from many layers of spider web.
 E
 web паутина~
 @eng The immense spider web moves softly.
-@rus Огромная пайтина, она колышется.
+@rus Огромная паутина, она колышется.
 ~
 D0
 @eng The web continues to the north.
@@ -3075,7 +3075,7 @@ trees loom all around you.  The trail continues north and east.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng The dusty trail leads north through the trees.
@@ -3149,14 +3149,14 @@ trees loom all around you.  You see a dark grove north of you.
 The other exits are east and south.
 @rus Пыльная тропа привела тебя в это место. Вековые деревья угрожающе
 нависают над тобой. На севере виден совсем черный лес, там ни единый
-солнейный лучик не может достичь земли. Можно пойти по тропе назад, 
+солнечный лучик не может достичь земли. Можно пойти по тропе назад, 
 на юг или на восток.
 ~
 0 AD forest
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D0
 @eng You see a dark grove north.
@@ -3194,7 +3194,7 @@ with huge claws has been tearing at them in rage.
 E
 cave opening пещера вход~
 @eng The disgusting smell of a large reptile emanates from the cave opening.
-@rus Пренепреятнейший аромат доносится из пещеры.
+@rus Пренеприятнейший аромат доносится из пещеры.
 ~
 E
 tree trees trunk дерево деревья стволы~
@@ -3204,7 +3204,7 @@ been tearing at them in rage.
 ~
 D0
 @eng The disgusting smell of a large reptile emanates from the cave opening.
-@rus Пренепреятнейший аромат доносится из пещеры.
+@rus Пренеприятнейший аромат доносится из пещеры.
 ~
 ~
 ~
@@ -3223,12 +3223,12 @@ S
 and the stench is so massive that you could cut it with a knife.  The only exit
 is to the south.
 @rus Огромная пещера. Пол засыпан слоем костей всех сортов и размеров.
-А в воздехе висит такое густое зловоние, что его можно резать ножом.
+А в воздухе висит такое густое зловоние, что его можно резать ножом.
 Единственный выход из этого мрачного места -- на юге.
 ~
 0 AD forest
 E
-bone bones floor коти пол~
+bone bones floor кости пол~
 @eng Most of the bones on the floor appear to be of human origin.
 @rus Похоже пол засыпан человечьими костями.
 ~
@@ -3262,7 +3262,7 @@ in a single blow.
 E
 tree trees trunk trunks дерево деревья стволы~
 @eng The ancient grey giants seem to observe you silently.
-@rus Огромные деревья молчаливо наюлюдают за тобой.
+@rus Огромные деревья молчаливо наблюдают за тобой.
 ~
 D2
 @eng The narrow path winds its way through the trees to the south.
@@ -3338,7 +3338,7 @@ S
 of them.  You notice a wooden door carved into the huge tree to the east.  The
 trail that you followed to get here seems to end at the base of the tree.
 @rus Очень интересное место. Здесь посередине поляны растет огромнейшее
-дерево, наверное, самое большое из виденный тобой. А вогруг него рас-
+дерево, наверное, самое большое из виденный тобой. А вокруг него рас-
 тут деревья уже нормального размера, причем, что примечательно, они
 образуют правильный круг, в центре которого и растет старое дерево,
 внутрь которого ведет деревянная дверь. Тропа, что привела тебя сюда

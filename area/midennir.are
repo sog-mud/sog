@@ -367,7 +367,7 @@ west, and the highway continues the the east.  An old northern road leads to
 the dwarven kingdom and the abandoned mines of Moria, while the southern road
 shows the scars of the war which destroyed Thalos.
 @rus Здесь большая восточная дорога пересекается с более старой ведущей из
-шахт Мории в руины Старого Талоса.  Предместья Мидгаарда лежат к западу от
+шахт Мории в руины Старого Талоса.  Предместья Мидгарда лежат к западу от
 тебя, дорога продолжается на восток.  Старая северная дорога ведет в Гномье
 Королевство и разрушенные шахты Мории. Южная дорога надолго запомнила войну
 разрушившую Талос.  Она вся как напоминание об этой битве.  
@@ -400,7 +400,7 @@ D2
 Z 0 5261
 D3
 @eng The road leads west towards Midgaard.
-@rus Дорога ведет на запад к Мидгаарду.
+@rus Дорога ведет на запад к Мидгарду.
 ~
 ~
 ~
@@ -413,7 +413,7 @@ S
 land. The road leads east into the peace and quiet - and dangers - of the
 forest; and to the west it becomes the main street of the town; surrounded by
 a confusion of shops, bars, and market places.
-@rus Вы стоите в предместьях большого города Мидгаарда.  О, великий город! 
+@rus Вы стоите в предместьях большого города Мидгарда.  О, великий город! 
 Центр мира!  Пуп вселенной!  И столица этой земли.  Дорога на востоке ведет
 в лес - тихий, но временами полный опасностей, а на западе превращается в
 одну из главных улиц города, поражающую воображение обилием магазинов, баров
@@ -440,7 +440,7 @@ east is easy enough. To the west, smoke can be seen rising above the
 treetops. The sprawl of Midgaard lies north of here.
 @rus Ты идешь по редкому лесу. Путь ведет на юг, но пройти на восток достаточно
 несложно. К западу заметны дымы, поднимающиеся над верхушками деревьев.
-Мидгаард находится севернее этой местности.
+Мидгард находится севернее этой местности.
 ~
 0 0 forest
 E
@@ -454,7 +454,7 @@ credits credit author~
 ~
 D0
 @eng To the north, you see the southern gates of Midgaard.
-@rus На севере ты видишь южные ворота Мидгаарда.
+@rus На севере ты видишь южные ворота Мидгарда.
 ~
 ~
 ~
@@ -783,7 +783,7 @@ D2
 Z 0 3517
 D3
 @eng The forest continues.
-@rus Лес прожолжается.
+@rus Лес продолжается.
 ~
 ~
 ~
@@ -829,7 +829,7 @@ S
 @eng The ground is quite muddy here and puddles are all around. Your boots
 make a disgusting SQUISH as you walk here. You can go in any of the
 four cardinal directions from here. Hopefully, it will be dryer.
-@rus Все здесь покрыто растоптаной влажной грязью и глиной.
+@rus Все здесь покрыто растоптанной влажной грязью и глиной.
 В твоих ботинках начинает подозрительно хлюпать. Ты можешь идти в любом 
 направлении, и ты надеешься, что там куда ты выйдешь будет посуше.
 ~
@@ -852,7 +852,7 @@ D1
 Z 0 3517
 D2
 @eng The trees get VERY thick to the south. You can barely see...
-@rus Деревья становятся просто необхватными на юге. Ты можешь только смотреть...
+@rus Деревья становятся просто неохватными на юге. Ты можешь только смотреть...
 ~
 ~
 ~
@@ -1065,7 +1065,7 @@ mountains. The air is still and stuffy - a stench comes from the west and an
 ugly feeling causes the hair to rise on the back of your neck!
 @rus Ветви над головой блокируют солнечный свет, делая лес очень темным. 
 Лес продолжается на восток, где он смыкается с горами. Воздух душный - от 
-зловония исходящег с запада волосы просто вставают дыбом!
+зловония исходящего с запада волосы просто встают дыбом!
 ~
 0 0 forest
 D0
@@ -1096,7 +1096,7 @@ S
 @eng You are walking along a well-travelled road between Midgaard and lands
 east.  A northern road crosses this one to the west, towards Midgaard.  You
 hear faint, happy singing to the north.
-@rus Ты идешь по утоптаной широкой дороге, ведущей из Мидгаарда в восточные земли.
+@rus Ты идешь по утоптанной широкой дороге, ведущей из Мидгарда в восточные земли.
 На север уходит ответвление. С северной стороны слышится слабое пение.
 ~
 0 0 city
@@ -1131,8 +1131,8 @@ S
 lands.  The road back to Midgaard is west of you, and a heavily guarded
 checkpoint is east.  A beautiful grove of trees is north, and a dirt path 
 wanders off to the south.
-@rus Ты уходишь все дальше по дороге между Мидгаардом и восточными странами.
-Дорога в Мидгаард позади на западе, усиленно охраняемая застава на востоке.
+@rus Ты уходишь все дальше по дороге между Мидгардом и восточными странами.
+Дорога в Мидгард позади на западе, усиленно охраняемая застава на востоке.
 Красивая роща видна севернее, и пыльная тропинка уходит на юг.
 ~
 0 0 city
@@ -1162,7 +1162,7 @@ D2
 Z -1 1501
 D3
 @eng The road continues west towards midgaard.
-@rus Дорога ведет на запад в Мидгаард.
+@rus Дорога ведет на запад в Мидгард.
 ~
 ~
 ~
@@ -1190,7 +1190,7 @@ D1
 Z -1 3528
 D3
 @eng The road continues west towards midgaard.
-@rus Дорога ведет на запал к Мидгаарду.
+@rus Дорога ведет на запал к Мидгарду.
 ~
 ~
 ~
@@ -1204,7 +1204,7 @@ guarded checkpoint.  You have covered about half the distance between
 the city of Midgaard and New Thalos.  The air is getting drier and the heat
 more oppressive as you near the the barren wastes of the Sands of Sorrow.
 @rus Ты насвистывая идешь по широкой удобной дороге сразу к востоку от заставы.
-Ты уже покрыл больше половины расстояния между Мидгаардом и Новым Талосом.
+Ты уже покрыл больше половины расстояния между Мидгардом и Новым Талосом.
 Внезапно начинает дуть сухой горячий ветер, от него першит в горле и пыль
 забивается куда только можно. Тут ты замечаешь, что подошел к бесплодным
 пустошам Песков Горя..
@@ -1221,7 +1221,7 @@ D1
 Z -1 3529
 D3
 @eng You see a heavily guarded checkpoint to the west.
-@rus Ты видешь укрепленную заставу на западе.
+@rus Ты видишь укрепленную заставу на западе.
 ~
 ~
 ~
@@ -1249,7 +1249,7 @@ D1
 Z -1 3530
 D3
 @eng The road continues to the west, towards distant Midgaard.
-@rus Дорога идет на запад, Мидгаард в отдалении.
+@rus Дорога идет на запад, Мидгард в отдалении.
 ~
 ~
 ~
@@ -1326,7 +1326,7 @@ but well-used, road leading to the City of Midgaard.
 @rus Солнце достаточно горячее, чтобы расплавить твой доспех, но спасение под
 рукой.  На востоке ты видишь могучие ворота Нового Талоса, одного из
 богатейших и благоустроенных городов мира.  На юге бесконечные пустоши
-Песков Горя, на западе дорога ведущая в Мидгаард..  
+Песков Горя, на западе дорога ведущая в Мидгард..  
 ~
 0 0 desert
 D1
@@ -1339,7 +1339,7 @@ D1
 Z -1 9669
 D3
 @eng You see the road to Midgaard, covered with sand.
-@rus Ты видишь дорогу на Мидгаард, покрытую песком.
+@rus Ты видишь дорогу на Мидгард, покрытую песком.
 ~
 ~
 ~
@@ -1449,7 +1449,7 @@ D1
 Z -1 3554
 D2
 @eng The tunnel gets smaller in this direction.
-@rus Тунель сужается во всех направлениях.
+@rus Туннель сужается во всех направлениях.
 ~
 ~
 ~
@@ -1536,7 +1536,7 @@ D4
 Z -1 29001
 S
 #3570
-@eng The Front of the Inn@rus Перед гостинницей~
+@eng The Front of the Inn@rus Перед гостиницей~
 @eng You are standing on a well-worn path which opens into a clearing.
 An old, wooden building is here with smoke billowing from its
 chimney. A painted sign is visible on the porch to the west. You

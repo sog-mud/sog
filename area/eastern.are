@@ -497,7 +497,7 @@ g @rus male~
 #5026
 ruby gem самоцвет рубин~
 @eng a large ruby@rus ~~огромный~~ ~~рубин~~~
-@eng A large ruby lies on the ground collecting dust.@rus Огромный рубин (ruby) лежин на полу, собирая пыль.~
+@eng A large ruby lies on the ground collecting dust.@rus Огромный рубин (ruby) лежит на полу, собирая пыль.~
 ruby~
 gem G 0 AO
 CE 0 0 0 0
@@ -971,7 +971,7 @@ S
 @eng Fungus patch@rus Проход, поросший грибками и плесенью~
 @eng As you walk through the fungus patch, you are shot at by many millions of
 spores. You can hardly breathe.
-@rus В этом странном месте, все поросше плесенью и грибками. Милионы спор
+@rus В этом странном месте, все поросшее плесенью и грибками. Миллионы спор
 витают вокруг. Их так много, что становится тяжело дышать.
 ~
 0 AD mountain
@@ -1118,7 +1118,7 @@ You feel lost.
 0 N desert
 E
 flower~
-Магическое цветение, благодоря воле Богов проросло своими корнями в Песках
+Магическое цветение, благодаря воле Богов проросло своими корнями в Песках
 Горя. Это награда старику Баргану за его многолетние молитвы сильным мира сего.
 Возвышенные чувства охватывают тебя и ты склоняешь голову.
 ~
@@ -1564,7 +1564,7 @@ S
 @eng Strange Glowing Sand@rus Светящиеся пески~
 @eng A vast desert stretches for miles, the sand constantly shifting around
 you. But this patch of desert looks different...the sand glows.
-@rus Бескрайняя пустымя простирается вокруг на многие мили. Но в этой ее части
+@rus Бескрайняя пустыня простирается вокруг на многие мили. Но в этой ее части
 песок особенный, он ... светится.
 ~
 0 CD mountain

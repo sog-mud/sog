@@ -98,7 +98,7 @@ tumbu yumbu black man негр~
 @eng "Such a pity that you forget your bag! Your would be able to gather
 some memories about my life." - says Tumbu-Yumbu and smiles at you.
 @rus "Какая жалость, что ты не захватил с собой большую сумку! Ты
-мог бы собрать большую колекцию моих воспоминаний." - говорит
+мог бы собрать большую коллекцию моих воспоминаний." - говорит
 Тумбу-Юмбу и улыбается тебе.
 ~
 human~
@@ -119,7 +119,7 @@ northern edge of the lawn. His dark clothes shine brightly for being
 polished.
 @rus Тебе повезло! К счастью, он атакует не тебя, а мишень на
 северном краю поляны. Его темные доспехи сверкают на солнце,
-тщательно отполированые.
+тщательно отполированные.
 ~
 human~
 GT 0 Oa 0 0 -300 0
@@ -333,7 +333,7 @@ r light 50
 #36314
 spider dust small паук~
 @eng Spider@rus паучок~
-@eng A small spider sits here collecting dust.@rus Маленький паучок (spider) сидит, сибирая пыль.~
+@eng A small spider sits here collecting dust.@rus Маленький паучок (spider) сидит, собирая пыль.~
 @eng A small spider sits on his web. His dusty web holds remains of
 some insects.
 @rus Маленький паучок сидит в пыльной паутине, полной останков
@@ -1515,7 +1515,7 @@ g @rus male~
 #36313
 boots black scale dragon сапоги~
 @eng black dragon boots@rus {D~~черные~~ ~~сапоги~~{x~
-@eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядавают на тебя с носков черных сапог (boots).~
+@eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядывают на тебя с носков черных сапог (boots).~
 dragonskin~
 armor ABCEG 0 AG
 31 28 31 20 0
@@ -2210,7 +2210,7 @@ sword 6 6 'pierce' 0
 g @rus male~
 #36372
 axe tournament топор~
-@eng tournament axe@rus {D~~турнирый~~ ~~топор~~{x~
+@eng tournament axe@rus {D~~турнирный~~ ~~топор~~{x~
 @eng A HUGE axe lies here.@rus ЗДОРОВЕННЫЙ топор (axe) лежит на земле.~
 iron~
 weapon 0 0 AN
@@ -2398,7 +2398,7 @@ book~
 все, кто верит в окончательное торжество Зла. Кровь, слезы, мучения
 и смерти невинных -- лучшая для него пища. Он не забывает награждать
 тех, кто снабжает его всем этим в достатке. Несмотря на всю свою
-злобность и кроважадность, для своих подопечных из ордена Шалафи он
+злобность и кровожадность, для своих подопечных из ордена Шалафи он
 не делает различия на злой-добрый. Все те, кто посвятил себя служению
 поистине Высшей Магии, равны для него. Помимо покровительства магам
 ордена Шалафи он занимается всеми вопросами, связанными с кланами.
@@ -2557,7 +2557,7 @@ E
 book~
 @rus Неутомимый поставщик идей к столу богов. Не знающий усталости
 создатель quest'ов для смертных. Неподкупный и суровый судья
-при разборе небольших проишествий и серьезных проступков.
+при разборе небольших происшествий и серьезных проступков.
 Немного импульсивен, но очень добр. Это все Арборн. Является
 покровителем клана Knights и одним из тех, кто занимается
 переводом в этом мире.
@@ -3123,7 +3123,7 @@ g @rus female~
 #36439
 shackles foot iron band chain pair кандалы~
 @eng A pair of heavy iron foot shackles@rus ~~тяжелые~~ ~~железные~~ ~~кандалы~~~
-@eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей (band), соединенных крепкой цепью, лежит на замле.~
+@eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей (band), соединенных крепкой цепью, лежит на земле.~
 iron~
 treasure CEHIPUY 0 AG
 0 0 0 0 0
@@ -4955,7 +4955,7 @@ you see here safe the trees and grass?
 @rus Ты входишь под тень деревьев и расслабляешься.
 Посреди травы и деревьев ты замечаешь какие-то
 круглые щиты, разрисованные красными и белыми полосками.
-  "ВВЖЖЖЖЖЖМЦ" Стрела прожужала над твоим ухом
+  "ВВЖЖЖЖЖЖМЦ" Стрела прожужжала над твоим ухом
 и со звучным чмоком впилась в мишень.
 ~
 0 0 forest
@@ -5281,7 +5281,7 @@ S
 @eng A dark hill, filled with a black magic, covered with fairy
 mists, shows you a deserted line to the south. Far you can
 see a lit hill.
-@rus Черная скала пронизанна черной магией и покрыта
+@rus Черная скала пронизана черной магией и покрыта
 колдовским туманом. На юге лежит выжженная линия.
 Вдалеке виднеется светлый холм.
 ~
@@ -7084,7 +7084,7 @@ S
 @eng You are at the intersection of the 2nd Line and Main street.
 A smart grate blocks path northward, south lies the central
 part of the town. East and west 2nd Line continues.
-@rus Ты находишся на пересечении Второй Линии и Главной улицы.
+@rus Ты находишься на пересечении Второй Линии и Главной улицы.
 Маленькая калитка загораживает путь на север, южнее
 расположена центральная часть города. К востоку и западу
 продолжается Вторая Линия.
@@ -7892,55 +7892,6 @@ O 36330 3	* some moccasins
 O 36344 1	* Grand Prize
 O 36439 0	* A pair of heavy iron foot shackles
 S
-
-#MOBPROGS
-#36300
-mob remember $r
-if rand 50
-mob echoat $q Grandfather swiftly pounds you in the jaw!
-mob  echoaround $q Grandfather swiftly pounds $q in the jaw!
-else
-mob echo Grandfather jumps high in the air, gracefully avoiding your blow and lands behind your back!
-endif
-if rand 50
-mob remember $r
-
-if wears $i 'sword illusory'
-mob echoat $q {r    Grandfather makes a few steps back, artfully deflecting your blows, then suddenly leaps forth and slashes you between the ribs with his sword! You double over in pain as the blood spews from the wound!{x
-mob echoaround $q {rGrandfather slashes $q deeply with his sword!{x
-mob damage $q 200 400
-break
-else
-mob echoat $q {r  Grandfather performs a flurry of brutal blows, pounding you with his fists painfully! God, your guts must be a mess now..{x
-mob echoaround $q {rGrandfather pummels $q painfully with his fists!{x
-mob damage $q 150 300
-break
-endif
-else
-if rand 50
-mob remember $r
-mob echo {W    Grandfather's ghostly form shimmers for a moment and you are blinded by the flash of blazing white light coming from inside him. He calls out a ferocious cry and charges you with renewed strength and vigor!{x
-cast nowait assist self
-cast nowait deafen $q
-break
-endif
-break
-endif
-~
-#36301
-remove all
-drop all
-mob echo {cAn unearthen wail shatters the air as Grandfather's form is dusrupted.
-mob echo {cHe shimmers one last time and dissolves into a cloud of grey mist.{x
-mob goto 15000
-~
-#36302
-if carries $i 'shadow edge'
-say че ты мне дал?
-break
-endif
-~
-#0
 
 #HELPS
 1 festival~

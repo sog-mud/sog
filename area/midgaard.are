@@ -895,7 +895,7 @@ filthy филси~
 @eng Filthy is standing here, eager to serve you a special drink.@rus Филси (Filthy) стоит тут, готовый подать тебе фирменный напиток.~
 @eng Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
 but do not mess with him or else he'll get upset.
-@rus Филси выглядит слегка... хм... грязноватым. Он заботится о завсягдатаях
+@rus Филси выглядит слегка... хм... грязноватым. Он заботится о завсегдатаях
 своего заведения, но не наводи тут еще большего беспорядка, это ему может
 не понравиться.
 ~
@@ -1413,7 +1413,7 @@ r sound 33
 #3094
 wolf pet волк~
 @eng the wolf@rus волк~
-@eng A large, trained wolf is here.@rus Большой, хорошо обученый волк (wolf) здесь.~
+@eng A large, trained wolf is here.@rus Большой, хорошо обученный волк (wolf) здесь.~
 @eng The wolf looks like a strong, fearless fighter.
 @rus Волк похож на сильного, храброго бойца.
 ~
@@ -1757,7 +1757,7 @@ The Secretary says 'Sorry, but the Mayor is extremely busy today'.
 The Secretary says 'Please sit down and have a seat in the meantime'.
 @rus Она выглядит очень занятой.
 Секретарша произносит "Извините, Мэр очень занят сегодня".
-Секретарша произносит "Позалуйста сядте и немного подождите".
+Секретарша произносит "Пожалуйста сядьте и немного подождите".
 ~
 human~
 B 0 0 0 0 900 0
@@ -1831,7 +1831,7 @@ esme waitress эсме~
 @eng Esme the waitress hums to herself and wonders what you'd like to order.@rus Официантка Эсме (Esme) спрашивает, что ты желаешь заказать.~
 @eng Esme brushes a lock of dark hair away from her wire-rimmed glasess and
 smiles warmly at you.
-@rus Эсме убирает выбившуюся прядь волос со своих очков и тепло тебе улюбается.
+@rus Эсме убирает выбившуюся прядь волос со своих очков и тепло тебе улыбается.
 ~
 human~
 BJVe 0 0 0 0 900 0
@@ -2543,7 +2543,7 @@ scroll G 0 AO
 E
 scroll~
 @eng Use this scroll to remove magical curses.
-@rus Каждый свиток помещен в кожаную трубку, защищающию его от сырости.
+@rus Каждый свиток помещен в кожаную трубку, защищающую его от сырости.
 ~
 g @rus male~
 #3040
@@ -3013,8 +3013,8 @@ a '' to_object 61 -1 3 19 0
 g @rus female~
 #3096
 arrow adamantite стрела~
-@eng an adamantite-headed arrow@rus ~~стрела~~ с адамантитовым наконечником~
-@eng An adamantite-headed arrow with an inner glow lies here.@rus Стрела с адамантитовым наконечником (arrow) лежит здесь.~
+@eng an adamantite-headed arrow@rus ~~стрела~~ с адаматитовым наконечником~
+@eng An adamantite-headed arrow with an inner glow lies here.@rus Стрела с адаматитовым наконечником (arrow) лежит здесь.~
 wood~
 weapon 0 0 AO
 arrow 9 10 'pierce' K
@@ -3163,7 +3163,7 @@ g @rus male~
 #3118
 anvil наковальня~
 @eng an anvil@rus наковальня~
-@eng An anvil stands in the middle of the room.@rus Наковальня (anvil) стоит в ценре кузни.~
+@eng An anvil stands in the middle of the room.@rus Наковальня (anvil) стоит в центре кузни.~
 unknown~
 furniture BY B 0
 A EIJKN A BCEFGHIJKLMNOPQRSTUVWXYZabcde 0
@@ -4574,7 +4574,7 @@ g @rus male~
 #3375
 emerald gem изумруд~
 @eng an emerald@rus изумруд~
-@eng A deep green emerald winks at you.@rus Темно зеленый изумруд (emerald) поднигивает тебе.~
+@eng A deep green emerald winks at you.@rus Темно зеленый изумруд (emerald) подмигивает тебе.~
 gem~
 gem 0 D AO
 0 0 0 0 0
@@ -4608,7 +4608,7 @@ gem 0 D AO
 0 1 2000 P
 g @rus male~
 #3379
-key gate gatekey ключ мидграард мидгаард~
+key gate gatekey ключ  мидгард~
 @eng the gate key@rus ~~ключ~~ от ворот~
 @eng A key on a chain, is hanging tied to the gate.@rus Ключ (key) прикован цепью к воротам.~
 silver~
@@ -5699,7 +5699,7 @@ g @rus none~
 
 #ROOMS
 #3001
-@eng The Temple Of Midgaard@rus Храм Мидгаарда~
+@eng The Temple Of Midgaard@rus Храм Мидгарда~
 @eng You are in the southern end of the temple hall in the Temple of Midgaard.
 The temple has been constructed from giant marble blocks, eternal in
 appearance, and most of the walls are covered by ancient wall paintings
@@ -5708,7 +5708,7 @@ picturing gods, giants and peasants.
 mound upon which the temple is built and ends on the temple square below.
    Equally large steps lead UP through a small door into the ENTRANCE to MUD 
 SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
-@rus Ты находишься в южной части Храма Мидгаарда. Храм состоит из гигантских
+@rus Ты находишься в южной части Храма Мидгарда. Храм состоит из гигантских
 мраморных блоков, на вид очень древних. Большинство стен покрыто резными
 изображениями богов, гигантов и крестьян. 
   Большие ступени ведут вниз через массивные храмовые врата, спускаясь с 
@@ -5774,7 +5774,7 @@ D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 @rus Ты не видишь ничего внизу, там очень темно. Похоже оттуда нельзя будет 
-поднятся назад наверх.
+подняться назад наверх.
 ~
 ~
 ~
@@ -5856,7 +5856,7 @@ square, the center of Midgaard.
 @rus Ты стоишь на Соборной Площади. Большие мраморные ступени ведут к воротам
 собора. На западе (west) ты видишь вход в Гильдию Клериков, а на востоке
 (east) - в таверну "Хрюкающий Кабан". На юге расположена Рыночная площадь - 
-центр Мидгаарда.
+центр Мидгарда.
 ~
 0 S city
 D0
@@ -5946,7 +5946,7 @@ A small sign with big letters is fastened to the bar.
 архаичные письмена, резьба и всякие символы (symbols) покрывают ее.
 Камин встроен в восточную стену, а через северо-западные окна ты
 видишь Соборную площадь. Здесь ты чувствуешь себя как дома.
-  Маленькая вывеска (sign) прикрепленна к стойке.
+  Маленькая вывеска (sign) прикреплена к стойке.
 ~
 0 CDKS inside
 E
@@ -6011,8 +6011,8 @@ S
 fine bread fills the room.  The bread and Danish are arranged in fine order
 on the shelves, and seem to be of the finest quality.
 A small sign is on the counter.
-@rus Ты стоишь внутри маленькой пекарни. Сладкий аромат пирожнных (pastry) и
-хлеба наполняет комнату. Хлеба и пирожные ровными рядами выложенны на полки.
+@rus Ты стоишь внутри маленькой пекарни. Сладкий аромат пирожных (pastry) и
+хлеба наполняет комнату. Хлеба и пирожные ровными рядами выложены на полки.
   Маленькая записка (sign) находится на прилавке.
 ~
 0 S inside
@@ -6121,7 +6121,7 @@ S
 entrance to the Guild of Magic Users.  The street continues east towards the
 market square.  The magic shop is to the north and to the west is the city
 gate.
-@rus Ты находишься в конце главной улицы Мидгаарда. На юге (south) расположен
+@rus Ты находишься в конце главной улицы Мидгарда. На юге (south) расположен
 вход в гильдию магов. На востоке (east) улица выходит к рыночной площади.
 Магазин магических вещей находится на севере (north), а на западе (west) - 
 городские ворота.
@@ -6165,7 +6165,7 @@ S
 @eng You are on the main street passing through the City of Midgaard.  South of
 here is the entrance to the Armoury, and the bakery is to the north.  East of
 here is the market square.
-@rus Ты находишься на Главной улице, проходящей по Мидгаарду. На юге (south)
+@rus Ты находишься на Главной улице, проходящей по Мидгарду. На юге (south)
 отсюда расположен вход в арсенал, а на севере (north) - пекарня. На востоке
 (east) отсюда раскинулась рыночная площадь.
 ~
@@ -6209,7 +6209,7 @@ S
 A large, peculiar looking statue is standing in the middle of the square.
 Roads lead in every direction, north to the temple square, south to the
 road to common square, east and westbound is the main street.
-@rus Ты стоишь на рыночной площади, знаменитой Площади Мидгаарда. Большая статуя
+@rus Ты стоишь на рыночной площади, знаменитой Площади Мидгарда. Большая статуя
 (statue) привлекает твое внимание в центре площади. Выходы ведут во всех
 направлениях: на север (north) к соборной площади, на юг (south) к общей
 площади, с запада (west) на восток (east) пролегает Главная улица.
@@ -6218,7 +6218,7 @@ road to common square, east and westbound is the main street.
 E
 statue~
 @eng What you see is the Midgaard Worm, stretching around the Palace of Midgaard.
-@rus Ты видишь Мирового Змея, ползущего через дворец Мидгаарда.
+@rus Ты видишь Мирового Змея, ползущего через дворец Мидгарда.
 ~
 D0
 @eng You see the temple square.
@@ -6260,7 +6260,7 @@ temple, and the main street continues east.  To the west you see and hear the
 market place and to the south is the Jeweller's Shop.
 @rus Ты находишься на Главной улице, проходящей через весь город. На
 севере (north) расположен Святой храм, а Главная улица продолжается на  
-востоке (east). На западе (west) ты видешь Рыночную площадь и на юге 
+востоке (east). На западе (west) ты видишь Рыночную площадь и на юге 
 (south) - ювелирный магазин.
 ~
 0 S city
@@ -6397,7 +6397,7 @@ and even weirder symbols, and a blackboard in a dark corner has only been
 partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
-@rus Это лаборатория для магических эскпериментов. Темные от копоти камни
+@rus Это лаборатория для магических экспериментов. Темные от копоти камни
 образуют арку над множеством огромных дубовых столов, большинство из
 которых завалено странными трубками и колбами. Пол покрыт полустертыми
 пентаграммами и загадочными символами. Письмена на доске в темном углу
@@ -6762,7 +6762,7 @@ Z -1 3028
 D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
-@rus Ты ничего не видишь внизу, там очень темно. Похоже ты не сможешь выбратся 
+@rus Ты ничего не видишь внизу, там очень темно. Похоже ты не сможешь выбраться 
 оттуда обратно наверх.
 ~
 ~
@@ -7003,7 +7003,7 @@ You see the alley.
 Z -1 3044
 S
 #3040
-@eng Inside the West Gate of Midgaard@rus Западные ворота Мидгаарда~
+@eng Inside the West Gate of Midgaard@rus Западные ворота Мидгарда~
 @eng You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 east and Wall Road leads both north and south from here.
@@ -7068,7 +7068,7 @@ the gate~
 Z 3379 3052
 S
 #3041
-@eng Inside the East Gate of Midgaard@rus Восточные ворота Мидгаарда~
+@eng Inside the East Gate of Midgaard@rus Восточные ворота Мидгарда~
 @eng You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  Main Street leads
 west from here.  Wall road crosses the street, heading north and south along
@@ -7231,7 +7231,7 @@ D2
 Z -1 3047
 D3
 @eng The Great Chessboard of Midgaard.
-@rus Великая Шахматная Доска Мидгаарда.
+@rus Великая Шахматная Доска Мидгарда.
 ~
 ~
 ~
@@ -7286,7 +7286,7 @@ here you see the levee.  North is the Pet Shop.
 0 S city
 D0
 @eng You see, hear, and smell the pet shop.
-@rus Ты видишь, слышишь и обоняешь зоомагазин.
+@rus Ты видишь, слышишь и обгоняешь зоомагазин.
 ~
 ~
 ~
@@ -7391,7 +7391,7 @@ D0
 Z -1 3043
 D1
 @eng You see the purple-and-orange Mob Factory.  Someone has no taste.
-@rus Ты видишь лилово-оранжевую Фабрику Мобов. Какая бесвкусица!
+@rus Ты видишь лилово-оранжевую Фабрику Мобов. Какая безвкусица!
 ~
 ~
 ~
@@ -7538,7 +7538,7 @@ D5
 Z 0 3200
 S
 #3052
-@eng Outside the West Gate of Midgaard@rus Перед западными воротами Мидгаарда~
+@eng Outside the West Gate of Midgaard@rus Перед западными воротами Мидгарда~
 @eng You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  To the west you
 can see the edge of a big forest. A small dusty trail leads north along the
@@ -7572,7 +7572,7 @@ some kind of mortar.  It is far too high to climb.
 ~
 D0
 @eng The trail continues around the City of Midgaard.
-@rus Тропинка идет вокруг города Мидгаарда.
+@rus Тропинка идет вокруг города Мидгарда.
 ~
 ~
 ~
@@ -7596,7 +7596,7 @@ D3
 Z -1 6000
 S
 #3053
-@eng Outside the East Gate of Midgaard@rus Перед восточными воротами Мидгаарда~
+@eng Outside the East Gate of Midgaard@rus Перед восточными воротами Мидгарда~
 @eng You are by two small towers that have been built into the city wall and
 connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance. To the north a small dusty trail follow
@@ -7631,7 +7631,7 @@ some kind of mortar.  It is far too high to climb.
 ~
 D0
 @eng The trail continues around the City of Midgaard.
-@rus Тропинка проходит вокруг города Мидгаарда.
+@rus Тропинка проходит вокруг города Мидгарда.
 ~
 ~
 ~
@@ -7661,7 +7661,7 @@ A huge altar made from white polished marble is standing in front of you and
 behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 The back of the altar opens into a a beautiful atrium, above which can be
 seen a rainbow.
-@rus Ты находишься у храмового алтаря в северном конце Храма Мидгаарда. Огромный
+@rus Ты находишься у храмового алтаря в северном конце Храма Мидгарда. Огромный
 алтарь, изготовленный из белого шлифованного мрамора, стоит лицевой стороной
 к тебе, а за ним находится десятифутовая статуя сидящего Одина, Верховного
 Бога. Позади алтаря открывается прекрасный атриум, над которым видна радуга.
@@ -7868,8 +7868,8 @@ skills.  The walls are decorated with large, valuable tapestries.
 Two bright, (probably polised every day) body armors are standing near 
 the opposite walls.  Big swords and silvery shields are hanging on the wall.
 @rus Ты стоишь там, где паладины и рыцари практикуют свои умения. Стены украшены
-большыми дорогими гобеленами. Два блестящих (вероятно, полируемых ежедневно)
-панциря стоят возле противоположной стены. Большие мечи и серебренные щиты
+большими дорогими гобеленами. Два блестящих (вероятно, полируемых ежедневно)
+панциря стоят возле противоположной стены. Большие мечи и серебрянные щиты
 висят на стенах.
 ~
 0 DKSY inside
@@ -8060,7 +8060,7 @@ decorate the windows.  You really feel like staying here the rest of your
 life.
 @rus Ты находишься в тихой комнате, располагающей к отдыху. Ты чувствуешь покой и
 мир этого места. Из дальней комнаты доносятся успокаивающие звуки арфы. Ты
-замечаешь большой алтарь из срео-зеленого камня в центре комнаты. Стены
+замечаешь большой алтарь из серо-зеленого камня в центре комнаты. Стены
 расписаны фресками (painting) и украшены гобеленами (tapestry), а тонкие
 прозрачные занавески украшают окна. Ты думаешь, а не остаться ли тут навечно?..
 ~
@@ -8168,7 +8168,7 @@ D0
 Z -1 3074
 D3
 @eng Tavern in midgaard..
-@rus Мидгаардская таверна.
+@rus Мидгардская таверна.
 ~
 ~
 ~
@@ -8184,7 +8184,7 @@ and even weirder symbols, and a blackboard in a dark corner has only been
 partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
-@rus Это лаборатория для магических эскпериментов варлоков.  Черная из
+@rus Это лаборатория для магических экспериментов варлоков.  Черная из
 покрытых копотью камней арка возвышается над многочисленными огромными
 дубовыми столами, большинство которых завалено странными трубками и
 колбами. Пол покрыт полустертыми пентаграммами и загадочными символами.
@@ -8445,7 +8445,7 @@ river lapping at the pilings of the dock by Kate's Diner, which is to your
 north.  Emerald Avenue begins to the south, the Promenade continues west,
 and the concourse ends to your east.
 @rus Бульвар расширяется, и здесь, на южном берегу реки, раскинулась Астральная
-площадь. Вокруг себя ты видишь суету Южного Мидгаарда - продавцы, городские
+площадь. Вокруг себя ты видишь суету Южного Мидгарда - продавцы, городские
 сплетники и другие болтают о том о сем. Ты слышишь шум реки, огибающей доки
 позади закусочной Кэти, которая лежит к северу (north) от тебя. Изумрудный
 проспект начинается к югу (south), бульвар продолжается на запад (west), а
@@ -8535,7 +8535,7 @@ S
 @eng You are standing just inside the small park of Midgaard.  To the north is
 the promenade and a small path leads south into the park.  To your east is
 the famous Park Cafe.
-@rus Ты стоишь у входа в маленький парк Мидгаарда. К северу (north) лежит бульвар,
+@rus Ты стоишь у входа в маленький парк Мидгарда. К северу (north) лежит бульвар,
 а к югу (south) небольшая тропинка ведет вглубь парка. К востоку (east) - вход
 в знаменитую парковую таверну.
 ~
@@ -8612,7 +8612,7 @@ S
 @eng You are standing on a small path inside the park.  The park entrance is
 just north of here, and Park Cafe is just east of the entrance.  The path
 leads further east and west.
-@rus Ты стоишь на меленькой тропинке в парке. Вход в парк - к северу (north),
+@rus Ты стоишь на маленькой тропинке в парке. Вход в парк - к северу (north),
 парковая таверна - на восток от входа. Тропинка ведет на восток (east) и
 на запад (west).
 ~
@@ -8808,7 +8808,7 @@ D1
 Z -1 3115
 D2
 @eng Outside the Midgaard Zoo.
-@rus Ты видишь площадку перед зоопарком Мидгаарда.
+@rus Ты видишь площадку перед зоопарком Мидгарда.
 ~
 ~
 ~
@@ -8853,7 +8853,7 @@ D3
 Z -1 3114
 D4
 @eng Outside the Midgaard Zoo.
-@rus На холме ты видишь зоопарк Мидгаарда.
+@rus На холме ты видишь зоопарк Мидгарда.
 ~
 ~
 ~
@@ -8888,7 +8888,7 @@ S
 the park entrance and to the east is the not very big Town Hall of Midgaard.
 @rus Ты стоишь на Изумрудном проспекте, который продолжается на север (north) и
 на юг (south). К западу (west) ты видишь вход в парк, а на востоке расположена
-Ратуша Мидгаарда.
+Ратуша Мидгарда.
 ~
 0 S city
 D0
@@ -8982,7 +8982,7 @@ A road sign is here.
 @rus Ты стоишь в центре перекрестка. Дороги ведут во все стороны. Огромная черная 
 цепь (chain) из железа, толстая, как ствол дерева, прикована к мостовой как раз
 у твоих ног. Другой конец цепи уходит в бесконечную голубизну неба.
-Дорожнуй указатель прибит к столбу.
+Дорожный указатель прибит к столбу.
 ~
 0 S city
 E
@@ -9146,7 +9146,7 @@ sign~
           Please show respect and do not desecrate their tombs.
 @rus Здесь написано:
  
-                      Кладбище Мидгаарда
+                      Кладбище Мидгарда
  
    Много смелых искателей приключений нашли здесь последнее пристанище.
           Прояви уважение и не разрывай их могилы, путник...
@@ -9274,7 +9274,7 @@ D0
 Z -1 3125
 D1
 @eng You can see the heavily guarded southern gate of Midgaard.
-@rus Ты видишь хорошо охраняемые южные ворота Мидгаарда.
+@rus Ты видишь хорошо охраняемые южные ворота Мидгарда.
 ~
 ~
 ~
@@ -9292,7 +9292,7 @@ S
 @eng The concourse continues its path around the city.  The southern gates of the
 city are west of here, and park road lies north.  The southeastern corner of
 the city wall is east.
-@rus Площадь Собраний охватывает южную часть города. Эжные ворота Мидгаарда лежат
+@rus Площадь Собраний охватывает южную часть города. Южные ворота Мидгарда лежат
 к западу (west) отсюда, а парковая аллея ведет на север (north). Юго-восточный
 угол стены находится к востоку (east).
 ~
@@ -9311,7 +9311,7 @@ D1
 Z -1 3130
 D3
 @eng You see the south gate of Midgaard.
-@rus Ты видишь южные ворота Мидгаарда.
+@rus Ты видишь южные ворота Мидгарда.
 ~
 ~
 ~
@@ -9510,7 +9510,7 @@ S
 polished but completely empty desk is standing in front of an armchair that
 looks so comfortable that it most of all resembles a bed with the head end
 raised slightly.
-@rus Ты находишься в небольшом кабинете Мэра Мидгаарда. Большой, полированный,
+@rus Ты находишься в небольшом кабинете Мэра Мидгарда. Большой, полированный,
 но совершенно пустой стол стоит перед креслом, которое настолько удобно, что
 кажется скорее кроватью с поднятым изголовьем.
 ~
@@ -9583,7 +9583,7 @@ S
 #3141
 @eng The end of Penny Lane@rus Окраина Монетной улицы~
 @eng You are at the end of Penny Lane.  The only exit appears to be south.
-@rus Ты забрел в тупичок в конце улицы Стырых Монеток. Единственный выход лежит к
+@rus Ты забрел в тупичок в конце улицы Старых Монеток. Единственный выход лежит к
 югу (south).
 ~
 0 S city
@@ -9598,7 +9598,7 @@ S
 @eng Captain's Office@rus Кабинет капитана стражников~
 @eng You are in the Office of the Captain of the Guard.  The Midgaard Coat of
 Arms is hanging on the north wall and a heavy steel door is to the south.
-@rus Ты стоишь в кабинете капитана городской стражи. Гербовый щит (arms) Мидгаарда
+@rus Ты стоишь в кабинете капитана городской стражи. Гербовый щит (arms) Мидгарда
 висит на северной стене, а выход на юг (south) преграждает тяжелая стальная
 дверь (door).
 ~
@@ -9638,7 +9638,7 @@ E
 wall walls~
 @eng The walls are marked with lots of scratches.  Some of them spell sentences
 like "JAIL IS BETTER THAN SQL" and "BIGFOOTDAMOOSE IS ALIVE".
-@rus Стены поктрыты множеством царапин. Некоторые из них слагаются во фразы:
+@rus Стены покрыты множеством царапин. Некоторые из них слагаются во фразы:
 "JAIL IS BETTER THAN SQL" и "BIGFOOTDAMOOSE IS ALIVE".
 ~
 D0
@@ -9700,7 +9700,7 @@ Pull up a chair, perhaps play a game, and take time out to talk.
 шахматы, покрытыми замечательной резьбой и раскрашенными. Тихие напевы в
 совокупности с туманным золотистым светом и замечательными запахами
 заставляют тебя полностью расслабиться. Широкое окно (window) выходит на
-реку Мидгаарда, коридорчик ведет на север (north) к докам и южной пристани,
+реку Мидгарда, коридорчик ведет на север (north) к докам и южной пристани,
 главные двери находятся к югу (south), через них ты можешь вернуться обратно
 на Астральную площадь.
 Почти ежедневно ты можешь застать тут Кэти, пробующей мясо либо варящей
@@ -9716,7 +9716,7 @@ River, and a boat or two floats lazily past.  Across the river you can see
 the Levee and the Guild of Thieves, but they seem very far away from all
 of this...
 @rus Ты видишь шаткий мостик к северо-востоку, ведущий обратно в центральную
-часть Мидгаарда. Скрипучая дверь выходит на берег реки, мимо неспешно
+часть Мидгарда. Скрипучая дверь выходит на берег реки, мимо неспешно
 проплывает пара лодок. Через реку ты видишь Набережную и Гильдию Воров, но
 это так далеко от всего, что тебя сейчас окружает...
 ~
@@ -9757,10 +9757,10 @@ and to the left is a window overlooking the Common Square.  A small door,
 half hidden by a stack of books, leads to a room in the back of the shop.
 @rus Как только ты открываешь дверь, в лавку врывается ветер, и все бумаги
 вокруг разлетаются в разные стороны. Ты протираешь глаза от попавшей туда
-пыли и осматриваешься вокруг. Лавка забита старыми свитками пергамента,
+пыли и осматриваешь ся вокруг. Лавка забита старыми свитками пергамента,
 клочками бумаги и полками с книгами. Перед собой ты видишь стол, который
 находится в чуть большем порядке, чем вся остальная лавка. Этажерка со 
-свитками стоит позади стола. Книжний шкаф - справа от тебя, а слева ты
+свитками стоит позади стола. Книжный шкаф - справа от тебя, а слева ты
 можешь через окно обозревать Общую площадь. Небольшая дверь, скрытая
 среди шкафов, ведет в заднюю комнату.
 ~
@@ -9787,7 +9787,7 @@ door~
 ABCFZ 3161 3161
 D2
 @eng To the south is the Poor Alley.  Across the alley, you see the Grubby Inn.
-@rus На юге - переулок Бедняков. На лругой стороне переулка - Грязная Таверна.
+@rus На юге - переулок Бедняков. На другой стороне переулка - Грязная Таверна.
 ~
 ~
 ~
@@ -9915,7 +9915,7 @@ S
 riverbanks are too steep to climb.  A bridge passes overhead, connecting the
 dump to the promenade.
 @rus К северу от себя ты видишь свалку. Река течет с востока (east) на запад
-(west). Берег реки слишом крут, чтобы на него взобраться. Над твоей головой
+(west). Берег реки слишком крут, чтобы на него взобраться. Над твоей головой
 проходит мост, соединяющий свалку с бульваром на южном берегу реки.
 ~
 0 CS noswim
@@ -10090,7 +10090,7 @@ S
 from its enemies...you hope.  An intersection with a dark alley lies north,
 and a bridge over the Midgaard river is south.  Beyond the bridge wall road 
 turns in the concourse.
-@rus Стена Мидгаарда возвышаются на востоке, защищая город от врагов (как ты
+@rus Стена Мидгарда возвышаются на востоке, защищая город от врагов (как ты
 надеешься). Перекресток с темным переулком лежит к северу (north), мост
 переброшен через реку к югу (south) от тебя. За мостом дорога у стены
 выходит на открытое место.
@@ -10119,7 +10119,7 @@ S
 Below you, the river flows into an opening in the city wall, sealed with
 strong metal bars.  North of you is wall road, south of here the concourse
 loops around the inside of the city walls.
-@rus Ты пересекаешь крепкий каменный мост, переброшенный через реку Мидгаарда.
+@rus Ты пересекаешь крепкий каменный мост, переброшенный через реку Мидгарда.
 Под тобой река протекает через отверстие в стене, забранное крепкими
 металлическими прутьями (bar). Дорога у Стены продолжается на север (north),
 к югу (south) обширная площадь Собраний изгибается вдоль городских стен.
@@ -10144,7 +10144,7 @@ D0
 Z -1 3252
 D2
 @eng The concourse stretches around the southern parts of Midgaard.
-@rus Открытое пространство простирается вокруг южных кварталов Мидгаарда.
+@rus Открытое пространство простирается вокруг южных кварталов Мидгарда.
 ~
 ~
 ~
@@ -10167,10 +10167,10 @@ Midgaard.  You can smell the stench of the dump to the north, the fresher
 air of the promenade seems preferable.  Below you are the swift-moving 
 currents of the Midgaard river.
 @rus Ты стоишь на старом, расшатанном мостике, ведущем от городской свалки к
-более привлекательно выглядящему бульвару в южной части Мидгаарда. До тебя
+более привлекательно выглядящему бульвару в южной части Мидгарда. До тебя
 доносится зловоние свалки, лежащей к северу (north), ты стремишься быстрее
 выйти на свежий воздух Бульвара. Под тобой проносятся стремительные воды
-реки Мидгаарда.
+реки Мидгарда.
 ~
 0 S city
 D0
@@ -10199,7 +10199,7 @@ D5
 Z 0 3202
 S
 #3255
-@eng Inside the South Gate of Midgaard@rus Южные ворота Мидгаарда~
+@eng Inside the South Gate of Midgaard@rus Южные ворота Мидгарда~
 @eng Two strong stone towers surround a heavy wooden gate set into the city wall,
 to guard against the goblins that lurk in the southern forests.  You can exit
 the city to the south, if you dare, or walk down the concourse to the east
@@ -10236,7 +10236,7 @@ D3
 Z -1 3128
 S
 #3256
-@eng Outside the South Gate of Midgaard@rus Перед южными воротами Мидгаарда~
+@eng Outside the South Gate of Midgaard@rus Перед южными воротами Мидгарда~
 @eng You are standing outside the strong wooden gate on the southern walls of
 Midgaard.  Guards eye you suspiciously from the two towers on either side of
 the gate, as they stand watch to protect the city from the goblins of this
@@ -10287,7 +10287,7 @@ D0
 Z -1 3258
 D2
 @eng The west gate of the city lies south.
-@rus Западные ворота Мадгаарда лежат к югу.
+@rus Западные ворота Мидгарда лежат к югу.
 ~
 ~
 ~
@@ -10336,7 +10336,7 @@ western wall of Midgaard.  To the south, you can see an intersection with
 a crowded Clan street.  The northwestern corner of the city wall lies ahead
 to the north.
 @rus Ты идешь вдоль дороги, проложенной с внутренней стороны западной стены
-Мидгаарда. К югу (south) находится перекресток с оживленным проспектом.
+Мидгарда. К югу (south) находится перекресток с оживленным проспектом.
 Северо-западный угол стены лежит прямо впереди тебя, на севере (north).
 ~
 0 S city
@@ -10411,7 +10411,7 @@ D3
 Z -1 3260
 S
 #3262
-@eng Inside the North Gate of Midgaard@rus Северные ворота Мидгаарда~
+@eng Inside the North Gate of Midgaard@rus Северные ворота Мидгарда~
 @eng Two small towers surround a strong wooden gate, connected by a small stone
 bridge set with murder holes.  This gate is not as heavily guarded as the 
 others, as the plains outside are safe to travel.  You can leave midgaard to
@@ -10596,7 +10596,7 @@ D2
 Z -1 3041
 S
 #3268
-@eng Outside the North Gate of Midgaard@rus Перед северными воротами Мидгаарда~
+@eng Outside the North Gate of Midgaard@rus Перед северными воротами Мидгарда~
 @eng You stand outside the north gate of the walled city of Midgaard.  A dusty 
 trail is visibile to the north, it stretches around the walls of the city.  
 Further north are the wide expanses of the northern plains, leading to the 
@@ -10604,7 +10604,7 @@ village of Ofcol.  You can return to Midgaard to the south.
 @rus Ты стоишь за западными воротами обнесенного стенами города. Пыльная
 тропинка виднеется к северу (north), она идет вдоль стен города. Еще дальше
 на север ты видишь широко раскинувшиеся равнины, по которым можно добраться
-до Офкола. К югу (south) ты можешь вернуться в Мидгаард.
+до Офкола. К югу (south) ты можешь вернуться в Мидгард.
 ~
 0 S field
 D0
@@ -10617,7 +10617,7 @@ D0
 Z -1 3904
 D2
 @eng You see the north gate of Midgaard.
-@rus Ты видишь северные ворота Мидгаарда.
+@rus Ты видишь северные ворота Мидгарда.
 ~
 ~
 ~
@@ -10656,7 +10656,7 @@ S
 @eng You are walking down the Concoruse, along the western wall of Midgaard.  To
 the north, the road passes by a beautiful park, to the south, you can see
 the southwest corner of the city wall.
-@rus Ты идешь по Площади Собраний вдоль западной стены Мидгаарда. К северу (north)
+@rus Ты идешь по Площади Собраний вдоль западной стены Мидгарда. К северу (north)
 дорога проходит вдоль прекрасного парка, а к югу (south) ты можешь пройти к юго-
 западному углу городской стены.
 ~
@@ -10684,7 +10684,7 @@ S
 the concourse heads towards a bridge into northern Midgaard.  To the south, 
 you can see an intersection with Elm Street.  The quaint paved streets of
 Penny Lane lie west.
-@rus Ты идешь вдоль стен Мидгаарда. На севере (north) Площадь Собраний выходит к
+@rus Ты идешь вдоль стен Мидгарда. На севере (north) Площадь Собраний выходит к
 мосту через реку, ведущему в северную часть города. К югу (south) ты видишь
 перекресток с улицей Вязов. Причудливо вымощенные тротуары улицы Старых Монеток
 видны на западе (west).
@@ -10721,7 +10721,7 @@ S
 Midgaard are to the east, and the concourse continues to the north and south.
 To your west, you see Elm Street at the graveyard entrance.
 @rus Воздух становится более прохладным, когда ты проходишь возле кладбища
-на улице Вязов. Стены Мидгаарда возвышаются к востоку от тебя, а Площадь
+на улице Вязов. Стены Мидгарда возвышаются к востоку от тебя, а Площадь
 Собраний расстилается к югу (south) и северу (north) от тебя. На западе
 ты видишь улицу Вязов у входа на кладбище.
 ~
@@ -11041,7 +11041,7 @@ are even dancing.  Andy, the pubs owner, wanders around and checks to see
 that the needs of his customers are met.  The bar is to your south.  East
 of you is another section of the pub.  You know that there are rooms to
 be had somewhere around here...
-@rus Таверна заполнена посетителями. Люди поют и веселятся. Министрель играет на
+@rus Таверна заполнена посетителями. Люди поют и веселятся. Менестрель играет на
 лютне в другой части зала, ближе к выходу, и некоторые из посетителей даже
 танцуют. Энди, хозяин таверны, бродит вокруг и наблюдает, все ли клиенты рады
 обслуживанию. Бар находится к югу (south) от тебя. На востоке ты можешь
@@ -11078,7 +11078,7 @@ prosperous establishment.
 @rus Эта часть таверны заполнены поющими и танцующими людьми. На стуле в углу
 сидит странствующий менестрель, перебирая струны лютни. Дородная рыжая дама
 стоит рядом с ним и поет балладу о героях. Подвыпившая публика сидит за
-столами и ржет над ней. Служанки ловко лавируют в толпе с крыжками эля и
+столами и ржет над ней. Служанки ловко лавируют в толпе с кружками эля и
 рогами медовухи. Другая часть таверны находится к западу (west) от тебя. Бар
 расположен к югу (south). Небольшая лестница находится в углу комнаты. Она
 ведет в гостиничные номера этого процветающего заведения.
@@ -11651,83 +11651,6 @@ S
 3160 0 0 0 0 0 100 100 0 23
 3164 0 0 0 0 0 100 100 7 21
 0
-
-#MOBPROGS
-#3019
-if isvisible $n
-tell $n Don't you want a quest?
-endif
-~
-#3020
-, throws back his head and cackles with insane glee!
-~
-#3021
-if isimmort $n
-break
-endif
-smile
-say Welcome to my Armoury!
-say What can I interest you in?
-say I have the finest armor in my store!
-, beams with pride.
-if rand 1
-mob call 3024
-endif
-~
-#3022
-if isvisible $n
-bow $n
-say Would you like to taste a big pot pie today?
-if sex $n == 2 
-and rand 50
-say You're looking so beautiful today, $n!
-mob oload 3009
-give pie $n
-say It's tasty.
-endif
-endif
-~
-#3023
-if isvisible $n
-say Would you like to buy a nice love potion?
-endif
-~
-#3024
-if isvisible $n
-say Now it's time to repair the equipment
-endif
-~
-#3025
-' Beg $n! Spare some gold?
-~
-#3026
-grumble
-' Litterbugs.
-if rand 90
-end
-endif
-' I do not get paid enough.
-if rand 20
-' All I do each day is cleanup other people's messes.
-else
-if rand 90
-end
-endif
-' Day in, day out. This is all I do in 24 hours a day.
-if rand 5
-yell I want a vacation!
-endif
-endif
-~
-#3027
-say Thank you for your kindness, $N.
-~
-#3028
-emote puts the coins into his beltpouch.
-thank $n
-say Sorry, I haven't got coppers for the exchange ;)
-~
-#0
 
 #PRACTICERS
 M 3000 X	* the wizard

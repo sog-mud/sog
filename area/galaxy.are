@@ -2259,9 +2259,4 @@ S
 O 9302 3	* the Titanic Arm plates of Hercules
 S
 
-#OMPROGS
-O 9302 wear_prog wear_prog_arm_hercules	* `the Titanic Arm plates of Hercules'
-O 9302 remove_prog remove_prog_arm_hercules	* `the Titanic Arm plates of Hercules'
-S
-
 #$

@@ -487,7 +487,7 @@ F for HM
 #47117
 cook woman повар женщина~
 @eng the cook@rus ~~повариха~~~
-@eng An elderly woman fusses around the oven, cooking something.@rus Немолодая женнщина (woman) суетится у очага, готовя пищую~
+@eng An elderly woman fusses around the oven, cooking something.@rus Немолодая женщина (woman) суетится у очага, готовя пищу~
 @eng She has her post for ages already and became almost
 a member of the family. Other servants treat her with
 respect and help whenever she needs it.
@@ -605,7 +605,7 @@ F for H
 #47122
 girl village девочка~
 @eng a village girl@rus ~~деревенская~~ ~~девчушка~~~
-@eng A small girl stares at you contemplatively, ignoring everything else.@rus Маленькая девочка (girl) в задумчивости расматривает тебя, забыв обо всем остальном.~
+@eng A small girl stares at you contemplatively, ignoring everything else.@rus Маленькая девочка (girl) в задумчивости рассматривает тебя, забыв обо всем остальном.~
 @eng Somewhat shaggy and a little stained with something, she
 nethertheless is pretty.. maybe even due to that. Holding
 her favourite doll in hands, she stares at you dreamily,
@@ -634,7 +634,7 @@ peasant крестьянин~
 farming his lot. If there won't be a bad harvest, his
 family will be well fed, and there even will be some
 surplus for sale.
-@rus Обычный крестьянини, один из многих, он как раз занят
+@rus Обычный крестьянин, один из многих, он как раз занят
 обработкой своего надела. Если в этом году не случится
 большого неурожая, то и его семья без еды не останется.
 ~
@@ -886,7 +886,7 @@ lying on their prudence and common sense.
 является сокровищем и реликвией, и был дан ему скорей для
 сохранности или как символ особого положения Тоширо, чем
 в качестве оружия. Впрочем, он и не спешит пускать свой
-клинок в ход, расчитывая на твое благоразумие.
+клинок в ход, рассчитывая на твое благоразумие.
 ~
 human~
 BGJTVe 0 NV 0 AH 0 0
@@ -1091,7 +1091,7 @@ champautomat fountain champagne~
      Все жалобы, предложения и благодарности
      принимаются по адресу mud@@iclub.nsu.ru ;)
  
-NOTE: Отвественности за последствия компания
+NOTE: Ответственности за последствия компания
       не несет - модель-то пробная ;))
 ~
 g @rus none~
@@ -1631,7 +1631,7 @@ g @eng neutral@rus male~
 #47141
 tongs blacksmith кузнечные клещи~
 @eng blacksmith tongs@rus ~~кузнечные~~ ~~клещи~~~
-@eng Large blacksmith pincers are leaned against the wall.@rus Большие кузнечные клещи (tongs) приставлены к стенею~
+@eng Large blacksmith pincers are leaned against the wall.@rus Большие кузнечные клещи (tongs) приставлены к стене~
 iron~
 weapon 0 0 AN
 exotic 6 7 'bite' EF
@@ -1805,7 +1805,7 @@ necklace teeth зубы ожерелье~
 this amulet.
 @rus Если ты это наденешь, то будешь похож на какого-нибудь
 дикаря, щеголяющего нацепившего чьи-то зубы в качестве
-амулета из непонятных мистичечких соображений.
+амулета из непонятных мистических соображений.
 ~
 g @rus neutral~
 #47158
@@ -1963,7 +1963,7 @@ boots ботинки~
 strange patterns covering the boots point out mos-
 tly decorative purpose.
 @rus Желтый оттенок металла наводит на мысль о позолоте,
-а странные узоры, покрывающие ботинки, коворят о
+а странные узоры, покрывающие ботинки, говорят о
 предназначении скорее декоративном.
 ~
 g @eng neutral@rus plural~
@@ -2034,9 +2034,6 @@ a '' to_object 35 -1 -10 20 0
 a '' to_object 35 -1 80 12 0
 a '' to_object 35 -1 4 4 0
 g @eng neutral@rus plural~
-R
-deny class !class("cleric")~
-end
 #47170
 chest iron bound сундук окованный~
 @eng an iron bound chest@rus ~~окованный~~ железом ~~сундук~~~
@@ -2100,15 +2097,12 @@ some unexplainable magical protection.. not to mention the
 fact that hiding in the shadows when wearing it is much easier.
 @rus Одежда вроде этой скрывает большую часть движений, помогая
 избежать ударов в бою. Кроме того, в нее можно сложить не
-слишком много мелких вещей, которые сожно будет быстро
+слишком много мелких вещей, которые можно будет быстро
 достать в случае необходимости, а также непостижимым
 образом защищает от некоторых видов магии. Ну и конечно,
 прятаться намного легче, если на тебе одет такой костюм.
 ~
 g @rus neutral~
-R
-deny minsize !minsize("medium")~
-end
 #47175
 shuriken razor sharp острый сюрикен star звездочка~
 @eng a razor-sharp shuriken@rus ~~острый~~ ~~сюрикен~~~
@@ -2175,9 +2169,6 @@ unknown to you.
 вестно.
 ~
 g @eng neutral@rus male~
-R
-deny class !class("warrior")~
-end
 #47178
 wakizashi вакизаши sword меч ivory hilted~
 @eng a sharp ivory-hilted wakizashi@rus ~~острый~~ вакизаши с рукоятью из слоновой кости~
@@ -2428,7 +2419,7 @@ what can be down there..
 g @eng neutral@rus female~
 #47300
 staff platinum~
-@eng a glowing staff with platinum pattern@rus светийся посох с платиновым узором~
+@eng a glowing staff with platinum pattern@rus светящийся посох с платиновым узором~
 @eng Beautiful glowing staff fly on the center of the room.@rus Красивый посох летает в центре комнаты.~
 unknown~
 weapon AG 0 AN
@@ -3199,7 +3190,7 @@ S
 with bows and two weapon racks with spears and polearms take almost all
 free space.                                                             
 @rus Куда бы ты ни посмотрел, везде твой взгляд натыкается на оружие: стены    
-увешаны луками, а две стойки с копьями и алебрадами занимают практически
+увешаны луками, а две стойки с копьями и алебардами занимают практически
 все свободное место. Похоже, храм подготовлен к непродолжительной осаде,
 по крайней мере все оружие выглядит новым и ухоженным.
 ~
@@ -3220,7 +3211,7 @@ vague boom coming from the gates,  and feel the presense of supernatural,
 divine power.
 @rus Земля в этом месте утрамбована в плотную корку тысячами ног.  Множество 
 людей посещают храм вне зависимости от времени года, среди них можно встре-
-тить и простых крестьян, и странствующих монахов, совершаюших очередной об-   
+тить и простых крестьян, и странствующих монахов, совершающих очередной об-   
 ход святых мест. Ты слышишь неясный гул,  идущий из ворот и чувствуешь при-  
 сутствие необычайной, божественной силы.                 
 ~
@@ -3306,9 +3297,9 @@ much rice.  There are earthen paths dividing square pools with plants,
 spaced like ten feet from each other.. although they aren't wide enough   
 for two people and peasants that work here almost don't leave the water,
 though it is warm, due to the season.
-@rus Ты стоишь по шиколотки в воде.  Повсюду вокруг тебя растет рис, много
+@rus Ты стоишь по щиколотки в воде.  Повсюду вокруг тебя растет рис, много
 риса. На расстоянии метров трех друг от друга насыпаны земляные дорожки,
-разделяющие квадратные лужи, в которых, собствено, и растет рис; впрочем,
+разделяющие квадратные лужи, в которых, собственно, и растет рис; впрочем,
 они слишком узки для того, чтобы разминуться двум людям, и крестьяне, в    
 общем-то, почти не вылезают из воды, благо она теплая.
 ~
@@ -3339,9 +3330,9 @@ much rice.  There are earthen paths dividing square pools with plants,
 spaced like ten feet from each other.. although they aren't wide enough   
 for two people and peasants that work here almost don't leave the water,
 though it is warm, due to the season.
-@rus Ты стоишь по шиколотки в воде.  Повсюду вокруг тебя растет рис, много
+@rus Ты стоишь по щиколотки в воде.  Повсюду вокруг тебя растет рис, много
 риса. На расстоянии метров трех друг от друга насыпаны земляные дорожки,
-разделяющие квадратные лужи, в которых, собствено, и растет рис; впрочем,
+разделяющие квадратные лужи, в которых, собственно, и растет рис; впрочем,
 они слишком узки для того, чтобы разминуться двум людям, и крестьяне, в    
 общем-то, почти не вылезают из воды, благо она теплая.
 ~
@@ -3372,9 +3363,9 @@ much rice.  There are earthen paths dividing square pools with plants,
 spaced like ten feet from each other.. although they aren't wide enough   
 for two people and peasants that work here almost don't leave the water,
 though it is warm, due to the season.
-@rus Ты стоишь по шиколотки в воде.  Повсюду вокруг тебя растет рис, много
+@rus Ты стоишь по щиколотки в воде.  Повсюду вокруг тебя растет рис, много
 риса. На расстоянии метров трех друг от друга насыпаны земляные дорожки,
-разделяющие квадратные лужи, в которых, собствено, и растет рис; впрочем,
+разделяющие квадратные лужи, в которых, собственно, и растет рис; впрочем,
 они слишком узки для того, чтобы разминуться двум людям, и крестьяне, в    
 общем-то, почти не вылезают из воды, благо она теплая.
 ~
@@ -3399,9 +3390,9 @@ much rice.  There are earthen paths dividing square pools with plants,
 spaced like ten feet from each other.. although they aren't wide enough
 for two people and peasants that work here almost don't leave the water,
 though it is warm, due to the season.
-@rus Ты стоишь по шиколотки в воде.  Повсюду вокруг тебя растет рис, много
+@rus Ты стоишь по щиколотки в воде.  Повсюду вокруг тебя растет рис, много
 риса. На расстоянии метров трех друг от друга насыпаны земляные дорожки,
-разделяющие квадратные лужи, в которых, собствено, и растет рис; впрочем,
+разделяющие квадратные лужи, в которых, собственно, и растет рис; впрочем,
 они слишком узки для того, чтобы разминуться двум людям, и крестьяне, в
 общем-то, почти не вылезают из воды, благо она теплая.
 ~
@@ -3426,9 +3417,9 @@ much rice.  There are earthen paths dividing square pools with plants,
 spaced like ten feet from each other.. although they aren't wide enough   
 for two people and peasants that work here almost don't leave the water,
 though it is warm, due to the season.
-@rus Ты стоишь по шиколотки в воде.  Повсюду вокруг тебя растет рис, много
+@rus Ты стоишь по щиколотки в воде.  Повсюду вокруг тебя растет рис, много
 риса. На расстоянии метров трех друг от друга насыпаны земляные дорожки,
-разделяющие квадратные лужи, в которых, собствено, и растет рис; впрочем,
+разделяющие квадратные лужи, в которых, собственно, и растет рис; впрочем,
 они слишком узки для того, чтобы разминуться двум людям, и крестьяне, в    
 общем-то, почти не вылезают из воды, благо она теплая.
 ~
@@ -3461,9 +3452,9 @@ for two people and peasants that work here almost don't leave the water,
 though it is warm, due to the season.
   The river flows lazily nearby to the east, its waters beckon you to
 dive in. A bit further to the north you see a dense grove of bamboo.
-@rus Ты стоишь по шиколотки в воде.  Повсюду вокруг тебя растет рис, много
+@rus Ты стоишь по щиколотки в воде.  Повсюду вокруг тебя растет рис, много
 риса. На расстоянии метров трех друг от друга насыпаны земляные дорожки,
-разделяющие квадратные лужи, в которых, собствено, и растет рис; впрочем,
+разделяющие квадратные лужи, в которых, собственно, и растет рис; впрочем,
 они слишком узки для того, чтобы разминуться двум людям, и крестьяне, в
 общем-то, почти не вылезают из воды, благо она теплая.
   Река течет совсем рядом, ее прохлада так и манит тебя. Чуть поодаль,  
@@ -4150,7 +4141,7 @@ ding forest and absorb it.
 осмеливаются сюда заходить. Деревья, голые внизу,   
 тянутся вверх за своим кусочком солнца, не про-
 пуская свет вниз. Высохшая хвоя вперемежку с мер-
-твыми отломившимися ветками устилает землю ровным
+твыми отложившимися ветками устилает землю ровным
 ковром, изредка похрустывая под ногами. Воздух тут
 ощутимо холоднее, словно гора задалась целью вы-
 тянуть все тепло и вобрать в себя.
@@ -4383,7 +4374,7 @@ understand the reason of that strange boom which you noticed, entering:
 it is made by mantras,  continually repeated by praying people and ref-  
 lected by stone walls..
 @rus Люди сидят повсюду на полу. Глядя на них, ты понимаешь, откуда берется
-тот особый звуковой фон, который ты столь явствено ощутил на входе : это
+тот особый звуковой фон, который ты столь явственно ощутил на входе : это
 слова мантр,  непрерывно повторяемых молящимися,  многократно отраженные
 стенами.
 ~
@@ -4420,7 +4411,7 @@ understand the reason of that strange boom which you noticed, entering:
 it is made by mantras,  continually repeated by praying people and ref-  
 lected by stone walls..
 @rus Люди сидят повсюду на полу. Глядя на них, ты понимаешь, откуда берется
-тот особый звуковой фон, который ты столь явствено ощутил на входе : это
+тот особый звуковой фон, который ты столь явственно ощутил на входе : это
 слова мантр,  непрерывно повторяемых молящимися,  многократно отраженные
 стенами.
 ~
@@ -4447,7 +4438,7 @@ lected by stone walls..
   You see a door in the wall. Sometimes it opens and guards come out to
 replace those at the gates.
 @rus Люди сидят повсюду на полу. Глядя на них, ты понимаешь, откуда берется
-тот особый звуковой фон, который ты столь явствено ощутил на входе : это
+тот особый звуковой фон, который ты столь явственно ощутил на входе : это
 слова мантр,  непрерывно повторяемых молящимися,  многократно отраженные
 стенами.
   Сбоку от себя ты видишь дверь, время от времени она открывается и оттуда
@@ -4480,7 +4471,7 @@ understand the reason of that strange boom which you noticed, entering:
 it is made by mantras,  continually repeated by praying people and ref-  
 lected by stone walls..
 @rus Люди сидят повсюду на полу. Глядя на них, ты понимаешь, откуда берется
-тот особый звуковой фон, который ты столь явствено ощутил на входе : это
+тот особый звуковой фон, который ты столь явственно ощутил на входе : это
 слова мантр,  непрерывно повторяемых молящимися,  многократно отраженные
 стенами.
 ~
@@ -4505,7 +4496,7 @@ understand the reason of that strange boom which you noticed, entering:
 it is made by mantras,  continually repeated by praying people and ref-
 lected by stone walls. 
 @rus Люди сидят повсюду на полу. Глядя на них, ты понимаешь, откуда берется 
-тот особый звуковой фон, который ты столь явствено ощутил на входе : это
+тот особый звуковой фон, который ты столь явственно ощутил на входе : это
 слова мантр,  непрерывно повторяемых молящимися,  многократно отраженные   
 стенами.                                                 
 ~
@@ -4531,7 +4522,7 @@ it is made by mantras,  continually repeated by praying people and ref-
 lected by stone walls.
   The High Priest's stand is right before you.
 @rus Люди сидят повсюду на полу. Глядя на них, ты понимаешь, откуда берется
-тот особый звуковой фон, который ты столь явствено ощутил на входе : это
+тот особый звуковой фон, который ты столь явственно ощутил на входе : это
 слова мантр,  непрерывно повторяемых молящимися,  многократно отраженные
 стенами.
   Прямо перед тобой находится возвышение, на котором стоит верховный свя- 
@@ -5485,7 +5476,7 @@ S
 @eng This is dining hall. There is low table in the middle, surrounded by ta-
 tamis. You can sense jingle of dishes and smell of food coming from the west.
 @rus Это гостиная. Посреди комнаты стоит низкий столик, вокруг которого лежат 
-татами. С запада доносится звон посуды и запах готоящейся пищи.
+татами. С запада доносится звон посуды и запах готовящейся пищи.
 ~
 0 D inside
 D1
@@ -5710,7 +5701,7 @@ in other words, rest alone. Somehow you guess that you
 aren't the first person to find it out.
 @rus Высокие зеленые стебли смыкаются стеной позади тебя и взгляду
 открывается небольшая "полянка". Тут вполне можно поспать, пос-
-лушать шум реки или как ветер играет побегами бымбука, заставляя
+лушать шум реки или как ветер играет побегами бамбука, заставляя
 их стучать друг о друга - в общем, уединиться и отдохнуть...
 Почему-то тебе кажется, что не ты первый до этого додумался.
 ~
@@ -6121,55 +6112,6 @@ O 47184 1	* sharp talons of a demon
 O 47185 1	* a huge charred horn
 O 47186 2	* severed tail of a demon
 S
-
-#MOBPROGS
-#47000
-if isgood $n                                     
-say Greetings!
-bow $n
-endif
-if isevil $n
-say You must have an awesome reason to come here.
-grin $n
-endif
-if isneutral $n
-yawn
-say What have brought you here?
-endif
-~
-#47001
-emote comes to life!
-mob echoat $N $i steps forth, forbidding you to enter.
-mob echoaround $N $i steps forth, blocking $n's passage.
-say You aren't allowed there, unless you know the password.
-~
-#47002
-if isgood $n
-say You may be invited by my master, but better wait for him.
-smile $n
-endif
-if isevil $n
-say Who are you trying to fool?
-wave $n
-mob transfer $n 47002
-endif
-if isneutral $n
-say Do not test my tolerance. Just wait.
-endif
-~
-#47003
-say Heh heh, what a kid!
-cast frenzy
-say Have a nice day in hell today.
-mob transfer $n 10495
-~
-#47004
-say Welcome, $n .
-mob echoat $n The statue escorts you to the master's chamber.
-mob echoaround $n The statue opens the west door, letting $n enter.     
-mob transfer $n 47000
-~
-#0
 
 #HELPS
 0 'KANZAKI VILLAGE'~

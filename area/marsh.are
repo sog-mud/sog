@@ -283,9 +283,9 @@ r cold -33
 r lightning 50
 r mental 50
 #8321
-gargoyle гаргуль~
-@eng a gargoyle@rus гаргуль~
-@eng A large gargoyle lands next to you, baring his fangs at you.@rus Большой гаргуль (gargoyle) обнажил клыки оскалившись на тебя.~
+gargoyle горгулья~
+@eng a gargoyle@rus горгулья~
+@eng A large gargoyle lands next to you, baring his fangs at you.@rus Большой горгулья (gargoyle) обнажил клыки оскалившись на тебя.~
 @eng This creepy fellow looks like he could use you as a meal.
 @rus Этот жуткий товарищ мог бы использовать тебя в пищу.
 ~
@@ -321,13 +321,13 @@ armor J 0 AE
 a '' to_object 10 -1 -3 3 0
 a '' to_object 10 -1 1 19 0
 E
-horns horn рог гогатый~
+horns horn рог рогатый~
 @eng These horns appear to be made of adamantite.@rus Этот шлем сделан из адамантина.~
 g @rus none~
 #8303
 chain mail chainmail кольчуга кольчужная рубаха~
 @eng a suit of chainmail@rus ~~кольчужная~~ ~~рубаха~~~
-@eng An old suit of chainmail lies here, corroded by the marsh.@rus Старая кольчужная рубаха (chain mail) лежит тут, разьедаемая болотом.~
+@eng An old suit of chainmail lies here, corroded by the marsh.@rus Старая кольчужная рубаха (chain mail) лежит тут, разъедаемая болотом.~
 iron~
 armor J 0 AD
 5 8 7 0 0

@@ -8611,31 +8611,6 @@ S
 9584 9 11 0 0 0 105 15 0 23
 0
 
-#MOBPROGS
-#9500
-if isvisible $n
-mob oload 90
-, fashions a white gown for the Keeper.
-say Here is a dress for the Keeper.
-give dress $n
-else
-say Who's here?
-, looks around.
-endif
-~
-#9501
-if isvisible $n
-say Whom am I making this dress for?
-else
-say Where did this come from?
-, looks around.
-endif
-~
-#9502
-if carries $i 2436
-~
-#0
-
 #PRACTICERS
 M 9594 A	* The Samurai Weaponsmaster
 S

@@ -133,14 +133,14 @@ stand stand none 100
 0 0 medium unknown
 g @eng none@rus male~
 #9208
-earth elemental ruler повелитель соплощение земля~
+earth elemental ruler повелитель воплощение земля~
 @eng the Earth Ruler@rus ~~повелитель~~ стихии Земли~
 @eng The Ruler of the earth elementals.@rus Ты видишь живое воплощение стихии Земли (Earth).~
 @eng He looks as old as the earth itself.  He seems to know all the 
 secrets and knowledge of the Earth.  You can't really tell where 
 he begins and the rock wall ends.
 @rus Он так же стар, как и сама земля. Он знает все секреты и тайны
-этой стихии. Непонятно, где еще тело елементаля, а где уже начи-
+этой стихии. Непонятно, где еще тело элементаля, а где уже начи-
 нается скала.
 ~
 human~
@@ -155,7 +155,7 @@ r charm 999
 #9209
 fire elemental ruler повелитель воплощение огонь~
 @eng the Fire Ruler@rus ~~повелитель~~ стихии Огня~
-@eng The Ruler of the fire elementals.@rus Ты видишь живое вопложение стихии Огня (Fire).~
+@eng The Ruler of the fire elementals.@rus Ты видишь живое воплощение стихии Огня (Fire).~
 @eng As you look at him he seems to blend in with the fire in his throne.
 @rus Ты видишь фигуру, окруженную языками пламени, восседающую на троне.
 ~
@@ -332,7 +332,7 @@ mud elemental грязевой элементаль~
 @eng a mud monster@rus ~~грязевой~~ ~~элементаль~~~
 @eng A mud monster slops around.@rus Грязевой элементаль (elemental) удобно расположился здесь.~
 @eng The magical mud monster is a cross between water and earth.
-@rus Этот грязевой элементаль -- вопложение двух стихий в одном существе,
+@rus Этот грязевой элементаль -- воплощение двух стихий в одном существе,
 стихий Земли и Воды.
 ~
 human~
@@ -378,7 +378,7 @@ dust elemental пыльный элементаль пыльное облако~
 @eng a dust cloud@rus ~~пыльное~~ ~~облако~~~
 @eng A dust cloud blowing by makes you sneeze.@rus Плотное пыльное (dust) облако окутало тебя, заставив чихнуть.~
 @eng The magical dust cloud is a cross between air and earth.
-@rus Это пыльное облако тоже является элементалем, это порожление стихий
+@rus Это пыльное облако тоже является элементалем, это порождение стихий
 Земли и Воздуха.
 ~
 human~
@@ -2539,11 +2539,6 @@ M 9210 I	* The Air Ruler
 M 9211 I	* The Lightning Ruler
 M 9212 I	* The Water Ruler
 M 9239 E	* The Combat Magician
-S
-
-#OMPROGS
-O 9205 wear_prog wear_prog_wind_boots	* `the wind boots'
-O 9205 remove_prog remove_prog_wind_boots	* `the wind boots'
 S
 
 #$

@@ -325,20 +325,4 @@ S
 35301 0 0 0 0 0 100 100 0 23
 0
 
-#MOBPROGS
-#35301
-if carries $n 35301
-mob force $n give ticket arena
-mob purge ticket
-mob transfer $n 35303
-end
-else
-mob echoat $n The arena guard blocks your way west.
-mob echoaround $n The arena guard blocks $n's way west.
-'You have to buy ticket to enter the arena.
-end
-endif
-~
-#0
-
 #$

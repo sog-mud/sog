@@ -724,7 +724,7 @@ This cloak is dark blue, and looks like very effective armor
 ~
 g @eng none@rus male~
 #25002
-silver sleeves сереьряные наручи~
+silver sleeves серебряные наручи~
 @eng a pair of silver sleeves@rus ~~серебряные~~ ~~наручи~~~
 @eng A pair of silver sleeves lies at your feet.@rus Серебряные наручи (sleeves) лежат у твоих ног.~
 silver~
@@ -1064,7 +1064,7 @@ g @eng none@rus male~
 #25056
 crystal key кристаллический ключ~
 @eng a Crystal Key@rus ~~кристаллический~~ ~~ключ~~~
-@eng A crystal key lies here in the dirt.@rus Кристаллический ключ (key) выляется в грязи.~
+@eng A crystal key lies here in the dirt.@rus Кристаллический ключ (key) валяется в грязи.~
 crystal~
 key I 0 AO
 0 0 0 0 0
@@ -1206,7 +1206,7 @@ S
 the faint darkness. You find yourself amidst an ancient warrior, towering far 
 above you. His face, twisted into an evil grin. A jagged opening in the 
 mountain lies behind your foe.
-@rus По мере продвижения в горы, ощущение присутсвия чего-то злого
+@rus По мере продвижения в горы, ощущение присутствия чего-то злого
 становится все отчетливей. Неожиданно, путь кончается, упираясь
 в башнеподобного древнего воина с не сулящей ничего хорошего
 ухмылкой на лице. За его спиной ты видишь отверстие в камне с
@@ -1278,7 +1278,7 @@ is almost unbearable. The walls around you have a glow of faint red.
 Thoughts of turning back start creeping into your mind. But, you feel
 a strange force pulling you... pulling you deeper and deeper into the
 pits of hell!
-@rus Жар от светящихся тускло-красным стен здест становится совсем невы-
+@rus Жар от светящихся тускло-красным стен здесь становится совсем невы-
 носимым, обволакивая тебя со всех сторон и словно пытаясь поглотить.
 Ты начинаешь думать, не повернуть ли назад, но какая-то странная сила
 тянет тебя дальше и дальше вперед, в самые пучины ада!
@@ -1642,7 +1642,7 @@ S
 of evil. The trees are twisted and bent, and you notice many plants
 that have long since died, there is a small path  branching off to
 east.
-@rus Ощущение чьего-то зловешего присутствия вновь напоминает о себе,
+@rus Ощущение чьего-то зловещего присутствия вновь напоминает о себе,
 как только ты входишь в этот лес. Деревья вокруг тебя сплошь ужасно
 искривлены и едва ли на завязаны в узлы, и многие из них давно
 мертвы и истлели.
@@ -2193,7 +2193,7 @@ mid-air directly above the pit beneath the drawbridge on
 which you now stand. You can't see any farther than the
 inside of the entrance, for the castle appears to be
 totally without light.
-@rus Ты стоишь на мосту, ыедущем в древний замок. Две статуи,
+@rus Ты стоишь на мосту, ведущем в древний замок. Две статуи,
 изображающие каких-то странных созданий, парят прямо в воз-
 духе над рвом по обе стороны от тебя. Ни проблеска света не
 видно как в бойницах, так и впереди, и ты не можешь разгля-
@@ -2455,7 +2455,7 @@ through the air.
 @rus Сатанинские символы, нанесенные тут и там, бросаются в глаза как
 только ты входишь. Все помещение заполнено слабым, но хоть каким-то
 светом. Огромная пятиконечная звезда выложена на полу и ты физически
-чувствуешь зловещую магию, которой напитано это место. В дальнем
+чувствуешь зловещую магию, которой пропитано это место. В дальнем
 конце залы возвышается сияющий хрустальный трон, украшенный золотыми
 рунами. Сердце твое на секунду останавливается, когда ты замечаешь,
 что трон не пуст - на нем восседает истлевший скелет, сохранивший
@@ -2480,7 +2480,7 @@ lies in the center of the room. The room is decorated with many marble
 columns, in the far corner you can make out a shimering portal........
 through which you can see a path along a vast mountain range.
 @rus Ты $gn{вошел} в сокровищницу лича, и большая куча драгоценностей
-вперемежку с золотыми монетами посредине комнаты подверждает
+вперемежку с золотыми монетами посредине комнаты подтверждает
 ее название. Два ряда мраморных колонн подпирают своды, а нап-
 ротив тебя находится сияющий портал, сквозь который видна пет-
 ляющая среди гор тропинка.
@@ -2501,7 +2501,7 @@ of gargoyles and other strange creatures line each side of the hall
  a little farther down the hall, you can make our a huge set of double
 doors, you hear a strange sound to the east.
 @rus Пройдя чуть к востоку от входа, ты $gn{оказался} со всех сторон
-окружен горгулиями и другими каменными статуями, рядами стоя-
+окружен горгульями и другими каменными статуями, рядами стоя-
 щими у стен. Чуть дальше на восток видны огромные двустворчатые
 двери, из-за которых доносится странный звук.
 ~
@@ -2718,7 +2718,7 @@ exit, now that the door has been sealed are a set of stairs going up
 to the top of the tower and a set of stairs going downward into the
 darkness.
 @rus Ты стоишь в самом низу высокой смотровой башни. Прямо перед
-тобой находится леснница, ведущая наверх, и ты видишь странные
+тобой находится лестница, ведущая наверх, и ты видишь странные
 зловещие руны, вытравленные в каждой ступени. Чьи-то шаги раз-
 даются за твоей спиной и в ту же секунду дверь закрывается с
 громким хлопком. Ты оборачиваешься и видишь, что дверь теперь
@@ -2933,7 +2933,7 @@ north is slightly ajar, while the door to the west remains closed.
 The altar seems to glow with a sort of inner light....
 @rus Приблизившись к алтарю, ты замечаешь, что кровь на нем
 совсем свежая, а сам он словно светится изнутри. Отсюда
-становится видна слегка приоткытая дверь в северной стене.
+становится видна слегка приоткрытая дверь в северной стене.
 ~
 0 ADN field
 D0
@@ -2978,7 +2978,7 @@ strange red mist begins to seep from a crak beneath the door....
 @rus Странно, но находясь тут, ты ощущаешь себя в безопасности.
 Большая изукрашенная дверь ведет на запад, и ты видишь, как
 какой-то красный туман струится из-под нее, заставляя твое
-сердце замереть на секунду в предчуствии чего-то зловещего.
+сердце замереть на секунду в предчувствии чего-то зловещего.
 ~
 0 ADN field
 D1
@@ -3215,7 +3215,7 @@ S
 The room is deathly quiet, a large doorway lies to the south.
 The words 'Beware of the Ancient One' are inscribed into the wall
 next to the doorway.
-@rus Неестественная тишина царит в этой малеькой комнате у
+@rus Неестественная тишина царит в этой маленькой комнате у
 самого входа в подземелья. Слова 'Остерегайся Древнего'
 вырезаны на южной стене рядом с дверным проемом.
 ~

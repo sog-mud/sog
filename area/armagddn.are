@@ -78,7 +78,7 @@ stand stand female 900
 #14004
 angel water waters ангел~
 @eng The angel of the waters@rus ~~Ангел~~ вод~
-@eng An angel is here, holding down the watery corner of the world.@rus Ангел (angel), повеливающий водами, стоит на углу земли.~
+@eng An angel is here, holding down the watery corner of the world.@rus Ангел (angel), повелевающий водами, стоит на углу земли.~
 @eng The angel looks you over and tells you that you are too late.
 He has already cast the second vial of wrath into the sea.
 @rus Ангел глянул на тебя.. Он уже вылил вторую чашу гнева Господня
@@ -121,7 +121,7 @@ r charm 999
 #14006
 angel air ангел~
 @eng The angel of the air@rus ~~Ангел~~ воздуха~
-@eng An angel is here, holding down the airy corner of the world.@rus Ангел (angel), повеливающий воздухом, стоит на углу земли.~
+@eng An angel is here, holding down the airy corner of the world.@rus Ангел (angel), повелевающий воздухом, стоит на углу земли.~
 @eng The angel looks you over and tells you that you are too late.
 He has already scattered the seventh vial of wrath on the wind.
 @rus Ангел взглянул на тебя.. Слишком поздно. Седьмая чаша гнева
@@ -354,7 +354,7 @@ Balaam teacher man валаам учитель~
 @eng Balaam, teacher of Balac is engrossed in his discourse
 on the merits of eating food sacrificed to idols. His
 rapt audience pays you no heed.
-@rus Валаам. Он нучил Валака ввести в соблазн сынов Израилевых,
+@rus Валаам. Он научил Валака ввести в соблазн сынов Израилевых,
 чтобы они ели идоложертвенное и любодействовали.
 ~
 human~
@@ -439,7 +439,7 @@ the moon under her feet. She is beautiful
 to behold. She tells you to run, for a
 great dragon is hunting her.
 @rus Жена, облаченная в солнце; под ногами ее луна, а на голове
-венец из двенадцати звезд. Она просит тебя остановть дракона,
+венец из двенадцати звезд. Она просит тебя остановить дракона,
 охотящегося за ней.
 ~
 human~
@@ -558,7 +558,7 @@ idolator man идолопоклонник человек мужчина~
 @eng A man is here worshipping an idol.@rus Мужчина (idolator) молится на идола.~
 @eng The idolator is engrossed in his worship, and
 does not see you.
-@rus Идолопоклонник полностью поглащен своим молением и совершенно тебя
+@rus Идолопоклонник полностью поглощен своим молением и совершенно тебя
 не замечает.
 ~
 human~
@@ -679,7 +679,7 @@ corrupt ministers who ruined the kingdom.
 @rus Этот бывший король сейчас одет в лохмотья. Он судорожно вцепился в
 свою корону -- последний символ его власти. Приглядевшись, ты заме-
 чаешь, что в короне не хватает значительной части камней. Он винит
-в своих грехах своит продажных министров, разрушивших его королевство.
+в своих грехах своих продажных министров, разрушивших его королевство.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -923,9 +923,6 @@ a '' to_affects 45 -1 50 12 0
 a '' to_affects 45 -1 50 13 0
 a '' to_affects 45 -1 10 19 0
 g @eng none@rus female~
-R
-deny class !class("warrior")~
-end
 #14003
 sting locust жало~
 @eng A locust stinger@rus жало~
@@ -1103,7 +1100,7 @@ g @rus male~
 #14018
 scythe reaper grim коса жнеца~
 @eng The scythe of the Grim reaper@rus ~~коса~~ неумолимого жнеца~
-@eng An unholy scythe, devours the light here.@rus Темная коса (scythe) поглащает весь свет.~
+@eng An unholy scythe, devours the light here.@rus Темная коса (scythe) поглощает весь свет.~
 unknown~
 weapon CEFJMQ 0 AN
 polearm 8 8 'cleave' CDFH
@@ -1199,7 +1196,7 @@ g @rus female~
 #14026
 manna hidden~
 @eng Hidden manna@rus ~~манна~~ ~~небесная~~~
-@eng A glowing circlet of hidden manna is here.@rus Источник манны небестной (manna) лежит здесь.~
+@eng A glowing circlet of hidden manna is here.@rus Источник манны небесной (manna) лежит здесь.~
 unknown~
 armor AFKLQ 0 AB
 0 0 0 0 0
@@ -1361,7 +1358,7 @@ g @rus female~
 devoted to fire. The vapors of your burning flesh reach
 your nose. Beyond the corner is only the blackness. There
 is an unstoppered vial glowing orange red in the flames.
-@rus Ты стоишь на углу земли. Вогруг тебя пляшут языки пламени и 
+@rus Ты стоишь на углу земли. Вокруг тебя пляшут языки пламени и 
 ветер доносит до тебя запах опаленной кожи. За тобой лишь тьма.
 И ярким красным светом светится уже пустая чаша гнева Господня.
 ~
@@ -5023,7 +5020,7 @@ vial чаша~
 @eng You scoop out the vial. 
 Actually there are two vials.
 There is some lettering on them.
-@rus Ты замечаешь, что, на самом деле, там две чашы. И на них
+@rus Ты замечаешь, что, на самом деле, там две чаши. И на них
 видны какие-то надписи.
 ~
 D0
@@ -5490,7 +5487,7 @@ get the key of david to unlock the pit.
 вод сделались полынью.'
   Именно сюда упала эта звезда. Своим сиянием она освещает
 все вокруг. Ты знаешь, что в этой звезде ключ, откроющий
-кладязь бездны после пятой трубы.
+кладязя бездны после пятой трубы.
 ~
 0 0 forest
 D0
@@ -7676,7 +7673,7 @@ dragons decree to the beast. Murals on the walls depict
 the miracle where the beast's head healed after a severe
 sword wound. There is a giant mound of offerings near
 the throne where the beast rests.
-@rus Ты $gn{вошел} в это нечестивое често, привлекавшее
+@rus Ты $gn{вошел} в это нечестивое место, привлекавшее
 твой взгляд с самого начала твоих странствий по
 Гогу. Это -- место поклонения Зверю, здесь при-
 носят  Ему жертвы.  Фрески на стенах изображают
@@ -8094,7 +8091,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8124,7 +8121,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8162,7 +8159,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8192,7 +8189,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8230,7 +8227,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8276,7 +8273,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8314,7 +8311,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside
@@ -8341,7 +8338,7 @@ S
 tells you 'Now is your time'. With a gesture a black
 hole appears at your feet. He motions for you to go into
 the hole, and resumes his Judgement. 
-@rus Ты $gn{распростерся} перед престолом. И Сидящий на пристоле сказал
+@rus Ты $gn{распростерся} перед престолом. И Сидящий на престоле сказал
 тебе:' Вот пришло и твое время отвечать за грехи твои'. И повинуясь
 Его жесту разверзлась дыра черная у твоих ног. И движением Он напра-
 вил тебя в нее и продолжил свое Судейство.
@@ -8389,7 +8386,7 @@ About you are the souls of the dead shuffling foward to be judged.
 есть Альфа и Омега, начало и конец, первый и последний. И вокруг него
 двадцать четыре старца в белых одеждах и четыре животных, исполненных
 очей сзади и спереди. От престола исходят молнии, громы и гласы и семь
-светильников горяд пред престолом. И тысячи тысяч ангелов вокруг прес-
+светильников горят пред престолом. И тысячи тысяч ангелов вокруг прес-
 тола и животных и старцев.
 ~
 0 NVW inside

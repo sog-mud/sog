@@ -32,7 +32,7 @@ squire оруженосец~
 @eng A squire is here on an errand for his lord.@rus Оруженосец (squire) полон готовности служить своему хозяину.~
 @eng A squire stands here on a mission for his lord. He is dressed in rags, 
 smells bad, and looks like he is in a hurry.
-@rus Оруженосец стоит здесь по заданию своего хозяиня. Он одет в лохмотья,
+@rus Оруженосец стоит здесь по заданию своего хозяина. Он одет в лохмотья,
 плохо пахнет и выглядит не лучшим образом.
 ~
 human~
@@ -381,7 +381,7 @@ lady waiting ожидающая леди~
 @eng The lady in waiting snuggles up closer to you, pressing you for the details 
 of your last campaign. She is clad in a long gown and garlands of flowers 
 are in her hair.
-@rus Ожидающая леди подходит блище к тебе и расспрашивает о подробностях
+@rus Ожидающая леди подходит ближе к тебе и расспрашивает о подробностях
 твоих последних приключений. Она одета в длинное красивое платье, а в
 ее волосы вплетены гирлянды цветов.
 ~
@@ -493,7 +493,7 @@ EFNU
 stand stand male 1000
 0 0 medium unknown
 #17328
-damsel lady woman distress женщина леди отчаяни~
+damsel lady woman distress женщина леди ~
 @eng a damsel in distress@rus ~~Леди~~ в отчаянии~
 @eng A damsel in distress is here, screaming for help!@rus Леди (lady) в отчаянии просит о помощи!~
 @eng The damsel in distress has been badly roughed up by the ruffians. She is 
@@ -819,7 +819,7 @@ clansman scot член клана шотландец~
 @eng The Scot clansman is wearing a kilt, leather sandles, and has a long swath 
 of cloth wrapped around his shoulders. He carries a beautiful claymore which 
 is about 4' long.
-@rus Член шотландского клана одет в кильт, кожаные сандали, и длинный 
+@rus Член шотландского клана одет в кильт, кожаные сандалии, и длинный 
 матерчатый плащ. Он вооружен неплохим четырехфутовым клэймором.
 ~
 human~
@@ -3376,7 +3376,7 @@ S
 @eng You stand on a marbled road inside the great walls of Camelot. Pinnons 
 fly from high towers and the buildings gleam of white stone. Victory Road 
 contiues east into the keep, and Knights Way runs north and south.
-@rus Ты стоишь на дороге, выложенной мраморными болками, внутри большой стены
+@rus Ты стоишь на дороге, выложенной мраморными блоками, внутри большой стены
 Камелота. Здания, что видны впереди, сделаны также из белого мрамора. Дорога
 Победы продолжается на восток, а Рыцарский путь идет на север и юг.
 ~
@@ -4328,7 +4328,7 @@ S
 There is a courtyard with a fountain where you stand, and there are several 
 individual chambers shooting off of the courtyard.
 @rus Ты находишься в квартале Вельмож, где, как ясно из названия, живут
-вельможи и знаменитости. Недольшой дворик украшен красивым мраморным
+вельможи и знаменитости. Небольшой дворик украшен красивым мраморным
 фонтаном. Вокруг ты видишь несколько богато украшенных домов.
 ~
 0 0 inside
@@ -4521,7 +4521,7 @@ knight circles and raises his lance in a salute to Arthur.
 рыцаря столкнулись в центре поля с громким звуком. Ты $gn{заметил}, что
 рыцарь с оранжевым плюмажем ударил по верхней части щита и его копье,
 скользнув, ушло вверх; тогда как рыцарь в черном попал точно в центр щита
-противника. Оранжевый рыцарь вылетел из седля и, со скрежетом доспехов,
+противника. Оранжевый рыцарь вылетел из седла и, со скрежетом доспехов,
 упал на траву. Рыцарь в черной накидке, развернув коня, поднял копье
 и салютует зрителям.
 ~
@@ -4791,7 +4791,7 @@ D4
 ~
 ~
 ~
-Z 0 17380
+Z 0 17381
 D5
 @eng A staircase winding down.
 @rus Ступени, ведущие вниз.
@@ -4946,6 +4946,12 @@ horror.
 Вокруг беспросветная чернота и клубящийся туман.
 ~
 0 ACJN inside
+D5
+~
+~
+~
+~
+Z 0 17375
 S
 #17382
 @eng The Rolling Hills@rus Холмы~
@@ -5814,17 +5820,6 @@ O 17368 1	* sword named "Excalibur"
 O 17369 1	* belt of power
 O 17373 1	* sword named "Arondight"
 S
-
-#MOBPROGS
-#17301
-if isghost $n
-or isimmort $n
-else
-say NONE SHALL PASS!
-mob kill $n
-endif
-~
-#0
 
 #PRACTICERS
 M 17337 B	* Aigram the demon

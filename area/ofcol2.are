@@ -3965,17 +3965,6 @@ S
 622 0 17 0 0 0 120 10 0 23
 0
 
-#MOBPROGS
-#600
-if clan $n rulers 
-bow $n
-end 
-endif
-say Do not go further and leave the square.
-say This place is private.
-~
-#0
-
 #PRACTICERS
 M 601 O	* Marshall Diana
 M 628 M	* the Priestess of Ofcol

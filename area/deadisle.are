@@ -5397,44 +5397,4 @@ O 22387 42	* an ancient sword
 O 22399 0	* battlaxe 
 S
 
-#MOBPROGS
-#22300
-say OH!! You bring it for me?! You so pleased!
-, eats the huge piece of beef
-mob purge $o
-say I think that I can allow you to pass in Treasure Keep.
-say But you should be carefull. There are no exit from there.
-mob gtransfer $n 22404
-~
-#22301
-if people == 0
-or people == 1
-or people == 2
-or people == 3
-or people == 4
-or people == 5
-, looks at you.
-break
-else 
-yell INTRUDERS! INTRUDERS! INTRUDERS!
-, starts chanting some words.
-mob echo A dark figure appeares in a mist.
-mob mload 22328
-say Now speak with my master you loosy thiefs.
-endif
-~
-#22302
-, thinks deeply.
-say I think that you can visit the Treasure Keep.
-mob transfer $n 22404
-~
-#22303
-yell You are loosy thief $n. So you MUST DIE!
-yell GUARDS! GUARDS! GUARDS!
-mob kill $n
-~
-#22304
-~
-#0
-
 #$

@@ -18210,14 +18210,4 @@ O 16083 4	* The keeper's shield
 O 16089 1	* Demon fire
 S
 
-#OMPROGS
-O 16011 wear_prog wear_prog_breastplate_strength	* `Breast plate of strength'
-O 16011 remove_prog remove_prog_breastplate_strength	* `Breast plate of strength'
-O 16036 wear_prog wear_prog_boots_flying	* `Boots of flying'
-O 16036 remove_prog remove_prog_boots_flying	* `Boots of flying'
-O 16089 wear_prog wear_prog_demonfireshield	* `Demon fire'
-O 16089 remove_prog remove_prog_demonfireshield	* `Demon fire'
-O 16089 fight_prog fight_prog_demonfireshield	* `Demon fire'
-S
-
 #$

@@ -760,10 +760,4 @@ M 0 34101 1 34127 1	* Novice ranger (Verge)
 M 0 34101 1 34127 1	* Novice ranger (Verge)
 S
 
-#MOBPROGS
-#34103
-say Blup
-~
-#0
-
 #$
