@@ -3336,7 +3336,7 @@ to the others, but their probabities is much lower.
 0 EROS~
 .
 	To you : Heal
-	To you : Mass Heal
+	To you : Group Heal
 ~
 -1 STAT STATS~
 	There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
