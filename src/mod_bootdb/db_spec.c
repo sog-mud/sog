@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.8 1999-11-24 12:58:04 fjoe Exp $
+ * $Id: db_spec.c,v 1.9 1999-11-26 08:25:24 kostik Exp $
  */
 
 #include <stdio.h>
@@ -50,9 +50,10 @@ DBDATA db_spec = { dbfun_specs, init_specs };
 
 DBINIT_FUN(init_specs)
 {
-	if (DBDATA_VALID(dbdata))
+	if (DBDATA_VALID(dbdata)) {
+		db_set_arg(dbdata, "R", NULL);
 		db_set_arg(dbdata, "SKILL", NULL);
-	else {
+	} else {
 		hash_init(&specs, STRKEY_HASH_SIZE, sizeof(spec_t),
 			  (varr_e_init_t) spec_init,
 			  (varr_e_destroy_t) spec_destroy);
@@ -85,6 +86,7 @@ DBLOAD_FUN(load_spec)
 					db_error("load_spec",
 						 "duplicate spec name");
 				} else {
+					db_set_arg(dbdata, "R", psp);
 					db_set_arg(dbdata, "SKILL", psp);
 				}
 				spec_destroy(&sp);

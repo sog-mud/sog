@@ -656,6 +656,10 @@ S
 15016 0 0 0 0 0 100 100 0 23
 0
 
+#OLIMITS
+O 15009 1	* Abrazak's mace
+S
+
 #MOBPROGS
 #15000
 if mobexists junkseller

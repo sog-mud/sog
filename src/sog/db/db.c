@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.186 1999-11-23 12:14:33 fjoe Exp $
+ * $Id: db.c,v 1.187 1999-11-26 08:25:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,7 @@
 #include <ctype.h>
 #include <limits.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/time.h>
 
 #if	defined (WIN32)
@@ -1906,6 +1907,8 @@ void scan_pfiles()
 	struct dirent *dp;
 	DIR *dirp;
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
+	bool should_clear;
+	char fullname [PATH_MAX];
 
 	log("scan_pfiles: start (eqcheck is %s)",
 		   eqcheck ? "active" : "inactive");
@@ -1925,6 +1928,7 @@ void scan_pfiles()
 		CHAR_DATA *ch;
 		OBJ_DATA *obj, *obj_next;
 		bool changed;
+		struct stat s;
 
 #if defined (LINUX) || defined (WIN32)
 		if (strlen(dp->d_name) < 3)
@@ -1933,12 +1937,22 @@ void scan_pfiles()
 		if (dp->d_namlen < 3 || dp->d_type != DT_REG)
 			continue;
 #endif
-
 		if (strchr(dp->d_name, '.')
 		||  (ch = char_load(dp->d_name, LOAD_F_NOCREATE)) == NULL)
 			continue;
 
 		changed = FALSE;
+		should_clear = FALSE;
+
+		/* Remove limited eq from the pfile if it's two weeks old */
+
+		snprintf(fullname, sizeof(fullname), "%s%c%s", PLAYER_PATH, 
+			PATH_SEPARATOR, dp->d_name);
+		if (stat(fullname, &s) < 0) {
+			bug("scan_pfiles: unable to stat %s.", fullname);
+		} else {
+			should_clear = (time(NULL) - s.st_mtime) > 60*60*24*14;
+		}
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -1946,8 +1960,7 @@ void scan_pfiles()
 			obj->pObjIndex->count++;
 
 			if (obj->pObjIndex->limit < 0
-			||  !eqcheck
-			||  number_percent() < 95)
+			|| !should_clear)
 				continue;
 
 			changed = TRUE;
