@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.128 2001-08-28 16:37:42 avn Exp $
+ * $Id: recycle.c,v 1.129 2001-08-31 10:29:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,6 +178,32 @@ const char *from_dir_name[] =
 const int rev_dir[] =
 {
 	2, 3, 0, 1, 5, 4
+};
+
+const int show_order[] = {
+	WEAR_LIGHT,
+	WEAR_FINGER_L,
+	WEAR_FINGER_R,
+	WEAR_NECK,
+	WEAR_FACE,
+	WEAR_BODY,
+	WEAR_HEAD,
+	WEAR_LEGS,
+	WEAR_FEET,
+	WEAR_HANDS,
+	WEAR_ARMS,
+	WEAR_SHIELD,
+	WEAR_ABOUT,
+	WEAR_WAIST,
+	WEAR_WRIST_L,
+	WEAR_WRIST_R,
+	WEAR_WIELD,
+	WEAR_SECOND_WIELD,
+	WEAR_HOLD,
+	WEAR_FLOAT,
+	WEAR_TATTOO,
+	WEAR_CLANMARK,
+	-1
 };
 
 /*--------------------------------------------------------------------

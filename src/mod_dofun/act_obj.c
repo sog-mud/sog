@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.254 2001-08-30 18:50:06 fjoe Exp $
+ * $Id: act_obj.c,v 1.255 2001-08-31 10:29:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -488,10 +488,10 @@ DO_FUN(do_drop, ch, argument)
 
 DO_FUN(do_give, ch, argument)
 {
-	char            arg[MAX_INPUT_LENGTH];
-	CHAR_DATA      *victim;
-	OBJ_DATA       *obj;
-	int carry_w, carry_n;
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	OBJ_DATA *obj;
+	int carry_w;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -631,73 +631,12 @@ DO_FUN(do_give, ch, argument)
 		return;
 	}
 
-	if (obj->wear_loc != WEAR_NONE) {
-		act_char("You must remove it first.", ch);
-		return;
-	}
-
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		act_char("They aren't here.", ch);
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL) {
-#if 0
-	XXX
-	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
-#endif
-		tell_char(victim, ch, "Sorry, you'll have to sell that.");
-		return;
-	}
-
-	if (!can_drop_obj(ch, obj)) {
-		act_char("You can't let go of it.", ch);
-		return;
-	}
-
-	if ((carry_n = can_carry_n(victim)) >= 0
-	&&  victim->carry_number + get_obj_number(obj) > carry_n) {
-		act("$N has $S hands full.", ch, NULL, victim, TO_CHAR);
-		return;
-	}
-
-	if ((carry_w = can_carry_w(victim)) >= 0
-	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
-		act("$N can't carry that much weight.",
-		    ch, NULL, victim, TO_CHAR);
-		return;
-	}
-
-	if (OBJ_IS(obj, OBJ_QUEST)
-	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
-		act_puts("Even you are not that silly to give $p to $N.",
-			 ch, obj, victim, TO_CHAR, POS_DEAD);
-		return;
-	}
-
-	if (!can_see_obj(victim, obj)) {
-		act("$N can't see it.", ch, NULL, victim, TO_CHAR);
-		return;
-	}
-
-	obj->last_owner = NULL;
-
-	obj_from_char(obj);
-	obj_to_char(obj, victim);
-	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT | ACT_NOTRIG);
-	act("$n gives you $p.", ch, obj, victim, TO_VICT | ACT_NOTRIG);
-	act("You give $p to $N.", ch, obj, victim, TO_CHAR | ACT_NOTRIG);
-
-#if 0
-	XXX
-	/*
-	 * Give trigger
-	*/
-	if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_GIVE))
-		mp_give_trigger(victim, ch, obj);
-
-	oprog_call(OPROG_GIVE, obj, ch, victim);
-#endif
+	give_obj(ch, victim, obj);
 }
 
 /* for poisoning weapons and food/drink */

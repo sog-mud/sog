@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.28 2001-08-30 18:50:12 fjoe Exp $
+ * $Id: mpc.y,v 1.29 2001-08-31 10:29:32 fjoe Exp $
  */
 
 /*
@@ -827,6 +827,8 @@ expr:	L_IDENT assign expr %prec '=' {
 		}
 
 		$$ = d->rv_tag;
+		if ($$ == MT_BOOL)
+			$$ = MT_INT;
 
 		/*
 		 * pop argtypes from stack
@@ -1632,7 +1634,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3)
 	case MP_T_OBJ:
 		if (obj_var_assign(mpc, "$o", arg1) < 0)
 			execerr(MPC_ERR_RUNTIME);
-		if (mob_var_assign(mpc, "$N", arg2) < 0)
+		if (mob_var_assign(mpc, "$n", arg2) < 0)
 			execerr(MPC_ERR_RUNTIME);
 		break;
 
@@ -1648,6 +1650,7 @@ _mprog_execute(mprog_t *mp, void *arg1, void *arg2, void *arg3)
 
 		if (str_var_assign(mpc, "$add", arg3) < 0)
 			execerr(MPC_ERR_RUNTIME);
+
 		break;
 	}
 

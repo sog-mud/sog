@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.16 2001-08-26 16:17:18 fjoe Exp $
+ * $Id: sog.h,v 1.17 2001-08-31 10:29:28 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -184,6 +184,11 @@ DECLARE_PROC3(wear_obj,
 	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(bool), fReplace)
 DECLARE_FUN3(bool, remove_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear, ARG(bool), fReplace)
+DECLARE_PROC3(give_obj,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(OBJ_DATA), obj)
+
+DECLARE_PROC2(look_char,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
 
 DECLARE_FUN4(OBJ_DATA, get_obj_list,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument,
@@ -332,6 +337,19 @@ DECLARE_PROC1(hometown_print_avail,
 DECLARE_PROC0(reboot_mud)
 DECLARE_PROC2(show_flags,
 	      ARG(CHAR_DATA), ch, ARG(flaginfo_t), flag_table)
+
+/*
+ * format_obj_to_char (and show_list_to_char) flags
+ */
+#define FO_F_SHORT		(A)		/* short		*/
+#define FO_F_SHOW_NOTHING	(B)		/* print 'Nothing:'	*/
+
+DECLARE_FUN3(pchar_t, format_obj_to_char,
+	     ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch, ARG(int), flags)
+DECLARE_PROC3(show_list_to_char,
+	      NULLABLE_ARG(OBJ_DATA), list, ARG(CHAR_DATA), ch, ARG(int), flags)
+DECLARE_PROC3(show_obj_to_char,
+	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(flag_t), wear_loc)
 
 /*--- scan_pfiles.c */
 DECLARE_PROC0(scan_pfiles)

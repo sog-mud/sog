@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.395 2001-08-30 18:50:04 fjoe Exp $
+ * $Id: act_info.c,v 1.396 2001-08-31 10:29:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -146,44 +146,10 @@ DECLARE_DO_FUN(do_say);
 /*
  * Local functions.
  */
-static char *	format_obj_to_char	(OBJ_DATA *obj,
-					 CHAR_DATA *ch, bool fShort);
-static void	show_list_to_char	(OBJ_DATA *list, CHAR_DATA *ch,
-					 bool fShort, bool fShowNothing);
 static void	show_char_to_char_0	(CHAR_DATA *victim,
 					 CHAR_DATA *ch);
-static void	show_char_to_char_1	(CHAR_DATA *victim,
-					 CHAR_DATA *ch);
 static void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
-static void	show_obj_to_char	(CHAR_DATA *ch, OBJ_DATA *obj,
-					 flag_t wear_loc);
-static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument);
-
-static int show_order[] = {
-	WEAR_LIGHT,
-	WEAR_FINGER_L,
-	WEAR_FINGER_R,
-	WEAR_NECK,
-	WEAR_FACE,
-	WEAR_BODY,
-	WEAR_HEAD,
-	WEAR_LEGS,
-	WEAR_FEET,
-	WEAR_HANDS,
-	WEAR_ARMS,
-	WEAR_SHIELD,
-	WEAR_ABOUT,
-	WEAR_WAIST,
-	WEAR_WRIST_L,
-	WEAR_WRIST_R,
-	WEAR_WIELD,
-	WEAR_SECOND_WIELD,
-	WEAR_HOLD,
-	WEAR_FLOAT,
-	WEAR_TATTOO,
-	WEAR_CLANMARK,
-	-1
-};
+static void	list_spells(flag_t type, CHAR_DATA *ch, const char *argument);
 
 DO_FUN(do_clear, ch, argument)
 {
@@ -542,7 +508,7 @@ static DO_FUN(do_look_in, ch, argument)
 	case ITEM_CONTAINER:
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
-		if (IS_SET(INT(obj->value[1]), CONT_CLOSED) 
+		if (IS_SET(INT(obj->value[1]), CONT_CLOSED)
 		&&  ((clan = clan_lookup(ch->clan)) == NULL ||
 		      clan->altar_ptr != obj)) {
 			act("It is closed.", ch, obj, NULL, TO_CHAR);
@@ -550,7 +516,8 @@ static DO_FUN(do_look_in, ch, argument)
 		}
 
 		act_puts("$p holds:", ch, obj, NULL, TO_CHAR, POS_DEAD);
-		show_list_to_char(obj->contains, ch, TRUE, TRUE);
+		show_list_to_char(
+		    obj->contains, ch, FO_F_SHORT | FO_F_SHOW_NOTHING);
 		break;
 	}
 }
@@ -602,7 +569,7 @@ do_look_room(CHAR_DATA *ch, int flags)
 	} else
 		act_char("It is pitch black...", ch);
 
-	show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
+	show_list_to_char(ch->in_room->contents, ch, 0);
 	show_char_to_char(ch->in_room->people, ch);
 }
 
@@ -643,9 +610,8 @@ DO_FUN(do_look, ch, argument)
 
 	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
 		/* 'look' or 'look auto' */
-		do_look_room(ch, arg1[0] == '\0' ||
-			 	 (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)) ?
-				  0 : LOOK_F_NORDESC);
+		do_look_room(
+		    ch, arg1[0] == '\0' || (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF)) ?  0 : LOOK_F_NORDESC);
 		return;
 	}
 
@@ -666,33 +632,7 @@ DO_FUN(do_look, ch, argument)
 	}
 
 	if ((victim = get_char_room(ch, arg1)) != NULL) {
-		show_char_to_char_1(victim, ch);
-
-		/* Love potion */
-		if (is_affected(ch, "love potion") && (victim != ch)) {
-			AFFECT_DATA *paf;
-
-			affect_strip(ch, "love potion");
-
-			add_follower(ch, victim);
-			set_leader(ch, victim);
-
-			paf = aff_new(TO_AFFECTS, "charm person");
-			paf->level = ch->level;
-			paf->duration =  number_fuzzy(victim->level / 4);
-			paf->bitvector = AFF_CHARM;
-			affect_to_char(ch, paf);
-			aff_free(paf);
-
-			act("Isn't $n just so nice?",
-			    victim, NULL, ch, TO_VICT);
-			act("$N looks at you with adoring eyes.",
-			    victim, NULL, ch, TO_CHAR);
-			act("$N looks at $n with adoring eyes.",
-			    victim, NULL, ch, TO_NOTVICT);
-		}
-
-		pull_mob_trigger(TRIG_MOB_LOOK, NULL, victim, ch, NULL);
+		look_char(ch, victim);
 		return;
 	}
 
@@ -1366,7 +1306,7 @@ DO_FUN(do_whois, ch, argument)
 DO_FUN(do_inventory, ch, argument)
 {
 	act_char("You are carrying:", ch);
-	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
+	show_list_to_char(ch->carrying, ch, FO_F_SHORT | FO_F_SHOW_NOTHING);
 }
 
 DO_FUN(do_equipment, ch, argument)
@@ -4061,221 +4001,6 @@ DO_FUN(do_homepoint, ch, argument)
 /*
  * static functions
  */
-static char *
-format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
-{
-	static char buf[MAX_STRING_LENGTH];
-
-	buf[0] = '\0';
-	if ((fShort && mlstr_null(&obj->short_descr))
-	||  mlstr_null(&obj->description))
-		return str_empty;
-
-	if (IS_SET(ch->comm, COMM_LONG)) {
-		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({yInvis{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({DDark{x) ", GET_LANG(ch)));
-		if (HAS_DETECT(ch, ID_EVIL)
-		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({RRed Aura{x) ", GET_LANG(ch)));
-		if (HAS_DETECT(ch, ID_GOOD)
-		&&  IS_OBJ_STAT(obj, ITEM_BLESS))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({BBlue Aura{x) ", GET_LANG(ch)));
-		if (HAS_DETECT(ch, ID_MAGIC)
-		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({MMagical{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({WGlowing{x) ", GET_LANG(ch)));
-		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strnzcat(buf, sizeof(buf),
-				 GETMSG("({YHumming{x) ", GET_LANG(ch)));
-	} else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] "; // notrans
-		strnzcpy(buf, sizeof(buf), FLAGS);
-		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			buf[5] = 'I';
-		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			buf[8] = 'D';
-		if (HAS_DETECT(ch, ID_EVIL)
-		&&  IS_OBJ_STAT(obj, ITEM_EVIL))
-			buf[11] = 'E';
-		if (HAS_DETECT(ch, ID_GOOD)
-		&&  IS_OBJ_STAT(obj,ITEM_BLESS))
-			buf[14] = 'B';
-		if (HAS_DETECT(ch, ID_MAGIC)
-		&&  IS_OBJ_STAT(obj, ITEM_MAGIC))
-			buf[17] = 'M';
-		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			buf[20] = 'G';
-		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			buf[23] = 'H';
-		if (strcmp(buf, FLAGS) == 0)
-			buf[0] = '\0';
-	}
-
-	if (fShort) {
-		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->pObjIndex->name,
-				      ch, GET_LANG(ch), 0));
-		if (obj->pObjIndex->vnum > 5 /* not money, gold, etc */
-		&&  (obj->condition < COND_EXCELLENT ||
-		     !IS_SET(ch->comm, COMM_NOVERBOSE))) {
-			char buf2[MAX_STRING_LENGTH];
-			snprintf(buf2, sizeof(buf2), " [{g%s{x]",  // notrans
-				 GETMSG(get_cond_alias(obj), GET_LANG(ch)));
-			strnzcat(buf, sizeof(buf), buf2);
-		}
-		return buf;
-	}
-
-	if (obj->in_room && IS_WATER(obj->in_room)) {
-		char* p;
-
-		p = strchr(buf, '\0');
-		strnzcat(buf, sizeof(buf),
-			 format_short(&obj->short_descr, obj->pObjIndex->name,
-				      ch, GET_LANG(ch), 0));
-		p[0] = UPPER(p[0]);
-		switch(number_range(1, 3)) {
-		case 1:
-			strnzcat(buf, sizeof(buf),
-				 " is floating gently on the water.");
-			break;
-		case 2:
-			strnzcat(buf, sizeof(buf),
-				 " is making it's way on the water.");
-			break;
-		case 3:
-			strnzcat(buf, sizeof(buf),
-				 " is getting wet by the water.");
-			break;
-		}
-	}
-	else {
-		char tmp[MAX_STRING_LENGTH];
-		actopt_t opt;
-
-		opt.to_lang = GET_LANG(ch);
-		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
-
-		act_buf(format_long(&obj->description, ch), ch, ch,
-			NULL, NULL, NULL, &opt, tmp, sizeof(tmp));
-		strnzcat(buf, sizeof(buf), tmp);
-	}
-	return buf;
-}
-
-/*
- * Show a list to a character.
- * Can coalesce duplicated items.
- */
-static void
-show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing)
-{
-	BUFFER *output;
-	const char **prgpstrShow;
-	int *prgnShow;
-	char *pstrShow;
-	OBJ_DATA *obj;
-	int nShow;
-	int iShow;
-	int count;
-	bool fCombine;
-
-	if (ch->desc == NULL)
-		return;
-
-	/*
-	 * Alloc space for output lines.
-	 */
-	output = buf_new(0);
-
-	count = 0;
-	for (obj = list; obj != NULL; obj = obj->next_content)
-		count++;
-	prgpstrShow = malloc(count * sizeof(char *));
-	prgnShow    = malloc(count * sizeof(int)  );
-	nShow	= 0;
-
-	/*
-	 * Format the list of objects.
-	 */
-	for (obj = list; obj != NULL; obj = obj->next_content) {
-		if (obj->wear_loc == WEAR_NONE && can_see_obj(ch, obj)) {
-			pstrShow = format_obj_to_char(obj, ch, fShort);
-
-			fCombine = FALSE;
-
-			if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
-				/*
-				 * Look for duplicates, case sensitive.
-				 * Matches tend to be near end so run loop
-				 * backwords.
-				 */
-				for (iShow = nShow - 1; iShow >= 0; iShow--) {
-					if (!strcmp(prgpstrShow[iShow],
-						    pstrShow)) {
-						prgnShow[iShow]++;
-						fCombine = TRUE;
-						break;
-					}
-				}
-			}
-
-			/*
-			 * Couldn't combine, or didn't want to.
-			 */
-			if (!fCombine) {
-				prgpstrShow [nShow] = str_dup(pstrShow);
-				prgnShow    [nShow] = 1;
-				nShow++;
-			}
-		}
-	}
-
-	/*
-	 * Output the formatted list.
-	 */
-	for (iShow = 0; iShow < nShow; iShow++) {
-		if (prgpstrShow[iShow][0] == '\0')
-			continue;
-
-		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
-			if (prgnShow[iShow] != 1) {
-				buf_printf(output, BUF_END,
-				    "(%2d) ",			// notrans
-				    prgnShow[iShow]);
-			} else
-				buf_append(output,"     ");	// notrans
-		}
-
-		buf_append(output, prgpstrShow[iShow]);
-		buf_append(output, "\n");
-		free_string(prgpstrShow[iShow]);
-	}
-
-	if (fShowNothing && nShow == 0) {
-		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
-			send_to_char("     ", ch);		// notrans
-		act_char("Nothing.", ch);
-	}
-
-	page_to_char(buf_string(output),ch);
-
-	/*
-	 * Clean up.
-	 */
-	buf_free(output);
-	free(prgpstrShow);
-	free(prgnShow);
-}
 
 #define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (c) : '.')
 
@@ -4532,212 +4257,6 @@ show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	act_puts3(msg, ch, arg, victim, arg3, TO_CHAR | ACT_FORMSH, POS_DEAD);
-}
-
-static const char *wear_loc_names[] =
-{
-	"<used as light>     $t",
-	"<worn on finger>    $t",
-	"<worn on finger>    $t",
-	"<worn around neck>  $t",
-	"<worn on face>      $t",
-	"<worn on torso>     $t",
-	"<worn on head>      $t",
-	"<worn on legs>      $t",
-	"<worn on feet>      $t",
-	"<worn on hands>     $t",
-	"<worn on arms>      $t",
-	"<worn as shield>    $t",
-	"<worn about body>   $t",
-	"<worn about waist>  $t",
-	"<worn about wrist>  $t",
-	"<worn about wrist>  $t",
-	"<wielded>           $t",
-	"<held>              $t",
-	"<floating nearby>   $t",
-	"<scratched tattoo>  $t",
-	"<dual wielded>      $t",
-	"<clan mark>         $t",
-	"<stuck in>          $t",
-};
-
-static void
-show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag_t wear_loc)
-{
-	bool can_see_it;
-
-	if (obj == NULL) {
-		switch (wear_loc) {
-		case WEAR_TATTOO:
-		case WEAR_CLANMARK:
-			return;
-			/* NOTREACHED */
-
-		case WEAR_SECOND_WIELD:
-			if (get_skill(ch, "dual wield") == 0)
-				return;
-			/* FALLTHRU */
-
-		case WEAR_SHIELD:
-		case WEAR_HOLD:
-		case WEAR_WIELD:
-			if (!free_hands(ch))
-				return;
-			break;
-		}
-	}
-
-	can_see_it = (obj == NULL) ? FALSE : can_see_obj(ch, obj);
-	act(wear_loc_names[wear_loc], ch,
-	    can_see_it ? format_obj_to_char(obj, ch, TRUE) :
-	    obj == NULL ? "nothing" : "something",
-	    NULL, TO_CHAR | (can_see_it ? ACT_NOTRANS : 0));
-}
-
-static void
-show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
-{
-	OBJ_DATA *obj;
-	int i;
-	int percent;
-	bool found;
-	const char *msg;
-	const char *desc;
-	CHAR_DATA *doppel = victim;
-	CHAR_DATA *mirror = victim;
-	char buf[MAX_STRING_LENGTH];
-
-	if (is_affected(victim, "doppelganger")) {
-		if (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)) {
-			doppel = victim->doppel;
-			if (is_affected(victim, "mirror"))
-				mirror = victim->doppel;
-		}
-	}
-
-	if (can_see(victim, ch)) {
-		if (ch == victim)
-			act("$n looks at $mself.",
-			    ch, NULL, NULL, TO_ROOM);
-		else {
-			act_puts("$n looks at you.",
-				 ch, NULL, victim, TO_VICT, POS_RESTING);
-			act("$n looks at $N.",
-			    ch, NULL, victim, TO_NOTVICT);
-		}
-	}
-
-	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
-		doppel = nth_char(doppel, PC(ch)->random_value);
-
-	if (doppel->shapeform)
-		desc = mlstr_cval(&doppel->shapeform->index->description, ch);
-	else if (IS_NPC(doppel))
-		desc = mlstr_cval(&doppel->description, ch);
-	else
-		desc = mlstr_mval(&doppel->description);
-
-	if (!IS_NULLSTR(desc)) {
-		if (doppel->shapeform || IS_NPC(doppel)) {
-			act_puts(desc, ch, NULL, NULL,
-				 TO_CHAR | ACT_NOLF, POS_DEAD);
-		} else {
-			act_puts("$t{x", ch, desc, NULL,	// notrans
-				 TO_CHAR | ACT_NOLF, POS_DEAD);
-		}
-	} else {
-		act_puts("You see nothing special about $m.",
-			 victim, NULL, ch, TO_VICT, POS_DEAD);
-	}
-
-	if (MOUNTED(victim))
-		act_puts("$N is riding $i.",
-			 ch, MOUNTED(victim), victim, TO_CHAR, POS_DEAD);
-	if (RIDDEN(victim))
-		act_puts("$N is being ridden by $i.",
-			 ch, RIDDEN(victim), victim, TO_CHAR, POS_DEAD);
-
-	if (victim->max_hit > 0)
-		percent = (100 * victim->hit) / victim->max_hit;
-	else
-		percent = -1;
-
-	if (percent >= 100)
-		msg = "{Cis in perfect health{x.";
-	else if (percent >= 90)
-		msg = "{bhas a few scratches{x.";
-	else if (percent >= 75)
-		msg = "{Bhas some small but disgusting cuts{x.";
-	else if (percent >= 50)
-		msg = "{Gis covered with bleeding wounds{x.";
-	else if (percent >= 30)
-		msg = "{Yis gushing blood{x.";
-	else if (percent >= 15)
-		msg = "{Mis writhing in agony{x.";
-	else if (percent >= 0)
-		msg = "{Ris convulsing on the ground{x.";
-	else
-		msg = "{Ris nearly dead{x.";
-
-	/* vampire ... */
-	/* XXX should not be here, should be called from do_look or whatever */
-	if (percent < 90 && IS_VAMPIRE(ch))
-		gain_condition(ch, COND_BLOODLUST, -1);
-
-	if (!IS_IMMORTAL(doppel)) {
-		act_puts("($t) ", ch, doppel->race, NULL,	// notrans
-			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
-		if (!IS_NPC(doppel)) {
-			act_puts("($t) ($T) ", ch,		// notrans
-				 doppel->class, mlstr_mval(&doppel->gender),
-				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
-		}
-	}
-
-	strnzcpy(buf, sizeof(buf), PERS(victim, ch, GET_LANG(ch), ACT_FORMSH));
-	buf[0] = UPPER(buf[0]);
-	if (IS_IMMORTAL(victim))
-		send_to_char("{W", ch);				// notrans
-	act_puts("$N", ch, NULL, victim,			// notrans
-		 TO_CHAR | ACT_NOLF | ACT_FORMSH, POS_DEAD);
-	if (IS_IMMORTAL(victim))
-		send_to_char("{x", ch);
-	act_puts(" $t", ch, msg, NULL, TO_CHAR, POS_DEAD);	// notrans
-
-	found = FALSE;
-	for (i = 0; show_order[i] != -1; i++)
-		if ((obj = get_eq_char(mirror, show_order[i]))
-		&&  can_see_obj(ch, obj)) {
-			if (!found) {
-				send_to_char("\n", ch);
-				act("$N is using:", ch, NULL, victim, TO_CHAR);
-				found = TRUE;
-			}
-
-			show_obj_to_char(ch, obj, show_order[i]);
-		}
-
-	for (obj = mirror->carrying; obj; obj = obj->next_content)
-		if (obj->wear_loc == WEAR_STUCK_IN
-		&&  can_see_obj(ch, obj)) {
-			if (!found) {
-				send_to_char("\n", ch);
-				act("$N is using:", ch, NULL, victim, TO_CHAR);
-				found = TRUE;
-			}
-
-			show_obj_to_char(ch, obj, WEAR_STUCK_IN);
-		}
-
-	if (victim != ch
-	&&  (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
-	&&  !IS_NPC(ch)
-	&&  number_percent() < get_skill(ch, "peek")) {
-		send_to_char("\n", ch);
-		act_char("You peek at the inventory:", ch);
-		check_improve(ch, "peek", TRUE, 4);
-		show_list_to_char(mirror->carrying, ch, TRUE, TRUE);
-	}
 }
 
 static void

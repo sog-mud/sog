@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.19 2001-08-30 18:50:12 fjoe Exp $
+ * $Id: init_mpc.c,v 1.20 2001-08-31 10:29:31 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -153,14 +153,18 @@ const char *mpc_dynafuns[] = {
 	"act_char",
 	"act_yell",
 	"can_see",
+	"create_obj",
 	"dofun",
+	"give_obj",
 	"has_sp",
 	"is_immortal",
 	"level",
+	"look_char",
 	"mob_interpret",
 	"number_bits",
 	"number_percent",
 	"number_range",
+	"obj_to_char",
 	"spclass_count",
 	"tell_char",
 #else

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.355 2001-08-30 18:50:01 fjoe Exp $
+ * $Id: merc.h,v 1.356 2001-08-31 10:29:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1997,6 +1997,7 @@ ROOM_INDEX_DATA *	get_room_index	(int vnum);
 extern	const char *			dir_name	[];
 extern	const char *			from_dir_name	[];
 extern	const int			rev_dir		[];
+extern	const int			show_order	[];
 extern	const char			DEFAULT_PROMPT	[];
 
 extern RUNGAME_FUN *run_game;

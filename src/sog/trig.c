@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.7 2001-08-30 18:50:19 fjoe Exp $
+ * $Id: trig.c,v 1.8 2001-08-31 10:29:37 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -36,10 +36,10 @@
 #include <mprog.h>
 #include <rwfile.h>
 
-static int pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
+static int pull_one_trigger(trig_t *trig, int mp_type,
 			    void *arg1, void *arg2, void *arg3);
-static int pull_trigger_list(int trig_type, const char *arg, varr *v,
-			     int mp_type, void *arg1, void *arg2, void *arg3);
+static int pull_trigger_list(int trig_type, varr *v, int mp_type,
+			     void *arg1, void *arg2, void *arg3);
 
 void
 trig_init(trig_t *trig)
@@ -225,24 +225,22 @@ trig_set_arg(trig_t *trig, const char *arg)
 }
 
 int
-pull_mob_trigger(int trig_type, const char *arg,
-		 CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
+pull_mob_trigger(int trig_type,
+		 CHAR_DATA *ch, CHAR_DATA *victim, void *arg)
 {
 	if (!IS_NPC(ch))
 		return MPC_ERR_NOTFOUND;
 
 	return pull_trigger_list(
-	    trig_type, arg, &ch->pMobIndex->mp_trigs, MP_T_MOB,
-	    ch, victim, obj);
+	    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB, ch, victim, arg);
 }
 
 int
-pull_obj_trigger(int trig_type, const char *arg,
-		 OBJ_DATA *obj, CHAR_DATA *victim)
+pull_obj_trigger(int trig_type,
+		 OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	return pull_trigger_list(
-	    trig_type, arg, &obj->pObjIndex->mp_trigs, MP_T_OBJ,
-	    obj, victim, NULL);
+	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ, obj, ch, arg);
 }
 
 int
@@ -253,7 +251,7 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
 		return MPC_ERR_NOTFOUND;
 
 	return pull_one_trigger(
-	    &spec->mp_trig, NULL, MP_T_SPEC,
+	    &spec->mp_trig, MP_T_SPEC,
 	    ch, (void *) (uintptr_t) spn_rm, (void *) (uintptr_t) spn_add);
 }
 
@@ -262,7 +260,7 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
  */
 
 static int
-pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
+pull_one_trigger(trig_t *trig, int mp_type,
 		 void *arg1, void *arg2, void *arg3)
 {
 	mprog_t *mp;
@@ -278,12 +276,12 @@ pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
 
 	if (trig->trig_type == TRIG_MOB_BRIBE) {
 		int silver_needed = atoi(trig->trig_arg);
-		int silver = atoi(arg);
+		int silver = atoi(arg3);
 
 		if (silver < silver_needed)
 			return MPC_ERR_COND_FAILED;
 	} else if (trig->trig_type == TRIG_MOB_GIVE) {
-		OBJ_DATA *obj = (OBJ_DATA *) arg1;
+		OBJ_DATA *obj = (OBJ_DATA *) arg3;
 		bool match = FALSE;
 
 		if (is_number(trig->trig_arg))
@@ -311,18 +309,18 @@ pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
 		&&  ch->position != ch->pMobIndex->default_pos)
 			return MPC_ERR_COND_FAILED;
 
-		if (!is_name(arg, trig->trig_arg))
+		if (!is_name(arg3, trig->trig_arg))
 			return MPC_ERR_COND_FAILED;
 	} else if (HAS_TEXT_ARG(trig)) {
-		const char *arg_lwr = strlwr(arg);
+		char *arg_lwr = strlwr(arg3);
 		bool match = FALSE;
 
 		if (IS_SET(trig->trig_flags, TRIG_F_REGEXP))
-			match = !regexec(trig->trig_extra, arg, 0, NULL, 0);
+			match = !regexec(trig->trig_extra, arg3, 0, NULL, 0);
 		else {
 			if (!IS_SET(trig->trig_flags, TRIG_F_CASEDEP))
-				arg = arg_lwr;
-			match = strstr(arg, trig->trig_arg) != NULL;
+				arg3 = arg_lwr;
+			match = strstr(arg3, trig->trig_arg) != NULL;
 		}
 
 		if (!match)
@@ -343,11 +341,15 @@ pull_one_trigger(trig_t *trig, const char *arg, int mp_type,
 			return MPC_ERR_COND_FAILED;
 	}
 
+	if (trig->trig_type != TRIG_MOB_GIVE
+	&&  trig->trig_type != TRIG_SPEC)
+		arg3 = NULL;
+
 	return mprog_execute(mp, arg1, arg2, arg3);
 }
 
 static int
-pull_trigger_list(int trig_type, const char *arg, varr *v, int mp_type,
+pull_trigger_list(int trig_type, varr *v, int mp_type,
 		  void *arg1, void *arg2, void *arg3)
 {
 	trig_t *trig;
@@ -364,7 +366,7 @@ pull_trigger_list(int trig_type, const char *arg, varr *v, int mp_type,
 		if (trig->trig_type != trig_type)
 			break;
 
-		rv = pull_one_trigger(trig, arg, mp_type, arg1, arg2, arg3);
+		rv = pull_one_trigger(trig, mp_type, arg1, arg2, arg3);
 		if (rv >= 0)
 			break;
 	}

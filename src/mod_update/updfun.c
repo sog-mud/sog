@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.39 2001-08-30 18:50:17 fjoe Exp $
+ * $Id: updfun.c,v 1.40 2001-08-31 10:29:36 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -267,7 +267,7 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 			}
 		}
 #endif
-		if (pull_mob_trigger(TRIG_MOB_RANDOM, NULL, ch, NULL, NULL) > 0)
+		if (pull_mob_trigger(TRIG_MOB_RANDOM, ch, NULL, NULL) > 0)
 			return NULL;
 	}
 

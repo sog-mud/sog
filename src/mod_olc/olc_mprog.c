@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.3 2001-08-27 16:53:17 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.4 2001-08-31 10:29:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -84,11 +84,11 @@ OLC_FUN(mped_create)
 		return FALSE;
 	}
 
-	mp->text = str_dup(
+	mp->text = str_printf(
 	    "/*\n"
-	    " * $Id: olc_mprog.c,v 1.3 2001-08-27 16:53:17 fjoe Exp $\n"
+	    " * $%s$\n"
 	    " */\n"
-	    "\n");
+	    "\n", "Id");
 	ch->desc->pEdit	= mp;
 	OLCED(ch)	= olced_lookup(ED_MPROG);
 	touch_mprog(mp);
