@@ -594,31 +594,35 @@ CDEFIJKN
 stand stand male 0
 0 0 medium unknown
 m mob_fight @ 100~
+room r = get_room_index(19069);
+if (r == NULL)
+        return 0;
+
 int chance = number_percent();
 char vict = get_random_fighting($n);
 if (chance < 35) {
-	act("$n throws $N out of the room!", $n, NULL, $N, TO_NOTVICT);
-	act("$n throws you out of the room!", $n, NULL, $N, TO_VICT);
-	transfer_char($n, 19069);
-	act("You land with a thump on the hard dirt ground.",
-	    $N, NULL, $N, TO_VICT);
-	act("$N lands with a thump on the hard dirt ground.",
-	    $N, NULL, $N, TO_NOTVICT);
+        act("$n throws $N out of the room!", $n, NULL, $N, TO_NOTVICT);
+        act("$n throws you out of the room!", $n, NULL, $N, TO_VICT);
+        transfer_char($n, r);
+        act("You land with a thump on the hard dirt ground.",
+            $N, NULL, $N, TO_VICT);
+        act("$N lands with a thump on the hard dirt ground.",
+            $N, NULL, $N, TO_NOTVICT);
 } else if (chance < 45) {
-	act("$n screams 'HATAI!'", $n, NULL, NULL, TO_ROOM);
-	damage($n, vict, 57, "bodyslam", DAM_BASH, DAM_F_SHOW);
-	wait_state(vict, dice(1, 4) * PULSE_VIOLENCE);
+        act("$n screams 'HATAI!'", $n, NULL, NULL, TO_ROOM);
+        damage($n, vict, 57, "bodyslam", DAM_BASH, DAM_F_SHOW);
+        wait_state(vict, dice(1, 4) * get_pulse("violence"));
 } else if (chance < 60) {
-	act("$n screams 'YOTAH!'", $n, NULL, NULL, TO_ROOM);
-	damage($n, vict, dice(2, 3), "kicked dirt", DAM_NONE, DAM_F_SHOW);
-	if (!is_affected(vict, AFF_BLIND) {
-		affect_char(vict, TO_AFFECTS, "dirt kicking",
-		    char_level($n), 0, APPLY_HITROLL, -5, AFF_BLIND);
-	}
+        act("$n screams 'YOTAH!'", $n, NULL, NULL, TO_ROOM);
+        damage($n, vict, dice(2, 3), "kicked dirt", DAM_NONE, DAM_F_SHOW);
+        if (!is_affected(vict, AFF_BLIND)) {
+                affect_char(vict, TO_AFFECTS, "dirt kicking",
+                    char_level($n), 0, APPLY_HITROLL, -5, AFF_BLIND);
+        }
 } else if (chance < 85) {
-	act("$n screams 'AIYIII!'", $n, NULL, NULL, TO_ROOM);
-	damage($n, vict, 3 * number_range(1, char_level($n)),
-	    "kick", DAM_BASH, DAM_F_SHOW);
+        act("$n screams 'AIYIII!'", $n, NULL, NULL, TO_ROOM);
+        damage($n, vict, 3 * number_range(1, char_level($n)),
+            "kick", DAM_BASH, DAM_F_SHOW);
 }
 
 return 0;
@@ -1155,10 +1159,15 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+room r2 = get_room_index(19081);
+if (r == NULL || r2 == NULL)
+        return 0;
+
 act_say($n, "You have defeated me...and you may pass.", NULL);
 act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
-transfer_char($N, 19081);
+transfer_char($n, r);
+transfer_char($N, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_fire 100~
@@ -1196,10 +1205,15 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+room r2 = get_room_index(19082);
+if (r == NULL || r2 == NULL)
+        return 0;
+
 act_say($n, "You have defeated me...and you may pass.", NULL);
 act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
-transfer_char($N, 19082);
+transfer_char($n, r);
+transfer_char($N, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_gas 100~
@@ -1237,10 +1251,15 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+room r2 = get_room_index(19084);
+if (r == NULL || r2 == NULL)
+        return 0;
+
 act_say($n, "You have defeated me...and you may pass.", NULL);
 act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
-transfer_char($N, 19084);
+transfer_char($n, r);
+transfer_char($N, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_acid 100~
@@ -1278,10 +1297,15 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+room r2 = get_room_index(19085);
+if (r == NULL || r2 == NULL)
+        return 0;
+
 act_say($n, "You have defeated me...and you may pass.", NULL);
 act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
-transfer_char($N, 19085);
+transfer_char($n, r);
+transfer_char($N, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_frost 100~
@@ -1319,10 +1343,15 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+room r2 = get_room_index(19086);
+if (r == NULL || r2 == NULL)
+        return 0;
+
 act_say($n, "You have defeated me...and you may pass.", NULL);
 act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
-transfer_char($N, 19086);
+transfer_char($n, r);
+transfer_char($N, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_gas 100~
@@ -1360,10 +1389,15 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+room r2 = get_room_index(19083);
+if (r == NULL || r2 == NULL)
+        return 0;
+
 act_say($n, "You have defeated me...and you may pass.", NULL);
 act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
-transfer_char($N, 19083);
+transfer_char($n, r);
+transfer_char($N, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_lightning 100~
@@ -1429,14 +1463,21 @@ FH
 stand stand none 0
 0 0 medium unknown
 m mob_death @ 100~
+room r = get_room_index(19147);
+if (r == NULL)
+        return 0;
+
+char phoenix = load_mob($n, 19062);
+if (phoenix == NULL)
+        return 0;
+
 act("$n begins to glow...and then suddenly explodes in a fireball!",
     $n, NULL, NULL, TO_ROOM);
 act("A pile of ashes drifts to the floor....", $n, NULL, NULL, TO_ROOM);
 act("As you peer closer, you see a small phoenix amidst the ashes.",
     $n, NULL, NULL, TO_ROOM);
-char phoenix = load_mob($n, 19062);
 act("$n screeches loudly...and attacks!", $n,  NULL, NULL, TO_ROOM);
-transfer_char($n, 19147);
+transfer_char($n, r);
 return 0;
 ~
 m mob_fight mob_fight_breath_any 100~
