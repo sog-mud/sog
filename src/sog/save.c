@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.81 1998-11-02 05:28:31 fjoe Exp $
+ * $Id: save.c,v 1.82 1998-11-11 05:46:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -941,7 +941,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				const char *race = fread_string(fp);
 				ch->race = rn_lookup(race);
 				free_string(race);
-				ORG_RACE(ch) = ch->race;
+				SET_ORG_RACE(ch, ch->race);
 				fMatch = TRUE;
 				break;
 			}
@@ -1195,7 +1195,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				const char *race = fread_string(fp);
 				pet->race = rn_lookup(race);
 				free_string(race);
-				ORG_RACE(pet) = pet->race;
+				SET_ORG_RACE(pet, pet->race);
 				fMatch = TRUE;
 				break;
 			}

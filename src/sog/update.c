@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.84 1998-11-10 11:32:59 kostik Exp $
+ * $Id: update.c,v 1.85 1998-11-11 05:46:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1004,9 +1004,12 @@ void char_update(void)
 				check_improve(ch, gsn_path_find, FALSE, 16);
 		}
 		
-		if (!IS_IMMORTAL(ch) && !IS_NPC(ch) 
-		    && get_skill(ch, gsn_spellbane) && 
-		    !is_affected(ch, gsn_spellbane)) do_spellbane(ch,"");
+/* permanent spellbane */
+		if (!IS_IMMORTAL(ch) && !IS_NPC(ch) &&
+		    get_skill(ch, gsn_spellbane) && 
+		    !is_affected(ch, gsn_spellbane))
+			do_spellbane(ch, str_empty);
+
 		if (!ch->fighting) {
 			flag_t skip = AFF_FLYING;
 
@@ -1562,8 +1565,6 @@ void obj_update_list(OBJ_DATA *obj)
 		obj_next = obj->next;
 
 		if (obj->extracted) {
-			log("obj_update: extracted obj found, "
-			    "restarting obj update");
 			obj_update_list(last_updated_obj ?
 					last_updated_obj->next : object_list);
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.114 1998-11-07 11:26:22 fjoe Exp $
+ * $Id: merc.h,v 1.115 1998-11-11 05:46:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,12 +46,10 @@
 #if	defined (LINUX) || defined (WIN32)
 #	undef  NOCRYPT
 #	define NOCRYPT
-#	include <limits.h>
 #	pragma warning (disable : 4244 4018 4761)
-#else
-#	include <sys/syslimits.h>
 #endif
 
+#include <limits.h>
 #include <ctype.h>
 #include "typedef.h"
 #include "const.h"

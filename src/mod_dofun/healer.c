@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.13 1998-11-10 11:32:58 kostik Exp $
+ * $Id: healer.c,v 1.14 1998-11-11 05:46:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,7 +69,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
         return;
     }
 
-    if (skill_level(ch, gsn_spellbane)<=MAX_LEVEL) {
+    if (HAS_SKILL(ch, gsn_spellbane)) {
 	char_puts("You are Battle Rager, not the filthy magician\n\r",ch);
 	return;
     }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.91 1998-11-10 11:32:57 kostik Exp $
+ * $Id: act_obj.c,v 1.92 1998-11-11 05:46:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1866,7 +1866,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	one_argument(argument, arg);
 	
-	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
 		char_puts("You are Battle Rager, not filthy magician!\n\r",ch);
 		return;
 	}
@@ -1902,8 +1902,9 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int		sn;
 
-	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
-		char_puts ("RECITE? You are Battle Rager !\n\r",ch);
+	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
+		char_puts ("RECITE? You are Battle Rager!\n\r", ch);
+		return;
 	}
 
 	argument = one_argument(argument, arg1);
@@ -1966,7 +1967,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	int             sn;
 	SKILL_DATA *	sk;
 
-	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
 		char_puts("BRANDISH? You are not a filthy magician!\n\r",ch);
 		return;
 	}
@@ -2048,7 +2049,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int		sn;
 	
-	if (skill_level(ch,gsn_spellbane)<=MAX_LEVEL && !IS_IMMORTAL(ch)) {
+	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
 		char_puts("You'd destroy magic, not use it!\n\r",ch);
 		return;
 	}

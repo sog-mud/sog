@@ -23,15 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.4 1998-11-02 05:28:53 fjoe Exp $
+ * $Id: lang.c,v 1.5 1998-11-11 05:47:05 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
-#include <limits.h>
 #include <string.h>
-#else
-#include <sys/syslimits.h>
 #endif
+
+#include <limits.h>
 #include <stdio.h>
 
 #include "const.h"

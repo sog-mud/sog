@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.6 1998-10-26 08:38:23 fjoe Exp $
+ * $Id: skills.h,v 1.7 1998-11-11 05:46:57 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -54,6 +54,8 @@ struct skill_data {
 };
 
 extern varr skills;
+
+#define HAS_SKILL(ch, sn)	(skill_level(ch, sn) <= MAX_LEVEL)
 
 #define SKILL(sn)		((SKILL_DATA*) VARR_GET(&skills, sn))
 #define skill_lookup(sn)	((SKILL_DATA*) varr_get(&skills, sn))

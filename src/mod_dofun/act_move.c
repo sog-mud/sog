@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.113 1998-11-02 05:28:27 fjoe Exp $
+ * $Id: act_move.c,v 1.114 1998-11-11 05:46:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2519,17 +2519,19 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if ((door = find_exit(ch, arg2)) < 0)
 		return;
 
-	if ((pexit = ch->in_room->exit[door]) != NULL) {
-		if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
-			if (IS_SET(pexit->exit_info, EX_CLOSED))
-				char_puts("Direction is closed.\n\r", ch); 
-			else if (IS_SET(pexit->exit_info, EX_LOCKED))
-				char_puts("Direction is locked.\n\r", ch); 
+	if ((pexit = ch->in_room->exit[door])
+	&&  IS_SET(pexit->exit_info, EX_ISDOOR)) {
+		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+			char_puts("The door is closed.\n\r", ch); 
+			return;
+		}
+		if (IS_SET(pexit->exit_info, EX_LOCKED)) {
+			char_puts("The door is locked.\n\r", ch); 
 			return;
 		}
 	}
 
-	if (IS_AFFECTED(ch,AFF_DETECT_WEB)) {
+	if (IS_AFFECTED(ch, AFF_DETECT_WEB)) {
 		char_puts("You're webbed, and want to do WHAT?!?\n\r", ch);
 		act("$n stupidly tries to push $N while webbed.",
 		    ch, NULL, victim, TO_ROOM);

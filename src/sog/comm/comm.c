@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.121 1998-11-02 05:45:42 fjoe Exp $
+ * $Id: comm.c,v 1.122 1998-11-11 05:47:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1838,11 +1838,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 		}
 
-		ORG_RACE(ch) = race;
-		if (IS_NPC(ch))
-			ch->pIndexData->race = race;
-		else
-			ch->pcdata->race = race;
+		SET_ORG_RACE(ch, race);
 		ch->race = race;
 		for (i=0; i < MAX_STATS;i++)
 			ch->mod_stat[i] = 0;
