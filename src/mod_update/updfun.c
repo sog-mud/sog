@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.36 2001-08-13 18:23:55 fjoe Exp $
+ * $Id: updfun.c,v 1.37 2001-08-20 16:47:50 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,7 +33,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 
 #include <update.h>
 #include "update_impl.h"

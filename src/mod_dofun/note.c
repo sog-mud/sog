@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.24 2001-08-14 16:06:51 fjoe Exp $
+ * $Id: note.c,v 1.25 2001-08-20 16:47:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 #include <merc.h>
 #include <note.h>
 
-#include <handler.h>
+#include <sog.h>
 
 DECLARE_DO_FUN(do_unread);
 DECLARE_DO_FUN(do_note);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.21 2001-08-03 12:21:04 fjoe Exp $
+ * $Id: rating.c,v 1.22 2001-08-20 16:47:44 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -33,7 +33,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 
 static int
 rating_cmp(const void *a, const void *b);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.201 2001-08-13 18:23:55 fjoe Exp $
+ * $Id: update.c,v 1.202 2001-08-20 16:47:49 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,7 +33,7 @@
 #include <merc.h>
 #include <module.h>
 
-#include <handler.h>
+#include <sog.h>
 
 #include <update.h>
 #include "update_impl.h"

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.269 2001-08-13 18:23:25 fjoe Exp $
+ * $Id: act_move.c,v 1.270 2001-08-20 16:47:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,7 @@
 #include <merc.h>
 #include <lang.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <magic.h>
 
 DECLARE_DO_FUN(do_north);

@@ -23,12 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.96 2001-08-19 18:18:46 fjoe Exp $
+ * $Id: olc_area.c,v 1.97 2001-08-20 16:47:34 fjoe Exp $
  */
 
 #include "olc.h"
-
-#include <handler.h>
 
 #define EDIT_AREA(ch, area)	(area = (AREA_DATA*) ch->desc->pEdit)
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.242 2001-08-13 18:23:23 fjoe Exp $
+ * $Id: act_comm.c,v 1.243 2001-08-20 16:47:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,7 @@
 #include <lang.h>
 #include <note.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <update.h>
 
 DECLARE_DO_FUN(do_afk);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.249 2001-08-13 18:23:25 fjoe Exp $
+ * $Id: act_obj.c,v 1.250 2001-08-20 16:47:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include <merc.h>
 #include <lang.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <magic.h>
 #include <update.h>
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.289 2001-08-19 18:18:42 fjoe Exp $
+ * $Id: act_wiz.c,v 1.290 2001-08-20 16:47:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,7 @@
 #include <rwfile.h>
 #include <module.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <quest.h>
 
 DECLARE_DO_FUN(do_objlist);

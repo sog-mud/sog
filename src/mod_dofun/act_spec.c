@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.23 2001-08-14 16:06:49 fjoe Exp $
+ * $Id: act_spec.c,v 1.24 2001-08-20 16:47:25 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,7 +40,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <quest.h>
 
 DECLARE_DO_FUN(do_read);

@@ -23,12 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.92 2001-08-14 16:07:05 fjoe Exp $
+ * $Id: olc_room.c,v 1.93 2001-08-20 16:47:35 fjoe Exp $
  */
 
 #include "olc.h"
-
-#include <handler.h>
 
 #define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
 

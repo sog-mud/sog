@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.49 2001-08-14 16:06:56 fjoe Exp $
+ * $Id: string_edit.c,v 1.50 2001-08-20 16:47:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,7 +24,7 @@
 #include <merc.h>
 #include <lang.h>
 
-#include <handler.h>
+#include <sog.h>
 
 static char *numlines(const char *, int dump_level);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.1 2001-08-13 18:23:41 fjoe Exp $
+ * $Id: nanny.c,v 1.2 2001-08-20 16:47:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,7 @@
 #include <merc.h>
 #include <resolver.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <quest.h>
 
 #include "handler_impl.h"

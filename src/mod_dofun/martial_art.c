@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.191 2001-08-14 16:29:28 fjoe Exp $
+ * $Id: martial_art.c,v 1.192 2001-08-20 16:47:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <magic.h>
 #include <update.h>
 

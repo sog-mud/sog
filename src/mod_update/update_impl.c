@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.6 2001-08-03 11:27:47 fjoe Exp $
+ * $Id: update_impl.c,v 1.7 2001-08-20 16:47:49 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -32,7 +32,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 
 #define MODULE_INIT MOD_UPDATE
 #include <update.h>

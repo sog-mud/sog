@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.11 2001-08-13 18:23:54 fjoe Exp $
+ * $Id: act_update.c,v 1.12 2001-08-20 16:47:48 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -40,7 +40,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <update.h>
 #include "update_impl.h"
 

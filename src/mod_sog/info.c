@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.28 2001-08-13 18:23:40 fjoe Exp $
+ * $Id: info.c,v 1.29 2001-08-20 16:47:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -50,7 +50,7 @@
 #include <lang.h>
 #include <colors.h>
 
-#include <handler.h>
+#include <sog.h>
 
 #include "info.h"
 

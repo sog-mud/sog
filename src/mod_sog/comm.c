@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.3 2001-08-19 18:18:43 fjoe Exp $
+ * $Id: comm.c,v 1.4 2001-08-20 16:47:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -43,7 +43,7 @@
 #include <resolver.h>
 #include <colors.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <update.h>
 
 #include "handler_impl.h"

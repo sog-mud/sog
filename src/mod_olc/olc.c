@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.135 2001-08-19 18:18:45 fjoe Exp $
+ * $Id: olc.c,v 1.136 2001-08-20 16:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,8 +47,6 @@
 
 #include <lang.h>
 #include <module.h>
-
-#include <handler.h>
 
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);

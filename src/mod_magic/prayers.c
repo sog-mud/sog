@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.14 2001-08-13 18:23:44 fjoe Exp $
+ * $Id: prayers.c,v 1.15 2001-08-20 16:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 
 #include <magic.h>
 #include "magic_impl.h"

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.4 2001-08-14 16:29:29 fjoe Exp $
+ * $Id: init_sog.c,v 1.5 2001-08-20 16:47:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,8 +33,8 @@
 #include <merc.h>
 
 #include <module.h>
-#define MODULE_INIT MOD_HANDLER
-#include <handler.h>
+#define MODULE_INIT MOD_SOG
+#include <sog.h>
 
 #include "handler_impl.h"
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.185 2001-08-13 18:23:41 fjoe Exp $
+ * $Id: interp.c,v 1.186 2001-08-20 16:47:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,7 +50,7 @@
 #include <merc.h>
 #include <cmd.h>
 
-#include <handler.h>
+#include <sog.h>
 
 #include "handler_impl.h"
 #include "comm.h"

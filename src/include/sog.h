@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.12 2001-08-13 18:23:15 fjoe Exp $
+ * $Id: sog.h,v 1.13 2001-08-20 16:47:21 fjoe Exp $
  */
 
-#ifndef _HANDLER_H_
-#define _HANDLER_H_
+#ifndef _SOG_H_
+#define _SOG_H_
 
 #undef MODULE_NAME
-#define MODULE_NAME MOD_HANDLER
+#define MODULE_NAME MOD_SOG
 #include <dynafun_decl.h>
 
 __MODULE_START_DECL
@@ -774,4 +774,4 @@ struct actopt_t {
 	int act_flags;
 };
 
-#endif /* _HANDLER_H_ */
+#endif /* _SOG_H_ */

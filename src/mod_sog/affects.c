@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.61 2001-08-13 18:23:35 fjoe Exp $
+ * $Id: affects.c,v 1.62 2001-08-20 16:47:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 #include <merc.h>
 #include <lang.h>
 
-#include <handler.h>
+#include <sog.h>
 
 static void show_name(CHAR_DATA *ch, BUFFER *output,
 		      AFFECT_DATA *paf, AFFECT_DATA *paf_last);
@@ -912,7 +912,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 		where_t *w = where_lookup(paf->where);
 
 		if (cnt == 0) {
-			buf_append(output, "Number Skill          Affects Modifier Affects Bitvector\n");					// notrans
+			buf_append(output, "Number Skill       Applies to Modifier Affects Bitvector\n");					// notrans
 			buf_append(output, "------ --------- ------------ -------- ------- --------------------------------\n");		// notrans
 		}
 		buf_printf(output, BUF_END,
@@ -921,6 +921,7 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 			   cnt,
 			   paf->type,
 			   paf->where == TO_SKILLS ||
+			   paf->where == TO_FORM ||
 			   paf->where == TO_RACE ?
 				STR(paf->location) :
 				(w && w->loc_table) ? SFLAGS(w->loc_table, paf->location) : "none",
