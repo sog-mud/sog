@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.49 2002-10-27 07:04:22 tatyana Exp $
+ * $Id: update.c,v 1.157.2.50 2002-11-19 14:17:17 tatyana Exp $
  */
 
 /***************************************************************************
@@ -497,11 +497,11 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	&&  PC(ch)->condition[iCond] > -6) {
 		switch (iCond) {
 		case COND_HUNGER:
-			char_puts("You are hungry.\n",  ch);
+			act("You are hungry.",  ch, NULL, NULL, TO_CHAR);
 			break;
 
 		case COND_THIRST:
-			char_puts("You are thirsty.\n", ch);
+			act("You are thirsty.", ch, NULL, NULL, TO_CHAR);
 			break;
 	 
 		case COND_DRUNK:
@@ -511,8 +511,8 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 
 		case COND_BLOODLUST:
 			if (condition != 0)
-				char_puts("You are hungry for blood.\n",
-					     ch);
+				act("You are hungry for blood.",
+				    ch, NULL, NULL, TO_CHAR);
 			break;
 
 		case COND_DESIRE:

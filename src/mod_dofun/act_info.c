@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.66 2002-11-06 13:48:05 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.67 2002-11-19 14:15:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1196,6 +1196,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	 * Now show matching chars.
 	 */
 	output = buf_new(GET_LANG(ch));
+
+	buf_printf(output, "Fellow persons are traveling in Shades of Gray:\n");
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch;
 
@@ -1252,7 +1254,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		do_who_raw(ch, wch, output);
 	}
 
-	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
+	buf_printf(output, "{xFound: %d. Most so far today: %d.\n",
 		   count, top_player);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -1582,7 +1584,8 @@ void do_description(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (!str_prefix(arg, "edit")) {
+	if (arg[0] != '\0'
+	&& !str_prefix(arg, "edit")) {
 		string_append(ch, mlstr_convert(&ch->description, -1));
 		return;
 	}

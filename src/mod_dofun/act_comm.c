@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.39 2002-10-30 18:07:54 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.40 2002-11-19 14:15:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -85,7 +85,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
-	
+
 	if (IS_SET(PC(ch)->plr_flags, PLR_CONFIRM_DELETE)) {
 		if (argument[0] != '\0') {
 			char_puts("Delete status removed.\n",ch);

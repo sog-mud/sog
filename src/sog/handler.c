@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.65 2002-10-27 06:49:02 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.66 2002-11-19 14:16:53 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3279,9 +3279,15 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
+	bool found = FALSE;
 
-	buf_add(output, "You are affected by the following spells:\n");
 	for (paf = ch->affected; paf; paf = paf->next) {
+		if (!found) {
+			buf_add(output,
+				"You are affected by the following spells:\n");
+			found = TRUE;
+		}
+
 		if (ch->level < 20) {
 			show_name(ch, output, paf, paf_last);
 			if (paf_last && paf_last->type == paf->type)
@@ -3303,6 +3309,11 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 
 		show_loc_affect(ch, output, paf, &paf_last);
 		show_bit_affect(output, paf, &paf_last);
+	}
+
+	if (!found) {
+		buf_add(output,
+			"You are not affected by any spells.\n");
 	}
 
 	if (ch->level < 20)

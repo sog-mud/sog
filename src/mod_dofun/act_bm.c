@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.7 2002-10-23 10:14:52 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.8 2002-11-19 14:15:48 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -337,11 +337,12 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		int limit;
 		int price;
 
+		/*
 		if (!IS_HUNTER(ch)) {
 			act("{D[BLACK MARKET]{x You can't sell anything "
 			    "at black market.", ch, NULL, NULL, TO_CHAR);
 			return;
-		}
+		} */
 
 		argument = one_argument(argument, arg, sizeof(arg));
 
@@ -389,7 +390,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		case ITEM_CONTAINER:
 			if (!can_drop_obj(ch, obj)) {
 				act("{D[BLACK MARKET]{x You can't let go of "
-				    "$p.", ch, obj, NULL, TO_CHAR);
+				    "{D$p.{x", ch, obj, NULL, TO_CHAR);
 				return;
 			}
 
@@ -480,7 +481,8 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (IS_SET(item->obj->pObjIndex->extra_flags, ITEM_NOIDENT)) {
-			act("[BLACK MARKET] True nature of the $P is unknown.",
+			act("[BLACK MARKET] True nature of the {D$P{x "
+			    "is unknown.",
 			    ch, NULL, item->obj, TO_CHAR);
 			return;
 		}

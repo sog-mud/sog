@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.61 2002-09-17 19:10:06 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.62 2002-11-19 14:16:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -750,6 +750,9 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	||  dt == gsn_charge)
 		thac0 += (100 - get_skill(ch, gsn_backstab)) / 10;
 
+	if (dt == gsn_vampiric_bite)
+		dam_type = DAM_NEGATIVE;
+
 	switch(dam_type) {
 	case DAM_PIERCE:victim_ac = GET_AC(victim,AC_PIERCE)/10; break;
 	case DAM_BASH:  victim_ac = GET_AC(victim,AC_BASH)/10; 	 break;
@@ -799,7 +802,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
 		damage(ch, victim, 0, dt, dam_type, dam_flags);
-		tail_chain();
 		return;
 	}
 
@@ -1306,12 +1308,14 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * otherwise blackjack/vtouch etc. will not take effect on
 	 * poisoned/plagued etc. char)
 	 */
-	if (IS_AFFECTED(victim, AFF_SLEEP)
-	&&  (ch != victim || dam_type == DAM_LIGHT_V)) {
-		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
-		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+	if (IS_AFFECTED(victim, AFF_SLEEP)) {
+		if (ch != victim || dam_type == DAM_LIGHT_V) {
+			REMOVE_BIT(victim->affected_by, AFF_SLEEP);
+			affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+			victim->position = POS_STANDING;
+		}
+	} else if (victim->position == POS_SLEEPING)
 		victim->position = POS_STANDING;
-	}
 
 	/*
 	 * strip calm affects
@@ -1319,6 +1323,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (IS_AFFECTED(victim, AFF_CALM)) {
 		REMOVE_BIT(victim->affected_by, AFF_CALM);
 		affect_bit_strip(victim, TO_AFFECTS, AFF_CALM);
+		victim->position = POS_STANDING;
 	}
 
 	if (victim != ch) {
@@ -2504,7 +2509,8 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 
 		xp = xp_compute(gch, victim, group_levels, members);
 		if (gch->level < LEVEL_HERO) {
-			char_printf(gch, "You receive %d experience points.\n", xp);
+			act("You receive $j experience $qj{points}.",
+			    gch, (const void *) xp, NULL, TO_CHAR);
 			gain_exp(gch, xp);
 		}
 	}

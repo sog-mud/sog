@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.41 2002-10-24 08:58:10 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.42 2002-11-19 14:16:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3514,9 +3514,9 @@ void spell_refresh(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	victim->move = UMIN(victim->move + level, victim->max_move);
 	if (victim->max_move == victim->move)
-		char_puts("You feel fully refreshed!\n",victim);
+		act("You feel fully refreshed!", victim, NULL, NULL, TO_CHAR);
 	else
-		char_puts("You feel less tired.\n", victim);
+		act("You feel less tired.", victim, NULL, NULL, TO_CHAR);
 	if (ch != victim)
 		char_puts("Ok.\n", ch);
 	return;
