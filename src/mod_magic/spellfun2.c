@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.103 1999-05-18 12:09:18 avn Exp $
+ * $Id: spellfun2.c,v 1.104 1999-05-19 06:00:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2539,8 +2539,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 		}
 
 		if (IS_SET(ch->in_room->room_flags,
-			   ROOM_SAFE | ROOM_PEACE | ROOM_PRIVATE |
-			   ROOM_SOLITARY)) {
+			   ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
 			char_puts("You can't animate here.\n", ch);
 			return;
 		}
@@ -3105,7 +3104,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 
 	if (IS_SET(ch->in_room->room_flags,
-		   ROOM_SAFE | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
+		   ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->exit[0] == NULL &&
 	     ch->in_room->exit[1] == NULL &&
 	     ch->in_room->exit[2] == NULL &&

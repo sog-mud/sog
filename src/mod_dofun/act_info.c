@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.233 1999-05-18 16:48:47 fjoe Exp $
+ * $Id: act_info.c,v 1.234 1999-05-19 06:00:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2253,6 +2253,16 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	int numpeople;
 
 	one_argument(argument, dir, sizeof(dir));
+	if (strchr(dir, '.')) {
+		range = number_argument(dir, dir, sizeof(dir));
+		if (range > 1 + ch->level/10) {
+			act("You cannot see that far.",
+			    ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	}
+	else
+		range = 1 + ch->level/10;
 
 	switch (dir[0]) {
 	case 'N':
@@ -2293,8 +2303,6 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 
 	act_puts("You scan $t.", ch, dir_name[door], NULL, TO_CHAR | ACT_TRANS,
 		 POS_DEAD);
-
-	range = 1 + ch->level/10;
 
 	in_room = ch->in_room;
 	for (i = 1; i <= range; i++) {
@@ -2604,7 +2612,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE |
 					    ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->exit[0] == NULL && ch->in_room->exit[1] == NULL
 	&&   ch->in_room->exit[2] == NULL && ch->in_room->exit[3] == NULL
@@ -3217,7 +3225,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE |
 					    ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->exit[0] == NULL && ch->in_room->exit[1] == NULL
 	&&   ch->in_room->exit[2] == NULL && ch->in_room->exit[3] == NULL
@@ -3452,7 +3460,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_PEACE |
+	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE |
 					    ROOM_PRIVATE | ROOM_SOLITARY)
 	||  (ch->in_room->sector_type != SECT_FIELD
 	&&   ch->in_room->sector_type != SECT_FOREST
