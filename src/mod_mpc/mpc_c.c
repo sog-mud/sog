@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.34 2003-03-13 18:49:08 avn Exp $
+ * $Id: mpc_c.c,v 1.35 2003-04-24 12:42:07 fjoe Exp $
  */
 
 #include <assert.h>
@@ -400,7 +400,7 @@ c_foreach(mpcode_t *mpc)
 {
 	int next_addr;
 	int body_addr;
-	iterdata_t *id;
+	vo_iter_t *i;
 	sym_t *sym;
 	vo_t v;
 	dynafun_args_t args;
@@ -422,19 +422,19 @@ c_foreach(mpcode_t *mpc)
 	code_get(mpc);
 	code_get(mpc);
 
-	id = code_get(mpc);
+	i = code_get(mpc);
 	sym = sym_get(mpc, SYM_VAR);
 
 	/*
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
 	 */
-	v.p = id;
+	v.p = i;
 	push(mpc, v);
 
 	v.p = &sym->s.var.data;
 	push(mpc, v);
 
-	nargs = id->iter->d.nargs + 2;
+	nargs = i->u.mpc.iter->d.nargs + 2;
 	mpc_assert(mpc, __FUNCTION__,
 	    c_size(&mpc->data) >= nargs, "data stack underflow");
 	memcpy(
@@ -443,10 +443,10 @@ c_foreach(mpcode_t *mpc)
 	mpc->data.nused -= nargs;
 
 	/* XXX check argtypes */
-	id->iter->init(args);
+	i->u.mpc.iter->init(args);
 
 	/* execute loop body */
-	if (id->iter->cond(id, &sym->s.var.data))
+	if (i->u.mpc.iter->cond(i, &sym->s.var.data))
 		mpc->ip = body_addr;
 	else
 		mpc->ip = next_addr;
@@ -455,19 +455,19 @@ c_foreach(mpcode_t *mpc)
 void
 c_foreach_next(mpcode_t *mpc)
 {
-	iterdata_t *id;
+	vo_iter_t *i;
 	sym_t *sym;
 	int next_addr;
 
 	TRACE((LOG_INFO, __FUNCTION__));
 
 	next_addr = CODE_GET(int, mpc);
-	id = code_get(mpc);
+	i = code_get(mpc);
 	sym = sym_get(mpc, SYM_VAR);
 
 	/* get next */
-	id->iter->next(id, &sym->s.var.data);
-	if (!id->iter->cond(id, &sym->s.var.data))
+	i->u.mpc.iter->next(i, &sym->s.var.data);
+	if (!i->u.mpc.iter->cond(i, &sym->s.var.data))
 		mpc->ip = next_addr;
 }
 

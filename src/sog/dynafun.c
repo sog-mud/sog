@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.21 2002-03-20 19:49:21 fjoe Exp $
+ * $Id: dynafun.c,v 1.22 2003-04-24 12:42:19 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -89,10 +89,9 @@
 static dynafun_data_t *dynafun_build_args(
     const char *name, dynafun_args_t *args, int nargs, va_list ap);
 
-typedef void (*dynafun_cb)(dynafun_data_t *d, void *arg);
-static void dynafun_foreach(dynafun_data_t *, dynafun_cb cb, void *arg);
-static void dynafun_register(dynafun_data_t *d, void *arg);
-static void dynafun_unregister(dynafun_data_t *d, void *arg);
+#define FOREACH_DYNAFUN(dtab)	for (; dtab->name != NULL; dtab++)
+static void dynafun_register(dynafun_data_t *d, module_t *m);
+static void dynafun_unregister(dynafun_data_t *d);
 
 static void
 dynafun_init(dynafun_data_t *d)
@@ -169,13 +168,15 @@ dynaproc_call(const char *name, int nargs, ...)
 void
 dynafun_tab_register(dynafun_data_t *dtab, module_t *m)
 {
-	dynafun_foreach(dtab, dynafun_register, m);
+	FOREACH_DYNAFUN(dtab)
+		dynafun_register(dtab, m);
 }
 
 void
 dynafun_tab_unregister(dynafun_data_t *dtab)
 {
-	dynafun_foreach(dtab, dynafun_unregister, NULL);
+	FOREACH_DYNAFUN(dtab)
+		dynafun_unregister(dtab);
 }
 
 bool
@@ -302,16 +303,8 @@ dynafun_build_args(const char *name, dynafun_args_t *args, int nargs, va_list ap
 }
 
 static void
-dynafun_foreach(dynafun_data_t *dtab, dynafun_cb cb, void *arg)
+dynafun_register(dynafun_data_t *d, module_t *m)
 {
-	while (dtab->name != NULL)
-		cb(dtab++, arg);
-}
-
-static void
-dynafun_register(dynafun_data_t *d, void *arg)
-{
-	module_t *m = (module_t *) arg;
 	dynafun_data_t *d2;
 	int i;
 
@@ -336,7 +329,7 @@ dynafun_register(dynafun_data_t *d, void *arg)
 }
 
 static void
-dynafun_unregister(dynafun_data_t *d, void *arg __attribute__((unused)))
+dynafun_unregister(dynafun_data_t *d)
 {
 	c_delete(&dynafuns, d->name);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.319 2003-04-23 11:28:37 tatyana Exp $
+ * $Id: act_wiz.c,v 1.320 2003-04-24 12:41:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2958,26 +2958,6 @@ DO_FUN(do_sockets, ch, argument)
 	buf_free(output);
 }
 
-static void *
-force_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	const char *argument = va_arg(ap, const char *);
-	bool imms_only = va_arg(ap, bool);
-
-	if (IS_NPC(vch))
-		return vch;
-
-	if (!IS_TRUSTED(ch, trust_level(vch))
-	||  (imms_only && !IS_IMMORTAL(vch)))
-		return NULL;
-	act_puts("$n forces you to '$t'.",
-		 ch, argument, vch, TO_VICT, POS_DEAD);
-	interpret(vch, argument, TRUE);
-	return NULL;
-}
-
 /*
  * Thanks to Grodyn for pointing out bugs in this function.
  */
@@ -2986,6 +2966,7 @@ DO_FUN(do_force, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	CHAR_DATA *vch;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
@@ -2995,7 +2976,7 @@ DO_FUN(do_force, ch, argument)
 	}
 
 	one_argument(argument, arg2, sizeof(arg2));
-	
+
 	if (!str_cmp(arg2, "delete") || !str_prefix(arg2, "mob")) {
 		act_char("That will NOT be done.", ch);
 		return;
@@ -3008,8 +2989,16 @@ DO_FUN(do_force, ch, argument)
 			return;
 		}
 
-		vo_foreach(NULL, &iter_char_world, force_cb,
-			   ch, argument, FALSE);
+		foreach (vch, char_in_world()) {
+			if (IS_NPC(vch))
+				break;
+
+			if (!IS_TRUSTED(ch, trust_level(vch)))
+				continue;
+			act_puts("$n forces you to '$t'.",
+			    ch, argument, vch, TO_VICT, POS_DEAD);
+			interpret(vch, argument, TRUE);
+		} end_foreach(vch);
 		act_char("Ok.", ch);
 		return;
 	} else if (!str_cmp(arg, "gods")) {
@@ -3017,9 +3006,18 @@ DO_FUN(do_force, ch, argument)
 			act_char("Not at your level!", ch);
 			return;
 		}
-	
-		vo_foreach(NULL, &iter_char_world, force_cb,
-			   ch, argument, TRUE);
+
+		foreach (vch, char_in_world()) {
+			if (IS_NPC(vch))
+				break;
+
+			if (!IS_IMMORTAL(vch)
+			||  !IS_TRUSTED(ch, trust_level(vch)))
+				continue;
+			act_puts("$n forces you to '$t'.",
+			    ch, argument, vch, TO_VICT, POS_DEAD);
+			interpret(vch, argument, TRUE);
+		} end_foreach(vch);
 		act_char("Ok.", ch);
 		return;
 	}

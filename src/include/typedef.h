@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.69 2003-04-17 11:28:34 tatyana Exp $
+ * $Id: typedef.h,v 1.70 2003-04-24 12:41:49 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -108,7 +108,9 @@ typedef struct avltree_info_t		avltree_info_t;
 typedef struct avlnode_t		avlnode_t;
 typedef struct avltree_t		avltree_t;
 typedef struct container_t		container_t;
+typedef struct vo_iter_class_t		vo_iter_class_t;
 typedef struct vo_iter_t		vo_iter_t;
+typedef struct mpc_iter_t		mpc_iter_t;
 typedef struct hint_t			hint_t;
 typedef struct var_t			var_t;
 typedef struct pc_skill_t		pc_skill_t;
@@ -150,6 +152,7 @@ typedef void	DO_FUN		(CHAR_DATA *, const char *);
 typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
 typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
 typedef void	UPDATE_FUN	(void);
+typedef bool	UPDATE_FOREACH_FUN(void *);
 typedef int	MODINIT_FUN	(module_t *);
 typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 typedef void	EFFECT_FUN	(void *vo, int level, int dam);
@@ -158,6 +161,7 @@ typedef void	EFFECT_FUN	(void *vo, int level, int dam);
 #define DECLARE_EVENT_FUN(fun)		EVENT_FUN fun
 #define DECLARE_SPELL_FUN(fun)		SPELL_FUN fun
 #define DECLARE_UPDATE_FUN(fun)		UPDATE_FUN fun
+#define DECLARE_UPDATE_FOREACH_FUN(fun)	UPDATE_FOREACH_FUN fun
 #define DECLARE_MODINIT_FUN(fun)	MODINIT_FUN fun
 #define DECLARE_RUNGAME_FUN(fun)	RUNGAME_FUN fun
 #define DECLARE_EFFECT_FUN(fun)		EFFECT_FUN fun
@@ -174,6 +178,8 @@ typedef void	EFFECT_FUN	(void *vo, int level, int dam);
 		 void *vo __attribute__((unused)))
 #define	UPDATE_FUN(fun)							\
 	void fun(void)
+#define	UPDATE_FOREACH_FUN(fun, vo)					\
+	bool fun(void *vo)
 #define MODINIT_FUN(fun, m)						\
 	int fun(module_t *m __attribute__((unused)))
 #define RUNGAME_FUN(fun, in_set, out_set, exc_set)			\
@@ -196,12 +202,6 @@ typedef void (*e_destroy_t)(void *);
 
 typedef int (*k_hash_t)(const void *k, size_t hsize);
 typedef int (*ke_cmp_t)(const void *k, const void *e);
-
-typedef void *(foreach_cb_t)(void *p, va_list ap);
-#define DECLARE_FOREACH_CB_FUN(fun)	foreach_cb_t fun
-#define FOREACH_CB_FUN(fun, p, ap)					\
-	void *fun(void *p __attribute__((unused)),			\
-		  va_list ap __attribute__((unused)))
 
 #define IS_SET(flag, bit)	((flag) & (bit))
 #define SET_BIT(var, bit)	((var) |= (bit))

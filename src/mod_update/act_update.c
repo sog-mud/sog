@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_update.c,v 1.15 2001-12-03 22:28:44 fjoe Exp $
+ * $Id: act_update.c,v 1.16 2003-04-24 12:42:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -65,8 +65,8 @@ DO_FUN(do_settick, ch, argument)
 			    "[%9s] [%9s] [%10s] %5d %5d %c%s\n", // notrans
 			    hdlr->name,
 			    flag_string(module_names, hdlr->mod),
-			    hdlr->iter != NULL ?
-			        flag_string(iterator_names, (flag_t) hdlr->iter) : "none",
+			    hdlr->iter_cl != NULL ?
+			        flag_string(iterator_classes, (flag_t) hdlr->iter_cl) : "none",
 			    hdlr->ticks,
 			    hdlr->cnt,
 			    hdlr->fun != NULL ? ' ' : '*',

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.358 2003-04-17 17:20:41 fjoe Exp $
+ * $Id: fight.c,v 1.359 2003-04-24 12:42:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1041,25 +1041,6 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	gain_exp(victim, -lost_exp);
 }
 
-static void *
-area_attack_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
-	const char *dt = va_arg(ap, const char *);
-	int *pcount = va_arg(ap, int *);
-
-	if (vch != victim && vch->fighting == ch) {
-		one_hit(ch, vch, dt, WEAR_WIELD);
-		if ((*pcount) && !--(*pcount))
-			return vch;
-	}
-
-	return NULL;
-}
-
 /*
  * Do one group of attacks.
  */
@@ -1121,6 +1102,7 @@ multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 
 	if ((chance = get_skill(ch, "area attack"))
 	&&  number_percent() < chance) {
+		CHAR_DATA *vch;
 		int max_count;
 
 		check_improve(ch, "area attack", TRUE, 6);
@@ -1133,8 +1115,13 @@ multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		else
 			max_count = 4;
 
-		vo_foreach(ch->in_room, &iter_char_room,
-			   area_attack_cb, ch, victim, dt, &max_count);
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (vch != victim && vch->fighting == ch) {
+				one_hit(ch, vch, dt, WEAR_WIELD);
+				if (!--max_count)
+					break;
+			}
+		} end_foreach(vch);
 	}
 
 	wield = get_eq_char(ch, WEAR_WIELD);
@@ -1330,26 +1317,10 @@ stop_fighting(CHAR_DATA *ch, bool fBoth)
 	return;
 }
 
-static
-FOREACH_CB_FUN(pull_obj_death_cb, p, ap)
-{
-	OBJ_DATA *obj = (OBJ_DATA *) p;
-
-	CHAR_DATA *ch = obj->carried_by;
-
-	if (obj->wear_loc == WEAR_NONE)
-		return NULL;
-
-	if (pull_obj_trigger(TRIG_OBJ_DEATH, obj, ch, NULL) > 0
-	||  IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
 OBJ_DATA *
 raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
+	OBJ_DATA *obj;
 	CHAR_DATA *vch, *vch_next;
 	int i;
 	OBJ_DATA *tattoo, *clanmark;
@@ -1378,15 +1349,22 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (pull_mob_trigger(TRIG_MOB_DEATH, victim, ch, NULL) > 0
 	||  IS_EXTRACTED(victim))
 		return NULL;
-	if (vo_foreach(victim, &iter_obj_char, pull_obj_death_cb) != NULL)
-		return NULL;
+	foreach (obj, obj_of_char(victim)) {
+		if (obj->wear_loc == WEAR_NONE)
+			continue;
+
+		if (pull_obj_trigger(TRIG_OBJ_DEATH, obj, ch, NULL) > 0
+		||  IS_EXTRACTED(ch)) {
+			foreach_done(obj);
+			return NULL;
+		}
+	} end_foreach(obj);
 
 	if (IS_SET(victim->form, FORM_UNDEAD | FORM_CONSTRUCT)) {
 		/* They were not alive, so they can't become dead */
 		act("$n is destroyed!", victim, NULL, NULL, TO_ROOM);
-	} else {
+	} else
 		act("$n is dead!", victim, NULL, NULL, TO_ROOM);
-	}
 
 	act_char("You die..", victim);
 
@@ -2105,10 +2083,12 @@ mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 	/* Area attack -- BALLS nasty! */
 
 	if (IS_SET(f_off, OFF_AREA_ATTACK)) {
-		int count = 0;
+		CHAR_DATA *vch;
 
-		vo_foreach(ch->in_room, &iter_char_room,
-			   area_attack_cb, ch, victim, dt, &count);
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (vch != victim && vch->fighting == ch)
+				one_hit(ch, vch, dt, WEAR_WIELD);
+		} end_foreach(vch);
 		if (ch->fighting != victim)
 			return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.220 2003-04-17 11:13:04 tatyana Exp $
+ * $Id: martial_art.c,v 1.221 2003-04-24 12:41:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,44 +235,40 @@ check_close(CHAR_DATA* ch, CHAR_DATA* victim)
 		return check_reversal(ch, victim);
 }
 
-static void *
-downstrike_cb(void *vo, va_list ap)
+static void
+check_downstrike(CHAR_DATA *victim)
 {
-	CHAR_DATA *ch = (CHAR_DATA *) vo;
-	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
+	CHAR_DATA *ch;
 
-	OBJ_DATA *weapon;
-	int chance;
+	foreach (ch, char_in_room(victim->in_room)) {
+		OBJ_DATA *weapon;
+		int chance;
 
-	if (IS_EXTRACTED(victim))
-		return ch;
+		if (IS_EXTRACTED(victim))
+			break;
 
-	if (ch->fighting != victim
-	||  ((weapon = get_eq_char(ch, WEAR_WIELD)) == NULL ||
-	     !WEAPON_IS(weapon, WEAPON_DAGGER))
-	||  (chance = get_skill(ch, "downstrike")) != 0)
-		return NULL;
+		if (ch->fighting != victim
+		||  (weapon = get_eq_char(ch, WEAR_WIELD)) == NULL
+		||  !WEAPON_IS(weapon, WEAPON_DAGGER)
+		||  (chance = get_skill(ch, "downstrike")) != 0)
+			continue;
 
-	chance += get_curr_stat(ch, STAT_DEX);
-	chance -= get_curr_stat(victim, STAT_DEX);
-	chance /= 3;
+		chance += get_curr_stat(ch, STAT_DEX);
+		chance -= get_curr_stat(victim, STAT_DEX);
+		chance /= 3;
 
-	if (number_percent() < chance) {
-		act("You stab $N down as $E falls to the ground.",
-		    ch, NULL, victim, TO_CHAR);
-		act("$n takes advantage of your fall, stabbing you down.",
-		    ch, NULL, victim, TO_VICT);
-		act("$n takes advantage of $N's fall.",
-		    ch, NULL, victim, TO_NOTVICT);
-		one_hit(ch, victim, "downstrike", WEAR_WIELD);
-		check_improve(ch, "downstrike", TRUE, 5);
-	}
-
-	return NULL;
+		if (number_percent() < chance) {
+			act("You stab $N down as $E falls to the ground.",
+			    ch, NULL, victim, TO_CHAR);
+			act("$n takes advantage of your fall, stabbing you down.",
+			    ch, NULL, victim, TO_VICT);
+			act("$n takes advantage of $N's fall.",
+			    ch, NULL, victim, TO_NOTVICT);
+			one_hit(ch, victim, "downstrike", WEAR_WIELD);
+			check_improve(ch, "downstrike", TRUE, 5);
+		}
+	} end_foreach (ch);
 }
-
-#define check_downstrike(vch)	\
-	vo_foreach((vch)->in_room, &iter_char_room, downstrike_cb, (vch));
 
 static bool
 distance_check(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -3297,37 +3293,10 @@ DO_FUN(do_guard, ch, argument)
 	PC(victim)->guarded_by = ch;
 }
 
-static void *
-explode_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	bool attack = (ch->fighting != vch);
-
-	if (is_safe_spell(ch, vch, TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch) &&
-	     (ch->fighting != vch || vch->fighting != ch)))
-		return NULL;
-
-	if (vch == victim) { /* full damage */
-		inflict_effect("fire", vch, LEVEL(ch), dam);
-		damage(ch, vch, dam, "explode", DAM_F_SHOW);
-	} else { /* partial damage */
-		inflict_effect("fire", vch, LEVEL(ch)/2, dam/4);
-		damage(ch, vch, dam/2, "explode", DAM_F_SHOW);
-	}
-
-	if (attack)
-		yell(vch, ch, "Help! $lu{$N} tries to burn me!");
-	return NULL;
-}
-
 DO_FUN(do_explode, ch, argument)
 {
 	CHAR_DATA *victim = ch->fighting;
+	CHAR_DATA *vch;
 	int dam, hp_dam, hpch, dice_dam, mana;
 	char arg[MAX_INPUT_LENGTH];
 
@@ -3372,8 +3341,25 @@ DO_FUN(do_explode, ch, argument)
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
 
 	inflict_effect("fire", victim->in_room, LEVEL(ch), dam/2);
-	vo_foreach(victim->in_room, &iter_char_room, explode_cb,
-		   ch, victim, dam);
+	foreach (vch, char_in_room(victim->in_room)) {
+		bool attack = (ch->fighting != vch);
+
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch) &&
+		     (ch->fighting != vch || vch->fighting != ch)))
+			continue;
+
+		if (vch == victim) { /* full damage */
+			inflict_effect("fire", vch, LEVEL(ch), dam);
+			damage(ch, vch, dam, "explode", DAM_F_SHOW);
+		} else { /* partial damage */
+			inflict_effect("fire", vch, LEVEL(ch)/2, dam/4);
+			damage(ch, vch, dam/2, "explode", DAM_F_SHOW);
+		}
+
+		if (attack)
+			yell(vch, ch, "Help! $lu{$N} tries to burn me!");
+	} end_foreach (vch);
 
 	if (number_percent() >= get_skill(ch, "explode")) {
 		inflict_effect("fire", ch, LEVEL(ch)/4, dam/10);
@@ -4191,29 +4177,10 @@ DO_FUN(do_sense, ch, argument)
 	}
 }
 
-static void *
-poison_smoke_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	bool attack = (ch->fighting != vch);
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	spellfun_call("poison", NULL, LEVEL(ch), ch, vch);
-	if (vch != ch) {
-		if (attack)
-			yell(vch, ch, "$lu{$N} tries to poison me!");
-		multi_hit(vch, ch, NULL);
-	}
-	return NULL;
-}
-
 DO_FUN(do_poison_smoke, ch, argument)
 {
 	int mana;
+	CHAR_DATA *vch;
 
 	mana = skill_mana(ch, "poison smoke");
 	if (ch->mana < mana) {
@@ -4231,26 +4198,19 @@ DO_FUN(do_poison_smoke, ch, argument)
 
 	act("A cloud of poison smoke fills the room.", ch, NULL, NULL, TO_ALL);
 	check_improve(ch, "poison smoke", TRUE, 1);
-	vo_foreach(ch->in_room, &iter_char_room, poison_smoke_cb, ch);
-}
+	foreach (vch, char_in_room(ch->in_room)) {
+		bool attack = (ch->fighting != vch);
 
-static void *
-blindness_dust_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
 
-	bool attack = (ch->fighting != vch);
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	spellfun_call("blindness", NULL, LEVEL(ch), ch, vch);
-	if (attack)
-		yell(vch, ch, "Help! $lu{$N} just threw dust into my eyes!");
-	if (vch != ch)
-		multi_hit(vch, ch, NULL);
-	return NULL;
+		spellfun_call("poison", NULL, LEVEL(ch), ch, vch);
+		if (vch != ch) {
+			if (attack)
+				yell(vch, ch, "$lu{$N} tries to poison me!");
+			multi_hit(vch, ch, NULL);
+		}
+	} end_foreach(vch);
 }
 
 DO_FUN(do_blindness_dust, ch, argument)
@@ -4277,7 +4237,21 @@ DO_FUN(do_blindness_dust, ch, argument)
 	if (arg[0] == '\0') {
 		act("A cloud of dust fills the room.", ch, NULL, NULL, TO_ALL);
 		check_improve(ch, "blindness dust", TRUE, 1);
-		vo_foreach(ch->in_room, &iter_char_room, blindness_dust_cb, ch);
+
+		foreach (vch, char_in_room(ch->in_room)) {
+			bool attack = (ch->fighting != vch);
+
+			if (is_safe_spell(ch, vch, TRUE))
+				continue;
+
+			spellfun_call("blindness", NULL, LEVEL(ch), ch, vch);
+			if (attack) {
+				yell(vch, ch,
+				    "Help! $lu{$N} just threw dust into my eyes!");
+			}
+			if (vch != ch)
+				multi_hit(vch, ch, NULL);
+		} end_foreach (vch);
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.22 2002-01-21 07:16:16 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.23 2003-04-24 12:42:07 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -190,7 +190,7 @@ mpc_lex(mpcode_t *mpc)
 		bool is_hex;
 		char *yyp;
 		keyword_t *k;
-		iter_t *iter;
+		mpc_iter_t *iter;
 		int type_tag;
 
 		switch ((ch = mpc_getc(mpc))) {

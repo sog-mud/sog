@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.51 2003-04-17 17:17:08 fjoe Exp $
+ * $Id: init_mpc.c,v 1.52 2003-04-24 12:42:06 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -146,7 +146,7 @@ static varr_info_t c_info_jumptabs = {
 static varr_info_t c_info_iters = {
 	&varr_ops, NULL, NULL,
 
-	sizeof(iterdata_t), 4
+	sizeof(vo_iter_t), 4
 };
 
 static varr_info_t c_info_vos = {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.276 2003-04-19 00:26:42 fjoe Exp $
+ * $Id: act_comm.c,v 1.277 2003-04-24 12:41:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -260,41 +260,11 @@ DO_FUN(do_replay, ch, argument)
 	buf_clear(PC(ch)->buffer);
 }
 
-static
-FOREACH_CB_FUN(pull_obj_speech_cb, p, ap)
-{
-	OBJ_DATA *obj = (OBJ_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *speech = va_arg(ap, char *);
-
-	pull_obj_trigger(TRIG_OBJ_SPEECH, obj, ch, speech);
-	if (IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(pull_mob_speech_cb, p, ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *speech = va_arg(ap, char *);
-
-	pull_mob_trigger(TRIG_MOB_SPEECH, vch, ch, speech);
-	if (IS_EXTRACTED(ch))
-		return p;
-
-	if (vo_foreach(vch, &iter_obj_char, pull_obj_speech_cb, ch, speech))
-		return p;
-
-	return NULL;
-}
-
 DO_FUN(do_say, ch, argument)
 {
+	CHAR_DATA *vch;
+	OBJ_DATA *obj;
+
 	if (argument[0] == '\0') {
 		act_char("Say what?", ch);
 		return;
@@ -316,15 +286,34 @@ DO_FUN(do_say, ch, argument)
 	argument = garble(ch, argument);
 	act_say(ch, "$T", argument);
 
-	if (!IS_NPC(ch)) {
-		if (vo_foreach(ch->in_room, &iter_char_room, pull_mob_speech_cb,
-			       ch, argument))
-			return;
+	if (IS_NPC(ch))
+		return;
 
-		if (vo_foreach(ch->in_room, &iter_obj_room, pull_obj_speech_cb,
-			       ch, argument))
+	foreach (vch, char_in_room(ch->in_room)) {
+		pull_mob_trigger(
+		    TRIG_MOB_SPEECH, vch, ch, CAST(void *, argument));
+		if (IS_EXTRACTED(ch)) {
+			foreach_done(vch);
 			return;
-	}
+		}
+
+		foreach (obj, obj_of_char(vch)) {
+			pull_obj_trigger(
+			    TRIG_OBJ_SPEECH, obj, ch, CAST(void *, argument));
+			if (IS_EXTRACTED(ch)) {
+				foreach_done(obj);
+				foreach_done(vch);
+				return;
+			}
+		} end_foreach(obj);
+	} end_foreach(vch);
+
+	foreach (obj, obj_in_room(ch->in_room)) {
+		pull_obj_trigger(
+		    TRIG_OBJ_SPEECH, obj, ch, CAST(void *, argument));
+		if (IS_EXTRACTED(ch))
+			break;
+	} end_foreach(obj);
 }
 
 DO_FUN(do_tell, ch, argument)
@@ -901,25 +890,6 @@ DO_FUN(do_follow, ch, argument)
 	add_follower(ch, victim);
 }
 
-static void *
-order_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	const char *argument = va_arg(ap, const char *);
-	bool *pfound = va_arg(ap, bool *);
-
-	if (!IS_AFFECTED(victim, AFF_CHARM)
-	||  victim->master != ch)
-		return NULL;
-
-	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
-	interpret(victim, argument, TRUE);
-	*pfound = TRUE;
-	return NULL;
-}
-
 DO_FUN(do_order, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -945,9 +915,18 @@ DO_FUN(do_order, ch, argument)
 
 	if (!str_cmp(arg, "all")) {
 		bool found = FALSE;
+		CHAR_DATA *vch;
 
-		vo_foreach(ch->in_room, &iter_char_room, order_cb,
-			   ch, argument, &found);
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (!IS_AFFECTED(vch, AFF_CHARM)
+			||  vch->master != ch)
+				continue;
+
+			act("$n orders you to '$t', you do.",
+			    ch, argument, vch, TO_VICT);
+			interpret(vch, argument, TRUE);
+			found = TRUE;
+		} end_foreach(vch);
 
 		if (found) {
 			WAIT_STATE(ch, get_pulse("violence"));

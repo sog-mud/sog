@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.295 2003-04-19 16:12:31 fjoe Exp $
+ * $Id: act_move.c,v 1.296 2003-04-24 12:41:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2579,29 +2579,6 @@ DO_FUN(do_throw_weapon, ch, argument)
 	yell(victim, ch, "Help! $lu{$N} is trying to throw something at me!");
 }
 
-static void *
-enter_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	OBJ_DATA *portal = va_arg(ap, OBJ_DATA *);
-	const char *argument = va_arg(ap, const char *);
-
-	/*
-	 * no following through dead portals
-	 */
-	if (!mem_is(portal, MT_OBJ) || INT(portal->value[0]) == -1)
-		return vch;
-
-	if (vch->master != ch || vch->position != POS_STANDING)
-		return NULL;
-
-	act("You follow $N.", vch, NULL, ch, TO_CHAR);
-	do_enter(vch, argument);
-	return NULL;
-}
-
 /* RT Enter portals */
 DO_FUN(do_enter, ch, argument)
 {
@@ -2724,8 +2701,22 @@ DO_FUN(do_enter, ch, argument)
 		return;
 
 	if (!IS_EXTRACTED(ch)) {
-		vo_foreach(old_room, &iter_char_room, enter_cb,
-			   ch, portal, argument);
+		CHAR_DATA *vch;
+
+		foreach (vch, char_in_room(old_room)) {
+			/*
+			 * no following through dead portals
+			 */
+			if (!mem_is(portal, MT_OBJ)
+			||  INT(portal->value[0]) == -1)
+				break;
+
+			if (vch->master != ch || vch->position != POS_STANDING)
+				continue;
+
+			act("You follow $N.", vch, NULL, ch, TO_CHAR);
+			do_enter(vch, argument);
+		} end_foreach(vch);
 	}
 
 	if (mem_is(portal, MT_OBJ) && INT(portal->value[0]) == -1) {

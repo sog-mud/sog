@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.367 2003-04-23 08:13:20 fjoe Exp $
+ * $Id: handler.c,v 1.368 2003-04-24 12:42:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1578,74 +1578,25 @@ static int movement_loss[MAX_SECT] =
 	1, 2, 2, 3, 4, 6, 4, 1, 12, 10, 6, 15,
 };
 
-static
-FOREACH_CB_FUN(pull_obj_trigger_cb, p, ap)
-{
-	OBJ_DATA *obj = (OBJ_DATA *) p;
-
-	int trig_type = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *arg = va_arg(ap, char *);
-
-	if (trig_type == TRIG_OBJ_GREET && ch == obj->carried_by)
-		return NULL;
-
-	pull_obj_trigger(trig_type, obj, ch, arg);
-	if (IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *arg = va_arg(ap, char *);
-
-	if (!can_see(vch, ch))
-		return NULL;
-
-	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0
-	||  IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *arg = va_arg(ap, char *);
-
-	if (!can_see(vch, ch))
-		return NULL;
-
-	pull_mob_trigger(TRIG_MOB_GREET, vch, ch, arg);
-	if (IS_EXTRACTED(ch))
-		return p;
-
-	if (vo_foreach(vch, &iter_obj_char, pull_obj_trigger_cb,
-		       TRIG_OBJ_GREET, ch, arg) != NULL)
-		return p;
-
-	return NULL;
-}
-
 bool
 pull_exit_triggers(CHAR_DATA *ch, int door)
 {
-	const char *dir = door == -1 ? "portal" : dir_name[door];
+	void *dir = CAST(void *, door == -1 ? "portal" : dir_name[door]);
 
-	if (!IS_NPC(ch)
-	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb,
-		       ch, dir) != NULL)
-		return FALSE;
+	if (!IS_NPC(ch)) {
+		CHAR_DATA *vch;
+
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (!can_see(vch, ch))
+				continue;
+
+			if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, dir) > 0
+			||  IS_EXTRACTED(ch)) {
+				foreach_done(vch);
+				return FALSE;
+			}
+		} end_foreach(vch);
+	}
 
 	return TRUE;
 }
@@ -1653,7 +1604,7 @@ pull_exit_triggers(CHAR_DATA *ch, int door)
 bool
 pull_greet_entry_triggers(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, int door)
 {
-	const char *dir = door == -1 ? "portal" : dir_name[door];
+	void *dir = CAST(void *, door == -1 ? "portal" : dir_name[door]);
 
 	/*
 	 * pull GREET and ENTRY triggers
@@ -1662,17 +1613,47 @@ pull_greet_entry_triggers(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, int door)
 	 * for the followers before the char, but it's safer this way...
 	 */
 	if (!IS_NPC(ch)) {
-		if (vo_foreach(to_room, &iter_char_room, pull_mob_greet_cb,
-			       ch, dir))
-			return FALSE;
+		CHAR_DATA *vch;
+		OBJ_DATA *obj;
 
-		if (vo_foreach(to_room, &iter_obj_room, pull_obj_trigger_cb,
-			       TRIG_OBJ_GREET, ch, dir))
-			return FALSE;
+		foreach (vch, char_in_room(to_room)) {
+			if (!can_see(vch, ch))
+				continue;
 
-		if (vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
-			       TRIG_OBJ_ENTRY, ch, NULL))
-			return FALSE;
+			pull_mob_trigger(TRIG_MOB_GREET, vch, ch, dir);
+			if (IS_EXTRACTED(ch)) {
+				foreach_done(vch);
+				return FALSE;
+			}
+
+			if (ch == vch)
+				continue;
+
+			foreach (obj, obj_of_char(vch)) {
+				pull_obj_trigger(TRIG_OBJ_GREET, obj, ch, dir);
+				if (IS_EXTRACTED(ch)) {
+					foreach_done(obj);
+					foreach_done(vch);
+					return FALSE;
+				}
+			} end_foreach(obj);
+		} end_foreach(vch);
+
+		foreach (obj, obj_in_room(to_room)) {
+			pull_obj_trigger(TRIG_OBJ_GREET, obj, ch, dir);
+			if (IS_EXTRACTED(ch)) {
+				foreach_done(obj);
+				return FALSE;
+			}
+		} end_foreach(obj);
+
+		foreach (obj, obj_of_char(ch)) {
+			pull_obj_trigger(TRIG_OBJ_ENTRY, obj, ch, dir);
+			if (IS_EXTRACTED(ch)) {
+				foreach_done(obj);
+				return FALSE;
+			}
+		} end_foreach(obj);
 
 		if (pull_room_trigger(TRIG_ROOM_GREET, to_room,
 				      ch, CAST(char *, dir)) > 0
@@ -1718,118 +1699,10 @@ pull_wear_triggers(CHAR_DATA *ch, OBJ_DATA *obj)
 	return TRUE;
 }
 
-
-static
-FOREACH_CB_FUN(show_leaving_cb, p, ap)
-{
-	CHAR_DATA *vch	= (CHAR_DATA *) p;
-	CHAR_DATA *ch	= va_arg(ap, CHAR_DATA *);
-	int door	= va_arg(ap, int);
-	flag_t flags	= va_arg(ap, flag_t);
-	bool lost_camo	= va_arg(ap, bool);
-	bool lost_hide	= va_arg(ap, bool);
-
-	if (vch->position < POS_RESTING || vch == ch)
-		return NULL;
-
-	if (lost_camo && can_see(vch, ch))
-		act("$n steps out from $s cover.", ch, NULL, vch, TO_VICT);
-
-	if (lost_hide && can_see(vch, ch))
-		act("$n steps out of shadows.", ch, NULL, vch, TO_VICT);
-
-	/* stealth vs awareness check */
-	if (!MOUNTED(ch) && HAS_INVIS(ch, ID_SNEAK)
-	&& vch->fighting != ch && vch->leader != ch) {
-		if (get_skill(ch, "stealth") * dice(4, 3) <=
-		    get_skill(vch, "awareness") * dice(4, 3)) {
-			check_improve(vch, "awareness", TRUE, 5);
-		} else {
-			check_improve(ch, "stealth", TRUE, 5);
-			return NULL;
-		}
-	}
-
-	if (!IS_NPC(ch)
-	&&  ch->in_room->sector_type != SECT_INSIDE
-	&&  ch->in_room->sector_type != SECT_CITY
-	&&  !IS_SET(flags, MC_F_CHARGE)
-	&&  vch->fighting != ch
-	&&  get_skill(ch, "quiet movement")) {
-		/* Opposite check here */
-		if (get_skill(vch, "awareness") *
-		    get_skill(vch, "wilderness familiarity") * dice(4, 3) >
-		    get_skill(vch, "quiet movement") *
-		    get_skill(vch, "wilderness familiarity") * dice(4, 3)) {
-			act(MOUNTED(ch) ? "$n leaves, riding on $i." :
-			    "$n leaves.", ch, MOUNTED(ch), vch, TO_VICT);
-			check_improve(ch, "quiet movement", TRUE, 1);
-			check_improve(ch, "wilderness familiarity", TRUE, 6);
-		} else {
-			act_puts3(MOUNTED(ch) ? "$n leaves $t, riding on $I." :
-				  "$n leaves $t.", ch,
-			dir_name[(is_sn_affected(ch, "misleading") &&
-				 !HAS_DETECT(vch, ID_TRUESEEING)) ?
-				 number_range(0, 5) : door],
-				 vch, MOUNTED(ch), TO_VICT, POS_RESTING);
-			check_improve(vch, "awareness", TRUE, 2);
-			check_improve(vch, "wilderness familiarity", TRUE, 6);
-		}
-	} else if (IS_SET(flags, MC_F_CHARGE)) {
-		act_puts3("$n spurs $s $I, leaving $t.", ch,
-		dir_name[(is_sn_affected(ch, "misleading") &&
-			 !HAS_DETECT(vch, ID_TRUESEEING))
-			 ? number_range(0, 5) : door],
-			 vch, MOUNTED(ch),  TO_VICT, POS_RESTING);
-	} else {
-		act_puts3(MOUNTED(ch) ? "$n leaves $t, riding on $I." :
-				  "$n leaves $t.", ch,
-		dir_name[is_sn_affected(ch, "misleading") &&
-			!HAS_DETECT(vch, ID_TRUESEEING)?
-			number_range(0, 5) : door],
-			vch, MOUNTED(ch), TO_VICT, POS_RESTING);
-	}
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(show_arrival_cb, p, ap)
-{
-	CHAR_DATA *vch	= (CHAR_DATA *) p;
-	CHAR_DATA *ch	= va_arg(ap, CHAR_DATA *);
-	CHAR_DATA *mount= va_arg(ap, CHAR_DATA *);
-	int door	= va_arg(ap, int);
-	flag_t flags	= va_arg(ap, int);
-
-	if (vch->position < POS_RESTING || vch == ch)
-		return NULL;
-
-	/* stealth vs awareness check */
-	if (!MOUNTED(ch) && HAS_INVIS(ch, ID_SNEAK)
-	&& vch->fighting != ch) {
-		if (get_skill(ch, "stealth") * dice(4, 3) <=
-		    get_skill(vch, "awareness") * dice(4, 3)) {
-			check_improve(vch, "awareness", TRUE, 5);
-		} else {
-			check_improve(ch, "stealth", TRUE, 5);
-			return NULL;
-		}
-	}
-
-	if (!IS_SET(flags, MC_F_CHARGE)) {
-		act_puts3(mount ? "$n has arrived from $t, riding $I." :
-			    "$n has arrived from $t.", ch,
-		from_dir_name[is_sn_affected(ch, "misleading") &&
-			!HAS_DETECT(vch, ID_TRUESEEING) ?
-			number_range(0, 5) : rev_dir[door]],
-			vch, mount, TO_VICT, POS_RESTING);
-	}
-	return NULL;
-}
-
 bool
 move_char(CHAR_DATA *ch, int door, flag_t flags)
 {
+	CHAR_DATA *vch;
 	CHAR_DATA *fch;
 	CHAR_DATA *fch_next;
 	CHAR_DATA *mount;
@@ -2180,8 +2053,73 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		room_record(ch->name, in_room, door);
 
 	/* Show everyone in room that we are leaving */
-	vo_foreach(ch->in_room, &iter_char_room, show_leaving_cb, ch,
-	    door, flags, lost_camo, lost_hide);
+	foreach (vch, char_in_room(ch->in_room)) {
+		int d;
+
+		if (vch->position < POS_RESTING || vch == ch)
+			continue;
+
+		if (lost_camo && can_see(vch, ch)) {
+			act("$n steps out from $s cover.",
+			    ch, NULL, vch, TO_VICT);
+		}
+
+		if (lost_hide && can_see(vch, ch))
+			act("$n steps out of shadows.", ch, NULL, vch, TO_VICT);
+
+		/* stealth vs awareness check */
+		if (!MOUNTED(ch) && HAS_INVIS(ch, ID_SNEAK)
+		&& vch->fighting != ch && vch->leader != ch) {
+			if (get_skill(ch, "stealth") * dice(4, 3) <=
+			    get_skill(vch, "awareness") * dice(4, 3)) {
+				check_improve(vch, "awareness", TRUE, 5);
+			} else {
+				check_improve(ch, "stealth", TRUE, 5);
+				continue;
+			}
+		}
+
+		d = (is_sn_affected(ch, "misleading") &&
+		     !HAS_DETECT(vch, ID_TRUESEEING)) ?
+			number_range(0, 5) : door;
+
+		if (!IS_NPC(ch)
+		&&  ch->in_room->sector_type != SECT_INSIDE
+		&&  ch->in_room->sector_type != SECT_CITY
+		&&  !IS_SET(flags, MC_F_CHARGE)
+		&&  vch->fighting != ch
+		&&  get_skill(ch, "quiet movement")) {
+			/* Opposite check here */
+			if (get_skill(vch, "awareness") *
+			    get_skill(vch, "wilderness familiarity") * dice(4, 3) >
+			    get_skill(vch, "quiet movement") *
+			    get_skill(vch, "wilderness familiarity") * dice(4, 3)) {
+				act(MOUNTED(ch) ? "$n leaves, riding on $i." :
+				    "$n leaves.",
+				    ch, MOUNTED(ch), vch, TO_VICT);
+				check_improve(ch, "quiet movement", TRUE, 1);
+				check_improve(ch,
+				    "wilderness familiarity", TRUE, 6);
+			} else {
+				act_puts3(MOUNTED(ch) ?
+				    "$n leaves $t, riding on $I." :
+				    "$n leaves $t.",
+				    ch, dir_name[d], vch, MOUNTED(ch),
+				    TO_VICT, POS_RESTING);
+				check_improve(vch, "awareness", TRUE, 2);
+				check_improve(vch, "wilderness familiarity", TRUE, 6);
+			}
+		} else if (IS_SET(flags, MC_F_CHARGE)) {
+			act_puts3("$n spurs $s $I, leaving $t.",
+			    ch, dir_name[d], vch, MOUNTED(ch),
+			    TO_VICT, POS_RESTING);
+		} else {
+			act_puts3(MOUNTED(ch) ?
+			    "$n leaves $t, riding on $I." : "$n leaves $t.",
+			    ch, dir_name[d], vch, MOUNTED(ch),
+			    TO_VICT, POS_RESTING);
+		}
+	} end_foreach(vch);
 
 	/*
 	 * now, after all the checks are done we should
@@ -2202,9 +2140,35 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 
 	if (!IS_EXTRACTED(ch)) {
 		dofun("look", ch, "auto");
-		vo_foreach(ch->in_room, &iter_char_room, show_arrival_cb, ch,
-		    mount, door, flags);
 
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (vch->position < POS_RESTING || vch == ch)
+				continue;
+
+			/* stealth vs awareness check */
+			if (!MOUNTED(ch) && HAS_INVIS(ch, ID_SNEAK)
+			&&  vch->fighting != ch) {
+				if (get_skill(ch, "stealth") * dice(4, 3) <=
+				    get_skill(vch, "awareness") * dice(4, 3)) {
+					check_improve(
+					    vch, "awareness", TRUE, 5);
+				} else {
+					check_improve(ch, "stealth", TRUE, 5);
+					continue;
+				}
+			}
+
+			if (!IS_SET(flags, MC_F_CHARGE)) {
+				int d = is_sn_affected(ch, "misleading") &&
+				    !HAS_DETECT(vch, ID_TRUESEEING) ?
+					number_range(0, 5) : rev_dir[door];
+				act_puts3(mount ?
+				    "$n has arrived from $t, riding $I." :
+				    "$n has arrived from $t.",
+				    ch, from_dir_name[d], vch, mount,
+				    TO_VICT, POS_RESTING);
+			}
+		} end_foreach(vch);
 	}
 
 	if (in_room == to_room) /* no circular follows */
@@ -2847,21 +2811,6 @@ find_location(CHAR_DATA *ch, const char *argument)
 	return NULL;
 }
 
-static
-FOREACH_CB_FUN(pull_mob_get_cb, p, ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
-
-	pull_mob_trigger(TRIG_MOB_GET, vch, ch, obj);
-	if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
 bool
 get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	const char *msg_others)
@@ -2977,9 +2926,15 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		obj_to_char(obj, ch);
 
 		if (!IS_NPC(ch)) {
-			if (vo_foreach(ch->in_room, &iter_char_room,
-				       pull_mob_get_cb, ch, obj))
-				return FALSE;
+			CHAR_DATA *vch;
+
+			foreach (vch, char_in_room(ch->in_room)) {
+				pull_mob_trigger(TRIG_MOB_GET, vch, ch, obj);
+				if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch)) {
+					foreach_done(vch);
+					return FALSE;
+				}
+			} end_foreach (vch);
 		}
 
 		pull_obj_trigger(TRIG_OBJ_GET, obj, ch, NULL);
@@ -3598,21 +3553,6 @@ drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	return TRUE;
 }
 
-static
-FOREACH_CB_FUN(pull_mob_open_cb, p, ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
-
-	if (pull_mob_trigger(TRIG_MOB_OPEN, vch, ch, obj) > 0
-	||  !mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
 bool
 open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
@@ -3656,9 +3596,15 @@ open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	if (!IS_NPC(ch)) {
-		if (vo_foreach(ch->in_room, &iter_char_room,
-			       pull_mob_open_cb, ch, obj))
-			return FALSE;
+		CHAR_DATA *vch;
+
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (pull_mob_trigger(TRIG_MOB_OPEN, vch, ch, obj) > 0
+			||  !mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch)) {
+				foreach_done(vch);
+				return FALSE;
+			}
+		} end_foreach(vch);
 	}
 
 	if (pull_obj_trigger(TRIG_OBJ_OPEN, obj, ch, NULL) > 0

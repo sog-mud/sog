@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.19 2003-04-19 10:01:14 fjoe Exp $
+ * $Id: comm.c,v 1.20 2003-04-24 12:42:11 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -677,21 +677,20 @@ RUNGAME_FUN(_run_game, in_set, out_set, exc_set)
 	check_fds(&info_sockets, in_set, D_INFO);
 	check_fds(&mudftp_sockets, in_set, D_MUDFTP);
 
-	vo_foreach_init(NULL, &iter_descriptor, NULL);
+	iter_init(descriptor_iter);
 	_run_game_bottom(in_set, out_set, exc_set);
 }
 
 RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 {
-	DESCRIPTOR_DATA *d, *d_next;
+	DESCRIPTOR_DATA *d;
 
 	/*
 	 * Process input.
 	 */
-	for (d = descriptor_list;
-	     (d = vo_foreach_cond(NULL, &iter_descriptor, 1,
-				  d, (void **) &d_next)) != NULL;
-	     d = d_next) {
+	for (d = iter_first(descriptor_iter);
+	     (d = iter_cond(descriptor_iter, d)) != NULL;
+	     d = iter_next(descriptor_iter)) {
 		d->fcommand	= FALSE;
 
 		if (FD_ISSET(d->descriptor, exc_set)) {
@@ -744,7 +743,7 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 			d->incomm[0] = '\0';
 		}
 	}
-	vo_foreach_destroy(NULL, &iter_descriptor, NULL, d_next);
+	iter_destroy(descriptor_iter);
 
 	/*
 	 * Autonomous game motion.
@@ -754,10 +753,9 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 	/*
 	 * Output.
 	 */
-	for (d = vo_foreach_init(NULL, &iter_descriptor, NULL);
-	     (d = vo_foreach_cond(NULL, &iter_descriptor, 1,
-				  d, (void **) &d_next)) != NULL;
-	     d = d_next) {
+	for (d = iter_init(descriptor_iter);
+	     (d = iter_cond(descriptor_iter, d)) != NULL;
+	     d = iter_next(descriptor_iter)) {
 		if ((d->fcommand || !outbuf_empty(d) || d->out_compress)
 		&&  FD_ISSET(d->descriptor, out_set)) {
 			bool ok = TRUE;
@@ -779,6 +777,7 @@ RUNGAME_FUN(_run_game_bottom, in_set, out_set, exc_set)
 				close_descriptor(d, 0);
 		}
 	}
+	iter_destroy(descriptor_iter);
 
 	/*
 	 * Check whether resolver is running

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.400 2003-04-22 13:47:31 tatyana Exp $
+ * $Id: merc.h,v 1.401 2003-04-24 12:41:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2033,6 +2033,7 @@ extern		CHAR_DATA	  *	char_list;
 extern		CHAR_DATA	  *	char_list_lastpc;
 #define npc_list (char_list_lastpc ? char_list_lastpc->next : char_list)
 
+extern		vo_iter_t	  *	descriptor_iter;
 extern		DESCRIPTOR_DATA   *	descriptor_list;
 extern		DESCRIPTOR_DATA   *	descriptor_free;
 

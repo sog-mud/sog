@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.48 2003-04-23 15:57:40 tatyana Exp $
+ * $Id: prayers.c,v 1.49 2003-04-24 12:42:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -321,57 +321,51 @@ SPELL_FUN(prayer_word_of_recall, sn, level, ch, vo)
 	}
 }
 
-static void *
-inspire_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *gch = (CHAR_DATA *) vo;
-
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	AFFECT_DATA *paf;
-
-	if (!is_same_group(gch, ch))
-		return NULL;
-
-	if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
-		if (IS_EXTRACTED(ch))
-			return gch;
-		return NULL;
-	}
-
-	if (is_sn_affected(gch, "bless")) {
-		if (gch == ch)
-			act_char("You are already inspired.", ch);
-		else
-			act("$N is already inspired.", ch, NULL, gch, TO_CHAR);
-		return NULL;
-	}
-
-	paf = aff_new(TO_AFFECTS, "bless");
-	paf->level	= level;
-	paf->duration	= level + 6;
-
-	INT(paf->location)= APPLY_HITROLL;
-	paf->modifier	= level/12;
-	affect_to_char(gch, paf);
-
-	INT(paf->location)= APPLY_SAVING_SPELL;
-	paf->modifier	= -level/12;
-	affect_to_char(gch, paf);
-	aff_free(paf);
-
-	act_char("You feel inspired!", gch);
-	if (ch != gch) {
-		act("You inspire $N with the Creator's power!",
-		    ch, NULL, gch, TO_CHAR);
-	}
-
-	return NULL;
-}
-
 SPELL_FUN(prayer_inspire, sn, level, ch, vo)
 {
-	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, level, ch);
+	CHAR_DATA *gch;
+
+	foreach (gch, char_in_room(ch->in_room)) {
+		AFFECT_DATA *paf;
+
+		if (!is_same_group(gch, ch))
+			continue;
+
+		if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				break;
+			continue;
+		}
+
+		if (is_sn_affected(gch, "bless")) {
+			if (gch == ch)
+				act_char("You are already inspired.", ch);
+			else {
+				act("$N is already inspired.",
+				    ch, NULL, gch, TO_CHAR);
+			}
+			continue;
+		}
+
+		paf = aff_new(TO_AFFECTS, "bless");
+		paf->level	= level;
+		paf->duration	= level + 6;
+
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= level/12;
+		affect_to_char(gch, paf);
+
+		INT(paf->location)= APPLY_SAVING_SPELL;
+		paf->modifier	= -level/12;
+		affect_to_char(gch, paf);
+		aff_free(paf);
+
+		act_char("You feel inspired!", gch);
+		if (ch != gch) {
+			act("You inspire $N with the Creator's power!",
+			    ch, NULL, gch, TO_CHAR);
+		}
+	} end_foreach(gch);
 }
 
 SPELL_FUN(prayer_heal, sn, level, ch, vo)
@@ -566,126 +560,76 @@ SPELL_FUN(prayer_cure_disease, sn, level, ch, vo)
 		act_char("Your god doesn't hear you.", ch);
 }
 
-static void *
-group_defence_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *gch = (CHAR_DATA *) vo;
-
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	if (!is_same_group(gch, ch))
-		return NULL;
-
-	if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
-		if (IS_EXTRACTED(ch))
-			return gch;
-		return NULL;
-	}
-
-	if (is_sn_affected(gch, "armor")) {
-		if (gch == ch)
-			act_char("You are already armored.", ch);
-		else
-			act("$N is already armored.", ch, NULL, gch, TO_CHAR);
-	}  else {
-		AFFECT_DATA *paf;
-
-		paf = aff_new(TO_AFFECTS, "armor");
-		paf->level     = level;
-		paf->duration  = level;
-		INT(paf->location) = APPLY_AC;
-		paf->modifier  = -20;
-		affect_to_char(gch, paf);
-		aff_free(paf);
-
-		act_char("You feel someone protecting you.", gch);
-		if (ch != gch) {
-			act("$N is protected by your magic.",
-			    ch, NULL, gch, TO_CHAR);
-		}
-	}
-
-	if (is_sn_affected(gch, "shield")) {
-		if (gch == ch)
-			act_char("You are already shielded.", ch);
-		else
-			act("$N is already shielded.", ch, NULL, gch, TO_CHAR);
-	} else {
-		AFFECT_DATA *paf;
-
-		paf = aff_new(TO_AFFECTS, "shield");
-		paf->level	= level;
-		paf->duration	= level;
-		INT(paf->location)= APPLY_AC;
-		paf->modifier	= -20;
-		affect_to_char(gch, paf);
-		aff_free(paf);
-
-		act_char("You are surrounded by a force shield.", gch);
-		if(ch != gch) {
-			act("$N is surrounded by a force shield.",
-			    ch, NULL, gch, TO_CHAR);
-		}
-	}
-
-	return NULL;
-}
-
 SPELL_FUN(prayer_group_defence, sn, level, ch, vo)
 {
-	vo_foreach(ch->in_room, &iter_char_room, group_defence_cb, level, ch);
-}
+	CHAR_DATA *gch;
 
-static void *
-turn_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam, align;
+	foreach (gch, char_in_room(ch->in_room)) {
+		if (!is_same_group(gch, ch))
+			continue;
 
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-	if (IS_EVIL(ch)) {
-		vch = ch;
-		act_char("The energy explodes inside you!", ch);
-	}
+		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				break;
+			continue;
+		}
 
-	if (vch != ch) {
-		act("$n raises $s hand, and a blinding ray of light shoots forth!",
-		    ch, NULL, NULL, TO_ROOM);
-		act_char("You raise your hand and a blinding ray of light shoots forth!", ch);
-	}
+		if (is_sn_affected(gch, "armor")) {
+			if (gch == ch)
+				act_char("You are already armored.", ch);
+			else {
+				act("$N is already armored.",
+				    ch, NULL, gch, TO_CHAR);
+			}
+		}  else {
+			AFFECT_DATA *paf;
 
-	if (IS_GOOD(vch) || IS_NEUTRAL(vch)) {
-		act("$n seems unharmed by the light.",
-		    vch, NULL, vch, TO_ROOM);
-		act_char("The light seems powerless to affect you.", vch);
-		return NULL;
-	}
+			paf = aff_new(TO_AFFECTS, "armor");
+			paf->level     = level;
+			paf->duration  = level;
+			INT(paf->location) = APPLY_AC;
+			paf->modifier  = -20;
+			affect_to_char(gch, paf);
+			aff_free(paf);
 
-	dam = calc_spell_damage(ch, level, sn);
-	if (saves_spell(level, vch, DAM_HOLY))
-		dam /= 2;
+			act_char("You feel someone protecting you.", gch);
+			if (ch != gch) {
+				act("$N is protected by your magic.",
+				    ch, NULL, gch, TO_CHAR);
+			}
+		}
 
-	align = vch->alignment - 350;
-	if (align < -1000)
-		align = -1000 + (align + 1000) / 3;
+		if (is_sn_affected(gch, "shield")) {
+			if (gch == ch)
+				act_char("You are already shielded.", ch);
+			else {
+				act("$N is already shielded.",
+				    ch, NULL, gch, TO_CHAR);
+			}
+		} else {
+			AFFECT_DATA *paf;
 
-	dam = dam * align * align / 1000000;
-	damage(ch, vch, dam, sn, DAM_F_SHOW);
-	if (!IS_EXTRACTED(vch)
-	&&  !IS_CLAN_GUARD(vch)
-	&&  !IS_SET(vch->in_room->room_flags, ROOM_BATTLE_ARENA))
-		dofun("flee", vch, str_empty);
-	return NULL;
+			paf = aff_new(TO_AFFECTS, "shield");
+			paf->level	= level;
+			paf->duration	= level;
+			INT(paf->location)= APPLY_AC;
+			paf->modifier	= -20;
+			affect_to_char(gch, paf);
+			aff_free(paf);
+
+			act_char("You are surrounded by a force shield.", gch);
+			if(ch != gch) {
+				act("$N is surrounded by a force shield.",
+				    ch, NULL, gch, TO_CHAR);
+			}
+		}
+	} end_foreach(gch);
 }
 
 SPELL_FUN(prayer_turn, sn, level, ch, vo)
 {
 	AFFECT_DATA *paf;
+	CHAR_DATA *vch;
 
 	if (is_sn_affected(ch, sn)) {
 		act_char("This power is used too recently.", ch);
@@ -698,7 +642,44 @@ SPELL_FUN(prayer_turn, sn, level, ch, vo)
 	affect_to_char(ch, paf);
 	aff_free(paf);
 
-	vo_foreach(ch->in_room, &iter_char_room, turn_cb, sn, level, ch);
+	foreach (vch, char_in_room(ch->in_room)) {
+		int dam, align;
+
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+		if (IS_EVIL(ch)) {
+			vch = ch;
+			act_char("The energy explodes inside you!", ch);
+		}
+
+		if (vch != ch) {
+			act("$n raises $s hand, and a blinding ray of light shoots forth!",
+			    ch, NULL, NULL, TO_ROOM);
+			act_char("You raise your hand and a blinding ray of light shoots forth!", ch);
+		}
+
+		if (IS_GOOD(vch) || IS_NEUTRAL(vch)) {
+			act("$n seems unharmed by the light.",
+			    vch, NULL, vch, TO_ROOM);
+			act_char("The light seems powerless to affect you.", vch);
+			continue;
+		}
+
+		dam = calc_spell_damage(ch, level, sn);
+		if (saves_spell(level, vch, DAM_HOLY))
+			dam /= 2;
+
+		align = vch->alignment - 350;
+		if (align < -1000)
+			align = -1000 + (align + 1000) / 3;
+
+		dam = dam * align * align / 1000000;
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+		if (!IS_EXTRACTED(vch)
+		&&  !IS_CLAN_GUARD(vch)
+		&&  !IS_SET(vch->in_room->room_flags, ROOM_BATTLE_ARENA))
+			dofun("flee", vch, str_empty);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(prayer_mana_restore, sn, level, ch, vo)
@@ -802,30 +783,22 @@ SPELL_FUN(prayer_resilience, sn, level, ch, vo)
 		act_char("You are already resistive to draining attacks.", ch);
 }
 
-static void *
-mass_sanctuary_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *gch = (CHAR_DATA *) vo;
-
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	if (!is_same_group(gch, ch))
-		return NULL;
-
-	if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
-		if (IS_EXTRACTED(ch))
-			return gch;
-		return NULL;
-	}
-
-	spellfun_call("sanctuary", NULL, level, ch, gch);
-	return NULL;
-}
-
 SPELL_FUN(prayer_mass_sanctuary, sn, level, ch, vo)
 {
-	vo_foreach(ch->in_room, &iter_char_room, mass_sanctuary_cb, level, ch);
+	CHAR_DATA *gch;
+
+	foreach (gch, char_in_room(ch->in_room)) {
+		if (!is_same_group(gch, ch))
+			continue;
+
+		if (spellbane(gch, ch, 100, dice(3, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				break;
+			continue;
+		}
+
+		spellfun_call("sanctuary", NULL, level, ch, gch);
+	} end_foreach(gch);
 }
 
 SPELL_FUN(prayer_lightning_bolt, sn, level, ch, vo)
@@ -1170,34 +1143,9 @@ SPELL_FUN(prayer_remove_fear, sn, level, ch, vo)
 	else act_char("You failed.", ch);
 }
 
-static void *
-call_lightning_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (vch->in_room == ch->in_room) {
-		if (is_safe_spell(ch, vch, TRUE))
-			return NULL;
-		damage(ch, vch,
-		       saves_spell(level, vch, DAM_LIGHTNING) ?
-		       dam / 2 : dam, sn, DAM_F_SHOW);
-		return NULL;
-	}
-
-	if (vch->in_room->area == ch->in_room->area
-	&&  IS_OUTSIDE(vch)
-	&&  IS_AWAKE(vch))
-		act_char("Lightning flashes in the sky.", vch);
-	return NULL;
-}
-
 SPELL_FUN(prayer_call_lightning, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	int dam;
 
 	if (!IS_OUTSIDE(ch)) {
@@ -1213,8 +1161,22 @@ SPELL_FUN(prayer_call_lightning, sn, level, ch, vo)
 	dam = calc_spell_damage(ch, level, sn);
 	act_char("Gods' lightning strikes your foes!", ch);
 	act("$n calls lightning to strike $s foes!", ch, NULL, NULL, TO_ROOM);
-	vo_foreach(NULL, &iter_char_world, call_lightning_cb,
-		   sn, level, ch, dam);
+
+	foreach (vch, char_in_world()) {
+		if (vch->in_room == ch->in_room) {
+			if (is_safe_spell(ch, vch, TRUE))
+				continue;
+			damage(ch, vch,
+			       saves_spell(level, vch, DAM_LIGHTNING) ?
+			       dam / 2 : dam, sn, DAM_F_SHOW);
+			continue;
+		}
+
+		if (vch->in_room->area == ch->in_room->area
+		&&  IS_OUTSIDE(vch)
+		&&  IS_AWAKE(vch))
+			act_char("Lightning flashes in the sky.", vch);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(prayer_protection_good, sn, level, ch, vo)
@@ -1378,52 +1340,43 @@ SPELL_FUN(prayer_mind_wrench, sn, level, ch, vo)
 	inflict_spell_damage(ch, victim, level, sn);
 }
 
-static void *
-holy_word_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	if ((IS_GOOD(ch) && IS_GOOD(vch)) ||
-	    (IS_EVIL(ch) && IS_EVIL(vch)) ||
-	    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
-		act_char("You feel full more powerful.", vch);
-		spellfun_call("frenzy", NULL, level, ch, vch);
-		spellfun_call("bless", NULL, level, ch, vch);
-		return NULL;
-	}
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	if ((IS_GOOD(ch) && IS_EVIL(vch))
-	||  (IS_EVIL(ch) && IS_GOOD(vch))) {
-		spellfun_call("curse", NULL, level, ch, vch);
-		act_char("You are struck down!", vch);
-		inflict_spell_damage(ch, vch, level, sn);
-		return NULL;
-	}
-
-	if (IS_NEUTRAL(ch)) {
-		spellfun_call("curse", NULL, level/2, ch, vch);
-		act_char("You are struck down!", vch);
-		inflict_spell_damage(ch, vch, level/2, sn);
-		return NULL;
-	}
-
-	return NULL;
-}
-
 /* RT really nasty high-level attack spell */
 SPELL_FUN(prayer_holy_word, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
+
 	act("$n utters a word of divine power!", ch, NULL, NULL, TO_ROOM);
 	act_char("You utter a word of divine power.", ch);
-	vo_foreach(ch->in_room, &iter_char_room, holy_word_cb,
-		   sn, level, ch);
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		if ((IS_GOOD(ch) && IS_GOOD(vch)) ||
+		    (IS_EVIL(ch) && IS_EVIL(vch)) ||
+		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
+			act_char("You feel full more powerful.", vch);
+			spellfun_call("frenzy", NULL, level, ch, vch);
+			spellfun_call("bless", NULL, level, ch, vch);
+			continue;
+		}
+
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if ((IS_GOOD(ch) && IS_EVIL(vch))
+		||  (IS_EVIL(ch) && IS_GOOD(vch))) {
+			spellfun_call("curse", NULL, level, ch, vch);
+			act_char("You are struck down!", vch);
+			inflict_spell_damage(ch, vch, level, sn);
+			continue;
+		}
+
+		if (IS_NEUTRAL(ch)) {
+			spellfun_call("curse", NULL, level/2, ch, vch);
+			act_char("You are struck down!", vch);
+			inflict_spell_damage(ch, vch, level/2, sn);
+			continue;
+		}
+	} end_foreach(vch);
+
 	act_puts("You feel drained.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	if (!IS_NPC(ch))
 		gain_exp(ch, -1 * number_range(1, 10) * 5);
@@ -1585,37 +1538,30 @@ SPELL_FUN(prayer_etheral_fist, sn, level, ch, vo)
 	inflict_spell_damage(ch, victim, level, sn);
 }
 
-static void *
-earthquake_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-
-	if (vch->in_room == ch->in_room) {
-		if (is_safe_spell(ch, vch, TRUE))
-			return NULL;
-
-		if (IS_AFFECTED(vch, AFF_FLYING))
-			damage(ch, vch, 0, sn, DAM_F_SHOW);
-		else
-			damage(ch, vch, level + dice(2, 8), sn, DAM_F_SHOW);
-		return NULL;
-	}
-
-	if (vch->in_room->area == ch->in_room->area)
-		act_char("The earth trembles and shivers.", vch);
-
-	return NULL;
-}
-
 SPELL_FUN(prayer_earthquake, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
+
 	act_char("The earth trembles beneath your feet!", ch);
 	act("$n makes the earth tremble and shiver.", ch, NULL, NULL, TO_ROOM);
-	vo_foreach(NULL, &iter_char_world, earthquake_cb, sn, level, ch);
+
+	foreach (vch, char_in_world()) {
+		if (vch->in_room == ch->in_room) {
+			if (is_safe_spell(ch, vch, TRUE))
+				continue;
+
+			if (IS_AFFECTED(vch, AFF_FLYING))
+				damage(ch, vch, 0, sn, DAM_F_SHOW);
+			else {
+				damage(ch, vch, level + dice(2, 8),
+				       sn, DAM_F_SHOW);
+			}
+			continue;
+		}
+
+		if (vch->in_room->area == ch->in_room->area)
+			act_char("The earth trembles and shivers.", vch);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(prayer_blade_barrier, sn, level, ch, vo)
@@ -2730,9 +2676,10 @@ can_cast_sanctuary(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (is_sn_affected(victim, p->sn)) {
 			if (ch == victim)
 				act_char(p->self_cast_msg, ch);
-			else
+			else {
 				act(p->other_cast_msg, ch, NULL, victim,
 				    TO_CHAR);
+			}
 			return FALSE;
 		}
 	}
@@ -3084,35 +3031,22 @@ SPELL_FUN(prayer_sunburst, sn, level, ch, vo)
 	    ch, NULL, victim, TO_NOTVICT);
 }
 
-static void *
-cone_of_cold_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pdam;
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	pdam = va_arg(ap, int *);
-
-	if (saves_spell(level, vch, DAM_COLD))
-		*pdam /= 2;
-	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
-	return NULL;
-}
-
 SPELL_FUN(prayer_cone_of_cold, sn, level, ch, vo)
 {
-	int dam = calc_spell_damage(ch, level, sn);
-	dam = dam * 4 / 5;
+	CHAR_DATA *vch;
+	int dam;
+
 	act("$n creates a freezing blast of air!", ch, NULL, NULL, TO_ROOM);
 	act_char("You draw heat from the room to create a blast of freezing air!", ch);
-	vo_foreach(ch->in_room, &iter_char_room, cone_of_cold_cb,
-		   sn, level, ch, &dam, number_range(level, 2 * level));
+	dam = calc_spell_damage(ch, level, sn) * 4 / 5;
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if (saves_spell(level, vch, DAM_COLD))
+			dam /= 2;
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(prayer_power_word_fear, sn, level, ch, vo)
@@ -3236,62 +3170,46 @@ SPELL_FUN(prayer_power_word_fear, sn, level, ch, vo)
 
 }
 
-static void *
-windwall_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pdam;
-	AFFECT_DATA *paf;
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	pdam = va_arg(ap, int *);
-
-	if (number_bits(1) == 0
-	&&  !saves_spell(level, vch, DAM_AIR)) {
-		act("$n appears blinded by the debris.",
-		    vch, NULL, NULL, TO_ROOM);
-
-		paf = aff_new(TO_AFFECTS, sn);
-		paf->level	= level;
-		paf->duration	= 1;
-		INT(paf->location)= APPLY_HITROLL;
-		paf->modifier	= -3;
-		paf->bitvector	= AFF_BLIND;
-
-		affect_join(vch, paf);
-		aff_free(paf);
-	}
-
-	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
-
-	if (!IS_AFFECTED(vch, AFF_FLYING))
-		return NULL;
-
-	if (saves_spell(level, vch, DAM_AIR))
-		return NULL;
-
-	act("$n is thrown wildly to the ground by the air blast!",
-	    vch, NULL, NULL, TO_ROOM);
-	act_char("You are thrown down by the air blast!", vch);
-	REMOVE_BIT(vch->affected_by, AFF_FLYING);
-
-	return NULL;
-}
-
 SPELL_FUN(prayer_windwall, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	int dam = calc_spell_damage(ch, level, sn);
 
 	act_char("You raise a violent wall of wind to strike your foes.", ch);
 	act("$n raises a violent wall of wind, sending debri flying!",
 	    ch, NULL, NULL, TO_ROOM);
 
-	vo_foreach(ch->in_room, &iter_char_room, windwall_cb,
-		   sn, level, ch, &dam, number_range(level, 2 * level));
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if (number_bits(1) == 0
+		&&  !saves_spell(level, vch, DAM_AIR)) {
+			AFFECT_DATA *paf;
+
+			act("$n appears blinded by the debris.",
+			    vch, NULL, NULL, TO_ROOM);
+
+			paf = aff_new(TO_AFFECTS, sn);
+			paf->level	= level;
+			paf->duration	= 1;
+			INT(paf->location)= APPLY_HITROLL;
+			paf->modifier	= -3;
+			paf->bitvector	= AFF_BLIND;
+
+			affect_join(vch, paf);
+			aff_free(paf);
+		}
+
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+
+		if (!IS_AFFECTED(vch, AFF_FLYING)
+		||  saves_spell(level, vch, DAM_AIR))
+			continue;
+
+		act("$n is thrown wildly to the ground by the air blast!",
+		    vch, NULL, NULL, TO_ROOM);
+		act_char("You are thrown down by the air blast!", vch);
+		REMOVE_BIT(vch->affected_by, AFF_FLYING);
+	} end_foreach(vch);
 }

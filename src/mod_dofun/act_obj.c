@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.285 2003-04-23 08:13:13 fjoe Exp $
+ * $Id: act_obj.c,v 1.286 2003-04-24 12:41:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1609,47 +1609,6 @@ DO_FUN(do_recite, ch, argument)
 	extract_obj(scroll, 0);
 }
 
-static void *
-brandish_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	OBJ_DATA *staff = va_arg(ap, OBJ_DATA *);
-	skill_t *sk = va_arg(ap, skill_t *);
-
-	switch (sk->target) {
-	default:
-		return vch;
-
-	case TAR_IGNORE:
-		if (vch != ch)
-			return NULL;
-		break;
-
-	case TAR_CHAR_OFFENSIVE:
-		if (IS_NPC(ch) ? IS_NPC(vch) : !IS_NPC(vch))
-			return NULL;
-		break;
-
-	case TAR_CHAR_DEFENSIVE:
-		if (IS_NPC(ch) ? !IS_NPC(vch) : IS_NPC(vch))
-			return NULL;
-		break;
-
-	case TAR_CHAR_SELF:
-		if (vch != ch)
-			return NULL;
-		break;
-	}
-
-	obj_cast_spell(staff->value[3].s, INT(staff->value[0]), ch, vch);
-	if (IS_EXTRACTED(ch)
-	||  IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
-		return vch;
-	return NULL;
-}
-
 DO_FUN(do_brandish, ch, argument)
 {
 	OBJ_DATA       *staff;
@@ -1688,9 +1647,42 @@ DO_FUN(do_brandish, ch, argument)
 			act("...and nothing happens.", ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, "staves", FALSE, 2);
 		} else {
+			CHAR_DATA *vch;
+
 			check_improve(ch, "staves", TRUE, 2);
-			vo_foreach(ch->in_room, &iter_char_room, brandish_cb,
-				   ch, staff, sk);
+			foreach (vch, char_in_room(ch->in_room)) {
+				switch (sk->target) {
+				default:
+					break;
+
+				case TAR_IGNORE:
+					if (vch != ch)
+						continue;
+					break;
+
+				case TAR_CHAR_OFFENSIVE:
+					if (IS_NPC(ch) ? IS_NPC(vch) : !IS_NPC(vch))
+						continue;
+					break;
+
+				case TAR_CHAR_DEFENSIVE:
+					if (IS_NPC(ch) ? !IS_NPC(vch) : IS_NPC(vch))
+						continue;
+					break;
+
+				case TAR_CHAR_SELF:
+					if (vch != ch)
+						continue;
+					break;
+				}
+
+				obj_cast_spell(
+				    staff->value[3].s, INT(staff->value[0]),
+				    ch, vch);
+				if (IS_EXTRACTED(ch)
+				||  IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
+					break;
+			} end_foreach(vch);
 		}
 	}
 

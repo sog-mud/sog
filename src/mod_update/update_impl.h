@@ -23,15 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.h,v 1.5 2001-09-13 16:22:18 fjoe Exp $
+ * $Id: update_impl.h,v 1.6 2003-04-24 12:42:17 fjoe Exp $
  */
 
 #ifndef _UPDATE_IMPL_H_
 #define _UPDATE_IMPL_H_
 
 extern avltree_t	uhandlers;
-
-typedef void (*update_fun_t)(void);
 
 typedef struct uhandler_t uhandler_t;
 struct uhandler_t {
@@ -43,7 +41,7 @@ struct uhandler_t {
 				/*  is triggered) */
 
 	int ticks;		/* ticks between uhandlers */
-	vo_iter_t *iter;	/* update handler iterator */
+	vo_iter_class_t *iter_cl;/* update handler iterator class */
 	int mod;		/* module where update handler */
 				/* implementation resides */
 
@@ -54,11 +52,11 @@ struct uhandler_t {
 #define uhandler_lookup(ln) ((uhandler_t*) c_strkey_lookup(&uhandlers, (ln)))
 #define uhandler_search(ln) ((uhandler_t*) c_strkey_search(&uhandlers, (ln)))
 
-void		update_register(module_t *m);
-void		update_unregister(void);
+void	update_register(module_t *m);
+void	update_unregister(void);
 
-void		uhandler_update(uhandler_t *hdlr);
+void	uhandler_update(uhandler_t *hdlr);
 
-void *		bloodthirst_cb(void *vo, va_list ap);
+bool	bloodthirst(CHAR_DATA *ch, CHAR_DATA *victim);
 
 #endif /* _UPDATE_IMPL_H_ */

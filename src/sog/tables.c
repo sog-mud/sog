@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.197 2003-04-22 13:47:34 tatyana Exp $
+ * $Id: tables.c,v 1.198 2003-04-24 12:42:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1486,7 +1486,7 @@ flaginfo_t fail_effects[] =
 	{ NULL, 0, FALSE }
 };
 
-flaginfo_t iterator_names[] =
+flaginfo_t iterator_classes[] =
 {
 	{ "",			TABLE_INTVAL,			FALSE	},
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.209 2002-03-20 19:39:48 fjoe Exp $
+ * $Id: update.c,v 1.210 2003-04-24 12:42:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -243,10 +243,13 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people
 			&&  ch->fighting == NULL) {
+				CHAR_DATA *vch;
+
 				if (!IS_AWAKE(ch))
 					dofun("stand", ch, str_empty);
-				vo_foreach(ch->in_room, &iter_char_room,
-					   bloodthirst_cb, ch);
+				foreach (vch, char_in_room(ch->in_room)) {
+					bloodthirst(ch, vch);
+				} end_foreach(vch);
 				if (ch->fighting != NULL)
 					break;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.304 2003-04-19 12:54:48 tatyana Exp $
+ * $Id: spellfun.c,v 1.305 2003-04-24 12:42:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -409,51 +409,6 @@ SPELL_FUN(spell_dispel_magic, sn, level, ch, vo)
 		act_char("Spell failed.", ch);
 }
 
-static void *
-chain_lightning_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	CHAR_DATA **plast_vict = va_arg(ap, CHAR_DATA **);
-	const char *sn;
-	bool *pfound;
-	int *plevel;
-	int dam;
-
-	if (vch == *plast_vict)
-		return NULL;
-
-	if (is_safe_spell(ch, vch, TRUE)) {
-		act("The bolt passes around $n's body.",
-		    ch, NULL, NULL, TO_ROOM);
-		act("The bolt passes around your body.",
-		    ch, NULL, NULL, TO_CHAR);
-		return NULL;
-	}
-
-	sn = va_arg(ap, const char *);
-	pfound = va_arg(ap, bool *);
-	plevel = va_arg(ap, int *);
-
-	*pfound = TRUE;
-	*plast_vict = vch;
-	act("The bolt arcs to $n!", vch, NULL, NULL, TO_ROOM);
-	act("The bolt hits you!", vch, NULL, NULL, TO_CHAR);
-
-	dam = calc_spell_damage(ch, *plevel, sn);
-	dam = dam * 2 / 3;
-	if (saves_spell(*plevel, vch, DAM_LIGHTNING))
-		dam /= 3;
-	damage(ch, vch, dam, sn, DAM_F_SHOW);
-	*plevel -= 4;  /* decrement damage */
-
-	if (*plevel <= 0)
-		return vch;
-
-	return NULL;
-}
-
 SPELL_FUN(spell_chain_lightning, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -479,8 +434,36 @@ SPELL_FUN(spell_chain_lightning, sn, level, ch, vo)
 
 	while (level > 0) {
 		bool found = FALSE;
-		vo_foreach(ch->in_room, &iter_char_room, chain_lightning_cb,
-			   ch, &last_vict, sn, &found, &level);
+		CHAR_DATA *vch;
+
+		foreach (vch, char_in_room(ch->in_room)) {
+			if (vch == last_vict)
+				continue;
+
+			if (is_safe_spell(ch, vch, TRUE)) {
+				act("The bolt passes around $n's body.",
+				    ch, NULL, NULL, TO_ROOM);
+				act("The bolt passes around your body.",
+				    ch, NULL, NULL, TO_CHAR);
+				continue;
+			}
+
+			found = TRUE;
+			last_vict = vch;
+			act("The bolt arcs to $n!", vch, NULL, NULL, TO_ROOM);
+			act("The bolt hits you!", vch, NULL, NULL, TO_CHAR);
+
+			dam = calc_spell_damage(ch, level, sn);
+			dam = dam * 2 / 3;
+			if (saves_spell(level, vch, DAM_LIGHTNING))
+				dam /= 3;
+			damage(ch, vch, dam, sn, DAM_F_SHOW);
+			level -= 4;  /* decrement damage */
+
+			if (level <= 0)
+				break;
+		} end_foreach(vch);
+
 		if (found)
 			continue;
 
@@ -1282,36 +1265,22 @@ SPELL_FUN(spell_draining_touch, sn, level, ch, vo)
 	}
 }
 
-static void *
-iceball_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pdam;
-	int movedam;
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	pdam = va_arg(ap, int *);
-	movedam = va_arg(ap, int);
-
-	if (saves_spell(level, vch, DAM_COLD))
-		*pdam /= 2;
-	vch->move -= UMIN(vch->move, movedam);
-	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
-	return NULL;
-}
-
 SPELL_FUN(spell_iceball, sn, level, ch, vo)
 {
-	int dam = calc_spell_damage(ch, level, sn);
-	dam = dam * 4 / 5;
-	vo_foreach(ch->in_room, &iter_char_room, iceball_cb,
-		   sn, level, ch, &dam, number_range(level, 2 * level));
+	CHAR_DATA *vch;
+	int dam, movedam;
+
+	dam = calc_spell_damage(ch, level, sn) * 4 / 5;
+	movedam = number_range(level, 2 * level);
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if (saves_spell(level, vch, DAM_COLD))
+			dam /= 2;
+		vch->move -= UMIN(vch->move, movedam);
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_fireproof, sn, level, ch, vo)
@@ -1789,41 +1758,31 @@ SPELL_FUN(spell_magic_missile, sn, level, ch, vo)
 	}
 }
 
-static void *
-mass_invis_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *gch = (CHAR_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	AFFECT_DATA *paf;
-
-	if (!is_same_group(gch, ch) || HAS_INVIS(gch, ID_INVIS))
-		return NULL;
-
-	if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
-		if (IS_EXTRACTED(ch))
-			return gch;
-		return NULL;
-	}
-
-	act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
-	act("You slowly fade out of existence.", gch, NULL, NULL, TO_CHAR);
-
-	paf = va_arg(ap, AFFECT_DATA *);
-	affect_to_char(gch, paf);
-
-	return NULL;
-}
-
 SPELL_FUN(spell_mass_invis, sn, level, ch, vo)
 {
+	CHAR_DATA *gch;
 	AFFECT_DATA *paf;
 
 	paf = aff_new(TO_INVIS, sn);
 	paf->level	= level/2;
 	paf->duration	= 24;
 	paf->bitvector	= ID_INVIS;
-	vo_foreach(ch->in_room, &iter_char_room, mass_invis_cb, ch, paf);
+	foreach (gch, char_in_room(ch->in_room)) {
+		if (!is_same_group(gch, ch) || HAS_INVIS(gch, ID_INVIS))
+			continue;
+
+		if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
+			if (IS_EXTRACTED(ch))
+				break;
+			continue;
+		}
+
+		act("$n slowly fades out of existence.",
+		    gch, NULL, NULL, TO_ROOM);
+		act("You slowly fade out of existence.",
+		    gch, NULL, NULL, TO_CHAR);
+		affect_to_char(gch, paf);
+	} end_foreach(gch);
 	aff_free(paf);
 
 	act_char("Ok.", ch);
@@ -2374,7 +2333,7 @@ SPELL_FUN(spell_weaken, sn, level, ch, vo)
 SPELL_FUN(spell_acid_breath, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam,hp_dam,dice_dam,hpch;
+	int dam, hp_dam, dice_dam, hpch;
 
 	act("$n spits acid at $N.",ch,NULL,victim,TO_NOTVICT);
 	act("$n spits a stream of corrosive acid at you.",ch,NULL,victim,TO_VICT);
@@ -2395,45 +2354,9 @@ SPELL_FUN(spell_acid_breath, sn, level, ch, vo)
 	}
 }
 
-static void *
-fire_breath_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (is_safe_spell(ch, vch, TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch) &&
-	     (ch->fighting != vch /*|| vch->fighting != ch */)))
-		return NULL;
-
-	if (vch == victim) { /* full damage */
-		if (saves_spell(level, vch, DAM_FIRE)) {
-			inflict_effect("fire", vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
-		} else {
-			inflict_effect("fire", vch, level, dam);
-			damage(ch, vch, dam, sn, DAM_F_SHOW);
-		}
-	} else { /* partial damage */
-		if (saves_spell(level - 2, vch, DAM_FIRE)) {
-			inflict_effect("fire", vch, level/4, dam/8);
-			damage(ch, vch, dam/4, sn, DAM_F_SHOW);
-		} else {
-			inflict_effect("fire", vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
-		}
-	}
-
-	return NULL;
-}
-
 SPELL_FUN(spell_fire_breath, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int hpch = UMAX(10, ch->hit);
 	int hp_dam  = number_range(hpch/9 + 1, hpch/5);
@@ -2446,49 +2369,35 @@ SPELL_FUN(spell_fire_breath, sn, level, ch, vo)
 	act("You breath forth a cone of fire.", ch, NULL, NULL, TO_CHAR);
 
 	inflict_effect("fire", victim->in_room, level, dam / 2);
-	vo_foreach(victim->in_room, &iter_char_room, fire_breath_cb,
-		   sn, level, ch, victim, dam);
-}
+	foreach (vch, char_in_room(victim->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch) &&
+		     (ch->fighting != vch /*|| vch->fighting != ch */)))
+			continue;
 
-static void *
-frost_breath_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (is_safe_spell(ch,vch,TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch) &&
-	     (ch->fighting != vch /*|| vch->fighting != ch*/)))
-		return NULL;
-
-	if (vch == victim) { /* full damage */
-		if (saves_spell(level, vch, DAM_COLD)) {
-			inflict_effect("cold", vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
-		} else {
-			inflict_effect("cold", vch, level, dam);
-			damage(ch, vch, dam, sn, DAM_F_SHOW);
+		if (vch == victim) { /* full damage */
+			if (saves_spell(level, vch, DAM_FIRE)) {
+				inflict_effect("fire", vch, level/2, dam/4);
+				damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+			} else {
+				inflict_effect("fire", vch, level, dam);
+				damage(ch, vch, dam, sn, DAM_F_SHOW);
+			}
+		} else { /* partial damage */
+			if (saves_spell(level - 2, vch, DAM_FIRE)) {
+				inflict_effect("fire", vch, level/4, dam/8);
+				damage(ch, vch, dam/4, sn, DAM_F_SHOW);
+			} else {
+				inflict_effect("fire", vch, level/2, dam/4);
+				damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+			}
 		}
-	} else {
-		if (saves_spell(level - 2, vch, DAM_COLD)) {
-			inflict_effect("cold", vch, level/4, dam/8);
-			damage(ch, vch, dam/4, sn, DAM_F_SHOW);
-		} else {
-			inflict_effect("cold", vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
-		}
-	}
-
-	return NULL;
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_frost_breath, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int hpch = UMAX(12, ch->hit);
 	int hp_dam = number_range(hpch/11 + 1, hpch/6);
@@ -2503,38 +2412,35 @@ SPELL_FUN(spell_frost_breath, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_CHAR);
 
 	inflict_effect("cold", victim->in_room, level, dam/2);
-	vo_foreach(victim->in_room, &iter_char_room, frost_breath_cb,
-		   sn, level, ch, victim, dam);
-}
+	foreach (vch, char_in_room(victim->in_room)) {
+		if (is_safe_spell(ch,vch,TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch) &&
+		     (ch->fighting != vch /*|| vch->fighting != ch*/)))
+			continue;
 
-static void *
-gas_breath_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (is_safe_spell(ch,vch,TRUE)
-	||  (IS_NPC(ch) && IS_NPC(vch) &&
-	     (ch->fighting == vch || vch->fighting == ch)))
-		return NULL;
-
-	if (saves_spell(level, vch, DAM_POISON)) {
-		inflict_effect("poison", vch, level/2, dam/4);
-		damage(ch, vch, dam/2, sn, DAM_F_SHOW);
-	} else {
-		inflict_effect("poison", vch, level, dam);
-		damage(ch, vch, dam, sn, DAM_F_SHOW);
-	}
-
-	return NULL;
+		if (vch == victim) { /* full damage */
+			if (saves_spell(level, vch, DAM_COLD)) {
+				inflict_effect("cold", vch, level/2, dam/4);
+				damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+			} else {
+				inflict_effect("cold", vch, level, dam);
+				damage(ch, vch, dam, sn, DAM_F_SHOW);
+			}
+		} else {
+			if (saves_spell(level - 2, vch, DAM_COLD)) {
+				inflict_effect("cold", vch, level/4, dam/8);
+				damage(ch, vch, dam/4, sn, DAM_F_SHOW);
+			} else {
+				inflict_effect("cold", vch, level/2, dam/4);
+				damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+			}
+		}
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_gas_breath, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	int hpch = UMAX(16, ch->hit);
 	int hp_dam = number_range(hpch/15 + 1, 8);
 	int dice_dam = calc_spell_damage(ch, level, sn);
@@ -2545,8 +2451,20 @@ SPELL_FUN(spell_gas_breath, sn, level, ch, vo)
 	act("You breath out a cloud of poisonous gas.",
 	    ch, NULL, NULL, TO_CHAR);
 	inflict_effect("poison", ch->in_room, level, dam);
-	vo_foreach(ch->in_room, &iter_char_room, gas_breath_cb,
-		   sn, level, ch, dam);
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch,vch,TRUE)
+		||  (IS_NPC(ch) && IS_NPC(vch) &&
+		     (ch->fighting == vch || vch->fighting == ch)))
+			continue;
+
+		if (saves_spell(level, vch, DAM_POISON)) {
+			inflict_effect("poison", vch, level/2, dam/4);
+			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+		} else {
+			inflict_effect("poison", vch, level, dam);
+			damage(ch, vch, dam, sn, DAM_F_SHOW);
+		}
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_lightning_breath, sn, level, ch, vo)
@@ -2918,46 +2836,9 @@ SPELL_FUN(spell_corruption, sn, level, ch, vo)
 	    victim, NULL, NULL, TO_ROOM);
 }
 
-static void *
-hurricane_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pdam = va_arg(ap, int *);
-
-	if (is_safe_spell(ch, vch, TRUE)
-	||  (IS_NPC(ch) && IS_NPC(vch) &&
-	     (ch->fighting == vch || vch->fighting == ch)))
-		return NULL;
-
-	if (!IS_AFFECTED(vch, AFF_FLYING))
-		*pdam /= 2;
-
-	if (vch->size == SIZE_TINY)
-		*pdam = *pdam * 3 / 2;
-	else if (vch->size == SIZE_SMALL)
-		*pdam = *pdam * 13 / 10;
-	else if (vch->size == SIZE_MEDIUM)
-		;
-	else if (vch->size == SIZE_LARGE)
-		*pdam = *pdam * 9 / 10;
-	else if (vch->size == SIZE_HUGE)
-		*pdam = *pdam * 7 / 10;
-	else
-		*pdam = *pdam / 2;
-
-	if (saves_spell(level, vch, DAM_AIR))
-		damage(ch, vch, *pdam/2, sn, DAM_F_SHOW);
-	else
-		damage(ch, vch, *pdam, sn, DAM_F_SHOW);
-	return NULL;
-}
-
 SPELL_FUN(spell_hurricane, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	int hpch = UMAX(16, ch->hit);
 	int hp_dam = number_range(hpch/15 + 1, 8);
 	int dice_dam = calc_spell_damage(ch, level, sn);
@@ -2967,8 +2848,34 @@ SPELL_FUN(spell_hurricane, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_NOTVICT);
 	act("You pray the gods of the storm to help you.",
 	    ch, NULL, NULL, TO_CHAR);
-	vo_foreach(ch->in_room, &iter_char_room, hurricane_cb,
-		   sn, level, ch, &dam);
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(ch) && IS_NPC(vch) &&
+		     (ch->fighting == vch || vch->fighting == ch)))
+			continue;
+
+		if (!IS_AFFECTED(vch, AFF_FLYING))
+			dam /= 2;
+
+		if (vch->size == SIZE_TINY)
+			dam = dam * 3 / 2;
+		else if (vch->size == SIZE_SMALL)
+			dam = dam * 13 / 10;
+		else if (vch->size == SIZE_MEDIUM)
+			;
+		else if (vch->size == SIZE_LARGE)
+			dam = dam * 9 / 10;
+		else if (vch->size == SIZE_HUGE)
+			dam = dam * 7 / 10;
+		else
+			dam = dam / 2;
+
+		if (saves_spell(level, vch, DAM_AIR))
+			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+		else
+			damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_detect_undead, sn, level, ch, vo)
@@ -3490,42 +3397,31 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 	}
 }
 
-static void *
-scourge_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	if (number_percent() < level * 2)
-		spellfun_call("poison", NULL, level, ch, vch);
-
-	if (number_percent() < level * 2)
-		spellfun_call("blindness", NULL, level, ch, vch);
-
-	if (number_percent() < level * 2)
-		spellfun_call("weaken", NULL, level, ch, vch);
-
-	if (saves_spell(level, vch, DAM_FIRE))
-		dam /= 2;
-	damage(ch, vch, dam, sn, DAM_F_SHOW);
-	return NULL;
-}
-
 SPELL_FUN(spell_scourge, sn, level, ch, vo)
 {
 /*	dam = calc_spell_damage(ch, level, sn); */
+	CHAR_DATA *vch;
 	int dam = ch->level < MAX_LEVEL / 2 ? dice(level, 6) :
 		  ch->level < MAX_LEVEL * 2 / 3 ? dice(level, 9) :
 				   dice(level, 12);
-	vo_foreach(ch->in_room, &iter_char_room, scourge_cb,
-		   sn, level, ch, dam);
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if (number_percent() < level * 2)
+			spellfun_call("poison", NULL, level, ch, vch);
+
+		if (number_percent() < level * 2)
+			spellfun_call("blindness", NULL, level, ch, vch);
+
+		if (number_percent() < level * 2)
+			spellfun_call("weaken", NULL, level, ch, vch);
+
+		if (saves_spell(level, vch, DAM_FIRE))
+			dam /= 2;
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_manacles, sn, level, ch, vo)
@@ -5187,36 +5083,11 @@ SPELL_FUN(spell_dragons_breath, sn, level, ch, vo)
 	spellfun_call(sn_fun, "dragons breath", level, ch, vo);
 }
 
-static void *
-sand_storm_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (is_safe_spell(ch, vch, TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch) &&
-	     (ch->fighting != vch /*|| vch->fighting != ch*/)))
-		return NULL;
-
-	if (saves_spell(level, vch, DAM_COLD)) {
-		inflict_effect("sand", vch, level/2, dam/4);
-		damage(ch, vch, dam/2, sn, DAM_F_SHOW);
-	} else {
-		inflict_effect("sand", vch, level, dam);
-		damage(ch, vch, dam, sn, DAM_F_SHOW);
-	}
-
-	return NULL;
-}
-
 SPELL_FUN(spell_sand_storm, sn, level, ch, vo)
 {
 	int dam, hp_dam, dice_dam;
 	int hpch;
+	CHAR_DATA *vch;
 
 	if ((ch->in_room->sector_type == SECT_AIR)
 	||  (ch->in_room->sector_type == SECT_WATER_SWIM)
@@ -5236,35 +5107,25 @@ SPELL_FUN(spell_sand_storm, sn, level, ch, vo)
 
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
 	inflict_effect("sand", ch->in_room, level, dam/2);
-	vo_foreach(ch->in_room, &iter_char_room, sand_storm_cb,
-		   sn, level, ch, dam);
-}
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch) &&
+		     (ch->fighting != vch /*|| vch->fighting != ch*/)))
+			continue;
 
-static void *
-scream_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	if (saves_spell(level, vch, DAM_ENERGY))
-		inflict_effect("scream", vch, level/2, dam/4);
-	else
-		inflict_effect("scream", vch, level, dam);
-
-	if (vch->fighting)
-		stop_fighting(vch, TRUE);
-
-	return NULL;
+		if (saves_spell(level, vch, DAM_COLD)) {
+			inflict_effect("sand", vch, level/2, dam/4);
+			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
+		} else {
+			inflict_effect("sand", vch, level, dam);
+			damage(ch, vch, dam, sn, DAM_F_SHOW);
+		}
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_scream, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	int hpch = UMAX(10, ch->hit);
 	int hp_dam = number_range(hpch/9 + 1, hpch/5);
 	int dice_dam = calc_spell_damage(ch, level, sn);
@@ -5274,7 +5135,18 @@ SPELL_FUN(spell_scream, sn, level, ch, vo)
 	act("You scream with a powerful sound.", ch, NULL, NULL, TO_CHAR);
 
 	inflict_effect("scream", ch->in_room, level, dam/2);
-	vo_foreach(ch->in_room, &iter_char_room, scream_cb, level, ch, dam);
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if (saves_spell(level, vch, DAM_ENERGY))
+			inflict_effect("scream", vch, level/2, dam/4);
+		else
+			inflict_effect("scream", vch, level, dam);
+
+		if (vch->fighting)
+			stop_fighting(vch, TRUE);
+	} end_foreach(vch);
 }
 
 SPELL_FUN(spell_attract_other, sn, level, ch, vo)
@@ -7639,35 +7511,9 @@ SPELL_FUN(spell_find_familiar, sn, level, ch, vo)
 }
 
 /* function for some necromancers area-attack */
-static void *
-death_ripple_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int dam = va_arg(ap, int);
-	int door = va_arg(ap, int);
-	int *pcounter = va_arg(ap, int *);
-
-	if (is_safe_spell(ch, vch, TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch))
-	||  (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
-		return NULL;
-
-	(*pcounter)++;
-	if (saves_spell(level, vch, DAM_NEGATIVE))
-		dam /= 2;
-	damage(ch, vch, dam, sn, DAM_F_SHOW);
-
-	if (door != -1 && IS_NPC(vch))
-		path_to_track(ch, vch, door);
-	return NULL;
-}
-
 SPELL_FUN(spell_death_ripple, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	ROOM_INDEX_DATA *this_room;
 	int v_counter, range, door, i;
 	int dam;
@@ -7679,8 +7525,18 @@ SPELL_FUN(spell_death_ripple, sn, level, ch, vo)
         act("Deadly wave emanates from you.",
 	    ch, NULL, NULL, TO_CHAR);
 	dam = calc_spell_damage(ch, level, sn);
-	vo_foreach(this_room, &iter_char_room, death_ripple_cb,
-		   sn, level, ch, dam, -1, &v_counter);
+	v_counter = 0;
+	foreach(vch, char_in_room(this_room)) {
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch))
+		||  (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
+			continue;
+
+		v_counter++;
+		if (saves_spell(level, vch, DAM_NEGATIVE))
+			dam /= 2;
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 
         if (!check_blind(ch))
 		return;
@@ -7708,8 +7564,20 @@ SPELL_FUN(spell_death_ripple, sn, level, ch, vo)
 		    next_room->people, NULL, from_dir_name[rev_dir[door]],
 		    TO_ALL);
 		this_room = next_room;
-		vo_foreach(this_room, &iter_char_room, death_ripple_cb,
-			   sn, level, ch, dam, door, &v_counter);
+		foreach (vch, char_in_room(this_room)) {
+			if (is_safe_spell(ch, vch, TRUE)
+			||  (IS_NPC(vch) && IS_NPC(ch))
+			||  (IS_NPC(vch) &&
+			     IS_SET(vch->pMobIndex->act, ACT_NOTRACK)))
+				continue;
+
+			v_counter++;
+			if (saves_spell(level, vch, DAM_NEGATIVE))
+				dam /= 2;
+			damage(ch, vch, dam, sn, DAM_F_SHOW);
+			if (IS_NPC(vch))
+				path_to_track(ch, vch, door);
+		} end_foreach (vch);
 	}
 }
 
@@ -8055,41 +7923,10 @@ SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
 
 	act_char("Many green leaves cloak you.",ch);
 }
-static void *
-deathspell_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-
-	const char *sn = va_arg(ap, const char *);
-	int level = va_arg(ap, int);
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int *pdam;
-
-	if (is_safe_spell(ch, vch, TRUE))
-		return NULL;
-
-	pdam = va_arg(ap, int *);
-
-	if (saves_spell(level, vch, DAM_NEGATIVE))
-		*pdam /= 2;
-	else if (!saves_spell(level - 7, vch, DAM_NEGATIVE)
-	     &&  !saves_spell(level, vch, DAM_NEGATIVE)
-	     &&	 number_bits(1) == 0
-	     &&	 !IS_IMMORTAL(vch)) {
-		act("$n gets a horrible look in $gn{his} eye's then keels "
-		    "over dead!", vch, NULL, NULL, TO_ROOM);
-		act("You feel your an intense pain in your head as the energy "
-		    "ruptures your skull!", vch, NULL, NULL, TO_CHAR);
-		raw_kill(ch, vch);
-		return NULL;
-	}
-
-	damage(ch, vch, *pdam, sn, DAM_F_SHOW);
-	return NULL;
-}
 
 SPELL_FUN(spell_deathspell, sn, level, ch, vo)
 {
+	CHAR_DATA *vch;
 	int dam = calc_spell_damage(ch, level, sn);
 	dam = dam * 4 / 5;
 
@@ -8098,6 +7935,23 @@ SPELL_FUN(spell_deathspell, sn, level, ch, vo)
 	act("You utter a word of power and negative energy explodes into the "
 	    "room!", ch, NULL, NULL, TO_CHAR);
 
-	vo_foreach(ch->in_room, &iter_char_room, deathspell_cb,
-		   sn, level, ch, &dam, number_range(level, 2 * level));
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		if (saves_spell(level, vch, DAM_NEGATIVE))
+			dam /= 2;
+		else if (!saves_spell(level - 7, vch, DAM_NEGATIVE)
+		     &&  !saves_spell(level, vch, DAM_NEGATIVE)
+		     &&	 number_bits(1) == 0
+		     &&	 !IS_IMMORTAL(vch)) {
+			act("$n gets a horrible look in $gn{his} eye's then keels "
+			    "over dead!", vch, NULL, NULL, TO_ROOM);
+			act("You feel your an intense pain in your head as the energy ruptures your skull!", vch, NULL, NULL, TO_CHAR);
+			raw_kill(ch, vch);
+			continue;
+		}
+
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 }

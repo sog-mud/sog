@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.9 2002-11-28 20:08:04 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.10 2003-04-24 12:42:07 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -46,19 +46,18 @@
 #include "mpc_impl.h"
 
 /* range */
-void		range_init(int, int, iterdata_t *id, vo_t *v);
-static void	range_destroy(iterdata_t *id);
-static bool	range_cond(iterdata_t *id, vo_t *v);
-static void	range_next(iterdata_t *id, vo_t *v);
+void		range_init(int, int, vo_iter_t *i, vo_t *v);
+static void	range_destroy(vo_iter_t *i);
+static bool	range_cond(vo_iter_t *i, vo_t *v);
+static void	range_next(vo_iter_t *i, vo_t *v);
 
 /* char_room */
-void		vo_iter_init(void *vo, iterdata_t *id, vo_t *v);
-void		vo_void_iter_init(iterdata_t *id, vo_t *v);
-static void	vo_iter_destroy(iterdata_t *id);
-static bool	vo_iter_cond(iterdata_t *id, vo_t *v);
-static void	vo_iter_next(iterdata_t *id, vo_t *v);
+void		vo_iter_init(void *vo, vo_iter_t *i, vo_t *v);
+void		vo_void_iter_init(vo_iter_t *i, vo_t *v);
+static bool	vo_iter_cond(vo_iter_t *i, vo_t *v);
+static void	vo_iter_next(vo_iter_t *i, vo_t *v);
 
-iter_t itertab[] = {
+mpc_iter_t itertab[] = {
 	{
 	  DECLARE_FUN2(int, range,
 		       ARG(int), from, ARG(int), to)
@@ -70,20 +69,20 @@ iter_t itertab[] = {
 	{
 	  DECLARE_FUN1(CHAR_DATA, char_in_room,
 		       ARG(ROOM_INDEX_DATA), room)
-	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  (dynafun_t) vo_iter_init, iter_destroy, vo_iter_cond, vo_iter_next,
 	  &iter_char_room
 	},
 
 	{
 	  DECLARE_FUN0(CHAR_DATA, char_in_world)
-	  (dynafun_t) vo_void_iter_init, vo_iter_destroy,
+	  (dynafun_t) vo_void_iter_init, iter_destroy,
 	  vo_iter_cond, vo_iter_next,
 	  &iter_char_world
 	},
 
 	{
 	  DECLARE_FUN0(CHAR_DATA, npc_in_world)
-	  (dynafun_t) vo_void_iter_init, vo_iter_destroy,
+	  (dynafun_t) vo_void_iter_init, iter_destroy,
 	  vo_iter_cond, vo_iter_next,
 	  &iter_npc_world
 	},
@@ -91,47 +90,47 @@ iter_t itertab[] = {
 	{
 	  DECLARE_FUN1(CHAR_DATA, obj_in_obj,
 		       ARG(OBJ_DATA), obj)
-	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  (dynafun_t) vo_iter_init, iter_destroy, vo_iter_cond, vo_iter_next,
 	  &iter_obj_obj
 	},
 
 	{
 	  DECLARE_FUN1(CHAR_DATA, obj_of_char,
 		       ARG(CHAR_DATA), ch)
-	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  (dynafun_t) vo_iter_init, iter_destroy, vo_iter_cond, vo_iter_next,
 	  &iter_obj_char
 	},
 
 	{
 	  DECLARE_FUN1(CHAR_DATA, obj_in_room,
 		       ARG(ROOM_INDEX_DATA), room)
-	  (dynafun_t) vo_iter_init, vo_iter_destroy, vo_iter_cond, vo_iter_next,
+	  (dynafun_t) vo_iter_init, iter_destroy, vo_iter_cond, vo_iter_next,
 	  &iter_obj_room
 	},
 
 	{
 	  DECLARE_FUN0(CHAR_DATA, obj_in_world)
-	  (dynafun_t) vo_void_iter_init, vo_iter_destroy,
+	  (dynafun_t) vo_void_iter_init, iter_destroy,
 	  vo_iter_cond, vo_iter_next,
 	  &iter_obj_world
 	},
 #endif
 };
 
-#define ITERTAB_SZ	(sizeof(itertab) / sizeof(iter_t))
+#define ITERTAB_SZ	(sizeof(itertab) / sizeof(*itertab))
 
-iter_t *
+mpc_iter_t *
 mpc_iter_lookup(const char *name)
 {
 	static bool itertab_initialized;
 
 	if (!itertab_initialized) {
-		qsort(itertab, ITERTAB_SZ, sizeof(iter_t), cmpstr);
+		qsort(itertab, ITERTAB_SZ, sizeof(*itertab), cmpstr);
 		itertab_initialized = TRUE;
 	}
 
-	return (iter_t *) bsearch(
-	    &name, itertab, ITERTAB_SZ, sizeof(iter_t), cmpstr);
+	return (mpc_iter_t *) bsearch(
+	    &name, itertab, ITERTAB_SZ, sizeof(*itertab), cmpstr);
 }
 
 /*
@@ -139,28 +138,28 @@ mpc_iter_lookup(const char *name)
  */
 
 void
-range_init(int from, int to, iterdata_t *id, vo_t *v)
+range_init(int from, int to, vo_iter_t *i, vo_t *v)
 {
 	v->i = from;
-	id->vo.i = to;
+	i->vo_cont.i = to;
 }
 
 static void
-range_destroy(iterdata_t *id)
+range_destroy(vo_iter_t *i)
 {
-	UNUSED_ARG(id);
+	UNUSED_ARG(i);
 }
 
 static bool
-range_cond(iterdata_t *id, vo_t *v)
+range_cond(vo_iter_t *i, vo_t *v)
 {
-	return v->i <= id->vo.i;
+	return v->i <= i->vo_cont.i;
 }
 
 static void
-range_next(iterdata_t *id, vo_t *v)
+range_next(vo_iter_t *i, vo_t *v)
 {
-	UNUSED_ARG(id);
+	UNUSED_ARG(i);
 	v->i++;
 }
 
@@ -169,36 +168,27 @@ range_next(iterdata_t *id, vo_t *v)
  */
 
 void
-vo_iter_init(void *vo, iterdata_t *id, vo_t *v)
+vo_iter_init(void *vo, vo_iter_t *i, vo_t *v)
 {
-	id->vo.p = vo;
-	v->p = vo_foreach_init(id->vo.p, id->iter->vo_iter, &id->ftag);
+	i->vo_cont.p = vo;
+	v->p = iter_init(i);
 }
 
 void
-vo_void_iter_init(iterdata_t *id, vo_t *v)
+vo_void_iter_init(vo_iter_t *i, vo_t *v)
 {
-	id->vo.p = NULL;
-	v->p = vo_foreach_init(id->vo.p, id->iter->vo_iter, &id->ftag);
-}
-
-static void
-vo_iter_destroy(iterdata_t *id)
-{
-	vo_foreach_destroy(
-	    id->vo.p, id->iter->vo_iter, &id->ftag, id->vo_next.p);
+	i->vo_cont.p = NULL;
+	v->p = iter_init(i);
 }
 
 static bool
-vo_iter_cond(iterdata_t *id, vo_t *v)
+vo_iter_cond(vo_iter_t *i, vo_t *v)
 {
-	v->p = vo_foreach_cond(
-	    id->vo.p, id->iter->vo_iter, id->ftag, v->p, &id->vo_next.p);
-	return v->p != NULL;
+	return (v->p = iter_cond(i, v->p)) != NULL;
 }
 
 static void
-vo_iter_next(iterdata_t *id, vo_t *v)
+vo_iter_next(vo_iter_t *i, vo_t *v)
 {
-	v->p = id->vo_next.p;
+	v->p = iter_next(i);
 }

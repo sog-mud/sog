@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.28 2002-06-27 17:21:04 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.29 2003-04-24 12:42:07 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -87,27 +87,16 @@ struct svar_t {
 };
 typedef struct svar_t svar_t;
 
-typedef struct iter_t iter_t;
-
-struct iterdata_t {
-	iter_t *iter;
-	int block;
-	vo_t vo;
-	vo_t vo_next;
-	int ftag;
-};
-typedef struct iterdata_t iterdata_t;
-
-struct iter_t {
+struct mpc_iter_t {
 	dynafun_data_t d;			/* init data */
 	dynafun_t init;				/* init */
-	void	(*destroy)(iterdata_t *);	/* destroy */
-	bool	(*cond)(iterdata_t *, vo_t *);	/* loop condition */
-	void	(*next)(iterdata_t *, vo_t *);	/* get next */
-	vo_iter_t *vo_iter;
+	void	(*destroy)(vo_iter_t *);	/* destroy */
+	bool	(*cond)(vo_iter_t *, vo_t *);	/* loop condition */
+	void	(*next)(vo_iter_t *, vo_t *);	/* get next */
+	vo_iter_class_t *cl;
 };
 
-iter_t *mpc_iter_lookup(const char *name);
+mpc_iter_t *mpc_iter_lookup(const char *name);
 
 extern avltree_t glob_syms;		/* (sym_t) */
 extern avltree_info_t c_info_syms;

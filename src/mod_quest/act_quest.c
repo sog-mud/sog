@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.167 2003-04-23 08:13:17 fjoe Exp $
+ * $Id: act_quest.c,v 1.168 2003-04-24 12:42:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -876,20 +876,6 @@ DO_FUN(quest_cancel_cmd, ch, arg)
  * quest buy functions
  */
 
-static void *
-qtrouble_cb(void *vo, va_list ap)
-{
-	OBJ_DATA *obj = (OBJ_DATA *) vo;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int item_vnum = va_arg(ap, int);
-
-	if (obj->pObjIndex->vnum == item_vnum
-	&&  IS_OWNER(ch, obj))
-		extract_obj(obj, 0);
-	return NULL;
-}
-
 static bool
 quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 {
@@ -944,7 +930,13 @@ quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 	/* update quest trouble data */
 	if (qt && count_max) {
 		/* `quest trouble' */
-		vo_foreach(NULL, &iter_obj_world, qtrouble_cb, ch, item_vnum);
+		OBJ_DATA *obj;
+
+		foreach (obj, obj_in_world()) {
+			if (obj->pObjIndex->vnum == item_vnum
+			&&  IS_OWNER(ch, obj))
+				extract_obj(obj, 0);
+		} end_foreach(obj);
 
 		QUESTOR_TELLS_YOU(questor, ch);
 		act_puts("    This is the $j$qj{th} time that I am giving "

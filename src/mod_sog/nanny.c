@@ -1,5 +1,5 @@
 /*
- * $Id: nanny.c,v 1.12 2003-04-19 00:26:46 fjoe Exp $
+ * $Id: nanny.c,v 1.13 2003-04-24 12:42:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,7 +70,7 @@ static bool	check_reconnect(DESCRIPTOR_DATA *d, bool fConn);
 static bool	check_playing(DESCRIPTOR_DATA *d, const char *name);
 
 static bool	class_ok(CHAR_DATA *ch , class_t *cl);
-static void	print_cb(const char *s, CHAR_DATA *ch, int *pcol);
+static void	print_name(const char *s, CHAR_DATA *ch, int *pcol);
 
 static int	align_restrict(CHAR_DATA *ch);
 static int	ethos_check(CHAR_DATA *ch);
@@ -389,7 +389,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 				||  c_isempty(&r->race_pcdata->classes))
 					continue;
 
-				print_cb(r->name, ch, &col);
+				print_name(r->name, ch, &col);
 			}
 			send_to_char("\n", ch);
 			act_puts("What is your race ('help <race>' for more information)? ",
@@ -438,7 +438,7 @@ nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (!class_ok(ch, cl))
 				continue;
 
-			print_cb(cl->name, ch, &col);
+			print_name(cl->name, ch, &col);
 		}
 		send_to_char("\n", ch);
 		act_puts("What is your class ('help <class>' for more information)? ",
@@ -911,7 +911,7 @@ class_ok(CHAR_DATA *ch, class_t *cl)
 }
 
 static void
-print_cb(const char *s, CHAR_DATA *ch, int *pcol)
+print_name(const char *s, CHAR_DATA *ch, int *pcol)
 {
 	if (*pcol > 60) {
 		send_to_char("\n  ", ch);			// notrans

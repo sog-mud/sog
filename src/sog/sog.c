@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.c,v 1.9 2003-04-19 00:26:49 fjoe Exp $
+ * $Id: sog.c,v 1.10 2003-04-24 12:42:20 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -190,6 +190,7 @@ main(int argc, char **argv)
 		exit(1);
 	}
 
+	init_iterators();
 	game_loop();
 
 	close_sockets(&control_sockets);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.c,v 1.9 2001-09-13 16:22:18 fjoe Exp $
+ * $Id: update_impl.c,v 1.10 2003-04-24 12:42:17 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -60,10 +60,16 @@ uhandler_update(uhandler_t *hdlr)
 		return;
 	}
 
-	if (hdlr->iter == NULL)
-		((update_fun_t) hdlr->fun)();
-	else
-		vo_foreach(NULL, hdlr->iter, hdlr->fun);
+	if (hdlr->iter_cl == NULL)
+		((UPDATE_FUN *) hdlr->fun)();
+	else {
+		void *vo;
+
+		foreach (vo, iter_new(hdlr->iter_cl, NULL)) {
+			if (((UPDATE_FOREACH_FUN *) hdlr->fun)(vo))
+				break;
+		} end_foreach(vo);
+	}
 
 	if (!IS_NULLSTR(hdlr->notify))
 		wiznet(hdlr->notify, NULL, NULL, WIZ_TICKS, 0, 0);

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.46 2002-06-27 17:21:04 fjoe Exp $
+ * $Id: mpc.y,v 1.47 2003-04-24 12:42:06 fjoe Exp $
  */
 
 /*
@@ -255,7 +255,7 @@ code3(mpcode_t *mpc,
 	const char *string;
 	int type_tag;
 	c_fun cfun;
-	iter_t *iter;
+	mpc_iter_t *iter;
 }
 
 %token L_IDENT L_TYPE L_INT L_STRING L_ITER
@@ -615,8 +615,8 @@ foreach: L_FOREACH {
 		/* next addr, body */
 		code2(mpc, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
 	 } '(' L_IDENT ',' L_ITER '(' expr_list ')' ')' {
-		int i;
-		iterdata_t *id;
+		int k;
+		vo_iter_t *i;
 		sym_t *sym;
 		int addr;
 
@@ -635,15 +635,15 @@ foreach: L_FOREACH {
 		/*
 		 * check argument types
 		 */
-		for (i = 0; i < $6->d.nargs; i++) {
-			int got_type = argtype_get(mpc, $8, i);
-			if (got_type != $6->d.argtype[i].type_tag) {
+		for (k = 0; k < $6->d.nargs; k++) {
+			int got_type = argtype_get(mpc, $8, k);
+			if (got_type != $6->d.argtype[k].type_tag) {
 				compile_error(mpc,
 				    "%s: invalid arg[%d] type '%s' (type '%s' (%d) expected)",
-				    $6->d.name, i+1,
+				    $6->d.name, k+1,
 				    flag_string(mpc_types, got_type),
-				    flag_string(mpc_types, $6->d.argtype[i].type_tag),
-				    $6->d.argtype[i].type_tag);
+				    flag_string(mpc_types, $6->d.argtype[k].type_tag),
+				    $6->d.argtype[k].type_tag);
 				YYERROR;
 			}
 		}
@@ -660,14 +660,15 @@ foreach: L_FOREACH {
 		mpc->curr_continue_addr = DELIMITER_ADDR;
 		mpc->curr_break_addr = DELIMITER_ADDR;
 
-		id = varr_enew(&mpc->iters);
-		id->iter = $6;
-		id->ftag = 0;
-		id->block = ++mpc->curr_block;
+		i = varr_enew(&mpc->iters);
+		i->mtag = -1;
+		i->cl = $6->cl;
+		i->u.mpc.iter = $6;
+		i->u.mpc.block = ++mpc->curr_block;
 
 		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 		code(mpc, c_foreach_next);
-		code3(mpc, (void *) INVALID_ADDR, id, sym->name);
+		code3(mpc, (void *) INVALID_ADDR, i, sym->name);
 
 		/* body addr */
 		CODE(addr)[1] = c_size(&mpc->code);
@@ -1268,7 +1269,7 @@ mpcode_dump(mpcode_t *mpc)
 		} else if (p == c_foreach_next) {
 			fprintf(stderr, " (next: 0x%08x, iter: %s, var: %s)",
 				CODE(ip)[1],
-				((iterdata_t *) CODE(ip)[2])->iter->d.name,
+				((vo_iter_t *) CODE(ip)[2])->u.mpc.iter->d.name,
 				(const char *) CODE(ip)[3]);
 		} else if (p == c_declare || p == c_declare_assign) {
 			fprintf(stderr, " (%d %s, block: %d)",
@@ -1311,7 +1312,7 @@ sym_lookup(mpcode_t *mpc, const char *name)
 void
 cleanup_syms(mpcode_t *mpc, int block)
 {
-	iterdata_t *id;
+	vo_iter_t *i;
 
 	for (; ;) {
 		sym_t *sym;
@@ -1336,10 +1337,10 @@ cleanup_syms(mpcode_t *mpc, int block)
 		c_delete(&mpc->syms, sym->name);
 	}
 
-	C_FOREACH(id, &mpc->iters) {
-		if (id->block >= block && id->ftag) {
-			id->iter->destroy(id);
-			id->ftag = 0;
+	C_FOREACH(i, &mpc->iters) {
+		if (i->u.mpc.block >= block && i->mtag > 0) {
+			i->u.mpc.iter->destroy(i);
+			i->mtag = -1;
 		}
 	}
 }

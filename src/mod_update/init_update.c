@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.17 2001-11-30 21:18:01 fjoe Exp $
+ * $Id: init_update.c,v 1.18 2003-04-24 12:42:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ uhandler_init(uhandler_t *hdlr)
 	hdlr->fun_name = str_empty;
 	hdlr->notify = str_empty;
 	hdlr->ticks = 0;
-	hdlr->iter = NULL;
+	hdlr->iter_cl = NULL;
 	hdlr->mod = MOD_UPDATE;
 	hdlr->cnt = 0;
 	hdlr->fun = NULL;
@@ -139,9 +139,9 @@ DBLOAD_FUN(load_uhandler)
 		case 'I':
 			CHECK_VAR(hdlr, "Name");
 
-			KEY("Iterator", hdlr->iter,
-			    (vo_iter_t *) (uintptr_t) fread_fword(
-				iterator_names, fp));
+			KEY("IteratorClass", hdlr->iter_cl,
+			    (vo_iter_class_t *) (uintptr_t) fread_fword(
+				iterator_classes, fp));
 			break;
 
 		case 'M':

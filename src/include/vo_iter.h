@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.h,v 1.3 2002-11-28 20:08:02 fjoe Exp $
+ * $Id: vo_iter.h,v 1.4 2003-04-24 12:41:49 fjoe Exp $
  */
 
 #ifndef _VO_ITER_H_
@@ -33,31 +33,68 @@
  * vo iterators
  */
 
-typedef void *(*vo_foreach_cb_t)(void *, va_list);
-
-struct vo_iter_t {
+struct vo_iter_class_t {
 	void *(*first)(void *);
 	void *(*next)(void *);
 	int mem_type;
 };
 
+struct vo_iter_t {
+	int mtag;		/* memory tag		*/
+	vo_iter_class_t *cl;	/* iterator class	*/
+	vo_t vo_cont;		/* container		*/
+	vo_t vo_next;		/* next value		*/
+
+	union {
+		vo_iter_t *next;
+		struct {
+			mpc_iter_t *iter;
+			int block;
+		} mpc;
+	} u;
+};
+
+void init_iterators(void);
+
+vo_iter_t *iter_new(vo_iter_class_t *cl, void *cont);
+void	iter_free(vo_iter_t *iter);
+
+void *	iter_init(vo_iter_t *iter);
+#define iter_first(i)	((i)->cl->first((i)->vo_cont.p))
+void *	iter_cond(vo_iter_t *iter, void *vo);
+#define iter_next(i)	((i)->vo_next.p)
+void	iter_destroy(vo_iter_t *iter);
+
 /*
- * vo_foreach iterators
+ * vo_foreach iterator classes
  */
-extern vo_iter_t iter_char_world;
-extern vo_iter_t iter_npc_world;
-extern vo_iter_t iter_char_room;
-extern vo_iter_t iter_obj_world;
-extern vo_iter_t iter_obj_room;
-extern vo_iter_t iter_obj_char;
-extern vo_iter_t iter_obj_obj;
-extern vo_iter_t iter_descriptor;
+extern vo_iter_class_t iter_char_world;
+extern vo_iter_class_t iter_npc_world;
+extern vo_iter_class_t iter_char_room;
+extern vo_iter_class_t iter_obj_world;
+extern vo_iter_class_t iter_obj_room;
+extern vo_iter_class_t iter_obj_char;
+extern vo_iter_class_t iter_obj_obj;
+extern vo_iter_class_t iter_descriptor;
 
-void *	vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...);
+#define char_in_world()		iter_new(&iter_char_world, NULL)
+#define npc_in_world()		iter_new(&iter_npc_world, NULL)
+#define char_in_room(room)	iter_new(&iter_char_room, (room))
+#define obj_in_world()		iter_new(&iter_obj_world, NULL)
+#define obj_in_room(room)	iter_new(&iter_obj_room, (room))
+#define obj_of_char(ch)		iter_new(&iter_obj_char, (ch))
+#define obj_in_obj(obj)		iter_new(&iter_obj_obj, (obj))
+#define descriptor_in_world()	iter_new(&iter_descriptor, NULL)
 
-void *	vo_foreach_init(void *cont, vo_iter_t *iter, int *pftag);
-void	vo_foreach_destroy(void *cont, vo_iter_t *iter, int *pftag, void *vo);
-void *	vo_foreach_cond(void *cont, vo_iter_t *iter, int ftag,
-			void *vo, void **pvo_next);
+#define foreach(elem, iter)						\
+	{								\
+		vo_iter_t *elem##_i = iter;				\
+		for (elem = iter_init(elem##_i);			\
+		     (elem = iter_cond(elem##_i, elem)) != NULL;	\
+		     elem = iter_next(elem##_i))
+#define foreach_done(elem)	iter_free(elem##_i)
+#define end_foreach(elem)						\
+		foreach_done(elem);					\
+	}
 
 #endif

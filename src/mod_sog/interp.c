@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.199 2003-04-17 17:20:44 fjoe Exp $
+ * $Id: interp.c,v 1.200 2003-04-24 12:42:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -72,36 +72,6 @@ static void interpret_social(social_t *soc,
  */
 FILE				*imm_log;
 #endif
-
-static
-FOREACH_CB_FUN(pull_mob_cmd_cb, p, ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *argument = va_arg(ap, char *);
-
-	if (pull_mob_trigger(TRIG_MOB_CMD, vch, ch, argument) >= 0
-	||  IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(pull_obj_cmd_cb, p, ap)
-{
-	OBJ_DATA *obj = (OBJ_DATA *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	char *argument = va_arg(ap, char *);
-
-	if (pull_obj_trigger(TRIG_OBJ_CMD, obj, ch, argument) >= 0
-	||  IS_EXTRACTED(ch))
-		return p;
-
-	return NULL;
-}
 
 /*
  * The main entry point for executing commands.
@@ -348,27 +318,44 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 
 	if (!found) {
 		/*
-		 * pull mob 'cmd' triggers
+		 * pull 'cmd' triggers
 		 */
 		if (!IS_NPC(ch)
 		&&  (!IS_AFFECTED(ch, AFF_CHARM) || is_order)) {
+			OBJ_DATA *obj;
+
 			if (pull_room_trigger(TRIG_ROOM_CMD,
 				ch->in_room, ch,
 				CAST(void *, save_argument)) >= 0
 			||  IS_EXTRACTED(ch))
 				return;
 
-			if (vo_foreach(ch->in_room, &iter_char_room,
-				       pull_mob_cmd_cb, ch, save_argument))
-				return;
+			foreach (vch, char_in_room(ch->in_room)) {
+				if (pull_mob_trigger(TRIG_MOB_CMD, vch, ch,
+					CAST(void *, save_argument)) >= 0
+				||  IS_EXTRACTED(ch)) {
+					foreach_done(vch);
+					return;
+				}
+			} end_foreach(vch);
 
-			if (vo_foreach(ch, &iter_obj_char,
-				       pull_obj_cmd_cb, ch, save_argument))
-				return;
+			foreach (obj, obj_of_char(ch)) {
+				if (pull_obj_trigger(TRIG_OBJ_CMD, obj, ch,
+					 CAST(void *, save_argument)) >= 0
+				||  IS_EXTRACTED(ch)) {
+					foreach_done(obj);
+					return;
+				}
+			} end_foreach(obj);
 
-			if (vo_foreach(ch->in_room, &iter_obj_room,
-				       pull_obj_cmd_cb, ch, save_argument))
-				return;
+			foreach (obj, obj_in_room(ch->in_room)) {
+				if (pull_obj_trigger(TRIG_OBJ_CMD, obj, ch,
+					 CAST(void *, save_argument)) >= 0
+				||  IS_EXTRACTED(ch)) {
+					foreach_done(obj);
+					return;
+				}
+			} end_foreach(obj);
 		}
 
 		act_char("Huh?", ch);
