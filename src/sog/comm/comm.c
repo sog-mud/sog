@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.57 1998-07-03 15:18:40 fjoe Exp $
+ * $Id: comm.c,v 1.58 1998-07-04 02:34:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -899,6 +899,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			goto wse;
 		if (*p == IAC
 		&&  (d->connected != CON_PLAYING ||
+		     d->character == NULL ||
 		     !IS_SET(d->character->comm, COMM_NOTELNET))) {
 			switch (p[1]) {
 			case DONT:
@@ -1375,6 +1376,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 	int size;
 	int i;
 	bool noiac = (d->connected == CON_PLAYING &&
+		      d->character != NULL &&
 		      IS_SET(d->character->comm, COMM_NOIAC));
 	
 	/*
