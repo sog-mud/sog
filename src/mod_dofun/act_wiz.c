@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.23 1998-06-18 05:19:12 fjoe Exp $
+ * $Id: act_wiz.c,v 1.24 1998-06-20 23:31:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -5245,52 +5245,53 @@ void do_find(CHAR_DATA *ch, char *argument)
 void do_reboot(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
 
-	argument = one_argument(argument,arg);    
+	argument = one_argument(argument, arg);    
 
-	if (arg[0] == '\0') 
-	{
-	  send_to_char("Usage: reboot now\n\r",ch);
-	  send_to_char("Usage: reboot <ticks to reboot>\n\r",ch);
-	  send_to_char("Usage: reboot cancel\n\r",ch);
-	  send_to_char("Usage: reboot status\n\r",ch);
-	  return;
+	if (arg[0] == '\0') {
+		send_to_char("Usage: reboot now\n\r", ch);
+		send_to_char("Usage: reboot <ticks to reboot>\n\r", ch);
+		send_to_char("Usage: reboot cancel\n\r", ch);
+		send_to_char("Usage: reboot status\n\r", ch);
+		return;
 	}
 
-	if (is_name(arg,"cancel")) 
-	 {
-	  reboot_counter = -1;
-	  send_to_char("Reboot canceled.\n\r",ch);
-	  return;
+	if (is_name(arg,"cancel")) {
+		reboot_counter = -1;
+		send_to_char("Reboot canceled.\n\r", ch);
+		return;
 	}
 
-	if (is_name(arg, "now")) 
-	 {
-	  reboot_anatolia();
-	  return;
+	if (is_name(arg, "now")) {
+		reboot_anatolia();
+		return;
 	}
 
-	if (is_name(arg, "status")) 
-	{
-	  if (reboot_counter == -1) 
-		sprintf(buf, "Automatic rebooting is inactive.\n\r");
-	  else
-		sprintf(buf,"Reboot in %i minutes.\n\r",reboot_counter);
-	  send_to_char(buf,ch);
-	  return;
+	if (is_name(arg, "status")) {
+		if (reboot_counter == -1) 
+			char_printf(ch, "Automatic rebooting is inactive.\n\r");
+		else
+			char_printf(ch, "Reboot in %i minutes.\n\r",
+				    reboot_counter);
+		return;
 	}
 
-	if (is_number(arg))
-	{
-	 reboot_counter = atoi(arg);
-	 rebooter = 1;
-	 sprintf(buf,"Muddy will reboot in %i ticks.\n\r",reboot_counter);
-	 send_to_char(buf,ch);
-	 return;
+	if (is_number(arg)) {
+		reboot_counter = atoi(arg);
+		rebooter = 1;
+		char_printf(ch, "Muddy will reboot in %i ticks.\n\r",
+			    reboot_counter);
+		return;
 	}
 
-	do_reboot(ch,"");   
+	if (is_name(arg, "auto") && get_trust(ch) == MAX_LEVEL) {
+		rebooter = 0;
+		char_printf(ch, "Reboot will now be shown as automatic.\n\r");
+		do_reboot(ch, "status");
+		return;
+	}
+
+	do_reboot(ch, "");   
 }
 
 
