@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.37 1998-10-14 11:05:25 fjoe Exp $
+ * $Id: olc_save.c,v 1.38 1998-10-16 13:25:27 fjoe Exp $
  */
 
 /**************************************************************************
@@ -904,7 +904,7 @@ void save_area(AREA_DATA *pArea)
 
 	fprintf(fp, "#AREADATA\n");
 	fprintf(fp, "Name %s~\n",	pArea->name);
-	if (!IS_NULLSTR(pArea->builders))
+	if (!IS_NULLSTR(pArea->builders) && str_cmp(pArea->builders, "None"))
 		fprintf(fp, "Builders %s~\n",	fix_string(pArea->builders));
 	fprintf(fp, "VNUMs %d %d\n",	pArea->min_vnum, pArea->max_vnum);
 	if (!IS_NULLSTR(pArea->credits))

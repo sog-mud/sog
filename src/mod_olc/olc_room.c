@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.16 1998-10-09 13:43:15 fjoe Exp $
+ * $Id: olc_room.c,v 1.17 1998-10-16 13:25:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include "olc.h"
 #include "db/db.h"
 
-#define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
+#define EDIT_ROOM(ch, room)	(room = ch->in_room)
 
 /*
  * Room Editor Prototypes
@@ -132,17 +132,17 @@ OLC_FUN(roomed_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("REdit: Vnum is not assigned an area.\n\r", ch);
+		char_puts("RoomEd: Vnum is not assigned an area.\n\r", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-        	char_puts("REdit: Insufficient security.\n\r", ch);
+        	char_puts("RoomEd: Insufficient security.\n\r", ch);
 		return FALSE;
 	}
 
 	if (get_room_index(value)) {
-		char_puts("REdit: Vnum already exists.\n\r", ch);
+		char_puts("RoomEd: Vnum already exists.\n\r", ch);
 		return FALSE;
 	}
 
@@ -160,7 +160,7 @@ OLC_FUN(roomed_create)
 	ch->desc->pEdit		= (void *)pRoom;
 	ch->desc->editor	= ED_ROOM;
 	touch_area(pArea);
-	char_puts("REdit: Room created.\n\r", ch);
+	char_puts("RoomEd: Room created.\n\r", ch);
 	return FALSE;
 }
 
@@ -174,13 +174,13 @@ OLC_FUN(roomed_edit)
 	if (arg[0] == '\0')
 		pRoom = ch->in_room;
 	else if (!is_number(arg) || (pRoom = get_room_index(atoi(arg))) == NULL) {
-		char_puts("REdit: Vnum does not exist.\n\r", ch);
+		char_puts("RoomEd: Vnum does not exist.\n\r", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pRoom->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("REdit: Insufficient security.\n\r", ch);
+		char_puts("RoomEd: Insufficient security.\n\r", ch);
 	       	return FALSE;
 	}
 
@@ -422,18 +422,18 @@ OLC_FUN(roomed_mreset)
 	argument = one_argument(argument, arg2);
 
 	if (arg[0] == '\0' || !is_number(arg)) {
-		char_puts ("Syntax:  mreset <vnum> <max #x> <mix #x>\n\r", ch);
+		char_puts ("Syntax:  mreset <vnum> <max #x> <min #x>\n\r", ch);
 		return FALSE;
 	}
 
 	if (!(pMobIndex = get_mob_index(atoi(arg)))) {
-		char_puts("REdit: No mobile has that vnum.\n\r", ch);
+		char_puts("RoomEd: No mobile has that vnum.\n\r", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pMobIndex->vnum);
 	if (pArea != pRoom->area) {
-		char_puts("REdit: No such mobile in this area.\n\r", ch);
+		char_puts("RoomEd: No such mobile in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -610,7 +610,7 @@ OLC_FUN(roomed_mshow)
 
 	value = atoi(argument);
 	if (!(pMob = get_mob_index(value))) {
-		char_puts("REdit: vnum not found.\n\r", ch);
+		char_puts("RoomEd: vnum not found.\n\r", ch);
 		return FALSE;
 	}
 	show_mob(ch, pMob);
@@ -629,7 +629,7 @@ OLC_FUN(roomed_oshow)
 
 	value = atoi(argument);
 	if (!(pObj = get_obj_index(value))) {
-		char_puts("REdit:  That object does not exist.\n\r", ch);
+		char_puts("RoomEd: That object does not exist.\n\r", ch);
 		return FALSE;
 	}
 	show_obj(ch, pObj);
@@ -730,13 +730,13 @@ OLC_FUN(roomed_oreset)
 	}
 
 	if (!(pObjIndex = get_obj_index(atoi(arg1)))) {
-		char_puts("REdit: No object has that vnum.\n\r", ch);
+		char_puts("RoomEd: No object has that vnum.\n\r", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pObjIndex->vnum);
 	if (pArea != pRoom->area) {
-		char_puts("REdit: No such object in this area.\n\r", ch);
+		char_puts("RoomEd: No such object in this area.\n\r", ch);
 		return FALSE;
 	}
 
@@ -799,7 +799,7 @@ OLC_FUN(roomed_oreset)
 		 */
 		if ((wear_loc = flag_value(wear_loc_flags, argument)) < 0)
 		{
-			char_puts("REdit: Invalid wear_loc.  '? wear-loc'\n\r", ch);
+			char_puts("RoomEd: Invalid wear_loc.  '? wear-loc'\n\r", ch);
 			return FALSE;
 		}
 
@@ -821,7 +821,7 @@ OLC_FUN(roomed_oreset)
 		 */
 		if (get_eq_char(to_mob, wear_loc))
 		{
-			char_puts("REdit:  Object already equipped.\n\r", ch);
+			char_puts("RoomEd: Object already equipped.\n\r", ch);
 			return FALSE;
 		}
 
@@ -879,7 +879,7 @@ OLC_FUN(roomed_oreset)
 	}
 	else	/* Display Syntax */
 	{
-		char_puts("REdit:  That mobile isn't here.\n\r", ch);
+		char_puts("RoomEd: That mobile isn't here.\n\r", ch);
 		return FALSE;
 	}
 
@@ -927,7 +927,7 @@ OLC_FUN(roomed_reset)
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
 	reset_room(pRoom);
-	char_puts("REdit: Room reset.\n\r", ch);
+	char_puts("RoomEd: Room reset.\n\r", ch);
 	return FALSE;
 }
 
@@ -963,7 +963,11 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		 * This room.
 		 */
 		TOGGLE_BIT(pRoom->exit[door]->rs_flags,  value);
-		/* Don't toggle exit_info because it can be changed by players. */
+
+		/*
+		 * Don't toggle exit_info because it can be
+		 * changed by players.
+		 */
 		pRoom->exit[door]->exit_info = pRoom->exit[door]->rs_flags;
 
 		/*
@@ -1009,7 +1013,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		int rev;                                     /* ROM OLC */
 		
 		if (!pRoom->exit[door]) {
-			char_puts("REdit:  Cannot delete a null exit.\n\r", ch);
+			char_puts("RoomEd: Cannot delete a null exit.\n\r", ch);
 			return FALSE;
 		}
 
@@ -1036,6 +1040,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_cmp(command, "link")) {
 		EXIT_DATA *pExit;
+		ROOM_INDEX_DATA *pToRoom;
 
 		if (arg[0] == '\0' || !is_number(arg)) {
 			do_help(ch, "'OLC EXITS'");
@@ -1044,52 +1049,41 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		value = atoi(arg);
 
-		if (!get_room_index(value))
-		{
-			char_puts("REdit:  Cannot link to non-existant room.\n\r", ch);
+		if ((pToRoom = get_room_index(value)) == NULL) {
+			char_puts("RoomEd: Cannot link to non-existant room.\n\r", ch);
 			return FALSE;
 		}
 
-		if (!IS_BUILDER(ch, get_room_index(value)->area))
-		{
-			char_puts("REdit:  Cannot link to that area.\n\r", ch);
+		if (!IS_BUILDER(ch, pToRoom->area)) {
+			char_puts("RoomEd: Cannot link to that area.\n\r", ch);
 			return FALSE;
 		}
 
-		if (get_room_index(value)->exit[rev_dir[door]])
-		{
-			char_puts("REdit:  Remote side's exit already exists.\n\r", ch);
+		if (pToRoom->exit[rev_dir[door]]) {
+			char_puts("RoomEd: Remote side's exit already exists.\n\r", ch);
 			return FALSE;
 		}
 
 		if (!pRoom->exit[door])
-		{
 			pRoom->exit[door] = new_exit();
-		}
 
-		pRoom->exit[door]->u1.to_room = get_room_index(value);   /* ROM OLC */
+		pRoom->exit[door]->u1.to_room = pToRoom;
 		pRoom->exit[door]->orig_door = door;
 		
-/*	pRoom->exit[door]->vnum = value;                Can't set vnum in ROM */
-
-		pRoom                   = get_room_index(value);
-		door                    = rev_dir[door];
-		pExit                   = new_exit();
-		pExit->u1.to_room       = ch->in_room;
-/*	pExit->vnum             = ch->in_room->vnum;    Can't set vnum in ROM */
+		door			= rev_dir[door];
+		pExit			= new_exit();
+		pExit->u1.to_room	= pRoom;
 		pExit->orig_door	= door;
-		pRoom->exit[door]       = pExit;
+		pToRoom->exit[door]	= pExit;
 
 		char_puts("Two-way link established.\n\r", ch);
 		return TRUE;
 	}
 		 
-	if (!str_cmp(command, "dig"))
-	{
+	if (!str_cmp(command, "dig")) {
 		char buf[MAX_STRING_LENGTH];
 		
-		if (arg[0] == '\0' || !is_number(arg))
-		{
+		if (arg[0] == '\0' || !is_number(arg)) {
 			char_printf(ch, "Syntax: %s dig <vnum>\n\r",
 				    cmd->name);
 			return FALSE;
@@ -1101,67 +1095,53 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
-	if (!str_cmp(command, "room"))
-	{
-		if (arg[0] == '\0' || !is_number(arg))
-		{
+	if (!str_cmp(command, "room")) {
+		if (arg[0] == '\0' || !is_number(arg)) {
 			char_printf(ch, "Syntax: %s room [vnum]\n\r",
 				    cmd->name);
 			return FALSE;
 		}
 
 		if (!pRoom->exit[door])
-		{
 			pRoom->exit[door] = new_exit();
-		}
 
 		value = atoi(arg);
 
-		if (!get_room_index(value))
-		{
-			char_puts("REdit:  Cannot link to non-existant room.\n\r", ch);
+		if (!get_room_index(value)) {
+			char_puts("RoomEd: Cannot link to non-existant room.\n\r", ch);
 			return FALSE;
 		}
 
-		pRoom->exit[door]->u1.to_room = get_room_index(value);    /* ROM OLC */
+		pRoom->exit[door]->u1.to_room = get_room_index(value);
 		pRoom->exit[door]->orig_door = door;
-/*	pRoom->exit[door]->vnum = value;                 Can't set vnum in ROM */
 
 		char_puts("One-way link established.\n\r", ch);
 		return TRUE;
 	}
 
-	if (!str_cmp(command, "key"))
-	{
-		if (arg[0] == '\0' || !is_number(arg))
-		{
+	if (!str_cmp(command, "key")) {
+		OBJ_INDEX_DATA *key;
+
+		if (arg[0] == '\0' || !is_number(arg)) {
 			char_printf(ch, "Syntax: %s key [vnum]\n\r",
 				    cmd->name);
 			return FALSE;
 		}
 
-		if (!pRoom->exit[door])
-		   {
-		   	char_puts("Salida no existe.\n\r",ch);
-		   	return FALSE;
-		   }
-
-/*	if (!pRoom->exit[door])
-		{
-			pRoom->exit[door] = new_exit();
-		} */
-
-		value = atoi(arg);
-
-		if (!get_obj_index(value))
-		{
-			char_puts("REdit:  Item doesn't exist.\n\r", ch);
+		if (!pRoom->exit[door]) {
+			char_puts("RoomEd: Exit does not exist.\n\r",ch);
 			return FALSE;
 		}
 
-		if (get_obj_index(atoi(argument))->item_type != ITEM_KEY)
-		{
-			char_puts("REdit:  Key doesn't exist.\n\r", ch);
+		value = atoi(arg);
+
+		if ((key = get_obj_index(value)) == NULL) {
+			char_puts("RoomEd: Obj doesn't exist.\n\r", ch);
+			return FALSE;
+		}
+
+		if (key->item_type != ITEM_KEY) {
+			char_puts("RoomEd: That obj is not key.\n\r", ch);
 			return FALSE;
 		}
 
@@ -1171,32 +1151,24 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
-	if (!str_cmp(command, "name"))
-	{
-		if (arg[0] == '\0')
-		{
+	if (!str_cmp(command, "name")) {
+		if (arg[0] == '\0') {
 			char_printf(ch, "Syntax: %s name [string]\n\r"
 					"        %s name none\n\r",
 				    cmd->name, cmd->name);
 			return FALSE;
 		}
 
-		if (!pRoom->exit[door])
-		   {
-		   	char_puts("Salida no existe.\n\r",ch);
-		   	return FALSE;
-		   }
-
-/*	if (!pRoom->exit[door])
-		{
-			pRoom->exit[door] = new_exit();
-		} */
+		if (!pRoom->exit[door]) {
+			char_puts("RoomEd: Exit does not exist.\n\r",ch);
+			return FALSE;
+		}
 
 		free_string(pRoom->exit[door]->keyword);
-		if (str_cmp(arg,"none"))
-			pRoom->exit[door]->keyword = str_dup(arg);
-		else
+		if (!str_cmp(arg, "none"))
 			pRoom->exit[door]->keyword = str_dup(str_empty);
+		else
+			pRoom->exit[door]->keyword = str_dup(arg);
 
 		char_puts("Exit name set.\n\r", ch);
 		return TRUE;
@@ -1204,14 +1176,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_prefix(command, "description")) {
 		if (!pRoom->exit[door]) {
-		   	char_puts("Salida no existe.\n\r",ch);
-		   	return FALSE;
+			char_puts("RoomEd: Exit does not exist.\n\r",ch);
+			return FALSE;
 		}
-
-/*	    if (!pRoom->exit[door])
-			{
-			    pRoom->exit[door] = new_exit();
-			} */
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
 			char_printf(ch, "Syntax: %s desc lang\n\r",
