@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.80 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: merc.h,v 1.81 1998-09-20 17:01:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "comm/comm.h"
 #include "db/gsn.h"
 #include "db/spellfn.h"
+#include "db/msg.h"
 
 /* basic types */
 #include "namedp.h"

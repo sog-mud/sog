@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.50 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: spellfun.c,v 1.51 1998-09-20 17:01:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -248,7 +248,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		{
 		    if ((victim = get_char_room(ch, target_name)) == NULL)
 		    {
-			send_to_char("They aren't here.\n\r", ch);
+			char_puts("They aren't here.\n\r", ch);
 			return;
 		    }
 		}
@@ -275,7 +275,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_SELF:
 		if (arg2[0] != '\0' && !is_name(target_name, ch->name))
 		{
-		    send_to_char("You cannot cast this spell on another.\n\r", ch);
+		    char_puts("You cannot cast this spell on another.\n\r", ch);
 		    return;
 		}
 
@@ -295,13 +295,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	case TAR_OBJ_INV:
 		if (arg2[0] == '\0')
 		{
-		    send_to_char("What should the spell be cast upon?\n\r", ch);
+		    char_puts("What should the spell be cast upon?\n\r", ch);
 		    return;
 		}
 
 		if ((obj = get_obj_carry(ch, target_name)) == NULL)
 		{
-		    send_to_char("You are not carrying that.\n\r", ch);
+		    char_puts("You are not carrying that.\n\r", ch);
 		    return;
 		}
 
@@ -321,7 +321,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		{
 		    if ((victim = ch->fighting) == NULL)
 		    {
-			send_to_char("Cast the spell on whom or what?\n\r",ch);
+			char_puts("Cast the spell on whom or what?\n\r",ch);
 			return;
 		    }
 
@@ -335,13 +335,13 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (target == TARGET_CHAR) /* check the sanity of the attack */
 		{
 		    if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
-			send_to_char("You can't do that on your own follower.\n\r",
+			char_puts("You can't do that on your own follower.\n\r",
 			    ch);
 			return;
 		    }
 
 		    if (is_safe(ch, victim)) {
-			send_to_char("Your spell didn't work.\n\r",ch);
+			char_puts("Your spell didn't work.\n\r",ch);
 			return;
 		    }
 
@@ -354,7 +354,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 		else
 		{
-		    send_to_char("You don't see that here.\n\r",ch);
+		    char_puts("You don't see that here.\n\r",ch);
 		    return;
 		}
 		break;
@@ -377,14 +377,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 		else
 		{
-		    send_to_char("You don't see that here.\n\r",ch);
+		    char_puts("You don't see that here.\n\r",ch);
 		    return;
 		}
 		break;
 	}
 
 	if (!IS_NPC(ch) && ch->mana < mana) {
-		send_to_char("You don't have enough mana.\n\r", ch);
+		char_puts("You don't have enough mana.\n\r", ch);
 		return;
 	}
 
@@ -394,7 +394,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, spell->beats);
 
 	if (number_percent() > chance) {
-		send_to_char("You lost your concentration.\n\r", ch);
+		char_puts("You lost your concentration.\n\r", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = 2;
@@ -485,11 +485,11 @@ void obj_cast_spell(int sn, int level,
 		    victim = ch->fighting;
 		if (victim == NULL)
 		{
-		    send_to_char("You can't do that.\n\r", ch);
+		    char_puts("You can't do that.\n\r", ch);
 		    return;
 		}
 		if (is_safe(ch, victim)) {
-			send_to_char("Something isn't right...\n\r",ch);
+			char_puts("Something isn't right...\n\r",ch);
 			return;
 		}
 		vo = (void *) victim;
@@ -536,7 +536,7 @@ void obj_cast_spell(int sn, int level,
 	case TAR_OBJ_INV:
 		if (obj == NULL)
 		{
-		    send_to_char("You can't do that.\n\r", ch);
+		    char_puts("You can't do that.\n\r", ch);
 		    return;
 		}
 		vo = (void *) obj;
@@ -557,14 +557,14 @@ void obj_cast_spell(int sn, int level,
 			victim = ch->fighting;
 		    else
 		    {
-			send_to_char("You can't do that.\n\r",ch);
+			char_puts("You can't do that.\n\r",ch);
 			return;
 		    }
 
 		    if (victim != NULL)
 		    {
 			if (is_safe(ch, victim)) {
-			    send_to_char("Somehting isn't right...\n\r",ch);
+			    char_puts("Somehting isn't right...\n\r",ch);
 			    return;
 			}
 
@@ -652,7 +652,7 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (is_affected(victim, sn))
 	{
 		if (victim == ch)
-		  send_to_char("You are already armored.\n\r",ch);
+		  char_puts("You are already armored.\n\r",ch);
 		else
 		  act("$N is already armored.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -665,7 +665,7 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_AC;
 	af.bitvector = 0;
 	affect_to_char(victim, &af);
-	send_to_char("You feel someone protecting you.\n\r", victim);
+	char_puts("You feel someone protecting you.\n\r", victim);
 	if (ch != victim)
 		act("$N is protected by your magic.",ch,NULL,victim,TO_CHAR);
 	return;
@@ -730,7 +730,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (victim->position == POS_FIGHTING || is_affected(victim, sn))
 	{
 		if (victim == ch)
-		  send_to_char("You are already blessed.\n\r",ch);
+		  char_puts("You are already blessed.\n\r",ch);
 		else
 		  act("$N already has divine favor.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -748,7 +748,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = 0 - level / 8;
 	affect_to_char(victim, &af);
-	send_to_char("You feel righteous.\n\r", victim);
+	char_puts("You feel righteous.\n\r", victim);
 	if (ch != victim)
 		act("You grant $N the favor of your god.",ch,NULL,victim,TO_CHAR);
 	return;
@@ -763,7 +763,7 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (IS_AFFECTED(victim, AFF_BLIND) || 
 	    saves_spell(level,victim,DAM_OTHER))  {
-	  send_to_char("You failed.\n\r", ch);
+	  char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -775,7 +775,7 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.duration  = 3+level / 15;
 	af.bitvector = AFF_BLIND;
 	affect_to_char(victim, &af);
-	send_to_char("You are blinded!\n\r", victim);
+	char_puts("You are blinded!\n\r", victim);
 	act("$n appears to be blinded.",victim,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -801,18 +801,18 @@ void spell_call_lightning(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 	int dam;
 
 	if (!IS_OUTSIDE(ch)) {
-		send_to_char("You must be out of doors.\n\r", ch);
+		char_puts("You must be out of doors.\n\r", ch);
 		return;
 	}
 
 	if (weather_info.sky < SKY_RAINING) {
-		send_to_char("You need bad weather.\n\r", ch);
+		char_puts("You need bad weather.\n\r", ch);
 		return;
 	}
 
 	dam = dice(level, 9);
 
-	send_to_char("Gods' lightning strikes your foes!\n\r", ch);
+	char_puts("Gods' lightning strikes your foes!\n\r", ch);
 	act("$n calls lightning to strike $s foes!", ch, NULL, NULL, TO_ROOM);
 
 	for (vch = char_list; vch != NULL; vch = vch_next) {
@@ -834,7 +834,7 @@ void spell_call_lightning(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 		if (vch->in_room->area == ch->in_room->area
 		&&  IS_OUTSIDE(vch)
 		&&  IS_AWAKE(vch))
-		    send_to_char("Lightning flashes in the sky.\n\r", vch);
+		    char_puts("Lightning flashes in the sky.\n\r", vch);
 	}
 }
 
@@ -880,7 +880,7 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    ||  is_affected(vch, gsn_frenzy))
 		      return;
 
-		    send_to_char("A wave of calm passes over you.\n\r",vch);
+		    char_puts("A wave of calm passes over you.\n\r",vch);
 
 		    if (vch->fighting || vch->position == POS_FIGHTING)
 		      stop_fighting(vch,FALSE);
@@ -915,7 +915,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  (!IS_NPC(ch) && IS_NPC(victim) &&
 		 !(IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim))
 	||  (IS_NPC(ch) && !IS_NPC(victim))) {
-		send_to_char("You failed, try dispel magic.\n\r",ch);
+		char_puts("You failed, try dispel magic.\n\r",ch);
 		return;
 	}
 
@@ -1113,7 +1113,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (found)
 	    char_nputs(MSG_OK, ch);
 	else
-	    send_to_char("Spell failed.\n\r",ch);
+	    char_puts("Spell failed.\n\r",ch);
 }
 
 void spell_cause_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
@@ -1208,7 +1208,7 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 		last_vict = ch;
 		act("The bolt arcs to $n...whoops!", ch, NULL, NULL, TO_ROOM);
-		send_to_char("You are struck by your own lightning!\n\r", ch);
+		char_puts("You are struck by your own lightning!\n\r", ch);
 		dam = dice(level,6);
 		if (saves_spell(level, ch, DAM_LIGHTNING))
 			dam /= 3;
@@ -1223,7 +1223,7 @@ void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (is_affected_room(ch->in_room, sn))
 	{
-		send_to_char("This room has already been healed by light.\n\r",ch);
+		char_puts("This room has already been healed by light.\n\r",ch);
 		return;
 	}
 
@@ -1244,7 +1244,7 @@ void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af2.location  = APPLY_NONE;
 	af2.bitvector = 0;
 	affect_to_char(ch, &af2);
-	send_to_char("The room starts to be filled with healing light.\n\r", ch);
+	char_puts("The room starts to be filled with healing light.\n\r", ch);
 	act("The room starts to be filled with $n's healing light.",ch,NULL,NULL,TO_ROOM);
 }
 
@@ -1258,7 +1258,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		return;
 
 	if (victim == ch) {
-		send_to_char("You like yourself even better!\n\r", ch);
+		char_puts("You like yourself even better!\n\r", ch);
 		return;
 	}
 
@@ -1360,7 +1360,7 @@ void spell_continual_light(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 
 		if (light == NULL)
 		{
-		    send_to_char("You don't see that here.\n\r",ch);
+		    char_puts("You don't see that here.\n\r",ch);
 		    return;
 		}
 
@@ -1391,7 +1391,7 @@ void spell_control_weather(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	else if (!str_cmp(target_name, "worse"))
 		weather_info.change -= dice(level / 3, 4);
 	else  {
-		send_to_char ("Do you want it to get better or worse?\n\r", ch);
+		char_puts ("Do you want it to get better or worse?\n\r", ch);
 		return;
 	}
 
@@ -1450,12 +1450,12 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	int water;
 
 	if (obj->item_type != ITEM_DRINK_CON) {
-		send_to_char("It is unable to hold water.\n\r", ch);
+		char_puts("It is unable to hold water.\n\r", ch);
 		return;
 	}
 
 	if (obj->value[2] != LIQ_WATER && obj->value[1] != 0) {
-		send_to_char("It contains some other liquid.\n\r", ch);
+		char_puts("It contains some other liquid.\n\r", ch);
 		return;
 	}
 
@@ -1485,7 +1485,7 @@ void spell_cure_blindness(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	if (!is_affected(victim, gsn_blindness))
 	{
 		if (victim == ch)
-		  send_to_char("You aren't blind.\n\r",ch);
+		  char_puts("You aren't blind.\n\r",ch);
 		else
 		  act("$N doesn't appear to be blinded.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1493,11 +1493,11 @@ void spell_cure_blindness(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 
 	if (check_dispel(level,victim,gsn_blindness))
 	{
-		send_to_char("Your vision returns!\n\r", victim);
+		char_puts("Your vision returns!\n\r", victim);
 		act("$n is no longer blinded.",victim,NULL,NULL,TO_ROOM);
 	}
 	else
-		send_to_char("Spell failed.\n\r",ch);
+		char_puts("Spell failed.\n\r",ch);
 }
 
 
@@ -1510,7 +1510,7 @@ void spell_cure_critical(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	heal = dice(3, 8) + level / 2 ;
 	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
 	update_pos(victim);
-	send_to_char("You feel better!\n\r", victim);
+	char_puts("You feel better!\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1524,7 +1524,7 @@ void spell_cure_disease(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	if (!is_affected(victim, gsn_plague))
 	{
 		if (victim == ch)
-		  send_to_char("You aren't ill.\n\r",ch);
+		  char_puts("You aren't ill.\n\r",ch);
 		else
 		  act("$N doesn't appear to be diseased.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1532,11 +1532,11 @@ void spell_cure_disease(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 
 	if (check_dispel(level,victim,gsn_plague))
 	{
-		send_to_char("Your sores vanish.\n\r",victim);
+		char_puts("Your sores vanish.\n\r",victim);
 		act("$n looks relieved as $s sores vanish.",victim,NULL,NULL,TO_ROOM);
 	}
 	else
-		send_to_char("Spell failed.\n\r",ch);
+		char_puts("Spell failed.\n\r",ch);
 }
 
 
@@ -1549,7 +1549,7 @@ void spell_cure_light(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	heal = dice(1, 8) + level / 4 + 5;
 	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
 	update_pos(victim);
-	send_to_char("You feel better!\n\r", victim);
+	char_puts("You feel better!\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1564,7 +1564,7 @@ void spell_cure_poison(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (!is_affected(victim, gsn_poison))
 	{
 		if (victim == ch)
-		  send_to_char("You aren't poisoned.\n\r",ch);
+		  char_puts("You aren't poisoned.\n\r",ch);
 		else
 		  act("$N doesn't appear to be poisoned.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1572,11 +1572,11 @@ void spell_cure_poison(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (check_dispel(level,victim,gsn_poison))
 	{
-		send_to_char("A warm feeling runs through your body.\n\r",victim);
+		char_puts("A warm feeling runs through your body.\n\r",victim);
 		act("$n looks much better.",victim,NULL,NULL,TO_ROOM);
 	}
 	else
-		send_to_char("Spell failed.\n\r",ch);
+		char_puts("Spell failed.\n\r",ch);
 }
 
 void spell_cure_serious(int sn, int level, CHAR_DATA *ch, void *vo,int target)
@@ -1587,7 +1587,7 @@ void spell_cure_serious(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	heal = dice(2, 8) + level / 3 + 10 ;
 	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
 	update_pos(victim);
-	send_to_char("You feel better!\n\r", victim);
+	char_puts("You feel better!\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1663,7 +1663,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = level / 8;
 	affect_to_char(victim, &af);
 
-	send_to_char("You feel unclean.\n\r", victim);
+	char_puts("You feel unclean.\n\r", victim);
 	if (ch != victim)
 		act("$N looks very uncomfortable.",ch,NULL,victim,TO_CHAR);
 	return;
@@ -1680,7 +1680,7 @@ void spell_demonfire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (!IS_NPC(ch) && !IS_EVIL(ch))
 	{
 		victim = ch;
-		send_to_char("The demons turn upon you!\n\r",ch);
+		char_puts("The demons turn upon you!\n\r",ch);
 	}
 
 	if (victim != ch)
@@ -1689,7 +1689,7 @@ void spell_demonfire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    ch,NULL,victim,TO_ROOM);
 		act("$n has assailed you with the demons of Hell!",
 		    ch,NULL,victim,TO_VICT);
-		send_to_char("You conjure forth the demons of hell!\n\r",ch);
+		char_puts("You conjure forth the demons of hell!\n\r",ch);
 	}
 	dam = dice(level, 10);
 	if (saves_spell(level, victim,DAM_NEGATIVE))
@@ -1707,7 +1707,7 @@ void spell_bluefire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (!IS_NPC(ch) && !IS_NEUTRAL(ch))
 	{
 		victim = ch;
-		send_to_char("Your blue fire turn upon you!\n\r",ch);
+		char_puts("Your blue fire turn upon you!\n\r",ch);
 	}
 
 	if (victim != ch)
@@ -1716,7 +1716,7 @@ void spell_bluefire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    ch,NULL,victim,TO_ROOM);
 		act("$n has assailed you with the neutrals of earth!",
 		    ch,NULL,victim,TO_VICT);
-		send_to_char("You conjure forth the blue fire!\n\r",ch);
+		char_puts("You conjure forth the blue fire!\n\r",ch);
 	}
 
 	dam = dice(level, 10);
@@ -1734,7 +1734,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_DETECT_EVIL))
 	{
 		if (victim == ch)
-		  send_to_char("You can already sense evil.\n\r",ch);
+		  char_puts("You can already sense evil.\n\r",ch);
 		else
 		  act("$N can already detect evil.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1747,7 +1747,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_EVIL;
 	affect_to_char(victim, &af);
-	send_to_char("Your eyes tingle.\n\r", victim);
+	char_puts("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1762,7 +1762,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_DETECT_GOOD))
 	{
 		if (victim == ch)
-		  send_to_char("You can already sense good.\n\r",ch);
+		  char_puts("You can already sense good.\n\r",ch);
 		else
 		  act("$N can already detect good.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1775,7 +1775,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_GOOD;
 	affect_to_char(victim, &af);
-	send_to_char("Your eyes tingle.\n\r", victim);
+	char_puts("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1791,7 +1791,7 @@ void spell_detect_hidden(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_DETECT_HIDDEN))
 	{
 		if (victim == ch)
-		  send_to_char("You are already as alert as you can be. \n\r",ch);
+		  char_puts("You are already as alert as you can be. \n\r",ch);
 		else
 		  act("$N can already sense hidden lifeforms.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1804,7 +1804,7 @@ void spell_detect_hidden(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	af.modifier  = 0;
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(victim, &af);
-	send_to_char("Your awareness improves.\n\r", victim);
+	char_puts("Your awareness improves.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1820,7 +1820,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_DETECT_INVIS))
 	{
 		if (victim == ch)
-		  send_to_char("You can already see invisible.\n\r",ch);
+		  char_puts("You can already see invisible.\n\r",ch);
 		else
 		  act("$N can already see invisible things.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1834,7 +1834,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_INVIS;
 	affect_to_char(victim, &af);
-	send_to_char("Your eyes tingle.\n\r", victim);
+	char_puts("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1850,7 +1850,7 @@ void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_DETECT_MAGIC))
 	{
 		if (victim == ch)
-		  send_to_char("You can already sense magical auras.\n\r",ch);
+		  char_puts("You can already sense magical auras.\n\r",ch);
 		else
 		  act("$N can already detect magic.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -1864,7 +1864,7 @@ void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_MAGIC;
 	affect_to_char(victim, &af);
-	send_to_char("Your eyes tingle.\n\r", victim);
+	char_puts("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -1879,13 +1879,13 @@ void spell_detect_poison(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (obj->item_type == ITEM_DRINK_CON || obj->item_type == ITEM_FOOD)
 	{
 		if (obj->value[3] != 0)
-		    send_to_char("You smell poisonous fumes.\n\r", ch);
+		    char_puts("You smell poisonous fumes.\n\r", ch);
 		else
-		    send_to_char("It looks delicious.\n\r", ch);
+		    char_puts("It looks delicious.\n\r", ch);
 	}
 	else
 	{
-		send_to_char("It doesn't look poisoned.\n\r", ch);
+		char_puts("It doesn't look poisoned.\n\r", ch);
 	}
 
 	return;
@@ -1964,8 +1964,8 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (saves_spell(level, victim,DAM_OTHER))
 	{
-		send_to_char("You feel a brief tingling sensation.\n\r",victim);
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You feel a brief tingling sensation.\n\r",victim);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -2174,7 +2174,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (found)
 	    char_nputs(MSG_OK, ch);
 	else
-	    send_to_char("Spell failed.\n\r",ch);
+	    char_puts("Spell failed.\n\r",ch);
 		return;
 }
 
@@ -2183,7 +2183,7 @@ void spell_earthquake(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
 
-	send_to_char("The earth trembles beneath your feet!\n\r", ch);
+	char_puts("The earth trembles beneath your feet!\n\r", ch);
 	act("$n makes the earth tremble and shiver.", ch, NULL, NULL, TO_ROOM);
 
 	for (vch = char_list; vch != NULL; vch = vch_next) {
@@ -2219,13 +2219,13 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (obj->item_type != ITEM_ARMOR)
 	{
-		send_to_char("That isn't an armor.\n\r",ch);
+		char_puts("That isn't an armor.\n\r",ch);
 		return;
 	}
 
 	if (obj->wear_loc != -1)
 	{
-		send_to_char("The item must be carried to be enchanted.\n\r",ch);
+		char_puts("The item must be carried to be enchanted.\n\r",ch);
 		return;
 	}
 
@@ -2306,7 +2306,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (result <= fail)  /* failed, no bad result */
 	{
-		send_to_char("Nothing seemed to happen.\n\r",ch);
+		char_puts("Nothing seemed to happen.\n\r",ch);
 		return;
 	}
 
@@ -2397,13 +2397,13 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 	if (obj->item_type != ITEM_WEAPON)
 	{
-		send_to_char("That isn't a weapon.\n\r",ch);
+		char_puts("That isn't a weapon.\n\r",ch);
 		return;
 	}
 
 	if (obj->wear_loc != -1)
 	{
-		send_to_char("The item must be carried to be enchanted.\n\r",ch);
+		char_puts("The item must be carried to be enchanted.\n\r",ch);
 		return;
 	}
 
@@ -2499,7 +2499,7 @@ void spell_enchant_weapon(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 
 	if (result <= fail)  /* failed, no bad result */
 	{
-		send_to_char("Nothing seemed to happen.\n\r",ch);
+		char_puts("Nothing seemed to happen.\n\r",ch);
 		return;
 	}
 
@@ -2620,7 +2620,7 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (saves_spell(level, victim,DAM_NEGATIVE))
 	{
-		send_to_char("You feel a momentary chill.\n\r",victim);
+		char_puts("You feel a momentary chill.\n\r",victim);
 		return;
 	}
 
@@ -2638,8 +2638,8 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		ch->hit		+= dam;
 	}
 
-	send_to_char("You feel your life slipping away!\n\r",victim);
-	send_to_char("Wow....what a rush!\n\r",ch);
+	char_puts("You feel your life slipping away!\n\r",victim);
+	char_puts("Wow....what a rush!\n\r",ch);
 	damage(ch, victim, dam, sn, DAM_NEGATIVE ,TRUE);
 
 	return;
@@ -2741,7 +2741,7 @@ void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = 2 * level;
 	af.bitvector = AFF_FAERIE_FIRE;
 	affect_to_char(victim, &af);
-	send_to_char("You are surrounded by a pink outline.\n\r", victim);
+	char_puts("You are surrounded by a pink outline.\n\r", victim);
 	act("$n is surrounded by a pink outline.", victim, NULL, NULL, TO_ROOM);
 }
 
@@ -2750,7 +2750,7 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *ich;
 
 	act("$n conjures a cloud of purple smoke.", ch, NULL, NULL, TO_ROOM);
-	send_to_char("You conjure a cloud of purple smoke.\n\r", ch);
+	char_puts("You conjure a cloud of purple smoke.\n\r", ch);
 
 	for (ich = ch->in_room->people; ich != NULL; ich = ich->next_in_room)
 	{
@@ -2776,7 +2776,7 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	      }
 
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
-		send_to_char("You are revealed!\n\r", ich);
+		char_puts("You are revealed!\n\r", ich);
 	}
 }
 
@@ -2797,7 +2797,7 @@ void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo,int target)
 	disc->timer		= ch->level * 2 - number_range(0,level / 2); 
 
 	act("$n has created a floating black disc.",ch,NULL,NULL,TO_ROOM);
-	send_to_char("You create a floating disc.\n\r",ch);
+	char_puts("You create a floating disc.\n\r",ch);
 	obj_to_char(disc,ch);
 	wear_obj(ch,disc,TRUE);
 	return;
@@ -2811,7 +2811,7 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_FLYING))
 	{
 		if (victim == ch)
-		  send_to_char("You are already airborne.\n\r",ch);
+		  char_puts("You are already airborne.\n\r",ch);
 		else
 		  act("$N doesn't need your help to fly.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -2824,7 +2824,7 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = 0;
 	af.bitvector = AFF_FLYING;
 	affect_to_char(victim, &af);
-	send_to_char("Your feet rise off the ground.\n\r", victim);
+	char_puts("Your feet rise off the ground.\n\r", victim);
 	act("$n's feet rise off the ground.", victim, NULL, NULL, TO_ROOM);
 }
 
@@ -2837,7 +2837,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (is_affected(victim,sn) || IS_AFFECTED(victim,AFF_BERSERK))
 	{
 		if (victim == ch)
-		  send_to_char("You are already in a frenzy.\n\r",ch);
+		  char_puts("You are already in a frenzy.\n\r",ch);
 		else
 		  act("$N is already in a frenzy.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -2846,7 +2846,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (is_affected(victim,sn_lookup("calm")))
 	{
 		if (victim == ch)
-		  send_to_char("Why don't you just relax for a while?\n\r",ch);
+		  char_puts("Why don't you just relax for a while?\n\r",ch);
 		else
 		  act("$N doesn't look like $e wants to fight anymore.",
 		      ch,NULL,victim,TO_CHAR);
@@ -2879,7 +2879,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.location  = APPLY_AC;
 	affect_to_char(victim,&af);
 
-	send_to_char("You are filled with holy wrath!\n\r",victim);
+	char_puts("You are filled with holy wrath!\n\r",victim);
 	act("$n gets a wild look in $s eyes!",victim,NULL,NULL,TO_ROOM);
 }
 
@@ -2892,7 +2892,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  victim->level >= level + 3
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -2902,7 +2902,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		gate_pet = FALSE;
 
 	act("$n steps through a gate and vanishes.", ch, NULL, NULL, TO_ROOM);
-	send_to_char("You step through a gate and vanish.\n\r", ch);
+	char_puts("You step through a gate and vanish.\n\r", ch);
 	char_from_room(ch);
 	char_to_room(ch, victim->in_room);
 
@@ -2934,7 +2934,7 @@ void spell_giant_strength(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	if (is_affected(victim, sn))
 	{
 		if (victim == ch)
-		  send_to_char("You are already as strong as you can get!\n\r",ch);
+		  char_puts("You are already as strong as you can get!\n\r",ch);
 		else
 		  act("$N can't get any stronger.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -2948,7 +2948,7 @@ void spell_giant_strength(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	af.modifier  = UMAX(2,level / 10);
 	af.bitvector = 0;
 	affect_to_char(victim, &af);
-	send_to_char("Your muscles surge with heightened power!\n\r", victim);
+	char_puts("Your muscles surge with heightened power!\n\r", victim);
 	act("$n's muscles surge with heightened power.",victim,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -2979,7 +2979,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||   IS_SET(victim->off_flags,OFF_FAST))
 	{
 		if (victim == ch)
-		  send_to_char("You can't move any faster!\n\r",ch);
+		  char_puts("You can't move any faster!\n\r",ch);
 		else
 		  act("$N is already moving as fast as $E can.",
 		      ch,NULL,victim,TO_CHAR);
@@ -2991,8 +2991,8 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		if (!check_dispel(level,victim,sn_lookup("slow")))
 		{
 		    if (victim != ch)
-			send_to_char("Spell failed.\n\r",ch);
-		    send_to_char("You feel momentarily faster.\n\r",victim);
+			char_puts("Spell failed.\n\r",ch);
+		    char_puts("You feel momentarily faster.\n\r",victim);
 		    return;
 		}
 		act("$n is moving less slowly.",victim,NULL,NULL,TO_ROOM);
@@ -3010,7 +3010,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = UMAX(2,level / 12);
 	af.bitvector = AFF_HASTE;
 	affect_to_char(victim, &af);
-	send_to_char("You feel yourself moving more quickly.\n\r", victim);
+	char_puts("You feel yourself moving more quickly.\n\r", victim);
 	act("$n is moving more quickly.",victim,NULL,NULL,TO_ROOM);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
@@ -3024,7 +3024,7 @@ void spell_heal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	victim->hit = UMIN(victim->hit + 100 + level / 10, victim->max_hit);
 	update_pos(victim);
-	send_to_char("A warm feeling fills your body.\n\r", victim);
+	char_puts("A warm feeling fills your body.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -3111,7 +3111,7 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 			    {
 				act("$n is burned by $p, and throws it to the ground.",
 				    victim,obj_lose,NULL,TO_ROOM);
-				send_to_char(
+				char_puts(
 				    "You throw your red-hot weapon to the ground!\n\r",
 				    victim);
 				dam += 1;
@@ -3121,7 +3121,7 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 			    }
 			    else /* YOWCH! */
 			    {
-				send_to_char("Your weapon sears your flesh!\n\r",
+				char_puts("Your weapon sears your flesh!\n\r",
 				    victim);
 				dam += number_range(1,obj_lose->level);
 				fail = FALSE;
@@ -3155,8 +3155,8 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 	if (fail)
 	{
-		send_to_char("Your spell had no effect.\n\r", ch);
-		send_to_char("You feel momentarily warmer.\n\r",victim);
+		char_puts("Your spell had no effect.\n\r", ch);
+		char_puts("You feel momentarily warmer.\n\r",victim);
 	}
 	else /* damage! */
 	{
@@ -3179,7 +3179,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		return;
 
 	act("$n utters a word of divine power!", ch, NULL, NULL, TO_ROOM);
-	send_to_char("You utter a word of divine power.\n\r", ch);
+	char_puts("You utter a word of divine power.\n\r", ch);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
 		vch_next = vch->next_in_room;
@@ -3187,7 +3187,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		if ((IS_GOOD(ch) && IS_GOOD(vch)) ||
 		    (IS_EVIL(ch) && IS_EVIL(vch)) ||
 		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
-			send_to_char("You feel full more powerful.\n\r", vch);
+			char_puts("You feel full more powerful.\n\r", vch);
 			spell_frenzy(gsn_frenzy, level, ch, vch, TARGET_CHAR);
 			spell_bless(sn_bless, level, ch, vch, TARGET_CHAR);
 			continue;
@@ -3199,7 +3199,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		if ((IS_GOOD(ch) && IS_EVIL(vch))
 		||  (IS_EVIL(ch) && IS_GOOD(vch))) {
 			spell_curse(sn_curse, level, ch, vch, TARGET_CHAR);
-			send_to_char("You are struck down!\n\r",vch);
+			char_puts("You are struck down!\n\r",vch);
 			dam = dice(level, 6);
 			damage(ch, vch, dam, sn, DAM_ENERGY, TRUE);
 			continue;
@@ -3207,13 +3207,13 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 		if (IS_NEUTRAL(ch)) {
 			spell_curse(sn_curse, level/2, ch, vch, TARGET_CHAR);
-			send_to_char("You are struck down!\n\r", vch);
+			char_puts("You are struck down!\n\r", vch);
 			dam = dice(level, 4);
 			damage(ch, vch, dam, sn, DAM_ENERGY, TRUE);
 		}
 	}
 
-	send_to_char("You feel drained.\n\r", ch);
+	char_puts("You feel drained.\n\r", ch);
 	gain_exp(ch, -1 * number_range(1,10) * 5);
 	ch->move /= (4/3);
 	ch->hit /= (4/3);
@@ -3256,7 +3256,7 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier	= 0;
 	af.bitvector	= AFF_INFRARED;
 	affect_to_char(victim, &af);
-	send_to_char("Your eyes glow red.\n\r", victim);
+	char_puts("Your eyes glow red.\n\r", victim);
 }
 
 
@@ -3307,7 +3307,7 @@ void spell_invisibility(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = 0;
 	af.bitvector = AFF_INVISIBLE;
 	affect_to_char(victim, &af);
-	send_to_char("You fade out of existence.\n\r", victim);
+	char_puts("You fade out of existence.\n\r", victim);
 	return;
 }
 
@@ -3398,7 +3398,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (buffer == NULL)
-		send_to_char("Nothing like that in heaven or earth.\n\r", ch);
+		char_puts("Nothing like that in heaven or earth.\n\r", ch);
 	else {
 		page_to_char(buf_string(buffer),ch);
 		buf_free(buffer);
@@ -3425,11 +3425,11 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 
 	if (is_affected(ch, 67))  {
 		if (ch->level > 4)  {
-		  send_to_char("Your magic missiles fizzle out near your victim.\n\r", ch);
+		  char_puts("Your magic missiles fizzle out near your victim.\n\r", ch);
 	      act("Your shield blocks $N's magic missiles.", victim, NULL, ch, TO_CHAR);
 	    }
 		else  {
-		  send_to_char("Your magic missile fizzle out near your victim.\n\r", ch);
+		  char_puts("Your magic missile fizzle out near your victim.\n\r", ch);
 	      act("Your shield blocks $N's magic missile.", victim, NULL, ch, TO_CHAR);
 		}
 		return;
@@ -3503,7 +3503,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		if (!is_same_group(gch, ch) || IS_AFFECTED(gch, AFF_INVISIBLE))
 		    continue;
 		act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
-		send_to_char("You slowly fade out of existence.\n\r", gch);
+		char_puts("You slowly fade out of existence.\n\r", gch);
 
 		af.where     = TO_AFFECTS;
 		af.type      = sn;
@@ -3527,7 +3527,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (IS_AFFECTED(victim, AFF_PASS_DOOR))
 	{
 		if (victim == ch)
-		  send_to_char("You are already out of phase.\n\r",ch);
+		  char_puts("You are already out of phase.\n\r",ch);
 		else
 		  act("$N is already shifted out of phase.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -3542,7 +3542,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.bitvector = AFF_PASS_DOOR;
 	affect_to_char(victim, &af);
 	act("$n turns translucent.", victim, NULL, NULL, TO_ROOM);
-	send_to_char("You turn translucent.\n\r", victim);
+	char_puts("You turn translucent.\n\r", victim);
 	return;
 }
 
@@ -3557,7 +3557,7 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		(IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)))
 	{
 		if (ch == victim)
-		  send_to_char("You feel momentarily ill, but it passes.\n\r",ch);
+		  char_puts("You feel momentarily ill, but it passes.\n\r",ch);
 		else
 		  act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -3572,7 +3572,7 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.bitvector = AFF_PLAGUE;
 	affect_join(victim,&af);
 
-	send_to_char
+	char_puts
 	  ("You scream in agony as plague sores erupt from your skin.\n\r",victim);
 	act("$n screams in agony as plague sores erupt from $s skin.",
 		victim,NULL,NULL,TO_ROOM);
@@ -3644,7 +3644,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level, victim,DAM_POISON))
 	{
 		act("$n turns slightly green, but it passes.",victim,NULL,NULL,TO_ROOM);
-		send_to_char("You feel momentarily ill, but it passes.\n\r",victim);
+		char_puts("You feel momentarily ill, but it passes.\n\r",victim);
 		return;
 	}
 
@@ -3656,7 +3656,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.modifier  = -2;
 	af.bitvector = AFF_POISON;
 	affect_join(victim, &af);
-	send_to_char("You feel very sick.\n\r", victim);
+	char_puts("You feel very sick.\n\r", victim);
 	act("$n looks very ill.",victim,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -3672,7 +3672,7 @@ void spell_protection_evil(int sn,int level,CHAR_DATA *ch,void *vo, int target)
 	||   IS_AFFECTED(victim, AFF_PROTECT_GOOD))
 	{
 		if (victim == ch)
-		  send_to_char("You are already protected.\n\r",ch);
+		  char_puts("You are already protected.\n\r",ch);
 		else
 		  act("$N is already protected.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -3686,7 +3686,7 @@ void spell_protection_evil(int sn,int level,CHAR_DATA *ch,void *vo, int target)
 	af.modifier  = -(1 + level/10);
 	af.bitvector = AFF_PROTECT_EVIL;
 	affect_to_char(victim, &af);
-	send_to_char("You feel holy and pure.\n\r", victim);
+	char_puts("You feel holy and pure.\n\r", victim);
 	if (ch != victim)
 		act("$N is protected from evil.",ch,NULL,victim,TO_CHAR);
 	return;
@@ -3701,7 +3701,7 @@ void spell_protection_good(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	||   IS_AFFECTED(victim, AFF_PROTECT_EVIL))
 	{
 		if (victim == ch)
-		  send_to_char("You are already protected.\n\r",ch);
+		  char_puts("You are already protected.\n\r",ch);
 		else
 		  act("$N is already protected.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -3715,7 +3715,7 @@ void spell_protection_good(int sn,int level,CHAR_DATA *ch,void *vo,int target)
 	af.modifier  = -(1+level/10);
 	af.bitvector = AFF_PROTECT_GOOD;
 	affect_to_char(victim, &af);
-	send_to_char("You feel aligned with darkness.\n\r", victim);
+	char_puts("You feel aligned with darkness.\n\r", victim);
 	if (ch != victim)
 		act("$N is protected from good.",ch,NULL,victim,TO_CHAR);
 	return;
@@ -3730,14 +3730,14 @@ void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_EVIL(ch))
 	{
 		victim = ch;
-		send_to_char("The energy explodes inside you!\n\r",ch);
+		char_puts("The energy explodes inside you!\n\r",ch);
 	}
 
 	if (victim != ch)
 	{
 		act("$n raises $s hand, and a blinding ray of light shoots forth!",
 		    ch,NULL,NULL,TO_ROOM);
-		send_to_char(
+		char_puts(
 		   "You raise your hand and a blinding ray of light shoots forth!\n\r",
 		   ch);
 	}
@@ -3745,7 +3745,7 @@ void spell_ray_of_truth (int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_GOOD(victim))
 	{
 		act("$n seems unharmed by the light.",victim,NULL,victim,TO_ROOM);
-		send_to_char("The light seems powerless to affect you.\n\r",victim);
+		char_puts("The light seems powerless to affect you.\n\r",victim);
 		return;
 	}
 
@@ -3774,19 +3774,19 @@ void spell_recharge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (obj->item_type != ITEM_WAND && obj->item_type != ITEM_STAFF)
 	{
-		send_to_char("That item does not carry charges.\n\r",ch);
+		char_puts("That item does not carry charges.\n\r",ch);
 		return;
 	}
 
 	if (obj->value[3] >= 3 * level / 2)
 	{
-		send_to_char("Your skills are not great enough for that.\n\r",ch);
+		char_puts("Your skills are not great enough for that.\n\r",ch);
 		return;
 	}
 
 	if (obj->value[1] == 0)
 	{
-		send_to_char("That item has already been recharged once.\n\r",ch);
+		char_puts("That item has already been recharged once.\n\r",ch);
 		return;
 	}
 
@@ -3830,7 +3830,7 @@ void spell_recharge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	else if (percent <= UMIN(95, 3 * chance / 2))
 	{
-		send_to_char("Nothing seems to happen.\n\r",ch);
+		char_puts("Nothing seems to happen.\n\r",ch);
 		if (obj->value[1] > 1)
 		    obj->value[1]--;
 		return;
@@ -3849,9 +3849,9 @@ void spell_refresh(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	victim->move = UMIN(victim->move + level, victim->max_move);
 	if (victim->max_move == victim->move)
-		send_to_char("You feel fully refreshed!\n\r",victim);
+		char_puts("You feel fully refreshed!\n\r",victim);
 	else
-		send_to_char("You feel less tired.\n\r", victim);
+		char_puts("You feel less tired.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -3883,7 +3883,7 @@ void spell_remove_curse(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		    return;
 		}
 		else  {
-		  send_to_char("Nothing happens...\n\r", ch);
+		  char_puts("Nothing happens...\n\r", ch);
 		  return;
 		}
 	}
@@ -3893,7 +3893,7 @@ void spell_remove_curse(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (check_dispel(level,victim,gsn_curse))
 	{
-		send_to_char("You feel better.\n\r",victim);
+		char_puts("You feel better.\n\r",victim);
 		act("$n looks more relaxed.",victim,NULL,NULL,TO_ROOM);
 	}
 
@@ -3922,7 +3922,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_SANCTUARY))
 	{
 		if (victim == ch)
-		  send_to_char("You are already in sanctuary.\n\r",ch);
+		  char_puts("You are already in sanctuary.\n\r",ch);
 		else
 		  act("$N is already in sanctuary.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -3937,7 +3937,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.bitvector = AFF_SANCTUARY;
 	affect_to_char(victim, &af);
 	act("$n is surrounded by a white aura.", victim, NULL, NULL, TO_ROOM);
-	send_to_char("You are surrounded by a white aura.\n\r", victim);
+	char_puts("You are surrounded by a white aura.\n\r", victim);
 	return;
 }
 
@@ -3951,7 +3951,7 @@ void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (is_affected(victim, sn))
 	{
 		if (victim == ch)
-		  send_to_char("You are already shielded from harm.\n\r",ch);
+		  char_puts("You are already shielded from harm.\n\r",ch);
 		else
 		  act("$N is already protected by a shield.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -3966,7 +3966,7 @@ void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.bitvector = 0;
 	affect_to_char(victim, &af);
 	act("$n is surrounded by a force shield.", victim, NULL, NULL, TO_ROOM);
-	send_to_char("You are surrounded by a force shield.\n\r", victim);
+	char_puts("You are surrounded by a force shield.\n\r", victim);
 	return;
 }
 
@@ -4024,7 +4024,7 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (IS_AWAKE(victim))
 	{
-		send_to_char("You feel very sleepy ..... zzzzzz.\n\r", victim);
+		char_puts("You feel very sleepy ..... zzzzzz.\n\r", victim);
 		act("$n goes to sleep.", victim, NULL, NULL, TO_ROOM);
 		victim->position = POS_SLEEPING;
 	}
@@ -4039,7 +4039,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (is_affected(victim, sn) || IS_AFFECTED(victim,AFF_SLOW))
 	{
 		if (victim == ch)
-		  send_to_char("You can't move any slower!\n\r",ch);
+		  char_puts("You can't move any slower!\n\r",ch);
 		else
 		  act("$N can't get any slower than that.",
 		      ch,NULL,victim,TO_CHAR);
@@ -4050,8 +4050,8 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  IS_SET(victim->imm_flags,IMM_MAGIC))
 	{
 		if (victim != ch)
-		    send_to_char("Nothing seemed to happen.\n\r",ch);
-		send_to_char("You feel momentarily lethargic.\n\r",victim);
+		    char_puts("Nothing seemed to happen.\n\r",ch);
+		char_puts("You feel momentarily lethargic.\n\r",victim);
 		return;
 	}
 
@@ -4060,8 +4060,8 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		if (!check_dispel(level,victim,sn_lookup("haste")))
 		{
 		    if (victim != ch)
-			send_to_char("Spell failed.\n\r",ch);
-		    send_to_char("You feel momentarily slower.\n\r",victim);
+			char_puts("Spell failed.\n\r",ch);
+		    char_puts("You feel momentarily slower.\n\r",victim);
 		    return;
 		}
 
@@ -4078,7 +4078,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = - UMAX(2,level / 12);
 	af.bitvector = AFF_SLOW;
 	affect_to_char(victim, &af);
-	send_to_char("You feel yourself slowing d o w n...\n\r", victim);
+	char_puts("You feel yourself slowing d o w n...\n\r", victim);
 	act("$n starts to move in slow motion.",victim,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -4094,7 +4094,7 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (is_affected(ch, sn))
 	{
 		if (victim == ch)
-		  send_to_char("Your skin is already as hard as a rock.\n\r",ch);
+		  char_puts("Your skin is already as hard as a rock.\n\r",ch);
 		else
 		  act("$N is already as hard as can be.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -4109,7 +4109,7 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.bitvector = 0;
 	affect_to_char(victim, &af);
 	act("$n's skin turns to stone.", victim, NULL, NULL, TO_ROOM);
-	send_to_char("Your skin turns to stone.\n\r", victim);
+	char_puts("Your skin turns to stone.\n\r", victim);
 	return;
 }
 
@@ -4121,7 +4121,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->in_room == NULL) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -4159,7 +4159,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (failed) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -4193,14 +4193,14 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	|| (victim != ch
 	&& (saves_spell(level - 5, victim,DAM_OTHER))))
 	{
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
 	pRoomIndex = get_random_room(victim);
 
 	if (victim != ch)
-		send_to_char("You have been teleported!\n\r",victim);
+		char_puts("You have been teleported!\n\r",victim);
 
 	act("$n vanishes!", victim, NULL, NULL, TO_ROOM);
 	char_from_room(victim);
@@ -4228,7 +4228,7 @@ void spell_ventriloquate(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
 	{
 		if (!is_name(speaker, vch->name))
-		    send_to_char(saves_spell(level,vch,DAM_OTHER) ? buf2 : buf1, vch);
+		    char_puts(saves_spell(level,vch,DAM_OTHER) ? buf2 : buf1, vch);
 	}
 
 	return;
@@ -4252,7 +4252,7 @@ void spell_weaken(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.modifier  = -1 * (2 + level / 12);
 	af.bitvector = AFF_WEAKEN;
 	affect_to_char(victim, &af);
-	send_to_char("You feel your strength slip away.\n\r", victim);
+	char_puts("You feel your strength slip away.\n\r", victim);
 	act("$n looks tired and weak.",victim,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -4269,13 +4269,13 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 
 	if ((ch->class == CLASS_SAMURAI)
 	&&  (ch->fighting) && (victim == NULL)) {
-		send_to_char("Your honour doesn't let you recall!.\n\r",ch);
+		char_puts("Your honour doesn't let you recall!.\n\r",ch);
 		return;
 	}
 
 	if (victim != NULL) {
 		if  ((victim->fighting) && (victim->class == CLASS_SAMURAI)) {
-			send_to_char("You can't cast this spell to a honourable fighting Samurai!.\n\r", ch);
+			char_puts("You can't cast this spell to a honourable fighting Samurai!.\n\r", ch);
 			return;
 		}
 	}
@@ -4286,12 +4286,12 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 	to_room_vnum = hometown_table[victim->hometown].recall[IS_GOOD(victim)?0:IS_NEUTRAL(victim)?1:IS_EVIL(victim)?2:1];
 
 	if ((location = get_room_index(to_room_vnum)) == NULL) {
-		send_to_char("You are completely lost.\n\r",victim);
+		char_puts("You are completely lost.\n\r",victim);
 		return;
 	}
 
 	if (victim->desc != NULL && IS_PUMPED(victim)) {
-		send_to_char("You are too pumped to pray now.\n\r",victim);
+		char_puts("You are too pumped to pray now.\n\r",victim);
 		return;
 	  }
 
@@ -4299,7 +4299,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 		IS_AFFECTED(victim,AFF_CURSE) ||
 		IS_RAFFECTED(victim->in_room,RAFF_CURSE))
 	{
-		send_to_char("Spell failed.\n\r",victim);
+		char_puts("Spell failed.\n\r",victim);
 		return;
 	}
 
@@ -4608,7 +4608,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (buffer == NULL)
-		send_to_char("Nothing like that in heaven or earth.\n\r", ch);
+		char_puts("Nothing like that in heaven or earth.\n\r", ch);
 	else {
 		page_to_char(buf_string(buffer),ch);
 		buf_free(buffer);
@@ -4621,13 +4621,13 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo,int targe
 
 	if (is_affected_room(ch->in_room, sn))
 	{
-		send_to_char("This room has already shielded.\n\r",ch);
+		char_puts("This room has already shielded.\n\r",ch);
 		return;
 	}
 
 	if (is_affected(ch,sn))
 	{
-		send_to_char("This spell is used too recently.\n\r",ch);
+		char_puts("This spell is used too recently.\n\r",ch);
 		return;
 	}
    
@@ -4650,7 +4650,7 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo,int targe
 	affect_to_char(ch, &af2);
 
 	ch->in_room->owner = str_dup(ch->name);
-	send_to_char("The room starts to be filled with lightnings.\n\r", ch);
+	char_puts("The room starts to be filled with lightnings.\n\r", ch);
 	act("The room starts to be filled with $n's lightnings.",ch,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -4661,13 +4661,13 @@ void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (is_affected_room(ch->in_room, sn))
 	{
-		send_to_char("This room has already trapped with shocks waves.\n\r",ch);
+		char_puts("This room has already trapped with shocks waves.\n\r",ch);
 		return;
 	}
 
 	if (is_affected(ch,sn))
 	{
-		send_to_char("This spell is used too recently.\n\r",ch);
+		char_puts("This spell is used too recently.\n\r",ch);
 		return;
 	}
    
@@ -4688,7 +4688,7 @@ void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af2.location  = APPLY_NONE;
 	af2.bitvector = 0;
 	affect_to_char(ch, &af2);
-	send_to_char("The room starts to be filled with shock waves.\n\r", ch);
+	char_puts("The room starts to be filled with shock waves.\n\r", ch);
 	act("The room starts to be filled with $n's shock waves.",ch,NULL,NULL,TO_ROOM);
 	return;
 }
@@ -4887,13 +4887,13 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	int dam;
 
 	if (saves_spell(level, victim,DAM_NEGATIVE)) {
-		send_to_char("You feel a momentary chill.\n\r",victim);
+		char_puts("You feel a momentary chill.\n\r",victim);
 		return;
 	}
 
 	if ((IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)) 
 	|| IS_VAMPIRE(victim)) {
-		 send_to_char("Your victim is unaffected by hand of undead.\n\r",ch);
+		 char_puts("Your victim is unaffected by hand of undead.\n\r",ch);
 		 return;
 	}
 	if (victim->level <= 2)
@@ -4905,7 +4905,7 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		ch->hit		+= dam / 2;
 	}
 
-	send_to_char("You feel your life slipping away!\n\r",victim);
+	char_puts("You feel your life slipping away!\n\r",victim);
 	act("$N is grasped by an incomprehensible hand of undead!",
 			ch,NULL,victim,TO_NOTVICT);
 	damage(ch, victim, dam, sn,DAM_NEGATIVE,TRUE);
@@ -4922,7 +4922,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  victim->level >= level + 3
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
@@ -4962,12 +4962,12 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  victim->level >= level - 5
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
 	act("$n dissolves into a cloud of glowing mist, then vanishes!",ch,NULL,NULL,TO_ROOM);
-	send_to_char("You dissolve into a cloud of glowing mist, then flow to your target.\n\r",ch);
+	char_puts("You dissolve into a cloud of glowing mist, then flow to your target.\n\r",ch);
 
 	char_from_room(ch);
 	char_to_room(ch,victim->in_room);
@@ -4984,7 +4984,7 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 	if  (time_info.hour > 18 || time_info.hour < 8) {
-		 send_to_char("You need sunlight for solar flight.\n\r",ch);
+		 char_puts("You need sunlight for solar flight.\n\r",ch);
 		 return;
 	}
 
@@ -4992,12 +4992,12 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  victim->level >= level + 1
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
 	act("$n disappears in a blinding flash of light!",ch,NULL,NULL,TO_ROOM);
-	send_to_char("You dissolve in a blinding flash of light!.\n\r",ch);
+	char_puts("You dissolve in a blinding flash of light!.\n\r",ch);
 
 	char_from_room(ch);
 	char_to_room(ch,victim->in_room);
@@ -5019,12 +5019,12 @@ void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  victim->level >= level + 3
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
-		send_to_char("You failed.\n\r", ch);
+		char_puts("You failed.\n\r", ch);
 		return;
 	}
 
 	act("$n coils into an ascending column of colour, vanishing into thin air.",ch,NULL,NULL,TO_ROOM);
-	send_to_char("You coils into an ascending column of colour, and vanishing into thin air.\n\r",ch);
+	char_puts("You coils into an ascending column of colour, and vanishing into thin air.\n\r",ch);
 
 	char_from_room(ch);
 	char_to_room(ch,victim->in_room);
@@ -5050,7 +5050,7 @@ void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level,victim,DAM_NEGATIVE)
 	||  (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD))) {
 		if (ch == victim)
-			send_to_char("You feel momentarily ill, but it passes.\n\r",ch);
+			char_puts("You feel momentarily ill, but it passes.\n\r",ch);
 		else
 			act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -5065,7 +5065,7 @@ void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.bitvector = AFF_CORRUPTION;
 	affect_join(victim,&af);
 
-	send_to_char
+	char_puts
 	  ("You scream in agony as you start to decay into dust.\n\r",victim);
 	act("$n screams in agony as $n start to decay into dust.",
 		victim,NULL,NULL,TO_ROOM);
@@ -5121,7 +5121,7 @@ void spell_detect_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (IS_AFFECTED(victim, AFF_DETECT_UNDEAD))
 	{
 		if (victim == ch)
-		  send_to_char("You can already sense undead.\n\r",ch);
+		  char_puts("You can already sense undead.\n\r",ch);
 		else
 		  act("$N can already detect undead.",ch,NULL,victim,TO_CHAR);
 		return;
@@ -5135,7 +5135,7 @@ void spell_detect_undead(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_UNDEAD;
 	affect_to_char(victim, &af);
-	send_to_char("Your eyes tingle.\n\r", victim);
+	char_puts("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
 	return;
@@ -5151,7 +5151,7 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	bool found = FALSE;
  
 	if (IS_NPC(ch) && !IS_SET(ch->act, PLR_GHOST)) {
-		send_to_char("It is too late to take revenge.\n\r",ch);
+		char_puts("It is too late to take revenge.\n\r",ch);
 		return;
 	}
 
@@ -5173,7 +5173,7 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	}
 
 	if (!found || room == NULL)
-		send_to_char("Unluckily your corpse is devoured.\n\r", ch);
+		char_puts("Unluckily your corpse is devoured.\n\r", ch);
 	else {
 		char_from_room(ch);
 		char_to_room(ch, room);

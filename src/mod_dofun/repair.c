@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.7 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: repair.c,v 1.8 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -211,7 +211,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
  
 	if (mob == NULL)
 	{
-	    send_to_char("You can't do that here.\n\r", ch);
+	    char_puts("You can't do that here.\n\r", ch);
 	    return;
 	}
 
@@ -219,7 +219,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0') {
 	do_say(mob,"I will repair a weapon for you, for a price.");
-	send_to_char("Type estimate <weapon> to be assessed for damage.\n\r",ch);
+	char_puts("Type estimate <weapon> to be assessed for damage.\n\r",ch);
 	return;
 	}
 	if ((obj = get_obj_carry(ch, arg)) == NULL)
@@ -280,7 +280,7 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
  
 	if (mob == NULL)
 	{
-	    send_to_char("You can't do that here.\n\r", ch);
+	    char_puts("You can't do that here.\n\r", ch);
 	    return;
 	}
 	
@@ -339,7 +339,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 #if 0
 	if (mob == NULL) {
 #endif
-	    send_to_char("You can't do that here.\n\r", ch);
+	    char_puts("You can't do that here.\n\r", ch);
 	    return;
 #if 0
 	/* XXX */
@@ -352,9 +352,9 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0')
 	{
-		send_to_char("Syntax:\n\r",ch);
-		send_to_char("  restring <obj> <field> <string>\n\r",ch);
-		send_to_char("    fields: name short long\n\r",ch);
+		char_puts("Syntax:\n\r",ch);
+		char_puts("  restring <obj> <field> <string>\n\r",ch);
+		char_puts("    fields: name short long\n\r",ch);
 		return;
 	}
 
@@ -386,7 +386,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 		obj->description = str_dup(arg2);
 	}
 	else {
-		send_to_char("That's not a valid Field.\n\r",ch);
+		char_puts("That's not a valid Field.\n\r",ch);
 		return;
 	}
 	
@@ -397,8 +397,8 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 	act_printf(ch, NULL, mob, TO_ROOM, POS_RESTING,
 		  "$N takes $n's item, tinkers with it, and returns it to $n.");
 	char_printf(ch, "%s takes your item, tinkers with it, and returns %s to you.\n\r", mob->short_descr, obj->short_descr);
-	send_to_char("Remember, if we find your new string offensive, we will not be happy.\n\r", ch);
-	send_to_char(" This is your ONE AND ONLY Warning.\n\r", ch);
+	char_puts("Remember, if we find your new string offensive, we will not be happy.\n\r", ch);
+	char_puts(" This is your ONE AND ONLY Warning.\n\r", ch);
 #endif
 }
 
@@ -625,34 +625,34 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 
 
 	if (ch->fighting) {
-		send_to_char("Wait until the fight finishes.\n\r", ch);
+		char_puts("Wait until the fight finishes.\n\r", ch);
 		return;
 	}
 
 	one_argument(argument,arg);
 
 	if (arg[0] == '\0') {
-		send_to_char("Which object do you want to repair.\n\r",ch);
+		char_puts("Which object do you want to repair.\n\r",ch);
 		return;
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		send_to_char("You are not carrying that.\n\r",ch);
+		char_puts("You are not carrying that.\n\r",ch);
 		return;
 	}
 
 	if (obj->condition >= 100) {
-		send_to_char("But that item is not broken.\n\r",ch);
+		char_puts("But that item is not broken.\n\r",ch);
 		return;
 	}
 
 	if ((hammer = get_eq_char(ch, WEAR_HOLD)) == NULL) {
-		send_to_char("You are not holding a hammer.\n\r",ch);
+		char_puts("You are not holding a hammer.\n\r",ch);
 		return;
 	}
 
 	if (hammer->pIndexData->vnum != OBJ_VNUM_HAMMER) {
-		send_to_char("That is not the correct hammer.\n\r",ch);
+		char_puts("That is not the correct hammer.\n\r",ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.15 1998-09-19 11:13:28 fjoe Exp $
+ * $Id: ban.c,v 1.16 1998-09-20 17:01:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -208,7 +208,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 
 	if (arg1[0] == '\0') {
 		if (ban_list == NULL) {
-			send_to_char("No sites banned at this time.\n\r",ch);
+			char_puts("No sites banned at this time.\n\r",ch);
 			return;
   		}
 
@@ -253,7 +253,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 	type = BAN_PERMIT;
     else
     {
-	send_to_char("Acceptable ban types are all, newbies, player, and permit.\n\r",
+	char_puts("Acceptable ban types are all, newbies, player, and permit.\n\r",
 	    ch); 
 	return;
     }
@@ -274,7 +274,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 
     if (strlen(name) == 0)
     {
-	send_to_char("You have to ban SOMETHING.\n\r",ch);
+	char_puts("You have to ban SOMETHING.\n\r",ch);
 	return;
     }
 
@@ -285,7 +285,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
         {
 	    if (pban->level > get_trust(ch))
 	    {
-            	send_to_char("That ban was set by a higher power.\n\r", ch);
+            	char_puts("That ban was set by a higher power.\n\r", ch);
             	return;
 	    }
 	    else
@@ -340,7 +340,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0')
     {
-        send_to_char("Remove which site from the ban list?\n\r", ch);
+        char_puts("Remove which site from the ban list?\n\r", ch);
         return;
     }
 
@@ -351,7 +351,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
         {
 	    if (curr->level > get_trust(ch))
 	    {
-		send_to_char(
+		char_puts(
 		   "You are not powerful enough to lift that ban.\n\r",ch);
 		return;
 	    }
@@ -367,7 +367,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
         }
     }
 
-    send_to_char("Site is not banned.\n\r", ch);
+    char_puts("Site is not banned.\n\r", ch);
     return;
 }
 

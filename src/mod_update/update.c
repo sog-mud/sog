@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.61 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: update.c,v 1.62 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -168,7 +168,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		return;
 
 	if (IS_SET(ch->act,PLR_NOEXP) && gain > 0) {
-		send_to_char("You can't gain exp without your spirit.\n\r", ch);
+		char_puts("You can't gain exp without your spirit.\n\r", ch);
 		return;
 	}
 
@@ -446,27 +446,27 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	&&  ch->pcdata->condition[iCond] > -6) {
 		switch (iCond) {
 		case COND_HUNGER:
-			send_to_char("You are hungry.\n\r",  ch);
+			char_puts("You are hungry.\n\r",  ch);
 			break;
 
 		case COND_THIRST:
-			send_to_char("You are thirsty.\n\r", ch);
+			char_puts("You are thirsty.\n\r", ch);
 			break;
 	 
 		case COND_DRUNK:
 			if (condition != 0)
-				send_to_char("You are sober.\n\r", ch);
+				char_puts("You are sober.\n\r", ch);
 			break;
 
 		case COND_BLOODLUST:
 			if (condition != 0)
-				send_to_char("You are hungry for blood.\n\r",
+				char_puts("You are hungry for blood.\n\r",
 					     ch);
 			break;
 
 		case COND_DESIRE:
 			if (condition != 0)
-				send_to_char("You have missed your home.\n\r",
+				char_puts("You have missed your home.\n\r",
 					     ch);
 			break;
 		}
@@ -475,7 +475,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (ch->pcdata->condition[iCond] == -6 && ch->level >= PK_MIN_LEVEL) {
 		switch (iCond) {
 		case COND_HUNGER:
-			send_to_char("You are starving!\n\r",  ch);
+			char_puts("You are starving!\n\r",  ch);
 			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -487,7 +487,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_THIRST:
-			send_to_char("You are dying of thrist!\n\r", ch);
+			char_puts("You are dying of thrist!\n\r", ch);
 			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
 			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
 			if (!damage_hunger)
@@ -500,7 +500,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 
 		case COND_BLOODLUST:
 			fdone = 0;
-			send_to_char("You are suffering "
+			char_puts("You are suffering "
 				     "from thrist of blood!\n\r",ch);
 			act("$n is suffering from thirst of blood!",
 			    ch, NULL, NULL, TO_ROOM);
@@ -534,7 +534,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			break;
 
 		case COND_DESIRE:
-			send_to_char("You want to go your home!\n\r", ch);
+			char_puts("You want to go your home!\n\r", ch);
 			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
 			if (ch->position >= POS_STANDING) 
 				move_char(ch, number_door(), FALSE);
@@ -864,7 +864,6 @@ int i;
  */
 void weather_update(void)
 {
-	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	int diff;
 	if (++time_info.hour == 24) {
@@ -898,32 +897,34 @@ void weather_update(void)
 	weather_info.mmhg  = UMAX(weather_info.mmhg,  960);
 	weather_info.mmhg  = UMIN(weather_info.mmhg, 1040);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d; d = d->next) {
+		BUFFER *output;
 		CHAR_DATA *ch = d->character;
+		char *p;
 
 		if (ch == NULL)
 			continue;
 
-		*buf = '\0';
+		output = buf_new(0);
 		switch (time_info.hour) {
 		case  5:
 			weather_info.sunlight = SUN_LIGHT;
-			strcpy(buf, msg(MSG_WEATHER_DAY_BEGUN, ch));
+			buf_add(output, msg(MSG_WEATHER_DAY_BEGUN, ch));
 			break;
 
 		case  6:
 			weather_info.sunlight = SUN_RISE;
-			strcpy(buf, msg(MSG_WEATHER_SUN_IN_THE_EAST, ch));
+			buf_add(output, msg(MSG_WEATHER_SUN_IN_THE_EAST, ch));
 			break;
 
 		case 19:
 			weather_info.sunlight = SUN_SET;
-			strcpy(buf, msg(MSG_WEATHER_SUN_IN_THE_WEST, ch));
+			buf_add(output, msg(MSG_WEATHER_SUN_IN_THE_WEST, ch));
 			break;
 
 		case 20:
 			weather_info.sunlight = SUN_DARK;
-			strcpy(buf, msg(MSG_WEATHER_NIGHT_BEGUN, ch));
+			buf_add(output, msg(MSG_WEATHER_NIGHT_BEGUN, ch));
 			break;
 		}
 
@@ -936,7 +937,7 @@ void weather_update(void)
 		case SKY_CLOUDLESS:
 			if (weather_info.mmhg < 990
 			|| (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-				strcat(buf, msg(MSG_WEATHER_GETTING_CLOUDY, ch));
+				buf_add(output, msg(MSG_WEATHER_GETTING_CLOUDY, ch));
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -944,25 +945,25 @@ void weather_update(void)
 		case SKY_CLOUDY:
 			if (weather_info.mmhg < 970
 			|| (weather_info.mmhg < 990 && number_bits(2) == 0)) {
-				strcat(buf, msg(MSG_WEATHER_IT_STARTS_TO_RAIN, ch));
+				buf_add(output, msg(MSG_WEATHER_IT_STARTS_TO_RAIN, ch));
 				weather_info.sky = SKY_RAINING;
 			}
 
 			if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-				strcat(buf, msg(MSG_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
+				buf_add(output, msg(MSG_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
 				weather_info.sky = SKY_CLOUDLESS;
 			}
 			break;
 
 		case SKY_RAINING:
 			if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-				strcat(buf, msg(MSG_WEATHER_LIGHTNING_FLASHES, ch));
+				buf_add(output, msg(MSG_WEATHER_LIGHTNING_FLASHES, ch));
 				weather_info.sky = SKY_LIGHTNING;
 			}
 
 			if (weather_info.mmhg > 1030
 			|| (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
-				strcat(buf, msg(MSG_WEATHER_THE_RAIN_STOPPED, ch));
+				buf_add(output, msg(MSG_WEATHER_THE_RAIN_STOPPED, ch));
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -970,23 +971,21 @@ void weather_update(void)
 		case SKY_LIGHTNING:
 			if (weather_info.mmhg > 1010
 			|| (weather_info.mmhg > 990 && number_bits(2) == 0)) {
-				strcat(buf, msg(MSG_WEATHER_LIGHTNING_STOPPED, ch));
+				buf_add(output, msg(MSG_WEATHER_LIGHTNING_STOPPED, ch));
 				weather_info.sky = SKY_RAINING;
 			}
 			break;
 		}
 
-		if (buf[0] != '\0'
+		p = buf_string(output);
+		if (!IS_NULLSTR(p)
 		&&  d->connected == CON_PLAYING
 		&&  IS_OUTSIDE(d->character)
 		&&  IS_AWAKE(d->character))
-			send_to_char(buf, d->character);
+			send_to_char(p, d->character);
+		buf_free(output);
 	}
-
-	return;
 }
-
-
 
 /*
  * Update all chars, including mobs.
@@ -1815,8 +1814,8 @@ void light_update(void)
 	}
 
 	if (dam_light == 1)
-	      send_to_char("The light in the room disturbs you.\n\r",ch);
-	    else send_to_char("Sun light disturbs you.\n\r",ch);
+	      char_puts("The light in the room disturbs you.\n\r",ch);
+	    else char_puts("Sun light disturbs you.\n\r",ch);
 
 	dam_light = (ch->max_hit * 4)/ 100;
 	if (!dam_light) dam_light = 1;
@@ -1905,7 +1904,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(3) == 0)
 	        	{
-	        	    send_to_char("You feel hot and feverish.\n\r",vch);
+	        	    char_puts("You feel hot and feverish.\n\r",vch);
 	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&plague);
 	        	}
@@ -1948,7 +1947,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_POISON) && number_bits(3) == 0)
 	        	{
-	        	    send_to_char("You feel very sick.\n\r",vch);
+	        	    char_puts("You feel very sick.\n\r",vch);
 	        	    act("$n looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -1991,7 +1990,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_SLOW) && number_bits(3) == 0)
 	        	{
-	        	    send_to_char("You start to move less quickly.\n\r",vch);
+	        	    char_puts("You start to move less quickly.\n\r",vch);
 	        	    act("$n is moving less quickly.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -2037,7 +2036,7 @@ void room_affect_update(void)
 	        	{
 		  if (IS_AWAKE(vch))
 		   {
-	        	    send_to_char("You feel very sleepy.......zzzzzz.\n\r",vch);
+	        	    char_puts("You feel very sleepy.......zzzzzz.\n\r",vch);
 	        	    act("$n goes to sleep.",vch,NULL,NULL,TO_ROOM);
 		    vch->position = POS_SLEEPING;
 		   }		    
@@ -2083,7 +2082,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !is_affected(vch,gsn_evil_spirit) && number_bits(3) == 0)
 	        	{
-	        	    send_to_char("You feel worse than ever.\n\r",vch);
+	        	    char_puts("You feel worse than ever.\n\r",vch);
 	        	    act("$n looks more evil.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}
@@ -2127,7 +2126,7 @@ void room_affect_update(void)
 		&&  !is_safe_rspell(af->level,vch)
 	        	&&  !IS_AFFECTED(vch,AFF_) && number_bits(3) == 0)
 	        	{
-	        	    send_to_char("You feel hot and feverish.\n\r",vch);
+	        	    char_puts("You feel hot and feverish.\n\r",vch);
 	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	    affect_join(vch,&paf);
 	        	}

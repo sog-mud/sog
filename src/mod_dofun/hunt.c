@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.10 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: hunt.c,v 1.11 1998-09-20 17:01:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -460,7 +460,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		send_to_char("Whom are you trying to hunt?\n\r", ch);
+		char_puts("Whom are you trying to hunt?\n\r", ch);
 		return;
 	}
 
@@ -481,7 +481,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		victim = get_char_world(ch, arg);
 
  	if (victim == NULL) {
-		send_to_char("No-one around by that name.\n\r", ch);
+		char_puts("No-one around by that name.\n\r", ch);
 		return;
 	}
 
@@ -522,7 +522,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (direction >= MAX_DIR) {
-		send_to_char("Hmm... Something seems to be wrong.\n\r", ch);
+		char_puts("Hmm... Something seems to be wrong.\n\r", ch);
 		return;
 	}
 
@@ -549,7 +549,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		else {
 			log("Do hunt, player hunt, no exits from room!");
 			ch->hunting = NULL;
-			send_to_char("Your room has not exits!!!!\n\r", ch);
+			char_puts("Your room has not exits!!!!\n\r", ch);
 			return;
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.60 1998-09-17 15:51:17 fjoe Exp $
+ * $Id: act_wiz.c,v 1.61 1998-09-20 17:00:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1087,7 +1087,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	for (rh = location->history;rh != NULL;rh = rh->next)
 		buf_printf(output,"%s took door %i.\n\r", rh->name, rh->went);
 
-	char_puts(buf_string(output), ch);
+	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 
@@ -1256,7 +1256,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,"Damage condition : %d (%s)\n\r", obj->condition,
 				get_cond_alias(obj, ch));	
 
-	char_puts(buf_string(output), ch);
+	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 
@@ -3634,7 +3634,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	    		}
 	        	buf_add(output, ".\n\r");
 
-			char_puts(buf_string(output), ch);
+			send_to_char(buf_string(output), ch);
 			buf_free(output);
 			return;
 		}

@@ -23,31 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.3 1998-09-20 17:01:03 fjoe Exp $
+ * $Id: msg.h,v 1.1 1998-09-20 17:01:27 fjoe Exp $
  */
 
-#ifndef _VARR_H_
-#define _VARR_H_
+#ifndef _MSG_H_
+#define _MSG_H_
 
-struct varr {
-	void *p;
-	size_t nsize;		/* size of elem */
+mlstring **	msg_add		(mlstring *ml);
+mlstring **	msg_lookup	(const char *name);
+mlstring *	msg_del		(const char *name);
 
-	size_t nused;		/* elems used */
-	size_t nalloc;		/* elems allocated */
-	size_t nstep;		/* allocation step */
-};
+const char *	MSG(const char *txt, int lang);
 
-varr *	varr_new	(size_t nsize, size_t nstep);
-void	varr_free	(varr*);
-void *	varr_touch	(varr*, size_t i);
-void	varr_qsort	(varr*, int (*)(const void*, const void*));
-void *	varr_bsearch	(varr*, const void *e,
-			 int (*)(const void*, const void*));
-
-#define varr_enew(v)	(varr_touch((v), (v)->nused))
-#define VARR_GET(v, i)	((void*) (((char*) (v)->p) + (i)*(v)->nsize))
-#define varr_get(v, i)	((i) < 0 || (i) >= (v)->nused ? \
-			 NULL : VARR_GET((v), (i)))
+#define MAX_MSG_HASH 128
+extern varr *msg_hash_table[MAX_MSG_HASH];
 
 #endif
+

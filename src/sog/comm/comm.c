@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.97 1998-09-19 11:13:28 fjoe Exp $
+ * $Id: comm.c,v 1.98 1998-09-20 17:01:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,6 +88,7 @@
 #include "comm/charset.h"
 #include "comm/resolver.h"
 #include "olc/olc.h"
+#include "db/db.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -298,8 +299,20 @@ int main(int argc, char **argv)
 	signal(SIGTERM, cleanup);
 
 	control = init_socket(port);
-	msgdb_load();
+
+	fBootDb = TRUE;
+
+	load_lang();
+	load_msgdb();
 	boot_db();
+
+	fBootDb = FALSE;
+
+	convert_objects();           /* ROM OLC */
+	area_update();
+	load_notes();
+	load_bans();
+
 	log_printf("ready to rock on port %d.", port);
 	game_loop_unix(control);
 	close(control);
@@ -2091,7 +2104,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    ch->perm_stat[obj_count]--;
 
 	  save_char_obj(ch, FALSE);
-	  send_to_char("The gods frown upon your actions.\n\r",ch);
+	  char_puts("The gods frown upon your actions.\n\r",ch);
 	}
 
 	/* FALL THRU */
@@ -2179,9 +2192,9 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 			set_skill(ch, get_weapon_sn(ch, WEAR_WIELD), 40);
 
 	    char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
-	    send_to_char("\n\r",ch);
+	    char_puts("\n\r",ch);
 	    do_help(ch,"NEWBIE INFO");
-	    send_to_char("\n\r",ch);
+	    char_puts("\n\r",ch);
 	}
 	else if (ch->in_room != NULL)
 	{
@@ -2252,7 +2265,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
 	    sprintf(buf,"You are taxed %d gold to pay for the Mayor's bar.\n\r",
 		(ch->gold - 6000) / 2);
-	    send_to_char(buf,ch); 
+	    char_puts(buf,ch); 
 	    ch->gold -= (ch->gold - 6000) / 2;
 	}
 	
@@ -2365,7 +2378,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 		d->character = ch;
 		ch->desc	 = d;
 		ch->timer	 = 0;
-		send_to_char(
+		char_puts(
 		    "Reconnecting. Type replay to see missed tells.\n\r", ch);
 		act("$n has reconnected.", ch, NULL, NULL, TO_ROOM);
 		if ((obj = get_eq_char(ch,WEAR_LIGHT)) != NULL
@@ -2424,18 +2437,23 @@ void stop_idling(CHAR_DATA *ch)
 	act("$n has returned from the void.", ch, NULL, NULL, TO_ROOM);
 }
 
-void char_printf(CHAR_DATA* ch, const char* format, ...)
+void char_puts(const char *txt, CHAR_DATA *ch)
+{
+	send_to_char(MSG(txt, ch->lang), ch);
+}
+
+void char_printf(CHAR_DATA *ch, const char *format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
 
 	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), format, ap);
+	vsnprintf(buf, sizeof(buf), MSG(format, ch->lang), ap);
 	va_end(ap);
-	char_puts(buf, ch);
+	send_to_char(buf, ch);
 }
 
-void char_nprintf(CHAR_DATA* ch, int msgid, ...)
+void char_nprintf(CHAR_DATA *ch, int msgid, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
@@ -2443,7 +2461,7 @@ void char_nprintf(CHAR_DATA* ch, int msgid, ...)
 	va_start(ap, msgid);
 	vsnprintf(buf, sizeof(buf), msg(msgid, ch), ap);
 	va_end(ap);
-	char_puts(buf, ch);
+	send_to_char(buf, ch);
 }
 
 /*
@@ -2468,7 +2486,7 @@ void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t len)
 /*
  * Write to one char.
  */
-void char_puts(const char *txt, CHAR_DATA *ch)
+void send_to_char(const char *txt, CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH*4];
 
@@ -2488,7 +2506,7 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 		return; /* ben yazdim ibrahim */
 
 	if (ch->lines == 0) {
-		send_to_char(txt,ch);
+		char_puts(txt,ch);
 		return;
 	}
 	
@@ -2748,7 +2766,7 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	to = ch->in_room->people;
 	if (IS_SET(flags, TO_VICT)) {
 		if (vch == NULL) {
-	        	bug("Act: null vch with TO_VICT.", 0);
+	        	bug("act_printf: null vch with TO_VICT.", 0);
 	        	return;
 		}
 
@@ -2759,8 +2777,6 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	}
  
 	va_start(ap, format);
-	vsnprintf(buf, sizeof(buf), format, ap);
-	va_end(ap);
 
 	for(; to ; to = to->next_in_room) {
 		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
@@ -2777,8 +2793,11 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
 			continue;
 	
+		vsnprintf(buf, sizeof(buf), MSG(format, to->lang), ap);
 		act_raw(ch, to, arg1, arg2, buf, flags);
 	}
+
+	va_end(ap);
 }
 
 void act_mlputs(CHAR_DATA *ch, const void *arg1, 
@@ -2939,10 +2958,6 @@ int log_area_popularity(void)
 
 	return 1;
 }
-
-/*
- * Function for save processes.
- */
 
 void cleanup(int s)
 {

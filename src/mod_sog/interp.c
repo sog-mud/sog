@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.67 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: interp.c,v 1.68 1998-09-20 17:01:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -520,7 +520,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
-		send_to_char(msg(MSG_FROZEN, ch), ch);
+		char_nputs(MSG_FROZEN, ch);
 		return;
 	}
 
@@ -650,7 +650,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		 * Look for command in socials table.
 		 */
 		if (!check_social(ch, command, argument)) {
-			send_to_char(msg(MSG_HUH, ch), ch);
+			char_nputs(MSG_HUH, ch);
 			return;
 		} else
 			return;
@@ -954,14 +954,14 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 	&&   cmd_table[cmd].show)
 	{
 	    sprintf(buf, "%-12s", cmd_table[cmd].name);
-	    send_to_char(buf, ch);
+	    char_puts(buf, ch);
 	    if (++col % 6 == 0)
-		send_to_char("\n\r", ch);
+		char_puts("\n\r", ch);
 	}
     }
  
     if (col % 6 != 0)
-	send_to_char("\n\r", ch);
+	char_puts("\n\r", ch);
     return;
 }
 
@@ -979,14 +979,14 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
         &&   cmd_table[cmd].show)
 	{
 	    sprintf(buf, "%-12s", cmd_table[cmd].name);
-	    send_to_char(buf, ch);
+	    char_puts(buf, ch);
 	    if (++col % 6 == 0)
-		send_to_char("\n\r", ch);
+		char_puts("\n\r", ch);
 	}
     }
  
     if (col % 6 != 0)
-	send_to_char("\n\r", ch);
+	char_puts("\n\r", ch);
     return;
 }
 
@@ -1013,7 +1013,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
     if (ch->prefix[0] != '\0' && str_prefix("prefix",argument))
     {
 	if (strlen(ch->prefix) + strlen(argument) > MAX_INPUT_LENGTH)
-	    send_to_char("Line to long, prefix not processed.\r\n",ch);
+	    char_puts("Line to long, prefix not processed.\r\n",ch);
 	else
 	{
 	    sprintf(prefix,"%s %s",ch->prefix,argument);
@@ -1048,7 +1048,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	    }
 	    if (strlen(buf) > MAX_INPUT_LENGTH)
 	    {
-		send_to_char("Alias substitution too long. Truncated.\r\n",ch);
+		char_puts("Alias substitution too long. Truncated.\r\n",ch);
 		buf[MAX_INPUT_LENGTH -1] = '\0';
 	    }
 	}
@@ -1058,7 +1058,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 
 void do_alia(CHAR_DATA *ch, const char *argument)
 {
-    send_to_char("I'm sorry, alias must be entered in full.\n\r",ch);
+    char_puts("I'm sorry, alias must be entered in full.\n\r",ch);
     return;
 }
 
@@ -1083,10 +1083,10 @@ void do_alias(CHAR_DATA *ch, const char *argument)
     {
 	if (rch->pcdata->alias[0] == NULL)
 	{
-	    send_to_char("You have no aliases defined.\n\r",ch);
+	    char_puts("You have no aliases defined.\n\r",ch);
 	    return;
 	}
-	send_to_char("Your current aliases are:\n\r",ch);
+	char_puts("Your current aliases are:\n\r",ch);
 
 	for (pos = 0; pos < MAX_ALIAS; pos++)
 	{
@@ -1102,7 +1102,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
     if (!str_prefix("una",arg) || !str_cmp("alias",arg))
     {
-	send_to_char("Sorry, that word is reserved.\n\r",ch);
+	char_puts("Sorry, that word is reserved.\n\r",ch);
 	return;
     }
 
@@ -1118,18 +1118,18 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	    {
 		sprintf(buf,"%s aliases to '%s'.\n\r",rch->pcdata->alias[pos],
 			rch->pcdata->alias_sub[pos]);
-		send_to_char(buf,ch);
+		char_puts(buf,ch);
 		return;
 	    }
 	}
 
-	send_to_char("That alias is not defined.\n\r",ch);
+	char_puts("That alias is not defined.\n\r",ch);
 	return;
     }
 
     if (!str_prefix(argument,"delete") || !str_prefix(argument,"prefix"))
     {
-	send_to_char("That shall not be done!\n\r",ch);
+	char_puts("That shall not be done!\n\r",ch);
 	return;
     }
 
@@ -1150,7 +1150,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
      if (pos >= MAX_ALIAS)
      {
-	send_to_char("Sorry, you have reached the alias limit.\n\r",ch);
+	char_puts("Sorry, you have reached the alias limit.\n\r",ch);
 	return;
      }
   
@@ -1181,7 +1181,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 
     if (arg == '\0')
     {
-	send_to_char("Unalias what?\n\r",ch);
+	char_puts("Unalias what?\n\r",ch);
 	return;
     }
 
@@ -1201,7 +1201,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 
 	if(!strcmp(arg,rch->pcdata->alias[pos]))
 	{
-	    send_to_char("Alias removed.\n\r",ch);
+	    char_puts("Alias removed.\n\r",ch);
 	    free_string(rch->pcdata->alias[pos]);
 	    free_string(rch->pcdata->alias_sub[pos]);
 	    rch->pcdata->alias[pos] = NULL;
@@ -1211,7 +1211,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
     }
 
     if (!found)
-	send_to_char("No alias of that name to remove.\n\r",ch);
+	char_puts("No alias of that name to remove.\n\r",ch);
 }
 
      

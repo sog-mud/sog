@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.69 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: act_quest.c,v 1.70 1998-09-20 17:01:02 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -288,7 +288,7 @@ static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	act_nprintf(questor, buf, ch, TO_VICT, POS_DEAD, MSG_TELLS_YOU);
+	do_tell_raw(questor, ch, buf);
 }
 
 static CHAR_DATA* questor_lookup(CHAR_DATA *ch)

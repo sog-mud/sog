@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.13 1998-09-10 22:32:23 fjoe Exp $
+ * $Id: auction.c,v 1.14 1998-09-20 17:01:00 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -276,13 +276,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->comm,COMM_NOAUCTION)) {
 		if (!str_cmp(arg1, "on")) {
-			send_to_char("Auction channel is now ON.\n\r",ch);
+			char_puts("Auction channel is now ON.\n\r",ch);
 			REMOVE_BIT(ch->comm,COMM_NOAUCTION);
 			return;
 		}
 		else {
-			send_to_char("Your auction channel is OFF.\n\r",ch);
-			send_to_char("You must first change auction channel ON.\n\r",ch);
+			char_puts("Your auction channel is OFF.\n\r",ch);
+			char_puts("You must first change auction channel ON.\n\r",ch);
 			return;
 		}
 	}
@@ -303,12 +303,12 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		else {	
-			send_to_char("Auction WHAT?\n\r", ch);
+			char_puts("Auction WHAT?\n\r", ch);
 			return;
 		}
 
 	if (!str_cmp(arg1,"off")) {
-		send_to_char("Auction channel is now OFF.\n\r",ch);
+		char_puts("Auction channel is now OFF.\n\r",ch);
 		SET_BIT(ch->comm,COMM_NOAUCTION);
 		return;
 	}
@@ -347,20 +347,20 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	        int newbet;
 
 		if (auction.item == NULL) {
-	        	send_to_char ("There isn't anything being auctioned "
+	        	char_puts ("There isn't anything being auctioned "
 				      "right now.\n\r",ch);
 	        	return;
 		}
 
 		if (ch == auction.seller) {
-			send_to_char("You cannot bet on your own "
+			char_puts("You cannot bet on your own "
 				     "equipment...:)\n\r",ch);
 			return;
 		}
 
 	        /* make - perhaps - a bet now */
 	        if (argument[0] == '\0') {
-			send_to_char ("Bet how much?\n\r",ch);
+			char_puts ("Bet how much?\n\r",ch);
 			return;
 	        }
 
@@ -408,7 +408,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	obj = get_obj_carry (ch, arg1); /* does char have the item ? */ 
 
 	if (obj == NULL) {
-		send_to_char("You aren't carrying that.\n\r",ch);
+		char_puts("You aren't carrying that.\n\r",ch);
 		return;
 	}
 

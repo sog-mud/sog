@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.58 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: handler.c,v 1.59 1998-09-20 17:01:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1276,7 +1276,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		    &&  !IS_IMMORTAL(vch) &&
 	        	!IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(6) == 0)
 	        {
-	        	send_to_char("You feel hot and feverish.\n\r",vch);
+	        	char_puts("You feel hot and feverish.\n\r",vch);
 	        	act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
 	        	affect_join(vch,&plague);
 	        }
@@ -2588,7 +2588,7 @@ int count_charmed(CHAR_DATA *ch)
 
   if (count >= MAX_CHARM(ch))
    {
-	send_to_char("You are already controlling as many charmed mobs as you can!\n\r",ch);
+	char_puts("You are already controlling as many charmed mobs as you can!\n\r",ch);
 	return count;
    }
   return 0;
@@ -2709,7 +2709,7 @@ CHAR_DATA * find_char(CHAR_DATA *ch, const char *argument,int door, int range)
  if ((opdoor = opposite_door(door)) == -1)
   {
    bug("In find_char wrong door: %d",door);
-   send_to_char("You don't see that there.\n\r",ch);
+   char_puts("You don't see that there.\n\r",ch);
    return NULL;
  }
  while (range > 0)
@@ -2724,14 +2724,14 @@ CHAR_DATA * find_char(CHAR_DATA *ch, const char *argument,int door, int range)
   if ((bExit = dest_room->exit[opdoor]) == NULL
 	  || bExit->u1.to_room != back_room)
    {
-	send_to_char("The path you choose prevents your power to pass.\n\r",ch);
+	char_puts("The path you choose prevents your power to pass.\n\r",ch);
 	return NULL;
    }
   if ((target = get_char_room2(ch,dest_room,arg,&number)) != NULL) 
 		return target;
  }
 
- send_to_char("You don't see that there.\n\r",ch);
+ char_puts("You don't see that there.\n\r",ch);
  return NULL;
 }
 		

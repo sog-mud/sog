@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.24 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: db.h,v 1.25 1998-09-20 17:01:27 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -94,6 +94,11 @@ void init_classes(void);
 void init_clans(void);
 
 extern int fBootDb;
+
+void	load_lang	(void);
+void	load_msgdb	(void);
+void	load_notes	(void);
+void	load_bans	(void);
 
 char		fread_letter	(FILE *fp);
 int		fread_number	(FILE *fp);

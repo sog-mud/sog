@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.89 1998-09-17 15:51:17 fjoe Exp $
+ * $Id: act_move.c,v 1.90 1998-09-20 17:00:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2020,7 +2020,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 
 		if (buf[strlen(buf)-1] != ':') {
 			strcat(buf, ".\n\r");
-			send_to_char(buf, ch);
+			char_puts(buf, ch);
 		}
 		else {
 			/*
@@ -3195,7 +3195,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 		          	level = poison->level;
 		      	 if (!saves_spell(level,victim,DAM_POISON))
 		      	 {
-		            send_to_char("You feel poison coursing through your veins.",
+		            char_puts("You feel poison coursing through your veins.",
 		              victim);
 		            act("$n is poisoned by the venom on $p.",
 				victim,arrow,NULL,TO_ROOM);
@@ -3291,7 +3291,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return; /* Mobs can't use bows */
 
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_bow)) == 0) {
-		send_to_char("You don't know how to shoot.\n\r",ch);
+		char_puts("You don't know how to shoot.\n\r",ch);
 		return;
 	}
 
@@ -3311,7 +3311,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	direction = find_exit(ch, arg1);
 
 	if (direction < 0 || direction >= MAX_DIR) {
-		send_to_char("Shoot which direction and whom?\n\r",ch);
+		char_puts("Shoot which direction and whom?\n\r",ch);
 		return;
 	}
 		
@@ -3319,12 +3319,12 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
-		send_to_char("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n\r", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		send_to_char("That's pointless.\n\r", ch);
+		char_puts("That's pointless.\n\r", ch);
 		return;
 	}
 
@@ -3333,13 +3333,13 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 
 	if (!wield || wield->item_type != ITEM_WEAPON
 	||  wield->value[0]!=WEAPON_BOW) {
-		send_to_char("You need a bow to shoot!\n\r",ch);
+		char_puts("You need a bow to shoot!\n\r",ch);
 		return;    	
 	}
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD)
 	||  get_eq_char(ch, WEAR_SHIELD)) {
-		send_to_char("Your second hand should be free!\n\r",ch);
+		char_puts("Your second hand should be free!\n\r",ch);
 		return;    	
 	}
 
@@ -3351,7 +3351,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		
 	if (arrow->item_type != ITEM_WEAPON
 	||  arrow->value[0] != WEAPON_ARROW) {
-		send_to_char("That's not the right kind of arrow!\n\r",ch);
+		char_puts("That's not the right kind of arrow!\n\r",ch);
 		return;
 	}
 		
@@ -3445,7 +3445,7 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	int range = (ch->level / 10) + 1;
 
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_spear)) == 0) {
-		send_to_char("You don't know how to throw a spear.\n\r",ch);
+		char_puts("You don't know how to throw a spear.\n\r",ch);
 		return;
 	}
 
@@ -3464,7 +3464,7 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 
 	direction = find_exit(ch, arg1);
 	if (direction < 0 || direction >= MAX_DIR) {
-		send_to_char("Throw which direction and whom?\n\r",ch);
+		char_puts("Throw which direction and whom?\n\r",ch);
 		return;
 	}
 		
@@ -3472,24 +3472,24 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_NPC(victim) && victim->desc == NULL) {
-		send_to_char("You can't do that.\n\r", ch);
+		char_puts("You can't do that.\n\r", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		send_to_char("That's pointless.\n\r", ch);
+		char_puts("That's pointless.\n\r", ch);
 		return;
 	}
 
 	spear = get_eq_char(ch, WEAR_WIELD);
 	if (!spear || spear->item_type != ITEM_WEAPON
 	||  spear->value[0] != WEAPON_SPEAR) {
-		send_to_char("You need a spear to throw!\n\r",ch);
+		char_puts("You need a spear to throw!\n\r",ch);
 		return;    	
 	}
 
 	if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD)) {
-		send_to_char("Your second hand should be free!\n\r",ch);
+		char_puts("Your second hand should be free!\n\r",ch);
 		return;    	
 	}
 
@@ -3556,7 +3556,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	/* nifty portal stuff */
 	if (argument[0] == '\0') {
-		send_to_char("Nope, can't do it.\n\r",ch);
+		char_puts("Nope, can't do it.\n\r",ch);
 		return;
 	}
 
@@ -3565,13 +3565,13 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	portal = get_obj_list(ch, argument, ch->in_room->contents);
 	
 	if (portal == NULL) {
-		send_to_char("You don't see that here.\n\r",ch);
+		char_puts("You don't see that here.\n\r",ch);
 		return;
 	}
 
 	if (portal->item_type != ITEM_PORTAL 
 	||  (IS_SET(portal->value[1],EX_CLOSED) && !IS_TRUSTED(ch, ANGEL))) {
-		send_to_char("You can't seem to find a way in.\n\r", ch);
+		char_puts("You can't seem to find a way in.\n\r", ch);
 		return;
 	}
 
@@ -3579,7 +3579,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	&&  (IS_AFFECTED(ch,AFF_CURSE) 
 	||  IS_SET(old_room->room_flags,ROOM_NO_RECALL) 
 	||  IS_RAFFECTED(old_room,RAFF_CURSE))) {
-		send_to_char("Something prevents you from leaving...\n\r",ch);
+		char_puts("Something prevents you from leaving...\n\r",ch);
 		return;
 	}
 
@@ -3602,7 +3602,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch) && IS_SET(ch->act,ACT_AGGRESSIVE)
 	&&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE)) {
-	        send_to_char("Something prevents you from leaving...\n\r",ch);
+	        char_puts("Something prevents you from leaving...\n\r",ch);
 	        return;
 	}
 
@@ -3708,7 +3708,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	int chance;
 
 	if ((chance = get_skill(ch, gsn_settraps)) == 0) {
-		send_to_char("You don't know how to set traps.\n\r",ch);
+		char_puts("You don't know how to set traps.\n\r",ch);
 		return;
 	}
 
@@ -3716,7 +3716,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
-	 send_to_char("A mystical power protects the room.\n\r",ch);
+	 char_puts("A mystical power protects the room.\n\r",ch);
 	 return;
 	}
 
@@ -3729,13 +3729,13 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 
 	  if (is_affected_room(ch->in_room, gsn_settraps))
 	  {
-	send_to_char("This room has already trapped.\n\r",ch);
+	char_puts("This room has already trapped.\n\r",ch);
 	return;
 	   }
 
 	  if (is_affected(ch,gsn_settraps))
 	  {
-	send_to_char("This skill is used too recently.\n\r",ch);
+	char_puts("This skill is used too recently.\n\r",ch);
 	return;
 	  }
    
@@ -3760,7 +3760,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af2.location  = APPLY_NONE;
 	  af2.bitvector = 0;
 	  affect_to_char(ch, &af2);
-	  send_to_char("You set the room with your trap.\n\r", ch);
+	  char_puts("You set the room with your trap.\n\r", ch);
 	  act("$n set the room with $s trap.",ch,NULL,NULL,TO_ROOM);
 	  return;
 	}

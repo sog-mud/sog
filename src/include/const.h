@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.2 1998-09-17 15:51:18 fjoe Exp $
+ * $Id: const.h,v 1.3 1998-09-20 17:01:00 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -55,6 +55,7 @@
 #define NULL_FILE	"/dev/null"	/* To reserve one stream */
 
 #define SKILLS_CONF	"skills.conf"	/* skills */
+#define MSG_FILE	"msgdb.txt"	/* msg db */
 
 #define CLASS_LIST	"class.lst"	/* list of classes */
 #define CLAN_LIST	"clan.lst"	/* list of clans */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.9 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: rating.c,v 1.10 1998-09-20 17:01:02 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -95,8 +95,8 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 	qsort(rating_table, RATING_TABLE_SIZE, sizeof(struct rating_data),
 	      rating_data_cmp);
 
-	send_to_char("Name                    | PC's killed\n\r", ch);
-	send_to_char("------------------------+------------\n\r", ch);
+	char_puts("Name                    | PC's killed\n\r", ch);
+	char_puts("------------------------+------------\n\r", ch);
 	for (i = 0; i < RATING_TABLE_SIZE; i++) {
 		if (rating_table[i].name == NULL)
 			continue;
@@ -104,11 +104,11 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 			    rating_table[i].name, rating_table[i].pc_killed);
 	}
 	if (!ch->pcdata->pc_killed)
-		send_to_char("\n\rDo you profess to be SO {Cpeaceful{x?\n\r"
+		char_puts("\n\rDo you profess to be SO {Cpeaceful{x?\n\r"
 			     "You have killed no one.\n\r", ch);
 	else {
 		if (!strcmp(rating_table[0].name, ch->name))
-			send_to_char("\n\rI bet you are {Rawful{x. \n\r"
+			char_puts("\n\rI bet you are {Rawful{x. \n\r"
 				     "You're at the top of this list!", ch);
 		char_printf(ch, "\n\rYou have killed %s{R%d{x player%s.\n\r",
 			    ch->pcdata->pc_killed == 1 ? "ONLY " : "",

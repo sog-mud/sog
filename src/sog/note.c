@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.23 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: note.c,v 1.24 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -176,7 +176,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
     }
 
     if (!found && str_cmp(argument, "login"))
-	char_nputs(MSG_YOU_HAVE_NO_UNREAD, ch);
+	char_puts("You have no unread messages.\n\r", ch);
 }
 
 void do_note(CHAR_DATA *ch,const char *argument)
@@ -662,7 +662,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				else if (is_note_to(ch, pnote))
 					vnum++;
 			}
-			char_printf(ch,"You have no unread %s.\n\r",list_name);
+			char_puts("You have no unread messages.\n\r", ch);
 			return;
         	}
 		else if (is_number(argument)) {

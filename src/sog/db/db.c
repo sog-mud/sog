@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.65 1998-09-19 10:39:07 fjoe Exp $
+ * $Id: db.c,v 1.66 1998-09-20 17:01:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -157,8 +157,6 @@ char			filename[PATH_MAX];
  * Local booting procedures.
 */
 void    init_mm         (void);
-void	load_notes	(void);
-void	load_bans	(void);
  
 void	fix_exits	(void);
 void    check_mob_progs	(void);
@@ -261,8 +259,6 @@ void boot_db(void)
 	extern char* malloc_options;
 	malloc_options = "X";
 #endif
-	fBootDb		= TRUE;
-
 	/*
 	 * Init random number generator.
 	 */
@@ -321,14 +317,7 @@ void boot_db(void)
 	check_mob_progs();
 	load_limited_objects();
 	log_printf("Total non-immortal levels > 5: %d", total_levels);
-
-	fBootDb	= FALSE;
-	convert_objects();           /* ROM OLC */
-	area_update();
-	load_notes();
-	load_bans();
 }
-
 
 /*
  * Sets vnum range for area using OLC protection features.
@@ -459,8 +448,8 @@ void fix_exits(void)
 		{
 		    for (door = 0; door <= 5; door++)
 		    {
-			if ((pexit     = pRoomIndex->exit[door]     ) != NULL
-			&&   (to_room   = pexit->u1.to_room          ) != NULL
+			if ((pexit     = pRoomIndex->exit[door]    ) != NULL
+			&&   (to_room   = pexit->u1.to_room         ) != NULL
 			&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
 			&&   pexit_rev->u1.to_room != pRoomIndex 
 			&&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
@@ -475,7 +464,6 @@ void fix_exits(void)
 
 	return;
 }
-
 
 void print_resetmsg(AREA_DATA *pArea)
 {
@@ -498,7 +486,6 @@ void print_resetmsg(AREA_DATA *pArea)
 			char_mlputs(pArea->resetmsg, ch);
 	}
 }
-
 
 /*
  * Repopulate areas periodically.
@@ -536,7 +523,7 @@ void area_update(void)
 					&&  get_skill(ch, gsn_track) > 50
 					&& !IS_SET(ch->in_room->room_flags,
 								ROOM_INDOORS))
-					send_to_char("Rain devastates the tracks on the ground.\n\r", ch);
+					char_puts("Rain devastates the tracks on the ground.\n\r", ch);
 				}
 
 				for (i = pArea->min_vnum; i < pArea->max_vnum;
@@ -585,7 +572,7 @@ void area_update(void)
  * OLC
  * Reset one room.  Called by reset_area and olc.
  */
-void reset_room( ROOM_INDEX_DATA *pRoom )
+void reset_room(ROOM_INDEX_DATA *pRoom)
 {
     RESET_DATA  *pReset;
     CHAR_DATA   *pMob;
@@ -597,21 +584,21 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
     int level = 0;
     bool last;
 
-    if ( !pRoom )
+    if (!pRoom)
         return;
 
     pMob        = NULL;
     last        = FALSE;
     
-    for ( iExit = 0;  iExit < MAX_DIR;  iExit++ )
+    for (iExit = 0;  iExit < MAX_DIR;  iExit++)
     {
         EXIT_DATA *pExit;
-        if ( ( pExit = pRoom->exit[iExit] )
-	  /*  && !IS_SET( pExit->exit_info, EX_BASHED )   ROM OLC */ )  
+        if ((pExit = pRoom->exit[iExit])
+	  /*  && !IS_SET(pExit->exit_info, EX_BASHED)   ROM OLC */)  
         {
             pExit->exit_info = pExit->rs_flags;
-            if ( ( pExit->u1.to_room != NULL )
-              && ( ( pExit = pExit->u1.to_room->exit[rev_dir[iExit]] ) ) )
+            if ((pExit->u1.to_room != NULL)
+              && ((pExit = pExit->u1.to_room->exit[rev_dir[iExit]])))
             {
                 /* nail the other side */
                 pExit->exit_info = pExit->rs_flags;
@@ -619,7 +606,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
         }
     }
 
-    for ( pReset = pRoom->reset_first; pReset != NULL; pReset = pReset->next )
+    for (pReset = pRoom->reset_first; pReset != NULL; pReset = pReset->next)
     {
         MOB_INDEX_DATA  *pMobIndex;
         OBJ_INDEX_DATA  *pObjIndex;
@@ -630,25 +617,25 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
         int d0;
         int d1;
 
-        switch ( pReset->command )
+        switch (pReset->command)
         {
         default:
-                bug( "Reset_room: bad command %c.", pReset->command );
+                bug("Reset_room: bad command %c.", pReset->command);
                 break;
 
         case 'M':
-            if ( !( pMobIndex = get_mob_index( pReset->arg1 ) ) )
+            if (!(pMobIndex = get_mob_index(pReset->arg1)))
             {
-                bug( "Reset_room: 'M': bad vnum %d.", pReset->arg1 );
+                bug("Reset_room: 'M': bad vnum %d.", pReset->arg1);
                 continue;
             }
 
-	    if ( ( pRoomIndex = get_room_index( pReset->arg3 ) ) == NULL )
+	    if ((pRoomIndex = get_room_index(pReset->arg3)) == NULL)
 	    {
-		bug( "Reset_area: 'R': bad vnum %d.", pReset->arg3 );
+		bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 		continue;
 	    }
-            if ( pMobIndex->count >= pReset->arg2 )
+            if (pMobIndex->count >= pReset->arg2)
             {
                 last = FALSE;
                 break;
@@ -669,33 +656,33 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 	    if (count >= pReset->arg4)
 		break;
 
-            pMob = create_mob( pMobIndex );
+            pMob = create_mob(pMobIndex);
 
 		pMob->zone = pRoom->area;
-            char_to_room( pMob, pRoom );
+            char_to_room(pMob, pRoom);
 
             LastMob = pMob;
-            level  = URANGE( 0, pMob->level - 2, LEVEL_HERO - 1 ); /* -1 ROM */
+            level  = URANGE(0, pMob->level - 2, LEVEL_HERO - 1); /* -1 ROM */
             last = TRUE;
             break;
 
         case 'O':
-            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
+            if (!(pObjIndex = get_obj_index(pReset->arg1)))
             {
                 log_printf("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
-                log_printf("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4 );
+                log_printf("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
                 continue;
             }
 
-            if ( !( pRoomIndex = get_room_index( pReset->arg3 ) ) )
+            if (!(pRoomIndex = get_room_index(pReset->arg3)))
             {
                 log_printf("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
-                log_printf("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4 );
+                log_printf("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
                 continue;
             }
 
-            if ( pRoom->area->nplayer > 0
-              || count_obj_list( pObjIndex, pRoom->contents ) > 0 )
+            if (pRoom->area->nplayer > 0
+              || count_obj_list(pObjIndex, pRoom->contents) > 0)
 	    {
 		last = FALSE;
 		break;
@@ -707,10 +694,10 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 		        break;
 		      }
 
-            pObj = create_obj( pObjIndex,              /* UMIN - ROM OLC */
-				  UMIN(number_fuzzy( level ), LEVEL_HERO -1) );
+            pObj = create_obj(pObjIndex,              /* UMIN - ROM OLC */
+				  UMIN(number_fuzzy(level), LEVEL_HERO -1));
             pObj->cost = 0;
-            obj_to_room( pObj, pRoom );
+            obj_to_room(pObj, pRoom);
 	    last = TRUE;
             break;
 
@@ -722,15 +709,15 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 		 * arg4
 		 */
 
-            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
+            if (!(pObjIndex = get_obj_index(pReset->arg1)))
             {
-                bug( "Reset_room: 'P': bad vnum %d.", pReset->arg1 );
+                bug("Reset_room: 'P': bad vnum %d.", pReset->arg1);
                 continue;
             }
 
-            if ( !( pObjToIndex = get_obj_index( pReset->arg3 ) ) )
+            if (!(pObjToIndex = get_obj_index(pReset->arg3)))
             {
-                bug( "Reset_room: 'P': bad vnum %d.", pReset->arg3 );
+                bug("Reset_room: 'P': bad vnum %d.", pReset->arg3);
                 continue;
             }
 
@@ -741,18 +728,18 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
             else
                 limit = pReset->arg2;
 
-            if ( pRoom->area->nplayer > 0
-              || ( LastObj = get_obj_type( pObjToIndex ) ) == NULL
-              || ( LastObj->in_room == NULL && !last)
-              || ( pObjIndex->count >= limit && number_range(0,4) != 0) 
-              || ( count = count_obj_list( pObjIndex, LastObj->contains ) ) > pReset->arg4  )
+            if (pRoom->area->nplayer > 0
+              || (LastObj = get_obj_type(pObjToIndex)) == NULL
+              || (LastObj->in_room == NULL && !last)
+              || (pObjIndex->count >= limit && number_range(0,4) != 0) 
+              || (count = count_obj_list(pObjIndex, LastObj->contains)) > pReset->arg4 )
 	    {
 		last = FALSE;
 		break;
 	    }
 				                /* lastObj->level  -  ROM */
 
-		    if ((pObjIndex->limit != -1              ) &&
+		    if ((pObjIndex->limit != -1             ) &&
 		         (pObjIndex->count >= pObjIndex->limit))
 		      {
 		        last = FALSE;
@@ -762,8 +749,8 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 
 	    while (count < pReset->arg4)
 	    {
-            pObj = create_obj( pObjIndex, number_fuzzy( LastObj->level ) );
-            obj_to_obj( pObj, LastObj );
+            pObj = create_obj(pObjIndex, number_fuzzy(LastObj->level));
+            obj_to_obj(pObj, LastObj);
 		count++;
 		if (pObjIndex->count >= limit)
 		    break;
@@ -776,45 +763,45 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 
         case 'G':
         case 'E':
-            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
+            if (!(pObjIndex = get_obj_index(pReset->arg1)))
             {
-                bug( "Reset_room: 'E' or 'G': bad vnum %d.", pReset->arg1 );
+                bug("Reset_room: 'E' or 'G': bad vnum %d.", pReset->arg1);
                 continue;
             }
 
-            if ( !last )
+            if (!last)
                 break;
 
-            if ( !LastMob )
+            if (!LastMob)
             {
-                bug( "Reset_room: 'E' or 'G': null mob for vnum %d.",
-                    pReset->arg1 );
+                bug("Reset_room: 'E' or 'G': null mob for vnum %d.",
+                    pReset->arg1);
                 last = FALSE;
                 break;
             }
 
-            if ( LastMob->pIndexData->pShop )   /* Shop-keeper? */
+            if (LastMob->pIndexData->pShop)   /* Shop-keeper? */
             {
                 int olevel=0;
 
-                pObj = create_obj( pObjIndex, olevel );
-		SET_BIT( pObj->extra_flags, ITEM_INVENTORY );  /* ROM OLC */
+                pObj = create_obj(pObjIndex, olevel);
+		SET_BIT(pObj->extra_flags, ITEM_INVENTORY);  /* ROM OLC */
             }
 #if 0
 	    else   /* ROM OLC else version */
 	    {
 		int limit;
-		if (pReset->arg2 > 50 )  /* old format */
+		if (pReset->arg2 > 50)  /* old format */
 		    limit = 6;
-		else if ( pReset->arg2 == -1 || pReset->arg2 == 0 )  /* no limit */
+		else if (pReset->arg2 == -1 || pReset->arg2 == 0)  /* no limit */
 		    limit = 999;
 		else
 		    limit = pReset->arg2;
 
-		if ( pObjIndex->count < limit || number_range(0,4) == 0 )
+		if (pObjIndex->count < limit || number_range(0,4) == 0)
 		{
-		    pObj = create_obj( pObjIndex, 
-			   UMIN( number_fuzzy( level ), LEVEL_HERO - 1 ) );
+		    pObj = create_obj(pObjIndex, 
+			   UMIN(number_fuzzy(level), LEVEL_HERO - 1));
 		    /* error message if it is too high */
 		    if (pObj->level > LastMob->level + 3
 		    ||  (pObj->item_type == ITEM_WEAPON 
@@ -834,7 +821,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 #if 0 /* envy else version */
             else
             {
-                pObj = create_obj( pObjIndex, number_fuzzy( level ) );
+                pObj = create_obj(pObjIndex, number_fuzzy(level));
             }
 #endif /* envy else version */
 
@@ -848,9 +835,9 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 
 		}
 
-            obj_to_char( pObj, LastMob );
-            if ( pReset->command == 'E' )
-                equip_char( LastMob, pObj, pReset->arg3 );
+            obj_to_char(pObj, LastMob);
+            if (pReset->command == 'E')
+                equip_char(LastMob, pObj, pReset->arg3);
             last = TRUE;
             break;
 
@@ -872,13 +859,13 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
 			break;
 
 		    case 1:
-			SET_BIT(   pExit->exit_info, EX_CLOSED);
+			SET_BIT(  pExit->exit_info, EX_CLOSED);
 			REMOVE_BIT(pExit->exit_info, EX_LOCKED);
 			break;
 
 		    case 2:
-			SET_BIT(   pExit->exit_info, EX_CLOSED);
-			SET_BIT(   pExit->exit_info, EX_LOCKED);
+			SET_BIT(  pExit->exit_info, EX_CLOSED);
+			SET_BIT(  pExit->exit_info, EX_LOCKED);
 			break;
 		    }
 
@@ -886,17 +873,17 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
             break;
 
         case 'R':
-            if ( !( pRoomIndex = get_room_index( pReset->arg1 ) ) )
+            if (!(pRoomIndex = get_room_index(pReset->arg1)))
             {
-                bug( "Reset_room: 'R': bad vnum %d.", pReset->arg1 );
+                bug("Reset_room: 'R': bad vnum %d.", pReset->arg1);
                 continue;
             }
 
             {
 
-                for ( d0 = 0; d0 < pReset->arg2 - 1; d0++ )
+                for (d0 = 0; d0 < pReset->arg2 - 1; d0++)
                 {
-                    d1                   = number_range( d0, pReset->arg2-1 );
+                    d1                   = number_range(d0, pReset->arg2-1);
                     pExit                = pRoomIndex->exit[d0];
                     pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
                     pRoomIndex->exit[d1] = pExit;
@@ -920,7 +907,6 @@ void reset_area(AREA_DATA *pArea)
         	if ((pRoom = get_room_index(vnum)))
 			reset_room(pRoom);
 }
-
 
 /*
  * Create an instance of a mobile.
@@ -1443,7 +1429,6 @@ ED_DATA *ed_lookup(const char *name, ED_DATA *ed)
 	return NULL;
 }
 
-
 /*
  * Translates mob virtual number to its mob index struct.
  * Hash table lookup.
@@ -1452,21 +1437,19 @@ MOB_INDEX_DATA *get_mob_index(int vnum)
 {
 	MOB_INDEX_DATA *pMobIndex;
 
-	for (pMobIndex  = mob_index_hash[vnum % MAX_KEY_HASH];
-		  pMobIndex != NULL;
-		  pMobIndex  = pMobIndex->next)
-	{
+	if (vnum <= 0)
+		return NULL;
+
+	for (pMobIndex = mob_index_hash[vnum % MAX_KEY_HASH];
+	     pMobIndex; pMobIndex = pMobIndex->next)
 		if (pMobIndex->vnum == vnum)
-		    return pMobIndex;
-	}
+			return pMobIndex;
 
-	if (fBootDb) 
+	if (fBootDb)
 		db_error("get_mob_index", "bad vnum %d.", vnum);
-
+		
 	return NULL;
 }
-
-
 
 /*
  * Translates mob virtual number to its obj index struct.
@@ -1476,24 +1459,19 @@ OBJ_INDEX_DATA *get_obj_index(int vnum)
 {
 	OBJ_INDEX_DATA *pObjIndex;
 
-	for (pObjIndex  = obj_index_hash[vnum % MAX_KEY_HASH];
-		  pObjIndex != NULL;
-		  pObjIndex  = pObjIndex->next)
-	{
+	if (vnum <= 0)
+		return NULL;
+
+	for (pObjIndex = obj_index_hash[vnum % MAX_KEY_HASH];
+	     pObjIndex; pObjIndex = pObjIndex->next)
 		if (pObjIndex->vnum == vnum)
-		    return pObjIndex;
-	}
+			return pObjIndex;
 
 	if (fBootDb)
-	{
-		bug("Get_obj_index: bad vnum %d.", vnum);
-		exit(1);
-	}
-
+		db_error("get_obj_index", "bad vnum %d.", vnum);
+		
 	return NULL;
 }
-
-
 
 /*
  * Translates mob virtual number to its room index struct.
@@ -1503,23 +1481,19 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 
-	for (pRoomIndex  = room_index_hash[vnum % MAX_KEY_HASH];
-		  pRoomIndex != NULL;
-		  pRoomIndex  = pRoomIndex->next)
-	{
+	if (vnum <= 0)
+		return NULL;
+
+	for (pRoomIndex = room_index_hash[vnum % MAX_KEY_HASH];
+	     pRoomIndex; pRoomIndex = pRoomIndex->next)
 		if (pRoomIndex->vnum == vnum)
-		    return pRoomIndex;
-	}
+			return pRoomIndex;
 
 	if (fBootDb)
-	{
-		bug("Get_room_index: bad vnum %d.", vnum);
-		exit(1);
-	}
+		db_error("get_room_index", "bad vnum %d.", vnum);
 
 	return NULL;
 }
-
 
 int xgetc(FILE *fp)
 {
@@ -1546,14 +1520,10 @@ char fread_letter(FILE *fp)
 	char c;
 
 	do
-	{
 		c = xgetc(fp);
-	}
 	while (isspace(c));
 	return c;
 }
-
-
 
 /*
  * Read a number from a file.
@@ -1572,11 +1542,8 @@ int fread_number(FILE *fp)
 
 	sign   = FALSE;
 	if (c == '+')
-	{
 		c = xgetc(fp);
-	}
-	else if (c == '-')
-	{
+	else if (c == '-') {
 		sign = TRUE;
 		c = xgetc(fp);
 	}
@@ -1663,7 +1630,6 @@ flag_t flag_convert(char letter)
 	return bitsum;
 }
 
-
 /*
  * Read and allocate space for a string from a file.
  */
@@ -1726,7 +1692,6 @@ char *fread_string(FILE *fp)
 	}
 }
 
-
 /*
  * Read to end of line (for comments).
  */
@@ -1745,7 +1710,6 @@ void fread_to_eol(FILE *fp)
 	xungetc(c, fp);
 	return;
 }
-
 
 /*
  * Read one word (into static buffer).
@@ -1785,24 +1749,20 @@ char *fread_word(FILE *fp)
 	return NULL;
 }
 
-
 void *alloc_mem(int sMem)
 {
 	return calloc(1, sMem);
 }
-
 
 void free_mem(void *p, int sMem)
 {
 	free(p);
 }
 
-
 void *alloc_perm(int sMem)
 {
 	return calloc(1, sMem);
 }
-
 
 /*
  * Duplicate a string into dynamic memory.
@@ -1817,7 +1777,6 @@ char *str_dup(const char *str)
 
 	return strdup(str);
 }
-
 
 char *str_add(const char *str,...)
 {
@@ -1843,7 +1802,6 @@ char *str_add(const char *str,...)
 
 	return str_new;
 }
-
 
 /*
  * Free a string.
@@ -1885,7 +1843,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 
 	if (argument[0] != '\0') {
-		send_to_char("No argument is used with this command.\n\r",ch);
+		char_puts("No argument is used with this command.\n\r",ch);
 		return;
 	}
 
@@ -1920,25 +1878,23 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-
-
 void do_memory(CHAR_DATA *ch, const char *argument)
 {
 	extern int mlstr_count;
 
-	char_printf(ch, "Affects  : %d\n\r", top_affect  );
-	char_printf(ch, "Areas    : %d\n\r", top_area    );
-	char_printf(ch, "ExDes    : %d\n\r", top_ed      );
-	char_printf(ch, "Exits    : %d\n\r", top_exit    );
-	char_printf(ch, "Helps    : %d\n\r", top_help    );
+	char_printf(ch, "Affects  : %d\n\r", top_affect );
+	char_printf(ch, "Areas    : %d\n\r", top_area   );
+	char_printf(ch, "ExDes    : %d\n\r", top_ed     );
+	char_printf(ch, "Exits    : %d\n\r", top_exit   );
+	char_printf(ch, "Helps    : %d\n\r", top_help   );
 	char_printf(ch, "Socials  : %d\n\r", social_count);
 	char_printf(ch, "Mobs     : %d (%d new format, %d in use)\n\r",
 					top_mob_index, newmobs, mobile_count); 
 	char_printf(ch, "Objs     : %d (%d new format)\n\r",
 					top_obj_index, newobjs); 
-	char_printf(ch, "Resets   : %d\n\r", top_reset   );
-	char_printf(ch, "Rooms    : %d\n\r", top_room    );
-	char_printf(ch, "Shops    : %d\n\r", top_shop    );
+	char_printf(ch, "Resets   : %d\n\r", top_reset  );
+	char_printf(ch, "Rooms    : %d\n\r", top_room   );
+	char_printf(ch, "Shops    : %d\n\r", top_shop   );
 	char_printf(ch, "Buffers  : %d (%d bytes)\n\r",
 					nAllocBuf, sAllocBuf);
 	char_printf(ch, "mlstrings: %d\n\r", mlstr_count);
@@ -2083,8 +2039,6 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fpReserve = fopen(NULL_FILE, "r");
 }
 
-
-
 /*
  * Stick a little fuzz on a number.
  */
@@ -2098,8 +2052,6 @@ int number_fuzzy(int number)
 
 	return UMAX(1, number);
 }
-
-
 
 /*
  * Generate a random number.
@@ -2124,8 +2076,6 @@ int number_range(int from, int to)
 	return from + number;
 }
 
-
-
 /*
  * Generate a percentile roll.
  */
@@ -2138,8 +2088,6 @@ int number_percent(void)
 
 	return 1 + percent;
 }
-
-
 
 /*
  * Generate a random door.
@@ -2158,9 +2106,6 @@ int number_bits(int width)
 {
 	return number_mm() & ((1 << width) - 1);
 }
-
-
-
 
 /*
  * I've gotten too many bad reports on OS-supplied random number generators.
@@ -2201,8 +2146,6 @@ void init_mm()
 	return;
 }
  
- 
- 
 long number_mm(void)
 {
 #if defined (OLD_RAND)
@@ -2229,7 +2172,6 @@ long number_mm(void)
 #endif
 }
 
-
 /*
  * Roll some dice.
  */
@@ -2249,8 +2191,6 @@ int dice(int number, int size)
 
 	return sum;
 }
-
-
 
 /*
  * Simple linear interpolation.
@@ -2285,7 +2225,6 @@ char *capitalize(const char *str)
 	return strcap;
 }
 
-
 /*
  * Append a string to a file.
  */
@@ -2300,7 +2239,7 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 	if ((fp = dfopen(TMP_PATH, file, "a")) == NULL)
 	{
 		perror(file);
-		send_to_char("Could not open the file!\n\r", ch);
+		char_puts("Could not open the file!\n\r", ch);
 	}
 	else
 	{
@@ -2312,9 +2251,6 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 	fpReserve = fopen(NULL_FILE, "r");
 	return;
 }
-
-
-
 
 /*
  * This function is here to aid in debugging.
@@ -2636,11 +2572,7 @@ void convert_objects(void)
 	    if ((pObj = get_obj_index(vnum)))
  		if (!pObj->new_format)
 		    convert_object(pObj);
-
-    return;
 }
-
-
 
 /*****************************************************************************
  Name:		convert_object
@@ -2742,9 +2674,6 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
     ++newobjs;
 }
 
-
-
-
 /*****************************************************************************
  Name:		convert_mobile
  Purpose:	Converts an old_format mob into new_format
@@ -2774,14 +2703,14 @@ void convert_mobile(MOB_INDEX_DATA *pMobIndex)
      * The conversion below gives:
 
        level:     dice         min         max        diff       mean
-         1:       1d2+6       7( 7)     8(  8)     1(  1)     8(  8)
-	 2:       1d3+15     16(15)    18( 18)     2(  3)    17( 17)
-	 3:       1d6+24     25(24)    30( 30)     5(  6)    27( 27)
-	 5:      1d17+42     43(42)    59( 59)    16( 17)    51( 51)
-	10:      3d22+96     99(95)   162(162)    63( 67)   131(  )
-	15:     5d30+161    166(159)   311(311)   145(150)   239(  )
-	30:    10d61+416    426(419)  1026(1026)   600(607)   726(  )
-	50:    10d169+920   930(923)  2610(2610)  1680(1688)  1770(  )
+         1:      1d2+6        7 (7)        8 (8)       1 (1)       8 (8)
+	 2:      1d3+15      16 (15)      18 (18)      2 (3)      17 (17)
+	 3:      1d6+24      25 (24)      30 (30)      5 (6)      27 (27)
+	 5:     1d17+42      43 (42)      59 (59)     16 (17)     51 (51)
+	10:     3d22+96      99 (95)     162 (162)    63 (67)    131 ()
+	15:     5d30+161    166 (159)    311 (311)   145 (150)   239 ()
+	30:    10d61+416    426 (419)   1026 (1026)  600 (607)   726 ()
+	50:   10d169+920    930 (923)   2610 (2610) 1680 (1688) 1770 ()
 
 	The values in parenthesis give the values generated in create_mob.
         Diff = max - min.  Mean is the arithmetic mean.

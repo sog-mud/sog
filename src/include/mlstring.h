@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.9 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: mlstring.h,v 1.10 1998-09-20 17:01:02 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
 #define _MLSTRING_H_
 
+mlstring *	mlstr_new	(const char *mval);
 mlstring * 	mlstr_fread	(FILE *fp);
 void		mlstr_fwrite	(FILE *fp, const char* name,
 				 const mlstring *ml);

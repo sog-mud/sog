@@ -1,0 +1,6 @@
+@eng You sure are BLEEDING!
+@rus Ты истекаешь КРОВЬЮ!
+~
+@eng Don't you want a quest?@rus Не хочешь ли получить задание?~
+@eng $n tells you '{G$t{x'@rus $n говорит тебе: "{G$t{x"~
+$~

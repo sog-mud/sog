@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.14 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.15 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -140,25 +140,25 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0')
     {
-	send_to_char("Mpstat whom?\n\r", ch);
+	char_puts("Mpstat whom?\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("No such creature.\n\r", ch);
+	char_puts("No such creature.\n\r", ch);
 	return;
     }
 
     if (!IS_NPC(victim))
     {
-	send_to_char("That is not a mobile.\n\r", ch);
+	char_puts("That is not a mobile.\n\r", ch);
 	return;
     }
 
     if ((victim = get_char_world(ch, arg)) == NULL)
     {
-	send_to_char("No such creature visible.\n\r", ch);
+	char_puts("No such creature visible.\n\r", ch);
 	return;
     }
 
@@ -170,7 +170,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 		"No target" : victim->mprog_target->name);
 
     if (!victim->pIndexData->mptrig_types) {
-	send_to_char("[No programs set]\n\r", ch);
+	char_puts("[No programs set]\n\r", ch);
 	return;
     }
 
@@ -196,7 +196,7 @@ void do_mpdump(CHAR_DATA *ch, const char *argument)
    one_argument(argument, buf);
    if ((mpcode = mpcode_lookup(atoi(buf))) == NULL)
    {
-	send_to_char("No such MOBprogram.\n\r", ch);
+	char_puts("No such MOBprogram.\n\r", ch);
 	return;
    }
    page_to_char(mpcode->code, ch);
@@ -223,9 +223,9 @@ void do_mpgecho(CHAR_DATA *ch, const char *argument)
 	if (d->connected == CON_PLAYING)
  	{
 	    if (IS_IMMORTAL(d->character))
-		send_to_char("Mob echo> ", d->character);
-	    send_to_char(argument, d->character);
-	    send_to_char("\n\r", d->character);
+		char_puts("Mob echo> ", d->character);
+	    char_puts(argument, d->character);
+	    char_puts("\n\r", d->character);
 	}
     }
 }
@@ -256,9 +256,9 @@ void do_mpzecho(CHAR_DATA *ch, const char *argument)
 	&&   d->character->in_room->area == ch->in_room->area)
  	{
 	    if (IS_IMMORTAL(d->character))
-		send_to_char("Mob echo> ", d->character);
-	    send_to_char(argument, d->character);
-	    send_to_char("\n\r", d->character);
+		char_puts("Mob echo> ", d->character);
+	    char_puts(argument, d->character);
+	    char_puts("\n\r", d->character);
 	}
     }
 }

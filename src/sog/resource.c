@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.35 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: resource.c,v 1.36 1998-09-20 17:01:27 fjoe Exp $
  */
 
 #include <limits.h>
@@ -161,14 +161,14 @@ static char STR_END[] = "};\n";
 
 #define BUFSZ 1024
 
-static void lang_load(int lang, char* fname);
+static void load_langfile(int lang, char* fname);
 
 static void msgid_add(char* name, int msgid);
 static msgid_lookup(char* name);
 static msgid_cmp(const void*, const void*);
 static char* msgid_name_lookup(int msgid);
 
-void msgdb_load()
+void load_lang(void)
 {
 	int i;
 	FILE *f;
@@ -260,7 +260,7 @@ void msgdb_load()
 			exit(EX_DATAERR);
 		}
 		lang_table[i] = str_dup(buf);
-		lang_load(i, buf2);
+		load_langfile(i, buf2);
 	}
 
 	for (i = 0; i < nmsgid; i++)
@@ -272,7 +272,7 @@ void msgdb_load()
 
 static
 void
-lang_load(int lang, char* fname)
+load_langfile(int lang, char* fname)
 {
 	int i;
 	int line = 0;

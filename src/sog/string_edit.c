@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.15 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: string_edit.c,v 1.16 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -34,10 +34,10 @@ char *numlines(char *);
  ****************************************************************************/
 void string_edit(CHAR_DATA *ch, char **pString)
 {
-    send_to_char("-========- Entering EDIT Mode -=========-\n\r", ch);
-    send_to_char("    Type :h on a new line for help\n\r", ch);
-    send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
-    send_to_char("-=======================================-\n\r", ch);
+    char_puts("-========- Entering EDIT Mode -=========-\n\r", ch);
+    char_puts("    Type :h on a new line for help\n\r", ch);
+    char_puts(" Terminate with a ~ or @ on a blank line.\n\r", ch);
+    char_puts("-=======================================-\n\r", ch);
 
     if (*pString == NULL)
     {
@@ -62,18 +62,18 @@ void string_edit(CHAR_DATA *ch, char **pString)
  ****************************************************************************/
 void string_append(CHAR_DATA *ch, char **pString)
 {
-    send_to_char("-=======- Entering APPEND Mode -========-\n\r", ch);
-    send_to_char("    Type :h on a new line for help\n\r", ch);
-    send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
-    send_to_char("-=======================================-\n\r", ch);
+    char_puts("-=======- Entering APPEND Mode -========-\n\r", ch);
+    char_puts("    Type :h on a new line for help\n\r", ch);
+    char_puts(" Terminate with a ~ or @ on a blank line.\n\r", ch);
+    char_puts("-=======================================-\n\r", ch);
 
     if (*pString == NULL)
 	*pString = str_dup("");
-    send_to_char(numlines(*pString), ch);
+    char_puts(numlines(*pString), ch);
 
 /* numlines entrega el string con \n\r */
 /*  if (*(*pString + strlen(*pString) - 1) != '\r')
-	send_to_char("\n\r", ch); */
+	char_puts("\n\r", ch); */
 
     ch->desc->pString = pString;
 
@@ -137,7 +137,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 
         if (!str_cmp(arg1+1, "c"))
         {
-            send_to_char("String cleared.\n\r", ch);
+            char_puts("String cleared.\n\r", ch);
 	    free_string(*ch->desc->pString);
 	    *ch->desc->pString = str_dup("");
             return;
@@ -154,7 +154,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
         {
             if (arg2[0] == '\0')
             {
-                send_to_char(
+                char_puts(
                     "usage:  :r \"old string\" \"new string\"\n\r", ch);
                 return;
             }
@@ -169,21 +169,21 @@ void string_add(CHAR_DATA *ch, const char *argument)
         if (!str_cmp(arg1+1, "f"))
         {
             *ch->desc->pString = format_string(*ch->desc->pString);
-            send_to_char("String formatted.\n\r", ch);
+            char_puts("String formatted.\n\r", ch);
             return;
         }
         
 	if (!str_cmp(arg1+1, "ld"))
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
-		send_to_char("Line deleted.\n\r", ch);
+		char_puts("Line deleted.\n\r", ch);
 		return;
 	}
 
 	if (!str_cmp(arg1+1, "li"))
 	{
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		send_to_char("Line inserted.\n\r", ch);
+		char_puts("Line inserted.\n\r", ch);
 		return;
 	}
 
@@ -191,27 +191,27 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	{
 		*ch->desc->pString = string_linedel(*ch->desc->pString, atoi(arg2));
 		*ch->desc->pString = string_lineadd(*ch->desc->pString, tmparg3, atoi(arg2));
-		send_to_char("Line replaced.\n\r", ch);
+		char_puts("Line replaced.\n\r", ch);
 		return;
 	}
 
         if (!str_cmp(arg1+1, "h"))
         {
-            send_to_char("Sedit help (commands on blank line):   \n\r", ch);
-            send_to_char(":r 'old' 'new'   - replace a substring \n\r", ch);
-            send_to_char("                   (requires '', \"\") \n\r", ch);
-            send_to_char(":h               - get help (this info)\n\r", ch);
-            send_to_char(":s               - show string so far  \n\r", ch);
-            send_to_char(":f               - (word wrap) string  \n\r", ch);
-            send_to_char(":c               - clear string so far \n\r", ch);
-            send_to_char(":ld <num>        - delete line #num\n\r", ch);
-            send_to_char(":li <num> <str>  - insert <str> before line #num\n\r", ch);
-	    send_to_char(":lr <num> <str>  - replace line #num with <str>\n\r", ch);
-            send_to_char("@                - end string          \n\r", ch);
+            char_puts("Sedit help (commands on blank line):   \n\r", ch);
+            char_puts(":r 'old' 'new'   - replace a substring \n\r", ch);
+            char_puts("                   (requires '', \"\") \n\r", ch);
+            char_puts(":h               - get help (this info)\n\r", ch);
+            char_puts(":s               - show string so far  \n\r", ch);
+            char_puts(":f               - (word wrap) string  \n\r", ch);
+            char_puts(":c               - clear string so far \n\r", ch);
+            char_puts(":ld <num>        - delete line #num\n\r", ch);
+            char_puts(":li <num> <str>  - insert <str> before line #num\n\r", ch);
+	    char_puts(":lr <num> <str>  - replace line #num with <str>\n\r", ch);
+            char_puts("@                - end string          \n\r", ch);
             return;
         }
 
-        send_to_char("SEdit: Invalid command.\n\r", ch);
+        char_puts("SEdit: Invalid command.\n\r", ch);
         return;
     }
 
@@ -230,7 +230,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
      */
     if (strlen(*ch->desc->pString)+strlen(argument) >= (MAX_STRING_LENGTH - 4))
     {
-        send_to_char("String too long, last line skipped.\n\r", ch);
+        char_puts("String too long, last line skipped.\n\r", ch);
 
 	/* Force character out of editing mode. */
         ch->desc->pString = NULL;

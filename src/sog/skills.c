@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.24 1998-09-19 11:13:24 fjoe Exp $
+ * $Id: skills.c,v 1.25 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -76,7 +76,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (trainer == NULL || !can_see(ch,trainer))
 	{
-			send_to_char("You can't do that here.\n\r",ch);
+			char_puts("You can't do that here.\n\r",ch);
 			return;
 	}
 
@@ -182,7 +182,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		send_to_char("You know no spells.\n\r",ch);
+		char_puts("You know no spells.\n\r",ch);
 		return;
 	}
 	
@@ -244,14 +244,14 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		send_to_char("You know no skills->\n\r",ch);
+		char_puts("You know no skills->\n\r",ch);
 		return;
 	}
 	
 	for (lev = 0; lev < LEVEL_HERO; lev++)
 		if (skill_list[lev][0] != '\0')
-			send_to_char(skill_list[lev],ch);
-	send_to_char("\n\r",ch);
+			char_puts(skill_list[lev],ch);
+	char_puts("\n\r",ch);
 }
 
 int base_exp(CHAR_DATA *ch)
@@ -417,7 +417,7 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 	}
 
 	if ((group = flag_value(skill_groups, arg)) < 0) {
-		send_to_char("That is not a valid group.\n\r", ch);
+		char_puts("That is not a valid group.\n\r", ch);
 		return;
 	}
 
@@ -447,7 +447,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument,arg);
 	if (arg[0] == '\0') {
-		send_to_char("Syntax : slook <skill | spell>\n\r",ch);
+		char_puts("Syntax : slook <skill | spell>\n\r",ch);
 		return;
 	}
 
@@ -458,7 +458,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (sn < 0 && (sn = sn_lookup(arg)) < 0) { 
-		send_to_char("That is not a spell or skill.\n\r",ch);
+		char_puts("That is not a spell or skill.\n\r",ch);
 		return; 
 	}
 
@@ -485,17 +485,17 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_AWAKE(ch)) {
-		send_to_char("In your dreams, or what?\n\r", ch);
+		char_puts("In your dreams, or what?\n\r", ch);
 		return;
 	}	
 
 	if (argument[0] == '\0') {
-		send_to_char("Syntax: learn <skill | spell> <player>\n\r", ch);
+		char_puts("Syntax: learn <skill | spell> <player>\n\r", ch);
 		return;
 	}
 
 	if (ch->practice <= 0) {
-		send_to_char("You have no practice sessions left.\n\r", ch);
+		char_puts("You have no practice sessions left.\n\r", ch);
 		return;
 	}
 
@@ -504,7 +504,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	if ((ps = skill_vlookup(ch->pcdata->learned, arg)) == NULL
 	||  ps->percent == 0
 	||  skill_level(ch, sn = ps->sn) > ch->level) {
-		send_to_char("You can't learn that.\n\r", ch);
+		char_puts("You can't learn that.\n\r", ch);
 		return;
 	}
 
@@ -519,7 +519,7 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument,arg);
 		
 	if ((mob = get_char_room(ch,arg)) == NULL) {
-		send_to_char("Your hero is not here.\n\r", ch);
+		char_puts("Your hero is not here.\n\r", ch);
 		return;
 	}
 			
@@ -530,12 +530,12 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (mob->status != PC_PRACTICER) {
-		send_to_char("Your hero doesn't want to teach you anything.\n\r",ch);
+		char_puts("Your hero doesn't want to teach you anything.\n\r",ch);
 		return;
 	}
 
 	if (get_skill(mob, sn) < 100) {
-		send_to_char("Your hero doesn't know that skill enough to teach you.\n\r",ch);
+		char_puts("Your hero doesn't know that skill enough to teach you.\n\r",ch);
 		return;
 	}
 
@@ -572,11 +572,11 @@ void do_learn(CHAR_DATA *ch, const char *argument)
 void do_teach(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch) || ch->level != LEVEL_HERO) {
-		send_to_char("You must be a hero.\n\r",ch);
+		char_puts("You must be a hero.\n\r",ch);
 		return;
 	}
 	ch->status = PC_PRACTICER;
-	send_to_char("Now, you can teach youngsters your 100% skills->\n\r",ch);
+	char_puts("Now, you can teach youngsters your 100% skills->\n\r",ch);
 }
 
 char *skill_name(int sn)

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.8 1998-09-01 18:37:57 fjoe Exp $
+ * $Id: effects.c,v 1.9 1998-09-20 17:01:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -482,7 +482,7 @@ void poison_effect(void *vo,int level, int dam, int target)
         {
 	    AFFECT_DATA af;
 
-            send_to_char("You feel poison coursing through your veins.\n\r",
+            char_puts("You feel poison coursing through your veins.\n\r",
                 victim);
             act("$n looks very ill.",victim,NULL,NULL,TO_ROOM);
 
@@ -570,7 +570,7 @@ void shock_effect(void *vo,int level, int dam, int target)
 	/* daze and confused? */
 	if (!saves_spell(level/4 + dam/20,victim,DAM_LIGHTNING))
 	{
-	    send_to_char("Your muscles stop responding.\n\r",victim);
+	    char_puts("Your muscles stop responding.\n\r",victim);
 	    DAZE_STATE(victim,UMAX(12,level/4 + dam/20));
 	}
 
@@ -855,7 +855,7 @@ void scream_effect(void *vo, int level, int dam, int target)
 	/* daze and confused? */
 	if (!saves_spell(level/4 + dam/20,victim,DAM_SOUND))
 	{
-	    send_to_char("You can't hear anything!.\n\r",victim);
+	    char_puts("You can't hear anything!.\n\r",victim);
 	    DAZE_STATE(victim,UMAX(12,level/4 + dam/20));
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.57 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: save.c,v 1.58 1998-09-20 17:01:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,7 +118,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 		bug("Save_char_obj: fopen", 0);
 		perror(TMP_FILE);
 	} else {
-		send_to_char("Saving.\n\r", ch);
+		char_puts("Saving.\n\r", ch);
 		fwrite_char(ch, fp, reboot);
 		if (ch->carrying != NULL)
 			fwrite_obj(ch, ch->carrying, fp, 0);

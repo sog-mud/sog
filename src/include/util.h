@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.7 1998-09-17 15:51:24 fjoe Exp $
+ * $Id: util.h,v 1.8 1998-09-20 17:01:03 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -50,5 +50,7 @@ int cmpstr(const void *p1, const void *p2);
 
 size_t		cstrlen		(const char* cstr);
 const char*	cstrfirst	(const char *cstr);
+
+int hashstr(const char *s, int maxn, int hashs);
 
 #endif

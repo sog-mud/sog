@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.17 1998-09-19 10:38:59 fjoe Exp $
+ * $Id: mlstring.c,v 1.18 1998-09-20 17:01:01 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -57,11 +57,20 @@ struct mlstring {
 
 static void smash_a(char *s);
 static char* fix_mlstring(const char* s);
-static mlstring *mlstr_new();
 static mlstring *mlstr_split(mlstring *ml);
 
 int mlstr_count;
 mlstring mlstr_empty;
+
+mlstring *mlstr_new(const char *name)
+{
+	mlstring *res = malloc(sizeof(*res));
+	res->u.str = str_dup(name);
+	res->nlang = 0;
+	res->ref = 1;
+	mlstr_count++;
+	return res;
+}
 
 mlstring *mlstr_fread(FILE *fp)
 {
@@ -74,9 +83,8 @@ mlstring *mlstr_fread(FILE *fp)
 	if (IS_NULLSTR(p))
 		return &mlstr_empty;
 
-	res = mlstr_new();
+	res = mlstr_new(NULL);
 	if (*p != '@' || *(p+1) == '@') {
-		res->nlang = 0;
 		smash_a(p);
 		res->u.str = p;
 		return res;
@@ -124,9 +132,11 @@ mlstring *mlstr_fread(FILE *fp)
 
 	/* some diagnostics */
 	for (lang = 0; lang < nlang; lang++)
-		if (res->u.lstr[lang] == NULL)
+		if (res->u.lstr[lang] == NULL) {
 			log_printf("mlstr_fread: lang %s: undefined",
 				 lang_table[lang]);
+			res->u.lstr[lang] = str_empty;
+		}
 	free_string(p);
 	return res;
 }
@@ -190,7 +200,7 @@ mlstring *mlstr_printf(mlstring *ml,...)
 	if (ml == NULL)
 		return NULL;
 
-	res = mlstr_new();
+	res = mlstr_new(NULL);
 	res->nlang = ml->nlang;
 
 	va_start(ap, ml);
@@ -213,7 +223,7 @@ mlstring *mlstr_printf(mlstring *ml,...)
 char * mlstr_val(const mlstring *ml, int lang)
 {
 	if (ml == NULL)
-		return NULL;
+		return str_empty;
 	if (ml->nlang == 0)
 		return ml->u.str;
 	if (lang >= ml->nlang || lang < 0)
@@ -407,14 +417,6 @@ static char *fix_mlstring(const char *s)
 	return buf;
 }
 
-static mlstring *mlstr_new()
-{
-	mlstring *res = malloc(sizeof(*res));
-	res->ref = 1;
-	mlstr_count++;
-	return res;
-}
-
 static mlstring *mlstr_split(mlstring *ml)
 {
 	int lang;
@@ -423,13 +425,10 @@ static mlstring *mlstr_split(mlstring *ml)
 	if (ml != NULL && ml != &mlstr_empty && ml->ref < 2) 
 		return ml;
 
-	res = mlstr_new();
+	res = mlstr_new(NULL);
 
-	if (ml == NULL || ml == &mlstr_empty) {
-		res->u.str = NULL;
-		res->nlang = 0;
+	if (ml == NULL || ml == &mlstr_empty) 
 		return res;
-	}
 
 	res->nlang = ml->nlang;
 	ml->ref--;
