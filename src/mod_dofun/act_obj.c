@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.58 2004-02-19 22:19:52 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.59 2004-02-19 22:38:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -552,25 +552,15 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 	if (is_number(arg)) {
 		/* 'give NNNN coins victim' */
-		int amount;
-		bool silver;
+		int silver, gold;
+		int change_silver, change_gold;
 
-		amount = atoi(arg);
-
-		argument = one_argument(argument, arg, sizeof(arg));
-		if (arg[0] == '\0') {
+		argument = money_argument(
+		    argument, arg, sizeof(arg), &silver, &gold);
+		if (argument == NULL) {
 			do_give(ch, str_empty);
 			return;
 		}
-
-		if (amount <= 0
-		||  (str_cmp(arg, "coins") && str_cmp(arg, "coin") &&
-		     str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
-			char_puts("Sorry, you can't do that.\n", ch);
-			return;
-		}
-
-		silver = str_cmp(arg, "gold");
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (!str_cmp(arg, "to"))
@@ -581,7 +571,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		}
 
 		if ((victim = get_char_room(ch, arg)) == NULL) {
-			char_puts("They aren't here.\n", ch);
+			act_char("They aren't here.", ch);
 			return;
 		}
 
@@ -592,75 +582,74 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		if ((!silver && ch->gold < amount)
-		||  (silver && ch->silver < amount)) {
-			char_puts("You haven't got that much.\n", ch);
+		if (ch->gold < gold || ch->silver < silver) {
+			act_char("You haven't got that much.", ch);
 			return;
 		}
 
-		if (!can_carry_more_w(victim, COINS_WEIGHT(silver ? amount : 0, silver ? 0 : amount))) {
+		if (!can_carry_more_w(victim, COINS_WEIGHT(silver, gold))) {
 			act("$N can't carry that much weight.",
 			    ch, NULL, victim, TO_CHAR);
 			return;
 		}
 
-		if (silver) {
-			ch->silver -= amount;
-			victim->silver += amount;
-		}
-		else {
-			ch->gold -= amount;
-			victim->gold += amount;
-		}
+		ch->silver -= silver;
+		ch->gold -= gold;
 
 		act_puts3("$n gives you $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
-			  (const void*) amount,
+			  (const void *) (silver ? silver : gold),
 			  TO_VICT, POS_RESTING);
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
 		act_puts3("You give $N $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
-			  (const void*) amount,
+			  (const void *) (silver ? silver : gold),
 			  TO_CHAR, POS_DEAD);
 
 		/*
 		 * Bribe trigger
 		 */
 		if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_BRIBE))
-			mp_bribe_trigger(victim, ch,
-					 silver ? amount : amount * 100);
+			mp_bribe_trigger(victim, ch, silver + gold * 100);
+		if (IS_EXTRACTED(victim))
+			return;
 
-		if (IS_NPC(victim)
-		&&  IS_SET(victim->pMobIndex->act, ACT_CHANGER)) {
-			int             change;
-			change = (silver ? 95 * amount / 100 / 100
-				  : 95 * amount);
-
-
-			if (!silver && change > victim->silver)
-				victim->silver += change;
-
-			if (silver && change > victim->gold)
-				victim->gold += change;
-
-			if (change < 1 && can_see(victim, ch)) {
-				tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
-				dofun("give", victim, "%d %s %s",
-				      amount, silver ? "silver" : "gold",
-				      ch->name);
-			}
-			else if (can_see(victim, ch)) {
-				dofun("give", victim, "%d %s %s",
-				      change, silver ? "gold" : "silver",
-				      ch->name);
-				if (silver)
-					dofun("give", victim,
-					      "%d silver %s",
-					      (95 * amount / 100 - change * 100), ch->name);
-				tell_char(victim, ch,
-					    "Thank you, come again.");
-			}
+		if (!IS_NPC(victim)
+		||  !IS_SET(victim->pMobIndex->act, ACT_CHANGER)) {
+			victim->silver += silver;
+			victim->gold += gold;
+			return;
 		}
+
+		if (IS_EXTRACTED(ch) || !can_see(victim, ch))
+			return;
+
+		/*
+		 * ACT_CHANGER
+		 */
+		change_silver = 95 * gold;
+		change_gold = 95 * silver / 100 / 100;
+		if (change_silver + change_gold < 1) {
+			tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
+			give_coins(victim, ch, silver, gold);
+			return;
+
+		}
+		if (silver) {
+			change_silver +=
+			    (95 * silver / 100 - change_gold * 100);
+		}
+
+		/*
+		 * Ensure changer has enough money
+		 */
+		if (change_silver > victim->silver)
+			victim->silver += change_silver;
+		if (change_gold > victim->gold)
+			victim->gold += change_gold;
+
+		give_coins(victim, ch, change_silver, change_gold);
+		tell_char(victim, ch, "Thank you, come again.");
 		return;
 	}
 
@@ -1890,38 +1879,39 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		}
 		return;
 	}
-	if (!str_cmp(arg1, "coin")
-	    || !str_cmp(arg1, "coins")
-	    || !str_cmp(arg1, "silver")
-	    || !str_cmp(arg1, "gold")) {
-		int             amount_s = 0;
-		int             amount_g = 0;
-		if (!str_cmp(arg1, "silver") ||
-		    !str_cmp(arg1, "coin") ||
-		    !str_cmp(arg1, "coins"))
-			amount_s = victim->silver * number_range(1, 20) / 100;
-		else if (!str_cmp(arg1, "gold"))
-			amount_g = victim->gold * number_range(1, 7) / 100;
+	if (!str_cmp(arg1, "silver")
+	||  !str_cmp(arg1, "coins")
+	||  !str_cmp(arg1, "coin")
+	||  !str_cmp(arg1, "gold")) {
+		int silver, gold;
 
-		if (amount_s <= 0 && amount_g <= 0) {
+		if (!str_cmp(arg1, "gold")) {
+			silver = 0;
+			gold = victim->gold * number_range(1, 7) / 100;
+		} else {
+			silver = victim->silver * number_range(1, 20) / 100;
+			gold = 0;
+		}
+
+		if (silver + gold < 1) {
 			char_puts("You couldn't get any coins.\n", ch);
 			return;
 		}
 
-		if (!can_carry_more_w(ch, COINS_WEIGHT(amount_s, amount_g))) {
+		if (!can_carry_more_w(ch, COINS_WEIGHT(silver, gold))) {
 			char_puts("You can't carry that much weight.\n", ch);
 			return;
 		}
 
-		ch->gold += amount_g;
-		victim->gold -= amount_g;
+		ch->gold += gold;
+		victim->gold -= gold;
 
-		ch->silver += amount_s;
-		victim->silver -= amount_s;
+		ch->silver += silver;
+		victim->silver -= silver;
 
 		char_printf(ch, "Bingo!  You got %d %s coins.\n",
-			    amount_s != 0 ? amount_s : amount_g,
-			    amount_s != 0 ? "silver" : "gold");
+			    silver ? silver : gold,
+			    silver ? "silver" : "gold");
 		check_improve(ch, sn, TRUE, 2);
 		return;
 	}
@@ -2957,74 +2947,64 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 
 void do_withdraw(CHAR_DATA * ch, const char *argument)
 {
-	int	amount;
-	int	fee;
-	bool	silver = FALSE;
+	int	silver, gold;
+	int	silver_fee, gold_fee;
 	char	arg[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
-		char_puts("You don't have a bank account.\n", ch);
+		act_char("You don't have a bank account.", ch);
 		return;
 	}
 
 	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
-		char_puts("The mosquito by your feet "
-			  "will not give you any money.\n", ch);
+		act_char("The mosquito by your feet will not give you any money.", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Withdraw how much?\n", ch);
+		act_char("Withdraw how much?", ch);
 		return;
 	}
 
-	amount = atoi(arg);
-	if (amount <= 0) {
-		char_puts("What?\n", ch);
+	argument = money_argument(argument, arg, sizeof(arg), &silver, &gold);
+	if (argument == NULL) {
+		do_withdraw(ch, str_empty);
 		return;
 	}
 
-	if (!str_cmp(argument, "silver"))
-		silver = TRUE;
-	else if (str_cmp(argument, "gold") && argument[0] != '\0') {
-		char_puts("You can withdraw gold and silver coins only.", ch);
+	if (silver > PC(ch)->bank_s || gold > PC(ch)->bank_g) {
+		act_char("Sorry, we don't give loans.", ch);
 		return;
 	}
 
-	if ((silver && amount > PC(ch)->bank_s)
-	||  (!silver && amount > PC(ch)->bank_g)) {
-		char_puts("Sorry, we don't give loans.\n", ch);
-		return;
-	}
-
-	fee = UMAX(1, amount * (silver ? 10 : 2) / 100);
-
-	if (!can_carry_more_w(ch, COINS_WEIGHT(silver ? (amount - fee) : 0, silver ? 0 : (amount - fee)))) {
-		char_puts("You can't carry that weight.\n", ch);
+	silver_fee = silver ? UMAX(1, silver * 10 / 100) : 0;
+	gold_fee = gold ? UMAX(1, gold * 2 / 100) : 0;
+	if (!can_carry_more_w(ch, COINS_WEIGHT(silver - silver_fee, gold - gold_fee))) {
+		act_char("You can't carry that weight.", ch);
 		return;
 	}
 
 	if (silver) {
-		ch->silver += amount - fee;
-		PC(ch)->bank_s -= amount;
-	}
-	else {
-		ch->gold += amount - fee;
-		PC(ch)->bank_g -= amount;
+		ch->silver += silver - silver_fee;
+		PC(ch)->bank_s -= silver;
+	} else {
+		ch->gold += gold - gold_fee;
+		PC(ch)->bank_g -= gold;
 	}
 
 	char_printf(ch,
 		    "Here are your %d %s coin(s), "
 		    "minus a %d coin(s) withdrawal fee.\n",
-		    amount, silver ? "silver" : "gold", fee);
+		    silver ? silver : gold,
+		    silver ? "silver" : "gold",
+		    silver ? silver_fee : gold_fee);
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
 void do_deposit(CHAR_DATA * ch, const char *argument)
 {
-	int	amount;
-	bool	silver = FALSE;
+	int	silver, gold;
 	char	arg[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
@@ -3043,40 +3023,33 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	amount = atoi(arg);
-	if (amount <= 0) {
-		char_puts("What?\n", ch);
+	argument = money_argument(argument, arg, sizeof(arg), &silver, &gold);
+	if (argument == NULL) {
+		do_deposit(ch, str_empty);
 		return;
 	}
 
-	if (!str_cmp(argument, "silver"))
-		silver = TRUE;
-	else if (str_cmp(argument, "gold") && argument[0] != '\0') {
-		char_puts("You can deposit gold and silver coins only.", ch);
-		return;
-	}
-
-	if ((silver && amount > ch->silver)
-	||  (!silver && amount > ch->gold)) {
-		char_puts("That's more than you've got.\n", ch);
+	if (silver > ch->silver || gold > ch->gold) {
+		act_char("That's more than you've got.", ch);
 		return;
 	}
 
 	if (silver) {
-		PC(ch)->bank_s += amount;
-		ch->silver -= amount;
-	}
-	else {
-		PC(ch)->bank_g += amount;
-		ch->gold -= amount;
+		PC(ch)->bank_s += silver;
+		ch->silver -= silver;
+	} else {
+		PC(ch)->bank_g += gold;
+		ch->gold -= gold;
 	}
 
-	if (amount == 1)
+	if (silver + gold == 1) {
 		char_printf(ch, "Oh boy! One %s coin!\n",
 			    silver ? "silver" : "gold");
-	else
+	} else {
 		char_printf(ch, "%d %s coins deposited. Come again soon!\n",
-			    amount, silver ? "silver" : "gold");
+			    silver ? silver : gold,
+			    silver ? "silver" : "gold");
+	}
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
