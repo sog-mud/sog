@@ -7,8 +7,6 @@ Security 5
 LevelRange 1 100
 End
 
-
-
 #MOBILES
 #33000
 healer~
@@ -68,8 +66,6 @@ F par BCDEFGHI
 M GREET 33000 100~
 #0
 
-
-
 #OBJECTS
 #33000
 fountain~
@@ -104,8 +100,6 @@ furniture IRSY 0
 BDEHJ ABCDEFGHNOPQSUVWXYa AEHK 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #33000
@@ -188,35 +182,19 @@ Z 0 33002
 S
 #0
 
-
-
 #SPECIALS
 M 33000 spec_cast_adept	* the healer
 M 33001 spec_breath_lightning	* {BFafhrd{x
 M 33002 spec_breath_lightning	* {DGrey MouseCatcher{w
 S
 
-
-
 #RESETS
 M 0 33001 1 33001 1	* {BFafhrd{x ({DVery Dark Room{x)
 M 0 33002 1 33001 1	* {DGrey MouseCatcher{w ({DVery Dark Room{x)
-O 0 33000 0 33003		* {Wa white fountain{x (Rest Room of Confederacy)
+O 0 33000 0 33003	* {Wa white fountain{x (Rest Room of Confederacy)
 M 0 33000 1 33003 1	* the healer (Rest Room of Confederacy)
-O 0 33003 0 33003		* cosy sofa (Rest Room of Confederacy)
+O 0 33003 0 33003	* cosy sofa (Rest Room of Confederacy)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
 
 #MOBPROGS
 #33000
@@ -240,15 +218,5 @@ mob kill $n
 endif
 ~
 #0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

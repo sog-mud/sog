@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 10
 End
 
-
-
 #MOBILES
 #3600
 oldstyle henry gardener~
@@ -100,8 +98,6 @@ EFNU 0 0 0
 stand stand male 5
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #3600
@@ -240,8 +236,6 @@ It has a long, sharp blade that is made entirely from silver.  A small rune
 has been engraved on the blade next to the hilt.
 ~
 #0
-
-
 
 #ROOMS
 #3600
@@ -871,8 +865,6 @@ ABZ -1 3650
 S
 #0
 
-
-
 #SPECIALS
 M 3601 spec_cast_undead	* the rotting zombie
 M 3602 spec_cast_undead	* the ghastly ghoul
@@ -880,8 +872,6 @@ M 3603 spec_cast_undead	* a dusty skeleton
 M 3604 spec_cast_undead	* a dusty skeleton
 M 3605 spec_cast_undead	* the rotting zombie
 S
-
-
 
 #RESETS
 D 0 3600 0 1	* A Gravel Road in the Graveyard: door to the north: closed
@@ -916,57 +906,32 @@ D 0 3650 5 1	* A Gravel Path on the Graveyard: door to the down: closed
 D 0 3651 4 1	* In a dusty Tomb: door to the up: closed
 M 0 3604 4 3604 1	* a dusty skeleton (In front of the Chapel)
 M 0 3604 4 3606 1	* a dusty skeleton (A Gravel Path on the Graveyard)
-O 0 3610 0 3607		* a dusty skeleton (In a dusty Tomb)
+O 0 3610 0 3607	* a dusty skeleton (In a dusty Tomb)
 M 0 3603 4 3609 1	* a dusty skeleton (In a dusty Tomb)
 M 0 3603 4 3611 1	* a dusty skeleton (In a dusty Tomb)
-O 0 3613 0 3611		* a silver dagger (In a dusty Tomb)
+O 0 3613 0 3611	* a silver dagger (In a dusty Tomb)
 M 0 3604 4 3612 1	* a dusty skeleton (A Gravel Path on the Graveyard)
 M 0 3600 1 3613 1	* Henry the Gardener (In a shed on the Graveyard)
 G 0 3601 0		*	a brandy bottle
-O 0 3602 0 3613		* a brandy bottle (In a shed on the Graveyard)
-O 0 3603 0 3613		* a wheelbarrow (In a shed on the Graveyard)
-O 0 3604 0 3613		* a shovel (In a shed on the Graveyard)
-O 0 3605 0 3613		* a rake (In a shed on the Graveyard)
-O 0 3610 0 3615		* a dusty skeleton (In a dusty Tomb)
+O 0 3602 0 3613	* a brandy bottle (In a shed on the Graveyard)
+O 0 3603 0 3613	* a wheelbarrow (In a shed on the Graveyard)
+O 0 3604 0 3613	* a shovel (In a shed on the Graveyard)
+O 0 3605 0 3613	* a rake (In a shed on the Graveyard)
+O 0 3610 0 3615	* a dusty skeleton (In a dusty Tomb)
 M 0 3602 1 3617 1	* the ghastly ghoul (In a dusty Tomb)
 G 0 3612 0		*	a silver pendant
-O 0 3610 0 3619		* a dusty skeleton (In a dusty Tomb)
+O 0 3610 0 3619	* a dusty skeleton (In a dusty Tomb)
 M 0 3605 3 3638 1	* the rotting zombie (A Gravel Path on the Graveyard)
 M 0 3603 4 3639 1	* a dusty skeleton (In a dusty Tomb)
 M 0 3604 4 3640 1	* a dusty skeleton (A Gravel Path on the Graveyard)
-O 0 3610 0 3641		* a dusty skeleton (In a dusty Tomb)
-O 0 3603 0 3643		* a wheelbarrow (In a dusty Tomb)
+O 0 3610 0 3641	* a dusty skeleton (In a dusty Tomb)
+O 0 3603 0 3643	* a wheelbarrow (In a dusty Tomb)
 M 0 3605 3 3644 1	* the rotting zombie (A Gravel Path on the Graveyard)
 M 0 3601 1 3645 1	* the rotting zombie (In a dusty Tomb)
 G 0 3611 0		*	a amethyst
-O 0 3610 0 3647		* a dusty skeleton (In a dusty Tomb)
+O 0 3610 0 3647	* a dusty skeleton (In a dusty Tomb)
 M 0 3603 4 3649 1	* a dusty skeleton (In a dusty Tomb)
 M 0 3605 3 3651 1	* the rotting zombie (In a dusty Tomb)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

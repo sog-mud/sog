@@ -7,8 +7,6 @@ Security 9
 LevelRange 40 51
 End
 
-
-
 #MOBILES
 #4600
 zombie disgusting rotting~
@@ -199,8 +197,6 @@ FK ABCD 0 H
 stand stand none 0
 ACK 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #4600
@@ -713,8 +709,6 @@ potion A AO
 27 'cause critical' 'cause light' 'cure serious' ''
 5 0 1000 P
 #0
-
-
 
 #ROOMS
 #4600
@@ -1423,8 +1417,6 @@ Z 0 4625
 S
 #0
 
-
-
 #SPECIALS
 M 4603 spec_cast_mage	* Kharzandra, the Dark-elf Vampire
 M 4604 spec_cast_undead	* the Vampire, Shadar Lunn
@@ -1433,8 +1425,6 @@ M 4606 spec_breath_fire	* the hell hound
 M 4611 spec_cast_cleric	* the dark priest vampire
 M 4612 spec_cast_undead	* the dark spectre
 S
-
-
 
 #RESETS
 D 0 4601 2 1	* A grisly scene, NW corner of Mausoleum.: door to the south: closed
@@ -1472,28 +1462,28 @@ D 0 4631 0 1	* A grisly scene, SW corner of Mausoleum.: door to the north: close
 D 0 4633 0 1	* A grisly scene, SE corner of Mausoleum.: door to the north: closed
 D 0 4634 3 1	* Shadar Lunn's coffin room: door to the west: closed
 D 0 4636 1 1	* A Rakshaka's lair.: door to the east: closed
-O 0 4603 0 4600		* a smelly humanoid corpse (Outside of the mausoleum)
+O 0 4603 0 4600	* a smelly humanoid corpse (Outside of the mausoleum)
 M 0 4601 40 4600 10	* the Juju zombie (Outside of the mausoleum)
 G 0 4600 0		*	a small black skeleton key
 M 0 4605 12 4601 6	* a hungry ghoul (A grisly scene, NW corner of Mausoleum.)
 M 0 4605 12 4603 6	* a hungry ghoul (A grisly scene, NE corner of Mausoleum.)
 M 0 4601 40 4604 10	* the Juju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
-O 0 4603 0 4605		* a smelly humanoid corpse (Northwest main area of the Mausoleum.)
+O 0 4603 0 4605	* a smelly humanoid corpse (Northwest main area of the Mausoleum.)
 M 0 4600 35 4605 9	* a disgusting, rotting Zombie (Northwest main area of the Mausoleum.)
-O 0 4603 0 4606		* a smelly humanoid corpse (Northern main area of the Mausoleum.)
+O 0 4603 0 4606	* a smelly humanoid corpse (Northern main area of the Mausoleum.)
 M 0 4600 35 4606 9	* a disgusting, rotting Zombie (Northern main area of the Mausoleum.)
 G 0 4603 0		*	a smelly humanoid corpse
-O 0 4603 0 4607		* a smelly humanoid corpse (Northeastern main area of the Mausoleum.)
-O 0 4615 0 4607		* a corpse of an elfin wizard (Northeastern main area of the Mausoleum.)
+O 0 4603 0 4607	* a smelly humanoid corpse (Northeastern main area of the Mausoleum.)
+O 0 4615 0 4607	* a corpse of an elfin wizard (Northeastern main area of the Mausoleum.)
 M 0 4600 35 4607 9	* a disgusting, rotting Zombie (Northeastern main area of the Mausoleum.)
 M 0 4600 35 4608 9	* a disgusting, rotting Zombie (A small room.)
 M 0 4605 12 4608 4	* a hungry ghoul (A small room.)
 M 0 4601 40 4608 10	* the Juju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
-O 0 4625 0 4609		* a coffin (The Kharzandra's coffin room)
-O 0 4603 0 4610		* a smelly humanoid corpse (The workroom of Kharzandra.)
-O 0 4610 0 4610		* a potion of healing (The workroom of Kharzandra.)
+O 0 4625 0 4609	* a coffin (The Kharzandra's coffin room)
+O 0 4603 0 4610	* a smelly humanoid corpse (The workroom of Kharzandra.)
+O 0 4610 0 4610	* a potion of healing (The workroom of Kharzandra.)
 M 0 4603 1 4610 1	* Kharzandra, the Dark-elf Vampire (The workroom of Kharzandra.)
 E 0 4622 0 16		*	the Shadow Dagger: wielded
 G 0 4623 0		*	the Shadow Dagger
@@ -1511,13 +1501,13 @@ P 0 4636 0 4627 1	* the Libram of Gainful Conjuration: a scroll of the Wolverine
 P 0 4637 0 4627 1	* the Libram of Gainful Conjuration: a scroll of lifebane
 P 0 4638 0 4627 1	* the Libram of Gainful Conjuration: a scroll of destruction
 P 0 4639 0 4627 1	* the Libram of Gainful Conjuration: a scroll of chaos
-O 0 4603 0 4611		* a smelly humanoid corpse (Western main area of the Mausoleum.)
-O 0 4603 0 4612		* a smelly humanoid corpse (Central main area of the Mausoleum.)
-O 0 4618 0 4612		* a half-eaten corpse (Central main area of the Mausoleum.)
+O 0 4603 0 4611	* a smelly humanoid corpse (Western main area of the Mausoleum.)
+O 0 4603 0 4612	* a smelly humanoid corpse (Central main area of the Mausoleum.)
+O 0 4618 0 4612	* a half-eaten corpse (Central main area of the Mausoleum.)
 M 0 4600 35 4612 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
 M 0 4600 35 4612 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
 G 0 4603 0		*	a smelly humanoid corpse
-O 0 4603 0 4614		* a smelly humanoid corpse (The workroom of Shadar Lunn)
+O 0 4603 0 4614	* a smelly humanoid corpse (The workroom of Shadar Lunn)
 M 0 4604 1 4614 1	* the Vampire, Shadar Lunn (The workroom of Shadar Lunn)
 E 0 4604 0 8		*	a pair of darkened boots: on the feet
 E 0 4605 0 6		*	a darkened helmet: over the head
@@ -1528,7 +1518,7 @@ G 0 4608 0		*	a darkened shield
 M 0 4611 1 4615 1	* the dark priest vampire (The dark priest's coffin room.)
 E 0 4626 0 16		*	the flaming sceptre of Chaos: wielded
 E 0 4602 0 3		*	an unholy symbol of Lloth: around the neck (1)
-O 0 4625 0 4615		* a coffin (The dark priest's coffin room.)
+O 0 4625 0 4615	* a coffin (The dark priest's coffin room.)
 P 0 4611 0 4625 1	* a coffin: a staff of wrath
 M 0 4602 2 4616 2	* a young vampire (The dark priest's workroom.)
 E 0 4601 0 16		*	a Frostbrand sword: wielded
@@ -1536,7 +1526,7 @@ E 0 4617 0 12		*	a rat-eaten poncho: about the shoulders
 M 0 4600 35 4617 9	* a disgusting, rotting Zombie (Western check point.)
 M 0 4601 40 4617 10	* the Juju zombie (Western check point.)
 G 0 4600 0		*	a small black skeleton key
-O 0 4615 0 4618		* a corpse of an elfin wizard (Central main area of the Mausoleum.)
+O 0 4615 0 4618	* a corpse of an elfin wizard (Central main area of the Mausoleum.)
 M 0 4600 35 4618 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
 G 0 4603 0		*	a smelly humanoid corpse
 M 0 4600 35 4619 9	* a disgusting, rotting Zombie (Eastern check point.)
@@ -1555,7 +1545,7 @@ G 0 4603 0		*	a smelly humanoid corpse
 M 0 4605 12 4623 4	* a hungry ghoul (Central main area of the Mausoleum.)
 M 0 4600 35 4624 9	* a disgusting, rotting Zombie (Eastern main area of the Mausoleum.)
 M 0 4605 12 4624 4	* a hungry ghoul (Eastern main area of the Mausoleum.)
-O 0 4618 0 4625		* a half-eaten corpse (Roaming ground for the Demon.)
+O 0 4618 0 4625	* a half-eaten corpse (Roaming ground for the Demon.)
 M 0 4602 2 4625 2	* a young vampire (Roaming ground for the Demon.)
 E 0 4601 0 16		*	a Frostbrand sword: wielded
 E 0 4617 0 12		*	a rat-eaten poncho: about the shoulders
@@ -1565,7 +1555,7 @@ E 0 4621 0 13		*	an ulrician belt: around the waist
 M 0 4605 12 4626 4	* a hungry ghoul (A small room.)
 M 0 4601 40 4626 10	* the Juju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
-O 0 4620 0 4627		* a peaceful corpse (Southwest main area of the Mausoleum.)
+O 0 4620 0 4627	* a peaceful corpse (Southwest main area of the Mausoleum.)
 M 0 4600 35 4627 9	* a disgusting, rotting Zombie (Southwest main area of the Mausoleum.)
 M 0 4600 35 4628 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
 G 0 4603 0		*	a smelly humanoid corpse
@@ -1574,43 +1564,18 @@ M 0 4605 12 4630 4	* a hungry ghoul (A small room.)
 M 0 4601 40 4630 10	* the Juju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
 M 0 4605 12 4631 4	* a hungry ghoul (A grisly scene, SW corner of Mausoleum.)
-O 0 4603 0 4632		* a smelly humanoid corpse (A hole in the southern wall.)
-O 0 4619 0 4633		* an emerald potion (A grisly scene, SE corner of Mausoleum.)
+O 0 4603 0 4632	* a smelly humanoid corpse (A hole in the southern wall.)
+O 0 4619 0 4633	* an emerald potion (A grisly scene, SE corner of Mausoleum.)
 M 0 4605 12 4633 4	* a hungry ghoul (A grisly scene, SE corner of Mausoleum.)
-O 0 4610 0 4634		* a potion of healing (Shadar Lunn's coffin room)
-O 0 4625 0 4634		* a coffin (Shadar Lunn's coffin room)
+O 0 4610 0 4634	* a potion of healing (Shadar Lunn's coffin room)
+O 0 4625 0 4634	* a coffin (Shadar Lunn's coffin room)
 P 0 4640 0 4625 1	* a coffin: a potion of healing
-O 0 4618 0 4635		* a half-eaten corpse (Lost in the graveyard fog.)
-O 0 4625 0 4636		* a coffin (A Rakshaka's lair.)
-O 0 4625 0 4637		* a coffin (A burnt room.)
+O 0 4618 0 4635	* a half-eaten corpse (Lost in the graveyard fog.)
+O 0 4625 0 4636	* a coffin (A Rakshaka's lair.)
+O 0 4625 0 4637	* a coffin (A burnt room.)
 P 0 4640 0 4625 1	* a coffin: a potion of healing
 P 0 4611 0 4625 1	* a coffin: a staff of wrath
 P 0 4641 0 4625 1	* a coffin: a potion of life
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

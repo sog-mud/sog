@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 15
 End
 
-
-
 #MOBILES
 #9401
 oldstyle fido mutant dog~
@@ -118,13 +116,6 @@ EFNU 0 0 0
 sleep sit female 3
 0 0 medium unknown
 #0
-
-
-
-#OBJECTS
-#0
-
-
 
 #ROOMS
 #9400
@@ -665,13 +656,6 @@ Z 0 9419
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 M 0 9405 7 9401 1	* The toxic slime (Mob Factory Storage Area)
 M 0 9401 5 9402 1	* The mutant beastly fido (Mob Factory Storage Area)
@@ -707,30 +691,5 @@ M 0 9403 7 9424 1	* The Cityguard head (Secondary Assembly Line)
 M 0 9406 8 9424 1	* The factory worker (Secondary Assembly Line)
 M 0 9405 7 9424 1	* The toxic slime (Secondary Assembly Line)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 15
 End
 
-
-
 #MOBILES
 #3500
 wyvern~
@@ -132,8 +130,6 @@ stand stand male 500
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #3500
 sword short~
@@ -210,8 +206,6 @@ It appears to be of elvish origins, and is made of finely crafted mithril,
 with a stylized ivory hilt.
 ~
 #0
-
-
 
 #ROOMS
 #3500
@@ -1301,13 +1295,9 @@ Z 0 3583
 S
 #0
 
-
-
 #SPECIALS
 M 3500 spec_poison	* the wyvern
 S
-
-
 
 #RESETS
 M 0 3501 10 3506 2	* the goblin (The Miden'nir)
@@ -1354,30 +1344,5 @@ M 0 3505 4 3584 2	* the dark horseman (A Dead End Trail)
 E 0 3504 0 14		*	an enchanted leather bracer: on the left wrist
 E 0 3022 0 16		*	a long sword: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

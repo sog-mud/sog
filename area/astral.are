@@ -8,8 +8,6 @@ LevelRange 10 35
 ResetMessage The astral field glitters with a thousand points of light for a moment...~
 End
 
-
-
 #MOBILES
 #7700
 oldstyle astral guardian~
@@ -341,8 +339,6 @@ EFNU 0 0 0
 stand stand none 250
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #7700
@@ -753,8 +749,6 @@ pouch rotting~
 You think you see glints of metal through the holes...
 ~
 #0
-
-
 
 #ROOMS
 #7700
@@ -3147,8 +3141,6 @@ begins to coalesce before you.
 S
 #0
 
-
-
 #SPECIALS
 M 7702 spec_cast_mage	* An evil night hag
 M 7705 spec_thief	* A githyanki hunter
@@ -3162,8 +3154,6 @@ M 7717 spec_cast_mage	* A tortured mindflayer prisoner
 M 7718 spec_cast_mage	* The enslaved red dragon
 M 7719 spec_breath_fire	* A massive blast of fire
 S
-
-
 
 #RESETS
 D 0 7706 0 1	* The Astral Gate: door to the north: closed
@@ -3389,30 +3379,5 @@ E 0 7712 0 16		*	the unholy sword of the githyanki: wielded
 E 0 7719 0 5		*	a decaying vest made from cracked leather: on the body
 G 0 7725 0		*	a rotting pouch
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 10
 End
 
-
-
 #MOBILES
 #400
 ameoba~
@@ -177,8 +175,6 @@ stand stand either 150
 0 0 large unknown
 #0
 
-
-
 #OBJECTS
 #400
 popcorn~
@@ -259,8 +255,6 @@ golden blue light~
 It is flaming and frosting sabre - it is reason of lights.
 ~
 #0
-
-
 
 #ROOMS
 #400
@@ -501,14 +495,10 @@ Z 0 401
 S
 #0
 
-
-
 #SPECIALS
 M 407 spec_cast_mage	* Your teacher
 M 409 spec_janitor	* A janitor
 S
-
-
 
 #RESETS
 D 0 407 3 1	* Hall of Chordates: door to the west: closed
@@ -532,30 +522,8 @@ M 0 403 1 413 1	* John the shopkeeper (Souvenire Shop)
 G 0 400 0		*	Some popcorn
 S
 
-
-
 #SHOPS
 403 19 0 0 0 0 120 50 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

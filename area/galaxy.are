@@ -7,8 +7,6 @@ Security 9
 LevelRange 20 30
 End
 
-
-
 #MOBILES
 #9301
 oldstyle poor mudder~
@@ -496,8 +494,6 @@ stand stand male 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #9301
 comet's tail~
@@ -861,8 +857,6 @@ chains~
 They certainly look important!
 ~
 #0
-
-
 
 #ROOMS
 #9301
@@ -1889,8 +1883,6 @@ Z 0 9370
 S
 #0
 
-
-
 #SPECIALS
 M 9301 spec_thief	* a poor mudder
 M 9313 spec_breath_fire	* the Head of Draco
@@ -1914,8 +1906,6 @@ M 9330 spec_cast_mage	* Cassiopeia the Queen
 M 9331 spec_cast_mage	* Cepheus the King
 M 9332 spec_breath_acid	* Polaris, the polar star
 S
-
-
 
 #RESETS
 D 0 9339 4 2	* On the Mystic Chains: door to the up: closed and locked
@@ -2015,32 +2005,13 @@ E 0 9322 0 2		*	the ring of the universe: on the right finger
 E 0 9323 0 16		*	the Great Dipper of the Skies: wielded
 S
 
-
-
-#SHOPS
-0
-
-
-
 #OLIMITS
 O 9302 3	* the Titanic Arm plates of Hercules
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
 
 #OMPROGS
 O 9302 wear_prog wear_prog_arm_hercules	* `the Titanic Arm plates of Hercules'
 O 9302 remove_prog remove_prog_arm_hercules	* `the Titanic Arm plates of Hercules'
 S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 45 75
 End
 
-
-
 #MOBILES
 #29350
 Death Knight~
@@ -125,8 +123,6 @@ CDFIKO 0 C HN
 stand stand none 800
 0 0 large unknown
 #0
-
-
 
 #OBJECTS
 #29350
@@ -426,8 +422,6 @@ mobs do NOT detect invis, so as long as you are invis you should be able to
 get where you want to go, Alive.  ===> RYZEN <=== 
 ~
 #0
-
-
 
 #ROOMS
 #29350
@@ -864,40 +858,36 @@ Z 0 22000
 S
 #0
 
-
-
 #SPECIALS
 M 29353 spec_cast_undead	* A Major Demon
 M 29354 spec_cast_mage	* Myzelak the Lich Lord
 S
-
-
 
 #RESETS
 D 0 29366 1 1	* A Large Hall: door to the east: closed
 D 0 29367 0 1	* The Lich's Throne Room: door to the north: closed
 D 0 29367 3 1	* The Lich's Throne Room: door to the west: closed
 D 0 29368 2 1	* A Large Hall: door to the south: closed
-O 0 29373 0 29350		* a large obsidian cross (Before the Tower)
+O 0 29373 0 29350	* a large obsidian cross (Before the Tower)
 M 0 29355 1 29352 1	* The Dracolich (The Dracolich's Lair)
 M 0 29350 4 29353 1	* A Death Knight (The Entrance Hall)
 E 0 29350 0 16		*	an old black mace: wielded
-O 0 29367 0 29354		* a large wooden chair (The Dining Hall)
-O 0 29368 0 29354		* a huge dining table (The Dining Hall)
+O 0 29367 0 29354	* a large wooden chair (The Dining Hall)
+O 0 29368 0 29354	* a huge dining table (The Dining Hall)
 M 0 29350 4 29360 1	* A Death Knight (Lich's Study)
 E 0 29350 0 16		*	an old black mace: wielded
-O 0 29370 0 29360		* a large mahogany desk (Lich's Study)
-O 0 29371 0 29360		* a closet carved into the wall (Lich's Study)
+O 0 29370 0 29360	* a large mahogany desk (Lich's Study)
+O 0 29371 0 29360	* a closet carved into the wall (Lich's Study)
 P 0 29361 0 29370 1	* a large mahogany desk: the Infinity Scroll
 P 0 29362 0 29370 1	* a large mahogany desk: a silvery potion 
 P 0 29363 0 29372 1	* a powerful grimoire: a golden key
 P 0 29364 0 29371 1	* a closet carved into the wall: boots of waterwalking
 P 0 29365 0 29371 1	* a closet carved into the wall: a Thieve's Tunic
 P 0 29366 0 29369 1	* an old wooden bookshelf: a blank piece of paper
-O 0 29372 0 29361		* a powerful grimoire (The Library)
+O 0 29372 0 29361	* a powerful grimoire (The Library)
 M 0 29350 4 29362 1	* A Death Knight (The Library)
 E 0 29350 0 16		*	an old black mace: wielded
-O 0 29369 0 29362		* an old wooden bookshelf (The Library)
+O 0 29369 0 29362	* an old wooden bookshelf (The Library)
 M 0 29353 1 29363 1	* A Major Demon (A Summoning Room)
 E 0 29356 0 3		*	the Amulet of the Night: around the neck (1)
 M 0 29351 1 29364 1	* The Inquisitor (The Torture Chamber)
@@ -916,30 +906,5 @@ E 0 29358 0 11		*	a black dragon scale: as a shield
 M 0 29350 4 29369 1	* A Death Knight (A Storage Room)
 E 0 29350 0 16		*	an old black mace: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

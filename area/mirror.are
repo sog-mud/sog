@@ -8,8 +8,6 @@ LevelRange 1 30
 Flags A
 End
 
-
-
 #MOBILES
 #5300
 oldstyle baby beholder~
@@ -728,8 +726,6 @@ P 0 huge unknown
 F for HZ
 #0
 
-
-
 #OBJECTS
 #5300
 collar~
@@ -1160,8 +1156,6 @@ A
 A
 1 -20
 #0
-
-
 
 #ROOMS
 #5300
@@ -3393,8 +3387,6 @@ Z 0 5381
 S
 #0
 
-
-
 #SPECIALS
 M 5300 spec_cast_mage	* the baby beholder
 M 5303 spec_guard	* an imperial cityguard
@@ -3415,8 +3407,6 @@ M 5339 spec_repairman	* the armourer
 M 5342 spec_cast_adept	* the healer
 M 5345 spec_cast_adept	* the templeman
 S
-
-
 
 #RESETS
 D 0 5365 5 1	* The Plains: door to the down: closed
@@ -3535,7 +3525,7 @@ M 0 5304 9 5330 1	* a female citizen of Thalos (The Tavern of the Sun)
 M 0 5302 9 5330 1	* a citizen of Thalos (The Tavern of the Sun)
 M 0 5309 1 5331 1	* the mayor of Thalos (South wing of the city hall)
 E 0 5224 0 17		*	an engraved ebony seal: held in the hands
-O 0 5307 0 5331		* the curved desk (South wing of the city hall)
+O 0 5307 0 5331	* the curved desk (South wing of the city hall)
 P 0 5304 4 5307 1	* the curved desk: a scroll of enchantment
 P 0 5305 4 5307 1	* the curved desk: a bound scroll
 P 0 5231 9 5307 1	* the curved desk: a scarlet and blue stone
@@ -3548,13 +3538,13 @@ E 0 5318 0 16		*	an imperial mace: wielded
 M 0 5301 20 5332 1	* the pet lamia (The city hall)
 E 0 5300 0 3		*	a lamia collar: around the neck (1)
 M 0 5304 9 5332 1	* a female citizen of Thalos (The city hall)
-O 0 5308 0 5333		* the glass cabinet (East wing of the city hall)
+O 0 5308 0 5333	* the glass cabinet (East wing of the city hall)
 P 0 3105 8 5308 1	* the glass cabinet: a bronze bracer
 P 0 5214 8 5308 1	* the glass cabinet: a smooth quartz ball
 P 0 5230 1 5308 1	* the glass cabinet: a pale blue stone
 M 0 5301 20 5334 1	* the pet lamia (The private gardens and courtyard of Thalos)
 E 0 5300 0 3		*	a lamia collar: around the neck (1)
-O 0 5306 0 5334		* a large beautiful fountain (The private gardens and courtyard of Thalos)
+O 0 5306 0 5334	* a large beautiful fountain (The private gardens and courtyard of Thalos)
 M 0 5303 11 5334 1	* an imperial cityguard (The private gardens and courtyard of Thalos)
 E 0 5330 0 1		*	an imperial city guard signet ring: on the left finger
 E 0 5321 0 4		*	an imperial cloak: around the neck (2)
@@ -3675,7 +3665,7 @@ R 0 5378 5	* The Void: randomize
 M 0 5341 1 5379 1	* Questor (The Temple Of Midgaard)
 E 0 3005 0 16		*	quest's sword: wielded
 M 0 5332 2 5380 2	* the janitor (The Temple Square)
-O 0 3135 0 5380		* a fountain (The Temple Square)
+O 0 3135 0 5380	* a fountain (The Temple Square)
 M 0 5331 1 5381 1	* the cityguard (Market Square)
 E 0 3365 0 0		*	a war banner: as a light
 E 0 3364 0 1		*	a city guard signet ring: on the left finger
@@ -3690,7 +3680,7 @@ E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3354 0 11		*	a standard issue shield: as a shield
 M 0 5342 1 5386 1	* the healer (By the Temple Altar)
-O 0 3010 0 5386		* the donation pit (By the Temple Altar)
+O 0 3010 0 5386	* the donation pit (By the Temple Altar)
 M 0 5336 1 5387 1	* the baker (The Bakery)
 G 0 3009 0		*	a big pot pie
 G 0 3011 0		*	a bread
@@ -3753,8 +3743,6 @@ M 0 5344 1 5396 1	* the guildmaster (Vampire's laboratory)
 M 0 5345 1 5397 1	* the templeman (Room of Templeman)
 S
 
-
-
 #SHOPS
 5310 0 0 0 0 0 120 90 0 23
 5311 5 17 19 0 0 110 90 6 20
@@ -3771,26 +3759,9 @@ S
 5346 0 0 0 0 0 100 100 0 23
 0
 
-
-
 #OLIMITS
 O 5334 0	* abrazak's dagger
 O 5335 0	* a strange pill
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

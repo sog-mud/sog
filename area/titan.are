@@ -8,8 +8,6 @@ LevelRange 25 50
 Flags A
 End
 
-
-
 #MOBILES
 #18001
 town guard~
@@ -1331,8 +1329,6 @@ stand stand male 5000
 0 0 huge unknown
 #0
 
-
-
 #OBJECTS
 #18000
 bottle wine bordeau~
@@ -2173,8 +2169,6 @@ fountain A P
 0 0 'water' 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #18001
@@ -4927,8 +4921,6 @@ Z 0 18108
 S
 #0
 
-
-
 #SPECIALS
 M 18006 spec_repairman	* the armourer
 M 18010 spec_repairman	* the weaponsmith
@@ -4944,8 +4936,6 @@ M 18063 spec_assassinater	* an assassin
 M 18100 spec_cast_cleric	* Qeustor
 M 18101 spec_cast_adept	* the healer
 S
-
-
 
 #RESETS
 D 0 18015 1 1	* Out On One Third of The Bridge: door to the east: closed
@@ -4977,7 +4967,7 @@ D 0 18108 1 1	* The Royal Square: door to the east: closed
 D 0 18112 1 1	* The Road To The Palace: door to the east: closed
 D 0 18112 2 1	* The Road To The Palace: door to the south: closed
 D 0 18122 1 1	* The Throne Room: door to the east: closed
-O 0 18084 0 18017		* a beautiful large marble fountain. (The Druid Lord's Secret Study)
+O 0 18084 0 18017	* a beautiful large marble fountain. (The Druid Lord's Secret Study)
 M 0 18029 1 18022 1	* the house chef (Inside The Front Foyer)
 E 0 18055 0 6		*	the Cook's Hat: over the head
 E 0 18056 0 17		*	the Cook's Pot: held in the hands
@@ -5176,7 +5166,7 @@ M 0 18048 8 18108 2	* a Royal Titan guard (The Royal Square)
 G 0 18062 0		*	the Golden Key to The  Valley of The Titans
 M 0 18048 8 18108 2	* a Royal Titan guard (The Royal Square)
 G 0 18062 0		*	the Golden Key to The  Valley of The Titans
-O 0 18084 0 18108		* a beautiful large marble fountain. (The Royal Square)
+O 0 18084 0 18108	* a beautiful large marble fountain. (The Royal Square)
 M 0 18048 8 18109 2	* a Royal Titan guard (The Royal Gates)
 G 0 18062 0		*	the Golden Key to The  Valley of The Titans
 M 0 18048 8 18109 2	* a Royal Titan guard (The Royal Gates)
@@ -5231,12 +5221,10 @@ M 0 18054 1 18125 1	* the Visious Black Cougar (Store of the deadly beast)
 M 0 18055 1 18125 1	* the Deadly Kraken (Store of the deadly beast)
 M 0 18056 1 18125 1	* the Magical Sylph (Store of the deadly beast)
 M 0 18100 1 18126 1	* Qeustor (Temple of Titans Valley)
-O 0 18101 0 18127		* the donation pit (By the temple of Titans Valley)
+O 0 18101 0 18127	* the donation pit (By the temple of Titans Valley)
 M 0 18101 5 18127 1	* the healer (By the temple of Titans Valley)
-O 0 18102 0 18140		* a fountain (Royal Bank.)
+O 0 18102 0 18140	* a fountain (Royal Bank.)
 S
-
-
 
 #SHOPS
 18006 9 0 0 0 0 155 27 0 23
@@ -5260,25 +5248,8 @@ S
 18098 2 3 4 10 0 150 15 0 23
 0
 
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
 #PRACTICERS
 M 18101 enhancement	* the healer
 S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

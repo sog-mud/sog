@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 30
 End
 
-
-
 #MOBILES
 #2200
 oldstyle hatchling dragon baby~
@@ -309,8 +307,6 @@ EFNU 0 0 0
 stand stand female 500
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #2200
@@ -688,8 +684,6 @@ key 0 A
 0 0 0 0 0
 0 10 0 P
 #0
-
-
 
 #ROOMS
 #2201
@@ -1504,8 +1498,6 @@ to listen to the God of Laughs.
 S
 #0
 
-
-
 #SPECIALS
 M 2200 spec_breath_any	* the dragon hatchling
 M 2203 spec_cast_mage	* a powerful mage
@@ -1523,8 +1515,6 @@ M 2241 spec_breath_gas	* the phase dragon
 M 2242 spec_thief	* the draconian fool
 M 2243 spec_breath_any	* the Draconian Queen
 S
-
-
 
 #RESETS
 D 0 2201 0 2	* The Tower Gates: door to the north: closed and locked
@@ -1635,30 +1625,5 @@ M 0 2240 8 2236 1	* a Draconian zombie (The End of the tunnel)
 M 0 2200 12 2239 1	* the dragon hatchling (Clearing)
 M 0 2200 12 2241 1	* the dragon hatchling (A cave opening)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 25
 End
 
-
-
 #MOBILES
 #9901
 villager~
@@ -166,8 +164,6 @@ EFN 0 0 0
 stand stand male 10
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #9901
@@ -329,8 +325,6 @@ armor 0 AM
 AB B AB B 0
 8 1 0 P
 #0
-
-
 
 #ROOMS
 #9901
@@ -2093,13 +2087,9 @@ Z -1 9996
 S
 #0
 
-
-
 #SPECIALS
 M 9909 spec_cast_cleric	* the Goblin Shaman
 S
-
-
 
 #RESETS
 D 0 9912 0 1	* Southern turn: door to the north: closed
@@ -2107,7 +2097,7 @@ D 0 9916 2 1	* Grassy landing: door to the south: closed
 M 0 9901 1 9902 1	* the Villager (On the river)
 G 0 9902 0		*	a lost quest note
 G 0 9903 0		*	a reward note
-O 0 9901 0 9902		* a sign (On the river)
+O 0 9901 0 9902	* a sign (On the river)
 M 0 9906 10 9928 1	* the Male Goblin (Dead grass hut)
 M 0 9907 12 9928 1	* the Female Goblin (Dead grass hut)
 M 0 9903 3 9929 1	* the Deranged Elf (A blue hut)
@@ -2167,30 +2157,8 @@ E 0 9904 0 3		*	a Necklace: around the neck (1)
 M 0 9909 5 9998 1	* the Goblin Shaman (Grass hut)
 S
 
-
-
 #SHOPS
 9901 8 5 9 12 13 65 150 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

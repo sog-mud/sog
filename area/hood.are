@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 15
 End
 
-
-
 #MOBILES
 #2101
 troll gang member~
@@ -168,8 +166,6 @@ JKNU 0 C 0
 stand stand male 75
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #2101
@@ -365,8 +361,6 @@ bottle broken~
 It appears to be a broken wine bottle, but what do you know about brewing?
 ~
 #0
-
-
 
 #ROOMS
 #2101
@@ -1663,8 +1657,6 @@ Z -1 2169
 S
 #0
 
-
-
 #SPECIALS
 M 2101 spec_troll_member	* a troll gang member
 M 2102 spec_ogre_member	* an ogre gang member
@@ -1676,8 +1668,6 @@ M 2109 spec_troll_member	* a punk
 M 2110 spec_ogre_member	* the Ogre gang leader
 M 2111 spec_ogre_member	* a thug
 S
-
-
 
 #RESETS
 D 0 2124 1 1	* Old Abandoned Warehouse: door to the east: closed
@@ -1897,30 +1887,5 @@ E 0 2117 0 7		*	a pair of black leather pants: on the legs
 M 0 2102 25 2170 1	* an ogre gang member (Hallway)
 E 0 2102 0 5		*	an Ogre gang jacket: on the body
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

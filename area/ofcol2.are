@@ -8,8 +8,6 @@ LevelRange 5 35
 Flags A
 End
 
-
-
 #MOBILES
 #600
 cityguard guard~
@@ -581,8 +579,6 @@ CDEFGIKLUe 0 0 0
 stand stand male 5
 0 0 giant unknown
 #0
-
-
 
 #OBJECTS
 #600
@@ -1367,8 +1363,6 @@ fountain ABG P
 0 0 'water' 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #600
@@ -3203,8 +3197,6 @@ Z 0 667
 S
 #0
 
-
-
 #SPECIALS
 M 600 spec_guard	* the Ofcol cityguard
 M 601 spec_cast_cleric	* Marshall Diana
@@ -3220,8 +3212,6 @@ M 632 spec_cast_mage	* an attendant of the dragon
 M 633 spec_breath_any	* a Dragonknight
 M 634 spec_guard	* the Ofcol cityguard
 S
-
-
 
 #RESETS
 D 0 600 1 1	* Granny's Still Room: door to the east: closed
@@ -3243,7 +3233,7 @@ D 0 640 1 1	* House: door to the east: closed
 D 0 642 0 2	* The Big Intersection: door to the north: closed and locked
 D 0 643 2 2	* Big House: door to the south: closed and locked
 M 0 609 1 600 1	* Granny Jenkins (Granny's Still Room)
-O 0 649 0 600		* a quart of ale (Granny's Still Room)
+O 0 649 0 600	* a quart of ale (Granny's Still Room)
 M 0 600 8 601 1	* the Ofcol cityguard (The Big Intersection)
 E 0 620 0 1		*	an Ofcol signet ring: on the left finger
 E 0 621 0 5		*	brass plate: on the body
@@ -3310,8 +3300,8 @@ M 0 612 4 619 4	* a hen (Chicken Coop)
 M 0 612 4 619 4	* a hen (Chicken Coop)
 M 0 611 1 620 1	* Farmer Sara (Barn)
 E 0 615 0 16		*	a pitchfork: wielded
-O 0 614 0 620		* a pile of hay (Barn)
-O 0 611 0 620		* a bottle of milk (Barn)
+O 0 614 0 620	* a pile of hay (Barn)
+O 0 611 0 620	* a bottle of milk (Barn)
 M 0 614 2 620 2	* the cow (Barn)
 M 0 614 2 620 2	* the cow (Barn)
 M 0 615 4 622 4	* the young horse (Grass Field)
@@ -3382,7 +3372,7 @@ M 0 628 1 669 1	* the Priestess of Ofcol (The Temple of Ofcol)
 E 0 620 0 1		*	an Ofcol signet ring: on the left finger
 E 0 664 0 12		*	a golden robe: about the shoulders
 E 0 652 0 3		*	the Holy Symbol of Bahamut: around the neck (1)
-O 0 670 0 669		* the donation pit (The Temple of Ofcol)
+O 0 670 0 669	* the donation pit (The Temple of Ofcol)
 M 0 625 2 673 1	* a servant (The Anteroom to the Temple of Ofcol)
 M 0 625 2 674 1	* a servant (A Hallway of the Golden Citadel)
 M 0 633 3 676 1	* a Dragonknight (A Hallway of the Golden Citadel)
@@ -3484,10 +3474,8 @@ E 0 621 0 5		*	brass plate: on the body
 E 0 630 0 16		*	a claymore: wielded
 E 0 627 0 11		*	a brass shield: as a shield
 G 0 651 0		*	the citadel key
-O 0 671 0 699		* fountain (Outside the Entrance to the Golden Citadel)
+O 0 671 0 699	* fountain (Outside the Entrance to the Golden Citadel)
 S
-
-
 
 #SHOPS
 604 5 9 15 0 0 120 80 0 23
@@ -3498,26 +3486,9 @@ S
 622 0 17 0 0 0 120 10 0 23
 0
 
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
 #PRACTICERS
 M 601 maladictions	* Marshall Diana
 M 628 healing	* the Priestess of Ofcol
 S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

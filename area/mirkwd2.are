@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 15
 End
 
-
-
 #MOBILES
 #8800
 sylvan elf scout~
@@ -203,8 +201,6 @@ stand stand male 40
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #8800
 pool~
@@ -346,8 +342,6 @@ key 0 AO
 0 0 0 0 0
 0 10 0 G
 #0
-
-
 
 #ROOMS
 #8800
@@ -1526,8 +1520,6 @@ Z -1 8868
 S
 #0
 
-
-
 #SPECIALS
 M 8800 spec_poison	* a sylvan elf scout
 M 8802 spec_nasty	* an orc scout
@@ -1535,8 +1527,6 @@ M 8803 spec_guard	* an orc warrior
 M 8805 spec_guard	* the chief of the guard
 M 8807 spec_cast_mage	* Thranduil, king of the Wood Elves
 S
-
-
 
 #RESETS
 D 0 8857 1 2	* A Broad Tree-Lined Path: door to the east: closed and locked
@@ -1556,7 +1546,7 @@ E 0 8801 0 16		*	an elvish sword: wielded
 E 0 8802 0 12		*	a plain elven cloak: about the shoulders
 E 0 8803 0 8		*	a pair of plain elven boots: on the feet
 G 0 8804 0		*	a water flask
-O 0 8800 0 8818		* a pool (The End of the Path)
+O 0 8800 0 8818	* a pool (The End of the Path)
 M 0 8801 4 8821 2	* a sylvan elf warrior (A Guard Post)
 E 0 8801 0 16		*	an elvish sword: wielded
 E 0 8802 0 12		*	a plain elven cloak: about the shoulders
@@ -1592,8 +1582,8 @@ E 0 8801 0 16		*	an elvish sword: wielded
 E 0 8802 0 12		*	a plain elven cloak: about the shoulders
 E 0 8803 0 8		*	a pair of plain elven boots: on the feet
 G 0 8804 0		*	a water flask
-O 0 8809 0 8861		* a barrel of Dorwinion wine (Storage Room)
-O 0 8810 0 8861		* an empty barrel (Storage Room)
+O 0 8809 0 8861	* a barrel of Dorwinion wine (Storage Room)
+O 0 8810 0 8861	* an empty barrel (Storage Room)
 M 0 8809 2 8864 1	* a female wood elf (Inside the Cave)
 M 0 8807 1 8865 1	* Thranduil, king of the Wood Elves (The Throne Room of Thrandul)
 E 0 8811 0 16		*	a fine elven sword: wielded
@@ -1604,31 +1594,6 @@ E 0 8803 0 8		*	a pair of plain elven boots: on the feet
 G 0 8804 0		*	a water flask
 M 0 8811 1 8867 1	* Thorin Oakenshield (A Cell)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 mirkwood~

@@ -7,8 +7,6 @@ Security 9
 LevelRange 15 25
 End
 
-
-
 #MOBILES
 #5100
 oldstyle goblin slave~
@@ -179,8 +177,6 @@ EFNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #5100
@@ -361,9 +357,326 @@ A
 18 5
 #0
 
-
-
 #ROOMS
+#5100
+City Entrance~
+You are at the entrance to a small underground city. A great adamantite
+gate lies open to the west allowing entrance into the city.
+~
+0 AD 0
+E
+hole~
+A small hole that looks to have been sealed at one time.
+~
+E
+gate~
+A large adamantite gate with giant spider shaped emblems stands here.
+~
+D3
+A huge gate opens to the west allowing entrance into the city.~
+gate~
+Z 0 5101
+D4
+A small hole in the ceiling leads up into darkness.~
+door~
+ABZ -1 5270
+S
+#5101
+City street~
+You walk along a highly ornate street going north-south. A large gate
+lies to the east while a building lies to the west.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5123
+D1
+~
+~
+Z 0 5100
+D2
+~
+~
+Z 0 5102
+D3
+~
+~
+Z 0 5122
+S
+#5102
+City street~
+You walk along a highly ornate city street going north and west.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5101
+D3
+~
+~
+Z 0 5103
+S
+#5103
+City street~
+You walk along a highly ornate city street going east-west. A large house
+stands to the south.
+~
+0 AD 0
+D1
+~
+~
+Z 0 5102
+D2
+~
+~
+Z 0 5104
+D3
+~
+~
+Z 0 5106
+S
+#5104
+3rd House~
+You stand inside the 3rd house of the city; it is fairly well decorated
+by drow standards having a few statues, murals and such. A door leads to the
+south.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5103
+D2
+~
+~
+Z -1 5105
+S
+#5105
+Throne Room~
+The throne room of the 3rd house is about as decorated as the inner
+courtyard except with a blood covered altar in the center of the room.
+~
+0 AD 0
+D0
+~
+~
+Z -1 5104
+S
+#5106
+City street~
+You walk along a highly ornate city street going east-west. To the north
+is a large building.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5118
+D1
+~
+~
+Z 0 5103
+D3
+~
+~
+Z 0 5107
+S
+#5107
+City street~
+You walk along a highly ornate city street leading north and east. To the
+south is an extremely large house.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5110
+D1
+~
+~
+Z 0 5106
+D2
+~
+~
+Z 0 5108
+S
+#5108
+2nd House~
+You stand inside the 2nd house of the city. The room is highly decorated
+with statues of spiders and murals everywhere.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5107
+D3
+~
+~
+Z -1 5109
+S
+#5109
+Throne Room~
+The throne room of the 2nd house is just a little more decorative than
+the inner courtyard having an altar in the center of the room.
+~
+0 AD 0
+D1
+~
+~
+Z -1 5108
+S
+#5110
+Main Gate~
+You are at the entrance to the 1st house of the city. A large gate, almost
+as big and elegant as the one at the entrance to the city, stands here.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5114
+D2
+~
+~
+Z 0 5107
+D3
+A large gate lies to the west.~
+gate~
+Z -1 5111
+S
+#5111
+1st House~
+You stand in the inner courtyard of the 1st and largest house in the city.
+The room is extremely large and decorative. Mural and paintings hang on the
+walls depicting some battles and a spider queen.
+~
+0 AD 0
+D1
+~
+~
+Z -1 5110
+D3
+~
+~
+Z 0 5112
+S
+#5112
+Throne Room~
+The throne room of the 1st house is in one word...awesome. It is so
+horrifying it is almost beautiful.
+~
+0 AD 0
+D0
+~
+~
+Z -1 5113
+D1
+~
+~
+Z -1 5111
+S
+#5113
+Main Chamber~
+This is the council chamber for the Matron Mother herself. A huge table
+and chairs surrounding it sits in the center of the room.
+~
+0 AD 0
+D2
+~
+~
+Z -1 5112
+S
+#5114
+City street~
+You walk along a highly ornate city street leading north-south and east.
+~
+0 AD 0
+D0
+~
+~
+Z 0 5115
+D1
+~
+~
+Z 0 5117
+D2
+~
+~
+Z 0 5110
+S
+#5115
+City street~
+You walk along a highly ornate city street leading south. A building is
+to the west.
+~
+0 AD 0
+D2
+~
+~
+Z 0 5114
+D3
+~
+~
+Z -1 5116
+S
+#5116
+Cleric Academy~
+This is the most lavish of the academies being that it is for the clerics.
+~
+0 AD 0
+D1
+~
+~
+Z -1 5115
+S
+#5117
+City street~
+You walk along a highly ornate city street going east-west. To the north
+is a giant temple.
+~
+0 AD 0
+D0
+The entrance to the temple of Lloth.~
+~
+Z -1 5119
+D1
+~
+~
+Z 0 5121
+D3
+~
+~
+Z 0 5114
+S
+#5118
+Warrior's Academy~
+This looks more like a barracks than a school.
+~
+0 AD 0
+D2
+~
+~
+Z 0 5106
+S
+#5119
+Entrance to the Temple of Lloth~
+The temple is the largest building in the city. Even it's doors are beyond
+imagination. Inside of the temple entrance, the walls are made of gold and
+adamantite.
+~
+0 AD 0
+D2
+~
+~
+Z -1 5117
+D5
+~
+~
+Z 0 5126
+S
 #5120
 Mage's Academy~
 The mages academy is fairly well decorated see that the drow prefer magic
@@ -862,328 +1175,7 @@ D2
 ~
 Z -1 5129
 S
-#5100
-City Entrance~
-You are at the entrance to a small underground city. A great adamantite
-gate lies open to the west allowing entrance into the city.
-~
-0 AD 0
-E
-hole~
-A small hole that looks to have been sealed at one time.
-~
-E
-gate~
-A large adamantite gate with giant spider shaped emblems stands here.
-~
-D3
-A huge gate opens to the west allowing entrance into the city.~
-gate~
-Z 0 5101
-D4
-A small hole in the ceiling leads up into darkness.~
-door~
-ABZ -1 5270
-S
-#5101
-City street~
-You walk along a highly ornate street going north-south. A large gate
-lies to the east while a building lies to the west.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5123
-D1
-~
-~
-Z 0 5100
-D2
-~
-~
-Z 0 5102
-D3
-~
-~
-Z 0 5122
-S
-#5102
-City street~
-You walk along a highly ornate city street going north and west.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5101
-D3
-~
-~
-Z 0 5103
-S
-#5103
-City street~
-You walk along a highly ornate city street going east-west. A large house
-stands to the south.
-~
-0 AD 0
-D1
-~
-~
-Z 0 5102
-D2
-~
-~
-Z 0 5104
-D3
-~
-~
-Z 0 5106
-S
-#5104
-3rd House~
-You stand inside the 3rd house of the city; it is fairly well decorated
-by drow standards having a few statues, murals and such. A door leads to the
-south.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5103
-D2
-~
-~
-Z -1 5105
-S
-#5105
-Throne Room~
-The throne room of the 3rd house is about as decorated as the inner
-courtyard except with a blood covered altar in the center of the room.
-~
-0 AD 0
-D0
-~
-~
-Z -1 5104
-S
-#5106
-City street~
-You walk along a highly ornate city street going east-west. To the north
-is a large building.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5118
-D1
-~
-~
-Z 0 5103
-D3
-~
-~
-Z 0 5107
-S
-#5107
-City street~
-You walk along a highly ornate city street leading north and east. To the
-south is an extremely large house.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5110
-D1
-~
-~
-Z 0 5106
-D2
-~
-~
-Z 0 5108
-S
-#5108
-2nd House~
-You stand inside the 2nd house of the city. The room is highly decorated
-with statues of spiders and murals everywhere.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5107
-D3
-~
-~
-Z -1 5109
-S
-#5109
-Throne Room~
-The throne room of the 2nd house is just a little more decorative than
-the inner courtyard having an altar in the center of the room.
-~
-0 AD 0
-D1
-~
-~
-Z -1 5108
-S
-#5110
-Main Gate~
-You are at the entrance to the 1st house of the city. A large gate, almost
-as big and elegant as the one at the entrance to the city, stands here.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5114
-D2
-~
-~
-Z 0 5107
-D3
-A large gate lies to the west.~
-gate~
-Z -1 5111
-S
-#5111
-1st House~
-You stand in the inner courtyard of the 1st and largest house in the city.
-The room is extremely large and decorative. Mural and paintings hang on the
-walls depicting some battles and a spider queen.
-~
-0 AD 0
-D1
-~
-~
-Z -1 5110
-D3
-~
-~
-Z 0 5112
-S
-#5112
-Throne Room~
-The throne room of the 1st house is in one word...awesome. It is so
-horrifying it is almost beautiful.
-~
-0 AD 0
-D0
-~
-~
-Z -1 5113
-D1
-~
-~
-Z -1 5111
-S
-#5113
-Main Chamber~
-This is the council chamber for the Matron Mother herself. A huge table
-and chairs surrounding it sits in the center of the room.
-~
-0 AD 0
-D2
-~
-~
-Z -1 5112
-S
-#5114
-City street~
-You walk along a highly ornate city street leading north-south and east.
-~
-0 AD 0
-D0
-~
-~
-Z 0 5115
-D1
-~
-~
-Z 0 5117
-D2
-~
-~
-Z 0 5110
-S
-#5115
-City street~
-You walk along a highly ornate city street leading south. A building is
-to the west.
-~
-0 AD 0
-D2
-~
-~
-Z 0 5114
-D3
-~
-~
-Z -1 5116
-S
-#5116
-Cleric Academy~
-This is the most lavish of the academies being that it is for the clerics.
-~
-0 AD 0
-D1
-~
-~
-Z -1 5115
-S
-#5117
-City street~
-You walk along a highly ornate city street going east-west. To the north
-is a giant temple.
-~
-0 AD 0
-D0
-The entrance to the temple of Lloth.~
-~
-Z -1 5119
-D1
-~
-~
-Z 0 5121
-D3
-~
-~
-Z 0 5114
-S
-#5118
-Warrior's Academy~
-This looks more like a barracks than a school.
-~
-0 AD 0
-D2
-~
-~
-Z 0 5106
-S
-#5119
-Entrance to the Temple of Lloth~
-The temple is the largest building in the city. Even it's doors are beyond
-imagination. Inside of the temple entrance, the walls are made of gold and
-adamantite.
-~
-0 AD 0
-D2
-~
-~
-Z -1 5117
-D5
-~
-~
-Z 0 5126
-S
 #0
-
-
 
 #SPECIALS
 M 5103 spec_cast_mage	* the drow mage noble
@@ -1192,30 +1184,8 @@ M 5108 spec_cast_cleric	* the matron mother
 M 5109 spec_breath_any	* the yochlol
 S
 
-
-
 #RESETS
 D 0 5100 4 1	* City Entrance: door to the up: closed
-M 0 5105 3 5120 1	* The drow master (Mage's Academy)
-E 0 5104 0 16		*	a snake headed whip: wielded
-E 0 5110 0 17		*	a silvery blue wand: held in the hands
-M 0 5100 15 5122 15	* the goblin slave (Slave Chamber)
-M 0 5102 4 5124 1	* the drow warrior noble (4th house)
-E 0 5101 0 16		*	a noble's longsword: wielded
-M 0 5103 4 5124 1	* the drow mage noble (4th house)
-E 0 5102 0 16		*	a snake headed whip: wielded
-M 0 5104 4 5124 1	* the drow priestess (4th house)
-E 0 5103 0 16		*	a snake headed whip: wielded
-M 0 5107 3 5125 1	* the matron mother (Throne Room)
-E 0 5104 0 16		*	a snake headed whip: wielded
-G 0 5114 0		*	a small bright green hat
-M 0 5101 10 5133 5	* the drow commoner (Warrior's Barracks)
-E 0 5100 0 16		*	a commoner's longsword: wielded
-M 0 5109 1 5148 1	* the yochlol (Dais)
-E 0 5113 0 16		*	a spider shaped dagger: wielded
-M 0 5106 2 5150 1	* The weapons master (Weaponsmaster's Chamber)
-E 0 5105 0 16		*	a black longsword: wielded
-E 0 5109 0 9		*	a pair of gauntlets: on the hands
 M 0 5106 2 5101 1	* The weapons master (City street)
 E 0 5105 0 16		*	a black longsword: wielded
 M 0 5102 4 5104 1	* the drow warrior noble (3rd House)
@@ -1253,28 +1223,31 @@ E 0 5100 0 16		*	a commoner's longsword: wielded
 M 0 5105 3 5118 1	* The drow master (Warrior's Academy)
 E 0 5105 0 16		*	a black longsword: wielded
 E 0 5110 0 17		*	a silvery blue wand: held in the hands
+M 0 5105 3 5120 1	* The drow master (Mage's Academy)
+E 0 5104 0 16		*	a snake headed whip: wielded
+E 0 5110 0 17		*	a silvery blue wand: held in the hands
+M 0 5100 15 5122 15	* the goblin slave (Slave Chamber)
+M 0 5102 4 5124 1	* the drow warrior noble (4th house)
+E 0 5101 0 16		*	a noble's longsword: wielded
+M 0 5103 4 5124 1	* the drow mage noble (4th house)
+E 0 5102 0 16		*	a snake headed whip: wielded
+M 0 5104 4 5124 1	* the drow priestess (4th house)
+E 0 5103 0 16		*	a snake headed whip: wielded
+M 0 5107 3 5125 1	* the matron mother (Throne Room)
+E 0 5104 0 16		*	a snake headed whip: wielded
+G 0 5114 0		*	a small bright green hat
+M 0 5101 10 5133 5	* the drow commoner (Warrior's Barracks)
+E 0 5100 0 16		*	a commoner's longsword: wielded
+M 0 5109 1 5148 1	* the yochlol (Dais)
+E 0 5113 0 16		*	a spider shaped dagger: wielded
+M 0 5106 2 5150 1	* The weapons master (Weaponsmaster's Chamber)
+E 0 5105 0 16		*	a black longsword: wielded
+E 0 5109 0 9		*	a pair of gauntlets: on the hands
 S
-
-
-
-#SHOPS
-0
-
-
 
 #OLIMITS
 O 5115 1	* two Snake Headed whip
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
 
 #OMPROGS
 O 5115 wear_prog wear_prog_snake	* `two Snake Headed whip'
@@ -1282,7 +1255,5 @@ O 5115 remove_prog remove_prog_snake	* `two Snake Headed whip'
 O 5115 fight_prog fight_prog_snake	* `two Snake Headed whip'
 O 5115 get_prog get_prog_snake	* `two Snake Headed whip'
 S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 30 50
 End
 
-
-
 #MOBILES
 #25000
 demi lich demi-lich~
@@ -524,8 +522,6 @@ stand stand male 5400
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #25000
 sword~
@@ -1027,8 +1023,6 @@ weapon AGIOY AN
 exotic 10 11 slash D
 51 300 100000 G
 #0
-
-
 
 #ROOMS
 #25000
@@ -2600,8 +2594,6 @@ Z -1 25097
 S
 #0
 
-
-
 #SPECIALS
 M 25001 spec_breath_gas	* Keftab, the Ancient One
 M 25008 spec_cast_cleric	* an Efreet
@@ -2613,8 +2605,6 @@ M 25020 spec_breath_any	* The Lord of Air
 M 25021 spec_breath_any	* The Sultan of Fire
 M 25033 spec_thief	* Nalfeshnee
 S
-
-
 
 #RESETS
 D 0 25030 0 2	* The Flaming Gates: door to the north: closed and locked
@@ -2726,33 +2716,8 @@ M 0 25018 1 25094 1	* The Water Prince (A Small Alcove)
 M 0 25019 1 25095 1	* The Earth King (A Narrow Tunnel)
 M 0 25020 1 25096 1	* The Lord of Air (A Narrow Tunnel)
 M 0 25021 1 25097 1	* The Sultan of Fire (A Narrow Tunnel)
-O 0 25028 0 25098		* portal (A Small Portal)
+O 0 25028 0 25098	* portal (A Small Portal)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 -1 abyss~

@@ -7,8 +7,6 @@ Security 9
 LevelRange 20 50
 End
 
-
-
 #MOBILES
 #19001
 mirror guard guardian~
@@ -1137,8 +1135,6 @@ CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #19001
@@ -3042,8 +3038,6 @@ A
 A
 4 1
 #0
-
-
 
 #ROOMS
 #19001
@@ -6570,8 +6564,6 @@ psychedelic fugue....
 S
 #0
 
-
-
 #SPECIALS
 M 19002 spec_breath_frost	* a withered knight
 M 19003 spec_cast_mage	* King Loranhir
@@ -6611,8 +6603,6 @@ M 19067 spec_cast_undead	* the Black Master
 M 19068 spec_cast_adept	* Jerry Garcia
 S
 
-
-
 #RESETS
 D 0 19005 0 1	* Before the Face of the Mountain: door to the north: closed
 D 0 19006 2 1	* The Path Above the Realm: door to the south: closed
@@ -6641,7 +6631,7 @@ D 0 19157 0 1	* Inside the House: The Kitchen: door to the north: closed
 D 0 19157 1 1	* Inside the House: The Kitchen: door to the east: closed
 D 0 19160 3 1	* The Bedroom: door to the west: closed
 D 0 19163 0 1	* The Green Altar: door to the north: closed
-O 0 19039 0 19005		* a brass plaque (Before the Face of the Mountain)
+O 0 19039 0 19005	* a brass plaque (Before the Face of the Mountain)
 M 0 19008 2 19005 1	* a watchman (Before the Face of the Mountain)
 E 0 19040 0 5		*	a brown robe: on the body
 M 0 19008 2 19005 1	* a watchman (Before the Face of the Mountain)
@@ -6649,12 +6639,12 @@ E 0 19040 0 5		*	a brown robe: on the body
 M 0 19009 1 19009 1	* a watchman (Inside a Watchtower)
 E 0 19040 0 5		*	a brown robe: on the body
 E 0 19085 0 16		*	a thick wooden staff: wielded
-O 0 19041 0 19009		* a telescope (Inside a Watchtower)
+O 0 19041 0 19009	* a telescope (Inside a Watchtower)
 M 0 19010 1 19010 1	* a watchman (Inside a Watchtower)
 E 0 19040 0 5		*	a brown robe: on the body
 E 0 19085 0 16		*	a thick wooden staff: wielded
-O 0 19042 0 19010		* a telescope (Inside a Watchtower)
-O 0 19005 0 19020		* a throne (The King's Alcove)
+O 0 19042 0 19010	* a telescope (Inside a Watchtower)
+O 0 19005 0 19020	* a throne (The King's Alcove)
 M 0 19003 1 19020 1	* King Loranhir (The King's Alcove)
 E 0 19006 0 5		*	a grey robe: on the body
 M 0 19001 2 19031 1	* the mirror guardian (Entrance to the Castle)
@@ -6701,12 +6691,12 @@ E 0 19064 0 16		*	a prism sword: wielded
 M 0 19005 1 19050 1	* the young man (Corner of the Path)
 E 0 19015 0 16		*	a small steel knife: wielded
 G 0 19020 0		*	some coins
-O 0 19094 0 19050		* a nectarine tree (Corner of the Path)
-O 0 19035 0 19051		* a grove of apple trees (A Grove of Trees)
+O 0 19094 0 19050	* a nectarine tree (Corner of the Path)
+O 0 19035 0 19051	* a grove of apple trees (A Grove of Trees)
 P 0 19036 100 19035 1	* a grove of apple trees: an apple
 P 0 19036 100 19035 1	* a grove of apple trees: an apple
 M 0 19037 1 19051 1	* the young boy (A Grove of Trees)
-O 0 19056 0 19053		* a small jar of pale glowing fish (Under the Gazebo)
+O 0 19056 0 19053	* a small jar of pale glowing fish (Under the Gazebo)
 M 0 19006 5 19056 1	* the woman (Along the Edge of the Forest)
 E 0 19015 0 16		*	a small steel knife: wielded
 G 0 19020 0		*	some coins
@@ -6718,8 +6708,8 @@ E 0 19090 0 5		*	a rain slicker: on the body
 E 0 19088 0 8		*	fishing boots: on the feet
 E 0 19089 0 16		*	a gaff: wielded
 G 0 19091 0		*	a dinghy
-O 0 19057 0 19059		* the white goldfish (The pond)
-O 0 19037 0 19060		* a grove of plum trees (A Grove of Trees)
+O 0 19057 0 19059	* the white goldfish (The pond)
+O 0 19037 0 19060	* a grove of plum trees (A Grove of Trees)
 P 0 19038 100 19037 1	* a grove of plum trees: a plum
 P 0 19038 100 19037 1	* a grove of plum trees: a plum
 M 0 19020 1 19061 1	* the Blue Lord (Bend in the Path)
@@ -6764,14 +6754,14 @@ G 0 19021 0		*	a clear potion of invisibility
 G 0 19018 0		*	a flask of holy water
 G 0 19016 0		*	a potion of human flight
 G 0 19067 0		*	a poultice of detection
-O 0 19013 0 19071		* a pool table (The bar of the Holly Bush)
+O 0 19013 0 19071	* a pool table (The bar of the Holly Bush)
 M 0 19026 1 19071 1	* Lauraine the barkeep (The bar of the Holly Bush)
 G 0 19070 0		*	lemonade
 G 0 19069 0		*	whisky
 G 0 19068 0		*	beer
 M 0 19025 1 19071 1	* the pool player (The bar of the Holly Bush)
 E 0 19012 0 16		*	a pool cue: wielded
-O 0 19032 0 19072		* a menu (The restaurant of the Holly Bush)
+O 0 19032 0 19072	* a menu (The restaurant of the Holly Bush)
 M 0 19027 1 19072 1	* the waiter (The restaurant of the Holly Bush)
 G 0 19023 0		*	steak and Yorkshire Pudding
 G 0 19024 0		*	roast Chicken
@@ -6785,7 +6775,7 @@ M 0 19028 1 19073 1	* Master Dunn (Master Dunn's House)
 E 0 19072 0 5		*	a black gi: on the body
 E 0 19073 0 13		*	a red master's belt: around the waist
 E 0 19071 0 16		*	a kendo: wielded
-O 0 19074 0 19073		* a fountain (Master Dunn's House)
+O 0 19074 0 19073	* a fountain (Master Dunn's House)
 M 0 19005 2 19074 1	* the young man (The Street)
 E 0 19015 0 16		*	a small steel knife: wielded
 G 0 19020 0		*	some coins
@@ -6802,7 +6792,7 @@ E 0 19087 0 12		*	a white shawl: about the shoulders
 G 0 19134 0		*	a History of the Mirror Realm
 G 0 19135 0		*	a Book of Legends
 G 0 19136 0		*	a History of Midgaard
-O 0 19082 0 19077		* a hymn (The Chapel)
+O 0 19082 0 19077	* a hymn (The Chapel)
 M 0 19031 1 19077 1	* Father Franklin (The Chapel)
 E 0 19066 0 12		*	a white robe: about the shoulders
 E 0 19083 0 1		*	a rose-colored ring: on the left finger
@@ -6831,17 +6821,17 @@ M 0 19061 1 19086 1	* the Master of Light (At the Top of the Tower: The Prism Ro
 G 0 19129 0		*	the Sigil of the Light
 M 0 19036 1 19091 1	* the gardener (The Corner of the Wooden Path)
 E 0 19084 0 16		*	a pair of clippers: wielded
-O 0 19108 0 19092		* a holly tree (A Grove of Trees)
+O 0 19108 0 19092	* a holly tree (A Grove of Trees)
 P 0 19109 100 19108 1	* a holly tree: a few holly berries
 M 0 19050 1 19092 1	* the waiter (A Grove of Trees)
-O 0 19119 0 19095		* a dead squid (The Swamp)
-O 0 19115 0 19097		* a poison oak tree (A Grove of Trees )
+O 0 19119 0 19095	* a dead squid (The Swamp)
+O 0 19115 0 19097	* a poison oak tree (A Grove of Trees )
 P 0 19116 100 19115 1	* a poison oak tree: an acorn
 P 0 19116 100 19115 1	* a poison oak tree: an acorn
 M 0 19033 1 19097 1	* the Black Lord (A Grove of Trees )
 E 0 19123 0 12		*	a black robe: about the shoulders
 E 0 19110 0 16		*	an eclipse sword: wielded
-O 0 19114 0 19099		* a small jar of glowing slugs (Under the Gazebo)
+O 0 19114 0 19099	* a small jar of glowing slugs (Under the Gazebo)
 M 0 19032 2 19102 1	* the White Lord (Corner of the Path )
 E 0 19124 0 12		*	a white robe: about the shoulders
 E 0 19110 0 16		*	an eclipse sword: wielded
@@ -6871,8 +6861,8 @@ G 0 19017 0		*	a pill of mana and life restoration
 G 0 19019 0		*	a staff of destruction
 G 0 19102 0		*	a flask of devil's brew
 G 0 19103 0		*	the Soul Stealer
-O 0 19111 0 19113		* a menu (The Restaurant of the Hemlock Bush )
-O 0 19112 0 19113		* a sign (The Restaurant of the Hemlock Bush )
+O 0 19111 0 19113	* a menu (The Restaurant of the Hemlock Bush )
+O 0 19112 0 19113	* a sign (The Restaurant of the Hemlock Bush )
 M 0 19050 1 19113 1	* the waiter (The Restaurant of the Hemlock Bush )
 G 0 19113 0		*	beef stew
 M 0 19034 1 19114 1	* Storn the assassin (A Dark House )
@@ -6899,7 +6889,7 @@ M 0 19065 1 19126 1	* the White Master (Inside the Dark Tower)
 E 0 19131 0 5		*	a white cloak: on the body
 M 0 19040 1 19127 1	* something (The Top of the Dark Tower: Gray Mists)
 G 0 19128 0		*	the Sigil of the Dark
-O 0 19120 0 19129		* a cabinet door (Merriman's Alcove)
+O 0 19120 0 19129	* a cabinet door (Merriman's Alcove)
 M 0 19048 1 19131 1	* the moose (The Forest )
 E 0 19093 0 6		*	antlers: over the head
 M 0 19039 1 19132 1	* The buck (The Forest )
@@ -6912,27 +6902,25 @@ E 0 19097 0 16		*	some fangs: wielded
 M 0 19047 1 19146 1	* the grey fox (Dark Forest )
 M 0 19011 1 19147 1	* Bear-de-bear (Vell, hi!)
 M 0 19062 1 19151 1	* the Phoenix (A Small Room)
-O 0 19137 0 19152		* the crystal altar (The Crystal Altar)
+O 0 19137 0 19152	* the crystal altar (The Crystal Altar)
 P 0 19138 100 19137 1	* the crystal altar: the crystal sigil
-O 0 19139 0 19154		* a citrine altar (Inside the Hive)
+O 0 19139 0 19154	* a citrine altar (Inside the Hive)
 P 0 19140 100 19139 1	* a citrine altar: the yellow topaz sigil
-O 0 19141 0 19155		* a purple altar (The Violet Altar)
+O 0 19141 0 19155	* a purple altar (The Violet Altar)
 P 0 19142 100 19141 1	* a purple altar: the amethyst sigil
-O 0 19143 0 19158		* the red altar (Inside the Fire: The Red Altar)
+O 0 19143 0 19158	* the red altar (Inside the Fire: The Red Altar)
 P 0 19144 100 19143 1	* the red altar: the ruby sigil
-O 0 19146 0 19162		* the sapphire altar (Underwater Cave: The Blue Altar)
+O 0 19146 0 19162	* the sapphire altar (Underwater Cave: The Blue Altar)
 P 0 19145 100 19146 1	* the sapphire altar: the sapphire sigil
-O 0 19147 0 19163		* the green altar (The Green Altar)
+O 0 19147 0 19163	* the green altar (The Green Altar)
 P 0 19148 100 19147 1	* the green altar: the emerald sigil
 P 0 19095 100 19094 1	* a nectarine tree: a nectarine
 P 0 19095 100 19094 1	* a nectarine tree: a nectarine
 P 0 19149 100 19094 1	* a nectarine tree: the amber sigil
 M 0 19069 1 19166 1	* Mr. Teece (Mr. Teece's Room)
-O 0 19166 0 19169		* the heart key (The Honeymoon Suite)
-O 0 19167 0 19169		* a bottle of champagne (The Honeymoon Suite)
+O 0 19166 0 19169	* the heart key (The Honeymoon Suite)
+O 0 19167 0 19169	* a bottle of champagne (The Honeymoon Suite)
 S
-
-
 
 #SHOPS
 19024 3 2 10 4 26 125 75 0 23
@@ -6946,28 +6934,11 @@ S
 19050 0 0 0 0 0 100 100 0 23
 0
 
-
-
 #OLIMITS
 O 19033 1	* a unicorn's golden horn
 O 19062 1	* a sea-blue robe
 O 19110 1	* an eclipse sword
 O 19127 1	* a blood-red dagger
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

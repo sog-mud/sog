@@ -7,8 +7,6 @@ Security 9
 LevelRange 30 45
 End
 
-
-
 #MOBILES
 #29500
 ajax~
@@ -717,8 +715,6 @@ stand stand female 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #29500
 spear~
@@ -937,8 +933,6 @@ furniture 0 A
 0 0 0 0 0
 30 25 300 P
 #0
-
-
 
 #ROOMS
 #29500
@@ -2851,15 +2845,11 @@ Z -1 29597
 S
 #0
 
-
-
 #SPECIALS
 M 29512 spec_cast_cleric	* Cassandra
 M 29525 spec_cast_adept	* Machaon
 M 29536 spec_cast_cleric	* Helenus
 S
-
-
 
 #RESETS
 M 0 29515 1 29531 1	* Automedon (The Battlefield)
@@ -2868,9 +2858,9 @@ E 0 29501 0 17		*	a long throwing spear: held in the hands
 E 0 29502 0 1		*	an ox hide shield: on the left finger
 E 0 29503 0 6		*	a boar tusk helm: over the head
 E 0 29504 0 5		*	a leather jerkin: on the body
-O 0 29518 0 29531		* a banner (The Battlefield)
-O 0 29518 0 29532		* a banner (The Battlefield)
-O 0 29518 0 29533		* a banner (The Battlefield)
+O 0 29518 0 29531	* a banner (The Battlefield)
+O 0 29518 0 29532	* a banner (The Battlefield)
+O 0 29518 0 29533	* a banner (The Battlefield)
 M 0 29501 1 29534 1	* Achilles (Achilles' Tent)
 E 0 29508 0 5		*	achilles' breastplate: on the body
 E 0 29509 0 7		*	achilles' greaves: on the legs
@@ -2892,61 +2882,61 @@ E 0 29519 0 6		*	a bronze helm: over the head
 E 0 29514 0 11		*	a bronze shield: as a shield
 E 0 29505 0 5		*	a bronze breastplate: on the body
 E 0 29516 0 8		*	a pair of sandals: on the feet
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
-O 0 29520 0 29535		* a cot (Ajax's Tent)
-O 0 29506 0 29535		* a goblet of watered wine (Ajax's Tent)
-O 0 29507 0 29535		* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
+O 0 29520 0 29535	* a cot (Ajax's Tent)
+O 0 29506 0 29535	* a goblet of watered wine (Ajax's Tent)
+O 0 29507 0 29535	* a board game (Ajax's Tent)
 M 0 29542 16 29536 1	* an Achaean soldier (The Battlefield)
 E 0 29500 0 16		*	a short thrusting spear: wielded
 E 0 29501 0 17		*	a long throwing spear: held in the hands
 E 0 29502 0 1		*	an ox hide shield: on the left finger
 E 0 29503 0 6		*	a boar tusk helm: over the head
 E 0 29504 0 5		*	a leather jerkin: on the body
-O 0 29518 0 29537		* a banner (The Battlefield)
+O 0 29518 0 29537	* a banner (The Battlefield)
 M 0 29504 1 29538 1	* King Nestor (Nestor's Tent)
 E 0 29500 0 16		*	a short thrusting spear: wielded
 E 0 29501 0 17		*	a long throwing spear: held in the hands
@@ -2968,16 +2958,16 @@ E 0 29519 0 6		*	a bronze helm: over the head
 E 0 29514 0 11		*	a bronze shield: as a shield
 E 0 29505 0 5		*	a bronze breastplate: on the body
 E 0 29516 0 8		*	a pair of sandals: on the feet
-O 0 29520 0 29539		* a cot (Odysseus' Tent)
-O 0 29506 0 29539		* a goblet of watered wine (Odysseus' Tent)
-O 0 29507 0 29539		* a board game (Odysseus' Tent)
+O 0 29520 0 29539	* a cot (Odysseus' Tent)
+O 0 29506 0 29539	* a goblet of watered wine (Odysseus' Tent)
+O 0 29507 0 29539	* a board game (Odysseus' Tent)
 M 0 29529 1 29540 1	* Talthybius (The Battlefield)
 E 0 29500 0 16		*	a short thrusting spear: wielded
 E 0 29501 0 17		*	a long throwing spear: held in the hands
 E 0 29502 0 1		*	an ox hide shield: on the left finger
 E 0 29503 0 6		*	a boar tusk helm: over the head
 E 0 29504 0 5		*	a leather jerkin: on the body
-O 0 29518 0 29540		* a banner (The Battlefield)
+O 0 29518 0 29540	* a banner (The Battlefield)
 M 0 29505 1 29541 1	* King Menelaus (Menelaus' Tent)
 E 0 29500 0 16		*	a short thrusting spear: wielded
 E 0 29501 0 17		*	a long throwing spear: held in the hands
@@ -3013,7 +3003,7 @@ E 0 29501 0 17		*	a long throwing spear: held in the hands
 E 0 29502 0 1		*	an ox hide shield: on the left finger
 E 0 29503 0 6		*	a boar tusk helm: over the head
 E 0 29504 0 5		*	a leather jerkin: on the body
-O 0 29518 0 29549		* a banner (The Battlefield)
+O 0 29518 0 29549	* a banner (The Battlefield)
 M 0 29524 1 29550 1	* King Idomeneus (Idoemeneus' Tent)
 E 0 29500 0 16		*	a short thrusting spear: wielded
 E 0 29501 0 17		*	a long throwing spear: held in the hands
@@ -3028,7 +3018,7 @@ E 0 29519 0 6		*	a bronze helm: over the head
 E 0 29514 0 11		*	a bronze shield: as a shield
 E 0 29505 0 5		*	a bronze breastplate: on the body
 E 0 29516 0 8		*	a pair of sandals: on the feet
-O 0 29518 0 29552		* a banner (The Battlefield)
+O 0 29518 0 29552	* a banner (The Battlefield)
 M 0 29532 1 29553 1	* Tleopolemus (Tlepolemus' Tent)
 E 0 29500 0 16		*	a short thrusting spear: wielded
 E 0 29501 0 17		*	a long throwing spear: held in the hands
@@ -3218,30 +3208,5 @@ E 0 29513 0 16		*	a bronze dagger: wielded
 M 0 29512 1 29600 1	* Cassandra (Chambers)
 E 0 29513 0 16		*	a bronze dagger: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

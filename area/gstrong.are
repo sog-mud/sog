@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 20
 End
 
-
-
 #MOBILES
 #29001
 king goblin Grumm~
@@ -196,8 +194,6 @@ AFT 0 -600 0
 stand stand male 10
 0 0 small unknown
 #0
-
-
 
 #OBJECTS
 #29001
@@ -531,8 +527,6 @@ weapon 0 AN
 mace 4 5 pound 0
 11 150 790 G
 #0
-
-
 
 #ROOMS
 #29001
@@ -1073,13 +1067,6 @@ Z -1 29017
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 D 0 29001 2 1	* The Entry Hall to the Goblin Stronghold: door to the south: closed
 D 0 29002 0 1	* North End of the Great Hall: door to the north: closed
@@ -1132,7 +1119,7 @@ E 0 29015 0 16		*	a goblin's shortsword: wielded
 M 0 29007 20 29002 1	* The goblin (North End of the Great Hall)
 E 0 29011 0 6		*	a dark goblin horned helmet: over the head
 E 0 29015 0 16		*	a goblin's shortsword: wielded
-O 0 29027 0 29002		* a large mahogany feast table (North End of the Great Hall)
+O 0 29027 0 29002	* a large mahogany feast table (North End of the Great Hall)
 M 0 29005 10 29003 1	* goblin guard (South End of the Great Hall)
 E 0 29001 0 5		*	a goblin scale mail jacket: on the body
 E 0 29003 0 7		*	a goblin long scale mail skirt: on the legs
@@ -1142,7 +1129,7 @@ E 0 29015 0 16		*	a goblin's shortsword: wielded
 M 0 29007 20 29003 1	* The goblin (South End of the Great Hall)
 E 0 29011 0 6		*	a dark goblin horned helmet: over the head
 E 0 29015 0 16		*	a goblin's shortsword: wielded
-O 0 29028 0 29003		* A large mahogany feast table (South End of the Great Hall)
+O 0 29028 0 29003	* A large mahogany feast table (South End of the Great Hall)
 M 0 29001 1 29004 1	* Grumm (King Grumm's Throne Room)
 E 0 29010 0 16		*	the Great War Axe of Grumm: wielded
 E 0 29009 0 6		*	the Great Crown of the Goblin King: over the head
@@ -1169,7 +1156,7 @@ E 0 29015 0 16		*	a goblin's shortsword: wielded
 M 0 29012 1 29004 1	* the dancing girl (King Grumm's Throne Room)
 E 0 29023 0 1		*	Britta's Ring: on the left finger
 M 0 29013 1 29004 1	* the goblin jester (King Grumm's Throne Room)
-O 0 29026 0 29004		* King Grumm's Throne (King Grumm's Throne Room)
+O 0 29026 0 29004	* King Grumm's Throne (King Grumm's Throne Room)
 M 0 29002 1 29005 1	* The goblin shaman (Goblin Shaman's Quarters)
 E 0 29005 0 5		*	a goblin chain mail shirt: on the body
 E 0 29006 0 7		*	a goblin long chain mail skirt: on the legs
@@ -1178,15 +1165,15 @@ E 0 29008 0 10		*	a pair of goblin chain mail sleeves: on the arms
 E 0 29016 0 17		*	a frothing black potion: held in the hands
 E 0 29030 0 16		*	a heavy iron mace: wielded
 G 0 29018 0		*	the goblin shaman's key
-O 0 29024 0 29005		* Bookcase (Goblin Shaman's Quarters)
+O 0 29024 0 29005	* Bookcase (Goblin Shaman's Quarters)
 P 0 29022 1 29024 10	* Bookcase: a big rock
-O 0 29025 0 29005		* A large mahogany desk (Goblin Shaman's Quarters)
+O 0 29025 0 29005	* A large mahogany desk (Goblin Shaman's Quarters)
 M 0 29003 1 29006 1	* Goblin Mage (Goblin Mage's Quarters)
 G 0 29020 0		*	the goblin mage's key
 E 0 29013 0 12		*	a filthy green cape: about the shoulders
 E 0 29014 0 16		*	a stone shard: wielded
 M 0 29011 1 29006 1	* The Lesser Demon (Goblin Mage's Quarters)
-O 0 29029 0 29010		* a small pile of gold (The Treasure Chamber of the Goblin Stronghold)
+O 0 29029 0 29010	* a small pile of gold (The Treasure Chamber of the Goblin Stronghold)
 M 0 29009 1 29011 1	* the goblin (A Small Cell in the Dungeon)
 M 0 29008 4 29012 1	* the goblin prisoner (A Small Cell in the Dungeon)
 M 0 29008 4 29013 1	* the goblin prisoner (A Small Cell in the Dungeon)
@@ -1272,30 +1259,5 @@ M 0 29007 20 29027 1	* The goblin (Goblin Barraks)
 E 0 29011 0 6		*	a dark goblin horned helmet: over the head
 E 0 29015 0 16		*	a goblin's shortsword: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

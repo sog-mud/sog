@@ -7,8 +7,6 @@ Security 9
 LevelRange 35 45
 End
 
-
-
 #MOBILES
 #21000
 alice~
@@ -731,8 +729,6 @@ stand stand male 0
 F par GHIJK
 #0
 
-
-
 #OBJECTS
 #21000
 pretty blue frock~
@@ -1401,8 +1397,6 @@ portal 0 0
 0 0 0 21042 0
 35 1 350 P
 #0
-
-
 
 #ROOMS
 #21000
@@ -2514,8 +2508,6 @@ Z -1 21062
 S
 #0
 
-
-
 #SPECIALS
 M 21001 spec_cast_mage	* a white rabbit
 M 21014 spec_breath_gas	* the caterpillar
@@ -2526,8 +2518,6 @@ M 21038 spec_executioner	* the executioner
 M 21040 spec_fido	* a Gryphon
 M 21042 spec_guard	* a court officer
 S
-
-
 
 #RESETS
 D 0 21006 1 2	* Outside the Garden: door to the east: closed and locked
@@ -2552,13 +2542,13 @@ D 0 21042 1 1	* The Long Hallway: door to the east: closed
 D 0 21043 3 1	* In a Garden: door to the west: closed
 D 0 21051 0 1	* A Croquet Lawn: door to the north: closed
 D 0 21059 2 1	* Courthouse (Who Stole the Tarts?): door to the south: closed
-O 0 21065 0 21001		* a rabbit hole (A Hedge)
-O 0 21010 0 21002		* a shelf (The Rabbit Hole)
+O 0 21065 0 21001	* a rabbit hole (A Hedge)
+O 0 21010 0 21002	* a shelf (The Rabbit Hole)
 P 0 21011 1 21010 1	* a shelf: a jar of orange marmalade
-O 0 21012 0 21006		* a tiny three-legged table (Outside the Garden)
-O 0 21013 0 21006		* a tiny golden key (Outside the Garden)
-O 0 21014 0 21006		* a little bottle (Outside the Garden)
-O 0 21015 0 21006		* a tiny glass box (Outside the Garden)
+O 0 21012 0 21006	* a tiny three-legged table (Outside the Garden)
+O 0 21013 0 21006	* a tiny golden key (Outside the Garden)
+O 0 21014 0 21006	* a little bottle (Outside the Garden)
+O 0 21015 0 21006	* a tiny glass box (Outside the Garden)
 P 0 21016 1 21015 1	* a tiny glass box: a small cake
 M 0 21003 1 21008 1	* a duck (The Pool of Tears)
 M 0 21002 1 21009 1	* a mouse (The Pool of Tears)
@@ -2569,12 +2559,12 @@ M 0 21004 1 21011 1	* a dodo (Caucus-Race)
 M 0 21006 1 21011 1	* an eaglet (Caucus-Race)
 M 0 21009 1 21011 1	* an old crab (Caucus-Race)
 M 0 21010 1 21011 1	* a young crab (Caucus-Race)
-O 0 21036 0 21015		* a comfortable chair (A Sitting Room)
-O 0 21037 0 21015		* a comfortable chair (A Sitting Room)
-O 0 21017 0 21016		* a little bottle (The Rabbit's Bedroom)
-O 0 21018 0 21016		* a window table (The Rabbit's Bedroom)
-O 0 21007 0 21016		* a pair of tiny white kid-gloves (The Rabbit's Bedroom)
-O 0 21008 0 21016		* a fan (The Rabbit's Bedroom)
+O 0 21036 0 21015	* a comfortable chair (A Sitting Room)
+O 0 21037 0 21015	* a comfortable chair (A Sitting Room)
+O 0 21017 0 21016	* a little bottle (The Rabbit's Bedroom)
+O 0 21018 0 21016	* a window table (The Rabbit's Bedroom)
+O 0 21007 0 21016	* a pair of tiny white kid-gloves (The Rabbit's Bedroom)
+O 0 21008 0 21016	* a fan (The Rabbit's Bedroom)
 M 0 21011 1 21017 1	* Bill the lizard (On The Roof)
 M 0 21012 2 21017 1	* a guinea pig (On The Roof)
 G 0 21019 0		*	a bottle of brandy
@@ -2584,7 +2574,7 @@ E 0 21020 0 17		*	a hookah: held in the hands
 G 0 21021 0		*	some flesh from a mushroom
 G 0 21022 0		*	some flesh from a mushroom
 M 0 21015 1 21023 1	* a pigeon (The Top)
-O 0 21026 0 21023		* a small nest (The Top)
+O 0 21026 0 21023	* a small nest (The Top)
 P 0 21023 1 21026 1	* a small nest: a pigeon egg
 P 0 21024 1 21026 1	* a small nest: a pigeon egg
 P 0 21025 1 21026 1	* a small nest: a pigeon egg
@@ -2597,8 +2587,8 @@ E 0 21027 0 5		*	a footman's livery: on the body
 E 0 21028 0 6		*	a powdered wig: over the head
 M 0 21018 1 21027 1	* the Duchess (A Large Kitchen)
 E 0 21030 0 6		*	a baby's cradle: over the head
-O 0 21031 0 21027		* a pot of soup (A Large Kitchen)
-O 0 21032 0 21027		* a plate (A Large Kitchen)
+O 0 21031 0 21027	* a pot of soup (A Large Kitchen)
+O 0 21032 0 21027	* a plate (A Large Kitchen)
 M 0 21019 1 21027 1	* the Duchess' baby (A Large Kitchen)
 M 0 21020 1 21027 1	* the cook (A Large Kitchen)
 E 0 21032 0 17		*	a plate: held in the hands
@@ -2607,14 +2597,14 @@ G 0 21032 0		*	a plate
 G 0 21032 0		*	a plate
 G 0 21032 0		*	a plate
 M 0 21021 1 21032 1	* a Cheshire Cat (At the Base of the Tree)
-O 0 21035 0 21037		* a long dining table (A Mad Tea Party)
-O 0 21036 0 21037		* a comfortable chair (A Mad Tea Party)
-O 0 21037 0 21037		* a comfortable chair (A Mad Tea Party)
-O 0 21038 0 21037		* a comfortable chair (A Mad Tea Party)
-O 0 21039 0 21037		* a comfortable chair (A Mad Tea Party)
-O 0 21043 0 21037		* a biscuit plate (A Mad Tea Party)
-O 0 21044 0 21037		* a tea pot (A Mad Tea Party)
-O 0 21045 0 21037		* a tea cup (A Mad Tea Party)
+O 0 21035 0 21037	* a long dining table (A Mad Tea Party)
+O 0 21036 0 21037	* a comfortable chair (A Mad Tea Party)
+O 0 21037 0 21037	* a comfortable chair (A Mad Tea Party)
+O 0 21038 0 21037	* a comfortable chair (A Mad Tea Party)
+O 0 21039 0 21037	* a comfortable chair (A Mad Tea Party)
+O 0 21043 0 21037	* a biscuit plate (A Mad Tea Party)
+O 0 21044 0 21037	* a tea pot (A Mad Tea Party)
+O 0 21045 0 21037	* a tea cup (A Mad Tea Party)
 M 0 21022 1 21037 1	* the Mad Hatter (A Mad Tea Party)
 E 0 21034 0 6		*	a green top hat: over the head
 E 0 21040 0 3		*	a large polka dot bow tie: around the neck (1)
@@ -2631,9 +2621,9 @@ M 0 21024 1 21037 1	* the Dormouse (A Mad Tea Party)
 E 0 21046 0 5		*	a checked shirt: on the body
 E 0 21047 0 7		*	some brown breeches: on the legs
 E 0 21048 0 8		*	a pair of black shoes: on the feet
-O 0 21066 0 21041		* a tree with a tiny door (Outside a Tree)
+O 0 21066 0 21041	* a tree with a tiny door (Outside a Tree)
 M 0 21037 4 21042 1	* a hedgehog (The Long Hallway)
-O 0 21051 0 21043		* a white rose bush (In a Garden)
+O 0 21051 0 21043	* a white rose bush (In a Garden)
 M 0 21027 1 21043 1	* a gardener (In a Garden)
 E 0 21049 0 17		*	a can of red paint: held in the hands
 E 0 21050 0 16		*	a paint brush: wielded
@@ -2687,18 +2677,6 @@ E 0 21063 0 16		*	a pencil: wielded
 M 0 21035 1 21061 1	* the Knave of Hearts (The Witness Box)
 G 0 21059 0		*	the Queen's tarts
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
 
 #MOBPROGS
 #21000
@@ -2791,16 +2769,6 @@ say Bring me my gloves!
 tell $n Don't let me hear that name again!
 ~
 #0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 'Through the Looking Glass' 'Looking Glass'~

@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 15
 End
 
-
-
 #MOBILES
 #4000
 python snake~
@@ -502,8 +500,6 @@ stand stand either 150
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #4000
 ring yellow green~
@@ -942,806 +938,7 @@ map moria third~
 ~
 #0
 
-
-
 #ROOMS
-#4100
-The tunnel~
-Suddenly you feel that the tunnel leads slightly down.
-~
-0 ACD 3
-D0
-~
-~
-Z 0 4052
-D3
-~
-~
-Z 0 4101
-S
-#4101
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel is quite
-wide at this point.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4100
-D3
-~
-~
-Z 0 4102
-S
-#4102
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel becomes
-narrow to the west.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4101
-D3
-~
-~
-Z 0 4103
-S
-#4103
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel is quite
-narrow at this point. You notice a small hole leading south.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4102
-D2
-~
-~
-Z 0 4106
-D3
-~
-~
-Z 0 4104
-S
-#4104
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel starts sloping
-down towards the west.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4103
-D3
-~
-~
-Z 0 4152
-S
-#4105
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
-light. The cave continues to the south and west.
-~
-0 D 1
-D2
-~
-~
-Z 0 4108
-D3
-~
-~
-Z 0 4106
-S
-#4106
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
-light. The cave continues to the south and east, to the north is a narrow
-tunnel.
-~
-0 D 1
-D0
-~
-~
-Z 0 4103
-D1
-~
-~
-Z 0 4105
-D2
-~
-~
-Z 0 4109
-S
-#4107
-The passage~
-You are in a small passage, it leads south, to the west is a golden
-cave.
-~
-0 AD 3
-D2
-~
-~
-Z 0 4113
-D3
-~
-~
-Z 0 4108
-S
-#4108
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
-light. The cave continues to the north and west, east from you there is
-a small passage.
-~
-0 D 1
-D0
-~
-~
-Z 0 4105
-D1
-~
-~
-Z 0 4107
-D3
-~
-~
-Z 0 4109
-S
-#4109
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
-light. The cave continues to the south, east and north.
-~
-0 D 1
-D0
-~
-~
-Z 0 4106
-D1
-~
-~
-Z 0 4108
-D2
-~
-~
-Z 0 4114
-S
-#4110
-The tunnel~
-You are at the end of the tunnel.
-~
-0 ACD 3
-D3
-~
-~
-Z 0 4111
-S
-#4111
-The tunnel~
-You are in a small tunnel, it leads from east to the west.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4110
-D3
-~
-~
-Z 0 4112
-S
-#4112
-The tunnel~
-You are in a larger tunnel, it leads from west to east.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4111
-D3
-~
-~
-Z 0 4113
-S
-#4113
-The passage~
-You are in a passage that leads towards the south. To the east 
-you see a tunnel.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4107
-D1
-~
-~
-Z 0 4112
-D2
-~
-~
-Z 0 4116
-S
-#4114
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
-light. The cave continues to the north, to the west you see a dark 
-passage.
-~
-0 D 1
-D0
-~
-~
-Z 0 4109
-D3
-~
-~
-Z 0 4115
-S
-#4115
-The dark passage.~
-You are in a dark passage, that leads east. In the ceiling you notice
-a small hole, just big enough to pass through.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4114
-D4
-~
-~
-Z 0 4021
-S
-#4116
-The passage~
-You are in a passage that leads north-south. You notice a small
-light to the south.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4113
-D2
-~
-~
-Z 0 4120
-S
-#4117
-The secret chamber~
-You are in a secret chamber.
-~
-0 AD 3
-D2
-~
-~
-Z 0 4122
-S
-#4118
-The cave~
-You are in a light cave, from torches several feet above your
-head fire lights the room. The cave continues to the west and south.
-To the north a small hole leads to a tunnel.
-~
-0 D 1
-D2
-~
-~
-Z 0 4123
-D3
-~
-~
-Z 0 4119
-S
-#4119
-The cave~
-You are in a light cave, from torches several feet above your
-head fire lights the room. The cave continues to the east and south.
-~
-0 D 1
-D1
-~
-~
-Z 0 4118
-D2
-~
-~
-Z 0 4124
-D3
-~
-~
-Z 0 4121
-S
-#4120
-The passage~
-You are in a north-south leading passage. To the south you see light.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4116
-D2
-~
-~
-Z 0 4125
-S
-#4121
-The secret tunnel~
-You are in a secret tunnel that leads west, you feel evilness
-approaching you as you continue west.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4119
-D3
-~
-~
-Z 0 4122
-S
-#4122
-The secret chamber~
-You are in a secret chamber, the room is filled with an evil
-feeling.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4117
-D1
-~
-~
-Z 0 4121
-S
-#4123
-The cave~
-You are in a light cave, from torches several feet above your
-head fire lights the room. The cave continues to the north and west.
-~
-0 D 1
-D0
-~
-~
-Z 0 4118
-D3
-~
-~
-Z 0 4124
-S
-#4124
-The cave~
-You are in a light cave, from torches several feet above your
-head fire lights the room. The cave continues to the east and north.
-To the west a passage leads north.
-~
-0 D 1
-D0
-~
-~
-Z 0 4119
-D1
-~
-~
-Z 0 4123
-D3
-~
-~
-Z 0 4125
-S
-#4125
-The passage~
-You are in a passage, to the east you see a cave. Light from the
-cave lights up the passage. To the north the passage leads into
-the darkness.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4120
-D1
-~
-~
-Z 0 4124
-S
-#4150
-The dark hole~
-You are standing at a hole, a small passage leads south. You see
-some inscriptions on the wall, most of 'em the usual stuff, like:
-'Super Snude was here' and 'Why does the mayor likes secretaries with
-small hands?' - But one inscription gets your attention, it says:
-The Balrog is ALIVE ...
-~
-0 ACD 3
-D2
-~
-~
-Z 0 4151
-S
-#4151
-The small passage~
-You are in a small passage, to the north you see a hole, and to
-the south you see a large tunnel. The air is damp in this area.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4150
-D2
-~
-~
-Z 0 4156
-D3
-~
-~
-Z 0 4155
-S
-#4152
-The tunnel~
-You suddenly feel that the tunnel leads down.
-~
-0 ACD 3
-D1
-~
-~
-Z 0 4104
-D2
-~
-~
-Z 0 4153
-S
-#4153
-The large tunnel~
-You are in a large tunnel leading from the south to the east. The
-air is damp in the area.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4152
-D1
-~
-~
-Z 0 4154
-D2
-~
-~
-Z 0 4157
-S
-#4154
-The large tunnel~
-You are in a large east-west leading tunnel, the air is damp and
-the floor is wet.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4155
-D3
-~
-~
-Z 0 4153
-S
-#4155
-The large tunnel~
-You are in a large tunnel, the tunnel leads west, and to the east
-you notice a long tunnel. The air is damp in this area.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4151
-D3
-~
-~
-Z 0 4154
-S
-#4156
-The long tunnel~
-You are standing in a long north-south tunnel.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4151
-D2
-~
-~
-Z 0 4160
-S
-#4157
-The wet tunnel~
-You are in a wet, north-south leading tunnel, the floor is
-partly covered by water.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4153
-D1
-~
-~
-Z 0 4158
-D2
-~
-~
-Z 0 4161
-S
-#4158
-The small maze~
-You are in a small maze, exits leads off to the east,  south
-and west. The floor is partly covered by water.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4159
-D2
-~
-~
-Z 0 4162
-D3
-~
-~
-Z 0 4157
-S
-#4159
-The small maze~
-You are in a small maze, exits leads off only to the south
-and west. The air is damp in this maze.
-~
-0 AD 3
-D2
-~
-~
-Z 0 4163
-D3
-~
-~
-Z 0 4158
-S
-#4160
-In the tunnel at the inscription~
-You are in a north-south leading tunnel, the air is damp. On
-the wall there is an inscription.
-~
-0 AD 3
-E
-inscription~
-It says:
-
-    Year 631 after the destruction of the dwarven realm.
-
-  We found the sword of the dwarven king, but it was guarded
-by a large green dragon. All but two died immediately as the
-dragon breathed poison gas; we are also going to die soon.
-
-       Trather and Oralane
-~
-D0
-~
-~
-Z 0 4156
-D2
-~
-~
-Z 0 4164
-S
-#4161
-The wet tunnel~
-You are in a north-south leading tunnel.  The floor is fully
-covered by water.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4157
-D2
-~
-~
-Z 0 4165
-S
-#4162
-The small maze~
-You are in a small maze. The floor is mainly covered by
-water, exits leads north, east and south.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4158
-D1
-~
-~
-Z 0 4163
-D2
-~
-~
-Z 0 4166
-S
-#4163
-The small maze~
-You are in a small maze, where the air is damp. Exits
-leads to the north and east.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4159
-D1
-~
-~
-Z 0 4164
-D3
-~
-~
-Z 0 4162
-S
-#4164
-The entrance to the small maze~
-You are in a north-south leading tunnel, and the air is damp.
-To the west you see a small maze.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4160
-D2
-~
-~
-Z 0 4168
-D3
-~
-~
-Z 0 4163
-S
-#4165
-In the water~
-You are standing in water, the tunnel continues both to the
-north and south.
-~
-0 AD 6
-D0
-~
-~
-Z 0 4161
-D2
-~
-~
-Z 0 4169
-S
-#4166
-The wet maze~
-You are in a part of the maze where the floor is fully covered
-by water. The maze continues to the north, east and south.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4162
-D1
-~
-~
-Z 0 4167
-D2
-~
-~
-Z 0 4170
-S
-#4167
-The wet maze~
-You are in a small maze, the floor is covered by water, the
-maze continues east, west and south.
-~
-0 AD 3
-D1
-~
-~
-Z 0 4168
-D2
-~
-~
-Z 0 4171
-D3
-~
-~
-Z 0 4166
-S
-#4168
-The end of the tunnel~
-The tunnel suddenly stops here, only exit is to the west.
-The air is damp here.
-~
-0 AD 3
-D0
-~
-~
-Z 0 4164
-D3
-~
-~
-Z 0 4167
-S
-#4169
-In the water~
-You are standing in the water, exits leads both north and east.
-~
-0 AD 6
-D0
-~
-~
-Z 0 4165
-D1
-~
-~
-Z 0 4170
-S
-#4170
-In the water~
-You are standing in the water, it continues east and west.
-~
-0 AD 6
-D0
-~
-~
-Z 0 4166
-D1
-~
-~
-Z 0 4172
-D3
-~
-~
-Z 0 4169
-S
-#4171
-End of maze~
-You are at the end of the small maze which continues north.
-Above you a hole leads up.
-~
-0 ACD 3
-D0
-~
-~
-Z 0 4167
-D4
-~
-~
-Z 0 4074
-S
-#4172
-At the sand bar~
-You are on a little sand bar in the water.
-~
-0 AD 3
-D3
-~
-~
-Z 0 4170
-S
 #3900
 West trail around Midgaard~
 You are on a dusty trail following the outside wall of Midgaard.
@@ -2940,11 +2137,809 @@ D5
 ~
 Z 0 4171
 S
+#4100
+The tunnel~
+Suddenly you feel that the tunnel leads slightly down.
+~
+0 ACD 3
+D0
+~
+~
+Z 0 4052
+D3
+~
+~
+Z 0 4101
+S
+#4101
+The long tunnel~
+You are in a long east-west leading tunnel. The tunnel is quite
+wide at this point.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4100
+D3
+~
+~
+Z 0 4102
+S
+#4102
+The long tunnel~
+You are in a long east-west leading tunnel. The tunnel becomes
+narrow to the west.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4101
+D3
+~
+~
+Z 0 4103
+S
+#4103
+The long tunnel~
+You are in a long east-west leading tunnel. The tunnel is quite
+narrow at this point. You notice a small hole leading south.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4102
+D2
+~
+~
+Z 0 4106
+D3
+~
+~
+Z 0 4104
+S
+#4104
+The long tunnel~
+You are in a long east-west leading tunnel. The tunnel starts sloping
+down towards the west.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4103
+D3
+~
+~
+Z 0 4152
+S
+#4105
+The golden cave~
+You are in a giant cave, all the walls are shining with a soft golden
+light. The cave continues to the south and west.
+~
+0 D 1
+D2
+~
+~
+Z 0 4108
+D3
+~
+~
+Z 0 4106
+S
+#4106
+The golden cave~
+You are in a giant cave, all the walls are shining with a soft golden
+light. The cave continues to the south and east, to the north is a narrow
+tunnel.
+~
+0 D 1
+D0
+~
+~
+Z 0 4103
+D1
+~
+~
+Z 0 4105
+D2
+~
+~
+Z 0 4109
+S
+#4107
+The passage~
+You are in a small passage, it leads south, to the west is a golden
+cave.
+~
+0 AD 3
+D2
+~
+~
+Z 0 4113
+D3
+~
+~
+Z 0 4108
+S
+#4108
+The golden cave~
+You are in a giant cave, all the walls are shining with a soft golden
+light. The cave continues to the north and west, east from you there is
+a small passage.
+~
+0 D 1
+D0
+~
+~
+Z 0 4105
+D1
+~
+~
+Z 0 4107
+D3
+~
+~
+Z 0 4109
+S
+#4109
+The golden cave~
+You are in a giant cave, all the walls are shining with a soft golden
+light. The cave continues to the south, east and north.
+~
+0 D 1
+D0
+~
+~
+Z 0 4106
+D1
+~
+~
+Z 0 4108
+D2
+~
+~
+Z 0 4114
+S
+#4110
+The tunnel~
+You are at the end of the tunnel.
+~
+0 ACD 3
+D3
+~
+~
+Z 0 4111
+S
+#4111
+The tunnel~
+You are in a small tunnel, it leads from east to the west.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4110
+D3
+~
+~
+Z 0 4112
+S
+#4112
+The tunnel~
+You are in a larger tunnel, it leads from west to east.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4111
+D3
+~
+~
+Z 0 4113
+S
+#4113
+The passage~
+You are in a passage that leads towards the south. To the east 
+you see a tunnel.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4107
+D1
+~
+~
+Z 0 4112
+D2
+~
+~
+Z 0 4116
+S
+#4114
+The golden cave~
+You are in a giant cave, all the walls are shining with a soft golden
+light. The cave continues to the north, to the west you see a dark 
+passage.
+~
+0 D 1
+D0
+~
+~
+Z 0 4109
+D3
+~
+~
+Z 0 4115
+S
+#4115
+The dark passage.~
+You are in a dark passage, that leads east. In the ceiling you notice
+a small hole, just big enough to pass through.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4114
+D4
+~
+~
+Z 0 4021
+S
+#4116
+The passage~
+You are in a passage that leads north-south. You notice a small
+light to the south.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4113
+D2
+~
+~
+Z 0 4120
+S
+#4117
+The secret chamber~
+You are in a secret chamber.
+~
+0 AD 3
+D2
+~
+~
+Z 0 4122
+S
+#4118
+The cave~
+You are in a light cave, from torches several feet above your
+head fire lights the room. The cave continues to the west and south.
+To the north a small hole leads to a tunnel.
+~
+0 D 1
+D2
+~
+~
+Z 0 4123
+D3
+~
+~
+Z 0 4119
+S
+#4119
+The cave~
+You are in a light cave, from torches several feet above your
+head fire lights the room. The cave continues to the east and south.
+~
+0 D 1
+D1
+~
+~
+Z 0 4118
+D2
+~
+~
+Z 0 4124
+D3
+~
+~
+Z 0 4121
+S
+#4120
+The passage~
+You are in a north-south leading passage. To the south you see light.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4116
+D2
+~
+~
+Z 0 4125
+S
+#4121
+The secret tunnel~
+You are in a secret tunnel that leads west, you feel evilness
+approaching you as you continue west.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4119
+D3
+~
+~
+Z 0 4122
+S
+#4122
+The secret chamber~
+You are in a secret chamber, the room is filled with an evil
+feeling.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4117
+D1
+~
+~
+Z 0 4121
+S
+#4123
+The cave~
+You are in a light cave, from torches several feet above your
+head fire lights the room. The cave continues to the north and west.
+~
+0 D 1
+D0
+~
+~
+Z 0 4118
+D3
+~
+~
+Z 0 4124
+S
+#4124
+The cave~
+You are in a light cave, from torches several feet above your
+head fire lights the room. The cave continues to the east and north.
+To the west a passage leads north.
+~
+0 D 1
+D0
+~
+~
+Z 0 4119
+D1
+~
+~
+Z 0 4123
+D3
+~
+~
+Z 0 4125
+S
+#4125
+The passage~
+You are in a passage, to the east you see a cave. Light from the
+cave lights up the passage. To the north the passage leads into
+the darkness.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4120
+D1
+~
+~
+Z 0 4124
+S
+#4150
+The dark hole~
+You are standing at a hole, a small passage leads south. You see
+some inscriptions on the wall, most of 'em the usual stuff, like:
+'Super Snude was here' and 'Why does the mayor likes secretaries with
+small hands?' - But one inscription gets your attention, it says:
+The Balrog is ALIVE ...
+~
+0 ACD 3
+D2
+~
+~
+Z 0 4151
+S
+#4151
+The small passage~
+You are in a small passage, to the north you see a hole, and to
+the south you see a large tunnel. The air is damp in this area.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4150
+D2
+~
+~
+Z 0 4156
+D3
+~
+~
+Z 0 4155
+S
+#4152
+The tunnel~
+You suddenly feel that the tunnel leads down.
+~
+0 ACD 3
+D1
+~
+~
+Z 0 4104
+D2
+~
+~
+Z 0 4153
+S
+#4153
+The large tunnel~
+You are in a large tunnel leading from the south to the east. The
+air is damp in the area.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4152
+D1
+~
+~
+Z 0 4154
+D2
+~
+~
+Z 0 4157
+S
+#4154
+The large tunnel~
+You are in a large east-west leading tunnel, the air is damp and
+the floor is wet.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4155
+D3
+~
+~
+Z 0 4153
+S
+#4155
+The large tunnel~
+You are in a large tunnel, the tunnel leads west, and to the east
+you notice a long tunnel. The air is damp in this area.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4151
+D3
+~
+~
+Z 0 4154
+S
+#4156
+The long tunnel~
+You are standing in a long north-south tunnel.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4151
+D2
+~
+~
+Z 0 4160
+S
+#4157
+The wet tunnel~
+You are in a wet, north-south leading tunnel, the floor is
+partly covered by water.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4153
+D1
+~
+~
+Z 0 4158
+D2
+~
+~
+Z 0 4161
+S
+#4158
+The small maze~
+You are in a small maze, exits leads off to the east,  south
+and west. The floor is partly covered by water.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4159
+D2
+~
+~
+Z 0 4162
+D3
+~
+~
+Z 0 4157
+S
+#4159
+The small maze~
+You are in a small maze, exits leads off only to the south
+and west. The air is damp in this maze.
+~
+0 AD 3
+D2
+~
+~
+Z 0 4163
+D3
+~
+~
+Z 0 4158
+S
+#4160
+In the tunnel at the inscription~
+You are in a north-south leading tunnel, the air is damp. On
+the wall there is an inscription.
+~
+0 AD 3
+E
+inscription~
+It says:
+
+    Year 631 after the destruction of the dwarven realm.
+
+  We found the sword of the dwarven king, but it was guarded
+by a large green dragon. All but two died immediately as the
+dragon breathed poison gas; we are also going to die soon.
+
+       Trather and Oralane
+~
+D0
+~
+~
+Z 0 4156
+D2
+~
+~
+Z 0 4164
+S
+#4161
+The wet tunnel~
+You are in a north-south leading tunnel.  The floor is fully
+covered by water.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4157
+D2
+~
+~
+Z 0 4165
+S
+#4162
+The small maze~
+You are in a small maze. The floor is mainly covered by
+water, exits leads north, east and south.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4158
+D1
+~
+~
+Z 0 4163
+D2
+~
+~
+Z 0 4166
+S
+#4163
+The small maze~
+You are in a small maze, where the air is damp. Exits
+leads to the north and east.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4159
+D1
+~
+~
+Z 0 4164
+D3
+~
+~
+Z 0 4162
+S
+#4164
+The entrance to the small maze~
+You are in a north-south leading tunnel, and the air is damp.
+To the west you see a small maze.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4160
+D2
+~
+~
+Z 0 4168
+D3
+~
+~
+Z 0 4163
+S
+#4165
+In the water~
+You are standing in water, the tunnel continues both to the
+north and south.
+~
+0 AD 6
+D0
+~
+~
+Z 0 4161
+D2
+~
+~
+Z 0 4169
+S
+#4166
+The wet maze~
+You are in a part of the maze where the floor is fully covered
+by water. The maze continues to the north, east and south.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4162
+D1
+~
+~
+Z 0 4167
+D2
+~
+~
+Z 0 4170
+S
+#4167
+The wet maze~
+You are in a small maze, the floor is covered by water, the
+maze continues east, west and south.
+~
+0 AD 3
+D1
+~
+~
+Z 0 4168
+D2
+~
+~
+Z 0 4171
+D3
+~
+~
+Z 0 4166
+S
+#4168
+The end of the tunnel~
+The tunnel suddenly stops here, only exit is to the west.
+The air is damp here.
+~
+0 AD 3
+D0
+~
+~
+Z 0 4164
+D3
+~
+~
+Z 0 4167
+S
+#4169
+In the water~
+You are standing in the water, exits leads both north and east.
+~
+0 AD 6
+D0
+~
+~
+Z 0 4165
+D1
+~
+~
+Z 0 4170
+S
+#4170
+In the water~
+You are standing in the water, it continues east and west.
+~
+0 AD 6
+D0
+~
+~
+Z 0 4166
+D1
+~
+~
+Z 0 4172
+D3
+~
+~
+Z 0 4169
+S
+#4171
+End of maze~
+You are at the end of the small maze which continues north.
+Above you a hole leads up.
+~
+0 ACD 3
+D0
+~
+~
+Z 0 4167
+D4
+~
+~
+Z 0 4074
+S
+#4172
+At the sand bar~
+You are on a little sand bar in the water.
+~
+0 AD 3
+D3
+~
+~
+Z 0 4170
+S
 #0
 
-
-
 #SPECIALS
+M 4000 spec_poison	* the huge python
+M 4001 spec_poison	* the garter snake
+M 4053 spec_poison	* the snake
 M 4100 spec_cast_mage	* the Mage
 M 4102 spec_poison	* the guardian snake
 M 4150 spec_breath_lightning	* the blue bat
@@ -2955,72 +2950,10 @@ M 4154 spec_breath_acid	* the black bat
 M 4155 spec_thief	* the thief
 M 4157 spec_cast_mage	* the Mage
 M 4158 spec_poison	* the snake
-M 4000 spec_poison	* the huge python
-M 4001 spec_poison	* the garter snake
-M 4053 spec_poison	* the snake
 S
-
-
 
 #RESETS
 D 0 4025 5 1	* The cave: door to the down: closed
-M 0 4102 3 4103 1	* the guardian snake (The long tunnel)
-G 0 4103 0		*	a green slime mold
-M 0 4103 1 4103 1	* the thief (The long tunnel)
-E 0 4053 0 16		*	a thieves dirk: wielded
-E 0 3068 0 7		*	a pair of hard leather pants: on the legs
-E 0 3066 0 5		*	a hard leather jerkin: on the body
-E 0 3069 0 8		*	a pair of hard leather boots: on the feet
-M 0 4105 3 4108 3	* a centipede (The golden cave)
-M 0 4102 2 4111 2	* the guardian snake (The tunnel)
-G 0 4103 0		*	a green slime mold
-M 0 4102 2 4111 2	* the guardian snake (The tunnel)
-G 0 4104 0		*	a green slime mold
-M 0 4106 2 4113 2	* the Warrior (The passage)
-E 0 4105 0 16		*	an iron-shod staff: wielded
-E 0 4101 0 9		*	swordsman's gloves: on the hands
-M 0 4100 1 4114 1	* the Mage (The golden cave)
-G 0 4102 0		*	a scroll which reads "ysafg"
-G 0 4155 0		*	a map of the third level of Moria
-E 0 3351 0 16		*	a standard issue dagger: wielded
-M 0 4107 1 4119 1	* the green kobold (The cave)
-E 0 3023 0 16		*	a club: wielded
-G 0 4104 0		*	a green slime mold
-M 0 4101 1 4122 1	* the troll (The secret chamber)
-E 0 4100 0 16		*	the black demon blade: wielded
-M 0 4104 3 4124 3	* the orc (The cave)
-E 0 4057 0 16		*	a heavy iron mace: wielded
-G 0 4104 0		*	a green slime mold
-M 0 4156 1 4151 1	* the troll (The small passage)
-E 0 4105 0 16		*	an iron-shod staff: wielded
-M 0 4159 2 4153 1	* the small troll (The large tunnel)
-M 0 4150 2 4155 1	* the blue bat (The large tunnel)
-M 0 4152 2 4155 1	* the green bat (The large tunnel)
-M 0 4151 2 4157 1	* the red bat (The wet tunnel)
-M 0 4154 2 4157 1	* the black bat (The wet tunnel)
-M 0 4155 1 4158 1	* the thief (The small maze)
-E 0 4152 0 16		*	a light silver dagger: wielded
-M 0 4151 2 4159 1	* the red bat (The small maze)
-M 0 4152 2 4159 1	* the green bat (The small maze)
-M 0 4160 2 4160 1	* the orc (In the tunnel at the inscription)
-E 0 3045 0 5		*	a scale mail jacket: on the body
-E 0 4055 0 16		*	a broad sword: wielded
-G 0 4150 0		*	a black potion
-M 0 4160 2 4161 1	* the orc (The wet tunnel)
-E 0 3110 0 5		*	a chain mail shirt: on the body
-E 0 3026 0 16		*	a battle axe: wielded
-M 0 4158 2 4162 1	* the snake (The small maze)
-M 0 4153 2 4164 1	* the white bat (The entrance to the small maze)
-M 0 4154 2 4164 1	* the black bat (The entrance to the small maze)
-M 0 4157 2 4167 2	* the Mage (The wet maze)
-E 0 3351 0 16		*	a standard issue dagger: wielded
-M 0 4157 2 4167 2	* the Mage (The wet maze)
-E 0 4151 0 17		*	a heavy oak staff: held in the hands
-E 0 3351 0 16		*	a standard issue dagger: wielded
-M 0 4159 2 4168 1	* the small troll (The end of the tunnel)
-M 0 4158 2 4169 1	* the snake (In the water)
-M 0 4150 2 4170 1	* the blue bat (In the water)
-M 0 4153 2 4170 1	* the white bat (In the water)
 M 0 4003 6 4013 1	* the kobold (The tunnel)
 E 0 3021 0 16		*	a small sword: wielded
 E 0 3117 0 11		*	a small wooden shield: as a shield
@@ -3086,44 +3019,76 @@ M 0 4056 2 4067 1	* the orc (The maze)
 E 0 4004 0 16		*	a bullwhip: wielded
 E 0 3097 0 11		*	a small metal shield: as a shield
 M 0 4053 2 4068 1	* the snake (The large cave)
-O 0 4052 0 4068		* a mushroom (The large cave)
-O 0 4052 0 4069		* a mushroom (The large cave)
+O 0 4052 0 4068	* a mushroom (The large cave)
+O 0 4052 0 4069	* a mushroom (The large cave)
 M 0 4051 4 4070 1	* the warrior (The large cave)
 E 0 3027 0 16		*	a spear: wielded
 E 0 3072 0 6		*	a scale mail jerkin: over the head
-O 0 4052 0 4070		* a mushroom (The large cave)
+O 0 4052 0 4070	* a mushroom (The large cave)
 M 0 4055 2 4071 1	* the large hobgoblin (The large cave)
 E 0 4059 0 16		*	a voulge: wielded
 G 0 4050 0		*	a purple potion
-O 0 4052 0 4071		* a mushroom (The large cave)
+O 0 4052 0 4071	* a mushroom (The large cave)
 M 0 4051 4 4073 1	* the warrior (End of tunnel)
 E 0 4055 0 16		*	a broad sword: wielded
 E 0 3072 0 5		*	a scale mail jerkin: on the body
+M 0 4102 3 4103 1	* the guardian snake (The long tunnel)
+G 0 4103 0		*	a green slime mold
+M 0 4103 1 4103 1	* the thief (The long tunnel)
+E 0 4053 0 16		*	a thieves dirk: wielded
+E 0 3068 0 7		*	a pair of hard leather pants: on the legs
+E 0 3066 0 5		*	a hard leather jerkin: on the body
+E 0 3069 0 8		*	a pair of hard leather boots: on the feet
+M 0 4105 3 4108 3	* a centipede (The golden cave)
+M 0 4102 2 4111 2	* the guardian snake (The tunnel)
+G 0 4103 0		*	a green slime mold
+M 0 4102 2 4111 2	* the guardian snake (The tunnel)
+G 0 4104 0		*	a green slime mold
+M 0 4106 2 4113 2	* the Warrior (The passage)
+E 0 4105 0 16		*	an iron-shod staff: wielded
+E 0 4101 0 9		*	swordsman's gloves: on the hands
+M 0 4100 1 4114 1	* the Mage (The golden cave)
+G 0 4102 0		*	a scroll which reads "ysafg"
+G 0 4155 0		*	a map of the third level of Moria
+E 0 3351 0 16		*	a standard issue dagger: wielded
+M 0 4107 1 4119 1	* the green kobold (The cave)
+E 0 3023 0 16		*	a club: wielded
+G 0 4104 0		*	a green slime mold
+M 0 4101 1 4122 1	* the troll (The secret chamber)
+E 0 4100 0 16		*	the black demon blade: wielded
+M 0 4104 3 4124 3	* the orc (The cave)
+E 0 4057 0 16		*	a heavy iron mace: wielded
+G 0 4104 0		*	a green slime mold
+M 0 4156 1 4151 1	* the troll (The small passage)
+E 0 4105 0 16		*	an iron-shod staff: wielded
+M 0 4159 2 4153 1	* the small troll (The large tunnel)
+M 0 4150 2 4155 1	* the blue bat (The large tunnel)
+M 0 4152 2 4155 1	* the green bat (The large tunnel)
+M 0 4151 2 4157 1	* the red bat (The wet tunnel)
+M 0 4154 2 4157 1	* the black bat (The wet tunnel)
+M 0 4155 1 4158 1	* the thief (The small maze)
+E 0 4152 0 16		*	a light silver dagger: wielded
+M 0 4151 2 4159 1	* the red bat (The small maze)
+M 0 4152 2 4159 1	* the green bat (The small maze)
+M 0 4160 2 4160 1	* the orc (In the tunnel at the inscription)
+E 0 3045 0 5		*	a scale mail jacket: on the body
+E 0 4055 0 16		*	a broad sword: wielded
+G 0 4150 0		*	a black potion
+M 0 4160 2 4161 1	* the orc (The wet tunnel)
+E 0 3110 0 5		*	a chain mail shirt: on the body
+E 0 3026 0 16		*	a battle axe: wielded
+M 0 4158 2 4162 1	* the snake (The small maze)
+M 0 4153 2 4164 1	* the white bat (The entrance to the small maze)
+M 0 4154 2 4164 1	* the black bat (The entrance to the small maze)
+M 0 4157 2 4167 2	* the Mage (The wet maze)
+E 0 3351 0 16		*	a standard issue dagger: wielded
+M 0 4157 2 4167 2	* the Mage (The wet maze)
+E 0 4151 0 17		*	a heavy oak staff: held in the hands
+E 0 3351 0 16		*	a standard issue dagger: wielded
+M 0 4159 2 4168 1	* the small troll (The end of the tunnel)
+M 0 4158 2 4169 1	* the snake (In the water)
+M 0 4150 2 4170 1	* the blue bat (In the water)
+M 0 4153 2 4170 1	* the white bat (In the water)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

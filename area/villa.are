@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 65
 End
 
-
-
 #MOBILES
 #24100
 shaman~
@@ -576,8 +574,6 @@ stand stand male 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #24100
 key~
@@ -958,8 +954,6 @@ jewelry 0 0
 DFHILMNO 0 0 0 0
 48 1 480 P
 #0
-
-
 
 #ROOMS
 #24100
@@ -2606,8 +2600,6 @@ Z -1 24192
 S
 #0
 
-
-
 #SPECIALS
 M 24100 spec_cast_adept	* the village shaman
 M 24115 spec_executioner	* the village champion
@@ -2620,12 +2612,10 @@ M 24129 spec_guard	* a member of the village militia
 M 24130 spec_guard	* a member of the village militia
 S
 
-
-
 #RESETS
 M 0 24115 1 24100 1	* the village champion (Outside the Shaman's Hut)
 E 0 24126 0 6		*	a wolf's head: over the head
-O 0 24125 0 24100		* the village totem (Outside the Shaman's Hut)
+O 0 24125 0 24100	* the village totem (Outside the Shaman's Hut)
 M 0 24128 8 24100 1	* a member of the village militia (Outside the Shaman's Hut)
 E 0 24129 0 16		*	a wooden club: wielded
 E 0 24130 0 5		*	a boiled leather jerkin: on the body
@@ -2635,7 +2625,7 @@ E 0 24132 0 3		*	a fur cloak: around the neck (1)
 E 0 24133 0 6		*	a boar tusk helm: over the head
 E 0 24134 0 11		*	an ox-hide shield: as a shield
 E 0 24135 0 17		*	a throwing spear: held in the hands
-O 0 24138 0 24101		* a stone gate (The Interior of the Shaman's Hut)
+O 0 24138 0 24101	* a stone gate (The Interior of the Shaman's Hut)
 M 0 24100 1 24101 1	* the village shaman (The Interior of the Shaman's Hut)
 M 0 24127 6 24106 1	* a dog (A Path in the Village)
 M 0 24123 3 24111 1	* a beggar (A Path in the Village)
@@ -2756,8 +2746,6 @@ M 0 24124 1 24177 1	* a thief (Outside a Village Clan Hut)
 M 0 24118 3 24189 1	* a villager (A Path in the Village)
 S
 
-
-
 #SHOPS
 24102 5 9 30 0 0 150 50 0 23
 24103 0 0 0 0 0 150 50 0 23
@@ -2768,25 +2756,5 @@ S
 24109 17 0 0 0 0 180 20 0 23
 24116 5 9 10 15 18 180 20 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 5
 End
 
-
-
 #MOBILES
 #6600
 youth dwarven dwarf~
@@ -142,8 +140,6 @@ stand stand male 50
 0 0 small unknown
 #0
 
-
-
 #OBJECTS
 #6600
 axe toy~
@@ -251,8 +247,6 @@ It's just a toy...but the point looks kind of sharp.
 You'll put your eye out, kid!
 ~
 #0
-
-
 
 #ROOMS
 #6601
@@ -591,16 +585,12 @@ Z -1 6624
 S
 #0
 
-
-
 #SPECIALS
 M 6600 spec_thief	* the dwarven youth
 M 6604 spec_thief	* the ugly bear
 M 6606 spec_cast_cleric	* the nanny
 M 6608 spec_thief	* the spoiled brat
 S
-
-
 
 #RESETS
 M 0 6600 7 6602 1	* the dwarven youth (Day Care Center)
@@ -653,30 +643,5 @@ M 0 6607 1 6624 1	* the armed guard (End of the Mini-Maze)
 E 0 3023 0 16		*	a club: wielded
 M 0 6608 1 6631 1	* the spoiled brat (The End?)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

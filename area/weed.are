@@ -7,8 +7,6 @@ Security 9
 LevelRange 40 60
 End
 
-
-
 #MOBILES
 #30232
 cannabis sativa~
@@ -149,8 +147,6 @@ stand stand male 0
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #30232
 bong clear blue graffix glass~
@@ -227,8 +223,6 @@ food 0 A
 DE DE 0 0 0
 0 5 10 P
 #0
-
-
 
 #ROOMS
 #30232
@@ -712,13 +706,6 @@ Z -1 30246
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 M 0 30234 1 30233 1	* A Small Joint (Base of the Plant)
 G 0 30233 0		*	a Hit from the Joint
@@ -745,30 +732,5 @@ G 0 30234 0		*	a Brownie
 M 0 30236 1 30256 1	* A Bowlful of Resinated Bud (A Leaf of The Plant)
 M 0 30236 1 30258 1	* A Bowlful of Resinated Bud (A Leaf of The Plant)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

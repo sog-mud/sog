@@ -7,8 +7,6 @@ Security 9
 LevelRange 40 90
 End
 
-
-
 #MOBILES
 #10001
 gar long tail~
@@ -519,8 +517,6 @@ stand stand male 300
 0 0 large unknown
 #0
 
-
-
 #OBJECTS
 #10001
 warden mace boundary~
@@ -967,8 +963,6 @@ must hurry for Darken Rahl has almost won the battle and will
 control the lands!
 ~
 #0
-
-
 
 #ROOMS
 #10001
@@ -1863,8 +1857,6 @@ Z 0 10041
 S
 #0
 
-
-
 #SPECIALS
 M 10017 spec_cast_cleric	* The Bone Woman
 M 10020 spec_cast_mage	* The Spirit King
@@ -1874,11 +1866,9 @@ M 10025 spec_thief	* A little thief
 M 10031 spec_cast_undead	* The Evil Darken Rahl
 S
 
-
-
 #RESETS
-O 0 10025 0 10001		* A Sign (Path By a Lake.)
-O 0 10026 0 10001		* A little sign (Path By a Lake.)
+O 0 10025 0 10001	* A Sign (Path By a Lake.)
+O 0 10026 0 10001	* A little sign (Path By a Lake.)
 M 0 10007 1 10003 1	* a young lady (Welcome to Westands!)
 M 0 10008 1 10003 1	* a fisherman (Welcome to Westands!)
 M 0 10009 1 10003 1	* a little boy (Welcome to Westands!)
@@ -1969,30 +1959,8 @@ M 0 10031 1 10042 1	* The Evil Darken Rahl (The Garden of Life.)
 E 0 10024 0 14		*	The Bracer of Power: on the left wrist
 S
 
-
-
 #SHOPS
 10023 0 0 0 0 0 100 0 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

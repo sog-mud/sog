@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 35
 End
 
-
-
 #MOBILES
 #10201
 captain guard~
@@ -785,8 +783,6 @@ E 0 0 0
 stand stand either 1000
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #10201
@@ -1895,9 +1891,936 @@ drink 0 A
 16 3 160 P
 #0
 
-
-
 #ROOMS
+#10201
+Gateway to Solace~
+This is the gateway to the town of Solace. It keeps the monsters out and
+the people in. This is a quiet farming town on the shores of Crytalmir
+Lake.
+There is a sign nailed to a nearby tree.
+There is a plaque embedded in the road.
+There is a Gate to the south.
+~
+0 0 1
+E
+sign~
+**WELCOME TO SOLACE**
+
+Welcome to Solace Traveler.
+Rest your weary feet and enjoy our small town.
+
+Please don't feed the animals.
+
+And please behave yourself.
+
+Gates will be closed and lock at night to keep the town safe.
+
+-Captain of the Guard-
+~
+E
+plaque~
+*************
+Town of Solace
+*************
+
+Brought to you by Strahd
+~
+D0
+You see the Main road in Solace.
+~
+~
+Z -1 10202
+D1
+You see a small alleyway.
+~
+~
+Z -1 10216
+D2
+You see the Gateway of Solace.
+~
+gate~
+Z 10306 5365
+D3
+You see a small alleyway.
+~
+~
+Z -1 10217
+S
+#10202
+Main Road~
+This is the main road in Solace. Down the street you can see various
+shops and houses.
+~
+0 0 1
+D0
+You see the main road of Solace.
+~
+~
+Z -1 10203
+D1
+You see Jander's Bar & Restaurant.
+~
+door~
+ABZ -1 10257
+D2
+You see the town gateway.
+~
+~
+Z -1 10201
+D3
+You see a house.
+~
+door~
+ABZ -1 10246
+S
+#10203
+Main Road~
+This is the main road in Solace. Down the street you can see various
+shops and houses.
+~
+0 0 1
+D0
+You see the main road of Solace.
+~
+~
+Z -1 10204
+D2
+You see the main road of Solace.
+~
+~
+Z -1 10202
+D3
+You see Cookie's Cookie Cookery.
+~
+~
+Z -1 10245
+S
+#10204
+Main Road~
+This is the main road in Solace. Down the street you can see various
+shops and houses.
+~
+0 0 1
+D0
+You see the main road of Solace.
+~
+~
+Z -1 10205
+D2
+You see the main road of Solace.
+~
+~
+Z -1 10203
+S
+#10205
+Intersection at Main Road.~
+Here there is an intersection at the main road.
+You see to the east and west, smaller houses and some more shops.
+To the road continues to the north.
+~
+0 0 1
+D0
+You see the main road of Solace.
+~
+~
+Z -1 10228
+D1
+You see East Gullen Way
+~
+~
+Z -1 10206
+D2
+You see the main road of Solace.
+~
+~
+Z -1 10204
+D3
+You see West Gullen Way.
+~
+~
+Z -1 10227
+S
+#10206
+East Gullen Way~
+This is the road called East Gullen Way. It is lined with small houses and
+shops.
+~
+0 0 1
+D1
+You see East Gullen Way.
+~
+~
+Z -1 10207
+D2
+You see a house.
+~
+door~
+ABZ -1 10251
+D3
+You see the Intersection of Gullen Way and the main road.
+~
+~
+Z -1 10205
+S
+#10207
+East Gullen Way~
+This is the road called East Gullen Way. It is lined with small houses and
+shops.
+~
+0 0 1
+D1
+You see East Gullen Way.
+~
+~
+Z -1 10208
+D2
+You see Marilyn's Bird Factory.
+~
+~
+Z -1 10252
+D3
+You see East Gullen Way.
+~
+~
+Z -1 10206
+S
+#10208
+East Gullen Way~
+This is the road called East Gullen Way. It is lined with small houses and
+shops.
+~
+0 0 1
+D1
+You see the Corner Of East Gullen and Ketra Road.
+~
+~
+Z -1 10209
+D3
+You see East Gullen Way.
+~
+~
+Z -1 10207
+S
+#10209
+Corner of East Gullen and Ketra Road.~
+This is the Corner of East Gullen Way and Ketra Road.
+Everything is amazingly clean here.
+But this doesn't look like the wealthier part of town.
+This whole town seems to be one big trading post.
+~
+0 0 1
+D2
+You see Ketra Road.
+~
+~
+Z -1 10210
+D3
+You see East Gullen way.
+~
+~
+Z -1 10208
+S
+#10210
+Ketra Road.~
+It is one of the sidestreets of Solace. But even here there are shops.
+Most of it is run down houses and shacks.
+Even though this looks like the poorer part of town, it is amazingly clean.
+~
+0 0 1
+D0
+You see The corner of East Gullen and Ketra.
+~
+~
+Z -1 10209
+D2
+You see Ketra Road.
+~
+~
+Z -1 10211
+S
+#10211
+Ketra Road.~
+It is one of the sidestreets of Solace. But even here there are shops.
+Most of it is run down houses and shacks.
+Even though this looks like the poorer part of town, it is amazingly clean.
+~
+0 0 1
+D0
+You see Ketra Road.
+~
+~
+Z -1 10210
+D2
+You see Ketra Road.
+~
+~
+Z -1 10212
+D3
+You see a Storage Building.
+~
+door~
+ABZ -1 10254
+S
+#10212
+Ketra Road.~
+It is one of the sidestreets of Solace. But even here there are shops.
+Most of it is run down houses and shacks.
+Even though this looks like the poorer part of town, it is amazingly clean.
+~
+0 0 1
+D0
+You see Ketra Road.
+~
+~
+Z -1 10211
+D2
+You see one of the towns watchtowers.
+~
+~
+Z -1 10213
+D3
+You see Jander's Bar.
+~
+door~
+ABZ -1 10255
+S
+#10213
+Southeast Guardpost and Watchtower.~
+This is the Southeast guardpost and guardpost of Solace.
+It is used as a watch station and coffee break area for the town guards.
+There are some stairs in the corner leading up to the watchtower.
+There is a sign above the stairway.
+~
+0 D 1
+E
+sign~
+** WARNING **
+
+This area is RESTRICTED.
+
+Authorized Personnel Only!
+Violators will be jailed or killed.
+
+-Captain of the Guard-
+~
+D0
+You see Ketra Road.
+~
+~
+Z -1 10212
+D3
+You see a small alleyway.
+~
+~
+Z -1 10214
+D4
+You see stairs leading up to the watchtower.
+~
+~
+Z -1 10260
+S
+#10214
+Small Alleyway.~
+You are walking down a small alleyway along the north wall of the town.
+~
+0 0 1
+D1
+You see the Southeast Guardpost.
+~
+~
+Z -1 10213
+D3
+You see a small alleyway.
+~
+~
+Z -1 10215
+S
+#10215
+Small Alleyway.~
+You are walking down a small alleyway along the north wall of the town.
+~
+0 0 1
+D0
+You see a poolhall.
+~
+door~
+ABZ -1 10256
+D1
+You see a small alleyway.
+~
+~
+Z -1 10214
+D3
+You see a small alleyway.
+~
+~
+Z -1 10216
+S
+#10216
+Small Alleyway.~
+You are walking down a small alleyway along the north wall of the town.
+~
+0 0 1
+D1
+You see a small alleyway.
+~
+~
+Z -1 10215
+D3
+You see the gateway to the town.
+~
+~
+Z -1 10201
+S
+#10217
+Small Alleyway.~
+You are walking down a small alleyway along the north wall of the town.
+~
+0 0 1
+D1
+You see the gateway to the town. 
+~
+~
+Z -1 10201
+D3
+You see a small alleyway.
+~
+~
+Z -1 10218
+S
+#10218
+Small Alleyway.~
+You are walking down a small alleyway along the north wall of the town.
+~
+0 0 1
+D0
+You see an old boarded up building. 
+~
+door~
+ABZ -1 10247
+D1
+You see a small alleyway. 
+~
+~
+Z -1 10217
+D3
+You see a small alleyway.
+~
+~
+Z -1 10219
+S
+#10219
+Small Alleyway.~
+You are walking down a small alleyway along the north wall of the town.
+~
+0 0 1
+D1
+You see a small alleyway. 
+~
+~
+Z -1 10218
+D3
+You see the Southwest Guardpost.
+~
+~
+Z -1 10220
+S
+#10220
+Southwest Guardpost and Watchtower.~
+This is the Southwest guardpost and guardpost of Solace.
+It is used as a watch station and coffee break area for the town guards.
+There are some stairs in the corner leading up to the watchtower.
+There is a sign above the stairway.
+~
+0 D 1
+E
+sign~
+** WARNING **
+
+This area is RESTRICTED.
+
+Authorized Personnel Only!
+Violators will be jailed or killed.
+
+-Captain of the Guard-
+~
+D0
+You see Harvest Road.
+~
+~
+Z -1 10221
+D1
+You see a small alleyway.
+~
+~
+Z -1 10219
+D4
+You see stairs leading up to the watchtower.
+~
+~
+Z -1 10261
+S
+#10221
+Harvest Road.~
+You are walking down Harvest Road.
+It is quiet and peacefull here. The smell of baked goods and other foods
+fill the air.
+~
+0 0 1
+D0
+You see Harvest Road. 
+~
+~
+Z -1 10222
+D1
+You see the McBakery.
+~
+~
+Z -1 10248
+D2
+You see the Southwest Guardpost.
+~
+~
+Z -1 10220
+S
+#10222
+Harvest Road.~
+You are walking down Harvest Road.
+It is quiet and peacefull here. The smell of baked goods and other foods
+fill the air.
+~
+0 0 1
+D0
+You see Harvest Road. 
+~
+~
+Z -1 10223
+D1
+You see a house. 
+~
+door~
+ABZ -1 10249
+D2
+You see Harvest Road. 
+~
+~
+Z -1 10221
+S
+#10223
+Harvest Road.~
+You are walking down Harvest Road.
+It is quiet and peacefull here. The smell of baked goods and other foods
+fill the air.
+~
+0 0 1
+D0
+You see the corner of West Gullen Way and Harvest Road. 
+~
+~
+Z -1 10224
+D2
+You see Harvest Road. 
+~
+~
+Z -1 10222
+S
+#10224
+Corner of West Gullen Way and Harvest Road.~
+This is the corner of West Gullen and Harvest road.
+To the south you can smell baked goods and other food.
+To the east are various small shops and houses.
+~
+0 0 1
+D1
+You see West Gullen Way. 
+~
+~
+Z -1 10225
+D2
+You see Harvest Road. 
+~
+~
+Z -1 10223
+S
+#10225
+West Gullen Way~
+This is the road called West Gullen Way. It is lined with small houses and
+shops.
+~
+0 0 1
+D1
+You see West Gullen Way.
+~
+~
+Z -1 10226
+D2
+You see the entrance to Matt's Brewery.
+~
+~
+Z -1 10242
+D3
+You see the corner of West Gullen and Harvest.
+~
+~
+Z -1 10224
+S
+#10226
+West Gullen Way~
+This is the road called West Gullen Way. It is lined with small houses and
+shops.
+~
+0 0 1
+D1
+You see West Gullen Way.
+~
+~
+Z -1 10227
+D2
+You see a house
+~
+door~
+ABZ -1 10243
+D3
+You see West Gullen Way.
+~
+~
+Z -1 10225
+S
+#10227
+West Gullen Way~
+This is the road called West Gullen Way. It is lined with small houses and
+shops.
+~
+0 0 1
+D1
+You see the intersection of West Gullen and the main road.
+~
+~
+Z -1 10205
+D2
+You see a house.
+~
+door~
+ABZ -1 10244
+D3
+You see West Gullen Way.
+~
+~
+Z -1 10226
+S
+#10228
+Main Road~
+This is the main road in Solace. Down the street you can see various
+shops and houses.
+~
+0 0 1
+D0
+You see the end of the main road.
+~
+~
+Z -1 10229
+D2
+You see the intersection of Gullen Way and the main road.
+~
+~
+Z -1 10205
+S
+#10229
+End of the Main Road~
+The main road of Solace stops here. Other smaller roadways lead off
+in various directions.
+To the west is the marketplace, where farmers go to sell thier harvests.
+Farther north you see a large building.
+To the East is the Townguard Administration Building.
+~
+0 0 1
+D0
+You see a cobblestone path. 
+~
+~
+Z -1 10272
+D1
+You see a dusty road.
+~
+~
+Z -1 10262
+D2
+You see the Main Road of Solace.
+~
+~
+Z -1 10228
+D3
+You see the Marketplace.
+~
+~
+Z -1 10230
+S
+#10230
+Marketplace.~
+This is the Marketplace of Solace. Where the farmers come to sell their
+crops. The smell of vegetables and fruit fill the air. There are a couple
+other vendors selling trinkets and other items.
+There is a sign at the entrance to the market.
+~
+0 0 1
+E
+sign~
+**NOTICE**
+
+Stealing will NOT be tolerated.
+Any sort of shady actions will be punishable by death.
+
+
+-Captain of the Guard-
+~
+D0
+You see Croben's Container Emporium.
+~
+~
+Z -1 10241
+D1
+You see the End of the Main Road of Solace.
+~
+~
+Z -1 10229
+D2
+You see Nisi's Frozen Food Store.
+~
+~
+Z -1 10237
+D3
+You see the Marketplace.
+~
+~
+Z -1 10231
+S
+#10231
+Marketplace.~
+This is the Marketplace of Solace. Where the farmers come to sell their
+crops. The smell of vegetables and fruit fill the air. There are a couple
+other vendors selling trinkets and other items.
+~
+0 0 1
+D0
+You see Lexie's Scuba Shop.
+~
+~
+Z -1 10240
+D1
+You see the marketplace.
+~
+~
+Z -1 10230
+D2
+You see Janni's Souvenir Shop.
+~
+~
+Z -1 10236
+D3
+You see the Marketplace.
+~
+~
+Z -1 10232
+S
+#10232
+Marketplace.~
+This is the Marketplace of Solace. Where the farmers come to sell their
+crops. The smell of vegetables and fruit fill the air. There are a couple
+other vendors selling trinkets and other items.
+~
+0 0 1
+D0
+You see Rashan's Rutabagas Restaurant.
+~
+~
+Z -1 10239
+D1
+You see the marketplace.
+~
+~
+Z -1 10231
+D2
+You see Krista's Fruit Stand.
+~
+~
+Z -1 10235
+D3
+You see the Marketplace.
+~
+~
+Z -1 10233
+S
+#10233
+Marketplace.~
+This is the Marketplace of Solace. Where the farmers come to sell their
+crops. The smell of vegetables and fruit fill the air. There are a couple
+other vendors selling trinkets and other items.
+These are the last stalls in the marketplace. Next to you stands the West wall
+of the town.
+~
+0 0 1
+D0
+You see Molin's Mulburry Extract Distillery.
+~
+~
+Z -1 10238
+D1
+You see the marketplace.
+~
+~
+Z -1 10232
+D2
+You see Jhen's Vegtable Cart.
+~
+~
+Z -1 10234
+S
+#10234
+Jhen's Vegetable Cart.~
+This is where Jhen the farmer comes to sell his crops. His wooden vegtable
+cart stands here filled with all sorts of vegetables. All his vegtables are 
+unusually large. What kind of plant food does he use anyway...?
+There is a small sign nailed to the cart.
+~
+0 D 1
+E
+sign~
+The sign reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+D0
+You see the marketplace.
+~
+~
+Z -1 10233
+S
+#10235
+Krista's Fruit Stand.~
+This is where Krista peddles her fruits. Every year she travels from her
+orchards in the mountains to Solace to sell her fruit. Everything seems
+to have an unusually small size. I wonder if she shrinks heads too...
+There is a small sign hanging above the fruit stand.
+~
+0 D 1
+E
+sign~
+The sign reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+D0
+You see the marketplace.
+~
+~
+Z -1 10232
+S
+#10236
+Janni's Souvenirs.~
+This is Janni's Souvenir shop. He makes trinkets year round that he peddles
+here in the market. You wouldn't want to leave Solace without a souvenir
+would you?
+there is a sign behind the glass case.
+~
+0 D 1
+E
+sign~
+The sign reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+D0
+You see the marketplace.
+~
+~
+Z -1 10231
+S
+#10237
+Nisi's Frozen Food~
+This is one of the oddest venders in the marketplace. Nisi claims to have
+various fresh frozen types of vegetables. They are frozen all right. In 
+fact they are hard enough to stop an axe swing...go figure..
+And just how does she keep them from melting... 
+There is a small sign on the wall in the back of the shop.
+~
+0 D 1
+E
+sign~
+The sign reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+D0
+You see the marketplace.
+~
+~
+Z -1 10230
+S
+#10238
+Molin's Mulburry Extracts.~
+This is the shop of the famous mulburry extract. Known throughout the
+valley to quech the thirst of even the thirstiest traveller. What else it does
+is just rumor. That person recovered in a month anyway...
+There is a small sign on the wall.
+~
+0 D 1
+E
+sign~
+The sign reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+D2
+You see the marketplace.
+~
+~
+Z -1 10233
+S
+#10239
+Rashan's Rutabagas~
+This is one shop to stay away from. Rashan's rutabagas have been know
+to do strange things to people. And true to its reputation the shop is
+very very empty. I'm sure Rashan would be more than willing to sell
+you one. Business obviously has been very slow....
+There is a small sign hanging next to you.
+~
+0 D 1
+E
+sign~
+The sign reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+D2
+You see the marketplace.
+~
+~
+Z -1 10232
+S
 #10240
 Lexie's Scuba Shop~
 This is one shop that seems to be ahead of its time.
@@ -3383,942 +4306,9 @@ You see a hallway.
 ~
 Z -1 10316
 S
-#10201
-Gateway to Solace~
-This is the gateway to the town of Solace. It keeps the monsters out and
-the people in. This is a quiet farming town on the shores of Crytalmir
-Lake.
-There is a sign nailed to a nearby tree.
-There is a plaque embedded in the road.
-There is a Gate to the south.
-~
-0 0 1
-E
-sign~
-**WELCOME TO SOLACE**
-
-Welcome to Solace Traveler.
-Rest your weary feet and enjoy our small town.
-
-Please don't feed the animals.
-
-And please behave yourself.
-
-Gates will be closed and lock at night to keep the town safe.
-
--Captain of the Guard-
-~
-E
-plaque~
-*************
-Town of Solace
-*************
-
-Brought to you by Strahd
-~
-D0
-You see the Main road in Solace.
-~
-~
-Z -1 10202
-D1
-You see a small alleyway.
-~
-~
-Z -1 10216
-D2
-You see the Gateway of Solace.
-~
-gate~
-Z 10306 5365
-D3
-You see a small alleyway.
-~
-~
-Z -1 10217
-S
-#10202
-Main Road~
-This is the main road in Solace. Down the street you can see various
-shops and houses.
-~
-0 0 1
-D0
-You see the main road of Solace.
-~
-~
-Z -1 10203
-D1
-You see Jander's Bar & Restaurant.
-~
-door~
-ABZ -1 10257
-D2
-You see the town gateway.
-~
-~
-Z -1 10201
-D3
-You see a house.
-~
-door~
-ABZ -1 10246
-S
-#10203
-Main Road~
-This is the main road in Solace. Down the street you can see various
-shops and houses.
-~
-0 0 1
-D0
-You see the main road of Solace.
-~
-~
-Z -1 10204
-D2
-You see the main road of Solace.
-~
-~
-Z -1 10202
-D3
-You see Cookie's Cookie Cookery.
-~
-~
-Z -1 10245
-S
-#10204
-Main Road~
-This is the main road in Solace. Down the street you can see various
-shops and houses.
-~
-0 0 1
-D0
-You see the main road of Solace.
-~
-~
-Z -1 10205
-D2
-You see the main road of Solace.
-~
-~
-Z -1 10203
-S
-#10205
-Intersection at Main Road.~
-Here there is an intersection at the main road.
-You see to the east and west, smaller houses and some more shops.
-To the road continues to the north.
-~
-0 0 1
-D0
-You see the main road of Solace.
-~
-~
-Z -1 10228
-D1
-You see East Gullen Way
-~
-~
-Z -1 10206
-D2
-You see the main road of Solace.
-~
-~
-Z -1 10204
-D3
-You see West Gullen Way.
-~
-~
-Z -1 10227
-S
-#10206
-East Gullen Way~
-This is the road called East Gullen Way. It is lined with small houses and
-shops.
-~
-0 0 1
-D1
-You see East Gullen Way.
-~
-~
-Z -1 10207
-D2
-You see a house.
-~
-door~
-ABZ -1 10251
-D3
-You see the Intersection of Gullen Way and the main road.
-~
-~
-Z -1 10205
-S
-#10207
-East Gullen Way~
-This is the road called East Gullen Way. It is lined with small houses and
-shops.
-~
-0 0 1
-D1
-You see East Gullen Way.
-~
-~
-Z -1 10208
-D2
-You see Marilyn's Bird Factory.
-~
-~
-Z -1 10252
-D3
-You see East Gullen Way.
-~
-~
-Z -1 10206
-S
-#10208
-East Gullen Way~
-This is the road called East Gullen Way. It is lined with small houses and
-shops.
-~
-0 0 1
-D1
-You see the Corner Of East Gullen and Ketra Road.
-~
-~
-Z -1 10209
-D3
-You see East Gullen Way.
-~
-~
-Z -1 10207
-S
-#10209
-Corner of East Gullen and Ketra Road.~
-This is the Corner of East Gullen Way and Ketra Road.
-Everything is amazingly clean here.
-But this doesn't look like the wealthier part of town.
-This whole town seems to be one big trading post.
-~
-0 0 1
-D2
-You see Ketra Road.
-~
-~
-Z -1 10210
-D3
-You see East Gullen way.
-~
-~
-Z -1 10208
-S
-#10210
-Ketra Road.~
-It is one of the sidestreets of Solace. But even here there are shops.
-Most of it is run down houses and shacks.
-Even though this looks like the poorer part of town, it is amazingly clean.
-~
-0 0 1
-D0
-You see The corner of East Gullen and Ketra.
-~
-~
-Z -1 10209
-D2
-You see Ketra Road.
-~
-~
-Z -1 10211
-S
-#10211
-Ketra Road.~
-It is one of the sidestreets of Solace. But even here there are shops.
-Most of it is run down houses and shacks.
-Even though this looks like the poorer part of town, it is amazingly clean.
-~
-0 0 1
-D0
-You see Ketra Road.
-~
-~
-Z -1 10210
-D2
-You see Ketra Road.
-~
-~
-Z -1 10212
-D3
-You see a Storage Building.
-~
-door~
-ABZ -1 10254
-S
-#10212
-Ketra Road.~
-It is one of the sidestreets of Solace. But even here there are shops.
-Most of it is run down houses and shacks.
-Even though this looks like the poorer part of town, it is amazingly clean.
-~
-0 0 1
-D0
-You see Ketra Road.
-~
-~
-Z -1 10211
-D2
-You see one of the towns watchtowers.
-~
-~
-Z -1 10213
-D3
-You see Jander's Bar.
-~
-door~
-ABZ -1 10255
-S
-#10213
-Southeast Guardpost and Watchtower.~
-This is the Southeast guardpost and guardpost of Solace.
-It is used as a watch station and coffee break area for the town guards.
-There are some stairs in the corner leading up to the watchtower.
-There is a sign above the stairway.
-~
-0 D 1
-E
-sign~
-** WARNING **
-
-This area is RESTRICTED.
-
-Authorized Personnel Only!
-Violators will be jailed or killed.
-
--Captain of the Guard-
-~
-D0
-You see Ketra Road.
-~
-~
-Z -1 10212
-D3
-You see a small alleyway.
-~
-~
-Z -1 10214
-D4
-You see stairs leading up to the watchtower.
-~
-~
-Z -1 10260
-S
-#10214
-Small Alleyway.~
-You are walking down a small alleyway along the north wall of the town.
-~
-0 0 1
-D1
-You see the Southeast Guardpost.
-~
-~
-Z -1 10213
-D3
-You see a small alleyway.
-~
-~
-Z -1 10215
-S
-#10215
-Small Alleyway.~
-You are walking down a small alleyway along the north wall of the town.
-~
-0 0 1
-D0
-You see a poolhall.
-~
-door~
-ABZ -1 10256
-D1
-You see a small alleyway.
-~
-~
-Z -1 10214
-D3
-You see a small alleyway.
-~
-~
-Z -1 10216
-S
-#10216
-Small Alleyway.~
-You are walking down a small alleyway along the north wall of the town.
-~
-0 0 1
-D1
-You see a small alleyway.
-~
-~
-Z -1 10215
-D3
-You see the gateway to the town.
-~
-~
-Z -1 10201
-S
-#10217
-Small Alleyway.~
-You are walking down a small alleyway along the north wall of the town.
-~
-0 0 1
-D1
-You see the gateway to the town. 
-~
-~
-Z -1 10201
-D3
-You see a small alleyway.
-~
-~
-Z -1 10218
-S
-#10218
-Small Alleyway.~
-You are walking down a small alleyway along the north wall of the town.
-~
-0 0 1
-D0
-You see an old boarded up building. 
-~
-door~
-ABZ -1 10247
-D1
-You see a small alleyway. 
-~
-~
-Z -1 10217
-D3
-You see a small alleyway.
-~
-~
-Z -1 10219
-S
-#10219
-Small Alleyway.~
-You are walking down a small alleyway along the north wall of the town.
-~
-0 0 1
-D1
-You see a small alleyway. 
-~
-~
-Z -1 10218
-D3
-You see the Southwest Guardpost.
-~
-~
-Z -1 10220
-S
-#10220
-Southwest Guardpost and Watchtower.~
-This is the Southwest guardpost and guardpost of Solace.
-It is used as a watch station and coffee break area for the town guards.
-There are some stairs in the corner leading up to the watchtower.
-There is a sign above the stairway.
-~
-0 D 1
-E
-sign~
-** WARNING **
-
-This area is RESTRICTED.
-
-Authorized Personnel Only!
-Violators will be jailed or killed.
-
--Captain of the Guard-
-~
-D0
-You see Harvest Road.
-~
-~
-Z -1 10221
-D1
-You see a small alleyway.
-~
-~
-Z -1 10219
-D4
-You see stairs leading up to the watchtower.
-~
-~
-Z -1 10261
-S
-#10221
-Harvest Road.~
-You are walking down Harvest Road.
-It is quiet and peacefull here. The smell of baked goods and other foods
-fill the air.
-~
-0 0 1
-D0
-You see Harvest Road. 
-~
-~
-Z -1 10222
-D1
-You see the McBakery.
-~
-~
-Z -1 10248
-D2
-You see the Southwest Guardpost.
-~
-~
-Z -1 10220
-S
-#10222
-Harvest Road.~
-You are walking down Harvest Road.
-It is quiet and peacefull here. The smell of baked goods and other foods
-fill the air.
-~
-0 0 1
-D0
-You see Harvest Road. 
-~
-~
-Z -1 10223
-D1
-You see a house. 
-~
-door~
-ABZ -1 10249
-D2
-You see Harvest Road. 
-~
-~
-Z -1 10221
-S
-#10223
-Harvest Road.~
-You are walking down Harvest Road.
-It is quiet and peacefull here. The smell of baked goods and other foods
-fill the air.
-~
-0 0 1
-D0
-You see the corner of West Gullen Way and Harvest Road. 
-~
-~
-Z -1 10224
-D2
-You see Harvest Road. 
-~
-~
-Z -1 10222
-S
-#10224
-Corner of West Gullen Way and Harvest Road.~
-This is the corner of West Gullen and Harvest road.
-To the south you can smell baked goods and other food.
-To the east are various small shops and houses.
-~
-0 0 1
-D1
-You see West Gullen Way. 
-~
-~
-Z -1 10225
-D2
-You see Harvest Road. 
-~
-~
-Z -1 10223
-S
-#10225
-West Gullen Way~
-This is the road called West Gullen Way. It is lined with small houses and
-shops.
-~
-0 0 1
-D1
-You see West Gullen Way.
-~
-~
-Z -1 10226
-D2
-You see the entrance to Matt's Brewery.
-~
-~
-Z -1 10242
-D3
-You see the corner of West Gullen and Harvest.
-~
-~
-Z -1 10224
-S
-#10226
-West Gullen Way~
-This is the road called West Gullen Way. It is lined with small houses and
-shops.
-~
-0 0 1
-D1
-You see West Gullen Way.
-~
-~
-Z -1 10227
-D2
-You see a house
-~
-door~
-ABZ -1 10243
-D3
-You see West Gullen Way.
-~
-~
-Z -1 10225
-S
-#10227
-West Gullen Way~
-This is the road called West Gullen Way. It is lined with small houses and
-shops.
-~
-0 0 1
-D1
-You see the intersection of West Gullen and the main road.
-~
-~
-Z -1 10205
-D2
-You see a house.
-~
-door~
-ABZ -1 10244
-D3
-You see West Gullen Way.
-~
-~
-Z -1 10226
-S
-#10228
-Main Road~
-This is the main road in Solace. Down the street you can see various
-shops and houses.
-~
-0 0 1
-D0
-You see the end of the main road.
-~
-~
-Z -1 10229
-D2
-You see the intersection of Gullen Way and the main road.
-~
-~
-Z -1 10205
-S
-#10229
-End of the Main Road~
-The main road of Solace stops here. Other smaller roadways lead off
-in various directions.
-To the west is the marketplace, where farmers go to sell thier harvests.
-Farther north you see a large building.
-To the East is the Townguard Administration Building.
-~
-0 0 1
-D0
-You see a cobblestone path. 
-~
-~
-Z -1 10272
-D1
-You see a dusty road.
-~
-~
-Z -1 10262
-D2
-You see the Main Road of Solace.
-~
-~
-Z -1 10228
-D3
-You see the Marketplace.
-~
-~
-Z -1 10230
-S
-#10230
-Marketplace.~
-This is the Marketplace of Solace. Where the farmers come to sell their
-crops. The smell of vegetables and fruit fill the air. There are a couple
-other vendors selling trinkets and other items.
-There is a sign at the entrance to the market.
-~
-0 0 1
-E
-sign~
-**NOTICE**
-
-Stealing will NOT be tolerated.
-Any sort of shady actions will be punishable by death.
-
-
--Captain of the Guard-
-~
-D0
-You see Croben's Container Emporium.
-~
-~
-Z -1 10241
-D1
-You see the End of the Main Road of Solace.
-~
-~
-Z -1 10229
-D2
-You see Nisi's Frozen Food Store.
-~
-~
-Z -1 10237
-D3
-You see the Marketplace.
-~
-~
-Z -1 10231
-S
-#10231
-Marketplace.~
-This is the Marketplace of Solace. Where the farmers come to sell their
-crops. The smell of vegetables and fruit fill the air. There are a couple
-other vendors selling trinkets and other items.
-~
-0 0 1
-D0
-You see Lexie's Scuba Shop.
-~
-~
-Z -1 10240
-D1
-You see the marketplace.
-~
-~
-Z -1 10230
-D2
-You see Janni's Souvenir Shop.
-~
-~
-Z -1 10236
-D3
-You see the Marketplace.
-~
-~
-Z -1 10232
-S
-#10232
-Marketplace.~
-This is the Marketplace of Solace. Where the farmers come to sell their
-crops. The smell of vegetables and fruit fill the air. There are a couple
-other vendors selling trinkets and other items.
-~
-0 0 1
-D0
-You see Rashan's Rutabagas Restaurant.
-~
-~
-Z -1 10239
-D1
-You see the marketplace.
-~
-~
-Z -1 10231
-D2
-You see Krista's Fruit Stand.
-~
-~
-Z -1 10235
-D3
-You see the Marketplace.
-~
-~
-Z -1 10233
-S
-#10233
-Marketplace.~
-This is the Marketplace of Solace. Where the farmers come to sell their
-crops. The smell of vegetables and fruit fill the air. There are a couple
-other vendors selling trinkets and other items.
-These are the last stalls in the marketplace. Next to you stands the West wall
-of the town.
-~
-0 0 1
-D0
-You see Molin's Mulburry Extract Distillery.
-~
-~
-Z -1 10238
-D1
-You see the marketplace.
-~
-~
-Z -1 10232
-D2
-You see Jhen's Vegtable Cart.
-~
-~
-Z -1 10234
-S
-#10234
-Jhen's Vegetable Cart.~
-This is where Jhen the farmer comes to sell his crops. His wooden vegtable
-cart stands here filled with all sorts of vegetables. All his vegtables are 
-unusually large. What kind of plant food does he use anyway...?
-There is a small sign nailed to the cart.
-~
-0 D 1
-E
-sign~
-The sign reads:
-
-  List  - Show which various items are in the store.
-  Buy   - Buy an item.
-  Value - The shopkeeper will (free of charge) tell how much he will
-          pay for your item.
-  Sell  - Sell an item.
-~
-D0
-You see the marketplace.
-~
-~
-Z -1 10233
-S
-#10235
-Krista's Fruit Stand.~
-This is where Krista peddles her fruits. Every year she travels from her
-orchards in the mountains to Solace to sell her fruit. Everything seems
-to have an unusually small size. I wonder if she shrinks heads too...
-There is a small sign hanging above the fruit stand.
-~
-0 D 1
-E
-sign~
-The sign reads:
-
-  List  - Show which various items are in the store.
-  Buy   - Buy an item.
-  Value - The shopkeeper will (free of charge) tell how much he will
-          pay for your item.
-  Sell  - Sell an item.
-~
-D0
-You see the marketplace.
-~
-~
-Z -1 10232
-S
-#10236
-Janni's Souvenirs.~
-This is Janni's Souvenir shop. He makes trinkets year round that he peddles
-here in the market. You wouldn't want to leave Solace without a souvenir
-would you?
-there is a sign behind the glass case.
-~
-0 D 1
-E
-sign~
-The sign reads:
-
-  List  - Show which various items are in the store.
-  Buy   - Buy an item.
-  Value - The shopkeeper will (free of charge) tell how much he will
-          pay for your item.
-  Sell  - Sell an item.
-~
-D0
-You see the marketplace.
-~
-~
-Z -1 10231
-S
-#10237
-Nisi's Frozen Food~
-This is one of the oddest venders in the marketplace. Nisi claims to have
-various fresh frozen types of vegetables. They are frozen all right. In 
-fact they are hard enough to stop an axe swing...go figure..
-And just how does she keep them from melting... 
-There is a small sign on the wall in the back of the shop.
-~
-0 D 1
-E
-sign~
-The sign reads:
-
-  List  - Show which various items are in the store.
-  Buy   - Buy an item.
-  Value - The shopkeeper will (free of charge) tell how much he will
-          pay for your item.
-  Sell  - Sell an item.
-~
-D0
-You see the marketplace.
-~
-~
-Z -1 10230
-S
-#10238
-Molin's Mulburry Extracts.~
-This is the shop of the famous mulburry extract. Known throughout the
-valley to quech the thirst of even the thirstiest traveller. What else it does
-is just rumor. That person recovered in a month anyway...
-There is a small sign on the wall.
-~
-0 D 1
-E
-sign~
-The sign reads:
-
-  List  - Show which various items are in the store.
-  Buy   - Buy an item.
-  Value - The shopkeeper will (free of charge) tell how much he will
-          pay for your item.
-  Sell  - Sell an item.
-~
-D2
-You see the marketplace.
-~
-~
-Z -1 10233
-S
-#10239
-Rashan's Rutabagas~
-This is one shop to stay away from. Rashan's rutabagas have been know
-to do strange things to people. And true to its reputation the shop is
-very very empty. I'm sure Rashan would be more than willing to sell
-you one. Business obviously has been very slow....
-There is a small sign hanging next to you.
-~
-0 D 1
-E
-sign~
-The sign reads:
-
-  List  - Show which various items are in the store.
-  Buy   - Buy an item.
-  Value - The shopkeeper will (free of charge) tell how much he will
-          pay for your item.
-  Sell  - Sell an item.
-~
-D2
-You see the marketplace.
-~
-~
-Z -1 10232
-S
 #0
 
-
-
 #SPECIALS
-M 10242 spec_cast_undead	* tired adventurer
-M 10243 spec_cast_mage	* Magnus wizard
 M 10201 spec_captain	* Captain of the Guard
 M 10202 spec_cast_cleric	* Lieutenant Commander
 M 10203 spec_cast_mage	* Sergeant at Arms
@@ -4340,11 +4330,21 @@ M 10232 spec_thief	* bratty boy
 M 10233 spec_cast_mage	* mage
 M 10234 spec_thief	* Thief
 M 10236 spec_cast_cleric	* Cleric
+M 10242 spec_cast_undead	* tired adventurer
+M 10243 spec_cast_mage	* Magnus wizard
 S
 
-
-
 #RESETS
+D 0 10202 1 1	* Main Road: door to the east: closed
+D 0 10202 3 1	* Main Road: door to the west: closed
+D 0 10206 2 1	* East Gullen Way: door to the south: closed
+D 0 10211 3 1	* Ketra Road.: door to the west: closed
+D 0 10212 3 1	* Ketra Road.: door to the west: closed
+D 0 10215 0 1	* Small Alleyway.: door to the north: closed
+D 0 10218 0 1	* Small Alleyway.: door to the north: closed
+D 0 10222 1 1	* Harvest Road.: door to the east: closed
+D 0 10226 2 1	* West Gullen Way: door to the south: closed
+D 0 10227 2 1	* West Gullen Way: door to the south: closed
 D 0 10243 0 1	* a House.: door to the north: closed
 D 0 10244 0 1	* a House.: door to the north: closed
 D 0 10245 3 1	* Cookie's Cookie Cookery.: door to the west: closed
@@ -4398,16 +4398,117 @@ D 0 10312 1 1	* Captain's Waiting Room.: door to the east: closed
 D 0 10312 2 1	* Captain's Waiting Room.: door to the south: closed
 D 0 10313 3 1	* Administration Hallway: door to the west: closed
 D 0 10314 2 1	* Administration Hallway: door to the south: closed
-D 0 10202 1 1	* Main Road: door to the east: closed
-D 0 10202 3 1	* Main Road: door to the west: closed
-D 0 10206 2 1	* East Gullen Way: door to the south: closed
-D 0 10211 3 1	* Ketra Road.: door to the west: closed
-D 0 10212 3 1	* Ketra Road.: door to the west: closed
-D 0 10215 0 1	* Small Alleyway.: door to the north: closed
-D 0 10218 0 1	* Small Alleyway.: door to the north: closed
-D 0 10222 1 1	* Harvest Road.: door to the east: closed
-D 0 10226 2 1	* West Gullen Way: door to the south: closed
-D 0 10227 2 1	* West Gullen Way: door to the south: closed
+M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10239 0 16		*	enchanted pike: wielded
+M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10301 0 16		*	enchanted bow: wielded
+M 0 10216 3 10201 1	* field rat (Gateway to Solace)
+M 0 10241 1 10203 1	* old lady (Main Road)
+M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10239 0 16		*	enchanted pike: wielded
+M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10301 0 16		*	enchanted bow: wielded
+M 0 10216 3 10205 1	* field rat (Intersection at Main Road.)
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10239 0 16		*	enchanted pike: wielded
+M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10301 0 16		*	enchanted bow: wielded
+M 0 10216 1 10210 1	* field rat (Ketra Road.)
+M 0 10206 3 10211 1	* Citizen of Solace (Ketra Road.)
+M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10216 2 10218 1	* field rat (Small Alleyway.)
+M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10216 3 10222 1	* field rat (Harvest Road.)
+M 0 10241 1 10222 1	* old lady (Harvest Road.)
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10239 0 16		*	enchanted pike: wielded
+M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10301 0 16		*	enchanted bow: wielded
+M 0 10242 1 10226 1	* tired adventurer (West Gullen Way)
+M 0 10206 3 10231 1	* Citizen of Solace (Marketplace.)
+M 0 10241 1 10231 1	* old lady (Marketplace.)
+M 0 10215 1 10233 1	* Townguard (Marketplace.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10237 0 16		*	enchanted longsword: wielded
+M 0 10215 1 10233 1	* Townguard (Marketplace.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10238 0 16		*	enchanted hammer: wielded
+M 0 10215 1 10233 1	* Townguard (Marketplace.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10239 0 16		*	enchanted pike: wielded
+M 0 10215 1 10233 1	* Townguard (Marketplace.)
+E 0 10236 0 5		*	black platemail: on the body
+E 0 10301 0 16		*	enchanted bow: wielded
+M 0 10219 1 10234 1	* Jhen the farmer (Jhen's Vegetable Cart.)
+G 0 10251 0		*	carrot
+G 0 10252 0		*	cauliflower
+G 0 10253 0		*	bell pepper
+G 0 10254 0		*	celery stick
+M 0 10220 1 10235 1	* Krista the fruit peddler (Krista's Fruit Stand.)
+G 0 10259 0		*	apple
+G 0 10260 0		*	a grape
+G 0 10261 0		*	a orange
+G 0 10262 0		*	a pear
+M 0 10221 1 10236 1	* Janni (Janni's Souvenirs.)
+G 0 10263 0		*	the charm of Solace
+G 0 10264 0		*	the ring of Solace
+G 0 10265 0		*	the earrings of Solace
+M 0 10222 1 10237 1	* Nisi the grocer (Nisi's Frozen Food)
+G 0 10266 0		*	a frozen pizza crust
+G 0 10267 0		*	a frozen pumpkin
+G 0 10268 0		*	a frozen side of beef
+G 0 10269 0		*	a frozen asparagus spear
+M 0 10223 1 10238 1	* Molin the brewer (Molin's Mulburry Extracts.)
+G 0 10270 0		*	mulburry extract
+G 0 10270 0		*	mulburry extract
+G 0 10270 0		*	mulburry extract
+G 0 10270 0		*	mulburry extract
+M 0 10224 1 10239 1	* Rashan the farmer (Rashan's Rutabagas)
+G 0 10271 0		*	rutabaga
+G 0 10272 0		*	rutabaga
+G 0 10274 0		*	rutabaga
 M 0 10225 1 10240 1	* Lexie (Lexie's Scuba Shop)
 G 0 10275 0		*	scuba tank
 G 0 10276 0		*	scuba flippers
@@ -4502,17 +4603,17 @@ E 0 10305 0 17		*	a depository key: held in the hands
 M 0 10218 4 10267 2	* Treasury Guards (Deposits Room.)
 E 0 10236 0 5		*	black platemail: on the body
 E 0 10250 0 16		*	enchanted two-handed sword: wielded
-O 0 10302 0 10267		* safe deposit box (Deposits Room.)
+O 0 10302 0 10267	* safe deposit box (Deposits Room.)
 P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
-O 0 10302 0 10267		* safe deposit box (Deposits Room.)
+O 0 10302 0 10267	* safe deposit box (Deposits Room.)
 P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
-O 0 10302 0 10267		* safe deposit box (Deposits Room.)
+O 0 10302 0 10267	* safe deposit box (Deposits Room.)
 P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
-O 0 10302 0 10267		* safe deposit box (Deposits Room.)
+O 0 10302 0 10267	* safe deposit box (Deposits Room.)
 P 0 10303 1 10302 1	* safe deposit box: a lot of gold coins
 M 0 10241 1 10268 1	* old lady (Marble Corridor.)
 M 0 10232 1 10269 1	* bratty boy (Water Fountain.)
-O 0 10304 0 10269		* a fountain (Water Fountain.)
+O 0 10304 0 10269	* a fountain (Water Fountain.)
 M 0 10241 1 10273 1	* old lady (Sergeant's Reception Room)
 M 0 10249 1 10273 1	* Secretary (Sergeant's Reception Room)
 M 0 10233 3 10278 1	* mage (West end of Common Room)
@@ -4689,7 +4790,7 @@ E 0 10211 0 16		*	a black hilted sword called, "Doomgiver": wielded
 E 0 10212 0 1		*	an Solace signet ring: on the left finger
 E 0 10213 0 14		*	a obsidian bracer: on the left wrist
 E 0 10213 0 15		*	a obsidian bracer: on the right wrist
-O 0 10214 0 10292		* a weapons cabinet (Captain's Office.)
+O 0 10214 0 10292	* a weapons cabinet (Captain's Office.)
 P 0 10215 1 10214 1	* a weapons cabinet: a black hilted sword called, "Dragonslicer"
 M 0 10248 1 10295 1	* Secretary (Lieutenant's Reception Area.)
 M 0 10241 1 10296 1	* old lady (Administration Hallway)
@@ -4745,120 +4846,7 @@ E 0 10224 0 14		*	a steel bracer: on the left wrist
 E 0 10224 0 15		*	a steel bracer: on the right wrist
 M 0 10206 1 10308 1	* Citizen of Solace (Reading Room.)
 M 0 10247 1 10312 1	* Secretary (Captain's Waiting Room.)
-M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
-M 0 10215 1 10201 1	* Townguard (Gateway to Solace)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
-M 0 10216 3 10201 1	* field rat (Gateway to Solace)
-M 0 10241 1 10203 1	* old lady (Main Road)
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
-M 0 10215 1 10205 1	* Townguard (Intersection at Main Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
-M 0 10216 3 10205 1	* field rat (Intersection at Main Road.)
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
-M 0 10215 1 10209 1	* Townguard (Corner of East Gullen and Ketra Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
-M 0 10216 1 10210 1	* field rat (Ketra Road.)
-M 0 10206 3 10211 1	* Citizen of Solace (Ketra Road.)
-M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10204 1 10213 1	* Townguard (Southeast Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10216 2 10218 1	* field rat (Small Alleyway.)
-M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10204 1 10220 1	* Townguard (Southwest Guardpost and Watchtower.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10216 3 10222 1	* field rat (Harvest Road.)
-M 0 10241 1 10222 1	* old lady (Harvest Road.)
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
-M 0 10215 1 10224 1	* Townguard (Corner of West Gullen Way and Harvest Road.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
-M 0 10242 1 10226 1	* tired adventurer (West Gullen Way)
-M 0 10206 3 10231 1	* Citizen of Solace (Marketplace.)
-M 0 10241 1 10231 1	* old lady (Marketplace.)
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10237 0 16		*	enchanted longsword: wielded
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10238 0 16		*	enchanted hammer: wielded
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10239 0 16		*	enchanted pike: wielded
-M 0 10215 1 10233 1	* Townguard (Marketplace.)
-E 0 10236 0 5		*	black platemail: on the body
-E 0 10301 0 16		*	enchanted bow: wielded
-M 0 10219 1 10234 1	* Jhen the farmer (Jhen's Vegetable Cart.)
-G 0 10251 0		*	carrot
-G 0 10252 0		*	cauliflower
-G 0 10253 0		*	bell pepper
-G 0 10254 0		*	celery stick
-M 0 10220 1 10235 1	* Krista the fruit peddler (Krista's Fruit Stand.)
-G 0 10259 0		*	apple
-G 0 10260 0		*	a grape
-G 0 10261 0		*	a orange
-G 0 10262 0		*	a pear
-M 0 10221 1 10236 1	* Janni (Janni's Souvenirs.)
-G 0 10263 0		*	the charm of Solace
-G 0 10264 0		*	the ring of Solace
-G 0 10265 0		*	the earrings of Solace
-M 0 10222 1 10237 1	* Nisi the grocer (Nisi's Frozen Food)
-G 0 10266 0		*	a frozen pizza crust
-G 0 10267 0		*	a frozen pumpkin
-G 0 10268 0		*	a frozen side of beef
-G 0 10269 0		*	a frozen asparagus spear
-M 0 10223 1 10238 1	* Molin the brewer (Molin's Mulburry Extracts.)
-G 0 10270 0		*	mulburry extract
-G 0 10270 0		*	mulburry extract
-G 0 10270 0		*	mulburry extract
-G 0 10270 0		*	mulburry extract
-M 0 10224 1 10239 1	* Rashan the farmer (Rashan's Rutabagas)
-G 0 10271 0		*	rutabaga
-G 0 10272 0		*	rutabaga
-G 0 10274 0		*	rutabaga
 S
-
-
 
 #SHOPS
 10208 0 0 0 0 0 105 15 8 2
@@ -4876,25 +4864,5 @@ S
 10226 15 0 0 0 0 125 75 4 20
 10227 0 0 0 0 0 105 15 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

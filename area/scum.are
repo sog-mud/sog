@@ -7,8 +7,6 @@ Security 5
 LevelRange 0 0
 End
 
-
-
 #MOBILES
 #40000
 mummy~
@@ -47,8 +45,6 @@ F imm BL
 F res I
 #0
 
-
-
 #OBJECTS
 #40000
 child~
@@ -59,8 +55,6 @@ fountain R P
 0 0 'blood' 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #40000
@@ -114,44 +108,15 @@ Z 0 40001
 S
 #0
 
-
-
 #SPECIALS
 M 40000 spec_breath_lightning	* Royal Mummy
 M 40001 spec_breath_lightning	* Large Zombie
 S
 
-
-
 #RESETS
 M 0 40000 1 40001 1	* Royal Mummy ({DDirty vault{x)
 M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
-O 0 40000 0 40002		* corpse of child ({DDark cave{x)
+O 0 40000 0 40002	* corpse of child ({DDark cave{x)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

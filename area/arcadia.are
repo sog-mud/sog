@@ -7,8 +7,6 @@ Security 9
 LevelRange 30 90
 End
 
-
-
 #MOBILES
 #12000
 Oberon oberon King king~
@@ -781,8 +779,6 @@ stand stand none 0
 AHMV ABCDEFGHIJKPU small unknown
 #0
 
-
-
 #OBJECTS
 #12000
 acorn hat~
@@ -1549,8 +1545,6 @@ DE DE ADE AE 0
 A
 17 -10
 #0
-
-
 
 #ROOMS
 #12001
@@ -5183,16 +5177,12 @@ ABFZ 0 12156
 S
 #0
 
-
-
 #SPECIALS
 M 12001 spec_cast_cleric	* Queen Titania
 M 12005 spec_cast_undead	* The Morrigan
 M 12048 spec_cast_mage	* A CatSidhe
 M 12049 spec_cast_cleric	* A BranSidhe
 S
-
-
 
 #RESETS
 D 0 12114 3 1	* More Darkness and Slime: door to the west: closed
@@ -5371,11 +5361,11 @@ M 0 12043 25 12096 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	A drop of nectar
 M 0 12043 25 12097 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	A drop of nectar
-O 0 12027 0 12100		* A wooden bucket (The Great Stone Forge)
-O 0 12024 0 12100		* A HUGE stone forge (The Great Stone Forge)
+O 0 12027 0 12100	* A wooden bucket (The Great Stone Forge)
+O 0 12024 0 12100	* A HUGE stone forge (The Great Stone Forge)
 P 0 12022 0 12024 1	* A HUGE stone forge: A fiery ember
-O 0 12023 0 12100		* A pile of coals (The Great Stone Forge)
-O 0 12023 0 12100		* A pile of coals (The Great Stone Forge)
+O 0 12023 0 12100	* A pile of coals (The Great Stone Forge)
+O 0 12023 0 12100	* A pile of coals (The Great Stone Forge)
 P 0 12025 0 12023 1	* A pile of coals: A crude, dark sword
 M 0 12028 3 12100 1	* a boggan smith (The Great Stone Forge)
 G 0 12021 0		*	An unfinished axe
@@ -5391,9 +5381,9 @@ M 0 12027 1 12104 1	* a boggan craftsman (The Crafts Shoppe)
 G 0 12015 0		*	An unfinished pair of boots
 E 0 12016 0 16		*	A stitching needle: wielded
 M 0 12034 6 12109 1	* a sluagh watcher (The Trophy Room)
-O 0 12062 0 12110		* An unmade bed (A Small Bedroom)
-O 0 12062 0 12111		* An unmade bed (A Small Bedroom)
-O 0 12063 0 12112		* A well made bed (A Small Bedroom)
+O 0 12062 0 12110	* An unmade bed (A Small Bedroom)
+O 0 12062 0 12111	* An unmade bed (A Small Bedroom)
+O 0 12063 0 12112	* A well made bed (A Small Bedroom)
 P 0 12064 0 12063 1	* A well made bed: A scroll of armor making
 M 0 12032 4 12113 1	* a savage redcap (A Dark Abyss)
 E 0 12011 0 16		*	A blood stained club: wielded
@@ -5401,7 +5391,7 @@ E 0 12010 0 6		*	A red cap: over the head
 M 0 12032 4 12114 1	* a savage redcap (More Darkness and Slime)
 E 0 12011 0 16		*	A blood stained club: wielded
 E 0 12010 0 6		*	A red cap: over the head
-O 0 12028 0 12115		* slime pool (The Forbiden Room)
+O 0 12028 0 12115	* slime pool (The Forbiden Room)
 P 0 12029 0 12028 1	* slime pool: A bit of slime
 P 0 12061 0 12028 1	* slime pool: A bit of slime
 M 0 12035 2 12115 1	* a sluagh guardian (The Forbiden Room)
@@ -5466,7 +5456,7 @@ E 0 12053 0 12		*	A poet's robe: about the shoulders
 M 0 12022 2 12134 1	* a pooka jester (The Courtyard)
 G 0 12033 0		*	A jester's stick
 E 0 12020 0 6		*	A jester's cap: over the head
-O 0 12026 0 12134		* A beautiful crystal fountain (The Courtyard)
+O 0 12026 0 12134	* A beautiful crystal fountain (The Courtyard)
 M 0 12024 6 12134 1	* a satyr piper (The Courtyard)
 E 0 12018 0 17		*	Pan pipes: held in the hands
 M 0 12030 3 12134 1	* an eshu (The Courtyard)
@@ -5483,7 +5473,7 @@ M 0 12019 6 12138 1	* a troll guard (Inside the Eastern Tower)
 E 0 12039 0 1		*	An oath ring: on the left finger
 E 0 12038 0 11		*	An ice shield: as a shield
 E 0 12036 0 16		*	A white  mace: wielded
-O 0 12030 0 12141		* A large oak bookshelf (The Chamber of Lughnasadh)
+O 0 12030 0 12141	* A large oak bookshelf (The Chamber of Lughnasadh)
 P 0 12031 0 12030 1	* A large oak bookshelf: An ancient manuscript
 P 0 12032 0 12030 1	* A large oak bookshelf: An ancient manuscript
 P 0 12066 0 12030 1	* A large oak bookshelf: A page of glowing script
@@ -5555,7 +5545,7 @@ E 0 12045 0 14		*	An engraved sidhe bracer: on the left wrist
 E 0 12045 0 15		*	An engraved sidhe bracer: on the right wrist
 E 0 12044 0 7		*	A pair of sidhe greaves: on the legs
 E 0 12043 0 10		*	A pair of sidhe armguards: on the arms
-O 0 12028 0 12148		* slime pool (The Watcher's Home)
+O 0 12028 0 12148	* slime pool (The Watcher's Home)
 P 0 12029 0 12028 1	* slime pool: A bit of slime
 P 0 12061 0 12028 1	* slime pool: A bit of slime
 M 0 12032 4 12148 1	* a savage redcap (The Watcher's Home)
@@ -5585,30 +5575,5 @@ M 0 12047 1 12157 1	* A BoSidhe (Under the Hill)
 M 0 12048 1 12157 1	* A CatSidhe (Under the Hill)
 M 0 12049 1 12157 1	* A BranSidhe (Under the Hill)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

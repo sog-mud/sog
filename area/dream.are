@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 5
 End
 
-
-
 #MOBILES
 #8600
 oldstyle keeper~
@@ -25,8 +23,6 @@ EFNU 0 0 0
 stand stand female 5
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #8600
@@ -85,8 +81,6 @@ Made from the wood of a Yule Tree, this staff is about one meter long and
 highly polished.  It looks more like a ritual device than a weapon.
 ~
 #0
-
-
 
 #ROOMS
 #8600
@@ -1265,13 +1259,6 @@ same obsidian color as the ground and you can't find a horizon.
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 R 0 8600 6	* The Void: randomize
 R 0 8601 6	* The Void: randomize
@@ -1300,37 +1287,12 @@ R 0 8625 6	* The Void: randomize
 R 0 8626 6	* The Void: randomize
 R 0 8627 6	* The Void: randomize
 R 0 8628 6	* The Void: randomize
-O 0 8600 0 8631		* morris bells (Newfane Village Square)
-O 0 8601 0 8632		* a morris handkerchief (A Large Dance Hall)
-O 0 8601 0 8634		* a morris handkerchief (A Small Hall)
-O 0 8602 0 8637		* a morris sash (An Old Wooden Church)
-O 0 8603 0 8639		* a morris staff (Yule Tree Farm)
+O 0 8600 0 8631	* morris bells (Newfane Village Square)
+O 0 8601 0 8632	* a morris handkerchief (A Large Dance Hall)
+O 0 8601 0 8634	* a morris handkerchief (A Small Hall)
+O 0 8602 0 8637	* a morris sash (An Old Wooden Church)
+O 0 8603 0 8639	* a morris staff (Yule Tree Farm)
 M 0 8600 1 8699 1	* the keeper (The Void)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

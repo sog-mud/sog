@@ -7,8 +7,6 @@ Security 9
 LevelRange 40 90
 End
 
-
-
 #MOBILES
 #17011
 pirate guard~
@@ -810,8 +808,6 @@ stand stand none 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #17011
 tree banana~
@@ -1591,8 +1587,6 @@ trash ABQ 0
 0 0 0 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #17171
@@ -4228,8 +4222,6 @@ ABCFZ -1 17297
 S
 #0
 
-
-
 #SPECIALS
 M 17024 spec_fido	* the black crab
 M 17025 spec_breath_fire	* the lava worm
@@ -4241,8 +4233,6 @@ M 17038 spec_fido	* the hammerhead shark
 M 17039 spec_fido	* the blue shark
 M 17050 spec_cast_mage	* Lord Vulture
 S
-
-
 
 #RESETS
 D 0 17176 1 1	* In the Jungle: door to the east: closed
@@ -4278,10 +4268,10 @@ D 0 17299 3 2	* In the Ice Hall of the Pirate Lord: door to the west: closed and
 M 0 17012 1 17171 1	* the shipwright (On the Beach)
 E 0 17014 0 16		*	a wooden mallet: wielded
 M 0 17011 2 17174 1	* the pirate guard (In the Jungle)
-O 0 17011 0 17175		* the banana tree (In the Jungle)
+O 0 17011 0 17175	* the banana tree (In the Jungle)
 P 0 17012 0 17011 1	* the banana tree: a bunch of bananas
 M 0 17011 2 17176 1	* the pirate guard (In the Jungle)
-O 0 17013 0 17177		* a wooden sign (At the Mouth of a Cave)
+O 0 17013 0 17177	* a wooden sign (At the Mouth of a Cave)
 M 0 17013 2 17180 1	* the jungle savage (In the Savage Camp)
 M 0 17014 1 17181 1	* Chief Unga-Bunga (In the Savage Camp)
 E 0 17015 0 12		*	a feather robe: about the shoulders
@@ -4306,9 +4296,9 @@ G 0 17024 0		*	the kracken's eye
 M 0 17023 1 17196 1	* the black snake (On a Black Sand Beach)
 M 0 17025 3 17198 1	* the lava worm (Climbing the Black Mountain)
 M 0 17026 2 17200 1	* the lava lizard (Walking the Lava Flows)
-O 0 17022 0 17201		* a lava pool (Walking the Lava Flows)
+O 0 17022 0 17201	* a lava pool (Walking the Lava Flows)
 M 0 17026 2 17202 1	* the lava lizard (Walking the Lava Flows)
-O 0 17022 0 17202		* a lava pool (Walking the Lava Flows)
+O 0 17022 0 17202	* a lava pool (Walking the Lava Flows)
 M 0 17024 1 17204 1	* the black crab (On a Black Sand Beach)
 M 0 17025 3 17206 1	* the lava worm (Climbing the Black Mountain)
 M 0 17025 3 17208 1	* the lava worm (Climbing the Black Mountain)
@@ -4316,8 +4306,8 @@ M 0 17030 1 17210 1	* Pele, god of fire (The Crater)
 E 0 17025 0 10		*	armbands of the Volcanoes: on the arms
 M 0 17022 1 17211 1	* the dock guard (In the Watery Cave)
 E 0 17023 0 16		*	a cutlass: wielded
-O 0 17023 0 17214		* a cutlass (In the Armory)
-O 0 17027 0 17214		* a javelin (In the Armory)
+O 0 17023 0 17214	* a cutlass (In the Armory)
+O 0 17027 0 17214	* a javelin (In the Armory)
 M 0 17027 3 17215 1	* the snarling pirate (In the Pirates Cavern)
 E 0 17023 0 16		*	a cutlass: wielded
 M 0 17027 3 17217 1	* the snarling pirate (In the Pirates Cavern)
@@ -4329,7 +4319,7 @@ G 0 17021 0		*	an iron key
 M 0 17027 3 17219 1	* the snarling pirate (The Barracks)
 E 0 17023 0 16		*	a cutlass: wielded
 M 0 17029 1 17220 1	* Lalila, the Elven Prince (A Dark Cave)
-O 0 17026 0 17220		* a huge bronze chest (A Dark Cave)
+O 0 17026 0 17220	* a huge bronze chest (A Dark Cave)
 P 0 17030 0 17026 1	* a huge bronze chest: the pirate's hoard
 P 0 17029 0 17026 1	* a huge bronze chest: Ettin's blood
 M 0 17037 2 17222 1	* the mako shark (On the Seas Surrounding an Atoll)
@@ -4341,18 +4331,18 @@ M 0 17039 2 17233 1	* the blue shark (On the Seas Surrounding an Atoll)
 M 0 17037 2 17235 1	* the mako shark (On the Seas Surrounding an Atoll)
 M 0 17034 1 17236 1	* Stiggs, the cabin boy (In the Quiet Lagoon)
 E 0 17037 0 0		*	a watchman's lantern: as a light
-O 0 17036 0 17236		* an outrigger called 'Waverunner' (In the Quiet Lagoon)
+O 0 17036 0 17236	* an outrigger called 'Waverunner' (In the Quiet Lagoon)
 P 0 17033 0 17034 1	* a padlocked chest: the nullifier orb
 M 0 17033 3 17237 1	* the bandy legged pirate (In the Central Shack)
 M 0 17033 3 17238 1	* the bandy legged pirate (The Barracks)
 M 0 17032 1 17239 1	* Shifty the trader (Inside the Barred Shack)
-O 0 17034 0 17239		* a padlocked chest (Inside the Barred Shack)
+O 0 17034 0 17239	* a padlocked chest (Inside the Barred Shack)
 P 0 17040 0 17034 1	* a padlocked chest: doubloons and booty
 M 0 17031 1 17240 1	* Mizzenmast (Inside the House on Stilts)
 E 0 17031 0 7		*	sharkskin pants: on the legs
 E 0 17032 0 17		*	a crossbow of poison: held in the hands
 G 0 17035 0		*	a metal key
-O 0 17039 0 17240		* a hemp hammock (Inside the House on Stilts)
+O 0 17039 0 17240	* a hemp hammock (Inside the House on Stilts)
 M 0 17040 1 17240 1	* Did I say coral? I meant clam (Inside the House on Stilts)
 G 0 17038 0		*	a giant pearl
 M 0 17041 1 17241 1	* the hawkwoman (In the Air Beneath the Flying Mountain)
@@ -4370,8 +4360,8 @@ P 0 17051 0 17043 1	* the vest of the Hawklord: a throwing dagger
 P 0 17051 0 17043 1	* the vest of the Hawklord: a throwing dagger
 P 0 17051 0 17043 1	* the vest of the Hawklord: a throwing dagger
 M 0 17042 3 17248 1	* the hawkman (In the Calm Air Beneath the Flying Mountain)
-O 0 17042 0 17248		* a floating stone (In the Calm Air Beneath the Flying Mountain)
-O 0 17044 0 17251		* a winch ladder (On the Flying Mountain)
+O 0 17042 0 17248	* a floating stone (In the Calm Air Beneath the Flying Mountain)
+O 0 17044 0 17251	* a winch ladder (On the Flying Mountain)
 M 0 17044 4 17253 1	* the terra-kan (On the Flying Mountain)
 G 0 17045 0		*	a gizzard
 M 0 17044 4 17254 1	* the terra-kan (On the Flying Mountain)
@@ -4394,7 +4384,7 @@ M 0 17048 1 17270 1	* Alindra of Dunkeldorf (In the Private Quarters of the Pira
 M 0 17050 1 17270 1	* Lord Vulture (In the Private Quarters of the Pirate Lord)
 E 0 17049 0 10		*	Lord Vulture's wings: on the arms
 E 0 17050 0 17		*	the eye of the eagle: held in the hands
-O 0 17046 0 17270		* an iron bound chest (In the Private Quarters of the Pirate Lord)
+O 0 17046 0 17270	* an iron bound chest (In the Private Quarters of the Pirate Lord)
 P 0 17047 0 17046 1	* an iron bound chest: a mountain of silver
 P 0 17048 0 17046 1	* an iron bound chest: the everfull mug
 M 0 17051 1 17272 1	* the orca (Sailing the Sea of Ice)
@@ -4414,8 +4404,8 @@ E 0 17055 0 7		*	fur skin leggings: on the legs
 E 0 17056 0 11		*	a spiked buckler: as a shield
 E 0 17057 0 17		*	an icicle: held in the hands
 M 0 17070 1 17294 1	* the frozen captive (At the Bonfire in the Great Ice Cavern)
-O 0 17058 0 17294		* the melting pool (At the Bonfire in the Great Ice Cavern)
-O 0 17070 0 17294		* a roaring bonfire (At the Bonfire in the Great Ice Cavern)
+O 0 17058 0 17294	* the melting pool (At the Bonfire in the Great Ice Cavern)
+O 0 17070 0 17294	* a roaring bonfire (At the Bonfire in the Great Ice Cavern)
 M 0 17067 1 17295 1	* the lurking guard (In the Great Ice Cavern)
 E 0 17053 0 12		*	a fur skin cloak: about the shoulders
 E 0 17054 0 5		*	a fur skin vest: on the body
@@ -4442,28 +4432,22 @@ E 0 17056 0 11		*	a spiked buckler: as a shield
 E 0 17063 0 16		*	"Frostbite" sword of winter: wielded
 E 0 17060 0 17		*	the ghost stone: held in the hands
 G 0 17068 0		*	the evil eye
-O 0 17064 0 17299		* a bag of gold (In the Ice Hall of the Pirate Lord)
-O 0 17065 0 17299		* a bag of silver (In the Ice Hall of the Pirate Lord)
-O 0 17066 0 17299		* a bag of gems (In the Ice Hall of the Pirate Lord)
-O 0 17067 0 17299		* a bag of jewelry (In the Ice Hall of the Pirate Lord)
-O 0 17069 0 17299		* a map to Hell's Reef (In the Ice Hall of the Pirate Lord)
+O 0 17064 0 17299	* a bag of gold (In the Ice Hall of the Pirate Lord)
+O 0 17065 0 17299	* a bag of silver (In the Ice Hall of the Pirate Lord)
+O 0 17066 0 17299	* a bag of gems (In the Ice Hall of the Pirate Lord)
+O 0 17067 0 17299	* a bag of jewelry (In the Ice Hall of the Pirate Lord)
+O 0 17069 0 17299	* a map to Hell's Reef (In the Ice Hall of the Pirate Lord)
 S
-
-
 
 #SHOPS
 17012 13 22 0 0 0 125 75 0 23
 17032 8 0 0 0 0 125 75 0 23
 0
 
-
-
 #OLIMITS
 O 17019 1	* the girdle of might
 O 17025 1	* armbands of the Volcanoes
 S
-
-
 
 #MOBPROGS
 #17000
@@ -4472,17 +4456,10 @@ MOB KILL $n
 ~
 #0
 
-#PRACTICERS
-S
-
-
-
 #OMPROGS
 O 17025 wear_prog wear_prog_armbands	* `armbands of the Volcanoes'
 O 17025 remove_prog remove_prog_armbands	* `armbands of the Volcanoes'
 O 17025 fight_prog fight_prog_armbands	* `armbands of the Volcanoes'
 S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 15
 End
 
-
-
 #MOBILES
 #8200
 shopkeeper giles~
@@ -301,8 +299,6 @@ stand stand female 0
 0 0 small unknown
 #0
 
-
-
 #OBJECTS
 #8200
 key small brass~
@@ -401,8 +397,6 @@ The writting on the tee-shirt reads
 "I've been to the Midgaard Zoo"
 ~
 #0
-
-
 
 #ROOMS
 #8200
@@ -949,13 +943,9 @@ Z -1 8237
 S
 #0
 
-
-
 #SPECIALS
 M 8208 spec_breath_lightning	* the baby dragon
 S
-
-
 
 #RESETS
 D 0 8201 5 2	* The Zoo Wishing Well: door to the down: closed and locked
@@ -981,7 +971,7 @@ D 0 8234 0 1	* A small path in the Kiddies Zoo: door to the north: closed
 D 0 8234 2 1	* A small path in the Kiddies Zoo: door to the south: closed
 D 0 8235 0 1	* A stable: door to the north: closed
 D 0 8236 2 1	* In the Aviary: door to the south: closed
-O 0 8203 0 8201		* a fountain (The Zoo Wishing Well)
+O 0 8203 0 8201	* a fountain (The Zoo Wishing Well)
 M 0 8202 6 8203 4	* a giant leech (Bottom of the Wishing Well)
 M 0 8200 1 8205 1	* Giles (The Gift Shop)
 G 0 8201 0		*	a tee-shirt
@@ -1011,30 +1001,8 @@ M 0 8231 12 8238 1	* a small bird (In the Aviary)
 M 0 8237 1 8238 1	* Harvey the parrot (In the Aviary)
 S
 
-
-
 #SHOPS
 8200 0 0 0 0 0 100 100 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 30 50
 End
 
-
-
 #MOBILES
 #15201
 king welmar~
@@ -477,8 +475,6 @@ stand stand male 8457
 0 0 large unknown
 #0
 
-
-
 #OBJECTS
 #15201
 universal~
@@ -753,8 +749,6 @@ key M AO
 0 0 0 0 0
 60 200 0 G
 #0
-
-
 
 #ROOMS
 #15200
@@ -1966,13 +1960,9 @@ Z -1 15248
 S
 #0
 
-
-
 #SPECIALS
 M 15219 spec_cast_mage	* the Astrologer
 S
-
-
 
 #RESETS
 D 0 15206 1 1	* A small passage.: door to the east: closed
@@ -2043,7 +2033,7 @@ E 0 15220 0 5		*	a lifeguard's chain mail hauberk: on the body
 E 0 15215 0 16		*	a large broadsword: wielded
 M 0 15213 1 15223 1	* the Training Master (The Training Room)
 E 0 15219 0 16		*	a large halberd named "Protector": wielded
-O 0 15210 0 15226		* a large wooden chest (The servants' quarters)
+O 0 15210 0 15226	* a large wooden chest (The servants' quarters)
 M 0 15216 1 15227 1	* James the Butler (The butler's quarters)
 G 0 15208 0		*	the Butler's key
 M 0 15207 1 15228 1	* Jochem the Royal guard (The Guards' Barracks)
@@ -2062,7 +2052,7 @@ G 0 15207 0		*	a huge key
 M 0 15225 1 15236 1	* Dick (By the treasure room)
 E 0 15218 0 16		*	a large flail: wielded
 E 0 15214 0 5		*	a guard's chain mail hauberk: on the body
-O 0 15225 0 15237		* a large iron chest (The Great Treasury)
+O 0 15225 0 15237	* a large iron chest (The Great Treasury)
 P 0 15223 1 15225 1	* a large iron chest: the silver and gold coins
 M 0 15230 1 15237 1	* the Executioner (The Great Treasury)
 E 0 15224 0 16		*	the Executioner's evil weapon: wielded
@@ -2078,33 +2068,8 @@ E 0 15222 0 16		*	a short broadsword: wielded
 E 0 15221 0 5		*	a chain mail hauberk: on the body
 M 0 15219 1 15252 1	* the Astrologer (Up in the Tower)
 G 0 15211 0		*	a large vial
-O 0 15205 0 15252		* a large telescope (Up in the Tower)
+O 0 15205 0 15252	* a large telescope (Up in the Tower)
 M 0 15202 1 15254 1	* the horrible ghost (The Top of the Tower)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

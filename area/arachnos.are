@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 20
 End
 
-
-
 #MOBILES
 #6301
 oldstyle spider young~
@@ -290,8 +288,6 @@ stand stand female 0
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #6303
 headdress pontiff's~
@@ -338,8 +334,6 @@ potion blue~
 It has a nice sky blue colour and a smell like peppermint.
 ~
 #0
-
-
 
 #ROOMS
 #6200
@@ -1253,8 +1247,6 @@ ABZ 0 6392
 S
 #0
 
-
-
 #SPECIALS
 M 6302 spec_breath_gas	* Yevaud
 M 6314 spec_breath_gas	* Arachnos
@@ -1263,8 +1255,6 @@ M 6317 spec_breath_gas	* the medium dragon wormkin
 M 6318 spec_poison	* the huge, poisonous spider
 M 6319 spec_poison	* the Queen Spider
 S
-
-
 
 #RESETS
 D 0 6392 0 1	* The Great Door: door to the north: closed
@@ -1303,30 +1293,5 @@ M 0 6314 1 6399 1	* Arachnos (The Lair of Arachnos)
 G 0 6303 0		*	a pontiff's headdress
 G 0 6304 0		*	a black knight's visor
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

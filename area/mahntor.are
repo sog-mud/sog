@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 35
 End
 
-
-
 #MOBILES
 #2300
 oldstyle knight ethereal dark~
@@ -525,8 +523,6 @@ FU 0 0 0
 stand stand male 5000
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #2300
@@ -1544,8 +1540,6 @@ armor 0 AD
 BC BC BC 0 0
 15 60 2100 P
 #0
-
-
 
 #ROOMS
 #2300
@@ -3621,8 +3615,6 @@ AFZ 2354 2397
 S
 #0
 
-
-
 #SPECIALS
 M 2300 spec_cast_undead	* the Dark Ethereal Knight
 M 2302 spec_breath_acid	* the Cave Dweller
@@ -3637,8 +3629,6 @@ M 2329 spec_cast_cleric	* Sumaron
 M 2330 spec_cast_cleric	* Nasturn
 M 2333 spec_cast_mage	* Mahn-Tor
 S
-
-
 
 #RESETS
 D 0 2362 2 1	* Before the gates of Mahn-Tor: door to the south: closed
@@ -3870,31 +3860,9 @@ G 0 2333 0		*	a blood red stone
 E 0 2334 0 16		*	a huge crossbow: wielded
 S
 
-
-
-#SHOPS
-0
-
-
-
 #OLIMITS
 O 2340 3	* a major globe of invulnerability
 O 2390 3	* gauntlets of ogre power
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

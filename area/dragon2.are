@@ -7,8 +7,6 @@ Security 9
 LevelRange 30 65
 End
 
-
-
 #MOBILES
 #2400
 Copper Dragon~
@@ -253,8 +251,6 @@ FHKN AB 0 D
 stand stand male 1499
 0 0 small unknown
 #0
-
-
 
 #OBJECTS
 #2400
@@ -766,8 +762,6 @@ key 0 A
 BCDE 0 0 0 0
 0 20 0 P
 #0
-
-
 
 #ROOMS
 #2400
@@ -2782,8 +2776,6 @@ Z -1 2500
 S
 #0
 
-
-
 #SPECIALS
 M 2400 spec_breath_any	* The Copper Dragon
 M 2401 spec_breath_any	* The White Dragon
@@ -2796,8 +2788,6 @@ M 2411 spec_thief	* A Pixie
 M 2412 spec_cast_mage	* A Keeper
 M 2413 spec_breath_any	* Fireflash
 S
-
-
 
 #RESETS
 D 0 2432 1 2	* The Lair of the White Dragon: door to the east: closed and locked
@@ -2825,7 +2815,7 @@ M 0 2402 30 2412 1	* A Pixie (Walking through DragonSpyre)
 E 0 2400 0 16		*	a tiny sword: wielded
 G 0 2428 0		*	a piece of neutronium
 M 0 2414 12 2412 1	* A Pixie (Walking through DragonSpyre)
-O 0 2412 0 2413		* a corpse (Walking through DragonSpyre)
+O 0 2412 0 2413	* a corpse (Walking through DragonSpyre)
 M 0 2408 2 2414 1	* A Pixie Guard (Walking through DragonSpyre)
 E 0 2415 0 5		*	a Pixie breast plate: on the body
 E 0 2416 0 7		*	a pair of Pixie greaves: on the legs
@@ -2899,11 +2889,11 @@ G 0 2428 0		*	a piece of neutronium
 M 0 2402 30 2440 1	* A Pixie (Walking through DragonSpyre)
 E 0 2400 0 16		*	a tiny sword: wielded
 G 0 2428 0		*	a piece of neutronium
-O 0 2412 0 2442		* a corpse (Walking through DragonSpyre)
+O 0 2412 0 2442	* a corpse (Walking through DragonSpyre)
 M 0 2411 11 2444 1	* A Pixie (Walking through DragonSpyre)
 E 0 2422 0 16		*	a Pixie dagger: wielded
 G 0 2427 0		*	a piece of duranium
-O 0 2412 0 2447		* a corpse (Walking through DragonSpyre)
+O 0 2412 0 2447	* a corpse (Walking through DragonSpyre)
 M 0 2402 30 2450 1	* A Pixie (Treasure Room)
 E 0 2400 0 16		*	a tiny sword: wielded
 G 0 2428 0		*	a piece of neutronium
@@ -2920,7 +2910,7 @@ E 0 2403 0 17		*	the gatekeeper's key: held in the hands
 M 0 2411 11 2465 1	* A Pixie (Walking through DragonSpyre)
 E 0 2422 0 16		*	a Pixie dagger: wielded
 G 0 2427 0		*	a piece of duranium
-O 0 2412 0 2467		* a corpse (Walking through DragonSpyre)
+O 0 2412 0 2467	* a corpse (Walking through DragonSpyre)
 M 0 2402 30 2470 1	* A Pixie (Walking through DragonSpyre)
 E 0 2400 0 16		*	a tiny sword: wielded
 G 0 2428 0		*	a piece of neutronium
@@ -2963,21 +2953,9 @@ M 0 2412 1 2500 1	* A Keeper (Before the office of retired dragon)
 E 0 2434 0 17		*	a small white finger: held in the hands
 M 0 2413 1 2501 1	* Fireflash (Before the office of retired dragon)
 E 0 2435 0 17		*	an old seal: held in the hands
-O 0 2436 0 2501		* box (Before the office of retired dragon)
+O 0 2436 0 2501	* box (Before the office of retired dragon)
 P 0 2437 4 2436 100	* box: abridged papers
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
 
 #MOBPROGS
 #2400
@@ -3046,15 +3024,5 @@ endif
 endif
 ~
 #0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

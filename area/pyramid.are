@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 50
 End
 
-
-
 #MOBILES
 #8700
 oldstyle asp snake~
@@ -301,8 +299,6 @@ EIKU 0 0 0
 stand stand male 4400
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #8700
@@ -759,8 +755,6 @@ save that it gives off a continuous low humming noise that tickles your
 fingertips. There is something written on it. I can't read it what is that
 is that punish or punishment? ~
 #0
-
-
 
 #ROOMS
 #8700
@@ -2197,8 +2191,6 @@ Z -1 8753
 S
 #0
 
-
-
 #SPECIALS
 M 8700 spec_poison	* A horrible asp
 M 8701 spec_poison	* A hooded cobra snake
@@ -2212,8 +2204,6 @@ M 8715 spec_cast_cleric	* An androsphinx
 M 8716 spec_breath_any	* The great sphinx
 M 8717 spec_cast_cleric	* Ramses the Damned
 S
-
-
 
 #RESETS
 D 0 8706 5 1	* The Apex of the Great Pyramid: door to the down: closed
@@ -2245,7 +2235,7 @@ M 0 8709 1 8711 1	* The efreeti (The Chamber of the Efreet)
 E 0 8707 0 0		*	a small hot ball of fire: as a light
 M 0 8700 6 8713 2	* A horrible asp (A Tiny Crawlway)
 M 0 8702 3 8716 1	* A wily little mongoose (The Crawlway's End)
-O 0 8723 0 8719		* the diamond (A Rough Crevasse)
+O 0 8723 0 8719	* the diamond (A Rough Crevasse)
 M 0 8706 1 8723 1	* The magic carpet (The Vault of the Lamp)
 M 0 8711 1 8723 1	* The djinn (The Vault of the Lamp)
 E 0 8713 0 17		*	the lamp: held in the hands
@@ -2260,7 +2250,7 @@ G 0 8705 0		*	a bottle of embalming fluid
 M 0 8702 3 8726 1	* A wily little mongoose (A Demolished Tomb)
 M 0 8704 6 8726 1	* A tomb thief (A Demolished Tomb)
 E 0 3351 0 16		*	a standard issue dagger: wielded
-O 0 8728 0 8729		* the lost ring of ra (A Stairway)
+O 0 8728 0 8729	* the lost ring of ra (A Stairway)
 M 0 8717 1 8732 1	* Ramses the Damned (The Tomb of Ramses)
 G 0 8719 0		*	a pile of sand
 G 0 8720 0		*	the curse of the mummy
@@ -2297,7 +2287,7 @@ E 0 8708 0 16		*	a stone scimitar: wielded
 M 0 8710 2 8745 1	* A caryatid (The Tomb of the Pharoahs)
 E 0 8708 0 16		*	a stone scimitar: wielded
 G 0 8709 0		*	a stone key
-O 0 8710 0 8745		* a mighty stone sarcophagus (The Tomb of the Pharoahs)
+O 0 8710 0 8745	* a mighty stone sarcophagus (The Tomb of the Pharoahs)
 P 0 8711 1 8710 1	* a mighty stone sarcophagus: some ancient dust
 P 0 8712 1 8710 1	* a mighty stone sarcophagus: a small emerald scarab
 M 0 8715 1 8747 1	* An androsphinx (A Sandstone Crypt)
@@ -2321,40 +2311,21 @@ R 0 8757 4	* A Swirling Sandstorm: randomize
 M 0 8708 4 8757 1	* A sandman (A Swirling Sandstorm)
 M 0 8716 1 8758 1	* The great sphinx (A Massive Sand Dune)
 E 0 8717 0 17		*	the answer: held in the hands
-O 0 8718 0 8759		* the treasure of the sphinx (Through the Hole in the Sand)
-O 0 8724 0 8759		* a blazing sun wand (Through the Hole in the Sand)
-O 0 8725 0 8759		* a sandy-colored ring (Through the Hole in the Sand)
-O 0 8726 0 8759		* a small golden sphinx (Through the Hole in the Sand)
-O 0 8727 0 8759		* a pair of sphinxian leggings (Through the Hole in the Sand)
+O 0 8718 0 8759	* the treasure of the sphinx (Through the Hole in the Sand)
+O 0 8724 0 8759	* a blazing sun wand (Through the Hole in the Sand)
+O 0 8725 0 8759	* a sandy-colored ring (Through the Hole in the Sand)
+O 0 8726 0 8759	* a small golden sphinx (Through the Hole in the Sand)
+O 0 8727 0 8759	* a pair of sphinxian leggings (Through the Hole in the Sand)
 S
-
-
-
-#SHOPS
-0
-
-
 
 #OLIMITS
 O 8716 1	* a lion's paw
 O 8728 1	* the lost ring of ra
 S
 
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
 #OMPROGS
 O 8716 fight_prog fight_prog_lion_claw	* `a lion's paw'
 O 8728 speech_prog speech_prog_ring_ra	* `the lost ring of ra'
 S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 20
 End
 
-
-
 #MOBILES
 #7800
 oldstyle dog cooshee~
@@ -238,8 +236,6 @@ stand stand none 0
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #7800
 chainmail elven chain mail~
@@ -454,8 +450,6 @@ staff 3 7 pound F
 A
 19 1
 #0
-
-
 
 #ROOMS
 #7800
@@ -2144,16 +2138,12 @@ You've fallen, and you can't get up!
 S
 #0
 
-
-
 #SPECIALS
 M 7807 spec_cast_cleric	* a valley elf elder
 M 7808 spec_cast_mage	* a valley elf elder
 M 7809 spec_breath_fire	* the pyrohydra
 M 7811 spec_cast_mage	* Talemon
 S
-
-
 
 #RESETS
 D 0 7829 0 1	* A Smaller Valley: door to the north: closed
@@ -2217,13 +2207,13 @@ E 0 7825 0 16		*	a quarterstaff: wielded
 M 0 7808 1 7845 1	* a valley elf elder (The Elders' Room)
 E 0 7806 0 1		*	a gold ring: on the left finger
 E 0 7825 0 16		*	a quarterstaff: wielded
-O 0 7809 0 7846		* a potion (The Storage Room)
-O 0 7823 0 7846		* a scroll (The Storage Room)
-O 0 7820 0 7846		* a scroll (The Storage Room)
-O 0 7817 0 7846		* a scroll (The Storage Room)
-O 0 7815 0 7846		* a potion (The Storage Room)
-O 0 7816 0 7846		* a potion (The Storage Room)
-O 0 7819 0 7846		* a scroll (The Storage Room)
+O 0 7809 0 7846	* a potion (The Storage Room)
+O 0 7823 0 7846	* a scroll (The Storage Room)
+O 0 7820 0 7846	* a scroll (The Storage Room)
+O 0 7817 0 7846	* a scroll (The Storage Room)
+O 0 7815 0 7846	* a potion (The Storage Room)
+O 0 7816 0 7846	* a potion (The Storage Room)
+O 0 7819 0 7846	* a scroll (The Storage Room)
 M 0 7806 5 7847 2	* a valley elf (The Sleeping Quarters)
 M 0 7806 5 7847 2	* a valley elf (The Sleeping Quarters)
 M 0 7803 4 7848 1	* a valley elf sentry (Study)
@@ -2295,44 +2285,19 @@ G 0 7805 0		*	a key
 M 0 7811 1 7881 1	* Talemon (The Workroom)
 E 0 7806 0 1		*	a gold ring: on the left finger
 E 0 7807 0 16		*	a quarterstaff: wielded
-O 0 7808 0 7882		* a potion (The Storage Room)
-O 0 7822 0 7882		* a scroll (The Storage Room)
-O 0 7821 0 7882		* a scroll (The Storage Room)
-O 0 7810 0 7882		* a potion (The Storage Room)
-O 0 7812 0 7882		* a potion (The Storage Room)
-O 0 7811 0 7882		* a potion (The Storage Room)
-O 0 7820 0 7882		* a scroll (The Storage Room)
-O 0 7815 0 7882		* a potion (The Storage Room)
-O 0 7818 0 7882		* a scroll (The Storage Room)
-O 0 7814 0 7882		* a potion (The Storage Room)
-O 0 7813 0 7882		* a potion (The Storage Room)
-O 0 7823 0 7882		* a scroll (The Storage Room)
+O 0 7808 0 7882	* a potion (The Storage Room)
+O 0 7822 0 7882	* a scroll (The Storage Room)
+O 0 7821 0 7882	* a scroll (The Storage Room)
+O 0 7810 0 7882	* a potion (The Storage Room)
+O 0 7812 0 7882	* a potion (The Storage Room)
+O 0 7811 0 7882	* a potion (The Storage Room)
+O 0 7820 0 7882	* a scroll (The Storage Room)
+O 0 7815 0 7882	* a potion (The Storage Room)
+O 0 7818 0 7882	* a scroll (The Storage Room)
+O 0 7814 0 7882	* a potion (The Storage Room)
+O 0 7813 0 7882	* a potion (The Storage Room)
+O 0 7823 0 7882	* a scroll (The Storage Room)
 M 0 7812 1 7882 1	* the guardian daemon (The Storage Room)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 10
 End
 
-
-
 #MOBILES
 #101
 oldstyle smurf~
@@ -191,8 +189,6 @@ stand stand male 1
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #100
 bunch berries smurfberries~
@@ -281,8 +277,6 @@ key 0 A
 B 0 0 0 0
 0 20 0 P
 #0
-
-
 
 #ROOMS
 #101
@@ -838,8 +832,6 @@ Z -1 107
 S
 #0
 
-
-
 #SPECIALS
 M 101 spec_thief	* a smurf
 M 102 spec_thief	* a smurf
@@ -855,8 +847,6 @@ M 111 spec_cast_cleric	* Gargamel
 M 112 spec_poison	* Azreal
 S
 
-
-
 #RESETS
 M 0 101 8 104 1	* a smurf (Entrance to Smurf Village)
 G 0 102 0		*	a smurf hat
@@ -864,7 +854,7 @@ M 0 101 8 105 1	* a smurf (Smurfy Road)
 M 0 101 8 107 1	* a smurf (Smurfy Road)
 M 0 101 8 108 1	* a smurf (Smurfy Road)
 G 0 102 0		*	a smurf hat
-O 0 108 0 109		* a smurf well (Smurfy Road)
+O 0 108 0 109	* a smurf well (Smurfy Road)
 M 0 101 8 109 1	* a smurf (Smurfy Road)
 M 0 101 8 110 1	* a smurf (Smurfy Road)
 G 0 102 0		*	a smurf hat
@@ -896,30 +886,5 @@ M 0 109 1 129 1	* Smurfette (Smurfette's House)
 E 0 104 0 3		*	a small necklace: around the neck (1)
 G 0 107 0		*	a tiny key
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

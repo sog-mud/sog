@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 25
 End
 
-
-
 #MOBILES
 #6500
 oldstyle dwarf guard~
@@ -273,8 +271,6 @@ stand stand male 175
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #6502
 key green~
@@ -495,8 +491,6 @@ trash T AO
 0 0 0 0 0
 0 30 0 P
 #0
-
-
 
 #ROOMS
 #6500
@@ -1326,13 +1320,6 @@ Z -1 4000
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 D 0 6505 3 2	* Entrance to Mountain: door to the west: closed and locked
 D 0 6509 1 2	* Door to Kingdom: door to the east: closed and locked
@@ -1354,7 +1341,7 @@ D 0 6544 0 2	* Mine crossroad: door to the north: closed and locked
 D 0 6546 2 2	* Mine Maze: door to the south: closed and locked
 M 0 6501 6 6501 2	* the dwarven worker (Path, base of mountain)
 M 0 6501 6 6502 2	* the dwarven worker (Path, middle of mountain)
-O 0 6507 0 6503		* long, black stick (Top of mountain)
+O 0 6507 0 6503	* long, black stick (Top of mountain)
 M 0 6501 6 6503 2	* the dwarven worker (Top of mountain)
 M 0 6500 10 6505 2	* the dwarven guard (Entrance to Mountain)
 E 0 6504 0 16		*	a hammer: wielded
@@ -1363,7 +1350,7 @@ G 0 6502 0		*	a deep green key
 M 0 6500 10 6505 2	* the dwarven guard (Entrance to Mountain)
 E 0 6504 0 16		*	a hammer: wielded
 E 0 6505 0 5		*	dwarven plate mail: on the body
-O 0 6507 0 6505		* long, black stick (Entrance to Mountain)
+O 0 6507 0 6505	* long, black stick (Entrance to Mountain)
 M 0 6518 1 6505 1	* the dwarven worker (Entrance to Mountain)
 G 0 6521 0		*	a chunk of iron bars
 G 0 6522 0		*	a hammer
@@ -1380,7 +1367,7 @@ M 0 6500 10 6512 2	* the dwarven guard (Door to Castle)
 E 0 6504 0 16		*	a hammer: wielded
 M 0 6500 10 6512 2	* the dwarven guard (Door to Castle)
 E 0 6504 0 16		*	a hammer: wielded
-O 0 6507 0 6513		* long, black stick (Inside the entrance)
+O 0 6507 0 6513	* long, black stick (Inside the entrance)
 M 0 6505 2 6515 1	* the giant lizard (Turn in road)
 M 0 6503 1 6516 1	* the storekeeper (Hide & Tooth Shop)
 G 0 6504 0		*	a hammer
@@ -1403,7 +1390,7 @@ E 0 6514 0 17		*	a castle key: held in the hands
 M 0 6511 8 6523 6	* the dwarf (First Barrack room)
 M 0 6511 8 6523 6	* the dwarf (First Barrack room)
 M 0 6511 8 6524 6	* the dwarf (Back of Barracks)
-O 0 6513 0 6524		* a note (Back of Barracks)
+O 0 6513 0 6524	* a note (Back of Barracks)
 M 0 6502 2 6524 1	* the wraith (Back of Barracks)
 M 0 6511 8 6524 6	* the dwarf (Back of Barracks)
 G 0 6520 0		*	a map of Castle Strangelove
@@ -1415,8 +1402,8 @@ M 0 6513 3 6529 2	* the unwanted daughter (Stairs)
 M 0 6513 3 6530 2	* the unwanted daughter (Top of stairs)
 M 0 6515 4 6531 4	* the man in waiting (Queen's waiting room)
 M 0 6515 4 6531 4	* the man in waiting (Queen's waiting room)
-O 0 6516 0 6532		* a mine key (Bedroom)
-O 0 6506 0 6534		* long, black stick (Hospital)
+O 0 6516 0 6532	* a mine key (Bedroom)
+O 0 6506 0 6534	* long, black stick (Hospital)
 M 0 6510 4 6534 4	* the dwarven peon (Hospital)
 M 0 6510 4 6534 4	* the dwarven peon (Hospital)
 M 0 6509 1 6534 1	* the dwarven doctor (Hospital)
@@ -1435,7 +1422,7 @@ G 0 6502 0		*	a deep green key
 M 0 6500 10 6540 2	* the dwarven guard (Dark path)
 E 0 6504 0 16		*	a hammer: wielded
 E 0 6505 0 5		*	dwarven plate mail: on the body
-O 0 6507 0 6540		* long, black stick (Dark path)
+O 0 6507 0 6540	* long, black stick (Dark path)
 M 0 6507 4 6542 2	* the dwarven miner (Inside the mine)
 E 0 6508 0 16		*	dwarven club: wielded
 M 0 6507 4 6543 3	* the dwarven miner (Path in the mine)
@@ -1445,39 +1432,17 @@ E 0 6508 0 16		*	dwarven club: wielded
 M 0 6508 2 6543 2	* the dwarven mine leader (Path in the mine)
 E 0 6512 0 9		*	dwarven gloves: on the hands
 E 0 6504 0 16		*	a hammer: wielded
-O 0 6517 0 6545		* a chunk of coal (Coal Room)
+O 0 6517 0 6545	* a chunk of coal (Coal Room)
 M 0 6517 2 6548 1	* the giant snake (Maze)
 M 0 6517 2 6549 1	* the giant snake (Maze)
-O 0 6518 0 6551		* a mining pick (Mining equipment room)
+O 0 6518 0 6551	* a mining pick (Mining equipment room)
 M 0 6516 1 6553 1	* the mazekeeper (The Mazekeeper's Room)
 G 0 6519 0		*	a box of birth control pills
 S
-
-
 
 #SHOPS
 6503 0 0 0 0 0 150 50 0 23
 6504 0 0 0 0 0 150 50 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

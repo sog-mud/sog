@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 30
 End
 
-
-
 #MOBILES
 #9201
 mountain climber mountainclimber~
@@ -552,8 +550,6 @@ stand stand none 400
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #9201
 ring earth~
@@ -871,9 +867,337 @@ potion 0 AO
 0 10 250 P
 #0
 
-
-
 #ROOMS
+#9201
+A Mountain Path~
+You are on a mountain path which ascends a steep mountainside.  The trail
+curves around the mountain so that you cannot really see what lies ahead.
+You do sense great power though coming from the area behind the mountain.
+~
+0 0 5
+D0
+~
+~
+Z -1 5267
+D4
+~
+~
+Z -1 9202
+S
+#9202
+A Mountain Path~
+You are on a rocky mountain path leading up and around a steep mountainside.
+You sense a glow from the area beyond the mountain, which you cannot see yet.
+~
+0 0 5
+D0
+Gateway to abysis.
+~
+~
+Z -1 25000
+D4
+~
+~
+Z -1 9203
+D5
+~
+~
+Z -1 9201
+S
+#9203
+Mountainside Tombs~
+There are a few stone heaps here and there, the tombs of those who did not
+last the arduous journey up the mountain.  Curiously you notice a few
+uncovered bodies which don't seem to have died of exhaustion.  The path curves
+east around the mountain.
+~
+0 0 5
+E
+bodies body dead~
+They look as if their necks have been broken and their flesh, chewed.
+~
+E
+heaps stones tombs~
+You are sure glad that YOU aren't under one of those piles!
+Many of the tombstones have the same name on them, 'Raff'.  He must come
+here a lot.
+~
+D4
+~
+~
+Z -1 9204
+D5
+~
+~
+Z -1 9202
+S
+#9204
+A Blind Curve on the Mountain Path.~
+This looks like a normal mountain path, but it is NOT!  This section of the
+path is habitated by a huge (and of course, man-eating) Cyclops.  The path
+makes its final ascent to an overlook.
+~
+0 0 5
+D4
+~
+~
+Z -1 9205
+D5
+~
+~
+Z -1 9203
+S
+#9205
+Vista~
+This is a stunning vista overlooking a canyon.  There is a sign here that says:
+	BEHOLD -- ELEMENTAL CANYON
+Fire leaps up from firepits in the western part of the canyon.  The sky looks
+funny, and the air seems hazy to the northwest.  Electricity sparks
+intermittently in the northeast.  To the east you see a strong, magic-looking
+river flowing through the canyon.  Also to the east you spy a cave entrance
+leading into the canyon wall.  The path descends to the north to another
+overlook.
+~
+0 0 5
+D0
+~
+~
+Z -1 9206
+D5
+~
+~
+Z -1 9204
+S
+#9206
+The Overlook~
+You see various elemental servants wandering around the canyon.  The noise of
+humming coming from the canyon gets louder.  The path makes a steep descent
+into the canyon here.
+~
+0 0 5
+D2
+~
+~
+Z -1 9205
+D5
+~
+~
+Z -1 9207
+S
+#9207
+Entrance to Elemental Canyon~
+You are awed by the sounds and sights of great powers at works here.
+Elemental servants bustle back and forth doing the biddings of the elemental
+rulers.  You see a sort of cross roads to the north, and you can climb up to
+the overlook here.
+~
+0 0 3
+D0
+~
+~
+Z -1 9209
+D4
+~
+~
+Z -1 9206
+S
+#9208
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at all.
+In general, it is calm, yet there is always a incessant buzz of things
+going on about.  The canyon continues north and east.
+~
+0 0 3
+D0
+~
+~
+Z -1 9211
+D1
+~
+~
+Z -1 9209
+S
+#9209
+Elemental Gateway~
+To the west a path dips and winds among some flowing firepits.  To the
+northeast a path goes toward the river.  Beyond toward the northeast and
+northwest are outcrops which rise up from the canyon floor. To the east there
+is a cave mouth which leads into the canyon wall.  And to the south the path
+leads up, away, and out of the canyon.  Various pure and cross-breeds of
+elemental forms wander the canyon floor, which extends in a wide swath
+northwards. To the up you see the Combat Magician Chamber and a magical
+force helps you to fly through to chamber.
+~
+0 CD 0
+D0
+~
+~
+Z -1 9212
+D1
+~
+~
+Z -1 9210
+D2
+~
+~
+Z -1 9207
+D3
+~
+~
+Z -1 9208
+D4
+~
+Entrance to the Combat Magician Chamber.
+~
+Z -1 9261
+S
+#9210
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always a incessant buzz of
+things going on about.  The canyon floor extends north and west.  There is a
+cave mouth set into the canyon wall to the east.
+~
+0 0 3
+D0
+~
+~
+Z -1 9213
+D1
+~
+~
+Z -1 9220
+D3
+~
+~
+Z -1 9209
+S
+#9211
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends off to the north, east,
+and south.
+~
+0 0 3
+D0
+~
+~
+Z -1 9214
+D1
+~
+~
+Z -1 9212
+D2
+~
+~
+Z -1 9208
+S
+#9212
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends in all directions.
+~
+0 0 3
+D0
+~
+~
+Z -1 9215
+D1
+~
+~
+Z -1 9213
+D2
+~
+~
+Z -1 9209
+D3
+~
+~
+Z -1 9211
+S
+#9213
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends north, south, and west.
+A path follows a stream to the east.
+~
+0 0 3
+D0
+~
+~
+Z -1 9216
+D1
+~
+~
+Z -1 9228
+D2
+~
+~
+Z -1 9210
+D3
+~
+~
+Z -1 9212
+S
+#9214
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about. The canyon floor extends north, east, and south.
+To the west a garden is on fire.
+~
+0 0 3
+D0
+~
+~
+Z -1 9217
+D1
+~
+~
+Z -1 9215
+D2
+~
+~
+Z -1 9211
+D3
+~
+~
+Z -1 9237
+S
+#9215
+The Floor of the Canyon~
+Various elemental forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends in all directions.
+~
+0 0 3
+D0
+~
+~
+Z -1 9218
+D1
+~
+~
+Z -1 9216
+D2
+~
+~
+Z -1 9212
+D3
+~
+~
+Z -1 9214
+S
 #9216
 The Floor of the Canyon~
 Various elemental forms wander the floor of the canyon.  Some seem to be
@@ -1612,341 +1936,17 @@ D5
 ~
 Z -1 9209
 S
-#9201
-A Mountain Path~
-You are on a mountain path which ascends a steep mountainside.  The trail
-curves around the mountain so that you cannot really see what lies ahead.
-You do sense great power though coming from the area behind the mountain.
-~
-0 0 5
-D0
-~
-~
-Z -1 5267
-D4
-~
-~
-Z -1 9202
-S
-#9202
-A Mountain Path~
-You are on a rocky mountain path leading up and around a steep mountainside.
-You sense a glow from the area beyond the mountain, which you cannot see yet.
-~
-0 0 5
-D0
-Gateway to abysis.
-~
-~
-Z -1 25000
-D4
-~
-~
-Z -1 9203
-D5
-~
-~
-Z -1 9201
-S
-#9203
-Mountainside Tombs~
-There are a few stone heaps here and there, the tombs of those who did not
-last the arduous journey up the mountain.  Curiously you notice a few
-uncovered bodies which don't seem to have died of exhaustion.  The path curves
-east around the mountain.
-~
-0 0 5
-E
-bodies body dead~
-They look as if their necks have been broken and their flesh, chewed.
-~
-E
-heaps stones tombs~
-You are sure glad that YOU aren't under one of those piles!
-Many of the tombstones have the same name on them, 'Raff'.  He must come
-here a lot.
-~
-D4
-~
-~
-Z -1 9204
-D5
-~
-~
-Z -1 9202
-S
-#9204
-A Blind Curve on the Mountain Path.~
-This looks like a normal mountain path, but it is NOT!  This section of the
-path is habitated by a huge (and of course, man-eating) Cyclops.  The path
-makes its final ascent to an overlook.
-~
-0 0 5
-D4
-~
-~
-Z -1 9205
-D5
-~
-~
-Z -1 9203
-S
-#9205
-Vista~
-This is a stunning vista overlooking a canyon.  There is a sign here that says:
-	BEHOLD -- ELEMENTAL CANYON
-Fire leaps up from firepits in the western part of the canyon.  The sky looks
-funny, and the air seems hazy to the northwest.  Electricity sparks
-intermittently in the northeast.  To the east you see a strong, magic-looking
-river flowing through the canyon.  Also to the east you spy a cave entrance
-leading into the canyon wall.  The path descends to the north to another
-overlook.
-~
-0 0 5
-D0
-~
-~
-Z -1 9206
-D5
-~
-~
-Z -1 9204
-S
-#9206
-The Overlook~
-You see various elemental servants wandering around the canyon.  The noise of
-humming coming from the canyon gets louder.  The path makes a steep descent
-into the canyon here.
-~
-0 0 5
-D2
-~
-~
-Z -1 9205
-D5
-~
-~
-Z -1 9207
-S
-#9207
-Entrance to Elemental Canyon~
-You are awed by the sounds and sights of great powers at works here.
-Elemental servants bustle back and forth doing the biddings of the elemental
-rulers.  You see a sort of cross roads to the north, and you can climb up to
-the overlook here.
-~
-0 0 3
-D0
-~
-~
-Z -1 9209
-D4
-~
-~
-Z -1 9206
-S
-#9208
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at all.
-In general, it is calm, yet there is always a incessant buzz of things
-going on about.  The canyon continues north and east.
-~
-0 0 3
-D0
-~
-~
-Z -1 9211
-D1
-~
-~
-Z -1 9209
-S
-#9209
-Elemental Gateway~
-To the west a path dips and winds among some flowing firepits.  To the
-northeast a path goes toward the river.  Beyond toward the northeast and
-northwest are outcrops which rise up from the canyon floor. To the east there
-is a cave mouth which leads into the canyon wall.  And to the south the path
-leads up, away, and out of the canyon.  Various pure and cross-breeds of
-elemental forms wander the canyon floor, which extends in a wide swath
-northwards. To the up you see the Combat Magician Chamber and a magical
-force helps you to fly through to chamber.
-~
-0 CD 0
-D0
-~
-~
-Z -1 9212
-D1
-~
-~
-Z -1 9210
-D2
-~
-~
-Z -1 9207
-D3
-~
-~
-Z -1 9208
-D4
-~
-Entrance to the Combat Magician Chamber.
-~
-Z -1 9261
-S
-#9210
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at
-all.  In general, it is calm, yet there is always a incessant buzz of
-things going on about.  The canyon floor extends north and west.  There is a
-cave mouth set into the canyon wall to the east.
-~
-0 0 3
-D0
-~
-~
-Z -1 9213
-D1
-~
-~
-Z -1 9220
-D3
-~
-~
-Z -1 9209
-S
-#9211
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at
-all.  In general, it is calm, yet there is always an incessant buzz of
-things going on about.  The canyon floor extends off to the north, east,
-and south.
-~
-0 0 3
-D0
-~
-~
-Z -1 9214
-D1
-~
-~
-Z -1 9212
-D2
-~
-~
-Z -1 9208
-S
-#9212
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at
-all.  In general, it is calm, yet there is always an incessant buzz of
-things going on about.  The canyon floor extends in all directions.
-~
-0 0 3
-D0
-~
-~
-Z -1 9215
-D1
-~
-~
-Z -1 9213
-D2
-~
-~
-Z -1 9209
-D3
-~
-~
-Z -1 9211
-S
-#9213
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at
-all.  In general, it is calm, yet there is always an incessant buzz of
-things going on about.  The canyon floor extends north, south, and west.
-A path follows a stream to the east.
-~
-0 0 3
-D0
-~
-~
-Z -1 9216
-D1
-~
-~
-Z -1 9228
-D2
-~
-~
-Z -1 9210
-D3
-~
-~
-Z -1 9212
-S
-#9214
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at
-all.  In general, it is calm, yet there is always an incessant buzz of
-things going on about. The canyon floor extends north, east, and south.
-To the west a garden is on fire.
-~
-0 0 3
-D0
-~
-~
-Z -1 9217
-D1
-~
-~
-Z -1 9215
-D2
-~
-~
-Z -1 9211
-D3
-~
-~
-Z -1 9237
-S
-#9215
-The Floor of the Canyon~
-Various elemental forms wander the floor of the canyon.  Some seem to be
-going about their business, while others seem to have no business at
-all.  In general, it is calm, yet there is always an incessant buzz of
-things going on about.  The canyon floor extends in all directions.
-~
-0 0 3
-D0
-~
-~
-Z -1 9218
-D1
-~
-~
-Z -1 9216
-D2
-~
-~
-Z -1 9212
-D3
-~
-~
-Z -1 9214
-S
 #0
 
-
-
 #SPECIALS
+M 9202 spec_cast_cleric	* the cyclops
+M 9204 spec_breath_any	* the elemental guardian
+M 9207 spec_breath_any	* a large elemental
+M 9208 spec_cast_cleric	* the Earth Ruler
+M 9209 spec_breath_fire	* the Fire Ruler
+M 9210 spec_breath_gas	* The Air Ruler
+M 9211 spec_breath_lightning	* The Lightning Ruler
+M 9212 spec_breath_acid	* The Water Ruler
 M 9219 spec_breath_acid	* a small blob of acid
 M 9223 spec_breath_lightning	* a particle
 M 9224 spec_thief	* a dust cloud
@@ -1963,19 +1963,40 @@ M 9235 spec_breath_any	* a baby rainbow dragon
 M 9237 spec_breath_any	* a HUGE elemental
 M 9238 spec_cast_mage	* the elixir vendor
 M 9239 spec_cast_mage	* The Combat Magician
-M 9202 spec_cast_cleric	* the cyclops
-M 9204 spec_breath_any	* the elemental guardian
-M 9207 spec_breath_any	* a large elemental
-M 9208 spec_cast_cleric	* the Earth Ruler
-M 9209 spec_breath_fire	* the Fire Ruler
-M 9210 spec_breath_gas	* The Air Ruler
-M 9211 spec_breath_lightning	* The Lightning Ruler
-M 9212 spec_breath_acid	* The Water Ruler
 S
 
-
-
 #RESETS
+M 0 9201 3 9201 3	* the mountain climber (A Mountain Path)
+M 0 9201 3 9202 3	* the mountain climber (A Mountain Path)
+G 0 9231 0		*	anti-cyclops elixir
+M 0 9236 15 9202 15	* a little imp (A Mountain Path)
+M 0 9201 3 9203 3	* the mountain climber (Mountainside Tombs)
+M 0 9238 1 9203 1	* the elixir vendor (Mountainside Tombs)
+G 0 9231 0		*	anti-cyclops elixir
+M 0 9202 0 9204 0	* the cyclops (A Blind Curve on the Mountain Path.)
+E 0 9213 0 10		*	a platinum arm band: on the arms
+E 0 9214 0 7		*	some platinum leg bands: on the legs
+M 0 9205 12 9207 12	* a small elemental (Entrance to Elemental Canyon)
+M 0 9236 15 9207 15	* a little imp (Entrance to Elemental Canyon)
+M 0 9203 15 9208 15	* a tiny elemental (The Floor of the Canyon)
+M 0 9232 8 9208 8	* a rainbow warrior (The Floor of the Canyon)
+M 0 9204 1 9209 1	* the elemental guardian (Elemental Gateway)
+E 0 9211 0 3		*	an elemental amulet: around the neck (1)
+E 0 9212 0 14		*	an elemental bracelet: on the left wrist
+M 0 9205 12 9209 12	* a small elemental (Elemental Gateway)
+M 0 9207 6 9209 6	* a large elemental (Elemental Gateway)
+M 0 9232 8 9209 8	* a rainbow warrior (Elemental Gateway)
+E 0 9220 0 16		*	a stone club: wielded
+M 0 9203 15 9210 15	* a tiny elemental (The Floor of the Canyon)
+M 0 9223 8 9210 8	* a particle (The Floor of the Canyon)
+M 0 9231 5 9211 5	* an elemental magician (The Floor of the Canyon)
+E 0 9215 0 17		*	elemental wand of fire: held in the hands
+M 0 9206 9 9212 9	* a medium elemental (The Floor of the Canyon)
+E 0 9221 0 17		*	a lodestone: held in the hands
+M 0 9216 5 9212 5	* a small snowflake (The Floor of the Canyon)
+M 0 9222 8 9213 8	* an elemental mist (The Floor of the Canyon)
+M 0 9203 15 9215 15	* a tiny elemental (The Floor of the Canyon)
+M 0 9203 15 9215 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9231 5 9216 5	* an elemental magician (The Floor of the Canyon)
 E 0 9215 0 17		*	elemental wand of fire: held in the hands
 M 0 9203 15 9217 15	* a tiny elemental (The Floor of the Canyon)
@@ -2112,55 +2133,15 @@ E 0 9220 0 16		*	a stone club: wielded
 M 0 9225 15 9260 15	* an eddie (Air Chamber)
 M 0 9225 15 9260 15	* an eddie (Air Chamber)
 M 0 9239 1 9261 1	* The Combat Magician (The Combat Magician Chamber)
-M 0 9201 3 9201 3	* the mountain climber (A Mountain Path)
-M 0 9201 3 9202 3	* the mountain climber (A Mountain Path)
-G 0 9231 0		*	anti-cyclops elixir
-M 0 9236 15 9202 15	* a little imp (A Mountain Path)
-M 0 9201 3 9203 3	* the mountain climber (Mountainside Tombs)
-M 0 9238 1 9203 1	* the elixir vendor (Mountainside Tombs)
-G 0 9231 0		*	anti-cyclops elixir
-M 0 9202 0 9204 0	* the cyclops (A Blind Curve on the Mountain Path.)
-E 0 9213 0 10		*	a platinum arm band: on the arms
-E 0 9214 0 7		*	some platinum leg bands: on the legs
-M 0 9205 12 9207 12	* a small elemental (Entrance to Elemental Canyon)
-M 0 9236 15 9207 15	* a little imp (Entrance to Elemental Canyon)
-M 0 9203 15 9208 15	* a tiny elemental (The Floor of the Canyon)
-M 0 9232 8 9208 8	* a rainbow warrior (The Floor of the Canyon)
-M 0 9204 1 9209 1	* the elemental guardian (Elemental Gateway)
-E 0 9211 0 3		*	an elemental amulet: around the neck (1)
-E 0 9212 0 14		*	an elemental bracelet: on the left wrist
-M 0 9205 12 9209 12	* a small elemental (Elemental Gateway)
-M 0 9207 6 9209 6	* a large elemental (Elemental Gateway)
-M 0 9232 8 9209 8	* a rainbow warrior (Elemental Gateway)
-E 0 9220 0 16		*	a stone club: wielded
-M 0 9203 15 9210 15	* a tiny elemental (The Floor of the Canyon)
-M 0 9223 8 9210 8	* a particle (The Floor of the Canyon)
-M 0 9231 5 9211 5	* an elemental magician (The Floor of the Canyon)
-E 0 9215 0 17		*	elemental wand of fire: held in the hands
-M 0 9206 9 9212 9	* a medium elemental (The Floor of the Canyon)
-E 0 9221 0 17		*	a lodestone: held in the hands
-M 0 9216 5 9212 5	* a small snowflake (The Floor of the Canyon)
-M 0 9222 8 9213 8	* an elemental mist (The Floor of the Canyon)
-M 0 9203 15 9215 15	* a tiny elemental (The Floor of the Canyon)
-M 0 9203 15 9215 15	* a tiny elemental (The Floor of the Canyon)
 S
-
-
 
 #SHOPS
 9238 0 0 0 0 0 105 15 0 23
 0
 
-
-
 #OLIMITS
 O 9205 2	* the wind boots
 S
-
-
-
-#MOBPROGS
-#0
 
 #PRACTICERS
 M 9208 draconian	* the Earth Ruler
@@ -2171,13 +2152,9 @@ M 9212 draconian	* The Water Ruler
 M 9239 combat	* The Combat Magician
 S
 
-
-
 #OMPROGS
 O 9205 wear_prog wear_prog_wind_boots	* `the wind boots'
 O 9205 remove_prog remove_prog_wind_boots	* `the wind boots'
 S
-
-
 
 #$

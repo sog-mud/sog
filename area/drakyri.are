@@ -7,8 +7,6 @@ Security 9
 LevelRange 65 90
 End
 
-
-
 #MOBILES
 #11800
 drakyri deriki lechandre deia lady~
@@ -1465,8 +1463,6 @@ CDEFHIK A D HIP
 stand stand female 82000
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #11800
@@ -3052,8 +3048,6 @@ pill B A
 65 'teleport' 'teleport' 'heal' 'invisibility'
 55 10 300 P
 #0
-
-
 
 #ROOMS
 #11800
@@ -5575,8 +5569,6 @@ ABZ -1 11895
 S
 #0
 
-
-
 #SPECIALS
 M 11800 spec_cast_mage	* Lechandre
 M 11801 spec_cast_mage	* Noriek
@@ -5616,8 +5608,6 @@ M 11884 spec_cast_mage	* a drakyri mage protector
 M 11885 spec_cast_cleric	* a drakyri healer
 M 11888 spec_breath_any	* The Warden
 S
-
-
 
 #RESETS
 D 0 11802 1 1	* Silvery Gates: door to the east: closed
@@ -5718,7 +5708,7 @@ D 0 11896 2 1	* Candlelit Bedroom: door to the south: closed
 D 0 11897 1 1	* Teak Panelled Bedroom: door to the east: closed
 D 0 11898 0 1	* Booklined Bedroom: door to the north: closed
 D 0 11899 5 1	* Sunlit Bedchamber: door to the down: closed
-O 0 11804 0 11801		* a pool of water (Strange Grove)
+O 0 11804 0 11801	* a pool of water (Strange Grove)
 M 0 11888 1 11802 1	* The Warden (Silvery Gates)
 M 0 11883 6 11803 2	* a drakyri knight protector (Shimmering Pathway)
 E 0 11894 0 10		*	drakyri arm guards: on the arms
@@ -5747,7 +5737,7 @@ M 0 11876 1 11811 1	* The Claw (End of the narrow path)
 E 0 11887 0 9		*	laerkai pain: on the hands
 M 0 11886 3 11811 1	* a drakyri assassin (End of the narrow path)
 E 0 11897 0 16		*	a drakyri dagger: wielded
-O 0 11806 0 11812		* a black counter (Outside of space)
+O 0 11806 0 11812	* a black counter (Outside of space)
 M 0 11874 1 11812 1	* The Flame (Outside of space)
 E 0 11885 0 18		*	laerkai fury: floating nearby
 M 0 11883 6 11812 1	* a drakyri knight protector (Outside of space)
@@ -5769,18 +5759,18 @@ E 0 11896 0 15		*	a drakyri wrist guard: on the right wrist
 M 0 11881 1 11815 1	* The Guardian (Chamber of the Guardian)
 G 0 11805 0		*	the guardian's key
 M 0 11884 7 11815 1	* a drakyri mage protector (Chamber of the Guardian)
-O 0 11807 0 11816		* a shimmering curtain (Council Chamber)
+O 0 11807 0 11816	* a shimmering curtain (Council Chamber)
 M 0 11882 1 11816 1	* The Mediator (Council Chamber)
 E 0 11893 0 0		*	flame of balance: as a light
 M 0 11877 1 11817 1	* The Shadow (Hidden lane)
 E 0 11888 0 8		*	laerkai stealth: on the feet
 M 0 11886 3 11817 1	* a drakyri assassin (Hidden lane)
 E 0 11897 0 16		*	a drakyri dagger: wielded
-O 0 11808 0 11818		* a large stone table (Laerkai Headquarters)
+O 0 11808 0 11818	* a large stone table (Laerkai Headquarters)
 M 0 11880 1 11818 1	* the Laerkai Master (Laerkai Headquarters)
 E 0 11891 0 14		*	laerkai power: on the left wrist
 E 0 11892 0 16		*	a honed shortsword 'Zedraikis': wielded
-O 0 11800 0 11819		* a blue marble fountain (Blue stone courtyard)
+O 0 11800 0 11819	* a blue marble fountain (Blue stone courtyard)
 M 0 11813 2 11820 1	* a glyph of warding (Blue Marble Corridor)
 G 0 11822 0		*	a staff of guarding
 M 0 11811 4 11822 2	* a mage in training (Dining Hall)
@@ -5940,7 +5930,7 @@ E 0 11869 0 15		*	a bracer of power: on the right wrist
 M 0 11852 1 11889 1	* Ryke (Marble Bedchamber)
 E 0 11870 0 11		*	a ][+][ shield: as a shield
 M 0 11873 1 11890 1	* the guardian spirit (Jade Entry Hall)
-O 0 11803 0 11892		* the lapis statue (Shrine of Healing)
+O 0 11803 0 11892	* the lapis statue (Shrine of Healing)
 M 0 11865 1 11892 1	* Jorinne (Shrine of Healing)
 E 0 11879 0 15		*	an inlaid silver -(+)- bracelet: on the right wrist
 M 0 11866 1 11892 1	* Lerylke (Shrine of Healing)
@@ -5962,13 +5952,9 @@ E 0 11884 0 8		*	some tooled -(+)- boots: on the feet
 M 0 11871 1 11899 1	* the white cat (Sunlit Bedchamber)
 S
 
-
-
 #SHOPS
 11887 3 8 9 10 26 105 95 0 23
 0
-
-
 
 #OLIMITS
 O 11838 2	* a pair of taloned gloves
@@ -5978,20 +5964,5 @@ O 11887 2	* laerkai pain
 O 11891 2	* laerkai power
 O 11893 2	* flame of balance
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 35
 End
 
-
-
 #MOBILES
 #8000
 oldstyle juve~
@@ -210,8 +208,6 @@ EFNU 0 0 0
 stand stand male 0
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #8000
@@ -436,8 +432,6 @@ weapon 0 AN
 mace 3 9 pound G
 23 20 1160 P
 #0
-
-
 
 #ROOMS
 #8001
@@ -970,8 +964,6 @@ ABCFZ 8012 8027
 S
 #0
 
-
-
 #SPECIALS
 M 8003 spec_cast_judge	* a Citi-Def Militiaman
 M 8004 spec_thief	* a dunk
@@ -979,8 +971,6 @@ M 8006 spec_cast_judge	* a rookie judge
 M 8010 spec_cast_judge	* Judge Eckersely
 M 8011 spec_cast_judge	* Judge Beddows
 S
-
-
 
 #RESETS
 D 0 8016 1 1	* Threep Lane: door to the east: closed
@@ -1042,36 +1032,11 @@ E 0 8011 0 16		*	a Judge's club: wielded
 M 0 8007 1 8027 1	* Wallaby Gleep (Stockroom of Throt & Gleep's Megger Store)
 E 0 8016 0 16		*	a police stun stick: wielded
 G 0 8012 0		*	a vault key
-O 0 8004 0 8028		* the magnetically shielded safe (Throt & Gleep's Vault)
+O 0 8004 0 8028	* the magnetically shielded safe (Throt & Gleep's Vault)
 M 0 8008 1 8028 1	* Pinkerton Throt (Throt & Gleep's Vault)
 E 0 8016 0 16		*	a police stun stick: wielded
 G 0 8005 0		*	a code box
 P 0 8007 10 8004 1	* the magnetically shielded safe: the vibroblade
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 60
 End
 
-
-
 #MOBILES
 #901
 oldstyle zeus god~
@@ -409,8 +407,6 @@ stand stand male 50
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #900
 aegis plate~
@@ -747,8 +743,6 @@ A
 A
 18 1
 #0
-
-
 
 #ROOMS
 #901
@@ -1521,8 +1515,6 @@ Z -1 938
 S
 #0
 
-
-
 #SPECIALS
 M 901 spec_cast_cleric	* Zeus
 M 902 spec_breath_fire	* Prometheus
@@ -1540,8 +1532,6 @@ M 922 spec_poison	* a roc
 M 923 spec_thief	* A citizen
 M 926 spec_cast_mage	* The Jailer
 S
-
-
 
 #RESETS
 D 0 910 5 1	* Throne Room: door to the down: closed
@@ -1659,29 +1649,15 @@ M 0 913 5 954 5	* A hound of war (The Believer)
 M 0 913 5 954 5	* A hound of war (The Believer)
 S
 
-
-
 #SHOPS
 915 1 8 13 15 19 120 80 0 23
 0
-
-
 
 #OLIMITS
 O 901 1	* the Thunder Bolt
 O 908 2	* flaming gauntlets
 O 923 1	* the Sword of the Sun
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
 
 #OMPROGS
 O 901 fight_prog fight_prog_shockwave	* `the Thunder Bolt'
@@ -1691,7 +1667,5 @@ O 908 fight_prog fight_prog_firegauntlets	* `flaming gauntlets'
 O 923 wear_prog wear_prog_excalibur	* `the Sword of the Sun'
 O 923 fight_prog fight_prog_vorpalblade	* `the Sword of the Sun'
 S
-
-
 
 #$

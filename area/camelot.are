@@ -7,8 +7,6 @@ Security 9
 LevelRange 20 52
 End
 
-
-
 #MOBILES
 #17301
 knight reknown~
@@ -972,8 +970,6 @@ stand stand female 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #17301
 dagger squire~
@@ -1703,8 +1699,6 @@ hat~
 Inscribed in the hatband is the message 'I belong to Lok'
 ~
 #0
-
-
 
 #ROOMS
 #17301
@@ -3831,8 +3825,6 @@ This is actual stables where the horses are kept to be sold.
 S
 #0
 
-
-
 #SPECIALS
 M 17301 spec_guard	* The knight of reknown
 M 17303 spec_guard	* the knight of quality
@@ -3844,8 +3836,6 @@ M 17316 spec_breath_lightning	* the Questing Beast
 M 17318 spec_thief	* Mordred
 M 17337 spec_breath_fire	* A towering, black scaled demon
 S
-
-
 
 #RESETS
 D 0 17305 3 2	* A Hut in Forest Arden: door to the west: closed and locked
@@ -3886,9 +3876,9 @@ M 0 17315 1 17303 1	* King Pellinore (The Forest Arden)
 G 0 17321 0		*	a key with the letter "P" on it
 M 0 17330 4 17305 1	* A serf (A Hut in Forest Arden)
 M 0 17316 1 17307 1	* the Questing Beast (Lair of the Questing Beast)
-O 0 17324 0 17307		* a pile of bones (Lair of the Questing Beast)
-O 0 17325 0 17307		* a human skull (Lair of the Questing Beast)
-O 0 17326 0 17307		* a small black rock (Lair of the Questing Beast)
+O 0 17324 0 17307	* a pile of bones (Lair of the Questing Beast)
+O 0 17325 0 17307	* a human skull (Lair of the Questing Beast)
+O 0 17326 0 17307	* a small black rock (Lair of the Questing Beast)
 M 0 17309 1 17312 1	* Sir Garlon (Dark Hollow)
 E 0 17312 0 10		*	garlon's invisible armbands: on the arms
 M 0 17303 9 17314 1	* the knight of quality (A Creek in the Forest Arden)
@@ -4033,13 +4023,13 @@ M 0 17336 8 17374 1	* A servant (Knight's Barracks)
 M 0 17313 1 17375 1	* Merlin (Merlin's Tower)
 E 0 17316 0 1		*	the Incubus crest ring: on the left finger
 E 0 17317 0 17		*	merlin's staff: held in the hands
-O 0 17336 0 17375		* a rusty key (Merlin's Tower)
+O 0 17336 0 17375	* a rusty key (Merlin's Tower)
 M 0 17303 9 17376 1	* the knight of quality (The Round Table)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17322 1 17377 1	* Queen Gwenivere (Arthur's Chambers)
 E 0 17331 0 4		*	an emerald necklace: around the neck (2)
 M 0 17336 8 17378 1	* A servant (Noble's Chambers)
-O 0 17339 0 17380		* a rather heavy looking purse (Noble's Chambers)
+O 0 17339 0 17380	* a rather heavy looking purse (Noble's Chambers)
 M 0 17337 1 17381 1	* A towering, black scaled demon (The Pentagram)
 M 0 17346 2 17388 1	* A northern border guard (An Outpost)
 M 0 17347 1 17388 1	* The northern outpost commander (An Outpost)
@@ -4059,7 +4049,7 @@ M 0 17350 9 17394 1	* A busy serf (Farms)
 M 0 17351 2 17395 1	* An Angle raider (Angle Raid!)
 M 0 17352 1 17395 1	* The Angle chief (Angle Raid!)
 E 0 17344 0 16		*	an angle: wielded
-O 0 17343 0 17395		* a dragon ship (Angle Raid!)
+O 0 17343 0 17395	* a dragon ship (Angle Raid!)
 M 0 17360 1 17395 1	* Gaheris (Angle Raid!)
 E 0 17349 0 16		*	an enormous axe: wielded
 M 0 17362 2 17396 1	* A southern border guard (An Outpost)
@@ -4083,32 +4073,13 @@ M 0 17341 1 17399 1	* A medium warhorse (Pet Storage for Stables)
 M 0 17342 1 17399 1	* A heavy warhorse (Pet Storage for Stables)
 S
 
-
-
 #SHOPS
 17338 5 9 18 0 0 100 100 0 23
 17339 0 0 0 0 0 100 100 0 23
 0
 
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
 #PRACTICERS
 M 17337 attack	* A towering, black scaled demon
 S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

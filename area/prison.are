@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 90
 End
 
-
-
 #MOBILES
 #32000
 Gatekeeper~
@@ -395,8 +393,6 @@ BCDEFIJK 0 C 0
 stand stand male 100
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #32000
@@ -1191,8 +1187,6 @@ fountain A 0
 100 100 'water' 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #32000
@@ -2666,8 +2660,6 @@ on the wall.
 S
 #0
 
-
-
 #SPECIALS
 M 32000 spec_thief	* the gatekeeper
 M 32001 spec_fido	* the rat
@@ -2682,8 +2674,6 @@ M 32015 spec_poison	* A steam monster
 M 32023 spec_breath_fire	* A huge Bronze Dragon
 M 32024 spec_poison	* Terry the salesman
 S
-
-
 
 #RESETS
 D 0 32000 0 1	* Entrance to the Prison: door to the north: closed
@@ -2713,7 +2703,7 @@ M 0 32000 1 32001 1	* the gatekeeper (The Prison of Midgaard)
 E 0 32001 0 16		*	a short sword: wielded
 E 0 32002 0 17		*	a pack of cigarettes: held in the hands
 G 0 32000 0		*	a gate key
-O 0 32023 0 32002		* a crumpled piece of paper (A Bright Intersection)
+O 0 32023 0 32002	* a crumpled piece of paper (A Bright Intersection)
 M 0 32003 6 32003 1	* the Prison Worker (A Dark Intersection)
 E 0 32028 0 16		*	a dirty mop: wielded
 M 0 32003 6 32005 1	* the Prison Worker (A long hallway)
@@ -2730,9 +2720,9 @@ M 0 32002 10 32008 1	* the Prison Guard (A long hallway)
 E 0 32029 0 16		*	a large battle axe: wielded
 M 0 32021 1 32009 1	* The Executioner (Executioners room)
 E 0 32052 0 16		*	an axe of destruction: wielded
-O 0 32055 0 32009		* a severed head (Executioners room)
-O 0 32055 0 32009		* a severed head (Executioners room)
-O 0 32054 0 32009		* a chopping block (Executioners room)
+O 0 32055 0 32009	* a severed head (Executioners room)
+O 0 32055 0 32009	* a severed head (Executioners room)
+O 0 32054 0 32009	* a chopping block (Executioners room)
 M 0 32002 10 32011 1	* the Prison Guard (A quiet hallway)
 E 0 32029 0 16		*	a large battle axe: wielded
 M 0 32017 1 32013 1	* Thomas the weaponmaster (The Weapons Room)
@@ -2740,7 +2730,7 @@ G 0 32026 0		*	a big fat joint
 G 0 32038 0		*	a zip gun
 G 0 32004 0		*	a soap on a rope
 G 0 32001 0		*	a short sword
-O 0 32060 0 32016		* a drum (A broom closet)
+O 0 32060 0 32016	* a drum (A broom closet)
 M 0 32006 4 32016 1	* the cockroach (A broom closet)
 G 0 32025 0		*	a cell block key  
 M 0 32008 3 32017 1	* the stoned guard (Spiral staircase)
@@ -2758,7 +2748,7 @@ M 0 32002 10 32021 1	* the Prison Guard (The administration hallway)
 E 0 32029 0 16		*	a large battle axe: wielded
 M 0 32011 1 32024 1	* Trixie the secretary (Warden's Office)
 E 0 32042 0 5		*	a push up bra: on the body
-O 0 32053 0 32024		* a trash can (Warden's Office)
+O 0 32053 0 32024	* a trash can (Warden's Office)
 M 0 32010 1 32025 1	* Brad the Warden (Warden's chamber)
 E 0 32041 0 3		*	a pink cashmire scarf: around the neck (1)
 E 0 32040 0 8		*	a set of pink sequined high heels: on the feet
@@ -2779,14 +2769,14 @@ M 0 32002 10 32030 1	* the Prison Guard (Dimly lit hallway)
 E 0 32029 0 16		*	a large battle axe: wielded
 G 0 32039 0		*	a pile of gold coins
 M 0 32001 12 32031 1	* the rat (A broom closet)
-O 0 32053 0 32031		* a trash can (A broom closet)
-O 0 32060 0 32031		* a drum (A broom closet)
+O 0 32053 0 32031	* a trash can (A broom closet)
+O 0 32060 0 32031	* a drum (A broom closet)
 M 0 32001 12 32033 1	* the rat (Spiral staircase)
 M 0 32002 10 32034 1	* the Prison Guard (The sneaky tower)
 E 0 32007 0 1		*	a hatchling ember ring: on the left finger
 E 0 32030 0 14		*	a spiked wristguard: on the left wrist
 E 0 32029 0 16		*	a large battle axe: wielded
-O 0 32039 0 32034		* a pile of gold coins (The sneaky tower)
+O 0 32039 0 32034	* a pile of gold coins (The sneaky tower)
 M 0 32002 10 32034 1	* the Prison Guard (The sneaky tower)
 E 0 32029 0 16		*	a large battle axe: wielded
 M 0 32006 4 32036 1	* the cockroach (A maintenance hallway)
@@ -2806,7 +2796,7 @@ E 0 32044 0 6		*	an Indians baseball hat: over the head
 E 0 32043 0 12		*	a pair of coveralls: about the shoulders
 M 0 32013 1 32039 1	* Butch the helper (Prison maintenance)
 E 0 32045 0 13		*	a tool belt: around the waist
-O 0 32060 0 32039		* a drum (Prison maintenance)
+O 0 32060 0 32039	* a drum (Prison maintenance)
 M 0 32015 3 32040 1	* A steam monster (The boiler room)
 G 0 32050 0		*	a packet of boiler water treatment
 M 0 32001 12 32040 1	* the rat (The boiler room)
@@ -2818,7 +2808,7 @@ E 0 32036 0 2		*	a pitch black ring: on the right finger
 E 0 32034 0 11		*	a titanium shield: as a shield
 E 0 32035 0 16		*	a curved  assasin's dagger: wielded
 G 0 32025 0		*	a cell block key  
-O 0 32036 0 32045		* a pitch black ring (An alcove)
+O 0 32036 0 32045	* a pitch black ring (An alcove)
 M 0 32005 14 32046 1	* the prisoner (A cell)
 E 0 32037 0 15		*	a set of wrought iron manacles: on the right wrist
 E 0 32038 0 16		*	a zip gun: wielded
@@ -2974,13 +2964,13 @@ M 0 32022 2 32083 1	* The Black thing (Inside the hole)
 G 0 32036 0		*	a pitch black ring
 M 0 32001 12 32083 1	* the rat (Inside the hole)
 M 0 32020 1 32084 1	* the towel boy (Deep dank hall)
-O 0 32003 0 32084		* a used condom wrapper (Deep dank hall)
+O 0 32003 0 32084	* a used condom wrapper (Deep dank hall)
 M 0 32015 3 32085 1	* A steam monster (The showers)
 G 0 32036 0		*	a pitch black ring
 M 0 32002 10 32085 1	* the Prison Guard (The showers)
 E 0 32029 0 16		*	a large battle axe: wielded
 E 0 32033 0 12		*	a prison uniform: about the shoulders
-O 0 32056 0 32085		* a rusty leaky shower head (The showers)
+O 0 32056 0 32085	* a rusty leaky shower head (The showers)
 M 0 32018 2 32086 1	* (processed aura) a slice of bologna (The Cafeteria)
 M 0 32018 2 32087 1	* (processed aura) a slice of bologna (The Kitchen)
 M 0 32014 1 32087 1	* Wendy the Cook (The Kitchen)
@@ -3009,34 +2999,32 @@ E 0 32019 0 15		*	a hatchling bracer : on the right wrist
 E 0 32006 0 16		*	a unknown ember ring: wielded
 E 0 32020 0 17		*	a lucky charm: held in the hands
 G 0 32021 0		*	a starter kit
-O 0 32020 0 32088		* a lucky charm (Flar's Gateway to Unknown)
-O 0 32019 0 32088		* a hatchling bracer  (Flar's Gateway to Unknown)
-O 0 32019 0 32088		* a hatchling bracer  (Flar's Gateway to Unknown)
-O 0 32018 0 32088		* a hatchling belt (Flar's Gateway to Unknown)
-O 0 32017 0 32088		* a hatchling shield (Flar's Gateway to Unknown)
-O 0 32016 0 32088		* a set of hatchling sleeves (Flar's Gateway to Unknown)
-O 0 32015 0 32088		* a pair of hatchling gloves (Flar's Gateway to Unknown)
-O 0 32014 0 32088		* a pair of hatchling boots (Flar's Gateway to Unknown)
-O 0 32013 0 32088		* a set of hatchling leggings (Flar's Gateway to Unknown)
-O 0 32012 0 32088		* a hatchling helmet (Flar's Gateway to Unknown)
-O 0 32011 0 32088		* a hatchling shirt (Flar's Gateway to Unknown)
-O 0 32010 0 32088		* a hatchling cloak (Flar's Gateway to Unknown)
-O 0 32009 0 32088		* a rat filet (Flar's Gateway to Unknown)
-O 0 32008 0 32088		* a hatchling robe (Flar's Gateway to Unknown)
-O 0 32007 0 32088		* a hatchling ember ring (Flar's Gateway to Unknown)
-O 0 32007 0 32088		* a hatchling ember ring (Flar's Gateway to Unknown)
-O 0 32006 0 32088		* a unknown ember ring (Flar's Gateway to Unknown)
-O 0 32005 0 32088		* flar's bag of tricks (Flar's Gateway to Unknown)
-O 0 32021 0 32088		* a starter kit (Flar's Gateway to Unknown)
-O 0 32022 0 32088		* a fountain (Flar's Gateway to Unknown)
-O 0 32022 0 32089		* a fountain (Flar's Gateway to heaven)
-O 0 32009 0 32089		* a rat filet (Flar's Gateway to heaven)
-O 0 32024 0 32089		* a large cluttered desk (Flar's Gateway to heaven)
-O 0 32070 0 32089		* a large desk (Flar's Gateway to heaven)
-O 0 32071 0 32089		* an ivory fountain (Flar's Gateway to heaven)
+O 0 32020 0 32088	* a lucky charm (Flar's Gateway to Unknown)
+O 0 32019 0 32088	* a hatchling bracer  (Flar's Gateway to Unknown)
+O 0 32019 0 32088	* a hatchling bracer  (Flar's Gateway to Unknown)
+O 0 32018 0 32088	* a hatchling belt (Flar's Gateway to Unknown)
+O 0 32017 0 32088	* a hatchling shield (Flar's Gateway to Unknown)
+O 0 32016 0 32088	* a set of hatchling sleeves (Flar's Gateway to Unknown)
+O 0 32015 0 32088	* a pair of hatchling gloves (Flar's Gateway to Unknown)
+O 0 32014 0 32088	* a pair of hatchling boots (Flar's Gateway to Unknown)
+O 0 32013 0 32088	* a set of hatchling leggings (Flar's Gateway to Unknown)
+O 0 32012 0 32088	* a hatchling helmet (Flar's Gateway to Unknown)
+O 0 32011 0 32088	* a hatchling shirt (Flar's Gateway to Unknown)
+O 0 32010 0 32088	* a hatchling cloak (Flar's Gateway to Unknown)
+O 0 32009 0 32088	* a rat filet (Flar's Gateway to Unknown)
+O 0 32008 0 32088	* a hatchling robe (Flar's Gateway to Unknown)
+O 0 32007 0 32088	* a hatchling ember ring (Flar's Gateway to Unknown)
+O 0 32007 0 32088	* a hatchling ember ring (Flar's Gateway to Unknown)
+O 0 32006 0 32088	* a unknown ember ring (Flar's Gateway to Unknown)
+O 0 32005 0 32088	* flar's bag of tricks (Flar's Gateway to Unknown)
+O 0 32021 0 32088	* a starter kit (Flar's Gateway to Unknown)
+O 0 32022 0 32088	* a fountain (Flar's Gateway to Unknown)
+O 0 32022 0 32089	* a fountain (Flar's Gateway to heaven)
+O 0 32009 0 32089	* a rat filet (Flar's Gateway to heaven)
+O 0 32024 0 32089	* a large cluttered desk (Flar's Gateway to heaven)
+O 0 32070 0 32089	* a large desk (Flar's Gateway to heaven)
+O 0 32071 0 32089	* an ivory fountain (Flar's Gateway to heaven)
 S
-
-
 
 #SHOPS
 32016 9 0 0 8 0 100 100 0 23
@@ -3044,28 +3032,11 @@ S
 32024 0 0 0 0 0 100 100 0 23
 0
 
-
-
 #OLIMITS
 O 32030 1	* a spiked wristguard
 O 32034 2	* a titanium shield
 O 32036 5	* a pitch black ring
 O 32052 1	* an axe of destruction
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

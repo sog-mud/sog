@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 15
 End
 
-
-
 #MOBILES
 #29101
 pixie faerie~
@@ -145,8 +143,6 @@ EFNU 0 CD Z
 stand stand female 5000
 AHMV ABCDEFGHIJK medium unknown
 #0
-
-
 
 #OBJECTS
 #29101
@@ -323,8 +319,6 @@ DE DE 0 0 0
 0 1 5 P
 #0
 
-
-
 #ROOMS
 #29101
 Forest Clearing~
@@ -480,14 +474,10 @@ ABCZ 29110 29106
 S
 #0
 
-
-
 #SPECIALS
 M 29105 spec_thief	* Puck
 M 29106 spec_cast_mage	* the Faerie Queen
 S
-
-
 
 #RESETS
 D 0 29101 5 1	* Forest Clearing: door to the down: closed
@@ -505,7 +495,7 @@ G 0 29101 0		*	a catchy little rhyme
 M 0 29105 1 29103 1	* Puck (Puck's Room)
 E 0 29109 0 7		*	a pair of dirty britches: on the legs
 E 0 29111 0 4		*	a dirty cloak: around the neck (2)
-O 0 29108 0 29103		* a goblet of faerie wine (Puck's Room)
+O 0 29108 0 29103	* a goblet of faerie wine (Puck's Room)
 M 0 29102 3 29104 1	* a fluttering nixie (Little People's Bar and Grill)
 G 0 29105 0		*	a vial of bottled moonlight
 M 0 29101 4 29104 1	* a giggling pixie (Little People's Bar and Grill)
@@ -546,30 +536,8 @@ M 0 29104 3 29108 1	* a stern brownie (Hall of the Faerie Queen)
 E 0 29104 0 14		*	a brownie bracer: on the left wrist
 S
 
-
-
 #SHOPS
 29109 1 2 3 4 18 120 80 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

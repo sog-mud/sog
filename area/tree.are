@@ -7,8 +7,6 @@ Security 9
 LevelRange 15 50
 End
 
-
-
 #MOBILES
 #2900
 hollyphant~
@@ -237,8 +235,6 @@ stand stand male 6700
 0 0 large unknown
 #0
 
-
-
 #OBJECTS
 #2900
 polearm body wrecker~
@@ -343,8 +339,6 @@ potion AG A
 10 'detect invis' 'detect magic' 'detect poison' 'detect good'
 13 10 4580 G
 #0
-
-
 
 #ROOMS
 #2900
@@ -753,8 +747,6 @@ Z -1 2907
 S
 #0
 
-
-
 #SPECIALS
 M 2900 spec_cast_cleric	* a Hollyphant
 M 2901 spec_cast_mage	* a planetar
@@ -767,8 +759,6 @@ M 2910 spec_cast_cleric	* a solar
 M 2911 spec_thief	* a wemic
 M 2913 spec_breath_any	* a gorgimera
 S
-
-
 
 #RESETS
 M 0 2911 9 2901 1	* a wemic (The Trunk of Yggdrasil)
@@ -800,30 +790,5 @@ E 0 2902 0 16		*	a holy bastard sword: wielded
 M 0 2906 4 2923 2	* a yagnodemon (The Roots of Yggdrasil)
 E 0 2900 0 16		*	a body-wrecker: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

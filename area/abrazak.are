@@ -7,8 +7,6 @@ Security 1
 LevelRange 0 0
 End
 
-
-
 #MOBILES
 #15000
 avatar avatara~
@@ -42,8 +40,6 @@ AGRTe CDEFGHVZac -1000 0
 stand stand male 0
 0 0 small unknown
 #0
-
-
 
 #OBJECTS
 #15000
@@ -148,8 +144,6 @@ A
 20 -5
 #0
 
-
-
 #ROOMS
 #15000
 @eng Abrazak's Office@rus Офис абразака.~
@@ -175,26 +169,12 @@ S
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
-O 0 15002 0 15000		* Fountain is here. (Abrazak's Office)
+O 0 15002 0 15000	* Fountain is here. (Abrazak's Office)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
 S
-
-
-
-#SHOPS
-0
-
-
 
 #OLIMITS
 O 15010 0	* {DScythe{x
@@ -204,8 +184,6 @@ O 15013 0	* {DHoofs{x
 O 15100 1	* a dwarven golden ring
 O 15112 1	* {W'{CAenis + Leo{W' ring{w
 S
-
-
 
 #MOBPROGS
 #15000
@@ -226,15 +204,5 @@ mob vforce 50 yell Hey! I have some funny junk for you !
 #15100
 ~
 #0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

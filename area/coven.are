@@ -7,8 +7,6 @@ Security 9
 LevelRange 25 35
 End
 
-
-
 #MOBILES
 #29120
 beast ravening~
@@ -278,8 +276,6 @@ stand stand none 1800
 ABG ABCDEFJKLMPUV large unknown
 #0
 
-
-
 #OBJECTS
 #29120
 sickle golden~
@@ -500,8 +496,6 @@ potion 0 AN
 30 'invisibility' 'detect invis' '' ''
 28 10 3000 P
 #0
-
-
 
 #ROOMS
 #29120
@@ -2283,8 +2277,6 @@ Z -1 29172
 S
 #0
 
-
-
 #SPECIALS
 M 29121 spec_cast_cleric	* The hag Gelda
 M 29122 spec_guard	* The woodsman guard
@@ -2294,8 +2286,6 @@ M 29132 spec_cast_mage	* The warlock
 M 29133 spec_cast_mage	* The coven leader
 M 29134 spec_breath_fire	* The flaming beast from hell
 S
-
-
 
 #RESETS
 D 0 29131 1 2	* On a Logging Trail in the Forest Murkmire: door to the east: closed and locked
@@ -2331,7 +2321,7 @@ M 0 29128 1 29141 1	* Libby the halfling trader (Main Street, Dunkeldorf)
 G 0 29139 0		*	a potion of invisibility
 M 0 29123 5 29143 1	* The lumberjack (Inside a Log House)
 M 0 29125 1 29145 1	* Mark the miller of Dunkeldorf (The Saw Mill)
-O 0 29122 0 29145		* a swiftly flowing creek (The Saw Mill)
+O 0 29122 0 29145	* a swiftly flowing creek (The Saw Mill)
 M 0 29123 5 29146 1	* The lumberjack (In the Common Room of the Dunkeldorf Inn)
 E 0 29129 0 16		*	a woodsman's axe: wielded
 M 0 29127 1 29146 1	* Fritz the innkeeper of the Dunkeldorf inn (In the Common Room of the Dunkeldorf Inn)
@@ -2372,8 +2362,6 @@ E 0 29134 0 17		*	a black rune covered rod: held in the hands
 E 0 29127 0 3		*	the flaming amulet: around the neck (1)
 S
 
-
-
 #SHOPS
 29124 13 12 1 8 19 200 90 0 23
 29125 12 0 0 0 0 120 70 0 23
@@ -2381,26 +2369,6 @@ S
 29127 19 17 18 0 0 100 75 0 23
 29128 10 0 0 0 0 150 50 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 52 coven~

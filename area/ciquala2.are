@@ -7,8 +7,6 @@ Security 9
 LevelRange 40 62
 End
 
-
-
 #MOBILES
 #13400
 lich guardian~
@@ -305,8 +303,6 @@ stand stand female 1200
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #13400
 ciquala's sword~
@@ -547,8 +543,6 @@ potion 0 A
 30 'energy drain' 'energy drain' 'create food' 'create spring'
 20 20 1000 P
 #0
-
-
 
 #ROOMS
 #13400
@@ -938,8 +932,6 @@ ABZ -1 13418
 S
 #0
 
-
-
 #SPECIALS
 M 13401 spec_cast_undead	* the vampire lab assistant
 M 13403 spec_breath_acid	* a docile creature
@@ -949,8 +941,6 @@ M 13414 spec_breath_gas	* Ciquala's Undead Dragon
 M 13415 spec_cast_undead	* the lich Ciquala
 M 13416 spec_cast_undead	* Lich
 S
-
-
 
 #RESETS
 D 0 13400 5 1	* A large knothole in a tree: door to the down: closed
@@ -996,9 +986,9 @@ G 0 13410 0		*	a clear testube
 G 0 13411 0		*	a green vial
 G 0 13412 0		*	a vial with gold liquid
 M 0 13404 4 13406 2	* the black pudding (Supply room)
-O 0 13403 0 13406		* crate (Supply room)
-O 0 13420 0 13406		* crate (Supply room)
-O 0 13421 0 13406		* crate (Supply room)
+O 0 13403 0 13406	* crate (Supply room)
+O 0 13420 0 13406	* crate (Supply room)
+O 0 13421 0 13406	* crate (Supply room)
 M 0 13402 4 13407 2	* a warped creature from a nightmare (Holding Cell)
 M 0 13403 4 13407 2	* a docile creature (Holding Cell)
 M 0 13402 4 13408 2	* a warped creature from a nightmare (Holding Cell)
@@ -1009,53 +999,28 @@ M 0 13406 1 13409 1	* the undead guardian (Guard room)
 M 0 13407 1 13410 1	* the lurker above (A seemingly empty tunnel)
 M 0 13408 1 13411 1	* a vampire servant (The Map Room)
 M 0 13404 4 13412 2	* the black pudding (Storage Room)
-O 0 13422 0 13412		* crate (Storage Room)
-O 0 13423 0 13412		* crate (Storage Room)
+O 0 13422 0 13412	* crate (Storage Room)
+O 0 13423 0 13412	* crate (Storage Room)
 M 0 13409 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13410 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13411 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13412 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13413 1 13415 1	* the torturer lich (Torture Chamber)
 E 0 13417 0 16		*	the torturer's whip: wielded
-O 0 13416 0 13415		* an iron maiden (Torture Chamber)
+O 0 13416 0 13415	* an iron maiden (Torture Chamber)
 M 0 13414 2 13416 2	* Ciquala's Undead Dragon (Entrance to Ciquala's Throne Room)
 M 0 13415 1 13417 1	* the lich Ciquala (Ciquala's Throne Room)
 E 0 13400 0 16		*	Ciquala's sword: wielded
 E 0 13401 0 12		*	Ciquala's robe: about the shoulders
 E 0 13402 0 17		*	ciquala's staff: held in the hands
 G 0 13406 0		*	a large key
-O 0 13418 0 13418		* a humongous pile of gold (Treasure Chamber of Ciquala)
-O 0 13419 0 13418		* a pile of gems (Treasure Chamber of Ciquala)
+O 0 13418 0 13418	* a humongous pile of gold (Treasure Chamber of Ciquala)
+O 0 13419 0 13418	* a pile of gems (Treasure Chamber of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 -1 ciquala lair~

@@ -7,8 +7,6 @@ Security 9
 LevelRange 15 25
 End
 
-
-
 #MOBILES
 #9101
 oldstyle harpy~
@@ -120,8 +118,6 @@ stand stand female 3000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #9101
 winged boots~
@@ -174,8 +170,6 @@ scroll AH AO
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
 #0
-
-
 
 #ROOMS
 #9101
@@ -1756,13 +1750,9 @@ You've fallen, and you can't get up!!!
 S
 #0
 
-
-
 #SPECIALS
 M 9107 spec_cast_undead	* the ugly, wicked witch
 S
-
-
 
 #RESETS
 D 0 9141 1 1	* Witches Tower: door to the east: closed
@@ -1818,30 +1808,5 @@ G 0 9102 0		*	A carved bronze bracer
 M 0 9104 2 9187 1	* the mysterious efreeti (Eastern tower.)
 G 0 9103 0		*	an ornate brooch
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

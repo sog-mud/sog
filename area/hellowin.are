@@ -7,8 +7,6 @@ Security 1
 LevelRange 0 0
 End
 
-
-
 #MOBILES
 #34400
 bear~
@@ -62,8 +60,6 @@ stand stand none 0
 F for AHMV
 F par ABCDEFGHIJK
 #0
-
-
 
 #OBJECTS
 #34400
@@ -194,8 +190,6 @@ fountain RTYa AP
 1 20000 2147483647 P
 #0
 
-
-
 #ROOMS
 #34400
 @eng {GClearing in the woods{w@rus {GПоляна в лесу{w~
@@ -212,28 +206,17 @@ fountain RTYa AP
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
 G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
-O 0 34405 0 34400		* {cFallen tree{w ({GClearing in the woods{w)
-O 0 34404 0 34400		* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
+O 0 34405 0 34400	* {cFallen tree{w ({GClearing in the woods{w)
+O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
 S
-
-
 
 #SHOPS
 34400 0 0 0 0 0 100 100 0 23
 0
-
-
 
 #OLIMITS
 O 34400 1	* {W0==][ {YHeliacal Fire {W>>{w
@@ -242,20 +225,5 @@ O 34403 1	* {DCosily armchair{w
 O 34408 1	* {WThe Real Hero helm of Oleg{x
 O 34410 1	* Pissed Karmael
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 20
 End
 
-
-
 #MOBILES
 #5000
 oldstyle dervish raggity~
@@ -254,8 +252,6 @@ EFNU 0 0 0
 stand stand none 13
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #5000
@@ -543,8 +539,6 @@ warp_stone T AO
 ABCE 0 0 0 0
 0 1 4000 P
 #0
-
-
 
 #ROOMS
 #5001
@@ -1404,15 +1398,11 @@ Z 0 5009
 S
 #0
 
-
-
 #SPECIALS
 M 5005 spec_breath_any	* the brass dragon
 M 5010 spec_breath_fire	* The dracolich
 M 5014 spec_cast_cleric	* The myconoid shaman
 S
-
-
 
 #RESETS
 D 0 5065 3 2	* The mysterious lair.: door to the west: closed and locked
@@ -1422,7 +1412,7 @@ E 0 3022 0 16		*	a long sword: wielded
 M 0 5010 1 5011 1	* The dracolich (Giant cave)
 G 0 5001 0		*	a glowing suit of banded mail
 G 0 5002 0		*	the halberd
-O 0 5005 0 5011		* a large leg bone (Giant cave)
+O 0 5005 0 5011	* a large leg bone (Giant cave)
 M 0 5012 3 5014 3	* The dark dwarf (Damp hallway)
 E 0 5000 0 16		*	a small mining pick: wielded
 M 0 5013 4 5021 4	* the myconoid (Fungus temple)
@@ -1452,20 +1442,20 @@ M 0 5008 5 5059 5	* The nomad warrior (The warrior's tent.)
 E 0 5018 0 16		*	a long, pointed cutlass: wielded
 M 0 5007 1 5060 1	* The nomad commander (The main tent)
 E 0 5017 0 16		*	a curved scimitar: wielded
-O 0 5007 0 5060		* a small wicker basket (The main tent)
+O 0 5007 0 5060	* a small wicker basket (The main tent)
 P 0 5012 1 5007 1	* a small wicker basket: a bunch of stakes
 P 0 5011 1 5007 1	* a small wicker basket: a coil of rope
 M 0 5006 1 5061 1	* The nomad leader (The main tent)
 E 0 5016 0 16		*	a long, curved sabre: wielded
-O 0 5008 0 5061		* a small wicker basket (The main tent)
+O 0 5008 0 5061	* a small wicker basket (The main tent)
 P 0 5014 5 5008 1	* a small wicker basket: a thick padded turban
-O 0 5009 0 5061		* a small wicker basket (The main tent)
-O 0 5010 0 5061		* a small wicker basket (The main tent)
+O 0 5009 0 5061	* a small wicker basket (The main tent)
+O 0 5010 0 5061	* a small wicker basket (The main tent)
 P 0 5013 50 5010 1	* a small wicker basket: an old, tattered map
 M 0 5005 1 5065 1	* the brass dragon (The mysterious lair.)
 G 0 5024 0		*	a golden key
 G 0 5022 0		*	an encrypted scroll
-O 0 5023 0 5070		* an iron bound chest (A small shaft)
+O 0 5023 0 5070	* an iron bound chest (A small shaft)
 P 0 5025 3 5023 1	* an iron bound chest: a copper bracelet
 P 0 5026 3 5023 1	* an iron bound chest: a large ruby
 P 0 5027 3 5023 1	* an iron bound chest: a glittering diamond
@@ -1474,32 +1464,7 @@ P 0 5029 3 5023 1	* an iron bound chest: a deep blue lapis lazuli
 P 0 5030 1 5023 1	* an iron bound chest: the tiger jewel
 P 0 5031 1 5023 1	* an iron bound chest: the red-eyed jewel
 P 0 5032 3 5023 1	* an iron bound chest: a fiery green emerald
-O 0 5015 0 5070		* a great pile of treasure (A small shaft)
+O 0 5015 0 5070	* a great pile of treasure (A small shaft)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

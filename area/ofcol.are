@@ -7,18 +7,6 @@ Security 9
 LevelRange 1 100
 End
 
-
-
-#MOBILES
-#0
-
-
-
-#OBJECTS
-#0
-
-
-
 #ROOMS
 #5550
 Village street~
@@ -176,13 +164,6 @@ R.I.P. inscripted underneath them.
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 M 0 303 5 5550 3	* the citizen (Village street)
 M 0 304 5 5552 3	* the citizen (Village square)
@@ -197,30 +178,5 @@ G 0 3000 0		*	a barrel of beer
 G 0 3001 0		*	a bottle of beer
 M 0 350 1 5577 1	* the pet dragon (Ravan's hideout)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

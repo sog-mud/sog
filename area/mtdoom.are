@@ -7,8 +7,6 @@ Security 9
 LevelRange 45 65
 End
 
-
-
 #MOBILES
 #14700
 lord krothgar~
@@ -766,8 +764,6 @@ stand stand male 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #14700
 krothgar armor~
@@ -1427,8 +1423,6 @@ key 0 AO
 0 0 0 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #14700
@@ -3612,8 +3606,6 @@ Z -1 14768
 S
 #0
 
-
-
 #SPECIALS
 M 14701 spec_cast_judge	* a death knight
 M 14702 spec_executioner	* an iron golem
@@ -3655,8 +3647,6 @@ M 14745 spec_executioner	* a stone golem
 M 14746 spec_poison	* The keeper of the mutant pit
 M 14747 spec_poison	* a naga princess
 S
-
-
 
 #RESETS
 D 0 14750 5 1	* Inside the Fell Fortress: door to the down: closed
@@ -3858,7 +3848,7 @@ E 0 14718 0 16		*	a sacrifical dagger: wielded
 E 0 14719 0 12		*	the priest's robes: about the shoulders
 E 0 14720 0 6		*	the priest's death mask: over the head
 M 0 14723 1 14792 1	* a twelve-headed hydra (The Hydra Lair)
-O 0 14733 0 14792		* a chest (The Hydra Lair)
+O 0 14733 0 14792	* a chest (The Hydra Lair)
 P 0 14734 1 14733 1	* a chest: a great treasure
 M 0 14745 1 14793 1	* a stone golem (A Spiral Staircase)
 M 0 14702 1 14794 1	* an iron golem (A Landing)
@@ -3868,7 +3858,7 @@ E 0 14731 0 12		*	an illithid's robes: about the shoulders
 E 0 14732 0 17		*	a gem: held in the hands
 M 0 14725 1 14796 1	* a succubus (A Bedchamber)
 E 0 14736 0 12		*	some expensive silk: about the shoulders
-O 0 14735 0 14796		* a luxurious bed (A Bedchamber)
+O 0 14735 0 14796	* a luxurious bed (A Bedchamber)
 M 0 14703 1 14797 1	* the demon prince Marmandes (A Hall)
 E 0 14707 0 16		*	a demon's barbed flail: wielded
 G 0 14708 0		*	a flaming spear
@@ -3913,30 +3903,5 @@ E 0 14726 0 9		*	dragon claws: on the hands
 E 0 14727 0 12		*	a dragon hide: about the shoulders
 M 0 14707 4 14806 1	* a destrier (Stables)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 15 30
 End
 
-
-
 #MOBILES
 #5600
 bird aarakocra food vendor~
@@ -478,8 +476,6 @@ AB P 1000 0
 stand stand male 1000
 0 0 small unknown
 #0
-
-
 
 #OBJECTS
 #5600
@@ -1297,8 +1293,6 @@ light G A
 0 0 80 0 0
 5 33 567 P
 #0
-
-
 
 #ROOMS
 #5600
@@ -3394,8 +3388,6 @@ Z -1 5604
 S
 #0
 
-
-
 #SPECIALS
 M 5601 spec_cast_mage	* delicacy vendor bird
 M 5613 spec_cast_judge	* the aarakocran revolutionary
@@ -3407,8 +3399,6 @@ M 5627 spec_guard	* the cityguard
 M 5628 spec_guard	* the small bat
 S
 
-
-
 #RESETS
 D 0 5605 2 1	* Small ledge on the South cliff face: door to the south: closed
 D 0 5633 2 1	* Thieves guild: door to the south: closed
@@ -3416,11 +3406,11 @@ D 0 5640 0 1	* The Shanty town: door to the north: closed
 D 0 5695 0 1	* Secretary's Office: door to the north: closed
 D 0 5696 2 2	* Three way intersection: door to the south: closed and locked
 D 0 5698 0 2	* Corridor: door to the north: closed and locked
-O 0 5622 0 5603		* an ashtray (The Taxidermist's Gallery)
-O 0 5624 0 5603		* a stuffed jaguar (The Taxidermist's Gallery)
-O 0 5625 0 5603		* a stuffed orc (The Taxidermist's Gallery)
-O 0 5627 0 5603		* a stuffed dragon's head (The Taxidermist's Gallery)
-O 0 5626 0 5603		* a stuffed grizzly bear (The Taxidermist's Gallery)
+O 0 5622 0 5603	* an ashtray (The Taxidermist's Gallery)
+O 0 5624 0 5603	* a stuffed jaguar (The Taxidermist's Gallery)
+O 0 5625 0 5603	* a stuffed orc (The Taxidermist's Gallery)
+O 0 5627 0 5603	* a stuffed dragon's head (The Taxidermist's Gallery)
+O 0 5626 0 5603	* a stuffed grizzly bear (The Taxidermist's Gallery)
 P 0 5628 1 5626 1	* a stuffed grizzly bear: a glass eye
 P 0 5629 1 5626 1	* a stuffed grizzly bear: a glass eye
 M 0 5614 1 5608 1	* the junk dealer (The Dump)
@@ -3441,7 +3431,7 @@ E 0 5605 0 9		*	some talon extenders: on the hands
 G 0 5600 0		*	a packet of worm crisps
 G 0 5603 0		*	a seasoned rat kabob
 G 0 5604 0		*	raw worms with rice
-O 0 5679 0 5611		* a fountain (Top of Market Square)
+O 0 5679 0 5611	* a fountain (Top of Market Square)
 M 0 5600 2 5612 1	* the food vendor (A Food vendor's stall)
 E 0 5668 0 16		*	a large rat sticker: wielded
 E 0 5605 0 9		*	some talon extenders: on the hands
@@ -3487,7 +3477,7 @@ G 0 5668 0		*	a large rat sticker
 M 0 5603 8 5621 1	* the child (A stone dwelling)
 M 0 5615 8 5621 1	* the merchant (A stone dwelling)
 E 0 5668 0 16		*	a large rat sticker: wielded
-O 0 5619 0 5621		* a fancy nest (A stone dwelling)
+O 0 5619 0 5621	* a fancy nest (A stone dwelling)
 M 0 5615 8 5622 1	* the merchant (A Guard Shack)
 M 0 5627 1 5622 1	* the cityguard (A Guard Shack)
 E 0 5668 0 16		*	a large rat sticker: wielded
@@ -3497,18 +3487,18 @@ E 0 5671 0 8		*	a pair of open-toe boots: on the feet
 E 0 5669 0 6		*	a full-view helmet of plate: over the head
 M 0 5603 8 5623 1	* the child (A stone dwelling)
 M 0 5615 8 5623 1	* the merchant (A stone dwelling)
-O 0 5620 0 5623		* a straw nest (A stone dwelling)
+O 0 5620 0 5623	* a straw nest (A stone dwelling)
 M 0 5603 8 5624 1	* the child (A stone dwelling)
 M 0 5615 8 5624 1	* the merchant (A stone dwelling)
-O 0 5620 0 5624		* a straw nest (A stone dwelling)
+O 0 5620 0 5624	* a straw nest (A stone dwelling)
 M 0 5604 8 5625 1	* the child (Town Square)
 M 0 5615 8 5626 1	* the merchant (A stone dwelling)
 E 0 5668 0 16		*	a large rat sticker: wielded
 M 0 5616 8 5626 1	* the matron (A stone dwelling)
-O 0 5620 0 5626		* a straw nest (A stone dwelling)
+O 0 5620 0 5626	* a straw nest (A stone dwelling)
 M 0 5615 8 5627 1	* the merchant (A stone dwelling)
 M 0 5616 8 5627 1	* the matron (A stone dwelling)
-O 0 5619 0 5627		* a fancy nest (A stone dwelling)
+O 0 5619 0 5627	* a fancy nest (A stone dwelling)
 M 0 5612 3 5629 1	* the stalwart guard (Inside the stronghold)
 E 0 5637 0 16		*	a mace: wielded
 M 0 5612 3 5629 1	* the stalwart guard (Inside the stronghold)
@@ -3526,7 +3516,7 @@ E 0 5633 0 4		*	a thick collar and chain: around the neck (2)
 G 0 5676 0		*	a worthless rock
 M 0 5613 1 5636 1	* the aarakocran revolutionary (Small level area on the cliff face)
 G 0 5680 0		*	a cannon
-O 0 5661 0 5636		* a campfire (Small level area on the cliff face)
+O 0 5661 0 5636	* a campfire (Small level area on the cliff face)
 P 0 5662 10 5661 1	* a campfire: a shiny gold key
 M 0 5626 4 5638 1	* the cityguard (The Shanty town)
 E 0 5668 0 16		*	a large rat sticker: wielded
@@ -3543,19 +3533,19 @@ E 0 5670 0 5		*	an open-winged vest: on the body
 M 0 5603 8 5643 1	* the child (A primitive area)
 M 0 5617 8 5643 1	* the clansman (A primitive area)
 E 0 5668 0 16		*	a large rat sticker: wielded
-O 0 5621 0 5643		* a huge nest (A primitive area)
+O 0 5621 0 5643	* a huge nest (A primitive area)
 M 0 5604 8 5644 1	* the child (A primitive area)
 M 0 5617 8 5644 1	* the clansman (A primitive area)
 E 0 5667 0 16		*	a small rat sticker: wielded
-O 0 5621 0 5644		* a huge nest (A primitive area)
+O 0 5621 0 5644	* a huge nest (A primitive area)
 M 0 5604 8 5645 1	* the child (A narrow area on the shelf)
 M 0 5603 8 5646 1	* the child (A primitive area)
 M 0 5617 8 5646 1	* the clansman (A primitive area)
 E 0 5668 0 16		*	a large rat sticker: wielded
-O 0 5621 0 5646		* a huge nest (A primitive area)
+O 0 5621 0 5646	* a huge nest (A primitive area)
 M 0 5617 8 5647 1	* the clansman (A primitive area)
 E 0 5667 0 16		*	a small rat sticker: wielded
-O 0 5621 0 5647		* a huge nest (A primitive area)
+O 0 5621 0 5647	* a huge nest (A primitive area)
 M 0 5604 8 5648 1	* the child (A narrow area on the shelf)
 M 0 5608 2 5648 1	* a lame aarakocra (A narrow area on the shelf)
 G 0 5634 0		*	a clear potion with feathers inside
@@ -3564,7 +3554,7 @@ G 0 5634 0		*	a clear potion with feathers inside
 R 0 5654 2	* Confusing Corridor: randomize
 R 0 5655 2	* Confusing Corridor: randomize
 R 0 5656 2	* Confusing Corridor: randomize
-O 0 5635 0 5657		* a faded tapestry (Confusing Corridor)
+O 0 5635 0 5657	* a faded tapestry (Confusing Corridor)
 P 0 5663 1 5635 1	* a faded tapestry: a frayed bit of green thread
 R 0 5657 2	* Confusing Corridor: randomize
 M 0 5609 1 5658 1	* the humming military commander (Confusing Corridor)
@@ -3634,8 +3624,6 @@ E 0 5605 0 9		*	some talon extenders: on the hands
 M 0 5622 1 5699 1	* the holy aarakocran guildmaster (Shaman's private chambers)
 S
 
-
-
 #SHOPS
 5600 0 0 0 0 0 110 100 0 23
 5601 26 11 0 0 0 110 100 0 23
@@ -3647,26 +3635,9 @@ S
 5623 18 0 0 0 0 4000 50 0 23
 0
 
-
-
 #OLIMITS
 O 5644 3	* a pair of talon extenders
 O 5655 3	* a pair of talon extenders
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

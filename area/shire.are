@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 35
 End
 
-
-
 #MOBILES
 #1100
 oldstyle elven wizard~
@@ -515,8 +513,6 @@ stand stand male 2
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #1100
 rainbow staff~
@@ -699,8 +695,6 @@ weapon 0 AN
 mace 2 9 pound 0
 12 30 620 P
 #0
-
-
 
 #ROOMS
 #1100
@@ -1785,8 +1779,6 @@ Z -1 1144
 S
 #0
 
-
-
 #SPECIALS
 M 1100 spec_cast_mage	* the Elven Wizard
 M 1101 spec_thief	* the Keeper of the Ring
@@ -1800,10 +1792,8 @@ M 1122 spec_thief	* a halfling youth
 M 1132 spec_guard	* a shiriff
 S
 
-
-
 #RESETS
-O 0 1102 0 1103		* a sign (Entrance to the Shire)
+O 0 1102 0 1103	* a sign (Entrance to the Shire)
 M 0 1118 1 1105 1	* the shopkeeper (The General Store)
 G 0 1111 0		*	a bag
 G 0 1112 0		*	a lantern
@@ -1947,8 +1937,6 @@ M 0 1128 4 1155 1	* a country bumpkin (A halfling hole)
 M 0 1131 1 1157 1	* the receptionist (The Inn of the Green Dragon)
 S
 
-
-
 #SHOPS
 1113 17 0 0 0 0 150 50 0 23
 1118 13 5 15 1 17 150 50 0 23
@@ -1957,25 +1945,8 @@ S
 1130 17 0 0 0 0 150 50 0 23
 0
 
-
-
 #OLIMITS
 O 1105 3	* the One Ring
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

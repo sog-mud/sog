@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 15
 End
 
-
-
 #MOBILES
 #1500
 oldstyle child gnome~
@@ -379,8 +377,6 @@ stand stand male 130
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #1500
 key bloody~
@@ -587,8 +583,6 @@ mace 2 3 pound 0
 A
 18 -1
 #0
-
-
 
 #ROOMS
 #1501
@@ -2127,8 +2121,6 @@ Z -1 1588
 S
 #0
 
-
-
 #SPECIALS
 M 1503 spec_cast_mage	* a gnome scientist
 M 1505 spec_cast_cleric	* the chief gnome
@@ -2140,8 +2132,6 @@ M 1514 spec_cast_undead	* the zombie gnome
 M 1515 spec_breath_fire	* the fire bat
 M 1519 spec_cast_mage	* the king of the hobgoblins
 S
-
-
 
 #RESETS
 D 0 1536 1 2	* A Small Unused Room: door to the east: closed and locked
@@ -2214,7 +2204,7 @@ M 0 1515 1 1556 1	* the fire bat (The End of the Hallway)
 G 0 1505 0		*	a studded shield
 G 0 1512 0		*	some peanuts
 G 0 1516 0		*	a pile of coins
-O 0 1517 0 1557		* a pile of coins (The Altar)
+O 0 1517 0 1557	* a pile of coins (The Altar)
 M 0 1505 1 1558 1	* the chief gnome (The Chief's House)
 E 0 1508 0 1		*	a bat ring: on the left finger
 E 0 1509 0 3		*	a bead necklace: around the neck (1)
@@ -2234,8 +2224,8 @@ E 0 1521 0 16		*	a large club: wielded
 M 0 1519 1 1569 1	* the king of the hobgoblins (The Throne Room)
 E 0 1520 0 5		*	heavy banded mail: on the body
 M 0 1521 1 1570 1	* the treasurer (The Treasury)
-O 0 1516 0 1570		* a pile of coins (The Treasury)
-O 0 1517 0 1570		* a pile of coins (The Treasury)
+O 0 1516 0 1570	* a pile of coins (The Treasury)
+O 0 1517 0 1570	* a pile of coins (The Treasury)
 M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
 E 0 1524 0 16		*	a wooden club: wielded
 M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
@@ -2252,7 +2242,7 @@ M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
 E 0 1524 0 16		*	a wooden club: wielded
 M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
 E 0 1524 0 16		*	a wooden club: wielded
-O 0 1521 0 1573		* a large club (Hobgoblin Armory)
+O 0 1521 0 1573	* a large club (Hobgoblin Armory)
 M 0 1522 5 1577 1	* a gnome prisoner (A Jail Cell)
 M 0 1522 5 1578 1	* a gnome prisoner (The Jail Cell)
 M 0 1522 5 1579 1	* a gnome prisoner (The Jail Cell)
@@ -2266,30 +2256,5 @@ M 0 1526 1 1587 1	* the cook (The Kitchen)
 M 0 1524 1 1589 1	* a hermit (Hermit's Lair)
 M 0 1520 6 1590 2	* a hobgoblin miner (A Hole)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

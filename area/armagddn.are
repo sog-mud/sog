@@ -7,8 +7,6 @@ Security 9
 LevelRange 70 95
 End
 
-
-
 #MOBILES
 #14001
 locust~
@@ -695,8 +693,6 @@ stand stand none 900
 CDGHLW ADEFKPU large unknown
 #0
 
-
-
 #OBJECTS
 #14001
 key david~
@@ -1162,8 +1158,6 @@ staff IQW AO
 100 3 3 'enchant weapon' 0
 75 10 10000 P
 #0
-
-
 
 #ROOMS
 #14001
@@ -5622,8 +5616,6 @@ Z 0 14198
 S
 #0
 
-
-
 #SPECIALS
 M 14010 spec_breath_fire	* The white horseman
 M 14011 spec_breath_acid	* The red horseman
@@ -5635,8 +5627,6 @@ M 14019 spec_cast_mage	* The unclean spirit
 M 14020 spec_cast_mage	* The false prophet
 M 14030 spec_thief	* The thief
 S
-
-
 
 #RESETS
 D 0 14008 2 2	* MaGog: door to the south: closed and locked
@@ -5654,7 +5644,7 @@ G 0 14008 0		*	The prayers of saints
 M 0 14032 2 14018 1	* The mighty man (The plagued lands)
 M 0 14027 1 14021 1	* The whoremonger (MaGog)
 M 0 14029 1 14022 1	* The harlot (MaGog)
-O 0 14035 0 14022		* A fountain of blood (MaGog)
+O 0 14035 0 14022	* A fountain of blood (MaGog)
 M 0 14028 1 14023 1	* The murderer (MaGog)
 M 0 14018 1 14034 1	* Balac, disciple of Balaam (MaGog)
 M 0 14003 1 14039 1	* Babylon (The many waters)
@@ -5682,18 +5672,18 @@ M 0 14023 4 14079 1	* The sealed one (Armageddon)
 E 0 14031 0 12		*	A white robe: about the shoulders
 E 0 14032 0 6		*	A seal: over the head
 M 0 14019 3 14087 1	* The unclean spirit (The Euphrates)
-O 0 14034 0 14087		* A puddle of blood (The Euphrates)
+O 0 14034 0 14087	* A puddle of blood (The Euphrates)
 M 0 14012 1 14090 1	* The black horseman (The Euphrates)
 E 0 14015 0 5		*	A breastplate of brimstone: on the body
 E 0 14016 0 17		*	A pair of engraved balances: held in the hands
-O 0 14034 0 14090		* A puddle of blood (The Euphrates)
+O 0 14034 0 14090	* A puddle of blood (The Euphrates)
 M 0 14034 2 14093 1	* The bondsman (Armageddon)
 M 0 14008 4 14095 1	* The harvesting angel (Armageddon)
 E 0 14006 0 13		*	A golden girdle: around the waist
 E 0 14007 0 16		*	A golden sickle: wielded
 G 0 14008 0		*	The prayers of saints
 M 0 14033 2 14098 1	* The former king (The many waters)
-O 0 14034 0 14099		* A puddle of blood (The source of the Euphrates)
+O 0 14034 0 14099	* A puddle of blood (The source of the Euphrates)
 M 0 14013 1 14100 1	* The pale horseman (The Euphrates)
 E 0 14017 0 12		*	Death's cloak: about the shoulders
 E 0 14018 0 16		*	The scythe of the Grim reaper: wielded
@@ -5708,14 +5698,14 @@ M 0 14010 1 14110 1	* The white horseman (The Euphrates)
 E 0 14010 0 6		*	The white crown of the conquerer: over the head
 E 0 14011 0 16		*	The white bow of the conquerer: wielded
 E 0 14012 0 5		*	A breastplate of fire: on the body
-O 0 14034 0 14111		* A puddle of blood (The Euphrates)
-O 0 14033 0 14114		* The morning star (Wormwood)
+O 0 14034 0 14111	* A puddle of blood (The Euphrates)
+O 0 14033 0 14114	* The morning star (Wormwood)
 P 0 14001 0 14033 1	* The morning star: The key of David
 M 0 14011 1 14121 1	* The red horseman (The Euphrates)
 E 0 14013 0 16		*	The sword of war: wielded
 E 0 14014 0 5		*	A breastplate of jacinth: on the body
 M 0 14019 3 14122 1	* The unclean spirit (The Euphrates)
-O 0 14034 0 14122		* A puddle of blood (The Euphrates)
+O 0 14034 0 14122	* A puddle of blood (The Euphrates)
 M 0 14033 2 14127 1	* The former king (Wormwood)
 M 0 14023 4 14130 1	* The sealed one (Armageddon)
 E 0 14031 0 12		*	A white robe: about the shoulders
@@ -5740,7 +5730,7 @@ M 0 14030 1 14160 1	* The thief (Gog)
 E 0 14020 0 3		*	The mark of the beast: around the neck (1)
 M 0 14020 1 14161 1	* The false prophet (Gog)
 E 0 14020 0 3		*	The mark of the beast: around the neck (1)
-O 0 14035 0 14161		* A fountain of blood (Gog)
+O 0 14035 0 14161	* A fountain of blood (Gog)
 M 0 14026 1 14162 1	* The idolator (Gog)
 E 0 14020 0 3		*	The mark of the beast: around the neck (1)
 M 0 14009 4 14164 1	* An army of heaven (Armageddon)
@@ -5780,22 +5770,15 @@ M 0 14043 1 14192 1	* The eagle creature (In the throne room)
 M 0 14040 1 14194 1	* The lion creature (In the throne room)
 M 0 14041 1 14195 1	* The ox creature (In the throne room)
 M 0 14042 1 14196 1	* The creature with a human face (In the throne room)
-O 0 14039 0 14197		* A scroll of seven broken seals (In the throne room)
+O 0 14039 0 14197	* A scroll of seven broken seals (In the throne room)
 M 0 14038 1 14197 1	* The lamb (In the throne room)
-O 0 14036 0 14198		* An emerald throne (At the throne)
+O 0 14036 0 14198	* An emerald throne (At the throne)
 M 0 14037 1 14198 1	* He who sits at the throne (At the throne)
 E 0 14040 0 17		*	The book of life: held in the hands
-O 0 14037 0 14199		* Four and twenty thrones (In the throne room)
+O 0 14037 0 14199	* Four and twenty thrones (In the throne room)
 M 0 14039 1 14199 1	* Four and twenty elders (In the throne room)
 E 0 14041 0 17		*	A golden bowl of incense: held in the hands
 S
-
-
-
-#SHOPS
-0
-
-
 
 #OLIMITS
 O 14002 2	* An iron breastplate
@@ -5803,20 +5786,5 @@ O 14013 1	* The sword of war
 O 14018 1	* The scythe of the Grim reaper
 O 14019 1	* The holy lance of archangel Michael
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 60 65
 End
 
-
-
 #MOBILES
 #30800
 evil monk~
@@ -264,8 +262,6 @@ FIJQ 0 0 0
 stand stand none 0
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #30800
@@ -839,8 +835,6 @@ key 0 AC
 0 0 0 0 0
 0 1 0 P
 #0
-
-
 
 #ROOMS
 #30800
@@ -2481,8 +2475,6 @@ Z 0 30883
 S
 #0
 
-
-
 #SPECIALS
 M 30801 spec_executioner	* a clay golem
 M 30803 spec_cast_undead	* a necromancer
@@ -2493,8 +2485,6 @@ M 30811 spec_breath_acid	* a black dragon
 M 30814 spec_poison	* a wyvern
 M 30815 spec_fido	* a pit beast
 S
-
-
 
 #RESETS
 D 0 30825 4 2	* The Portal Chamber: door to the up: closed and locked
@@ -2579,46 +2569,46 @@ M 0 30814 1 30802 1	* a wyvern (The Path to the Craggy Tor)
 E 0 30825 0 3		*	a bright green amulet: around the neck (1)
 M 0 30811 1 30819 1	* a black dragon (The Roof of the Abbey)
 M 0 30813 1 30824 1	* a bone golem (The Bellows Golem)
-O 0 30824 0 30824		* a bellows (The Bellows Golem)
-O 0 30826 0 30826		* a glowing green portal (The Portal)
-O 0 30827 0 30827		* a glowing green portal (Level One)
-O 0 30829 0 30829		* a sack (A Storage Room)
-O 0 30830 0 30829		* a lantern (A Storage Room)
-O 0 30831 0 30829		* a small chest (A Storage Room)
-O 0 30832 0 30829		* a wineskin (A Storage Room)
-O 0 30833 0 30829		* a waterskin (A Storage Room)
-O 0 30834 0 30829		* some iron rations (A Storage Room)
-O 0 30835 0 30829		* a backpack (A Storage Room)
-O 0 30829 0 30830		* a sack (A Storage Room)
-O 0 30830 0 30830		* a lantern (A Storage Room)
-O 0 30831 0 30830		* a small chest (A Storage Room)
+O 0 30824 0 30824	* a bellows (The Bellows Golem)
+O 0 30826 0 30826	* a glowing green portal (The Portal)
+O 0 30827 0 30827	* a glowing green portal (Level One)
+O 0 30829 0 30829	* a sack (A Storage Room)
+O 0 30830 0 30829	* a lantern (A Storage Room)
+O 0 30831 0 30829	* a small chest (A Storage Room)
+O 0 30832 0 30829	* a wineskin (A Storage Room)
+O 0 30833 0 30829	* a waterskin (A Storage Room)
+O 0 30834 0 30829	* some iron rations (A Storage Room)
+O 0 30835 0 30829	* a backpack (A Storage Room)
+O 0 30829 0 30830	* a sack (A Storage Room)
+O 0 30830 0 30830	* a lantern (A Storage Room)
+O 0 30831 0 30830	* a small chest (A Storage Room)
 P 0 30848 1 30831 1	* a small chest: a glowing red amulet
-O 0 30832 0 30830		* a wineskin (A Storage Room)
-O 0 30833 0 30830		* a waterskin (A Storage Room)
-O 0 30834 0 30830		* some iron rations (A Storage Room)
-O 0 30835 0 30830		* a backpack (A Storage Room)
-O 0 30836 0 30832		* a hand axe (An Armory)
-O 0 30837 0 30832		* a throwing axe (An Armory)
-O 0 30838 0 30832		* a bo stick (An Armory)
-O 0 30839 0 30832		* a jo stick (An Armory)
-O 0 30840 0 30832		* a quarterstaff (An Armory)
-O 0 30841 0 30832		* a crossbow (An Armory)
-O 0 30842 0 30832		* a quiver (An Armory)
-O 0 30836 0 30833		* a hand axe (An Armory)
-O 0 30837 0 30833		* a throwing axe (An Armory)
-O 0 30838 0 30833		* a bo stick (An Armory)
-O 0 30839 0 30833		* a jo stick (An Armory)
-O 0 30840 0 30833		* a quarterstaff (An Armory)
-O 0 30841 0 30833		* a crossbow (An Armory)
-O 0 30842 0 30833		* a quiver (An Armory)
-O 0 30845 0 30834		* a throne (A Strange Room)
-O 0 30846 0 30834		* a skeleton (A Strange Room)
+O 0 30832 0 30830	* a wineskin (A Storage Room)
+O 0 30833 0 30830	* a waterskin (A Storage Room)
+O 0 30834 0 30830	* some iron rations (A Storage Room)
+O 0 30835 0 30830	* a backpack (A Storage Room)
+O 0 30836 0 30832	* a hand axe (An Armory)
+O 0 30837 0 30832	* a throwing axe (An Armory)
+O 0 30838 0 30832	* a bo stick (An Armory)
+O 0 30839 0 30832	* a jo stick (An Armory)
+O 0 30840 0 30832	* a quarterstaff (An Armory)
+O 0 30841 0 30832	* a crossbow (An Armory)
+O 0 30842 0 30832	* a quiver (An Armory)
+O 0 30836 0 30833	* a hand axe (An Armory)
+O 0 30837 0 30833	* a throwing axe (An Armory)
+O 0 30838 0 30833	* a bo stick (An Armory)
+O 0 30839 0 30833	* a jo stick (An Armory)
+O 0 30840 0 30833	* a quarterstaff (An Armory)
+O 0 30841 0 30833	* a crossbow (An Armory)
+O 0 30842 0 30833	* a quiver (An Armory)
+O 0 30845 0 30834	* a throne (A Strange Room)
+O 0 30846 0 30834	* a skeleton (A Strange Room)
 M 0 30810 1 30837 1	* a paladin (The Tomb)
 E 0 30843 0 11		*	a white shield: as a shield
 E 0 30844 0 15		*	a white surcoat: on the right wrist
-O 0 30847 0 30837		* a massive sarcophagus (The Tomb)
-O 0 30828 0 30838		* a glowing red portal (The Portal)
-O 0 30849 0 30839		* a glowing red portal (The Portal Chamber)
+O 0 30847 0 30837	* a massive sarcophagus (The Tomb)
+O 0 30828 0 30838	* a glowing red portal (The Portal)
+O 0 30849 0 30839	* a glowing red portal (The Portal Chamber)
 M 0 30801 7 30840 1	* a clay golem (A Long Dark Passage)
 M 0 30801 7 30841 1	* a clay golem (A Long Dark Passage)
 M 0 30801 7 30842 1	* a clay golem (A Long Dark Passage)
@@ -2632,22 +2622,22 @@ E 0 30800 0 12		*	a monk's habit: about the shoulders
 M 0 30802 4 30847 1	* a master (A Study)
 E 0 30801 0 12		*	a master's habit: about the shoulders
 G 0 30857 0		*	a blue amulet
-O 0 30850 0 30847		* a small desk (A Study)
+O 0 30850 0 30847	* a small desk (A Study)
 M 0 30815 2 30851 2	* a pit beast (A Pit Trap)
 M 0 30815 2 30851 2	* a pit beast (A Pit Trap)
-O 0 30850 0 30859		* a small desk (A Study)
+O 0 30850 0 30859	* a small desk (A Study)
 M 0 30802 4 30862 1	* a master (A Study)
 E 0 30801 0 12		*	a master's habit: about the shoulders
-O 0 30850 0 30862		* a small desk (A Study)
+O 0 30850 0 30862	* a small desk (A Study)
 M 0 30802 4 30870 1	* a master (A Study)
 E 0 30801 0 12		*	a master's habit: about the shoulders
-O 0 30850 0 30870		* a small desk (A Study)
+O 0 30850 0 30870	* a small desk (A Study)
 M 0 30802 4 30874 1	* a master (A Long Black Corridor)
 E 0 30801 0 12		*	a master's habit: about the shoulders
 M 0 30803 3 30878 1	* a necromancer (The Necromancers' Labs)
 E 0 30802 0 12		*	necromancer's robes: about the shoulders
 E 0 30803 0 16		*	a mithril dagger: wielded
-O 0 30850 0 30878		* a small desk (The Necromancers' Labs)
+O 0 30850 0 30878	* a small desk (The Necromancers' Labs)
 M 0 30803 3 30879 1	* a necromancer (The Cells)
 E 0 30802 0 12		*	necromancer's robes: about the shoulders
 E 0 30803 0 16		*	a mithril dagger: wielded
@@ -2661,9 +2651,9 @@ E 0 30808 0 16		*	an elven longsword: wielded
 E 0 30809 0 5		*	a suit of elven chainmail: on the body
 E 0 30810 0 11		*	a rune-covered shield: as a shield
 E 0 30811 0 3		*	a tattered cloak: around the neck (1)
-O 0 30853 0 30882		* a glowing blue portal (The Blue Portal)
-O 0 30854 0 30883		* a glowing blue portal (The Final Portal Chamber)
-O 0 30855 0 30883		* a glowing black portal (The Final Portal Chamber)
+O 0 30853 0 30882	* a glowing blue portal (The Blue Portal)
+O 0 30854 0 30883	* a glowing blue portal (The Final Portal Chamber)
+O 0 30855 0 30883	* a glowing black portal (The Final Portal Chamber)
 M 0 30801 7 30884 1	* a clay golem (The Arched Corridor)
 M 0 30803 3 30885 1	* a necromancer (The West Wing of the Unholy Chapel)
 E 0 30802 0 12		*	necromancer's robes: about the shoulders
@@ -2672,7 +2662,7 @@ M 0 30800 6 30886 1	* an evil monk (The Unholy Chapel)
 E 0 30800 0 12		*	a monk's habit: about the shoulders
 M 0 30806 1 30888 1	* a bone devil (The Altar)
 E 0 30812 0 16		*	a scythe: wielded
-O 0 30804 0 30888		* a bloodstained altar (The Altar)
+O 0 30804 0 30888	* a bloodstained altar (The Altar)
 M 0 30807 1 30888 1	* an elven virgin (The Altar)
 M 0 30801 7 30889 1	* a clay golem (The Inner Sanctum)
 M 0 30804 1 30892 1	* the abbot (A Study)
@@ -2681,13 +2671,13 @@ E 0 30805 0 2		*	the abbot's ring: on the right finger
 E 0 30806 0 12		*	the abbot's robes: about the shoulders
 E 0 30807 0 308		*	bracers of might: none
 G 0 30819 0		*	a chest key
-O 0 30820 0 30892		* an iron chest (A Study)
+O 0 30820 0 30892	* an iron chest (A Study)
 P 0 30821 1 30820 1	* an iron chest: a suit of unholy armor
 P 0 30822 1 30820 1	* an iron chest: a sack
 P 0 30823 1 30822 1	* a sack: some gold
-O 0 30850 0 30892		* a small desk (A Study)
-O 0 30851 0 30892		* a partially-drafted letter (A Study)
-O 0 30852 0 30892		* a book on ritual sacrifice (A Study)
+O 0 30850 0 30892	* a small desk (A Study)
+O 0 30851 0 30892	* a partially-drafted letter (A Study)
+O 0 30852 0 30892	* a book on ritual sacrifice (A Study)
 M 0 30801 7 30894 1	* a clay golem (Under Construction)
 M 0 30808 10 30896 1	* a dwarven slave (Under Construction)
 E 0 30814 0 16		*	a mining pick: wielded
@@ -2695,30 +2685,5 @@ E 0 30813 0 10		*	a pair of manacles: on the arms
 M 0 30809 1 30898 1	* an ogre slavemaster (Under Construction)
 E 0 30815 0 16		*	a whip: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

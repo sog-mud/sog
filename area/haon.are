@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 10
 End
 
-
-
 #MOBILES
 #6000
 oldstyle john lumberjack~
@@ -208,8 +206,6 @@ FG ABD C 0
 stand stand male 0
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #6000
@@ -464,176 +460,7 @@ mace 2 8 crush 0
 15 100 750 P
 #0
 
-
-
 #ROOMS
-#6144
-A small path in the deep, dark forest~
-You are on a narrow path leading through the deep, dark forest.  Ancient,
-grey trees loom everywhere.  The tree trunks here seem to be covered in some
-sticky substance.  The path continues south and west.
-~
-0 AD 3
-E
-path~
-The path seems all too frail.  One of the giant roots could probably crush it
-in a single blow.
-~
-E
-tree trees trunk trunks~
-The ancient grey giants seem to observe you silently.
-~
-E
-substance rope ropes thread threads~
-The substance reminds you of giant threads covered with glue.  If it had not
-been for the size you could have sworn it was part of a spider web.
-~
-D2
-The narrow path winds its way through the trees to the south.
-~
-~
-Z -1 6110
-D3
-The narrow path winds its way through the trees to the west.
-~
-~
-Z -1 6130
-S
-#6150
-The narrow trail.~
-This trail looks much spookier than any other thats you have seen.  The usual
-animal claw marks and bites on the trees are getting far and few between. The
-trail continues north.
-~
-0 AD 3
-D0
-the narrow trail continues north.
-~
-~
-Z -1 6151
-D2
-the trail intersects the main forest path.
-~
-~
-Z -1 6103
-S
-#6151
-The narrow trail.~
-This area of the trail is also very peculiar.  You can see no signs of animal
-life what so ever.  The structure of the surrounding trees forces the path to
-make a sharp turn to the east.
-~
-0 AD 3
-D1
-the trail bends east.
-~
-~
-Z -1 6152
-D2
-the start of the trail.
-~
-~
-Z -1 6150
-S
-#6152
-The circle of trees.~
-The trees here seem to form a circle around a HUGE tree that is in the center
-of them.  You notice a wooden door carved into the huge tree to the east.  The
-trail that you followed to get here seems to end at the base of the tree.
-~
-0 AD 3
-D0
-A long dusty trail.
-~
-~
-Z -1 18001
-D1
-The tree door is carved beautifully.
-~
-door~
-ABZ -1 6153
-D3
-the bend on the trail.
-~
-~
-Z -1 6151
-S
-#6153
-Inside the great tree.~
-You have stepped inside of this hollowed tree.  From here steps lead down into
-darkness or you can exit the tree by going west.
-~
-0 AD 3
-D0
-A large Knothole in a tree.
-~
-~
-Z -1 13400
-D3
-the door is carved beautifully.
-~
-door~
-ABZ -1 6152
-D5
-The steps look appear like they will hold your weight.
-~
-~
-Z -1 6154
-S
-#6154
-The underground hallway.~
-This hallway is apparently one of the roots of the tree hollowed out.  The 
-hall leads south to a room where you hear strange noises or you can go up
-the steps. ~
-0 AD 3
-D0
-~
-~
-Z -1 14700
-D2
-the hallway looks quite grand.
-~
-~
-Z -1 6155
-D4
-the steps appear like they will hold your weight.
-~
-~
-Z -1 6153
-S
-#6155
-The cultist temple.~
-This temple is built to some god that you don't worship.  It is a nice place
-to visit but you feel very uncomfortable about spending much time here.
-The wooden altar seems almost to glow as you enter the room.  The only exit is
-the way you came in.
-~
-0 AD 3
-D0
-the hallway looks quite grand.
-~
-~
-Z -1 6154
-D2
-Gateway to abyss.
-~
-~
-Z -1 25004
-S
-#6156
-The Hidden Glade~
-Parting the undergrowth, you step in a small glade.  Quiet and 
-peaceful, you relax in the beauty of the forest.  Small Sprites and 
-Fairies dance around a calm pool, offering you a cool drink.  You feel 
-at peace with yourself and the forest around you.
-~
-0 SX 3
-D0
-You see an open clearing to north.
-~
-~
-Z -1 6008
-S
 #6000
 The edge of the forest~
 You are standing at the eastern edge of a big forest.  To the east is the West
@@ -2540,64 +2367,224 @@ The exit leads out into the forest.
 ~
 Z -1 6142
 S
+#6144
+A small path in the deep, dark forest~
+You are on a narrow path leading through the deep, dark forest.  Ancient,
+grey trees loom everywhere.  The tree trunks here seem to be covered in some
+sticky substance.  The path continues south and west.
+~
+0 AD 3
+E
+path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+E
+tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+E
+substance rope ropes thread threads~
+The substance reminds you of giant threads covered with glue.  If it had not
+been for the size you could have sworn it was part of a spider web.
+~
+D2
+The narrow path winds its way through the trees to the south.
+~
+~
+Z -1 6110
+D3
+The narrow path winds its way through the trees to the west.
+~
+~
+Z -1 6130
+S
+#6150
+The narrow trail.~
+This trail looks much spookier than any other thats you have seen.  The usual
+animal claw marks and bites on the trees are getting far and few between. The
+trail continues north.
+~
+0 AD 3
+D0
+the narrow trail continues north.
+~
+~
+Z -1 6151
+D2
+the trail intersects the main forest path.
+~
+~
+Z -1 6103
+S
+#6151
+The narrow trail.~
+This area of the trail is also very peculiar.  You can see no signs of animal
+life what so ever.  The structure of the surrounding trees forces the path to
+make a sharp turn to the east.
+~
+0 AD 3
+D1
+the trail bends east.
+~
+~
+Z -1 6152
+D2
+the start of the trail.
+~
+~
+Z -1 6150
+S
+#6152
+The circle of trees.~
+The trees here seem to form a circle around a HUGE tree that is in the center
+of them.  You notice a wooden door carved into the huge tree to the east.  The
+trail that you followed to get here seems to end at the base of the tree.
+~
+0 AD 3
+D0
+A long dusty trail.
+~
+~
+Z -1 18001
+D1
+The tree door is carved beautifully.
+~
+door~
+ABZ -1 6153
+D3
+the bend on the trail.
+~
+~
+Z -1 6151
+S
+#6153
+Inside the great tree.~
+You have stepped inside of this hollowed tree.  From here steps lead down into
+darkness or you can exit the tree by going west.
+~
+0 AD 3
+D0
+A large Knothole in a tree.
+~
+~
+Z -1 13400
+D3
+the door is carved beautifully.
+~
+door~
+ABZ -1 6152
+D5
+The steps look appear like they will hold your weight.
+~
+~
+Z -1 6154
+S
+#6154
+The underground hallway.~
+This hallway is apparently one of the roots of the tree hollowed out.  The 
+hall leads south to a room where you hear strange noises or you can go up
+the steps. ~
+0 AD 3
+D0
+~
+~
+Z -1 14700
+D2
+the hallway looks quite grand.
+~
+~
+Z -1 6155
+D4
+the steps appear like they will hold your weight.
+~
+~
+Z -1 6153
+S
+#6155
+The cultist temple.~
+This temple is built to some god that you don't worship.  It is a nice place
+to visit but you feel very uncomfortable about spending much time here.
+The wooden altar seems almost to glow as you enter the room.  The only exit is
+the way you came in.
+~
+0 AD 3
+D0
+the hallway looks quite grand.
+~
+~
+Z -1 6154
+D2
+Gateway to abyss.
+~
+~
+Z -1 25004
+S
+#6156
+The Hidden Glade~
+Parting the undergrowth, you step in a small glade.  Quiet and 
+peaceful, you relax in the beauty of the forest.  Small Sprites and 
+Fairies dance around a calm pool, offering you a cool drink.  You feel 
+at peace with yourself and the forest around you.
+~
+0 SX 3
+D0
+You see an open clearing to north.
+~
+~
+Z -1 6008
+S
 #0
-
-
 
 #SPECIALS
 M 6112 spec_breath_gas	* the huge, green dragon
 M 6116 spec_cast_cleric	* the elder druid
 S
 
-
-
 #RESETS
+D 0 6009 0 1	* Outside a small cabin in the forest: door to the north: closed
 D 0 6152 1 1	* The circle of trees.: door to the east: closed
 D 0 6153 3 1	* Inside the great tree.: door to the west: closed
-D 0 6009 0 1	* Outside a small cabin in the forest: door to the north: closed
-M 0 6116 1 6155 1	* the elder druid (The cultist temple.)
-E 0 6155 0 16		*	the morning star: wielded
-M 0 6117 1 6156 1	* the guildmaster (The Hidden Glade)
-O 0 6011 0 6006		* a mushroom (A small path in the dense forest)
+O 0 6011 0 6006	* a mushroom (A small path in the dense forest)
 M 0 6000 1 6009 1	* John the Lumberjack (Outside a small cabin in the forest)
 E 0 6000 0 16		*	a lumber axe: wielded
 E 0 6001 0 5		*	a chequered shirt: on the body
 E 0 6002 0 8		*	a pair of leather boots: on the feet
-O 0 6003 0 6010		* a fireplace (Inside the cabin)
-O 0 6005 0 6010		* a wooden chest (Inside the cabin)
+O 0 6003 0 6010	* a fireplace (Inside the cabin)
+O 0 6005 0 6010	* a wooden chest (Inside the cabin)
 P 0 6007 1 6005 1	* a wooden chest: a heap of silver coins
 P 0 6006 1 6003 1	* a fireplace: a small brass key
-O 0 6013 0 6010		* the barrel (Inside the cabin)
+O 0 6013 0 6010	* the barrel (Inside the cabin)
 M 0 309 5 6012 2	* the cute rabbit (An intersection in the dense forest)
-O 0 6011 0 6013		* a mushroom (A small path in the dense forest)
+O 0 6011 0 6013	* a mushroom (A small path in the dense forest)
 M 0 6005 2 6014 2	* the brown fox (An intersection in the dense forest)
 M 0 309 5 6015 1	* the cute rabbit (A small path in the dense forest)
-O 0 6011 0 6016		* a mushroom (A small path in the dense forest)
+O 0 6011 0 6016	* a mushroom (A small path in the dense forest)
 M 0 309 5 6017 1	* the cute rabbit (A small path in the dense forest)
 M 0 309 5 6019 1	* the cute rabbit (A small path in the dense forest)
 M 0 6002 1 6022 1	* the brown bear (Inside the cave)
 M 0 6004 1 6023 1	* the fallow deer (On a small, grassy field)
-O 0 6010 0 6023		* some blackberries (On a small, grassy field)
+O 0 6010 0 6023	* some blackberries (On a small, grassy field)
 M 0 6115 1 6100 1	* Shargugh (A narrow trail through the deep, dark forest)
 E 0 6114 0 1		*	an iron ring: on the left finger
-O 0 6102 0 6103		* a colossal tree (A narrow trail through the deep, dark forest)
+O 0 6102 0 6103	* a colossal tree (A narrow trail through the deep, dark forest)
 M 0 6102 4 6104 2	* the large, grey wolf (A small path in the deep, dark forest)
 M 0 6102 4 6104 2	* the large, grey wolf (A small path in the deep, dark forest)
-O 0 6106 0 6104		* a toadstool (A small path in the deep, dark forest)
-O 0 6105 0 6105		* a long, grey branch (A small path in the deep, dark forest)
+O 0 6106 0 6104	* a toadstool (A small path in the deep, dark forest)
+O 0 6105 0 6105	* a long, grey branch (A small path in the deep, dark forest)
 M 0 6102 4 6108 2	* the large, grey wolf (A narrow trail through the deep, dark forest)
 M 0 6102 4 6108 2	* the large, grey wolf (A narrow trail through the deep, dark forest)
-O 0 6106 0 6111		* a toadstool (A narrow trail through the deep, dark forest)
+O 0 6106 0 6111	* a toadstool (A narrow trail through the deep, dark forest)
 M 0 6103 4 6112 2	* the large, black wolf (A narrow trail through the deep, dark forest)
 M 0 6103 4 6112 2	* the large, black wolf (A narrow trail through the deep, dark forest)
-O 0 6103 0 6113		* a long, grey branch (A small path in the deep, dark forest)
+O 0 6103 0 6113	* a long, grey branch (A small path in the deep, dark forest)
 M 0 6100 2 6116 2	* the vicious warg (A small path in the deep, dark forest)
 M 0 6100 2 6116 2	* the vicious warg (A small path in the deep, dark forest)
 M 0 6103 4 6118 2	* the large, black wolf (A small path in the deep, dark forest)
 M 0 6103 4 6118 2	* the large, black wolf (A small path in the deep, dark forest)
-O 0 6107 0 6119		* a toadstool (A small path in the deep, dark forest)
-O 0 6106 0 6122		* a toadstool (A small path in the deep, dark forest)
-O 0 6104 0 6125		* a long, grey branch (A small path on the river bank in the deep, dark forest)
+O 0 6107 0 6119	* a toadstool (A small path in the deep, dark forest)
+O 0 6106 0 6122	* a toadstool (A small path in the deep, dark forest)
+O 0 6104 0 6125	* a long, grey branch (A small path on the river bank in the deep, dark forest)
 M 0 6101 2 6127 2	* the ferocious warg (A narrow trail through the deep, dark forest)
 M 0 6101 2 6127 2	* the ferocious warg (A narrow trail through the deep, dark forest)
 M 0 6319 1 6134 1	* the Queen Spider (The Den of the Queen Spider)
@@ -2610,31 +2597,9 @@ M 0 6112 1 6143 1	* the huge, green dragon (The cave of the Green Dragon)
 G 0 6110 0		*	a yellow potion
 G 0 6112 0		*	an iron crown
 G 0 6111 0		*	a large round shield
+M 0 6116 1 6155 1	* the elder druid (The cultist temple.)
+E 0 6155 0 16		*	the morning star: wielded
+M 0 6117 1 6156 1	* the guildmaster (The Hidden Glade)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

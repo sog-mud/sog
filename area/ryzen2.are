@@ -7,8 +7,6 @@ Security 9
 LevelRange 25 45
 End
 
-
-
 #MOBILES
 #22002
 ghost wandering~
@@ -230,8 +228,6 @@ stand stand female 1000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #22000
 girdle giant strength~
@@ -368,8 +364,6 @@ A
 A
 4 1
 #0
-
-
 
 #ROOMS
 #22000
@@ -1173,15 +1167,11 @@ Z 0 10401
 S
 #0
 
-
-
 #SPECIALS
 M 22010 spec_breath_lightning	* A Deep Dragon
 M 22012 spec_cast_cleric	* a Holy Cleric
 M 22015 spec_cast_mage	* A Powerful Enchantress
 S
-
-
 
 #RESETS
 M 0 22002 10 22001 1	* A Wandering Ghost (A Darkened Tunnel)
@@ -1242,34 +1232,15 @@ M 0 22008 5 22049 1	* a Spinagon (The End of The Caverns)
 E 0 22006 0 16		*	a Spinagon's spear: wielded
 S
 
-
-
-#SHOPS
-0
-
-
-
 #OLIMITS
 O 22000 2	* girdle of giant strength
 O 22005 3	* a concealable wrist sheath
 O 22007 2	* the Rod of Rulership
 S
 
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
 #OMPROGS
 O 22000 wear_prog wear_prog_girdle_giant	* `girdle of giant strength'
 O 22000 remove_prog remove_prog_girdle_giant	* `girdle of giant strength'
 S
-
-
 
 #$

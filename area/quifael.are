@@ -7,18 +7,6 @@ Security 9
 LevelRange 31 35
 End
 
-
-
-#MOBILES
-#0
-
-
-
-#OBJECTS
-#0
-
-
-
 #ROOMS
 #6900
 Quifael's monster pen~
@@ -186,40 +174,5 @@ The hall is to the north.~
 Z -1 6904
 S
 #0
-
-
-
-#SPECIALS
-S
-
-
-
-#RESETS
-S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 8 53
 End
 
-
-
 #MOBILES
 #29201
 lizard blue-tongued~
@@ -521,8 +519,6 @@ stand stand male 10
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #29201
 key old~
@@ -887,8 +883,6 @@ staff FG AO
 55 10 8 'sanctuary' 0
 52 1 3000 P
 #0
-
-
 
 #ROOMS
 #29201
@@ -2369,15 +2363,11 @@ Z -1 29254
 S
 #0
 
-
-
 #SPECIALS
 M 29230 spec_poison	* Admiral Blacksail
 M 29231 spec_poison	* Oglethorpe, 1st Master Merchant of Freeport
 M 29232 spec_poison	* Lord Mourning
 S
-
-
 
 #RESETS
 D 0 29256 5 2	* Town Hall: door to the down: closed and locked
@@ -2386,13 +2376,13 @@ D 0 29269 0 1	* In the Hidden Cavern: door to the north: closed
 M 0 29202 2 29203 1	* the red-tongued lizard (On the Rock Jetty)
 G 0 29203 0		*	a red lizard tongue
 M 0 29206 5 29206 1	* the longshoreman (On the Wharf)
-O 0 29223 0 29206		* a huge box crate (On the Wharf)
-O 0 29224 0 29206		* a moored ship (On the Wharf)
+O 0 29223 0 29206	* a huge box crate (On the Wharf)
+O 0 29224 0 29206	* a moored ship (On the Wharf)
 M 0 29208 5 29207 1	* the citizen of Freeport (Wharf Road)
 M 0 29208 5 29208 1	* the citizen of Freeport (On the Wharf)
-O 0 29223 0 29208		* a huge box crate (On the Wharf)
-O 0 29223 0 29208		* a huge box crate (On the Wharf)
-O 0 29224 0 29208		* a moored ship (On the Wharf)
+O 0 29223 0 29208	* a huge box crate (On the Wharf)
+O 0 29223 0 29208	* a huge box crate (On the Wharf)
+O 0 29224 0 29208	* a moored ship (On the Wharf)
 M 0 29203 2 29210 1	* the green-tongued lizard (On the Rock Jetty)
 G 0 29204 0		*	a green lizard tongue
 M 0 29206 5 29211 1	* the longshoreman (On the Wharf)
@@ -2401,7 +2391,7 @@ E 0 29208 0 0		*	a patrol globe: as a light
 E 0 29209 0 5		*	scale mail: on the body
 E 0 29210 0 16		*	a trident: wielded
 M 0 29204 1 29215 1	* the watchman of Widow's Cape (Widow's Cape)
-O 0 29205 0 29215		* a watchfire (Widow's Cape)
+O 0 29205 0 29215	* a watchfire (Widow's Cape)
 M 0 29207 1 29216 1	* the harbormaster (On the Wharf)
 G 0 29207 0		*	a notebook
 M 0 29214 3 29217 1	* the harbor patrolman (On the Wharf)
@@ -2409,16 +2399,16 @@ E 0 29208 0 0		*	a patrol globe: as a light
 E 0 29209 0 5		*	scale mail: on the body
 E 0 29210 0 16		*	a trident: wielded
 M 0 29206 5 29220 1	* the longshoreman (On the Wharf)
-O 0 29223 0 29220		* a huge box crate (On the Wharf)
-O 0 29224 0 29220		* a moored ship (On the Wharf)
+O 0 29223 0 29220	* a huge box crate (On the Wharf)
+O 0 29224 0 29220	* a moored ship (On the Wharf)
 M 0 29215 2 29223 1	* the teamster (Wharf Road)
 M 0 29211 1 29227 1	* the master shipbuilder (The Shipyards)
 M 0 29212 1 29227 1	* the apprentice shipbuilder (The Shipyards)
 M 0 29206 5 29229 1	* the longshoreman (The Mercantile Warehouse)
 M 0 29213 1 29229 1	* the warehouse overseer (The Mercantile Warehouse)
 G 0 29207 0		*	a notebook
-O 0 29223 0 29229		* a huge box crate (The Mercantile Warehouse)
-O 0 29223 0 29229		* a huge box crate (The Mercantile Warehouse)
+O 0 29223 0 29229	* a huge box crate (The Mercantile Warehouse)
+O 0 29223 0 29229	* a huge box crate (The Mercantile Warehouse)
 M 0 29202 2 29230 1	* the red-tongued lizard (On the Rock Jetty)
 G 0 29203 0		*	a red lizard tongue
 M 0 29203 2 29235 1	* the green-tongued lizard (On the Rock Jetty)
@@ -2471,12 +2461,12 @@ M 0 29229 2 29265 1	* the pirate guard (On a Secret Staircase)
 E 0 29225 0 14		*	an emerald wristguard: on the left wrist
 E 0 29226 0 16		*	an emerald longsword: wielded
 E 0 29227 0 6		*	an emerald helm: over the head
-O 0 29223 0 29268		* a huge box crate (In the Hidden Cavern)
+O 0 29223 0 29268	* a huge box crate (In the Hidden Cavern)
 M 0 29229 2 29269 1	* the pirate guard (In the Hidden Cavern)
 E 0 29225 0 14		*	an emerald wristguard: on the left wrist
 E 0 29226 0 16		*	an emerald longsword: wielded
 E 0 29227 0 6		*	an emerald helm: over the head
-O 0 29223 0 29269		* a huge box crate (In the Hidden Cavern)
+O 0 29223 0 29269	* a huge box crate (In the Hidden Cavern)
 M 0 29231 1 29270 1	* Oglethorpe, 1st Master Merchant of Freeport (In The Secret Cave of the 6th Pirate Lord)
 G 0 29231 0		*	a very heavy purse
 M 0 29232 1 29270 1	* Lord Mourning (In The Secret Cave of the 6th Pirate Lord)
@@ -2487,13 +2477,11 @@ M 0 29228 1 29272 1	* the scruffy pirate (In the Hidden Cavern)
 E 0 29229 0 12		*	an admiral's cape: about the shoulders
 E 0 29230 0 2		*	an admiral's signet: on the right finger
 G 0 29228 0		*	a pinch of devil's weed
-O 0 29223 0 29272		* a huge box crate (In the Hidden Cavern)
+O 0 29223 0 29272	* a huge box crate (In the Hidden Cavern)
 M 0 29228 2 29273 1	* the scruffy pirate (In the Hidden Cavern)
 M 0 29228 2 29274 1	* the scruffy pirate (In the Hidden Cavern)
-O 0 29224 0 29275		* a moored ship (On the Hidden Harbor)
+O 0 29224 0 29275	* a moored ship (On the Hidden Harbor)
 S
-
-
 
 #SHOPS
 29211 22 0 0 0 0 130 70 6 17
@@ -2503,25 +2491,5 @@ S
 29219 9 2 3 4 28 140 60 17 23
 29227 17 19 0 0 0 110 90 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

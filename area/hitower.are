@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 30
 End
 
-
-
 #MOBILES
 #1300
 oldstyle shadow guardian~
@@ -955,8 +953,6 @@ stand stand male 160
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #1301
 oven black~
@@ -1875,8 +1871,6 @@ drink 0 AO
 25 25 'cranberry juice' 0 0
 0 250 100 P
 #0
-
-
 
 #ROOMS
 #1300
@@ -5130,8 +5124,6 @@ on a desk.
 S
 #0
 
-
-
 #SPECIALS
 M 1300 spec_cast_undead	* a shadow guardian
 M 1301 spec_cast_cleric	* a lost adventurer
@@ -5188,8 +5180,6 @@ M 1363 spec_cast_mage	* A calico cat
 M 1364 spec_cast_mage	* The Grand Mistress
 M 1365 spec_cast_mage	* a wizard
 S
-
-
 
 #RESETS
 D 0 1316 3 1	* Dining Room: door to the west: closed
@@ -5322,9 +5312,9 @@ G 0 1351 0		*	a herbal brew
 G 0 1352 0		*	a waybread
 M 0 1304 7 1319 1	* a mage (The Magic Shop)
 M 0 1306 1 1319 1	* Tatorious (The Magic Shop)
-O 0 1301 0 1320		* an oven (the kitchen)
+O 0 1301 0 1320	* an oven (the kitchen)
 P 0 1304 20 1301 1	* an oven: a slice of pizza
-O 0 1302 0 1320		* a meat locker (the kitchen)
+O 0 1302 0 1320	* a meat locker (the kitchen)
 P 0 1305 1 1302 1	* a meat locker: a large chunk of meat
 P 0 1306 1 1302 1	* a meat locker: a finger sandwich
 M 0 1307 1 1320 1	* Ezmerelda (the kitchen)
@@ -5336,8 +5326,8 @@ M 0 1310 1 1328 1	* the Jailor (The Jailor's office)
 E 0 1323 0 17		*	an old key: held in the hands
 M 0 1311 2 1333 2	* a broom (A broom closet)
 M 0 1311 2 1333 2	* a broom (A broom closet)
-O 0 1307 0 1333		* a straw broom (A broom closet)
-O 0 1307 0 1333		* a straw broom (A broom closet)
+O 0 1307 0 1333	* a straw broom (A broom closet)
+O 0 1307 0 1333	* a straw broom (A broom closet)
 M 0 1312 10 1335 4	* a pair of disembodied hands (Guardians chamber)
 M 0 1312 10 1335 4	* a pair of disembodied hands (Guardians chamber)
 M 0 1312 10 1335 4	* a pair of disembodied hands (Guardians chamber)
@@ -5391,17 +5381,17 @@ G 0 1361 0		*	a long cylindrical tube
 M 0 1333 1 1373 1	* the scribe's assistant (The master scribe's workshop)
 G 0 1362 0		*	an old scroll
 M 0 1313 7 1375 1	* a pair of disembodied eyes (A store room)
-O 0 1315 0 1378		* a chest (A hallway)
+O 0 1315 0 1378	* a chest (A hallway)
 P 0 1317 1 1315 1	* a chest: a long sword
 P 0 1318 1 1315 1	* a chest: a silver dagger
 P 0 1319 1 1315 1	* a chest: a curved scimitar
-O 0 1310 0 1379		* a bar of silver (A store room)
-O 0 1311 0 1379		* a bar of gold (A store room)
-O 0 1312 0 1379		* a bar of mithril (A store room)
-O 0 1313 0 1379		* a bar of adamantite (A store room)
-O 0 1314 0 1381		* a mithril hammer (A very hot room)
-O 0 1316 0 1381		* a small key (A very hot room)
-O 0 1363 0 1381		* a scroll written on blue paper (A very hot room)
+O 0 1310 0 1379	* a bar of silver (A store room)
+O 0 1311 0 1379	* a bar of gold (A store room)
+O 0 1312 0 1379	* a bar of mithril (A store room)
+O 0 1313 0 1379	* a bar of adamantite (A store room)
+O 0 1314 0 1381	* a mithril hammer (A very hot room)
+O 0 1316 0 1381	* a small key (A very hot room)
+O 0 1363 0 1381	* a scroll written on blue paper (A very hot room)
 M 0 1334 1 1382 1	* the Enchanter (The master Enchanter's chamber)
 M 0 1335 1 1382 1	* a dancing sword (The master Enchanter's chamber)
 M 0 1336 1 1388 1	* the Mad Alchemist (The Mad Alchemist's workroom)
@@ -5420,15 +5410,15 @@ G 0 1373 0		*	a small figurine
 M 0 1339 5 1398 2	* a wooden golem (The end of the hallway)
 M 0 1339 5 1398 2	* a wooden golem (The end of the hallway)
 M 0 1313 7 1400 1	* a pair of disembodied eyes (A hallway)
-O 0 1320 0 1401		* a wooden staff (A store room)
+O 0 1320 0 1401	* a wooden staff (A store room)
 M 0 1340 1 1402 1	* the master spell binder (The master spellbinder's chamber)
 E 0 1325 0 17		*	a silvery key: held in the hands
 E 0 1374 0 13		*	a holstered belt: around the waist
 P 0 1375 2 1374 1	* a holstered belt: a blackened wand
-O 0 1321 0 1403		* a silver chased cabinet (The spellbinder's cache)
+O 0 1321 0 1403	* a silver chased cabinet (The spellbinder's cache)
 P 0 1326 1 1321 1	* a silver chased cabinet: a red and white staff
 P 0 1327 1 1321 1	* a silver chased cabinet: a burnt staff
-O 0 1322 0 1403		* a silver chased cabinet (The spellbinder's cache)
+O 0 1322 0 1403	* a silver chased cabinet (The spellbinder's cache)
 P 0 1328 1 1322 1	* a silver chased cabinet: a black rod
 P 0 1329 1 1322 1	* a silver chased cabinet: a wooden stick
 P 0 1330 1 1322 1	* a silver chased cabinet: a metal wand
@@ -5457,11 +5447,11 @@ M 0 1313 7 1433 2	* a pair of disembodied eyes (An intersection)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
 M 0 1352 3 1435 3	* an ugly witch (The scrying chamber)
-O 0 1331 0 1435		* a black cauldron (The scrying chamber)
+O 0 1331 0 1435	* a black cauldron (The scrying chamber)
 P 0 1332 1 1331 1	* a black cauldron: a small pair of bat wings
 P 0 1333 1 1331 1	* a black cauldron: an eyeball
 M 0 1353 1 1437 1	* the Librarian (The entrance to the library)
-O 0 1334 0 1445		* the book of magic (The reading room)
+O 0 1334 0 1445	* the book of magic (The reading room)
 P 0 1335 1 1334 1	* the book of magic: a pair of spectacles
 M 0 1313 7 1449 1	* a pair of disembodied eyes (The landing)
 M 0 1354 1 1453 1	* the master's apprentice (The antechamber)
@@ -5497,34 +5487,28 @@ E 0 1398 0 14		*	an emerald bracelet: on the left wrist
 E 0 1399 0 17		*	a ward major: held in the hands
 E 0 1400 0 16		*	the ebony kris: wielded
 G 0 1339 0		*	an intricately carved key
-O 0 1336 0 1480		* a golden altar (The altar)
+O 0 1336 0 1480	* a golden altar (The altar)
 P 0 1337 1 1336 1	* a golden altar: a heart shaped medallion
-O 0 1338 0 1481		* a large chest (The treasury)
+O 0 1338 0 1481	* a large chest (The treasury)
 P 0 1340 1 1338 1	* a large chest: a pile of coins
-O 0 1341 0 1482		* a brown cloak (A passage)
-O 0 1342 0 1482		* a chameleon poncho (A passage)
-O 0 1343 0 1482		* a pair of old boots (A passage)
-O 0 1345 0 1482		* a leather backpack (A passage)
+O 0 1341 0 1482	* a brown cloak (A passage)
+O 0 1342 0 1482	* a chameleon poncho (A passage)
+O 0 1343 0 1482	* a pair of old boots (A passage)
+O 0 1345 0 1482	* a leather backpack (A passage)
 P 0 1344 1 1345 1	* a leather backpack: a seashell ring
-O 0 1402 0 1499		* a fridge (Skylar's Hideout)
+O 0 1402 0 1499	* a fridge (Skylar's Hideout)
 P 0 1403 1 1402 1	* a fridge: a bottle of Absolut vodka
 P 0 1404 1 1402 1	* a fridge: a bottle of cranberry juice
 S
-
-
 
 #SHOPS
 1305 17 19 0 0 0 210 50 0 23
 1306 2 3 4 10 21 250 30 0 23
 0
 
-
-
 #OLIMITS
 O 1384 4	* a glinting silver bracelet
 S
-
-
 
 #MOBPROGS
 #1300
@@ -5539,13 +5523,9 @@ M 1348 illusion	* the master of illusions
 M 1364 transportation	* The Grand Mistress
 S
 
-
-
 #OMPROGS
 O 1384 wear_prog wear_prog_bracer	* `a glinting silver bracelet'
 O 1384 remove_prog remove_prog_bracer	* `a glinting silver bracelet'
 S
-
-
 
 #$

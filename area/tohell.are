@@ -7,8 +7,6 @@ Security 9
 LevelRange 32 56
 End
 
-
-
 #MOBILES
 #10401
 oldstyle Guardian guard~
@@ -1087,8 +1085,6 @@ stand stand none 5000
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #10401
 wicked trident two-handed~
@@ -1632,8 +1628,6 @@ blood, sweat, and pain of hundreds of damned souls.  You feel vaguely ill
 as you gaze into its lustrous black heart.
 ~
 #0
-
-
 
 #ROOMS
 #10401
@@ -4583,8 +4577,6 @@ Z -1 10472
 S
 #0
 
-
-
 #SPECIALS
 M 10401 spec_cast_judge	* the Guardian of Hell
 M 10402 spec_thief	* the pile of gold coins
@@ -4619,8 +4611,6 @@ M 10468 spec_breath_fire	* the Greater Fire Demon
 M 10469 spec_breath_frost	* side of frozen beef
 M 10470 spec_fido	* guard dog
 S
-
-
 
 #RESETS
 D 0 10404 3 1	* Landing: door to the west: closed
@@ -4830,31 +4820,9 @@ M 0 10433 1 10541 1	* the frozen body (Ice Room)
 G 0 10418 0		*	an icy bottle
 S
 
-
-
 #SHOPS
 10451 0 0 0 0 0 110 75 0 23
 10454 2 3 4 10 0 225 15 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

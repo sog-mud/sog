@@ -7,8 +7,6 @@ Security 9
 LevelRange 50 65
 End
 
-
-
 #MOBILES
 #31200
 east wall guard~
@@ -321,8 +319,6 @@ CEIK 0 0 0
 stand stand male 200
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #31200
@@ -831,8 +827,6 @@ A
 A
 24 -3
 #0
-
-
 
 #ROOMS
 #31200
@@ -3145,8 +3139,6 @@ Z -1 31011
 S
 #0
 
-
-
 #SPECIALS
 M 31200 spec_guard	* an east wall guard
 M 31201 spec_guard	* a south wall guard
@@ -3165,51 +3157,49 @@ M 31214 spec_cast_adept	* a ghost
 M 31215 spec_cast_adept	* a priestess of Lenny
 S
 
-
-
 #RESETS
 D 0 31321 3 1	* The Book Shoppe: door to the west: closed
 D 0 31322 1 1	* The Locksmith: door to the east: closed
-O 0 31216 0 31202		* a wall beacon (Inside the North Tower, West Gatehouse)
-O 0 31216 0 31203		* a wall beacon (Inside the Western City Wall)
+O 0 31216 0 31202	* a wall beacon (Inside the North Tower, West Gatehouse)
+O 0 31216 0 31203	* a wall beacon (Inside the Western City Wall)
 M 0 31211 8 31205 1	* a crossbowman (Inside the Western City Wall)
 E 0 31219 0 16		*	a crossbow: wielded
 E 0 31220 0 5		*	a suit of chainmail: on the body
 E 0 31221 0 7		*	a pair of leather leggings: on the legs
 E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
-O 0 31216 0 31205		* a wall beacon (Inside the Western City Wall)
-O 0 31216 0 31206		* a wall beacon (Northwest Tower)
-O 0 31216 0 31207		* a wall beacon (Inside the South Tower, West Gatehouse)
-O 0 31216 0 31208		* a wall beacon (Inside the Western City Wall)
+O 0 31216 0 31205	* a wall beacon (Inside the Western City Wall)
+O 0 31216 0 31206	* a wall beacon (Northwest Tower)
+O 0 31216 0 31207	* a wall beacon (Inside the South Tower, West Gatehouse)
+O 0 31216 0 31208	* a wall beacon (Inside the Western City Wall)
 M 0 31211 8 31210 1	* a crossbowman (Inside the Western City Wall)
 E 0 31219 0 16		*	a crossbow: wielded
 E 0 31220 0 5		*	a suit of chainmail: on the body
 E 0 31221 0 7		*	a pair of leather leggings: on the legs
 E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
-O 0 31216 0 31210		* a wall beacon (Inside the Western City Wall)
-O 0 31216 0 31211		* a wall beacon (Southwest Tower)
-O 0 31216 0 31214		* a wall beacon (Inside the North Tower, East Gatehouse)
-O 0 31216 0 31215		* a wall beacon (Inside the South Tower, East Gatehouse)
-O 0 31217 0 31216		* a pot of boiling oil (The Gatehouse)
-O 0 31218 0 31216		* a murder hole (The Gatehouse)
-O 0 31217 0 31217		* a pot of boiling oil (The Gatehouse)
-O 0 31218 0 31217		* a murder hole (The Gatehouse)
-O 0 31216 0 31218		* a wall beacon (Inside the Eastern City Wall)
+O 0 31216 0 31210	* a wall beacon (Inside the Western City Wall)
+O 0 31216 0 31211	* a wall beacon (Southwest Tower)
+O 0 31216 0 31214	* a wall beacon (Inside the North Tower, East Gatehouse)
+O 0 31216 0 31215	* a wall beacon (Inside the South Tower, East Gatehouse)
+O 0 31217 0 31216	* a pot of boiling oil (The Gatehouse)
+O 0 31218 0 31216	* a murder hole (The Gatehouse)
+O 0 31217 0 31217	* a pot of boiling oil (The Gatehouse)
+O 0 31218 0 31217	* a murder hole (The Gatehouse)
+O 0 31216 0 31218	* a wall beacon (Inside the Eastern City Wall)
 M 0 31211 8 31220 1	* a crossbowman (Inside the Eastern City Wall)
 E 0 31219 0 16		*	a crossbow: wielded
 E 0 31220 0 5		*	a suit of chainmail: on the body
 E 0 31221 0 7		*	a pair of leather leggings: on the legs
 E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
-O 0 31216 0 31220		* a wall beacon (Inside the Eastern City Wall)
-O 0 31216 0 31221		* a wall beacon (Northeast Tower)
-O 0 31216 0 31222		* a wall beacon (Inside the Eastern City Wall)
-O 0 31216 0 31224		* a wall beacon (Inside the Eastern City Wall)
+O 0 31216 0 31220	* a wall beacon (Inside the Eastern City Wall)
+O 0 31216 0 31221	* a wall beacon (Northeast Tower)
+O 0 31216 0 31222	* a wall beacon (Inside the Eastern City Wall)
+O 0 31216 0 31224	* a wall beacon (Inside the Eastern City Wall)
 M 0 31211 8 31225 1	* a crossbowman (Southeast Tower)
 E 0 31219 0 16		*	a crossbow: wielded
 E 0 31220 0 5		*	a suit of chainmail: on the body
 E 0 31221 0 7		*	a pair of leather leggings: on the legs
 E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
-O 0 31216 0 31225		* a wall beacon (Southeast Tower)
+O 0 31216 0 31225	* a wall beacon (Southeast Tower)
 M 0 31200 4 31227 1	* an east wall guard (South Tower, Western Gatehouse)
 E 0 31200 0 16		*	an ornate Longsword: wielded
 E 0 31201 0 5		*	an ornate Breastplate: on the body
@@ -3220,27 +3210,27 @@ E 0 31204 0 6		*	an ornate helm: over the head
 E 0 31205 0 11		*	an ornate shield: as a shield
 E 0 31206 0 17		*	a throwing spear: held in the hands
 E 0 31207 0 1		*	a signet ring: on the left finger
-O 0 31216 0 31230		* a wall beacon (Within the Walls)
-O 0 31216 0 31233		* a wall beacon (Within the Walls)
+O 0 31216 0 31230	* a wall beacon (Within the Walls)
+O 0 31216 0 31233	* a wall beacon (Within the Walls)
 M 0 31211 8 31235 1	* a crossbowman (Within the Walls)
 E 0 31219 0 16		*	a crossbow: wielded
 E 0 31220 0 5		*	a suit of chainmail: on the body
 E 0 31221 0 7		*	a pair of leather leggings: on the legs
 E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
-O 0 31216 0 31236		* a wall beacon (Within the Walls)
-O 0 31216 0 31240		* a wall beacon (Within the Walls)
-O 0 31216 0 31241		* a wall beacon (Within the Walls)
-O 0 31216 0 31245		* a wall beacon (Within the Walls)
+O 0 31216 0 31236	* a wall beacon (Within the Walls)
+O 0 31216 0 31240	* a wall beacon (Within the Walls)
+O 0 31216 0 31241	* a wall beacon (Within the Walls)
+O 0 31216 0 31245	* a wall beacon (Within the Walls)
 M 0 31211 8 31246 1	* a crossbowman (Within the Walls)
 E 0 31219 0 16		*	a crossbow: wielded
 E 0 31220 0 5		*	a suit of chainmail: on the body
 E 0 31221 0 7		*	a pair of leather leggings: on the legs
 E 0 31222 0 14		*	a crossbowman's leather wristguard: on the left wrist
-O 0 31216 0 31248		* a wall beacon (Within the Walls)
-O 0 31216 0 31251		* a wall beacon (Within the Walls)
-O 0 31223 0 31253		* a torn scroll (Base of Northeast Tower)
+O 0 31216 0 31248	* a wall beacon (Within the Walls)
+O 0 31216 0 31251	* a wall beacon (Within the Walls)
+O 0 31223 0 31253	* a torn scroll (Base of Northeast Tower)
 M 0 31212 1 31254 1	* the guard smith (Base of Southwest Tower)
-O 0 31216 0 31268		* a wall beacon (Atop the Gatehouse)
+O 0 31216 0 31268	* a wall beacon (Atop the Gatehouse)
 M 0 31203 4 31269 1	* an west wall guard (Atop the Gatehouse)
 E 0 31200 0 16		*	an ornate Longsword: wielded
 E 0 31201 0 5		*	an ornate Breastplate: on the body
@@ -3251,7 +3241,7 @@ E 0 31204 0 6		*	an ornate helm: over the head
 E 0 31205 0 11		*	an ornate shield: as a shield
 E 0 31206 0 17		*	a throwing spear: held in the hands
 E 0 31207 0 1		*	a signet ring: on the left finger
-O 0 31216 0 31269		* a wall beacon (Atop the Gatehouse)
+O 0 31216 0 31269	* a wall beacon (Atop the Gatehouse)
 M 0 31200 4 31274 1	* an east wall guard (Heading Along the Battlements)
 E 0 31200 0 16		*	an ornate Longsword: wielded
 E 0 31201 0 5		*	an ornate Breastplate: on the body
@@ -3277,9 +3267,9 @@ E 0 31207 0 1		*	a signet ring: on the left finger
 M 0 31216 4 31278 1	* a burly worker (The Pier)
 E 0 31231 0 16		*	a belaying pin: wielded
 G 0 31232 0		*	a barrel of ale
-O 0 31232 0 31278		* a barrel of ale (The Pier)
-O 0 31233 0 31278		* an empty barrel (The Pier)
-O 0 31239 0 31278		* a scow (The Pier)
+O 0 31232 0 31278	* a barrel of ale (The Pier)
+O 0 31233 0 31278	* an empty barrel (The Pier)
+O 0 31239 0 31278	* a scow (The Pier)
 M 0 31218 1 31278 1	* the dock master (The Pier)
 G 0 31238 0		*	a warehouse key
 M 0 31203 4 31280 1	* an west wall guard (Heading Along the Battlements)
@@ -3302,12 +3292,12 @@ E 0 31204 0 6		*	an ornate helm: over the head
 E 0 31205 0 11		*	an ornate shield: as a shield
 E 0 31206 0 17		*	a throwing spear: held in the hands
 E 0 31207 0 1		*	a signet ring: on the left finger
-O 0 31232 0 31284		* a barrel of ale (A Warehouse)
-O 0 31233 0 31284		* an empty barrel (A Warehouse)
-O 0 31234 0 31284		* a lantern (A Warehouse)
-O 0 31235 0 31284		* a coiled rope (A Warehouse)
-O 0 31236 0 31284		* a leather backpack (A Warehouse)
-O 0 31237 0 31284		* a bolt of cloth (A Warehouse)
+O 0 31232 0 31284	* a barrel of ale (A Warehouse)
+O 0 31233 0 31284	* an empty barrel (A Warehouse)
+O 0 31234 0 31284	* a lantern (A Warehouse)
+O 0 31235 0 31284	* a coiled rope (A Warehouse)
+O 0 31236 0 31284	* a leather backpack (A Warehouse)
+O 0 31237 0 31284	* a bolt of cloth (A Warehouse)
 M 0 31202 4 31286 1	* a north wall guard (Heading Along the Battlements)
 E 0 31200 0 16		*	an ornate Longsword: wielded
 E 0 31201 0 5		*	an ornate Breastplate: on the body
@@ -3419,21 +3409,21 @@ M 0 31214 1 31311 1	* a ghost (A Dusty Chamber)
 M 0 31210 1 31312 1	* the marshal (The Top of Northwest Tower)
 E 0 31214 0 5		*	the marshal's uniform: on the body
 E 0 31215 0 17		*	the marshal's swagger stick: held in the hands
-O 0 31226 0 31312		* a footlocker (The Top of Northwest Tower)
+O 0 31226 0 31312	* a footlocker (The Top of Northwest Tower)
 P 0 31224 1 31226 1	* a footlocker: an old key
 P 0 31225 1 31226 1	* a footlocker: an old scroll
-O 0 31227 0 31312		* an ancient tapestry (The Top of Northwest Tower)
+O 0 31227 0 31312	* an ancient tapestry (The Top of Northwest Tower)
 M 0 31209 1 31314 1	* an elven battle mage (The Battlemages' Quarters)
 E 0 31241 0 1		*	a ring of wizardry: on the left finger
 E 0 31242 0 17		*	a staff of power: held in the hands
 E 0 31243 0 12		*	a white robe of the magi: about the shoulders
 E 0 31244 0 8		*	a pair of boots of speed: on the feet
-O 0 31228 0 31314		* an ancient tapestry (The Battlemages' Quarters)
+O 0 31228 0 31314	* an ancient tapestry (The Battlemages' Quarters)
 M 0 31215 1 31316 1	* a priestess of Lenny (The Healing Chambers)
-O 0 31229 0 31316		* an ancient tapestry (The Healing Chambers)
+O 0 31229 0 31316	* an ancient tapestry (The Healing Chambers)
 M 0 31213 1 31318 1	* a vile spectre (A Dusty Chamber)
 E 0 31245 0 5		*	a suit of invincible plate: on the body
-O 0 31230 0 31318		* an ancient tapestry (A Dusty Chamber)
+O 0 31230 0 31318	* an ancient tapestry (A Dusty Chamber)
 M 0 31058 1 31320 1	* Clea the Artificer (The Artificer's Workshop)
 M 0 31059 1 31321 1	* Xanafax (The Book Shoppe)
 G 0 31086 0		*	a Tome of Political History
@@ -3446,30 +3436,5 @@ G 0 31001 0		*	a bronze key
 G 0 31085 0		*	a key to the portal chambers
 M 0 31061 1 31323 1	* Thom the Enhancer (Enhancing Shop)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

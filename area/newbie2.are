@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 10
 End
 
-
-
 #MOBILES
 #18601
 pitbeast pit-beast~
@@ -248,8 +246,6 @@ stand stand male 150
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #18601
 sword newbie~
@@ -406,8 +402,6 @@ A
 A
 2 1
 #0
-
-
 
 #ROOMS
 #18600
@@ -1283,13 +1277,6 @@ Z -1 18645
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 D 0 18602 2 1	* The Dirty Hallway: door to the south: closed
 D 0 18603 0 1	* A Nexus: door to the north: closed
@@ -1348,31 +1335,6 @@ E 0 18614 0 16		*	a glowing newbie mace: wielded
 M 0 18611 1 18646 1	* the annoying newbie (A Bright Hallway)
 E 0 18606 0 16		*	a shiny newbie dagger: wielded
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 -1 newbie zone~

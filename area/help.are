@@ -1,3 +1,12 @@
+#AREADATA
+Name Generic Helps~
+Builders None~
+VNUMs 0 0
+Credits Diku~
+Security 9
+LevelRange 0 0
+End
+
 #HELPS
 -1 MUDDY~
 Muddy is based on Anatolia MUD -- see help anatolia.
@@ -145,7 +154,7 @@ lately; and some random variation.
     A group which consist of three player will reduce your experience points
 50 % of real exp which got if alone. 
 ~
-0 COLOUR COLOR ANSI~
+0 COLOR COLOUR ANSI~
 Syntax: color              Toggles color mode on/off
 
 You may also talk in color; the format is like this: the 'escape character'

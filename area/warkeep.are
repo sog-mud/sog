@@ -7,8 +7,6 @@ Security 9
 LevelRange 20 30
 End
 
-
-
 #MOBILES
 #15700
 warlock baragar~
@@ -346,8 +344,6 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #15700
@@ -786,8 +782,6 @@ A
 A
 14 -100
 #0
-
-
 
 #ROOMS
 #15700
@@ -1520,8 +1514,6 @@ ABZ 0 15709
 S
 #0
 
-
-
 #SPECIALS
 M 15700 spec_cast_mage	* the warlock Baragar
 M 15701 spec_cast_mage	* the witch Alara
@@ -1543,8 +1535,6 @@ M 15718 spec_janitor	* an ogre slave
 M 15719 spec_poison	* a flind slave master
 M 15720 spec_fido	* an otyugh
 S
-
-
 
 #RESETS
 D 0 15701 3 1	* Before the Keep: door to the west: closed
@@ -1599,7 +1589,7 @@ E 0 15716 0 5		*	a suit of bronze plate: on the body
 E 0 15717 0 11		*	a bronze shield: as a shield
 E 0 15718 0 6		*	a bronze helm: over the head
 E 0 15719 0 16		*	a bronze sword: wielded
-O 0 15741 0 15703		* a black flag (The Roof of the Tower)
+O 0 15741 0 15703	* a black flag (The Roof of the Tower)
 M 0 15709 12 15703 1	* a keep guard (The Roof of the Tower)
 E 0 15716 0 5		*	a suit of bronze plate: on the body
 E 0 15717 0 11		*	a bronze shield: as a shield
@@ -1610,17 +1600,17 @@ E 0 15716 0 5		*	a suit of bronze plate: on the body
 E 0 15717 0 11		*	a bronze shield: as a shield
 E 0 15718 0 6		*	a bronze helm: over the head
 E 0 15719 0 16		*	a bronze sword: wielded
-O 0 15738 0 15707		* a gallows (The Inner Courtyard)
+O 0 15738 0 15707	* a gallows (The Inner Courtyard)
 M 0 15708 12 15708 1	* a zombie servant (The Inner Courtyard)
-O 0 15739 0 15709		* the stocks (The Inner Courtyard)
+O 0 15739 0 15709	* the stocks (The Inner Courtyard)
 M 0 15708 12 15709 1	* a zombie servant (The Inner Courtyard)
 M 0 15705 8 15710 1	* a troll guard (The Inner Courtyard)
 E 0 15713 0 16		*	a spiked club: wielded
 E 0 15714 0 5		*	a leather hauberk: on the body
-O 0 15740 0 15711		* a pot of boiling oil (The Inner Courtyard)
-O 0 15740 0 15712		* a pot of boiling oil (The Inner Courtyard)
+O 0 15740 0 15711	* a pot of boiling oil (The Inner Courtyard)
+O 0 15740 0 15712	* a pot of boiling oil (The Inner Courtyard)
 M 0 15720 1 15713 1	* an otyugh (The Garbage Pit)
-O 0 15736 0 15713		* a huge pile of rubbish (The Garbage Pit)
+O 0 15736 0 15713	* a huge pile of rubbish (The Garbage Pit)
 M 0 15713 4 15714 1	* a hungry crocodile (The Crocodile Pit)
 M 0 15705 8 15716 1	* a troll guard (Guard Room)
 E 0 15713 0 16		*	a spiked club: wielded
@@ -1638,7 +1628,7 @@ E 0 15720 0 12		*	some green robes: about the shoulders
 E 0 15721 0 16		*	a wooden staff: wielded
 E 0 15722 0 17		*	a spellbook: held in the hands
 M 0 15706 1 15723 1	* a flesh golem (Antechamber)
-O 0 15737 0 15723		* a torturer's rack (Antechamber)
+O 0 15737 0 15723	* a torturer's rack (Antechamber)
 M 0 15708 12 15723 1	* a zombie servant (Antechamber)
 M 0 15700 1 15724 1	* the warlock Baragar (Baragar's Chambers)
 E 0 15700 0 12		*	some black robes: about the shoulders
@@ -1664,40 +1654,40 @@ E 0 15728 0 2		*	a magic ring: on the right finger
 E 0 15729 0 8		*	elven boots: on the feet
 E 0 15730 0 3		*	a green elven cloak: around the neck (1)
 M 0 15712 1 15729 1	* a mimic (A Treasure Room)
-O 0 15723 0 15729		* a deep pit (A Treasure Room)
-O 0 15723 0 15729		* a deep pit (A Treasure Room)
+O 0 15723 0 15729	* a deep pit (A Treasure Room)
+O 0 15723 0 15729	* a deep pit (A Treasure Room)
 M 0 15702 1 15730 1	* a demon (A Summoning Room)
-O 0 15712 0 15730		* a pentagram (A Summoning Room)
+O 0 15712 0 15730	* a pentagram (A Summoning Room)
 M 0 15717 10 15732 1	* a gnoll slave (The Entryway to the Mines)
 E 0 15731 0 16		*	a pick: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
-O 0 15733 0 15732		* a pile of rubble (The Entryway to the Mines)
+O 0 15733 0 15732	* a pile of rubble (The Entryway to the Mines)
 M 0 15707 1 15734 1	* a fire drake (A Fiery Cavern)
 E 0 15715 0 12		*	a fire drake hide: about the shoulders
 M 0 15711 1 15735 1	* a grell (A Lab)
-O 0 15741 0 15736		* a black flag (The Roof of the Inner Keep)
+O 0 15741 0 15736	* a black flag (The Roof of the Inner Keep)
 M 0 15717 10 15737 1	* a gnoll slave (The Mines)
 E 0 15732 0 16		*	a shovel: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
-O 0 15733 0 15737		* a pile of rubble (The Mines)
+O 0 15733 0 15737	* a pile of rubble (The Mines)
 M 0 15717 10 15738 1	* a gnoll slave (The Mines)
 E 0 15731 0 16		*	a pick: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
-O 0 15733 0 15738		* a pile of rubble (The Mines)
+O 0 15733 0 15738	* a pile of rubble (The Mines)
 M 0 15718 4 15738 1	* an ogre slave (The Mines)
 E 0 15732 0 16		*	a shovel: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
 M 0 15717 10 15739 1	* a gnoll slave (The Mines)
 E 0 15732 0 16		*	a shovel: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
-O 0 15733 0 15739		* a pile of rubble (The Mines)
+O 0 15733 0 15739	* a pile of rubble (The Mines)
 M 0 15719 1 15739 1	* a flind slave master (The Mines)
 E 0 15735 0 16		*	a flind bar: wielded
 G 0 15734 0		*	a whip
 M 0 15717 10 15740 1	* a gnoll slave (The Mines)
 E 0 15731 0 16		*	a pick: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
-O 0 15733 0 15740		* a pile of rubble (The Mines)
+O 0 15733 0 15740	* a pile of rubble (The Mines)
 M 0 15718 4 15740 1	* an ogre slave (The Mines)
 E 0 15731 0 16		*	a pick: wielded
 E 0 15742 0 7		*	a set of leg irons: on the legs
@@ -1706,31 +1696,6 @@ E 0 15724 0 3		*	a spiked collar: around the neck (1)
 M 0 15714 6 15742 1	* a savage war dog (The Dog Pits)
 E 0 15724 0 3		*	a spiked collar: around the neck (1)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 'The Keep of the Warlock'~

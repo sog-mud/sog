@@ -7,8 +7,6 @@ Security 9
 LevelRange 15 25
 End
 
-
-
 #MOBILES
 #3400
 oldstyle skeleton bony~
@@ -293,8 +291,6 @@ EFNU 0 0 0
 stand stand male 4
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #3400
@@ -627,8 +623,6 @@ key silver~
 for the altar...
 ~
 #0
-
-
 
 #ROOMS
 #3405
@@ -1833,8 +1827,6 @@ ABCZ 3419 3460
 S
 #0
 
-
-
 #SPECIALS
 M 3400 spec_cast_undead	* the bony skeleton
 M 3401 spec_cast_undead	* the undead zombie
@@ -1851,8 +1843,6 @@ M 3414 spec_cast_mage	* The mad etcher
 M 3415 spec_cast_undead	* The spectral etcher's wife
 M 3416 spec_cast_undead	* The half-decomposed body
 S
-
-
 
 #RESETS
 D 0 3405 0 2	* Inside the Chapel: door to the north: closed and locked
@@ -1875,7 +1865,7 @@ D 0 3464 1 1	* The Catacombs: door to the east: closed
 D 0 3475 4 2	* Inside the coffin: door to the up: closed and locked
 M 0 3405 1 3405 1	* the priest (Inside the Chapel)
 G 0 3430 0		*	a silver key
-O 0 3400 0 3405		* a candlestick (Inside the Chapel)
+O 0 3400 0 3405	* a candlestick (Inside the Chapel)
 M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
 M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
 M 0 3401 7 3409 3	* the undead zombie (The Acolyte's Bedroom)
@@ -1897,7 +1887,7 @@ M 0 3400 8 3419 2	* the bony skeleton (The Tomb of Cristis)
 E 0 3421 0 16		*	a rusty curved scimitar: wielded
 M 0 3412 1 3424 1	* the spirit of King Crotus (The Tomb of Crotus)
 E 0 3416 0 17		*	a heavy iron key: held in the hands
-O 0 3415 0 3424		* a stone sarcophagus (The Tomb of Crotus)
+O 0 3415 0 3424	* a stone sarcophagus (The Tomb of Crotus)
 P 0 3417 5 3415 1	* a stone sarcophagus: a wineflask
 P 0 3418 1 3415 1	* a stone sarcophagus: a mound of coins fit for a dead king
 M 0 3409 4 3426 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
@@ -1921,7 +1911,7 @@ M 0 3409 4 3444 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
 M 0 3409 4 3444 2	* some cave weeds (The Lower Chambers and Tombs of the Undead)
 M 0 3402 10 3447 2	* The ghoul (The Lower Chambers and Tombs of the Undead)
 M 0 3416 4 3448 1	* The half-decomposed body (The Lower Chambers and Tombs of the Undead)
-O 0 3420 0 3448		* a hidden compartment in the room (The Lower Chambers and Tombs of the Undead)
+O 0 3420 0 3448	* a hidden compartment in the room (The Lower Chambers and Tombs of the Undead)
 P 0 3410 1 3420 1	* a hidden compartment in the room: a queerly shaped rod
 M 0 3410 1 3449 1	* Snapper Joe (The Lower Chambers and Tombs of the Undead)
 E 0 3414 0 16		*	a whisper thin rapier: wielded
@@ -1959,30 +1949,5 @@ M 0 3408 1 3471 1	* The hunting horror (A Secret Passageway)
 E 0 3425 0 17		*	an auburn-colored orb: held in the hands
 G 0 3426 0		*	a bar of gold
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

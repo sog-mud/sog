@@ -7,8 +7,6 @@ Security 9
 LevelRange 30 35
 End
 
-
-
 #MOBILES
 #9000
 tridrone~
@@ -190,8 +188,6 @@ stand stand none 0
 M I giant unknown
 #0
 
-
-
 #OBJECTS
 #9000
 sword long the~
@@ -224,8 +220,6 @@ Looking into the smooth surface of this moonstone, you feel strangely at
 peace and balance with the world around you.
 ~
 #0
-
-
 
 #ROOMS
 #9000
@@ -1267,13 +1261,6 @@ Z -1 9058
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 M 0 9001 9 9001 3	* the quadrone (The Plane of Nirvana)
 M 0 9000 10 9002 2	* the tridrone (The Plane of Nirvana)
@@ -1321,30 +1308,5 @@ M 0 9007 8 9057 1	* the hexton (A room)
 M 0 9002 6 9058 1	* the pentadrone (Chamber of The First Secundus)
 M 0 9010 4 9058 1	* secundus (Chamber of The First Secundus)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

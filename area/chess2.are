@@ -7,8 +7,6 @@ Security 9
 LevelRange 10 35
 End
 
-
-
 #MOBILES
 #4200
 black pawn~
@@ -216,8 +214,6 @@ FGK 0 0 HIJK
 stand stand male 14999
 0 0 small unknown
 #0
-
-
 
 #OBJECTS
 #4200
@@ -839,8 +835,6 @@ armor K AM
 ABC ABC BC A 0
 18 40 2390 P
 #0
-
-
 
 #ROOMS
 #4200
@@ -2456,13 +2450,6 @@ ABCFZ 4215 4260
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 D 0 4204 5 2	* A Black Square: door to the down: closed and locked
 D 0 4260 5 2	* A White Square: door to the down: closed and locked
@@ -2772,21 +2759,9 @@ E 0 4280 0 14		*	a White Knight's Bracer: on the left wrist
 E 0 4280 0 15		*	a White Knight's Bracer: on the right wrist
 M 0 4203 2 4264 1	* the White Rook (A White Square)
 E 0 4205 0 5		*	some White Rook Armour: on the body
-O 0 4216 0 4265		* the Black Royal Treasure (The Black Treasury)
-O 0 4217 0 4266		* the White Royal Treasure (The White Treasury)
+O 0 4216 0 4265	* the Black Royal Treasure (The Black Treasury)
+O 0 4217 0 4266	* the White Royal Treasure (The White Treasury)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
 
 #MOBPROGS
 #4200
@@ -2796,16 +2771,6 @@ kill white
 endif
 ~
 #0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 -1 chess chessboard~

@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 35
 End
 
-
-
 #MOBILES
 #14501
 monkey big~
@@ -305,8 +303,6 @@ CI 0 L 0
 stand stand male 123
 0 0 huge unknown
 #0
-
-
 
 #OBJECTS
 #14501
@@ -688,8 +684,6 @@ BC BC BC A AC
 A
 5 4
 #0
-
-
 
 #ROOMS
 #14501
@@ -2368,13 +2362,9 @@ Z -1 14598
 S
 #0
 
-
-
 #SPECIALS
 M 14510 spec_cast_mage	* the Watcher
 S
-
-
 
 #RESETS
 D 0 14539 0 1	* Malo Main: door to the north: closed
@@ -2412,33 +2402,33 @@ M 0 14510 1 14536 1	* the Watcher (Mountain top)
 E 0 14523 0 1		*	a Watcher Signet Ring: on the left finger
 E 0 14521 0 12		*	a Watcher's Black Cape: about the shoulders
 E 0 14522 0 16		*	a Watcher's Thrusting Dagger: wielded
-O 0 14528 0 14537		* a stone well (Village entrance)
+O 0 14528 0 14537	* a stone well (Village entrance)
 M 0 14511 3 14538 1	* the fat pig (Malo Village)
-O 0 14524 0 14539		* a reed basket (Malo Main)
-O 0 14533 0 14539		* a wheelbarrow (Malo Main)
-O 0 14525 0 14540		* a woven chair (Stone house)
-O 0 14529 0 14540		* a featherbed (Stone house)
-O 0 14530 0 14540		* a wooden table (Stone house)
-O 0 14529 0 14541		* a featherbed (Gray Stone house)
-O 0 14534 0 14541		* a chest (Gray Stone house)
-O 0 14532 0 14541		* a toy bow (Gray Stone house)
+O 0 14524 0 14539	* a reed basket (Malo Main)
+O 0 14533 0 14539	* a wheelbarrow (Malo Main)
+O 0 14525 0 14540	* a woven chair (Stone house)
+O 0 14529 0 14540	* a featherbed (Stone house)
+O 0 14530 0 14540	* a wooden table (Stone house)
+O 0 14529 0 14541	* a featherbed (Gray Stone house)
+O 0 14534 0 14541	* a chest (Gray Stone house)
+O 0 14532 0 14541	* a toy bow (Gray Stone house)
 M 0 14512 2 14543 1	* the dog (Village street)
 M 0 14516 4 14543 1	* the Elven Man (Village street)
 M 0 14517 4 14543 1	* the Elven Woman (Village street)
-O 0 14525 0 14544		* a woven chair (Brown House)
-O 0 14529 0 14544		* a featherbed (Brown House)
-O 0 14531 0 14545		* a portrait (Green house)
-O 0 14530 0 14545		* a wooden table (Green house)
-O 0 14534 0 14545		* a chest (Green house)
-O 0 14528 0 14546		* a stone well (Village well)
+O 0 14525 0 14544	* a woven chair (Brown House)
+O 0 14529 0 14544	* a featherbed (Brown House)
+O 0 14531 0 14545	* a portrait (Green house)
+O 0 14530 0 14545	* a wooden table (Green house)
+O 0 14534 0 14545	* a chest (Green house)
+O 0 14528 0 14546	* a stone well (Village well)
 M 0 14514 4 14547 1	* the Human Man (End of the street)
 M 0 14515 5 14547 1	* the Human Woman (End of the street)
-O 0 14529 0 14548		* a featherbed (Simple home)
-O 0 14530 0 14548		* a wooden table (Simple home)
-O 0 14525 0 14549		* a woven chair (Last house)
-O 0 14529 0 14549		* a featherbed (Last house)
-O 0 14524 0 14550		* a reed basket (A general store)
-O 0 14534 0 14550		* a chest (A general store)
+O 0 14529 0 14548	* a featherbed (Simple home)
+O 0 14530 0 14548	* a wooden table (Simple home)
+O 0 14525 0 14549	* a woven chair (Last house)
+O 0 14529 0 14549	* a featherbed (Last house)
+O 0 14524 0 14550	* a reed basket (A general store)
+O 0 14534 0 14550	* a chest (A general store)
 M 0 14520 10 14570 1	* the Goblin Warrior (A path)
 E 0 14536 0 5		*	a Goblin Loincloth: on the body
 E 0 14535 0 16		*	a Goblin Spear: wielded
@@ -2469,34 +2459,12 @@ E 0 14537 0 16		*	A Dwarven Flail: wielded
 E 0 14538 0 6		*	a Dwarven Shield: over the head
 S
 
-
-
 #SHOPS
 14502 8 9 10 22 0 50 150 8 21
 14503 17 1 19 0 0 50 175 8 20
 14504 15 26 0 0 0 25 175 9 18
 14505 8 17 0 0 0 50 175 8 21
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 DARK CONTINENT~

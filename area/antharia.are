@@ -7,8 +7,6 @@ Security 9
 LevelRange 9 42
 End
 
-
-
 #MOBILES
 #12300
 Antharian Peace Guard~
@@ -366,8 +364,6 @@ CEFIJK 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #12300
@@ -751,8 +747,6 @@ staff A AO
 A
 22 5
 #0
-
-
 
 #ROOMS
 #12300
@@ -1953,8 +1947,6 @@ Z -1 12352
 S
 #0
 
-
-
 #SPECIALS
 M 12302 spec_cast_cleric	* Suretin
 M 12314 spec_thief	* an Antharian child
@@ -1963,8 +1955,6 @@ M 12361 spec_cast_cleric	* a druidic representative
 M 12362 spec_thief	* a kender representative
 M 12364 spec_cast_mage	* an elven representative
 S
-
-
 
 #RESETS
 D 0 12322 4 2	* Main Road of Antharia: door to the up: closed and locked
@@ -2173,12 +2163,10 @@ M 0 12362 1 12362 1	* a kender representative (Kender Guild)
 M 0 12363 1 12363 1	* an antharian representative (Antharian Guild)
 M 0 12364 1 12364 1	* an elven representative (Elven Guild)
 M 0 12365 1 12365 1	* a dwarven representative (Dwarven Guild)
-O 0 12333 0 12366		* a round piece of metal (Forgotten Room)
+O 0 12333 0 12366	* a round piece of metal (Forgotten Room)
 M 0 12370 1 12370 1	* an illithid representative (Illithid Guild)
 M 0 12371 1 12371 1	* an avian representative (Avian Guild)
 S
-
-
 
 #SHOPS
 12340 0 0 0 0 0 125 75 4 20
@@ -2186,26 +2174,6 @@ S
 12345 0 0 0 0 0 125 75 4 20
 12348 0 0 0 0 0 125 75 4 20
 0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 ANTHARIA~

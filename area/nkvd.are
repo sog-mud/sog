@@ -7,8 +7,6 @@ Security 5
 LevelRange 0 0
 End
 
-
-
 #MOBILES
 #35000
 Comrade Dzerzhinskii~
@@ -44,8 +42,6 @@ F for AHMV
 F par ABCDEFGHIJK
 #0
 
-
-
 #OBJECTS
 #35000
 board of fame~
@@ -64,8 +60,6 @@ fountain R P
 0 0 'water' 0 0
 0 0 0 P
 #0
-
-
 
 #ROOMS
 #35000
@@ -178,47 +172,21 @@ Z 0 35004
 S
 #0
 
-
-
 #SPECIALS
 M 35000 spec_breath_lightning	* Comrade Dzerzhinskii
 M 35001 spec_breath_lightning	* Comrade Mauzer
 S
-
-
 
 #RESETS
 D 0 35000 2 1	* Dark hallway: door to the south: closed
 D 0 35001 0 1	* Приемная: door to the north: closed
 M 0 35001 1 35000 1	* Comrade Mauzer (Dark hallway)
 M 0 35000 1 35000 1	* Comrade Dzerzhinskii (Dark hallway)
-O 0 35001 0 35002		* фонтан (Кафетерий)
+O 0 35001 0 35002	* фонтан (Кафетерий)
 S
-
-
-
-#SHOPS
-0
-
-
 
 #OLIMITS
 O 35000 0	* board of fame
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

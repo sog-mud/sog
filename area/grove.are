@@ -7,8 +7,6 @@ Security 9
 LevelRange 5 20
 End
 
-
-
 #MOBILES
 #8900
 oldstyle hierophant~
@@ -172,8 +170,6 @@ EIKU 0 0 0
 stand stand female 2
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #8901
@@ -349,8 +345,6 @@ pill 0 A
 5 '' 'cure poison' 'poison' ''
 6 10 430 P
 #0
-
-
 
 #ROOMS
 #8901
@@ -891,8 +885,6 @@ and falling ...
 S
 #0
 
-
-
 #SPECIALS
 M 8900 spec_cast_cleric	* The Hierophant
 M 8901 spec_cast_cleric	* The Hierophant
@@ -902,8 +894,6 @@ M 8908 spec_poison	* a harmless snake
 M 8909 spec_cast_cleric	* a druid
 M 8910 spec_cast_cleric	* a druidess
 S
-
-
 
 #RESETS
 D 0 8909 2 1	* The croquet lawn: door to the south: closed
@@ -952,45 +942,23 @@ M 0 8905 2 8906 2	* a deer (The holy grove)
 M 0 8908 9 8906 9	* a harmless snake (The holy grove)
 M 0 8909 2 8911 1	* a druid (The hallway)
 G 0 8913 0		*	some bluish herbs
-O 0 8901 0 8912		* a closet (The blue room)
+O 0 8901 0 8912	* a closet (The blue room)
 M 0 8910 2 8914 1	* a druidess (The red room)
 G 0 8914 0		*	some purplish herbs
-O 0 8901 0 8914		* a closet (The red room)
-O 0 8902 0 8915		* a spice jar (The kitchen)
+O 0 8901 0 8914	* a closet (The red room)
+O 0 8902 0 8915	* a spice jar (The kitchen)
 P 0 8903 1 8902 1	* a spice jar: some black powder
-O 0 8902 0 8915		* a spice jar (The kitchen)
+O 0 8902 0 8915	* a spice jar (The kitchen)
 P 0 8904 1 8902 1	* a spice jar: some small yellow kernels
-O 0 8905 0 8915		* a crumpled wad of paper (The kitchen)
+O 0 8905 0 8915	* a crumpled wad of paper (The kitchen)
 M 0 8910 2 8917 1	* a druidess (The greenhouse)
 G 0 8918 0		*	some orangish herbs
 M 0 8909 2 8918 1	* a druid (The dining hall)
 G 0 8916 0		*	some grayish herbs
 S
 
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
 #PRACTICERS
 M 8900 meditation	* The Hierophant
 S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 15 25
 End
 
-
-
 #MOBILES
 #8301
 oldstyle troll~
@@ -261,8 +259,6 @@ stand stand none 100
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #8301
 spear long two-handed~
@@ -331,8 +327,6 @@ weapon 0 AN
 sword 4 8 cleave F
 28 100 3000 P
 #0
-
-
 
 #ROOMS
 #8301
@@ -754,8 +748,6 @@ Z -1 8317
 S
 #0
 
-
-
 #SPECIALS
 M 8309 spec_poison	* the monstrous snake
 M 8310 spec_poison	* a large snake
@@ -763,8 +755,6 @@ M 8312 spec_thief	* the Marsh Hag
 M 8313 spec_cast_undead	* a Death Slaad
 M 8319 spec_cast_cleric	* the orc shaman
 S
-
-
 
 #RESETS
 M 0 8301 2 8303 1	* a swamp troll (Marshy Forest)
@@ -820,30 +810,5 @@ E 0 8302 0 6		*	a dark horned helmet: over the head
 M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates.)
 M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates.)
 S
-
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

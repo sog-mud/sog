@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 65
 End
 
-
-
 #MOBILES
 #31000
 Gath healer~
@@ -992,8 +990,6 @@ ABG HJ 0 0
 stand stand male 1000
 0 0 medium unknown
 #0
-
-
 
 #OBJECTS
 #31000
@@ -2852,8 +2848,6 @@ This gem is worth next to nothing on the open market, but is prized by
 the merchant Pharlas because of the extra intelligence it grants whoever
 holds it.~
 #0
-
-
 
 #ROOMS
 #31000
@@ -4902,8 +4896,6 @@ Z -1 31009
 S
 #0
 
-
-
 #SPECIALS
 M 31000 spec_cast_adept	* Gath the Healer
 M 31014 spec_thief	* the Kender Guildmaster
@@ -4917,8 +4909,6 @@ M 31045 spec_guard	* a City Guard
 M 31046 spec_guard	* a City Guard
 S
 
-
-
 #RESETS
 D 0 31004 1 1	* Glory Avenue: door to the east: closed
 D 0 31004 3 1	* Glory Avenue: door to the west: closed
@@ -4931,8 +4921,8 @@ D 0 31082 2 1	* Outside the Kender Guild: door to the south: closed
 D 0 31195 0 2	* The Portal Chambers: door to the north: closed and locked
 M 0 31024 1 31000 1	* Cuervo the headsman (The Temple of Anon)
 E 0 31030 0 6		*	a Headsman's Black Face Mask: over the head
-O 0 31029 0 31000		* a nasty guillotine (The Temple of Anon)
-O 0 31021 0 31000		* a city fountain (The Temple of Anon)
+O 0 31029 0 31000	* a nasty guillotine (The Temple of Anon)
+O 0 31021 0 31000	* a city fountain (The Temple of Anon)
 M 0 31044 8 31000 1	* a City Guard (The Temple of Anon)
 E 0 31033 0 16		*	an Ornate Longsword: wielded
 E 0 31034 0 5		*	an Ornate Breastplate: on the body
@@ -4944,7 +4934,7 @@ E 0 31038 0 11		*	an Ornate Shield: as a shield
 E 0 31039 0 17		*	a Throwing Spear: held in the hands
 M 0 31000 1 31001 1	* Gath the Healer (The Interior of the Temple)
 M 0 31043 6 31007 1	* a cat (Corner of Valiant Street and Glory Avenue)
-O 0 31021 0 31012		* a city fountain (Victory Parade West)
+O 0 31021 0 31012	* a city fountain (Victory Parade West)
 M 0 31039 3 31012 1	* a beggar (Victory Parade West)
 M 0 31035 3 31013 1	* a child (Victory Parade East)
 M 0 31034 3 31014 1	* a citizen (Approaching Gate at Victory Parade West)
@@ -5148,13 +5138,11 @@ G 0 31078 0		*	steak eggs and chips
 G 0 31079 0		*	spam and eggs
 G 0 31080 0		*	bacon, spam and eggs
 M 0 31056 1 31194 1	* Mengrabbazoah (The Guildhall)
-O 0 31082 0 31196		* a portal to the past (A Bare Room)
-O 0 31083 0 31197		* a portal to the future (A Steel Chamber)
-O 0 31084 0 31198		* a portal to the surreal (A Bizarre Room)
+O 0 31082 0 31196	* a portal to the past (A Bare Room)
+O 0 31083 0 31197	* a portal to the future (A Steel Chamber)
+O 0 31084 0 31198	* a portal to the surreal (A Bizarre Room)
 M 0 31057 1 31199 1	* Alix the Thaumaturgist (The Thaumaturgist's Shop)
 S
-
-
 
 #SHOPS
 31003 9 28 0 0 0 150 80 0 23
@@ -5180,26 +5168,9 @@ S
 31060 18 0 0 0 0 150 50 0 23
 0
 
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
 #PRACTICERS
 M 31000 protective	* Gath the Healer
 S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 City Anon~

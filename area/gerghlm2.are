@@ -7,8 +7,6 @@ Security 9
 LevelRange 1 30
 End
 
-
-
 #MOBILES
 #7500
 squirrel little~
@@ -854,8 +852,6 @@ stand stand either 0
 0 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #7500
 apple~
@@ -1657,8 +1653,6 @@ weapon G AN
 exotic 10 8 smash DE
 60 200 50000 P
 #0
-
-
 
 #ROOMS
 #7500
@@ -4829,8 +4823,6 @@ Blood, blood, blood, guts, flesh, corpses....
 S
 #0
 
-
-
 #SPECIALS
 M 7528 spec_guard	* a junior guard
 M 7530 spec_guard	* a Gerighelm cityguard
@@ -4849,8 +4841,6 @@ M 7554 spec_cast_judge	* the Duke of Gerighelm
 M 7555 spec_breath_any	* the Duchess of Gerighelm
 M 7591 spec_thief	* a cutpurse
 S
-
-
 
 #RESETS
 D 0 7513 1 1	* The split in the trail in the Park.: door to the east: closed
@@ -4871,7 +4861,7 @@ M 0 7502 4 7508 1	* a small green snake (The Park.)
 M 0 7501 5 7509 1	* a tiny chipmunk (The Park.)
 M 0 7506 4 7509 1	* a ground-hog (The Park.)
 M 0 7507 10 7509 1	* a field mouse (The Park.)
-O 0 7509 0 7509		* a bunch of herbs (The Park.)
+O 0 7509 0 7509	* a bunch of herbs (The Park.)
 M 0 7502 4 7510 1	* a small green snake (The Park.)
 M 0 7504 2 7510 1	* an African Swallow (The Park.)
 M 0 7509 6 7510 1	* a starry eyed lover (The Park.)
@@ -4884,11 +4874,11 @@ M 0 7511 6 7515 1	* a herbalists helper (The trail.)
 G 0 7509 0		*	a bunch of herbs
 M 0 7500 10 7516 1	* a little squirrel (The trail.)
 M 0 7507 10 7516 1	* a field mouse (The trail.)
-O 0 7596 0 7516		* a bunch of herbs (The trail.)
+O 0 7596 0 7516	* a bunch of herbs (The trail.)
 M 0 7507 10 7517 1	* a field mouse (The end of the trail.)
 M 0 7508 5 7517 1	* a flying squirrel (The end of the trail.)
-O 0 7509 0 7517		* a bunch of herbs (The end of the trail.)
-O 0 7596 0 7518		* a bunch of herbs (The Park.)
+O 0 7509 0 7517	* a bunch of herbs (The end of the trail.)
+O 0 7596 0 7518	* a bunch of herbs (The Park.)
 M 0 7509 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park.)
 M 0 7510 6 7519 1	* a starry eyed lover (The Entrance to the Garden in the Park.)
 M 0 7504 2 7520 1	* an African Swallow (The Garden.)
@@ -4897,12 +4887,12 @@ M 0 7500 10 7521 1	* a little squirrel (The Garden.)
 M 0 7503 6 7521 1	* a swallow (The Garden.)
 M 0 7503 6 7522 1	* a swallow (The Garden.)
 M 0 7506 4 7522 1	* a ground-hog (The Garden.)
-O 0 7507 0 7522		* a bunch of red herbs (The Garden.)
-O 0 7508 0 7522		* a bunch of green herbs (The Garden.)
+O 0 7507 0 7522	* a bunch of red herbs (The Garden.)
+O 0 7508 0 7522	* a bunch of green herbs (The Garden.)
 M 0 7509 6 7522 1	* a starry eyed lover (The Garden.)
 M 0 7510 6 7522 1	* a starry eyed lover (The Garden.)
-O 0 7507 0 7523		* a bunch of red herbs (The Garden.)
-O 0 7508 0 7523		* a bunch of green herbs (The Garden.)
+O 0 7507 0 7523	* a bunch of red herbs (The Garden.)
+O 0 7508 0 7523	* a bunch of green herbs (The Garden.)
 M 0 7511 6 7523 1	* a herbalists helper (The Garden.)
 G 0 7596 0		*	a bunch of herbs
 M 0 7519 5 7531 1	* a bugbear (The Sewers.)
@@ -5305,8 +5295,6 @@ M 0 7699 1 7699 1	* the Death (Sacrifice Room)
 E 0 7699 0 16		*	the Death's Scythe: wielded
 S
 
-
-
 #SHOPS
 7592 0 0 0 0 0 120 101 0 23
 7593 9 5 1 8 11 120 100 0 23
@@ -5317,26 +5305,9 @@ S
 7610 10 17 3 0 0 180 75 0 23
 0
 
-
-
 #OLIMITS
 O 7699 2	* the Death's Scythe
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 -1 greater gerighelm~

@@ -7,8 +7,6 @@ Security 9
 LevelRange 45 65
 End
 
-
-
 #MOBILES
 #8100
 spectre~
@@ -555,8 +553,6 @@ stand stand none 5000
 I 0 medium unknown
 #0
 
-
-
 #OBJECTS
 #8100
 rod orcus~
@@ -846,157 +842,7 @@ potion BEJ AO
 45 10 300 P
 #0
 
-
-
 #ROOMS
-#8192
-The Garden~
-You suddenly enter a brightly-lit glade full of towering oaks and fresh,
-green grass. Here the powers of good have managed to create a foothold in 
-this realm of darkness, to aid those stranded or trapped here. You may rest
-in peace (if you'll pardon the inappropriate euphemism) for as long as you
-wish here.
-~
-0 CK 3
-D1
-~
-~
-Z -1 8193
-D2
-~
-~
-Z -1 8187
-D3
-~
-~
-Z -1 8191
-S
-#8193
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
-that all seem to move as if with a life of their own. Howls and screams of
-pain and delight occasionally rent the still air- otherwise you are engulfed
-by a silent dimness that only exaggerates the already-eerie quality of
-your surroundings.
-~
-0 AN 3
-D1
-~
-~
-Z -1 8194
-D2
-~
-~
-Z -1 8188
-D3
-~
-~
-Z -1 8192
-S
-#8194
-The Garden~
-You find yourself lost in a tangled maze of thorny bushes and rotted trees
-that all seem to move as if with a life of their own. Howls and screams of
-pain and delight occasionally rent the still air- otherwise you are engulfed
-by a silent dimness that only exaggerates the already-eerie quality of
-your surroundings.
-~
-0 AN 3
-D2
-~
-~
-Z -1 8189
-D3
-~
-~
-Z -1 8193
-S
-#8195
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
-You can still make it out beneath your feet, but only barely. Howls, screams
-and shouts of anger and terror ring out on all sides, and you feel fear 
-clutching at your heart. You think you can make out a small stone building
-to the east. A gaping hole looms out of the fog in the ground to the right.
-~
-0 AN 1
-D0
-~
-~
-Z -1 8197
-D2
-~
-~
-Z -1 8164
-D5
-~
-~
-Z -1 8196
-S
-#8196
-The Dragon's Lair~
-Dragons of all types, alive or undead, keep certain habits, and one of them
-is how they decorate their lair. So when you enter and see treasure splashed
-everywhere, along with a generous helping of blood and fried corpses, you are
-at least 90% sure you have entered the lair of one...
-~
-0 AN 0
-D4
-~
-~
-Z -1 8195
-S
-#8197
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
-You can still make it out beneath your feet, but only barely. Howls, screams
-and shouts of anger and terror ring out on all sides, and you feel fear 
-clutching at your heart. You think you can make out a small stone building
-to the east.
-~
-0 AN 1
-D0
-~
-~
-Z -1 8198
-D2
-~
-~
-Z -1 8195
-S
-#8198
-A Murky Mist~
-You are plowing through a thick mist that has suddenly enshrouded the trail.
-You can still make it out beneath your feet, but only barely. Howls, screams
-and shouts of anger and terror ring out on all sides, and you feel fear 
-clutching at your heart. You think you can make out a small stone building
-to the east. You aren't sure, but you think you can see a dark tunnel up
-ahead.
-~
-0 AN 1
-D0
-~
-~
-Z -1 8199
-D2
-~
-~
-Z -1 8197
-S
-#8199
-A Dark Tunnel~
-Can it be? YES! An escape route! From this tunnel emanates the sweet smell 
-of green grass and fresh air. You can clamber through and escape, though
-the tunnel is so narrow you doubt you'd be able to return through it. But
-you feel that this room has been blessed by gods, hence you may recall to 
-escape.
-~
-0 AC 1
-D2
-~
-~
-Z -1 8198
-S
 #8100
 A Dusty Trail~
 You are heading along a dusty trail that runs toward the town ahead. There
@@ -2693,14 +2539,155 @@ D3
 ~
 Z -1 8190
 S
-#0
-
-
-
-#SPECIALS
+#8192
+The Garden~
+You suddenly enter a brightly-lit glade full of towering oaks and fresh,
+green grass. Here the powers of good have managed to create a foothold in 
+this realm of darkness, to aid those stranded or trapped here. You may rest
+in peace (if you'll pardon the inappropriate euphemism) for as long as you
+wish here.
+~
+0 CK 3
+D1
+~
+~
+Z -1 8193
+D2
+~
+~
+Z -1 8187
+D3
+~
+~
+Z -1 8191
 S
-
-
+#8193
+The Garden~
+You find yourself lost in a tangled maze of thorny bushes and rotted trees
+that all seem to move as if with a life of their own. Howls and screams of
+pain and delight occasionally rent the still air- otherwise you are engulfed
+by a silent dimness that only exaggerates the already-eerie quality of
+your surroundings.
+~
+0 AN 3
+D1
+~
+~
+Z -1 8194
+D2
+~
+~
+Z -1 8188
+D3
+~
+~
+Z -1 8192
+S
+#8194
+The Garden~
+You find yourself lost in a tangled maze of thorny bushes and rotted trees
+that all seem to move as if with a life of their own. Howls and screams of
+pain and delight occasionally rent the still air- otherwise you are engulfed
+by a silent dimness that only exaggerates the already-eerie quality of
+your surroundings.
+~
+0 AN 3
+D2
+~
+~
+Z -1 8189
+D3
+~
+~
+Z -1 8193
+S
+#8195
+A Murky Mist~
+You are plowing through a thick mist that has suddenly enshrouded the trail.
+You can still make it out beneath your feet, but only barely. Howls, screams
+and shouts of anger and terror ring out on all sides, and you feel fear 
+clutching at your heart. You think you can make out a small stone building
+to the east. A gaping hole looms out of the fog in the ground to the right.
+~
+0 AN 1
+D0
+~
+~
+Z -1 8197
+D2
+~
+~
+Z -1 8164
+D5
+~
+~
+Z -1 8196
+S
+#8196
+The Dragon's Lair~
+Dragons of all types, alive or undead, keep certain habits, and one of them
+is how they decorate their lair. So when you enter and see treasure splashed
+everywhere, along with a generous helping of blood and fried corpses, you are
+at least 90% sure you have entered the lair of one...
+~
+0 AN 0
+D4
+~
+~
+Z -1 8195
+S
+#8197
+A Murky Mist~
+You are plowing through a thick mist that has suddenly enshrouded the trail.
+You can still make it out beneath your feet, but only barely. Howls, screams
+and shouts of anger and terror ring out on all sides, and you feel fear 
+clutching at your heart. You think you can make out a small stone building
+to the east.
+~
+0 AN 1
+D0
+~
+~
+Z -1 8198
+D2
+~
+~
+Z -1 8195
+S
+#8198
+A Murky Mist~
+You are plowing through a thick mist that has suddenly enshrouded the trail.
+You can still make it out beneath your feet, but only barely. Howls, screams
+and shouts of anger and terror ring out on all sides, and you feel fear 
+clutching at your heart. You think you can make out a small stone building
+to the east. You aren't sure, but you think you can see a dark tunnel up
+ahead.
+~
+0 AN 1
+D0
+~
+~
+Z -1 8199
+D2
+~
+~
+Z -1 8197
+S
+#8199
+A Dark Tunnel~
+Can it be? YES! An escape route! From this tunnel emanates the sweet smell 
+of green grass and fresh air. You can clamber through and escape, though
+the tunnel is so narrow you doubt you'd be able to return through it. But
+you feel that this room has been blessed by gods, hence you may recall to 
+escape.
+~
+0 AC 1
+D2
+~
+~
+Z -1 8198
+S
+#0
 
 #RESETS
 D 0 8102 1 1	* The Main Street: door to the east: closed
@@ -2771,14 +2758,9 @@ D 0 8167 2 1	* The Crypt Proper: door to the south: closed
 D 0 8168 2 1	* A Room In the Crypt: door to the south: closed
 D 0 8169 0 1	* A Room In the Crypt: door to the north: closed
 D 0 8170 3 1	* A Room In the Crypt: door to the west: closed
-M 0 8126 1 8192 1	* a tree spirit (The Garden)
-M 0 8103 6 8195 1	* a ghost (A Murky Mist)
-M 0 8111 1 8196 1	* an undead dragon (The Dragon's Lair)
-O 0 8105 0 8196		* a treasure hoard (The Dragon's Lair)
-M 0 8103 6 8198 1	* a ghost (A Murky Mist)
-O 0 8109 0 8103		* a pile of bones (A Ruined House)
+O 0 8109 0 8103	* a pile of bones (A Ruined House)
 M 0 8113 6 8103 1	* a giant rat (A Ruined House)
-O 0 8109 0 8104		* a pile of bones (A Ruined House)
+O 0 8109 0 8104	* a pile of bones (A Ruined House)
 M 0 8102 1 8104 1	* a wight (A Ruined House)
 M 0 8118 10 8106 1	* a rotting corpse (The Town Square)
 M 0 8132 1 8108 1	* a water weird (The Town Square)
@@ -2786,41 +2768,41 @@ M 0 8132 1 8109 2	* a water weird (The Well in the Town Square)
 M 0 8132 1 8110 1	* a water weird (The Town Square)
 M 0 8112 8 8112 1	* an undead monster (The Town Square)
 M 0 8118 10 8113 1	* a rotting corpse (The Town Square)
-O 0 8109 0 8115		* a pile of bones (A Ruined House)
+O 0 8109 0 8115	* a pile of bones (A Ruined House)
 M 0 8114 6 8115 1	* a giant spider (A Ruined House)
-O 0 8109 0 8116		* a pile of bones (A Ruined House)
+O 0 8109 0 8116	* a pile of bones (A Ruined House)
 M 0 8113 6 8116 1	* a giant rat (A Ruined House)
-O 0 8109 0 8118		* a pile of bones (A Ruined House)
+O 0 8109 0 8118	* a pile of bones (A Ruined House)
 M 0 8113 6 8118 1	* a giant rat (A Ruined House)
-O 0 8109 0 8119		* a pile of bones (A Ruined House)
+O 0 8109 0 8119	* a pile of bones (A Ruined House)
 M 0 8102 1 8119 1	* a wight (A Ruined House)
 M 0 8114 6 8119 1	* a giant spider (A Ruined House)
 M 0 8118 10 8120 1	* a rotting corpse (A Side Street)
-O 0 8109 0 8121		* a pile of bones (A Ruined House)
+O 0 8109 0 8121	* a pile of bones (A Ruined House)
 M 0 8102 1 8121 1	* a wight (A Ruined House)
 M 0 8113 6 8121 1	* a giant rat (A Ruined House)
-O 0 8109 0 8122		* a pile of bones (A Ruined House)
+O 0 8109 0 8122	* a pile of bones (A Ruined House)
 M 0 8114 6 8122 1	* a giant spider (A Ruined House)
-O 0 8109 0 8123		* a pile of bones (A Ruined House)
+O 0 8109 0 8123	* a pile of bones (A Ruined House)
 M 0 8106 2 8123 1	* a lesser demon (A Ruined House)
-O 0 8109 0 8125		* a pile of bones (A Ruined House)
+O 0 8109 0 8125	* a pile of bones (A Ruined House)
 M 0 8113 6 8125 1	* a giant rat (A Ruined House)
 M 0 8113 6 8125 1	* a giant rat (A Ruined House)
-O 0 8109 0 8126		* a pile of bones (A Ruined House)
+O 0 8109 0 8126	* a pile of bones (A Ruined House)
 M 0 8101 2 8126 1	* a wraith (A Ruined House)
-O 0 8109 0 8128		* a pile of bones (A Ruined House)
+O 0 8109 0 8128	* a pile of bones (A Ruined House)
 M 0 8101 2 8128 1	* a wraith (A Ruined House)
-O 0 8109 0 8129		* a pile of bones (A Ruined House)
+O 0 8109 0 8129	* a pile of bones (A Ruined House)
 M 0 8114 6 8129 1	* a giant spider (A Ruined House)
 M 0 8114 6 8129 1	* a giant spider (A Ruined House)
 M 0 8112 8 8130 1	* an undead monster (A Side Street)
-O 0 8109 0 8131		* a pile of bones (A Ruined House)
+O 0 8109 0 8131	* a pile of bones (A Ruined House)
 M 0 8108 1 8131 1	* a haunt (A Ruined House)
-O 0 8119 0 8131		* a corpse (A Ruined House)
-O 0 8109 0 8132		* a pile of bones (A Ruined House)
+O 0 8119 0 8131	* a corpse (A Ruined House)
+O 0 8109 0 8132	* a pile of bones (A Ruined House)
 M 0 8114 6 8132 1	* a giant spider (A Ruined House)
 M 0 8101 2 8132 1	* a wraith (A Ruined House)
-O 0 8109 0 8133		* a pile of bones (A Ruined House)
+O 0 8109 0 8133	* a pile of bones (A Ruined House)
 M 0 8106 2 8133 1	* a lesser demon (A Ruined House)
 M 0 8100 2 8135 1	* a spectre (A Ruined House)
 M 0 8100 2 8136 1	* a spectre (A Ruined House)
@@ -2848,9 +2830,9 @@ E 0 8108 0 16		*	a Rod of Bone: wielded
 E 0 8110 0 17		*	a Power Gem: held in the hands
 G 0 8120 0		*	a key
 M 0 8116 1 8153 1	* a succubus (A Bedroom)
-O 0 8115 0 8153		* a jar (A Bedroom)
+O 0 8115 0 8153	* a jar (A Bedroom)
 P 0 8116 0 8115 1	* a jar: some poison
-O 0 8106 0 8153		* a chest (A Bedroom)
+O 0 8106 0 8153	* a chest (A Bedroom)
 P 0 8105 0 8106 1	* a chest: a treasure hoard
 M 0 8105 1 8154 1	* a lich (A Bedroom)
 E 0 8101 0 9		*	the Hand of Vecna: on the hands
@@ -2898,34 +2880,17 @@ R 0 8189 4	* The Garden: randomize
 M 0 8107 1 8190 1	* a revenant (The Garden)
 R 0 8190 4	* The Garden: randomize
 R 0 8191 4	* The Garden: randomize
+M 0 8126 1 8192 1	* a tree spirit (The Garden)
+M 0 8103 6 8195 1	* a ghost (A Murky Mist)
+M 0 8111 1 8196 1	* an undead dragon (The Dragon's Lair)
+O 0 8105 0 8196	* a treasure hoard (The Dragon's Lair)
+M 0 8103 6 8198 1	* a ghost (A Murky Mist)
 S
-
-
-
-#SHOPS
-0
-
-
 
 #OLIMITS
 O 8100 1	* the Rod of Orcus
 O 8113 1	* a Suit of Dark Armor
 S
-
-
-
-#MOBPROGS
-#0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #HELPS
 0 'GHOST TOWN'~

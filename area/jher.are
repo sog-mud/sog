@@ -7,8 +7,6 @@ Security 9
 LevelRange 35 55
 End
 
-
-
 #MOBILES
 #32700
 Jher~
@@ -274,8 +272,6 @@ F par ABCEFGHIJK
 M BRIBE 32700 100000~
 #0
 
-
-
 #OBJECTS
 #32700
 pile of gold~
@@ -430,8 +426,6 @@ pill A A
 0 'detect invis' '' '' ''
 35 5 350 P
 #0
-
-
 
 #ROOMS
 #32700
@@ -840,8 +834,6 @@ if you look around, you may find something hidden that will open it.
 S
 #0
 
-
-
 #SPECIALS
 M 32700 spec_breath_lightning	* Jher
 M 32701 spec_thief	* a young warg
@@ -860,8 +852,6 @@ M 32713 spec_guard	* the guard
 M 32714 spec_guard	* the guard
 S
 
-
-
 #RESETS
 D 0 32704 5 1	* A Room in the Cave: door to the down: closed
 D 0 32705 4 1	* Small Treasure Room: door to the up: closed
@@ -878,7 +868,7 @@ M 0 32701 2 32703 1	* a young warg (A Room in the Cave)
 M 0 32704 1 32703 1	* warg father (A Room in the Cave)
 M 0 32705 1 32704 1	* the young hungry warg (A Room in the Cave)
 M 0 32706 2 32705 1	* the snake (Small Treasure Room)
-O 0 32700 0 32705		* a pile of gold (Small Treasure Room)
+O 0 32700 0 32705	* a pile of gold (Small Treasure Room)
 M 0 32708 2 32706 1	* the bat (An Unlit Hallway)
 M 0 32708 1 32708 1	* the bat (The Disgusting Underground Pool)
 M 0 32716 1 32709 1	* the hideous one-eyed fish (The Disgusting Underground Pool)
@@ -894,31 +884,22 @@ M 0 32713 1 32718 1	* the guard (The Passage to the Throne Room)
 M 0 32700 1 32720 1	* Jher (Northern End of the Throne Room)
 E 0 32703 0 16		*	jher's curved dagger: wielded
 G 0 32709 0		*	a key made of topaz
-O 0 32708 0 32720		* the throne (Northern End of the Throne Room)
+O 0 32708 0 32720	* the throne (Northern End of the Throne Room)
 M 0 32702 1 32721 1	* Knanath (Jher's Bedroom)
 M 0 32715 1 32721 1	* Shaanh (Jher's Bedroom)
 E 0 32712 0 14		*	a diamond bracelet: on the left wrist
 E 0 32712 0 15		*	a diamond bracelet: on the right wrist
-O 0 32711 0 32724		* the golden chest (The Secret Room)
-O 0 32714 0 32724		* a glowing zapath necklace (The Secret Room)
-O 0 32715 0 32724		* a gold coin (The Secret Room)
+O 0 32711 0 32724	* the golden chest (The Secret Room)
+O 0 32714 0 32724	* a glowing zapath necklace (The Secret Room)
+O 0 32715 0 32724	* a gold coin (The Secret Room)
 M 0 32717 1 32724 1	* A small statue (The Secret Room)
 M 0 32717 0 32724 0	* A small statue (The Secret Room)
 M 0 32717 1 32724 1	* A small statue (The Secret Room)
 S
 
-
-
 #SHOPS
 32709 10 10 10 10 10 50 100 0 23
 0
-
-
-
-#OLIMITS
-S
-
-
 
 #MOBPROGS
 #32700
@@ -929,15 +910,5 @@ MOB TRANSFER $n 8102
  
 ~
 #0
-
-#PRACTICERS
-S
-
-
-
-#OMPROGS
-S
-
-
 
 #$

@@ -7,8 +7,6 @@ Security 9
 LevelRange 91 100
 End
 
-
-
 #MOBILES
 #1200
 Heimdall~
@@ -28,8 +26,6 @@ ACDEFHIKLNOT ABP CD 0
 stand stand male 0
 0 0 large unknown
 #0
-
-
 
 #OBJECTS
 #1200
@@ -58,8 +54,6 @@ A
 A
 19 11
 #0
-
-
 
 #ROOMS
 #1200
@@ -701,13 +695,6 @@ S
 S
 #0
 
-
-
-#SPECIALS
-S
-
-
-
 #RESETS
 D 0 1203 0 1	* Valhalla: door to the north: closed
 D 0 1203 2 1	* Valhalla: door to the south: closed
@@ -724,33 +711,14 @@ D 0 1218 2 1	* Valhalla: door to the south: closed
 M 0 1200 1 1221 1	* Heimdall (The End of the Rainbow Bridge)
 S
 
-
-
-#SHOPS
-0
-
-
-
-#OLIMITS
-S
-
-
-
-#MOBPROGS
-#0
-
 #PRACTICERS
 M 1200 fightmaster	* Heimdall
 M 1200 defensive	* Heimdall
 S
 
-
-
 #OMPROGS
 O 1201 wear_prog wear_prog_bracer	* `sand-colored robes'
 O 1201 remove_prog remove_prog_bracer	* `sand-colored robes'
 S
-
-
 
 #$
