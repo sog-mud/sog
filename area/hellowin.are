@@ -1,6 +1,6 @@
 #AREADATA
 Name Небольшой изврат~
-VNUMs 34400 34499
+VNUMs 34400 34799
 Credits Askold~
 Security 7
 LevelRange 0 0
@@ -124,6 +124,7 @@ encroachment.
 @rus Огромный, действительно огромный дракон. Чуть приоткрыв фасеточные
 глаза, он следит за тобой. Судя по нервным взмахам кончика его хвос-
 та, он очень недоволен твоим вторжением.
+ 
 ~
 dragon~
 ABGe DEFHNOPUVYc 0 0
@@ -140,6 +141,8 @@ M exall 34410 2~
 M exall 34410 3~
 M exall 34410 4~
 M give 34427 34491~
+M random 34432 10~
+M bribe 34433 10000~
 #34407
 guardian хранитель figure~
 @eng guardian@rus хранитель~
@@ -1280,8 +1283,21 @@ cauldron котелок~
 unknown~
 container 0 A
 1000 0 0 200 0
-0 0 15000 P
+0 0 5000 P
 G male
+#34493
+karach sword katana~
+a karach~
+A karach is forgotten here.~
+platinum~
+weapon HIMYa AN
+sword 10 1 slash DJ
+70 60 0 P
+E
+karach~
+The letters 'Hypujo' is carved on the handle.
+~
+G female
 #0
 
 #ROOMS
@@ -1834,6 +1850,7 @@ say No pass.
 mob transfer $n 34403
 ~
 #34412
+'I hate speaking mortals!
 mob kill $n
 ~
 #34413
@@ -1912,10 +1929,11 @@ mob goto 15000
 ~
 #34429
 'Recipe? It's very simple!
-'You need bat's wings, sapphire sigil and black rose.
+'You need bat's wing, sapphire sigil and black rose.
 'Put them into cauldron and say magic word.
 'Magic word is mumbara or something... Not sure..
 'Go to Alara and ask her. She lives in Keep of the Warlock.
+smile
 ~
 #34430
 'Recipe.. Recipe..
@@ -1927,6 +1945,26 @@ grin
 #34431
 'You do not know word, do you? It's terrible!
 'Remember 'mamburu'!
+~
+#34432
+'Pay 100 gold coins to me and i let you out from here!
+~
+#34433
+mob transfer $n 3502
+~
+#34434
+'Recipe.. recipe... I know one..
+'Take some chocolate brittle,  a bunch of smurfberries and
+'a large ruby. Put them into cauldron and say 'mamburu'..
+grin
+'It's simple, isn't it?
+~
+#34435
+'Recipe... Hmm..
+think
+'I think i know one. It's very simple..
+'You need to put into your cauldron an ear of corn, spider's web and an autumn leaf. Then just say 'mamburu'.
+grin
 ~
 #34450
 say Если ты мне принесешь сосульку, я тебя награжу... тока поспеши..
