@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.104 1999-12-23 15:55:35 avn Exp $
+ * $Id: skills.c,v 1.105 1999-12-25 12:04:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,9 +89,11 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 	pc_skill_t *pc_sk;
 	int chance;
 	spec_skill_t spec_sk;
+	skill_t *sk;
 
 	if (IS_NPC(ch)
 	||  (pc_sk = pc_skill_lookup(ch, sn)) == NULL
+	||  (sk = skill_lookup(sn)) == NULL
 	||  pc_sk->percent <= 0)
 		return;
 
@@ -120,11 +122,11 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 			gain_exp(ch, 2 * spec_sk.rating);
 			if (pc_sk->percent == spec_sk.max) {
 				act_puts("{gYou mastered {W$v{g!{x",
-					 ch, sn, NULL,
+					 ch, &sk->sk_name, NULL,
 					 TO_CHAR, POS_DEAD);
 			} else {
 				act_puts("{gYou have become better at {W$v{g!{x",
-					 ch, sn, NULL,
+					 ch, &sk->sk_name, NULL,
 					 TO_CHAR, POS_DEAD);
 			}
 		}
@@ -136,11 +138,11 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 			gain_exp(ch, 2 * spec_sk.rating);
 			if (pc_sk->percent == spec_sk.max) {
 				act_puts("{gYou learn from your mistakes and you manage to master {W$v{g!{x",
-					 ch, sn, NULL,
+					 ch, &sk->sk_name, NULL,
 					 TO_CHAR, POS_DEAD);
 			} else {
 				act_puts("{gYou learn from your mistakes and your {W$v{g skill improves!{x",
-					 ch, sn, NULL,
+					 ch, &sk->sk_name, NULL,
 					 TO_CHAR, POS_DEAD);
 			}
 
