@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.28 1998-06-07 07:15:43 fjoe Exp $
+ * $Id: quest.c,v 1.29 1998-06-08 23:58:13 efdi Exp $
  */
 
 /***************************************************************************
@@ -700,8 +700,8 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 {
 	int i;
 	char buf[MAX_STRING_LENGTH];
-	int mob_vnums[MAX_QMOB_COUNT];
-	size_t vnum_count;
+	CHAR_DATA *mobs[MAX_QMOB_COUNT];
+	size_t mob_count;
 	CHAR_DATA *victim = NULL;
 	ROOM_INDEX_DATA* room = NULL; /* disable gcc
 					 'might be used uninitialized'
@@ -709,44 +709,39 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	/*
 	 * find MAX_QMOB_COUNT quest mobs and store their vnums in mob_buf
 	 */
-	vnum_count = 0;
-	for (i = 0; i < MAX_KEY_HASH; i++) {
-		MOB_INDEX_DATA* mid;
+	mob_count = 0;
+	for (victim = char_list; victim; victim = victim->next) {
+		int diff = victim->level - ch->level;
 
-		for (mid = mob_index_hash[i]; mid != NULL; mid = mid->next) {
-			int diff = mid->level - ch->level;
-
-			if ((ch->level < 51 && (diff > 4 || diff < -1))
-			||  (ch->level > 50 && (diff > 6 || diff < 0))
-			||  mid->pShop != NULL
-			||  IS_SET(mid->act, ACT_TRAIN)
-			||  IS_SET(mid->act, ACT_PRACTICE)
-			||  IS_SET(mid->act, ACT_IS_HEALER)
-			||  IS_SET(mid->act, ACT_NOTRACK)
-			||  IS_SET(mid->imm_flags, IMM_SUMMON)
-			||  questman->pIndexData == mid)
-				continue;
-			mob_vnums[vnum_count++] = mid->vnum;
-			if (vnum_count >= MAX_QMOB_COUNT)
-				break;
-		}
+		if (!IS_NPC(victim)
+		|| (ch->level < 51 && (diff > 4 || diff < -1))
+		||  (ch->level > 50 && (diff > 6 || diff < 0))
+		||  victim->pIndexData->pShop != NULL
+		||  IS_SET(victim->pIndexData->act, ACT_TRAIN)
+		||  IS_SET(victim->pIndexData->act, ACT_PRACTICE)
+		||  IS_SET(victim->pIndexData->act, ACT_IS_HEALER)
+		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
+		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
+		||  questman->pIndexData == victim->pIndexData)
+			continue;
+		mobs[mob_count++] = victim;
+		if (mob_count >= MAX_QMOB_COUNT)
+			break;
 	}
 
-	log_printf("generate_quest: %s, %d mobs found", ch->name, vnum_count);
+	log_printf("generate_quest: %s, %d mobs found", ch->name, mob_count);
 
 	/*
 	 * randomly select mob vnum
 	 */
-	for(i = 0; i < vnum_count; i++) {
+	for(i = 0; i < mob_count; i++) {
 		CHAR_DATA* vch;
-		MOB_INDEX_DATA* mid;
 		int idx;
 
-		idx = number_range(0, vnum_count-1);
-		if ((mid = get_mob_index(mob_vnums[idx])) != NULL
-		&&  ((IS_EVIL(mid) && !IS_EVIL(ch)) ||
-		     (!IS_EVIL(mid) && !IS_GOOD(ch)))
-		&&  (vch = get_char_world(ch, mid->player_name)) != NULL
+		idx = number_range(0, mob_count-1);
+		if ((vch = mobs[idx]) != NULL
+		&&  ((IS_EVIL(vch) && !IS_EVIL(ch)) ||
+		     (!IS_EVIL(vch) && !IS_GOOD(ch)))
 		&&  vch->hunter == NULL
 		&&  (room = find_location(ch, vch->name)) != NULL
 		&&  !IS_SET(room->area->area_flag, AREA_HOMETOWN)) {
