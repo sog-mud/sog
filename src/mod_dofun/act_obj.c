@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.9 2000-06-08 18:13:19 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.10 2000-06-09 12:18:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2253,12 +2253,13 @@ void do_value(CHAR_DATA * ch, const char *argument)
 
 void do_herbs(CHAR_DATA * ch, const char *argument)
 {
-	CHAR_DATA      *victim;
-	char            arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	char arg[MAX_INPUT_LENGTH];
+	int chance;
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (!IS_NPC(ch) && is_affected(ch, gsn_herbs)) {
+	if (is_affected(ch, gsn_herbs)) {
 		char_puts("You can't find any more herbs.\n", ch);
 		return;
 	}
@@ -2272,20 +2273,22 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type != SECT_INSIDE
-	  &&  ch->in_room->sector_type != SECT_CITY
-	  &&  number_percent() < get_skill(ch, gsn_herbs))
-	|| (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_HEALER))) {
-		AFFECT_DATA     af;
-		af.where = TO_AFFECTS;
-		af.type = gsn_herbs;
-		af.level = ch->level;
-		af.duration = 5;
-		af.location = APPLY_NONE;
-		af.modifier = 0;
-		af.bitvector = 0;
+	chance = get_skill(ch, gsn_herbs);
+	if (ch->in_room->sector_type != SECT_INSIDE
+	&&  ch->in_room->sector_type != SECT_CITY
+	&&  number_percent() < chance) {
+		if (!IS_NPC(ch)) {
+			AFFECT_DATA     af;
+			af.where	= TO_AFFECTS;
+			af.type		= gsn_herbs;
+			af.level	= ch->level;
+			af.duration	= 5;
+			af.location	= APPLY_NONE;
+			af.modifier	= 0;
+			af.bitvector	= 0;
 
-		if (!IS_NPC(ch)) affect_to_char(ch, &af);
+			affect_to_char(ch, &af);
+		}
 
 		char_puts("You gather some beneficial herbs.\n", ch);
 		act("$n gathers some herbs.", ch, NULL, NULL, TO_ROOM);
@@ -2295,26 +2298,29 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			act("You give the herbs to $N.", ch, NULL, victim, TO_CHAR);
 			act("$n gives the herbs to $N.", ch, NULL, victim, TO_NOTVICT);
 		}
+
 		if (victim->hit < victim->max_hit) {
 			char_puts("You feel better.\n", victim);
 			act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 		}
 		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * LEVEL(ch));
 		check_improve(ch, gsn_herbs, TRUE, 1);
-		if (is_affected(victim, gsn_plague))
-			if (check_dispel(LEVEL(ch), victim, gsn_plague)) {
-				act("$n looks relieved as $s sores vanish.",
-				    victim, NULL, NULL, TO_ROOM);
-			}
-		if (is_affected(victim, gsn_poison))
-			if (check_dispel(LEVEL(ch), victim, gsn_poison)) {
-				act("$n does not look so green anymore.",
-				    victim, NULL, NULL, TO_ROOM);
-			}
+		if (is_affected(victim, gsn_plague)
+		&&  check_dispel(LEVEL(ch), victim, gsn_plague)) {
+			act("$n looks relieved as $s sores vanish.",
+			    victim, NULL, NULL, TO_ROOM);
+		}
+
+		if (is_affected(victim, gsn_poison)
+		&&  check_dispel(LEVEL(ch), victim, gsn_poison)) {
+			act("$n does not look so green anymore.",
+			    victim, NULL, NULL, TO_ROOM);
+		}
 	} else {
 		char_puts("You search for herbs but find none here.\n", ch);
 		act("$n looks around for herbs.", ch, NULL, NULL, TO_ROOM);
-		check_improve(ch, gsn_herbs, FALSE, 1);
+		if (chance)
+			check_improve(ch, gsn_herbs, FALSE, 1);
 	}
 }
 
