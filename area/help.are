@@ -7192,12 +7192,12 @@ To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number
 3. Команда addaffect пока глючит! лучше пока ее не трогать - МУД падает.
    #Arborn
 ~
-0 'OLC CC_RULESET'~
-Syntax: <cmd> order <order>
-Syntax: <cmd> order ?
+'immortal' 'OLC CC_RULESET'~
 Syntax: <cmd> show
-Syntax: <cmd> add [allow | deny] <keyword> <check expression>
-Syntax: <cmd> delete [allow | deny] <num>
+Syntax: <cmd> order <type> <order>
+Syntax: <cmd> order <type> ?
+Syntax: <cmd> add <type> [ allow | deny ] <check expression>
+Syntax: <cmd> delete <type> [ allow | deny ] <num>
  
 {c<cmd>{x depends on your current OLC editor (e.g.: 'restrictions' if
 you are editing an object)
@@ -7211,23 +7211,58 @@ mutual_failure - the result will be OK only if `allow' rules are fulfilled
                  and `deny' rules are not. Otherwise the result will be
                  FORBIDDEN. Initial state is irrelevant.
  
-{c<keyword>{x depends on your current OLC editor.
-Valid keywords for obj OLC editor are:
-race  - check race
-class - check class
+See additional help (listed below) for lists of valid <type>'s
+and <check expression>'s.
  
-{c<check expression>{x depends on your current OLC editor.
-Valid keywords for obj OLC editor are race or class names (depending
-on <keyword>) or 'all'.
- 
-Rulesets for objects are used to restrict the possibility to
-wear an object by race or class.
+Additional helps:
+        'CC_RULES OBJ_WEAR'
+        'CC_RULES SPEC'
+~
+'immortal' 'CC_RULES OBJ_WEAR'~
+Valid types and check expressions for "obj_wear" cc_rule class are:
 
-E.g.: suppose you have the following ruleset for an object:
+'{crace{x'
+        the only valid check expression for this type is
+        list of races. Rule is matched when character's
+        race is in the list of races specified in check expression.
+ 
+'{cclass{x'
+        like 'race' type but match character's class.
+ 
+'{cminsize{x'
+        valid check expression is size name. valid size names are
+        'tiny', 'small', 'medium', 'large', 'huge', 'giant' and
+        'gargantuan' (in ascending order). Rule is matched when
+        character's size is not greater than specified in
+        check expression.
+ 
+E.g.: suppose you have the following restrictions for some object:
+        [race]
+        order allow_deny
+        allow human
+ 
+        [class]
         order deny_allow
-        deny race all
-        allow race human elf
-This will allow to wear an object only for humans and elves.
+        deny thief assassin
+ 
+This will allow to wear such object only for human's except
+thieves and assassins.
+ 
+SEE ALSO: 'OLC CC_RULES'
+~
+'immortal' 'CC_RULES SPEC'~
+Valid types and check expressions for "spec" cc_rule class are:
+ 
+'{chas_spec{x'
+        check expression for this type is list of skill specs.
+        Rule is matched when character has on of given specs.
+ 
+'{cspclass_limit{x'
+        check expression is: <spclass> <num>.
+        <speclass> is spec class. Rule is matched when character
+        has not more than <num> specs from spec class <spclass>.
+ 
+SEE ALSO: 'OLC CC_RULES'
 ~
 -1 $~
 

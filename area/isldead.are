@@ -1,7 +1,7 @@
 #AREADATA
 Name Isles Of Dead~
 Builders jiehar~
-VNUMs 22300 22399
+VNUMs 22300 22449
 Credits Jiehar~
 Security 9
 LevelRange 0 0
@@ -1453,6 +1453,11 @@ D4
 ~
 ~
 ABCFGZ 0 22306
+S
+#22400
+~
+~
+0 0 inside
 S
 #0
 

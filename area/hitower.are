@@ -1969,7 +1969,7 @@ G none
 
 #ROOMS
 #1300
-@eng Entrance to the Shadow Grove@rus Вход в дремучий лес~
+@eng Entrance to the Shadow Grove@rus Тропа, ведущая в дремучий лес~
 @eng Before you, the grove of shadows lies. Giant grey trees are all that
 can be seen through the thick shadows. A great sense of both power and
 menace permeates the surrounding area. You have a strange urge to turn
@@ -1999,7 +1999,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2032,7 +2032,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2065,7 +2065,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2098,7 +2098,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2131,7 +2131,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2164,7 +2164,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2197,7 +2197,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2230,7 +2230,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All exits lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2263,7 +2263,7 @@ from all sides. The shadowy mist obscures most of your vision. Strange
 sounds of moaning and growling come from all directions.
   All directions lead into shadows, you are very confused.
 @rus Ты $gn{заблудился} в дремучем лесу. Гигантские деревья как-будто пристально 
-смотрят на тебя со свех сторон. Густой туман мешает тебе чётко различать
+смотрят на тебя со всех сторон. Густой туман мешает тебе чётко различать
 что-либо. Странные стоны и рычание доносятся со всех направлений.
   Все тропы ведут всё глубже в чащу, ты окончательно $gn{сбит} с толку.
 ~
@@ -2639,7 +2639,7 @@ to be a cave-in to the west. It is certainly unpassable, and perhaps quite
 dangerous just being this close.
   The only exit leads back east.
 @rus Ты находишься в темном коридоре, который внезапно кончается возле странного
-разлома, походящего на вход в пещеру. Она слишком узкая, что бы можно было
+разлома, походящего на вход в пещеру. Она слишком узкая, чтобы можно было
 пролезть сквозь нее, и, возможно, опасно даже просто находиться рядом с ней.
   Единстенный выход ведет назад на восток.
 ~
@@ -2695,9 +2695,11 @@ direction ... and are sucked under by a rip tide.
 0 ACD underwater
 S
 #1330
-The hallway~
-You are in a long hallway leading east and west. The walls emit a faint
+@eng The hallway@rus Коридор~
+@eng You are in a long hallway leading east and west. The walls emit a faint
 magical glow which provides enough light to see by.
+@rus Ты находишься в длинном коридоре, ведущем за запад и восток. От стен исходит
+мягкое магическое свечение, которого достаточно, чтобы осветить коридор.
 ~
 0 D inside
 D0
@@ -2718,9 +2720,11 @@ D3
 Z -1 1315
 S
 #1331
-A bend in the hallway~
-You are at a bend in the hallway. The walls emit a faint magical glow
+@eng A bend in the hallway@rus Изгиб коридора~
+@eng You are at a bend in the hallway. The walls emit a faint magical glow
 which provides enough light to see by.
+@rus Ты находишься в месте изгиба коридора. От стен исходит мягкое магическое
+свечение, которого достаточно, чтобы хорошо видеть.
 ~
 0 D inside
 D0
@@ -2741,10 +2745,13 @@ D3
 Z -1 1330
 S
 #1332
-A store room~
-You are in a small store room. Assorted junk is piled on shelves or
+@eng A store room@rus Кладовая~
+@eng You are in a small store room. Assorted junk is piled on shelves or
 leaning against walls.
   The only apparent exit it back south.
+@rus Ты находишься в маленькой кладовке. Разнообразный хлам разбросан по полкам,
+стоящим вдоль стен.
+  Единственный видимый выход -- назад на юг.
 ~
 0 AD inside
 D2
@@ -2753,10 +2760,13 @@ door wooden~
 ABZ -1 1330
 S
 #1333
-A broom closet~
-You are in a dark broom closet. Many straw brooms and other cleaning
+@eng A broom closet@rus Чулан~
+@eng You are in a dark broom closet. Many straw brooms and other cleaning
 instruments have been left here, apparently unused (perhaps the maid quit?).
   The only exit leads back north to the hallway.
+@rus Ты находишься в темном чулане. По всему полу разбросаны веники, щетки и
+прочие чмстящие инструменты, видно, что используются они крайне редко.
+  Единственный выход -- назад на север, в коридор.
 ~
 0 AD inside
 D0
@@ -2765,9 +2775,11 @@ door wooden~
 ABZ -1 1330
 S
 #1334
-A hallway~
-You are in a long hallway leading north and south. The walls emit a
+@eng A hallway@rus Коридор~
+@eng You are in a long hallway leading north and south. The walls emit a
 faint magical glow which provides enough light to see by.
+@rus Ты находишься в длинном коридоре, ведущем за север и юг. От стен исходит
+мягкое магическое свечение, которого достаточно, что бы осветить коридор.
 ~
 0 D inside
 E
@@ -2788,10 +2800,13 @@ door wooden~
 ABZ -1 1331
 S
 #1335
-Guardians chamber~
-You are in the chamber of the tower guardians. It is rather sparsely
+@eng Guardians chamber@rus Комната стражников~
+@eng You are in the chamber of the tower guardians. It is rather sparsely
 furnished, but then again the odd occupants don't look to need furniture.
 Here and there a disembodied pair of hands or eyes flits about.
+@rus Ты находишься в комнате стражи башни. Она довольно скудно мебелирован, но,
+кажется, мебель ни кому и не нужна. То тут, то там мелькают безтелесые пары
+рук и глаз.
 ~
 0 D inside
 D0
@@ -2800,11 +2815,15 @@ door wooden~
 ABZ -1 1331
 S
 #1336
-A guest bedroom~
-You are in a small guest bedroom. A small cot is in one corner, and a
+@eng A guest bedroom@rus Спальня для гостей~
+@eng You are in a small guest bedroom. A small cot is in one corner, and a
 dusty mirror on one wall, other than that the room looks quite bare, and
 unused.
   The only apparent exit leads back west to the hallway.
+@rus Ты находишься в маленькой спаленке. Маленькая кровать стоит в углу комнаты,
+пыльное зеркало висит на стене, вобщем комната выглядит пустой и
+неиспользуемой.
+  Единственный видимый выход ведет назад на запад в коридор.
 ~
 0 D inside
 E
@@ -2817,11 +2836,15 @@ door wooden~
 ABZ -1 1331
 S
 #1337
-A guest bedroom~
-You are in a comfortable looking bedroom. A small globe of magical energy
+@eng A guest bedroom@rus Спальня для гостей~
+@eng You are in a comfortable looking bedroom. A small globe of magical energy
 floats overhead, providing light. A small cot is in one corner looking
 ever so comfortable, so comfortable in fact ...someone is sleeping in it.
   The only apparent exit leads back west to the hallway.
+@rus Ты находишься в комфортной спальне. Небольшой заряд магической енергии парит
+над твоей головой, излучая мягкий свет. Небольшая кровать в углу комнаты
+выглядит очень мягкой и удобной, на очень удобной ...на ней кто-то спит.
+  Единственный выход ведет назад на запад в коридор.
 ~
 0 D inside
 D3
@@ -2830,10 +2853,13 @@ door wooden~
 ABZ -1 1334
 S
 #1338
-A hallway~
-You are in a long hallway leading from the south. The walls emit a faint
+@eng A hallway@rus Коридор~
+@eng You are in a long hallway leading from the south. The walls emit a faint
 magical glow which provides enough light to see by.
   Stairs lead up to the next level and the hallway leads back south.
+@rus Ты находишься в длинном коридоре, ведущем с юга. От стен исходит мягкое
+магическое свечение, которого достаточно, чтобы осветить коридор.
+  Лестница ведет вверх на следующий этаж, коридор ведет назад на юг.
 ~
 0 D inside
 D1
@@ -2850,11 +2876,14 @@ D4
 Z -1 1340
 S
 #1339
-The burnt room~
-You are in what looks to have once been a guest bed room. The walls are
+@eng The burnt room@rus Выжженная комната~
+@eng You are in what looks to have once been a guest bed room. The walls are
 blackened and burnt by what you could only imagine to be magical fire.
 There is no sign of the previous occupant, undoubtedly he left in a hurry.
   The only exit leads back west to the hallway.
+@rus Ты находишься там, где некогда была спальня. Стены здесь черные и обожжены
+каким-то странным, скорее магическим огнем. В комнате не осталось следов
+прибывания постояльца, он явно покидал комнату в спешке.
 ~
 0 AD inside
 D3

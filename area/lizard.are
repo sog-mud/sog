@@ -783,7 +783,7 @@ invisible sleeves~
 invisible sleeves~
 The invisible objects lays here.~
 unknown~
-armor FHIMRTYZ AI
+armor FHIMRTYZ AK
 18 18 18 18 0
 55 1 0 P
 A
@@ -792,6 +792,221 @@ A
 4 3
 A
 3 3
+G none
+#22116
+white sleeves~
+white sleeves~
+The white sleeves glow here.~
+unknown~
+armor AHIMRTYZ AI
+18 18 18 18 0
+55 1 0 P
+A
+13 75
+A
+6 3
+A
+5 3
+G none
+#22117
+red sleeves~
+red sleeves~
+The pieces of strange red material lays here.~
+unknown~
+armor AHIMRTYZ AI
+17 17 17 17 0
+55 1 0 P
+A
+14 300
+A
+18 10
+A
+2 3
+A
+1 3
+G none
+#22118
+yellow sleeves~
+yellow sleeves~
+Yellow things made of nothing are here.~
+unknown~
+armor AHIMRTYZ AI
+17 17 17 17 0
+55 1 0 P
+A
+17 -30
+A
+20 -15
+A
+6 1
+A
+5 1
+A
+4 1
+A
+3 1
+A
+2 1
+A
+1 1
+G none
+#22119
+black sleeves~
+black sleeves~
+Two hollows of noghting lay here.~
+unknown~
+armor AHIMRTYZ AI
+17 17 17 17 0
+55 1 0 P
+A
+19 10
+A
+9 5
+A
+6 -2
+A
+5 -2
+A
+4 -2
+A
+3 -2
+A
+2 -2
+A
+1 -2
+G none
+#22120
+gray staff~
+gray staff~
+Staff made of gray tree lays here.~
+hardwood~
+weapon A AN
+staff 11 4 'smash' G
+50 0 0 P
+A
+19 10
+A
+18 10
+A
+12 100
+A
+13 20
+G none
+#22121
+staff green~
+green staff~
+Staff made of green tree lays here.~
+softwood~
+weapon A AN
+staff 11 4 'smash' G
+50 0 0 P
+A
+19 10
+A
+18 10
+A
+14 50
+A
+13 50
+A
+13 40
+G none
+#22122
+gray vest~
+gray vest~
+A skin of gray lizard lays here.~
+snakeskin~
+armor 0 AD
+15 15 15 10 0
+50 10 1000 P
+A
+20 -10
+A
+6 2
+A
+4 2
+A
+3 2
+G none
+#22123
+vest green~
+green vest~
+A skin of green lizard lays here.~
+snakeskin~
+armor 0 AD
+15 15 15 10 0
+50 10 1000 P
+A
+17 -20
+A
+5 1
+A
+2 2
+A
+1 2
+G none
+#22124
+gray boots~
+gray boots~
+Feets of gray lizard lay here.~
+snakeskin~
+armor 0 AG
+15 15 15 10 0
+50 10 1000 P
+A
+6 1
+A
+4 2
+A
+3 2
+G none
+#22125
+green boots~
+green boots~
+Feets of green lizard lay here.~
+snakeskin~
+armor 0 AG
+15 15 15 10 0
+50 10 1000 P
+A
+19 3
+A
+18 3
+G none
+#22126
+mantle gods~
+mantle of gods~
+The mantle of gods flying here.~
+unknown~
+armor ABGHIOZ AK
+20 20 20 20 0
+60 0 0 P
+A
+19 5
+A
+18 5
+A
+14 50
+A
+12 50
+A
+13 50
+A
+17 -20
+A
+20 -10
+A
+8 1
+A
+5 2
+A
+4 2
+A
+3 2
+A
+2 2
+A
+1 2
 G none
 #0
 
@@ -3749,6 +3964,13 @@ O 22112 2	* red whip
 O 22113 2	* yellow whip
 O 22114 1	* black whip
 O 22115 2	* invisible sleeves
+O 22116 2	* white sleeves
+O 22117 2	* red sleeves
+O 22118 2	* yellow sleeves
+O 22119 1	* black sleeves
+O 22120 5	* gray staff
+O 22121 5	* green staff
+O 22126 1	* mantle of gods
 S
 
 #$
