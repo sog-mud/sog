@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.199 2002-03-06 11:08:35 tatyana Exp $
+ * $Id: save.c,v 1.200 2002-03-20 20:42:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -321,7 +321,11 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fwrite_string(fp, "Granted", pc->granted);
 		fwrite_string(fp, "LLHost", pc->ll_host);
 		fwrite_string(fp, "LLIp", pc->ll_ip);
+#if defined(__FreeBSD__) && __FreeBSD_version >= 500000
+		fprintf(fp, "LLTime %d\n", pc->ll_time);
+#else
 		fprintf(fp, "LLTime %ld\n", pc->ll_time);
+#endif
 
 		if (pc->hints_level != HINT_ALL) {
 			fprintf(fp, "HintsLevel %s\n",
