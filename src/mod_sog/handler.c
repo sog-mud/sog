@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.115 1999-02-18 07:54:44 fjoe Exp $
+ * $Id: handler.c,v 1.116 1999-02-18 09:57:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3018,6 +3018,41 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	return TRUE;
+}
+
+/* random room generation procedure */
+ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area)
+{
+	int min_vnum;
+	int max_vnum;
+	ROOM_INDEX_DATA *room;
+
+	if (!area) {
+		min_vnum = 1;
+		max_vnum = top_vnum_room;
+	}
+	else {
+		min_vnum = area->min_vnum;
+		max_vnum = area->max_vnum;
+	}
+
+	for (; ;) {
+		room = get_room_index(number_range(min_vnum, max_vnum));
+
+		if (!room)
+			continue;
+
+		if (can_see_room(ch, room)
+		&&  !room_is_private(room)
+		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
+		&&  !IS_SET(room->area->flags, AREA_UNDER_CONSTRUCTION)
+		&&  (!IS_NPC(ch) ||
+		     !IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) ||
+		     !IS_SET(room->room_flags, ROOM_LAW)))
+			break;
+	}
+
+	return room;
 }
 
 const char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.151 1999-02-17 07:53:23 fjoe Exp $
+ * $Id: merc.h,v 1.152 1999-02-18 09:57:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1842,7 +1842,7 @@ void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /* act_hera.c */
 /* enter.c */
-ROOM_INDEX_DATA  *get_random_room	(CHAR_DATA *ch);
+ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
 /* hunt.c */
 void hunt_victim(CHAR_DATA *ch);
 int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 
@@ -1877,11 +1877,11 @@ bool	is_name 	(const char *str, const char *namelist);
 bool	is_name_raw	(const char *str, const char *namelist,
 			 int (*cmpfun)(const char*, const char*));
 bool	name_add	(const char **namelist, const char *name,
-			 CHAR_DATA *CH, const char *editor_name);
+			 CHAR_DATA *ch, const char *editor_name);
 bool	name_delete	(const char **namelist, const char *name,
-			 CHAR_DATA *CH, const char *editor_name);
+			 CHAR_DATA *ch, const char *editor_name);
 bool	name_toggle	(const char **namelist, const char *name,
-			 CHAR_DATA *CH, const char *editor_name);
+			 CHAR_DATA *ch, const char *editor_name);
 
 bool	pc_name_ok	(const char *name);
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);

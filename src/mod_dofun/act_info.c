@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.200 1999-02-17 18:57:59 fjoe Exp $
+ * $Id: act_info.c,v 1.201 1999-02-18 09:57:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1316,7 +1316,6 @@ void do_examine(CHAR_DATA *ch, const char *argument)
  */
 void do_exits(CHAR_DATA *ch, const char *argument)
 {
-	extern char * const dir_name[];
 	EXIT_DATA *pexit;
 	bool found;
 	bool fAuto;
@@ -2236,7 +2235,6 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
 
 void do_scan2(CHAR_DATA *ch, const char *argument)
 {
-	extern char *const dir_name[];
 	EXIT_DATA *pExit;
 	int door;
 

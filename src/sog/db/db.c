@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.107 1999-02-17 18:58:05 fjoe Exp $
+ * $Id: db.c,v 1.108 1999-02-18 09:57:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -447,72 +447,32 @@ void check_mob_progs(void)
     }
 }
  
+void fix_exits_room(ROOM_INDEX_DATA *room)
+{
+	int door;
+
+	for (door = 0; door < MAX_DIR; door++) {
+		EXIT_DATA *pexit;
+
+		if ((pexit = room->exit[door]) == NULL)
+			continue;
+
+		pexit->u1.to_room = get_room_index(pexit->u1.vnum);
+	}
+}
+
 /*
  * Translate all room exits from virtual to real.
  * Has to be done after all rooms are read in.
- * Check for bad reverse exits.
  */
 void fix_exits(void)
 {
-	extern const int rev_dir [];
-	ROOM_INDEX_DATA *pRoomIndex;
-	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit;
-	EXIT_DATA *pexit_rev;
+	ROOM_INDEX_DATA *room;
 	int iHash;
-	int door;
 
 	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
-	{
-		for (pRoomIndex  = room_index_hash[iHash];
-		      pRoomIndex != NULL;
-		      pRoomIndex  = pRoomIndex->next)
-		{
-		    bool fexit;
-
-		    fexit = FALSE;
-		    for (door = 0; door <= 5; door++)
-		    {
-			if ((pexit = pRoomIndex->exit[door]) != NULL)
-			{
-			    if (pexit->u1.vnum <= 0 
-			    || get_room_index(pexit->u1.vnum) == NULL)
-				pexit->u1.to_room = NULL;
-			    else
-			    {
-			   	fexit = TRUE; 
-				pexit->u1.to_room = get_room_index(pexit->u1.vnum);
-			    }
-			}
-		    }
-		    if (!fexit)
-			SET_BIT(pRoomIndex->room_flags,ROOM_NOMOB);
-		}
-	}
-
-	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
-	{
-		for (pRoomIndex  = room_index_hash[iHash];
-		      pRoomIndex != NULL;
-		      pRoomIndex  = pRoomIndex->next)
-		{
-		    for (door = 0; door <= 5; door++)
-		    {
-			if ((pexit     = pRoomIndex->exit[door]    ) != NULL
-			&&   (to_room   = pexit->u1.to_room         ) != NULL
-			&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-			&&   pexit_rev->u1.to_room != pRoomIndex 
-			&&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
-			    log_printf("fix_exits: %d:%d -> %d:%d -> %d.",
-				pRoomIndex->vnum, door,
-				to_room->vnum,    rev_dir[door],
-				(pexit_rev->u1.to_room == NULL)
-				    ? 0 : pexit_rev->u1.to_room->vnum);
-		    }
-		}
-	}
-
-	return;
+		for (room = room_index_hash[iHash]; room; room = room->next)
+			fix_exits_room(room);
 }
 
 void print_resetmsg(AREA_DATA *pArea)

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.79 1999-02-17 07:53:22 fjoe Exp $
+ * $Id: spellfun2.c,v 1.80 1999-02-18 09:57:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2104,58 +2104,50 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
-	ROOM_INDEX_DATA *pRoomIndex;
 	AFFECT_DATA af;
 
-	if (is_affected(ch, sn))
-	{
-	  char_puts("You aren't up to dispersing this crowd.\n",ch);
-	  return;
+	if (is_affected(ch, sn)) {
+		char_puts("You aren't up to dispersing this crowd.\n",ch);
+		return;
 	}
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
-	  vch_next = vch->next_in_room;
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
-	  if (vch->in_room != NULL
-	  &&   !IS_SET(vch->in_room->room_flags, ROOM_NORECALL)
-	  &&   !IS_IMMORTAL(vch)
-	  && ((IS_NPC(vch) && !IS_SET(vch->pIndexData->act, ACT_AGGRESSIVE)) ||
-/*      (!IS_NPC(vch) && vch->level > PK_MIN_LEVEL && (vch->level < level || */
-	  (!IS_NPC(vch) && vch->level > PK_MIN_LEVEL && (
-	!is_safe_nomessage(ch, vch)))) && vch != ch
-	  && !IS_SET(vch->imm_flags, IMM_SUMMON))
-	{
-	  for (; ;) {
-	  	pRoomIndex = get_room_index(number_range(0, 65535));
-	  	if (pRoomIndex != NULL
-	        &&  can_see_room(ch, pRoomIndex)
-	    	&&  !room_is_private(pRoomIndex)
-		&&  !IS_SET(pRoomIndex->area->flags, AREA_UNDER_CONSTRUCTION)
-		&&  !IS_SET(pRoomIndex->room_flags, ROOM_NORECALL)
-		&&  guild_ok(vch, pRoomIndex))
-	  		break;
-	  }
+		if (vch == ch
+		||  !vch->in_room
+		||  IS_SET(vch->in_room->room_flags, ROOM_NORECALL)
+		||  IS_SET(vch->imm_flags, IMM_SUMMON)
+		||  IS_IMMORTAL(vch))
+			continue;
 
-	  char_puts("The world spins around you!\n",vch);
-	  act("$n vanishes!", vch, NULL, NULL, TO_ROOM);
-	  char_from_room(vch);
-	  char_to_room(vch, pRoomIndex);
-	  act("$n slowly fades into existence.", vch, NULL, NULL, TO_ROOM);
-	  do_look(vch, "auto");
+		if (IS_NPC(vch)) {
+			if (IS_SET(vch->pIndexData->act, ACT_AGGRESSIVE))
+				continue;
+		}
+		else {
+			if (is_safe_nomessage(ch, vch))
+				continue;
+		}
+
+		char_puts("The world spins around you!\n",vch);
+		act("$n vanishes!", vch, NULL, NULL, TO_ROOM);
+		char_from_room(vch);
+		char_to_room(vch, get_random_room(vch, NULL));
+		act("$n slowly fades into existence.",
+		    vch, NULL, NULL, TO_ROOM);
+		do_look(vch, "auto");
 	}
-	}
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level	 = level;
-	af.duration  = 15;
-	af.modifier  = 0;
-	af.location  = APPLY_NONE;
+
+	af.where = TO_AFFECTS;
+	af.type = sn;
+	af.level = level;
+	af.duration = 15;
+	af.modifier = 0;
+	af.location = APPLY_NONE;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
-
 }
-
 
 void spell_honor_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {

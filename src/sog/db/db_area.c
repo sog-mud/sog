@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.26 1999-02-17 07:53:28 fjoe Exp $
+ * $Id: db_area.c,v 1.27 1999-02-18 09:57:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1148,6 +1148,7 @@ DBLOAD_FUN(load_mobiles)
         pMobIndex->vnum                 = vnum;
 	newmobs++;
         pMobIndex->name			= fread_string(fp);
+	name_delete(&pMobIndex->name, "oldstyle", NULL, NULL);
         pMobIndex->short_descr		= mlstr_fread(fp);
         pMobIndex->long_descr		= mlstr_fread(fp);
         pMobIndex->description		= mlstr_fread(fp);
@@ -1343,6 +1344,11 @@ DBLOAD_FUN(load_objects)
         pObjIndex->short_descr		= mlstr_fread(fp);
         pObjIndex->description		= mlstr_fread(fp);
         pObjIndex->material		= fread_string(fp);
+	if (!str_cmp(pObjIndex->material, "oldstyle")) {
+		free_string(pObjIndex->material);
+		pObjIndex->material = str_dup("unknown");
+	}
+
 	pObjIndex->oprogs		= NULL;
 
 	pObjIndex->item_type		= fread_fword(item_types, fp);

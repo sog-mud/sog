@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.142 1999-02-17 18:58:00 fjoe Exp $
+ * $Id: act_move.c,v 1.143 1999-02-18 09:57:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2267,7 +2267,6 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
 {
-	ROOM_INDEX_DATA *pRoomIndex;
 	int chance;
 	int sn;
 
@@ -2296,18 +2295,6 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (; ;) {
-		if ((pRoomIndex = get_room_index(number_range(ch->in_room->area->min_vnum, ch->in_room->area->max_vnum))) == NULL)
-			continue;
-		if ((ch->in_room->vnum < 500 || ch->in_room->vnum > 600)
-		&&  (pRoomIndex->vnum > 500 && pRoomIndex->vnum < 600))
-			continue;
-		if (can_see_room(ch,pRoomIndex) 
-		&&  !room_is_private(pRoomIndex)
-		&&  ch->in_room->area == pRoomIndex->area)
-			break;
-	}
-
 	act("$n throws down a small globe.", ch, NULL, NULL, TO_ROOM);
 	check_improve(ch, sn, TRUE, 1);
 
@@ -2317,9 +2304,8 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n is gone!", ch, NULL, NULL, TO_ROOM);
-
 	char_from_room(ch);
-	char_to_room(ch, pRoomIndex);
+	char_to_room(ch, get_random_room(ch, ch->in_room->area));
 	act("$n appears from nowhere.", ch, NULL, NULL, TO_ROOM);
 	do_look(ch, "auto");
 	stop_fighting(ch, TRUE);
@@ -3401,31 +3387,6 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, gsn_spear, TRUE, 1);
 }
 
-
-/* random room generation procedure */
-ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch)
-{
-	ROOM_INDEX_DATA *room;
-
-	for (; ;) {
-		room = get_room_index(number_range(0, 65535));
-
-		if (!room)
-			continue;
-
-		if (can_see_room(ch,room)
-		&&  !room_is_private(room)
-		&&  !IS_SET(room->room_flags, ROOM_SAFE | ROOM_PEACE) 
-		&&  !IS_SET(room->area->flags, AREA_UNDER_CONSTRUCTION)
-		&&  (!IS_NPC(ch) ||
-		     !IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE) ||
-		     !IS_SET(room->room_flags, ROOM_LAW)))
-			break;
-	}
-
-	return room;
-}
-
 /* RT Enter portals */
 void do_enter(CHAR_DATA *ch, const char *argument)
 {    
@@ -3467,11 +3428,11 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_SET(portal->value[2], GATE_RANDOM) || portal->value[3] == -1) {
-		location = get_random_room(ch);
+		location = get_random_room(ch, NULL);
 		portal->value[3] = location->vnum; /* keeps record */
 	}
 	else if (IS_SET(portal->value[2], GATE_BUGGY) && (number_percent() < 5))
-		location = get_random_room(ch);
+		location = get_random_room(ch, NULL);
 	else
 		location = get_room_index(portal->value[3]);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.120 1999-02-17 18:58:02 fjoe Exp $
+ * $Id: spellfun.c,v 1.121 1999-02-18 09:57:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4269,7 +4269,7 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	pRoomIndex = get_random_room(victim);
+	pRoomIndex = get_random_room(victim, NULL);
 
 	if (victim != ch)
 		char_puts("You have been teleported!\n", victim);
