@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.189 1999-02-11 09:53:19 fjoe Exp $
+ * $Id: act_info.c,v 1.190 1999-02-11 17:16:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2216,7 +2216,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (strcmp(crypt(arg1, ch->pcdata->pwd), ch->pcdata->pwd)) {
-		WAIT_STATE(ch, 40);
+		WAIT_STATE(ch, 10 * PULSE_PER_SECOND);
 		char_puts("Wrong password.  Wait 10 seconds.\n", ch);
 		return;
 	}

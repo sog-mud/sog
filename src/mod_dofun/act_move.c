@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.132 1999-02-10 14:57:33 fjoe Exp $
+ * $Id: act_move.c,v 1.133 1999-02-11 17:16:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -296,18 +296,20 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 				move *= 2;
 		}
 
-		if (!MOUNTED(ch) && ch->move < move) {
-			char_nputs(MSG_YOU_TOO_EXHAUSTED, ch);
-			return;
-		}
+		if (!MOUNTED(ch)) {
+			if (ch->move < move) {
+				char_nputs(MSG_YOU_TOO_EXHAUSTED, ch);
+				return;
+			}
 
-		if (!MOUNTED(ch) && 
-		(ch->in_room->sector_type == SECT_DESERT || IS_WATER(ch->in_room)))
-		  WAIT_STATE(ch, 2);
-		else
-		  WAIT_STATE(ch, 1);
-		
-		if (!MOUNTED(ch))	ch->move -= move;
+			ch->move -= move;
+
+			if (ch->in_room->sector_type == SECT_DESERT
+			||  IS_WATER(ch->in_room))
+				WAIT_STATE(ch, 2);
+			else
+				WAIT_STATE(ch, 1);
+		}
 	}
 
 	if (!IS_AFFECTED(ch, AFF_SNEAK)

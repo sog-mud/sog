@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.113 1999-02-11 16:40:28 fjoe Exp $
+ * $Id: spellfun.c,v 1.114 1999-02-11 17:16:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -229,8 +229,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	else
 		mana = 0;
 
-	WAIT_STATE(ch, spell->beats);
-
 	/*
 	 * Locate targets.
 	 */
@@ -259,18 +257,22 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 		else if ((range = allowed_other(ch, sn)) > 0) {
 			if ((victim = get_char_spell(ch, target_name,
-						     &door, range)) == NULL)
+						     &door, range)) == NULL) {
+				WAIT_STATE(ch, spell->beats);
 				return;
+			}
 
 			if (IS_NPC(victim)
 			&&  victim->in_room != ch->in_room) {
 				if (room_is_private(ch->in_room)) {
+					WAIT_STATE(ch, spell->beats);
 					char_puts("You can't cast this spell from private room right now.\n", ch);
 					return;
 				}
 
 				if (IS_SET(victim->pIndexData->act,
 					   ACT_NOTRACK)) {
+					WAIT_STATE(ch, spell->beats);
 					act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
 					return;
 				}	
@@ -278,6 +280,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			cast_far = TRUE;
 		}
 		else if ((victim = get_char_room(ch, target_name)) == NULL) {
+			WAIT_STATE(ch, spell->beats);
 			char_puts("They aren't here.\n", ch);
 			return;
 		}
@@ -343,6 +346,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		else if ((obj = get_obj_here(ch, target_name)))
 			target = TARGET_OBJ;
 		else {
+			WAIT_STATE(ch, spell->beats);
 			char_puts("You don't see that here.\n",ch);
 			return;
 		}
@@ -415,6 +419,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	if (bch && spellbane(bch, ch, bane_chance, 3 * bch->level))
 		return;
+
+	WAIT_STATE(ch, spell->beats);
 
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n", ch);

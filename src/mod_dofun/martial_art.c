@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.65 1999-02-03 08:41:23 fjoe Exp $
+ * $Id: martial_art.c,v 1.66 1999-02-11 17:16:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -231,8 +231,6 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_bash)->beats);
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -241,9 +239,12 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, SKILL(gsn_bash)->beats);
 		char_puts("They aren't here.\n",ch);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(gsn_bash)->beats);
 
 	if (victim->position < POS_FIGHTING) {
 		act("You'll have to let $M get back up first.",
@@ -373,8 +374,6 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -383,9 +382,12 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if ((victim = get_char_room(ch, arg)) == NULL) {
+		WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
 		char_puts("They aren't here.\n", ch);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(gsn_dirt)->beats);
 
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
 		 char_puts("While flying?\n", ch);
