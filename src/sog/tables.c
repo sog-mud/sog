@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.111 1999-12-13 14:10:39 avn Exp $
+ * $Id: tables.c,v 1.112 1999-12-14 07:24:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1319,22 +1319,20 @@ flaginfo_t desc_con_table[] =
 
 	{ "playing",		CON_PLAYING,			FALSE	},
 	{ "get name",		CON_GET_NAME,			FALSE	},
-	{ "get old password",	CON_GET_OLD_PASSWORD,		FALSE	},
-	{ "confirm new name",	CON_CONFIRM_NEW_NAME,		FALSE	},
-	{ "get new password",	CON_GET_NEW_PASSWORD,		FALSE	},
-	{ "confirm new pwd",	CON_CONFIRM_NEW_PASSWORD,	FALSE	},
-	{ "get new race",	CON_GET_NEW_RACE,		FALSE	},
-	{ "get new sex",	CON_GET_NEW_SEX,		FALSE	},
-	{ "get new class",	CON_GET_NEW_CLASS,		FALSE	},
-	{ "choose align",	CON_GET_ALIGNMENT,		FALSE	},
-	{ "reading imotd",	CON_READ_IMOTD,			FALSE	},
-	{ "reading motd",	CON_READ_MOTD,			FALSE	},
-	{ "roll stats",		CON_ROLL_STATS,			FALSE	},
-	{ "accept stats",	CON_ACCEPT_STATS,		FALSE	},
-	{ "pick hometown",	CON_PICK_HOMETOWN,		FALSE	},
+	{ "get old pwd",	CON_GET_OLD_PASSWORD,		FALSE	},
+	{ "confirm name",	CON_CONFIRM_NEW_NAME,		FALSE	},
+	{ "get pwd",		CON_GET_NEW_PASSWORD,		FALSE	},
+	{ "confirm pwd",	CON_CONFIRM_NEW_PASSWORD,	FALSE	},
+	{ "get race",		CON_GET_NEW_RACE,		FALSE	},
+	{ "get sex",		CON_GET_NEW_SEX,		FALSE	},
+	{ "get class",		CON_GET_NEW_CLASS,		FALSE	},
+	{ "get align",		CON_GET_ALIGNMENT,		FALSE	},
+	{ "read imotd",		CON_READ_IMOTD,			FALSE	},
+	{ "read motd",		CON_READ_MOTD,			FALSE	},
+	{ "pick home",		CON_PICK_HOMETOWN,		FALSE	},
 	{ "get ethos",		CON_GET_ETHOS,			FALSE	},
 	{ "create done",	CON_CREATE_DONE,		FALSE	},
-	{ "get codepage",	CON_GET_CODEPAGE,		FALSE	},
+	{ "get charset",	CON_GET_CODEPAGE,		FALSE	},
 	{ "resolving",		CON_RESOLV,			FALSE	},
 	{ NULL }
 };

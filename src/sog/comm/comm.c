@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.213 1999-12-03 11:57:17 fjoe Exp $
+ * $Id: comm.c,v 1.214 1999-12-14 07:24:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1213,8 +1213,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			if (d->pString) {
 				char_puts("  > ", ch);
 				ga = TRUE;
-			}
-			else {
+			} else {
 				CHAR_DATA *victim;
 
 				/* battle prompt */
@@ -1906,8 +1905,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
  			char_puts("Password: ", ch);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
-		}
-		else {
+		} else {
 			/* New player */
  			if (newlock) {
 				char_puts("The game is newlocked.\n", ch);
@@ -2055,17 +2053,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		PC(ch)->race = str_qdup(r->name);
 		free_string(ch->race);
 		ch->race = str_qdup(r->name);
-		for (i = 0; i < MAX_STATS;i++)
-			ch->mod_stat[i] = 0;
-
-		/* Add race stat modifiers 
-		for (i = 0; i < MAX_STATS; i++)
-			ch->mod_stat[i] += r->race_pcdata->stats[i];	*/
 
 		/* Add race modifiers */
 		SET_HIT(ch, ch->perm_hit + r->race_pcdata->hp_bonus);
 		SET_MANA(ch, ch->perm_mana + r->race_pcdata->mana_bonus);
 		PC(ch)->practice = r->race_pcdata->prac_bonus;
+		for (i = 0; i < MAX_STATS; i++)
+			ch->perm_stat[i] += r->race_pcdata->mod_stat[i];
 		race_resetstats(ch);
 
 		char_puts("What is your sex (M/F)? ", ch);
@@ -2121,70 +2115,20 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->class = str_qdup(cl->name);
+		for (i = 0; i < MAX_STATS; i++)
+			ch->perm_stat[i] += cl->mod_stat[i];
 		act("You are now $t.", ch, cl->name, NULL, TO_CHAR);
 
-		dofun("help", ch, "STATS");
-		char_puts("Now rolling for your stats (10-20+).\n", ch);
-		char_puts("You don't get many trains, so choose well.\n", ch);
-
-		for (i = 0; i < MAX_STATS; i++)
-			ch->perm_stat[i] =
-					number_range(10, get_max_train(ch, i));
-
-		char_printf(ch, "Str:%s  Int:%s  Wis:%s  "
-				"Dex:%s  Con:%s  Cha:%s\n",
-			 get_stat_alias(ch, STAT_STR),
-			 get_stat_alias(ch, STAT_INT),
-			 get_stat_alias(ch, STAT_WIS),
-			 get_stat_alias(ch, STAT_DEX),
-			 get_stat_alias(ch, STAT_CON),
-			 get_stat_alias(ch, STAT_CHA));
-		char_puts("Accept (Y/N)? ", ch);
-
-		d->connected = CON_ACCEPT_STATS;
-		break;
-
-	case CON_ACCEPT_STATS:
-		switch(argument[0]) {
-		case 'H': case 'h': case '?':
-			dofun("help", ch, "STATS");
-			break;
-		case 'y': case 'Y':	
-			for (i = 0; i < MAX_STATS; i++)
-				ch->mod_stat[i] = 0;
-			if (!align_restrict(ch)) {
-				char_puts("You may be good, neutral, or evil.\n", ch);
-				char_puts("Which alignment (G/N/E)? ", ch);
-				d->connected = CON_GET_ALIGNMENT;
-			} else {
-				char_puts("[Hit Return to Continue]", ch);
-				print_hometown(ch);
-			}
-			break;
-	    
-		case 'n': case 'N':
-			for (i = 0; i < MAX_STATS; i++)
-				ch->perm_stat[i] = number_range(10, get_max_train(ch, i));
-
-		char_printf(ch, "Str:%s  Int:%s  Wis:%s  "
-				"Dex:%s  Con:%s  Cha:%s\n",
-			 get_stat_alias(ch, STAT_STR),
-			 get_stat_alias(ch, STAT_INT),
-			 get_stat_alias(ch, STAT_WIS),
-			 get_stat_alias(ch, STAT_DEX),
-			 get_stat_alias(ch, STAT_CON),
-			 get_stat_alias(ch, STAT_CHA));
-		char_puts("Accept (Y/N)? ", ch);
-
-			d->connected = CON_ACCEPT_STATS;
-			break;
-
-		default:
-			char_puts("Please answer (Y/N)? ", ch);
-			break;
+		if (!align_restrict(ch)) {
+			char_puts("You may be good, neutral, or evil.\n", ch);
+			char_puts("Which alignment (G/N/E)? ", ch);
+			d->connected = CON_GET_ALIGNMENT;
+		} else {
+			char_puts("[Hit Return to Continue]", ch);
+			print_hometown(ch);
 		}
 		break;
-	    
+
 	case CON_GET_ALIGNMENT:
 		switch(argument[0]) {
 		case 'g' : case 'G' : 
@@ -2374,7 +2318,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			ch->level = 1;
 			PC(ch)->exp = base_exp(ch);
-			PC(ch)->train = 3;
+			PC(ch)->train = 5;
 			PC(ch)->practice += 5;
 			PC(ch)->death = 0;
 

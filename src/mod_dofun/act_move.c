@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.215 1999-12-14 06:08:34 fjoe Exp $
+ * $Id: act_move.c,v 1.216 1999-12-14 07:24:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1426,8 +1426,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	else if (!str_cmp(argument, "cha")) {
 		stat	    = STAT_CHA;
 		pOutput     = "charisma";
-	}
-	else {
+	} else {
 		snprintf(buf, sizeof(buf),
 			 GETMSG("You can train: %s%s%s%s%s%s", GET_LANG(ch)),
 			 ch->perm_stat[STAT_STR] < get_max_train(ch, STAT_STR) ?

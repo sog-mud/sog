@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.23 1999-12-14 00:26:40 avn Exp $
+ * $Id: olc_race.c,v 1.24 1999-12-14 07:24:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -287,23 +287,23 @@ OLC_FUN(raceed_show)
 		buf_printf(output, "Bonus skills:  [%s]\n",
 			   r->race_pcdata->bonus_skills);
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
-		if (r->race_pcdata->stats[i]) found = TRUE;
+		if (r->race_pcdata->mod_stat[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Stats mod:     [");
 		for (i = 0; i < MAX_STATS; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
-				   r->race_pcdata->stats[i]);
+				   r->race_pcdata->mod_stat[i]);
 		buf_add(output, "]\n");
 	}
 	for (i = 0, found = FALSE; i < MAX_STATS; i++)
-		if (r->race_pcdata->max_stats[i]) found = TRUE;
+		if (r->race_pcdata->max_stat[i]) found = TRUE;
 	if (found) {
 		buf_add(output, "Max stats:     [");
 		for (i = 0; i < MAX_STATS; i++)
 			buf_printf(output, "%s: %2d ",
 				   flag_string(stat_names, i),
-				   r->race_pcdata->max_stats[i]);
+				   r->race_pcdata->max_stat[i]);
 		buf_add(output, "]\n");
 	}
 	buf_printf(output, "Size:          [%s]\n",
@@ -514,7 +514,7 @@ OLC_FUN(raceed_stats)
 		val = strtol(arg, &endptr, 0);
 		if (*arg == '\0' || *endptr != '\0')
 			break;
-		race->race_pcdata->stats[i] = val;
+		race->race_pcdata->mod_stat[i] = val;
 		st = TRUE;
 	}
 	
@@ -541,7 +541,7 @@ OLC_FUN(raceed_maxstats)
 		val = strtol(arg, &endptr, 0);
 		if (*arg == '\0' || *endptr != '\0')
 			break;
-		race->race_pcdata->max_stats[i] = val;
+		race->race_pcdata->max_stat[i] = val;
 		st = TRUE;
 	}
 	
@@ -832,8 +832,8 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	varr_foreach(&pcr->classes, save_race_class_cb, fp);
 	fwrite_word(fp, "SkillSpec", pcr->skill_spec);
 	fwrite_string(fp, "BonusSkills", pcr->bonus_skills);
-	fwrite_rstats(fp, "Stats", pcr->stats);
-	fwrite_rstats(fp, "MaxStats", pcr->max_stats);
+	fwrite_rstats(fp, "Stats", pcr->mod_stat);
+	fwrite_rstats(fp, "MaxStats", pcr->max_stat);
 	fprintf(fp, "Size %s\n", flag_string(size_table, pcr->size));
 	fwrite_number(fp, "HPBonus", pcr->hp_bonus);
 	fwrite_number(fp, "ManaBonus", pcr->mana_bonus);

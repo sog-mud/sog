@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.211 1999-12-13 14:02:15 avn Exp $
+ * $Id: act_wiz.c,v 1.212 1999-12-14 07:24:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2829,7 +2829,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		count++;
-		buf_printf(output, "[%3d %16s] %s (%s)",
+		buf_printf(output, "[%3d %12s] %s (%s)",
 			   d->descriptor,
 			   flag_string(desc_con_table, d->connected),
 			   buf,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.19 1999-12-11 15:31:23 fjoe Exp $
+ * $Id: db_race.c,v 1.20 1999-12-14 07:24:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -195,7 +195,7 @@ DBLOAD_FUN(load_pcrace)
 			KEY("ManaBonus", pcr->mana_bonus, fread_number(fp));
 			if (IS_TOKEN(fp, "MaxStats")) {
 				for (i = 0; i < MAX_STATS; i++)
-					pcr->max_stats[i] = fread_number(fp);
+					pcr->max_stat[i] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
@@ -228,7 +228,7 @@ DBLOAD_FUN(load_pcrace)
 			}
 			if (IS_TOKEN(fp, "Stats")) {
 				for (i = 0; i < MAX_STATS; i++)
-					pcr->stats[i] = fread_number(fp);
+					pcr->mod_stat[i] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}

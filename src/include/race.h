@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.21 1999-12-11 15:31:09 fjoe Exp $
+ * $Id: race.h,v 1.22 1999-12-14 07:24:49 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -58,8 +58,8 @@ struct pcrace_t
 	varr	classes;		/* available classes		*/
 	const char *	bonus_skills;	/* bonus skills for the race	*/
 	const char *	skill_spec;	/* skill spec for this race	*/
-	int	stats[MAX_STATS];	/* starting stats		*/
-	int	max_stats[MAX_STATS];	/* maximum stats		*/
+	int	mod_stat[MAX_STATS];	/* starting stat mod		*/
+	int	max_stat[MAX_STATS];	/* maximum stat			*/
 	flag_t	size;			/* aff bits for the race	*/
 	int 	hp_bonus;		/* initial hp bonus		*/
 	int 	mana_bonus;		/* initial mana bonus		*/

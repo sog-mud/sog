@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.23 1999-12-03 11:57:16 fjoe Exp $
+ * $Id: class.c,v 1.24 1999-12-14 07:24:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,9 +50,9 @@ class_init(class_t *cl)
 	cl->mana_rate = 100;
 	cl->class_flags = 0;
 	cl->points = 0;
-	cl->restrict_align = -1;
+	cl->restrict_align = 0;
 	cl->restrict_sex = str_empty;
-	cl->restrict_ethos = -1;
+	cl->restrict_ethos = 0;
 	cl->death_limit = -1;
 	cl->skill_spec = str_empty;
 
@@ -61,7 +61,7 @@ class_init(class_t *cl)
 	cl->poses.e_init = (varr_e_init_t) pose_init;
 	cl->poses.e_destroy = (varr_e_destroy_t) pose_destroy;
 	for (i = 0; i < MAX_STAT; i++)
-		cl->stats[i] = 0;
+		cl->mod_stat[i] = 0;
 }
 
 /*
@@ -91,7 +91,7 @@ class_cpy(class_t *dst, class_t *src)
 	varr_cpy(&dst->guilds, &src->guilds);
 
 	for (i = 0; i < MAX_STAT; i++)
-		dst->stats[i] = src->stats[i];
+		dst->mod_stat[i] = src->mod_stat[i];
 
 	return dst;
 }
@@ -160,37 +160,6 @@ const char *class_who_name(CHAR_DATA *ch)
 	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
 		return "Mob";
 	return cl->who_name;
-}
-
-/* command for retrieving stats */
-int get_curr_stat(CHAR_DATA *ch, int stat)
-{
-	int max;
-
-	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
-		max = 25;
-	else 
-		max = UMIN(get_max_train(ch, stat), 25);
-  
-	return URANGE(3, ch->perm_stat[stat] + ch->mod_stat[stat], max);
-}
-
-/* command for returning max training score */
-int get_max_train(CHAR_DATA *ch, int stat)
-{
-	class_t *cl;
-	race_t *r;
-
-	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
-		return 25;
-
-	if ((cl = class_lookup(ch->class)) == NULL
-	||  (r = race_lookup(PC(ch)->race)) == NULL
-	||  !r->race_pcdata)
-		return 0;
-
-/* ORG_RACE && RACE serdar*/
-	return UMIN(25, 20 + r->race_pcdata->stats[stat] + cl->stats[stat]);
 }
 
 bool can_flee(CHAR_DATA *ch)

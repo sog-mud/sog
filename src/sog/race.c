@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.16 1999-12-11 15:31:18 fjoe Exp $
+ * $Id: race.c,v 1.17 1999-12-14 07:24:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -130,7 +130,35 @@ void race_resetstats(CHAR_DATA *ch)
 	ch->form = r->form;
 	ch->parts = r->parts;
 
-	for (i=0; i < MAX_RESIST; i++)
+	for (i = 0; i < MAX_RESIST; i++)
 		ch->resists[i] = r->resists[i];
+}
+
+/* return current stats */
+int get_curr_stat(CHAR_DATA *ch, int stat)
+{
+	int max;
+
+	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
+		max = 25;
+	else 
+		max = get_max_train(ch, stat);
+  
+	return URANGE(3, ch->perm_stat[stat] + ch->mod_stat[stat], max);
+}
+
+/* return max stats */
+int get_max_train(CHAR_DATA *ch, int stat)
+{
+	race_t *r;
+
+	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
+		return 25;
+
+	if ((r = race_lookup(PC(ch)->race)) == NULL
+	||  !r->race_pcdata)
+		return 0;
+
+	return UMIN(25, r->race_pcdata->max_stat[stat]);
 }
 

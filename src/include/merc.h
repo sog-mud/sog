@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.269 1999-12-12 20:43:06 avn Exp $
+ * $Id: merc.h,v 1.270 1999-12-14 07:24:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -168,8 +168,6 @@ enum {
 	CON_GET_NEW_SEX,
 	CON_GET_NEW_CLASS,
 	CON_GET_ALIGNMENT,
-	CON_ROLL_STATS,
-	CON_ACCEPT_STATS,
 	CON_PICK_HOMETOWN,
 	CON_GET_ETHOS,
 	CON_CREATE_DONE,
