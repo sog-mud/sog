@@ -2,17 +2,17 @@
 Name class_warrior~
 Class class
 Check
-act_char("Yo!", $n);
+act_char("Yo!", actor);
 
-int spc_count = spclass_count($n, "weapon", $rm, $add);
-if (($n->real_level < 15 && spc_count > 1)
-||  ($n->real_level < 35 && spc_count > 2)) {
-	act_char("You aren't expierenced enough to specialize in other type of weapon.", $n);
+int spc_count = spclass_count(actor, "weapon", rm, add);
+if ((actor->real_level < 15 && spc_count > 1)
+||  (actor->real_level < 35 && spc_count > 2)) {
+	act_char("You aren't expierenced enough to specialize in other type of weapon.", actor);
 	return 1;
 }
 
 if (spc_count > 3) {
-	act_char("You cannot gain new weapon specializations anymore.", $n);
+	act_char("You cannot gain new weapon specializations anymore.", actor);
 	return 1;
 }
 

@@ -2,8 +2,8 @@
 Name weapon_whip~
 Class weapon
 Check
-if (!has_sp($n, "class_warrior", $rm, $add)) {
-	act_char("You aren't professional warrior.", $n);
+if (!has_sp(actor, "class_warrior", rm, add)) {
+	act_char("You aren't professional warrior.", actor);
 	return 1;
 }
 

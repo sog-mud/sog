@@ -2,13 +2,13 @@
 Name major_alteration~
 Class major_school
 Check
-if (has_sp($n, "minor_alteration", $rm, $add)) {
-	act_char("You already have alteration as your minor magic school", $n);
+if (has_sp(actor, "minor_alteration", rm, add)) {
+	act_char("You already have alteration as your minor magic school", actor);
 	return 1;
 }
 
-if (!has_sp($n, "class_wizard", $rm, $add)) {
-	act_char("You are not even wizard, how can you have major school?", $n);
+if (!has_sp(actor, "class_wizard", rm, add)) {
+	act_char("You are not even wizard, how can you have major school?", actor);
 	return 1;
 }
 

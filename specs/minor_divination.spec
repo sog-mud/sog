@@ -2,8 +2,8 @@
 Name minor_divination~
 Class minor_school
 Check
-if (!has_sp($n, "class_wizard", $rm, $add)) {
-	act_char("You are not even wizard, how can you have magic school?", $n);
+if (!has_sp(actor, "class_wizard", rm, add)) {
+	act_char("You are not even wizard, how can you have magic school?", actor);
 	return 1;
 }
 

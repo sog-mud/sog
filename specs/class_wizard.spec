@@ -2,13 +2,13 @@
 Name class_wizard~
 Class class
 Check
-if (spclass_count($n, "major_school", $rm, $add) > 1) {
-	act_char("You have already chosen your major school", $n);
+if (spclass_count(actor, "major_school", rm, add) > 1) {
+	act_char("You have already chosen your major school", actor);
 	return 1;
 }
 
-if ( spclass_count($n, "minor_school", $rm, $add) > 2) {
-	act_char("You have already chosen both your minor schools.", $n);
+if ( spclass_count(actor, "minor_school", rm, add) > 2) {
+	act_char("You have already chosen both your minor schools.", actor);
 	return 1;
 }
 
