@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.1 1999-09-23 18:25:31 kostik Exp $
+# $Id: Makefile.inc,v 1.2 1999-09-30 10:54:48 fjoe Exp $
 #
 
 #
@@ -27,8 +27,7 @@ MAKE		= make
 # common rules
 #
 
-OFILES != for i in `echo $(CFILES) | sed 's/\.c/.o/g'`; do basename $${i}; done
-#OFILES = $(CFILES:.c=.o)
+OFILES?=$(CFILES:T:.c=.o)
 
 MODULE_EXT=.so
 MODULE_NAME?=$(MODULE)$(MODULE_EXT).$(ABI_VERSION)
