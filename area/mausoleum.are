@@ -9,64 +9,78 @@ End
 
 #MOBILES
 #4600
-zombie disgusting rotting~
-a disgusting, rotting Zombie~
-A horribly disgusting zombie is here, looking to devour the living.
+zombie disgusting rotting зомби гниющий~
+@eng a disgusting, rotting Zombie@rus ~~отвратительный~~, ~~гниющий~~ зомби~
+@eng A horribly disgusting zombie is here, looking to devour the living.
+@rus Отвратительный зомби (zombie) ищет, кого бы сожрать.
 ~
-You can't tell if this was once a man or a woman, or even what race it
+@eng You can't tell if this was once a man or a woman, or even what race it
 once was.... Just that it is horribly decayed, and appears to be
 missing a few chunks of flesh, like something else had been eating off
 of it.
  The zombie seems oblivious to you, until you draw close enough for it
 to make its kill.
+@rus Сейчас уже невозможно определить, кем этот зомби был при жизни -
+мужчиной или женщиной. Гниющая его плоть местами отсутствует, словно
+кто-то откусывал ее кусками прямо с него. Зомби не обращает на тебя
+внимания до тех пор, пока ты не подойдешь достаточно близко, чтобы
+он смог убить тебя.
 ~
 unique~
 FGJO 0 0 0 ABH -1000 0
-31 7 20d5+1100 1d1+300 5d5+10 'bite'
+25 7 20d5+700 1d1+300 5d4+7 'bite'
 0 0 0 0
 CDEFK
-stand stand none 50
+stand stand neutral 50
 ABDIc ABCDEF medium unknown
+g @eng neutral@rus male~
 r fire -50
 r holy -50
 r negative 33
 r charm 33
 r light -50
 #4601
-zombie~
-the Juju zombie~
-A pale, withered man stands here, staring at you with an immense hatred.
+zombie зомби~
+@eng the Juju zombie@rus зомби~
+@eng A pale, withered man stands here, staring at you with an immense hatred.
+@rus Бледный, иссохший человек (zombie) смотрит на тебя с невыразимой ненавистью.
 ~
-This greyish skinned creature was once probably a powerful adventurer, such
+@eng This greyish skinned creature was once probably a powerful adventurer, such
 as yourself, before it was slain and reanimated for some dark and powerful
 creature. Upon closer examination, you notice that the thing before you
 actually has no eyes, but instead a faint red glow eminates from it's eye
 sockets.
+@rus Возможно, когда-то он был молодым, сильным и ..живым, как ты.. пока
+его не убили и не воскресили, обратив в пожизненное (или посмертное?)
+рабство. Ты замечаешь, что у него нет глаз - вместо них в его глаз-
+ницах тлеют зловещие красные огни.
 ~
 unique~
 BFGHO 0 0 0 ABH -1000 0
-36 10 20d10+1700 1d1+400 9d3+15 'claw'
+30 10 20d10+1100 1d1+400 5d5+10 'claw'
 -5 -5 -5 -5
 DEFKN
 stand stand none 1500
 ABIc ABCDEF medium unknown
+g @eng none@rus male~
 r fire -50
 r negative 33
 r charm 33
 r light -50
 #4602
-young vampire~
-a young vampire~
+young vampire юный вампир~
+@eng a young vampire@rus Молодой вампир (vampire) выискивает очередную жертву.~
 A young vampire stands here, looking for something to kill.
 ~
-This young lady looks quite famished and pale.
+@eng This young lady looks quite famished and pale.
+@rus Эта ...девушка выглядит очень бледной и изголодавшейся.
 ~
 unique~
 FJO 0 U 0 ABH -1000 0
-37 15 100d5+2000 0d0+100 7d4+20 'magic'
+31 12 10d3+1500 0d0+100 7d4+15 'magic'
 -5 -5 -5 -5
 DEFIKNV
-stand stand none 10000
+stand stand female 10000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
 r pierce -50
 r fire -50
@@ -77,44 +91,54 @@ r energy -50
 r charm 33
 r light -50
 #4603
-Kharzandra wizardress vampire~
-Kharzandra, the Dark-elf Vampire~
-A dark-skinned wizardress stands here, raising the dead.
+Kharzandra wizardress vampire кхарзандра волшебница~
+@eng Kharzandra, the Dark-elf Vampire@rus ~~Кхарзандра~~~
+@eng A dark-skinned wizardress stands here, raising the dead.
+@rus Темнокожая волшебница (wizardress) поднимает здесь все новых и новых зомби.
 ~
-Fear grips you upon looking at this frail, young looking creature, when you
+@eng Fear grips you upon looking at this frail, young looking creature, when you
 realize what it truly is... a Dark-elf enchantress which has become a
 creature of the undead.
 She looks a bit hungry after having a full day of reanimating corpses,
 perhaps you will be her dinner?
+@rus Страх охватывает тебя, как только ты догадываешься, кем эта хрупкая
+юная леди является на самом деле... Эльфийская колдунья, обретшая
+бессмертие после смерти. Она работает уже целый день и очень прого-
+лодалась.. как бы тебе не стать ее обедом.
 ~
-elf~
-BFJO 0 JU 0 AB -1000 0
-56 30 100d5+6500 100d4+600 7d5+40 'magic'
+dark-elf~
+0 0 JU 0 AB -1000 0
+45 20 100d3+4000 100d4+600 7d5+30 'magic'
 -10 -10 -10 -10
 EFIK
-stand stand none 17000
-BCDIc 0 medium unknown
+stand stand female 17000
+0 0 medium unknown
 r pierce -50
 r fire -50
 r cold 100
 r holy -50
-r negative 33
+r negative 100
+r charm 50
 r light -50
 #4604
-vampire shadar lunn~
-the Vampire, Shadar Lunn~
-A large, stout man stands here clad in darkened armor.
+vampire shadar lunn вампир шадар лунн man мужчина~
+@eng the Vampire, Shadar Lunn@rus ~~вампир~~ Шадар ~~Лунн~~~
+@eng A large, stout man stands here clad in darkened armor.
+@rus Высокий и крепкий мужчина (man) стоит здесь, одетый в темные доспехи.
 ~
-This large man is clad in high darkened armor, and was probably once
+@eng This large man is clad in high darkened armor, and was probably once
 a lieutenant in the Arkham guard... or else, he just knows good armor
 when he sees it.
+@rus Он закован в темные доспехи, похожие на те, что носят офицеры Аркхамской
+стражи.. возможно, он и сам был одним из них... В любом случае, он знает
+толк в броне.
 ~
 unique~
 BFJO 0 JU 0 ABH -1000 0
-59 50 200d5+8300 100d3+2000 10d5+30 'slash'
--40 -40 -40 -30
+48 30 100d4+4500 100d3+2000 10d5+30 'slash'
+-25 -25 -25 -20
 AEFIKV
-stand stand none 20000
+stand stand male 20000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
 r pierce -50
 r fire -50
@@ -124,16 +148,21 @@ r negative 33
 r charm 100
 r light -50
 #4605
-ghoul creature~
-a hungry ghoul~
-A horrible creature is here, feeding off of a decaying corpse.
+ghoul creature гуль существо~
+@eng a hungry ghoul@rus ~~голодный~~ ~~гуль~~~
+@eng A horrible creature is here, feeding off of a decaying corpse.
+@rus Ужасное существо (creature) не торопясь объедает разлагающийся труп.
 ~
-This disgusting, withered humanoid creature greedily devours a decayed
+@eng This disgusting, withered humanoid creature greedily devours a decayed
 corpse in earnest, but drops it upon noticing the fresh meat that just
 walked into the room.
+@rus Это отвратительное, лишь отдаленно напоминающее человека существо
+выглядит очень занятым поеданием своей, на твой взгляд уж очень
+несвежей пищи, но стоит тебе подойти поближе, как оно переключает
+все внимание на более свежее мясо, то есть тебя.
 ~
 unique~
-FGJO 0 T 0 ABH -1000 0
+FGJO 0 0 0 ABH -1000 0
 33 10 100d3+1200 0d0+300 5d6+10 'chill'
 -2 -2 -2 -2
 CEFKN
@@ -145,30 +174,35 @@ r negative 33
 r charm 33
 r light -50
 #4606
-mastiff hound~
-the hell hound~
-A large mastiff stands here guarding something.
+mastiff hound адский пес hell~
+@eng the hell hound@rus ~~адский~~ ~~пес~~~
+@eng A large mastiff stands here guarding something.
+@rus Огромный пес (hound) что-то охраняет здесь.
 ~
 ~
 dog~
-BFJT 0 J ABG ABH -1000 0
-45 30 10d50+2000 1d1+200 8d3+23 'acbite'
+BFJ 0 JV ABG ABH -1000 0
+40 30 10d50+2000 1d1+200 8d3+23 'acbite'
 -1 -1 -1 -1
 ADEF
 stand stand none 1
-C B medium unknown
+C B large unknown
+g @eng none@rus male~
 r fire 33
 r cold -50
 r holy -50
 r negative 33
 r charm 33
 #4608
-bat vampire~
-the vampire bat~
-A pitch-black bat flaps its wings beneath the ceiling.
+bat vampire мышь летучая~
+@eng the vampire bat@rus ~~летучая~~ ~~мышь~~~
+@eng A pitch-black bat flaps its wings beneath the ceiling.
+@rus Черная летучая мышь (bat) хлопает крыльями где-то под потолком.
 ~
-A horrible little face looks at you and bares its teeth. Ugh!
+@eng A horrible little face looks at you and bares its teeth. Ugh!
 You don't like it.
+@rus Сморщенная мордочка поворачивается в твою сторону и оскаливает зубы,
+показывая два длинных и острых резца.
 ~
 unique~
 BFGH 0 Tc G BH -700 0
@@ -177,69 +211,94 @@ BFGH 0 Tc G BH -700 0
 FHQ
 stand stand none 200
 BIV ADFPV medium unknown
+g @eng none@rus female~
 r poison 100
 r light -50
 #4609
-demon familiar~
-the demon familiar~
-A small demon is here, hovering in mid-air.
+demon familiar демон~
+@eng the demon familiar@rus ~~демон~~~
+@eng A small demon is here, hovering in mid-air.
+@rus Маленький демон (demon) парит в полуметре от землию
 ~
-This little guy looks very familar... you know it would be a bad thing to
+@eng This little guy looks very familar... you know it would be a bad thing to
 mess with it.
+@rus Где-то ты этого парня уже видел.. вот только вспомнить бы где.
 ~
 unique~
 BFGJT 0 U 0 ABH -1000 0
-42 15 20d10+3100 1d1+400 7d6+25 'drain'
+36 15 20d10+2200 1d1+400 6d6+25 'drain'
 -15 -15 -15 -15
 DEFIJK
 stand stand none 5000
 ACDG 0 medium unknown
+g @eng none@rus male~
 r fire 100
 r cold -50
 r holy -50
 r charm 100
 #4610
-dracolich~
-the great Dracolich~
-A huge skeletal form raises from shadows.
+dracolich драколич огромный~
+@eng the great Dracolich@rus ~~огромный~~ ~~драколич~~~
+@eng A huge skeletal form raises from shadows.
+@rus Огромный скелет (dracolich) поднимается из теней.
 ~
-Horrible skeletal form look at you and green evilly.
+@eng Horrible skeletal form look at you and green evilly.
+@rus При виде тебя на его морде появляется жуткое подобие ухмылки.
 ~
 unique~
 BFGJT 0 J 0 ABH -1000 0
-60 20 10d100+3500 1d1+400 7d8+40 'claw'
+51 20 10d100+3500 1d1+400 7d8+40 'claw'
 -30 -30 -30 -30
-EFKN
+EFMO
 stand stand none 50000
-BCDI 0 medium unknown
+BCDI 0 huge unknown
+g @eng none@rus male~
+r bash 20
+r pierce 40
+r slash 40
+r fire -50
+r cold 50
+r holy -50
+r negative 100
+r disease 100
+r poison 100
 r charm 100
+r light -50
 #4611
-priest vampire~
-the dark priest vampire~
-A dark-robed man stands here, praying to his unholy god.
+priest vampire вампир священник~
+@eng the dark priest vampire@rus ~~священник~~-~~вампир~~~
+@eng A dark-robed man stands here, praying to his unholy god.
+@rus Одетый в черное человек (priest) стоит здесь, молясь своему нечистому божеству.
 ~
-This dark-priest wears the sign of Loki about his neck, and is seeming
+@eng This dark-priest wears the sign of Loki about his neck, and is seeming
 disturbed by your intrusion during his meditation.
+@rus Он носит знак Локи на шее и, похоже, очень недоволен твоим
+вторжением, заставившим его прервать медитацию.
 ~
 unique~
 GJLQ 0 U 0 ABH -1000 0
-46 20 100d3+3500 1d1+500 6d8+25 'divine'
+41 20 100d3+2700 1d1+500 6d8+25 'divine'
 -20 -20 -20 -20
 AFIK
 stand stand none 5000
 CGI 0 medium unknown
+g @eng none@rus male~
 r charm 100
 #4612
-dark spectre~
-the dark spectre~
-A dark spectre is here, feeding off your lifeforce.
+dark spectre темный призрак~
+@eng the dark spectre@rus ~~темный~~ ~~призрак~~~
+@eng A dark spectre is here, feeding off your lifeforce.
+@rus Практически невидимый в темноте призрак (spectre) вытягивает из тебя жизненные силы.
 ~
-You can see right through this creature, except for the dark patch surrounding
+@eng You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
+@rus Он почти прозрачен, за исключением черного облака вокруг горящих
+красным глаз.. и их выражение подсказывает, что тебе следует уб-
+раться как можно дальше и как можно скорей.
 ~
 unique~
 BFJT 0 JTU AB ABH -1000 0
-55 10 100d3+2500 1d1+500 5d8+25 'bite'
+46 10 100d3+2500 1d1+500 5d8+25 'drain'
 -15 -15 -15 -10
 FK
 stand stand none 0
@@ -265,29 +324,29 @@ r light 100
 
 #OBJECTS
 #4600
-key black~
-a small black skeleton key~
-An ordinary skeleton key lies here.~
-wood~
+key black ключ черный~
+@eng a small black skeleton key@rus ~~небольшой~~ ~~черный~~ ~~ключ~~~
+@eng An ordinary skeleton key lies here.@rus Непримечательный костяной ключ (key) лежит тут.~
+bone~
 key EH 0 A
 0 0 0 0 0
 15 0 100 P
-g none~
+g @eng none@rus male~
 #4601
-frostbrand sword~
-a Frostbrand sword~
-An ice-cold broad sword lies here.~
+frostbrand sword меч холода~
+@eng a Frostbrand sword@rus ~~меч~~ холода~
+@eng An ice-cold broad sword lies here.@rus Меч (sword) с широким и холодным, словно лед клинком лежит здесь.~
 iron~
 weapon GHI C AN
 sword 6 6 'frbite' B
-35 90 12000 P
-a '' to_object 35 -1 1 19 0
-a '' to_object 35 -1 1 18 0
-g none~
+30 90 12000 P
+a '' to_object 30 -1 1 19 0
+a '' to_object 30 -1 1 18 0
+g @eng none@rus male~
 #4602
-symbol unholy~
-an unholy symbol of Lloth~
-A forboding symbol of evil lies here.~
+symbol unholy нечистый символ~
+@eng an unholy symbol of Lloth@rus ~~нечистый~~ ~~символ~~ Ллос~
+@eng A forboding symbol of evil lies here.@rus Зловещий символ (symbol) нечистой веры лежит здесь.~
 iron~
 armor CEGIJL C AC
 12 12 12 12 0
@@ -297,84 +356,88 @@ a '' to_object 45 -1 1 19 0
 a '' to_object 45 -1 2 18 0
 a '' to_object 45 -1 50 12 0
 a '' to_object 45 -1 30 14 0
-g none~
+g @eng none@rus male~
 #4603
-corpse~
-a smelly humanoid corpse~
-A decaying corpse lies here, feeding the worms and rats.~
+corpse труп~
+@eng a smelly humanoid corpse@rus ~~смердящий~~ ~~труп~~~
+@eng A decaying corpse lies here, feeding the worms and rats.@rus Гниющий труп (corpse) лежит здесь, служа пищей червям и крысамю~
 flesh~
 container 0 0 0
 0 0 0 0 0
 1 100 0 A
-g none~
+g @eng none@rus male~
 #4604
-darkened boots~
-a pair of darkened boots~
-A pair of darkened boots lies here.~
+darkened boots темные ботинки~
+@eng a pair of darkened boots@rus ~~темные~~ ~~ботинки~~~
+@eng A pair of darkened boots lies here.@rus Пара темных ботинок (boots) лежит здесь.~
 iron~
 armor ABCEGJ C AG
 14 14 14 14 0
-49 7 51000 A
-a '' to_object 49 -1 -1 2 0
-a '' to_object 49 -1 -1 5 0
-a '' to_object 49 -1 2 19 0
-a '' to_object 49 -1 3 18 0
-a '' to_object 49 -1 -4 17 0
-a '' to_object 49 -1 40 13 0
-g none~
+45 7 51000 A
+a '' to_object 45 -1 -1 2 0
+a '' to_object 45 -1 -1 5 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 -4 17 0
+a '' to_object 45 -1 40 13 0
+g @eng none@rus plural~
 #4605
-darkened helm helmet~
-a darkened helmet~
-A darkened helmet lies here.~
+darkened helm helmet темный шлем~
+@eng a darkened helmet@rus ~~темный~~ ~~шлем~~~
+@eng A darkened helmet lies here.@rus Шлем из темного металла (helm) лежит здесь.~
 iron~
 armor ABCEIJ C AE
 14 14 14 14 0
-49 4 48000 A
-a '' to_object 49 -1 -1 3 0
-a '' to_object 49 -1 -1 5 0
-a '' to_object 49 -1 2 19 0
-a '' to_object 49 -1 3 18 0
-a '' to_object 49 -1 -4 17 0
-a '' to_object 49 -1 40 13 0
-g none~
+45 4 48000 A
+a '' to_object 45 -1 -1 3 0
+a '' to_object 45 -1 -1 5 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 -4 17 0
+a '' to_object 45 -1 40 13 0
+g @eng none@rus male~
 #4606
-darkened leggings~
-a pair of darkened leggings~
-A pair of darkened leggings is lying here.~
+darkened leggings темные поножи~
+@eng a pair of darkened leggings@rus ~~темные~~ ~~поножи~~~
+@eng A pair of darkened leggings is lying here.@rus Поножи (leggings), сделанные из темного металла, лежат здесь.~
 iron~
 armor ABCEIJ C AF
 15 12 16 12 0
-49 5 55000 A
-a '' to_object 49 -1 -1 5 0
-a '' to_object 49 -1 3 19 0
-a '' to_object 49 -1 2 18 0
-a '' to_object 49 -1 -3 17 0
-a '' to_object 49 -1 35 13 0
+45 5 55000 A
+a '' to_object 45 -1 -1 5 0
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 -3 17 0
+a '' to_object 45 -1 35 13 0
 E
-darkened leggings~
-Upon closer examination of these leggings, you realize they are of
+darkened leggings темные поножи~
+@eng Upon closer examination of these leggings, you realize they are of
 extraordinary craftsmanship, and are very light for their huge size.
 Only a great warrior may wear them with little fear of death.
+@rus Присмотревшись к этим поножам, ты замечаешь признаки работы мастера.
+Они сделаны из широких металлических пластин и при этом необычайно
+легки, что удивительно при их размере. Лишь лучшие воины достойны
+носить такие доспехи.
 ~
-g none~
+g @eng none@rus plural~
 #4607
-signet ring~
-the Arkham signet ring~
-A small, iron ring lies here.~
+signet ring кольцо~
+@eng the Arkham signet ring@rus ~~перстень~~ с печаткой Аркхама~
+@eng A small, iron ring lies here.@rus Железный перстень (signet) лежит здесь.~
 iron~
 armor ABCEGIJ C AB
 0 0 0 0 0
-49 1 42000 A
-a '' to_object 49 -1 -1 1 0
-a '' to_object 49 -1 2 19 0
-a '' to_object 49 -1 3 18 0
-a '' to_object 49 -1 -11 17 0
-a '' to_object 49 -1 21 13 0
-g none~
+45 1 42000 A
+a '' to_object 45 -1 -1 1 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 -11 17 0
+a '' to_object 45 -1 21 13 0
+g neutral~
 #4608
-darkened shield~
-a darkened shield~
-A darkened shield is propped up against the wall here.~
+darkened shield темный щит~
+@eng a darkened shield@rus ~~темный~~ ~~щит~~~
+@eng A darkened shield is propped up against the wall here.@rus Щит (shield) из темного металла прислонен к стене.~
 iron~
 armor ABHJM 0 AJ
 12 6 0 0 0
@@ -386,39 +449,39 @@ a '' to_object 25 -1 -2 5 0
 a '' to_object 25 -1 -3 1 0
 g none~
 #4609
-guardian sword~
-a guardian sword~
-A guardian sword lies here.~
+guardian sword меч стража~
+@eng a guardian sword@rus ~~меч~~ стража~
+@eng A guardian sword lies here.@rus Меч (sword) стража лежит здесь.~
 iron~
 weapon ABCEGIJM C AN
 sword 6 8 'slash' 0
-55 40 55000 A
-a '' to_object 55 -1 7 19 0
-a '' to_object 55 -1 2 18 0
-a '' to_object 55 -1 -10 17 0
-g none~
+45 250 55000 A
+a '' to_object 45 -1 7 19 0
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 -10 17 0
+g @eng none@rus male~
 #4610
-potion healing~
-a potion of healing~
-A crystal-clear potion lies here... it looks refreshing.~
+potion healing снадобье исцеления~
+@eng a potion of healing@rus ~~снадобье~~ исцеления~
+@eng A crystal-clear potion lies here... it looks refreshing.@rus Пузырек с кристально-чистой жидкостью (potion) лежит здесь..~
 glass~
 potion A 0 A
 30 'acid blast' 'blindness' 'plague' ''
 5 0 15000 P
-g none~
+g @eng none@rus neutral~
 #4611
-staff wrath~
-a staff of wrath~
-A long, golden staff is here~
+staff wrath посох гнева~
+@eng a staff of wrath@rus ~~посох~~ гнева~
+@eng A long, golden staff is here@rus Длинный позолоченный посох (staff) лежит здесь.~
 wood~
 staff A 0 AO
 20 5 5 'colour spray' 0
 5 0 2000 P
-g none~
+g @eng none@rus male~
 #4612
-cloak death~
-the Cloak of Death~
-A pile of blackened cloth is here.~
+cloak death саван смерти cloth тряпье~
+@eng the Cloak of Death@rus ~~саван~~ Смерти~
+@eng A pile of blackened cloth is here.@rus Куча черного тряпья (cloth) лежит на полу.~
 cloth~
 armor CEGMQ C AK
 13 13 13 13 0
@@ -428,59 +491,61 @@ a '' to_object 45 -1 -250 13 0
 a '' to_object 45 -1 250 12 0
 a '' to_object 45 -1 3 3 0
 a '' to_object 45 -1 -3 2 0
-g none~
+g @eng none@rus male~
 #4613
-scroll yellow parchment~
-an ancient yellow parchment~
-A yellow from age, almost decayed parchment lies here.~
+scroll yellow parchment свиток желтый пергамент~
+@eng an ancient yellow parchment@rus ~~пергаментный~~ ~~свиток~~~
+@eng A yellow from age, almost decayed parchment lies here.@rus Пожелтевший от времени, почти истлевший пергаментный свиток (scroll) лежит здесь.~
 paper~
 scroll EHMP C AO
-50 'acid blast' '' '' ''
-50 0 100000 P
-g none~
+45 'acid blast' '' '' ''
+45 0 100000 P
+g @eng none@rus male~
 #4614
-copper ring fortitide~
-a ring of fortitude~
-A small copper ring lays here, shining with a dull gleam.~
+copper ring fortitide кольцо силы духа~
+@eng a ring of fortitude@rus ~~кольцо~~ силы духа~
+@eng A small copper ring lays here, shining with a dull gleam.@rus Маленькое медное кольцо (ring) тускло поблескивает здесь.~
 copper~
 armor ABCEFGHIM C AB
 0 0 0 0 0
-60 0 120000 P
+45 0 120000 P
 a '' to_object 60 -1 -20 17 0
 a '' to_object 60 -1 40 13 0
 a '' to_object 60 -1 -1 6 0
 a '' to_object 60 -1 4 5 0
 a '' to_object 60 -1 1 1 0
 E
-copper ring~
-An inscription is engraved inside the ring, stating 'accursed be the
+copper ring кольцо силы духа~
+@eng An inscription is engraved inside the ring, stating 'accursed be the
 one not worthy of the true powers you behold'...
+@rus На внутренней поверхности кольца написаны слова:
+Лишь проклятый будет недостоин узнать мою истинную силу
 ~
-g none~
+g @eng none@rus neutral~
 #4615
-corpse~
-a corpse of an elfin wizard~
-A freshly killed corpse lies here, waiting to be buried.~
+corpse труп~
+@eng a corpse of an elfin wizard@rus ~~труп~~ эльфийского волшебника~
+@eng A freshly killed corpse lies here, waiting to be buried.@rus Еще теплый труп (corpse) лежит здесь, ожидая погребения.~
 flesh~
 container 0 0 0
 0 0 0 0 0
 30 100 0 P
-g none~
+g @eng none@rus male~
 #4616
-flail pestilance~
-the flail of Pestilance~
-A worm-infested ball and chain lie here.~
+flail pestilance плеть чумы~
+@eng the flail of Pestilance@rus ~~плеть~~ Чумы~
+@eng A worm-infested ball and chain lie here.@rus Облепленная червями плеть (flail) лежит здесь.~
 gold~
 weapon ABCJ C AN
 flail 5 7 'none' 0
-40 160 16000 P
+30 160 16000 P
 a '' to_object 40 -1 3 19 0
 a '' to_object 40 -1 10 13 0
-g none~
+g @eng none@rus female~
 #4617
-poncho~
-a rat-eaten poncho~
-A pile of filthy rags lies here.~
+poncho пончо rags лохмотья~
+@eng a rat-eaten poncho@rus ~~изъеденное~~ крысами пончо~
+@eng A pile of filthy rags lies here.@rus Куча грязных лохмотьев (rags) лежит тут.~
 iron~
 armor HM 0 AK
 0 0 0 0 0
@@ -490,34 +555,34 @@ a '' to_object 1 -1 20 17 0
 a '' to_object 1 -1 -20 13 0
 a '' to_object 1 -1 -5 5 0
 a '' to_object 1 -1 -3 1 0
-g none~
+g @eng none@rus neutral~
 #4618
-corpse~
-a half-eaten corpse~
-A horribly mutilated, yet still fairly fresh corpse lies here.~
+corpse труп~
+@eng a half-eaten corpse@rus ~~полусъеденный~~ ~~труп~~~
+@eng A horribly mutilated, yet still fairly fresh corpse lies here.@rus Относительно свежий, но изуродованный до неузнаваемости труп (corpse) лежит здесь.~
 flesh~
 container 0 0 0
 0 0 0 0 0
 30 100 0 P
-g none~
+g @eng none@rus male~
 #4619
-emerald potion~
-an emerald potion~
-An emerald colored potion is here.~
+emerald potion снадобье изумрудное~
+@eng an emerald potion@rus ~~пузырек~~ с изумрудной жидкостью~
+@eng An emerald colored potion is here.@rus Пузырек (potion) с изумрудного цвета жидкостью лежит здесь.~
 glass~
 potion AHM 0 AO
 30 'armor' 'curse' 'dispel evil' ''
 5 0 0 P
-g none~
+g @eng none@rus neutral~
 #4620
-corpse~
-a peaceful corpse~
-This corpse appears to have been left alone by the ravaging undead here.~
+corpse труп~
+@eng a peaceful corpse@rus ~~нетронутый~~ ~~труп~~~
+@eng This corpse appears to have been left alone by the ravaging undead here.@rus Не тронутый ни крысами, ни гулями труп (corpse) лежит здесь.~
 flesh~
 container 0 0 0
 0 0 0 0 0
 30 100 0 P
-g none~
+g @eng none@rus male~
 #4621
 ulrician belt~
 an ulrician belt~
@@ -1926,9 +1991,11 @@ P 0 4641 0 4625 1	* a coffin: a potion of life
 S
 
 #OLIMITS
-O 4604 6	* a pair of darkened boots
-O 4606 6	* a pair of darkened leggings
-O 4609 3	* a guardian sword
+O 4604 5	* a pair of darkened boots
+O 4605 5	* a darkened helmet
+O 4606 5	* a pair of darkened leggings
+O 4607 10	* the Arkham signet ring
+O 4609 5	* a guardian sword
 O 4622 4	* the Shadow Dagger
 S
 

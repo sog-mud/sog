@@ -1087,37 +1087,11 @@ a throwing boulder~
 A large boulder lies here.~
 stone~
 weapon JL 0 AN
-sword 8 8 'crush' FK
+exotic 8 8 'crush' FK
 46 600 0 P
 a '' to_object 46 -1 30 19 0
 a '' to_object 46 -1 30 18 0
 g none~
-#47007
-breastplate white blazing~
-@eng {Wblazing white breastplate{x@rus {Wослепительно-белый доспех{x~
-@eng A breastplate made of pure light shines here.@rus Доспех, сделанный из самого света, ярко сияет тут.~
-light~
-armor AKL 0 AD
-1000 1000 1000 1000 0
-46 0 0 P
-a '' to_object 46 -1 33 27 0
-a '' to_object 46 -1 33 28 0
-a '' to_object 46 -1 33 29 0
-a '' to_affects 46 -1 0 0 H
-a '' to_object 46 -1 22 1 0
-g male~
-#47008
-shield faith~
-@eng {Wthe Shield of Faith{x@rus {WЩит Веры{x~
-@eng A shield lies here, glowing with the divine power.@rus Ослепительно белый щит лежит здесь, отражая солнце.~
-light~
-armor AKL 0 AJ
-10 10 10 10 0
-46 0 0 P
-a '' to_affects 46 -1 0 0 N
-a '' to_object 46 -1 -100 20 0
-a '' to_object 46 -1 1000 13 0
-g male~
 #47009
 shirt wampum~
 a shirt of wampum~
@@ -1131,22 +1105,6 @@ a '' to_object 46 -1 100 35 0
 a '' to_object 46 -1 100 39 0
 a '' to_object 46 -1 22 5 0
 g male~
-#47010
-blessing~
-@eng {Wa blessing{x@rus {Wблагословление свыше{x~
-A feeling of righteousness enters you.~
-silver~
-jewelry AKLY 0 AQ
-0 0 0 0 0
-46 0 0 P
-a '' to_object 46 -1 300 18 0
-a '' to_affects 46 -1 0 0 V
-a '' to_object 46 -1 1000 14 0
-a '' to_object 46 -1 2500 12 0
-a '' to_object 46 -1 22 2 0
-a '' to_object 46 -1 22 4 0
-a '' to_object 46 -1 22 3 0
-g none~
 #47011
 crest eagle feathers~
 a crest of eagle-feathers~
@@ -2131,6 +2089,9 @@ a '' to_object 35 -1 -10 20 0
 a '' to_object 35 -1 80 12 0
 a '' to_object 35 -1 4 4 0
 g @eng neutral@rus plural~
+R
+deny class !class("cleric")~
+end
 #47170
 chest iron bound сундук окованный~
 @eng an iron bound chest@rus ~~окованный~~ железом ~~сундук~~~
@@ -2198,6 +2159,9 @@ fact that hiding in the shadows when wearing it is much easier.
 прятаться намного легче, если на тебе одет такой костюм.
 ~
 g neutral~
+R
+deny minsize !minsize("medium")~
+end
 #47175
 shuriken razor sharp острый сюрикен star звездочка~
 @eng a razor-sharp shuriken@rus ~~острый~~ ~~сюрикен~~~
@@ -2264,6 +2228,9 @@ unknown to you.
 вестно.
 ~
 g @eng neutral@rus male~
+R
+deny class !class("warrior")~
+end
 #47178
 wakizashi вакизаши sword меч ivory hilted~
 @eng a sharp ivory-hilted wakizashi@rus ~~острый~~ вакизаши с рукоятью из слоновой кости~
