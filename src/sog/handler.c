@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.99 1998-12-22 19:03:01 fjoe Exp $
+ * $Id: handler.c,v 1.100 1998-12-23 16:11:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,9 +49,13 @@
 #include "hometown.h"
 #include "obj_prog.h"
 #include "raffects.h"
-#include "interp.h"
 #include "fight.h"
 #include "quest.h"
+
+DECLARE_DO_FUN(do_raffects	);
+DECLARE_DO_FUN(do_return	);
+DECLARE_DO_FUN(do_say		);
+DECLARE_DO_FUN(do_track		);
 
 /*
  * Local functions.

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.89 1998-12-17 21:05:44 fjoe Exp $
+ * $Id: save.c,v 1.90 1998-12-23 16:11:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,7 +118,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 		return;
 	}
 	else {
-		char_puts("Saving.\n", ch);
+		act_puts("Saving.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		fwrite_char(ch, fp, reboot);
 		if (ch->carrying != NULL)
 			fwrite_obj(ch, ch->carrying, fp, 0);
@@ -832,6 +832,12 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				ch->played = ch->pcdata->played;
 				if (ch->lines < SCROLL_MIN-2)
 					ch->lines = SCROLL_MAX-2;
+
+				if (IS_SET(ch->plr_flags, PLR_COLOR)) {
+					REMOVE_BIT(ch->plr_flags, PLR_COLOR);
+					SET_BIT(ch->comm, COMM_COLOR);
+				}
+
 				return;
 			}
 			KEY("Exp", ch->exp, fread_number(fp));

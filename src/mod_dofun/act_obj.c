@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.103 1998-12-22 18:23:22 fjoe Exp $
+ * $Id: act_obj.c,v 1.104 1998-12-23 16:11:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,9 +51,14 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"
-#include "interp.h"
 
 #include "resource.h"
+
+DECLARE_DO_FUN(do_split		);
+DECLARE_DO_FUN(do_say		);
+DECLARE_DO_FUN(do_scan		);
+DECLARE_DO_FUN(do_mount		);
+DECLARE_DO_FUN(do_yell		);
 
 /*
  * Local functions.

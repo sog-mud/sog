@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.114 1998-12-22 19:03:00 fjoe Exp $
+ * $Id: fight.c,v 1.115 1998-12-23 16:11:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,12 +59,26 @@
 #include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "interp.h"
 
 #include "resource.h"
 
 DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_crush		);
+DECLARE_DO_FUN(do_emote		);
+DECLARE_DO_FUN(do_dismount	);
+DECLARE_DO_FUN(do_bash		);
+DECLARE_DO_FUN(do_berserk	);
+DECLARE_DO_FUN(do_disarm	);
+DECLARE_DO_FUN(do_kick		);
+DECLARE_DO_FUN(do_dirt		);
+DECLARE_DO_FUN(do_trip		);
+DECLARE_DO_FUN(do_tail		);
+DECLARE_DO_FUN(do_look_in	);
+DECLARE_DO_FUN(do_get		);
+DECLARE_DO_FUN(do_sacrifice	);
+DECLARE_DO_FUN(do_visible	);
+DECLARE_DO_FUN(do_recall	);
+DECLARE_DO_FUN(do_flee		);
 
 /*
  * Local functions.

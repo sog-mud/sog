@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.15 1998-12-07 05:51:26 fjoe Exp $
+ * $Id: olc_msg.c,v 1.16 1998-12-23 16:11:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "interp.h"
 #include "db/lang.h"
 
 #define EDIT_GETMSG(ch, mlp)	(mlp = (mlstring**) ch->desc->pEdit)

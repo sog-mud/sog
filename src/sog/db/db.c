@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.93 1998-12-22 18:00:14 fjoe Exp $
+ * $Id: db.c,v 1.94 1998-12-23 16:11:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -501,9 +501,11 @@ void print_resetmsg(AREA_DATA *pArea)
 			continue;
 
 		if (is_empty)
-			char_puts("You hear some squeaking sounds...\n", ch);
+			act_puts("You hear some squeaking sounds...",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		else
-			char_mlputs(pArea->resetmsg, ch);
+			act_mlputs(pArea->resetmsg,
+				   ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -543,7 +545,8 @@ void area_update(void)
 					&&  get_skill(ch, gsn_track) > 50
 					&& !IS_SET(ch->in_room->room_flags,
 								ROOM_INDOORS))
-					char_puts("Rain devastates the tracks on the ground.\n", ch);
+					act_puts("Rain devastates the tracks on the ground.",
+						 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				}
 
 				for (i = pArea->min_vnum; i < pArea->max_vnum;

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.8 1998-11-02 05:28:29 fjoe Exp $
+ * $Id: buffer.c,v 1.9 1998-12-23 16:11:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,7 +60,7 @@ struct buf_data
 	char *		string; /* buffer's string */
 };
 
-#define BUF_LIST_MAX		10
+#define BUF_LIST_MAX		12
 #define BUF_DEFAULT_SIZE 	1024
 
 extern int nAllocBuf;
@@ -153,7 +153,7 @@ char* buf_string(BUFFER *buffer)
 /* buffer sizes */
 const int buf_size[BUF_LIST_MAX] =
 {
-	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384
+	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384, 32768, 65536
 };
 
 /* local procedure for finding the next acceptable size */

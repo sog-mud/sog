@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.5 1998-12-01 10:55:10 fjoe Exp $
+ * $Id: olc_lang.c,v 1.6 1998-12-23 16:11:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "interp.h"
 #include "db/lang.h"
 
 #define EDIT_LANG(ch, l)	(l = (LANG_DATA*) (ch->desc->pEdit))

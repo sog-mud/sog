@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.24 1998-12-19 10:16:42 kostik Exp $
+ * $Id: mob_cmds.c,v 1.25 1998-12-23 16:11:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,8 +44,10 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
-#include "interp.h"
 #include "fight.h"
+
+DECLARE_DO_FUN(do_look		);
+DECLARE_DO_FUN(do_say		);
 
 /*
  * Command table.

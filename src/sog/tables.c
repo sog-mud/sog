@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.34 1998-12-22 17:59:54 fjoe Exp $
+ * $Id: tables.c,v 1.35 1998-12-23 16:11:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,6 @@
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
-#include "interp.h"
 #include "db/lang.h"
 
 FLAG slang_table[] =
@@ -309,15 +308,16 @@ FLAG comm_flags[] =
 	{ "nomusic",		COMM_NOMUSIC,		TRUE	},
 	{ "noquote",		COMM_NOQUOTE,		TRUE	},
 	{ "noclan",		COMM_NOCLAN,		TRUE	},
-	{ "true_trust",		COMM_TRUE_TRUST,	TRUE	},
+	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
 	{ "brief",		COMM_BRIEF,		TRUE	},
 	{ "prompt",		COMM_PROMPT,		TRUE	},
 	{ "long",		COMM_LONG,		TRUE	},
 	{ "combine",		COMM_COMBINE,		TRUE	},
 	{ "telnet_ga",		COMM_TELNET_GA,		TRUE	},
-	{ "show_affects",	COMM_SHOW_AFFECTS,	TRUE	},
+	{ "showaff",		COMM_SHOWAFF,		TRUE	},
 	{ "nograts",		COMM_NOGRATS,		TRUE	},
+	{ "color",		COMM_COLOR,		TRUE	},
 	{ "noemote",		COMM_NOEMOTE,		FALSE	},
 	{ "noshout",		COMM_NOSHOUT,		FALSE	},
 	{ "notell",		COMM_NOTELL,		FALSE	},

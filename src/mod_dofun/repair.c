@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.14 1998-12-17 21:05:44 fjoe Exp $
+ * $Id: repair.c,v 1.15 1998-12-23 16:11:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,9 +42,10 @@
 
 #include <stdio.h>
 #include "merc.h"
-#include "interp.h"
 
-void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
+DECLARE_DO_FUN(do_say		);
+
+void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
 
  	if (damage == 0) return;
@@ -52,29 +53,33 @@ void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage)
  	worn->condition -= damage;
 
 	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
-		ch,wield,worn,TO_ROOM,POS_RESTING);
+		 ch, wield, worn, TO_ROOM, POS_RESTING);
 
 	if (worn->condition < 1) {
 		act_puts("{gThe {r$P{g breaks into pieces.{x",
-			ch,wield,worn,TO_ROOM,POS_RESTING);
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		extract_obj(worn);
 		return;
 	}
  
-	if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
-	&&  IS_SET(wield->extra_flags,ITEM_ANTI_NEUTRAL)
-	&&  IS_SET(worn->extra_flags,ITEM_ANTI_EVIL) 
-	&&  IS_SET(worn->extra_flags,ITEM_ANTI_NEUTRAL)) {
-		act_puts("$p doesn't want to fight against $P.", ch, wield, worn, TO_ROOM, POS_RESTING);
-		act_puts("$p removes itself from you!", ch, wield, worn, TO_CHAR, POS_RESTING);
-		act_puts("$p removes itself from $n.", ch, wield, worn, TO_ROOM, POS_RESTING);
+	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
+	&&  IS_SET(wield->extra_flags, ITEM_ANTI_NEUTRAL)
+	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL) 
+	&&  IS_SET(worn->extra_flags, ITEM_ANTI_NEUTRAL)) {
+		act_puts("$p doesn't want to fight against $P.",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
+		act_puts("$p removes itself from you!",
+			 ch, wield, worn, TO_CHAR, POS_RESTING);
+		act_puts("$p removes itself from $n.",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		unequip_char(ch, wield);
 		return;
  	}
 
-	if (IS_SET(wield->extra_flags,ITEM_ANTI_EVIL) 
-	&&  IS_SET(worn->extra_flags,ITEM_ANTI_EVIL)) {
-		act_puts("The $p worries for the damage to $P.", ch, wield, worn, TO_ROOM, POS_RESTING);
+	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
+	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL)) {
+		act_puts("The $p worries for the damage to $P.",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
 		return;
 	}
 }

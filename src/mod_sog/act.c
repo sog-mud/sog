@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.2 1998-12-17 21:06:19 fjoe Exp $
+ * $Id: act.c,v 1.3 1998-12-23 16:11:19 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -97,6 +97,22 @@ void act_puts(const char *format, CHAR_DATA *ch,
 		if (act_skip(ch, vch, to, flags, min_pos))
 			continue;
 		act_raw(ch, to, arg1, arg2, GETMSG(format, to->lang), flags);
+	}
+}
+
+void act_mlputs(const mlstring *ml, CHAR_DATA *ch,
+	      const void *arg1, const void *arg2, int flags, int min_pos)
+{
+	CHAR_DATA *to;
+	CHAR_DATA *vch = (CHAR_DATA *) arg2;
+
+	if ((to = act_args(ch, vch, flags, mlstr_mval(ml))) == NULL)
+		return;
+
+	for(; to ; to = to->next_in_room) {
+		if (act_skip(ch, vch, to, flags, min_pos))
+			continue;
+		act_raw(ch, to, arg1, arg2, mlstr_val(ml, to->lang), flags);
 	}
 }
 
@@ -436,7 +452,8 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 		}
 	}
  
-	*point++	= '\n';
+	if (!IS_SET(flags, ACT_NOLF))
+		*point++	= '\n';
 	*point		= '\0';
 
 /* first non-control char is uppercased */
@@ -446,11 +463,16 @@ static void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	parse_colors(buf, tmp, sizeof(tmp), OUTPUT_FORMAT(to));
 
 	if (!IS_NPC(to)) {
-		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL)
-		&&  IS_SET(flags, ACT_TOBUF))
+		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL) &&
+		     IS_SET(flags, ACT_TOBUF))
 			buf_add(to->pcdata->buffer, tmp);
-		else if (to->desc)
-			write_to_buffer(to->desc, tmp, 0);
+		else if (to->desc) {
+			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
+			&&  to->desc->pString)
+				buf_add(to->pcdata->buffer, tmp);
+			else
+				write_to_buffer(to->desc, tmp, 0);
+		}
 	}
 	else {
 		if (!IS_SET(flags, ACT_NOTRIG))

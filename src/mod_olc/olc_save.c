@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.45 1998-12-22 18:00:47 fjoe Exp $
+ * $Id: olc_save.c,v 1.46 1998-12-23 16:11:21 fjoe Exp $
  */
 
 /**************************************************************************
@@ -30,7 +30,6 @@
 #include <time.h>
 #include "merc.h"
 #include "obj_prog.h"
-#include "interp.h"
 #include "olc.h"
 #include "db/db.h"
 #include "db/word.h"

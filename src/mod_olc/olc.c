@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.35 1998-12-01 10:55:10 fjoe Exp $
+ * $Id: olc.c,v 1.36 1998-12-23 16:11:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "interp.h"
 #include "olc.h"
 
 /*

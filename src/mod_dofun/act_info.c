@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.179 1998-12-22 19:02:58 fjoe Exp $
+ * $Id: act_info.c,v 1.180 1998-12-23 16:11:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,13 +47,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdarg.h>
+
 #if !defined (WIN32)
 #	include <unistd.h>
 #endif
 #include <ctype.h>
+
 #include "merc.h"
 #include "hometown.h"
-#include "interp.h"
 #include "update.h"
 #include "quest.h"
 #include "obj_prog.h"
@@ -71,6 +72,7 @@ DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_affects	);
 DECLARE_DO_FUN(do_murder	);
+DECLARE_DO_FUN(do_say		);
 
 char *get_stat_alias(CHAR_DATA *ch, int which);
 
@@ -812,7 +814,6 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 
 	char_puts("action         status\n",ch);
 	char_puts("---------------------\n",ch);
-	do_print_sw(ch, "color", IS_SET(ch->plr_flags, PLR_COLOR));
 	do_print_sw(ch, "autoassist", IS_SET(ch->plr_flags, PLR_AUTOASSIST));
 	do_print_sw(ch, "autoexit", IS_SET(ch->plr_flags, PLR_AUTOEXIT));
 	do_print_sw(ch, "autogold", IS_SET(ch->plr_flags, PLR_AUTOGOLD));
@@ -820,11 +821,6 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	do_print_sw(ch, "autoloot", IS_SET(ch->plr_flags, PLR_AUTOLOOT));
 	do_print_sw(ch, "autosac", IS_SET(ch->plr_flags, PLR_AUTOSAC));
 	do_print_sw(ch, "autosplit", IS_SET(ch->plr_flags, PLR_AUTOSPLIT));
-	do_print_sw(ch, "compact mode", IS_SET(ch->comm, COMM_COMPACT));
-	do_print_sw(ch, "verbose messages", !IS_SET(ch->comm, COMM_NOVERBOSE));
-	do_print_sw(ch, "long flags", IS_SET(ch->comm, COMM_LONG));
-	do_print_sw(ch, "prompt", IS_SET(ch->comm, COMM_PROMPT));
-	do_print_sw(ch, "combine items", IS_SET(ch->comm, COMM_COMBINE));
 	do_print_sw(ch, "nocancel", IS_SET(ch->plr_flags, PLR_NOCANCEL));
 
 	if (IS_SET(ch->plr_flags, PLR_NOSUMMON))
@@ -937,70 +933,12 @@ void do_autosplit(CHAR_DATA *ch, const char *argument)
 		char_puts("Autosplitting removed.\n",ch);
 }
 
-void do_color(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(ch->plr_flags, PLR_COLOR);
-	if (IS_SET(ch->plr_flags, PLR_COLOR))
-		char_puts("{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!\n", ch);
-	else
-		char_puts("Color is now OFF, *sigh*\n", ch);
-}
-
-void do_brief(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_BRIEF);
-	if (IS_SET(ch->comm, COMM_BRIEF))
-		char_puts("Short descriptions activated.\n",ch);
-	else 
-		char_puts("Full descriptions activated.\n",ch);
-}
-
-void do_compact(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_COMPACT);
-	if (IS_SET(ch->comm, COMM_COMPACT))
-		char_puts("Compact mode set.\n",ch);
-	else
-		char_puts("Compact mode removed.\n",ch);
-}
-
-void do_long(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_LONG);
-	if (IS_SET(ch->comm, COMM_LONG))
-		char_puts("Long flags mode set.\n",ch);
-	else 
-		char_puts("Long flags mode removed.\n",ch);
-}
-
-void do_show(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_SHOW_AFFECTS);
-	if (IS_SET(ch->comm,COMM_SHOW_AFFECTS))
-		char_puts("Affects will now be shown in score.\n", ch);
-	else
-		char_puts("Affects will no longer be shown in score.\n", ch);
-}
-
 void do_prompt(CHAR_DATA *ch, const char *argument)
 {
 	const char *prompt;
 
-	if (argument[0] == '\0') {
-		TOGGLE_BIT(ch->comm, COMM_PROMPT);
-		if (IS_SET(ch->comm, COMM_PROMPT))
-			char_puts("You will now see prompts.\n",ch);
-		else
-			char_puts("You will no longer see prompts.\n",ch);
-		return;
-	}
-
-	if (!str_prefix(argument, "show")) {
+	if (argument[0] == '\0'
+	||  !str_prefix(argument, "show")) {
 		char_printf(ch, "Current prompt is '%s'.\n", ch->prompt);
 		return;
 	}
@@ -1015,38 +953,10 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Prompt set to '%s'.\n", ch->prompt);
 }
 
-void do_combine(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_COMBINE);
-	if (IS_SET(ch->comm, COMM_COMBINE))
-		char_puts("Combined inventory selected.\n",ch);
-	else 
-		char_puts("Long inventory selected.\n",ch);
-}
-
-void do_noloot(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(ch->plr_flags, PLR_CANLOOT);
-	if (IS_SET(ch->plr_flags, PLR_CANLOOT))
-		char_puts("Your corpse may now be looted.\n",ch);
-	else
-		char_puts("Your corpse is now safe from thieves.\n",ch);
-}
-
 void do_nofollow(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to leave your beloved master.\n", ch);
 		return;
 	}
 
@@ -2853,6 +2763,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 {
 	char buf2[MAX_INPUT_LENGTH];
 	char title[MAX_STRING_LENGTH];
+	const char *name;
 	int ekle = 0;
 	int delta;
 	CLASS_DATA *cl;
@@ -2864,73 +2775,78 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	output = buf_new(ch->lang);
 	buf_add(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
 
-	strnzcpy(title, IS_NPC(ch) ? "Believer of Chronos." : ch->pcdata->title,
+	strnzcpy(title,
+		 IS_NPC(ch) ? " Believer of Chronos." : ch->pcdata->title,
 		 sizeof(title));
-	delta = strlen(title) - cstrlen(title);
+	name = IS_NPC(ch) ? capitalize(mlstr_val(ch->short_descr, ch->lang)) :
+			    ch->name;
+	delta = strlen(title) - cstrlen(title) + MAX_CHAR_NAME - strlen(name);
 	title[32+delta] = '\0';
-	snprintf(buf2, sizeof(buf2), "     {G|   {W%%-12s{x%%-%ds {Y%%3d years old   {G|____|{x\n", 33+delta);
-	buf_printf(output, buf2, ch->name, title, get_age(ch));
+	snprintf(buf2, sizeof(buf2), "     {G|{x   %%s%%-%ds {Y%%3d years old   {G|____|{x\n", 33+delta);
+	buf_printf(output, buf2, name, title, get_age(ch));
 
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
-	buf_printf(output, "     {G| {RLevel:  {x%3d          {C|  {RStr:  {x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n",
+	buf_printf(output, "     {G| {RLevel:  {x%3d          {C|  {RStr:  {x%2d (%2d) {C| {RReligion  :  {x%-10.10s {G|{x\n",
 		   ch->level,
 		   ch->perm_stat[STAT_STR],
 		   get_curr_stat(ch,STAT_STR),
 		   religion_name(ch->religion));
 
 	buf_printf(output,
-"     {G| {RRace :  {x%-11s  {C|  {RInt:  {x%2d(%2d)  {C| {RPractice  :   {x%3d       {G|{x\n",
+"     {G| {RRace :  {x%-11.11s  {C|  {RInt:  {x%2d (%2d) {C| {RPractice  :  {x%4d       {G|{x\n",
 		race_name(ch->race),
 		ch->perm_stat[STAT_INT],
 		get_curr_stat(ch, STAT_INT),
 		ch->practice);
 
 	buf_printf(output,
-"     {G| {RSex  :  {x%-11s  {C|  {RWis:  {x%2d(%2d)  {C| {RTrain     :   {x%3d       {G|{x\n",
+"     {G| {RSex  :  {x%-11.11s  {C|  {RWis:  {x%2d (%2d) {C| {RTrain     :  {x%4d       {G|{x\n",
 		   ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		   ch->perm_stat[STAT_WIS],
 		   get_curr_stat(ch,STAT_WIS),
 		   ch->train);
 
 	buf_printf(output,
-"     {G| {RClass:  {x%-12s {C|  {RDex:  {x%2d(%2d)  {C| {RQuest Pnts:  {x%4d       {G|{x\n",
+"     {G| {RClass:  {x%-12.12s {C|  {RDex:  {x%2d (%2d) {C| {RQuest Pnts: {x%5d       {G|{x\n",
 		IS_NPC(ch) ? "mobile" : cl->name,
 		ch->perm_stat[STAT_DEX], get_curr_stat(ch,STAT_DEX),
 		IS_NPC(ch) ? 0 : ch->pcdata->questpoints);
 
 	buf_printf(output,
-"     {G| {RHome :  {x%-12s {C|  {RCon:  {x%2d(%2d)  {C| {R%-10s:   {x%3d       {G|{x\n",
-		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
+"     {G| {RAlign:  {x%-12.12s {C|  {RCon:  {x%2d (%2d) {C| {R%-10.10s:   {x%3d       {G|{x\n",
+		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		ch->perm_stat[STAT_CON], get_curr_stat(ch,STAT_CON),
 		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
 		IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 	buf_printf(output,
-"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :  {x%4d       {G|{x\n",
+"     {G| {REthos:  {x%-12.12s {C|  {RCha:  {x%2d (%2d) {C| {R%s     :  {x%4d       {G|{x\n",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
 		ch->class == CLASS_SAMURAI ? "Death" : "Wimpy" ,
 		ch->class == CLASS_SAMURAI ? ch->pcdata->death : ch->wimpy);
 
-	buf_printf(output, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n",
-		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		GETMSG("You are", ch->lang),
-		GETMSG(flag_string(position_names, ch->position), ch->lang));
+	snprintf(buf2, sizeof(buf2), "%s %s.",
+		 GETMSG("You are", ch->lang),
+		 GETMSG(flag_string(position_names, ch->position), ch->lang));
+	buf_printf(output, "     {G| {RHome :  {x%-29.29s {C|{x %-23.23s {G|{x\n",
+		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
+		buf2);
 
 	buf_add(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");
 
 	if (ch->guarding != NULL) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {GYou are guarding: {x%-10s                                    {G|{x\n",
+"     {G| {GYou are guarding: {x%-12.12s                                  {G|{x\n",
 			    ch->guarding->name);
 	}
 
 	if (ch->guarded_by != NULL) {
 		ekle = 1;
 		buf_printf(output,
-"     {G| {GYou are guarded by: {x%-10s                                  {G|{x\n",
+"     {G| {GYou are guarded by: {x%-12.12s                                {G|{x\n",
 			    ch->guarded_by->name);
 	}
 
@@ -2983,43 +2899,40 @@ void do_score(CHAR_DATA *ch, const char *argument)
 "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
 
 	buf_printf(output,
-"     {G| {RItems Carried :   {x%2d/%-4d           {RArmor vs magic  : {x%4d      {G|{x\n",
+"     {G| {RItems Carried :   {x%3d/%-4d          {RArmor vs magic  : {x%5d     {G|{x\n",
 		ch->carry_number, can_carry_n(ch),
 		GET_AC(ch,AC_EXOTIC));
 
 	buf_printf(output,
-"     {G| {RWeight Carried:  {x%4d/%-8d      {RArmor vs bash   : {x%4d      {G|{x\n",
-	get_carry_weight(ch), can_carry_w(ch),GET_AC(ch,AC_BASH));
+"     {G| {RWeight Carried:  {x%4d/%-9d     {RArmor vs bash   : {x%5d     {G|{x\n",
+	get_carry_weight(ch), can_carry_w(ch), GET_AC(ch,AC_BASH));
 
 	buf_printf(output,
-"     {G| {RGold          :   {Y%-10ld        {RArmor vs pierce : {x%4d      {G|{x\n",
+"     {G| {RGold          :   {Y%-10d        {RArmor vs pierce : {x%5d     {G|{x\n",
 		 ch->gold,GET_AC(ch,AC_PIERCE));
 
 	buf_printf(output,
-"     {G| {RSilver        :   {W%-10ld        {RArmor vs slash  : {x%4d      {G|{x\n",
+"     {G| {RSilver        :   {W%-10d        {RArmor vs slash  : {x%5d     {G|{x\n",
 		 ch->silver,GET_AC(ch,AC_SLASH));
 
 	buf_printf(output,
-"     {G| {RCurrent exp   :   {x%-6d            {RSaves vs Spell  : {x%4d      {G|{x\n",
+"     {G| {RCurrent exp   :   {x%-6d            {RSaves vs Spell  : {x%5d     {G|{x\n",
 		ch->exp,ch->saving_throw);
 
 	buf_printf(output,
-"     {G| {RExp to level  :   {x%-6d                                        {G|{x\n",
-		IS_NPC(ch) ? 0 : exp_to_level(ch));
+"     {G| {RExp to level  :   {x%-6d            {RHitP: {x%5d/%-5d           {G|{x\n",
+		IS_NPC(ch) ? 0 : exp_to_level(ch), ch->hit, ch->max_hit);
 
 	buf_printf(output,
-"     {G|                                     {RHitP: {x%5d / %5d         {G|{x\n",
-		   ch->hit, ch->max_hit);
-	buf_printf(output,
-"     {G| {RHitroll       :   {x%-3d               {RMana: {x%5d / %5d         {G|{x\n",
+"     {G| {RHitroll       :   {x%-3d               {RMana: {x%5d/%-5d           {G|{x\n",
 		   GET_HITROLL(ch),ch->mana, ch->max_mana);
 	buf_printf(output,
-"     {G| {RDamroll       :   {x%-3d               {RMove: {x%5d / %5d         {G|{x\n",
+"     {G| {RDamroll       :   {x%-3d               {RMove: {x%5d/%-5d           {G|{x\n",
 		    GET_DAMROLL(ch), ch->move, ch->max_move);
 	buf_add(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n");
 	buf_add(output, "  {G\\________________________________________________________________\\__/{x\n");
 
-	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
+	if (IS_SET(ch->comm, COMM_SHOWAFF))
 		show_affects(ch, output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
@@ -3037,12 +2950,14 @@ DO_FUN(do_oscore)
 
 	output = buf_new(ch->lang);
 
-	buf_printf(output,
-		"%s {W%s{x%s, level {c%d{x, {c%d{x years old "
-		"(%d hours).\n",
+	buf_printf(output, "%s %s%s\n{x",
 		GETMSG("You are", ch->lang),
-		ch->name,
-		IS_NPC(ch) ? str_empty : ch->pcdata->title, ch->level, get_age(ch),
+		IS_NPC(ch) ? capitalize(mlstr_val(ch->short_descr, ch->lang)) :
+			     ch->name,
+		IS_NPC(ch) ? " The Believer of Chronos." : ch->pcdata->title);
+
+	buf_printf(output, "Level {c%d{x, {c%d{x years old (%d hours).\n",
+		ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
 
 	buf_printf(output,
@@ -3260,9 +3175,11 @@ DO_FUN(do_oscore)
 		buf_add(output, "  You have a chaotic ethos.\n");
 		break;
 	default:
+		buf_add(output, "  You have no ethos");
 		if (!IS_NPC(ch))
-			buf_add(output, "  You have no ethos, "
-				     "report it to the gods!\n");
+			buf_add(output, ", report it to the gods!\n");
+		else
+			buf_add(output, ".\n");
 	}
 
 	if (IS_NPC(ch))
@@ -3274,7 +3191,7 @@ DO_FUN(do_oscore)
 		buf_printf(output,"Your religion is the way of %s.\n",
 			religion_table[ch->religion].leader);
 
-	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
+	if (IS_SET(ch->comm, COMM_SHOWAFF))
 		show_affects(ch, output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.24 1998-12-14 12:31:32 fjoe Exp $
+ * $Id: clan.c,v 1.25 1998-12-23 16:11:13 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -38,7 +38,6 @@
 #endif
 
 #include "merc.h"
-#include "interp.h"
 
 varr clans = { sizeof(CLAN_DATA), 4 };
 

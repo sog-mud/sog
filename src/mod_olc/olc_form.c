@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.4 1998-12-01 10:55:11 fjoe Exp $
+ * $Id: olc_form.c,v 1.5 1998-12-23 16:11:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "interp.h"
 #include "db/lang.h"
 #include "db/word.h"
 

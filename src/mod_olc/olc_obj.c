@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.24 1998-12-22 16:22:40 fjoe Exp $
+ * $Id: olc_obj.c,v 1.25 1998-12-23 16:11:21 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,7 +33,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "interp.h"
 #include "olc.h"
 #include "db/db.h"
 

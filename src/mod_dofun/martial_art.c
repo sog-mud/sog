@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.60 1998-12-17 21:05:42 fjoe Exp $
+ * $Id: martial_art.c,v 1.61 1998-12-23 16:11:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,16 +44,22 @@
 #include <stdio.h>
 #include "merc.h"
 #include "fight.h"
-#include "interp.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
 #	include "compat/compat.h"
 #endif
-#define CHECK_YELL !IS_NPC(ch) && !IS_NPC(victim) && victim->position>POS_STUNNED && !fighting
 
-void	one_hit		(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc); 
-void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
+DECLARE_DO_FUN(do_yell		);
+DECLARE_DO_FUN(do_sleep		);
+DECLARE_DO_FUN(do_sit		);
+DECLARE_DO_FUN(do_bash_door	);
+
+static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
+					 bool fighting);
+void			one_hit		(CHAR_DATA *ch, CHAR_DATA *victim,
+					 int dt, int loc); 
+void			set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /*
  * Disarm a creature.
@@ -213,17 +219,14 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	if (ch->fighting == NULL)  fighting=FALSE;
-		else fighting=TRUE;
-
-	argument = one_argument(argument,arg);
+	argument = one_argument(argument, arg);
  
 	if ((chance = get_skill(ch, gsn_bash)) == 0) {
 		char_puts("Bashing? What's that?\n", ch);
 		return;
 	}
  
-	if (arg[0] != '\0' && !str_cmp(arg,"door")) {
+	if (arg[0] != '\0' && !str_cmp(arg, "door")) {
 		do_bash_door(ch, argument);
 		return;
 	}
@@ -305,6 +308,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	chance += (ch->level - victim->level) * 2;
 
 	RESET_WAIT_STATE(ch);
+	fighting = (ch->fighting != NULL);
 
 	/* now the attack */
 	if (number_percent() < chance) {
@@ -344,9 +348,10 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		ch->position = POS_RESTING;
 		WAIT_STATE(ch, SKILL(gsn_bash)->beats * 3/2); 
 	}
-	if (CHECK_YELL) 
-		doprintf(do_yell,victim,"Help! %s is bashing me!", PERS(ch,victim));
-		
+
+	if (check_yell(ch, victim, fighting)) 
+		doprintf(do_yell, victim,
+			 "Help! %s is bashing me!", PERS(ch, victim));
 }
 
 void do_dirt(CHAR_DATA *ch, const char *argument)
@@ -360,9 +365,8 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		char_puts("You can't dirt while riding!\n", ch);
 		return;
 	}
-	if(ch->fighting!=NULL) fighting=TRUE;
-		else fighting=FALSE;
-	one_argument(argument,arg);
+
+	one_argument(argument, arg);
 
 	if ((chance = get_skill(ch, gsn_dirt)) == 0) {
 		char_puts("You get your feet dirty.\n", ch);
@@ -451,6 +455,8 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	fighting = (ch->fighting != NULL);
+
 	/* now the attack */
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
@@ -475,8 +481,11 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_dirt, DAM_NONE, TRUE);
 		check_improve(ch, gsn_dirt, FALSE, 2);
 	}
-	if (CHECK_YELL)
-		doprintf(do_yell,victim,"Help! %s just kicked dirt into my eyes!", PERS(ch,victim));
+
+	if (check_yell(ch, victim, fighting))
+		doprintf(do_yell, victim,
+			 "Help! %s just kicked dirt into my eyes!",
+			 PERS(ch,victim));
 }
 
 void do_trip(CHAR_DATA *ch, const char *argument)
@@ -491,14 +500,13 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument,arg);
+	one_argument(argument, arg);
 
 	if ((chance = get_skill(ch,gsn_trip)) == 0) {
 		char_puts("Tripping? What's that?\n", ch);
 		return;
 	}
-	if(ch->fighting!=NULL) fighting=TRUE;
-		else fighting=FALSE;
+
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -516,7 +524,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(victim,AFF_FLYING)) {
+	if (IS_AFFECTED(victim, AFF_FLYING)) {
 		act("$S feet aren't on the ground.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -533,12 +541,12 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (is_safe(ch,victim))
+	if (is_safe(ch, victim))
 		return;
 
 	/* modifiers */
@@ -567,6 +575,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	chance += (ch->level - victim->level) * 2;
 
 	RESET_WAIT_STATE(ch);
+	fighting = (ch->fighting != NULL);
 
 	/* now the attack */
 	if (number_percent() < chance) {
@@ -588,8 +597,10 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		WAIT_STATE(ch, SKILL(gsn_trip)->beats*2/3);
 		check_improve(ch, gsn_trip, FALSE, 1);
 	}
-	if (CHECK_YELL)
-		doprintf(do_yell,victim,"Help! %s just tripped me!",PERS(ch,victim));
+
+	if (check_yell(ch, victim, fighting))
+		doprintf(do_yell, victim,
+			 "Help! %s just tripped me!", PERS(ch, victim));
 }
 
 bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -639,8 +650,11 @@ void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
 		check_improve(ch, gsn_backstab, FALSE, 1);
 		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
 	}
-	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
-		doprintf(do_yell,victim,"Die, %s! You are backstabbing scum!",PERS(ch,victim));
+
+	if (!IS_NPC(victim) && victim->position == POS_FIGHTING) 
+		doprintf(do_yell, victim,
+			 "Die, %s! You are backstabbing scum!",
+			 PERS(ch,victim));
 }
 
 void do_backstab(CHAR_DATA *ch, const char *argument)
@@ -3060,7 +3074,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
  
-	if ((victim = ch->fighting)== NULL)
+	if ((victim = ch->fighting) == NULL)
 		return;
 
 	if (victim->position < POS_FIGHTING)
@@ -3281,3 +3295,10 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 			multi_hit(vch, ch, TYPE_UNDEFINED);
 	}
 }
+
+bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
+{
+	return (!IS_NPC(ch) && !IS_NPC(victim) &&
+		victim->position > POS_STUNNED && !fighting);
+}
+

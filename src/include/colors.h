@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.h,v 1.2 1998-12-17 21:06:19 fjoe Exp $
+ * $Id: colors.h,v 1.3 1998-12-23 16:11:19 fjoe Exp $
  */
 
 #ifndef _COMM_COLORS_H_
@@ -36,7 +36,7 @@ enum{
 	FORMAT_MAX
 };
 
-#define OUTPUT_FORMAT(ch) (IS_SET(ch->plr_flags, PLR_COLOR) ? \
+#define OUTPUT_FORMAT(ch) (IS_SET(ch->comm, COMM_COLOR) ? \
 			   FORMAT_ANSI : FORMAT_DUMB)
 
 void parse_colors(const char *i, char *o, size_t o_len, int format);

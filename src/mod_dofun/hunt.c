@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.16 1998-12-01 10:53:52 fjoe Exp $
+ * $Id: hunt.c,v 1.17 1998-12-23 16:11:15 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -11,9 +11,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "merc.h"
-#include "interp.h"
 #include "fight.h"
 
+DECLARE_DO_FUN(do_cast		);
+DECLARE_DO_FUN(do_enter		);
+DECLARE_DO_FUN(do_say		);
+DECLARE_DO_FUN(do_open		);
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.31 1998-11-21 06:00:36 fjoe Exp $
+ * $Id: interp.h,v 1.32 1998-12-23 16:11:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,6 @@ DECLARE_DO_FUN(do_blindness_dust);
 DECLARE_DO_FUN(do_bloodthirst	);
 DECLARE_DO_FUN(do_blackjack	);
 DECLARE_DO_FUN(do_brandish	);
-DECLARE_DO_FUN(do_brief		);
 DECLARE_DO_FUN(do_bug		);
 DECLARE_DO_FUN(do_butcher	);
 DECLARE_DO_FUN(do_buy		);
@@ -106,10 +105,7 @@ DECLARE_DO_FUN(do_clear		);
 DECLARE_DO_FUN(do_clone		);
 DECLARE_DO_FUN(do_close		);
 DECLARE_DO_FUN(do_cls		);
-DECLARE_DO_FUN(do_color		);
 DECLARE_DO_FUN(do_commands	);
-DECLARE_DO_FUN(do_combine	);
-DECLARE_DO_FUN(do_compact	);
 DECLARE_DO_FUN(do_compare	);
 DECLARE_DO_FUN(do_concentrate	);
 DECLARE_DO_FUN(do_consider	);
@@ -194,7 +190,6 @@ DECLARE_DO_FUN(do_list		);
 DECLARE_DO_FUN(do_load		);
 DECLARE_DO_FUN(do_lock		);
 DECLARE_DO_FUN(do_log		);
-DECLARE_DO_FUN(do_long		);
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_look_in	);
 DECLARE_DO_FUN(do_lore		);
@@ -218,7 +213,6 @@ DECLARE_DO_FUN(do_nocancel	);
 DECLARE_DO_FUN(do_nochannels	);
 DECLARE_DO_FUN(do_noemote	);
 DECLARE_DO_FUN(do_nofollow	);
-DECLARE_DO_FUN(do_noloot	);
 DECLARE_DO_FUN(do_north		);
 DECLARE_DO_FUN(do_noshout	);
 DECLARE_DO_FUN(do_nosummon	);
@@ -300,7 +294,6 @@ DECLARE_DO_FUN(do_sense		);
 DECLARE_DO_FUN(do_shield	);
 DECLARE_DO_FUN(do_shoot		);
 DECLARE_DO_FUN(do_shout		);
-DECLARE_DO_FUN(do_show		);
 DECLARE_DO_FUN(do_shutdow	);
 DECLARE_DO_FUN(do_shutdown	);
 DECLARE_DO_FUN(do_sit		);
@@ -341,6 +334,7 @@ DECLARE_DO_FUN(do_tick		);
 DECLARE_DO_FUN(do_tiger		);
 DECLARE_DO_FUN(do_time		);
 DECLARE_DO_FUN(do_title		);
+DECLARE_DO_FUN(do_toggle	);
 DECLARE_DO_FUN(do_track		);
 DECLARE_DO_FUN(do_train		);
 DECLARE_DO_FUN(do_transfer	);
@@ -359,7 +353,6 @@ DECLARE_DO_FUN(do_value		);
 DECLARE_DO_FUN(do_vampire	);
 DECLARE_DO_FUN(do_vanish	);
 DECLARE_DO_FUN(do_vbite		);
-DECLARE_DO_FUN(do_verbose	);
 DECLARE_DO_FUN(do_visible	);
 DECLARE_DO_FUN(do_violate	);
 DECLARE_DO_FUN(do_vnum		);

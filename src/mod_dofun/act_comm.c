@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.126 1998-12-17 21:05:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.127 1998-12-23 16:11:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,17 +53,18 @@
 #endif
 
 #include "merc.h"
-#include "interp.h"
-#include "interp.h"
 #include "quest.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "auction.h"
 #include "db/lang.h"
 #include "db/gsn.h"
+
 /* command procedures needed */
-DECLARE_DO_FUN(do_quit	);
-DECLARE_DO_FUN(do_quit_count);
+DECLARE_DO_FUN(do_quit		);
+DECLARE_DO_FUN(do_quit_count	);
+DECLARE_DO_FUN(do_replay	);
+DECLARE_DO_FUN(do_look		);
 
 void do_quit_org	(CHAR_DATA *ch, const char *argument, bool Count);
 
@@ -128,13 +129,13 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 	char_puts("   channel     status\n",ch);
 	char_puts("---------------------\n",ch);
 	
-	char_puts("music         ", ch);
+	char_puts("music          ", ch);
 	if (!IS_SET(ch->comm, COMM_NOMUSIC))
 		 char_puts("ON\n", ch);
 	else
 		 char_puts("OFF\n", ch);
 
-	char_puts("shout         ", ch);
+	char_puts("shout          ", ch);
 	if (!IS_SET(ch->comm, COMM_NOSHOUT))
 		 char_puts("ON\n", ch);
 	else
@@ -1685,34 +1686,6 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 		    flag_string(slang_table, ch->slang));
 }
 
-void do_noiac(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_NOIAC);
-	if (IS_SET(ch->comm, COMM_NOIAC))
-		char_printf(ch, "IACs will not be sent to you anymore "
-				"(will be replaced with '%c').\n", IAC_REPL);
-	else 
-		char_puts("Text will be sent to you unmodified.\n", ch);
-}
-
-void do_notelnet(CHAR_DATA *ch, const char *argument)
-{
-	TOGGLE_BIT(ch->comm, COMM_NOTELNET);
-	if (IS_SET(ch->comm, COMM_NOTELNET))
-		char_puts("Telnet parser is OFF.\n", ch);
-	else
-		char_puts("Telnet parser is ON.\n", ch);
-}
-
-DO_FUN(do_verbose)
-{
-	TOGGLE_BIT(ch->comm, COMM_NOVERBOSE);
-	if (IS_SET(ch->comm, COMM_NOVERBOSE))
-		char_puts("You will not see verbose messages anymore.\n", ch);
-	else
-		char_puts("Now you will see verbose messages.\n", ch);
-}
-
 DO_FUN(do_twit)
 {
 	char arg[MAX_STRING_LENGTH];
@@ -1863,5 +1836,153 @@ DO_FUN(do_wanted)
 		act("$n is no longer wanted.", victim, NULL, NULL, TO_ROOM);
 		char_puts("You are no longer wanted.\n", victim);
 	}
+}
+
+/*-----------------------------------------------------------------------------
+ * toggle bit stuff
+ */
+typedef struct toggle_t toggle_t;
+
+struct toggle_t {
+	const char *name;	/* flag name				*/
+	const char *desc;	/* toggle description			*/
+	FLAG *f;		/* flag table				*/
+	sflag_t bit;		/* flag bit				*/
+	const char *msg_on;	/* msg to print when flag toggled on	*/
+	const char *msg_off;	/* ---//--- off				*/
+};
+
+static toggle_t *toggle_lookup(const char *name);
+static void toggle_print(CHAR_DATA *ch, toggle_t *t);
+static sflag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
+
+/*
+ * alphabetize these table by name if you are adding new entries
+ */
+toggle_t toggle_table[] =
+{
+	{ "affects",		"show affects in score",
+	  comm_flags,	COMM_SHOWAFF,
+	  "Affects will now be shown in score.",
+	  "Affects will no longer be shown in score."
+	},
+
+	{ "brief",		"brief descriptions",
+	  comm_flags,	COMM_BRIEF,
+	  "Short descriptions activated.",
+	  "Full descriptions activated."
+	},
+
+	{ "color",		"ANSI colors",
+	  comm_flags,	COMM_COLOR,
+	  "{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!",
+	  "Color is now OFF, *sigh*"
+	},
+
+	{ "compact",		"compact mode",
+	  comm_flags,	COMM_COMPACT,
+	  "$t set.",
+	  "$t removed."
+	},
+
+	{ "combine",		"combined items in inventory list",
+	  comm_flags,	COMM_COMBINE,
+	  "Combined inventory selected.",
+	  "Long inventory selected."
+	},
+
+	{ "long flags",		"long flags mode",
+	  comm_flags,	COMM_LONG,
+	  "$t set.",
+	  "$t removed."
+	},
+
+	{ "notelnet",		"no telnet parser",
+	  comm_flags,	COMM_NOTELNET,
+	  "Telnet parser is OFF.",
+	  "Telnet parser is ON.",
+	},
+
+	{ "noiac",		"no IACs in output",
+	  comm_flags,	COMM_NOIAC,
+	  "IACs will not be sent to you anymore.",
+	  "Text will be sent to you unmodified.",
+	},
+
+	{ "noverbose",		"no verbose messages",
+	  comm_flags,	COMM_NOVERBOSE,
+	  "You will no longer see verbose messages.",
+	  "Now you will see verbose messages."
+	},
+
+	{ "prompt",		"show prompt",
+	  comm_flags,	COMM_PROMPT,
+	  "You will now see prompts.",
+	  "You will no longer see prompts."
+	},
+
+	{ "quiet edit",		"quiet mode in string editor",
+	  comm_flags,	COMM_QUIET_EDITOR,
+	  "$t set.",
+	  "$t removed."
+	},
+
+	{ NULL }
+};
+
+DO_FUN(do_toggle)
+{
+	toggle_t *t;
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		char_puts("Your current settings are:\n", ch);
+		for (t = toggle_table; t->name; t++)
+			toggle_print(ch, t);
+		return;
+	}
+
+	for (; arg[0]; argument = one_argument(argument, arg)) {
+		sflag_t* bits;
+
+		if ((t = toggle_lookup(arg)) == NULL
+		||  (bits = toggle_bits(ch, t)) == NULL)
+			continue;
+
+		TOGGLE_BIT(*bits, t->bit);
+		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
+			 ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
+	}
+}
+
+static toggle_t *toggle_lookup(const char *name)
+{
+	toggle_t *t;
+
+	for (t = toggle_table; t->name; t++)
+		if (!str_prefix(name, t->name))
+			break;
+	return t;
+}
+
+static void toggle_print(CHAR_DATA *ch, toggle_t *t)
+{
+	sflag_t *bits;
+
+	if ((bits = toggle_bits(ch, t)) < 0)
+		return;
+
+	act_printf(ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD,
+		   "  %-10.10s - %-3.3s ($t)",
+		   t->name,
+		   IS_SET(*bits, t->bit) ? "ON" : "OFF");
+}
+
+static sflag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
+{
+	if (t->f == comm_flags)
+		return &ch->comm;
+	return NULL;
 }
 

@@ -23,14 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.14 1998-12-01 10:55:10 fjoe Exp $
+ * $Id: olc_clan.c,v 1.15 1998-12-23 16:11:20 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "merc.h"
-#include "interp.h"
 #include "olc.h"
 
 #define EDIT_CLAN(ch, clan)	(clan = (CLAN_DATA*) ch->desc->pEdit)

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.99 1998-12-22 19:03:01 fjoe Exp $
+ * $Id: spellfun.c,v 1.100 1998-12-23 16:11:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,8 +48,11 @@
 #include "merc.h"
 #include "hometown.h"
 #include "update.h"
-#include "interp.h"
 #include "fight.h"
+
+DECLARE_DO_FUN(do_yell		);
+DECLARE_DO_FUN(do_look		);
+DECLARE_DO_FUN(do_stand		);
 
 /*
  * for casting different rooms 

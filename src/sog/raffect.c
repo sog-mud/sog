@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.19 1998-12-17 21:05:43 fjoe Exp $
+ * $Id: raffect.c,v 1.20 1998-12-23 16:11:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,9 +44,10 @@
 #include <stdio.h>
 
 #include "merc.h"
-#include "interp.h"
 #include "raffects.h"
 #include "fight.h"
+
+DECLARE_DO_FUN(do_wake		);
 
 /*
  * Apply or remove an affect to a room.

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.134 1998-12-17 21:06:18 fjoe Exp $
+ * $Id: comm.c,v 1.135 1998-12-23 16:11:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -85,9 +85,9 @@
 
 #include "merc.h"
 #include "hometown.h"
+#include "interp.h"
 #include "quest.h"
 #include "update.h"
-#include "interp.h"
 #include "ban.h"
 #include "charset.h"
 #include "resolver.h"
@@ -97,13 +97,6 @@
 #include "comm_colors.h"
 
 #include "resource.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_help		);
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_skills	);
-DECLARE_DO_FUN(do_outfit	);
-DECLARE_DO_FUN(do_unread	);
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
@@ -2389,10 +2382,10 @@ bool check_parse_name(const char *name)
 	 * Length restrictions.
 	 */
 	 
-	if (strlen(name) <  2)
+	if (strlen(name) < 2)
 		return FALSE;
 
-	if (strlen(name) > 12)
+	if (strlen(name) > MAX_CHAR_NAME)
 		return FALSE;
 
 	/*

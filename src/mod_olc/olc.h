@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.24 1998-10-21 05:01:25 fjoe Exp $
+ * $Id: olc.h,v 1.25 1998-12-23 16:11:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,6 +22,8 @@
 
 #ifndef _OLC_H_
 #define _OLC_H_
+
+DECLARE_DO_FUN(do_help		);
 
 bool		run_olc_editor	(DESCRIPTOR_DATA *d);
 const char	*olc_ed_name	(CHAR_DATA *ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.23 1998-12-07 05:51:13 fjoe Exp $
+ * $Id: string_edit.c,v 1.24 1998-12-23 16:11:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,6 +22,8 @@
 #include <time.h>
 
 #include "merc.h"
+
+DECLARE_DO_FUN(do_replay);
 
 const char *string_linedel(const char *, int);
 const char *string_lineadd(const char *, char *, int);
@@ -211,6 +213,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
     if (*argument == '~' || *argument == '@')
     {
         ch->desc->pString = NULL;
+	if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
+		do_replay(ch, str_empty);
         return;
     }
 

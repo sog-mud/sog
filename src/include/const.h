@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.16 1998-12-21 04:39:42 fjoe Exp $
+ * $Id: const.h,v 1.17 1998-12-23 16:11:13 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -117,6 +117,7 @@
 
 #define MAX_PROMPT_LENGTH	60
 #define MAX_TITLE_LENGTH	45
+#define MAX_CHAR_NAME		12
 #define PAGELEN 		22
 #define SCROLL_MIN		16
 #define SCROLL_MAX		192

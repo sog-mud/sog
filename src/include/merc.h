@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.131 1998-12-22 18:23:25 fjoe Exp $
+ * $Id: merc.h,v 1.132 1998-12-23 16:11:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1069,7 +1069,7 @@ enum {
 #define PLR_AUTOSAC		(F)
 #define PLR_AUTOGOLD		(G)
 #define PLR_AUTOSPLIT		(H)
-#define PLR_COLOR		(I)
+#define PLR_COLOR		(I)	/* obsolete, use COMM_COLOR instead */
 #define PLR_WANTED		(J)
 #define PLR_NOTITLE		(K)
 /* RT personal flags */
@@ -1120,14 +1120,15 @@ enum {
 #define COMM_NOCLAN		(J)
 
 /* display flags */
-#define COMM_TRUE_TRUST 	(K)
+#define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)
 #define COMM_PROMPT		(N)
 #define COMM_COMBINE		(O)
 #define COMM_TELNET_GA		(P)
-#define COMM_SHOW_AFFECTS	(Q)
+#define COMM_SHOWAFF		(Q)
 #define COMM_NOGRATS		(R)
+#define COMM_COLOR		(S)
 
 /* penalties */
 #define COMM_NOEMOTE		(T)
@@ -2131,8 +2132,6 @@ void		do_afk		(CHAR_DATA *ch, const char *argument);
 void		do_lang		(CHAR_DATA *ch, const char *argument);
 void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
-void		do_noiac	(CHAR_DATA *ch, const char *argument);
-void		do_notelnet	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
 void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.105 1998-12-22 19:03:00 fjoe Exp $
+ * $Id: act_wiz.c,v 1.106 1998-12-23 16:11:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,10 +52,10 @@
 #include <limits.h>
 #include "merc.h"
 #include "hometown.h"
+#include "interp.h"
 #include "update.h"
 #include "quest.h"
 #include "obj_prog.h"
-#include "interp.h"
 #include "fight.h"
 #include "quest.h"
 #include "db/cmd.h"
@@ -259,7 +259,8 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 			continue;
 
 		if (IS_SET(vch->pcdata->wiznet, WIZ_PREFIX))
-			char_puts("--> ", vch);
+			act_puts("--> ", vch, NULL, NULL, TO_CHAR | ACT_NOLF,
+				 POS_DEAD);
 		vsnprintf(buf, sizeof(buf), format, ap);
 		act_puts(buf, vch, obj, ch, TO_CHAR, POS_DEAD);
 	}

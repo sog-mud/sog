@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.1 1998-12-02 13:33:19 fjoe Exp $
+ * $Id: comm_act.h,v 1.2 1998-12-23 16:11:19 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -44,11 +44,14 @@
 #define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
 #define ACT_NOMORTAL	(L)	/* skip mortals */
 #define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
+#define ACT_NOLF	(N)	/* do not append lf */
 
 #define act(format, ch, arg1, arg2, type) \
 		act_puts(format, ch, arg1, arg2, type, POS_RESTING)
 void    act_puts(const char *format, CHAR_DATA *ch,
 		 const void *arg1, const void *arg2, int flags, int min_pos);
+void    act_mlputs(const mlstring *ml, CHAR_DATA *ch,
+		   const void *arg1, const void *arg2, int flags, int min_pos);
 void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		   int flags, int min_pos, const char* format, ...);
 #define	act_nputs(msg_num, ch, arg1, arg2, type, min_pos) \

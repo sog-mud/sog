@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.126 1998-12-22 19:02:59 fjoe Exp $
+ * $Id: act_move.c,v 1.127 1998-12-23 16:11:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,6 @@
 #include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "interp.h"
 #include "fight.h"
 
 #include "resource.h"
@@ -69,7 +68,8 @@ const	int	movement_loss	[SECT_MAX]	=
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
 
-
+DECLARE_DO_FUN(do_look		);
+DECLARE_DO_FUN(do_yell		);
 
 /*
  * Local functions.

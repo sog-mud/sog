@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.42 1998-12-01 10:54:47 fjoe Exp $
+ * $Id: resource.c,v 1.43 1998-12-23 16:11:20 fjoe Exp $
  */
 
 #if defined (SUNOS) || defined (WIN32)
@@ -35,7 +35,6 @@
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
-#include "interp.h"
 
 #ifdef SVR4
 #	include "compat/compat.h"
