@@ -1,0 +1,1405 @@
+#AREADATA
+Name Dead Forest~
+VNUMs 26200 26299
+Credits Ceran~
+Security 9
+LevelRange 10 35
+SkyVnum 51310
+End
+
+#MOBILES
+#26202
+lesser troll~
+a lesser troll~
+A horrible troll is here scavenging through the wasted forest.
+~
+This troll is big and disgusting. It's green hide partially hides it in
+the surrounding wastes, but not enough for your liking.
+~
+troll~
+ACGT 0 -1000 0
+14 0 2d1+200 1d1+100 2d7+4 claw
+-3 -3 -3 5
+EFKU 0 0 0 stand stand none 200
+0 0 large unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#26203
+greater troll~
+a greater troll~
+A greater troll is here scavenging through the wasted forest.
+~
+This troll is big and disgusting. It's green hide partially hides it in
+the surrounding wastes, but not enough for your liking.
+~
+troll~
+ACGT 0 -1000 0
+19 1 2d1+350 1d1+100 4d5+15 claw
+-7 -7 -7 0
+EFKU 0 0 0 stand stand none 400
+0 0 large unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#26204
+lesser naga~
+a lesser forest naga~
+A huge serpent with a man's face hisses and slithers by.
+~
+A demon naga, mean and cruel. Born of dark magic and wanting nothing
+but pain and suffering.
+~
+human~
+ABCGT CDEFJ -1000 0
+30 1 10d10+1450 1d1+300 4d7+15 none
+-12 -12 -12 -6
+EFKMU 0 0 0 stand stand none 951
+0 0 large unknown
+R cur 0 0 0 0 33 33 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#26205
+anti anti-ranger scout~
+an anti-ranger scout~
+An evil looking anti-ranger scout is here watching the forest.
+~
+This scout has been sent to check and make sure the devestation of the
+forest is still prevailing and that nobody has come to prevent the decay.
+~
+human~
+ABGT DEFJ -1000 0
+34 1 10d10+1450 1d1+200 4d7+15 none
+-14 -14 -14 -6
+DEFKU 0 0 0 stand stand male 1500
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#0
+
+#OBJECTS
+#26200
+trollsword troll sword~
+a Troll-sword~
+A large double-bladed troll sword is here.~
+steel~
+weapon AE AN
+sword 4 9 slash 0
+33 350 1913 P
+A
+18 3
+A
+19 3
+G none
+#26201
+troll skin robe~
+a robe of toughened troll-skin~
+A piece of disgusting green troll skin lies on the ground.~
+flesh~
+armor CEHJ AK
+7 7 6 0 0
+35 10 909 P
+A
+1 1
+A
+18 2
+A
+19 2
+G none
+#26202
+slayer sword troll-slayer~
+a sword named 'Troll-slayer'~
+A large sword named 'Troll-slayer' is here.~
+steel~
+weapon AE AN
+sword 6 7 acbite 0
+40 138 3052 P
+A
+18 -2
+A
+19 2
+E
+slayer sword troll-slayer~
+This sword seems to have been designed specifically for the slaying of trolls.
+Like someone wanted to have something special in case they needed to suddenly
+control a large number of trolls or something.
+~
+G none
+#26203
+dagger naga-slayer~
+a dagger named 'naga-slayer'~
+A wickedly sharp dagger is sticking into the ground here.~
+steel~
+weapon AE AN
+dagger 5 9 slice 0
+42 50 2322 P
+A
+18 -2
+A
+19 4
+G none
+#0
+
+#ROOMS
+#26200
+Entrance to the Dead Forest~
+The land around you becomes more ravaged and decimated. Trees that were
+lush and green to the north seem more twisted and dried here. To the south
+the forest appears darker and more foreboding, as if something has corrupted
+the very essence of it.
+~
+0 A forest
+D0
+~
+~
+Z 0 5265
+D2
+~
+~
+Z 0 26201
+S
+#26201
+Near the Entrance to the Dead Forest~
+Here inside the beginings of the forest there are signs of wildlife, but they
+are few and far between. The normal forest sounds of birds and small animals
+in the underbrush seem absent and the darkness around you is most unnatural.
+The trees around you seem to be twisted and dead, like something had drained
+the life from them.
+~
+0 A forest
+D0
+~
+~
+Z 0 26200
+D2
+~
+~
+Z 0 26202
+S
+#26202
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26201
+D1
+~
+~
+Z 0 26203
+S
+#26203
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D2
+~
+~
+Z 0 26204
+D3
+~
+~
+Z 0 26202
+S
+#26204
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26203
+D2
+~
+~
+Z 0 26210
+S
+#26205
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D3
+~
+~
+Z 0 26206
+S
+#26206
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D1
+~
+~
+Z 0 26205
+D2
+~
+~
+Z 0 26207
+S
+#26207
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26206
+D1
+~
+~
+Z 0 26208
+S
+#26208
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D1
+~
+~
+Z 0 26209
+D3
+~
+~
+Z 0 26207
+S
+#26209
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D1
+~
+~
+Z 0 26210
+D3
+~
+~
+Z 0 26208
+S
+#26210
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26204
+D1
+~
+~
+Z 0 26211
+D3
+~
+~
+Z 0 26209
+S
+#26211
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D2
+~
+~
+Z 0 26212
+D3
+~
+~
+Z 0 26210
+S
+#26212
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26211
+D1
+~
+~
+Z 0 26213
+S
+#26213
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D1
+~
+~
+Z 0 26214
+D3
+~
+~
+Z 0 26212
+S
+#26214
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26215
+D3
+~
+~
+Z 0 26213
+S
+#26215
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26216
+D1
+~
+~
+Z 0 26218
+D2
+~
+~
+Z 0 26214
+S
+#26216
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D2
+~
+~
+Z 0 26215
+S
+#26217
+Before a collapsed tree~
+The forest stops short at a huge tree that has fallen down here. Devestated
+and twisted foliage surround it but nothing seems to be regrowing.
+~
+0 A forest
+D0
+~
+~
+Z 0 26218
+S
+#26218
+Within the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26219
+D2
+~
+~
+Z 0 26217
+D3
+~
+~
+Z 0 26215
+S
+#26219
+Before a dark clearing~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. To the east you can see a clearing in the forest, and large ominous
+shapes move slowly through the shadows and mist.
+~
+0 A forest
+D1
+~
+~
+Z 0 26222
+D2
+~
+~
+Z 0 26218
+S
+#26220
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D1
+~
+~
+Z 0 26221
+D2
+~
+~
+Z 0 26222
+S
+#26221
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D2
+~
+~
+Z 0 26223
+D3
+~
+~
+Z 0 26220
+S
+#26222
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D0
+~
+~
+Z 0 26220
+D1
+~
+~
+Z 0 26223
+D2
+~
+~
+Z 0 26225
+D3
+~
+~
+Z 0 26219
+S
+#26223
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D0
+~
+~
+Z 0 26221
+D1
+~
+~
+Z 0 26224
+D2
+~
+~
+Z 0 26226
+D3
+~
+~
+Z 0 26222
+S
+#26224
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D2
+~
+~
+Z 0 26227
+D3
+~
+~
+Z 0 26223
+S
+#26225
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D0
+~
+~
+Z 0 26222
+D1
+~
+~
+Z 0 26226
+S
+#26226
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+~
+0 A forest
+D0
+~
+~
+Z 0 26223
+D1
+~
+~
+Z 0 26227
+D3
+~
+~
+Z 0 26225
+S
+#26227
+Within the Dead Woodlands~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. Around you large ominous shapes move slowly through the shadows.
+To the south you can see the forest gets even darker...
+~
+0 A forest
+D0
+~
+~
+Z 0 26224
+D2
+~
+~
+Z 0 26228
+D3
+~
+~
+Z 0 26226
+S
+#26228
+At a Darkened Clearing~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. To the east the sound of large, ungainly creatures can be heard,
+along with a lot of glutteral growling and hissing.
+~
+0 A forest
+D0
+~
+~
+Z 0 26227
+D1
+~
+~
+Z 0 26229
+D2
+~
+~
+Z 0 26247
+S
+#26229
+On a path in the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. To the east the sound of large, ungainly creatures can be heard,
+along with a lot of glutteral growling and hissing.
+~
+0 A forest
+D1
+~
+~
+Z 0 26230
+D3
+~
+~
+Z 0 26228
+S
+#26230
+On a path in the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest. To the north the sound of large, ungainly creatures can be heard,
+along with a lot of glutteral growling and hissing.
+~
+0 A forest
+D0
+~
+~
+Z 0 26231
+D3
+~
+~
+Z 0 26229
+S
+#26231
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26232
+D1
+~
+~
+Z 0 26235
+D2
+~
+~
+Z 0 26230
+S
+#26232
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D1
+~
+~
+Z 0 26233
+D2
+~
+~
+Z 0 26231
+S
+#26233
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D1
+~
+~
+Z 0 26234
+D2
+~
+~
+Z 0 26235
+D3
+~
+~
+Z 0 26232
+S
+#26234
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D2
+~
+~
+Z 0 26236
+D3
+~
+~
+Z 0 26233
+S
+#26235
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26233
+D1
+~
+~
+Z 0 26236
+D2
+~
+~
+Z 0 26237
+D3
+~
+~
+Z 0 26231
+S
+#26236
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26234
+D1
+~
+~
+Z 0 26241
+D2
+~
+~
+Z 0 26238
+D3
+~
+~
+Z 0 26235
+S
+#26237
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26235
+D1
+~
+~
+Z 0 26238
+S
+#26238
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26236
+D1
+~
+~
+Z 0 26243
+D3
+~
+~
+Z 0 26237
+S
+#26239
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D1
+~
+~
+Z 0 26240
+D2
+~
+~
+Z 0 26241
+S
+#26240
+A Bloody corner of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D3
+~
+~
+Z 0 26239
+S
+#26241
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26239
+D1
+~
+~
+Z 0 26242
+D2
+~
+~
+Z 0 26243
+D3
+~
+~
+Z 0 26236
+S
+#26242
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D2
+~
+~
+Z 0 26244
+D3
+~
+~
+Z 0 26241
+S
+#26243
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26241
+D2
+~
+~
+Z 0 26245
+D3
+~
+~
+Z 0 26238
+S
+#26244
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26242
+D2
+~
+~
+Z 0 26246
+S
+#26245
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26243
+D1
+~
+~
+Z 0 26246
+S
+#26246
+A bloody part of the Dead Forest~
+The ground here is covered in sticky green ichor and scaly bits of flesh.
+The smell of putrid waste and wafts in the air, mixing in with the stench
+of dead foliage and carrion matter.
+~
+0 A forest
+D0
+~
+~
+Z 0 26244
+D3
+~
+~
+Z 0 26245
+S
+#26247
+On a path in the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26228
+D3
+~
+~
+Z 0 26248
+S
+#26248
+On a path in the Dead Forest~
+Around you the trees appear dead and lifeless. Even the small vegetation
+that has grown on the forest floor has a taint of evil to it. Faint mist
+swirls around you and sends beams of light scattering into the darkened
+forest.
+~
+0 A forest
+D1
+~
+~
+Z 0 26247
+D3
+~
+~
+Z 0 26249
+S
+#26249
+Before a Black River~
+The forest ends here before a dark river. Small malformed shapes squirm and
+thrash about in the liquid but it is hard to see exactly what they are over
+the mist that hangs loosely across the water.
+A makeshift bridge has been partially erected over the river.
+~
+0 A forest
+D1
+~
+~
+Z 0 26248
+D2
+~
+~
+Z 0 26250
+S
+#26250
+On a decayed bridge~
+You stand upon a decaying and decrepit bridge made from some kind of dead
+tree trunk. Below you a hideous black river flows past, tiny shapes splashing
+and hissing within. The bridge heads north and south.
+~
+0 A inside
+D0
+~
+~
+Z 0 26249
+D2
+~
+~
+Z 0 26251
+S
+#26251
+On a decayed bridge~
+You stand upon a decaying and decrepit bridge made from some kind of dead
+tree trunk. Below you a hideous black river flows past, tiny shapes splashing
+and hissing within. The bridge heads north and south.
+~
+0 A inside
+D0
+~
+~
+Z 0 26250
+D2
+~
+~
+Z 0 26252
+S
+#26252
+On the South side of the Bridge~
+You stand at the south side of a decaying old bridge made from the trunk of
+a dead tree. Around you mist lies softly upon the forest floor, partially
+hiding the decay and death. Only twisted and crumpled trees lie all around you.
+To the north the bridge crosses over a black river, while south there appears
+to be a large dark clearing.
+~
+0 A forest
+D0
+~
+~
+Z 0 26251
+D2
+~
+~
+Z 0 26253
+S
+#26253
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D0
+~
+~
+Z 0 26252
+D1
+~
+~
+Z 0 26254
+D2
+~
+~
+Z 0 26257
+S
+#26254
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D1
+~
+~
+Z 0 26255
+D2
+~
+~
+Z 0 26258
+D3
+~
+~
+Z 0 26253
+S
+#26255
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D1
+~
+~
+Z 0 26256
+D2
+~
+~
+Z 0 26259
+D3
+~
+~
+Z 0 26254
+S
+#26256
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D2
+~
+~
+Z 0 26260
+D3
+~
+~
+Z 0 26255
+S
+#26257
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the east and south you hear the faint
+sounds of real forest animals.
+~
+0 A forest
+D0
+~
+~
+Z 0 26253
+D1
+~
+~
+Z 0 26258
+S
+#26258
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the east and south you hear the faint
+sounds of real forest animals.
+~
+0 A forest
+D0
+~
+~
+Z 0 26254
+D1
+~
+~
+Z 0 26259
+D2
+~
+~
+Z 0 26262
+D3
+~
+~
+Z 0 26257
+S
+#26259
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D0
+~
+~
+Z 0 26255
+D1
+~
+~
+Z 0 26260
+D2
+~
+~
+Z 0 26263
+D3
+~
+~
+Z 0 26258
+S
+#26260
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D0
+~
+~
+Z 0 26256
+D2
+~
+~
+Z 0 26264
+D3
+~
+~
+Z 0 26259
+S
+#26262
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. For off to the south you hear the faint sounds
+of real forest animals.
+~
+0 A forest
+D0
+~
+~
+Z 0 26258
+D1
+~
+~
+Z 0 26263
+S
+#26263
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. To the south the forest seems to become more
+lush and green...
+~
+0 A forest
+D0
+~
+~
+Z 0 26259
+D1
+~
+~
+Z 0 26264
+D2
+~
+~
+Z 0 26265
+D3
+~
+~
+Z 0 26262
+S
+#26264
+Within a Dark Clearing~
+The dead forest seems not quite so bad here. Trees are still twisted but not
+quite so badly, and some greenery still exists in sparse spots. All around
+you the dark clearing extends. Something seems a bit different about this part
+of the clearing...
+~
+0 A forest
+D0
+~
+~
+Z 0 26260
+D3
+~
+~
+Z 0 26263
+S
+#26265
+On a sparsely vegetated path~
+You stand upon a path with sparse but green foliage. To the north the forest
+becomes dead and dark, with a large clearing all you can see. South of here
+the region seems to get greener and more like a REAL forest.
+~
+0 A forest
+D0
+~
+~
+Z 0 26263
+D2
+~
+~
+Z 0 26300
+S
+#0
+
+#SPECIALS
+M 26202 spec_troll_member	* a lesser troll
+M 26203 spec_troll_member	* a greater troll
+S
+
+#RESETS
+M 0 26202 22 26205 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26205 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26206 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26207 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26207 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26208 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26209 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26210 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26212 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26212 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26213 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26214 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26215 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26216 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26217 3	* a lesser troll (Before a collapsed tree)
+M 0 26202 22 26218 3	* a lesser troll (Within the Dead Forest)
+M 0 26202 22 26220 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26202 22 26222 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26202 22 26223 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26202 22 26225 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26202 22 26225 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26202 22 26226 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26202 22 26227 3	* a lesser troll (Within the Dead Woodlands)
+M 0 26203 16 26231 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26232 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26234 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
+E 0 26200 0 16		*	a Troll-sword: wielded
+M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26236 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26237 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26238 4	* a greater troll (A bloody part of the Dead Forest)
+E 0 26201 0 12		*	a robe of toughened troll-skin: about the shoulders
+M 0 26203 16 26239 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26240 4	* a greater troll (A Bloody corner of the Dead Forest)
+M 0 26203 16 26241 4	* a greater troll (A bloody part of the Dead Forest)
+E 0 26201 0 12		*	a robe of toughened troll-skin: about the shoulders
+M 0 26203 16 26242 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26243 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26244 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26203 16 26244 4	* a greater troll (A bloody part of the Dead Forest)
+M 0 26204 8 26253 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26204 8 26255 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26204 8 26256 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26204 8 26257 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26204 8 26258 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26205 2 26258 1	* an anti-ranger scout (Within a Dark Clearing)
+E 0 26202 0 16		*	a sword named 'Troll-slayer': wielded
+E 0 26203 0 20		*	a dagger named 'naga-slayer': second wielded
+M 0 26204 8 26259 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26204 8 26262 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26204 8 26263 3	* a lesser forest naga (Within a Dark Clearing)
+M 0 26205 2 26264 1	* an anti-ranger scout (Within a Dark Clearing)
+E 0 26202 0 16		*	a sword named 'Troll-slayer': wielded
+E 0 26203 0 20		*	a dagger named 'naga-slayer': second wielded
+S
+
+#OLIMITS
+O 26200 6	* a Troll-sword
+O 26201 5	* a robe of toughened troll-skin
+O 26202 4	* a sword named 'Troll-slayer'
+O 26203 5	* a dagger named 'naga-slayer'
+S
+
+#$

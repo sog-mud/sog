@@ -1,0 +1,2264 @@
+#AREADATA
+Name Strange Carnival~
+VNUMs 27400 27499
+Credits Ceran~
+Security 9
+LevelRange 25 44
+ManualRare 5
+End
+
+#MOBILES
+#27400
+baba-yaga baba yaga witch woman~
+the Witch Baba-Yaga~
+A disgusting old lady beckons you with a withered finger.
+~
+This old woman embodies all that is demonic. Her small, hunched stature does
+nothing to hide her menacing aura and her eyes hold a glint of something truly
+wicked.
+~
+human~
+ABGR CDEFJu -1000 0
+47 2 25d10+4300 50d10+2000 6d6+22 claw
+-25 -25 -25 -25
+FK ABLM 0 0 stand stand female 3000
+0 0 medium unknown
+R cur 0 0 0 33 0 0 0 33 33 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+R fact DF
+#27401
+burning clown~
+a burning clown~
+A white faced clown screams in agony as his fire bubbles his skin.
+~
+This clown has a look of extreme pain on his face as he rushes about with fire
+burning his body. It seems that someone's idea of a good clown act is to set
+them on fire and watch them burn to death.
+~
+human~
+ABFGT DEFI 0 0
+40 2 25d10+2500 1d1+1000 8d4+16 flbite
+-15 -15 -15 -15
+CDEFK AB 0 0 stand stand male 3000
+0 0 medium unknown
+R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27402
+frozen ice clown~
+a frozen clown~
+A blue faced clown stares in horror at the ice encasing him.
+~
+This clown is encrusted in freezing ice. The look of terror and pain on his
+face shows that this is something unexpected and horrific to him. Something
+truly strange and evil has changed this carnival very recently...
+~
+human~
+ABFGT DEFI 0 0
+40 2 25d10+3000 1d1+1000 8d4+16 frbite
+-15 -15 -15 -15
+CDEFK AB 0 0 stand stand male 3000
+0 0 medium unknown
+R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27404
+vampire knifer thrower~
+the vampire knife-thrower~
+A dark man with piercing red eyes is here playing with a knife.
+~
+The eyes of this undead knife thrower are filled with immmense hate
+and resolve. He seems quite determined to land every knife he throws on his
+unfortunate target.
+~
+human~
+ABFGOT DEFJu -1000 0
+46 3 25d10+4200 1d1+100 6d6+21 none
+-25 -25 -25 -20
+ACDEFGHIKW ABLMQ 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27405
+girl victim~
+a slashed girl~
+A young girl on a rotating target moans in pain as knives cut her body.
+~
+Unlike conventional circus acts involving knife throwing, this one
+seems to require that the knives actually hit the victim, rather than miss.
+The girl is in obvious pain as her body rotates slowly on the target wheel,
+blood splashing in large rivlets down her body and onto the floor.
+~
+human~
+ABFGT DEFJ 0 0
+36 0 1d1+1500 1d1+100 3d10+11 pierce
+-12 -12 -12 -12
+KW AB 0 0 stand stand female 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27406
+ringmaster master~
+the Ring-Master~
+A stunted little man stands amidst a circle of burning candles.
+~
+The Ringmaster of the carnival is a wicked and demonic man who's eyes
+light up at the sound of pain. He hisses with a forked tongue as he
+slowly recites a rite of dark invocation.
+~
+dwarf~
+ABFGT DEFu -1000 0
+48 3 10d30+6000 1d1+100 6d6+23 wrath
+-28 -28 -28 -20
+ACDEFGHKWXZ AB 0 0 stand stand male 3000
+0 0 medium unknown
+R cur 0 0 30 25 0 0 0 0 0 0 0 0 0 0 0 0 0 40 0 0 0 0 0 0 0 0
+#27407
+man victim~
+a sacrificial man~
+A man with wooden stakes through his hands and feet lies on the floor.
+~
+This man has a glazed look in his eyes. There is no pain in his eyes,
+just a strangely uncaring gaze as if he was under the influence of some spell.
+It appears that whatever ritual he is to be sacrificed in does not require
+much response from the sacrifice itself..
+~
+human~
+ABFGT DEFJ -1000 0
+32 0 10d10+1000 1d1+100 6d4+10 punch
+-10 -10 -10 -5
+W AB 0 0 rest rest male 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27409
+wolfspider spider~
+a giant wolf-spider~
+A massive hairy spider scuttles beneath the mist.
+~
+It's as big as a dog, with spinldy hairy legs. And pincers as the size
+of your hands.
+~
+unique~
+ACFGT DEFJ -1000 0
+40 2 25d10+2000 1d1+100 8d4+12 bite
+-15 -15 -15 -4
+DFN ABLMQ 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 0 0 -33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27410
+chimera~
+a chimera~
+A goat, dragon and lion headed beast stands here.
+~
+A legendary chimera, composed of lion, dragon and goat. Smoke and
+flames erupt from the draconian part of it, while the lion and goat heads
+snap and thrash in an attempt to break and devour.
+~
+human~
+ABFGT DEFJu -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 none
+-25 -25 -25 -20
+CDEFGHIK AB 0 0 stand stand male 0
+0 0 giant unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27412
+lich gypsy~
+the Lich Gypsy~
+A disgusting gypsy man with a shrunken head spits at you.
+~
+Not a very nice person in real life, and now even nastier in the
+undead life.
+~
+lich~
+ABFGOT DEFJu -1000 0
+45 2 25d10+4000 1d1+100 6d6+20 claw
+-25 -25 -25 -20
+CDEGIKZ A 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27416
+woman gullveig witch~
+the witch Gullveig~
+A hideously deformed old woman is here stroking her golden robes.
+~
+Gullveig the Witch, maker of gold and bringer of misfortune. Her
+magic has brought down many as they seek to own the wealth that she alone
+can make from nothing.
+~
+human~
+ABFGT DEFJu -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 acbite
+-25 -25 -25 -20
+CDEFGHIKVX ABLMQ 0 0 stand stand female 3000
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27417
+lady teller fortuneteller woman~
+the Teller of Ill-fortune~
+A large fat lady extends her hands as if seeking something.
+~
+This fortune teller seems more interested in destroying your future
+than fortelling it...
+~
+human~
+ABFGT DEFJu -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 none
+-25 -25 -25 -20
+CDEFGHIKVX ABLMQ 0 0 stand stand female 3000
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+R fact C
+#27418
+lich monk blood brother~
+a Blood-brother Monk~
+A strange figure in brown robes stands here.
+~
+One of the Blood Brothers who's act is to bring more blood into the
+world. He is a travesty of a true monk, seeking death and chaos rather than
+enlightenment and understanding.
+~
+lich~
+ABFGOT DEFJu -1000 0
+47 3 25d10+4300 1d1+100 6d6+122 punch
+-25 -25 -25 -20
+CDEGIKZ A 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27419
+lich samurai~
+the Lich Samurai~
+A man in ceremonial armor makes complex motions with it's swords.
+~
+One of the more exotic acts in the carnival of death. This man uses
+his skills in weaponry to slice and dice anyone who cares to visit him.
+~
+lich~
+ABFGOT DEFJu -1000 0
+48 3 25d10+4500 1d1+100 6d6+133 punch
+-27 -27 -27 -20
+CDEGIKVXZ A 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+R fact CE
+#27422
+lich soothsayer~
+the Lich Soothsayer~
+The lich soothsayer raises it's burning eyes to regard you.
+~
+Very dead, very evil. This lich seems to be stuck in the position
+it had when living. Only now it sooths a person's problems forever.
+~
+human~
+ABFGOT DEFJu -1000 0
+47 2 25d10+4300 1d1+100 6d6+22 divine
+-25 -25 -25 -20
+ACDEFGHIKW ABLMQ 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27425
+man nailed~
+a nail-impaled man~
+A man impaled with dozens of nails looks up in pain and sneers.
+~
+A dark twist to a normal act. This man seems to actual being
+trying to see how many nails he can get piercing his body, rather than
+showing how he can lie unharmed upon them.
+~
+human~
+ABFGOT DEFJ -1000 0
+46 3 25d10+4200 1d1+100 6d6+21 none
+-25 -25 -25 -20
+ACDEFGHIK ABLMQ 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 33 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#27426
+lich monk blood brother~
+a Blood-brother Monk~
+A man wearing sharp spikes is here making violent motions.
+~
+One of the Blood Brothers who's act is to bring more blood into the
+world. He is a travesty of a true monk, seeking death and chaos rather than
+enlightenment and understanding.
+~
+human~
+ABFGOT DEFJu -1000 0
+47 3 25d10+4300 1d1+100 6d6+22 punch
+-25 -25 -25 -20
+CDEFGHIKWXZ ABLMQ 0 0 stand stand male 0
+0 0 medium unknown
+R cur 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#0
+
+#OBJECTS
+#27401
+baba-yaga baba yaga broom~
+Baba-yaga's broom~
+An oddly shaped broom lies on the ground.~
+wood~
+weapon ABCEFGHJ AN
+staff 7 6 pound F
+35 149 3205 P
+F
+A 0 0 T
+A
+12 35
+A
+18 2
+A
+19 2
+V
+1 increase_sound_damage~
+100~
+G none
+#27403
+throwing knife~
+a barbed throwing-knife~
+A barbed knife has been let protruding in the floor here.~
+steel~
+weapon CE AN
+dagger 7 7 pierce 0
+29 80 3763 P
+A
+19 6
+G none
+#27405
+belt barbed wire~
+a belt of entwined barbed wire~
+A piece of barbed wire lies dangerously on the ground.~
+steel~
+armor CEHM AL
+3 2 3 0 0
+40 30 102 P
+A
+14 -20
+A
+18 -1
+A
+19 3
+G none
+#27406
+bracelet ringmaster blue emerald~
+the Ringmaster's Bracelet~
+A large wide bracelet of blue emerald lies here.~
+emerald~
+armor ABCE AM
+18 19 19 20 10
+51 30 1552 P
+A
+18 4
+A
+1 5
+A
+20 -9
+A
+13 45
+A
+19 6
+G none
+#27407
+ringmaster whip black~
+the Ringmaster's whip~
+A whip of black leather lies upon the ground.~
+leather~
+weapon BCEHM AN
+whip 6 7 sting 0
+45 93 86 P
+A
+18 -2
+A
+19 3
+G none
+#27408
+robe silver stars~
+a robe of silver-stars~
+A robe covered in silver stars lies on the floor.~
+cloth~
+armor 0 AD
+7 8 7 15 15
+37 70 1372 P
+A
+1 1
+A
+13 40
+A
+18 2
+A
+19 2
+G none
+#27409
+toe-spikes toe spikes~
+a pair of toe-spikes~
+A pair of sharp spikes lie on the ground.~
+steel~
+armor M AG
+5 5 5 5 5
+51 10 362 P
+A
+2 -3
+A
+18 -2
+A
+19 5
+A
+24 -3
+G none
+#27410
+finger-spikes finger spikes~
+a set of finger-spikes~
+Some sharp finger spikes have been dropped here.~
+steel~
+armor 0 AH
+5 5 5 5 5
+51 0 268 P
+A
+2 -3
+A
+18 -1
+A
+19 5
+A
+24 -3
+G none
+#27411
+blood iron nail~
+a blood-encrusted iron nail~
+An iron nail covered in blood lies here.~
+iron~
+weapon 0 AN
+dagger 8 5 flbite A
+36 70 2139 P
+G none
+#27412
+gold golden hood~
+the golden hood of Gullveig~
+A hood of gold lies on the floor waiting to be used.~
+gold~
+armor CEGH AE
+7 8 6 15 15
+51 180 2969 P
+A
+3 2
+A
+4 1
+A
+12 25
+A
+19 2
+A
+24 -4
+G none
+#27414
+leggings quickening~
+some leggings of quickening~
+A pair of strange leggings lie upon the ground.~
+energy~
+armor B AF
+8 9 6 12 12
+51 70 2858 P
+A
+2 3
+A
+13 4
+G none
+#27416
+bracelet sin avarice fifth~
+a bracelet inscribed with the Fifth Sin~
+An evil looking bracelet rests on the ground.~
+steel~
+armor CEF AM
+5 5 5 5 5
+46 40 328 P
+A
+13 10
+A
+12 20
+A
+3 -2
+A
+4 -3
+A
+18 2
+A
+19 2
+G none
+#27417
+ring blight~
+the ring of Blight~
+An oddly shaped ring lies on the floor.~
+steel~
+jewelry CDEJ AB
+0 0 0 0 0
+36 10 2195 P
+A
+1 -2
+A
+2 -1
+A
+5 -3
+A
+12 50
+A
+18 2
+A
+19 2
+G none
+#27418
+strange girdle~
+a strange girdle~
+A girdle made for some strange creature lies on the ground.~
+energy~
+armor BCEG AK
+19 18 19 19 5
+52 220 10139 P
+A
+20 -5
+A
+12 50
+A
+13 50
+A
+18 2
+A
+19 2
+G none
+#27419
+mask pumpkin~
+a pumpkin-head mask~
+A pumpkin that has been carved to look like a mask lies here.~
+energy~
+armor BCEJ AE
+9 9 10 10 10
+40 70 3494 P
+A
+13 25
+A
+18 -2
+A
+19 3
+G none
+#27420
+brown robe~
+a brown robe~
+A pile of brown cloth lies here.~
+cloth~
+armor 0 AK
+8 7 9 0 0
+38 40 1173 P
+A
+2 1
+A
+18 1
+A
+19 2
+G none
+#27421
+leather gloves striking~
+some gloves of striking~
+A pair of reinforced leather gloves lies here.~
+leather~
+armor B AH
+6 6 6 6 6
+45 60 407 P
+A
+1 2
+A
+19 3
+G none
+#27422
+silver scimitar~
+the Silver-scimitar~
+A silver scimitar has been left here by someone.~
+silver~
+weapon GIM AN
+sword 8 6 slash 0
+51 148 6589 P
+A
+18 6
+A
+19 6
+G none
+#27423
+hell scimitar~
+a Hell-forged scimitar~
+A scimitar wreathed in blackened flames lies here.~
+energy~
+weapon GIM AN
+sword 8 7 wrath AD
+51 127 17931 P
+A
+20 -5
+A
+5 -3
+A
+18 6
+A
+19 6
+G none
+#27424
+samurai black belt~
+a Samurai black belt~
+A black belt inscribed with runes is on the ground.~
+cloth~
+armor ACE AL
+8 6 7 5 5
+48 10 922 P
+A
+1 1
+A
+13 40
+A
+18 2
+A
+19 3
+G none
+#0
+
+#ROOMS
+#27400
+On the banks of a misty river~
+Mist swirls gently around you and rises up from the river to the south in
+thick trendils. The sounds of frogs and river birds echo faintly all
+around you, and greyed light filters down through the overhead tree
+canopy. The river bank heads east and the actual river flows south of
+here.
+~
+0 A field
+D1
+~
+~
+Z 0 27401
+D2
+~
+~
+Z 0 9775
+S
+#27401
+On the banks of a misty river~
+Mist swirls gently around you and rises up from the river to the south in
+thick trendils. The sounds of frogs and river birds echo faintly all
+around you, and greyed light filters down through the overhead tree
+canopy. The river bank heads east and west.
+~
+0 A field
+D1
+~
+~
+Z 0 27402
+D3
+~
+~
+Z 0 27400
+S
+#27402
+On the banks of a misty river~
+Mist swirls gently around you and rises up from the river to the south in
+thick trendils. The sounds of frogs and river birds echo faintly all
+around you, and greyed light filters down through the overhead tree
+canopy. The river bank heads west, while the actual river lies to the
+south. North of here you can hear the sounds of bells and mutted voices.
+~
+0 A field
+D0
+~
+~
+Z 0 27403
+D3
+~
+~
+Z 0 27401
+S
+#27403
+On a muddy path~
+Thick mist covers the muddy pathway here. The path seems clear and there
+is little vegetation growing on or around it, yet there are also no signs
+of recent passage by other people. To the south the sounds of a river can
+be heard, while north of here there seems to be a large clearing with
+tents and stalls.
+~
+0 A field
+D0
+~
+~
+Z 0 27405
+D2
+~
+~
+Z 0 27402
+S
+#27404
+SW corner of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and clings
+to your hair. Decayed old bits of festive decoration and food lie 
+scattered around, but there is little else to indicate any real life in
+this carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27407
+D1
+~
+~
+Z 0 27405
+D3
+~
+~
+Z 0 27416
+S
+#27405
+Southern clearing of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and clings
+to your hair. Decayed old bits of festive decoration and food lie 
+scattered around, but there is little else to indicate any real life in
+this carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27408
+D1
+~
+~
+Z 0 27406
+D2
+~
+~
+Z 0 27403
+D3
+~
+~
+Z 0 27404
+S
+#27406
+SE corner of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and clings
+to your hair. Decayed old bits of festive decoration and food lie 
+scattered around, but there is little else to indicate any real life in
+this carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27409
+D1
+~
+~
+Z 0 27423
+D3
+~
+~
+Z 0 27405
+S
+#27407
+Western side of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27410
+D1
+~
+~
+Z 0 27408
+D2
+~
+~
+Z 0 27404
+S
+#27408
+Central main Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27411
+D1
+~
+~
+Z 0 27409
+D2
+~
+~
+Z 0 27405
+D3
+~
+~
+Z 0 27407
+S
+#27409
+Eastern side of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27412
+D2
+~
+~
+Z 0 27406
+D3
+~
+~
+Z 0 27408
+S
+#27410
+Western side of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27413
+D1
+~
+~
+Z 0 27411
+D2
+~
+~
+Z 0 27407
+D3
+~
+~
+Z 0 27420
+S
+#27411
+Beneath a Billowing Calliope~
+You stand beneath a huge canopy housing a strange contraption of metal
+and wood. It looks like some kind of merry-go-round, but instead of wooden
+horses to ride it has torn and desicated bodies piled up on poles, with bone
+carved seats set on their backs.
+~
+0 A inside
+D0
+~
+~
+Z 0 27414
+D1
+~
+~
+Z 0 27412
+D2
+~
+~
+Z 0 27408
+D3
+~
+~
+Z 0 27410
+S
+#27412
+Eastern Side of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27415
+D1
+~
+~
+Z 0 27421
+D2
+~
+~
+Z 0 27409
+D3
+~
+~
+Z 0 27411
+S
+#27413
+NW corner of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D1
+~
+~
+Z 0 27414
+D2
+~
+~
+Z 0 27410
+S
+#27414
+Northern clearing of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D0
+~
+~
+Z 0 27433
+D1
+~
+~
+Z 0 27415
+D2
+~
+~
+Z 0 27411
+D3
+~
+~
+Z 0 27413
+S
+#27415
+NE corner of the Carnival~
+Mist hangs low over the ground and wet dew soaks your clothes and
+clings to your hair. Decayed old bits of festive decoration and food lie
+scattered around, but there is little else to indicate any real life in this
+carnival.
+~
+0 A field
+D2
+~
+~
+Z 0 27412
+D3
+~
+~
+Z 0 27414
+S
+#27416
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D1
+~
+~
+Z 0 27404
+D2
+~
+~
+Z 0 27424
+D3
+~
+~
+Z 0 27417
+S
+#27417
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D0
+~
+~
+Z 0 27418
+D1
+~
+~
+Z 0 27416
+D3
+~
+~
+Z 0 27425
+S
+#27418
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D0
+~
+~
+Z 0 27419
+D1
+~
+~
+Z 0 27429
+D2
+~
+~
+Z 0 27417
+D3
+~
+~
+Z 0 27426
+S
+#27419
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D1
+~
+~
+Z 0 27420
+D2
+~
+~
+Z 0 27418
+S
+#27420
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D0
+~
+~
+Z 0 27428
+D1
+~
+~
+Z 0 27410
+D3
+~
+~
+Z 0 27419
+S
+#27421
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D1
+~
+~
+Z 0 27432
+D2
+~
+~
+Z 0 27422
+D3
+~
+~
+Z 0 27412
+S
+#27422
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D0
+~
+~
+Z 0 27421
+D1
+~
+~
+Z 0 27431
+D2
+~
+~
+Z 0 27423
+S
+#27423
+Amidst the Stalls~
+The mist in this place sends cold chills through you as it slowly
+rises around you. There is almost no noise to be heard, certainly not what
+you would expect from a normal carnival. Yet strangely enough there are stalls
+and tents erected, and motion can be seen within them.
+~
+0 A field
+D0
+~
+~
+Z 0 27422
+D2
+~
+~
+Z 0 27430
+D3
+~
+~
+Z 0 27406
+S
+#27424
+The Swordmaster's Tent~
+Old posters proclaiming 'The Greatest Swordsman in the World' and
+other such things line the walls of this tent. On the ground several hacked
+off body parts have been left to rot, and a number of rusted swords are still
+embedded in some of them.
+~
+0 A inside
+D0
+~
+~
+Z 0 27416
+S
+#27425
+In a Clearing of Nails~
+This entire clearing has been embedded with nails. From tiny pin-like
+nails to huge dagger sized ones, they protrude sickeningly from the ground.
+The impaled and torn remains of some unfortunate soul still hangs loosely upon
+some of these, but the rest seem rusty and out of use.
+~
+0 A inside
+D1
+~
+~
+Z 0 27417
+S
+#27426
+The Gypsy's Stall~
+A single rotted table is all that seems to be in this room. Mist seeps
+in from the side of the stall, and a strange stench fills the air.
+~
+0 A inside
+D1
+~
+~
+Z 0 27418
+S
+#27427
+Inside the Cage of Freaks~
+Excrement and disgusting food stuffs litter the cage. All around you
+the signs of degredation and death can be smelled and felt.
+~
+0 A inside
+D1
+~
+~
+ABZ 0 27428
+S
+#27428
+The Freak House~
+Signs on the walls show rough drawings of horrible creatures and
+advertise them with lines like, 'See the Terrible Three headed Tiger!".
+There is a disgusting smell coming from the cage west.
+~
+0 A inside
+D2
+~
+~
+Z 0 27420
+D3
+~
+~
+ABZ 0 27427
+S
+#27429
+In a Star covered Tent~
+A single decayed table sits in this room, with pieces of shattered
+glass upon it. The glass appears to be the fragmentary remains of a crystal
+ball, and thick green mist seems to be seeping out of it. Nothing else but
+the exit west is of much interest in here.
+~
+0 A inside
+D3
+~
+~
+Z 0 27418
+S
+#27430
+In a Blood-stained Stall~
+Blood and guts are spattered all over the stall walls, and drenched
+into the ground. A sign reads: 'Amazing Blood Brothers! See them drink the
+blood from an entire human being in one minute!'.
+~
+0 A inside
+D0
+~
+~
+Z 0 27423
+S
+#27431
+The Tent of Ill-fortune~
+This tent has holes and rips all through it. Mist seeps into it from
+outside, and the floor is barely visible through it all. A small table with
+some burnt cards and dried tea leaves is in the middle of the room.
+~
+0 A inside
+D3
+~
+~
+Z 0 27422
+S
+#27432
+A Gold-lined Tent~
+This tent is covered in what appears to be gold dust, and the floor
+iteself looks as if made of gold. Yet there is something strangely wrong about
+it all..almost as if it is some kind of trick.
+~
+0 A inside
+D3
+~
+~
+Z 0 27421
+S
+#27433
+A cleared pathway~
+You stand on a pathway that has been cleared though the woods north
+of the carnival area. North of here you can see a huge tent of some kind
+nestled within the woodlands.
+~
+0 A field
+D0
+~
+~
+Z 0 27434
+D2
+~
+~
+Z 0 27414
+S
+#27434
+Before the Grand Tent~
+In front of you a huge grey tent has been erected. Mist wraps around it
+almost like a second skin, and from within you can hear strange sounds of pain
+and anguish. A pathway has been cleared around the tent, and another path leads
+south away from here.
+~
+0 A field
+D0
+~
+~
+ABZ 0 27458
+D1
+~
+~
+Z 0 27435
+D2
+~
+~
+Z 0 27433
+D3
+~
+~
+Z 0 27451
+S
+#27435
+Southern end of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path heads east and west.
+~
+0 A field
+D1
+~
+~
+Z 0 27436
+D3
+~
+~
+Z 0 27434
+S
+#27436
+A corner of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path contines north and west.
+~
+0 A field
+D0
+~
+~
+Z 0 27437
+D3
+~
+~
+Z 0 27435
+S
+#27437
+Eastern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27438
+D2
+~
+~
+Z 0 27436
+S
+#27438
+Eastern side of the Grand Tend~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27439
+D2
+~
+~
+Z 0 27437
+S
+#27439
+Eastern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27440
+D2
+~
+~
+Z 0 27438
+S
+#27440
+Eastern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27441
+D2
+~
+~
+Z 0 27439
+S
+#27441
+A Corner of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues south and west.
+~
+0 A field
+D2
+~
+~
+Z 0 27440
+D3
+~
+~
+Z 0 27442
+S
+#27442
+Northern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues east and west.
+~
+0 A field
+D1
+~
+~
+Z 0 27441
+D3
+~
+~
+Z 0 27443
+S
+#27443
+Northern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues east and west, while to the north a patch of burnt woodland can
+be seen.
+~
+0 A field
+D0
+~
+~
+Z 0 27479
+D1
+~
+~
+Z 0 27442
+D3
+~
+~
+Z 0 27444
+S
+#27444
+Northern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues east and west.
+~
+0 A field
+D1
+~
+~
+Z 0 27443
+D3
+~
+~
+Z 0 27445
+S
+#27445
+A Corner of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues east and south.
+~
+0 A field
+D1
+~
+~
+Z 0 27444
+D2
+~
+~
+Z 0 27446
+S
+#27446
+Western side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27445
+D2
+~
+~
+Z 0 27447
+S
+#27447
+Western side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. To the
+west a path through the woods has been cleared.
+~
+0 A field
+D0
+~
+~
+Z 0 27446
+D2
+~
+~
+Z 0 27448
+D3
+~
+~
+Z 0 27452
+S
+#27448
+Western side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27447
+D2
+~
+~
+Z 0 27449
+S
+#27449
+Western side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and south.
+~
+0 A field
+D0
+~
+~
+Z 0 27448
+D2
+~
+~
+Z 0 27450
+S
+#27450
+A Corner of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues north and east.
+~
+0 A field
+D0
+~
+~
+Z 0 27449
+D1
+~
+~
+Z 0 27451
+S
+#27451
+Southern side of the Grand Tent~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring. The
+path continues east and west.
+~
+0 A field
+D1
+~
+~
+Z 0 27434
+D3
+~
+~
+Z 0 27450
+S
+#27452
+A path through the mist~
+You stand outside a huge, mist enshrouded tent. Strange sounds of pain
+and anguish can be heard from within, but nothing seems to be stirring.
+~
+0 A forest
+D1
+~
+~
+Z 0 27447
+D3
+~
+~
+Z 0 27453
+S
+#27453
+A path through the mist~
+The path through the woods is cold and unnerving. There are no normal
+wildlife sounds, and the surrounding foliage looks almost evil. To the east
+the path heads towards a huge tent, while west it gets darker.
+~
+0 A forest
+D1
+~
+~
+Z 0 27452
+D2
+~
+~
+Z 0 27454
+S
+#27454
+A path through the mist~
+The path here is very cold and mist rises up past your legs. A soft
+rasping sound echoes faintly around you, but it seems to come and go without
+any purpose or direction.
+~
+0 A forest
+D0
+~
+~
+Z 0 27453
+D3
+~
+~
+Z 0 27455
+S
+#27455
+A path through the mist~
+The path is enshrouded in mist and only a faint cold light filters in
+from the thick tree canopy overhead. A feeling of dread evil is being exuded
+by the very trees themselves.
+~
+0 A forest
+D1
+~
+~
+Z 0 27454
+D3
+~
+~
+Z 0 27456
+S
+#27456
+Beneath a Strange Hut~
+Here within the darkened woods you have come upon a strange hut on
+chicken legs. The hut itself looks normal, but rests upon a pair of huge
+legs. From above you the sounds of hissing and bubbling can be heard within
+the hut.
+~
+0 A hills
+D1
+~
+~
+Z 0 27455
+D4
+~
+hut door~
+ABZ 0 27457
+S
+#27457
+Inside Baba-Yaga's Hut~
+The inside of this hut is enormous. Far larger than it could possibly
+be from it's outside dimensions. Powerful magic fills the room, and you see
+boiling, bubbling potions scattered around the room.
+~
+0 A inside
+D5
+~
+hut door~
+ABZ 0 27456
+S
+#27458
+Entrance to the Grand Tent~
+You stand at the entrance to a massive tent. It looks like a normal
+circus tent, but there is something sinster about it all. Mist seeps through
+the bottom of it and covers the ground, making it hard to see what you are
+walking into. To the east and west are spectator stands
+~
+0 A inside
+D1
+~
+~
+Z 0 27464
+D2
+~
+~
+ABZ 0 27434
+D3
+~
+~
+Z 0 27459
+S
+#27459
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D0
+~
+~
+Z 0 27460
+D1
+~
+~
+Z 0 27458
+S
+#27460
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D0
+~
+~
+Z 0 27461
+D2
+~
+~
+Z 0 27459
+S
+#27461
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D0
+~
+~
+Z 0 27462
+D2
+~
+~
+Z 0 27460
+S
+#27462
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D1
+~
+~
+Z 0 27463
+D2
+~
+~
+Z 0 27461
+S
+#27463
+Above the Main Ring~
+At the end of the main spectator stands there is a ladder leading down
+into the main circus ring. The mist within is so thick and high that nothing
+can be seen, but vague figures can be seen moving around. A sense of
+something evil comes from below...
+~
+0 A inside
+D3
+~
+~
+Z 0 27462
+D5
+~
+~
+Z 0 27471
+S
+#27464
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D0
+~
+~
+Z 0 27465
+D3
+~
+~
+Z 0 27458
+S
+#27465
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D0
+~
+~
+Z 0 27466
+D2
+~
+~
+Z 0 27464
+S
+#27466
+In the Stands of the Grand Tent~
+You are amongst some spectator stands in a huge circus tent. Some old
+bones rest upon the seats, but nobody else is here. Through the mist filling
+the region you can make out vague figures moving in the centre ring of
+the tent. Sounds of pain and anguish can be heard faintly echoing through
+the air.
+~
+0 A inside
+D2
+~
+~
+Z 0 27465
+S
+#27467
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27473
+D1
+~
+~
+Z 0 27468
+D2
+~
+~
+Z 0 27470
+D3
+~
+~
+Z 0 27469
+S
+#27468
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27477
+D1
+~
+~
+Z 0 27469
+D2
+~
+~
+Z 0 27471
+D3
+~
+~
+Z 0 27467
+S
+#27469
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27475
+D1
+~
+~
+Z 0 27467
+D2
+~
+~
+Z 0 27472
+D3
+~
+~
+Z 0 27468
+S
+#27470
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27467
+D1
+~
+~
+Z 0 27471
+D2
+~
+~
+Z 0 27473
+D3
+~
+~
+Z 0 27472
+S
+#27471
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+A ladder ascends out of the mist from here.
+~
+0 A inside
+D0
+~
+~
+Z 0 27468
+D1
+~
+~
+Z 0 27472
+D2
+~
+~
+Z 0 27474
+D3
+~
+~
+Z 0 27470
+D4
+~
+~
+Z 0 27463
+S
+#27472
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27469
+D1
+~
+~
+Z 0 27476
+D2
+~
+~
+Z 0 27475
+D3
+~
+~
+Z 0 27471
+S
+#27473
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27470
+D1
+~
+~
+Z 0 27474
+D2
+~
+~
+Z 0 27467
+D3
+~
+~
+Z 0 27478
+S
+#27474
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27471
+D1
+~
+~
+Z 0 27475
+D2
+~
+~
+Z 0 27468
+D3
+~
+~
+Z 0 27473
+S
+#27475
+Lost in the Misty Ring~
+The mist within the main circus ring is head high and so thick it could
+almost be a forest fire's smoke. Except that it is chillingly cold and soaking
+into your body with a strange deathly touch. Around you shapes can be seen
+moving, but it is hard to see exactly what they are, or what they are doing.
+~
+0 A inside
+D0
+~
+~
+Z 0 27472
+D1
+~
+~
+Z 0 27473
+D2
+~
+~
+Z 0 27469
+D3
+~
+~
+Z 0 27474
+S
+#27476
+Before the Turning Wheel~
+You have come across a huge wheel that is slowly rotating in the mists.
+Strapped to the wooden devices are the bodies of several young women, all in
+various stages of decomposition. Deep cuts linger on all of their bodies, and
+several small knives still protrude from a couple. All around you the mist
+swirls and hides other such horrors.
+~
+0 A inside
+D0
+~
+~
+Z 0 27469
+D1
+~
+~
+Z 0 27470
+D2
+~
+~
+Z 0 27475
+D3
+~
+~
+Z 0 27472
+S
+#27477
+In the Clown Corner~
+The mist here receedes a little to show a clear floor space with a
+lot of rubbish lying around. Very little else is here though, and it doesn't
+appear to be of any real interest.
+~
+0 A inside
+D0
+~
+~
+Z 0 27474
+D1
+~
+~
+Z 0 27469
+D2
+~
+~
+Z 0 27468
+D3
+~
+~
+Z 0 27467
+S
+#27478
+In the Burning Pentegram~
+The mists here seems to swirl around the centre of the room where a
+large pentegram has been drawn out in dried, congealed blood. Candles line the
+unholy shape and give it a strange hazy look amidst the chill mist.
+~
+0 A inside
+D0
+~
+~
+Z 0 27470
+D1
+~
+~
+Z 0 27473
+D2
+~
+~
+Z 0 27467
+D3
+~
+~
+Z 0 27475
+S
+#27479
+A Blackened path~
+There seems little of interest here but blackened and burnt trees. For
+some reason this part of the area seems even darker than the rest. To the south
+you can make out a huge carnival tent.
+~
+0 A field
+D0
+~
+~
+Z 0 27480
+D2
+~
+~
+Z 0 27443
+S
+#27480
+On a burnt path~
+The path here is burned badly and bits of cooked flesh have been left
+hanging from bushes. The smell of death and decay hangs heavily in the air.
+Something truly dark has been using this passage for something. To the east
+you can make out smoke rising from what appears to be the very ground itself.
+~
+0 A field
+D1
+~
+~
+Z 0 27481
+D2
+~
+~
+Z 0 27479
+S
+#27481
+On a burnt path~
+The path here becomes even more badly scorched, and the few trees that
+stand here have been reduced to blackened piles of charcoal. To the east you
+can make out a huge pit from which thick roiling smoke pours forth.
+~
+0 A field
+D1
+~
+~
+Z 0 27482
+D3
+~
+~
+Z 0 27480
+S
+#27482
+Above a Black Pit~
+You stand above a huge gaping pit in the woodlands. All around it the
+forest is burnt and dead, suffocated by the thick choking smoke that is spewing
+forth. The smoke is so thick you can only make out faint orange flames within
+the pit, and right now it appears impossible to enter.
+~
+0 0 field
+D3
+~
+~
+Z 0 27481
+S
+#0
+
+#SPECIALS
+M 27401 spec_cast_mage	* a burning clown
+M 27406 spec_breath_lightning	* the Ring-Master
+M 27409 spec_poison	* a giant wolf-spider
+M 27416 spec_cast_mage	* the witch Gullveig
+M 27422 spec_cast_cleric	* the Lich Soothsayer
+S
+
+#RESETS
+D 0 27427 1 1	* Inside the Cage of Freaks: door to the east: closed
+D 0 27428 3 1	* The Freak House: door to the west: closed
+D 0 27434 0 1	* Before the Grand Tent: door to the north: closed
+D 0 27456 4 1	* Beneath a Strange Hut: door to the up: closed
+D 0 27457 5 1	* Inside Baba-Yaga's Hut: door to the down: closed
+D 0 27458 2 1	* Entrance to the Grand Tent: door to the south: closed
+M 0 27419 1 27424 1	* the Lich Samurai (The Swordmaster's Tent)
+E 0 27423 0 16		*	a Hell-forged scimitar: wielded
+E 0 27424 0 13		*	a Samurai black belt: around the waist
+E 0 27422 0 20		*	the Silver-scimitar: second wielded
+M 0 27425 1 27425 1	* a nail-impaled man (In a Clearing of Nails)
+E 0 27411 0 16		*	a blood-encrusted iron nail: wielded
+M 0 27412 1 27426 1	* the Lich Gypsy (The Gypsy's Stall)
+E 0 27408 0 5		*	a robe of silver-stars: on the body
+M 0 27410 1 27427 1	* a chimera (Inside the Cage of Freaks)
+E 0 27418 0 12		*	a strange girdle: about the shoulders
+M 0 27422 1 27429 1	* the Lich Soothsayer (In a Star covered Tent)
+E 0 27417 0 1		*	the ring of Blight: on the left finger
+M 0 27418 2 27430 1	* a Blood-brother Monk (In a Blood-stained Stall)
+E 0 27409 0 8		*	a pair of toe-spikes: on the feet
+E 0 27410 0 9		*	a set of finger-spikes: on the hands
+M 0 27426 2 27430 1	* a Blood-brother Monk (In a Blood-stained Stall)
+E 0 27421 0 9		*	some gloves of striking: on the hands
+E 0 27420 0 12		*	a brown robe: about the shoulders
+M 0 27417 1 27431 1	* the Teller of Ill-fortune (The Tent of Ill-fortune)
+E 0 27419 0 6		*	a pumpkin-head mask: over the head
+M 0 27416 1 27432 1	* the witch Gullveig (A Gold-lined Tent)
+E 0 27412 0 6		*	the golden hood of Gullveig: over the head
+E 0 27416 0 14		*	a bracelet inscribed with the Fifth Sin: on the left wrist
+M 0 27400 1 27457 1	* the Witch Baba-Yaga (Inside Baba-Yaga's Hut)
+E 0 27401 0 16		*	Baba-yaga's broom: wielded
+R 0 27467 3	* Lost in the Misty Ring: randomize
+M 0 27409 5 27468 2	* a giant wolf-spider (Lost in the Misty Ring)
+R 0 27468 3	* Lost in the Misty Ring: randomize
+R 0 27469 3	* Lost in the Misty Ring: randomize
+M 0 27409 5 27470 2	* a giant wolf-spider (Lost in the Misty Ring)
+R 0 27470 3	* Lost in the Misty Ring: randomize
+R 0 27471 3	* Lost in the Misty Ring: randomize
+M 0 27409 5 27472 2	* a giant wolf-spider (Lost in the Misty Ring)
+R 0 27472 3	* Lost in the Misty Ring: randomize
+M 0 27409 5 27473 2	* a giant wolf-spider (Lost in the Misty Ring)
+R 0 27473 3	* Lost in the Misty Ring: randomize
+R 0 27474 3	* Lost in the Misty Ring: randomize
+M 0 27409 5 27475 2	* a giant wolf-spider (Lost in the Misty Ring)
+R 0 27475 3	* Lost in the Misty Ring: randomize
+M 0 27404 1 27476 1	* the vampire knife-thrower (Before the Turning Wheel)
+E 0 27403 0 16		*	a barbed throwing-knife: wielded
+M 0 27405 1 27476 1	* a slashed girl (Before the Turning Wheel)
+R 0 27476 3	* Before the Turning Wheel: randomize
+M 0 27401 1 27477 1	* a burning clown (In the Clown Corner)
+M 0 27402 1 27477 1	* a frozen clown (In the Clown Corner)
+R 0 27477 3	* In the Clown Corner: randomize
+M 0 27406 1 27478 1	* the Ring-Master (In the Burning Pentegram)
+E 0 27405 0 13		*	a belt of entwined barbed wire: around the waist
+E 0 27406 0 14		*	the Ringmaster's Bracelet: on the left wrist
+E 0 27407 0 16		*	the Ringmaster's whip: wielded
+M 0 27407 1 27478 1	* a sacrificial man (In the Burning Pentegram)
+R 0 27478 3	* In the Burning Pentegram: randomize
+S
+
+#OLIMITS
+O 27401 2	* Baba-yaga's broom
+O 27403 29	* a barbed throwing-knife
+O 27405 2	* a belt of entwined barbed wire
+O 27406 4	* the Ringmaster's Bracelet
+O 27407 4	* the Ringmaster's whip
+O 27408 4	* a robe of silver-stars
+O 27409 2	* a pair of toe-spikes
+O 27410 2	* a set of finger-spikes
+O 27411 6	* a blood-encrusted iron nail
+O 27412 6	* the golden hood of Gullveig
+O 27414 3	* some leggings of quickening
+O 27416 5	* a bracelet inscribed with the Fifth Sin
+O 27417 3	* the ring of Blight
+O 27418 1	* a strange girdle
+O 27419 3	* a pumpkin-head mask
+O 27420 5	* a brown robe
+O 27421 1	* some gloves of striking
+O 27422 2	* the Silver-scimitar
+O 27423 2	* a Hell-forged scimitar
+O 27424 2	* a Samurai black belt
+S
+
+#$

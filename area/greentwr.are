@@ -1,0 +1,791 @@
+#AREADATA
+Name The Green Tinged Tower~
+VNUMs 26560 26599
+Credits Ceran~
+Security 9
+LevelRange 35 45
+ManualRare 2
+End
+
+#MOBILES
+#26560
+spirit priest~
+a spirit priest~
+A tansparent figure in clerical garb floats in the air.
+~
+This ghostly apparition seems to float through the green air around it in
+total bliss. A gleam of dark red glistens in it's eyes as it turns to regard
+your warm flesh..
+~
+human~
+AFGOQT DEFPT -1000 26560
+42 0 25d50+3000 1d1+100 5d6+15 drain
+-15 -15 -15 -15
+FGKU ABMN 0 0 stand stand none 0
+0 0 medium unknown
+R cur 0 0 40 60 0 0 0 0 0 0 0 0 0 50 0 0 0 0 0 0 0 0 0 0 0 0
+R fact D
+#26561
+undead novice~
+an undead elven novice~
+A disfigured elf in torn black priest's robes is standing here.
+~
+This elf fell to the evil that destroyed the city and is now living forever
+in his room where he once sought to be a priest of healing.
+~
+undead~
+ABFOQT EPTu -1000 26560
+45 0 25d10+4000 1d1+100 6d6+20 drain
+-21 -21 -21 -21
+ADFGKUW ABMP 0 0 stand stand none 0
+0 0 medium unknown
+R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 73 0 0 0 0 73 0 0 0 0 0 0 0
+R fact D
+#26562
+lich cleric~
+a lich cleric~
+An elf wearing robes of the inverted cross raises an arm to bless you.
+~
+This mighty cleric of ancient Myth Drannor has been preserved by the evil that
+rules the region as both a reminder of how weak willed good really are, and as
+a source of power to draw upon when the time grows near to release the lord
+of the ruins.
+~
+lich~
+ABFGOQT DEFJVu -1000 26560
+47 0 25d10+4300 1d1+100 6d6+22 drain
+-25 -25 -25 -25
+ADGKUW AK 0 0 stand stand none 0
+0 0 medium unknown
+R cur 0 0 40 7 0 0 0 0 0 0 0 0 0 73 0 0 0 0 0 0 0 0 0 0 0 0
+R fact D
+#26563
+undead elven healder~
+the undead elven healer~
+A withered elf in priest's garb reaches out to cure your soul.
+~
+He once healed those elves who fell in the fight against the evil, but now
+lives as a reminder of how the weak are used and the evil control them.
+~
+undead~
+ABFGOQT Eu -1000 26560
+49 0 25d10+4700 1d1+100 6d8+40 wrath
+-26 -26 -26 -26
+ADFGKUW ABIKMP 0 0 stand stand none 0
+0 0 medium unknown
+R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 73 0 0 0 0 63 0 0 0 0 0 0 0
+#26564
+undead elven bishop~
+the undead elven bishop~
+An undead elven bishop is here.
+~
+The undead elf's eyes stare back at you with unholy fury!
+~
+undead~
+ABFGOQT EVu -1000 26560
+50 2 50d10+5500 1d1+100 6d7+45 wrath
+-28 -29 -29 -25
+ADFGHKUW ABIKMP 0 0 stand stand none 0
+0 0 medium unknown
+R cur 0 0 40 40 0 0 0 0 0 0 0 0 0 73 0 0 0 0 73 0 0 0 0 0 0 0
+R fact D
+#26565
+dark angel~
+a dark angel~
+A dark angel is here.
+~
+There is a darkness about these beings that defies words. Their faces are as
+cold as ice and their eyes burn with the fury of unholy wrath. They are here
+by summons of the Lord to help guard the power that is building up towards
+his release.
+~
+human~
+ABFGQT DEF -1000 26560
+47 2 25d10+4300 1d1+1000 6d6+22 wrath
+-25 -25 -25 -25
+CDEFKO ABKLM 0 0 stand stand none 0
+0 0 giant unknown
+R cur 0 0 40 65 0 0 0 0 15 0 0 0 0 40 0 0 0 0 15 0 0 0 0 0 0 0
+R fact E
+#26567
+undead elven cardinal~
+the undead elven cardinal~
+An elf with a bare skull for a face prepares your final rites!
+~
+Once one of the grand lords of Myth Drannor this cardinal is now the keeper
+of the unholy power building up within the tower. He has been restored to
+undead life as a cruel reminder that good will not always triumph, and he
+watches over the power that will one day help release the Lord of the ruins.
+~
+undead~
+ABFGOQT EVu -1000 26560
+50 4 50d10+5500 1d1+100 6d8+30 divine
+-30 -30 -30 -30
+ADFGHKUWX ABIKMP 0 0 stand stand none 0
+0 0 medium unknown
+R cur 0 0 70 70 0 0 0 0 0 0 0 0 0 73 0 0 0 0 33 0 0 0 0 0 0 0
+R fact BD
+#0
+
+#OBJECTS
+#26560
+parchment green tinted seal~
+a green tinted seal~
+A piece of parchment scrawled with green writing is here.~
+paper~
+key 0 AO
+0 0 0 0 0
+0 10 0 P
+E
+green seal parchment~
+The writing on the parchment relates how the elves of Myth Drannor were used
+as sacrifices to provide the pure blood needed to help raise and evil of total
+corruption and unspeakable power that lay dormant beneath the city. Thie red
+bloodletting was to be accompanied by two other merging powers, that of the
+pure magics, the blue energies, and the divine magics, green energies. Yet
+something went wrong and now forces of darkness are fighting for the last
+keys to the power that lies hidden. Once the red, blue and green are finally
+joined the black tower will reveal it's secrets..
+~
+G none
+#26561
+mace disruption~
+the mace of disruption~
+A large mace thrumming with power is on the floor.~
+steel~
+weapon BG AN
+mace 6 9 crush 0
+33 180 4323 P
+A
+19 10
+G none
+#26562
+chain shard obsidian crystal~
+an obsidian pendant~
+A shard of obsidian on a thin chain is here.~
+obsidian~
+jewelry G AC
+0 0 0 0 0
+24 10 10696 P
+A
+4 2
+A
+12 20
+A
+13 20
+A
+17 -8
+A
+24 -3
+G none
+#26563
+sceptre heavenly heaven orders~
+a sceptre of the heavenly orders~
+A large ornate sceptre is lying here.~
+energy~
+armor AGIL AO
+5 5 5 5 5
+36 70 18890 P
+A
+13 30
+A
+12 70
+P
+12 10
+V
+2 @say~
+obj_cmd_say~
+G none
+#26564
+green mitre~
+a green mitre~
+A green coloured mitre for the clergy is here.~
+cloth~
+armor CEGI AE
+18 20 20 18 5
+30 10 10387 P
+A
+13 30
+A
+17 -8
+A
+24 -10
+A
+3 2
+A
+4 2
+G none
+#26565
+dark scimitar flesh-cutter cutter~
+a dark angel's flesh-cutter~
+A scimitar of dark material lies burning on the ground.~
+energy~
+weapon AGJ AN
+sword 6 6 slice 0
+21 135 4474 P
+A
+13 -2
+E
+dark scimitar flesh-cutter cutter~
+This nasty looking scimitar is unlike any you have ever seen before. It has
+a far different weight and balance to any other sword you have ever seen, and
+it's certainly not a very sturdy blade compared to many you have seen. In fact
+it looks quite pathetic as far as weapons go, although the cruel form of it's
+serated flesh-cutting edges could do some serious damage to a person's body
+if they managed to cut it right.
+~
+G none
+#26566
+green emerald bracer~
+a green emerald bracer~
+A loop of emerald lies here gathering dust.~
+emerald~
+armor G AM
+4 3 5 0 0
+20 10 241 P
+A
+3 2
+A
+12 20
+A
+19 1
+A
+18 1
+A
+17 -8
+G none
+#26567
+ivory amulet heaven~
+the amulet of heaven~
+A large amulet of ivory is lying on the ground.~
+ivory~
+jewelry A AC
+0 0 0 0 0
+31 10 5789 P
+A
+17 -35
+P
+13 3
+A
+18 3
+A
+19 3
+A
+13 20
+A
+12 20
+G none
+#26568
+key~
+a key~
+A large plain key is lying here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 10 0 P
+G none
+#26569
+key~
+a key~
+A large plain key is lying here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 10 0 P
+G none
+#26570
+key~
+a key~
+A large plain key is lying here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 10 0 P
+G none
+#26571
+key~
+a key~
+A large plain key is lying here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 10 0 P
+G none
+#26572
+opal shield~
+an opal shield~
+A shield of polished opal is on the ground.~
+opal~
+armor AB AJ
+9 9 9 10 0
+28 80 3473 P
+A
+20 -3
+A
+13 35
+P
+8 3
+A
+18 1
+A
+19 3
+G none
+#26574
+skull cap~
+a cap made from an elven skull~
+The remains of an elf's skull is on the ground.~
+bone~
+armor GHJ AE
+6 5 6 10 10
+22 40 851 P
+A
+12 20
+A
+18 2
+A
+4 1
+A
+19 3
+A
+13 -15
+G none
+#26576
+fountain~
+a glowing green fountain~
+A fountain with a sickly green aura is here.~
+stone~
+fountain A 0
+0 0 'water' 0 0
+0 0 0 P
+G none
+#0
+
+#ROOMS
+#26560
+In a foyer filled with a green aura~
+This room in the tower foyer has a sickly green light radiating from the
+walls. A feeling of unholy dread seeps through you, and it is as if there
+were some kind of divine force watching from nearbye. To the south is a
+large green door leading back to the ruins.
+~
+0 0 inside
+D0
+~
+~
+Z 0 26562
+D1
+~
+~
+Z 0 26561
+D2
+~
+~
+Z 0 13767
+S
+#26561
+In a foyer filled with a green aura~
+This room in the tower foyer has a sickly green light radiating from the
+walls. A feeling of unholy dread seeps through you, and it is as if there
+were some kind of divine force watching from nearbye.
+~
+0 0 inside
+D0
+~
+~
+Z 0 26563
+D3
+~
+~
+Z 0 26560
+S
+#26562
+In a foyer filled with a green aura~
+This room in the tower foyer has a sickly green light radiating from the
+walls. A feeling of unholy dread seeps through you, and it is as if there
+were some kind of divine force watching from nearbye.
+~
+0 0 inside
+D1
+~
+~
+Z 0 26563
+D2
+~
+~
+Z 0 26560
+S
+#26563
+In a foyer filled with a green aura~
+This room in the tower foyer has a sickly green light radiating from the
+walls. A feeling of unholy dread seeps through you, and it is as if there
+were some kind of divine force watching from nearbye.
+~
+0 0 inside
+D2
+~
+~
+Z 0 26561
+D3
+~
+~
+Z 0 26562
+D4
+~
+~
+Z 0 26564
+S
+#26564
+In a corridor bathed in a green glow~
+There is a strong hazy glow of sickly green light filtering through the air
+and bathing you in warm energy. All around you there is a strong feeling of
+a divine prescence watching you.
+~
+0 0 inside
+D0
+~
+door~
+ABZ -1 26565
+D5
+~
+~
+Z 0 26563
+S
+#26565
+In a corridor bathed in a green glow~
+There is a strong hazy glow of sickly green light filtering through the air
+and bathing you in warm energy. All around you there is a strong feeling of
+a divine prescence watching you.
+~
+0 0 inside
+D0
+~
+~
+Z 0 26566
+D2
+~
+door~
+ABZ -1 26564
+S
+#26566
+In a corridor bathed in a green glow~
+There is a strong hazy glow of sickly green light filtering through the air
+and bathing you in warm energy. All around you there is a strong feeling of
+a divine prescence watching you.
+~
+0 0 inside
+D0
+~
+door~
+ABZ -1 26567
+D2
+~
+~
+Z 0 26565
+S
+#26567
+In a corridor bathed in a green glow~
+There is a strong hazy glow of sickly green light filtering through the air
+and bathing you in warm energy. All around you there is a strong feeling of
+a divine prescence watching you.
+~
+0 0 inside
+D1
+~
+~
+Z 0 26568
+D2
+~
+door~
+ABZ -1 26566
+S
+#26568
+In a corridor bathed in a green glow~
+There is a strong hazy glow of sickly green light filtering through the air
+and bathing you in warm energy. All around you there is a strong feeling of
+a divine prescence watching you.
+~
+0 0 inside
+D1
+~
+~
+Z 0 26569
+D3
+~
+~
+Z 0 26567
+S
+#26569
+In a corridor bathed in a green glow~
+There is a strong hazy glow of sickly green light filtering through the air
+and bathing you in warm energy. All around you there is a strong feeling of
+a divine prescence watching you.
+~
+0 0 inside
+D3
+~
+~
+Z 0 26568
+D4
+~
+~
+Z 0 26571
+S
+#26571
+In a room with a green fountain~
+This room is humming with the sound of magical energy of some divine nature.
+In the centre is a fountain which is glowing with a sickly green aura. In
+all directions around you there are strong steel doors, and a stairwell leads
+down.
+~
+0 0 inside
+D0
+~
+door~
+ABCFZ 26568 26573
+D1
+~
+door~
+ABCFZ -1 26572
+D2
+~
+door~
+ABCFZ 26570 26575
+D3
+~
+door~
+ABCFZ 26569 26574
+D5
+~
+~
+Z 0 26569
+S
+#26572
+In a sparse room~
+The room is empty except for the insistent glow of sickly green that hangs
+throughout the tower air. The only exit is a door in the west wall.
+~
+0 0 inside
+D3
+~
+door~
+ABCFZ -1 26571
+S
+#26573
+In a meditation room~
+This room has the trappings of a cleric's retreat. Except the symbols hanging
+on the walls are dusty with neglect and the cross that hangs over the door
+is inverted and covered in blood. The only exit is back south through the
+doorway.
+~
+0 0 inside
+D2
+~
+door~
+ABCFZ 26568 26571
+S
+#26574
+In a room of healing~
+This room has been set up for the recuperation of patients who may have been
+hurt during fights or on hunting trips. Except that right now it appears the
+beds are soaked in blood and there are no patients, just long dead skeletons
+of elves who were brought here for aid. The only exit is east through the
+doorway.
+~
+0 0 inside
+D1
+~
+door~
+ABCFZ 26569 26571
+S
+#26575
+In the holy place~
+This shrine is bathed in a glaring sickly green light that warms you with it's
+unholy energy. The holy symbols and tablets scattered about the room are dust
+covered and bloody, signs that the times of peace are long gone in this place.
+There is a door leading north, and a stairway heading up.
+~
+0 0 inside
+D0
+~
+door~
+ABCFZ 26570 26571
+D4
+~
+~
+Z 0 26576
+S
+#26576
+Ascending into an unholy green light~
+You have stepped into a glaring green light that sends flowing warmth through
+your body. Despite this warm feeling it has sends a sickly shudder through
+you as it penetrates your very bones. Below you is a stairwell leading down
+into a room, and there are doors in the north and south walls.
+~
+0 0 inside
+D0
+~
+door~
+ABCFZ 26571 26578
+D2
+~
+door~
+ABCFZ 26571 26577
+D5
+~
+~
+Z 0 26575
+S
+#26577
+In an unholy green light~
+You stand in the flowing green light that permeates this tower. From here you
+can see the glaring green light is filtering in from above you. There is a
+door to the north that helps to stem the flood of light into the lower
+level.
+~
+0 0 inside
+D0
+~
+door~
+AFZ 26571 26576
+D4
+~
+~
+Z 0 26579
+S
+#26578
+In an unholy green light~
+You stand in the flowing green light that permeates this tower. From here you
+can see the glaring green light is filtering in from above you. There is a
+door to the south that helps to stem the flood of light into the lower
+level.
+~
+0 0 inside
+D2
+~
+door~
+AFZ 26571 26576
+D4
+~
+~
+Z 0 26579
+S
+#26579
+In a burning green light of unholy fire~
+You have stepped into a light of sickly green that is so intense it burns the
+skin and sears your eyes. All around you there is the ringing sound of deep
+chanting in some arcane tongue, but you are able to hear that the tone is
+one of dark evil. Below you is a way down through the light, and to the south
+is the source of the unholy energy that surges around you.
+~
+0 0 inside
+D2
+~
+~
+Z 0 26581
+D5
+~
+~
+Z 0 26578
+S
+#26580
+In a burning green light of unholy fire~
+You have stepped into a light of sickly green that is so intense it burns the
+skin and sears your eyes. All around you there is the ringing sound of deep
+chanting in some arcane tongue, but you are able to hear that the tone is
+one of dark evil. Below you is a way down through the light, and to the north
+is the source of the unholy energy that surges around you.
+~
+0 0 inside
+D0
+~
+~
+Z 0 26581
+D5
+~
+~
+Z 0 26577
+S
+#26581
+Within the unholy fire~
+The room here is burning in unholy green fire. The light from it blasts out
+of the room north and south into the rest of the tower, but it is here that
+the green light is of burning intensity. You can practically feel the heat
+of the flames searing your soul, and a divine prescence can be felt watching
+and enjoying the light as it gathers power.
+~
+0 0 inside
+D0
+~
+~
+Z 0 26579
+D2
+~
+~
+Z 0 26580
+S
+#0
+
+#SPECIALS
+M 26560 spec_cast_cleric	* a spirit priest
+M 26561 spec_cast_cleric	* an undead elven novice
+M 26562 spec_cast_cleric	* a lich cleric
+M 26563 spec_cast_cleric	* the undead elven healer
+M 26565 spec_cast_cleric	* a dark angel
+M 26567 spec_cast_cleric	* the undead elven cardinal
+S
+
+#RESETS
+D 0 26564 0 1	* In a corridor bathed in a green glow: door to the north: closed
+D 0 26565 2 1	* In a corridor bathed in a green glow: door to the south: closed
+D 0 26566 0 1	* In a corridor bathed in a green glow: door to the north: closed
+D 0 26567 2 1	* In a corridor bathed in a green glow: door to the south: closed
+D 0 26571 0 2	* In a room with a green fountain: door to the north: closed and locked
+D 0 26571 1 2	* In a room with a green fountain: door to the east: closed and locked
+D 0 26571 2 2	* In a room with a green fountain: door to the south: closed and locked
+D 0 26571 3 2	* In a room with a green fountain: door to the west: closed and locked
+D 0 26572 3 2	* In a sparse room: door to the west: closed and locked
+D 0 26573 2 2	* In a meditation room: door to the south: closed and locked
+D 0 26574 1 2	* In a room of healing: door to the east: closed and locked
+D 0 26575 0 2	* In the holy place: door to the north: closed and locked
+D 0 26576 0 2	* Ascending into an unholy green light: door to the north: closed and locked
+D 0 26576 2 2	* Ascending into an unholy green light: door to the south: closed and locked
+M 0 26560 4 26561 1	* a spirit priest (In a foyer filled with a green aura)
+M 0 26560 4 26563 1	* a spirit priest (In a foyer filled with a green aura)
+M 0 26560 4 26564 1	* a spirit priest (In a corridor bathed in a green glow)
+M 0 26560 4 26566 1	* a spirit priest (In a corridor bathed in a green glow)
+O 0 26576 0 26571	* a glowing green fountain (In a room with a green fountain)
+M 0 26561 1 26572 1	* an undead elven novice (In a sparse room)
+E 0 26572 0 11		*	an opal shield: as a shield
+E 0 26568 0 17		*	a key: held in the hands
+M 0 26562 1 26573 1	* a lich cleric (In a meditation room)
+E 0 26574 0 6		*	a cap made from an elven skull: over the head
+E 0 26569 0 17		*	a key: held in the hands
+M 0 26563 1 26574 1	* the undead elven healer (In a room of healing)
+E 0 26567 0 3		*	the amulet of heaven: around the neck (1)
+E 0 26562 0 4		*	an obsidian pendant: around the neck (2)
+E 0 26570 0 17		*	a key: held in the hands
+M 0 26564 1 26575 1	* the undead elven bishop (In the holy place)
+E 0 26566 0 14		*	a green emerald bracer: on the left wrist
+E 0 26571 0 17		*	a key: held in the hands
+M 0 26565 2 26577 1	* a dark angel (In an unholy green light)
+E 0 26565 0 16		*	a dark angel's flesh-cutter: wielded
+M 0 26565 2 26578 1	* a dark angel (In an unholy green light)
+E 0 26565 0 16		*	a dark angel's flesh-cutter: wielded
+M 0 26567 1 26581 1	* the undead elven cardinal (Within the unholy fire)
+E 0 26560 0 17		*	a green tinted seal: held in the hands
+E 0 26561 0 16		*	the mace of disruption: wielded
+E 0 26564 0 6		*	a green mitre: over the head
+S
+
+#OLIMITS
+O 26561 2	* the mace of disruption
+O 26564 2	* a green mitre
+O 26567 3	* the amulet of heaven
+O 26572 7	* an opal shield
+S
+
+#OMPROGS
+O 26561 fight_prog fight_prog_mace_disruption	* `the mace of disruption'
+S
+
+#$
