@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.rules,v 1.4 1999-07-21 04:22:46 avn Exp $
+# $Id: Makefile.rules,v 1.5 1999-07-21 06:40:57 avn Exp $
 #
 
 #
@@ -19,11 +19,10 @@ $(MODULE_NAME): $(OFILES)
 	$(LD) -o $(MODULE_NAME) $(LFLAGS) $(OFILES) $(LIBS)
 
 depend:
-	rm -f .depend
 	mkdep $(CFLAGS) $(CFILES)
 
 clean:
-	rm -f $(MODULE_NAME) $(OFILES)
+	rm -f $(MODULE_MASK) $(OFILES) .depend
 
 install: $(MODULE_NAME)
 	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/$(INSTALL_DIR)

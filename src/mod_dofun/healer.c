@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.28 1999-07-20 21:46:46 avn Exp $
+ * $Id: healer.c,v 1.29 1999-07-21 06:40:57 avn Exp $
  */
 
 /*-
@@ -54,7 +54,7 @@ heal_t heal_table[] =
     { "light",	  "cure light wounds",	  "cure light",    0, 10	},
     { "serious",  "cure serious wounds",  "cure serious",  0, 15	},
     { "critical", "cure critical wounds", "cure critical", 0, 25	},
-    { "heal",	  "healing spell",	  "heal",	         0, 50	},
+    { "heal",	  "healing spell",	  "heal",          0, 50	},
     { "blind",	  "cure blindness",	  "cure blindness",0, 20	},
     { "disease",  "cure disease",	  "cure disease",  0, 15	},
     { "poison",	  "cure poison",	  "cure poison",   0, 25	},
@@ -63,10 +63,19 @@ heal_t heal_table[] =
     { "mana",	  "restore mana",	  "mana restore", 20, 10	},
     { "master",	  "master heal spell",	  "master healing",0, 200	},
     { "energize", "restore 300 mana",	  "mana restore",  0, 200	},
-    { "herbs",	  "ranger's healing",	  "herbs",	         0, -100},
+    { "herbs",	  "ranger's healing",	  "herbs",         0, -100	},
 
     { NULL }
 };
+
+int get_heal_cost(heal_t *h, CHAR_DATA *mob, CHAR_DATA *ch)
+{
+    int price;
+
+    price = (h->price > 0)?(h->price):(-h->price);
+    if (ch->clan && ch->clan == mob->clan) price /= 2;
+    return price;
+}
 
 void do_heal(CHAR_DATA *ch, const char *argument)
 {
@@ -92,8 +101,8 @@ void do_heal(CHAR_DATA *ch, const char *argument)
         /* display price list */
 	act("$N offers the following spells.",ch,NULL,mob,TO_CHAR);
 	for (h = heal_table; h->keyword; h++)
-	    char_printf(ch, "%10s : %20s : %d gold\n",
-		h->keyword, h->name, (h->price>0)?h->price:-h->price);
+	    char_printf(ch, "%-10.9s : %-20.19s : %3d gold\n",
+		h->keyword, h->name, get_heal_cost(h, mob, ch));
 	char_puts(" Type heal <type> to be healed.\n",ch);
 	return;
     }
@@ -107,8 +116,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	    ch,NULL,mob,TO_CHAR);
 	return;
     }
-    cost = 100 * h->price;
-    if (ch->clan && ch->clan == mob->clan) cost /= 2;
+    cost = get_heal_cost(h, mob, ch);
 
     if (HAS_SKILL(ch, gsn_spellbane) && (h->price > 0)) {
 	char_puts("You are Battle Rager, not the filthy magician\n",ch);

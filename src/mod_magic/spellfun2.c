@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.125 1999-07-21 04:19:19 avn Exp $
+ * $Id: spellfun2.c,v 1.126 1999-07-21 06:40:58 avn Exp $
  */
 
 /***************************************************************************
@@ -4026,7 +4026,7 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
 	af.level     = ch->level;
-	af.duration  = level / 15;
+	af.duration  = level / 2;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_RANDOMIZER;
