@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.108 1999-02-25 14:27:23 fjoe Exp $
+ * $Id: update.c,v 1.109 1999-02-26 08:11:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1711,12 +1711,13 @@ void aggr_update(void)
 				continue;
 			}
 
-			if (ch->target == wch) {
-				multi_hit(ch, wch, TYPE_UNDEFINED);
+			if (ch->target) {
+				if (ch->target == wch)
+					multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
 			}
 
-			if (ch->last_fought != NULL)
+			if (ch->last_fought)
 				continue;
 
 			/*
