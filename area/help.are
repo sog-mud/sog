@@ -53,14 +53,14 @@ Developed at: DIKU -- The Department of Computer Science
 Разработан в: DIKU -- факультет информатики Копенгагенского университета.
 ~
 -1 GOLD SILVER MONEY~
-@eng Midgaard's economy is based on gold and silver coinage (and the lowly copper,
-which you as an adventurer are far too proud to carry).  Gold coins are worth
-100 silver coins, but are also four times as heavy (25 to the pound, as opposed
-to 100 to the pound for silver). Gems can be bought to alleviate weight problems
-from the Midgaard jeweller, he charges a mere 10% more than they are worth.
-10 gems weigh one pound, and they can be worth more than 100 gold pieces for
-the highest quality stones.
- 
+@eng Midgaard's economy is based on gold and silver coinage (and the lowly
+copper, which you as an adventurer are far too proud to carry).  Gold coins
+are worth 100 silver coins, but are also four times as heavy (25 to the
+pound, as opposed to 100 to the pound for silver).  Gems can be bought to
+alleviate weight problems from the Midgaard jeweller, he charges a mere 10%
+more than they are worth.  10 gems weigh one pound, and they can be worth
+more than 100 gold pieces for the highest quality stones.
+
 See also {CHELP BANK{x
 @rus Экономика Мидгарда основана на золотой и серебряной чеканке (и не использует 
 медь, которую ты, являясь авантюристом, просто не переносишь). Золотые монеты
@@ -73,21 +73,19 @@ See also {CHELP BANK{x
 
 Смотри также {CHELP BANK{x
 ~
-0 BRIEF COMPACT~
-Brief and compact help set your display options for the game. Typing brief
-toggles on and off the showing of room descriptions when you move around
-(considerably reducing the text to be processed), and typing compact 
-removes the extra blank line before your prompt.
-~
 -1 DEAF~
-@eng The deaf toggle turns off incoming tells, helpfull if you are being bombarded
-by messages from other players.  You can still use reply (see 'help reply') to
+@eng Syntax: {cdeaf{x
+
+The deaf toggle turns off incoming tells, helpfull if you are being bombarded
+by messages from other players.  You can still use reply (see {CHELP REPLY{x) to
 reply to people who were telling you before you went deaf, although you
-cannot reply to a deaf person unless you or they are a diety (it's mostly 
+cannot reply to a deaf person unless you or they are a deity (it's mostly 
 useful for sending a quick "I'm being spammed so I went deaf" message to
 a person).
-@rus Переключатель {Gdeaf{x выключает получение сообщений(tell). Тем не менее, ты можешь
-использовать команду {Greply{x (смотри {CHELP REPLY{x) для ответа человеку с которым
+@rus Синтаксис: {cdeaf{x
+
+Переключатель deaf выключает получение сообщений(tell). Тем не менее, ты можешь
+использовать команду reply (смотри {CHELP REPLY{x) длЯ ответа человеку с которым
 ты общался до набора этой команды. Однако данная команда не отменяет обращений
 богов к тебе. 
 ~
@@ -190,6 +188,7 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
      For more help, type {CHELP <topic>{x for any command, skill, or spell.
    Use {CHELP n.<topic>{x to select one of available topics. E.g. {CHELP 1.DEATH{x
        Also see {CHELP DAMAGE DEATH EXPERIENCE COLOR TICK WIZLIST QUESTS{x
+                           {CFLAGS TOGGLE{x
 @rus {g____________________________________________________________________________
 || {YПЕРЕМЕЩЕНИЕ                    {g|    {YГРУППЫ                             {g||
 || {xnorth south east west up down  {g|    {xfollow group gtell split           {g||
@@ -213,27 +212,27 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
             Для того чтобы узнать больше наберите {CHELP {C<topic>{x
                 на любую команду, умение или заклинание.
 Для выбора из нескольких тем введите {CHELP n.<topic>{x, например: HELP 1.DEATH
-    А также HELP DAMAGE, DEATH, EXPERIENCE, COLOR, TICK, WIZLIST, QUESTS
+    А также {CHELP DAMAGE, DEATH, EXPERIENCE, COLOR, TICK, WIZLIST, QUESTS{x
+                              {CFLAGS, TOGGLE{x
 ~
 0 DEATH~
-@eng When your character dies, you are reincarnated back at the Altar of the Temple
-of Midgaard.  Your corpse is left behind in the room where you were killed,
+@eng When your character dies, you are reincarnated back at the Altar of your
+home  Your corpse is left behind in the room where you were killed,
 together with all of your equipment.
 
 Any spells which were affecting you are canceled by death.
 
 Following and groups are not affected by death.
-
 You lose experience points for dying.  The amount you lose depends on 
 your then experience points, your race, class and your previous deaths.
 
 After each three deaths your constitution decreases by one.
 
-Corpses decay after time, but the objects inside corpses fall to the ground.
+Corpses decay after time, but the objects inside your corpse will be 
+transferred to the pitof your temple.
 
 If your constitution falls below 3, character will not be 
-resurrected in temple.
-  
+resurrected in templebut deleted permanently.
 @rus Когда ваш персонаж умирает, он возрождается на алтаре Храма твоего родного
 города. Твой труп остается в комнате, где ты был убит, вместе со всеми твоими
 вещами.
@@ -255,27 +254,25 @@ resurrected in temple.
 а стирается автоматически.
 ~
 0 EXPERIENCE LEVEL XP~
-@eng Your character advances in power by gaining experience.  You need a set 
+@eng Your character advances in power by gaining experience.  You need growing
 amount of experience points for each level based on your race and class.
 You gain experience by:
-
-    being part of a group that kills a monster
-
+ 
+    -- killing a monster
+    -- being part of a group that kills a monster
+ 
 You lose experience by:
-
-    fleeing from combat
-    recalling out of combat
-    being the target of certain spells
-    dying
-
-The experience you get from a kill depends on several things: how many players
-are in your group; your level versus the level of the monster; your alignment
-versus the monster's alignment; how many of this monster have been killed
-lately; and some random variation.
-    A group which consist of two player will reduce your experience points 
-25 % of real exp which got if alone.
-    A group which consist of three player will reduce your experience points
-50 % of real exp which got if alone. 
+    -- fleeing from combat
+    -- being the target of certain spells
+    -- dying
+ 
+The experience you get from a kill depends on several things:
+    -- how many players are in your group
+    -- your level versus the level of the monster
+    -- your alignment versus the monster's alignment
+    -- some random variation.
+ 
+Groups consisting of 2 or 3 players receive bonus exp.
 @rus Персонаж становится сильнее, получая опыт. Количесво единиц опыта, необхо-
 димого для получения следующего уровня, растет по мере твоего продвижения.
 
@@ -355,8 +352,6 @@ Through The MUD, current site lttm.westside.net port 23 or 9000
 0 PET PETS~
 @eng You can buy pets in the pet shop.  You may own only one pet at a time, after 
 the old one dies you may purchase a replacement.
-
-New pets are planned for a shop in New Thalos.
 @rus Ты можешь покупать домашних животных в зоомагазине ({cpet shop{x). Ты можешь иметь
 только одно домашнее животное одновременно, только после того, как старое
 умирает, ты можешь купить замену.
@@ -1144,7 +1139,7 @@ it/his/her just typing track.
  
 Это заклинание позволяет тебе передать всю твою ману указанному персонажу.
 ~
-0 PROTECTION HEAT~
+0 'PROTECTION HEAT'~
 @eng Syntax: cast 'protection heat' 
 
         This spell makes you resistive against fire attacks.
@@ -1161,7 +1156,7 @@ source  to cast. Thus cannot cast any spell.
  
 Персонаж под действием этого заклинания не может колдовать.
 ~
-0 PROTECTION COLD~
+0 'PROTECTION COLD'~
 @eng Syntax: cast 'protection cold'
 
         This spell makes you resistive against the cold attacks.
@@ -1179,13 +1174,13 @@ source  to cast. Thus cannot cast any spell.
 Это заклинание позволяет отпереть дверь без помощи ключа. Но не сильно
 обольщайтесь, не все двери вам поддадуться.
 ~
-0 BASH DOOR BASHDOOR~
+0 'BASH DOOR' BASHDOOR~
 @eng Syntax: bashdoor <direction>
 @rus Синтаксис: {cbashdoor{x <направление>
  
 Это умение выламывать двери дает тебе возможность открывать их без ключа.
 ~
-0 FIRE SHIELD~
+0 'FIRE SHIELD'~
 @eng Syntax: cast 'fire shield' cold
 Syntax: cast 'fire shield' fire 
 
@@ -1203,7 +1198,7 @@ Syntax: cast 'web' <victim>
         This spell is disables char moving in any direction. Also web
 decreases the hit probability and dexerity of the victim.
 ~
-0 MAGIC RESISTANCE~
+0 'MAGIC RESISTANCE'~
 Syntax: cast 'magic resistance'
 
         This spell makes you resistive against the magical attacks.
@@ -1220,7 +1215,7 @@ only one way to protect from this attack.
 этого заклинания так велика, что оно уничтожает даже вещи жертвы. Только защита
 от магии (saves) может спасти жертву.
 ~
-0 WITCH CURSE~
+0 'WITCH CURSE'~
 @eng Syntax: cast 'witch curse' <victim>
 
         This spell means certain death to the target, but it takes some time
@@ -1232,7 +1227,7 @@ by 100 till the end, death.
 занимает некоторое время в зависимости от здоровья жертвы. Каждый тик жертва
 теряет все больше и больше хит-пойнтов (hp) до конца... до смерти.
 ~
-0 ANIMATE DEAD~
+0 'ANIMATE DEAD'~
 @eng Syntax: cast 'animate death' <corpse>
 
         This spell allows the caster to give life to a corpse and force the
@@ -1255,7 +1250,7 @@ damage to victim.
 Это умение дает возможность хвостатым существам использовать хвост в бою.
 Вероятность такого удара очень низка, но он наносит очень большой ущерб жертве.
 ~
-0 'DRAGON SKIN' DRAGONSKIN~
+0 'DRAGON SKIN'~
 @eng Syntax: cast 'dragon skin'
 
         This spell enables dragons to increase its AC so that they can
@@ -1273,7 +1268,7 @@ fear and force him to flee.
  
 Это заклинание запугивает жертву и принуждает ее сбежать из боя.
 ~
-0 MAGIC JAR~
+0 'MAGIC JAR'~
 @eng Syntax: cast 'magic jar' <victim>
 
         This spell allows the caster to catch the spirit of the victim 
@@ -1286,7 +1281,7 @@ spirit.
 получать очки опыта и покидать этот мир. Не забывай, что для хранения души
 нужен пустой пузырек.
 ~
-0 POWER WORD KILL~
+0 'POWER WORD KILL'~
 @eng Syntax: cast 'power word kill' <victim>
 
         Very high level necromancers can learn to kill in one cast.This 
@@ -1297,7 +1292,7 @@ only one way to protect from this attack.
 Некромансеры очень высоких уровней могут убивать единственным заклинанием.
 Только защита от магии (saves) может спасти жертву.
 ~
-0 'POWER WORD STUN' STUN~
+0 'POWER WORD STUN'~
 Syntax: cast 'power word stun' <victim>
 
         Only powerful anti-paladins can learn the secret of this spell 
@@ -1309,11 +1304,11 @@ Syntax: cast 'hellfire' <victim>
         This spell inflicts fire damage on your victim.  The higher-levels
 spell do more damage.
 ~
-0 MASTERING SWORD~
+0 'MASTERING SWORD'~
 A trained samurai can get the secret of sword usage. His/her sword 
 would be more damageful on his/her opponents.
 ~
-0 AREA ATTACK~
+0 'AREA ATTACK'~
 Warriors and samurai's have the secret of the area attack to
 destroy to their enemies. At the beginning, they can fight with two
 opponents and as they trained enough they can increase the opponets.
@@ -1354,11 +1349,11 @@ they say, utter(or what you say) ; simply enemies become deaf-mute
 persons. Hence any person which has been affected by deafen cannot cast
 any spell.   
 ~
-0 SANCTIFY 'SANCTIFY LANDS'~
+0 'SANCTIFY LANDS'~
 Clerics and paladins can remove the plague, slow, poison, curse and sleep
 affects of the room. 
 ~
-0 DEADLY 'DEADLY VENOM'~
+0 'DEADLY VENOM'~
 This spell allows the caster to envenom the room. The characters who out
 of your PK range will not be affected by the affection of this spell. 
 ~
@@ -1366,23 +1361,13 @@ of your PK range will not be affected by the affection of this spell.
 This spell allows the caster to curse the room. The characters who out
 of your PK range will not be affected by the affection of this spell. 
 ~
-0 LETHARGIC 'LETHARGIC MIST'~
+0 'MYSTERIOUS DREAM'~
 This spell allows the caster to add the slow affection to the room. The
 characters who out of your PK range will not be affected by the affection
 of this spell. 
 ~
 0 'BLACK DEATH'~
 This spell allows the caster to add the plague affection to the room. The
-characters who out of your PK range will not be affected by the affection
-of this spell. 
-~
-0 MYSTERIOUS 'MYSTERIOUS DREAM'~
-This spell allows the caster to add the sleep affection to the room. The
-characters who out of your PK range will not be affected by the affection
-of this spell. 
-~
-0 MYSTERIOUS 'MYSTERIOUS DREAM'~
-This spell allows the caster to add the sleep affection to the room. The
 characters who out of your PK range will not be affected by the affection
 of this spell. 
 ~
@@ -1700,7 +1685,7 @@ In the long run, your character will be most powerful if you train
 WIS and CON both to 18 before practising or training anything else.
  
 ~
-100 ADVANCE~
+92 'WIZ ADVANCE' ADVANCE~
 Syntax: advance <character> <level>
 
 ADVANCE sets a character's level to the specified value.  It is the
@@ -1720,19 +1705,33 @@ Questionable spells are : 'word of recall', 'cancellation', 'slow',
  
 ~
 92 'WIZ REBOOT' REBOOT 'WIZ SHUTDOWN' SHUTDOWN~
-Syntax: reboot status
-Syntax: reboot num
-
-Syntax: shutdown {{ status | activate | deactivate }
-
-Reboot shuts down the server.  When the normal 'startup' script is used
-to control the server, a delay of fifteen seconds will ensue (to allow
-old connections to die), followed by a reboot.
-
-If shutdown status is 'active' then mud will not restart after next reboot.
+@eng Syntax: {creboot status{x
+Syntax: {creboot{x <number>
+Syntax: {creboot now{x
+Syntax: {creboot cancel{x
+Syntax: {cshutdown status{x
+Syntax: {cshutdown activate{x
+Syntax: {cshutdown deactivate{x
  
+REBOOT STATUS shows you current reboot status. REBOOT NOW reboots MUD
+immediately. REBOOT CANCEL turns automatic reboot off. REBOOT with number
+sets time to reboot (in ticks). SHUTDOWN is used to toggle shutdown status.
+If shutdown is active, MUD will not start automatically after reboot.
+@rus Синтаксис: {creboot status{x
+Синтаксис: {creboot{x <число>
+Синтаксис: {creboot now{x
+Синтаксис: {creboot cancel{x
+Синтаксис: {cshutdown activate{x
+Синтаксис: {cshutdown deactivate{x
+Синтаксис: {cshutdown status{x
+ 
+REBOOT STATUS показывает текущее состояние перезагрузки. REBOOT NOW перезагру-
+жает МУД немедленно. REBOOT CANCEL отменяет автоматическую перезагрузку. REBOOT
+с числом в качестве аргумента устанавливает время до перезагрузки. SHUTDOWN
+используется для установки статуса shutdown. Если shutdown активен, то после
+перезагрузки МУД не стартует автоматически.
 ~
-96 WIZLOCK NEWLOCK~
+92 'WIZ WIZLOCK' WIZLOCK 'WIZ NEWLOCK' NEWLOCK~
 Syntax: wizlock
 	newlock
 
@@ -1744,28 +1743,31 @@ be avoided,and newlocking should be accompanied by mail or a note to the imps.
 
 A god must be at least Supreme level to wizlock the game.
 ~
-99 DENY~
+92 'WIZ DENY' DENY~
 Syntax: deny <name>
 
 Deny locks a character out of a game permanently, rendering their character
 name unusable.  It may only be removed by editing the file, for this reason
 freeze is usually preferred.
 ~
-97 DISCONNECT~
-Syntax: disconnect <name>
+92 'WIZ DISCONNECT' DISCONNECT~
+@eng Syntax: {cdisconnect{x <name>
 
 Disconnect breaks a player's link to the game, dumping them back to the telnet
 prompt.  This is a non-lethal way of getting rid of spammers and annoying
 players.
+@rus Синтаксис: {cdisconnect{x <имя>
+
+Эта команда разрывает связь с указанным игроком.
 ~
-97 FREEZE~
+92 'WIZ FREEZE' FREEZE~
 Syntax: freeze <name>
 
 FREEZE <character> is a toggle which prevents a character from issuing any
 commands at all. It can be removed from within the game, so freezing a 
 troublemaker is usually a better option than they deny command.
 ~
-93 FORCE~
+92 'WIZ FORCE' FORCE~
 Syntax: force <character> <command>
 Syntax: force all <command>
 
@@ -1777,7 +1779,7 @@ unavailable.  You also cannot 'force orc murder hugo', for example.
 FORCE 'all' forces all player characters to execute a command.
 This is typically used for 'force all save'.
 ~
-96 SOCKETS~
+92 'WIZ SOCKETS' SOCKETS~
 Syntax: sockets
 	sockets <name> 
 
@@ -1790,21 +1792,26 @@ The optional name argument shows the site of a player, or optional can be used
 to identify switched gods (i.e. socket orc shows the name of anyone switched
 into an orc).
 ~
-96 LOAD~
-Syntax: load mob <vnum>
-	load obj <vnum> <level>
+92 'WIZ LOAD' LOAD~
+@eng Syntax: {cload mob{x <vnum>
+Syntax: {cload obj{x <vnum>
 
 The load command is used to load new objects or mobiles (use clone to 
 duplicate strung items and mobs).  The vnums can be found with the vnum
 command, or by stat'ing an existing mob or object.
 
 Load puts objects in inventory if they can be carried, otherwise they are
-put in the room.  Mobiles are always put into the same room as the god. Old
-format objects must be given a level argument to determine their power, new
-format objects have a preset level that cannot be changed without set.
-(see also clone, vnum, stat)
+put in the room.  Mobiles are always put into the same room as the god.
+@rus Синтаксис: {cload mob{x <номер>
+Синтаксис: {cload obj{x <номер>
+ 
+Команда LOAD используется для создания новых монстров или обьектов. Используйте
+команду CLONE для копирования существующих монстров или обьектов. Номер может быть
+определен при помощи команд VNUM или STAT. Команда LOAD помещает обьект в твой
+мешок (inventory), если этот обьект можно переносить, или в ту же комнату в про-
+тивном случае. Монстры всегда помещаются в комнату, в которой ты стоишь.
 ~
-98 SET~
+92 'WIZ SET' SET~
 Syntax: set mob   <mobile> <field> <value>
 	set obj   <object> <field> <value>
 	set room  <number> <field> <value>
@@ -1817,7 +1824,7 @@ Set skill all (pc's only) will set all the character's skills to the value
 given.  Use string to change the strings on an object or mobile.
 (see also string, stat)
 ~
-95 STRING~
+92 'WIZ STRING' STRING~
 Syntax: string obj <field> <string>
 	string mob <field> <string>
 
@@ -1825,34 +1832,51 @@ The string command changes the various strings associated with an object or
 mobile.  A full list of fields can be viewed by typing string obj or string
 mob.  Sorry, multi-line strings are not yet supported.
 ~
-95 NOCHANNEL NOEMOTE NOSHOUT NOTELL~
-Syntax: nochannel <character>
-	noemote   <character>
-	noshout   <character>
-	notell    <character>
-
-Noemote, noshout, and notell are used to muffle other characters, by
-preventing them from emoting, shouting, and telling, respectively.
-Characters who are noshout'ed or no'telled will also not receive those
-forms of communication.
-
-The nochannel command is similar, but more drastic. It prevents the victim
-from using any of the channels (gossip, cgossip, Q/A, music) on the game.
-Nochannels usually result from swearing or spamming on public channels.
+92 'WIZ NOCHANNEL' NOCHANNEL 'WIZ NOEMOTE' NOEMOTE{\'WIZ NOTELL' NOTELL~
+@eng Syntax: {cnochannel{x <character>
+Syntax: {cnoemote{x <character>
+Syntax: {cnotell{x <character>
+ 
+All of these commands are used to mute other characters, preventing them from
+usage of some forms of communication. Notell restricts characters from
+spamming others with tells. Such players also cannot receive tells. Noemote
+forbids usage of emotes and socials. Nochannel revokes victim privileges
+of using public channels (shout, gossip, pray).
+ 
+Use these commands also to restore character's privileges.
+@rus Синтаксис: {cnochannel{x <персонаж>
+Синтаксис: {cnoemote{x <персонаж>
+Синтаксис: {cnotell{x <персонаж>
+ 
+Все эти команды ограничивают использование персонажем различных форм общения.
+NOTELL запрещает использование частных сообщений. Такие персонажи также не
+могут получать вхоящие сообщения. NOEMOTE запрещает использование эмоций и
+socials. NOCHANNEL запрещает использование всех общих каналов (shout,
+gossip, pray)
+ 
+Снятие наказания осуществляется этими же командами.
 ~
-96 PURGE~
-Syntax: purge
-	purge <character>
-
-Purge is used to clean up the world.  Purge with no arguments removes all the
-NPC's and objects in the current room.  Purge with an argument purges one
+92 'WIZ PURGE' PURGE~
+@eng Syntax: {cpurge{x
+Syntax: {cpurge{x <character>
+ 
+PURGE is used to clean up the world. PURGE with no arguments removes all the
+NPC's and objects in the current room. PURGE with an argument purges one 
 character from anywhere in the world.
 
-Purge will not get rid of PC's, or objects or mobiles with a NOPURGE flag
-set (i.e. the pit, the fountain, shopkeepers, Hassan).  Mobiles may be
-purged if they are called directly by name.
+PURGE with no argument will not get rid of PC's, or objects or mobile with
+ACT_NOPURGE flag. PC's and mobiles can be purged if called by name, however.
+@rus Синтаксис: {cpurge{x
+Синтаксис: {cpurge{x <персонаж>
+ 
+Команда PURGE служит для очистки мира. PURGE без аргументов убирает всех NPC и
+обьекты в комнате, в которой ты стоишь. PURGE с указанием имени персонажа уда-
+ляет его в любой точке мира.
+ 
+PURGE без аргументов не затрагивает игроков, а также монстров и обьекты с флагом
+ACT_NOPURGE. Тем не менее, монстры и игроки могут быть удалены указанием имени.
 ~
-96 RESTORE~
+92 'WIZ RESTORE' RESTORE~
 Syntax: restore <character>
 	restore room
 	restore all
@@ -1865,25 +1889,30 @@ in the room, restore all does the same for all connected players. Restore all
 is only usable by creators and implementors.  Restore should be used sparingly
 or not at all.
 ~
-97 SLAY~
+92 'WIZ SLAY' SLAY~
 Syntax: slay <character>
 
 Slay kills a character in cold blood, no saving throw.  Best not to use this
 command on players if you enjoy being a god.
 ~
-95 TRANSFER TELEPORT~
-Syntax: transfer <character>
-	transfer all
-	transfer <character> <location>
-	transfer all         <location>
-
-Transfer transfers the target character, or ALL player characters,
-to your current location (default) or to a specified location. Trans all 
-should almost never be used, as 100 players popping into one room can have
-horrible effects on slow links. Teleport is a synonym for transfer. 
+92 'WIZ TRANSFER' TRANSFER~
+@eng Syntax: {ctransfer{x <character> [location]
+Syntax: {ctransfer all{x [location]
+ 
+Transfer moves target character or all players to the specified location or to
+the room you're in if no location is specified. TRANSFER ALL should almost
+never be used, as 100 players popping into one room can have horrible effects
+on slow links.
+@rus Синтаксис: {ctransfer{x <персонаж> [комната]
+Синтаксис: {ctransfer all{x [комната]
+ 
+TRANSFER перемещает указанного персонажа или всех персонажей в указанную ком-
+нату, или в комнату где ты стоишь, если комната не указана. TRANSFER ALL почти
+никогда не должен использоваться, так как сотня игроков, влетающих в одну ком-
+нату даст ужасные последствия для медленных соединений.
 ~
-94 AT~
-Syntax: at <location> <command>
+92 'WIZ AT' AT~
+@eng Syntax: {cat{x <location> <command>
 
 At executes the given command (which may have arguments) at the given
 location.  The location may be specified as a vnum, as the name of
@@ -1892,52 +1921,63 @@ a mobile, or as the name of an object.
 At works by temporarily moving you to that location, executing the
 command, and then moving you back (if the command didn't change your
 location).
+@rus Синтаксис: {cat{x <комната> <команда>
+ 
+AT выполняет указанную команду в указанной комнате. Комната может быть задана
+по номеру, имени моба или имени обьекта.
+ 
+AT работает, временно перемещая тебя в указанную комнату, выполняя команду и
+возвращая тебя назад (если команда не изменила твое местоположение).
 ~
-94 ECHO GECHO PECHO~
-Syntax: echo  <message>
-	gecho <message>
-	pecho <character> <message>
+92 'WIZ ECHO' ECHO 'WIZ PECHO' PECHO 'WIZ ZECHO' ZECHO 'WIZ GECHO' GECHO >~
+@eng Syntax: {cpecho{x <character> <message>
+Syntax: {cecho{x <message>
+Syntax: {czecho{x <message>
+Syntax: {cgecho{x <message>
 
 These commands all perform similar functions.  Echo sends the message to
 all characters in the same room as the user, with no indication of who sent
 it.  Gecho does the same for all players connected to the game, and pecho
-sends the message to the player specified as the target.  Any higher-level
-god will see a prompt in front of your message, informing him or her that it
-is an echo.
+sends the message to the player specified as the target, zecho sends the
+message to all players inside the same area as you. Higher-level gods will
+see a prompt before your message, notifying them that this is an echo.
+'>' is a synonym for GECHO
+@rus Синтаксис: {cpecho{x <персонаж> <сообщение> 
+Синтаксис: {cecho{x <персонаж> <сообщение> 
+Синтаксис: {czecho{x <персонаж> <сообщение> 
+Синтаксис: {cgecho{x <персонаж> <сообщение> 
+ 
+Все эти команды выполняют схожие функции. ECHO посылает сообщение всем игрокам
+в одной комнате с тобой. PECHO посылает сообщение только указанному персонажу,
+ZECHO посылает сообщение всем игрокам в одной с тобой зоне, GECHO посылает
+сообщение всем игрокам. Боги более высокого уровня получают префикс перед этим
+сообщением, и поэтому не могут быть обмануты.
+'>' является синонимом для GECHO.
 ~
-92 GOTO~
-Syntax: goto <location>
+92 'WIZ GOTO' GOTO~
+@eng Syntax: {cgoto{x <location>
 
 Goto takes you to a location.  The location may be specified as a vnum,
 as the name of a mobile, or as the name of an object.
-
-You may not Goto a room if it is PRIVATE and has two (or more) characters
-already present, or if it is SOLITARY and has one (or more) characters
-already present. Some other rooms are barred to players below a certain
-god level.
-
-Implementors can use the violate command to get into private rooms.
+@rus Синтаксис: {cgoto{x <комната>
+ 
+GOTO перемещает тебя в указанную комнату. Комната может быть задана номером,
+именем монстра или именем обьекта.
 ~
-92 HOLYLIGHT INVIS WIZINVIS~
+92 'WIZ HOLYLIGHT' HOLYLIGHT~
 Syntax: holylight
-	wiznvis <level>
 
 Holylight is a toggle that allows you to see (almost) every character and
 mobile in the game.  With holy light, you can see what's in the game more
 easily.  Without holy light, you can see what mortal players see.
-
-Wizinvis takes a level argument, and will mke you invisible to all players of
-a lower level than your invisibility level.  It defaults to the maximum
-(your level) if no argument is given.  Wizi 100 characters are totally 
-invisible.
 ~
-92 INCOGNITO~
+92 'WIZ INCOGNITO' INCOGNITO~
 Toggling your incognito status will hide your presence from people outside the
 room you are in, but leave you visible to those who are with you.  It takes
 a level argument similar to wizinvis, people at that level or higher can see
 you regarless of location.
 ~
-92 MEMORY~
+92 'WIZ MEMORY' MEMORY~
 Syntax: memory
 
 Memory reports the size of your mud.
@@ -1951,93 +1991,140 @@ a maximum limit, which is also shown.
 The 'Perms' line shows permanently allocated memory blocks.  There is no limit
 on the number and size of these blocks.
 ~
-96 VNUM~
-Syntax: vnum <name>
-	vnum <obj or mob> <name>
-	vnum skill <name>
+92 'WIZ VNUM' VNUM~
+@eng Syntax: {cvnum{x     <name>
+Syntax: {cvnum obj{x <name>
+Syntax: {cvnum mob{x <name>
 
 Vnum finds all objects and mobiles with a particular name, and prints out
 the results.  Use vnum obj or vnum mob to limit the search.  This vnum is
-very useful for loading. Vnum skill returns the skill number (for set) and
-the slot number (for making new zones) of a skill name.
-(see also load)
+very useful for loading.
+@rus Синтаксис: {cvnum{x     <имя>
+Синтаксис: {cvnum obj{x <имя>
+Синтаксис: {cvnum mob{x <имя>
+ 
+VNUM определяет виртуальные номера для указанного моба или обьекта.
 ~
 92 'WIZ STAT' STAT~
-Syntax: {cstat{x <name>
-        {cstat mob{x  <name>
-        {cstat obj{x  <name>
-        {cstat room{x <number>
-        {cstat desc{x <number>
+@eng Syntax: {cstat{x      <name>
+Syntax: {cstat mob{x  <name>
+Syntax: {cstat mp{x   <name>
+Syntax: {cstat obj{x  <name>
+Syntax: {cstat room{x <number>
+Syntax: {cstat desc{x <number>
+Syntax: {cstat msg{x  <number>
 
-The stat command gives you detailed information on an object, mobile, or room
+The STAT command gives you detailed information on an object, mobile, or room
 within the game.  Without a class argument, the command will return a object
 (if found), a mobile (if no object exists, but a mobile does), or a room 
-(if a number is  given).  Stat room with no argument stats the room you are
-standing in.  Stat can be used to find room vnums for goto.
-(see also goto, transfer)
+(if a number is  given).  STAT ROOM with no argument stats the room you are
+standing in. STAT MP gives detailed information on mobile's mobprog execution.
+STAT DESC shows you information on character's descriptor. STAT MSG with no
+argument shows you message hash table distribution. With a number as an
+argument it shows messages with given hash number.
+@rus Синтаксис: {cstat{x      <name>
+Синтаксис: {cstat mob{x  <name>
+Синтаксис: {cstat obj{x  <name>
+Синтаксис: {cstat mp{x   <name>
+Синтаксис: {cstat room{x <number>
+Синтаксис: {cstat desc{x <number>
+Синтаксис: {cstat msg{x  <number>
+ 
+Команда STAT показывает детальную информацию об обьектах, монстрах или комна-
+тах. Без аргумента-типа команда покажет обьект (если найден), монстра (если не
+найден такой обьект, но найден монстр) или комнату (если аргумент - число).
+STAT ROOM без аргумента выведет информацию о комнате, в которой ты находишься.
+STAT MP выводит информацию об выполении программы монстром. STAT MSG без аргу-
+мента выводит распределении сообщений по хеш-таблице, при задании аргумента
+выведет все сообщения с таким хеш-номером.
 ~
-93 MWHERE~
-Syntax: mwhere <name>
-
-Mwhere shows you the locations of all mobiles with a particular name.
+92 'WIZ MWHERE' MWHERE 'WIZ OWHERE' OWHERE~
+@eng Syntax: {cmwhere{x <name>
+Syntax: {cowhere{x <name>
+ 
+MWHERE shows you the locations of all the mobiles with specified name.
+OWHERE shows you thr locations of all objects with specified name.
+@rus Синтаксис: {cmwhere{x <имя>
+Синтаксис: {cowhere{x <имя>
+ 
+MWHERE покажет тебе местоположение всех монстров с указанным именем.
+OWHERE покажет тебе местоположение всех обьектов с указанным именем.
 ~
-95 PEACE~
+92 'WIZ PEACE' PEACE~
 Syntax: peace
 
 Peace causes all characters in a room to stop fighting. It also strips the
 AGGRESSIVE bit from mobiles.
 ~
-92 POOFIN POOFOUT~
-Syntax: poofin  <message>
-Syntax: pooffout <message>
+92 'WIZ POOFIN' POOFIN 'WIZ POOFOUT' POOFOUT~
+@eng Syntax: {cpoofin{x <message>
+Syntax: {cpoofout{x <message>
 
 The standard messages for goto are 'arrives in a swirling mist' and
 'leaves in a swirling mist'.  You can replace these messages with messages of
 your own choosing using the poofin and poofout commands.  These messages
 must include your name somewhere in the string.
+POOFIN and POOFOUT are only shown to characters who can see you.
 
-Poofin and poofout only show to characters who can see you.
-(see also goto)
+See also: {CHELP GOTO{x
+@rus Синтаксис: {cpoofin{x <сообщение>
+Синтаксис: {cpoofout{x <сообщение>
+ 
+Стандартные сообщения для команды GOTO 'arrives in swirling mist' и 'leaves in
+swirling mist' могут быть заменены на другие с использованием команд POOFIN и
+POOFOUT соответственно. В это сообщение необходимо включить твое имя.
+Эти сообщения будут показаны только тем персонажам кто может видеть тебя.
+ 
+Смотри также {CHELP GOTO{x
 ~
-99 PROTECT~
-Syntax: protect <character>
+92 'WIZ PROTECT' PROTECT~
+@eng Syntax: {cprotect{x <character>
 
 Protect is used to protect a character from unwanted snooping.  Removing 
 protected status from a character WILL be seen by that character.
+@rus Синтаксис: {cprotect{x <персонаж>
+ 
+PROTECT используется для защиты персонажей от нежелательного подсматривания.
+О снятии режима PROTECT будет сообщено персонажу.
 ~
-95 LOG SNOOP~
-Syntax: log   <character>
-	log   all
-	snoop <character>
-
-Log <character> causes all of a character's commands to be logged into
-the server's log file.  Like Freeze, it is a permanent character toggle.
-Logs may only be used by creators and implementors, and should be accompanied
-by mail to the implementors.
-
-Certain commands (Password) are protected against log.  Conversely, certain
-commands (especially immortal commands) are always logged.
-
-Log all logs all character commands.  It is a server-wide toggle; it does not
-persist across reboots. Please do not use this unless you tell the imps.
-
-Snoop shows you a copy of all the input and output going to a character.
-The character must have an open channel.  You may snoop more than one
-character at a time. Try to respect privacy.
-
-Snoop yourself to cancel all outstanding snoops.
+92 'WIZ LOG' LOG~
+@eng Syntax: {clog{x <character>
+Syntax: {clog all{x
+ 
+LOG causes all character' commands to be logged into a server's log file. Like
+FREEZE, it is a permanent character toggle. Certain commands (PASSWORD) are
+protected against logging. COnversely, certain commands (especially immortal
+commands) are always logged.
+LOG ALL log all character commands. It is a server toggle, it does not persist
+across reboots.
+@rus Синтаксис: {clog{x <персонаж>
+Синтаксис: {clog all{x
+ 
+LOG записывает все команды указанного персонажа в лог-файл сервера. Как и
+FREEZE, это является опцией игрока. Некоторые команды (PASSWORD) зашишены
+от записи в лог. Наоборот, некоторые команды (особенно команды богов (всегда 
+записываются в лог-файл.
 ~
-94 SWITCH RETURN~
-Syntax: switch <character>
-	return
+92 'WIZ SWITCH' SWITCH 'WIZ RETURN' RETURN~
+@eng Syntax: {cswitch{x <character>
+Syntax: {creturn{x
 
-Switch switches you into the body of another character (who must not
+SWITCH switches you into the body of another character (who must not
 already have a descriptor, e.g. you can't switch into a PC). You also cannot
 switch into link-dead PCs.
 
-Return returns you to your original body.
+RETURN returns you to your original body.
+@rus Синтаксис: {cswitch{x <персонаж>
+Синтаксис: {creturn{x
+ 
+SWITCH переключает тебя в тело другого пероснажа (у которого не должно быть
+дескриптора, то есть ты не можешь переключиться в игрока или монстра, в кото-
+рого уже кто-то переключился). Ты также не можешь переключаться в игроков,
+потерявших связь с сервером.
+ 
+RETURN возвращает тебя в твое родное тело.
 ~
-91 IMMTALK :~
+92 'WIZ IMMTALK' IMMTALK :~
 Syntax: immtalk <message>
 	immtalk
 
@@ -2046,19 +2133,79 @@ Using this command with no argument turns off the immortal channel (or
 turns it back on).
 ~
 92 WIZNET~
-Syntax: wiznet 
-	wiznet show
-	wiznet status
-	wiznet <field>
+@eng Syntax: {cwiznet{x
+Syntax: {cwiznet on{x
+Syntax: {cwiznet off{x
+Syntax: {cwiznet{x <option>
+ 
+WizNet is sort of an immortal news service, to show important events to the
+subscribed immortal.
+ 
+WIZNET by itself shows your current WizNet status.
+WIZNET ON subscribes you to WizNet.
+WIZNET OFF unsubscribes you from WizNet.
+WIZNET <option> tunes your WizNet subscription, defining what kins of events
+should be posted to you.
 
-Wiznet is sort of an immortal news service, to show important events to
-the wiznetted immoral.  Wiznet by itself turns wiznet on and off, 
-wiznet show lists all settable flags (they are not detailed here), 
-wiznet status shows your current wiznet settings, and wiznet <field> toggles
-a field on and off.  The events should be self-explanatory, if they are not,
-fiddle with them a while.  More events are available at higher levels.
+Options are one of the following:
+{cprefix{x    : turn this ON to get your WizNet messages beginning with --> prefix
+{cticks{x     : notify you about ticks in MUD
+{clogins{x    : notify you about people coming in or leaving this world
+{csites{x     : unused by now
+{clinks{x     : notify you about people falling link-dead or reconnecting
+{cnewbies{x   : unused by now
+{cspam{x      : notify you if someone is input-spamming
+{cdeaths{x    : unused by now
+{cresets{x    : notify you about areas being reset
+{cmobdeaths{x : unused by now
+{cflags{x     : unused by now
+{cpenalties{x : notify you about channel revokations and other penalties
+{csaccing{x   : notify you about incoming sacrifices
+{clevels{x    : notify you of level gaining
+{cload{x      : notify you about cloning/loading
+{crestore{x   : notify you about restorations
+{csnoops{x    : notify you about snoop usage
+{cswitches{x  : notify you about switching/returning characters
+{csecure{x    : lets secure messages be passed to you
+{colc{x       : notify you of olc saves
+{cwizlog{x    : passes loggings to you
+@rus Синтаксис: {cwiznet{x
+Синтаксис: {cwiznet on{x
+Синтаксис: {cwiznet off{x
+Синтаксис: {cwiznet{x <параметр>
+ 
+WizNet - это сеть сообщений для бессмертных, показывающая наиболее важные
+события в мире.
+ 
+WIZNET без параметров показывает текущие настройки этой сети
+WIZNET ON подключает тебя к сети WizNet
+WIZNET OFF отключает тебя от сети WizNet
+WIZNET <параметр> определяет, информацию о каких сообщениях ты будешь получать.
+ 
+Параметр может быть:
+{cprefix{x    : при включении этой опции сообщения WizNet будут с префиксом -->
+{cticks{x     : информировать о наступлении тиков.
+{clogins{x    : сообщать о входящих и выходящих игроках
+{csites{x     : не используется
+{clinks{x     : сообщать об обрыве и восстановлении связи у игроков
+{cnewbies{x   : не используется
+{cspam{x      : сообщать о перегрузке ввода кем-либо из игроков
+{cdeaths{x    : не используется
+{cresets{x    : сообщать об обновлении зон
+{cmobdeaths{x : не используется
+{cflags{x     : не используется
+{cpenalties{x : сообщать о наказаниях (nochannel, freeze etc.)
+{csaccing{x   : сообщать о приносимых жертвах
+{clevels{x    : сообщать о получаемых уровнях
+{cload{x      : сообщать о создании и клонировании обьектов
+{crestore{x   : сообщать о восстановлении игроков
+{csnoops{x    : сообщать о подглядывании за игроками
+{cswitches{x  : сообщать о переключении в монстров и возвращении обратно
+{csecure{x    : позволяет получать защищенные сообщения WizNet
+{colc{x       : сообщать о изменениях через OLC
+{cwizlog{x    : получать копию сообщений, идущих в лог-файл
 ~
-91 WIZHELP~
+92 'WIZ WIZHELP' WIZHELP~
 Syntax: wizhelp
 
 Wizhelp provides a list of all the immortal commands.
@@ -2228,7 +2375,7 @@ Syntax: cast 'detect hidden'
 
 This spell enables the caster to detect hidden creatures.
 ~
-0 'DETECT INVIS'~
+0 'DETECT INVIS' 'IMPROVED DETECT'~
 Syntax: cast 'detect invis'
 
 This spell enables the caster to detect invisible objects and characters.
@@ -2270,7 +2417,7 @@ This spell inflicts damage on every enemy character in the room.
 Beware that other characters who are not yet fighting may attack
 you as a result!
 ~
-0 'SEVERITY''SEVERITY FORCE'~
+0 'SEVERITY FORCE'~
 Syntax: cast 'severity force'
 	
 This spell is similar to earthquake but much more powerful to inflicts  
@@ -2339,7 +2486,7 @@ Syntax: cast infravision <character>
 This spell enables the target character to see warm-blooded creatures even
 while in the dark, and exits of a room as well.
 ~
-0 INVIS 'MASS INVIS' INVISIBLITY~
+0 INVISIBILITY 'MASS INVIS' 'IMPROVED INVIS'~
 Syntax: cast 'invisibility' <character>
 Syntax: cast 'invisibility' <object>
 Syntax: cast 'mass invis'
@@ -2620,14 +2767,6 @@ vulnerable to mental attacks.  Storm giants, due to their  size and
 stamina, receive the fast healing and bash skills for free.And they are
 born to be enemies of white dragons.
 ~
--1 GIANT GIANTS~
-Giants are the largest of the races, ranging from 9-12 feet in height.  They
-are stronger than any other race, and almost as durable as the dwarves.  
-They aren't too bright, however, and their huge size makes them more clumsy
-than the other races.  Giants make the best warriors of any race, but are
-ill-suited for any other profession. Giants, due to their size and 
-stamina, receive the fast healing and bash skills for free. 
-~
 -1 HUMAN HUMANS MAN~
 Humans are the most common race in the world, and make up the majority of
 adventurers.  Although they have no special talents like the other races,
@@ -2654,12 +2793,12 @@ hard to spot and walk unnoticed automatically. They may see in the dark
 with infravision.  Elves must stay good to cast any spells they know.
 Elves who have turned to evil are frowned upon.
 ~
--1 'HALF-ELF' HALFELF HALFELVES~
+-1 HALF-ELF HALF-ELVES~
 Half-elves are a cross-breed between a human and an elf. They are not quite
 as intelligent as pure elves but have a greater constitution. Like pure
 elves, half-elves see in the dark with infravision.
 ~
--1 SVIRF SVIRFNEBLI DEEP-GNOME~
+-1 SVIRFNABLINS DEEP-GNOMES~
 The Svirfnebli, also known as deep gnomes, have made their way into
 Shades of Gray as the paths to the Underdark have been found.
 Slightly larger than their surface cousins, these gnomes are also stronger
@@ -2699,7 +2838,7 @@ working stone and metal, something which has made them less hearty over time.
 They have become more dexterous through centuries of thievery and deceit.
 All Duergars are evil.
 ~
--1 'DARK-ELF' DARKELF DARKELVES DARK~
+-1 DROW DARK-ELF DARK-ELVES~
 Dark-elves are a race of renegade elves who have turned their energy toward
 evil.  They are inherently intelligent but have neglected intellectual
 studies and become very nimble from years of generations of thievery and
@@ -2719,7 +2858,7 @@ as human race. But they are evil. And they can be either fighter, caster or
 fighter/caster races.They are good warriors . But casters use only offensive 
 spells.
 ~
--1 ROCKSEER ROCKSEERS~
+-1 ROCKSEERS~
 Rockseers are a race of renegade elves who lives underworld in rock caves.
 They are inherently intelligent but have neglected intellectualstudies 
 and become very translucent from years of generations of trying to pass 
@@ -2728,7 +2867,7 @@ can pass doors easily.Rockseers must stay neutral to cast any spells they
 might know. And because of their organism they are vulnerable to woods.
 They have a specific spell called 'meld into stone'.
 ~
--1 TROLL TROLLS~
+-1 TROLLS~
 Long hidden within the sanctity of their mountain caves, a race known in the
 past only as a myth, lies the civilization of the trolls. Built with the 
 undying stamina of the mountains they reside in, these green skinned beasts
@@ -2756,7 +2895,7 @@ Samurai      Sam      STR        ANY    500  	masters of ancient battlearts
 Vampire      Vam      INT	 ANY	300	simply vampire
 Necromancer  Nec      INT	  M	300	simply necromancer
 ~
--1 RANGER RANGERS~
+-1 RANGERS~
 RANGER
 Outdoorsmen, hunters, master of woodcraft, Rangers are the guardians of 
 the forests.  In addition to having excellent fighting skills, they are
@@ -2765,7 +2904,7 @@ large bears to their aid, fashion mystical staves, and be able to camouflage
 beyond detection.  Their ability to ambush opponents makes them deadly 
 foes.
 ~
--1 NINJA NINJAS~
+-1 NINJAS~
 NINJA
 Masters of the art of weaponless combat, these mysterious warriors have
 recently become more common in the land.  They strike quickly and
@@ -2774,7 +2913,7 @@ knowledge of nerve pressure, and can weaken their foes with a well placed
 strike. At high levels, Ninjas learn the art of assassination,
 killing their foe instantly and silently.
 ~
--1 ANTI-PALADIN ANTI-PALADINS ANTIPALADIN ANTIPALADINS ANTI~
+-1 ANTI-PALADINS ANTIPALADINS~
 - ANTI-PALADIN -
 The opposite of Paladins, these knights have chosen evil as their course.
 Such fervor and zeal gives them deadly spells to compliment their already
@@ -2782,7 +2921,7 @@ superb fighting skills.  They seek only personal gain and to cause suffering
 and pain to good.  Anti-paladins must stay evil in order to cast their 
 spells. Those who forsake evilness are frowned upon.
 ~
--1 PALADIN PALADINS~
+-1 PALADINS~
 These warriors have chosen the path of virtue and chivalry above all others.
 This dedication to their cause grants them priest-like spells and healing
 powers.  They are also formidable fighters, always questing to stamp out evil.
@@ -2791,7 +2930,7 @@ goodness are frowned upon.  Paladins are expected to be truthful,
 chivalrous, humble, merciful, kind, bold, and noble of spirit.  Paladins 
 must be Lawful Good.
 ~
--1 CLERIC CLERICS~
+-1 CLERICS~
 Clerics are the most defensively oriented of all the classes.  Most of their
 spells focus on healing or defending the faithful, with their few combat 
 spells being far less powerful than those of mages. However, clerics are the 
@@ -2805,30 +2944,30 @@ thievery and covert actions, being capable of entering areas undetected where
 more powerful adventurers would fear to tread.  They are better fighters than
 clerics, but lack the wide weapon selection of warriors.
 ~
--1 WARRIOR WARRIORS~
+-1 WARRIORS~
 Warriors live for combat and the thrill of battle. They are the best fighters
 of all the classes, but lack the subtle skills of thieves and the magical
 talents of mages and priests.  Warriors are best for those who don't mind
 taking the direct approach, even when another method might be called for.
 ~
--1 WARLOCK WARLOCKS~
+-1 WARLOCKS~
 Male Magicians...Stronger, but less efective on charm..
 ~
--1 SAMURAI SAMURAIS~
+-1 SAMURAIS~
 More powerful honour warriors..But after level 10 they cannot flee 
 because they are thought like that.
 ~
--1 VAMPIRE VAMPIRES~
+-1 VAMPIRES~
 Powerful mage/warriors..But after they can only transform into VAMPIRE 
 after level 10.And they cannot practice the vampire skill.The vampire skill 
 is gained in 50 questpoints. When they use this skill at the nights their
 size increase, they gets damage from light, and their damroll increases. You
 cannot realize a vampire in nights. It is only written "An uggly creature".
 ~
--1 NECROMANCER NECROMANCERS~
+-1 NECROMANCERS~
 Powerful mage. But powerful in necromantic spells. 
 ~
--2 HOMETOWN HOMETOWNS~
+-2 HOMETOWNS~
 You can pick one of six cities as your hometown: New Thalos and Midgaard are
 all alignments. Ofcol is neutral only. Your hometown is where you will 
 recall to and is where the pit is to which your corpse will decay. 
@@ -2890,13 +3029,9 @@ rescue.
   Tiger power calls 10 tigers from forest to join you. And increase your
 damroll & hitroll.  
 ~
-0 HARA 'HARA KIRI'~
+0 'HARA KIRI'~
 A Samurai kills himself, in other words set him/her self hitpoint, mana
 and movement 1 . Then gains them very quickly.
-~
-0 MOUSE~
-A vampire can flee a fight, or can live a place by dividing himself into
-too many mouses. At this moment you must kill all mouses to kill the vampire.
 ~
 0 'VAMPIRIC BITE'~
 Syntax: bite <victim>
@@ -2904,7 +3039,7 @@ Syntax: bite <victim>
    A vampire bites a sleeping victim and gains victim's hitpoint to itself.
 But then fight starts.
 ~
-0 'RESISTANCE LIGHT' 'LIGHT RESISTANCE'~
+0 'LIGHT RESISTANCE'~
 A vampire get damages from light. But a high level vampire can teach 
 itself how to resist light.
 ~
@@ -2927,7 +3062,7 @@ Syntax: cast 'sand storm'
    A powerful warlock can make a storm which inflicts damage all the mobiles
 in the room. But if there is no sand he can't do.
 ~
-0 'TARGET'~
+0 TARGET~
 Syntax: target <victim>
 
    A samurai can change his/her target when fighting with a group of mobiles
@@ -2940,7 +3075,7 @@ Syntax: second <weapon>
 give damage to samura's fighting. But while using second weapon you cannot
 hold an item and wear a shield.
 ~
-0 'EXPLODE'~
+0 EXPLODE~
 A samurai can explode some material so that every mobile in the effected
 by this burning. The burning affect fills the room. And potions bubles, and
 mobiles can be blind.
@@ -3307,7 +3442,7 @@ immortal, type a message after 'pray'.  Only immortals 93+ can see prays.
 DO NOT ABUSE this privilege!!!  Anyone who does multiple prays or prays
 without a good reason will be severely punished.
 ~
-1 RANDOMIZER ~
+92 RANDOMIZER ~
 Syntax: cast 'randomizer'
 
 You cannot cast it in a room with the flag ROOM_LAW (all the rooms in Galadon)
@@ -3335,7 +3470,7 @@ not being attacked may circle around and stab a victim while in
 battle. This is useful when you are not the one in your group taking
 the hits.  It requires the use of a piercing instrument.
 ~
-0 CRITICAL STRIKE~
+0 'CRITICAL STRIKE'~
 Syntax: critical strike <victim>
  	Using their knowledge of Nage Waza (throwing techniques), the ninjas
 and samurais able to grab their opponent and throw them to the ground.  It 
@@ -3354,11 +3489,13 @@ attempted every 2 rounds, but no commands can be entered for 2 rounds
 after attempting a throw.  Thrown opponents are then stunned, unable to
 enter any commands. 
 ~
-0 CB ~
-Syntax: cb (message)
+0 CLAN CLANTALK 'CLAN CHANNEL'~
+Syntax: {cclan{x <message>
+        {cclan{x
 
 This is the command used to talk on a clan channel.  
 Used by itself, it is a toggle to turn the clan channel on and off.
+{c={x is a sinonym for this command.
 ~
 0 DEPOSIT WITHDRAW BALANCE BANK~
 Syntax: deposit  <number>
@@ -3407,16 +3544,30 @@ are special for the character. Any other character cannot get or wear
 these items. Also these items cannot get damage. As you lost one of them 
 because of crashes note to gods.
 ~
--1 'QUEST AUTOMAGIC'~
-quest points   : show quest points
-	quest info     : shows what must you do for finish the quest
-	quest time     : shows the left time to finish the quest
-	quest request  : in order to want a quest
-	quest complete : to inform questmaster that you finished the quest
-	quest list     : lists the available quest objects that you can buy
-	quest buy      : to buy a quest obj	
-    quest trouble  : if you lose a quest obj, you can regain it. But
-                        at most 3 times.
+-1 QUESTS 'QUEST AUTOMATIC'~
+@eng Syntax: {cquest{x <option>
+
+Where option is one of the following:
+    {cquest points{x     : shows quest points gained so far
+    {cquest info{x       : shows what must you do for finish the quest
+    {cquest time{x       : shows the time left to complete the quest
+    {cquest request{x    : requests a task from the questmaster
+    {cquest complete{x   : informs questmaster that you completed the quest
+    {cquest list{x       : lists quest objects available for sale
+    {cquest buy{x <type> : gets your reward
+    {cquest trouble{x    : lost quest items may be regained (at most 3 times)
+@rus Синтаксис: {cquest{x <команда>
+ 
+Команда может быть одной из:
+    {cquest points{x     : показать уже набранные квестовые очки
+    {cquest info{x       : напомнить задание
+    {cquest time{x       : узнать время, оставшееся на выполнение задания
+    {cquest request{x    : попросить задание у квестора
+    {cquest complete{x   : рапортовать о выполнении задания
+    {cquest list{x       : посмотреть список наград
+    {cquest buy{x <тип>  : получить награду
+    {cquest trouble{x    : утерянные вещи-награды могут быть возвращены, но не
+                     : более трех раз
 ~
 -1 AUCTION~
 @eng Syntax of the auction command is:
@@ -3442,7 +3593,7 @@ auction stop		- will stop the auction, return the gold to the last
 {cauction stop{x             -- останавливает аукцион. (Команда может быть
                             использована только Богами этого мира.)
 ~
--1 CHA CHARISMA~
+-1 CHARISMA~
 * Charisma is regenerated again. If your charisma is below 18
 then every one can see your level when they type "who", and also you
 become VULNERABLE to CHARM.
@@ -3455,7 +3606,7 @@ only for good characters every 200 mobiles that you killed having opposite
 aligns gives you a charisma. And every 100 mobiles you have killed
 having the same align reduces your charisma by one.
 ~
--1 SPELLCRAFT SPELL_CRAFT~
+-1 'SPELL CRAFT'~
 Spell craft is only available of the class that have the high 
 capability of delivering spells. The spell craft makes the spells more 
 effective so that the casters have their own privilages.
@@ -3467,20 +3618,20 @@ Syntax: blink 		: shows the status of blink
 	Magic users can make themselves one exist and one not. This makes 
 them protected weapon attacks.Each blink takes 1 mana.
 ~
--1 'LION HELP'~
+92 'LION HELP'~
 Syntax: cast 'lion help'
 
     Calls the other members of clan lion for help.That is because of the
 eyed sword. And also this is the clan spell. So you cannot use this spell
 if you haven't got clan powers or eyed sword wielding.
 ~
--1 'WEAPON CALL'~
+92 'WEAPON CALL'~
 Syntax: cast 'weapon call'
 
 	A clan member of lion can call his eyed sword with a whisper, if 
 he/she has the clan power with him/her.
 ~
--1 'EYED SWORD'~
+92 'EYED SWORD'~
 Syntax: cast 'eyed sword'
 
 	A lion clan member when casts this spell, creates the special 
@@ -3488,20 +3639,20 @@ weapon of its clan. It can only be cast once.Then when one losts this
 sword,one must use 'weapon call' spell to get it back.If the sword purged
 in resetting of an area then it appears in the shrine of Clan LIONs.
 ~
--1 'MOVE CAMUFLAGED'~
+-1 'CAMOUFLAGE MOVE'~
 Syntax: cammove
 
 	A lion clan member can move, without losing his/her affect of
 camuflage.
 ~
--1 LEADER LEADERS~
+-1 LEADERS~
 .	
 	When you induct a player from your clan to none, that player
 won't be able to change his/her title forever (unless an immortal grants
 him/her). Thus when you induct a player to your clan be very careful.
 If any problem occurs, you are RESPONSIBLE.
 ~
--1 RELIG RELIGION~
+-1 RELIGION~
 Find the Templeman in the Midgaard, and say the name of your god.
 Syntax: say <god_name> 
 	The list of religions.
@@ -3620,18 +3771,18 @@ To victim : color spray
 	To you : Heal
 	To you : Group Heal
 ~
--2 STAT STATS~
+-2 STATS~
 There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
 has special importance in your mud life, while fighting, gaining hitpoint 
 mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.
 ~
-0 LIMITED LIMIT 'LIMIT EQUIPMENTS' 'LIMITED EQUIPMENTS'~
+0 'LIMITED EQUIPMENTS' 'LIMIT EQUIPMENTS'~
 Some of the items have been limited. You may find more information about
 some of the limited items in the books which Melancholy sells.
-Don't forget that you cannot save limited items if your level is 20
-level greater than limited equipments.
+Be warned that every reboot your limited items have a chance to come back into
+game.
 ~
-90 RRACE 'REMORT RACE'~
+92 RRACE 'REMORT RACE'~
 You are remorting and following is a brief description of each
  main race to assist you in the character creation process:
 
@@ -3959,7 +4110,7 @@ An up-to-date list of liquid types can be obtained by typing
    value 3    unused
    value 4    unused
 ~
-92 PRICE 'CLAN PRICE'~
+99 PRICE 'CLAN PRICE'~
 Прайс-лист на клан и все прилагающиеся услуги:
 ver 2.0
  
@@ -4060,7 +4211,7 @@ Syntax: exd add keyword lang
         exd name keyword name
  
 ~
-0 'protection negative'~
+0 'PROTECTION NEGATIVE'~
 Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
 ~
 0 'OLC ALIST'~
@@ -4311,7 +4462,7 @@ CALL       [vnum] [victim] [target1] [target2]
 To victim: dispel evil
        To you    : cure serious
 ~
-0 Shalafi~
+0 SHALAFI~
 @eng   ... and the time has come when High council of mages decided that no  longer 
 disorder  shall  be tolerated.  Mages  slayed  each other, loosing  secrets of 
 ancient art of magic. Council summoned all powerful mages.
@@ -4360,7 +4511,7 @@ bers of the Order will track him down, until that renegade dies.
 Лидером ордена стала одна из самых прекрасных ведьм сего мира --
 ==================== Лилит {DTentatrice{x =====================
 ~
-0 Invader~
+0 INVADER~
 @rus {RВласть{x. Природа власти...
 Видели ли вы человеческого детеныша, вырывающего игрушку у своего
 соседа? Или молоденького фейри, деловито вспарывающего труп матери?
@@ -4398,15 +4549,6 @@ just walk around and collect gear.
 Syntax : demand item-name mob-name
  
 ~
-0 VERBOSE~
-Syntax: verbose
- 
-'verbose' command will put you in/out verbose mode. All verbose messages
-are shown to you only in verbose mode. At this moment only
-dodge/parry/shield block/blink messages and [{gexcellent{x] condition
-of objects are considered 'verbose'.
- 
-~
 0 CLANS~
 The following help files have already been installed:
  
@@ -4414,7 +4556,7 @@ The following help files have already been installed:
  
 See also: PHILOSOPHY
 ~
-0 'WIZ GRANT'~
+92 'WIZ GRANT' GRANT~
 Syntax: grant victim [command...]
 Syntax: grant victim level
  
@@ -4505,7 +4647,7 @@ Forms can be created/edited with OLC via "create/edit form" commands.
 See "help 'OLC FORMS INTRO"' for more info.
  
 ~
-0 Knight~
+0 KNIGHT~
 @eng ..Deep chaos fell on the World. Seven Cabals had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
@@ -4551,7 +4693,7 @@ Syntax: plist [member | second | leader] [name]
 'plist xxx' will show current clan xxx list.
  
 ~
-0 'WIZ CHQUEST'~
+0 'WIZ CHQUEST' CHQUEST~
 Syntax: chquest status
 Syntax: chquest restart
 Syntax: chquest start vnum
@@ -4736,44 +4878,12 @@ are topics of continual and heated debate in various MUD forums, and are
 fraught with misconceptions, poor examples, and outrageous hypocrisies. :)
 ~
 -1 SOCIALS~
-This is a complete list of socials for this MUD:
-Compiled originally by: Sara
-accuse       adjust      air          apologize     applaud     babble
-bark         bcatch      beckon       beer          bearhug     beg
-bird         bkiss       bleed        blink         blush       boast
-boggle       bonk        bounce       bow           brb         burp
-cackle       caress      charge       cheer         chuckle     clap
-claw         collapse    comfort      comb          cough       cover
-cower        cringe      criticize    cry           cuddle      curse
-curtsey      dance       daydream     drool         duck        embrace
-explode      eyebrow     faint        fart          flare       flash
-flex         flinch      flip         flirt         flutter     fondle
-french       frown       fume         gasp          giggle      glare
-goose        grimace     grin         groan         grope       grovel
-growl        grumble     hand         head          hiccup      highfive
-hop          howl        hug          hush          ignore      innocent
-insane       judge       kiss         knee          laugh       lick
-love         lust        massage      meditate      moan        moon
-mosh         mutter      nibble       nod           nudge       nuzzle
-pant         passout     pat          peck          pie         pinch
-pissed       plead       point        poke          ponder      pout
-pray         propose     puke         punch         purr        ramble
-raspberry    rofl        roll         rub           ruffle      run
-scratch      scream      serenade     shake         shiver      shrug
-sigh         sing        slap         slobber       smile       smirk
-snap         snarl       sneeze       snicker       sniff       snore
-snort        snowball    snuggle      sob           spam        spank
-spit         squeal      squeeze      squirm        stare       stretch
-strip        stroke      strut        sulk          swoon       tackle
-tease        thank       threaten     tickle        tip         tongue
-twiddle      type        undress      view          wave        whine
-whistle      wiggle      wince        wink          wonder      worry
-worship      yawn        yeehaw       yodel         rose        laces
-tank         starve      aargh        homework      puff        differ
-yae          lightbulb   voodoo       ogg           confused    beam
-bite         discodance  scuff        whap          lag         chortle
-zerbert      twitch
+Syntax: {csocials{x
+        {csocials{x <name>
  
+Without argument this command shows you full list of available socials.
+Using it with a name of social as an argument will show you how this social
+will look in the eyes of other people. Great thing to avoid noemote/nochannel.
 ~
 -1 MERC~
 This mud is based on Merc 2.2, created by Furey, Hatchet, and Kahn.  
@@ -4795,7 +4905,7 @@ Thanks to ...
       of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,
       and hours of enjoyment.
 ~
--1 MAP MAPS~
+-1 MAPS~
 Thanks to Ezra for drawing the originals of several maps on ROM.
 ~
 -1 GREETING~
@@ -4837,7 +4947,7 @@ Thanks to Ezra for drawing the originals of several maps on ROM.
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
-92 IMOTD~
+92 'WIZ IMOTD' IMOTD~
 Welcome Immortal!
 
 You are responsible for following the laws of immortal behavior. These can
@@ -4877,7 +4987,7 @@ to help make the mud run more smoothly, power trips are strictly verbotten.
 
 Not fulfilling the roles of your office can result in demotion or deletion.
 ~
-92 COMMANDMENTS 'GOD RULES' GODS~
+92 COMMANDMENTS~
 .
                    The Rules of Shades of Gray
  
@@ -4937,18 +5047,26 @@ been found. The following options can be used with gain:
 gain revert : turns one training session into 10 practice session 
 gain convert: turns 10 practices into one training session
 ~
-92 CLONE~
-Syntax:
-  clone obj <object>
-  clone mob <mobile>
-  clone <name>
+92 'WIZ CLONE' CLONE~
+@eng Syntax: {cclone obj{x <name>
+Syntax: {cclone mob{x <name>
+Syntax: {cclone{x <name>
 
-The clone command duplicates an object or mobile.  The level of item or mobile
-that may be cloned depends on your level.  The target object or mob must be in
-the same room as you, or in your posession.  Strung and set information is
-preserved by clone, as well as any spell effects and container contents or
-mobile inventory, except for items which are too high for you to clone.  
-Strung extended descriptions on objects are not kept, however.
+The clone command duplicates an object or mobile. The target object or mob
+mus be in the same room as you, or in your posession.  Strung and set
+information is preserved by clone, as well as any spell effects and
+container contents or mobile inventory. Strung extended descriptions on
+objects are not kept, however.
+@rus Синтаксис: {cclone obj{x <имя>
+Синтаксис: {cclone mob{x <имя>
+Синтаксис: {cclone{x <имя>
+ 
+Команда CLONE используется для копирования обьектов или монстров. Указанный
+обьект или монстр должен быть в одной комнате с тобой или у тебя в мешке.
+Текстовая и установленная командой SET информация сохраняется при клониро-
+вании, также как и все заклинания, наложенные на обьект или монстра, содер-
+жимое контейнеров и то, что несет монстр. Расширенная текстовая информация 
+(exd) тем не менее не копируется.
 ~
 0 SKILLS SPELLS~
 The skills and spells commands are used to display your character's list
@@ -4976,11 +5094,6 @@ autoassit : makes you help group members in combat
 
 Typing a command sets the action , typing it again removes it. 
  
-~
--1 COUNT~
-The count command displays the number of people (that you can see) logged
-into the mud.  It also displays the highest number observed that day, if
-it is higher.
 ~
 -1 GATE~
 The gate spell is a powerful transportation magic that opens up a portal 
@@ -5026,7 +5139,7 @@ cannot be solar flighted out of.  Finally, any god or hero is also immune
 to solar flight, as well as in player who has no summon set. And ofcourse
 you need the sun light to cast this spell effectively.
 ~
--1 AFFECTS AFFECT RAFFECT RAFFECTS~
+-1 AFFECTS RAFFECTS~
 Affect command is used to show all the spells affecting your character. At
 low levels, only the spell name will be displayed, at higher levels the
 effects and duration of the spell will also be shown.  Spell effects
@@ -5042,7 +5155,7 @@ are no longer shown on score (this can be changed by using 'show' command).
 Language command is used to switch native language.
 Use 'language help' to list supported languages.
 ~
-92 'WIZ BAN'~
+92 'WIZ BAN' BAN~
 Syntax: ban add num action class mask
 Syntax: ban delete num
  
@@ -5125,7 +5238,7 @@ in combat.  Its effects are not altogether unlike the frenzy spell -- a huge
 surge of combat prowess, coupled with a disregard for personal safety.  
 Berserking warriors are more resistant to the effects of magic.
 ~
--1 DIRT 'DIRT KICKING'~
+-1 'DIRT KICKING'~
 Consider by some to be a cowardly skill, dirt kicking gives the clever 
 combatant a chance to blind his opponent by casting dirt into his eyes.  The
 blindness does not last long, but can provide an edge in combat.  Dexterity
@@ -5287,7 +5400,7 @@ Dispel good brings forth evil energies that inflict horrific torment on
 the pure of heart.  Good-aligned characters use this dark magic at their
 peril.
 ~
--1 'RECHARGE'~
+-1 RECHARGE~
 Syntax: cast 'recharge' <item>
 
 The recharge spell is used to restore energy to depleted wands and staves.
@@ -5295,14 +5408,14 @@ Fully exhausted items cannot be recharged, and the difficulty of the spell
 is proportional to the number of charges used.  Magic items can only be
 recharged one time successfully.
 ~
--1 'DEMONFIRE'~
+-1 DEMONFIRE~
 Syntax: cast 'demonfire' <target>
 
 Demonfire is a spell of blackest evil, and as such can only be used by those
 who follow the paths of darkness.  It conjures forth demonic spirits to 
 inflict terrible wounds on the enemies of the caster.
 ~
--1 'BLUEFIRE'~
+-1 BLUEFIRE~
 Syntax: cast 'bluefire' <target>
 
 Demonfire is a spell of neutral clerics, and as such can only be used by
@@ -5317,7 +5430,7 @@ a beam of light of sufficient purity to harm or or annihilate the servants
 of evil.  It cannot harm the pure of heart, and will turn and strike 
 casters who are tainted by evil.
 ~
--1 'PORTAL'~
+-1 PORTAL~
 Syntax: cast 'portal' <target>
 
 The portal spell is similar to gate, but creates a lasting one-way portal
@@ -5327,7 +5440,7 @@ be made to certain destinations, nor used to escape from gate-proof rooms.
 Portal requires a special source of power to be used, unfortunately the
 secret of this material component has been lost...
 ~
--1 'NEXUS'~
+-1 NEXUS~
 Syntax: cast 'nexus' <target>
 
 This spell is virtually identical to portal (see 'help portal'), with the
@@ -5446,7 +5559,7 @@ The spell may be used for a general scan that reaches a short distance in
 all directions, or with a directional component to see creatures much
 farther away.
 ~
--1 MASS HEALING~
+-1 'MASS HEALING'~
 Syntax: cast 'mass healing' 
 
 The mass healing spell, as its name might suggest, performs a healing spell
@@ -5516,7 +5629,7 @@ Codepages:              | _- |/_________\____ ,,,,,,/==\     / \
                    |  |  |  | | H | |_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|
  
 ~
-0 MASTERING BOW~
+0 'MASTERING BOW'~
 @eng Most famous rangers are able to shoot an arrow with an astonishing
 accuracy, so that even very distant targets can be hit with one shot.
 Everyone knows that wood elves have developed this skill and they are
@@ -5526,15 +5639,15 @@ legendary experts in it.
 выстрела. Непревзойденными мастерами этого умения являются лесные эльфы,
 которые и разработали данную технику.
 ~
-0 HAND BLOCK~
+0 'HAND BLOCK'~
 @eng This automatic skill allows unarmed person to block enemy attack with his 
 or her hands. 
 @rus Это автоматическое умение позволяет отбивать наносимые удары голыми руками.
 ~
-0 MASTERING HAND~
+0 'MASTERING HAND'~
 This automatic skill allows ninjas to fight more efficiently then unarmed.
 ~
-0 'WIZ MODULES'~
+0 'WIZ MODULES' MODULES~
 @eng Syntax: {cmodules reload{x <name>
  
 MODULES RELOAD command will reload module with name NAME
@@ -5545,6 +5658,150 @@ Available modules:
 MODULES RELOAD перезагрузит указанный модуль.
 Доступные модули:
    spellfun    - все функции заклинаний
+~
+0 TOGGLE~
+Syntax: {ctoggle{x <option>
+ 
+Toggles given option on/off. Available options are:
+{caffects{x    - defines whether spells affecting you will be shown in score
+             or not. See {CHELP AFFECTS{x.
+{cbrief{x      - with this option turned on you will not see room descriptions
+             when walking. Just room names.
+{ccolor{x      - turns ANSI color codes ON/OFF. See {CHELP COLOR{x
+{ccompact{x    - turn this option ON to skip empty line before your prompt.
+{ccombine{x    - defines whether same items in your inventory will be combined
+             (shown with numbers) or shown separated.
+{clong flags{x - toggles oldstyle flag view, like ({MPink Aura{x)({RRed Aura{x)...
+             New format looks like [[{y.{D.{m.{c.{MP{D.{G.{b.{RR{Y.{W.{y.{g.{g.{x]. See {CHELP FLAGS{x.
+{cnobust{x     - will not send you new prompt each time your hp/mana/moves have
+             changed. Useful to avoid spam from regeneration.
+{cnoflee{x     - with this option turned on, your character will not attempt
+             to flee when disconnected. See {CHELP FLEE{x.
+{cnotelnet{x   - disables telnet parser. See {CHELP RUSSIAN{x for details.
+{cnoiac{x      - capitalizes small russian 'ya'. See {CHELP RUSSIAN{x
+{cnoverbose{x  - disables verbose messages (e.g. [excellent] for items etc.)
+{cprompt{x     - enables/disable prompt showing.
+{ctelnet GA{x  - some clients require special symbol (GA) to be sent to them.
+{cquiet edit{x - buffer all output when you write a note.
+~
+0 FLAGS~
+You can see following flags on mobiles:
+(flags are shown in both short and long form)
+{yI  Invis{x       - mobile is magically invisible
+{DH  Hidden{x      - mobile is hiding in the shadows
+{mC  Charmed{x     - mobile is taking orders from its master
+{cT  Translucent{x - mobile can pass through closed doors
+{MP  Pink Aura{x   - mobile is affected with 'faerie fire', thus easier to hit
+{DU  Undead{x      - mobile is undead, thus subject to special spells
+{GR  Ridden{x      - mobile serves as mount
+{bI  Improved{x    - mobile is cloaked using advanced magic
+{RE  Red Aura{x    - mobile is an embodiment of evil
+{YG  Golden Aura{x - mobile is kind and pure at heart
+{WS  White Aura{x  - mobile is protected with 'sanctuary' spell
+{DB  Black Aura{x  - mobile is protected with 'black shroud' spell
+{yF  Fade{x        - mobile is hard to detect
+{gC  Camf{x        - mobile uses natural coverings
+ 
+You can encounter items with following flags:
+{yI  Invis{x     - item is magically invisible
+{DD  Dark{x      - item is dark
+{RR  Red Aura{x  - item is filled with dark energy
+{BB  Blue Aura{x - item is blessed with holy powers
+{MM  Magical{x   - item bears a sign of magical worksmanship
+{WG  Glowing{x   - item shines with inner light
+{YH  Humming{x   - item hums softly
+ 
+Action of certain spells or skills depends on mobile or object properties.
+Looking at the flags can help guessing.
+~
+92 'WIZ WIZINVIS' WIZINVIS~
+Syntax: {cwizinvis{x <level>
+
+Wizinvis takes a level argument, and will mke you invisible to all players of
+a lower level than your invisibility level.  It defaults to the maximum
+(your level) if no argument is given.  Wizi 100 characters are totally
+invisible.
+~
+92 'WIZ OBJLIST' OBJLIST~
+@eng Syntax: {cobjlist{x
+ 
+Dumps to a file list of all objects having affects.
+@rus Синтаксис: {cobjlist{x
+ 
+Выводит в файл список всех обьектов, имеющих аффекты.
+~
+92 'WIZ LIMITED' LIMITED~
+@eng Syntax: {climited{x
+Syntax: {climited{x <vnum>
+ 
+Without arguments given, this command lists all limited equipment.
+Given a vnum, it searches the world for it.
+@rus Синтаксис: {climited{x
+Синтаксис: {climited{x <vnum>
+ 
+Без аргументов эта команда выведет список всех limited вещей.
+При указании vnum команда попытается найти этот обьект в игре.
+~
+92 'WIZ TICK' TICK~
+@eng Syntax: {ctick{x <option>
+ 
+Where option defines what should be updated. It can be one of the following:
+   {ctick area{x    : devastate tracks, reset area
+   {ctick char{x    : gain hp/mana/move, gain hunger, update spell affects
+   {ctick room{x    : update room affect duraions
+   {ctick track{x   : update hunting mobiles
+   {ctick obj{x     : update object timers, check special object materials
+   {ctick chquest{x : update and restart challenge quests
+   {ctick quest{x   : update quest time
+   {ctick clan{x    : update clan item locations
+   {ctick weather{x : update weather and time
+@rus Синтаксис: {ctick{x <тип>
+ 
+Вызывает обновление чего-либо в игре. Что именно подлежит обновлению,
+определяется типом тика. Возможны следующие варианты:
+   {ctick area{x    : обновление следов на земле, обновление зоны
+   {ctick char{x    : получение хитов, маны, шагов, обновление аффектов
+   {ctick room{x    : обновление заклинаний на комнатах
+   {ctick obj{x     : обновление таймеров на обьектах
+   {ctick track{x   : обновление монстров, охотящихся за кем-либо
+   {ctick chquest{x : обновление и рестарт глобальных квестов
+   {ctick quest{x   : уменьшение времени квестов
+   {ctick clan{x    : проверка положения клановых обьектов
+   {ctick weather{x : обновление погоды, увеличение времени
+~
+0 'THROWING WEAPONS'~
+@eng Syntax: {cthrow weapon{x <direction> <victim>
+ 
+Some weapons have been balanced to be thrown. You should know how to throw
+weapons and of course you should be skilled with that type of weapon.
+@rus Синтаксис: {cthrow weapon{x <направление> <жертва>
+ 
+Некоторое оружие специльным образом сбалансировано, что позволяет не только
+использовать его в ближнем бою, но и метать. Конечно, ты должен не только
+уметь метать оружие, но и владеть типом оружия, которое ты собираешься
+использовать.
+~
+92 'WIZ NONOTE' NONOTE~
+@eng Syntax: {cnonote{x <character>
+ 
+This command prevents character from writing notes, ideas etc.
+@rus Синтаксис: {cnonote{x <персонаж>
+ 
+Запрещает написание обьявлений данному персонажу.
+~
+92 'WIZ SNOOP' SNOOP~
+@eng Syntax: {csnoop{x <character>
+Syntax: {csnoop self{x
+ 
+SNOOP sends target player's input and output to you. You may snoop more than
+one character at a time. Try to respect privacy. SNOOP SELF cancels all snoops.
+@rus Синтаксис: {csnoop{x <персонаж>
+Синтаксис: {csnoop self{x
+ 
+SNOOP нужен для слежения за персонажем, при этом все что вводит или получает на
+экран указанный персонаж, выводится тебе. Ты можешь следить за несколькими
+игроками одновременно. Попытайтесь уважать чужую частную жизнь.
+SNOOP SELF отменяет все слежение.
 ~
 -1 $~
 

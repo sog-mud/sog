@@ -301,7 +301,7 @@ stand stand male 0
 0 0 medium unknown
 #36318
 training mob strange figure~
-trainihg mob~
+training mob~
 You see a strange figure standing there.
 ~
 A training mob stands here waiting for you to fight!
@@ -751,7 +751,7 @@ of the wooden shield.
 ~
 unique~
 ABGHI 0 0 0
-70 0 70d20+15000 70d10+1000 1d1+1 pound
+70 0 70d30+25000 70d10+1000 1d1+1 pound
 -50 -50 -50 -45
 EFIJK ABCHIJKLMNOPQRST 0 X
 stand stand none 0
@@ -1316,7 +1316,7 @@ silver arrow~
 A silver arrow glows brightly.~
 silver~
 weapon AIORY AO
-arrow 15 15 pierce AG
+arrow 15 15 pierce AGK
 90 10 0 P
 A
 18 20
@@ -2529,7 +2529,7 @@ titanium-headed arrow~
 A heavy looking arrow lies in the dirt.~
 wood~
 weapon 0 AO
-arrow 12 12 pierce 0
+arrow 12 12 pierce K
 82 10 1500 P
 G none
 #36424
@@ -3812,11 +3812,15 @@ D1
 ABCFGZ 36376 36342
 S
 #36344
-Samurai's House~
-An old samurai live here. All his life was spent in battles.
+@eng Samurai's House@rus Домик Самурая~
+@eng An old samurai live here. All his life was spent in battles.
 On the walls you can see beautiful paintings. Some carvings
 stand on the shelves. His kimono and katana sword seem to be
 locked in a small chest sitting by the corner.
+@rus Здесь живет старый Самурай. Всю свою жизнь он провел
+в сражениях. На стенах ты видишь превосходно написанные
+картины. На полках стоят статуэтки. Видимо, его катана
+и кимоно заперты в сундуке (chest), который стоит в углу.
 ~
 0 D inside
 E
@@ -3829,7 +3833,7 @@ D1
 Z -1 36330
 S
 #36345
-Ranger's House~
+@eng Ranger's House@rus Домик Рэнжера~
 @eng A home of ranger is filled with the forest goods.
 There is a huge skin of a mountain lion on the floor. 
 Wood carvings and rocks lie on the stands and shelves. 
@@ -3849,9 +3853,11 @@ D3
 Z -1 36330
 S
 #36346
-Warrior's House~
-Armor and weapons all over the house! You can guess that
+@eng Warrior's House@rus Дом Воина~
+@eng Armor and weapons all over the house! You can guess that
 it is really a home of a great warrior.
+@rus Повсюду в доме сложено оружие и доспехи! Ты понимаешь,
+что действительно попал в дом Воина!
 ~
 0 AD inside
 D1
@@ -3860,8 +3866,9 @@ D1
 Z -1 36331
 S
 #36347
-Paladin's House~
-Some glowing armor stands by the corner.
+@eng Paladin's House@rus Домик Паладина~
+@eng Some glowing armor stands by the corner.
+@rus Сверкающие доспехи стоят в углу.
 ~
 0 AD inside
 D3
@@ -3870,7 +3877,7 @@ D3
 Z -1 36331
 S
 #36348
-Vampire's House~
+@eng Vampire's House@rus Домик Вампира~
 @eng Simply the house of a dreaded vampire.
 @rus Просто домик ужасного Вампира.
 ~
@@ -3881,7 +3888,7 @@ D1
 ABZ -1 36333
 S
 #36349
-Witch's House~
+@eng Witch's House@rus Домик Ведьмы~
 @eng You come to the witch house at your own risk. Vials filling
 with witch's brew are everywhere.
 @rus На свой страх и риск ты вошел в дом Ведьмы! Повсюду стоят
@@ -3894,7 +3901,7 @@ D3
 ABZ -1 36333
 S
 #36350
-Cleric's House~
+@eng Cleric's House@rus Дом Монаха~
 @eng Holy symbols and other monk's things are lying on the
 shelves and hanging on the walls.
 @rus Святые вещи и прочие принадлежности быта монаха
@@ -3907,9 +3914,12 @@ D1
 Z -1 36334
 S
 #36351
-Mage's House~
-You are a lucky boy! Mage is on the festival and you can get
+@eng Mage's House@rus Дом Мага~
+@eng You are a lucky boy! Mage is on the festival and you can get
 what you want. But someone has been here just before you...
+@rus Счастливчик! Тебе повезло забраться в дом Мага как
+раз пока он на Фестивале, и ты можешь взять все, что
+плохо лежит. Но кто-то уже побывал тут до тебя...
 ~
 0 AD inside
 D3
@@ -4285,7 +4295,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4313,7 +4323,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4337,7 +4347,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4361,7 +4371,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4389,7 +4399,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4409,7 +4419,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4437,7 +4447,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4457,7 +4467,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4485,7 +4495,7 @@ S
 @eng A wide grassy lawn is wasted by the boots of many warriors
 come here on a competition. A championship looks very
 interesting, especially if you can get your own part in it.
-@rus Широкая травяная лужайка вытоптанна сапогами
+@rus Широкая травяная лужайка вытоптана сапогами
 множества соревнующихся воинов. Чемпионат
 выглядит очень интересным, особенно если ты
 принимаешь в нем участие.
@@ -4935,7 +4945,8 @@ S
 @eng Deep in the Dark Cave@rus Глубоко в пещере~
 @eng You step in the dark cave. East opens a wide tunnel, up you can
 climb back to the daylight.
-@rus Ты вошел в темную пещеру. На востоке вход в длинный туннель, ~~
+@rus Ты вошел в темную пещеру. На востоке вход в широкий туннель, 
+идя вверх ты можешь вновь вернуться к дневному свету.
 ~
 0 ADN mountain
 D3
@@ -4948,10 +4959,13 @@ D4
 Z -1 36400
 S
 #36402
-Wide Tunnel~
-You go through the wide tunnel. Water flows along the dump
+@eng Wide Tunnel@rus Широкий туннель~
+@eng You go through the wide tunnel. Water flows along the dump
 walls and you are going to regret forgetting a boat... Far
 east you see a light streaming from nowhere.
+@rus Ты идешь по широкому туннелю. Со стен стекает вода
+и ты начинаешь жалеть, что не прихватил с собой лодку
+Далеко на востоке ты видишь свет, струящийся ниоткуда.
 ~
 0 ADN mountain
 D1
@@ -4965,11 +4979,14 @@ D3
 Z -1 36403
 S
 #36403
-Wide Tunnel~
-You go through the wide tunnel. Water flows along the dump
+@eng Wide Tunnel@rus Широкий туннель~
+@eng You go through the wide tunnel. Water flows along the dump
 walls and you are going to regret forgetting a boat... Far
 east you see a light streaming from nowhere.
 
+@rus Ты идешь по широкому туннелю. Со стен стекает вода
+и ты начинаешь жалеть, что не прихватил с собой лодку
+Далеко на востоке ты видишь свет, струящийся ниоткуда.
 ~
 0 ADN mountain
 D1
@@ -4982,11 +4999,14 @@ D3
 Z -1 36404
 S
 #36404
-Wide Tunnel~
-You go through the wide tunnel. Water flows along the dump
+@eng Wide Tunnel@rus Широкий туннель~
+@eng You go through the wide tunnel. Water flows along the dump
 walls and you are going to regret forgetting a boat... Far
 east you see a light streaming from nowhere.
 
+@rus Ты идешь по широкому туннелю. Со стен стекает вода
+и ты начинаешь жалеть, что не прихватил с собой лодку
+Далеко на востоке ты видишь свет, струящийся ниоткуда.
 ~
 0 ADN mountain
 D1
@@ -4999,11 +5019,15 @@ D3
 Z -1 36405
 S
 #36405
-Before the wide tunnel~
-You step under the arch of a huge cavern. An underground lake
+@eng Before the wide tunnel@rus Перед широким туннелем~
+@eng You step under the arch of a huge cavern. An underground lake
 fills almost all space of the cavern. In the middle of the
 lake you see a small island and you realize, that the light
 catching your eyes flows just from this place.
+@rus Ты вступаешь под величественные своды огромной пещеры.
+Подземное озеро занимает почти всю пещеру. В центре
+озера виднеется островок, и ты обнаруживаешь, что свет,
+бьющий тебе в глаза исходит как раз оттуда.
 ~
 0 DN inside
 D0
@@ -5024,10 +5048,13 @@ D3
 Z -1 36422
 S
 #36406
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5044,11 +5071,14 @@ D3
 Z -1 36423
 S
 #36407
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D2
@@ -5061,11 +5091,14 @@ D3
 Z -1 36408
 S
 #36408
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D1
@@ -5082,11 +5115,14 @@ D3
 Z -1 36409
 S
 #36409
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D1
@@ -5103,11 +5139,14 @@ D3
 Z -1 36410
 S
 #36410
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D1
@@ -5124,11 +5163,14 @@ D3
 Z -1 36411
 S
 #36411
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D1
@@ -5141,11 +5183,14 @@ D2
 Z -1 36412
 S
 #36412
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5162,11 +5207,14 @@ D2
 Z -1 36413
 S
 #36413
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5183,11 +5231,14 @@ D2
 Z -1 36414
 S
 #36414
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5204,11 +5255,14 @@ D2
 Z -1 36415
 S
 #36415
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5221,11 +5275,14 @@ D1
 Z -1 36416
 S
 #36416
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5242,11 +5299,14 @@ D3
 Z -1 36415
 S
 #36417
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5263,11 +5323,14 @@ D3
 Z -1 36416
 S
 #36418
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5284,11 +5347,14 @@ D3
 Z -1 36417
 S
 #36419
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5301,11 +5367,14 @@ D3
 Z -1 36418
 S
 #36420
-A rocky path around the lake~
-You are climbing amidst the rocks, trying to reach the next
+@eng A rocky path around the lake@rus Каменистый путь вокруг озера~
+@eng You are climbing amidst the rocks, trying to reach the next
 side of the lake. Small snakes, snails and insects live here.
 Bats screams above you as you disturb them.
 
+@rus Ты карабкаешься через скалы, пытаясь добраться до
+противоположного берега озера. Маленькие змейки,
+слизняки и насекомые обитают здесь.
 ~
 0 DN inside
 D0
@@ -5322,10 +5391,13 @@ D3
 Z -1 36421
 S
 #36421
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5350,11 +5422,14 @@ D4
 Z -1 36434
 S
 #36422
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5379,11 +5454,14 @@ D4
 Z -1 36433
 S
 #36423
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5408,11 +5486,14 @@ D4
 Z -1 36432
 S
 #36424
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5437,11 +5518,14 @@ D4
 Z -1 36431
 S
 #36425
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5466,11 +5550,14 @@ D4
 Z -1 36438
 S
 #36426
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5495,11 +5582,14 @@ D4
 Z -1 36437
 S
 #36427
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5524,11 +5614,14 @@ D4
 Z -1 36436
 S
 #36428
-An Underground Lake~
-The lake seems to be very deep. You wonder the beauty of
+@eng An Underground Lake@rus Подземное озеро~
+@eng The lake seems to be very deep. You wonder the beauty of
 stalactites and stalagmites all around you. But do worry if
 someone is hidden amidst this beauty!
 
+@rus Озеро выглядит очень глубоким. Ты любуешься прекрасными
+сталактитами и сталагмитами, окружающими тебя. Но будь
+осторожен, вдруг среди них кто-нибудь прячется!
 ~
 0 DN noswim
 D0
@@ -5553,10 +5646,14 @@ D4
 Z -1 36435
 S
 #36429
-A Small Island~
-A small rock rises from under the water. Up ahead you suddenly
+@eng A Small Island@rus Островок~
+@eng A small rock rises from under the water. Up ahead you suddenly
 see a glimpse of light. Trying to climb up, you fall and fall
 down. Probably there is another way home? Who knows...
+@rus Небольшая скала возвышается над водой. Высоко над головой
+ты внезапно увидел проблеск света. Пытаясь забраться
+наверх, ты срываешься и падаешь вниз. Может быть, есть
+другой путь домой? Кто знает...
 ~
 0 DN inside
 D0
@@ -5581,9 +5678,13 @@ D4
 Z -1 36430
 S
 #36430
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 CDN unused
 D0
@@ -5612,10 +5713,14 @@ D5
 Z -1 36429
 S
 #36431
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D1
@@ -5636,10 +5741,14 @@ D5
 Z -1 36424
 S
 #36432
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D2
@@ -5656,10 +5765,14 @@ D5
 Z -1 36423
 S
 #36433
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D0
@@ -5680,10 +5793,14 @@ D5
 Z -1 36422
 S
 #36434
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D0
@@ -5700,10 +5817,14 @@ D5
 Z -1 36421
 S
 #36435
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D0
@@ -5724,10 +5845,14 @@ D5
 Z -1 36428
 S
 #36436
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D0
@@ -5744,10 +5869,14 @@ D5
 Z -1 36427
 S
 #36437
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D0
@@ -5768,10 +5897,14 @@ D5
 Z -1 36426
 S
 #36438
-Flying above the lake~
-You are flying above a small island. All that you see around
+@eng Flying above the lake@rus Над озером~
+@eng You are flying above a small island. All that you see around
 is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 
+@rus Ты летаешь около маленького островка. Все, что ты
+видишь вокруг - это воды глубокого, сверкающего
+озера. Ты чувствуешь идущий сверху поток свежего
+воздуха.
 ~
 0 DN unused
 D1
@@ -5839,9 +5972,10 @@ D3
 Z -1 36441
 S
 #36441
-2nd Line Street~
-This street can be simply called "the 2nd"
+@eng 2nd Line Street@rus Вторая Линия~
+@eng This street can be simply called "the 2nd"
 
+@rus Ты идешь вдоль Второй Линии.
 ~
 0 0 city
 D1
@@ -5858,9 +5992,10 @@ D3
 Z -1 36442
 S
 #36442
-2nd Line Street~
-This street can be simply called "the 2nd"
+@eng 2nd Line Street@rus Вторая Линия~
+@eng This street can be simply called "the 2nd"
 
+@rus Ты идешь вдоль Второй Линии.
 ~
 0 0 city
 D1
@@ -5873,9 +6008,10 @@ D2
 Z -1 36445
 S
 #36443
-2nd Line Street~
-This street can be simply called "the 2nd"
+@eng 2nd Line Street@rus Вторая Линия~
+@eng This street can be simply called "the 2nd"
 
+@rus Ты идешь вдоль Второй Линии.
 ~
 0 0 city
 D1
@@ -5892,9 +6028,10 @@ D3
 Z -1 36440
 S
 #36444
-2nd Line Street~
-This street can be simply called "the 2nd"
+@eng 2nd Line Street@rus Вторая Линия~
+@eng This street can be simply called "the 2nd"
 
+@rus Ты идешь вдоль Второй Линии.
 ~
 0 0 city
 D2
@@ -5907,9 +6044,12 @@ D3
 Z -1 36443
 S
 #36445
-Small house~
-You are inside a small house.
-
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house. A table, a few chairs
+and a simple fireplace stand here.
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 AD inside
 D0
@@ -5918,9 +6058,12 @@ D0
 Z -1 36442
 S
 #36446
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 AD inside
 D0
@@ -5929,9 +6072,12 @@ D0
 Z -1 36441
 S
 #36447
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 AD inside
 D0
@@ -5940,9 +6086,12 @@ D0
 Z -1 36443
 S
 #36448
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 AD inside
 D0
@@ -6001,7 +6150,7 @@ D3
 Z -1 36453
 S
 #36451
-1st Line Street~
+@eng 1st Line Street@rus Первая Линия~
 @eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
@@ -6023,7 +6172,7 @@ D3
 Z -1 36450
 S
 #36452
-1st Line Street~
+@eng 1st Line Street@rus Первая Линия~
 @eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
@@ -6041,7 +6190,7 @@ D3
 Z -1 36451
 S
 #36453
-1st Line Street~
+@eng 1st Line Street@rus Первая Линия~
 @eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
@@ -6063,7 +6212,7 @@ D3
 Z -1 36454
 S
 #36454
-1st Line Street~
+@eng 1st Line Street@rus Первая Линия~
 @eng You walk along the street called simply "the 1st". Small
 houses are on the northern side of the street.
 
@@ -6081,9 +6230,12 @@ D1
 Z -1 36453
 S
 #36455
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 0 inside
 D2
@@ -6092,9 +6244,12 @@ D2
 Z -1 36454
 S
 #36456
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 0 inside
 D2
@@ -6103,9 +6258,12 @@ D2
 Z -1 36453
 S
 #36457
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 0 inside
 D2
@@ -6114,9 +6272,12 @@ D2
 Z -1 36451
 S
 #36458
-Small house~
-You are inside a small house.
+@eng Small house@rus Маленький домик~
+@eng You are inside a small house.
 
+@rus Ты находишься внутри маленького домика. Стол,
+несколько стульев и простой очаг занимают почти
+все пространство комнаты.
 ~
 0 0 inside
 D2
@@ -6366,7 +6527,7 @@ M 0 36319 2 36363 1	* hedgehog (Shooting Place)
 E 0 36373 0 9		*	hedgehog's gloves: on the hands
 G 0 36315 0		*	apple
 M 0 36349 4 36367 4	* target (The edge of the Forest)
-M 0 36318 1 36368 1	* trainihg mob (The edge of the Forest)
+M 0 36318 1 36368 1	* training mob (The edge of the Forest)
 E 0 36357 0 11		*	tournament shield: as a shield
 E 0 36360 0 16		*	tournament sword: wielded
 M 0 36350 10 36368 1	* tiny bird (The edge of the Forest)

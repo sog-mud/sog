@@ -1,6 +1,6 @@
 #AREADATA
 Name Firetop Mountain~
-VNUMs 5735 5835
+VNUMs 5700 5899
 Credits Yaegar~
 Security 9
 LevelRange 10 20
@@ -1050,11 +1050,11 @@ This rope is magically cursed!
 ~
 G none
 #5766
-sword~
+sword magnificient~
 a magnificent-looking sword~
 A magnificent-looking sword is here. Pick it up!~
 iron~
-weapon AG AO
+weapon AG AN
 sword 5 5 slash 0
 15 125 700 P
 A

@@ -1,7 +1,7 @@
 #AREADATA
 Name Circus~
 Builders shamash~
-VNUMs 4400 4500
+VNUMs 4400 4499
 Credits Binky~
 Security 9
 LevelRange 1 12
@@ -1156,10 +1156,13 @@ Z 0 4404
 S
 #4404
 The Game Booths~
-This area seems deserted.  The booths are boarded up, and the only
+@eng This area seems deserted.  The booths are boarded up, and the only
 Circus employee you see is sitting on a counter, muttering obscenities at the
 Mayor and City council.  He makes it a point to let you know that he knows 
 you are there, and he is ignoring you on purpose.
+@rus Это место кажется пустым. Лишь несколько палаток и перевернутых столов 
+предстает вашему взору. Циркач уселся на прилавок и ругает Мэра
+на чем чвет стоит.
 ~
 0 0 city
 D1
@@ -1169,10 +1172,13 @@ Z 0 4403
 S
 #4405
 The Game Booths~
-This area seems deserted.  The booths are boarded up, and the only
+@eng This area seems deserted.  The booths are boarded up, and the only
 Circus employee you see is sitting on a counter, muttering obscenities at the
 Mayor and City council.  He makes it a point to let you know that he knows 
 you are there, and he is ignoring you on purpose.
+@rus Это место кажеться пустым. Только несколько закрытых и перевернутых палаток
+предвстает вашему взору. Один из циркачей сидит на прилавке и ругает Мэра на
+чем свет стоит. Он хоть и заметил тебя, но сделал вид, что вовсе не видит тебя.
 ~
 0 0 city
 D3

@@ -3061,10 +3061,9 @@ To the north lies the entrance of the weaponsmaster.
 ~
 0 S city
 D0
-The Entrance of the Weaponsmaster.
 ~
 ~
-Z -1 9800
+Z 0 9707
 D1
 ~
 ~
@@ -6367,6 +6366,19 @@ Nabil's pets are kept here.
 ~
 0 CS inside
 S
+#9707
+The weaponsmaster's room~
+You are at the place, where maybe the best, to learn what the weapon is 
+and how they can be controlled. The walls are decorated with large and 
+valuable tapestries. One great sword and one axe are standing near the 
+opposite walls. Short swords and light shields are hangingon the wall. 
+~
+0 S city
+D2
+~
+~
+Z 0 9523
+S
 #9710
 Saska's Library~
 Fine, golden dust swirls and then settles as you enter Saska's
@@ -7178,10 +7190,6 @@ valuable tapestries. One great sword and one axe are standing near the
 opposite walls. Short swords and light shields are hangingon the wall. 
 ~
 0 S city
-D2
-~
-~
-Z -1 9523
 S
 #0
 
@@ -7569,6 +7577,7 @@ M 0 9577 1 9701 1	* the giant hornet (Cell)
 M 0 9576 1 9702 1	* the couatl (Cell)
 M 0 9573 1 9703 1	* the spotted lion (Cell)
 M 0 9571 1 9704 1	* the minotaur lizard (Cell)
+M 0 9594 1 9707 1	* The Samurai Weaponsmaster (The weaponsmaster's room)
 O 0 9598 0 9750	* the Daemon Claw (Igor's Secret Chamber)
 M 0 9591 1 9799 1	* the Ixitxachitl (Lair of the Ixitxachitl)
 G 0 9602 0		*	a beautiful white pearl

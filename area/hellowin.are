@@ -182,7 +182,7 @@ wand жезл~
 wood~
 wand CF AO
 100 1 1 'improved identify' 0
-10 1 50000 P
+10 1 5000 P
 G none
 #34450
 claws когти~
@@ -209,6 +209,23 @@ S 'locate object' 75 A
 S 'identify' 100 A
 S 'lore' 100 A
 G none
+#34452
+staff necromancy посох rod~
+@eng Rod of Necromancy@rus ~~Посох~~ некромансера~
+@eng Rod made of bone hums casts darkness arounf it.@rus Костяной посох (rod), кажется, поглащает весь свет.~
+bone~
+staff CGJMZh AO
+70 100 100 'mana drain' 0
+40 20 0 P
+F I 20 -15 M
+F A 19 20 n
+S 'lich' 70 A
+S 'animate dead' 80 A
+S 'draining touch' 100 A
+S 'mana drain' 100 A
+S 'control undead' 50 A
+S 'bone dragon' 80 A
+G male
 #0
 
 #ROOMS

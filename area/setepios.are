@@ -1453,10 +1453,6 @@ S
 38001 0 0 0 0 0 1 1 1 23
 0
 
-#OLIMITS
-O 38602 0	* {Y***{W Power of Justice{Y ***{x
-S
-
 #MOBPROGS
 #38500
 mob echoat $n $i grunts at you.

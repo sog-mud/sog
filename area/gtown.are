@@ -268,18 +268,21 @@ EFNQ 0 0 0
 stand stand none 5000
 0 0 medium unknown
 #8116
-succubus~
-a succubus~
-A beautiful female smiles charmingly at you, revealing sharp fangs...
+succubus woman суккуб~
+@eng a succubus@rus суккуб~
+@eng A beautiful female smiles charmingly at you, revealing sharp fangs...
+@rus Прекрасная женщина (woman) очаровательно улыбается тебе, показывая острые зубы...
 ~
-OUCH! Its a Succubus. She will charm you, then waste you. FIGHT!
+@eng OUCH! Its a Succubus. She will charm you, then waste you. FIGHT!
+@rus Ой! Да это же суккуб. Она сначала очарует, а потом высосет из тебя все
+соки и поможет умереть. С ней нужно говорить только на языке грубой силы.
 ~
 undead~
 ABGO Tu -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 slash
 -20 -20 -20 2
 EFNQ 0 0 0
-stand stand none 5000
+stand stand female 5000
 I 0 medium unknown
 #8117
 necromancer xantharus~
@@ -586,9 +589,9 @@ I 0 medium unknown
 
 #OBJECTS
 #8100
-rod orcus~
-the Rod of Orcus~
-The Rod of Orcus glows evilly here.~
+rod orcus жезл~
+@eng the Rod of Orcus@rus ~~Жезл~~ Оркуса~
+@eng The Rod of Orcus glows evilly here.@rus Жезл Оркуса (rod) сверкает мрачным светом.~
 wood~
 staff BEGH AO
 60 100 100 'pass door' 0
@@ -615,11 +618,11 @@ A
 23 -10
 A
 24 -10
-G none
+G male
 #8101
-hand vecna~
-the Hand of Vecna~
-The Hand of Vecna lies here.~
+hand vecna рука~
+@eng the Hand of Vecna@rus ~~рука~~ Векны~
+@eng The Hand of Vecna lies here.@rus Рука (hand) Векны лежит здесь.~
 leather steel~
 armor EHJMQ AH
 18 19 18 10 0
@@ -636,11 +639,11 @@ A
 19 3
 A
 24 -3
-G none
+G female
 #8102
-eye vecna~
-the Eye of Vecna~
-The Eye of Vecna glows evilly here.~
+eye vecna глаз~
+@eng the Eye of Vecna@rus ~~глаз~~ Векны~
+@eng The Eye of Vecna glows evilly here.@rus Глаз (eye) Векны сверкает красным цветом и просто-таки излучает зло.~
 leather steel~
 armor AEJM AE
 18 18 18 10 0
@@ -651,11 +654,11 @@ A
 4 3
 A
 12 50
-G none
+G male
 #8103
-sword kas~
-the Sword of Kas~
-The Sword of Kas beckons to you!~
+sword kas меч~
+@eng the Sword of Kas@rus ~~меч~~ Каса~
+@eng The Sword of Kas beckons to you!@rus Меч Каса (sword) манит тебя к себе.~
 steel~
 weapon BEGJM AN
 sword 5 10 pierce D
@@ -668,9 +671,9 @@ A
 19 5
 G none
 #8104
-circlet~
-a circlet~
-A Circlet lies here, gathering dust.~
+circlet диадема~
+@eng a circlet@rus диадема~
+@eng A Circlet lies here, gathering dust.@rus Диадема (circlet) валяется здесь, собирая на себя пыль.~
 steel~
 armor GM AE
 17 17 17 10 0
@@ -679,29 +682,29 @@ A
 3 -3
 A
 4 -3
-G none
+G female
 #8105
-hoard~
-a treasure hoard~
-A treasure hoard is scattered here.~
-leather~
+treasure hoard сокровище~
+@eng a treasure hoard@rus сокровище~
+@eng A treasure hoard is scattered here.@rus Накопленные за долгие годы сокровища (treasure) рассыпаны сверкающей грудой.~
+gems~
 container 0 AO
 400 0 0 50 50
 1 150 0 P
 G none
 #8106
 chest~
-a chest~
-A chest sits here.~
+@eng a chest@rus сундук~
+@eng A chest sits here.@rus Небольшой сундук (chest) стоит у стены.~
 steel~
 container 0 A
 150 0 0 20 100
 48 100 0 P
-G none
+G male
 #8107
-robes flesh~
-robes of Flesh~
-Robes made of human flesh are piled here.~
+robes flesh накидка~
+@eng robes of Flesh@rus ~~накидка~~, сделанная из кожи~
+@eng Robes made of human flesh are piled here.@rus Накидка (robes), изготовленная из кожи людей, брошена здесь.~
 human flesh~
 armor EJ AK
 15 15 15 6 0
@@ -710,11 +713,11 @@ A
 12 150
 A
 13 25
-G none
+G female
 #8108
-rod bone~
-a Rod of Bone~
-A Rod fashioned from a human femur lies here.~
+rod bone жезл~
+@eng a Rod of Bone@rus ~~костяной~~ ~~жезл~~~
+@eng A Rod fashioned from a human femur lies here.@rus Жезл (rod), выточенный из человеческой кости, лежит здесь.~
 human femur~
 weapon EJ AN
 exotic 6 9 crush 0
@@ -727,40 +730,40 @@ A
 18 4
 A
 19 4
-G none
+G male
 #8109
-bones~
-a pile of bones~
-A pile of bones lies here.~
+pile bones куча~
+@eng a pile of bones@rus ~~куча~~ костей~
+@eng A pile of bones lies here.@rus Внушительного вида куча костей (pile) валяется здесь.~
 silver~
 trash 0 A
 0 0 0 0 0
 1 50 0 P
-G none
+G female
 #8110
-gem~
-a Power Gem~
-A Mana Power Gem pulses strongly here.~
+gem power кристал~
+@eng a Power Gem@rus ~~кристал~~ ~
+@eng A Mana Power Gem pulses strongly here.@rus Кристал (gem) весь пульсирует от заключенной в нем мощи.~
 wood~
 staff AG AO
 50 20 20 'sanctuary' 0
-58 10 40000 P
+45 10 40000 P
 A
 12 50
-G none
+G male
 #8111
-cloak~
-a black cloak~
-A black cloak is piled here.~
+cloak black плащ~
+@eng a black cloak@rus ~~черный~~ ~~плащ~~~
+@eng A black cloak is piled here.@rus Черный плащ (cloak) валяется на земле, кем-то выброшенный.~
 unknown~
 armor 0 AK
 17 17 17 11 0
 51 10 0 P
 G none
 #8112
-sword~
-(Diabolical) a Dark Sword~
-A Dark Sword hums evilly here.~
+sword dark меч~
+@eng (Diabolical) a Dark Sword@rus ~~проклятый~~ ~~темный~~ ~~меч~~~
+@eng A Dark Sword hums evilly here.@rus Темный меч (sword) издает монотонный гул, валяясь на земле.~
 steel~
 weapon BCEJ AN
 sword 6 10 slash 0
@@ -775,13 +778,13 @@ A
 18 2
 A
 19 4
-G none
+G male
 #8113
-armor~
-a Suit of Dark Armor~
-A Suit of Dark Armor lies here.~
+armor dark~
+@eng a Suit of Dark Armor@rus ~~темные~~ ~~доспехи~~~
+@eng A Suit of Dark Armor lies here.@rus Темные доспехи (armor) лежат на земле.~
 steel~
-armor CEJ AE
+armor CEJ AD
 16 16 17 10 0
 50 25 15000 P
 A
@@ -790,11 +793,11 @@ A
 18 4
 A
 19 7
-G none
+G plural
 #8114
-helm~
-a Dark Helm~
-A Dark Helm seeks to possess you!~
+helm dark шлем~
+@eng a Dark Helm@rus ~~темный~~ ~~шлем~~~
+@eng A Dark Helm seeks to possess you!@rus Темный шлем (help) ищет возможность овладеть твоим сознанием.~
 steel~
 armor CHM AE
 18 18 18 12 0
@@ -803,74 +806,74 @@ A
 3 -3
 A
 4 -3
-G none
+G male
 #8115
-jar~
-a jar~
-A glass jar sits here.~
+jar кувшин~
+@eng a jar@rus кувшин~
+@eng A glass jar sits here.@rus Стеклянный кувшин (jar) стоит прямо на полу.~
 glass~
 container 0 AO
 25 0 0 10 100
 48 10 0 P
-G none
+G male
 #8116
-poison~
-some poison~
-Some poison lies here.~
+poison яд~
+@eng some poison@rus яд~
+@eng Some poison lies here.@rus Кто-то оставил здесь жуткий яд (poison), несущий мгновенную смерть.~
 food~
 food 0 A
 A 0 0 A 0
 1 0 0 P
-G none
+G male
 #8117
-unholy symbol~
-an Unholy Symbol~
-The Unholy Symbol of some priest devoted to evil lies here.~
+symbol unholy символ~
+@eng an Unholy Symbol@rus ~~оскверненный~~ ~~символ~~~
+@eng The Unholy Symbol of some priest devoted to evil lies here.@rus Оскверненный символ (symbol), используемый служителями зла, оставлен здесь.~
 unknown~
 light EJ A
 0 0 -1 0 0
 48 5 500 P
 A
 2 3
-G none
+G male
 #8118
-holy symbol~
-a holy Symbol~
-The Holy Symbol of some priest devoted to good lies here.~
+symbol holy символ~
+@eng a holy Symbol@rus ~~священный~~ ~~символ~~~
+@eng The Holy Symbol of some priest devoted to good lies here.@rus Священный символ (symbol), оставленный священником, лежит здесь.~
 unknown~
 light AK A
 0 0 -1 0 0
 48 5 500 P
 A
 5 3
-G none
+G male
 #8119
-corpse~
-a corpse~
-The corpse of some unfortunate adventurer is lying here.~
+corpse останки~
+@eng a corpse@rus ~~останки~~ путешественника~
+@eng The corpse of some unfortunate adventurer is lying here.@rus Останки (corpse) какого-то неудачливого искателя приключений валяются на земле.~
 meat~
 furniture 0 0
 0 0 0 0 0
 0 75 0 P
-G none
+G plural
 #8120
-key~
-a key~
-A black key is here.~
+key black ключ~
+@eng a key@rus ключ~
+@eng A black key is here.@rus Маленький черный ключ (key) валяется на земле.~
 iron~
 key B AO
 B 0 0 0 0
 0 5 0 P
-G none
+G female
 #8121
-jar blood~
-a jar of human blood~
-A jar of human blood sits here.~
+jar blood кувшин~
+@eng a jar of human blood@rus ~~кувшин~~, наполненный кровью~
+@eng A jar of human blood sits here.@rus Небольшой стеклянный кувшин (jar), наполненный человеческой кровью стоит прямо на полу.~
 glass~
 potion BEJ AO
 60 'poison' 'weaken' 'curse' ''
 45 10 300 P
-G none
+G male
 #0
 
 #ROOMS
@@ -1806,9 +1809,10 @@ Z -1 8147
 S
 #8149
 The Hallway~
-You are advancing along a dimly-lit hall lined with garish paintings depicting
-rather macabre-looking members of some decadent family. Doors lie to the north 
-and south of here. The hall ends at an impressive portal to the east.
+You are advancing along a dimly-lit hall lined with garish paintings
+depicting rather macabre-looking members of some decadent family.  Doors lie
+to the north and south of here.  The hall ends at an impressive portal to
+the east.  
 ~
 0 ADN inside
 D0
@@ -1877,10 +1881,15 @@ D3
 ABZ 0 8149
 S
 #8153
-A Bedroom~
-In this room lies an ornately-carved four poster bed with satin sheets. 
+@eng A Bedroom@rus Спальня~
+@eng In this room lies an ornately-carved four poster bed with satin sheets. 
 Opposite it lies a comfortable divan, upon which the maidens of the master
 of this domain usually recline. A painting on one wall catches your eye.
+@rus Достопримечательностью этой комнаты является огромная кровать на резных
+ножках, застеленная сатиновыми простынями.  А напротив этой великолепной
+кровати стоит небольшой уютный диванчик, на котором любит полежать живущая
+здесь девушка.  Висящий над диваном рисунок неприодолимо притягивает к себе
+твой взгляд.  
 ~
 0 ADN inside
 E
@@ -2896,12 +2905,18 @@ D2
 Z -1 8197
 S
 #8199
-A Dark Tunnel~
-Can it be? YES! An escape route! From this tunnel emanates the sweet smell 
+@eng A Dark Tunnel@rus Темный проход~
+@eng Can it be? YES! An escape route! From this tunnel emanates the sweet smell 
 of green grass and fresh air. You can clamber through and escape, though
 the tunnel is so narrow you doubt you'd be able to return through it. But
 you feel that this room has been blessed by gods, hence you may recall to 
 escape.
+@rus Неужели? Неужели и правда удалось выбраться из этого ужасного гиблого
+места. Похоже, что так. Из темноты прохода доносится сладкий запах
+зеленой травы и свежего чистого воздуха. Осталось пройти несколько 
+шагов и можно навсегда забыть об этом кошмаре. Ты кожей ощущаешь, что
+это место находится под покровительством богов, а значит они могут
+помочь тебе поскорее добраться до дому.
 ~
 0 AC city
 D2

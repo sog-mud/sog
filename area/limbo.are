@@ -214,7 +214,7 @@ stand stand male 0
 0 0 medium unknown
 #23
 golem iron~
-@eng 14 silver coins@rus ~~железный~~ ~~голем~~~
+@eng iron golem@rus ~~железный~~ ~~голем~~~
 A huge iron statue of a man stands here.
 ~
 This looks to be an iron statue of a human.  The statue stands a good
@@ -226,7 +226,7 @@ ATg SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 #24
 golem adamantite~
@@ -282,7 +282,7 @@ this?
 @rus Еще одно порождение черной магии. Какая гадость вылупится из этого?
 ~
 unique~
-AV QZcd 0 0
+ABV AQZcd 0 0
 0 -5 0d0+0 0d0+0 0d0+0 digestion
 0 0 0 0
 CJ ABEILQ DJT HK
@@ -376,7 +376,7 @@ arrow деревянная wooden стрела~
 @eng A wooden arrow lies on the ground.@rus Деревянная стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce 0
+arrow 1 1 pierce K
 1 5 10 P
 G female
 #7
@@ -706,7 +706,7 @@ arrow green стрела зеленая~
 @eng A green arrow lies on the ground.@rus Зеленая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce H
+arrow 1 1 pierce HK
 1 5 10 P
 G female
 #35
@@ -715,7 +715,7 @@ arrow red стрела багровая~
 @eng A red arrow lies on the ground.@rus Багровая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce A
+arrow 1 1 pierce AK
 1 5 10 P
 G female
 #36
@@ -724,7 +724,7 @@ arrow white стрела белая~
 @eng A white arrow lies on the ground.@rus Белая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce B
+arrow 1 1 pierce BK
 1 5 10 P
 G female
 #37
@@ -733,7 +733,7 @@ arrow стрела blue голубая~
 @eng A blue arrow lies on the ground.@rus Голубая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce G
+arrow 1 1 pierce GK
 1 5 10 P
 G female
 #38
@@ -1200,7 +1200,7 @@ golden dagger кинжал~
 @eng There is a shiny golden dagger on the ground.@rus Блестящий золотистый кинжал (dagger) лежит на земле.~
 gold~
 weapon AIPTW AN
-dagger 10 1 pierce D
+dagger 10 1 pierce DK
 20 80 0 P
 G male
 #81
@@ -1228,7 +1228,7 @@ A
 18 5
 G none
 #83
-golden sword меч~
+sword golden меч~
 @eng a golden sword@rus ~~золотистый~~ ~~меч~~~
 @eng There is a shiny golden sword on the ground.@rus Блестящий золотистый меч (sword) лежит на земле.~
 gold~
