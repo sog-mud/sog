@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.2 1999-07-20 07:12:00 avn Exp $
+ * $Id: olc_race.c,v 1.3 1999-07-20 14:52:18 avn Exp $
  */
 
 #include "olc.h"
@@ -142,7 +142,7 @@ OLC_FUN(raceed_create)
 		return FALSE;
 	}
 
-	if ((rcn = rn_lookup(arg)) >= 0) {
+	if ((rcn = rn_lookup(arg)) > 0 || !str_prefix(arg, "unique")) {
 		char_printf(ch, "RaceEd: %s: already exists.\n",
 			    RACE(rcn)->name);
 		return FALSE;
