@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.77 1998-10-06 19:08:59 fjoe Exp $
+ * $Id: fight.c,v 1.78 1998-10-07 08:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1192,11 +1192,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	}
 
 	/*
-	 * No one in combat can sneak, hide, or be invis or camoed.
-	 */
-	do_visible(ch, str_empty);
-
-	/*
 	 * Damage modifiers.
 	 */
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)
@@ -1700,6 +1695,11 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_AFFECTED(ch, AFF_SLEEP))
 		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
 
+	/*
+	 * No one in combat can hide, be invis or camoed.
+	 */
+	do_visible(ch, str_empty);
+
 	ch->fighting = victim;
 	ch->position = POS_FIGHTING;
 }
@@ -1711,13 +1711,12 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 {
 	CHAR_DATA *fch;
 
-	for (fch = char_list; fch != NULL; fch = fch->next)
-	{
-		if (fch == ch || (fBoth && fch->fighting == ch))
-		{
-		    fch->fighting	= NULL;
-		    fch->position	= IS_NPC(fch) ? ch->default_pos : POS_STANDING;
-		    update_pos(fch);
+	for (fch = char_list; fch; fch = fch->next) {
+		if (fch == ch || (fBoth && fch->fighting == ch)) {
+			fch->fighting = NULL;
+			fch->position = IS_NPC(fch) ? ch->default_pos :
+						      POS_STANDING;
+			update_pos(fch);
 		}
 	}
 }

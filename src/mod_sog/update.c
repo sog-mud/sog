@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.69 1998-10-06 19:09:02 fjoe Exp $
+ * $Id: update.c,v 1.70 1998-10-07 08:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -997,7 +997,6 @@ void char_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
-		flag_t strip = AFF_FLYING;
 		int chance;
 
 		ch_next = ch->next;
@@ -1012,25 +1011,38 @@ void char_update(void)
 				check_improve(ch, gsn_path_find, FALSE, 16);
 		}
 
-		/* Remove caltrops effect after fight off */
-		if (is_affected(ch, gsn_caltrops) && !ch->fighting)
-			affect_strip(ch, gsn_caltrops);
+		if (!ch->fighting) {
+			flag_t skip = AFF_FLYING;
+			flag_t race_aff = race_table[RACE(ch)].aff;
+
+			affect_check(ch, TO_AFFECTS, -1);
+
+			/* Remove caltrops effect after fight off */
+			if (is_affected(ch, gsn_caltrops))
+				affect_strip(ch, gsn_caltrops);
+
+			if (!MOUNTED(ch)) {
+				if (!IS_AFFECTED(ch, AFF_HIDE) 
+				&&  (race_aff & AFF_HIDE))
+					char_puts("You step back into the shadows.\n\r", ch);
+
+				if (!IS_AFFECTED(ch, AFF_SNEAK)
+				&&  (race_aff & AFF_SNEAK))
+					char_puts("You move silently again.\n\r", ch);
+			}
+			else
+				skip |= AFF_HIDE | AFF_FADE | AFF_INVISIBLE |
+					AFF_IMP_INVIS | AFF_SNEAK |
+					AFF_CAMOUFLAGE;
+
+			SET_BIT(ch->affected_by, race_aff & ~skip);
+		}
 
 		/* Remove vampire effect when morning. */
 		if (is_affected(ch, gsn_vampire)
 		&&  (weather_info.sunlight == SUN_LIGHT ||
 		     weather_info.sunlight == SUN_RISE))
 			do_human(ch, str_empty);
-
-		if (!ch->fighting && !IS_AFFECTED(ch, AFF_HIDE) 
-		&& (race_table[RACE(ch)].aff & AFF_HIDE) && !MOUNTED(ch))
-			char_puts("You step back into the shadows.\n\r", ch);
-
-		if (MOUNTED(ch))
-			strip |= AFF_SNEAK | AFF_HIDE | AFF_INVISIBLE |
-				 AFF_IMP_INVIS | AFF_FADE | AFF_CAMOUFLAGE;
-
-		SET_BIT(ch->affected_by, race_table[RACE(ch)].aff & ~strip);
 
 		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
 			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {

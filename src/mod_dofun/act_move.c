@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.100 1998-10-06 19:08:56 fjoe Exp $
+ * $Id: act_move.c,v 1.101 1998-10-07 08:36:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1748,23 +1748,23 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
  */
 void do_visible(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->affected_by, AFF_HIDE | AFF_FADE)) {
+	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)) {
 		char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
 		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_STEPS_OUT_OF_SHADOWS);
 	}
 
-	if (IS_SET(ch->affected_by, AFF_CAMOUFLAGE)) {
+	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)) {
 		char_nputs(MSG_YOU_STEP_OUT_COVER, ch);
-		REMOVE_BIT(ch->affected_by,AFF_CAMOUFLAGE);
+		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_STEPS_OUT_COVER);
 	}
 
-	if (IS_SET(ch->affected_by, AFF_INVISIBLE | AFF_IMP_INVIS)) {
+	if (IS_AFFECTED(ch, AFF_INVISIBLE | AFF_IMP_INVIS)) {
 		char_puts("You fade into existence.\n\r", ch);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
+		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE | AFF_IMP_INVIS);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
 }
@@ -2987,7 +2987,6 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 
 		ch->riding = FALSE;
 		mount->riding = FALSE;
-/* XXX AFF_SNEAK/AFF_HIDE are not set XXX */
 	}
 	else {
 		char_puts("You aren't mounted.\n\r", ch);
