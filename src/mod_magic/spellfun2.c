@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.202 2001-01-11 21:43:15 fjoe Exp $
+ * $Id: spellfun2.c,v 1.203 2001-01-12 09:25:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2833,7 +2833,6 @@ inspire_cb(void *vo, va_list ap)
 {
 	CHAR_DATA *gch = (CHAR_DATA *) vo;
 
-	const char *sn = va_arg(ap, const char *);
 	int level = va_arg(ap, int);
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	AFFECT_DATA af;
@@ -2856,7 +2855,7 @@ inspire_cb(void *vo, va_list ap)
 	}
 
 	af.where	= TO_AFFECTS;
-	af.type		= sn;
+	af.type		= "bless";
 	af.level	= level;
 	af.duration	= level + 6;
 	INT(af.location)= APPLY_HITROLL;
@@ -2880,7 +2879,7 @@ inspire_cb(void *vo, va_list ap)
 
 void spell_inspire(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
-	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, sn, level, ch);
+	vo_foreach(ch->in_room, &iter_char_room, inspire_cb, level, ch);
 }
 
 static void *
