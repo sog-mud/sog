@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.36 1998-06-24 19:55:40 efdi Exp $
+ * $Id: update.c,v 1.37 1998-06-28 04:47:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,8 @@
 #include "util.h"
 #include "log.h"
 #include "act_move.h"
+#include "mob_prog.h"
+#include "obj_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_human		);
@@ -628,6 +630,27 @@ void mobile_update(void)
 			ch->silver += ch->pIndexData->wealth * number_range(1,20)/50000;
 		}
 	 
+	/*
+	 * Check triggers only if mobile still in default position
+	 */
+	if ( ch->position == ch->pIndexData->default_pos )
+	{
+	    /* Delay */
+	    if ( HAS_TRIGGER( ch, TRIG_DELAY) 
+	    &&   ch->mprog_delay > 0 )
+	    {
+		if ( --ch->mprog_delay <= 0 )
+		{
+		    mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_DELAY );
+		    continue;
+		}
+	    } 
+	    if ( HAS_TRIGGER( ch, TRIG_RANDOM) )
+	    {
+		if( mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_RANDOM ) )
+		continue;
+	    }
+	}
 
 		/*
 		 *  Potion using and stuff for intelligent mobs
@@ -1043,7 +1066,8 @@ void char_update(void)
 			/* check to see if we need to go home */
 			if (IS_NPC(ch) && ch->zone != NULL 
 			&& ch->zone != ch->in_room->area && ch->desc == NULL 
-			&&  ch->fighting == NULL && ch->progtypes==0
+			&&  ch->fighting == NULL
+/* && ch->progtypes==0 */
 			&& !IS_AFFECTED(ch,AFF_CHARM) && ch->last_fought == NULL
 			&& !RIDDEN(ch)) {
 				if (ch->in_mind != NULL 
@@ -1419,16 +1443,13 @@ void obj_update(void)
 	    }
 
 
-	    for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj);
-
-	    if (IS_SET(obj->progtypes,OPROG_AREA))
-	       if ((t_obj->in_room != NULL &&
-	            (t_obj->in_room->area->nplayer > 0))
-	           ||
-	            (t_obj->carried_by &&
-	             t_obj->carried_by->in_room &&
-	             t_obj->carried_by->in_room->area->nplayer > 0))
-	          (obj->pIndexData->oprogs->area_prog) (obj);
+		for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj);
+			if ((t_obj->in_room != NULL &&
+			     t_obj->in_room->area->nplayer > 0)
+	        	||  (t_obj->carried_by &&
+	        	     t_obj->carried_by->in_room &&
+	        	     t_obj->carried_by->in_room->area->nplayer > 0))
+	        		oprog_call(OPROG_AREA, obj, NULL, NULL);
 
 	    if (check_material(obj, "ice"))  
 	      {

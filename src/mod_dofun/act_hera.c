@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.23 1998-06-24 02:42:22 efdi Exp $
+ * $Id: act_hera.c,v 1.24 1998-06-28 04:47:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.23 1998-06-24 02:42:22 efdi Exp $
+ * $Id: act_hera.c,v 1.24 1998-06-28 04:47:12 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -66,6 +66,7 @@
 #include "magic.h"
 #include "log.h"
 #include "act_move.h"
+#include "mob_prog.h"
 
 /* for bzero, bcopy, vsnprintf */
 #ifdef SUNOS
@@ -256,11 +257,21 @@ void do_enter(CHAR_DATA *ch, char *argument)
 	    }
 	    extract_obj(portal);
 	}
-	return;
+
+		/* 
+		 * If someone is following the char, these triggers get
+		 * activated for the followers before the char,
+		 * but it's safer this way...
+		 */
+		if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
+			mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
+		if (!IS_NPC(ch))
+			mp_greet_trigger(ch);
+
+		return;
 	}
 
 	send_to_char("Nope, can't do it.\n\r",ch);
-	return;
 }
 
 void do_settraps(CHAR_DATA *ch, char *argument)
@@ -341,8 +352,6 @@ void do_settraps(CHAR_DATA *ch, char *argument)
  *  Modified by Turtle for Merc22 (07-Nov-94).                             *
  *  Adopted to ANATOLIA by Chronos.                                        *
  ***************************************************************************/
-
-extern const char * dir_name[];
 
 struct hash_link
 {

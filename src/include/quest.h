@@ -2,7 +2,7 @@
 #define _QUEST_H_
 
 /*
- * $Id: quest.h,v 1.6 1998-06-17 04:54:27 fjoe Exp $
+ * $Id: quest.h,v 1.7 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /*
@@ -11,7 +11,6 @@
 #define QUEST_OBJ_FIRST 84
 #define QUEST_OBJ_LAST  87
 
-typedef struct qtrouble_data QTROUBLE_DATA;
 struct qtrouble_data {
 	int vnum;
 	int count;

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.53 1998-06-24 02:42:22 efdi Exp $
+ * $Id: comm.c,v 1.54 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,6 +78,8 @@
 #include <stdlib.h>
 
 #include "merc.h"
+#include "tables.h"
+
 #include "recycle.h"
 #include "comm.h"
 #include "act_wiz.h"
@@ -86,10 +88,14 @@
 #include "resource.h"
 #include "charset.h"
 #include "hometown.h"
+#include "lookup.h"
 #include "magic.h"
 #include "quest.h"
 #include "update.h"
 #include "log.h"
+#include "interp.h"
+#include "olc.h"
+#include "mob_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -99,20 +105,6 @@ DECLARE_DO_FUN(do_outfit	);
 DECLARE_DO_FUN(do_unread	);
 
 char* color(char type, CHAR_DATA *ch);
-
-/***********/
-struct msg {
-	char **p;
-	int sexdep;
-};
-
-extern struct msg **ilang_table;
-enum {
-	DEP_NONE,
-	DEP_CHAR,
-	DEP_VICTIM
-};
-/*** END ***/
 
 
 /*
@@ -315,6 +307,7 @@ bool		    newlock;		/* Game is newlocked		*/
 char		    str_boot_time[MAX_INPUT_LENGTH];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
+bool		    MOBtrigger = TRUE;  /* act() switch                 */
  
 
 
@@ -718,13 +711,16 @@ void init_descriptor(int control)
 	dnew = new_descriptor();
 
 	dnew->descriptor	= desc;
-	dnew->connected	= CON_GET_CODEPAGE;
+	dnew->connected		= CON_GET_CODEPAGE;
 	dnew->showstr_head	= NULL;
-	dnew->showstr_point = NULL;
-	dnew->outsize	= 2000;
-	dnew->outbuf	= alloc_mem(dnew->outsize);
+	dnew->showstr_point	= NULL;
+	dnew->pEdit		= NULL;			/* OLC */
+	dnew->pString		= NULL;			/* OLC */
+	dnew->editor		= 0;			/* OLC */
+	dnew->outsize		= 2000;
+	dnew->outbuf		= alloc_mem(dnew->outsize);
 	dnew->wait_for_se	= 0;
-	dnew->codepage	= codepages;
+	dnew->codepage		= codepages;
 
 	size = sizeof(sock);
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
@@ -954,117 +950,133 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 void read_from_buffer(DESCRIPTOR_DATA *d)
 {
 	int i, j, k;
-	char buf[MAX_STRING_LENGTH];
 
 	/*
 	 * Hold horses if pending command already.
 	 */
 	if (d->incomm[0] != '\0')
-	return;
+		return;
 
 	/*
 	 * Look for at least one new line.
 	 */
 	for (i = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++)
-	{
-	if (d->inbuf[i] == '\0')
-	    return;
-	}
+		if (d->inbuf[i] == '\0')
+			return;
 
 	/*
 	 * Canonical input processing.
 	 */
-	for (i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++)
-	{
-	if (k >= MAX_INPUT_LENGTH - 2)
-	{
-	    write_to_descriptor(d->descriptor, "Line too long.\n\r", 0);
+	for (i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++) {
+		if (k >= MAX_INPUT_LENGTH - 2) {
+			write_to_descriptor(d->descriptor,
+					    "Line too long.\n\r", 0);
 
-	    /* skip the rest of the line */
-	    for (; d->inbuf[i] != '\0'; i++)
-	    {
-		if (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
-		    break;
-	    }
-	    d->inbuf[i]   = '\n';
-	    d->inbuf[i+1] = '\0';
-	    break;
-	}
+			/* skip the rest of the line */
+			for (; d->inbuf[i] != '\0'; i++)
+				if (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
+					break;
 
-	if (d->inbuf[i] == '\b' && k > 0)
-	    --k;
-	else if ((unsigned)d->inbuf[i] >= ' ')
-	/*isascii(d->inbuf[i]) && isprint(d->inbuf[i])) */
-	    d->incomm[k++] = d->codepage->from[(unsigned char) d->inbuf[i]];
+			d->inbuf[i]   = '\n';
+			d->inbuf[i+1] = '\0';
+			break;
+		}
+
+		if (d->inbuf[i] == '\b' && k > 0)
+			--k;
+		else if ((unsigned)d->inbuf[i] >= ' ')
+			d->incomm[k++] =
+				d->codepage->from[(unsigned char) d->inbuf[i]];
 	}
 
 	/*
 	 * Finish off the line.
 	 */
 	if (k == 0)
-	d->incomm[k++] = ' ';
+		d->incomm[k++] = ' ';
 	d->incomm[k] = '\0';
 
 	/*
 	 * Deal with bozos with #repeat 1000 ...
 	 */
-
-	if (k > 1 || d->incomm[0] == '!')
-	{
+	if (k > 1 || d->incomm[0] == '!') {
 		if (d->incomm[0] != '!' && strcmp(d->incomm, d->inlast))
-	{
-	    d->repeat = 0;
-	}
-	else
-	{
-	    if (++d->repeat >= 100)	/* corrected by efdi */
-	    {
-		log_printf("%s input spamming!", d->host);
-	         if (d->character != NULL)
-	      {
-		sprintf(buf,"SPAM SPAM SPAM %s spamming, and OUT!",d->character->name);
-		wiznet(buf,d->character,NULL,WIZ_SPAM,0,get_trust(d->character));
+			d->repeat = 0;
+		else {
+			if (++d->repeat >= 100) {
+				log_printf("%s input spamming!", d->host);
+	        		if (d->character != NULL) {
+					wiznet_printf(d->character,NULL,WIZ_SPAM,0,get_trust(d->character), "SPAM SPAM SPAM %s spamming, and OUT!",d->character->name);
 
-		sprintf(buf,"[%s]'s  Inlast:[%s] Incomm:[%s]!",
-			d->character->name,d->inlast,d->incomm);
-	    	wiznet(buf,d->character,NULL,WIZ_SPAM,0,get_trust(d->character));
+	    				wiznet_printf(d->character,NULL,WIZ_SPAM,0,get_trust(d->character), "[%s]'s  Inlast:[%s] Incomm:[%s]!", d->character->name,d->inlast,d->incomm);
 
-		d->repeat = 0;
+					d->repeat = 0;
 
-		write_to_descriptor(d->descriptor,
-		    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
+					write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 /*		strcpy(d->incomm, "quit");	*/
-		close_socket(d);	
-		return;
-	       }
-	    }
+					close_socket(d);	
+					return;
+				}
+			}
+		}
 	}
-	}
-
 
 	/*
 	 * Do '!' substitution.
 	 */
 	if (d->incomm[0] == '!')
-	strcpy(d->incomm, d->inlast);
+		strcpy(d->incomm, d->inlast);
 	else
-	strcpy(d->inlast, d->incomm);
+		strcpy(d->inlast, d->incomm);
 
 	/*
 	 * Shift the input buffer.
 	 */
 	while (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
-	i++;
+		i++;
 	for (j = 0; (d->inbuf[j] = d->inbuf[i+j]) != '\0'; j++)
-	;
-	return;
+		;
 }
-
 
 
 /*
  * Low level output function.
  */
+
+void battle_prompt(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	int percent;
+	int msgid;
+	char buf[MAX_STRING_LENGTH];
+ 
+        if (victim->max_hit > 0)
+		percent = victim->hit * 100 / victim->max_hit;
+        else
+		percent = -1;
+  
+        if (percent >= 100)
+		msgid = IS_IN_PERFECT_HEALTH;
+        else if (percent >= 90)
+		msgid = HAS_A_FEW_SCRATCHES;
+        else if (percent >= 75)
+		msgid = HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
+        else if (percent >= 50)
+		msgid = IS_COVERED_WITH_BLEEDING_WOUNDS;
+        else if (percent >= 30)
+		msgid = IS_GUSHING_BLOOD;
+        else if (percent >= 15)
+		msgid = IS_WRITHING_IN_AGONY;
+        else if (percent >= 0)
+		msgid = IS_CONVULSING_ON_THE_GROUND;
+        else
+		msgid = IS_NEARLY_DEAD;
+
+	snprintf(buf, sizeof(buf), "%s %s \n\r", 
+		 PERS(victim, ch), vmsg(msgid, ch, victim));
+	buf[0] = UPPER(buf[0]);
+	send_to_char(buf, ch);
+}
+
 
 /*
  * Some specials added by KIO 
@@ -1076,93 +1088,61 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Bust a prompt.
 	 */
-	if (!merc_down && d->showstr_point)
-	write_to_buffer(d,"\r[Hit Return to continue]\n\r",0);
-	else if (fPrompt && !merc_down && d->connected == CON_PLAYING)
-	{
-   	CHAR_DATA *ch;
-	CHAR_DATA *victim;
+	if (!merc_down)
+		if (d->showstr_point)
+			write_to_buffer(d, "[Hit Return to continue]\n\r", 0);
+		else if (fPrompt && d->pString && d->connected == CON_PLAYING)
+			write_to_buffer(d, "> ", 2);
+		else if (fPrompt && d->connected == CON_PLAYING) {
+   			CHAR_DATA *ch;
+			CHAR_DATA *victim;
 
-	ch = d->character;
+			ch = d->character;
 
-	    /* battle prompt */
-	    if ((victim = ch->fighting) != NULL && can_see(ch,victim))
-	    {
-	        int percent;
-	        char wound[100];
-	    char buf[MAX_STRING_LENGTH];
- 
-	        if (victim->max_hit > 0)
-	            percent = victim->hit * 100 / victim->max_hit;
-	        else
-	            percent = -1;
-  
-	        if (percent >= 100)
-	            sprintf(wound, vmsg(IS_IN_PERFECT_HEALTH, ch, victim));
-	        else if (percent >= 90)
-	            sprintf(wound, vmsg(HAS_A_FEW_SCRATCHES, ch, victim));
-	        else if (percent >= 75)
-	            sprintf(wound, vmsg(HAS_SOME_SMALL_BUT_DISGUSTING_CUTS, ch, victim));
-	        else if (percent >= 50)
-	            sprintf(wound, vmsg(IS_COVERED_WITH_BLEEDING_WOUNDS, ch, victim));
-	        else if (percent >= 30)
-	            sprintf(wound, vmsg(IS_GUSHING_BLOOD, ch, victim));
-	        else if (percent >= 15)
-	            sprintf(wound, vmsg(IS_WRITHING_IN_AGONY, ch, victim));
-	        else if (percent >= 0)
-	            sprintf(wound, vmsg(IS_CONVULSING_ON_THE_GROUND, ch, victim));
-	        else
-	            sprintf(wound, vmsg(IS_NEARLY_DEAD, ch, victim));
-
- 
-	        sprintf(buf,"%s %s \n\r", 
-	            IS_NPC(victim) ? victim->short_descr : victim->name,wound);
-	    buf[0] = UPPER(buf[0]);
-	        send_to_char(buf, ch);
-	    }
+			/* battle prompt */
+			if ((victim = ch->fighting) != NULL
+			&&  can_see(ch,victim))
+				battle_prompt(ch, victim);
 
 
-	ch = d->original ? d->original : d->character;
-	if (!IS_SET(ch->comm, COMM_COMPACT))
-	    write_to_buffer(d, "\n\r", 2);
+			ch = d->original ? d->original : d->character;
+			if (!IS_SET(ch->comm, COMM_COMPACT))
+				write_to_buffer(d, "\n\r", 2);
 
+			if (IS_SET(ch->comm, COMM_PROMPT))
+				bust_a_prompt(d->character);
 
-	    if (IS_SET(ch->comm, COMM_PROMPT))
-	        bust_a_prompt(d->character);
-
-	if (IS_SET(ch->comm,COMM_TELNET_GA))
-	    write_to_descriptor(d->descriptor, go_ahead_str, 0);
-	}
+			if (IS_SET(ch->comm,COMM_TELNET_GA))
+				write_to_descriptor(d->descriptor,
+						    go_ahead_str, 0);
+		}
 
 	/*
 	 * Short-circuit if nothing to write.
 	 */
 	if (d->outtop == 0)
-	return TRUE;
+		return TRUE;
 
 	/*
 	 * Snoop-o-rama.
 	 */
-	if (d->snoop_by != NULL)
-	{
-	if (d->character != NULL)
-	    write_to_buffer(d->snoop_by, d->character->name,0);
-	write_to_buffer(d->snoop_by, "> ", 2);
-	write_to_buffer(d->snoop_by, d->outbuf, d->outtop);
+	if (d->snoop_by != NULL) {
+		if (d->character != NULL)
+			write_to_buffer(d->snoop_by, d->character->name, 0);
+		write_to_buffer(d->snoop_by, "> ", 2);
+		write_to_buffer(d->snoop_by, d->outbuf, d->outtop);
 	}
 
 	/*
 	 * OS-dependent output.
 	 */
-	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outtop))
-	{
-	d->outtop = 0;
-	return FALSE;
+	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outtop)) {
+		d->outtop = 0;
+		return FALSE;
 	}
-	else
-	{
-	d->outtop = 0;
-	return TRUE;
+	else {
+		d->outtop = 0;
+		return TRUE;
 	}
 }
 
@@ -1172,6 +1152,15 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
  * bust
  */
 
+void percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
+{
+	if (ch->hit >= 0)
+		snprintf(buf, sizeof(buf), "%d%%",
+			 ((100 * ch->hit) / UMAX(1,ch->max_hit)));
+	else
+		strcpy(buf, "BAD!");
+}
+
 void bust_a_prompt(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1179,7 +1168,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 	const char *str;
 	const char *i;
 	char *point;
-	char doors[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	EXIT_DATA *pexit;
 	bool found;
@@ -1188,148 +1176,191 @@ void bust_a_prompt(CHAR_DATA *ch)
  
 	point = buf;
 	str = ch->prompt;
-	if (str == NULL || str[0] == '\0')
-	{
-	    sprintf(buf, "<%dhp %dm %dmv> %s",
-	    ch->hit,ch->mana,ch->move,ch->prefix);
-	send_to_char(buf,ch);
-	return;
+	if (str == NULL || str[0] == '\0') {
+		char_printf(ch, "<%dhp %dm %dmv> %s",
+			    ch->hit,ch->mana,ch->move,ch->prefix);
+		return;
 	}
 
-   while(*str != '\0')
-   {
-	  if(*str != '%')
-	  {
-	     *point++ = *str++;
-	     continue;
-	  }
-	  ++str;
-	  switch(*str)
-	  {
-	     default :
-	        i = " "; break;
-	case 't':
-	    sprintf(buf2, "%d%s", (time_info.hour % 12 == 0) ? 
-				   12 : time_info.hour %12, 
-				time_info.hour >= 12 ? "pm" : "am");
-	    i = buf2; break;
-	case 'e':
-	    found = FALSE;
-	    doors[0] = '\0';
-	    for (door = 0; door < 6; door++)
-	    {
-		if ((pexit = ch->in_room->exit[door]) != NULL
-		&&  pexit ->u1.to_room != NULL
-		&&  (can_see_room(ch,pexit->u1.to_room)
-		||   (IS_AFFECTED(ch,AFF_INFRARED) 
-		&&    !IS_AFFECTED(ch,AFF_BLIND)))
-		&&  (!IS_SET(pexit->exit_info,EX_CLOSED) || IS_IMMORTAL(ch))) {
-		    found = TRUE;
-		    strcat(doors,dir_name[door]);
-		    if (IS_SET(pexit->exit_info, EX_CLOSED))
-			strcat(doors, "*");
+	while(*str != '\0') {
+		if(*str != '%') {
+			*point++ = *str++;
+			continue;
 		}
-	    }
-	    if (!found)
-	 	strcat(buf,"none");
-	    sprintf(buf2,"%s",doors);
-	    i = buf2; break;
- 	 case 'c' :
-	    sprintf(buf2,"%s","\n\r");
-	    i = buf2; break;
-/** added from here by KIO   **/
-	 case 'n' :
-	    sprintf(buf2, "%s", ch->name);
-	    i = buf2; break;
-	 case 'S' :
-	    sprintf(buf2, "%s", (ch->sex == SEX_MALE ? "Male":(!ch->sex ? "None":"Female")));
-	    i = buf2; break;
-	     case 'y' :
-	        if (ch->hit >= 0) 
-	       	sprintf(buf2, "%d%%",((100 * ch->hit) / UMAX(1,ch->max_hit)));
-	    else
-	             sprintf(buf2, "BAD!!");
-	    i = buf2; break;
-	     case 'o' :
-	    if ((victim = ch->fighting) != NULL) {
-		if (victim->hit >= 0) 
-	       	sprintf(buf2, "%d%%",((100 * victim->hit) / UMAX(1,victim->max_hit)));
-	             else
-	                         sprintf(buf2,"BAD!!");
-	                 }
-		     else    sprintf(buf2,"None");
-	        i = buf2; break;
-/***** FInished ****/
-	     case 'h' :
-	        sprintf(buf2, "%d", ch->hit);
-	        i = buf2; break;
-	     case 'H' :
-	        sprintf(buf2, "%d", ch->max_hit);
-	        i = buf2; break;
-	     case 'm' :
-	        sprintf(buf2, "%d", ch->mana);
-	        i = buf2; break;
-	     case 'M' :
-	        sprintf(buf2, "%d", ch->max_mana);
-	        i = buf2; break;
-	     case 'v' :
-	        sprintf(buf2, "%d", ch->move);
-	        i = buf2; break;
-	     case 'V' :
-	        sprintf(buf2, "%d", ch->max_move);
-	        i = buf2; break;
-	     case 'x' :
-	        sprintf(buf2, "%d", ch->exp);
-	        i = buf2; break;
-	 case 'X' :
-	    sprintf(buf2, "%d", 
-	     exp_to_level(ch,ch->pcdata->points));
-	    i = buf2; break;
-	     case 'g' :
-	        sprintf(buf2, "%ld", ch->gold);
-	        i = buf2; break;
-	 case 's' :
-	    sprintf(buf2, "%ld", ch->silver);
-	    i = buf2; break;
-	     case 'a' :
-	           sprintf(buf2, "%s", IS_GOOD(ch) ? "good" : IS_EVIL(ch) ?
-	            "evil" : "neutral");
-	        i = buf2; break;
-	     case 'r' :
-	        if(ch->in_room != NULL)
-	           sprintf(buf2, "%s", 
-		((!IS_NPC(ch) && IS_SET(ch->act,PLR_HOLYLIGHT)) ||
-		 (!IS_AFFECTED(ch,AFF_BLIND) && !room_is_dark(ch)))
-		? ch->in_room->name : "darkness");
-	        else
-	           sprintf(buf2, " ");
-	        i = buf2; break;
-	     case 'R' :
-	        if(IS_IMMORTAL(ch) && ch->in_room != NULL)
-	           sprintf(buf2, "%d", ch->in_room->vnum);
-	        else
-	           sprintf(buf2, " ");
-	        i = buf2; break;
-	     case 'z' :
-	        if(IS_IMMORTAL(ch) && ch->in_room != NULL)
-	           sprintf(buf2, "%s", ch->in_room->area->name);
-	        else
-	           sprintf(buf2, " ");
-	        i = buf2; break;
-	     case '%' :
-	        sprintf(buf2, "%%");
-	        i = buf2; break;
-	  }
-	  ++str;
-	  while((*point = *i) != '\0')
-	     ++point, ++i;
-   }
-   *point = '\0';
-   send_to_char(buf, ch);
 
-   if (ch->prefix[0] != '\0')
-	    write_to_buffer(ch->desc,ch->prefix,0);
-   return;
+		switch(*++str) {
+		default:
+	        	i = " ";
+			break;
+
+		case 't':
+			snprintf(buf2, sizeof(buf2),
+				 "%d%s", (time_info.hour % 12 == 0) ? 
+				 12 : time_info.hour % 12, 
+				 time_info.hour >= 12 ? "pm" : "am");
+			i = buf2;
+			break;
+
+		case 'e':
+			found = FALSE;
+			buf2[0] = '\0';
+
+			for (door = 0; door < 6; door++)
+				if ((pexit = ch->in_room->exit[door]) != NULL
+				&&  pexit ->u1.to_room != NULL
+				&&  (can_see_room(ch, pexit->u1.to_room) ||
+				     (IS_AFFECTED(ch, AFF_INFRARED) &&
+				      check_blind_raw(ch)))
+				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
+				     IS_IMMORTAL(ch))) {
+					found = TRUE;
+					strcat(buf2, dir_name[door]);
+					if (IS_SET(pexit->exit_info, EX_CLOSED))
+						strcat(buf2, "*");
+				}
+			i = buf2;
+			break;
+
+		case 'c':
+			i = "\n\r";
+			break;
+
+		case 'n':
+			i = ch->name;
+			break;
+
+		case 'S':
+			i = ch->sex == SEX_MALE ? "Male" :
+			    ch->sex == SEX_FEMALE ? "Female" :
+			    "None";
+			break;
+
+		case 'y':
+			percent_hp(ch, buf2);
+			i = buf2;
+			break;
+
+		case 'o':
+			if ((victim = ch->fighting) != NULL) {
+				if (can_see(ch, victim)) {
+					percent_hp(victim, buf2);
+					i = buf2;
+				}
+				else
+					i = "???";
+			}
+			else
+				i = "None";
+			break;
+
+		case 'h':
+			snprintf(buf2, sizeof(buf2), "%d", ch->hit);
+			i = buf2;
+			break;
+
+		case 'H':
+			snprintf(buf2, sizeof(buf2), "%d", ch->max_hit);
+			i = buf2;
+			break;
+
+		case 'm':
+			snprintf(buf2, sizeof(buf2), "%d", ch->mana);
+			i = buf2;
+			break;
+
+		case 'M':
+			snprintf(buf2, sizeof(buf2), "%d", ch->max_mana);
+			i = buf2;
+			break;
+
+		case 'v':
+			snprintf(buf2, sizeof(buf2), "%d", ch->move);
+			i = buf2;
+			break;
+
+		case 'V':
+			snprintf(buf2, sizeof(buf2), "%d", ch->max_move);
+			i = buf2;
+			break;
+
+		case 'x':
+			snprintf(buf2, sizeof(buf2), "%d", ch->exp);
+			i = buf2;
+			break;
+
+		case 'X':
+			snprintf(buf2, sizeof(buf2), "%d",
+				 exp_to_level(ch,ch->pcdata->points));
+			i = buf2;
+			break;
+
+		case 'g':
+			snprintf(buf2, sizeof(buf2), "%ld", ch->gold);
+			i = buf2;
+			break;
+
+		case 's':
+			snprintf(buf2, sizeof(buf2), "%ld", ch->silver);
+			i = buf2;
+			break;
+
+		case 'a':
+			i = IS_GOOD(ch) ? "good" :
+			    IS_EVIL(ch) ? "evil" :
+			    "neutral";
+			break;
+
+		case 'r':
+			if (ch->in_room != NULL)
+				i = ((!IS_NPC(ch) &&
+				      IS_SET(ch->act,PLR_HOLYLIGHT)) ||
+				     (check_blind_raw(ch) &&
+				      !room_is_dark(ch))) ?
+				     ch->in_room->name : "darkness";
+			else
+				i = " ";
+			break;
+
+		case 'R':
+			if(IS_IMMORTAL(ch) && ch->in_room != NULL) {
+				snprintf(buf2, sizeof(buf2), "%d", ch->in_room->vnum);
+				i = buf2;
+			}
+			else
+				i = " ";
+			break;
+
+		case 'z':
+			if (IS_IMMORTAL(ch) && ch->in_room != NULL)
+				i = ch->in_room->area->name;
+			else
+				i = " ";
+			break;
+
+		case '%':
+			i = "%%";
+			break;
+
+		case 'E' :
+			snprintf(buf2, sizeof(buf2), "%s", olc_ed_name(ch));
+			i = buf2;
+			break;
+
+		case 'O' :
+			snprintf(buf2, sizeof(buf2), "%s", olc_ed_vnum(ch));
+			i = buf2;
+			break;
+		}
+		++str;
+		while((*point = *i) != '\0')
+			++point, ++i;
+	}
+
+	*point = '\0';
+	send_to_char(buf, ch);
+
+	if (ch->prefix[0] != '\0')
+		write_to_buffer(ch->desc,ch->prefix,0);
 }
 
 
@@ -2336,7 +2367,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	do_look(ch, "auto");
 
 	if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
-	    sprintf(buf,"You are taxed %ld gold to pay for the Mayor's bar.\n\r",
+	    sprintf(buf,"You are taxed %d gold to pay for the Mayor's bar.\n\r",
 		(ch->gold - 6000) / 2);
 	    send_to_char(buf,ch); 
 	    ch->gold -= (ch->gold - 6000) / 2;
@@ -2344,7 +2375,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	
 
 	if (ch->pcdata->bank_g > 50000 && !IS_IMMORTAL(ch)) {
-	    sprintf(buf,"You are taxed %ld gold to pay for war expenses of Sultan.\n\r",
+	    sprintf(buf,"You are taxed %d gold to pay for war expenses of Sultan.\n\r",
 		(ch->pcdata->bank_g - 50000));
 	    send_to_char(buf,ch); 
 	    ch->pcdata->bank_g = 50000;
@@ -2372,7 +2403,7 @@ bool check_parse_name(char *name)
 	 * Reserved words.
 	 */
 	if (is_name(name, 
-	"all auto immortal self something the you demise balance circle loner honor"))
+	"all auto immortal self something the you demise balance circle loner honor none"))
 	return FALSE;
 	
 	if (!str_cmp(capitalize(name),"Chronos") || !str_prefix("Chro",name)
@@ -2679,23 +2710,199 @@ static char * const he_she  [] = { "it",  "he",  "she" };
 static char * const him_her [] = { "it",  "him", "her" };
 static char * const his_her [] = { "its", "his", "her" };
  
-void act_nprintf(CHAR_DATA *ch, const void *arg1, 
-	      const void *arg2, int type, int min_pos, int msgid, ...)
+static
+void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
+	     const void *arg1, const void *arg2, char *str)
 {
-	CHAR_DATA	*to;
 	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
 	OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
 	OBJ_DATA 	*obj2 = (OBJ_DATA  *) arg2;
-	char 	strfoo[ MAX_STRING_LENGTH ];
-	char	*str = strfoo;
+	char 	fixed[MAX_STRING_LENGTH];
 	char 	*i;
 	char 	*point;
 	char 	*i2;
-	char 	fixed[ MAX_STRING_LENGTH ];
-	char 	buf[ MAX_STRING_LENGTH   ];
-	char 	fname[ MAX_INPUT_LENGTH  ];
+	char 	buf[MAX_STRING_LENGTH];
+	char 	fname[MAX_INPUT_LENGTH];
 	bool	fColour = FALSE;
-	va_list 	ap;
+
+	point   = buf;
+	
+	while(*str) {
+		if(*str != '$' && *str != '{') {
+			*point++ = *str++;
+			continue;
+		}
+
+	i = NULL;
+	switch(*str) {
+	case '$':
+		fColour = TRUE;
+		++str;
+		i = " <@@@> ";
+		if (!arg2 && *str >= 'A' && *str <= 'Z' 
+		&& *str != 'G') {
+			bug("Act: missing arg2 for code %d.", 
+			    *str);
+			i = " <@@@> ";
+		} else {
+			switch (*str) {
+			default:  
+				bug("Act: bad code %d.", *str);
+				i = " <@@@> ";                                
+				break;
+
+			case 't': 
+				i = (char *) arg1;                            
+				break;
+
+			case 'T': 
+				i = (char *) arg2;                            
+				break;
+
+			case 'n':
+				i = PERS(ch,  to);
+				break;
+
+			case 'N':
+				i = PERS(vch, to);
+				break;
+
+			case 'e':
+				i = he_she[URANGE(0, ch->sex, 2)];    
+				break;
+
+			case 'E':
+				i = he_she[URANGE(0, vch->sex, 2)];
+				break;
+
+			case 'm':
+				i = him_her[URANGE(0, ch->sex, 2)];    
+				break;
+
+			case 'M':
+				i = him_her  [URANGE(0, vch->sex, 2)];
+				break;
+
+			case 's':
+				i = his_her [URANGE(0, ch->sex, 2)];
+				break;
+
+			case 'S':
+				i = his_her  [URANGE(0, vch->sex, 2)];
+				break;
+ 
+			case 'p':
+				i = can_see_obj(to, obj1)
+				  ? obj1->short_descr
+				  : "something";
+				break;
+ 
+			case 'P':
+				i = can_see_obj(to, obj2)
+				  ? obj2->short_descr
+				  : "something";
+				break;
+ 
+			case 'd':
+				if (!arg2 || ((char *) arg2)[0] == '\0')
+				    i = "door";
+				else {
+				    one_argument((char *) arg2, fname);
+				    i = fname;
+				}
+				break;
+
+			case 'G':
+				if (ch->alignment < 0)
+				    i = "Belan";
+				else
+				    i = "Thoth";
+				break;
+			}
+		}
+		break;
+
+	case '{':
+		fColour = FALSE;
+		++str;
+		i = NULL;
+		if(IS_SET(to->act, PLR_COLOR))
+			i = color(*str, to);
+		break;
+
+	default:
+		fColour = FALSE;
+		*point++ = *str++;
+		break;
+	}
+
+	++str;
+
+	if(fColour && i) {
+		fixed[0] = '\0';
+		i2 = fixed;
+
+		if(IS_SET(to->act, PLR_COLOR)) {
+			for(i2 = fixed ; *i ; i++) {
+				if(*i == '{') {
+					i++;
+					strcat(fixed, color(*i, to));
+					for(i2 = fixed ; *i2 ; i2++)
+						;
+			    		continue;
+				}
+				*i2 = *i;
+				*++i2 = '\0';
+		    	}			
+			*i2 = '\0';
+			i = &fixed[0];
+		}
+	        else {
+		    for(i2 = fixed ; *i ; i++)
+	            {
+			if(*i == '{')
+			{
+			    i++;
+			    if(*i != '{')
+			    {
+				continue;
+			    }
+			}
+			*i2 = *i;
+			*++i2 = '\0';
+		    }			
+		    *i2 = '\0';
+		    i = &fixed[0];
+		}
+	    }
+
+
+		if(i) {
+		while((*point = *i) != '\0') {
+			++point;
+			++i;
+		}
+		}
+	}
+ 
+	*point++	= '\n';
+	*point++	= '\r';
+	*point		= '\0';
+	buf[0]		= UPPER(buf[0]);
+	if(to->desc)
+		write_to_buffer(to->desc, buf, point - buf);
+	else if (MOBtrigger)
+		mp_act_trigger(buf, to, ch, arg1, arg2, TRIG_ACT);
+}
+
+
+void act_nprintf(CHAR_DATA *ch, const void *arg1, 
+	      const void *arg2, int type, int min_pos, int msgid, ...)
+{
+	CHAR_DATA *to;
+	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
 
 	if (ch == NULL || ch->in_room == NULL)
 		return;
@@ -2707,7 +2914,7 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 			return;
 		}
 
-		if (!vch->in_room)
+		if (vch->in_room == NULL)
 			return;
 
 		to = vch->in_room->people;
@@ -2716,8 +2923,10 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 	va_start(ap, msgid);
 
 	for(; to ; to = to->next_in_room) {
-		if (!to->desc || to->position < min_pos)
-			continue;
+		if ((!IS_NPC(to) && to->desc == NULL)
+		||  (IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+		||  to->position < min_pos)
+	        	continue;
  
 		if(type == TO_CHAR && to != ch)
 			continue;
@@ -2727,459 +2936,89 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 			continue;
 		if(type == TO_NOTVICT && (to == ch || to == vch))
 			continue;
- 
-		point = buf;
 	
-/*		if(!vch)
-			vch = ch;
-	
-		vsprintf(str, vmsg(msgid, to, vch), ap);
-	
-		if(!strstr(str, "$N") && vch) {
-			vch = ch;
-			vsprintf(str, vmsg(msgid, to, vch), ap);
-		}
-*/
 		/* trying to fix */
 		{
+			struct msg {
+				char **p;
+				int sexdep;
+			};
+
+			extern struct msg **ilang_table;
+
+			enum {
+				DEP_NONE,
+				DEP_CHAR,
+				DEP_VICTIM
+			};
+
 			CHAR_DATA *victim;
 			struct msg *m;
+
 			m = ilang_table[to->i_lang] + msgid;
 			victim = ch;
 			if (m->sexdep == DEP_VICTIM)
 				victim = vch;
-			vsprintf(str, exact_msg(msgid, to->i_lang, victim->sex),
-				 ap);
+			vsnprintf(buf, sizeof(buf),
+				  exact_msg(msgid, to->i_lang, victim->sex),
+				  ap);
 		}
 		/*****************/
 
-		while(*str) {
-			if(*str != '$' && *str != '{') {
-				*point++ = *str++;
-				continue;
-			}
-
-			i = NULL;
-			switch(*str) {
-			case '$':
-				fColour = TRUE;
-				++str;
-				i = " <@@@> ";
-				if (!arg2 && *str >= 'A' && *str <= 'Z' 
-				&& *str != 'G') {
-					bug("Act: missing arg2 for code %d.", 
-					    *str);
-					i = " <@@@> ";
-				} else {
-			switch (*str)
-			{
-			    default:  
-				bug("Act: bad code %d.", *str);
-				i = " <@@@> ";                                
-				break;
-
-			    case 't': 
-				i = (char *) arg1;                            
-				break;
-
-			    case 'T': 
-				i = (char *) arg2;                            
-				break;
-
-			    case 'n':
-				i = PERS(ch,  to);
-				break;
-
-			    case 'N':
-				i = PERS(vch, to);
-				break;
-
-			    case 'e':
-				i = he_she[URANGE(0, ch->sex, 2)];    
-				break;
-
-			    case 'E':
-				i = he_she[URANGE(0, vch->sex, 2)];
-				break;
-
-			    case 'm':
-				i = him_her[URANGE(0, ch->sex, 2)];    
-				break;
-
-			    case 'M':
-				i = him_her  [URANGE(0, vch->sex, 2)];
-				break;
-
-			    case 's':
-				i = his_her [URANGE(0, ch  ->sex, 2)];    
-				break;
-
-			    case 'S':
-				i = his_her  [URANGE(0, vch->sex, 2)];
-				break;
- 
-			    case 'p':
-				i = can_see_obj(to, obj1)
-				  ? obj1->short_descr
-				  : "something";
-				break;
- 
-			    case 'P':
-				i = can_see_obj(to, obj2)
-				  ? obj2->short_descr
-				  : "something";
-				break;
- 
-			    case 'd':
-				if (!arg2 || ((char *) arg2)[0] == '\0')
-				{
-				    i = "door";
-				}
-				else
-				{
-				    one_argument((char *) arg2, fname);
-				    i = fname;
-				}
-				break;
-
-			    case 'G':
-				if (ch->alignment < 0)
-				{
-				    i = "Belan";
-				}
-				else
-				{
-				    i = "Thoth";
-				}
-				break;
-
-			}
-		    }
-		    break;
-
-		case '{':
-		    fColour = FALSE;
-		    ++str;
-		    i = NULL;
-		    if(IS_SET(to->act, PLR_COLOR))
-			i = color(*str, to);
-		    break;
-
-		default:
-		    fColour = FALSE;
-		    *point++ = *str++;
-		    break;
-	    }
-
-	        ++str;
-	    if(fColour && i)
-	    {
-		fixed[0] = '\0';
-		i2 = fixed;
-
-		if(IS_SET(to->act, PLR_COLOR))
-		{
-		    for(i2 = fixed ; *i ; i++)
-	            {
-			if(*i == '{')
-			{
-			    i++;
-			    strcat(fixed, color(*i, to));
-			    for(i2 = fixed ; *i2 ; i2++)
-				;
-			    continue;
-			}
-			*i2 = *i;
-			*++i2 = '\0';
-		    }			
-		    *i2 = '\0';
-		    i = &fixed[0];
-		}
-	        else
-		{
-		    for(i2 = fixed ; *i ; i++)
-	            {
-			if(*i == '{')
-			{
-			    i++;
-			    if(*i != '{')
-			    {
-				continue;
-			    }
-			}
-			*i2 = *i;
-			*++i2 = '\0';
-		    }			
-		    *i2 = '\0';
-		    i = &fixed[0];
-		}
-	    }
-
-
-	    if(i)
-	    {
-		while((*point = *i) != '\0')
-		{
-		    ++point;
-		    ++i;
-		}
-	    }
-	    }
- 
-	    *point++	= '\n';
-	    *point++	= '\r';
-	    *point		= '\0';
-	buf[0]		= UPPER(buf[0]);
-	if(to->desc)
-	    write_to_buffer(to->desc, buf, point - buf);
+		act_raw(ch, to, arg1, arg2, buf);
 	}
+
 	va_end(ap);
-	return;
 }
 
 void act_printf(CHAR_DATA *ch, const void *arg1, 
 		const void *arg2, int type, int min_pos,
 		const char* format, ...)
 {
-	CHAR_DATA	*to;
+	CHAR_DATA *to;
 	CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
-	OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
-	OBJ_DATA 	*obj2 = (OBJ_DATA  *) arg2;
-	char 	strfoo[ MAX_STRING_LENGTH ];
-	char	*str = strfoo;
-	char 	*i;
-	char 	*point;
-	char 	*i2;
-	char 	fixed[ MAX_STRING_LENGTH ];
-	char 	buf[ MAX_STRING_LENGTH   ];
-	char 	fname[ MAX_INPUT_LENGTH  ];
-	bool	fColour = FALSE;
-	va_list 	ap;
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
 
-	if(ch == NULL || ch->in_room == NULL || format == NULL)
-	return;
+	if (ch == NULL || ch->in_room == NULL || format == NULL)
+		return;
 
 	to = ch->in_room->people;
-	if(type == TO_VICT)
-	{
-	    if (!vch)
-	    {
-	        bug("Act: null vch with TO_VICT.", 0);
-	        return;
-	    }
+	if (type == TO_VICT) {
+		if (vch == NULL) {
+	        	bug("Act: null vch with TO_VICT.", 0);
+	        	return;
+		}
 
-	if (!vch->in_room)
-	    return;
+		if (vch->in_room == NULL)
+			return;
 
-	    to = vch->in_room->people;
+		to = vch->in_room->people;
 	}
  
 	va_start(ap, format);
 
-	for(; to ; to = to->next_in_room)
-	{
-	    if (!to->desc || to->position < min_pos)
-	        continue;
+	for(; to ; to = to->next_in_room) {
+		if ((!IS_NPC(to) && to->desc == NULL)
+		||  (IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+		||  to->position < min_pos)
+	        	continue;
  
-	    if(type == TO_CHAR && to != ch)
-	        continue;
-	    if(type == TO_VICT && (to != vch || to == ch))
-	        continue;
-	    if(type == TO_ROOM && to == ch)
-	        continue;
-	    if(type == TO_NOTVICT && (to == ch || to == vch))
-	        continue;
+		if (type == TO_CHAR && to != ch)
+	        	continue;
+		if(type == TO_VICT && (to != vch || to == ch))
+	        	continue;
+	    	if(type == TO_ROOM && to == ch)
+	        	continue;
+	    	if(type == TO_NOTVICT && (to == ch || to == vch))
+	        	continue;
  
-	    point   = buf;
+		vsnprintf(buf, sizeof(buf), format, ap);
 	
-	    vsprintf(str, format, ap);
-	
-	    while(*str)
-	    {
-	        if(*str != '$' && *str != '{')
-	        {
-	            *point++ = *str++;
-	            continue;
-	        }
-
-	    i = NULL;
-	    switch(*str)
-	    {
-		case '$':
-		    fColour = TRUE;
-		    ++str;
-		    i = " <@@@> ";
-		    if (!arg2 && *str >= 'A' && *str <= 'Z' && *str != 'G')
-		    {
-			bug("Act: missing arg2 for code %d.", *str);
-			i = " <@@@> ";
-		    }
-		    else
-		    {
-			switch (*str)
-			{
-			    default:  
-				bug("Act: bad code %d.", *str);
-				i = " <@@@> ";                                
-				break;
-
-			    case 't': 
-				i = (char *) arg1;                            
-				break;
-
-			    case 'T': 
-				i = (char *) arg2;                            
-				break;
-
-			    case 'n':
-				i = PERS(ch,  to);
-				break;
-
-			    case 'N':
-				i = PERS(vch, to);
-				break;
-
-			    case 'e':
-				i = he_she[URANGE(0, ch->sex, 2)];    
-				break;
-
-			    case 'E':
-				i = he_she[URANGE(0, vch->sex, 2)];
-				break;
-
-			    case 'm':
-				i = him_her[URANGE(0, ch->sex, 2)];    
-				break;
-
-			    case 'M':
-				i = him_her  [URANGE(0, vch->sex, 2)];
-				break;
-
-			    case 's':
-				i = his_her [URANGE(0, ch  ->sex, 2)];    
-				break;
-
-			    case 'S':
-				i = his_her  [URANGE(0, vch->sex, 2)];
-				break;
-
-			    case 'p':
-				i = can_see_obj(to, obj1)
-				  ? obj1->short_descr
-				  : "something";
-				break;
- 
-			    case 'P':
-				i = can_see_obj(to, obj2)
-				  ? obj2->short_descr
-				  : "something";
-				break;
- 
-			    case 'd':
-				if (!arg2 || ((char *) arg2)[0] == '\0')
-				{
-				    i = "door";
-				}
-				else
-				{
-				    one_argument((char *) arg2, fname);
-				    i = fname;
-				}
-				break;
-
-			    case 'G':
-				if (ch->alignment < 0)
-				{
-				    i = "Belan";
-				}
-				else
-				{
-				    i = "Thoth";
-				}
-				break;
-
-			}
-		    }
-		    break;
-
-		case '{':
-		    fColour = FALSE;
-		    ++str;
-		    i = NULL;
-		    if(IS_SET(to->act, PLR_COLOR))
-			i = color(*str, to);
-		    break;
-
-		default:
-		    fColour = FALSE;
-		    *point++ = *str++;
-		    break;
-	    }
-
-	        ++str;
-	    if(fColour && i)
-	    {
-		fixed[0] = '\0';
-		i2 = fixed;
-
-		if(IS_SET(to->act, PLR_COLOR))
-		{
-		    for(i2 = fixed ; *i ; i++)
-	            {
-			if(*i == '{')
-			{
-			    i++;
-			    strcat(fixed, color(*i, to));
-			    for(i2 = fixed ; *i2 ; i2++)
-				;
-			    continue;
-			}
-			*i2 = *i;
-			*++i2 = '\0';
-		    }			
-		    *i2 = '\0';
-		    i = &fixed[0];
-		}
-	        else
-		{
-		    for(i2 = fixed ; *i ; i++)
-	            {
-			if(*i == '{')
-			{
-			    i++;
-			    if(*i != '{')
-			    {
-				continue;
-			    }
-			}
-			*i2 = *i;
-			*++i2 = '\0';
-		    }			
-		    *i2 = '\0';
-		    i = &fixed[0];
-		}
-	    }
-
-
-	    if(i)
-	    {
-		while((*point = *i) != '\0')
-		{
-		    ++point;
-		    ++i;
-		}
-	    }
-	    }
- 
-	    *point++	= '\n';
-	    *point++	= '\r';
-	    *point		= '\0';
-	buf[0]		= UPPER(buf[0]);
-	if(to->desc)
-	    write_to_buffer(to->desc, buf, point - buf);
+		act_raw(ch, to, arg1, arg2, buf);
 	}
+
 	va_end(ap);
-	return;
 }
 
 /*
@@ -3296,24 +3135,24 @@ void dump_to_scr(char *text)
 
 int log_area_popularity(void)
 {
-FILE *fp;
-AREA_DATA *area;
-extern AREA_DATA *area_first;
+	FILE *fp;
+	AREA_DATA *area;
+	extern AREA_DATA *area_first;
 
 	system("rm -f area_stat.txt");
 	fp = fopen(AREASTAT_FILE, "a");
 	fprintf(fp,"\nBooted %sArea popularity statistics (in char * ticks)\n",
 	        str_boot_time);
 
-	for (area = area_first; area != NULL; area = area->next) {
-	  if (area->count >= 5000000)
-	    fprintf(fp,"%-60s overflow\n",area->name);
-	  else
-	    fprintf(fp,"%-60s %lu\n",area->name,area->count);
-	}
+	for (area = area_first; area != NULL; area = area->next)
+		if (area->count >= 5000000)
+			fprintf(fp,"%-60s overflow\n",area->name);
+		else
+			fprintf(fp,"%-60s %u\n",area->name,area->count);
+
 	fclose(fp);
 
- return 1;
+	return 1;
 }
 
 /*

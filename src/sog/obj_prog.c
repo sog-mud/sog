@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.13 1998-06-23 17:08:58 fjoe Exp $
+ * $Id: obj_prog.c,v 1.14 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,432 +53,283 @@
 #include "fight.h"
 #include "log.h"
 
-void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
+int one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_excalibur 	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_excalibur);
-DECLARE_OPROG_FUN_DEATH(death_prog_excalibur 	);
-DECLARE_OPROG_FUN_SPEECH(speech_prog_excalibur);
-DECLARE_OPROG_FUN_SAC(sac_prog_excalibur 	);
+#define DECLARE_OPROG(f) OPROG_FUN f
 
-DECLARE_OPROG_FUN_SAC(sac_prog_clan_item 	);
-DECLARE_OPROG_FUN_GET(get_prog_clan_item 	);
-DECLARE_OPROG_FUN_GIVE(give_prog_clan_item 	);
+DECLARE_OPROG(wear_prog_excalibur);
+DECLARE_OPROG(remove_prog_excalibur);
+DECLARE_OPROG(death_prog_excalibur);
+DECLARE_OPROG(speech_prog_excalibur);
+DECLARE_OPROG(sac_prog_excalibur);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_sub_weapon);
-DECLARE_OPROG_FUN_SPEECH(speech_prog_kassandra);
+DECLARE_OPROG(sac_prog_clan_item);
+DECLARE_OPROG(get_prog_clan_item);
+DECLARE_OPROG(give_prog_clan_item);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_chaos_blade);
-DECLARE_OPROG_FUN_DEATH(death_prog_chaos_blade);
+DECLARE_OPROG(fight_prog_sub_weapon);
+DECLARE_OPROG(speech_prog_kassandra);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_apollon);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_zeus);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_siebele);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_ahrumazda);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_hephaestus);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_ehrumen);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_venus);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_deimos);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_odin);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_phobos);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_mars);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_athena);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_prometheus);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_goktengri);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_hera);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_ares);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_tattoo_eros);
+DECLARE_OPROG(fight_prog_chaos_blade);
+DECLARE_OPROG(death_prog_chaos_blade);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_golden_weapon);
-DECLARE_OPROG_FUN_DEATH(death_prog_golden_weapon);
+DECLARE_OPROG(fight_prog_tattoo_apollon);
+DECLARE_OPROG(fight_prog_tattoo_zeus);
+DECLARE_OPROG(fight_prog_tattoo_siebele);
+DECLARE_OPROG(fight_prog_tattoo_ahrumazda);
+DECLARE_OPROG(fight_prog_tattoo_hephaestus);
+DECLARE_OPROG(fight_prog_tattoo_ehrumen);
+DECLARE_OPROG(fight_prog_tattoo_venus);
+DECLARE_OPROG(fight_prog_tattoo_deimos);
+DECLARE_OPROG(fight_prog_tattoo_odin);
+DECLARE_OPROG(fight_prog_tattoo_phobos);
+DECLARE_OPROG(fight_prog_tattoo_mars);
+DECLARE_OPROG(fight_prog_tattoo_athena);
+DECLARE_OPROG(fight_prog_tattoo_prometheus);
+DECLARE_OPROG(fight_prog_tattoo_goktengri);
+DECLARE_OPROG(fight_prog_tattoo_hera);
+DECLARE_OPROG(fight_prog_tattoo_ares);
+DECLARE_OPROG(fight_prog_tattoo_eros);
 
-DECLARE_OPROG_FUN_GET(get_prog_heart 		);
+DECLARE_OPROG(fight_prog_golden_weapon);
+DECLARE_OPROG(death_prog_golden_weapon);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_bracer 	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_bracer 	);
+DECLARE_OPROG(get_prog_heart);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_ranger_staff	);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_ranger_staff);
-DECLARE_OPROG_FUN_DEATH(death_prog_ranger_staff);
+DECLARE_OPROG(wear_prog_bracer);
+DECLARE_OPROG(remove_prog_bracer);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_coconut	);
-DECLARE_OPROG_FUN_ENTRY(entry_prog_coconut	);
-DECLARE_OPROG_FUN_GREET(greet_prog_coconut	);
-DECLARE_OPROG_FUN_GET(get_prog_coconut		);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_coconut	);
+DECLARE_OPROG(wear_prog_ranger_staff);
+DECLARE_OPROG(fight_prog_ranger_staff);
+DECLARE_OPROG(death_prog_ranger_staff);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_firegauntlets);
-DECLARE_OPROG_FUN_WEAR(wear_prog_firegauntlets	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_firegauntlets);
+DECLARE_OPROG(wear_prog_coconut);
+DECLARE_OPROG(entry_prog_coconut);
+DECLARE_OPROG(greet_prog_coconut);
+DECLARE_OPROG(get_prog_coconut);
+DECLARE_OPROG(remove_prog_coconut);
+
+DECLARE_OPROG(fight_prog_firegauntlets);
+DECLARE_OPROG(wear_prog_firegauntlets);
+DECLARE_OPROG(remove_prog_firegauntlets);
 /* ibrahim armbands */
-DECLARE_OPROG_FUN_FIGHT(fight_prog_armbands	);
-DECLARE_OPROG_FUN_WEAR(wear_prog_armbands	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_armbands	);
+DECLARE_OPROG(fight_prog_armbands);
+DECLARE_OPROG(wear_prog_armbands);
+DECLARE_OPROG(remove_prog_armbands);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_demonfireshield);
-DECLARE_OPROG_FUN_WEAR(wear_prog_demonfireshield);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_demonfireshield);
+DECLARE_OPROG(fight_prog_demonfireshield);
+DECLARE_OPROG(wear_prog_demonfireshield);
+DECLARE_OPROG(remove_prog_demonfireshield);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_vorpalblade	);
-DECLARE_OPROG_FUN_GET(get_prog_spec_weapon	);
-DECLARE_OPROG_FUN_GET(get_prog_quest_obj	);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_shockwave	);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_snake 	);
+DECLARE_OPROG(fight_prog_vorpalblade);
+DECLARE_OPROG(get_prog_spec_weapon);
+DECLARE_OPROG(get_prog_quest_obj);
+DECLARE_OPROG(fight_prog_shockwave);
+DECLARE_OPROG(fight_prog_snake);
+
 /* new ones by chronos */
-DECLARE_OPROG_FUN_WEAR(wear_prog_wind_boots 	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_wind_boots);
+DECLARE_OPROG(wear_prog_wind_boots);
+DECLARE_OPROG(remove_prog_wind_boots);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_arm_hercules);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_arm_hercules);
+DECLARE_OPROG(wear_prog_arm_hercules);
+DECLARE_OPROG(remove_prog_arm_hercules);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_girdle_giant);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_girdle_giant);
+DECLARE_OPROG(wear_prog_girdle_giant);
+DECLARE_OPROG(remove_prog_girdle_giant);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_breastplate_strength);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_breastplate_strength);
+DECLARE_OPROG(wear_prog_breastplate_strength);
+DECLARE_OPROG(remove_prog_breastplate_strength);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_boots_flying);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_boots_flying);
+DECLARE_OPROG(wear_prog_boots_flying);
+DECLARE_OPROG(remove_prog_boots_flying);
 
-DECLARE_OPROG_FUN_FIGHT(fight_prog_rose_shield);
-DECLARE_OPROG_FUN_FIGHT(fight_prog_lion_claw);
+DECLARE_OPROG(fight_prog_rose_shield);
+DECLARE_OPROG(fight_prog_lion_claw);
 
-DECLARE_OPROG_FUN_SPEECH(speech_prog_ring_ra);
-DECLARE_OPROG_FUN_WEAR(wear_prog_eyed_sword);
-DECLARE_OPROG_FUN_WEAR(wear_prog_katana_sword);
+DECLARE_OPROG(speech_prog_ring_ra);
+DECLARE_OPROG(wear_prog_eyed_sword);
+DECLARE_OPROG(wear_prog_katana_sword);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_snake 	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_snake 	);
-DECLARE_OPROG_FUN_GET(get_prog_snake 		);
+DECLARE_OPROG(wear_prog_snake);
+DECLARE_OPROG(remove_prog_snake);
+DECLARE_OPROG(get_prog_snake);
 
-DECLARE_OPROG_FUN_WEAR(wear_prog_fire_shield 	);
-DECLARE_OPROG_FUN_REMOVE(remove_prog_fire_shield);
-DECLARE_OPROG_FUN_WEAR(wear_prog_quest_weapon);
-DECLARE_OPROG_FUN_GET(get_prog_quest_reward	);
+DECLARE_OPROG(wear_prog_fire_shield);
+DECLARE_OPROG(remove_prog_fire_shield);
+DECLARE_OPROG(wear_prog_quest_weapon);
+DECLARE_OPROG(get_prog_quest_reward);
+
+char* optype_table[] = {
+	"wear_prog",
+	"remove_prog",
+	"drop_prog",
+	"sac_prog",
+	"give_prog",
+	"greet_prog",
+	"fight_prog",
+	"death_prog",
+	"speech_prog",
+	"entry_prog",
+	"get_prog",
+	"area_prog",
+	NULL
+};
+	
+struct oprog_data {
+	char *name;
+	OPROG_FUN *fn;
+};
+typedef struct oprog_data OPROG_DATA;
+
+OPROG_DATA oprog_table[] = {
+	{ "wear_prog_excalibur", wear_prog_excalibur },
+	{ "remove_prog_excalibur", remove_prog_excalibur },
+	{ "death_prog_excalibur", death_prog_excalibur },
+	{ "speech_prog_excalibur", speech_prog_excalibur },
+	{ "sac_prog_excalibur", sac_prog_excalibur },
+	{ "sac_prog_clan_item", sac_prog_clan_item },
+	{ "get_prog_clan_item", get_prog_clan_item },
+	{ "give_prog_clan_item", give_prog_clan_item },
+	{ "fight_prog_sub_weapon", fight_prog_sub_weapon },
+	{ "speech_prog_kassandra", speech_prog_kassandra },
+	{ "fight_prog_chaos_blade", fight_prog_chaos_blade },
+	{ "death_prog_chaos_blade", death_prog_chaos_blade },
+	{ "fight_prog_tattoo_apollon", fight_prog_tattoo_apollon },
+	{ "fight_prog_tattoo_zeus", fight_prog_tattoo_zeus },
+	{ "fight_prog_tattoo_siebele", fight_prog_tattoo_siebele },
+	{ "fight_prog_tattoo_ahrumazda", fight_prog_tattoo_ahrumazda },
+	{ "fight_prog_tattoo_hephaestus", fight_prog_tattoo_hephaestus },
+	{ "fight_prog_tattoo_ehrumen", fight_prog_tattoo_ehrumen },
+	{ "fight_prog_tattoo_venus", fight_prog_tattoo_venus },
+	{ "fight_prog_tattoo_deimos", fight_prog_tattoo_deimos },
+	{ "fight_prog_tattoo_odin", fight_prog_tattoo_odin },
+	{ "fight_prog_tattoo_phobos", fight_prog_tattoo_phobos },
+	{ "fight_prog_tattoo_mars", fight_prog_tattoo_mars },
+	{ "fight_prog_tattoo_athena", fight_prog_tattoo_athena },
+	{ "fight_prog_tattoo_prometheus", fight_prog_tattoo_prometheus },
+	{ "fight_prog_tattoo_goktengri", fight_prog_tattoo_goktengri },
+	{ "fight_prog_tattoo_hera", fight_prog_tattoo_hera },
+	{ "fight_prog_tattoo_ares", fight_prog_tattoo_ares },
+	{ "fight_prog_tattoo_eros", fight_prog_tattoo_eros },
+	{ "fight_prog_golden_weapon", fight_prog_golden_weapon },
+	{ "death_prog_golden_weapon", death_prog_golden_weapon },
+	{ "get_prog_heart", get_prog_heart },
+	{ "wear_prog_bracer", wear_prog_bracer },
+	{ "remove_prog_bracer", remove_prog_bracer },
+	{ "wear_prog_ranger_staff", wear_prog_ranger_staff },
+	{ "fight_prog_ranger_staff", fight_prog_ranger_staff },
+	{ "death_prog_ranger_staff", death_prog_ranger_staff },
+	{ "wear_prog_coconut", wear_prog_coconut },
+	{ "entry_prog_coconut", entry_prog_coconut },
+	{ "greet_prog_coconut", greet_prog_coconut },
+	{ "get_prog_coconut", get_prog_coconut },
+	{ "remove_prog_coconut", remove_prog_coconut },
+	{ "fight_prog_firegauntlets", fight_prog_firegauntlets },
+	{ "wear_prog_firegauntlets", wear_prog_firegauntlets },
+	{ "remove_prog_firegauntlets", remove_prog_firegauntlets },
+	{ "fight_prog_armbands", fight_prog_armbands },
+	{ "wear_prog_armbands", wear_prog_armbands },
+	{ "remove_prog_armbands", remove_prog_armbands },
+	{ "fight_prog_demonfireshield", fight_prog_demonfireshield },
+	{ "wear_prog_demonfireshield", wear_prog_demonfireshield },
+	{ "remove_prog_demonfireshield", remove_prog_demonfireshield },
+	{ "fight_prog_vorpalblade", fight_prog_vorpalblade },
+	{ "get_prog_spec_weapon", get_prog_spec_weapon },
+	{ "get_prog_quest_obj", get_prog_quest_obj },
+	{ "fight_prog_shockwave", fight_prog_shockwave },
+	{ "fight_prog_snake", fight_prog_snake },
+	{ "wear_prog_wind_boots", wear_prog_wind_boots },
+	{ "remove_prog_wind_boots", remove_prog_wind_boots },
+	{ "wear_prog_arm_hercules", wear_prog_arm_hercules },
+	{ "remove_prog_arm_hercules", remove_prog_arm_hercules },
+	{ "wear_prog_girdle_giant", wear_prog_girdle_giant },
+	{ "remove_prog_girdle_giant", remove_prog_girdle_giant },
+	{ "wear_prog_breastplate_strength", wear_prog_breastplate_strength },
+	{ "remove_prog_breastplate_strength", remove_prog_breastplate_strength },
+	{ "wear_prog_boots_flying", wear_prog_boots_flying },
+	{ "remove_prog_boots_flying", remove_prog_boots_flying },
+	{ "fight_prog_rose_shield", fight_prog_rose_shield },
+	{ "fight_prog_lion_claw", fight_prog_lion_claw },
+	{ "speech_prog_ring_ra", speech_prog_ring_ra },
+	{ "wear_prog_eyed_sword", wear_prog_eyed_sword },
+	{ "wear_prog_katana_sword", wear_prog_katana_sword },
+	{ "wear_prog_snake", wear_prog_snake },
+	{ "remove_prog_snake", remove_prog_snake },
+	{ "get_prog_snake", get_prog_snake },
+	{ "wear_prog_fire_shield", wear_prog_fire_shield },
+	{ "remove_prog_fire_shield", remove_prog_fire_shield },
+	{ "wear_prog_quest_weapon", wear_prog_quest_weapon },
+	{ "get_prog_quest_reward", get_prog_quest_reward },
+	{ NULL }
+};
 
 
-void oprog_set(OBJ_INDEX_DATA *objindex,const char *progtype, const char *name)
+int optype_lookup(const char *name)
 {
+	int i;
 
-	if (!str_cmp(progtype, "wear_prog"))
-	 {
- /*
-	*    if (!str_cmp(name, "wear_prog_"))
-	*          objindex->mprogs->wear_prog = wear_prog_;
-	*    else if (!str_cmp(name, "wear_prog_")) ...
-	*/
-
-	   if (!str_cmp(name, "wear_prog_excalibur"))
-		 objindex->oprogs->wear_prog = wear_prog_excalibur;
-	   else if (!str_cmp(name, "wear_prog_bracer"))
-		 objindex->oprogs->wear_prog = wear_prog_bracer;
-	   else if (!str_cmp(name, "wear_prog_coconut"))
-		 objindex->oprogs->wear_prog = wear_prog_coconut;
-	   else if (!str_cmp(name, "wear_prog_firegauntlets"))
-		 objindex->oprogs->wear_prog = wear_prog_firegauntlets;
-	  else if (!str_cmp(name, "wear_prog_armbands"))
-		 objindex->oprogs->wear_prog = wear_prog_armbands;
-	  else if (!str_cmp(name, "wear_prog_demonfireshield"))
-		 objindex->oprogs->wear_prog = wear_prog_demonfireshield;
-	   else if (!str_cmp(name, "wear_prog_ranger_staff"))
-		 objindex->oprogs->wear_prog = wear_prog_ranger_staff;
-	   else if (!str_cmp(name, "wear_prog_wind_boots"))
-		 objindex->oprogs->wear_prog = wear_prog_wind_boots;
-	   else if (!str_cmp(name, "wear_prog_boots_flying"))
-		 objindex->oprogs->wear_prog = wear_prog_boots_flying;
-	   else if (!str_cmp(name, "wear_prog_arm_hercules"))
-		 objindex->oprogs->wear_prog = wear_prog_arm_hercules;
-	   else if (!str_cmp(name, "wear_prog_girdle_giant"))
-		 objindex->oprogs->wear_prog = wear_prog_girdle_giant;
-	   else if (!str_cmp(name, "wear_prog_breastplate_strength"))
-		 objindex->oprogs->wear_prog = wear_prog_breastplate_strength;
-	   
-	   else if (!str_cmp(name, "wear_prog_katana_sword"))
-		 objindex->oprogs->wear_prog = wear_prog_katana_sword;
-	   else if (!str_cmp(name, "wear_prog_eyed_sword"))
-		 objindex->oprogs->wear_prog = wear_prog_eyed_sword;
-	   else if (!str_cmp(name, "wear_prog_snake"))
-		 objindex->oprogs->wear_prog = wear_prog_snake;
-	   else if (!str_cmp(name, "wear_prog_fire_shield"))
-		 objindex->oprogs->wear_prog = wear_prog_fire_shield;
-	   else if (!str_cmp(name, "wear_prog_quest_weapon"))
-		 objindex->oprogs->wear_prog = wear_prog_quest_weapon;
-	   else 
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-
-	   SET_BIT(objindex->progtypes, OPROG_WEAR);
-	   return;
-	 }
-
-	if (!str_cmp(progtype, "remove_prog"))
-	 {
-	   if (!str_cmp(name,"remove_prog_excalibur"))
-		 objindex->oprogs->remove_prog = remove_prog_excalibur;
-	   else if (!str_cmp(name, "remove_prog_bracer"))
-		 objindex->oprogs->remove_prog = remove_prog_bracer;
-	   else if (!str_cmp(name, "remove_prog_coconut"))
-		 objindex->oprogs->remove_prog = remove_prog_coconut;
-	   else if (!str_cmp(name, "remove_prog_firegauntlets"))
-		 objindex->oprogs->remove_prog = remove_prog_firegauntlets;
-	   else if (!str_cmp(name, "remove_prog_armbands"))
-		 objindex->oprogs->remove_prog = remove_prog_armbands;
-	   else if (!str_cmp(name, "remove_prog_demonfireshield"))
-		 objindex->oprogs->remove_prog = remove_prog_demonfireshield;
-	   else if (!str_cmp(name, "remove_prog_wind_boots"))
-		 objindex->oprogs->remove_prog = remove_prog_wind_boots;
-	   else if (!str_cmp(name, "remove_prog_boots_flying"))
-		 objindex->oprogs->remove_prog = remove_prog_boots_flying;
-	   else if (!str_cmp(name, "remove_prog_arm_hercules"))
-		 objindex->oprogs->remove_prog = remove_prog_arm_hercules;
-	   else if (!str_cmp(name, "remove_prog_girdle_giant"))
-		 objindex->oprogs->remove_prog = remove_prog_girdle_giant;
-	   else if (!str_cmp(name, "remove_prog_breastplate_strength"))
-		 objindex->oprogs->remove_prog = remove_prog_breastplate_strength;
-	   else if (!str_cmp(name, "remove_prog_snake"))
-		 objindex->oprogs->remove_prog = remove_prog_snake;
-	   else if (!str_cmp(name, "remove_prog_fire_shield"))
-		 objindex->oprogs->remove_prog = remove_prog_fire_shield;
-	   else
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_REMOVE);
-	   return;
-	 }
-	if (!str_cmp(progtype, "get_prog"))
-	 {
-	   if (!str_cmp(name,"get_prog_clan_item"))
-		 objindex->oprogs->get_prog = get_prog_clan_item;
-	   else if (!str_cmp(name, "get_prog_heart"))
-		 objindex->oprogs->get_prog = get_prog_heart;
-	   else if (!str_cmp(name, "get_prog_coconut"))
-		 objindex->oprogs->get_prog = get_prog_coconut;
-	   else if (!str_cmp(name, "get_prog_spec_weapon"))
-		 objindex->oprogs->get_prog = get_prog_spec_weapon;
-	   else if (!str_cmp(name, "get_prog_quest_obj"))
-		 objindex->oprogs->get_prog = get_prog_quest_obj;
-	   else if (!str_cmp(name, "get_prog_snake"))
-		 objindex->oprogs->get_prog = get_prog_snake;
-	   else if (!str_cmp(name, "get_prog_quest_reward"))
-		 objindex->oprogs->get_prog = get_prog_quest_reward;
-	   else
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_GET);
-	   return;
-	 }
-	if (!str_cmp(progtype, "drop_prog"))
-	 {
-/*
-	   if (!str_cmp(name, "drop_prog_"))
-		 objindex->oprogs->drop_prog = drop_prog_;
-	   else
-*/
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_DROP);	
-	   return;
-	 }
-
-	/* 
-	* returning TRUE prevents destruction, gives player gold
-	*/
-	if (!str_cmp(progtype, "sac_prog")) 
-	 {
-	   if (!str_cmp(name, "sac_prog_excalibur"))
-		 objindex->oprogs->sac_prog = sac_prog_excalibur;
-	   else if (!str_cmp(name, "sac_prog_clan_item"))
-		 objindex->oprogs->sac_prog = sac_prog_clan_item;
-	   else
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_SAC);
-	   return;
-	 }
-	if (!str_cmp(progtype, "entry_prog"))
-	 {
-	   if (!str_cmp(name, "entry_prog_coconut"))
-	     objindex->oprogs->entry_prog = entry_prog_coconut;
-	   else
-	     {
-	       bug("Load_oprogs: 'O': Function not found for vnum %d",
-	           objindex->vnum);
-	       exit(1);
-	     }
-	   SET_BIT(objindex->progtypes, OPROG_ENTRY);
-	   return;
-	 }
-	if (!str_cmp(progtype, "give_prog"))
-	 {
-	   if (!str_cmp(name, "give_prog_clan_item"))
-	     objindex->oprogs->give_prog = give_prog_clan_item;
-	   else
-	     {
-	       bug("Load_oprogs: 'O': Function not found for vnum %d",
-	           objindex->vnum);
-	       exit(1);
-	     }
-	   SET_BIT(objindex->progtypes, OPROG_GIVE);
-	   return;
-	 }
-	if (!str_cmp(progtype, "greet_prog"))
-	 {
-	   if (!str_cmp(name, "greet_prog_coconut"))
-	     objindex->oprogs->greet_prog = greet_prog_coconut;
-	   else
-	     {
-	       bug("Load_oprogs: 'O': Function not found for vnum %d",
-	           objindex->vnum);
-	       exit(1);
-	     }
-	   SET_BIT(objindex->progtypes, OPROG_GREET);
-	   return;
-	 }
-	if (!str_cmp(progtype, "fight_prog"))
-	 {
-	   if (!str_cmp(name, "fight_prog_ranger_staff"))
-		 objindex->oprogs->fight_prog = fight_prog_ranger_staff;
-	   else if (!str_cmp(name, "fight_prog_sub_weapon"))
-		 objindex->oprogs->fight_prog = fight_prog_sub_weapon;
-	   else if (!str_cmp(name, "fight_prog_chaos_blade"))
-		 objindex->oprogs->fight_prog = fight_prog_chaos_blade;
-	   else if (!str_cmp(name, "fight_prog_tattoo_apollon"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_apollon;
-	   else if (!str_cmp(name, "fight_prog_tattoo_zeus"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_zeus;
-	   else if (!str_cmp(name, "fight_prog_tattoo_siebele"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_siebele;
-	   else if (!str_cmp(name, "fight_prog_tattoo_ahrumazda"))
-	     objindex->oprogs->fight_prog = fight_prog_tattoo_ahrumazda;
-	   else if (!str_cmp(name, "fight_prog_tattoo_hephaestus"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_hephaestus;
-	   else if (!str_cmp(name, "fight_prog_tattoo_ehrumen"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_ehrumen;
-	   else if (!str_cmp(name, "fight_prog_tattoo_venus"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_venus;
-	   else if (!str_cmp(name, "fight_prog_tattoo_deimos"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_deimos;
-	   else if (!str_cmp(name, "fight_prog_tattoo_odin"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_odin;
-	   else if (!str_cmp(name, "fight_prog_tattoo_phobos"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_phobos;
-	   else if (!str_cmp(name, "fight_prog_tattoo_mars"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_mars;
-	   else if (!str_cmp(name, "fight_prog_tattoo_athena"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_athena; 
-	   else if (!str_cmp(name, "fight_prog_golden_weapon"))
-		 objindex->oprogs->fight_prog = fight_prog_golden_weapon;
-	   else if (!str_cmp(name, "fight_prog_snake"))
-		 objindex->oprogs->fight_prog = fight_prog_snake;
-	   else if (!str_cmp(name, "fight_prog_tattoo_prometheus"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_prometheus;
-	   else if (!str_cmp(name, "fight_prog_tattoo_goktengri"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_goktengri;
-	   else if (!str_cmp(name, "fight_prog_shockwave"))
-		 objindex->oprogs->fight_prog = fight_prog_shockwave;
-	   else if (!str_cmp(name, "fight_prog_firegauntlets"))
-		 objindex->oprogs->fight_prog = fight_prog_firegauntlets;
-	   else if (!str_cmp(name, "fight_prog_armbands"))
-		 objindex->oprogs->fight_prog = fight_prog_armbands;
-	   else if (!str_cmp(name, "fight_prog_demonfireshield"))
-		 objindex->oprogs->fight_prog = fight_prog_demonfireshield;
-	   else if (!str_cmp(name, "fight_prog_vorpalblade"))
-		 objindex->oprogs->fight_prog = fight_prog_vorpalblade;
-	   else if (!str_cmp(name, "fight_prog_rose_shield"))
-		 objindex->oprogs->fight_prog = fight_prog_rose_shield;
-	   else if (!str_cmp(name, "fight_prog_lion_claw"))
-		 objindex->oprogs->fight_prog = fight_prog_lion_claw;
-	   else if (!str_cmp(name, "fight_prog_tattoo_hera"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_hera;
-	   else if (!str_cmp(name, "fight_prog_tattoo_ares"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_ares;
-	   else if (!str_cmp(name, "fight_prog_tattoo_eros"))
-		 objindex->oprogs->fight_prog = fight_prog_tattoo_eros;
-	   else
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_FIGHT);
-	   return;
-	 }
-	if (!str_cmp(progtype, "death_prog")) /* returning TRUE prevents death */
-	 {
-	   if (!str_cmp(name, "death_prog_excalibur"))
-		 objindex->oprogs->death_prog = death_prog_excalibur;
-	   else if (!str_cmp(name, "death_prog_ranger_staff"))
-		 objindex->oprogs->death_prog = death_prog_ranger_staff;
-	   else if (!str_cmp(name, "death_prog_chaos_blade"))
-		 objindex->oprogs->death_prog = death_prog_chaos_blade;
-	   else if (!str_cmp(name, "death_prog_golden_weapon"))
-		 objindex->oprogs->death_prog = death_prog_golden_weapon;
-	   else
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_DEATH);
-	   return;
-	 }
-	if (!str_cmp(progtype, "speech_prog"))
-	 {
-	   if (!str_cmp(name, "speech_prog_excalibur"))
-		 objindex->oprogs->speech_prog = speech_prog_excalibur;
-	   else if(!str_cmp(name, "speech_prog_kassandra"))
-		 objindex->oprogs->speech_prog = speech_prog_kassandra;
-	   else if(!str_cmp(name, "speech_prog_ring_ra"))
-		 objindex->oprogs->speech_prog = speech_prog_ring_ra;
-	   else
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_SPEECH);
-	   return;
-	 }
-
-	if (!str_cmp(progtype, "area_prog"))
-	 {
-/*
-	   if (!str_cmp(name, "area_prog_"))
-		 objindex->oprogs->area_prog = area_prog_;
-	   else
-*/
-		 {
-		   bug("Load_oprogs: 'O': Function not found for vnum %d",
-		       objindex->vnum);
-		   exit(1);
-		 }
-	   SET_BIT(objindex->progtypes, OPROG_AREA);
-	   return;
-	 }
+	for (i = 0; optype_table[i] != NULL; i++)
+		if (str_cmp(optype_table[i], name) == 0)
+			return i; 
+	return -1;
+}
 
 
-	bug("Load_oprogs: 'O': invalid program type for vnum %d",objindex->vnum);
-	exit(1);
- }
+int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
+{
+	if (obj->pIndexData->oprogs[optype] != NULL)
+		return (obj->pIndexData->oprogs[optype]) (obj, ch, arg);
+	return 0;
+}
 
 
+OPROG_DATA *oprog_lookup(const char *name)
+{
+	OPROG_DATA *p;
 
-void wear_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
+	for (p = oprog_table; p->name != NULL; p++)
+		if (str_cmp(p->name, name) == 0)
+			return p;
+	return NULL;
+}
+
+
+char *oprog_name_lookup(OPROG_FUN *fn)
+{
+	OPROG_DATA *p;
+
+	for (p = oprog_table; p->name != NULL; p++)
+		if (p->fn == fn)
+			break;
+
+	return p->name;
+}
+
+
+void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
+{
+	int opindex;
+	OPROG_DATA *oprog;
+
+	opindex = optype_lookup(progtype);
+	if (opindex == -1) {
+		log_printf("oprog_set: vnum %d: unknown obj prog type `%s'",
+			   pObjIndex->vnum, progtype);
+		exit(1);
+	}
+
+	oprog = oprog_lookup(name);
+	if (oprog == NULL) {
+		log_printf("oprog_set: vnum %d: unknown obj prog `%s'",
+			   pObjIndex->vnum, name);
+		exit(1);
+	}
+
+	pObjIndex->oprogs[opindex] = oprog->fn;
+}
+
+
+int wear_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act("$p begins to shine a bright white.",ch,obj,NULL,TO_CHAR);
 	act("$p begins to shine a bright white.",ch,obj,NULL,TO_ROOM);
@@ -490,10 +341,10 @@ void wear_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
 	else if (ch->level > 60 && ch->level <= 70)	obj->value[2] = 10;
 	else if (ch->level > 70 && ch->level <= 80)	obj->value[2] = 11;
 	else						obj->value[2] = 12;
-	return;
+	return 0;
 }
 
-void wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -511,36 +362,40 @@ void wear_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch)
 	  af.modifier = 1 + (ch->level >= 18) + (ch->level >= 30) + (ch->level >= 45);
 	  affect_to_char(ch, &af);
 	}
+	return 0;
 }
 
-void remove_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_bracer(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_haste))
 	{
 	  affect_strip(ch, gsn_haste);
 	  send_to_char("Your hands and arms feel heavy again.\n\r", ch);
 	}
+	return 0;
 }
 
 
-void remove_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act("$p stops glowing.",ch,obj,NULL,TO_CHAR);
 	act("$p stops glowing.",ch,obj,NULL,TO_ROOM);
+	return 0;
 }
 
-bool death_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
+bool death_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act_puts("$p starts to glow with a blue aura.",ch,obj,NULL,TO_CHAR,POS_DEAD);
 	act("$p starts to glow with a blue aura,",ch,obj,NULL,TO_ROOM);
 	ch->hit = ch->max_hit;
 	send_to_char("You feel much better.",ch);
 	act("$n looks much better.",ch,NULL,NULL,TO_ROOM);
-	return TRUE; 
+	return TRUE;
 }
 
-void speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, char *speech)
+int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
+	char *speech = (char*) arg;
 
 	if (!str_cmp(speech, "sword of acid")      
 	  && (ch->fighting) && ((get_eq_char(ch,WEAR_WIELD) == obj) || 
@@ -551,9 +406,10 @@ void speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, char *speech)
 	  obj_cast_spell(gsn_acid_blast,ch->level,ch,ch->fighting,NULL);
 	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 	}
+	return 0;
 }
 	
-bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
+bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
 	act("The gods are infuriated!",ch,NULL,NULL,TO_ROOM);
@@ -564,7 +420,7 @@ bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch)
 	return TRUE; 
 }
 
-void fight_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if ((get_eq_char(ch,WEAR_WIELD) == obj
 	||   get_eq_char(ch,WEAR_SECOND_WIELD) == obj)
@@ -573,9 +429,10 @@ void fight_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch)
 		act("$n's ranger's staff glows blue!", ch, NULL, NULL, TO_ROOM);
 		obj_cast_spell(gsn_cure_critical,ch->level,ch,ch,obj);
 	}
+	return 0;
 }
 
-void fight_prog_sub_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_sub_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch,WEAR_WIELD) == obj && number_percent() < 30)
 	{
@@ -587,37 +444,38 @@ void fight_prog_sub_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 		  send_to_char("Your weapon whispers, 'You can do it!'\n\r",ch);
 	  else send_to_char("Your weapon whispers, 'Run away! Run away!'\n\r",ch);
 	}
+	return 0;
 }
 
-bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch)
+bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	send_to_char("Your ranger's staff disappears.\n\r",ch);
 	act("$n's ranger's staff disappears.",ch,NULL,NULL,TO_ROOM);
 	extract_obj(obj);
-	return FALSE;
+	return 0;
 }
 
 
-void get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch) 
+int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
 	if (obj->extra_descr == NULL)
-		return;
+		return 0;
 
 	if (strstr(obj->extra_descr->description, ch->name) != NULL)  {
 	if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
 	  send_to_char("Your weapon glows blue.", ch);
 	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
 	  spell_cure_poison(gsn_cure_poison, 30, ch, ch, TARGET_CHAR);
-	  return;
+	 return 0;
 	}
 	if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1,5)==1))  {
 	  send_to_char("Your weapon glows blue.", ch);
 	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
 	  spell_remove_curse(gsn_remove_curse, 30, ch, ch, TARGET_CHAR);
-	  return;
+	 return 0;
 	}
 	send_to_char("Your weapon's humming gets lauder.\n\r", ch);
-	return;
+	return 0;
 	}
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
 
@@ -632,14 +490,13 @@ void get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 	spell_poison(gsn_poison, ch->level < 10? 1 : ch->level-9, ch, ch, TARGET_CHAR);
 	break;
 	}
-	return;
-	
+	return 0;
 }
 
-void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch) 
+int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
 	if (obj->extra_descr == NULL)
-		return;
+		return 0;
 
 	if (strstr(obj->extra_descr->description, ch->name) != NULL) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
@@ -647,7 +504,7 @@ void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch)
 			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
 			spell_cure_poison(gsn_cure_poison, 30,
 					  ch, ch, TARGET_CHAR);
-			return;
+			return 0;
 		}
 
 		if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1, 5) == 1)) {
@@ -655,11 +512,11 @@ void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch)
 			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
 			spell_remove_curse(gsn_remove_curse, 30,
 					   ch, ch, TARGET_CHAR);
-			return;
+			return 0;
 		}
 
 		send_to_char("Quest staff waits patiently to return.\n\r", ch);
-		return;
+		return 0;
 	}
 
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
@@ -677,9 +534,10 @@ void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch)
 			     ch, ch, TARGET_CHAR);
 		break;
 	}
+	return 0;
 }
 
-void get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch) 
+int get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
 	if (IS_NPC(ch))
 	{
@@ -689,7 +547,7 @@ void get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
 		 ch, obj, NULL, TO_ROOM);
 	  obj_from_char(obj);
 	  obj_to_room(obj, ch->in_room);
-	  return;
+	  return 0;
 	}
 	else
 	{
@@ -704,9 +562,10 @@ void get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
 			   d->character,NULL,NULL,TO_CHAR,POS_DEAD);
 		}
 	}
+	return 0;
 }
 
-bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
+bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	OBJ_DATA *container;
 	OBJ_DATA *item;
@@ -754,11 +613,13 @@ bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch)
 	else
 	bug("oprog: sac_clan_item: Was not the clan's item.", 0);
 
-	return FALSE; 
+	return 0; 
 } 
 
-void give_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, CHAR_DATA *mob)
+int give_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
+	CHAR_DATA *mob = (CHAR_DATA*) arg;
+
 	if (IS_NPC(mob))
 
 	{
@@ -768,12 +629,14 @@ void give_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, CHAR_DATA *mob)
 		 mob, obj, NULL, TO_ROOM);
 	  obj_from_char(obj);
 	  obj_to_room(obj, mob->in_room);
-	  return;
 	}
+	return 0;
 }
 
-void speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, char *speech)
+int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
+	char *speech = (char*) arg;
+
 	if (!str_cmp(speech, "kassandra") && (get_eq_char(ch, WEAR_HOLD) == obj)
 	       && !IS_NPC(ch))
 	obj_cast_spell(gsn_kassandra,ch->level,ch,ch,NULL);
@@ -793,9 +656,10 @@ void speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, char *speech)
 		  ch,NULL,ch->fighting,TO_NOTVICT);
 	  obj_cast_spell(gsn_matandra,ch->level,ch,ch->fighting,NULL);
 	}
+	return 0;
 }
 	  
-void fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if ((get_eq_char(ch,WEAR_WIELD) == obj) || 
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -817,20 +681,21 @@ void fight_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch)
 	  break;
 
 	}
+	return 0;
 }
 
-bool death_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch)
+bool death_prog_chaos_blade(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	send_to_char("Your chaotic blade disappears.\n\r",ch);
 	act("$n's chaotic blade disappears.",ch,NULL,NULL,TO_ROOM);
 	extract_obj(obj);
-	return FALSE;
+	return 0;
 }
 
-void fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -845,13 +710,14 @@ void fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch)
 			       NULL, obj);
 		break;
 	}
+	return 0;
 }
 
 
-void fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -871,12 +737,13 @@ void fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch)
 				       MAX_LEVEL, ch, ch, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -889,12 +756,13 @@ void fight_prog_tattoo_siebele(OBJ_DATA *obj, CHAR_DATA *ch)
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -906,12 +774,13 @@ void fight_prog_tattoo_ahrumazda(OBJ_DATA *obj, CHAR_DATA *ch)
 		obj_cast_spell(gsn_demonfire, ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_hephaestus(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_hephaestus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -925,12 +794,13 @@ void fight_prog_tattoo_hephaestus(OBJ_DATA *obj, CHAR_DATA *ch)
 		obj_cast_spell(gsn_scream, ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -948,12 +818,13 @@ void fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch)
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(7)) {
 	case 0:
@@ -973,12 +844,13 @@ void fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch)
 		obj_cast_spell(gsn_bless, ch->level, ch, ch, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(5)) {
 	case 0:
@@ -991,13 +863,14 @@ void fight_prog_tattoo_ares(OBJ_DATA *obj, CHAR_DATA *ch)
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
 
-void fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(5)) {
 	case 0:
@@ -1010,12 +883,13 @@ void fight_prog_tattoo_odin(OBJ_DATA *obj, CHAR_DATA *ch)
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -1028,12 +902,13 @@ void fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch)
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(7)) {
 	case 0:
@@ -1055,14 +930,15 @@ void fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch)
 		send_to_char("You feel even more paranoid!\n\r", ch);
 		break;
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_athena(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_athena(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
 	if(get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	if (number_percent() < 50) {
 		switch(number_bits(4)) {
@@ -1071,7 +947,7 @@ void fight_prog_tattoo_athena(OBJ_DATA *obj, CHAR_DATA *ch)
 			||  is_affected(ch,gsn_berserk)
 			||  is_affected(ch,skill_lookup("frenzy"))) {
 				send_to_char("You get a little madder.\n\r",ch);
-				return;
+				return 0;
 			}
 
 			af.where = TO_AFFECTS;
@@ -1121,13 +997,14 @@ void fight_prog_tattoo_athena(OBJ_DATA *obj, CHAR_DATA *ch)
 			break;
 		}
 	}
+	return 0;
 }
 
 
-void fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(5)) {
 	case 0:
@@ -1147,13 +1024,14 @@ void fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch)
 		obj_cast_spell(gsn_slow, ch->level, ch, ch->fighting, obj);
 		break;
 	}
+	return 0;
 }
 
 
-void fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(6)) {
 	case 0:
@@ -1167,13 +1045,14 @@ void fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch)
 			       obj);
 		break;
 	}
+	return 0;
 }
 
 
-void fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
-		return;
+		return 0;
 
 	switch(number_bits(5)) {
 	case 0:
@@ -1187,10 +1066,11 @@ void fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch)
 			       ch->level, ch, ch, obj);
 		break;
 	}
+	return 0;
 }
 
 
-bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
+bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	send_to_char("Your golden weapon disappears.\n\r",ch);
 	act("$n's golden weapon disappears.",ch,NULL,NULL,TO_ROOM);
@@ -1200,10 +1080,10 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 	affect_remove(ch, ch->affected);
 	ch->last_fight_time = -1;
 	ch->last_death_time = current_time;
-	return TRUE; 
+	return 1; 
 }
 
-void fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if ((get_eq_char(ch,WEAR_WIELD) == obj) ||
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -1214,7 +1094,7 @@ void fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
 		  
 		  obj_cast_spell(gsn_cure_critical,ch->level,ch,ch,obj);
-		  return;
+		 return 0;
 		}
 	  else if (number_percent() > 92)
 		{
@@ -1222,17 +1102,20 @@ void fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 		  act("$n's $p glows bright blue!",ch,obj,NULL,TO_ROOM);
 		  
 		  obj_cast_spell(gsn_cure_serious,ch->level,ch,ch,obj);
-		  return;
 		}
 	}
-}
-void get_prog_heart(OBJ_DATA *obj, CHAR_DATA *ch)
-{
-	if (obj->timer == 0)
-	obj->timer = 24;
+	return 0;
 }
 
-void fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
+
+int get_prog_heart(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
+{
+	if (obj->timer == 0)
+		obj->timer = 24;
+	return 0;
+}
+
+int fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if ((get_eq_char(ch, WEAR_WIELD) == obj) ||
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -1258,9 +1141,10 @@ void fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
 		break;
 	  }
 	}
+	return 0;
 }
 
-void fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(5)) {
@@ -1281,10 +1165,11 @@ void fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch)
 	  spell_lightning_bolt(64, 1.2 * ch->level, ch, ch->fighting, TARGET_CHAR);
 	  break;
 	}
+	return 0;
 }
 
 
-void fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if ((get_eq_char(ch, WEAR_WIELD) == obj) ||
 		(get_eq_char(ch,WEAR_SECOND_WIELD) == obj))
@@ -1299,41 +1184,41 @@ void fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch)
 	  obj_cast_spell(gsn_lightning_bolt, ch->level, ch, ch->fighting, NULL);
 	  break;
 	}
+	return 0;
 }
 
-void wear_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-
-	if (ch->class != 7)          
-	{
-	 send_to_char("You don't know to use this thing.\n\r", ch);
-	 unequip_char(ch, obj);
-	 send_to_char("Ranger staff slides off from your hand.\n\r", ch);
-	 obj_from_char(obj);
-	 obj_to_room(obj, ch->in_room);
-	 return;
+	if (ch->class != CLASS_RANGER) {
+		send_to_char("You don't know to use this thing.\n\r", ch);
+		unequip_char(ch, obj);
+		send_to_char("Ranger staff slides off from your hand.\n\r", ch);
+		obj_from_char(obj);
+		obj_to_room(obj, ch->in_room);
 	}
-
+	return 0;
 }
 
-void wear_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act("You start to bang the coconut shells together.",ch,NULL,NULL,TO_CHAR);
 	act("You hear a sound like horses galloping and you mount your steed.", 
 		ch, NULL, NULL, TO_CHAR);
 	act("$n pretends to mount an invisible horse.",
 		ch,NULL,NULL,TO_ROOM); 
+	return 0;
 }
 
-void entry_prog_coconut(OBJ_DATA *obj)
+int entry_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (obj->carried_by != NULL)
 	if (get_eq_char(obj->carried_by, WEAR_HOLD) == obj)
 	act("$n gallops in on his invisible steed, banging two coconuts together.",
 		obj->carried_by, NULL, NULL, TO_ROOM);
+	return 0;
 }  
 
-void greet_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch)
+int greet_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (obj->carried_by != NULL)
 	{
@@ -1344,33 +1229,36 @@ void greet_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch)
 	else
 	send_to_char("$p beckons with the faint sound of galloping horses.\n\r",
 		ch);
+	return 0;
 }
 
-void get_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch)
+int get_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	send_to_char("You hold the coconut up to your ear and suddenly you hear 
 the faint\n\rroar of galloping horses.\n\r", ch);
 	act("$n holds a coconut up to $s ear.", ch, NULL, NULL, TO_ROOM);
+	return 0;
 }
 
-void remove_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_coconut(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	send_to_char("The sounds of horses fade away.\n\r", ch);
 	act("$n pretends to dismount a horse.", ch, NULL, NULL, TO_ROOM);
+	return 0;
 }
 
-void fight_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-int dam;
+	int dam;
 
 	if (!(get_eq_char(ch, WEAR_WIELD) == NULL  &&
 		get_eq_char(ch, WEAR_SECOND_WIELD) == NULL))
-		return;
+		return 0;
 
 	if (get_eq_char(ch, WEAR_HANDS) != obj)
-		return;
+		return 0;
 	if (IS_NPC(ch))
-		return;
+		return 0;
 
 	if (number_percent() < 50)  {
 		dam = number_percent()/2 + 30 + 2 * ch->level;
@@ -1379,31 +1267,32 @@ int dam;
 		act("$N's gauntlets burns your face!", ch->fighting, NULL, ch, TO_CHAR);
 		damage(ch, ch->fighting, dam/2, gsn_burning_hands, DAM_FIRE, TRUE);
 		if (ch == NULL || ch->fighting == NULL)
-		  return;
+			return 0;
 		fire_effect(ch->fighting, obj->level/2, dam/2, TARGET_CHAR);
 	}
-	return;
+	return 0;
 }
 
-void wear_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-		send_to_char("Your hands warm up by the gauntlets.\n\r", ch);
-		return;
+	send_to_char("Your hands warm up by the gauntlets.\n\r", ch);
+	return 0;
 }
 
-void remove_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_firegauntlets(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-		send_to_char("Your hands cool down.\n\r", ch);
-		return;
+	send_to_char("Your hands cool down.\n\r", ch);
+	return 0;
 }
-void fight_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch)
+
+int fight_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-int dam;
+	int dam;
 	if (get_eq_char(ch, WEAR_ARMS) != obj)
-		return;
+		return 0;
 
 	if (IS_NPC(ch))
-		return;
+		return 0;
 
 	if (number_percent() < 20)  {
 		dam = number_percent()/2 + 30 + 5*ch->level;
@@ -1412,32 +1301,33 @@ int dam;
 		act("$N's armbands burns your face!", ch->fighting, NULL, ch, TO_CHAR);
 		damage(ch, ch->fighting, dam, gsn_burning_hands, DAM_FIRE, TRUE);
 		if (ch == NULL || ch->fighting == NULL)
-		  return;
+		 return 0;
 		fire_effect(ch->fighting, obj->level/2, dam, TARGET_CHAR);
 	}
-	return;
+	return 0;
 }
 
-void wear_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-		send_to_char("Your arms warm up by the armbands of the volcanoes.\n\r", ch);
-		return;
+	char_puts("Your arms warm up by the armbands of the volcanoes.\n\r",
+		  ch);
+	return 0;
 }
 
-void remove_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_armbands(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-		send_to_char("Your arms cool down again.\n\r", ch);
-		return;
+	char_puts("Your arms cool down again.\n\r", ch);
+	return 0;
 }
 
-void fight_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-int dam;
+	int dam;
 
 	if (get_eq_char(ch, WEAR_SHIELD) != obj)
-		return;
+		return 0;
 	if (IS_NPC(ch))
-		return;
+		return 0;
 
 	if (number_percent() < 15)  {
 		dam = number_percent()/2 + 5 * ch->level;
@@ -1447,33 +1337,34 @@ int dam;
 		act("$N's shield burns your face!", ch->fighting, NULL, ch, TO_CHAR);
 		damage(ch, ch->fighting, dam, gsn_demonfire, DAM_FIRE, TRUE);
 		if (ch == NULL || ch->fighting == NULL)
-		  return;
+		 return 0;
 		fire_effect(ch->fighting, obj->level,dam, TARGET_CHAR);
 	}
-	return;
+	return 0;
 }
 
-void wear_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-		send_to_char("Your hands warm up by the fire shield.\n\r", ch);
-		return;
+	send_to_char("Your hands warm up by the fire shield.\n\r", ch);
+	return 0;
 }
 
-void remove_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_demonfireshield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-		send_to_char("Your hands cool down.\n\r", ch);
-		return;
+	send_to_char("Your hands cool down.\n\r", ch);
+	return 0;
 }
-void fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch)
+
+int fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	CHAR_DATA *victim;
 
 	if (IS_NPC(ch)) 
-		return;
+		return 0;
 
 	if ((get_eq_char(ch, WEAR_WIELD) != obj)
 	||  (get_eq_char(ch, WEAR_SECOND_WIELD) !=obj))
-		return;
+		return 0;
 
 	victim = ch->fighting;
 	if (number_percent() < 5
@@ -1491,12 +1382,12 @@ void fight_prog_vorpalblade(OBJ_DATA *obj, CHAR_DATA *ch)
 		act("$n is DEAD!!", victim, NULL, NULL, TO_CHAR);
 		raw_kill_org(ch, victim, 3);
 		send_to_char("You have been KILLED!!\n\r", victim);
-		return;
 		}
 	}
+	return 0;
 }
 
-void wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -1514,9 +1405,10 @@ void wear_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch)
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
+	return 0;
 }
 
-void remove_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_fly))
 	{
@@ -1524,8 +1416,9 @@ void remove_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch)
 	  send_to_char("You fall down to the ground.\n\r", ch);
 	  send_to_char("Ouch!.\n\r", ch);
 	}
+	return 0;
 }
-void wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -1543,8 +1436,9 @@ void wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch)
 	  af.modifier = 0;
 	  affect_to_char(ch, &af);
 	}
+	return 0;
 }
-void remove_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_fly))
 	{
@@ -1552,10 +1446,11 @@ void remove_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch)
 	  send_to_char("You fall down to the ground.\n\r", ch);
 	  send_to_char("You start to walk again instead of flying!.\n\r", ch);
 	}
+	return 0;
 }
 
 
-void wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -1573,18 +1468,20 @@ void wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch)
 	  af.modifier = 1 + (ch->level >= 18) + (ch->level >= 30) + (ch->level >= 45);
 	  affect_to_char(ch, &af);
 	}
+	return 0;
 }
 
-void remove_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_giant_strength))
 	{
 	  affect_strip(ch, gsn_giant_strength);
 	  send_to_char("Your muscles regain its original value.\n\r", ch);
 	}
+	return 0;
 }
 
-void wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -1602,17 +1499,19 @@ void wear_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch)
 	  af.modifier = 1 + (ch->level >= 18) + (ch->level >= 30) + (ch->level >= 45);
 	  affect_to_char(ch, &af);
 	}
+	return 0;
 }
 
-void remove_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_giant_strength))
 	{
 	  affect_strip(ch, gsn_giant_strength);
 	  send_to_char("Your muscles regain its original value.\n\r", ch);
 	}
+	return 0;
 }
-void wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -1630,40 +1529,43 @@ void wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch)
 	  af.modifier = 1 + (ch->level >= 18) + (ch->level >= 30) + (ch->level >= 45);
 	  affect_to_char(ch, &af);
 	}
+	return 0;
 }
 
-void remove_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	if (is_affected(ch, gsn_giant_strength))
-	{
+	if (is_affected(ch, gsn_giant_strength)) {
 	  affect_strip(ch, gsn_giant_strength);
 	  send_to_char("Your muscles regain its original value.\n\r", ch);
 	}
+	return 0;
 }
 
 
-void fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (!((ch->in_room->sector_type != SECT_FIELD) || 
 	   (ch->in_room->sector_type != SECT_FOREST) ||
 	   (ch->in_room->sector_type != SECT_MOUNTAIN) ||
 	   (ch->in_room->sector_type != SECT_HILLS)))
-	return;
-	if (get_eq_char(ch,WEAR_SHIELD) != obj)
-	return;
+		return 0;
+
+	if (get_eq_char(ch, WEAR_SHIELD) != obj)
+		return 0;
 	
-	if (number_percent() < 90)  return;
+	if (number_percent() < 90)
+		return 0;
 
 	send_to_char("The leaves of your shield grows suddenly.\n\r",ch);
 	send_to_char("The leaves of shield surrounds you!.\n\r",ch->fighting);
 	act("$n's shield of rose grows suddenly.",ch,NULL,NULL,TO_ROOM);
 	obj_cast_spell(gsn_slow,ch->level,ch,ch->fighting,NULL);
-	return;
+	return 0;
 }
 
-void fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	if (number_percent() < 90)  return;
+	if (number_percent() < 90) return 0;
 
 	if ((obj == get_eq_char(ch,WEAR_WIELD)) || 
 		(obj == get_eq_char(ch,WEAR_SECOND_WIELD)))
@@ -1678,14 +1580,14 @@ void fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch)
 	send_to_char("The nails of your claw disappears.\n\r",ch);
 	act_puts("the nails of $n's claw disappears suddenly.",
 		ch,NULL,NULL,TO_ROOM,POS_DEAD);
-	return;
 }
- return;
+return 0;
 }
 
 
-void speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, char *speech)
+int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
+	char *speech = (char*) arg;
 
 	if (!str_cmp(speech, "punish")   
 	  && (ch->fighting) && 
@@ -1696,10 +1598,10 @@ void speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, char *speech)
 	  obj_cast_spell(gsn_lightning_breath,ch->level,ch,ch->fighting,NULL);
 	  WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 	}
- return;
+	return 0;
 }
 
-void wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act("$p's eye opens.",ch,obj,NULL,TO_CHAR);
 	act("$p's eye opens.",ch,obj,NULL,TO_ROOM);
@@ -1713,10 +1615,10 @@ void wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch)
 	else if (ch->level > 70 && ch->level <= 80)   obj->value[2] = 10;
 	else obj->value[2] = 11;
 	obj->level = ch->level;
-	return;
+	return 0;
 }
 
-void wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (obj->item_type == ITEM_WEAPON 
 		&& IS_WEAPON_STAT(obj,WEAPON_KATANA)
@@ -1734,10 +1636,10 @@ void wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->level = ch->level;
 	send_to_char("You feel your katana like a part of you!\n\r",ch);
 	}
-	return;
+	return 0;
 }
 
-void fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch)
+int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (get_eq_char(ch, WEAR_TATTOO) == obj)
 	switch(number_bits(4)) {
@@ -1749,10 +1651,11 @@ void fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch)
 	  one_hit(ch,ch->fighting,TYPE_UNDEFINED,FALSE);
 	  break;
 	}
+	return 0;
 }
 
 
-void wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act_puts("Snakes of whip starts to breath a poisonous air.",
 			ch,obj,NULL,TO_CHAR,POS_DEAD);
@@ -1767,24 +1670,26 @@ void wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
 	else if (ch->level > 60 && ch->level <= 70)   obj->value[2] = 9;
 	else if (ch->level > 70 && ch->level <= 80)   obj->value[2] = 10;
 	else obj->value[2] = 11;
-	return;
+	return 0;
 }
 
 
-void remove_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	act_puts("Snakes of whip slowly melds to non-living skin.",
 			ch,obj,NULL,TO_CHAR,POS_DEAD);
 	act_puts("Snakes of whip slowy melds to non-living skin.",
 			ch,obj,NULL,TO_ROOM,POS_DEAD);
+	return 0;
 }
 
-void get_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch) 
+int get_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
 	act("You feel as if snakes of whip moved.",ch,obj,NULL,TO_CHAR);
+	return 0;
 }
 
-void wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	AFFECT_DATA af;
 
@@ -1820,9 +1725,10 @@ void wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch)
 	  affect_to_char(ch, &af);
 	}
 	}  
+	return 0;
 }
 
-void remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch)
+int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (is_affected(ch, gsn_fire_shield)) {
 		affect_strip(ch, gsn_fire_shield);
@@ -1831,10 +1737,11 @@ void remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch)
 		else
 			send_to_char("You have become normal to fire attacks.\n\r", ch);
 	}
+	return 0;
 }
 
 
-void wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
+int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	if (strstr(obj->short_descr, ch->name) != NULL)  {
 		send_to_char("Your weapon starts glowing.\n\r",ch);
@@ -1847,29 +1754,29 @@ void wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 		else if (ch->level > 70 && ch->level <= 80) obj->value[2] = 11;
 		else					    obj->value[2] = 12;
 		obj->level = ch->level;
-		return;
+		return 0;
 	}
 
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
 
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
-	return;
+	return 0;
 }
 
 
-void get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch) 
+int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
 {
 	if (strstr(obj->short_descr, ch->name) != NULL)  {
 		act_puts("Your $p starts glowing.\n\r",
 			 ch,obj,NULL,TO_CHAR,POS_SLEEPING);
-		return;
+		return 0;
 	}
 
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
 
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
-	return;
+	return 0;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.29 1998-06-23 22:29:51 efdi Exp $
+ * $Id: save.c,v 1.30 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #endif
 
 #include "merc.h"
+#include "tables.h"
 #include "recycle.h"
 #include "lookup.h"
 #include "tables.h"
@@ -165,13 +166,12 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 	fprintf(fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER");
 
 	fprintf(fp, "Name %s~\n", ch->name);
-	fprintf(fp, "Id   %ld\n", ch->id);
+	fprintf(fp, "Id   %d\n", ch->id);
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Vers %d\n", 6);
 	fprintf(fp, "Etho %d\n", ch->ethos);
 	fprintf(fp, "Home %d\n", ch->hometown);
 	fprintf(fp, "Clan %d\n", ch->clan);
-	fprintf(fp, "Dead %d\n", ch->pcdata->death);
 
 	if (ch->short_descr[0] != '\0')
 		fprintf(fp, "ShD  %s~\n", ch->short_descr);
@@ -187,11 +187,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 	fprintf(fp, "Levl %d\n", ch->level);
 	if (ch->trust != 0)
 		fprintf(fp, "Tru  %d\n", ch->trust);
-	fprintf(fp, "Plyd %d\n",
-		ch->pcdata->played + (int) (current_time - ch->logon));
-	fprintf(fp, "Not  %ld %ld %ld %ld %ld\n",
-		ch->pcdata->last_note, ch->pcdata->last_idea, ch->pcdata->last_penalty,
-		ch->pcdata->last_news, ch->pcdata->last_changes);
 	fprintf(fp, "Scro %d\n", ch->lines);
 	fprintf(fp, "Room %d\n",
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO)
@@ -202,21 +197,13 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 	fprintf(fp, "HMV  %d %d %d %d %d %d\n",
 	ch->hit, ch->max_hit, ch->mana, ch->max_mana, ch->move, ch->max_move);
 	if (ch->gold > 0)
-		fprintf(fp, "Gold %ld\n", ch->gold);
+		fprintf(fp, "Gold %d\n", ch->gold);
 	else
 		fprintf(fp, "Gold %d\n", 0);
 	if (ch->silver > 0)
-		fprintf(fp, "Silv %ld\n", ch->silver);
+		fprintf(fp, "Silv %d\n", ch->silver);
 	else
 		fprintf(fp, "Silv %d\n", 0);
-	if (ch->pcdata->bank_s > 0)
-		fprintf(fp, "Banks %ld\n", ch->pcdata->bank_s);
-	else
-		fprintf(fp, "Banks %ld\n", ch->pcdata->bank_s);
-	if (ch->pcdata->bank_g > 0)
-		fprintf(fp, "Bankg %ld\n", ch->pcdata->bank_g);
-	else
-		fprintf(fp, "Bankg %ld\n", ch->pcdata->bank_g);
 	fprintf(fp, "Exp  %d\n", ch->exp);
 	if (ch->act != 0)
 		fprintf(fp, "Act  %s\n", format_flags(ch->act));
@@ -269,13 +256,35 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 		ch->mod_stat[STAT_CON],
 		ch->mod_stat[STAT_CHA]);
 
+	fprintf(fp, "Relig %d\n", ch->religion);
+
 	if (IS_NPC(ch)) {
 		fprintf(fp, "Vnum %d\n", ch->pIndexData->vnum);
 	} else {
 		QTROUBLE_DATA  *qt;
+
 		for (qt = ch->pcdata->qtrouble; qt; qt = qt->next)
 			fprintf(fp, "Qtrouble %d %d\n", qt->vnum, qt->count);
 
+		fprintf(fp, "Plyd %d\n",
+			ch->pcdata->played + (int) (current_time - ch->logon));
+		fprintf(fp, "Not  %ld %ld %ld %ld %ld\n",
+			ch->pcdata->last_note, ch->pcdata->last_idea,
+			ch->pcdata->last_penalty, ch->pcdata->last_news,
+			ch->pcdata->last_changes);
+
+		fprintf(fp, "Dead %d\n", ch->pcdata->death);
+
+		if (ch->pcdata->bank_s > 0)
+			fprintf(fp, "Banks %d\n", ch->pcdata->bank_s);
+		else
+			fprintf(fp, "Banks %d\n", ch->pcdata->bank_s);
+		if (ch->pcdata->bank_g > 0)
+			fprintf(fp, "Bankg %d\n", ch->pcdata->bank_g);
+		else
+			fprintf(fp, "Bankg %d\n", ch->pcdata->bank_g);
+
+		fprintf( fp, "Sec  %d\n", ch->pcdata->security); /* OLC */
 		fprintf(fp, "Pass %s~\n", ch->pcdata->pwd);
 		if (ch->pcdata->bamfin[0] != '\0')
 			fprintf(fp, "Bin  %s~\n", ch->pcdata->bamfin);
@@ -318,6 +327,17 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 			}
 		}
 
+		if (ch->pcdata->questpoints != 0)
+			fprintf(fp, "QuestPnts %d\n", ch->pcdata->questpoints);
+		if (ch->pcdata->questtime != 0)
+			fprintf(fp, "QuestTime %d\n", ch->pcdata->questtime);
+		if (IS_ON_QUEST(ch)) {
+			fprintf(fp, "QuestMob %d\n", ch->pcdata->questmob);
+			fprintf(fp, "QuestObj %d\n", ch->pcdata->questobj);
+			fprintf(fp, "QuestGiv %d\n", ch->pcdata->questgiver);
+		}
+		fprintf(fp, "Haskilled %d\n", ch->pcdata->has_killed);
+		fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -338,20 +358,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp)
 			);
 	}
 
-/* quest done by chronos */
-
-	if (ch->pcdata->questpoints != 0)
-		fprintf(fp, "QuestPnts %d\n", ch->pcdata->questpoints);
-	if (ch->pcdata->questtime != 0)
-		fprintf(fp, "QuestTime %d\n", ch->pcdata->questtime);
-	if (IS_ON_QUEST(ch)) {
-		fprintf(fp, "QuestMob %d\n", ch->pcdata->questmob);
-		fprintf(fp, "QuestObj %d\n", ch->pcdata->questobj);
-		fprintf(fp, "QuestGiv %d\n", ch->pcdata->questgiver);
-	}
-	fprintf(fp, "Relig %d\n", ch->religion);
-	fprintf(fp, "Haskilled %d\n", ch->pcdata->has_killed);
-	fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);
 	fprintf(fp, "End\n\n");
 	return;
 }
@@ -381,9 +387,9 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	fprintf(fp, "HMV  %d %d %d %d %d %d\n",
 		pet->hit, pet->max_hit, pet->mana, pet->max_mana, pet->move, pet->max_move);
 	if (pet->gold > 0)
-		fprintf(fp, "Gold %ld\n", pet->gold);
+		fprintf(fp, "Gold %d\n", pet->gold);
 	if (pet->silver > 0)
-		fprintf(fp, "Silv %ld\n", pet->silver);
+		fprintf(fp, "Silv %d\n", pet->silver);
 	if (pet->exp > 0)
 		fprintf(fp, "Exp  %d\n", pet->exp);
 	if (pet->act != pet->pIndexData->act)
@@ -610,7 +616,6 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	ch->trust = 0;
 	ch->wimpy = 0;
 	ch->saving_throw = 0;
-	ch->progtypes = 0;
 	ch->extracted = FALSE;
 	ch->pcdata->points = 0;
 	ch->prompt = str_dup(DEFAULT_PROMPT);
@@ -626,6 +631,7 @@ load_char_obj(DESCRIPTOR_DATA * d, char *name)
 	ch->pcdata->condition[COND_HUNGER] = 48;
 	ch->pcdata->condition[COND_BLOODLUST] = 48;
 	ch->pcdata->condition[COND_DESIRE] = 48;
+	ch->pcdata->security		= 0;	/* OLC */
 	ch->pcdata->adr_stops_shown = 1;
 
 	ch->pcdata->pc_killed = 0;
@@ -811,9 +817,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'A':
-			KEY("Act", ch->act, fread_flag(fp));
-			KEY("AffectedBy", ch->affected_by, fread_flag(fp));
-			KEY("AfBy", ch->affected_by, fread_flag(fp));
+			KEY("Act", ch->act, fread_flags(fp));
+			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
+			KEY("AfBy", ch->affected_by, fread_flags(fp));
 			KEY("Alignment", ch->alignment, fread_number(fp));
 			KEY("Alig", ch->alignment, fread_number(fp));
 			KEY("AntKilled", ch->pcdata->anti_killed, fread_number(fp));
@@ -954,7 +960,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				fMatch = TRUE;
 				break;
 			}
-			KEY("Comm", ch->comm, fread_flag(fp));
+			KEY("Comm", ch->comm, fread_flags(fp));
 
 			break;
 
@@ -964,7 +970,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Description", ch->description, fread_string(fp));
 			KEY("Desc", ch->description, fread_string(fp));
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
-			KEY("Detect", ch->detection, fread_flag(fp));
+			KEY("Detect", ch->detection, fread_flags(fp));
 			break;
 
 		case 'E':
@@ -1105,7 +1111,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 #define QUEST_RING3		(K)
 
 				int             old_quest;
-				old_quest = fread_flag(fp);
+				old_quest = fread_flags(fp);
 				fMatch = TRUE;
 				if (old_quest & QUEST_GIRTH)
 					qtrouble_set(ch, QUEST_ITEM1, 1);
@@ -1162,8 +1168,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Sex", ch->sex, fread_number(fp));
 			KEY("ShortDescr", ch->short_descr, fread_string(fp));
 			KEY("ShD", ch->short_descr, fread_string(fp));
+			KEY("Sec", ch->pcdata->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
-
 
 			if (!str_cmp(word, "Skill") || !str_cmp(word, "Sk")) {
 				int             sn;
@@ -1172,7 +1178,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				value = fread_number(fp);
 				temp = fread_word(fp);
 				sn = skill_lookup(temp);
-				/* sn    = skill_lookup(fread_word(fp)); */
 				if (sn < 0) {
 					fprintf(stderr, "%s", temp);
 					bug("Fread_char: unknown skill. ", 0);
@@ -1211,7 +1216,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'W':
 			KEY("Wimpy", ch->wimpy, fread_number(fp));
 			KEY("Wimp", ch->wimpy, fread_number(fp));
-			KEY("Wizn", ch->wiznet, fread_flag(fp));
+			KEY("Wizn", ch->wiznet, fread_flags(fp));
 			break;
 		}
 
@@ -1257,8 +1262,8 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'A':
-			KEY("Act", pet->act, fread_flag(fp));
-			KEY("AfBy", pet->affected_by, fread_flag(fp));
+			KEY("Act", pet->act, fread_flags(fp));
+			KEY("AfBy", pet->affected_by, fread_flags(fp));
 			KEY("Alig", pet->alignment, fread_number(fp));
 
 			if (!str_cmp(word, "ACs")) {
@@ -1330,13 +1335,13 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'C':
 			KEY("Cab", pet->clan, fread_number(fp));
 			KEY("Clan", pet->clan, fread_number(fp));
-			KEY("Comm", pet->comm, fread_flag(fp));
+			KEY("Comm", pet->comm, fread_flags(fp));
 			break;
 
 		case 'D':
 			KEY("Dam", pet->damroll, fread_number(fp));
 			KEY("Desc", pet->description, fread_string(fp));
-			KEY("Detect", pet->detection, fread_flag(fp));
+			KEY("Detect", pet->detection, fread_flags(fp));
 			break;
 
 		case 'E':
@@ -1419,7 +1424,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 	}
 }
 
-
+extern	OBJ_DATA	*obj_free;
 
 void 
 fread_obj(CHAR_DATA * ch, FILE * fp)
@@ -1553,22 +1558,30 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "End")) {
-				if (!fNest || !fVnum || obj->pIndexData == NULL) {
+				if (!fNest
+				||  (fVnum && obj->pIndexData == NULL)) {
 					bug("Fread_obj: incomplete object.", 0);
 					free_obj(obj);
 					return;
 				} else {
+					if (!fVnum) {
+						free_obj(obj);
+						obj = create_object(get_obj_index(OBJ_VNUM_DUMMY), 0);
+					}
+
 					if (!new_format) {
 						obj->next = object_list;
 						object_list = obj;
 						obj->pIndexData->count++;
 					}
+
 					if (!obj->pIndexData->new_format
 					    && obj->item_type == ITEM_ARMOR
 					    && obj->value[1] == 0) {
 						obj->value[1] = obj->value[0];
 						obj->value[2] = obj->value[0];
 					}
+
 					if (make_new) {
 						int             wear;
 						wear = obj->wear_loc;
@@ -1577,6 +1590,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 						obj = create_object(obj->pIndexData, 0);
 						obj->wear_loc = wear;
 					}
+
 					if (iNest == 0 || rgObjNest[iNest] == NULL)
 						obj_to_char(obj, ch);
 					else

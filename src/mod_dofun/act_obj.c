@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.34 1998-06-24 06:29:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.35 1998-06-28 04:47:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,8 @@
 #include "resource.h"
 #include "act_obj.h"
 #include "log.h"
+#include "mob_prog.h"
+#include "obj_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -194,8 +196,7 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 			extract_obj(container);
 			obj_to_char(obj, ch);
 
-			if (IS_SET(obj->progtypes, OPROG_GET))
-				(obj->pIndexData->oprogs->get_prog) (obj, ch);
+			oprog_call(OPROG_GET, obj, ch, NULL);
 			return;
 		}
 		if (container->pIndexData->vnum == OBJ_VNUM_PIT
@@ -246,8 +247,7 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		extract_obj(obj);
 	} else {
 		obj_to_char(obj, ch);
-		if (IS_SET(obj->progtypes, OPROG_GET))
-			(obj->pIndexData->oprogs->get_prog) (obj, ch);
+		oprog_call(OPROG_GET, obj, ch, NULL);
 	}
 
 	return;
@@ -669,8 +669,8 @@ do_drop(CHAR_DATA * ch, char *argument)
 				extract_obj(obj);
 				return;
 			}
-		if (IS_SET(obj->progtypes, OPROG_DROP))
-			(obj->pIndexData->oprogs->drop_prog) (obj, ch);
+
+		oprog_call(OPROG_DROP, obj, ch, NULL);
 
 		if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
 			if (!IS_AFFECTED(ch, AFF_SNEAK))
@@ -711,8 +711,8 @@ do_drop(CHAR_DATA * ch, char *argument)
 						extract_obj(obj);
 						continue;
 					}
-				if (IS_SET(obj->progtypes, OPROG_DROP))
-					(obj->pIndexData->oprogs->drop_prog) (obj, ch);
+
+				oprog_call(OPROG_DROP, obj, ch, NULL);
 
 				if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
 					if (!IS_AFFECTED(ch, AFF_SNEAK))
@@ -799,6 +799,13 @@ do_give(CHAR_DATA * ch, char *argument)
 		act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
 		   "You give $N %d %s.", amount, silver ? "silver" : "gold");
 
+		/*
+		 * Bribe trigger
+		 */
+		if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_BRIBE))
+			mp_bribe_trigger(victim, ch,
+					 silver ? amount : amount * 100);
+
 		if (IS_NPC(victim) && IS_SET(victim->act, ACT_IS_CHANGER)) {
 			int             change;
 			change = (silver ? 95 * amount / 100 / 100
@@ -875,11 +882,19 @@ do_give(CHAR_DATA * ch, char *argument)
 	}
 	obj_from_char(obj);
 	obj_to_char(obj, victim);
+	MOBtrigger = FALSE;
 	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT);
 	act("$n gives you $p.", ch, obj, victim, TO_VICT);
 	act("You give $p to $N.", ch, obj, victim, TO_CHAR);
-	if (IS_SET(obj->progtypes, OPROG_GIVE))
-		(obj->pIndexData->oprogs->give_prog) (obj, ch, victim);
+	MOBtrigger = TRUE;
+
+	/*
+	 * Give trigger
+	*/
+	if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_GIVE))
+		mp_give_trigger(victim, ch, obj);
+
+	oprog_call(OPROG_GIVE, obj, ch, victim);
 }
 
 
@@ -1807,9 +1822,8 @@ do_sacr(CHAR_DATA * ch, char *argument)
 	}
 	act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_SACS_P);
 
-	if (IS_SET(obj->progtypes, OPROG_SAC))
-		if ((obj->pIndexData->oprogs->sac_prog) (obj, ch))
-			return;
+	if (oprog_call(OPROG_SAC, obj, ch, NULL))
+		return;
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);

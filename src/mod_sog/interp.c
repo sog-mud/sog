@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.33 1998-06-24 21:46:34 efdi Exp $
+ * $Id: interp.c,v 1.34 1998-06-28 04:47:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -249,6 +249,11 @@ const	struct	cmd_type	cmd_table	[] =
 
 
     /*
+     * Mob command interpreter (placed here for faster scan...)
+     */
+    { "mob",		do_mob,		POS_DEAD,	 0,  LOG_NEVER,  0, 0 },
+
+    /*
      * Miscellaneous commands.
      */
     { "endure",         do_endure,      POS_STANDING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
@@ -360,6 +365,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
     { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
     { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL, 1,0 },
+    { "surrender",	do_surrender,	POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "tame",           do_tame,        POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "throw",          do_throw,       POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "tiger",		do_tiger,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
@@ -468,20 +474,39 @@ const	struct	cmd_type	cmd_table	[] =
     { "sense",          do_sense,       POS_RESTING,     0,  LOG_NORMAL, 1,0},
     { "judge",          do_judge,       POS_RESTING,     0,  LOG_ALWAYS, 1,CMD_KEEP_HIDE },
 
+    { "mpdump",		do_mpdump,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
+    { "mpstat",		do_mpstat,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
+
+    /*
+     * OLC
+     */
+    { "edit",		do_olc,		POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "asave",          do_asave,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "alist",		do_alist,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "resets",		do_resets,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "redit",		do_redit,	POS_DEAD,    0,	 LOG_NORMAL, 1, 0 },
+    { "medit",		do_medit,	POS_DEAD,    0,	 LOG_NORMAL, 1, 0 },
+    { "aedit",		do_aedit,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "oedit",		do_oedit,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+    { "mpedit",		do_mpedit,	POS_DEAD,    0,  LOG_NORMAL, 1, 0 },
+
     /*
      * End of list.
      */
-    { "",		0,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST }
+    { "",		0,		POS_DEAD,    0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST }
 };
 
 
-
+void interpret(CHAR_DATA *ch, char *argument)
+{
+	interpret_raw(ch, argument, FALSE);
+}
 
 /*
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret( CHAR_DATA *ch, char *argument, bool is_order )
+void interpret_raw(CHAR_DATA *ch, char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
 	char logline[MAX_INPUT_LENGTH];
@@ -1005,7 +1030,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
     ||	!str_prefix("alias",argument) || !str_prefix("una",argument) 
     ||  !str_prefix("prefix",argument)) 
     {
-	interpret(d->character,argument, FALSE);
+	interpret(d->character, argument);
 	return;
     }
 
@@ -1034,7 +1059,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 	    }
 	}
     }
-    interpret(d->character,buf, FALSE);
+    interpret(d->character, buf);
 }
 
 void do_alia(CHAR_DATA *ch, char *argument)

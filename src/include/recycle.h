@@ -2,7 +2,7 @@
 #define _RECYCLE_H_
 
 /*
- * $Id: recycle.h,v 1.2 1998-04-14 08:54:33 fjoe Exp $
+ * $Id: recycle.h,v 1.3 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,62 +60,64 @@ extern int mobile_count;
 
 /* note recycling */
 #define ND NOTE_DATA
-ND	*new_note args( (void) );
-void	free_note args( (NOTE_DATA *note) );
+ND	*new_note  (void);
+void	free_note  (NOTE_DATA *note);
 #undef ND
 
 /* ban data recycling */
 #define BD BAN_DATA
-BD	*new_ban args( (void) );
-void	free_ban args( (BAN_DATA *ban) );
+BD	*new_ban  (void);
+void	free_ban  (BAN_DATA *ban);
 #undef BD
 
 /* descriptor recycling */
 #define DD DESCRIPTOR_DATA
-DD	*new_descriptor args( (void) );
-void	free_descriptor args( (DESCRIPTOR_DATA *d) );
+DD	*new_descriptor  (void);
+void	free_descriptor  (DESCRIPTOR_DATA *d);
 #undef DD
 
 /* extra descr recycling */
 #define ED EXTRA_DESCR_DATA
-ED	*new_extra_descr args( (void) );
-void	free_extra_descr args( (EXTRA_DESCR_DATA *ed) );
+ED	*new_extra_descr  (void);
+void	free_extra_descr  (EXTRA_DESCR_DATA *ed);
 #undef ED
 
 /* affect recycling */
 #define AD AFFECT_DATA
-AD	*new_affect args( (void) );
-void	free_affect args( (AFFECT_DATA *af) );
+AD	*new_affect  (void);
+void	free_affect  (AFFECT_DATA *af);
 #undef AD
 
 /* object recycling */
 #define OD OBJ_DATA
-OD	*new_obj args( (void) );
-void	free_obj args( (OBJ_DATA *obj) );
+OD	*new_obj  (void);
+void	free_obj  (OBJ_DATA *obj);
 #undef OD
 
 /* character recyling */
-CHAR_DATA	*new_char args( (void) );
-void	free_char args( (CHAR_DATA *ch) );
-PC_DATA	*new_pcdata args( (void) );
-void	free_pcdata args( (PC_DATA *pcdata) );
+CHAR_DATA	*new_char  (void);
+void	free_char  (CHAR_DATA *ch);
+PC_DATA	*new_pcdata  (void);
+void	free_pcdata  (PC_DATA *pcdata);
 
 
 /* mob id and memory procedures */
-long 	get_pc_id args( (void) );
-long	get_mob_id args( (void) );
-MEM_DATA *new_mem_data args( (void) );
-void	free_mem_data args( ( MEM_DATA *memory) );
-MEM_DATA *find_memory args( (MEM_DATA *memory, long id) );
+long 	get_pc_id  (void);
+long	get_mob_id  (void);
+MEM_DATA *new_mem_data  (void);
+void	free_mem_data  (MEM_DATA *memory);
+MEM_DATA *find_memory  (MEM_DATA *memory, long id);
 
 /* buffer procedures */
+BUFFER	*new_buf  (void);
+BUFFER  *new_buf_size  (int size);
+void	free_buf  (BUFFER *buffer);
+bool	add_buf  (BUFFER *buffer, char *string);
+void	clear_buf  (BUFFER *buffer);
+char	*buf_string  (BUFFER *buffer);
 
-BUFFER	*new_buf args( (void) );
-BUFFER  *new_buf_size args( (int size) );
-void	free_buf args( (BUFFER *buffer) );
-bool	add_buf args( (BUFFER *buffer, char *string) );
-void	clear_buf args( (BUFFER *buffer) );
-char	*buf_string args( (BUFFER *buffer) );
+HELP_AREA *	new_had		 (void);
+HELP_DATA *	new_help	 (void);
 
 #endif
 

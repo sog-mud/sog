@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.6 1998-06-18 05:19:12 fjoe Exp $
+ * $Id: ban.c,v 1.7 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -113,7 +113,7 @@ void load_bans(void)
  
         pban->name = str_dup(fread_word(fp));
 	pban->level = fread_number(fp);
-	pban->ban_flags = fread_flag(fp);
+	pban->ban_flags = fread_flags(fp);
 	fread_to_eol(fp);
 
         if (ban_list == NULL)

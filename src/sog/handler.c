@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.28 1998-06-25 14:10:16 efdi Exp $
+ * $Id: handler.c,v 1.29 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,6 +54,8 @@
 #include "act_comm.h"
 #include "log.h"
 #include "act_move.h"
+#include "lookup.h"
+#include "obj_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return	);
@@ -175,55 +177,7 @@ int count_users(OBJ_DATA *obj)
 
 	return count;
 }
-	 
-/* returns material number */
-int material_lookup (const char *name)
-{
-	return 0;
-}
 
-/* returns race number */
-int race_lookup (const char *name)
-{
-   int race;
-
-   for (race = 0; race_table[race].name != NULL; race++)
-   {
-		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
-		&&  !str_prefix(name,race_table[race].name))
-		    return race;
-   }
-
-   return 0;
-} 
-
-int liq_lookup (const char *name)
-{
-	int liq;
-
-	for (liq = 0; liq_table[liq].liq_name != NULL; liq++)
-	{
-		if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
-		&& !str_prefix(name,liq_table[liq].liq_name))
-		    return liq;
-	}
-
-	return LIQ_WATER;
-}
-
-int weapon_lookup (const char *name)
-{
-	int type;
-
-	for (type = 0; weapon_table[type].name != NULL; type++)
-	{
-		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
-		&&  !str_prefix(name,weapon_table[type].name))
-		    return type;
-	}
- 
-	return -1;
-}
 
 bool clan_ok(CHAR_DATA *ch, int sn) 
 {
@@ -261,39 +215,27 @@ int weapon_type (const char *name)
 }
 
 
-int item_lookup(const char *name)
-{
-	int type;
-
-	for (type = 0; item_table[type].name != NULL; type++)
-	{
-	    if (LOWER(name[0]) == LOWER(item_table[type].name[0])
-	    &&  !str_prefix(name,item_table[type].name))
-	        return item_table[type].type;
-	}
- 
-	return -1;
-}
-
 char *item_name(int item_type)
 {
 	int type;
 
 	for (type = 0; item_table[type].name != NULL; type++)
 		if (item_type == item_table[type].type)
-		    return item_table[type].name;
+			return item_table[type].name;
 	return "none";
 }
+
 
 char *weapon_name(int weapon_type)
 {
 	int type;
  
 	for (type = 0; weapon_table[type].name != NULL; type++)
-	    if (weapon_type == weapon_table[type].type)
-	        return weapon_table[type].name;
+		if (weapon_type == weapon_table[type].type)
+	        	return weapon_table[type].name;
 	return "exotic";
 }
+
 
 /*
  * Check the material
@@ -401,50 +343,6 @@ int floating_time(OBJ_DATA *obj)
  ftime = number_fuzzy(ftime) ;
 
  return (ftime < 0 ? 0 : ftime);
-}
-
-int attack_lookup  (const char *name)
-{
-	int att;
-
-	for (att = 0; attack_table[att].name != NULL; att++)
-	{
-		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
-		&&  !str_prefix(name,attack_table[att].name))
-		    return att;
-	}
-
-	return 0;
-}
-
-/* returns a flag for wiznet */
-long wiznet_lookup (const char *name)
-{
-	int flag;
-
-	for (flag = 0; wiznet_table[flag].name != NULL; flag++)
-	{
-		if (LOWER(name[0]) == LOWER(wiznet_table[flag].name[0])
-		&& !str_prefix(name,wiznet_table[flag].name))
-		    return flag;
-	}
-
-	return -1;
-}
-
-/* returns class number */
-int class_lookup (const char *name)
-{
-   int class;
- 
-   for (class = 0; class < (MAX_CLASS-1); class++)
-   {
-	    if (LOWER(name[0]) == LOWER(class_table[class].name[0])
-	    &&  !str_prefix(name,class_table[class].name))
-	        return class;
-   }
- 
-   return -1;
 }
 
 /* for immunity, vulnerabiltiy, and resistant
@@ -1954,10 +1852,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	&&   ch->in_room != NULL)
 		++ch->in_room->light;
 
-	if (IS_SET(obj->progtypes,OPROG_WEAR))
-	  (obj->pIndexData->oprogs->wear_prog) (obj,ch);
-
-	return;
+	oprog_call(OPROG_WEAR, obj, ch, NULL);
 }
 
 
@@ -2040,10 +1935,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&   ch->in_room->light > 0)
 		--ch->in_room->light;
 
-	if (IS_SET(obj->progtypes,OPROG_REMOVE))
-	  (obj->pIndexData->oprogs->remove_prog) (obj,ch);
-
-	return;
+	oprog_call(OPROG_REMOVE, obj, ch, NULL);
 }
 
 
@@ -2321,11 +2213,13 @@ void extract_obj_1(OBJ_DATA *obj, bool count)
 	return;
 }
 
+
 void extract_char(CHAR_DATA *ch, bool fPull)
 {
   extract_char_org(ch, fPull, TRUE);
   return;
 }
+
 
 void extract_char_nocount(CHAR_DATA *ch, bool fPull)
 {
@@ -2410,18 +2304,17 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 		ch->desc = NULL;
 	}
 
-	for (wch = char_list; wch != NULL; wch = wch->next)
-	{
+	for (wch = char_list; wch != NULL; wch = wch->next) {
 		if (wch->reply == ch)
-		    wch->reply = NULL;
+			wch->reply = NULL;
+		if (ch->mprog_target == wch)
+			wch->mprog_target = NULL;
 	}
 
+
 	if (ch == char_list)
-	{
-	   char_list = ch->next;
-	}
-	else
-	{
+		char_list = ch->next;
+	else {
 		CHAR_DATA *prev;
 
 		for (prev = char_list; prev != NULL; prev = prev->next)
@@ -3531,20 +3424,6 @@ char *off_bit_name(int off_flags)
 	return (buf[0] != '\0') ? buf+1 : "none";
 }
 
-int clan_lookup (const char *argument)
-{
-   int clan;
- 
-   for (clan = 0; clan < MAX_CLAN; clan++)
-   {
-	    if (LOWER(argument[0]) == LOWER(clan_table[clan].short_name[0])
-	    &&  !str_prefix(argument,clan_table[clan].short_name))
-	        return clan;
-   }
- 
-   return -1;
-}
-
 
 bool isn_dark_safe(CHAR_DATA *ch)
 {
@@ -4376,3 +4255,20 @@ bool can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 	return TRUE;
 }
+
+char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
+{
+	if (can_see(looker, ch)) {
+		if (IS_NPC(ch))
+			return ch->short_descr;
+		else if (IS_VAMPIRE(ch) && !IS_IMMORTAL(looker))
+			return "an ugly creature";
+		return ch->name;
+	}
+
+	if (ch->level > MAX_LEVEL-7)
+		return "an immortal";
+
+	return "someone";
+}
+

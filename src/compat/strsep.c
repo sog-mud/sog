@@ -1,3 +1,7 @@
+/*
+ * $Id: strsep.c,v 1.3 1998-06-28 04:47:16 fjoe Exp $
+ */
+
 /*-
  * Copyright (c) 1990, 1993
  *	The Regents of the University of California.  All rights reserved.

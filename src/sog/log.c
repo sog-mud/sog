@@ -1,3 +1,7 @@
+/*
+ * $Id: log.c,v 1.3 1998-06-28 04:47:15 fjoe Exp $
+ */
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <time.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.12 1998-06-21 11:38:41 fjoe Exp $
+ * $Id: special.c,v 1.13 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -955,7 +955,7 @@ bool spec_mayor(CHAR_DATA *ch)
 	case 'O':
 	do_unlock(ch, "gate");
 	do_open(ch, "gate");
-	interpret(ch, "emote unlocks the gate key from the gate.",FALSE);
+	interpret(ch, "emote unlocks the gate key from the gate.");
 	for(key=ch->in_room->contents; key!=NULL; key=key->next_content)
 	  if (key->pIndexData->vnum == 3379)
 	    break;
@@ -968,7 +968,7 @@ bool spec_mayor(CHAR_DATA *ch)
 	do_close(ch, "gate");
 	do_lock(ch, "gate");
 	do_drop(ch, "key");
-	interpret(ch, "emote locks the gate key to the gate, with chain.",FALSE);
+	interpret(ch, "emote locks the gate key to the gate, with chain.");
 	for(key=ch->in_room->contents; key!=NULL; key=key->next_content)
 	  if (key->pIndexData->vnum == 3379)
 	    break;
@@ -1141,7 +1141,7 @@ bool spec_guard(CHAR_DATA *ch)
 	  else {
 		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
 				OK_MY_DEAR);
-		 interpret(ch, "smile",FALSE);
+		 interpret(ch, "smile");
 	   }
 	 }
 

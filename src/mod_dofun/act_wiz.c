@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.29 1998-06-24 06:29:49 fjoe Exp $
+ * $Id: act_wiz.c,v 1.30 1998-06-28 04:47:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,7 @@
 #include "quest.h"
 #include "log.h"
 #include "act_move.h"
+#include "obj_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
@@ -354,15 +355,38 @@ void do_limited(CHAR_DATA *ch, char *argument)
 void do_wiznet(CHAR_DATA *ch, char *argument)
 {
 	int flag;
-	char buf[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
 
 	if (argument[0] == '\0') {
-	  	if (IS_SET(ch->wiznet,WIZ_ON))
-			do_wiznet(ch, "off");
-	  	else
-			do_wiznet(ch, "on");
-	  	return;
+		/* show wiznet status */
+
+		BUFFER *output;
+
+		output = new_buf();
+		add_buf(output, "Wiznet status:\n\r");
+		if (!IS_SET(ch->wiznet, WIZ_ON))
+			add_buf(output, " OFF");
+		else
+			add_buf(output, " ON");
+
+		add_buf(output, "\n\rchannel    | status");
+		add_buf(output, "\n\r-----------|-------\n\r");
+		for (flag = 0; wiznet_table[flag].name != NULL; flag++) {
+			char buf2[MAX_STRING_LENGTH];
+			snprintf(buf2, sizeof(buf2), "%-11s|  ", wiznet_table[flag].name);
+			add_buf(output, buf2);
+			if (wiznet_table[flag].level > get_trust(ch)) {
+				add_buf(output, "N/A\n\r");
+				continue;	
+			}
+			if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
+				add_buf(output, "ON\n\r");
+			else
+				add_buf(output, "OFF\n\r");
+		}
+		add_buf(output, "\n\r");
+		page_to_char(buf_string(output), ch);
+		free_buf(output);
+		return;
 	}
 
 	if (!str_prefix(argument,"on")) {
@@ -374,33 +398,6 @@ void do_wiznet(CHAR_DATA *ch, char *argument)
 	if (!str_prefix(argument,"off")) {
 		send_to_char("Signing off of Wiznet.\n\r", ch);
 		REMOVE_BIT(ch->wiznet, WIZ_ON);
-		return;
-	}
-
-	/* show wiznet status */
-	if (!str_prefix(argument,"status")) {
-		buf[0] = '\0';
-
-		if (!IS_SET(ch->wiznet, WIZ_ON))
-			strcat(buf,"off ");
-
-		strcat(buf, "\n\rchannel    | status");
-		strcat(buf, "\n\r-----------|-------\n\r");
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++) {
-			snprintf(buf2, sizeof(buf2), "%-11s|  ", wiznet_table[flag].name);
-			strcat(buf, buf2);
-			if (wiznet_table[flag].level > get_trust(ch)) {
-				strcat(buf, "N/A\n\r");
-				continue;	
-			}
-			if (IS_SET(ch->wiznet,wiznet_table[flag].flag))
-				strcat(buf, "ON\n\r");
-			else
-				strcat(buf, "OFF\n\r");
-		}
-		strcat(buf, "\n\r");
-		send_to_char("Wiznet status:\n\r", ch);
-		page_to_char(buf, ch);
 		return;
 	}
 
@@ -429,26 +426,26 @@ void wiznet_printf(CHAR_DATA *ch, OBJ_DATA *obj,
 			   long flag, long flag_skip, int min_level,
 			   char* format, ...) 
 {
-		va_list ap;
-		DESCRIPTOR_DATA *d;
-		char buf[MAX_STRING_LENGTH];
+	va_list ap;
+	DESCRIPTOR_DATA *d;
+	char buf[MAX_STRING_LENGTH];
 
-		va_start(ap, format);
-		for (d = descriptor_list; d != NULL; d = d->next) {
-			if (d->connected == CON_PLAYING &&
-			    IS_IMMORTAL(d->character) && 
-			    IS_SET(d->character->wiznet,WIZ_ON) &&
-			    (!flag || IS_SET(d->character->wiznet,flag)) &&
-			    (!flag_skip || !IS_SET(d->character->wiznet,flag_skip)) &&
-			    get_trust(d->character) >= min_level &&
-			    d->character != ch) {
-				if (IS_SET(d->character->wiznet,WIZ_PREFIX))
-					send_to_char("--> ",d->character);
-				vsnprintf(buf, sizeof(buf), format, ap);
-				act_puts(buf, d->character, obj, ch, TO_CHAR, POS_DEAD);
-			}
+	va_start(ap, format);
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		if (d->connected == CON_PLAYING &&
+		    IS_IMMORTAL(d->character) && 
+		    IS_SET(d->character->wiznet,WIZ_ON) &&
+		    (!flag || IS_SET(d->character->wiznet,flag)) &&
+		    (!flag_skip || !IS_SET(d->character->wiznet,flag_skip)) &&
+		    get_trust(d->character) >= min_level &&
+		    d->character != ch) {
+			if (IS_SET(d->character->wiznet,WIZ_PREFIX))
+				send_to_char("--> ",d->character);
+			vsnprintf(buf, sizeof(buf), format, ap);
+			act_puts(buf, d->character, obj, ch, TO_CHAR, POS_DEAD);
 		}
-		va_end(ap); 
+	}
+	va_end(ap); 
 }
 
 void do_tick(CHAR_DATA *ch, char *argument)
@@ -1077,7 +1074,7 @@ void do_at(CHAR_DATA *ch, char *argument)
 	on = ch->on;
 	char_from_room(ch);
 	char_to_room(ch, location);
-	interpret(ch, argument, FALSE);
+	interpret(ch, argument);
 
 	/*
 	 * See if 'ch' still exists before continuing!
@@ -1298,8 +1295,7 @@ void do_rstat(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 	location = (arg[0] == '\0') ? ch->in_room : find_location(ch, arg);
-	if (location == NULL)
-	{
+	if (location == NULL) {
 		send_to_char("No such location.\n\r", ch);
 		return;
 	}
@@ -1397,7 +1393,8 @@ void do_rstat(CHAR_DATA *ch, char *argument)
 
 void do_ostat(CHAR_DATA *ch, char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	int i;
+	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
 	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
@@ -1696,30 +1693,25 @@ void do_ostat(CHAR_DATA *ch, char *argument)
 	        }
 	    }
 	}
-	strcpy(buf, "Object progs: ");
-	if (obj->pIndexData->progtypes != 0)  {
-		if (IS_SET(obj->progtypes, OPROG_GET))
-		   strcat(buf, "get ");
-		if (IS_SET(obj->progtypes, OPROG_DROP))
-		   strcat(buf, "drop ");
-		if (IS_SET(obj->progtypes, OPROG_SAC))
-		   strcat(buf, "sacrifice ");
-		if (IS_SET(obj->progtypes, OPROG_GIVE))
-		   strcat(buf, "give ");
-		if (IS_SET(obj->progtypes, OPROG_FIGHT))
-		   strcat(buf, "fight ");
-		if (IS_SET(obj->progtypes, OPROG_DEATH))
-		   strcat(buf, "death ");
-		if (IS_SET(obj->progtypes, OPROG_SPEECH))
-		   strcat(buf, "speech ");
-		if (IS_SET(obj->progtypes, OPROG_AREA))
-		   strcat(buf, "area ");
-	}	
-	strcat(buf, "\n\r");
-	send_to_char(buf, ch);
-	char_printf(ch,"Damage condition : %d (%s) ", obj->condition,
+
+	output = new_buf();
+	add_buf(output, "Object progs: ");
+	for (i = 0; i < OPROG_MAX; i++)
+		if (obj->pIndexData->oprogs[i] != NULL) {
+			char buf[MAX_STRING_LENGTH];
+
+			snprintf(buf, sizeof(buf),
+				 "\n%s: %s",
+				 optype_table[i],
+				 oprog_name_lookup(obj->pIndexData->oprogs[i]));
+			add_buf(output, buf);
+		}
+	add_buf(output, "\n\r");
+	send_to_char(buf_string(output), ch);
+	free_buf(output);
+
+	char_printf(ch,"Damage condition : %d (%s)\n\r", obj->condition,
 				get_cond_alias(obj, ch));	
-	send_to_char("\n\r",ch);
 	return;
 }
 
@@ -1873,6 +1865,10 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		victim->master      ? victim->master->name   : "(none)",
 		victim->leader      ? victim->leader->name   : "(none)",
 		victim->pet 	    ? victim->pet->name	     : "(none)");
+
+	/* OLC */
+	if (!IS_NPC(victim))
+		char_printf(ch, "Security: %d.\n\r", victim->pcdata->security);
 
 	char_printf(ch, "Short description: %s\n\rLong  description: %s",
 		victim->short_descr,
@@ -3789,8 +3785,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument,arg2);
 	
-	if (!str_cmp(arg2,"delete"))
-	{
+	if (!str_cmp(arg2,"delete") || !str_prefix(arg2,"mob")) {
 		send_to_char("That will NOT be done.\n\r",ch);
 		return;
 	}
@@ -3815,7 +3810,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 		    if (!IS_NPC(vch) && get_trust(vch) < get_trust(ch))
 		    {
 			act(buf, ch, NULL, vch, TO_VICT);
-			interpret(vch, argument, TRUE);
+			interpret_raw(vch, argument, TRUE);
 		    }
 		}
 	}
@@ -3838,7 +3833,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 		    &&	 vch->level < LEVEL_HERO)
 	        {
 	            act(buf, ch, NULL, vch, TO_VICT);
-	            interpret(vch, argument, FALSE);
+	            interpret(vch, argument);
 	        }
 	    }
 	}
@@ -3861,7 +3856,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 	        &&   vch->level >= LEVEL_HERO)
 	        {
 	            act(buf, ch, NULL, vch, TO_VICT);
-	            interpret(vch, argument, FALSE);
+	            interpret(vch, argument);
 	        }
 	    }
 	}
@@ -3902,7 +3897,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 		}
 
 		act(buf, ch, NULL, victim, TO_VICT);
-		interpret(victim, argument, FALSE);
+		interpret(victim, argument);
 	}
 
 	send_to_char("Ok.\n\r", ch);
@@ -4225,7 +4220,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
 		send_to_char("    train thirst drunk full hometown ethos\n\r",	ch);
 
 /*** Added By KIO ***/
-		send_to_char("    questp questt relig bloodlust desire\n\r",	ch);
+		send_to_char("    questp questt relig bloodlust desire security\n\r",	ch);
 /*** Added By KIO ***/
 		return;
 	}
@@ -4259,14 +4254,35 @@ void do_mset(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
+	if (!str_cmp(arg2, "security"))	{ /* OLC */
+		if (IS_NPC(ch)) {
+			send_to_char("Si, claro.\n\r", ch);
+			return;
+		}
+
+		if (IS_NPC(victim)) {
+			send_to_char("Not on NPC's.\n\r", ch);
+			return;
+		}
+
+		if (value > ch->pcdata->security || value < 0) {
+			if (ch->pcdata->security != 0)
+				char_printf(ch, "Valid security is 0-%d.\n\r",
+					    ch->pcdata->security);
+			else
+				char_puts("Valid security is 0 only.\n\r", ch);
+			return;
+		}
+		victim->pcdata->security = value;
+		return;
+	}
+
 	if (!str_cmp(arg2, "int"))
 	{
 	    if (value < 3 || value > get_max_train(victim,STAT_INT))
 	    {
-	        sprintf(buf,
-			"Intelligence range is 3 to %d.\n\r",
+	        char_printf(ch, "Intelligence range is 3 to %d.\n\r",
 			get_max_train(victim,STAT_INT));
-	        send_to_char(buf,ch);
 	        return;
 	    }
 	
@@ -4278,9 +4294,8 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_WIS))
 		{
-		    sprintf(buf,
+		    char_printf(ch,
 			"Wisdom range is 3 to %d.\n\r",get_max_train(victim,STAT_WIS));
-		    send_to_char(buf, ch);
 		    return;
 		}
 
@@ -4314,10 +4329,9 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_DEX))
 		{
-		    sprintf(buf,
+		    char_printf(ch,
 			"Dexterity ranges is 3 to %d.\n\r",
 			get_max_train(victim,STAT_DEX));
-		    send_to_char(buf, ch);
 		    return;
 		}
 
@@ -4329,10 +4343,9 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_CON))
 		{
-		    sprintf(buf,
+		    char_printf(ch,
 			"Constitution range is 3 to %d.\n\r",
 			get_max_train(victim,STAT_CON));
-		    send_to_char(buf, ch);
 		    return;
 		}
 
@@ -4343,10 +4356,9 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	{
 		if (value < 3 || value > get_max_train(victim,STAT_CHA))
 		{
-		    sprintf(buf,
+		    char_printf(ch,
 			"Constitution range is 3 to %d.\n\r",
 			get_max_train(victim,STAT_CHA));
-		    send_to_char(buf, ch);
 		    return;
 		}
 
@@ -4383,21 +4395,22 @@ void do_mset(CHAR_DATA *ch, char *argument)
 		}
 
 		class = class_lookup(arg3);
-		if (class == -1)
-		{
-		    char buf[MAX_STRING_LENGTH];
+		if (class == -1) {
+			BUFFER *output;
 
-	    	strcpy(buf, "Possible classes are: ");
-	    	for (class = 0; class < MAX_CLASS; class++)
-	    	{
-	        	    if (class > 0)
-	                	strcat(buf, " ");
-	        	    strcat(buf, class_table[class].name);
-	    	}
-	        strcat(buf, ".\n\r");
+			output = new_buf();
 
-		    send_to_char(buf,ch);
-		    return;
+			add_buf(output, "Possible classes are: ");
+	    		for (class = 0; class < MAX_CLASS; class++) {
+	        		if (class > 0)
+	                		add_buf(output, " ");
+	        		add_buf(output, class_table[class].name);
+	    		}
+	        	add_buf(output, ".\n\r");
+
+			send_to_char(buf_string(output), ch);
+			free_buf(output);
+			return;
 		}
 
 		victim->class = class;
@@ -4687,7 +4700,6 @@ void do_induct(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char *arg2;
-	char buf[MAX_STRING_LENGTH];
 	char *clan;
 	CHAR_DATA *victim;
 	int sn;
@@ -4767,16 +4779,15 @@ void do_induct(CHAR_DATA *ch, char *argument)
 	}
 
 
-	sprintf(buf, "$n has been inducted into %s.", clan);
-	act(buf,victim, NULL, NULL, TO_NOTVICT);
-	sprintf(buf, "You have been inducted into %s.", clan);
-	act(buf, victim, NULL, NULL, TO_CHAR);
+	act_printf(victim, NULL, NULL, TO_NOTVICT, POS_RESTING,
+		   "$n has been inducted into %s.", clan);
+	act_printf(victim, NULL, NULL, TO_CHAR, POS_RESTING,
+		   "You have been inducted into %s.", clan);
 	if (ch->in_room != victim->in_room)
-	{
-	  sprintf(buf, "%s has been inducted into %s.\n\r",
-		      IS_NPC(victim) ? victim->short_descr : victim->name, clan);
-	  send_to_char(buf, ch);
-	}
+		char_printf(ch, "%s has been inducted into %s.\n\r",
+			    IS_NPC(victim) ?	victim->short_descr :
+						victim->name,
+			    clan);
 	if (victim->clan == CLAN_NONE && prev_clan != CLAN_NONE)
 	{
 	 	char name[100];
@@ -4898,27 +4909,26 @@ void do_smite(CHAR_DATA *ch, char *argument)
 
 void do_popularity(CHAR_DATA *ch, char *argument)
 {
-	char buf[4 * MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
+	BUFFER *output;
 	AREA_DATA *area;
 	extern AREA_DATA *area_first;
 	int i;
 
-	sprintf(buf,"Area popularity statistics (in char * ticks)\n\r");
+	output = new_buf();
+	add_buf(output, "Area popularity statistics (in char * ticks)\n\r");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
-		if (area->count >= 5000000)
-			sprintf(buf2,"%-20s overflow       ", area->name);
-		else
-			sprintf(buf2,"%-20s %-8lu       ", area->name,
-				area->count);
+		char buf2[MAX_STRING_LENGTH];
+
+		snprintf(buf2, sizeof(buf2),
+			 "%-20s %-8lu       ", area->name, area->count);
 		if (i % 2 == 0) 
-			strcat(buf, "\n\r");
-		strcat(buf, buf2);
+			add_buf(output, "\n\r");
+		add_buf(output, buf2);
 	}
-	strcat(buf, "\n\r\n\r");
-	page_to_char(buf, ch);
-	return;
+	add_buf(output, "\n\r\n\r");
+	page_to_char(buf_string(output), ch);
+	free_buf(output);
 }
 
 void do_ititle(CHAR_DATA *ch, char *argument)
@@ -5143,26 +5153,21 @@ void do_noaffect(CHAR_DATA *ch, char * argument)
 }
 
 void do_affrooms(CHAR_DATA *ch, char *argument)
-	{
+{
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
-	char buf[MAX_STRING_LENGTH];
-	int count=0;
+	int count = 0;
 
 	if (!top_affected_room) 
-		{
-		 send_to_char("No affected room.\n\r",ch);
-		}
-	for (room = top_affected_room; room ; room = room_next)
-	{
+		send_to_char("No affected room.\n\r",ch);
+
+	for (room = top_affected_room; room ; room = room_next) {
 		room_next = room->aff_next;
 		count++;
-		sprintf(buf,"%d) [Vnum : %5d] %s\n\r",
+		char_printf(ch, "%d) [Vnum : %5d] %s\n\r",
 			count, room->vnum , room->name);
-		send_to_char(buf,ch);
 	}
-	return;
-	}
+}
 
 void do_find(CHAR_DATA *ch, char *argument)
 {
@@ -5246,17 +5251,13 @@ void reboot_anatolia(void)
 	DESCRIPTOR_DATA *d,*d_next;
 
 	log("Rebooting ANATOLIA.");
-	for (d = descriptor_list; d != NULL; d = d_next)
-	{
+	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		write_to_buffer(d,"Muddy is going down for rebooting NOW!",0);
-	    if (d->character != NULL)
-		   save_char_obj(d->character);
+		if (d->character != NULL)
+			save_char_obj(d->character);
 		close_socket(d);
 	}
 	merc_down = TRUE;    
-	return;
 }
-
-
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.7 1998-06-03 20:44:13 fjoe Exp $
+ * $Id: skills.c,v 1.8 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,8 @@
 #include "comm.h"
 #include "resource.h"
 #include "update.h"
+#include "tables.h"
+#include "lookup.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);

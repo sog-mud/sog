@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.44 1998-06-24 06:29:49 fjoe Exp $
+ * $Id: fight.c,v 1.45 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,8 @@
 #include "util.h"
 #include "log.h"
 #include "act_move.h"
+#include "mob_prog.h"
+#include "obj_prog.h"
 
 #define MAX_DAMAGE_MESSAGE 34
 
@@ -137,6 +139,7 @@ void violence_update(void)
 	CHAR_DATA *ch_next;
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
 
 	for (ch = char_list; ch != NULL; ch = ch_next)
 	{
@@ -161,16 +164,22 @@ void violence_update(void)
 		ch->last_fight_time = current_time;
 
 
-		for (obj = ch->carrying;obj != NULL; obj = obj->next_content)
-		  {
-		    if (IS_SET(obj->progtypes,OPROG_FIGHT))
-		      (obj->pIndexData->oprogs->fight_prog) (obj,ch);
-		  }
+		for (obj = ch->carrying;obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			oprog_call(OPROG_FIGHT, obj, ch, NULL);
+		}
 
 		/*
 		 * Fun for the whole family!
 		 */
 		check_assist(ch,victim);
+		if (IS_NPC(ch)) {
+			if (HAS_TRIGGER(ch, TRIG_FIGHT))
+				mp_percent_trigger(ch, victim, NULL, NULL,
+						   TRIG_FIGHT);
+			if (HAS_TRIGGER(ch, TRIG_HPCNT))
+				mp_hprct_trigger(ch, victim);
+		}
 	}
 
 	return;
@@ -1236,6 +1245,14 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(ch) && ch->pIndexData->vnum == MOB_VNUM_STALKER)
 		ch->status = 10;
 
+	/*
+	 * Death trigger
+	 */
+	if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_DEATH)) {
+		victim->position = POS_STANDING;
+		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
+	}
+
 	raw_kill(ch, victim);
 
 	/*
@@ -1297,8 +1314,13 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			return FALSE;
 
 		if (victim->position > POS_STUNNED) {
-			if (victim->fighting == NULL)
+			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
+				if (IS_NPC(victim)
+				&&  HAS_TRIGGER(victim, TRIG_KILL))
+					mp_percent_trigger(victim, ch, NULL,
+							   NULL, TRIG_KILL);
+			}
 			if (victim->timer <= 4)
 				victim->position = POS_FIGHTING;
 		}
@@ -2101,67 +2123,65 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	int i;
 	OBJ_DATA *tattoo;
 
+	for (obj = victim->carrying;obj != NULL;obj = obj_next) {
+		obj_next = obj->next_content;
+		if (obj->wear_loc != WEAR_NONE
+		&&  oprog_call(OPROG_DEATH, obj, victim, NULL)) {
+			victim->position = POS_STANDING;
+			return;
+		}
+	}
+
 	stop_fighting(victim, TRUE);
 	rating_update(ch, victim);
 
 	quest_handle_death(ch, victim);
 
-  for (obj = victim->carrying;obj != NULL;obj = obj_next)
-	{
-	  obj_next = obj->next_content;
-	  if (IS_SET(obj->progtypes,OPROG_DEATH) && (obj->wear_loc != WEAR_NONE))
-		if ((obj->pIndexData->oprogs->death_prog) (obj,victim))
-		  {
-		    victim->position = POS_STANDING;
-		    return;
-		  }
-	}
-  victim->last_fight_time = -1;
-  victim->last_death_time = current_time;
+	victim->last_fight_time = -1;
+	victim->last_death_time = current_time;
 
-  tattoo = get_eq_char(victim, WEAR_TATTOO);
-  if (tattoo != NULL)
-	obj_from_char(tattoo);
+	tattoo = get_eq_char(victim, WEAR_TATTOO);
+	if (tattoo != NULL)
+		obj_from_char(tattoo);
 
-  death_cry_org(victim, part);
-  make_corpse(victim);
+	death_cry_org(victim, part);
+	make_corpse(victim);
 
 
-  if (IS_NPC(victim))
-	{
-	  victim->pIndexData->killed++;
-	  kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
-	  extract_char(victim, TRUE);
-	  return;
+	if (IS_NPC(victim)) {
+		victim->pIndexData->killed++;
+		kill_table[URANGE(0, victim->level, MAX_LEVEL-1)].killed++;
+		extract_char(victim, TRUE);
+		return;
 	}
 
-  send_to_char("You turn into an invincible ghost for a few minutes.\n\r",
-			 victim);
-	send_to_char("As long as you don't attack anything.\n\r", victim);
+	char_puts("You turn into an invincible ghost for a few minutes.\n\r"
+		  "As long as you don't attack anything.\n\r",
+		  victim);
 
 	extract_char(victim, FALSE);
 
-  while (victim->affected)
-	affect_remove(victim, victim->affected);
-  victim->affected_by	= 0;
-  victim->detection	= 0;
-  for (i = 0; i < 4; i++)
-	victim->armor[i]= 100;
-  victim->position	= POS_RESTING;
-  victim->hit		= victim->max_hit / 10;
-  victim->mana	= victim->max_mana / 10;
-  victim->move	= victim->max_move;
+	while (victim->affected)
+		affect_remove(victim, victim->affected);
+	victim->affected_by	= 0;
+	victim->detection	= 0;
+	for (i = 0; i < 4; i++)
+		victim->armor[i] = 100;
+	victim->position	= POS_RESTING;
+	victim->hit		= victim->max_hit / 10;
+	victim->mana		= victim->max_mana / 10;
+	victim->move		= victim->max_move;
 
-  /* RT added to prevent infinite deaths */
-  REMOVE_BIT(victim->act, PLR_WANTED);
-  REMOVE_BIT(victim->act, PLR_BOUGHT_PET);
-/*  SET_BIT(victim->act, PLR_GHOST);	*/
+	/* RT added to prevent infinite deaths */
+	REMOVE_BIT(victim->act, PLR_WANTED);
+	REMOVE_BIT(victim->act, PLR_BOUGHT_PET);
+	/*  SET_BIT(victim->act, PLR_GHOST);	*/
 
-  victim->pcdata->condition[COND_THIRST] = 40;
-  victim->pcdata->condition[COND_HUNGER] = 40;
-  victim->pcdata->condition[COND_FULL] = 40;
-  victim->pcdata->condition[COND_BLOODLUST] = 40;
-  victim->pcdata->condition[COND_DESIRE] = 40;
+	victim->pcdata->condition[COND_THIRST] = 40;
+	victim->pcdata->condition[COND_HUNGER] = 40;
+	victim->pcdata->condition[COND_FULL] = 40;
+	victim->pcdata->condition[COND_BLOODLUST] = 40;
+	victim->pcdata->condition[COND_DESIRE] = 40;
 
 	if (tattoo != NULL) {
 		obj_to_char(tattoo, victim);
@@ -3018,5 +3038,23 @@ void do_dishonor(CHAR_DATA *ch, char *argument)
 }
 
 
-
-
+void do_surrender(CHAR_DATA *ch, char *argument)
+{
+	CHAR_DATA *mob;
+	if ((mob = ch->fighting) == NULL) {
+		send_to_char("But you're not fighting!\n\r", ch);
+		return;
+	}
+	act("You surrender to $N!", ch, NULL, mob, TO_CHAR);
+	act("$n surrenders to you!", ch, NULL, mob, TO_VICT);
+	act("$n tries to surrender to $N!", ch, NULL, mob, TO_NOTVICT);
+	stop_fighting(ch, TRUE);
+ 
+	if (!IS_NPC(ch) && IS_NPC(mob) 
+	&&  (!HAS_TRIGGER(mob, TRIG_SURR) ||
+	     !mp_percent_trigger(mob, ch, NULL, NULL, TRIG_SURR))) {
+		act("$N seems to ignore your cowardly act!",
+		    ch, NULL, mob, TO_CHAR);
+		multi_hit(mob, ch, TYPE_UNDEFINED);
+	}
+}

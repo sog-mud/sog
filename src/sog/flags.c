@@ -1,5 +1,5 @@
 /*
- * $Id: flags.c,v 1.3 1998-04-26 17:08:05 efdi Exp $
+ * $Id: flags.c,v 1.4 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,7 +57,7 @@ void do_flag(CHAR_DATA *ch, char *argument)
     char arg1[MAX_INPUT_LENGTH],arg2[MAX_INPUT_LENGTH],arg3[MAX_INPUT_LENGTH];
     char word[MAX_INPUT_LENGTH];
     CHAR_DATA *victim;
-    long *flag, old = 0, new = 0, marked = 0, pos;
+    int *flag, old = 0, new = 0, marked = 0, pos;
     char type;
     const struct flag_type *flag_table;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.7 1998-06-20 20:53:27 fjoe Exp $
+ * $Id: recycle.c,v 1.8 1998-06-28 04:47:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -640,13 +640,70 @@ char *buf_string(BUFFER *buffer)
 }
 
     
+/* stuff for recycling mobprograms */
+MPROG_LIST *mprog_free;
+ 
+MPROG_LIST *new_mprog(void)
+{
+	static MPROG_LIST mp_zero;
+	MPROG_LIST *mp;
 
-	
+	if (mprog_free == NULL)
+		mp = alloc_perm(sizeof(*mp));
+	else {
+		mp = mprog_free;
+		mprog_free=mprog_free->next;
+	}
+
+	*mp = mp_zero;
+	mp->vnum             = 0;
+	mp->trig_type        = 0;
+	mp->code             = str_dup("");
+	VALIDATE(mp);
+	return mp;
+}
 
 
+void free_mprog(MPROG_LIST *mp)
+{
+	if (!IS_VALID(mp))
+		return;
+
+	INVALIDATE(mp);
+	mp->next = mprog_free;
+	mprog_free = mp;
+}
 
 
+HELP_AREA * had_free;
+
+HELP_AREA * new_had(void)
+{
+	HELP_AREA * had;
+
+	if (had_free) {
+		had		= had_free;
+		had_free	= had_free->next;
+	}
+	else
+		had		= alloc_perm(sizeof(*had));
+
+	return had;
+}
 
 
+HELP_DATA * help_free;
 
+HELP_DATA * new_help(void)
+{
+	HELP_DATA * help;
 
+	if (help_free) {
+		help		= help_free;
+		help_free	= help_free->next;
+	}
+	else
+		help		= alloc_perm(sizeof(*help));
+ 
+	return help;
+}

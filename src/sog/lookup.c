@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.3 1998-04-26 17:08:06 efdi Exp $
+ * $Id: lookup.c,v 1.4 1998-06-28 04:47:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,4 +122,133 @@ int lang_lookup (const char *name)
    return -1;
 }
 
+	 
+/* returns material number */
+int material_lookup (const char *name)
+{
+	return 0;
+}
+
+
+/* returns race number */
+int race_lookup (const char *name)
+{
+   int race;
+
+   for (race = 0; race_table[race].name != NULL; race++)
+   {
+		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
+		&&  !str_prefix(name,race_table[race].name))
+		    return race;
+   }
+
+   return 0;
+} 
+
+
+int liq_lookup (const char *name)
+{
+	int liq;
+
+	for (liq = 0; liq_table[liq].liq_name != NULL; liq++)
+	{
+		if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
+		&& !str_prefix(name,liq_table[liq].liq_name))
+		    return liq;
+	}
+
+	return LIQ_WATER;
+}
+
+
+int weapon_lookup (const char *name)
+{
+	int type;
+
+	for (type = 0; weapon_table[type].name != NULL; type++)
+	{
+		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
+		&&  !str_prefix(name,weapon_table[type].name))
+		    return type;
+	}
+ 
+	return -1;
+}
+
+
+int item_lookup(const char *name)
+{
+	int type;
+
+	for (type = 0; item_table[type].name != NULL; type++)
+	{
+	    if (LOWER(name[0]) == LOWER(item_table[type].name[0])
+	    &&  !str_prefix(name,item_table[type].name))
+	        return item_table[type].type;
+	}
+ 
+	return -1;
+}
+
+
+int attack_lookup  (const char *name)
+{
+	int att;
+
+	for (att = 0; attack_table[att].name != NULL; att++)
+	{
+		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
+		&&  !str_prefix(name,attack_table[att].name))
+		    return att;
+	}
+
+	return 0;
+}
+
+
+/* returns a flag for wiznet */
+long wiznet_lookup (const char *name)
+{
+	int flag;
+
+	for (flag = 0; wiznet_table[flag].name != NULL; flag++)
+	{
+		if (LOWER(name[0]) == LOWER(wiznet_table[flag].name[0])
+		&& !str_prefix(name,wiznet_table[flag].name))
+		    return flag;
+	}
+
+	return -1;
+}
+
+
+/* returns class number */
+int class_lookup (const char *name)
+{
+   int class;
+ 
+   for (class = 0; class < (MAX_CLASS-1); class++)
+   {
+	    if (LOWER(name[0]) == LOWER(class_table[class].name[0])
+	    &&  !str_prefix(name,class_table[class].name))
+	        return class;
+   }
+ 
+   return -1;
+}
+
+
+int clan_lookup (const char *argument)
+{
+   int clan;
+ 
+   for (clan = 0; clan < MAX_CLAN; clan++)
+   {
+	    if (LOWER(argument[0]) == LOWER(clan_table[clan].short_name[0])
+	    &&  !str_prefix(argument,clan_table[clan].short_name))
+	        return clan;
+   }
+ 
+   return -1;
+}
 

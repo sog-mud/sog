@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.84 1998-06-24 06:29:48 fjoe Exp $
+ * $Id: act_info.c,v 1.85 1998-06-28 04:47:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,7 @@
 #include "util.h"
 #include "quest.h"
 #include "log.h"
+#include "obj_prog.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -642,17 +643,26 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 }
 
 
-bool check_blind(CHAR_DATA *ch)
+bool check_blind_raw(CHAR_DATA *ch)
 {
 	if (!IS_NPC(ch) && IS_SET(ch->act,PLR_HOLYLIGHT))
 		return TRUE;
 
-	if (IS_AFFECTED(ch, AFF_BLIND)) {
-		send_to_char(msg(CANT_SEE_THING, ch), ch);
+	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
-	}
 
 	return TRUE;
+}
+
+
+bool check_blind(CHAR_DATA *ch)
+{
+	bool can_see = check_blind_raw(ch);
+
+	if (!can_see)
+		char_nputs(CANT_SEE_THING, ch);
+
+	return can_see;
 }
 
 
@@ -1156,8 +1166,9 @@ void do_look(CHAR_DATA *ch, char *argument)
 		/* 'look' or 'look auto' */
 		char_printf(ch, "{W%s{x", ch->in_room->name, ch);
 
-		if (IS_IMMORTAL(ch)
-		&&  (IS_NPC(ch) || IS_SET(ch->act,PLR_HOLYLIGHT)))
+		if ((IS_IMMORTAL(ch) && (IS_NPC(ch) ||
+					 IS_SET(ch->act, PLR_HOLYLIGHT)))
+		||  IS_BUILDER(ch, ch->in_room->area))
 			char_printf(ch, " [Room %d]",ch->in_room->vnum);
 
 		send_to_char("\n\r", ch);
@@ -2713,11 +2724,10 @@ void do_request(CHAR_DATA *ch, char *argument)
 	obj_from_char(obj);
 	obj_to_char(obj, ch);
 	act("$n requests $p from $N.", ch, obj, victim, TO_NOTVICT);
-	act("You request $p from $N.",	 ch, obj, victim, TO_CHAR  );
-	act("$n requests $p from you.", ch, obj, victim, TO_VICT  );
+	act("You request $p from $N.",	 ch, obj, victim, TO_CHAR);
+	act("$n requests $p from you.", ch, obj, victim, TO_VICT);
 
-	if (IS_SET(obj->progtypes,OPROG_GIVE))
-		(obj->pIndexData->oprogs->give_prog) (obj,ch,victim);
+	oprog_call(OPROG_GIVE, obj, ch, victim);
 
 	ch->move -= (50 + ch->level);
 	ch->move = UMAX(ch->move, 0);
@@ -3893,10 +3903,7 @@ void do_demand(CHAR_DATA *ch, char *argument)
 	act("You demand $p from $N.",	ch, obj, victim, TO_CHAR  );
 	act("$n demands $p from you.", ch, obj, victim, TO_VICT  );
 
-
-	if (IS_SET(obj->progtypes,OPROG_GIVE))
-		(obj->pIndexData->oprogs->give_prog) (obj,ch,victim);
-
+	oprog_call(OPROG_GIVE, obj, ch, victim);
 	send_to_char("Your power makes all around the world shivering.\n\r",ch);
 }
 

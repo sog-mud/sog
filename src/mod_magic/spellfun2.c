@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.17 1998-06-21 11:38:39 fjoe Exp $
+ * $Id: spellfun2.c,v 1.18 1998-06-28 04:47:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,8 @@
 #include <time.h>
 
 #include "merc.h"
+#include "tables.h"
+
 #include "magic.h"
 #include "recycle.h"
 #include "db.h"
@@ -54,6 +56,7 @@
 #include "hometown.h"
 #include "act_comm.h"
 #include "fight.h"
+#include "lookup.h"
 #include "quest.h"
 #include "rating.h"
 #include "util.h"
@@ -2857,7 +2860,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			obj_to_char(obj2, undead);
 		}
 
-		interpret(undead, "wear all", TRUE);
+		interpret(undead, "wear all");
 
 		af.where     = TO_AFFECTS;
 		af.type      = sn;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.52 1998-06-24 06:29:48 fjoe Exp $
+ * $Id: act_comm.c,v 1.53 1998-06-28 04:47:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,8 @@
 #include "act_comm.h"
 #include "quest.h"
 #include "log.h"
+#include "mob_prog.h"
+#include "obj_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -391,6 +393,7 @@ void do_immtalk(CHAR_DATA *ch, char *argument)
 void do_say(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *char_obj;
+	OBJ_DATA *char_obj_next;
 	CHAR_DATA *vch;
 	char buf[MAX_STRING_LENGTH];
 	char trans[MAX_STRING_LENGTH];
@@ -420,20 +423,28 @@ void do_say(CHAR_DATA *ch, char *argument)
 	if (!is_affected(ch, gsn_deafen))
 		act_nprintf(ch, NULL, buf, TO_CHAR, POS_RESTING, COMM_YOU_SAY);
 
+	if (!IS_NPC(ch)) {
+ 		CHAR_DATA *mob, *mob_next;
+		for (mob = ch->in_room->people; mob != NULL; mob = mob_next) {
+ 			mob_next = mob->next_in_room;
+ 			if (IS_NPC(mob) && HAS_TRIGGER(mob, TRIG_SPEECH)
+ 			&&  mob->position == mob->pIndexData->default_pos)
+ 			mp_act_trigger(argument, mob, ch, NULL, NULL,
+				TRIG_SPEECH);
+ 		}
+	}
+
 	for (char_obj = ch->carrying; char_obj != NULL;
-		  char_obj = char_obj->next_content)
-	{
-		 if (IS_SET(char_obj->progtypes,OPROG_SPEECH))
-		(char_obj->pIndexData->oprogs->speech_prog) (char_obj,ch,buf);
+	     char_obj = char_obj_next) {
+		char_obj_next = char_obj->next_content;
+		oprog_call(OPROG_SPEECH, char_obj, ch, buf);
 	}
 
 	for (char_obj = ch->in_room->contents; char_obj != NULL;
-		  char_obj = char_obj->next_content) {
-		 if (IS_SET(char_obj->progtypes,OPROG_SPEECH))
-		(char_obj->pIndexData->oprogs->speech_prog) (char_obj,ch,buf);
+	     char_obj = char_obj_next) {
+		char_obj_next = char_obj->next_content;
+		oprog_call(OPROG_SPEECH, char_obj, ch, buf);
 	}
-
-	return;
 }
 
 
@@ -537,7 +548,8 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 
 	victim->reply = ch;
 
-	return;
+	if (!IS_NPC(ch) && IS_NPC(victim) && HAS_TRIGGER(victim,TRIG_SPEECH))
+		mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
 }
 
 
@@ -617,9 +629,10 @@ void do_emote(CHAR_DATA *ch, char *argument)
 	else
 		 strcpy(buf,argument);
 
+	MOBtrigger = FALSE;
 	act("$n $T", ch, NULL, buf, TO_ROOM);
 	act("$n $T", ch, NULL, buf, TO_CHAR);
-	return;
+	MOBtrigger = TRUE;
 }
 
 
@@ -642,67 +655,60 @@ void do_pmote(CHAR_DATA *ch, char *argument)
 	
 	act("$n $t", ch, argument, NULL, TO_CHAR);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room)
-	{
-	if (vch->desc == NULL || vch == ch)
-		continue;
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		if (vch->desc == NULL || vch == ch)
+			continue;
 
-	if ((letter = strstr(argument,vch->name)) == NULL)
-	{
-		act("$N $t",vch,argument,ch,TO_CHAR);
-		continue;
-	}
+		if ((letter = strstr(argument,vch->name)) == NULL) {
+			MOBtrigger = FALSE;
+			act("$N $t",vch,argument,ch,TO_CHAR);
+			MOBtrigger = TRUE;
+			continue;
+		}
 
-	strcpy(temp,argument);
-	temp[strlen(argument) - strlen(letter)] = '\0';
+		strcpy(temp,argument);
+		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name;
 	
-	for (; *letter != '\0'; letter++)
-	{ 
-		if (*letter == '\'' && matches == strlen(vch->name))
-		{
-		strcat(temp,"r");
-		continue;
-		}
+		for (; *letter != '\0'; letter++) { 
+			if (*letter == '\'' && matches == strlen(vch->name)) {
+				strcat(temp,"r");
+				continue;
+			}
 
-		if (*letter == 's' && matches == strlen(vch->name))
-		{
-		matches = 0;
-		continue;
-		}
+			if (*letter == 's' && matches == strlen(vch->name)) {
+				matches = 0;
+				continue;
+			}
 		
-		    if (matches == strlen(vch->name))
-		{
-		matches = 0;
+			if (matches == strlen(vch->name))
+				matches = 0;
+
+			if (*letter == *name) {
+				matches++;
+				name++;
+				if (matches == strlen(vch->name)) {
+					strcat(temp,"you");
+					last[0] = '\0';
+					name = vch->name;
+					continue;
+				}
+				strncat(last,letter,1);
+				continue;
+			}
+
+			matches = 0;
+			strcat(temp,last);
+			strncat(temp,letter,1);
+			last[0] = '\0';
+			name = vch->name;
 		}
 
-		if (*letter == *name)
-		{
-		matches++;
-		name++;
-		if (matches == strlen(vch->name))
-		{
-		    strcat(temp,"you");
-		    last[0] = '\0';
-		    name = vch->name;
-		    continue;
-		}
-		strncat(last,letter,1);
-		continue;
-		}
-
-		matches = 0;
-		strcat(temp,last);
-		strncat(temp,letter,1);
-		last[0] = '\0';
-		name = vch->name;
+		MOBtrigger = FALSE;
+		act("$N $t",vch,temp,ch,TO_CHAR);
+		MOBtrigger = TRUE;
 	}
-
-	act("$N $t",vch,temp,ch,TO_CHAR);
-	}
-	
-	return;
 }
 
 
@@ -1291,7 +1297,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 	one_argument(argument,arg2);
 
-	if (!str_cmp(arg2,"delete")) {
+	if (!str_cmp(arg2,"delete") || !str_cmp(arg2, "mob")) {
 		send_to_char("That will NOT be done.\n\r",ch);
 		return;
 	}
@@ -1340,17 +1346,18 @@ void do_order(CHAR_DATA *ch, char *argument)
 				continue;
 			act_nprintf(ch, NULL, och, TO_VICT, POS_RESTING,
 				       COMM_ORDERS_YOU_TO, argument);
-			interpret(och, argument, TRUE);
+			interpret_raw(och, argument, TRUE);
 		}
 	}
 
 	if (found) {
 		WAIT_STATE(ch,PULSE_VIOLENCE);
 		char_nputs(OK, ch);
-	} else
+	}
+	else
 		send_to_char("You have no followers here.\n\r", ch);
-	return;
 }
+
 
 bool proper_order(CHAR_DATA *ch, char *argument)
 {

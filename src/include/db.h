@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.8 1998-06-18 05:19:13 fjoe Exp $
+ * $Id: db.h,v 1.9 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,21 +54,26 @@ extern int  		top_affect;
 extern int		top_ed; 
 extern AREA_DATA 	*area_first;
 
-void	boot_db		(void);
+void	reset_area      (AREA_DATA * pArea);		/* OLC */
+void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */
+
+void		boot_db		(void);
 CHAR_DATA *	create_mobile	(MOB_INDEX_DATA *pMobIndex);
-void	clone_mobile	(CHAR_DATA *parent, CHAR_DATA *clone);
+void		clone_mobile	(CHAR_DATA *parent, CHAR_DATA *clone);
 OBJ_DATA *	create_object	(OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *    create_object_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
-OBJ_DATA *    create_object_org (OBJ_INDEX_DATA *pObjIndex,int level,bool Count);
+OBJ_DATA *	create_object_nocount (OBJ_INDEX_DATA *pObjIndex, int level);
+OBJ_DATA *	create_object_org (OBJ_INDEX_DATA *pObjIndex,int level,
+				   bool Count);
 void	clone_object	(OBJ_DATA *parent, OBJ_DATA *clone); 
 void	clear_char	(CHAR_DATA *ch);
 char *	get_extra_descr	(const char *name, EXTRA_DESCR_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
+MPROG_CODE *		get_mprog_index (int vnum);
 char	fread_letter	(FILE *fp);
 int	fread_number	(FILE *fp);
-long 	fread_flag	(FILE *fp);
+long 	fread_flags	(FILE *fp);
 char *	fread_string	(FILE *fp);
 char *  fread_string_eol(FILE *fp);
 void	fread_to_eol	(FILE *fp);
@@ -113,6 +118,15 @@ void	convert_obj(OBJ_INDEX_DATA *obj);
 
 /* Magic number for memory allocation */
 #define MAGIC_NUM 52571214
+
+/* func from db.c */
+extern void assign_area_vnum( int vnum );                    /* OLC */
+
+/* from db2.c */
+ 
+void convert_mobile( MOB_INDEX_DATA *pMobIndex );            /* OLC ROM */
+void convert_objects( void );                                /* OLC ROM */
+void convert_object( OBJ_INDEX_DATA *pObjIndex );            /* OLC ROM */
 
 #endif
 

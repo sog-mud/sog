@@ -2,7 +2,7 @@
 #define _LOOKUP_H_
 
 /*
- * $Id: lookup.h,v 1.2 1998-04-14 08:54:31 fjoe Exp $
+ * $Id: lookup.h,v 1.3 1998-06-28 04:47:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,9 +44,19 @@
 ***************************************************************************/
 
 
-int	position_lookup	args( (const char *name) );
-int 	sex_lookup	args( (const char *name) );
-int 	size_lookup	args( (const char *name) );
+int	position_lookup	(const char *name);
+int 	sex_lookup	(const char *name);
+int 	size_lookup	(const char *name);
+int	flag_lookup	(const char *, const struct flag_type *);
+int	race_lookup	(const char *name);
+int	item_lookup	(const char *name);
+int	liq_lookup	(const char *name);
+int	material_lookup (const char *name);
+int	weapon_lookup	(const char *name);
+int	attack_lookup	(const char *name);
+long	wiznet_lookup	(const char *name);
+int	class_lookup	(const char *name);
+int	clan_lookup	(const char *argument);
 
 #endif
 

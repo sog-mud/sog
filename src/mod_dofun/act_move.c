@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.58 1998-06-25 14:28:12 efdi Exp $
+ * $Id: act_move.c,v 1.59 1998-06-28 04:47:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,8 @@
 #include "util.h"
 #include "log.h"
 #include "act_move.h"
+#include "mob_prog.h"
+#include "obj_prog.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look		);
@@ -103,6 +105,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	EXIT_DATA *pexit;
 	bool room_has_pc;
 	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
 
    if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
    {
@@ -157,6 +160,12 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			check_improve(ch, gsn_move_camf, FALSE, 5);
 		}	    
 	}
+
+    /*
+     * Exit trigger, if activated, bail out. Only PCs are triggered.
+     */
+    if ( !IS_NPC(ch) && mp_exit_trigger( ch, door ) )
+	return;
 
 	in_room = ch->in_room;
 	if ((pexit   = in_room->exit[door]) == NULL
@@ -353,105 +362,113 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		  }
 	 }
 
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE) && to_room->sector_type != SECT_FIELD
-		 && to_room->sector_type != SECT_FOREST &&
-		     to_room->sector_type != SECT_MOUNTAIN &&
-		     to_room->sector_type != SECT_HILLS) 
-	 {
+	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
+	&&  to_room->sector_type != SECT_FIELD
+	&&  to_room->sector_type != SECT_FOREST
+	&&  to_room->sector_type != SECT_MOUNTAIN
+	&&  to_room->sector_type != SECT_HILLS) {
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 		char_nputs(YOU_STEP_OUT_COVER, ch);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, N_STEPS_OUT_COVER);
-	 }	    
+		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			    N_STEPS_OUT_COVER);
+	}
 
 	mount = MOUNTED(ch);
 	char_from_room(ch);
 	char_to_room(ch, to_room);
 
 	/* room record for tracking */
-	if (!IS_NPC(ch) && ch->in_room 
-	&& !IS_AFFECTED(ch, AFF_FLYING))
-		room_record(ch->name,in_room, door);
+	if (!IS_NPC(ch) && ch->in_room && !IS_AFFECTED(ch, AFF_FLYING))
+		room_record(ch->name, in_room, door);
 
 
-	if (!IS_AFFECTED(ch, AFF_SNEAK)
-	&&   ch->invis_level < LEVEL_HERO)
-		{
+	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) {
 		if (mount)
-		     act_nprintf(ch, NULL, mount,TO_ROOM, POS_RESTING, ARRIVED_RIDING);
-		else act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, ARRIVED);
-		}
+			act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING,
+				    ARRIVED_RIDING);
+		else
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				    ARRIVED);
+	}
 
 	do_look(ch, "auto");
 
-	if (mount)
-		{
-		 char_from_room(mount);
-		 char_to_room(mount, to_room);
-  	 ch->riding = TRUE;
-  	 mount->riding = TRUE;
-		}
+	if (mount) {
+		char_from_room(mount);
+		char_to_room(mount, to_room);
+  		ch->riding = TRUE;
+  		mount->riding = TRUE;
+	}
 
 	if (in_room == to_room) /* no circular follows */
 		return;
 
-
-	for (fch = to_room->people,room_has_pc = FALSE;fch != NULL; fch = fch_next)
-		{
-		  fch_next = fch->next_in_room;
-		  if (!IS_NPC(fch))
-		    room_has_pc = TRUE;
+	room_has_pc = FALSE;
+	for (fch = to_room->people; fch != NULL; fch = fch_next) {
+		fch_next = fch->next_in_room;
+		if (!IS_NPC(fch)) {
+			room_has_pc = TRUE;
+			break;
 		}
+	}
 
-	for (fch = to_room->people;fch!=NULL;fch = fch_next) {
+	for (fch = to_room->people; fch != NULL; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
 		/* greet progs for items carried by people in room */
-		for (obj = fch->carrying;room_has_pc && obj != NULL;
-		     obj = obj->next_content)
-		  {
-		    if (IS_SET(obj->progtypes,OPROG_GREET))
-		      (obj->pIndexData->oprogs->greet_prog) (obj,ch);
-		  }
+		if (room_has_pc)
+			for (obj = fch->carrying; obj != NULL; obj = obj_next) {
+				obj_next = obj->next_content;
+				oprog_call(OPROG_GREET, obj, ch, NULL);
+			}
 	}
 
 	/* entry programs for items */
-	for (obj = ch->carrying;room_has_pc && obj!=NULL;obj=obj->next_content)
-		{
-		  if (IS_SET(obj->progtypes,OPROG_ENTRY))
-		    (obj->pIndexData->oprogs->entry_prog) (obj);
+	if (room_has_pc)
+		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			oprog_call(OPROG_ENTRY, obj, NULL, NULL);
 		}
 
-
-	for (fch = in_room->people; fch != NULL; fch = fch_next)
-	{
+	for (fch = in_room->people; fch != NULL; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
 		if (fch->master == ch && IS_AFFECTED(fch,AFF_CHARM) 
-		&&   fch->position < POS_STANDING)
-		    do_stand(fch,"");
+		&&  fch->position < POS_STANDING)
+			do_stand(fch,"");
 
 		if (fch->master == ch && fch->position == POS_STANDING 
-		&&   can_see_room(fch,to_room))
-		{
+		&&  can_see_room(fch,to_room)) {
+			if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
+			&&  IS_NPC(fch)
+			&&  IS_SET(fch->act,ACT_AGGRESSIVE)) {
+				act_nprintf(ch, NULL, fch, TO_CHAR, POS_DEAD,
+					    YOU_CANT_BRING_N_CITY);
+				act_nprintf(fch, NULL, NULL, TO_CHAR,
+					    POS_RESTING,
+					    YOU_ARENT_ALLOWED_CITY);
+				continue;
+			}
 
-		    if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
-		    &&  (IS_NPC(fch) && IS_SET(fch->act,ACT_AGGRESSIVE)))
-		    {
-			act_nprintf(ch,NULL,fch,TO_CHAR, POS_DEAD, YOU_CANT_BRING_N_CITY);
-			act_nprintf(fch,NULL,NULL,TO_CHAR, POS_RESTING, YOU_ARENT_ALLOWED_CITY);
-			continue;
-		    }
-
-		    act_nprintf(fch, NULL, ch, TO_CHAR, POS_DEAD, YOU_FOLLOW_N);
-		    move_char(fch, door, TRUE);
+			act_nprintf(fch, NULL, ch, TO_CHAR, POS_DEAD,
+				    YOU_FOLLOW_N);
+			move_char(fch, door, TRUE);
 		}
 	}
 
-	for (obj = ch->in_room->contents;room_has_pc && obj != NULL;	
-		   obj = obj->next_content)
-		{
-		  if (IS_SET(obj->progtypes,OPROG_GREET))
-		    (obj->pIndexData->oprogs->greet_prog) (obj,ch);
+	/* 
+	 * If someone is following the char, these triggers get activated
+	 * for the followers before the char, but it's safer this way...
+	 */
+	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
+		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
+	if (!IS_NPC(ch))
+    		mp_greet_trigger(ch);
+
+	if (room_has_pc)
+		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
+			obj_next = obj->next_content;
+			oprog_call(OPROG_GREET, obj, ch, NULL);
 		}
 }
 

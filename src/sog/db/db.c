@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.27 1998-06-24 06:29:49 fjoe Exp $
+ * $Id: db.c,v 1.28 1998-06-28 04:47:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include <dirent.h>
 
 #include "merc.h"
+#include "tables.h"
 #include "db.h"
 #include "recycle.h"
 #include "lookup.h"
@@ -75,7 +76,7 @@
 
 void load_limited_objects();
 
-extern	int	_filbuf		args((FILE *));
+extern	int	_filbuf		(FILE *);
 
 #if !defined(OLD_RAND)
 #ifdef BSD44
@@ -104,10 +105,14 @@ extern  AFFECT_DATA	*affect_free;
 HELP_DATA *		help_first;
 HELP_DATA *		help_last;
 
+HELP_AREA *		had_list;
+
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
 
 NOTE_DATA *		note_free;
+
+MPROG_CODE *		mprog_list;
 
 CHAR_DATA *		char_list;
 char *			help_greeting;
@@ -122,7 +127,7 @@ ROOM_INDEX_DATA	*	top_affected_room;
 int			reboot_counter;
 
 /* for limited objects */
-long total_levels; 
+int total_levels; 
 
 /* gsns */
 int  gsn_backstab;
@@ -369,6 +374,7 @@ char *			string_hash		[MAX_KEY_HASH];
 
 AREA_DATA *		area_first;
 AREA_DATA *		area_last;
+AREA_DATA *		current_area;
 
 char *			string_space;
 char *			top_string;
@@ -384,6 +390,10 @@ int			top_obj_index;
 int			top_reset;
 int			top_room;
 int			top_shop;
+int                     top_vnum_room;		/* OLC */
+int                     top_vnum_mob;		/* OLC */
+int                     top_vnum_obj;		/* OLC */
+int			top_mprog_index;	/* OLC */
 int 			mobile_count = 0;
 int			newmobs = 0;
 int			newobjs = 0;
@@ -417,200 +427,181 @@ int			sAllocPerm;
 bool			fBootDb;
 FILE *			fpArea;
 char			strArea[MAX_INPUT_LENGTH];
-AREA_DATA		*Serarea;	/* currently read area */
-
 
 /*
  * Local booting procedures.
 */
-void    init_mm         args((void));
-void	load_area	args((FILE *fp));
-void	load_helps	args((FILE *fp));
-void    load_omprogs    args((FILE *fp));
-void	load_old_mob	args((FILE *fp));
-void 	load_mobiles	args((FILE *fp));
-void	load_old_obj	args((FILE *fp));
-void 	load_objects	args((FILE *fp));
-void	load_resets	args((FILE *fp));
-void	load_rooms	args((FILE *fp));
-void	load_shops	args((FILE *fp));
-void 	load_socials	args((FILE *fp));
-void	load_specials	args((FILE *fp));
-void	load_notes	args((void));
-void	load_bans	args((void));
-void    load_olimits    args((FILE *fp));
-void    load_practicer  args((FILE *fp));
-void    load_resetmsg   args((FILE *fp));
-void    load_aflag	args((FILE *fp));
+void    init_mm         (void);
+void	load_area	(FILE *fp);
+void    load_areadata   (FILE *fp);			   /* OLC */
+void	load_helps	(FILE *fp, char *fname);
+void    load_omprogs    (FILE *fp);
+void	load_old_mob	(FILE *fp);
+void 	load_mobiles	(FILE *fp);
+void	load_old_obj	(FILE *fp);
+void 	load_objects	(FILE *fp);
+void	load_resets	(FILE *fp);
+void	load_rooms	(FILE *fp);
+void	load_shops	(FILE *fp);
+void 	load_socials	(FILE *fp);
+void	load_specials	(FILE *fp);
+void	load_notes	(void);
+void	load_bans	(void);
+void    load_olimits    (FILE *fp);
+void    load_practicer  (FILE *fp);
+void    load_resetmsg   (FILE *fp);
+void    load_aflag	(FILE *fp);
+void	load_mobprogs	(FILE *fp);
+ 
+void	fix_exits	(void);
+void    fix_mobprogs	(void);
 
-void	fix_exits	args((void));
-
-void	reset_area	args((AREA_DATA * pArea));
+void	reset_area	(AREA_DATA * pArea);
 
 /*
  * Big mama top level function.
  */
 void boot_db(void)
 {
+	long lhour, lday, lmonth;
+	int sn;
+	FILE *fpList;
+
 	/*
 	 * Init some data space stuff.
 	 */
-	{
-		if ((string_space = calloc(1, MAX_STRING)) == NULL)
-		{
-		    bug("Boot_db: can't alloc %d string space.", MAX_STRING);
-		    exit(1);
-		}
-		top_string	= string_space;
-		fBootDb		= TRUE;
+	if ((string_space = calloc(1, MAX_STRING)) == NULL) {
+		bug("Boot_db: can't alloc %d string space.", MAX_STRING);
+		exit(1);
 	}
+	top_string	= string_space;
+	fBootDb		= TRUE;
 
 	/*
 	 * Init random number generator.
 	 */
-	{
-		init_mm();
-	}
+	init_mm();
 
 	/*
 	 * Set time and weather.
 	 */
-	{
-		long lhour, lday, lmonth;
 
-		lhour		= (current_time - 650336715)
-				/ (PULSE_TICK / PULSE_PER_SCD);
-		time_info.hour	= lhour  % 24;
-		lday		= lhour  / 24;
-		time_info.day	= lday   % 35;
-		lmonth		= lday   / 35;
-		time_info.month	= lmonth % 17;
-		time_info.year	= lmonth / 17;
+	lhour	= (current_time - 650336715) / (PULSE_TICK / PULSE_PER_SCD);
+	time_info.hour	= lhour  % 24;
+	lday		= lhour  / 24;
+	time_info.day	= lday   % 35;
+	lmonth		= lday   / 35;
+	time_info.month	= lmonth % 17;
+	time_info.year	= lmonth / 17;
 
-		     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
-		else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
-		else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
-		else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
-		else                            weather_info.sunlight = SUN_DARK;
+	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
+	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
+	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
+	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
+	else                          weather_info.sunlight = SUN_DARK;
 
-		weather_info.change	= 0;
-		weather_info.mmhg	= 960;
-		if (time_info.month >= 7 && time_info.month <=12)
-		    weather_info.mmhg += number_range(1, 50);
-		else
-		    weather_info.mmhg += number_range(1, 80);
+	weather_info.change	= 0;
+	weather_info.mmhg	= 960;
+	if (time_info.month >= 7 && time_info.month <=12)
+		weather_info.mmhg += number_range(1, 50);
+	else
+		weather_info.mmhg += number_range(1, 80);
 
-		     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
-		else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
-		else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
-		else                                  weather_info.sky = SKY_CLOUDLESS;
+	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
+	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
+	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
+	else                                weather_info.sky = SKY_CLOUDLESS;
 
+	/*
+	 * auction
+	 */
+
+	auction = (AUCTION_DATA *) malloc (sizeof(AUCTION_DATA)); 
+	if (auction == NULL) {
+		bug("malloc'ing AUCTION_DATA didn't give %d bytes",
+		    sizeof(AUCTION_DATA));
+		exit(1);
 	}
-
-		/* auction */
-
-		auction = (AUCTION_DATA *) malloc (sizeof(AUCTION_DATA)); 
-		if (auction == NULL)
-		 {
-		  bug("malloc'ing AUCTION_DATA didn't give %d bytes",sizeof(AUCTION_DATA));
-		  exit(1);
-		 }
 			
-		auction->item = NULL; /* nothing is being sold */
+	auction->item = NULL; /* nothing is being sold */
 
-		/* room_affect_data */
-		top_affected_room = NULL;
+	/* room_affect_data */
+	top_affected_room = NULL;
 		
-		/* reboot counter */
-		reboot_counter = 1440;	/* 12 hours */
+	/* reboot counter */
+	reboot_counter = 1440;	/* 12 hours */
 
 	/*
 	 * Assign gsn's for skills which have them.
 	 */
-	{
-		int sn;
-
-		for (sn = 0; sn < MAX_SKILL; sn++)
-		{
-		    if (skill_table[sn].pgsn != NULL)
+	for (sn = 0; sn < MAX_SKILL; sn++)
+		if (skill_table[sn].pgsn != NULL)
 			*skill_table[sn].pgsn = sn;
-		}
-	}
 
 	/*
 	 * Read in all the area files.
 	 */
-	{
-		FILE *fpList;
+	if ((fpList = fopen(AREA_LIST, "r")) == NULL) {
+		perror(AREA_LIST);
+		exit(1);
+	}
 
-		if ((fpList = fopen(AREA_LIST, "r")) == NULL)
-		{
-		    perror(AREA_LIST);
-		    exit(1);
-		}
-
-		for (; ;)
-		{
-		    strcpy(strArea, fread_word(fpList));
-		    if (strArea[0] == '$')
+	for (; ;) {
+		strcpy(strArea, fread_word(fpList));
+		if (strArea[0] == '$')
 			break;
 
-		    if (strArea[0] == '-')
-		    {
+		if (strArea[0] == '-')
 			fpArea = stdin;
-		    }
-		    else
-		    {
-			if ((fpArea = fopen(strArea, "r")) == NULL)
-			{
-			    perror(strArea);
-			    exit(1);
+		else {
+			if ((fpArea = fopen(strArea, "r")) == NULL) {
+				perror(strArea);
+				exit(1);
 			}
-		    }
+		}
 
-		    for (; ;)
-		    {
+		current_area = NULL;
+
+		for (; ;) {
 			char *word;
 
-			if (fread_letter(fpArea) != '#')
-			{
-			    bug("Boot_db: # not found.", 0);
-			    exit(1);
+			if (fread_letter(fpArea) != '#') {
+				bug("Boot_db: # not found.", 0);
+				exit(1);
 			}
 
 			word = fread_word(fpArea);
 
-			     if (word[0] == '$'              )                 break;
-			else if (!str_cmp(word, "AREA"    )) load_area    (fpArea);
-			else if (!str_cmp(word, "HELPS"   )) load_helps   (fpArea);
-			else if (!str_cmp(word, "MOBOLD"  )) load_old_mob (fpArea);
-			else if (!str_cmp(word, "MOBILES" )) load_mobiles (fpArea);
-			else if (!str_cmp(word, "OBJOLD"  )) load_old_obj (fpArea);
-		  	else if (!str_cmp(word, "OBJECTS" )) load_objects (fpArea);
-			else if (!str_cmp(word, "RESETS"  )) load_resets  (fpArea);
-			else if (!str_cmp(word, "ROOMS"   )) load_rooms   (fpArea);
-			else if (!str_cmp(word, "SHOPS"   )) load_shops   (fpArea);
-			else if (!str_cmp(word, "SOCIALS" )) load_socials (fpArea);
-			else if (!str_cmp(word, "OMPROGS" )) load_omprogs (fpArea);
-		        else if (!str_cmp(word, "OLIMITS" )) load_olimits (fpArea);
+			     if (word[0] == '$'           )                 break;
+			else if (!str_cmp(word, "AREA"   )) load_area    (fpArea);
+  /* OLC */		else if (!str_cmp(word, "AREADATA")) load_areadata(fpArea);
+			else if (!str_cmp(word, "HELPS"  )) load_helps   (fpArea, strArea);
+			else if (!str_cmp(word, "MOBOLD" )) load_old_mob (fpArea);
+			else if (!str_cmp(word, "MOBILES")) load_mobiles (fpArea);
+			else if (!str_cmp(word, "MOBPROGS")) load_mobprogs(fpArea);
+			else if (!str_cmp(word, "OBJOLD" )) load_old_obj (fpArea);
+		  	else if (!str_cmp(word, "OBJECTS")) load_objects (fpArea);
+			else if (!str_cmp(word, "RESETS" )) load_resets  (fpArea);
+			else if (!str_cmp(word, "ROOMS"  )) load_rooms   (fpArea);
+			else if (!str_cmp(word, "SHOPS"  )) load_shops   (fpArea);
+			else if (!str_cmp(word, "SOCIALS")) load_socials (fpArea);
+			else if (!str_cmp(word, "OMPROGS")) load_omprogs (fpArea);
+		        else if (!str_cmp(word, "OLIMITS")) load_olimits (fpArea);
 			else if (!str_cmp(word, "SPECIALS")) load_specials(fpArea);
 			else if (!str_cmp(word, "PRACTICERS")) load_practicer(fpArea);
 			else if (!str_cmp(word, "RESETMESSAGE")) load_resetmsg(fpArea);
 			else if (!str_cmp(word, "FLAG"))	 load_aflag(fpArea);
-			else
-			{
+			else {
 			    bug("Boot_db: bad section name.", 0);
 			    exit(1);
 			}
-		    }
-
-		    if (fpArea != stdin)
-			fclose(fpArea);
-		    fpArea = NULL;
 		}
-		fclose(fpList);
-		Serarea = NULL;
+
+		if (fpArea != stdin)
+			fclose(fpArea);
+		fpArea = NULL;
 	}
+	fclose(fpList);
 
 	/*
 	 * Fix up exits.
@@ -618,18 +609,16 @@ void boot_db(void)
 	 * Reset all areas once.
 	 * Load up the songs, notes and ban files.
 	 */
-	{
-		fix_exits();
-		load_limited_objects();
-		log_printf("Total non-immortal levels > 5: %d", total_levels);
+	fix_exits();
+	fix_mobprogs();
+	load_limited_objects();
+	log_printf("Total non-immortal levels > 5: %d", total_levels);
 
-		fBootDb	= FALSE;
-		area_update();
-		load_notes();
-		load_bans();
-	}
-
-	return;
+	fBootDb	= FALSE;
+	convert_objects();           /* ROM OLC */
+	area_update();
+	load_notes();
+	load_bans();
 }
 
 
@@ -641,72 +630,244 @@ void load_area(FILE *fp)
 {
 	AREA_DATA *pArea;
 
-	pArea		= alloc_perm(sizeof(*pArea));
+	pArea = alloc_perm(sizeof(*pArea));
 	pArea->reset_first	= NULL;
 	pArea->reset_last	= NULL;
 	pArea->file_name	= fread_string(fp);
+
+	pArea->area_flags	= AREA_LOADING;
+	pArea->security		= 9;
+	pArea->vnum		= top_area;
+	pArea->builders		= strdup("None");
+
 	pArea->name		= fread_string(fp);
-	fread_letter(fp);
+	fread_letter(fp);			/* '{' */
 	pArea->low_range	= fread_number(fp);
 	pArea->high_range	= fread_number(fp);
-	fread_letter(fp);
-	pArea->writer	= str_dup(fread_word(fp));	
-	pArea->credits	= fread_string(fp);
-	pArea->min_vnum	= fread_number(fp);
-	pArea->max_vnum	= fread_number(fp);
+	fread_letter(fp);			/* '}' */
+	pArea->credits		= str_dup(fread_word(fp));	
+	free_string(fread_string(fp));
+	pArea->min_vnum		= fread_number(fp);
+	pArea->max_vnum		= fread_number(fp);
 	pArea->age		= 15;
-	pArea->nplayer	= 0;
-	pArea->empty	= FALSE;
-	pArea->count	= 0;
-	pArea->resetmsg	= NULL;
+	pArea->nplayer		= 0;
+	pArea->empty		= FALSE;
+	pArea->count		= 0;
+	pArea->resetmsg		= NULL;
 	pArea->area_flag	= 0;
 
 	if (area_first == NULL)
 		area_first = pArea;
-	if (area_last  != NULL)
+	if (area_last != NULL) {
 		area_last->next = pArea;
+		REMOVE_BIT(area_last->area_flags, AREA_LOADING); /* OLC */
+	}
+
 	area_last	= pArea;
 	pArea->next	= NULL;
-	Serarea = pArea;
+	current_area	= pArea;
 
 	top_area++;
-	return;
 }
 
 
+/*
+ * OLC
+ * Use these macros to load any new area formats that you choose to
+ * support on your MUD.  See the load_areadata format below for
+ * a short example.
+ */
+#if defined(KEY)
+#undef KEY
+#endif
+
+#define KEY(literal, field, value)			\
+		if (!str_cmp(word, literal)) {		\
+			field  = value;			\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
+#define SKEY(string, field)				\
+		if (!str_cmp(word, string)) {		\
+			free_string(field);		\
+			field = fread_string(fp);	\
+			fMatch = TRUE;			\
+			break;				\
+		}
+
+
+
+/* OLC
+ * Snarf an 'area' header line.   Check this format.  MUCH better.  Add fields
+ * too.
+ *
+ * #AREAFILE
+ * Name   { All } Locke    Newbie School~
+ * Repop  A teacher pops in the room and says, 'Repop coming!'~
+ * Recall 3001
+ * End
+ */
+void load_areadata(FILE *fp)
+{
+	AREA_DATA *pArea;
+	char      *word;
+	bool      fMatch;
+
+	pArea			= alloc_perm(sizeof(*pArea));
+	pArea->age		= 15;
+	pArea->nplayer		= 0;
+	pArea->file_name	= str_dup(strArea);
+	pArea->vnum		= top_area;
+	pArea->name		= str_dup("New Area");
+	pArea->builders		= str_dup("");
+	pArea->security		= 9;                    /* 9 -- Hugin */
+	pArea->min_vnum		= 0;
+	pArea->max_vnum		= 0;
+	pArea->area_flags	= 0;
+	pArea->low_range	= 0;
+	pArea->high_range	= 0;          
+	pArea->area_flag	= 0;
+	pArea->resetmsg		= NULL;
+/*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
+ 
+	for (; ;) {
+		word   = feof(fp) ? "End" : fread_word(fp);
+		fMatch = FALSE;
+
+		switch (UPPER(word[0])) {
+		case 'B':
+			SKEY("Builders", pArea->builders);
+			break;
+		case 'C':
+			SKEY("Credits", pArea->credits);
+			break;
+		case 'E':
+			if (!str_cmp(word, "End")) {
+				fMatch = TRUE;
+				if (area_first == NULL)
+			        	area_first = pArea;
+				if (area_last  != NULL)
+			        	area_last->next = pArea;
+				area_last	= pArea;
+				pArea->next	= NULL;
+				current_area	= pArea;
+				top_area++;
+				return;
+			}
+			break;
+		case 'F':
+			KEY("Flags", pArea->area_flag, fread_flags(fp));
+			break;
+		case 'L':
+			if (!str_cmp(word, "LevelRange")) {
+				pArea->low_range = fread_number(fp);
+				pArea->high_range = fread_number(fp);
+			}
+			break;
+		case 'N':
+			SKEY("Name", pArea->name);
+			break;
+		case 'R':
+			SKEY("ResetMessage", pArea->resetmsg);
+			break;
+		case 'S':
+			KEY("Security", pArea->security, fread_number(fp));
+			break;
+		case 'V':
+			if (!str_cmp(word, "VNUMs")) {
+				pArea->min_vnum = fread_number(fp);
+				pArea->max_vnum = fread_number(fp);
+			}
+			break;
+		}
+	}
+}
+
+
+/*
+ * Sets vnum range for area using OLC protection features.
+ */
+void assign_area_vnum(int vnum)
+{
+   if (area_last->min_vnum == 0 || area_last->max_vnum == 0)
+       area_last->min_vnum = area_last->max_vnum = vnum;
+   if (vnum != URANGE(area_last->min_vnum, vnum, area_last->max_vnum))
+       if (vnum < area_last->min_vnum)
+           area_last->min_vnum = vnum;
+       else
+           area_last->max_vnum = vnum;
+   return;
+}
+ 
 
 /*
  * Snarf a help section.
  */
-void load_helps(FILE *fp)
+void load_helps(FILE *fp, char *fname)
 {
 	HELP_DATA *pHelp;
+	int level;
+	char *keyword;
 
-	for (; ;)
-	{
-		pHelp		= alloc_perm(sizeof(*pHelp));
-		pHelp->level	= fread_number(fp);
-		pHelp->keyword	= fread_string(fp);
-		if (pHelp->keyword[0] == '$')
-		    break;
+	for (; ;) {
+		HELP_AREA * had;
+	
+		level		= fread_number(fp);
+		keyword		= fread_string(fp);
+	
+		if (keyword[0] == '$')
+			break;
+	
+		if (!had_list) {
+			had			= new_had();
+			had->filename		= str_dup(fname);
+			had->area		= current_area;
+			if (current_area)
+				current_area->helps	= had;
+			had_list		= had;
+		}
+		else
+		if (str_cmp(fname, had_list->filename)) {
+			had			= new_had();
+			had->filename		= str_dup(fname);
+			had->area		= current_area;
+			if (current_area)
+				current_area->helps	= had;
+			had->next		= had_list;
+			had_list		= had;
+		}
+		else
+			had			= had_list;
+	
+		pHelp		= new_help();
+		pHelp->level	= level;
+		pHelp->keyword	= keyword;
 		pHelp->text	= fread_string(fp);
 
 		if (!str_cmp(pHelp->keyword, "greeting"))
-		    help_greeting = pHelp->text;
+			help_greeting = pHelp->text;
 
 		if (help_first == NULL)
-		    help_first = pHelp;
+			help_first = pHelp;
 		if (help_last  != NULL)
-		    help_last->next = pHelp;
+			help_last->next = pHelp;
 
-		help_last	= pHelp;
-		pHelp->next	= NULL;
+		help_last		= pHelp;
+		pHelp->next		= NULL;
+	
+		if (had->first == NULL)
+			had->first	= pHelp;
+		if (had->last == NULL)
+			had->last	= pHelp;
+	
+		had->last->next_area	= pHelp;
+		had->last		= pHelp;
+		pHelp->next_area	= NULL;
+
 		top_help++;
 	}
-
-	return;
 }
-
 
 
 /*
@@ -719,45 +880,48 @@ void load_old_mob(FILE *fp)
 	int race;
 	char name[MAX_STRING_LENGTH];
 
-	for (; ;)
-	{
+	if (!area_last) {  /* OLC */
+		bug("Load_mobiles: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	for (; ;) {
 		int vnum;
 		char letter;
 		int iHash;
 
-		letter				= fread_letter(fp);
-		if (letter != '#')
-		{
-		    bug("Load_mobiles: # not found.", 0);
-		    exit(1);
+		letter	= fread_letter(fp);
+		if (letter != '#') {
+			bug("Load_mobiles: # not found.", 0);
+			exit(1);
 		}
 
-		vnum				= fread_number(fp);
+		vnum	= fread_number(fp);
 		if (vnum == 0)
-		    break;
+			break;
 
 		fBootDb = FALSE;
-		if (get_mob_index(vnum) != NULL)
-		{
-		    bug("Load_mobiles: vnum %d duplicated.", vnum);
-		    exit(1);
+		if (get_mob_index(vnum) != NULL) {
+			bug("Load_mobiles: vnum %d duplicated.", vnum);
+			exit(1);
 		}
 		fBootDb = TRUE;
 
-		pMobIndex			= alloc_perm(sizeof(*pMobIndex));
-		pMobIndex->vnum			= vnum;
-		pMobIndex->new_format		= FALSE;
-		pMobIndex->player_name		= fread_string(fp);
-		pMobIndex->short_descr		= fread_string(fp);
-		pMobIndex->long_descr		= fread_string(fp);
-		pMobIndex->description		= fread_string(fp);
+		pMobIndex		  = alloc_perm(sizeof(*pMobIndex));
+		pMobIndex->vnum		  = vnum;
+		pMobIndex->area		  = area_last;
+		pMobIndex->new_format	  = FALSE;
+		pMobIndex->player_name	  = fread_string(fp);
+		pMobIndex->short_descr	  = fread_string(fp);
+		pMobIndex->long_descr	  = fread_string(fp);
+		pMobIndex->description	  = fread_string(fp);
 
-		pMobIndex->long_descr[0]	= UPPER(pMobIndex->long_descr[0]);
-		pMobIndex->description[0]	= UPPER(pMobIndex->description[0]);
+		pMobIndex->long_descr[0]  = UPPER(pMobIndex->long_descr[0]);
+		pMobIndex->description[0] = UPPER(pMobIndex->description[0]);
 
-		pMobIndex->act			= fread_flag(fp) | ACT_IS_NPC;
-		pMobIndex->affected_by		= fread_flag(fp);
-		pMobIndex->practicer		= 0;
+		pMobIndex->act		  = fread_flags(fp) | ACT_IS_NPC;
+		pMobIndex->affected_by	  = fread_flags(fp);
+		pMobIndex->practicer	  = 0;
 
 		/* chronos corrected detection of ROM */
 		if (IS_AFFECTED(pMobIndex,C))	/* detect evil */
@@ -776,35 +940,35 @@ void load_old_mob(FILE *fp)
 			 SET_BIT(pMobIndex->detection,ee);
 		REMOVE_BIT(pMobIndex->affected_by,(C|D|E|F|G|Z|ee));
 
-		pMobIndex->pShop		= NULL;
-		pMobIndex->alignment		= fread_number(fp);
-		letter				= fread_letter(fp);
-		pMobIndex->level		= fread_number(fp);
+		pMobIndex->pShop	= NULL;
+		pMobIndex->alignment	= fread_number(fp);
+		letter			= fread_letter(fp);
+		pMobIndex->level	= fread_number(fp);
 		/*
 		 * The unused stuff is for imps who want to use the old-style
 		 * stats-in-files method.
 		 */
-						  fread_number(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-		/* 'd'		*/		  fread_letter(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-		/* '+'		*/		  fread_letter(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-		/* 'd'		*/		  fread_letter(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-		/* '+'		*/		  fread_letter(fp);	/* Unused */
-						  fread_number(fp);	/* Unused */
-		pMobIndex->wealth               = fread_number(fp)/20;	
-		/* xp can't be used! */		  fread_number(fp);	/* Unused */
-		pMobIndex->start_pos		= fread_number(fp);	/* Unused */
-		pMobIndex->default_pos		= fread_number(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+		/* 'd'	*/	  fread_letter(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+		/* '+'	*/	  fread_letter(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+		/* 'd'	*/	  fread_letter(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+		/* '+'	*/	  fread_letter(fp);	/* Unused */
+				  fread_number(fp);	/* Unused */
+		pMobIndex->wealth       = fread_number(fp)/20;	
+		/* xp can't be used! */	  fread_number(fp);	/* Unused */
+		pMobIndex->start_pos	= fread_number(fp);	/* Unused */
+		pMobIndex->default_pos	= fread_number(fp);	/* Unused */
 
 		if (pMobIndex->start_pos < POS_SLEEPING)
-		    pMobIndex->start_pos = POS_STANDING;
+			pMobIndex->start_pos = POS_STANDING;
 		if (pMobIndex->default_pos < POS_SLEEPING)
-		    pMobIndex->default_pos = POS_STANDING;
+			pMobIndex->default_pos = POS_STANDING;
 
 		/*
 		 * Back to meaningful values.
@@ -814,51 +978,54 @@ void load_old_mob(FILE *fp)
 		/* compute the race BS */
 		one_argument(pMobIndex->player_name,name);
  
-		if (name[0] == '\0' || (race =  race_lookup(name)) == 0)
-		{
-		    /* fill in with blanks */
-		    pMobIndex->race = race_lookup("human");
-		    pMobIndex->detection = race_table[pMobIndex->race].det;
-		    pMobIndex->affected_by = 
-			pMobIndex->affected_by | race_table[pMobIndex->race].aff;
-		    pMobIndex->off_flags = OFF_DODGE|OFF_DISARM|OFF_TRIP|ASSIST_VNUM;
-		    pMobIndex->imm_flags = 0;
-		    pMobIndex->res_flags = 0;
-		    pMobIndex->vuln_flags = 0;
-		    pMobIndex->form = FORM_EDIBLE|FORM_SENTIENT|FORM_BIPED|FORM_MAMMAL;
-		    pMobIndex->parts = PART_HEAD|PART_ARMS|PART_LEGS|PART_HEART|
-		                       PART_BRAINS|PART_GUTS;
+		if (name[0] == '\0' || (race =  race_lookup(name)) == 0) {
+			/* fill in with blanks */
+			pMobIndex->race = race_lookup("human");
+			pMobIndex->detection = race_table[pMobIndex->race].det;
+			pMobIndex->affected_by = pMobIndex->affected_by |
+				race_table[pMobIndex->race].aff;
+			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
+				OFF_TRIP | ASSIST_VNUM;
+			pMobIndex->imm_flags = 0;
+			pMobIndex->res_flags = 0;
+			pMobIndex->vuln_flags = 0;
+			pMobIndex->form = FORM_EDIBLE | FORM_SENTIENT |
+				FORM_BIPED | FORM_MAMMAL;
+			pMobIndex->parts = PART_HEAD | PART_ARMS | PART_LEGS |
+				PART_HEART | PART_BRAINS | PART_GUTS;
 		}
-		else
-		{
-		    pMobIndex->race = race;
-		    pMobIndex->detection = race_table[race].det;
-		    pMobIndex->affected_by = 
+		else {
+			pMobIndex->race = race;
+			pMobIndex->detection = race_table[race].det;
+			pMobIndex->affected_by = 
 				pMobIndex->affected_by | race_table[race].aff;
-		    pMobIndex->off_flags = OFF_DODGE|OFF_DISARM|OFF_TRIP|ASSIST_RACE|
-		                           race_table[race].off;
-		    pMobIndex->imm_flags = race_table[race].imm;
-		    pMobIndex->res_flags = race_table[race].res;
-		    pMobIndex->vuln_flags = race_table[race].vuln;
-		    pMobIndex->form = race_table[race].form;
-		    pMobIndex->parts = race_table[race].parts;
+			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
+				OFF_TRIP | ASSIST_RACE | race_table[race].off;
+			pMobIndex->imm_flags = race_table[race].imm;
+			pMobIndex->res_flags = race_table[race].res;
+			pMobIndex->vuln_flags = race_table[race].vuln;
+			pMobIndex->form = race_table[race].form;
+			pMobIndex->parts = race_table[race].parts;
 		}
 
-		if (letter != 'S')
-		{
-		    bug("Load_mobiles: vnum %d non-S.", vnum);
-		    exit(1);
+		if (letter != 'S') {
+			bug("Load_mobiles: vnum %d non-S.", vnum);
+			exit(1);
 		}
+
+		convert_mobile(pMobIndex);		/* ROM OLC */
 
 		iHash			= vnum % MAX_KEY_HASH;
 		pMobIndex->next		= mob_index_hash[iHash];
 		mob_index_hash[iHash]	= pMobIndex;
 		top_mob_index++;
+							/* OLC */
+		top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;
+		assign_area_vnum(vnum);			/* OLC */
 		kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
 	}
-
-	return;
 }
+
 
 /*
  * Snarf an obj section.  old style 
@@ -867,147 +1034,172 @@ void load_old_obj(FILE *fp)
 {
 	OBJ_INDEX_DATA *pObjIndex;
 
-	for (; ;)
-	{
+	if (!area_last) {  /* OLC */
+		bug("Load_objects: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	for (; ;) {
+		int i;
 		int vnum;
 		char letter;
 		int iHash;
 
-		letter				= fread_letter(fp);
-		if (letter != '#')
-		{
-		    bug("Load_objects: # not found.", 0);
-		    exit(1);
+		letter = fread_letter(fp);
+		if (letter != '#') {
+			bug("Load_objects: # not found.", 0);
+			exit(1);
 		}
 
-		vnum				= fread_number(fp);
+		vnum = fread_number(fp);
 		if (vnum == 0)
-		    break;
+			break;
 
 		fBootDb = FALSE;
-		if (get_obj_index(vnum) != NULL)
-		{
-		    bug("Load_objects: vnum %d duplicated.", vnum);
-		    exit(1);
+		if (get_obj_index(vnum) != NULL) {
+			bug("Load_objects: vnum %d duplicated.", vnum);
+			exit(1);
 		}
 		fBootDb = TRUE;
 
-		pObjIndex			= alloc_perm(sizeof(*pObjIndex));
-		pObjIndex->vnum			= vnum;
-		pObjIndex->new_format		= FALSE;
-		pObjIndex->reset_num	 	= 0;
-		pObjIndex->name			= fread_string(fp);
-		pObjIndex->short_descr		= fread_string(fp);
-		pObjIndex->description		= fread_string(fp);
-		/* Action description */	  fread_string(fp);
+		pObjIndex		= alloc_perm(sizeof(*pObjIndex));
+		pObjIndex->vnum		= vnum;
+		pObjIndex->area         = area_last;	/* OLC */
+		pObjIndex->new_format	= FALSE;
+		pObjIndex->reset_num	= 0;
+		pObjIndex->name		= fread_string(fp);
+		pObjIndex->short_descr	= fread_string(fp);
+		pObjIndex->description	= fread_string(fp);
+		/* Action description */  fread_string(fp);
 
-		pObjIndex->material		= "copper";
-		pObjIndex->short_descr[0]	= LOWER(pObjIndex->short_descr[0]);
-		pObjIndex->description[0]	= UPPER(pObjIndex->description[0]);
-		pObjIndex->material		= str_dup("");
+		pObjIndex->material	= "copper";
+		pObjIndex->short_descr[0] = LOWER(pObjIndex->short_descr[0]);
+		pObjIndex->description[0] = UPPER(pObjIndex->description[0]);
+		pObjIndex->material	= str_dup("");
 
-		pObjIndex->item_type		= fread_number(fp);
-		pObjIndex->extra_flags		= fread_flag(fp);
-		pObjIndex->wear_flags		= fread_flag(fp);
-		pObjIndex->value[0]		= fread_number(fp);
-		pObjIndex->value[1]		= fread_number(fp);
-		pObjIndex->value[2]		= fread_number(fp);
-		pObjIndex->value[3]		= fread_number(fp);
-		pObjIndex->value[4]		= 0;
-		pObjIndex->level		= 0;
-		pObjIndex->condition 		= 100;
-		pObjIndex->weight		= fread_number(fp);
-		pObjIndex->cost			= fread_number(fp);	/* Unused */
-		/* Cost per day */		  fread_number(fp);
-		pObjIndex->limit		= -1;
-		pObjIndex->oprogs		= NULL;
+		pObjIndex->item_type	= fread_number(fp);
+		pObjIndex->extra_flags	= fread_flags(fp);
+		pObjIndex->wear_flags	= fread_flags(fp);
+		pObjIndex->value[0]	= fread_number(fp);
+		pObjIndex->value[1]	= fread_number(fp);
+		pObjIndex->value[2]	= fread_number(fp);
+		pObjIndex->value[3]	= fread_number(fp);
+		pObjIndex->value[4]	= 0;
+		pObjIndex->level	= 0;
+		pObjIndex->condition 	= 100;
+		pObjIndex->weight	= fread_number(fp);
+		pObjIndex->cost		= fread_number(fp);	/* Unused */
+		/* Cost per day */	  fread_number(fp);
+		pObjIndex->limit	= -1;
+		for (i = 0; i < OPROG_MAX; i++)
+			pObjIndex->oprogs[i] = NULL;
 
 		if (pObjIndex->item_type == ITEM_WEAPON)
-		{
-		    if (is_name("two",pObjIndex->name) 
-		    ||  is_name("two-handed",pObjIndex->name) 
-		    ||  is_name("claymore",pObjIndex->name))
-			SET_BIT(pObjIndex->value[4],WEAPON_TWO_HANDS);
-		}
+			if (is_name("two",pObjIndex->name) 
+			||  is_name("two-handed",pObjIndex->name) 
+			||  is_name("claymore",pObjIndex->name))
+				SET_BIT(pObjIndex->value[4], WEAPON_TWO_HANDS);
 
-		for (; ;)
-		{
-		    char letter;
+		for (; ;) {
+			char letter;
 
-		    letter = fread_letter(fp);
+			letter = fread_letter(fp);
 
-		    if (letter == 'A')
-		    {
-			AFFECT_DATA *paf;
+			if (letter == 'A') {
+				AFFECT_DATA *paf;
 
-			paf			= alloc_perm(sizeof(*paf));
-			paf->where		= TO_OBJECT;
-			paf->type		= -1;
-			paf->level		= 20; /* RT temp fix */
-			paf->duration		= -1;
-			paf->location		= fread_number(fp);
-			paf->modifier		= fread_number(fp);
-			paf->bitvector		= 0;
-			paf->next		= pObjIndex->affected;
-			pObjIndex->affected	= paf;
-			top_affect++;
-		    }
+				paf		= alloc_perm(sizeof(*paf));
+				paf->where	= TO_OBJECT;
+				paf->type	= -1;
+				paf->level	= 20; /* RT temp fix */
+				paf->duration	= -1;
+				paf->location	= fread_number(fp);
+				paf->modifier	= fread_number(fp);
+				paf->bitvector	= 0;
+				paf->next	= pObjIndex->affected;
+				pObjIndex->affected = paf;
+				top_affect++;
+			}
 
-		    else if (letter == 'E')
-		    {
-			EXTRA_DESCR_DATA *ed;
+			else if (letter == 'E') {
+				EXTRA_DESCR_DATA *ed;
 
-			ed			= alloc_perm(sizeof(*ed));
-			ed->keyword		= fread_string(fp);
-			ed->description		= fread_string(fp);
-			ed->next		= pObjIndex->extra_descr;
-			pObjIndex->extra_descr	= ed;
-			top_ed++;
-		    }
+				ed		= alloc_perm(sizeof(*ed));
+				ed->keyword	= fread_string(fp);
+				ed->description	= fread_string(fp);
+				ed->next	= pObjIndex->extra_descr;
+				pObjIndex->extra_descr = ed;
+				top_ed++;
+			}
 
-		    else
-		    {
-			ungetc(letter, fp);
-			break;
-		    }
+			else {
+				ungetc(letter, fp);
+				break;
+			}
 		}
 
 		/* fix armors */
-		if (pObjIndex->item_type == ITEM_ARMOR)
-		{
-		    pObjIndex->value[1] = pObjIndex->value[0];
-		    pObjIndex->value[2] = pObjIndex->value[1];
+		if (pObjIndex->item_type == ITEM_ARMOR) {
+			pObjIndex->value[1] = pObjIndex->value[0];
+			pObjIndex->value[2] = pObjIndex->value[1];
 		}
 
 		/*
 		 * Translate spell "slot numbers" to internal "skill numbers."
 		 */
-		switch (pObjIndex->item_type)
-		{
+		switch (pObjIndex->item_type) {
 		case ITEM_PILL:
 		case ITEM_POTION:
 		case ITEM_SCROLL:
-		    pObjIndex->value[1] = slot_lookup(pObjIndex->value[1]);
-		    pObjIndex->value[2] = slot_lookup(pObjIndex->value[2]);
-		    pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
-		    pObjIndex->value[4] = slot_lookup(pObjIndex->value[4]);
-		    break;
+			pObjIndex->value[1] = slot_lookup(pObjIndex->value[1]);
+			pObjIndex->value[2] = slot_lookup(pObjIndex->value[2]);
+			pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
+			pObjIndex->value[4] = slot_lookup(pObjIndex->value[4]);
+			break;
 
 		case ITEM_STAFF:
 		case ITEM_WAND:
-		    pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
-		    break;
+			pObjIndex->value[3] = slot_lookup(pObjIndex->value[3]);
+			break;
 		}
 
 		iHash			= vnum % MAX_KEY_HASH;
 		pObjIndex->next		= obj_index_hash[iHash];
 		obj_index_hash[iHash]	= pObjIndex;
 		top_obj_index++;
+								/* OLC */
+		top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;
+		assign_area_vnum(vnum);				/* OLC */
 	}
-
-	return;
 }
 
+
+/*
+ * Adds a reset to a room.  OLC
+ * Similar to add_reset in olc.c
+ */
+void new_reset(ROOM_INDEX_DATA *pR, RESET_DATA *pReset)
+{
+	RESET_DATA *pr;
+ 
+	if (!pR)
+		return;
+ 
+	pr = pR->reset_last;
+ 
+	if (!pr) {
+		 pR->reset_first = pReset;
+		 pR->reset_last  = pReset;
+	}
+	else {
+		 pR->reset_last->next = pReset;
+		 pR->reset_last       = pReset;
+		 pR->reset_last->next = NULL;
+	}
+
+	top_reset++;
+}
+ 
 
 /*
  * Snarf a reset section.
@@ -1015,27 +1207,26 @@ void load_old_obj(FILE *fp)
 void load_resets(FILE *fp)
 {
 	RESET_DATA *pReset;
+	int iLastRoom = 0;
+	int iLastObj  = 0;
 
-	if (area_last == NULL)
-	{
+	if (area_last == NULL) {
 		bug("Load_resets: no #AREA seen yet.", 0);
 		exit(1);
 	}
 
-	for (; ;)
-	{
+	for (; ;) {
 		ROOM_INDEX_DATA *pRoomIndex;
 		EXIT_DATA *pexit;
 		char letter;
 		OBJ_INDEX_DATA *temp_index;
 
 		if ((letter = fread_letter(fp)) == 'S')
-		    break;
+			break;
 
-		if (letter == '*')
-		{
-		    fread_to_eol(fp);
-		    continue;
+		if (letter == '*') {
+			fread_to_eol(fp);
+			continue;
 		}
 
 		pReset		= alloc_perm(sizeof(*pReset));
@@ -1053,81 +1244,93 @@ void load_resets(FILE *fp)
 		 * Validate parameters.
 		 * We're calling the index functions for the side effect.
 		 */
-		switch (letter)
-		{
+		switch (letter) {
 		default:
-		    bug("Load_resets: bad command '%c'.", letter);
-		    exit(1);
-		    break;
+			bug("Load_resets: bad command '%c'.", letter);
+			exit(1);
+			break;
 
 		case 'M':
-		    get_mob_index  (pReset->arg1);
-		    get_room_index (pReset->arg3);
-		    break;
+			get_mob_index  (pReset->arg1);
+			if ((pRoomIndex = get_room_index(pReset->arg3))) {
+				new_reset(pRoomIndex, pReset);
+				iLastRoom = pReset->arg3;
+			}
+			break;
 
 		case 'O':
-		    temp_index = get_obj_index  (pReset->arg1);
-		    temp_index->reset_num++;
-		    get_room_index (pReset->arg3);
-		    break;
+			temp_index = get_obj_index  (pReset->arg1);
+			temp_index->reset_num++;
+			if ((pRoomIndex = get_room_index(pReset->arg3))) {
+				new_reset(pRoomIndex, pReset);
+				iLastObj = pReset->arg3;
+			}
+			break;
 
 		case 'P':
-		    temp_index = get_obj_index  (pReset->arg1);
-		    temp_index->reset_num++;
-		    get_obj_index  (pReset->arg3);
-		    break;
+			temp_index = get_obj_index  (pReset->arg1);
+			temp_index->reset_num++;
+			if ((pRoomIndex = get_room_index(iLastObj)))
+				new_reset(pRoomIndex, pReset);
+			break;
 
 		case 'G':
 		case 'E':
-		    temp_index = get_obj_index  (pReset->arg1);
-		    temp_index->reset_num++;
-		    break;
+			temp_index = get_obj_index  (pReset->arg1);
+			temp_index->reset_num++;
+			if ((pRoomIndex = get_room_index(iLastRoom))) {
+				new_reset(pRoomIndex, pReset);
+				iLastObj = iLastRoom;
+			}
+			break;
 
 		case 'D':
-		    pRoomIndex = get_room_index(pReset->arg1);
+			pRoomIndex = get_room_index(pReset->arg1);
 
-		    if (pReset->arg2 < 0
-		    ||   pReset->arg2 > 5
-		    || (pexit = pRoomIndex->exit[pReset->arg2]) == NULL
-		    || !IS_SET(pexit->exit_info, EX_ISDOOR))
-		    {
-			bug("Load_resets: 'D': exit %d not door.", pReset->arg2);
-			exit(1);
-		    }
+			if (pReset->arg2 < 0
+			||  pReset->arg2 >= MAX_DIR
+			||  pRoomIndex == NULL
+			||  (pexit = pRoomIndex->exit[pReset->arg2]) == NULL
+			||  !IS_SET( pexit->rs_flags, EX_ISDOOR)) {
+				bug("Load_resets: 'D': exit %d not door.",
+					pReset->arg2);
+				exit(1);
+			}
 
-		    if (pReset->arg3 < 0 || pReset->arg3 > 2)
-		    {
-			bug("Load_resets: 'D': bad 'locks': %d.", pReset->arg3);
-			exit(1);
-		    }
+			switch (pReset->arg3) {
+			default:
+				bug("Load_resets: 'D': bad 'locks': %d.",
+					pReset->arg3);
+			case 0:
+				break;
+			case 1:
+				SET_BIT(pexit->rs_flags, EX_CLOSED);
+				SET_BIT(pexit->exit_info, EX_CLOSED);
+				break;
+			case 2:
+				SET_BIT(pexit->rs_flags, EX_CLOSED | EX_LOCKED);
+				SET_BIT(pexit->exit_info, EX_CLOSED | EX_LOCKED);
+				break;
+			}
 
-		    break;
+			break;
 
 		case 'R':
-		    pRoomIndex		= get_room_index(pReset->arg1);
+			pRoomIndex = get_room_index(pReset->arg1);
 
-		    if (pReset->arg2 < 0 || pReset->arg2 > 6)
-		    {
-			bug("Load_resets: 'R': bad exit %d.", pReset->arg2);
-			exit(1);
-		    }
+			if (pReset->arg2 < 0 || pReset->arg2 > MAX_DIR) {
+				bug("Load_resets: 'R': bad exit %d.",
+					pReset->arg2);
+				exit(1);
+			}
 
-		    break;
+			if (pRoomIndex != NULL)
+				new_reset(pRoomIndex, pReset);
+
+			break;
 		}
-
-		if (area_last->reset_first == NULL)
-		    area_last->reset_first	= pReset;
-		if (area_last->reset_last  != NULL)
-		    area_last->reset_last->next	= pReset;
-		    
-		area_last->reset_last	= pReset;
-		pReset->next		= NULL;
-		top_reset++;
 	}
-
-	return;
 }
-
 
 
 /*
@@ -1137,58 +1340,54 @@ void load_rooms(FILE *fp)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 
-	if (area_last == NULL)
-	{
+	if (area_last == NULL) {
 		bug("Load_resets: no #AREA seen yet.", 0);
 		exit(1);
 	}
 
-	for (; ;)
-	{
+	for (; ;) {
 		int vnum;
 		char letter;
 		int door;
 		int iHash;
 
-		letter				= fread_letter(fp);
-		if (letter != '#')
-		{
-		    bug("Load_rooms: # not found.", 0);
-		    exit(1);
+		letter = fread_letter(fp);
+		if (letter != '#') {
+			bug("Load_rooms: # not found.", 0);
+			exit(1);
 		}
 
-		vnum				= fread_number(fp);
+		vnum = fread_number(fp);
 		if (vnum == 0)
-		    break;
+			break;
 
 		fBootDb = FALSE;
-		if (get_room_index(vnum) != NULL)
-		{
-		    bug("Load_rooms: vnum %d duplicated.", vnum);
-		    exit(1);
+		if (get_room_index(vnum) != NULL) {
+			bug("Load_rooms: vnum %d duplicated.", vnum);
+			exit(1);
 		}
 		fBootDb = TRUE;
 
-		pRoomIndex			= alloc_perm(sizeof(*pRoomIndex));
-		pRoomIndex->owner		= str_dup("");
-		pRoomIndex->people		= NULL;
-		pRoomIndex->contents		= NULL;
-		pRoomIndex->extra_descr		= NULL;
-		pRoomIndex->history             = NULL;
-		pRoomIndex->area		= area_last;
-		pRoomIndex->vnum		= vnum;
-		pRoomIndex->name		= fread_string(fp);
-		pRoomIndex->description		= fread_string(fp);
-		/* Area number */		  fread_number(fp);
-		pRoomIndex->room_flags		= fread_flag(fp);
+		pRoomIndex		= alloc_perm(sizeof(*pRoomIndex));
+		pRoomIndex->owner	= str_dup("");
+		pRoomIndex->people	= NULL;
+		pRoomIndex->contents	= NULL;
+		pRoomIndex->extra_descr	= NULL;
+		pRoomIndex->history     = NULL;
+		pRoomIndex->area	= area_last;
+		pRoomIndex->vnum	= vnum;
+		pRoomIndex->name	= fread_string(fp);
+		pRoomIndex->description	= fread_string(fp);
+		/* Area number */	  fread_number(fp);
+		pRoomIndex->room_flags	= fread_flags(fp);
  
 		if (3000 <= vnum && vnum < 3400)
-		   SET_BIT(pRoomIndex->room_flags,ROOM_LAW);
+			SET_BIT(pRoomIndex->room_flags, ROOM_LAW);
 
 		pRoomIndex->sector_type		= fread_number(fp);
 		pRoomIndex->light		= 0;
 		for (door = 0; door <= 5; door++)
-		    pRoomIndex->exit[door] = NULL;
+			pRoomIndex->exit[door] = NULL;
 
 		/* defaults */
 		pRoomIndex->heal_rate = 100;
@@ -1197,93 +1396,194 @@ void load_rooms(FILE *fp)
 		pRoomIndex->affected_by = 0;
 		pRoomIndex->aff_next = NULL;
 
-		for (; ;)
-		{
-		    letter = fread_letter(fp);
+		for (; ;) {
+			letter = fread_letter(fp);
 
-		    if (letter == 'S')
-			break;
-
-		    if (letter == 'H') /* healing room */
-			pRoomIndex->heal_rate = fread_number(fp);
-		
-		    else if (letter == 'M') /* mana room */
-			pRoomIndex->mana_rate = fread_number(fp);
-
-		    else if (letter == 'D')
-		    {
-			EXIT_DATA *pexit;
-			int locks;
-
-			door = fread_number(fp);
-			if (door < 0 || door > 5)
-			{
-			    bug("Fread_rooms: vnum %d has bad door number.", vnum);
-			    exit(1);
-			}
-
-			pexit			= alloc_perm(sizeof(*pexit));
-			pexit->description	= fread_string(fp);
-			pexit->keyword		= fread_string(fp);
-			pexit->exit_info	= 0;
-			locks			= fread_number(fp);
-			pexit->key		= fread_number(fp);
-			pexit->u1.vnum		= fread_number(fp);
-
-			switch (locks)
-			{
-			case 1: pexit->exit_info = EX_ISDOOR;                break;
-			case 2: pexit->exit_info = EX_ISDOOR | EX_PICKPROOF; break;
-			case 3: pexit->exit_info = EX_ISDOOR | EX_NOPASS;    break;
-			case 4: pexit->exit_info = EX_ISDOOR|EX_NOPASS|EX_PICKPROOF;
+			if (letter == 'S')
 				break;
-			case 5: pexit->exit_info = EX_NOFLEE;                break;
+
+			if (letter == 'H') /* healing room */
+				pRoomIndex->heal_rate = fread_number(fp);
+		
+			else if (letter == 'M') /* mana room */
+				pRoomIndex->mana_rate = fread_number(fp);
+
+			else if (letter == 'D') {
+				EXIT_DATA *pexit;
+				int locks;
+	
+				door = fread_number(fp);
+				if (door < 0 || door > 5) {
+					bug("Fread_rooms: vnum %d has bad door "
+					    "number.", vnum);
+					exit(1);
+				}
+	
+				pexit			= alloc_perm(sizeof(*pexit));
+				pexit->description	= fread_string(fp);
+				pexit->keyword		= fread_string(fp);
+				pexit->exit_info	= 0;
+				pexit->rs_flags		= 0;	/* OLC */
+				locks			= fread_number(fp);
+				pexit->key		= fread_number(fp);
+				pexit->u1.vnum		= fread_number(fp);
+				pexit->orig_door	= door;	/* OLC */
+	
+				switch (locks) {
+				case 1:
+					pexit->exit_info = EX_ISDOOR;
+					pexit->rs_flags  = EX_ISDOOR;
+					break;
+				case 2:
+					pexit->exit_info = EX_ISDOOR |
+							   EX_PICKPROOF;
+					pexit->rs_flags  = EX_ISDOOR |
+							   EX_PICKPROOF;
+					break;
+				case 3:
+					pexit->exit_info = EX_ISDOOR |
+							   EX_NOPASS;
+					pexit->rs_flags  = EX_ISDOOR |
+							   EX_NOPASS;
+					break;
+				case 4:
+					pexit->exit_info = EX_ISDOOR |
+							   EX_NOPASS |
+							   EX_PICKPROOF;
+					pexit->rs_flags  = EX_ISDOOR |
+							   EX_NOPASS |
+							   EX_PICKPROOF;
+					break;
+				case 5:
+					pexit->exit_info = EX_NOFLEE;
+					pexit->rs_flags  = EX_NOFLEE;
+					break;
+				}
+	
+				pRoomIndex->exit[door] = pexit;
+				top_exit++;
+			}
+			else if (letter == 'E') {
+				EXTRA_DESCR_DATA *ed;
+	
+				ed		= alloc_perm(sizeof(*ed));
+				ed->keyword	= fread_string(fp);
+				ed->description	= fread_string(fp);
+				ed->next	= pRoomIndex->extra_descr;
+				pRoomIndex->extra_descr	= ed;
+				top_ed++;
 			}
 
-			pRoomIndex->exit[door]	= pexit;
-			pRoomIndex->old_exit[door] = pexit;
-			top_exit++;
-		    }
-		    else if (letter == 'E')
-		    {
-			EXTRA_DESCR_DATA *ed;
+			else if (letter == 'O') {
+				if (pRoomIndex->owner[0] != '\0') {
+					bug("Load_rooms: duplicate owner.", 0);
+					exit(1);
+				}
 
-			ed			= alloc_perm(sizeof(*ed));
-			ed->keyword		= fread_string(fp);
-			ed->description		= fread_string(fp);
-			ed->next		= pRoomIndex->extra_descr;
-			pRoomIndex->extra_descr	= ed;
-			top_ed++;
-		    }
-
-		    else if (letter == 'O')
-		    {
-			if (pRoomIndex->owner[0] != '\0')
-			{
-			    bug("Load_rooms: duplicate owner.",0);
-			    exit(1);
+				pRoomIndex->owner = fread_string(fp);
 			}
 
-			pRoomIndex->owner = fread_string(fp);
-		    }
-
-		    else
-		    {
-			bug("Load_rooms: vnum %d has flag not 'DES'.", vnum);
-			exit(1);
-		    }
+			else {
+				bug("Load_rooms: vnum %d has flag not 'DES'.",
+					vnum);
+				exit(1);
+			}
 		}
 
 		iHash			= vnum % MAX_KEY_HASH;
 		pRoomIndex->next	= room_index_hash[iHash];
 		room_index_hash[iHash]	= pRoomIndex;
 		top_room++;
+								/* OLC */
+		top_vnum_room = top_vnum_room < vnum ? vnum : top_vnum_room;
+		assign_area_vnum(vnum);				/* OLC */
 	}
-
-	return;
 }
 
 
+/*
+ * Load mobprogs section
+ */
+void load_mobprogs(FILE *fp)
+{
+    MPROG_CODE *pMprog;
+
+    if (area_last == NULL)
+    {
+	bug("Load_mobprogs: no #AREA seen yet.", 0);
+	exit(1);
+    }
+
+    for (; ;)
+    {
+	int vnum;
+	char letter;
+
+	letter		  = fread_letter(fp);
+	if (letter != '#')
+	{
+	    bug("Load_mobprogs: # not found.", 0);
+	    exit(1);
+	}
+
+	vnum		 = fread_number(fp);
+	if (vnum == 0)
+	    break;
+
+	fBootDb = FALSE;
+	if (get_mprog_index(vnum) != NULL)
+	{
+	    bug("Load_mobprogs: vnum %d duplicated.", vnum);
+	    exit(1);
+	}
+	fBootDb = TRUE;
+
+	pMprog		= alloc_perm(sizeof(*pMprog));
+	pMprog->vnum  	= vnum;
+	pMprog->code  	= fread_string(fp);
+	if (mprog_list == NULL)
+	    mprog_list = pMprog;
+	else
+	{
+	    pMprog->next = mprog_list;
+	    mprog_list 	= pMprog;
+	}
+	top_mprog_index++;
+    }
+    return;
+}
+
+
+/*
+ *  Translate mobprog vnums pointers to real code
+ */
+void fix_mobprogs(void)
+{
+    MOB_INDEX_DATA *pMobIndex;
+    MPROG_LIST        *list;
+    MPROG_CODE        *prog;
+    int iHash;
+
+    for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
+    {
+	for (pMobIndex   = mob_index_hash[iHash];
+	      pMobIndex   != NULL;
+	      pMobIndex   = pMobIndex->next)
+	{
+	    for(list = pMobIndex->mprogs; list != NULL; list = list->next)
+	    {
+		if ((prog = get_mprog_index(list->vnum)) != NULL)
+		    list->code = prog->code;
+		else
+		{
+		    bug("Fix_mobprogs: code vnum %d not found.", list->vnum);
+		    exit(1);
+		}
+	    }
+	}
+    }
+}
+ 
 
 /*
  * Snarf a shop section.
@@ -1415,8 +1715,8 @@ void fix_exits(void)
 		{
 		    for (door = 0; door <= 5; door++)
 		    {
-			if ((pexit     = pRoomIndex->exit[door]      ) != NULL
-			&&   (to_room   = pexit->u1.to_room           ) != NULL
+			if ((pexit     = pRoomIndex->exit[door]     ) != NULL
+			&&   (to_room   = pexit->u1.to_room          ) != NULL
 			&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
 			&&   pexit_rev->u1.to_room != pRoomIndex 
 			&&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
@@ -1436,7 +1736,6 @@ void fix_exits(void)
 }
 
 
-
 /*
  * Repopulate areas periodically.
  */
@@ -1446,22 +1745,53 @@ void area_update(void)
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_STRING_LENGTH];
 
-	for (pArea = area_first; pArea != NULL; pArea = pArea->next)
-	{
-
+	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
 		if (++pArea->age < 3)
-		    continue;
+			continue;
 
 		/*
 		 * Check age and reset.
 		 * Note: Mud School resets every 3 minutes (not 15).
 		 */
 		if ((!pArea->empty && (pArea->nplayer == 0 || pArea->age >= 15))
-		||    pArea->age >= 31)
-		{
-		    ROOM_INDEX_DATA *pRoomIndex;
+		||  pArea->age >= 31) {
+			ROOM_INDEX_DATA *pRoomIndex;
 
-		    reset_area(pArea);
+			/*
+			 * the rain devastates tracks on the ground
+			 */
+			if (weather_info.sky == SKY_RAINING)  {
+				int i;
+				DESCRIPTOR_DATA *d;
+				CHAR_DATA *ch;
+	 			for (d = descriptor_list; d!=NULL; d=d->next)  {
+					if (d->connected != CON_PLAYING)
+						continue;
+
+					ch = (d->original != NULL) ?
+						d->original : d->character;
+					if (ch->in_room->area == pArea
+					&&  get_skill(ch, gsn_track) > 50
+					&& !IS_SET(ch->in_room->room_flags,
+								ROOM_INDOORS))
+					send_to_char("Rain devastates the tracks on the ground.\n\r", ch);
+				}
+
+				for (i = pArea->min_vnum; i < pArea->max_vnum;
+									i++) {
+					pRoomIndex = get_room_index(i);
+					if (pRoomIndex == NULL
+					||  IS_SET(pRoomIndex->room_flags,
+								ROOM_INDOORS))
+						continue;
+					room_record("erased", pRoomIndex, -1);  
+					if (number_percent() < 50)
+						room_record("erased",
+							    pRoomIndex, -1);
+				}
+			}
+
+			reset_area(pArea);
 		    wiznet_printf(NULL, NULL, WIZ_RESETS, 0, 0,
 		    		"%s has just been reset.", pArea->name);
 
@@ -1500,12 +1830,10 @@ void area_update(void)
 			pArea->empty = TRUE;
 		}
 	}
-
-	return;
 }
 
 
-
+#if 0
 /*
  * Reset one area.
  */
@@ -1515,31 +1843,6 @@ void reset_area(AREA_DATA *pArea)
 	CHAR_DATA *mob;
 	bool last;
 	int level;
-	int i;
-	ROOM_INDEX_DATA *room;
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *ch;
-
-	if (weather_info.sky == SKY_RAINING)  
-	{
-	 for (d = descriptor_list; d!=NULL; d=d->next)  
-	 {
-	  if (d->connected != CON_PLAYING) continue;
-	  ch = (d->original != NULL) ? d->original : d->character;
-	  if ((ch->in_room->area == pArea) && 
-		   (get_skill(ch, gsn_track)>50) &&
-		   (!IS_SET(ch->in_room->room_flags, ROOM_INDOORS)))
-		send_to_char("Rain devastates the tracks on the ground.\n\r", ch);
-	 }
-	 for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
-	 {
-	  room = get_room_index(i);
-	  if (room == NULL) continue;
-	  if (IS_SET(room->room_flags, ROOM_INDOORS)) continue;
-	  room_record("erased", room, -1);  
-	  if (number_percent() < 50) room_record("erased", room, -1);
-	 }
-	}
 	mob 	= NULL;
 	last	= TRUE;
 	level	= 0;
@@ -1862,11 +2165,453 @@ void reset_area(AREA_DATA *pArea)
 		    break;
 		}
 	}
+}
+#endif
 
-	
-	return;
+
+/*
+ * OLC
+ * Reset one room.  Called by reset_area and olc.
+ */
+void reset_room( ROOM_INDEX_DATA *pRoom )
+{
+    RESET_DATA  *pReset;
+    CHAR_DATA   *pMob;
+    CHAR_DATA	*mob;
+    OBJ_DATA    *pObj;
+    CHAR_DATA   *LastMob = NULL;
+    OBJ_DATA    *LastObj = NULL;
+    int iExit;
+    int level = 0;
+    bool last;
+
+    if ( !pRoom )
+        return;
+
+    pMob        = NULL;
+    last        = FALSE;
+    
+    for ( iExit = 0;  iExit < MAX_DIR;  iExit++ )
+    {
+        EXIT_DATA *pExit;
+        if ( ( pExit = pRoom->exit[iExit] )
+	  /*  && !IS_SET( pExit->exit_info, EX_BASHED )   ROM OLC */ )  
+        {
+            pExit->exit_info = pExit->rs_flags;
+            if ( ( pExit->u1.to_room != NULL )
+              && ( ( pExit = pExit->u1.to_room->exit[rev_dir[iExit]] ) ) )
+            {
+                /* nail the other side */
+                pExit->exit_info = pExit->rs_flags;
+            }
+        }
+    }
+
+    for ( pReset = pRoom->reset_first; pReset != NULL; pReset = pReset->next )
+    {
+        MOB_INDEX_DATA  *pMobIndex;
+        OBJ_INDEX_DATA  *pObjIndex;
+        OBJ_INDEX_DATA  *pObjToIndex;
+        ROOM_INDEX_DATA *pRoomIndex;
+	char buf[MAX_STRING_LENGTH];
+	int count,limit=0;
+	OBJ_INDEX_DATA *clan_item;
+	int ci_vnum = 0;
+        EXIT_DATA *pExit;
+        int d0;
+        int d1;
+
+        switch ( pReset->command )
+        {
+        default:
+                bug( "Reset_room: bad command %c.", pReset->command );
+                break;
+
+        case 'M':
+            if ( !( pMobIndex = get_mob_index( pReset->arg1 ) ) )
+            {
+                bug( "Reset_room: 'M': bad vnum %d.", pReset->arg1 );
+                continue;
+            }
+
+	    if ( ( pRoomIndex = get_room_index( pReset->arg3 ) ) == NULL )
+	    {
+		bug( "Reset_area: 'R': bad vnum %d.", pReset->arg3 );
+		continue;
+	    }
+            if ( pMobIndex->count >= pReset->arg2 )
+            {
+                last = FALSE;
+                break;
+            }
+/* */
+	    count = 0;
+	    for (mob = pRoomIndex->people; mob != NULL; mob = mob->next_in_room)
+		if (mob->pIndexData == pMobIndex)
+		{
+		    count++;
+		    if (count >= pReset->arg4)
+		    {
+		    	last = FALSE;
+		    	break;
+		    }
+		}
+
+	    if (count >= pReset->arg4)
+		break;
+
+/* */
+
+            pMob = create_mobile( pMobIndex );
+
+#if 0
+	/* XXX was in ROM OLC /fjoe */
+
+            /*
+             * Some more hard coding.
+             */
+            if ( room_is_dark( pRoom ) )
+                SET_BIT(pMob->affected_by, AFF_INFRARED);
+#endif
+
+            /*
+             * Pet shop mobiles get ACT_PET set.
+             */
+            {
+                ROOM_INDEX_DATA *pRoomIndexPrev;
+
+                pRoomIndexPrev = get_room_index( pRoom->vnum - 1 );
+                if ( pRoomIndexPrev
+                    && IS_SET( pRoomIndexPrev->room_flags, ROOM_PET_SHOP ) )
+                    SET_BIT( pMob->act, ACT_PET);
+            }
+
+	    pMob->zone = pRoom->area;
+            char_to_room( pMob, pRoom );
+
+            LastMob = pMob;
+            level  = URANGE( 0, pMob->level - 2, LEVEL_HERO - 1 ); /* -1 ROM */
+            last = TRUE;
+            break;
+
+        case 'O':
+            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
+            {
+                bug( "Reset_room: 'O' 1 : bad vnum %d", pReset->arg1 );
+                sprintf (buf,"%d %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3,
+                pReset->arg4 );
+		bug(buf,1);
+                continue;
+            }
+
+            if ( !( pRoomIndex = get_room_index( pReset->arg3 ) ) )
+            {
+                bug( "Reset_room: 'O' 2 : bad vnum %d.", pReset->arg3 );
+                sprintf (buf,"%d %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3,
+                pReset->arg4 );
+		bug(buf,1);
+                continue;
+            }
+
+            if ( pRoom->area->nplayer > 0
+              || count_obj_list( pObjIndex, pRoom->contents ) > 0 )
+	    {
+		last = FALSE;
+		break;
+	    }
+
+		    switch(pObjIndex->vnum)
+		    {
+			case OBJ_VNUM_RULER_STAND:
+			  ci_vnum = clan_table[CLAN_RULER].obj_vnum;
+			  break;
+			case OBJ_VNUM_INVADER_SKULL:
+			  ci_vnum = clan_table[CLAN_INVADER].obj_vnum;
+			  break;
+			case OBJ_VNUM_SHALAFI_ALTAR:
+			  ci_vnum = clan_table[CLAN_SHALAFI].obj_vnum;
+			  break;
+			case OBJ_VNUM_CHAOS_ALTAR:
+			  ci_vnum = clan_table[CLAN_CHAOS].obj_vnum;
+			  break;
+			case OBJ_VNUM_KNIGHT_ALTAR:
+			  ci_vnum = clan_table[CLAN_KNIGHT].obj_vnum;
+			  break;
+			case OBJ_VNUM_LIONS_ALTAR:
+			  ci_vnum = clan_table[CLAN_LIONS].obj_vnum;
+			  break;
+			case OBJ_VNUM_BATTLE_THRONE:
+			  ci_vnum = clan_table[CLAN_BATTLE].obj_vnum;
+			  break;
+			case OBJ_VNUM_HUNTER_ALTAR:
+			  ci_vnum = clan_table[CLAN_HUNTER].obj_vnum;
+			  break;
+		    }
+
+		    clan_item = get_obj_index(ci_vnum);
+		    if (ci_vnum &&  clan_item->count > 0)
+		     { 
+			last = FALSE;
+			break;
+		     }
+
+		    if ((pObjIndex->limit != -1) &&
+		         (pObjIndex->count >= pObjIndex->limit))
+		      {
+		        last = FALSE;
+		        break;
+		      }
+
+            pObj = create_object( pObjIndex,              /* UMIN - ROM OLC */
+				  UMIN(number_fuzzy( level ), LEVEL_HERO -1) );
+            pObj->cost = 0;
+            obj_to_room( pObj, pRoom );
+	    last = TRUE;
+            break;
+
+        case 'P':
+            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
+            {
+                bug( "Reset_room: 'P': bad vnum %d.", pReset->arg1 );
+                continue;
+            }
+
+            if ( !( pObjToIndex = get_obj_index( pReset->arg3 ) ) )
+            {
+                bug( "Reset_room: 'P': bad vnum %d.", pReset->arg3 );
+                continue;
+            }
+
+            if (pReset->arg2 > 50) /* old format */
+                limit = 6;
+            else if (pReset->arg2 == -1) /* no limit */
+                limit = 999;
+            else
+                limit = pReset->arg2;
+
+            if ( pRoom->area->nplayer > 0
+              || ( LastObj = get_obj_type( pObjToIndex ) ) == NULL
+              || ( LastObj->in_room == NULL && !last)
+              || ( pObjIndex->count >= limit /* && number_range(0,4) != 0 */ )
+              || ( count = count_obj_list( pObjIndex, LastObj->contains ) ) > pReset->arg4  )
+	    {
+		last = FALSE;
+		break;
+	    }
+				                /* lastObj->level  -  ROM */
+
+		    if ((pObjIndex->limit != -1              ) &&
+		         (pObjIndex->count >= pObjIndex->limit))
+		      {
+		        last = FALSE;
+		        dump_to_scr("Reseting area: [P] OBJ limit reached\n\r");
+		        break;
+		      }
+
+	    while (count < pReset->arg4)
+	    {
+            pObj = create_object( pObjIndex, number_fuzzy( LastObj->level ) );
+            obj_to_obj( pObj, LastObj );
+		count++;
+		if (pObjIndex->count >= limit)
+		    break;
+	    }
+
+	    /* fix object lock state! */
+	    LastObj->value[1] = LastObj->pIndexData->value[1];
+	    last = TRUE;
+            break;
+
+        case 'G':
+        case 'E':
+            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
+            {
+                bug( "Reset_room: 'E' or 'G': bad vnum %d.", pReset->arg1 );
+                continue;
+            }
+
+            if ( !last )
+                break;
+
+            if ( !LastMob )
+            {
+                bug( "Reset_room: 'E' or 'G': null mob for vnum %d.",
+                    pReset->arg1 );
+                last = FALSE;
+                break;
+            }
+
+            if ( LastMob->pIndexData->pShop )   /* Shop-keeper? */
+            {
+                int olevel=0,i,j;
+
+		if (!pObjIndex->new_format)
+                 switch ( pObjIndex->item_type )
+                {
+                case ITEM_PILL:
+                case ITEM_POTION:
+                case ITEM_SCROLL:
+ 		    olevel = MAX_LEVEL-7;
+		    for (i = 1; i < 5; i++)
+		    {
+			if (pObjIndex->value[i] > 0)
+			{
+		    	    for (j = 0; j < MAX_CLASS; j++)
+			    {
+				olevel = UMIN(olevel,
+				         skill_table[pObjIndex->value[i]].
+						     skill_level[j]);
+			    }
+			}
+		    }
+		   
+		    olevel = UMAX(0,(olevel * 3 / 4) - 2);
+		    break;
+		    
+               case ITEM_WAND:         olevel = number_range( 10, 20 ); break;
+                case ITEM_STAFF:        olevel = number_range( 15, 25 ); break;
+                case ITEM_ARMOR:        olevel = number_range(  5, 15 ); break;
+                /* ROM patch weapon, treasure */
+		case ITEM_WEAPON:       olevel = number_range(  5, 15 ); break;
+		case ITEM_TREASURE:     olevel = number_range( 10, 20 ); break;
+
+#if 0 /* envy version */
+                case ITEM_WEAPON:       if ( pReset->command == 'G' )
+                                            olevel = number_range( 5, 15 );
+                                        else
+                                            olevel = number_fuzzy( level );
+#endif /* envy version */
+
+                  break;
+                }
+
+                pObj = create_object( pObjIndex, olevel );
+		SET_BIT( pObj->extra_flags, ITEM_INVENTORY );  /* ROM OLC */
+
+#if 0 /* envy version */
+                if ( pReset->command == 'G' )
+                    SET_BIT( pObj->extra_flags, ITEM_INVENTORY );
+#endif /* envy version */
+
+            }
+#if 0
+	    else   /* ROM OLC else version */
+	    {
+		int limit;
+		if (pReset->arg2 > 50 )  /* old format */
+		    limit = 6;
+		else if ( pReset->arg2 == -1 || pReset->arg2 == 0 )  /* no limit */
+		    limit = 999;
+		else
+		    limit = pReset->arg2;
+
+		if ( pObjIndex->count < limit || number_range(0,4) == 0 )
+		{
+		    pObj = create_object( pObjIndex, 
+			   UMIN( number_fuzzy( level ), LEVEL_HERO - 1 ) );
+		    /* error message if it is too high */
+		    if (pObj->level > LastMob->level + 3
+		    ||  (pObj->item_type == ITEM_WEAPON 
+		    &&   pReset->command == 'E' 
+		    &&   pObj->level < LastMob->level -5 && pObj->level < 45))
+			fprintf(stderr,
+			    "Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
+			    pObj->short_descr,pObj->pIndexData->vnum,pObj->level,
+			    LastMob->short_descr,LastMob->pIndexData->vnum,LastMob->level);
+		}
+		else
+		    break;
+	    }
+#endif									 
+#if 0 /* envy else version */
+            else
+            {
+                pObj = create_object( pObjIndex, number_fuzzy( level ) );
+            }
+#endif /* envy else version */
+
+/* Anatolia else version */
+		else {
+		        if ((pObjIndex->limit == -1)  ||
+		          (pObjIndex->count < pObjIndex->limit))
+		          pObj=create_object(pObjIndex,UMIN(number_fuzzy(level),
+		                                           LEVEL_HERO - 1));
+		        else break;
+
+		}
+
+            obj_to_char( pObj, LastMob );
+            if ( pReset->command == 'E' )
+                equip_char( LastMob, pObj, pReset->arg3 );
+            last = TRUE;
+            break;
+
+        case 'D':
+		    if ((pRoomIndex = get_room_index(pReset->arg1)) == NULL)
+		    {
+			bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
+			continue;
+		    }
+
+		    if ((pExit = pRoomIndex->exit[pReset->arg2]) == NULL)
+			break;
+
+		    switch (pReset->arg3)
+		    {
+		    case 0:
+			REMOVE_BIT(pExit->exit_info, EX_CLOSED);
+			REMOVE_BIT(pExit->exit_info, EX_LOCKED);
+			break;
+
+		    case 1:
+			SET_BIT(   pExit->exit_info, EX_CLOSED);
+			REMOVE_BIT(pExit->exit_info, EX_LOCKED);
+			break;
+
+		    case 2:
+			SET_BIT(   pExit->exit_info, EX_CLOSED);
+			SET_BIT(   pExit->exit_info, EX_LOCKED);
+			break;
+		    }
+
+		    last = TRUE;
+            break;
+
+        case 'R':
+            if ( !( pRoomIndex = get_room_index( pReset->arg1 ) ) )
+            {
+                bug( "Reset_room: 'R': bad vnum %d.", pReset->arg1 );
+                continue;
+            }
+
+            {
+
+                for ( d0 = 0; d0 < pReset->arg2 - 1; d0++ )
+                {
+                    d1                   = number_range( d0, pReset->arg2-1 );
+                    pExit                = pRoomIndex->exit[d0];
+                    pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
+                    pRoomIndex->exit[d1] = pExit;
+                }
+            }
+            break;
+        }
+    }
 }
 
+/*
+ * OLC
+ * Reset one area.
+ */
+void reset_area(AREA_DATA *pArea)
+{
+	ROOM_INDEX_DATA *pRoom;
+	int vnum;
+
+	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++)
+        	if ((pRoom = get_room_index(vnum)))
+			reset_room(pRoom);
+}
 
 
 /*
@@ -1890,41 +2635,38 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 
 	mob->pIndexData	= pMobIndex;
 
-	mob->name		= pMobIndex->player_name;
+	mob->name	= str_dup(pMobIndex->player_name);    /* OLC */
+	mob->short_descr= str_dup(pMobIndex->short_descr);    /* OLC */
+	mob->long_descr	= str_dup(pMobIndex->long_descr);     /* OLC */
+	mob->description= str_dup(pMobIndex->description);    /* OLC */
 	mob->id		= get_mob_id();
-	mob->short_descr	= pMobIndex->short_descr;
-	mob->long_descr	= pMobIndex->long_descr;
-	mob->description	= pMobIndex->description;
 	mob->spec_fun	= pMobIndex->spec_fun;
-	mob->prompt		= NULL;
-	mob->progtypes	= pMobIndex->progtypes;
-	mob->riding		= FALSE;
-	mob->mount		= NULL;
+	mob->prompt	= NULL;
+	mob->mprog_target = NULL;
+	mob->riding	= FALSE;
+	mob->mount	= NULL;
 	mob->hunting	= NULL;
-	mob->endur		= 0;
+	mob->endur	= 0;
 	mob->in_mind	= NULL;
-	mob->class		= CLASS_CLERIC;
-	
+	mob->class	= CLASS_CLERIC;
 
-	if (pMobIndex->wealth == 0)
-	{
+	if (pMobIndex->wealth == 0) {
 		mob->silver = 0;
 		mob->gold   = 0;
 	}
-	else
-	{
+	else {
 		long wealth;
 
-		wealth = number_range(pMobIndex->wealth/2, 3 * pMobIndex->wealth/2);
+		wealth = number_range(pMobIndex->wealth/2,
+				      3 * pMobIndex->wealth/2);
 		mob->gold = number_range(wealth/200,wealth/100);
 		mob->silver = wealth - (mob->gold * 100);
 	} 
 
-	if (pMobIndex->new_format)
-	/* load in new style */
-	{
+	if (pMobIndex->new_format) {
+		/* load in new style */
 		/* read from prototype */
- 	mob->group		= pMobIndex->group;
+ 		mob->group		= pMobIndex->group;
 		mob->act 		= pMobIndex->act | ACT_IS_NPC;
 		mob->comm		= COMM_NOCHANNELS|COMM_NOSHOUT|COMM_NOTELL;
 		mob->affected_by	= pMobIndex->affected_by;
@@ -1969,7 +2711,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		mob->parts		= pMobIndex->parts;
 		mob->size		= pMobIndex->size;
 		mob->material		= str_dup(pMobIndex->material);
-		mob->progtypes		= pMobIndex->progtypes;
 		mob->extracted		= FALSE;
 
 		/* computed on the spot */
@@ -2159,6 +2900,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	return mob;
 }
 
+
 /* duplicate a mobile exactly -- except inventory */
 void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 {
@@ -2217,7 +2959,6 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->start_pos	= parent->start_pos;
 	clone->default_pos	= parent->default_pos;
 	clone->spec_fun	= parent->spec_fun;
-	clone->progtypes	= parent->progtypes;
 	clone->status	= parent->status;
 	clone->hunting	= NULL;
 
@@ -2299,30 +3040,29 @@ OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
 	obj->wear_loc	= -1;
 
 
-	obj->name		= pObjIndex->name;
-	obj->short_descr	= pObjIndex->short_descr;
-	obj->description	= pObjIndex->description;
+	obj->name	= str_dup(pObjIndex->name);		/* OLC */
+	obj->short_descr= str_dup(pObjIndex->short_descr);	/* OLC */
+	obj->description= str_dup(pObjIndex->description);	/* OLC */
 	obj->material	= str_dup(pObjIndex->material);
 	obj->item_type	= pObjIndex->item_type;
-	obj->extra_flags	= pObjIndex->extra_flags;
+	obj->extra_flags= pObjIndex->extra_flags;
 	obj->wear_flags	= pObjIndex->wear_flags;
 	obj->value[0]	= pObjIndex->value[0];
 	obj->value[1]	= pObjIndex->value[1];
 	obj->value[2]	= pObjIndex->value[2];
 	obj->value[3]	= pObjIndex->value[3];
 	obj->value[4]	= pObjIndex->value[4];
-	obj->weight		= pObjIndex->weight;
+	obj->weight	= pObjIndex->weight;
 	obj->extracted	= FALSE;
-	obj->progtypes	= pObjIndex->progtypes;
-	obj->from           = str_dup(""); /* used with body parts */
-	obj->pit            = OBJ_VNUM_PIT; /* default for corpse decaying */
-	obj->altar          = ROOM_VNUM_ALTAR; /* default for corpses */
+	obj->from       = str_dup(""); /* used with body parts */
+	obj->pit        = OBJ_VNUM_PIT; /* default for corpse decaying */
+	obj->altar      = ROOM_VNUM_ALTAR; /* default for corpses */
 	obj->condition	= pObjIndex->condition;
 
 	if (level == -1 || pObjIndex->new_format)
-		obj->cost	= pObjIndex->cost;
+		obj->cost = pObjIndex->cost;
 	else
-		obj->cost	= number_fuzzy(10)
+		obj->cost = number_fuzzy(10)
 				* number_fuzzy(level) * number_fuzzy(level);
 
 	/*
@@ -2679,7 +3419,7 @@ int fread_number(FILE *fp)
 	return number;
 }
 
-long fread_flag(FILE *fp)
+long fread_flags(FILE *fp)
 {
 	int number;
 	char c;
@@ -2715,7 +3455,7 @@ long fread_flag(FILE *fp)
 	}
 
 	if (c == '|')
-		number += fread_flag(fp);
+		number += fread_flags(fp);
 
 	else if  (c != ' ')
 		ungetc(c,fp);
@@ -3258,20 +3998,20 @@ void do_areas(CHAR_DATA *ch, char *argument)
 
 void do_memory(CHAR_DATA *ch, char *argument)
 {
-	char_printf(ch, "Affects %5d\n\r", top_affect   );
-	char_printf(ch, "Areas   %5d\n\r", top_area     );
-	char_printf(ch, "ExDes   %5d\n\r", top_ed       );
-	char_printf(ch, "Exits   %5d\n\r", top_exit     );
-	char_printf(ch, "Helps   %5d\n\r", top_help     );
-	char_printf(ch, "Socials %5d\n\r", social_count );
+	char_printf(ch, "Affects %5d\n\r", top_affect  );
+	char_printf(ch, "Areas   %5d\n\r", top_area    );
+	char_printf(ch, "ExDes   %5d\n\r", top_ed      );
+	char_printf(ch, "Exits   %5d\n\r", top_exit    );
+	char_printf(ch, "Helps   %5d\n\r", top_help    );
+	char_printf(ch, "Socials %5d\n\r", social_count);
 	char_printf(ch, "Mobs    %5d(%d new format)\n\r",
 				top_mob_index,newmobs); 
-	char_printf(ch, "(in use)%5d\n\r", mobile_count );
+	char_printf(ch, "(in use)%5d\n\r", mobile_count);
 	char_printf(ch, "Objs    %5d(%d new format)\n\r",
 				top_obj_index,newobjs); 
-	char_printf(ch, "Resets  %5d\n\r", top_reset    );
-	char_printf(ch, "Rooms   %5d\n\r", top_room     );
-	char_printf(ch, "Shops   %5d\n\r", top_shop     );
+	char_printf(ch, "Resets  %5d\n\r", top_reset   );
+	char_printf(ch, "Rooms   %5d\n\r", top_room    );
+	char_printf(ch, "Shops   %5d\n\r", top_shop    );
 	char_printf(ch, "Strings %5d strings of %7d bytes (max %d).\n\r",
 		nAllocString, sAllocString, MAX_STRING);
 	char_printf(ch, "Perms   %5d blocks  of %7d bytes.\n\r",
@@ -3986,13 +4726,13 @@ void load_practicer(FILE *fp)
 
 void load_resetmsg(FILE *fp)
 {
-	Serarea->resetmsg	= fread_string(fp);
+	current_area->resetmsg = fread_string(fp);
 	return;
 }
 
 void load_aflag(FILE *fp)
 {
-	Serarea->area_flag	= fread_flag(fp);
+	current_area->area_flag = fread_flags(fp);
 	return;
 }
 
@@ -4025,3 +4765,14 @@ char *format_flags(int flags)
 	return buf;
 }
 
+
+MPROG_CODE *get_mprog_index(int vnum)
+{
+	MPROG_CODE *prg;
+	for (prg = mprog_list; prg; prg = prg->next) {
+	    	if (prg->vnum == vnum)
+        		return(prg);
+	}
+	return NULL;
+}    
+ 

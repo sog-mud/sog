@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.8 1998-06-12 14:25:59 fjoe Exp $
+ * $Id: interp.h,v 1.9 1998-06-28 04:47:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,23 +60,24 @@
 
 #define COM_INGORE	1
 
-
 /*
  * Structure for a command in the command lookup table.
  */
 struct	cmd_type
 {
-    char * const	name;
-    DO_FUN *		do_fun;
-    int		position;
-    int		level;
-    int		log;
-    int              show;
-    int		extra;
+	char * const	name;
+	DO_FUN *	do_fun;
+	int		position;
+	int		level;
+	int		log;
+	int		show;
+	int		extra;
 };
 
 /* the command table itself */
 extern	const	struct	cmd_type	cmd_table	[];
+
+void	substitute_alias (DESCRIPTOR_DATA *d, char *input);
 
 /*
  * Command functions.
@@ -225,7 +226,10 @@ DECLARE_DO_FUN( do_make		);
 DECLARE_DO_FUN(	do_memory	);
 DECLARE_DO_FUN(	do_mfind	);
 DECLARE_DO_FUN(	do_mwhere	);
+DECLARE_DO_FUN( do_mob		);
 DECLARE_DO_FUN( do_motd		);
+DECLARE_DO_FUN( do_mpstat	);
+DECLARE_DO_FUN( do_mpdump	);
 DECLARE_DO_FUN( do_mount	);
 DECLARE_DO_FUN( do_dismount	);
 DECLARE_DO_FUN(	do_murde	);
@@ -345,6 +349,7 @@ DECLARE_DO_FUN(	do_steal	);
 DECLARE_DO_FUN( do_story	);
 DECLARE_DO_FUN( do_strangle     );
 DECLARE_DO_FUN( do_string	);
+DECLARE_DO_FUN(	do_surrender	);
 DECLARE_DO_FUN(	do_switch	);
 DECLARE_DO_FUN( do_tail		);
 DECLARE_DO_FUN( do_tame         );
@@ -399,6 +404,15 @@ DECLARE_DO_FUN( do_worth	);
 DECLARE_DO_FUN(	do_yell		);
 DECLARE_DO_FUN(	do_zap		);
 DECLARE_DO_FUN(	do_zecho	);
+DECLARE_DO_FUN( do_olc		);
+DECLARE_DO_FUN( do_asave	);
+DECLARE_DO_FUN( do_alist	);
+DECLARE_DO_FUN( do_resets	);
+DECLARE_DO_FUN( do_redit	);
+DECLARE_DO_FUN( do_aedit	);
+DECLARE_DO_FUN( do_medit	);
+DECLARE_DO_FUN( do_oedit	);
+DECLARE_DO_FUN( do_mpedit	);
 
 #endif
 
