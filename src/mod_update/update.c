@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.148 1999-06-30 15:42:30 fjoe Exp $
+ * $Id: update.c,v 1.149 1999-07-15 09:47:32 kostik Exp $
  */
 
 /***************************************************************************
@@ -1795,7 +1795,8 @@ void aggr_update(void)
 
 			/* Mad mob attacks! */
 			if (ch->last_fought == wch
-			&&  !IS_AFFECTED(ch, AFF_SCREAM)) {
+			&&  !IS_AFFECTED(ch, AFF_SCREAM) 
+			&& (ch->in_room == wch->in_room)) {
 				act_yell(NULL, ch, "$I! Now you die!", wch);
 				wch = check_guard(wch, ch); 
 				multi_hit(ch, wch, TYPE_UNDEFINED);
@@ -1803,7 +1804,7 @@ void aggr_update(void)
 			}
 
 			if (ch->target) {
-				if (ch->target == wch)
+				if (ch->target == wch && (ch->in_room==wch->in_room))
 					multi_hit(ch, wch, TYPE_UNDEFINED);
 				continue;
 			}
