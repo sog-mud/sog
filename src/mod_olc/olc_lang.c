@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.18 1999-06-29 10:57:04 fjoe Exp $
+ * $Id: olc_lang.c,v 1.19 1999-06-29 11:32:23 fjoe Exp $
  */
 
 #include "olc.h"
@@ -50,8 +50,8 @@ olc_cmd_t olc_cmds_lang[] =
 {
 	{ "create",	langed_create					},
 	{ "edit",	langed_edit					},
-	{ "touch",	langed_touch					},
 	{ "",		langed_save					},
+	{ "touch",	langed_touch					},
 	{ "show",	langed_show					},
 	{ "list",	langed_list					},
 
