@@ -860,7 +860,7 @@ S
 #36101
 Shooting place~
 ~
-0 0 swim
+0 0 underwater
 D2
 ~
 ~
@@ -869,7 +869,7 @@ S
 #36102
 Shooting place~
 ~
-0 0 inside
+0 0 swim
 D0
 ~
 ~

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.180 1999-09-08 10:40:17 fjoe Exp $
+ * $Id: spellfun.c,v 1.181 1999-09-14 03:10:58 avn Exp $
  */
 
 /***************************************************************************
@@ -3604,6 +3604,8 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
+
+	if (is_affected(victim, gsn_free_action)) level -= 5;
 	if (IS_AFFECTED(victim, AFF_SLEEP)
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))
 	||  saves_spell(level, victim, DAM_CHARM))
@@ -3707,6 +3709,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (victim == ch
 	||  LEVEL(victim) >= level + 3
 	||  victim->fighting != NULL
+	||  IS_SET(PC(ch)->plr_flags, PLR_GHOST)
 	||  !can_see_room(ch, victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 					    ROOM_PEACE | ROOM_NOSUMMON)

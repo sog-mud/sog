@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.182 1999-09-11 12:49:54 fjoe Exp $
+ * $Id: act_wiz.c,v 1.183 1999-09-14 03:10:51 avn Exp $
  */
 
 /***************************************************************************
@@ -3186,7 +3186,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (value > PC(ch)->security || value < 0) {
+		if ((value > PC(ch)->security || value < 0)
+		&& ch->level != MAX_LEVEL) {
 			if (PC(ch)->security != 0)
 				char_printf(ch, "Valid security is 0-%d.\n",
 					    PC(ch)->security);

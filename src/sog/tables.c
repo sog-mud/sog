@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.87 1999-09-09 14:35:15 osya Exp $
+ * $Id: tables.c,v 1.88 1999-09-14 03:10:57 avn Exp $
  */
 
 /***************************************************************************
@@ -206,7 +206,7 @@ flag_t affect_flags[] =
 	{ "detect_blend",	AFF_AWARENESS,		TRUE	},
 	{ "form_changed",	AFF_TURNED,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},
-	{ "resurrection",       AFF_RESURRECTION,       TRUE    },
+	{ "water_breathing",	AFF_WATER_BREATHING,	TRUE	},
 
 	{ NULL }
 };
@@ -496,7 +496,7 @@ flag_t sector_types[] =
 	{ "mountain",		SECT_MOUNTAIN,		TRUE	},
 	{ "swim",		SECT_WATER_SWIM,	TRUE	},
 	{ "noswim",		SECT_WATER_NOSWIM,	TRUE	},
-	{ "unused",		SECT_UNUSED,		TRUE	},
+	{ "underwater",		SECT_UNDERWATER,	TRUE	},
 	{ "air",		SECT_AIR,		TRUE	},
 	{ "desert",		SECT_DESERT,		TRUE	},
 

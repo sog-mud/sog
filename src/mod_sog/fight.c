@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.200 1999-09-11 12:49:57 fjoe Exp $
+ * $Id: fight.c,v 1.201 1999-09-14 03:10:55 avn Exp $
  */
 
 /***************************************************************************
@@ -1098,7 +1098,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	OBJ_DATA *corpse;
 	class_t *cl;
 
-	if (IS_AFFECTED(victim, AFF_RESURRECTION)) {
+	if (is_affected(victim, gsn_resurrection)) {
 		raw_kill(ch, victim);
 		return;
 	} 
@@ -2129,7 +2129,7 @@ void raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	int i;
 	OBJ_DATA *tattoo, *clanmark;
 
-	if (IS_AFFECTED(victim, AFF_RESURRECTION)) {
+	if (is_affected(victim, gsn_resurrection)) {
 		act_puts("Yess! Your Great Master resurrects you!",
 			 victim, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("Ouch! Beast stands and fight again, with new power!",

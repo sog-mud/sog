@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.151 1999-09-11 12:50:03 fjoe Exp $
+ * $Id: update.c,v 1.152 1999-09-14 03:10:57 avn Exp $
  */
 
 /***************************************************************************
@@ -655,6 +655,22 @@ void mobile_update(void)
 					handle_death(ch, ch);
 					continue;
 				}
+			}
+			bust_prompt = TRUE;
+		}
+
+		if (ch->in_room->sector_type == SECT_UNDERWATER
+		&& !IS_AFFECTED(ch, AFF_WATER_BREATHING)
+		&& !IS_IMMORTAL(ch)) {
+			act("$n gasps for fresh air, but inhales water.",
+				ch, NULL, NULL, TO_ROOM);
+			act("You gasp for fresh air, but inhale water.",
+				ch, NULL, NULL, TO_CHAR);
+			ch->hit -= ch->max_hit/20;
+			if (ch->hit < 1) {
+				ch->position = POS_DEAD;
+				handle_death(ch, ch);
+				continue;
 			}
 			bust_prompt = TRUE;
 		}

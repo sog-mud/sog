@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.42 1999-09-08 10:40:02 fjoe Exp $
+ * $Id: const.h,v 1.43 1999-09-14 03:10:54 avn Exp $
  */
 
 #ifndef _CONST_H_
@@ -381,5 +381,16 @@ enum {
 #define xx	((flag64_t) 1 << 49)
 #define yy	((flag64_t) 1 << 50)
 #define zz	((flag64_t) 1 << 51)
-
+#define aaa	((flag64_t) 1 << 52)
+#define bbb	((flag64_t) 1 << 53)
+#define ccc	((flag64_t) 1 << 54)
+#define ddd	((flag64_t) 1 << 55)
+#define eee	((flag64_t) 1 << 56)
+#define fff	((flag64_t) 1 << 57)
+#define ggg	((flag64_t) 1 << 58)
+#define hhh	((flag64_t) 1 << 59)
+#define iii	((flag64_t) 1 << 60)
+#define jjj	((flag64_t) 1 << 61)
+#define kkk	((flag64_t) 1 << 62)
+#define lll	((flag64_t) 1 << 63)
 #endif

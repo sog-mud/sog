@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.27 1999-09-09 14:35:09 osya Exp $
+* $Id: gsn.h,v 1.28 1999-09-14 03:10:54 avn Exp $
 */
 
 #ifndef _GSN_H_
@@ -250,6 +250,7 @@ extern int gsn_throw_weapon;
 extern int gsn_herbs;
 extern int gsn_fence;
 extern int gsn_resurrection;
+extern int gsn_free_action;
 
 extern int gsn_qtarget;
 

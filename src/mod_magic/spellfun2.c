@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.130 1999-09-08 10:40:19 fjoe Exp $
+ * $Id: spellfun2.c,v 1.131 1999-09-14 03:11:01 avn Exp $
  */
 
 /***************************************************************************
@@ -3224,7 +3224,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 	
 	target_name = one_argument(target_name, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Whom do you want to have killed.\n",ch);
+		char_puts("Whom do you want to have killed?\n",ch);
 		return;
 	}
 
@@ -3237,7 +3237,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}	
 
-	char_puts("You call for a hunter lion.\n", ch);
+	char_puts("You call a hunter lion.\n", ch);
 	act("$n shouts a hunter lion.", ch, NULL, NULL, TO_ROOM);
 
 	if (is_affected(ch, sn)) {
@@ -3246,9 +3246,9 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (ch->in_room != NULL
+	if (ch->in_room == NULL
 	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-		char_puts("No lions can listen you.\n", ch);
+		char_puts("No lions can hear you.\n", ch);
 		return;
 	}
 
@@ -3278,14 +3278,14 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 	lion->max_mana = ch->max_mana;
 	lion->mana = lion->max_mana;
 	lion->alignment = ch->alignment;
-	lion->level = UMIN(100,ch->level);
+	lion->level = UMIN(100,LEVEL(ch));
 	for (i=0; i < 3; i++)
 	lion->armor[i] = interpolate(lion->level,100,-100);
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->sex = ch->sex;
 	lion->gold = 0;
-	NPC(lion)->dam.dice_number = number_range(level/15, level/10);   
-	NPC(lion)->dam.dice_type = number_range(level/3, level/2);
+	NPC(lion)->dam.dice_number = number_range(LEVEL(ch)/15, LEVEL(ch)/10);   
+	NPC(lion)->dam.dice_type = number_range(LEVEL(ch)/3, LEVEL(ch)/2);
 	lion->damroll = number_range(level/8, level/6);
 	
 	char_puts("A hunter lion comes to kill your victim!\n", ch);
@@ -3320,6 +3320,11 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_NPC(victim)) {
 		char_puts("Your victim is a npc. Not necessary!\n",ch);
+		return;
+	}
+
+	if (IS_SET(PC(ch)->plr_flags, PLR_NOEXP)) {
+		char_puts("Seek their soul somewhere else.\n", ch);
 		return;
 	}
 
@@ -5368,3 +5373,34 @@ void spell_mana_restore(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (ch != vch) char_puts("Ok.\n", ch);
 }
 
+void spell_water_breathing(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level; 
+	af.duration	= level / 12;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= AFF_WATER_BREATHING;
+	affect_to_char(vch, &af); 
+	char_puts("Breathing seems a bit easier.\n", vch);
+}
+
+void spell_free_action(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	AFFECT_DATA af;
+
+	af.where	= TO_AFFECTS;
+	af.type		= gsn_free_action;
+	af.level	= level; 
+	af.duration	= level / 12;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= AFF_SWIM;
+	affect_to_char(vch, &af); 
+	char_puts("You can move easier.\n", vch);
+}

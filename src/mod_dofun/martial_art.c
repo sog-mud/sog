@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.111 1999-09-11 12:49:56 fjoe Exp $
+ * $Id: martial_art.c,v 1.112 1999-09-14 03:10:53 avn Exp $
  */
 
 /***************************************************************************
@@ -1883,6 +1883,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (is_affected(victim, gsn_free_action)) chance -= 15;
 	if (is_safe(ch, victim))
 		return;
 
@@ -1946,7 +1947,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch == victim) {
-		char_puts("You idiot?! Blackjack your self?!\n", ch);
+		char_puts("You idiot?! Blackjack yourself?!\n", ch);
 		return;
 	}
 
@@ -1978,6 +1979,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 	chance += can_see(victim, ch) ? 0 : 5;
 	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
 		chance -= 40;
+	if (is_affected(victim, gsn_free_action))
+		chance -= 15;
 
 	WAIT_STATE(ch, SKILL(gsn_blackjack)->beats);
  

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.200 1999-09-11 12:49:50 fjoe Exp $
+ * $Id: act_move.c,v 1.201 1999-09-14 03:10:49 avn Exp $
  */
 
 /***************************************************************************
@@ -1649,7 +1649,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 			af.duration	= number_fuzzy(4);
 			af.location	= APPLY_NONE;
 			af.modifier	= 0;
-			af.bitvector	= AFF_RESURRECTION;
+			af.bitvector	= 0;
 			affect_join(ch, &af);
 			char_puts("You gain power of undead!\n", ch);
 			check_improve(ch, gsn_resurrection, TRUE, 1);
@@ -2025,6 +2025,8 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 
 	if (is_safe(ch,victim))
 		return;
+
+	if (is_affected(victim, gsn_free_action)) chance -= 20;
 
 	WAIT_STATE(ch, SKILL(sn)->beats);
 

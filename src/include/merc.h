@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.228 1999-09-09 14:35:10 osya Exp $
+ * $Id: merc.h,v 1.229 1999-09-14 03:10:54 avn Exp $
  */
 
 /***************************************************************************
@@ -727,7 +727,7 @@ where_t *where_lookup(flag32_t where);
 #define AFF_BLEND		(ww)	/* Forest blending */
 #define AFF_AWARENESS		(xx)	/* Detect blend and camouflage */
 #define AFF_TURNED		(yy)	/* Character is turned into other creature */
-#define AFF_RESURRECTION        (zz)
+#define AFF_WATER_BREATHING	(zz)
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
@@ -1046,7 +1046,7 @@ enum {
 	SECT_MOUNTAIN,
 	SECT_WATER_SWIM,
 	SECT_WATER_NOSWIM,
-	SECT_UNUSED,
+	SECT_UNDERWATER,
 	SECT_AIR,
 	SECT_DESERT,
 
