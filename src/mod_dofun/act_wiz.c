@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.29 2001-12-25 19:20:22 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.30 2002-01-15 20:34:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1161,20 +1161,25 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 		EXIT_DATA *pexit;
 
 		if ((pexit = location->exit[door]) != NULL) {
-			buf_printf(output, "Door: %d.  To: %d.  Key: %d.  Exit flags: %d.\nKeyword: '%s'.\n",
+			buf_printf(output,
+				"Door: %s (%d).  To: %d.  Key: %d.  Exit flags: [%s].\n",
+				dir_name[door],
 				door,
-				pexit->to_room.r == NULL ?
-				-1 : pexit->to_room.r->vnum,
-		    		pexit->key,
-		    		pexit->exit_info,
-		    		pexit->keyword);
+				pexit->to_room.r == NULL ? -1 : pexit->to_room.r->vnum,
+				pexit->key,
+				flag_string(exit_flags, pexit->exit_info));
+			buf_printf(output, "Keyword: '%s'.\n",
+				pexit->keyword);
 			mlstr_dump(output, "Description: ",
 				   &pexit->description);
 		}
 	}
 	buf_add(output, "Tracks:\n");
-	for (rh = location->history;rh != NULL;rh = rh->next)
-		buf_printf(output,"%s took door %i.\n", rh->name, rh->went);
+	for (rh = location->history; rh != NULL; rh = rh->next) {
+		buf_printf(output, "%s took door %s (%d).\n",
+			   rh->name,
+			   dir_name[rh->went], rh->went);
+	}
 
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
