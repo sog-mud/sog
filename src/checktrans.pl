@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.11 2001-07-16 18:38:24 fjoe Exp $
+# $Id: checktrans.pl,v 1.12 2001-08-30 18:37:54 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
@@ -24,7 +24,7 @@ my $byfile_filename = "checktrans.byfile";
 my @skip_msgs = ( '', ' ', ' \'%s\'' );
 
 # some common messages
-push @skip_msgs, qw / Ok. all %s %s%c%s %d \n ]\n {x $t %s\n .\n auto ON OFF /;
+push @skip_msgs, qw / Ok. all %s %s%c%s %d \n ]\n {x $t $T %s\n .\n auto ON OFF /;
 push @skip_msgs, qw / none (none) /;
 push @skip_msgs, qw / r w w+ a a+ /;
 
