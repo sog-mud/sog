@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.78 1998-10-12 04:57:14 fjoe Exp $
+ * $Id: db.c,v 1.79 1998-10-12 08:47:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1365,7 +1365,6 @@ OBJ_DATA *create_named_obj(OBJ_INDEX_DATA *pObjIndex, int level,
 	res->name		= str_printf(pObjIndex->name, name);
 	res->short_descr	= mlstr_printf(pObjIndex->short_descr, name);
 	res->description	= mlstr_printf(pObjIndex->description, name);
-	res->owner = str_dup(name);
 	return res;
 }
 
