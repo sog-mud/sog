@@ -735,15 +735,17 @@ quest~
 The letters '%s' is carved on the staff.
 ~
 #87
-chaos blade~
-a chaos blade~
-A shiny gold dagger is on the ground.~
-gold~
-weapon TWAIP AN
-dagger 8 1 pierce D
-20 200 0 P
-A
-6 2
+quest mandrake~
+quest staff of mandrake~
+A quest obj flying in the air.~
+energy~
+treasure ATY A
+0 0 -1 0 0
+0 0 0 P
+E
+quest~
+The letters '%s' is carved on the staff.
+~
 #88
 eyed sword~
 %s's eyed sword~
@@ -892,17 +894,15 @@ A
 A
 14 500
 #97
-quest mandrake~
-quest staff of mandrake~
-A quest obj flying in the air.~
-energy~
-treasure ATY A
-0 0 -1 0 0
-0 0 0 P
-E
-quest~
-The letters '%s' is carved on the staff.
-~
+chaos blade~
+a chaos blade~
+A shiny gold dagger is on the ground.~
+gold~
+weapon TWAIP AN
+dagger 8 1 pierce D
+20 200 0 P
+A
+6 2
 #98
 sword katana~
 a katana sword~

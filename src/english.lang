@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.28 1998-05-30 16:01:31 efdi Exp $
+# $Id: english.lang,v 1.29 1998-06-02 15:26:14 fjoe Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -399,7 +399,7 @@ QUEST_RUNES_MOST_HEINOUS	"Rune's most heinous criminal, {W%s{G, has escaped from
 QUEST_HAS_MURDERED     "Since the escape ,{W%s{G has murdered {W%d{G civilians!"
 QUEST_THE_PENALTY_IS	"The penalty for this crime is death, and you are to deliver the sentence!"
 QUEST_ENEMY_OF_MINE	"An enemy of mine, {W%s{G, is making vile threats against the crown."
-QUEST_ELEMINATE_THREAT	"This threat must be eleminated!"
+QUEST_ELIMINATE_THREAT	"This threat must be eliminated!"
 QUEST_SEEK_S_OUT	"Seek {W%s{G out in vicinity of {W%s{G!"
 QUEST_LOCATION_IS_IN_AREA	"That location is in general area of {W%s{G for {W%s{G."
 QUEST_VILE_PILFERERS	"Vile pilferers have stolen {W%s{G from the royal treasury!"
