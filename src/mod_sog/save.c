@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.204 2003-03-06 20:07:51 avn Exp $
+ * $Id: save.c,v 1.205 2003-04-23 08:13:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1084,7 +1084,8 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 			MOVE(vnum);
 
 		if ((obj = create_obj(vnum, CO_F_NOCOUNT)) == NULL) {
-			log(LOG_INFO, "fread_obj: %s: vnum %d: no such object",
+			log(LOG_INFO,
+			    "fread_obj: %s: can't create object vnum %d",
 			    ch->name, vnum);
 			fread_to_end(fp);
 			return;

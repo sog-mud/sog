@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.366 2003-04-17 17:20:42 fjoe Exp $
+ * $Id: handler.c,v 1.367 2003-04-23 08:13:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -936,6 +936,11 @@ create_obj(int vnum, int flags)
 		return NULL;
 	}
 
+	if (!IS_SET(flags, CO_F_NOLIMIT)
+	&&  pObjIndex->limit >= 0
+	&&  pObjIndex->count >= pObjIndex->limit)
+		return NULL;
+
 	obj = new_obj();
 
 	obj->pObjIndex	= pObjIndex;
@@ -1001,9 +1006,10 @@ clone_obj(OBJ_DATA *parent)
 	OBJ_DATA *clone;
 
 	/*
-	 * create_obj can't return NULL becase parent->pObjIndex is not NULL
+	 * create_obj can't return NULL here because parent->pObjIndex
+	 * is not NULL and CO_F_NOLIMIT is used
 	 */
-	clone = create_obj(parent->pObjIndex->vnum, 0);
+	clone = create_obj(parent->pObjIndex->vnum, CO_F_NOLIMIT);
 
 	/* start copying the object */
 	free_string(clone->label);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.43 2003-04-17 19:33:07 fjoe Exp $
+ * $Id: sog.h,v 1.44 2003-04-23 08:13:11 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -75,6 +75,7 @@ DECLARE_PROC2(quit_char,
 
 /* create_obj flags */
 #define CO_F_NOCOUNT	(A)	/* do not update obj count */
+#define CO_F_NOLIMIT	(B)	/* do not check obj limit */
 
 DECLARE_FUN2(OBJ_DATA, create_obj,
 	     ARG(int), vnum, ARG(int), flags)

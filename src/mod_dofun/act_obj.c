@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.284 2003-04-17 17:20:36 fjoe Exp $
+ * $Id: act_obj.c,v 1.285 2003-04-23 08:13:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2127,11 +2127,10 @@ DO_FUN(do_buy, ch, argument)
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		for (t_obj = obj->next_content; count < number && t_obj != NULL;
 		     t_obj = t_obj->next_content) {
-			if (t_obj->pObjIndex == obj->pObjIndex
-			&& !mlstr_cmp(&t_obj->short_descr, &obj->short_descr))
-				count++;
-			else
+			if (t_obj->pObjIndex != obj->pObjIndex
+			||  !!mlstr_cmp(&t_obj->short_descr, &obj->short_descr))
 				break;
+			count++;
 		}
 
 		if (count < number) {
@@ -2196,13 +2195,9 @@ DO_FUN(do_buy, ch, argument)
 	keeper->silver += cost * number - (cost * number / 100) * 100;
 
 	for (count = 0; count < number; count++) {
-		if (IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
-			/*
-			 * create_obj can't return NULL because
-			 * obj->pObjIndex is not NULL
-			 */
-			t_obj = create_obj(obj->pObjIndex->vnum, 0);
-		} else {
+		if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
+			t_obj = clone_obj(obj);
+		else {
 			t_obj = obj;
 			obj = obj->next_content;
 		}
@@ -3858,7 +3853,7 @@ DO_FUN(do_outfit, ch, argument)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL
-	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_BANNER, 0))) {
+	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_BANNER, 0)) != NULL) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);
@@ -3866,7 +3861,7 @@ DO_FUN(do_outfit, ch, argument)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL
-	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_VEST, 0))) {
+	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_VEST, 0)) != NULL) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);
@@ -3876,7 +3871,7 @@ DO_FUN(do_outfit, ch, argument)
 	/* do the weapon thing */
 	if (((obj = get_eq_char(ch, WEAR_WIELD)) == NULL)
 	&&  free_hands(ch)
-	&&  (obj = create_obj(cl->weapon, 0))) {
+	&&  (obj = create_obj(cl->weapon, 0)) != NULL) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);
@@ -3885,7 +3880,7 @@ DO_FUN(do_outfit, ch, argument)
 
 	if (((obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
 	&&  free_hands(ch)
-	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_SHIELD, 0))) {
+	&&  (obj = create_obj(OBJ_VNUM_SCHOOL_SHIELD, 0)) != NULL) {
 		obj->cost = 0;
 		obj->condition = 100;
 		obj_to_char(obj, ch);

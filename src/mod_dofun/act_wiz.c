@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.317 2003-04-19 00:34:48 fjoe Exp $
+ * $Id: act_wiz.c,v 1.318 2003-04-23 08:13:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2173,8 +2173,9 @@ DO_FUN(do_oload, ch, argument)
 
 	/*
 	 * create_obj can't return NULL because get_obj_index returned not NULL
+	 * and CO_F_NOLIMIT is used
 	 */
-	obj = create_obj(pObjIndex->vnum, 0);
+	obj = create_obj(pObjIndex->vnum, CO_F_NOLIMIT);
 	if (CAN_WEAR(obj, ITEM_TAKE))
 		obj_to_char(obj, ch);
 	else

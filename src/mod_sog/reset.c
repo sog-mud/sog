@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: reset.c,v 1.6 2001-12-03 22:28:41 fjoe Exp $
+ * $Id: reset.c,v 1.7 2003-04-23 08:13:21 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -162,22 +162,17 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 			}
 
-			if ((pObjIndex->limit != -1)
-			&&  pObjIndex->count >= pObjIndex->limit) {
-				lobj = FALSE;
-				break;
-			}
-
 			if (number_percent() < pReset->arg0) {
 				lobj = FALSE;
 				break;
 			}
 
-			/*
-			 * create_obj can't fail here because get_obj_index
-			 * returned not NULL
-			 */
 			last_obj = create_obj(pObjIndex->vnum, 0);
+			if (last_obj == NULL) {
+				lobj = FALSE;
+				break;
+			}
+
 			pObjIndex->reset_num++;
 			if (pReset->command == 'G'
 			&&  last_mob->pMobIndex->pShop) /* Shop-keeper? */
@@ -211,18 +206,17 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 
 			if ((pRoom->area->nplayer > 0 &&
 			     !IS_SET(flags, RESET_F_NOPCHECK))
-			||  count_obj_list(pObjIndex, pRoom->contents) > 0
-			||  (pObjIndex->limit != -1 &&
-			     pObjIndex->count >= pObjIndex->limit)) {
+			||  count_obj_list(pObjIndex, pRoom->contents) > 0) {
 				lobj = FALSE;
 				break;
 			}
 
-			/*
-			 * create_obj can't fail here because get_obj_index
-			 * returned not NULL
-			 */
 			last_obj = create_obj(pObjIndex->vnum, 0);
+			if (last_obj == NULL) {
+				lobj = FALSE;
+				break;
+			}
+
 			pObjIndex->reset_num++;
 			last_obj->cost = 0;
 			lobj = TRUE;
@@ -274,11 +268,10 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 					||  pObjIndex->vnum != clan->obj_vnum)
 						continue;
 
-					/*
-					 * create_obj can't fail here because
-					 * get_obj_index returned not NULL
-					 */
 					obj = create_obj(pObjIndex->vnum, 0);
+					if (obj == NULL)
+						continue;
+
 					pObjIndex->reset_num++;
 					clan->obj_ptr = obj;
 					clan->altar_ptr = obj;
@@ -292,16 +285,13 @@ reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 			for (; ;) {
 				if (count >= pReset->arg4
 				||  (pObjIndex->count >= limit &&
-				     number_range(0, 4) != 0)
-				||  (pObjIndex->limit != -1 &&
-				     pObjIndex->count >= pObjIndex->limit))
+				     number_range(0, 4) != 0))
 					break;
 
-				/*
-				 * create_obj can't fail here because
-				 * get_obj_index returned not NULL
-				 */
 				obj = create_obj(pObjIndex->vnum, 0);
+				if (obj == NULL)
+					break;
+
 				pObjIndex->reset_num++;
 				obj_to_obj(obj, last_obj);
 				count++;

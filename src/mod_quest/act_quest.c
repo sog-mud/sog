@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.166 2003-04-19 16:12:40 fjoe Exp $
+ * $Id: act_quest.c,v 1.167 2003-04-23 08:13:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -909,16 +909,15 @@ quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 
 		if ((qt && qt->count > count_max)
 		||  !IS_SET(pObjIndex->obj_flags, OBJ_QUEST)) {
-
-			/* ch requested this item too many times	*
-			 * or the item is not quest			*/
-
+			/*
+			 * ch requested this item too many times
+			 * or the item is not quest
+			 */
 			QUESTOR_TELLS_YOU(questor, ch);
 			act_puts("    This item is beyond the trouble option.",
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
 			return FALSE;
-		}
-		else if (!qt) {
+		} else if (!qt) {
 			/* ch has never bought this item, but requested it */
 			QUESTOR_TELLS_YOU(questor, ch);
 			act_puts("    Sorry, $N, but you haven't bought "
@@ -939,10 +938,8 @@ quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 		}
 	}
 
-	/*
-	 * create_obj can't return NULL because pObjIndex is not NULL
-	 */
-	reward = create_obj(pObjIndex->vnum, 0);
+	if ((reward = create_obj(pObjIndex->vnum, 0)) == NULL)
+		return FALSE;
 
 	/* update quest trouble data */
 	if (qt && count_max) {
@@ -954,10 +951,11 @@ quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 			 "that award back.",
 			 questor, (const void*) qt->count, ch,
 			 TO_VICT, POS_DEAD);
-		if (qt->count > count_max) 
+		if (qt->count > count_max) {
 			act_puts("    And I won't give you that again, "
 				 "with trouble option.",
 				 questor, NULL, ch, TO_VICT, POS_DEAD);
+		}
 	}
 
 	if (!qt && IS_SET(pObjIndex->obj_flags, OBJ_QUEST)) {

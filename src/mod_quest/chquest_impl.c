@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest_impl.c,v 1.8 2001-08-20 16:47:37 fjoe Exp $
+ * $Id: chquest_impl.c,v 1.9 2003-04-23 08:13:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,17 +82,22 @@ void
 chquest_startq(chquest_t *q)
 {
 	ROOM_INDEX_DATA *room;
+	OBJ_DATA *obj;
+
+	obj = create_obj(q->obj_index->vnum, 0);
+	if (obj == NULL) {
+		log(LOG_ERROR,
+		    "chquest_startq: can't create obj '%s' (vnum %d)",
+		    mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
+	}
 
 #if CHQUEST_DEBUG
 	log(LOG_INFO, "chquest_startq: started chquest for '%s' (vnum %d)",
 	    mlstr_mval(&q->obj_index->short_descr), q->obj_index->vnum);
 #endif
 
-	/*
-	 * create_obj can't return NULL because q->obj_index is not NULL
-	 */
 	SET_RUNNING(q);
-	q->obj = create_obj(q->obj_index->vnum, 0);
+	q->obj = obj;
 	q->obj->timer = number_range(100, 150);
 
 	do {
