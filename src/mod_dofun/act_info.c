@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.113 1998-08-07 09:21:28 fjoe Exp $
+ * $Id: act_info.c,v 1.114 1998-08-07 11:35:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -582,7 +582,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
-	if (victim->level <= LEVEL_HERO)
+	if (IS_NPC(victim) || victim->level < LEVEL_IMMORTAL)
 		char_printf(ch, "(%s) ", race_table[RACE(victim)].name);
 
 	char_printf(ch, "%s %s\n\r",

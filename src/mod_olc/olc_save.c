@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.12 1998-08-06 21:44:48 fjoe Exp $
+ * $Id: olc_save.c,v 1.13 1998-08-07 11:35:38 fjoe Exp $
  */
 
 /**************************************************************************
@@ -481,18 +481,19 @@ void save_objects(FILE *fp, AREA_DATA *pArea)
 }
  
 
-int exitcmp(const void *p1, const void *p2)
+static int find_exit(EXIT_DATA **exit, int start, int door)
 {
-	EXIT_DATA *ed1 = *(EXIT_DATA**)p1;
-	EXIT_DATA *ed2 = *(EXIT_DATA**)p2;
+	EXIT_DATA *pExit;
+	int i;
 
-	if (ed1 == NULL)
-		return ed2 == NULL ? 0 : -1;
-	else if (ed2 == NULL)
-		return 1;
-	return ed1->orig_door - ed2->orig_door;
+	for (i = start; i < MAX_DIR; i++)
+		if ((pExit = exit[i]) != NULL
+		&&  pExit->orig_door == door)
+			return i;
+	return -1;
 }
-
+				
+	
 /*****************************************************************************
  Name:		save_rooms
  Purpose:	Save #ROOMS section of an area file.
@@ -503,8 +504,10 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
     ROOM_INDEX_DATA *pRoomIndex;
     ED_DATA *pEd;
     EXIT_DATA *pExit;
+    EXIT_DATA **exit;
     int iHash;
     int door;
+    int i = 0;
 
     fprintf(fp, "#ROOMS\n");
     for(iHash = 0; iHash < MAX_KEY_HASH; iHash++)
@@ -528,8 +531,16 @@ void save_rooms(FILE *fp, AREA_DATA *pArea)
 		    mlstr_fwrite(fp, NULL, pEd->description);
                 }
 
-		qsort(pRoomIndex->exit, MAX_DIR, sizeof(*pRoomIndex->exit),
-		      exitcmp);
+		/* sort exits (to minimize diffs) */
+		exit = pRoomIndex->exit;
+		for (door = 0; door < MAX_DIR; door++)
+			if (/*((pExit = exit[door]) == NULL ||
+			    pExit->orig_door != door)
+			&& */ (i = find_exit(exit, door+1, door)) >= 0) {
+				pExit = exit[door];
+				exit[door] = exit[i];
+				exit[i] = pExit;
+			}
 
                 for(door = 0; door < MAX_DIR; door++)	/* I hate this! */
                 {
