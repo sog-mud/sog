@@ -990,6 +990,7 @@ AB 0 200 0
 C 0 0 0
 stand stand none 1000
 AHMV ABCDEFGHIJK huge unknown
+g @eng none@rus male~
 #17354
 infantry unit взвод пехоты~
 @eng The infantry unit@rus ~~взвод~~ пехоты~
@@ -1006,6 +1007,7 @@ AB 0 0 0
 CO 0 0 0
 stand stand none 1000
 AHMV ABCDEFGHIJK huge unknown
+g @eng none@rus male~
 #17355
 hoard pict picts орда пиктов~
 @eng The pict hoard@rus ~~орда~~ пиктов~
@@ -1021,8 +1023,9 @@ AB 0 -100 0
 50 0 50d10+4250 5d5+5000 5d8+19 'charge'
 -20 -20 -20 0
 CO 0 0 0
-stand stand none 1000
+stand stand neutral 1000
 0 0 giant unknown
+g @eng neutral@rus female~
 #17356
 leader pict лидер пиктов~
 @eng The Pict leader@rus ~~лидер~~ пиктов~
@@ -1223,7 +1226,7 @@ A
 18 2
 A
 19 2
-g none~
+g @eng none@rus male~
 #17302
 mace knight knight's шестопер~
 @eng a knight's mace@rus ~~рыцарский~~ ~~шестопер~~~
@@ -1236,7 +1239,7 @@ A
 18 1
 A
 19 3
-g none~
+g @eng none@rus male~
 #17303
 lance knight knight's копье~
 @eng a knight's lance@rus ~~рыцарское~~ ~~копье~~~
@@ -1272,7 +1275,7 @@ E
 crest hautdesert~
 The crest has a stag on a verdant field
 ~
-g none~
+g @eng none@rus female~
 #17305
 axe benlad benlad's топор бенлад~
 @eng benlad's axe@rus ~~топор~~ Бенлада~
@@ -1291,7 +1294,7 @@ E
 crest~
 The crest has a stag on a verdant field
 ~
-g none~
+g @eng none@rus male~
 #17306
 bracer white белый браслет~
 @eng a white bracer@rus ~~белый~~ ~~браслет~~~
@@ -1312,7 +1315,7 @@ A
 19 3
 A
 13 20
-g none~
+g @eng none@rus male~
 #17307
 grail holy грааль~
 @eng the holy grail@rus ~~Святой~~ ~~Грааль~~~
@@ -1321,7 +1324,7 @@ wood~
 potion GKL AO
 40 'heal' 'heal' 'heal' ''
 40 1 2500 P
-g none~
+g @eng none@rus male~
 #17308
 cloak many orkney плащ многоцветный~
 @eng a many colored cloak@rus ~~многоцветный~~ ~~плащ~~~
@@ -1334,7 +1337,7 @@ A
 2 2
 A
 13 20
-g none~
+g @eng none@rus male~
 #17309
 shield щит многоцветный~
 @eng a shield of many colors@rus ~~многоцветный~~ ~~щит~~~
@@ -1345,7 +1348,7 @@ armor GK AJ
 34 4 1500 P
 A
 19 4
-g none~
+g @eng none@rus male~
 #17310
 sword excalibur меч экскалибур~
 @eng excalibur@rus ~~меч~~ "Экскалибур"~
@@ -1372,7 +1375,7 @@ dead, it is up to you to right what he wrought. Seek out and destroy Mordred
 and Morgan Le Fey. They are destroying Camelot." The voice and the light 
 gradually fade leaving you with only a lingering warm feeling.
 ~
-g none~
+g @eng none@rus male~
 #17311
 scabbard arthur arthur's golden ножны артура~
 @eng arthur's scabbard@rus ~~ножны~~ короля Артура~
@@ -1389,7 +1392,7 @@ A
 23 -5
 A
 24 -5
-g none~
+g @eng none@rus plural~
 #17312
 armband armbands garlon garlon's наручи гарлон~
 @eng garlon's invisible armbands@rus ~~невидимые~~ ~~наручи~~ Гарлона~
@@ -1402,7 +1405,7 @@ A
 17 -5
 A
 5 2
-g none~
+g @eng none@rus plural~
 #17313
 helm horned gawaine gawaine's шлем гавэйн рогатый~
 @eng gawaine's horned helm@rus ~~рогатый~~ ~~шлем~~ Гавэйна~
@@ -1411,7 +1414,7 @@ iron~
 armor C AE
 9 9 9 9 0
 34 3 2500 P
-g none~
+g @eng none@rus male~
 #17314
 spurs silver lamorak lamorak's шпоры ламорак~
 @eng lamorak's spurs@rus ~~шпоры~~ сэра Ламорака~
@@ -1424,7 +1427,7 @@ A
 18 2
 A
 19 2
-g none~
+g @eng none@rus plural~
 #17315
 gauntlets bravery перчатки храбрости~
 @eng gauntlets of bravery@rus ~~перчатки~~ Храбрости~
@@ -1437,7 +1440,7 @@ A
 18 5
 A
 19 5
-g none~
+g @eng none@rus plural~
 #17316
 ring incubus crest gold кольцо инкуб~
 @eng the Incubus crest ring@rus ~~кольцо~~ инкуба~
@@ -1471,7 +1474,7 @@ This is type wand so you can dispel magic on others. Staff only works on self.
 -
 show
 ~
-g none~
+g @eng none@rus male~
 #17318
 greaves blackened steel поножи черные~
 @eng a pair of blackened steel greaves@rus ~~черные~~ ~~поножи~~~
@@ -1490,7 +1493,7 @@ You look at the inscription. It reads "I do hereby swear to not reveal my
 crest until I have stopped all from entering Camelot for a period of 5 years, 
 as I have promised Morgana in exchange for the favor of Eveline"
 ~
-g none~
+g @eng none@rus plural~
 #17319
 wand rod жезл мраморный~
 @eng a marble rod with a white hot tip@rus ~~мраморный~~ ~~жезл~~~
@@ -1506,7 +1509,7 @@ the previous's wands owner, Morgan Le Fey. You hear a cackling laughter and
 red eyes bore into your head. As the vison fades you hear the message '
 ...with each charmed, your soul belongs a little more to me...'.
 ~
-g none~
+g @eng none@rus male~
 #17320
 pack backpack trailpack leather pellinore pellinore's мешок пеллинор рюкзак~
 @eng pellinore's trailpack@rus ~~дорожный~~ ~~мешок~~ Пеллинора~
@@ -1524,7 +1527,7 @@ of items you carry will increase, and you will be able to travel long
 distances without tiring. I have made this pack lockable (use the key with 
 the letter P). May you succeed in your quest!     - Merlin".
 ~
-g none~
+g @eng none@rus male~
 #17321
 key p letter ключ р~
 @eng a key with the letter "P" on it@rus ~~ключ~~ с буквой "Р"~
@@ -1533,7 +1536,7 @@ brass~
 key 0 AO
 0 0 0 0 0
 27 1 270 P
-g none~
+g @eng none@rus male~
 #17322
 rations trail рацион дорожный~
 @eng some trail rations@rus ~~дорожный~~ ~~рацион~~~
@@ -1542,7 +1545,7 @@ flesh~
 food 0 A
 EF EF 0 0 0
 27 4 270 P
-g none~
+g @eng none@rus male~
 #17323
 flask wine флакон вина~
 @eng a flask of a nice red wine@rus ~~флакон~~ красного вина~
@@ -1555,7 +1558,7 @@ E
 wine flask~
 The wine is a beautiful deep red in color, and it goes well with all food.
 ~
-g none~
+g @eng none@rus male~
 #17324
 bones bone pile куча костей~
 @eng a pile of bones@rus ~~куча~~ костей~
@@ -1564,7 +1567,7 @@ stone~
 trash 0 A
 0 0 0 0 0
 22 10 1 P
-g none~
+g @eng none@rus female~
 #17325
 skull human череп~
 @eng a human skull@rus ~~человеческий~~ ~~череп~~~
@@ -1573,7 +1576,7 @@ bone~
 trash 0 A
 0 0 0 0 0
 22 3 220 P
-g none~
+g @eng none@rus male~
 #17326
 rock black small камешек камень черный~
 @eng a small black rock@rus ~~маленький~~ ~~черный~~ ~~камешек~~~
@@ -1600,7 +1603,7 @@ happen. This looks like one of those.
 Оп-па, а камни разве едят??  Гм...  Может, этот камешек спасет тебе жизнь
 однажды?  
 ~
-g none~
+g @eng none@rus male~
 #17327
 letter love любовное письмо~
 @eng a love letter@rus ~~любовное~~ ~~письмо~~~
@@ -1650,7 +1653,7 @@ A
 15 5000
 A
 17 -12
-g none~
+g @eng none@rus female~
 #17329
 spear unholy копье бесовское~
 @eng a spear glowing in an unholy dark light@rus ~~бесовское~~ ~~копье~~~
@@ -1687,7 +1690,7 @@ cloth~
 trash 0 AO
 0 0 0 0 0
 9 1 90 P
-g none~
+g @eng none@rus male~
 #17331
 necklace ожерелье~
 @eng an emerald necklace@rus ~~изумрудное~~ ~~ожерелье~~~
@@ -1707,7 +1710,7 @@ flail 5 7 'crush' 0
 28 30 2300 P
 A
 19 4
-g none~
+g @eng none@rus male~
 #17333
 motley fool fools колпак шут~
 @eng fool's motley@rus ~~шутовской~~ ~~колпак~~~
@@ -1718,7 +1721,7 @@ armor 0 AE
 31 3 5 P
 A
 3 -1
-g none~
+g @eng none@rus male~
 #17334
 helm wolf helmet шлем волчий волка~
 @eng a wolf helm@rus ~~волчий~~ ~~шлем~~~
@@ -1731,7 +1734,7 @@ A
 18 3
 A
 19 3
-g male~
+g @eng male@rus male~
 #17335
 armor shimmering red броня красная сверкающая~
 @eng a suit of shimmering red armor@rus ~~красная~~ ~~броня~~~
@@ -1742,7 +1745,7 @@ armor AG AD
 31 15 1800 P
 A
 17 -10
-g none~
+g @eng none@rus female~
 #17336
 key rusty ключ ржавый~
 @eng a rusty key@rus ~~ржавый~~ ~~ключ~~~
@@ -1751,7 +1754,7 @@ iron~
 key 0 A
 0 0 0 0 0
 38 1 10 P
-g none~
+g @eng none@rus male~
 #17337
 reward награда~
 @eng the reward@rus награда~
@@ -1760,7 +1763,7 @@ paper~
 treasure 0 A
 0 0 0 0 0
 8 1 2000 P
-g none~
+g @eng none@rus female~
 #17338
 key room ключ комнаты~
 @eng a room key@rus ~~ключ~~ от комнаты~
@@ -1769,7 +1772,7 @@ brass~
 key 0 A
 0 0 0 0 0
 0 1 1 P
-g none~
+g @eng none@rus male~
 #17339
 purse heavy кошелек~
 @eng a rather heavy looking purse@rus ~~тяжелый~~ ~~кошелек~~~
@@ -1778,7 +1781,7 @@ leather~
 money 0 A
 1000 0 0 0 0
 0 1 2 P
-g none~
+g @eng none@rus male~
 #17340
 cloak lice infested плащ вшивый~
 @eng a lice infested cloak@rus ~~вшивый~~ ~~плащ~~~
@@ -1791,7 +1794,7 @@ A
 1 3
 A
 5 -1
-g none~
+g @eng none@rus male~
 #17341
 sword broad steel commander commander's меч стальной широкий командир~
 @eng a commander's steel broad sword@rus ~~широкий~~ ~~меч~~ командира~
@@ -1804,7 +1807,7 @@ A
 18 3
 A
 19 3
-g none~
+g @eng none@rus male~
 #17342
 skin whiskey бурдюк виски~
 @eng a skin of whiskey@rus ~~бурдюк~~ виски~
@@ -1813,7 +1816,7 @@ leather~
 drink 0 A
 50 50 'whisky' 0 0
 28 10 400 P
-g none~
+g @eng none@rus male~
 #17343
 ship dragon корабль дракон~
 @eng a dragon ship@rus ~~корабль~~ со статуей дракона~
@@ -1822,7 +1825,7 @@ wood~
 furniture OT 0
 BD EGIJOP L BCEH BCEH
 29 -15536 290 P
-g none~
+g @eng none@rus male~
 #17344
 angle энгл меч~
 @eng an angle@rus энгл~
@@ -1835,7 +1838,7 @@ A
 18 -3
 A
 19 4
-g none~
+g @eng none@rus male~
 #17345
 rod command жезл командования~
 @eng a rod of command@rus ~~жезл~~ Командования~
@@ -1857,7 +1860,7 @@ dims and you see two hot red eyes cutting though you. A demonic cackle
 sends chills down your spine, and as it fades you hear " with every use, 
 you become mine..."
 ~
-g none~
+g @eng none@rus male~
 #17346
 banner war persante blue стяг синий персант~
 @eng the blue war banner of Persante of Inde@rus ~~синий~~ ~~стяг~~ Персанта Индийского~
@@ -1880,7 +1883,7 @@ E
 banner blue~
 The banner depicts a Griffon on a pale blue sky
 ~
-g none~
+g @eng none@rus male~
 #17347
 lifecutter меч душегуб~
 @eng lifecutter@rus ~~меч~~ "Душегуб"~
@@ -1901,7 +1904,7 @@ As you look at the sword, you hear inside your head the words "My name is
 Lifecutter, and my last master was Dodinas le Savage. Take me and lets 
 slay evil!
 ~
-g none~
+g @eng none@rus male~
 #17348
 armor plate full броня полный комплект стальной~
 @eng a suit of full plate armor@rus ~~полный~~ ~~комплект~~ стальной брони~
@@ -1912,7 +1915,7 @@ armor 0 AD
 30 100 300 P
 A
 17 -8
-g none~
+g @eng none@rus male~
 #17349
 axe топор огромный~
 @eng an enormous axe@rus ~~огромный~~ ~~топор~~ Гахериса~
@@ -1927,7 +1930,7 @@ E
 axe~
 The axe handle has the name 'Gaheris' inscibed on it.
 ~
-g none~
+g @eng none@rus male~
 #17350
 hat top black Lok Lok's шляпа лока~
 @eng lok's black top hat@rus ~~шляпа~~ Лока~
@@ -1960,7 +1963,7 @@ E
 hat~
 Inscribed in the hatband is the message 'I belong to Lok'
 ~
-g none~
+g @eng none@rus female~
 #17351
 plate blue синяя броня~
 @eng blue armor of Persante of Inde@rus ~~синяя~~ ~~броня~~ Персанта Индийского~
@@ -1971,26 +1974,93 @@ armor AG AD
 33 5 2300 P
 A
 5 5
-g none~
+g @eng none@rus female~
 #17352
 daemon symbol символ демон дьявол~
 @eng devilish amulet of Demon@rus ~~дьявольский~~ ~~Символ~~ Демона~
 @eng You notice a splash of blackness of the ground.@rus Ты замечаешь на земле пятно абсолютной черноты.~
 adamantite~
-armor BCEG AC
+armor BCEGJL AC
 15 15 15 25 0
-35 5 9000 P
+43 5 9000 P
 A
-20 -40
+19 10
 A
-19 15
+18 8
 A
-18 12
+12 50
 A
-12 200
+13 60
+g @eng none@rus male~
+#17353
+arthur plate доспехи артур~
+@eng King Arthur's platemail@rus ~~доспехи~~ короля Артура~
+@eng Valuable gold platemaillies piled on the floor.@rus Роскошные золотые доспехи с драгоценной инкрустацией сложены на земле.~
+gold~
+armor AGK AD
+19 19 19 6 0
+43 5 4900 P
 A
-13 200
-g none~
+20 -7
+A
+13 30
+A
+19 9
+A
+18 7
+g @eng none@rus plural~
+#17354
+arthur crown корона артур~
+@eng King Arthur's crown@rus ~~корона~~ короля Артура~
+@eng Beautiful jewelled crown lies here.@rus Красивая корона, украшенная драгоценными камнями, находится здесь.~
+gold~
+armor 0 AE
+10 10 10 6 0
+42 5 3400 P
+A
+12 30
+A
+9 5
+A
+4 5
+A
+13 30
+g @eng none@rus female~
+#17355
+staff посох~
+@eng monk's staff@rus ~~посох~~ монаха~
+@eng Plain wooden staff lies forgotten on the floor.@rus Простой деревянный посох валяется на земле.~
+wood~
+staff GKS AO
+24 15 15 'sleep' 0
+18 30 1400 P
+g @eng none@rus male~
+#17356
+меч двуручный рыцарский sword two-handed knight~
+@eng two-handed knight's sword@rus ~~двуручный~~ ~~рыцарский~~ ~~меч~~~
+@eng Huge and heavy sword lies before you.@rus Двуручный тяжелый меч лежит тут.~
+steel~
+weapon 0 AN
+sword 4 6 '' F
+0 0 0 P
+A
+19 5
+A
+18 -1
+g @eng none@rus male~
+#17357
+sword galantine меч галантин~
+@eng longsword named "Galantine"@rus ~~длинный~~ ~~меч~~ "Галантин"~
+@eng A longsword with carving upon its hilt lies here.@rus Красивый длинный меч с гравировкой по лезвию лежит на земле.~
+adamantite~
+weapon G AN
+sword 8 5 'slash' D
+30 35 6500 P
+A
+19 6
+A
+18 5
+g @eng none@rus male~
 #0
 
 #ROOMS
@@ -4566,6 +4636,12 @@ S
 17338 5 9 18 0 0 100 100 0 23
 17339 0 0 0 0 0 100 100 0 23
 0
+
+#OLIMITS
+O 17352 1	* devilish amulet of Demon
+O 17353 2	* King Arthur's platemail
+O 17357 1	* longsword named "Galantine"
+S
 
 #MOBPROGS
 #17301

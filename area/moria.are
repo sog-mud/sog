@@ -1,5 +1,5 @@
 #AREADATA
-Name Moria~
+Name Мория (Moria)~
 VNUMs 3900 4199
 Credits Alfa~
 Security 9
@@ -8,491 +8,576 @@ End
 
 #MOBILES
 #4000
-python snake~
-the huge python~
-The huge python rears its head and hisses at you. 
+python snake питон толстый~
+@eng the huge python@rus Толстый питон~
+@eng The huge python rears its head and hisses at you.
+@rus Толстый питон (huge pythton) поворачивает голову к тебе и угрожающе шипит.
 ~
-It sways back and forth contemplating whether or not to eat you.
+@eng It sways back and forth contemplating whether or not to eat you.
+@rus Он раскачивается вперед-назад, рассматривая тебя и раздумывая - съесть тебя
+сейчас или оставить на потом?
 ~
 snake~
 ABF D -200 0
-11 2 11d9+110 1d1+99 3d4+2 'bite'
+11 2 11d9+110 1d1+99 3d4+2 bite
 -1 0 3 6
 FHNOR 0 F 0
 stand stand either 0
 0 0 large unknown
 #4001
-garter snake~
-the garter snake~
-A small green garter snake slithers along the floor.
+garter snake змейка садовая~
+@eng the garter snake@rus Садовая змейка~
+@eng A small green garter snake slithers along the floor.
+@rus Маленькая зеленая садовая змейка (garter snake) извивается на полу.
 ~
-It looks harmless enough.  Or is it?
+@eng It looks harmless enough.  Or is it?
+@rus Она выглядит достаточно безопасной. Или нет...?
 ~
 snake~
 ABU J -100 0
-7 0 7d7+60 1d1+99 1d10+1 'bite'
+7 0 7d7+60 1d1+99 1d10+1 bite
 2 3 5 8
 FHR 0 E 0
 stand stand either 0
 0 0 small unknown
 #4002
-centipede~
-the centipede~
-A small centipede here is looking for vegetation.
+centipede сороконожка~
+@eng the centipede@rus Сороконожка~
+@eng A small centipede here is looking for vegetation.
+@rus Маленькая сороконожка (centipede) ищет что-нибудь растительное на пропитание.
 ~
-It looks completely harmless but who knows for sure?
+@eng It looks completely harmless but who knows for sure?
+@rus Она выглядит абсолютно безопасной, но кто знает наверняка?
 ~
 centipede~
 ABU J 100 0
-3 0 3d3+30 1d1+99 1d6+0 'sting'
+3 0 3d3+30 1d1+99 1d6+0 sting
 6 7 9 10
 FR 0 0 0
 stand stand none 0
 0 0 tiny unknown
 #4003
-kobold~
-the kobold~
-An ugly kobold mumbles something under its breath.
+kobold кобольд~
+@eng the kobold@rus Кобольд~
+@eng An ugly kobold mumbles something under its breath.
+@rus Уродливый кобольд (kobold) невнятно что-то бормочет.
 ~
-It looks ugly enough to scare its own mother.
+@eng It looks ugly enough to scare its own mother.
+@rus Он выглядит достаточно уродливым, чтобы испугать его собственную мать.
 ~
 kobold~
 ACGT 0 -100 0
-4 0 4d4+40 1d1+99 1d4+1 'claw'
+4 0 4d4+40 1d1+99 1d4+1 claw
 7 7 7 10
 R 0 0 0
 stand stand either 18
 0 0 small unknown
 #4004
-orc~
-the orc~
-This orc is frothing around the mouth.  Better stay away.
+orc орк~
+@eng the orc@rus Орк~
+@eng This orc is frothing around the mouth.  Better stay away.
+@rus Из пасти орка (orc) исходит тяжелое зловоние. От него лучше держаться подальше.
 ~
-You notice a slight tinge of madness in his eyes.
+@eng You notice a slight tinge of madness in his eyes.
+@rus В его глазах заметен оттенок безумия. Осторожно! Вдруг это заразно?
 ~
 orc~
 ACFGT 0 -400 0
-5 2 6d5+50 1d1+199 1d6+3 'beating'
+5 2 6d5+50 1d1+199 1d6+3 beating
 7 7 7 10
 CDNR 0 C 0
 stand stand male 60
 B 0 medium unknown
 #4005
-orc~
-the large orc~
-This large orc is looking for someone small to pick on.
+large orc большой орк~
+@eng the large orc@rus Большой орк~
+@eng This large orc is looking for someone small to pick on.
+@rus Большой орк (large orc) ищет кого-нибудь маленького, чтобы придраться к нему.
 ~
-The orc says, "Whatcha look'n at?"
+@eng The orc says, "Whatcha look'n at?"
+@rus Орк говорит: "Чего уставился?"
 ~
 orc~
 ACGT 0 -500 0
-7 1 6d7+70 1d1+99 1d8+2 'punch'
+7 1 6d7+70 1d1+99 1d8+2 punch
 4 5 5 8
 CJR 0 0 0
 stand stand either 120
 0 0 medium unknown
 #4050
-warrior~
-the warrior~
-This tall warrior has more scars than even you!
+warrior воин высокий~
+@eng the warrior@rus Высокий воин~
+@eng This tall warrior has more scars than even you!
+@rus Высокий воин (warrior) имеет большее количество шрамов чем ты можешь счесть!
 ~
-He's surely a strong, brainless fighter.  Like you.
+@eng He's surely a strong, brainless fighter.  Like you.
+@rus Он сильный, но глупый боец. Похож на тебя.
 ~
 human~
-ABC J -300 0
-12 3 10d12+120 1d1+149 1d8+4 'punch'
+ABCFT J -300 0
+12 3 10d12+120 1d1+149 1d8+4 punch
 1 -1 2 5
 CIQR 0 0 0
 stand stand male 300
 0 0 medium unknown
 #4051
-warrior~
-the warrior~
-This veteran warrior is old enough to be your father.
+warrior старый воин~
+@eng the warrior@rus Старый воин~
+@eng This veteran warrior is old enough to be your father.
+@rus Этот старый воин (warrior) достаточно стар, чтобы быть твоим отцом.
 ~
-He seems to know his way with weapons.  And he wants
+@eng He seems to know his way with weapons.  And he wants
 to show you what he can do!
+@rus Он, кажется, знает толк в оружии. И он хочет показать тебе, что он умеет!
 ~
 human~
 ACFT J -400 0
-7 2 8d7+70 1d1+99 1d7+2 'punch'
+7 2 8d7+70 1d1+99 1d7+2 punch
 4 5 4 8
 CIQR 0 0 C
 stand stand male 140
 0 0 medium unknown
 #4052
-hobgoblin~
-the hobgoblin~
-A small beat-up hobgoblin cringes in the corner.
+hobgoblin хобгоблин~
+@eng the hobgoblin@rus Хобгоблин~
+@eng A small beat-up hobgoblin cringes in the corner.
+@rus Маленький забитый хобгоблин (hobgoblin) съежился в углу.
 ~
-Looking into the eyes of this poor soul makes you feel
+@eng Looking into the eyes of this poor soul makes you feel
 sad as you see the terror and fear in its eyes.  Why
 don't you put it out of its misery?
+@rus Взгляд  глаз этой бедной души заставляет тебя грустить, поскольку ты видишь
+ужас и опаску в его глазах. Почему бы тебе не вытащить его из этой нищеты?
 ~
 hobgoblin~
 ACGHT 0 -300 0
-6 0 6d6+40 1d1+99 1d6+1 'beating'
+6 0 6d6+40 1d1+99 1d6+1 beating
 6 5 5 8
 N 0 0 C
 stand stand male 12
 0 0 medium unknown
 #4053
-snake~
-the snake~
-A sickly brown snake watches you with caution.
+snake змея~
+@eng the snake@rus Змея~
+@eng A sickly brown snake watches you with caution.
+@rus Тощая коричневая змея (snake) флегматично наблюдает за тобой.
 ~
-A closer look reveals a hungry demeanor.  Don't get too close!
+@eng A closer look reveals a hungry demeanor.  Don't get too close!
+@rus Более пристальный взгляд на змею говорит тебе, что змея голодна! Не подходи
+слишком близко!
 ~
 snake~
 ABFU J -600 0
-10 1 4d10+100 1d1+99 2d6+1 'bite'
+10 1 4d10+100 1d1+99 2d6+1 bite
 0 2 2 5
 FGNR 0 EF 0
 stand stand either 0
 0 0 medium unknown
 #4054
-centipede~
-the centipede~
-A white centipede crawls along the cave floors randomly.
+centipede многоножка~
+@eng the centipede@rus Многоножка~
+@eng A white centipede crawls along the cave floors randomly.
+@rus Белая многоножка (centipede) беспорядочно ползает по полу пещеры.
 ~
-The centipede doesn't really seem to notice you.
+@eng The centipede doesn't really seem to notice you.
+@rus Многоножка, кажется, действительно не замечает тебя.
 ~
 centipede~
 ABU J -100 0
-5 0 5d5+50 1d1+99 1d8+0 'sting'
+5 0 5d5+50 1d1+99 1d8+0 sting
 4 7 5 10
 FR 0 0 0
 stand stand none 0
 0 0 small unknown
 #4055
-hobgoblin~
-the large hobgoblin~
-A large hobgoblin is here wondering if he should tear you apart.
+hobgoblin большой хобгоблин~
+@eng the large hobgoblin@rus Большой хобгоблин~
+@eng A large hobgoblin is here wondering if he should tear you apart.
+@rus Большой хобгоблин (large hobgoblin) раздумывает, глядя на тебя - не тебя
+ли он порвал недавно?
 ~
-Red, bloodshot eyes and drool dripping from its mouth makes you
+@eng Red, bloodshot eyes and drool dripping from its mouth makes you
 wonder just how far away you should be.
+@rus Красные,  налитые кровью глаза и слюни, капающие из его рта заставляют тебя
+задаться вопросом - как далеко от него нужно держаться?
 ~
 hobgoblin~
 ACGT 0 -500 0
-10 2 2d10+120 1d1+149 2d4+3 'punch'
+10 2 2d10+120 1d1+149 2d4+3 punch
 2 2 1 5
 CDJR 0 C 0
 stand stand male 210
 0 0 medium unknown
 #4056
-orc~
-the orc~
-An orc is here, looking for something (or perhaps someone) to eat.
+orc орк~
+@eng the orc@rus Орк~
+@eng An orc is here, looking for something (or perhaps someone) to eat.
+@rus Орк (orc) рыщет здесь в поисках чего-то (или кого-то) съестного.
 ~
-As you already know, orcs have quite a ravenous appetite.  
+@eng As you already know, orcs have quite a ravenous appetite.  
 Care to be dinner?
+@rus Ты,  наверное,  в  курсе  орочьего  аппетита.  Не  хочешь  поучаствовать? В
+качестве обеда.
 ~
 orc~
 ACFGT 0 -800 0
-8 1 3d10+90 1d1+99 1d8+2 'beating'
+8 1 3d10+90 1d1+99 1d8+2 beating
 3 3 2 5
 CNR 0 0 0
 stand stand either 60
 0 0 medium unknown
 #4057
-lion mountain~
-the mountain lion~
-A mountain lion bears its teeth at the sight of more food.
+lion mountain горный лев~
+@eng the mountain lion@rus Горный лев~
+@eng A mountain lion bears its teeth at the sight of more food.
+@rus Горный лев (mountain lion) оскалился при виде такого количества продовольствия.
 ~
-Huge claws and big teeth make quite a fearsome opponent for
+@eng Huge claws and big teeth make quite a fearsome opponent for
 the weary.  Are you next?
+@rus Огромные  когти  и  острые  зубы,  покрытые  густой шерстью... Внушительный
+соперник. Ты уверен, что пришел сюда для этого?
 ~
 cat~
 AFG 0 -100 0
-9 2 4d10+100 1d1+99 2d6+1 'claw'
+9 2 4d10+100 1d1+99 2d6+1 claw
 0 0 0 4
 ER 0 E 0
 stand stand either 0
 0 0 large unknown
 #4058
-giant hill~
-the hill giant~
-A hill giant is here tossing rocks around.  Marbles perhaps?
+giant hill гигант холмов~
+@eng the hill giant@rus Гигант с холмов~
+@eng A hill giant is here tossing rocks around.  Marbles perhaps?
+@rus Гигант c холмов (hill giant) расшвыривает камни. Похоже, мрамор...
 ~
-The hill giant looks like he's about 9 feet tall. By his actions you
+@eng The hill giant looks like he's about 9 feet tall. By his actions you
 come to the conclusion that he's not very intelligent.  A perfect
 playmate for you.
+@rus Гигант  с  холмов  приблизительно  девяти  футов  ростом.  Наблюдая  за его
+действиями  можно  придти  к выводу, что умом природа его обделила. Хороший
+приятель для тебя!
 ~
 giant~
 AGT 0 0 0
-13 2 10d10+150 10d10+100 2d6+6 'smash'
+13 2 10d10+150 10d10+100 2d6+6 smash
 0 -2 0 4
 DOR 0 D 0
 stand stand male 500
 0 0 huge unknown
 #4100
-mage~
-the Mage~
-A small intelligent looking mage is standing here. It looks like he
+mage Маг~
+@eng the Mage@rus Маг~
+@eng A small intelligent looking mage is standing here. It looks like he
 knows his way with magic. 
+@rus Здесь  стоит маленький, симпатично выглядящий волшебник (Mage). Его вещи 
+говорят о том, что с магией он знаком хорошо.
 ~
-This guy can ace the SAT with his frontal lobe tied behind his back.
+@eng This guy can ace the SAT with his frontal lobe tied behind his back.
+@rus У него просто обалденная пластика! Он может коснуться лбом своих пяток!
 ~
 human~
 ABCFR D -100 0
-13 1 7d5+130 13d10+100 1d6+2 'punch'
+13 1 7d5+130 13d10+100 1d6+2 punch
 -2 -2 -2 2
 FQ 0 C 0
 stand stand male 400
 0 0 medium unknown
 #4101
-troll~
-the troll~
-This large mean-looking troll wants to take a closer look at you.
+troll троль~
+@eng the troll@rus Троль~
+@eng This large mean-looking troll wants to take a closer look at you.
+@rus Большой озадаченный троль (troll) хочет рассмотреть тебя поближе.
 ~
-Whilst you look at this troll, you realize he is trying to
+@eng Whilst you look at this troll, you realize he is trying to
 figure just how tender you are.
+@rus Пока ты рассматриваешь троля, он пытается скопировать твою фигуру.
 ~
 troll~
 ABCFT 0 -800 0
-12 2 7d10+150 5d10+100 2d7+3 'claw'
+12 2 7d10+150 5d10+100 2d7+3 claw
 0 -3 2 6
 CEOR 0 0 0
 stand stand male 200
 0 0 large unknown
 #4102
-guardian snake~
-the guardian snake~
-A large green snake is guardian for something.
+guardian snake сторожевая змея~
+@eng the guardian snake@rus Cторожевая змея~
+@eng A large green snake is guardian for something.
+@rus Большая зеленая змея (guardian snake) сторожит тут что-то.
 ~
-You take a closer look at this large snake while it tries to
+@eng You take a closer look at this large snake while it tries to
 bite your head off!
+@rus Пока  ты  пытаешься  рассмотреть  ее  поближе,  большая  зеленая  змея явно
+намеревается укусить тебя за твой любопытный нос!
 ~
 snake~
 ABCF J -700 0
-10 2 4d10+100 1d1+99 2d6+1 'bite'
+10 2 4d10+100 1d1+99 2d6+1 bite
 0 0 2 6
 HMNOR 0 F G
 stand stand either 0
 0 0 medium unknown
 #4103
-thief~
-the thief~
-A thief, all dressed in black.
+thief вор~
+@eng the thief@rus Вор~
+@eng A thief, all dressed in black.
+@rus Вор (thief), одетый во все черное.
 ~
-Well COUNT your money!
+@eng Well COUNT your money!
+@rus ВНИМАТЕЛЬНО пересчитай свои деньги!
 ~
 human~
 ACHS JPQ -100 0
-8 1 6d8+80 1d1+99 1d5+1 'punch'
+8 1 6d8+80 1d1+99 1d5+1 punch
 2 4 3 7
 EFJN 0 0 0
 stand stand either 100
 0 0 medium unknown
 #4104
-orc~
-the orc~
-An ugly orc is standing here waiting for someone to practice on.
+orc орк~
+@eng the orc@rus Орк~
+@eng An ugly orc is standing here waiting for someone to practice on.
+@rus Уродливый орк (orc) торчит тут, ждет кого-нибудь, чтобы попрактиковаться...
 ~
-Yrkk..  He belches in your face!
+@eng Yrkk..  He belches in your face!
+@rus Блееее..  Он отрыгивает тебе в лицо! Он явно ищет повод для драки!
 ~
 orc~
 ACFGHT 0 -200 0
-7 1 7d7+70 1d1+99 1d8+3 'punch'
+7 1 7d7+70 1d1+99 1d8+3 punch
 4 5 5 8
 CJR 0 0 0
 stand stand male 150
 0 0 medium unknown
 #4105
-centipede~
-a centipede~
-A small harmless centipede is here looking for some vegetation to eat.
+centipede сороконожка~
+@eng a centipede@rus Сороконожка~
+@eng A small harmless centipede is here looking for some vegetation to eat.
+@rus Маленькая  безобидная  многоножка (centipede)  ищет  здесь какую-нибудь
+растительность, чтобы поесть.
 ~
-It doesn't seem to pay any attention towards you.  You are probably
+@eng It doesn't seem to pay any attention towards you.  You are probably
 not important.
+@rus Она, похоже, не уделяет тебе внимания. Видимо ты для нее не существуешь.
 ~
 centipede~
 ABU 0 300 0
-6 1 8d5+50 1d1+99 2d4+1 'sting'
+6 1 8d5+50 1d1+99 2d4+1 sting
 3 6 4 10
 FR 0 0 0
 stand stand none 0
 0 0 small unknown
 #4106
-warrior~
-the Warrior~
-A human warrior grins an evil grin in your face.
+warrior воин~
+@eng the Warrior@rus Воин~
+@eng A human warrior grins an evil grin in your face.
+@rus Воин-человек (warrior) усмехается тебе злой усмешкой.
 ~
-He doesn't look friendly at all...  He is no Mr. Rogers!
+@eng He doesn't look friendly at all...  He is no Mr. Rogers!
+@rus Он явно недружественен... И совсем не похож на кролика.
 ~
 human~
 ACFGT J -300 0
-9 2 4d10+130 1d1+99 1d8+3 'punch'
+9 2 4d10+130 1d1+99 1d8+3 punch
 3 2 4 6
 CJQU 0 0 0
 stand stand male 300
 0 0 medium unknown
 #4107
-kobold~
-the green kobold~
-A green kobold hobbles along the cave walls puking periodically.
+kobold green кобольд зеленый~
+@eng the green kobold@rus Зеленый кобольд~
+@eng A green kobold hobbles along the cave walls puking periodically.
+@rus Зеленый кобольд (green kobold) хромает по пещере, периодически (фу!) пукая.
 ~
-It looks a little sick.  Something he ate maybe?
+@eng It looks a little sick.  Something he ate maybe?
+@rus Он выглядит приболевшим. Наверное, съел чего-то...
 ~
 kobold~
 ACFGT 0 -100 0
-7 1 8d4+50 1d1+99 2d4+1 'claw'
+7 1 8d4+50 1d1+99 2d4+1 claw
 5 5 5 10
 NR 0 0 0
 stand stand either 25
 0 0 small unknown
 #4150
-bat blue~
-the blue bat~
-A blue bat flies in circles while electrical charges arc here and there.
+bat blue синяя летучая мышь~
+@eng the blue bat@rus Синяя летучая мышь~
+@eng A blue bat flies in circles while electrical charges arc here and there.
+@rus Синяя летучая мышь (blue bat) появляется то тут, то там, возникая в рое искр.
 ~
-Bzzzt.  Zap.  Crackle.  Speak about static electricity!
+@eng Bzzzt.  Zap.  Crackle.  Speak about static electricity!
+@rus Бзззз. Взмах. Потрескивание. Что там говорили о статическом электричестве?
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 'shbite'
+7 1 3d10+70 1d1+99 1d9+1 shbite
 4 4 4 6
 R J 0 RYZ
 stand stand either 0
 0 0 tiny unknown
 #4151
-bat red~
-the red bat~
-A red bat hangs upside down from the ceiling, glowing.
+bat red красная летучая мышь~
+@eng the red bat@rus Красная летучая мышь~
+@eng A red bat hangs upside down from the ceiling, glowing.
+@rus Красная летучая мышь (red bat), светясь, свешивается с потолка.
 ~
-You can definitely feel some heat from this thing.  A fever perhaps?
+@eng You can definitely feel some heat from this thing.  A fever perhaps?
+@rus Ты  определенно чувствуешь  тепло,  исходящее от ее тела. Может быть, у нее
+лихорадка?
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 'flbite'
+7 1 3d10+70 1d1+99 1d9+1 flbite
 4 4 4 6
 R H 0 IR
 stand stand either 0
 0 0 tiny unknown
 #4152
-bat green~
-the green bat~
-A green bat flies from wall to wall leaving an awful smell.
+bat green зеленая летучая мышь~
+@eng the green bat@rus Зеленая летучая мышь~
+@eng A green bat flies from wall to wall leaving an awful smell.
+@rus Зеленая  летучая мышь (green bat) мечется от стенки к стенке, оставляя за
+собой ужасный запах.
 ~
-Whew!  What a stinker!
+@eng Whew!  What a stinker!
+@rus Фу! Ну и воняет...!
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 'bite'
+7 1 3d10+70 1d1+99 1d9+1 bite
 4 4 4 6
 R L 0 0
 stand stand either 0
 B 0 tiny unknown
 #4153
-bat white~
-the white bat~
-A white bat rests on the ceiling.  You wonder where the cold is coming from.
+bat white белая летучая мышь~
+@eng the white bat@rus Белая летучая мышь~
+@eng A white bat rests on the ceiling.  You wonder where the cold is coming from.
+@rus Белая летучая мышь (white bat) висит на потолке. Невольно возникает
+вопрос - откуда идет такой холод?
 ~
-Brrr!  You almost can't distinguish this bat from an ice cube.
+@eng Brrr!  You almost can't distinguish this bat from an ice cube.
+@rus Брр! Эта мышь похожа на кусок льда. Очень похожа.
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 'frbite'
+7 1 3d10+70 1d1+99 1d9+1 frbite
 4 4 4 6
 R I 0 H
 stand stand either 0
 0 0 tiny unknown
 #4154
-bat black~
-the black bat~
-A black bat flies from wall to wall leaving something hissing behind.
+bat black черная летучая мышь~
+@eng the black bat@rus Черная летучая мышь~
+@eng A black bat flies from wall to wall leaving something hissing behind.
+@rus Тут летает черная летучая мышь (black bat), издавая какой-то странный звук.
 ~
-Amazing!  This bat is grooming itself with acid!
+@eng Amazing!  This bat is grooming itself with acid!
+@rus Потрясающе! Эта мышь поливает сама себя кислотой...
 ~
 bat~
 ABF J -100 0
-7 1 3d10+70 1d1+99 1d9+1 'acbite'
+7 1 3d10+70 1d1+99 1d9+1 acbite
 4 4 4 6
 R K 0 0
 stand stand either 0
 0 0 tiny unknown
 #4155
-thief~
-the thief~
-A sneaky thief appears and disappears within the shadows.
+thief вор~
+@eng the thief@rus Вор~
+@eng A sneaky thief appears and disappears within the shadows.
+@rus Трусливый вор (thief) появляется и исчезает среди теней.
 ~
-He definitely knows what he's doing.  Trust him.
+@eng He definitely knows what he's doing.  Trust him.
+@rus Он определенно знает то, что он делает. Доверься ему.
 ~
 human~
 ACGS BJQ 400 0
-12 2 3d20+130 1d1+99 2d4+3 'punch'
+12 2 3d20+130 1d1+99 2d4+3 punch
 2 0 0 6
 BFJNQU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #4156
-troll~
-the troll~
-A large ugly troll is here mumbling something.
+troll троль~
+@eng the troll@rus Тролль~
+@eng A large ugly troll is here mumbling something.
+@rus Большой уродливый тролль (troll) бормочет тут что-то себе под нос.
 ~
-He looks quite mean.  Don't mess with him.
+@eng He looks quite mean.  Don't mess with him.
+@rus Он выглядит непримечательно. Но с ним лучше не связываться.
 ~
 troll~
 ABCFT 0 -700 0
-14 3 8d20+140 14d4+100 3d4+5 'claw'
+14 3 8d20+140 14d4+100 3d4+5 claw
 -1 -3 -1 4
 CEOR 0 0 C
 stand stand male 1000
 0 0 huge unknown
 #4157
-mage~
-the Mage~
-A small man is here researching magical incantations.
+mage маг~
+@eng the Mage@rus Маг~
+@eng A small man is here researching magical incantations.
+@rus Маленький человечек (mage) исследует здесь волшебные заклинания.
 ~
-His little head is buried into his magic books.  He'd be very
+@eng His little head is buried into his magic books.  He'd be very
 angry should you bother his studies.
+@rus Он  с  головой  зарылся  в волшебные книги. Да, если его побеспокоить... Он
+будет очень сердит, это точно.
 ~
 human~
 ACFGR J -200 0
-11 0 4d10+100 11d12+100 1d6+1 'beating'
+11 0 4d10+100 11d12+100 1d6+1 beating
 0 0 0 2
 QU 0 C 0
 stand stand male 200
 0 0 medium unknown
 #4158
-snake~
-the snake~
-A brown snake hisses at you.
+snake змея~
+@eng the snake@rus Змея~
+@eng A brown snake hisses at you.
+@rus Коричневая змея (snake) шипит на тебя.
 ~
-Sickly brown as it is, you know what it really wants is you
+@eng Sickly brown as it is, you know what it really wants is you
 for dinner.
+@rus Ты  понимаешь, что единственное, чего хочет эта тощая коричневая змея - это
+тебя на обед.
 ~
 snake~
 ABFU J 200 0
-9 1 2d10+100 1d1+99 1d12+1 'bite'
+9 1 2d10+100 1d1+99 1d12+1 bite
 1 3 3 6
 FGNR 0 EF 0
-stand stand either 0
+fight fight either 0
 0 0 medium unknown
 #4159
-troll~
-the small troll~
-A 'small' troll is here happily dancing.  Trala-la-la.  La-la.
+troll small троль маленький~
+@eng the small troll@rus Маленький троль~
+@eng A 'small' troll is here happily dancing.  Trala-la-la.  La-la.
+@rus "Маленький" тролль (small troll) весело танцует тут. Тра-ля-ля, тра-ля-ля...
 ~
-He is so happy, you are disgusted.  Kill him now!
+@eng He is so happy, you are disgusted.  Kill him now!
+@rus Он настолько счастлив, что ты чувствуешь отвращение! Убей его!
 ~
 troll~
 ACFGT 0 -300 0
-8 2 3d10+80 8d4+100 2d5+2 'bite'
+8 2 3d10+80 8d4+100 2d5+2 bite
 3 1 3 6
 EJR 0 0 0
 stand stand male 100
 0 0 large unknown
 #4160
-orc~
-the orc~
-A large orc growls in your face.
+orc орк~
+@eng the orc@rus Орк~
+@eng A large orc growls in your face.
+@rus Большой орк (orc) рычит тебе в лицо.
 ~
-He is just looking for a fight isn't he?
+@eng He is just looking for a fight isn't he?
+@rus Он явно ищет с кем бы подраться.
 ~
 orc~
 ACFGT 0 -200 0
-9 1 3d10+100 1d1+99 1d8+2 'beating'
+9 1 3d10+100 1d1+99 1d8+2 beating
 2 2 1 5
 CJNR 0 0 0
 stand stand either 150
@@ -501,9 +586,9 @@ stand stand either 150
 
 #OBJECTS
 #4000
-ring yellow green~
-a yellow and green ring~
-A ring, with yellow and green ornamentation. It looks very old.~
+ring yellow green желто-зеленое кольцо~
+@eng a yellow and green ring@rus желто-зеленое кольцо~
+@eng A ring, with yellow and green ornamentation. It looks very old.@rus Ты видишь кольцо с желто-зеленым орнаментом (yellow and green ring).~
 copper~
 treasure 0 AB
 0 0 0 0 0
@@ -511,79 +596,84 @@ treasure 0 AB
 A
 1 -2
 E
-ring~
-It feels heavy.
+ring ~
+@eng It feels heavy.
+@rus Судя по весу, ... не из легких.
 ~
-g none~
+G none
 #4001
-corpse~
-a corpse~
-A halfway decayed corpse of a cartographer.~
+corpse труп~
+@eng a corpse@rus труп~
+@eng A halfway decayed corpse of a cartographer.@rus Наполовину разложившийся труп (corpse) картографа.~
 flesh~
 npc_corpse P A
 0 0 0 0 0
 0 1000 0 P
 E
-corpse~
-Ew.  This must have been the mapper that was lost in Moria.  His rotted hand
+corpse труп~
+@eng Ew.  This must have been the mapper that was lost in Moria.  His rotted hand
 still clutches a partially digested map...
+@rus Эх. Это, наверное, картограф, который пропал в Мории.
+Его разложившиеся руки до сих пор сжимают остатки карты...
 ~
-g none~
+G none
 #4002
-coins~
-some coins~
-A small pile of coins.~
+coins монеты~
+@eng some coins@rus несколько монет~
+@eng A small pile of coins.@rus Несколько монет (coins) лежат тут.~
 silver~
 money 0 A
 200 3 0 0 0
 0 5000 0 P
-g none~
+G none
 #4003
-dagger rusty~
-a rusty dagger~
-A worn and rusty dagger is here.~
+dagger rusty ржавый кинжал~
+@eng a rusty dagger@rus ржавый кинжал~
+@eng A worn and rusty dagger is here.@rus Источенный старый кинжал (rusty dagger) брошен тут.~
 iron~
 weapon 0 AN
-dagger 1 5 'stab' 0
+dagger 1 5 stab 0
 0 10 165 W
 A
 18 -1
 E
-dagger~
-It's old and rusted, but it still has a good edge.
+dagger кинжал~
+@eng It's old and rusted, but it still has a good edge.
+@rus Он очень стар, от чиго и поржавел, но кажется он хорош и так.
 ~
-g none~
+G none
 #4004
-bullwhip whip~
-a bullwhip~
-A coiled length of leather is here...looks like a nasty whip!~
+bullwhip whip кнут~
+@eng a bullwhip@rus кнут~
+@eng A coiled length of leather is here...looks like a nasty whip!@rus Свернутая полоска кожи (bullwhip) лежит тут... Похожа на кнут.~
 leather~
 weapon 0 AN
-whip 1 3 'whip' 0
+whip 1 7 whip 0
 3 30 240 G
 A
 18 1
-g none~
+G none
 #4005
-club tree huge~
-a huge club~
-An uprooted tree leans against the wall.~
+club tree huge палица~
+@eng a huge club@rus громадная палица~
+@eng An uprooted tree leans against the wall.@rus Вырванное с корнем дерево (huge club) прислонено к стене.~
 wood~
 weapon 0 AN
-mace 2 9 'crush' F
+mace 2 9 crush F
 14 250 780 G
 A
 18 -2
 E
-club tree~
-This is the biggest club you have ever seen!  The giant didn't even bother to
+club tree палица~
+@eng This is the biggest club you have ever seen!  The giant didn't even bother to
 trim the roots off the end.
+@rus Эта громадина похоже была выкорчевана с корнем каким-то гигантом.
 ~
-g none~
+G none
 #4006
-furs smelly~
-some smelly furs~
-A heap of smelly furs sit here.~
+furs smelly вонючий мех~
+@eng some smelly furs@rus вонючие меха~
+@eng A heap of smelly furs sit here.@rus Куча вонючих мехов (smelly furs) брошена тут.~
 fur~
 armor 0 AK
 5 6 5 1 3
@@ -591,173 +681,172 @@ armor 0 AK
 A
 2 -1
 E
-furs~
-They're heavy and smelly and would probably slow you down...but they do look
+furs мех~
+@eng They're heavy and smelly and would probably slow you down...but they do look
 like good armor.
+@rus Она очень тяжелая, к тому-же очень воняет, но с другой стороны выглядит как
+хорошая броня.
 ~
-g none~
+G none
 #4050
-potion purple~
-a purple potion~
-A purple potion is here.~
+potion purple фиолетовая микстура~
+@eng a purple potion@rus фиолетовая микстура~
+@eng A purple potion is here.@rus Фиолетовая микстура (purple potion) лежит тут.~
 glass~
 potion 0 AO
 13 'cure blindness' 'sanctuary' '' ''
 11 10 720 G
 E
-potion purple~
-It looks rather strange!
+potion purple фиолетовая микстура~
+@eng It looks rather strange!
+@rus Выглядит как-то странно!
 ~
-g none~
+G none
 #4051
-helmet metal~
-a metal helmet~
-A metal helmet is here.~
+helmet metal шлем металл~
+@eng a metal helmet@rus металлический шлем~
+@eng A metal helmet is here.@rus Металлический шлем (metal helmet) лежит тут.~
 iron~
 armor G AE
 4 4 3 2 1
 5 40 650 G
 A
 20 -1
-g none~
+G none
 #4052
-mushroom~
-a mushroom~
-A small mushroom is here.~
+mushroom мухомор~
+@eng a mushroom@rus мухомор~
+@eng A small mushroom is here.@rus Маленький мухомор (mushroom) пророс из камня.~
 food~
 food 0 A
 B B 0 A 0
 0 10 0 G
 E
-mushroom~
-Let's put it this way - I wouldn't eat it !
+mushroom мухомор~
+@eng Let's put it this way - I wouldn't eat it !
+@rus На твоем месте я бы его не трогал - пусть растет. И тем более не ел.
 ~
-g none~
+G none
 #4053
-dirk~
-a thieves dirk~
-A beautifully crafted dirk is lying here.~
+dirk нож~
+@eng a thieves dirk@rus воровской нож~
+@eng A beautifully crafted dirk is lying here.@rus Красиво украшенный нож (thieves dirk) воткнут  тут.~
 steel~
 weapon G AN
-dagger 2 5 'stab' 0
+dagger 2 5 stab 0
 8 20 590 G
 A
 19 1
 A
 18 1
 E
-dirk~
-It's a medium sized, beautifully crafted dirk made from grey alloy.
+dirk нож~
+@eng It's a medium sized, beautifully crafted dirk made from grey alloy.
 Its blade is double-edged and very thin ... this looks like a good
 thieves weapon.
+@rus Средних размеров, прекрасно изготовлен из серой аллои, двойное лезвие
+причем очень сильно заточеное ... выглядит хорошим оружием для вора.
 ~
-g none~
+G none
 #4054
-axe war~
-a war axe~
-A razor-sharp war axe rests on the ground.~
+axe war топор боевой~
+@eng a war axe@rus боевой топор~
+@eng A razor-sharp war axe rests on the ground.@rus Острый как бритва топор (war axe) лежит на земле.~
 steel~
 weapon G AN
-axe 3 4 'chop' D
+axe 3 4 chop 0
 12 70 930 P
+A
+19 1
 E
-axe~
-It has an edge sharp enough to cut a passing thought. A good find, this.
+axe топор~
+@eng It has an edge sharp enough to cut a passing thought. A good find, this.
+@rus Этот топор зточен так, буд-то ты с одного маху смог бы срубить дерево.
+Ты не капельки не жалеешь, что нашел его здеcь.
 ~
-g none~
+G none
 #4055
-sword broad~
-a broad sword~
-A well-polished broadsword sits here.~
+sword broad широкий меч~
+@eng a broad sword@rus широкий меч~
+@eng A well-polished broadsword sits here.@rus Хорошо отполированный меч (broad sword) лежит здесь.~
 steel~
 weapon 0 AN
-sword 1 10 'chop' 0
+sword 1 10 chop 0
 6 80 550 G
 E
 sword~
-It's much heavier than a long sword, but not as well balanced.
+@eng It's much heavier than a long sword, but not as well balanced.
+@rus Он гораздо тяжелее длинного меча, но его балансировка... Она никуда не годится.
 ~
-g none~
+G none
 #4056
-flail two two-headed~
-a two-headed flail~
-A flail with two heavy, spiked heads is here.~
+flail two two-headed цеп двухголовый~
+@eng a two-headed flail@rus двухголовый цеп~
+@eng A flail with two heavy, spiked heads is here.@rus Цеп с двумя тяжелыми, зубчатыми главами (two-headed flail) лежит тут.~
 iron~
 weapon 0 AN
-flail 1 7 'smash' 0
+flail 1 7 smash 0
 3 70 290 A
 A
 17 1
 A
 19 2
-E
-flail~
-It's a stout wooden rod with two spiked balls attached, each weighing over 2
-pounds.  It's a little worn for wear, but looks most painful.
-~
-g none~
+G none
 #4057
-mace heavy~
-a heavy iron mace~
-A large iron mace with a wicked head rests on the ground.~
+mace heavy тяжелая булава~
+@eng a heavy iron mace@rus тяжелая мулава~
+@eng A large iron mace with a wicked head rests on the ground.@rus Большая железная булава (heavy iron mace) со злой головой лежит на земле.~
 iron~
 weapon 0 AN
-mace 2 4 'pound' 0
+mace 2 4 pound 0
 6 100 390 G
 A
 19 1
-E
-mace~
-A metal shaft mounted with an iron head, shaped into armor-shattering form.
-~
-g none~
+G none
 #4058
-falchion sword~
-a falchion~
-A curved sword with a heavy tip sits here.~
+falchion sword ятаган~
+@eng a falchion@rus ятаган~
+@eng A curved sword with a heavy tip sits here.@rus Изогнутый меч (falchion) с тяжелым наконечником находится здесь.~
 iron~
 weapon 0 AN
-sword 2 4 'chop' 0
+sword 2 4 chop 0
 5 80 490 G
 E
 falchion~
-It's curved like a scimitar, only with no recurved blade and a tip designed
+@eng It's curved like a scimitar, only with no recurved blade and a tip designed
 for piercing as well as slashing.
+@rus Это тяжелое, изогнутое, острое как бритва лезвие.
 ~
-g none~
+G none
 #4059
-voulge polearm~
-a voulge~
-A long polearm with a curved blade is here.~
+voulge polearm алебарда~
+@eng a voulge@rus алебарда~
+@eng A long polearm with a curved blade is here.@rus Длинная алебарда (voulge) с изогнутым режущим диском стоит тут.~
 iron~
 weapon 0 AN
-polearm 2 6 'slash' F
+polearm 2 6 slash F
 10 120 520 A
 A
 17 -1
-E
-voulge~
-It looks a lot like a staff with a pruning knife tied to the end, but it's
-quite effective.
-~
-g none~
+G none
 #4100
-blade black demon~
-the black demon blade~
-An evil black demon blade is here.~
+blade black demon черный клинок демон~
+@eng the black demon blade@rus черный клинок демон~
+@eng An evil black demon blade is here.@rus Здесь лежит излучающий зло черный демонический клинок (black demon blade).~
 adamantite~
 weapon GJL AN
-sword 3 4 'cleave' CF
+sword 3 4 cleave CF
 11 80 940 P
 E
 blade~
-You'll become as evil as the weapon, if you use it!
+@eng You'll become as evil as the weapon, if you use it!
+@rus Ты станешь таким же злым, как и это оружие, если будешь использовать его!
 ~
-g none~
+G none
 #4101
-gloves~
-swordsman's gloves~
-Some gloves are here.  They look like the right equipment for fighting.~
+gloves перчатки~
+@eng swordsman's gloves@rus боевые перчатки~
+@eng Some gloves are here. They look like the right equipment for fighting.@rus Перчатки (swordsman's gloves), лежащие тут, производят впечатление боевых.~
 leather~
 armor G AH
 1 3 3 1 1
@@ -766,78 +855,78 @@ A
 19 1
 A
 18 1
-g none~
+G none
 #4102
-scroll ysafg~
-a scroll which reads "ysafg"~
-A scroll which reads "ysafg", it looks very fragile and quite old.~
+scroll ysafg свиток~
+@eng a scroll which reads "ysafg"@rus свиток с надписью "ysafg"~
+@eng A scroll which reads "ysafg", it looks very fragile and quite old.@rus Старый свиток (scroll), на котором виднеется надпись "ysafg".~
 parchment~
 scroll G AO
 10 'identify' '' '' ''
 7 10 840 W
 E
-scroll~
-It looks informative.
+scroll свиток~
+@eng It looks informative.
+@rus Он выглядит многозначительно...
 ~
-g none~
+G none
 #4103
-slime mold~
-a green slime mold~
-A green slime mold is here. It smells REAL bad.~
+slime mold комок слизь~
+@eng a green slime mold@rus зеленый комок слизи~
+@eng A green slime mold is here. It smells REAL bad.@rus Зеленый комок слизи (green slime mold) лежит тут. Он действительно ВОНЯЕТ.~
 food~
 food P A
 DE DE 0 0 0
 0 10 0 G
 E
-slime mold~
-It wasn't meant to be food, - Certainly not for humans.
+slime mold комок слизь~
+@eng It wasn't meant to be food, - Certainly not for humans.
+@rus Это НЕ МОЖЕТ БЫТЬ пищей! Во всяком случае, не для человека.
 ~
-g none~
+G none
 #4104
-slime mold~
-a green slime mold~
-A green slime mold is here. It smells REAL bad.~
+slime mold комок слизи~
+@eng a green slime mold@rus зеленый комок слизи~
+@eng A green slime mold is here. It smells REAL bad.@rus Зеленый комок слизи (green slime mold) лежит тут. Он действительно ВОНЯЕТ.~
 food~
 food P A
 DE DE 0 A 0
 0 10 0 G
 E
-slime mold~
-It wasn't meant to be food, - Certainly not for humans.
+slime mold комок слизи~
+@eng It wasn't meant to be food, - Certainly not for humans.
+@rus Это НЕ МОЖЕТ БЫТЬ пищей! Во всяком случае, не для человека.
 ~
-g none~
+G none
 #4105
-staff iron iron-shod~
-an iron-shod staff~
-A long staff capped with iron leans against a wall.~
+staff iron iron-shod посох~
+@eng an iron-shod staff@rus посох с железным наконечником~
+@eng A long staff capped with iron leans against a wall.@rus Длинный посох с железным наконечником (iron-shod staff) лежит вдоль стены.~
 iron~
 weapon 0 AN
-staff 2 5 'pound' F
+spear 2 5 pound F
 10 60 630 G
 A
 17 -2
-E
-staff~
-It's a superb weapon for warrior or mage.
-~
-g none~
+G none
 #4150
-black potion~
-a black potion~
-A thick black potion is here.~
+black potion черное зелье~
+@eng a black potion@rus черное зелье~
+@eng A thick black potion is here.@rus Толстая банка с зельем (black potion) стоит тут.~
 glass~
 potion G AO
 9 'cure critical' '' '' ''
 5 10 320 G
 E
-potion black~
-It looks healthy.
+potion black черное зелье~
+@eng It looks healthy.
+@rus Оно выглядит...  здоровым, что ли?!
 ~
-g none~
+G none
 #4151
-staff oak~
-a heavy oak staff~
-A ancient heavy oak staff is here.~
+staff oak тяжелый дубовый посох~
+@eng a heavy oak staff@rus тяжелый дубовый посох~
+@eng A ancient heavy oak staff is here.@rus Древний дубовый посох (heavy oak staff) стоит тут.~
 wood~
 staff G AO
 15 4 2 'harm' 0
@@ -852,52 +941,53 @@ E
 staff oak~
 You see it has some sort of runes on it.
 ~
-g none~
+G none
 #4152
-dagger light silver~
-a light silver dagger~
-A light silver dagger is here.~
+dagger light silver кинжал светлого серебра~
+@eng a light silver dagger@rus кинжал из светлого серебра~
+@eng A light silver dagger is here.@rus Кинжал из светлого серебра (light silver dagger) лежит тут.~
 silver~
 weapon 0 AN
-dagger 2 4 'stab' 0
+dagger 2 4 stab 0
 7 20 660 P
 A
 17 -1
 A
 18 1
 E
-dagger light silver~
-It looks like an excellent weapon for thieves.
+dagger light silver кинжал~
+@eng It looks like an excellent weapon for thieves.
+@rus Смотрится как превосходное оружие для воров.
 ~
-g none~
+G none
 #4153
-star morning morningstar~
-a morning star~
-A heavy, spiked morning star is here.~
+star morning morningstar утренняя звезда~
+@eng a morning star@rus утренняя звезда~
+@eng A heavy, spiked morning star is here.@rus Тяжелая, зубчатая утренняя звезда (morning star) лежит тут.~
 iron~
 weapon 0 AN
-mace 2 6 'smash' 0
+mace 2 6 smash 0
 9 120 270 G
 A
 2 -1
 A
 19 1
 E
-star morning~
+star morning утренняя звезда~
 It's a huge length of wood studded with iron spikes and bands. You wouldn't
 want to meet this in a dark alley...
 ~
-g none~
+G none
 #4154
-map moria second~
-a map of the second level of Moria~
-A rolled up map is here.~
+map moria second карта второй уровень мория~
+@eng a map of the second level of Moria@rus карта второго уровня Мории~
+@eng A rolled up map is here.@rus Свернутая карта (map of the second level of Moria) лежит тут.~
 paper~
 map 0 A
 A 0 0 0 0
 0 10 100 W
 E
-map moria second~
+map moria second карта мория второй~
 .
     * * * MORIA - Map 2 * * *
      = = =============== = =
@@ -916,11 +1006,11 @@ Maze--Maze--Maze--Maze
                    *Hole
                   (Map 3)
 ~
-g none~
+G none
 #4155
-map moria third~
-a map of the third level of Moria~
-A rolled up map is here.~
+map moria third карта третий уровень мория~
+@eng a map of the third level of Moria@rus карта третьего уровня Мории~
+@eng A rolled up map is here.@rus Свернутая карта (map of the third level of Moria) лежит тут.~
 paper~
 map 0 A
 A 0 0 0 0
@@ -961,190 +1051,239 @@ map moria third~
                        Maze*
                       (Map 2)
 ~
-g none~
+G none
 #0
 
 #ROOMS
 #3900
-West trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
+@eng West trail around Midgaard@rus Западный путь из Мидгаарда~
+@eng You are on a dusty trail following the outside wall of Midgaard.
 To the east the wall towers over you and to the west you see the
 forest of Haon-Dor. The trail leads north and south along the wall. 
+@rus Ты находишься на пыльной тропе за пределами Мидгаарда. На востоке находится
+стена,  возвышающаяся  над  тобой,  а на западе - лес Haon-Dor. Тропа ведет
+вдоль стены на север и юг.
 ~
 0 0 field
 D0
-The dusty trail winds north closely to the wall.
+@eng The dusty trail winds north closely to the wall.
+@rus Пыльная тропа на севере подходит вплотную к стене.
 ~
 ~
 Z -1 3901
 D2
-The dusty trail leads to outside the west gate of Midgaard.
+@eng The dusty trail leads to outside the west gate of Midgaard.
+@rus Пыльная тропа ведет к внешней стороне западных ворот Мидгаарда.
 ~
 ~
 Z -1 3052
 S
 #3901
-West trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
+@eng West trail around Midgaard@rus Западный путь из Мидгаарда~
+@eng You are on a dusty trail following the outside wall of Midgaard.
 To the east the wall towers over you and to the west you see the
 forest of Haon-Dor. The trail leads north and south along the wall. 
+@rus 
 ~
 0 0 field
 D0
-To the north you notice the path makes a turn, following the City wall. 
+@eng To the north you notice the path makes a turn, following the City wall. 
+@rus На севере тропа поворачивает, следуя вдоль городской стены.
 ~
 ~
 Z -1 3902
 D2
-The dusty trail continues towards the south.
+@eng The dusty trail continues towards the south.
+@rus Пыльная тропа продолжается дальше на юг.
 ~
 ~
 Z -1 3900
 S
 #3902
-Northwest corner of dusty trail.~
-You are standing outside the northwestern corner of the city wall.
+@eng Northwest corner of dusty trail.@rus Северо-западный угол пыльной тропы~
+@eng You are standing outside the northwestern corner of the city wall.
 The trail leads east following the north wall and south towards the gate.  
+@rus Ты  стоишь  снаружи  северо-западного  угла городской стены. Тропа ведет на
+восток восток вдоль северной стены и на юг к воротам.
 ~
 0 0 field
 D1
-The dusty trail winds close up to the north wall of Midgaard.
+@eng The dusty trail winds close up to the north wall of Midgaard.
+@rus Пыльная тропа на севере подходит вплотную к городской стене Мидгаарда.
 ~
 ~
 Z -1 3903
 D2
-The dusty trail leads south towards the gate.
+@eng The dusty trail leads south towards the gate.
+@rus Пыльная тропа на севере подходит вплотную к городской стене Мидгаарда.
 ~
 ~
 Z -1 3901
 S
 #3903
-Dusty trail along north wall.~
-You are walking on the trail following the outside of Midgaard's
+@eng Dusty trail along north wall.@rus Пыльная тропа вдоль северной стены~
+@eng You are walking on the trail following the outside of Midgaard's
 northern wall.  
+@rus Ты бредешь по тропе, ведущей вдоль северной городской стены Мидгаарда.
 ~
 0 0 field
 D1
-The dusty trail is winding along the north wall of Midgaard.
+@eng The dusty trail is winding along the north wall of Midgaard.
+@rus Пыльная тропа продолжается дальше вдоль северной городской стены Мидгаарда.
 ~
 ~
 Z -1 3904
 D3
-The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
+@eng The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
+@rus Пыльная тропа поворачивает налево вдоль угла стены, позади - Haon Dor.
 ~
 ~
 Z -1 3902
 S
 #3904
-The long dusty trail following the north wall.~
-You are just outside the northern gate of Midgaard.  You can continue along
+@eng The long dusty trail following the north wall.@rus Длинная пыльная тропа, идущая вдоль северной стены~
+@eng You are just outside the northern gate of Midgaard.  You can continue along
 the trail to the east or west, head onwards to the plains of the north, or
 enter Midgaard to the south.  You can just barely make out the buildings of
 Midgaard from here, the Temple of Midgaard looks impressive even from this
 distance.  
+@rus Ты  сейчас снаружи северных ворот Мидгаарда. Ты можешь продолжить свой путь
+на  запад  или  на  восток,  углубиться  в  равнины  на севере, или войти в
+Мидгаард,  двигаясь  на  юг. С такого рсстояния здания в городе практически
+неотличимы одно от другого, но храм Моты выглядит внушительно даже отсюда.
 ~
 0 0 field
 D0
-A small path extends into the plains.
+@eng A small path extends into the plains.
+@rus Маленькая тропа уводит в равнины.
 ~
 ~
 Z -1 300
 D1
-The dusty trail is winding along the north wall of Midgaard. 
+@eng The dusty trail is winding along the north wall of Midgaard. 
+@rus Пыльный путь вьется вдоль северной стены Мидгаарда.
 ~
 ~
 Z -1 3905
 D2
-You see the south gate of Midgaard.
+@eng You see the south gate of Midgaard.
+@rus Ты видишь северные ворота Мидгаарда.
 ~
 ~
 Z -1 3268
 D3
-The dusty trail is winding along the north wall of Midgaard.
+@eng The dusty trail is winding along the north wall of Midgaard.
+@rus Пыльный путь вьется вдоль северной стены Мидгаарда.
 ~
 ~
 Z -1 3903
 S
 #3905
-Dusty trail along north wall.~
-You are walking on the trail following the outside of Midgaard's
+@eng Dusty trail along north wall.@rus Пыльная тропа вдоль северной стены~
+@eng You are walking on the trail following the outside of Midgaard's
 northern wall.  
+@rus Ты бредешь по тропе, ведущей вдоль северной защитной стены Мидгаарда.
 ~
 0 0 field
 D1
-The dusty trail turns right around the corner of the wall. 
+@eng The dusty trail turns right around the corner of the wall. 
 You notice some mountains in the distance.
+@rus Пыльная  тропа  поворачивает  направо, огибая угол городской стены. Вдалеке
+едва заметно виднеются горы.
 ~
 ~
 Z -1 3906
 D3
-The dusty trail is winding along the north wall of Midgaard.
+@eng The dusty trail is winding along the north wall of Midgaard.
+@rus Пыльный путь вьется вдоль северной стены Мидгаарда.
 ~
 ~
 Z -1 3904
 S
 #3906
-Northeast corner of dusty trail.~
-You are standing outside the northeastern corner of the city wall.
+@eng Northeast corner of dusty trail.@rus Северо-восточный поворот пыльного пути~
+@eng You are standing outside the northeastern corner of the city wall.
 The trail leads west following the north wall and south towards the gate.  
+@rus Ты  находишься  за  городской  стеной Мидгаарда, в месте, где пыльная тропа
+делает  поворот  с  севера  на  восток.  Или с востока на север? Интересный
+вопрос...
 ~
 0 0 field
 D2
-The dusty trail leads south towards the gate.
+@eng The dusty trail leads south towards the gate.
+@rus Пыльная тропа ведет на юг, к воротам в город.
 ~
 ~
 Z -1 3907
 D3
-The dusty trail winds close up to the north wall of Midgaard.
+@eng The dusty trail winds close up to the north wall of Midgaard.
+@rus Пыльная тропа прижимается к северной стене Мидгаарда.
 ~
 ~
 Z -1 3905
 S
 #3907
-East trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
+@eng East trail around Midgaard@rus Восточный путь вокруг Мидгаарда~
+@eng You are on a dusty trail following the outside wall of Midgaard.
 To the west the wall towers over you and far to the east you see
 some mountains. The trail leads north and south along the wall. 
+@rus Ты  находишься  на  пыльной  тропе,  идущей  вдоль  внешней городской стены
+Мидгаарда. На западе над тобой возвышаются городские башни, и далеко, очень
+далеко  на  востоке  виднеются горы. Тропа вьется вдоль стены на север и на
+запад.
 ~
 0 0 field
 D0
-To the north you notice the path makes a turn, following the City wall. 
+@eng To the north you notice the path makes a turn, following the City wall. 
+@rus На  севере  ты замечаешь, что тропа делает поворот, следуя изгибу городской
+стены.
 ~
 ~
 Z -1 3906
 D2
-The dusty trail continues towards the south.
+@eng The dusty trail continues towards the south.
+@rus Пыльная тропа продолжается на юг.
 ~
 ~
 Z -1 3908
 S
 #3908
-East trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
+@eng East trail around Midgaard@rus Восточный путь вокруг Мидгаарда~
+@eng You are on a dusty trail following the outside wall of Midgaard.
 To the west the wall towers over you and far to the east you see
 some mountains. The trail leads north and south along the wall. 
+@rus Ты находишься на пыльной тропе, ведущей вдоль городской стены Мидгаарда. На
+западе  над  тобой  возвышаются  городские башни, и далеко, очень далеко на
+востоке виднеются горы. Тропа вьется вдоль стены на север и на запад.
 ~
 0 0 field
 D0
-The dusty trail winds north closely to the wall.
+@eng The dusty trail winds north closely to the wall.
+@rus Пыльная тропа прижимается к стене Мидгаарда.
 ~
 ~
 Z -1 3907
 D2
-The dusty trail leads to outside the east gate of Midgaard.
+@eng The dusty trail leads to outside the east gate of Midgaard.
+@rus Пыльная тропа ведет к внешней части восточных ворот Мидгаарда.
 ~
 ~
 Z -1 3053
 S
 #4000
-The hills~
-You are on a small bewildered path winding its way between the hills in
+@eng The hills@rus Холмы~
+@eng You are on a small bewildered path winding its way between the hills in
 lack of better things to do. To the south you have a splendid view over the
 flat, vast, desolate plains. To the north the hills grow steadily darker and
 foreboding. This is the cause of no sunset, it is rather the power of evil
 penetrating these quiet hills. Glancing around you notice only a single bird.
 The mountains of the dwarven kingdom rise up to your east, you can barely
 make out the queen's mines from here.
+@rus Ты  находишься  на  маленькой  извилистой  тропинке  между  холмами. На юге
+раскинулись  обширные пустынные холмы. К северу холмы становятся все темнее
+и  темнее.  Ты чуствуешь темную силу, исходящую от них. Оглянувшись вокруг,
+ты  замечаешь  лишь  одинокую  птицу  где-то далеко в вышине. Горы гномьего
+королевства возвышаются на востоке. Отсюда видны только королевские шахты.
 ~
 0 C hills
 D0
@@ -1152,7 +1291,8 @@ D0
 ~
 Z 0 4001
 D1
-You see the mountains of the dwarven kingdom. 
+@eng You see the mountains of the dwarven kingdom. 
+@rus Ты видишь горы королевства гномов.
 ~
 ~
 Z 0 6562
@@ -1160,16 +1300,25 @@ D2
 ~
 ~
 Z 0 3500
+D3
+~
+~
+Z 0 4400
 S
 #4001
-The hills~
-You are surrounded by dark and sinister hills. Although they seemed fairly
+@eng The hills@rus Холмы~
+@eng You are surrounded by dark and sinister hills. Although they seemed fairly
 small from a distance you now get the feeling that they're closing in on you,
 towering over you, overwhelming you ...  The small path seems to have second
 thoughts about these hills because it starts winding unnecessarily, turning
 several times around itself.  To the south the hills have a lighter hue of
 dark. To the north however, the hills have become nightblack holes in the
 distant mountains.
+@rus Ты  окружен  зловещими  темными  холмами. Хотя издалека они казались совсем
+маленькими,  вблизи  они подавляют тебя... Маленькая тропинка вьется вокруг
+холмов, и ты ловишь себя на мысли, что кое-где можно было бы и срезать.. На
+юге  холмы  немного  светлее.  На  севере  в холмах виднеются темные дыры..
+Наверное, пещеры?
 ~
 0 C hills
 D0
@@ -1182,18 +1331,24 @@ D2
 Z 0 4000
 S
 #4002
-End of the path~
-At this point the path has had enough. With a terrified shudder it cowers
+@eng End of the path@rus Конец тропинки~
+@eng At this point the path has had enough. With a terrified shudder it cowers
 to the ground, only staying here because you're standing on it. with a slight
 feeling of unease you look around noticing only a few bushes and a large sign
 carved into the mountain.  You feel you can hear the cry of help from a
 thousand silent voices all coming from an even darker hole in the mountain to
 the north marking the entrance to a cave (or a grave :-).
+@rus В  этом  месте тропинка обрывается. Она исчезает в земле, и понять, что тут
+есть  тропинка,  можно  только  стоя на ней. Неловко оглядываясь, ты видишь
+только  несколько  кустов  (bushes)  и почти упавший знак (sign), лежащий у
+подножия холма. Ты слышишь безмолвный плач тысяч неслышных голосов, который
+рвется  из темного провала в холме на севере. Это, видимо, вход в пещеру...
+Или могилу.
 ~
 0 C hills
 E
 sign~
-The sign says:
+@eng The sign says:
 
         /---------------------\
         | The Mines of Moria! |
@@ -1208,10 +1363,27 @@ The sign says:
                  | |
                  | |
                  | |
+@rus Знак гласит:
+
+        ,---------------------.
+        |     Шахты Мории!    |
+        |                     |
+        |    Четыре уровня!   |
+        |                     |
+        |   Осторожно, маги!  |
+        |                     |
+        |                 Хок.|
+        `---------------------'
+                 | |
+                 | |
+               оо| оо
+              оОооооОо
+             оОООоОооОо
 ~
 E
-bushes~
-Small crippled bushes desperately trying to grow south.
+bushes кусты~
+@eng Small crippled bushes desperately trying to grow south.
+@rus Маленькие поломанные кустики, отчаянно тянущиеся к солнцу.
 ~
 D0
 ~
@@ -1223,8 +1395,8 @@ D2
 Z 0 4001
 S
 #4010
-The cave~
-You are in a large cave. The ceiling is lost somewhere above the reach of
+@eng The cave@rus Пещера~
+@eng You are in a large cave. The ceiling is lost somewhere above the reach of
 your light. The floor, however, is highly illuminated, your light flickering
 over several tombstones. Only one is whole, the rest have been shattered by
 some savage blow. The remaining tombstone looks disturbingly new...
@@ -1232,13 +1404,23 @@ A small breeze of fresh air enters from the south (probably lost too). Take a
 good breath, it may be your last mouthful of air in a long, long time that
 others haven't breathed before you.
 To the north a small tunnel continues into the mountain.
+@rus Ты  находишься  в  большой  пещере. Потолок ее растворяется в сумраке, твой
+свет  не  достигает  его.  Бол,  однако, достаточно ярко освещен, твой свет
+мерцает,  отражаясь  от множества надгробных плит. Только одна из них цела,
+остальные разбиты какой-то жуткой силой. Оставшиеся в целых могилы выглядят
+новыми... Легкий бриз свежего воздуха доносится с юга. Сделай хороший вдох,
+он  может  быть последним глотком чистого воздуха в течении долгого-долгого
+времени. На севере маленький тоннель продолжается вглубь горы.
 ~
 0 AD field
 E
-tombstone~
-The stone is inscribed with the unfortunate player's famous last words:
+tombstone надгробная плита~
+@eng The stone is inscribed with the unfortunate player's famous last words:
 
   "What are you worrying about, it is just a small harmless snake"
+@rus На камне нацарапана чья-то надпись, судя по всему - последняя :
+
+ "Чего тебе действительно стоит опасаться - так это маленькой, безобидной змеи"
 ~
 D0
 ~
@@ -1250,11 +1432,15 @@ D2
 Z 0 4002
 S
 #4011
-The tunnel~
-You squeeze your way through a small, narrow tunnel. The sharp-edged rocks
+@eng The tunnel@rus Туннель~
+@eng You squeeze your way through a small, narrow tunnel. The sharp-edged rocks
 protruding from the walls threaten to scratch and cut you. 
 To the south you sense a freshness in the air which is rather unusual in these
 damp, stuffy tunnels. To the north the tunnel continues.
+@rus Ты  прокладываешь свой путь через маленький, узкий туннель. Камни с острыми
+краями,  торчащие  из  стен и потолка, грозят обрушиться и похоронить тебя.
+Туннель  продолжается  на  север,  а  с  юга  ты чуствуешь легкое дуновение
+свежего ветерка.
 ~
 0 AD forest
 D0
@@ -1267,10 +1453,12 @@ D2
 Z 0 4010
 S
 #4012
-The tunnel~
-You are in a part of the tunnel that looks uncannily like the rest except
+@eng The tunnel@rus Туннель~
+@eng You are in a part of the tunnel that looks uncannily like the rest except
 that it goes in a east-north direction. To the north the tunnel widens into
 a cave.
+@rus Ты в части туннеля, который выглядит странно... Он продолжается с севера на
+восток. Северная часть туннеля расширяется в пещеру.
 ~
 0 AD forest
 D0
@@ -1283,9 +1471,11 @@ D1
 Z 0 4013
 S
 #4013
-The tunnel~
-This tunnel, leading east-west, seems seldom used.  A thick layer of dust
+@eng The tunnel@rus Туннель~
+@eng This tunnel, leading east-west, seems seldom used.  A thick layer of dust
 covers the floor, making the air stuffy and dry. 
+@rus Этот  туннель,  идущий  с  севера  на  восток, выглядит редко используемым.
+Толстый слой пыли на полу делает воздух сухим и душным.
 ~
 0 AD forest
 D1
@@ -1298,12 +1488,16 @@ D3
 Z 0 4012
 S
 #4014
-The tunnel~
-You are walking in a narrow tunnel. The walls are only roughly shaped,
+@eng The tunnel@rus Туннель~
+@eng You are walking in a narrow tunnel. The walls are only roughly shaped,
 sharp rocks protruding everywhere, even from the floor making you stumble in
 the flickering light. To the south the tunnel narrows even more making it
 almost impossible to pass. To the north it slowly widens into a cave. There
 is a branch of the tunnel going west.
+@rus Ты  бредешь  по  узкому  туннелю.  Стены сделаны грубо, осрные бесформенные
+камни  торчат отовсюду, мешая тебе идти. На юге туннель сужается настолько,
+что пройти почти невозможно, на севере же он медленно расширяется в пещеру.
+Ответвление тоннеля ведет на запад.
 ~
 0 AD forest
 D0
@@ -1324,8 +1518,9 @@ D3
 Z 0 4013
 S
 #4015
-The tunnel~
-You are in a corner tunnel leading west and north.
+@eng The tunnel@rus Туннель~
+@eng You are in a corner tunnel leading west and north.
+@rus Ты на углу туннеля, ведущего с запада на север.
 ~
 0 AD forest
 D0
@@ -1338,9 +1533,11 @@ D3
 Z 0 4014
 S
 #4016
-The large cave~
-You are in a large cave, the cave continues east and west, to the south
+@eng The large cave@rus Большая пещера~
+@eng You are in a large cave, the cave continues east and west, to the south
 you notice a small tunnel.
+@rus Ты в большой пещере, которая протянулась с запада на восток. На юге заметен
+вход в маленький туннель.
 ~
 0 AD field
 D1
@@ -1357,8 +1554,9 @@ D3
 Z 0 4023
 S
 #4017
-The large cave~
-You are in the east end of the large cave.
+@eng The large cave@rus Большая пещера~
+@eng You are in the east end of the large cave.
+@rus Ты в восточной части большой пещеры.
 ~
 0 AD field
 D3
@@ -1367,14 +1565,17 @@ D3
 Z 0 4016
 S
 #4018
-The cave~
-You are in the south end of a cave, to the south you see a tunnel. You
+@eng The cave@rus Пещера~
+@eng You are in the south end of a cave, to the south you see a tunnel. You
 notice a large pile of bones in the corner.
+@rus Ты  сейчас  в  южной части пещеры, на юге ты видишь туннель. В углу заметна
+бо-ольшая куча костей.
 ~
 0 AD field
 E
-pile bones~
-Some of the bones are human!
+pile bones куча костей~
+@eng Some of the bones are human!
+@rus Некоторые из костей явно человеческие!
 ~
 D0
 ~
@@ -1386,8 +1587,9 @@ D2
 Z 0 4014
 S
 #4019
-The tunnel~
-You are in a north-south leading tunnel.
+@eng The tunnel@rus Туннель~
+@eng You are in a north-south leading tunnel.
+@rus Ты в туннеле, который идет с севера на юг.
 ~
 0 AD forest
 D0
@@ -1400,8 +1602,10 @@ D2
 Z 0 4015
 S
 #4020
-The hole~
-You are by a hole in the floor, you can leave down, or north.
+@eng The hole@rus Дыра~
+@eng You are by a hole in the floor, you can leave down, or north.
+@rus Ты  стоишь  над  отверстием  в  полу, которое ведет куда-то вниз. Ты можешь
+попытаться пролезть в него, или пойти на север.
 ~
 0 ACD forest
 D0
@@ -1414,8 +1618,9 @@ D5
 Z 0 4064
 S
 #4021
-The hole~
-A hole in the floor leads down here.
+@eng The hole@rus Дыра~
+@eng A hole in the floor leads down here.
+@rus Дыра в полу привела тебя сюда.
 ~
 0 ACD forest
 D1
@@ -1428,10 +1633,13 @@ D5
 Z 0 4115
 S
 #4022
-The damp tunnel~
-You are in a damp tunnel.  Your clothes feel wet.  The tunnel continues
+@eng The damp tunnel@rus Сырой туннель~
+@eng You are in a damp tunnel.  Your clothes feel wet.  The tunnel continues
 to the north; to the west you see a hole in the floor; and to the east
 there is a large cave.
+@rus Ты  сейчас  в  сыром  туннеле.  Твоя  одежда заметно отсырела и потяжелела.
+Туннель  тянется  на  север,  на западе ты видишь дыру в поле, а на востоке
+виден вход в большую пещеру.
 ~
 0 AD forest
 D0
@@ -1448,9 +1656,10 @@ D3
 Z 0 4021
 S
 #4023
-The large cave~
-You are in the western part of the large cave, to the south you see
+@eng The large cave@rus Большая пещера~
+@eng You are in the western part of the large cave, to the south you see
 a damp tunnel.
+@rus Ты в западной части большой пещеры, на юге виднеется сырой туннель.
 ~
 0 AD field
 D1
@@ -1463,8 +1672,10 @@ D2
 Z 0 4022
 S
 #4024
-The damp tunnel~
-You are in a corner of a damp tunnel.  You can go west or south.
+@eng The damp tunnel@rus Сырой туннель~
+@eng You are in a corner of a damp tunnel.  You can go west or south.
+@rus Ты  находишься  на  изгибе  сырого  туннеля.  Он  ведет с запада на юг (или
+наоборот, смотря куда идти).
 ~
 0 AD forest
 D2
@@ -1477,8 +1688,10 @@ D3
 Z 0 4022
 S
 #4025
-The cave~
-You are in the north end of a cave.  To the east you see many tunnels.
+@eng The cave@rus Пещера~
+@eng You are in the north end of a cave.  To the east you see many tunnels.
+@rus Ты  в  северном  конце  пещеры. На западе ты видишь много туннелей, ведущих
+непонятно куда.
 ~
 0 AD field
 D1
@@ -1495,8 +1708,9 @@ floor~
 ABZ -1 16000
 S
 #4026
-The many tunnels~
-You are at the intersection of many tunnels.
+@eng The many tunnels@rus Пересечение туннелей~
+@eng You are at the intersection of many tunnels.
+@rus Ты сейчас находишься на пересечении множества туннелей.
 ~
 0 AD forest
 D0
@@ -1517,9 +1731,11 @@ D3
 Z 0 4025
 S
 #4027
-The tunnel~
-You are in a north-south leading tunnel, you also notice a tunnel to
+@eng The tunnel@rus Туннель~
+@eng You are in a north-south leading tunnel, you also notice a tunnel to
 the west. From the north you sense the fresh air!
+@rus Ты  в  туннеле,  который ведет с севера на юг, ты также видишь ответвление,
+ведущее на запад. С севера ты чуствуешь дуновение свежего ветерка!
 ~
 0 AD forest
 D0
@@ -1536,9 +1752,11 @@ D3
 Z 0 4026
 S
 #4028
-The smelly tunnel~
-You are in a north-south leading tunnel, you see a small light
+@eng The smelly tunnel@rus Вонючий туннель~
+@eng You are in a north-south leading tunnel, you see a small light
 to the north. You notice a strange smell from the north..
+@rus Ты  в  туннеле,  который  тянется  с севера на юг. Ты видишь слабый свет на
+севере, но оттуда же доносится и странный запах...
 ~
 0 AD forest
 D0
@@ -1551,10 +1769,12 @@ D2
 Z 0 4026
 S
 #4029
-The cave~
-You are in a cave that is filled with fresh air, you sense the
+@eng The cave@rus Пещера~
+@eng You are in a cave that is filled with fresh air, you sense the
 wind blowing from the north. To the south you see a small tunnel
 continue into the mountain.
+@rus Ты  в  пещере,  которая  заполнена  свежим  воздухом. Ты чуствуешь ветерок,
+дующий с севера. На юге ты видишь маленький туннель, уходящий вглубь горы.
 ~
 0 ACD field
 D0
@@ -1567,9 +1787,11 @@ D2
 Z 0 4027
 S
 #4030
-The light cave~
-You are in a light cave,through a hole large above you, A small tunnel to
+@eng The light cave@rus Светлая пещера~
+@eng You are in a light cave,through a hole large above you, A small tunnel to
 the south may be the only way out to return.
+@rus Ты  в  светлой  пещере,  сквозь дыру в потолке, которая размером примерно с
+тебя, ты видишь небо. Выход отсюда - только через туннель, ведущий на юг.
 ~
 0 0 field
 D2
@@ -1578,14 +1800,17 @@ D2
 Z 0 4028
 S
 #4031
-The valley~
-You are in a small valley, surrounded by hills and a mountain to 
+@eng The valley@rus Долина~
+@eng You are in a small valley, surrounded by hills and a mountain to 
 the south. In the mountain there is a cave.
+@rus Ты находишься в маленькой долине, окруженной холмами и горой на юге. В горе
+виднеется пещера.
 ~
 0 0 field
 E
-cave~
-Well it doesn't look nice, but it's the only way out.
+cave пещера~
+@eng Well it doesn't look nice, but it's the only way out.
+@rus Согласен, это не похоже на хороший выход, но он - единственный.
 ~
 D0
 ~
@@ -1597,9 +1822,11 @@ D2
 Z 0 4029
 S
 #4032
-The foothills~
-You are on a winding path that leads through the foothills on the
+@eng The foothills@rus Предгорья~
+@eng You are on a winding path that leads through the foothills on the
 other side of the mountain.  The path continues north.
+@rus Ты  на  пути,  который  ведет  через  предгорья  на другую сторону горы. Он
+проходит с севера на юг.
 ~
 0 0 field
 D0
@@ -1612,9 +1839,11 @@ D2
 Z 0 4031
 S
 #4033
-The intersection in the foothills~
-The small path you are following splits here.  The path continues
+@eng The intersection in the foothills@rus Перекресток в предгорьях~
+@eng The small path you are following splits here.  The path continues
 north and south or you can follow a trail east into the mountains.
+@rus Маленький  путь,  которым  ты  следовал,  здесь  разделяется. Он проходит с
+севера на юг, если ты хочешь пройти в горы - тебе на восток.
 ~
 0 0 field
 D0
@@ -1631,10 +1860,13 @@ D2
 Z 0 4032
 S
 #4034
-The grassy area of the foothills~
-The grass here is unusually high.  You notice several areas where
+@eng The grassy area of the foothills@rus Травянистая область предгорий~
+@eng The grass here is unusually high.  You notice several areas where
 someone or something large has crushed spots of the grass down.  Several very
 large rocks litter this area.  You can go north, west or south.
+@rus Трава  здесь необычайно высока. Ты замечаешь наколько мест, где кто-то (или
+что-то)  примял  траву. Несколько громадных камней портят эту местность. Ты
+можешь идти на север, запад или юг.
 ~
 0 0 field
 D0
@@ -1651,10 +1883,12 @@ D3
 Z 0 4042
 S
 #4035
-The foothills end~
-At this point you are leaving the foothills.  You see a plains area
+@eng The foothills end@rus Конец предгорий~
+@eng At this point you are leaving the foothills.  You see a plains area
 to the north of here.  You can spot a small city in the distance from
 here.
+@rus В этой точке ты покидаешь поля. На севере видна равнина, а на юге виднеется
+малький город.
 ~
 0 0 field
 D0
@@ -1667,14 +1901,16 @@ D2
 Z 0 4034
 S
 #4036
-The plains~
-To the west see the border of the Shienar Kingdom, you may follow this 
+@eng The plains@rus Равнины~
+@eng To the west see the border of the Shienar Kingdom, you may follow this 
 path to reach the kingdom. Jagged mountain far to the north.
+@rus Равнина.
 ~
 0 0 field
 D0
 ~
-The path to the Craggy Tor
+@eng The path to the Craggy Tor
+@rus Дорога в Craggy Tor
 ~
 Z 0 30800
 D2
@@ -1683,13 +1919,15 @@ D2
 Z 0 4035
 D3
 ~
-In the Borderlands
+@eng In the Borderlands
+@rus В Borderlands
 ~
 Z 0 23114
 S
 #4037
-The foothills path~
-Exits are east and west.
+@eng The foothills path@rus Путь в предгорьях~
+@eng Exits are east and west.
+@rus Выходы на запад и восток.
 ~
 0 0 field
 D1
@@ -1702,8 +1940,9 @@ D3
 Z 0 4033
 S
 #4038
-Base of the mountain~
-Exits are east and west.
+@eng Base of the mountain@rus Подножье горы~
+@eng Exits are east and west.
+@rus Выходы на запад и восток.
 ~
 0 0 field
 D1
@@ -1716,8 +1955,9 @@ D3
 Z 0 4037
 S
 #4039
-A trail up the mountain~
-Exits are east and west.
+@eng A trail up the mountain@rus Подъем на гору~
+@eng Exits are east and west.
+@rus Выходы на запад и восток.
 ~
 0 0 field
 D1
@@ -1730,8 +1970,9 @@ D3
 Z 0 4038
 S
 #4040
-The mountain top.~
-Exits are north, east, and west.
+@eng The mountain top.@rus Вершина горы~
+@eng Exits are north, east, and west.
+@rus Выходы на север, запад и восток.
 ~
 0 0 field
 D0
@@ -1739,7 +1980,8 @@ D0
 ~
 Z 0 4041
 D1
-It doesn't look safe this way.
+@eng It doesn't look safe this way.
+@rus Этот путь безопасным не выглядит...
 ~
 ~
 Z 0 7114
@@ -1749,8 +1991,9 @@ D3
 Z 0 4039
 S
 #4041
-The lion's den~
-Exits are south.
+@eng The lion's den@rus Логово льва~
+@eng Exits are south.
+@rus Выход на юге.
 ~
 0 0 field
 D2
@@ -1759,8 +2002,9 @@ D2
 Z 0 4040
 S
 #4042
-The level foothills~
-Exits are east and west.
+@eng The level foothills@rus Предгорья~
+@eng Exits are east and west.
+@rus Выходы на запад и восток.
 ~
 0 0 field
 D1
@@ -1773,8 +2017,9 @@ D3
 Z 0 4043
 S
 #4043
-The cave entrance~
-Exits are east and west.
+@eng The cave entrance@rus Вход в пещеру~
+@eng Exits are east and west.
+@rus Выходы на запад и восток.
 ~
 0 0 field
 D1
@@ -1787,8 +2032,9 @@ D3
 Z 0 4044
 S
 #4044
-The hill giant cave~
-Exits are east.
+@eng The hill giant cave@rus Пещера гиганта с холмов~
+@eng Exits are east.
+@rus Выход на востоке.
 ~
 0 0 field
 D1
@@ -1797,8 +2043,9 @@ D1
 Z 0 4043
 S
 #4050
-The tunnel~
-The tunnel turns here, continuing to the east and south.
+@eng The tunnel@rus Туннель~
+@eng The tunnel turns here, continuing to the east and south.
+@rus Туннель делает поворот тут, продолжаясь с востока на юг.
 ~
 0 AD forest
 D1
@@ -1811,8 +2058,9 @@ D2
 Z 0 4053
 S
 #4051
-The tunnel~
-You are in a narrow east-west tunnel.
+@eng The tunnel@rus Туннель~
+@eng You are in a narrow east-west tunnel.
+@rus Ты в узком туннеле, ведущем с запада на восток.
 ~
 0 AD forest
 D1
@@ -1825,8 +2073,9 @@ D3
 Z 0 4050
 S
 #4052
-The tunnel~
-You are at a turn, the tunnel continues south and west.
+@eng The tunnel@rus Туннель~
+@eng You are at a turn, the tunnel continues south and west.
+@rus Ты на повороте, туннель продолжается с юга на запад.
 ~
 0 AD forest
 D2
@@ -1839,8 +2088,9 @@ D3
 Z 0 4051
 S
 #4053
-The tunnel~
-You are at a turn, the tunnel continues north and east.
+@eng The tunnel@rus Туннель~
+@eng You are at a turn, the tunnel continues north and east.
+@rus Ты на повороте, туннель продолжается с севера на восток.
 ~
 0 AD forest
 D0
@@ -1853,9 +2103,11 @@ D1
 Z 0 4054
 S
 #4054
-The light cave~
-You are in a cave, to south from you there is a large fire that lights
+@eng The light cave@rus Светлая пещера~
+@eng You are in a cave, to south from you there is a large fire that lights
 the entire cave, to the east and west tunnels leads off.
+@rus Ты  находишься  в  пещере,  на  юге  от  тебя  горит большой огонь, который
+освещает всю пещеру. На запад и восток ведут туннели.
 ~
 0 D field
 D1
@@ -1872,8 +2124,10 @@ D3
 Z 0 4053
 S
 #4055
-The maze~
-You are in a maze of small damp tunnels.  The only exit is west.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.  The only exit is west.
+@rus Ты  находишься  в  лабиринте  маленьких сырых туннелей. Единственый выход -
+западный.
 ~
 0 AD forest
 D3
@@ -1882,9 +2136,11 @@ D3
 Z 0 4054
 S
 #4056
-The light cave~
-You are in a light cave, a large fire in front of you lights the room.
+@eng The light cave@rus Светлая пещера~
+@eng You are in a light cave, a large fire in front of you lights the room.
 The cave continues to the north and south.
+@rus Ты  находишься  в  светлой  пещере,  большой огонь перед тобой освещает всю
+комнату. Пещера продолжается на север и на юг.
 ~
 0 D field
 D0
@@ -1897,8 +2153,9 @@ D2
 Z 0 4061
 S
 #4057
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D1
@@ -1911,8 +2168,9 @@ D2
 Z 0 4062
 S
 #4058
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D2
@@ -1925,9 +2183,11 @@ D3
 Z 0 4057
 S
 #4059
-The tunnel~
-You are in a tunnel, only exit is to the east. You sense that the
+@eng The tunnel@rus Туннель~
+@eng You are in a tunnel, only exit is to the east. You sense that the
 tunnel leads slightly down.
+@rus Ты  в  туннеле,  единственный  выход  из  которого ведет на восток. Туннель
+слегка опускается...
 ~
 0 ACD forest
 D0
@@ -1940,9 +2200,11 @@ D1
 Z 0 4060
 S
 #4060
-The tunnel~
-You are in a small tunnel, to the west the tunnel continues and 
+@eng The tunnel@rus Туннель~
+@eng You are in a small tunnel, to the west the tunnel continues and 
 to the east you see some light.
+@rus Ты  в  маленьком  туннеле. Он тянется с востока на запад, на востоке что-то
+светится...
 ~
 0 AD forest
 D1
@@ -1955,8 +2217,9 @@ D3
 Z 0 4059
 S
 #4061
-The light cave~
-You are in the south end of a light cave.
+@eng The light cave@rus Светлая пещера~
+@eng You are in the south end of a light cave.
+@rus Ты в южной части светлой пещеры.
 ~
 0 D field
 D0
@@ -1969,8 +2232,9 @@ D3
 Z 0 4060
 S
 #4062
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D0
@@ -1983,8 +2247,9 @@ D1
 Z 0 4065
 S
 #4063
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D0
@@ -1997,8 +2262,9 @@ D1
 Z 0 4064
 S
 #4064
-The tunnel~
-You are at the eastern end of a tunnel.
+@eng The tunnel@rus Туннель~
+@eng You are at the eastern end of a tunnel.
+@rus Ты в восточной части туннеля.
 ~
 0 AD forest
 D3
@@ -2011,8 +2277,9 @@ D4
 Z 0 4020
 S
 #4065
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D1
@@ -2025,8 +2292,9 @@ D3
 Z 0 4062
 S
 #4066
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D1
@@ -2043,8 +2311,9 @@ D3
 Z 0 4065
 S
 #4067
-The maze~
-You are in a maze of small damp tunnels.
+@eng The maze@rus Лабиринт~
+@eng You are in a maze of small damp tunnels.
+@rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
 0 AD forest
 D3
@@ -2053,8 +2322,9 @@ D3
 Z 0 4066
 S
 #4068
-The large cave~
-You are in the northwest end of a large cave.
+@eng The large cave@rus Большая пещера~
+@eng You are in the northwest end of a large cave.
+@rus Ты в северо-западном углу большой пещеры.
 ~
 0 AD field
 D1
@@ -2067,9 +2337,11 @@ D2
 Z 0 4070
 S
 #4069
-The large cave~
-You are in the northeast end of a large cave. To the north the
+@eng The large cave@rus Большая пещера~
+@eng You are in the northeast end of a large cave. To the north the
 is a small damp tunnel.
+@rus Ты  в северо-восточной части большой пещеры. На север ведет маленький сырой
+туннель.
 ~
 0 AD field
 D0
@@ -2086,8 +2358,9 @@ D3
 Z 0 4068
 S
 #4070
-The large cave~
-You are in the southwest end of a large cave.
+@eng The large cave@rus Большая пещера~
+@eng You are in the southwest end of a large cave.
+@rus Ты в юго-западной части большой пещеры.
 ~
 0 AD field
 D0
@@ -2100,9 +2373,11 @@ D1
 Z 0 4071
 S
 #4071
-The large cave~
-You are in the southeast end of a large cave. To the east you
+@eng The large cave@rus Большая пещера~
+@eng You are in the southeast end of a large cave. To the east you
 notice a small tunnel.
+@rus Ты  в  юго-восточной  части  большой пещеры. На востоке ты видишь маленький
+туннель.
 ~
 0 AD field
 D0
@@ -2119,10 +2394,12 @@ D3
 Z 0 4070
 S
 #4072
-The tunnel~
-You are in a narrow tunnel, which leads both to the east and the
+@eng The tunnel@rus Туннель~
+@eng You are in a narrow tunnel, which leads both to the east and the
 south. There is also an exit towards the west, where you see a large
 cave.
+@rus Ты  в  узком  туннеле,  который ведет и на восток, и на юг. На западе виден
+вход в большую пещеру.
 ~
 0 AD forest
 D1
@@ -2139,8 +2416,9 @@ D3
 Z 0 4071
 S
 #4073
-End of tunnel~
-The tunnel stops here.
+@eng End of tunnel@rus Конец туннеля~
+@eng The tunnel stops here.
+@rus Опс! Здесь туннель заканчивается...
 ~
 0 AD forest
 D3
@@ -2149,9 +2427,11 @@ D3
 Z 0 4072
 S
 #4074
-The hole~
-You are at a small hole in the floor, you can either leave north
+@eng The hole@rus Дыра~
+@eng You are at a small hole in the floor, you can either leave north
 or try your luck and leave down into the unknown!
+@rus Ты  стоишь  у  маленькой дыры в полу. Ты можешь пойти на север или попытать
+удачи, спустившись в дыру.
 ~
 0 AD forest
 D0
@@ -2164,8 +2444,9 @@ D5
 Z 0 4171
 S
 #4100
-The tunnel~
-Suddenly you feel that the tunnel leads slightly down.
+@eng The tunnel@rus Туннель~
+@eng Suddenly you feel that the tunnel leads slightly down.
+@rus Внезапно ты чуствуешь, что туннель уводит тебя куда-то вниз...
 ~
 0 ACD forest
 D0
@@ -2178,9 +2459,11 @@ D3
 Z 0 4101
 S
 #4101
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel is quite
+@eng The long tunnel@rus Длинный тунель~
+@eng You are in a long east-west leading tunnel. The tunnel is quite
 wide at this point.
+@rus Ты  в  длинном  туннеле,  ведущем с запада на восток. Туннель очень широк в
+этом месте.
 ~
 0 AD forest
 D1
@@ -2193,9 +2476,11 @@ D3
 Z 0 4102
 S
 #4102
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel becomes
+@eng The long tunnel@rus Длинный тунель~
+@eng You are in a long east-west leading tunnel. The tunnel becomes
 narrow to the west.
+@rus Ты  в  длинном  туннеле,  ведущем  с  запада на восток. Туннель сужается на
+западе...
 ~
 0 AD forest
 D1
@@ -2208,9 +2493,11 @@ D3
 Z 0 4103
 S
 #4103
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel is quite
+@eng The long tunnel@rus Длинный тунель~
+@eng You are in a long east-west leading tunnel. The tunnel is quite
 narrow at this point. You notice a small hole leading south.
+@rus Ты  в  длинном  туннеле,  ведущем с запада на восток. Туннель очень широк в
+этом месте. На юге ты замечаешь маленькую дыру.
 ~
 0 AD forest
 D1
@@ -2227,9 +2514,11 @@ D3
 Z 0 4104
 S
 #4104
-The long tunnel~
-You are in a long east-west leading tunnel. The tunnel starts sloping
+@eng The long tunnel@rus Длинный тунель~
+@eng You are in a long east-west leading tunnel. The tunnel starts sloping
 down towards the west.
+@rus Ты  в  длинном  туннеле,  ведущем  с  запада  на  восток.  Туннель начинает
+потихоньку опускаться к западу.
 ~
 0 AD forest
 D1
@@ -2242,9 +2531,11 @@ D3
 Z 0 4152
 S
 #4105
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
+@eng The golden cave@rus Золотая пещера~
+@eng You are in a giant cave, all the walls are shining with a soft golden
 light. The cave continues to the south and west.
+@rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
+Пещера продолжается с юга на запад.
 ~
 0 D city
 D2
@@ -2257,10 +2548,12 @@ D3
 Z 0 4106
 S
 #4106
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
+@eng The golden cave@rus Золотая пещера~
+@eng You are in a giant cave, all the walls are shining with a soft golden
 light. The cave continues to the south and east, to the north is a narrow
 tunnel.
+@rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
+Пещера продолжается с юга на восток, на севере виден узкий туннель.
 ~
 0 D city
 D0
@@ -2277,9 +2570,10 @@ D2
 Z 0 4109
 S
 #4107
-The passage~
-You are in a small passage, it leads south, to the west is a golden
+@eng The passage@rus Проход~
+@eng You are in a small passage, it leads south, to the west is a golden
 cave.
+@rus Ты в маленьком проходе, он ведет с юга в золотую пещеру на западе.
 ~
 0 AD forest
 D2
@@ -2292,10 +2586,12 @@ D3
 Z 0 4108
 S
 #4108
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
+@eng The golden cave@rus Золотая пещера~
+@eng You are in a giant cave, all the walls are shining with a soft golden
 light. The cave continues to the north and west, east from you there is
 a small passage.
+@rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
+Пещера продолжается с севера на запад, на востоке заметен маленький проход.
 ~
 0 D city
 D0
@@ -2312,9 +2608,11 @@ D3
 Z 0 4109
 S
 #4109
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
+@eng The golden cave@rus Золотая пещера~
+@eng You are in a giant cave, all the walls are shining with a soft golden
 light. The cave continues to the south, east and north.
+@rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
+Пещера продолжается на юг, восток и север.
 ~
 0 D city
 D0
@@ -2331,8 +2629,9 @@ D2
 Z 0 4114
 S
 #4110
-The tunnel~
-You are at the end of the tunnel.
+@eng The tunnel@rus Туннель~
+@eng You are at the end of the tunnel.
+@rus Ты в конце туннеля.
 ~
 0 ACD forest
 D3
@@ -2341,8 +2640,9 @@ D3
 Z 0 4111
 S
 #4111
-The tunnel~
-You are in a small tunnel, it leads from east to the west.
+@eng The tunnel@rus Туннель~
+@eng You are in a small tunnel, it leads from east to the west.
+@rus Ты в маленьком туннеле, протянувшемся с запада на восток.
 ~
 0 AD forest
 D1
@@ -2355,8 +2655,10 @@ D3
 Z 0 4112
 S
 #4112
-The tunnel~
-You are in a larger tunnel, it leads from west to east.
+@eng The tunnel@rus Туннель~
+@eng You are in a larger tunnel, it leads from west to east.
+@rus Ты  в  большом туннеле, он ведет с запада на восток. Согласен, с востока на
+запад им тоже можно пройти :-)
 ~
 0 AD forest
 D1
@@ -2369,9 +2671,10 @@ D3
 Z 0 4113
 S
 #4113
-The passage~
-You are in a passage that leads towards the south. To the east 
+@eng The passage@rus Проход~
+@eng You are in a passage that leads towards the south. To the east 
 you see a tunnel.
+@rus Ты в проходе, который ведет на юг. На востоке виден туннель.
 ~
 0 AD forest
 D0
@@ -2388,10 +2691,12 @@ D2
 Z 0 4116
 S
 #4114
-The golden cave~
-You are in a giant cave, all the walls are shining with a soft golden
+@eng The golden cave@rus Золотая пещера~
+@eng You are in a giant cave, all the walls are shining with a soft golden
 light. The cave continues to the north, to the west you see a dark 
 passage.
+@rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
+Пещера продолжается на север, на западе виден узкий темный проход.
 ~
 0 D city
 D0
@@ -2404,9 +2709,11 @@ D3
 Z 0 4115
 S
 #4115
-The dark passage.~
-You are in a dark passage, that leads east. In the ceiling you notice
+@eng The dark passage.@rus Темный проход~
+@eng You are in a dark passage, that leads east. In the ceiling you notice
 a small hole, just big enough to pass through.
+@rus Ты  в  темном  проходе,  который  ведет  на восток. На потолке ты замечаешь
+маленкую дыру, как раз такого размера, чтобы протиснуться в нее.
 ~
 0 AD forest
 D1
@@ -2419,9 +2726,10 @@ D4
 Z 0 4021
 S
 #4116
-The passage~
-You are in a passage that leads north-south. You notice a small
+@eng The passage@rus Проход~
+@eng You are in a passage that leads north-south. You notice a small
 light to the south.
+@rus Ты в проходе, ведущем с севера на юг. На юге ты видишь слабый свет.
 ~
 0 AD forest
 D0
@@ -2434,8 +2742,9 @@ D2
 Z 0 4120
 S
 #4117
-The secret chamber~
-You are in a secret chamber.
+@eng The secret chamber@rus Секретная комната~
+@eng You are in a secret chamber.
+@rus Ты в секретной комнате.
 ~
 0 AD forest
 D2
@@ -2444,10 +2753,13 @@ D2
 Z 0 4122
 S
 #4118
-The cave~
-You are in a light cave, from torches several feet above your
+@eng The cave@rus Пещера~
+@eng You are in a light cave, from torches several feet above your
 head fire lights the room. The cave continues to the west and south.
 To the north a small hole leads to a tunnel.
+@rus Ты  в  светлой  пещере,  в нескольких шагах от тебя горит огонь, освещающий
+комнату. Пещера продолжается с запада на юг. На севере маленькая дыра ведет
+в туннель.
 ~
 0 D city
 D2
@@ -2460,9 +2772,11 @@ D3
 Z 0 4119
 S
 #4119
-The cave~
-You are in a light cave, from torches several feet above your
+@eng The cave@rus Пещера~
+@eng You are in a light cave, from torches several feet above your
 head fire lights the room. The cave continues to the east and south.
+@rus Ты  в  светлой  пещере,  в нескольких шагах от тебя горит огонь, освещающий
+комнату. Пещера продолжается с юга на восток.
 ~
 0 D city
 D1
@@ -2479,8 +2793,9 @@ D3
 Z 0 4121
 S
 #4120
-The passage~
-You are in a north-south leading passage. To the south you see light.
+@eng The passage@rus Проход~
+@eng You are in a north-south leading passage. To the south you see light.
+@rus Ты в проходе, который ведет с севера на юг. На юге ты видишь свет.
 ~
 0 AD forest
 D0
@@ -2493,9 +2808,11 @@ D2
 Z 0 4125
 S
 #4121
-The secret tunnel~
-You are in a secret tunnel that leads west, you feel evilness
+@eng The secret tunnel@rus Секретный туннель~
+@eng You are in a secret tunnel that leads west, you feel evilness
 approaching you as you continue west.
+@rus Ты  в  секретном  туннеле,  который  ведет на запад. На западе ты чуствуешь
+чье-то враждебное присутствие.
 ~
 0 AD forest
 D1
@@ -2508,9 +2825,10 @@ D3
 Z 0 4122
 S
 #4122
-The secret chamber~
-You are in a secret chamber, the room is filled with an evil
+@eng The secret chamber@rus Секретная комната~
+@eng You are in a secret chamber, the room is filled with an evil
 feeling.
+@rus Ты в секретной комнате, которая пронизана чьим-то враждебным присутствием.
 ~
 0 AD forest
 D0
@@ -2523,9 +2841,11 @@ D1
 Z 0 4121
 S
 #4123
-The cave~
-You are in a light cave, from torches several feet above your
+@eng The cave@rus Пещера~
+@eng You are in a light cave, from torches several feet above your
 head fire lights the room. The cave continues to the north and west.
+@rus Ты  в  светлой  пещере,  в нескольких шагах от тебя горит огонь, освещающий
+комнату. Пещера продолжается с севера на запад.
 ~
 0 D city
 D0
@@ -2538,10 +2858,13 @@ D3
 Z 0 4124
 S
 #4124
-The cave~
-You are in a light cave, from torches several feet above your
+@eng The cave@rus Пещера~
+@eng You are in a light cave, from torches several feet above your
 head fire lights the room. The cave continues to the east and north.
 To the west a passage leads north.
+@rus Ты  в  светлой  пещере,  в нескольких шагах от тебя горит огонь, освещающий
+комнату.  Пещера  продолжается  с востока на север. На западе виден проход,
+ведущий на север.
 ~
 0 D city
 D0
@@ -2558,10 +2881,12 @@ D3
 Z 0 4125
 S
 #4125
-The passage~
-You are in a passage, to the east you see a cave. Light from the
+@eng The passage@rus Проход~
+@eng You are in a passage, to the east you see a cave. Light from the
 cave lights up the passage. To the north the passage leads into
 the darkness.
+@rus Ты  в проходе, на востоке котороы ты видишь пещеру. Свет из пещеры освещает
+проход. Северная часть прохода уходит в темноту.
 ~
 0 AD forest
 D0
@@ -2574,12 +2899,17 @@ D1
 Z 0 4124
 S
 #4150
-The dark hole~
-You are standing at a hole, a small passage leads south. You see
+@eng The dark hole@rus Темная дыра~
+@eng You are standing at a hole, a small passage leads south. You see
 some inscriptions on the wall, most of 'em the usual stuff, like:
 'Super Snude was here' and 'Why does the mayor likes secretaries with
 small hands?' - But one inscription gets your attention, it says:
 The Balrog is ALIVE ...
+@rus Ты  стоишь  возле  дыры,  а маленький проход ведет дальше, на юг. Ты видишь
+какие-то  непонятные  надписи на стене, нацарапанные чем-то острым : 'здесь
+был  Super  Snude',  'почему  любят  маленьких  женщин',  и прочие в том же
+духе.  Но  одна  надпись  привлекает  твое  внимание.  Она гласит : 'Balrog
+жив...'
 ~
 0 ACD forest
 D2
@@ -2588,9 +2918,11 @@ D2
 Z 0 4151
 S
 #4151
-The small passage~
-You are in a small passage, to the north you see a hole, and to
+@eng The small passage@rus Маленький проход~
+@eng You are in a small passage, to the north you see a hole, and to
 the south you see a large tunnel. The air is damp in this area.
+@rus Ты  в  маленьком  проходе,  на  севере  виднеется  дыра, а на юге ты видишь
+большой туннель. Воздух наполнен сыростью и тебе тяжело дышать...
 ~
 0 AD forest
 D0
@@ -2607,8 +2939,9 @@ D3
 Z 0 4155
 S
 #4152
-The tunnel~
-You suddenly feel that the tunnel leads down.
+@eng The tunnel@rus Туннель~
+@eng You suddenly feel that the tunnel leads down.
+@rus Внезапно ты чуствуешь, что туннель уходит вниз...
 ~
 0 ACD forest
 D1
@@ -2621,9 +2954,11 @@ D2
 Z 0 4153
 S
 #4153
-The large tunnel~
-You are in a large tunnel leading from the south to the east. The
+@eng The large tunnel@rus Большой туннель~
+@eng You are in a large tunnel leading from the south to the east. The
 air is damp in the area.
+@rus Ты  в  большом  туннеле,  поворачивающем  с  юга на восток. Воздух наполнен
+сыростью и тебе тяжело дышать...
 ~
 0 AD forest
 D0
@@ -2640,9 +2975,11 @@ D2
 Z 0 4157
 S
 #4154
-The large tunnel~
-You are in a large east-west leading tunnel, the air is damp and
+@eng The large tunnel@rus Большой туннель~
+@eng You are in a large east-west leading tunnel, the air is damp and
 the floor is wet.
+@rus Ты  в  большом  туннеле,  который  идет с запада на восток. Воздух наполнен
+влагой, и стены туннеля сочатся сыростью.
 ~
 0 AD forest
 D1
@@ -2655,9 +2992,11 @@ D3
 Z 0 4153
 S
 #4155
-The large tunnel~
-You are in a large tunnel, the tunnel leads west, and to the east
+@eng The large tunnel@rus Большой туннель~
+@eng You are in a large tunnel, the tunnel leads west, and to the east
 you notice a long tunnel. The air is damp in this area.
+@rus Ты в большом туннеле, который идет с запада на восток. На востоке ты видишь
+длинный туннель. Воздух наполнен влагой, и стены туннеля сочатся сыростью.
 ~
 0 AD forest
 D1
@@ -2670,8 +3009,9 @@ D3
 Z 0 4154
 S
 #4156
-The long tunnel~
-You are standing in a long north-south tunnel.
+@eng The long tunnel@rus Длинный тунель~
+@eng You are standing in a long north-south tunnel.
+@rus Ты в длинном туннеле, который ведет с севера на юг.
 ~
 0 AD forest
 D0
@@ -2684,9 +3024,11 @@ D2
 Z 0 4160
 S
 #4157
-The wet tunnel~
-You are in a wet, north-south leading tunnel, the floor is
+@eng The wet tunnel@rus Сырой туннель~
+@eng You are in a wet, north-south leading tunnel, the floor is
 partly covered by water.
+@rus Ты  в сыром туннеле, тенущемся с севера на юг. Туннель настолько сырой, что
+пол кое-где покрывают лужи воды. Пить из них я бы поостерегся.
 ~
 0 AD forest
 D0
@@ -2703,9 +3045,11 @@ D2
 Z 0 4161
 S
 #4158
-The small maze~
-You are in a small maze, exits leads off to the east,  south
+@eng The small maze@rus Маленький лабиринт~
+@eng You are in a small maze, exits leads off to the east,  south
 and west. The floor is partly covered by water.
+@rus Ты  в  маленьком  лабиринте,  выходы  ведут  на юг, запад и восток. На полу
+блестят лужи воды...
 ~
 0 AD forest
 D1
@@ -2722,9 +3066,11 @@ D3
 Z 0 4157
 S
 #4159
-The small maze~
-You are in a small maze, exits leads off only to the south
+@eng The small maze@rus Маленький лабиринт~
+@eng You are in a small maze, exits leads off only to the south
 and west. The air is damp in this maze.
+@rus Ты  в  маленьком  лабиринте,  выходы  ведут только на юг и на запад. Воздух
+наполнен сыростью...
 ~
 0 AD forest
 D2
@@ -2737,14 +3083,16 @@ D3
 Z 0 4158
 S
 #4160
-In the tunnel at the inscription~
-You are in a north-south leading tunnel, the air is damp. On
+@eng In the tunnel at the inscription@rus Туннель возле надписи~
+@eng You are in a north-south leading tunnel, the air is damp. On
 the wall there is an inscription.
+@rus Ты  в  туннеле,  который ведет с севера на юг. Воздух наполнен сыростью. На
+стене виднеется надпись (inscription).
 ~
 0 AD forest
 E
-inscription~
-It says:
+inscription надпись~
+@eng It says:
 
     Year 631 after the destruction of the dwarven realm.
 
@@ -2753,6 +3101,16 @@ by a large green dragon. All but two died immediately as the
 dragon breathed poison gas; we are also going to die soon.
 
        Trather and Oralane
+@rus Она гласит :
+
+             Год 631 после падения королевства гномов.
+
+Мы нашли меч короля гномов, но его охраняет большой дракон, шкура
+которого светится со  слабым зеленоватым оттенком...  Все,  кроме
+нас двоих погибли сразу,  убитые ядовитым газом, который выдохнул
+дракон; мы тоже скоро умрем.
+
+                                                Trather и Oralane
 ~
 D0
 ~
@@ -2764,9 +3122,10 @@ D2
 Z 0 4164
 S
 #4161
-The wet tunnel~
-You are in a north-south leading tunnel.  The floor is fully
+@eng The wet tunnel@rus Сырой туннель~
+@eng You are in a north-south leading tunnel.  The floor is fully
 covered by water.
+@rus Ты в туннеле, ведущем с севера на юг. Пол полностью покрыт водой.
 ~
 0 AD forest
 D0
@@ -2779,9 +3138,11 @@ D2
 Z 0 4165
 S
 #4162
-The small maze~
-You are in a small maze. The floor is mainly covered by
+@eng The small maze@rus Маленький лабиринт~
+@eng You are in a small maze. The floor is mainly covered by
 water, exits leads north, east and south.
+@rus Ты  в  маленьком лабиринте. Выходы ведут на север, юг и восток. Пол большей
+частью покрыт водой.
 ~
 0 AD forest
 D0
@@ -2798,9 +3159,11 @@ D2
 Z 0 4166
 S
 #4163
-The small maze~
-You are in a small maze, where the air is damp. Exits
+@eng The small maze@rus Маленький лабиринт~
+@eng You are in a small maze, where the air is damp. Exits
 leads to the north and east.
+@rus Ты  в  маленьком  лабиринте. Выходы ведут на север и восток. Воздух сочится
+влагой.
 ~
 0 AD forest
 D0
@@ -2817,9 +3180,11 @@ D3
 Z 0 4162
 S
 #4164
-The entrance to the small maze~
-You are in a north-south leading tunnel, and the air is damp.
+@eng The entrance to the small maze@rus Вход в маленький лабиринт~
+@eng You are in a north-south leading tunnel, and the air is damp.
 To the west you see a small maze.
+@rus Ты  в  туннеле,  который  ведет  с  севера  на  восток. На западе ты видишь
+маленький лабиринт. Воздух очень влажный.
 ~
 0 AD forest
 D0
@@ -2836,9 +3201,10 @@ D3
 Z 0 4163
 S
 #4165
-In the water~
-You are standing in water, the tunnel continues both to the
+@eng In the water@rus В воде~
+@eng You are standing in water, the tunnel continues both to the
 north and south.
+@rus 
 ~
 0 AD swim
 D0
@@ -2851,9 +3217,11 @@ D2
 Z 0 4169
 S
 #4166
-The wet maze~
-You are in a part of the maze where the floor is fully covered
+@eng The wet maze@rus Сырой лабиринт~
+@eng You are in a part of the maze where the floor is fully covered
 by water. The maze continues to the north, east and south.
+@rus Ты  в  части  лабиринта,  пол  которой  полностью  покрыт  водой.  Лабиринт
+продолжается на север, юг и восток.
 ~
 0 AD forest
 D0
@@ -2870,9 +3238,11 @@ D2
 Z 0 4170
 S
 #4167
-The wet maze~
-You are in a small maze, the floor is covered by water, the
+@eng The wet maze@rus Сырой лабиринт~
+@eng You are in a small maze, the floor is covered by water, the
 maze continues east, west and south.
+@rus Ты  в  части  лабиринта,  пол  которой  полностью  покрыт  водой.  Лабиринт
+продолжается на запад, юг и восток.
 ~
 0 AD forest
 D1
@@ -2889,9 +3259,11 @@ D3
 Z 0 4166
 S
 #4168
-The end of the tunnel~
-The tunnel suddenly stops here, only exit is to the west.
+@eng The end of the tunnel@rus Конец туннеля~
+@eng The tunnel suddenly stops here, only exit is to the west.
 The air is damp here.
+@rus Туннель  неожиданно  заканчивается  здесь,  единственный  выход - на запад.
+Воздух тут очень сырой.
 ~
 0 AD forest
 D0
@@ -2904,8 +3276,9 @@ D3
 Z 0 4167
 S
 #4169
-In the water~
-You are standing in the water, exits leads both north and east.
+@eng In the water@rus В воде~
+@eng You are standing in the water, exits leads both north and east.
+@rus Ты стоишь в воде, выходы ведут на север и восток.
 ~
 0 AD swim
 D0
@@ -2918,8 +3291,9 @@ D1
 Z 0 4170
 S
 #4170
-In the water~
-You are standing in the water, it continues east and west.
+@eng In the water@rus В воде~
+@eng You are standing in the water, it continues east and west.
+@rus Ты стоишь в воде, выходы ведут на запад и восток.
 ~
 0 AD swim
 D0
@@ -2936,9 +3310,11 @@ D3
 Z 0 4169
 S
 #4171
-End of maze~
-You are at the end of the small maze which continues north.
+@eng End of maze@rus Конец лабиринта~
+@eng You are at the end of the small maze which continues north.
 Above you a hole leads up.
+@rus Ты  в  конце  маленького  лабиринта, который въется на север от тебя. Через
+дыру в потолке ты можешь подняться вверх.
 ~
 0 ACD forest
 D0
@@ -2951,8 +3327,9 @@ D4
 Z 0 4074
 S
 #4172
-At the sand bar~
-You are on a little sand bar in the water.
+@eng At the sand bar@rus Возле песчаной насыпи~
+@eng You are on a little sand bar in the water.
+@rus Ты на маленькой насыпи из песка, которая поднимается из воды.
 ~
 0 AD forest
 D3

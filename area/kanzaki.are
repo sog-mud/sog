@@ -59,8 +59,9 @@ AGHWe 0 0 0
 10 10 10d10+100 1d1+0 2d5+5 'peckb'
 4 4 4 7
 IJ 0 0 C
-stand stand female 0
+stand stand neutral 0
 0 ADFHP tiny unknown
+g @eng neutral@rus female~
 #47101
 утенок small duck~
 @eng a small duck@rus ~~утенок~~~
@@ -78,8 +79,9 @@ AGHWe bz 0 0
 5 5 5d5+30 0d0+0 2d2+3 'peckb'
 7 7 7 7
 J 0 0 C
-stand stand male 0
+stand stand neutral 0
 0 ADFHP tiny unknown
+g @eng neutral@rus male~
 #47102
 snake змея змейка~
 @eng a small snake@rus ~~маленькая~~ ~~змейка~~~
@@ -96,8 +98,9 @@ AGW FPQV 0 0
 20 25 20d20+350 0d0+0 4d5+10 'bite'
 -4 -4 -4 -4
 FHM 0 0 0
-stand stand female 0
+stand stand neutral 0
 D AQ tiny unknown
+g @eng neutral@rus female~
 #47103
 grasshopper кузнечик~
 @eng a grasshopper@rus ~~кузнечик~~~
@@ -113,8 +116,9 @@ ABHe T 500 0
 5 5 6d6+50 0d0+0 4d4+8 'scratch'
 2 2 2 2
 F 0 0 HI
-stand stand male 0
+stand stand neutral 0
 AO CP tiny unknown
+g @eng neutral@rus male~
 #47104
 small bird птичка маленькая~
 @eng a bird@rus ~~птичка~~~
@@ -131,8 +135,9 @@ AH 0 0 0
 10 10 10d10+200 0d0+0 4d3+10 'peck'
 -2 -2 -2 -2
 0 0 0 0
-stand stand female 0
+stand stand neutral 0
 0 FP small unknown
+g @eng neutral@rus female~
 #47105
 ученик юноша young man apprentice~
 @eng apprentice@rus ~~ученик~~~
@@ -198,8 +203,9 @@ ABGWZ cst 0 0
 27 25 10d50+500 0d0+0 6d5+25 'charge'
 -9 -9 -9 -7
 FHIJO 0 BEIP 0
-stand stand male 0
+stand stand neutral 0
 AV ACDFW large unknown
+g @eng neutral@rus male~
 #47108
 макака обезьяна лохматая ape shaggy~
 @eng a shaggy ape@rus ~~лохматая~~ ~~макака~~~
@@ -220,8 +226,9 @@ ABCH V 0 0
 24 30 4d100+400 0d0+0 7d7+40 'slap'
 -5 -5 -5 -5
 FHIJNU 0 BLPQ H
-stand stand none 0
+stand stand neutral 0
 AHV ABCDEF medium unknown
+g @eng neutral@rus female~
 #47109
 demon~
 @eng Demon~
@@ -232,8 +239,9 @@ A 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0 0 0 0
-stand stand none 0
+stand stand neutral 0
 0 0 medium unknown
+g @eng neutral@rus male~
 F for AHMV
 #47110
 dragon~
@@ -245,8 +253,9 @@ A 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 ''
 0 0 0 0
 0 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
+g @eng male@rus male~
 F for AHMV
 #47111
 saki саки хозяин owner~
@@ -350,7 +359,7 @@ must be fine for him.
 тут немного и, похоже, он вполне доволен своим положением.
 ~
 human~
-AH V 0 0
+AHY V 0 0
 15 5 5d20+400 0d0+0 4d5+5 'punch'
 0 0 0 0
 FRU 0 0 0
@@ -373,7 +382,7 @@ little instructions.
 и выполнении мелких поручений хозяев.
 ~
 human~
-AH 0 0 0
+AHY 0 0 0
 15 5 2d50+350 0d0+0 4d4+5 'slap'
 0 0 0 0
 FHRU 0 0 0
@@ -515,7 +524,29 @@ AG 0 700 0
 15 7 2d50+250 0d0+0 4d5+7 'slap'
 -5 -5 -5 -5
 FHJ 0 0 0
-stand stand none 50
+stand stand fem 50
+0 ABCDEF medium unknown
+F for H
+#47123
+peasant крестьянин~
+@eng a peasant@rus ~~крестьянин~~~
+@eng A peasant is here, farming his lot.
+@rus Крестьянин занят работой на своей делянке.
+~
+@eng An ordinary peasant, one of many.. right now he's busy
+farming his lot. If there won't be a bad harvest, his
+family will be well fed, and there even will be some
+surplus for sale.
+@rus Обычный крестьянини, один из многих, он как раз занят
+обработкой своего надела. Если в этом году не случится
+большого неурожая, то и его семья без еды не останется.
+~
+human~
+ABG 0 0 0
+25 10 2d50+500 0d0+0 5d6+10 'smash'
+-9 -9 -9 -9
+FHIJNX 0 0 0
+stand stand male 1500
 0 ABCDEF medium unknown
 F for H
 #47151
@@ -667,8 +698,10 @@ cloth~
 armor AKLS AK
 0 0 0 0 0
 46 0 0 P
-F I 0 0 Q
-F I 0 0 L
+A
+35 100
+A
+39 100
 A
 5 22
 g male~
@@ -929,7 +962,7 @@ g female~
 #47106
 door wooden house деревянная дверь~
 @eng Wooden door@rus ~~деревянная~~ ~~дверь~~~
-@eng Wooden door leads to the house, it is slightly ajar.@rus Деревянная дверь (door) ведет в дом. Она слегка приоткрыта.~
+@eng A wooden door leads to the house.@rus Деревянная дверь (door) ведет в дом.~
 wood~
 portal Y 0
 0 0 0 47199 0
@@ -1187,7 +1220,7 @@ g male~
 #47123
 plant leaves~
 @eng plant@rus ~~растение~~~
-@eng Leaves of some plant are spread here.@rus Какое-то растение(plant) раскинуло здесь свои листья.~
+@eng Some plant has spread its leaves here.@rus Какое-то растение(plant) раскинуло здесь свои листья.~
 plant~
 container 0 0
 100000 0 0 100000 100
@@ -1364,9 +1397,9 @@ armor Q AK
 9 9 9 9 0
 24 7 0 P
 A
-31 40
+23 -4
 A
-23 -7
+31 40
 A
 13 25
 g female~
@@ -1557,6 +1590,7 @@ steel~
 weapon N AN
 dagger 4 9 'thrust' D
 25 4 15000 P
+g none~
 #47155
 doll кукла деревянная wooden~
 @eng a wooden doll@rus ~~деревянная~~ ~~кукла~~~
@@ -4007,7 +4041,7 @@ led with light smell of hagrance.
 D0
 ~
 ~
-Z 0 47117
+ABZ 0 47117
 D2
 ~
 ~
@@ -4462,6 +4496,7 @@ D 0 47171 0 1	* Statue of Buddha: door to the north: closed
 D 0 47171 1 2	* Statue of Buddha: door to the east: closed and locked
 D 0 47172 2 1	* Secret passage: door to the south: closed
 D 0 47176 3 2	* The temple treasury: door to the west: closed and locked
+D 0 47199 0 1	* Hallway: door to the north: closed
 D 0 47200 1 1	* Hallway: door to the east: closed
 D 0 47200 3 1	* Hallway: door to the west: closed
 D 0 47201 3 1	* Meditation room: door to the west: closed
@@ -4501,12 +4536,20 @@ G 0 47139 0		*	a wooden bucket
 M 0 47100 2 47108 1	* a duck (The village road)
 G 0 47132 0		*	a small pile of feathers
 M 0 47101 4 47108 2	* a small duck (The village road)
+M 0 47121 1 47108 1	* a village boy (The village road)
 O 0 47101 0 47110	* Well (By the well)
+M 0 47122 1 47111 1	* a village girl (A villager's house)
+E 0 47155 0 17		*	a wooden doll: held in the hands
 O 0 47123 0 47112	* plant (A small field behind the house)
 P 0 47124 0 47123 1	* plant: some fruits
+M 0 47121 1 47114 1	* a village boy (Eastern road)
 O 0 47123 0 47116	* plant (A small field behind the house)
 P 0 47124 0 47123 1	* plant: some fruits
 O 0 47106 0 47117	* Wooden door (Before the old Kanzaki's house)
+M 0 47123 1 47119 1	* a peasant (A small field behind the house)
+E 0 47137 0 16		*	a fine sturdy hoe: wielded
+M 0 47123 1 47121 1	* a peasant (A small field behind the house)
+E 0 47137 0 16		*	a fine sturdy hoe: wielded
 O 0 47125 0 47126	* wooden bench (Temple guards' barracks)
 O 0 47126 0 47126	* table (Temple guards' barracks)
 O 0 47102 0 47128	* temple gate (The temple courtyard)

@@ -1,19 +1,23 @@
 #AREADATA
 Name Marsh~
 VNUMs 8300 8399
-Credits Generic~
+Credits Generic Old Marsh~
 Security 9
 LevelRange 15 25
 End
 
 #MOBILES
 #8301
-troll~
-a swamp troll~
-A swamp troll charges towards you.
+troll тролль~
+@eng a swamp troll@rus ~~болотный~~ ~~троль~~~
+@eng A swamp troll charges towards you.
+@rus Болотный тролль (troll) злобно уставился на тебя.
 ~
-This huge behemoth towers to a height of 15 feet.  He sneers at you 
+@eng This huge behemoth towers to a height of 15 feet.  He sneers at you 
 as he approaches and raises two black taloned claws to strike you.
+@rus Он похож на бегемота высотой 15 футов. Увидев тебя он не торопясь
+идет к тебе, растопырив острые черные когти.
+Он уверен, что ты никуда не денешься и гнусно ухмыляется.
 ~
 troll~
 ABCFG 0 -600 0
@@ -23,13 +27,18 @@ EFNR 0 0 0
 stand rest male 500
 0 0 medium unknown
 #8302
-troll~
-a green troll~
-A green troll attempts to get a hold on you.
+troll тролль~
+@eng a green troll@rus ~~зеленый~~ ~~тролль~~~
+@eng A green troll attempts to get a hold on you.
+@rus Зеленый тролль (troll) пытается задержать тебя.
 ~
-This big troll towers several feet over you.  He has a large spear
+@eng This big troll towers several feet over you.  He has a large spear
 which he seems to ply with utmost prowess.  He jabs his spear at you
 and cackles with glee.
+@rus Огромный тролль несколько возвышается над тобой.
+Он вооружен большим копьем, которое он использует с неожиданной ловкостью.
+Размахивая им над головой он ковыляет к тебе издавая отвратительное кудахтанье
+и кряхтенье.
 ~
 troll~
 ACFG 0 -400 0
@@ -39,11 +48,13 @@ EFNR 0 0 0
 stand stand male 400
 0 0 medium unknown
 #8303
-ogre~
-an ogre~
-An ogre stands here getting ready to beat in your face.
+ogre людоед~
+@eng an ogre@rus людоед~
+@eng An ogre stands here getting ready to beat in your face.
+@rus Людоед (ogre) приближается, готовясь вмазать тебе по физиономии.
 ~
-This mean bastard looks like he could tear you limb from limb.
+@eng This mean bastard looks like he could tear you limb from limb.
+@rus Этот ублюдок готов разорвать тебя пополам.
 ~
 human~
 ACFG J -500 0
@@ -53,11 +64,14 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #8304
-thing~
-the Swamp Thing~
-The Swamp Thing shambles about here.  It seems hungry.
+thing тварь~
+@eng the Swamp Thing@rus ~~болотная~~ ~~тварь~~~
+@eng The Swamp Thing shambles about here.  It seems hungry.
+@rus Болотная Тварь (Swamp Thing) рыскает по кочкам. Она выглядит ГОЛОДНОЙ.
 ~
-The Swamp Thing has huge fists, which look like they could pound you flat.
+@eng The Swamp Thing has huge fists, which look like they could pound you flat.
+@rus Однако! У этой штуки огромные кулаки... Ее соперника будет проще
+закрасить, чем отскрести...
 ~
 human~
 ACFG J -700 0
@@ -67,11 +81,15 @@ EFNU 0 0 0
 stand rest none 1250
 0 0 medium unknown
 #8305
-gnoll~
-a gnoll~
-There is a mean looking gnoll here.
+gnoll упырь~
+@eng a gnoll@rus упырь~
+@eng There is a mean looking gnoll here.
+@rus Жирный упырь (gnoll) пялится на тебя.
 ~
-The Gnoll seems annoyed at your presence.
+@eng The Gnoll seems annoyed at your presence.
+@rus Жирный. Очень жирный.
+Этож какие надо было зубы иметь, чтоб ТАКУЮ задницу отожрать?!!!
+Упырь раздражен твоим присутствием.
 ~
 human~
 ACG DFJ -1000 0
@@ -81,12 +99,14 @@ EFNU 0 0 0
 stand stand male 1250
 0 0 medium unknown
 #8306
-beast~
-a huge hairy beast~
-A huge hairy beast shambles towards you with death in his eyes.
+beast зверь~
+@eng a huge hairy beast@rus ~~большой~~ ~~волосатый~~ ~~зверь~~~
+@eng A huge hairy beast shambles towards you with death in his eyes.
+@rus Большой волосатый зверь (beast) выпрыгнул навстречу. В его глазах смерть.
 ~
-This huge beast stands about 20 feet in height and has huge green clawed
+@eng This huge beast stands about 20 feet in height and has huge green clawed
 appendages. 
+@rus Это огромное волосатое существо футов 20 в длину с длинными зелеными когтями. 
 ~
 human~
 ACFG DFJ -450 0
@@ -96,12 +116,14 @@ EFNU 0 0 0
 stand stand male 500
 0 0 medium unknown
 #8307
-beast~
-a rather small beast~
-A rather small beast cringes in terror as it notices you.
+beast зверь~
+@eng a rather small beast@rus Небольшой зверь~
+@eng A rather small beast cringes in terror as it notices you.
+@rus Небольшой зверь (beast) съеживается в ужасе при виде тебя.
 ~
-This rather small beast looks like you could take it out with a single
+@eng This rather small beast looks like you could take it out with a single
 sword blow.
+@rus Зверушка выглядит так, словно даже твой пинок может вышибить из нее дух.
 ~
 human~
 ACGH JP 0 0
@@ -111,13 +133,17 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #8308
-will will-o-wisp~
-the Will-O-Wisp~
-A Will-O-Wisp darts hear and there, making fun of you.
+will will-o-wisp Уилл Уилл-оу-Висп~
+@eng the Will-O-Wisp@rus Уилл-оу-Висп~
+@eng A Will-O-Wisp darts hear and there, making fun of you.
+@rus Уилл-оу-Висп (Will) носится вокруг тебя. Он явно насмехается.
 ~
-This strange little creature seems very hard to keep your eyes on.
+@eng This strange little creature seems very hard to keep your eyes on.
 You stare as hard as you can at the glowing ball of floating light and
 are just able to notice a small pair of glowing eyes.
+@rus Странное создание ха которым очень сложно уследить.
+Оно перемещается с огромной скоростью и ты успеваешь заметить
+только неясное облако с парой горящих глаз.
 ~
 human~
 ACGH JP 0 0
@@ -127,11 +153,13 @@ EFNU 0 0 0
 stand stand none 150
 0 0 medium unknown
 #8309
-snake anaconda~
-the monstrous snake~
-A monstrous snake slithers towards you, thinking 'breakfast'.
+snake anaconda змея анаконда~
+@eng the monstrous snake@rus Чудовищная змея~
+@eng A monstrous snake slithers towards you, thinking 'breakfast'.
+@rus Чудовищная анаконда (snake) смотрит на тебя размышляя о завтраке.
 ~
-This 10 meter anaconda looks rather hungry.
+@eng This 10 meter anaconda looks rather hungry.
+@rus Это десятиметровая анаконда. Очень голодная...
 ~
 snake~
 ACFGH JPQ -100 0
@@ -141,11 +169,13 @@ EFNR 0 0 0
 stand stand male 500
 0 0 medium unknown
 #8310
-snake python~
-a large snake~
-A rather large python rests in a coil here.
+snake python змея питон~
+@eng a large snake@rus Большая змея~
+@eng A rather large python rests in a coil here.
+@rus Большой питон (python) свернулся кольцами и шипит на тебя.
 ~
-It's the largest Amazon python you have ever seen.
+@eng It's the largest Amazon python you have ever seen.
+@rus Это самый большой из всех питонов которые тебе попадались.
 ~
 snake~
 ACFGH JPQ -100 0
@@ -155,12 +185,17 @@ EFNR 0 0 0
 stand stand female 0
 0 0 medium unknown
 #8312
-hag~
-the Marsh Hag~
-A Marsh Hag is here.
+hag ведьма~
+@eng the Marsh Hag@rus Болотная Ведьма~
+@eng A Marsh Hag is here.
+@rus Болотная Ведьма (Hag) мерзко захихикала.
 ~
-Yech!  She manages to make even Smurfette look attractive.  That's ok,
+@eng Yech!  She manages to make even Smurfette look attractive.  That's ok,
 because she thinks you stink too, and she's about to do something about it.
+@rus Фууу!!! ЫЫЫАГ!!! Даже помойная куча смотрится привлекательней!
+Это существо воняет! Тоесть, имеется в виду - ВОНЯЕТ!!!
+Экая гадость... Правда, она тоже не рада тебе,
+и возможно замыслила нечто плохое.
 ~
 human~
 ACGS DFJ -200 0
@@ -170,12 +205,15 @@ BEFJNU 0 0 0
 stand stand female 50
 0 0 medium unknown
 #8313
-slaad~
-a Death Slaad~
-A Death Slaad is standing here distraught.  He seems lost.
+slaad смерть~
+@eng a Death Slaad@rus Старуха Смерть~
+@eng A Death Slaad is standing here distraught.  He seems lost.
+@rus Старуха с косой (Death Slaad) стоит посреди болота. Кажется костлявая 
+потерялась...
 ~
-This dark apparition stands a meager 13 feet in height.  Even in the dim
+@eng This dark apparition stands a meager 13 feet in height.  Even in the dim
 swamp light, the blade of his scythe gleams.
+@rus Темный призрак выше 13 футов. Даже в полутьме видно как блестит ее коса.
 ~
 human~
 ACG DFJ -200 0
@@ -185,12 +223,15 @@ EFNU 0 0 0
 stand stand male 700
 0 0 medium unknown
 #8314
-wolf~
-a marsh wolf~
-A marsh wolf sniffs the ground has followed your scent.
+wolf волчица~
+@eng a marsh wolf@rus Болотная волчица~
+@eng A marsh wolf sniffs the ground has followed your scent.
+@rus Болотная волчица (wolf) обнюхивает твои следы.
 ~
-This wolf looks plump.  She probably ate a friend or two of yours who came
+@eng This wolf looks plump.  She probably ate a friend or two of yours who came
 into the marsh.
+@rus Это довольно пухлая волчица...
+Наверняка она уже сожрала не одну пару путешественников.
 ~
 wolf~
 ACFG J -200 0
@@ -200,11 +241,13 @@ ENR 0 0 0
 stand stand female 0
 0 0 medium unknown
 #8318
-mound shambling~
-a shambling mound~
-A heap of garbage shambles towards you.
+mound shambling куст мутант~
+@eng a shambling mound@rus Куст мутант~
+@eng A heap of garbage shambles towards you.
+@rus Куст мутант (mound) кидается на тебя.
 ~
-This grotesque pile of plant matter fills you with utmost horror.
+@eng This grotesque pile of plant matter fills you with utmost horror.
+@rus Гротескная мешанина ветвей и гнилой листвы наполняет тебя ужасом.
 ~
 human~
 ACG JQ -100 0
@@ -214,12 +257,16 @@ EFNU 0 0 0
 stand stand none 0
 0 0 medium unknown
 #8319
-shaman orc~
-the orc shaman~
-An orc shaman stands before you holding a staff and wearing robes.
+shaman orc орк шаман~
+@eng the orc shaman@rus Орк шаман~
+@eng An orc shaman stands before you holding a staff and wearing robes.
+@rus Орк-шаман (orc shaman) встает хватая посох и накидывая мантию.
 ~
-This old orc has an array of bones stuck in his hair and strange symbols
+@eng This old orc has an array of bones stuck in his hair and strange symbols
 painted on his face and hands.
+@rus У этого старого орка не все дома...
+В его волоса вплетены кости, рожа в татуировках...
+Растопырив пальцы веером он бурчит себе под нос.
 ~
 human~
 ABCDFGQ DF -100 0
@@ -229,11 +276,13 @@ EIKU 0 0 0
 stand stand male 17
 0 0 medium unknown
 #8320
-giant~
-a marsh giant~
-A marsh giant stomps towards you.
+giant гигант~
+@eng a marsh giant@rus Болотный гигант~
+@eng A marsh giant stomps towards you.
+@rus Болотный Гигант (giant) топает к тебе.
 ~
-This huge monster of a man has green gnarly teeth and a BIG stick.
+@eng This huge monster of a man has green gnarly teeth and a BIG stick.
+@rus К этого монстра зеленые гнилые зубы и БОЛЬШАЯ дубина.
 ~
 giant~
 ABCDFG DFJ -100 0
@@ -243,11 +292,13 @@ EFNR 0 0 0
 stand stand male 600
 0 0 medium unknown
 #8321
-gargoyle~
-a gargoyle~
-A large gargoyle lands next to you, baring his fangs at you.
+gargoyle гаргуль~
+@eng a gargoyle@rus Гаргуль~
+@eng A large gargoyle lands next to you, baring his fangs at you.
+@rus Большой гаргуль (gargoyle) обнажил клыки оскалившись на тебя.
 ~
-This creepy fellow looks like he could use you as a meal.
+@eng This creepy fellow looks like he could use you as a meal.
+@rus Этот жуткий товарищ мог бы использовать тебя в пищу.
 ~
 human~
 ABCDFG DFJ -100 0
@@ -260,12 +311,12 @@ stand stand none 100
 
 #OBJECTS
 #8301
-spear long two-handed~
-a long spear~
-A strange spear lies here.~
+spear long two-handed копье длинное~
+@eng a long spear@rus ~~длинное~~ ~~копье~~~
+@eng A strange spear lies here.@rus Странное копье (spear) лежит на земле.~
 oak~
 weapon J AN
-spear 1 12 'stab' FK
+spear 1 12 'stab' F
 11 100 1330 P
 A
 2 1
@@ -273,10 +324,10 @@ A
 19 3
 g none~
 #8302
-horned helmet~
-a dark horned helmet~
-A wicked looking horned helmet lies here.~
-iron~
+horned helmet рогатый шлем~
+@eng a dark horned helmet@rus ~~рогатый~~ ~~шлем~~~
+@eng A wicked looking horned helmet lies here.@rus Черный рогатый шлем (helmet) валяется на полу.~
+iron bone~
 armor J AE
 6 6 5 2 0
 10 50 0 P
@@ -285,22 +336,22 @@ A
 A
 19 1
 E
-horns horn~
-These horns appear to be made of adamantite.~
+horns horn рог гогатый~
+@eng These horns appear to be made of adamantite.@rus Этот шлем сделан из адамантина.~
 g none~
 #8303
-chain mail chainmail~
-a suit of chainmail~
-An old suit of chainmail lies here, corroded by the marsh.~
+chain mail chainmail кольчуга кольчужная рубаха~
+@eng a suit of chainmail@rus ~~кольчужная~~ ~~рубаха~~~
+@eng An old suit of chainmail lies here, corroded by the marsh.@rus Старая кольчужная рубаха (chain mail) лежит тут, разьедаемая болотом.~
 iron~
 armor J AD
 5 8 7 0 0
 20 200 2700 P
 g none~
 #8306
-scythe~
-a huge, wicked-looking scythe~
-An evil, wicked-looking scythe lies in the shadows.~
+scythe коса~
+@eng a huge, wicked-looking scythe@rus ~~огромная~~ ~~коса~~~
+@eng An evil, wicked-looking scythe lies in the shadows.@rus Огромная жуткая коса (scythe) с окровавленным лезвием лежит в тени.~
 iron~
 weapon HJ AN
 polearm 5 5 'slice' F
@@ -309,60 +360,69 @@ A
 19 3
 A
 18 3
-g none~
+g @eng none@rus female~
 #8307
-green potion~
-a murky green potion~
-A murky green potion lies here in the mud.~
+green potion зеленая микстура~
+@eng a murky green potion@rus ~~темно-зеленая~~ ~~микстура~~~
+@eng A murky green potion lies here in the mud.@rus Пузырек с темно-зеленой микстурой (potion) лежит в грязи.~
 glass~
 potion AB A
 43 'cure critical' '' '' ''
 5 10 690 P
 E
-potion~
-It looks really disgusting and doesn't smell very nice either.~
+potion микстура~
+@eng It looks really disgusting and doesn't smell very nice either.@rus Выглядит отвратительно. Пахнет не лучше...~
 g none~
 #8308
-claymore rusty sword~
-a rusty claymore~
-A huge rusted sword lies in a pool of water.~
+claymore rusty sword палаш ржавый меч~
+@eng a rusty claymore@rus ~~ржавый~~ ~~палаш~~~
+@eng A huge rusted sword lies in a pool of water.@rus Огромный ржавый палаш (claymore) валяется в луже.~
 iron~
 weapon 0 AN
 sword 4 8 'cleave' F
 28 100 3000 P
-g none~
+g @eng none@rus male~
 #0
 
 #ROOMS
 #8301
-Muddy Path~
-This section of the path is slowly being drowned by the nearby swamp to the
+@eng Muddy Path@rus Грязная тропа~
+@eng This section of the path is slowly being drowned by the nearby swamp to the
 south, which is creeping slowly inland.  Several caved-in buildings sprawl
 here, torn apart both by battle and the elements.
+@rus Эта часть тропы медленно переходит в болото (swamp), испещренное кочками.
+Кое где стоят странные здания полуразрушенные сражениями.
 ~
 0 0 field
 E
-swamp~
-The swamp to the south even reaches as far as this point ... it makes the
+swamp болото~
+@eng The swamp to the south even reaches as far as this point ... it makes the
 ground and air about you moist and fetid.
+@rus Южное болото достигает этой точки. Воздух и земля наполнены влажным зловонием.
 ~
 D0
-The path looks drier here.
+@eng The path looks drier here.
+@rus Тропа там более сухая.
 ~
 ~
 Z -1 6125
 D2
-A broken road leading southward into the marsh.
+@eng A broken road leading southward into the marsh.
+@rus Разбитая дорога, ведущая на юг в болото.
 ~
 ~
 Z -1 8302
 S
 #8302
-Swamp's Edge~
-Briars and marsh plants stick to your boots and clothes, and clouds cover the
+@eng Swamp's Edge@rus Край болота~
+@eng Briars and marsh plants stick to your boots and clothes, and clouds cover the
 skies above the murky marsh, leaving the path before you dark and sinister.
 You see some disturbances in the marsh, but after a few strangled screams,
 the sounds stop.
+@rus Колючие кустарники и растения цепляют тебя за одежду.
+Туман закрывает небо над болотом создавая зловещее впечатление темноты.
+Ты замечаешь какое-то движение, но после нескольких странных диких воплей
+все затихает.
 ~
 0 0 mountain
 D0
@@ -370,383 +430,490 @@ D0
 ~
 Z -1 8301
 D1
-To the east lies a series of bogs and shallows that look rather threatening.
+@eng To the east lies a series of bogs and shallows that look rather threatening.
+@rus На востоке довольно угрожающая местность.
 ~
 ~
 Z -1 8303
 D2
-You notice a large hill rising out of the marsh to the south.
+@eng You notice a large hill rising out of the marsh to the south.
+@rus Ты обращаешь внимание на большой холм, поднимающийся из болота на юге.
 ~
 ~
 Z -1 8304
 S
 #8303
-Marshy Forest~
-This area is by no means a forest, but for those who dwell in these sparse
+@eng Marshy Forest@rus Болотистый лес~
+@eng This area is by no means a forest, but for those who dwell in these sparse
 trees it is one.  Occasionally you see a whole humanoid form floating face down
 in the water, but mostly you only find pieces.  You hear a loud bellow in the
 distance.  And feel fear creep into your heart.
+@rus Это место трудно назвать лесом, но для тех кто живет тут это именно он.
+Ты видишь что-то похожее на человека (corpse) плавающее в воде лицом вниз,
+Но большинство из того что ты видишь лишь куски (pieces) мертвой плоти.
+В отдалении слышно рычание. Оно наполняет ужасом твое сердце.
 ~
 0 A mountain
 E
-pieces~
-You see severed limbs and spongy intestines.
+pieces куски~
+@eng You see severed limbs and spongy intestines.
+@rus Ты видишь несколько костей и чьи-то кишки.
 ~
 E
-humanoid corpse~
-He looks mangled and shredded.  You see one large gash mark that looks
+humanoid corpse труп~
+@eng He looks mangled and shredded.  You see one large gash mark that looks
 like it came from the claw of some huge beast.
+@rus Он был просто разорван на куски. Огромные раны нанесены скорее всего
+огромными когтями.
 ~
 D1
-Eastward is the thick bog of ooze...
+@eng Eastward is the thick bog of ooze...
+@rus В восточном направлении - густая трясина болота...
 ~
 ~
 Z -1 8305
 D3
-Westward lies the remanents of a broken and shattered roadway being swallowed
+@eng Westward lies the remanents of a broken and shattered roadway being swallowed
 by the marsh.
+@rus На западе то что некогда было дорогой ныне проглочено болотом.
 ~
 ~
 Z -1 8302
 S
 #8304
-On a hill.~
-You stand atop a hill on the northwestern side of the evil swamp. Dark
+@eng On a hill.@rus На холме~
+@eng You stand atop a hill on the northwestern side of the evil swamp. Dark
 clouds whip around you and the wind raises its voice and assails you.
+@rus Ты стоишь наверху холм на северо-западной стороне болота. Темный
+полог облаков вокруг и только ветер свистит в ушах.
 ~
 0 A hills
 D0
-To the north lies a damp broken roadway.
+@eng To the north lies a damp broken roadway.
+@rus На севере находится влажное нарушенное шоссе.
 ~
 ~
 Z -1 8302
 D1
-A dark pool congeals to the east.
+@eng A dark pool congeals to the east.
+@rus Темный водоем виден на востоке.
 ~
 ~
 Z -1 8309
 D2
-A gloomy path leads down the hill into the swamp.
+@eng A gloomy path leads down the hill into the swamp.
+@rus Мрачная дорожка ведет вниз с холма в болото.
 ~
 ~
 Z -1 8310
 S
 #8305
-An Oozing Bog~
-You stand in an oozing quagmire.  A creaking beat fills the air, 
+@eng An Oozing Bog@rus Прогнившая Трясина~
+@eng You stand in an oozing quagmire.  A creaking beat fills the air, 
 accompanied by groans and soughing of the air.  Several large winged
 beasts flap over you and send chilling glares your way.  You feel out
 of place, and feel that the occupants of this realm will soon 
 have you for a feast.
+@rus Ты стоишь в вонючей трясине.
+Скрипящий шум заполняет болото, сопровожденный стонами и шорохом воздуха.
+Несколько крылатых зверей (beasts) вьются неподалеку.
+Ты чувствуешь что очутился не в том месте и не в то время...
+У этих милых зверушек намечается банкет...
+С тобой в роли главного блюда.
 ~
 0 A mountain
 E
-beasts~
-You see a large creature, possibly a demon, flapping heavily above you.
+beasts звери~
+@eng You see a large creature, possibly a demon, flapping heavily above you.
+@rus Большие создания, скорее демоны чем звери тяжело спускаются вниз.
 ~
 D1
-Eastward lies a horde of disgusting looking monsters.
+@eng Eastward lies a horde of disgusting looking monsters.
+@rus В восточном направлении орда отвратительных монстров.
 ~
 ~
 Z -1 8306
 D3
-Westward lies a marshy area.
+@eng Westward lies a marshy area.
+@rus На запад находится болотистая область.
 ~
 ~
 Z -1 8303
 S
 #8306
-An Oozing Bog~
-The ground here is soft and oozing.  You feel slimy water seeping into your
+@eng An Oozing Bog@rus Трясина~
+@eng The ground here is soft and oozing.  You feel slimy water seeping into your
 boots.  Better stop and check for leeches when you get out of here.
+@rus Земля здесь мягкая и мокрая. Ты чувствуешь слизистую воду, просачивающуюся
+в твои ботинки. Лучше остановиться и проверить не присосались ли к тебе пиявки,
+когда ты выйдешь отсюда.
 ~
 0 A mountain
 E
-limb~
-The limb looks like it is attached to a trap door in the ground.
+limb дерево~
+@eng The limb looks like it is attached to a trap door in the ground.
+@rus Дерево прикреплено к дыре в земле.
 ~
 D3
-You see a large tree limb that looks easily moved.
+@eng You see a large tree limb that looks easily moved.
+@rus Ты видишь большое дерево, которое легко отодвинуть.
 ~
 limb~
 Z -1 8305
 S
 #8307
-Swamp Thing's Lair~
-A horrible swamp thing resides here.  Mutilated corpses suffuse the air with
+@eng Swamp Thing's Lair@rus Пещера болотной твари~
+@eng A horrible swamp thing resides here.  Mutilated corpses suffuse the air with
 the overwhelming stench of putrid flesh.
+@rus Ужасная болотная тварь живет здесь. Искалеченные трупы заливают воздух
+подавляющим зловонием гнилой плоти.
 ~
 0 A swim
 E
-corpses~
-You notice a note on one of the corpses reading:  'Best ye forget the temple,
-it is not for the likes of you...'
+надпись sign~
+@eng nothing
+@rus Кто-то нацарапал на стене:
+"...не забудь помолиться, так как тут ты умрешь..."
 ~
 D3
-A pool of quick sand lies to the west.
+@eng A pool of quick sand lies to the west.
+@rus Зыбучий песок находится на западе.
 ~
 ~
 Z -1 8308
 S
 #8308
-Pool of Quick Sand~
-You stand by a large oozing pool of quick sand.  Luckily only a complete
+@eng Pool of Quick Sand@rus Зыбучие пески~
+@eng You stand by a large oozing pool of quick sand.  Luckily only a complete
 klutz could not avoid it.  Dancing lights fly about you and one seems to
 be taunting you towards the pool.
+@rus Ты стоишь у полосы зыбучего песка (quicksand).
+К счастью только последний недотепа мог не заметить ловушку.
+Ты заслуженно поздравляешь себя с наблюдательностью. :-)
+Болотные огоньки (lights) кружат вокруг и мелькают за спиной.
 ~
 0 A swim
 E
-quicksand~
-It looks deadly to the foolish.
+quicksand зыбучие пески~
+@eng It looks deadly to the foolish.
+@rus Выглядит смертельно... Не стоит делать глупостей.
 ~
 E
-lights ~
-From the stories you have heard, you recognize them as will-o-wisps.
+lights огоньки~
+@eng From the stories you have heard, you recognize them as will-o-wisps.
+@rus Исходя из того что рассказывают это... да, болотные огоньки!.
 ~
 D1
-The swamp thing's lair.
+@eng The swamp thing's lair.
+@rus Пещера Болотной Твари.
 ~
 ~
 Z -1 8307
 D2
-A murky bog.
+@eng A murky bog.
+@rus Темная трясина.
 ~
 ~
 Z -1 8314
 D3
-A dark pool lies to the west.
+@eng A dark pool lies to the west.
+@rus Темный водоем находится на западе.
 ~
 ~
 Z -1 8309
 S
 #8309
-A Dark Pool.~
-You stand beside a large dark pond.  The water boils not with heat, but with
+@eng A Dark Pool.@rus Темный водоем~
+@eng You stand beside a large dark pond.  The water boils not with heat, but with
 motion, as if it is alive.  A creaking beat pulses through the air, leaving
 you with a cold sweat and fear in your heart.
+@rus Ты возле темного водоема (pond). Ледяная вода бурлит и движется, как будто
+она живая. Шорох и вздохи висят в воздухе наполняя холодом сердце.
 ~
 0 A swim
 E
-pond~
-It looks ALIVE ...
+pond водоем~
+@eng It looks ALIVE ...
+@rus Это выглядит ЖИВЫМ...
 ~
 D1
-A large pool of quicksand lies to the east.
+@eng A large pool of quicksand lies to the east.
+@rus Большая полоса зыбучих песков на востоке.
 ~
 ~
 Z -1 8308
 D2
-You see a cloud of darkness to the south.
+@eng You see a cloud of darkness to the south.
+@rus Ты видишь облако тьмы на юге.
 ~
 ~
 Z -1 8311
 D3
-A hill rises out of the swamp to the east.
+@eng A hill rises out of the swamp to the east.
+@rus Холм встает из болота на западе.
 ~
 ~
 Z -1 8304
 S
 #8310
-Gloomy Path Through the Marsh.~
-To the north lies a hill, shrouded in dark clouds, and to the south lies
+@eng Gloomy Path Through the Marsh.@rus Мрачная дорожка через болото.~
+@eng To the north lies a hill, shrouded in dark clouds, and to the south lies
 a huge patch of vegetation.  You sense an evil presence and notice 
 a beast flying overhead to the south east, towards what looks to be a 
 huge fortress, half buried in the marsh.
+@rus На севере находится холм, окутанный в темные облака (clouds),
+на юге буйная растительность (vegetation). Ты ощущаешь присутствие зла...
+Чуть погодя ты видишь животное (beast), летящее на юго-восток и в направлении
+его полета видишь крепость (fortress), затерянную в болотах.
 ~
 0 A swim
 E
-vegetation~
-It looks sentient.
+vegetation растительность~
+@eng It looks sentient.
+@rus Это выглядит разумным.
 ~
 E
-fortress~
-It is surrounded by walls nearly 20 meters high.  In a tall tower on the
+fortress крепость~
+@eng It is surrounded by walls nearly 20 meters high.  In a tall tower on the
 northeast side, a window glows blue with magical energy.
+@rus Крепость окружена 20 метровой стеной.
+В северной части стоит башня, ее окно светится синим колдовским светом.
 ~
 E
-beast~
-It looks to be a demon of some foul breed.
+beast животное~
+@eng It looks to be a demon of some foul breed.
+@rus Выглядит демоном "грязной" породы.
 ~
 E
-clouds~
-The clouds look dark and foreboding.
+clouds облака~
+@eng The clouds look dark and foreboding.
+@rus Облака внушают нехорошее предчувствие.
 ~
 D0
-To the north a hill protrudes from the marshes.
+@eng To the north a hill protrudes from the marshes.
+@rus На севере холм высовывается из болота.
 ~
 ~
 Z -1 8304
 D2
-To the south a huge mass of vegetation seems to quiver with life.
+@eng To the south a huge mass of vegetation seems to quiver with life.
+@rus На юге огромная масса растительности.
 ~
 ~
 Z -1 8312
 S
 #8311
-Cloud of Darkness.~
-As you travel through this cloud of darkness, a fear such as you have never
+@eng Cloud of Darkness.@rus Облака Тьмы~
+@eng As you travel through this cloud of darkness, a fear such as you have never
 known before assails you.
+@rus Ты идешь в облаке тьмы приготовившись к самому худшему.
+Вдруг кто-нибудь нападет из темноты?
 ~
 0 A swim
 D0
-A dark pool lies to the north.
+@eng A dark pool lies to the north.
+@rus Темный водоем находится на севере.
 ~
 ~
 Z -1 8309
 D2
-An obelisk lies to the south.
+@eng An obelisk lies to the south.
+@rus Обелиск находится на юге.
 ~
 ~
 Z -1 8313
 S
 #8312
-Near Vegetation from Hell.~
-You stand near some of the strangest plant life you have ever seen, a mixture
+@eng Near Vegetation from Hell.@rus Около адских трав~
+@eng You stand near some of the strangest plant life you have ever seen, a mixture
 of tumescent vegetables, evil-smelling fruit trees, and malignant ferns.
+@rus Ты стоишь около самой странной формы жизни растения (plants), которую ты
+когда-либо видел, смесь из распухших овощей, пахнущих злом плодов,
+и злокачественных папоротников.
 ~
 0 A swim
 E
-plant plants~
-They look rather violent, and snap at you when you come near.
+plant plants растение растения~
+@eng They look rather violent, and snap at you when you come near.
+@rus Они выглядят довольно сильными, и огрызаются на тебя, когда ты подходишь.
 ~
 D0
-To the north is a gloomy path through the marsh.
+@eng To the north is a gloomy path through the marsh.
+@rus На север - мрачная дорожка через болото.
 ~
 ~
 Z -1 8310
 D1
-Eastward is a large, black stone monolith.
+@eng Eastward is a large, black stone monolith.
+@rus В восточном направлении - большой, черный каменный монолит.
 ~
 ~
 Z -1 8313
 S
 #8313
-By the Monolith.~
-You are standing near a monolith which protrudes some 20 feet from the
+@eng By the Monolith.@rus У Монолита~
+@eng You are standing near a monolith which protrudes some 20 feet from the
 marsh into the air.  Its black obsidian surface shines darkly in the 
 strange, almost unearthly light that enters through the clouds above.
+@rus Ты стоишь около монолита (monolith), который высовывается приблизительно
+на 20 футов из болота в воздух. Его черная поверхность из обсидиана сияет
+мрачно в странном, почти неземном свете, который сочится через облака.
 ~
 0 A mountain
 E
-monolith~
-This huge monolith resembles nothing you have ever seen before.
+monolith монолит~
+@eng This huge monolith resembles nothing you have ever seen before.
 You have a strong feeling not to go within.
+@rus Этот огромный монолит не походит ни на что, из когда-либо виденного прежде.
+У тебя сильное желание не ходить дальше.
 ~
 D0
-To the north is a cloud of darkest evil.
+@eng To the north is a cloud of darkest evil.
+@rus На север - облако самого темного зла.
 ~
 ~
 Z -1 8311
 D1
-Eastward lies a murky bog.
+@eng Eastward lies a murky bog.
+@rus В восточном направлении находится темная трясина.
 ~
 ~
 Z -1 8314
 D3
-Near Vegetation from Hell.
+@eng Near Vegetation from Hell.
+@rus Около Адских Трав.
 ~
 ~
 Z -1 8312
 S
 #8314
-Murky Bog.~
-A murky bog surrounds you.  To the east a black monolith juts forth from the
+@eng Murky Bog.@rus Темная Трясина~
+@eng A murky bog surrounds you.  To the east a black monolith juts forth from the
 ground.  Far to the north lies a huge pool of quicksand.  Snarls can be heard
 echoing as if from a great distance.
+@rus Темная трясина окружает тебя. На востоке черный выступ монолита. Далеко на
+севере находится огромное болото. Можно услышать эхо, как будто с большого
+расстояния кто-то дико орет и вопит.
 ~
 0 A mountain
 E
-monolith~
-This is a huge obsidian stone block stuck in the marsh.
+monolith монолит~
+@eng This is a huge obsidian stone block stuck in the marsh.
+@rus Этот огромный монолит не походит ни на что, из когда-либо виденного прежде.
+У тебя сильное желание не ходить дальше.
 ~
 D0
-To the north lies a huge pool of quicksand.
+@eng To the north lies a huge pool of quicksand.
+@rus На севере зыбучие пески.
 ~
 ~
 Z -1 8308
 D1
-To the east the marsh turns into a small lake.
+@eng To the east the marsh turns into a small lake.
+@rus На востоке болото превращается в маленькое озеро.
 ~
 ~
 Z -1 8315
 D3
-Westward a large monolith awaits adventurers.
+@eng Westward a large monolith awaits adventurers.
+@rus На западе большой монолит ждет путников.
 ~
 ~
 Z -1 8313
 S
 #8315
-Northern Lake Side.~
-Floating on this boiling lake is not what you would consider an enjoyable 
+@eng Northern Lake Side.@rus Северная часть озера~
+@eng Floating on this boiling lake is not what you would consider an enjoyable 
 experience.  Many a creature bumps the bottom of your boat, and glares 
 at you through unblinking eyes from the waters below.  The southern 
 portion of the lake looks calm and serene compared to this wild place.
+@rus Плыть по этому озеру - не слишком большое удовольствие...
+Какие-то существа стукаются о борт твоей лодки и пялятся на тебя из под воды.
+Южная сторона озера относительно спокойна по сравнению с этой.
 ~
 0 A noswim
 D2
-The southern portion of the lake lies to the south.
+@eng The southern portion of the lake lies to the south.
+@rus Южная часть озера находится на юге. :-)
 ~
 ~
 Z -1 8316
 D3
-To the west lies a murky bog.
+@eng To the west lies a murky bog.
+@rus На западе находится темная трясина.
 ~
 ~
 Z -1 8314
 S
 #8316
-Southern Lake Side.~
-You are floating on a calm section of blue crystal water.  You feel much more
+@eng Southern Lake Side.@rus Южная часть озера~
+@eng You are floating on a calm section of blue crystal water.  You feel much more
 at ease then you were before in this area.  Then a wave of fear passes over
 you.  You are not alone.
+@rus Ты плывете по спокойной кристально-синей воде. Ты чувствуешь себя намного более
+непринужденно чем тогда, когда ты был на другой части озера. Волна опасения
+проходит. Тут ты замечаешь, что ты не один.
 ~
 0 A noswim
 E
-north~
-The way to the north seems to be impassable, due to the rough water and
+north север~
+@eng The way to the north seems to be impassable, due to the rough water and
 strange wild life.
+@rus Путь на север, кажется, непроходимый, из-за воды и странной дикой жизни.
 ~
 D0
-Northern lake side.
+@eng Northern lake side.
+@rus Северная сторона озера.
 ~
 ~
 Z -1 8315
 D3
-To the west is a beach where your boat can land.
+@eng To the west is a beach where your boat can land.
+@rus На западе берег, где лодка может причалить.
 ~
 ~
 Z -1 8317
 S
 #8317
-Beach~
-You are on a sandy shore.  Marsh life creeps across the surface.  To the west
+@eng Beach@rus Берег~
+@eng You are on a sandy shore.  Marsh life creeps across the surface.  To the west
 lies an evil fortress.  You see figures walking along the battlements.
+@rus Ты на песчаном береге. Разная болотная живность ползает по берегу. На западе
+находится мрачная крепость (fortress). Ты видишь фигуры, идущие по зубчатым
+стенам.
 ~
 0 A mountain
 E
-fortress~
-It is hewn of black stone and heavily fortified.
+fortress крепость~
+@eng It is hewn of black stone and heavily fortified.
+@rus Крепость высечена из черного камня и тяжело укреплена.
 ~
 D1
-To the east lies the southern portion of a small lake.
+@eng To the east lies the southern portion of a small lake.
+@rus На востоке находится южная часть маленького озера.
 ~
 ~
 Z -1 8316
 D3
-The great gates.
+@eng The great gates.
+@rus Большие ворота.
 ~
 ~
 Z -1 8318
 S
 #8318
-Before the Great Gates.~
-You stand before the gates of a huge fortress.  The drawbridge is up, the
+@eng Before the Great Gates.@rus Перед Большими Воротами~
+@eng You stand before the gates of a huge fortress.  The drawbridge is up, the
 gates closed, and the portcullis down.  This place looks very dangerous,
 and you decide not to continue onward.
+@rus Ты стоишь перед воротами огромной крепости. Разводной мост поднят,
+ворота закрылись. Это место выглядит очень опасным, и ты решаешь не продолжать
+путь вперед.
 ~
 0 A forest
 D1
-To the east is a marshy beach.
+@eng To the east is a marshy beach.
+@rus На востоке болотистый берег.
 ~
 ~
 Z -1 8317

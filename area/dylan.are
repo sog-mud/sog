@@ -1,5 +1,5 @@
 #AREADATA
-Name Dylan's Area~
+Name Страна Дилана (Dylan Area)~
 VNUMs 9100 9199
 Credits Dylan~
 Security 9
@@ -8,109 +8,133 @@ End
 
 #MOBILES
 #9101
-harpy~
-the screaming, filthy harpy~
-The screaming, filthy harpy claws madly at your face!
+harpy гарпия~
+@eng the screaming, filthy harpy@rus Грязная гарпия~
+@eng The screaming, filthy harpy claws madly at your face!
+@rus Кричащая, грязная гарпия (harpy) бешено царапает твое лицо!
 ~
-The harpy looks at you with blood in her eyes.  Her entire body is
+@eng The harpy looks at you with blood in her eyes.  Her entire body is
 caked in filth and grime and she stinks to high heaven.  Her razor-
 sharp talons flex as she considers you for her dinner.
+@rus Гарпия смотрит на тебя налитыми кровью глазами. Все ее тело покрыто въевшейся 
+грязью и отбросами, и она смердит на все небо. Она выпускает свои острые как 
+бритва когти, когда разглядывает тебя как свой обед. 
 ~
 human~
 ACF DFJP -500 0
-20 0 3d9+333 10d9+100 2d8+5 'none'
+20 0 3d9+333 10d9+100 2d8+5 none
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 1525
 0 0 medium unknown
 #9102
-harpy leader~
-the screaming harpy leader~
-The screaming harpy leader tries to scratch your eyes out!
+harpy leader гарпия лидер~
+@eng the screaming harpy leader@rus Лидер грязных гарпий~
+@eng The screaming harpy leader tries to scratch your eyes out!
+@rus Лидер (leader) кричащих, грязных гарпий (harpy) пытается выцарапать твои глаза!
 ~
-The harpy leader looks at you and grins menacingly.  She stretches
+@eng The harpy leader looks at you and grins menacingly.  She stretches
 her wings and you see insects crawling around them.  Her hair is
 matted and greasy and you are sickened by the stench that pervades
 her presence.
+@rus Лидер гарпий смотрит на тебя и угрожающе ухмыляется. Она расправляет свои
+крылья, и ты видишь насекомых, вьющихся вокруг них. Ее лицо матовое и
+засаленное, и ты чувствуешь тошноту от ее зловония.
 ~
 human~
 ABCF DFJP -750 0
-23 0 5d10+450 11d9+100 3d6+6 'none'
+23 0 5d10+450 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 2125
 0 0 medium unknown
 #9103
-air elemental~
-the ghostly air elemental~
-The ghostly air elemental.
+air elemental воздушный элементал~
+@eng the ghostly air elemental@rus Воздушный элементал~
+@eng The ghostly air elemental.
+@rus Призрачный воздушный элементал (air elemental).
 ~
-The air elemental is hard to see.  You know that it is there
+@eng The air elemental is hard to see.  You know that it is there
 because objects behind it seem to waver and are slightly blurred.
+@rus Воздушного элементала трудно заметить. Ты знаешь, что он здесь только по тому,
+что предметы за ним колеблются и слегка расплываются.
 ~
 human~
 ACF DFJPQ 0 0
-25 0 5d10+550 12d9+100 2d10+7 'none'
+25 0 5d10+550 12d9+100 2d10+7 none
 -7 -7 -7 6
 EFNU 0 0 0
 stand stand none 50
 0 0 medium unknown
 #9104
-mysterious efreeti~
-the mysterious efreeti~
-The mysterious efreeti grins in delight at its new prey.
+mysterious efreeti таинственный~
+@eng the mysterious efreeti@rus Таинственный Ефрити~
+@eng The mysterious efreeti grins in delight at its new prey.
+@rus Таинственный (mysterious) Ефрити смотрит с радостью на свою новую добычу.
 ~
-The efreeti towers menacingly over you.  It is dressed in the
+@eng The efreeti towers menacingly over you.  It is dressed in the
 finest ghostly silks and a headdress with an elaborate brooch.
+@rus Ефрити угрожающе возвышается над тобой. Он одет в прекрасные призрачные шелка
+и головной убор с искусно сделанной брошью.
 ~
 human~
 AC DHJP -100 0
-27 0 5d10+650 13d9+100 5d4+7 'none'
+27 0 5d10+650 13d9+100 5d4+7 none
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand none 2500
 0 0 medium unknown
 #9105
 roc~
-the gigantic roc~
-The gigantic roc.
+@eng the gigantic roc@rus ~
+@eng The gigantic roc.
+@rus 
 ~
-This bird has a wingspan that stretches several spear-lengths.  It
-moves surprisingly fast for something of its size.~
+@eng This bird has a wingspan that stretches several spear-lengths.  It
+moves surprisingly fast for something of its size.
+@rus 
+~
 human~
 AG 0 50 0
-24 0 5d10+500 12d9+100 2d10+6 'none'
+24 0 5d10+500 12d9+100 2d10+6 none
 -6 -6 -6 6
 EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #9106
-roc~
-the gigantic roc~
-The gigantic roc stares menacingly at you.
+roc рок~
+@eng the gigantic roc@rus Гигантская птица Рок~
+@eng The gigantic roc stares menacingly at you.
+@rus Гигантская птица Рок (Roc)
 ~
-This bird has a wingspan that stretches several spear-lengths.  It
+@eng This bird has a wingspan that stretches several spear-lengths.  It
 moves surprisingly fast for something of its size.
+@rus Эта птица имеет размах крыльев в несколько длин копья. И движется она неожиданно
+быстро для своих размеров.
 ~
 human~
 AG 0 50 0
-28 0 6d12+703 14d9+100 5d4+8 'none'
+28 0 6d12+703 14d9+100 5d4+8 none
 -8 -8 -8 6
 EFNU 0 0 0
 stand stand male 2000
 0 0 medium unknown
 #9107
-wicked witch~
-the ugly, wicked witch~
-The ugly, wicked witch cackles maniacally.
+wicked witch злая ведьма~
+@eng the ugly, wicked witch@rus Злая ведьма~
+@eng The ugly, wicked witch cackles maniacally.
+@rus Безобразная злая ведьма (wicked witch) безумно хихикает.
 ~
-The witch has jet black hair and sickly green skin.  She is covered
+@eng The witch has jet black hair and sickly green skin.  She is covered
 with warts and boils.  Her nails are long and sharp and look like
 they would be quite painful.  Her eyes pierce your very soul.
+@rus Ведьма имеет волосы цвета черного янтаря и болезненно-зеленую кожу. Она вся
+покрыта бородавками и фурункулами. Ее ногти длинные и острые, и похоже, они
+могут причинить изрядную боль. Ее взгляд пронзает твою душу.
 ~
 human~
 ABCF DJu -600 0
-31 0 6d12+928 15d9+100 4d6+9 'none'
+31 0 6d12+928 15d9+100 4d6+9 none
 -10 -10 -10 5
 EFNU 0 0 0
 stand stand female 3000
@@ -119,9 +143,9 @@ stand stand female 3000
 
 #OBJECTS
 #9101
-winged boots~
-a pair of winged boots~
-A pair of winged boots flutters about~
+winged boots крылатые ботинки~
+@eng a pair of winged boots@rus пара крылатых ботинок~
+@eng A pair of winged boots flutters about@rus Пара крылатых ботинок (winged boots) порхает невдалеке.~
 leather~
 armor G AG
 3 3 3 0 0
@@ -130,22 +154,23 @@ A
 20 1
 A
 2 2
-F A 0 0 T
-g none~
+F
+A 0 0 T
+G none
 #9102
-bronze bracer~
-A carved bronze bracer~
-A carved bronze bracer lies here.~
+bronze bracer бронзовый браслет~
+@eng A carved bronze bracer@rus резной бронзовый браслет~
+@eng A carved bronze bracer lies here.@rus Здесь лежит резной бронзовый браслет (bronze bracer)~
 bronze~
 armor 0 AM
 3 6 6 2 0
 10 200 820 P
-g none~
+G none
 #9103
-ornate brooch~
-an ornate brooch~
-An ornate brooch was carelessly left here.~
-silver~
+ornate brooch украшенная брошь~
+@eng an ornate brooch@rus украшенная брошь~
+@eng An ornate brooch was carelessly left here.@rus Богато украшенная брошь (ornate brooch) небрежно брошена здесь.~
+ruby-silver-diamond~
 jewelry F AC
 0 0 0 0 0
 7 100 1140 P
@@ -153,45 +178,53 @@ A
 4 1
 A
 3 1
-g none~
+G none
 #9104
-magenta potion~
-magenta potion~
-Bright magenta potion gathers dust.~
+magenta potion фуксиновое зелье~
+@eng magenta potion@rus фуксиновое зелье~
+@eng Bright magenta potion gathers dust.@rus Яркое фуксиновое зелье (magenta potion) собирает пыль.~
 glass~
 potion J AO
 8 'armor' 'cure light' 'poison' ''
 3 20 320 P
-g none~
+G none
 #9105
-ancient parchment~
-an ancient illustrated parchment~
-An ancient illustrated parchment in the corner~
+ancient parchment древний пергамент~
+@eng an ancient illustrated parchment@rus древний иллюстрированный пергамент~
+@eng An ancient illustrated parchment in the corner@rus Древний (ancient) иллюстрированный пергамент (parchment) лежит в углу~
 vellum~
 scroll AH AO
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
-g none~
+G none
 #0
 
 #ROOMS
 #9101
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
 A floating sign says:
 "Scubdu's Area--Tread carefully! Only high levels should attempt
 this place. Leave messages on the board if you have problems."
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица. Здесь есть знак (sign)
+Летающий знак сообщает:
+"Зона Скубду - двигайся осторожно! Только высоким уровням следует пробовать эту
+зону. Оставьте сообщение на стене, если будут проблемы."
 ~
 0 C inside
 D0
-The way back to solid footing, it seems.
+@eng The way back to solid footing, it seems.
+@rus Похоже, путь ведет назад на твердую поверхность.
 ~
 ~
 Z -1 7900
 D1
-Intersection on a Pebbled Path.
+@eng Intersection on a Pebbled Path.
+@rus На востоке ты видишь вход в зону Разделенные Души (Dividen Souls).
 ~
 ~
 Z -1 11600
@@ -200,193 +233,240 @@ D2
 ~
 Z 0 21000
 D4
-There is another cloud above you.  If you jump you might make it...
+@eng There is another cloud above you.  If you jump you might make it...
+@rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
 ~
 ~
 Z -1 9102
 S
 #9102
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D1
-There is another cloud east of you.
+@eng There is another cloud east of you.
+@rus На востоке от тебя - другое облако.
 ~
 ~
 Z -1 9103
 D5
-There is another cloud below you.
+@eng There is another cloud below you.
+@rus Под тобой - другое облако.
 ~
 ~
 Z -1 9101
 S
 #9103
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D0
-You can barely make out a cloud to the north.
+@eng You can barely make out a cloud to the north.
+@rus Ты едва можешь заметить облако на севере.
 ~
 ~
 Z -1 9128
 D2
-You see a cloud somewhere south of you.
+@eng You see a cloud somewhere south of you.
+@rus Ты видишь облако где-то на юге от тебя.
 ~
 ~
 Z -1 9104
 D3
-You see a cloud somewhere west of you.
+@eng You see a cloud somewhere west of you.
+@rus Ты видишь облако где-то на западе от тебя.
 ~
 ~
 Z -1 9102
 S
 #9104
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus 
 ~
 0 0 inside
 D0
-You can barely make out a cloud to the north.
+@eng You can barely make out a cloud to the north.
+@rus Ты едва можешь заметить облако на севере.
 ~
 ~
 Z -1 9103
 D1
-There is another cloud east of you.
+@eng There is another cloud east of you.
+@rus На востоке от себя ты видишь другое облако.
 ~
 ~
 Z -1 9105
 S
 #9105
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D1
-There is another cloud east of you.
+@eng There is another cloud east of you.
+@rus На востоке от себя ты видишь другое облако.
 ~
 ~
 Z -1 9106
 D3
-You spy a tiny cloud.
+@eng You spy a tiny cloud.
+@rus Ты замечаешь крохотное облако.
 ~
 ~
 Z -1 9104
 S
 #9106
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако.~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D0
-You can barely make out a cloud to the north.
+@eng You can barely make out a cloud to the north.
+@rus Ты едва можешь заметить облако на севере.
 ~
 ~
 Z -1 9107
 D3
-You spy a tiny cloud.
+@eng You spy a tiny cloud.
+@rus Ты замечаешь крохотное облако.
 ~
 ~
 Z -1 9105
 S
 #9107
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D1
-There is another cloud east of you.
+@eng There is another cloud east of you.
+@rus На востоке от себя ты видишь другое облако.
 ~
 ~
 Z -1 9108
 D2
-You see a cloud somewhere south of you.
+@eng You see a cloud somewhere south of you.
+@rus Ты видишь облако где-то на юге от себя.
 ~
 ~
 Z -1 9106
 D5
-There is another cloud below you.
+@eng There is another cloud below you.
+@rus Под тобой - другое облако.
 ~
 ~
 Z -1 9126
 S
 #9108
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D1
-An ominous storm cloud looms to the east.
+@eng An ominous storm cloud looms to the east.
+@rus Зловещая грозовая туча маячит на востоке.
 ~
 ~
 Z -1 9109
 D3
-You spy a tiny cloud.
+@eng You spy a tiny cloud.
+@rus Ты замечаешь крохотное облако.
 ~
 ~
 Z -1 9107
 S
 #9109
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus 
 ~
 0 0 inside
 D3
-You spy a tiny cloud.
+@eng You spy a tiny cloud.
+@rus Ты замечаешь крохотное облако.
 ~
 ~
 Z -1 9108
 D5
-An ominous storm cloud looms below you.
+@eng An ominous storm cloud looms below you.
+@rus Зловещая грозовая туча маячит под тобой.
 ~
 ~
 Z -1 9110
 S
 #9110
-An ominous storm cloud.~
-You find yourself in a storm.  Lightning flashes and thunder
+@eng An ominous storm cloud.@rus Зловещая грозовая туча~
+@eng You find yourself in a storm.  Lightning flashes and thunder
 crashes, making you wish you were dry and warm.
+@rus Ты оказываешься посреди грозы. Вокруг сверкают молнии, и грохочет гром, и тебе
+хочется куда-нибудь, где сухо и тепло.
 ~
 0 0 inside
 D1
-There is a crag, high and rocky.
+@eng There is a crag, high and rocky.
+@rus Здесь скала, высокая и крепкая.
 ~
 ~
 Z -1 9111
 D3
-You spy a tiny cloud.
+@eng You spy a tiny cloud.
+@rus Ты замечаешь крохотное облако.
 ~
 ~
 Z -1 9125
 D4
-There is another cloud above you.  If you jump you might make it...
+@eng There is another cloud above you.  If you jump you might make it...
+@rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
 ~
 ~
 Z -1 9109
 S
 #9111
-High and perilous cliff~
-You are on a high and rocky cliff.  To the west you see a huge
+@eng High and perilous cliff@rus Высокий и опасный утес~
+@eng You are on a high and rocky cliff.  To the west you see a huge
 ominous storm cloud moving this way.  You might want to take cover
 before the storm hits.  You think that there is a narrow trail
 leading to the south.
+@rus Ты стоишь на высоком и скалистом утесе. На западе ты видишь огромную зловещую
+грозовую тучу, двигающуюся в твоем направлении. Тебе стоит найти укрытие, пока
+не началась гроза. Тебе кажется, что на запад ведет какая-то узкая тропинка.
 ~
 0 0 mountain
 D2
@@ -394,16 +474,19 @@ D2
 ~
 Z -1 9112
 D3
-An ominous storm cloud looms to the east.
+@eng An ominous storm cloud looms to the east.
+@rus Зловещая грозовая туча маячит на востоке.
 ~
 ~
 Z -1 9110
 S
 #9112
-Narrow rocky trail.~
-A narrow trail leads down towards the mountain and north toward the
+@eng Narrow rocky trail.@rus Узкая горная тропа~
+@eng A narrow trail leads down towards the mountain and north toward the
 cliff.  It seems to fade in and out as it winds up the hill.
 Obviously, it has not been maintained in years.
+@rus Узкая тропа ведет вниз к горе и на север к утесу. Кажется, что она исчезает и
+появляется, пока вьется вокруг холма. Очевидно о ней не заботились годами.
 ~
 0 0 mountain
 D0
@@ -416,9 +499,11 @@ D5
 Z -1 9113
 S
 #9113
-Small valley.~
-You are in a lush valley full of trees and other vegetation and the
+@eng Small valley.@rus Маленькая долина~
+@eng You are in a lush valley full of trees and other vegetation and the
 odd carcass or two.  The trail leads south and it leads up.
+@rus Ты находишься в пышной долине, заполненной деревьями и прочей растительностью,
+и с необычными развалинами или даже с двумя. Тропа ведет на юг и вверх.
 ~
 0 0 mountain
 D2
@@ -431,10 +516,13 @@ D4
 Z -1 9112
 S
 #9114
-Small valley.~
-You are in a lush valley full of trees and other vegetation and the
+@eng Small valley.@rus Маленькая долина~
+@eng You are in a lush valley full of trees and other vegetation and the
 odd carcass or three.  The trail leads north and it leads down into
-a crevasse.
+a crevasse.Ты находишься в пышной долине, заполненной деревьями и прочей растительностью,
+и с необычными развалинами или даже с тремя. Тропа ведет на север и вниз в
+расселину.
+@rus 
 ~
 0 0 mountain
 D0
@@ -442,16 +530,19 @@ D0
 ~
 Z -1 9113
 D5
-The crevice looks a little slippery.
+@eng The crevice looks a little slippery.
+@rus Расщелина, похоже, немного скользкая.
 ~
 ~
 Z -1 9115
 S
 #9115
-Deep, slippery crevice.~
-The crevice is deep and a little dim and it is hard to make your
+@eng Deep, slippery crevice.@rus Глубокая скользкая расщелина~
+@eng The crevice is deep and a little dim and it is hard to make your
 way around.  A mist makes everything a little damp and slippery.
 Better take your time climbing through here.
+@rus Ращелина глубокая и слегка неясная и сложно осмотреть свой путь вокруг. Туман
+делает все влажным и скользким. Тебе потребуется время, чтоб пробраться здесь.
 ~
 0 0 mountain
 D2
@@ -459,7 +550,8 @@ D2
 ~
 Z -1 9117
 D3
-The mist looks thicker in this direction.
+@eng The mist looks thicker in this direction.
+@rus Туман становится гуще в этом направлении.
 ~
 ~
 Z -1 9116
@@ -469,30 +561,38 @@ D4
 Z -1 9114
 S
 #9116
-Incredibly slippery crevice.~
-The crevice is getting more and more slippery.  You are getting
+@eng Incredibly slippery crevice.@rus Невероятно скользкая расщелина~
+@eng The crevice is getting more and more slippery.  You are getting
 incredibly nervous and want to turn back.  To the east is the
 crevice and trail you were following.  Below, you can just see the
 edge of a cliff through the mist.  There is no trail leading there,
 just a smooth, flat, dew-covered rock that almost resembles a
 slide ...
+@rus Расщелина становится все более и более скользкой. Ты очень нервничаешь и хочешь
+повернуть обратно. На востоке - расщелина и тропа по который ты идешь. Снизу 
+сквозь туман ты едва видишь край утеса. Туда не ведет никакая тропа, но есть 
+гладкая, плоская, покрытая влагой скала, очень напоминающая каток...
 ~
 0 0 mountain
 D1
-The way back to safety.
+@eng The way back to safety.
+@rus Путь обратно, в безопасность.
 ~
 ~
 Z -1 9115
 D5
-Only fools would dare tread here!
+@eng Only fools would dare tread here!
+@rus Только дурак рискнет пройти здесь!
 ~
 ~
 Z -1 9199
 S
 #9117
-Steep mountainside.~
-From here, you can see forever.  Clouds, birds, the forest.
+@eng Steep mountainside.@rus Крутой склон горы~
+@eng From here, you can see forever.  Clouds, birds, the forest.
 Midgaard is far, far to the west.  What a postcard perfect view!
+@rus Отсюда ты можешь стоять и смотреть бесконечно. Облака, птички, лес. Мидгард -
+далеко, далеко на западе. Какой прекрасный вид! Как на открытке.
 ~
 0 0 mountain
 D0
@@ -505,9 +605,11 @@ D4
 Z -1 9118
 S
 #9118
-Steep mountainside.~
-From here, you can see forever.  Clouds, birds, the forest.
+@eng Steep mountainside.@rus Крутой склон горы~
+@eng From here, you can see forever.  Clouds, birds, the forest.
 Midgaard is far, far to the west.  What a postcard perfect view!
+@rus Отсюда ты можешь стоять и смотреть бесконечно. Облака, птички, лес. Мидгард -
+далеко, далеко на западе. Какой прекрасный вид! Как на открытке.
 ~
 0 0 mountain
 D1
@@ -520,10 +622,13 @@ D5
 Z -1 9117
 S
 #9119
-Treacherous Cliff.~
-The cliff is rocky and difficult to negotiate.  One wrong slip and
+@eng Treacherous Cliff.@rus Ненадежный утес~
+@eng The cliff is rocky and difficult to negotiate.  One wrong slip and
 you could fall and break a leg or impale yourself or something else
 nasty.
+@rus Утес скалистый и трудно преодолимый. Один неверный шаг, и ты можешь упасть
+и сломать ногу или что-нибудь проколоть или получить еще какую-нибудь
+неприятность.
 ~
 0 0 mountain
 D3
@@ -531,26 +636,32 @@ D3
 ~
 Z -1 9118
 D4
-Above you is an almost vertical cliff.  It looks dangerous but
+@eng Above you is an almost vertical cliff.  It looks dangerous but
 climbable.
+@rus Над тобой - почти отвесный утес. Он выглядит опасным, но преодолимым.
 ~
 ~
 Z -1 9120
 S
 #9120
-Cliff Face.~
-You are more than a little nervous climbing on this almost vertical
+@eng Cliff Face.@rus Поверхность утеса~
+@eng You are more than a little nervous climbing on this almost vertical
 cliff face.  You miraculously find places to grab onto and little
 ledges to rest on.  You see a small cave here.
+@rus Ты нервничаешь более чем немного, преодолевая эту почти вертикальную
+поверхность. Ты сверхъестественно находишь выступы, чтоб за них ухватится
+и отдохнуть. Ты видишь здесь небольшую пещеру.
 ~
 0 0 mountain
 D1
-A dank, dark, smelly hole.
+@eng A dank, dark, smelly hole.
+@rus Сырая, темная, вонючая дыра.
 ~
 ~
 Z -1 9121
 D4
-A large ledge that looks pretty safe.
+@eng A large ledge that looks pretty safe.
+@rus Большой выступ выглядит довольно безопасным.
 ~
 ~
 Z -1 9122
@@ -560,10 +671,12 @@ D5
 Z -1 9119
 S
 #9121
-Dank, dark, smelly hole.~
-This hole must have been used as a lair or nest.  There are
+@eng Dank, dark, smelly hole.@rus Сырая, темная, вонючая дыра~
+@eng This hole must have been used as a lair or nest.  There are
 feathers and bones everywhere and the floor is covered with
 something disgusting.
+@rus Это дыра, должно быть, используется как берлога или гнездо. Вокруг валяются
+перья и кости, а пол покрыт чем-то непонятным.
 ~
 0 AD mountain
 D3
@@ -572,10 +685,13 @@ D3
 Z -1 9120
 S
 #9122
-Large, sturdy ledge.~
-You are on a ledge above a steep cliff face.  You can climb down
+@eng Large, sturdy ledge.@rus Большой, крепкий выступ~
+@eng You are on a ledge above a steep cliff face.  You can climb down
 if you want, but be careful!  After viewing the scenery, you notice
 two small caves here, one north and one west.
+@rus Ты находишься на выступе над крутой поверхностью утеса. Ты можешь спуститься
+вниз, если хочешь, но будь осторожен! Осмотрев местность, ты замечаешь две
+небольшие пещеры, одна на севере, а другая на западе.
 ~
 0 0 mountain
 D0
@@ -592,210 +708,263 @@ D5
 Z -1 9120
 S
 #9123
-Absolutely disgusting lair.~
-The stench in here is quite foul.  There are feathers, bones and
+@eng Absolutely disgusting lair.@rus Абсолютно противная пещера~
+@eng The stench in here is quite foul.  There are feathers, bones and
 rotting carcasses everywhere.  This place is absolutely gross and
 you have to strain yourself not to lose your lunch.
+@rus Вонь здесь достаточно отвратительна. Здесь повсюду лежат перья, кости и
+гниющие тела. Это место абсолютно грязно, и ты прилагаешь все усилия,
+чтоб твой завтрак не вышел наружу.
 ~
 0 AD mountain
 D1
-Your only hope to keep your lunch down is to head this way...
+@eng Your only hope to keep your lunch down is to head this way...
+@rus Единственная надежда оставить твой завтрак внутри - это двигаться этим путем...
 ~
 ~
 Z -1 9122
 S
 #9124
-Absolutely disgusting lair.~
-The stench in here is quite foul.  There are feathers, bones and
+@eng Absolutely disgusting lair.@rus Абсолютно противная пещера~
+@eng The stench in here is quite foul.  There are feathers, bones and
 rotting carcasses everywhere.  This place is absolutely gross and
 you have to strain yourself not to lose your lunch.
+@rus Вонь здесь достаточно отвратительна. Здесь повсюду лежат перья, кости и
+гниющие тела. Это место абсолютно грязно, и ты прилагаешь все усилия,
+чтоб твой завтрак не вышел наружу.
 ~
 0 AD mountain
 D2
-Your only hope to keep your lunch down is to head this way...
+@eng Your only hope to keep your lunch down is to head this way...
+@rus Единственная надежда оставить твой завтрак внутри - это двигаться этим путем...
 ~
 ~
 Z -1 9122
 S
 #9125
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D1
-An ominous storm cloud looms to the east.
+@eng An ominous storm cloud looms to the east.
+@rus Зловещая грозовая туча маячит на востоке.
 ~
 ~
 Z -1 9110
 D4
-There is another cloud above you.  If you jump you might make it...
+@eng There is another cloud above you.  If you jump you might make it...
+@rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
 ~
 ~
 Z -1 9126
 S
 #9126
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D0
-A cirrus cloud hums peacefully to itself.
+@eng A cirrus cloud hums peacefully to itself.
+@rus Перистое облако мирно что-то себе гудит.
 ~
 ~
 Z -1 9131
 D3
-You spy a tiny cloud.
+@eng You spy a tiny cloud.
+@rus Ты замечаешь крохотное облако.
 ~
 ~
 Z -1 9127
 D4
-There is another cloud above you.  If you jump you might make it...
+@eng There is another cloud above you.  If you jump you might make it...
+@rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
 ~
 ~
 Z -1 9107
 D5
-There is another cloud below you.
+@eng There is another cloud below you.
+@rus Под тобой - другое облако.
 ~
 ~
 Z -1 9125
 S
 #9127
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D0
-To the north you see an angry cloud lashing out.
+@eng To the north you see an angry cloud lashing out.
+@rus На севере ты видишь сердитое облако, разражающееся бранью.
 ~
 ~
 Z -1 9130
 D1
-There is another cloud east of you.
+@eng There is another cloud east of you.
+@rus На востоке - другое облако.
 ~
 ~
 Z -1 9126
 D4
-There is another cloud above you.  If you jump you might make it...
+@eng There is another cloud above you.  If you jump you might make it...
+@rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
 ~
 ~
 Z -1 9128
 S
 #9128
-A fluffy white cloud.~
-You find yourself standing on a small cloud.  The cloud feels kind
+@eng A fluffy white cloud.@rus Пушистое белое облако~
+@eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
+@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
+что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
+проплывают мимо твоего лица.
 ~
 0 0 inside
 D2
-You see a cloud somewhere south of you.
+@eng You see a cloud somewhere south of you.
+@rus Ты видишь облако где-то к югу от тебя.
 ~
 ~
 Z -1 9103
 D5
-There is another cloud below you.
+@eng There is another cloud below you.
+@rus Под тобой - другое облако.
 ~
 ~
 Z -1 9127
 S
 #9129
-Sleepy little cloud.~
-This cloud is peacefully snoozing away, enjoying himself.  There
+@eng Sleepy little cloud.@rus Сонливое маленькое облако~
+@eng This cloud is peacefully snoozing away, enjoying himself.  There
 is grumpy cloud to the east and a rather shy cloud north of here.
+@rus Это облака мирно с наслаждением дремлет. На востоке - сварливое облако, а на
+севере - слегка пугливое облако.
 ~
 0 0 inside
 D0
-The cloud to the north blushes and tries to hide when you look at
+@eng The cloud to the north blushes and tries to hide when you look at
 it.
+@rus Облако на севере смущается и пытается спрятаться, когда ты на него смотришь.
 ~
 ~
 Z -1 9132
 D1
-The cloud to the east mutters and grumbles at you.
+@eng The cloud to the east mutters and grumbles at you.
+@rus Облако на востоке ворчит и бурчит на тебя.
 ~
 ~
 Z -1 9130
 S
 #9130
-Grumpy little cloud.~
-This cloud mutters and grumbles at you.  You have to jump quickly
+@eng Grumpy little cloud.@rus Маленькое сварливое облако~
+@eng This cloud mutters and grumbles at you.  You have to jump quickly
 to avoid a lightning bolt that passes by your toe.  Your aren't
 sure but you think you hear the cloud snicker.
+@rus Облако ворчит и бурчит на тебя. Ты должен быстро прыгать, чтоб уклоняться от
+молний, проходящих мимо твоих ног. Ты не уверен, но тебе кажется, что облако
+хихикает.
 ~
 0 0 inside
 D1
-A happy little cloud is humming peacefully to itself.
+@eng A happy little cloud is humming peacefully to itself.
+@rus Счастливое маленькое облако что-то мирно себе гудит.
 ~
 ~
 Z -1 9131
 D2
-You see a cloud somewhere south of you.
+@eng You see a cloud somewhere south of you.
+@rus Ты видишь облако где-то к югу от тебя.
 ~
 ~
 Z -1 9127
 D3
-A sleepy little cloud to the west yawns and rolls over.  You hear
+@eng A sleepy little cloud to the west yawns and rolls over.  You hear
 snoring.
+@rus Сонное маленькое облако на западе зевает и ворочается. Ты слышишь храп.
 ~
 ~
 Z -1 9129
 S
 #9131
-Happy little cloud.~
-You hear the cloud humming a little song to itself, but you can't
+@eng Happy little cloud.@rus Маленькое счастливое облако~
+@eng You hear the cloud humming a little song to itself, but you can't
 figure out the song.
+@rus Ты слышишь, как облако гудит себе маленькую песню, но не можешь разобрать ее
+слова.
 ~
 0 0 inside
 D0
-There is a pure white cloud north of you.  It is snowing!
+@eng There is a pure white cloud north of you.  It is snowing!
+@rus На севере - безупречно белое облако. Там идет снег!
 ~
 ~
 Z -1 9136
 D2
-You see a cloud somewhere south of you.
+@eng You see a cloud somewhere south of you.
+@rus Ты видишь облако где-то к югу от тебя.
 ~
 ~
 Z -1 9126
 D3
-You see an angry little cloud muttering and grumbling to itself.
+@eng You see an angry little cloud muttering and grumbling to itself.
+@rus Ты видишь маленькое сердитое облако ворчащее и бурчащее на тебя.
 ~
 ~
 Z -1 9130
 S
 #9132
-Bashful little cloud.~
-This cloud blushes and tries to avoid your glance as you look at
+@eng Bashful little cloud.@rus Маленькое робкое облако~
+@eng This cloud blushes and tries to avoid your glance as you look at
 your surroundings.  You decide that overall it is a peaceful little
 cloud.
+@rus Это облако краснеет и пытается избежать твоего взгляда, когда ты осматриваешь
+местность. Ты решаешь, что в целом это маленькое мирное облако.
 ~
 0 0 inside
 D0
-The cloud to the north sneezes!
+@eng The cloud to the north sneezes!
+@rus Облако на севере чихает!
 ~
 ~
 Z -1 9133
 D2
-A sleepy little cloud to the south yawns and rolls over.  You hear
+@eng A sleepy little cloud to the south yawns and rolls over.  You hear
 snoring.
+@rus Сонное маленькое облако на западе зевает и ворочается. Ты слышишь храп.
 ~
 ~
 Z -1 9129
 D3
-An isolated little raincloud.
+@eng An isolated little raincloud.
+@rus Изолированная дождевая туча.
 ~
 ~
 Z -1 9142
 S
 #9133
-Sneezing little cloud.~
-The cloud is wracked with sneezes.  At first you thought you were
+@eng Sneezing little cloud.@rus Маленькое чихающее облако~
+@eng The cloud is wracked with sneezes.  At first you thought you were
 in an earthquake before you realize where you are!
+@rus Облако разражается чиханием. Сперва ты думаешь, что попал в
+землетрясение, пока не сообразишь, где ты находишься!
 ~
 0 0 inside
 D0
@@ -803,71 +972,88 @@ D0
 ~
 Z -1 9145
 D1
-This cloud is, like, totally lost, you know?
+@eng This cloud is, like, totally lost, you know?
+@rus Это облако, похоже, полностью потерялось. Может ты знаешь откуда оно?
 ~
 ~
 Z -1 9134
 D2
-The cloud to the south blushes and tries to hide when you look at
+@eng The cloud to the south blushes and tries to hide when you look at
 it.
+@rus Облако на юге краснеет и пытается спрятаться, когда ты смотришь на него.
 ~
 ~
 Z -1 9132
 D3
-You see a cirrus maximus cloud.
+@eng You see a cirrus maximus cloud.
+@rus Ты видишь правильное перьевое облако.
 ~
 ~
 Z -1 9143
 S
 #9134
-Dopey little cloud.~
-This cloud is too busy daydreaming to watch where its going.  It
+@eng Dopey little cloud.@rus Маленькое вялое облако~
+@eng This cloud is too busy daydreaming to watch where its going.  It
 doesn't even notice you landing on it.  It looks like it couldn't
 figure its way out of an open box.
+@rus Это облако слишком занято своим дневным сном, чтоб смотреть, где оно находится.
+Оно даже не замечает, что ты стоишь на нем. Похоже, что оно не смогло бы
+выбраться даже из раскрытой коробки.
 ~
 0 0 inside
 D1
-You see a very scientific cloud.
+@eng You see a very scientific cloud.
+@rus Ты видишь очень ученое облако.
 ~
 ~
 Z -1 9135
 D3
-The cloud sneezes!  Yuck.
+@eng The cloud sneezes!  Yuck.
+@rus Облако чихает!  А-а-пчхи!
 ~
 ~
 Z -1 9133
 S
 #9135
-Doc-like little cloud.~
-The cloud looks at you through its Lennon like specs and examines
+@eng Doc-like little cloud.@rus Маленькое ученое облако~
+@eng The cloud looks at you through its Lennon like specs and examines
 you quite scientifically.
+@rus Облако смотрит на тебя, сквозь очки, как у Дж. Леннона, и с ученым видом
+изучает.
 ~
 0 0 inside
 D2
-There is a pure white cloud south of you.  It is snowing!
+@eng There is a pure white cloud south of you.  It is snowing!
+@rus На юге - безупречно белое облако. Там идет снег!
 ~
 ~
 Z -1 9136
 D3
-This cloud is, like, totally lost, you know?
+@eng This cloud is, like, totally lost, you know?
+@rus Это облако, похоже, полностью потерялось. Может ты знаешь откуда оно?
 ~
 ~
 Z -1 9134
 S
 #9136
-Snowy, white cloud.~
-You shiver as you stand here.  This beautiful, fluffy, pure white
+@eng Snowy, white cloud.@rus Снежное белое облако~
+@eng You shiver as you stand here.  This beautiful, fluffy, pure white
 cloud is snowing.  The snow is pure and sweet as it melts in your
 mouth.  What a nifty cloud to be on.
+@rus Ты дрожишь, когда стоишь здесь. Из этого красивого, пушистого безупречно
+белого облака идет снег. Снег чистый и сладкий, когда тает у тебя во рту.
+Какое замечательное облако, оказывается.
 ~
 0 0 inside
 D0
-You see a very scientific cloud.
+@eng You see a very scientific cloud.
+@rus Ты видишь очень ученое облако.
 ~
 ~
 Z -1 9135
 D2
-A happy, peaceful little cloud humming to itself.
+@eng A happy, peaceful little cloud humming to itself.
+@rus Счастливое мирное облако гудит что-то себе.
 ~
 ~
 Z -1 9131
@@ -877,13 +1063,16 @@ D3
 Z -1 9137
 S
 #9137
-Cold, damp cloud.~
-Your mood grows grumpy as you find yourself cold and wet from this
+@eng Cold, damp cloud.@rus Холодное, сырое облако~
+@eng Your mood grows grumpy as you find yourself cold and wet from this
 dismal cloud.  You notice a rock outcropping above you.
+@rus Твое настроение резко падает, когда тебе становится холодно и сыро на этом
+унылом облаке.
 ~
 0 A inside
 D1
-There is a pure white cloud east of you.  It is snowing!
+@eng There is a pure white cloud east of you.  It is snowing!
+@rus На востоке - безупречно белое облако. Там идет снег!
 ~
 ~
 Z -1 9136
@@ -893,14 +1082,18 @@ D4
 Z -1 9138
 S
 #9138
-Mysterious rock outcropping.~
-This rock outcropping just seems to hang in midair.  To the north
+@eng Mysterious rock outcropping.@rus Загадочное обнажение горных пород~
+@eng This rock outcropping just seems to hang in midair.  To the north
 you see a house and if you ease yourself down, you can land on a
 rather damp, dismal cloud.  The door to the house is closed.
+@rus Это обнажение горных пород выглядит, как будто оно висит в воздухе. На севере
+ты видишь дом, или если тебе проще спускаться вниз, ты можешь опуститься на
+довольно сырое, унылое облако. Дверь (door) дома закрыта.
 ~
 0 AC inside
 D0
-Eerie looking house.
+@eng Eerie looking house.
+@rus Мрачный дом.
 ~
 door~
 Z -1 9139
@@ -910,11 +1103,14 @@ D5
 Z -1 9137
 S
 #9139
-Foyer.~
-Shadows play tricks on your eyes.  Everytime you think you see
+@eng Foyer.@rus Фойе~
+@eng Shadows play tricks on your eyes.  Everytime you think you see
 something in a corner and turn to get a better look, nothing is
 there.  The place is very dark.  Even with a torch, you have
 trouble making out the room to the east.
+@rus Тени шалят на твоих глазах. Все время тебе кажется, что видишь что-то в углу,
+а когда поворачиваешься, чтоб лучше рассмотреть, то ничего там нет. Это место
+очень темное. Даже с факелом, ты с трудом замечаешь комнату на востоке.
 ~
 0 AD inside
 D1
@@ -927,11 +1123,14 @@ D2
 Z -1 9138
 S
 #9140
-Tower.~
-You are in a musty old tower.  The smell of mold and mildew is
+@eng Tower.@rus Башня~
+@eng You are in a musty old tower.  The smell of mold and mildew is
 almost overpowering.  You hear strange creaks and groans ... is it
 the wind or did someone (something?) make that noise.  To the west
 is the house and there is a stairway leading up into the tower.
+@rus Ты в затхлой старой башне. Запах грибков и плесени здесь наиболее нереодолим.
+Ты слышишь странные скрипы и трески...это ветер или что-то (кто-то ?) еще
+производит этот шум. На западе виден дом, а лесница ведет вверх в башню.
 ~
 0 AD inside
 D3
@@ -944,17 +1143,24 @@ D4
 Z -1 9141
 S
 #9141
-Witches Tower~
-Here you see strange things of arcane value.  There is a cauldron in the
+@eng Witches Tower@rus Башня ведьм~
+@eng Here you see strange things of arcane value.  There is a cauldron in the
 corner bubbling madly, belching a foul brew that must have come from hell.
 On shelves lie jars of strange creatures you have never seen before, or
 hope to again.  A picture of a familiar temple hangs on the east wall.
+@rus Ты видишь странные вещи с загадочным смыслом. В углу стоит безумно кипящий
+котел, извергая отвратительное варево, которое, должно быть, принесено из ада.
+На полках леат статуэтки странных существ, которых ты никогда не видел и
+надеешься, что и не увидишь. Изображение (picture) известного храма висит на
+восточной стене.
 ~
 0 ACDN inside
 E
-picture~
-The picture is in on the east wall.  It is very complex in detail, and you
+picture изображение~
+@eng The picture is in on the east wall.  It is very complex in detail, and you
 almost see people walking around the temple in the picture.
+@rus Изображение висит на восточной стене. Оно очень сложное в деталях, и ты видишь
+на ней людей идущих вокруг храма.
 ~
 D1
 ~
@@ -966,10 +1172,11 @@ D5
 Z -1 9140
 S
 #9142
-Suspicious little raincloud.~
-On second glance, this cloud doesn't seem much like a raincloud.
+@eng Suspicious little raincloud.@rus Маленькая подозрительная дождевая туча~
+@eng On second glance, this cloud doesn't seem much like a raincloud.
 A balloon sticks out of the top and you think you hear it humming
 something like, 'Tut, tut!  It looks like rain!'
+@rus 
 ~
 0 0 inside
 D0
@@ -977,32 +1184,39 @@ D0
 ~
 Z -1 9143
 D1
-A bashful little cloud that tries to avoid your notice.
+@eng A bashful little cloud that tries to avoid your notice.
+@rus Маленькое застенчивое облако пытается избежать твоего внимания.
 ~
 ~
 Z -1 9132
 S
 #9143
-Cirrus maximus cloud.~
-This cloud looks like it is of the cirrus maximus genre of clouds.
+@eng Cirrus maximus cloud.@rus Правильное перьевое облако~
+@eng This cloud looks like it is of the cirrus maximus genre of clouds.
+@rus Это облако, похоже, является образцовым перьевым облаком.
 ~
 0 0 inside
 D1
-The cloud to the east sneezes!
+@eng The cloud to the east sneezes!
+@rus Облако на востоке чихает!
 ~
 ~
 Z -1 9133
 D2
-A suspicious little raincloud with a balloon.
+@eng A suspicious little raincloud with a balloon.
+@rus Маленькая ненадежная дождевая туча с воздушным шаром.
 ~
 ~
 Z -1 9142
 S
 #9144
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D0
@@ -1015,14 +1229,18 @@ D5
 Z -1 9146
 S
 #9145
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D2
-You see a sneezy little cloud.
+@eng You see a sneezy little cloud.
+@rus Ты видишь маленькое чихающее облако.
 ~
 ~
 Z -1 9133
@@ -1036,10 +1254,13 @@ D5
 Z -1 9148
 S
 #9146
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D0
@@ -1052,10 +1273,13 @@ D1
 Z -1 9144
 S
 #9147
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D1
@@ -1068,10 +1292,13 @@ D2
 Z -1 9146
 S
 #9148
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D2
@@ -1088,10 +1315,13 @@ D4
 Z -1 9145
 S
 #9149
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D0
@@ -1103,16 +1333,20 @@ D1
 ~
 Z -1 9150
 D5
-You see a cumulative nimbus cloud.
+@eng You see a cumulative nimbus cloud.
+@rus Ты видишь накапливающуюся дождевую тучу.
 ~
 ~
 Z -1 9157
 S
 #9150
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D0
@@ -1129,10 +1363,13 @@ D3
 Z -1 9149
 S
 #9151
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D2
@@ -1145,10 +1382,13 @@ D3
 Z -1 9152
 S
 #9152
-Raging hurricane.~
-You are buffeted and knocked about by the almost godlike strength
+@eng Raging hurricane.@rus Яростный ураган~
+@eng You are buffeted and knocked about by the almost godlike strength
 of the raging hurricane.  It is hard to see and hear anything.
 Your only thought is to seek refuge from the storm.
+@rus Яростный ураган бьет и колотит тебя с богоподобной силой. Очень тяжело
+что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
+этого урагана.
 ~
 0 AN mountain
 D1
@@ -1161,9 +1401,11 @@ D2
 Z -1 9149
 S
 #9153
-Calm cloud.~
-This cloud is just outside the hurricane.  It looks like it might
+@eng Calm cloud.@rus Тихое облако~
+@eng This cloud is just outside the hurricane.  It looks like it might
 get sucked in, but you feel safe for the moment.
+@rus Это облако едва в стороне от урагана. Похоже, что ее должно всосать туда, но
+на мгновение ты чувствуешь себя в безопасности.
 ~
 0 0 inside
 D3
@@ -1176,11 +1418,15 @@ D4
 Z -1 9152
 S
 #9154
-Mountainside.~
-You find yourself on the side of a huge granite mountain.  The air
+@eng Mountainside.@rus Горный склон~
+@eng You find yourself on the side of a huge granite mountain.  The air
 is quite thin so you know you are at a very high altitude.  There
 is no plant life beyond moss and lichen in this lonely, barren
 place.
+@rus Ты находишься на склоне огромной гранитной горы. Воздух здесь достаточно
+разреженный, так что ты понимаешь что находишься на очень большой высоте.
+Здесь нет никакой растительной жизни кроме мхов и лишайников в этом
+уединенном, бесплодном месте.
 ~
 0 0 mountain
 D1
@@ -1193,11 +1439,15 @@ D3
 Z -1 9155
 S
 #9155
-Mountainside.~
-You find yourself on the side of a huge granite mountain.  The air
+@eng Mountainside.@rus Горный склон~
+@eng You find yourself on the side of a huge granite mountain.  The air
 is quite thin so you know you are at a very high altitude.  There
 is no plant life beyond moss and lichen in this lonely, barren
 place.
+@rus Ты находишься на склоне огромной гранитной горы. Воздух здесь достаточно
+разреженный, так что ты понимаешь что находишься на очень большой высоте.
+Здесь нет никакой растительной жизни кроме мхов и лишайников в этом
+уединенном, бесплодном месте.
 ~
 0 0 mountain
 D1
@@ -1210,10 +1460,13 @@ D4
 Z -1 9156
 S
 #9156
-Roc's Nest.~
-You are standing in a nest.  It is huge, at least two spear-lengths
+@eng Roc's Nest.@rus Гнездо птицы Рок~
+@eng You are standing in a nest.  It is huge, at least two spear-lengths
 wide.  You see three eggs in the center.  They are knee high, brown
 and look almost leathery.  Better hope mom isn't around!
+@rus Ты стоишь в гнезде. Оно огромное, покрайней мере в две длины копья шириной.
+В центре ты видишь три яйца. Они высотой до колена, коричневые и выглядят
+почти как кожанные. Лучше надейся, что мамы поблизости нет!
 ~
 0 0 mountain
 D5
@@ -1222,8 +1475,9 @@ D5
 Z -1 9155
 S
 #9157
-Cumulative nimbus cloud.~
-This cloud looks like it belongs to the phylum of cumulative nimbus clouds.
+@eng Cumulative nimbus cloud.@rus Накапливающаяся дождевая туча~
+@eng This cloud looks like it belongs to the phylum of cumulative nimbus clouds.
+@rus Это облако, похоже, принадлежит к типу накапливающихся дождевых туч.
 ~
 0 0 inside
 D2
@@ -1240,8 +1494,9 @@ D4
 Z -1 9149
 S
 #9158
-Dark hidden cloud.~
-This cloud looks like the perfect place to hide.
+@eng Dark hidden cloud.@rus Темное спрятанное облако~
+@eng This cloud looks like the perfect place to hide.
+@rus Это облако, похоже, - идеальное место для укрытия.
 ~
 0 A inside
 D1
@@ -1250,9 +1505,11 @@ D1
 Z -1 9157
 S
 #9159
-Yet another cloud~
-You find yourself in yet another cloud.  Will the madness never
+@eng Yet another cloud@rus Еще одно облако~
+@eng You find yourself in yet another cloud.  Will the madness never
 end?  There is a rope ladder leading up.
+@rus Ты находишься на еще одном облаке. Почему это сумасшедствие никак не кончится?
+Веревочная лестница ведет вверх.
 ~
 0 0 inside
 D0
@@ -1265,28 +1522,35 @@ D4
 Z -1 9160
 S
 #9160
-Front gate~
-There is a gate here.  It is huge, towering over you.  It creaks
+@eng Front gate@rus Передние ворота~
+@eng There is a gate here.  It is huge, towering over you.  It creaks
 as it sways in the breeze.  To the south you see a huge lawn.
 There is a rope ladder leading down.
+@rus Здесь стоят ворота. Они громадные, возвышаются над тобой. Ворота скрипят,
+когда качаются на ветру. На юге ты видишь огромную лужайку. Веревочная
+лестница ведет вниз.
 ~
 0 C field
 D2
-You see a huge lawn.
+@eng You see a huge lawn.
+@rus Ты видишь огромную лужайку.
 ~
 ~
 Z -1 9161
 D5
-There is a rope ladder leading down.
+@eng There is a rope ladder leading down.
+@rus Веревочная лестница ведет вниз.
 ~
 ~
 Z -1 9159
 S
 #9161
-Lawn~
-The lawn seems to stretch and stretch to the south and to the west.
+@eng Lawn@rus Лужайка~
+@eng The lawn seems to stretch and stretch to the south and to the west.
 North of you is a gate.  The grass is emerald green and luscious,
 obviously well cared for.
+@rus Лужайка, похоже тянется и тянется на юг и на запад. На севере видны ворота.
+Трава изумрудно зеленая и ароматная, очевидно, за ней хорошо заботятся.
 ~
 0 0 field
 D0
@@ -1303,10 +1567,12 @@ D3
 Z -1 9162
 S
 #9162
-Croquet game~
-A croquet game has been set up and carelessly left out.  Who ever
+@eng Croquet game@rus Игра в крокет~
+@eng A croquet game has been set up and carelessly left out.  Who ever
 was playing blue was in the lead before they quit.  Benches have
 been set up for spectators and players to enjoy themselves.
+@rus Игра в крокет была начата и небрежно прошена. Тот кто когда-то играл голубыми
+выигрывал. Для зрителей и игроков здесь расставлены скамейки.
 ~
 0 0 field
 D1
@@ -1319,10 +1585,13 @@ D2
 Z -1 9164
 S
 #9163
-Huge, gorgeous fountain.~
-An enormous golden fountain is here.  You see swans, angels,
+@eng Huge, gorgeous fountain.@rus Огромный, великолепный фонтан~
+@eng An enormous golden fountain is here.  You see swans, angels,
 gryphons and a host of other creatures in the fountain.  The
 fountain empties into a huge pool that looks quite inviting.
+@rus Огромный золотой фонтан стоит здесь. Ты видишь лебедей ангелов, грифонов и
+множество других созданий в фонтане. Фонтан вытекает в огромный бассейн,
+который выглядит достаточно привлекательным.
 ~
 0 0 field
 D0
@@ -1335,11 +1604,14 @@ D3
 Z -1 9164
 S
 #9164
-Patio.~
-A huge patio overlooks the lawn area.  There are enough tables and
+@eng Patio.@rus Внутренний дворик~
+@eng A huge patio overlooks the lawn area.  There are enough tables and
 chairs for a party of 100.  The tables and chairs are ornate and
 expensive, tasteful and elegant.  Stairs lead up to the main
 house.
+@rus Огромный внутренний дворик возвышается над лужайкой. Здесь достаточно много
+столов и порядка 100 стульев. Столы и стулья дорогие и богато украшенные,
+выполнены со вкусом и элегантно. Лестница ведет вверх в главный дом.
 ~
 0 0 field
 D0
@@ -1356,10 +1628,12 @@ D4
 Z -1 9165
 S
 #9165
-Long stairway.~
-This stairway is suspended on clouds.  It leads from the house to
+@eng Long stairway.@rus Длинная лестница~
+@eng This stairway is suspended on clouds.  It leads from the house to
 the front lawn.  The banisters are made of ornate gold and silver
 inlays.
+@rus Эта лестница подвешена на облаках. Она ведет из дома на переднюю лужайку.
+Перила богато украшены золотом и серебром.
 ~
 0 0 city
 D4
@@ -1372,10 +1646,13 @@ D5
 Z -1 9164
 S
 #9166
-Front door~
-You stand at the front door of an immense, sprawling mansion made
+@eng Front door@rus Передняя дверь~
+@eng You stand at the front door of an immense, sprawling mansion made
 of granite and marble.  The door is at least 10 feet high and is
 made of oak.
+@rus Ты стоишь перед передней дверью огромного, раскинутого во все стороны
+мавзолея, сделанного их гранита и мрамора. Дверь примерно 10 футов высотой
+и сделана из дуба.
 ~
 0 0 city
 D1
@@ -1383,7 +1660,8 @@ D1
 ~
 Z -1 9173
 D2
-You see an ornate oak door.
+@eng You see an ornate oak door.
+@rus Ты видишь богато украшенную дубовую дверь.
 ~
 oak door~
 AFZ -1 9177
@@ -1397,9 +1675,11 @@ D5
 Z -1 9165
 S
 #9167
-Lawn northwest of house.~
-You stand just outside the northwest corner of the house.  You try
+@eng Lawn northwest of house.@rus Лужайка на северо-западе от дома~
+@eng You stand just outside the northwest corner of the house.  You try
 to peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от северо-западного угла дома. Ты пытаешься заглянуть
+в окно, но оно слишком высоко.
 ~
 0 0 city
 D1
@@ -1412,9 +1692,11 @@ D2
 Z -1 9168
 S
 #9168
-Lawn west of house.~
-You stand just outside the west corner of the house.  You try to
+@eng Lawn west of house.@rus Лужайка на западе от дома~
+@eng You stand just outside the west corner of the house.  You try to
 peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от западного угла дома. Ты пытаешься заглянуть в окно,
+но оно слишком высоко.
 ~
 0 0 city
 D0
@@ -1427,9 +1709,11 @@ D2
 Z -1 9169
 S
 #9169
-Lawn southwest of house.~
-You stand just outside the southwest corner of the house.  You try
+@eng Lawn southwest of house.@rus Лужайка на юго-западе от дома~
+@eng You stand just outside the southwest corner of the house.  You try
 to peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от юго-западного угла дома. Ты пытаешься заглянуть в окно,
+но оно слишком высоко.
 ~
 0 0 city
 D0
@@ -1446,9 +1730,11 @@ D5
 Z -1 9174
 S
 #9170
-Lawn south of house.~
-You stand just outside the south corner of the house.  You try to
+@eng Lawn south of house.@rus Лужайка на юге от дома~
+@eng You stand just outside the south corner of the house.  You try to
 peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от южного угла дома. Ты пытаешься заглянуть в окно,
+но оно слишком высоко.
 ~
 0 0 city
 D1
@@ -1461,9 +1747,11 @@ D3
 Z -1 9169
 S
 #9171
-Lawn southeast of house.~
-You stand just outside the southeast corner of the house.  You try
+@eng Lawn southeast of house.@rus Лужайка на юго-востоке от дома~
+@eng You stand just outside the southeast corner of the house.  You try
 to peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от юго-восточного угла дома. Ты пытаешься заглянуть
+в окно, но оно слишком высоко.
 ~
 0 0 city
 D0
@@ -1476,9 +1764,11 @@ D3
 Z -1 9170
 S
 #9172
-Lawn east of house.~
-You stand just outside the east corner of the house.  You try to
+@eng Lawn east of house.@rus Лужайка на востоке от дома~
+@eng You stand just outside the east corner of the house.  You try to
 peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от восточного угла дома. Ты пытаешься заглянуть
+в окно, но оно слишком высоко.
 ~
 0 0 city
 D0
@@ -1491,9 +1781,11 @@ D2
 Z -1 9171
 S
 #9173
-Lawn northeast of house.~
-You stand just outside the northeast corner of the house.  You try
+@eng Lawn northeast of house.@rus Лужайка на северо-востоке от дома~
+@eng You stand just outside the northeast corner of the house.  You try
 to peek in a window, but it is a little too high to see anything.
+@rus Ты стоишь недалеко от северо-восточного угла дома. Ты пытаешься заглянуть
+в окно, но оно слишком высоко.
 ~
 0 0 city
 D2
@@ -1506,8 +1798,9 @@ D3
 Z -1 9166
 S
 #9174
-Dirty, dusty tunnel.~
-This dirty dusty tunnel must lead somewhere.
+@eng Dirty, dusty tunnel.@rus Грязный пыльный туннель~
+@eng This dirty dusty tunnel must lead somewhere.
+@rus Этот грязный пыльный туннель, должно быть, ведет куда-то.
 ~
 0 AD mountain
 D1
@@ -1520,10 +1813,12 @@ D4
 Z -1 9169
 S
 #9175
-Basement.~
-This seems like your average basement.  Old Christmas decorations,
+@eng Basement.@rus Подвал~
+@eng This seems like your average basement.  Old Christmas decorations,
 suitcases, bicycles litter your way.  You hear the squeaking of
 rats in the corners.
+@rus Похоже, что это среднего размера подвал. Старые Рождественские украшения,
+чемоданы, велосипеды разбросаны на твоем пути. Ты слышишь писк крыс в углах.
 ~
 0 AD mountain
 D0
@@ -1536,10 +1831,12 @@ D3
 Z -1 9174
 S
 #9176
-Bottom of the stairs.~
-You stand at the bottom of a long staircase leading up to the main
+@eng Bottom of the stairs.@rus Низ лестницы~
+@eng You stand at the bottom of a long staircase leading up to the main
 house.  To the south you can barely make out the accumulated
 clutter gathered throughout the years.
+@rus Ты стоишь внизу длинной лестницы, ведущей вверх, в главную часть дома. На юге
+ты едва можешь заметить беспорядочную кучу вещей, накапливаемых годами.
 ~
 0 AD inside
 D2
@@ -1552,17 +1849,22 @@ D4
 Z -1 9177
 S
 #9177
-Foyer.~
-"Magnificent" does not even begin to describe the foyer.  Lavishly
+@eng Foyer.@rus Фойе~
+@eng "Magnificent" does not even begin to describe the foyer.  Lavishly
 decorated, yet elegant, it gives an impression of indescribable
 wealth.  Paintings and tapestries line the walls depicting scenes
 from throughout history.  Antiques furnitures and oriental rugs are
 tastefully placed in ideal spots.  The door is at least 10 feet
 high and is made of oak.
+@rus "Великолепное" - даже близко не опишет это фойе. Щедро украшенное, кроме того
+элегантное, оно поражает неописуемым богатством. Рисунки и гобелены покрывают
+стены событиями через из всей истории. Древняя мебель и восточные ковры со
+вкусом установлены на свои места.
 ~
 0 D inside
 D0
-You see an ornate oak door.
+@eng You see an ornate oak door.
+@rus Ты видишь богато украшенную дубовую дверь.
 ~
 oak door~
 AFZ -1 9166
@@ -1580,10 +1882,13 @@ D5
 Z -1 9176
 S
 #9178
-Elegant hallway.~
-You are in a long, sprawling hallway connecting the eastern and
+@eng Elegant hallway.@rus Элегантный коридор~
+@eng You are in a long, sprawling hallway connecting the eastern and
 western wings of the house.  There are several chairs and sofas in
 the hallway and some gorgeous, handwoven drapes.
+@rus Ты стоишь в длинном растянутом коридоре, соединяющем восточное и западное
+крылья дома. Здесь стоит несколько кресел и диванов и несколько великолепных
+самотканых портьер.
 ~
 0 D inside
 D1
@@ -1600,11 +1905,14 @@ D3
 Z -1 9180
 S
 #9179
-Library~
-You are overwhelmed by the sheer volumes of books here.  The
+@eng Library @rus Библиотека~
+@eng You are overwhelmed by the sheer volumes of books here.  The
 shelves stretch all the way to the ceiling and are on every wall,
 even above the doorway.  There are chairs for sitting and reading
 and a desk for more intense studies.
+@rus Ты ошеломлен громадным количеством книг здесь. Полки тянутся весь путь в до
+потолка на всех стенах, даже над дверью. Здесь есть кресла для сиденья и чтения
+и стол для более интенсивного изучения материалов.
 ~
 0 D inside
 D0
@@ -1613,10 +1921,13 @@ D0
 Z -1 9178
 S
 #9180
-Arboretum.~
-A small indoor garden so that the residents don't have to go
+@eng Arboretum.@rus Древесный питомник~
+@eng A small indoor garden so that the residents don't have to go
 outside to enjoy plants and commune with nature.  There are several
 trees, a small pond and flowers of every kind.
+@rus Это небольшой комнатный сад, такой что обитателям дома нет нужды выходить во
+двор, чтоб насладиться видом растений и пообщаться с природой. Здесь находятся
+несколько деревьев, маленький пруд и цветы всех видов.
 ~
 0 CD inside
 D1
@@ -1629,12 +1940,16 @@ D2
 Z -1 9181
 S
 #9181
-Western tower.~
-You are in the bottom part of a tower.  A draft brings a chill to
+@eng Western tower.@rus Западная башня~
+@eng You are in the bottom part of a tower.  A draft brings a chill to
 your spine and causes creaks and groans.  Curtains flutter in the
 wind, causing quite a distraction.  When you go to shut the window,
 you see that the window is closed.  An old, wooden staircase leads
 up into darkness.
+@rus Ты находишься в нижней части башни. Сквозняк холодит твою спину и заставляет
+все трещать и скрипеть. Занавески хлопают на ветру, довольно сильно раздражая
+тебя. Когда ты собираешься закрыть окно, ты обнаруживаешь, что оно закрыто.
+Старая деревянная лестница ведет вверх в темноту.
 ~
 0 D city
 D0
@@ -1647,12 +1962,16 @@ D4
 Z -1 9182
 S
 #9182
-Western tower.~
-The tower creaks and groans, almost as if it were muttering to
+@eng Western tower.@rus Западная башня~
+@eng The tower creaks and groans, almost as if it were muttering to
 itself.  There are windows displaying a full moon, reigning over
 the night sky.  The room is dark and there is almost a musty odor
 to it.  You are surprised that you can't detect any dust or dirt,
 although there are a couple of cobwebs in the corner.
+@rus Башня трещит и скрипит, как будто что-то глухо бормочет сама себе. Через окна
+видна луна, царствующая на ночном небе. Комната темная и вся пропахла плесенью.
+Ты удивлен, что не можешь найти тут пыль или грязь, только лишь в углу висит
+паутина.
 ~
 0 AD city
 D5
@@ -1661,10 +1980,13 @@ D5
 Z -1 9181
 S
 #9183
-Elegant hallway.~
-You are in a long, sprawling hallway connecting the eastern and
+@eng Elegant hallway.@rus Элегантный коридор~
+@eng You are in a long, sprawling hallway connecting the eastern and
 western wings of the house.  There are several chairs and sofas in
 the hallway and some gorgeous, handwoven drapes.
+@rus Ты стоишь в длинном растянутом коридоре, соединяющем восточное и западное
+крылья дома. Здесь стоит несколько кресел и диванов и несколько великолепных
+самотканых портьер.
 ~
 0 D inside
 D1
@@ -1681,10 +2003,13 @@ D3
 Z -1 9177
 S
 #9184
-Conservatory~
-Here was the rehearsal and recital room for the residents of the
+@eng Conservatory@rus Консерватория~
+@eng Here was the rehearsal and recital room for the residents of the
 estate.  There is a Steinway piano in the corner and various gilded
 instruments are on display in a glass cabinet.
+@rus Это репетиционная и концертная комната обитателей этого поместья. В углу стоит
+Steinway-новское пианино, и различные позолоченные инструменты выставлены в
+застекленном шкафу.
 ~
 0 D inside
 D0
@@ -1693,11 +2018,14 @@ D0
 Z -1 9183
 S
 #9185
-Office~
-You find yourself in a lavish office.  The desk is absolutely huge,
+@eng Office@rus Офис~
+@eng You find yourself in a lavish office.  The desk is absolutely huge,
 at least ten feet by five feet and made of ebony and inlaid with
 mother of pearl.  A grandfather clock towers over the room,
 mechanically ticking and tocking the hours away.
+@rus Ты находишься в шикарном офисе. Здесь стоит огромный стол, по крайней мере
+десять на пять футов, сделанный из черного дерева и инкрустированный
+перламутром. Дедовы часы возвышаются на комнатой, механически тикая.
 ~
 0 D inside
 D2
@@ -1710,12 +2038,16 @@ D3
 Z -1 9183
 S
 #9186
-Eastern tower.~
-You are in the bottom part of a tower.  A draft brings a chill to
+@eng Eastern tower.@rus Восточная башня~
+@eng You are in the bottom part of a tower.  A draft brings a chill to
 your spine and causes creaks and groans.  Curtains flutter in the
 wind, causing quite a distraction.  When you go to shut the window,
 you see that the window is closed.  An old, wooden staircase leads
 up into darkness.
+@rus Ты находишься в нижней части башни. Сквозняк холодит твою спину и заставляет
+все трещать и скрипеть. Занавески хлопают на ветру, довольно сильно раздражая
+тебя. Когда ты собираешься закрыть окно, ты обнаруживаешь, что оно закрыто.
+Старая деревянная лестница ведет вверх в темноту.
 ~
 0 D city
 D0
@@ -1728,12 +2060,16 @@ D4
 Z -1 9187
 S
 #9187
-Eastern tower.~
-The tower creaks and groans, almost as if it were muttering to
+@eng Eastern tower.@rus Восточная башня~
+@eng The tower creaks and groans, almost as if it were muttering to
 itself.  There are windows displaying a full moon, reigning over
 the night sky.  The room is dark and there is almost a musty odor
 to it.  You are surprised that you can't detect any dust or dirt,
 although there are a couple of cobwebs in the corner.
+@rus Башня трещит и скрипит, как будто что-то глухо бормочет сама себе. Через окна
+видна луна, царствующая на ночном небе. Комната темная и вся пропахла плесенью.
+Ты удивлен, что не можешь найти тут пыль или грязь, только лишь в углу висит
+паутина.
 ~
 0 AD city
 D5
@@ -1742,12 +2078,17 @@ D5
 Z -1 9186
 S
 #9199
-Mid-Air.~
-You slide down the moisture covered rock, gaining speed as you
+@eng Mid-Air.@rus Высоко в воздухе~
+@eng You slide down the moisture covered rock, gaining speed as you
 approach the cliff.  Realizing your foolish error, you madly claw
 at the rock, vainly trying to get a precious hold and save your
 worthless hide.  Next time, heed your conscience.
 You've fallen, and you can't get up!!!
+@rus Ты скользишь вниз по влажной скале, увеличивая скорость по мере приближения к
+утесу. Осознав свою глупую ошибку, ты безумно цепляешься за скалу, тщетно
+пытаясь за что-нибудь ухватиться и спасти свою никчемную шкуру. В следующий
+раз слушай свой внутренний голос.
+Ты упал и не можешь подняться!!!
 ~
 0 C field
 S
