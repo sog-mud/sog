@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.97 1998-11-07 06:01:20 fjoe Exp $
+ * $Id: fight.c,v 1.98 1998-11-07 12:02:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1028,6 +1028,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 
 void delete_player(CHAR_DATA *victim, char* msg)
 {
+	char *name;
+
 	char_puts("You became a ghost permanently "
 		     "and leave the earth realm.\n\r", victim);
 	act("$n is dead, and will not rise again.\n\r",
@@ -1036,8 +1038,9 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	victim->position = POS_STANDING;
 	wiznet_printf(victim, NULL, 0, 0, 0, "$N is deleted due to %s.", msg);
 	RESET_FIGHT_TIME(victim);
+	name = capitalize(victim->name);
 	do_quit_count(victim, str_empty);
-	dunlink(PLAYER_PATH, capitalize(victim->name));
+	dunlink(PLAYER_PATH, name);
 }
 
 /*
