@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.21 1998-07-19 21:19:07 efdi Exp $
+ * $Id: martial_art.c,v 1.22 1998-07-25 15:02:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2046,34 +2046,29 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!clan_ok(ch, gsn_trophy))
-	return;
+		return;
 	
-	if (is_affected(ch, gsn_trophy))
-	{
+	if (is_affected(ch, gsn_trophy)) {
 		send_to_char("But you've already got one trophy!\n\r", ch);
 		return;
 	}
 	
-	if (ch->mana < 30)
-	{
+	if (ch->mana < 30) {
 		send_to_char("You feel too weak to concentrate on a trophy.\n\r", ch);
 		return;
 	}
 	
-	if (arg[0] == '\0')
-	{
+	if (arg[0] == '\0') {
 		send_to_char("Make a trophy of what?\n\r", ch);
 		return;
 	}
 	
-	if ((part = get_obj_carry(ch, arg)) == NULL)
-	{
+	if ((part = get_obj_carry(ch, arg)) == NULL) {
 		send_to_char("You do not have that body part.\n\r", ch);
 		return;
 	}
 
-	if (number_percent() < (get_skill(ch, gsn_trophy)/3)*2)
-	{
+	if (number_percent() < (get_skill(ch, gsn_trophy)/3)*2) {
 		send_to_char("You failed and destroyed it.\n\r", ch);
 		extract_obj(part);
 		return;
@@ -2081,35 +2076,27 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, skill_table[gsn_trophy].beats);
 
-	if (part->pIndexData->vnum == OBJ_VNUM_SLICED_ARM)
-	trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
-	else if (part->pIndexData->vnum == OBJ_VNUM_SLICED_LEG)
-	trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
-	else if (part->pIndexData->vnum == OBJ_VNUM_SEVERED_HEAD)
-	trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
-	else if (part->pIndexData->vnum == OBJ_VNUM_TORN_HEART)
-	trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
-	else if (part->pIndexData->vnum == OBJ_VNUM_GUTS)
-	trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
-	else if (part->pIndexData->vnum == OBJ_VNUM_BRAINS)
-	{
+	if (part->pIndexData->vnum == OBJ_VNUM_SLICED_ARM
+	||  part->pIndexData->vnum == OBJ_VNUM_SLICED_LEG
+	||  part->pIndexData->vnum == OBJ_VNUM_SEVERED_HEAD
+	||  part->pIndexData->vnum == OBJ_VNUM_TORN_HEART
+	||  part->pIndexData->vnum == OBJ_VNUM_GUTS)
+		trophy_vnum = OBJ_VNUM_BATTLE_PONCHO;
+	else if (part->pIndexData->vnum == OBJ_VNUM_BRAINS) {
 		send_to_char("Why don't you just eat those instead?\n\r", ch);
 		return;
 	}
-	else
-	{
+	else {
 		send_to_char("You can't make a trophy out of that!\n\r", ch);
 		return;
 	}
 
-	if (part->from[0] == '\0')
-	{
+	if (IS_NULLSTR(part->from)) {
 		send_to_char("Invalid body part.\n\r", ch);
 		return;
 	}
 
-	if (!IS_NPC(ch) && number_percent() < ch->pcdata->learned[gsn_trophy])
-	{
+	if (!IS_NPC(ch) && number_percent() < ch->pcdata->learned[gsn_trophy]) {
 		af.where  = TO_AFFECTS;
 		af.type	= gsn_trophy;
 		af.level	= ch->level;
@@ -2171,8 +2158,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
-	else
-	{
+	else {
 		send_to_char("You destroyed it.\n\r", ch);
 		extract_obj(part);
 		ch->mana -= 15;

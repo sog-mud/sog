@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.57 1998-07-21 14:10:15 efdi Exp $
+ * $Id: fight.c,v 1.58 1998-07-25 15:02:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1934,7 +1934,6 @@ void make_corpse(CHAR_DATA *ch)
 		corpse		= create_object(get_obj_index(OBJ_VNUM_CORPSE_PC), 0);
 		corpse->timer	= number_range(25, 40);
 		REMOVE_BIT(ch->act,PLR_CANLOOT);
-		corpse->owner = str_dup(ch->name);
 		corpse->from = str_dup(ch->name);
 		corpse->altar = hometown_table[ch->hometown].altar[i];
 		corpse->pit = hometown_table[ch->hometown].pit[i];

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.42 1998-07-19 21:19:07 efdi Exp $
+ * $Id: act_wiz.c,v 1.43 1998-07-25 15:02:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3399,7 +3399,6 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			ed = ed_new();
 			ed->keyword		= str_dup(arg3);
-			ed->description		= mlstr_new();
 			ed->next		= obj->ed;
 			mlstr_change_desc(ed->description, argument);
 			obj->ed	= ed;

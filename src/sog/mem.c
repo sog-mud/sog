@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.5 1998-07-14 07:47:47 fjoe Exp $
+ * $Id: mem.c,v 1.6 1998-07-25 15:02:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -35,12 +35,10 @@
 extern          int                     top_reset;
 extern          int                     top_area;
 extern          int                     top_exit;
-extern          int                     top_ed;
 extern          int                     top_room;
 extern		int			top_mprog_index;
 
 AREA_DATA		*	area_free;
-ED_DATA	*	ed_free;
 EXIT_DATA		*	exit_free;
 ROOM_INDEX_DATA		*	room_index_free;
 OBJ_INDEX_DATA		*	obj_index_free;
@@ -100,6 +98,7 @@ AREA_DATA *new_area( void )
     if ( !area_free )
     {
         pArea   =   alloc_perm( sizeof(*pArea) );
+	pArea->resetmsg	= mlstr_new();
         top_area++;
     }
     else
@@ -149,6 +148,7 @@ EXIT_DATA *new_exit( void )
     if ( !exit_free )
     {
         pExit           =   alloc_perm( sizeof(*pExit) );
+    	pExit->description  =   mlstr_new();
         top_exit++;
     }
     else
@@ -163,7 +163,6 @@ EXIT_DATA *new_exit( void )
     pExit->exit_info    =   0;
     pExit->key          =   0;
     pExit->keyword      =   &str_empty[0];
-    pExit->description  =   mlstr_new();
     pExit->rs_flags     =   0;
 
     return pExit;
@@ -174,7 +173,7 @@ EXIT_DATA *new_exit( void )
 void free_exit( EXIT_DATA *pExit )
 {
     free_string(pExit->keyword);
-    mlstr_free(pExit->description);
+    mlstr_clear(pExit->description);
 
     pExit->next         =   exit_free;
     exit_free           =   pExit;
@@ -190,6 +189,8 @@ ROOM_INDEX_DATA *new_room_index( void )
     if ( !room_index_free )
     {
         pRoom           =   alloc_perm( sizeof(*pRoom) );
+    	pRoom->name             =   mlstr_new();
+    	pRoom->description      =   mlstr_new();
         top_room++;
     }
     else
@@ -207,8 +208,6 @@ ROOM_INDEX_DATA *new_room_index( void )
     for ( door=0; door < MAX_DIR; door++ )
         pRoom->exit[door]   =   NULL;
 
-    pRoom->name             =   mlstr_new();
-    pRoom->description      =   mlstr_new();
     pRoom->owner	    =	&str_empty[0];
     pRoom->vnum             =   0;
     pRoom->room_flags       =   0;
@@ -229,8 +228,8 @@ void free_room_index( ROOM_INDEX_DATA *pRoom )
     ED_DATA *pExtra;
     RESET_DATA *pReset;
 
-    mlstr_free(pRoom->name);
-    mlstr_free(pRoom->description);
+    mlstr_clear(pRoom->name);
+    mlstr_clear(pRoom->description);
     free_string( pRoom->owner );
 
     for ( door = 0; door < MAX_DIR; door++ )
@@ -306,6 +305,8 @@ OBJ_INDEX_DATA *new_obj_index( void )
     if ( !obj_index_free )
     {
         pObj           =   alloc_perm( sizeof(*pObj) );
+    	pObj->short_descr   =   mlstr_new();
+    	pObj->description   =   mlstr_new();
         top_obj_index++;
     }
     else
@@ -319,8 +320,6 @@ OBJ_INDEX_DATA *new_obj_index( void )
     pObj->affected      =   NULL;
     pObj->area          =   NULL;
     pObj->name          =   str_dup( "no name" );
-    pObj->short_descr   =   mlstr_new();
-    pObj->description   =   mlstr_new();
     pObj->vnum          =   0;
     pObj->item_type     =   ITEM_TRASH;
     pObj->extra_flags   =   0;
@@ -347,8 +346,8 @@ void free_obj_index( OBJ_INDEX_DATA *pObj )
     AFFECT_DATA *pAf;
 
     free_string( pObj->name );
-    mlstr_free(pObj->short_descr);
-    mlstr_free(pObj->description);
+    mlstr_clear(pObj->short_descr);
+    mlstr_clear(pObj->description);
 
     for ( pAf = pObj->affected; pAf; pAf = pAf->next )
         free_affect( pAf );
@@ -370,6 +369,9 @@ MOB_INDEX_DATA *new_mob_index( void )
     if ( !mob_index_free )
     {
         pMob           =   alloc_perm( sizeof(*pMob) );
+    	pMob->short_descr   =   mlstr_new();
+    	pMob->long_descr    =   mlstr_new();
+    	pMob->description   =   mlstr_new();
         top_mob_index++;
     }
     else
@@ -383,9 +385,6 @@ MOB_INDEX_DATA *new_mob_index( void )
     pMob->pShop         =   NULL;
     pMob->area          =   NULL;
     pMob->player_name   =   str_dup( "no name" );
-    pMob->short_descr   =   mlstr_new();
-    pMob->long_descr    =   mlstr_new();
-    pMob->description   =   mlstr_new();
     pMob->vnum          =   0;
     pMob->count         =   0;
     pMob->killed        =   0;
@@ -431,9 +430,9 @@ MOB_INDEX_DATA *new_mob_index( void )
 void free_mob_index( MOB_INDEX_DATA *pMob )
 {
     free_string( pMob->player_name );
-    mlstr_free(pMob->short_descr);
-    mlstr_free(pMob->long_descr);
-    mlstr_free(pMob->description);
+    mlstr_clear(pMob->short_descr);
+    mlstr_clear(pMob->long_descr);
+    mlstr_clear(pMob->description);
     free_mprog(pMob->mprogs);
 
     free_shop(pMob->pShop);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.12 1998-07-14 07:47:49 fjoe Exp $
+ * $Id: recycle.c,v 1.13 1998-07-25 15:02:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -159,38 +159,34 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 
 /* stuff for recycling extended descs */
 ED_DATA *ed_free;
+extern int top_ed;
 
 ED_DATA *ed_new(void)
 {
-    ED_DATA *ed;
+	ED_DATA *ed;
 
-    if (ed_free == NULL)
-	ed = alloc_perm(sizeof(*ed));
-    else
-    {
-	ed = ed_free;
-	ed_free = ed_free->next;
-    }
+	if (ed_free == NULL) {
+		ed = alloc_perm(sizeof(*ed));
+		ed->description = mlstr_new();
+		top_ed++;
+	}
+	else {
+		ed = ed_free;
+		ed_free = ed_free->next;
+	}
 
-    VALIDATE(ed);
-    return ed;
+	VALIDATE(ed);
+	return ed;
 }
 
 ED_DATA * ed_dup(const ED_DATA *ed)
 {
-	ED_DATA *ed_new;
+	ED_DATA *ed2 = ed_new();
 
-	if (ed_free == NULL)
-		ed_new = alloc_perm(sizeof(*ed));
-	else {
-		ed_new = ed_free;
-		ed_free = ed_free->next;
-	}
-
-	ed_new->keyword = str_dup(ed->keyword);
-	ed_new->description = mlstr_dup(ed->description);
-	VALIDATE(ed_new);
-	return ed_new;
+	ed2->keyword = str_dup(ed->keyword);
+	mlstr_cpy(ed2->description, ed->description);
+	VALIDATE(ed2);
+	return ed2;
 }
 
 void free_ed(ED_DATA *ed)
@@ -199,11 +195,22 @@ void free_ed(ED_DATA *ed)
 	return;
 
     free_string(ed->keyword);
-    mlstr_free(ed->description);
+    mlstr_clear(ed->description);
     INVALIDATE(ed);
     
     ed->next = ed_free;
     ed_free = ed;
+}
+
+
+void ed_fread(FILE *fp, ED_DATA **edp)
+{
+	ED_DATA *ed;
+
+	ed		= ed_new();
+	ed->keyword	= fread_string(fp);
+	mlstr_fread(fp, ed->description);
+	SLIST_ADD(ED_DATA, *edp, ed);
 }
 
 
@@ -245,20 +252,51 @@ OBJ_DATA *obj_free;
 
 OBJ_DATA *new_obj(void)
 {
-    static OBJ_DATA obj_zero;
-    OBJ_DATA *obj;
+	int i;
+	OBJ_DATA *obj;
 
-    if (obj_free == NULL)
-	obj = alloc_perm(sizeof(*obj));
-    else
-    {
-	obj = obj_free;
-	obj_free = obj_free->next;
-    }
-    *obj = obj_zero;
-    VALIDATE(obj);
+	if (obj_free == NULL) {
+		obj = alloc_perm(sizeof(*obj));
+		obj->short_descr = mlstr_new();
+		obj->description = mlstr_new();
+	}
+	else {
+		obj = obj_free;
+		obj_free = obj_free->next;
+	}
+	VALIDATE(obj);
 
-    return obj;
+	obj->next		= NULL;
+	obj->next_content	= NULL;
+	obj->contains		= NULL;
+	obj->in_obj		= NULL;
+	obj->on			= NULL;
+	obj->carried_by		= NULL;
+	obj->ed			= NULL;
+	obj->affected		= NULL;
+	obj->pIndexData		= NULL;
+	obj->in_room		= NULL;
+	obj->enchanted		= FALSE;
+	obj->name		= NULL;
+	obj->item_type		= 0;
+	obj->extra_flags	= 0;
+	obj->wear_flags		= 0;
+	obj->wear_loc		= 0;
+	obj->weight		= 0;
+	obj->cost		= 0;
+	obj->level		= 0;
+	obj->condition		= 0;
+	obj->material		= NULL;
+	obj->timer		= 0;
+	for (i = 0; i < 5; i++)
+		obj->value[i]	= 0;
+	obj->progtypes		= 0;
+	obj->from		= NULL;
+	obj->altar		= ROOM_VNUM_ALTAR;
+	obj->pit		= OBJ_VNUM_PIT;
+	obj->extracted		= FALSE;
+	obj->water_float	= 0;
+	return obj;
 }
 
 void free_obj(OBJ_DATA *obj)
@@ -283,10 +321,12 @@ void free_obj(OBJ_DATA *obj)
     }
     obj->ed = NULL;
    
-    free_string(obj->name);
-    mlstr_free(obj->description);
-    mlstr_free(obj->short_descr);
-    free_string(obj->owner);
+	free_string(obj->name);
+	mlstr_clear(obj->description);
+	mlstr_clear(obj->short_descr);
+	free_string(obj->from);
+	free_string(obj->material);
+
     INVALIDATE(obj);
 
     obj->next   = obj_free;
@@ -299,55 +339,125 @@ CHAR_DATA *char_free;
 
 CHAR_DATA *new_char (void)
 {
-    static CHAR_DATA ch_zero;
-    CHAR_DATA *ch;
-    int i;
+	CHAR_DATA *ch;
+	int i;
 
-    if (char_free == NULL)
-	ch = alloc_perm(sizeof(*ch));
-    else
-    {
-	ch = char_free;
-	char_free = char_free->next;
-    }
+	if (char_free == NULL) {
+		ch = alloc_perm(sizeof(*ch));
+		ch->short_descr	= mlstr_new();
+		ch->long_descr	= mlstr_new();
+		ch->description	= mlstr_new();
+	}
+	else {
+		ch = char_free;
+		char_free = char_free->next;
+	}
 
-    *ch				= ch_zero;
-    VALIDATE(ch);
-    ch->name                    = &str_empty[0];
-    ch->short_descr             = mlstr_new();
-    ch->long_descr              = mlstr_new();
-    ch->description             = mlstr_new();
-    ch->prompt                  = &str_empty[0];
-    ch->prefix			= &str_empty[0];
-    ch->logon                   = current_time;
-    ch->lines                   = PAGELEN;
-    for (i = 0; i < 4; i++)
-        ch->armor[i]            = 100;
-    ch->position                = POS_STANDING;
-    ch->hit                     = 20;
-    ch->max_hit                 = 20;
-    ch->mana                    = 100;
-    ch->max_mana                = 100;
-    ch->move                    = 100;
-    ch->max_move                = 100;
+	VALIDATE(ch);
 
-    ch->ethos			= 0;
-    ch->clan			= 0;
-    ch->hometown		= 0;
-    ch->guarded_by		= NULL;
-    ch->guarding		= NULL;
-    ch->slang		= LANG_COMMON;
-    ch->hunter			= NULL;
-    ch->hunting			= NULL;
-    ch->pet			= NULL;
+	ch->next		= NULL;
+	ch->next_in_room	= NULL;
+	ch->master		= NULL;
+	ch->leader		= NULL;
+	ch->fighting		= NULL;
+	ch->reply		= NULL;
+	ch->last_fought		= NULL;
+	RESET_FIGHT_TIME(ch);
+	ch->last_death_time	= -1;
+	ch->pet			= NULL;
+	ch->mprog_target	= NULL;
+	ch->guarding		= NULL;
+	ch->guarded_by		= NULL;
+	ch->spec_fun		= NULL;
+	ch->pIndexData		= NULL;
+	ch->desc		= NULL;
+	ch->affected		= NULL;
+	ch->pnote		= NULL;
+	ch->carrying		= NULL;
+	ch->on			= NULL;
+	ch->in_room		= NULL;
+	ch->was_in_room		= NULL;
+	ch->zone		= NULL;
+	ch->pcdata		= NULL;
+	ch->name		= NULL;
+	ch->id			= 0;
+	ch->version		= 0;
+	ch->prompt		= NULL;
+	ch->prefix		= str_empty;
+	ch->group		= 0;
+	ch->sex			= 0;
+	ch->class		= 0;
+	ch->race		= 0;
+	ch->clan		= 0;
+	ch->hometown		= 0;
+	ch->ethos		= 0;
+	ch->level		= 0;
+	ch->trust		= 0;
+	ch->played		= 0;
+	ch->lines		= PAGELEN;
+	ch->logon		= current_time;
+	ch->timer		= 0;
+	ch->wait		= 0;
+	ch->daze		= 0;
+	ch->hit			= 20;
+	ch->max_hit		= 20;
+	ch->mana		= 100;
+	ch->max_mana		= 100;
+	ch->move		= 100;
+	ch->max_move		= 100;
+	ch->gold		= 0;
+	ch->silver		= 0;
+	ch->exp			= 0;
+	ch->act			= 0;
+	ch->comm		= 0;
+	ch->wiznet		= 0;
+	ch->imm_flags		= 0;
+	ch->res_flags		= 0;
+	ch->vuln_flags		= 0;
+	ch->invis_level		= 0;
+	ch->incog_level		= 0;
+	ch->affected_by		= 0;
+	ch->detection		= 0;
+	ch->position		= POS_STANDING;
+	ch->practice		= 0;
+	ch->train		= 0;
+	ch->carry_weight	= 0;
+	ch->carry_number	= 0;
+	ch->saving_throw	= 0;
+	ch->alignment		= 0;
+	ch->hitroll		= 0;
+	ch->damroll		= 0;
+	for (i = 0; i < 4; i++)
+		ch->armor[i]	= 100;
+	ch->wimpy		= 0;
+	for (i = 0; i < MAX_STATS; i ++) {
+		ch->perm_stat[i] = 13;
+		ch->mod_stat[i] = 0;
+	}
+	ch->form		= 0;
+	ch->parts		= 0;
+	ch->size		= 0;
+	ch->material		= NULL;
+	ch->off_flags		= 0;
+	for (i = 0; i < 3; i++)
+		ch->damage[i]	= 0;
+	ch->dam_type		= 0;
+	ch->start_pos		= 0;
+	ch->default_pos		= 0;
+	ch->mprog_delay		= 0;
+	ch->status		= 0;
+	ch->extracted		= FALSE;
+	ch->in_mind		= NULL;
+	ch->religion		= RELIGION_NONE;
+	ch->hunting		= NULL;
+	ch->endur		= 0;
+	ch->riding		= FALSE;
+	ch->mount		= NULL;
+	ch->slang		= LANG_COMMON;
+	ch->lang		= 0;
+	ch->hunter		= NULL;
 
-    for (i = 0; i < MAX_STATS; i ++)
-    {
-        ch->perm_stat[i] = 13;
-        ch->mod_stat[i] = 0;
-    }
-
-    return ch;
+	return ch;
 }
 
 
@@ -377,9 +487,9 @@ void free_char (CHAR_DATA *ch)
     }
 
     free_string(ch->name);
-    mlstr_free(ch->short_descr);
-    mlstr_free(ch->long_descr);
-    mlstr_free(ch->description);
+    mlstr_clear(ch->short_descr);
+    mlstr_clear(ch->long_descr);
+    mlstr_clear(ch->description);
     free_string(ch->prompt);
     free_string(ch->prefix);
     free_string(ch->material);
@@ -528,6 +638,7 @@ HELP_AREA * new_had(void)
 
 
 HELP_DATA * help_free;
+extern int top_help;
 
 HELP_DATA * new_help(void)
 {
@@ -537,8 +648,11 @@ HELP_DATA * new_help(void)
 		help		= help_free;
 		help_free	= help_free->next;
 	}
-	else
+	else {
 		help		= alloc_perm(sizeof(*help));
+		help->text	= mlstr_new();
+		top_help++;
+	}
  
 	return help;
 }

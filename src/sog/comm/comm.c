@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.76 1998-07-16 12:05:46 efdi Exp $
+ * $Id: comm.c,v 1.77 1998-07-25 15:02:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1189,7 +1189,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 	point = buf;
 	str = ch->prompt;
-	if (str == NULL || str[0] == '\0') {
+	if (IS_NULLSTR(str)) {
 		char_printf(ch, "<%dhp %dm %dmv> %s",
 			    ch->hit,ch->mana,ch->move,ch->prefix);
 		return;
@@ -2837,6 +2837,7 @@ void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
     *point	= '\0';
 
     parse_colors(buf, to, tmp, sizeof(tmp)); 
+    tmp[0] = UPPER(tmp[0]);
 
     if(to->desc)
     	write_to_buffer(to->desc, tmp, 0);

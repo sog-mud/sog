@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.17 1998-07-14 07:47:43 fjoe Exp $
+ * $Id: db2.c,v 1.18 1998-07-25 15:02:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,7 +55,9 @@
 #include "obj_prog.h"
 #include "tables.h"
 #include "mlstring.h"
+#include "recycle.h"
 
+extern void xungetc(int, FILE *stream);
 
 /* values for db2.c */
 struct		social_type	social_table		[MAX_SOCIALS];
@@ -203,10 +205,8 @@ void load_mobiles(FILE *fp)
 {
     MOB_INDEX_DATA *pMobIndex;
  
-    if (!area_last) {  /* OLC */
-        bug("Load_mobiles: no #AREA seen yet.", 0);
-        exit(1);
-    }
+    if (!area_last)
+        db_error("load_mobiles", "no #AREA seen yet.");
 
     for (; ;)
     {
@@ -216,10 +216,7 @@ void load_mobiles(FILE *fp)
  
         letter                          = fread_letter(fp);
         if (letter != '#')
-        {
-            bug("Load_mobiles: # not found.", 0);
-            exit(1);
-        }
+            db_error("load_mobiles", "# not found.");
  
         vnum                            = fread_number(fp);
         if (vnum == 0)
@@ -227,21 +224,22 @@ void load_mobiles(FILE *fp)
  
         fBootDb = FALSE;
         if (get_mob_index(vnum) != NULL)
-        {
-            bug("Load_mobiles: vnum %d duplicated.", vnum);
-            exit(1);
-        }
+            db_error("load_mobiles", "vnum %d duplicated.", vnum);
         fBootDb = TRUE;
  
         pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
+        pMobIndex->short_descr          = mlstr_new();
+        pMobIndex->long_descr           = mlstr_new();
+        pMobIndex->description          = mlstr_new();
+
         pMobIndex->vnum                 = vnum;
         pMobIndex->area                 = area_last;               /* OLC */
 	pMobIndex->new_format		= TRUE;
 	newmobs++;
         pMobIndex->player_name          = fread_string(fp);
-        pMobIndex->short_descr          = mlstr_fread(fp);
-        pMobIndex->long_descr           = mlstr_fread(fp);
-        pMobIndex->description          = mlstr_fread(fp);
+        mlstr_fread(fp, pMobIndex->short_descr);
+        mlstr_fread(fp, pMobIndex->long_descr);
+        mlstr_fread(fp, pMobIndex->description);
 	pMobIndex->race		 	= race_lookup(fread_string(fp));
  
         pMobIndex->act                  = fread_flags(fp) | ACT_NPC
@@ -361,10 +359,7 @@ void load_mobiles(FILE *fp)
 		else if (!str_prefix(word,"det"))
 		    REMOVE_BIT(pMobIndex->detection,vector);
 		else
-		{
-		    bug("Flag remove: flag not found.",0);
-		    exit(1);
-		}
+		    db_error("flag remove", "flag not found.");
 	     }
 	     else if ( letter == 'M' )
 	     {
@@ -374,12 +369,10 @@ void load_mobiles(FILE *fp)
 		
 		pMprog              = alloc_perm(sizeof(*pMprog));
 		word   		    = fread_word(fp);
-		if ((trigger = flag_lookup(word, mprog_flags)) == 0) {
-			log_printf("load_mobiles: %s: vnum %d: "
+		if ((trigger = flag_lookup(word, mprog_flags)) == 0)
+			db_error("load_mobiles", "vnum %d: "
 				   "'%s': invalid mob prog trigger",
-				   area_last->file_name, pMobIndex->vnum, word);
-			exit(1);
-		}
+				   pMobIndex->vnum, word);
 		SET_BIT(pMobIndex->mprog_flags, trigger);
 		pMprog->trig_type   = trigger;
 		pMprog->vnum        = fread_number(fp);
@@ -388,7 +381,7 @@ void load_mobiles(FILE *fp)
 	     }
 	     else
 	     {
-		ungetc(letter,fp);
+		xungetc(letter,fp);
 		break;
 	     }
 	}
@@ -412,10 +405,8 @@ void load_objects(FILE *fp)
 {
     OBJ_INDEX_DATA *pObjIndex;
  
-    if (!area_last) {  /* OLC */
-        bug( "Load_objects: no #AREA seen yet.", 0 );
-        exit( 1 );
-    }
+    if (!area_last)
+        db_error("load_objects", "no #AREA seen yet.");
 
     for (; ;)
     {
@@ -427,10 +418,7 @@ void load_objects(FILE *fp)
  
         letter                          = fread_letter(fp);
         if (letter != '#')
-        {
-            bug("Load_objects: # not found.", 0);
-            exit(1);
-        }
+            db_error("load_objects", "# not found.");
  
         vnum                            = fread_number(fp);
         if (vnum == 0)
@@ -438,21 +426,21 @@ void load_objects(FILE *fp)
  
         fBootDb = FALSE;
         if (get_obj_index(vnum) != NULL)
-        {
-            bug("Load_objects: vnum %d duplicated.", vnum);
-            exit(1);
-        }
+            db_error("load_objects", "vnum %d duplicated.", vnum);
         fBootDb = TRUE;
  
         pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
+        pObjIndex->short_descr          = mlstr_new();
+        pObjIndex->description          = mlstr_new();
+
         pObjIndex->vnum                 = vnum;
         pObjIndex->area                 = area_last;            /* OLC */
         pObjIndex->new_format           = TRUE;
 	pObjIndex->reset_num		= 0;
 	newobjs++;
         pObjIndex->name                 = fread_string(fp);
-        pObjIndex->short_descr          = mlstr_fread(fp);
-        pObjIndex->description          = mlstr_fread(fp);
+        mlstr_fread(fp, pObjIndex->short_descr);
+        mlstr_fread(fp, pObjIndex->description);
         pObjIndex->material		= fread_string(fp);
 
 	p = fread_word(fp);
@@ -597,19 +585,10 @@ void load_objects(FILE *fp)
             }
  
             else if (letter == 'E')
-            {
-                ED_DATA *ed;
- 
-                ed                      = alloc_perm(sizeof(*ed));
-                ed->keyword             = fread_string(fp);
-                ed->description         = mlstr_fread(fp);
-		SLIST_ADD(ED_DATA, pObjIndex->ed, ed);
-                top_ed++;
-            }
- 
+		ed_fread(fp, &pObjIndex->ed);
             else
             {
-                ungetc(letter, fp);
+                xungetc(letter, fp);
                 break;
             }
         }
@@ -638,7 +617,7 @@ void load_omprogs(FILE *fp)
 	
 	switch (letter = fread_letter(fp)) {
 	default:
-	    bug("Load_omprogs: letter '%c' not *IMS.", letter);
+	    db_error("load_omprogs", "letter '%c' not *IMS.", letter);
 	    exit(1);
 
 	case 'S':

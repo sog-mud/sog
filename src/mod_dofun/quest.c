@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.50 1998-07-14 12:49:44 fjoe Exp $
+ * $Id: quest.c,v 1.51 1998-07-25 15:02:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -235,9 +235,9 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 			if (!IS_SET(qcmd->extra, CMD_KEEP_HIDE)
-			&&  IS_SET(ch->affected_by, AFF_HIDE)) { 
+			&&  IS_SET(ch->affected_by, AFF_HIDE | AFF_FADE)) { 
 				char_nputs(YOU_STEP_OUT_SHADOWS, ch);
-				REMOVE_BIT(ch->affected_by, AFF_HIDE);
+				REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 				act_nprintf(ch, NULL, NULL, TO_ROOM,
 					   POS_RESTING, N_STEPS_OUT_OF_SHADOWS);         
 			}
@@ -633,7 +633,6 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
 		eyed = create_object(get_obj_index(obj_vnum), ch->level);
-		eyed->owner = str_dup(ch->name);
 		eyed->from = str_dup(ch->name);
 		eyed->altar = hometown_table[ch->hometown].altar[i];
 		eyed->pit = hometown_table[ch->hometown].pit[i];
@@ -795,11 +794,15 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 		return;
 	}
 
-	for (qitem = qitem_table; qitem->name; qitem++)
+	for (qitem = qitem_table; qitem->name; qitem++) {
+		if (qitem->class != CLASS_NONE && qitem->class != ch->class)
+			continue;
+
 		if (qitem->vnum && is_name(arg, qitem->name)) {
 			quest_give_item(ch, questor, qitem->vnum, TROUBLE_MAX);
 			return;
 		}
+	}
 
 	quest_tell(ch, questor, msg(QUEST_HAVENT_BOUGHT, ch), ch->name);
 }

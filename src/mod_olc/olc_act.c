@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.10 1998-07-20 02:50:01 efdi Exp $
+ * $Id: olc_act.c,v 1.11 1998-07-25 15:02:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1507,7 +1507,6 @@ REDIT(redit_ed)
 
 		ed			=   ed_new();
 		ed->keyword		=   str_dup(keyword);
-		ed->description		=   mlstr_new();
 		ed->next		=   pRoom->ed;
 		pRoom->ed	=   ed;
 
@@ -3065,7 +3064,6 @@ OEDIT(oedit_ed)
 
 		ed			= ed_new();
 		ed->keyword		= str_dup(keyword);
-		ed->description		= mlstr_new();
 		ed->next		= pObj->ed;
 		pObj->ed	= ed;
 

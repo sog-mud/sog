@@ -2,15 +2,15 @@
 #define _MLSTRING_H_
 
 /*
- * $Id: mlstring.h,v 1.3 1998-07-14 07:47:48 fjoe Exp $
+ * $Id: mlstring.h,v 1.4 1998-07-25 15:02:40 fjoe Exp $
  */
 
 mlstring *	mlstr_new	(void);
-mlstring *	mlstr_fread	(FILE *fp);
+void 		mlstr_fread	(FILE *fp, mlstring *ml);
 void		mlstr_fwrite	(FILE *fp, const char* name,
 				 const mlstring *ml);
-void		mlstr_free	(mlstring *ml);
-mlstring *	mlstr_dup	(const mlstring *ml);
+void		mlstr_clear	(mlstring *ml);
+void 		mlstr_cpy	(mlstring *dest, const mlstring *src);
 
 void		mlstr_printf	(mlstring *ml, ...);
 char *		mlstr_val	(const mlstring *ml, int lang);

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.57 1998-07-23 12:11:22 efdi Exp $
+ * $Id: merc.h,v 1.58 1998-07-25 15:02:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2045,13 +2045,12 @@ struct	obj_data
 	OBJ_DATA *		in_obj;
 	OBJ_DATA *		on;
 	CHAR_DATA * 		carried_by;
-	ED_DATA *	ed;
+	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
 	OBJ_INDEX_DATA *	pIndexData;
 	ROOM_INDEX_DATA *	in_room;
 	bool			valid;
 	bool			enchanted;
-	char *			owner;
 	char *			name;
 	mlstring *		short_descr;
 	mlstring *		description;

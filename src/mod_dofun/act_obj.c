@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.45 1998-07-25 01:32:22 efdi Exp $
+ * $Id: act_obj.c,v 1.46 1998-07-25 15:02:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,40 +98,16 @@ can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
+	/*
+	 * PC corpses in the ROOM_BATTLE_ARENA rooms can be looted
+	 * only by owners
+	 */
 	if (obj->in_room != NULL
-	    && IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)) {
-		CHAR_DATA      *owner, *wch;
-		/*
-		 * PC corpses in the ROOM_BATTLE_ARENA rooms can be looted
-		 * only by owners
-		 */
-		if (obj->owner == NULL)	/* no owner */
-			return TRUE;
-
-		owner = NULL;
-		for (wch = char_list; wch != NULL; wch = wch->next)
-			if (str_cmp(wch->name, obj->owner) == 0)
-				owner = wch;
-
-		if (owner == NULL)	/* owner is not online */
-			return FALSE;
-
-		if (str_cmp(ch->name, owner->name) == 0)
-			return TRUE;
-
+	&& IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
+	&& obj->from != NULL && str_cmp(ch->name, obj->from))
 		return FALSE;
-	}
+
 	return TRUE;
-
-/*
-	if (!IS_NPC(owner) && IS_SET(owner->act,PLR_CANLOOT))
-		return TRUE;
-
-	if (is_same_group(ch,owner))
-		return TRUE;
-
-	return FALSE;
- */
 }
 
 
@@ -141,14 +117,23 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	/* variables for AUTOSPLIT */
 	CHAR_DATA      *gch;
 	int             members;
-	if (!CAN_WEAR(obj, ITEM_TAKE)) {
+
+	/* can't take corpses in ROOM_BATTLE_ARENA rooms */
+	if (!CAN_WEAR(obj, ITEM_TAKE)
+	||  (obj->item_type == ITEM_CORPSE_PC &&
+	     obj->in_room != NULL &&
+	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
+	     obj->from != NULL &&
+	     str_cmp(ch->name, obj->from))) {
 		char_nputs(YOU_CANT_TAKE_THAT, ch);
 		return;
 	}
+
+	/* can't even get limited eq which does not match alignment */
 	if (obj->pIndexData->limit != -1) {
 		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
-		    || (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
-		|| (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
+		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
+		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
 			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
 				    YOU_ZAPPED_BY_P);
 			act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
@@ -156,16 +141,19 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 			return;
 		}
 	}
+
 	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
 		act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
 			    CANT_CARRY_ITEMS);
 		return;
 	}
+
 	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
 		act_nprintf(ch, NULL, obj->name, TO_CHAR, POS_DEAD,
 			    CANT_CARRY_WEIGHT);
 		return;
 	}
+
 	if (obj->in_room != NULL) {
 		for (gch = obj->in_room->people; gch != NULL;
 		     gch = gch->next_in_room)
@@ -250,8 +238,6 @@ get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		obj_to_char(obj, ch);
 		oprog_call(OPROG_GET, obj, ch, NULL);
 	}
-
-	return;
 }
 
 
@@ -284,6 +270,7 @@ do_get(CHAR_DATA * ch, const char *argument)
 					    I_SEE_NO_T_HERE);
 				return;
 			}
+
 			get_obj(ch, obj, NULL);
 		} else {
 			/* 'get all' or 'get all.obj' */
@@ -291,9 +278,8 @@ do_get(CHAR_DATA * ch, const char *argument)
 			for (obj = ch->in_room->contents; obj != NULL;
 			     obj = obj_next) {
 				obj_next = obj->next_content;
-				if ((arg1[3] == '\0'
-				     || is_name(&arg1[4], obj->name))
-				    && can_see_obj(ch, obj)) {
+				if ((arg1[3] == '\0' || is_name(arg1+4, obj->name))
+				&& can_see_obj(ch, obj)) {
 					found = TRUE;
 					get_obj(ch, obj, NULL);
 				}
@@ -2199,23 +2185,18 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		send_to_char("They aren't here.\n\r", ch);
 		return;
 	}
-	if (!IS_NPC(victim) && victim->desc == NULL) {
-		send_to_char("You can't do that.\n\r", ch);
-		return;
-	}
 	if (victim == ch) {
 		send_to_char("That's pointless.\n\r", ch);
 		return;
 	}
-	if (is_safe(ch, victim))
-		return;
 
 	if (victim->position == POS_FIGHTING) {
 		send_to_char("You'd better not -- you might get hit.\n\r", ch);
 		return;
 	}
 
-	REMOVE_BIT(ch->act, PLR_GHOST);
+	if (is_safe(ch, victim))
+		return;
 	
 	WAIT_STATE(ch, skill_table[gsn_steal].beats);
 	percent = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
@@ -2229,6 +2210,14 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		 */
 
 		send_to_char("Oops.\n\r", ch);
+
+		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)) {
+			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+				    N_STEPS_OUT_OF_SHADOWS);
+        	}
+
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
 			victim->position = victim->position == POS_SLEEPING ? POS_STANDING :
 				victim->position;

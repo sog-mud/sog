@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.41 1998-07-25 01:32:23 efdi Exp $
+ * $Id: save.c,v 1.42 1998-07-25 15:02:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -585,7 +585,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	CHAR_DATA      *ch;
 	FILE           *fp;
 	bool            found;
-	int             stat;
 	int		sn;
 	ch = new_char();
 	ch->pcdata = new_pcdata();
@@ -596,35 +595,18 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->name[0] = UPPER(ch->name[0]);
 	ch->id = get_pc_id();
 	ch->race = race_lookup("human");
-	ch->pcdata->race = ch->race;
-	ch->clan = 0;
-	ch->pcdata->clan_status = CLAN_COMMON;
-	ch->hometown = 0;
-	ch->ethos = 0;
-	ch->affected_by = 0;
-	ch->detection = 0;
 	ch->act = PLR_NOSUMMON;
-	ch->comm = COMM_COMBINE
-		| COMM_PROMPT;
-
-	ch->invis_level = 0;
-	ch->practice = 0;
-	ch->train = 0;
-	ch->hitroll = 0;
-	ch->damroll = 0;
-	ch->trust = 0;
-	ch->wimpy = 0;
-	ch->saving_throw = 0;
-	ch->extracted = FALSE;
-	ch->pcdata->points = 0;
+	ch->comm = COMM_COMBINE | COMM_PROMPT;
 	ch->prompt = str_dup(DEFAULT_PROMPT);
+
+	ch->pcdata->race = ch->race;
+	ch->pcdata->clan_status = CLAN_COMMON;
+	ch->pcdata->points = 0;
 	ch->pcdata->confirm_delete = FALSE;
 	ch->pcdata->pwd = str_dup("");
 	ch->pcdata->bamfin = str_dup("");
 	ch->pcdata->bamfout = str_dup("");
 	ch->pcdata->title = str_dup("");
-	for (stat = 0; stat < MAX_STATS; stat++)
-		ch->perm_stat[stat] = 13;
 	for (sn = 0; sn < MAX_SKILL; sn++)
 		ch->pcdata->learned[sn] = 0;
 	ch->pcdata->condition[COND_THIRST] = 48;
@@ -635,22 +617,14 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->pcdata->security		= 0;	/* OLC */
 
 	ch->pcdata->pc_killed = 0;
-	ch->lang = 0;
 	ch->pcdata->petition = 0;
 	ch->pcdata->questpoints = 0;
 	ch->pcdata->questgiver = 0;
 	ch->pcdata->questtime = 0;
 	ch->pcdata->questobj = 0;
 	ch->pcdata->questmob = 0;
-	ch->religion = RELIGION_NONE;
 	ch->pcdata->has_killed = 0;
 	ch->pcdata->anti_killed = 0;
-	ch->timer = 0;
-	ch->hunting = NULL;
-	ch->endur = 0;
-	ch->riding = FALSE;
-	ch->mount = NULL;
-	ch->in_mind = NULL;
 
 	found = FALSE;
 	fclose(fpReserve);
@@ -730,6 +704,23 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	    && ch->class != CLASS_VAMPIRE)
 		ch->pcdata->condition[COND_BLOODLUST] = 48;
 
+	/* fix levels */
+	if (found && ch->version < 3 && (ch->level > 35 || ch->trust > 35)) {
+		switch (ch->level) {
+		case (40):
+			ch->level = MAX_LEVEL;
+			break;	/* imp -> imp */
+		case (39):
+			ch->level = MAX_LEVEL - 2;
+			break;	/* god -> supreme */
+		case (38):
+			ch->level = MAX_LEVEL - 4;
+			break;	/* deity -> god */
+		case (37):
+			ch->level = MAX_LEVEL - 7;
+			break;	/* angel -> demigod */
+		}
+
 	if (found && ch->version < 6)
 		ch->pcdata->learned[gsn_spell_craft] = 1;
 	return found;
@@ -748,6 +739,13 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 #define KEY(literal, field, value)		\
 	if (str_cmp(word, literal) == 0) { 	\
 		field  = value;			\
+		fMatch = TRUE;			\
+		break;				\
+	}
+
+#define MLSKEY(literal, field)			\
+	if (str_cmp(word, literal) == 0) { 	\
+		mlstr_fread(fp, field);		\
 		fMatch = TRUE;			\
 		break;				\
 	}
@@ -929,7 +927,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'D':
 			KEY("Damroll", ch->damroll, fread_number(fp));
 			KEY("Dam", ch->damroll, fread_number(fp));
-			KEY("Desc", ch->description, mlstr_fread(fp));
+			MLSKEY("Desc", ch->description);
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
 			KEY("Detect", ch->detection, fread_flags(fp));
 			break;
@@ -1126,8 +1124,8 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Save", ch->saving_throw, fread_number(fp));
 			KEY("Scro", ch->lines, fread_number(fp));
 			KEY("Sex", ch->sex, fread_number(fp));
-			KEY("ShortDescr", ch->short_descr, mlstr_fread(fp));
-			KEY("ShD", ch->short_descr, mlstr_fread(fp));
+			MLSKEY("ShortDescr", ch->short_descr);
+			MLSKEY("ShD", ch->short_descr);
 			KEY("Sec", ch->pcdata->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
 
@@ -1300,7 +1298,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'D':
 			KEY("Dam", pet->damroll, fread_number(fp));
-			KEY("Desc", pet->description, mlstr_fread(fp));
+			MLSKEY("Desc", pet->description);
 			KEY("Detect", pet->detection, fread_flags(fp));
 			break;
 
@@ -1347,7 +1345,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'L':
-			KEY("LnD",  pet->description, mlstr_fread(fp));
+			MLSKEY("LnD",  pet->description);
 			KEY("Levl", pet->level, fread_number(fp));
 			KEY("LogO", lastlogoff, fread_number(fp));
 			break;
@@ -1372,7 +1370,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		case 'S':
 			KEY("Save", pet->saving_throw, fread_number(fp));
 			KEY("Sex", pet->sex, fread_number(fp));
-			KEY("ShD", pet->short_descr, mlstr_fread(fp));
+			MLSKEY("ShD", pet->short_descr);
 			KEY("Silv", pet->silver, fread_number(fp));
 			break;
 
@@ -1421,8 +1419,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 	if (obj == NULL) {	/* either not found or old style */
 		obj = new_obj();
 		obj->name = str_dup("");
-		obj->short_descr = mlstr_new();
-		obj->description = mlstr_new();
 	}
 	fNest = FALSE;
 	fVnum = TRUE;
@@ -1493,8 +1489,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'D':
-			KEY("Description", obj->description, mlstr_fread(fp));
-			KEY("Desc", obj->description, mlstr_fread(fp));
+			MLSKEY("Description", obj->description);
+			MLSKEY("Desc", obj->description);
 			break;
 
 		case 'E':
@@ -1508,12 +1504,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			KEY("ExtF", obj->extra_flags, fread_number(fp));
 
 			if (!str_cmp(word, "ExtraDescr") || !str_cmp(word, "ExDe")) {
-				ED_DATA *ed;
-				ed = ed_new();
-				ed->keyword = fread_string(fp);
-				ed->description = mlstr_fread(fp);
-				ed->next = obj->ed;
-				obj->ed = ed;
+				ed_fread(fp, &obj->ed);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "End")) {
@@ -1598,8 +1589,8 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'S':
-			KEY("ShortDescr", obj->short_descr, mlstr_fread(fp));
-			KEY("ShD", obj->short_descr, mlstr_fread(fp));
+			MLSKEY("ShortDescr", obj->short_descr);
+			MLSKEY("ShD", obj->short_descr);
 
 			if (!str_cmp(word, "Spell")) {
 				int             iValue;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.27 1998-07-15 08:47:05 fjoe Exp $
+ * $Id: spellfun2.c,v 1.28 1998-07-25 15:02:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2776,9 +2776,19 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 		if (count_charmed(ch)) 
 			return;
 
-		if (ch->in_room != NULL 
-		&& IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+		if (ch->in_room != NULL
+		&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 			send_to_char("You can't animate deads here.\n\r", ch);
+			return;
+		}
+
+		/* can't animate PC corpses in ROOM_BATTLE_ARENA */
+		if (obj->item_type == ITEM_CORPSE_PC
+		&&  obj->in_room != NULL
+		&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
+		&&  obj->from != NULL
+		&&  str_cmp(ch->name, obj->from)) {
+			char_puts("You cannot do that.\n\r", ch);
 			return;
 		}
 
@@ -3264,7 +3274,7 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	else i = 1;
 	
 	eyed	= create_object(get_obj_index(OBJ_VNUM_EYED_SWORD), 0);
-	eyed->owner = str_dup(ch->name);
+	eyed->from = str_dup(ch->name);
 	eyed->from = str_dup(ch->name);
 	eyed->altar = hometown_table[ch->hometown].altar[i];
 	eyed->pit = hometown_table[ch->hometown].pit[i];
@@ -3433,7 +3443,7 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	else i = 1;
 	
 	fire	= create_object(get_obj_index(OBJ_VNUM_MAGIC_JAR), 0);
-	fire->owner = str_dup(ch->name);
+	fire->from = str_dup(ch->name);
 	fire->from = str_dup(ch->name);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
@@ -3704,7 +3714,7 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 		i = 1;
 	
 	fire	= create_object(get_obj_index(OBJ_VNUM_FIRE_SHIELD), 0);
-	fire->owner = str_dup(ch->name);
+	fire->from = str_dup(ch->name);
 	fire->from = str_dup(ch->name);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];

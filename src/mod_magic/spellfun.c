@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.36 1998-07-23 19:15:29 fjoe Exp $
+ * $Id: spellfun.c,v 1.37 1998-07-25 15:02:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -392,8 +392,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		else {
 			if ((range = allowed_other(ch,sn)) > 0) {
 				if (!(victim = get_char_spell(ch, target_name,
-							      &door, range)))
+							      &door, range))) {
+					char_nputs(THEY_ARENT_HERE, ch);
 					return;
+				}
 
 				if (IS_NPC(victim)
 				&&  IS_SET(victim->act, ACT_NOTRACK)

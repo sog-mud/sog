@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.5 1998-07-20 02:50:01 efdi Exp $
+ * $Id: mlstring.c,v 1.6 1998-07-25 15:02:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,26 +45,36 @@ mlstring *mlstr_new(void)
 	return ml;
 }
 
-mlstring *mlstr_fread(FILE *fp)
+void mlstr_fread(FILE *fp, mlstring *ml)
 {
-	mlstring *ml;
 	char *p;
 	char *s;
 	int lang;
+	bool resize;
 
-	ml = alloc_mem(sizeof(*ml));
 	p = fread_string(fp);
 	if (*p != '@' || *(p+1) == '@') {
-		ml->nlang = 0;
+		if (ml->nlang)
+			mlstr_clear(ml);
+		else
+			free_string(ml->u.str);
 		smash_a(p);
 		ml->u.str = p;
-		return ml;
+		return;
 	}
 
-	ml->nlang = nlang;
-	ml->u.lstr = alloc_mem(sizeof(char*) * nlang);
+	resize = ml->nlang != nlang;
+	if (resize) {
+		mlstr_clear(ml);
+		ml->u.lstr = alloc_mem(sizeof(char*) * nlang);
+	}
 	for (lang = 0; lang < nlang; lang++)
-		ml->u.lstr[lang] = NULL;
+		if (resize)
+			ml->u.lstr[lang] = NULL;
+		else 
+			free_string(ml->u.lstr[lang]);
+	if (resize)
+		ml->nlang = nlang;
 
 	s = p+1;
 	while (*s) {
@@ -109,15 +119,11 @@ mlstring *mlstr_fread(FILE *fp)
 			log_printf("mlstr_fread: lang %s: undefined",
 				 lang_table[lang]);
 	free_string(p);
-	return ml;
 }
 
 void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 {
 	int lang;
-
-	if (!ml)
-		return;
 
 	if (name != NULL)
 		fprintf(fp, "%s ", name);
@@ -133,44 +139,48 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 	fputs("~\n", fp);
 }
 
-void mlstr_free(mlstring *ml)
+void mlstr_clear(mlstring *ml)
 {
-	int lang;
-
-	if (!ml)
-		return;
-
-	if (ml->nlang == 0) {
+	if (ml->nlang == 0)
 		free_string(ml->u.str);
-		return;
-	}
+	else {
+		int lang;
 
-	for (lang = 0; lang < ml->nlang; lang++)
-		free_string(ml->u.lstr[lang]);
-	free_mem(ml->u.lstr, sizeof(char*) * ml->nlang);
-	free_mem(ml, sizeof(*ml));
-	ml->nlang = 0;
+		for (lang = 0; lang < ml->nlang; lang++)
+			free_string(ml->u.lstr[lang]);
+		free_mem(ml->u.lstr, sizeof(char*) * ml->nlang);
+		ml->nlang = 0;
+	}
+	ml->u.str = NULL;
 }
 
-mlstring *mlstr_dup(const mlstring *ml)
+void mlstr_cpy(mlstring *dest, const mlstring *src)
 {
 	int lang;
-	mlstring *ml_new;
+	bool resize = dest->nlang != src->nlang;
 
-	if (!ml)
-		return 0;
-
-	ml_new = alloc_mem(sizeof(*ml_new));
-	ml_new->nlang = ml->nlang;
-	if (ml->nlang == 0) {
-		ml_new->u.str = str_dup(ml->u.str);
-		return ml_new;
+	if (src->nlang == 0) {
+		if (resize)
+			mlstr_clear(dest);
+		else
+			free_string(dest->u.str);
+		dest->u.str = str_dup(src->u.str);
+		return;
 	}
 
-	ml_new->u.lstr = alloc_mem(sizeof(char*) * ml->nlang);
-	for (lang = 0; lang < ml->nlang; lang++)
-		ml_new->u.lstr[lang] = str_dup(ml->u.lstr[lang]);
-	return ml_new;
+	if (resize) {
+		mlstr_clear(dest);
+		dest->u.lstr = alloc_mem(sizeof(char*) * src->nlang);
+	}
+
+	for (lang = 0; lang < src->nlang; lang++) {
+		if (!resize)
+			free_string(dest->u.lstr[lang]);
+		dest->u.lstr[lang] = str_dup(src->u.lstr[lang]);
+	}
+
+	if (resize)
+		dest->nlang = src->nlang;
 }
 
 void mlstr_printf(mlstring *ml,...)
@@ -179,10 +189,6 @@ void mlstr_printf(mlstring *ml,...)
 	va_list ap;
 
 	va_start(ap, ml);
-
-	if (!ml)
-		return;
-
 	if (ml->nlang == 0) {
 		vsnprintf(buf, sizeof(buf), ml->u.str, ap);
 		free_string(ml->u.str);
@@ -192,7 +198,7 @@ void mlstr_printf(mlstring *ml,...)
 		int lang;
 
 		for (lang = 0; lang < ml->nlang; lang++) {
-			vsnprintf(buf, sizeof*buf, ml->u.lstr[lang], ap);
+			vsnprintf(buf, sizeof(buf), ml->u.lstr[lang], ap);
 			free_string(ml->u.lstr[lang]);
 			ml->u.lstr[lang] = str_dup(buf);
 		}
@@ -202,9 +208,6 @@ void mlstr_printf(mlstring *ml,...)
 
 char * mlstr_val(const mlstring *ml, int lang)
 {
-	if (!ml)
-		return "";
-
 	if (ml->nlang == 0)
 		return ml->u.str;
 	if (lang >= ml->nlang || lang < 0)
@@ -222,9 +225,6 @@ int mlstr_cmp(const mlstring *ml1, const mlstring *ml2)
 {
 	int lang;
 	int res;
-
-	if (!ml1 || !ml2)
-		return 0;
 
 	if (ml1->nlang != ml2->nlang)
 		return  ml1->nlang - ml2->nlang;
@@ -245,9 +245,6 @@ char** mlstr_convert(mlstring *ml, int newlang)
 {
 	char *old;
 	int lang;
-
-	if (!ml)
-		return 0;
 
 	if (newlang < 0) {
 		/* convert to language-independent */
@@ -289,9 +286,6 @@ bool mlstr_append(CHAR_DATA *ch, mlstring *ml, const char *arg)
 void mlstr_format(mlstring *ml)
 {
 	int lang;
-
-	if (!ml)
-		return;
 
 	if (ml->nlang == 0) {
 		ml->u.str = format_string(ml->u.str);
@@ -347,9 +341,6 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	size_t namelen;
 	int lang;
 	static char FORMAT[] = "%s[%s] [%s]\n\r";
-
-	if (!ml)
-		return;
 
 	namelen = strlen(name);
 	namelen = URANGE(0, namelen, sizeof(space)-1);

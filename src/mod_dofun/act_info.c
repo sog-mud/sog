@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.101 1998-07-25 01:32:22 efdi Exp $
+ * $Id: act_info.c,v 1.102 1998-07-25 15:02:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3062,6 +3062,12 @@ void do_score(CHAR_DATA *ch, const char *argument)
 "     {G| {YYou are hungry.                                                 {G|{x\n\r");
 	}
 
+	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)) {
+		ekle = 1;
+		char_puts(
+"     {G| {cYou are ghost.                                                  {G|{x\n\r", ch);
+	}
+
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_BLOODLUST] <= 0) {
 		ekle = 1;
 		char_printf(ch,
@@ -3227,19 +3233,23 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			ch->guarded_by->name);
 	send_to_char("\n\r", ch);
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10)
-		send_to_char("You are {cdrunk{x.\n\r", ch);
+	if (!IS_NPC(ch)) {
+		if (ch->pcdata->condition[COND_DRUNK] > 10)
+			send_to_char("You are {cdrunk{x.\n\r", ch);
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] <= 0)
-		send_to_char("You are {rthirsty{x.\n\r", ch);
+		if (ch->pcdata->condition[COND_THIRST] <= 0)
+			send_to_char("You are {rthirsty{x.\n\r", ch);
 
-/*	if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] == 0) */
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_HUNGER] <= 0)
-		send_to_char("You are {rhungry{x.\n\r", ch);
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_BLOODLUST] <= 0)
-		send_to_char("You are {rhungry for {Rblood{x.\n\r", ch);
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DESIRE] <= 0)
-		send_to_char("You are {rdesiring your home{x.\n\r", ch);
+/*		if (ch->pcdata->condition[COND_FULL] == 0) */
+		if (ch->pcdata->condition[COND_HUNGER] <= 0)
+			send_to_char("You are {rhungry{x.\n\r", ch);
+		if (ch->pcdata->condition[COND_BLOODLUST] <= 0)
+			send_to_char("You are {rhungry for {Rblood{x.\n\r", ch);
+		if (ch->pcdata->condition[COND_DESIRE] <= 0)
+			send_to_char("You are {rdesiring your home{x.\n\r", ch);
+		if (IS_SET(ch->act, PLR_GHOST))
+			char_puts("You are {gghost{x.\n\r", ch);
+	}
 
 	char_printf(ch, "%s %s.\n\r",
 		msg(YOU_ARE, ch),

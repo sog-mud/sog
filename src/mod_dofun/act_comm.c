@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.65 1998-07-20 02:50:00 efdi Exp $
+ * $Id: act_comm.c,v 1.66 1998-07-25 15:02:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -81,7 +81,8 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 		char_puts("AFK mode removed. Type 'replay' to see tells.\n\r",
 			  ch);
 	} else {
-		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)) {
+		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+		&&  ch->level < LEVEL_IMMORTAL) {
 			char_puts("You may be in AFK only in safe room.\n\r",
 				  ch);
 			return;

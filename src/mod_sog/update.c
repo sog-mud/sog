@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.47 1998-07-24 14:21:15 efdi Exp $
+ * $Id: update.c,v 1.48 1998-07-25 15:02:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -595,7 +595,9 @@ void mobile_update(void)
 		}
 
 		if (ch->last_death_time != -1
-		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME) {
+		&&  current_time - ch->last_death_time >= GHOST_DELAY_TIME
+		&&  IS_SET(ch->act, PLR_GHOST)) {
+			char_puts("You return to your normal form.\n\r", ch);
 			REMOVE_BIT(ch->act, PLR_GHOST);
 		}
 

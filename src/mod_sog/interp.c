@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.45 1998-07-23 01:25:08 efdi Exp $
+ * $Id: interp.c,v 1.46 1998-07-25 15:02:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -281,7 +281,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "slist",		do_slist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "split",		do_split,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
+    { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0 },
     { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -592,21 +592,13 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		/* Come out of hiding for most commands */
-		if (IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
+		if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE) && !IS_NPC(ch)
 		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
-			REMOVE_BIT(ch->affected_by, AFF_HIDE);
+			REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
 				    N_STEPS_OUT_OF_SHADOWS);
-        	  }
-
-		if (IS_AFFECTED(ch, AFF_FADE) && !IS_NPC(ch)
-		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
-			REMOVE_BIT(ch->affected_by, AFF_FADE);
-			char_nputs(YOU_STEP_OUT_SHADOWS, ch);
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-				    N_STEPS_OUT_OF_SHADOWS);
-		}
+        	}
 
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 		&& (cmd_table[cmd].position == POS_FIGHTING)) {
@@ -619,8 +611,11 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 		/* prevent ghosts from doing a bunch of commands */
 		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)
-		&&  (cmd_table[cmd].extra & CMD_GHOST) == 0)
-			continue;
+		&&  (cmd_table[cmd].extra & CMD_GHOST) == 0) {
+			char_puts("You cannot do that while you are ghost.\n\r",
+				  ch);
+			return;
+		}
 
 		found = TRUE;
 		break;
