@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.5 2001-09-07 19:34:42 fjoe Exp $
+ * $Id: comm.c,v 1.6 2001-09-14 18:12:06 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -124,13 +124,13 @@ page_to_char(const char *txt, CHAR_DATA *ch)
 }
 
 static void
-percent_hp(CHAR_DATA *ch, char buf[MAX_STRING_LENGTH])
+percent_hp(CHAR_DATA *ch, char *buf, size_t len)
 {
 	if (ch->hit >= 0) {
-		snprintf(buf, sizeof(buf), "%d%%",		// notrans
+		snprintf(buf, len, "%d%%",		// notrans
 			 ((100 * ch->hit) / UMAX(1, ch->max_hit)));
 	} else
-		strnzcpy(buf, sizeof(buf), "BAD!");		// notrans
+		strnzcpy(buf, len, "BAD!");		// notrans
 }
 
 /*
@@ -219,14 +219,14 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 			break;
 
 		case 'y':
-			percent_hp(ch, buf2);
+			percent_hp(ch, buf2, sizeof(buf2));
 			i = buf2;
 			break;
 
 		case 'o':
 			if ((victim = ch->fighting) != NULL) {
 				if (can_see(ch, victim)) {
-					percent_hp(victim, buf2);
+					percent_hp(victim, buf2, sizeof(buf2));
 					i = buf2;
 				} else
 					i = "???";		// notrans
@@ -237,7 +237,7 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 		case 'T':
 			if (ch->fighting && (victim = ch->fighting->fighting)) {
 				if (ch == victim || can_see(ch, victim)) {
-					percent_hp(victim, buf2);
+					percent_hp(victim, buf2, sizeof(buf2));
 					i = buf2;
 				} else
 					i = "???";		// notrans

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.300 2001-09-13 16:22:03 fjoe Exp $
+ * $Id: act_wiz.c,v 1.301 2001-09-14 18:12:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2009,7 +2009,6 @@ DO_FUN(do_return, ch, argument)
 	if (vch == NULL || vch == ch)
 		return;
 
-	act_char("You return to your original body.", ch);
 	wiznet("$N returns from $i.",
 		vch, ch, WIZ_SWITCHES, WIZ_SECURE, trust_level(vch));
 	ch->desc->character	= vch;
@@ -2017,6 +2016,7 @@ DO_FUN(do_return, ch, argument)
 	vch->desc		= ch->desc;
 	ch->desc		= NULL;
 
+	act_char("You return to your original body.", vch);
 	do_replay(vch, str_empty);
 }
 
@@ -2719,7 +2719,7 @@ DO_FUN(do_string, ch, argument)
 		do_help(ch, "'WIZ STRING'");
 		return;
 	}
-	
+
 	if (!str_prefix(type, "character") || !str_prefix(type, "mobile")) {
 		if ((victim = get_char_here(ch, arg1)) == NULL) {
 			act_char("They aren't here.", ch);
@@ -2732,7 +2732,7 @@ DO_FUN(do_string, ch, argument)
 
 		/* string something */
 
-	 	if (!str_prefix(arg2, "name")) {
+		if (!str_prefix(arg2, "name")) {
 			if (!IS_NPC(victim)) {
 				act_char("Not on PC's.", ch);
 				return;
@@ -2741,7 +2741,7 @@ DO_FUN(do_string, ch, argument)
 			victim->name = str_dup(arg3);
 			return;
 		}
-		
+
 		if (!str_prefix(arg2, "short")) {
 			if (!IS_NPC(victim)) {
 				act_char("Not on PC's.", ch);
@@ -2765,15 +2765,15 @@ DO_FUN(do_string, ch, argument)
 			return;
 		}
 	}
-	
+
 	if (!str_prefix(type, "object")) {
 		/* string an obj */
-		
-	 	if ((obj = get_obj_room(ch, arg1)) == NULL) {
+
+		if ((obj = get_obj_room(ch, arg1)) == NULL) {
 			act_char("Nothing like that in heaven or earth.", ch);
 			return;
 		}
-		
+
 		if (obj->pObjIndex->limit >= 0) {
 			act_char("You cannot string limited objs.", ch);
 			return;
@@ -2823,7 +2823,7 @@ DO_FUN(do_string, ch, argument)
 			return;
 		}
 	}
-	
+
 	/* echo bad use message */
 	do_string(ch,str_empty);
 }
