@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.46 1998-08-14 05:45:17 fjoe Exp $
+ * $Id: save.c,v 1.47 1998-08-14 06:30:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -331,14 +331,14 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 
 		if (ch->pcdata->questpoints != 0)
 			fprintf(fp, "QuestPnts %d\n", ch->pcdata->questpoints);
-		if (!reboot) {
-			if (ch->pcdata->questtime != 0)
-				fprintf(fp, "QuestTime %d\n", ch->pcdata->questtime);
-			if (IS_ON_QUEST(ch)) {
-				fprintf(fp, "QuestMob %d\n", ch->pcdata->questmob);
-				fprintf(fp, "QuestObj %d\n", ch->pcdata->questobj);
-				fprintf(fp, "QuestGiv %d\n", ch->pcdata->questgiver);
-			}
+		if (ch->pcdata->questtime != 0)
+			fprintf(fp, "QuestTime %d\n",
+				reboot ? -abs(ch->pcdata->questtime) :
+					 ch->pcdata->questtime);
+		if (!reboot && IS_ON_QUEST(ch)) {
+			fprintf(fp, "QuestMob %d\n", ch->pcdata->questmob);
+			fprintf(fp, "QuestObj %d\n", ch->pcdata->questobj);
+			fprintf(fp, "QuestGiv %d\n", ch->pcdata->questgiver);
 		}
 		fprintf(fp, "Haskilled %d\n", ch->pcdata->has_killed);
 		fprintf(fp, "Antkilled %d\n", ch->pcdata->anti_killed);

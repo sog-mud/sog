@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.71 1998-08-14 05:45:10 fjoe Exp $
+ * $Id: act_comm.c,v 1.72 1998-08-14 06:30:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1182,7 +1182,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 void do_save(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
-	return;
+		return;
 
 	if (ch->level < 2) {
 		send_to_char("You must be at least level 2 for saving.\n\r",ch);
