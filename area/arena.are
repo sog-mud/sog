@@ -1,0 +1,269 @@
+#AREADATA
+Name Battle Arena~
+VNUMs 35301 35399
+Credits abrazak~
+Security 9
+LevelRange 1 100
+End
+
+#MOBILES
+#35301
+shopkeeper~
+The shopkeeper~
+The shopkeeper is here, selling tickets.
+~
+You see a huge man wearing white clothes. He looks quiet strong. 
+~
+human~
+ABGQRTe HV 0 0
+100 100 1d1+30000 0d0+0 20d20+100 none
+0 0 0 0
+EFJK CD 0 0
+stand stand male 0
+0 0 medium unknown
+#35302
+guard arena~
+the arena guard~
+Huge man stands here, guarding the entrance.
+~
+~
+giant~
+ABGRT HV 0 0
+30 0 10d61+500 0d0+0 5d7+20 none
+-10 -10 -10 -10
+CEFJKNO 0 0 0
+stand stand male 3000
+0 0 huge unknown
+M exall 35301 3~
+#0
+
+#OBJECTS
+#35301
+ticket arena~
+the ticket to arena~
+A little piece of paper lies here.~
+paper~
+trash V AO
+0 0 0 0 0
+10 1 100 P
+#35302
+battleaxe axe~
+A huge battleaxe~
+A sharp battleaxe is here.~
+mithril~
+weapon BHY AN
+axe 8 4 frbite BD
+31 7 100000 P
+#0
+
+#ROOMS
+#35301
+@eng The Entrance.@rus Вход.~
+@eng You are at the entrance into battle arena.
+~
+0 0 field
+D0
+~
+~
+Z 0 35302
+D3
+~
+~
+Z 0 35303
+S
+#35302
+Small cabin~
+~
+0 0 inside
+D2
+~
+~
+Z 0 35301
+S
+#35303
+@eng At the eastern wall of Arena.@rus Возле восточной стены.~
+@rus Огромное поле, бурно заросшее зеленой травой. Приглядевшись внимательнее, ты 
+вдруг понимаешь причины столь буйного роста растительности - все поле усыпано
+свежими и не очень останками побежденных бойцов.
+~
+0 0 inside
+D0
+~
+~
+Z 0 35304
+D1
+~
+~
+Z 0 35301
+D2
+~
+~
+Z 0 35305
+D3
+~
+~
+Z 0 35306
+S
+#35304
+@eng The North-Eastern corner of Arena.@rus Северо-восточный угол Арены.~
+~
+0 0 inside
+D2
+~
+~
+Z 0 35303
+D3
+~
+~
+Z 0 35311
+S
+#35305
+@eng The South-Eastern corner of Arena.@rus Юго-восточный угол Арены.~
+~
+0 0 inside
+D0
+~
+~
+Z 0 35303
+D3
+~
+~
+Z 0 35307
+S
+#35306
+@eng The Center of Arena.@rus Центр Арены.~
+@rus Кажется, это наиболее мрачная часть Арены. Все вокруг залито кровью, трудно 
+сделать шаг, не наступив на чей-нибудь череп. Стая огромных черных ворон, мирно
+обедавшая останками твоих предшественников, ничуть не испугалась твоего 
+приближения, а напротив начала разглядывать тебя с неподдельным интересом.
+Тебе явно становится немного не по себе.
+~
+0 0 inside
+D0
+~
+~
+Z 0 35311
+D1
+~
+~
+Z 0 35303
+D2
+~
+~
+Z 0 35307
+D3
+~
+~
+Z 0 35309
+S
+#35307
+@eng Southern wall of Arena.~
+~
+0 0 inside
+D0
+~
+~
+Z 0 35306
+D1
+~
+~
+Z 0 35305
+D3
+~
+~
+Z 0 35308
+S
+#35308
+@eng The South-western corner of Arena.~
+~
+0 0 inside
+D0
+~
+~
+Z 0 35309
+D1
+~
+~
+Z 0 35307
+S
+#35309
+@eng Western wall of Arena.~
+~
+0 0 inside
+D0
+~
+~
+Z 0 35310
+D1
+~
+~
+Z 0 35306
+D2
+~
+~
+Z 0 35308
+S
+#35310
+@eng The North-western corner of Arena.~
+~
+0 0 inside
+D1
+~
+~
+Z 0 35311
+D2
+~
+~
+Z 0 35309
+S
+#35311
+@eng At the north wall of Arena~
+~
+0 0 inside
+D1
+~
+~
+Z 0 35304
+D2
+~
+~
+Z 0 35306
+D3
+~
+~
+Z 0 35310
+S
+#0
+
+#RESETS
+M 0 35302 1 35301 1	* the arena guard (The Entrance.)
+E 0 35302 0 16		*	A huge battleaxe: wielded
+M 0 35301 1 35302 1	* The shopkeeper (Small cabin)
+G 0 35301 0		*	the ticket to arena
+S
+
+#SHOPS
+35301 0 0 0 0 0 100 100 0 23
+0
+
+#OLIMITS
+O 35302 20	* A huge battleaxe
+S
+
+#MOBPROGS
+#35301
+if carries $n 35301
+mob force $n give ticket arena
+mob purge ticket
+mob transfer $n 35303
+end
+else
+mob echoat $n The arena guard blocks your way west.
+mob echoaround $n The arena guard blocks $n's way west.
+'You have to buy ticket to enter the arena.
+end
+endif
+~
+#0
+
+#$

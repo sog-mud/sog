@@ -1,0 +1,131 @@
+#AREADATA
+Name Arborn's home~
+VNUMs 36100 36199
+Credits Arborn~
+Security 3
+LevelRange 0 0
+Flags noquest~
+End
+
+#OBJECTS
+#36100
+sofa~
+@eng sofa@rus софа~
+@eng Soft sofa invite you to rest...@rus Мягкий диван приглашает отдохнуть...~
+unknown~
+furniture A 0
+B EGIJOP EHK CEFGHI CEFGHI
+0 5000 0 P
+#36101
+ring life~
+@eng ring of Life@rus кольцо Жизни~
+@eng Ring, overflowing with life@rus Кольцо Жизни.~
+unknown~
+armor AB AB
+10 10 10 10 0
+100 0 0 P
+A
+13 10000
+A
+19 25
+A
+24 -25
+A
+18 25
+F
+A 0 0 c
+#36102
+helm seeing~
+@eng Helm of Seeing@rus Шлем Видения~
+@eng Helm of seeing@rus Helm of seeing~
+unknown~
+armor 0 AE
+100 100 100 100 0
+100 0 0 P
+F
+A 0 0 E
+F
+A 0 0 n
+F
+A 0 0 C
+F
+A 0 0 G
+F
+A 0 0 m
+F
+A 0 0 l
+F
+A 0 0 F
+F
+A 0 0 D
+#36103
+ring death~
+@eng ring of Death@rus кольцо Смерти~
+@eng ring of death@rus ring of death~
+unknown~
+armor CF AB
+10 10 10 100 0
+100 0 0 P
+A
+12 10000
+A
+24 -100
+A
+19 70
+F
+I 0 0 P
+F
+I 0 0 M
+#36104
+dagger might~
+@eng dagger of Might@rus кинжал Силы~
+@eng dagger of might@rus dagger of might~
+unknown~
+weapon BM AN
+dagger 1 5000 scratch ABDEGH
+100 0 0 P
+A
+18 30
+A
+19 70
+A
+17 -250
+#36105
+Black Hole~
+@eng Black Hole@rus Черная дыра~
+@eng black hole@rus black hole~
+unknown~
+light A A
+0 0 -1 0 0
+0 0 0 P
+F
+A 0 0 T
+F
+A 0 0 H
+F
+R 0 0 C
+F
+R 0 0 D
+A
+19 20
+#0
+
+#ROOMS
+#36100
+@eng Arborn's home@rus Дом Арборна~
+@eng Soft light comes from the walls and ceiling.
+A waterfall is gently swirling at the opposite wall...
+You feel completely relaxed...
+@rus Мягкий свет исходит от стен и потолка...
+Небольшой водопад тихо журчит у стены...
+Вы расслабляетесь ...
+~
+0 KX inside
+S
+#0
+
+#RESETS
+O 0 36100 0 36100	* sofa (Arborn's home)
+S
+
+#$
