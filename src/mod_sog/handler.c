@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.358 2002-10-27 06:48:10 tatyana Exp $
+ * $Id: handler.c,v 1.359 2002-11-22 16:53:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1814,7 +1814,7 @@ FOREACH_CB_FUN(show_arrival_cb, p, ap)
 	if (!IS_SET(flags, MC_F_CHARGE)) {
 		act_puts3(mount ? "$n has arrived from $t, riding $I." :
 			    "$n has arrived from $t.", ch,
-		dir_name[is_sn_affected(ch, "misleading") &&
+		from_dir_name[is_sn_affected(ch, "misleading") &&
 			!HAS_DETECT(vch, ID_TRUESEEING) ?
 			number_range(0, 5) : rev_dir[door]],
 			vch, mount, TO_VICT, POS_RESTING);
