@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.9 2001-06-23 15:49:36 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.10 2001-06-25 16:51:20 fjoe Exp $
  */
 
 #ifndef _MPC_CODE_H_
@@ -74,6 +74,7 @@ void	sym_destroy(sym_t *sym);
 sym_t *	sym_cpy(sym_t *dst, const sym_t *src);
 
 extern hash_t glob_syms;		/* (sym_t) */
+extern hashdata_t h_syms;
 
 /**
  * Switch jump table
@@ -139,6 +140,12 @@ prog_compile(prog_t *prog);
  */
 int
 prog_execute(prog_t *prog, int *errcode);
+
+/**
+ * Initialize mpc
+ */
+void
+mpc_init();
 
 /**
  * Lexer

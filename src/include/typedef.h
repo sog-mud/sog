@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.46 2001-06-24 21:12:43 avn Exp $
+ * $Id: typedef.h,v 1.47 2001-06-25 16:51:06 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -66,8 +66,6 @@ typedef struct shop_data		SHOP_DATA;
 typedef struct time_info_data		TIME_INFO_DATA;
 typedef struct weather_data		WEATHER_DATA;
 typedef struct room_history_data	ROOM_HISTORY_DATA;
-typedef struct mptrig			MPTRIG;
-typedef struct mpcode			MPCODE;
 typedef struct qtrouble_t		qtrouble_t;
 typedef struct flaginfo_t		flaginfo_t;
 
@@ -121,21 +119,16 @@ union vo_t {
 typedef void	DO_FUN		(CHAR_DATA *, const char *);
 typedef bool	SPEC_FUN	(CHAR_DATA *);
 typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
-typedef int	OPROG_FUN	(OBJ_DATA *, CHAR_DATA *, const void *);
 typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
 
 #define DECLARE_SPEC_FUN(fun)	SPEC_FUN  fun
 #define DECLARE_DO_FUN(fun)	DO_FUN fun
-#define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
 #define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
 #define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
 
 #define DO_FUN(fun,a,b)		void fun(CHAR_DATA *a,			\
 					const char *b __attribute((unused)))
 #define SPEC_FUN(fun,a)		bool fun(CHAR_DATA *a)
-#define OPROG_FUN(fun,a,b,c)	int fun(OBJ_DATA *a __attribute__((unused)),\
-					CHAR_DATA *b __attribute__((unused)),\
-					const void *c __attribute__((unused)))
 #define EVENT_FUN(fun,a,b)	void fun(CHAR_DATA *a, AFFECT_DATA *b)
 #define SPELL_FUN(fun,a,b,c,d)	void fun(const char *a, int b,		\
 				CHAR_DATA *c, void *d)

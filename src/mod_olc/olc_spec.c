@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.9 2001-06-22 07:13:48 avn Exp $
+ * $Id: olc_spec.c,v 1.10 2001-06-25 16:51:24 fjoe Exp $
  */
 
 #include "olc.h"
@@ -39,7 +39,10 @@ DECLARE_OLC_FUN(speced_list		);
 
 DECLARE_OLC_FUN(speced_class		);
 DECLARE_OLC_FUN(speced_skill		);
+#if 0
+XXX
 DECLARE_OLC_FUN(speced_depend		);
+#endif
 DECLARE_OLC_FUN(speced_flags		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
@@ -57,8 +60,11 @@ olc_cmd_t olc_cmds_spec[] =
 
 	{ "name",	olced_strkey,	NULL,		&strkey_specs	},
 	{ "class",	speced_class,	NULL,		spec_classes	},
-	{ "skill",	speced_skill, 	NULL,		&skills		},
+	{ "skill",	speced_skill,	NULL,		&skills		},
+#if 0
+	XXX
 	{ "depend",	speced_depend					},
+#endif
 	{ "flags",	speced_flags,	NULL,		spec_flags	},
 
 	{ "update",	olc_skill_update				},
@@ -175,7 +181,10 @@ OLC_FUN(speced_show)
 	buf_printf(output, BUF_END, "Class:         [%s]   Flags: [%s]\n",
 			flag_string(spec_classes, s->spec_class),
 			flag_string(spec_flags, s->spec_flags));
+#if 0
+	XXX
 	print_cc_vexpr(&s->spec_deps, "Dependencies:", output);
+#endif
 	if (s->spec_skills.nused == 0)
 		buf_printf(output, BUF_END, "No skills defined for this spec.\n");
 	else {
@@ -275,12 +284,15 @@ OLC_FUN(speced_skill)
 	return FALSE;
 }
 
+#if 0
+XXX
 OLC_FUN(speced_depend)
 {
 	spec_t *s;
 	EDIT_SPEC(ch, s);
 	return olced_cc_vexpr(ch, argument, cmd, &s->spec_deps, "spec");
 }
+#endif
 
 OLC_FUN(speced_flags)
 {
@@ -343,7 +355,10 @@ save_spec_cb(void *p, va_list ap)
 		fprintf(fp, "Flags %s~\n",
 				flag_string(spec_flags, s->spec_flags));
 	fprintf(fp, "End\n");
+#if 0
+	XXX
 	fwrite_cc_vexpr(&s->spec_deps, "\n#R", fp);
+#endif
 	varr_foreach(&s->spec_skills, save_spec_skill_cb, fp);
 	fprintf(fp, "\n#$\n");
 	fclose(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.108 2001-06-25 13:09:26 fjoe Exp $
+ * $Id: db_area.c,v 1.109 2001-06-25 16:51:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,6 @@
 #include <string.h>
 
 #include "merc.h"
-#include "obj_prog.h"
 #include "db.h"
 
 #include "quest.h"
@@ -53,12 +52,10 @@ DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
 DECLARE_DBLOAD_FUN(load_helps);
 DECLARE_DBLOAD_FUN(load_mobiles);
-DECLARE_DBLOAD_FUN(load_mobprogs);
 DECLARE_DBLOAD_FUN(load_objects);
 DECLARE_DBLOAD_FUN(load_resets);
 DECLARE_DBLOAD_FUN(load_rooms);
 DECLARE_DBLOAD_FUN(load_shops);
-DECLARE_DBLOAD_FUN(load_omprogs);
 DECLARE_DBLOAD_FUN(load_olimits);
 DECLARE_DBLOAD_FUN(load_specials);
 DECLARE_DBLOAD_FUN(load_practicers);
@@ -72,12 +69,10 @@ DBFUN dbfun_areas[] = {
 	{ "AREADATA",		load_areadata,	NULL	},	// notrans
 	{ "HELPS",		load_helps,	NULL	},	// notrans
 	{ "MOBILES",		load_mobiles,	NULL	},	// notrans
-	{ "MOBPROGS",		load_mobprogs,	NULL	},	// notrans
 	{ "OBJECTS",		load_objects,	NULL	},	// notrans
 	{ "RESETS",		load_resets,	NULL	},	// notrans
 	{ "ROOMS",		load_rooms,	NULL	},	// notrans
 	{ "SHOPS",		load_shops,	NULL	},	// notrans
-	{ "OMPROGS",		load_omprogs,	NULL	},	// notrans
 	{ "OLIMITS",		load_olimits,	NULL	},	// notrans
 	{ "SPECIALS",		load_specials,	NULL	},	// notrans
 	{ "PRACTICERS",		load_practicers,NULL	},	// notrans
@@ -394,47 +389,6 @@ DBLOAD_FUN(load_helps)
 		mlstr_foreach(&pHelp->text, cb_strip_nl, area_current);
 		help_add(area_current, pHelp);
 	}
-}
-
-/*
- * Load mobprogs section
- */
-DBLOAD_FUN(load_mobprogs)
-{
-    MPCODE *mpcode;
-
-    if (area_current == NULL) {
-	log(LOG_ERROR, "load_mobprogs: no #AREA seen yet.");
-	return;
-    }
-
-    for (; ;)
-    {
-	int vnum;
-	const char *code;
-	char letter;
-
-	letter		  = fread_letter(fp);
-	if (letter != '#') {
-	    log(LOG_ERROR, "load_mobprogs: # not found.");
-	    return;
-	}
-
-	vnum		 = fread_number(fp);
-	if (vnum == 0)
-	    break;
-
-	if (mpcode_lookup(vnum) != NULL) {
-	    log(LOG_ERROR, "load_mobprogs: vnum %d duplicated.", vnum);
-	    return;
-	}
-	code 		= fread_string(fp);
-
-	mpcode		= mpcode_new();
-	mpcode->vnum  	= vnum;
-	mpcode->code  	= code;
-	mpcode_add(mpcode);
-    }
 }
 
 /*
@@ -1223,22 +1177,21 @@ DBLOAD_FUN(load_mobiles)
 		    return;
 		}
 	     } else if ( letter == 'M' ) {
-		MPTRIG *mptrig;
+		/* XXX */
 		int trig_vnum;
-		int type;
 		const char *phrase;
-		
+#if 0
+		int type;
+
 		if ((type = fread_fword(mptrig_types, fp)) == 0) {
 			log(LOG_ERROR, "load_mobiles: vnum %d: invalid mob prog trigger",
 			    pMobIndex->vnum);
 			return;
 		}
-
-		trig_vnum = fread_number(fp);
-		phrase = fread_string(fp);
-
-		mptrig = mptrig_new(type, phrase, trig_vnum);
-		mptrig_add(pMobIndex, mptrig);
+#endif
+		fread_word(fp);			/* mptrig type */
+		trig_vnum = fread_number(fp);	/* mpcode vnum */
+		phrase = fread_string(fp);	/* mptrig phrase */
 		free_string(phrase);
 	     } else if (letter == 'g') {
 		mlstr_fread(fp, &pMobIndex->gender);
@@ -1438,17 +1391,15 @@ DBLOAD_FUN(load_objects)
 	
 		free_string(pObjIndex->material);
 		pObjIndex->material		= fread_string(fp);
-	
+
 		if (IS_NULLSTR(pObjIndex->material)) {
 			free_string(pObjIndex->material);
 			pObjIndex->material = str_dup("unknown"); // notrans
 		}
-	
+
 		if (!material_lookup(pObjIndex->material))
 			log(LOG_INFO, "Obj %d: unknown material '%s'", vnum, pObjIndex->material);
-	
-		pObjIndex->oprogs		= NULL;
-	
+
 		pObjIndex->item_type		= fread_fword(item_types, fp);
 		if (area_current->ver > 0) {
 			pObjIndex->stat_flags	= fread_flags(fp);
@@ -1723,11 +1674,14 @@ DBLOAD_FUN(load_objects)
 				mlstr_destroy(&pObjIndex->gender);
 				mlstr_init2(&pObjIndex->gender, rfile_tok(fp));
 				break;
-	
+
+#if 0
+			XXX
 			case 'R':
 				fread_cc_vexpr(&pObjIndex->restrictions,
 					       "obj_wear", fp);	// notrans
 				break;
+#endif
 
 			case 'S':
 				paf = aff_new();
@@ -1759,48 +1713,3 @@ DBLOAD_FUN(load_objects)
 			chquest_add(pObjIndex);
 	}
 }
-
-/*
- * Snarf a mprog section
- */
-DBLOAD_FUN(load_omprogs)
-{
-  char progtype[MAX_INPUT_LENGTH];
-  char progname[MAX_INPUT_LENGTH];
-  
-    for (; ;) {
-	OBJ_INDEX_DATA *pObjIndex;
-	char letter;
-	int vnum;
-	
-	switch (letter = fread_letter(fp)) {
-	default:
-	    log(LOG_ERROR, "load_omprogs: letter '%c' not *IMS.", letter);
-	    return;
-
-	case 'S':
-	    return;
-
-	case '*':
-	    break;
-	    
-        case 'O':
-		vnum = fread_number(fp);
-		if ((pObjIndex = get_obj_index(vnum)) == NULL) {
-			log(LOG_ERROR, "load_omprogs: %d: no such obj", vnum);
-			break;
-		}
-
-		fread_word(fp);
-		strnzcpy(progtype, sizeof(progtype), rfile_tok(fp));
-
-		fread_word(fp);
-		strnzcpy(progname, sizeof(progname), rfile_tok(fp));
-		oprog_set(pObjIndex, progtype, progname);
-		break;
-	}
-
-	fread_to_eol(fp);
-    }
-}
-

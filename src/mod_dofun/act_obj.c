@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.236 2001-06-22 07:13:35 avn Exp $
+ * $Id: act_obj.c,v 1.237 2001-06-25 16:51:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "mob_prog.h"
-#include "obj_prog.h"
 #include "lang.h"
 #include "auction.h"
 
@@ -529,12 +527,15 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			  (const void*) amount,
 			  TO_CHAR, POS_DEAD);
 
+#if 0
+		XXX
 		/*
 		 * Bribe trigger
 		 */
 		if (IS_NPC(victim) && HAS_TRIGGER(victim, TRIG_BRIBE))
 			mp_bribe_trigger(victim, ch,
 					 silver ? amount : amount * 100);
+#endif
 
 		if (IS_NPC(victim)
 		&&  MOB_IS(victim, MOB_CHANGER)) {
@@ -593,8 +594,11 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL
+	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL) {
+#if 0
+	XXX
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
+#endif
 		do_tell_raw(victim, ch, "Sorry, you'll have to sell that.");
 		return;
 	}
@@ -637,6 +641,8 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	act("$n gives you $p.", ch, obj, victim, TO_VICT | ACT_NOTRIG);
 	act("You give $p to $N.", ch, obj, victim, TO_CHAR | ACT_NOTRIG);
 
+#if 0
+	XXX
 	/*
 	 * Give trigger
 	*/
@@ -644,6 +650,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		mp_give_trigger(victim, ch, obj);
 
 	oprog_call(OPROG_GIVE, obj, ch, victim);
+#endif
 }
 
 /* for poisoning weapons and food/drink */
@@ -1869,7 +1876,11 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		act_char("You got one of them!", ch);
 		check_improve(ch, "steal", TRUE, 1);
 	}
+
+#if 0
+	XXX
 	oprog_call(OPROG_GET, obj, ch, NULL);
+#endif
 }
 
 /*
@@ -3574,8 +3585,11 @@ static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			dofun("split", ch, "%d", silver);
 	}
 
+#if 0
+	XXX
 	if (oprog_call(OPROG_SAC, obj, ch, NULL))
 		return;
+#endif
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
@@ -3759,7 +3773,10 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			return;
 		}
 
+#if 0
+	XXX
 	oprog_call(OPROG_DROP, obj, ch, NULL);
+#endif
 
 	if (!floating_time(obj) && IS_WATER(ch->in_room)) {
 		act("$p sinks down the water.", ch, obj, NULL,

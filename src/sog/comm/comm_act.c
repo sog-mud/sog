@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.71 2001-06-24 10:50:57 avn Exp $
+ * $Id: comm_act.c,v 1.72 2001-06-25 16:51:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "comm_colors.h"
-#include "mob_prog.h"
 #include "lang.h"
 #include "memalloc.h"
 #include "db.h"
@@ -494,7 +493,7 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 	     const void *arg1, const void *arg2, const void *arg3,
 	     actopt_t *opt, char *buf, size_t buf_len)
 {
-	char 		tmp	[MAX_STRING_LENGTH];
+	char		tmp	[MAX_STRING_LENGTH];
 	char		tmp2	[MAX_STRING_LENGTH];
 	const gmlstr_t	*gml;
 
@@ -884,14 +883,14 @@ void act_buf(const char *format, const CHAR_DATA *ch, const CHAR_DATA *to,
 			break;
 		}
 	}
- 
+
 	if (!IS_SET(opt->act_flags, ACT_NOLF))
 		*point++ = '\n';
 	*point = '\0';
 
 /* first non-control char is uppercased */
 	if (!IS_SET(opt->act_flags, ACT_NOUCASE)) {
-		point = (char*)(uintptr_t)(const void *)cstrfirst(buf);
+		point = (char *) (uintptr_t) (const void *) cstrfirst(buf);
 		*point = UPPER(*point);
 	}
 }
@@ -928,10 +927,13 @@ act_skip(const CHAR_DATA *ch, const CHAR_DATA *vch, const CHAR_DATA *to,
 		return TRUE;
 
 	if (IS_NPC(to)
-	&&  to->desc == NULL
+	&&  to->desc == NULL)
+#if 0
+	XXX
 	&&  !HAS_TRIGGER(to, TRIG_ACT))
+#endif
 		return TRUE;
- 
+
 	if (IS_SET(act_flags, ACT_NOMORTAL) && !IS_NPC(to) && !IS_IMMORTAL(to))
 		return TRUE;
 
@@ -986,9 +988,12 @@ act_raw(const CHAR_DATA *ch, const CHAR_DATA *to,
 				write_to_buffer(to->desc, tmp, 0);
 		}
 	} else {
+#if 0
+		XXX
 		if (!IS_SET(act_flags, ACT_NOTRIG))
 			mp_act_trigger(tmp, _DC(to), _DC(ch),
 				arg1, arg2, TRIG_ACT);
+#endif
 		if (to->desc)
 			write_to_buffer(to->desc, tmp, 0);
 	}

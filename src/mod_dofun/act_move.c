@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.255 2001-05-09 13:15:38 kostik Exp $
+ * $Id: act_move.c,v 1.256 2001-06-25 16:51:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,8 +45,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "merc.h"
-#include "mob_prog.h"
-#include "obj_prog.h"
 #include "db.h"
 
 #include "effects.h"
@@ -3322,7 +3320,9 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	if (IS_EXTRACTED(ch))
 		return;
 
-	/* 
+#if 0
+	XXX
+	/*
 	 * If someone is following the char, these triggers get
 	 * activated for the followers before the char,
 	 * but it's safer this way...
@@ -3331,6 +3331,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
 	if (!IS_NPC(ch))
 		mp_greet_trigger(ch);
+#endif
 }
 
 void do_settraps(CHAR_DATA *ch, const char *argument)

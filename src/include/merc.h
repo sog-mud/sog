@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.329 2001-06-24 10:50:39 avn Exp $
+ * $Id: merc.h,v 1.330 2001-06-25 16:50:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -124,7 +124,6 @@ enum {
 #include "strkey_hash.h"
 #include "flag.h"
 #include "cmd.h"
-#include "cc_expr.h"
 
 #include "tables.h"
 #include "comm.h"
@@ -1285,8 +1284,6 @@ struct mob_index_data
 	MOB_INDEX_DATA *	next;
 	SPEC_FUN *		spec_fun;
 	SHOP_DATA *		pShop;
-	MPTRIG *		mptrig_list;
-	int			mptrig_types;
 	int			vnum;
 	int			fvnum;
 	int			group;
@@ -1595,23 +1592,6 @@ struct ed_data
 	mlstring	description;	/* What to see		    */
 };
 
-enum {
-	OPROG_WEAR,
-	OPROG_REMOVE,
-	OPROG_DROP,
-	OPROG_SAC,
-	OPROG_GIVE,
-	OPROG_GREET,
-	OPROG_FIGHT,
-	OPROG_DEATH,
-	OPROG_SPEECH,
-	OPROG_ENTRY,
-	OPROG_GET,
-	OPROG_AREA,
-
-	OPROG_MAX
-};
-
 /*
  * Prototype for an object.
  */
@@ -1637,9 +1617,7 @@ struct obj_index_data
 	flag_t			item_type;
 	vo_t			value[5];
 	int			limit;
-	OPROG_FUN **		oprogs;
 	mlstring		gender;
-	varr			restrictions;	/* cc_expr_t */
 };
 
 /*
@@ -1793,47 +1771,6 @@ struct room_index_data
 #define GET_MANA_RATE(r)	((r)->mana_rate + (r)->mana_rate_mod)
 
 /*
- * MOBprog definitions
- */
-#define TRIG_ACT	(A)
-#define TRIG_BRIBE	(B)
-#define TRIG_DEATH	(C)
-#define TRIG_ENTRY	(D)
-#define TRIG_FIGHT	(E)
-#define TRIG_GIVE	(F)
-#define TRIG_GREET	(G)
-#define TRIG_GRALL	(H)
-#define TRIG_KILL	(I)
-#define TRIG_HPCNT	(J)
-#define TRIG_RANDOM	(K)
-#define TRIG_SPEECH	(L)
-#define TRIG_EXIT	(M)
-#define TRIG_EXALL	(N)
-#define TRIG_DELAY	(O)
-#define TRIG_SURR	(P)
-
-/* trigger flags */
-#define TRIG_CASEDEP	(A)
-#define TRIG_REGEXP	(B)
-
-struct mptrig
-{
-	int		type;
-	const char *	phrase;
-	flag_t		mptrig_flags;
-	int		vnum;		/* mob prog code vnum */
-	void *		extra;
-	MPTRIG *	next;
-};
-
-struct mpcode
-{
-	int		vnum;
-	const char *	code;
-	MPCODE *	next;
-};
-
-/*
  *  Target types.
  */
 #define TAR_IGNORE		    0
@@ -1917,7 +1854,6 @@ int trust_level(const CHAR_DATA *ch);
 #define GET_AVE(v1, v2)		((1 + INT(v2)) * INT(v1) / 2)
 #define GET_WEAPON_AVE(obj)	GET_AVE((obj)->value[1], (obj)->value[2])
 
-#define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	      \
 				 (CPC(ch)->security >= (Area)->security || \
@@ -1974,8 +1910,6 @@ extern		DESCRIPTOR_DATA   *	descriptor_free;
 
 extern		OBJ_DATA	  *	object_list;
 
-extern		MPCODE		 *	mpcode_list;
-
 extern		ROOM_INDEX_DATA   *	top_affected_room;
 extern		CHAR_DATA	  *	top_affected_char;
 extern		OBJ_DATA	  *	top_affected_obj;
@@ -1987,8 +1921,6 @@ extern		char			log_buf[];
 extern		TIME_INFO_DATA		time_info;
 extern		WEATHER_DATA		weather_info;
 extern		int			reboot_counter;
-
-extern		bool			MOBtrigger;
 
 /*
  * The crypt(3) function is not available on some operating systems.
@@ -2196,16 +2128,6 @@ void		free_mob_index		(MOB_INDEX_DATA *pMob);
 void		show_liqlist		(CHAR_DATA *ch);
 void		show_damlist		(CHAR_DATA *ch);
 
-MPTRIG *	mptrig_new              (int type, const char *phrase, int vnum);
-void		mptrig_add		(MOB_INDEX_DATA *mob, MPTRIG *mptrig);
-void		mptrig_fix		(MOB_INDEX_DATA *mob);
-void            mptrig_free		(MPTRIG *mptrig);
-
-MPCODE *	mpcode_new		(void);
-void		mpcode_add		(MPCODE *mpcode);
-MPCODE *	mpcode_lookup		(int vnum);
-void		mpcode_free		(MPCODE *mpcode);
-
 /* extra descr recycling */
 ED_DATA	*ed_new		(void);
 ED_DATA *ed_new2	(const ED_DATA *ed, const char* name);
@@ -2288,13 +2210,13 @@ void		do_afk		(CHAR_DATA *ch, const char *argument);
 void		do_lang		(CHAR_DATA *ch, const char *argument);
 void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
-CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
+const CHAR_DATA*leader_lookup	(const CHAR_DATA *ch);
 const char *	garble		(CHAR_DATA *ch, const char *txt);
 void		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);
 #define	is_same_group(ach, bch)						\
-	(leader_lookup((CHAR_DATA*)(uintptr_t)ach) ==			\
-	leader_lookup((CHAR_DATA*)(uintptr_t)bch))
+	(leader_lookup(ach) == leader_lookup(bch))
+
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 
 void move_char(CHAR_DATA *ch, int door, bool follow);

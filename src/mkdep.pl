@@ -1,11 +1,11 @@
 #!/usr/bin/perl -w
-# $Id: mkdep.pl,v 1.5 2001-01-18 12:15:07 avn Exp $
+# $Id: mkdep.pl,v 1.6 2001-06-25 16:50:50 fjoe Exp $
 
 use strict;
 require "../mkutil.pl";
 
 if ($#ARGV < 3) {
-	print STDERR "Syntax: makedep.pl <mod_name> <depfile> <cdepfile> <modules>...\n";
+	print STDERR "Syntax: mkdep.pl <mod_name> <depfile> <cdepfile> <modules>...\n";
 	exit(1);
 }
 

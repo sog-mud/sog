@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.25 2001-03-16 12:41:30 cs Exp $
+ * $Id: updfun.c,v 1.26 2001-06-25 16:51:25 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,8 +33,6 @@
 #include "merc.h"
 #include "db.h"
 #include "auction.h"
-#include "mob_prog.h"
-#include "obj_prog.h"
 
 #include "fight.h"
 #include "_update.h"
@@ -64,8 +62,11 @@ violence_update_cb(void *vo, va_list ap)
 {
 	CHAR_DATA *ch = (CHAR_DATA *) vo;
 	CHAR_DATA *victim;
+#if 0
+	XXX
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
+#endif
 
 	/* decrement the wait */
 	if (ch->desc == NULL)
@@ -90,12 +91,15 @@ violence_update_cb(void *vo, va_list ap)
 	if (victim->in_room != ch->in_room)
 		return NULL;
 
+#if 0
+	XXX
 	for (obj = ch->carrying; obj; obj = obj_next) {
 		obj_next = obj->next_content;
 		if (ch->fighting == NULL)
 			break;
 		oprog_call(OPROG_FIGHT, obj, ch, NULL);
 	}
+#endif
 
 	if ((victim = ch->fighting) == NULL
 	||  victim->in_room != ch->in_room)
@@ -105,6 +109,8 @@ violence_update_cb(void *vo, va_list ap)
 	 * Fun for the whole family!
 	 */
 	vo_foreach(ch->in_room, &iter_char_room, check_assist_cb, ch, victim);
+#if 0
+	XXX
 	if (IS_NPC(ch)) {
 		if (HAS_TRIGGER(ch, TRIG_FIGHT)) {
 			mp_percent_trigger(ch, victim, NULL, NULL, TRIG_FIGHT);
@@ -115,6 +121,7 @@ violence_update_cb(void *vo, va_list ap)
 		if (HAS_TRIGGER(ch, TRIG_HPCNT))
 			mp_hprct_trigger(ch, victim);
 	}
+#endif
 
 	return NULL;
 }
@@ -232,6 +239,8 @@ mobile_update_cb(void *vo, va_list ap)
 			return NULL;
 	}
 
+#if 0
+	XXX
 /* check triggers (only if mobile still in default position) */
 
 	if (ch->position == ch->pMobIndex->default_pos) {
@@ -247,6 +256,7 @@ mobile_update_cb(void *vo, va_list ap)
 			return NULL;
 		}
 	}
+#endif
 
 /* potion using and stuff for intelligent mobs */
 
@@ -507,8 +517,10 @@ weather_update(void)
 		return;
 
 	for (ch = char_list; ch; ch = ch->next) {
+#if 0
 		if (IS_NPC(ch) && !HAS_TRIGGER(ch, TRIG_ACT))
 			continue;
+#endif
 		if (!IS_OUTSIDE(ch) || !IS_AWAKE(ch))
 			continue;
 
@@ -832,12 +844,15 @@ obj_update_cb(void *vo, va_list ap)
 
 	update_obj_affects(obj);
 
+#if 0
+	XXX
 	if ((t_obj->in_room != NULL &&
 	     t_obj->in_room->area->nplayer > 0)
         ||  (t_obj->carried_by &&
 	     t_obj->carried_by->in_room &&
 	     t_obj->carried_by->in_room->area->nplayer > 0))
 		oprog_call(OPROG_AREA, obj, NULL, NULL);
+#endif
 
 	if (material_is(obj, MATERIAL_SUSC_HEAT) 
 	&&  update_melt_obj(obj))

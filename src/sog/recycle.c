@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.111 2001-06-24 10:50:51 avn Exp $
+ * $Id: recycle.c,v 1.112 2001-06-25 16:51:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -397,72 +397,6 @@ void char_free(CHAR_DATA *ch)
 	(*free_count)++;
 }
 
-MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
-{
-	const char *p;
-	MPTRIG *mptrig;
-
-	mptrig = calloc(1, sizeof(*mptrig));
-	mptrig->type	= type;
-	mptrig->vnum	= vnum;
-	mptrig->phrase	= str_dup(phrase);
-
-	for (p = mptrig->phrase; *p; p++)
-		if (ISUPPER(*p)) {
-			SET_BIT(mptrig->mptrig_flags, TRIG_CASEDEP);
-			break;
-		}
-
-	if ((type == TRIG_ACT || type == TRIG_SPEECH) && phrase[0] == '*') {
-		int errcode;
-		int cflags = REG_EXTENDED | REG_NOSUB;
-
-		SET_BIT(mptrig->mptrig_flags, TRIG_REGEXP);
-		if (!IS_SET(mptrig->mptrig_flags, TRIG_CASEDEP))
-			cflags |= REG_ICASE;
-
-		mptrig->extra = malloc(sizeof(regex_t));
-		errcode = regcomp(mptrig->extra, phrase+1, cflags);
-		if (errcode) {
-			char buf[MAX_STRING_LENGTH];
-
-			regerror(errcode, mptrig->extra, buf, sizeof(buf));
-			log(LOG_INFO, "bad trigger for vnum %d (phrase '%s'): %s",
-				   vnum, phrase, buf);
-		}
-	}
-		
-	return mptrig;
-}
-
-void mptrig_add(MOB_INDEX_DATA *mob, MPTRIG *mptrig)
-{
-	SET_BIT(mob->mptrig_types, mptrig->type);
-	SLIST_ADD(MPTRIG, mob->mptrig_list, mptrig);
-}
-
-void mptrig_fix(MOB_INDEX_DATA *mob)
-{
-	MPTRIG *mptrig;
-
-	for (mptrig = mob->mptrig_list; mptrig; mptrig = mptrig->next)
-		SET_BIT(mob->mptrig_types, mptrig->type);
-}
-
-void mptrig_free(MPTRIG *mp)
-{
-	if (!mp)
-		return;
-
-	if (IS_SET(mp->mptrig_flags, TRIG_REGEXP)) {
-		regfree(mp->extra);
-		free(mp->extra);
-	}
-
-	free_string(mp->phrase);
-	free(mp);
-}
-
 RESET_DATA *reset_new(void)
 {
 	RESET_DATA *pReset;
@@ -633,7 +567,6 @@ OBJ_INDEX_DATA *new_obj_index(void)
 	pObj->material		= str_dup("unknown");
 	pObj->condition		= 100;
 	pObj->limit		= -1;
-	cc_vexpr_init(&pObj->restrictions);
 	mlstr_init2(&pObj->gender, flag_string(gender_table, SEX_NEUTRAL));
         top_obj_index++;
 	return pObj;
@@ -653,7 +586,6 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	aff_free_list(pObj->affected);
 	ed_free(pObj->ed);
 	objval_destroy(pObj->item_type, pObj->value);
-	varr_destroy(&pObj->restrictions);
 
 	top_obj_index--;
 	mem_free(pObj);
@@ -692,53 +624,9 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 	mlstr_destroy(&pMob->short_descr);
 	mlstr_destroy(&pMob->long_descr);
 	mlstr_destroy(&pMob->description);
-	mptrig_free(pMob->mptrig_list);
 	free_shop(pMob->pShop);
 	aff_free_list(pMob->affected);
 
 	top_mob_index--;
 	mem_free(pMob);
-}
-
-MPCODE *mpcode_list;
-
-MPCODE *mpcode_new(void)
-{
-	MPCODE *mpcode;
-
-        mpcode = calloc(1, sizeof(*mpcode));
-	mpcode->code = str_empty;
-
-	top_mprog_index++;
-	return mpcode;
-}
-
-void mpcode_add(MPCODE *mpcode)
-{
-	if (mpcode_list == NULL)
-		mpcode_list = mpcode;
-	else {
-		mpcode->next = mpcode_list;
-		mpcode_list = mpcode;
-	}
-}
-
-MPCODE *mpcode_lookup(int vnum)
-{
-	MPCODE *mpcode;
-	for (mpcode = mpcode_list; mpcode; mpcode = mpcode->next)
-	    	if (mpcode->vnum == vnum)
-        		return mpcode;
-	return NULL;
-}    
- 
-void mpcode_free(MPCODE *mpcode)
-{
-	if (!mpcode)
-		return;
-
-	free_string(mpcode->code);
-
-	top_mprog_index--;
-	free(mpcode);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.23 2001-06-24 10:50:53 avn Exp $
+ * $Id: str.c,v 1.24 2001-06-25 16:51:31 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -38,8 +38,8 @@
 
 #if defined (WIN32)
 #	define vsnprintf	_vsnprintf
-int strncasecmp (const char *s1, const char *s2, size_t n);
-int strcasecmp (const char *s1, const char *s2);
+int strncasecmp(const char *s1, const char *s2, size_t n);
+int strcasecmp(const char *s1, const char *s2);
 #endif
 
 char str_empty[1];
@@ -59,15 +59,16 @@ struct str {
 	str *		next;
 };
 
-#define GET_DATA(s) (((const char*) s) + sizeof(str) + sizeof(memchunk_t))
-#define GET_STR(p) ((str*)(uintptr_t)(((const char*) p) - sizeof(str) - sizeof(memchunk_t)))
+#define GET_DATA(s) (((const char *) s) + sizeof(str) + sizeof(memchunk_t))
+#define GET_STR(p) ((str *)(uintptr_t)(((const char *) p) - sizeof(str) - sizeof(memchunk_t)))
 
 str *hash_str[MAX_STRING_HASH];
 
-static str *str_lookup(const char* p, int *hash);
-static str *str_alloc(const char*, int hash);
+static str *str_lookup(const char *p, int *hash);
+static str *str_alloc(const char *, int hash);
 
-const char *str_dup(const char *p)
+const char *
+str_dup(const char *p)
 {
 	int hash;
 	str *s;
@@ -82,7 +83,8 @@ const char *str_dup(const char *p)
 	return GET_DATA(s);
 }
 
-const char *str_qdup(const char *p)
+const char *
+str_qdup(const char *p)
 {
 	str *s;
 
@@ -95,7 +97,8 @@ const char *str_qdup(const char *p)
 	return p;
 }
 
-void free_string(const char *p)
+void
+free_string(const char *p)
 {
 	str *s, *q;
 	int hash;
@@ -128,7 +131,8 @@ void free_string(const char *p)
 /*
  * str_printf -- snprintf to string
  */
-const char *str_printf(const char* format,...)
+const char *
+str_printf(const char *format,...)
 {
 	va_list ap;
 	char buf[MAX_STRING_LENGTH];
@@ -148,14 +152,16 @@ const char *str_printf(const char* format,...)
  * strnzcpy - copy from dest to src and always append terminating '\0'.
  *            len MUST BE > 0
  */
-char *strnzcpy(char *dest, size_t len, const char *src)
+char *
+strnzcpy(char *dest, size_t len, const char *src)
 {
 	strncpy(dest, src, len);
 	dest[len-1] = '\0';
 	return dest;
 }
 
-char *strnzcat(char *dest, size_t len, const char *src)
+char *
+strnzcat(char *dest, size_t len, const char *src)
 {
 	size_t old_len;
 
@@ -167,7 +173,8 @@ char *strnzcat(char *dest, size_t len, const char *src)
 	return dest;
 }
 
-char *strnzncat(char *dest, size_t len, const char *src, size_t count)
+char *
+strnzncat(char *dest, size_t len, const char *src, size_t count)
 {
 	size_t old_len;
 
@@ -179,7 +186,8 @@ char *strnzncat(char *dest, size_t len, const char *src, size_t count)
 	return dest;
 }
 
-char *strlwr(const char *s)
+char *
+strlwr(const char *s)
 {
 	static char buf[MAX_STRING_LENGTH];
 	char *p;
@@ -196,7 +204,8 @@ char *strlwr(const char *s)
 /*
  * Compare strings, case insensitive.
  */
-int str_cmp(const char *astr, const char *bstr)
+int
+str_cmp(const char *astr, const char *bstr)
 {
 	if (astr == NULL)
 		return bstr == NULL ? 0 : -1;
@@ -208,7 +217,8 @@ int str_cmp(const char *astr, const char *bstr)
 /*
  * NULL-safe case-sensitive string compare
  */
-int str_cscmp(const char *astr, const char *bstr)
+int
+str_cscmp(const char *astr, const char *bstr)
 {
 	if (astr == NULL)
 		return bstr == NULL ? 0 : -1;
@@ -217,7 +227,8 @@ int str_cscmp(const char *astr, const char *bstr)
 	return strcmp(astr, bstr);
 }
 
-int str_ncmp(const char *astr, const char *bstr, size_t len)
+int
+str_ncmp(const char *astr, const char *bstr, size_t len)
 {
 	if (astr == NULL)
 		return bstr == NULL ? 0 : -1;
@@ -231,7 +242,8 @@ int str_ncmp(const char *astr, const char *bstr, size_t len)
  * Return TRUE if astr not a prefix of bstr
  *   (compatibility with historical functions).
  */
-bool str_prefix(const char *astr, const char *bstr)
+bool
+str_prefix(const char *astr, const char *bstr)
 {
 	if (astr == NULL)
 		return TRUE;
@@ -252,7 +264,8 @@ bool str_prefix(const char *astr, const char *bstr)
  * Returns TRUE is astr not part of bstr.
  *   (compatibility with historical functions).
  */
-bool str_infix(const char *astr, const char *bstr)
+bool
+str_infix(const char *astr, const char *bstr)
 {
 	int sstr1;
 	int sstr2;
@@ -278,7 +291,8 @@ bool str_infix(const char *astr, const char *bstr)
  * Return TRUE if astr not a suffix of bstr
  *   (compatibility with historical functions).
  */
-bool str_suffix(const char *astr, const char *bstr)
+bool
+str_suffix(const char *astr, const char *bstr)
 {
 	int sstr1;
 	int sstr2;
@@ -306,7 +320,7 @@ static int TT[] = {
 	132, 56, 148, 75, 128, 133, 158, 100, 130, 126, 91, 13, 153, 246, 216, 219,
 	119, 68, 223, 78, 83, 88, 201, 99, 122, 11, 92, 32, 136, 114, 52, 10,
 	138, 30, 48, 183, 156, 35, 61, 26, 143, 74, 251, 94, 129, 162, 63, 152,
-	170, 7, 115, 167, 241, 206, 3, 150, 55, 59, 151, 220, 90, 53, 23, 131, 
+	170, 7, 115, 167, 241, 206, 3, 150, 55, 59, 151, 220, 90, 53, 23, 131,
 	125, 173, 15, 238, 79, 95, 89, 16, 105, 137, 225, 224, 217, 160, 37, 123,
 	118, 73, 2, 157, 46, 116, 9, 145, 134, 228, 207, 212, 202, 215, 69, 229,
 	27, 188, 67, 124, 168, 252, 42, 4, 29, 108, 21, 247, 19, 205, 39, 203,
@@ -383,7 +397,8 @@ backslash(int ch)
  */
 
 #if !defined(HASHTEST)
-static str *str_alloc(const char *p, int hash)
+static str *
+str_alloc(const char *p, int hash)
 {
 	char *q;
 	str *s;
@@ -401,7 +416,8 @@ static str *str_alloc(const char *p, int hash)
 	return hash_str[hash] = s;
 }
 
-static str *str_lookup(const char *p, int *hash)
+static str *
+str_lookup(const char *p, int *hash)
 {
 	str *s;
 	for (s = hash_str[*hash = strhash(p)]; s; s = s->next)

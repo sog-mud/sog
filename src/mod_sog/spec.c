@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.24 2001-06-24 21:12:51 avn Exp $
+ * $Id: spec.c,v 1.25 2001-06-25 16:51:31 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -68,7 +68,10 @@ spec_init(spec_t *spec)
 	spec->spec_class = 0;
 
 	varr_init(&spec->spec_skills, &v_spec_skills);
+#if 0
+	XXX
 	cc_vexpr_init(&spec->spec_deps);
+#endif
 }
 
 spec_t *
@@ -77,7 +80,10 @@ spec_cpy(spec_t *dst, const spec_t *src)
 	dst->spec_name = str_qdup(src->spec_name);
 	dst->spec_class = src->spec_class;
 	varr_cpy(&dst->spec_skills, &src->spec_skills);
+#if 0
+	XXX
 	varr_cpy(&dst->spec_deps, &src->spec_deps);
+#endif
 	return dst;
 }
 
@@ -86,7 +92,10 @@ spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
 	varr_destroy(&spec->spec_skills);
+#if 0
+	XXX
 	varr_destroy(&spec->spec_deps);
+#endif
 }
 
 spec_skill_t *
@@ -179,7 +188,7 @@ void update_skills(CHAR_DATA *ch)
 	varr_foreach(&PC(ch)->specs, add_skills_cb, ch, bonus_skills);
 
 /* remove not matched skills */
-	if (!IS_IMMORTAL(ch)) 
+	if (!IS_IMMORTAL(ch))
 		varr_foreach(&PC(ch)->learned, check_one_skill_cb, ch);
 }
 
@@ -376,7 +385,7 @@ static FOREACH_CB_FUN(spec_update_cb, p, ap)
 			if (!str_cmp(r->race_pcdata->skill_spec, *pspn))
 				return NULL;			/* all ok */
 			new_spn = r->race_pcdata->skill_spec;
-		} else 
+		} else
 			new_spn = str_empty;
 		break;
 
@@ -458,6 +467,8 @@ void spec_update(CHAR_DATA *ch)
 
 static const FOREACH_CB_FUN(replace_cb, p, ap)
 {
+#if 0
+	XXX
 	const char **pspn = (const char **) p;
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
@@ -474,6 +485,7 @@ static const FOREACH_CB_FUN(replace_cb, p, ap)
 	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
 				 spn_rm, spn_add)) != NULL)
 		return rv;
+#endif
 
 	return NULL;
 }
@@ -482,15 +494,21 @@ const char *
 spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 {
 	const char *rv;
+#if 0
+	XXX
 	spec_t *spec;
+#endif
 
 	if (IS_NPC(ch))
 		return "is_npc";				// notrans
 
+#if 0
+	XXX
 	if ((spec = spec_lookup(spn_add)) != NULL
 	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
 				 spn_rm, spn_add)) != NULL)
 		return rv;
+#endif
 
 	if ((rv = varr_foreach(&PC(ch)->specs, (void*)replace_cb, ch,
 			       spn_rm, spn_add)) != NULL)

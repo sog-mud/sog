@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.74 2001-06-22 07:13:45 avn Exp $
+ * $Id: olc_mob.c,v 1.75 2001-06-25 16:51:23 fjoe Exp $
  */
 
 #include "olc.h"
@@ -70,8 +70,11 @@ DECLARE_OLC_FUN(mobed_gold		);  /* ROM */
 DECLARE_OLC_FUN(mobed_hitroll		);  /* ROM */
 DECLARE_OLC_FUN(mobed_damtype		);  /* ROM */
 DECLARE_OLC_FUN(mobed_group		);  /* ROM */
+#if 0
+XXX
 DECLARE_OLC_FUN(mobed_trigadd		);  /* ROM */
 DECLARE_OLC_FUN(mobed_trigdel		);  /* ROM */
+#endif
 DECLARE_OLC_FUN(mobed_prac		); 
 DECLARE_OLC_FUN(mobed_clan		);
 DECLARE_OLC_FUN(mobed_clone		);
@@ -129,8 +132,11 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "damtype",	mobed_damtype					},
 	{ "group",	mobed_group					},
 	{ "clan",	mobed_clan,	NULL,		&clans		},
+#if 0
+	XXX
 	{ "trigadd",	mobed_trigadd					},
 	{ "trigdel",	mobed_trigdel					},
+#endif
 	{ "clone",	mobed_clone					},
 	{ "wizi",	mobed_wizi					},
 	{ "incog",	mobed_incog					},
@@ -238,7 +244,10 @@ OLC_FUN(mobed_show)
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA	*pMob;
 	AREA_DATA	*pArea;
+#if 0
+	XXX
 	MPTRIG *mptrig;
+#endif
 	BUFFER *buf;
 	int i;
 
@@ -413,6 +422,8 @@ OLC_FUN(mobed_show)
 		}
 	}
 
+#if 0
+	XXX
 	if (pMob->mptrig_list) {
 		int cnt = 0;
 
@@ -431,6 +442,7 @@ OLC_FUN(mobed_show)
 			cnt++;
 		}
 	}
+#endif
 
 bamfout:
 	page_to_char(buf_string(buf), ch);
@@ -1090,6 +1102,8 @@ OLC_FUN(mobed_clan)
 	return olced_foreign_strkey(ch, argument, cmd, &pMob->clan);
 }
 
+#if 0
+XXX
 OLC_FUN(mobed_trigadd)
 {
 	int value;
@@ -1184,6 +1198,7 @@ OLC_FUN(mobed_trigdel)
 	act_char("Trigger removed.", ch);
 	return TRUE;
 }
+#endif
 
 OLC_FUN(mobed_clone)
 {

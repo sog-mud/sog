@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.150 2001-06-24 10:50:53 avn Exp $
+ * $Id: tables.c,v 1.151 2001-06-25 16:51:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -918,39 +918,6 @@ flaginfo_t skill_groups[] =
 	{ "summoning",		GROUP_SUMMONING,	TRUE	},
 	{ "abjuration",		GROUP_ABJURATION,	TRUE	},
 	{ "charm", 		GROUP_CHARM,		TRUE	},
-
-	{ NULL, 0, FALSE }
-};
-
-flaginfo_t mptrig_types[] =
-{
-	{ "",			TABLE_INTVAL,		FALSE	},
-
-	{ "act",		TRIG_ACT,		TRUE	},
-	{ "bribe",		TRIG_BRIBE,		TRUE 	},
-	{ "death",		TRIG_DEATH,		TRUE    },
-	{ "entry",		TRIG_ENTRY,		TRUE	},
-	{ "fight",		TRIG_FIGHT,		TRUE	},
-	{ "give",		TRIG_GIVE,		TRUE	},
-	{ "greet",		TRIG_GREET,		TRUE    },
-	{ "grall",		TRIG_GRALL,		TRUE	},
-	{ "kill",		TRIG_KILL,		TRUE	},
-	{ "hpcnt",		TRIG_HPCNT,		TRUE    },
-	{ "random",		TRIG_RANDOM,		TRUE	},
-	{ "speech",		TRIG_SPEECH,		TRUE	},
-	{ "exit",		TRIG_EXIT,		TRUE    },
-	{ "exall",		TRIG_EXALL,		TRUE    },
-	{ "delay",		TRIG_DELAY,		TRUE    },
-	{ "surr",		TRIG_SURR,		TRUE    },
-
-	{ NULL, 0, FALSE }
-};
-
-flaginfo_t mptrig_flags[] =
-{
-	{ "",			TABLE_BITVAL,		FALSE	},
-
-	{ "case-sensitive",	TRIG_CASEDEP,		FALSE	},
 
 	{ NULL, 0, FALSE }
 };

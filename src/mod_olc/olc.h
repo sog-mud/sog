@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.75 2000-10-22 17:53:43 fjoe Exp $
+ * $Id: olc.h,v 1.76 2001-06-25 16:51:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,8 +165,6 @@ bool olced_ival		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *);
 bool olced_gender	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, mlstring *);
-bool olced_cc_vexpr	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, varr *v, const char *ecn);
 bool olced_addaffect	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int level, AFFECT_DATA **ppaf);
 bool olced_delaffect	(CHAR_DATA *ch, const char *argument,

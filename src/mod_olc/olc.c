@@ -1,4 +1,4 @@
-/*-                        
+/*-
  * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.129 2001-06-24 21:12:46 avn Exp $
+ * $Id: olc.c,v 1.130 2001-06-25 16:51:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,7 +94,10 @@ olced_t olced_table[] = {
 	{ ED_ROOM,	"RoomEd",	olc_cmds_room	},
 	{ ED_OBJ,	"ObjEd",	olc_cmds_obj	},
 	{ ED_MOB,	"MobEd",	olc_cmds_mob	},
+#if 0
+	XXX
 	{ ED_MPCODE,	"MPEd",		olc_cmds_mpcode	},
+#endif
 	{ ED_HELP,	"HelpEd",	olc_cmds_help	},
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
 	{ ED_CLAN,	"ClanEd",	olc_cmds_clan	},
@@ -1062,91 +1065,6 @@ olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
 }
 
 bool
-olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
-	       varr *v, const char *ecn)
-{
-	char arg[MAX_INPUT_LENGTH];
-	bool del;
-	const char *p;
-	cc_eclass_t *ecl;
-	cc_expr_t *e;
-
-	if ((ecl = cc_eclass_lookup(ecn)) == NULL) {
-		act_puts("$t: $T: unknown eclass.",
-			 ch, OLCED(ch)->name, ecn,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		return FALSE;
-	}
-
-	p = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')
-		OLC_ERROR("'OLC CC_EXPR'");
-
-	if (!str_prefix(arg, "show")) {
-		BUFFER *buf = buf_new(0);
-		print_cc_vexpr(v, "Restrictions:", buf);
-		page_to_char(buf_string(buf), ch);
-		buf_free(buf);
-		return FALSE;
-	}
-
-	if ((del = !str_prefix(arg, "delete"))
-	||  !str_prefix(arg, "mfun")) {
-		int num;
-
-		argument = one_argument(p, arg, sizeof(arg));
-		if (!is_number(arg))
-			OLC_ERROR("'OLC CC_EXPR'");
-
-		num = atoi(arg);
-		e = varr_get(v, num);
-		if (e == NULL) {
-			act_puts3("$t: $T: no expr with number '$U'.",
-				  ch, OLCED(ch)->name, cmd->name, arg,
-				  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-			return FALSE;
-		}
-
-		/*
-		 * 'delete'
-		 */
-		if (del) {
-			varr_edelete(v, e);
-			act_puts("$t: $T: expr deleted.",
-				 ch, OLCED(ch)->name, cmd->name,
-				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-		} else {
-			one_argument(argument, arg, sizeof(arg));
-			if (cc_efun_lookup(ecl, arg) == NULL) {
-				act_puts3("$t: $T: no such efun in eclass '$U'.",
-					  ch, OLCED(ch)->name, cmd->name, arg,
-					  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
-					  POS_DEAD);
-				return FALSE;
-			}
-
-			free_string(e->mfun);
-			e->mfun = str_dup(arg);
-		}
-	} else {
-		if (!str_prefix(arg, "add")) {
-			if (p[0] == '\0')
-				OLC_ERROR("'OLC CC_EXPR'");
-			argument = p;
-		}
-
-		e = varr_enew(v);
-		e->expr = str_dup(argument);
-		act_puts("$t: $T: expr added.",
-			 ch, OLCED(ch)->name, cmd->name,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
-	}
-
-	olced_cc_vexpr(ch, "show", cmd, v, ecn);
-	return TRUE;
-}
-
-bool
 olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		int level, AFFECT_DATA **ppaf)
 {
@@ -1438,7 +1356,7 @@ OLC_FUN(show_version)
 		 CREDITS, ch);
 
 	return FALSE;
-}    
+}
 
 AREA_DATA *get_edited_area(CHAR_DATA *ch)
 {
@@ -1462,11 +1380,14 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch)
 		vnum = ((OBJ_INDEX_DATA*) p)->vnum;
 	else if (olced->id == ED_MOB)
 		vnum = ((MOB_INDEX_DATA*) p)->vnum;
+#if 0
+	XXX
 	else if (olced->id == ED_MPCODE)
 		vnum = ((MPCODE*) p)->vnum;
+#endif
 	else
 		return NULL;
-		
+
 	return area_vnum_lookup(vnum);
 }
 

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.20 2001-06-24 21:12:41 avn Exp $
+# $Id: Makefile.inc,v 1.21 2001-06-25 16:50:48 fjoe Exp $
 #
 
 #
@@ -20,7 +20,7 @@ CFLAGS+= -W -Wbad-function-cast -Wcast-align\
 	-Wcast-qual -Wchar-subscripts -Wconversion -Winline\
 	-Wmissing-prototypes -Wnested-externs -Wpointer-arith\
 	-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
-CFLAGS+= -Werror
+#CFLAGS+= -Werror
 .endif
 LDFLAGS=	-export-dynamic
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.12 2001-06-24 10:50:40 avn Exp $
+ * $Id: spec.h,v 1.13 2001-06-25 16:51:04 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -49,7 +49,10 @@ struct spec_t {
 	const char *spec_name;	/* spec name, also used as file name	*/
 	flag_t spec_class;	/* spec class				*/
 	varr spec_skills;	/* spec_skill_t				*/
+#if 0
+	XXX
 	varr spec_deps;		/* cc_expr_t				*/
+#endif
 	flag_t spec_flags;	/* SPF_CHANGED - for OLC		*/
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.244 2001-06-24 21:12:52 avn Exp $
+ * $Id: db.c,v 1.245 2001-06-25 16:51:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -464,7 +464,10 @@ void boot_db(void)
 	load_msgdb();
 	db_load_file(&db_cmd, ETC_PATH, CMD_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
+#if 0
+	XXX
 	db_load_file(&db_cc_expr, ETC_PATH, CC_EXPR_CONF);
+#endif
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);

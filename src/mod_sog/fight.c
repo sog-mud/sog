@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.295 2001-06-16 18:50:00 fjoe Exp $
+ * $Id: fight.c,v 1.296 2001-06-25 16:51:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,8 +53,6 @@
 
 #include "merc.h"
 #include "rating.h"
-#include "mob_prog.h"
-#include "obj_prog.h"
 
 #include "effects.h"
 #include "magic.h"
@@ -699,6 +697,8 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	group_gain(ch, victim);
 
+#if 0
+	XXX
 	/*
 	 * Death trigger
 	 */
@@ -706,6 +706,7 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		victim->position = POS_STANDING;
 		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
 	}
+#endif
 
 	/*
 	 * IS_NPC victim is not valid after raw_kill
@@ -997,10 +998,13 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		if (victim->position > POS_STUNNED) {
 			if (victim->fighting == NULL) {
 				set_fighting(victim, ch);
+#if 0
+				XXX
 				if (IS_NPC(victim)
 				&&  HAS_TRIGGER(victim, TRIG_KILL))
 					mp_percent_trigger(victim, ch, NULL,
 							   NULL, TRIG_KILL);
+#endif
 			}
 			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
 				victim->position = POS_FIGHTING;
@@ -1404,7 +1408,10 @@ OBJ_DATA *
 raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *vch, *vch_next;
+#if 0
+	XXX
 	OBJ_DATA *obj, *obj_next;
+#endif
 	int i;
 	OBJ_DATA *tattoo, *clanmark;
 	OBJ_DATA *corpse = NULL;
@@ -1429,6 +1436,8 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		return NULL;
 	}
 
+#if 0
+	XXX
 	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 		if (obj->wear_loc != WEAR_NONE
@@ -1437,6 +1446,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 			return NULL;
 		}
 	}
+#endif
 
 	if (IS_NPC(victim))
 		quest_handle_death(ch, victim);
@@ -2679,7 +2689,7 @@ death_cry(CHAR_DATA *ch)
 static void
 group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	CHAR_DATA *lch;
+	const CHAR_DATA *lch;
 	CHAR_DATA *gch;
 	int xp;
 	int members;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.18 2001-06-24 10:51:03 avn Exp $
+ * $Id: db_spec.c,v 1.19 2001-06-25 16:51:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -33,7 +33,10 @@
 #include "db.h"
 
 DECLARE_DBLOAD_FUN(load_spec);
+#if 0
+XXX
 DECLARE_DBLOAD_FUN(load_spec_r);
+#endif
 DECLARE_DBLOAD_FUN(load_spec_skill);
 
 DECLARE_DBINIT_FUN(init_specs);
@@ -41,7 +44,10 @@ DECLARE_DBINIT_FUN(init_specs);
 DBFUN dbfun_specs[] =
 {
 	{ "SPEC",	load_spec,	NULL	},		// notrans
+#if 0
+	XXX
 	{ "R",		load_spec_r,	NULL	},		// notrans
+#endif
 	{ "SKILL",	load_spec_skill,NULL	},		// notrans
 	{ NULL, NULL, NULL }
 };
@@ -114,6 +120,8 @@ DBLOAD_FUN(load_spec)
 	}
 }
 
+#if 0
+XXX
 DBLOAD_FUN(load_spec_r)
 {
 	spec_t *spec = arg;
@@ -126,6 +134,7 @@ DBLOAD_FUN(load_spec_r)
 
 	fread_cc_vexpr(&spec->spec_deps, "spec", fp);		// notrans
 }
+#endif
 
 DBLOAD_FUN(load_spec_skill)
 {

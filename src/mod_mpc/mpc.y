@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.14 2001-06-23 17:17:15 fjoe Exp $
+ * $Id: mpc.y,v 1.15 2001-06-25 16:51:20 fjoe Exp $
  */
 
 /*
@@ -103,7 +103,7 @@ argtype_push(prog_t *prog, int type_tag)
  * Pop n arguments from argument type stack
  */
 static void
-argtype_popn(prog_t *prog, int n)
+argtype_popn(prog_t *prog, size_t n)
 {
 	assert(varr_size(&prog->args) >= n);
 	varr_size(&prog->args) -= n;
@@ -1480,77 +1480,7 @@ static dynafun_data_t mpc_dynafun_tab[] = {
 	{ "nonexistent",	MT_VOID, 0				},
 	{ NULL }
 };
-
-const char *mpc_dynafuns[] = {
-	"number_range",
-	"print",
-	"print2",
-	"prints",
-	"nonexistent",
-	NULL
-};
 #endif
-
-void
-mpc_init()
-{
-	int_const_t *ic;
-	const char **pp;
-#if defined(MPC)
-	module_t m;
-#endif
-
-	hash_init(&glob_syms, &h_syms);
-
-	/*
-	 * add consts to global symbol table
-	 */
-	for (ic = ic_tab; ic->name != NULL; ic++) {
-		const void *p;
-		sym_t sym;
-
-		sym.name = str_dup(ic->name);
-		sym.type = SYM_VAR;
-		sym.s.var.type_tag = MT_INT;
-		sym.s.var.data.i = ic->value;
-		sym.s.var.is_const = TRUE;
-
-		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
-			log(LOG_ERROR, "%s: duplicate symbol (const)",
-			    sym.name);
-		}
-		sym_destroy(&sym);
-	}
-
-	/*
-	 * add dynafuns to global symbol table
-	 */
-	for (pp = mpc_dynafuns; *pp != NULL; pp++) {
-		const void *p;
-		sym_t sym;
-
-		sym.name = str_dup(*pp);
-		sym.type = SYM_FUNC;
-
-		if ((p = hash_insert(&glob_syms, sym.name, &sym)) == NULL) {
-			log(LOG_ERROR, "%s: duplicate symbol (func)",
-			    sym.name);
-		}
-		sym_destroy(&sym);
-	}
-
-#if defined(MPC)
-	init_dynafuns();
-
-	m.dlh = dlopen(NULL, 0);
-	if (m.dlh == NULL) {
-		fprintf(stderr, "dlopen: %s", dlerror());
-		exit(1);
-	}
-
-	dynafun_tab_register(mpc_dynafun_tab, &m);
-#endif
-}
 
 #if defined(MPC)
 static void

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.272 2001-06-22 07:13:36 avn Exp $
+ * $Id: act_wiz.c,v 1.273 2001-06-25 16:51:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,12 +62,10 @@
 #endif
 
 #include "merc.h"
-#include "obj_prog.h"
 #include "cmd.h"
 #include "db.h"
 #include "ban.h"
 #include "socials.h"
-#include "mob_prog.h"
 #include "string_edit.h"
 
 #include "quest.h"
@@ -78,7 +76,10 @@ DECLARE_DO_FUN(do_rstat	);
 DECLARE_DO_FUN(do_mstat	);
 DECLARE_DO_FUN(do_dstat	);
 DECLARE_DO_FUN(do_ostat	);
+#if 0
+XXX
 DECLARE_DO_FUN(do_mpstat);
+#endif
 DECLARE_DO_FUN(do_rset	);
 DECLARE_DO_FUN(do_mset	);
 DECLARE_DO_FUN(do_oset	);
@@ -885,10 +886,13 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+#if 0
+	XXX
 	if (!str_cmp(arg, "mp")) {
 		do_mpstat(ch, string);
 		return;
 	}
+#endif
 
 	/* do it the old way */
 	obj = get_obj_world(ch, argument);
@@ -1018,7 +1022,10 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 
 void do_ostat(CHAR_DATA *ch, const char *argument)
 {
+#if 0
+	XXX
 	int i;
+#endif
 	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -1119,6 +1126,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 				   FOA_F_NODURATION);
 	format_obj_affects(output, obj->affected, 0);
 
+#if 0
+	XXX
 	if (obj->pObjIndex->oprogs) {
 		buf_append(output, "Object progs:\n");
 		for (i = 0; i < OPROG_MAX; i++) {
@@ -1130,10 +1139,15 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 			}
 		}
 	}
+#endif
 
 	buf_printf(output, BUF_END, "Damage condition: %d (%s)\n",
 		   obj->condition, get_cond_alias(obj));
+#if 0
+	XXX
 	print_cc_vexpr(&obj->pObjIndex->restrictions, "Restrictions:", output);
+#endif
+
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -4620,6 +4634,8 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fclose(fp);
 }
 
+#if 0
+XXX
 void do_mob(CHAR_DATA *ch, const char *argument)
 {
 	/*
@@ -4629,12 +4645,13 @@ void do_mob(CHAR_DATA *ch, const char *argument)
 		return;
 	mob_interpret(ch, argument);
 }
+#endif
 
 void do_shapeshift(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	form_index_t *form;
-	
+
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
@@ -4650,6 +4667,8 @@ void do_shapeshift(CHAR_DATA *ch, const char *argument)
 	shapeshift(ch, arg);
 }
 
+#if 0
+XXX
 /* 
  * Displays MOBprogram triggers of a mobile
  *
@@ -4707,6 +4726,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	page_to_char(buf_string(buf), ch);
 	buf_free(buf);
 }
+#endif
 
 extern int max_rnd_cnt;
 extern int rnd_cnt;

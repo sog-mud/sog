@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.6 2001-06-23 17:17:15 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.7 2001-06-25 16:51:20 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -49,7 +49,7 @@
 static int
 mpc_getc(prog_t *prog)
 {
-	if (prog->cp - prog->text >= prog->textlen)
+	if (prog->cp - prog->text >= (int) prog->textlen)
 		return EOF;
 
 	return *prog->cp++;
@@ -122,7 +122,7 @@ skip_line(prog_t *prog)
 
 #define STORE(c)							\
 	do {								\
-		if (yyp - yytext >= sizeof(yytext)) {			\
+		if (yyp - yytext >= (int) sizeof(yytext)) {		\
 			compile_error(prog, "Line too long");		\
 			goto nextch;					\
 		}							\

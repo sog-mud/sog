@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.178 2001-05-21 19:06:28 fjoe Exp $
+ * $Id: martial_art.c,v 1.179 2001-06-25 16:51:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,7 +43,6 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include "merc.h"
-#include "mob_prog.h"
 
 #include "effects.h"
 #include "fight.h"
@@ -4748,9 +4747,12 @@ void do_surrender(CHAR_DATA *ch, const char *argument)
 	act("$n tries to surrender to $N!", ch, NULL, mob, TO_NOTVICT);
 	stop_fighting(ch, TRUE);
 
-	if (!IS_NPC(ch) && IS_NPC(mob)
+	if (!IS_NPC(ch) && IS_NPC(mob)) {
+#if 0
+	XXX
 	&&  (!HAS_TRIGGER(mob, TRIG_SURR) ||
 	     !mp_percent_trigger(mob, ch, NULL, NULL, TRIG_SURR))) {
+#endif
 		act("$N seems to ignore your cowardly act!",
 		    ch, NULL, mob, TO_CHAR);
 		multi_hit(mob, ch, NULL);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.375 2001-06-24 10:50:43 avn Exp $
+ * $Id: act_info.c,v 1.376 2001-06-25 16:51:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,6 @@
 
 #include "merc.h"
 #include "db.h"
-#include "obj_prog.h"
 #include "socials.h"
 #include "rating.h"
 #include "string_edit.h"
@@ -1913,7 +1912,10 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	act("You request $p from $N.",	 ch, obj, victim, TO_CHAR);
 	act("$n requests $p from you.", ch, obj, victim, TO_VICT);
 
+#if 0
+	XXX
 	oprog_call(OPROG_GIVE, obj, ch, victim);
+#endif
 
 	ch->move -= (50 + ch->level);
 	ch->move = UMAX(ch->move, 0);
@@ -3661,7 +3663,10 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	act("You demand $p from $N.",	ch, obj, victim, TO_CHAR  );
 	act("$n demands $p from you.", ch, obj, victim, TO_VICT  );
 
+#if 0
+	XXX
 	oprog_call(OPROG_GIVE, obj, ch, victim);
+#endif
 	act_char("Your power makes all around the world shivering.", ch);
 }
 

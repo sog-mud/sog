@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.232 2001-06-24 10:50:42 avn Exp $
+ * $Id: act_comm.c,v 1.233 2001-06-25 16:51:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,8 +52,6 @@
 #endif
 
 #include "merc.h"
-#include "mob_prog.h"
-#include "obj_prog.h"
 #include "auction.h"
 #include "lang.h"
 #include "note.h"
@@ -223,17 +221,20 @@ void do_replay(CHAR_DATA *ch, const char *argument)
 
 void do_say(CHAR_DATA *ch, const char *argument)
 {
+#if 0
+	XXX
 	OBJ_DATA *char_obj;
 	OBJ_DATA *char_obj_next;
-  
+#endif
+
 	if (argument[0] == '\0') {
 		act_char("Say what?", ch);
 		return;
 	}
 
-	if (ch->shapeform 
+	if (ch->shapeform
 	&& IS_SET(ch->shapeform->index->flags, FORM_NOSPEAK)) {
-		act("You cannot say anything in this form.", 
+		act("You cannot say anything in this form.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -241,16 +242,18 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	argument = garble(ch, argument);
 	act_say(ch, argument, NULL);
 
+#if 0
+	XXX
 	if (!IS_NPC(ch)) {
- 		CHAR_DATA *mob, *mob_next;
+		CHAR_DATA *mob, *mob_next;
 		for (mob = ch->in_room->people; mob != NULL; mob = mob_next) {
- 			mob_next = mob->next_in_room;
- 			if (IS_NPC(mob) && HAS_TRIGGER(mob, TRIG_SPEECH)
- 			&&  mob->position == mob->pMobIndex->default_pos) {
- 				mp_act_trigger(argument, mob, ch, NULL, NULL,
+			mob_next = mob->next_in_room;
+			if (IS_NPC(mob) && HAS_TRIGGER(mob, TRIG_SPEECH)
+			&&  mob->position == mob->pMobIndex->default_pos) {
+				mp_act_trigger(argument, mob, ch, NULL, NULL,
 					       TRIG_SPEECH);
 			}
- 		}
+		}
 	}
 
 	for (char_obj = ch->carrying; char_obj != NULL;
@@ -264,6 +267,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 		char_obj_next = char_obj->next_content;
 		oprog_call(OPROG_SPEECH, char_obj, ch, argument);
 	}
+#endif
 }
 
 void do_tell(CHAR_DATA *ch, const char *argument)

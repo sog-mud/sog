@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.289 2001-06-24 21:12:47 avn Exp $
+ * $Id: handler.c,v 1.290 2001-06-25 16:51:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,10 +46,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "merc.h"
-#include "obj_prog.h"
 #include "db.h"
 #include "lang.h"
-#include "mob_prog.h"
 #include "auction.h"
 
 #include "fight.h"
@@ -474,8 +472,11 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	&&  ch->in_room != NULL)
 		++ch->in_room->light;
 
+#if 0
+	XXX
 	if (oprog_call(OPROG_WEAR, obj, ch, NULL))
 		return NULL;
+#endif
 	return obj;
 }
 
@@ -518,7 +519,10 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	&&  ch->in_room->light > 0)
 		--ch->in_room->light;
 
+#if 0
+	XXX
 	oprog_call(OPROG_REMOVE, obj, ch, NULL);
+#endif
 
 	if ((obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
 		act_puts("You wield your second weapon as your first!",
@@ -2369,10 +2373,12 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		return;
 
 	if (IS_NPC(victim)) {
+#if 0
+		XXX
 		if (HAS_TRIGGER(victim, TRIG_SPEECH))
 			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
-	}
-	else {
+#endif
+	} else {
 		if (!IS_IMMORTAL(victim)
 		&&  !IS_IMMORTAL(ch)
 		&&  is_name(ch->name, PC(victim)->twitlist))
@@ -2769,9 +2775,10 @@ void die_follower(CHAR_DATA *ch)
 	}
 }
 
-CHAR_DATA* leader_lookup(CHAR_DATA* ch)
+const CHAR_DATA *
+leader_lookup(const CHAR_DATA* ch)
 {
-	CHAR_DATA* res;
+	const CHAR_DATA* res;
 	for (res = ch; res->leader != NULL; res = res->leader)
 		;
 	return res;
@@ -2961,8 +2968,11 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
 	bool room_has_pc;
+#if 0
+	XXX
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
+#endif
 	int act_flags;
 	AFFECT_DATA *paf;
 
@@ -3051,11 +3061,13 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			ch, NULL, NULL, TO_ROOM);
 	}
 
+#if 0
 	/*
 	 * Exit trigger, if activated, bail out. Only PCs are triggered.
 	 */
 	if (!IS_NPC(ch) && mp_exit_trigger(ch, door))
 		return FALSE;
+#endif
 
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
@@ -3379,6 +3391,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (!room_has_pc)
 		return TRUE;
 
+#if 0
+	XXX
 	/*
 	 * pull GREET and ENTRY triggers
 	 *
@@ -3408,9 +3422,10 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		oprog_call(OPROG_ENTRY, obj, NULL, NULL);
 	}
 
+	XXX
 	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
 		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
-
+#endif
 	return TRUE;
 }
 
@@ -3630,7 +3645,10 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 		extract_obj(obj, 0);
 	} else {
 		obj_to_char(obj, ch);
+#if 0
+		XXX
 		oprog_call(OPROG_GET, obj, ch, NULL);
+#endif
 	}
 }
 
@@ -3731,11 +3749,14 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
  */
 void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
+#if 0
+	XXX
 	if (cc_vexpr_check(&obj->pObjIndex->restrictions,
 	    "obj_wear", ch)) {					// notrans
 		act("You can't use $p.", ch, obj, NULL, TO_CHAR);
 		return;
 	}
+#endif
 
 	if (IS_NPC(ch)
 	&&  (!IS_SET(ch->form, FORM_BIPED) ||
