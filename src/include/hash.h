@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.12 2001-09-12 19:42:34 fjoe Exp $
+ * $Id: hash.h,v 1.13 2001-09-13 16:08:59 fjoe Exp $
  */
 
 #ifndef _HASH_H_
@@ -37,12 +37,11 @@ extern c_ops_t hash_ops;
 typedef struct hashdata_t {
 	c_ops_t *ops;			/**< container ops		*/
 
-	size_t nsize;			/**< size of elem		*/
-	size_t nstep;			/**< allocation step		*/
-
 	e_init_t e_init;		/**< init elem			*/
 	e_destroy_t e_destroy;		/**< destroy elem		*/
-	e_cpy_t e_cpy;			/**< copy elem			*/
+
+	size_t nsize;			/**< size of elem		*/
+	size_t nstep;			/**< allocation step		*/
 
 	size_t hsize;
 	k_hash_t k_hash;		/**< hash of key		*/
@@ -55,12 +54,13 @@ struct hash_t {
 	varr *v;
 };
 
-void	hash_init(void *h, void *info);
-void	hash_destroy(void *h);
+#define STRKEY_HASH_SIZE 256
 
-void	hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb);
+int	k_hash_vnum(const void *k, size_t hsize);
+int	k_hash_str(const void *k, size_t hsize);
+int	k_hash_csstr(const void *k, size_t hsize);
 
-int	vnum_hash(const void *k, size_t hsize);
-int	vnum_ke_cmp(const void *k, const void *e);
+void	hash_strkey_dump(hash_t *h, BUFFER *buf);
+void	hash_mlstrkey_dump(hash_t *h, BUFFER *buf);
 
 #endif

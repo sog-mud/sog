@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.22 2001-09-13 12:03:09 fjoe Exp $
+ * $Id: hash.c,v 1.23 2001-09-13 16:08:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -35,12 +35,53 @@
 #include <hash.h>
 #include <container.h>
 #include <str.h>
-#include <strkey_hash.h>
+#include <mlstring.h>
 #include <util.h>
 
 static void *hash_search(hash_t *h, const void *k, varr *v);
 
+static DECLARE_FOREACH_CB_FUN(add_strkey_cb);
+static DECLARE_FOREACH_CB_FUN(add_mlstrkey_cb);
+
+static void hash_dump(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb);
+
+int
+k_hash_vnum(const void *k, size_t hsize)
+{
+	return (*(const int *) k) * 17 % hsize;
+}
+
+int
+k_hash_str(const void *k, size_t hsize)
+{
+	return hashcasestr((const char *) k, 32, hsize);
+}
+
+int
+k_hash_csstr(const void *k, size_t hsize)
+{
+	return hashstr((const char *) k, 32, hsize);
+}
+
 void
+hash_strkey_dump(hash_t *h, BUFFER *buf)
+{
+	hash_dump(h, buf, add_strkey_cb);
+}
+
+void
+hash_mlstrkey_dump(hash_t *h, BUFFER *buf)
+{
+	hash_dump(h, buf, add_mlstrkey_cb);
+}
+
+/*-------------------------------------------------------------------
+ * container ops
+ */
+
+DEFINE_C_OPS(hash);
+
+static void
 hash_init(void *c, void *info)
 {
 	hash_t *h = (hash_t *) c;
@@ -58,7 +99,7 @@ hash_init(void *c, void *info)
 		c_init(h->v + i, h->v[0].v_data);
 }
 
-void
+static void
 hash_destroy(void *c)
 {
 	hash_t *h = (hash_t *) c;
@@ -72,49 +113,6 @@ hash_destroy(void *c)
 	free(v_data);
 	free(h->v);
 }
-
-#if !defined(HASHTEST) && !defined(MPC)
-static varrdata_t v_print =
-{
-	&varr_ops,
-
-	sizeof(const char *), 8,
-	strkey_init,
-	strkey_destroy,
-
-	NULL
-};
-
-void
-hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
-{
-	varr v;
-
-	c_init(&v, &v_print);
-	c_foreach(h, addname_cb, &v);
-	varr_qsort(&v, cmpstr);
-	c_strkey_dump(&v, buf);
-	c_destroy(&v);
-}
-#endif
-
-int
-vnum_hash(const void *k, size_t hsize)
-{
-	return (*(const int *) k) * 17 % hsize;
-}
-
-int
-vnum_ke_cmp(const void *k, const void *e)
-{
-	return *(const int *) k - *(const int *) e;
-}
-
-/*-------------------------------------------------------------------
- * container ops
- */
-
-DEFINE_C_OPS(hash);
 
 static void
 hash_erase(void *c)
@@ -250,4 +248,41 @@ hash_search(hash_t *h, const void *k, varr *v)
 	}
 
 	return NULL;
+}
+
+static
+FOREACH_CB_FUN(add_strkey_cb, p, ap)
+{
+	varr *v = va_arg(ap, varr *);
+	const char **q = varr_enew(v);
+	*q = *(const char **) p;
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(add_mlstrkey_cb, p, ap)
+{
+	varr *v = va_arg(ap, varr *);
+	const char **q = varr_enew(v);
+	*q = mlstr_mval((mlstring *) p);
+	return NULL;
+}
+
+static varrdata_t v_print =
+{
+	&varr_ops, NULL, NULL,
+
+	sizeof(const char *), 8
+};
+
+static void
+hash_dump(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
+{
+	varr v;
+
+	c_init(&v, &v_print);
+	c_foreach(h, addname_cb, &v);
+	varr_qsort(&v, cmpstr);
+	c_strkey_dump(&v, buf);
+	c_destroy(&v);
 }
