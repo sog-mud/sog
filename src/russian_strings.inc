@@ -102,6 +102,7 @@ char *strings_rus[] = {
 /* INFO_TIME_NIGHT */		"ночь",
 
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Увы, ты не можешь идти туда.\n\r",
+/* MOVE_THE_D_IS_CLOSED */	"$d закрыто.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",
@@ -185,5 +186,20 @@ char *strings_rus[] = {
 /* MOVE_YOU_STEP_OUT_SHADOWS */	"Ты вышло из скрывавших тебя теней.\n\r",
 /* MOVE_YOU_STEP_OUT_SHADOWS_M */"Ты вышел из скрывавших тебя теней.\n\r",
 /* MOVE_YOU_STEP_OUT_SHADOWS_F */"Ты вышла из скрывавших тебя теней.\n\r",
+/* MOVE_N_STEPS_OUT_OF_SHADOWS */"$n вышло из теней.",
+/* MOVE_N_STEPS_OUT_OF_SHADOWS_M */"$n вышел из теней.",
+/* MOVE_N_STEPS_OUT_OF_SHADOWS_F */"$n вышла из теней.",
+/* MOVE_YOU_STEP_OUT_COVER */	"Ты вышло и своего укрытия.\n\r",
+/* MOVE_YOU_STEP_OUT_COVER_M */	"Ты вышел и своего укрытия.\n\r",
+/* MOVE_YOU_STEP_OUT_COVER_F */	"Ты вышла и своего укрытия.\n\r",
+/* MOVE_N_STEPS_OUT_COVER */	"$n вышло из $m укрытия.",
+/* MOVE_N_STEPS_OUT_COVER_M */	"$n вышел из $m укрытия.",
+/* MOVE_N_STEPS_OUT_COVER_F */	"$n вышла из $m укрытия.",
+/* MOVE_YOU_FAILED_TO_PASS */	"Ты не смогло пройти через $d.",
+/* MOVE_YOU_FAILED_TO_PASS_M */	"Ты не смог пройти через $d.",
+/* MOVE_YOU_FAILED_TO_PASS_F */	"Ты не смогла пройти через $d.",
+/* MOVE_N_TRIES_TO_PASS_FAILED */"$n попыталось пройти через $d, но не смогло",
+/* MOVE_N_TRIES_TO_PASS_FAILED_M */"$n попытался пройти через $d, но не смог",
+/* MOVE_N_TRIES_TO_PASS_FAILED_F */"$n попыталась пройти через $d, но не смогла",
 };
 

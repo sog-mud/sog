@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.5 1998-04-24 16:11:47 efdi Exp $
+ * $Id: act_move.c,v 1.6 1998-04-25 00:37:52 efdi Exp $
  */
 
 /***************************************************************************
@@ -139,22 +139,22 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
     {
 	REMOVE_BIT(ch->affected_by, AFF_HIDE);
 	send_to_char( msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch );
-	act( "$n steps out of shadows.", ch, NULL, NULL, TO_ROOM);
+	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_OF_SHADOWS);
     }
     if ( IS_AFFECTED( ch, AFF_CAMOUFLAGE ) )  
     {
 	if ( ch->level < skill_table[gsn_move_camf].skill_level[ch->class])
 	     {
 	      REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-	      send_to_char( "You step out from your cover.\n\r", ch );
-	      act("$n steps out from $m's cover.", ch, NULL, NULL,TO_ROOM);
+	      send_to_char( msg(MOVE_YOU_STEP_OUT_COVER, ch), ch );
+	      act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
 	     }	    
 	else if ( number_percent() < get_skill(ch,gsn_move_camf) )
 	           check_improve(ch,gsn_move_camf,TRUE,5);
 	else {
 	      REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-	      send_to_char( "You step out from your cover.\n\r", ch );
-	      act("$n steps out from $m's cover.", ch, NULL, NULL,TO_ROOM);
+	      send_to_char( msg(MOVE_YOU_STEP_OUT_COVER, ch), ch );
+	      act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_STEPS_OUT_COVER);
 	      check_improve(ch,gsn_move_camf,FALSE,5);
 	     }	    
     }
@@ -188,11 +188,11 @@ void move_char( CHAR_DATA *ch, int door, bool follow )
       &&   !IS_TRUSTED(ch,ANGEL) )
     {
 	if ( IS_AFFECTED( ch, AFF_PASS_DOOR ) && IS_SET(pexit->exit_info, EX_NOPASS))  {
-  	  act( "You failed to pass through the $d.", ch, NULL, pexit->keyword, TO_CHAR);
-	  act( "$n tries to pass through the $d, but $e fails", ch, NULL, pexit->keyword, TO_ROOM);
+  	  act_printf(ch, NULL, pexit->keyword, TO_CHAR, POS_RESTING, MOVE_YOU_FAILED_TO_PASS);
+	  act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_TRIES_TO_PASS_FAILED);
 	}
 	else
-	  act( "The $d is closed.", ch, NULL, pexit->keyword, TO_CHAR );
+	  act_printf(ch, NULL, pexit->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_IS_CLOSED);
         return;
     }
 

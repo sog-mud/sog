@@ -102,6 +102,7 @@ char *strings_engl[] =  {
 /* INFO_TIME_NIGHT */		"night",
 
 /* MOVE_ALAS_YOU_CANNOT_GO */	"Alas, you cannot go that way.\n\r",
+/* MOVE_THE_D_IS_CLOSED */	"The $d is closed.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
@@ -185,5 +186,21 @@ char *strings_engl[] =  {
 /* MOVE_YOU_STEP_OUT_SHADOWS */	"You step out of shadows.\n\r",
 /* MOVE_YOU_STEP_OUT_SHADOWS_M */"You step out of shadows.\n\r",
 /* MOVE_YOU_STEP_OUT_SHADOWS_F */"You step out of shadows.\n\r",
+/* MOVE_N_STEPS_OUT_OF_SHADOWS */"$n steps out of shadows.",
+/* MOVE_N_STEPS_OUT_OF_SHADOWS_M */"$n steps out of shadows.",
+/* MOVE_N_STEPS_OUT_OF_SHADOWS_F */"$n steps out of shadows.",
+/* MOVE_YOU_STEP_OUT_COVER */	"You step out from your cover.\n\r",
+/* MOVE_YOU_STEP_OUT_COVER_M */	"You step out from your cover.\n\r",
+/* MOVE_YOU_STEP_OUT_COVER_F */	"You step out from your cover.\n\r",
+/* MOVE_N_STEPS_OUT_COVER */	"$n steps out from $m's cover.",
+/* MOVE_N_STEPS_OUT_COVER_M */	"$n steps out from $m's cover.",
+/* MOVE_N_STEPS_OUT_COVER_F */	"$n steps out from $m's cover.",
+/* MOVE_YOU_FAILED_TO_PASS */	"You failed to pass through the $d.",
+/* MOVE_YOU_FAILED_TO_PASS_M */	"You failed to pass through the $d.",
+/* MOVE_YOU_FAILED_TO_PASS_F */	"You failed to pass through the $d.",
+/* MOVE_N_TRIES_TO_PASS_FAILED */"$n tries to pass through the $d, but $e failes",
+/* MOVE_N_TRIES_TO_PASS_FAILED_M */"$n tries to pass through the $d, but $e failes",
+/* MOVE_N_TRIES_TO_PASS_FAILED_F */"$n tries to pass through the $d, but $e failes",
+
 };
 
