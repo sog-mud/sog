@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.416 2004-02-19 23:58:22 fjoe Exp $
+ * $Id: merc.h,v 1.417 2004-02-21 20:03:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1072,6 +1072,8 @@ enum {
 #define APPLY_SAVING_SPELL	24
 #define APPLY_SIZE		26
 #define APPLY_LUCK		29
+#define APPLY_FORM_HITROLL	30
+#define APPLY_FORM_DAMROLL	31
 
 /*
  * Skillaffects flags
@@ -2182,16 +2184,9 @@ extern bool merc_down;
 #define TO_DETECTS	5
 #define TO_INVIS	6
 #define TO_FORM		7
-#define TO_FORMAFFECTS	8
 #define TO_FORMRESISTS	9
 #define TO_RESISTS	10
 #define TO_TRIG		11
-
-#define HAS_STR_LOCATION(paf)						\
-	((paf)->where == TO_SKILLS ||					\
-	 (paf)->where == TO_RACE ||					\
-	 (paf)->where == TO_FORM ||					\
-	 (paf)->where == TO_TRIG)
 
 struct affect_data
 {
@@ -2247,13 +2242,23 @@ where_t *where_lookup(flag_t where);
 	 (where) == TO_OBJECT ||				\
 	 (where) == TO_WEAPON ||				\
 	 (where) == TO_DETECTS ||				\
-	 (where) == TO_INVIS ||					\
-	 (where) == TO_FORMAFFECTS)
+	 (where) == TO_INVIS)
 #define IS_APPLY_AFFECT(paf)	IS_APPLY_WHERE((paf)->where)
 #define IS_RESIST_AFFECT(paf)	((paf)->where == TO_RESISTS ||	\
 				 (paf)->where == TO_FORMRESISTS)
 #define HAS_INT_LOCATION(paf)	(IS_APPLY_AFFECT(paf) ||	\
 				 IS_RESIST_AFFECT(paf))
+
+#define HAS_STR_LOCATION(paf)						\
+	((paf)->where == TO_SKILLS ||					\
+	 (paf)->where == TO_RACE ||					\
+	 (paf)->where == TO_FORM ||					\
+	 (paf)->where == TO_TRIG)
+
+#define IS_FORM_APPLY(paf)						\
+	((paf)->where == TO_AFFECTS &&					\
+	 (INT((paf)->location) == APPLY_FORM_HITROLL ||			\
+	  INT((paf)->location) == APPLY_FORM_DAMROLL))
 
 /*----------------------------------------------------------------------
  * effects stuff

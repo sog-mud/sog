@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.91 2004-02-21 19:48:10 fjoe Exp $
+ * $Id: affects.c,v 1.92 2004-02-21 20:03:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -269,8 +269,7 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
-	if ((paf->where == TO_AFFECTS || paf->where == TO_FORMAFFECTS)
-	&&  IS_SET(paf->bitvector, AFF_CHARM))
+	if (paf->where == TO_AFFECTS && IS_SET(paf->bitvector, AFF_CHARM))
 		ch->leader = NULL;
 	check_one_event(ch, paf, EVENT_CHAR_AFF_REMOVE);
 	aff_free(paf);
@@ -1072,7 +1071,6 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	if (fAdd) {
 		switch (paf->where) {
 		case TO_AFFECTS:
-		case TO_FORMAFFECTS:
 			SET_BIT(ch->affected_by, paf->bitvector);
 			break;
 		case TO_DETECTS:
@@ -1089,7 +1087,6 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	} else {
 		switch (paf->where) {
 		case TO_AFFECTS:
-		case TO_FORMAFFECTS:
 			REMOVE_BIT(ch->affected_by, paf->bitvector);
 			break;
 		case TO_DETECTS:
@@ -1125,16 +1122,16 @@ affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_HIT:		ch->max_hit		+= mod;	break;
 	case APPLY_MOVE:	ch->max_move		+= mod;	break;
 
-	case APPLY_HITROLL:
-				if ((paf->where == TO_FORMAFFECTS)
-				&& ch->shapeform)
+	case APPLY_HITROLL:	ch->hitroll		+= mod;	break;
+	case APPLY_DAMROLL:	ch->damroll		+= mod;	break;
+	case APPLY_FORM_HITROLL:
+				if (ch->shapeform != NULL)
 					ch->shapeform->hitroll += mod;
-				ch->hitroll		+= mod;	break;
-	case APPLY_DAMROLL:
-				if ((paf->where == TO_FORMAFFECTS)
-				&& ch->shapeform)
+				break;
+	case APPLY_FORM_DAMROLL:
+				if (ch->shapeform != NULL)
 					ch->shapeform->damroll += mod;
-				ch->damroll		+= mod;	break;
+				break;
 	case APPLY_LEVEL:	ch->add_level		+= mod; break;
 
 	case APPLY_SIZE:	ch->size		+= mod;	break;

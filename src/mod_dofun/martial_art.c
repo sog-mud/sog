@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.229 2004-02-19 17:16:43 fjoe Exp $
+ * $Id: martial_art.c,v 1.230 2004-02-21 20:03:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -907,14 +907,14 @@ DO_FUN(do_hunger, ch, argument)
 {
 	AFFECT_DATA *paf;
 
-	paf = aff_new(TO_FORMAFFECTS, "hungry rat");
+	paf = aff_new(TO_AFFECTS, "hungry rat");
 	paf->level	= LEVEL(ch);
 	paf->duration	= number_fuzzy(ch->level / 8);
 	paf->modifier	= UMAX(1, LEVEL(ch)/5);
-	INT(paf->location)= APPLY_HITROLL;
+	INT(paf->location)= APPLY_FORM_HITROLL;
 	affect_to_char(ch, paf);
 
-	INT(paf->location)= APPLY_DAMROLL;
+	INT(paf->location)= APPLY_FORM_DAMROLL;
 	paf->bitvector	= AFF_BERSERK;
 	affect_to_char(ch, paf);
 	aff_free(paf);

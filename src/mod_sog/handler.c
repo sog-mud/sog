@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.391 2004-02-19 20:10:04 fjoe Exp $
+ * $Id: handler.c,v 1.392 2004-02-21 20:03:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5179,7 +5179,7 @@ revert(CHAR_DATA *ch)
 
 	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
-		if (paf->where == TO_FORMAFFECTS)
+		if (IS_FORM_APPLY(paf))
 			affect_remove(ch, paf);
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.202 2004-02-17 20:54:25 fjoe Exp $
+ * $Id: tables.c,v 1.203 2004-02-21 20:03:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -652,6 +652,8 @@ flaginfo_t apply_flags[] =
 	{ "saving_spell",	APPLY_SAVING_SPELL,	TRUE	},
 	{ "size",		APPLY_SIZE,		TRUE	},
 	{ "luck",		APPLY_LUCK,		TRUE	},
+	{ "form_hitroll",	APPLY_FORM_HITROLL,	TRUE	},
+	{ "form_damroll",	APPLY_FORM_DAMROLL,	TRUE	},
 
 	{ NULL, 0, FALSE }
 };
@@ -1439,7 +1441,6 @@ flaginfo_t affect_where_types[] =
 	{ "detects",		TO_DETECTS,			TRUE	},
 	{ "invis",		TO_INVIS,			TRUE	},
 	{ "form",		TO_FORM,			FALSE	},
-	{ "formaffects",	TO_FORMAFFECTS,			FALSE	},
 	{ "resists",		TO_RESISTS,			TRUE	},
 	{ "trig",		TO_TRIG,			FALSE	},
 

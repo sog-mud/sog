@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: adjust.c,v 1.2 2001-10-21 21:34:00 fjoe Exp $
+ * $Id: adjust.c,v 1.3 2004-02-21 20:03:46 fjoe Exp $
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -506,7 +506,6 @@ calc_price(const OBJ_INDEX_DATA *obj)
 			continue;
 
 		case TO_AFFECTS:
-		case TO_FORMAFFECTS:
 			cost += get_flags_cost(paf->bitvector, affect_costs) *
 			    wear_coeff;
 			break;
