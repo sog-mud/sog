@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.28 1999-02-17 07:53:24 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.29 1999-02-25 14:27:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -479,7 +479,6 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
     }
     victim = create_mob(pMobIndex);
     char_to_room(victim, ch->in_room);
-    return;
 }
 
 /*
@@ -628,8 +627,6 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
 
     char_from_room(ch);
     char_to_room(ch, location);
-
-    return;
 }
 
 /* 
@@ -642,7 +639,6 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
     char             arg[ MAX_INPUT_LENGTH ];
     ROOM_INDEX_DATA *location;
     ROOM_INDEX_DATA *original;
-    CHAR_DATA       *wch;
     OBJ_DATA 	    *on;
 
     argument = one_argument(argument, arg, sizeof(arg));
@@ -665,24 +661,18 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
     on = ch->on;
     char_from_room(ch);
     char_to_room(ch, location);
-    interpret(ch, argument);
+    if (JUST_KILLED(ch))
+	return;
 
-    /*
-     * See if 'ch' still exists before continuing!
-     * Handles 'at XXXX quit' case.
-     */
-    for (wch = char_list; wch != NULL; wch = wch->next)
-    {
-	if (wch == ch)
-	{
-	    char_from_room(ch);
-	    char_to_room(ch, original);
-	    ch->on = on;
-	    break;
-	}
-    }
+	interpret(ch, argument);
 
-    return;
+	if (ch->extracted)
+		return;
+
+	char_from_room(ch);
+	char_to_room(ch, original);
+	if (!JUST_KILLED(ch))
+		ch->on = on;
 }
  
 /*
@@ -751,9 +741,8 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	stop_fighting(victim, TRUE);
     char_from_room(victim);
     char_to_room(victim, location);
-    do_look(victim, "auto");
-
-    return;
+    if (!JUST_KILLED(victim))
+    	do_look(victim, "auto");
 }
 
 /*

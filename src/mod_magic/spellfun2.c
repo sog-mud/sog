@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.88 1999-02-23 22:06:45 fjoe Exp $
+ * $Id: spellfun2.c,v 1.89 1999-02-25 14:27:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -481,7 +481,6 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	demon->damage[DICE_TYPE] = number_range(level/3, level/2);
 	demon->damage[DICE_BONUS] = number_range(level/8, level/6);
 
-	char_to_room(demon,ch->in_room);
 	char_puts("A demon arrives from the underworld!\n",ch);
 	act("A demon arrives from the underworld!",ch,NULL,NULL,TO_ROOM);
 
@@ -493,6 +492,10 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.modifier           = 0;
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
+
+	char_to_room(demon,ch->in_room);
+	if (JUST_KILLED(demon))
+		return;
 
 	if (number_percent() < 40)
 	{
@@ -681,8 +684,6 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	guard->master = guard2->master = ch;
 	guard->leader = guard2->leader = ch;
 
-	char_to_room(guard,ch->in_room);
-	char_to_room(guard2,ch->in_room);
 	char_puts("Two guards come to your rescue!\n",ch);
 	act("Two guards come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
@@ -695,6 +696,8 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
+	char_to_room(guard,ch->in_room);
+	char_to_room(guard2,ch->in_room);
 }
 
 void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
@@ -745,7 +748,6 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	walker->damage[DICE_TYPE]   = number_range(level/3, level/2);
 	walker->damage[DICE_BONUS]  = 0;
 	 
-	char_to_room(walker, ch->in_room);
 	act_puts("$N rises from the shadows!",
 		 ch, NULL, walker, TO_CHAR, POS_DEAD);
 	act("$N rises from the shadows!", ch, NULL, walker, TO_ROOM);
@@ -763,12 +765,13 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);  
 
 	walker->master = walker->leader = ch;
+
+	char_to_room(walker, ch->in_room);
 }
 	
 void spell_eyes_of_intrigue(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
-	ROOM_INDEX_DATA *ori_room;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL)
 	  {
@@ -782,16 +785,10 @@ void spell_eyes_of_intrigue(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	return;
 	  }
 
-	if (ch==victim)
-	  do_look(ch, str_empty);
-	else {
-	  ori_room = ch->in_room;
-	  char_from_room(ch);
-	  char_to_room(ch, victim->in_room);
-	  do_look(ch, str_empty);
-	  char_from_room(ch);
-	  char_to_room(ch, ori_room);
-	}
+	if (ch->in_room == victim->in_room)
+		do_look(ch, str_empty);
+	else
+		look_at(ch, victim->in_room);
 }
 
 void spell_shadow_cloak(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -1283,23 +1280,32 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 				 AFF_DETECT_INVIS | AFF_DETECT_MAGIC | AFF_DETECT_HIDDEN |
 				 AFF_DETECT_GOOD | AFF_DARK_VISION);
 	
-	char_to_room(stalker,victim->in_room);
 	stalker->target = victim;
 	stalker->clan   = ch->clan;
 	char_puts("An invisible stalker arrives to stalk you!\n",victim);
 	act("An invisible stalker arrives to stalk $n!",victim,NULL,NULL,TO_ROOM);
 	char_puts("An invisible stalker has been sent.\n", ch);
 
-	log_printf("%s used stalker on %s", ch->name, victim->name);
+	char_to_room(stalker,victim->in_room);
 }
 
-	
+static inline void
+tesseract_other(CHAR_DATA *ch, CHAR_DATA *victim, ROOM_INDEX_DATA *to_room)
+{
+	transfer_char(victim, ch, to_room,
+		      NULL,
+		      "$n utters some strange words and, "
+		      "with a sickening lurch, you feel time\n"
+		      "and space shift around you.",
+		      "$N arrives suddenly.");
+}
+				
 void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	CHAR_DATA *victim;
+	CHAR_DATA *victim = (CHAR_DATA*) vo;
 	CHAR_DATA *wch;
-	CHAR_DATA *vch_next;
-	bool gate_pet;
+	CHAR_DATA *wch_next;
+	CHAR_DATA *pet = NULL;
 
 	if ((victim = get_char_world(ch,target_name)) == NULL
 	||  saves_spell(level, victim, DAM_OTHER)
@@ -1309,43 +1315,25 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 	
 	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
-		gate_pet = TRUE;
-	else
-		gate_pet = FALSE;
+		pet = ch->pet;
 
-	for (wch = ch->in_room->people; wch != NULL; wch = vch_next) {
-		vch_next = wch->next_in_room;
-		if (wch != ch && is_same_group(wch, ch)) {
-			act("$n utters some strange words and, "
-			    "with a sickening lurch, you feel time\n"
-			    "and space shift around you",
-				ch, NULL, wch, TO_VICT);
-			char_from_room(wch);
-			char_to_room(wch, victim->in_room);
-			act("$n arrives suddenly.", wch, NULL, NULL, TO_ROOM);
-			do_look(wch, "auto");
-		} 
+	for (wch = ch->in_room->people; wch; wch = wch_next) {
+		wch_next = wch->next_in_room;
+		if (wch != ch && wch != pet && is_same_group(wch, ch))
+			tesseract_other(ch, wch, victim->in_room);
 	}
- 
+
 	act("With a sudden flash of light, $n and $s friends disappear!",
 		ch, NULL, NULL, TO_ROOM);
-	char_puts("As you utter the words, time and space seem to blur.\n."
-		     "You feel as though space and time are shifting.\n"
-		     "all around you while you remain motionless.\n", ch);
-	char_from_room(ch);
-	char_to_room(ch, victim->in_room);
-
-	act("$n arrives suddenly.", ch, NULL, NULL, TO_ROOM);
-	do_look(ch,"auto");
+	transfer_char(ch, NULL, victim->in_room,
+		      NULL,
+		      "As you utter the words, time and space seem to blur.\n."
+		      "You feel as though space and time are shifting.\n"
+		      "all around you while you remain motionless.",
+		      "$N arrives suddenly.");
 	
-	if (gate_pet) {
-		char_puts("You feel time and space shift around you.\n",
-			ch->pet);
-		char_from_room(ch->pet);
-		char_to_room(ch->pet, victim->in_room);
-		act("$n arrives suddenly.", ch->pet, NULL, NULL, TO_ROOM);
-		do_look(ch->pet,"auto");
-	}
+	if (pet) 
+		tesseract_other(ch, pet, victim->in_room);
 }
 
 void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -1534,8 +1522,6 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->sex = victim->sex;
 	shadow->gold = 0;
 
-	char_to_room(shadow, ch->in_room);
-	
 	shadow->target  = victim;
 	do_murder(shadow, victim->name);
 	
@@ -1547,6 +1533,8 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.modifier     = 0;
 	af.location     = APPLY_NONE;
 	affect_to_char(ch, &af);  
+
+	char_to_room(shadow, ch->in_room);
 }  
 
 void spell_ruler_badge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -1875,7 +1863,6 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	squire->damage[DICE_TYPE] = number_range(level/4, level/3);
 	squire->damage[DICE_BONUS] = number_range(level/10, level/8);
 
-	char_to_room(squire,ch->in_room);
 	char_puts("A squire arrives from nowhere!\n",ch);
 	act("A squire arrives from nowhere!",ch,NULL,NULL,TO_ROOM);
 
@@ -1889,8 +1876,8 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);  
 
 	squire->master = squire->leader = ch;
+	char_to_room(squire,ch->in_room);
 }
-
 
 void spell_dragonsword(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
@@ -2126,13 +2113,10 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 				continue;
 		}
 
-		char_puts("The world spins around you!\n",vch);
-		act("$n vanishes!", vch, NULL, NULL, TO_ROOM);
-		char_from_room(vch);
-		char_to_room(vch, get_random_room(vch, NULL));
-		act("$n slowly fades into existence.",
-		    vch, NULL, NULL, TO_ROOM);
-		do_look(vch, "auto");
+		transfer_char(vch, NULL, get_random_room(vch, NULL),
+			      "$N vanishes!",
+			      "The world spins around you!",
+			      "$N slowly fades into existence.");
 	}
 
 	af.where = TO_AFFECTS;
@@ -2567,7 +2551,6 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 
 		undead->name = str_printf(undead->name, obj->name);
 
-		char_to_room(undead, ch->in_room);
 		for (obj2 = obj->contains; obj2; obj2 = next) {
 			next = obj2->next_content;
 			obj_from_obj(obj2);
@@ -2592,9 +2575,10 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 			 "pay for distrurbing its rest!",
 			 ch, NULL, undead, TO_CHAR, POS_DEAD);
 
-		do_wear(undead, "all");
-
 		extract_obj(obj);
+		char_to_room(undead, ch->in_room);
+		if (!JUST_KILLED(undead))
+			do_wear(undead, "all");
 		return;
 	}
 
@@ -3088,8 +3072,6 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	lion->damage[DICE_TYPE] = number_range(level/3, level/2);
 	lion->damage[DICE_BONUS] = number_range(level/8, level/6);
 	
-	char_to_room(lion, ch->in_room);
-
 	char_puts("A hunter lion comes to kill your victim!\n", ch);
 	act("A hunter lion comes to kill $n's victim!",
 	    ch, NULL, NULL, TO_ROOM);
@@ -3103,9 +3085,11 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);  
 	lion->hunting = victim;
+	char_to_room(lion, ch->in_room);
+	if (!JUST_KILLED(lion))
+		return;
 	hunt_victim(lion);
 }
-
 
 void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
@@ -3596,7 +3580,6 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	demon->damage[DICE_TYPE] = number_range(level/3, level/2);
 	demon->damage[DICE_BONUS] = number_range(level/8, level/6);
 
-	char_to_room(demon,ch->in_room);
 	char_puts("The wolf arrives and bows before you!\n",ch);
 	act("A wolf arrives from somewhere and bows!",ch,NULL,NULL,TO_ROOM);
 
@@ -3609,8 +3592,8 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(demon->affected_by, AFF_CHARM);
 	demon->master = demon->leader = ch;
+	char_to_room(demon,ch->in_room);
 }
 
 void spell_vampiric_blast(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
@@ -4057,7 +4040,6 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	golem = create_mob(get_mob_index(MOB_VNUM_LESSER_GOLEM));
 
-
 	for (i = 0; i < MAX_STATS; i ++)
 	   golem->perm_stat[i] = UMIN(25,15 + ch->level/10);
 	        
@@ -4080,7 +4062,6 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	golem->damage[DICE_TYPE] = 10;
 	golem->damage[DICE_BONUS] = ch->level / 2;
 
-	char_to_room(golem,ch->in_room);
 	char_puts("You created a lesser golem!\n",ch);
 	act("$n creates a lesser golem!",ch,NULL,NULL,TO_ROOM);
 
@@ -4093,9 +4074,8 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(golem->affected_by, AFF_CHARM);
 	golem->master = golem->leader = ch;
-
+	char_to_room(golem,ch->in_room);
 }
 
 
@@ -4155,7 +4135,6 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	golem->damage[DICE_TYPE] = 4;
 	golem->damage[DICE_BONUS] = ch->level / 2;
 
-	char_to_room(golem,ch->in_room);
 	char_puts("You created a stone golem!\n",ch);
 	act("$n creates a stone golem!",ch,NULL,NULL,TO_ROOM);
 
@@ -4168,11 +4147,9 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(golem->affected_by, AFF_CHARM);
 	golem->master = golem->leader = ch;
-
+	char_to_room(golem,ch->in_room);
 }
-
 
 void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)	
 {
@@ -4226,7 +4203,6 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	golem->damage[DICE_TYPE] = 5;
 	golem->damage[DICE_BONUS] = ch->level / 2 + 10;
 
-	char_to_room(golem,ch->in_room);
 	char_puts("You created an iron golem!\n",ch);
 	act("$n creates an iron golem!",ch,NULL,NULL,TO_ROOM);
 
@@ -4239,9 +4215,8 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(golem->affected_by, AFF_CHARM);
 	golem->master = golem->leader = ch;
-
+	char_to_room(golem, ch->in_room);
 }
 
 
@@ -4297,7 +4272,6 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	golem->damage[DICE_TYPE] = 9;
 	golem->damage[DICE_BONUS] = ch->level / 2 + 10;
 
-	char_to_room(golem,ch->in_room);
 	char_puts("You created an Adamantite golem!\n",ch);
 	act("$n creates an Adamantite golem!",ch,NULL,NULL,TO_ROOM);
 
@@ -4310,12 +4284,9 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(golem->affected_by, AFF_CHARM);
 	golem->master = golem->leader = ch;
-
+	char_to_room(golem,ch->in_room);
 }
-
-
 
 void spell_sanctify_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
@@ -4865,7 +4836,6 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	shadow->damage[DICE_TYPE] = number_range(level/3, level/2);
 	shadow->damage[DICE_BONUS] = number_range(level/8, level/6);
 
-	char_to_room(shadow,ch->in_room);
 	act("A shadow conjures!",ch,NULL,NULL,TO_ALL);
 
 	af.where		= TO_AFFECTS;
@@ -4877,40 +4847,23 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location           = APPLY_NONE;
 	affect_to_char(ch, &af);  
 
-	SET_BIT(shadow->affected_by, AFF_CHARM);
 	shadow->master = shadow->leader = ch;
-
+	char_to_room(shadow,ch->in_room);
 }
-
 
 void spell_farsight(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	ROOM_INDEX_DATA *room,*oldr;
-	int mount;
+	ROOM_INDEX_DATA *room;
 
-	if ((room = check_place(ch,target_name)) == NULL)
-	  {
-	char_puts("You cannot see that much far.\n",ch);
-	return;
-	  }
+	if ((room = check_place(ch, target_name)) == NULL) {
+		char_puts("You cannot see that much far.\n", ch);
+		return;
+	}
 
 	if (ch->in_room == room)
-	  do_look(ch, "auto");
+		do_look(ch, "auto");
 	else 
-	{
-	  mount = MOUNTED(ch) ? 1 : 0;
-	  oldr = ch->in_room;
-	  char_from_room(ch);
-	  char_to_room(ch, room);
-	  do_look(ch, "auto");
-	  char_from_room(ch);
-	  char_to_room(ch, oldr);
-	  if (mount)
-	{
-	 ch->riding = TRUE;
-	 MOUNTED(ch)->riding = TRUE;
-	}
-	}
+		look_at(ch, room);
 }
 
 void spell_remove_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -5013,13 +4966,7 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		gch->level = 1;
 		gch->doppel = victim;
 		gch->master = victim;
-		char_to_room(gch, victim->in_room);
 
-		if (new_mirrors == order) {
-			char_from_room(victim);
-			char_to_room(victim, gch->in_room);
-		}
-      
 		if (ch == victim) {
 			char_puts("A mirror image of yourself appears beside you!\n",
 				  ch);
@@ -5033,6 +4980,14 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 			    ch,NULL,victim,TO_NOTVICT);
 			char_puts("A mirror image of yourself appears beside you!\n",
 				  victim);
+		}
+
+		char_to_room(gch, victim->in_room);
+		if (new_mirrors == order) {
+			char_from_room(victim);
+			char_to_room(victim, gch->in_room);
+			if (JUST_KILLED(victim))
+				break;
 		}
 	}
 }    

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.49 1999-02-23 22:26:11 fjoe Exp $
+ * $Id: note.c,v 1.50 1999-02-25 14:27:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -257,6 +257,9 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
     NOTE_DATA *pnotelast;
     const char *p;
  
+	if (!dfexist(NOTES_PATH, name))
+		return;
+
     if ((fp = dfopen(NOTES_PATH, name, "r")) == NULL)
 	return;
 	 

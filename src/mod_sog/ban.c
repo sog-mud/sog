@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.29 1999-02-23 22:26:11 fjoe Exp $
+ * $Id: ban.c,v 1.30 1999-02-25 14:27:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -133,6 +133,9 @@ void load_bans(void)
     FILE *fp;
     BAN_DATA *ban_last;
  
+	if (!dfexist(ETC_PATH, BAN_FILE))
+		return;
+
     if ((fp = dfopen(ETC_PATH, BAN_FILE, "r")) == NULL)
         return;
  

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.38 1999-02-17 07:53:26 fjoe Exp $
+ * $Id: special.c,v 1.39 1999-02-25 14:27:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1363,9 +1363,9 @@ bool spec_headlamia(CHAR_DATA *ch)
 			if (vch->pIndexData->vnum == 5201) {
 				if (!vch->fighting && !vch->last_fought) {
 					char_from_room(vch);
-					char_to_room(vch, ch->in_room);
 					vch->master = ch;
 					vch->leader = ch;
+					char_to_room(vch, ch->in_room);
 				}
 			}
 		}

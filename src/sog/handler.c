@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.122 1999-02-23 22:06:44 fjoe Exp $
+ * $Id: handler.c,v 1.123 1999-02-25 14:27:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,7 @@ DECLARE_DO_FUN(do_raffects	);
 DECLARE_DO_FUN(do_return	);
 DECLARE_DO_FUN(do_say		);
 DECLARE_DO_FUN(do_track		);
+DECLARE_DO_FUN(do_look		);
 
 /*
  * Local functions.
@@ -1321,14 +1322,13 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 {
 	OBJ_DATA *obj;
 
-	if (pRoomIndex == NULL)
-	{
+	if (pRoomIndex == NULL) {
 		ROOM_INDEX_DATA *room;
 
 		bug("Char_to_room: NULL.", 0);
 		
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != NULL)
-		    char_to_room(ch,room);
+			char_to_room(ch, room);
 		
 		return;
 	}
@@ -1927,8 +1927,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	if (ch->in_room)
 		char_from_room(ch);
 
-	if (!fPull)
-	{
+	if (!fPull) {
 	    if (IS_GOOD(ch))
 	      i = 0;
 	    if (IS_EVIL(ch))
@@ -2938,10 +2937,8 @@ void back_home(CHAR_DATA *ch)
 	}
 
 	if (ch->fighting == NULL && location != ch->in_room) {
-		act("$n prays for transportation.",ch,NULL,NULL,TO_ROOM);
-		char_from_room(ch);
-		char_to_room(ch, location);
-		act("$n appears in the room.",ch,NULL,NULL,TO_ROOM);
+		act("$n prays for transportation.", ch, NULL, NULL, TO_ROOM);
+		recall(ch, location);
 	}
 }
 
@@ -3049,6 +3046,55 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	return TRUE;
+}
+
+void transfer_char(CHAR_DATA *ch, CHAR_DATA *vch, ROOM_INDEX_DATA *to_room,
+		   const char *msg_out,
+		   const char *msg_travel,
+		   const char *msg_in)
+{
+	ROOM_INDEX_DATA *was_in = ch->in_room;
+
+	if (ch != vch)
+		act_puts(msg_travel, vch, NULL, ch, TO_VICT, POS_DEAD);
+
+	char_from_room(ch);
+
+	act(msg_out, was_in->people, NULL, ch, TO_ALL);
+	act(msg_in, to_room->people, NULL, ch, TO_ALL);
+
+	char_to_room(ch, to_room);
+
+	if (!JUST_KILLED(ch))
+		do_look(ch, "auto");
+}
+
+void
+recall(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
+{
+	transfer_char(ch, NULL, location,
+		      "$N disappears.", NULL, "$N appears in the room.");
+}
+
+void look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	ROOM_INDEX_DATA *was_in = ch->in_room;
+	OBJ_DATA *obj;
+	bool adjust_light = FALSE;
+
+	if ((obj = get_eq_char(ch, WEAR_LIGHT))
+	&&  obj->pIndexData->item_type == ITEM_LIGHT
+	&&  obj->value[2]) {
+		adjust_light = TRUE;
+		room->light++;
+	}
+		
+	ch->in_room = room;
+	do_look(ch, str_empty);
+	ch->in_room = was_in;
+
+	if (adjust_light)
+		room->light--;
 }
 
 /* random room generation procedure */

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.107 1999-02-22 15:13:08 fjoe Exp $
+ * $Id: update.c,v 1.108 1999-02-25 14:27:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1156,6 +1156,8 @@ void char_update(void)
 						save_char_obj(ch, FALSE);
   					char_from_room(ch);
 					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+					if (JUST_KILLED(ch))
+						continue;
 				}
 			}
 

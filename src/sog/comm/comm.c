@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.149 1999-02-24 17:55:24 fjoe Exp $
+ * $Id: comm.c,v 1.150 1999-02-25 14:27:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2221,6 +2221,58 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			}
 		}
 
+		reset_char(ch);
+
+		/* quest code */
+		nextquest = -abs(ch->pcdata->questtime);
+		quest_cancel(ch);
+		ch->pcdata->questtime = nextquest;
+		/* !quest code */
+
+		wiznet("{W$N{x has left real life behind.",
+			ch, NULL, WIZ_LOGINS, 0, ch->level);
+
+		for (i = 0; i < MAX_STATS; i++) {
+			int max_stat = get_max_train(ch, i);
+
+			if (ch->perm_stat[i] > max_stat) {
+				ch->train += ch->perm_stat[i] - max_stat;
+				ch->perm_stat[i] = max_stat;
+			}
+		}
+
+		if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
+			char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n\r", (ch->gold - 6000) / 2);
+			ch->gold -= (ch->gold - 6000) / 2;
+		}
+	
+		if (!IS_IMMORTAL(ch)) {
+			for (i = 2; exp_for_level(ch, i) < ch->exp; i++)
+				;
+
+			if (i < ch->level) {
+				int con;
+				int wis;
+				int inte;
+				int dex;
+
+				con = ch->perm_stat[STAT_CON];
+				wis = ch->perm_stat[STAT_WIS];
+				inte = ch->perm_stat[STAT_INT];
+				dex = ch->perm_stat[STAT_DEX];
+				ch->perm_stat[STAT_CON] = get_max_train(ch, STAT_CON);
+				ch->perm_stat[STAT_WIS] = get_max_train(ch, STAT_WIS);
+				ch->perm_stat[STAT_INT] = get_max_train(ch, STAT_INT);
+				ch->perm_stat[STAT_DEX] = get_max_train(ch, STAT_DEX);
+				do_remove(ch, "all");
+				advance(ch, i-1);
+		 		ch->perm_stat[STAT_CON] = con;
+		 		ch->perm_stat[STAT_WIS] = wis;
+		 		ch->perm_stat[STAT_INT] = inte;
+		 		ch->perm_stat[STAT_DEX] = dex;
+			}
+		}
+
 		if (ch->level == 0) {
 			OBJ_DATA *wield;
 
@@ -2260,12 +2312,15 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				set_skill_raw(ch, get_weapon_sn(wield),
 					      40, FALSE);
 
-			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 			char_puts("\n", ch);
 			do_help(ch, "NEWBIE INFO");
 			char_puts("\n", ch);
+			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 		}
 		else {
+			CHAR_DATA *pet;
+			ROOM_INDEX_DATA *to_room;
+
 			if (ch->in_room
 			&&  (room_is_private(ch->in_room) ||
 			     (ch->in_room->area->clan &&
@@ -2273,75 +2328,29 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				ch->in_room = NULL;
 
 			if (ch->in_room) 
-				char_to_room(ch, ch->in_room);
+				to_room = ch->in_room;
 			else if (IS_IMMORTAL(ch))
-				char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
+				to_room = get_room_index(ROOM_VNUM_CHAT);
 			else
-				char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
-		}
+				to_room = get_room_index(ROOM_VNUM_TEMPLE);
 
-		if (!IS_IMMORTAL(ch)) {
-			act("$n has entered the game.", ch, NULL,NULL, TO_ROOM);
-			for (i = 2; exp_for_level(ch, i) < ch->exp; i++)
-				;
+			pet = ch->pet;
+			act("$N has entered the game.",
+			    to_room->people, NULL, ch, TO_ALL);
+			char_to_room(ch, to_room);
 
-			if (i < ch->level) {
-				int con;
-				int wis;
-				int inte;
-				int dex;
-
-				con = ch->perm_stat[STAT_CON];
-				wis = ch->perm_stat[STAT_WIS];
-				inte = ch->perm_stat[STAT_INT];
-				dex = ch->perm_stat[STAT_DEX];
-				ch->perm_stat[STAT_CON] = get_max_train(ch, STAT_CON);
-				ch->perm_stat[STAT_WIS] = get_max_train(ch, STAT_WIS);
-				ch->perm_stat[STAT_INT] = get_max_train(ch, STAT_INT);
-				ch->perm_stat[STAT_DEX] = get_max_train(ch, STAT_DEX);
-				do_remove(ch, "all");
-				advance(ch, i-1);
-		 		ch->perm_stat[STAT_CON] = con;
-		 		ch->perm_stat[STAT_WIS] = wis;
-		 		ch->perm_stat[STAT_INT] = inte;
-		 		ch->perm_stat[STAT_DEX] = dex;
+			if (pet) {
+				act("$N has entered the game.",
+				    to_room->people, NULL, pet, TO_ROOM);
+				char_to_room(pet, to_room);
 			}
 		}
 
-		reset_char(ch);
-
-		/* quest code */
-		nextquest = -abs(ch->pcdata->questtime);
-		quest_cancel(ch);
-		ch->pcdata->questtime = nextquest;
-		/* !quest code */
-
-		wiznet("{W$N{x has left real life behind.",
-			ch, NULL, WIZ_LOGINS, 0, ch->level);
-
-		for (i = 0; i < MAX_STATS; i++) {
-			int max_stat = get_max_train(ch, i);
-
-			if (ch->perm_stat[i] > max_stat) {
-				ch->train += ch->perm_stat[i] - max_stat;
-				ch->perm_stat[i] = max_stat;
-			}
+		if (!JUST_KILLED(ch)) {
+			do_look(ch, "auto");
+			do_unread(ch, "login");  
 		}
 
-		do_look(ch, "auto");
-
-		if (ch->gold > 6000 && !IS_IMMORTAL(ch)) {
-			char_printf(ch, "You are taxed %d gold to pay for the Mayor's bar.\n\r", (ch->gold - 6000) / 2);
-			ch->gold -= (ch->gold - 6000) / 2;
-		}
-	
-		if (ch->pet != NULL) {
-			char_to_room(ch->pet,ch->in_room);
-			act("$n has entered the game.",
-			    ch->pet, NULL, NULL, TO_ROOM);
-		}
-
-		do_unread(ch, "login");  
 		break;
 	}
 }
@@ -2440,9 +2449,10 @@ void stop_idling(CHAR_DATA *ch)
 
 	ch->timer = 0;
 	char_from_room(ch);
+	act("$N has returned from the void.",
+	    ch->was_in_room->people, NULL, ch, TO_ALL);
 	char_to_room(ch, ch->was_in_room);
 	ch->was_in_room	= NULL;
-	act("$n has returned from the void.", ch, NULL, NULL, TO_ROOM);
 }
 
 void char_puts(const char *txt, CHAR_DATA *ch)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.16 1999-02-15 12:51:11 fjoe Exp $
+ * $Id: db_clan.c,v 1.17 1999-02-25 14:27:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -94,8 +94,6 @@ DBLOAD_FUN(load_clan)
 			break;
 		case 'M':
 			KEY("Mark", clan->mark_vnum, fread_number(fp));
-			SKEY("MsgPrays", clan->msg_prays);
-			SKEY("MsgVanishes", clan->msg_vanishes);
 			break;
 		case 'N':
 			SKEY("Name", clan->name);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.129 1999-02-23 22:06:45 fjoe Exp $
+ * $Id: spellfun.c,v 1.130 1999-02-25 14:27:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2983,10 +2983,19 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	act("$n gets a wild look in $s eyes!",victim,NULL,NULL,TO_ROOM);
 }
 
+static inline void
+gate(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	transfer_char(ch, NULL, victim->in_room,
+		      "$N steps through a gate and vanishes.",
+		      "You step through a gate and vanish.",
+		      "$N has arrived through a gate.");
+}
+
 void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
-	bool gate_pet;
+	CHAR_DATA *pet = NULL;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
@@ -2996,35 +3005,16 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
-		gate_pet = TRUE;
-	else
-		gate_pet = FALSE;
+	if (ch->pet && ch->in_room == ch->pet->in_room)
+		pet = ch->pet;
 
-	act("$n steps through a gate and vanishes.", ch, NULL, NULL, TO_ROOM);
-	char_puts("You step through a gate and vanish.\n", ch);
-	char_from_room(ch);
-	char_to_room(ch, victim->in_room);
-
-	act("$n has arrived through a gate.", ch, NULL, NULL, TO_ROOM);
-	do_look(ch, "auto");
-
-	if (gate_pet) {
+	gate(ch, victim);
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (ch->pet->position != POS_STANDING)
-			do_stand(ch->pet, str_empty);
-
-		act("$n steps through a gate and vanishes.",
-			ch->pet, NULL, NULL, TO_ROOM);
-		char_puts("You step through a gate and vanish.\n", ch->pet);
-		char_from_room(ch->pet);
-		char_to_room(ch->pet, victim->in_room);
-		act("$n has arrived through a gate.",
-		    ch->pet, NULL, NULL, TO_ROOM);
-		do_look(ch->pet, "auto");
+			do_stand(pet, str_empty);
+		gate(pet, victim);
 	}
 }
-
-
 
 void spell_giant_strength(int sn,int level,CHAR_DATA *ch,void *vo, int target)
 {
@@ -4221,10 +4211,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(victim, &af);
 	char_puts("You feel yourself slowing d o w n...\n", victim);
 	act("$n starts to move in slow motion.",victim,NULL,NULL,TO_ROOM);
-	return;
 }
-
-
 
 
 void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -4310,18 +4297,15 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		victim->in_mind = str_dup(buf);
 	}
 
-	act("$n disappears suddenly.", victim, NULL, NULL, TO_ROOM);
-	char_from_room(victim);
-	char_to_room(victim, ch->in_room);
-	act("$n arrives suddenly.", victim, NULL, NULL, TO_ROOM);
-	act("$n has summoned you!", ch, NULL, victim, TO_VICT);
-	do_look(victim, "auto");
+	transfer_char(victim, ch, ch->in_room,
+		      "$N disappears suddenly.",
+		      "$n has summoned you!",
+		      "$N arrives suddenly.");
 }
 
 void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (victim->in_room == NULL
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
@@ -4333,48 +4317,26 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	pRoomIndex = get_random_room(victim, NULL);
-
-	if (victim != ch)
-		char_puts("You have been teleported!\n", victim);
-
-	act("$n vanishes!", victim, NULL, NULL, TO_ROOM);
-	char_from_room(victim);
-	char_to_room(victim, pRoomIndex);
-	act("$n slowly fades into existence.", victim, NULL, NULL, TO_ROOM);
-	do_look(victim, "auto");
+	transfer_char(victim, NULL, get_random_room(victim, NULL),
+		      "$N vanishes!",
+		      "You have been teleported!", 
+		      "$N slowly fades into existence.");
 }
 
 void spell_bamf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	ROOM_INDEX_DATA* pRoomIndex;
-	AREA_DATA *pArea;
 
 	if (victim->in_room == NULL || saves_spell(level, victim, DAM_OTHER)) {
 		send_to_char("You failed.\n",ch);
 		return;
 	}
 
-	pArea = victim->in_room->area;
-	for (;;) {
-		pRoomIndex = get_room_index(number_range(pArea->min_vnum,
-							 pArea->max_vnum));
-		if (pRoomIndex
-		&&  can_see_room(victim, pRoomIndex) 
-		&&  !room_is_private(pRoomIndex)
-		&&  !IS_SET(pRoomIndex->room_flags, ROOM_SAFE | ROOM_PEACE))
-			break;
-	}
-
-	if (victim != ch) 
-		char_puts("You have been teleported.\n", victim);
-
-	act("$n vanishes.", victim, NULL, NULL, TO_ROOM);
-	char_from_room(victim);
-	char_to_room(victim, pRoomIndex);
-	act("$n slowly fades into existence.", victim, NULL, NULL, TO_ROOM);
-	do_look(victim, "auto");
+	transfer_char(victim, NULL,
+		      get_random_room(victim, victim->in_room->area),
+		      "$N vanishes!",
+		      "You have been teleported.",
+		      "$N slowly fades into existence.");
 }
 
 void spell_ventriloquate(int sn, int level, CHAR_DATA *ch,void *vo, int target)
@@ -4420,16 +4382,13 @@ void spell_weaken(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	return;
 }
 
-
-
-/* RT recall spell is back */
-
 void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	ROOM_INDEX_DATA *location;
 	int to_room_vnum;
 	CLASS_DATA *vcl;
+	CHAR_DATA *pet;
 
 	if (IS_NPC(victim))
 		return;
@@ -4474,18 +4433,13 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 	}
 
 	ch->move /= 2;
-	act("$n disappears.", victim, NULL, NULL, TO_ROOM);
-	char_from_room(victim);
-	char_to_room(victim, location);
-	act("$n appears in the room.", victim, NULL, NULL, TO_ROOM);
-	do_look(victim, "auto");
+	pet = victim->pet;
+	recall(victim, location);
 
-	if (victim->pet) {
-		act("$n disappears.", ch->pet, NULL, NULL, TO_ROOM);
- 		char_from_room(victim->pet);
-		char_to_room(victim->pet, location);
-		act("$n appears in the room.", ch->pet, NULL, NULL, TO_ROOM);
-		do_look(victim->pet, "auto");
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (pet->position != POS_STANDING)
+			do_stand(pet, str_empty);
+		recall(pet, location);
 	}
 }
 
@@ -5060,12 +5014,20 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	damage(ch, victim, dam, sn,DAM_NEGATIVE,TRUE);
 }
 
+static inline void
+astral_walk(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	transfer_char(ch, victim, victim->in_room,
+		      "$N disappears in a flash of light!",
+		      "You travel via astral planes and go to $n.",
+		      "$N appears in a flash of light!");
+}
 
 /* travel via astral plains */
 void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
-	bool gate_pet;
+	CHAR_DATA *pet = NULL;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
@@ -5075,27 +5037,14 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	if (ch->pet != NULL && ch->in_room == ch->pet->in_room)
-		gate_pet = TRUE;
-	else
-		gate_pet = FALSE;
+	if (ch->pet && ch->in_room == ch->pet->in_room)
+		pet = ch->pet;
 
-
-	act("$n disappears in a flash of light!",ch,NULL,NULL,TO_ROOM);
-	char_printf(ch,"You travel via astral planes and go to %s.\n",victim->name);
-	char_from_room(ch);
-	char_to_room(ch,victim->in_room);
-
-	act("$n appears in a flash of light!",ch,NULL,NULL,TO_ROOM);
-	do_look(ch,"auto");
-
-	if (gate_pet) {
-		act("$n disappears in a flash of light!",ch->pet,NULL,NULL,TO_ROOM);
-		char_printf(ch->pet, "You travel via astral planes and go to %s.\n",victim->name);
-		char_from_room(ch->pet);
-		char_to_room(ch->pet,victim->in_room);
-		act("$n appears in a flash of light!",ch->pet,NULL,NULL,TO_ROOM);
-		do_look(ch->pet,"auto");
+	astral_walk(ch, victim);
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (pet->position != POS_STANDING)
+			do_stand(pet, str_empty);
+		astral_walk(ch, victim);
 	}
 }
 
@@ -5114,22 +5063,16 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	act("$n dissolves into a cloud of glowing mist, then vanishes!",ch,NULL,NULL,TO_ROOM);
-	char_puts("You dissolve into a cloud of glowing mist, then flow to your target.\n",ch);
-
-	char_from_room(ch);
-	char_to_room(ch,victim->in_room);
-
-	act("A cloud of glowing mist engulfs you, then withdraws to unveil $n!",ch,NULL,NULL,TO_ROOM);
-	do_look(ch,"auto");
-
+	transfer_char(ch, NULL, victim->in_room,
+		      "$N dissolves into a cloud of glowing mist, then vanishes!",
+		      "You dissolve into a cloud of glowing mist, then flow to your target.",
+		      "A cloud of glowing mist engulfs you, then withdraws to unveil $N!");
 }
 
 /*  Cleric version of astra_walk  */
 void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim;
-
 
 	if  (time_info.hour > 18 || time_info.hour < 8) {
 		 char_puts("You need sunlight for solar flight.\n",ch);
@@ -5144,18 +5087,11 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	act("$n disappears in a blinding flash of light!",ch,NULL,NULL,TO_ROOM);
-	char_puts("You dissolve in a blinding flash of light!.\n",ch);
-
-	char_from_room(ch);
-	char_to_room(ch,victim->in_room);
-
-	act("$n appears in a blinding flash of light!",ch,NULL,NULL,TO_ROOM);
-	do_look(ch,"auto");
-
+	transfer_char(ch, NULL, victim->in_room,
+		      "$N disappears in a blinding flash of light!",
+		      "You dissolve in a blinding flash of light!",
+		      "$N appears in a blinding flash of light!");
 }
-
-
 
 /* travel via astral plains */
 void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -5171,36 +5107,31 @@ void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	act("$n coils into an ascending column of colour, vanishing into thin air.",ch,NULL,NULL,TO_ROOM);
-	char_puts("You coils into an ascending column of colour, and vanishing into thin air.\n",ch);
-
-	char_from_room(ch);
-	char_to_room(ch,victim->in_room);
-
-	act("A coil of colours descends from above, revealing $n as it dissipates.",ch,NULL,NULL,TO_ROOM);
-	do_look(ch,"auto");
-
+	transfer_char(ch, NULL, victim->in_room,
+		      "$N coils into an ascending column of colour, vanishing into thin air.",
+		      "You coil into an ascending column of colour, vanishing into thin air.",
+		      "A coil of colours descends from above, revealing $N as it dissipates.");
 }
-
-
 
 void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim,AFF_CORRUPTION))
-		{
-		 act("$N is already corrupting.\n",ch,NULL,victim,TO_CHAR);
-		 return;
-		}
+	if (IS_AFFECTED(victim, AFF_CORRUPTION)) {
+		act("$N is already corrupting.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
 
-	if (saves_spell(level, victim, DAM_NEGATIVE)
+	if (IS_IMMORTAL(victim)
+	||  saves_spell(level, victim, DAM_NEGATIVE)
 	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))) {
 		if (ch == victim)
-			char_puts("You feel momentarily ill, but it passes.\n",ch);
+			act_puts("You feel momentarily ill, but it passes.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		else
-			act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
+			act_puts("$N seems to be unaffected.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -5213,12 +5144,11 @@ void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.bitvector = AFF_CORRUPTION;
 	affect_join(victim,&af);
 
-	char_puts
-	  ("You scream in agony as you start to decay into dust.\n",victim);
+	act("You scream in agony as you start to decay into dust.",
+	    victim, NULL, NULL, TO_CHAR);
 	act("$n screams in agony as $n start to decay into dust.",
-		victim,NULL,NULL,TO_ROOM);
+	    victim, NULL, NULL, TO_ROOM);
 }
-
 
 void spell_hurricane(int sn,int level,CHAR_DATA *ch,void *vo, int target)
 {
@@ -5318,10 +5248,7 @@ void spell_take_revenge(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (!found || room == NULL)
 		char_puts("Unluckily your corpse is devoured.\n", ch);
-	else {
-		char_from_room(ch);
-		char_to_room(ch, room);
-		do_look(ch,"auto");
-	}
+	else
+		transfer_char(ch, NULL, room, NULL, NULL, NULL);
 }
 

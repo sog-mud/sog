@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.23 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_clan.c,v 1.24 1999-02-25 14:27:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,8 +43,6 @@ DECLARE_OLC_FUN(claned_list		);
 DECLARE_OLC_FUN(claned_name		);
 DECLARE_OLC_FUN(claned_filename		);
 DECLARE_OLC_FUN(claned_recall		);
-DECLARE_OLC_FUN(claned_msg_prays	);
-DECLARE_OLC_FUN(claned_msg_vanishes	);
 DECLARE_OLC_FUN(claned_flags		);
 DECLARE_OLC_FUN(claned_skill		);
 DECLARE_OLC_FUN(claned_item		);
@@ -68,8 +66,6 @@ OLC_CMD_DATA olc_cmds_clan[] =
 	{ "name",	claned_name,		validate_name	 	},
 	{ "filename",	claned_filename,	validate_filename	},
 	{ "recall",	claned_recall,		validate_room_vnum	},
-	{ "msgp",	claned_msg_prays				},
-	{ "msgv",	claned_msg_vanishes				},
 	{ "flags",	claned_flags,		clan_flags		},
 	{ "skill",	claned_skill					},
 	{ "item",	claned_item					},
@@ -194,10 +190,6 @@ OLC_FUN(claned_show)
 	if (clan->altar_vnum)
 		buf_printf(output, "Altar:       [%d]\n",
 			   clan->altar_vnum);
-	if (!IS_NULLSTR(clan->msg_prays))
-		buf_printf(output, "MsgPrays:    [%s]\n", clan->msg_prays);
-	if (!IS_NULLSTR(clan->msg_vanishes))
-		buf_printf(output, "MsgVanishes: [%s]\n", clan->msg_vanishes);
 
 	for (i = 0; i < clan->skills.nused; i++) {
 		CLAN_SKILL *cs = VARR_GET(&clan->skills, i);
@@ -265,20 +257,6 @@ OLC_FUN(claned_altar)
 	CLAN_DATA *clan;
 	EDIT_CLAN(ch, clan);
 	return olced_number(ch, argument, claned_altar, &clan->altar_vnum);
-}
-
-OLC_FUN(claned_msg_prays)
-{
-	CLAN_DATA *clan;
-	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, claned_msg_prays, &clan->msg_prays);
-}
-
-OLC_FUN(claned_msg_vanishes)
-{
-	CLAN_DATA *clan;
-	EDIT_CLAN(ch, clan);
-	return olced_str(ch, argument, claned_msg_vanishes, &clan->msg_vanishes);
 }
 
 OLC_FUN(claned_flags)

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.115 1999-02-23 22:26:12 fjoe Exp $
+ * $Id: db.c,v 1.116 1999-02-25 14:27:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -667,15 +667,17 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 	    if (count >= pReset->arg4)
 		break;
 
-            pMob = create_mob(pMobIndex);
-
+		pMob = create_mob(pMobIndex);
 		pMob->zone = pRoom->area;
-            char_to_room(pMob, pRoom);
+		char_to_room(pMob, pRoom);
+		if (JUST_KILLED(pMob))
+			LastMob = NULL;
+		else
+            		LastMob = pMob;
 
-            LastMob = pMob;
-            level  = URANGE(0, pMob->level - 2, LEVEL_HERO - 1); /* -1 ROM */
-            last = TRUE;
-            break;
+		level  = URANGE(0, pMob->level - 2, LEVEL_HERO - 1);
+		last = TRUE;
+		break;
 
         case 'O':
             if (!(pObjIndex = get_obj_index(pReset->arg1)))

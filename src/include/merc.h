@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.161 1999-02-23 22:06:46 fjoe Exp $
+ * $Id: merc.h,v 1.162 1999-02-25 14:27:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1964,6 +1964,14 @@ CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, const char *argument, int *door, int r
 void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
 bool	in_PK(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_gate(CHAR_DATA *ch, CHAR_DATA *victim);
+void	transfer_char(CHAR_DATA *ch, CHAR_DATA *vch,
+		      ROOM_INDEX_DATA *to_room,
+		      const char *msg_out,
+		      const char *msg_travel,
+		      const char *msg_in);
+void	look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
+
+void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 bool	obj_is_pit(OBJ_DATA *obj);
 
 /* format_obj_affects flags */

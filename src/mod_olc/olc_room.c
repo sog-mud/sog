@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.38 1999-02-24 17:55:25 fjoe Exp $
+ * $Id: olc_room.c,v 1.39 1999-02-25 14:27:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -484,7 +484,6 @@ OLC_FUN(roomed_mreset)
 	 * Create the mobile.
 	 */
 	newmob = create_mob(pMobIndex);
-	char_to_room(newmob, pRoom);
 
 	char_printf(ch, "%s (%d) has been loaded and added to resets.\n"
 		"There will be a maximum of %d loaded to this room.\n",
@@ -492,6 +491,7 @@ OLC_FUN(roomed_mreset)
 		pMobIndex->vnum,
 		pReset->arg2);
 	act("$n has created $N!", ch, NULL, newmob, TO_ROOM);
+	char_to_room(newmob, pRoom);
 	return TRUE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.128 1999-02-24 08:42:42 kostik Exp $
+ * $Id: act_obj.c,v 1.129 1999-02-25 14:27:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2525,6 +2525,9 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
 		char_to_room(pet, ch->in_room);
+		if (JUST_KILLED(pet))
+			return;
+
 		do_mount(ch, pet->name);
 		char_puts("Enjoy your mount.\n", ch);
 		act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
@@ -2564,6 +2567,9 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	pet->description = mlstr_printf(pet->pIndexData->description, ch->name);
 
 	char_to_room(pet, ch->in_room);
+	if (JUST_KILLED(pet))
+		return;
+
 	add_follower(pet, ch);
 	pet->leader = ch;
 	ch->pet = pet;

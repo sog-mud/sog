@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.129 1999-02-23 22:26:10 fjoe Exp $
+ * $Id: act_wiz.c,v 1.130 1999-02-25 14:27:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -752,12 +752,18 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 		stop_fighting(victim, TRUE);
 	act("$n disappears in a mushroom cloud.", victim, NULL, NULL, TO_ROOM);
 	char_from_room(victim);
-	char_to_room(victim, location);
-	act("$n arrives from a puff of smoke.", victim, NULL, NULL, TO_ROOM);
+
+	act("$N arrives from a puff of smoke.",
+	    location->people, NULL, victim, TO_ALL);
 	if (ch != victim)
 		act("$n has transferred you.", ch, NULL, victim, TO_VICT);
-	do_look(victim, "auto");
 	char_puts("Ok.\n", ch);
+
+	char_to_room(victim, location);
+	if (JUST_KILLED(victim))
+		return;
+
+	do_look(victim, "auto");
 }
 
 void do_at(CHAR_DATA *ch, const char *argument)
@@ -766,7 +772,6 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *original;
 	OBJ_DATA *on;
-	CHAR_DATA *wch;
 	
 	argument = one_argument(argument, arg, sizeof(arg));
 
@@ -789,20 +794,22 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	original = ch->in_room;
 	on = ch->on;
 	char_from_room(ch);
+
 	char_to_room(ch, location);
+	if (JUST_KILLED(ch))
+		return;
+
 	interpret(ch, argument);
 
-	/*
-	 * See if 'ch' still exists before continuing!
-	 * Handles 'at XXXX quit' case.
-	 */
-	for (wch = char_list; wch != NULL; wch = wch->next)
-		if (wch == ch) {
-			char_from_room(ch);
-			char_to_room(ch, original);
-			ch->on = on;
-			break;
-		}
+	/* handle 'at xxx quit' */
+	if (JUST_KILLED(ch) || ch->extracted)
+		return;
+
+	char_from_room(ch);
+	char_to_room(ch, original);
+	if (JUST_KILLED(ch))
+		return;
+	ch->on = on;
 }
 
 void do_goto(CHAR_DATA *ch, const char *argument)
@@ -833,7 +840,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
-#ifdef 0
+#if 0
 		if (!IS_SET(ch->in_room->room_flags, ROOM_PEACE)) {
 			char_puts("You must be in a safe place in order "
 				  "to make a transportation.\n", ch);
@@ -861,17 +868,20 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 				    rch, TO_VICT);
 
 	char_from_room(ch);
-	char_to_room(ch, location);
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
+	for (rch = location->people; rch; rch = rch->next_in_room)
 		if (IS_TRUSTED(rch, ch->invis_level))
-			if (ch->pcdata != NULL
-			&&  ch->pcdata->bamfin[0] != '\0')
-				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
+			if (ch->pcdata
+			&&  ch->pcdata->bamfin[0])
+				act("$t",
+				    rch, ch->pcdata->bamfin, NULL, TO_CHAR);
 			else
-				act("$n appears in a swirling mist.", ch, NULL,
-				    rch, TO_VICT);
+				act("$N appears in a swirling mist.",
+				    rch, NULL, ch, TO_CHAR);
 
+	char_to_room(ch, location);
+	if (JUST_KILLED(ch))
+		return;
 	do_look(ch, "auto");
 }
 
@@ -909,18 +919,20 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 				    rch, TO_VICT);
 	
 	char_from_room(ch);
-	char_to_room(ch, location);
 	
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
 		if (IS_TRUSTED(rch, ch->invis_level))
-			if (ch->pcdata != NULL && ch->pcdata->bamfin[0] != '\0')
-				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
+			if (ch->pcdata && ch->pcdata->bamfin[0] != '\0')
+				act("$t",
+				    rch, ch->pcdata->bamfin, NULL, TO_CHAR);
 			else
-				act("$n appears in a swirling mist.", ch, NULL,
-				    rch, TO_VICT);
+				act("$N appears in a swirling mist.",
+				    rch, NULL, ch, TO_CHAR);
 	
+	char_to_room(ch, location);
+	if (JUST_KILLED(ch))
+		return;
 	do_look(ch, "auto");
-	return;
 }
 
 /* RT to replace the 3 stat commands */
@@ -2082,11 +2094,11 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 				obj_to_char(new_obj, clone);
 				new_obj->wear_loc = obj->wear_loc;
 			}
-		char_to_room(clone, ch->in_room);
 		act("$n has created $N.", ch, NULL, clone, TO_ROOM);
 		act("You clone $N.", ch, NULL, clone, TO_CHAR);
 		wiznet("$N clones $i.",
 			ch, clone, WIZ_LOAD, WIZ_SECURE, ch->level);
+		char_to_room(clone, ch->in_room);
 	}
 }
 
@@ -2138,10 +2150,10 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	}
 
 	victim = create_mob(pMobIndex);
-	char_to_room(victim, ch->in_room);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet("$N loads $i.", ch, victim, WIZ_LOAD, WIZ_SECURE, ch->level);
 	char_puts("Ok.\n", ch);
+	char_to_room(victim, ch->in_room);
 }
 
 void do_oload(CHAR_DATA *ch, const char *argument)

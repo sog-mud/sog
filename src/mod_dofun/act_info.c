@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.209 1999-02-23 22:06:41 fjoe Exp $
+ * $Id: act_info.c,v 1.210 1999-02-25 14:27:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -615,6 +615,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	const char *desc;
 	CHAR_DATA *doppel = victim;
 	CHAR_DATA *mirror = victim;
+	char buf[MAX_STRING_LENGTH];
 
 	if (is_affected(victim, gsn_doppelganger)) {
 		if (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)) {
@@ -687,9 +688,11 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		char_printf(ch, "(%s) ", flag_string(sex_table, doppel->sex));
 	}
 
+	strnzcpy(buf, sizeof(buf), fix_short(PERS(victim, ch)));
+	buf[0] = UPPER(buf[0]);
 	char_printf(ch, "%s%s%s %s\n",
 		    IS_IMMORTAL(victim) ? "{W" : str_empty,
-		    fix_short(PERS(victim, ch)),
+		    buf,
 		    IS_IMMORTAL(victim) ? "{x" : str_empty,
 		    GETMSG(msg, ch->lang));
 
@@ -760,11 +763,12 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		}
 	}
 
-	if (list->in_room == ch->in_room
+	if (list && list->in_room == ch->in_room
 	&&  life_count
 	&&  IS_AFFECTED(ch, AFF_DETECT_LIFE))
-		char_printf(ch, "You feel %d more life %s in the room.\n",
-			    life_count, (life_count == 1) ? "form" : "forms");
+		act_puts("You feel $j more life $qj{forms} in the room.",
+			 ch, (const void*) life_count, NULL,
+			 TO_CHAR, POS_DEAD);
 }
 
 void do_clear(CHAR_DATA *ch, const char *argument)
@@ -2740,19 +2744,20 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	bear->master = bear2->master = ch;
 	bear->leader = bear2->leader = ch;
 
+	char_puts("Two bears come to your rescue!\n",ch);
+	act("Two bears come to $n's rescue!", ch, NULL, NULL, TO_ROOM);
+
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level	= ch->level;
+	af.duration	= SKILL(sn)->beats;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
+	affect_to_char(ch, &af);
+
 	char_to_room(bear, ch->in_room);
 	char_to_room(bear2, ch->in_room);
-	char_puts("Two bears come to your rescue!\n",ch);
-	act("Two bears come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
-
-	af.where	      = TO_AFFECTS;
-	af.type 	      = sn;
-	af.level	      = ch->level;
-	af.duration	      = SKILL(sn)->beats;
-	af.bitvector	      = 0;
-	af.modifier	      = 0;
-	af.location	      = APPLY_NONE;
-	affect_to_char(ch, &af);
 }
 
 void do_identify(CHAR_DATA *ch, const char *argument)
@@ -3353,19 +3358,20 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	lion->master = lion2->master = ch;
 	lion->leader = lion2->leader = ch;
 
-	char_to_room(lion,ch->in_room);
-	char_to_room(lion2,ch->in_room);
 	char_puts("Two lions come to your rescue!\n",ch);
 	act("Two lions come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
-	af.where	      = TO_AFFECTS;
-	af.type 	      = sn;
-	af.level	      = ch->level;
-	af.duration	      = SKILL(sn)->beats;
-	af.bitvector	      = 0;
-	af.modifier	      = 0;
-	af.location	      = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level	= ch->level;
+	af.duration	= SKILL(sn)->beats;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);
+
+	char_to_room(lion, ch->in_room);
+	char_to_room(lion2, ch->in_room);
 }
 
 /* object condition aliases */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.153 1999-02-25 07:43:06 kostik Exp $
+ * $Id: act_move.c,v 1.154 1999-02-25 14:27:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,16 +126,16 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 	for (fch = ch->in_room->people; fch; fch = fch->next_in_room) {
 		if (fch->target == ch
-		  && IS_NPC(fch)
-		  && fch->pIndexData->vnum == MOB_VNUM_SHADOW) {
+		&&  IS_NPC(fch)
+		&&  fch->pIndexData->vnum == MOB_VNUM_SHADOW) {
 			char_puts("You attempt to leave your shadow alone,"
 				" but fail.\n", ch);
 			return FALSE;
-		  }
+		}
 	}
 
 	if (door < 0 || door >= MAX_DIR) {
-		bug("Do_move: bad door %d.", door);
+		bug("move_char_org: bad door %d.", door);
 		return FALSE;
 	}
 
@@ -361,8 +361,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		act("$n spurs $s $N, leaving $t.",
 		    ch, dir_name[door], ch->mount,  TO_ROOM);
 	}
-	else 
-	{
+	else {
 		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
 				  "$n leaves $t.",
 		    ch, dir_name[door], MOUNTED(ch), act_flags | ACT_TRANS);
@@ -379,24 +378,33 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		    ch, NULL, NULL, TO_ROOM);
 	}
 
-	mount = MOUNTED(ch);
-	char_from_room(ch);
-	char_to_room(ch, to_room);
-
 	/* room record for tracking */
-	if (!IS_NPC(ch) && ch->in_room)
+	if (!IS_NPC(ch))
 		room_record(ch->name, in_room, door);
 
+	/*
+	 * now, after all the checks are done we should
+	 * - take the char from the room
+	 * - print the message to chars in to_room about ch arrival
+	 * - put the char to to_room
+	 * - CHECK THAT CHAR IS NOT DEAD after char_to_room
+	 * - move all the followers and pull all the triggers
+	 */
+	char_from_room(ch);
+
 	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
-		act_flags = TO_ROOM;
+		act_flags = TO_ALL;
 	else
-		act_flags = TO_ROOM | ACT_NOMORTAL;
+		act_flags = TO_ALL | ACT_NOMORTAL;
 
+	mount = MOUNTED(ch);
 	if (!is_charge) 
-		act(mount ? "$n has arrived, riding $N." : "$n has arrived.",
-	    	    ch, NULL, mount, act_flags);
+		act(mount ? "$i has arrived, riding $N." : "$i has arrived.",
+	    	    to_room->people, ch, mount, act_flags);
 
-	do_look(ch, "auto");
+	char_to_room(ch, to_room);
+	if (!JUST_KILLED(ch))
+		do_look(ch, "auto");
 
 	if (mount) {
 		char_from_room(mount);
@@ -408,41 +416,17 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (in_room == to_room) /* no circular follows */
 		return TRUE;
 
-	room_has_pc = FALSE;
-	for (fch = to_room->people; fch != NULL; fch = fch_next) {
-		fch_next = fch->next_in_room;
-		if (!IS_NPC(fch)) {
-			room_has_pc = TRUE;
-			break;
-		}
-	}
-
-	for (fch = to_room->people; fch != NULL; fch = fch_next) {
-		fch_next = fch->next_in_room;
-
-		/* greet progs for items carried by people in room */
-		if (room_has_pc)
-			for (obj = fch->carrying; obj != NULL; obj = obj_next) {
-				obj_next = obj->next_content;
-				oprog_call(OPROG_GREET, obj, ch, NULL);
-			}
-	}
-
-	/* entry programs for items */
-	if (room_has_pc)
-		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
-			obj_next = obj->next_content;
-			oprog_call(OPROG_ENTRY, obj, NULL, NULL);
-		}
-
-	for (fch = in_room->people; fch != NULL; fch = fch_next) {
+	/*
+	 * move all the followers
+	 */
+	for (fch = in_room->people; fch; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
 		if (fch->master != ch || fch->position != POS_STANDING
 		||  !can_see_room(fch, to_room))
 			continue;
 
-		if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
+		if (IS_SET(to_room->room_flags, ROOM_LAW)
 		&&  IS_NPC(fch)
 		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
 			act_puts("You can't bring $N into the city.",
@@ -456,66 +440,85 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		move_char(fch, door, TRUE);
 	}
 
-	/* 
-	 * If someone is following the char, these triggers get activated
+	if (JUST_KILLED(ch))
+		return TRUE;
+
+	room_has_pc = FALSE;
+	for (fch = to_room->people; fch != NULL; fch = fch_next) {
+		fch_next = fch->next_in_room;
+		if (!IS_NPC(fch)) {
+			room_has_pc = TRUE;
+			break;
+		}
+	}
+
+	if (!room_has_pc)
+		return TRUE;
+
+	/*
+	 * pull GREET and ENTRY triggers
+	 *
+	 * if someone is following the char, these triggers get activated
 	 * for the followers before the char, but it's safer this way...
 	 */
-	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
-		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
-	if (!IS_NPC(ch))
-    		mp_greet_trigger(ch);
+	for (fch = to_room->people; fch; fch = fch_next) {
+		fch_next = fch->next_in_room;
 
-	if (room_has_pc && (ch->in_room != NULL))
-		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
+		/* greet progs for items carried by people in room */
+		for (obj = fch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 			oprog_call(OPROG_GREET, obj, ch, NULL);
 		}
+	}
+
+	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
+		obj_next = obj->next_content;
+		oprog_call(OPROG_GREET, obj, ch, NULL);
+	}
+
+	if (!IS_NPC(ch))
+    		mp_greet_trigger(ch);
+
+	for (obj = ch->carrying; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		oprog_call(OPROG_ENTRY, obj, NULL, NULL);
+	}
+
+	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
+		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
+
 	return TRUE;
 }
-
-
 
 void do_north(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
 }
 
-
-
 void do_east(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_EAST, FALSE);
 }
-
-
 
 void do_south(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
 }
 
-
-
 void do_west(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_WEST, FALSE);
 }
-
-
 
 void do_up(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_UP, FALSE);
 }
 
-
-
 void do_down(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
 }
-
-
 
 int find_exit(CHAR_DATA *ch, char *arg)
 {
@@ -535,7 +538,6 @@ int find_exit(CHAR_DATA *ch, char *arg)
 
 	return door;
 }
-
 
 int find_door(CHAR_DATA *ch, char *arg)
 {
@@ -586,8 +588,6 @@ void do_open(CHAR_DATA *ch, const char *argument)
 		char_puts("Open what?\n", ch);
 		return;
 	}
-
-
 
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* open portal */
@@ -1763,6 +1763,7 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 void do_recall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
+	CHAR_DATA *pet;
 	int point;
  
 	if (IS_NPC(ch)) {
@@ -1803,19 +1804,14 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	pet = ch->pet;
 	ch->move /= 2;
-	act("$n disappears.", ch, NULL, NULL, TO_ROOM);
-	char_from_room(ch);
-	char_to_room(ch, location);
-	act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);
-	do_look(ch, "auto");
-	
-	if (ch->pet != NULL) {
-		act("$n disappears.", ch->pet, NULL, NULL, TO_ROOM);
- 		char_from_room(ch->pet);
-		char_to_room(ch->pet, location);
-		act("$n appears in the room.", ch->pet, NULL, NULL, TO_ROOM);
-		do_look(ch->pet, "auto");
+	recall(ch, location);
+
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (pet->position != POS_STANDING)
+			do_stand(pet, str_empty);
+		recall(pet, location);
 	}
 }
 
@@ -2293,7 +2289,6 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
 {
-	AREA_DATA *area;
 	int chance;
 	int sn;
 
@@ -2330,13 +2325,9 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act("$n is gone!", ch, NULL, NULL, TO_ROOM);
-	area = ch->in_room->area;
-	char_from_room(ch);
-	char_to_room(ch, get_random_room(ch, area));
-	act("$n appears from nowhere.", ch, NULL, NULL, TO_ROOM);
-	do_look(ch, "auto");
 	stop_fighting(ch, TRUE);
+	transfer_char(ch, NULL, get_random_room(ch, ch->in_room->area),
+		      "$N is gone!", NULL, "$N appears from nowhere.");
 }
 
 void do_fade(CHAR_DATA *ch, const char *argument)
@@ -2627,6 +2618,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CLAN_DATA *clan;
+	CHAR_DATA *pet;
 	AFFECT_DATA af;
 	int sn;
 
@@ -2649,7 +2641,8 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act(clan->msg_prays, ch, NULL, NULL, TO_ROOM);
+	act("$n prays upper Lord of Battleragers for transportation.",
+	    ch, NULL, NULL, TO_ROOM);
 	
 	if ((location = get_room_index(clan->recall_vnum)) == NULL) {
 		char_puts("You are completely lost.\n", ch);
@@ -2667,18 +2660,6 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->move /= 2;
-	act(clan->msg_vanishes, ch, NULL, NULL, TO_ROOM);
-	char_from_room(ch);
-	char_to_room(ch, location);
-	act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);
-	do_look(ch, "auto");
-	
-	if (ch->pet != NULL) {
-	 	char_from_room(ch->pet);
-		char_to_room(ch->pet, location);
-		do_look(ch->pet, "auto");
-	}
-
 	af.type      = sn;
 	af.level     = ch->level;
 	af.duration  = SKILL(sn)->beats;
@@ -2686,6 +2667,15 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
+
+	pet = ch->pet;
+	recall(ch, location);
+
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (pet->position != POS_STANDING)
+			do_stand(pet, str_empty);
+		recall(pet, location);
+	}
 }
 
 void do_escape(CHAR_DATA *ch, const char *argument)
@@ -3595,24 +3585,28 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	    "You walk through $p and find yourself somewhere else...",
 	    ch, portal, NULL, TO_CHAR); 
 
-	mount = MOUNTED(ch);
 	char_from_room(ch);
-	char_to_room(ch, location);
 
 	if (IS_SET(portal->value[2], GATE_GOWITH)) {/* take the gate along */
 		obj_from_room(portal);
 		obj_to_room(portal, location);
 	}
 
+	mount = MOUNTED(ch);
 	if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
-		act(mount ? "$n has arrived, riding $N" : "$n has arrived.",
-		    ch, portal, mount, TO_ROOM);
+		act_puts3(mount ? "$i has arrived, riding $I" :
+				  "$i has arrived.",
+			  location->people, ch, portal, mount,
+			  TO_ROOM, POS_RESTING);
 	else
-		act(mount ? "$n has arrived through $p, riding $N." :
-	        	    "$n has arrived through $p.",
-		    ch, portal, mount, TO_ROOM);
+		act_puts3(mount ? "$i has arrived through $p, riding $I." :
+	        		  "$i has arrived through $p.",
+			  location->people, ch, portal, mount,
+			  TO_ROOM, POS_RESTING);
 
-	do_look(ch,"auto");
+	char_to_room(ch, location);
+	if (!JUST_KILLED(ch))
+		do_look(ch,"auto");
 
 	if (mount) {
 		char_from_room(mount);
@@ -3642,7 +3636,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	        if (fch->master != ch || fch->position != POS_STANDING)
 			continue;
 
-	        if (IS_SET(ch->in_room->room_flags,ROOM_LAW)
+	        if (IS_SET(location->room_flags, ROOM_LAW)
 	        &&  IS_NPC(fch)
 		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
 	        	act("You can't bring $N into the city.",
@@ -3669,6 +3663,9 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		}
 		extract_obj(portal);
 	}
+
+	if (JUST_KILLED(ch))
+		return;
 
 	/* 
 	 * If someone is following the char, these triggers get
