@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.83 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_area.c,v 1.84 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -105,7 +105,7 @@ OLC_FUN(areaed_create)
 	AREA_DATA *pArea;
 
 	if (PC(ch)->security < SECURITY_AREA_CREATE) {
-		char_puts("AreaEd: Insufficient security.\n", ch);
+		act_char("AreaEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -116,7 +116,7 @@ OLC_FUN(areaed_create)
 	ch->desc->pEdit	= (void*) pArea;
 	OLCED(ch)	= olced_lookup(ED_AREA);
 	TOUCH_AREA(pArea);
-	char_puts("AreaEd: Area created.\n", ch);
+	act_char("AreaEd: Area created.", ch);
 	return FALSE;
 }
 
@@ -129,12 +129,12 @@ OLC_FUN(areaed_edit)
 	if (arg[0] == '\0')
 		pArea = ch->in_room->area;
 	else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
-		char_puts("AreaEd: That area vnum does not exist.\n", ch);
+		act_char("AreaEd: That area vnum does not exist.", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("AreaEd: Insufficient security.\n", ch);
+		act_char("AreaEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -191,7 +191,7 @@ OLC_FUN(areaed_save)
 	 */
 	if (IS_SET(save_flags, SAVE_F_ALL)) {
 		if (ch)
-			char_puts("You saved the world.\n", ch);
+			act_char("You saved the world.", ch);
 		else
 			log(LOG_INFO, "The world is saved.");
 	}
@@ -220,7 +220,7 @@ OLC_FUN(areaed_show)
 		else
 			pArea = ch->in_room->area;
 	} else if (!is_number(arg) || (pArea = area_lookup(atoi(arg))) == NULL) {
-		char_puts("AreaEd: That area vnum does not exist.\n", ch);
+		act_char("AreaEd: That area vnum does not exist.", ch);
 		return FALSE;
 	}
 
@@ -277,7 +277,7 @@ OLC_FUN(areaed_list)
 		buf_free(output);
 	}
 	else
-		char_puts("No areas with that name found.\n", ch);
+		act_char("No areas with that name found.", ch);
 	return FALSE;
 }
 
@@ -286,7 +286,7 @@ OLC_FUN(areaed_reset)
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	reset_area(pArea);
-	char_puts("Area reset.\n", ch);
+	act_char("Area reset.", ch);
 	return FALSE;
 }
 
@@ -364,7 +364,7 @@ OLC_FUN(areaed_builders)
 
 	one_argument(argument, name, sizeof(name));
 	if (name[0] == '\0') {
-		char_printf(ch, "Syntax: builders <name list>\n");
+		act_char("Syntax: builders <name list>", ch);
 		return FALSE;
 	}
 
@@ -372,7 +372,8 @@ OLC_FUN(areaed_builders)
 	snprintf(filename, sizeof(filename), "%s.gz", p);
 	if (!dfexist(PLAYER_PATH, filename)
 	&&  !dfexist(PLAYER_PATH, p)) {
-		char_printf(ch, "AreaEd: %s: no such player.\n", name);
+		act_puts("AreaEd: $t: no such player.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -417,7 +418,7 @@ VALIDATE_FUN(validate_security)
 		if (PC(ch)->security != 0)
 			char_printf(ch, "AreaEd: Valid security range is 0..%d.\n", PC(ch)->security);
 		else
-			char_puts("AreaEd: Valid security is 0 only.\n", ch);
+			act_char("AreaEd: Valid security is 0 only.", ch);
 		return FALSE;
 	}
 	return TRUE;
@@ -431,12 +432,12 @@ VALIDATE_FUN(validate_minvnum)
 
 	if (min_vnum && pArea->max_vnum) {
 		if (min_vnum > pArea->max_vnum) {
-			char_puts("AreaEd: Min vnum must be less than max vnum.\n", ch);
+			act_char("AreaEd: Min vnum must be less than max vnum.", ch);
 			return FALSE;
 		}
 	
 		if (check_range(pArea, min_vnum, pArea->max_vnum)) {
-			char_puts("AreaEd: Range must include only this area.\n", ch);
+			act_char("AreaEd: Range must include only this area.", ch);
 			return FALSE;
 		}
 	}
@@ -451,12 +452,12 @@ VALIDATE_FUN(validate_maxvnum)
 
 	if (pArea->min_vnum && max_vnum) {
 		if (max_vnum < pArea->min_vnum) {
-			char_puts("AreaEd: Max vnum must be greater than min vnum.\n", ch);
+			act_char("AreaEd: Max vnum must be greater than min vnum.", ch);
 			return FALSE;
 		}
 	
 		if (check_range(pArea, pArea->min_vnum, max_vnum)) {
-			char_puts("AreaEd: Range must include only this area.\n", ch);
+			act_char("AreaEd: Range must include only this area.", ch);
 			return FALSE;
 		}
 	}
@@ -504,7 +505,8 @@ move_print_clan_cb(void *p, va_list ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 
 	if (IS_SET(clan->clan_flags, CLAN_CHANGED))
-		char_printf(ch, "- %s\n", clan->name);
+		act_puts("- $t",
+			 ch, clan->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return NULL;
 }
 
@@ -519,13 +521,12 @@ VALIDATE_FUN(validate_move)
 	EDIT_AREA(ch, pArea);
 
 	if (PC(ch)->security < SECURITY_AREA_CREATE) {
-		char_puts("AreaEd: Insufficient security.\n", ch);
+		act_char("AreaEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
 	if (!pArea->min_vnum || !pArea->max_vnum) {
-		char_puts("AreaEd: Both min_vnum and max_vnum must be set "
-			  "in order to perform area vnum move.\n", ch);
+		act_char("AreaEd: Both min_vnum and max_vnum must be set in order to perform area vnum move.", ch);
 		return FALSE;
 	}
 
@@ -535,7 +536,7 @@ VALIDATE_FUN(validate_move)
 /* check new region */
 	delta = new_min - pArea->min_vnum;
 	if (check_range(pArea, new_min, pArea->max_vnum+delta)) {
-		char_puts("AreaEd: New vnum range overlaps other areas.\n", ch);
+		act_char("AreaEd: New vnum range overlaps other areas.", ch);
 		return FALSE;
 	}
 
@@ -544,7 +545,7 @@ VALIDATE_FUN(validate_move)
 /* fix clan recall, item and altar vnums */
 	hash_foreach(&clans, move_clan_cb, pArea, delta, &touched);
 	if (touched) {
-		char_puts("AreaEd: Changed clans:\n", ch);
+		act_char("AreaEd: Changed clans:", ch);
 		hash_foreach(&clans, move_print_clan_cb, ch);
 	}
 
@@ -654,7 +655,7 @@ VALIDATE_FUN(validate_move)
 	pArea->max_vnum += delta;
 	TOUCH_AREA(pArea);
 
-	char_puts("AreaEd: Changed areas:\n", ch);
+	act_char("AreaEd: Changed areas:", ch);
 	for (pArea = area_first; pArea; pArea = pArea->next)
 		if (IS_SET(pArea->area_flags, AREA_CHANGED))
 			char_printf(ch, "[%3d] %s (%s)\n",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.12 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.13 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -76,7 +76,7 @@ OLC_FUN(liqed_create)
 	liquid_t *l;
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
-		char_puts("LiqEd: Insufficient security for creating liquids.\n", ch);
+		act_char("LiqEd: Insufficient security for creating liquids.", ch);
 		return FALSE;
 	}
 
@@ -94,13 +94,14 @@ OLC_FUN(liqed_create)
 	liquid_destroy(&lq);
 
 	if (l == NULL) {
-		char_printf(ch, "LiqEd: %s: already exists.\n", argument);
+		act_puts("LiqEd: $t: already exists.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	OLCED(ch)	= olced_lookup(ED_LIQUID);
 	ch->desc->pEdit = l;
-	char_puts("Liquid created.\n",ch);
+	act_char("Liquid created.", ch);
 	SET_BIT(changed_flags, CF_LIQUID);
 	return FALSE;
 }
@@ -110,7 +111,7 @@ OLC_FUN(liqed_edit)
 	liquid_t *lq;
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
-		char_puts("LiqEd: Insufficient security.\n", ch);
+		act_char("LiqEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -118,7 +119,8 @@ OLC_FUN(liqed_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if (!(lq = liquid_search(argument))) {
-		char_printf(ch, "LiqEd: %s: No such liquid.\n", argument);
+		act_puts("LiqEd: $t: No such liquid.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -153,7 +155,7 @@ OLC_FUN(liqed_save)
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_LIQUID)) {
-		char_puts("Liquids are not changed.\n", ch);
+		act_char("Liquids are not changed.", ch);
 		return FALSE;
 	}
 	fp = olc_fopen(ETC_PATH, LIQUIDS_CONF, ch, SECURITY_MATERIAL);
@@ -187,7 +189,9 @@ OLC_FUN(liqed_show)
 		else 
 			OLC_ERROR("'OLC ASHOW'");
 	} else if ((lq = liquid_search(argument)) == NULL) {
-			char_printf(ch, "LiqEd: %s: no such liquid.\n", argument);
+			act_puts("LiqEd: $t: no such liquid.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 	}
 	
@@ -255,7 +259,7 @@ OLC_FUN(liqed_affect)
 	EDIT_LIQ(ch, lq);
 
 	if (IS_NULLSTR(argument)) {
-		char_puts("Syntax: affect <condition> <value>\n", ch);
+		act_char("Syntax: affect <condition> <value>", ch);
 		return FALSE;
 	}
 	argument = one_argument(argument, arg, sizeof(arg));

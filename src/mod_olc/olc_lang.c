@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.26 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: olc_lang.c,v 1.27 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -73,7 +73,7 @@ OLC_FUN(langed_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_LANG) {
-		char_puts("LangEd: Insufficient security.\n", ch);
+		act_char("LangEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -82,7 +82,7 @@ OLC_FUN(langed_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	if (lang_lookup(arg) >= 0) {
-		char_puts("LangEd: lang already exists.\n", ch);
+		act_char("LangEd: lang already exists.", ch);
 		return FALSE;
 	}
 
@@ -91,7 +91,7 @@ OLC_FUN(langed_create)
 	l->file_name = str_printf("lang%02d.lang", langs.nused-1);
 	ch->desc->pEdit	= l;
 	OLCED(ch)	= olced_lookup(ED_LANG);
-	char_puts("LangEd: lang created.\n", ch);
+	act_char("LangEd: lang created.", ch);
 	SET_BIT(l->lang_flags, LANG_CHANGED);
 	return FALSE;
 }
@@ -102,7 +102,7 @@ OLC_FUN(langed_edit)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_LANG) {
-		char_puts("LangEd: Insufficient security", ch);
+		act_char("LangEd: Insufficient security", ch);
 		return FALSE;
 	}
 
@@ -111,7 +111,7 @@ OLC_FUN(langed_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((lang = lang_lookup(arg)) < 0) {
-		char_puts("LangEd: language not found.\n", ch);
+		act_char("LangEd: language not found.", ch);
 		return FALSE;
 	}
 
@@ -173,17 +173,18 @@ OLC_FUN(langed_show)
 		int lang;
 
 		if ((lang = lang_lookup(arg)) < 0) {
-			char_puts("LangEd: language not found.\n", ch);
+			act_char("LangEd: language not found.", ch);
 			return FALSE;
 		}
 		l = VARR_GET(&langs, lang);
 	}
 
-	char_printf(ch, "Name:     [%s]\n"
-			"Filename: [%s]\n",
-		    l->name, l->file_name);
-	if ((sl = varr_get(&langs, l->slang_of)))
-		char_printf(ch, "Slang of: [%s]\n", sl->name);
+	char_printf(ch, "Name:     [%s]\n", l->name);
+	char_printf(ch, "Filename: [%s]\n", l->file_name);
+	if ((sl = varr_get(&langs, l->slang_of))) {
+		act_puts("Slang of: [$t]",
+			 ch, sl->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	}
 	if (l->lang_flags) {
 		char_printf(ch, "Flags:    [%s]\n",
 			    flag_string(lang_flags, l->lang_flags)); 
@@ -226,7 +227,7 @@ OLC_FUN(langed_name)
 	lang_t *l;
 
 	if (PC(ch)->security < 9) {
-		char_puts("LangEd: Insufficient security", ch);
+		act_char("LangEd: Insufficient security", ch);
 		return FALSE;
 	}
 
@@ -252,7 +253,7 @@ OLC_FUN(langed_slangof)
 		OLC_ERROR("'OLC LANG SLANG'");
 
 	if ((lang = lang_lookup(arg)) < 0) {
-		char_puts("LangEd: language not found.\n", ch);
+		act_char("LangEd: language not found.", ch);
 		return FALSE;
 	}
 
@@ -280,8 +281,7 @@ OLC_FUN(langed_rulecl)
 static VALIDATE_FUN(validate_langname)
 {
 	if (lang_lookup(arg) >= 0) {
-		char_printf(ch, "%s: language already exists.\n",
-			    OLCED(ch)->name);
+		char_printf(ch, "%s: language already exists.\n", OLCED(ch)->name);
 		return FALSE;
 	}
 	return TRUE;

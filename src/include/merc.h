@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.307 2000-08-21 07:50:43 fjoe Exp $
+ * $Id: merc.h,v 1.308 2000-10-07 18:14:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1149,12 +1149,25 @@ enum {
 #define WSHOW_HOMETOWN		(N)
 #define WSHOW_AGE		(O)
 
-
-
 /* Trust stuff */
 #define TRUST_GROUP		(A)
 #define TRUST_CLAN		(B)
 #define TRUST_ALL		(C) /* mutually exclusive with previous two */
+
+/*
+ * hint levels
+ */
+enum {
+	HINT_NONE,
+	HINT_SOG,
+	HINT_ALL
+};
+
+/*
+ * OLC flags
+ */
+#define OLC_RAW_STRINGS		(A)	/* show strings without color parsing */
+#define OLC_BRIEF_ASHOW		(B)	/* show only string fields */
 
 #define IS_HARA_KIRI(ch)	(!IS_NPC(ch) &&	\
 				 IS_SET(PC(ch)->plr_flags, PLR_HARA_KIRI))
@@ -1212,8 +1225,6 @@ enum {
 #define COMM_DEAF		(B)
 #define COMM_NOFLEE		(C)
 #define COMM_NONOTE		(D)
-#define COMM_NEWBIE_TIPS	(E)
-#define COMM_SOG_TIPS		(F)
 #define COMM_QUIET_EDITOR	(K)
 #define COMM_COMPACT		(L)
 #define COMM_BRIEF		(M)
@@ -1233,6 +1244,7 @@ enum {
 #define COMM_NOVERBOSE		(dd)
 #define COMM_NOBUST		(ee)
 
+#define OLC_
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is used to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
 #define IAC_REPL	223
@@ -1546,6 +1558,9 @@ struct pc_data
 	CHAR_DATA *	 	guarding;
 	CHAR_DATA * 		guarded_by;
 	int			version;
+
+	flag_t			hints_level;
+	flag_t			olc_flags;
 
 	dvdata_t *		dvdata;
 };

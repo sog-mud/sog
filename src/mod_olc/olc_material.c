@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.15 2000-04-03 08:54:08 fjoe Exp $
+ * $Id: olc_material.c,v 1.16 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -74,7 +74,7 @@ OLC_FUN(mated_create)
 	material_t *m;
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
-		char_puts("MatEd: Insufficient security for creating materials.\n", ch);
+		act_char("MatEd: Insufficient security for creating materials.", ch);
 		return FALSE;
 	}
 
@@ -92,14 +92,15 @@ OLC_FUN(mated_create)
 	material_destroy(&mat);
 
 	if (m == NULL) {
-		char_printf(ch, "MatEd: %s: already exists.\n", mat.name);
+		act_puts("MatEd: $t: already exists.",
+			 ch, mat.name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	OLCED(ch)	= olced_lookup(ED_MATERIAL);
 	SET_BIT(changed_flags, CF_MATERIAL);
 	ch->desc->pEdit = m;
-	char_puts("Material created.\n",ch);
+	act_char("Material created.", ch);
 	return FALSE;
 }
 
@@ -108,7 +109,7 @@ OLC_FUN(mated_edit)
 	material_t *mat;
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
-		char_puts("MatEd: Insufficient security.\n", ch);
+		act_char("MatEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -116,7 +117,8 @@ OLC_FUN(mated_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if (!(mat = material_search(argument))) {
-		char_printf(ch, "MatEd: %s: No such material.\n", argument);
+		act_puts("MatEd: $t: No such material.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -148,7 +150,7 @@ OLC_FUN(mated_save)
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_MATERIAL)) {
-		char_puts("Materials are not changed.\n", ch);
+		act_char("Materials are not changed.", ch);
 		return FALSE;
 	}
 	fp = olc_fopen(ETC_PATH, MATERIALS_CONF, ch, SECURITY_MATERIAL);
@@ -181,11 +183,14 @@ OLC_FUN(mated_show)
 			OLC_ERROR("'OLC ASHOW'");
 	else
 		if (!(mat = material_search(argument))) {
-			char_printf(ch, "MatEd: %s: no such material.\n", argument);
+			act_puts("MatEd: $t: no such material.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	
-	char_printf(ch, "Name [%s]\n", mat->name);
+	act_puts("Name [$t]",
+		 ch, mat->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	if (mat->float_time)
 		char_printf(ch, "Float [%d]\n", mat->float_time);
 	if (mat->dam_class != DAM_NONE)

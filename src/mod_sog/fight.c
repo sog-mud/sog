@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.279 2000-10-04 20:28:47 fjoe Exp $
+ * $Id: fight.c,v 1.280 2000-10-07 18:14:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2647,10 +2647,15 @@ group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 
 		xp = xp_compute(gch, victim, group_levels, members);
-		if(xp >= 0)	
-			char_printf(gch, "You receive %d experience points.\n", xp);
-		else
-			char_printf(gch, "You loose %d experience points.\n", -xp);
+		if(xp >= 0) {
+			act_puts("You receive $j experience points.",
+				 gch, (const void *) xp, NULL,
+				 TO_CHAR, POS_DEAD);
+		} else {
+			act_puts("You loose $j experience points.",
+				 gch, (const void *) -xp, NULL,
+				 TO_CHAR, POS_DEAD);
+		}
 		gain_exp(gch, xp);
 	}
 }
@@ -2747,11 +2752,12 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 
 	if (neg_cha) {
 		if ((pc->anti_killed % 100) == 99) {
-			char_printf(gch, "You have killed %d %s up to now.\n",
-				    pc->anti_killed,
-				    IS_GOOD(gch) ?	"goods" :
-				    IS_EVIL(gch) ?	"evils" :
-							"neutrals");
+			act_puts("You have killed $j $T up to now.",
+				 gch, (const void *) pc->anti_killed,
+				 IS_GOOD(gch) ?	"goods" :
+				 IS_EVIL(gch) ?	"evils" :
+						"neutrals",
+				 TO_CHAR, POS_DEAD);
 			if (gch->perm_stat[STAT_CHA] > 3 && IS_GOOD(gch)) {
 				act_char("So your charisma has reduced by one.", gch);
 				gch->perm_stat[STAT_CHA] -= 1;
@@ -2759,11 +2765,12 @@ xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 		}
 	} else if (pos_cha) {
 		if ((PC(gch)->has_killed % 200) == 199) {
-			char_printf(gch, "You have killed %d %s up to now.\n",
-				    pc->has_killed,
-				    IS_GOOD(gch) ?	"anti-goods" :
-				    IS_EVIL(gch) ?	"anti-evils" :
-							"anti-neutrals");
+			act_puts("You have killed $j $T up to now.",
+				 gch, (const void *) pc->has_killed,
+				 IS_GOOD(gch) ?	"anti-goods" :
+				 IS_EVIL(gch) ?	"anti-evils" :
+						"anti-neutrals",
+				 TO_CHAR, POS_DEAD);
 			if (gch->perm_stat[STAT_CHA] <
 						get_max_train(gch, STAT_CHA)
 			&&  IS_GOOD(gch)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.49 2000-10-04 20:28:52 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.50 2000-10-07 18:14:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,16 +128,15 @@ void do_mpgecho(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    for (d = descriptor_list; d; d = d->next)
-    {
-	if (d->connected == CON_PLAYING)
- 	{
-	    if (IS_IMMORTAL(d->character))
-		char_puts("Mob echo> ", d->character);
-	    char_puts(argument, d->character);
-	    send_to_char("\n", d->character);
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected != CON_PLAYING)
+			continue;
+
+		act_puts("$t$T",
+			 d->character,
+			 IS_IMMORTAL(d->character) ?  "Mob echo> " : str_empty,
+			 argument, TO_CHAR, POS_DEAD);
 	}
-    }
 }
 
 /*
@@ -156,21 +155,20 @@ void do_mpzecho(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    if (ch->in_room == NULL)
-	return;
+	if (ch->in_room == NULL)
+		return;
 
-    for (d = descriptor_list; d; d = d->next)
-    {
-	if (d->connected == CON_PLAYING 
-	&&   d->character->in_room != NULL 
-	&&   d->character->in_room->area == ch->in_room->area)
- 	{
-	    if (IS_IMMORTAL(d->character))
-		char_puts("Mob echo> ", d->character);
-	    char_puts(argument, d->character);
-	    send_to_char("\n", d->character);
+	for (d = descriptor_list; d; d = d->next) {
+		if (d->connected != CON_PLAYING 
+		||  d->character->in_room == NULL 
+		||  d->character->in_room->area != ch->in_room->area)
+			continue;
+
+		act_puts("$t$T",
+			 d->character,
+			 IS_IMMORTAL(d->character) ?  "Mob echo> " : str_empty,
+			 argument, TO_CHAR, POS_DEAD);
 	}
-    }
 }
 
 /*

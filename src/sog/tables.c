@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.143 2000-08-04 14:12:49 cs Exp $
+ * $Id: tables.c,v 1.144 2000-10-07 18:14:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -341,8 +341,6 @@ flaginfo_t comm_flags[] =
 	{ "noiac",		COMM_NOIAC,		TRUE	},
 	{ "noverbose",		COMM_NOVERBOSE,		TRUE	},
 	{ "nobust",		COMM_NOBUST,		TRUE	},
-	{ "newbietip",		COMM_NEWBIE_TIPS,	TRUE	},
-	{ "sogtip",		COMM_SOG_TIPS,		TRUE	},
 
 	{ NULL }
 };
@@ -1464,6 +1462,27 @@ flaginfo_t iterator_names[] =
 	{ "obj_room",		(flag_t) &iter_obj_room,	TRUE	},
 	{ "obj_char",		(flag_t) &iter_obj_char,	TRUE	},
 	{ "obj_obj",		(flag_t) &iter_obj_obj,		TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t hint_levels[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "none",		HINT_NONE,			FALSE	},
+	{ "sog",		HINT_SOG,			TRUE	},
+	{ "all",		HINT_ALL,			TRUE	},
+
+	{ NULL }
+};
+
+flaginfo_t olc_flags[] =
+{
+	{ "",			TABLE_BITVAL				},
+
+	{ "raw_strings",	OLC_RAW_STRINGS,		TRUE	},
+	{ "brief_ashow",	OLC_BRIEF_ASHOW,		TRUE	},
 
 	{ NULL }
 };

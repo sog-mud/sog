@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.212 2000-10-04 20:28:44 fjoe Exp $
+ * $Id: act_comm.c,v 1.213 2000-10-07 18:14:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,94 +115,74 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 	/* lists all channels and their status */
 	act_char("   channel     status", ch);
 	act_char("---------------------", ch);
-	
-	char_puts("music          ", ch);
-	if (!IS_SET(ch->chan, CHAN_NOMUSIC))
-		 act_char("ON", ch);
-	else
-		 act_char("OFF", ch);
-
-	char_puts("shout          ", ch);
-	if (!IS_SET(ch->chan, CHAN_NOSHOUT))
-		 act_char("ON", ch);
-	else
-		 act_char("OFF", ch);
-
-	char_puts("auction        ", ch);
-	if (!IS_SET(ch->chan, CHAN_NOAUCTION))
-		 act_char("ON", ch);
-	else
-		 act_char("OFF", ch);
-
+	act_puts("music          $t",
+		 ch, !IS_SET(ch->chan, CHAN_NOMUSIC) ? "ON" : "OFF", NULL,
+		 TO_CHAR, POS_DEAD);
+	act_puts("shout          $t",
+		 ch, !IS_SET(ch->chan, CHAN_NOSHOUT) ? "ON" : "OFF", NULL,
+		 TO_CHAR, POS_DEAD);
+	act_puts("auction        $t",
+		 ch, !IS_SET(ch->chan, CHAN_NOAUCTION) ? "ON" : "OFF", NULL,
+		 TO_CHAR, POS_DEAD);
 	if (IS_IMMORTAL(ch)) {
-		char_puts("god channel    ", ch);
-		if (!IS_SET(ch->chan, CHAN_NOWIZ))
-			act_char("ON", ch);
-		else
-			act_char("OFF", ch);
+		act_puts("god channel    $t",
+			 ch, !IS_SET(ch->chan, CHAN_NOWIZ) ? "ON" : "OFF", NULL,
+			 TO_CHAR, POS_DEAD);
 	}
-
-	char_puts("tells          ",ch);
-	if (!IS_SET(ch->comm, COMM_DEAF))
-		act_char("ON", ch);
-	else
-		act_char("OFF", ch);
-
-	char_puts("hints          ",ch);
-	if (IS_SET(ch->comm, COMM_NEWBIE_TIPS))
-		act_char("All", ch);
-	else if (IS_SET(ch->comm, COMM_SOG_TIPS))
-		act_char("SoG-specific", ch);
-	else
-		act_char("None", ch);
-
-	char_puts("quiet mode     ", ch);
-	if (IS_SET(ch->comm, COMM_QUIET))
-		 act_char("ON", ch);
-	else
-		 act_char("OFF", ch);
+	act_puts("tells          $t",
+		 ch, !IS_SET(ch->chan, COMM_DEAF) ? "ON" : "OFF", NULL,
+		 TO_CHAR, POS_DEAD);
+	if (!IS_NPC(ch)) {
+		act_puts("hints           $t",
+			 ch, flag_string(hint_levels, PC(ch)->hints_level), NULL,
+			 TO_CHAR, POS_DEAD);
+	}
+	act_puts("quiet mode     $t",
+		 ch, IS_SET(ch->comm, COMM_QUIET) ? "ON" : "OFF", NULL,
+		 TO_CHAR, POS_DEAD);
 
 	if (IS_SET(ch->comm, COMM_SNOOP_PROOF))
 		act_char("You are immune to snooping.", ch);
-	
 	if (IS_SET(ch->comm, COMM_NOTELL))
 		 act_char("You cannot use tell.", ch);
-	
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS))
 		act_char("You cannot use channels.", ch);
-
 	if (IS_SET(ch->comm, COMM_NOEMOTE))
 		 act_char("You cannot show emotions.", ch);
 }
 
 void do_hints(CHAR_DATA *ch, const char *argument)
 {
+	flag_t hint_level;
 	char arg[MAX_INPUT_LENGTH];
 
+	if (IS_NPC(ch)) {
+		act_char("Huh?", ch);
+		return;
+	}
+
 	if (argument[0] == '\0') {
+		act_puts("Current hints level is '$t'.",
+			 ch, flag_string(hint_levels, PC(ch)->hints_level), NULL,
+			 TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+	hint_level = flag_value(hint_levels, arg);
+	if (hint_level < 0) {
 		dofun("help", ch, "hints");
 		return;
 	}
-	REMOVE_BIT(ch->comm, COMM_NEWBIE_TIPS | COMM_SOG_TIPS);
-	one_argument(argument, arg, sizeof(arg));
-	if (!str_prefix(arg, "all")) {
-		SET_BIT(ch->comm, COMM_NEWBIE_TIPS | COMM_SOG_TIPS);
-		act_char("All tips will be displayed.", ch);
-		return;
-	}
 
-	if (!str_prefix(arg, "sog")) {
-		SET_BIT(ch->comm, COMM_SOG_TIPS);
-		act_char("Specific for this world tips will be displayed.", ch);
-		return;
+	PC(ch)->hints_level = hint_level;
+	if (hint_level == HINT_NONE)
+		act_char("Hints disabled.", ch);
+	else {
+		act_puts("Hints level set to '$t'.",
+			 ch, flag_string(hint_levels, PC(ch)->hints_level), NULL,
+			 TO_CHAR, POS_DEAD);
 	}
-
-	if (!str_prefix(arg, "none")) {
-		act_char("Tips disabled.", ch);
-		return;
-	}
-
-	dofun("help", ch, "hints");
 }
 
 void do_deaf(CHAR_DATA *ch, const char *argument)
@@ -1235,13 +1215,15 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 
 	lang = lang_lookup(arg);
 	if (lang < 0) {
-		char_puts("Usage: lang [ ", ch);
+		act_puts("Usage: lang [ ",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		for (lang = 0; lang < langs.nused; lang++) {
 			l = VARR_GET(&langs, lang);
 			if (IS_SET(l->lang_flags, LANG_HIDDEN))
 				continue;
-			char_printf(ch, "%s%s",
-				    lang == 0 ? str_empty : " | ", l->name);
+			act_puts(" $t$T",
+				 ch, lang == 0 ? str_empty : " | ", l->name,
+				 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
 		}
 		act_char(" ]", ch);
 		return;

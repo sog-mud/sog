@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.37 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_race.c,v 1.38 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -134,8 +134,7 @@ OLC_FUN(raceed_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_RACE) {
-		char_puts("RaceEd: Insufficient security for creating races.\n",
-			  ch);
+		act_char("RaceEd: Insufficient security for creating races.", ch);
 		return FALSE;
 	}
 
@@ -154,14 +153,15 @@ OLC_FUN(raceed_create)
 	race_destroy(&race);
 
 	if (r == NULL) {
-		char_printf(ch, "RaceEd: %s: already exists.\n", arg);
+		act_puts("RaceEd: $t: already exists.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	ch->desc->pEdit	= r;
 	OLCED(ch) = olced_lookup(ED_RACE);
 	touch_race(r);
-	char_puts("Race created.\n",ch);
+	act_char("Race created.", ch);
 	return FALSE;
 }
 
@@ -170,7 +170,7 @@ OLC_FUN(raceed_edit)
 	race_t *r;
 
 	if (PC(ch)->security < SECURITY_RACE) {
-		char_puts("RaceEd: Insufficient security.\n", ch);
+		act_char("RaceEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -178,7 +178,8 @@ OLC_FUN(raceed_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((r = race_search(argument)) == 0) {
-		char_printf(ch, "RaceEd: %s: No such race.\n", argument);
+		act_puts("RaceEd: $t: No such race.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -219,7 +220,9 @@ OLC_FUN(raceed_show)
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if ((r = race_search(argument)) == NULL) {
-			char_printf(ch, "RaceEd: %s: No such race.\n", argument);
+			act_puts("RaceEd: $t: No such race.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -424,7 +427,7 @@ OLC_FUN(raceed_addpcdata)
 	race_t *race;
 	EDIT_RACE(ch, race);
 	if (race->race_pcdata) {
-		char_puts("RaceEd: Race already has PC race data.\n", ch);
+		act_char("RaceEd: Race already has PC race data.", ch);
 		return FALSE;
 	}
 	race->race_pcdata = pcrace_new();
@@ -433,7 +436,7 @@ OLC_FUN(raceed_addpcdata)
 		strnzcpy(race->race_pcdata->who_name,
 			 sizeof(race->race_pcdata->who_name), str);
 		free_string(str);
-		char_puts("PC race data created.\n", ch);
+		act_char("PC race data created.", ch);
 		return TRUE;
 	}
 	free_string(str);
@@ -447,12 +450,12 @@ OLC_FUN(raceed_delpcdata)
 	race_t *race;
 	EDIT_RACE(ch, race);
 	if (!race->race_pcdata) {
-		char_puts("RaceEd: Race has no PC race data.\n", ch);
+		act_char("RaceEd: Race has no PC race data.", ch);
 		return FALSE;
 	}
 	pcrace_free(race->race_pcdata);
 	race->race_pcdata = NULL;
-	char_puts("PC race data deleted.\n", ch);
+	act_char("PC race data deleted.", ch);
 	return TRUE;
 }
 
@@ -463,7 +466,7 @@ OLC_FUN(raceed_whoname)
 	EDIT_RACE(ch, race);
 
 	if (!race->race_pcdata) {
-		char_puts("RaceEd: no PC race data.\n", ch);
+		act_char("RaceEd: no PC race data.", ch);
 		return FALSE;
 	}
 	str = str_qdup(race->race_pcdata->who_name);
@@ -489,7 +492,7 @@ OLC_FUN(raceed_skillspec)
 	race_t *race;
 	EDIT_RACE(ch, race);
 	if (race->race_pcdata == NULL) {
-		char_puts("RaceEd: No PCDATA for this race defined.\n", ch);
+		act_char("RaceEd: No PCDATA for this race defined.", ch);
 		return FALSE;
 	}
 	return olced_str(ch, argument, cmd, &race->race_pcdata->skill_spec);
@@ -502,7 +505,8 @@ OLC_FUN(raceed_bonusskill)
 
 	EDIT_RACE(ch, race);
 	if ((sk = skill_lookup(argument)) == NULL) {
-		char_printf(ch, "RaceEd: %s: no such skill.\n", argument);
+		act_puts("RaceEd: $t: no such skill.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 	return olced_name(ch, gmlstr_mval(&sk->sk_name), cmd,
@@ -529,10 +533,11 @@ OLC_FUN(raceed_stats)
 		st = TRUE;
 	}
 	
-	if (!st)
-		char_printf(ch, "Syntax: %s <attr1> <attr2> ...\n", cmd->name);
-	else
-		char_puts("Ok.\n", ch);
+	if (!st) {
+		act_puts("Syntax: $t <attr1> <attr2> ...",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	} else
+		act_char("Ok.", ch);
 	return st;
 }
 
@@ -556,10 +561,11 @@ OLC_FUN(raceed_maxstats)
 		st = TRUE;
 	}
 	
-	if (!st)
-		char_printf(ch, "Syntax: %s <attr1> <attr2> ...\n", cmd->name);
-	else
-		char_puts("Ok.\n", ch);
+	if (!st) {
+		act_puts("Syntax: $t <attr1> <attr2> ...",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	} else
+		act_char("Ok.", ch);
 	return st;
 }
 
@@ -635,8 +641,8 @@ OLC_FUN(raceed_damtype)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Syntax: damtype [damage message]\n", ch);
-		char_puts("Syntax: damtype ?\n", ch);
+		act_char("Syntax: damtype [damage message]", ch);
+		act_char("Syntax: damtype ?", ch);
 		return FALSE;
 	}
 
@@ -649,13 +655,14 @@ OLC_FUN(raceed_damtype)
 	}
 
 	if ((d = damtype_lookup(arg)) == NULL) {
-		char_printf(ch, "MobEd: %s: unknown damage class.\n", arg);
+		act_puts("MobEd: $t: unknown damage class.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	free_string(race->damtype);
 	race->damtype = str_qdup(d->dam_name);
-	char_puts("Damage type set.\n", ch);
+	act_char("Damage type set.", ch);
 	return TRUE;
 }
 
@@ -675,12 +682,14 @@ OLC_FUN(raceed_addclass)
 		OLC_ERROR("'OLC RACE CLASS'");
 
 	if ((cl = class_search(arg1)) == NULL) {
-		char_printf(ch, "RaceEd: %s: unknown class.\n", arg1);
+		act_puts("RaceEd: $t: unknown class.",
+			 ch, arg1, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	if (rclass_lookup(race, cl->name)) {
-		char_printf(ch, "RaceEd: %s: already there.\n", cl->name);
+		act_puts("RaceEd: $t: already there.",
+			 ch, cl->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -688,7 +697,7 @@ OLC_FUN(raceed_addclass)
 	rc->name = str_qdup(cl->name);
 	rc->mult = atoi(arg2);
 	varr_qsort(&race->race_pcdata->classes, cmpstr);
-        char_puts("Ok.\n", ch);
+        act_char("Ok.", ch);
 	return TRUE;
 }
 
@@ -705,13 +714,13 @@ OLC_FUN(raceed_delclass)
 		OLC_ERROR("'OLC RACE CLASS'");
 
 	if ((rc = rclass_lookup(race, arg)) == NULL) {
-		char_printf(ch, "RaceEd: %s: not found in race class list.\n",
-			    arg);
+		act_puts("RaceEd: $t: not found in race class list.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	varr_edelete(&race->race_pcdata->classes, rc);
-        char_puts("Ok.\n", ch);
+        act_char("Ok.", ch);
 	return TRUE;
 }
 
@@ -747,7 +756,7 @@ OLC_FUN(olc_skill_update)
 
 	for (gch = char_list; gch && !IS_NPC(gch); gch = gch->next)
 		spec_update(gch);
-	char_puts("Active players' skills updated.\n", ch);
+	act_char("Active players' skills updated.", ch);
 	return FALSE;
 }
 
@@ -777,14 +786,14 @@ static VALIDATE_FUN(validate_whoname)
 	EDIT_RACE(ch, r);
 
 	if (strlen(arg) > 5 || strlen(arg) < 1) {
-		char_puts("RaceEd: whoname should be 1..5 symbols long.\n", ch);
+		act_char("RaceEd: whoname should be 1..5 symbols long.", ch);
 		return FALSE;
 	}
 
 	if ((r2 = hash_foreach(&races, search_whoname_cb, arg)) != NULL
 	&&  r2 != r) {
-		char_printf(ch, "RaceEd: %s: duplicate race whoname.\n",
-			    (const char *) arg);
+		act_puts("RaceEd: $t: duplicate race whoname.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -797,7 +806,7 @@ static VALIDATE_FUN(validate_haspcdata)
 	EDIT_RACE(ch, race);
 
 	if (race->race_pcdata != NULL) return TRUE;
-	char_puts("Add PC race data first.\n", ch);
+	act_char("Add PC race data first.", ch);
 	return FALSE;
 }
 

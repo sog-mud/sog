@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.23 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_class.c,v 1.24 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -106,8 +106,7 @@ OLC_FUN(classed_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLASS) {
-		char_puts("ClassEd: Insufficient security for creating classes\n",
-			  ch);
+		act_char("ClassEd: Insufficient security for creating classes", ch);
 		return FALSE;
 	}
 
@@ -126,14 +125,15 @@ OLC_FUN(classed_create)
 	class_destroy(&class);
 
 	if (cl == NULL) {
-		char_printf(ch, "ClassEd: %s: already exists.\n", arg);
+		act_puts("ClassEd: $t: already exists.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLASS);
 	touch_class(cl);
-	char_puts("Class created.\n",ch);
+	act_char("Class created.", ch);
 	return FALSE;
 }
 
@@ -142,7 +142,7 @@ OLC_FUN(classed_edit)
 	class_t *cl;
 
 	if (PC(ch)->security < SECURITY_CLASS) {
-		char_puts("ClassEd: Insufficient security.\n", ch);
+		act_char("ClassEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -150,7 +150,8 @@ OLC_FUN(classed_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((cl = class_search(argument)) == NULL) {
-		char_printf(ch, "ClassEd: %s: No such class.\n", argument);
+		act_puts("ClassEd: $t: No such class.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -192,8 +193,9 @@ OLC_FUN(classed_show)
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if ((class = class_search(argument)) == NULL) {
-			char_printf(ch, "ClassEd: %s: No such class.\n",
-				    argument);
+			act_puts("ClassEd: $t: No such class.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -289,11 +291,11 @@ OLC_FUN(classed_weapon		)
 	EDIT_CLASS(ch, class);
 
 	if ((weap = get_obj_index(atoi(argument))) == NULL) {
-		char_puts("ClassEd: Object doesn't exist.\n", ch);
+		act_char("ClassEd: Object doesn't exist.", ch);
 		return FALSE;
 	}
 	if (weap->item_type != ITEM_WEAPON) {
-		char_puts("ClassEd: That obj is not a weapon.\n", ch);
+		act_char("ClassEd: That obj is not a weapon.", ch);
 		return FALSE;
 	}
 	return olced_number(ch, argument, cmd, &class->weapon);
@@ -374,8 +376,11 @@ OLC_FUN(classed_stats)
 		st = TRUE;
 	}
 	
-	if (!st) char_printf(ch, "Syntax: %s <attr1> <attr2> ...\n", cmd->name);
-		else char_puts("Ok.\n", ch);
+	if (!st) {
+		act_puts("Syntax: $t <attr1> <attr2> ...",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	} else
+		act_char("Ok.", ch);
 	return st;
 }
 
@@ -435,12 +440,14 @@ OLC_FUN(classed_poses)
 		argument = one_argument(argument, arg, sizeof(arg));
 		pose = varr_get(&class->poses, atoi(arg));
 		if (pose == NULL) {
-			char_printf(ch, "ClassEd: no such pose: %s\n", arg);
+			act_puts("ClassEd: no such pose: $t",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
 		varr_edelete(&class->poses, pose);
-		char_puts("Pose deleted.\n", ch);
+		act_char("Pose deleted.", ch);
 		return TRUE;
 	}
 
@@ -448,13 +455,15 @@ OLC_FUN(classed_poses)
 		argument = one_argument(argument, arg, sizeof(arg));
 		pose = varr_get(&class->poses, atoi(arg));
 		if (pose == NULL) {
-			char_printf(ch, "ClassEd: no such pose: %s\n", arg);
+			act_puts("ClassEd: no such pose: $t",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
 		free_string(pose->self);
 		pose->self = str_dup(argument);
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return TRUE;
 	}
 
@@ -462,13 +471,15 @@ OLC_FUN(classed_poses)
 		argument = one_argument(argument, arg, sizeof(arg));
 		pose = varr_get(&class->poses, atoi(arg));
 		if (pose == NULL) {
-			char_printf(ch, "ClassEd: no such pose: %s\n", arg);
+			act_puts("ClassEd: no such pose: $t",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
 		free_string(pose->others);
 		pose->others = str_dup(argument);
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return TRUE;
 	}
 
@@ -476,13 +487,13 @@ OLC_FUN(classed_poses)
 		pose = varr_enew(&class->poses);
 		pose->self = str_dup("#");
 		pose->others = str_dup("#");
-		char_puts("Pose added.\n", ch);
+		act_char("Pose added.", ch);
 		return TRUE;
 	}
 
 	if (!str_prefix(arg, "sort")) {
 		varr_qsort(&class->poses, cmpstr);
-		char_puts("Ok.\n", ch);
+		act_char("Ok.", ch);
 		return TRUE;
 	}
 
@@ -553,7 +564,7 @@ OLC_FUN(classed_guilds)
 		pvnum = varr_enew(&class->guilds);
 		*pvnum = vnum;
 		varr_qsort(&class->guilds, cmpint);
-		char_puts("Guild added.\n", ch);
+		act_char("Guild added.", ch);
 		return TRUE;
 	}
 
@@ -570,7 +581,7 @@ OLC_FUN(classed_guilds)
 
 		*pvnum = 0;
 		varr_qsort(&class->guilds, cmpint);
-		char_puts("Guild deleted.\n", ch);
+		act_char("Guild deleted.", ch);
 		return TRUE;
 	}
 
@@ -604,14 +615,14 @@ static VALIDATE_FUN(validate_whoname)
 	EDIT_CLASS(ch, cl);
 
 	if (strlen(arg) > 3 || strlen(arg) < 1) {
-		char_puts("ClassEd: whoname should be 1..3 symbols long.\n", ch);
+		act_char("ClassEd: whoname should be 1..3 symbols long.", ch);
 		return FALSE;
 	}
 
 	if ((cl2 = hash_foreach(&classes, whoname_cb, arg)) != NULL
 	&&  cl2 != cl) {
-		char_printf(ch, "ClassEd: %s: duplicate class whoname.\n",
-			    (const char *) arg);
+		act_puts("ClassEd: $t: duplicate class whoname.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 

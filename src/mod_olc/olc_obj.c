@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.85 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_obj.c,v 1.86 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -134,17 +134,17 @@ OLC_FUN(objed_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("ObjEd: That vnum is not assigned an area.\n", ch);
+		act_char("ObjEd: That vnum is not assigned an area.", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("ObjEd: Insufficient security.\n", ch);
+		act_char("ObjEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
 	if (get_obj_index(value)) {
-		char_puts("ObjEd: Object vnum already exists.\n", ch);
+		act_char("ObjEd: Object vnum already exists.", ch);
 		return FALSE;
 	}
 		 
@@ -161,7 +161,7 @@ OLC_FUN(objed_create)
 	ch->desc->pEdit		= (void *)pObj;
 	OLCED(ch)		= olced_lookup(ED_OBJ);
 	TOUCH_AREA(pArea);
-	char_puts("ObjEd: Object created.\n", ch);
+	act_char("ObjEd: Object created.", ch);
 	return FALSE;
 }
 
@@ -179,13 +179,13 @@ OLC_FUN(objed_edit)
 	value = atoi(arg);
 	pObj = get_obj_index(value);
 	if (!pObj) {
-		char_puts("ObjEd: Vnum does not exist.\n", ch);
+		act_char("ObjEd: Vnum does not exist.", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pObj->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("ObjEd: Insufficient security.\n", ch);
+		act_char("ObjEd: Insufficient security.", ch);
 	       	return FALSE;
 	}
 
@@ -220,7 +220,7 @@ OLC_FUN(objed_show)
 		int value = atoi(arg);
 		pObj = get_obj_index(value);
 		if (!pObj) {
-			char_puts("ObjEd: Vnum does not exist.\n", ch);
+			act_char("ObjEd: Vnum does not exist.", ch);
 			return FALSE;
 		}
 	}
@@ -323,7 +323,7 @@ OLC_FUN(objed_list)
 	}
 
 	if (!found)
-		char_puts("Object(s) not found in this area.\n", ch);
+		act_char("Object(s) not found in this area.", ch);
 	else {
 		if (col % 3 != 0)
 			buf_append(buffer, "\n");
@@ -389,7 +389,7 @@ OLC_FUN(objed_del)
 	}
 
 	free_obj_index(pObj);
-	char_puts("ObjEd: Obj index deleted.\n", ch);
+	act_char("ObjEd: Obj index deleted.", ch);
 	edit_done(ch->desc);
 	return FALSE;
 }
@@ -636,7 +636,7 @@ OLC_FUN(objed_where)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] != '\0') {
 		if (!is_number(arg)) {
-			char_puts("Syntax: where [<vnum>]\n", ch);
+			act_char("Syntax: where [<vnum>]", ch);
 			return FALSE;
 		}
 		vnum = atoi(arg);
@@ -667,8 +667,7 @@ VALIDATE_FUN(validate_condition)
 	int val = *(int*) arg;
 
 	if (val < 0 || val > 100) {
-		char_puts("ObjEd: condition can range from 0 (ruined) "
-			  "to 100 (perfect).\n", ch);
+		act_char("ObjEd: condition can range from 0 (ruined) to 100 (perfect).", ch);
 		return FALSE;
 	}
 	return TRUE;

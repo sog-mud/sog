@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.231 2000-10-04 20:28:53 fjoe Exp $
+ * $Id: comm.c,v 1.232 2000-10-07 18:14:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1203,11 +1203,12 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 */
 	if (!merc_down && ch) {
 		if (d->showstr_point) {
-			char_puts("[Hit Return to continue]", ch);
+			act_puts("[Hit Return to continue]",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			ga = TRUE;
 		} else if (fPrompt && d->connected == CON_PLAYING) {
 			if (d->pString) {
-				char_puts("  > ", ch);
+				send_to_char("  > ", ch);
 				ga = TRUE;
 			} else {
 				CHAR_DATA *victim;
@@ -1689,7 +1690,8 @@ static void print_hometown(CHAR_DATA *ch)
 		PC(ch)->hometown = htn;
 		char_printf(ch, "\nYour hometown is %s, permanently.\n",
 			    hometown_name(htn));
-		char_puts("[Hit Return to Continue]", ch);
+		act_puts("[Hit Return to Continue]",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 
 /* XXX */
 		ch->endur = 100;
@@ -1700,7 +1702,7 @@ static void print_hometown(CHAR_DATA *ch)
 	send_to_char("\n", ch);
 	dofun("help", ch, "'CREATECHAR HOMETOWN'");
 	hometown_print_avail(ch);
-	char_puts("? ", ch);
+	send_to_char("? ", ch);
 	ch->desc->connected = CON_PICK_HOMETOWN;
 }
 
@@ -1708,7 +1710,7 @@ static void
 print_cb(const char *s, CHAR_DATA *ch, int *pcol)
 {
 	if (*pcol > 60) {
-		char_puts("\n  ", ch);
+		send_to_char("\n  ", ch);
 		*pcol = 0;
 	}
 
@@ -1931,7 +1933,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!IS_SET(PC(ch)->plr_flags, PLR_NEW)) {
 			/* Old player */
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
- 			char_puts("Password: ", ch);
+ 			act_puts("Password: ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
 		} else {
@@ -1946,7 +1949,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				return;
  	    
  			dofun("help", ch, "NAME");
-			char_puts("Do you accept? ", ch);
+			act_puts("Do you accept? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_CONFIRM_NEW_NAME;
 			return;
 		}
@@ -2007,14 +2011,16 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 
 		case 'n': case 'N':
-			char_puts("Ok, what IS it, then? ", ch);
+			act_puts("Ok, what IS it, then? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			char_free(d->character);
 			d->character = NULL;
 			d->connected = CON_GET_NAME;
 			break;
 
 		default:
-			char_puts("Please type Yes or No? ", ch);
+			act_puts("Please type Yes or No? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			break;
 		}
 		break;
@@ -2023,14 +2029,16 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		send_to_char("\n", ch);
 		if (strlen(argument) < 5) {
 			act_char("Password must be at least five characters long.", ch);
-			char_puts("Password: ", ch);
+			act_puts("Password: ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
 		pwdnew = crypt(argument, ch->name);
 		free_string(PC(ch)->pwd);
 		PC(ch)->pwd	= str_dup(pwdnew);
-		char_puts("Please retype password: ", ch);
+		act_puts("Please retype password: ",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_CONFIRM_NEW_PASSWORD;
 		break;
 
@@ -2038,7 +2046,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		send_to_char("\n", ch);
 		if (strcmp(crypt(argument, PC(ch)->pwd), PC(ch)->pwd)) {
 			act_char("Passwords don't match.", ch);
-			char_puts("\nRetype password: ", ch);
+			act_puts("\nRetype password: ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_GET_NEW_PASSWORD;
 			return;
 		}
@@ -2046,7 +2055,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 		send_to_char("\n", ch);
 		dofun("help", ch, "RACETABLE");
-		char_puts("What is your race ('help <race>' for more information)? ", ch);
+		act_puts("What is your race ('help <race>' for more information)? ",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_GET_NEW_RACE;
 		break;
 
@@ -2060,7 +2070,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	  			dofun("help", ch,"RACETABLE");
 			else 
 				dofun("help", ch, argument);
-			char_puts("What is your race ('help <race>' for more information)? ", ch);
+			act_puts("What is your race ('help <race>' for more information)? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			break;
 		}
 
@@ -2069,11 +2080,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  !r->race_pcdata
 		||  r->race_pcdata->classes.nused == 0) {
 			act_char("That is not a valid race.", ch);
-			char_puts("The following races are available:\n  ", ch);
+			act_char("The following races are available:", ch);
+			send_to_char("  ", ch);
 			col = 0;
 			hash_foreach(&races, print_race_cb, ch, &col);
 			send_to_char("\n", ch);
-			char_puts("What is your race ('help <race>' for more information)? ", ch);
+			act_puts("What is your race ('help <race>' for more information)? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			break;
 		}
 
@@ -2090,7 +2103,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->perm_stat[i] += r->race_pcdata->mod_stat[i];
 		race_resetstats(ch);
 
-		char_puts("What is your sex (M/F)? ", ch);
+		act_puts("What is your sex (M/F)? ",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_GET_NEW_SEX;
 		break;
 
@@ -2104,7 +2118,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 		default:
 	    		act_char("That's not a sex.", ch);
-			char_puts("What IS your sex? ", ch);
+			act_puts("What IS your sex? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 	
@@ -2114,7 +2129,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		col = 0;
 		hash_foreach(&classes, print_class_cb, ch, &col);
 		send_to_char("\n", ch);
-		char_puts("What is your class ('help <class>' for more information)? ", ch);
+		act_puts("What is your class ('help <class>' for more information)? ",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_GET_NEW_CLASS;
 		break;
 
@@ -2126,25 +2142,29 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				dofun("help", ch, "'CLASS HELP'");
 			else
 				dofun("help", ch, argument);
-			char_puts("What is your class ('help <class>' for more information)? ", ch);
+			act_puts("What is your class ('help <class>' for more information)? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
 		if ((cl = class_search(arg)) == NULL) {
 			act_char("That's not a class.", ch);
-			char_puts("What IS your class? ", ch);
+			act_puts("What IS your class? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
 		if (IS_SET(cl->class_flags, CLASS_CLOSED)) {
 			act_char("This class isn't available yet.", ch);
-			char_puts("What IS your class? ", ch);
+			act_puts("What IS your class? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
 		if (!class_ok(ch, cl)) {
 			act_char("That class is not available for your race or sex.", ch);
-			char_puts("Choose again: ", ch);
+			act_puts("Choose again: ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 
@@ -2155,10 +2175,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!align_restrict(ch)) {
 			act_char("You may be good, neutral, or evil.", ch);
-			char_puts("Which alignment (G/N/E)? ", ch);
+			act_puts("Which alignment (G/N/E)? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			d->connected = CON_GET_ALIGNMENT;
 		} else {
-			char_puts("[Hit Return to Continue]", ch);
+			act_puts("[Hit Return to Continue]",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			print_hometown(ch);
 		}
 		break;
@@ -2176,13 +2198,15 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 		default:
 			act_char("That's not a valid alignment.", ch);
-			char_puts("Which alignment (G/N/E)? ", ch);
+			act_puts("Which alignment (G/N/E)? ",
+				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 			return;
 		}
 		act_puts("Now your character is $t.",
 			 ch, flag_string(align_names, NALIGN(ch)), NULL,
 			 TO_CHAR, POS_DEAD);
-		char_puts("[Hit Return to Continue]", ch);
+		act_puts("[Hit Return to Continue]",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		print_hometown(ch);
 		break;
 	
@@ -2226,7 +2250,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			default:
 				send_to_char("\n", ch);
 				act_char("That is not a valid ethos.", ch);
-				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
+				act_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ",
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
 				return;
 			}
 			act_puts("Now you are $t-$T.",
@@ -2236,21 +2262,25 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		} else {
 			ch->endur = 0;
 			if (!ethos_check(ch)) {
-				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
+				act_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ",
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
 				d->connected = CON_GET_ETHOS;
 				return;
 			} else {
 				ch->ethos = 1;
 			}
 		}
-		char_puts("[Hit Return to Continue]", ch);
+		act_puts("[Hit Return to Continue]",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_CREATE_DONE;
 		break;
 
 	case CON_CREATE_DONE:
 		log(LOG_INFO, "%s@%s new player.", ch->name, d->host);
 		dofun("help", ch, "MOTD");
-		char_puts("[Hit Return to continue]", ch);
+		act_puts("[Hit Return to continue]",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		d->connected = CON_READ_MOTD;
 		break;
 
@@ -2264,7 +2294,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			else {
 				write_to_descriptor(d->descriptor,
 						    (char *) echo_off_str, 0);
-				char_puts("Password: ", ch);
+				act_puts("Password: ",
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
 				d->connected = CON_GET_OLD_PASSWORD;
 				ch->endur++;
 			}
@@ -2541,11 +2573,6 @@ stop_idling(DESCRIPTOR_DATA *d)
 		    to_room->people, NULL, pc->pet, TO_ALL);
 		char_to_room(pc->pet, to_room);
 	}
-}
-
-void char_puts(const char *txt, CHAR_DATA *ch)
-{
-	send_to_char(GETMSG(txt, GET_LANG(ch)), ch);
 }
 
 void char_printf(CHAR_DATA *ch, const char *format, ...)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.142 2000-10-04 20:28:50 fjoe Exp $
+ * $Id: act_quest.c,v 1.143 2000-10-07 18:15:02 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -139,7 +139,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch)) 
 		return;
 
-	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++)
+	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
 		if (str_prefix(cmd, qcmd->name) == 0) {
 			if (ch->position < qcmd->min_position) {
 				act_char("In your dreams, or what?", ch);
@@ -156,59 +156,71 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			qcmd->do_fn(ch, arg);
 			return;
 		}
+	}
 		
-	char_puts("QUEST COMMANDS:", ch);
+	act_puts("QUEST COMMANDS:",
+		 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	for (qcmd = qcmd_table; qcmd->name != NULL; qcmd++) {
-		char_printf(ch, " %s", qcmd->name);
+		act_puts(" $t", ch, qcmd->name, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
 	}
 	send_to_char("\n", ch);
 	act_char("For more information, type: help quests.", ch);
 }
 
-static inline void chquest_status(CHAR_DATA *ch)
+static inline
+void
+chquest_status(CHAR_DATA *ch)
 {
 	chquest_t *q;
+	BUFFER *buf;
 
-	act_char("Challenge quest items:", ch);
+	buf = buf_new(-1);
+	buf_append(buf, "Challenge quest items:\n");
+
 	for (q = chquest_list; q; q = q->next) {
 		OBJ_DATA *obj;
 
-		char_printf(ch, "- %s (vnum %d) - ",
-			    mlstr_mval(&q->obj_index->short_descr),
-			    q->obj_index->vnum);
+		buf_printf(buf, BUF_END, "- %s (vnum %d) - ",
+			   mlstr_mval(&q->obj_index->short_descr),
+			   q->obj_index->vnum);
 
 		if (IS_STOPPED(q)) {
-			act_char("stopped.", ch);
+			buf_append(buf, "stopped.\n");
 			continue;
 		} else if (IS_WAITING(q)) {
-			char_printf(ch, "%d area ticks to start.\n",
-				    q->delay);
+			buf_printf(buf, BUF_END,
+				   "%d area ticks to start.\n", q->delay);
 			continue;
 		}
 
 		if ((obj = q->obj) == NULL) {
-			act_char("status unknown.", ch);
+			buf_append(buf, "status unknown.\n");
 			continue;
 		}
 
-		char_printf(ch, "running (%d ticks left).\n",
-			    q->obj->timer);
+		buf_printf(buf, BUF_END,
+			   "running (%d ticks left).\n", q->obj->timer);
 
 		while (obj->in_obj)
 			obj = obj->in_obj;
 
 		if (obj->carried_by) {
-			act_puts3("        $r (vnum $J), carried by $N.",
-				  ch, obj->carried_by->in_room, obj->carried_by,
-				  (const void*) obj->carried_by->in_room->vnum,
-				  TO_CHAR, POS_DEAD);
+			buf_act(buf, BUF_END,
+				"        $r (vnum $J), carried by $N.",
+				ch, obj->carried_by->in_room, obj->carried_by,
+				(const void *) obj->carried_by->in_room->vnum,
+				TO_CHAR);
 		} else if (obj->in_room) {
-			act_puts3("         $r (vnum $J).",
-				  ch, obj->in_room, NULL,
-				  (const void*) obj->in_room->vnum,
-				  TO_CHAR, POS_DEAD);
+			buf_act(buf, BUF_END,
+				"         $r (vnum $J).",
+				ch, obj->in_room, NULL,
+				(const void *) obj->in_room->vnum, TO_CHAR);
 		}
 	}
+
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 void do_chquest(CHAR_DATA *ch, const char *argument)
@@ -247,7 +259,9 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		}
 
 		if ((obj_index = get_obj_index(atoi(arg2))) == NULL) {
-			char_printf(ch, "do_chquest: %s: no object with that vnum.\n", arg2);
+			act_puts("do_chquest: $t: no object with that vnum.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
@@ -262,15 +276,17 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		}
 
 		if ((q = chquest_lookup(obj_index)) == NULL) {
-			char_printf(ch, "do_chquest: %s: no chquests with that vnum.\n", arg2);
+			act_puts("do_chquest: $t: no chquests with that vnum.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
 		if (!str_prefix(arg, "start")) {
 			if (IS_RUNNING(q)) {
-				char_printf(ch, "do_chquest: quest vnum %d "
-						"already running.\n",
-						q->obj_index->vnum);
+				act_puts("do_chquest: quest vnum $j already running.",
+					 ch, (const void *) q->obj_index->vnum,
+					 NULL, TO_CHAR, POS_DEAD);
 				return;
 			}
 			chquest_startq(q);
@@ -433,7 +449,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 	act_puts("You ask $N for list of quest items.",
 		 ch, NULL, questor, TO_CHAR, POS_DEAD);
 
-	act_char("Current Quest Items available for Purchase:", ch);
+	act_char("Current Quest Items available for purchase:", ch);
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->restrict_class != NULL
 		&&  !is_name(ch->class, qitem->restrict_class))
@@ -442,8 +458,9 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 		if (arg[0] != '\0' && !is_name(arg, qitem->name))
 			continue;
 
-		char_printf(ch, "%5dqp...........%s\n",
-			    qitem->price, qitem->name);
+		act_puts("$F5{$j}qp...........$T",
+			 ch, (const void *) qitem->price, qitem->name,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 	act_char("To buy an item, type 'QUEST BUY <item>'.", ch);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.26 2000-10-07 10:58:03 fjoe Exp $
+ * $Id: olc_social.c,v 1.27 2000-10-07 18:15:00 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -103,8 +103,7 @@ OLC_FUN(soced_create)
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SOCIALS) {
-		char_puts("SocEd: Insufficient security for creating socials\n",
-			  ch);
+		act_char("SocEd: Insufficient security for creating socials", ch);
 		return FALSE;
 	}
 
@@ -113,7 +112,8 @@ OLC_FUN(soced_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	if ((soc = social_lookup(arg))) {
-		char_printf(ch, "SocEd: %s: already exists.\n", soc->name);
+		act_puts("SocEd: $t: already exists.",
+			 ch, soc->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -124,7 +124,7 @@ OLC_FUN(soced_create)
 	ch->desc->pEdit	= (void *) soc;
 	OLCED(ch)	= olced_lookup(ED_SOCIAL);
 	SET_BIT(changed_flags, CF_SOCIAL);
-	char_puts("Social created.\n",ch);
+	act_char("Social created.", ch);
 	return FALSE;
 }
 
@@ -134,7 +134,7 @@ OLC_FUN(soced_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SOCIALS) {
-		char_puts("SocEd: Insufficient security.\n", ch);
+		act_char("SocEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -143,7 +143,8 @@ OLC_FUN(soced_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((soc = social_search(arg)) == NULL) {
-		char_printf(ch, "SocEd: %s: No such social.\n", arg);
+		act_puts("SocEd: $t: No such social.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -199,7 +200,9 @@ OLC_FUN(soced_show)
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if ((soc = social_search(arg)) == NULL) {
-			char_printf(ch, "SocEd: %s: No such social.\n", arg);
+			act_puts("SocEd: $t: No such social.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -352,7 +355,7 @@ OLC_FUN(soced_move)
 
 	num2 = varr_index(&socials, soc);
 	if (num == num2) {
-		char_puts("SocEd: move: already there", ch);
+		act_char("SocEd: move: already there", ch);
 		return FALSE;
 	}
 
@@ -386,8 +389,7 @@ OLC_FUN(soced_move)
 	social_destroy(&nsoc);
 
 	ch->desc->pEdit	= soc;
-	char_printf(ch, "SocEd: '%s' moved to %d position.\n",
-		soc->name, varr_index(&socials, soc));
+	char_printf(ch, "SocEd: '%s' moved to %d position.\n", soc->name, varr_index(&socials, soc));
 	return TRUE;
 }
 
@@ -411,14 +413,15 @@ static VALIDATE_FUN(validate_soc_name)
 	EDIT_SOC(ch, soc);
 
 	if (strpbrk(name, " \t")) {
-		char_printf(ch, "SocEd: %s: illegal character in social name.\n",
-			    name);
+		act_puts("SocEd: $t: illegal character in social name.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	if ((soc2 = social_lookup(name))
 	&&  soc2 != soc) {
-		char_printf(ch, "SocEd: %s: duplicate social name.\n", name);
+		act_puts("SocEd: $t: duplicate social name.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 

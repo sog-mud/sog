@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.16 2000-10-07 10:58:03 fjoe Exp $
+ * $Id: olc_skill.c,v 1.17 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -95,7 +95,7 @@ OLC_FUN(skilled_create)
 	skill_t *s;
 
 	if (PC(ch)->security < SECURITY_SKILL) {
-		char_puts("SkillEd: Insufficient security for creating skills.\n", ch);
+		act_char("SkillEd: Insufficient security for creating skills.", ch);
 		return FALSE;
 	}
 
@@ -113,13 +113,14 @@ OLC_FUN(skilled_create)
 	skill_destroy(&sk);
 
 	if (s == NULL) {
-		char_printf(ch, "SkillEd: %s: already exists.\n", argument);
+		act_puts("SkillEd: $t: already exists.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	OLCED(ch)	= olced_lookup(ED_SKILL);
 	ch->desc->pEdit = s;
-	char_puts("Skill created.\n",ch);
+	act_char("Skill created.", ch);
 	SET_BIT(changed_flags, CF_SKILL);
 	return FALSE;
 }
@@ -129,7 +130,7 @@ OLC_FUN(skilled_edit)
 	skill_t *sk;
 
 	if (PC(ch)->security < SECURITY_SKILL) {
-		char_puts("SkillEd: Insufficient security.\n", ch);
+		act_char("SkillEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -137,7 +138,8 @@ OLC_FUN(skilled_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if (!(sk = skill_search(argument))) {
-		char_printf(ch, "SkillEd: %s: No such skill.\n", argument);
+		act_puts("SkillEd: $t: No such skill.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -196,7 +198,7 @@ OLC_FUN(skilled_save)
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_SKILL)) {
-		char_puts("Skills are not changed.\n", ch);
+		act_char("Skills are not changed.", ch);
 		return FALSE;
 	}
 	fp = olc_fopen(ETC_PATH, SKILLS_CONF, ch, SECURITY_SKILL);
@@ -243,7 +245,9 @@ OLC_FUN(skilled_show)
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if (!(sk = skill_search(argument))) {
-			char_printf(ch, "SkillEd: %s: no such skill.\n", argument);
+			act_puts("SkillEd: $t: no such skill.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -418,13 +422,14 @@ OLC_FUN(skilled_event)
 		OLC_ERROR("'OLC SKILL EVENT'");
 
 	if (!str_cmp(arg, "?")) {
-		char_puts("Valid event classes are:\n", ch);
+		act_char("Valid event classes are:", ch);
 		show_flags(ch, events_classes);
 		return FALSE;
 	}
 
 	if ((event = flag_value(events_classes, arg)) < 0) {
-		char_printf(ch, "SkillEd: %s: unknown event.\n",  arg);
+		act_puts("SkillEd: $t: unknown event.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -439,14 +444,12 @@ OLC_FUN(skilled_event)
 		 */
 
 		if (ev == NULL) {
-			char_printf(ch, "SkillEd: %s: event not found.\n",
-				    flag_string(events_classes, event));
+			char_printf(ch, "SkillEd: %s: event not found.\n", flag_string(events_classes, event));
 			return FALSE;
 		}
 
 		varr_edelete(&sk->events, ev);
-		char_printf(ch, "SkillEd: %s: event deleted.\n",
-			    flag_string(events_classes, event));
+		char_printf(ch, "SkillEd: %s: event deleted.\n", flag_string(events_classes, event));
 		return TRUE;
 	}
 
@@ -466,7 +469,7 @@ OLC_FUN(skilled_event)
 	free_string(ev->fun_name);
 	ev->fun_name = str_dup(arg);
 	varr_qsort(&sk->events, cmpint);
-	char_puts("SkillEd: Ok.\n", ch);
+	act_char("SkillEd: Ok.", ch);
 	return TRUE;
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.28 2000-10-07 10:58:03 fjoe Exp $
+ * $Id: olc_rule.c,v 1.29 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -35,9 +35,9 @@
 #define EDIT_LANG(ch, l)						\
 	{								\
 		if ((l = varr_get(&langs, GET_LANG(ch))) == NULL) {	\
-			char_puts("RuleEd: unknown current language. "	\
-				  "Use 'lang' command to set "		\
-				  "correct language.\n", ch);		\
+			act_char("RuleEd: unknown current language. "	\
+				 "Use 'lang' command to set "		\
+				 "correct language.", ch);		\
 			return FALSE;					\
 		}							\
 	}
@@ -142,7 +142,7 @@ OLC_FUN(ruleed_create)
 	bool impl;
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
-		char_puts("RuleEd: Insufficient security.\n", ch);
+		act_char("RuleEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -157,13 +157,15 @@ OLC_FUN(ruleed_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
-		char_printf(ch, "RuleEd: %s: unknown rule class.\n", arg);
+		act_puts("RuleEd: $t: unknown rule class.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 	rcl = l->rules + rulecl;
 
 	if (!impl && erule_lookup(rcl, argument)) {
-		char_printf(ch, "RuleEd: %s: duplicate name.\n", argument);
+		act_puts("RuleEd: $t: duplicate name.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -178,7 +180,7 @@ OLC_FUN(ruleed_create)
 				 erule_add(rcl, &rnew);
 	ch->desc->pEdit2= rcl; 
 	SET_BIT(rcl->rcl_flags, rops->bit);
-	char_puts("RuleEd: rule created.\n", ch);
+	act_char("RuleEd: rule created.", ch);
 	return FALSE;
 }
 
@@ -192,7 +194,7 @@ OLC_FUN(ruleed_edit)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
-		char_puts("RuleEd: Insufficient security.\n", ch);
+		act_char("RuleEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -204,13 +206,15 @@ OLC_FUN(ruleed_edit)
 	EDIT_ROPS(ch, rops);
 
 	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
-		char_printf(ch, "RuleEd: %s: unknown rule class.\n", arg);
+		act_puts("RuleEd: $t: unknown rule class.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 	rcl = l->rules+rulecl;
 
 	if ((r = rops->rule_lookup(rcl, argument)) == NULL) {
-		char_printf(ch, "RuleEd: %s: not found.\n", argument);
+		act_puts("RuleEd: $t: not found.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -281,23 +285,23 @@ OLC_FUN(ruleed_show)
 			OLC_ERROR("'OLC ASHOW'");
 
 		if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
-			char_printf(ch, "RuleEd: %s: unknown rule class.\n",
-				    arg);
+			act_puts("RuleEd: $t: unknown rule class.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 		rcl = l->rules + rulecl;
 
 		if ((r = rops->rule_lookup(rcl, argument)) == NULL) {
-			char_printf(ch, "RuleEd: %s: not found.\n", argument);
+			act_puts("RuleEd: $t: not found.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
 
-	char_printf(ch, "Name: [%s]\n"
-			"Lang: [%s]  Class: [%s]  Type: [%s]\n",
-		    r->name,
-		    l->name, flag_string(rulecl_names, rcl->rulecl),
-		    rops->id);
+	char_printf(ch, "Name: [%s]\n", r->name);
+	char_printf(ch, "Lang: [%s]  Class: [%s]  Type: [%s]\n", l->name, flag_string(rulecl_names, rcl->rulecl), rops->id);
 
 	if (rops->id == ED_IMPL) 
 		char_printf(ch, "Arg:  [%d]\n", r->arg);
@@ -365,8 +369,9 @@ OLC_FUN(ruleed_list)
 			OLC_ERROR("'OLC ALIST'");
 
 		if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
-			char_printf(ch, "RuleEd: %s: unknown rule class.\n",
-				    arg);
+			act_puts("RuleEd: $t: unknown rule class.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 		rcl = l->rules + rulecl;
@@ -405,7 +410,7 @@ OLC_FUN(ruleed_list)
 		buf_free(output);
 	}
 	else
-		char_puts("RuleEd: no rules found.\n", ch);
+		act_char("RuleEd: no rules found.", ch);
 
 	return FALSE;
 }
@@ -418,7 +423,7 @@ OLC_FUN(eruleed_name)
 	rulecl_t *rcl;
 
 	if (argument[0] == '\0') {
-		char_printf(ch, "Syntax: name <word>\n");
+		act_char("Syntax: name <word>", ch);
 		return FALSE;
 	}
 
@@ -428,7 +433,9 @@ OLC_FUN(eruleed_name)
 		return FALSE;
 
 	if ((r2 = erule_lookup(rcl, argument)) && r2 != r) {
-		char_printf(ch, "RuleEd: %s: duplicate name.\n", argument);
+		act_puts("RuleEd: $t: duplicate name.",
+			 ch, argument, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -454,8 +461,8 @@ OLC_FUN(ruleed_base)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (str_prefix(arg, r->name)) {
-		char_printf(ch, "RuleEd: %s: not prefix of name (%s).\n",
-			    arg, r->name);
+		act_puts("RuleEd: $t: not prefix of name ($T).",
+			 ch, arg, r->name, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 

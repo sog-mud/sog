@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.42 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_clan.c,v 1.43 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -79,8 +79,7 @@ OLC_FUN(claned_create)
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLAN) {
-		char_puts("ClanEd: Insufficient security for creating clans\n",
-			  ch);
+		act_char("ClanEd: Insufficient security for creating clans", ch);
 		return FALSE;
 	}
 
@@ -99,14 +98,15 @@ OLC_FUN(claned_create)
 	clan_destroy(&clan);
 
 	if (cl == NULL) {
-		char_printf(ch, "ClanEd: %s: already exists.\n", arg);
+		act_puts("ClanEd: $t: already exists.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLAN);
 	touch_clan(cl);
-	char_puts("Clan created.\n", ch);
+	act_char("Clan created.", ch);
 	return FALSE;
 }
 
@@ -116,7 +116,7 @@ OLC_FUN(claned_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLAN) {
-		char_puts("ClanEd: Insufficient security.\n", ch);
+		act_char("ClanEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -127,7 +127,8 @@ OLC_FUN(claned_edit)
 	}
 
 	if ((clan = clan_search(arg)) == NULL) {
-		char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
+		act_puts("ClanEd: $t: No such clan.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -169,7 +170,8 @@ OLC_FUN(claned_show)
 			return FALSE;
 		}
 	} else if ((clan = clan_search(arg)) == NULL) {
-		char_printf(ch, "ClanEd: %s: No such clan.\n", arg);
+		act_puts("ClanEd: $t: No such clan.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -263,7 +265,7 @@ OLC_FUN(claned_plist)
 	EDIT_CLAN(ch, clan);
 	
 	if (PC(ch)->security < SECURITY_CLAN_PLIST) {
-		char_puts("ClanEd: Insufficient security.\n", ch);
+		act_char("ClanEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -291,13 +293,13 @@ OLC_FUN(claned_plist)
 		return claned_plist(ch, str_empty, cmd);
 
 	if (arg2[0] == '\0') {
-		char_printf(ch, "List of %s of %s: [%s]\n",
-			    name, clan->name, *nl);
+		char_printf(ch, "List of %s of %s: [%s]\n", name, clan->name, *nl);
 		return FALSE;
 	}
 			    
 	if (!pc_name_ok(arg2)) {
-		char_printf(ch, "ClanEd: %s: Illegal name\n", arg2);
+		act_puts("ClanEd: $t: Illegal name",
+			 ch, arg2, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.43 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_help.c,v 1.44 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -66,7 +66,7 @@ OLC_FUN(helped_create)
 	AREA_DATA *pArea;
 
 	if (PC(ch)->security < SECURITY_HELP) {
-		char_puts("HelpEd: Insufficient security.\n", ch);
+		act_char("HelpEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -78,8 +78,7 @@ OLC_FUN(helped_create)
 	else if (IS_EDIT(ch, ED_AREA))
 		pArea = ((AREA_DATA*) ch->desc->pEdit);
 	else { 
-		char_puts("You must be editing an area or another help to create helps.\n",
-			  ch);
+		act_char("You must be editing an area or another help to create helps.", ch);
 		return FALSE;
 	}
 
@@ -91,7 +90,7 @@ OLC_FUN(helped_create)
 	ch->desc->pEdit	= (void*) pHelp;
 	OLCED(ch)	= olced_lookup(ED_HELP);
 	TOUCH_AREA(pArea);
-	char_puts("Help created.\n",ch);
+	act_char("Help created.", ch);
 	return FALSE;
 }
 
@@ -102,7 +101,7 @@ OLC_FUN(helped_edit)
 	HELP_DATA *pHelp;
 
 	if (PC(ch)->security < SECURITY_HELP) {
-		char_puts("HelpEd: Insufficient security.\n", ch);
+		act_char("HelpEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -111,8 +110,8 @@ OLC_FUN(helped_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((pHelp = help_lookup(num, keyword)) == NULL) {
-		char_printf(ch, "HelpEd: %s: Help not found.\n",
-			    keyword);
+		act_puts("HelpEd: $t: Help not found.",
+			 ch, keyword, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -149,8 +148,9 @@ OLC_FUN(helped_show)
 			OLC_ERROR(OLCED(ch) ?  "'OLC EDIT'" : "'OLC ASHOW'");
 
 		if ((pHelp = help_lookup(num, keyword)) == NULL) {
-			char_printf(ch, "HelpEd: %s: Help not found.\n",
-				    keyword);
+			act_puts("HelpEd: $t: Help not found.",
+				 ch, keyword, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -237,7 +237,7 @@ OLC_FUN(helped_del)
 
 	TOUCH_AREA(pHelp->area);
 	help_free(pHelp);
-	char_puts("HelpEd: Help deleted.\n", ch);
+	act_char("HelpEd: Help deleted.", ch);
 	edit_done(ch->desc);
 	return FALSE;
 }

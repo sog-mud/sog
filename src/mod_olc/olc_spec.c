@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.6 2000-10-07 10:58:03 fjoe Exp $
+ * $Id: olc_spec.c,v 1.7 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -77,8 +77,7 @@ OLC_FUN(speced_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SPEC) {
-		char_puts("SpecEd: Insufficient security for creating specs.\n",
-			  ch);
+		act_char("SpecEd: Insufficient security for creating specs.", ch);
 		return FALSE;
 	}
 
@@ -97,14 +96,15 @@ OLC_FUN(speced_create)
 	spec_destroy(&spec);
 
 	if (s == NULL) {
-		char_printf(ch, "SpecEd: %s: already exists.\n", arg);
+		act_puts("SpecEd: $t: already exists.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	ch->desc->pEdit	= s;
 	OLCED(ch) = olced_lookup(ED_SPEC);
 	touch_spec(s);
-	char_puts("Spec created.\n",ch);
+	act_char("Spec created.", ch);
 	return FALSE;
 }
 
@@ -113,7 +113,7 @@ OLC_FUN(speced_edit)
 	spec_t *s;
 
 	if (PC(ch)->security < SECURITY_SPEC) {
-		char_puts("SpecEd: Insufficient security.\n", ch);
+		act_char("SpecEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -121,7 +121,8 @@ OLC_FUN(speced_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((s = spec_search(argument)) == 0) {
-		char_printf(ch, "SpecEd: %s: No such spec.\n", argument);
+		act_puts("SpecEd: $t: No such spec.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -162,7 +163,9 @@ OLC_FUN(speced_show)
 		}
 	} else {
 		if ((s = spec_search(argument)) == NULL) {
-			char_printf(ch, "SpecEd: %s: No such spec.\n", argument);
+			act_puts("SpecEd: $t: No such spec.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -218,8 +221,7 @@ OLC_FUN(speced_skill)
 
 	if (!str_prefix(arg, "add")) {
 		if ((ssk = spec_skill_lookup(s, argument)) != NULL) {
-			char_printf(ch, "SpecEd: add skill: %s: already there.\n",
-				ssk->sn);
+			char_printf(ch, "SpecEd: add skill: %s: already there.\n", ssk->sn);
 			return FALSE;
 		}
 		ssk = varr_enew(&s->spec_skills);
@@ -248,7 +250,7 @@ OLC_FUN(speced_skill)
 
 	if (del) {
 		varr_edelete(&s->spec_skills, ssk);
-		char_printf(ch, "SpecEd: skill deleted.\n");
+		act_char("SpecEd: skill deleted.", ch);
 		return TRUE;
 	}
 
@@ -265,7 +267,8 @@ OLC_FUN(speced_skill)
 	if (!str_prefix(arg, "rating"))
 		return olced_number(ch, argument, cmd, &ssk->rating);
 
-	char_printf(ch, "SpecEd: no such field '%s'.\n", arg);
+	act_puts("SpecEd: no such field '$t'.",
+		 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return FALSE;
 }
 

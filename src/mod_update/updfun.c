@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.14 2000-10-04 20:28:50 fjoe Exp $
+ * $Id: updfun.c,v 1.15 2000-10-07 18:15:03 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -993,13 +993,15 @@ check_reboot(void)
 		for (d = descriptor_list; d != NULL; d = d->next) {
 			if (d->character != NULL) {
 				if (rebooter || !IS_IMMORTAL(d->character)) {
-					char_printf(d->character, 
-						    "{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n",
-					    	    reboot_counter);
+					act_puts("{*{W*****{R rEBOOT IN {W$j{R MIN. {W*****{x",
+						 d->character,
+						 (const void *) reboot_counter,
+						 NULL, TO_CHAR, POS_DEAD);
 				} else {
-					char_printf(d->character, 
-						    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n",
-					    	    reboot_counter);
+					act_puts("{*{W*****{R AUTOMAGIC rEBOOT IN {W$j{R MIN. {W*****{x",
+						 d->character,
+						 (const void *) reboot_counter,
+						 NULL, TO_CHAR, POS_DEAD);
 				}
 			}
 		}
@@ -1109,38 +1111,35 @@ song_update(void)
 }
 
 void
-tip_update(void)
+hint_update(void)
 {
 	DESCRIPTOR_DATA *d;
-	tip_t *t;
+	hint_t *t;
 	static int index;
 	int nind;
-	flag_t mask;
-	mlstring *pml;
 
 	do {
-		nind = number_range(0, tips.nused - 1);
+		nind = number_range(0, hints.nused - 1);
 	} while (nind == index);
 	index = nind;
 
-	t = (tip_t *)VARR_GET(&tips, index);
-	mask = t->comm;
-	pml = &t->phrase;
+	t = (hint_t *) VARR_GET(&hints, index);
 
-	/* Found tip has just been created, skip it */
-	if (mlstr_null(pml))
+	/* Found hint has just been created, skip it */
+	if (mlstr_null(&t->phrase))
 		return;
 
 	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *ch = d->character;
+		CHAR_DATA *och = d->original ? d->original : d->character;
 
-		if (!ch
-		|| d->connected != CON_PLAYING
-		|| !IS_SET(ch->comm, mask))
+		if (d->connected != CON_PLAYING
+		||  PC(och)->hints_level < t->hint_level)
 			continue;
 
-		act_puts("{YTIP: {x", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		act_mlputs(pml, ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act_puts("{YHINT: {x",
+			 d->character, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+		act_mlputs(&t->phrase,
+			   d->character, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -1149,9 +1148,10 @@ popularity_update(void)
 {
 	CHAR_DATA *ch;
 
-	for (ch = char_list; ch && !IS_NPC(ch); ch = ch->next)
+	for (ch = char_list; ch && !IS_NPC(ch); ch = ch->next) {
 		if (ch->in_room)
 			ch->in_room->area->count++;
+	}
 }
 
 void
@@ -1989,4 +1989,3 @@ bloodthirst_cb(void *vo, va_list ap)
 
 	return NULL;
 }
-

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.13 2000-10-04 20:28:44 fjoe Exp $
+ * $Id: core.c,v 1.14 2000-10-07 18:14:53 fjoe Exp $
  */
 
 #include <errno.h>
@@ -73,13 +73,14 @@ do_modules(CHAR_DATA *ch, const char *argument)
 		}
 
 		if ((m = mod_lookup(arg)) == NULL) {
-			char_printf(ch, "%s: unknown module name.\n",
-				    arg);
+			act_puts("$t: unknown module name.",
+				 ch, arg, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
 		log(LOG_INFO, "do_modules: reloading module '%s'", m->name);
-		char_printf(ch, "Reloading module '%s'\n", m->name);
+		act_puts("Reloading module '$t'.",
+			 ch, m->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 
 		log_setchar(ch);
 		time(&curr_time);
@@ -92,23 +93,29 @@ do_modules(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg, "list")
 	||  !str_prefix(arg, "status")) {
 		int i;
+		BUFFER *buf;
 
 		if (modules.nused == 0) {
 			act_char("No modules found.", ch);
 			return;
 		}
 
-		act_char("  Module  Prio          Load time         Deps", ch);
-		act_char("--------- ---- -------------------------- -----------------------------------", ch);
+		buf = buf_new(-1);
+		buf_append(buf, "  Module  Prio          Load time         Deps\n");
+		buf_append(buf, "--------- ---- -------------------------- -----------------------------------");
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
-			char_printf(ch, "%9s %4d [%24s] %s\n",
-				    m->name,
-				    m->mod_prio,
-				    m->last_reload ? 
+			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n",
+				   m->name,
+				   m->mod_prio,
+				   m->last_reload ? 
 					strtime(m->last_reload) : "never",
-				    m->mod_deps);
+				   m->mod_deps);
 		}
+
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+
 		return;
 	}
 
@@ -136,8 +143,9 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 	active = dfexist(TMP_PATH, SHUTDOWN_FILE);
 		
 	if (!str_prefix(arg, "status")) {
-		char_printf(ch, "Shutdown status: %s\n",
-			    active ? "active" : "inactive");
+		act_puts("Shutdown status: $t",
+			 ch, active ? "active" : "inactive", NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return;
 	}
 
@@ -145,8 +153,9 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 		if (!active) {
 			FILE *fp = dfopen(TMP_PATH, SHUTDOWN_FILE, "w");
 			if (!fp) {
-				char_printf(ch, "Error: %s.\n",
-					    strerror(errno));
+				act_puts("Error: $t",
+					 ch, strerror(errno), NULL,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				return;
 			}
 			fclose(fp);
@@ -163,8 +172,9 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 			act_char("Shutdown already inactive.", ch);
 		else {
 			if (dunlink(TMP_PATH, SHUTDOWN_FILE) < 0) {
-				char_printf(ch, "Error: %s.\n",
-					    strerror(errno));
+				act_puts("Error: $t",
+					 ch, strerror(errno), NULL,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				return;
 			}
 			wiznet("$N has deactivated shutdown",
@@ -209,18 +219,21 @@ do_reboot(CHAR_DATA *ch, const char *argument)
 
 	if (is_name(arg, "status")) {
 		if (reboot_counter == -1) 
-			char_printf(ch, "Automatic rebooting is inactive.\n");
-		else
-			char_printf(ch, "Reboot in %i minutes.\n",
-				    reboot_counter);
+			act_char("Automatic rebooting is inactive.", ch);
+		else {
+			act_puts("Reboot in $j minutes.",
+				 ch, (const void *) reboot_counter, NULL,
+				 TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
 
 	if (is_number(arg)) {
 		reboot_counter = atoi(arg);
 		rebooter = 1;
-		char_printf(ch, "SoG will reboot in %i ticks.\n",
-			    reboot_counter);
+		act_puts("SoG will reboot in $j ticks.",
+			 ch, (const void *) reboot_counter, NULL,
+			 TO_CHAR, POS_DEAD);
 		return;
 	}
 

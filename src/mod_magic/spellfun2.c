@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.194 2000-10-04 20:28:49 fjoe Exp $
+ * $Id: spellfun2.c,v 1.195 2000-10-07 18:14:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3818,15 +3818,15 @@ void spell_improved_detect(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act_char("Ok.", ch);
 }
 
-void spell_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo
-)
+void spell_severity_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	char_printf(ch,"You cracked the ground towards the %s.\n",victim->name);
-	act("$n cracked the ground towards you!.", ch, NULL, victim, TO_VICT);
-	dam = dice(level , 12);
+	act_puts("You cracked the ground towards the $N.",
+		 ch, NULL, victim, TO_CHAR, POS_DEAD);
+	act("$n cracked the ground towards you!", ch, NULL, victim, TO_VICT);
+	dam = dice(level, 12);
 	damage(ch, victim, dam, sn, DAM_NONE, DAMF_SHOW);
 }
 

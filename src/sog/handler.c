@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.263 2000-10-07 10:58:05 fjoe Exp $
+ * $Id: handler.c,v 1.264 2000-10-07 18:14:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4439,7 +4439,8 @@ void advance(CHAR_DATA *victim, int level)
 		act_char("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****", victim);
 
 	for (iLevel = victim->level; iLevel < level; iLevel++) {
-		char_puts("{CYou raise a level!!{x ", victim);
+		act_puts("{CYou raise a level!!{x ",
+			 victim, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		PC(victim)->exp += exp_to_level(victim);
 		victim->level++;
 		advance_level(victim);
@@ -4469,7 +4470,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
 		class_t *cl;
 
-		char_puts("{CYou raise a level!!{x ", ch);
+		act_puts("{CYou raise a level!!{x ",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		ch->level++;
 
 		if ((cl = class_lookup(ch->class)) != NULL

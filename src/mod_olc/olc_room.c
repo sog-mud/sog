@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.81 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_room.c,v 1.82 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -112,7 +112,7 @@ OLC_FUN(roomed_create)
 
 	ch->desc->pEdit		= (void *)pRoom;
 	OLCED(ch)		= olced_lookup(ED_ROOM);
-	char_puts("RoomEd: Room created.\n", ch);
+	act_char("RoomEd: Room created.", ch);
 	return FALSE;
 }
 
@@ -133,14 +133,14 @@ OLC_FUN(roomed_edit)
 		} else
 			OLC_ERROR("'OLC EDIT'");
 	} else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
-		char_puts("RoomEd: Vnum does not exist.\n", ch);
+		act_char("RoomEd: Vnum does not exist.", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pRoom->vnum);
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("RoomEd: Insufficient security.\n", ch);
+		act_char("RoomEd: Insufficient security.", ch);
 		if (drop_out)
 			edit_done(ch->desc);
 	       	return FALSE;
@@ -187,7 +187,7 @@ OLC_FUN(roomed_show)
 	else if (!is_number(arg))
 		OLC_ERROR(OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
 	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
-		char_puts("RoomEd: Vnum does not exist.\n", ch);
+		act_char("RoomEd: Vnum does not exist.", ch);
 		return FALSE;
 	}
 
@@ -338,7 +338,7 @@ OLC_FUN(roomed_list)
 	}
 
 	if (!found) 
-		char_puts("RoomEd: No rooms in this area.\n", ch);
+		act_char("RoomEd: No rooms in this area.", ch);
 	else {
 		if (col % 3 != 0)
 			buf_append(buffer, "\n");
@@ -456,7 +456,7 @@ OLC_FUN(roomed_clone)
 
 	EDIT_ROOM(ch, room);
 	if (room == proto) {
-		char_puts("RoomEd: Huh, cloning from self?\n", ch);
+		act_char("RoomEd: Huh, cloning from self?", ch);
 		return FALSE;
 	}
 
@@ -490,18 +490,18 @@ OLC_FUN(roomed_del)
 		return FALSE;
 
 	if (pRoom->reset_first != NULL) {
-		char_puts("RoomEd: delete resets in this room first.\n", ch);
+		act_char("RoomEd: delete resets in this room first.", ch);
 		return FALSE;
 	}
 
 	if (pRoom->people != ch
 	||  pRoom->people->next_in_room != NULL) {
-		char_puts("RoomEd: there are other characters in this room.\n", ch);
+		act_char("RoomEd: there are other characters in this room.", ch);
 		return FALSE;
 	}
 
 	if (pRoom->contents != NULL) {
-		char_puts("RoomEd: move objects from this room away first.\n", ch);
+		act_char("RoomEd: move objects from this room away first.", ch);
 		return FALSE;
 	}
 
@@ -546,7 +546,7 @@ OLC_FUN(roomed_del)
 		}
 	}
 
-	char_puts("RoomEd: Room index deleted.\n", ch);
+	act_char("RoomEd: Room index deleted.", ch);
 	edit_done(ch->desc);
 
 	char_from_room(ch);
@@ -580,12 +580,12 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		int rev;
 
 		if ((value = flag_value(exit_flags, argument)) == 0) {
-			char_puts("RoomEd: %s: no such exit flags.\n", ch);
+			act_char("RoomEd: %s: no such exit flags.", ch);
 			return FALSE;
 		}
 
 		if (!pRoom->exit[door]) {
-		   	char_puts("Exit does not exist.\n",ch);
+		   	act_char("Exit does not exist.", ch);
 		   	return FALSE;
 		}
 		/*   pRoom->exit[door] = new_exit(); */
@@ -611,8 +611,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
 		}
 
-		char_printf(ch, "Exit flag '%s' toggled.\n",
-				flag_string(exit_flags, value));
+		char_printf(ch, "Exit flag '%s' toggled.\n", flag_string(exit_flags, value));
 		return TRUE;
 	}
 
@@ -620,14 +619,14 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		bool ok;
 
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
+			act_char("RoomEd: Exit does not exist.", ch);
 			return FALSE;
 		}
 
 		ok = olced_mlstr(ch, argument, cmd,
 				 &pRoom->exit[door]->short_descr.ml);
 		if (ok)
-			char_puts("Short descr set.\n", ch);
+			act_char("Short descr set.", ch);
 		return ok;
 	}
 
@@ -635,7 +634,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		bool ok;
 
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
+			act_char("RoomEd: Exit does not exist.", ch);
 			return FALSE;
 		}
 
@@ -643,7 +642,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		ok = olced_gender(ch, argument, cmd,
 				  &pRoom->exit[door]->short_descr.gender);
 		if (ok)
-			char_puts("Gender set.\n", ch);
+			act_char("Gender set.", ch);
 		return ok;
 	}
 
@@ -651,21 +650,20 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		bool ok;
 
 		if (argument[0] == '\0') {
-			char_printf(ch, "Syntax: %s name [string]\n"
-					"        %s name none\n",
-				    cmd->name, cmd->name);
+			char_printf(ch, "Syntax: %s name [string]\n", cmd->name);
+			char_printf(ch, "        %s name none\n", cmd->name);
 			return FALSE;
 		}
 
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
+			act_char("RoomEd: Exit does not exist.", ch);
 			return FALSE;
 		}
 
 		ok = olced_name(ch, argument, cmd, &pRoom->exit[door]->keyword);
 
 		if (ok)
-			char_puts("Exit name set.\n", ch);
+			act_char("Exit name set.", ch);
 		return ok;
 	}
 
@@ -688,7 +686,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		int rev;                                     /* ROM OLC */
 		
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Cannot delete a null exit.\n", ch);
+			act_char("RoomEd: Cannot delete a null exit.", ch);
 			return FALSE;
 		}
 
@@ -708,7 +706,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		free_exit(pRoom->exit[door]);
 		pRoom->exit[door] = NULL;
 
-		char_puts("Exit unlinked.\n", ch);
+		act_char("Exit unlinked.", ch);
 		return TRUE;
 	}
 
@@ -722,17 +720,17 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		value = atoi(arg);
 
 		if ((pToRoom = get_room_index(value)) == NULL) {
-			char_puts("RoomEd: Cannot link to non-existant room.\n", ch);
+			act_char("RoomEd: Cannot link to non-existant room.", ch);
 			return FALSE;
 		}
 
 		if (!IS_BUILDER(ch, pToRoom->area)) {
-			char_puts("RoomEd: Cannot link to that area.\n", ch);
+			act_char("RoomEd: Cannot link to that area.", ch);
 			return FALSE;
 		}
 
 		if (pToRoom->exit[rev_dir[door]]) {
-			char_puts("RoomEd: Remote side's exit already exists.\n", ch);
+			act_char("RoomEd: Remote side's exit already exists.", ch);
 			return FALSE;
 		}
 
@@ -748,7 +746,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		pExit->orig_door	= door;
 		pToRoom->exit[door]	= pExit;
 
-		char_puts("Two-way link established.\n", ch);
+		act_char("Two-way link established.", ch);
 		return TRUE;
 	}
 		 
@@ -756,8 +754,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		char buf[MAX_INPUT_LENGTH];
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s dig <vnum>\n",
-				    cmd->name);
+			char_printf(ch, "Syntax: %s dig <vnum>\n", cmd->name);
 			return FALSE;
 		}
 		
@@ -770,8 +767,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_cmp(command, "room")) {
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s room [vnum]\n",
-				    cmd->name);
+			char_printf(ch, "Syntax: %s room [vnum]\n", cmd->name);
 			return FALSE;
 		}
 
@@ -781,14 +777,14 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		value = atoi(arg);
 
 		if (!get_room_index(value)) {
-			char_puts("RoomEd: Cannot link to non-existant room.\n", ch);
+			act_char("RoomEd: Cannot link to non-existant room.", ch);
 			return FALSE;
 		}
 
 		pRoom->exit[door]->to_room.r = get_room_index(value);
 		pRoom->exit[door]->orig_door = door;
 
-		char_puts("One-way link established.\n", ch);
+		act_char("One-way link established.", ch);
 		return TRUE;
 	}
 
@@ -796,43 +792,41 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		OBJ_INDEX_DATA *key;
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s key [vnum]\n",
-				    cmd->name);
+			char_printf(ch, "Syntax: %s key [vnum]\n", cmd->name);
 			return FALSE;
 		}
 
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
+			act_char("RoomEd: Exit does not exist.", ch);
 			return FALSE;
 		}
 
 		value = atoi(arg);
 
 		if ((key = get_obj_index(value)) == NULL) {
-			char_puts("RoomEd: Obj doesn't exist.\n", ch);
+			act_char("RoomEd: Obj doesn't exist.", ch);
 			return FALSE;
 		}
 
 		if (key->item_type != ITEM_KEY) {
-			char_puts("RoomEd: That obj is not key.\n", ch);
+			act_char("RoomEd: That obj is not key.", ch);
 			return FALSE;
 		}
 
 		pRoom->exit[door]->key = value;
 
-		char_puts("Exit key set.\n", ch);
+		act_char("Exit key set.", ch);
 		return TRUE;
 	}
 
 	if (!str_prefix(command, "description")) {
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
+			act_char("RoomEd: Exit does not exist.", ch);
 			return FALSE;
 		}
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			char_printf(ch, "Syntax: %s desc <lang>\n",
-				    cmd->name);
+			char_printf(ch, "Syntax: %s desc <lang>\n", cmd->name);
 			return FALSE;
 		}
 		return TRUE;
@@ -840,7 +834,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_prefix(command, "size")) {
 		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
+			act_char("RoomEd: Exit does not exist.", ch);
 			return FALSE;
 		}
 
@@ -982,7 +976,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *room = ch->in_room;
 
 	if (!IS_BUILDER(ch, room->area)) {
-		char_puts("Resets: Insufficient security for editing this room.\n", ch);
+		act_char("Resets: Insufficient security for editing this room.", ch);
 		return;
 	}
 
@@ -1001,7 +995,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if (room->reset_first)
 			display_resets(ch);
 		else
-			char_puts("No resets in this room.\n", ch);
+			act_char("No resets in this room.", ch);
 		return;
 	}
 
@@ -1067,19 +1061,21 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		RESET_DATA *reset;
 
 		if (room->reset_first == NULL) {
-			char_puts("No resets in this room.\n", ch);
+			act_char("No resets in this room.", ch);
 			return;
 		}
 
 		if ((reset = reset_lookup(room, atoi(arg2))) == NULL) {
-			char_printf(ch, "%s: no resets with such num in this room.\n", arg2);
+			act_puts("$t: no resets with such num in this room.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;			
 		}
 
 		reset_del(room, reset);
 		reset_free(reset);
 		TOUCH_AREA(room->area);
-		char_puts("Reset deleted.\n", ch);
+		act_char("Reset deleted.", ch);
 		return;
 	}
 
@@ -1098,7 +1094,9 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 		mob_vnum = atoi(arg2);
 		if (get_mob_index(mob_vnum) == NULL) {
-			char_printf(ch, "%s: no mob with such vnum.\n", arg2);
+			act_puts("$t: no mob with such vnum.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
@@ -1111,7 +1109,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 		reset_add(room, mob_reset, NULL);
 		TOUCH_AREA(room->area);
-		char_puts("Mob reset added.\n", ch);
+		act_char("Mob reset added.", ch);
 		return;
 	}
 
@@ -1131,7 +1129,9 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 		obj_vnum = atoi(arg2);
 		if (get_obj_index(obj_vnum) == NULL) {
-			char_printf(ch, "%s: no obj with such vnum.\n", arg2);
+			act_puts("$t: no obj with such vnum.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
@@ -1148,14 +1148,14 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			}
 
 			if ((after = reset_lookup(room, atoi(arg4))) == NULL) {
-				char_puts("Previous reset not found.\n", ch);
+				act_char("Previous reset not found.", ch);
 				return;
 			}
 
 			if (after->command != 'E'
 			&&  after->command != 'G'
 			&&  after->command != 'O') {
-				char_puts("Previous reset should be 'E', 'G' or 'O'.\n", ch);
+				act_char("Previous reset should be 'E', 'G' or 'O'.", ch);
 				return;
 			}
 
@@ -1196,12 +1196,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			}
 
 			if ((after = reset_lookup(room, atoi(arg4))) == NULL) {
-				char_puts("Previous reset not found.\n", ch);
+				act_char("Previous reset not found.", ch);
 				return;
 			}
 
 			if (after->command != 'M') {
-				char_puts("Previous reset should be 'M'.\n", ch);
+				act_char("Previous reset should be 'M'.", ch);
 				return;
 			}
 
@@ -1223,7 +1223,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		obj_reset->arg1 = obj_vnum;
 		reset_add(room, obj_reset, after);
 		TOUCH_AREA(room->area);
-		char_puts("Reset added.\n", ch);
+		act_char("Reset added.", ch);
 		return;
 	}
 
@@ -1232,7 +1232,9 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		RESET_DATA *rnd_reset;
 
 		if (exit_num < 1 || exit_num >= MAX_DIR) {
-			char_printf(ch, "%s: Invalid argument.\n", arg2);
+			act_puts("$t: Invalid argument.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
@@ -1243,7 +1245,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 		reset_add(room, rnd_reset, NULL);
 		TOUCH_AREA(room->area);
-		char_puts("Random exits reset added.\n", ch);
+		act_char("Random exits reset added.", ch);
 		return;
 	}
 
@@ -1256,19 +1258,23 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		RESET_DATA *reset;
 
 		if (room->reset_first == NULL) {
-			char_puts("No resets in this room.\n", ch);
+			act_char("No resets in this room.", ch);
 			return;
 		}
 
 		if ((reset = reset_lookup(room, atoi(arg2))) == NULL) {
-			char_printf(ch, "%s: no resets with such num in this room.\n", arg1);
+			act_puts("$t: no resets with such num in this room.",
+				 ch, arg1, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;			
 		}
 
 		if (!is_number(arg3)
 		||  (prob = atoi(arg3)) < 0
 		||  prob > 100) {
-			char_printf(ch, "%s: Invalid argument.\n", arg3);
+			act_puts("$t: Invalid argument.",
+				 ch, arg3, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 
@@ -1279,11 +1285,12 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		case 'E':
 			reset->arg0 = 100 - prob;
 			TOUCH_AREA(room->area);
-			char_puts("Reset probability set.\n", ch);
+			act_char("Reset probability set.", ch);
 			break;
 		default:
-			char_printf(ch, "Reset #%s is not an obj reset.\n",
-				    arg2);
+			act_puts("Reset #$t is not an obj reset.",
+				 ch, arg2, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			break;
 		}
 
@@ -1292,11 +1299,11 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg1, "now")) {
 		if (!IS_BUILDER(ch, ch->in_room->area)) {
-			char_puts("Insufficient security.\n", ch);
+			act_char("Insufficient security.", ch);
 			return;
 		}
 		reset_room(ch->in_room, RESET_F_NOPCHECK);
-		char_puts("Room reset.\n", ch);
+		act_char("Room reset.", ch);
 		return;
 	}
 
@@ -1319,17 +1326,17 @@ roomed_create_room(CHAR_DATA *ch, const char *arg)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("RoomEd: Vnum is not assigned an area.\n", ch);
+		act_char("RoomEd: Vnum is not assigned an area.", ch);
 		return NULL;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-        	char_puts("RoomEd: Insufficient security.\n", ch);
+        	act_char("RoomEd: Insufficient security.", ch);
 		return NULL;
 	}
 
 	if (get_room_index(value)) {
-		char_puts("RoomEd: Vnum already exists.\n", ch);
+		act_char("RoomEd: Vnum already exists.", ch);
 		return NULL;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.351 2000-10-07 10:57:59 fjoe Exp $
+ * $Id: act_info.c,v 1.352 2000-10-07 18:14:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,8 +478,10 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 		char_printf(ch, "{W%s", name);
 		if (GET_LANG(ch) && name != engname)
 			char_printf(ch, " (%s){x", engname);
-		else
-			send_to_char("{x", ch);
+		else {
+			act_puts("{x", ch, NULL, NULL,
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		}
 		
 		if (IS_IMMORTAL(ch)
 		||  IS_BUILDER(ch, ch->in_room->area))
@@ -790,12 +792,14 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 	fAuto  = !str_cmp(argument, "auto");
 
-	if (fAuto)
-		char_puts("{C[Exits:", ch);
-	else if (IS_IMMORTAL(ch) || IS_BUILDER(ch, ch->in_room->area))
-		char_printf(ch, "Obvious exits from room %d:\n",
-			    ch->in_room->vnum);
-	else
+	if (fAuto) {
+		act_puts("{C[Exits:",
+			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+	} else if (IS_IMMORTAL(ch) || IS_BUILDER(ch, ch->in_room->area)) {
+		act_puts("Obvious exits from room $j:",
+			 ch, (const void *) ch->in_room->vnum, NULL,
+			 TO_CHAR, POS_DEAD);
+	} else
 		act_char("Obvious exits:", ch);
 
 	found = FALSE;
@@ -1880,9 +1884,10 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		act_puts("The change of hometown will cost you $j gold.",
 			 ch, (const void*) amount, NULL, TO_CHAR, POS_DEAD);
-		char_puts("Choose from: ", ch);
+		act_puts("Choose from: ", ch, NULL, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
 		hometown_print_avail(ch);
-		act_char(".", ch);
+		send_to_char(".\n", ch);
 		return;
 	}
 
@@ -2613,9 +2618,11 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 	act_char("The room is affected by the following spells:", ch);
 	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && IS_SKILL(paf->type, paf_last->type)) {
-			if (ch->level >= 20)
-				char_puts("                      ", ch);
-			else
+			if (ch->level >= 20) {
+				act_puts("                      ",
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+			} else
 				continue;
 		} else
 			char_printf(ch, "Spell: {c%-15s{x", paf->type);
@@ -2624,9 +2631,11 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 			char_printf(ch, ": modifies {c%s{x by {c%d{x ",
 				    SFLAGS(rapply_flags, paf->location),
 				    paf->modifier);
-			if (paf->duration == -1 || paf->duration == -2)
-				char_puts("permanently.", ch);
-			else
+			if (paf->duration == -1 || paf->duration == -2) {
+				act_puts("permanently.",
+					 ch, NULL, NULL,
+					 TO_CHAR | ACT_NOLF, POS_DEAD);
+			} else
 				char_printf(ch, "for {c%d{x hours.",
 					    paf->duration);
 		}
@@ -4094,6 +4103,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	const char *msg = str_empty;
 	const void *arg = NULL;
 	const void *arg3 = NULL;
+	BUFFER *output;
 
 	if (is_affected(victim, "doppelganger")
 	&&  (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT)))
@@ -4102,52 +4112,53 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (is_affected(ch, "hallucination") && !IS_NPC(ch))
 		victim = nth_char(victim, PC(ch)->random_value);
 
+	output = buf_new(-1);
 	if (IS_NPC(victim)) {
 		if (!IS_NPC(ch) && PC(ch)->questmob > 0
 		&&  NPC(victim)->hunter == ch)
-			char_puts("{r[{RTARGET{r]{x ", ch);
+			buf_append(output, "{r[{RTARGET{r]{x ");
 	} else {
 		if (IS_WANTED(victim))
-			char_puts("({RWanted{x) ", ch);
+			buf_append(output, "({RWanted{x) ");
 
 		if (IS_SET(victim->comm, COMM_AFK))
-			char_puts("{c[AFK]{x ", ch);
+			buf_append(output, "{c[AFK]{x ");
 	}
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (HAS_INVIS(victim, ID_INVIS))
-			char_puts("({yInvis{x) ", ch);
+			buf_append(output, "({yInvis{x) ");
 		if (HAS_INVIS(victim, ID_HIDDEN)) 
-			char_puts("({DHidden{x) ", ch);
+			buf_append(output, "({DHidden{x) ");
 		if (IS_AFFECTED(victim, AFF_CHARM) 
 		&& HAS_DETECT(ch, ID_CHARM)) 
-			char_puts("({mCharmed{x) ", ch);
+			buf_append(output, "({mCharmed{x) ");
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
-			char_puts("({cTranslucent{x) ", ch);
+			buf_append(output, "({cTranslucent{x) ");
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
-			char_puts("({MPink Aura{x) ", ch);
+			buf_append(output, "({MPink Aura{x) ");
 		if (IS_NPC(victim)
 		&&  IS_SET(victim->pMobIndex->act, ACT_UNDEAD)
 		&&  HAS_DETECT(ch, ID_UNDEAD))
-			char_puts("({DUndead{x) ", ch);
+			buf_append(output, "({DUndead{x) ");
 		if (RIDDEN(victim))
-			char_puts("({GRidden{x) ", ch);
+			buf_append(output, "({GRidden{x) ");
 		if (HAS_INVIS(victim, ID_IMP_INVIS))
-			char_puts("({bImproved{x) ", ch);
+			buf_append(output, "({bImproved{x) ");
 		if (IS_EVIL(victim) && HAS_DETECT(ch, ID_EVIL))
-			char_puts("({RRed Aura{x) ", ch);
+			buf_append(output, "({RRed Aura{x) ");
 		if (IS_GOOD(victim) && HAS_DETECT(ch, ID_GOOD))
-			char_puts("({YGolden Aura{x) ", ch);
+			buf_append(output, "({YGolden Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			char_puts("({WWhite Aura{x) ", ch);
+			buf_append(output, "({WWhite Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
-			char_puts("({DBlack Aura{x) ", ch);
+			buf_append(output, "({DBlack Aura{x) ");
 		if (HAS_INVIS(victim, ID_FADE)) 
-			char_puts("({yFade{x) ", ch);
+			buf_append(output, "({yFade{x) ");
 		if (HAS_INVIS(victim, ID_CAMOUFLAGE)) 
-			char_puts("({gCamf{x) ", ch);
+			buf_append(output, "({gCamf{x) ");
 		if (HAS_INVIS(victim, ID_BLEND))
-			char_puts("({gBlending{x) ", ch);
+			buf_append(output, "({gBlending{x) ");
 	} else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
 		char buf[sizeof(FLAGS)];
@@ -4180,13 +4191,15 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(44, 'B', HAS_INVIS(victim, ID_BLEND));
 
 		if (strcmp(buf, FLAGS))
-			send_to_char(buf, ch);
+			buf_append(output, buf);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
-		char_puts("[{WWizi{x] ", ch);
+		buf_append(output, "[{WWizi{x] ");
 	if (victim->incog_level >= LEVEL_HERO)
-		char_puts("[{DIncog{x] ", ch);
+		buf_append(output, "[{DIncog{x] ");
+
+	send_to_char(buf_string(output), ch);
 
 	if (IS_NPC(victim)
 	&&  victim->position == victim->pMobIndex->start_pos) {
@@ -4202,9 +4215,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (IS_IMMORTAL(victim))
-		send_to_char("{W", ch);
+		act_puts("{W", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 	else
-		send_to_char("{x", ch);
+		act_puts("{x", ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 
 	switch (victim->position) {
 	case POS_DEAD:

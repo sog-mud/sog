@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.45 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_msg.c,v 1.46 2000-10-07 18:15:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -74,7 +74,7 @@ OLC_FUN(msged_create)
 	mlstring *mlp;
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
-		char_puts("MsgEd: Insufficient security.\n", ch);
+		act_char("MsgEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -83,7 +83,7 @@ OLC_FUN(msged_create)
 
 	argument = atomsg(argument);
 	if (!str_cmp(argument, "$")) {
-		char_puts("MsgEd: invalid value\n", ch);
+		act_char("MsgEd: invalid value", ch);
 		return FALSE;
 	}
 
@@ -92,14 +92,14 @@ OLC_FUN(msged_create)
 	mlstr_destroy(&ml);
 
 	if (mlp == NULL) {
-		char_puts("MsgEd: msg already exists.\n", ch);
+		act_char("MsgEd: msg already exists.", ch);
 		return FALSE;
 	}
 
 	ch->desc->pEdit	= mlp;
 	OLCED(ch)	= olced_lookup(ED_MSG);
 	SET_BIT(changed_flags, CF_MSGDB);
-	char_puts("Msg created.\n", ch);
+	act_char("Msg created.", ch);
 	return FALSE;
 }
 
@@ -108,7 +108,7 @@ OLC_FUN(msged_edit)
 	mlstring *mlp;
 
 	if (PC(ch)->security < SECURITY_MSGDB) {
-		char_puts("MsgEd: Insufficient security.\n", ch);
+		act_char("MsgEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -116,7 +116,7 @@ OLC_FUN(msged_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((mlp = msg_search(atomsg(argument))) == NULL) {
-		char_puts("MsgEd: msg not found.\n", ch);
+		act_char("MsgEd: msg not found.", ch);
 		return FALSE;
 	}
 
@@ -211,7 +211,7 @@ OLC_FUN(msged_show)
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
 		if ((mlp = msg_search(atomsg(argument))) == NULL) {
-			char_puts("MsgEd: msg not found.\n", ch);
+			act_char("MsgEd: msg not found.", ch);
 			return FALSE;
 		}
 	}
@@ -254,7 +254,7 @@ OLC_FUN(msged_list)
 	if (num)
 		page_to_char(buf_string(output), ch);
 	else
-		char_puts("MsgEd: no messages found.\n", ch);
+		act_char("MsgEd: no messages found.", ch);
 	buf_free(output);
 	return FALSE;
 }
@@ -393,252 +393,9 @@ static const char* msgtoa(const char *argument)
 VALIDATE_FUN(validate_msg)
 {
 	if (!strcmp(arg, "$")) {
-		char_puts("MsgEd: invalid value\n", ch);
+		act_char("MsgEd: invalid value", ch);
 		return FALSE;
 	}
 
 	return TRUE;
 }
-
-/* Here starts tips code
- *-----------------------------------------------------------------------------
- */
-
-#define EDIT_TIP(ch, tip)	(tip = (tip_t*) ch->desc->pEdit)
-
-DECLARE_OLC_FUN(tiped_create		);
-DECLARE_OLC_FUN(tiped_edit		);
-DECLARE_OLC_FUN(tiped_save		);
-DECLARE_OLC_FUN(tiped_touch		);
-DECLARE_OLC_FUN(tiped_show		);
-DECLARE_OLC_FUN(tiped_list		);
-
-DECLARE_OLC_FUN(tiped_phrase		);
-DECLARE_OLC_FUN(tiped_mask		);
-DECLARE_OLC_FUN(tiped_delete		);
-
-olc_cmd_t olc_cmds_tip[] =
-{
-	{ "create",	tiped_create					},
-	{ "edit",	tiped_edit					},
-	{ "",		tiped_save					},
-	{ "touch",	tiped_touch					},
-	{ "show",	tiped_show					},
-	{ "list",	tiped_list					},
-
-
-	{ "phrase",	tiped_phrase					},
-	{ "mask",	tiped_mask,		NULL, 	comm_flags	},
-	{ "delete_ti",	olced_spell_out					},
-	{ "delete_tip",	tiped_delete					},
-	{ "commands",	show_commands					},
-	{ NULL }
-};
-
-static void *save_tip_cb(void *p, va_list ap);
-static void *tip_search_cb(void *p, va_list ap);
-static void *tip_list_cb(void *p, va_list ap);
-
-OLC_FUN(tiped_create)
-{
-	tip_t *tip;
-
-	if (PC(ch)->security < SECURITY_HELP) {
-		char_puts("TipEd: Insufficient security for creating tips.\n",
-			  ch);
-		return FALSE;
-	}
-
-	tip		= varr_enew(&tips);
-	mlstr_init(&tip->phrase);
-	tip->comm	= COMM_NEWBIE_TIPS;
-
-	ch->desc->pEdit	= (void *) tip;
-	OLCED(ch)	= olced_lookup(ED_TIP);
-	SET_BIT(changed_flags, CF_TIP);
-	char_puts("Tip created.\n",ch);
-	return FALSE;
-}
-
-OLC_FUN(tiped_edit)
-{
-	tip_t *tip;
-
-	if (PC(ch)->security < SECURITY_HELP) {
-		char_puts("TipEd: Insufficient security.\n", ch);
-		return FALSE;
-	}
-
-	if (argument[0] == '\0')
-		OLC_ERROR("'OLC EDIT'");
-
-	tip = varr_foreach(&tips, tip_search_cb, argument);
-	if (!tip) {
-		char_puts("TipEd: no such tip.\n", ch);
-		return FALSE;
-	}
-
-	ch->desc->pEdit	= tip;
-	OLCED(ch)	= olced_lookup(ED_TIP);
-	return FALSE;
-}
-
-OLC_FUN(tiped_save)
-{
-	FILE *fp;
-
-	if (!IS_SET(changed_flags, CF_TIP)) {
-		olc_printf(ch, "Tips are not changed.");
-		return FALSE;
-	}
-
-	fp = olc_fopen(ETC_PATH, TIPS_FILE, ch, SECURITY_HELP);
-	if (fp == NULL)
-		return FALSE;
-
-	varr_foreach(&tips, save_tip_cb, fp);
-
-	fprintf(fp, "$\n");
-	fclose(fp);
-
-	REMOVE_BIT(changed_flags, CF_TIP);
-	olc_printf(ch, "Tips saved.");
-	return FALSE;
-}
-
-OLC_FUN(tiped_touch)
-{
-	SET_BIT(changed_flags, CF_TIP);
-	return FALSE;
-}
-
-OLC_FUN(tiped_show)
-{
-	BUFFER *output;
-	tip_t *tip;
-
-	if (argument[0] == '\0') {
-		if (IS_EDIT(ch, ED_TIP))
-			EDIT_TIP(ch, tip);
-		else
-			OLC_ERROR("'OLC ASHOW'");
-	} else {
-		if ((tip = varr_foreach(&tips, tip_search_cb, argument)) == NULL) {
-			char_puts("TipEd: No such tip.\n", ch);
-			return FALSE;
-		}
-	}
-
-	output = buf_new(-1);
-
-	buf_printf(output, BUF_END,
-		   "Mask:          [%s]\n",
-		   flag_string(comm_flags, tip->comm));
-
-	mlstr_dump(output, "Tip:         ", &tip->phrase);
-
-	page_to_char(buf_string(output), ch);
-	buf_free(output);
-
-	return FALSE;
-}
-
-OLC_FUN(tiped_list)
-{
-	BUFFER *output;
-
-	output = buf_new(-1);
-
-	varr_foreach(&tips, tip_list_cb, argument, output);
-
-	page_to_char(buf_string(output), ch);
-	buf_free(output);
-
-	return FALSE;
-}
-
-OLC_FUN(tiped_mask)
-{
-	tip_t *tip;
-	flag_t mask = 0;
-	bool rv;
-
-	EDIT_TIP(ch, tip);
-
-	rv = olced_flag(ch, argument, cmd, &mask);
-
-	mask &= COMM_NEWBIE_TIPS | COMM_SOG_TIPS;
-	if (mask == 0 || mask == (COMM_NEWBIE_TIPS | COMM_SOG_TIPS)) {
-		char_puts("TipEd: specify one flag.\n", ch);
-		return FALSE;
-	}
-
-	if (rv)
-		tip->comm = mask;
-
-	return rv;
-}
-
-OLC_FUN(tiped_phrase)
-{
-	tip_t *tip;
-	EDIT_TIP(ch, tip);
-	return olced_mlstr(ch, argument, cmd, &tip->phrase);
-}
-
-OLC_FUN(tiped_delete)
-{
-	tip_t *tip;
-	EDIT_TIP(ch, tip);
-
-	varr_edelete(&tips, tip);
-	edit_done(ch->desc);
-	return TRUE;
-}
-
-static void *save_tip_cb(void *p, va_list ap)
-{
-	tip_t *tip = (tip_t *) p;
-	FILE *fp = va_arg(ap, FILE *);
-
-	if (mlstr_null(&tip->phrase))
-		return NULL;
-
-	fprintf(fp, "%s ",
-		flag_string(comm_flags, tip->comm));
-	mlstr_fwrite(fp, str_empty, &tip->phrase);
-
-	return NULL;
-}
-
-static void *
-tip_search_cb(void *p, va_list ap)
-{
-	tip_t *tip = (tip_t *) p;
-	const char *phrase = va_arg(ap, const char *);
-
-	if (!str_prefix(phrase, mlstr_mval(&tip->phrase)))
-		return p;
-
-	return NULL;
-}
-
-static void *
-tip_list_cb(void *p, va_list ap)
-{
-	const char *arg = va_arg(ap, const char *);
-	BUFFER *output = va_arg(ap, BUFFER *);
-	tip_t *tip = (tip_t *) p;
-
-	const char *name = mlstr_mval(&tip->phrase);
-
-	if (IS_NULLSTR(name))
-		return NULL;
-
-	if (arg[0] == '\0' || strstr(name, arg)) 
-		buf_printf(output, BUF_END, "[%9s] %s\n",
-			flag_string(comm_flags, tip->comm),
-			name);
-	return NULL;
-}
-

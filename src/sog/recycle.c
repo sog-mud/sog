@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.104 2000-08-04 14:12:48 cs Exp $
+ * $Id: recycle.c,v 1.105 2000-10-07 18:14:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -310,7 +310,8 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->www_show_flags = WSHOW_RACE | WSHOW_SEX | WSHOW_TITLE;
 		pc->bank_s = 0;
 		pc->bank_g = 0;
-		ch->comm = COMM_COMBINE | COMM_PROMPT | COMM_NEWBIE_TIPS;
+		pc->hints_level = HINT_ALL;
+		ch->comm = COMM_COMBINE | COMM_PROMPT;
 	}
 	RESET_FIGHT_TIME(ch);
 	return ch;

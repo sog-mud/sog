@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.12 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.13 2000-10-07 18:14:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -85,7 +85,7 @@ OLC_FUN(cmded_create)
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CMDS) {
-		char_puts("CmdEd: Insufficient security for creating commands\n", ch);
+		act_char("CmdEd: Insufficient security for creating commands", ch);
 		return FALSE;
 	}
 
@@ -94,7 +94,8 @@ OLC_FUN(cmded_create)
 		OLC_ERROR("'OLC CREATE'");
 
 	if ((cmnd = cmd_lookup(arg))) {
-		char_printf(ch, "CmdEd: %s: already exists.\n", cmnd->name);
+		act_puts("CmdEd: $t: already exists.",
+			 ch, cmnd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -106,7 +107,7 @@ OLC_FUN(cmded_create)
 	ch->desc->pEdit	= (void *) cmnd;
 	OLCED(ch)	= olced_lookup(ED_CMD);
 	SET_BIT(changed_flags, CF_CMD);
-	char_puts("Command created.\n",ch);
+	act_char("Command created.", ch);
 	return FALSE;
 }
 
@@ -116,7 +117,7 @@ OLC_FUN(cmded_edit)
 	char arg[MAX_STRING_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CMDS) {
-		char_puts("CmdEd: Insufficient security.\n", ch);
+		act_char("CmdEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -125,7 +126,8 @@ OLC_FUN(cmded_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if (!(cmnd = cmd_search(arg))) {
-		char_printf(ch, "CmdEd: %s: No such command.\n", arg);
+		act_puts("CmdEd: $t: No such command.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -178,7 +180,9 @@ OLC_FUN(cmded_show)
 	}
 	else {
 		if (!(cmnd = cmd_search(arg))) {
-			char_printf(ch, "CmdEd: %s: No such command.\n", arg);
+			act_puts("CmdEd: $t: No such command.",
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -313,7 +317,7 @@ OLC_FUN(cmded_move)
 
 	num2 = varr_index(&commands, cmnd);
 	if (num2 == num) {
-		char_puts("CmdEd: move: already there.\n", ch);
+		act_char("CmdEd: move: already there.", ch);
 		return FALSE;
 	}
 
@@ -339,8 +343,7 @@ OLC_FUN(cmded_move)
 	cmnd->min_level		= ncmnd.min_level;
 	
 	ch->desc->pEdit	= cmnd;
-	char_printf(ch, "CmdEd: '%s' moved to %d position.\n",
-		cmnd->name, varr_index(&commands, cmnd));
+	char_printf(ch, "CmdEd: '%s' moved to %d position.\n", cmnd->name, varr_index(&commands, cmnd));
 	return TRUE;
 }
 
@@ -364,13 +367,15 @@ static VALIDATE_FUN(validate_cmd_name)
 	EDIT_CMD(ch, cmnd);
 
 	if (strpbrk(name, " \t")) {
-		char_printf(ch, "CmdEd: %s: illegal character in command name.\n", name);
+		act_puts("CmdEd: $t: illegal character in command name.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	if ((cmnd2 = cmd_lookup(name))
 	&&  cmnd2 != cmnd) {
-		char_printf(ch, "CmdEd: %s: duplicate command name.\n", name);
+		act_puts("CmdEd: $t: duplicate command name.",
+			 ch, name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 

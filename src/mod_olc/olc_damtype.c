@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.3 2000-10-07 10:58:02 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.4 2000-10-07 18:14:59 fjoe Exp $
  */
 
 /*
@@ -87,7 +87,7 @@ OLC_FUN(damted_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_DAMT) {
-		char_puts("DamtEd: Insufficient security for creating damage types.\n", ch);
+		act_char("DamtEd: Insufficient security for creating damage types.", ch);
 		return FALSE;
 	}
 
@@ -107,13 +107,14 @@ OLC_FUN(damted_create)
 	damtype_destroy(&dt);
 
 	if (d == NULL) {
-		char_printf(ch, "DamtEd: %s: already exists.\n", arg);
+		act_puts("DamtEd: $t: already exists.",
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
 	OLCED(ch)	= olced_lookup(ED_DAMT);
 	ch->desc->pEdit = d;
-	char_puts("Damtype created.\n",ch);
+	act_char("Damtype created.", ch);
 	SET_BIT(changed_flags, CF_DAMT);
 	return FALSE;
 }
@@ -123,7 +124,7 @@ OLC_FUN(damted_edit)
 	damtype_t *dt;
 
 	if (PC(ch)->security < SECURITY_DAMT) {
-		char_puts("DamtEd: Insufficient security.\n", ch);
+		act_char("DamtEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
@@ -131,7 +132,8 @@ OLC_FUN(damted_edit)
 		OLC_ERROR("'OLC EDIT'");
 
 	if ((dt = damtype_search(argument)) == NULL) {
-		char_printf(ch, "DamtEd: %s: No such damtype.\n", argument);
+		act_puts("DamtEd: $t: No such damtype.",
+			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -164,7 +166,7 @@ OLC_FUN(damted_save)
 	FILE *fp;
 
 	if (!IS_SET(changed_flags, CF_DAMT)) {
-		char_puts("Damage types are not changed.\n", ch);
+		act_char("Damage types are not changed.", ch);
 		return FALSE;
 	}
 	fp = olc_fopen(ETC_PATH, DAMTYPE_CONF, ch, SECURITY_MATERIAL);
@@ -197,7 +199,9 @@ OLC_FUN(damted_show)
 		else 
 			OLC_ERROR("'OLC ASHOW'");
 	} else if ((dt = damtype_search(argument)) == NULL) {
-			char_printf(ch, "DamtEd: %s: no such damage type.\n", argument);
+			act_puts("DamtEd: $t: no such damage type.",
+				 ch, argument, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 	}
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.167 2000-10-04 20:28:52 fjoe Exp $
+ * $Id: save.c,v 1.168 2000-10-07 18:14:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -268,10 +268,6 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fprintf(fp, "Silv %d\n", ch->silver);
 	else
 		fprintf(fp, "Silv %d\n", 0);
-	if (PC(ch)->plr_flags)
-		fprintf(fp, "Act %s\n", format_flags(PC(ch)->plr_flags));
-	if (PC(ch)->www_show_flags)
-		fprintf(fp, "WWW %s\n", format_flags(PC(ch)->www_show_flags));
 	if (ch->comm)
 		fprintf(fp, "Comm %s\n", format_flags(ch->comm));
 	if (ch->chan)
@@ -303,6 +299,14 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		PC_DATA *pc = PC(ch);
 		int i;
 
+		if (pc->plr_flags) {
+			fprintf(fp, "Act %s\n",
+				format_flags(PC(ch)->plr_flags));
+		}
+		if (pc->www_show_flags) {
+			fprintf(fp, "WWW %s\n",
+				format_flags(PC(ch)->www_show_flags));
+		}
 		if (str_cmp(pc->dvdata->prompt, DEFAULT_PROMPT))
 			fwrite_string(fp, "Prom", pc->dvdata->prompt);
 		fprintf(fp, "Scro %d\n", pc->dvdata->pagelen);
@@ -389,6 +393,12 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		fprintf(fp, "Antkilled %d\n", pc->anti_killed);
 		fwrite_string(fp, "Twitlist", pc->twitlist);
 		fwrite_string(fp, "Granted", pc->granted);
+		if (pc->hints_level != HINT_ALL) {
+			fprintf(fp, "HintsLevel %s\n",
+				flag_string(hint_levels, pc->hints_level));
+		}
+		if (pc->olc_flags)
+			fprintf(fp, "OLC %s\n", format_flags(pc->olc_flags));
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
@@ -767,6 +777,8 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'H':
+			KEY("HintsLevel", PC(ch)->hints_level,
+			    fread_fword(hint_levels, fp));
 			if (IS_TOKEN(fp, "Hometown")) {
 				const char *s = fread_string(fp);
 				PC(ch)->hometown = htn_lookup(s);
@@ -822,6 +834,10 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				fMatch = TRUE;
 				break;
 			}
+			break;
+
+		case 'O':
+			KEY("OLC", PC(ch)->olc_flags, fread_flags(fp));
 			break;
 
 		case 'P':
