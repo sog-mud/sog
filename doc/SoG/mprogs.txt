@@ -1,17 +1,22 @@
 #
-# $Id: mprogs.txt,v 1.5 2001-09-15 20:15:43 fjoe Exp $
+# $Id: mprogs.txt,v 1.6 2001-09-16 18:24:52 fjoe Exp $
 #
 
-MP types
---------
+MPC code style
+--------------
+
+man 9 style with replacing '\t' (tab) with 8 (eight) spaces.
+
+MPC types
+---------
 
 string	-- a string
 char	-- character (mobile)
 obj	-- object
 room	-- room
 
-MP statements
--------------
+MPC statements
+--------------
 
 Valid statements are:
 
@@ -57,8 +62,8 @@ expr;
 
 type var [= expr];
 
-MP expressions
---------------
+MPC expressions
+---------------
 
 All C expressions are valid in MPC:
 - all arithmetic operators (+, -, /, %, *),
@@ -68,8 +73,8 @@ All C expressions are valid in MPC:
 - tertiary operator ?:
 - function calls
 
-MP iterators
-------------
+MPC iterators
+-------------
 
 int range(int from, int to)
 	from should not be greater than to
@@ -88,8 +93,9 @@ obj obj_in_room(room r)
 
 obj obj_in_world()
 
-MP functions:
--------------
+MPC functions:
+--------------
+
 act(string msg, char ch, void arg1, void arg2, int act_flags)
   выводит сообщение msg
   act_flags: TO_CHAR    -- чару ch
@@ -117,8 +123,20 @@ affect_char(char ch, int where, string sn, int level, int duration,
 affect_strip(char ch, string aff)
   снимается аффект aff с чара ch
 
+int backstab_chance(char ch)
+  возвращает шанс прохождения backstab
+
+backstab_char(char ch, char victim, int chance)
+  делается backstab чаром ch чару victim с вероятностью chance
+
+bool can_loot(char ch, obj p)
+  может ли чар полутить (loot) объект p
+
 bool can_see(char ch, char victim)
   проверяется видит ли чар ch чара victim
+
+bool can_wear(obj p, int wear)
+  может ли объект одеться в слот wear
 
 cast(string sn, char ch, string arg)
   чаром ch кастится заклинание/молитва sn с аргументом arg
@@ -177,6 +195,9 @@ bool close_obj(char ch, obj p)
 cold_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара cold_effect
   уровня num, наносится урон dam
+
+char create_mob(int vnum, int flags)
+  создает моба по его внуму
 
 obj create_obj(int vnum, int flags)
   создает обьект по его внуму
@@ -293,6 +314,10 @@ bool is_neutral(char ch)
 bool is_owner(char ch, obj p)
   является ли чар ch owner'ом обьекта p
 
+bool is_safe(char ch, char victim)
+
+bool is_safe_nomessage(char ch, char victim)
+
 bool is_sn_affected(char ch, string sn)
   наложен ли на чара аффект sn (e.g. "berserk")
 
@@ -328,6 +353,9 @@ int number_range(int from, int to)
   возвращает случайное число в диапазоне от from до to
 
 obj_cast_spell(string sn, int level, char ch, void vo)
+
+int obj_cost(obj p)
+  возвращает стоимость объекта p
 
 int obj_item_type(obj p)
   item_type объекта p (ITEM_CONTAINER, ITEM_WEAPON etc.)
@@ -502,7 +530,7 @@ spec_mayor		| mob_random_mayor
 spec_nasty		| mob_random_nasty
 			| mob_fight_nasty
 spec_poison		| mob_fight_poison_bite
-spec_special_guard	| mob_random_special_guard
+spec_special_guard	| mob_random_executioner
 spec_thief		| mob_random_thief
 
 Note that spec_captain and spec_nasty are converted to two triggers.
