@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.42 1999-05-24 17:22:06 avn Exp $
+ * $Id: db_area.c,v 1.43 1999-05-26 09:13:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1442,14 +1442,12 @@ DBLOAD_FUN(load_objects)
 	    default:			pObjIndex->condition = 100; break;
 	}
  
-        for (; ;)
-        {
+        for (; ;) {
             char letter;
  
             letter = fread_letter(fp);
  
-            if (letter == 'A')
-            {
+            if (letter == 'A') {
                 AFFECT_DATA *paf;
  
                 paf                     = alloc_perm(sizeof(*paf));
@@ -1458,24 +1456,31 @@ DBLOAD_FUN(load_objects)
                 paf->level              = pObjIndex->level;
                 paf->duration           = -1;
                 paf->location           = fread_number(fp);
-		if (paf->location < 0)
-			paf->where	= TO_SKILLS;
                 paf->modifier           = fread_number(fp);
                 paf->bitvector          = 0;
 		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
                 top_affect++;
-            }
-	    else if (letter == 'C') {
+            } else if (letter == 'C') {
 		if (pObjIndex->clan) {
 		    db_error("load_objects", "duplicate clan.");
 		    return;
 		}
 		pObjIndex->clan = fread_clan(fp);
-	    }
-	    else if (letter == 'G')
+	    } else if (letter == 'G') {
 		pObjIndex->gender = fread_fword(gender_table, fp);
-	    else if (letter == 'F')
-            {
+	    } else if (letter == 'S') {
+		AFFECT_DATA *paf;
+		paf = alloc_perm(sizeof(*paf));
+		paf->where = TO_SKILLS;
+		paf->type = -1;
+		paf->level = pObjIndex->level;
+		paf->duration = -1;
+		paf->location = -sn_lookup(fread_word(fp)); 
+                paf->modifier = fread_number(fp);
+                paf->bitvector = fread_flags(fp);
+		SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
+                top_affect++;
+	    } else if (letter == 'F') {
                 AFFECT_DATA *paf;
  
                 paf                     = alloc_perm(sizeof(*paf));

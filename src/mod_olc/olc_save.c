@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.71 1999-05-24 17:22:07 avn Exp $
+ * $Id: olc_save.c,v 1.72 1999-05-26 09:13:36 fjoe Exp $
  */
 
 /**************************************************************************
@@ -349,53 +349,48 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 
     fprintf(fp, "%c\n", letter);
 
-    for (pAf = pObjIndex->affected; pAf; pAf = pAf->next)
-    {
-	if (pAf->where == TO_OBJECT)
-	        fprintf(fp, "A\n%d %d\n",  pAf->location, pAf->modifier);
-	else
-	{
-		fprintf(fp, "F\n");
+	for (pAf = pObjIndex->affected; pAf; pAf = pAf->next) {
+		if (pAf->where == TO_SKILLS) {
+			fprintf(fp, "S '%s' %d %s\n",
+				skill_name(-pAf->location), pAf->modifier,
+				format_flags(pAf->bitvector));
+		} else if (pAf->where == TO_OBJECT && !pAf->bitvector) {
+			fprintf(fp, "A\n%d %d\n", pAf->location, pAf->modifier);
+		} else {
+			int letter;
 
-		switch(pAf->where)
-		{
+			switch(pAf->where) {
 			case TO_AFFECTS:
-				fprintf(fp, "A ");
+				letter = 'A';
 				break;
 			case TO_IMMUNE:
-				fprintf(fp, "I ");
+				letter = 'I';
 				break;
 			case TO_RESIST:
-				fprintf(fp, "R ");
+				letter = 'R';
 				break;
 			case TO_VULN:
-				fprintf(fp, "V ");
-				break;
-			case TO_SKILLS:
-				fprintf(fp, "S ");
+				letter = 'V';
 				break;
 			default:
 				log_printf("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
 					   pObjIndex->vnum, pAf->where);
-				break;
-		}
+				continue;
+			}
 		
-		if (pAf->where != TO_SKILLS)
-			fprintf(fp, "%d %d %s\n", pAf->location, pAf->modifier,
+			fprintf(fp, "F %c %d %d %s\n",
+				letter, pAf->location, pAf->modifier,
 				format_flags(pAf->bitvector));
-		    else fprintf(fp, "'%s' %d %s\n",
-				skill_name(-(pAf->location)), pAf->modifier,
-				format_flags(pAf->bitvector));
+		}
 	}
-    }
 
-    for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
+	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);
 
-    if (pObjIndex->clan)
+	if (pObjIndex->clan)
 		fwrite_string(fp, "C", clan_name(pObjIndex->clan));
-    fprintf(fp, "G %s\n", flag_string(gender_table, pObjIndex->gender));
+	fprintf(fp, "G %s\n", flag_string(gender_table, pObjIndex->gender));
 }
 
 /*****************************************************************************
