@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.27 1999-03-10 11:06:23 fjoe Exp $
+ * $Id: olc_msg.c,v 1.28 1999-03-11 09:04:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -89,7 +89,7 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	if (olced_busy(ch, NULL, NULL))
+	if (olced_busy(ch, ED_MSG, NULL, NULL))
 		return FALSE;
 
 	ch->desc->pEdit	= (void*) msg_add(mlstr_new(argument));
@@ -220,7 +220,7 @@ OLC_FUN(msged_msg)
 			return FALSE;
 		}
 
-		if (olced_busy(ch, NULL, NULL))
+		if (olced_busy(ch, ED_MSG, NULL, NULL))
 			return FALSE;
 
 		ml = msg_del(mlstr_mval(*mlp));
@@ -242,7 +242,7 @@ OLC_FUN(msged_del)
 	mlstring *ml;
 	mlstring **mlp;
 
-	if (olced_busy(ch, NULL, NULL))
+	if (olced_busy(ch, ED_MSG, NULL, NULL))
 		return FALSE;
 
 	EDIT_MSG(ch, mlp);

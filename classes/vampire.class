@@ -17,7 +17,7 @@ Flags magic~
 AddExp 300
 StatMod 1 2 0 0 0 5
 RestrictAlign evil~
-StrictHometown Old Midgaard~
+Flags noch~
 Skill 'animate dead' 42 1
 Skill 'armor' 13 1
 Skill 'blindness' 20 1

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.51 1999-03-10 11:10:07 fjoe Exp $
+ * $Id: olc.c,v 1.52 1999-03-11 09:04:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,7 +161,7 @@ void do_ashow(CHAR_DATA *ch, const char *argument)
  * olced_busy -- returns TRUE if there is another character
  *		 is using the same OLC editor
  */
-bool olced_busy(CHAR_DATA *ch, void *edit, void *edit2)
+bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -169,7 +169,8 @@ bool olced_busy(CHAR_DATA *ch, void *edit, void *edit2)
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
 		if (vch != ch
-		&&  d->olced == OLCED(ch)
+		&&  d->olced
+		&&  d->olced->id == id
 		&&  (!edit || d->pEdit == edit)
 		&&  (!edit2 || d->pEdit2 == edit2)) {
 			char_printf(ch, "%s: %s is locking this editor "

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.h,v 1.1 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: hometown.h,v 1.2 1999-03-11 09:04:33 fjoe Exp $
  */
 
 #ifndef _HOMETOWN_H_
@@ -53,6 +53,7 @@ const char *	hometown_name	(int htn);
 
 bool		hometown_restrict(hometown_t *h, CHAR_DATA *ch);
 void		hometown_print_avail(CHAR_DATA *ch);
+int 		hometown_permanent(CHAR_DATA *ch);
 
 ROOM_INDEX_DATA*	get_recall(CHAR_DATA *ch);
 ROOM_INDEX_DATA*	get_random_recall(void);

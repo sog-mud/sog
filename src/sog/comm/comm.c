@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.161 1999-03-10 17:55:52 fjoe Exp $
+ * $Id: comm.c,v 1.162 1999-03-11 09:04:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1485,7 +1485,7 @@ static void print_hometown(CHAR_DATA *ch)
 {
 	RACE_DATA *r;
 	CLASS_DATA *cl;
-	const char *strict_hometown = NULL;
+	int htn;
 
 	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->pcdata
@@ -1495,16 +1495,11 @@ static void print_hometown(CHAR_DATA *ch)
 		return;
 	}
 
-	if (r->pcdata->strict_hometown)
-		strict_hometown = r->pcdata->strict_hometown;
-	else if (cl->strict_hometown)
-		strict_hometown = cl->strict_hometown;
-
-	if (strict_hometown) {
-		ch->hometown = htn_lookup(strict_hometown);
-		char_printf(ch, "Your hometown is %s, permanently.\n"
+	if ((htn = hometown_permanent(ch)) >= 0) {
+		ch->hometown = htn;
+		char_printf(ch, "\nYour hometown is %s, permanently.\n"
 				"[Hit Return to continue]\n",
-			    hometown_name(ch->hometown));
+			    hometown_name(htn));
 
 /* XXX */
 		ch->endur = 100;
@@ -1512,6 +1507,7 @@ static void print_hometown(CHAR_DATA *ch)
 		return;
 	}
 
+	char_puts("\n", ch);
 	do_help(ch, "HOMETOWN");
 	hometown_print_avail(ch);
 	char_puts("? ", ch);
@@ -2041,7 +2037,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (argument[0] == '\0'
 		||  (htn = htn_lookup(argument)) < 0
 		||  hometown_restrict(HOMETOWN(htn), ch)) {
-			char_puts("That's not a valid hometown.\n\n", ch);
+			char_puts("That's not a valid hometown.\n", ch);
 			print_hometown(ch);
 			return;
 		}

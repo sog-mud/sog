@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.3 1999-03-10 11:06:24 fjoe Exp $
+ * $Id: olc_rule.c,v 1.4 1999-03-11 09:04:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,7 +149,7 @@ OLC_FUN(ruleed_create)
 		return FALSE;
 	}
 
-	if (olced_busy(ch, NULL, rcl))
+	if (olced_busy(ch, rops->id, NULL, rcl))
 		return FALSE;
 
 	rule_init(&rnew);
@@ -377,7 +377,7 @@ OLC_FUN(ruleed_name)
 		return olced_str(ch, argument, cmd, &r->name);
 
 	EDIT_RCL(ch, rcl);
-	if (olced_busy(ch, NULL, rcl))
+	if (olced_busy(ch, rops->id, NULL, rcl))
 		return FALSE;
 
 	if ((r2 = erule_lookup(rcl, argument)) && r2 != r) {
@@ -442,7 +442,7 @@ OLC_FUN(ruleed_delete)
 	EDIT_RCL(ch, rcl);
 	EDIT_ROPS(ch, rops);
 
-	if (olced_busy(ch, NULL, rcl))
+	if (olced_busy(ch, rops->id, NULL, rcl))
 		return FALSE;
 
 	rops->rule_del(rcl, r);

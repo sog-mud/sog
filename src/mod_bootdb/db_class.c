@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.15 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: db_class.c,v 1.16 1999-03-11 09:04:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -118,7 +118,6 @@ DBLOAD_FUN(load_class)
 			    fread_fstring(ethos_table, fp));
 			break;
 		case 'S':
-			SKEY("StrictHometown", class->strict_hometown);
 			KEY("SkillAdept", class->skill_adept,
 			    fread_number(fp));
 			KEY("SchoolWeapon", class->weapon,

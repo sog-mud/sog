@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.215 1999-03-10 17:23:21 fjoe Exp $
+ * $Id: act_info.c,v 1.216 1999-03-11 09:04:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2512,11 +2512,10 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (r->pcdata->strict_hometown
-	||  cl->strict_hometown) {
+	if ((htn = hometown_permanent(ch)) >= 0) {
 		act_puts("Your hometown is $t, permanently. "
 			 "You can't change your hometown.",
-			 ch, hometown_name(ch->hometown), NULL,
+			 ch, hometown_name(htn), NULL,
 			 TO_CHAR | ACT_TRANS, POS_DEAD);
 		return;
 	}

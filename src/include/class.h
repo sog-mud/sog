@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.13 1999-03-10 17:23:26 fjoe Exp $
+ * $Id: class.h,v 1.14 1999-03-11 09:04:31 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -56,7 +56,6 @@ struct class_data {
 	flag32_t	restrict_align;		/* alignment restrictions */
 	flag32_t	restrict_sex;		/* sex restrictions */
 	flag32_t	restrict_ethos;		/* ethos restrictions */
-	const char *	strict_hometown;	/* strict hometown */
 	varr		skills;			/* varr of class skills */
 	const char *	titles[MAX_LEVEL+1][2];	/* titles */
 	varr		poses;			/* varr of class poses */
@@ -70,6 +69,7 @@ struct pose_data {
 
 /* class flags */
 #define CLASS_MAGIC		(A)	/* magic user */
+#define CLASS_NOCH		(B)	/* can't live in common hometowns */
 
 extern varr classes;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.49 1999-03-10 17:23:32 fjoe Exp $
+ * $Id: tables.c,v 1.50 1999-03-11 09:04:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1059,6 +1059,7 @@ FLAG class_flags[] =
 	{ "",			TABLE_BITVAL			},
 
 	{ "magic",		CLASS_MAGIC,		TRUE	},
+	{ "noch",		CLASS_NOCH,		TRUE	},
 
 	{ NULL }
 };
@@ -1068,6 +1069,7 @@ FLAG race_flags[] =
 	{ "",			TABLE_BITVAL			},
 
 	{ "undead",		RACE_UNDEAD,		TRUE	},
+	{ "noch",		RACE_NOCH,		TRUE	},
 
 	{ NULL }
 };

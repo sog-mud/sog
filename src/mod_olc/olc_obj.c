@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.42 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_obj.c,v 1.43 1999-03-11 09:04:34 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -372,7 +372,7 @@ OLC_FUN(objed_del)
 
 	EDIT_OBJ(ch, pObj);
 
-	if (olced_busy(ch, pObj, NULL))
+	if (olced_busy(ch, ED_OBJ, pObj, NULL))
 		return FALSE;
 
 /* check that pObj is not in resets */

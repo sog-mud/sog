@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.5 1999-03-10 17:23:34 fjoe Exp $
+ * $Id: db_race.c,v 1.6 1999-03-11 09:04:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -186,7 +186,6 @@ DBLOAD_FUN(load_pcrace)
 			break;
 
 		case 'S':
-			SKEY("StrictHometown", pcr->strict_hometown);
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
 			if (!str_cmp(word, "ShortName")) {

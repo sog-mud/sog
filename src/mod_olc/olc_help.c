@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.32 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: olc_help.c,v 1.33 1999-03-11 09:04:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -252,7 +252,7 @@ OLC_FUN(helped_del)
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
 
-	if (olced_busy(ch, pHelp, NULL))
+	if (olced_busy(ch, ED_HELP, pHelp, NULL))
 		return FALSE;
 
 	touch_area(pHelp->area);
