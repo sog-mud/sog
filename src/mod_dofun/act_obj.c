@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.39 2002-09-02 09:04:37 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.40 2002-09-02 11:32:44 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1169,13 +1169,14 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (!IS_IMMORTAL(ch)) {
-		if ((obj->pObjIndex->item_type != ITEM_FOOD ||
-		     IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE) ||
-		     obj->pObjIndex->item_type != ITEM_FISH)
-		&& obj->pObjIndex->item_type != ITEM_PILL) {
+		if ((obj->pObjIndex->item_type != ITEM_FOOD &&
+		     obj->pObjIndex->item_type != ITEM_FISH &&
+		     obj->pObjIndex->item_type != ITEM_PILL)
+		||  IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE)) {
 			char_puts("That's not edible.\n", ch);
 			return;
 		}
+
 		if (!IS_NPC(ch) && PC(ch)->condition[COND_FULL] > 80) {
 			char_puts("You are too full to eat more.\n", ch);
 			return;
