@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.9 2000-01-19 06:51:44 fjoe Exp $
+ * $Id: eventfun.c,v 1.10 2000-02-05 11:47:28 kostik Exp $
  */
 
 
@@ -303,6 +303,17 @@ EVENT_FUN(event_updatefast_entangle)
 		return;
 	}
 
+	if (INT(paf->location) == APPLY_NONE) { /* ch case */
+		OBJ_DATA * weapon = get_eq_char(ch, WEAR_SECOND_WIELD);
+		if (!weapon || 
+		!(WEAPON_IS(weapon, WEAPON_WHIP) 
+		|| WEAPON_IS(weapon, WEAPON_FLAIL))) {
+			if (is_affected(paf->owner, "entanglement")) 
+				affect_strip(paf->owner, "entanglement");
+			affect_strip(ch, "entanglement");
+		}
+	}
+		
 	if (INT(paf->location) == APPLY_DEX) {	/* victim case */
 		if (number_percent() < get_curr_stat(ch, STAT_DEX)) {
 			act("You manage to get free.", ch, NULL, NULL, TO_CHAR);
