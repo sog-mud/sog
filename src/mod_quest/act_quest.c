@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.170 2003-09-30 00:31:25 fjoe Exp $
+ * $Id: act_quest.c,v 1.171 2004-02-19 15:41:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -973,11 +973,10 @@ quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor, int item_vnum, int count_max)
 			     ch->name);
 	}
 
-	obj_to_char(reward, ch);
-
 	act("$N gives {W$p{x to $n.", ch, reward, questor, TO_ROOM);
 	act_puts("$N gives you {W$p{x.",
 		 ch, reward, questor, TO_CHAR, POS_DEAD);
+	obj_to_char_check(reward, ch);
 
 	return TRUE;
 }
