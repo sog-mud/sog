@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.29 1999-06-21 16:31:55 fjoe Exp $
+ * $Id: act.c,v 1.30 1999-06-21 17:21:22 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -167,6 +167,7 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 	race_t *r;
 
 	if (*i == '\0'
+	||  ch == victim
 	||  (ch == NULL) || (victim == NULL)
 	||  IS_NPC(ch) || IS_NPC(victim)
 	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
@@ -221,6 +222,8 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to, actopt_t *opt)
 		text = GETMSG(text, opt->to_lang);
 	if (IS_SET(opt->act_flags, ACT_STRANS))
 		text = translate(ch, to, text);
+	if (IS_SET(opt->act_flags, ACT_NOFIXSH))
+		return text;
 	return fix_short(text);
 }
 	
@@ -849,7 +852,8 @@ void act_yell(const char *format, CHAR_DATA *ch,
 		&&  d->character->in_room != NULL
 		&&  d->character->in_room->area == ch->in_room->area)
 			act_puts3(format, ch, arg1, d->character, arg3,
-	    			  TO_VICT | ACT_STRANS | ACT_NODEAF, POS_DEAD);
+	    			  TO_VICT | ACT_STRANS | ACT_NODEAF |
+				  ACT_NOFIXSH, POS_DEAD);
 	}
 }
 
@@ -862,7 +866,7 @@ void act_clan(const char *format, CHAR_DATA *ch,
 	if (format == NULL)
 		format = "[CLAN] $n: {C$b{x";
 
-	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF |
+	flags = TO_VICT | ACT_TOBUF | ACT_NODEAF | ACT_NOFIXSH |
 		(!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0);
 	for (vch = char_list; vch; vch = vch->next)
 		if (vch->clan == ch->clan
@@ -880,9 +884,9 @@ void act_say(const char *format_self, const char *format_others, CHAR_DATA *ch,
 		format_others = "$n says '{G$b{x'";
 
 	act_puts3(format_self, ch, arg1, arg2, arg3,
-		  TO_CHAR | ACT_NODEAF, POS_DEAD);
+		  TO_CHAR | ACT_SPEECH, POS_DEAD);
 	act_puts3(format_others, ch, arg1, arg2, arg3,
-		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_STRANS | ACT_NODEAF |
+		  TO_ROOM | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH |
 		  (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ? ACT_NOTRANS : 0),
 		  POS_RESTING);
 }
