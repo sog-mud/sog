@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.315 1999-12-21 18:19:44 avn Exp $
+ * $Id: act_info.c,v 1.316 1999-12-22 04:43:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -154,16 +154,17 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 }
 
 #define SHOW_SOCIAL(prephrase, phrase)					\
-		act(prephrase, ch, NULL, NULL, TO_CHAR);		\
-		if (!mlstr_null(&(phrase)) && mlstr_valid(&(phrase)))	\
-			act_mlputs(&(phrase), ch, NULL, ch,		\
-				TO_CHAR, POS_RESTING);			\
-		else							\
-			act("Nothing", ch, NULL, NULL, TO_CHAR)
+	if (!mlstr_null(&(phrase))) {					\
+		act(prephrase, ch, NULL, NULL, TO_CHAR | ACT_NOLF);	\
+		act_mlputs(&(phrase), ch, NULL, mob,			\
+			   TO_CHAR, POS_RESTING);			\
+	}
 
 void do_socials(CHAR_DATA *ch, const char *argument)
 {
 	social_t *soc;
+	CHAR_DATA *mob;
+	MOB_INDEX_DATA *mob_index;
 
 	if (argument[0] == '\0') {
 		char_puts("\nUse social <name> to view"
@@ -177,15 +178,24 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	SHOW_SOCIAL("Having used with no argument specified, you see:{W", soc->noarg_char);
-	SHOW_SOCIAL("{xAnd others see:{W", soc->noarg_room);
-	SHOW_SOCIAL("{xHaving targeted yourself, you see:{W", soc->self_char);
-	SHOW_SOCIAL("{xAnd others see:{W", soc->self_room);
-	SHOW_SOCIAL("{xIf your target is missing, you will see:{W", soc->notfound_char);
-	SHOW_SOCIAL("{xHaving targeted it to another character, you see:{W", soc->found_char);
-	SHOW_SOCIAL("{xYour victim see:{W", soc->found_vict);
-	SHOW_SOCIAL("{xAnd others see:{W", soc->found_notvict);
-	act("{x", ch, NULL, NULL, TO_CHAR);
+	do {
+		mob_index = get_mob_index(number_range(1, top_mob_index));
+	} while (mob_index == NULL);
+	mob = create_mob(mob_index);
+
+	SHOW_SOCIAL("Having used with no argument specified, you see:\n    ",
+		    soc->noarg_char);
+	SHOW_SOCIAL("And others see:\n    ", soc->noarg_room);
+	SHOW_SOCIAL("Having targeted yourself, you see:\n    ", soc->self_char);
+	SHOW_SOCIAL("And others see:\n    ", soc->self_room);
+	SHOW_SOCIAL("If your target is missing, you will see:\n    ",
+		    soc->notfound_char);
+	SHOW_SOCIAL("Having targeted it to another character, you see:\n    ",
+		    soc->found_char);
+	SHOW_SOCIAL("Your victim see:\n    ", soc->found_vict);
+	SHOW_SOCIAL("And others see:\n    ", soc->found_notvict);
+
+	extract_char(mob, 0);
 }
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
