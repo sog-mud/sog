@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.234 2000-03-30 21:00:50 avn Exp $
+ * $Id: act_wiz.c,v 1.235 2000-03-30 21:41:03 avn Exp $
  */
 
 /***************************************************************************
@@ -3322,7 +3322,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
-		if (!IS_NULLSTR(victim->clan)
+		if (!IS_NPC(victim)
+		&&  !IS_NULLSTR(victim->clan)
 		&& (clo = clan_lookup(victim->clan))) {
 			clan_update_lists(clo, victim, TRUE);
 			clan_save(clo);
@@ -3330,13 +3331,15 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		free_string(victim->clan);
 		victim->clan = str_qdup(cl->name);
-		PC(victim)->clan_status = CLAN_COMMONER;
-		name_add(&cl->member_list, victim->name, NULL, NULL);
-		clan_save(cl);
+		if (!IS_NPC(victim)) {
+			PC(victim)->clan_status = CLAN_COMMONER;
+			name_add(&cl->member_list, victim->name, NULL, NULL);
+			clan_save(cl);
 
-		spec_update(victim);
-		update_skills(victim);
-		altered = TRUE;
+			spec_update(victim);
+			update_skills(victim);
+			altered = TRUE;
+		}
 		goto cleanup;
 	}
 
