@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.31 1998-07-03 15:18:40 fjoe Exp $
+ * $Id: db.c,v 1.32 1998-07-04 13:39:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2295,7 +2295,7 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
                     SET_BIT( pMob->act, ACT_PET);
             }
 
-	    pMob->zone = pRoom->area;
+		pMob->zone = pRoom->area;
             char_to_room( pMob, pRoom );
 
             LastMob = pMob;
@@ -2306,19 +2306,15 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
         case 'O':
             if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
             {
-                bug( "Reset_room: 'O' 1 : bad vnum %d", pReset->arg1 );
-                sprintf (buf,"%d %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3,
-                pReset->arg4 );
-		bug(buf,1);
+                log_printf("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
+                log_printf("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4 );
                 continue;
             }
 
             if ( !( pRoomIndex = get_room_index( pReset->arg3 ) ) )
             {
-                bug( "Reset_room: 'O' 2 : bad vnum %d.", pReset->arg3 );
-                sprintf (buf,"%d %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3,
-                pReset->arg4 );
-		bug(buf,1);
+                log_printf("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
+                log_printf("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4 );
                 continue;
             }
 
@@ -2379,6 +2375,13 @@ void reset_room( ROOM_INDEX_DATA *pRoom )
             break;
 
         case 'P':
+		/* (P)ut command
+		 * arg1 - vnum of obj to put
+		 * arg2
+		 * arg3 - vnum of obj to put into
+		 * arg4
+		 */
+
             if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
             {
                 bug( "Reset_room: 'P': bad vnum %d.", pReset->arg1 );

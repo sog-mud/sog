@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.31 1998-07-03 15:18:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.32 1998-07-04 13:39:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1837,8 +1837,8 @@ void do_mstat(CHAR_DATA *ch, char *argument)
 		char_printf(ch, "Detection: %s\n\r", 
 		(victim->detection) ? detect_bit_name(victim->detection) : "(none)");
 
-	char_printf(ch, "Form: %s\n\rParts: %s\n\r", 
-		form_bit_name(victim->form), part_bit_name(victim->parts));
+	char_printf(ch, "Form: %s\n\r", form_bit_name(victim->form));
+	char_printf(ch, "Parts: %s\n\r", part_bit_name(victim->parts));
 
 	if (victim->affected_by)
 		char_printf(ch, "Affected by %s\n\r", 
