@@ -62,7 +62,7 @@ pill AG A
 0 0 100 P
 #15002
 blood fountain~
-Fountain is here.~
+a fountain~
 @eng Fountain is here.@rus Фонтан тут.~
 blood~
 fountain ABCEFI 0
@@ -88,6 +88,14 @@ A
 3 100
 A
 1 100
+#15004
+beer barrel~
+@eng a BIG barrel of beer for Mabutu@rus БОЛЬШОЙ бочонок пива для старого негра~
+@eng Mabutu has left here his BIG barrel of beer.@rus Старый негр оставил здесь БОЛЬШОЙ бочонок (barrel) с пивом.~
+unknown~
+drink AGHIOTYZa AOP
+-1 100 'beer' 0 0
+0 0 0 P
 #15010
 eng kosa~
 {DScythe{x~
@@ -119,6 +127,30 @@ hoof~
 unknown~
 armor 0 AGP
 0 0 0 0 0
+0 0 0 P
+#15020
+box~
+{Dящик ворсинского пива{x~
+{DЯщик темного Ворсинского пива дожидается своего хозяина здесь.{x~
+дерево~
+container GRYa AOP
+20 0 0 100 0
+1 0 0 P
+#15021
+bottle~
+{Dбутылка холодного Ворсинского пива{x~
+{DБутылка холодного Ворсинского пива лежит здесь.{x~
+стекло~
+drink CGRYa AOP
+20 20 'beer' 0 0
+1 0 0 P
+#15030
+tron~
+{Gмаленькая удобная кроватка{x~
+{GМаленькая удобная кроватка для ведьмочки Faire стоит тут.{x~
+unknown~
+furniture RYa AP
+AC EIJKN HK CFG CFG
 0 0 0 P
 #15100
 cheburator~
@@ -194,11 +226,12 @@ S
 #RESETS
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
-O 0 15002 0 15000	* Fountain is here. (Abrazak's Office)
+O 0 15002 0 15000	* a fountain (Abrazak's Office)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
 S
 
 #OLIMITS
+O 15004 1	* a BIG barrel of beer for Mabutu
 O 15010 0	* {DScythe{x
 O 15011 0	* {DHorns{x
 O 15012 0	* {DBlack Rose{x

@@ -16,13 +16,14 @@ mummy~
 ~
 ~
 zombie~
-ABORTe DFHNOVZae -1000 0
+ABORTe DFHNOVZa -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
 ACEFJKLNOQSU A 0 NSY
 stand stand male 0
 I 0 large unknown
 M grall 40000 100~
+C Scum~
 #40001
 zombie~
 @eng Large Zombie@rus Огромный живой труп~
@@ -31,7 +32,7 @@ zombie~
 ~
 ~
 zombie~
-ABORTe CDFHNOVZae -1000 0
+ABORTe CDFHNOVZa -1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
 ACDEIJKLO A 0 0
@@ -41,6 +42,7 @@ F aff d
 F imm BL
 F res I
 M grall 40000 100~
+C Scum~
 #40002
 healer~
 healer~
@@ -65,12 +67,27 @@ witch~
 ~
 @eng @rus ~
 human~
-ABGae ACDFGHJYZe -1000 0
+ABGae ACDFGHJYZ -1000 0
 100 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 LQR MO NSY
 stand stand male 0
 0 0 medium unknown
+#40004
+master guildmaster~
+@eng Blackman@rus Чернокнижник~
+@eng Your guildmaster is here.
+@rus Старый чернокнижник стоит тут, он готов передать тебе свои знания.
+~
+~
+drow~
+ABGK 0 -1000 0
+100 0 1d1+25000 0d0+0 1d1+1000 magic
+0 0 0 0
+0 ABCD 0 0
+stand stand male 0
+0 0 medium unknown
+C Scum~
 #0
 
 #OBJECTS
@@ -88,7 +105,7 @@ altar~
 @eng Unholy altar@rus {DАх! Похоже здесь когда-то была часовня - ее алтарь теперь служит прибежищем бесов.{x~
 камень~
 furniture IRSY 0
-CFG EIJKN HK CDFI CFG
+CFG EIJKN HK CDFI CDFI
 0 0 0 P
 #0
 
@@ -136,7 +153,7 @@ S
 недавнего пиршества. Из воздуха постоянно  появляются и исчезают странные
 существа имя которым может быть только одно - {RНЕЧИСТЬ!{x
 ~
-0 A inside
+0 AN inside
 D2
 ~
 ~
@@ -157,12 +174,14 @@ M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
 O 0 40000 0 40002	* corpse of child ({DDark cave{x)
 M 0 40003 1 40002 1	* Grand Witch ({DDark cave{x)
 O 0 40001 0 40002	* unholy altar ({DDark cave{x)
+M 0 40004 1 40002 1	* Blackman ({DDark cave{x)
 S
 
 #MOBPROGS
 #40000
 if isimmort $n 
 tip $n
+clan К нам пришел $n 
 end
 endif
 if clan $n scum
@@ -177,9 +196,14 @@ mob transfer $n 40000
 end
 endif
 yae $n
+clan We are attacked by $n !
 yell $n! Prepare to die!
 mob kill $n
 ~
 #0
+
+#PRACTICERS
+M 40004 clan	* Blackman
+S
 
 #$

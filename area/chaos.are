@@ -17,16 +17,32 @@ demon~
 @eng {x
 @rus ~
 human~
-AQ HVc 0 0
+AGQ DFHVZc 0 0
 95 300 1d1+25000 10d10+200 10d10+3000 none
 -100 -100 -100 -100
 0 AB CD 0
 stand stand none 0
 C PW medium unknown
-A det ADFHZe
 F for AHMV
 F par ABDEFHIJK
 M act 36100 sacrifice~
+#36101
+small demongirl~
+@eng Small pretty demongirl@rus Маленькая скромненькая демоница~
+@eng Small pretty demongirl
+@rus МаленькаЯ скромненькаЯ демоница
+~
+~
+human~
+A DFHTXZclt 0 0
+1 300 100d100+300 100d100+300 10d10+100 none
+0 0 0 0
+0 0 0 0
+stand stand female 0
+0 0 small unknown
+F for AHMV
+F par ABCDEFGHIJK
+M greet 36101 100~
 #0
 
 #OBJECTS
@@ -45,8 +61,15 @@ treasure 0 0
 @eng {x      {gTemple of Chaos      {x@rus {x       {gХрам Хаоса{x~
 @eng {gSpacious room surround you.{x
 @rus {gПросторное помещение окружает тебя со всех сторон.{x
+{gСплохи пламени мелькают на стенах, пытаясь дотянуться до тебя.
+Здесь те кто смел могут поклониться Хаосу и принести свои дары (sac).
+{g             Но будь осторожен, играя с огнем!{x
 ~
-0 0 0
+0 C inside
+D2
+~
+~
+Z 0 3077
 S
 #0
 
@@ -58,13 +81,70 @@ S
 #MOBPROGS
 #36100
 if rand 97
-mob cast 'armor' $n
+smile $n
 endif
 if rand 97
-smile $n
+mob cast 'blindness' $n
+endif
+if rand 97
+mob cast 'cause critical' $n
+endif
+if rand 97
+mob cast 'earthquake' $n
+endif
+if rand 97
+mob cast 'poison' $n
+endif
+if rand 97
+mob cast 'heal' $n
+endif
+if rand 97
+mob cast 'heat metal' $n
+endif
+if rand 97
+mob cast 'curse' $n
+endif
+if rand 97
+mob cast 'demonfire' $n
+endif
+if rand 97
+mob cast 'giant strength' $n
+endif
+if rand 97
+mob cast 'cancel' $n
+endif
+mob goto 36100
+if rand 95
+mob cast 'heal' $n
+endif
+if rand 90
+mob cast 'haste' $n
+endif
+if rand 90
+mob cast 'armor' $n
+endif
+if rand 90
+mob cast 'enhanced armor' $n
+endif
+if rand 90
+mob cast 'bless' $n
+endif
+if rand 90
+mob cast 'frenzy' $n
+endif
+if rand 90
+mob cast 'sanctuary' $n
+endif
+if rand 90
+mob cast 'shield' $n
 endif
 ~
 #36101
+if isimmort $n 
+kiss $n
+else
+slap $n
+endif
 ~
 #0
 

@@ -523,8 +523,7 @@ stand stand male 10
 #29201
 key old~
 an old key~
-An old key is lying on the ground.
-~
+An old key is lying on the ground.~
 iron~
 key 0 A
 0 0 0 0 0
@@ -532,8 +531,7 @@ key 0 A
 #29202
 tongue blue lizard~
 a blue lizard tongue~
-A blue lizard tongue is here.
-~
+A blue lizard tongue is here.~
 flesh~
 pill 0 A
 30 'sanctuary' '' '' ''
@@ -541,8 +539,7 @@ pill 0 A
 #29203
 tongue red lizard~
 a red lizard tongue~
-A red lizard tongue is here.
-~
+A red lizard tongue is here.~
 flesh~
 pill 0 A
 30 'poison' '' '' ''
@@ -550,8 +547,7 @@ pill 0 A
 #29204
 tongue green lizard~
 a green lizard tongue~
-A green lizard tongue is here.
-~
+A green lizard tongue is here.~
 flesh~
 pill 0 A
 30 'curse' '' '' ''
@@ -559,8 +555,7 @@ pill 0 A
 #29205
 watchfire~
 a watchfire~
-A watchfire is here, burning brightly.
-~
+A watchfire is here, burning brightly.~
 unknown~
 light A AO
 0 0 999 0 0
@@ -568,8 +563,7 @@ light A AO
 #29206
 pole fishing~
 a fishing pole~
-A fishing pole is here, hooked and baited.
-~
+A fishing pole is here, hooked and baited.~
 wood~
 weapon 0 AN
 exotic 3 5 none 0
@@ -577,8 +571,7 @@ exotic 3 5 none 0
 #29207
 notebook~
 a notebook~
-A notebook has been left here.
-~
+A notebook has been left here.~
 vellum~
 treasure G AO
 0 0 0 0 0
@@ -586,8 +579,7 @@ treasure G AO
 #29208
 globe patrol~
 a patrol globe~
-A glowing globe has been left here.
-~
+A glowing globe has been left here.~
 glass~
 light A AO
 0 0 999 0 0
@@ -597,8 +589,7 @@ A
 #29209
 mail scale~
 scale mail~
-A suit of scale mail is here.
-~
+A suit of scale mail is here.~
 iron~
 armor G AD
 7 7 7 0 0
@@ -606,8 +597,7 @@ armor G AD
 #29210
 trident~
 a trident~
-A trident has been left here.
-~
+A trident has been left here.~
 wood~
 weapon G AN
 exotic 5 5 none 0
@@ -617,8 +607,7 @@ A
 #29211
 pie meat~
 a steaming meat pie~
-A steaming meat pie is here.
-~
+A steaming meat pie is here.~
 flesh~
 food 0 A
 D D 0 0 0
@@ -626,8 +615,7 @@ D D 0 0 0
 #29212
 grog sailor's~
 a mug of sailor's grog~
-A mug of sailor's grog is here.
-~
+A mug of sailor's grog is here.~
 glass~
 drink 0 A
 2 2 'water' 0 0
@@ -635,8 +623,7 @@ drink 0 A
 #29213
 wafer holy~
 a holy wafer~
-A holy wafer is here.
-~
+A holy wafer is here.~
 flesh~
 pill G A
 50 'bless' '' '' ''
@@ -644,8 +631,7 @@ pill G A
 #29214
 plate silver~
 a silver plate~
-A silver plate has been left here.
-~
+A silver plate has been left here.~
 silver~
 treasure 0 A
 0 0 0 0 0
@@ -653,8 +639,7 @@ treasure 0 A
 #29215
 tapestry~
 a tapestry~
-A tapestry has been left here.
-~
+A tapestry has been left here.~
 cloth~
 treasure 0 A
 0 0 0 0 0
@@ -667,8 +652,7 @@ of Arden.
 #29216
 armor emerald~
 emerald armor~
-A suit of emerald armor is here.
-~
+A suit of emerald armor is here.~
 stone~
 armor G AD
 13 13 13 10 0
@@ -678,8 +662,7 @@ A
 #29217
 hammer dwarven thrower~
 a dwarven thrower~
-A dwarven throwing hammer is here.
-~
+A dwarven throwing hammer is here.~
 unknown~
 weapon GP AN
 exotic 9 5 none 0
@@ -691,8 +674,7 @@ A
 #29218
 sleeves elven chainmail~
 elven chainmail sleeves~
-A set of elven chainmail sleeves is here.
-~
+A set of elven chainmail sleeves is here.~
 mithril~
 armor G AI
 5 5 5 5 0
@@ -700,8 +682,7 @@ armor G AI
 #29219
 leggings elven chainmail~
 elven chainmail leggings~
-A pair of elven chainmail leggings is here.
-~
+A pair of elven chainmail leggings is here.~
 mithril~
 armor GQ AF
 5 5 5 5 0
@@ -709,8 +690,7 @@ armor GQ AF
 #29220
 wine red~
 a glass of Freeport burgundy~
-A glass of Freeport Burgundy is here.
-~
+A glass of Freeport Burgundy is here.~
 leather~
 drink 0 A
 1 1 'red wine' 0 0
@@ -718,8 +698,7 @@ drink 0 A
 #29221
 wine white~
 a glass of Freeport chablis~
-A glass of Freeport Chablis is here.
-~
+A glass of Freeport Chablis is here.~
 glass~
 drink 0 A
 1 1 'white wine' 0 0
@@ -727,8 +706,7 @@ drink 0 A
 #29222
 dumplings plate gravy~
 a plate of gravy and dumplings~
-A plate of gravy and dumplings is here.
-~
+A plate of gravy and dumplings is here.~
 flesh~
 food 0 A
 AC AC 0 0 0
@@ -736,8 +714,7 @@ AC AC 0 0 0
 #29223
 crate~
 a huge box crate~
-A huge box crate is here.
-~
+A huge box crate is here.~
 wood~
 trash 0 A
 0 0 0 0 0
@@ -745,8 +722,7 @@ trash 0 A
 #29224
 ship moored~
 a moored ship~
-A moored ship is here.
-~
+A moored ship is here.~
 wood~
 boat 0 0
 0 0 0 0 0
@@ -754,8 +730,7 @@ boat 0 0
 #29225
 wristguard emerald~
 an emerald wristguard~
-An emerald wristguard is here.
-~
+An emerald wristguard is here.~
 stone~
 armor G AM
 12 12 12 6 0
@@ -765,8 +740,7 @@ A
 #29226
 longsword emerald~
 an emerald longsword~
-An emerald longsword is here.
-~
+An emerald longsword is here.~
 stone~
 weapon G AN
 exotic 5 10 none 0
@@ -776,8 +750,7 @@ A
 #29227
 helm emerald~
 an emerald helm~
-An emerald helm is here.
-~
+An emerald helm is here.~
 stone~
 armor G AE
 12 12 12 6 0
@@ -787,8 +760,7 @@ A
 #29228
 weed devil's~
 a pinch of devil's weed~
-A pinch of devil's weed is here.
-~
+A pinch of devil's weed is here.~
 cloth~
 pill G A
 40 'poison' '' '' ''
@@ -796,8 +768,7 @@ pill G A
 #29229
 cape admiral's~
 an admiral's cape~
-A cape with the emblem of Freeport is here.
-~
+A cape with the emblem of Freeport is here.~
 cloth~
 armor GI ACD
 12 12 12 6 0
@@ -815,8 +786,7 @@ A
 #29230
 signet ring freeport~
 an admiral's signet~
-A ring with the seal of Freeport is here.
-~
+A ring with the seal of Freeport is here.~
 gold~
 armor G AB
 12 12 12 6 0
@@ -830,8 +800,7 @@ A
 #29231
 purse heavy~
 a very heavy purse~
-A very heavy purse is here.
-~
+A very heavy purse is here.~
 leather~
 money 0 A
 800 0 0 0 0
@@ -839,8 +808,7 @@ money 0 A
 #29232
 boots bladed~
 bladed boots~
-A pair of boots with a spring action blade lie here.
-~
+A pair of boots with a spring action blade lie here.~
 leather~
 armor 0 AG
 17 17 17 9 0
@@ -852,8 +820,7 @@ A
 #29233
 cape dimensional~
 a dimensional cape~
-A hole in reality lies here.
-~
+A hole in reality lies here.~
 unknown~
 armor G AC
 13 13 13 13 0

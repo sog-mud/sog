@@ -471,33 +471,15 @@ sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
-weapon AGIOY ANP
+weapon AGIOY AP
 sword 10 4 slash D
 21 100 100000 G
-A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
-A
-13 200
-A
-14 500
 #32
 dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
-weapon AGIOY ANP
+weapon AGIOY AP
 dagger 10 4 pierce D
 21 100 100000 G
 A
@@ -523,7 +505,7 @@ mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
-weapon AGIOY ANP
+weapon AGIOY AP
 mace 10 4 pound D
 21 100 100000 G
 A
@@ -556,6 +538,34 @@ A
 2 8
 A
 18 8
+#40
+song hero~
+the %s Song of %s~
+You hear the Song of Real Hero filling the room with its power.~
+unknown~
+container IORYa APQ
+150 0 0 600 5
+21 5 0 P
+A
+24 -15
+A
+18 15
+A
+1 2
+A
+2 2
+A
+4 2
+A
+6 1
+A
+19 15
+A
+14 500
+A
+12 150
+A
+13 200
 #42
 vial potion~
 a potion vial~
@@ -594,12 +604,12 @@ potion G AO
 0 10 0 P
 #50
 rug~
-magic rug~
-{ra small magic rug{x~
+a small magic rug~
+A small magic rug lies here.~
 unknown~
 furniture RYa AP
 A EIJKN HK DGH DGH
-30 10 0 P
+10 10 0 P
 #51
 tattoo atum ra~
 lawful good tattoo of atum-ra~
@@ -1096,6 +1106,7 @@ O 33 wear_prog wear_prog_quest_weapon	* `the %s Mace of %s'
 O 33 get_prog get_prog_quest_reward	* `the %s Mace of %s'
 O 35 wear_prog wear_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
 O 35 remove_prog remove_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
+O 40 get_prog get_prog_quest_reward	* `the %s Song of %s'
 O 51 fight_prog fight_prog_tattoo_apollon	* `lawful good tattoo of atum-ra'
 O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
 O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'

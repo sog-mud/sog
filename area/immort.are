@@ -41,18 +41,6 @@ coffin~
 On the top of this coffin you can see a sign. The sign reads: 
 			"Here lies Nobody."
 ~
-#1201
-riddle brume~
-sand-colored robes~
-riddle from patch of brume~
-unknown~
-armor JKTYZa AK
-10 10 10 10 0
-1 0 1 P
-A
-17 -10
-A
-19 11
 #0
 
 #ROOMS
@@ -717,8 +705,6 @@ M 1200 defensive	* Heimdall
 S
 
 #OMPROGS
-O 1201 wear_prog wear_prog_bracer	* `sand-colored robes'
-O 1201 remove_prog remove_prog_bracer	* `sand-colored robes'
 S
 
 #$

@@ -6,7 +6,7 @@ Credits Diku~
 Security 9
 LevelRange 1 100
 ResetMessage The earth rumbles with the after affects of another experience gone away...~
-Flags A
+Flags hometown
 End
 
 #MOBILES
@@ -5759,6 +5759,10 @@ praying with the templeman.
 	Try to talk with templeman about religion.
 ~
 0 DS inside
+D0
+~
+~
+Z 0 36100
 D2
 By the temple altar.
 ~
