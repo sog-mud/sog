@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.44 2001-12-03 22:28:29 fjoe Exp $
+ * $Id: init_mpc.c,v 1.45 2001-12-10 19:49:10 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -314,6 +314,8 @@ const char *mpc_dynafuns[] = {
 	"get_skill",
 	"give_obj",
 	"handle_death",
+	"has_detect",
+	"has_invis",
 	"has_sp",
 	"is_act",
 	"is_affected",

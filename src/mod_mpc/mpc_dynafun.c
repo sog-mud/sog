@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.25 2001-12-03 22:28:30 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.26 2001-12-10 19:49:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -545,6 +545,18 @@ void
 set_obj_owner(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	mlstr_cpy(&obj->owner, &ch->short_descr);
+}
+
+bool
+has_detect(CHAR_DATA *ch, int f)
+{
+	return HAS_DETECT(ch, f);
+}
+
+bool
+has_invis(CHAR_DATA *ch, int f)
+{
+	return HAS_INVIS(ch, f);
 }
 
 #else /* !defined(MPC) */

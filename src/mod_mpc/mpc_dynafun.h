@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.17 2001-12-03 22:28:30 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.18 2001-12-10 19:49:10 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -180,6 +180,10 @@ DECLARE_FUN2(bool, char_name_is,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), nl)
 DECLARE_PROC2(set_obj_owner,
 	      ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
+DECLARE_FUN2(bool, has_detect,
+	     ARG(CHAR_DATA), ch, ARG(int), f)
+DECLARE_FUN2(bool, has_invis,
+	     ARG(CHAR_DATA), ch, ARG(int), f)
 
 __MODULE_END_DECL
 
