@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.43 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: special.c,v 1.44 1999-05-11 09:38:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1145,7 +1145,7 @@ bool spec_assassinater(CHAR_DATA *ch)
 
 		v_next = ch->next_in_room;
 
-		if (IS_NPC(ch)
+		if (IS_NPC(victim)
 		||  (vcl = class_lookup(victim->class)) == NULL
 		||  !str_cmp(vcl->name, "thief")
 		||  !str_cmp(vcl->name, "ninja"))
