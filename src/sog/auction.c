@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.45.2.5 2004-02-19 17:20:58 fjoe Exp $
+ * $Id: auction.c,v 1.45.2.6 2004-02-19 17:23:56 fjoe Exp $
  */
 
 #include <stdio.h>
