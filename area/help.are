@@ -2221,7 +2221,7 @@ train thirst drunk full hometown ethos noghost clan trouble security qpoints
 qtime relig bloodlust desire
  
 For {cSET OBJ{x:
-value0 value1 value2 value3 value4 owner level cost timer
+owner timer
  
 For {cSET ROOM{x:
 flags sector
@@ -2242,7 +2242,7 @@ train thirst drunk full hometown ethos noghost clan trouble security qpoints
 qtime relig bloodlust desire
  
 Для {cSET OBJ{x:
-value0 value1 value2 value3 value4 owner level cost timer
+owner timer
  
 Для {cSET ROOM{x:
 flags sector
@@ -3677,7 +3677,7 @@ AntiPaladin  A-P      STR	 ANY	300	warrior/mage
 Paladin      Pal      STR	 ANY	400	warrior/cleric     
 Samurai      Sam      STR        ANY    500  	masters of ancient battlearts 
 Vampire      Vam      INT	 ANY	300	simply vampire
-Necromancer  Nec      INT	  M	300	simply necromancer
+Necromancer  Nec      INT        ANY    300     simply necromancer
 ~
 -1 RANGERS~
 RANGER
@@ -3746,7 +3746,7 @@ Powerful mage/warriors..But after they can only transform into VAMPIRE
 after level 10.And they cannot practice the vampire skill.The vampire skill 
 is gained in 50 questpoints. When they use this skill at the nights their
 size increase, they gets damage from light, and their damroll increases. You
-cannot realize a vampire in nights. It is only written "An uggly creature".
+cannot realize a vampire in nights. It is only written "An ugly creature".
 ~
 -1 NECROMANCERS~
 Powerful mage. But powerful in necromantic spells. 
@@ -6668,7 +6668,7 @@ Toggles given option on/off. Available options are:
 {ccombine{x    - defines whether same items in your inventory will be combined
              (shown with numbers) or shown separated.
 {clong flags{x - toggles oldstyle flag view, like ({MPink Aura{x)({RRed Aura{x)...
-             New format looks like [[{y.{D.{m.{c.{MP{D.{G.{b.{RR{Y.{W.{y.{g.{g.{x]. See {CHELP FLAGS{x.
+             New format looks like [{y.{D.{m.{c.{MP{D.{G.{b.{RR{Y.{W.{y.{g.{g.{x]. See {CHELP FLAGS{x.
 {cnobust{x     - will not send you new prompt each time your hp/mana/moves have
              changed. Useful to avoid spam from regeneration.
 {cnoflee{x     - with this option turned on, your character will not attempt
@@ -6695,7 +6695,7 @@ Toggles given option on/off. Available options are:
 {cnoflee{x     - при потере связи персонаж не будет пытаться сбегать. Смотри
            - {CHELP FLEE{x.
 {cnotelnet{x   - отключает парсер телнета. Смотри {CHELP RUSSIAN{x
-{cnoiac{x      - транслирует строчные 'я' в прописные. Смотри {CHELP RUSSIAN{x
+{cnoiac{x      - транслирует строчные 'Я' в прописные. Смотри {CHELP RUSSIAN{x
 {cnoverbose{x  - отключает неинформативные сообщения (например, [отличное])
 {cprompt{x     - отключает показ приглашения.
 {ctelnet GA{x  - некоторым клиентам необходимо посылать спец. символ (GA)

@@ -2885,3 +2885,75 @@ Hi, there
 Good luck!
 Rakot the CREATOR
 ~
+Sender  Tyan~
+Date    Wed May 31 12:39:29 2000~
+Stamp   959762369
+To      all~
+Subject shield block for clerics~
+Text
+hi, there!
+ 
+Клерики теперь имеют shield block на 10 уровне
+и знают его чуть лучше чем раньше
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Thu Jun  8 11:21:26 2000~
+Stamp   960448886
+To      imm~
+Subject set obj xxx~
+Text
+hi, there!
+ 
+`set obj xxx' теперь может ставить только `owner' и `timer'
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Thu Jun  8 22:09:36 2000~
+Stamp   960487776
+To      all~
+Subject weights and steal fixes~
+Text
+hi, there!
+ 
+после ребута вступят в силу многочисленные фиксы связанные с подсчетом
+веса носимых вещей, в частности:
+- будет более заметно влияние веса при parry, bash, tail, crush
+- нельзя будет набрать лишний вес при использовании demand, request
+и воровстве денег
+ 
+а также должен пофикситься старый баг со steal у ослепленного
+чара (моба). точнее пофиксится баг со steal вещей, которые
+не видит жертва
+ 
+happy mudding,
+{WTyan{x
+~
+Sender  Tyan~
+Date    Thu Jun  8 23:48:45 2000~
+Stamp   960493725
+To      all~
+Subject sword of sun~
+Text
+hi, there!
+ 
+после ребута пофиксится the sword of sun (instant kill на нем
+снова будет работать) -- courtesy of Artegal
+ 
+happy mudding,
+{WTyan{x
+~
+Sender  Tyan~
+Date    Fri Jun  9 16:07:46 2000~
+Stamp   960552466
+To      all~
+Subject the lost ring of ra, the shield of rose~
+Text
+hi, there!
+ 
+баги с subj пофиксены
+ 
+{WTyan{x
+~

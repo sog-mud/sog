@@ -2734,6 +2734,17 @@ Form 6 -у~
 End
 
 #RULE
+Name еще~
+BaseLen 2
+Form 1 -а~
+Form 2 -у~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -е~
+End
+
+#RULE
 Name свирель~
 BaseLen 6
 Form 1 -и~

@@ -979,6 +979,8 @@ endif
 mob vforce 15005 mob oload 34411
 mob vforce 15005 mob goto 15000 
 mob vforce 15005 cast 'teleport'
+mob vforce 34405 mob goto 15000
+mob vforce 34405 cast 'teleport'
 ~
 #15001
 cast 'shadowlife' $n
