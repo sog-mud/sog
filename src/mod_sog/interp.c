@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.108 1999-02-12 10:39:43 fjoe Exp $
+ * $Id: interp.c,v 1.109 1999-02-12 10:48:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -191,7 +191,7 @@ CMD_DATA cmd_table[] =
     { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, CMD_NOORDER },
     { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL	},
-    { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_FROZEN_OK },
     { "reply",		do_reply,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "replay",		do_replay,	POS_SLEEPING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
     { "say",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, CMD_CHARMED_OK },
@@ -224,8 +224,8 @@ CMD_DATA cmd_table[] =
     { "autosac",	do_autosac,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "autosplit",	do_autosplit,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "description",	do_description,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK },
-    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK|CMD_NOORDER},
+    { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_FROZEN_OK },
+    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER | CMD_FROZEN_OK },
     { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL	},
     { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
@@ -551,22 +551,22 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		argument = one_argument(argument, command);
 
 	/*
-	 * Implement freeze command.
-	 */
-	if (!IS_NPC(ch)
-	&&  IS_SET(ch->plr_flags, PLR_FREEZE)
-	&&  str_prefix(command, "pray")) {
-		char_puts("You're totally frozen!\n", ch);
-		return;
-	}
-
-	/*
 	 * Look for command in command table.
 	 */
 	found = FALSE;
 	for (cmd = cmd_table; cmd->name; cmd++) {
 		if (str_prefix(command, cmd->name))
 			continue;
+
+		/*
+		 * Implement freeze command.
+		 */
+		if (!IS_NPC(ch)
+		&&  IS_SET(ch->plr_flags, PLR_FREEZE)
+		&&  !IS_SET(cmd->flags, CMD_FROZEN_OK)) {
+			char_puts("You're totally frozen!\n", ch);
+			continue;
+		}
 
 		if (IS_SET(cmd->flags, CMD_DISABLED)) {
 			char_puts("Sorry, this command is temporarily disabled.\n", ch);
