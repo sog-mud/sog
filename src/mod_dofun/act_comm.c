@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.16 2000-10-22 17:58:16 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.17 2000-12-28 05:18:18 osya Exp $
  */
 
 /***************************************************************************
@@ -261,6 +261,42 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	do_tell_raw(ch, PC(ch)->reply, argument);
+}
+
+void do_mtell(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *vch, *vch_next;
+
+	char arg[MAX_INPUT_LENGTH];
+
+	argument = one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0' || argument[0] == '\0') {
+		char_puts("Tell whom what?\n", ch);
+		return;
+	}
+
+	do_tell_raw(ch, get_char_world(ch, arg), argument);
+
+	if (IS_NPC(ch))
+		return;
+
+	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+		 char_puts("The gods refuse to listen to you right now.", ch);
+		 return;
+	}
+
+	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
+		CHAR_DATA *victim = GET_ORIGINAL(vch);
+		vch_next = vch->next;
+
+		if (!IS_IMMORTAL(victim)
+		||  IS_SET(victim->comm, COMM_NOWIZ))
+			continue;
+
+		act_puts3("{W$n{x tells $I '{G$t{x'",
+			 ch, argument, vch, get_char_world(ch, arg),
+			 TO_VICT | ACT_TOBUF, POS_DEAD);
+	}
 }
 
 void do_gtell(CHAR_DATA *ch, const char *argument)

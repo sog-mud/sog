@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.35 2000-12-05 09:32:38 avn Exp $
+ * $Id: handler.c,v 1.182.2.36 2000-12-28 05:18:21 osya Exp $
  */
 
 /***************************************************************************
@@ -4928,9 +4928,15 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
 		int             skill;
 		OBJ_DATA       *dual;
-		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
-			unequip_char(ch, dual);
-
+		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+			if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
+			    || obj->value[0] == WEAPON_STAFF) {
+				char_puts("You can't dual wield two-handed "
+					"weapon!\n", ch);
+				return;
+			} else
+				unequip_char(ch, dual);
+		}
 		if (!remove_obj(ch, WEAR_WIELD, fReplace))
 			return;
 

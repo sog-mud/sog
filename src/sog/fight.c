@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.20 2000-11-21 16:47:05 osya Exp $
+ * $Id: fight.c,v 1.202.2.21 2000-12-28 05:18:20 osya Exp $
  */
 
 /***************************************************************************
@@ -68,7 +68,7 @@ bool	check_blink		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_hand_block	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				 int dt, bool immune, int dam_type);
-void	death_cry		(CHAR_DATA *ch);
+void	death_cry		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	group_gain		(CHAR_DATA *ch, CHAR_DATA *victim);
 int	xp_compute		(CHAR_DATA *gch, CHAR_DATA *victim,
 				 int total_levels, int members);
@@ -2100,104 +2100,108 @@ make_corpse(CHAR_DATA *ch, CHAR_DATA *killer)
 /*
  * Improved Death_cry contributed by Diavolo.
  */
-void death_cry(CHAR_DATA *ch)
+void death_cry(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	ROOM_INDEX_DATA *was_in_room;
 	char *msg;
 	int door;
 	int vnum;
-
+	int variant;
+	
 	vnum = 0;
 	msg = "You hear $n's death cry.";
 
-
-	switch (number_bits(4)) {
+	if (get_skill(ch, sn_lookup("freeze decay")) > 1)
+	    variant = number_bits(3);
+	else
+	    variant = number_bits(4);
+	switch (variant) {
 	case  0:
 		msg  = "$n hits the ground ... DEAD.";
 		break;
 	case  1:
-		if (ch->material == 0) {
+		if (victim->material == 0) {
 		    msg  = "$n splatters blood on your armor.";
 		    break;
 		}
 		/* FALLTHRU */
 	case  2:
-		if (IS_SET(ch->parts, PART_GUTS)) {
+		if (IS_SET(victim->parts, PART_GUTS)) {
 			msg = "$n spills $s guts all over the floor.";
 			vnum = OBJ_VNUM_GUTS;
 		}
 		break;
 	case  3:
-		if (IS_SET(ch->parts, PART_HEAD)) {
+		if (IS_SET(victim->parts, PART_HEAD)) {
 			msg  = "$n's severed head plops on the ground.";
 			vnum = OBJ_VNUM_SEVERED_HEAD;
 		}
 		break;
 	case  4:
-		if (IS_SET(ch->parts, PART_HEART)) {
+		if (IS_SET(victim->parts, PART_HEART)) {
 			msg  = "$n's heart is torn from $s chest.";
 			vnum = OBJ_VNUM_TORN_HEART;
 		}
 		break;
 	case  5:
-		if (IS_SET(ch->parts, PART_ARMS)) {
+		if (IS_SET(victim->parts, PART_ARMS)) {
 			msg  = "$n's arm is sliced from $s dead body.";
 			vnum = OBJ_VNUM_SLICED_ARM;
 		}
 		break;
 	case  6:
-		if (IS_SET(ch->parts, PART_LEGS)) {
+		if (IS_SET(victim->parts, PART_LEGS)) {
 			msg  = "$n's leg is sliced from $s dead body.";
 			vnum = OBJ_VNUM_SLICED_LEG;
 		}
 		break;
 	case 7:
-		if (IS_SET(ch->parts, PART_BRAINS)) {
+		if (IS_SET(victim->parts, PART_BRAINS)) {
 			msg = "$n's head is shattered, and $s brains splash all over you.";
 			vnum = OBJ_VNUM_BRAINS;
 		}
 		break;
 	}
 
-	act(msg, ch, NULL, NULL, TO_ROOM);
+	act(msg, victim, NULL, NULL, TO_ROOM);
 
 	if (vnum) {
 		OBJ_DATA *obj;
 
-		obj = create_obj_of(get_obj_index(vnum), &ch->short_descr);
-		obj->level = ch->level;
-		mlstr_cpy(&obj->owner, &ch->short_descr);
+		obj = create_obj_of(get_obj_index(vnum), &victim->short_descr);
+		obj->level = victim->level;
+		mlstr_cpy(&obj->owner, &victim->short_descr);
 		obj->timer = number_range(4, 7);
 
 		if (obj->pObjIndex->item_type == ITEM_FOOD) {
-			if (IS_SET(ch->form,FORM_POISON))
+			if (IS_SET(victim->form,FORM_POISON))
 				obj->value[3] = 1;
-			if (IS_SET(ch->form, FORM_MAGICAL))
+			if (IS_SET(victim->form, FORM_MAGICAL))
 				SET_BIT(obj->extra_flags, ITEM_MAGIC);
-			if (!IS_SET(ch->form,FORM_EDIBLE))
+			if (!IS_SET(victim->form,FORM_EDIBLE))
 				SET_BIT(obj->extra_flags, ITEM_NOT_EDIBLE);
 		}
 
-		obj_to_room(obj, ch->in_room);
+		obj_to_room(obj, victim->in_room);
 	}
 
-	if (IS_NPC(ch))
+	if (IS_NPC(victim))
 		msg = "You hear something's death cry.";
 	else
 		msg = "You hear someone's death cry.";
 
-	if ((was_in_room = ch->in_room)) {
+	if ((was_in_room = victim->in_room)) {
 		for (door = 0; door <= 5; door++) {
 			EXIT_DATA *pexit;
 
 			if ((pexit = was_in_room->exit[door]) != NULL
 			&&   pexit->to_room.r != NULL
 			&&   pexit->to_room.r != was_in_room) {
-				ch->in_room = pexit->to_room.r;
-				act(msg, ch, NULL, NULL, TO_ROOM);
+				victim->in_room = pexit->to_room.r;
+				act(msg, victim, NULL, NULL, TO_ROOM);
 			}
 		}
-		ch->in_room = was_in_room;
+		victim->in_room = was_in_room;
 	}
 }
 
@@ -2246,7 +2250,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	stop_fighting(victim, TRUE);
 	RESET_FIGHT_TIME(victim);
 	victim->last_death_time = current_time;
-	death_cry(victim);
+	death_cry(ch, victim);
 
 	tattoo = get_eq_char(victim, WEAR_TATTOO);
 	clanmark = get_eq_char(victim, WEAR_CLANMARK);

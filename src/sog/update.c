@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.35 2000-11-21 14:21:55 avn Exp $
+ * $Id: update.c,v 1.157.2.36 2000-12-28 05:18:21 osya Exp $
  */
 
 /***************************************************************************
@@ -1927,7 +1927,10 @@ void aggr_update(void)
 				/* do not attack vampires */
 				&&  !IS_VAMPIRE(vch)
 				/* good vs good :( */
-				&&  !(IS_GOOD(ch) && IS_GOOD(vch))) {
+				&&  !(IS_GOOD(ch) && IS_GOOD(vch))
+				/* undead vs guys affected protection negative */
+				&& !(IS_SET((ch)->pMobIndex->act, ACT_UNDEAD) 
+				&& is_affected(vch, sn_lookup("protection negative")))) {
 					if (number_range(0, count) == 0)
 						victim = vch;
 					count++;
@@ -2295,7 +2298,9 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 
 	if ((ch = coc->master) == NULL || ch->in_room != coc->in_room) {
 		act("Cocoon explodes, revealing stinking flesh.",
-			coc, NULL, NULL, TO_ROOM);
+		    coc, NULL, NULL, TO_ROOM);
+		act("Opps. Your cocoon explodes.",
+		    ch, NULL, NULL, TO_CHAR);
 		extract_char(coc, 0);
 		return;
 	}

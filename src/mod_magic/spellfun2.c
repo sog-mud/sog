@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.28 2000-11-21 14:21:53 avn Exp $
+ * $Id: spellfun2.c,v 1.139.2.29 2000-12-28 05:18:19 osya Exp $
  */
 
 /***************************************************************************
@@ -5520,6 +5520,17 @@ void spell_water_breathing(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
+	if (is_affected(vch, sn)) {
+		if (ch == vch) {
+			act_puts("You can already breath under water.",
+			    ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		} else {
+			act("$N can already breath under water.",
+			    ch, NULL, vch, TO_CHAR);
+		}
+		return;
+	}
+	
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level; 
@@ -5536,6 +5547,11 @@ void spell_free_action(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
+	if (is_affected(ch, sn)) {
+		act("Your movements are already free.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+						
 	af.where	= TO_AFFECTS;
 	af.type		= gsn_free_action;
 	af.level	= level; 
@@ -5987,3 +6003,44 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
         act_puts("But it ain't dead!!", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
+void spell_freeze_decay(int sn, int level,CHAR_DATA *ch, void *vo)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) vo;
+	AFFECT_DATA af;
+
+	if (IS_SET(obj->extra_flags, ITEM_NOT_EDIBLE)
+	    && (obj->pObjIndex->vnum != OBJ_VNUM_SEVERED_HEAD
+	    || obj->pObjIndex->vnum != OBJ_VNUM_TORN_HEART
+	    || obj->pObjIndex->vnum != OBJ_VNUM_SLICED_ARM
+	    || obj->pObjIndex->vnum != OBJ_VNUM_SLICED_LEG
+	    || obj->pObjIndex->vnum != OBJ_VNUM_GUTS
+	    || obj->pObjIndex->vnum != OBJ_VNUM_BRAINS)) {
+		act("You failed.",ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (obj->wear_loc != -1) {
+		act("The item must be carried to be slowing down decay.", 
+		    ch, NULL, NULL, TO_CHAR);
+	return;
+	}
+	
+	if (affect_find(obj->affected, sn) != NULL)
+	{
+		act("You failed.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+
+	af.where	= TO_OBJECT;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level * 2;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	affect_to_obj(obj, &af);
+	obj->timer = level * 2;
+
+	act("You slow down $p's decay.", ch, obj, NULL, TO_CHAR);
+}
