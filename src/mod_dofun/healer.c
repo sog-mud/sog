@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.27 1999-07-20 15:01:46 avn Exp $
+ * $Id: healer.c,v 1.28 1999-07-20 21:46:46 avn Exp $
  */
 
 /*-
@@ -51,19 +51,19 @@ typedef struct
  */
 heal_t heal_table[] =
 {
-    { "light",	  "cure light wounds",	  "cure light",	     0, 10	},
-    { "serious",  "cure serious wounds",  "cure serious",    0, 15	},
-    { "critical", "cure critical wounds", "cure critical",   0, 25	},
-    { "heal",	  "healing spell",	  "heal",	     0, 50	},
-    { "blind",	  "cure blindness",	  "cure blindness",  0, 20	},
-    { "disease",  "cure disease",	  "cure disease",    0, 15	},
-    { "poison",	  "cure poison",	  "cure poison",     0, 25	},
-    { "uncurse",  "remove curse",	  "remove curse",    0, 50	},
-    { "refresh",  "restore movement",	  "refresh",	     0, 5,	},
-    { "mana",	  "restore mana",	  "mana restore",   20, 10	},
-    { "master",	  "master heal spell",	  "master healing",  0, 200 	},
-    { "energize", "restore 300 mana",	  "mana restore",    0, 200	},
-    { "herbs",	  "ranger's healing",	  "herbs",	     0, -100	},
+    { "light",	  "cure light wounds",	  "cure light",    0, 10	},
+    { "serious",  "cure serious wounds",  "cure serious",  0, 15	},
+    { "critical", "cure critical wounds", "cure critical", 0, 25	},
+    { "heal",	  "healing spell",	  "heal",	         0, 50	},
+    { "blind",	  "cure blindness",	  "cure blindness",0, 20	},
+    { "disease",  "cure disease",	  "cure disease",  0, 15	},
+    { "poison",	  "cure poison",	  "cure poison",   0, 25	},
+    { "uncurse",  "remove curse",	  "remove_curse",  0, 50	},
+    { "refresh",  "restore movement",	  "refresh",       0, 5,	},
+    { "mana",	  "restore mana",	  "mana restore", 20, 10	},
+    { "master",	  "master heal spell",	  "master healing",0, 200	},
+    { "energize", "restore 300 mana",	  "mana restore",  0, 200	},
+    { "herbs",	  "ranger's healing",	  "herbs",	         0, -100},
 
     { NULL }
 };
@@ -72,8 +72,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *mob;
     char arg[MAX_INPUT_LENGTH];
-    char buf[MAX_STRING_LENGTH];
-    int cost;
+    int cost, sn;
     heal_t *h;
 
     /* check for healer */
@@ -131,7 +130,12 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    snprintf(buf, sizeof(buf), "'%s' %s", h->spellname, ch->name);
+    sn = sn_lookup(h->spellname);
+    if (sn < 0 || SKILL(sn)->skill_type != ST_SPELL) {
+	bug("do_heal: invalid spell name in table");
+	return;
+    }
     deduct_cost(ch, cost);
-    dofun("cast", mob, buf);
+    say_spell(mob, sn);
+    spellfun_call(h->spellname, mob->level, mob, ch);
 }
