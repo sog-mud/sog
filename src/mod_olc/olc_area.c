@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.24 1998-10-28 19:46:40 fjoe Exp $
+ * $Id: olc_area.c,v 1.25 1998-10-29 07:25:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -84,6 +84,7 @@ OLC_CMD_DATA olc_cmds_area[] =
 	{ "credits",	areaed_credits				},
 	{ "minlevel",	areaed_minlevel				},
 	{ "maxlevel",	areaed_maxlevel				},
+	{ "clan",	areaed_clan				},
 
 	{ "commands",	show_commands				},
 	{ "version",	show_version				},
