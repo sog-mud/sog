@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.7 2003-09-30 01:25:25 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.42.2.8 2004-02-19 00:07:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -679,7 +679,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	{
 	    victim_next = victim->next_in_room;
 	    if (!IS_NPC(victim))
-		dofun("mob", ch, "transfer %s %s", victim->name, arg2);
+		dofun("mob", ch, "transfer '%s' %s", victim->name, arg2);
 	}
 	return;
     }
@@ -757,7 +757,7 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
     {
     	victim_next = victim->next_in_room;
     	if (is_same_group(who, victim))
-		dofun("mob", ch, "transfer %s %s", victim->name, arg2);
+		dofun("mob", ch, "transfer '%s' %s", victim->name, arg2);
     }
 }
 
