@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.21 1998-10-23 09:23:36 fjoe Exp $
+ * $Id: olc_area.c,v 1.22 1998-10-24 09:45:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,6 +55,7 @@ DECLARE_OLC_FUN(areaed_maxvnum		);
 DECLARE_OLC_FUN(areaed_credits		);
 DECLARE_OLC_FUN(areaed_minlevel		);
 DECLARE_OLC_FUN(areaed_maxlevel		);
+DECLARE_OLC_FUN(areaed_clan		);
 
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
@@ -314,6 +315,13 @@ OLC_FUN(areaed_maxvnum)
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
 	return olced_number(ch, argument, areaed_maxvnum, &pArea->max_vnum);
+}
+
+OLC_FUN(areaed_clan)
+{
+	AREA_DATA *pArea;
+	EDIT_AREA(ch, pArea);
+	return olced_clan(ch, argument, areaed_clan, &pArea->clan);
 }
 
 /* Validators */

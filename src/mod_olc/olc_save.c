@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.39 1998-10-20 19:57:50 fjoe Exp $
+ * $Id: olc_save.c,v 1.40 1998-10-24 09:45:08 fjoe Exp $
  */
 
 /**************************************************************************
@@ -895,7 +895,9 @@ void save_area(AREA_DATA *pArea)
 		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
 	flags = pArea->flags & ~AREA_CHANGED;
 	if (flags)
-		fprintf(fp, "Flags %s~\n", flag_string(area_flags, flags));
+		fwrite_string(fp, "Flags", flag_string(area_flags, flags));
+	if (pArea->clan)
+		fwrite_string(fp, "Clan", clan_name(pArea->clan));
 	fprintf(fp, "End\n\n");
 
 	if (pArea->min_vnum && pArea->max_vnum) {

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.15 1998-10-15 08:21:46 fjoe Exp $
+ * $Id: db_area.c,v 1.16 1998-10-24 09:45:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -190,6 +190,7 @@ DBLOAD_FUN(load_areadata)
 			SKEY("Builders", pArea->builders);
 			break;
 		case 'C':
+			KEY("Clan", pArea->clan, fread_clan(fp));
 			SKEY("Credits", pArea->credits);
 			break;
 		case 'E':
