@@ -1,47 +1,16 @@
 #!/bin/sh
 umask 002
-
-#
-# locale settings for FreeBSD
-LANG=ru_RU.KOI8-R; export LANG
-#LANG=koi8-r; export LANG
-LC_TIME=en_US.ISO_8859-1; export LC_TIME
-
-#
-# mud home -- all other paths and filenames are relative from $home
-home=/usr/local/sog
-#home=/home/mud
-
-#
-# logging control
-lastlog=tmp/lastlog
 index=0
+cd $SOG_HOME
 
-#
-# mud binary executable
-mudbin=sog
-
-#
-# shutdown flag file
-shutdown=tmp/shutdown
-
-#
-# corefile name
-core=core
-
-##############################################################################
-# let's go
-#
-cd $home
-
-if [ -r $shutdown ]; then
-	rm $shutdown
+if [ -r $SOG_SHUTDOWN ]; then
+	rm $SOG_SHUTDOWN
 fi
 
 while [ 1 ]
 do
-	if [ -r $lastlog ]; then
-		index=`cat $lastlog`
+	if [ -r $SOG_LASTLOG ]; then
+		index=`cat $SOG_LASTLOG`
 	fi
 
 	while [ 1 ]
@@ -55,18 +24,18 @@ do
 		fi
 	done
 
-	echo $(($index+1)) > $lastlog
-	bin/$mudbin >$logfile 2>&1
+	echo $(($index+1)) > $SOG_LASTLOG
+	bin/$SOG_BIN >$logfile 2>&1
 	exitcode=$?
 
-	avail=`df -k $home | tail -1 | awk '{ print $4 }'`
-	if [ -r $core ]
+	avail=`df -k $SOG_HOME | tail -1 | awk '{ print $4 }'`
+	if [ -r $SOG_CORE ]
 	then
-		chmod g+rw $core
+		chmod g+rw $SOG_CORE
 		if [ $avail -gt 65535 ]
 		then
-			mv $core corefiles/core.$index
-			ln bin/$mudbin corefiles/$mudbin.$index
+			mv $SOG_CORE corefiles/core.$index
+			ln bin/$SOG_BIN corefiles/$SOG_BIN.$index
 		else
 			echo `date` "Low space (${avail}k) on disk: corefile not renamed" >> $logfile
 		fi
@@ -74,7 +43,7 @@ do
 		continue
 	fi
 
-	if [ -r $shutdown ]
+	if [ -r $SOG_SHUTDOWN ]
 	then
 		break
 	fi
