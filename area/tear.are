@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Stone of Tear~
 VNUMs 110000 110999
 Credits Rage~
@@ -16,12 +17,12 @@ Avatar~
 ~
 ~
 elf~
-AGRl DFNOVZaclmtu -1000 0
+GRmx 0 NOVactu 0 ABgh -1000 0
 91 100 1d1+50000 1d1+40000 1d1+200 'bite'
 -30 -30 -30 -30
-ACDEFHJKO 0 0 0
+ACDEFHJKOgijklnpqu
 stand stand male 0
-I 0 large unknown
+Io 0 large unknown
 r disease 100
 r poison 100
 r charm 100
@@ -32,12 +33,12 @@ Beacon is walking around
 ~
 ~
 human~
-ABGOk JPTVcu -1000 0
+BGOhmu 0 TVcz Gm Hn -1000 0
 150 250 1d1+25000 1d1+15000 1d1+350 'bite'
 0 0 0 0
-0 0 0 0
+0
 stand stand female 0
-B UV small unknown
+Bh UV small unknown
 M act 110999 says 'go home'~
 M act 110998 says 'жрать хочу'~
 r bash 100
@@ -61,10 +62,10 @@ cityguard head~
 ~
 ~
 human~
-AGTYce 0 0 0
+GTYcemz 0 0 0 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand male 0
 0 0 medium unknown
 #110182
@@ -75,10 +76,10 @@ servant служанка~
 ~
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 50 60 3d5+2000 3d4+1000 3d4+50 'slap'
 -24 -24 -24 -7
-K 0 0 0
+Kq
 stand stand female 0
 0 0 medium unknown
 r fire 33
@@ -90,10 +91,10 @@ innkeeper трактирщик~
 ~
 ~
 human~
-ABl HNO 0 0
+Bh 0 HNOntu 0 0 0 0
 50 100 1d1+10000 1d6+1000 2d6+50 'slap'
 -27 -27 -27 -9
-CEFHK 0 0 0
+CEFHKiklnq
 stand stand male 0
 0 0 large unknown
 r charm 100
@@ -105,10 +106,10 @@ Lanfear Mierin Forsaken ланфир~
 ~
 ~
 human~
-ABGRVekl BCDEFGOUVZclmopst -1000 0
+BGRVehmx 0 OUVcu Ag ABKLMghqrs -1000 0
 80 300 1d1+1 8d10+100000 5d15+120 'magic'
 -50 -50 -50 -50
-AEF 0 0 0
+AEFgkl
 stand stand female 0
 0 0 medium unknown
 r bash 33
@@ -136,10 +137,10 @@ catcher thiefcatcher ловец воров~
 время оградишь себя от посягательств шпаны.
 ~
 human~
-AHTk FV 1000 0
+HTnz 0 V 0 Bh 1000 0
 40 100 4d7+2000 1d1+500 7d10+70 'punch'
 -18 -18 -18 -4
-CEFIJKNS 0 0 0
+CEFIJKNSiklopqty
 stand stand male 0
 0 0 medium unknown
 M bribe 110017 1000~
@@ -156,10 +157,10 @@ thief hide вор~
 человек. Рядом с ним не разевай рта.
 ~
 human~
-AHSl DFPQVclm -1000 0
+HSny 0 Vc BGhm ABgh -1000 0
 40 200 5d9+1500 1d1+100 6d12+60 'punch'
 -18 -18 -18 -4
-BEFIJKNU 0 0 0
+BEFIJKNUhklopqt
 stand stand either 0
 0 0 medium unknown
 M act 110012 goes to sleep.~
@@ -181,10 +182,10 @@ ugly fido~
 @rus Очень маленькая и очень противная псина. Фи-и-и!
 ~
 fido~
-Ac 0 0 0
+c 0 0 0 0 0 0
 30 500 1d1+200 0d0+0 1d1+100 'bite'
 0 0 0 0
-C 0 0 0
+Ci
 stand stand either 0
 0 0 medium unknown
 M random 110009 100~
@@ -198,10 +199,10 @@ cityguard head captain старшина стражников~
 приходящие ныне в город. Не спорь с ним. Заплати и проходи дальше.
 ~
 human~
-ABCGTbcekl DEFHNOVZlmt 1000 0
+BCGTcehimz Bh HNOVntu 0 ABLghr 1000 0
 50 100 1d1+5000 1d1+1000 5d12+100 'pound'
 -24 -24 -24 -7
-ACDEFHIJKLOT 0 0 0
+ACDEFHIJKLOTgijklnopqruz
 stand stand male 0
 0 0 medium unknown
 M greet 110005 100~
@@ -225,10 +226,10 @@ cityguard~
 Самон со всеми ними разберется.
 ~
 human~
-ABCTWYc EHNOVZ 700 0
+BCTWYchiz 0 HNOVntu 0 Lr 700 0
 45 100 4d7+2500 1d1+800 5d10+90 'pound'
 -21 -21 -21 -5
-CDEFIJKNOT 0 0 0
+CDEFIJKNOTijklopqtuz
 stand stand male 100
 0 0 medium unknown
 M fight 110002 50~
@@ -246,10 +247,10 @@ mule~
 @rus Маленький уставший ослик с грусными глазами идет куда-то понукаемый своим хозяином. А ему всего-то и надо, что овса немножко, чистой воды ведро и  чтобы его оставили в покое. А его все гонят и  гонят куда-то ни свет, ни заря.
 ~
 horse~
-ABZ 0 0 0
+BZh 0 0 0 0 0 0
 30 10 2d5+2500 1d1+20 2d2+100 'pound'
 -9 -9 -9 0
-P 0 0 0
+Pv
 stand stand either 0
 0 0 medium unknown
 #110192
@@ -261,10 +262,10 @@ merchant~
 @rus Богато одетый купец едет куда-то по своим торговым делам. По богато украшенной одежде видно, что дела его неплохи. В его карманах, наверно, полно золота. Но за долгие годы путешествий по дорогам он научился постоять за себя. 
 ~
 human~
-ABCHU NOc 0 0
+BCHUhin 0 NOctu 0 0 0 0
 40 80 5d20+2000 1d1+700 5d12+70 'pound'
 -18 -18 -18 -4
-DEFKO 0 0 0
+DEFKOjklqu
 stand stand male 5000
 0 0 medium unknown
 r bash 33
@@ -281,13 +282,13 @@ horn-seeker охотник~
  Не вставай на дороге его поисков.
 ~
 human~
-AHT EFHNV 500 0
+HTnz 0 HNVnt 0 BLhr 500 0
 40 100 3d12+2000 1d1+700 2d7+80 'none'
 -18 -18 -18 -4
-CDEFHIJKLNQ 0 0 0
+CDEFHIJKLNQijklnopqrtw
 stand stand either 20000
 0 0 medium unknown
-F for H
+F for Hn
 M speech 110013 Ho-ho..~
 V 37008
 r bash 33
@@ -302,10 +303,10 @@ traveller путешественник~
 просто поглядеть на мир. Этот усталый бродяга один из многих...
 ~
 human~
-ABCHLST Oa -100 0
+BCHLSThinryz 0 Oau 0 0 -100 0
 35 50 1d5+1500 1d1+200 2d7+50 'pound'
 -12 -12 -12 -1
-CEFHIJKNQ 0 0 0
+CEFHIJKNQiklnopqtw
 stand stand male 0
 0 0 medium unknown
 #110195
@@ -318,13 +319,13 @@ fisherman рыбак~
 за бесценок.. Так чему же радоваться?
 ~
 human~
-ACT JNb 200 0
+CTiz 0 Nbt 0 Hn 200 0
 35 20 6d12+1500 1d1+500 2d12+20 'slap'
 -12 -12 -12 -1
-FIJNQ 0 0 0
+FIJNQloptw
 stand stand male 100
 0 0 medium unknown
-F for H
+F for Hn
 M fight 110001 50~
 r cold 33
 r lightning 33
@@ -340,10 +341,10 @@ peasant крестьянин~
 приходится крутится.
 ~
 human~
-ACHT N 200 0
+CHTinz 0 Nt 0 0 200 0
 35 0 6d12+1500 1d1+500 2d12+20 'pound'
 -15 -15 -15 -2
-CFIJQ 0 0 0
+CFIJQilopw
 stand stand male 100
 0 0 medium unknown
 r sound 33
@@ -357,10 +358,10 @@ Sand snake~
 красные {Rглаза{x. {yЗМЕЯ{x! И как такая гадина могла попасть в это место..
 ~
 snake~
-ABF DFHJPQVZacelmt -200 0
+BFhl 0 HVacn BFGhlm ABHghn -200 0
 40 80 2d4+1200 1d1+500 2d5+75 'bite'
 -18 -18 -18 -4
-ADFHMN 0 0 0
+ADFHMNgjlnst
 stand stand female 0
 0 0 large unknown
 r pierce 33
@@ -389,10 +390,10 @@ snake~
 раньше вероятно предпочел бы обойти.
 ~
 snake~
-AF PVZc -200 0
+Fl 0 Vc Gm 0 -200 0
 30 50 2d5+800 1d1+300 2d4+50 'bite'
 -9 -9 -9 0
-FHMU 0 0 0
+FHMUlns
 stand stand female 0
 0 0 medium unknown
 #110199
@@ -405,10 +406,10 @@ tiger тигр~
 Ччерт, она похоже считает тебя СВОИМ {Rзавтраком{x!
 ~
 tiger~
-AFL PVZac -200 0
+FLlr 0 Vac Gm 0 -200 0
 30 40 3d9+1200 1d1+200 3d4+40 'claw'
 -9 -9 -9 0
-ACDEJMU 0 0 0
+ACDEJMUgijkps
 stand stand male 0
 0 0 medium unknown
 #0
@@ -419,7 +420,7 @@ Beautiful fountain~
 {BBeautiful{x {Wfountain{x~
 @eng {CBeautiful {Wfountain{x gushes forth here.@rus {CBeautiful {Wfountain{x gushes forth here.~
 water~
-fountain 0 0
+fountain 0 0 0
 0 0 'cranberry juice' 0 0
 0 0 0 P
 g none~
@@ -428,7 +429,7 @@ g none~
 @eng 0@rus 0~
 @eng 0@rus 0~
 wood~
-armor GJPTUa O
+armor GJPUmpv CFil Ou
 0 0 0 0 0
 55 50 100000 P
 g none~
@@ -437,11 +438,12 @@ pbel~
 @eng power belt@rus power belt~
 @eng power belt@rus power belt~
 glass~
-armor PU AL
+armor PUv 0 ALgr
 20 20 20 20 0
 50 10 100 P
-F A 26 10 Z
-S 'summon' 100 A
+A
+26 10
+S 'summon' 100 Ag
 A
 28 33
 A
@@ -464,7 +466,7 @@ jukebox~
 Osyas djukaboks~
 Osyas experimental jukebox lies here.~
 unknown~
-jukebox 0 AR
+jukebox 0 0 ARgx
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -473,7 +475,7 @@ dark frock~
 @eng dark blind frock@rus Темное глухое платье~
 ~
 cloth~
-armor 0 AD
+armor 0 0 ADgj
 10 10 10 10 0
 50 5 50 P
 g none~
@@ -482,7 +484,7 @@ caftan~
 @eng long-skirted blue caftan@rus Долгополый синий кафтан~
 @eng Big blue caftan lies here.@rus Большой синий кафтан лежит здесь.~
 unknown~
-armor P AD
+armor Pv 0 ADgj
 30 30 30 30 0
 50 20 50 P
 A
@@ -493,7 +495,7 @@ trousers~
 @eng Baggy trousers@rus Мешковатые штаны~
 @eng Vast greasy trousers lies here.@rus Огромные засаленные штаны лежат здесь.~
 unknown~
-armor 0 AF
+armor 0 0 AFgl
 10 10 10 10 0
 50 10 50 P
 A
@@ -504,8 +506,8 @@ bed wooden кровать~
 @eng wooden bed@rus ~~деревянная~~ ~~кровать~~~
 @eng Massive wooden bed placed here.@rus Массивная деревянная кровать (bed) стоит здесь.~
 wood~
-furniture O 0
-B 0 HK BEF BEF
+furniture 0 Ag 0
+Bh 0 HKnq BEFhkl BEFhkl
 0 0 0 P
 g none~
 #110161
@@ -513,8 +515,8 @@ stone portal~
 @eng portal stone@rus портальный камень~
 @eng Old stone with unknown symbols lies here.@rus Старый камень с непонятными символами лежит здесь.~
 stone~
-portal OR 0
-0 0 E 110244 0
+portal 0 ABgh 0
+0 0 Ek 110244 0
 0 0 0 P
 g none~
 #110162
@@ -522,8 +524,8 @@ stone portal~
 @eng portal stone@rus портальный камень~
 @eng Old stone with unknown symbols lies here.@rus Старый камень с непонятными символами лежит здесь.~
 stone~
-portal OR 0
-0 0 A 110000 0
+portal 0 ABgh 0
+0 0 Ag 110000 0
 0 0 0 P
 g none~
 #110163
@@ -531,8 +533,8 @@ stone portal~
 @eng Portal stone@rus Портальный камень~
 @eng Old stone with unknown symbols lies here.@rus Старый камень с непонятными символами лежит здесь.~
 stone~
-portal OR 0
-0 A E 23114 0
+portal 0 ABgh 0
+0 Ag Ek 23114 0
 0 0 0 P
 g none~
 #110164
@@ -540,7 +542,7 @@ diadem silver~
 @eng Glowing silver diadem@rus Светящаяся серебрянная диадема~
 @eng Silver circlet glimming here.@rus Серебрянный обруч мерцает здесь.~
 silver~
-light AGY AE
+light AGYgm 0 AEgk
 0 0 1000 0 0
 80 20 0 P
 A
@@ -561,12 +563,12 @@ White dress~
 @eng {WWhite dress with silver sewing{x@rus {WБелое платье  с серебрянным шитьем{x~
 @eng {WBeautiful white and silver dress lies here{x.@rus {WКрасивое белое с серебром платье лежит здесь{x.~
 silk~
-clothing AGHP AD
+clothing AGHPgmnv 0 ADgj
 0 0 0 0 0
 80 1 10000000 P
 A
 6 5
-F A 3 10 P
+F i 3 10 Gm
 A
 27 100
 A
@@ -577,7 +579,7 @@ brand unholy~
 @eng {Dthe Brand of Shai'tan{x@rus {DКлеймо Шайи'тана{x~
 @eng {Dthe Brand of Shai'tan{x@rus {DКлеймо Шайи'тана{x~
 energy~
-armor BCEFGMTUYZ AR
+armor BCEFGMUYhiklms CEik ARgx
 50 50 50 50 0
 0 5 1000 P
 A
@@ -586,7 +588,6 @@ A
 28 33
 A
 29 33
-F A 0 0 Z
 A
 18 10
 A
@@ -607,7 +608,7 @@ swordbreaker~
 @eng Swordbreaker@rus Мечелом~
 @eng Strangle irons chunk lies here.@rus Странная железяка лежит здесь.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 8 12 'cleave' 0
 55 200 50000 P
 g none~
@@ -616,7 +617,7 @@ bonnet hat~
 @eng Bonnet@rus Шляпка~
 @eng Absurd bonnet lies here.@rus Нелепая шляпка лежит здесь.~
 unknown~
-armor 0 AEN
+armor 0 0 AENgkt
 40 40 40 40 0
 40 20 1000 P
 g none~
@@ -625,8 +626,8 @@ bamboo pole~
 @eng Bamboo's battle pole@rus Бамбуковый боевой шест~
 @eng Large pole lies here.@rus Большой шест лежит здесь.~
 bamboo~
-weapon B AN
-polearm 6 15 'pound' F
+weapon Bh 0 ANgt
+polearm 6 15 'pound' Fl
 40 5 100 P
 g none~
 #110170
@@ -634,8 +635,8 @@ stiletto~
 @eng Stiletto@rus Стилет~
 @eng Narrow long blade lies here.@rus Узкое длинное лезвие лежит здесь.~
 steel~
-weapon 0 AN
-dagger 5 12 'pierce' D
+weapon 0 0 ANgt
+dagger 5 12 'pierce' Dj
 40 50 1500 P
 g none~
 #110171
@@ -643,8 +644,8 @@ stiletto~
 @eng Stiletto@rus Стилет~
 @eng Narrow long blade lies here.@rus Узкое длинное лезвие лежит здесь.~
 steel~
-weapon JL AN
-dagger 10 12 'pierce' D
+weapon JLpr 0 ANgt
+dagger 10 12 'pierce' Dj
 40 50 1500 P
 g none~
 #110172
@@ -652,7 +653,7 @@ banner флаг~
 @eng banner with sign cityguards of Tear@rus флаг со знаком Тирской городской стражи~
 @eng Brighty banner is lies here.@rus Разноцветный флаг (banner) лежит здесь.~
 unknown~
-light 0 A
+light 0 0 Ag
 0 0 100 0 0
 40 10 100 P
 g none~
@@ -661,7 +662,7 @@ key ключ~
 @eng key of Tears Gate@rus ключ от тирских ворот~
 @eng Huge golden key is here.@rus Огромный золотой ключ (key) лежит здесь.~
 gold~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 200 0 P
 g none~
@@ -670,7 +671,7 @@ ring sign кольцо~
 @eng sign of Tears Head@rus знак старшины Тира~
 @eng Massive gold ring lies here.@rus Массивное золотое кольцо (ring) лежит здесь.~
 gold~
-armor A AB
+armor Ag 0 ABgh
 20 20 20 20 0
 50 200 30000 P
 A
@@ -683,8 +684,8 @@ sword fear меч~
 @eng sword called 'Fear of Illian'@rus ~~меч~~ 'Страх Иллиана'~
 @eng Long and looks heavy sword lies here.@rus Большой и тяжелый меч (sword) лежит здесь.~
 unknown~
-weapon M AN
-sword 8 12 'pound' DF
+weapon Ms 0 ANgt
+sword 8 12 'pound' DFjl
 50 1000 10000 P
 A
 13 -500
@@ -694,7 +695,7 @@ oblom~
 ~
 ~
 unknown~
-npc_corpse 0 A
+npc_corpse 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -703,7 +704,7 @@ east~
 ~
 ~
 unknown~
-npc_corpse 0 A
+npc_corpse 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -712,7 +713,7 @@ north~
 ~
 ~
 unknown~
-npc_corpse 0 A
+npc_corpse 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -721,7 +722,7 @@ south~
 ~
 ~
 unknown~
-npc_corpse 0 A
+npc_corpse 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -730,7 +731,7 @@ west~
 ~
 ~
 unknown~
-npc_corpse 0 A
+npc_corpse 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -739,8 +740,8 @@ halberd~
 @eng Large halberd@rus Большая алебарда~
 @eng Large halberd lies here@rus Большая алебарда лежит здесь~
 unknown~
-weapon I AN
-polearm 5 11 'chop' F
+weapon Io 0 ANgt
+polearm 5 11 'chop' Fl
 45 200 250 P
 A
 19 10
@@ -750,7 +751,7 @@ jackboots сапоги высокие~
 @eng jackboots@rus высокие сапоги~
 @eng Jackboots is lies here.@rus Высокие сапоги (jackboots) лежат здесь.~
 leather~
-armor 0 AG
+armor 0 0 AGgm
 5 15 5 5 0
 45 30 20 P
 A
@@ -761,7 +762,7 @@ trousers штаны~
 @eng tight trousers@rus облегающие штаны~
 @eng Cityguards trousers lies here.@rus Штаны стражника (trousers) лежат здесь.~
 cloth~
-clothing 0 AF
+clothing 0 0 AFgl
 0 0 0 0 0
 40 50 100 P
 A
@@ -772,7 +773,7 @@ helm шлем~
 @eng round helm@rus круглый шлем~
 @eng Round helm with colored comb lies here.@rus Круглый шлем (helm) с цветным гребнем лежит здесь.~
 steel~
-armor I AE
+armor Io 0 AEgk
 10 10 15 5 0
 40 200 500 P
 A
@@ -783,7 +784,7 @@ uniform мундир~
 @eng red and white colored uniform@rus красно-белый мундир~
 @eng Silk uniform lies here.@rus Шелковый мундир (uniform) лежит здесь.~
 silk~
-clothing 0 AK
+clothing 0 0 AKgq
 0 0 0 0 0
 40 10 500 P
 A
@@ -794,7 +795,7 @@ cuirass кираса~
 @eng cuirass@rus кираса~
 @eng Strong cuirass lies here.@rus Прочная кираса (cuirass) лежит здесь.~
 steel~
-armor 0 AD
+armor 0 0 ADgj
 25 25 25 10 0
 45 900 1200 P
 g female~
@@ -803,7 +804,7 @@ lantern фонарь путешественника~
 @eng travellers lantern@rus фонарь путешественника~
 @eng Bronze lantern lies here.@rus Бронзовый фонарь (lantern) лежит здесь.~
 bronze~
-light A A
+light Ag 0 Ag
 0 0 100 0 0
 35 90 700 P
 g male~
@@ -812,17 +813,17 @@ hat шляпа~
 @eng hat with bright feather@rus ~~шляпа~~ с цветным пером~
 @eng Leather hat lies here.@rus Кожаная шляпа (hat) лежит здесь.~
 leather~
-armor 0 AE
+armor 0 0 AEgk
 2 5 5 15 0
 40 5 100 P
-F A 20 -10 D
+F d 20 -10 Ag
 g female~
 #110189
 mail кольчуга~
 @eng chain mail@rus кольчуга~
 @eng Some steel rings lies here.@rus Кучка стальных колец (mail) лежит здесь.~
 steel~
-armor 0 AD
+armor 0 0 ADgj
 10 2 15 2 0
 40 100 1000 P
 g none~
@@ -831,7 +832,7 @@ sword-sting меч-жало~
 @eng sword-sting@rus меч-жало~
 @eng a long, narrow blade lies here.@rus Длинное узкое лезвие (sword-sting) лежит здесь.~
 steel~
-weapon BM AN
+weapon BMhs 0 ANgt
 sword 6 12 'pierce' 0
 40 50 10000 P
 A
@@ -842,7 +843,7 @@ boots сапоги~
 @eng leather boots@rus кожаные сапоги~
 @eng Old boots lies here.@rus Старые сапоги (boots) лежат здесь.~
 leather~
-armor 0 AG
+armor 0 0 AGgm
 10 10 10 10 0
 30 10 200 P
 g none~
@@ -851,7 +852,7 @@ cloak плащ~
 @eng dusty cloak@rus пыльный плащ~
 @eng Dirty cloth lies here.@rus Грязная ткань (cloak) лежит здесь.~
 cloth~
-clothing 0 AK
+clothing 0 0 AKgq
 0 0 0 0 0
 10 10 100 P
 A
@@ -862,7 +863,7 @@ knife~
 @eng knife@rus нож~
 @eng Iron knife lies here.@rus Железный нож (knife) лежит здесь.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 5 7 'pierce' 0
 35 20 700 P
 g male~
@@ -871,7 +872,7 @@ net сеть рыбацкая~
 @eng fishermans net@rus ~~рыбацкая~~ ~~сеть~~~
 @eng Large net lies here.@rus Огромная сеть (net) лежит здесь.~
 hempen~
-wand B AO
+wand Bh 0 AOgu
 55 15 15 'web' 0
 35 20 500 P
 g none~
@@ -880,7 +881,7 @@ sandals сандалии деревянные~
 @eng wooden sandals@rus деревянные сандалии~
 @eng Strangle wooden thing lies here.@rus Странная деревянная штуковина (sandals) лежит здесь.~
 wood~
-armor HM AG
+armor HMns 0 AGgm
 5 5 5 0 0
 35 100 1 P
 A
@@ -893,8 +894,8 @@ mattock мотыга~
 @eng mattock@rus мотыга~
 @eng Huge mattock lies here.@rus Огромная мотыга (mattock) лежит здесь.~
 iron~
-weapon 0 AN
-exotic 5 8 'chop' E
+weapon 0 0 ANgt
+exotic 5 8 'chop' Ek
 30 80 100 P
 g female~
 #110197
@@ -902,7 +903,7 @@ sash кушак~
 @eng red sash@rus красный кушак~
 @eng Red cloth lies here.@rus Красная ткань (sash) лежит здесь.~
 cloth~
-clothing 0 AKL
+clothing 0 0 AKLgqr
 0 0 0 0 0
 35 10 35 P
 g male~
@@ -911,7 +912,7 @@ trousers шаровары~
 @eng wide trousers@rus шаровары~
 @eng Bright trousers lies here.@rus Яркие штаны (trousers) лежат здесь.~
 cloth~
-clothing 0 AF
+clothing 0 0 AFgl
 0 0 0 0 0
 35 20 35 P
 g none~
@@ -920,7 +921,7 @@ Panama панама~
 @eng straw panama@rus ~~соломенная~~ ~~панама~~~
 @eng Straw hat lies here.@rus Соломенная шляпа (panama) лежит здесь.~
 straw~
-armor 0 AE
+armor 0 0 AEgk
 0 0 0 100 0
 30 2 5 P
 g female~
@@ -929,7 +930,7 @@ kalandor heartstone dagger~
 @eng kalandor, heartstone dagger@rus ~~каландор~~, меч твердыни Тира~
 @eng Very shine dagger hangs here, trusted in heavens.@rus Сияющий меч висит здесь, острием вонзаясь в небо.~
 cuendillar~
-treasure AGHNTYZa AO
+treasure AGHYgmn CEFikl AOgu
 0 0 0 0 0
 75 100 0 P
 A
@@ -938,10 +939,10 @@ A
 28 -50
 A
 29 -50
-S 'spell craft' 100 A
+S 'spell craft' 100 Ag
 A
 12 5000
-S 'mastering spell' 100 A
+S 'mastering spell' 100 Ag
 A
 8 16
 g male~
@@ -960,7 +961,7 @@ of Stone, where the legendary sword called "Kollandor" lays.
  
   На севере(north) и юге(south) расположены топкие болота.
 ~
-0 B inside
+0 Bh inside
 D0
 ~
 ~
@@ -983,7 +984,7 @@ bridge remember many thausands travellers, who steps by it.
 Вдали видны флаги над башнями Тира, наполовину красные, наполовину золотые, с
 вышитыми на них наискось тремя белыми полумесяцами.
 ~
-0 C inside
+0 Ci inside
 D1
 ~
 ~
@@ -1009,7 +1010,7 @@ Swamp lies on south.
   С севера(north) раскинулись густые заросли бамбука.
   На юге(south) расположенны топкие болота.
 ~
-0 BC inside
+0 BChi inside
 D0
 ~
 ~
@@ -1043,7 +1044,7 @@ Swamp lies on south.
   С севера(north) раскинулись густые заросли бамбука.
   На юге(south) расположенны топкие болота.
 ~
-0 C inside
+0 Ci inside
 D0
 ~
 ~
@@ -1077,7 +1078,7 @@ Swamp lies on south.
   С севера(north) раскинулись густые заросли бамбука.
   На юге(south) расположенны топкие болота.
 ~
-0 C field
+0 Ci field
 D0
 ~
 ~
@@ -1111,7 +1112,7 @@ Swamp lies on south.
   С севера(north) раскинулись густые заросли бамбука.
   На юге(south) расположенны топкие болота.
 ~
-0 C inside
+0 Ci inside
 D0
 ~
 ~
@@ -1145,7 +1146,7 @@ Swamp lies on south.
   С севера(north) раскинулись густые заросли бамбука.
   На юге(south) расположенны топкие болота.
 ~
-0 C inside
+0 Ci inside
 D0
 ~
 ~
@@ -1173,7 +1174,7 @@ S
   Если же ты захватчик - БЕРЕГИСЬ!
 {x
 ~
-0 C inside
+0 Ci inside
 D0
 ~
 ~
@@ -1181,7 +1182,7 @@ Z 0 110045
 D1
 ~
 ~
-ABCDFGIJZ 110173 110147
+ABCDFGIJZghijlmop 110173 110147
 D2
 ~
 ~
@@ -1196,14 +1197,14 @@ S
 @rus О-опля! Вот вы и заблудились. Сквозь густые заросли не видно ничего. Куда
 идти! Что делать! Как жаль что у вас нет компаса.
 ~
-0 AC inside
+0 ACgi inside
 S
 #110009
 @eng Swamp@rus Болото~
 @rus Вас можно поздравить, вы увязли в трясине. И увязли крепко. Вы не можете
 ни сдвинуться с места, ни даже приподнять ногу.
 ~
-0 AC inside
+0 ACgi inside
 S
 #110010
 @eng Swamp@rus Болото~
@@ -1213,7 +1214,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1235,7 +1236,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1257,7 +1258,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1279,7 +1280,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1301,7 +1302,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1323,7 +1324,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D1
 ~
 ~
@@ -1470,7 +1471,7 @@ S
 {x  Чувствуется что где-то рядом город. Но, где?
 {x  И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1492,7 +1493,7 @@ S
 так и манит прилечь на него и позагорать. Отсюда не хочется уходить.
 Это рай, рай на земле.
 ~
-0 C desert
+0 Ci desert
 D0
 ~
 ~
@@ -1521,7 +1522,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1546,7 +1547,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D1
 ~
 ~
@@ -1567,7 +1568,7 @@ S
 {w Чувствуется что где-то рядом город.  Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1596,7 +1597,7 @@ S
 {x  Чувствуется что где-то рядом город. Но, где?
 {x  И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1625,7 +1626,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1654,7 +1655,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1683,7 +1684,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D1
 ~
 ~
@@ -1708,7 +1709,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1737,7 +1738,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1766,7 +1767,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1795,7 +1796,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D1
 ~
 ~
@@ -1820,7 +1821,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1849,7 +1850,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1878,7 +1879,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1907,7 +1908,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1936,7 +1937,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1965,7 +1966,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1994,7 +1995,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2023,7 +2024,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2052,7 +2053,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2081,7 +2082,7 @@ S
 {w Чувствуется что где-то рядом город. Но, где?
 {w И еще - здесь могут водиться голодные тигры.
 ~
-0 A forest
+0 Ag forest
 D1
 ~
 ~
@@ -2103,7 +2104,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2125,7 +2126,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2147,7 +2148,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2169,7 +2170,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2191,7 +2192,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2214,7 +2215,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D1
 ~
 ~
@@ -2236,7 +2237,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2258,7 +2259,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2280,7 +2281,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2302,7 +2303,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2324,7 +2325,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2346,7 +2347,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2558,7 +2559,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2580,7 +2581,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2602,7 +2603,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2625,7 +2626,7 @@ S
 {x   Но будьте осторожны в густых зарослях водятся ядовитые змеи. Они
 выползают из раскинувшихся на севере(north) и востоке(east) болот.
 ~
-0 C desert
+0 Ci desert
 D0
 ~
 ~
@@ -2673,7 +2674,7 @@ S
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2700,7 +2701,7 @@ S
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2727,7 +2728,7 @@ S
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2753,7 +2754,7 @@ S
 малоприятные твари.  Мысль: "Зачем я здесь?"  Преследует вас по пятам.
 {w  Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2796,7 +2797,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2822,7 +2823,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2848,7 +2849,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2874,7 +2875,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2913,7 +2914,7 @@ S
 твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2939,7 +2940,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2965,7 +2966,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2991,7 +2992,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3017,7 +3018,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3056,7 +3057,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3082,7 +3083,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3108,7 +3109,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3134,7 +3135,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3157,11 +3158,11 @@ S
 @rus Вас можно поздравить, вы увязли в трясине. И увязли крепко. Вы не можете
 ни сдвинуться с места, ни даже приподнять ногу.
 ~
-0 AC inside
+0 ACgi inside
 D5
 ~
 ~
-ABZ 0 110101
+ABZgh 0 110101
 S
 #110092
 @eng Swamp@rus Болото~
@@ -3171,7 +3172,7 @@ S
 малоприятные твари. Мысль: "Зачем я здесь?" преследует вас по пятам.
   Вам бы следовало убратся отсюда побыстрее, пока не увязли в трясине по уши.{x
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3210,7 +3211,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3232,7 +3233,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3254,7 +3255,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3276,7 +3277,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3298,7 +3299,7 @@ S
   И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3320,7 +3321,7 @@ S
 {w  И нечего здесь шлятся без дела! Пока кто-нибудь из стражи не заметил
 тебя со стены.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -3350,7 +3351,7 @@ S
 #110101
 @eng Dark Tunnel@rus Темный туннель~
 ~
-0 AC inside
+0 ACgi inside
 S
 #110102
 @eng Road around the City Wall@rus Дорога вокруг городской стены~
@@ -3786,7 +3787,7 @@ S
 Где-то там слышится шум протекающей реки. На западе(west) видны высокие
 мачты с белыми парусами.
 ~
-0 C inside
+0 Ci inside
 D1
 ~
 ~
@@ -3803,7 +3804,7 @@ S
 D0
 ~
 ~
-ABGZ 0 110215
+ABGZghm 0 110215
 D1
 ~
 ~
@@ -3826,7 +3827,7 @@ S
 D0
 ~
 ~
-ABGZ 0 110218
+ABGZghm 0 110218
 D1
 ~
 ~
@@ -3847,7 +3848,7 @@ S
 D0
 ~
 ~
-ABCZ 0 110227
+ABCZghi 0 110227
 D1
 ~
 ~
@@ -3868,7 +3869,7 @@ S
 D0
 ~
 ~
-ABGZ 0 110221
+ABGZghm 0 110221
 D1
 ~
 ~
@@ -3945,7 +3946,7 @@ S
 #110134
 @eng Shipyard@rus Порт~
 ~
-0 C noswim
+0 Ci noswim
 D0
 ~
 ~
@@ -4170,15 +4171,15 @@ S
 вход в город.
   Так заплати и входи наконец в самый великий город в мире, в ТИР! {x
 ~
-0 NX inside
+0 NXt inside
 D1
 ~
 ~
-DZ 0 110148
+DZj 0 110148
 D3
 ~
 ~
-ABCDFGIJZ 110173 110007
+ABCDFGIJZghijlmop 110173 110007
 S
 #110148
 @eng Street@rus Улица~
@@ -4199,7 +4200,7 @@ Z 0 110185
 D3
 ~
 ~
-DZ 0 110147
+DZj 0 110147
 S
 #110149
 @eng Street@rus Улица~
@@ -5178,7 +5179,7 @@ Z 0 110216
 D2
 ~
 ~
-ABGZ 0 110126
+ABGZghm 0 110126
 S
 #110216
 @eng Warehouse@rus Склад~
@@ -5213,7 +5214,7 @@ Z 0 110219
 D2
 ~
 ~
-ABGZ 0 110127
+ABGZghm 0 110127
 S
 #110219
 @eng Warehouse@rus Склад~
@@ -5248,7 +5249,7 @@ Z 0 110222
 D2
 ~
 ~
-ABGZ 0 110129
+ABGZghm 0 110129
 S
 #110222
 @eng Warehouse@rus Склад~
@@ -5274,7 +5275,7 @@ Z 0 110222
 D3
 ~
 ~
-ABCGZ 0 110224
+ABCGZghim 0 110224
 S
 #110224
 @eng Warehouse@rus Склад~
@@ -5283,7 +5284,7 @@ S
 D1
 ~
 ~
-ABCGZ 0 110223
+ABCGZghim 0 110223
 D2
 ~
 ~
@@ -5322,7 +5323,7 @@ Z 0 110228
 D2
 ~
 ~
-ABCZ 0 110128
+ABCZghi 0 110128
 S
 #110228
 @eng Dead-end siding@rus Тупик~
@@ -8182,7 +8183,7 @@ S
 #110482
 @eng Bedroom@rus Спальня~
 ~
-0 CKNX inside
+0 CKNXiqt inside
 D3
 ~
 ~

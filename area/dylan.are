@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Dylan's Area~
 VNUMs 9100 9199
 Credits Dylan~
@@ -21,10 +22,10 @@ sharp talons flex as she considers you for her dinner.
 бритва когти, когда разглядывает тебя как свой обед. 
 ~
 human~
-ACF DFJP -500 0
+CFil 0 0 Gm ABHghn -500 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand female 1525
 0 0 medium unknown
 #9102
@@ -42,10 +43,10 @@ her presence.
 лицо матовое и засаленное, и ты чувствуешь тошноту от ее зловония.  
 ~
 human~
-ABCF DFJP -750 0
+BCFhil 0 0 Gm ABHghn -750 0
 23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand female 2125
 0 0 medium unknown
 #9103
@@ -60,10 +61,10 @@ because objects behind it seem to waver and are slightly blurred.
 что предметы за ним колеблются и слегка расплываются.
 ~
 human~
-ACF DFJPQ 0 0
+CFil 0 0 BGhm ABHghn 0 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 50
 0 0 medium unknown
 #9104
@@ -78,10 +79,10 @@ finest ghostly silks and a headdress with an elaborate brooch.
 и головной убор с искусно сделанной брошью.
 ~
 human~
-AC DHJP -100 0
+Ci 0 Hn Gm AHgn -100 0
 27 0 5d10+650 13d9+100 5d4+7 'none'
 -8 -8 -8 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 2500
 0 0 medium unknown
 #9105
@@ -96,10 +97,10 @@ moves surprisingly fast for something of its size.
 неожиданно быстро для своих размеров.
 ~
 human~
-AG 0 50 0
+Gm 0 0 0 0 50 0
 24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 #9106
@@ -114,10 +115,10 @@ moves surprisingly fast for something of its size.
 быстро для своих размеров.
 ~
 human~
-AG 0 50 0
+Gm 0 0 0 0 50 0
 28 0 6d12+703 14d9+100 5d4+8 'none'
 -8 -8 -8 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 2000
 0 0 medium unknown
 #9107
@@ -134,10 +135,10 @@ they would be quite painful.  Her eyes pierce your very soul.
 могут причинить изрядную боль. Ее взгляд пронзает твою душу.
 ~
 human~
-ABCF DJu -600 0
+BCFhil 0 0 0 AHgn -600 0
 31 0 6d12+928 15d9+100 4d6+9 'none'
 -10 -10 -10 5
-EFNU 0 0 0
+EFNUklt
 stand stand female 3000
 0 0 medium unknown
 #0
@@ -148,21 +149,21 @@ boots winged крылатые ботинки~
 @eng a pair of winged boots@rus ~~пара~~ крылатых ботинок~
 @eng A pair of winged boots flutters about@rus Пара крылатых ботинок (winged boots) порхает невдалеке.~
 leather~
-armor G AG
+armor Gm 0 AGgm
 3 3 3 0 0
 13 100 2800 P
 A
 20 1
 A
 2 2
-F A 0 0 T
+F A 0 0 Tz
 g plural~
 #9102
 bracer бронзовый браслет bronze~
 @eng A carved bronze bracer@rus ~~резной~~ ~~бронзовый~~ ~~браслет~~~
 @eng A carved bronze bracer lies here.@rus Здесь лежит резной бронзовый браслет (bronze bracer).~
 bronze~
-armor 0 AM
+armor 0 0 AMgs
 3 6 6 2 0
 10 200 820 P
 g male~
@@ -171,7 +172,7 @@ brooch украшенная брошь ornate~
 @eng an ornate brooch@rus брошь~
 @eng An ornate brooch was carelessly left here.@rus Богато украшенная брошь (ornate brooch) небрежно брошена здесь.~
 silver~
-jewelry F AC
+jewelry Fl 0 ACgi
 0 0 0 0 0
 7 100 1140 P
 A
@@ -184,7 +185,7 @@ potion magenta красное зелье~
 @eng magenta potion@rus ~~красное~~ ~~зелье~~~
 @eng Bright magenta potion gathers dust.@rus Переливающееся красное зелье (potion) собирает пыль.~
 glass~
-potion J AO
+potion Jp 0 AOgu
 8 'armor' 'cure light' 'poison' ''
 3 20 320 P
 g none~
@@ -193,7 +194,7 @@ parchment ancient древний пергамент~
 @eng an ancient illustrated parchment@rus ~~древний~~ ~~иллюстрированный~~ ~~пергамент~~~
 @eng An ancient illustrated parchment in the corner@rus Древний иллюстрированный пергамент (parchment) лежит в углу.~
 vellum~
-scroll AH AO
+scroll AHgn 0 AOgu
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
 g male~
@@ -214,7 +215,7 @@ this place. Leave messages on the board if you have problems."
 сообщает: "Зона Скубду - двигайся осторожно!  Только высоким уровням следует
 пробовать эту зону.  Оставьте сообщение на стене, если будут проблемы."  
 ~
-0 C inside
+0 Ci inside
 D0
 @eng The way back to solid footing, it seems.
 @rus Похоже, путь ведет назад на твердую поверхность.
@@ -680,7 +681,7 @@ something disgusting.
 @rus Это дыра, должно быть, используется как берлога или гнездо. Вокруг валяются
 перья и кости, а пол покрыт чем-то непонятным.
 ~
-0 AD mountain
+0 ADgj mountain
 D3
 ~
 ~
@@ -718,7 +719,7 @@ you have to strain yourself not to lose your lunch.
 гниющие тела. Это место абсолютно грязно, и ты прилагаешь все усилия,
 чтоб твой завтрак не вышел наружу.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 @eng Your only hope to keep your lunch down is to head this way...
 @rus Единственная надежда оставить твой завтрак внутри - это двигаться этим путем...
@@ -735,7 +736,7 @@ you have to strain yourself not to lose your lunch.
 гниющие тела. Это место абсолютно грязно, и ты прилагаешь все усилия,
 чтоб твой завтрак не вышел наружу.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 @eng Your only hope to keep your lunch down is to head this way...
 @rus Единственная надежда оставить твой завтрак внутри - это двигаться этим путем...
@@ -1071,7 +1072,7 @@ dismal cloud.  You notice a rock outcropping above you.
 @rus Твое настроение резко падает, когда тебе становится холодно и сыро на этом
 унылом облаке.
 ~
-0 A inside
+0 Ag inside
 D1
 @eng There is a pure white cloud east of you.  It is snowing!
 @rus На востоке - безупречно белое облако. Там идет снег!
@@ -1092,7 +1093,7 @@ rather damp, dismal cloud.  The door to the house is closed.
 ты видишь дом, или если тебе проще спускаться вниз, ты можешь опуститься на
 довольно сырое, унылое облако. Дверь (door) дома закрыта.
 ~
-0 AC inside
+0 ACgi inside
 D0
 @eng Eerie looking house.
 @rus Мрачный дом.
@@ -1114,7 +1115,7 @@ trouble making out the room to the east.
 а когда поворачиваешься, чтоб лучше рассмотреть, то ничего там нет. Это место
 очень темное. Даже с факелом, ты с трудом замечаешь комнату на востоке.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -1134,7 +1135,7 @@ is the house and there is a stairway leading up into the tower.
 Ты слышишь странные скрипы и трески...это ветер или что-то (кто-то ?) еще
 производит этот шум. На западе виден дом, а лесница ведет вверх в башню.
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 ~
@@ -1156,7 +1157,7 @@ hope to again.  A picture of a familiar temple hangs on the east wall.
 надеешься, что и не увидишь. Изображение (picture) известного храма висит на
 восточной стене.
 ~
-0 ACDN inside
+0 ACDNgijt inside
 E
 picture изображение~
 @eng The picture is in on the east wall.  It is very complex in detail, and you
@@ -1167,7 +1168,7 @@ almost see people walking around the temple in the picture.
 D1
 ~
 picture~
-ABZ -1 3001
+ABZgh -1 3001
 D5
 ~
 ~
@@ -1220,7 +1221,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D0
 ~
 ~
@@ -1239,7 +1240,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D2
 @eng You see a sneezy little cloud.
 @rus Ты видишь маленькое чихающее облако.
@@ -1264,7 +1265,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D0
 ~
 ~
@@ -1283,7 +1284,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D1
 ~
 ~
@@ -1302,7 +1303,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D2
 ~
 ~
@@ -1325,7 +1326,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D0
 ~
 ~
@@ -1350,7 +1351,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D0
 ~
 ~
@@ -1373,7 +1374,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D2
 ~
 ~
@@ -1392,7 +1393,7 @@ Your only thought is to seek refuge from the storm.
 что-либо видеть или слышать. У тебя только одна мысль - найти убежище от
 этого урагана.
 ~
-0 AN mountain
+0 ANgt mountain
 D1
 ~
 ~
@@ -1500,7 +1501,7 @@ S
 @eng This cloud looks like the perfect place to hide.
 @rus Это облако, похоже, - идеальное место для укрытия.
 ~
-0 A inside
+0 Ag inside
 D1
 ~
 ~
@@ -1532,7 +1533,7 @@ There is a rope ladder leading down.
 когда качаются на ветру. На юге ты видишь огромную лужайку. Веревочная
 лестница ведет вниз.
 ~
-0 C field
+0 Ci field
 D2
 @eng You see a huge lawn.
 @rus Ты видишь огромную лужайку.
@@ -1666,7 +1667,7 @@ D2
 @rus Ты видишь богато украшенную дубовую дверь.
 ~
 oak door~
-AFZ -1 9177
+AFZgl -1 9177
 D3
 ~
 ~
@@ -1804,7 +1805,7 @@ S
 @eng This dirty dusty tunnel must lead somewhere.
 @rus Этот грязный пыльный туннель, должно быть, ведет куда-то.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 ~
 ~
@@ -1822,7 +1823,7 @@ rats in the corners.
 @rus Похоже, что это среднего размера подвал. Старые Рождественские украшения,
 чемоданы, велосипеды разбросаны на твоем пути. Ты слышишь писк крыс в углах.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -1840,7 +1841,7 @@ clutter gathered throughout the years.
 @rus Ты стоишь внизу длинной лестницы, ведущей вверх, в главную часть дома. На юге
 ты едва можешь заметить беспорядочную кучу вещей, накапливаемых годами.
 ~
-0 AD inside
+0 ADgj inside
 D2
 ~
 ~
@@ -1863,13 +1864,13 @@ high and is made of oak.
 стены событиями через из всей истории. Древняя мебель и восточные ковры со
 вкусом установлены на свои места.
 ~
-0 D inside
+0 Dj inside
 D0
 @eng You see an ornate oak door.
 @rus Ты видишь богато украшенную дубовую дверь.
 ~
 oak door~
-AFZ -1 9166
+AFZgl -1 9166
 D1
 ~
 ~
@@ -1892,7 +1893,7 @@ the hallway and some gorgeous, handwoven drapes.
 крылья дома. Здесь стоит несколько кресел и диванов и несколько великолепных
 самотканых портьер.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1916,7 +1917,7 @@ and a desk for more intense studies.
 потолка на всех стенах, даже над дверью. Здесь есть кресла для сиденья и чтения
 и стол для более интенсивного изучения материалов.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1931,7 +1932,7 @@ trees, a small pond and flowers of every kind.
 двор, чтоб насладиться видом растений и пообщаться с природой. Здесь находятся
 несколько деревьев, маленький пруд и цветы всех видов.
 ~
-0 CD inside
+0 CDij inside
 D1
 ~
 ~
@@ -1953,7 +1954,7 @@ up into darkness.
 тебя. Когда ты собираешься закрыть окно, ты обнаруживаешь, что оно закрыто.
 Старая деревянная лестница ведет вверх в темноту.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1975,7 +1976,7 @@ although there are a couple of cobwebs in the corner.
 Ты удивлен, что не можешь найти тут пыль или грязь, только лишь в углу висит
 паутина.
 ~
-0 AD city
+0 ADgj city
 D5
 ~
 ~
@@ -1990,7 +1991,7 @@ the hallway and some gorgeous, handwoven drapes.
 крылья дома. Здесь стоит несколько кресел и диванов и несколько великолепных
 самотканых портьер.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -2013,7 +2014,7 @@ instruments are on display in a glass cabinet.
 стоит Steinway-новское пианино, и различные позолоченные инструменты
 выставлены в застекленном шкафу.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2029,7 +2030,7 @@ mechanically ticking and tocking the hours away.
 десять на пять футов, сделанный из черного дерева и инкрустированный
 перламутром. Дедовы часы возвышаются на комнатой, механически тикая.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -2051,7 +2052,7 @@ up into darkness.
 тебя. Когда ты собираешься закрыть окно, ты обнаруживаешь, что оно закрыто.
 Старая деревянная лестница ведет вверх в темноту.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -2073,7 +2074,7 @@ although there are a couple of cobwebs in the corner.
 Ты удивлен, что не можешь найти тут пыль или грязь, только лишь в углу висит
 паутина.
 ~
-0 AD city
+0 ADgj city
 D5
 ~
 ~
@@ -2092,7 +2093,7 @@ You've fallen, and you can't get up!!!
 раз слушай свой внутренний голос.
   Ты упал и не можешь подняться!!!
 ~
-0 C field
+0 Ci field
 S
 #0
 

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Day Care~
 VNUMs 6600 6699
 Credits Sandman~
@@ -15,10 +16,10 @@ A young dwarf plays with a toy axe.
 This is a young but not totally harmless creature.
 ~
 dwarf~
-ACGT 0 -5 0
+CGTimz 0 0 0 0 -5 0
 3 0 1d4+30 1d1+99 1d4+2 'beating'
 7 6 7 10
-DJR 0 0 0
+DJRjpx
 sit stand either 10
 0 0 small unknown
 #6601
@@ -29,10 +30,10 @@ A cute and fuzzy teddy bear stands here.
 This is a tiny little bear with a heart on his chest.
 ~
 doll~
-ACG 0 500 0
+CGim 0 0 0 0 500 0
 1 0 1d10+10 1d1+99 1d4+0 'beating'
 8 5 9 10
-NR 0 0 0
+NRtx
 stand stand male 0
 0 0 small unknown
 #6602
@@ -43,10 +44,10 @@ A raggedy anne doll is sitting here.
 You see a small little cute rag doll.
 ~
 doll~
-ACG 0 300 0
+CGim 0 0 0 0 300 0
 2 0 2d5+19 1d1+99 1d5+0 'beating'
 7 4 8 10
-FHR 0 0 0
+FHRlnx
 sit stand female 0
 0 0 small unknown
 #6603
@@ -57,10 +58,10 @@ A toy soldier is standing here.
 The toy is looking for target practice.
 ~
 doll~
-ACGT 0 -300 0
+CGTimz 0 0 0 0 -300 0
 3 1 3d5+36 1d1+99 1d4+3 'punch'
 6 7 6 9
-IR 0 0 0
+IRox
 stand stand male 0
 0 0 small unknown
 r bash 0
@@ -74,10 +75,10 @@ This is obviously a reject from the factory.
 He snarls and growls at you.
 ~
 doll~
-ACF 0 -400 0
+CFil 0 0 0 0 -400 0
 3 0 3d4+29 1d1+99 1d6+1 'chomp'
 6 3 7 10
-DJNR 0 0 0
+DJNRjptx
 stand stand male 5
 0 0 small unknown
 #6605
@@ -90,10 +91,10 @@ doll old кукла~
 @rus Эта кукла была любима и с ней игрались, но сейчас от нее мало что осталось.
 ~
 doll~
-ACG 0 -2 0
+CGim 0 0 0 0 -2 0
 1 0 1d10+1 1d1+99 1d4+0 'beating'
 8 5 9 10
-R 0 0 0
+Rx
 stand stand female 0
 0 0 small unknown
 #6606
@@ -105,10 +106,10 @@ You see an old dwarven lady who has been hunched over with age.  However, it
 appears that there is still some fight left in her.
 ~
 dwarf~
-AG 0 10 0
+Gm 0 0 0 0 10 0
 5 1 4d4+50 5d4+100 1d6+1 'slap'
 5 5 5 10
-CDR 0 0 0
+CDRijx
 stand stand female 50
 0 0 medium unknown
 #6607
@@ -120,10 +121,10 @@ This is a big mean bully who is tired of being lost in this maze.
 You suddenly think that you had better flee.
 ~
 dwarf~
-ABCT D -800 0
+BCThiz 0 0 0 Ag -800 0
 8 1 3d10+100 8d4+100 1d7+3 'punch'
 3 2 3 8
-CDJR 0 0 0
+CDJRijpx
 stand stand male 120
 0 0 medium unknown
 #6608
@@ -135,10 +136,10 @@ You see a little tyke who has always gotten what he wanted.  You have the
 biggest urge to put him out of his misery.
 ~
 dwarf~
-ABC 0 -400 0
+BChi 0 0 0 0 -400 0
 1 0 2d4+15 1d1+199 2d2+1 'beating'
 8 8 8 10
-IJN 0 0 0
+IJNopt
 stand stand male 50
 0 0 small unknown
 #0
@@ -149,7 +150,7 @@ axe toy~
 a toy axe~
 An axe made of wood lies here.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 1 5 'chop' 0
 0 30 250 G
 E
@@ -162,7 +163,7 @@ ring pink ice кольцо розовое ледяное~
 @eng a pink ice ring@rus розовое ледяное кольцо~
 @eng A pink ice ring draws your eye.@rus Розовое ледяное кольцо (ring) привлекает ваш взгляд.~
 ice~
-treasure G AB
+treasure Gm 0 ABgh
 0 0 0 0 0
 3 10 620 G
 A
@@ -180,7 +181,7 @@ robe linen~
 a linen robe~
 A linen robe is crumpled into a ball here.~
 cloth~
-armor G AK
+armor Gm 0 AKgq
 1 2 1 1 1
 7 50 780 G
 A
@@ -197,8 +198,8 @@ broom~
 a broom~
 A stout straw broom lies on the floor.~
 wood~
-weapon 0 AN
-exotic 2 3 'pound' K
+weapon 0 0 ANgt
+exotic 2 3 'pound' Kq
 4 30 270 W
 A
 18 -1
@@ -214,8 +215,8 @@ meat steak~
 a juicy steak~
 A juicy steak sits on a plate here.~
 meat~
-food 0 A
-ADE ADE 0 0 0
+food 0 0 Ag
+ADEgjk ADEgjk 0 0 0
 0 20 0 P
 g none~
 #6645
@@ -223,8 +224,8 @@ steak rotten~
 a rotten steak~
 A dry steak lies on the floor.~
 meat~
-food 0 A
-C C 0 A 0
+food 0 0 Ag
+Ci Ci 0 Ag 0
 0 20 0 W
 g none~
 #6646
@@ -232,7 +233,7 @@ potion amber~
 an amber potion~
 An amber potion sits in a corner.~
 glass~
-potion 0 A
+potion 0 0 Ag
 5 'cure light' 'armor' '' ''
 0 10 150 G
 E
@@ -246,8 +247,8 @@ gun toy~
 a toy gun~
 A toy gun with a sharp bayonet lies here.~
 wood~
-weapon 0 AN
-spear 2 3 'stab' FK
+weapon 0 0 ANgt
+spear 2 3 'stab' FKlq
 4 20 300 G
 A
 17 -1
@@ -265,7 +266,7 @@ The Dwarven Drop Off~
 This is where the dwarven mommies and daddies come to drop off their
 annoying little brats.  You have the urge to leave.  There is a sign here.
 ~
-0 CD inside
+0 CDij inside
 E
 sign~
 This is an area for newbies, so have fun.  -- Sandman
@@ -285,7 +286,7 @@ Day Care Center~
 You are in the north-east corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a kitchen to the east.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the drop off.
 ~
@@ -312,7 +313,7 @@ Day Care Center~
 You are in the north-west corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a bathroom to the west.
 ~
-0 D inside
+0 Dj inside
 D1
 You see a large room full of noisy brats.
 ~
@@ -334,7 +335,7 @@ Day Care Center~
 You are in the south-east corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a playground to the east.
 ~
-0 D inside
+0 Dj inside
 D0
 You see a large room full of noisy brats.
 ~
@@ -356,7 +357,7 @@ Day Care Center~
 You are in the south-west corner of the main part of the center.  Toys and
 toddlers are all over the room.  There is a staircase to the west.
 ~
-0 D inside
+0 Dj inside
 D0
 You see a large room full of noisy brats.
 ~
@@ -380,7 +381,7 @@ life.  The air is rancid and the walls are stained.
 @rus Ты $gn{зажал} нос, осознавая, что $gn{сделал} самую большую ошибку в жизни. Воздух
 в комнате протухший, а стены покрыты пятнами.
 ~
-0 D inside
+0 Dj inside
 D1
 You see a large room full of noisy brats.
 ~
@@ -394,7 +395,7 @@ lie down under.  Beware!
 @rus Ты стоишь в начале лестницы, ведущей вниз и можешь только догадываться,
 что скрывается там внизу. Будь $gn{осторожен}!
 ~
-0 D inside
+0 Dj inside
 D1
 You see a large room full of noisy brats.
 ~
@@ -482,7 +483,7 @@ that you don't get lost.
 @rus Ты стоишь на входе в небольшой, но хорошо запутанный лабиринт. Остается
 надеятся, что повезет, и ты не потеряешься в нем.
 ~
-0 ACD field
+0 ACDgij field
 D1
 ~
 ~
@@ -498,7 +499,7 @@ S
 @eng You are in a small passage that looks just like every other one.
 @rus Ты стоишь в нешироком коридорчике, ничем не отличающемся от других таких же.
 ~
-0 AD field
+0 ADgj field
 D1
 ~
 ~
@@ -517,7 +518,7 @@ S
 @eng You are in a small passage that looks just like every other one.
 @rus Ты стоишь в нешироком коридорчике, ничем не отличающемся от других таких же.
 ~
-0 AD field
+0 ADgj field
 D2
 ~
 ~
@@ -531,7 +532,7 @@ S
 Mini-Maze~
 You are in a small passage that looks just like every other one.
 ~
-0 AD field
+0 ADgj field
 D0
 ~
 ~
@@ -546,7 +547,7 @@ S
 @eng You are in a small passage that looks just like every other one.
 @rus Ты стоишь в нешироком коридорчике, ничем не отличающемся от других таких же.
 ~
-0 AD field
+0 ADgj field
 D0
 ~
 ~
@@ -565,7 +566,7 @@ S
 You stand at the end of your journey.  There is a big sign here and you had
 better read it!
 ~
-0 AD field
+0 ADgj field
 E
 sign~
 If you are not level 6 or above, then don't go south!!!!  It is a dangerous
@@ -585,7 +586,7 @@ Messy Kitchen~
 You stand in the kitchen and eating area of the day care center.  Pots and
 pans are everywhere, while the toddlers continue to create chaos.
 ~
-0 D inside
+0 Dj inside
 D3
 You see a large room full of noisy brats.
 ~
@@ -597,7 +598,7 @@ The End?~
 You have reached the final lair.  It is dominated by a huge five headed
 dragon (actually an overgrown brat with a Halloween mask).
 ~
-0 AD field
+0 ADgj field
 D0
 ~
 ~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Zoology~
 VNUMs 400 499
 Credits Og~
@@ -15,10 +16,10 @@ An ameoba stands here, looking for newbies.
 Basicly it's a clear sack filled with jelly and colorful floating things.
 ~
 human~
-ABC 0 0 0
+BChi 0 0 0 0 0 0
 1 0 2d2+4 1d1+99 1d2+0 'bite'
 10 10 10 100
-0 0 0 0
+0
 stand stand either 15
 0 0 tiny unknown
 #401
@@ -30,10 +31,10 @@ The gorilla, hey wait! Thats a man dressed in a gorilla outfit. It's a fake!
 The sign around his neck says 'Come see the gorilla display!'
 ~
 human~
-ABH 0 -333 0
+BHhn 0 0 0 0 -333 0
 3 0 10d2+15 1d1+99 1d4+1 'punch'
 2 2 2 0
-0 0 0 0
+0
 stand stand male 45
 0 0 medium unknown
 #402
@@ -45,10 +46,10 @@ The most heinous thing you could probably think of is standing in front
 of you: A six foot tall pubic lice.  Crabs anyone?
 ~
 human~
-ABH 0 -300 0
+BHhn 0 0 0 0 -300 0
 2 0 2d5+19 1d1+99 1d5+0 'chomp'
 7 4 8 10
-K 0 0 0
+Kq
 stand stand female 25
 0 0 medium unknown
 #403
@@ -59,10 +60,10 @@ John the shopkeeper stands here at his part time job.
 John the shopkeeper is obviously not happy.  And who would be at this job?
 ~
 human~
-ABVel 0 200 0
+BVeh 0 0 0 0 200 0
 10 0 2d33+50 10d10+100 3d5+7 'pierce'
 4 4 4 7
-CEIK 0 0 0
+CEIKikoq
 stand stand male 250
 0 0 medium unknown
 r charm 100
@@ -75,10 +76,10 @@ How hungry do you think a shark could possibly be?  You poke its nose to
 piss it off.  Boy does he look angry now!
 ~
 human~
-ABFl 0 -300 0
+BFhl 0 0 0 0 -300 0
 7 1 1d33+61 1d10+100 3d4+1 'scratch'
 3 3 3 5
-DKMV 0 0 0
+DKMVjqs
 stand stand male 250
 0 0 large unknown
 r disease 33
@@ -93,10 +94,10 @@ blob with tenticles.  It doesn't even have pretty colors in it.  Just a
 ugly gray color.
 ~
 human~
-ACG 0 0 0
+CGim 0 0 0 0 0 0
 5 0 4d5+30 1d10+100 1d6+1 'bite'
 8 0 8 8
-0 0 0 0
+0
 stand stand female 250
 0 0 large unknown
 r poison 100
@@ -109,10 +110,10 @@ The child is obviously too young to realise that this is prehaps one of
 the stupidest exhibits his little brain could comprehend.
 ~
 human~
-AG 0 400 0
+Gm 0 0 0 0 400 0
 1 0 2d5+0 1d1+100 1d2+1 'punch'
 8 8 8 10
-0 0 0 0
+0
 stand stand male 110
 0 0 small unknown
 #407
@@ -123,10 +124,10 @@ Your teacher stands here looking for you!
 Thank God she doesn't see you!  But if you keep looking at her she may!
 ~
 troll~
-AGR 0 -500 0
+GRmx 0 0 0 0 -500 0
 5 0 2d5+40 5d10+100 2d3+1 'pierce'
 6 6 6 8
-0 0 0 0
+0
 stand stand female 320
 0 0 medium unknown
 r bash 100
@@ -142,10 +143,10 @@ This gorilla is really foul.  Its making mud pies out of its own feces
 and throwing it at visitors. Duck! one just missed you!
 ~
 bear~
-AG 0 50 0
+Gm 0 0 0 0 50 0
 4 0 1d10+30 1d1+100 2d2+1 'beating'
 7 5 7 8
-CU 0 0 0
+CUi
 stand stand female 90
 0 0 large unknown
 #409
@@ -157,10 +158,10 @@ You feel so sorry fort his poor man who has been subjected to cleaning up
 after the gorillas for the rest of his life.
 ~
 human~
-ACG 0 200 0
+CGim 0 0 0 0 200 0
 3 0 3d10+10 1d100+30 1d4+2 'scratch'
 7 8 8 9
-EN 0 0 0
+ENkt
 stand stand either 110
 0 0 medium unknown
 #410
@@ -174,10 +175,10 @@ well your mom made some of the tasties meat stew you've ever had to cheer
 you up.
 ~
 human~
-AG 0 500 0
+Gm 0 0 0 0 500 0
 2 0 1d10+15 3d40+1 2d2+1 'bite'
 7 7 7 9
-I 0 0 0
+Io
 stand stand either 150
 0 0 large unknown
 #0
@@ -188,8 +189,8 @@ popcorn~
 Some popcorn~
 Some popcorn to feed the animals lies here.~
 food~
-food 0 A
-AB AB 0 0 0
+food 0 0 Ag
+ABgh ABgh 0 0 0
 0 3 4 P
 g none~
 #401
@@ -197,7 +198,7 @@ key~
 The key to the tank~
 The key to the shark tank lies here~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -206,7 +207,7 @@ shark tooth necklace~
 A shark tooth necklace~
 A wire with a shark tooth has been left here.~
 coral~
-armor G AC
+armor Gm 0 ACgi
 1 1 1 3 0
 4 20 300 P
 A
@@ -217,8 +218,8 @@ dragonclaw sabre saber~
 the DragonClaw~
 An enormous CLAW rests on the ground here. It belongs to Audric.~
 mithril~
-weapon ABGIORY AN
-sword 6 8 'slash' AB
+weapon ABGIYghmo ABgh ANgt
+sword 6 8 'slash' ABgh
 50 120 18750000 P
 A
 19 9
@@ -273,7 +274,7 @@ and now is your chance! Through these doors is a great new exhibit about
 the evolution of life as we know it.  You're so excited you think you're 
 about to wet your armor! So just head right on in to the south.
 ~
-0 C inside
+0 Ci inside
 D2
 The entrance lies just ahead of you! What are you waiting for?
 ~
@@ -293,7 +294,7 @@ upstairs you see a souviniere shop.  To the south is the Hall of the Beefed
 up Tinsy Animals, while to the west is the Wide World of Chordates.  Finally
 to the east you see the special marine section of the museum.  
 ~
-0 D inside
+0 Dj inside
 D0
 The entrance to the museum.
 ~
@@ -322,7 +323,7 @@ This is the Hall of Chordates.  All around you are really boring
 examples of what a chordate is.  A beastly fido is a chordate, as is the 
 mayor of Midgaard.  This is boring, you think.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -338,7 +339,7 @@ This is the underwater exhibit of the museum.  Through the aid of
 magic, these underwater creatures have been enabled to breathe air and 
 come out and visit you.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -353,7 +354,7 @@ Tinsy Animal Exhibit~
 All the tinsy animals here have been made bigger so that you can see 
 them.  You sure hope they forgot to magnify the pubic lice!
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -370,7 +371,7 @@ you've been on.  All around you are slime molds, and tardigradas, all
 sized up for your conveyence.  You thank the Gods that you think you see 
 the exit to the south.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -387,7 +388,7 @@ grows in between your toes.  Oh, that's in another hall in this museum.
 Silly you.  You contemplate pulling a fire alarm to make this trip a 
 little more interesting.  The hall of chordates continues to the south.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -403,7 +404,7 @@ You are now pulling your hair out!  This is so boring!  Type recall and
 end it all!!!  The gorilla cage is to the west, if you want to inflict 
 more punishment on yourself.  Wait!  Over there, to the south, is the exit!
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -415,7 +416,7 @@ Z 0 411
 D3
 ~
 cage~
-ABZ 0 412
+ABZgh 0 412
 S
 #408
 Marine Exhibit~
@@ -424,7 +425,7 @@ garbage, oil coated ducks; it's so realistic you think!  Only problem is,
 you don't have an ounce of interest.  You spot the shark tank to the east 
 and the hall continues to the south.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -433,7 +434,7 @@ D1
 To the east you see the shark tank.
 ~
 tank~
-ABCZ 401 409
+ABCZghi 401 409
 D2
 ~
 ~
@@ -445,11 +446,11 @@ Wow look at all the sharks in here!  Now this is neat, since of course,
 you're not supposed to be here.  There are sand sharks, hammer-head sharks,
 and many more sharks to play with!  
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 tank~
-ABCZ 401 408
+ABCZghi 401 408
 S
 #410
 Marine Exhibit~
@@ -457,7 +458,7 @@ You see the end of this exhibit to the south.  All around you corals
 and other pretty things flourish all thanks to the wonders of modern 
 science.  Thank the Gods this stupid field trip is almost over.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -474,7 +475,7 @@ with your classmates as you pass through the turnstyle with your
 classmates and head on the bus.  To you south you can return to the 
 M.U.D.U. arena.
 ~
-0 CD inside
+0 CDij inside
 D2
 ~
 ~
@@ -485,11 +486,11 @@ The Gorilla Cage~
 Heres where all the gorillas are kept.  It smells really bad in here.  
 You feel sorry for the guy who has to clean up after all of these gorillas.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 cage~
-ABZ 0 407
+ABZgh 0 407
 S
 #413
 Souvenire Shop~
@@ -497,7 +498,7 @@ Wow, look at all the souvenires.  Too bad you can't afford half of it.
 Uh oh, you'd better get out of here, you think you hear your M.U.D.U. 
 teacher coming up the stairs to bring you back together with the class.
 ~
-0 D inside
+0 Dj inside
 D5
 ~
 ~

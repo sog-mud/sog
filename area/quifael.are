@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Quifael's~
 VNUMs 6900 6999
 Credits Quifael~
@@ -12,7 +13,7 @@ Quifael's monster pen~
 You are in a big, subterranean room with heavy massive stone walls and no
 windows whatsoever.  A virtual ladder leads upwards.
 ~
-0 DJ inside
+0 DJjp inside
 D4
 The ladder leads to the laboratory.
 ~
@@ -26,7 +27,7 @@ bookcases filled with dusty volumes of all sizes.  In the fireplace burns a
 crackling fire that makes the room warm and cosy, and in front of an oakwood
 reading desk is a large old-fashioned chair.
 ~
-0 CDJ inside
+0 CDJijp inside
 E
 chair~
 It is big and old-fashioned, but quite comfortable nevertheless.
@@ -61,7 +62,7 @@ the north wall.  The air smells of rare chemicals and spices.
 A virtual ladder leads downwards.
 A magical portal is hovering in the air just in front of the east wall.
 ~
-0 CDJ inside
+0 CDJijp inside
 E
 desk~
 On the desk is a peculiar apparatus of glass bottles and globes connected by
@@ -100,7 +101,7 @@ of Haon-Dor.
 A transparent bronze plate has been bolted to the balcony railing.
 A magical portal is hovering in the air to the west.
 ~
-0 DJ inside
+0 DJjp inside
 E
 forest Haon-Dor view~
 Through the tree crowns, you see fellow adventurers walking around in the
@@ -140,7 +141,7 @@ You are in sparsely decorated and quite dusty hall.  Old wooden doors lead
 north, east and south and to the west is the front door.
 An old mirror hangs on the wall.
 ~
-0 DJ inside
+0 DJjp inside
 E
 mirror~
 You see yourself looking back at you.
@@ -164,13 +165,13 @@ D4
 The front door leads to Park Road.
 ~
 door~
-AFZ 3301 3126
+AFZgl 3301 3126
 S
 #6905
 Quifael's kitchen~
 You are in an old-fashioned kitchen.
 ~
-0 DJ inside
+0 DJjp inside
 D0
 The hall is to the north.
 ~

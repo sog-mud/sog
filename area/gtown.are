@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Ghost~
 VNUMs 8100 8199
 Credits Yaegar~
@@ -17,10 +18,10 @@ will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
 ~
 undead~
-AFGO T -1000 0
+FGOlmu 0 Tz 0 0 -1000 0
 48 0 25d10+3750 1d10+5000 6d6+18 'slash'
 -18 -18 -18 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8101
@@ -38,10 +39,10 @@ fell domain- DEATH.
 встретил.
 ~
 undead~
-AFGO T -1000 0
+FGOlmu 0 Tz 0 0 -1000 0
 47 0 25d10+3500 1d20+3440 6d6+17 'pierce'
 -17 -17 -17 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8102
@@ -54,10 +55,10 @@ will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
 ~
 undead~
-AFGO 0 -1000 0
+FGOlmu 0 0 0 0 -1000 0
 45 0 25d10+3000 10d10+330 8d4+16 'slash'
 -15 -15 -15 4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 4500
 0 0 medium unknown
 #8103
@@ -70,10 +71,10 @@ will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
 ~
 undead~
-AFGO T -1000 0
+FGOlmu 0 Tz 0 0 -1000 0
 48 0 25d10+3750 10d10+110 6d6+18 'pound'
 -18 -18 -18 2
-EFNU 0 0 0
+EFNUklt
 stand stand none 5000
 0 0 medium unknown
 #8104
@@ -86,10 +87,10 @@ centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 ~
 undead~
-ABFGO N -1000 0
+BFGOhlmu 0 Nt 0 0 -1000 0
 54 0 25d10+5250 10d10+1110 7d6+22 'pierce'
 -24 -24 -24 -1
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5300
 0 0 medium unknown
 r charm 100
@@ -103,10 +104,10 @@ and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
 human~
-ABFGOl DFJ -1000 0
+BFGOhlmu 0 0 0 ABHghn -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 'pierce'
 -28 -28 -28 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand male 5800
 0 0 medium unknown
 r acid -50
@@ -121,10 +122,10 @@ This grotesque is a minion of the lower planes drawn here by the intense
 concentration of negative material energy.
 ~
 undead~
-AFGHO 0 -1000 0
+FGHOlmnu 0 0 0 0 -1000 0
 52 0 50d10+4750 10d10+4440 6d7+20 'pound'
 -22 -22 -22 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8107
@@ -139,10 +140,10 @@ ignore all else in his quest, but will not hesitate to attack you if you
 interfere.
 ~
 undead~
-AGO N 0 0
+GOmu 0 Nt 0 0 0 0
 57 0 50d10+6000 10d10+1000 6d8+24 'pierce'
 -27 -27 -27 -2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5300
 0 0 medium unknown
 #8108
@@ -155,10 +156,10 @@ He was quickly slain by the inhabitants, but such was his distress at his
 death, his spirit remained behind to haunt the area where he met his end.
 ~
 undead~
-ABGO T 0 0
+BGOhmu 0 Tz 0 0 0 0
 48 0 25d10+3750 10d10+1000 6d6+18 'pierce'
 -18 -18 -18 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8109
@@ -170,10 +171,10 @@ This fell creature will not attack you, despite its evil- it will merely
 taunt you, though it will not hesitate to defend itself.
 ~
 undead~
-ABGO 0 -1000 0
+BGOhmu 0 0 0 0 -1000 0
 55 0 50d10+5500 10d10+1000 10d4+23 'pierce'
 -25 -25 -25 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5300
 0 0 medium unknown
 #8110
@@ -185,10 +186,10 @@ This grotesque is a minion of the lower planes drawn here by the intense
 concentration of negative material energy.
 ~
 undead~
-ABFGO T -1000 0
+BFGOhlmu 0 Tz 0 0 -1000 0
 58 0 50d10+6250 10d10+1000 5d10+25 'pound'
 -28 -28 -28 -2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5600
 0 0 medium unknown
 #8111
@@ -201,10 +202,10 @@ so well in life that he animated it to continue serving him after its
 death.
 ~
 undead~
-ABFGO T -1000 0
+BFGOhlmu 0 Tz 0 0 -1000 0
 62 0 50d10+7250 10d10+1000 6d9+32 'pound'
 -32 -32 -32 -3
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 7000
 0 0 medium unknown
 #8112
@@ -217,10 +218,10 @@ will do its best you meet the same fate as all previous intruders in this
 fell domain- DEATH.
 ~
 undead~
-AFGO 0 -1000 0
+FGOlmu 0 0 0 0 -1000 0
 45 0 25d10+3000 10d10+1000 8d4+16 'slash'
 -15 -15 -15 10
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8113
@@ -233,10 +234,10 @@ rat крыса giant~
 @rus Существо аж десяти футов ростом с горящими красными глазами.
 ~
 unique~
-ACFGHO DFQ -1000 0
+CFGHOilmnu 0 0 Bh ABgh -1000 0
 40 0 10d10+1850 10d10+100 4d8+13 'charge'
 -13 -13 -13 4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8114
@@ -249,12 +250,12 @@ spider паук giant~
 @rus Мохнатое чудище 10-ти футов ростов. Ужас.
 ~
 undead~
-ACFGHO Q -1000 0
+CFGHOilmnu 0 0 Bh 0 -1000 0
 45 0 25d10+3000 10d10+1000 8d4+16 'charge'
 -15 -15 -15 4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
-P 0 medium unknown
+Pv 0 medium unknown
 #8115
 lurker above~
 a lurker above~
@@ -264,10 +265,10 @@ This foul abberration feeds on any and all that enter its lair- even the
 corporeal undead avoid it...
 ~
 undead~
-ABFGHO T 0 0
+BFGHOhlmnu 0 Tz 0 0 0 0
 52 0 50d10+4750 10d10+1000 6d7+20 'pierce'
 -20 -20 -20 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8116
@@ -281,10 +282,10 @@ succubus woman суккуб~
 соки и поможет умереть. С ней нужно говорить только на языке грубой силы.
 ~
 undead~
-ABGO Tu -1000 0
+BGOhmu 0 Tz 0 0 -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 'slash'
 -20 -20 -20 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand female 5000
 0 0 medium unknown
 #8117
@@ -298,10 +299,10 @@ has fled here, in the hopes that they won't find him before he finds a way
 to escape his terrible mistake.
 ~
 undead~
-ABGHO 0 -400 0
+BGHOhmnu 0 0 0 0 -400 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -20 -20 -20 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8118
@@ -314,10 +315,10 @@ fine town, reduced to a horrid state of undeath. Slaying them would be the
 best thing you could do for them...
 ~
 undead~
-AGO 0 0 0
+GOmu 0 0 0 0 0 0
 40 0 10d10+1850 10d10+1000 4d8+13 'slash'
 -13 -13 -13 3
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 3000
 0 0 medium unknown
 #8119
@@ -330,10 +331,10 @@ after the weak Xantharus lost control of his creations. He is a powerful,
 diabolically evil mage, and will not hesitate to destroy you.
 ~
 human~
-ABFGHO CDEFu -1000 0
+BFGHOhlmnu 0 0 0 ABKLghqr -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5300
 0 0 medium unknown
 #8120
@@ -347,10 +348,10 @@ mound холм shambling~
 двадцати футов в высоту напала на тебя.
 ~
 unique~
-AFGO JN 0 0
+FGOlmu 0 Nt 0 Hn 0 0
 45 -1 50d10+3000 10d10+1000 8d4+16 'slash'
 -15 -14 -15 4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5200
 0 0 medium unknown
 #8121
@@ -367,10 +368,10 @@ evil- it is simply hungry.
 просто ОЧЕНЬ голодное.
 ~
 undead~
-AFGO N 0 0
+FGOlmu 0 Nt 0 0 0 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pierce'
 -20 -20 -20 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand male 5000
 0 0 medium unknown
 #8122
@@ -385,10 +386,10 @@ then it will devour you!
 и до твоего нежного тела и пожрет тебя.
 ~
 undead~
-AFGO N 0 0
+FGOlmu 0 Nt 0 0 0 0
 52 0 50d10+4750 10d10+1000 6d7+20 'pierce'
 -22 -22 -22 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5100
 0 0 medium unknown
 #8123
@@ -402,10 +403,10 @@ skin...
 @rus Эта слизь может прожечь даже металл, что уж тут говорить о твоей коже.
 ~
 undead~
-ABFGO 0 0 0
+BFGOhlmu 0 0 0 0 0 0
 40 0 50d10+1850 10d10+1000 4d8+13 'slash'
 -13 -13 -13 4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8124
@@ -418,10 +419,10 @@ ooze gray лужа~
 @rus О! Мне послышалось ты сказал "Ой как страшно"... Ты только подожди...
 ~
 undead~
-AFGO N -1000 0
+FGOlmu 0 Nt 0 0 -1000 0
 58 0 50d10+6250 10d10+1000 5d10+25 'pierce'
 -28 -28 -28 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8125
@@ -434,10 +435,10 @@ animated tree дерево~
 @rus Это дерево насквозь пропитано злом и порчей.
 ~
 undead~
-AFGO 0 0 0
+FGOlmu 0 0 0 0 0 0
 45 0 50d10+3000 10d10+1000 8d4+16 'pound'
 -15 -15 -15 3
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8126
@@ -453,10 +454,10 @@ while you rest, and perhaps heal your wounds if you pay her enough...
 достаточно заплатишь.
 ~
 undead~
-ABGO BN 400 0
+BGOhmu 0 Nt Ag 0 400 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -5
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8127
@@ -470,10 +471,10 @@ wielding a shiny silver sword, he would look as he did in life save for his
 rotting face...
 ~
 undead~
-ABFGO 0 -1000 0
+BFGOhlmu 0 0 0 0 -1000 0
 60 0 50d10+6250 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8128
@@ -485,10 +486,10 @@ This black, winged equine hell-steed waits patiently for its master to finish
 its business here before bearing it to its next destination.
 ~
 undead~
-ABGO T -1000 0
+BGOhmu 0 Tz 0 0 -1000 0
 45 0 50d10+3000 10d10+1000 8d4+16 'pound'
 -15 -15 -15 4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8129
@@ -500,10 +501,10 @@ This demonic steed resembles a huge spider with razor sharp blades for legs
 and glowing gems for eyes.
 ~
 undead~
-ABFGO 0 -1000 0
+BFGOhlmu 0 0 0 0 -1000 0
 58 0 50d10+6250 10d10+1000 5d10+25 'slash'
 -28 -28 -28 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8130
@@ -518,10 +519,10 @@ master, and inform his master if the strange man poses a significant threat
 to his domination of all things Undead.
 ~
 undead~
-ACGHO EQV -1000 0
+CGHOimnu 0 V Bh Lr -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -40 -40 -40 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8131
@@ -536,10 +537,10 @@ He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
 ~
 undead~
-ABGHO BENu -1000 0
+BGHOhmnu 0 Nt Ag Lr -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -4
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8132
@@ -550,10 +551,10 @@ A Water Weird lunges at you!
 This watery snake resides in the well, which it will fight to defend.
 ~
 snake~
-ABFGO N 0 0
+BFGOhlmu 0 Nt 0 0 0 0
 51 0 50d10+4500 10d10+1000 5d8+20 'bite'
 -20 -20 -20 2
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 0
 0 0 medium unknown
 #8133
@@ -566,10 +567,10 @@ spider giant паук~
 @rus Когда я говорил гигантский, я имел ввиду 10 футов высотой...
 ~
 undead~
-ABCFGHO Q -1000 0
+BCFGHOhilmnu 0 0 Bh 0 -1000 0
 48 0 50d10+3750 10d10+1000 6d6+18 'charge'
 -18 -18 -18 3
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 #8134
@@ -582,10 +583,10 @@ centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 ~
 undead~
-ABFGO 0 -1000 0
+BFGOhlmu 0 0 0 0 -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
-EFNQ 0 0 0
+EFNQkltw
 stand stand none 5000
 0 0 medium unknown
 r charm 100
@@ -597,7 +598,7 @@ rod orcus жезл~
 @eng the Rod of Orcus@rus ~~Жезл~~ Оркуса~
 @eng The Rod of Orcus glows evilly here.@rus Жезл Оркуса (rod) сверкает мрачным светом.~
 wood~
-staff BEGH AO
+staff BEGHhkmn 0 AOgu
 60 100 100 'pass door' 0
 55 50 30000 P
 A
@@ -628,7 +629,7 @@ hand vecna рука~
 @eng the Hand of Vecna@rus ~~рука~~ Векны~
 @eng The Hand of Vecna lies here.@rus Рука (hand) Векны лежит здесь.~
 leather~
-armor EHJMQ AH
+armor EHJMQknpsw 0 AHgn
 18 19 18 10 0
 56 5 10000 P
 A
@@ -649,7 +650,7 @@ eye vecna глаз~
 @eng the Eye of Vecna@rus ~~глаз~~ Векны~
 @eng The Eye of Vecna glows evilly here.@rus Глаз (eye) Векны сверкает красным цветом и просто-таки излучает зло.~
 leather~
-armor AEJM AE
+armor AEJMgkps 0 AEgk
 18 18 18 10 0
 56 1 10000 P
 A
@@ -664,8 +665,8 @@ sword kas меч~
 @eng the Sword of Kas@rus ~~меч~~ Каса~
 @eng The Sword of Kas beckons to you!@rus Меч Каса (sword) манит тебя к себе.~
 steel~
-weapon BEGJM AN
-sword 5 10 'pierce' D
+weapon BEGJMhkmps 0 ANgt
+sword 5 10 'pierce' Dj
 47 20 17000 P
 A
 17 20
@@ -679,7 +680,7 @@ circlet диадема~
 @eng a circlet@rus диадема~
 @eng A Circlet lies here, gathering dust.@rus Диадема (circlet) валяется здесь, собирая на себя пыль.~
 steel~
-armor GM AE
+armor GMms 0 AEgk
 17 17 17 10 0
 54 25 18000 P
 A
@@ -692,7 +693,7 @@ treasure hoard сокровище~
 @eng a treasure hoard@rus сокровище~
 @eng A treasure hoard is scattered here.@rus Накопленные за долгие годы сокровища (treasure) рассыпаны сверкающей грудой.~
 gem~
-container 0 AO
+container 0 0 AOgu
 400 0 0 50 50
 1 150 0 P
 g none~
@@ -701,7 +702,7 @@ chest~
 @eng a chest@rus сундук~
 @eng A chest sits here.@rus Небольшой сундук (chest) стоит у стены.~
 steel~
-container 0 A
+container 0 0 Ag
 150 0 0 20 100
 48 100 0 P
 g male~
@@ -710,7 +711,7 @@ robes flesh накидка~
 @eng robes of Flesh@rus ~~накидка~~, сделанная из кожи~
 @eng Robes made of human flesh are piled here.@rus Накидка (robes), изготовленная из кожи людей, брошена здесь.~
 flesh~
-armor EJ AK
+armor EJkp 0 AKgq
 15 15 15 6 0
 58 25 13000 P
 A
@@ -723,7 +724,7 @@ rod bone жезл~
 @eng a Rod of Bone@rus ~~костяной~~ ~~жезл~~~
 @eng A Rod fashioned from a human femur lies here.@rus Жезл (rod), выточенный из человеческой кости, лежит здесь.~
 femur~
-weapon EJ AN
+weapon EJkp 0 ANgt
 mace 6 9 'crush' 0
 58 25 13000 P
 A
@@ -740,7 +741,7 @@ pile bones куча~
 @eng a pile of bones@rus ~~куча~~ костей~
 @eng A pile of bones lies here.@rus Внушительного вида куча костей (pile) валяется здесь.~
 silver~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 1 50 0 P
 g female~
@@ -749,7 +750,7 @@ gem power кристал~
 @eng a Power Gem@rus ~~кристал~~ ~
 @eng A Mana Power Gem pulses strongly here.@rus Кристал (gem) весь пульсирует от заключенной в нем мощи.~
 wood~
-staff AG AO
+staff AGgm 0 AOgu
 50 20 20 'sanctuary' 0
 45 10 40000 P
 A
@@ -760,7 +761,7 @@ cloak black плащ~
 @eng a black cloak@rus ~~черный~~ ~~плащ~~~
 @eng A black cloak is piled here.@rus Черный плащ (cloak) валяется на земле, кем-то выброшенный.~
 unknown~
-armor 0 AK
+armor 0 0 AKgq
 17 17 17 11 0
 51 10 0 P
 g none~
@@ -769,7 +770,7 @@ sword dark меч~
 @eng (Diabolical) a Dark Sword@rus ~~проклятый~~ ~~темный~~ ~~меч~~~
 @eng A Dark Sword hums evilly here.@rus Темный меч (sword) издает монотонный гул, валяясь на земле.~
 steel~
-weapon BCEJ AN
+weapon BCEJhikp 0 ANgt
 sword 6 10 'slash' 0
 55 35 30000 P
 A
@@ -788,7 +789,7 @@ armor dark~
 @eng a Suit of Dark Armor@rus ~~темные~~ ~~доспехи~~~
 @eng A Suit of Dark Armor lies here.@rus Темные доспехи (armor) лежат на земле.~
 steel~
-armor CEJ AD
+armor CEJikp 0 ADgj
 16 16 17 10 0
 50 25 15000 P
 A
@@ -803,7 +804,7 @@ helm dark шлем~
 @eng a Dark Helm@rus ~~темный~~ ~~шлем~~~
 @eng A Dark Helm seeks to possess you!@rus Темный шлем (help) ищет возможность овладеть твоим сознанием.~
 steel~
-armor CHM AE
+armor CHMins 0 AEgk
 18 18 18 12 0
 55 75 15000 P
 A
@@ -816,7 +817,7 @@ jar кувшин~
 @eng a jar@rus кувшин~
 @eng A glass jar sits here.@rus Стеклянный кувшин (jar) стоит прямо на полу.~
 glass~
-container 0 AO
+container 0 0 AOgu
 25 0 0 10 100
 48 10 0 P
 g male~
@@ -825,8 +826,8 @@ poison яд~
 @eng some poison@rus яд~
 @eng Some poison lies here.@rus Кто-то оставил здесь жуткий яд (poison), несущий мгновенную смерть.~
 food~
-food 0 A
-A 0 0 A 0
+food 0 0 Ag
+Ag 0 0 Ag 0
 1 0 0 P
 g male~
 #8117
@@ -834,7 +835,7 @@ symbol unholy символ~
 @eng an Unholy Symbol@rus ~~оскверненный~~ ~~символ~~~
 @eng The Unholy Symbol of some priest devoted to evil lies here.@rus Оскверненный символ (symbol), используемый служителями зла, оставлен здесь.~
 unknown~
-light EJ A
+light EJkp 0 Ag
 0 0 -1 0 0
 48 5 500 P
 A
@@ -845,7 +846,7 @@ symbol holy символ~
 @eng a holy Symbol@rus ~~священный~~ ~~символ~~~
 @eng The Holy Symbol of some priest devoted to good lies here.@rus Священный символ (symbol), оставленный священником, лежит здесь.~
 unknown~
-light AK A
+light AKgq 0 Ag
 0 0 -1 0 0
 48 5 500 P
 A
@@ -856,7 +857,7 @@ corpse останки~
 @eng a corpse@rus ~~останки~~ путешественника~
 @eng The corpse of some unfortunate adventurer is lying here.@rus Останки (corpse) какого-то неудачливого искателя приключений валяются на земле.~
 meat~
-npc_corpse 0 0
+npc_corpse 0 0 0
 0 0 0 0 0
 0 75 0 P
 g plural~
@@ -865,8 +866,8 @@ key black ключ~
 @eng a key@rus ключ~
 @eng A black key is here.@rus Маленький черный ключ (key) валяется на земле.~
 iron~
-key B AO
-B 0 0 0 0
+key Bh 0 AOgu
+Bh 0 0 0 0
 0 5 0 P
 g female~
 #8121
@@ -874,7 +875,7 @@ jar blood кувшин~
 @eng a jar of human blood@rus ~~кувшин~~, наполненный кровью~
 @eng A jar of human blood sits here.@rus Небольшой стеклянный кувшин (jar), наполненный человеческой кровью стоит прямо на полу.~
 glass~
-potion BEJ AO
+potion BEJhkp 0 AOgu
 60 'poison' 'weaken' 'curse' ''
 45 10 300 P
 g male~
@@ -886,7 +887,7 @@ A Dusty Trail~
 You are heading along a dusty trail that runs toward the town ahead. There
 is a horrid stench detectable even here. You see a sign up ahead.
 ~
-0 C field
+0 Ci field
 E
 sign~
 W E L C O M E    T O    G H O S T T O W N
@@ -912,7 +913,7 @@ you may find yourself unable to return home by conventional means, and
 instead have to travel through until you find another means of escape. Your
 choice.
 ~
-0 C city
+0 Ci city
 D0
 ~
 ~
@@ -929,7 +930,7 @@ wash over you. Shaking, you collect yourself and prepare to advance into
 this literally god-forsaken area. Houses line the street to the left and
 right. Up ahead lies a small town square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -937,11 +938,11 @@ Z -1 8106
 D1
 ~
 ~
-ABZ 0 8104
+ABZgh 0 8104
 D3
 ~
 ~
-ABZ 0 8103
+ABZgh 0 8103
 S
 #8103
 @eng A Ruined House@rus Разрушенный дом~
@@ -954,11 +955,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
-ABZ 0 8102
+ABZgh 0 8102
 S
 #8104
 @eng A Ruined House@rus Разрушенный дом~
@@ -971,11 +972,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D3
 ~
 ~
-ABZ 0 8102
+ABZgh 0 8102
 S
 #8105
 The Town Square~
@@ -984,7 +985,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1001,7 +1002,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1026,7 +1027,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1043,7 +1044,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1067,7 +1068,7 @@ You are standing in the middle of the town square, at the well. Paths stretch
 past houses and shops in every direction. There must still be some water in
 the well, as a small amount of grass has managed to grow around it.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1092,7 +1093,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1117,7 +1118,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D1
 ~
 ~
@@ -1134,7 +1135,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1159,7 +1160,7 @@ here across the square, which is now nothing more than a flat square of
 scorched earth and decimated vegetation, or down one of the side streets.
 There is a well in the middle of the square.
 ~
-0 N city
+0 Nt city
 D2
 ~
 ~
@@ -1174,11 +1175,11 @@ A Side Street~
 You are advancing along a side street that runs west away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
-ABZ 0 8115
+ABZgh 0 8115
 D1
 ~
 ~
@@ -1186,7 +1187,7 @@ Z -1 8108
 D2
 ~
 ~
-ABZ 0 8116
+ABZgh 0 8116
 D3
 ~
 ~
@@ -1203,11 +1204,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
-ABZ 0 8114
+ABZgh 0 8114
 S
 #8116
 @eng A Ruined House@rus Разрушенный дом~
@@ -1220,22 +1221,22 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8114
+ABZgh 0 8114
 S
 #8117
 A Side Street~
 You are advancing along a side street that runs west away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
-ABZ 0 8118
+ABZgh 0 8118
 D1
 ~
 ~
@@ -1243,7 +1244,7 @@ Z -1 8114
 D2
 ~
 ~
-ABZ 0 8119
+ABZgh 0 8119
 D3
 ~
 ~
@@ -1260,11 +1261,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
-ABZ 0 8117
+ABZgh 0 8117
 S
 #8119
 @eng A Ruined House@rus Разрушенный дом~
@@ -1277,22 +1278,22 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8117
+ABZgh 0 8117
 S
 #8120
 A Side Street~
 You have reached the end of a side street that runs west away from the Town
 Square. Houses lie to the north, west and south.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
-ABZ 0 8121
+ABZgh 0 8121
 D1
 ~
 ~
@@ -1300,11 +1301,11 @@ Z -1 8117
 D2
 ~
 ~
-ABZ 0 8122
+ABZgh 0 8122
 D3
 ~
 ~
-ABZ 0 8123
+ABZgh 0 8123
 S
 #8121
 @eng A Ruined House@rus Разрушенный дом~
@@ -1317,11 +1318,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
-ABZ 0 8120
+ABZgh 0 8120
 S
 #8122
 @eng A Ruined House@rus Разрушенный дом~
@@ -1334,11 +1335,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8120
+ABZgh 0 8120
 S
 #8123
 @eng A Ruined House@rus Разрушенный дом~
@@ -1351,22 +1352,22 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
-ABZ 0 8120
+ABZgh 0 8120
 S
 #8124
 A Side Street~
 You are advancing along a side street that runs east away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
-ABZ 0 8125
+ABZgh 0 8125
 D1
 ~
 ~
@@ -1374,7 +1375,7 @@ Z -1 8127
 D2
 ~
 ~
-ABZ 0 8126
+ABZgh 0 8126
 D3
 ~
 ~
@@ -1391,11 +1392,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
-ABZ 0 8124
+ABZgh 0 8124
 S
 #8126
 @eng A Ruined House@rus Разрушенный дом~
@@ -1408,22 +1409,22 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8124
+ABZgh 0 8124
 S
 #8127
 A Side Street~
 You are advancing along a side street that runs east away from the Town
 Square. Houses lie to the north and south.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
-ABZ 0 8128
+ABZgh 0 8128
 D1
 ~
 ~
@@ -1431,7 +1432,7 @@ Z -1 8130
 D2
 ~
 ~
-ABZ 0 8129
+ABZgh 0 8129
 D3
 ~
 ~
@@ -1448,11 +1449,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
-ABZ 0 8127
+ABZgh 0 8127
 S
 #8129
 @eng A Ruined House@rus Разрушенный дом~
@@ -1465,30 +1466,30 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8127
+ABZgh 0 8127
 S
 #8130
 A Side Street~
 You have reached the end of a side street that runs east away from the Town
 Square. Houses lie to the north, east and south.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
-ABZ 0 8131
+ABZgh 0 8131
 D1
 ~
 ~
-ABZ 0 8133
+ABZgh 0 8133
 D2
 ~
 ~
-ABZ 0 8132
+ABZgh 0 8132
 D3
 ~
 ~
@@ -1505,11 +1506,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
-ABZ 0 8130
+ABZgh 0 8130
 S
 #8132
 @eng A Ruined House@rus Разрушенный дом~
@@ -1522,11 +1523,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8130
+ABZgh 0 8130
 S
 #8133
 @eng A Ruined House@rus Разрушенный дом~
@@ -1539,18 +1540,18 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D3
 ~
 ~
-ABZ 0 8130
+ABZgh 0 8130
 S
 #8134
 Main Street~
 You are heading along Main Street, which heads south to the Town Square and
 North toward an intersection. Houses line the street.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1558,7 +1559,7 @@ Z -1 8137
 D1
 ~
 ~
-ABZ 0 8136
+ABZgh 0 8136
 D2
 ~
 ~
@@ -1566,7 +1567,7 @@ Z -1 8112
 D3
 ~
 ~
-ABZ 0 8135
+ABZgh 0 8135
 S
 #8135
 @eng A Ruined House@rus Разрушенный дом~
@@ -1579,11 +1580,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
-ABZ 0 8134
+ABZgh 0 8134
 S
 #8136
 @eng A Ruined House@rus Разрушенный дом~
@@ -1596,11 +1597,11 @@ to kill...
 отнюдь не мирном нраве обитателя этого дома. Скорее всего, если ты
 его встретишь, возникнут проблемы...
 ~
-0 DN inside
+0 DNjt inside
 D3
 ~
 ~
-ABZ 0 8134
+ABZgh 0 8134
 S
 #8137
 An Intersection~
@@ -1609,7 +1610,7 @@ northwest of here, while the former residences of the Mayor lie directly
 west. You aren't sure where the northern path goes, as that area is
 enshrouded in dark fog...
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1630,7 +1631,7 @@ debris and overgrown with tough, gray weeds that have sprouted through the
 carefully-laid cobblestones. There are junctions to the east and west of
 here.
 ~
-0 N city
+0 Nt city
 D1
 ~
 ~
@@ -1647,7 +1648,7 @@ once flourished with the most beautiful flora on the continent, but is now
 home to the same sickly-gray weeds that sprout through the footpath, as well
 as some very tall, sinister-looking trees.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1668,7 +1669,7 @@ of this town. Since the incursion of the undead, it has fallen into
 disrepair, though not to the state that the other dwellings have, leading
 you to suspect that perhaps someone (or thing) important now resides here...
 ~
-0 N city
+0 Nt city
 D1
 ~
 ~
@@ -1676,7 +1677,7 @@ Z -1 8139
 D3
 ~
 ~
-ABZ 0 8141
+ABZgh 0 8141
 S
 #8141
 The Hallway~
@@ -1685,19 +1686,19 @@ rather macabre-looking members of some decadent family. To the west lies
 a crooked stairway that leads up to the next level. Doors lie to the north and
 south of here.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8143
+ABZgh 0 8143
 D1
 ~
 ~
-ABZ 0 8140
+ABZgh 0 8140
 D2
 ~
 ~
-ABZ 0 8142
+ABZgh 0 8142
 D3
 ~
 ~
@@ -1710,11 +1711,11 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8141
+ABZgh 0 8141
 S
 #8143
 A Room in the Mayor's Manse~
@@ -1723,11 +1724,11 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN inside
+0 ADNgjt inside
 D2
 ~
 ~
-ABZ 0 8141
+ABZgh 0 8141
 S
 #8144
 The Hallway~
@@ -1736,11 +1737,11 @@ rather macabre-looking members of some decadent family. To the west lies
 a crooked stairway that leads up to the next level. Doors lie to the north and
 south of here.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8146
+ABZgh 0 8146
 D1
 ~
 ~
@@ -1748,7 +1749,7 @@ Z 0 8141
 D2
 ~
 ~
-ABZ 0 8145
+ABZgh 0 8145
 D3
 ~
 ~
@@ -1761,11 +1762,11 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8144
+ABZgh 0 8144
 S
 #8146
 A Room in the Mayor's Manse~
@@ -1774,18 +1775,18 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN inside
+0 ADNgjt inside
 D2
 ~
 ~
-ABZ 0 8144
+ABZgh 0 8144
 S
 #8147
 The Stairway~
 This crooked staircase looks very unstable, and this, coupled with the 
 dreadful stench emanating from upstairs, makes you reluctant to proceed...
 ~
-0 ADN inside
+0 ADNgjt inside
 D1
 ~
 ~
@@ -1801,7 +1802,7 @@ At the top of the stairs you pause to catch your breath, and are immediately
 sorry as horrid-smelling air fills your lungs. Coughing, you fight to 
 breathe, and steel yourself to continue.
 ~
-0 ADN inside
+0 ADNgjt inside
 D1
 ~
 ~
@@ -1818,19 +1819,19 @@ depicting rather macabre-looking members of some decadent family.  Doors lie
 to the north and south of here.  The hall ends at an impressive portal to
 the east.  
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8150
+ABZgh 0 8150
 D1
 ~
 ~
-ABZ 0 8152
+ABZgh 0 8152
 D2
 ~
 ~
-ABZ 0 8151
+ABZgh 0 8151
 D3
 ~
 ~
@@ -1843,11 +1844,11 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN inside
+0 ADNgjt inside
 D2
 ~
 ~
-ABZ 0 8149
+ABZgh 0 8149
 S
 #8151
 A Room in the Mayor's Manse~
@@ -1856,11 +1857,11 @@ about. Blood has been smeared all over the walls, and a sickly-looking vine
 has crawled in through the broken panes of the windows. You gag and try
 not to vomit.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8149
+ABZgh 0 8149
 S
 #8152
 The Mayor's Study~
@@ -1870,19 +1871,19 @@ the surprisingly good condition of this study, a comfortable den lined with
 shelves full of ancient texts. A large oak desk dominates the room, and
 behind this sits a plush leather chair. Wonder whose domain this is...?
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
-ABZ 0 8153
+ABZgh 0 8153
 D2
 ~
 ~
-ABZ 0 8154
+ABZgh 0 8154
 D3
 ~
 ~
-ABZ 0 8149
+ABZgh 0 8149
 S
 #8153
 @eng A Bedroom@rus Спальня~
@@ -1895,7 +1896,7 @@ of this domain usually recline. A painting on one wall catches your eye.
 здесь девушка.  Висящий над диваном рисунок неприодолимо притягивает к себе
 твой взгляд.  
 ~
-0 ADN inside
+0 ADNgjt inside
 E
 painting~
 It is a painting of one Count Philippe Gaspar duGascoigne, a handsome but
@@ -1904,7 +1905,7 @@ evil-looking gentleman of middle years.
 D2
 ~
 ~
-ABZ 0 8152
+ABZgh 0 8152
 S
 #8154
 A Bedroom~
@@ -1915,11 +1916,11 @@ the walls, and a corpse hangs by a rope from the chandelier in the center
 of the room. Whoever lives here must have a disagreeable personality to say
 the very least...
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 ~
 ~
-ABZ 0 8152
+ABZgh 0 8152
 S
 #8155
 A Murky Mist~
@@ -1928,7 +1929,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN city
+0 ANgt city
 D1
 ~
 ~
@@ -1945,7 +1946,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -1965,7 +1966,7 @@ The mist clears suddenly, and you find yourself standing outside a rather
 creepy little stone dwelling, with no windows, but a stout oak door 
 directly to the east.
 ~
-0 N city
+0 Nt city
 D0
 ~
 ~
@@ -1973,7 +1974,7 @@ Z -1 8156
 D1
 ~
 ~
-ABZ 0 8158
+ABZgh 0 8158
 S
 #8158
 Temporary Residence of a Demon~
@@ -1983,11 +1984,11 @@ You have inadvertently stumbled upon the temporary Prime Material Plane lair
 of ORCUS! If he isn't here, leave quickly. If he is...
 
 ~
-0 DN inside
+0 DNjt inside
 D3
 ~
 ~
-ABZ 0 8157
+ABZgh 0 8157
 S
 #8159
 A Murky Mist~
@@ -1996,7 +1997,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2016,11 +2017,11 @@ You have reached an area devoid of mist, the front yard of a ruined cottage
 whose door lies to the east. Peering through the windows, you imagine you
 can see shapes moving about.
 ~
-0 N city
+0 Nt city
 D1
 ~
 ~
-ABZ 0 8161
+ABZgh 0 8161
 D3
 ~
 ~
@@ -2032,7 +2033,7 @@ This cottage is, as all the other residences of this place, a ruined mess.
 Broken furniture and decaying corpses litter the floor. To the east, you
 can see a staircase leading down.
 ~
-0 AN inside
+0 ANgt inside
 D1
 ~
 ~
@@ -2040,7 +2041,7 @@ Z -1 8162
 D3
 ~
 ~
-ABZ 0 8160
+ABZgh 0 8160
 S
 #8162
 A Staircase~
@@ -2048,7 +2049,7 @@ This staircase is an ancient stone structure that looks far older than the
 other structures in the village. You peer down in an attempt to ascertain
 what may below, but can see only darkness.
 ~
-0 ACN inside
+0 ACNgit inside
 D3
 ~
 ~
@@ -2061,7 +2062,7 @@ You can still make it out beneath your feet, but only barely. Howls, screams
 and shouts of anger and terror ring out on all sides, and you feel fear 
 clutching at your heart.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2079,7 +2080,7 @@ and shouts of anger and terror ring out on all sides, and you feel fear
 clutching at your heart. You think you can make out a small stone building
 to the east.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2100,7 +2101,7 @@ not surprising considering the nature of the current inhabitants of this
 ghoulish town. A large iron door looms to the east, and you notice runes
 inscribed into its surface in silver.
 ~
-0 CN city
+0 CNit city
 E
 runes door~
 The runes on the door read-
@@ -2115,7 +2116,7 @@ The runes on the door read-
 D1
 ~
 ~
-ABZ 0 8166
+ABZgh 0 8166
 D3
 ~
 ~
@@ -2128,11 +2129,11 @@ no-one has been here in centuries. A layer of dust ankle-deep makes progress
 difficult, as do the hanging cobwebs, with strands as thick as your wrist.
 You hope you don't run into the spinner of these webs.
 ~
-0 AN inside
+0 ANgt inside
 D3
 ~
 ~
-ABZ 0 8165
+ABZgh 0 8165
 D5
 ~
 ~
@@ -2145,19 +2146,19 @@ prominent urge you have right now as you glance about the hellish murals
 on the walls, and the rotting corpses hanging in metal frames from the 
 arched ceiling.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ 0 8168
+ABZgh 0 8168
 D1
 ~
 ~
-ABZ 0 8170
+ABZgh 0 8170
 D2
 ~
 ~
-ABZ 0 8169
+ABZgh 0 8169
 D4
 ~
 ~
@@ -2170,11 +2171,11 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
-ABZ 0 8167
+ABZgh 0 8167
 S
 #8169
 A Room In the Crypt~
@@ -2183,11 +2184,11 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ 0 8167
+ABZgh 0 8167
 S
 #8170
 A Room In the Crypt~
@@ -2196,11 +2197,11 @@ identical- a raised stone sarcophagus with a bas-relief of the image of its
 occupant in life embossed on the lid. Other than that, the place is bare. Or
 is it...?
 ~
-0 AN inside
+0 ANgt inside
 D3
 ~
 ~
-ABZ 0 8167
+ABZgh 0 8167
 S
 #8171
 The Path To The Garden~
@@ -2208,7 +2209,7 @@ This path runs past some very ugly, dead plants that look like they've had
 the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth...
 ~
-0 N forest
+0 Nt forest
 D0
 ~
 ~
@@ -2226,7 +2227,7 @@ thorns that look like teeth. You suddenly curse as you nearly fall into a
 small hole in the center of the path which was partially covered by a nest
 of branches.
 ~
-0 CN forest
+0 CNit forest
 D0
 ~
 ~
@@ -2247,7 +2248,7 @@ the life drained from them by some disturbingly healthy looking plants with
 thorns that look like teeth. The garden gates are directly ahead... Peering
 through, you become reluctant to enter. It looks like a virtual maze...
 ~
-0 CN forest
+0 CNit forest
 D0
 ~
 ~
@@ -2263,7 +2264,7 @@ Here the cowardly necromancer Xantharus lurks, terrified of the evil he
 brought to his village. He would do anything to escape, but is currently
 too petrified to leave his hole.
 ~
-0 AN inside
+0 ANgt inside
 D4
 ~
 ~
@@ -2283,7 +2284,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2307,7 +2308,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2335,7 +2336,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2363,7 +2364,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2391,7 +2392,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2415,7 +2416,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2443,7 +2444,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2475,7 +2476,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2507,7 +2508,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2539,7 +2540,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2567,7 +2568,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2595,7 +2596,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2627,7 +2628,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2659,7 +2660,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2691,7 +2692,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D0
 ~
 ~
@@ -2719,7 +2720,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D1
 ~
 ~
@@ -2743,7 +2744,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D1
 ~
 ~
@@ -2770,7 +2771,7 @@ wish here.
 тьмы и смерти. можешь спокойно присесть и отдохнуть, никто не сможет
 потревожить тебя здесь, не опасаясь разгневать богов.
 ~
-0 CK forest
+0 CKiq forest
 D1
 ~
 ~
@@ -2798,7 +2799,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D1
 ~
 ~
@@ -2826,7 +2827,7 @@ your surroundings.
 своим тягучим безмолвием и придающим всем звукам особо мрачный и страшный
 оттенок.
 ~
-0 AN forest
+0 ANgt forest
 D2
 ~
 ~
@@ -2844,7 +2845,7 @@ and shouts of anger and terror ring out on all sides, and you feel fear
 clutching at your heart. You think you can make out a small stone building
 to the east. A gaping hole looms out of the fog in the ground to the right.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2865,7 +2866,7 @@ is how they decorate their lair. So when you enter and see treasure splashed
 everywhere, along with a generous helping of blood and fried corpses, you are
 at least 90% sure you have entered the lair of one...
 ~
-0 AN inside
+0 ANgt inside
 D4
 ~
 ~
@@ -2879,7 +2880,7 @@ and shouts of anger and terror ring out on all sides, and you feel fear
 clutching at your heart. You think you can make out a small stone building
 to the east.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2898,7 +2899,7 @@ clutching at your heart. You think you can make out a small stone building
 to the east. You aren't sure, but you think you can see a dark tunnel up
 ahead.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2922,7 +2923,7 @@ escape.
 это место находится под покровительством богов, а значит они могут
 помочь тебе поскорее добраться до дому.
 ~
-0 AC city
+0 ACgi city
 D2
 ~
 ~

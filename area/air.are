@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name In the Air~
 VNUMs 1000 1099
 Credits Copper~
@@ -19,10 +20,10 @@ It gracefully dances around your head.
 Он исполняет грациозный танец вокруг твоей головы.
 ~
 human~
-AGR DE 500 0
+GRmx 0 0 0 ALgr 500 0
 5 0 2d7+46 5d9+100 1d5+0 'none'
 6 6 6 8
-FU 0 0 0
+FUl
 stand stand male 1
 0 0 medium unknown
 #1001
@@ -37,10 +38,10 @@ for the fact it is hungry and is attacking you!
 прекрасен, только вот очень уж голоден и пытается напасть на тебя.
 ~
 human~
-AFG 0 300 0
+FGlm 0 0 0 0 300 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 25
 0 0 medium unknown
 #0
@@ -51,8 +52,8 @@ rose роза~
 @eng a red rose@rus ~~красная~~ ~~роза~~~
 @eng A red rose is lying on the ground.@rus Красная роза (rose) лежит на земле.~
 flower~
-treasure 0 AE
-BC 0 0 0 0
+treasure 0 0 AEgk
+BChi 0 0 0 0
 0 80 0 P
 E
 rose~

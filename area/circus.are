@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Circus~
 VNUMs 4400 4499
 Credits Binky~
@@ -19,10 +20,10 @@ to you.  So are you going to buy a ticket or what????
 Так, что будем покупать билет или как ?
 ~
 human~
-AB 0 250 0
+Bh 0 0 0 0 250 0
 31 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -36 -36 -36 -36
-0 0 0 0
+0
 stand stand male 9216
 0 0 medium unknown
 #4401
@@ -37,10 +38,10 @@ don't you put him out of your misery?
 Почему ты не уберешь его со своего пути ?
 ~
 human~
-A 0 1000 0
+0 0 0 0 0 1000 0
 1 0 2d6+10 2d6+100 1d4+0 'punch'
 60 60 60 60
-0 0 0 0
+0
 stand stand male 102
 0 0 small unknown
 #4402
@@ -54,10 +55,10 @@ in line.
 @rus Кажется, что он очень зол на то, что ты расталкиваешь всех вокруг.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 5 0 2d6+60 2d7+100 1d6+1 'punch'
 40 40 40 40
-0 0 0 0
+0
 stand stand male 324
 0 0 medium unknown
 #4403
@@ -72,10 +73,10 @@ bath at home right now.
 чашечку кофе и съесть мороженное.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 3 0 2d6+35 2d6+35 1d6+0 'punch'
 50 50 50 50
-0 0 0 0
+0
 stand stand female 108
 0 0 medium unknown
 #4404
@@ -89,10 +90,10 @@ Besides being lost, he is now psychologically scarred.
 @rus Бобби напуган, ему не следовало убегать, чтобы посмотреть на Медвежью Леди.
 ~
 human~
-ACGH 0 1000 0
+CGHimn 0 0 0 0 1000 0
 1 0 2d6+10 2d6+100 1d4+0 'punch'
 70 70 70 70
-0 0 0 0
+0
 stand stand male 44
 0 0 small unknown
 #4405
@@ -106,10 +107,10 @@ won't you?
 @rus Мама Бобби взволнована. Если вы видели ее сына, вы ведь скажете ей ?
 ~
 human~
-ACGH 0 1000 0
+CGHimn 0 0 0 0 1000 0
 3 0 2d6+35 2d6+35 1d6+0 'punch'
 50 50 50 50
-0 0 0 0
+0
 stand stand female 108
 0 0 medium unknown
 #4406
@@ -123,10 +124,10 @@ eyes.   RUN!!!!
 @rus Бородатая дама выглядит жутковато. Она пронзает тебя своим взглядом. БЕГИ !!!
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 5 0 2d6+60 2d7+100 1d6+1 'slap'
 40 40 40 40
-0 0 0 0
+0
 stand stand female 378
 0 0 medium unknown
 #4407
@@ -141,10 +142,10 @@ creations, you might actually be amazed.
 столом, возможно было бы интересно.
 ~
 elf~
-AB DF 0 0
+Bh 0 0 0 ABgh 0 0
 5 0 2d6+60 2d7+71 1d7+1 'punch'
 50 50 50 30
-0 0 0 0
+0
 stand stand male 300
 0 0 medium unknown
 #4408
@@ -157,10 +158,10 @@ The Midget acts very silly, but you see a cunning gleam in his eye.  This is
 one to watch out for.
 ~
 dwarf~
-ABCH 0 -300 0
+BCHhin 0 0 0 0 -300 0
 2 0 2d7+21 2d7+21 1d5+0 'punch'
 75 75 75 80
-0 0 0 0
+0
 stand stand male 18
 0 0 medium unknown
 #4409
@@ -175,10 +176,10 @@ before tangling with him.
 связаться с ним.
 ~
 giant~
-ABCGH N 100 0
+BCGHhimn 0 Nt 0 0 100 0
 8 0 2d7+96 2d7+96 1d7+2 'punch'
 45 45 45 66
-0 0 0 0
+0
 stand stand male 378
 0 0 giant unknown
 #4410
@@ -193,10 +194,10 @@ to use his sword as well.
 и не плохо им махает.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 2 0 2d7+21 2d6+10 1d5+0 'punch'
 70 70 70 80
-0 0 0 0
+0
 stand stand male 9
 0 0 medium unknown
 #4411
@@ -210,10 +211,10 @@ member audience зритель~
 пристальный взгляд никакого внимания.
 ~
 human~
-ABCH 0 0 0
+BCHhin 0 0 0 0 0 0
 1 0 2d6+10 0d0+0 1d4+0 'punch'
 75 75 75 80
-0 0 0 0
+0
 stand stand male 10
 0 0 medium unknown
 #4412
@@ -227,10 +228,10 @@ He turns towards you with a pie.  DUCK!
 @rus Клоун смеется, кидается тортами и жутко раздражает тебя. Что за придурок !?
 ~
 human~
-ABCH 0 500 0
+BCHhin 0 0 0 0 500 0
 1 0 2d6+10 0d0+0 1d4+0 'punch'
 75 75 75 80
-0 0 0 0
+0
 stand stand male 20
 0 0 medium unknown
 #4413
@@ -245,10 +246,10 @@ fit.
 Кажется, что для этого ему надо одеть их боком.
 ~
 dwarf~
-ABCH 0 500 0
+BCHhin 0 0 0 0 500 0
 2 0 2d7+21 2d6+10 1d5+0 'punch'
 70 70 70 80
-0 0 0 0
+0
 stand stand male 20
 0 0 medium unknown
 #4414
@@ -263,10 +264,10 @@ away from him until you know.
 под руку.
 ~
 giant~
-ABCH 0 300 0
+BCHhin 0 0 0 0 300 0
 5 0 2d6+60 2d6+60 1d6+1 'punch'
 20 20 20 50
-0 0 0 0
+0
 stand stand male 240
 0 0 giant unknown
 #4415
@@ -279,10 +280,10 @@ He was probably hired because he has a voice you could hear over a roaring
 dragon (which, incidently, is the next act).
 ~
 elf~
-ABC O 0 0
+BChi 0 Ou 0 0 0 0
 12 0 2d10+150 2d10+150 1d10+3 'punch'
 10 10 10 30
-0 0 0 0
+0
 stand stand male 990
 0 0 medium unknown
 #4416
@@ -296,10 +297,10 @@ wiping his face with.  You here him mumble, 'maybe I shouldn't have stopped
 by the Grunting Boar before my act'.
 ~
 human~
-ABC 0 0 0
+BChi 0 0 0 0 0 0
 3 0 2d6+35 2d6+35 1d6+0 'punch'
 60 60 60 80
-0 0 0 0
+0
 stand stand male 150
 0 0 medium unknown
 #4417
@@ -313,10 +314,10 @@ throwers rehearsal last night.  She did wonder why the dashing knife thrower
 invited her out to dinner.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 1 0 2d6+10 2d6+10 1d4+0 'punch'
 75 75 75 80
-R 0 0 0
+Rx
 sleep sleep female 11
 0 0 medium unknown
 #4418
@@ -328,10 +329,10 @@ He is a dashing man, who seems at home with the deadly beasts.  He controls
 the animals with whip and force of mind.
 ~
 human~
-AB 0 500 0
+Bh 0 0 0 0 500 0
 7 0 2d6+85 2d7+71 1d8+1 'punch'
 20 20 20 40
-0 0 0 0
+0
 stand stand male 560
 0 0 medium unknown
 #4419
@@ -343,10 +344,10 @@ This is the King of the Beasts, and you understand why as he tears a chunk of
 flesh from your body!
 ~
 bear~
-ABCF 0 -1000 0
+BCFhil 0 0 0 0 -1000 0
 9 0 8d8+70 1d1+199 1d8+2 'chomp'
 30 30 30 50
-0 0 0 0
+0
 stand stand none 880
 0 0 large unknown
 #4420
@@ -358,10 +359,10 @@ The only way past him seems to be to push him off.  You wouldn't do that,
 would you?  
 ~
 human~
-ABC 0 200 0
+BChi 0 0 0 0 200 0
 5 1 8d9+0 10d10+100 1d6+0 'punch'
 50 50 50 70
-F 0 0 0
+Fl
 stand stand male 135
 0 0 medium unknown
 #4421
@@ -376,10 +377,10 @@ supplies bought for them by the Circus Owner.
 дешевой гадостью, которую купил хозяин цирка.
 ~
 human~
-AG N 1000 0
+Gm 0 Nt 0 0 1000 0
 1 0 3d6+0 0d1+0 0d1+0 'punch'
 75 75 75 80
-0 0 0 0
+0
 stand stand female 540
 0 0 medium unknown
 #4422
@@ -394,10 +395,10 @@ probably would not want to get him angry.
 стоит его злить - раздавит как котенка.
 ~
 unique~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 10 0 8d8+90 10d10+90 2d5+1 'pound'
 50 50 50 70
-0 0 0 0
+0
 stand stand male 990
 0 0 large unknown
 #4423
@@ -409,10 +410,10 @@ The bear hasn't been fed for a long time.  The Circus Owner figures he can
 save a lot of money buy feeding the bear on unwary adventurers like yourself.
 ~
 bear~
-ABF 0 0 0
+BFhl 0 0 0 0 0 0
 4 0 8d8+16 10d10+1 1d4+2 'bite'
 60 60 60 75
-0 0 0 0
+0
 stand stand none 270
 0 0 large unknown
 #4424
@@ -425,10 +426,10 @@ animals, although they look like they could use more food.  More evidence
 of the cheapness of the Circus Owner.
 ~
 unique~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 4 0 8d9+8 10d10+1 1d4+1 'pound'
 57 57 57 78
-0 0 0 0
+0
 stand stand none 300
 0 0 medium unknown
 #4425
@@ -443,10 +444,10 @@ Circus Owner was looking for.
 и искал хозяин цирка.
 ~
 unique~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 3 0 8d5+0 10d10+100 1d6+0 'pound'
 62 62 62 75
-0 0 0 0
+0
 stand stand none 66
 0 0 medium unknown
 #4426
@@ -460,10 +461,10 @@ delight.  This man is in trouble if the ASPCA ever finds out, but until then,
 he will probably keep making a LOT of money.
 ~
 drow~
-ABCH 0 -1000 0
+BCHhin 0 0 0 0 -1000 0
 10 0 2d7+121 2d7+127 2d4+2 'punch'
 30 30 30 50
-0 0 0 0
+0
 stand stand male 891
 0 0 medium unknown
 #4427
@@ -475,10 +476,10 @@ He is wearing a colorful pair of overalls and a bright painter's cap.  He
 makes cotton candy in a big tub, where all the kids can watch him.
 ~
 human~
-AB 0 1000 0
+Bh 0 0 0 0 1000 0
 8 0 2d7+96 2d6+10 1d7+2 'punch'
 40 40 40 60
-0 0 0 0
+0
 stand stand male 80000
 0 0 medium unknown
 #4428
@@ -490,10 +491,10 @@ He puts on quite a show.  If you couldn't see the wires on half of his
 creations, you might actually be amazed.
 ~
 elf~
-ABF DF 0 0
+BFhl 0 0 0 ABgh 0 0
 3 0 2d6+35 2d6+35 1d5+0 'punch'
 70 70 70 50
-0 0 0 0
+0
 stand stand male 300
 0 0 medium unknown
 #4429
@@ -505,10 +506,10 @@ He looks like he has been purposely abused to keep him mean.  Maybe if you
 gave him a pie, he would be your friend?
 ~
 dog~
-ABCF DF -500 0
+BCFhil 0 0 0 ABgh -500 0
 4 0 2d7+46 2d7+46 1d5+1 'bite'
 45 45 45 60
-0 0 0 0
+0
 stand stand male 0
 0 0 small unknown
 #4430
@@ -519,10 +520,10 @@ A burly worker coming to the aid of the Circus Owner.
 The burly worker has sweat dripping off of every inch of his body.
 ~
 human~
-ABF 0 -1000 0
+BFhl 0 0 0 0 -1000 0
 8 0 2d7+96 2d7+96 1d7+2 'pound'
 30 30 30 40
-0 0 0 0
+0
 stand stand male 800
 0 0 medium unknown
 #4450
@@ -532,10 +533,10 @@ Binky's chef stands here, ready to carve the turkey.
 ~
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 18 0 3d9+283 3d9+283 2d7+4 'punch'
 0 0 0 20
-0 0 0 0
+0
 stand stand none 3200
 0 0 medium unknown
 #4451
@@ -547,10 +548,10 @@ The Midget is very good at his trade, and makes quit a bit of money buy picking
 pockets of the unwary. 
 ~
 dwarf~
-AG 0 -900 0
+Gm 0 0 0 0 -900 0
 3 0 2d6+35 2d6+35 1d6+0 'slice'
 60 60 60 80
-0 0 0 0
+0
 stand stand male 1000
 0 0 medium unknown
 #0
@@ -561,8 +562,8 @@ paper бумажка ticket билет~
 @eng a ticket@rus билет~
 @eng An unwanted scrap of paper lies here.@rus Какая-то бумажка (ticket) валяется здесь.~
 paper~
-key 0 A
-A 0 0 0 0
+key 0 0 Ag
+Ag 0 0 0 0
 1 0 7 P
 g none~
 #4401
@@ -570,7 +571,7 @@ candy~
 cotton candy~
 Some pink fluffy candy lies here.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 1 'refresh' 'refresh' '' ''
 4 1 64 P
 g none~
@@ -579,7 +580,7 @@ key hairy~
 a hairy key~
 A key lies here, covered with hair clippings.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 1 1 4 P
 g none~
@@ -588,7 +589,7 @@ key~
 a huge key~
 A humongous, heavy key lies here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 4 1 60 P
 g none~
@@ -597,7 +598,7 @@ key small~
 a small key~
 A small key lies here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 1 1 5 P
 g none~
@@ -606,7 +607,7 @@ key shimmering~
 a shimmering key~
 An object lies here, shimmering, so that you aren't sure what it is.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 1 1 5 P
 g none~
@@ -615,7 +616,7 @@ key slender~
 a slender key~
 A very thin key lies here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 1 1 4 P
 g none~
@@ -624,7 +625,7 @@ bracers strongman~
 the strongman's bracers~
 A pair of large bracers lies here.~
 unknown~
-armor 0 AI
+armor 0 0 AIgo
 3 3 3 3 0
 4 8 100 P
 A
@@ -637,7 +638,7 @@ sword small~
 a small, thin sword~
 A small sword lies here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 3 3 'pierce' 0
 2 1 8 P
 A
@@ -650,7 +651,7 @@ staff translucent~
 a pointy translucent staff~
 A long, thin, shimmering object lies here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 staff 3 4 'pound' 0
 5 0 144 P
 A
@@ -661,7 +662,7 @@ sword bastard~
 the sword swallower's sword~
 A rubber sword swallower's sword.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 2 3 'slice' 0
 1 0 10 P
 A
@@ -672,7 +673,7 @@ purse~
 the midget's purse~
 A small purse lies here.~
 unknown~
-container 0 AO
+container 0 0 AOgu
 30 0 0 5 50
 1 1 16 P
 g none~
@@ -681,7 +682,7 @@ bunch coins~
 a bunch of coins~
 A bunch of coins lies here.~
 unknown~
-money 0 A
+money 0 0 Ag
 700 0 0 0 0
 1 1 16 P
 g none~
@@ -690,7 +691,7 @@ razor~
 a razor~
 A razor lies here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 1 5 'stab' 0
 2 1 20 P
 A
@@ -703,8 +704,8 @@ barbell~
 a barbell~
 A huge barbell lies here.~
 unknown~
-furniture 0 AO
-A CDFI EHK BCEH CFG
+furniture 0 0 AOgu
+Ag CDFIijlo EHKknq BCEHhikn CFGilm
 5 120 0 P
 g none~
 #4415
@@ -712,7 +713,7 @@ sign записка~
 @eng a letter@rus записка~
 @eng A letter is posted on the games booths.@rus Какая-то записка (letter) приклеена к палатке.~
 unknown~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -729,8 +730,8 @@ knife~
 a sharp knife~
 A sharp, well balanced knife lies on the ground.~
 unknown~
-weapon 0 AN
-dagger 2 3 'stab' D
+weapon 0 0 ANgt
+dagger 2 3 'stab' Dj
 2 1 12 P
 A
 18 2
@@ -740,7 +741,7 @@ blindfold~
 a blindfold~
 A strip of black cloth lies here.~
 unknown~
-armor 0 AE
+armor 0 0 AEgk
 2 2 2 2 0
 1 1 8 P
 A
@@ -753,7 +754,7 @@ whip~
 a whip~
 A leather whip is lying on the ground.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 whip 4 3 'whip' 0
 8 1 256 P
 A
@@ -766,7 +767,7 @@ pole~
 tightrope walker's pole~
 A long pole lies here.~
 unknown~
-furniture A AO
+furniture Ag 0 AOgu
 0 0 0 0 0
 6 1 175 P
 A
@@ -777,7 +778,7 @@ clown shoes~
 big clown shoes~
 A huge pair of shoes lies here, apparently forgotten.~
 unknown~
-armor 0 AG
+armor 0 0 AGgm
 3 3 3 3 0
 1 4 3 P
 A
@@ -790,7 +791,7 @@ tophat hat~
 a tophat~
 The Ringmaster's tophat lies here.~
 unknown~
-armor 0 AE
+armor 0 0 AEgk
 3 3 3 3 0
 7 1 280 P
 A
@@ -803,8 +804,8 @@ chest~
 a chest~
 A chest lies here, buried in a pile of hair.~
 unknown~
-container 0 0
-100 ACD 4402 100 100
+container 0 0 0
+100 ACDgij 4402 100 100
 1 0 0 P
 g none~
 #4423
@@ -812,8 +813,8 @@ chest~
 a chest~
 A shimmering object sits in the corner.~
 unknown~
-container 0 0
-100 ACD 4405 100 100
+container 0 0 0
+100 ACDgij 4405 100 100
 1 0 0 P
 g none~
 #4424
@@ -821,8 +822,8 @@ chest~
 a chest~
 The strongman's huge chest lies here. ~
 unknown~
-container 0 0
-100 ACD 4403 100 100
+container 0 0 0
+100 ACDgij 4403 100 100
 1 0 0 P
 g none~
 #4425
@@ -830,8 +831,8 @@ chest~
 a chest~
 A small chest lies here.~
 unknown~
-container 0 0
-100 ACD 4404 100 100
+container 0 0 0
+100 ACDgij 4404 100 100
 1 0 0 P
 g none~
 #4426
@@ -839,8 +840,8 @@ chest~
 another chest~
 A chest sits in the corner.~
 unknown~
-container 0 0
-100 ACD 4406 100 100
+container 0 0 0
+100 ACDgij 4406 100 100
 1 0 0 P
 g none~
 #4427
@@ -848,7 +849,7 @@ slip paper~
 a paper~
 A piece of wadded up paper has been left on the ground.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 5 1 100 P
 g none~
@@ -858,8 +859,8 @@ a combination safe~
 A painting hangs on the wall, but it doesn't appear that valuable. Stick to 
 the cash.~
 unknown~
-container 0 0
-100 ACD 4427 100 100
+container 0 0 0
+100 ACDgij 4427 100 100
 7 0 0 P
 E
 painting~
@@ -872,7 +873,7 @@ note~
 @eng a note@rus табличка~
 @eng A sign hangs by the ticket booth.@rus К кассе прикреплена табличка (note).~
 unknown~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 2 0 0 P
 E
@@ -885,7 +886,7 @@ bucket~
 a bucket~
 A colorful bucket lies here.~
 unknown~
-container 0 AO
+container 0 0 AOgu
 15 0 0 15 100
 2 1 16 P
 g none~
@@ -894,7 +895,7 @@ drugged food~
 drugged food~
 A delicious looking dinner lies here.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 34 'sleep' 'weaken' 'poison' ''
 2 1 8 P
 g none~
@@ -903,8 +904,8 @@ pizza food~
 a slice of Tombstone Sausage and Pepperoni pizza~
 A slice of pizza lies here, piping hot.~
 unknown~
-food 0 A
-CFG ACEG 0 0 0
+food 0 0 Ag
+CFGilm ACEGgikm 0 0 0
 3 1 27 P
 g none~
 #4433
@@ -912,8 +913,8 @@ steak food~
 a juicy steak~
 A juicy steak dinner lies here.~
 unknown~
-food 0 A
-CFG CFG 0 0 0
+food 0 0 Ag
+CFGilm CFGilm 0 0 0
 4 1 48 P
 g none~
 #4434
@@ -921,8 +922,8 @@ bigmac food~
 a delicious BigMac~
 Some food lies here, wrapped in paper.~
 unknown~
-food 0 A
-CFG ACEG 0 0 0
+food 0 0 Ag
+CFGilm ACEGgikm 0 0 0
 3 1 27 P
 g none~
 #4435
@@ -930,7 +931,7 @@ coke can~
 a can of Coke~
 A can of Coke lies here.~
 unknown~
-drink 0 A
+drink 0 0 Ag
 100 96 'coke' 0 0
 4 1 8 P
 g none~
@@ -939,7 +940,7 @@ key~
 the key to the lion's cage~
 The key to the lion's cage lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 1 1 10 P
 g none~
@@ -948,7 +949,7 @@ bunch coins~
 a bunch of coins~
 A bunch of coins lies here.~
 unknown~
-money 0 A
+money 0 0 Ag
 50 0 0 0 0
 1 0 16 P
 g none~
@@ -957,7 +958,7 @@ bunch coins~
 a bunch of coins~
 A bunch of coins lies here.~
 unknown~
-money 0 A
+money 0 0 Ag
 100 0 0 0 0
 1 0 4 P
 g none~
@@ -966,7 +967,7 @@ nose red~
 a red clown nose~
 A red nose like a clown might wear, lies forgotten upon the ground.~
 unknown~
-armor 0 AE
+armor 0 0 AEgk
 2 2 2 2 0
 1 1 4 P
 A
@@ -979,8 +980,8 @@ chest~
 a chest~
 A chest sits under the hammock.~
 unknown~
-container 0 0
-100 ACD 4441 100 100
+container 0 0 0
+100 ACDgij 4441 100 100
 4 4 0 P
 g none~
 #4441
@@ -988,7 +989,7 @@ key~
 a key~
 A small key lies in the dirt.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 6 1 120 P
 g none~
@@ -997,7 +998,7 @@ clear potion~
 a clear potion~
 A clear vial of fluid sits here.~
 unknown~
-potion GH AO
+potion GHmn 0 AOgu
 29 'fly' 'remove curse' 'continual light' ''
 3 3 48 P
 g none~
@@ -1006,8 +1007,8 @@ roast pheasant food~
 a roast~
 Delicious roast pheasant tempts your taste buds.~
 unknown~
-food 0 A
-CFG EG 0 0 0
+food 0 0 Ag
+CFGilm EGkm 0 0 0
 4 1 0 P
 g none~
 #4444
@@ -1015,8 +1016,8 @@ turkey food~
 a slice of turkey~
 A plump turkey sits on the table.~
 unknown~
-food 0 A
-CFG EG 0 0 0
+food 0 0 Ag
+CFGilm EGkm 0 0 0
 3 1 0 P
 g none~
 #4445
@@ -1024,8 +1025,8 @@ stuffing food~
 homemade stuffing~
 A bowl of homemade stuffing sits upon the table.~
 unknown~
-food 0 A
-CFG CFG 0 0 0
+food 0 0 Ag
+CFGilm CFGilm 0 0 0
 3 1 0 P
 g none~
 #4446
@@ -1033,8 +1034,8 @@ cherry pie food~
 a slice of cherry pie~
 Some Cherry Pie A La Mode on the table makes your mouth water.~
 unknown~
-food 0 A
-CFG BEF 0 0 0
+food 0 0 Ag
+CFGilm BEFhkl 0 0 0
 4 1 0 P
 g none~
 #4447
@@ -1042,7 +1043,7 @@ wineskin~
 a wineskin~
 A wineskin filled with Chardonnay sits upon the table.~
 unknown~
-drink 0 A
+drink 0 0 Ag
 30 30 'rose wine' 0 0
 2 1 0 P
 g none~
@@ -1051,8 +1052,8 @@ scalpel~
 a scalpel~
 A thin knife with a sharp blade lies here.~
 unknown~
-weapon 0 AN
-dagger 4 3 'slice' D
+weapon 0 0 ANgt
+dagger 4 3 'slice' Dj
 6 1 108 P
 A
 18 -2
@@ -1064,8 +1065,8 @@ refrigerator frig fridge~
 Binky's refrigerator~
 Binky's refrigerator sits here, packed full of goodies.~
 unknown~
-container BG B
-999 AC 0 999 100
+container BGhm 0 Bh
+999 ACgi 0 999 100
 3 24 0 P
 g none~
 #4450
@@ -1073,8 +1074,8 @@ carving knife~
 a carving knife~
 A very sharp knife gleams from the floor.~
 unknown~
-weapon 0 AN
-dagger 6 3 'pierce' D
+weapon 0 0 ANgt
+dagger 6 3 'pierce' Dj
 16 1 2000 P
 A
 18 3
@@ -1272,7 +1273,7 @@ The place is deserted of spectators.
 кто на ней ! Она с бородой. С большой. Просто с громадной ! Вроде ты уселся
 без затруднений. Посетителей много и увех челюсть ниже подбородка.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the Illusionist's tent.
 ~
@@ -1303,7 +1304,7 @@ The Dragon snorts a cloud of smoke at you.
 чудовище !!! Это ДРАКОН. Он слегка приоткрыл свою пасть но не спалил тебя, а
 только выпустил облако пара и рассмеялся.
 ~
-0 D inside
+0 Dj inside
 E
 Dragon~
 The Dragon looks incredibly powerful.  You are in awe of it, not believing that
@@ -1334,7 +1335,7 @@ responsible.'
 другу:Я бы с удовольствием посмотрел на карликов. говорят, что их шоу
 самое лучшее в цирке."
 ~
-0 D inside
+0 Dj inside
 D0
 You see the Illusionist's Tent.
 ~
@@ -1354,7 +1355,7 @@ front is obviously where the Sword Swallower performs his acts of bravery.
 Several rickety chairs sit in front of the stage, looking as if they might
 not hold the weight of the next customer to sit down.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the Bearded Lady's Tent.
 ~
@@ -1382,7 +1383,7 @@ If Ivan the Strongman can lift those, then he really must be strong.
 несколько огромных снарядов... должно быть это часть шоу. Силач Иван может
 поднять их все сразу. Он наверное очень силен.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the Entrance to the Freak Shows.
 ~
@@ -1433,7 +1434,7 @@ Z 0 4414
 D2
 ~
 door~
-ABCFZ 4400 4416
+ABCFZghil 4400 4416
 S
 #4416
 Entryway between the Grand Stands~
@@ -1444,12 +1445,12 @@ the trumpet of an elephant somewhere, and the roar of a lion.  The applause
 of the crowd is momentarily deafening.  To the west and east you see under
 the Grand Stands.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the Entrance to the Big Top.
 ~
 door~
-ABCFZ 4400 4415
+ABCFZghil 4400 4415
 D1
 You see under the stands.
 ~
@@ -1471,7 +1472,7 @@ Under the Grand Stands~
 You are under the Stands.  Popcorn and peanut shells litter the floor.
 You can climb up the supports into the stands from here.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -1488,7 +1489,7 @@ behind you yell at you to sit down.  If you don't sit down soon, there may
 be a fight.  You may climb down below the stands, or exit by the stairs and
 get a good look at the Big Top.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -1511,7 +1512,7 @@ preparing to put on a blind fold, while his assistant stands against a target.
 He has a rack of knives next to him.  You may enter the 2nd Ring to the south.
 To the east and west are the Grand Stands, and the Entryway is to the north.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the Entryway.
 ~
@@ -1538,7 +1539,7 @@ behind you yell at you to sit down.  If you don't sit down soon, there may
 be a fight.  You may climb down below the stands, or exit by the stairs and
 get a good look at the Big Top.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1553,7 +1554,7 @@ Under the Grand Stands~
 You are under the Stands.  Popcorn and peanut shells litter the floor.
 You can climb up the supports into the stands from here.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1573,7 +1574,7 @@ To the north is the first look a visitor to the Big Top has.  You notice that
 the 1st ring is a cage which contains several HUNGRY Lions.  Entering it would
 be fairly suicidal.  It is a good thing it is locked!
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1585,7 +1586,7 @@ Z 0 4423
 D3
 ~
 door~
-ABCFZ 4436 4424
+ABCFZghil 4436 4424
 D4
 ~
 ~
@@ -1603,7 +1604,7 @@ you can see many red smears which have been not quite cleaned from the target.
 You see the crowd looking at you, probably wondering what your act is.  The
 only exit is to the 2nd Ring to the west.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -1617,15 +1618,15 @@ this room.  A few hoops are in the cage, one of which is flaming.  You think
 that only an idiot would be in here with the lions.  With the lions?  Hey, 
 YOU ARE IN HERE WITH THE LIONS!!!  YOU'D BETTER RUN!!!!!!
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 door~
-ABCFZ 4436 4422
+ABCFZghil 4436 4422
 D5
 ~
 hole~
-ABCFZ 4414 4469
+ABCFZghil 4414 4469
 S
 #4425
 On the High Wire~
@@ -1636,7 +1637,7 @@ little chance of running away if you did fall into the cage.  As you take
 your eyes off the ground below, you see the end of the wire immediately to 
 your west.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1658,7 +1659,7 @@ to the ground below.  It is good thing your training as adventurer has given
 you a little better sense of balance than most people.  From up here, you 
 really do have a nice view, of a very long wire.  You still have a ways to go.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1675,7 +1676,7 @@ choices are to go back down, or try to walk the high wire to the west.  Of
 course, the wire goes above the lion's cage, which has an open top.  If you 
 did survive the fall, you probably wouldn't feel like adventuring again.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -1691,7 +1692,7 @@ You made it safely.  Now you may climb down and sneak out the back
 entrance of the Big Top.  Or you can brave the Tightrope again.  You hear
 the noises of animals outside the Big Top.  Below you is the trapdoor.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1699,7 +1700,7 @@ Z 0 4425
 D5
 ~
 trapdoor~
-ABZ 0 4429
+ABZgh 0 4429
 S
 #4429
 Behind the Big Top~
@@ -1727,7 +1728,7 @@ Z 0 4445
 D4
 ~
 door~
-ABZ 0 4428
+ABZgh 0 4428
 S
 #4430
 The Animal Pens~
@@ -1756,15 +1757,15 @@ Z 0 4429
 D1
 ~
 door~
-ABZ 0 4433
+ABZgh 0 4433
 D2
 ~
 door~
-ABZ 0 4432
+ABZgh 0 4432
 D3
 ~
 door~
-ABZ 0 4431
+ABZgh 0 4431
 S
 #4431
 The Elephant Pen~
@@ -1776,7 +1777,7 @@ you should leave to the north?
 D1
 ~
 door~
-ABZ 0 4430
+ABZgh 0 4430
 S
 #4432
 The Bear Pen~
@@ -1786,11 +1787,11 @@ security guards go and save the price of feeding the bear if he just put up
 a sign inviting visitors to visit the friendly bear.  It appears you fell
 for it.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABZ 0 4430
+ABZgh 0 4430
 S
 #4433
 The Horse Corral~
@@ -1801,7 +1802,7 @@ performing.  It is rather small for the amount of horses that are kept here.
 D3
 ~
 door~
-ABZ 0 4430
+ABZgh 0 4430
 S
 #4434
 The Row of Trailers~
@@ -1813,7 +1814,7 @@ Trailer.  You may also continue east or west.
 D0
 ~
 door~
-ABZ 0 4435
+ABZgh 0 4435
 D1
 ~
 ~
@@ -1821,7 +1822,7 @@ Z 0 4438
 D2
 ~
 door~
-ABZ 0 4436
+ABZgh 0 4436
 D3
 ~
 ~
@@ -1833,11 +1834,11 @@ This trailer is pretty small to you, so, it must be tiny for Ivan.
 The furnishing's are spartan, and you see nothing of value.  You might want
 to consider leaving before Ivan returns.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 door~
-ABZ 0 4434
+ABZgh 0 4434
 S
 #4436
 The Bearded Lady's Trailer~
@@ -1846,11 +1847,11 @@ is covered with hair clippings.  In the corner are several bottles entitled
 Miracle Stu's Wonderful Hair Tonic!!  It appears the Bearded Lady must go
 through that stuff like it is water.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 door~
-ABZ 0 4434
+ABZgh 0 4434
 S
 #4437
 The Sword Swallower's Trailer~
@@ -1858,11 +1859,11 @@ This trailer is kept immaculately clean.  You see a knife sharpening
 kit, as well as several rubber swords that are standing in a small display
 case.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 door~
-ABZ 0 4438
+ABZgh 0 4438
 S
 #4438
 The Row of Trailers~
@@ -1874,7 +1875,7 @@ Trailer.  You may also continue east or west.
 D0
 ~
 door~
-ABZ 0 4437
+ABZgh 0 4437
 D1
 ~
 ~
@@ -1882,7 +1883,7 @@ Z 0 4440
 D2
 ~
 door~
-ABZ 0 4439
+ABZgh 0 4439
 D3
 ~
 ~
@@ -1897,11 +1898,11 @@ Freaks.  But that doesn't bother him.  He has a second profession that he
 practices on the side to make a little extra cash.  He also keeps a rather
 large guard dog in his trailer to discourage visitors.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 door~
-ABZ 0 4438
+ABZgh 0 4438
 S
 #4440
 The Row of Trailers~
@@ -1913,15 +1914,15 @@ Trailer.  You may also go back to the west, or enter a trailer to the east.
 D0
 ~
 door~
-ABZ 0 4441
+ABZgh 0 4441
 D1
 ~
 door~
-ABZ 0 4448
+ABZgh 0 4448
 D2
 ~
 door~
-ABZ 0 4442
+ABZgh 0 4442
 D3
 ~
 ~
@@ -1936,11 +1937,11 @@ all the objects in the room have a slight shimmer to them.  Closer examination
 reveals that the bed is a cot, the table a nightstand, and the sitting room
 is a chair.  It appears the Illusionist tries to fool even himself sometimes.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 door~
-ABZ 0 4440
+ABZgh 0 4440
 S
 #4442
 The Circus Owner's Trailer~
@@ -1950,15 +1951,15 @@ his line of work.  The walls are covered with walnut colored wood siding, and
 the furniture is of the finest workmanship.  Paintings hang on the walls, 
 and there is even a medium sized icebox to keep the Owner's food fresh.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABZ 0 4440
+ABZgh 0 4440
 D2
 ~
 icebox~
-ABZ 0 4443
+ABZgh 0 4443
 S
 #4443
 The Secret Room~
@@ -1968,7 +1969,7 @@ hard work.  There are several objects of value in here, but you know you would
 not be able to make it off The Circus property with them, so you'd better just
 take the coins.  Most things here you couldn't sell easily, except the artwork.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 secret~
@@ -1980,7 +1981,7 @@ This room has been cunningly hollowed out below the 2nd Ring, giving
 the clown's a place to hide after they supposedly hid in the car.  This place 
 is very hot.  That doesn't surprise you, as it is filled with clowns.
 ~
-0 AD inside
+0 ADgj inside
 D4
 ~
 ~
@@ -2036,11 +2037,11 @@ This trailer like most of the others shows how poorly the performers
 are paid.  The tightrope walkers are forced to (or choose to?) sleep in tiny
 hammocks, that you probably couldn't even fit in.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 door~
-ABZ 0 4440
+ABZgh 0 4440
 S
 #4469
 Binky's Kitchen~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Old Midgaard~
 Builders hlodvig~
 VNUMs 5300 5499
@@ -19,10 +20,10 @@ their playful personality.  Hmmm....  It looks like the baby is teething!
 @rus It's russian?
 ~
 human~
-ABCHR D 500 0
+BCHRhinx 0 0 0 Ag 500 0
 5 0 2d7+46 5d9+100 1d5+0 'none'
 6 6 6 8
-FU 0 0 0
+FUl
 stand stand none 1000
 0 0 large unknown
 #5301
@@ -37,10 +38,10 @@ body of a four-legged beast.
 бюстом и головой красивой женщины.
 ~
 human~
-ACH 0 500 0
+CHin 0 0 0 0 500 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 2
 0 0 medium unknown
 #5302
@@ -52,10 +53,10 @@ He smiles at you, almost as if he knows you.  He is so friendly, you have no
 choice but to reciprocate.
 ~
 human~
-AGH 0 500 0
+GHmn 0 0 0 0 500 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 5
 0 0 medium unknown
 #5303
@@ -67,10 +68,10 @@ He is dressed in plate, and he looks quite formidable.  At the moment, though,
 he is just giggling with a kid running about.
 ~
 human~
-ACGT H 1000 0
+CGTimz 0 Hn 0 0 1000 0
 17 0 3d9+283 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand male 75
 0 0 medium unknown
 #5304
@@ -83,10 +84,10 @@ smiles at you, and your heart flutters at the thought that you have her
 attention, if only for a moment.
 ~
 human~
-AGH 0 500 0
+GHmn 0 0 0 0 500 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 5
 0 0 medium unknown
 #5305
@@ -100,10 +101,10 @@ you suspiciously not only because you are a stranger, but because you are an
 ARMED stranger.  Better not do any funny stuff in his presence.
 ~
 human~
-AT H 1000 0
+Tz 0 Hn 0 0 1000 0
 35 0 10d10+1400 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand male 500
 0 0 medium unknown
 #5306
@@ -117,10 +118,10 @@ listens to this fool.  The priest's right fist is covered in golden silk,
 and he clenches it at you.  Other than that, he is dressed all in black.
 ~
 human~
-ABHQ 0 -500 0
+BHQhnw 0 0 0 0 -500 0
 10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
-EIKU 0 0 0
+EIKUkoq
 stand stand male 5
 0 0 medium unknown
 #5307
@@ -132,10 +133,10 @@ He stands here gloriously telling of Thalos's history, how it is now referred by
 the world as 'The City of Peace'.  He is very happy to be the high priest here.
 ~
 human~
-ABQ H 1000 0
+BQhw 0 Hn 0 0 1000 0
 20 0 3d9+333 20d9+100 2d7+5 'none'
 -4 -4 -4 6
-EIKU 0 0 0
+EIKUkoq
 stand stand male 5
 0 0 medium unknown
 #5308
@@ -147,10 +148,10 @@ It is a big chunk of rock that has been magically formed into a giant
 stone creature.  It stands here guarding the city.
 ~
 golem~
-AB N 1000 0
+Bh 0 Nt 0 0 1000 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 212
 0 0 medium unknown
 #5309
@@ -162,10 +163,10 @@ He looks very busy, but he takes the time to say, 'Hi!  Welcome to Thalos!'
 He looks very proud of his work.
 ~
 human~
-AB 0 800 0
+Bh 0 0 0 0 800 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand female 50
 0 0 medium unknown
 #5310
@@ -176,10 +177,10 @@ Dan the Barkeep stands by the counter wiping a glass.
 He looks at you, and says, 'What's your poison, stranger?'
 ~
 human~
-ABe 0 600 0
+Beh 0 0 0 0 600 0
 30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
-EFNU 0 0 0
+EFNUklt
 stand stand male 50
 0 0 medium unknown
 #5311
@@ -191,10 +192,10 @@ Looking down at you with blood splattered all over his face and apron,
 he asks, 'How much you want?'
 ~
 human~
-ABe 0 600 0
+Beh 0 0 0 0 600 0
 30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
-EFNU 0 0 0
+EFNUklt
 stand stand male 50
 0 0 medium unknown
 #5312
@@ -205,10 +206,10 @@ Farmer Betty looks at you sweetly offering you some apples.
 She smiles at you meekly.
 ~
 human~
-ABe 0 650 0
+Beh 0 0 0 0 650 0
 30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
-EFNU 0 0 0
+EFNUklt
 stand stand female 50
 0 0 medium unknown
 #5313
@@ -220,10 +221,10 @@ Thaellor sweats rivers and complains about the heat as he pounds the
 metal into items of defense and destruction.
 ~
 human~
-ABe 0 550 0
+Beh 0 0 0 0 550 0
 30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
-EFNU 0 0 0
+EFNUklt
 stand stand female 50
 0 0 medium unknown
 #5314
@@ -234,10 +235,10 @@ Ben the Smith sells metal odds and ends to anyone interested.
 Ben tries to pawn his various wares to you.
 ~
 human~
-ABe 0 600 0
+Beh 0 0 0 0 600 0
 30 0 6d12+1253 15d9+100 4d6+8 'none'
 -19 -19 -19 -6
-EFNU 0 0 0
+EFNUklt
 stand stand male 50
 0 0 medium unknown
 #5315
@@ -248,10 +249,10 @@ The librarian is here shelving books away neatly.
 The librarian looks busy and whispers, 'Shhh!'
 ~
 human~
-ABH 0 500 0
+BHhn 0 0 0 0 500 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 #5316
@@ -262,10 +263,10 @@ A young scholar studies quietly in the corner.
 This young scholar is studying to be a priest.
 ~
 human~
-ABH 0 500 0
+BHhn 0 0 0 0 500 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #5317
@@ -276,10 +277,10 @@ An old wizard sits quietly at the counter waiting for a sale.
 This old wizard almost looks like he is about to fall over and sleep.
 ~
 human~
-ABRe D 550 0
+BRehx 0 0 0 Ag 550 0
 30 0 6d12+1278 30d9+100 5d4+9 'none'
 -19 -19 -19 -1
-FU 0 0 0
+FUl
 stand stand male 50
 0 0 medium unknown
 #5318
@@ -292,10 +293,10 @@ smiles at you, and your heart flutters at the thought that you have her
 attention, and you jump to her offer for a massage.
 ~
 human~
-ABH 0 700 0
+BHhn 0 0 0 0 700 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 2
 0 0 medium unknown
 #5319
@@ -307,10 +308,10 @@ He smiles at you, almost as if he knows you.  He is so friendly, you have no
 choice but to reciprocate and join him and the others in the soothing pool.
 ~
 human~
-ABH 0 650 0
+BHhn 0 0 0 0 650 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #5320
@@ -323,10 +324,10 @@ he is looking at a map of Thalos aside his fellow co-workers keeping
 track of each city patrol.
 ~
 human~
-ABCGT H 1000 0
+BCGThimz 0 Hn 0 0 1000 0
 17 0 3d9+283 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand male 75
 0 0 medium unknown
 #5321
@@ -338,10 +339,10 @@ He is dressed in plate, and he looks quite formidable.  At the moment,
 he is watching the children play with amusement.
 ~
 human~
-ABCGT H 1000 0
+BCGThimz 0 Hn 0 0 1000 0
 17 0 3d9+283 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand male 75
 0 0 medium unknown
 #5322
@@ -353,10 +354,10 @@ This peaceful creature looks at you with big dark eyes.  Her nose twitches as
 she sniffs at you, but she goes back to chewing some grass.
 ~
 human~
-AGH 0 0 0
+GHmn 0 0 0 0 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 #5323
@@ -368,10 +369,10 @@ The deer looks angered at your intrusion.  He butts his head against you,
 albeit ineffectively.
 ~
 human~
-AGH 0 0 0
+GHmn 0 0 0 0 0 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #5324
@@ -382,10 +383,10 @@ A large deer stag protects his territory.
 He eyes you with contained anger.  You'd better leave him alone!
 ~
 human~
-AFGH 0 0 0
+FGHlmn 0 0 0 0 0 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #5325
@@ -396,10 +397,10 @@ A small bunny pokes from bush to bush.
 This bunny looks so adorable, you wished you had one just like this!
 ~
 human~
-AGH 0 0 0
+GHmn 0 0 0 0 0 0
 2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #5326
@@ -410,10 +411,10 @@ A small snake slithers between the grass.
 Upon careful inspection, you are sure it is NOT a cobra!
 ~
 snake~
-AFGH P 0 0
+FGHlmn 0 0 Gm 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNR 0 0 0
+EFNRkltx
 stand stand none 0
 0 0 medium unknown
 #5327
@@ -424,10 +425,10 @@ A druid is here in meditation.
 He doesn't like you bothering him, but is too polite to ask you to leave.
 ~
 human~
-AGHQ DN 1000 0
+GHQmnw 0 Nt 0 Ag 1000 0
 10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
-EIKU 0 0 0
+EIKUkoq
 stand stand male 2
 0 0 medium unknown
 #5328
@@ -438,10 +439,10 @@ A druidess peers at you.
 She wonders why you are staring at her, and how you got in here.
 ~
 human~
-AGHQ DN 1000 0
+GHQmnw 0 Nt 0 Ag 1000 0
 10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
-EIKU 0 0 0
+EIKUkoq
 stand stand female 2
 0 0 medium unknown
 #5329
@@ -452,10 +453,10 @@ A bard sings of the glory of Thalos.
 This musical fellow plays a happy song with his fellow comrades.
 ~
 human~
-ABC 0 450 0
+BChi 0 0 0 0 450 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 5
 0 0 medium unknown
 #5330
@@ -466,10 +467,10 @@ This bard merrily skips along singing of the glory of Thalos.
 This musical fellow wanders the world singing of the glory of Thalos.
 ~
 human~
-AC 0 550 0
+Ci 0 0 0 0 550 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 7
 0 0 medium unknown
 #5331
@@ -480,10 +481,10 @@ A cityguard stands here.
 A big, strong, helpful, trustworthy guard.
 ~
 human~
-ACGT 0 1000 0
+CGTimz 0 0 0 0 1000 0
 15 0 3d9+233 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand male 25
 0 0 medium unknown
 #5332
@@ -493,10 +494,10 @@ A janitor is walking around, cleaning up.
 ~
 ~
 human~
-A 0 900 0
+0 0 0 0 0 900 0
 1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 1
 0 0 medium unknown
 #5333
@@ -508,10 +509,10 @@ Fido is a small dog that has a foul smell and pieces of rotted meat hanging
 around his teeth.
 ~
 fido~
-AFH 0 -200 0
+FHln 0 0 0 0 -200 0
 0 0 2d4+2 0d1+99 1d2+0 'none'
 10 10 10 10
-EN 0 0 0
+ENkt
 stand stand male 0
 0 0 medium unknown
 #5334
@@ -522,10 +523,10 @@ A cityguard is here, guarding the gate.
 A big, strong, helpful, trustworthy guard.
 ~
 human~
-ABGT 0 1000 0
+BGThmz 0 0 0 0 1000 0
 15 0 3d9+233 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand male 25
 0 0 medium unknown
 #5335
@@ -538,10 +539,10 @@ wizard. He is equipped with fine clothing, and is wearing many fine
 rings and bracelets.
 ~
 human~
-ABVel DH 900 0
+BVeh 0 Hn 0 Ag 900 0
 43 5 25d10+3800 1d1+1999 4d8+32 'magic'
 -35 -35 -35 -15
-AF 0 0 0
+AFgl
 stand stand male 15000
 0 0 medium unknown
 r bash 33
@@ -570,10 +571,10 @@ A fat, nice looking baker. But you can see that he has many scars on his
 body.
 ~
 human~
-ABVel H 900 0
+BVeh 0 Hn 0 0 900 0
 60 10 20d10+18800 1d1+999 3d8+25 'beating'
 -55 -55 -55 -35
-CDF 0 0 0
+CDFijl
 stand stand male 500
 0 0 medium unknown
 r bash 33
@@ -601,10 +602,10 @@ A grocer stands at the counter, with a slightly impatient look on his face.
 A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
 ~
 human~
-ABVel H 900 0
+BVeh 0 Hn 0 0 900 0
 55 10 25d10+18000 1d1+999 6d5+20 'beating'
 -55 -55 -55 -15
-EFJ 0 0 0
+EFJklp
 stand stand male 1300
 0 0 medium unknown
 r bash 33
@@ -632,10 +633,10 @@ A weaponsmith.
 A young weaponsmith, who still has lots to learn.
 ~
 human~
-ABTVel H 900 0
+BTVehz 0 Hn 0 0 900 0
 86 15 25d10+25000 1d1+999 6d8+20 'punch'
 -50 -50 -50 -25
-CEIK 0 0 0
+CEIKikoq
 stand stand male 25000
 0 0 medium unknown
 M greet 3024 1~
@@ -665,10 +666,10 @@ An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
 human~
-ABVel 0 900 0
+BVeh 0 0 0 0 900 0
 65 10 25d10+23300 1d1+999 7d5+20 'punch'
 -55 -55 -55 -15
-CEFJKN 0 0 0
+CEFJKNiklpqt
 stand stand male 25000
 0 0 medium unknown
 M greet 3024 1~
@@ -697,10 +698,10 @@ The jeweller is standing behind the desk.
 He is fat and has a content although watchful look on his face.
 ~
 human~
-ABVel HV 900 0
+BVeh 0 HVn 0 0 900 0
 90 10 25d10+28500 1d1+999 5d15+25 'slap'
 -55 -55 -55 -50
-AF 0 0 0
+AFgl
 stand stand male 58000
 0 0 huge unknown
 r bash 33
@@ -730,10 +731,10 @@ He knows all the zones of Shades of Gray. It would be a Bad Thing
 to commit a crime in his presence. 
 ~
 giant~
-ABTVXel CDFJVZ 1000 3000
+BTVehz Ek V 0 ABHKghnq 1000 3000
 85 30 1d1+27999 1d1+1499 5d14+40 'crush'
 -50 -50 -50 -50
-ACDEFHIKLNOT 0 0 0
+ACDEFHIKLNOTgijklnoqrtuz
 stand stand male 0
 0 0 huge unknown
 r bash 33
@@ -760,10 +761,10 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 human~
-ABQVaefghijklmnopqrstuvwxyz DFH 1000 0
+ABDEJQVeghjkpw FGHIlmno Hn 0 ABgh 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -45 -45 -45 -15
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 5000
 0 0 huge unknown
 r bash 33
@@ -793,10 +794,10 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-ABKRVel DEFZ -1000 0
+BRVehx Dj 0 0 ABLghr -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 'magic'
 -65 -65 -65 -35
-FG 0 0 0
+FGlm
 stand stand female 0
 0 0 medium unknown
 r bash 100
@@ -825,10 +826,10 @@ You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
-ABKQVel CDEFZ -1000 0
+BQVehw Dj 0 0 ABKLghqr -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 'divine'
 -65 -65 -65 -35
-EFHIK 0 0 0
+EFHIKklnoq
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -857,10 +858,10 @@ Although very handsome , the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
 human~
-ABQVel DFH 1000 0
+BQVehw 0 Hn 0 ABgh 1000 0
 80 10 1d1+20999 1d1+999 2d4+30 'divine'
 -65 -65 -65 -15
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 5000
 0 0 huge unknown
 M speech 3018 eros~
@@ -907,13 +908,13 @@ Junk Seller is here, selling junk.
 This huge dragon wants to sell some junk to you.
 ~
 dragon~
-AZce 0 7 0
+Zce 0 0 0 0 7 0
 100 1 100d100+10000 100d10+20 100d100+100 'slap'
 0 0 0 0
-0 0 0 0
+0
 stand stand male 0
-P 0 huge unknown
-F for HZ
+Pv 0 huge unknown
+F for HZn
 #5499
 guard janitor vampire~
 janitor~
@@ -925,10 +926,10 @@ He seems to be a guard in this city. But whom does he consider invaders of
 this god-cursed city? Maybe YOU?
 ~
 human~
-ACGHLOTl GOZc -5000 0
+CGHLOTimnruz 0 Ocu 0 Ms -5000 0
 50 200 1d10+5000 1d1+2000 4d7+150 'pound'
 -30 -30 -30 -5
-ACEFIQ 0 0 0
+ACEFIQgiklow
 stand stand male 0
 0 0 gargantuan unknown
 M act 5499 says 'Great Tear'~
@@ -947,7 +948,7 @@ collar ошейник~
 @eng a lamia collar@rus ~~ошейник~~ ламии~
 @eng A lamia collar is on the ground.@rus На земле лежит ошейник ламии (collar).~
 skin~
-armor 0 AC
+armor 0 0 ACgi
 3 3 3 0 0
 3 50 310 P
 E
@@ -961,7 +962,7 @@ breast plate iron кираса~
 @eng a beautiful iron breast plate@rus ~~красивая~~ ~~железная~~ ~~кираса~~~
 @eng A beautiful iron breast plate lies here.@rus Здесь лежит красивая железная кираса (plate).~
 iron~
-armor 0 AD
+armor 0 0 ADgj
 7 7 7 0 0
 20 450 3200 P
 A
@@ -972,7 +973,7 @@ staff serpentine жезл~
 @eng a green serpentine staff@rus ~~зеленый~~ ~~извилистый~~ ~~жезл~~~
 @eng A green serpentine staff has been left here.@rus Кто-то оставил здесь зеленый извилистый жезл (staff).~
 oak~
-staff FG AO
+staff FGlm 0 AOgu
 20 2 2 'earthquake' 0
 7 120 2000 P
 g male~
@@ -981,7 +982,7 @@ cloak green плащ~
 @eng a dark green cloak@rus ~~темно-зеленый~~ ~~плащ~~~
 @eng A beautiful dark green cloak has been dropped by someone.@rus Кто-то бросил здесь свой темно-зеленый плащ (cloak).~
 cloth~
-armor G AC
+armor Gm 0 ACgi
 7 7 7 2 0
 20 120 1600 P
 A
@@ -992,7 +993,7 @@ scroll magic свиток~
 @eng a scroll of enchantment@rus ~~волшебный~~ ~~свиток~~~
 @eng A scroll of magical enchantment has been left here.@rus Здесь лежит манускрипт с магическими заклинаниями (scroll).~
 vellum~
-scroll G A
+scroll Gm 0 Ag
 30 'enchant weapon' '' '' ''
 8 150 1420 P
 g male~
@@ -1001,7 +1002,7 @@ scroll bound переплетенный манускрипт~
 @eng a bound scroll@rus ~~манускрипт~~ в переплете~
 @eng A bound scroll of detection lies at your feet.@rus Тут лежит переплетенный Манускрипт Обнаружения (scroll).~
 vellum~
-scroll G A
+scroll Gm 0 Ag
 30 'detect evil' 'detect invis' 'detect magic' ''
 0 150 800 P
 g male~
@@ -1010,7 +1011,7 @@ fountain фонтан~
 @eng a large beautiful fountain@rus ~~большой~~ ~~красивый~~ ~~фонтан~~~
 @eng An elaborate white marble fountain is here.@rus Тут стоит прекрасный белый фонтан из мрамора (fountain).~
 marble~
-fountain 0 0
+fountain 0 0 0
 10 10 'water' 0 0
 0 0 0 P
 E
@@ -1028,8 +1029,8 @@ desk конторка~
 @eng the curved desk@rus ~~изогнутая~~ ~~конторка~~~
 @eng A beautiful desk made from a gigantic sea shell is here.@rus Здесь стоит красивая конторка (desk), изготовленная из гигантской морской раковины.~
 wood~
-container 0 0
-100 ACD 5224 100 100
+container 0 0 0
+100 ACDgij 5224 100 100
 0 0 0 P
 E
 desk~
@@ -1045,8 +1046,8 @@ cabinet шкаф~
 @eng the glass cabinet@rus ~~стеклянный~~ ~~шкаф~~~
 @eng A sturdy glass cabinet is here.@rus Здесь стоит шкаф из прочного стекла (cabinet).~
 glass~
-container 0 0
-500 ACD 5226 100 100
+container 0 0 0
+500 ACDgij 5226 100 100
 0 0 0 P
 E
 cabinet~
@@ -1062,7 +1063,7 @@ mandolin мандолина~
 @eng a mandolin@rus ~~мандолина~~~
 @eng A mandolin lies against the wall.@rus Около стены лежит мандолина (mandolin).~
 wood~
-staff G AO
+staff Gm 0 AOgu
 18 5 5 'cure critical' 0
 10 200 2800 P
 g female~
@@ -1071,7 +1072,7 @@ harp golden золотая арфа~
 @eng a golden harp@rus ~~золотая~~ ~~арфа~~~
 @eng A beautiful golden harp is waiting to be played.@rus Красивая золотая арфа (harp) ждет, когда на ней сыграют веселую мелодию.~
 gold~
-staff G AO
+staff Gm 0 AOgu
 30 1 1 'call lightning' 0
 7 1000 3200 P
 A
@@ -1082,7 +1083,7 @@ flute silver серебряная флейта~
 @eng a silver flute@rus ~~серебряная~~ ~~флейта~~~
 @eng A brilliant silver flute glimmers from its holster.@rus Блестящая серебряная флейта (flute) сверкает сквозь прорехи чехла.~
 silver~
-staff AG AO
+staff AGgm 0 AOgu
 30 1 1 'charm person' 0
 9 60 3900 P
 A
@@ -1093,7 +1094,7 @@ potion green зеленое снадобье~
 @eng a green potion@rus ~~зеленое~~ ~~снадобье~~~
 @eng You see a green potion on the floor.@rus На полу ты видишь снадобье зеленого цвета (potion).~
 glass~
-potion 0 A
+potion 0 0 Ag
 20 'gas breath' '' '' ''
 25 50 3000 P
 g none~
@@ -1102,7 +1103,7 @@ bluish herbs голубоватая травка~
 @eng some bluish herbs@rus ~~немного голубоватой травки~~~
 @eng Some bluish herbs are scattered here.@rus Здесь на полу разбросано немного голубоватой травки (herb).~
 unknown~
-pill 0 A
+pill 0 0 Ag
 15 '' '' 'bless' ''
 1 10 270 P
 g female~
@@ -1111,7 +1112,7 @@ purplish herbs багрянистая травка~
 some purplish herbs~
 @eng Some purplish herbs are scattered here.@rus Здесь на полу разбросано немного багрянистой травки (herb).~
 unknown~
-pill 0 A
+pill 0 0 Ag
 15 '' '' 'detect evil' ''
 0 10 250 P
 g female~
@@ -1120,7 +1121,7 @@ grayish herbs сероватая травка~
 @eng some grayish herbs@rus ~~немного сероватой травки~~~
 @eng Some grayish herbs are scattered here.@rus Здесь на полу разбросано немного сероватой травки (herb).~
 unknown~
-pill 0 A
+pill 0 0 Ag
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
 g female~
@@ -1129,7 +1130,7 @@ orangish herbs оранжевая травка~
 @eng some orangish herbs@rus ~~немного оранжевой травки~~~
 @eng Some orangish herbs are scattered here.@rus Здесь на полу разбросано немного оранжевой травки (herb).~
 plant~
-pill 0 A
+pill 0 0 Ag
 5 '' '' 'cure light' ''
 0 10 150 P
 g female~
@@ -1138,7 +1139,7 @@ sword меч~
 @eng an imperial sword@rus ~~имперский~~ ~~меч~~~
 @eng You see an imperial sword here.@rus Ты видишь имперский меч (sword).~
 steel~
-weapon G AN
+weapon Gm 0 ANgt
 sword 3 6 'slash' 0
 14 50 1420 P
 A
@@ -1158,7 +1159,7 @@ mace булава~
 @eng an imperial mace@rus ~~имперская~~ ~~булава~~~
 @eng You see an imperial mace here.@rus Ты видишь имперскую булаву (mace).~
 mithril~
-weapon G AN
+weapon Gm 0 ANgt
 mace 3 7 'pound' 0
 15 50 1180 P
 A
@@ -1178,7 +1179,7 @@ chest plate нагрудная пластина~
 @eng an imperial chest plate@rus ~~имперская~~ ~~нагрудная~~ ~~пластина~~~
 @eng You see an imperial chest plate here.@rus Ты видишь имперскую нагрудную пластину (plate).~
 mithril~
-armor 0 AD
+armor 0 0 ADgj
 5 5 5 0 0
 10 50 1450 P
 E
@@ -1194,7 +1195,7 @@ shield щит~
 @eng an imperial shield@rus ~~имперский~~ ~~щит~~~
 @eng You see an imperial shield here.@rus Ты видишь имперский щит (shield).~
 mithril~
-armor 0 AJ
+armor 0 0 AJgp
 5 5 5 2 0
 10 100 1190 P
 E
@@ -1210,7 +1211,7 @@ cloak плащ~
 @eng an imperial cloak@rus ~~имперский~~ ~~плащ~~~
 @eng You see an imperial cloak here.@rus Ты видишь имперский плащ (cloak).~
 cloth~
-armor 0 AC
+armor 0 0 ACgi
 5 5 5 0 0
 10 50 730 P
 E
@@ -1226,7 +1227,7 @@ helm шлем~
 @eng an imperial helm@rus ~~имперский~~ ~~шлем~~~
 @eng You see an imperial helm here.@rus Ты видишь имперский шлем (helm).~
 mithril~
-armor 0 AE
+armor 0 0 AEgk
 5 5 5 0 0
 10 50 730 P
 E
@@ -1242,7 +1243,7 @@ plate leggings пластинчатые гамаши~
 @eng a pair of imperial plate leggings@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~гамаш~~~
 @eng You see a pair of imperial plate leggings here.@rus Ты видишь пару имперских пластинчатых гамаш (leggings).~
 mithril~
-armor 0 AF
+armor 0 0 AFgl
 5 5 5 0 0
 10 50 730 P
 E
@@ -1258,7 +1259,7 @@ plate boots пластинчатые сапоги~
 @eng a pair of imperial plate boots@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~сапог~~~
 @eng You see a pair of imperial plate boots here.@rus Ты видишь пару имперских пластинчатых сапог (boots).~
 mithril~
-armor 0 AG
+armor 0 0 AGgm
 5 5 5 0 0
 10 50 730 P
 E
@@ -1274,7 +1275,7 @@ plate gloves пластинчатые перчатки~
 @eng a pair of imperial plate gloves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~перчаток~~~
 @eng You see a pair of imperial plate gloves here.@rus Ты видишь пару имперских пластинчатых перчаток (gloves).~
 mithril~
-armor 0 AH
+armor 0 0 AHgn
 5 5 5 0 0
 10 50 730 P
 E
@@ -1291,7 +1292,7 @@ plate sleeves пластинчатые наручи~
 @eng a pair of imperial plate sleeves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~наручей~~~
 @eng You see a pair of imperial plate sleeves here.@rus Ты видишь пару имперских пластинчатых наручей (sleeves).~
 mithril~
-armor 0 AI
+armor 0 0 AIgo
 5 5 5 0 0
 10 50 730 P
 E
@@ -1308,7 +1309,7 @@ cape накидка~
 @eng an imperial cape@rus ~~имперская~~ ~~накидка~~~
 @eng You see an imperial cape here.@rus Ты видишь имперскую накидку (cape).~
 silk~
-armor 0 AK
+armor 0 0 AKgq
 5 5 5 0 0
 10 50 730 P
 E
@@ -1324,7 +1325,7 @@ belt портупея~
 @eng an imperial belt@rus ~~имперская~~ ~~портупея~~~
 @eng You see an imperial belt here.@rus Ты видишь имперскую портупею (belt).~
 cloth~
-armor 0 AL
+armor 0 0 ALgr
 5 5 5 0 0
 10 50 730 P
 E
@@ -1340,7 +1341,7 @@ metal bracer металлический браслет~
 @eng an imperial metal bracer@rus ~~имперский~~ ~~металлический~~ ~~нарукавник~~~
 @eng You see an imperial metal bracer here.@rus Ты видишь имперский металлический нарукавник (bracer).~
 mithril~
-armor 0 AM
+armor 0 0 AMgs
 3 5 5 0 0
 5 50 550 P
 E
@@ -1357,7 +1358,7 @@ ring signet кольцо печатка~
 @eng an imperial city guard signet ring@rus ~~имперское~~ ~~кольцо~~ стражника с печатью~
 @eng You see a ring with a strange symbol on the floor.@rus Ты полу ты видишь кольцо со странными знаком (signet ring).~
 ruby~
-jewelry G AB
+jewelry Gm 0 ABgh
 0 0 0 0 0
 16 10 1280 P
 A
@@ -1370,7 +1371,7 @@ imperial banner имперское знамя~
 @eng an imperial war banner@rus ~~имперское~~ ~~боевое~~ ~~знамя~~~
 @eng An imperial war banner is on the floor here.@rus На полу лежит имперское боевое знамя (banner).~
 wood~
-light AG A
+light AGgm 0 Ag
 0 0 -1 0 0
 20 10 1440 P
 A
@@ -1388,8 +1389,8 @@ two-handed two sword двуручный меч~
 @eng a two-handed sword@rus ~~двуручный~~ ~~меч~~~
 @eng A nice two-handed sword hangs on a hook in the wall.@rus На крюку в стене висит прекрасный двуручный меч (sword).~
 iron~
-weapon GK AN
-sword 5 7 'cleave' DF
+weapon GKmq 0 ANgt
+sword 5 7 'cleave' DFjl
 34 240 4400 P
 A
 19 4
@@ -1401,8 +1402,8 @@ map old midgaard карта старого мидгаарда~
 @eng a map of the old Midgaard@rus ~~карта~~ старого Мидгаарда~
 @eng A rolled up map is here.@rus Здесь лежит скрученная карта старого Мидгаарда (map).~
 paper~
-map 0 A
-A 0 0 0 0
+map 0 0 Ag
+Ag 0 0 0 0
 0 10 500 P
 E
 map old~
@@ -1452,8 +1453,8 @@ quest blade меч~
 @eng quest's sword@rus ~~меч~~ Квестора~
 @eng Questor's sword lies upon the ground, waiting for its owner.@rus Меч (sword) Квестора лежит на земле в ожидании хозяина.~
 adamantite~
-weapon BI AN
-sword 10 7 'cleave' EF
+weapon BIho 0 ANgt
+sword 10 7 'cleave' EFkl
 31 450 5600 P
 E
 scimitar blade~
@@ -1467,7 +1468,7 @@ stone clear прозрачный камень~
 @eng a clear stone@rus ~~прозрачный~~ ~~камень~~~
 @eng A odd clear stone lies at your feet.@rus У твоих ног лежит необычный прозрачный камень (stone).~
 stone~
-gem G AQ
+gem Gm 0 AQgw
 0 0 0 0 0
 0 10 100 P
 A
@@ -2046,7 +2047,7 @@ are set about for the occupants' comfort.  Weapons are stacked neatly on the
 weapons rack.  Each weapon looks polished, sharpened, and oiled.
 Draped along the back wall is the proud banner of Thalos in all its glory.
 ~
-0 D city
+0 Dj city
 D1
 A small side street runs past the building.
 ~
@@ -2076,7 +2077,7 @@ The smithy~
 In here you find tools and anvils used to make various weapons
 and items. The walls are fully stocked with pieces of armor and weaponry.
 ~
-0 D city
+0 Dj city
 D1
 A small side street runs past the building.
 ~
@@ -2165,7 +2166,7 @@ This is a very plain house with a few chairs and a bed.
 A warmed and lit fireplace suggests that the dwelling is currently
 occupied.  You should leave before the owner finds you here.
 ~
-0 D city
+0 Dj city
 D1
 Outside is a small side street.
 ~
@@ -2207,7 +2208,7 @@ but inside these cramped quarters you discover a shop filled with
 armor, weapons, and various other goods. A small sign posted on the wall
 flutters in the wind.
 ~
-0 D city
+0 Dj city
 D0
 A small side street runs past the shop.
 ~
@@ -2237,7 +2238,7 @@ faithfully.  Valuable items hang from the walls each to be admired
 by onlookers.  Chairs lie around, and a large curved desk. To the east
 is a vine-covered archway leading out into a private courtyard.
 ~
-0 D city
+0 Dj city
 D0
 The long hallway leads back to the main reception area of the city hall.
 ~
@@ -2255,7 +2256,7 @@ been painted in pure white and thick lush carpet line the floor wall to wall.
 A side door on the west wall allows you to go out to one of the city's side 
 streets.  Hallways lead south and east.
 ~
-0 D city
+0 Dj city
 D0
 Main street runs past the city hall.
 ~
@@ -2284,7 +2285,7 @@ glass cabinet along the wall. A long hallway leads west back to the
 reception area and an ivy-covered archway leads south into a private
 courtyard.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -2343,7 +2344,7 @@ A Public Library~
 This seems to be the tallest structure in the city.  Rows and rows of books
 line the 20 foot tall bookcases, and a quiet serenity can be felt by all here.
 ~
-0 D city
+0 Dj city
 D1
 Another room in the library is here.
 ~
@@ -2366,7 +2367,7 @@ There are more shelves and tables here.  Vials of strange potions line a
 section of the wall, and books and other items of power line another.  The exit
 is to the west.
 ~
-0 D city
+0 Dj city
 D3
 The main room of the library is there.
 ~
@@ -2435,7 +2436,7 @@ wells up from a hole in the floor. Obviously there is a hot spring located
 under the city (making the decision to put a city here seem much more 
 reasonable). To the west is another room.
 ~
-0 D city
+0 Dj city
 D0
 A cobbled alley is there.
 ~
@@ -2477,7 +2478,7 @@ people just relaxing on them.  The comfort of this place is so inviting, you
 want to join them.  Great amounts of steam issue forth from the hole in the 
 east wall.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -2543,7 +2544,7 @@ S
 A Junksellers Room~
 You are in Junksellers room.
 ~
-0 AN city
+0 ANgt city
 D0
 ~
 ~
@@ -2562,7 +2563,7 @@ roof are all made of ceramic, making this place reflect the sun well.
     The greenery around the temple itself makes this place a great blend of
 nature and man's works of art.
 ~
-0 D city
+0 Dj city
 D0
 A side street leads to the northern half of the city.
 ~
@@ -2815,7 +2816,7 @@ of this land. The road leads east into the peace and quiet - and dangers -
 of the forest; and to the west it becomes the main street of the town;
 surrounded by building foundations of unfinished shops, houses, and temple. 
 ~
-0 C city
+0 Ci city
 D1
 ~
 ~
@@ -2853,7 +2854,7 @@ Z 0 15700
 D5
 ~
 door~
-ABZ -1 3603
+ABZgh -1 3603
 S
 #5366
 The holy grove~
@@ -2904,7 +2905,7 @@ You are standing in a clearing in the light woods. Somehow, this place
 seems powerfully DIFFERENT from the rest of the forest, as if something is
 severely strained in the fabric of reality here.
 ~
-0 C forest
+0 Ci forest
 D0
 A small, narrow path winds north, and is quickly lost in the bushes. It
 looks quite a wilderness there!
@@ -2931,7 +2932,7 @@ shoulders. From here, pleasant-looking paths lead east, north and south. To
 the west, through the trees, You can see the road to Midgaard's construction
 site.
 ~
-0 C forest
+0 Ci forest
 D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
@@ -3063,7 +3064,7 @@ shimmering softly through the colors of the rainbow. You feel as if You
 could spend the rest of your life here, lying on your back and looking at the
 patterns of the clouds as they gently drift across the sky.
 ~
-0 D field
+0 Dj field
 E
 dome construction structure east e~
 The foundation looks like it is for a sprawling, two-story affair with three
@@ -3091,7 +3092,7 @@ from the wood's edge to the north, to the softly shimmering, rainbow-colored
 dome covering construction to the south. This place enjoys a perpetual cool,
 sunny summers after-noon.
 ~
-0 C field
+0 Ci field
 E
 dome construction south s~
 The foundation looks like it is for a sprawling, two-story affair with three
@@ -3268,7 +3269,7 @@ picturing Gods, Giants and peasants.
 mound upon which the temple is built and ends on the temple square below.
    You notice that this building is quite new.  A small plaque is on this wall.
 ~
-0 CD inside
+0 CDij inside
 E
 plaque~
 This entire world has been integrated, modified, debugged, and enhanced by
@@ -3486,7 +3487,7 @@ You are by the temple altar in the northern end of the Temple of Midgaard.
 A huge altar made from white polished marble is standing in front of you and
 behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 ~
-0 DKN inside
+0 DKNjqt inside
 E
 statue odin king god~
 The statue represents the one-eyed Odin sitting on a his throne.  He has
@@ -3547,7 +3548,7 @@ You are inside the general store.  All sorts of items are stacked on shelves
 behind the counter, safely out of your reach.
 A small note hangs on the wall.
 ~
-0 D inside
+0 Dj inside
 E
 note~
 The note reads:
@@ -3569,7 +3570,7 @@ S
 @eng You are inside the weapon shop.  There is a small note on the counter.
 @rus Ты стоишь внутри небольшой оружейной лавки. На прилавке белеет небольшая записка (note).
 ~
-0 D inside
+0 Dj inside
 E
 note~
 The note reads:
@@ -3592,7 +3593,7 @@ The armoury with all kinds of armours on the walls and in the window.  You
 see helmets, shields and chain mails.  To the north is the main street.
 On the wall is a small note.
 ~
-0 D inside
+0 Dj inside
 E
 note~
 You can use these commands for trading:
@@ -3621,7 +3622,7 @@ sorts and sizes.
 Длинный прилавок делит комнату пополам, и на стене позади него ты видишь пронумерованные полки,
 заставленные склянками, бутылками, книжками и свитками всех цветов, сортов и размеров. 
 ~
-0 D inside
+0 Dj inside
 E
 scrolls~
 Each scroll is stored in a leather tube that protects it from moist.
@@ -3648,7 +3649,7 @@ from the small oil lamps on the walls is reflected in the hard, polished
 surface of the big mahogany desk that stands in the centre of the room.
 A small sign with golden letters stands on the desk.
 ~
-0 D inside
+0 Dj inside
 E
 sign~
 The golden letters say :-
@@ -3678,7 +3679,7 @@ S
 @eng The necromancer's bar smells very bad. But the mystic air relaxes you.
 @rus В баре чем-то ужасно воняет. Однако мистическая аура этого места расслабляет тебя.
 ~
-0 CDKY inside
+0 CDKYijq inside
 D1
 You see the laboratories of males..
 ~
@@ -3700,7 +3701,7 @@ corner has only been partially cleaned, some painful-looking letters faintly
 visible.  A well in the middle of the floor leads down into darkness.  Vile
 smells waft from the depths.  
 ~
-0 CDKY inside
+0 CDKYijq inside
 D3
 You see the bar.
 ~
@@ -3718,7 +3719,7 @@ S
 @eng The bar of vampires smell very bad. But the mystic air relaxes you.
 @rus В баре чем-то ужасно воняет. Однако мистическая аура этого места расслабляет тебя.
 ~
-0 ACDKY inside
+0 ACDKYgijq inside
 D0
 You see the main street.
 ~
@@ -3740,7 +3741,7 @@ partially cleaned, some painful-looking letters faintly visible. A well in
 the middle of the floor leads down into darkness. Vile smells waft from the
 depths.
 ~
-0 ACDKY inside
+0 ACDKYgijq inside
 D1
 To the east you see the bar..
 ~
@@ -3755,7 +3756,7 @@ know him as well as its religion.The room is full of mist. You start
 praying with the templeman.
 	Try to talk with templeman about religion.
 ~
-0 D inside
+0 Dj inside
 D2
 By the temple altar.
 ~
@@ -3770,7 +3771,7 @@ square is at east. To the west no roads.
 @rus Ты стоишь на главной улице городка, пересекающей его из конца в конец. На востоке находится 
 рыночная площадь, а вот на западе улица заканчивается тупиком.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -3795,7 +3796,7 @@ square is at east. To the west no roads.
 @rus Ты стоишь на главной улице городка, пересекающей его из конца в конец. На востоке находится 
 рыночная площадь, а вот на западе улица заканчивается тупиком.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -3814,7 +3815,7 @@ S
 You are in a large hall, nicely lit by big chandeliers hanging from the
 ceilings. A long counter lies through the room.
 ~
-0 DKU inside
+0 DKUjq inside
 D0
 The Bank
 ~

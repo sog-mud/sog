@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Ofcol~
 VNUMs 5500 5599
 Credits Alfa~
@@ -100,7 +101,7 @@ The future training room~
 This is the future site of a training room.  The only exit is north
 leading to the small alley.
 ~
-0 D city
+0 Dj city
 D0
 You are able to see the small alley, really not very interesting.
 ~
@@ -113,7 +114,7 @@ You are standing in a small shop, filled with all kinds of goods.
 Here you might be able to find just the thing you're looking for.
 The only exit is east to village square.
 ~
-0 D city
+0 Dj city
 D1
 The village square is as usual not overcrowded.
 ~
@@ -128,7 +129,7 @@ You can't help thinking that Ofcol is a dry city, when you see the
 many people here.
 The only exit is south to the village square.
 ~
-0 D city
+0 Dj city
 D2
 The village square is as usual not overcrowded.
 ~
@@ -142,7 +143,7 @@ the time. The room has little decoration except for some pictures
 on the wall.
 You notice that there are no exits from this room.
 ~
-0 C inside
+0 Ci inside
 E
 friend friends~
 The list include such prominent names as : God, Lottie, Kurgan,

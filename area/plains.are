@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Plains~
 VNUMs 300 399
 Credits Copper~
@@ -16,10 +17,10 @@ Aruncus is a tall, skinny druid with a face marked by nature.
 He seems to be in peace with himself and his surroundings.
 ~
 human~
-AGH D -500 0
+GHmn 0 0 0 Ag -500 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 25
 0 0 medium unknown
 #301
@@ -32,10 +33,10 @@ He is dressed in simple clothing and looks like he has little
 or nothing to say.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 sit sit male 0
 0 0 medium unknown
 #303
@@ -47,10 +48,10 @@ He seems like a nice person with no interest in harming you or others.
 He wears normal, light clothing and has an anonymous face.
 ~
 human~
-ACG 0 0 0
+CGim 0 0 0 0 0 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 10
 0 0 medium unknown
 #304
@@ -62,10 +63,10 @@ She seems like a nice person with no interest in harming you or others.
 She wears a minimum of clothing and has big ... eyes.
 ~
 human~
-ACG 0 0 0
+CGim 0 0 0 0 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 5
 0 0 medium unknown
 #305
@@ -78,10 +79,10 @@ The worm is the protector of the treasure of G'harne and has been so
 for as long anyone can remember.
 ~
 human~
-ABF DJ -1000 0
+BFhl 0 0 0 AHgn -1000 0
 24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 683
 0 0 medium unknown
 #306
@@ -95,10 +96,10 @@ His life is seems to be totally occupied with trading.
 He looks very fit and capable of protecting his goods.
 ~
 human~
-ABCe 0 400 0
+BCehi 0 0 0 0 400 0
 23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 400
 0 0 medium unknown
 #308
@@ -110,10 +111,10 @@ The Innkeeper looks skilled in brewing different beers and mixing the
 wierdest drinks known. He also looks very big.
 ~
 human~
-ABe 0 -100 0
+Beh 0 0 0 0 -100 0
 23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 5
 0 0 medium unknown
 #309
@@ -124,10 +125,10 @@ A cute rabbit is here.
 It is a small, furry creature with long ears and big feet.
 ~
 rabbit~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
-ENR 0 0 0
+ENRktx
 stand stand none 0
 0 0 medium unknown
 #350
@@ -140,10 +141,10 @@ The small wings are eagerly trying to lift her from the ground,
 but so far they haven't succeeded.
 ~
 dragon~
-ABHR DH 1000 0
+BHRhnx 0 Hn 0 Ag 1000 0
 10 0 2d6+110 10d9+100 1d8+1 'none'
 2 2 2 6
-FR 0 0 0
+FRlx
 stand stand female 0
 0 0 medium unknown
 #0
@@ -154,8 +155,8 @@ herbs herb timian~
 a small dusk of timian herbs~
 Some herbs are lying here, small green leaves and tiny pink flowers.~
 plant~
-food 0 A
-A A 0 0 0
+food 0 0 Ag
+Ag Ag 0 0 0
 0 10 10 P
 E
 herbs herb timian~
@@ -168,8 +169,8 @@ a small dusk of black gyvel~
 Some black gyvel is lying here, dark green with black leaves and tiny
 blood red flowers.~
 food~
-food 0 A
-A A 0 0 0
+food 0 0 Ag
+Ag Ag 0 0 0
 0 10 10 P
 E
 herbs herb gyvel~
@@ -181,8 +182,8 @@ plant ivy~
 a small dusk of poison ivy~
 Some poison ivy is growing here.~
 plant~
-food 0 A
-A A 0 A 0
+food 0 0 Ag
+Ag Ag 0 Ag 0
 0 10 0 P
 E
 plant ivy~
@@ -194,7 +195,7 @@ blood jar~
 a dark red jar~
 A small jar in a dark, red colour.~
 glass~
-drink 0 A
+drink 0 0 Ag
 2 2 'blood' 0 0
 0 20 20 P
 E
@@ -208,7 +209,7 @@ wild flowers~
 wild flowers~
 A bunch of pretty wild flowers is here.~
 plant~
-trash K AEO
+trash Kq 0 AEOgku
 0 0 0 0 0
 0 10 0 P
 E
@@ -221,7 +222,7 @@ amulet~
 a strange amulet~
 A strange looking amulet is lying here, half covered with dust.~
 bronze~
-jewelry GH AC
+jewelry GHmn 0 ACgi
 0 0 0 0 0
 0 10 1 P
 A
@@ -238,7 +239,7 @@ staff stick~
 a druish staff~
 A staff with druidic marks have been left here.~
 wood~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 0 40 10 P
 E
@@ -252,8 +253,8 @@ rabbit roast wabbit~
 a rabbit roast~
 You see a deliciously looking rabbit roast.~
 meat~
-food 0 A
-DE DE 0 0 0
+food 0 0 Ag
+DEjk DEjk 0 0 0
 0 50 0 P
 E
 roast rabbit wabbit~
@@ -267,7 +268,7 @@ template scroll~
 a strange template~
 A strange template made of an exotic green metal is placed here~
 vellum~
-scroll G AO
+scroll Gm 0 AOgu
 15 'sleep' 'blindness' 'fireball' ''
 13 10 1870 P
 E
@@ -284,7 +285,7 @@ potion clear~
 a clear potion~
 A clear potion wrapped in leather is unnoticed placed here.~
 glass~
-potion G A
+potion Gm 0 Ag
 20 'detect evil' 'detect invis' 'detect magic' ''
 0 20 300 P
 E
@@ -303,7 +304,7 @@ scroll jhyfrdow~
 a scroll titled 'jhyfrdow'~
 An odd looking scroll is here.~
 vellum~
-scroll 0 A
+scroll 0 0 Ag
 18 'protection evil' '' '' ''
 2 10 640 P
 E
@@ -1020,7 +1021,7 @@ You are inside the hermit's hut. It is rather old, but serves it purpose.
 It keeps its habitant from the rough winds and dangerous beasts of the
 plains and foothills. There is a small fireplace here.
 ~
-0 D inside
+0 Dj inside
 E
 fireplace~
 The hermit cooks here.
@@ -1228,7 +1229,7 @@ the altar of G'harne.  The walls are covered with a smelly slime and small
 rotting pieces of a meat like substance, fills the air with an unbearable
 stench.  You might be able to force your way up into fresh air from here.
 ~
-0 ADI inside
+0 ADIgjo inside
 E
 meat rotting slime substance~
 You try to examine the substance closer, but must refrain from this
@@ -1254,7 +1255,7 @@ Dead end of tunnel~
 The tunnel comes to an abrupt end here. It simply looks like it
 hasn't been excavated further.  North of here the tunnel makes a turn east.
 ~
-0 ADI inside
+0 ADIgjo inside
 D0
 ~
 ~
@@ -1266,7 +1267,7 @@ You are standing in a gloomy tunnel leading east and west.
 The walls are covered with a smelly slime and small rotting pieces of a
 meat like substance, fills the air with an unbearable stench.
 ~
-0 ADI inside
+0 ADIgjo inside
 E
 meat rotting slime substance~
 You try to examine the substance closer, but must refrain from this
@@ -1290,7 +1291,7 @@ You are standing in a small smelly tunnel under the plains.
 The smell is growing stronger to the west, so is the density of the
 slime and other undeterminable substances ...
 ~
-0 I inside
+0 Io inside
 E
 slime substance~
 BWADR! ...
@@ -1312,7 +1313,7 @@ You stand in the hall of G'harne. The walls are dressed with strange
 carving, symbolizing human sacrifice and people worshipping giant worms.
 Disgusting slime and gore are also very dominant in your view of this room.
 ~
-0 ADI inside
+0 ADIgjo inside
 E
 slime gore~
 You puke.
@@ -1333,7 +1334,7 @@ You hit your head HARD.
 You die.
 You've fallen, and you can't get up!
 ~
-0 C field
+0 Ci field
 S
 #0
 

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Magic Forest~
 Builders azrael~
 VNUMs 1800 1899
@@ -21,12 +22,12 @@ long tail remind you of another creature, but you can't quite remember the
 name of it. It also has wings! Such a beautiful creature...
 ~
 pig~
-ABGY JTVZ 1000 0
+BGYhm 0 TVz 0 Hn 1000 0
 40 1 15d10+1850 1d400+800 4d8+13 'pierce'
 -20 -20 -20 -20
-EFHIJK 0 0 0
+EFHIJKklnopq
 stand stand either 400
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -42,12 +43,12 @@ long tail remind you of another creature, but you can't quite remember the
 name of it. It also has wings! Such a beautiful creature...
 ~
 pig~
-ABGY JTVZ 1000 0
+BGYhm 0 TVz 0 Hn 1000 0
 35 1 10d10+1300 1d400+800 4d7+11 'pierce'
 -17 -17 -17 -17
-EFHIJK 0 0 0
+EFHIJKklnopq
 stand stand either 275
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -61,10 +62,10 @@ with a red glow. Claws half a foot long protract and retract. Its tail
 twitches menacingly.
 ~
 cat~
-AG H 1000 0
+Gm 0 Hn 0 0 1000 0
 60 2 5d10+9500 1d400+5000 8d6+28 'slash'
 -50 -50 -50 -50
-EIJKP 0 0 0
+EIJKPkopqv
 stand stand male 1000
 0 0 large unknown
 r fire -50
@@ -81,10 +82,10 @@ though it were a part of her. Her voice is beautiful, the most beautiful
 voice you have ever heard.
 ~
 human~
-ABGa 0 0 0
+BGhm Hn 0 0 0 0 0
 42 0 25d10+2000 4d1+400 4d8+13 'stab'
 -14 -14 -14 -14
-AIJKN 0 0 0
+AIJKNgopqt
 sit sit female 454
 0 0 medium unknown
 M random 1815 5~
@@ -108,12 +109,12 @@ fold and lift him beyond your reach. His obsidian eyes regard you with great
 distrust; you are intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ 1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs 1000 0
 60 1 50d10+9500 1d400+400 8d6+28 'pierce'
 -50 -50 -50 -50
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 1200
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -128,12 +129,12 @@ fold and lift him beyond your reach. His beryl eyes regard you with great
 distrust; you are intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ 1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs 1000 0
 59 1 50d10+9000 1d400+400 8d6+26 'pierce'
 -48 -48 -48 -48
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 1100
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -148,12 +149,12 @@ to unfold and lift him beyond your reach. His ruby eyes regard you with
 great distrust; you are intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ 1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs 1000 0
 58 1 50d10+8500 1d400+400 8d6+24 'pierce'
 -47 -47 -47 -47
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 1000
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -168,12 +169,12 @@ him beyond your reach. His emerald eyes regard you with great distrust;
 you are intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ 1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs 1000 0
 54 1 50d10+6500 1d400+400 7d6+22 'pierce'
 -45 -45 -45 -45
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 900
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -188,12 +189,12 @@ Wings folded at his side prepare to unfold and lift him beyond your reach.
 His grey eyes regard you with great distrust; you are intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ 1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs 1000 0
 60 1 50d10+11500 1d400+400 9d6+28 'pierce'
 -60 -60 -60 -60
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 1200
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -208,12 +209,12 @@ your reach. His obsidian eyes regard you with great distrust; you are
 intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ 1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs 1000 0
 50 1 50d10+4500 1d400+400 5d8+19 'pierce'
 -42 -42 -42 -42
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 800
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -227,10 +228,10 @@ greenish polka-dots, and having spores the color of oak leaves late in
 autumn, the thing looks as though it would feed a crowd.
 ~
 fido~
-ABGHUY 0 -1000 0
+BGHUYhmn 0 0 0 0 -1000 0
 40 0 15d10+1850 1d300+340 4d8+13 'suction'
 -33 -33 -33 -33
-CU 0 0 0
+CUi
 stand stand either 200
 c 0 small unknown
 #1812
@@ -243,12 +244,12 @@ color with multicolored eyes, like two rainbow gems staring at you. His
 bat-like wings prepare to flap hot air at you.
 ~
 dragon~
-ABGR CDEFGUZ -1000 0
+BGRhmx 0 U 0 ABKLMghqrs -1000 0
 60 2 53d10+9590 1d400+400 8d6+30 'flame'
 -45 -45 -45 -45
-A 0 0 0
+Ag
 stand stand male 3000
-Gc L giant unknown
+Gcm Lr giant unknown
 #1813
 red witch~
 the red witch~
@@ -260,10 +261,10 @@ too many. Her robe is red with golden embroidery. On her head is a pointed
 hat, its color and design matching her robe.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 47 1 25d10+4500 2d400+400 6d6+75 'magic'
 -23 -23 -23 -23
-FHU 0 0 0
+FHUln
 stand stand female 200
 0 0 medium unknown
 M random 1812 12~
@@ -281,10 +282,10 @@ and eyes as black as midnight. Her robe is orange with embroidery done in
 brown thread. Her head is uncovered, her hair moving with the breeze.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 49 1 50d10+5000 2d400+400 6d6+135 'magic'
 -26 -26 -26 -26
-FHU 0 0 0
+FHUln
 stand stand female 250
 0 0 medium unknown
 M random 1813 12~
@@ -303,10 +304,10 @@ with black embroidery. On her head is a small yellow cap with a yellow
 feather stuck in the left side.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 51 1 5d50+6000 2d400+400 5d8+133 'magic'
 -29 -29 -29 -29
-FHU 0 0 0
+FHUln
 stand stand female 300
 0 0 medium unknown
 M random 1814 12~
@@ -323,10 +324,10 @@ eyes flash with evil intent. Her robe is plain, the solid green broken by
 a rope tied around her waist.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 53 1 50d10+7000 3d400+200 6d7+125 'magic'
 -30 -30 -30 -30
-FHU 0 0 0
+FHUln
 stand stand female 300
 0 0 medium unknown
 r acid 33
@@ -341,10 +342,10 @@ Red haired and green eyed, this young magic user wears a light blue robe
 with silver embroidery.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 55 1 50d10+8000 3d400+250 10d4+130 'magic'
 -32 -32 -32 -32
-FHU 0 0 0
+FHUln
 stand stand female 350
 0 0 medium unknown
 r acid 33
@@ -362,10 +363,10 @@ is spattered with silvery moons that sparkle as she moves. She wears a
 pointed hat with a wide brim, indigo with silvery moons as well.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 57 1 50d10+9000 3d400+280 6d8+145 'magic'
 -41 -41 -41 -41
-FHU 0 0 0
+FHUln
 stand stand female 440
 0 0 medium unknown
 r acid 33
@@ -383,10 +384,10 @@ open, revealing some of her cleavage. The violet robe is ripped in places.
 It is hard to believe that this is an evil witch, and yet...
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 59 1 50d10+9999 3d400+580 8d6+175 'magic'
 -47 -47 -47 -47
-FHU 0 0 0
+FHUln
 stand stand female 440
 0 0 medium unknown
 M grall 1811 100~
@@ -402,10 +403,10 @@ He stares at you with malevolence, his red robe glowing an evil red as
 he calls forth the powers of magic to harm you.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 48 1 25d10+4750 2d400+400 6d6+125 'magic'
 -23 -23 -23 -23
-FHU 0 0 0
+FHUln
 stand stand male 200
 0 0 medium unknown
 r acid 33
@@ -420,10 +421,10 @@ He has long unkempt white hair, a wrinkled face, and grey eyes. His robe
 is orange with yellow, almost golden stars sprinkled throughout.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 50 1 50d10+5750 2d400+400 6d6+145 'magic'
 -25 -25 -25 -25
-FHU 0 0 0
+FHUln
 stand stand male 250
 0 0 medium unknown
 r acid 33
@@ -440,10 +441,10 @@ robe is unadorned with symbols or decoration, and his cap is equally
 plain yellow.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 52 1 5d50+6750 2d400+400 5d8+143 'magic'
 -29 -29 -29 -29
-FHU 0 0 0
+FHUln
 stand stand male 300
 0 0 medium unknown
 r acid 33
@@ -459,10 +460,10 @@ wearing orange shoes. The man obviously spends more time with his magic
 than learning the aesthetics of fashion.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 54 1 50d10+7750 3d400+200 6d7+125 'magic'
 -31 -31 -31 -31
-FHU 0 0 0
+FHUln
 stand stand male 300
 0 0 medium unknown
 r acid 33
@@ -478,10 +479,10 @@ robe is embroidered with black thread, and you sense an aura of evilness
 about him that you have seen nowhere else... this one is truly evil!
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 56 1 50d10+8750 3d400+250 10d4+130 'magic'
 -32 -32 -32 -32
-FHU 0 0 0
+FHUln
 stand stand male 350
 0 0 medium unknown
 r acid 33
@@ -500,10 +501,10 @@ that he is not alone and looks up at you, a bemused expression on his face,
 slowly turning to anger at the interruption of his thoughts.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 58 1 50d10+9750 3d400+280 6d8+145 'magic'
 -41 -41 -41 -41
-FHU 0 0 0
+FHUln
 stand stand male 440
 0 0 medium unknown
 r acid 33
@@ -521,10 +522,10 @@ unsightly stains. They might be bloodstains. You don't suppose he'd
 tell you if you asked, do you?
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 60 1 50d10+9999 3d400+580 8d6+175 'magic'
 -47 -47 -47 -47
-FHU 0 0 0
+FHUln
 stand stand male 440
 0 0 medium unknown
 M grall 1810 100~
@@ -540,10 +541,10 @@ Wearing camouflage green, the ranger shopkeeper is as ready for life in
 the wilds as he is for keeping shop here at the Ranger Station.
 ~
 human~
-ABGTWdl HV 1000 0
+BGTWhmz Ag HVn 0 0 1000 0
 60 1 50d10+9977 3d400+580 8d6+95 'cleave'
 -54 -54 -54 -54
-CFHIJKV 0 0 0
+CFHIJKVilnopq
 stand stand male 2324
 0 0 medium unknown
 r bash 100
@@ -574,10 +575,10 @@ camouflage clothing, he looks ready for a foray into the wilds beyond the
 Ranger Station.
 ~
 human~
-ABGJKTbl HV 0 0
+BGThmz BCDhij HVn 0 0 0 0
 48 1 25d10+3750 3d400+580 5d8+19 'slash'
 -25 -25 -25 -25
-CEFHIJKV 0 0 0
+CEFHIJKViklnopq
 stand stand male 2324
 0 0 medium unknown
 r bash 100
@@ -608,12 +609,12 @@ beyond your reach. His obsidian eyes regard you with great distrust; you are
 intruding in his home.
 ~
 pig~
-ABGY CDEFGJTVZ -1000 0
+BGYhm 0 TVz 0 ABHKLMghnqrs -1000 0
 50 1 50d10+4500 1d400+400 5d8+79 'pierce'
 -42 -42 -42 -42
-EFHIKR 0 0 0
+EFHIKRklnoqx
 stand stand male 800
-0 PQW large unknown
+0 PQWvw large unknown
 r fire -50
 r disease 33
 r poison 33
@@ -628,10 +629,10 @@ deeply what you might be. Its grey fur looks soft and luxurious, and its
 tail is a mass of feathery hairs.
 ~
 rabbit~
-ACGH V 300 0
+CGHimn 0 V 0 0 300 0
 1 1 2d6+10 1d200+200 1d4+0 'bite'
 9 9 9 9
-U 0 0 0
+U
 stand stand either 10
 0 0 small unknown
 r fire -50
@@ -650,12 +651,12 @@ on the larger wing sections, it flitters and flutters from flower to
 flower, visiting the leafier plants also.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 5 0 2d6+60 2d100+100 1d6+1 'none'
 5 5 5 5
-0 0 0 0
+0
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 r energy -50
 #1832
 cardinal red bird~
@@ -668,12 +669,12 @@ class before you entered your guild, where you learned that this bird
 makes its nest low in thickets and shrubs.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 5 0 2d8+60 2d100+100 1d8+1 'none'
 3 3 3 3
-U 0 0 0
+U
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 r lightning 33
 r energy -50
 #1833
@@ -686,12 +687,12 @@ equally blue, with a rusty red breast and a white crescent mark across its
 upper back.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 5 0 2d6+60 2d100+100 1d9+1 'none'
 4 4 4 4
-0 0 0 0
+0
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 r lightning 33
 r energy -50
 #1834
@@ -704,12 +705,12 @@ blue breast and white belly, it prefers to perch in the pine tree unless it
 drops down to the ground to catch insects.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 5 0 2d8+60 2d100+100 1d9+5 'none'
 2 2 2 2
-0 0 0 0
+0
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 r lightning 33
 r energy -50
 #1835
@@ -721,12 +722,12 @@ Bright yellow with a black cap, white rump, and white edges on its black
 wings and tail, this goldfinch is quite a pretty little bird.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 4 0 2d6+60 2d100+100 1d7+2 'none'
 4 4 4 4
-0 0 0 0
+0
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 r lightning 33
 r energy -50
 #1836
@@ -739,12 +740,12 @@ this bird's red eyes gaze piercingly at you. If you even think about looking
 at its nest, it will attack with a vengeance.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 6 0 2d9+60 2d100+100 1d9+9 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 M act 1809 gets a small well-woven nest~
 r lightning 33
 r energy -50
@@ -758,12 +759,12 @@ tiny bird will rise up out of sight and then swoop down on you if it thinks
 you are disturbing its feeding flowers.
 ~
 song bird~
-AGU V 0 0
+GUm 0 V 0 0 0 0
 3 0 2d4+60 2d100+100 1d6+5 'pierce'
 3 3 3 3
-0 0 0 0
+0
 stand stand either 100
-O 0 tiny unknown
+Ou 0 tiny unknown
 M act 1807 gets a small moss and lichen nest~
 r lightning 33
 r energy -50
@@ -779,10 +780,10 @@ While he continues to ignore you, you notice that he has an excellent black
 robe.
 ~
 human~
-ABR TUZ -1000 0
+BRhx 0 TUz 0 0 -1000 0
 60 1 54d10+9999 3d400+580 8d9+95 'magic'
 -64 -64 -64 -64
-FHU 0 0 0
+FHUln
 stand stand male 4444
 0 0 medium unknown
 r acid 33
@@ -797,10 +798,10 @@ It is small and soft and furry and cute, with long ears. Its fur is a
 lovely white, and it has a cute little cotton-tail.
 ~
 rabbit~
-AGHUY V 0 0
+GHUYmn 0 V 0 0 0 0
 3 0 2d6+35 1d300+300 1d6+0 'scratch'
 7 7 7 7
-U 0 0 0
+U
 stand stand either 40
 0 0 small unknown
 r bash -50
@@ -816,10 +817,10 @@ A fallow deer nibbles on the leaves of a bush.
 It is small and brown with dark grey spots and a white tail.
 ~
 rabbit~
-AGHUY V 0 0
+GHUYmn 0 V 0 0 0 0
 7 0 2d6+90 1d300+400 1d8+1 'bite'
 4 4 4 4
-U 0 0 0
+U
 stand stand either 110
 0 0 medium unknown
 r fire -50
@@ -838,10 +839,10 @@ can heal almost everything. Retired from his rangership, he now offers his
 herbs to heal your wounds and diseases. Type "HEAL" to get the list.
 ~
 elf~
-ABGQUXael DHct 1000 0
+BGQUehmw EHkn Hcn 0 Ag 1000 0
 100 100 2d4+50000 1d1+10000 5d7+100 'divine'
 -100 -100 -100 -100
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 0
 0 0 medium unknown
 r bash 33
@@ -869,7 +870,7 @@ lamp light~
 a ranger's lamp~
 A brass ranger's lamp has been left here.~
 brass~
-light 0 A
+light 0 0 Ag
 0 0 500 0 0
 0 30 60 P
 g none~
@@ -878,7 +879,7 @@ camper's canteen~
 a camper's canteen~
 A camper's canteen is on the floor.~
 steel~
-drink 0 A
+drink 0 0 Ag
 120 120 'water' 0 0
 0 20 75 P
 g none~
@@ -887,7 +888,7 @@ back backpack pack~
 a ranger's backpack~
 A ranger's backpack sits on the ground.~
 canvas~
-container 0 AD
+container 0 0 ADgj
 400 0 0 20 100
 1 50 75 P
 g none~
@@ -896,7 +897,7 @@ first aid kit~
 a first aid kit~
 A white wooden box with a red cross is here.~
 wood~
-staff G AO
+staff Gm 0 AOgu
 40 10 10 'heal' 0
 10 50 12000 P
 E
@@ -910,8 +911,8 @@ wafer~
 a wafer~
 A wafer, food-staple of the rangers, lies here waiting to be eaten.~
 food~
-food 0 A
-BCDE ADE 0 0 0
+food 0 0 Ag
+BCDEhijk ADEgjk 0 0 0
 1 10 2 P
 g none~
 #1806
@@ -919,7 +920,7 @@ ivory unicorn sword~
 an ivory unicorn sword~
 A long spiral sword made of ivory rests here.~
 ivory~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 7 7 'pierce' 0
 50 200 6700 P
 A
@@ -937,8 +938,8 @@ swing~
 a rope swing~
 A rope swing hangs from a bough of the great birch tree.~
 wood~
-furniture 0 0
-AB CDEGHIK BEHKN CFG CFG
+furniture 0 0 0
+ABgh CDEGHIKijkmnoq BEHKNhknqt CFGilm CFGilm
 0 0 0 P
 g none~
 #1808
@@ -946,8 +947,8 @@ ivory mace two~
 an ivory mace~
 A mace made of ivory has been foolishly left behind.~
 ivory~
-weapon 0 AN
-mace 4 13 'smash' F
+weapon 0 0 ANgt
+mace 4 13 'smash' Fl
 50 130 8950 P
 A
 18 2
@@ -964,7 +965,7 @@ red belt~
 a red belt~
 A red belt with golden embroidery is here.~
 silk~
-armor E AL
+armor Ek 0 ALgr
 9 9 9 9 0
 47 30 4500 P
 A
@@ -984,7 +985,7 @@ orange robe~
 an orange robe~
 An orange robe is here, neatly folded on the floor.~
 silk~
-armor L AK
+armor Lr 0 AKgq
 10 10 10 10 0
 49 30 4800 P
 A
@@ -1004,10 +1005,10 @@ golden eye dagger~
 a golden eye dagger~
 A golden dagger with an eye inscribed on its blade seems to glare at you.~
 gold~
-weapon AHJ AN
-dagger 7 7 'thrust' B
+weapon AHJgnp 0 ANgt
+dagger 7 7 'thrust' Bh
 51 30 4800 P
-S 'parry' 30 A
+S 'parry' 30 Ag
 A
 17 -4
 g none~
@@ -1016,7 +1017,7 @@ witch ring~
 Ring of the Witch~
 A green ring lies here emanating a soft green glow.~
 malachite~
-armor FG AB
+armor FGlm 0 ABgh
 11 11 11 11 0
 53 30 5200 P
 A
@@ -1033,7 +1034,7 @@ blue amulet~
 a blue amulet~
 A blue amulet is here.~
 lapis~
-armor FGI AC
+armor FGIlmo 0 ACgi
 9 9 9 9 0
 55 30 5600 P
 A
@@ -1046,7 +1047,7 @@ indigo robe~
 an indigo robe~
 An indigo robe adorned with glinting silver moons was left here.~
 silk~
-armor IY AK
+armor IYo 0 AKgq
 14 14 14 14 0
 57 30 5600 P
 A
@@ -1063,10 +1064,10 @@ violet robe~
 a violet robe~
 A skimpy and somewhat ripped violet robe lays neglected on the floor.~
 silk~
-armor EIM AK
+armor EIMkos 0 AKgq
 11 11 11 11 0
 59 30 5999 P
-S 'mastering spell' 30 A
+S 'mastering spell' 30 Ag
 A
 7 4
 A
@@ -1092,7 +1093,7 @@ oaken staff~
 an oaken staff~
 A finely carved stick made of oak wood was left behind.~
 wood~
-staff I AO
+staff Io 0 AOgu
 60 5 5 'lightning bolt' 0
 48 50 3400 P
 A
@@ -1109,7 +1110,7 @@ orange boots~
 a pair of orange boots~
 A pair of orange-tinted leather boots is here.~
 soft leather~
-armor BGI AG
+armor BGIhmo 0 AGgm
 11 11 11 11 0
 50 50 3700 P
 S 'kick' 50 0
@@ -1127,8 +1128,8 @@ golden eye sword~
 a golden eye sword~
 A sword with an open eye inscribed on its blade seems to glare at you.~
 gold~
-weapon AGY AN
-sword 7 10 'cleave' B
+weapon AGYgm 0 ANgt
+sword 7 10 'cleave' Bh
 52 50 4340 P
 A
 1 2
@@ -1144,7 +1145,7 @@ green wristband~
 a green wristband~
 A green wristband was neglectfully left on the ground.~
 soft leather~
-armor BJ AM
+armor BJhp 0 AMgs
 9 9 9 9 0
 54 50 4100 P
 A
@@ -1165,8 +1166,8 @@ blue leather whip~
 a blue-tinted leather whip~
 A long blue-tinted leather whip is here.~
 leather~
-weapon BIM AN
-whip 11 5 'thwack' G
+weapon BIMhos 0 ANgt
+whip 11 5 'thwack' Gm
 56 50 4400 P
 A
 1 -1
@@ -1188,7 +1189,7 @@ indigo tunic~
 an indigo tunic~
 An indigo tunic is folded neatly here.~
 soft leather~
-armor 0 AD
+armor 0 0 ADgj
 11 11 11 11 0
 58 50 4700 P
 A
@@ -1207,7 +1208,7 @@ tight violet leggings~
 a pair of tight violet leggings~
 A pair of tight violet leggings is here waiting to be worn.~
 soft leather~
-armor EM AF
+armor EMks 0 AFgl
 15 15 15 15 0
 60 50 5000 P
 A
@@ -1220,7 +1221,7 @@ one horn one-horned helm~
 a one-horned helm~
 A copper helm with a single spiral ivory horn is lying here.~
 copper~
-armor HKL AE
+armor HKLnqr 0 AEgk
 8 8 8 8 0
 54 150 7500 P
 A
@@ -1239,7 +1240,7 @@ filigree gold golden pendant~
 a golden filigree pendant~
 A golden filigree pendant at the end of a long chain lays here in a heap.~
 gold~
-armor 0 AC
+armor 0 0 ACgi
 5 5 5 5 0
 35 20 4500 P
 A
@@ -1252,7 +1253,7 @@ orange tea rose~
 an orange tea rose~
 An orange tea rose is here.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1261,7 +1262,7 @@ yellow rose~
 a yellow rose~
 A fragrant yellow rose is here.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1270,7 +1271,7 @@ green ivy rose~
 an ivy green rose~
 An ivy green rose is here, blending into the lawn.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1279,7 +1280,7 @@ deep blue rose~
 a deep blue rose~
 Sweetly fragrant, a deep blue rose blooms here.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1288,7 +1289,7 @@ pink rose~
 a pink rose~
 A pink rose, reminiscent of a sunset, grows here.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1297,7 +1298,7 @@ smoky grey rose~
 a smoky grey rose~
 An elegant smoky grey rose grows here.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1306,7 +1307,7 @@ small crimson rose~
 a small crimson rose~
 A small crimson rose gives off a sweet fragrance.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1315,7 +1316,7 @@ trellis climbing rose~
 a trellis climbing rose~
 A rose climbs up a trellis.~
 plant~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -1324,7 +1325,7 @@ magic silver harp small~
 a silver harp~
 A small silver harp which glows magically sits in a corner.~
 silver~
-staff G AO
+staff Gm 0 AOgu
 35 10 10 'cure critical' 0
 35 60 1200 P
 g none~
@@ -1333,7 +1334,7 @@ pool water~
 a pool~
 A pool of clear, sweet water gurgles up from underground.~
 stone~
-fountain GOR 0
+fountain Gm ABgh 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -1342,7 +1343,7 @@ magic spring~
 a magic spring~
 A spring is here, gurgling water into a clear sparkling pool.~
 quartz~
-fountain GOR 0
+fountain Gm ABgh 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -1351,7 +1352,7 @@ stream water small~
 a small stream~
 A small stream flows south.~
 clay~
-fountain GOR 0
+fountain Gm ABgh 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -1360,7 +1361,7 @@ white bean-sized egg~
 a bean-sized white egg~
 A bean-sized white egg lays in a small nest of moss and lichen.~
 shell~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 3 10 90 P
 g none~
@@ -1369,7 +1370,7 @@ small moss lichen nest~
 a small moss and lichen nest~
 A small moss and lichen nest is here.~
 plant~
-container 0 A
+container 0 0 Ag
 5 0 0 1 100
 3 20 90 P
 g none~
@@ -1378,7 +1379,7 @@ bush small~
 a small bush~
 A small bush is here.~
 plant~
-container 0 0
+container 0 0 0
 10 0 0 10 100
 0 300 0 P
 g none~
@@ -1387,7 +1388,7 @@ butter cup buttercup flower tiny yellow~
 a tiny yellow buttercup~
 A tiny yellow buttercup grows here.~
 plant~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 10 5 P
 g none~
@@ -1396,7 +1397,7 @@ pink flower~
 a pink flower~
 A pink flower is here, attracting honeybees.~
 plant~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 10 5 P
 g none~
@@ -1405,7 +1406,7 @@ small well-woven nest~
 a small well-woven nest~
 A small well-woven nest hangs suspended in the fork of a tree.~
 plant~
-container 0 A
+container 0 0 Ag
 10 0 0 10 100
 0 300 0 P
 g none~
@@ -1414,7 +1415,7 @@ whitish spotted egg~
 an egg~
 A whitish egg lightly spotted with dark brown sits in its nest.~
 shell~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 6 10 90 P
 g none~
@@ -1423,7 +1424,7 @@ violet flower~
 a violet~
 A violet is here, attracting honeybees.~
 plant~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 10 5 P
 g none~
@@ -1432,7 +1433,7 @@ shrub thick~
 a thick shrub~
 A thick shrub is here.~
 plant~
-container 0 0
+container 0 0 0
 10 0 0 10 100
 0 300 0 P
 g none~
@@ -1441,7 +1442,7 @@ pale green egg~
 a pale green egg~
 A pale green egg rests in its nest.~
 shell~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 5 10 90 P
 g none~
@@ -1450,7 +1451,7 @@ nest~
 a nest~
 A nest is here in the thicket.~
 plant~
-container 0 A
+container 0 0 Ag
 10 0 0 10 100
 0 300 0 P
 g none~
@@ -1459,7 +1460,7 @@ old tree~
 an old tree~
 The old tree looks as if it has been here since the dawn of time.~
 wood~
-container 0 0
+container 0 0 0
 200 0 0 20 100
 0 30000 0 P
 g none~
@@ -1468,7 +1469,7 @@ nest grass~
 a nest made of grass~
 A nest made of grass is barely visible in the tree.~
 plant~
-container 0 A
+container 0 0 Ag
 10 0 0 10 100
 0 300 0 P
 g none~
@@ -1477,7 +1478,7 @@ pale blue egg~
 a pale blue egg~
 A pale blue egg sits in the nest waiting to hatch.~
 shell~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 5 10 90 P
 g none~
@@ -1486,10 +1487,10 @@ robe black warlock~
 the Robe of the Warlock~
 A black robe emanating an evil aura has been discarded here.~
 velvet~
-armor ACEGHIJMY AK
+armor ACEGHIJMYgikmnops 0 AKgq
 15 15 15 15 0
 60 50 50000 P
-S 'mana transfer' 80 A
+S 'mana transfer' 80 Ag
 A
 2 3
 A
@@ -1506,7 +1507,7 @@ huge cooking pot black cauldron~
 a huge black pot~
 A huge black pot simmers on the fire pit.~
 iron~
-container 0 0
+container 0 0 0
 60 0 0 3 100
 0 0 5000 P
 g none~
@@ -1515,8 +1516,8 @@ bowl rabbit stew~
 a bowl of rabbit stew~
 A heaping bowl of thick hearty rabbit stew steams delightfully.~
 food~
-food 0 A
-BD D 0 0 0
+food 0 0 Ag
+BDhj Dj 0 0 0
 5 30 75 P
 g none~
 #1854
@@ -1524,7 +1525,7 @@ sink silver faucet~
 a silver faucet~
 A silver faucet runs water into the silver sink.~
 silver~
-fountain 0 0
+fountain 0 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -1533,7 +1534,7 @@ old well~
 an old well~
 An old well is here.~
 stone~
-fountain 0 0
+fountain 0 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -1542,7 +1543,7 @@ natural spring~
 a natural spring~
 A natural spring offers a drink to all.~
 stone~
-fountain 0 0
+fountain 0 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -1551,7 +1552,7 @@ old altar marble~
 an old altar~
 An old altar waits for another sacrifice.~
 marble~
-container Og 0
+container 0 Ag 0
 1000 0 0 1000 1000
 0 0 5000 P
 g none~
@@ -1560,7 +1561,7 @@ gold golden tree~
 a golden tree~
 The golden tree sways gently in the breeze.~
 wood~
-container 0 0
+container 0 0 0
 200 0 0 20 100
 0 30000 0 P
 g none~
@@ -1569,7 +1570,7 @@ camouflage gloves~
 a pair of camouflage gloves~
 A pair of gloves lie here, blending in with the plant life.~
 cloth~
-armor 0 AH
+armor 0 0 AHgn
 9 9 9 9 0
 48 30 8900 P
 A
@@ -1584,7 +1585,7 @@ camouflage leggings~
 a pair of camouflage leggings~
 A pair of leggings blends into the forest floor.~
 cloth~
-armor 0 AF
+armor 0 0 AFgl
 9 9 9 9 0
 48 100 10300 P
 A
@@ -1599,7 +1600,7 @@ camouflage jacket~
 a camouflage jacket~
 A jacket blends into the forest floor.~
 cloth~
-armor 0 AD
+armor 0 0 ADgj
 9 9 9 9 0
 48 90 10000 P
 A
@@ -1614,7 +1615,7 @@ camouflage boots~
 a pair of camouflage boots~
 A pair of boots blends into the undergrowth.~
 leather~
-armor 0 AG
+armor 0 0 AGgm
 8 8 8 8 0
 48 130 15000 P
 A
@@ -1625,7 +1626,7 @@ camouflage cap~
 a camouflage cap~
 A cap blends into the undergrowth.~
 cloth~
-armor 0 AE
+armor 0 0 AEgk
 8 8 8 8 0
 48 40 9000 P
 A
@@ -1638,8 +1639,8 @@ quiver~
 Elven quiver~
 Bright colored quiver lies here.~
 leather~
-container KY AK
-100 F 0 100 100
+container KYq 0 AKgq
+100 Fl 0 100 100
 1 1 200 P
 g none~
 #0
@@ -1659,7 +1660,7 @@ D0
 ~
 secret door
 ~
-ABZ -1 1892
+ABZgh -1 1892
 D1
 ~
 ~
@@ -1774,7 +1775,7 @@ but not as thick as to the west.
 что-то увидеть. С запада доносится слабая птичья трель. Кустарник здесь тоже
 густой, правда не такой пышный, как на западе.
 ~
-0 A forest
+0 Ag forest
 D1
 ~
 ~
@@ -1799,7 +1800,7 @@ again here.
 что-то увидеть. С запада доносится слабая птичья трель. Кустарник снова
 сгущается.
 ~
-0 A forest
+0 Ag forest
 D1
 ~
 ~
@@ -1821,7 +1822,7 @@ foliage here is very thick, as is the canopy of leaves above you.
 можно было что-то увидеть за ней. Растительность здесь очень густая, как лес-
 ной полог у тебя над головой.
 ~
-0 A forest
+0 Ag forest
 D2
 ~
 ~
@@ -1962,7 +1963,7 @@ around you. You hear the faint song of birds to the west.
 дёт на север, но продолжается на юг. Вокруг тебя густой кустарник. С запада
 доносится слабая трель
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -1985,7 +1986,7 @@ songs of birds from the west.
 можешь передвигаться. Кроны деревьев сдерживают весь солнечный свет.
 Ты слышишь слабую трель с запада.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2012,7 +2013,7 @@ out.
 что-то увидеть за ней, а вокруг густая мрачная растительность. Крона над твоей
 головой настолько густа, что сдерживает весь солнечный свет.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2162,7 +2163,7 @@ songs of birds.
 кустарник. Неужели лесной полог настолько густой, что проходит так мало
 света. С запада доносятся слабые голоса птиц.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2185,7 +2186,7 @@ songs of birds from the west.
 старник. Из-за своих темных крон, деревья собирают большую часть солнечного
 света. До тебя доносится слабая птичья трель с запада.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2214,7 +2215,7 @@ causing them.
 живает весь свет. Ты слышишь тихие журчащие звуки в траве, но никак не уви-
 дишь, что их вызывает.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2360,7 +2361,7 @@ wood.
 ловой еле пропускает свет. Пройти на запад нет никакой возможности, хотя ты
 слышишь слабую птичью трель. На востоке - мрак, дремучий лес.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2384,7 +2385,7 @@ most of the light out. You hear the very faint songs of birds from the west.
 Лесной полог над головой сдерживает почти весь свет. До тебя доносится очень
 слабая трель с запада.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2407,7 +2408,7 @@ out.
 увидеть, а вокруг тёмная густая листва. Кроны деревьев над твоей головой сдер-
 живают весь солнечный свет.
 ~
-0 A forest
+0 Ag forest
 D0
 ~
 ~
@@ -2937,7 +2938,7 @@ altar seems to still be in use. You can see fresh bloodstains on its surface
 where something was apparently sacrificed. Or perhaps hunters have been using
 it for butchering their kills.
 ~
-0 SUb forest
+0 SUby forest
 D0
 ~
 ~
@@ -3394,7 +3395,7 @@ of a 10-point buck and a green dragon. A fireplace graces one wall, and
 on the mantle are a quiver of arrows and a stuffed raccoon. You see a
 stair leading up.
 ~
-0 CKY forest
+0 CKYiq forest
 D3
 ~
 ~
@@ -3465,7 +3466,7 @@ curtains.
 D4
 ~
 ~
-ABZ -1 1879
+ABZgh -1 1879
 D5
 ~
 ~
@@ -3477,7 +3478,7 @@ It is very homey looking in here, with a fancy rug on the floor, a few easy
 chairs, a table, a fireplace. The windows are clean, and the curtains which
 frame them are frilly. Above the fireplace is a picture of a beautiful woman.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -3485,7 +3486,7 @@ Z -1 1880
 D5
 ~
 ~
-ABZ -1 1878
+ABZgh -1 1878
 S
 #1880
 The Kitchen~
@@ -3496,7 +3497,7 @@ covered and simmering, and the aroma is tempting. A counter which appears to
 have been used recently to prepare food is against one wall, and a table and
 three chairs in the corner.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -3511,7 +3512,7 @@ In a Bedroom~
 A huge bed dominates this room. It appears to be large enough to hold five
 people. In the remaining space is a chest of drawers and a tall wardrobe.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -3528,7 +3529,7 @@ man who uses this laboratory. There are counters and drawers and tables all
 around, and even a silver faucet with running water draining in a silver
 sink. On the tables are flasks filled with different colored liquids.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -3540,7 +3541,7 @@ Well, you didn't keep a solid footing, and now you're in a hole. Best see
 if you can climb out of here. The worms and roots and other things are
 rather unpleasant up against your face.
 ~
-0 A forest
+0 Ag forest
 D4
 ~
 ~
@@ -3552,7 +3553,7 @@ Here you can get a variety of useful items (and some not so useful). Along
 one wall is a bar to sit at and enjoy a drink. You see a stairway leading
 down, and another one leading up.
 ~
-0 CKSY forest
+0 CKSYiqy forest
 D4
 ~
 ~
@@ -3569,7 +3570,7 @@ care of the land. Here, too, they learn to defend themselves and others,
 skills with weapons, and how to dress a killed beast to turn it into food.
 The old ranger who runs the Station is here to help you learn.
 ~
-0 CDKSY forest
+0 CDKSYijqy forest
 D5
 ~
 ~
@@ -3590,7 +3591,7 @@ D2
 ~
 secret door
 ~
-ABZ -1 1801
+ABZgh -1 1801
 S
 #1893
 Winding Path~

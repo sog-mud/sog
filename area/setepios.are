@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Setepios~
 VNUMs 38000 38999
 Credits Setepios~
@@ -15,13 +16,13 @@ Blekurij is walking here ...
 ~
 ~
 human~
-ACG X 0 0
+CGim 0 X 0 0 0 0
 10 1 1d1+32000 1d1+1 1d1+0 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand none 2147483647
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #38001
 bargan~
 @eng Bargan@rus Барган~
@@ -32,10 +33,10 @@ bargan~
 @rus Ни чего не видно кроме его рясы.
 ~
 human~
-ABQRTkl DFHUVZl 0 0
+BQRThwxz 0 HUVn 0 ABgh 0 0
 110 1000 1d1+30000 1d1+30000 1d1+1000 'divine'
 -100 -100 -100 -100
-0 0 0 0
+0
 stand stand male 32000
 0 0 medium unknown
 r bash 100
@@ -63,10 +64,10 @@ Buzua is snooping here for new victims.
 Wow !!! It's a kind of mutant troll ...
 ~
 troll~
-ABGRTk FVu -1000 0
+BGRThmxz 0 V 0 Bh -1000 0
 25 200 1d1+3000 1d1+6000 1d1+250 'crush'
 -30 -10 0 0
-H 0 0 0
+Hn
 stand stand male 0
 0 0 huge unknown
 r lightning 100
@@ -80,10 +81,10 @@ Rafta is here.
 ~
 ~
 troll~
-ABQRSTk HV 100 0
+BQRSThwxyz 0 HVn 0 0 100 0
 40 120 1d1+5000 1d1+1000 10d7+120 'smash'
 -10 -10 -10 -10
-ACEFHIJKO 0 0 0
+ACEFHIJKOgiklnopqu
 stand stand female 10000
 0 0 medium unknown
 r lightning 100
@@ -99,10 +100,10 @@ Tikashu is here.
 ~
 ~
 human~
-A 0 0 0
+0 0 0 0 0 0 0
 50 200 1d1+10000 1d1+5000 10d10+250 'cleave'
 40 40 40 30
-0 0 0 0
+0
 stand stand male 100000
 0 0 medium unknown
 #38005
@@ -112,10 +113,10 @@ You see a shadow off Elemental of Life
 ~
 ~
 fire elemental~
-ABGRTk u -1000 0
+BGRThmxz 0 0 0 0 -1000 0
 32 50 2000d1+1 100d10+400 10d3+4 'divine'
 0 0 0 0
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
 r charm 100
@@ -127,10 +128,10 @@ Demoniar is here !!!
 Smells like a beggar.
 ~
 zombie~
-A Vu -1000 0
+0 0 V 0 0 -1000 0
 65 300 1d1+19999 1d1+999 10d50+250 'flame'
 -50 -50 -50 -50
-AEHJ 0 0 0
+AEHJgknp
 stand stand male 10000
 0 0 medium unknown
 F aff d
@@ -142,10 +143,10 @@ Kabidir is snooping all around ...
 It's him !!!
 ~
 troll~
-ABCGQRSTk DFHV 0 0
+BCGQRSThimwxyz 0 HVn 0 ABgh 0 0
 70 70 1d1+18999 1d1+999 10d5+100 'cleave'
 -100 -70 -70 -40
-AJ 0 0 0
+AJgp
 stand stand male 10000
 0 0 medium unknown
 r charm 100
@@ -156,10 +157,10 @@ demon of second circle red dragon~
 ~
 ~
 red dragon~
-ABCGQRTk DFHUVcl 0 0
+BCGQRThimwxz 0 HUVcn 0 ABgh 0 0
 100 800 1d1+30000 1d1+30000 1d1+500 'flame'
 -100 -100 -100 -100
-AEFHKO 0 0 0
+AEFHKOgklnqu
 stand stand none 999999
 0 0 medium unknown
 r charm 100
@@ -171,13 +172,13 @@ Grabi is smiling here ...
 You think she'll die if she smile ...
 ~
 human~
-ABCGQRSTk DFVl -1000 0
+BCGQRSThimwxyz 0 V 0 ABgh -1000 0
 100 320 1d1+29999 1d1+2999 20d10+200 'scratch'
 -200 -200 -200 -200
-ACFHJKO 0 0 0
+ACFHJKOgilnpqu
 stand stand female 10000
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r fire 33
 r cold 33
 r lightning 33
@@ -200,13 +201,13 @@ sheeala~
 ~
 ~
 human~
-ABCGQRSTk DFTVu -1000 0
+BCGQRSThimwxyz 0 TVz 0 ABgh -1000 0
 1 220 1d1+19999 1d1+10000 10d5+100 'flbite'
 -30 -40 -30 -50
-0 0 0 0
+0
 stand stand female 100
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r bash 100
 r pierce 100
 r slash 100
@@ -233,13 +234,13 @@ Natasha is dancing here
 стриптиз ... Как она Хороша ... Какие формы ... 
 ~
 human~
-ACG 0 0 0
+CGim 0 0 0 0 0 0
 1 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand female 1
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -250,13 +251,13 @@ ded moroz~
 вечнопьяной улыбкой и поет песенки.
 ~
 human~
-AGQR 0 1000 0
+GQRmwx 0 0 0 0 1000 0
 90 400 1d1+2000 1d1+10000 1d500+10 'divine'
 99 99 99 99
-0 0 0 0
+0
 stand stand male 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #38200
 barman~
 @eng barman@rus бармэн~
@@ -265,13 +266,13 @@ barman~
 ~
 ~
 human~
-ABCGV 0 0 0
+BCGVhim 0 0 0 0 0 0
 100 0 0d0+0 0d0+0 0d0+0 'none'
 -10 -10 -10 -10
-0 0 0 0
+0
 stand stand male 1000000
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #38500
 War-rawan~
 @eng war-rawan@rus Вар-Раван~
@@ -287,10 +288,10 @@ his hand seems to be his own finger !
 конечности.
 ~
 troll~
-ABFGTl DHZ 0 0
+BFGThlmz 0 Hn 0 Ag 0 0
 110 0 100d10+20000 1d1+5000 15d15+120 'smash'
 -70 -50 -50 -30
-AEFH 0 0 0
+AEFHgkln
 stand stand male 70000
 0 0 large unknown
 M greet 38500 100~
@@ -304,10 +305,10 @@ elephant слон~
 ~
 ~
 wolf~
-A S 0 0
+0 0 Sy 0 0 0 0
 9 10 1d1+99 1d1+49 0d0+0 'none'
 4 4 4 4
-0 0 0 0
+0
 stand stand male 0
 0 0 medium unknown
 #38510
@@ -319,10 +320,10 @@ ga-nocry~
 This tall man is guarding the entrance to the temple of dreams...
 ~
 gnome~
-ABGRl DFl 1000 0
+BGRhmx 0 0 0 ABgh 1000 0
 107 0 50d50+15000 100d100+8000 15d12+100 'magic'
 -40 0 -50 -90
-AE 0 0 0
+AEgk
 stand stand male 60000
 0 0 medium unknown
 M exall 38501 3~
@@ -336,7 +337,7 @@ r charm 100
 @eng {M---{Y*{M---{x Crown of Earth@rus {M---{Y*{M---{x корона Земли~
 Don't touch it !~
 Gold~
-armor CG AEP
+armor CGim Bh AEgk
 1000 1000 1000 1000 0
 94 1 1 P
 g none~
@@ -345,8 +346,8 @@ armchair~
 @eng armchair@rus {yудобном кресле{x~
 @eng Armchair@rus {yКресло-качалка{w~
 wood~
-furniture G 0
-A DFGHIJ FIL CEFGHI CEFGHI
+furniture Gm 0 0
+Ag DFGHIJjlmnop FILlor CEFGHIiklmno CEFGHIiklmno
 92 1 1 P
 g none~
 #38003
@@ -354,7 +355,7 @@ fountain~
 @eng fountain@rus фонтан.~
 @eng Big fountain@rus {BБольшой фонтан из {Cмрамора{w~
 marble~
-fountain G 0
+fountain Gm 0 0
 1000 1000 'vodka' 0 0
 92 1 1 P
 g none~
@@ -363,8 +364,8 @@ table~
 @eng table@rus письменный стол~
 @eng Big wooden table@rus {yБольшой письменный стол{w~
 wood~
-furniture G 0
-0 EIJKN NO 0 0
+furniture Gm 0 0
+0 EIJKNkopqt NOtu 0 0
 92 1 1 P
 g none~
 #38005
@@ -372,8 +373,8 @@ Setepios Sword~
 @eng weapon@rus тыкалка~
 @eng Big sword@rus Большая тыкалка~
 steel~
-weapon 0 AN
-mace 1000 1000 'slash' H
+weapon 0 0 ANgt
+mace 1000 1000 'slash' Hn
 92 10 100000 P
 A
 18 1000
@@ -397,7 +398,7 @@ safira armor~
 @eng Safiras Armor@rus Латы Сафиры~
 @eng Armor Plate made by master Safira is waiting for its owner here.@rus Латы изготовленные великим мастером Сафира дожидаются владельца.~
 steel~
-armor CIRTY AK
+armor CIYio BChi AKgq
 15 15 15 15 0
 40 5 10000 P
 A
@@ -414,7 +415,7 @@ robe~
 @eng Dragons skin@rus Длинный плащ из кожи золотого дракона~
 @eng Dragons Skin@rus Длинный плащ из кожи золотого дракона~
 energy~
-armor CGI AD
+armor CGIimo 0 ADgj
 1000 1000 1000 1000 0
 92 1 1 P
 A
@@ -431,7 +432,7 @@ girdle~
 @eng Dragon belt@rus Пояс из кожи Дракона~
 @eng Dragon belt lies here@rus пояс из кожи дракона~
 spirit~
-armor CG AL
+armor CGim 0 ALgr
 0 0 0 0 0
 92 1 1 P
 g none~
@@ -440,7 +441,7 @@ vis card висит~
 @eng card of Setepios@rus Карточка Setepiosa~
 @eng Setepos Card@rus Визитная карточка Setepiosa~
 unknown~
-trash NR A
+trash 0 Bh Ag
 0 0 0 0 0
 0 1 1 P
 g none~
@@ -449,8 +450,8 @@ godlen chain sun~
 {YGolden Chain of Sun{x~
 something strange lies here.~
 gold~
-weapon AIRS A
-flail 8 3 'whip' DH
+weapon AIgo Bh Ag
+flail 8 3 'whip' DHjn
 15 5 0 P
 A
 13 10
@@ -464,8 +465,8 @@ dagger safira~
 Sword of Safira~
 Sword of Safira lies here.~
 steel~
-weapon CI AN
-dagger 8 6 'stab' C
+weapon CIio 0 ANgt
+dagger 8 6 'stab' Ci
 10 100 4000 P
 A
 19 4
@@ -477,7 +478,7 @@ eye diamond unicorn~
 Diamond eye of Unicorn~
 Diamond eye of unicorn lies here.~
 unknown~
-treasure RT A
+treasure 0 BChi Ag
 0 0 0 0 0
 110 10 100 P
 g none~
@@ -486,8 +487,8 @@ weapon~
 @eng Sword of Justice@rus Меч Правосудия~
 Third Power lies here.~
 energy~
-weapon CI AN
-dagger 5000 5000 'stab' ABCDGH
+weapon CIio 0 ANgt
+dagger 5000 5000 'stab' ABCDGHghijmn
 92 1 1 P
 A
 19 10000
@@ -513,8 +514,8 @@ armchair~
 armchair~
 Soft Armchair is here.~
 unknown~
-furniture C A
-A 0 FI DFGHIJ DFGHIJ
+furniture Ci 0 Ag
+Ag 0 FIlo DFGHIJjlmnop DFGHIJjlmnop
 10 1 1 P
 g none~
 #38015
@@ -522,11 +523,11 @@ ring~
 Ring of Stars.~
 !!!~
 unknown~
-armor CI AB
+armor CIio 0 ABgh
 0 0 0 0 0
 0 0 0 P
-S 'enchant weapon' 10000 A
-S 'enchant weapon' 1000 A
+S 'enchant weapon' 10000 Ag
+S 'enchant weapon' 1000 Ag
 A
 14 28000
 g none~
@@ -535,7 +536,7 @@ book~
 @eng Book of Time@rus Летопись~
 @eng Old Book@rus Старая книга~
 paper~
-treasure CHIMZ AO
+treasure CHIMinos Ek AOgu
 0 0 0 0 0
 110 1 1 P
 g none~
@@ -544,7 +545,7 @@ blessed shield gods~
 Blessed Shield of Gods~
 Bronze shield lies here glowing ...~
 divinity~
-armor AIRSTa AJ
+armor AIgo BCFhil AJgp
 50 50 60 70 0
 70 100 10000 P
 A
@@ -557,7 +558,7 @@ blessed helm of honor~
 {YBlessed {WHelm {xof Honor~
 Blessed helm of Honor awaits for its owner~
 divinity~
-armor AITa AE
+armor AIgo CFil AEgk
 32 32 32 30 0
 85 5 100000 P
 A
@@ -582,7 +583,7 @@ blessed ring of life~
 {RBlessed Ring of Life{x~
 Strange ring is here awaiting for its owhener~
 divinity~
-armor AIRa AB
+armor AIgo BFhl ABgh
 25 25 25 25 0
 68 1 100000 P
 A
@@ -603,7 +604,7 @@ blessed belt of truth~
 {YBlessed Belt of Truth{x~
 Strange belt is glowing here~
 divinity~
-armor AIRa AL
+armor AIgo BFhl ALgr
 25 25 25 25 0
 30 1 10000 P
 A
@@ -616,8 +617,8 @@ divine sword of andromeda~
 {MDivine Sword of Andromeda{x~
 Andromedas sword lies here ...~
 steel~
-weapon RTa AN
-dagger 10 7 'stab' DH
+weapon 0 BCFhil ANgt
+dagger 10 7 'stab' DHjn
 55 1 100 P
 A
 18 6
@@ -629,7 +630,7 @@ blessed ball of holyfire~
 {Y*{C*{M* {WBlessed Ball of HolyFire {M*{C*{Y*{x~
 Somtheting Strange~
 blood~
-light AGIRa A
+light AGIgmo BFhl Ag
 0 0 -1 0 0
 27 1 100 P
 A
@@ -646,8 +647,8 @@ fishing rod~
 fishing rod~
 fishing rod lies here.~
 wood~
-weapon IM AN
-dagger 9 10 'kiss' DH
+weapon IMos 0 ANgt
+dagger 9 10 'kiss' DHjn
 52 1 1 P
 A
 19 5
@@ -659,7 +660,7 @@ necklace bone ожерелье~
 @eng bone necklace@rus ~~ожерелье~~ из зубов дракона~
 @eng A necklace is lying here.@rus Ожерелье из огромных страшных зубов брошено тут.~
 unknown~
-armor ARa AC
+armor Ag BFhl ACgi
 -20 -20 -20 -20 0
 91 0 10 P
 A
@@ -690,7 +691,7 @@ ring of heavens~
 {MRing of Heavens{x~
 What is it on the floor ?~
 unknown~
-armor GIRY AB
+armor GIYmo Bh ABgh
 1 1 1 1 0
 25 1 10000 P
 A
@@ -711,7 +712,7 @@ first divine power helm~
 Helm of Divine Power~
 Divine Helm lies here in a dust ...~
 unknown~
-armor IRYa AE
+armor IYo BFhl AEgk
 20 20 20 20 0
 35 1 1 P
 A
@@ -734,7 +735,7 @@ proba~
 1~
 1~
 unknown~
-armor 0 AO
+armor 0 0 AOgu
 0 0 0 0 0
 0 1 1 P
 A
@@ -745,7 +746,7 @@ first power dragon skull~
 Dragons Skull~
 Skull lies here ...~
 unknown~
-armor HRa AE
+armor Hn BFhl AEgk
 20 20 20 20 0
 91 1 100 P
 A
@@ -762,8 +763,8 @@ sword of honor~
 Sword of Honor~
 Strange sword is glowing here.~
 divinity~
-weapon AIKRa AN
-exotic 6 7 'slash' H
+weapon AIKgoq BFhl ANgt
+exotic 6 7 'slash' Hn
 27 1 1 P
 A
 18 12
@@ -779,7 +780,7 @@ kelsons helm of love~
 Kelsons Helm of Love~
 Kelsons Helm lies on the floor~
 divinity~
-armor Ra AE
+armor 0 BFhl AEgk
 15 15 15 15 0
 55 1 1 P
 A
@@ -792,7 +793,7 @@ terminators helm of power~
 Terminators Helm of Power~
 Terminators helm lies here ...~
 gold~
-armor ARa AE
+armor Ag BFhl AEgk
 20 20 10 0 0
 55 1 2 P
 A
@@ -805,7 +806,7 @@ flaming shield of earth~
 {YFlaming Shield of Earth{x~
 Strange shield is flaming here ...~
 gold~
-armor IMRa AJ
+armor IMos BFhl AJgp
 10 20 30 40 0
 65 3 10000 P
 A
@@ -824,7 +825,7 @@ diamond ring~
 {W[{Y*{G(+){Y*{W]{x diamond ring of life.~
 What a beautiful ring is here ...~
 gold~
-treasure AIRa AB
+treasure AIgo BFhl ABgh
 0 0 0 0 0
 65 1 1000000 P
 A
@@ -837,7 +838,7 @@ g none~
 dark glass~
 Greate Dark Glass Glowing on the path ... Someone left it ...~
 wood~
-treasure GT A
+treasure Gm Ci Ag
 0 0 0 0 0
 92 1 100000 P
 g none~
@@ -846,7 +847,7 @@ ring of eros~
 {YRing Of Eros{x~
 Ring of Eros lies here.~
 gold~
-treasure HIRTa AB
+treasure HIno BCFhil ABgh
 0 0 0 0 0
 1 1 9000000 P
 g none~
@@ -855,7 +856,7 @@ helm of enki~
 {YHelm of Enki{x~
 Helm of Enki lies here.~
 unknown~
-treasure HIa AE
+treasure HIno Fl AEgk
 0 0 0 0 0
 0 1 9000000 P
 g none~
@@ -864,7 +865,7 @@ shield of seth~
 {YShield of Seth{x~
 Shield of Seth lies here.~
 divinity~
-trash CGHRTa AJ
+trash CGHimn BCFhil AJgp
 0 0 0 0 0
 1 1 9000000 P
 g none~
@@ -873,7 +874,7 @@ sword of venus~
 {YSword of Venus{x~
 Sword of Venus lies here.~
 unknown~
-treasure HIRTa AN
+treasure HIno BCFhil ANgt
 0 0 0 0 0
 0 1 9000000 P
 g none~
@@ -882,7 +883,7 @@ flame of hera~
 {YFlame of Hera{x~
 Flame of Hera lies here.~
 unknown~
-light IRTa A
+light Io BCFhil Ag
 0 0 1 0 0
 1 1 9000000 P
 g none~
@@ -891,7 +892,7 @@ boots of goktengri~
 {YBoots Of Goktengri{x~
 Boots of Goktengri lies here ...~
 unknown~
-trash IRTa AG
+trash Io BCFhil AGgm
 0 0 0 0 0
 0 1 9000000 P
 g none~
@@ -900,7 +901,7 @@ ring of ares~
 {YRing Of Ares{x~
 Ring of Ares lies here.~
 unknown~
-treasure IRTa AB
+treasure Io BCFhil ABgh
 0 0 0 0 0
 0 1 9000000 P
 g none~
@@ -909,7 +910,7 @@ robe of teshub~
 {YRobe Of Teshub{x~
 Robe of Teshub lies here.~
 unknown~
-treasure IRTa AK
+treasure Io BCFhil AKgq
 0 0 0 0 0
 0 1 9000000 P
 g none~
@@ -918,10 +919,10 @@ quest mace of stars~
 Mace of Stars~
 Strange glowing mace lies here.~
 steel~
-weapon A AN
-mace 7 7 'pound' G
+weapon Ag 0 ANgt
+mace 7 7 'pound' Gm
 45 1 1 P
-S 'mace' 45 A
+S 'mace' 45 Ag
 A
 13 20
 A
@@ -932,18 +933,18 @@ book of healing~
 Book of Healing~
 Old book lies here.~
 unknown~
-treasure RT AO
+treasure 0 BChi AOgu
 0 0 0 0 0
 35 1 1 P
-S 'cure light' 20 A
-S 'heal' 45 A
+S 'cure light' 20 Ag
+S 'heal' 45 Ag
 g none~
 #38110
 true hero healing ring~
 {W({R+{W){x ring oh healing.~
 Strange ring lies here.~
 divinity~
-treasure AIRT AB
+treasure AIgo BChi ABgh
 0 0 0 0 0
 45 1 1000000 P
 A
@@ -958,15 +959,15 @@ A
 1 -3
 A
 12 -500
-S 'heal' 100 A
+S 'heal' 100 Ag
 g none~
 #38200
 bartable~
 @eng long wooden table@rus длинный деревынный стол~
 @eng Long wooden table@rus Длинный деревянный стол~
 wood~
-furniture 0 0
-BD EIJKN KN CFG CFG
+furniture 0 0 0
+BDhj EIJKNkopqt KNqt CFGilm CFGilm
 0 100000 0 P
 g none~
 #38201
@@ -974,8 +975,8 @@ armchair~
 @eng {Wstrange armchair.{x@rus {Wстранное кресло.{x~
 @eng {W Torture armchair is in the center of room.{x@rus {WКресло для пыток стоит посреди комнаты. {x~
 unknown~
-furniture R 0
-A 0 D 0 0
+furniture 0 Bh 0
+Ag 0 Dj 0 0
 0 1 1 P
 g none~
 #38202
@@ -983,7 +984,7 @@ poisoned pill~
 Strange pill.~
 Someone left strange pill here.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 11 'poison' 'plague' 'blindness' 'weaken'
 20 1 1 P
 g none~
@@ -992,8 +993,8 @@ spiked skullsmasher ebony kris~
 the ebony kris~
 weapon~
 stone~
-weapon HIMY AN
-dagger 10 10 'stab' CDGH
+weapon HIMYnos 0 ANgt
+dagger 10 10 'stab' CDGHijmn
 40 300 100000 P
 A
 18 20
@@ -1007,7 +1008,7 @@ winged boots~
 Demon's skin~
 armor~
 divinity~
-armor CM AD
+armor CMis 0 ADgj
 200 200 200 200 0
 40 1 1 P
 A
@@ -1024,7 +1025,7 @@ transfer leticia 3001~
 ~
 ~
 unknown~
-trash 0 0
+trash 0 0 0
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1033,7 +1034,7 @@ winged boots of setepios~
 {WWinged Boots Of Setepios -*(//{x~
 Dirty Boots lies on the ground.~
 divinity~
-armor CI AG
+armor CIio 0 AGgm
 0 0 0 0 0
 94 1 1 P
 A
@@ -1044,8 +1045,8 @@ alona chair~
 @eng wonderful chair.@rus удобный стульчик~
 @eng Wonderful chair stands here.@rus Прекрасный стул обитый бархатом.~
 unknown~
-furniture AR A
-A 0 EH DGH DGH
+furniture Ag Bh Ag
+Ag 0 EHkn DGHjmn DGHjmn
 30 1 1 P
 g female~
 #38601
@@ -1053,8 +1054,8 @@ bench~
 @eng bench@rus лавке.~
 @eng guest bench.@rus лавка для гостей~
 unknown~
-furniture 0 0
-BD 0 EH 0 0
+furniture 0 0 0
+BDhj 0 EHkn 0 0
 0 0 0 P
 g none~
 #38602
@@ -1062,7 +1063,7 @@ star of justice~
 @eng {Y***{W Power of Justice{Y ***{x@rus {Y***{W Сила Правосудия{Y ***{x~
 @eng Star of Justice lies here.@rus Что-то невзрачное поблескивает на земле. (star of justice)~
 unknown~
-armor ACGMRSTZa AO
+armor ACGMgims BCEFhikl AOgu
 0 0 0 0 0
 54 1 1 P
 A
@@ -1093,18 +1094,18 @@ diamond ring power~
 Diamond Ring of Power~
 strange ring lies here.~
 unknown~
-armor T AB
+armor 0 Ci ABgh
 0 0 0 0 0
 35 1 1 P
-S 'bash' 30 A
+S 'bash' 30 Ag
 g none~
 #38604
 slon слон elephant candy~
 @eng elephant@rus слоник~
 @eng Wow ! What a candy ... It looks like an animal !@rus Карамель в виде слона (elephant) просится в рот.~
 unknown~
-food A A
-CE CE 0 0 0
+food Ag 0 Ag
+CEik CEik 0 0 0
 0 1 100000 P
 g none~
 #38605
@@ -1112,21 +1113,21 @@ salfita ring~
 {y={Y={R[{W*{R]{Y={y={x Salfita ring~
 Hmm... Cute thing ! It looks like a Salfitas ring.~
 unknown~
-jewelry AC AB
+jewelry ACgi 0 ABgh
 0 0 0 0 0
 35 1 100000 P
 A
 7 1
 A
 13 30
-S 'rescue' 100 A
+S 'rescue' 100 Ag
 g none~
 #38606
 ring water of~
 {B==={x ring of Water~
 Ring of water lies here in the dust.~
 water~
-jewelry Ia AB
+jewelry Io Fl ABgh
 0 0 0 0 0
 25 1 1 P
 A
@@ -1143,7 +1144,7 @@ cloak vivien red dragon gold~
 @eng {YGolden Leather Cloak{x@rus {YПлащ из кожи золотого Дракона.{x~
 Present for Vivien lies here.~
 dragonskin~
-armor AIa AK
+armor AIgo Fl AKgq
 32000 32000 32000 32000 0
 92 1 1 P
 A
@@ -1164,7 +1165,7 @@ On the wall you can see Setepios Photo.
 фотографиями богинь и смертных дам. На стене висит портрет вечномолодого
 бога Setepiosa в пожелтевшей рамке.
 ~
-0 CK inside
+0 CKiq inside
 S
 #38002
 @eng Torture room@rus Камера пыток~
@@ -1174,7 +1175,7 @@ You can see small table with lots of strange and fearing equipment near.
 посреди хорошо освещенной комнаты. Рядом столик с различными,
 непонятными, но пугающими инстркментами.
 ~
-0 NW inside
+0 NWt inside
 S
 #38100
 @eng Sit & wait@rus Приемная~
@@ -1183,7 +1184,7 @@ S
 для одежды). Небольшой факел освешает комнату мерцающим светом.
 Стены мраморные, а двери выполнены из красного дерева.
 ~
-0 K inside
+0 Kq inside
 D2
 ~
 ~
@@ -1196,7 +1197,7 @@ S
 востоке кабинет. Потолки разрисованны фресками величайших художников, на
 стенах портреты богов и зеркала. Пол облицован мрамором.
 ~
-0 KO inside
+0 KOqu inside
 D0
 ~
 ~
@@ -1238,7 +1239,7 @@ S
 небеса. Пол покрыт дубовым паркетом. Спокойствие и дух вечности царят
 тут. {YЗолотой шар{w освещает комнату мягким светом.
 ~
-0 N inside
+0 Nt inside
 D3
 ~
 ~
@@ -1254,14 +1255,14 @@ Wooden floor is clearned by barmen. The room is lighted by tourches.
 вы видите редчайшее оружие и доспехи. Портрет весельчака Бадди висит
 над входом. Тут всегда можно отдохнуть, развлечься, выпить и закусить.
 ~
-0 CK inside
+0 CKiq inside
 S
 #38201
 @eng Arena@rus Арена Испытаний~
 @eng Wild 
 @rus Жутковатое место ... Тут Боги испытывают силу и ум смертных ...
 ~
-0 Q inside
+0 Qw inside
 S
 #38500
 @eng The Gates of Nightmare@rus Врата ужаса~
@@ -1318,7 +1319,7 @@ you don't know....
 замечаешь части тела, кости, черепа и прочие ... Ужас охватывает тебя
 от криков сверху, но прямого пути туда нет ...
 ~
-0 N inside
+0 Nt inside
 D0
 ~
 ~
@@ -1338,7 +1339,7 @@ bridge
 Камни сами собой висят в горячем воздухе, образуя крест. Они переливабтся
 и блестят.
 ~
-0 N inside
+0 Nt inside
 D0
 ~
 ~
@@ -1359,7 +1360,7 @@ S
 #38504
 @rus Комната бессоницы~
 ~
-0 N mountain
+0 Nt mountain
 D0
 ~
 ~
@@ -1372,7 +1373,7 @@ S
 #38505
 ~
 ~
-0 N inside
+0 Nt inside
 D1
 ~
 ~
@@ -1385,7 +1386,7 @@ S
 #38506
 ~
 ~
-0 C inside
+0 Ci inside
 D3
 ~
 ~
@@ -1571,7 +1572,7 @@ S
 @rus Высокие сводные потолки изрисованы фресками на которых великая Богиня
  
 ~
-0 CW inside
+0 CWi inside
 S
 #0
 

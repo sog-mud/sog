@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Dragon Tower~
 VNUMs 2200 2299
 Credits Wench~
@@ -16,10 +17,10 @@ This small dragon hisses at you as you enter the room.  Although it is only a
 few feet long, its sharp teeth make you think twice about petting it.
 ~
 dragon~
-ABG 0 -900 0
+BGhm 0 0 0 0 -900 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 100
 0 0 medium unknown
 #2201
@@ -32,10 +33,10 @@ has black scales and a seven foot wingspan.  He scowls at you and hefts his
 spear as you enter the room.
 ~
 human~
-ABCF D -900 0
+BCFhil 0 0 0 Ag -900 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 100
 0 0 medium unknown
 #2202
@@ -46,10 +47,10 @@ The lord of this crypt is here.
 He doesn't look happy to see you.
 ~
 human~
-ABCF T -1000 0
+BCFhil 0 Tz 0 0 -1000 0
 27 0 5d10+650 13d9+100 5d4+7 'none'
 -8 -8 -8 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 1750
 0 0 medium unknown
 #2203
@@ -62,10 +63,10 @@ surprised at the fact that he is human, and realize that he must be very
 powerful to have been accepted by the creatures which live here.
 ~
 human~
-ABR BDu -900 0
+BRhx 0 0 Ag Ag -900 0
 22 0 4d10+360 22d9+100 2d7+5 'none'
 -5 -5 -5 3
-FU 0 0 0
+FUl
 stand stand male 30
 0 0 medium unknown
 #2204
@@ -77,10 +78,10 @@ A Draconian stands here, dressed in simple robes.  Around his neck you
 notice a golden medallion in the shape of a five headed dragon.  
 ~
 human~
-ABCFQ Du -900 0
+BCFQhilw 0 0 0 Ag -900 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKU 0 0 0
+EIKUkoq
 stand stand male 20
 0 0 medium unknown
 #2205
@@ -93,10 +94,10 @@ though he could crush your head with a single blow.  Yet you sense that he
 is controlled by a greater power. 
 ~
 human~
-ABC Du -900 0
+BChi 0 0 0 Ag -900 0
 26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 40
 0 0 medium unknown
 #2206
@@ -109,10 +110,10 @@ all.  You find yourself strangely repulsed as she draws a knife and
 prepares to defend herself. 
 ~
 human~
-AB 0 -500 0
+Bh 0 0 0 0 -500 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 5
 0 0 medium unknown
 #2207
@@ -124,10 +125,10 @@ This creature has devoted its life to defending the king.  Your intrusion has
 not pleased it.
 ~
 human~
-ABF CDF -800 0
+BFhl 0 0 0 ABKghq -800 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 250
 0 0 medium unknown
 #2220
@@ -139,10 +140,10 @@ You see before you the master of this Tower, Tiamat.  She frowns at you as she
 prepares to make you pay for your insolence ... with your lives!
 ~
 human~
-ABCFl DFTV -1000 0
+BCFhil 0 TVz 0 ABgh -1000 0
 52 0 50d10+5500 26d9+100 6d7+20 'none'
 -22 -22 -22 2
-EFNU 0 0 0
+EFNUklt
 stand stand female 2500
 0 0 medium unknown
 r bash 33
@@ -171,10 +172,10 @@ This huge red dragon dominates the chamber.  As you turn to flee, he grins at
 you and invites you to stay ... forever! 
 ~
 dragon~
-ABCF DF -1000 0
+BCFhil 0 0 0 ABgh -1000 0
 54 60 25d10+8000 22d9+900 11d11+26 'none'
 -85 -85 -85 -24
-EFNR 0 0 0
+EFNRkltx
 stand stand male 8000
 0 0 medium unknown
 r fire 100
@@ -187,10 +188,10 @@ This huge black wyrm laughs at your puny weapons.  You realize that he is not
 going to roll over and die for you.
 ~
 dragon~
-ABCF DF -900 0
+BCFhil 0 0 0 ABgh -900 0
 40 40 15d10+3700 19d9+400 5d9+13 'none'
 -19 -19 -19 -1
-EFNR 0 0 0
+EFNRkltx
 stand stand male 1000
 0 0 medium unknown
 r fire 0
@@ -207,10 +208,10 @@ dragons, you are not afraid.  She smiles at you and says 'I think you will find
 me a greater challenge than my offspring.'
 ~
 dragon~
-ABCF DF -1000 0
+BCFhil 0 0 0 ABgh -1000 0
 39 20 10d10+3500 18d9+400 3d20+12 'none'
 -12 -12 -12 5
-EFNR 0 0 0
+EFNRkltx
 stand stand female 1750
 0 0 medium unknown
 r fire 0
@@ -225,10 +226,10 @@ She looks at you with sorrow in her eyes and says 'You have slaughtered my
 children.  Prepare to die.'
 ~
 dragon~
-ABCF DF -1000 0
+BCFhil 0 0 0 ABgh -1000 0
 47 70 25d10+6000 20d9+800 4d8+24 'none'
 -34 -34 -34 -10
-EFNR 0 0 0
+EFNRkltx
 stand stand female 1000
 0 0 medium unknown
 r fire 0
@@ -244,10 +245,10 @@ A hydra is here, guarding the entrance to a sealed vault.  You have the feeling
 it isn't happy to see you.
 ~
 human~
-ABCF DF -800 0
+BCFhil 0 0 0 ABgh -800 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 250
 0 0 medium unknown
 #2227
@@ -259,10 +260,10 @@ He looks like he's under a lot of stress.  He would probably like it if you
 left him alone.
 ~
 human~
-ABS DF 0 0
+BShy 0 0 0 ABgh 0 0
 5 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 5
 0 0 medium unknown
 #2240
@@ -274,10 +275,10 @@ This used to be one of the warriors of this tribe.  He was denied his final
 rest, however, and now guards this corridor tirelessly as a zombie.
 ~
 human~
-ABCF DFJ -400 0
+BCFhil 0 0 0 ABHghn -400 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNU 0 0 0
+EFNUklt
 stand stand none 75
 0 0 medium unknown
 #2241
@@ -288,10 +289,10 @@ A Phase Dragon is darting around the room.
 This small dragon looks like he's up to no good. 
 ~
 dragon~
-ACFGH DF -300 0
+CFGHilmn 0 0 0 ABgh -300 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNR 0 0 0
+EFNRkltx
 stand stand male 250
 0 0 medium unknown
 #2242
@@ -303,10 +304,10 @@ This dragon man looks VERY foolish, dressed in a green and blue striped
 suit.  As you enter the room, he points at you and laughs. 
 ~
 human~
-AGHS DF 0 0
+GHSmny 0 0 0 ABgh 0 0
 5 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 25
 0 0 medium unknown
 #2243
@@ -318,10 +319,10 @@ This draconian looks VERY busy as she orders her slaves around.  You think
 it might be a good idea to leave her alone. 
 ~
 human~
-ABC DFu -600 0
+BChi 0 0 0 ABgh -600 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand female 500
 0 0 medium unknown
 #0
@@ -332,8 +333,8 @@ spear jagged~
 a jagged spear~
 A jagged spear has been left here.~
 steel~
-weapon 0 AN
-spear 2 7 'thrust' K
+weapon 0 0 ANgt
+spear 2 7 'thrust' Kq
 10 150 153 P
 g none~
 #2201
@@ -341,7 +342,7 @@ dagger silver~
 a silver dagger~
 A silver dagger is lying here.~
 silver~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 4 7 'pierce' 0
 22 10 2000 P
 A
@@ -352,7 +353,7 @@ knife tooth dragon~
 a dragon's tooth knife~
 A dangerous looking knife made from a dragon's tooth has been left here.~
 bone~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 5 6 'pierce' 0
 30 80 3200 P
 A
@@ -365,7 +366,7 @@ bracelet dragon~
 a dragon skin bracelet~
 A scaly bracelet lies on the ground.~
 dragonskin~
-armor 0 AM
+armor 0 0 AMgs
 6 6 6 3 0
 15 100 1170 P
 g none~
@@ -374,7 +375,7 @@ belt silk black~
 a black silk belt~
 A black belt made of the finest silk is hanging here.~
 silk~
-armor 0 AL
+armor 0 0 ALgr
 6 6 6 2 0
 17 250 3900 P
 A
@@ -385,7 +386,7 @@ belt silk white~
 a white silk belt~
 A white belt made of the finest silk is hanging here.~
 silk~
-armor 0 AL
+armor 0 0 ALgr
 6 6 6 2 0
 17 250 3900 P
 A
@@ -396,7 +397,7 @@ bracelet platinum~
 a platinum bracelet.~
 A tarnished platinum bracelet has been dropped here.~
 platinum~
-armor A AM
+armor Ag 0 AMgs
 7 7 7 0 0
 20 50 1450 P
 g none~
@@ -405,7 +406,7 @@ symbol holy~
 a holy symbol~
 A golden holy symbol is here.~
 gold~
-jewelry A ACO
+jewelry Ag 0 ACOgiu
 0 0 0 0 0
 10 20 270 P
 A
@@ -416,7 +417,7 @@ robe black~
 a plain black robe~
 A black robe is hanging on a hook on the wall.~
 leather~
-armor 0 AK
+armor 0 0 AKgq
 5 5 5 0 0
 21 30 2000 P
 A
@@ -427,8 +428,8 @@ sword emerald~
 an emerald sword~
 An emerald long sword is leaning against the wall.~
 steel~
-weapon 0 AN
-sword 5 6 'slash' D
+weapon 0 0 ANgt
+sword 5 6 'slash' Dj
 28 240 2300 P
 A
 19 2
@@ -438,7 +439,7 @@ club stone~
 a stone club~
 A heavy looking stone club is here.~
 stone~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 3 6 'crush' 0
 18 180 940 P
 g none~
@@ -447,7 +448,7 @@ ring diamond~
 a diamond ring~
 A diamond ring lies gleaming on the ground.~
 diamond~
-jewelry 0 AB
+jewelry 0 0 ABgh
 0 0 0 0 0
 37 60 6800 P
 A
@@ -460,7 +461,7 @@ ring copper~
 a copper ring~
 A copper ring is here.~
 copper~
-jewelry 0 AB
+jewelry 0 0 ABgh
 0 0 0 0 0
 15 10 2600 P
 A
@@ -471,7 +472,7 @@ key steel~
 a steel key~
 A steel key.~
 steel~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -480,7 +481,7 @@ key ruby~
 a ruby key~
 A ruby key.~
 ruby~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -489,7 +490,7 @@ key white~
 a white key~
 A white key.~
 ivory~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -498,7 +499,7 @@ key grey~
 a grey key~
 A grey key is resting on the ground here.~
 wood~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -507,7 +508,7 @@ key stone~
 a stone key~
 A stone key.~
 stone~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -516,7 +517,7 @@ key black~
 a black key~
 A black key.~
 onyx~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -525,7 +526,7 @@ key platinum~
 a platinum key~
 A platinum key.~
 platinum~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -534,7 +535,7 @@ shield crested~
 a crested shield~
 A large crested shield draws your attention.~
 steel~
-armor 0 AJ
+armor 0 0 AJgp
 8 8 8 3 0
 25 200 3900 P
 A
@@ -545,7 +546,7 @@ wand golden~
 a golden wand~
 A golden wand has been dropped here.~
 gold~
-wand A AO
+wand Ag 0 AOgu
 25 10 10 'dispel magic' 0
 14 50 5500 P
 g none~
@@ -554,7 +555,7 @@ staff silver~
 a silver staff~
 A silver staff.~
 silver~
-staff AG AO
+staff AGgm 0 AOgu
 25 20 20 'faerie fog' 0
 14 50 11700 P
 g none~
@@ -563,7 +564,7 @@ staff dragon~
 the staff of the dragon~
 A powerful oak staff has been left here.~
 oak~
-staff AG AO
+staff AGgm 0 AOgu
 25 10 10 'call lightning' 0
 15 50 10200 P
 g none~
@@ -572,7 +573,7 @@ mail scale~
 scale mail~
 A set of scale mail has been abandoned here.~
 steel~
-armor A AD
+armor Ag 0 ADgj
 8 8 8 0 0
 25 200 3900 P
 g none~
@@ -581,7 +582,7 @@ staff black~
 a black staff~
 You notice the faint outline of a staff.~
 onyx~
-staff AJ AO
+staff AJgp 0 AOgu
 30 3 3 'energy drain' 0
 14 250 5300 P
 g none~
@@ -590,7 +591,7 @@ potion cyan~
 a cyan potion~
 A small cyan potion has been left here.~
 glass~
-potion 0 A
+potion 0 0 Ag
 30 'blindness' 'harm' '' ''
 9 10 1060 P
 g none~
@@ -599,7 +600,7 @@ potion magenta~
 a magenta potion~
 A magenta potion.~
 glass~
-potion H A
+potion Hn 0 Ag
 30 'cure critical' 'protection evil' '' ''
 7 10 600 P
 g none~
@@ -608,7 +609,7 @@ gauntlets spiked~
 a pair of spiked gauntlets~
 A pair of spiked gauntlets.~
 iron~
-armor AG AH
+armor AGgm 0 AHgn
 4 4 4 0 0
 20 100 2500 P
 A
@@ -621,7 +622,7 @@ scimitar golden~
 a golden scimitar~
 A golden scimitar.~
 gold~
-weapon A AN
+weapon Ag 0 ANgt
 sword 3 5 'slash' 0
 16 100 2500 P
 A
@@ -634,7 +635,7 @@ brooch diamond~
 a diamond brooch~
 A diamond brooch.~
 diamond~
-jewelry G AC
+jewelry Gm 0 ACgi
 0 0 0 0 0
 25 20 980 P
 A
@@ -645,7 +646,7 @@ scroll~
 a runed scroll~
 A runed scroll.~
 vellum~
-scroll G AO
+scroll Gm 0 AOgu
 30 'armor' 'protection evil' 'shield' ''
 12 10 1960 P
 g none~
@@ -654,7 +655,7 @@ gloves dragon~
 a pair of dragon skin gloves~
 A pair of dragon skin gloves are lying on the ground.~
 dragonskin~
-armor 0 AH
+armor 0 0 AHgn
 6 6 6 3 0
 17 50 4000 P
 A
@@ -665,7 +666,7 @@ helm dragon~
 a helm of dragon kind~
 A helm made of a dragon's skull is lying on the ground.~
 dragonskin~
-armor 0 AE
+armor 0 0 AEgk
 10 10 10 5 0
 35 150 4100 P
 A
@@ -676,7 +677,7 @@ fur cloak~
 a fur cloak~
 A large mound of fur is lying here.~
 fur~
-armor 0 AK
+armor 0 0 AKgq
 6 6 6 1 0
 16 100 1910 P
 A
@@ -689,7 +690,7 @@ leggings dragon scale~
 a pair of dragon scale leggings~
 A pair of dragon scale leggings is lying on the ground.~
 dragonskin~
-armor 0 AF
+armor 0 0 AFgl
 7 7 7 3 0
 20 150 1590 P
 g none~
@@ -698,7 +699,7 @@ sleeves dragon scale~
 a set of dragon scale sleeves~
 A set of dragon scale sleeves is lying on the ground.~
 dragonskin~
-armor 0 AI
+armor 0 0 AIgo
 7 7 7 3 0
 20 120 1590 P
 g none~
@@ -707,7 +708,7 @@ whip dragon tail~
 a dragon tailed whip~
 A dragon tailed whip is lying on the ground.~
 dragonskin~
-weapon BJ AN
+weapon BJhp 0 ANgt
 whip 6 5 'whip' 0
 24 140 1530 P
 A
@@ -720,7 +721,7 @@ hammer copper~
 a copper hammer~
 A copper hammer is lying on the ground.~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 4 5 'crush' 0
 15 120 750 P
 g none~
@@ -729,7 +730,7 @@ dagger silver~
 a silver dagger~
 A silver dagger is lying here.~
 silver~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 2 4 'pierce' 0
 5 10 360 P
 g none~
@@ -738,7 +739,7 @@ key gold tarnished~
 a tarnished gold key~
 A tarnished gold key lies here.~
 gold~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -750,7 +751,7 @@ The Tower Gates~
 You are at the entrance to a tall tower.  Lightning flashes periodically and
 it is raining.  You think it might be a good idea to turn back into the grove.
 ~
-0 A city
+0 Ag city
 E
 gate~
 The gate is tall and secure.  Whoever built it values privacy.
@@ -759,7 +760,7 @@ D0
 You see a large steel gate.  Beyond is the Foyer of the Tower.
 ~
 gate steel~
-ABCZ 2231 2202
+ABCZghi 2231 2202
 D1
 The shadows cloud your vision.
 ~
@@ -772,7 +773,7 @@ This is the entrance to the Tower.  The hallway continues to the north,
 leading towards a staircase.  You notice a grim painting on the wall,  and 
 quickly look away.
 ~
-0 CD inside
+0 CDij inside
 E
 painting~
 This painting depicts the grisly death of a foolish human.  You hope you do 
@@ -794,7 +795,7 @@ Hallway~
 This hallway seems to stretch on forever.  You notice a stairway in  
 the distance. 
 ~
-0 D inside
+0 Dj inside
 D0
 The hall continues. 
 ~
@@ -810,7 +811,7 @@ S
 Hallway~
 You trudge down the hallway.  You notice doors to the east and west. 
 ~
-0 D inside
+0 Dj inside
 E
 inscription~
 It says "STORAGE"
@@ -845,12 +846,12 @@ Nursery~
 It looks like a tornado has been through here.  Toys are scattered everywhere,
 and a small group of dragon hatchlings are fighting over a bone. 
 ~
-0 D city
+0 Dj city
 D1
 You see a large stone door.
 ~
 door stone~
-AFZ 2297 2223
+AFZgl 2297 2223
 D3
 You see the hallway. 
 ~
@@ -861,7 +862,7 @@ S
 Storage Room~
 This room is covered with dust, it looks as if no one has been here in ages.
 ~
-0 D city
+0 Dj city
 E
 dust~
 As you look closely at the dust, you notice the outline of a trapdoor!       
@@ -882,7 +883,7 @@ End of the Hallway~
 You have finally reached the end of the hallway.  A huge staircase leads up.
 You see a sign at the base of the staircase. 
 ~
-0 D inside
+0 Dj inside
 E
 sign~
 The sign reads:
@@ -906,7 +907,7 @@ Guardian's Room~
 You climb down the rickety stairs and find yourself face to face with a 
 gargantuan hydra.  How fast can you climb UP stairs? 
 ~
-0 D city
+0 Dj city
 D2
 A large grey door.
 ~
@@ -924,24 +925,24 @@ You have made it past the hydra into the vault.  You are astounded by
 the treasure here.  Not only are you now rich, you can probably rest here
 safely.  The west wall seems to have a large door made entirely of ruby.
 ~
-0 CD city
+0 CDij city
 D0
 You see nothing special. 
 ~
 grey~
-AFZ 2234 2208
+AFZgl 2234 2208
 D3
 You see a ruby door!
 ~
 door ruby~
-ABCFZ 2232 2218
+ABCFZghil 2232 2218
 S
 #2210
 The Second Floor~
 You have made it up to the second floor.  You hear hissing and see several
 dragon men rushing you.  You wonder how long you will be staying here.
 ~
-0 D city
+0 Dj city
 D2
 You see the court.
 ~
@@ -958,7 +959,7 @@ The Court~
 You have entered what seems to be a large court.  The people guarding it
 don't seem happy to see you ...
 ~
-0 D city
+0 Dj city
 D0
 You see nothing special.
 ~
@@ -980,7 +981,7 @@ Hall O' Pleasure~
 You stop dead in your tracks as you enter this ornately decorated room - it
 is populated with the king's harem.  
 ~
-0 D city
+0 Dj city
 D3
 You see the Court.
 ~
@@ -1018,7 +1019,7 @@ The Library~
 You have entered a huge room, filled with books.  A peaceful man is
 sitting at a table, studying.
 ~
-0 D city
+0 Dj city
 D3
 You see the court.
 ~
@@ -1030,7 +1031,7 @@ The Sanctum~
 This small room is modestly decorated with small dragon icons.  Its sole
 occupant is deep in thought.
 ~
-0 D city
+0 Dj city
 D1
 You see the Court.
 ~
@@ -1043,7 +1044,7 @@ You have reached the end of the court.  A huge Draconian is sitting in a
 chair here.  As you enter, he motions with his hand and you are rushed by three
 of his bodyguards.
 ~
-0 D city
+0 Dj city
 D0
 You see the court.
 ~
@@ -1059,7 +1060,7 @@ S
 bedroom~
 This is the personal room of the draconian king.  It is not empty.
 ~
-0 D city
+0 Dj city
 D3
 You see Court.
 ~
@@ -1071,12 +1072,12 @@ Entrance to the Crypt~
 You have entered a large room which smells heavily of reptile.  You wonder
 what awaits you here.
 ~
-0 D city
+0 Dj city
 D1
 You see the Treasure Vault.
 ~
 door ruby~
-ABCFZ 2232 2209
+ABCFZghil 2232 2209
 D3
 You see the Crypt.
 ~
@@ -1089,7 +1090,7 @@ You are in a large room which continues to the west.  You notice many
 coffins here.  Open coffins reveal remains of something other than man.  
 The smell of reptile is very strong here.
 ~
-0 D city
+0 Dj city
 D1
 You see the entrance.
 ~
@@ -1106,7 +1107,7 @@ The Lair~
 You have entered a large room dominated by a great white dragon.  It growls
 at you before it attacks.
 ~
-0 D city
+0 Dj city
 D2
 You the cave opening.
 ~
@@ -1118,7 +1119,7 @@ A Lair~
 You have entered a large room dominated by a great black dragon.  It looks
 as though it is amused by your presence.
 ~
-0 D city
+0 Dj city
 D0
 You the cave opening.
 ~
@@ -1130,7 +1131,7 @@ The Crypt Ends~
 You have come to the end of the Crypt.  It seems deserted.  There is a 
 strange coffin lying against the wall.
 ~
-0 D city
+0 Dj city
 E
 coffin~
 A coffin lies a against the east wall.  It is closed.
@@ -1143,7 +1144,7 @@ Z -1 2219
 D3
 ~
 coffin~
-ABCZ 0 2232
+ABCZghi 0 2232
 S
 #2223
 Entrance to the Great Hall~
@@ -1151,7 +1152,7 @@ You have entered a huge hall.  It has been carefully decorated with
 beautiful tapestries depicting a great battle between dragons and men.  The
 dragons appear to be the victors.
 ~
-0 D city
+0 Dj city
 D1
 The Hall continues.
 ~
@@ -1168,7 +1169,7 @@ The Great Hall~
 You are working your way down the Hall.  To the north, you notice a smaller
 passageway, while the main hall continues to the east.
 ~
-0 D city
+0 Dj city
 D0
 You see a narrow passageway.
 ~
@@ -1184,7 +1185,7 @@ S
 A Narrow Passageway~
 This Passageway branches off from the main hall and leads somewhere ... where?
 ~
-0 D city
+0 Dj city
 D0
 You see a large Lair.  It looks dangerous.
 ~
@@ -1202,7 +1203,7 @@ You have entered a large lair with bones strewn about the ground.  You
 notice the source of these as you come face to face with a rather large red
 dragon.  You notice a trap door in the floor.
 ~
-0 D city
+0 Dj city
 D2
 The narrow passageway.
 ~
@@ -1219,7 +1220,7 @@ Underground Tunnel~
 You have entered an underground tunnel.  It is dark and dirty, and you find
 yourself wishing you were back in Midgaard.
 ~
-0 AD field
+0 ADgj field
 D0
 You see the tunnel.
 ~
@@ -1235,7 +1236,7 @@ S
 Underground Tunnel~
 This tunnel has come to a dead end.  You feel nervous about being trapped here.
 ~
-0 ACD field
+0 ACDgij field
 D2
 You see the tunnel.
 ~
@@ -1248,7 +1249,7 @@ You have come to the end of the great hall.  You see before you a huge
 golden door, it must be at least twenty feet tall!  It has beautiful etchings
 of dragons.  You see a sign on the door.
 ~
-0 D city
+0 Dj city
 E
 sign~
 Congratulations on making it this far!  Watch out, it gets a little
@@ -1258,7 +1259,7 @@ D1
 You see a great golden door.
 ~
 door great golden~
-ABCFZ 2299 2230
+ABCFZghil 2299 2230
 D3
 You see the hall.
 ~
@@ -1269,31 +1270,31 @@ S
 THE Lair~
 You have entered a huge lair.  You feel that something big lives here or at least did.  The golden door lies back to the west.
 ~
-0 D field
+0 Dj field
 D3
 You see a great golden door.
 ~
 door golden great~
-ABCFZ 2299 2229
+ABCFZghil 2299 2229
 S
 #2231
 The End...~
 You have reached the final lair.  It is dominated by a huge five headed
 dragon.  You suddenly realize that you have SERIOUS problems...
 ~
-0 D field
+0 Dj field
 D2
 You see the top of the mountain.
 ~
 ~
-AFZ 2241 2243
+AFZgl 2241 2243
 S
 #2232
 Stairwell~
 This is an old decrepit stairwell that leads to the wine cellar.  It looks
 like it hasn't been used for decades.  Well, at least not by anything living.
 ~
-0 D field
+0 Dj field
 D1
 The crypt
 ~
@@ -1311,7 +1312,7 @@ This is the old wine cellar of the Dragon Tower.  The shelves are empty.
 Nothing living has been in here for a long time.  You see a tunnel leading
 off to the east and boy does it smell bad.  Kinda of like rotting flesh.
 ~
-0 A field
+0 Ag field
 D1
 A tunnel
 ~
@@ -1330,7 +1331,7 @@ your eyes soon tire from the strain.  The smell here has increased two fold.
 The tunnel continues to go to the east.  The wine cellar lies back to the 
 west.
 ~
-0 AI field
+0 AIgo field
 D0
 A cave opening
 ~
@@ -1354,7 +1355,7 @@ the room.  Some human, some indistinguishable.  It smells very bad in here.
 You can hear movement in the cave to the north.  The tunnel goes back to the
 south.
 ~
-0 AI field
+0 AIgo field
 D0
 The lair
 ~
@@ -1372,7 +1373,7 @@ You have finally come to the end of the tunnel.  Back to the west lies
 the miles of tunnels you have walked through.  You see the faint outline of
 a trapdoor above you.  A bridge over an underground river lies to the south.
 ~
-0 AI field
+0 AIgo field
 D2
 bridge
 ~
@@ -1395,7 +1396,7 @@ You are walking along an old wooden bridge.  Its not that secure.  You
 might want to hurry along.  To the south, on the other side of the bridge,
 lies a small opening.
 ~
-0 AD field
+0 ADgj field
 D0
 The tunnel end
 ~
@@ -1413,7 +1414,7 @@ You are standing in a small opening.  To the north lies the old wooden
 bridge.  To your south the you can see a clearing.  You can see sunlight
 again.  What a welcome relief!
 ~
-0 AD field
+0 ADgj field
 D0
 bridge
 ~
@@ -1536,7 +1537,7 @@ D0
 The platinum door
 ~
 door platinum~
-ABCFZ 2241 2231
+ABCFZghil 2241 2231
 D5
 The path continues
 ~
@@ -1555,7 +1556,7 @@ O
 right before your eyes.  Pretty pathetic isn't it?  Next time you'll know
 to listen to the God of Laughs.
 ~
-0 BC inside
+0 BChi inside
 S
 #0
 

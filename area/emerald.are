@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Emerald Forest~
 Builders dias~
 VNUMs 200 299
@@ -21,12 +22,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU 0 0 0
+KUq
 stand stand female 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -42,12 +43,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU 0 0 0
+FKUlq
 stand stand female 150
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -64,12 +65,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-AG DJ 1000 0
+Gm 0 0 0 AHgn 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU 0 0 0
+FUl
 stand stand female 80
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -83,12 +84,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-AG DJT 0 0
+Gm 0 Tz 0 AHgn 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU 0 0 0
+FUl
 stand stand male 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -105,12 +106,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU 0 0 0
+FKUlq
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -127,12 +128,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -149,12 +150,12 @@ bone in his spindly body and the forest would be well rid of him.
 He unleashes a torrent of curses at you.
 ~
 unique~
-ABCGHS JPQu -900 0
+BCGHShimny 0 0 BGhm Hn -900 0
 20 12 2d1+400 1d1+99 5d5+25 'scratch'
 0 0 0 0
-AEFKU 0 0 0
+AEFKUgklq
 stand stand none 50
-AC ABCDEF small unknown
+ACgi ABCDEFghijkl small unknown
 r holy -50
 r poison 100
 #208
@@ -170,12 +171,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABGl DJ -1000 0
+BGhm 0 0 0 AHgn -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #209
@@ -189,12 +190,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+BGhm 0 0 0 AHgn -950 0
 20 8 2d1+300 1d1+99 4d5+14 'beating'
 0 0 0 0
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #210
@@ -207,12 +208,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF large unknown
+ABgh ABCDEFghijkl large unknown
 r holy -50
 r charm 100
 #211
@@ -226,12 +227,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 25 10 2d1+600 1d1+99 5d5+14 'scratch'
 -3 -3 -3 -3
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #212
@@ -247,12 +248,12 @@ forest brown leathers and green cloak, he is currently practicing
 the use of his staff.
 ~
 unique~
-ABGKl 0 0 0
+BGhm Dj 0 0 0 0 0
 60 20 2d1+10000 1d1+99 5d6+150 'beating'
 -19 -19 -19 -19
-FK 0 0 0
+FKlq
 stand stand male 100
-A 0 medium unknown
+Ag 0 medium unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -282,12 +283,12 @@ physical fitness. He is intently carving some wooden sticks, probably
 arrows after he's finished with them.
 ~
 unique~
-ABGJl DFHJ 0 0
+BGhm Ci Hn 0 ABHghn 0 0
 58 30 2d1+6500 1d1+99 5d6+75 'beating'
 -12 -12 -12 -12
-FKW 0 0 0
+FKWlq
 stand stand male 100
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -313,12 +314,12 @@ A twelve foot bear stands here scratching his crotch.
 Smokey smiles affably at you as he beckons you over to buy his wares.
 ~
 unique~
-ABGe DF 750 0
+BGehm 0 0 0 ABgh 750 0
 55 25 2d1+5000 1d1+99 5d6+50 'claw'
 -10 -10 -10 -10
-DKN 0 0 0
+DKNjqt
 stand stand male 100
-A ABCDEF large unknown
+Ag ABCDEFghijkl large unknown
 r fire -50
 r poison 100
 #215
@@ -335,12 +336,12 @@ pixies and brownies. He is dressed in large and flowing green-brown
 robe, and seems rather busy with his duties.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 30 20 2d1+850 1d1+99 5d6+30 'smash'
 3 3 3 3
-CFK 0 0 0
+CFKilq
 stand stand male 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -355,12 +356,12 @@ the sparks from the fire. Aude looks at you with moistened lips and half
 closed eyes issuing an invitation you somehow cannot resist.
 ~
 unique~
-ABFGl DFJOu -1000 0
+BFGhlm 0 Ou 0 ABHghn -1000 0
 40 15 2d1+1500 1d1+99 5d6+35 'wrath'
 -5 -5 -5 -5
-FQ 0 0 0
+FQlw
 stand stand female 30
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r fire -50
 r holy -50
 r charm 100
@@ -375,12 +376,12 @@ her mottled cheeks and her gnarled skin testify to her long suffering and
 an intense adhorrence for all beauty and youth.
 ~
 unique~
-ABFGl DFJu -1000 0
+BFGhlm 0 0 0 ABHghn -1000 0
 41 15 2d1+1600 1d1+99 5d6+40 'divine'
 -6 -6 -6 -6
-FKQ 0 0 0
+FKQlqw
 stand stand female 30
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r fire -50
 r holy -50
 r charm 100
@@ -394,12 +395,12 @@ Gertrude. Born in a half-living, half-dead state, she harnesses the power
 of the undeed to destroy you!
 ~
 unique~
-ABFGl DFJu -1000 0
+BFGhlm 0 0 0 ABHghn -1000 0
 40 15 2d1+1450 1d1+99 5d6+40 'magic'
 -5 -5 -5 -5
-EFQ 0 0 0
+EFQklw
 stand stand female 30
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r fire -50
 r holy -50
 r charm 100
@@ -416,12 +417,12 @@ the wishful malady that the young are known to fall into once in
 a while. Love.
 ~
 unique~
-ABGH J 750 0
+BGHhmn 0 0 0 Hn 750 0
 15 10 2d1+200 1d1+99 5d6+0 'punch'
 7 7 7 7
-JK 0 0 0
+JKpq
 stand stand male 30
-A ABCD small unknown
+Ag ABCDghij small unknown
 r bash -50
 r pierce -50
 r slash -50
@@ -451,12 +452,12 @@ farmers with a few hunters and trappers. His sun burnt arms and face
 mark him as a happy worker, and no slacker.
 ~
 unique~
-AG J 750 0
+Gm 0 0 0 Hn 750 0
 15 12 2d1+220 1d1+99 5d6+5 'punch'
 2 2 2 2
-EFJK 0 0 0
+EFJKklpq
 stand stand male 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r bash -50
 r pierce -50
 r slash -50
@@ -483,12 +484,12 @@ This young straw-chewing punk spits and clenches his fist at you. Better
 SCRAM! He looks around for Maddie, the local beauty.
 ~
 unique~
-ABG J 750 0
+BGhm 0 0 0 Hn 750 0
 15 5 2d1+320 1d1+99 4d5+8 'punch'
 -3 -3 -3 -3
-EFJKLR 0 0 0
+EFJKLRklpqrx
 stand stand male 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r bash -50
 r pierce -50
 r slash -50
@@ -515,12 +516,12 @@ Maddie looks at you with desperate eyes imploring your assistance against
 her ruffian suitors.
 ~
 unique~
-ABGH J 750 0
+BGHhmn 0 0 0 Hn 750 0
 20 8 2d1+320 1d1+99 4d5+15 'punch'
 -3 -3 -3 -3
-FK 0 0 0
+FKlq
 stand stand female 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r fire -50
 r cold -50
 r lightning -50
@@ -548,12 +549,12 @@ green apron which reads "Roses for the loving, Lilies for the sad,
 Tulips for the laughing, violets for the glad".
 ~
 unique~
-ABGel J 1000 0
+BGehm 0 0 0 Hn 1000 0
 20 10 2d1+380 1d1+99 4d5+20 'grep'
 -1 -1 -1 -1
-EF 0 0 0
+EFkl
 stand stand female 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r fire -50
 r charm 100
 #224
@@ -569,12 +570,12 @@ spared the tricksters or thieves of the larger towns. Her basket is
 full of delicious looking apples and pears.
 ~
 unique~
-AGH J 750 0
+GHmn 0 0 0 Hn 750 0
 15 5 2d1+180 1d1+99 4d5+8 'punch'
 3 3 3 3
-FK 0 0 0
+FKlq
 stand stand female 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r bash -50
 r pierce -50
 r slash -50
@@ -614,12 +615,12 @@ He is singing a song over and over again and you catch its words...
     But I met with scorn"
 ~
 unique~
-ABCG J 0 0
+BCGhim 0 0 0 Hn 0 0
 13 8 2d1+150 1d1+99 5d5+5 'punch'
 4 4 4 4
-CDFK 0 0 0
+CDFKijlq
 stand stand male 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r bash -50
 r pierce -50
 r slash -50
@@ -650,12 +651,12 @@ warrior monk, and he must be trying to regain spiritual peace and
 conscience with the Most High.
 ~
 unique~
-ABGX DHJN 1000 0
+BGhm Ek HNnt 0 AHgn 1000 0
 39 15 2d1+1550 1d1+99 5d6+35 'punch'
 -6 -6 -6 -6
-EFHK 0 0 0
+EFHKklnq
 stand stand male 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r disease -50
 r charm 100
 #227
@@ -671,12 +672,12 @@ is mercy to be found in this evil place, she will fade away before
 the witches come to sacrifice her tonight. She looks at you pleadingly.
 ~
 unique~
-ABGl DIJKN 1000 0
+BGhm 0 IKNoqt 0 AHgn 1000 0
 15 10 2d1+80 1d1+99 4d5+0 'stab'
 2 2 2 2
-K 0 0 0
+Kq
 stand stand female 80
-AC 0 small unknown
+ACgi 0 small unknown
 r charm 100
 #228
 Irin girl elfin maid elf-maid~
@@ -689,12 +690,12 @@ seems lost in her own world, her long black hair framing a face that
 is almost too beautiful to describe.
 ~
 unique~
-ABCGH DHJN 1000 0
+BCGHhimn 0 HNnt 0 AHgn 1000 0
 50 15 2d1+3000 1d1+99 5d6+50 'punch'
 -7 -7 -7 -7
-EFK 0 0 0
+EFKklq
 stand stand female 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 M speech 201 Irin~
 M speech 201 Ирин~
 r disease -50
@@ -710,12 +711,12 @@ tail from side to side.  A sudden crackle of orange electricity runs
 down the length of its body and disappears.
 ~
 unique~
-ABCGHl DFJ 0 0
+BCGHhimn 0 0 0 ABHghn 0 0
 40 10 2d1+3000 1d1+99 5d6+40 'bite'
 0 0 0 0
-DFJK 0 0 0
+DFJKjlpq
 stand stand female 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r charm 100
 #230
 Kortho Wordgiver~
@@ -728,12 +729,12 @@ he seems abit tight-lipped at the moment.  You're probably going to
 have to beat it out of him.
 ~
 unique~
-ABCGl DJN 0 0
+BCGhim 0 Nt 0 AHgn 0 0
 38 15 2d1+1450 1d1+99 5d6+25 'suction'
 -3 -3 -3 -3
-FK 0 0 0
+FKlq
 stand stand male 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r charm 100
 #231
 Knight Sorrow~
@@ -749,12 +750,12 @@ burdened with. The Sorrow of God, perhaps? Nobody really knows save
 the members of the order.
 ~
 unique~
-ABG DHJ 1000 0
+BGhm 0 Hn 0 AHgn 1000 0
 37 12 2d1+1300 1d1+99 5d6+25 'punch'
 -2 -2 -2 -2
-EK 0 0 0
+EKkq
 stand stand male 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 #232
 priest YunFeiYang~
 Yun Fei Yang~
@@ -768,12 +769,12 @@ You draw back in ponder of this pointed-beard priest while his greyish-
 black apparel gives hint of his oriental origin.
 ~
 unique~
-ABGl DHJ 1000 0
+BGhm 0 Hn 0 AHgn 1000 0
 60 25 2d1+5500 1d1+99 10d5+65 'frbite'
 -11 -11 -11 -11
-DEFHK 0 0 0
+DEFHKjklnq
 stand stand male 30
-A ABCDEF large unknown
+Ag ABCDEFghijkl large unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -794,12 +795,12 @@ Farmer Griff smiles and says "You musn't leave without trying my
  'Char Siew Bao' ".
 ~
 unique~
-ABGel J 750 0
+BGehm 0 0 0 Hn 750 0
 20 15 2d1+500 1d1+99 4d5+10 'punch'
 0 0 0 0
-EFQ 0 0 0
+EFQklw
 stand stand female 30
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r fire -50
 r charm 100
 #234
@@ -812,12 +813,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFl DJ -1000 0
+BFhl 0 0 0 AHgn -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG 0 0 0
+BEFGhklm
 stand stand none 15
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #235
@@ -830,12 +831,12 @@ He looks like a dirty-furred dwarf with overly long hands and a mouth
 filled with sharp little teeth.
 ~
 unique~
-ABCFGl DFJ -1000 0
+BCFGhilm 0 0 0 ABHghn -1000 0
 12 5 2d1+180 1d1+99 4d5+12 'chop'
 2 2 2 2
-BCF 0 0 0
+BCFhil
 stand stand male 15
-A ABCDEF large unknown
+Ag ABCDEFghijkl large unknown
 r charm 100
 #236
 apparition priest~
@@ -848,12 +849,12 @@ witches.  His strength proved less than his faith in himself and his
 spectre now wanders the edge of this dark lake forever.
 ~
 unique~
-ABCGl J 1000 0
+BCGhim 0 0 0 Hn 1000 0
 35 25 2d1+1050 1d1+99 5d9+25 'charge'
 5 5 5 5
-FGK 0 0 0
+FGKlmq
 stand stand none 15
-D ABCDEF medium unknown
+Dj ABCDEFghijkl medium unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -883,12 +884,12 @@ you sharply and for a moment, you see upon her face the image of
 smiling demon.
 ~
 unique~
-ABGl DJu -1000 0
+BGhm 0 0 0 AHgn -1000 0
 43 10 2d1+2150 1d1+99 5d6+45 'punch'
 -2 -2 -2 -2
-AFK 0 0 0
+AFKglq
 stand stand female 1000
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #238
@@ -905,12 +906,12 @@ you see that ages of paranoia and fear have moulded a defiant snarl
 permanently on his scarred face.
 ~
 unique~
-ACGTl HJ 0 0
+CGTimz 0 Hn 0 Hn 0 0
 58 12 2d1+5900 1d1+99 5d6+105 'punch'
 -5 -5 -5 -5
-ACEFJK 0 0 0
+ACEFJKgiklpq
 stand stand male 15000
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -937,12 +938,12 @@ Imbessar. She has tracked him to the Emerald Forest and it is here
 that they will have their last battle.
 ~
 unique~
-ABGHRl JNu -1000 0
+BGHRhmnx 0 Nt 0 Hn -1000 0
 54 12 2d1+4500 1d1+99 5d6+85 'magic'
 -1 -1 -1 -1
-FH 0 0 0
+FHln
 stand stand female 10000
-A ABCDEF medium unknown
+Ag ABCDEFghijkl medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -970,12 +971,12 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-FKNU 0 0 0
+FKNUlqt
 stand stand female 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -993,12 +994,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU 0 0 0
+FUl
 stand stand female 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1015,12 +1016,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU 0 0 0
+FUl
 stand stand female 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1037,12 +1038,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU 0 0 0
+FUl
 stand stand female 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1059,12 +1060,12 @@ out. Not looking at them directly, he seems to be eyeing one of the
 brownies.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 13 4 2d1+175 1d1+99 4d5+7 'magic'
 0 0 0 0
-FU 0 0 0
+FUl
 stand stand female 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1081,12 +1082,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU 0 0 0
+FKUlq
 stand stand male 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1103,12 +1104,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU 0 0 0
+FKUlq
 stand stand male 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1125,12 +1126,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU 0 0 0
+FKUlq
 stand stand male 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1147,12 +1148,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU 0 0 0
+FKUlq
 stand stand male 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1169,12 +1170,12 @@ pretty elvin features, and is dressed totally in brown. She wears
 no cap, her otherwise long hair tied in a pony-tail.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 17 5 2d1+280 1d1+99 4d5+9 'punch'
 -4 -4 -4 -4
-FKU 0 0 0
+FKUlq
 stand stand male 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1188,12 +1189,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+BGhm 0 Tz 0 AHgn 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU 0 0 0
+FUl
 stand stand male 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1207,12 +1208,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+BGhm 0 Tz 0 AHgn 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU 0 0 0
+FUl
 stand stand male 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1226,12 +1227,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+BGhm 0 Tz 0 AHgn 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU 0 0 0
+FUl
 stand stand male 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1245,12 +1246,12 @@ and equally playful.  He is dressed in a brown jerkin and you see that
 its pockets are filled with acorns and nuts.
 ~
 unique~
-ABG DJT 0 0
+BGhm 0 Tz 0 AHgn 0 0
 20 6 2d1+350 1d1+99 4d5+12 'stab'
 -5 -5 -5 -5
-FU 0 0 0
+FUl
 stand stand male 80
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1267,12 +1268,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU 0 0 0
+KUq
 stand stand female 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1289,12 +1290,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU 0 0 0
+KUq
 stand stand female 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1311,12 +1312,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU 0 0 0
+KUq
 stand stand female 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1333,12 +1334,12 @@ is just slightly taller than 5 feet and has the eternally beautiful
 and youthful features of the faerie folk.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 24 6 2d10+500 1d1+99 5d5+5 'punch'
 -7 -7 -7 -7
-KU 0 0 0
+KUq
 stand stand female 100
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1354,12 +1355,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU 0 0 0
+FKUlq
 stand stand female 150
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1375,12 +1376,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU 0 0 0
+FKUlq
 stand stand female 150
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1396,12 +1397,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU 0 0 0
+FKUlq
 stand stand female 150
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1417,12 +1418,12 @@ running water and you cannot be sure if it is her singing or a brook
 in the distance.  She calls out to you to join her in her dance.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 29 9 2d10+750 1d1+99 5d5+10 'slap'
 -10 -10 -10 -10
-FKU 0 0 0
+FKUlq
 stand stand female 150
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1440,12 +1441,12 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-FKNU 0 0 0
+FKNUlqt
 stand stand female 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1464,12 +1465,12 @@ years, her long blond hair fall gently over her shoulders making
 her strikingly beautiful.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 34 15 2d1+1200 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-FKNU 0 0 0
+FKNUlqt
 stand stand female 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1487,12 +1488,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1510,12 +1511,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1533,12 +1534,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1556,12 +1557,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 39 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1579,12 +1580,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABGl DJ -1000 0
+BGhm 0 0 0 AHgn -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #269
@@ -1600,12 +1601,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABGl DJ -1000 0
+BGhm 0 0 0 AHgn -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #270
@@ -1621,12 +1622,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABGl DJ -1000 0
+BGhm 0 0 0 AHgn -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #271
@@ -1642,12 +1643,12 @@ got 'kill me now' written all over it's forehead in every possible
 language known.
 ~
 unique~
-ABGl DJ -1000 0
+BGhm 0 0 0 AHgn -1000 0
 15 3 2d1+200 1d1+99 4d5+5 'pierce'
 5 5 5 5
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #272
@@ -1661,12 +1662,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #273
@@ -1680,12 +1681,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #274
@@ -1699,12 +1700,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #275
@@ -1718,12 +1719,12 @@ It holds its boney hands out-stretched and seems to be asking you
 for a dance.  A tango perhaps, or a foxtrot.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 25 10 2d1+600 1d1+99 5d5+15 'scratch'
 -3 -3 -3 -3
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #276
@@ -1737,12 +1738,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+BGhm 0 0 0 AHgn -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #277
@@ -1756,12 +1757,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+BGhm 0 0 0 AHgn -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #278
@@ -1775,12 +1776,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+BGhm 0 0 0 AHgn -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #279
@@ -1794,12 +1795,12 @@ banquet table.  This one looks set to give you a good kick if you won't
 let it continue eating its weeds.  It bares large yellowed teeth at you.
 ~
 unique~
-ABG DJ -950 0
+BGhm 0 0 0 AHgn -950 0
 20 8 2d1+390 1d1+99 4d5+15 'beating'
 0 0 0 0
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand none 50
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r holy -50
 r charm 100
 #280
@@ -1812,12 +1813,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG 0 0 0
+BEFGhklm
 stand stand none 15
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #281
@@ -1830,12 +1831,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG 0 0 0
+BEFGhklm
 stand stand none 15
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #282
@@ -1848,12 +1849,12 @@ fanged maw.  It snarls viciously and circles you slowly, seeming to
 consider you with an evil intelligence.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 30 8 2d1+900 1d1+99 5d5+16 'bite'
 -5 -5 -5 -5
-BEFG 0 0 0
+BEFGhklm
 stand stand none 15
-AB ABCDEF small unknown
+ABgh ABCDEFghijkl small unknown
 r holy -50
 r charm 100
 #283
@@ -1866,12 +1867,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF large unknown
+ABgh ABCDEFghijkl large unknown
 r holy -50
 r charm 100
 #284
@@ -1884,12 +1885,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF large unknown
+ABgh ABCDEFghijkl large unknown
 r holy -50
 r charm 100
 #285
@@ -1902,12 +1903,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF large unknown
+ABgh ABCDEFghijkl large unknown
 r holy -50
 r charm 100
 #286
@@ -1920,12 +1921,12 @@ rotting cape about his body and draws his weapon slowly.  He has been
 preparing for the Great Hunt and in a low voice he intones your name.
 ~
 unique~
-ABFGl DJ -1000 0
+BFGhlm 0 0 0 AHgn -1000 0
 35 15 2d1+1700 1d1+99 6d6+25 'punch'
 -8 -8 -8 -8
-CDEFJKU 0 0 0
+CDEFJKUijklpq
 stand stand male 50
-AB ABCDEF large unknown
+ABgh ABCDEFghijkl large unknown
 r holy -50
 r charm 100
 #287
@@ -1939,12 +1940,12 @@ water as her laughter rings gaily through the forest.  A tunic wrapped
 loosely in a braided cloak of forest green lies among the lilac bushes.
 ~
 unique~
-ABG DJT 1000 0
+BGhm 0 Tz 0 AHgn 1000 0
 27 10 2d10+650 1d1+99 5d5+0 'slap'
 -8 -8 -8 -8
-FKU 0 0 0
+FKUlq
 stand stand female 150
-AC 0 small unknown
+ACgi 0 small unknown
 r lightning 100
 r holy 100
 r charm 100
@@ -1961,12 +1962,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -1984,12 +1985,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-ABG DJ 1000 0
+BGhm 0 0 0 AHgn 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -2007,12 +2008,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-AG DJ 1000 0
+Gm 0 0 0 AHgn 1000 0
 40 20 2d1+1700 1d1+99 6d6+35 'punch'
 -10 -10 -10 -10
-FKNU 0 0 0
+FKNUlqt
 stand stand male 100
-AC 0 medium unknown
+ACgi 0 medium unknown
 r lightning 100
 r holy 100
 r poison 100
@@ -2029,12 +2030,12 @@ in the sixth plane of Hell, he now watches over witchwood with his liege of
 huntsmen in service to Gertrude.
 ~
 unique~
-ABFGl DFJu -1000 0
+BFGhlm 0 0 0 ABHghn -1000 0
 40 14 2d1+1600 1d1+99 8d6+30 'magic'
 -7 -7 -7 -7
-FKQ 0 0 0
+FKQlqw
 stand stand female 30
-AB ABCDEF medium unknown
+ABgh ABCDEFghijkl medium unknown
 r fire -50
 r holy -50
 r charm 100
@@ -2050,10 +2051,10 @@ almost everything."
 Type HEAL for list.
 ~
 elf~
-ABGQael DHct 1000 0
+BGQehmw Hn Hcn 0 Ag 1000 0
 100 100 1d1+50000 1d1+10000 1d1+100 'divine'
 0 0 0 0
-EFIK 0 0 0
+EFIKkloq
 stand stand male 0
 0 0 medium unknown
 r bash 33
@@ -2081,7 +2082,7 @@ Stetson helm шляпа стетсон~
 @eng an ancient Ranger Lord's Stetson@rus ~~старинная~~ ~~фетровая~~ ~~шляпа~~~
 @eng A large brown hat is trying to camoflage itself on the floor.@rus Широкополая коричневая шляпа словно пытается спрятаться на земле.~
 wood~
-armor AG AE
+armor AGgm 0 AEgk
 12 11 11 10 0
 42 8 80000 P
 A
@@ -2101,7 +2102,7 @@ VainGlory Morning-Star Morningstar утренняя звезда слава напрасная~
 @eng a Morning-Star named "VainGlory"@rus ~~утренняя~~ ~~звезда~~ "Напрасная Слава"~
 @eng A large and ancient morning-star glows brightly on the floor.@rus Большая и старая утренняя звезда мерцает на земле.~
 silver~
-weapon AGHM AN
+weapon AGHMgmns 0 ANgt
 mace 12 3 'wrath' 0
 38 10 10000 G
 A
@@ -2125,7 +2126,7 @@ Relic ikon реликт икона~
 @eng a Graven Ikon of Saint Sebastian@rus ~~икона~~ Святого Себастьяна~
 @eng Small and scarred, the wooden image of a Saint is resting here.@rus Маленькая вырезанная из дерева икона какого-то святого.~
 wood~
-armor A AO
+armor Ag 0 AOgu
 9 9 9 0 0
 38 4 12000 G
 A
@@ -2149,7 +2150,7 @@ Rose black flower черная роза цветок~
 @eng a single black Rose@rus ~~черная~~ ~~роза~~~
 @eng A black long stemmed rose with single thorn lies here.@rus Черная роза с одним шипом лежит тут.~
 plant~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 15 G
 E
@@ -2164,7 +2165,7 @@ lily flower лилия цветок~
 @eng a Lily of the Valley@rus лилия~
 @eng A white lily is here.@rus Белая лилия приковывает внимание.~
 plant~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 17 G
 E
@@ -2180,7 +2181,7 @@ daisys basket flower маргаритка цветок корзина~
 @eng a basket of daisys@rus ~~корзинка~~ маргариток~
 @eng There is a basket of daisys here.@rus Корзинка маргариток забыта кем-то.~
 wood~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 18 G
 E
@@ -2194,7 +2195,7 @@ Irises flower ирисы цветы~
 @eng English Irises@rus ~~английские~~ ~~ирисы~~~
 @eng Many long stalks of bright blue flowers lie here.@rus Много синих цветов рассыпано тут.~
 plant~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 18 G
 E
@@ -2210,7 +2211,7 @@ Nosegay rosebuds flower бутоньерка розы цветы~
 @eng a nosegay of rosebuds@rus ~~бутоньерка~~ с розами~
 @eng There is a bunch of pink, unopened roses here.@rus Несколько маленьких еще не раскрывшихся роз лежат здесь.~
 plant~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 19 G
 E
@@ -2225,7 +2226,7 @@ Violets box flower фиалки коробочка цветы~
 @eng a box of downy violets@rus ~~коробочка~~ фиалок~
 @eng A sprig of purple violets lies sleepily in a box here.@rus Несколько фиалок лежат в бумажной коробочке.~
 paper~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 18 G
 E
@@ -2239,7 +2240,7 @@ Poppy poppies vase flower маки ваза цветы~
 @eng a vase of snow poppies@rus ~~ваза~~ с белыми маками~
 @eng A make shift vase which holds a number of delicate, white flowers is here.@rus Белые маки стоят в вазе.~
 plant~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 19 G
 E
@@ -2254,7 +2255,7 @@ Sunflower bouquet flower подсолнухи букет цветы~
 @eng a sunflower bouquet@rus ~~букет~~ подсолнухов~
 @eng A huge bouquet of bright orange and yellow flowers is here.@rus Огромный букет ярко-желтых цветов лежит здесь.~
 plant~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 20 G
 E
@@ -2269,7 +2270,7 @@ dress платье~
 @eng a lavender floral dress@rus ~~бледно-лиловое~~ ~~платье~~~
 @eng A floral dress lies here, waiting to look pretty on somebody.@rus Бледно-лиловое платье, сделанное из лепестков, ждет своего хозяина.~
 cloth~
-armor 0 AD
+armor 0 0 ADgj
 7 7 7 0 0
 20 5 500 G
 A
@@ -2287,8 +2288,8 @@ sonnet сонет~
 @eng a badly-written love sonnet@rus ~~неудачный~~ ~~сонет~~~
 @eng A badly-written love sonnet lies here unrequired, full of emotion.@rus Неудачный сонет выброшен, вероятно, автором или его пассией.~
 paper~
-trash 0 AO
-AC BC AC 0 0
+trash 0 0 AOgu
+ACgi BChi ACgi 0 0
 8 3 50 G
 A
 3 -1
@@ -2338,7 +2339,7 @@ four-leaf clover клевер четырехлистник~
 @eng a Four-Leaf Clover@rus ~~клевер~~ с четырьмя лепестками~
 @eng A Four-Leaf Clover.@rus Четырехлистный клевер.~
 plant~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 1 1 50 G
 E
@@ -2353,7 +2354,7 @@ Sword меч~
 @eng a Crusader's Sword@rus ~~меч~~ крестоносца~
 @eng There is a shiny steel sword with a decorated hilt here.@rus Блестящий металлический меч с украшенной рукоятью.~
 silver~
-weapon GKL AN
+weapon GKLmqr 0 ANgt
 sword 10 3 'wrath' 0
 35 8 12000 G
 A
@@ -2376,7 +2377,7 @@ Cross крест~
 @eng a wooden cross@rus ~~деревянный~~ ~~крест~~~
 @eng A small wooden cross lies here.@rus Маленький деревянный крестик лежит здесь.~
 wood~
-armor GKL AC
+armor GKLmqr 0 ACgi
 9 9 9 0 0
 35 2 5000 G
 A
@@ -2403,7 +2404,7 @@ surcoat мантия~
 @eng a white surcoat@rus ~~белая~~ ~~мантия~~~
 @eng A white surcoat with an emblazoned red cross lies here.@rus Белая мантия с красным крестом лежит здесь.~
 cloth~
-armor KL AK
+armor KLqr 0 AKgq
 9 9 10 0 0
 35 5 5000 G
 A
@@ -2426,7 +2427,7 @@ shirt mailed рубашка броня бронированная~
 @eng a battle-worn mailed shirt@rus ~~видавшая~~ виды ~~бронированная~~ ~~рубашка~~~
 @eng A shirt of tough steel mail is lying here.@rus Рубашка, обшитая стальными пластинами.~
 steel~
-armor KL AD
+armor KLqr 0 ADgj
 6 6 6 0 0
 36 9 4000 G
 A
@@ -2449,7 +2450,7 @@ steel leggings стальные поножи~
 @eng a pair of light steel leggings@rus ~~стальные~~ ~~поножи~~~
 @eng A pair of firm looking steel leg armour lies on the ground.@rus Комплект кольчужной брони для ног лежит на земле.~
 steel~
-armor KL AF
+armor KLqr 0 AFgl
 5 5 5 5 0
 35 6 5000 G
 A
@@ -2476,7 +2477,7 @@ sollerets boots солереты ботинки~
 @eng a pair of steel sollerets@rus ~~пара~~ стальных солеретов~
 @eng A pair of strong steel boots rests here.@rus Прочные металлические ботинки забыты здесь.~
 steel~
-armor KL AG
+armor KLqr 0 AGgm
 6 6 6 6 2
 35 8 5000 G
 A
@@ -2498,8 +2499,8 @@ altar алтарь~
 @eng Altar of Sacrifice@rus ~~алтарь~~ для кровавых жертв~
 ~
 copper~
-container 0 0
-5 AC 0 0 0
+container 0 0 0
+5 ACgi 0 0 0
 30 100000 1000 A
 E
 altar алтарь~
@@ -2518,7 +2519,7 @@ heart сердце~
 @eng the heart of a nymph@rus сердце нимфы~
 @eng The heart of a nymph pumps horribly on the floor.@rus Сердце нимфы бьется на земле.~
 flesh~
-pill ABG A
+pill ABGghm 0 Ag
 30 'cure serious' '' '' ''
 30 5 1000 W
 E
@@ -2535,8 +2536,8 @@ chest сундук~
 @eng a wooden chest@rus ~~деревянный~~ ~~сундук~~~
 @eng There is a sturdy wooden chest at the foot of the bed.@rus Массивный деревянный сундук стоит в ногах кровати.~
 wood~
-container G 0
-8 AC 0 0 0
+container Gm 0 0
+8 ACgi 0 0 0
 30 100000 1000 A
 g @eng none@rus male~
 #224
@@ -2544,7 +2545,7 @@ herbal potion настой трав~
 @eng a herbal potion@rus ~~настой~~ трав~
 @eng A potion marked "Ranger Aid".@rus Пузырек с надписью "Настой трав. Аптечка первой помощи, лесной комплект".~
 glass~
-potion AG A
+potion AGgm 0 Ag
 28 'cure poison' 'cure blindness' '' ''
 10 8 900 W
 E
@@ -2560,7 +2561,7 @@ mushroom гриб~
 @eng a blue-capped mushroom@rus ~~гриб~~ с синей шляпкой~
 @eng A small blue-capped mushroom lies uprooted, resting on its side.@rus Гриб с синей шляпкой лежит на боку, вырванный с корнем.~
 flesh~
-pill BG A
+pill BGhm 0 Ag
 20 'sleep' '' '' ''
 20 3 100 W
 E
@@ -2574,7 +2575,7 @@ Yew bow лук тисовый~
 @eng a yew bow@rus ~~тисовый~~ ~~лук~~~
 @eng An elegant yew bow lies here amongst the rocks.@rus Элегантный тисовый лук лужит на земле.~
 yew~
-weapon GKL AN
+weapon GKLmqr 0 ANgt
 bow 5 9 'pierce' 0
 43 9 30000 G
 A
@@ -2596,7 +2597,7 @@ sandstone altar алтарь песчаник~
 @eng an ancient sandstone altar@rus старый ~~алтарь~~ из песчаника~
 @eng An ancient sandstone altar sits here, weathering all time.@rus Древний алтарь стоит здесь, наперекор времени.~
 stone~
-treasure I 0
+treasure Io 0 0
 0 0 0 0 0
 10 100000 1000 A
 E
@@ -2610,7 +2611,7 @@ bole~
 a bole~
 ~
 wood~
-container 0 0
+container 0 0 0
 2 0 0 0 0
 30 100000 1000 A
 E
@@ -2624,8 +2625,8 @@ nut nuts cache~
 a cache of nuts~
 A cache of nuts lies here.~
 food~
-food 0 A
-DE 0 0 0 0
+food 0 0 Ag
+DEjk 0 0 0 0
 15 2 100 W
 E
 nuts~
@@ -2637,7 +2638,7 @@ Herman Melville book~
 Herman Melville's "Moby Dick"~
 Herman Melville's "Moby Dick" lies here.~
 cloth~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 5 3 50 G
 E
@@ -2651,7 +2652,7 @@ shield melancholic~
 the Knight Melancholic's shield~
 A green and silver shield bears a bleeding heart device.~
 steel~
-armor BK AJ
+armor BKhq 0 AJgp
 8 8 9 0 0
 35 8 10000 P
 A
@@ -2671,7 +2672,7 @@ sword swiftbird~
 a sword called "Swiftbird"~
 A sword called "Swiftbird" sings a melancholic lament.~
 steel~
-weapon K AN
+weapon Kq 0 ANgt
 sword 10 3 'slash' 0
 35 10 10000 G
 A
@@ -2693,7 +2694,7 @@ marmalade Orb~
 a marmalade orb~
 A striped marmalade orb floats in the air near you.~
 energy~
-weapon FGI AN
+weapon FGIlmo 0 ANgt
 exotic 10 4 'magic' 0
 43 10 10000 G
 A
@@ -2712,7 +2713,7 @@ TianCanShenGong Manual~
 the TianCanShenGong manual~
 An ancient transcript with oriental scriblings radiates brightly here.~
 cloth~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 50 3 80000 G
 A
@@ -2735,7 +2736,7 @@ bible~
 the Bible~
 A small black bible lies here.~
 wood~
-armor GIKL AO
+armor GIKLmoqr 0 AOgu
 7 8 7 0 0
 20 3 100 G
 A
@@ -2758,7 +2759,7 @@ map~
 Smokey's Map~
 A paw-written dirty-old map lies on the floor.~
 wood~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 10 2 3000 G
 E
@@ -2801,7 +2802,7 @@ marcel proust mace book~
 Marcel Proust's "A la Recherche du Temps Perdu"~
 Marcel Proust's "A la Recherche du Temps Perdu" lies here.~
 gold~
-weapon K AN
+weapon Kq 0 ANgt
 mace 10 2 'pound' 0
 15 18 8000 G
 A
@@ -2821,7 +2822,7 @@ dagger stick sword-stick палка меч~
 a sword-stick~
 A sword-stick lies on the grass here.~
 steel~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 8 2 'stab' 0
 5 8 100 G
 E
@@ -2837,8 +2838,8 @@ bookcase cabinet~
 book cabinet~
 An ornate mahogany book cabinet sits in the corner of the room.~
 wood~
-container 0 0
-50 AC 0 0 0
+container 0 0 0
+50 ACgi 0 0 0
 30 100000 1000 A
 E
 bookcase cabinet~
@@ -2855,7 +2856,7 @@ bow ashen longbow~
 an ashen longbow~
 A skillfully crafted longbow with a quiver of arrows lie here.~
 Gold~
-weapon K AN
+weapon Kq 0 ANgt
 bow 9 3 'pierce' 0
 28 10 4700 G
 A
@@ -2873,8 +2874,8 @@ hell-spear spear~
 a Hell-Spear~
 A Hell-Spear wreathed in black flames.~
 iron~
-weapon CHJ AN
-spear 9 3 'pierce' AK
+weapon CHJinp 0 ANgt
+spear 9 3 'pierce' AKgq
 25 12 3000 G
 A
 18 1
@@ -2892,7 +2893,7 @@ tulips bunch flower~
 a bunch of tulips~
 There is a bunch of yellow tulips here.~
 energy~
-trash G A
+trash Gm 0 Ag
 0 0 0 0 0
 1 1 20 G
 E
@@ -2906,7 +2907,7 @@ gourd~
 a brown leather gourd~
 A hollowed husk of a fruit lies here.~
 gourd~
-drink 0 A
+drink 0 0 Ag
 140 140 'water' 0 0
 1 4 200 G
 E
@@ -2919,8 +2920,8 @@ wafers wafer~
 an elven wafer~
 A creamy thin piece of biscuit lies here tempting you.~
 glass~
-food 0 A
-EF 0 0 0 0
+food 0 0 Ag
+EFkl 0 0 0 0
 1 2 2 P
 E
 wafer wafers~
@@ -2932,8 +2933,8 @@ sack~
 a Big Ol'Pack Sack~
 A brownish leather-like sack rests here.~
 leather~
-container 0 AK
-350 A 0 0 0
+container 0 0 AKgq
+350 Ag 0 0 0
 1 2 500 P
 E
 sack~
@@ -2945,7 +2946,7 @@ Brinjal gourd~
 a purplish brinjal gourd~
 Some purplish husk of a fruit lies here.~
 leather~
-drink 0 A
+drink 0 0 Ag
 10 10 'water' 0 0
 1 3 10 G
 E
@@ -2958,8 +2959,8 @@ Omelette surprise plate~
 an Omelette Surprise~
 A plate of beaten eggs, deliciously fried rests here.~
 food~
-food 0 A
-BD 0 0 0 0
+food 0 0 Ag
+BDhj 0 0 0 0
 1 1 5 P
 E
 omelette surprise plate~
@@ -2971,7 +2972,7 @@ milkshake vanilla~
 a vanilla milkshake~
 A creamy-white glass of milkshake lies untouched here.~
 food~
-drink 0 A
+drink 0 0 Ag
 1 1 'milk' 0 0
 1 1 2 P
 g none~
@@ -2980,8 +2981,8 @@ pancakes plate~
 a plate of pancakes~
 A plate of golden pancakes, smothered in maple syrup tempts you.~
 food~
-food 0 A
-BD 0 0 0 0
+food 0 0 Ag
+BDhj 0 0 0 0
 1 1 7 P
 E
 pancakes plate~
@@ -2993,8 +2994,8 @@ dish pate saucer~
 goose-liver pate~
 A brown glob in a wide saucer lies here.~
 food~
-food 0 A
-BD 0 0 0 0
+food 0 0 Ag
+BDhj 0 0 0 0
 1 1 3 P
 E
 dish pate saucer~
@@ -3006,8 +3007,8 @@ duck~
 Griff's Roast Duck~
 A whole roast duck is here.~
 food~
-food 0 A
-DE 0 0 0 0
+food 0 0 Ag
+DEjk 0 0 0 0
 1 1 8 P
 E
 duck~
@@ -3020,8 +3021,8 @@ stew bowl~
 a herbal pig's brain stew~
 A mystical bowl with strange engravings lies here.~
 food~
-food 0 A
-CD 0 0 0 0
+food 0 0 Ag
+CDij 0 0 0 0
 1 1 3 P
 E
 stew bowl~
@@ -3036,8 +3037,8 @@ bun~
 a Char Siew Bun~
 A white doughed dumpling with a little red dot is here.~
 food~
-food 0 A
-DE 0 0 0 0
+food 0 0 Ag
+DEjk 0 0 0 0
 1 1 2 P
 E
 bun~
@@ -3050,7 +3051,7 @@ book~
 Farmer Griff's Culinary Secrets~
 An oil-soiled book is here.~
 cloth~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 1 1 1000 P
 E
@@ -3081,7 +3082,7 @@ apron~
 an apron~
 A blue, embroided apron lies folded on the ground.~
 cloth~
-armor 0 AD
+armor 0 0 ADgj
 3 2 3 0 0
 1 5 50 G
 E
@@ -3094,8 +3095,8 @@ cushion cushions~
 a snowy-white cushion~
 ~
 cloth~
-container 0 0
-2 AC 0 0 0
+container 0 0 0
+2 ACgi 0 0 0
 1 100000 1000 A
 g none~
 #257
@@ -3103,7 +3104,7 @@ key iron~
 a rusty iron key~
 A key lies here tarnished in rust.~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 1 2 10 P
 E
@@ -3116,7 +3117,7 @@ skin cloak~
 the skin of an elven princess~
 A wide cloak made from the skin of an elven princess.~
 energy~
-armor J AC
+armor Jp 0 ACgi
 9 8 8 0 0
 38 8 9000 G
 A
@@ -3141,7 +3142,7 @@ candle~
 a blood candle~
 A blood candle paints the room red.~
 wax~
-light AGJ A
+light AGJgmp 0 Ag
 0 0 999 0 0
 20 1 5500 G
 A
@@ -3160,7 +3161,7 @@ ring scarab beetle~
 a gold scarab ring~
 A petrified beetle dipped in gold has been dead a long time.~
 gold~
-armor ACGJ AB
+armor ACGJgimp 0 ABgh
 9 9 9 9 9
 38 2 15000 G
 A
@@ -3179,7 +3180,7 @@ wig~
 a green serpent-tressed wig~
 A green serpent-tressed wig slithers about on the ground.~
 moss~
-armor CGJ AE
+armor CGJimp 0 AEgk
 9 9 9 0 0
 38 2 15500 G
 A
@@ -3203,7 +3204,7 @@ circlet~
 the dead star circlet~
 A blackened circlet with a stone of dull white fire.~
 leather~
-armor EJ AE
+armor EJkp 0 AEgk
 12 11 11 0 0
 50 8 25000 G
 A
@@ -3225,7 +3226,7 @@ gown samite~
 a beautiful gown of white samite~
 A white samite gown lies here like a symbol of beauty and purity.~
 bronze~
-armor G AD
+armor Gm 0 ADgj
 11 11 11 0 0
 50 6 25000 G
 A
@@ -3248,7 +3249,7 @@ whip tail manticore~
 the whipping tail of a manticore~
 A chitinous chain of black plates with a whipping end.~
 iron~
-weapon M AN
+weapon Ms 0 ANgt
 whip 8 6 'sting' 0
 50 7 25000 G
 A
@@ -3267,8 +3268,8 @@ dagger Yog-Sothoth~
 the dagger of Yog-Sothoth~
 A blue steel dagger with a blackened hilt lies here.~
 steel~
-weapon AEJM AN
-dagger 8 6 'frbite' B
+weapon AEJMgkps 0 ANgt
+dagger 8 6 'frbite' Bh
 50 7 25000 G
 A
 18 4
@@ -3288,7 +3289,7 @@ root~
 a three-eyed root~
 A three-eyed root stares right at you!~
 root~
-pill G A
+pill Gm 0 Ag
 12 'blindness' 'calm' 'bless' ''
 5 2 100 W
 E
@@ -3303,7 +3304,7 @@ root~
 a three-eyed root~
 A three-eyed root stares right at you!~
 root~
-pill G A
+pill Gm 0 Ag
 12 'detect good' 'detect magic' '' ''
 5 2 100 W
 E
@@ -3318,8 +3319,8 @@ Hell-blade blade~
 a Hell-Blade~
 A Hell-Blade wreathed in black flames.~
 iron~
-weapon CHJ AN
-sword 9 3 'slash' A
+weapon CHJinp 0 ANgt
+sword 9 3 'slash' Ag
 25 12 4700 G
 A
 18 1
@@ -3338,7 +3339,7 @@ Word~
 a word~
 A word lies here on the floor.~
 energy~
-armor HM AO
+armor HMns 0 AOgu
 8 8 8 0 0
 35 1 3000 G
 A
@@ -3353,7 +3354,7 @@ carnations carnation flower~
 a dozen pink carnations~
 Several long-stemmed carnations are here.~
 energy~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 10 G
 E
@@ -3367,7 +3368,7 @@ casket dandelion dandelions flower~
 a casket of Fairy Dandelions~
 A handful of wispy white flowers floats wispfully in the air in front of you.~
 energy~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 20 G
 E
@@ -3383,7 +3384,7 @@ carrion flower~
 a Carrion Flower~
 A grotesque scaley plant sits here on the floor, covered in a fog of flies.~
 energy~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 250 G
 E
@@ -3401,7 +3402,7 @@ tub crocuses~
 a tub of bright yellow crocuses~
 A stubby stone tub here holds several bright yellow flower bulbs.~
 energy~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 25 G
 E
@@ -3415,7 +3416,7 @@ cactus~
 a cactus~
 A solitary spiked cactus is here.~
 energy~
-trash G AO
+trash Gm 0 AOgu
 0 0 0 0 0
 1 1 5 G
 E
@@ -3429,7 +3430,7 @@ lancelot signet ring~
 Lancelot's Signet Ring~
 An ancient signet ring lies here tarnished and forgotten.~
 gold~
-armor KL AB
+armor KLqr 0 ABgh
 7 7 7 0 0
 18 1 1500 G
 A
@@ -3453,8 +3454,8 @@ pool~
 Scrying Pool~
 ~
 stone~
-container 0 0
-100 AC 0 0 0
+container 0 0 0
+100 ACgi 0 0 0
 35 100000 1000 A
 E
 pool~
@@ -3469,7 +3470,7 @@ staff~
 the Grand Pooh-Ba's Staff~
 The Grand Pooh-Ba's staff is covered with twirlers and confetti.~
 wood~
-staff G AO
+staff Gm 0 AOgu
 25 25 25 'create food' 0
 5 2 100 W
 E
@@ -3485,7 +3486,7 @@ pool water~
 a rock pool~
 ~
 stone~
-fountain 0 0
+fountain 0 0 0
 0 0 'water' 0 0
 10 100000 1000 A
 E
@@ -3498,8 +3499,8 @@ knapsack sack~
 a ranger's knapsack~
 A knapsack made from the finest leather rests here.~
 leather~
-container 0 AK
-650 A 0 0 0
+container 0 0 AKgq
+650 Ag 0 0 0
 1 2 90 P
 A
 17 -4
@@ -3513,7 +3514,7 @@ well water~
 an old well~
 An old cracked well stands rooted in the center of the village square.~
 stone~
-fountain 0 0
+fountain 0 0 0
 0 0 'water' 0 0
 10 100000 1000 A
 E
@@ -3526,7 +3527,7 @@ bone bracelet~
 a bone bracelet~
 A bracelet strung from pieces of bones lies uninvitingly here.~
 bone~
-armor CJQ AM
+armor CJQipw 0 AMgs
 4 4 4 0 0
 40 5 5000 G
 A
@@ -3546,7 +3547,7 @@ portal портал~
 @eng portal@rus портал~
 ~
 unknown~
-portal 0 0
+portal 0 0 0
 0 0 0 298 0
 0 0 0 P
 g @eng none@rus male~
@@ -3555,7 +3556,7 @@ portal портал~
 @eng portal@rus портал~
 ~
 unknown~
-portal 0 0
+portal 0 0 0
 0 0 0 298 0
 0 0 0 P
 g none~
@@ -3564,8 +3565,8 @@ portal портал~
 @eng portal@rus портал~
 ~
 unknown~
-portal 0 0
-0 0 DE 0 0
+portal 0 0 0
+0 0 DEjk 0 0
 0 0 0 P
 g none~
 #285
@@ -3573,14 +3574,14 @@ sneakers тапочки~
 @eng sneakers@rus ~~домашние~~ ~~тапочки~~~
 ~
 cashmire~
-clothing GRUb AG
+clothing GUbm Bh AGgm
 0 0 0 0 0
 10 0 12000 P
 A
 20 -10
 A
 31 15
-F A 18 5 P
+F i 18 5 Gm
 g plural~
 #0
 
@@ -3599,7 +3600,7 @@ corner.
 тумана. У тебя нет выбора, кроме как идти по этой тропе к покрытым снегом 
 вершинам этой горной гряды. Старый каменный знак (tablet) стоит за кустом.
 ~
-0 A mountain
+0 Ag mountain
 E
 stone tablet sign~
 You may obtain a free copy of Emerald Forest from any of the authors below.
@@ -3642,7 +3643,7 @@ foothills of the range.
 быстрее. Тропинка ведет вверх, к вершине, и вниз, к покрытой густым туманом 
 равнине.
 ~
-0 A mountain
+0 Ag mountain
 D4
 @eng Move further up and you'll be near the summit.
 @rus Поднимаясь дальше вверх, ты достигнешь вершины.
@@ -3668,7 +3669,7 @@ you spot a narrow mountain pass.
 Колючий снег бьет в лицо. Бррр...
 Сосновый лес покрывает склоны горы, а на юг видно узкое ущелье.
 ~
-0 A mountain
+0 Ag mountain
 D2
 @eng Southward lies a Mountain Pass.
 @rus Глядя на юг, ты замечаешь узкое ущелье.
@@ -3692,7 +3693,7 @@ ancient highlands.
 спускается к югу, к северу же лежит вершина горы. Только безмолвные старые
 горы окружают тебя на этом открытом всем ветрам плато.
 ~
-0 A mountain
+0 Ag mountain
 D0
 @eng You see the summit of the mountain.
 @rus Вершина горы величественно возвышается над тобой.
@@ -3710,7 +3711,7 @@ D5
 @rus Ты не видишь ничего особенного.
 ~
 secret~
-ABZ 0 297
+ABZgh 0 297
 S
 #205
 @eng A Mountain Pass@rus Ущелье~
@@ -3723,7 +3724,7 @@ you are on and continue up the mountain pass.
 тропинке, уходящей вверх к северу от тебя, или же войти в этот лес, направив-
 шись на запад.
 ~
-0 A mountain
+0 Ag mountain
 D0
 @eng You see a mountain pass.
 @rus Ты видишь узкое ущелье.
@@ -3751,7 +3752,7 @@ mountains.
 дубы растут на юге, и почти незаметная, заросшая тропинка убегает на восток
 к вершинам горной гряды.
 ~
-0 A hills
+0 Ag hills
 D1
 @eng You see a mountain pass.
 @rus Ты видишь тропинку, уходящую в ущелье в горах.
@@ -3784,7 +3785,7 @@ direction.
 обнаружена, нимфа исчезает, звонко рассмеявшись. Старый, но сделанный на века
 указатель (signpost) стоит на перекрестке путей, ведущих на все стороны света.
 ~
-0 A forest
+0 Ag forest
 E
 sign post signpost~
 @eng The sign seems to provide directions etched in a spidery hand.
@@ -3839,7 +3840,7 @@ Forest.
 несколько неуютно, ты вглядываешься на юг, где лес угрожающе темнеет
 Дорога же на восток ведет в спокойный Изумрудный лес.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng You can make out a Signpost of sort in that direction.
 @rus Вдалеке виден столб-указатель.
@@ -3866,7 +3867,7 @@ grazing idly nearby.  The road east runs down into a wooded dell.
 ручья. Ветер колышет высокий вереск, поодаль несколько коров неторопливо
 жуют траву. На востоке тропинка скрывается в лощине.
 ~
-0 A field
+0 Ag field
 D0
 @eng A village lies ahead.
 @rus Впереди ты видишь маленькую деревушку.
@@ -3893,7 +3894,7 @@ hillock.  The village square lies to the north.
 звонкий смех, но небольшой бугорок скрывает смеющихся. На севере видна
 центральная деревенская площадь.
 ~
-0 A field
+0 Ag field
 D0
 @eng You see a village square.
 @rus Деревенская площадь видна на севере.
@@ -3929,7 +3930,7 @@ village.
 растущие тут, позволяют желающим найти укромный уголок. Пригорок
 продолжается к северу, путь на запад приведет тебя обратно в деревню.
 ~
-0 A hills
+0 Ag hills
 D0
 @eng You see nothing special there.
 @rus Ничего особенного. Пригорок и пригорок.
@@ -3960,7 +3961,7 @@ the village and then turns north to a ruined abbey.
 хорошо видна вся деревня Клеверякино. Ты видишь старую дорогу, ведущую
 на запад к полуразрушенному монастырю.
 ~
-0 A field
+0 Ag field
 D2
 @eng The Green Hillock is to the South.
 @rus Там видна лужайка на склонах зеленого холма.
@@ -3983,7 +3984,7 @@ the west.
 сидр из больших кружек. На севере видна ферма, но еще одна дорога
 уходит на запад.
 ~
-0 A field
+0 Ag field
 D0
 @eng A farm lies ahead.
 @rus Впереди видна ферма.
@@ -4013,7 +4014,7 @@ continues north for some miles.
 нечасто ходят, и дорога почти заросла дикими цветами. На востоке еще
 видна деревня. На север видно еще несколько миль старой дороги.
 ~
-0 A field
+0 Ag field
 D0
 @eng The old dirt track continues north.
 @rus Старая дорога поворачивает на север.
@@ -4034,7 +4035,7 @@ hidden by a copse of cypress trees.
 @rus Вглядываясь на север, ты видишь окончание дороги и старый, полу-
 разрушенный монастырь, почти скрытый рощей кипарисов.
 ~
-0 A field
+0 Ag field
 D0
 @eng You see a huge monastary ahead.
 @rus Огромный, но почти разрушенный монастырь виден впереди.
@@ -4063,7 +4064,7 @@ Yaruga, the farmer's wife, shouting angrily in a foreign tongue.
 подворью. Из сине-желтого домика доносится голос Принцессы Яруги, жены
 Старины Гриффа, зло кричащей на непонятном языке.
 ~
-0 A inside
+0 Ag inside
 E
 sign~
 @eng Buy   <item>  - Buy an Item.
@@ -4099,7 +4100,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4133,7 +4134,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D2
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4160,7 +4161,7 @@ throw a halflight on a deep hole in the altar.
 Факелы, свисающие со стволов деревьев, окружающих эту поляну, едва
 освещают глубокую дыру посередине алтаря.
 ~
-0 A field
+0 Ag field
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4200,7 +4201,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4234,7 +4235,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D3
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4256,7 +4257,7 @@ south.
 тропинки, скрывающейся в тумане на западе. Ведьмин лес лежит на юго-
 востоке от тебя.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4298,7 +4299,7 @@ all alone in the darkness.
 на восток. Внезапно голоса обрываются, и вновь тьма и могильная тишина
 окружают тебя.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng You make out 3 figures in the darkness ahead.
 @rus Три темные фигуры стоят там.
@@ -4324,7 +4325,7 @@ the oppressive stench of brimstone.
 Адское пламя вырывается из трещины (rift) в земле. Жара в пещере почти
 непереносима, и ты почти теряешь сознание от едкого запаха горящей серы.
 ~
-0 A inside
+0 Ag inside
 E
 rift chasm~
 @eng A low voice from the dark beckons you gravely into the flames. You feel
@@ -4353,7 +4354,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4387,7 +4388,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4421,7 +4422,7 @@ miles.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see an altar ahead.
 @rus Странный алтар виден среди деревьев.
@@ -4461,7 +4462,7 @@ onto a dead marsh.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4501,7 +4502,7 @@ ring the edge of Hell.
 неестественно изогнуты, как будто в страшной агонии. Из глубин леса
 доносится безнадежный крик, заманивая тебя в этот богом проклятый лес
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -4538,7 +4539,7 @@ wind, falls at your feet.
 пойти на юг, когда ветер дросает тебе под ноги какой-то старый
 свиток (parchment).
 ~
-0 A forest
+0 Ag forest
 E
 parchment~
 @eng (Parchment: It is yellowed and seems savagely ripped from a tome.
@@ -4611,7 +4612,7 @@ well-kept, yet untravelled.
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
 по ним, похоже, нечасто ходят.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A sign post lies ahead.
 @rus Впереди ты видишь указатель.
@@ -4644,7 +4645,7 @@ well-kept, yet untravelled.
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
 по ним, похоже, нечасто ходят.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A well-used trail through the forest lies to there.
 @rus Ухоженная тропка уходит на север.
@@ -4675,7 +4676,7 @@ to be the woodkeepers' outpost.
 тый росой колючий кустарник, вдалеке ты видишь нескольких хранителей леса.
 Похоже, ты почти $gn{пришел} на их заставу.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng The Woodkeepers' Outpost is to the east.
 @rus Застава хранителей леса видна на востоке.
@@ -4709,7 +4710,7 @@ A fair-sized lodge sits beneath a Redwood tree to your east.
 на юге стоят несколько хижин поменьше. Нора достаточно большого размера
 уходит вглубь между корней огромной секвойи.
 ~
-0 AWX forest
+0 AWXg forest
 D0
 @eng The Guildmaster's cabin lies to the north.
 @rus Хижина мастера-лесника.
@@ -4748,7 +4749,7 @@ instructing a young woodkeeper.
 бегают рядом с небольшим крылечком. Элесар, Опекун Леса, что-то расска-
 зывает молодому неопытному хранителю.
 ~
-0 DWX inside
+0 DWXj inside
 D2
 @eng The Wood-Keepers' Outpost is to the south.
 @rus Застава хранителей леса видна чуть южнее.
@@ -4768,7 +4769,7 @@ Ranger Bear who runs the supply store.
 полках и в витринах. На стене висит список цены на товары, которые пред-
 лагает Смоки, ренджер-медведь, хозяин магазина.
 ~
-0 DWX inside
+0 DWXj inside
 E
 sign parchment~
 @eng Buy   - Buy an Item. *brrrrrrr*
@@ -4803,7 +4804,7 @@ well-kept, yet untravelled.
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
 по ним, похоже, нечасто ходят.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng The Emerald Forest!
 @rus Изумрудный лес!
@@ -4848,7 +4849,7 @@ from the branches of a tree, but when you look up you see nothing.
    Сверху, из кроны дерева, раздается приглушенное хихиканье, но
 подняв голову, ты не $gn{увидел} никого.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng A great tree lies to the east.
 @rus Высокое раскидистое дерево стоит на востоке.
@@ -4886,7 +4887,7 @@ no way you can get closer to it.
 димый барьер преграждает тебе путь. Рядом с деревом ты замечаешь
 какие-то движущиеся огоньки.
 ~
-0 A forest
+0 Ag forest
 D2
 @eng A faerie hill lies to the south.
 @rus Волшебный холм виден на юге.
@@ -4918,7 +4919,7 @@ hand through the waters.
 присутствия и продолжает что-то негромко напевать, водя рукой по
 водной глади.
 ~
-0 A field
+0 Ag field
 D2
 @eng A stream flows to the south.
 @rus Ручей течет на юг.
@@ -4938,7 +4939,7 @@ hear the distant roar of a waterfall to your south.
 сидящих в кустах сирени и резвящихся в ручье. Картина напоминает
 сказочный сон какой-то лесной богини. С юга слышен шум водопада.
 ~
-0 A field
+0 Ag field
 D0
 @eng A pool forms to the north.
 @rus Ручеек впадает в водоем на севере.
@@ -4974,7 +4975,7 @@ formed.
 образованной ветвями серебристого дуба ты $gn{заметил} кого-то, похожего
 на Алтариэль, Лесную Хозяйку.
 ~
-0 A field
+0 Ag field
 D0
 @eng A stream flows to the north.
 @rus Ручей течет на север.
@@ -4996,7 +4997,7 @@ scrutiny with a string of curses.
 лицо на миг показалось в окошке и прервало твои мечтания грубым потоком
 проклятий.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see a great tree there.
 @rus Гигантское дерево стоит перед тобой.
@@ -5034,7 +5035,7 @@ woodland travellers such as you.  You watch your step.
 Помня об этом, ты ступаешь осторожно, стараясь не доставить этому
 шалуну повода посмеяться над тобой.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng A faerie hill lies to the east.
 @rus Магический холм возвышается на востоке.
@@ -5067,7 +5068,7 @@ well-kept, yet untravelled.
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
 по ним, похоже, нечасто ходят.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng The Emerald Forest!
 @rus Изумрудный лес!
@@ -5100,7 +5101,7 @@ by the rangers of the forest whenever they are in need of wood.
 Ветви этого дерева обрублены - за дровами все ходят именно к этому
 тополю.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng The Emerald Forest!
 @rus Изумрудный лес!
@@ -5127,7 +5128,7 @@ well-kept, yet untravelled.
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
 по ним, похоже, нечасто ходят.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng The Emerald Forest!
 @rus Изумрудный лес!
@@ -5164,7 +5165,7 @@ loom out ominously.  The road continues south.
 покой вокруг. На севере лес темнеет, шиповник сменятся бузиной. Дорога
 идет на юг
 ~
-0 A field
+0 Ag field
 D0
 @eng Dark Woods!
 @rus Темный лес...
@@ -5196,7 +5197,7 @@ from them.
 становясь бездушными тыквоголовыми людьми. Эти зловонные болота стали
 могилой сотням и тысячам созданий, и тяжелый запах смерти витает тут.
 ~
-0 A forest
+0 Ag forest
 D2
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
@@ -5222,7 +5223,7 @@ from them.
 становясь бездушными тыквоголовыми людьми. Эти зловонные болота стали
 могилой сотням и тысячам созданий, и тяжелый запах смерти витает тут.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
@@ -5254,7 +5255,7 @@ from them.
 становясь бездушными тыквоголовыми людьми. Эти зловонные болота стали
 могилой сотням и тысячам созданий, и тяжелый запах смерти витает тут.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
@@ -5292,7 +5293,7 @@ from them.
 становясь бездушными тыквоголовыми людьми. Эти зловонные болота стали
 могилой сотням и тысячам созданий, и тяжелый запах смерти витает тут.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
@@ -5319,7 +5320,7 @@ goodness that repels the evil of the witches.
 дуб стоит на холме, как маяк, словно отталкивая то зло, что населяет
 этот лес.
 ~
-0 A hills
+0 Ag hills
 D0
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
@@ -5344,7 +5345,7 @@ out a morning song.  The road continues north and south.
 покой вокруг. Две голубогрудые ласточки летают прямо перед тобой,
 весело чирикая свою утреннюю песню. Дорога идет на север и на юг.
 ~
-0 A field
+0 Ag field
 D0
 @eng A Forest Road.
 @rus Дорога продолжается на север.
@@ -5369,7 +5370,7 @@ out a morning song.  The road continues north and south.
 покой вокруг. Две голубогрудые ласточки летают прямо перед тобой,
 весело чирикая свою утреннюю песню. Дорога идет на север и на юг.
 ~
-0 A field
+0 Ag field
 D0
 @eng A Forest Road.
 @rus Лесная дорога продолжается на север.
@@ -5396,7 +5397,7 @@ leafy branches of the tall, flanking trees.
 на восток, откуда доносится шум, ты замечаешь едва заметные очертания
 моста в тени высоких, раскидистых деревьев.
 ~
-0 A field
+0 Ag field
 D0
 @eng A Forest Road.
 @rus Лесная дорога.
@@ -5434,7 +5435,7 @@ play drift in softly from the south.
 между камнями в потоке, текущем под мостом.  Тропка теряется в лесу на
 западе и идет через мост на восток.  
 ~
-0 A field
+0 Ag field
 D1
 @eng A shady bridge lies eastwards.
 @rus Тропинка идет по мосту
@@ -5464,7 +5465,7 @@ shade from the noon-day sun.
 протекает достаточно широкий ручей. Высокие деревья вокруг создают прият-
 ную прохладную тень даже в полдень.
 ~
-0 A field
+0 Ag field
 D1
 @eng A woodland trail continues eastwards.
 @rus Дорожка скрывается в лесу на востоке.
@@ -5494,7 +5495,7 @@ colonisation or lumbering, which makes it quite a curiousity.
 хранителей леса никогда не упоминал о мосте в этой части леса. Этот лес
 всегда сопротивлялся попыткам его колонизации.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng The Emerald Forest!
 @rus Изумрудный лес!
@@ -5533,7 +5534,7 @@ flowers fill the air.
 которые кричат, чирикают и жужжат у тебя надо головой. Свежий лесной запах
 пропитывает все вокруг.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A woodland trail.
 @rus Тропинка в лесу.
@@ -5561,7 +5562,7 @@ The trail continues to the north and south.
 @rus Ты идешь по лесной тропинке в Изумрудном лесу. Далеко на востоке
 раздается шум падающего водопада. Тропинка идет с севера на юг.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A faerie hill lies to the north.
 @rus Волщебный холм возвышается на севере.
@@ -5588,7 +5589,7 @@ The paths lead north, south and west.
 ягод и всего, что можно запасти на зиму. Тропинки ведут на север, запад и
 на юг.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A three-way junction lies to the north.
 @rus Перекресток тропинок на севере от тебя.
@@ -5622,7 +5623,7 @@ The trail allows travel to the east and west.
 лягушек вместе с сопрано ласточек и басом гудящих насекомых оглашают
 окрестности. Тропинка идет с востока на запад.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng More Emerald Forest!
 @rus Изумрудный лес!
@@ -5650,7 +5651,7 @@ quiet time area.
 это аталкивает тебя на мысль, что не ты первый нашел этот укромный
 уголок.
 ~
-0 A inside
+0 Ag inside
 D1
 @eng More Emerald Forest!
 @rus Изумрудный лес!
@@ -5660,7 +5661,7 @@ Z 0 263
 D4
 ~
 secret~
-ABZ 0 265
+ABZgh 0 265
 S
 #265
 @eng The Tree House@rus Дом в дереве~
@@ -5676,11 +5677,11 @@ another book lies half-read on the floor.
 а на ковре разбросано несколько плюшевых подушек. На полке стоит собра-
 ние сочинений Шекспира, одна книга лежит на полу, прочитанная наполовину.
 ~
-0 AYZ inside
+0 AYZg inside
 D5
 ~
 secret секрет~
-ABZ 0 264
+ABZgh 0 264
 S
 #266
 @eng A Small Clearing@rus Небольшая поляна~
@@ -5699,7 +5700,7 @@ by themselves. Strong magic is at work here.
 встать рядом со своими собратьями. Даже трава под ногами, похоже, растет
 рядами. Тут не обошлось без магии друидов.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A dense path is northwards.
 @rus Густые заросли видны на севере.
@@ -5728,7 +5729,7 @@ sway softly while you decide your next course.
 однако ты не можешь определить их происхождение. Ветви деревьев
 мягко колышутся, словно пытаясь подсказать тебе, куда пойти.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A woodland trail lies northwards.
 @rus Лесная тропинка уходит на север.
@@ -5769,7 +5770,7 @@ without being touched. Looks like great fun.
 игроки бросаются к мешочку. Побеждает тот, что вернется с мешком
 к своей команде неосаленным. Очень занимательно.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng A ragged trail lies to the east.
 @rus Тропинка петляет, уходя на восток.
@@ -5804,7 +5805,7 @@ there are no signs of it ending in the near future...
 на этой поляне, там продают десерты, кремовые пирожные и различные
 напитки. Великий Фестиваль, похоже, в самом разгаре.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng You see a bunch of pixies and brownies in a game.
 @rus Брауни и пикси развлекаются какой-то игрой.
@@ -5836,7 +5837,7 @@ to climb. A variety of bird song and animal sound fill the air.
 крутого утеса, по его гладкому склону невозможно взобраться. Весело
 звучат песни птиц и голоса животных.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see a trail ahead.
 @rus Тропинка уходит на север.
@@ -5870,13 +5871,13 @@ here tempting you to take a break and rest in it's shade.
 деревья Изумрудного леса. Большое дерево с огромными покрытыми листьями
 ветвями приглашает отдохнуть в тени.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A tall tree with huge leafy branches blocks your way.
 @rus Огромное дерево стоит на твоем пути.
 ~
 tree~
-ABZ 0 253
+ABZgh 0 253
 D1
 @eng You see a three way woodland to the east.
 @rus Впереди видна развилка.
@@ -5904,7 +5905,7 @@ intently without trying to look too obvious, you notice nothing.
 В кустах раздается какой-то шорох, но всматриваясь, ты не замечаешь
 там ничего.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng A Lovely trail lies there.
 @rus Лесная тропинка проходит с севера на юг.
@@ -5934,7 +5935,7 @@ not to day dream, walking here.
 как будто попал в сказку, где рыцари убивают злых троллей, принцессы
 спасены, и все сыты. Тяжело не замечтаться, прогуливаясь тут.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A Forest trail lies to the north.
 @rus Лесная тропинка бежит на север.
@@ -5975,7 +5976,7 @@ would pick flowers for a lone grave and leave no evidence of passing?
 мудрого эльфа или искусного ренджера. Кто похоронен здесь? И кто приносит
 цветы, не оставляя следов? Эти вопросы кружатся в твоей голове.
 ~
-0 A forest
+0 Ag forest
 E
 tomb tombstone~
 @eng Etched on the well-dusted tombstone are the following words...
@@ -6024,7 +6025,7 @@ delicious cashew or two.
 развесившим свои раскидистые ветви на дорогой. Белки перелетают с ветки
 на ветку в поисках орехов.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng A lovely trail lies north.
 @rus Маленькая тропинка бежит на север.
@@ -6063,7 +6064,7 @@ the meeting.
 представителей из дальних стран, торопящихся на встречу. Стопка бумаги (scroll)
 лежит на столе, вероятно, ее раздадут приехавшим.
 ~
-0 A forest
+0 Ag forest
 E
 map scroll scrolls pamphlets~
 @eng *-*
@@ -6156,7 +6157,7 @@ and memory?
 То ли это следы прошлых эпох, ушедших навсегда и сохранившихся лишь в памяти
 старожилов?
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see a grove in the forest.
 @rus Ты видишь залитую солнцем рощицу.
@@ -6194,7 +6195,7 @@ left for lunch.
 размышления. Небольшие камни выложены в форме круга, как будто кресла вокруг
 оратора. Как будто тут было бурное собрание, и вдруг все ушли...
 ~
-0 A forest
+0 Ag forest
 D2
 @eng You see thick green vines in the yonder.
 @rus Тропинка упирается в стену из лиан.
@@ -6215,7 +6216,7 @@ logs would emit.
 западе. Ствол упавшего дерева блестит от росы и недавнего дождя. Как ни
 странно, не чувствуется запах гнили. Что это - магия эльфов?
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see nothing special there.
 @rus Ничего особенного. Лес как лес.
@@ -6243,7 +6244,7 @@ through the trees, and there seems to be movement.
 неслышно крадется рысь. На север виден просвет, похоже, что там есть поляна. Ты
 замечаешь почти заросшую тропку, ведущую туда.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see nothing special there.
 @rus Ничего особенного. Лес как лес.
@@ -6283,7 +6284,7 @@ a slight lead over the grunting Pixies.
 на поляне, аромат свежей выпечки достигает твоего обоняния.
 Брауни и пикси уже проводят различные соревнования и игры.
 ~
-0 A forest
+0 Ag forest
 E
 sign~
 @eng Buy   - Buy an Item.
@@ -6326,7 +6327,7 @@ a trail slopes gently down.
 вздыхает где-то в кроне деревьев. На запад тропинка уходит
 немного вниз.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng The south-east end of the Bonanza is there.
 @rus Великий Фестиваль проходит на поляне к северу от тебя.
@@ -6358,7 +6359,7 @@ opened the ceremony yet.
 рядом со столом, облизываясь и ожидая, когда председатель Фестиваля
 (или Великий Пу-Ба) объявит церемонию поедания открытой.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see a bunch of pixies and brownies in a game of Honey Bun.
 @rus Пикси и брауни играют в какие-то странные салочки.
@@ -6400,7 +6401,7 @@ roughly to the east through a cluster of bushes and trees.
 с редкими кустиками, оживляющими этот мрачный пейзаж. Едва заметная
 тропа уходит на восток через заросли кустов.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng You see a ragged trail.
 @rus Тропинка петляет, уходя на север.
@@ -6438,7 +6439,7 @@ is a small rock pool to the east.
 на небольшом поле к северу. Небольшой каменный водоем расположен на
 востоке.
 ~
-0 A field
+0 Ag field
 D1
 @eng You see a rocky pool.
 @rus Каменистый водоем.
@@ -6474,7 +6475,7 @@ and ponder things you've put aside, and think on matters you've forgotten.
 Уютная деревянная скамейка приглашает присесть отдохнуть, подумать
 о свершенном и вспомнить о забытом.
 ~
-0 A field
+0 Ag field
 D3
 @eng You see a garden.
 @rus Садик.
@@ -6501,7 +6502,7 @@ the scrolls here are written in a language you can understand.
 переводу с китайского на человеческий. Автор: Жуг Лянг". Как ни странно,
 некоторые манускрипты написаны на понятном тебе языке.
 ~
-0 A inside
+0 Ag inside
 E
 book dictionary словарь книга руководство~
 @eng As you flip open the dictionary, it falls open to a well-read page...
@@ -6583,7 +6584,7 @@ the dereliction that the rest of the monastery has fallen into.
 Внезапно ты замечаешь, что часовня - единственная часть монастыря,
 сохранившаяся среди всеобщего запустения.
 ~
-0 A inside
+0 Ag inside
 D2
 @eng The old dirt track continues south.
 @rus Старая дорога ведет в Клеверякино.
@@ -6613,7 +6614,7 @@ the west wall you see a hole large enough for you to squeeze through.
 ней заботятся паладины и клерики. В западной стене ты видишь дыру,
 достаточно большую, чтобы ты мог пролезть в нее.
 ~
-0 A inside
+0 Ag inside
 D1
 @eng You see a huge monastary there.
 @rus Огромный, но почти разрушенный монастырь стоит перед тобой.
@@ -6641,7 +6642,7 @@ used by others as a place of worship or contemplation.
 ветви, давая приятную прохладу и тень. В этом месте царит спокойствие
 и мир, и оно часто используется для молитв и созерцания.
 ~
-0 A field
+0 Ag field
 D1
 @eng You see a chapel in the distance.
 ~
@@ -6664,7 +6665,7 @@ from them.
 становясь бездушными тыквоголовыми людьми. Эти зловонные болота стали
 могилой сотням и тысячам созданий, и тяжелый запах смерти витает тут.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More Dead Moors!
 @rus Мертвые болота источают зловония...
@@ -6693,7 +6694,7 @@ to the west.
 мгновенье уносит туман, и ты видишь небольшое озеро за зарослями 
 тростника на западе.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -6724,7 +6725,7 @@ while others are clawing their way to the surface of the mud.
 мертвые, тихие болота простираются, кажется, до горизонта. Какие-то
 твари ползают по земле, поедая друг друга.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -6764,7 +6765,7 @@ onto a dead marsh.
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
 стынет в жилах. Куда ни глянь - этот ужасный лес кажется бесконечным.
 ~
-0 A forest
+0 Ag forest
 D0
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -6795,7 +6796,7 @@ waters and see lights on the shore of an island hidden in the mists.
 черные воды этого угрожающе тихого озера. Оторвав взгляд от водной глади,
 ты видишь огни на берегу острова, скрытого туманом.
 ~
-0 A field
+0 Ag field
 D1
 @eng More eerie woods!
 @rus Ужасный лес тянется бесконечно...
@@ -6813,7 +6814,7 @@ foot of the bed.
 обставлена.  Тут четыре кровати, где хранитель леса может отдохнуть,
 вернувшись из патруля.  Рядом с ножкой кровати стоит небольшой сундук.  
 ~
-0 DWX inside
+0 DWXj inside
 D0
 @eng The Wood-Keepers' Outpost is to the north.
 @rus Застава хранителей леса на севере.
@@ -6835,13 +6836,13 @@ Someone with bad taste obviously lives here.
 и ткани - все словно подобрано, чтобы вызывать диссонанс. Владелец
 всего этого богатства явно не отличается хорошим вкусом.
 ~
-0 AD mountain
+0 ADgj mountain
 D3
 @eng You see a huge boulder there.
 @rus Дверь придавлена огромным валуном.
 ~
 boulder~
-ABZ 0 206
+ABZgh 0 206
 S
 #298
 @eng Inside a Cottage@rus Внутри коттеджа~
@@ -6861,13 +6862,13 @@ good tastes lives here!
 вазах и горшках. Коттедж выглядит уютным и ярким даже с наступлением
 ночи. Его владелец явно отличается хорошим вкусом.
 ~
-0 DNX inside
+0 DNXjt inside
 D1
 @eng A Bedroom.
 @rus Дверь из красного дерева.
 ~
 rose-wood door дверь красная~
-ABZ 0 299
+ABZgh 0 299
 S
 #299
 @eng Redbaron's Bedroom@rus Спальня Красного Барона~
@@ -6887,7 +6888,7 @@ seem to lead out of this room. You wonder where they may lead to...
 Ты едва $gn{заметил} среди этих скульптур огромную кровать, явно трехспальную.
 Несколько порталов ведут в неизвестные места...
 ~
-0 DNX inside
+0 DNXjt inside
 E
 bed кровать~
 @eng You see comfortable sneakers near it.

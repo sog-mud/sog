@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Mob Factory~
 VNUMs 9400 9499
 Credits PinkF~
@@ -16,10 +17,10 @@ You see a mutant beastly fido, glaring at you with green eyes!  You wonder if
 this factory meets ASPCA guidlines....
 ~
 fido~
-AFGH D -700 0
+FGHlmn 0 0 0 Ag -700 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EN 0 0 0
+ENkt
 stand stand male 0
 0 0 medium unknown
 #9402
@@ -32,10 +33,10 @@ of dedicated Mudding!  Rewarded for his years of dedication as a monster
 slayer, Floyd now creates the beasts for other adventurers to fight.
 ~
 human~
-ABG DFH 2 0
+BGhm 0 Hn 0 ABgh 2 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNU 0 0 0
+EFNUklt
 sit stand male 50
 0 0 medium unknown
 #9403
@@ -48,12 +49,12 @@ Obviously, this one got past quality control!  Careful, those teeth look
 sharp...
 ~
 unique~
-AG T 0 0
+Gm 0 Tz 0 0 0 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
-AHV AEJK medium unknown
+AHVgn AEJKgkpq medium unknown
 #9404
 revolving drunk~
 The revolving drunk~
@@ -63,10 +64,10 @@ You see and smell a drunk who looks much like other drunks...but he is spinning
 in place!  Someone should tell him that he is a REVOLTING drunk.
 ~
 human~
-ACGH 0 1 0
+CGHimn 0 0 0 0 1 0
 2 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 2
 0 0 medium unknown
 #9405
@@ -78,10 +79,10 @@ Yick.  Looks like someone had digestion problems!  Either that, or the
 hydraulic fluid is leaking again.
 ~
 human~
-ABC 0 0 0
+BChi 0 0 0 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 sit sit none 0
 0 0 medium unknown
 #9406
@@ -93,10 +94,10 @@ The worker wears a bright orange pair of overalls, with the words "Mob
 Factory" written in a bright purple starburst.  Fashion plate, he's not.
 ~
 human~
-AGH 0 100 0
+GHmn 0 0 0 0 100 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 2
 0 0 medium unknown
 #9407
@@ -108,10 +109,10 @@ If Floyd walks in, you can bet there'll be trouble.  Guess she shouldn't have
 worked the late shift!
 ~
 human~
-ABH 0 150 0
+BHhn 0 0 0 0 150 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 sleep sit female 3
 0 0 medium unknown
 #0
@@ -126,7 +127,7 @@ crazy! To the north you see the storage area, to the south the
 foreman's office, to the east the entrance hallway, and to the west the
 familiar paving of wall road.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -152,7 +153,7 @@ containing wigs and a bottle mysteriously labelled "solution x". Exits
 are more of storage to the east and north, and entrance to the mob
 factory to the south.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -173,7 +174,7 @@ stored. You see sacks of sawdust, cans of pink paint, a large box
 containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the east and south.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -191,7 +192,7 @@ of various sizes and a Sports Illustrated Swimsuit calendar on the west
 wall. Exits lead north to the mob factory entrance and south to the
 foreman's bathroom.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -209,7 +210,7 @@ shower to the back, and a urinal to the left. On the floor you can
 see stains of a very suspicious nature. The only exit leads north to
 the foreman's office.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -223,7 +224,7 @@ containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the west and south, and an inspection room to
 the east.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -245,7 +246,7 @@ containing wigs and a bottle mysteriously labelled "solution X". Exits
 are more of storage to the west and north, an inspection room to the
 east and the entrance hallway to the south.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -272,7 +273,7 @@ eyes is observing you...... Exits are north to the storage area, east
 to the entrance hallway, south to the cafeteria and west to the mob
 factory entrance.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -299,7 +300,7 @@ seem to care. There are many places where food and drink have been
 spilled on the ground. Exits are north to the entrance hallway and
 south to the mob factory cafeteria.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -318,7 +319,7 @@ seem to care. There are many places where food and drink have been
 spilled on the ground. The only exit is north to the mob factory
 cafeteria.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -333,7 +334,7 @@ standing around, trying to look busy. Exits are south to the mob
 factory inspection room, east to the primary assembly line and west to
 the storage area.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -356,7 +357,7 @@ standing around, trying to look busy. Exits are south to the mob
 factory inspection room, east to the primary assembly line and west to
 the storage area.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -383,7 +384,7 @@ eyes is observing you...... Exits are north to the inspection room,
 east to the primary assembly line, south to the reject room and west
 to the entrance hallway.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -409,7 +410,7 @@ destruction. You shudder at the many deformed and grotesque shapes
 present before you. Exits are south to the reject room and north to
 the entrance hallway.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -426,7 +427,7 @@ incorrectly or have some defect are placed here before subsequent
 destruction. You shudder at the many deformed and grotesque shapes
 present before you. The only exit is north to the reject room.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -441,7 +442,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, south to the primary assembly
 line and west to the inspection room.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -464,7 +465,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line and west to the inspection room.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -491,7 +492,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line and west to the entrance hallway.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -518,7 +519,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line, north and south to the primary
 assembly line.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -541,7 +542,7 @@ of noise! It seems that the workers are making drunks today. Exits are
 east to the secondary assembly line and north to the primary
 assembly line.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -559,7 +560,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are south to the secondary assembly
 line and west to the primary assembly line.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -577,7 +578,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -599,7 +600,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -621,7 +622,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north and south to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -643,7 +644,7 @@ The very sight is sickening, but the workers seem to be quite
 cheerful about their work. Exits are north to the secondary
 assembly line and west to the primary assembly line.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~

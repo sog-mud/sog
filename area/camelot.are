@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Camelot~
 VNUMs 17300 17499
 Credits Lok~
@@ -21,10 +22,10 @@ his squire.
 герба.
 ~
 human~
-A J 500 0
+0 0 0 0 Hn 500 0
 22 0 5d10+400 5d5+1000 4d4+6 'pound'
 -5 -5 -5 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17302
@@ -39,10 +40,10 @@ smells bad, and looks like he is in a hurry.
 плохо пахнет и выглядит не лучшим образом.
 ~
 human~
-AC P 250 0
+Ci 0 0 Gm 0 250 0
 19 0 3d9+308 5d5+1000 2d7+5 'pound'
 -4 -4 -4 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17303
@@ -55,10 +56,10 @@ knight quality рыцарь знатный~
 @rus Рыцарь в полном комплекте брони на боевой лошади вооружен рыцарским копьем.
 ~
 human~
-A JN 750 0
+0 0 Nt 0 Hn 750 0
 25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17304
@@ -75,10 +76,10 @@ in a strange looking sheath.
 он хранит знаменитый меч Экскалибур. Одолеть его не в силах никто.
 ~
 human~
-AB DH 1000 0
+Bh 0 Hn 0 Ag 1000 0
 38 0 10d10+1600 5d5+1000 5d6+12 'pound'
 -13 -13 -13 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17305
@@ -93,10 +94,10 @@ to normal weaponry. He bears a huge battle axe.
 обычному оружию. Он вооружен огромным боевым топором.
 ~
 human~
-AF HJ 250 0
+Fl 0 Hn 0 Hn 250 0
 30 0 6d12+853 5d5+1000 4d6+8 'slash'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17306
@@ -112,10 +113,10 @@ saga)
 будет тем самым рыцарем, который вернет Святой Грааль)
 ~
 human~
-AB CDFN 1000 0
+Bh 0 Nt 0 ABKghq 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17307
@@ -130,10 +131,10 @@ a two handed sword.
 на двуручный меч.
 ~
 human~
-AB DF 0 0
+Bh 0 0 0 ABgh 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 M greet 17301 100~
@@ -150,10 +151,10 @@ distress.
 такой же щит.  Он с тревогой ждет возможности помочь даме сердца в беде.  
 ~
 human~
-AB N 750 0
+Bh 0 Nt 0 0 750 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17309
@@ -168,10 +169,10 @@ power by the witch of the fens for the furtherment of evil.
 от ведьмы из болот, для того, чтобы творить зло. 
 ~
 human~
-ABF BDJP -1000 0
+BFhl 0 0 AGgm AHgn -1000 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17310
@@ -186,10 +187,10 @@ bears his longsword Galantine.
 полностью бронирован и вооружен длинным мечом под названием Галантин.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17311
@@ -206,10 +207,10 @@ mounted.
 верхом и в полной броне.
 ~
 human~
-AB J 0 0
+Bh 0 0 0 Hn 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'smash'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17312
@@ -224,10 +225,10 @@ armor. His visor is up, and his lance raised in salute to you.
 броню. Его забрало откинуто, и его копье салютует тебе.
 ~
 human~
-ABJK DFHN 1000 0
+Bh CDij HNnt 0 ABgh 1000 0
 44 0 25d10+2750 5d5+1000 8d4+15 'crush'
 -15 -15 -15 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17313
@@ -245,10 +246,10 @@ offsets his rosy cheeks and sparkling blue eyes.
 искрящимися голубыми глазами.  
 ~
 human~
-ABCH CDEHJNT 750 0
+BCHhin 0 HNTntz 0 AHKLgnqr 750 0
 40 0 15d10+1850 5d5+1000 4d8+13 'wrath'
 -13 -13 -13 3
-EFHNU 0 0 0
+EFHNUklnt
 stand stand male 1000
 0 0 medium unknown
 r bash 33
@@ -282,10 +283,10 @@ hide her ugly and hateful, twisted body.
 в шелковую черную робу, которая едва скрывает уродливое скрюченное тело.
 ~
 human~
-ACFH 0 -1000 0
+CFHiln 0 0 0 0 -1000 0
 24 0 5d10+500 5d5+1000 2d10+6 'slap'
 -6 -6 -6 4
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17315
@@ -302,10 +303,10 @@ middle age, though he is still a stout fighter.
 Пеллинор уже вступил в пожилой возраст, но остается мощным воином.
 ~
 human~
-A F 0 0
+0 0 0 0 Bh 0 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17316
@@ -329,12 +330,12 @@ The Questing Beast is in perfect health.
 Ты истекаешь КРОВЬЮ!
 ~
 human~
-ABFH DFJPQ -1000 0
+BFHhln 0 0 BGhm ABHghn -1000 0
 24 0 5d10+500 5d5+1000 2d10+6 'claw'
 -6 -6 -6 4
-FMU 0 0 0
+FMUls
 stand stand none 1000
-Zc LPQUVX huge unknown
+Zc LPQUVXrvw huge unknown
 r pierce -50
 r fire 33
 r lightning 100
@@ -352,10 +353,10 @@ sword.
 в искусстве сражения. Он одет в броню и вооружен двуручным мечом.
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 36 0 10d10+1400 5d5+1000 3d10+11 'blast'
 -12 -12 -12 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17318
@@ -370,10 +371,10 @@ armor and his unholy spear.
 броню и вооружен заговоренным копьем.  
 ~
 human~
-AFH JPu -1000 0
+FHln 0 0 Gm Hn -1000 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17319
@@ -388,10 +389,10 @@ look to him and his eyes stare vacantly at you!
 вид, и его безумный взгляд смотрит сквозь тебя.
 ~
 human~
-AF JK -500 0
+Fl 0 Kq 0 Hn -500 0
 21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17320
@@ -407,10 +408,10 @@ vacant, his sword is knotched, and he is unkept.
 поношенный.
 ~
 human~
-AFH JK -750 0
+FHln 0 Kq 0 Hn -750 0
 24 0 5d10+500 5d5+1000 2d10+6 'pound'
 -6 -6 -6 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17321
@@ -427,10 +428,10 @@ are in her hair.
 ее волосы вплетены гирлянды цветов.
 ~
 human~
-A S 500 0
+0 0 Sy 0 0 500 0
 10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17322
@@ -444,10 +445,10 @@ queen gwenivere королева гвенивера~
 к Ланселоту.
 ~
 human~
-ABC 0 0 0
+BChi 0 0 0 0 0 0
 12 0 2d10+150 5d5+100 1d10+3 'punch'
 0 0 0 7
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17323
@@ -461,10 +462,10 @@ squire charmed завороженный оруженосец~
 в состоянии растерянности.
 ~
 human~
-ACH JKP -250 0
+CHin 0 Kq Gm Hn -250 0
 18 0 3d9+283 5d5+1000 2d7+4 'pound'
 -3 -3 -3 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17324
@@ -481,10 +482,10 @@ grins at you.
 усмехается тебе.  
 ~
 human~
-A 0 750 0
+0 0 0 0 0 750 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17325
@@ -501,10 +502,10 @@ he could handle himself well in a fight.
 он весьма неплох.
 ~
 human~
-ABH 0 1000 0
+BHhn 0 0 0 0 1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17326
@@ -519,10 +520,10 @@ of a man, and his eyes dart left and right.
 бегают по сторонам.
 ~
 human~
-ABCH P -500 0
+BCHhin 0 0 Gm 0 -500 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17327
@@ -539,10 +540,10 @@ the silken red favor of Galenvine on his sleeve.
 на солнце, а на его наруч повязан платок леди Гэленвайн.
 ~
 human~
-AB N 500 0
+Bh 0 Nt 0 0 500 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17328
@@ -558,10 +559,10 @@ tattered.
 она вся в грязи, а ее платье изодрано в клочья.
 ~
 human~
-AB J 200 0
+Bh 0 0 0 Hn 200 0
 8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17329
@@ -578,10 +579,10 @@ seems intent on going somewhere.
 толстого кошелька.  
 ~
 human~
-AH 0 0 0
+Hn 0 0 0 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17330
@@ -594,10 +595,10 @@ serf мужик~
 @rus Мужик в лохмотьях, грязен, на нем можно даже заметить вшей. Фу!
 ~
 human~
-ACH 0 0 0
+CHin 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17331
@@ -610,10 +611,10 @@ merchant торговец~
 @rus Торговец специально оделся как можно ярче, чтобы привлечь внимание к товару.
 ~
 human~
-ACH 0 0 0
+CHin 0 0 0 0 0 0
 10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17332
@@ -628,10 +629,10 @@ piece of rope. The top of his head is shaved in the Fransician fashion.
 головы обрит согласно обряду Францисканского ордена.
 ~
 human~
-A 0 0 0
+0 0 0 0 0 0 0
 7 0 2d6+85 5d5+100 1d8+1 'pound'
 4 4 4 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17333
@@ -644,10 +645,10 @@ troubadour трубадур~
 @rus Трубадур играет на мандолине и празднично одет.
 ~
 human~
-ABC 0 100 0
+BChi 0 0 0 0 100 0
 3 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17334
@@ -661,10 +662,10 @@ shirt.
 @rus Бард одет в шелковые штаны, кожаную куртку и ярко-оранжевую рубашку.
 ~
 human~
-ABC 0 100 0
+BChi 0 0 0 0 100 0
 4 0 2d6+60 5d5+100 1d6+1 'punch'
 4 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17335
@@ -677,10 +678,10 @@ entertainer актер~
 @rus Актер показывает умопомрачительные акробатические номера.
 ~
 human~
-ABC 0 100 0
+BChi 0 0 0 0 100 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17336
@@ -693,10 +694,10 @@ servant слуга~
 @rus Слуга несет поднос с деликатесными кушаньями.
 ~
 human~
-AC JP 0 0
+Ci 0 0 Gm Hn 0 0
 2 0 2d6+20 5d5+100 1d6+1 'punch'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17337
@@ -725,12 +726,12 @@ to encourage the downfall of Camelot (Morgana, Pict leader).
 Моргана.  
 ~
 unique~
-ABKe CDEFJKu -1000 0
+Beh Dj Kq 0 ABHKLghnqr -1000 0
 52 0 50d10+7750 5d5+5000 10d10+22 'charge'
 -22 -22 -22 0
-ACEFIJNOU 0 0 0
+ACEFIJNOUgikloptu
 stand stand none 1000
-AHMVZc ABCDEFGHIJKLPQUVX medium unknown
+AHMVZcgns ABCDEFGHIJKLPQUVXghijklmnopqrvw medium unknown
 r pierce -50
 r fire 33
 r cold 33
@@ -748,10 +749,10 @@ arms.
 тебе хорошо виден его могучий торс.
 ~
 human~
-ABSTe 0 500 0
+BSTehyz 0 0 0 0 500 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17339
@@ -764,10 +765,10 @@ stirrup stablemaster стиррап конюх~
 @rus Стиррап (Stirrup) невысок, одет в кожаную куртку и штаны, от него пахнет навозом.
 ~
 human~
-ABe 0 400 0
+Beh 0 0 0 0 400 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17340
@@ -781,10 +782,10 @@ for speed.
 @rus Красивая породистая лошадь под дорогим легким седлом.
 ~
 human~
-AI 0 0 0
+0 0 0 0 0 0 0
 18 0 3d9+283 5d5+1000 2d7+4 'charge'
 -3 -3 -3 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17341
@@ -797,10 +798,10 @@ warhorse medium боевая лошадь~
 @rus Боевая лошадь в кожаной броне и под тяжелым седлом.
 ~
 human~
-AI 0 0 0
+0 0 0 0 0 0 0
 23 0 5d10+450 5d5+1000 3d6+6 'charge'
 -6 -6 -6 4
-EFNU 0 0 0
+EFNUklt
 stand stand female 1000
 0 0 medium unknown
 #17342
@@ -813,10 +814,10 @@ warhorse heavy боевая лошадь тяжелая~
 @rus Тяжелая боевая лошадь стоит в полном броневом облачении.
 ~
 human~
-AI 0 0 0
+0 0 0 0 0 0 0
 28 0 6d12+703 5d5+1000 2d12+8 'charge'
 -8 -8 -8 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17343
@@ -831,10 +832,10 @@ and is dressed in various hides.
 оружие) и одет во что попало.
 ~
 human~
-ABCF Q -200 0
+BCFhil 0 0 Bh 0 -200 0
 20 0 3d9+333 5d5+1000 2d8+5 'charge'
 -4 -4 -4 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17344
@@ -848,10 +849,10 @@ station and bearing.
 @rus Раб грязен и напуган, на нем можно угадать остатки боевого облачения.
 ~
 human~
-ACX Q 0 0
+Ci Ek 0 Bh 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17345
@@ -866,10 +867,10 @@ is decked in the spoils of war. All and all you think he has lice.
 вшивый мужик, если приглядеться!
 ~
 human~
-ABCF DFQ -500 0
+BCFhil 0 0 Bh ABgh -500 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17346
@@ -882,10 +883,10 @@ guard border northern гвардеец~
 @rus Гвардеец (guard) северных границ одет в кольчугу и вооружен стандартным мечом.
 ~
 human~
-AB FN 300 0
+Bh 0 Nt 0 Bh 300 0
 20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17347
@@ -899,10 +900,10 @@ comes from a life of leading men in endless battle.
 @rus Командир северного поста  - это закаленный в боях ветеран с большим опытом.
 ~
 human~
-ABK DFN 500 0
+Bh Dj Nt 0 ABgh 500 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17348
@@ -918,10 +919,10 @@ is about 4' long.
 матерчатый плащ. Он вооружен неплохим четырехфутовым клэймором.
 ~
 human~
-ABC 0 0 0
+BChi 0 0 0 0 0 0
 22 0 5d10+400 5d5+1000 4d4+6 'punch'
 -5 -5 -5 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17349
@@ -940,10 +941,10 @@ down a barrel of ale and still have his whiskey. He looks...
 пить виски. Кажется...
 ~
 human~
-ABCJ 0 -100 0
+BChi Ci 0 0 0 -100 0
 28 0 6d12+703 5d5+1000 2d12+8 'pierce'
 -8 -8 -8 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17350
@@ -956,10 +957,10 @@ serf busy занятый мужик~
 @rus Мужик держит в руках мотыгу и одет в лохмотья.
 ~
 human~
-ABC 0 0 0
+BChi 0 0 0 0 0 0
 1 0 1d1+10 1d1+1 1d1+1 'punch'
 10 10 10 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17351
@@ -976,10 +977,10 @@ leather armor.
 кожаную броню.
 ~
 human~
-ABCF 0 -200 0
+BCFhil 0 0 0 0 -200 0
 24 0 5d10+500 5d5+1000 2d10+6 'pound'
 -6 -6 -6 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17352
@@ -994,10 +995,10 @@ a deep boom at each kill.
 каждой новой жертвы.
 ~
 human~
-ABF F -700 0
+BFhl 0 0 0 Bh -700 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17353
@@ -1010,12 +1011,12 @@ unit взвод кавалерии cavalry~
 @rus Взвод кавалеристов на тяжелых боевых лошадях.
 ~
 unique~
-AB 0 200 0
+Bh 0 0 0 0 200 0
 45 0 25d10+3000 5d5+1000 8d4+16 'blast'
 -15 -15 -15 2
-C 0 0 0
+Ci
 stand stand none 1000
-AHMV ABCDEFGHIJK huge unknown
+AHMVgns ABCDEFGHIJKghijklmnopq huge unknown
 g @eng none@rus male~
 #17354
 infantry unit взвод пехоты~
@@ -1027,12 +1028,12 @@ infantry unit взвод пехоты~
 @rus Взвод пехоты насчитывает около 50 солдат, вооруженных алебардами.
 ~
 unique~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'blast'
 -13 -13 -13 3
-CO 0 0 0
+COiu
 stand stand none 1000
-AHMV ABCDEFGHIJK huge unknown
+AHMVgns ABCDEFGHIJKghijklmnopq huge unknown
 g @eng none@rus male~
 #17355
 hoard pict picts орда пиктов~
@@ -1045,10 +1046,10 @@ soldiers.
 @rus Орда пиктов насчитывает около 500 слабовооруженных пеших солдат.
 ~
 human~
-AB 0 -100 0
+Bh 0 0 0 0 -100 0
 50 0 50d10+4250 5d5+5000 5d8+19 'charge'
 -20 -20 -20 0
-CO 0 0 0
+COiu
 stand stand neutral 1000
 0 0 giant unknown
 g @eng neutral@rus female~
@@ -1063,10 +1064,10 @@ appearance which is further augmented by his reindeer horned helmet.
 @rus Лидер пиктов решил пораньше покинуть поле боя, чтобы остаться в живых.
 ~
 human~
-AB 0 -400 0
+Bh 0 0 0 0 -400 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17357
@@ -1081,10 +1082,10 @@ He is mounted on a fine charger, and is waving his blue pennant.
 Он сидит верхом на хорошем скакуне и держит в руках синий стяг.
 ~
 human~
-A H 400 0
+0 0 Hn 0 0 400 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17358
@@ -1099,10 +1100,10 @@ approach. He is mounted atop his famed steed Rue.
 нападающим. Он верхом на своем знаменитом коне по имени Руэ.
 ~
 human~
-A 0 100 0
+0 0 0 0 0 100 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17359
@@ -1116,10 +1117,10 @@ is going to fall.
 @rus Лайонел весь в крови, и еле стоит на ногах. Кажется, что он скоро упадет.
 ~
 human~
-A 0 300 0
+0 0 0 0 0 300 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17360
@@ -1134,10 +1135,10 @@ the Angles and is cutting his way to the chief.
 боя, чтобы добраться до главаря.
 ~
 human~
-AB 0 500 0
+Bh 0 0 0 0 500 0
 33 0 10d10+1100 5d5+1000 6d4+10 'pound'
 -11 -11 -11 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17361
@@ -1151,10 +1152,10 @@ comes from a life of leading men in endless battle.
 @rus Командир (commander) южного поста  - это закаленный в боях ветеран с большим опытом.
 ~
 human~
-ABK DFN 500 0
+Bh Dj Nt 0 ABgh 500 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17362
@@ -1167,10 +1168,10 @@ guard border southern гвардеец~
 @rus Гвардеец (guard) южных границ одет в кольчугу и вооружен стандартным мечом.
 ~
 human~
-AB FN 300 0
+Bh 0 Nt 0 Bh 300 0
 20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17363
@@ -1184,10 +1185,10 @@ station and bearing.
 @rus Раб грязен и напуган, на нем видны остатки военного обмундирования.
 ~
 human~
-ACX Q 0 0
+Ci Ek 0 Bh 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #17364
@@ -1200,10 +1201,10 @@ beautiful woman женщина прекрасная~
 @rus Прекрасная женщина в роскошном платье смотрит на тебя с недоумением и испугом.
 ~
 human~
-AH DFHN 1000 0
+Hn 0 HNnt 0 ABgh 1000 0
 18 0 10d10+450 10d10+200 4d5+2 'punch'
 0 0 0 0
-0 0 0 0
+0
 stand stand female 1200
 0 0 medium unknown
 #17365
@@ -1216,10 +1217,10 @@ knight mighty рыцарь мощный~
 @rus Мощный рыцарь в легкой броне, вооруженный двуручным мечом.
 ~
 human~
-AGTY N 400 0
+GTYmz 0 Nt 0 0 400 0
 30 8 50d10+1400 5d5+100 9d4+12 'slash'
 0 0 0 0
-CEFKO 0 0 0
+CEFKOiklqu
 stand stand male 2000
 0 0 medium unknown
 r fire 33
@@ -1232,10 +1233,10 @@ ghost small привидение маленькое~
 ~
 ~
 ghost~
-AGUYl BDFJQZe 0 0
+GUYm 0 0 ABFghl ABHghn 0 0
 1 0 5d5+1 1d1+10 1d1+1 ''
 0 0 0 0
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
 r bash 100
@@ -1261,7 +1262,7 @@ dagger squire кинжал~
 @eng a squire's dagger@rus ~~кинжал~~ оруженосца~
 @eng A leather hilted dagger lies here.@rus Дешевый кинжал валяется здесь.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 5 5 'pierce' 0
 20 2 500 P
 A
@@ -1274,7 +1275,7 @@ mace knight knight's шестопер~
 @eng a knight's mace@rus ~~рыцарский~~ ~~шестопер~~~
 @eng A clublike weapon with a spiked balled head lies here.@rus Здесь лежит железный шестопер.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 5 6 'crush' 0
 23 5 800 P
 A
@@ -1287,7 +1288,7 @@ lance knight knight's копье~
 @eng a knight's lance@rus ~~рыцарское~~ ~~копье~~~
 @eng An 18' pole is sunk into the ground here.@rus На земле лежит четырехметровое копье.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 lance 5 4 'stab' 0
 25 15 1000 P
 A
@@ -1304,7 +1305,7 @@ armor green броня зеленая~
 @eng a suit of green armor@rus ~~зеленая~~ ~~рыцарская~~ ~~броня~~~
 @eng A fine suit of green armor bearing the crest of Hautdesert glistens here!@rus Мифриловая броня рыцаря Хаутдесерта, зеленого цвета и отличного качества.~
 mithril~
-armor GK AD
+armor GKmq 0 ADgj
 9 9 9 9 0
 31 2 2000 P
 A
@@ -1323,7 +1324,7 @@ axe benlad benlad's топор бенлад~
 @eng benlad's axe@rus ~~топор~~ Бенлада~
 @eng A two headed axe with the Hautdesert crest lies here.@rus Тяжеленный двуручный топор рыцаря Хаутдесерта.~
 iron~
-weapon GK AN
+weapon GKmq 0 ANgt
 axe 5 7 'slash' 0
 31 7 2000 P
 A
@@ -1342,7 +1343,7 @@ bracer white белый браслет~
 @eng a white bracer@rus ~~белый~~ ~~браслет~~~
 @eng A humming, blinding white bracer lies here!@rus Ослепительно белый браслет лежит здесь.~
 adamantite~
-armor ABGK AM
+armor ABGKghmq 0 AMgs
 11 11 11 11 0
 40 2 3000 P
 A
@@ -1363,7 +1364,7 @@ grail holy грааль~
 @eng the holy grail@rus ~~Святой~~ ~~Грааль~~~
 @eng A beat-up, dirty, wooden cup lies here.@rus Простой деревянный сосуд валяется в пыли.~
 wood~
-potion GKL AO
+potion GKLmqr 0 AOgu
 40 'heal' 'heal' 'heal' ''
 40 1 2500 P
 g @eng none@rus male~
@@ -1372,7 +1373,7 @@ cloak many orkney плащ многоцветный~
 @eng a many colored cloak@rus ~~многоцветный~~ ~~плащ~~~
 @eng A cloak of many colors and the crest of Orkney lies here.@rus Кто-то забыл здесь многоцветный плащ с Оркнейским крестом.~
 leather~
-armor GK AK
+armor GKmq 0 AKgq
 9 9 9 9 0
 34 4 1500 P
 A
@@ -1385,7 +1386,7 @@ shield щит многоцветный~
 @eng a shield of many colors@rus ~~многоцветный~~ ~~щит~~~
 @eng A rainbow of colors is reflected from the shield which lies here!@rus Все цвета радуги играют на этом щите.~
 silver~
-armor GK AJ
+armor GKmq 0 AJgp
 9 9 9 9 0
 34 4 1500 P
 A
@@ -1396,8 +1397,8 @@ sword excalibur меч экскалибур~
 @eng excalibur@rus ~~меч~~ "Экскалибур"~
 @eng A beautiful dragon hilted sword lies here!@rus Здесь лежит прекрасный меч с драконом на гарде.~
 adamantite~
-weapon BKL AN
-sword 5 8 'slice' D
+weapon BKLhqr 0 ANgt
+sword 5 8 'slice' Dj
 38 4 4500 P
 A
 18 5
@@ -1423,7 +1424,7 @@ scabbard arthur arthur's golden ножны артура~
 @eng arthur's scabbard@rus ~~ножны~~ короля Артура~
 @eng A beautiful golden scabbard lies here!@rus Прекрасные ножны с золотой инкрустацией лежат на земле.~
 gold~
-container CIKL AL
+container CIKLioqr 0 ALgr
 30 0 -1 15 75
 38 3 1500 P
 A
@@ -1440,7 +1441,7 @@ armband armbands garlon garlon's наручи гарлон~
 @eng garlon's invisible armbands@rus ~~невидимые~~ ~~наручи~~ Гарлона~
 @eng A set of armbands of black iron lie here.@rus Здесь валяются наручи из черного железа.~
 iron~
-armor FGJ AI
+armor FGJlmp 0 AIgo
 8 8 8 0 0
 28 4 1500 P
 A
@@ -1453,7 +1454,7 @@ helm horned gawaine gawaine's шлем гавэйн рогатый~
 @eng gawaine's horned helm@rus ~~рогатый~~ ~~шлем~~ Гавэйна~
 @eng A burnished steel helm with oxen horns lies here.@rus Шлем черненой стали с рогами лежит тут.~
 iron~
-armor C AE
+armor Ci 0 AEgk
 9 9 9 9 0
 34 3 2500 P
 g @eng none@rus male~
@@ -1462,7 +1463,7 @@ spurs silver lamorak lamorak's шпоры ламорак~
 @eng lamorak's spurs@rus ~~шпоры~~ сэра Ламорака~
 @eng A set of silver spurs lies here.@rus Набор серебряных шпор в пыли.~
 silver~
-armor 0 AG
+armor 0 0 AGgm
 9 9 9 0 0
 30 0 2000 P
 A
@@ -1475,7 +1476,7 @@ gauntlets bravery перчатки храбрости~
 @eng gauntlets of bravery@rus ~~перчатки~~ Храбрости~
 @eng A glowing pair of burnished chain mesh gauntlets lies here.@rus Кольчужные перчатки из черненой стали лежат тут.~
 iron~
-armor GIKL AH
+armor GIKLmoqr 0 AHgn
 11 11 11 11 0
 44 3 5000 P
 A
@@ -1488,7 +1489,7 @@ ring incubus crest gold кольцо инкуб~
 @eng the Incubus crest ring@rus ~~кольцо~~ инкуба~
 @eng A ring of twisted red gold bearing the likeness of an Incubus lies here.@rus Кольцо из червонного золота с изображением инкубуса.~
 gold~
-armor CMQ AB
+armor CMQisw 0 ABgh
 11 11 11 6 0
 40 1 2800 P
 A
@@ -1503,7 +1504,7 @@ staff merlin merlin's посох мерлин~
 @eng merlin's staff@rus ~~посох~~ Мерлина~
 @eng A staff of two intertwined vines lies here in a circle of power!@rus Здесь лежит изогнутый посох со светящейся аурой.~
 wood~
-staff ABCGH AO
+staff ABCGHghimn 0 AOgu
 45 5 5 'dispel magic' 0
 40 10 5000 P
 A
@@ -1522,7 +1523,7 @@ greaves blackened steel поножи черные~
 @eng a pair of blackened steel greaves@rus ~~черные~~ ~~поножи~~~
 @eng A pair of blackened steel greaves lies here. There is an inscription on them.@rus На земле лежат черные поножи.~
 iron~
-armor CHM AF
+armor CHMins 0 AFgl
 7 7 7 0 0
 21 5 1 P
 A
@@ -1541,7 +1542,7 @@ wand rod жезл мраморный~
 @eng a marble rod with a white hot tip@rus ~~мраморный~~ ~~жезл~~~
 @eng A marble rod with a white hot tip is smouldering here.@rus Мраморная палочка с раскаленным добела наконечником лежит на земле.~
 stone~
-wand ACGHJ AO
+wand ACGHJgimnp 0 AOgu
 23 20 20 'charm person' 0
 23 1 3000 P
 E
@@ -1557,7 +1558,7 @@ pack backpack trailpack leather pellinore pellinore's мешок пеллинор рюкзак~
 @eng pellinore's trailpack@rus ~~дорожный~~ ~~мешок~~ Пеллинора~
 @eng A backpack made of fine leather sits here. You see lettering on its corner.@rus Рюкзак из прочной кожи лежит на земле. Ты видишь на нем букву "P".~
 leather~
-container GH AD
+container GHmn 0 ADgj
 500 0 17321 250 75
 27 0 1200 P
 E
@@ -1575,7 +1576,7 @@ key p letter ключ р~
 @eng a key with the letter "P" on it@rus ~~ключ~~ с буквой "Р"~
 @eng A key with the letter "P" on it is here.@rus Ключ с буквой "Р" лежит здесь.~
 brass~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 27 1 270 P
 g @eng none@rus male~
@@ -1584,8 +1585,8 @@ rations trail рацион дорожный~
 @eng some trail rations@rus ~~дорожный~~ ~~рацион~~~
 @eng Some trail rations (nuts, dried fuits, dried meats) are here.@rus Дорожный рацион (мясо, сушеные фрукты).~
 flesh~
-food 0 A
-EF EF 0 0 0
+food 0 0 Ag
+EFkl EFkl 0 0 0
 27 4 270 P
 g @eng none@rus male~
 #17323
@@ -1593,7 +1594,7 @@ flask wine флакон вина~
 @eng a flask of a nice red wine@rus ~~флакон~~ красного вина~
 @eng A flask of nice, cold Pinot Noir wine is here, just waiting to be tasted.@rus Флакон красного вина "Пино Нуа" стоит на земле.~
 glass~
-drink 0 A
+drink 0 0 Ag
 10 10 'red wine' 0 0
 27 2 270 P
 E
@@ -1606,7 +1607,7 @@ bones bone pile куча костей~
 @eng a pile of bones@rus ~~куча~~ костей~
 @eng A pile of bones lies here.@rus В углу лежит куча костей.~
 stone~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 22 10 1 P
 g @eng none@rus female~
@@ -1615,7 +1616,7 @@ skull human череп~
 @eng a human skull@rus ~~человеческий~~ ~~череп~~~
 @eng A human skull lies here.@rus Симпатичная человеческая черепушка лежит тут.~
 bone~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 22 3 220 P
 g @eng none@rus male~
@@ -1624,7 +1625,7 @@ rock black small камешек камень черный~
 @eng a small black rock@rus ~~маленький~~ ~~черный~~ ~~камешек~~~
 @eng A small black rock lies here.@rus Маленький черный камешек лежит тут.~
 stone~
-pill 0 A
+pill 0 0 Ag
 40 '' '' '' ''
 22 1 1200 P
 E
@@ -1651,7 +1652,7 @@ letter love любовное письмо~
 @eng a love letter@rus ~~любовное~~ ~~письмо~~~
 @eng A love letter addressed to Tristram is rolled and sealed with a wax emblem.@rus Письмо, адресованное Тристану с сургучной печатью лежит здесь.~
 paper~
-scroll G AO
+scroll Gm 0 AOgu
 40 'pass door' 'invisibility' 'fly' ''
 36 1 800 P
 E
@@ -1688,7 +1689,7 @@ armor golden броня золотая~
 @eng a suit of golden armor@rus ~~золотая~~ ~~броня~~~
 @eng A suit of golden armor shines here.@rus Золотая броня валяется здесь. Вот времена!~
 gold~
-armor EJL AD
+armor EJLkpr 0 ADgj
 9 9 9 9 0
 34 5 3000 P
 A
@@ -1701,8 +1702,8 @@ spear unholy копье бесовское~
 @eng a spear glowing in an unholy dark light@rus ~~бесовское~~ ~~копье~~~
 A spear is here, glowing with an unholy dark light.~
 adamantite~
-weapon ACEG AN
-spear 5 8 'pierce' CK
+weapon ACEGgikm 0 ANgt
+spear 5 8 'pierce' CKiq
 34 10 2500 P
 A
 1 2
@@ -1729,7 +1730,7 @@ favor silken платок шелковый~
 @eng a silken favor@rus ~~шелковый~~ ~~платок~~~
 @eng A silken favor is here. Maybe it belongs to your lady?@rus Здесь лежит шелковый платок. Это не Ваша леди забыла его?~
 cloth~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 9 1 90 P
 g @eng none@rus male~
@@ -1738,7 +1739,7 @@ necklace ожерелье~
 @eng an emerald necklace@rus ~~изумрудное~~ ~~ожерелье~~~
 @eng An exquisite emerald necklace with intricate gold settings has been left here!@rus Красивое изумрудное ожерелье с золотыми вставками оставлено здесь.~
 gold~
-treasure 0 AC
+treasure 0 0 ACgi
 0 0 0 0 0
 12 2 1500 P
 g none~
@@ -1747,7 +1748,7 @@ ball chain шестопер рыцарский~
 @eng a massive spiked ball and chain@rus ~~рыцарский~~ ~~шестопер~~~
 @eng A massive spiked iron ball attached to a iron handle by a 3' chain is here.@rus Массивный шипастый стальной цилиндр с цепью и рукояткой брошен здесь.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 flail 5 7 'crush' 0
 28 30 2300 P
 A
@@ -1758,7 +1759,7 @@ motley fool fools колпак шут~
 @eng fool's motley@rus ~~шутовской~~ ~~колпак~~~
 @eng Some fool has left his motley here.@rus Какой-то шут забыл здесь колпак.~
 cloth~
-armor 0 AE
+armor 0 0 AEgk
 1 1 1 0 0
 31 3 5 P
 A
@@ -1769,7 +1770,7 @@ helm wolf helmet шлем волчий волка~
 @eng a wolf helm@rus ~~волчий~~ ~~шлем~~~
 @eng A helm with the semblance of a wolf is here.@rus Шлем с головой волка забыт кем-то.~
 iron~
-armor G AE
+armor Gm 0 AEgk
 9 9 9 9 0
 33 10 3400 P
 A
@@ -1782,7 +1783,7 @@ armor shimmering red броня красная сверкающая~
 @eng a suit of shimmering red armor@rus ~~красная~~ ~~броня~~~
 @eng A suit of shimmering red armor glistens in the sunlight.@rus Полированная броня красного цвета сверкает на солнце.~
 mithril~
-armor AG AD
+armor AGgm 0 ADgj
 9 9 9 4 0
 31 15 1800 P
 A
@@ -1793,7 +1794,7 @@ key rusty ключ ржавый~
 @eng a rusty key@rus ~~ржавый~~ ~~ключ~~~
 @eng A key is here, lying in the dirt, rusting.@rus Ржавый ключ валяется в грязи.~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 38 1 10 P
 g @eng none@rus male~
@@ -1802,7 +1803,7 @@ reward награда~
 @eng the reward@rus награда~
 @eng A deed of payment for the rescue of a damsel in distress is here.@rus Награда за спасение бедной женщины находится здесь.~
 paper~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 8 1 2000 P
 g @eng none@rus female~
@@ -1811,7 +1812,7 @@ key room ключ комнаты~
 @eng a room key@rus ~~ключ~~ от комнаты~
 @eng A brass key made depicting a young girl is here.@rus Бронзовый ключ в форме женского бюста лежит тут.~
 brass~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 1 1 P
 g @eng none@rus male~
@@ -1820,7 +1821,7 @@ purse heavy кошелек~
 @eng a rather heavy looking purse@rus ~~тяжелый~~ ~~кошелек~~~
 @eng A rather heavy looking purse is here.@rus Кто-то обронил тяжелый кошелек.~
 leather~
-money 0 A
+money 0 0 Ag
 1000 0 0 0 0
 0 1 2 P
 g @eng none@rus male~
@@ -1829,7 +1830,7 @@ cloak lice infested плащ вшивый~
 @eng a lice infested cloak@rus ~~вшивый~~ ~~плащ~~~
 @eng A lice infested cloak made of the skin of some animal is here.@rus На земле валяется плащ, на нем можно заметить вшей. Фу!~
 leather~
-armor 0 AK
+armor 0 0 AKgq
 8 8 8 0 0
 29 10 600 P
 A
@@ -1842,7 +1843,7 @@ sword broad steel commander commander's меч стальной широкий командир~
 @eng a commander's steel broad sword@rus ~~широкий~~ ~~меч~~ командира~
 @eng A commanders steel broad sword catches your eye.@rus Стальной широкий меч командира оставлен здесь.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 5 6 'slash' 0
 24 5 1700 P
 A
@@ -1855,7 +1856,7 @@ skin whiskey бурдюк виски~
 @eng a skin of whiskey@rus ~~бурдюк~~ виски~
 @eng A skin smelling of whiskey is here, on the ground.@rus Кожаный бурдюк лежит здесь. От него пахнет выпивкой.~
 leather~
-drink 0 A
+drink 0 0 Ag
 50 50 'whisky' 0 0
 28 10 400 P
 g @eng none@rus male~
@@ -1864,8 +1865,8 @@ ship dragon корабль дракон~
 @eng a dragon ship@rus ~~корабль~~ со статуей дракона~
 @eng A dragon ship is beached here- where are those Angle raiders?@rus Деревянный корабль со статуей дракона стоит на рейде - не на нем ли приплыли разбойники?~
 wood~
-furniture OT 0
-BD EGIJOP L BCEH BCEH
+furniture 0 ACgi 0
+BDhj EGIJOPkmopuv Lr BCEHhikn BCEHhikn
 29 -15536 290 P
 g @eng none@rus male~
 #17344
@@ -1873,7 +1874,7 @@ angle энгл меч~
 @eng an angle@rus энгл~
 @eng An angle is here. A raider must be nearby.@rus Энгл валяется на земле. Разбойники недалеко!~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 5 7 'slash' 0
 31 15 600 P
 A
@@ -1886,7 +1887,7 @@ rod command жезл командования~
 @eng a rod of command@rus ~~жезл~~ Командования~
 @eng A rod of black, runed metal swallows light here.@rus Жезл из черненого узорчатого металла лежит на земле.~
 iron~
-staff CJL AO
+staff CJLipr 0 AOgu
 40 24 24 'charm person' 0
 40 9 3500 P
 A
@@ -1908,7 +1909,7 @@ banner war persante blue стяг синий персант~
 @eng the blue war banner of Persante of Inde@rus ~~синий~~ ~~стяг~~ Персанта Индийского~
 @eng The blue war banner of Persante of Inde lies here. Persante has fallen!@rus синий стяг Персанта Индийского лежит на земле. Персант повержен!~
 wood~
-light AK AO
+light AKgq 0 AOgu
 0 0 999 0 0
 35 20 3400 P
 A
@@ -1931,8 +1932,8 @@ lifecutter меч душегуб~
 @eng lifecutter@rus ~~меч~~ "Душегуб"~
 @eng A blue black crusader hilt sword is stuck in the ground@rus Сине-черный меч крестоносца оставлен тут.~
 adamantite~
-weapon C AN
-sword 5 7 'slash' C
+weapon Ci 0 ANgt
+sword 5 7 'slash' Ci
 32 20 3200 P
 A
 18 4
@@ -1952,7 +1953,7 @@ armor plate full броня полный комплект стальной~
 @eng a suit of full plate armor@rus ~~полный~~ ~~комплект~~ стальной брони~
 @eng A suit of full plate armor gleams on the ground.@rus Полный комплект стальной брони оставлен на земле.~
 iron~
-armor 0 AD
+armor 0 0 ADgj
 11 13 12 0 0
 30 100 300 P
 A
@@ -1963,8 +1964,8 @@ axe топор огромный~
 @eng an enormous axe@rus ~~огромный~~ ~~топор~~ Гахериса~
 @eng An enormous axe is resting here.@rus Да, вот это топор так топор! Тяжелый и мощный.~
 iron~
-weapon 0 AN
-axe 9 4 'chop' F
+weapon 0 0 ANgt
+axe 9 4 'chop' Fl
 33 25 2000 P
 A
 19 5
@@ -1978,7 +1979,7 @@ hat top black Lok Lok's шляпа лока~
 @eng lok's black top hat@rus ~~шляпа~~ Лока~
 @eng Lok's black top hat is here- maybe you should give it to him- nah.@rus Тут валяется шляпа Лока - может, ты отдашь ее ему? :)~
 unknown~
-armor 0 AE
+armor 0 0 AEgk
 3 3 3 0 0
 100 0 0 P
 A
@@ -2011,7 +2012,7 @@ plate blue синяя броня~
 @eng blue armor of Persante of Inde@rus ~~синяя~~ ~~броня~~ Персанта Индийского~
 @eng Blue armor shines in the sun.@rus Синяя броня, сверкая на солнце бело-голубыми бликами, лежит здесь.~
 steel~
-armor AG AD
+armor AGgm 0 ADgj
 12 12 12 8 0
 33 5 2300 P
 A
@@ -2022,7 +2023,7 @@ daemon symbol символ демон дьявол~
 @eng devilish amulet of Demon@rus ~~дьявольский~~ ~~Символ~~ Демона~
 @eng You notice a splash of blackness of the ground.@rus Ты замечаешь на земле пятно абсолютной черноты.~
 adamantite~
-armor BCEGJL AC
+armor BCEGJLhikmpr 0 ACgi
 15 15 15 25 0
 43 5 9000 P
 A
@@ -2039,7 +2040,7 @@ arthur plate доспехи артур~
 @eng King Arthur's platemail@rus ~~доспехи~~ короля Артура~
 @eng Valuable gold platemaillies piled on the floor.@rus Роскошные золотые доспехи с драгоценной инкрустацией сложены на земле.~
 gold~
-armor AGK AD
+armor AGKgmq 0 ADgj
 19 19 19 6 0
 43 5 4900 P
 A
@@ -2056,7 +2057,7 @@ arthur crown корона артур~
 @eng King Arthur's crown@rus ~~корона~~ короля Артура~
 @eng Beautiful jewelled crown lies here.@rus Красивая корона, украшенная драгоценными камнями, находится здесь.~
 gold~
-armor 0 AE
+armor 0 0 AEgk
 10 10 10 6 0
 42 5 3400 P
 A
@@ -2073,7 +2074,7 @@ staff посох~
 @eng monk's staff@rus ~~посох~~ монаха~
 @eng Plain wooden staff lies forgotten on the floor.@rus Простой деревянный посох валяется на земле.~
 wood~
-staff GKS AO
+staff GKmq 0 AOgu
 24 15 15 'sleep' 0
 18 30 1400 P
 g @eng none@rus male~
@@ -2082,8 +2083,8 @@ g @eng none@rus male~
 @eng two-handed knight's sword@rus ~~двуручный~~ ~~рыцарский~~ ~~меч~~~
 @eng Huge and heavy sword lies before you.@rus Двуручный тяжелый меч лежит тут.~
 steel~
-weapon 0 AN
-sword 4 6 '' F
+weapon 0 0 ANgt
+sword 4 6 '' Fl
 0 0 0 P
 A
 19 5
@@ -2095,8 +2096,8 @@ sword galantine меч галантин~
 @eng longsword named "Galantine"@rus ~~длинный~~ ~~меч~~ "Галантин"~
 @eng A longsword with carving upon its hilt lies here.@rus Красивый длинный меч с гравировкой по лезвию лежит на земле.~
 adamantite~
-weapon G AN
-sword 8 5 'slash' D
+weapon Gm 0 ANgt
+sword 8 5 'slash' Dj
 30 35 6500 P
 A
 19 6
@@ -2108,7 +2109,7 @@ white cloak плащ белый~
 @eng white cloak@rus ~~белый~~ ~~плащ~~~
 @eng White cloak lies on the ground.@rus Красивый белый плащ аккуратно сложен на земле.~
 wool~
-armor G AK
+armor Gm 0 AKgq
 7 7 7 6 0
 0 0 0 P
 A
@@ -2123,7 +2124,7 @@ fountain marble фонтан мрамор~
 @eng marble fountain@rus ~~мраморный~~ ~~фонтан~~~
 @eng Beatiful marble fountain decorated with statues springs forth.@rus Красивый мраморный фонтан, украшенный статуэтками, стоит посреди площади.~
 marble~
-fountain 0 0
+fountain 0 0 0
 999 999 'water' 135142816 0
 0 10000 0 P
 g @eng none@rus male~
@@ -2132,7 +2133,7 @@ g @eng none@rus male~
 @eng golden flask@rus ~~золотая~~ ~~фляжка~~~
 @eng Golden flask shines in the sun.@rus Красивая золотая фляжка лежит здесь.~
 gold~
-drink FV A
+drink Fl 0 Ag
 50 50 'water' 0 0
 22 2 2000 P
 g @eng none@rus female~
@@ -2141,7 +2142,7 @@ g @eng none@rus female~
 @eng golden flask@rus ~~золотая~~ ~~фляжка~~~
 @eng Golden flask shines in the sun.@rus Красивая золотая фляжка лежит здесь.~
 gold~
-drink FV A
+drink Fl 0 Ag
 50 50 'water' 1 0
 22 2 2000 P
 g @eng none@rus female~
@@ -2150,7 +2151,7 @@ g @eng none@rus female~
 @eng long slim dagger@rus ~~длинный~~ ~~узкий~~ ~~кинжал~~~
 @eng Wickedly looking dagger rests on the floor.@rus Длинный, опасно выглядящий кинжал сверкает на земле.~
 mithril~
-weapon GHIMOV AN
+weapon GHIMmnos Ag ANgt
 dagger 8 5 'pierce' 0
 24 5 3900 P
 A
@@ -2161,7 +2162,7 @@ scroll свиток~
 @eng old scroll@rus ~~старый~~ ~~свиток~~~
 @eng Old burnt scroll lies in the ash.@rus Старый обгоревший свиток лежит в золе.~
 paper~
-trash 0 0
+trash 0 0 0
 0 0 0 0 0
 1 1 0 P
 E
@@ -2185,7 +2186,7 @@ fireplace камин~
 @eng fireplace@rus ~~камин~~~
 @eng Remnants of a long-dead fireplace.@rus Старый, давно потухший камин.~
 ash~
-container 0 0
+container 0 0 0
 10 0 0 1 0
 0 0 0 P
 E
@@ -2201,8 +2202,8 @@ chest big сундук большой~
 @eng big chest@rus ~~большой~~ ~~сундук~~~
 @eng Big gold-decorated chest is covered with rug.@rus Большой, инкрустированный золотом, покрытый ковром сундук стоит в углу.~
 iron~
-container 0 0
-250 ABCD 17367 100 0
+container 0 0 0
+250 ABCDghij 17367 100 0
 0 0 0 P
 g @eng none@rus male~
 #17367
@@ -2210,7 +2211,7 @@ large key большой ключ~
 @eng large key@rus ~~большой~~ ~~ключ~~~
 @eng Large key of a strange shape lies here.@rus Большой странной формы ключ лежит здесь.~
 steel~
-key FV A
+key Fl 0 Ag
 0 0 0 0 0
 12 2 0 P
 g @eng none@rus male~
@@ -2219,8 +2220,8 @@ sword excalibur меч экскалибур~
 @eng sword named "Excalibur"@rus ~~меч~~ "Экскалибур"~
 @eng Wonderful sword with carvings upon its hilt.@rus Красивый меч с инкрустацией по рукояти лежит на земле.~
 adamantite~
-weapon ABGHMVZ AN
-sword 9 5 'slash' D
+weapon ABGHMghmns Ek ANgt
+sword 9 5 'slash' Dj
 42 15 8000 P
 A
 19 14
@@ -2234,7 +2235,7 @@ belt power пояс силы~
 @eng belt of power@rus ~~пояс~~ силы~
 @eng Black leather belt lies in the dust.@rus Черный пояс с серебром светится на земле.~
 leather~
-armor AGHJMZ AL
+armor AGHJMgmnps Ek ALgr
 -20 -20 -20 -20 0
 42 5 10000 P
 A
@@ -2249,8 +2250,8 @@ portal stone glowing портал мерцающий камень~
 @eng glowing stone@rus ~~мерцающий~~ ~~камень~~~
 @eng A huge stone glows softly, inviting you in.@rus Огромный камень мягко мерцает, приглашая тебя войти в него.~
 unknown~
-portal A AO
-B DK D 0 0
+portal Ag 0 AOgu
+Bh DKjq Dj 0 0
 5 15000 0 P
 g @eng none@rus male~
 #17372
@@ -2258,7 +2259,7 @@ amulet tiger амулет тигр~
 @eng amulet of the Tiger@rus ~~амулет~~ Тигра~
 @rus Изумрудный амулет с изображением тигриной морды из золота.~
 emerald~
-armor GIK AC
+armor GIKmoq 0 ACgi
 0 0 0 0 0
 25 3 2400 P
 A
@@ -2275,8 +2276,8 @@ sword arondight меч арондит~
 @eng sword named "Arondight"@rus ~~меч~~ "Арондит"~
 @eng Deadly blade shines in the grass.@rus Смертельное лезвие блестит в траве.~
 unknown~
-weapon IKM AN
-sword 9 4 'slice' E
+weapon IKMoqs 0 ANgt
+sword 9 4 'slice' Ek
 40 25 8500 P
 S 'sword' 20 0
 A
@@ -2289,7 +2290,7 @@ workbench рабочий стол~
 @eng workbench@rus ~~рабочий~~ ~~стол~~~
 @eng An old workbench is covered with webs.@rus Старый рабочий стол затянут паутиной.~
 wood~
-container 0 0
+container 0 0 0
 0 0 0 30 0
 0 250 0 P
 E
@@ -2305,7 +2306,7 @@ potion yellow желтая жидкость~
 @eng yellow potion@rus ~~желтая~~ ~~жидкость~~~
 @eng A bottle of lemon-yellow potion sits on the floor.@rus Бутылка лимонно-желтой жидкости стоит на полу.~
 unknown~
-potion 0 0
+potion 0 0 0
 42 'acid blast' 'cure disease' 'frenzy' ''
 0 3 0 P
 g @eng none@rus female~
@@ -2314,7 +2315,7 @@ scroll свиток~
 @eng scroll@rus свиток~
 @eng Almost untouched by fire scroll lies here.@rus Почти нетронутый огнем свиток.~
 paper~
-trash 0 0
+trash 0 0 0
 0 0 0 0 0
 0 1 0 P
 E
@@ -2343,7 +2344,7 @@ boulder.
 дубу рядом с тобой прибит старый кусок пергамента, а к поросшему
 мохом валуну прикреплена мемориальная доска.
 ~
-0 C forest
+0 Ci forest
 E
 plaque доска мемориал~
 Camelot (C) 1994 by Lok
@@ -2505,7 +2506,7 @@ D3
 @rus Хатка
 ~
 door дверь~
-ABCFZ 17336 17308
+ABCFZghil 17336 17308
 S
 #17306
 @eng A Fork in the Dirty Trail@rus Развилка на грязной дороге~
@@ -2548,7 +2549,7 @@ The only exit is to the east.
 @rus Ты $gn{нашел} логово Квестового Чудовища! Кости и остатки трупов повсюду.
 Единственных выход - на восток.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng Trail of Bones
 @rus Дорога костей
@@ -2564,7 +2565,7 @@ rafters are covered in soot. There is a workbench and an old fireplace.
 и паутине. Вокруг валяется разный мусор. Давно погасший камин и затянутый
 паутиной рабочий стол - вот и все, что привлекает твое внимание.
 ~
-0 D inside
+0 Dj inside
 E
 rafters балки~
 @eng The rafters are darkened by smoke and strange yellow stains.
@@ -2580,7 +2581,7 @@ D1
 @rus Деревянная дверь
 ~
 ~
-ABCFZ 17336 17305
+ABCFZghil 17336 17305
 S
 #17309
 @eng Mists of Arden@rus Туман Арденна~
@@ -2592,7 +2593,7 @@ at the dirty trail which leads north and south and notice horsesign.
 взгляд на следы, которые ведут на север и юг, и обращаешь внимание на
 многочисленные следы подков.
 ~
-0 A forest
+0 Ag forest
 E
 horsesign след~
 @eng You look at the horsesign and see that many horses have travelled this path.
@@ -2650,7 +2651,7 @@ for a while
 посетителей этого проклятого места лежат повсюду. Может быть, отдохнуть
 пока?
 ~
-0 AN forest
+0 ANgt forest
 E
 bones кости~
 @eng Maybe you should rest a while...
@@ -2671,7 +2672,7 @@ broken only bye the cackling of a crow. To the west is a dusty trail.
 и слышно только, как где-то каркает ворон. На запад продолжается пыльная
 тропа.
 ~
-0 A forest
+0 Ag forest
 E
 crow ворон~
 @eng Or was that a snicker?
@@ -2695,7 +2696,7 @@ back, and the horsetrodden trail leads north, south, and east.
 приятно, солнце находится за вашей спиной, следы подков ведут на север, 
 юг и восток.
 ~
-0 CK forest
+0 CKiq forest
 E
 squirrels белки~
 @eng Yes, they are mating.
@@ -2824,7 +2825,7 @@ D0
 @rus Черные ворота
 ~
 черные ворота black gate~
-ABZ -1 17327
+ABZgh -1 17327
 D2
 @eng A winding road
 @rus Хорошая дорога
@@ -2841,7 +2842,7 @@ path has has vanished and you have lost your bearings.
 Шипы и колючие ветви деревьев царапают тебя, как будто они живые.
 Дорожка практически исчезла, и ты потихоньку теряешь ориентацию.
 ~
-0 AN forest
+0 ANgt forest
 D4
 ~
 ~
@@ -2874,7 +2875,7 @@ D3
 @rus Лесной домик
 ~
 door дверь~
-ABZ -1 17323
+ABZgh -1 17323
 S
 #17319
 @eng The Chasm@rus Пропасть~
@@ -2909,7 +2910,7 @@ you can let go into the yawning depths of the chasm.
 можешь или пробовать идти на восток поперек пропасти к другому концу
 моста, или подниматься вверх, или опуститься в зияющие глубины пропасти.
 ~
-0 A mountain
+0 Ag mountain
 D1
 @eng Hanging on the Rope Bridge
 @rus По цепному мосту
@@ -2937,7 +2938,7 @@ into the yawning depths of the chasm.
 @rus Ты стоишь на дальнем конце моста. Ты можешь пытаться перейти к западной
 стороне моста, подняться вверх, или опуститься в зияющие глубины пропасти.
 ~
-0 A mountain
+0 Ag mountain
 D3
 @eng Hanging on the Rope Bridge
 @rus Вниз по цепному мосту
@@ -2991,7 +2992,7 @@ wine. A candle burns brightly and there is a single chair at the table.
 полон яств, мяса и овощей, в центре стола - декоративная чаша, наполненная 
 вином. Свечи ярко горят, один только стул стоит за столом.
 ~
-0 DN inside
+0 DNjt inside
 E
 chalice чаша~
 @eng On closer inspection the chalice is not the holy grail.
@@ -3025,7 +3026,7 @@ D1
 @rus Выход из домика
 ~
 ~
-ABZ -1 17318
+ABZgh -1 17318
 S
 #17324
 @eng The Yawning Depths@rus Дно пропасти~
@@ -3039,7 +3040,7 @@ SPLAAAAT.
 БЭМЦ!!!
 Упали... лежим... выходов не видно... все болит... упс.
 ~
-0 AC mountain
+0 ACgi mountain
 S
 #17325
 @eng The Green Field Before Camelot@rus Зеленое поле возле Камелота~
@@ -3073,13 +3074,13 @@ plane below. White granite walls rise impressively into the air.
 @rus Ты стоишь возле западных ворот Камелота. Отсюда тебе виден широкий вид на
 зеленые поля и лес. Белые гранитные стены Камелота гордо поднимаются ввысь.
 ~
-0 C city
+0 Ci city
 D1
 @eng The Western Gate
 @rus Западные ворота
 ~
 gate eastern ворота западные~
-ABZ -1 17341
+ABZgh -1 17341
 D3
 @eng A green field
 @rus Зеленое поле
@@ -3094,7 +3095,7 @@ towers rise ahead. To the north and south are black iron gates.
 @rus Ты стоишь во внутреннем дворе форта Блэкмур. Стены вокруг испещрены бойницами,
 а впереди видны башни и внутренние ворота форта.
 ~
-0 A city
+0 Ag city
 E
 hole holes бойницы~
 @eng Nobody seems to be looking at you through the murder holes
@@ -3105,13 +3106,13 @@ D0
 @rus Черные металлические ворота
 ~
 gate black iron~
-ABZ -1 17328
+ABZgh -1 17328
 D2
 @eng Black Iron Gate
 @rus Черные металлические ворота
 ~
 ~
-ABZ -1 17316
+ABZgh -1 17316
 S
 #17328
 @eng Inside the Curtain Wall@rus Внутри каменной стены~
@@ -3122,7 +3123,7 @@ gate is to the south.
 форт Блэкмур. Дорога вокруг форта идет на восток и запад, а черные ворота
 остались на юге.
 ~
-0 A inside
+0 Ag inside
 D1
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3134,7 +3135,7 @@ D2
 @rus Черные металлические ворота
 ~
 ~
-ABZ -1 17327
+ABZgh -1 17327
 D3
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3149,7 +3150,7 @@ to the eastern bailey tower and the road continues to the north and west.
 @rus Ты стоишь внутри каменной стены форта Блэкмур. Ступени поднимаются к восточной
 башне внешней стены, а дорога продолжается на север и запад.
 ~
-0 A city
+0 Ag city
 D0
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3176,7 +3177,7 @@ bailey tower, and the road continues north and east.
 @rus Ты стоишь внутри каменной стены форта Блэкмур. Ступени поднимаются к западной
 башне внешней стены, а дорога продолжается на север и восток.
 ~
-0 A city
+0 Ag city
 D0
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3203,7 +3204,7 @@ is to the east of you. The bloody road continues north and south.
 @rus Ты на дороге внутри стены Блэкмура. Форт на восток от Вас, а кровавая дорога
 продолжается на север и юг.
 ~
-0 A city
+0 Ag city
 E
 blood bloody road кровь кровавая дорога~
 @eng You bend down and look at the blood in the road and find a piece of silk. 
@@ -3235,7 +3236,7 @@ to the east where the entrance to the keep proper is.
 северо-западную башню Блэкмура. Дорога продолжается на юг, а на востоке
 виден вход в форт.
 ~
-0 A city
+0 Ag city
 D1
 @eng Entrance to the Keep Proper
 @rus Вход в форт
@@ -3264,7 +3265,7 @@ continues to the east and west.
 дверь, из-за которой Вам слышится звонкий волшебный смех. Дорога продолжается
 на запад и восток.
 ~
-0 A city
+0 Ag city
 E
 door дверь~
 @eng Its huge! Hope you don't get a hernia opening it.@rus Дверь огромна, и сделана из дубовых досок, так что даже и не думай ее
@@ -3281,7 +3282,7 @@ D2
 @rus Массивная дубовая дверь
 ~
 door wooden massive дверь деревянная~
-ABZ -1 17340
+ABZgh -1 17340
 D3
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3298,7 +3299,7 @@ and west, where the entrance to the keep proper is located.
 северо-восточную башню Блэкмура. Дорога продолжается на юг, а на западе
 виден вход в форт.
 ~
-0 A city
+0 Ag city
 D2
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3325,7 +3326,7 @@ looms the keep proper. The road continues north and south.
 @rus Ты на дороге внутри стены Блэкмура. К западу виден вход в форт. Дорога
 продолжается на север и юг.
 ~
-0 A city
+0 Ag city
 D0
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3346,7 +3347,7 @@ the keep and the moor itself. Stairs lead downward.
 @rus Ты стоишь в северо-западной башне. Ты видишь отсюда форт и пейзаж вокруг.
 Лестница ведет вниз.
 ~
-0 A inside
+0 Ag inside
 E
 view moor вид болото~
 @eng You look at the view. The moor rolls onward, and mist makes it difficult 
@@ -3370,7 +3371,7 @@ the keep and the surrounding moor. Stairs lead down.
 @rus Ты стоишь в северо-восточной башне. Ты видишь отсюда форт и пейзаж вокруг.
 Лестница ведет вниз.
 ~
-0 A inside
+0 Ag inside
 D5
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3387,7 +3388,7 @@ lead down.
 пейзаж, отсюда неплохо стрелять сквозь бойницы вниз. Лестница ведет
 вниз.
 ~
-0 A inside
+0 Ag inside
 E
 view hole bailey бойница~
 @eng You peek through the murder hole at the bailey as many have done before you.
@@ -3409,7 +3410,7 @@ down.
 пейзаж, отсюда неплохо стрелять сквозь бойницы вниз. Лестница ведет
 вниз.
 ~
-0 A inside
+0 Ag inside
 D5
 @eng Inside the Curtain Wall
 @rus Внутри каменной стены
@@ -3430,7 +3431,7 @@ dance amongst them.
 безумными взглядами. Молодой похожий на эльфа парень в золотой броне
 волшебно смеется и танцует вокруг них мистический танец.
 ~
-0 A inside
+0 Ag inside
 E
 firepit fire pit огонь озеро~
 @eng You examine the fire pit. A large body is roasting here. It looks human!
@@ -3449,7 +3450,7 @@ D0
 @rus Вход в форт
 ~
 ~
-ABZ -1 17333
+ABZgh -1 17333
 S
 #17341
 @eng Victory Road and Knights Way@rus Пересечение Дороги Победы и Рыцарского пути~
@@ -3484,7 +3485,7 @@ D3
 @rus Западные врата Камелота
 ~
 ~
-ABZ -1 17326
+ABZgh -1 17326
 S
 #17342
 @eng Knights Way before the stables@rus Рыцарский путь, возне конюшен~
@@ -3657,7 +3658,7 @@ D1
 @rus В хаосе битвы
 ~
 ranks~
-ABZ -1 17397
+ABZgh -1 17397
 S
 #17347
 @eng Victory Road@rus Дорога Победы~
@@ -3671,7 +3672,7 @@ continues to the west, and the Tourney Yard of Camelot is to the east.
 сейчас на нем развевается стяг Ланселота. Сейчас здесь лежит странная тишина.
 Дорога Победы продолжается на запад, а Турнирная Арена - на востоке.
 ~
-0 K city
+0 Kq city
 D1
 @eng Tourney Yard of Camelot
 @rus Турнирная Арена
@@ -3957,7 +3958,7 @@ D0
 @rus Великие Северные врата Камелота
 ~
 gate врата~
-ABZ -1 17356
+ABZgh -1 17356
 D1
 @eng Tourney Yard of Camelot
 @rus Турнирная Арена Камелота
@@ -3969,7 +3970,7 @@ D2
 @rus Бараки оруженосцев
 ~
 door дверь~
-ABZ -1 17357
+ABZgh -1 17357
 D3
 @eng Squire's Run
 @rus Проспект Оруженосцев
@@ -3986,7 +3987,7 @@ the north. To the south is Squire's Run.
 за ними вниз с Камелотского холма и вьется в зеленых полях на севере.
 На юге - проспект Оруженосцев.
 ~
-0 C city
+0 Ci city
 D0
 @eng A winding dirt road
 @rus Грязная дорога в чистом поле
@@ -3998,7 +3999,7 @@ D2
 @rus Проспект Оруженосцев
 ~
 ~
-ABZ -1 17355
+ABZgh -1 17355
 S
 #17357
 @eng Squire's Barracks@rus Бараки оруженосцев~
@@ -4015,13 +4016,13 @@ eating. There is a rudimentry camp kitchin, with a roster of the day
 По центру грязного двора устроено нечто вроде мангала, где в большом котле
 на огне варится пища.
 ~
-0 D inside
+0 Dj inside
 D0
 @eng Squire's Run at the North Gate
 @rus Проспект Оруженосцев возле Северных врат
 ~
 ~
-ABZ -1 17355
+ABZgh -1 17355
 S
 #17358
 @eng Tourney Yard of Camelot@rus Турнирная Арена~
@@ -4152,7 +4153,7 @@ D0
 @rus Квартал Вельмож
 ~
 door~
-ABZ -1 17366
+ABZgh -1 17366
 D1
 @eng Tourney Yard of Camelot
 @rus Турнирная Арена
@@ -4164,7 +4165,7 @@ D2
 @rus Великие Южные Врата
 ~
 gate~
-ABZ -1 17367
+ABZgh -1 17367
 D3
 @eng Noble Road
 @rus Дорога Вельмож
@@ -4319,7 +4320,7 @@ D0
 @rus Покои вельможи
 ~
 door дверь~
-ABZ -1 17378
+ABZgh -1 17378
 D1
 @eng Noble Chamber
 @rus Покои вельможи
@@ -4331,13 +4332,13 @@ D2
 @rus Дорога Вельмож возле Южных Врат
 ~
 ~
-ABZ -1 17361
+ABZgh -1 17361
 D3
 @eng Noble Chamber
 @rus Покои вельможи
 ~
 door дверь~
-ABCZ 17338 17380
+ABCZghi 17338 17380
 S
 #17367
 @eng The Great Southern Gate@rus За Великими Южными Вратами Камелота~
@@ -4349,7 +4350,7 @@ is fantastic, and the breeze clears your nose of the city smells.
 в плодородных полях. Отсюда видны люди, работающие в полях с лошадьми
 и плугами. Бриз освобождает тебя от запаха города.
 ~
-0 C city
+0 Ci city
 D0
 @eng The Great Southern Gate gate
 @rus Великие Южные Врата
@@ -4471,13 +4472,13 @@ D0
 @rus Корпус рыцарей
 ~
 door дверь~
-ABZ -1 17374
+ABZgh -1 17374
 D1
 @eng The Round Table
 @rus Зал Круглого Стола
 ~
 door дверь~
-ABZ -1 17376
+ABZgh -1 17376
 D2
 @eng The Feast Hall
 @rus Праздничный Холл
@@ -4518,7 +4519,7 @@ D2
 @rus Дверь в Женские Палаты
 ~
 ~
-ABZ -1 17372
+ABZgh -1 17372
 S
 #17372
 @eng The Ladies' Chambers@rus Женские Палаты~
@@ -4561,7 +4562,7 @@ D0
 @rus Дверь праздничного холла
 ~
 ~
-ABZ -1 17371
+ABZgh -1 17371
 D4
 @eng A staircase winding upwards
 @rus Винтовая лестница наверх
@@ -4609,13 +4610,13 @@ to a tower.
 тканью. Дверь на юг ведет на трибуны Арены, а вверх поднимаются ступени, 
 ведущие в башню.
 ~
-0 A inside
+0 Ag inside
 D2
 @eng You see the Court of Camelot
 @rus Трибуны Арены
 ~
 ~
-ABZ -1 17370
+ABZgh -1 17370
 D4
 @eng A staircase winding upwards
 @rus Ступени в башню
@@ -4738,7 +4739,7 @@ D3
 @rus Трибуны Арены
 ~
 ~
-ABZ -1 17370
+ABZgh -1 17370
 D4
 @eng A staircase winding upward
 @rus Винтовая лестница уходит вверх
@@ -4789,7 +4790,7 @@ D2
 @rus Квартал Вельмож
 ~
 дверь~
-ABZ 17338 17366
+ABZgh 17338 17366
 S
 #17379
 @eng Noble's Chambers@rus Комнаты Вельмож~
@@ -4827,7 +4828,7 @@ D1
 @rus Квартал Вельмож
 ~
 door дверь~
-ABCFZ -1 17366
+ABCFZghil -1 17366
 S
 #17381
 @eng The Pentagram@rus Пентаграмма~
@@ -4840,7 +4841,7 @@ horror.
 Твое тело скрутила боль, и ты слышишь свой вопль ужаса!
 Вокруг беспросветная чернота и клубящийся туман.
 ~
-0 ACJN inside
+0 ACJNgipt inside
 S
 #17382
 @eng The Rolling Hills@rus Холмы~
@@ -4989,13 +4990,13 @@ D0
 @rus Шотландская горная местность
 ~
 gate врата~
-ABZ -1 17387
+ABZgh -1 17387
 D1
 @eng An outpost
 @rus Застава
 ~
 door дверь~
-ABZ -1 17388
+ABZgh -1 17388
 D3
 @eng A winding road
 @rus Открытая дорога
@@ -5080,7 +5081,7 @@ D3
 @rus У ворот
 ~
 ~
-ABZ -1 17385
+ABZgh -1 17385
 S
 #17389
 @eng The rocky beach@rus Каменистый берег~
@@ -5351,7 +5352,7 @@ D3
 @rus За линиями пиктов
 ~
 ranks~
-ABZ -1 17346
+ABZgh -1 17346
 S
 #17398
 @eng Stables@rus Конюшня Камелота~
@@ -5364,7 +5365,7 @@ To your west is Knight's Way.
 лошадей и свежей соломы витают в воздухе. Свет просачивается через стропила.
 На западе - Рыцарский путь.
 ~
-0 M inside
+0 Ms inside
 D3
 @eng Knight's Way
 @rus Рыцарский путь
@@ -5378,7 +5379,7 @@ S
 @rus Здесь ты видишь прекрасные экземпляры лошадей, которые используются в армии
 Камелота.
 ~
-0 CM inside
+0 CMis inside
 S
 #0
 

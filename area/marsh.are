@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Marsh~
 VNUMs 8300 8399
 Credits Generic Old Marsh~
@@ -20,10 +21,10 @@ as he approaches and raises two black taloned claws to strike you.
 Он уверен, что ты никуда не денешься и гнусно ухмыляется.
 ~
 troll~
-ABCFG 0 -600 0
+BCFGhilm 0 0 0 0 -600 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
-EFNR 0 0 0
+EFNRkltx
 stand rest male 500
 0 0 medium unknown
 #8302
@@ -41,10 +42,10 @@ and cackles with glee.
 и кряхтенье.
 ~
 troll~
-ACFG 0 -400 0
+CFGilm 0 0 0 0 -400 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNR 0 0 0
+EFNRkltx
 stand stand male 400
 0 0 medium unknown
 #8303
@@ -57,10 +58,10 @@ ogre людоед~
 @rus Этот ублюдок готов разорвать тебя пополам.
 ~
 human~
-ACFG J -500 0
+CFGilm 0 0 0 Hn -500 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #8304
@@ -74,10 +75,10 @@ thing тварь~
 закрасить, чем отскрести...
 ~
 human~
-ACFG J -700 0
+CFGilm 0 0 0 Hn -700 0
 24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand rest none 1250
 0 0 medium unknown
 #8305
@@ -92,10 +93,10 @@ gnoll упырь~
 Упырь раздражен твоим присутствием.
 ~
 human~
-ACG DFJ -1000 0
+CGim 0 0 0 ABHghn -1000 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 1250
 0 0 medium unknown
 #8306
@@ -109,10 +110,10 @@ appendages.
 @rus Это огромное волосатое существо футов 20 в длину с длинными зелеными когтями. 
 ~
 human~
-ACFG DFJ -450 0
+CFGilm 0 0 0 ABHghn -450 0
 21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #8307
@@ -126,10 +127,10 @@ sword blow.
 @rus Зверушка выглядит так, словно даже твой пинок может вышибить из нее дух.
 ~
 human~
-ACGH JP 0 0
+CGHimn 0 0 Gm Hn 0 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 25
 0 0 medium unknown
 #8308
@@ -146,10 +147,10 @@ are just able to notice a small pair of glowing eyes.
 только неясное облако с парой горящих глаз.
 ~
 human~
-ACGH JP 0 0
+CGHimn 0 0 Gm Hn 0 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 150
 0 0 medium unknown
 #8309
@@ -162,10 +163,10 @@ snake anaconda змея анаконда~
 @rus Это десятиметровая анаконда. Очень голодная...
 ~
 snake~
-ACFGH JPQ -100 0
+CFGHilmn 0 0 BGhm Hn -100 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
-EFNR 0 0 0
+EFNRkltx
 stand stand female 500
 0 0 medium unknown
 #8310
@@ -178,10 +179,10 @@ python snake змея питон~
 @rus Это самый большой из всех питонов которые тебе попадались.
 ~
 snake~
-ACFGH JPQ -100 0
+CFGHilmn 0 0 BGhm Hn -100 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNR 0 0 0
+EFNRkltx
 stand stand female 0
 0 0 medium unknown
 g @eng female@rus male~
@@ -199,10 +200,10 @@ because she thinks you stink too, and she's about to do something about it.
 и возможно замыслила нечто плохое.
 ~
 human~
-ACGS DFJ -200 0
+CGSimy 0 0 0 ABHghn -200 0
 9 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 8
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand female 50
 0 0 medium unknown
 #8313
@@ -217,10 +218,10 @@ swamp light, the blade of his scythe gleams.
 @rus Темный призрак выше 13 футов. Даже в полутьме видно как блестит ее коса.
 ~
 human~
-ACG DFJ -200 0
+CGim 0 0 0 ABHghn -200 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 700
 0 0 medium unknown
 #8314
@@ -235,10 +236,10 @@ into the marsh.
 Наверняка она уже сожрала не одну пару путешественников.
 ~
 wolf~
-ACFG J -200 0
+CFGilm 0 0 0 Hn -200 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-ENR 0 0 0
+ENRktx
 stand stand female 0
 0 0 medium unknown
 #8318
@@ -251,10 +252,10 @@ mound shambling куст мутант~
 @rus Гротескная мешанина ветвей и гнилой листвы наполняет тебя ужасом.
 ~
 human~
-ACG JQ -100 0
+CGim 0 0 Bh Hn -100 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #8319
@@ -270,10 +271,10 @@ painted on his face and hands.
 Растопырив пальцы веером он бурчит себе под нос.
 ~
 human~
-ABCDFGQ DF -100 0
+BCFGQhilmw 0 0 0 ABgh -100 0
 12 0 2d10+150 12d9+100 2d4+3 'none'
 0 0 0 7
-EIKU 0 0 0
+EIKUkoq
 stand stand male 17
 0 0 medium unknown
 #8320
@@ -286,10 +287,10 @@ giant гигант~
 @rus К этого монстра зеленые гнилые зубы и БОЛЬШАЯ дубина.
 ~
 giant~
-ABCDFG DFJ -100 0
+BCFGhilm 0 0 0 ABHghn -100 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNR 0 0 0
+EFNRkltx
 stand stand male 600
 0 0 medium unknown
 #8321
@@ -302,10 +303,10 @@ gargoyle гаргуль~
 @rus Этот жуткий товарищ мог бы использовать тебя в пищу.
 ~
 human~
-ABCDFG DFJ -100 0
+BCFGhilm 0 0 0 ABHghn -100 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 100
 0 0 medium unknown
 #0
@@ -316,8 +317,8 @@ spear long two-handed копье длинное~
 @eng a long spear@rus ~~длинное~~ ~~копье~~~
 @eng A strange spear lies here.@rus Странное копье (spear) лежит на земле.~
 oak~
-weapon J AN
-spear 1 12 'stab' F
+weapon Jp 0 ANgt
+spear 1 12 'stab' Fl
 11 100 1330 P
 A
 2 1
@@ -329,7 +330,7 @@ horned helmet рогатый шлем~
 @eng a dark horned helmet@rus ~~рогатый~~ ~~шлем~~~
 @eng A wicked looking horned helmet lies here.@rus Черный рогатый шлем (helmet) валяется на полу.~
 iron~
-armor J AE
+armor Jp 0 AEgk
 6 6 5 2 0
 10 50 0 P
 A
@@ -345,7 +346,7 @@ chain mail chainmail кольчуга кольчужная рубаха~
 @eng a suit of chainmail@rus ~~кольчужная~~ ~~рубаха~~~
 @eng An old suit of chainmail lies here, corroded by the marsh.@rus Старая кольчужная рубаха (chain mail) лежит тут, разьедаемая болотом.~
 iron~
-armor J AD
+armor Jp 0 ADgj
 5 8 7 0 0
 20 200 2700 P
 g none~
@@ -354,8 +355,8 @@ scythe коса~
 @eng a huge, wicked-looking scythe@rus ~~огромная~~ ~~коса~~~
 @eng An evil, wicked-looking scythe lies in the shadows.@rus Огромная жуткая коса (scythe) с окровавленным лезвием лежит в тени.~
 iron~
-weapon HJ AN
-polearm 5 5 'slice' F
+weapon HJnp 0 ANgt
+polearm 5 5 'slice' Fl
 19 160 1770 P
 A
 19 3
@@ -367,7 +368,7 @@ green potion зеленая микстура~
 @eng a murky green potion@rus ~~темно-зеленая~~ ~~микстура~~~
 @eng A murky green potion lies here in the mud.@rus Пузырек с темно-зеленой микстурой (potion) лежит в грязи.~
 glass~
-potion AB A
+potion ABgh 0 Ag
 43 'cure critical' '' '' ''
 5 10 690 P
 E
@@ -379,8 +380,8 @@ claymore rusty sword палаш ржавый меч~
 @eng a rusty claymore@rus ~~ржавый~~ ~~палаш~~~
 @eng A huge rusted sword lies in a pool of water.@rus Огромный ржавый палаш (claymore) валяется в луже.~
 iron~
-weapon 0 AN
-sword 4 8 'cleave' F
+weapon 0 0 ANgt
+sword 4 8 'cleave' Fl
 28 100 3000 P
 g @eng none@rus male~
 #0
@@ -454,7 +455,7 @@ distance.  And feel fear creep into your heart.
 Но большинство из того что ты видишь лишь куски (pieces) мертвой плоти.
 В отдалении слышно рычание. Оно наполняет ужасом твое сердце.
 ~
-0 A mountain
+0 Ag mountain
 E
 pieces куски~
 @eng You see severed limbs and spongy intestines.
@@ -488,7 +489,7 @@ clouds whip around you and the wind raises its voice and assails you.
 @rus Ты стоишь наверху холм на северо-западной стороне болота. Темный
 полог облаков вокруг и только ветер свистит в ушах.
 ~
-0 A hills
+0 Ag hills
 D0
 @eng To the north lies a damp broken roadway.
 @rus На севере находится влажное нарушенное шоссе.
@@ -522,7 +523,7 @@ have you for a feast.
 У этих милых зверушек намечается банкет...
 С тобой в роли главного блюда.
 ~
-0 A mountain
+0 Ag mountain
 E
 beasts звери~
 @eng You see a large creature, possibly a demon, flapping heavily above you.
@@ -549,7 +550,7 @@ boots.  Better stop and check for leeches when you get out of here.
 в твои ботинки. Лучше остановиться и проверить не присосались ли к тебе пиявки,
 когда ты выйдешь отсюда.
 ~
-0 A mountain
+0 Ag mountain
 E
 limb дерево~
 @eng The limb looks like it is attached to a trap door in the ground.
@@ -569,7 +570,7 @@ the overwhelming stench of putrid flesh.
 @rus Ужасная болотная тварь живет здесь. Искалеченные трупы заливают воздух
 подавляющим зловонием гнилой плоти.
 ~
-0 A swim
+0 Ag swim
 E
 надпись sign~
 @eng nothing
@@ -593,7 +594,7 @@ be taunting you towards the pool.
 Ты заслуженно поздравляешь себя с наблюдательностью. :-)
 Болотные огоньки (lights) кружат вокруг и мелькают за спиной.
 ~
-0 A swim
+0 Ag swim
 E
 quicksand зыбучие пески~
 @eng It looks deadly to the foolish.
@@ -631,7 +632,7 @@ you with a cold sweat and fear in your heart.
 @rus Ты возле темного водоема (pond). Ледяная вода бурлит и движется, как будто
 она живая. Шорох и вздохи висят в воздухе наполняя холодом сердце.
 ~
-0 A swim
+0 Ag swim
 E
 pond водоем~
 @eng It looks ALIVE ...
@@ -667,7 +668,7 @@ huge fortress, half buried in the marsh.
 Чуть погодя ты видишь животное (beast), летящее на юго-восток и в направлении
 его полета видишь крепость (fortress), затерянную в болотах.
 ~
-0 A swim
+0 Ag swim
 E
 vegetation растительность~
 @eng It looks sentient.
@@ -710,7 +711,7 @@ known before assails you.
 @rus Ты идешь в облаке тьмы приготовившись к самому худшему.
 Вдруг кто-нибудь нападет из темноты?
 ~
-0 A swim
+0 Ag swim
 D0
 @eng A dark pool lies to the north.
 @rus Темный водоем находится на севере.
@@ -732,7 +733,7 @@ of tumescent vegetables, evil-smelling fruit trees, and malignant ferns.
 когда-либо видел, смесь из распухших овощей, пахнущих злом плодов,
 и злокачественных папоротников.
 ~
-0 A swim
+0 Ag swim
 E
 plant plants растение растения~
 @eng They look rather violent, and snap at you when you come near.
@@ -760,7 +761,7 @@ strange, almost unearthly light that enters through the clouds above.
 на 20 футов из болота в воздух. Его черная поверхность из обсидиана сияет
 мрачно в странном, почти неземном свете, который сочится через облака.
 ~
-0 A mountain
+0 Ag mountain
 E
 monolith монолит~
 @eng This huge monolith resembles nothing you have ever seen before.
@@ -796,7 +797,7 @@ echoing as if from a great distance.
 севере находится огромное болото. Можно услышать эхо, как будто с большого
 расстояния кто-то дико орет и вопит.
 ~
-0 A mountain
+0 Ag mountain
 E
 monolith монолит~
 @eng This is a huge obsidian stone block stuck in the marsh.
@@ -832,7 +833,7 @@ portion of the lake looks calm and serene compared to this wild place.
 Какие-то существа стукаются о борт твоей лодки и пялятся на тебя из под воды.
 Южная сторона озера относительно спокойна по сравнению с этой.
 ~
-0 A noswim
+0 Ag noswim
 D2
 @eng The southern portion of the lake lies to the south.
 @rus Южная часть озера находится на юге. :-)
@@ -855,7 +856,7 @@ you.  You are not alone.
 намного более непринужденно чем тогда, когда ты был на другой части озера. 
 Волна опасения проходит.  Тут ты замечаешь, что ты не один.  
 ~
-0 A noswim
+0 Ag noswim
 E
 north север~
 @eng The way to the north seems to be impassable, due to the rough water and
@@ -883,7 +884,7 @@ lies an evil fortress.  You see figures walking along the battlements.
 находится мрачная крепость (fortress). Ты видишь фигуры, идущие по зубчатым
 стенам.
 ~
-0 A mountain
+0 Ag mountain
 E
 fortress крепость~
 @eng It is hewn of black stone and heavily fortified.
@@ -911,7 +912,7 @@ and you decide not to continue onward.
 ворота закрылись. Это место выглядит очень опасным, и ты решаешь не продолжать
 путь вперед.
 ~
-0 A forest
+0 Ag forest
 D1
 @eng To the east is a marshy beach.
 @rus На востоке болотистый берег.

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Blight~
 VNUMs 23000 24099
 Credits Stile~
@@ -19,12 +20,12 @@ hooves and rams head that is.  It's all too human eyes burn with hatred upon
 spotting you, it picks it's teeth as it prepares to slaughter you.
 ~
 unique~
-ABCFGTl DFJ -1000 0
+BCFGThilmz 0 0 0 ABHghn -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFIJNQR 0 0 0
+CDEFIJNQRijkloptwx
 stand stand male 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 #23002
 myrddraal fade halfman eyeless lurk fetch shadowman~
 The Myrddraal~
@@ -37,12 +38,12 @@ by the Dark One's taint.  It turns it's eyeless gaze upon you...  this may be
 your last battle...
 ~
 unique~
-ACFGSTl DFJPQu -1000 0
+CFGSTilmyz 0 0 BGhm ABHghn -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-BEFGHIQ 0 0 0
+BEFGHIQhklmnow
 stand stand male 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -61,12 +62,12 @@ wolf-like jowls that is.  It's all too human eyes burn with hatred upon
 spotting you, it picks it's teeth as it prepares to slaughter you.
 ~
 unique~
-ABCFGTl DFJb -1000 0
+BCFGThilmz 0 b 0 ABHghn -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFIJNQR 0 0 0
+CDEFIJNQRijkloptwx
 stand stand male 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 #23004
 trolloc dhai'mon~
 The trolloc~
@@ -79,12 +80,12 @@ beak that is.  It's all too human eyes burn with hatred upon spotting you,
 it pecks at the last of it's meal as it prepares to slaughter you.
 ~
 unique~
-ABCFGTl DFJTb -1000 0
+BCFGThilmz 0 Tbz 0 ABHghn -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFQ 0 0 0
+CDEFQijklw
 stand stand male 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 #23005
 flock raven ravens huge~
 The flock of ravens~
@@ -95,12 +96,12 @@ As soon as they spot you they descend, a huge black cloud come down to claim
 your flesh.
 ~
 unique~
-ABCFGSl J -1000 0
+BCFGShilmy 0 0 0 Hn -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
-EFHN 0 0 0
+EFHNklnt
 stand stand none 1000
-A 0 medium unknown
+Ag 0 medium unknown
 r fire -50
 r disease 100
 r poison 100
@@ -117,12 +118,12 @@ boar like snout and tusks that is.  It's all too human eyes burn with hatred
 as it charges to attack.
 ~
 unique~
-ABCFGTl DFJb -1000 0
+BCFGThilmz 0 b 0 ABHghn -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-CDEFIJKNQR 0 0 0
+CDEFIJKNQRijklopqtwx
 stand stand male 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 #23007
 creature oily~
 The creature~
@@ -132,12 +133,12 @@ A grotesque black oily creature slides through the roiling black waters of the
 Lake.  It seems quite hostile.
 ~
 unique~
-ABCFGTl DFJ -1000 0
+BCFGThilmz 0 0 0 ABHghn -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'claw'
 -11 -11 -11 3
-CEFGMOQ 0 0 0
+CEFGMOQiklmsuw
 stand stand none 1000
-AB ABCDEFGHIJKQ medium unknown
+ABgh ABCDEFGHIJKQghijklmnopqw medium unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -154,12 +155,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGTl DFJ -1000 0
+BCFGThilmz 0 0 0 ABHghn -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
-CEFHKNQ 0 0 0
+CEFHKNQiklnqtw
 stand stand none 0
-AB 0 medium unknown
+ABgh 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
@@ -173,12 +174,12 @@ drawn to the creature, at the last moment you pull away, and pull out your
 weapons.
 ~
 unique~
-ABCFGRTl DF -1000 0
+BCFGRThilmxz 0 0 0 ABgh -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-AEFGHJKNQ 0 0 0
+AEFGHJKNQgklmnpqtw
 stand stand none 10000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 r fire -50
 r acid 33
 r charm 100
@@ -192,12 +193,12 @@ energy.  The taint of evil has twisted the creature beyond recognition, you
 fell the emense hatred this creature feels for you, it rambles closer...
 ~
 unique~
-ACFGdl DFJX -1000 0
+CFGilm Ag X 0 ABHghn -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 'charge'
 -4 -4 -4 5
-CINQ 0 0 0
+CINQiotw
 stand stand none 1000
-AB ABCDEFGHIJKLMNOPQUVWXY medium unknown
+ABgh ABCDEFGHIJKLMNOPQUVWXYghijklmnopqrstuvw medium unknown
 r charm 100
 #23011
 warder gaidan~
@@ -210,10 +211,10 @@ know the man, but you do know he is deadly, and from the looks of him, not to
 be trifled with.
 ~
 human~
-AGTdl BDFJNPQZ 1000 0
+GTmz Ag Nt ABGghm ABHghn 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-EFGHKLPS 0 0 0
+EFGHKLPSklmnqrvy
 stand stand male 1000
 0 0 medium unknown
 r cold 33
@@ -233,12 +234,12 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTdl DFHJNVZb 0 0
+BCFGOThilmuz Ag HNVbnt 0 ABHghn 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
-ADEFGHKN 0 0 0
+ADEFGHKNgjklmnqt
 stand stand male 1000
-C ABCDEFGHIJK medium unknown
+Ci ABCDEFGHIJKghijklmnopq medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -267,12 +268,12 @@ behind to protect what he can of the lost kingdom.  You sense no great evil,
 or good, but a sense of purpose.
 ~
 unique~
-ABCFGOTVdl DFHJNVZb 0 0
+BCFGOTVhilmuz Ag HNVbnt 0 ABHghn 0 0
 60 5 50d10+10000 5d5+5000 8d6+28 'wrath'
 -40 -40 -40 -4
-ADEFGHKN 0 0 0
+ADEFGHKNgjklmnqt
 stand stand male 1000
-C ABCDEFGHIJK medium unknown
+Ci ABCDEFGHIJKghijklmnopq medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -302,12 +303,12 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-ACFGOTdl BDFJPUZd 0 0
+CFGOTilmuz Ag Ud AGgm ABHghn 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-EFGHJKNU 0 0 0
+EFGHJKNUklmnpqt
 stand stand none 0
-C ABCDEFGHIJK medium unknown
+Ci ABCDEFGHIJKghijklmnopq medium unknown
 r holy -50
 r disease 100
 r poison 100
@@ -323,12 +324,12 @@ they were, but then return to normal.  The spirit could not save these things
 in life.  It intends to try to do it in death.
 ~
 unique~
-ACFGOTdl BDFJNPUZd 0 0
+CFGOTilmuz Ag NUdt AGgm ABHghn 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-EFGHJKNU 0 0 0
+EFGHJKNUklmnpqt
 stand stand none 1000
-C ABCDEFGHIJK medium unknown
+Ci ABCDEFGHIJKghijklmnopq medium unknown
 r holy -50
 r disease 100
 r poison 100
@@ -342,12 +343,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGTl DFJ -1000 0
+BCFGThilmz 0 0 0 ABHghn -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'magic'
 -9 -9 -9 3
-CEFHKNQ 0 0 0
+CEFHKNQiklnqtw
 stand stand none 1000
-AB 0 medium unknown
+ABgh 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
@@ -360,12 +361,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGTl DFJ -1000 0
+BCFGThilmz 0 0 0 ABHghn -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'magic'
 -9 -9 -9 3
-CEFHKNQ 0 0 0
+CEFHKNQiklnqtw
 stand stand none 1000
-AB 0 medium unknown
+ABgh 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
@@ -378,12 +379,12 @@ Much like the other trees of the blight, this tree is decayed, and black with
 disease.  Unlike the other trees, this one seems a little more lively.
 ~
 unique~
-ABCFGTl DFJ -1000 0
+BCFGThilmz 0 0 0 ABHghn -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'magic'
 -9 -9 -9 3
-CEFHKNQ 0 0 0
+CEFHKNQiklnqtw
 stand stand none 1000
-AB 0 medium unknown
+ABgh 0 medium unknown
 r pierce 100
 r fire -50
 r charm 100
@@ -398,10 +399,10 @@ appears to be a military uniform almost, but she looks like no warrior you
 have ever seen.
 ~
 human~
-AGHTl DFJb 0 0
+GHTmnz 0 b 0 ABHghn 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'shock'
 -13 -13 -13 3
-EFHIKNU 0 0 0
+EFHIKNUklnoqt
 stand stand female 1000
 0 0 medium unknown
 r fire 33
@@ -429,12 +430,12 @@ You see no eyes on the creature, but feel it 'sees' you somehow.  This
 did not come from any land you have ever heard of.
 ~
 unique~
-AGTl DFJTZb 0 0
+GTmz 0 Tbz 0 ABHghn 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'flame'
 -15 -15 -15 2
-EFHKP 0 0 0
+EFHKPklnqv
 stand stand none 1000
-E E medium unknown
+Ek Ek medium unknown
 r negative 100
 r disease 100
 #23021
@@ -449,12 +450,12 @@ smile, and his attire appearing to be made of something like human flesh,
 he seems like a pretty nice guy.
 ~
 unique~
-ACFGHSl DFJPV 0 0
+CFGHSilmny 0 V Gm ABHghn 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
-BEFHKNU 0 0 0
+BEFHKNUhklnqt
 stand stand male 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 r acid 100
 r disease 100
 r poison 100
@@ -469,12 +470,12 @@ skinned nightmare.  That is all you have time to think about until it is time
 to fight.
 ~
 unique~
-ATl DFJ 0 0
+Tz 0 0 0 ABHghn 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'punch'
 -15 -15 -15 2
-CDEF 0 0 0
+CDEFijkl
 stand stand none 1000
-AB ABCDEFGHIJK medium unknown
+ABgh ABCDEFGHIJKghijklmnopq medium unknown
 r charm 100
 #0
 
@@ -484,7 +485,7 @@ sword huge curved blade~
 a huge curved blade~
 A very large curved blade lies here in a pool of blood.~
 unknown~
-weapon CGJL AN
+weapon CGJLimpr 0 ANgt
 sword 5 7 'slash' 0
 35 25 350 P
 A
@@ -499,7 +500,7 @@ key blackened~
 a blood-stained key~
 A key, darkened by dried blood, lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -508,7 +509,7 @@ key heavy iron~
 a heavy iron key~
 A large iron key lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -517,7 +518,7 @@ key smooth~
 an often used key~
 A key, smoothed from being often used, lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -526,7 +527,7 @@ key blackened~
 a blood-stained key~
 A key, darkened by dried blood, lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -535,7 +536,7 @@ key heavy iron~
 a heavy iron key~
 A large iron key lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -544,7 +545,7 @@ key smooth~
 an often used key~
 A key, smoothed from being often used, lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -553,7 +554,7 @@ black sword blade~
 a black sword~
 A black sword calls for you to put it to use.~
 unknown~
-weapon BCEGJLM AN
+weapon BCEGJLMhikmprs 0 ANgt
 sword 5 8 'slash' 0
 40 12 400 P
 A
@@ -568,7 +569,7 @@ cloak unmoving black~
 an unmoving black cloak~
 A pile of black cloth lies on the ground, untouched by the wind.~
 unknown~
-armor CEGJL AK
+armor CEGJLikmpr 0 AKgq
 13 13 13 6 0
 40 6 400 P
 A
@@ -581,7 +582,7 @@ overlapping black plates snake~
 snake-like overlapping black plates~
 Several black plates lie on the ground.~
 unknown~
-armor DEGJL AD
+armor EGJLkmpr 0 ADgj
 12 13 13 6 0
 40 18 400 P
 A
@@ -596,7 +597,7 @@ sword fine~
 a finely crafted sword~
 A finely crafted sword lies about unused.~
 unknown~
-weapon ABGIK AN
+weapon ABGIKghmoq 0 ANgt
 sword 5 9 'slice' 0
 40 12 400 P
 A
@@ -607,7 +608,7 @@ cloak shift shifting colors~
 a cloak of shifting colors~
 A pile of cloth blends into it surroundings here.~
 unknown~
-armor GIK AK
+armor GIKmoq 0 AKgq
 12 12 13 6 0
 40 6 400 P
 A
@@ -622,7 +623,7 @@ key platinum~
 a shiny platinum key~
 A shiny platinum key lies on the ground here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 45 1 450 P
 g none~
@@ -631,7 +632,7 @@ key golden~
 a shiny golden key~
 A shiny golen key lies on the ground.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 50 1 500 P
 g none~
@@ -640,7 +641,7 @@ great golden chest~
 a great golden chest~
 A great golden chest sits at the foot of the bed.~
 unknown~
-container AG 0
+container AGgm 0 0
 2000 0 2416 100 100
 0 0 0 P
 g none~
@@ -649,7 +650,7 @@ key lord~
 the lord's key~
 A very important key lies here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -658,7 +659,7 @@ great golden chest~
 a great golden chest~
 A great golden chest sits at the foot of the bed.~
 unknown~
-container AG 0
+container AGgm 0 0
 2000 0 2418 100 100
 0 5000 0 P
 g none~
@@ -667,7 +668,7 @@ key lord~
 the lord's key~
 A very important key lies here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -676,7 +677,7 @@ angreal small figurine~
 a small figurine~
 A small figurine sits on the ground humming with power.~
 unknown~
-armor BGI AO
+armor BGIhmo 0 AOgu
 20 20 20 9 0
 45 3 600 P
 A
@@ -691,8 +692,8 @@ heron marked blade sword~
 a Heron marked blade~
 The blade of a swordmaster lies at your feet.~
 iron~
-weapon GIM AN
-sword 10 6 'slash' DE
+weapon GIMmos 0 ANgt
+sword 10 6 'slash' DEjk
 45 12 600 P
 A
 18 5
@@ -706,7 +707,7 @@ malkierian battle helm crane~
 a helm stylized into a golden crane~
 A malkerian battle helm lies here.~
 unknown~
-armor AGK AE
+armor AGKgmq 0 AEgk
 20 20 20 10 0
 45 12 600 P
 A
@@ -721,7 +722,7 @@ suit battle armor~
 a suit of Malkerian battle armor~
 A suit of highly pollished armor lies here.~
 unknown~
-armor AGK AD
+armor AGKgmq 0 ADgj
 20 21 20 9 0
 45 25 600 P
 A
@@ -736,8 +737,8 @@ cuendillar heartstone dagger~
 a heartstone dagger~
 A dagger made of a strange material is here.~
 unknown~
-weapon GM AN
-dagger 10 6 'pierce' D
+weapon GMms 0 ANgt
+dagger 10 6 'pierce' Dj
 45 10 600 P
 A
 4 2
@@ -751,7 +752,7 @@ lord sceptre~
 a Lord's sceptre~
 A finely crafted sceptre lies on the ground.~
 unknown~
-armor AGK AO
+armor AGKgmq 0 AOgu
 20 19 21 11 0
 45 10 600 P
 A
@@ -766,7 +767,7 @@ ward strange~
 a strange ward~
 A strange looking ward lies here.~
 unknown~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 33 1 330 P
 g none~
@@ -775,7 +776,7 @@ spring~
 the spring~
 ~
 marble~
-fountain G 0
+fountain Gm 0 0
 50 50 'water' 0 0
 0 0 0 P
 g none~
@@ -784,7 +785,7 @@ banner banners~
 the small alcove~
 ~
 unknown~
-container C 0
+container Ci 0 0
 10 0 0 2 100
 43 1000 430 P
 E
@@ -797,7 +798,7 @@ staff cheetah~
 an engraved staff~
 A staff carved with spotted feline's rest here.~
 unknown~
-staff 0 AO
+staff 0 0 AOgu
 40 8 8 'sanctuary' 0
 43 5 430 P
 g none~
@@ -806,7 +807,7 @@ muck~
 encased in the lakes muck~
 ~
 unknown~
-container C 0
+container Ci 0 0
 10 0 0 1 100
 33 1000 330 P
 E
@@ -819,7 +820,7 @@ skeleton~
 a skeleton~
 A skeleton lies below the bloody writing.~
 unknown~
-container C 0
+container Ci 0 0
 10 0 0 10 100
 43 1000 430 P
 E
@@ -832,7 +833,7 @@ skeleton~
 a skeleton~
 A skeleton lies below the bloody writing.~
 unknown~
-container C 0
+container Ci 0 0
 10 0 0 10 100
 43 1000 430 P
 E
@@ -845,7 +846,7 @@ a'dam~
 an A'dam~
 A small silver bracelet and collar lay here connected by a small silver chain.~
 unknown~
-wand 0 AO
+wand 0 0 AOgu
 40 10 10 'armor' 0
 40 4 400 P
 A
@@ -856,7 +857,7 @@ panelled plain dress~
 a plain dress pannelled with lightning bolts~
 A plain dress lies on the ground, strange symbols sewn into it's pannels.~
 unknown~
-armor GI AD
+armor GImo 0 ADgj
 12 13 14 7 0
 35 7 400 P
 A
@@ -871,7 +872,7 @@ smile seductive~
 a seductive smile~
 A very strange object lies at your feet.~
 unknown~
-weapon EJLM AN
+weapon EJLMkprs 0 ANgt
 exotic 5 10 'blast' 0
 50 1 500 P
 A
@@ -886,8 +887,8 @@ wicked knife~
 a wicked-looking knife~
 A very sharp knife lies on the ground.~
 unknown~
-weapon GI AN
-dagger 5 9 'pierce' D
+weapon GImo 0 ANgt
+dagger 5 9 'pierce' Dj
 45 4 450 P
 A
 19 3
@@ -899,7 +900,7 @@ fox medallion~
 a foxheaded medallion~
 A medallion lies at your feet.~
 unknown~
-armor GI AC
+armor GImo 0 ACgi
 15 15 15 7 0
 45 6 450 P
 A
@@ -984,7 +985,7 @@ moving the shadowy water to small waves.  This far into the Blight live
 creatures that could easily kill a dozen heavily armed Bordermen, creatures
 created by the Dark One to watch over his land.  
 ~
-0 C hills
+0 Ci hills
 D0
 Directly to the north lay the Seven Towers, thier power broken.
 ~
@@ -1942,7 +1943,7 @@ The sound of a thousand wings fill your ears as your realize in horror that the
 cloud is actually a huge flock of raven.  The Eyes of the Dark One descend upon
 you to rend your flesh and spirit.
 ~
-0 A hills
+0 Ag hills
 D0
 The Blight continues on to the north.
 ~
@@ -2722,7 +2723,7 @@ deeper into the tower.  The Blight is outside to the west.  You doubt the
 Trolloc armies, and any creatures here since left anything in the tower, except
 the dead.
 ~
-0 D inside
+0 Dj inside
 D1
 A hallway lies to the east.
 ~
@@ -2741,7 +2742,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 D inside
+0 Dj inside
 D1
 The hallway continues to the east.
 ~
@@ -2766,7 +2767,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north you see a wide set of stable doors, to the south you see a set what
 remains of another set of doors.  The hallway continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 The stables lie to the north.
 ~
@@ -2795,7 +2796,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A set of stairs lies to the south.
 ~
@@ -2814,7 +2815,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -2833,7 +2834,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -2854,7 +2855,7 @@ time, all the stalls are empty, and whatever grain may have been stored here as
 feed has long since rotted away.  The only exit from this room is to the south,
 back into the hallway.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
@@ -2870,7 +2871,7 @@ of humans and Trollocs alike litter the floor.  You notice with respect that
 the Malkeri must have killed three Trollocs for every man that died after a
 quick survey of the skeletons.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -2893,7 +2894,7 @@ massive iron portcullis, still intact, and rusted completely shut, it's opening
 mechanism either destroyed by the defenders of the tower, or possibly it's
 attackers...
 ~
-0 AD inside
+0 ADgj inside
 D0
 A large yard lies to the north.
 ~
@@ -2903,12 +2904,12 @@ D1
 A small door lies to the east.
 ~
 ~
-ABCZ 23002 23071
+ABCZghi 23002 23071
 D3
 A small door leads to the west.
 ~
 ~
-ABCZ 23002 23070
+ABCZghi 23002 23070
 S
 #23070
 A Guard Room~
@@ -2918,12 +2919,12 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD inside
+0 ADgj inside
 D1
 A small door lies to the east.
 ~
 ~
-ABCZ 23002 23069
+ABCZghi 23002 23069
 S
 #23071
 A Guard Room~
@@ -2933,12 +2934,12 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD inside
+0 ADgj inside
 D3
 A small door lies to the west.
 ~
 ~
-ABCZ 23002 23069
+ABCZghi 23002 23069
 S
 #23072
 A Stairwell~
@@ -2947,7 +2948,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -2966,7 +2967,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading down into the tower.  And, the hallway continues to
 the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -2986,7 +2987,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north is a wide archway leading into darkness, to the south is another
 darkened room, and the hallway continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A darkened room lies to the north.
 ~
@@ -3015,7 +3016,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A set of stairs lies to the south.
 ~
@@ -3034,7 +3035,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3052,12 +3053,12 @@ This was kitchen for the people of this tower.  Splintered tables and
 broken and dented pots and pans lay about the room.  Off to the south is a
 hallway, while a door to the east leads into another room of the tower.
 ~
-0 AD inside
+0 ADgj inside
 D1
 A small door is here.
 ~
 ~
-ABZ -1 23078
+ABZgh -1 23078
 D2
 A hallway lies to the south.
 ~
@@ -3072,12 +3073,12 @@ towers kitchens prepared food for it's inhabitants.  All the food has long
 since gone rotten in the larder, leaving nothing for the rats and other
 inhabitants of this once proud tower.
 ~
-0 AD inside
+0 ADgj inside
 D3
 The towers kitchens lie to the west.
 ~
 ~
-ABZ -1 23077
+ABZgh -1 23077
 S
 #23079
 Dining Hall~
@@ -3086,7 +3087,7 @@ the tables and chairs in the room are broken and scattered about the room, you
 have the feeling that the last meal in this room was it's usual patrons, eaten
 by the Trolloc armies that defeated the tower.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3100,7 +3101,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3119,12 +3120,12 @@ and black streaks of dried blood line the walls.  On the northern wall a door
 leads off into the tower.  A set of stairs can be seen off to the south leading
 down into the tower.  And, the hallway continues to the west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A door leads off into the tower.
 ~
 ~
-ABZ -1 23087
+ABZgh -1 23087
 D2
 A set of stairs lies to the south.
 ~
@@ -3144,7 +3145,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the south a door leads off into the darkness, and the hallway continues to the
 east and west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -3169,7 +3170,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north and south doorways lead off into the darkness, and the hallway
 continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A door leads off into the tower to the north.
 ~
@@ -3198,7 +3199,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -3217,7 +3218,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3237,7 +3238,7 @@ and the occasional skeleton.  Looking more closely at a section of the northern
 wall you notice a small patch of writing that reads "Lies, lies - where is the
 power I was promised?"
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
@@ -3250,12 +3251,12 @@ This room used to house the servants of the tower, now only a rat or two
 lives in thier places.  The room is bare except for rotting pallets bare of any
 padding, and the skeletons of the long dead servants themselves.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
 ~
-ABZ -1 23081
+ABZgh -1 23081
 S
 #23088
 Officer's Quarters~
@@ -3264,7 +3265,7 @@ thier quarters when the final assault took place.  You can see that the room
 held four men.  Bunks and lockers are in each corner of the room, disturbed,
 but not destroyed.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3277,7 +3278,7 @@ This room has been almost destroyed.  Nothing remains that has not been
 broken apart or totally destroyed.  The Trollocs seem to have been searching
 this room, although for what, or if they found it is a mystery...
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3291,7 +3292,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3310,7 +3311,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -3331,7 +3332,7 @@ the north is a wide archway leading into darkness, to the south a large gilded
 door stands seemingly untouched by the towers fall, the hallway continues to
 the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 An archway leads into another part of the tower.
 ~
@@ -3346,7 +3347,7 @@ D2
 A large gilded door stands to the south.
 ~
 ~
-ABCFZ 23014 23096
+ABCFZghil 23014 23096
 D3
 The hallway continues to the west.
 ~
@@ -3360,7 +3361,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up yo the roof of the tower.  While the hallway continues
 back to the west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A set of stairs can be seen to the south.
 ~
@@ -3379,7 +3380,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up onto
 the battlements of the tower.  The walls are still streaked with blood, and the
 occasional Trolloc symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3400,7 +3401,7 @@ fanciful creatures and places once lined it's walls, now it walls are lined
 with dried blood and grey rags.  Once, this tower was one of the Seven Towers
 of Malkeri, now a ruin in the Blight.
 ~
-0 AD inside
+0 ADgj inside
 D2
 An archway leads into darkness to the south.
 ~
@@ -3416,12 +3417,12 @@ with life and anger at someone daring to enter this room.  The air becomes
 clearer, as does a shape forming beside the bed.  Malkerians were ever a
 stubborn lot.
 ~
-0 D inside
+0 Dj inside
 D0
 A great gilded door lies to the north.
 ~
 ~
-ABCFZ 23014 23092
+ABCFZghil 23014 23092
 S
 #23097
 The Battlements~
@@ -3431,7 +3432,7 @@ the desolation of the Blight, the Land of the Shadow.  The battlements
 themselves are blackened as if by huge gouts of fire, your heart sinks with
 desperation and a sense of loss for the broken kingdom, and it's brave people.
 ~
-0 C city
+0 Ci city
 D5
 Below you stairs lead down into the tower.
 ~
@@ -3445,7 +3446,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3465,12 +3466,12 @@ to the south leading up into the tower.  To the north you see a door adorned
 with two crossed swords, now covered in blood.  The hallway continues to the
 west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A door adorned with crossed swords, now fouled with blood is to the north.
 ~
 ~
-ABZ -1 24004
+ABZgh -1 24004
 D2
 A set of stairs lies to the south.
 ~
@@ -3861,12 +3862,12 @@ wards suroounding the glade.  Perhaps they were laid buy Lews Therin himself
 or one of the Hundred Companions.  Whoever did it, you are just happy to be
 here, safe from the horrors of the Blight.
 ~
-0 CN field
+0 CNit field
 D2
 The Blight stretches on to the south.
 ~
 circle~
-ABCFZ 23025 24090
+ABCFZghil 23025 24090
 S
 #24000
 The Hallway~
@@ -3876,7 +3877,7 @@ here trying to defend Malkeri, and many more died taking the tower.  To the
 south you see a sturdy set of doors leading off to another section of the
 tower,  while the hallway continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -3886,7 +3887,7 @@ D2
 A large sturdy door stands in the southern wall.
 ~
 ~
-ABZ -1 24005
+ABZgh -1 24005
 D3
 The hallway continues to the west.
 ~
@@ -3900,12 +3901,12 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  A small door is set in the northern
 wall, and, the hallway continues to the east.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A small door is set in the northern wall.
 ~
 ~
-ABZ -1 24003
+ABZgh -1 24003
 D1
 The hallway continues to the east.
 ~
@@ -3924,7 +3925,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -3944,12 +3945,12 @@ the lakes themselves.  A door leads back into the hallway to  the south, while
 to the west you see a small duct, possibly leading back outside to one of the
 lakes.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
 ~
-ABZ -1 24001
+ABZgh -1 24001
 D3
 A small duct leads into one of the Hundred Lakes.
 ~
@@ -3964,12 +3965,12 @@ remains.  Through the blood and wreckage of this room, a slogan is painted all
 across the northern wall, 'May peace favor your sword.'  A dream for these long
 dead warriors.  One that never came to be...
 ~
-0 AD inside
+0 ADgj inside
 D2
 The Hallway is south from here.
 ~
 ~
-ABZ -1 23099
+ABZgh -1 23099
 S
 #24005
 The Armoury~
@@ -3979,12 +3980,12 @@ Trolloc hordes that fell this mighty tower were very thorough in thier
 destruction.  All that is left is twisted metal and splintered wood among the
 rotting leather.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
 ~
-ABZ -1 24000
+ABZgh -1 24000
 S
 #24006
 A Stairwell~
@@ -3993,7 +3994,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4013,12 +4014,12 @@ dried blood is the only decorations to be seen on it's walls.  A stout door
 isset into northern wall. To the south lies a set of stairs, while the hallway
 continues to the east.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A stout door is set in the northern wall.
 ~
 ~
-ABCZ 23003 24009
+ABCZghi 23003 24009
 D1
 The hallway continues to the east.
 ~
@@ -4037,12 +4038,12 @@ adorn the walls.  This was no a place of honor or celebration in the tower, and
 dried blood is the only decorations to be seen on it's walls.  A barred door is
 set in the southern wall, the hallway continues to the west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A stout door is set in the southern wall.
 ~
 ~
-ABCZ 23004 24011
+ABCZghi 23004 24011
 D3
 The hallway continues to the west.
 ~
@@ -4056,17 +4057,17 @@ longer prisonners to watch, or guards to watch them however, and this room
 holds nothing but wreckage and dust.  A small door is set in the eastern wall,
 while the hallway lies to the south.
 ~
-0 AD inside
+0 ADgj inside
 D1
 A small door lies to the east.
 ~
 ~
-ABZ -1 24010
+ABZgh -1 24010
 D2
 A stout door is set in the southern wall.
 ~
 ~
-ABCZ 23003 24007
+ABCZghi 23003 24007
 S
 #24010
 Interogation Room~
@@ -4075,12 +4076,12 @@ not see any implements of torture in this room, you feel certain the towers
 guards had many questions answered here.  A small door leads into the guard
 room to the west.
 ~
-0 AD inside
+0 ADgj inside
 D3
 A small door is set into the western wall.
 ~
 ~
-ABZ -1 24009
+ABZgh -1 24009
 S
 #24011
 The Cells~
@@ -4091,12 +4092,12 @@ cells hold skeletons hanging from rotting ropes appearantly made from rotting
 bedding.  Surely the Shadowspawn that took the tower would have freed thier
 fellows.  Wouldn't they?
 ~
-0 AD inside
+0 ADgj inside
 D0
 A stout door is set in the northern wall.
 ~
 ~
-ABCZ 23004 24008
+ABCZghi 23004 24008
 S
 #24012
 Into the Breach~
@@ -4106,7 +4107,7 @@ deeper into the tower.  The Blight is outside to the east.  You doubt the
 Trolloc armies, and any creatures here since left anything in the tower, except
 the dead.
 ~
-0 D inside
+0 Dj inside
 D1
 The Blight lies outside to the east.
 ~
@@ -4125,7 +4126,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 west.  To the east you see a great breach in the towers walls.
 ~
-0 AD inside
+0 ADgj inside
 D1
 There is a breach in the tower's wall to the east.
 ~
@@ -4149,7 +4150,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4169,7 +4170,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north you see a wide set of stable doors, to the south you see a set what
 remains of another set of doors.  The hallway continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 The stables lie to the north.
 ~
@@ -4198,7 +4199,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -4217,7 +4218,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4238,7 +4239,7 @@ time, all the stalls are empty, and whatever grain may have been stored here as
 feed has long since rotted away.  The only exit from this room is to the south,
 back into the hallway.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
@@ -4254,7 +4255,7 @@ of humans and Trollocs alike litter the floor.  You notice with respect that
 the Malkeri must have killed three Trollocs for every man that died after a
 quick survey of the skeletons.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4277,7 +4278,7 @@ massive iron portcullis, still intact, and rusted completely shut, it's opening
 mechanism either destroyed by the defenders of the tower, or possibly it's
 attackers...
 ~
-0 AD inside
+0 ADgj inside
 D0
 A large yard lies to the north.
 ~
@@ -4287,12 +4288,12 @@ D1
 A small door lies to the east.
 ~
 ~
-ABCZ 23005 24022
+ABCZghi 23005 24022
 D3
 A small door lies to the west.
 ~
 ~
-ABCZ 23005 24021
+ABCZghi 23005 24021
 S
 #24021
 A Guard Room~
@@ -4302,12 +4303,12 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD inside
+0 ADgj inside
 D1
 A small door lies to the east.
 ~
 ~
-ABCZ 23005 24020
+ABCZghi 23005 24020
 S
 #24022
 A Guard Room~
@@ -4317,12 +4318,12 @@ here for quick reinforcements.  No one must have been in this room when the
 tower fell, and it is one of the least destroyed rooms in the building.  A few
 beds and chests line the walls undisturbed.
 ~
-0 AD inside
+0 ADgj inside
 D3
 A small door lies to the west.
 ~
 ~
-ABCZ 23005 24020
+ABCZghi 23005 24020
 S
 #24023
 A Stairwell~
@@ -4331,7 +4332,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4350,7 +4351,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading down into the tower.  And, the hallway continues to
 the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -4370,7 +4371,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north is a wide archway leading into darkness, to the south is another
 darkened room, and the hallway continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A darkened room lies to the north.
 ~
@@ -4399,7 +4400,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A set of stairs lies to the south.
 ~
@@ -4418,7 +4419,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4436,12 +4437,12 @@ This was kitchen for the people of this tower.  Splintered tables and
 broken and dented pots and pans lay about the room.  Off to the south is a
 hallway, while a door to the east leads into another room of the tower.
 ~
-0 AD inside
+0 ADgj inside
 D1
 A small door lies to the east.
 ~
 ~
-ABZ -1 24029
+ABZgh -1 24029
 D2
 A hallway lies to the south.
 ~
@@ -4456,12 +4457,12 @@ towers kitchens prepared food for it's inhabitants.  All the food has long
 since gone rotten in the larder, leaving nothing for the rats and other
 inhabitants of this once proud tower.
 ~
-0 AD inside
+0 ADgj inside
 D3
 The tower's kitchen lies to the west.
 ~
 ~
-ABZ -1 24028
+ABZgh -1 24028
 S
 #24030
 Dining Hall~
@@ -4470,7 +4471,7 @@ the tables and chairs in the room are broken and scattered about the room, you
 have the feeling that the last meal in this room was it's usual patrons, eaten
 by the Trolloc armies that defeated the tower.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4484,7 +4485,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4503,12 +4504,12 @@ and black streaks of dried blood line the walls.  On the northern wall a door
 leads off into the tower.  A set of stairs can be seen off to the south leading
 down into the tower.  And, the hallway continues to the west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A small door lies to the north.
 ~
 ~
-ABZ -1 24038
+ABZgh -1 24038
 D2
 A set of stairs lies to the south.
 ~
@@ -4528,7 +4529,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the south a door leads off into the darkness, and the hallway continues to the
 east and west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -4553,7 +4554,7 @@ died here trying to defend Malkeri, and many more died taking the tower.  To
 the north and south doorways lead off into the darkness, and the hallway
 continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A large door stands in the northern wall.
 ~
@@ -4582,7 +4583,7 @@ and black streaks of dried blood line the walls.  A set of stairs can be seen
 off to the south leading up into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -4601,7 +4602,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4621,7 +4622,7 @@ and the occasional skeleton.  Looking more closely at a section of the northern
 wall you notice a small patch of writing that reads "I should have taken the
 Dark One's offer, I could have power now instead of death."
 ~
-0 AD inside
+0 ADgj inside
 D2
 A large door lies to the south.
 ~
@@ -4634,12 +4635,12 @@ This room used to house the servants of the tower, now only a rat or two
 lives in thier places.  The room is bare except for rotting pallets bare of any
 padding, and the skeletons of the long dead servants themselves.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A small door lies to the south.
 ~
 ~
-ABZ -1 24032
+ABZgh -1 24032
 S
 #24039
 Officer's Quarters~
@@ -4648,7 +4649,7 @@ thier quarters when the final assault took place.  You can see that the room
 held four men.  Bunks and lockers are in each corner of the room, disturbed,
 but not destroyed.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A door lies to the north.
 ~
@@ -4661,7 +4662,7 @@ This room has been almost destroyed.  Nothing remains that has not been
 broken apart or totally destroyed.  The Trollocs seem to have been searching
 this room, although for what, or if they found it is a mystery...
 ~
-0 AD inside
+0 ADgj inside
 D0
 A small door lies to the north.
 ~
@@ -4675,7 +4676,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4694,7 +4695,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  And, the hallway continues to the
 east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -4715,7 +4716,7 @@ the north is a wide archway leading into darkness, to the south a large gilded
 door stands seemingly untouched by the towers fall, the hallway continues to
 the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 An archway leads into another part of the tower.
 ~
@@ -4730,7 +4731,7 @@ D2
 A large gilded door lies to the south.
 ~
 ~
-ABCFZ 23013 24047
+ABCFZghil 23013 24047
 D3
 The hallway continues to the west.
 ~
@@ -4744,7 +4745,7 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading up yo the roof of the tower.  While the hallway continues
 back to the west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A set of stairs lies to the south.
 ~
@@ -4763,7 +4764,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up onto
 the battlements of the tower.  The walls are still streaked with blood, and the
 occasional Trolloc symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4784,7 +4785,7 @@ fanciful creatures and places once lined it's walls, now it walls are lined
 with dried blood and grey rags.  Once, this tower was one of the Seven Towers
 of Malkeri, now a ruin in the Blight.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
@@ -4800,12 +4801,12 @@ with life and anger at someone daring to enter this room.  The air becomes
 clearer, as does a shape forming beside the bed.  Malkerians were ever a
 stubborn lot.
 ~
-0 D inside
+0 Dj inside
 D0
 A large golden door is set in the northern wall.
 ~
 ~
-ABCFZ 23013 24043
+ABCFZghil 23013 24043
 S
 #24048
 The Battlements~
@@ -4815,7 +4816,7 @@ the desolation of the Blight, the Land of the Shadow.  The battlements
 themselves are blackened as if by huge gouts of fire, your heart sinks with
 desperation and a sense of loss for the broken kingdom, and it's brave people.
 ~
-0 C city
+0 Ci city
 D5
 A set of stairs leads down into the tower.
 ~
@@ -4829,7 +4830,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4849,12 +4850,12 @@ to the south leading up into the tower.  To the north you see a door adorned
 with two crossed swords, now covered in blood.  The hallway continues to the
 west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A set of doors adorned with crossed swords lies to the north.
 ~
 ~
-ABZ -1 24055
+ABZgh -1 24055
 D2
 A Stairwell is south from here.
 ~
@@ -4874,7 +4875,7 @@ here trying to defend Malkeri, and many more died taking the tower.  To the
 south you see a sturdy set of doors leading off to another section of the
 tower,  while the hallway continues to the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 The hallway continues to the east.
 ~
@@ -4884,7 +4885,7 @@ D2
 A stout door is set in the southern wall.
 ~
 ~
-ABZ -1 24056
+ABZgh -1 24056
 D3
 The hallway continues to the west.
 ~
@@ -4898,12 +4899,12 @@ black streaks of dried blood line the walls.  A set of stairs can be seen off
 to the south leading down into the tower.  A small door is set in the northern
 wall, and, the hallway continues to the east.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A small door lies to the north.
 ~
 ~
-ABZ -1 24054
+ABZgh -1 24054
 D1
 The hallway continues to the east.
 ~
@@ -4922,7 +4923,7 @@ through the oppressive darkness of the tower.  Here a stairway leads down into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -4942,12 +4943,12 @@ the lakes themselves.  A door leads back into the hallway to  the south, while
 to the west you see a small duct, possibly leading back outside to one of the
 lakes.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
 ~
-ABZ -1 24052
+ABZgh -1 24052
 D3
 A duct leads to on of the Hundred Lakes.
 ~
@@ -4962,12 +4963,12 @@ remains.  Through the blood and wreckage of this room, a slogan is painted all
 across the northern wall, 'May peace favor your sword.'  A dream for these long
 dead warriors.  One that never came to be...
 ~
-0 AD inside
+0 ADgj inside
 D2
 A hallway lies to the south.
 ~
 ~
-ABZ -1 24050
+ABZgh -1 24050
 S
 #24056
 The Armoury~
@@ -4977,12 +4978,12 @@ Trolloc hordes that fell this mighty tower were very thorough in thier
 destruction.  All that is left is twisted metal and splintered wood among the
 rotting leather.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
 ~
-ABZ -1 24051
+ABZgh -1 24051
 S
 #24057
 A Stairwell~
@@ -4991,7 +4992,7 @@ through the oppressive darkness of the tower.  Here a stairway leads up into
 the tower.  The walls are still streaked with blood, and the occasional Trolloc
 symbols written in the blood of the dead.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A hallway lies to the north.
 ~
@@ -5011,12 +5012,12 @@ dried blood is the only decorations to be seen on it's walls.  A stout door
 isset into northern wall. To the south lies a set of stairs, while the hallway
 continues to the east.
 ~
-0 AD inside
+0 ADgj inside
 D0
 A stout door is set in the northern wall.
 ~
 ~
-ABCZ 23006 24060
+ABCZghi 23006 24060
 D1
 The hallway continues to the west.
 ~
@@ -5035,12 +5036,12 @@ adorn the walls.  This was no a place of honor or celebration in the tower, and
 dried blood is the only decorations to be seen on it's walls.  A barred door is
 set in the southern wall, the hallway continues to the west.
 ~
-0 AD inside
+0 ADgj inside
 D2
 A stout door is set in the southern wall.
 ~
 ~
-ABCZ 23007 24062
+ABCZghi 23007 24062
 D3
 The hallway continues to the west.
 ~
@@ -5054,17 +5055,17 @@ longer prisonners to watch, or guards to watch them however, and this room
 holds nothing but wreckage and dust.  A small door is set in the eastern wall,
 while the hallway lies to the south.
 ~
-0 AD inside
+0 ADgj inside
 D1
 A door lies to the east.
 ~
 ~
-ABZ -1 24061
+ABZgh -1 24061
 D2
 A hallway lies to the south.
 ~
 ~
-ABCZ 23006 24058
+ABCZghi 23006 24058
 S
 #24061
 Interogation Room~
@@ -5073,12 +5074,12 @@ not see any implements of torture in this room, you feel certain the towers
 guards had many questions answered here.  A small door leads into the guard
 room to the west.
 ~
-0 AD inside
+0 ADgj inside
 D3
 A door lies to the west.
 ~
 ~
-ABZ -1 24060
+ABZgh -1 24060
 S
 #24062
 The Cells~
@@ -5089,12 +5090,12 @@ cells hold skeletons hanging from rotting ropes appearantly made from rotting
 bedding.  Surely the Shadowspawn that took the tower would have freed thier
 fellows.  Wouldn't they?
 ~
-0 AD inside
+0 ADgj inside
 D0
 A stout door is set in the northern wall.
 ~
 ~
-ABCZ 23007 24059
+ABCZghi 23007 24059
 S
 #24063
 Into the Past~
@@ -5103,7 +5104,7 @@ the air is shimmering, and you feel disoriented.  You are not in a room, it's
 more like you are floating, existing, nothing more.  You feel your self
 slipping away, and know you must move from this area soon, or be lost forever.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 You cannot pierce the shimmering air.
 ~
@@ -5145,7 +5146,7 @@ grinning with canine maws.  They are too tall to be humans, and too thin.  You
 are glad that whatever force keeps you from moving on stops them from getting
 to you also.
 ~
-0 ADN inside
+0 ADNgjt inside
 D2
 The air is still shimmering to the south.
 ~
@@ -5162,7 +5163,7 @@ you.  They seem to have no bones as they sway like willows in the wind.  They
 seem to be in rapture at your presence, smiling absently.  You are glad that
 whatever force keeps you from moving on stops them from getting to you also.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The air is still shimmering to the north.
 ~
@@ -5179,7 +5180,7 @@ before, but you sense he is a man great power.  The kind who contols other men
 and women fates with uncommon ease, sitting before a glowing screen, working
 some strange plate before him.
 ~
-0 ADN inside
+0 ADNgjt inside
 D1
 The air is still shimmering to the east.
 ~
@@ -5197,7 +5198,7 @@ talking back in the town you come from, people living and dying, being reborn,
 and dying again.  And the men in the room don't even notice!  You feel a great
 need to leave this place.
 ~
-0 ADN inside
+0 ADNgjt inside
 D3
 The air still shimmers to the west.
 ~
@@ -5211,7 +5212,7 @@ strange clothes move about.  Some of them look at you for a moment and move on,
 others do not even notice you and move by the glass surrounding you without a
 care.  Other beings are in the glass yard with you...
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The Northern Yard
 ~
@@ -5246,7 +5247,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The center of the yard is to the north.
 ~
@@ -5270,7 +5271,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The eastern wall of the yard is to the north.
 ~
@@ -5290,7 +5291,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The northeast corner of the yard is to the north.
 ~
@@ -5314,7 +5315,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D2
 The east wall of the yard is to the south.
 ~
@@ -5334,7 +5335,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D1
 The northeast corner of the yard is to the east.
 ~
@@ -5358,7 +5359,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D1
 The north wall of the yard is to the east.
 ~
@@ -5378,7 +5379,7 @@ than steel.  The people outside sometimes look at you with a sense of wonder,
 sometimes disgust, and sometines not at all.  The other beings in the yard look
 as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The northwest corner of the yard is to the north.
 ~
@@ -5402,7 +5403,7 @@ surrounding the yard looks like glass, but when you test it's strength you find
 it to be harder than steel.  People milling around outside sometimes notice
 you, sometimes not.  The other beings in the yard look as confused as you feel.
 ~
-0 ADN inside
+0 ADNgjt inside
 D0
 The west wall of the yard is to the north.
 ~
@@ -5736,7 +5737,7 @@ D0
 You just see mountains.
 ~
 circle~
-ABCFZ 23025 23115
+ABCFZghil 23025 23115
 D1
 The Blight continues on to the east.
 ~

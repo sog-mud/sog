@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name The Unholy Abbey~
 VNUMs 30800 30899
 Credits Yaegar~
@@ -17,10 +18,10 @@ intruders in their sanctum! And you can rest assured they will do their
 utmost to eject you!
 ~
 human~
-AFG DFJN -400 0
+FGlm 0 Nt 0 ABHghn -400 0
 60 0 50d10+6750 5d5+5000 8d6+28 'pound'
 -30 -30 -30 -3
-EFHIJKNQ 0 0 0
+EFHIJKNQklnopqtw
 stand stand male 0
 0 0 medium unknown
 r lightning -50
@@ -35,10 +36,10 @@ This statue isn't very well-fashioned, and isn't very attractive. You wonder
 why even the unholy monks would use such art in their abbey. Shrug.
 ~
 golem~
-ABG DFJN 0 0
+BGhm 0 Nt 0 ABHghn 0 0
 64 0 50d10+8000 5d5+5000 8d7+34 'none'
 -34 -34 -34 -4
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #30802
@@ -51,10 +52,10 @@ and answer only to the abbot himself. They are if anything more diabolical
 than their demented pupils, and twice as deadly.
 ~
 human~
-AFG DFJu -800 0
+FGlm 0 0 0 ABHghn -800 0
 63 0 50d10+7500 5d5+5000 7d8+33 'pound'
 -33 -33 -33 -4
-EFHIJKNQ 0 0 0
+EFHIJKNQklnopqtw
 stand stand male 0
 0 0 medium unknown
 r lightning -50
@@ -70,10 +71,10 @@ with which they one day intend to conquer the kingdom of Malathar. They are
 horrid, twisted, decrepit old men, who have incredible magical powers.
 ~
 human~
-ABGH DFJ -800 0
+BGHhmn 0 0 0 ABHghn -800 0
 62 0 50d10+7250 5d5+5000 6d9+32 'punch'
 -32 -32 -32 -4
-FIJQ 0 0 0
+FIJQlopw
 stand stand male 0
 0 0 medium unknown
 #30804
@@ -86,10 +87,10 @@ an iron fist and a lust for conquest and death bordering on the maniacal.
 He may be a shrivelled old man, but he is still immensely powerful.
 ~
 human~
-ABFG CDEFJNu -1000 0
+BFGhlm 0 Nt 0 ABHKLghnqr -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-EFHIJKNQ 0 0 0
+EFHIJKNQklnopqtw
 stand stand male 0
 0 0 medium unknown
 r lightning -50
@@ -105,10 +106,10 @@ Malathar slain by the monks and transformed them into horrid wights, and
 additionally infusing them with a manic desire to slay everyone they behold.
 ~
 human~
-ABFG J 0 0
+BFGhlm 0 0 0 Hn 0 0
 63 0 50d10+7500 5d5+5000 7d8+33 'none'
 -33 -33 -33 -4
-FIJQ 0 0 0
+FIJQlopw
 stand stand none 0
 0 0 small unknown
 #30806
@@ -121,10 +122,10 @@ their favorite is the bone devil, who only demands seven virgins rather than
 the many scores other devils demand.
 ~
 human~
-ABG DFJN -1000 0
+BGhm 0 Nt 0 ABHghn -1000 0
 66 0 50d10+8500 5d5+5000 7d9+36 'none'
 -36 -36 -36 -5
-EFHIJKNQ 0 0 0
+EFHIJKNQklnopqtw
 stand stand none 0
 0 0 large unknown
 #30807
@@ -137,10 +138,10 @@ the Hells. This one has gone quite insane from the pain and shock of capture
 and subsequent subjection to the cruel rituals of the monks.
 ~
 elf~
-ABG 0 0 0
+BGhm 0 0 0 0 0 0
 1 0 2d6+10 5d5+100 1d4+0 'punch'
 9 9 9 10
-F 0 0 0
+Fl
 stand stand female 0
 0 0 medium unknown
 #30808
@@ -153,10 +154,10 @@ dwarves from the north and use them in this capacity, to expand and strengthen
 their abbey.
 ~
 dwarf~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 60 0 50d10+6750 5d5+5000 8d6+28 'punch'
 -30 -30 -30 -3
-CDEFIJKS 0 0 0
+CDEFIJKSijklopqy
 stand stand male 0
 0 0 small unknown
 #30809
@@ -168,10 +169,10 @@ This overconfident brute is one of many employed by the monks to keep their
 slaves in line. He rashly expects you to just lie down and die for him. Hmmm.
 ~
 human~
-ABG J -500 0
+BGhm 0 0 0 Hn -500 0
 61 0 50d10+7000 5d5+5000 6d9+31 'punch'
 -31 -31 -31 -4
-CDEFIJ 0 0 0
+CDEFIJijklop
 stand stand male 0
 0 0 large unknown
 #30810
@@ -184,10 +185,10 @@ and imprisoned here. The new clan has not dared to disturb him, for they
 know of his power.
 ~
 human~
-ABG CDEFHJN 1000 0
+BGhm 0 HNnt 0 ABHKLghnqr 1000 0
 75 0 50d10+11000 5d5+5000 9d11+45 'pound'
 -45 -45 -45 -9
-EFIJKS 0 0 0
+EFIJKSklopqy
 stand stand male 0
 0 0 medium unknown
 r holy 100
@@ -199,10 +200,10 @@ a black dragon~
 They aren't called the dragon clan for nothing, pal.
 ~
 black dragon~
-ABG CDEFNu -1000 0
+BGhm 0 Nt 0 ABKLghqr -1000 0
 70 0 50d10+9750 5d5+5000 8d10+40 'claw'
 -40 -40 -40 -6
-CDEFQ 0 0 0
+CDEFQijklw
 stand stand male 0
 0 0 giant unknown
 #30812
@@ -216,10 +217,10 @@ missions. He has been waiting several centuries, and will be waiting for
 much longer before Grimafax returns.
 ~
 elf~
-ABG H 1000 0
+BGhm 0 Hn 0 0 1000 0
 62 0 50d10+7250 5d5+5000 6d9+32 'punch'
 -32 -32 -32 -4
-EFIJKS 0 0 0
+EFIJKSklopqy
 stand stand male 0
 0 0 small unknown
 #30813
@@ -232,10 +233,10 @@ from the cavern entrance. It will not attack, but it will move to defend
 itself.
 ~
 golem~
-ABG N 0 0
+BGhm 0 Nt 0 0 0 0
 62 0 50d10+7250 5d5+5000 6d9+32 'none'
 -32 -32 -32 -4
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #30814
@@ -248,10 +249,10 @@ it could be a perfectly normal wyvern that just happens to be wearing a
 massive green amulet with "dragon clan" written on it...
 ~
 unique~
-ABG T -234 0
+BGhm 0 Tz 0 0 -234 0
 61 0 50d10+7000 5d5+5000 6d9+31 'none'
 -31 -31 -31 -4
-FHQ 0 0 0
+FHQlnw
 stand stand male 0
 0 0 small unknown
 #30815
@@ -264,10 +265,10 @@ have managed to tame these beasts, much to the displeasure of civilized
 folk everywhere.
 ~
 unique~
-ABFG JP 0 0
+BFGhlm 0 0 Gm Hn 0 0
 62 0 50d10+7250 5d5+5000 6d9+32 'charge'
 -32 -32 -32 -4
-FIJQ 0 0 0
+FIJQlopw
 stand stand none 0
 0 0 medium unknown
 #0
@@ -278,7 +279,7 @@ monk habit~
 a monk's habit~
 A long brown monk's robe stained with blood lies crumpled on the floor.~
 unknown~
-armor 0 AK
+armor 0 0 AKgq
 20 20 20 10 0
 60 5 200 P
 g none~
@@ -287,7 +288,7 @@ master robe habit~
 a master's habit~
 A black monk's robe trimmed with silver lies here.~
 unknown~
-armor 0 AK
+armor 0 0 AKgq
 21 21 21 11 0
 61 5 36600 P
 A
@@ -298,7 +299,7 @@ necromancer robes~
 necromancer's robes~
 Some purple robes lie here.~
 unknown~
-armor 0 AK
+armor 0 0 AKgq
 21 20 22 10 0
 62 5 40000 P
 A
@@ -311,7 +312,7 @@ dagger~
 a mithril dagger~
 A dagger made from mithril lies here. It looks evil.~
 mithril~
-weapon BEJ AN
+weapon BEJhkp 0 ANgt
 dagger 6 10 'pierce' 0
 62 8 33000 P
 A
@@ -324,7 +325,7 @@ altar~
 a bloodstained altar~
 A large marble bloodstained altar rests in the center of the chapel.~
 unknown~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -333,7 +334,7 @@ abbot ring~
 the abbot's ring~
 A black ring that glows with an unholy light lies here.~
 unknown~
-armor AEJ AB
+armor AEJgkp 0 ABgh
 0 0 0 0 0
 65 1 30000 P
 A
@@ -348,7 +349,7 @@ abbot robes~
 the abbot's robes~
 Some crimson robes lie here.~
 unknown~
-armor AEJ AK
+armor AEJgkp 0 AKgq
 21 22 22 15 0
 65 5 20000 P
 A
@@ -361,7 +362,7 @@ bracers might~
 bracers of might~
 A pair of sturdy metal bracers lie here, unclaimed.~
 unknown~
-armor AG AI
+armor AGgm 0 AIgo
 22 22 22 18 0
 65 10 20000 P
 A
@@ -376,7 +377,7 @@ sword elven~
 an elven longsword~
 An ornately-fashioned sword lies here.~
 unknown~
-weapon AG AN
+weapon AGgm 0 ANgt
 sword 7 9 'pierce' 0
 63 50 15000 P
 A
@@ -389,7 +390,7 @@ suit elven chainmail~
 a suit of elven chainmail~
 A suit of well-crafted chain lies here.~
 unknown~
-armor AG AD
+armor AGgm 0 ADgj
 21 21 22 20 0
 63 5 25000 P
 A
@@ -400,7 +401,7 @@ shield~
 a rune-covered shield~
 A shield covered with mithril runes is propped up against a wall here.~
 unknown~
-armor AG AJ
+armor AGgm 0 AJgp
 20 20 20 20 0
 63 8 15000 P
 A
@@ -413,7 +414,7 @@ tattered cloak~
 a tattered cloak~
 A tattered old cloak lies here.~
 unknown~
-armor 0 AC
+armor 0 0 ACgi
 20 20 20 20 0
 63 1 1000 P
 g none~
@@ -422,7 +423,7 @@ scythe~
 a scythe~
 A scythe lies here, glowing.~
 unknown~
-weapon ABEGJ AN
+weapon ABEGJghkmp 0 ANgt
 polearm 7 8 'stab' 0
 66 20 2000 P
 A
@@ -435,7 +436,7 @@ manacles~
 a pair of manacles~
 A pair of iron manacles lies here.~
 unknown~
-armor M AI
+armor Ms 0 AIgo
 0 0 0 0 0
 55 15 0 P
 A
@@ -446,7 +447,7 @@ pick~
 a mining pick~
 A pick is lying here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 6 9 'pierce' 0
 60 5 0 P
 g none~
@@ -455,7 +456,7 @@ whip~
 a whip~
 A whip is curled up on the floor here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 whip 7 9 'whip' 0
 61 10 7000 P
 g none~
@@ -464,7 +465,7 @@ iron key~
 an iron key~
 An iron key is lying here.~
 iron~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -473,7 +474,7 @@ silver key~
 a silver key~
 A sliver key is lying here.~
 silver~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -482,7 +483,7 @@ gold key~
 a gold key~
 A gold key is lying here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -491,7 +492,7 @@ chest key~
 a chest key~
 A chest key is lying here.~
 unknown~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -500,7 +501,7 @@ chest~
 an iron chest~
 An iron chest sits here.~
 iron~
-container 0 0
+container 0 0 0
 1500 0 30819 50 100
 0 0 0 P
 g none~
@@ -509,7 +510,7 @@ suit unholy armor~
 a suit of unholy armor~
 A suit of unholy armor lies here.~
 unknown~
-armor ABEGJM AD
+armor ABEGJMghkmps 0 ADgj
 21 21 21 10 0
 63 25 20000 P
 A
@@ -536,7 +537,7 @@ sack~
 a sack~
 A sack lies here.~
 unknown~
-container 0 AO
+container 0 0 AOgu
 25 0 0 5 100
 60 1 0 P
 g none~
@@ -545,7 +546,7 @@ gold~
 some gold~
 Some gold has been scattered here. Quite a lot actually.~
 unknown~
-money 0 A
+money 0 0 Ag
 25000 0 0 0 0
 0 10 25000 P
 g none~
@@ -554,7 +555,7 @@ bellows~
 a bellows~
 A bellows sits here.~
 unknown~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 4 0 P
 g none~
@@ -563,7 +564,7 @@ green amulet~
 a bright green amulet~
 A bright green amulet is lying here.~
 unknown~
-key 0 AC
+key 0 0 ACgi
 0 0 0 0 0
 58 1 0 P
 E
@@ -576,8 +577,8 @@ portal~
 a glowing green portal~
 A green portal floats here.~
 unknown~
-portal A 0
-0 0 A 30827 0
+portal Ag 0 0
+0 0 Ag 30827 0
 0 0 0 P
 g none~
 #30827
@@ -585,8 +586,8 @@ portal~
 a glowing green portal~
 A green portal floats here.~
 unknown~
-portal A 0
-0 0 A 30825 0
+portal Ag 0 0
+0 0 Ag 30825 0
 0 0 0 P
 g none~
 #30828
@@ -594,8 +595,8 @@ portal~
 a glowing red portal~
 A red portal floats here.~
 unknown~
-portal A 0
-0 0 A 30839 0
+portal Ag 0 0
+0 0 Ag 30839 0
 0 0 0 P
 g none~
 #30829
@@ -603,7 +604,7 @@ sack~
 a sack~
 A sack lies on the floor here.~
 unknown~
-container 0 AO
+container 0 0 AOgu
 15 0 0 10 100
 1 1 0 P
 g none~
@@ -612,7 +613,7 @@ lantern~
 a lantern~
 A lantern in excellent condition sits here.~
 unknown~
-light 0 AO
+light 0 0 AOgu
 0 0 100 0 0
 1 1 0 P
 g none~
@@ -621,7 +622,7 @@ chest~
 a small chest~
 A small chest sits here.~
 unknown~
-container 0 A
+container 0 0 Ag
 50 0 0 20 100
 5 5 0 P
 g none~
@@ -630,7 +631,7 @@ wineskin~
 a wineskin~
 A wineskin hangs from a hook on one wall.~
 unknown~
-drink 0 AO
+drink 0 0 AOgu
 5 5 'red wine' 0 0
 0 2 0 P
 g none~
@@ -639,7 +640,7 @@ waterskin~
 a waterskin~
 A waterskin hangs from a hook on one wall.~
 unknown~
-drink 0 AO
+drink 0 0 AOgu
 5 5 'water' 0 0
 0 2 0 P
 g none~
@@ -648,8 +649,8 @@ iron rations~
 some iron rations~
 Some unopened iron rations sit here.~
 unknown~
-food 0 AO
-DE DE 0 0 0
+food 0 0 AOgu
+DEjk DEjk 0 0 0
 0 2 20 P
 g none~
 #30835
@@ -657,7 +658,7 @@ backpack~
 a backpack~
 A backpack sits here.~
 unknown~
-container 0 AD
+container 0 0 ADgj
 25 0 0 10 100
 0 3 0 P
 g none~
@@ -666,7 +667,7 @@ hand axe~
 a hand axe~
 A hand axe hangs by a thong from a hook on one wall.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 6 8 'chop' 0
 59 5 2500 P
 g none~
@@ -675,8 +676,8 @@ throwing axe~
 a throwing axe~
 A throwing axe hangs by a thong from a hook on one wall.~
 unknown~
-weapon 0 AN
-axe 8 9 'chop' K
+weapon 0 0 ANgt
+axe 8 9 'chop' Kq
 60 5 2500 P
 g none~
 #30838
@@ -684,7 +685,7 @@ bo stick~
 a bo stick~
 A bo stick rests against one wall here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 6 8 'pound' 0
 61 5 1500 P
 g none~
@@ -693,7 +694,7 @@ jo stick~
 a jo stick~
 A bo stick rests against one wall here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 6 8 'pound' 0
 61 5 1500 P
 g none~
@@ -702,7 +703,7 @@ quarterstaff~
 a quarterstaff~
 A quarterstaff is lying on the floor here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 staff 6 8 'crush' 0
 59 5 2500 P
 g none~
@@ -711,7 +712,7 @@ crossbow~
 a crossbow~
 A crossbow is resting against one wall here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 bow 6 8 'pierce' 0
 59 10 2350 P
 g none~
@@ -720,8 +721,8 @@ quiver~
 a quiver~
 A large quiver is hanging from a hook opposite the door.~
 unknown~
-portal 0 AD
-BEF 0 0 0 0
+portal 0 0 ADgj
+BEFhkl 0 0 0 0
 3 100 0 P
 g none~
 #30843
@@ -729,7 +730,7 @@ shield~
 a white shield~
 A white shield bearing a white hart on a green field lies here.~
 unknown~
-armor AGIK AJ
+armor AGIKgmoq 0 AJgp
 25 25 25 18 0
 75 7 25000 P
 A
@@ -748,7 +749,7 @@ surcoat~
 a white surcoat~
 A surcoat bearing the coat of arms of Malathar lies here.~
 unknown~
-armor AGIK AD
+armor AGIKgmoq 0 ADgj
 25 25 25 20 0
 75 5 15000 P
 A
@@ -763,7 +764,7 @@ throne~
 a throne~
 A throne sits here.~
 unknown~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 1000 0 P
 E
@@ -776,7 +777,7 @@ skeleton~
 a skeleton~
 A skeleton is seated upon the throne.~
 unknown~
-trash 0 0
+trash 0 0 0
 0 0 0 0 0
 0 25 0 P
 E
@@ -792,7 +793,7 @@ sarcophagus~
 a massive sarcophagus~
 A masive sarcophagus rests here.~
 unknown~
-container 0 0
+container 0 0 0
 15000 0 0 0 0
 0 15000 0 P
 g none~
@@ -801,7 +802,7 @@ red amulet~
 a glowing red amulet~
 A glowing red amulet lies here.~
 unknown~
-key 0 AC
+key 0 0 ACgi
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -810,8 +811,8 @@ portal~
 a glowing red portal~
 A red portal floats here.~
 unknown~
-portal A 0
-0 0 A 30827 0
+portal Ag 0 0
+0 0 Ag 30827 0
 0 0 0 P
 g none~
 #30850
@@ -819,7 +820,7 @@ desk~
 a small desk~
 A small desk sits in front of the shelves.~
 unknown~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 100 0 P
 g none~
@@ -828,7 +829,7 @@ letter~
 a partially-drafted letter~
 An unfinished letter lies on the desk.~
 unknown~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 0 1 0 P
 E
@@ -846,7 +847,7 @@ book~
 a book on ritual sacrifice~
 A particularly large book detailing ritual sacrifice sits here.~
 unknown~
-trash EHJM AO
+trash EHJMknps 0 AOgu
 0 0 0 0 0
 10 25 0 P
 A
@@ -861,8 +862,8 @@ portal~
 a glowing blue portal~
 A blue portal floats here.~
 unknown~
-portal A 0
-0 0 A 30883 0
+portal Ag 0 0
+0 0 Ag 30883 0
 0 0 0 P
 g none~
 #30854
@@ -870,8 +871,8 @@ portal~
 a glowing blue portal~
 A blue portal floats here.~
 unknown~
-portal A 0
-0 0 A 30839 0
+portal Ag 0 0
+0 0 Ag 30839 0
 0 0 0 P
 g none~
 #30855
@@ -879,8 +880,8 @@ portal~
 a glowing black portal~
 A black portal floats here.~
 unknown~
-portal A 0
-0 0 A 30819 0
+portal Ag 0 0
+0 0 Ag 30819 0
 0 0 0 P
 g none~
 #30856
@@ -888,7 +889,7 @@ bath~
 a bath~
 A bath is slowly filling with natural spring water here.~
 unknown~
-fountain 0 0
+fountain 0 0 0
 10 10 'water' 0 0
 0 30800 0 P
 g none~
@@ -897,7 +898,7 @@ blue amulet~
 a blue amulet~
 A blue amulet glows with an unearthly light here.~
 unknown~
-key 0 AC
+key 0 0 ACgi
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -927,7 +928,7 @@ You continue up the path, only vaguely noticing the bleak terrain around
 you as the climb is quite exerting. Birds circle far overhead, taking only
 a casual interest in you. The path bends sharply to the east at this point.
 ~
-0 C hills
+0 Ci hills
 D1
 ~
 ~
@@ -1339,7 +1340,7 @@ The "eyes" turn out to be red lamps hung from long chains attached to a
 wooden crossbeam set in the ceiling of this cavern. The roaring can still
 be heard, louder than ever. It appears to be emanating from the north.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1358,7 +1359,7 @@ fooled, were you?
 
 A greenish glow is coming from the north.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1374,7 +1375,7 @@ You enter a large square room, 40'x40', with a glowing green portal in the
 ceiling. However, a large grate is blocking entry to it. There is a bright
 green padlock depending from the grate. Do you have a key?
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -1382,17 +1383,17 @@ Z -1 30824
 D4
 ~
 grate~
-ABCFZ 30825 30826
+ABCFZghil 30825 30826
 S
 #30826
 The Portal~
 The portal is flowing right in front of you. You may enter it if you wish.
 ~
-0 D inside
+0 Dj inside
 D5
 ~
 grate~
-ABCFZ 30825 30825
+ABCFZghil 30825 30825
 S
 #30827
 Level One~
@@ -1400,7 +1401,7 @@ You emerge from the portal into a square room identical to the one you just
 left. Two portals lie here, one green, and one red. A passage runs away to
 the east. A grate with a red lock blocks access upward to the red portal.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1408,7 +1409,7 @@ Z -1 30828
 D4
 ~
 ~
-ABCZ 30848 30838
+ABCZghi 30848 30838
 S
 #30828
 The Passage~
@@ -1416,11 +1417,11 @@ This passage has been recently swept clean, and shows no trace of passage.
 Doors line it to either side, as well as at the eastern end. There is a
 glowing portal to the west.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30829
+ABZgh 0 30829
 D1
 ~
 ~
@@ -1428,7 +1429,7 @@ Z -1 30831
 D2
 ~
 ~
-ABZ 0 30830
+ABZgh 0 30830
 D3
 ~
 ~
@@ -1441,11 +1442,11 @@ lanterns, tinderboxes, wineskins, waterskins, sacks, bags, chests and such.
 You can search through the items if you wish, or return to the passage
 outside.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
-ABZ 0 30828
+ABZgh 0 30828
 S
 #30830
 A Storage Room~
@@ -1454,11 +1455,11 @@ lanterns, tinderboxes, wineskins, waterskins, sacks, bags, chests and such.
 You can search through the items if you wish, or return to the passage
 outside.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30828
+ABZgh 0 30828
 S
 #30831
 The Passage~
@@ -1466,19 +1467,19 @@ This passage has been recently swept clean, and shows no trace of passage.
 Doors line it to either side, as well as at the eastern end. There is a
 glowing portal to the west.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30832
+ABZgh 0 30832
 D1
 ~
 ~
-ABZ -1 30834
+ABZgh -1 30834
 D2
 ~
 ~
-ABZ 0 30833
+ABZgh 0 30833
 D3
 ~
 ~
@@ -1490,11 +1491,11 @@ A small room lies beyond the door, filled with all sorts of weapons
 commonly used by monks, especially militant fanatic ones. They are in good
 condition, but appear to be perfectly ordinary.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
-ABZ -1 30831
+ABZgh -1 30831
 S
 #30833
 An Armory~
@@ -1502,11 +1503,11 @@ A small room lies beyond the door, filled with all sorts of weapons
 commonly used by monks, especially militant fanatic ones. They are in good
 condition, but appear to be perfectly ordinary.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ -1 30831
+ABZgh -1 30831
 S
 #30834
 A Strange Room~
@@ -1514,26 +1515,26 @@ You enter a small, dimly-lit room, containing naught but a throne, upon
 which is seated a skeleton. There appears to be nothing else of interest
 in the chamber.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
-ABZ 0 30831
+ABZgh 0 30831
 D5
 ~
 throne~
-ABZ 0 30835
+ABZgh 0 30835
 S
 #30835
 A Tunnel~
 You enter a tunnel which is lined with foot- and hand-holds on one wall,
 allowing you to descend. The air is damp and chill, and you shiver.
 ~
-0 ACD inside
+0 ACDgij inside
 D4
 ~
 ~
-ABZ 0 30834
+ABZgh 0 30834
 D5
 ~
 ~
@@ -1545,7 +1546,7 @@ You reach the bottom and shiver again as a blast of cold air hits you. There
 is nothing in this cramped space save a massive door to the east covered in
 mystic runes.
 ~
-0 AD inside
+0 ADgj inside
 E
 door runes~
 The runes read- "RELEASE NOT THE SPIRIT THAT SHALL SLAY US ALL"
@@ -1553,7 +1554,7 @@ The runes read- "RELEASE NOT THE SPIRIT THAT SHALL SLAY US ALL"
 D1
 ~
 ~
-ABZ -1 30837
+ABZgh -1 30837
 D4
 ~
 ~
@@ -1565,21 +1566,21 @@ The tomb is icy cold, almost dangerously so, and is dominated by a huge
 sarcophagus, inside which rests the corpse of an elven paladin. Maybe it
 wasn't such a good idea releasing him...
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 ~
-ABZ 0 30836
+ABZgh 0 30836
 S
 #30838
 The Portal~
 The red portal floats in front of you. Enter it to continue...
 ~
-0 D inside
+0 Dj inside
 D5
 ~
 ~
-ABZ 30848 30827
+ABZgh 30848 30827
 S
 #30839
 The Portal Chamber~
@@ -1587,87 +1588,87 @@ You emerge into yet another 40'x40' chamber, this one containing a red
 portal and a blue portal behind a grate with a blue lock. Doors lead out
 of this chamber in all directions.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30840
+ABZgh 0 30840
 D1
 ~
 ~
-ABZ 0 30841
+ABZgh 0 30841
 D2
 ~
 ~
-ABZ 0 30843
+ABZgh 0 30843
 D3
 ~
 ~
-ABZ 0 30842
+ABZgh 0 30842
 D4
 ~
 ~
-ABCZ 30857 30882
+ABCZghi 30857 30882
 S
 #30840
 A Long Dark Passage~
 This corridor is pitch-black- even with your light you can scarcely see a
 thing! You think you can feel a door to the north.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ 0 30844
+ABZgh 0 30844
 D2
 ~
 ~
-ABZ 0 30839
+ABZgh 0 30839
 S
 #30841
 A Long Dark Passage~
 This corridor is pitch-black- even with your light you can scarcely see a
 thing! You think you can feel a door to the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ 0 30847
+ABZgh 0 30847
 D3
 ~
 ~
-ABZ 0 30839
+ABZgh 0 30839
 S
 #30842
 A Long Dark Passage~
 This corridor is pitch-black- even with your light you can scarcely see a
 thing! You think you can feel a door to the west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ 0 30839
+ABZgh 0 30839
 D3
 ~
 ~
-ABZ 0 30845
+ABZgh 0 30845
 S
 #30843
 A Long Dark Passage~
 This corridor is pitch-black- even with your light you can scarcely see a
 thing! You think you can feel a door to the south.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ 0 30839
+ABZgh 0 30839
 D2
 ~
 ~
-ABZ 0 30846
+ABZgh 0 30846
 S
 #30844
 Barracks~
@@ -1675,19 +1676,19 @@ You emerge into a room that appears to be some sort of barracks. Normally
 several monks can be found here, practicing their katas and meidtating.
 Perhaps you'll be lucky and find none...
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
-ABZ 0 30848
+ABZgh 0 30848
 D2
 ~
 ~
-ABZ 0 30840
+ABZgh 0 30840
 D3
 ~
 ~
-ABZ 0 30852
+ABZgh 0 30852
 S
 #30845
 Barracks~
@@ -1695,19 +1696,19 @@ You emerge into a room that appears to be some sort of barracks. Normally
 several monks can be found here, practicing their katas and meidtating.
 Perhaps you'll be lucky and find none...
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30853
+ABZgh 0 30853
 D1
 ~
 ~
-ABZ 0 30842
+ABZgh 0 30842
 D2
 ~
 ~
-ABZ 0 30854
+ABZgh 0 30854
 S
 #30846
 A Chamber~
@@ -1717,19 +1718,19 @@ relax every now and again. However, in true monk style, the room is devoid
 of funriture- only a few straw mats and some simple tapestries provide any
 comfort.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ -1 30843
+ABZgh -1 30843
 D1
 ~
 ~
-ABZ 0 30856
+ABZgh 0 30856
 D3
 ~
 ~
-ABZ 0 30855
+ABZgh 0 30855
 S
 #30847
 A Study~
@@ -1737,26 +1738,26 @@ This is apparently the study of one of the master monks. Bookcases full of
 texts detailing ritual sacrifice and such line the walls, and a small desk
 sits in front of them, though it doesn't look as if it gets much use.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30857
+ABZgh 0 30857
 D2
 ~
 ~
-ABZ 0 30858
+ABZgh 0 30858
 D3
 ~
 ~
-ABZ 0 30841
+ABZgh 0 30841
 S
 #30848
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -1764,7 +1765,7 @@ Z -1 30849
 D3
 ~
 ~
-ABZ 0 30844
+ABZgh 0 30844
 S
 #30849
 A Long Black Corridor~
@@ -1772,7 +1773,7 @@ This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. Belatedly, you notice the floor doesn't feel quite
 right here...
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -1791,11 +1792,11 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. You feel a door to the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ -1 30859
+ABZgh -1 30859
 D3
 ~
 ~
@@ -1807,7 +1808,7 @@ You stumble into a pit. The fall isn't great, and you quickly leap back up,
 wondering why the monks would make such a harmless trap. Then you notice
 the stench and hear the growling...
 ~
-0 ADN inside
+0 ADNgjt inside
 D4
 ~
 ~
@@ -1818,11 +1819,11 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door lies to the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ -1 30844
+ABZgh -1 30844
 D3
 ~
 ~
@@ -1833,7 +1834,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the south.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -1841,18 +1842,18 @@ Z -1 30864
 D2
 ~
 ~
-ABZ 0 30845
+ABZgh 0 30845
 S
 #30854
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the north.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ -1 30845
+ABZgh -1 30845
 D2
 ~
 ~
@@ -1863,11 +1864,11 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ -1 30846
+ABZgh -1 30846
 D3
 ~
 ~
@@ -1878,7 +1879,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -1886,14 +1887,14 @@ Z -1 30871
 D3
 ~
 ~
-ABZ 0 30846
+ABZgh 0 30846
 S
 #30857
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the south.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -1901,18 +1902,18 @@ Z -1 30873
 D2
 ~
 ~
-ABZ 0 30847
+ABZgh 0 30847
 S
 #30858
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the north.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ -1 30847
+ABZgh -1 30847
 D2
 ~
 ~
@@ -1924,22 +1925,22 @@ This is apparently the study of one of the master monks. Bookcases full of
 texts detailing ritual sacrifice and such line the walls, and a small desk
 sits in front of them, though it doesn't look as if it gets much use.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
-ABZ 0 30874
+ABZgh 0 30874
 D3
 ~
 ~
-ABZ 0 30850
+ABZgh 0 30850
 S
 #30860
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -1954,7 +1955,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be felt to the west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -1962,7 +1963,7 @@ Z -1 30860
 D3
 ~
 ~
-ABZ 0 30862
+ABZgh 0 30862
 S
 #30862
 A Study~
@@ -1970,26 +1971,26 @@ This is apparently the study of one of the master monks. Bookcases full of
 texts detailing ritual sacrifice and such line the walls, and a small desk
 sits in front of them, though it doesn't look as if it gets much use.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
-ABZ 0 30861
+ABZgh 0 30861
 D2
 ~
 ~
-ABZ 0 30863
+ABZgh 0 30863
 S
 #30863
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. There is a door to the north.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ -1 30862
+ABZgh -1 30862
 D2
 ~
 ~
@@ -2001,7 +2002,7 @@ This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. You take another step, and realize there is a pit
 beneath your feet...
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2022,7 +2023,7 @@ next. Then you start to feel a mild stinging sensation, followed by a clinking
 sound as your coins start to fall from your money pouch, which is being
 eaten away by acid!
 ~
-0 ADN inside
+0 ADNgjt inside
 D4
 ~
 ~
@@ -2033,7 +2034,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2048,7 +2049,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door lies to the south.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2056,14 +2057,14 @@ Z -1 30866
 D2
 ~
 ~
-ABZ 0 30870
+ABZgh 0 30870
 S
 #30868
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -2078,7 +2079,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door lies to the west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -2086,7 +2087,7 @@ Z -1 30868
 D3
 ~
 ~
-ABZ 0 30870
+ABZgh 0 30870
 S
 #30870
 A Study~
@@ -2094,22 +2095,22 @@ This is apparently the study of one of the master monks. Bookcases full of
 texts detailing ritual sacrifice and such line the walls, and a small desk
 sits in front of them, though it doesn't look as if it gets much use.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30867
+ABZgh 0 30867
 D1
 ~
 ~
-ABZ 0 30869
+ABZgh 0 30869
 S
 #30871
 A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. 
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -2124,11 +2125,11 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door lies to the east.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ -1 30878
+ABZgh -1 30878
 D3
 ~
 ~
@@ -2139,7 +2140,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. 
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2154,11 +2155,11 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. A door can be vaguely made out to the north. 
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ -1 30859
+ABZgh -1 30859
 D2
 ~
 ~
@@ -2169,7 +2170,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. Suddenly your feet cease to find floor beneath them...
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2189,7 +2190,7 @@ You fall into what appears to be a giant BBQ. You cringe and leap in the
 air as your feet encounter burning piles of coal and other materials. It is
 HOT in here!
 ~
-0 AD inside
+0 ADgj inside
 D4
 ~
 ~
@@ -2200,7 +2201,7 @@ A Long Black Corridor~
 This corridor is dark, almost supernaturally so, and you make your way along
 slowly and carefully. You see a door to the south.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2208,7 +2209,7 @@ Z -1 30875
 D2
 ~
 ~
-ABZ 0 30878
+ABZgh 0 30878
 S
 #30878
 The Necromancers' Labs~
@@ -2217,19 +2218,19 @@ Feeble illumination comes from a weak light spell cast on some rods of
 mithril; besides that the room is almost completely dark. Doors lead east,
 west and north.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 30877
+ABZgh 0 30877
 D1
 ~
 ~
-ABZ 0 30879
+ABZgh 0 30879
 D3
 ~
 ~
-ABZ 0 30872
+ABZgh 0 30872
 S
 #30879
 The Cells~
@@ -2237,52 +2238,52 @@ Here the Necromancers store the results of their twisted experiments on some
 captured elven knights. They howl and scream so much that even their
 creators are scared of them.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ 0 30880
+ABZgh 0 30880
 D2
 ~
 ~
-ABZ 0 30881
+ABZgh 0 30881
 D3
 ~
 ~
-ABZ 0 30878
+ABZgh 0 30878
 S
 #30880
 A Cell~
 This dismal chamber contains little but a few rags and scraps of flesh and
 bone. Whatever lives here certainly has bad domestic habits.
 ~
-0 AD inside
+0 ADgj inside
 D2
 ~
 ~
-ABZ 0 30879
+ABZgh 0 30879
 S
 #30881
 A Cell~
 This dismal chamber contains little but a few rags and scraps of flesh and
 bone. Whatever lives here certainly has bad domestic habits.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
-ABZ 0 30879
+ABZgh 0 30879
 S
 #30882
 The Blue Portal~
 This portal leads to the highest tier of the abbey. Be careful- there's no
 turning back now!
 ~
-0 AD inside
+0 ADgj inside
 D5
 ~
 ~
-ABCZ 30848 30839
+ABCZghi 30848 30839
 S
 #30883
 The Final Portal Chamber~
@@ -2292,7 +2293,7 @@ here should you so desire. Hmmm...
 
 Arched hallways run east, south and north, while a door bars passage westward.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2308,7 +2309,7 @@ Z -1 30894
 D3
 ~
 ~
-ABZ 0 30899
+ABZgh 0 30899
 S
 #30884
 The Arched Corridor~
@@ -2316,7 +2317,7 @@ you slowly walk along the passage. An eerie feeling comes over you, and you
 shiver. Distant chanting can be heard, as well as the occasional tolling
 of a large bell. You hear more chanting, then a terrible scream. Oh dear...
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2332,7 +2333,7 @@ You are standing in the west wing, among pews stained with blood and other
 fluids, most of them unidentifiable. A great cry goes up to the east. You
 peer in that direction and- OH MY GOD!
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -2345,7 +2346,7 @@ horrors from the deepest pits of hell. You see sick murals covering the
 walls, depicting the sacrifice of youths of all races to perverted, twisted
 demons and devils.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2368,7 +2369,7 @@ walls of this place, coalescing into a floating portal to some netherworld
 you know naught of. But you soon will, for it is there that you must next
 travel, to rid the world of this evil!
 ~
-0 AD inside
+0 ADgj inside
 D2
 ~
 ~
@@ -2380,11 +2381,11 @@ You have entered the quarters of the Abbot, master of the unholy abbey and
 the foe you have dreaded facing the most. You can stop here to prepare for
 the upcoming battle if you desire.
 ~
-0 ADK inside
+0 ADKgjq inside
 D1
 ~
 ~
-ABZ 0 30890
+ABZgh 0 30890
 D3
 ~
 ~
@@ -2397,7 +2398,7 @@ and fine furniture from all over the world. You didn't think the abbot would
 live so simply as his followers! You see a bathroom to the east, a study
 to the south and a massive bedchamber to the north.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2413,7 +2414,7 @@ Z -1 30892
 D3
 ~
 ~
-ABZ 0 30889
+ABZgh 0 30889
 S
 #30891
 A Bedchamber~
@@ -2421,7 +2422,7 @@ This room is dominated by a great pile of rugs and cushions in the center
 of the room, upon which the abbot reclines with whatever servant has taken
 his fancy. At present it appears to be deserted...
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -2434,7 +2435,7 @@ detailing the most despicable acts imaginable. A small desk, not dissimilar
 to those you saw the maste rmonks using below, stands in the center of the
 room, near a fireplace which burns magically without requiring fuel.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2446,7 +2447,7 @@ This chamber contains a large bath, which fills with natural spring water
 from some hidden source. It appears to be palatable, surprising in this
 foul place.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -2458,7 +2459,7 @@ This section of the abbey is being massively refurbished, for purposes
 unknown to you. Sounds of construction echo all around you, and you proceed
 with a fair deal of caution, not knowing of what mein the laborers may be.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -2474,7 +2475,7 @@ This section of the abbey is being massively refurbished, for purposes
 unknown to you. Sounds of construction echo all around you, and you proceed
 with a fair deal of caution, not knowing of what mein the laborers may be.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -2486,7 +2487,7 @@ This section of the abbey is being massively refurbished, for purposes
 unknown to you. Sounds of construction echo all around you, and you proceed
 with a fair deal of caution, not knowing of what mein the laborers may be.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2510,7 +2511,7 @@ This section of the abbey is being massively refurbished, for purposes
 unknown to you. Sounds of construction echo all around you, and you proceed
 with a fair deal of caution, not knowing of what mein the laborers may be.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -2522,7 +2523,7 @@ This section of the abbey is being massively refurbished, for purposes
 unknown to you. Sounds of construction echo all around you, and you proceed
 with a fair deal of caution, not knowing of what mein the laborers may be.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2534,7 +2535,7 @@ You open the door and step into an apparently empty chamber. Neither rug
 nor tapestry can be seen, nor chair nor table. There is no other exit besides
 the one you entered. Strange...
 ~
-0 ACD inside
+0 ACDgij inside
 D1
 ~
 ~

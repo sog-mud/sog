@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Westland~
 VNUMs 10000 10099
 Credits Xavier~
@@ -22,12 +23,12 @@ running in your direction. YOU'D BETTER ACT FAST!
 это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
-ABFTl Vb -1000 0
+BFThlz 0 Vb 0 0 -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'acbite'
 -30 -30 -30 0
-BCDEFIKMN 0 0 0
+BCDEFIKMNhijkloqst
 stand stand male 300
-c L huge unknown
+c Lr huge unknown
 r fire 0
 r cold 0
 r lightning 33
@@ -50,12 +51,12 @@ running in your direction. YOU'D BETTER ACT FAST!
 это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
-ABFTl Vb -1000 0
+BFThlz 0 Vb 0 0 -1000 0
 46 0 25d10+3250 10d10+3000 6d6+16 'acbite'
 -16 -16 -16 4
-BCDEFIKMN 0 0 0
+BCDEFIKMNhijkloqst
 stand stand male 300
-c L huge unknown
+c Lr huge unknown
 r fire 0
 r cold 0
 r lightning 33
@@ -78,12 +79,12 @@ running in your direction. YOU'D BETTER ACT FAST!
 это место, не привлекая к себе лишнего внимания.
 ~
 dragon~
-ABFTl Vb -947 0
+BFThlz 0 Vb 0 0 -947 0
 46 0 25d10+3250 10d10+3000 6d6+16 'acbite'
 -16 -16 -16 4
-BCDEFIKMN 0 0 0
+BCDEFIKMNhijkloqst
 stand stand male 300
-c L huge unknown
+c Lr huge unknown
 r fire 0
 r cold 0
 r lightning 33
@@ -102,10 +103,10 @@ penetrate your skin.
 @rus Бесформенный маленький жучок с острыми зубками, жаждущий твоей теплой крови.
 ~
 unique~
-ABT BGJTVb -200 0
+BThz 0 TVbz Ag HMns -200 0
 40 0 25d10+1850 10d10+3000 4d8+13 'shbite'
 -13 -13 -13 5
-BCEFKO 0 0 0
+BCEFKOhiklqu
 stand stand female 300
 0 0 tiny unknown
 r bash 100
@@ -126,10 +127,10 @@ KILL!
 в чьих пустых глазах светится лишь жажда убийства и крови.
 ~
 human~
-ABTl Vb -1000 0
+BThz 0 Vb 0 0 -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 'wrath'
 -25 -25 -25 0
-BCDEFGHIKNUV 0 0 0
+BCDEFGHIKNUVhijklmnoqt
 stand stand male 300
 0 0 large unknown
 r fire 100
@@ -149,10 +150,10 @@ KILL!
 в чьих пустых глазах светится лишь жажда убийства и крови.
 ~
 human~
-ABTl Vb -1000 0
+BThz 0 Vb 0 0 -1000 0
 56 0 50d10+6000 10d10+3000 10d4+24 'wrath'
 -25 -25 -25 0
-BCDEFGHIKNUV 0 0 0
+BCDEFGHIKNUVhijklmnoqt
 stand stand male 300
 0 0 large unknown
 r fire 100
@@ -170,10 +171,10 @@ lady девушка молодая young~
 выбирает цветы для букета, не обращая на тебя ни малейшего внимания.
 ~
 human~
-ABTl Nb 850 0
+BThz 0 Nbt 0 0 850 0
 46 0 25d10+3250 10d10+3000 6d6+16 'slap'
 -16 -16 -16 4
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand female 300
 0 0 medium unknown
 r cold 100
@@ -189,10 +190,10 @@ would like to catch some fish to take home.
 неспеша складывает улов в корзину, чтобы потом отнести его домой.
 ~
 human~
-ABTl Nb 1000 0
+BThz 0 Nbt 0 0 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 'slap'
 -20 -20 -20 0
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand male 300
 0 0 medium unknown
 r cold 100
@@ -210,10 +211,10 @@ him.
 хочется присоединиться к нему.
 ~
 human~
-ABTl Nb 1000 0
+BThz 0 Nbt 0 0 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 'punch'
 -20 -20 -20 0
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand male 300
 0 0 small unknown
 r cold 100
@@ -234,10 +235,10 @@ Others say they can hear your heart beating.
 ориентируясь на стук сердца жертвы.
 ~
 unique~
-AFGT UVZb -1000 0
+FGTlmz 0 UVb 0 0 -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 'acbite'
 -25 -25 -25 0
-BCDEFGHIKNO 0 0 0
+BCDEFGHIKNOhijklmnoqtu
 stand stand female 300
 0 0 huge unknown
 #10011
@@ -258,10 +259,10 @@ want to get on your way.
 о вреде, наносимом пожарами и о людях, ежегодно погибающих в них.
 ~
 human~
-AFGTl UVZb 1000 0
+FGTlmz 0 UVb 0 0 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'smash'
 -30 -30 -30 0
-BCDEFGHIKNO 0 0 0
+BCDEFGHIKNOhijklmnoqtu
 stand stand male 300
 0 0 medium unknown
 #10012
@@ -278,10 +279,10 @@ his mind!
 что тебя посетила мысль о том, уж не пьян ли он и все ли с ним в порядке.
 ~
 human~
-AFGTl UVZb 1000 0
+FGTlmz 0 UVb 0 0 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'smash'
 -30 -30 -30 0
-BCDEFGHIKN 0 0 0
+BCDEFGHIKNhijklmnoqt
 stand stand male 300
 0 0 medium unknown
 #10013
@@ -299,10 +300,10 @@ smile on her face.
 и ты начинаешь улыбаться вместе с ней.
 ~
 human~
-ABQl FH 1000 0
+BQhw 0 Hn 0 Bh 1000 0
 106 0 1d1+29000 1d1+11039 4d50+80 'slap'
 -99 -99 -99 -40
-KN 0 0 0
+KNqt
 stand stand female 0
 0 0 medium unknown
 r cold 100
@@ -326,10 +327,10 @@ is a good thing that he has a friendly character.
 обычный человек, добрый и дружелюбный.
 ~
 human~
-AGTl DFHJUVb 1000 0
+GTmz 0 HUVbn 0 ABHghn 1000 0
 70 0 50d10+9750 10d10+4000 8d10+40 'acbite'
 -40 -40 -40 -10
-BCDEFGHIJKN 0 0 0
+BCDEFGHIJKNhijklmnopqt
 stand stand male 300
 0 0 large unknown
 r bash 100
@@ -361,10 +362,10 @@ buildings.
 ограбить неосторожного путника.
 ~
 human~
-ACT CDGPQVd -902 0
+CTiz 0 Vd BGhm AKMgqs -902 0
 40 0 25d10+1850 10d10+3000 4d8+13 'blast'
 -13 -13 -13 5
-BCDEFGHIJKN 0 0 0
+BCDEFGHIJKNhijklmnopqt
 stand stand male 300
 0 0 small unknown
 #10016
@@ -382,10 +383,10 @@ place to live. OH WELL, life goes on.
 такого дойти? До чего же все-таки может человек докатиться.
 ~
 human~
-ABCHl DVb 100 0
+BCHhin 0 Vb 0 Ag 100 0
 46 0 25d10+3250 10d10+3000 6d6+10 'blast'
 -16 -16 -16 4
-BCDEFGHIJKN 0 0 0
+BCDEFGHIJKNhijklmnopqt
 stand stand male 300
 0 0 medium unknown
 r charm 100
@@ -406,10 +407,10 @@ her for it!
 и следить за передвежениями. На шее у нее необычное костяное ожерелье.
 ~
 human~
-ABR CDEFJTV 1000 0
+BRhx 0 TVz 0 ABHKLghnqr 1000 0
 109 0 1d1+29999 1d1+9382 5d50+90 'magic'
 -93 -93 -90 -43
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 11300
 0 0 medium unknown
 r bash 33
@@ -434,10 +435,10 @@ guy even though he is slower than a turtle.
 вцепиться тебе в ногу.
 ~
 human~
-ACGT JV -986 0
+CGTimz 0 V 0 Hn -986 0
 92 0 50d10+19500 10d10+5200 15d10+62 'blast'
 -62 -62 -62 -29
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand none 300
 0 0 medium unknown
 r bash 33
@@ -458,10 +459,10 @@ very dangerous so I would keep my distance if I were you.
 Лучше будет держаться подальше от этого опасного существа.
 ~
 human~
-ABCGT JV -1000 0
+BCGThimz 0 V 0 Hn -1000 0
 99 0 50d10+29000 10d10+3029 4d50+80 'wrath'
 -69 -69 -69 -30
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 300
 0 0 medium unknown
 r pierce 33
@@ -485,10 +486,10 @@ the underworld and will not stop at anything to let you pass.
 другой путь, раз нельзя пройти этой дорогой.
 ~
 human~
-ABCGT JVu -1000 0
+BCGThimz 0 V 0 Hn -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 'wrath'
 -77 -77 -70 -40
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 300
 0 0 medium unknown
 r cold 100
@@ -511,12 +512,12 @@ or will ever see.
 тобой живых существ.
 ~
 dragon~
-ABCGT Gu -1000 0
+BCGThimz 0 0 0 Ms -1000 0
 119 0 50d10+29000 10d10+10203 20d15+100 'wrath'
 -77 -77 -70 -40
-BCEFIKN 0 0 0
+BCEFIKNhikloqt
 stand stand female 300
-c L giant unknown
+c Lr giant unknown
 r cold 33
 r mental 100
 #10022
@@ -530,10 +531,10 @@ Rahl to stop you. Beware, his touch is poison.
 @rus Темная фигура с размытыми очертаниями, излучающая могильный холод.
 ~
 human~
-ACGT GJ -1000 0
+CGTimz 0 0 0 HMns -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-CDFIKN 0 0 0
+CDFIKNijloqt
 stand stand male 300
 0 0 medium unknown
 r cold 100
@@ -553,10 +554,10 @@ and looks to be quite poor, yet he runs this bar.
 тому что он перепутал левый и правый ботинки. 
 ~
 human~
-ABCGTe GJ 1000 0
+BCGTehimz 0 0 0 HMns 1000 0
 50 0 25d10+4250 10d10+3000 5d8+19 'wrath'
 -20 -20 -20 0
-BCDEFIN 0 0 0
+BCDEFINhijklot
 stand stand male 300
 0 0 medium unknown
 r cold 100
@@ -575,10 +576,10 @@ to vomit.
 взгляде на него.
 ~
 human~
-ABCGT GJ 102 0
+BCGThimz 0 0 0 HMns 102 0
 50 0 25d10+4250 10d10+3000 5d8+19 'wrath'
 -20 -20 -20 0
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 300
 0 0 medium unknown
 r cold 100
@@ -596,10 +597,10 @@ you.
 @rus Маленький человек, одетый во все черное. Он практически сливается с темнотой.
 ~
 human~
-ACGT GJ -1000 0
+CGTimz 0 0 0 HMns -1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 'bite'
 -30 -30 -30 0
-CDEFKN 0 0 0
+CDEFKNijklqt
 stand stand male 300
 0 0 medium unknown
 r bash 33
@@ -621,10 +622,10 @@ before he attacks you and your body is never be found again.
 чего не поправимого.
 ~
 unique~
-ABCGT GJ -1000 0
+BCGThimz 0 0 0 HMns -1000 0
 30 0 6d12+853 1d1+100 4d6+8 'bite'
 -9 -9 -9 2
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 300
 0 0 small unknown
 r cold 100
@@ -641,10 +642,10 @@ people dead as they walk by.
 Но ясно одно, его прикосновение будет для тебя смертельным.
 ~
 unique~
-ACGT GJ -1000 0
+CGTimz 0 0 0 HMns -1000 0
 69 0 50d10+9500 10d10+1000 7d11+39 'bite'
 -40 -40 -40 -10
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand none 300
 0 0 large unknown
 r cold 100
@@ -662,10 +663,10 @@ sorry for the little fellow but there isn't anything you can do.
 места где можно спокойно вздремнуть и привести себя в порядок. 
 ~
 unique~
-ACGT GJ 1000 0
+CGTimz 0 0 0 HMns 1000 0
 11 0 1d1+130 1d1+100 1d10+2 'bite'
 1 1 1 9
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 300
 0 0 small unknown
 r cold 100
@@ -685,10 +686,10 @@ very frightening. You better leave quick.
 совершенстве.
 ~
 human~
-ABCGT GJ -1000 0
+BCGThimz 0 0 0 HMns -1000 0
 120 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 300
 0 0 large unknown
 r cold 100
@@ -708,10 +709,10 @@ from this person also.
 то, чем кажется на первый взгляд.
 ~
 human~
-ABCGT GJ -1000 0
+BCGThimz 0 0 0 HMns -1000 0
 110 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-BCDEFIKN 0 0 0
+BCDEFIKNhijkloqt
 stand stand male 300
 0 0 medium unknown
 r cold 100
@@ -731,10 +732,10 @@ the world.
 ждал всю свою жизнь.
 ~
 human~
-ABCGT DGJu -1000 0
+BCGThimz 0 0 0 AHMgns -1000 0
 125 0 50d10+28000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-BCDEFIJKNO 0 0 0
+BCDEFIJKNOhijklopqtu
 stand stand male 300
 0 0 large unknown
 r acid -50
@@ -755,12 +756,12 @@ running in your direction. YOU'D BETTER ACT FAST!
 и кровожаднее своего длиннохвостого сородича.
 ~
 dragon~
-ABFTl Vbu -1000 0
+BFThlz 0 Vb 0 0 -1000 0
 70 0 50d10+5000 10d10+4000 8d6+28 'acbite'
 -30 -30 -30 0
-BCDEFIKMN 0 0 0
+BCDEFIKMNhijkloqst
 stand stand male 350
-c L giant unknown
+c Lr giant unknown
 r fire 0
 r cold 0
 r lightning 33
@@ -782,10 +783,10 @@ very frightening. You better leave quick.
 полагать, она недавно занималась со своим воспитанником.
 ~
 human~
-ABCGT GJV -1000 0
+BCGThimz 0 V 0 HMns -1000 0
 120 0 50d10+30000 10d10+10203 20d15+95 'wrath'
 -77 -77 -70 -40
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 300
 0 0 large unknown
 r cold 100
@@ -799,7 +800,7 @@ mace boundary дубинка warden~
 @eng a boundary warden's mace@rus ~~дубинка~~ стража границы~
 @eng A large powerful mace is resting against the wall here.@rus Большая, мрачного вида дубинка (mace) брошена кем-то.~
 unknown~
-weapon ABG AN
+weapon ABGghm 0 ANgt
 mace 12 7 'blast' 0
 70 15 1938 P
 A
@@ -823,7 +824,7 @@ necklace ожерелье bone~
 @eng the Bone Woman's necklace@rus ~~костяное~~ ~~ожерелье~~~
 @eng A Beautiful necklace lies here on the ground.@rus Красивое ожерелье (necklace), сделанное из костей, кем-то брошено здесь.~
 stone~
-armor AB AC
+armor ABgh 0 ACgi
 30 30 30 20 0
 90 10 98504 P
 A
@@ -845,7 +846,7 @@ teeth зубы gripper~
 @eng some grippers teeth@rus ~~острые~~ ~~кривые~~ ~~зубы~~~
 @eng Here are the teeth of the Gripper monster.@rus Острые зубы (teeth), оставшиеся от хватало, валяются тут.~
 stone~
-armor ABM AC
+armor ABMghs 0 ACgi
 26 26 27 16 0
 80 10 100 P
 A
@@ -858,7 +859,7 @@ jug beer кувшин~
 @eng a jug of beer@rus ~~кувшин~~ эля~
 @eng There is a jug of beer on the ground here.@rus Небольшой кувшин (jug) с непонятно чем оставлен кем-то.~
 glass~
-drink BC A
+drink BChi 0 Ag
 20 20 'beer' 0 0
 1 1 1 P
 g none~
@@ -867,7 +868,7 @@ boots black ботинки thief~
 @eng a pair of black boots@rus ~~пара~~ кожаных черных ботинок~
 @eng A dark pair of boots lie here soaking up the sun.@rus Пара черных ботинок (boots) валяется тут, впитывая солнечный свет.~
 leather~
-armor BC AG
+armor BChi 0 AGgm
 20 20 20 10 0
 60 10 3000 P
 A
@@ -882,7 +883,7 @@ glove warden gloves рукавицы boundary~
 @eng boundary warden gloves@rus ~~рукавицы~~ стража границы~
 @eng A pair of gloves have been left here, waiting too be picked up.@rus Пара черных рукавиц (gloves) забыта своим хозяином.~
 unknown~
-armor BC AH
+armor BChi 0 AHgn
 20 20 20 9 0
 60 10 9684 P
 A
@@ -897,7 +898,7 @@ boot warden boots ботинки boundary~
 @eng boundary warden boots@rus ~~ботинки~~ стража границы~
 @eng A pair of boots have been left here.@rus Армированные ботинки (boots) оставлены тут за ненадобностью.~
 unknown~
-armor BC AG
+armor BChi 0 AGgm
 21 19 19 10 0
 60 10 9898 P
 A
@@ -912,7 +913,7 @@ sleeves warden нарукавники boundary~
 @eng boundary warden sleeves@rus ~~нарукавники~~ стража границы~
 @eng A pair of sleeves have been left resting against a tree.@rus Кожаные нарукавники (sleeves) валяются, брошенные хозяином.~
 unknown~
-armor BC AI
+armor BChi 0 AIgo
 21 20 19 10 0
 60 10 9898 P
 A
@@ -927,7 +928,7 @@ shield warden щит boundary~
 @eng boundary warden's shield@rus ~~щит~~ стража границы~
 @eng A shield made from the finest metal has been left here.@rus Щит (shield), сделанный из превосходной стали, валяется у твоих ног.~
 unknown~
-armor BC AJ
+armor BChi 0 AJgp
 20 21 20 15 0
 60 10 9898 P
 A
@@ -940,7 +941,7 @@ tunic warden плащ boundary~
 @eng boundary warden's tunic@rus ~~плащ~~ стража границы~
 @eng A tunic made from good leather has been left here.@rus Плащ (tunic), сделанный из хорошей кожы, оставлен здесь своим хозаином.~
 unknown~
-armor BC AK
+armor BChi 0 AKgq
 20 20 20 10 0
 60 10 9898 P
 A
@@ -951,7 +952,7 @@ helmet warden шлем boundary~
 @eng a boundary warden's helmet@rus ~~шлем~~ стража границы~
 @eng A large helmet has been left by its owner...such a shame.@rus Чей-то шлем (helmet) валяется тут, забытый.~
 unknown~
-armor BC AE
+armor BChi 0 AEgk
 20 20 20 10 0
 60 10 9898 P
 A
@@ -964,7 +965,7 @@ ring warden кольцо boundary~
 @eng a boundary warden's ring@rus ~~кольцо~~ стража границы~
 @eng A bright silver ring has been left in the dust.@rus Массивное серебрянное кольцо (ring) кем-то оставлено здесь.~
 unknown~
-treasure BC AB
+treasure BChi 0 ABgh
 0 0 0 0 0
 60 10 9898 P
 A
@@ -975,7 +976,7 @@ legging warden leggings штаны boundary~
 @eng boundary warden leggins@rus ~~штаны~~ стража границы~
 @eng A pair of leggings have been left here.@rus Какие-то черные штаны (leggins) оставлены здесь.~
 unknown~
-armor BC AF
+armor BChi 0 AFgl
 20 20 20 10 0
 60 10 9898 P
 A
@@ -988,7 +989,7 @@ robe dark плащ~
 @eng a dark robe@rus ~~темный~~ ~~плащ~~~
 @eng A robe has been left in the shade of a tree here.@rus Темный плащ (robe) непонятного цвета валяется около тебя.~
 cloth~
-armor BC AD
+armor BChi 0 ADgj
 23 23 22 11 0
 70 10 5060 P
 A
@@ -1001,7 +1002,7 @@ collar heart hound ошейник~
 @eng a heart hound collar@rus ~~ошейник~~ гончей~
 @eng A collar has been left sitting in the sun in the middle of a field.@rus Странного вида ошейник (collar) блестит под лучами солнца.~
 unknown~
-armor BC AC
+armor BChi 0 ACgi
 23 22 22 16 0
 70 10 8080 P
 A
@@ -1016,8 +1017,8 @@ pouch magical leather мешочек~
 @eng a magical leather pouch@rus ~~маленький~~ ~~магический~~ ~~мешочек~~~
 @eng A pouch has been left here in the mud.@rus Маленький мешочек (pouch) валяется в грязи.~
 leather~
-container BC A
-700 A 0 350 72
+container BChi 0 Ag
+700 Ag 0 350 72
 70 50 1000 P
 g none~
 #10017
@@ -1025,8 +1026,8 @@ cookie пирожок~
 @eng a BIG cookie!@rus ~~вкусный~~ ~~пирожок~~~
 @eng There is a cookie on the ground, what a shame.@rus Маленький пирожок (cookie) валяется на земле.~
 unknown~
-food B A
-DF 0 0 0 0
+food Bh 0 Ag
+DFjl 0 0 0 0
 8 10 0 P
 g none~
 #10018
@@ -1034,8 +1035,8 @@ cake кусок пирог~
 @eng a BIG piece of cake!@rus ~~кусок~~ пирога~
 @eng A Big Yummy piece of CAKE has been left here.@rus Большой кусок пирога (cake) почему-то валяется на земле.~
 unknown~
-food B A
-BD 0 0 0 0
+food Bh 0 Ag
+BDhj 0 0 0 0
 1 10 0 P
 g none~
 #10019
@@ -1043,7 +1044,7 @@ sword warden меч boundary~
 @eng a boundary warden's sword@rus ~~меч~~ стража границы~
 @eng A well made sword has been left here.@rus Качественно выкованный меч (sword) почему-то брошен здесь.~
 unknown~
-weapon ABCEJL AN
+weapon ABCEJLghikpr 0 ANgt
 sword 9 6 'slash' 0
 50 30 3500 P
 A
@@ -1060,7 +1061,7 @@ flail warden кистень boundary~
 @eng a boundary warden's flail@rus ~~кистень~~ стража границы~
 @eng A flail has been left here.@rus Мрачного вида оружие (flail) валяется возле тебя.~
 unknown~
-weapon ABCEJL AN
+weapon ABCEJLghikpr 0 ANgt
 flail 7 7 'pound' 0
 50 30 3400 P
 A
@@ -1073,7 +1074,7 @@ mace warden палица стража границы boundary~
 @eng a boundary warden's mace@rus ~~палица~~ стража границы~
 @eng A mace has been left here.@rus Чья-то палица (mace) оставлено здесь.~
 unknown~
-weapon ABCI AN
+weapon ABCIghio 0 ANgt
 mace 7 7 'pound' 0
 50 30 2999 P
 A
@@ -1086,7 +1087,7 @@ dagger warden кинжал boundary~
 @eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
 @eng A dagger has been left here.@rus Небольшой, но острый кинжал (dagger) валяется подле тебя.~
 steel~
-weapon ABCEIJ AN
+weapon ABCEIJghikop 0 ANgt
 dagger 5 10 'pierce' 0
 50 30 2999 P
 A
@@ -1099,7 +1100,7 @@ agiel weapon эйджил~
 @eng a mord-sith agiel@rus эйджил~
 @eng A magical weapon has been left here.@rus Странное магическое оружие (agiel) оставлено здесь своей хозяйкой.~
 unknown~
-weapon ABCEGM AN
+weapon ABCEGMghikms 0 ANgt
 exotic 18 7 'slash' 0
 90 20 9902 P
 A
@@ -1116,7 +1117,7 @@ bracer power браслет~
 @eng the bracer of power@rus ~~магический~~ ~~браслет~~ Рала~
 @eng There is a bracer in the mud here.@rus Браслет (bracer), сделанный из какого-то темного материала, валяется около твоих ног.~
 unknown~
-armor ABC AM
+armor ABCghi 0 AMgs
 32 32 33 25 0
 90 20 9000 P
 A
@@ -1133,7 +1134,7 @@ westland sign знак указатель вывеска вестландия~
 @eng a sign@rus ~~небольшой~~ ~~знак~~~
 @eng There is a sign that contains the map of Westlands here.@rus Небольшой, наполовину ушедший в землю знак (sign), на котором нацарапана карта Вестландии.~
 wood~
-furniture A 0
+furniture Ag 0 0
 0 0 0 0 0
 91 90 90 P
 E
@@ -1215,7 +1216,7 @@ sign dhara d'hara дхара д'хара~
 @eng a little sign@rus ~~небольшой~~ ~~указатель~~~
 @eng There is a little sign here showing a map of D'Hara.@rus Еще один знак (sign) с нарисованной на нем картой Д'Хары скрывается в тени деревьев.~
 wood~
-furniture A 0
+furniture Ag 0 0
 0 0 0 0 0
 91 90 90 P
 E

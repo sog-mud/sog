@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Festival Town~
 VNUMs 36300 36499
 Credits Agrael Kami~
@@ -22,13 +23,13 @@ lots of trials and known the reality of life.
 фунт лиха.
 ~
 ghost~
-ATfl BDFU 0 0
+ADEJTgjkpz FGIlmo U Ag ABgh 0 0
 110 0 100d40+30000 100d10+15000 19d16+80 'wrath'
 -80 -80 -80 -70
-DEHKO 0 0 0
+DEHKOjknqu
 stand stand male 0
 0 0 medium unknown
-F act O
+F act Ou
 M death 36301 100~
 M fight 36300 40~
 r fire 33
@@ -54,10 +55,10 @@ stay away of the pass he is shooting.
 в цель, и ты стараешься уйти с линии огня.
 ~
 human~
-AGTl FNPZ 1000 0
+GTmz 0 Nt Gm Bh 1000 0
 91 0 101d20+30000 85d10+1000 13d10+70 'punch'
 -60 -60 -60 -58
-EFHIJKLNQY 0 0 0
+EFHIJKLNQYklnopqrtw
 sit stand male 5000
 0 0 medium unknown
 r slash -50
@@ -80,10 +81,10 @@ knees and to bow before him.
 и поклониться ему.
 ~
 human~
-AGT JPVc 0 0
+GTmz 0 Vc Gm Hn 0 0
 90 0 91d20+22000 82d10+1000 11d11+60 'punch'
 -55 -55 -55 -53
-AEFHIJKN 0 0 0
+AEFHIJKNgklnopqt
 sit stand male 10000
 0 0 medium unknown
 r fire 33
@@ -102,10 +103,10 @@ some memories about my life." - says Tumbu-Yumbu and smiles at you.
 Тумбу-Юмбу и улыбается тебе.
 ~
 human~
-AGT DOVZ -100 0
+GTmz 0 OVu 0 Ag -100 0
 85 0 95d18+16000 82d10+1000 11d11+60 'thrust'
 -50 -50 -50 -49
-CFHIKN 0 0 0
+CFHIKNilnoqt
 sit stand male 3000
 0 0 medium unknown
 r fire 33
@@ -124,10 +125,10 @@ polished.
 тщательно отполированые.
 ~
 human~
-AGT Oa -300 0
+GTmz 0 Oau 0 0 -300 0
 90 0 95d20+23000 85d10+1000 11d11+70 'pound'
 -60 -65 -65 -55
-ADEFIJK 0 0 0
+ADEFIJKgjklopq
 sit stand male 10000
 0 0 medium unknown
 r fire -50
@@ -151,10 +152,10 @@ now he cannot leave his crumpled flask filled with ale.
 элем.
 ~
 human~
-AGT FTVac 100 0
+GTmz 0 TVacz 0 Bh 100 0
 95 0 101d20+30000 82d10+1000 12d10+65 'charge'
 -60 -50 -60 -70
-ADEFHIKLN 0 0 0
+ADEFHIKLNgjklnoqrt
 sit rest male 100
 0 0 medium unknown
 r pierce 33
@@ -180,10 +181,10 @@ your help?
 своими размерами! Ты думаешь, а не помочь ли ему с этим делом?
 ~
 human~
-AGQl DENTU 1000 0
+GQmw 0 NTUtz 0 ALgr 1000 0
 90 0 90d20+17000 85d10+10000 20d6+50 'pound'
 -58 -65 -55 -55
-CEIKNQ 0 0 0
+CEIKNQikoqtw
 stand stand male 10000
 0 0 medium unknown
 r pierce -50
@@ -216,10 +217,10 @@ guess.
 то, что может сойти за игрушку.
 ~
 human~
-AGH U 0 0
+GHmn 0 U 0 0 0 0
 10 0 3d22+100 10d10+100 2d5+10 'punch'
 -10 -10 -10 -5
-FJ 0 0 0
+FJlp
 sit sit male 100
 0 0 small unknown
 r bash 33
@@ -242,10 +243,10 @@ off.
 коробок со спичками.
 ~
 human~
-AGH U 0 0
+GHmn 0 U 0 0 0 0
 5 0 1d17+42 5d10+100 2d3+5 'thwack'
 -10 -10 -10 -3
-FH 0 0 0
+FHln
 stand stand male 20
 0 0 small unknown
 r bash 33
@@ -265,10 +266,10 @@ festival suit and a powdered wig.
 мэра одета в фестивальный костюм, а на голове носит парик.
 ~
 human~
-AGHR H 0 0
+GHRmnx 0 Hn 0 0 0 0
 50 0 20d80+1000 50d10+1000 5d10+25 'slap'
 -35 -35 -35 -30
-EFIJZ 0 0 0
+EFIJZklop
 stand stand female 5000
 0 0 medium unknown
 #36310
@@ -285,10 +286,10 @@ big hat on his head gets your attention.
 привлекает твое внимание.
 ~
 human~
-AEGTl DFHNOU 0 0
+GTmz 0 HNOUntu 0 ABgh 0 0
 75 0 50d20+11000 75d10+9000 9d11+45 'punch'
 -50 -50 -50 -30
-CEFIKN 0 0 0
+CEFIKNikloqt
 stand stand male 20000
 0 0 medium unknown
 r charm 100
@@ -308,10 +309,10 @@ to allow him to finish.
 не беспокоить его.
 ~
 human~
-AGQ F 0 0
+GQmw 0 0 0 Bh 0 0
 25 0 8d45+3000 25d10+1000 5d5+15 'punch'
 -25 -20 -20 -5
-FIJKN 0 0 0
+FIJKNlopqt
 sit sit male 1235
 0 0 medium unknown
 #36312
@@ -328,10 +329,10 @@ and looks at your over.
 смотрит на тебя выжидательно.
 ~
 human~
-AGQ DHNU 0 0
+GQmw 0 HNUnt 0 Ag 0 0
 75 0 50d20+10000 75d10+10000 9d9+45 'magic'
 -50 -46 -53 -30
-FIKN 0 0 0
+FIKNloqt
 sit sit male 9856
 0 0 medium unknown
 #36313
@@ -342,12 +343,12 @@ rodent ugly rat грызун~
 ~
 ~
 bat~
-AFGH 0 -100 0
+FGHlmn 0 0 0 0 -100 0
 10 0 3d22+100 10d10+100 2d5+5 'bite'
 -10 -10 -10 0
-0 0 0 0
+0
 sit sit female 0
-P 0 small unknown
+Pv 0 small unknown
 r fire -50
 #36314
 spider dust small паук~
@@ -361,12 +362,12 @@ some insects.
 различных насекомых.
 ~
 centipede~
-AFGH 0 0 0
+FGHlmn 0 0 0 0 0 0
 10 0 3d22+100 10d10+100 2d3+3 'bite'
 -10 -10 -5 -1
-FH 0 0 0
+FHln
 sit sit male 0
-P BD small unknown
+Pv BDhj small unknown
 r bash 0
 r fire -50
 #36315
@@ -382,10 +383,10 @@ you what you need and offers to look books at the shelf behind him.
 нужно, и предлагает посмотреть книги на полке позади него.
 ~
 human~
-AGQ DHU 0 0
+GQmw 0 HUn 0 Ag 0 0
 75 0 50d20+12000 75d10+5000 8d12+44 'magic'
 -45 -48 -50 -25
-EFIJKN 0 0 0
+EFIJKNklopqt
 sit sit male 10895
 0 0 medium unknown
 #36316
@@ -400,10 +401,10 @@ tournament weapon. He ask you for challenge.
 и вооруженного турнирным оружием. Он вызывает тебя на бой.
 ~
 human~
-AGT 0 0 0
+GTmz 0 0 0 0 0 0
 50 0 20d80+10000 50d10+1000 7d8+30 'punch'
 -36 -38 -36 -34
-CEFIJK 0 0 0
+CEFIJKiklopq
 stand stand male 10000
 0 0 medium unknown
 #36317
@@ -419,10 +420,10 @@ wounded.
 будто подрался со всеми котами окрестностей, так он потрепан.
 ~
 human~
-ACGHT F 0 0
+CGHTimnz 0 0 0 Bh 0 0
 25 0 8d40+2500 25d10+100 5d4+12 'punch'
 -30 -30 -30 -20
-FHJT 0 0 0
+FHJTlnpz
 stand stand male 0
 0 0 medium unknown
 #36318
@@ -435,12 +436,12 @@ figure training mob strange манекен~
 @rus Манекен ждет, когда ты нанесешь первый удар.
 ~
 human~
-ABGITl DFHc 0 0
+BGThmz 0 Hcn 0 ABgh 0 0
 50 0 80d40+10000 50d10+1000 1d1+1 'cleave'
 -50 -50 -50 -40
-AEFJK 0 0 0
+AEFJKgklpq
 stand stand male 0
-B 0 medium unknown
+Bh 0 medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -470,12 +471,12 @@ angrilly.
 а вдруг отнимешь?
 ~
 modron~
-ACGHel PZ 0 0
+CGHeimn 0 0 Gm 0 0 0
 5 0 2d8+40 5d10+100 2d5+5 'pierce'
 -10 -20 -10 -5
-FNd 0 0 0
+FNdlt
 stand stand male 0
-AG DEF small unknown
+AGgm DEFjkl small unknown
 #36320
 boy small мальчик~
 @eng a small boy@rus ~~маленький~~ ~~мальчик~~~
@@ -484,10 +485,10 @@ boy small мальчик~
 ~
 ~
 human~
-AGH 0 500 0
+GHmn 0 0 0 0 500 0
 8 0 3d15+70 8d10+100 5d3+10 'slap'
 -13 -15 -13 -10
-FHd 0 0 0
+FHdln
 stand stand male 0
 0 0 medium unknown
 #36321
@@ -498,10 +499,10 @@ girl small девочка~
 ~
 ~
 human~
-AGH 0 300 0
+GHmn 0 0 0 0 300 0
 5 0 2d8+35 5d10+100 1d16+8 'slap'
 -5 -3 -5 -5
-Id 0 0 0
+Ido
 stand stand female 0
 0 0 medium unknown
 #36322
@@ -515,10 +516,10 @@ in the celebration.
 @rus Житель городка приглашает тебя принять участие в фестивале.
 ~
 human~
-AGHT 0 100 0
+GHTmnz 0 0 0 0 100 0
 28 0 10d40+3000 28d10+1000 5d7+17 'punch'
 -30 -25 -30 -20
-FI 0 0 0
+FIlo
 stand stand male 300
 0 0 medium unknown
 #36323
@@ -532,10 +533,10 @@ in the celebration.
 @rus Жительница городка приглашает тебя принять участие в фестивале.
 ~
 human~
-AGHT 0 100 0
+GHTmnz 0 0 0 0 100 0
 25 0 8d30+2400 25d10+1000 4d8+16 'slap'
 -20 -20 -20 -10
-FN 0 0 0
+FNlt
 stand stand female 500
 0 0 medium unknown
 #36324
@@ -550,10 +551,10 @@ nose, then sets it back and falls down laughing.
 красный нос и со смехом водворяет его обратно.
 ~
 human~
-AGH 0 0 0
+GHmn 0 0 0 0 0 0
 25 0 80d30+2500 25d10+1000 7d5+21 'punch'
 -25 -25 -25 -15
-HNd 0 0 0
+HNdnt
 stand stand male 2500
 0 0 medium unknown
 #36325
@@ -568,10 +569,10 @@ from your pocket and money suddenly disappear!
 достает деньги из твоего кармана, и они внезапно исчезают!
 ~
 human~
-AGS 0 -100 0
+GSmy 0 0 0 0 -100 0
 25 0 50d60+3500 25d10+1000 8d4+20 'magic'
 -23 -20 -23 -25
-FId 0 0 0
+FIdlo
 stand stand male 3500
 0 0 medium unknown
 #36326
@@ -582,10 +583,10 @@ vendor разносчик~
 ~
 ~
 human~
-AGTl 0 0 0
+GTmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -613,10 +614,10 @@ guard gate стражник~
 ~
 ~
 human~
-AGTY DFHTU 500 0
+GTYmz 0 HTUnz 0 ABgh 500 0
 25 0 50d40+2000 25d10+1000 10d3+20 'slash'
 -30 -30 -30 -20
-CEFHIJKLNc 0 0 0
+CEFHIJKLNciklnopqrt
 stand stand male 2450
 0 0 medium unknown
 #36328
@@ -631,12 +632,12 @@ angry look out from it.
 неприязненный взгляд из-под него.
 ~
 human~
-ABGHS FPQU -500 0
+BGHShmny 0 U BGhm Bh -500 0
 10 0 2d33+90 10d10+100 5d5+12 'stab'
 -10 -10 -10 -2
-EFHIJKNX 0 0 0
+EFHIJKNXklnopqt
 stand stand male 2000
-S 0 medium unknown
+Sy 0 medium unknown
 #36329
 pickpocket thief карманник~
 @eng pickpocket@rus карманник~
@@ -645,10 +646,10 @@ pickpocket thief карманник~
 ~
 ~
 human~
-AGHS FPQ -100 0
+GHSmny 0 0 BGhm Bh -100 0
 25 0 20d60+1900 25d10+1000 2d15+16 'stab'
 -40 -40 -40 -20
-BEFIJKN 0 0 0
+BEFIJKNhklopqt
 stand stand male 2300
 0 0 medium unknown
 #36330
@@ -662,10 +663,10 @@ bat мышь~
 убегай! Скоре...
 ~
 bat~
-AFGHT DFc -1000 0
+FGHTlmnz 0 c 0 ABgh -1000 0
 10 0 1d66+100 10d10+100 3d6+12 'bite'
 -5 -10 -5 -2
-0 0 0 0
+0
 stand stand male 0
 0 0 small unknown
 #36331
@@ -678,10 +679,10 @@ cat black кот~
 @rus Черная молния бьет тебя по голове! Ты ничего не видишь!
 ~
 cat~
-AFGHR DFP -1000 0
+FGHRlmnx 0 0 Gm ABgh -1000 0
 10 0 33d2+120 10d10+100 2d8+10 'scratch'
 -10 -10 -10 -5
-M 0 0 0
+Ms
 stand stand male 0
 0 0 small unknown
 #36332
@@ -694,10 +695,10 @@ mage white law маг~
 @rus Могущественный маг в белых одеждах стоит перед тобой.
 ~
 human~
-AGHR DH 1000 0
+GHRmnx 0 Hn 0 Ag 1000 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -65 -70 -55
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 20000
 0 0 medium unknown
 #36333
@@ -710,10 +711,10 @@ mage white neutral маг~
 @rus Могущественный маг в белых одеждах стоит перед тобой.
 ~
 human~
-AGHR DH 1000 0
+GHRmnx 0 Hn 0 Ag 1000 0
 95 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -60
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 23000
 0 0 medium unknown
 #36334
@@ -726,10 +727,10 @@ mage white chaos маг~
 @rus Могущественный маг в белых одеждах стоит перед тобой.
 ~
 human~
-AGHR DH 1000 0
+GHRmnx 0 Hn 0 Ag 1000 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -60
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 15000
 0 0 medium unknown
 #36335
@@ -742,10 +743,10 @@ mage grey law маг~
 @rus Могущественный маг в серых одеждах стоит перед тобой.
 ~
 human~
-AGHR DH 0 0
+GHRmnx 0 Hn 0 Ag 0 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -70 -70 -60
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 14000
 0 0 medium unknown
 #36336
@@ -758,10 +759,10 @@ mage grey neutral маг~
 @rus Могущественный маг в серых одеждах стоит перед тобой.
 ~
 human~
-AGHR DH 0 0
+GHRmnx 0 Hn 0 Ag 0 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -65 -70 -60
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 50000
 0 0 medium unknown
 #36337
@@ -774,10 +775,10 @@ mage grey chaos маг~
 @rus Могущественный маг в серых одеждах стоит перед тобой.
 ~
 human~
-AGHR DH 0 0
+GHRmnx 0 Hn 0 Ag 0 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -70
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 10000
 0 0 medium unknown
 #36338
@@ -790,10 +791,10 @@ mage dark law маг~
 @rus Могущественный маг в черных одеждах стоит перед тобой.
 ~
 human~
-AGHR Du -1000 0
+GHRmnx 0 0 0 Ag -1000 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -70 -60 -70 -60
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 14000
 0 0 medium unknown
 #36339
@@ -806,10 +807,10 @@ mage dark neutral маг~
 @rus Могущественный маг в черных одеждах стоит перед тобой.
 ~
 human~
-AGHR Du -1000 0
+GHRmnx 0 0 0 Ag -1000 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -60 -80 -60 -50
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 5090
 0 0 medium unknown
 #36340
@@ -822,10 +823,10 @@ mage dark chaos маг~
 @rus Могущественный маг в черных одеждах стоит перед тобой.
 ~
 human~
-AGHR Du -1000 0
+GHRmnx 0 0 0 Ag -1000 0
 90 0 90d20+16000 85d10+10000 11d9+50 'magic'
 -65 -65 -65 -60
-FIKVY 0 0 0
+FIKVYloq
 sit sit male 3500
 0 0 medium unknown
 #36341
@@ -838,10 +839,10 @@ mage earthquaker маг~
 @rus Могущественный чародей устраивает землетрясение.
 ~
 human~
-AGR 0 0 0
+GRmx 0 0 0 0 0 0
 75 0 50d20+11000 75d10+10000 9d9+45 'magic'
 -50 -50 -50 -45
-FIK 0 0 0
+FIKloq
 sit stand male 4500
 0 0 medium unknown
 #36342
@@ -854,10 +855,10 @@ mage wimpy маг~
 @rus Колдун пытается сплести простенькое заклинание.
 ~
 human~
-AGHR 0 0 0
+GHRmnx 0 0 0 0 0 0
 50 0 40d20+8000 50d10+10000 7d7+31 'suction'
 -40 -35 -40 -30
-FIK 0 0 0
+FIKloq
 stand stand male 1300
 0 0 medium unknown
 #36343
@@ -872,10 +873,10 @@ a short tail.
 хвостом.
 ~
 human~
-AGH P 0 0
+GHmn 0 0 Gm 0 0 0
 5 0 20d5+100 5d10+100 2d5+6 'bite'
 -5 -5 -5 -1
-FN 0 0 0
+FNlt
 stand stand male 0
 Z 0 small unknown
 #36344
@@ -886,10 +887,10 @@ servant слуга~
 ~
 ~
 human~
-AGHT 0 0 0
+GHTmnz 0 0 0 0 0 0
 25 0 40d20+1000 25d10+100 2d15+15 'punch'
 -10 -10 -10 -6
-EFIK 0 0 0
+EFIKkloq
 stand stand male 600
 0 0 medium unknown
 #36345
@@ -900,10 +901,10 @@ vendor разносчик~
 ~
 ~
 human~
-AGTl 0 0 0
+GTmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -931,10 +932,10 @@ vendor разносчик~
 ~
 ~
 human~
-AGTl 0 0 0
+GTmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -962,10 +963,10 @@ vendor разносчик~
 ~
 ~
 human~
-AGTl 0 0 0
+GTmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -993,10 +994,10 @@ vendor разносчик~
 ~
 ~
 human~
-ABGTl 0 0 0
+BGThmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -1028,12 +1029,12 @@ of the wooden shield.
 щита яблоко.
 ~
 unique~
-ABGHIl 0 0 0
+BGHhmn 0 0 0 0 0 0
 70 0 70d30+25000 70d10+1000 1d1+1 'pound'
 -50 -50 -50 -45
-EFIJK 0 0 0
+EFIJKklopq
 stand stand none 0
-M 0 large unknown
+Ms 0 large unknown
 r fire 100
 r cold 100
 r lightning 100
@@ -1056,10 +1057,10 @@ bird пичуга~
 ~
 ~
 bat~
-ACGHW P 0 0
+CGHWimn 0 0 Gm 0 0 0
 5 0 20d5+70 5d10+100 1d6+3 'peck'
 -5 -5 -5 0
-0 0 0 0
+0
 stand stand female 0
 W 0 tiny unknown
 #36351
@@ -1070,12 +1071,12 @@ centipede многоножка~
 ~
 ~
 centipede~
-AGH 0 0 0
+GHmn 0 0 0 0 0 0
 5 0 9d20+100 5d10+100 1d12+6 'claw'
 -5 -5 -5 0
-FJd 0 0 0
+FJdlp
 stand stand female 0
-Xc DEF small unknown
+Xc DEFjkl small unknown
 #36352
 snake small змейка~
 @eng small snake@rus змейка~
@@ -1084,10 +1085,10 @@ snake small змейка~
 ~
 ~
 lizard~
-AGH FP 0 0
+GHmn 0 0 Gm Bh 0 0
 8 0 10d20+120 10d10+100 5d2+8 'claw'
 -10 -10 -10 -5
-FHJN 0 0 0
+FHJNlnpt
 stand stand female 0
 Y 0 small unknown
 #36353
@@ -1098,12 +1099,12 @@ insect small мошка~
 ~
 ~
 centipede~
-AFGHT T 0 0
+FGHTlmnz 0 Tz 0 0 0 0
 6 0 10d10+100 6d10+100 6d2+6 'bite'
 -6 -5 -6 -2
-FHNd 0 0 0
+FHNdlnt
 stand stand female 0
-c DEF tiny unknown
+c DEFjkl tiny unknown
 r fire -50
 r cold 0
 r lightning -50
@@ -1126,12 +1127,12 @@ salamander mother dragon саламандра~
 ~
 ~
 dragon~
-ACGR DHPRVc 0 0
+CGRimx 0 HRVcnx Gm Ag 0 0
 30 0 20d80+2500 30d10+1000 7d5+20 'frbite'
 -30 -20 -30 -30
-FHI 0 0 0
+FHIlno
 sleep sleep female 5000
-0 B large unknown
+0 Bh large unknown
 r fire 100
 r acid 33
 r energy 33
@@ -1146,10 +1147,10 @@ paladin паладин~
 @rus Суровый паладин предлагает тебе доспехи и оружие.
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -1177,10 +1178,10 @@ ranger охотник~
 ~
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 sit sit male 100000
 0 0 medium unknown
 r bash 100
@@ -1208,10 +1209,10 @@ samurai самурай~
 ~
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 sit sit male 100000
 0 0 medium unknown
 r bash 100
@@ -1241,10 +1242,10 @@ warrior воин~
 @rus Воин предлагает тебе купить доспехи и оружие.
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 sit sit male 100000
 0 0 medium unknown
 r bash 100
@@ -1272,10 +1273,10 @@ witch ведьма~
 ~
 ~
 human~
-AGTYl 0 0 0
+GTYmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 sit sit male 100000
 0 0 medium unknown
 r bash 100
@@ -1306,10 +1307,10 @@ red liquid.
 @rus Вампир предлагает тебе пузырьки с какой-то красной жидкостью...
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 sit sit male 100000
 0 0 medium unknown
 r bash 100
@@ -1339,10 +1340,10 @@ cleric монах~
 @rus Монах предлагает тебе священные амулеты.
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 sit sit male 100000
 0 0 medium unknown
 r bash 100
@@ -1372,10 +1373,10 @@ mage чародей~
 @rus Чародей предлагает тебе ингредиенты для колдовских снадобий.
 ~
 human~
-ABGTYl 0 0 0
+BGTYhmz 0 0 0 0 0 0
 50 0 80d40+12000 50d10+1000 8d8+36 'punch'
 -20 -30 -30 -30
-EJ 0 0 0
+EJkp
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -1406,10 +1407,10 @@ in the water bowl.
 @rus Мальчонка играет в чаше бассейна.
 ~
 human~
-AGH 0 500 0
+GHmn 0 0 0 0 500 0
 8 0 3d15+70 8d10+100 5d3+10 'slap'
 -13 -15 -13 -10
-FHd 0 0 0
+FHdln
 sit sit male 0
 0 0 medium unknown
 #36364
@@ -1423,10 +1424,10 @@ in the water bowl.
 @rus Маленькая девочка играет в чаше бассейна.
 ~
 human~
-AGH 0 300 0
+GHmn 0 0 0 0 300 0
 5 0 2d8+35 5d10+100 1d16+8 'slap'
 -5 -3 -5 -5
-Id 0 0 0
+Ido
 sit sit female 0
 0 0 medium unknown
 #36365
@@ -1436,13 +1437,13 @@ Some frag is here, sulking in the corner.
 ~
 ~
 human~
-A 0 0 0
+0 0 0 0 0 0 0
 83 0 1d1+10 0d0+0 0d0+0 'peck'
 0 0 0 0
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 M fight 36302 100~
 r bash 100
 #0
@@ -1453,7 +1454,7 @@ bracer feathery браслет feathers~
 @eng feathery bracer@rus {M~~браслет~~ из перьев {z~
 @eng Beautiful color feathers lie here.@rus Красивые разноцветные перья (feathers) лежат здесь.~
 feathers~
-armor A AM
+armor Ag 0 AMgs
 25 25 25 10 0
 90 20 1000 P
 A
@@ -1472,8 +1473,8 @@ tomahawk axe томагавк~
 @eng tomahawk@rus томагавк~
 @eng A small throwing axe lies on the ground.@rus Небольшой метательный топорик (axe) валяется на земле.~
 steel~
-weapon BY AN
-axe 15 7 'slash' DEK
+weapon BYh 0 ANgt
+axe 15 7 'slash' DEKjkq
 90 40 10000 P
 A
 18 11
@@ -1485,7 +1486,7 @@ necklace tooth ожерелье~
 @eng tooth necklace@rus {D~~ожерелье~~ из клыков {x~
 @eng A set of teeth lies here.@rus Коллекция всевозможных зубов (tooth) лежит здесь.~
 horn~
-armor BG AC
+armor BGhm 0 ACgi
 26 28 26 20 0
 85 13 5000 P
 A
@@ -1502,7 +1503,7 @@ skirt palm юбка~
 @eng short palm skirt@rus {G~~короткая~~ ~~юбка~~ из пальмовых листьев{z~
 @eng A bunch of palm leaves lies on the ground.@rus {GСвязка пальмовых (palm) листьев лежит тут.{z~
 bamboo~
-armor I AF
+armor Io 0 AFgl
 20 20 20 10 0
 85 10 500 P
 A
@@ -1521,7 +1522,7 @@ bracer charisma feathery браслет~
 @eng bracer of charisma@rus {B~~браслет~~ удачи {z~
 @eng A feathery bracer is hanging here.@rus Пушистый браслет (bracer) висит здесь.~
 feathers~
-armor AGI AM
+armor AGIgmo 0 AMgs
 25 25 25 19 0
 90 5 5000 P
 A
@@ -1538,7 +1539,7 @@ shield ebony щит~
 @eng ebony shield@rus {D~~щит~~ из черного дерева {z~
 @eng An ebony shield lies neglected.@rus Щит (shield) из черного дерева оставлен на земле.~
 ebony~
-armor CE AJ
+armor CEik 0 AJgp
 35 35 35 15 0
 90 60 6700 P
 A
@@ -1557,7 +1558,7 @@ lion шкура skin~
 @eng leo skin@rus {Y~~львиная~~ ~~шкура~~ {z~
 @eng A sneaking lion tries to bite you.@rus Крадущийся лев (lion) пытается укусить тебя.~
 hard leather~
-armor H AK
+armor Hn 0 AKgq
 25 26 24 19 0
 90 15 15000 P
 A
@@ -1578,8 +1579,8 @@ stick reet spear bamboo копье~
 @eng reet stick@rus {W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{\{g~~бамбуковая~~ ~~палочка~~{x~
 @eng A long piece of bamboo lies here.@rus Длинный кусок бамбука (stick) лежит здесь.~
 bamboo~
-weapon BI AN
-spear 11 12 'pierce' CHK
+weapon BIho 0 ANgt
+spear 11 12 'pierce' CHKinq
 95 10 100 P
 A
 18 10
@@ -1591,7 +1592,7 @@ casque black helm шлем~
 @eng black casque@rus {D~~черный~~ ~~шлем~~ {z~
 @eng A strange helm gets your attention.@rus Странный шлем (casque) привлек твое внимание.~
 iron~
-armor E AE
+armor Ek 0 AEgk
 30 30 30 20 0
 85 20 5100 P
 A
@@ -1604,7 +1605,7 @@ platemail black scale кольчуга~
 @eng black scale platemail@rus {D~~черная~~ ~~кольчуга~~ {x~
 @eng A platemail glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
 dragonskin~
-armor ABCEG AD
+armor ABCEGghikm 0 ADgj
 35 35 35 27 0
 85 23 16700 G
 A
@@ -1621,7 +1622,7 @@ gauntlets black dragon перчатки~
 @eng black dragon gauntlets@rus {D~~перчатки~~ из кожи черного дракона {z~
 @eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток (gauntlets) ждет своего хозяина.~
 dragonskin~
-armor ABCEG AH
+armor ABCEGghikm 0 AHgn
 30 30 30 24 0
 85 20 18000 P
 A
@@ -1634,7 +1635,7 @@ leg black dragon plates поножи~
 @eng black dragon leg plates@rus {D~~поножи~~ из черной драконьей кожи {z~
 @eng A pile of black scale lies here.@rus Груда черной чешуи (leg) лежит здесь.~
 dragonskin~
-armor ABCEG AF
+armor ABCEGghikm 0 AFgl
 28 28 28 16 0
 85 25 17000 P
 A
@@ -1649,7 +1650,7 @@ bow short~
 @eng short bow@rus {y~~короткий~~ ~~лук~~ {z~
 @eng A short wooden bow lies here.@rus Короткий деревянный лук (bow) лежит тут.~
 wood~
-weapon G AN
+weapon Gm 0 ANgt
 bow 8 10 'blast' 0
 80 15 1000 P
 A
@@ -1662,7 +1663,7 @@ boots black scale dragon сапоги~
 @eng black dragon boots@rus {D~~черные~~ ~~сапоги~~ {z~
 @eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядавают на тебя с носков черных сапог (boots).~
 dragonskin~
-armor ABCEG AG
+armor ABCEGghikm 0 AGgm
 31 28 31 20 0
 85 12 15000 P
 A
@@ -1677,7 +1678,7 @@ pot ink girth чернильница~
 @eng ink-pot@rus {D~~чернильница~~ {z~
 @eng An ink-pot is hanging on a rope.@rus Чернильница (ink pot) висит на шнурке.~
 quartz~
-drink AGIY AL
+drink AGIYgmo 0 ALgr
 100 0 'water' 0 0
 25 0 1000 P
 A
@@ -1688,8 +1689,8 @@ apple яблоко~
 @eng apple@rus {y~~яблоко~~ {z~
 @eng An apple lies here.@rus Яблоко (apple) лежит тут.~
 food~
-food A AO
-AC B 0 0 0
+food Ag 0 AOgu
+ACgi Bh 0 0 0
 1 10 15 P
 E
 paper~
@@ -1701,8 +1702,8 @@ cookie пирожок~
 @eng cookie@rus {y~~пирожок~~ {z~
 @eng A cookie lies here.@rus Пирожок (cookie) лежит здесь.~
 bread~
-food U A
-CE AC 0 0 0
+food U 0 Ag
+CEik ACgi 0 0 0
 1 20 34 P
 E
 paper~
@@ -1714,8 +1715,8 @@ bookmark leather long закладка~
 @eng bookmark@rus {y~~закладка~~ {z~
 @eng A long leather strip lies here.@rus Длинная кожаная полоска (bookmark) лежит здесь.~
 soft leather~
-weapon HM AN
-whip 9 11 'blast' G
+weapon HMns 0 ANgt
+whip 9 11 'blast' Gm
 78 0 1000 P
 A
 3 1
@@ -1733,7 +1734,7 @@ mist накидка cloak illusory~
 @eng illusory cloak@rus {b~~призрачная~~ ~~накидка~~ {z~
 @eng A cloud of mist is shimmering around you.@rus {bОблачко тумана (mist) кружится около тебя.{z~
 air~
-armor ABCFGIRWY AK
+armor ABCFGIYghilmo BDhj AKgq
 0 0 0 0 0
 100 0 100000 P
 A
@@ -1758,8 +1759,8 @@ sword long illusory mist меч~
 @eng illusory longsword@rus {w~~призрачный~~ ~~меч~~ {z~
 @eng A cloud of mist shaped like a sword is floating here.@rus Облако тумана в форме меча (sword) парит поблизости.~
 air~
-weapon ACFGORWY AN
-sword 13 13 'slash' DEFG
+weapon ACFGYgilm ABDghj ANgt
+sword 13 13 'slash' DEFGjklm
 100 80 100000 P
 A
 2 1
@@ -1775,8 +1776,8 @@ arrow silver~
 @eng silver arrow@rus {w~~серебрянная~~ ~~стрела~~ {z~
 @eng A silver arrow glows brightly.@rus Серебрянная стрела ярко сверкает.~
 silver~
-weapon AIORY AO
-arrow 15 15 'pierce' AGK
+weapon AIYgo ABgh AOgu
+arrow 15 15 'pierce' AGKgmq
 90 10 0 P
 A
 18 20
@@ -1788,7 +1789,7 @@ ring bowman кольцо~
 @eng bowman's ring@rus {D~~кольцо~~ лучника {z~
 @eng A large ring lies here.@rus Широкое кольцо (ring) лежит здесь.~
 mithril~
-armor BGIT AB
+armor BGIhmo Ci ABgh
 20 18 20 15 0
 85 10 23000 P
 A
@@ -1805,7 +1806,7 @@ hat green red шляпа~
 @eng green hat@rus {G~~зеленая~~ ~~шляпа~~ {z~
 @eng A green hat with a bright red plume hangs here.@rus Зеленая шляпа (hat) с огненно-красным пером висит здесь.~
 fur~
-armor AGIR AE
+armor AGIgmo Bh AEgk
 30 25 30 20 0
 89 10 10000 P
 A
@@ -1820,7 +1821,7 @@ vest green куртка~
 @eng green vest@rus {G~~зеленая~~ ~~куртка~~ {z~
 @eng A green vest lies here forgotten.@rus Зеленая куртка (vest) лежит здесь, забытая своим хозяином.~
 silk~
-armor AGI AD
+armor AGIgmo 0 ADgj
 32 30 32 21 0
 97 10 2500 P
 A
@@ -1841,7 +1842,7 @@ leggings leather штаны~
 @eng leather leggings@rus {y~~кожаные~~ ~~штаны~~ {z~
 @eng A pair of leggings lies here in the dirt.@rus Штаны (leggings) лежат на траве.~
 soft leather~
-armor BGTY AF
+armor BGYhm Ci AFgl
 32 30 32 23 0
 98 20 5000 P
 A
@@ -1862,7 +1863,7 @@ boots leather thin ботинки~
 @eng thin leather boots@rus {y~~ботинки~~ из тонкой кожи {z~
 @eng Some leather boots sits here.@rus Кожаные ботинки (boots) стоят тут.~
 soft leather~
-armor BG AG
+armor BGhm 0 AGgm
 35 33 35 26 0
 96 20 3000 P
 A
@@ -1883,7 +1884,7 @@ bow long лук~
 @eng longbow@rus {y~~длинный~~ ~~лук~~ {z~
 @eng A huge bow lies here neglected.@rus Здесь лежит кем-то забытый длинный лук (bow).~
 ebony~
-weapon BG AN
+weapon BGhm 0 ANgt
 bow 6 20 'blast' 0
 94 30 14000 P
 A
@@ -1894,7 +1895,7 @@ headband head band повязка~
 @eng headband@rus {M~~головная~~ ~~повязка~~ {z~
 @eng A headband is waiting to be worn.@rus Головная повязка (headband) ждет, когда ее оденут.~
 feathers~
-armor ABGI AE
+armor ABGIghmo 0 AEgk
 23 23 23 18 0
 89 0 2400 P
 A
@@ -1919,7 +1920,7 @@ snake пояс~
 @eng snake belt@rus {g~~змеиный~~ ~~пояс~~ {z~
 @eng A long snake slithers along the grass.@rus Длинная змея (snake) скользит по траве.~
 snakeskin~
-armor ABGHIM AL
+armor ABGHIMghmnos 0 ALgr
 25 28 25 25 0
 85 0 10000 P
 A
@@ -1938,7 +1939,7 @@ scalp штаны leggings~
 @eng scalp leggings@rus {y~~штаны~~, ~~украшенные~~ скальпами {z~
 @eng Someone has left a pile of scalps here.@rus Некто оставил тут кучу скальпов (scalp).~
 fur~
-armor CEG AF
+armor CEGikm 0 AFgl
 26 24 26 15 0
 88 23 1000 P
 A
@@ -1957,10 +1958,10 @@ boots soft мокасины moccasins~
 @eng some moccasins@rus {yмокасины {z~
 @eng A pair of soft boots sits here.@rus Пара мягких башмаков (boots) стоит здесь.~
 soft leather~
-armor C AG
+armor Ci 0 AGgm
 23 18 23 15 0
 85 20 1000 P
-F A 0 0 P
+F i 0 0 Gm
 A
 24 -2
 A
@@ -1977,7 +1978,7 @@ spiritus vini~
 {c spiritus vini {x~
 @eng A strange aura floats here.@rus Винный дух (vini) витает здесь.~
 nothingness~
-armor BG AQ
+armor BGhm 0 AQgw
 0 0 0 0 0
 90 0 0 P
 A
@@ -1994,7 +1995,7 @@ waistcoat dirty плащ~
 @eng dirty waistcoat@rus {W~~пыльный~~ ~~плащ~~ {z~
 @eng An old dusty waistcoat lies here in the dirt.@rus Старый пыльный плащ (waistcoat) лежит на траве.~
 silk~
-armor AGY AK
+armor AGYgm 0 AKgq
 28 28 28 24 0
 87 20 18000 P
 A
@@ -2009,7 +2010,7 @@ belt shoulder перевязь~
 @eng shoulder belt@rus {Mперевязь {z~
 @eng A strip of leather is here.@rus Кожаная лента (belt) лежит тут.~
 hard leather~
-container GY AL
+container GYm 0 ALgr
 150 0 0 150 50
 100 10 25000 P
 A
@@ -2028,8 +2029,8 @@ sword veteran old меч~
 @eng old veteran's sword@rus {w~~старый~~ ~~ветеранский~~ ~~меч~~ {z~
 @eng A rusted sword lies here.@rus Тронутый ржавчиной меч (sword) лежит тут.~
 steel~
-weapon BHMTY AN
-sword 9 14 'pierce' D
+weapon BHMYhns Ci ANgt
+sword 9 14 'pierce' Dj
 90 100 10000 A
 A
 18 15
@@ -2041,7 +2042,7 @@ flask crumpled фляжка~
 @eng crumpled flask@rus {w~~помятая~~ ~~фляжка~~ {z~
 @eng An old crumpled flask lies here neglected.@rus Старая помятая фляжка (flask) кем-то забыта здесь.~
 tin~
-drink GIY AO
+drink GIYmo 0 AOgu
 500 500 'ale' 0 0
 75 10 3450 P
 g female~
@@ -2050,7 +2051,7 @@ glasses sun очки~
 @eng some sun-glasses@rus {m~~солнечные~~ ~~очки~~ {z~
 @eng Some glasses waiting to be worn.@rus Солнечные очки (glasses) ждут, пока их кто-то подберет.~
 glass~
-armor 0 AE
+armor 0 0 AEgk
 2 2 2 0 0
 5 5 100 P
 A
@@ -2065,7 +2066,7 @@ match спичка~
 @eng a match@rus {y~~спичка~~ {z~
 @eng A small wooden stick lies here.@rus Маленькая деревянная палочка (match) лежит здесь.~
 wood~
-wand U AO
+wand U 0 AOgu
 10 1 1 'fireball' 0
 1 0 1 P
 g female~
@@ -2074,8 +2075,8 @@ match box коробок~
 @eng a match box@rus {y~~спичечный~~ ~~коробок~~ {z~
 @eng A box with strange carvings lies here.@rus Коробочка (box) со странной резьбой лежит тут.~
 wood~
-container 0 AO
-60 E 0 2 100
+container 0 0 AOgu
+60 Ek 0 2 100
 1 60 10 P
 g male~
 #36339
@@ -2083,7 +2084,7 @@ wig strange парик~
 @eng a wig@rus {y~~парик~~ {z~
 @eng A strange pile of furs lies here.@rus Странный клочок волос (wig) лежит здесь.~
 wool~
-armor AM AE
+armor AMgs 0 AEgk
 15 15 15 18 0
 50 20 1000 P
 A
@@ -2096,7 +2097,7 @@ hat cowboy dusty шляпа~
 @eng cowboy's hat@rus {D~~ковбойская~~ ~~шляпа~~ {z~
 @eng A dusty piece of leather dropped here.@rus Пыльный (dusty) клочок кожи брошен тут.~
 kid leather~
-armor M AE
+armor Ms 0 AEgk
 24 20 27 17 0
 75 35 1200 A
 A
@@ -2117,7 +2118,7 @@ staff strength посох~
 @eng staff of strength@rus {B~~посох~~ Силы {x~
 @eng A wooden staff lies here.@rus Деревянный посох (staff) лежит здесь.~
 wood~
-staff A AO
+staff Ag 0 AOgu
 91 10 10 'earthquake' 0
 81 30 4500 P
 A
@@ -2128,7 +2129,7 @@ suit festival костюм~
 @eng festival suit@rus {C~~фестивальный~~ ~~костюм~~ {x~
 @eng A festival-looking suit lies here.@rus Фестивальный костюм (suit) лежит здесь.~
 satin~
-armor A AD
+armor Ag 0 ADgj
 12 12 12 12 0
 25 20 8900 P
 A
@@ -2141,7 +2142,7 @@ toy boy key ключ~
 @eng boy's toy@rus {R~~детская~~ {C~~игрушка~~  {x~
 @eng A bright toy lies here.@rus Яркая игрушка (toy) лежит здесь.~
 hardwood~
-key A A
+key Ag 0 Ag
 0 0 0 0 0
 0 0 0 P
 g female~
@@ -2150,7 +2151,7 @@ grand prize medal медаль~
 @eng Grand Prize@rus {Y({M(){Y) Гран При {x~
 @eng A brightly glowing medal is waiting to be worn.@rus Ярко светящаяся медаль (medal) ждет своего обладателя.~
 gold~
-armor AGIRY AC
+armor AGIYgmo Bh ACgi
 30 30 30 25 0
 75 50 0 P
 A
@@ -2183,7 +2184,7 @@ robe dark grey~
 @eng dark gray robe@rus {D~~темно-серая~~ ~~одежка~~ {x~
 @eng A dark gray robe is hanging on the hook.@rus Темно серое одеяние (robe) висит на крючке.~
 linen~
-armor 0 AD
+armor 0 0 ADgj
 10 10 10 10 0
 25 20 400 P
 A
@@ -2200,7 +2201,7 @@ sleeves accuracy нарукавники~
 @eng sleeves of accuracy@rus {Dнарукавники {x~
 @eng Someone has left some sleeves here.@rus Кто-то бросил здесь нарукавники (sleeves).~
 linen~
-armor 0 AH
+armor 0 0 AHgn
 10 10 10 10 0
 25 10 1000 A
 A
@@ -2215,7 +2216,7 @@ pen goose~
 @eng goose pen@rus {W~~гусиное~~ ~~перо~~ {x~
 @eng A feather shaped like a pen lies here.@rus Остро очиненное перо (pen) лежит здесь.~
 feathers~
-weapon BIJK AN
+weapon BIJKhopq 0 ANgt
 exotic 5 7 'pierce' 0
 25 10 1000 P
 A
@@ -2230,7 +2231,7 @@ scroll dispatch witch hunt свиток~
 @eng witch-hunt dispatch@rus {Dдонос {x~
 @eng A scroll lies on the table.@rus Свиток (scroll) лежит на столе.~
 kid leather~
-scroll ABGITU AO
+scroll ABGIUghmo Ci AOgu
 35 'cancellation' 'curse' 'dispel evil' 'dispel magic'
 25 0 0 P
 g male~
@@ -2239,7 +2240,7 @@ scroll rescript witch hunt распоряжение~
 @eng witch-hunt rescript@rus {D~~распоряжение~~ об охоте на ведьм {x~
 @eng A scroll with a big circle stamp hangs on the wall.@rus Свиток (scroll) с большой круглой печатью висит на стене.~
 kid leather~
-scroll ABGUY AO
+scroll ABGUYghm 0 AOgu
 90 'dispel magic' 'dispel evil' 'cancellation' 'weaken'
 75 0 0 P
 g none~
@@ -2248,7 +2249,7 @@ ring tournament кольцо~
 @eng tournament ring@rus {y~~турнирное~~ ~~кольцо~~ {x~
 @eng A ring engraved with a short inscription lies here.@rus Кольцо (ring) с выгравированной на нем короткой надписью лежит тут.~
 iron~
-armor 0 AB
+armor 0 0 ABgh
 8 8 8 5 0
 50 10 1000 P
 A
@@ -2265,7 +2266,7 @@ scarf tournament шарф~
 @eng tournament scarf@rus {G~~турнирный~~ ~~шарф~~ {x~
 @eng A scarf with a short inscription lies on the ground.@rus Шарф (scarf) с короткой надписью лежит на земле.~
 iron~
-armor 0 AC
+armor 0 0 ACgi
 10 10 10 5 0
 50 12 1200 P
 A
@@ -2282,7 +2283,7 @@ helm tournament шлем~
 @eng tournament helm@rus {w~~турнирный~~ ~~шлем~~ {x~
 @eng An iron helm lies here.@rus Железный шлем (helm) лежит здесь.~
 iron~
-armor 0 AE
+armor 0 0 AEgk
 15 15 15 10 0
 50 35 2300 P
 A
@@ -2293,7 +2294,7 @@ plate breast tournament нагрудник~
 @eng tournament breast plate@rus {R~~турнирный~~ ~~нагрудник~~ {x~
 @eng A plate with dark carvings lies here neglected.@rus Нагрудник (plate) с темной резьбой лежит неподалеку.~
 iron~
-armor 0 AD
+armor 0 0 ADgj
 15 15 15 10 0
 50 50 5000 P
 A
@@ -2310,7 +2311,7 @@ leg tournament plates поножи~
 @eng tournament leg plates@rus {M~~турнирные~~ ~~поножи~~ {x~
 @eng A pile of a tournament armor lies here.@rus Груда турнирных доспехов (leg) лежит тут.~
 iron~
-armor 0 AF
+armor 0 0 AFgl
 10 10 10 5 0
 50 35 2300 P
 A
@@ -2323,7 +2324,7 @@ boots plated tournament сапоги~
 @eng tournament plated boots@rus {D~~турнирные~~ ~~сапоги~~ {x~
 @eng Hard heavy boots sit here.@rus Тяжелые сапоги (boots) стоят тут.~
 iron~
-armor 0 AG
+armor 0 0 AGgm
 15 15 15 6 0
 50 23 2300 P
 A
@@ -2334,7 +2335,7 @@ arm plate tournament наручи~
 @eng tournament arm plates@rus {m~~турнирные~~ ~~наручи~~ {x~
 @eng Some plates lie here.@rus Какие-то пластины (arm) лежат тут.~
 iron~
-armor 0 AI
+armor 0 0 AIgo
 10 10 10 10 0
 50 23 2300 P
 A
@@ -2345,7 +2346,7 @@ shield tournament щит~
 @eng tournament shield@rus {D~~турнирный~~ ~~щит~~ {x~
 @eng A small shield lies on the ground.@rus Небольшой щит (shield) лежит на земле.~
 iron~
-armor 0 AJ
+armor 0 0 AJgp
 20 20 20 18 0
 50 40 1200 P
 A
@@ -2356,7 +2357,7 @@ cloak tournament накидка~
 @eng tournament cloak@rus {b~~турнирная~~ ~~накидка~~ {x~
 @eng A cloak with an inscription lies here.@rus Накидка (cloak) с какой-то надписью лежит здесь.~
 iron~
-armor 0 AK
+armor 0 0 AKgq
 15 10 10 10 0
 50 20 2000 P
 A
@@ -2371,7 +2372,7 @@ gauntlets tournament латные рукавицы~
 @eng tournament gauntlets@rus {w~~турнирные~~ ~~латные~~ ~~рукавицы~~ {x~
 @eng Some gauntlets has been dropped here.@rus Латные рукавицы (gauntlets) брошены здесь.~
 iron~
-armor 0 AH
+armor 0 0 AHgn
 15 15 15 10 0
 50 30 10356 P
 A
@@ -2382,7 +2383,7 @@ tournament sword меч~
 @eng tournament sword@rus {w~~турнирный~~ ~~меч~~ {x~
 @eng A long sword is stuck in the ground.@rus Длинный меч (sword) воткнут в землю.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 7 7 'slash' 0
 50 100 10000 P
 g male~
@@ -2391,7 +2392,7 @@ statue mayor статуя~
 @eng Mayor's statue@rus {w~~статуя~~ Мэра {x~
 @eng A bronze statue of Mayor stands here.@rus Бронзовая статуя (statue) Мэра стоит тут.~
 bronze~
-jewelry RY A
+jewelry Y Bh Ag
 0 0 0 0 0
 50 3000 500000 P
 g female~
@@ -2400,7 +2401,7 @@ mace tournament булава~
 @eng tournament mace@rus {D~~турнирная~~ ~~булава~~ {x~
 @eng A large mace lies on the ground.@rus Большая булава (mace) лежит на земле.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 10 5 'crush' 0
 50 90 23450 P
 g female~
@@ -2409,7 +2410,7 @@ statue статуя~
 @eng statue@rus {Yстатуя {x~
 @eng WOW! You see YOUR statue standing here!@rus ВОТ ЭТО ДА! Ты видишь ТВОЮ статую, стоящую здесь!~
 bronze~
-jewelry RY A
+jewelry Y Bh Ag
 0 0 0 0 0
 50 3000 500000 P
 g female~
@@ -2418,7 +2419,7 @@ battle pill пилюля~
 @eng battle pill@rus {M~~боевая~~ ~~пилюля~~ {x~
 @eng A battle pill lies here.@rus Боевая пилюля (pill) лежит здесь.~
 food~
-pill 0 AO
+pill 0 0 AOgu
 95 'armor' 'stone skin' 'shield' 'enhanced armor'
 75 0 2500 P
 g female~
@@ -2427,7 +2428,7 @@ pill magic пилюля~
 @eng magic pill@rus {Y~~магическая~~ ~~пилюля~~ {x~
 @eng A magic pill lies here.@rus Магическая пилюля (pill) лежит здесь.~
 food~
-pill 0 AO
+pill 0 0 AOgu
 95 'haste' 'frenzy' 'giant strength' 'bless'
 75 0 2450 P
 g female~
@@ -2436,7 +2437,7 @@ star morning tournament моргенштерн~
 @eng tournament morningstar@rus {w~~турнирный~~ ~~моргенштерн~~ {x~
 @eng A heavy metal ball glows on the grass.@rus Большой металлический шар (star) сверкает среди травы.~
 iron~
-weapon A AN
+weapon Ag 0 ANgt
 flail 16 3 'crush' 0
 50 100 23980 P
 g male~
@@ -2445,7 +2446,7 @@ fountain marble water фонтан~
 @eng marble fountain@rus {M~~мраморный~~ ~~фонтан~~ {x~
 @eng A marble Fountain is in the middle of the stone basin.@rus Фонтан (fountain) из мрамора стоит в середине каменного бассейна.~
 marble~
-fountain ABRY 0
+fountain ABYgh Bh 0
 10000 10000 'water' 0 0
 0 20000 0 P
 g male~
@@ -2454,7 +2455,7 @@ plate кираса guard breast~
 @eng guard breast plate@rus {w~~кираса~~ стражника {x~
 @eng A pile of armor lies here.@rus Груда доспехов (plate) лежит здесь.~
 steel~
-armor 0 AD
+armor 0 0 ADgj
 10 15 10 10 0
 25 50 2000 P
 A
@@ -2465,7 +2466,7 @@ shield guard щит~
 @eng guard shield@rus {w~~щит~~ стражника {x~
 @eng A shield lies here.@rus Щит (shield) лежит здесь.~
 shell~
-armor 0 AJ
+armor 0 0 AJgp
 15 18 15 10 0
 25 35 3400 P
 A
@@ -2478,7 +2479,7 @@ cape guard накидка~
 @eng guard cape@rus {w~~накидка~~ стражника {x~
 @eng A guard cape lies on the ground.@rus Накидка (cape) стражника лежит здесь.~
 fur~
-armor 0 AK
+armor 0 0 AKgq
 10 12 10 8 0
 25 10 2387 P
 A
@@ -2489,7 +2490,7 @@ sword guard меч~
 @eng guard sword@rus {w~~меч~~ стражника {x~
 @eng A short sword gleams here.@rus Короткий меч (sword) блестит на полу.~
 steel~
-weapon A AN
+weapon Ag 0 ANgt
 sword 6 6 'pierce' 0
 25 50 500 P
 g male~
@@ -2498,7 +2499,7 @@ axe tournament топор~
 @eng tournament axe@rus {D~~турнирый~~ ~~топор~~ {x~
 @eng A HUGE axe lies here.@rus ЗДОРОВЕННЫЙ топор (axe) лежит на земле.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 6 9 'chop' 0
 50 50 2500 P
 g male~
@@ -2507,7 +2508,7 @@ gloves hedgehog рукавицы~
 @eng hedgehog's gloves@rus {D~~ежовые~~ ~~рукавицы~~ {x~
 @eng Some gloves lies on the grass.@rus Рукавицы (gloves) лежат на траве.~
 fur~
-armor BGIM AH
+armor BGIMhmos 0 AHgn
 5 6 5 3 0
 5 10 0 P
 A
@@ -2524,7 +2525,7 @@ some stilts ходули~
 @eng some stilts@rus {yходули {x~
 @eng The stilts have been carelessly droppped here.@rus Ходули (stilts) небрежно брошены здесь.~
 wood~
-armor 0 AG
+armor 0 0 AGgm
 10 12 15 5 0
 25 20 2000 P
 A
@@ -2537,8 +2538,8 @@ safe сейф~
 @eng safe@rus {Dсейф {x~
 @eng A steel safe stands in the corner.@rus Банковский сейф (safe) стоит в углу.~
 steel~
-container ABRTY 0
-300 ABCD 36343 300 100
+container ABYgh BChi 0
+300 ABCDghij 36343 300 100
 0 10000 0 P
 g male~
 #36376
@@ -2546,7 +2547,7 @@ key room ключ~
 @eng room key@rus {Y~~ключ~~ от комнаты {x~
 @eng A key from the bedroom lies here.@rus Ключ (key) от спальни лежит тут.~
 iron~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 g male~
@@ -2555,8 +2556,8 @@ bureau конторка~
 @eng bureau@rus {Yконторка {x~
 @eng A bureau stands at the south wall.@rus Конторка (bureau) стоит у южной стены.~
 hardwood~
-container R AO
-100 ABCD 36378 10 100
+container 0 Bh AOgu
+100 ABCDghij 36378 10 100
 0 10000 0 P
 g female~
 #36378
@@ -2564,7 +2565,7 @@ bureau key ключ~
 @eng bureau key@rus {w~~ключ~~ от конторки {x~
 @eng A key from the bureau lies on the grass.@rus Ключ (key) то конторки лежит на траве.~
 silver~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 g male~
@@ -2573,7 +2574,7 @@ oak дуб~
 @eng oak@rus {wВековой дуб (oak) растет в чаще, излучая серебристое сияние. {x~
 @eng A huge oak stands here, gleaming in a holy white light.@rus Вековой дуб (oak) растет в чаще, излучая серебристое сияние.~
 hardwood~
-container R 0
+container 0 Bh 0
 20000 0 0 10 100
 0 10000 0 P
 g male~
@@ -2582,7 +2583,7 @@ key secret ключ~
 @eng secret key@rus {D~~секретный~~ ~~ключ~~ {x~
 @eng A secret key lies here.@rus Секретный ключ (key) лежит тут.~
 adamantite~
-key FTU AO
+key FUl Ci AOgu
 0 0 0 0 0
 0 0 0 P
 g male~
@@ -2591,8 +2592,8 @@ cell secret тайник~
 @eng secret cell@rus {wтайник {x~
 @eng A secret cell is set in the wall.@rus Тайник (cell) вделан в стену.~
 steel~
-container ABFGRTY 0
-100 ABCD 36380 100 100
+container ABFGYghlm BChi 0
+100 ABCDghij 36380 100 100
 0 10000 0 P
 g male~
 #36382
@@ -2600,7 +2601,7 @@ shield paladin щит~
 @eng Holy shield of Paladins@rus {w~~Священный~~ ~~щит~~ Паладина {x~
 @eng A small shield lies here.@rus Небольшой щит (shield) лежит здесь.~
 titanium~
-armor IKLR AJ
+armor IKLoqr Bh AJgp
 30 30 30 30 0
 50 100 34500 P
 g male~
@@ -2609,7 +2610,7 @@ lance paladin пика~
 @eng Holy lance of Paladin@rus {w~~Священная~~ ~~пика~~ Паладина {x~
 @eng A long lance lies here.@rus Длинная пика (lance) лежит здесь.~
 titanium~
-weapon IKLR AN
+weapon IKLoqr Bh ANgt
 lance 11 5 'charge' 0
 50 100 56700 P
 g female~
@@ -2618,8 +2619,8 @@ hole dark нора~
 @eng hole@rus {Dнора {x~
 @eng A dark hole beckons you amidst the bushes.@rus Темная нора (hole) виднеется среди кустов.~
 ebony~
-portal RY 0
-0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36348 0
+portal Y Bh 0
+0 EMNOPQRSTUVWXYZabcdefkstuvwxyz Ag 36348 0
 0 1000 0 P
 g female~
 #36385
@@ -2627,8 +2628,8 @@ book shelf полка~
 @eng bookshelf@rus {y~~книжная~~ ~~полка~~ {x~
 @eng A bookshelf hangs on the wall.@rus Книжная полка (bookshelf) висит на стене.~
 wood~
-container ARTY AO
-100 E -1 100 100
+container AYg BChi AOgu
+100 Ek -1 100 100
 0 10000 0 P
 g female~
 #36386
@@ -2636,7 +2637,7 @@ book iluvatar one книга~
 @eng Book of Iluvatar@rus {Y~~книга~~ ~~Илуватара~~ {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2658,7 +2659,7 @@ book книга nergal~
 @eng Book of Nergal@rus {D~~книга~~ Нергала {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2681,7 +2682,7 @@ book diablo книга~
 @eng Book of Diablo@rus {D~~книга~~ Дьябло {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AERY AO
+treasure AEYgk Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2704,7 +2705,7 @@ book hedin книга~
 @eng Book of Hedin@rus {Y~~книга~~ Хедина {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2722,7 +2723,7 @@ book phobos книга~
 @eng Book of Phobos@rus {R~~книга~~ Фобоса {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2737,7 +2738,7 @@ book книга rondor~
 @eng Book of Rondor@rus {Y~~книга~~ Рондора {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2752,7 +2753,7 @@ book eidu книга~
 @eng Book of Eidu@rus {Y~~книга~~ Эйду {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2780,7 +2781,7 @@ book marewell книга~
 @eng Book of Marewell@rus {Y~~книга~~ Маревелла {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2804,7 +2805,7 @@ duncan book~
 @eng Book of Dunkan@rus {Y~~книга Дункана {x~
 A huge volume stands on the shelf.~
 kid leather~
-treasure ARY A
+treasure AYg Bh Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2813,7 +2814,7 @@ book leon книга~
 @eng Book of Leon@rus {Y~~книга~~ Леона {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AGRY AO
+treasure AGYgm Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2829,7 +2830,7 @@ book arwen книга~
 @eng Book of Arwen@rus {G~~книга~~ Арвен {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2850,7 +2851,7 @@ book arborn книга~
 @eng Book of Arborn@rus {Y~~книга~~ Арборна {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AIRY A
+treasure AIYgo Bh Ag
 0 0 0 0 0
 0 0 0 P
 A
@@ -2870,7 +2871,7 @@ book jullyroger~
 @eng Book of JullyRoger@rus {Y~~книга~~ Веселого Роджера {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure AGRY AO
+treasure AGYgm Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2889,7 +2890,7 @@ book gelios~
 @eng Book of Gelios@rus {r~~книга~~ Гелиоса {x~
 A huge volume stands on the shelf.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2898,7 +2899,7 @@ book shamash книга~
 @eng Book of Shamash@rus {Y~~книга~~ Шамаша {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY AO
+treasure AYg Bh AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -2919,7 +2920,7 @@ book orrin книга~
 @eng Book of Orrin@rus {Y~~книга~~ Оррина {x~
 @eng A huge volume stands on the shelf.@rus Большая красиво переплетенная книга (book) лежит здесь.~
 kid leather~
-treasure ARY A
+treasure AYg Bh Ag
 0 0 0 0 0
 0 0 0 P
 A
@@ -2930,7 +2931,7 @@ book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2939,7 +2940,7 @@ book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2948,7 +2949,7 @@ book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2957,7 +2958,7 @@ book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2966,7 +2967,7 @@ book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2975,7 +2976,7 @@ book immortal~
 book of immortal~
 A huge volume stands on the shelf.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -2984,8 +2985,8 @@ club monk дубинка~
 @eng Monk's club@rus {Y~~дубинка~~ Монаха {x~
 @eng A heavy looking club stands here.@rus Тяжелая дубинка (club) прислонена к дереву.~
 wood~
-weapon GI AN
-mace 8 13 'crush' K
+weapon GImo 0 ANgt
+mace 8 13 'crush' Kq
 75 100 0 P
 g female~
 #36409
@@ -2993,7 +2994,7 @@ barrel huge ale бочка~
 @eng barrel of ale@rus {Y~~бочка~~ эля {x~
 @eng A HUGE barrel of ale sits here.@rus ОГРОМНАЯ бочка (barrel) эля стоит тут.~
 wood~
-drink B A
+drink Bh 0 Ag
 1000 1000 'ale' 0 0
 0 500 4500 P
 g female~
@@ -3002,8 +3003,8 @@ gap щель~
 @eng gap@rus {Dщель {x~
 @eng A gap between the roots of the shrub looks very interesting.@rus Щель (gap) между корнями куста выглядит интригующе.~
 wood~
-portal Y 0
-0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36352 0
+portal Y 0 0
+0 EMNOPQRSTUVWXYZabcdefkstuvwxyz Ag 36352 0
 0 10000 0 P
 g female~
 #36411
@@ -3011,7 +3012,7 @@ cape white накидка~
 @eng white cape@rus {w~~белая~~ ~~накидка~~ {x~
 @eng A white cape lies here.@rus Белая накидка (cape) лежит здесь.~
 silk~
-armor AGHKLM AK
+armor AGHKLMgmnqrs 0 AKgq
 35 35 35 30 0
 90 10 5000 P
 A
@@ -3028,7 +3029,7 @@ cape grey накидка~
 @eng grey cape@rus ~~серая~~ ~~накидка~~~
 @eng A grey cape lies here.@rus Серая накидка (cape) лежит здесь.~
 silk~
-armor AGHJKM AK
+armor AGHJKMgmnpqs 0 AKgq
 35 35 35 30 0
 85 10 5500 P
 A
@@ -3045,7 +3046,7 @@ cape dark накидка~
 @eng dark cape@rus {D~~черная~~ ~~накидка~~ {x~
 @eng A dark cape lies here.@rus Черная накидка (cape) лежит здесь.~
 silk~
-armor AEGHJLM AK
+armor AEGHJLMgkmnprs 0 AKgq
 35 35 35 30 0
 85 10 4500 P
 A
@@ -3062,7 +3063,7 @@ mask clown маска~
 @eng clown mask@rus {M~~маска~~ клоуна {x~
 @eng A strange painted face looks at you from the grass.@rus Странное раскрашенное лицо (mask) смотрит на тебя из травы.~
 plastic~
-armor CEM AE
+armor CEMiks 0 AEgk
 12 12 10 5 0
 25 10 1000 P
 A
@@ -3083,7 +3084,7 @@ ball crystall quartz шар~
 @eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~ {x~
 @eng A strange glowing ball shimmers in the dirt.@rus Странный светящийся шар (ball) мерцает в пыли.~
 quartz~
-light AG A
+light AGgm 0 Ag
 0 0 -1 0 0
 91 10 4560 P
 A
@@ -3106,7 +3107,7 @@ heal пилюля pill~
 @eng healing pill@rus {w~~пилюля~~ отдохновения {x~
 @eng Someone has left a pill of death here.@rus Кто-то оставил тут отравленную пилюлю (pill).~
 food~
-pill ABG AO
+pill ABGghm 0 AOgu
 90 'heal' 'refresh' 'heal' 'refresh'
 70 5 5500 P
 g female~
@@ -3115,7 +3116,7 @@ pill energize пилюля~
 @eng an energize pill@rus {D~~освежающая~~ ~~пилюля~~ {x~
 @eng Someone has left a deadly-looking pill here.@rus Смертельная пилюля (pill) лежит здесь.~
 food~
-pill ABGM AO
+pill ABGMghms 0 AOgu
 95 'refresh' 'teleport' 'heal' 'mana restore'
 75 0 25000 P
 A
@@ -3126,7 +3127,7 @@ pill great пилюля~
 @eng great battle pill@rus {C~~большая~~ ~~боевая~~ ~~пилюля~~ {x~
 @eng A HUGE pill seems to be able to heal all of your wounds.@rus Здесь лежит очень полезная лечебная пилюля (pill).~
 gut~
-pill 0 AO
+pill 0 0 AOgu
 20 'blindness' 'weaken' 'poison' 'calm'
 10 0 1000 P
 g female~
@@ -3135,7 +3136,7 @@ pill debugging~
 strange pill~
 A pill of debugging lies here.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 80 'detect hidden' 'detect invis' 'pass door' 'fly'
 0 0 0 P
 g none~
@@ -3144,8 +3145,8 @@ portrait grandfather портрет~
 @eng portrait@rus {Yпортрет {x~
 @eng A portrait of Grandfather hangs on the wall.@rus Портрет Дедушки (portrait) висит на стене.~
 canvas~
-portal ARY 0
-0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36358 0
+portal AYg Bh 0
+0 EMNOPQRSTUVWXYZabcdefkstuvwxyz Ag 36358 0
 0 10000 0 P
 g male~
 #36421
@@ -3153,8 +3154,8 @@ mirror wall зеркало~
 @eng mirror@rus {cзеркало {x~
 @eng A long wide mirror stands by the wall.@rus Высокое и широкое зеркало (mirror) стоит у стены (wall).~
 glass~
-portal RY P
-0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36357 0
+portal Y Bh 0
+0 EMNOPQRSTUVWXYZabcdefkstuvwxyz Ag 36357 0
 0 10000 0 P
 g none~
 #36422
@@ -3162,7 +3163,7 @@ flask blood фляжка~
 @eng flask of blood@rus {R~~фляжка~~ крови {x~
 @eng A flask of blood lies here.@rus Фляжка (flask), наполненная кровью, лежит здесь.~
 glass~
-drink E AO
+drink Ek 0 AOgu
 10 10 'blood' 0 0
 10 10 1000 P
 g female~
@@ -3171,8 +3172,8 @@ arrow titanium стрела~
 @eng titanium-headed arrow@rus {Y~~стрела~~ с титановым наконечником {x~
 @eng A heavy looking arrow lies in the dirt.@rus Тяжелая стрела (arrow) лежит в грязи.~
 wood~
-weapon 0 AO
-arrow 12 12 'pierce' K
+weapon 0 0 AOgu
+arrow 12 12 'pierce' Kq
 82 10 1500 P
 g female~
 #36424
@@ -3180,7 +3181,7 @@ staff green cold посох~
 @eng green staff@rus {G~~зеленый~~ ~~посох~~ {x~
 @eng A staff covered in bark lies here.@rus Неошкуренный посох (staff) лежит здесь.~
 wood~
-staff B AO
+staff Bh 0 AOgu
 20 10 10 'protection cold' 0
 10 100 100 P
 g male~
@@ -3189,7 +3190,7 @@ staff broom метла~
 @eng witch's broom@rus {D~~ведьмина~~ ~~метла~~ {x~
 @eng Witch's broom sweeps around you in a cloud of dust.@rus Метла ведьмы (broom) подняла вокруг тебя облако пыли.~
 wood~
-staff B AO
+staff Bh 0 AOgu
 10 10 10 'fly' 0
 10 50 2500 P
 g female~
@@ -3198,7 +3199,7 @@ ring holy silver кольцо~
 @eng holy ring@rus {w~~святое~~ ~~кольцо~~ {x~
 @eng A silver ring lies here.@rus Серебряное кольцо (ring) позабыто здесь.~
 silver~
-armor I AB
+armor Io 0 ABgh
 2 2 2 1 0
 15 0 5600 P
 A
@@ -3211,7 +3212,7 @@ amulet holy silver амулет~
 @eng holy amulet@rus {w~~святой~~ ~~амулет~~ {x~
 @eng Shiny silver amulet glows in the dirt.@rus Сверкающий серебряный амулет (amulet) блестит в пыли.~
 silver~
-armor AI AC
+armor AIgo 0 ACgi
 2 2 2 2 0
 25 10 12900 P
 A
@@ -3224,7 +3225,7 @@ helm iron шлем~
 @eng iron helm@rus {r~~железный~~ ~~шлем~~ {x~
 @eng An iron helm lies here.@rus Шлем (helm) из железа лежит тут.~
 iron~
-armor 0 AE
+armor 0 0 AEgk
 18 18 18 17 0
 25 40 4500 P
 g male~
@@ -3233,7 +3234,7 @@ mace iron heavy палица~
 @eng heavy iron mace@rus {r~~тяжелая~~ ~~железная~~ ~~палица~~ {x~
 @eng A huge mace stands at the corner.@rus Большая палица (mace) стоит в углу.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 8 8 'crush' 0
 60 100 16700 P
 g female~
@@ -3242,38 +3243,38 @@ eye dragon глаз~
 @eng eye of the dragon@rus {c({R.{c) {C~~глаз~~ дракона {x~
 @eng Dragon Eye lies in dust.@rus Драконий глаз (eye) валяется в грязи.~
 unknown~
-trash GU AO
+trash GUm 0 AOgu
 0 0 0 0 0
 10 5 1000 P
-S 'farsight' 30 A
+S 'farsight' 30 Ag
 g male~
 #36431
 toad tongue язык~
 @eng toad tongue@rus {M~~жабий~~ ~~язык~~ {x~
 @eng A tongue of toad is convulsing on the floor.@rus Язык (tongue) жабы дергается в конвульсиях.~
 unknown~
-trash GU AO
+trash GUm 0 AOgu
 0 0 0 0 0
 10 5 1000 P
-S 'ventriloquate' 30 A
+S 'ventriloquate' 30 Ag
 g male~
 #36432
 dried bat мышь~
 @eng dried bat@rus {G~~сушеная~~ ~~летучая~~ ~~мышь~~ {x~
 @eng Dried bat rustles with wings.@rus Сушеная летучая мышь (bat) трепещет крыльями.~
 unknown~
-trash GU AO
+trash GUm 0 AOgu
 0 0 0 0 0
 10 5 1000 P
-S 'control weather' 50 A
+S 'control weather' 50 Ag
 g female~
 #36433
 sword katana samurai катана~
 @eng katana@rus {wкатана {x~
 @eng A Sword of samurai humms quietly in your hands.@rus Меч (sword) Самурая тихо звенит в твоих руках.~
 steel~
-weapon AHM AN
-sword 5 10 'slash' DE
+weapon AHMgns 0 ANgt
+sword 5 10 'slash' DEjk
 50 100 30000 P
 g female~
 #36434
@@ -3281,7 +3282,7 @@ kimono кимоно~
 @eng kimono@rus {w кимоно {x~
 @eng Kimono hangs here.@rus Кимоно (kimono) висит тут.~
 silk~
-armor I AD
+armor Io 0 ADgj
 20 21 21 18 0
 50 20 20000 P
 A
@@ -3292,7 +3293,7 @@ coins кучка~
 @eng some coins@rus {Y()))~~несколько~~ ~~монет~~ {x~
 @eng A pile of coins lies here.@rus Кучка монет (coins) лежит здесь.~
 unknown~
-money A A
+money Ag 0 Ag
 5000 1000 0 0 0
 1 0 0 P
 g plural~
@@ -3301,7 +3302,7 @@ map town карта~
 @eng map of the Festival Town@rus {w~~карта~~ Города Фестивалей {x~
 @eng A brightly colored map lies here.@rus Ярко раскрашенная карта (map) лежит здесь.~
 paper~
-map 0 AO
+map 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 E
@@ -3440,7 +3441,7 @@ entrance дверь door~
 @eng entrance to the tower@rus {D~~вход~~ в башню {x~
 @eng An opened door beckons you to enter the tower.@rus Открытая дверь (door) приглашает тебя войти в башню.~
 unknown~
-portal 0 0
+portal 0 0 0
 0 0 0 4900 0
 0 0 0 P
 g none~
@@ -3449,7 +3450,7 @@ robe brown ряса~
 @eng brown robe@rus {Rряса {x~
 @eng A simple brown robe hangs on the branch.@rus Простая бурая ряса (robe) висит на ветке.~
 wool~
-armor I AD
+armor Io 0 ADgj
 10 10 10 10 0
 95 30 1000 P
 A
@@ -3464,16 +3465,16 @@ shackles foot iron band chain pair кандалы~
 @eng A pair of heavy iron foot shackles@rus Тяжелые железные кандалы~
 @eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей, соединенных крепкой цепью, лежит на замле.~
 iron~
-treasure CEHIPUY AG
+treasure CEHIPUYiknov 0 AGgm
 0 0 0 0 0
 90 300 10 P
 A
 18 50
 A
 17 100
-S 'settraps' 24 A
-S 'throwing weapons' 9 A
-S 'knife' 3 A
+S 'settraps' 24 Ag
+S 'throwing weapons' 9 Ag
+S 'knife' 3 Ag
 A
 14 250
 A
@@ -3781,7 +3782,7 @@ food and drink.
 D0
 ~
 grate~
-ABZ -1 36326
+ABZgh -1 36326
 D1
 ~
 ~
@@ -3889,7 +3890,7 @@ Z -1 36314
 D1
 ~
 grate~
-ABZ -1 36327
+ABZgh -1 36327
 D2
 ~
 ~
@@ -4105,7 +4106,7 @@ Z -1 36322
 D3
 ~
 grate~
-ABZ -1 36329
+ABZgh -1 36329
 S
 #36324
 @eng Walkway@rus Аллея~
@@ -4171,7 +4172,7 @@ Z -1 36398
 D2
 ~
 ~
-ABZ -1 36311
+ABZgh -1 36311
 S
 #36327
 @eng Small Path@rus Тропинка~
@@ -4180,7 +4181,7 @@ show their abilities.
 @rus Тропинка вьется между холмами, где маги
 могут продемонстрировать свои умения.
 ~
-0 C forest
+0 Ci forest
 D1
 ~
 ~
@@ -4188,7 +4189,7 @@ Z -1 36383
 D3
 ~
 ~
-ABZ -1 36315
+ABZgh -1 36315
 S
 #36328
 @eng Small Path@rus Тропинка~
@@ -4199,7 +4200,7 @@ South you can return back to the streets.
 Люди прогуливаются по лужайке и все они радуются празднику.
 Южнее вы можете вернуться обратно на улицы города.
 ~
-0 C forest
+0 Ci forest
 D0
 ~
 ~
@@ -4207,7 +4208,7 @@ Z -1 36319
 D2
 ~
 grate~
-ABZ -1 36440
+ABZgh -1 36440
 S
 #36329
 @eng Small Path@rus Тропинка~
@@ -4219,13 +4220,13 @@ the title of a champion.
 множество воинов, борющихся между собой за
 право получить Главный приз и титул Чемпиона.
 ~
-0 C forest
+0 Ci forest
 D1
 @eng A small grate blocks the way eastward.
 @rus Небольшая калитка закрывает проход на восток.
 ~
 grate~
-ABZ -1 36323
+ABZgh -1 36323
 D3
 ~
 ~
@@ -4343,7 +4344,7 @@ Z -1 36332
 D1
 ~
 ~
-ABZ -1 36349
+ABZgh -1 36349
 D2
 ~
 ~
@@ -4351,7 +4352,7 @@ Z -1 36334
 D3
 ~
 ~
-ABZ -1 36348
+ABZgh -1 36348
 S
 #36334
 @eng Main Street@rus Главная Улица~
@@ -4503,7 +4504,7 @@ southern wall. West you see a door to the treasure room.
 из дерева стоит у южной стены. На западе - дверь
 в сокровищницу.
 ~
-0 DE inside
+0 DEjk inside
 D0
 ~
 ~
@@ -4511,18 +4512,18 @@ Z -1 36339
 D3
 ~
 ~
-ABZ -1 36341
+ABZgh -1 36341
 S
 #36341
 @eng Dark Room@rus Кладовая~
 @eng It is pitch black.
 @rus Не видно ни зги...
 ~
-0 ADE inside
+0 ADEgjk inside
 D1
 ~
 ~
-ABZ -1 36340
+ABZgh -1 36340
 S
 #36342
 @eng Living Room@rus Гостиная~
@@ -4533,7 +4534,7 @@ bedroom, south you can get back to the entrance.
 окно виден парк перед домом. На западе находится спальня,
 на юг ты можешь вернуться обратно в холл.
 ~
-0 DE inside
+0 DEjk inside
 D2
 ~
 ~
@@ -4541,7 +4542,7 @@ Z -1 36339
 D3
 ~
 ~
-ABCFGZ 36376 36343
+ABCFGZghilm 36376 36343
 S
 #36343
 @eng Bedroom@rus Спальня~
@@ -4552,11 +4553,11 @@ the room.
 западной стене. Лесная опушка приглушает солнечный
 свет и создает приятный полумрак.
 ~
-0 ADE inside
+0 ADEgjk inside
 D1
 ~
 ~
-ABCFGZ 36376 36342
+ABCFGZghilm 36376 36342
 S
 #36344
 @eng Samurai's House@rus Домик Самурая~
@@ -4569,7 +4570,7 @@ locked in a small chest sitting by the corner.
 картины. На полках стоят статуэтки. Видимо, его катана
 и кимоно заперты в сундуке (chest), который стоит в углу.
 ~
-0 D inside
+0 Dj inside
 E
 chest~
 It's locked.
@@ -4593,7 +4594,7 @@ fill a quiver hanging on the back wall.
 лук стоит в углу, а на задней стене висит колчан,
 полный стрел.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -4606,7 +4607,7 @@ it is really a home of a great warrior.
 @rus Повсюду в доме сложено оружие и доспехи! Ты понимаешь,
 что действительно попал в дом Воина!
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -4617,7 +4618,7 @@ S
 @eng Some glowing armor stands by the corner.
 @rus Сверкающие доспехи стоят в углу.
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 ~
@@ -4628,11 +4629,11 @@ S
 @eng Simply the house of a dreaded vampire.
 @rus Просто домик ужасного Вампира.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
-ABZ -1 36333
+ABZgh -1 36333
 S
 #36349
 @eng Witch's House@rus Домик Ведьмы~
@@ -4641,11 +4642,11 @@ with witch's brew are everywhere.
 @rus На свой страх и риск ты вошел в дом Ведьмы! Повсюду стоят
 пузырьки, наполненные колдовскими снадобьями.
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 ~
-ABZ -1 36333
+ABZgh -1 36333
 S
 #36350
 @eng Cleric's House@rus Дом Монаха~
@@ -4654,7 +4655,7 @@ shelves and hanging on the walls.
 @rus Святые вещи и прочие принадлежности быта монаха
 лежат на полках и развешаны по стенам.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -4668,7 +4669,7 @@ what you want. But someone has been here just before you...
 раз пока он на Фестивале, и ты можешь взять все, что
 плохо лежит. Но кто-то уже побывал тут до тебя...
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 ~
@@ -4684,11 +4685,11 @@ see a great Dining Hall. West you can get back outdoors.
 ты видишь Пиршественную Залу. На западе ты можешь
 вернуться на улицу.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ -1 36354
+ABZgh -1 36354
 D2
 ~
 ~
@@ -4715,7 +4716,7 @@ Mayor's office.
 рамках висят на стенах. Кресла для посетителей стоят
 вдоль южной стены. В кабинет Мэра наверху ведет лестница.
 ~
-0 DE inside
+0 DEjk inside
 D0
 ~
 ~
@@ -4723,11 +4724,11 @@ Z -1 36352
 D1
 ~
 ~
-ABZ -1 36360
+ABZgh -1 36360
 D4
 ~
 ~
-ABZ -1 36359
+ABZgh -1 36359
 S
 #36354
 @eng Great Hall@rus Большой Зал~
@@ -4742,19 +4743,19 @@ Mayor's apartments. Probably you aren't allowed there.
 в Библиотеку. Маленькая дверь на вершине лестницы ведет
 в апартаменты Мэра. Ты чувствуешь, что не стоит туда заходить...
 ~
-0 DE inside
+0 DEjk inside
 D1
 ~
 ~
-ABZ -1 36357
+ABZgh -1 36357
 D2
 ~
 ~
-ABZ -1 36352
+ABZgh -1 36352
 D4
 ~
 ~
-ABZ -1 36355
+ABZgh -1 36355
 S
 #36355
 @eng Living Room@rus Апартаменты~
@@ -4769,11 +4770,11 @@ room.
 стенах висят гобелены. Стол с едой и напитками стоит
 возле западной стены. Яркие окна освещают комнату.
 ~
-0 DE inside
+0 DEjk inside
 D5
 ~
 ~
-ABZ -1 36354
+ABZgh -1 36354
 S
 #36356
 @eng Dining Hall@rus Пиршественная Зала~
@@ -4786,7 +4787,7 @@ hurries preparing a festival dinner.
 фруктами, выпечкой и прочими яствами и напитками. Группа
 слуг торопится закончить все приготовления.
 ~
-0 DE inside
+0 DEjk inside
 D5
 ~
 ~
@@ -4802,11 +4803,11 @@ ever written. Come on and find what you want!
 книгу, когда-либо написанную. Заходи и выбирай все,
 что нужно.
 ~
-0 DE inside
+0 DEjk inside
 D3
 ~
 ~
-ABZ -1 36354
+ABZgh -1 36354
 S
 #36358
 @eng Lost in time@rus В глубинах Времени~
@@ -4820,7 +4821,7 @@ room with no exits.
 чувствовать. Внезапно сияние исчезает в вихре ярких брызг,
 и ты обнаруживаешь, что попал в странное место без выходов...
 ~
-0 ADN inside
+0 ADNgjt inside
 S
 #36359
 @eng Mayor's Office@rus Кабинет Мэра~
@@ -4835,7 +4836,7 @@ frame.
 На северной стене висит диплом (diploma), заключенный
 в яркую золотую рамку.
 ~
-0 DEJ inside
+0 DEJjkp inside
 E
 diploma~
 Agrael and Kami made this.
@@ -4849,7 +4850,7 @@ A huge table stands in the middle of the room.
 D5
 ~
 ~
-ABZ -1 36353
+ABZgh -1 36353
 S
 #36360
 @eng Archives@rus Архив~
@@ -4861,11 +4862,11 @@ shelves.
 различаешь маленькую конторку с простым стулом подле
 нее. Полки завалены кучей свитков, постановлений и книг.
 ~
-0 DE inside
+0 DEjk inside
 D3
 ~
 ~
-ABZ -1 36353
+ABZgh -1 36353
 S
 #36361
 @eng The edge of the Forest@rus Лесная опушка~
@@ -5433,7 +5434,7 @@ there is a way home?
 Однако под корнями виднеется темная нора.
 Возможно она куда-нибудь и приведет тебя...
 ~
-0 C forest
+0 Ci forest
 S
 #36389
 @eng Rocky Mountain@rus Вершина горы~
@@ -5466,7 +5467,7 @@ D5
 A rock blocks the way down.
 ~
 rock~
-ABZ -1 36400
+ABZgh -1 36400
 S
 #36390
 @eng Hills@rus Холмы~
@@ -5668,7 +5669,7 @@ S
 @eng You have come far deep in the dark forest. You are lost...
 @rus Ты попал в самую чащу леса. И заблудился...
 ~
-0 CN forest
+0 CNit forest
 S
 #36400
 @eng Entrance Cave@rus Вход в пещеру~
@@ -5677,12 +5678,12 @@ yourself cold. A dump tunnel leads down.
 @rus Ты ныряешь в  темноту. Влажные стены заставляют
 тебя дрожать от холода. Сырой туннель ведет вниз.
 ~
-0 ADN mountain
+0 ADNgjt mountain
 D4
 A rock block the way back.
 ~
 rock~
-ABZ -1 36389
+ABZgh -1 36389
 D5
 ~
 ~
@@ -5695,7 +5696,7 @@ climb back to the daylight.
 @rus Ты вошел в темную пещеру. На востоке вход в широкий туннель, 
 идя вверх ты можешь вновь вернуться к дневному свету.
 ~
-0 ADN mountain
+0 ADNgjt mountain
 D3
 ~
 ~
@@ -5714,7 +5715,7 @@ east you see a light streaming from nowhere.
 и ты начинаешь жалеть, что не прихватил с собой лодку
 Далеко на востоке ты видишь свет, струящийся ниоткуда.
 ~
-0 ADN mountain
+0 ADNgjt mountain
 D1
 D
 ~
@@ -5735,7 +5736,7 @@ east you see a light streaming from nowhere.
 и ты начинаешь жалеть, что не прихватил с собой лодку
 Далеко на востоке ты видишь свет, струящийся ниоткуда.
 ~
-0 ADN mountain
+0 ADNgjt mountain
 D1
 ~
 ~
@@ -5755,7 +5756,7 @@ east you see a light streaming from nowhere.
 и ты начинаешь жалеть, что не прихватил с собой лодку
 Далеко на востоке ты видишь свет, струящийся ниоткуда.
 ~
-0 ADN mountain
+0 ADNgjt mountain
 D1
 ~
 ~
@@ -5776,7 +5777,7 @@ catching your eyes flows just from this place.
 озера виднеется островок, и ты обнаруживаешь, что свет,
 бьющий тебе в глаза исходит как раз оттуда.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -5803,7 +5804,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -5827,7 +5828,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D2
 ~
 ~
@@ -5847,7 +5848,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
@@ -5871,7 +5872,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
@@ -5895,7 +5896,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
@@ -5919,7 +5920,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D1
 ~
 ~
@@ -5939,7 +5940,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -5963,7 +5964,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -5987,7 +5988,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6011,7 +6012,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6031,7 +6032,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6055,7 +6056,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6079,7 +6080,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6103,7 +6104,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6123,7 +6124,7 @@ Bats screams above you as you disturb them.
 противоположного берега озера. Маленькие змейки,
 слизняки и насекомые обитают здесь.
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6146,7 +6147,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6178,7 +6179,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6210,7 +6211,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6242,7 +6243,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6274,7 +6275,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6306,7 +6307,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6338,7 +6339,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6370,7 +6371,7 @@ someone is hidden amidst this beauty!
 сталактитами и сталагмитами, окружающими тебя. Но будь
 осторожен, вдруг среди них кто-нибудь прячется!
 ~
-0 DN noswim
+0 DNjt noswim
 D0
 ~
 ~
@@ -6402,7 +6403,7 @@ down. Probably there is another way home? Who knows...
 наверх, ты срываешься и падаешь вниз. Может быть, есть
 другой путь домой? Кто знает...
 ~
-0 DN inside
+0 DNjt inside
 D0
 ~
 ~
@@ -6433,7 +6434,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 CDN air
+0 CDNijt air
 D0
 ~
 ~
@@ -6469,7 +6470,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D1
 ~
 ~
@@ -6497,7 +6498,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D2
 ~
 ~
@@ -6521,7 +6522,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D0
 ~
 ~
@@ -6549,7 +6550,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D0
 ~
 ~
@@ -6573,7 +6574,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D0
 ~
 ~
@@ -6601,7 +6602,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D0
 ~
 ~
@@ -6625,7 +6626,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D0
 ~
 ~
@@ -6653,7 +6654,7 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 озера. Ты чувствуешь идущий сверху поток свежего
 воздуха.
 ~
-0 DN air
+0 DNjt air
 D1
 ~
 ~
@@ -6704,7 +6705,7 @@ part of the town. East and west 2nd Line continues.
 D0
 ~
 grate~
-ABZ -1 36328
+ABZgh -1 36328
 D1
 ~
 ~
@@ -6798,7 +6799,7 @@ and a simple fireplace stand here.
 несколько стульев и простой очаг занимают почти
 все пространство комнаты.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -6812,7 +6813,7 @@ S
 несколько стульев и простой очаг занимают почти
 все пространство комнаты.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -6826,7 +6827,7 @@ S
 несколько стульев и простой очаг занимают почти
 все пространство комнаты.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -6840,7 +6841,7 @@ S
 несколько стульев и простой очаг занимают почти
 все пространство комнаты.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~

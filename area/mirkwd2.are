@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Mirkwood~
 VNUMs 8800 8899
 Credits Yaegar~
@@ -19,10 +20,10 @@ back down. As natives of Mirkwood, they are virtually imposssible to see
 if they don't want to be seen.
 ~
 elf~
-ABCFGl FQ 400 0
+BCFGhilm 0 0 Bh Bh 400 0
 5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 10
-DF 0 0 0
+DFjl
 stand sit male 103
 0 0 small unknown
 r slash -50
@@ -41,10 +42,10 @@ hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
 ~
 elf~
-ABCFGl 0 400 0
+BCFGhilm 0 0 0 0 400 0
 7 2 2d6+84 1d1+99 1d8+1 'slice'
 5 5 7 10
-CEF 0 0 0
+CEFikl
 rest stand male 150
 0 0 small unknown
 r bash -50
@@ -62,10 +63,10 @@ in their own demise, but eventually the Elves will be worn down by the
 sheer weight of numbers of the immense Orcish hordes.
 ~
 orc~
-ABCFGHl 0 -400 0
+BCFGHhilmn 0 0 0 0 -400 0
 5 0 2d6+60 1d1+99 1d6+1 'slap'
 10 5 10 10
-CDF 0 0 0
+CDFijl
 stand stand male 211
 0 0 medium unknown
 r bash -50
@@ -95,10 +96,10 @@ but eventually the Elves will be worn down by the sheer weight of numbers
 of the immense Orcish hordes.
 ~
 orc~
-ACFGl 0 -400 0
+CFGilm 0 0 0 0 -400 0
 5 1 2d6+60 1d1+99 1d6+1 'grep'
 5 5 7 5
-EIN 0 0 0
+EINkot
 stand stand male 0
 0 0 medium unknown
 r fire -50
@@ -123,10 +124,10 @@ This angry guard is incensed at your trespass in the hall of his king, and
 will attempt to forcibly eject you.
 ~
 elf~
-AFGQTl 0 400 8807
+FGQTlmwz 0 0 0 0 400 8807
 8 0 2d7+98 1d1+99 1d7+2 'smash'
 3 3 3 5
-CKNRT 0 0 0
+CKNRTiqtxz
 stand stand male 50
 0 0 small unknown
 r fire 100
@@ -144,10 +145,10 @@ hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
 ~
 elf~
-ABCFGQ 0 400 0
+BCFGQhilmw 0 0 0 0 400 0
 12 1 2d10+150 1d1+99 1d10+3 'claw'
 1 1 0 7
-CDEFRTU 0 0 0
+CDEFRTUijklxz
 stand stand male 100
 0 0 medium unknown
 r fire 100
@@ -172,10 +173,10 @@ Galion has a tremenous fondness for Dorwinion Wine, and he is now well and
 truly inebriated. However that does not mean he won't react to your intrusion.
 ~
 elf~
-ABCFGl 0 400 0
+BCFGhilm 0 0 0 0 400 0
 10 0 2d7+120 1d1+99 2d4+2 'punch'
 2 2 2 8
-KN 0 0 0
+KNqt
 stand stand male 0
 0 0 medium unknown
 r charm 100
@@ -188,10 +189,10 @@ While not immune to the prejudices of his brethren, Thranduil is a trifle
 wiser (and more civilized) and he will not attack without provocation.
 ~
 elf~
-ABGR H 500 0
+BGRhmx 0 Hn 0 0 500 0
 15 1 3d9+180 1d1+149 2d5+1 'claw'
 -1 -1 -1 2
-CDEK 0 0 0
+CDEKijkq
 sit sit male 0
 0 0 medium unknown
 r bash 33
@@ -206,10 +207,10 @@ This person won't attack you like the guards will, but that doesn't mean
 he likes you any more than they do...
 ~
 elf~
-ACGQ 0 400 0
+CGQimw 0 0 0 0 400 0
 6 0 2d7+70 1d1+99 1d7+1 'punch'
 4 4 4 5
-FR 0 0 0
+FRlx
 stand stand male 0
 0 0 small unknown
 #8809
@@ -221,10 +222,10 @@ This person won't attack you like the guards will, but that doesn't mean
 ahe likes you any more than they do...
 ~
 elf~
-ACGQ 0 400 0
+CGQimw 0 0 0 0 400 0
 6 0 2d7+65 1d1+99 1d7+1 'punch'
 5 5 5 5
-FR 0 0 0
+FRlx
 stand stand female 0
 0 0 small unknown
 #8810
@@ -235,10 +236,10 @@ The turnkey sleeps here.
 This surly fellow is almost always passed out from copious alcohol consumption.
 ~
 elf~
-ABCG 0 0 0
+BCGhim 0 0 0 0 0 0
 9 -1 2d6+112 1d1+99 1d8+2 'slap'
 2 2 2 4
-FJ 0 0 0
+FJlp
 sleep sleep male 20
 0 0 small unknown
 #8811
@@ -251,10 +252,10 @@ by the Wood Elves while journeying to avenge their brethren against the
 dragon Smaug.
 ~
 elf~
-ACGQ O 500 0
+CGQimw 0 Ou 0 0 500 0
 14 0 2d10+190 1d1+99 1d12+3 'punch'
 -1 -1 -1 0
-IKNR 0 0 0
+IKNRoqtx
 stand stand male 40
 0 0 medium unknown
 r cold 33
@@ -267,7 +268,7 @@ pool~
 a pool~
 A pool of crystal-clear water fills this clearing.~
 air~
-fountain 0 0
+fountain 0 0 0
 10000 10000 'water' 0 0
 0 0 0 P
 E
@@ -280,7 +281,7 @@ sword~
 an elvish sword~
 A beautiful sword has been left here.~
 adamantite~
-weapon G AN
+weapon Gm 0 ANgt
 sword 1 5 'slash' 0
 5 30 500 G
 A
@@ -291,7 +292,7 @@ cloak~
 a plain elven cloak~
 A plain, but practical, Elven cloak lies here.~
 cloth~
-armor G AC
+armor Gm 0 ACgi
 3 3 3 0 1
 5 40 200 G
 A
@@ -304,7 +305,7 @@ boots~
 a pair of plain elven boots~
 A plain, but practical, pair of Elven boots.~
 leather~
-armor G AG
+armor Gm 0 AGgm
 3 4 4 0 2
 5 30 400 G
 A
@@ -317,7 +318,7 @@ water flask~
 a water flask~
 An Elven water flask. It is rumored that they can provide water for days.~
 porcelain~
-drink 0 A
+drink 0 0 Ag
 10 10 'water' 0 0
 0 15 50 G
 g none~
@@ -326,7 +327,7 @@ shield~
 a spiked metal shield~
 An Orcish spiked metal shield has been left here.~
 steel~
-armor 0 AJ
+armor 0 0 AJgp
 3 4 4 0 3
 5 40 400 G
 g none~
@@ -335,7 +336,7 @@ scimitar~
 an orcish scimitar~
 An Orcish scimitar has been left here.~
 iron~
-weapon G AN
+weapon Gm 0 ANgt
 sword 1 6 'cleave' 0
 5 120 450 G
 A
@@ -348,7 +349,7 @@ helm~
 an ugly spiked helm~
 An ugly Orcish spiked helm has been left here.~
 bronze~
-armor G AE
+armor Gm 0 AEgk
 4 3 3 0 2
 5 140 200 G
 A
@@ -359,7 +360,7 @@ flask wine~
 a flask of Dorwinion wine~
 A half-drunk flask of fine Dorwinion wine lies here.~
 porcelain~
-drink 0 A
+drink 0 0 Ag
 10 5 'red wine' 0 0
 5 60 150 G
 g none~
@@ -368,7 +369,7 @@ barrel wine~
 a barrel of Dorwinion wine~
 A barrel of Dorwinion wine is here.~
 wood~
-drink 0 A
+drink 0 0 Ag
 50 50 'water' 0 0
 0 100 300 G
 g none~
@@ -377,7 +378,7 @@ barrel~
 an empty barrel~
 This empty barrel would make a fine boat.~
 wood~
-drink 0 A
+drink 0 0 Ag
 100 0 'water' 0 0
 1 140 200 G
 g none~
@@ -386,8 +387,8 @@ sword~
 a fine elven sword~
 A fine Elven sword glimmers softly here.~
 metal~
-weapon AL AN
-sword 2 12 'cleave' DF
+weapon ALgr 0 ANgt
+sword 2 12 'cleave' DFjl
 14 45 600 G
 A
 2 1
@@ -401,7 +402,7 @@ key~
 a key~
 A key to a cell door is here.~
 iron~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 10 0 G
 g none~
@@ -410,7 +411,7 @@ key~
 a key~
 A key to a cave door is here.~
 iron~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 10 0 G
 g none~
@@ -427,7 +428,7 @@ away from the prying eyes of strangers.
 There is a sign tacked to a tree nearby.
      There is a small (Glowing) (Huming) tablet.
 ~
-0 C forest
+0 Ci forest
 E
 sign~
 This area serves as a connector for many areas with an Elven or Faerie flavour,
@@ -868,7 +869,7 @@ This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a wide stream to the south.
 A broad, tree-lined path runs to the east.
 ~
-0 C forest
+0 Ci forest
 D0
 ~
 ~
@@ -1398,7 +1399,7 @@ The entrance is directly before you.
 D1
 ~
 ~
-ABCZ 8813 8858
+ABCZghi 8813 8858
 D3
 ~
 ~
@@ -1411,7 +1412,7 @@ is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 The enchantments here prohibit spellcasting of any form.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1423,7 +1424,7 @@ Z -1 8864
 D3
 ~
 ~
-ABCZ 8813 8857
+ABCZghi 8813 8857
 S
 #8859
 Inside the Cave~
@@ -1431,11 +1432,11 @@ You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
-ABZ 0 8860
+ABZgh 0 8860
 D2
 ~
 ~
@@ -1446,19 +1447,19 @@ A Guard Room~
 You have stumbled into the guard room! The guards will definitely not
 be happy to see you. You fancy you can hear muffled cries for help.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABCZ 8812 8867
+ABCZghi 8812 8867
 D1
 ~
 ~
-ABZ 0 8861
+ABZgh 0 8861
 D3
 ~
 ~
-ABZ 0 8859
+ABZgh 0 8859
 S
 #8861
 Storage Room~
@@ -1467,22 +1468,22 @@ A trapdoor in the floor allows access to the river, and it is through here
 that the Elves deposit their empty barrels, so that the river may carry
 them down to Lake Town.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
-ABZ 0 8860
+ABZgh 0 8860
 D5
 ~
 ~
-ABZ 0 8862
+ABZgh 0 8862
 S
 #8862
 The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C noswim
+0 Ci noswim
 D2
 ~
 ~
@@ -1490,14 +1491,14 @@ Z -1 8863
 D4
 ~
 ~
-ABZ 0 8861
+ABZgh 0 8861
 S
 #8863
 The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C noswim
+0 Ci noswim
 D0
 ~
 ~
@@ -1513,7 +1514,7 @@ You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1521,7 +1522,7 @@ Z 0 8858
 D1
 ~
 ~
-ABZ 0 8865
+ABZgh 0 8865
 S
 #8865
 The Throne Room of Thrandul~
@@ -1529,18 +1530,18 @@ Now you've blown it. You've gone and stumbled into the King's Throne Room.
 He is seated upon an intricately-carved wooden throne at the end of the hall.
 Dour guards glare at you on all sides.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
-ABZ 0 8864
+ABZgh 0 8864
 S
 #8866
 The River~
 You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
 ~
-0 C noswim
+0 Ci noswim
 D0
 ~
 ~
@@ -1555,11 +1556,11 @@ A Cell~
 This damp cell is small and cramped, and offers little comfort to its
 single inhabitant.
 ~
-0 AD inside
+0 ADgj inside
 D2
 ~
 ~
-ABCZ 0 8860
+ABCZghi 0 8860
 S
 #8868
 A Northern Path~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Shalafi~
 VNUMs 95300 95399
 Credits Asena~
@@ -21,13 +22,12 @@ some other magical materials.
 @rus Призрачная фигура плавает перед тобой и готова направить магическую смерть на всех, кто противостоит ее повелителям. Она создана из огня и некоторых других магических материалов.
 ~
 elf~
-ABJKRefl DFHTZlmt 0 0
+ABDEJReghjkpx CDFGIijlmo HTnz 0 ABgh 0 0
 92 30 2d500+25000 1d1+3999 10d25+90 'slice'
 -79 -79 -79 -40
-FIKN 0 0 0
+FIKNloqt
 stand stand male 0
 0 0 medium unknown
-F aff JP
 M grall 95300 100~
 M exall 95302 0~
 C Shalafi
@@ -63,10 +63,10 @@ He has a nice smile on his face.
 красивые белые волосы.  На его лице застыла прекрасная улыбка.  
 ~
 human~
-ABQVael DFH 1000 0
+BQVehw Hn Hn 0 ABgh 1000 0
 90 10 1d1+28999 1d1+999 2d4+30 'divine'
 -75 -75 -75 -55
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 1000
 0 0 medium unknown
 C Shalafi
@@ -100,10 +100,10 @@ sprout from either side of the broad torso, ending in wickedly sharp black
 talons.
 ~
 unique~
-AB JZ -1000 0
+Bh 0 0 0 Hn -1000 0
 40 0 1d1+2000 1d1+1 2d4+20 'slash'
 -15 -15 -15 -15
-FHI 0 0 0
+FHIlno
 stand stand male 0
 0 0 medium unknown
 r fire 100
@@ -115,10 +115,10 @@ vampire old старый вампир~
 ~
 ~
 undead~
-ABGO R -1000 0
+BGOhmu 0 Rx 0 0 -1000 0
 92 30 2d500+25000 1d1+3999 10d25+90 'bite'
 -79 -79 -79 -40
-CFR 0 0 0
+CFRilx
 stand stand male 0
 0 0 huge unknown
 M bribe 95301 5000~
@@ -132,13 +132,13 @@ prisoner узник~
 и безумен. Безумие и жажда смерти заставляют его бросаться на всех он видет.
 ~
 human~
-ABG 0 1000 0
+BGhm 0 0 0 0 1000 0
 10 0 2d5+50 0d0+0 1d1+5 'pound'
 -1 -1 -1 0
-U 0 0 0
+U
 stand stand male 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #0
 
 #OBJECTS
@@ -147,8 +147,8 @@ altar spider алтарь~
 @eng a huge violet altar carved as a spider@rus ~~огромный~~ ~~фиолетовый~~ ~~алтарь~~~
 @eng A hude spider shaped altar is standing at the center of room.@rus Алтарь (spider altar), похожий на огромного паука, стоит в центре комнаты.~
 ivory~
-container AORY P
-10 ABCD 95302 15 100
+container AYg ABgh 0
+10 ABCDghij 95302 15 100
 60 1 20 P
 g none~
 #95301
@@ -156,7 +156,7 @@ orb источник~
 @eng Orb of Magic@rus ~~источник~~ магии~
 @eng Orb of magic is here.@rus Источник магии (orb) ордена Шалафи весит в воздухе прямо перед тобой.~
 ebony~
-treasure AGRe A
+treasure AGgm BHhn Ag
 0 0 0 0 0
 0 1 100000 P
 g male~
@@ -165,7 +165,7 @@ key ключ~
 @eng a spider shaped key@rus ключ в форме паука~
 @eng A spider shaped  key is on the ground.@rus Ключ в форме паука (key) лежит на земле.~
 steel~
-key ORYf AOP
+key Y ABIJKghopq AOgu
 0 0 0 0 0
 0 4 0 P
 g male~
@@ -174,8 +174,8 @@ portal white портал object~
 @eng Magical White Portal@rus ~~белый~~ ~~магический~~ ~~портал~~~
 @eng A magically created white object casts strange shadows across the clearing.@rus Белый объект (white portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
-portal AO 0
-0 0 D 9209 0
+portal Ag Ag 0
+0 0 Dj 9209 0
 0 0 0 P
 g none~
 #95304
@@ -183,8 +183,8 @@ portal black портал object~
 @eng Magical Black Portal@rus ~~черный~~ ~~магический~~ ~~портал~~~
 @eng A magically created black object casts strange shadows across the clearing.@rus Черный объект (black portal), созданный при помощи магии, отбрасывает странные тени.~
 energy~
-portal AO 0
-0 0 E 0 0
+portal Ag Ag 0
+0 0 Ek 0 0
 0 0 0 P
 g none~
 #95305
@@ -192,8 +192,8 @@ sofa софа~
 @eng sofa of meditation@rus ~~софа~~ для медитации~
 @eng Sofa of meditation is here.@rus Софа (sofa) для медитации стоит в углу комнаты.~
 unknown~
-furniture GRT P
-BD 0 EHK DGH DGH
+furniture Gm BChi 0
+BDhj 0 EHKknq DGHjmn DGHjmn
 0 0 0 P
 g none~
 #95306
@@ -201,7 +201,7 @@ talisman талисман~
 @eng {CMagic talisman{x@rus ~~{CМагический{x~~ ~~{Cталисман{x~~~
 @eng A very beautiful magic talisman is here.@rus Прекрасный магический талисман (talisman) виднеется здесь.~
 magic~
-jewelry AGIMTYZ AS
+jewelry AGIMYgmos CEik ASgy
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -223,7 +223,7 @@ it gives off a soft purple radiance.
 находится алтарь, формой напоминающий огромного паука.  Вырезанный из
 алмаза, он излучает багровое сияние.  
 ~
-0 DKX inside
+0 DKXjq inside
 D1
 ~
 ~
@@ -250,7 +250,7 @@ it.
 мира Теней.  Вы замечаете несколько вызванных красных демонов и они очень
 сердятся на вас.  
 ~
-0 DKX inside
+0 DKXjq inside
 D4
 ~
 ~
@@ -268,7 +268,7 @@ eternity and power of the magic. The mist itself thickens to the up.
 @rus Вас окружает внезапно появившийся туман, который ухудшает ваше зрение и
 омрачает разум.  Вы начинаете задумываться о вечности и силе магии.  
 ~
-0 DKX inside
+0 DKXjq inside
 D4
 ~
 ~
@@ -289,7 +289,7 @@ light. A flight of stairs lead up and down.
 догадываться. Огромный шар чистой энергии освещает это мрачное место. 
 Лестница ведет вверх (up) и вниз (down).
 ~
-0 DKX inside
+0 DKXjq inside
 D4
 ~
 ~
@@ -309,7 +309,7 @@ Arcane Arts.
 магическое свечение, которое создает достаточно света чтобы видеть.  Может
 быть на верхнем уровне находится секрет башни и искусств Аркана.  
 ~
-0 DKX inside
+0 DKXjq inside
 D2
 ~
 ~
@@ -333,7 +333,7 @@ universe has been used to create this tower.
 чистой магии и вы чуствуете, что вся магическая сила вселенной была
 использована при создании этой башни.  
 ~
-0 DKX inside
+0 DKXjq inside
 D0
 ~
 ~
@@ -341,7 +341,7 @@ Z -1 95304
 D2
 ~
 ~
-DZ -1 95306
+DZj -1 95306
 S
 #95306
 @eng The Mystical Path@rus Мистический Путь~
@@ -353,11 +353,11 @@ Arts.
 известных измерений окружают вас.  Этот путь был создан при помощи магии и
 выглядит совершенным.  Над вами возвышается башня искусств Аркана.  
 ~
-0 DKX inside
+0 DKXjq inside
 D0
 ~
 ~
-DZ -1 95305
+DZj -1 95305
 D2
 ~
 ~
@@ -365,7 +365,7 @@ Z 0 95309
 D5
 ~
 ~
-DZ 0 95310
+DZj 0 95310
 S
 #95307
 @eng The Mystical Room@rus Мистическая комната~
@@ -380,7 +380,7 @@ you to find some materials to create powerful wands and staves.
 может помочь вам разыскать необходимые материалы для создания мощных жезлов
 и посохов.  
 ~
-0 DKX inside
+0 DKXjq inside
 D3
 ~
 ~
@@ -399,7 +399,7 @@ you to find some materials to create powerful wands and staves.
 может помочь вам разыскать необходимые материалы для создания мощных жезлов
 и посохов.  
 ~
-0 DKX inside
+0 DKXjq inside
 D1
 ~
 ~
@@ -412,7 +412,7 @@ S
 известных измерений окружают вас.  Этот путь был создан при помощи магии и
 выглядит совершенным.  Над вами возвышается башня искусств Аркана.  
 ~
-0 DKX inside
+0 DKXjq inside
 D0
 ~
 ~
@@ -431,7 +431,7 @@ S
 ее покровом. Нет места надежде для попавших сюда...их удел - отчаяние и
 ожидание смерти.
 ~
-0 ADKX inside
+0 ADKXgjq inside
 D0
 ~
 ~
@@ -439,7 +439,7 @@ Z 0 95311
 D4
 ~
 ~
-DZ 0 95306
+DZj 0 95306
 S
 #95311
 @eng Ancient Crypt@rus Древний склеп~
@@ -451,7 +451,7 @@ S
 выпить твои силы, сковывает тебя по рукам и ногам...ЭТИ ГРОБЫ !!!! ОНИ
 НАЧИНАЮТ ОТКРЫВАТЬСЯ !!! Нечто... ПОДЧИНЯЕТ тебя своей власти!!!
 ~
-0 ADKX inside
+0 ADKXgjq inside
 D2
 ~
 ~

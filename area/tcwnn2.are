@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name The Walls of Anon~
 VNUMs 31200 31399
 Credits Yaegar~
@@ -18,10 +19,10 @@ eternally vigilant, not wishing for their city to fall under the domination
 of evil forces.
 ~
 human~
-AGT HN 500 0
+GTmz 0 HNnt 0 0 500 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31201
@@ -35,10 +36,10 @@ eternally vigilant, not wishing for their city to fall under the domination
 of evil forces.
 ~
 human~
-AGT HN 500 0
+GTmz 0 HNnt 0 0 500 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31202
@@ -52,10 +53,10 @@ eternally vigilant, not wishing for their city to fall under the domination
 of evil forces.
 ~
 human~
-AGT HN 500 0
+GTmz 0 HNnt 0 0 500 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31203
@@ -69,10 +70,10 @@ eternally vigilant, not wishing for their city to fall under the domination
 of evil forces.
 ~
 human~
-AGT HN 500 0
+GTmz 0 HNnt 0 0 500 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31204
@@ -86,10 +87,10 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+BGThmz 0 HNnt 0 ABKLghqr 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31205
@@ -103,10 +104,10 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+BGThmz 0 HNnt 0 ABKLghqr 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31206
@@ -120,10 +121,10 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+BGThmz 0 HNnt 0 ABKLghqr 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31207
@@ -137,10 +138,10 @@ face and the cold look in his eye bespeak of a man who definitely knows how
 to handle himself in battle.
 ~
 human~
-ABGT CDEFHN 800 0
+BGThmz 0 HNnt 0 ABKLghqr 800 0
 55 0 50d10+5500 5d5+5000 10d4+23 'slash'
 -25 -25 -25 -1
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31208
@@ -153,10 +154,10 @@ in existence for 15 generations. However constant wars and incursions of
 chaos have severely depleted their numbers, and now very few remain.
 ~
 human~
-ABGT CDEFHN 1000 0
+BGThmz 0 HNnt 0 ABKLghqr 1000 0
 58 0 50d10+6250 5d5+5000 5d10+25 'slash'
 -28 -28 -28 -3
-CDEFIK 0 0 0
+CDEFIKijkloq
 stand stand male 200
 0 0 medium unknown
 #31209
@@ -171,10 +172,10 @@ adventurers. Some of them, such as this fellow, labor for the forces of
 good, if the price is right.
 ~
 elf~
-ABGR CDEFT 400 0
+BGRhmx 0 Tz 0 ABKLghqr 400 0
 56 0 50d10+5750 5d5+5000 10d4+24 'pound'
 -26 -26 -26 -2
-EIK 0 0 0
+EIKkoq
 stand stand male 200
 0 0 medium unknown
 #31210
@@ -187,10 +188,10 @@ medals than it does material. He marches proudly along, constantly on
 duty, ever eager to make sure order is maintained on HIS walls.
 ~
 human~
-ABGT CDEFHN 800 0
+BGThmz 0 HNnt 0 ABKLghqr 800 0
 62 0 50d10+7250 5d5+5000 6d9+32 'slash'
 -32 -32 -32 -4
-CEFIK 0 0 0
+CEFIKikloq
 stand stand male 200
 0 0 medium unknown
 #31211
@@ -203,10 +204,10 @@ across the land. Only the very best can ever hope to join their elite
 ranks.
 ~
 human~
-ABGT JN 400 0
+BGThmz 0 Nt 0 Hn 400 0
 48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
-EFIKN 0 0 0
+EFIKNkloqt
 stand stand male 200
 0 0 medium unknown
 #31212
@@ -218,10 +219,10 @@ This doughty dwarf spends all his time repairing damaged equipment. He isn't
 one for much conversation.
 ~
 dwarf~
-ABGT CDEFHN 0 0
+BGThmz 0 HNnt 0 ABKLghqr 0 0
 59 0 50d10+6500 5d5+5000 8d6+26 'pound'
 -29 -29 -29 -3
-CDEFIKTU 0 0 0
+CDEFIKTUijkloqz
 stand stand male 200
 0 0 medium unknown
 #31213
@@ -234,10 +235,10 @@ girl here who eventually slew him, dying herself in the process. He has been
 condemned to remain here for eternity in punishment for his sins.
 ~
 unique~
-ABFG CDEFJNPTu -1000 0
+BFGhlm 0 NTtz Gm ABHKLghnqr -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 'charge'
 -30 -30 -30 -3
-EFIKN 0 0 0
+EFIKNkloqt
 stand stand none 200
 0 0 medium unknown
 #31214
@@ -251,10 +252,10 @@ escape, but died herself in the process, slipping in his blood and breaking
 her neck. Her spirit remains here, tormented by its misery.
 ~
 unique~
-ABGH BCDEFHJNPQT 1000 0
+BGHhmn 0 HNTntz ABGghm ABHKLghnqr 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 'magic'
 -30 -30 -30 -3
-EF 0 0 0
+EFkl
 stand stand none 200
 0 0 medium unknown
 #31215
@@ -267,10 +268,10 @@ smiles at you as you enter, and bids you state your injuries so she can
 heal them.
 ~
 human~
-ABG CDEFHJN 1000 0
+BGhm 0 HNnt 0 ABHKLghnqr 1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 'slap'
 -30 -30 -30 -3
-EFNU 0 0 0
+EFNUklt
 stand stand female 200
 0 0 medium unknown
 #31216
@@ -282,10 +283,10 @@ These burly fellows would be a tough foe in a barroom brawl. They have more
 tattoos than skin, it seems, and more hair than the average Kodiak grizzly.
 ~
 human~
-AGX N 0 0
+Gm Ek Nt 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 200
 0 0 medium unknown
 #31217
@@ -297,10 +298,10 @@ This disreputable-looking fellow is a crew member from one of the scows. He
 is simply waiting till its time to go.
 ~
 human~
-AGX N 0 0
+Gm Ek Nt 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 200
 0 0 medium unknown
 #31218
@@ -311,10 +312,10 @@ The dock master is here checking cargo inventories.
 He is far too busy to speak to you.
 ~
 human~
-ABG H 400 0
+BGhm 0 Hn 0 0 400 0
 12 0 2d10+150 5d5+100 1d10+3 'pound'
 0 0 0 7
-CEIK 0 0 0
+CEIKikoq
 stand stand male 200
 0 0 medium unknown
 #0
@@ -325,7 +326,7 @@ sword longsword~
 an ornate Longsword~
 An ornate Longsword is lying here.~
 copper~
-weapon G AN
+weapon Gm 0 ANgt
 sword 4 11 'pierce' 0
 50 25 500 P
 A
@@ -338,7 +339,7 @@ breastplate plate~
 an ornate Breastplate~
 An ornate Breastplate with a black and gold coat of arms is lying here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 13 13 13 0 0
 50 20 500 P
 A
@@ -351,7 +352,7 @@ bracer~
 an ornate Bracer~
 An ornate Bracer with a black and gold coat of arms is lying here.~
 copper~
-armor 0 AM
+armor 0 0 AMgs
 13 13 13 0 0
 50 15 500 P
 A
@@ -364,7 +365,7 @@ cloak~
 a black cloak with gold trim~
 A black cloak with Gold Trim is lying here.~
 copper~
-armor 0 AC
+armor 0 0 ACgi
 13 13 13 0 0
 50 10 500 P
 A
@@ -377,7 +378,7 @@ helm~
 an ornate helm~
 An ornate helm bearing a black and gold coat of arms lies here.~
 copper~
-armor 0 AE
+armor 0 0 AEgk
 13 13 13 0 0
 50 10 500 P
 A
@@ -392,7 +393,7 @@ shield~
 an ornate shield~
 A shield bearing the crest of the House of Lenny lies here.~
 copper~
-armor 0 AJ
+armor 0 0 AJgp
 13 13 13 0 0
 50 20 500 P
 A
@@ -407,7 +408,7 @@ spear~
 a throwing spear~
 A sturdy throwing spear has been thrust into the ground here.~
 copper~
-warp_stone G ANO
+warp_stone Gm 0 ANOgtu
 0 0 0 0 0
 50 20 500 P
 A
@@ -420,7 +421,7 @@ ring~
 a signet ring~
 A signet ring that identifies the wearer as a trusted wall guard lies here.~
 copper~
-armor AB AB
+armor ABgh 0 ABgh
 13 13 13 0 0
 50 1 500 P
 A
@@ -437,7 +438,7 @@ suit plate mail~
 a suit of plate mail~
 A suit of heavy plate mail is piled up here.~
 copper~
-armor K AD
+armor Kq 0 ADgj
 14 14 14 0 0
 58 50 580 P
 A
@@ -450,7 +451,7 @@ broadsword~
 a finely-made broadsword~
 A knight's broadsword lies here.~
 copper~
-weapon AGK AN
+weapon AGKgmq 0 ANgt
 sword 5 13 'slash' 0
 58 10 580 P
 A
@@ -463,7 +464,7 @@ shield~
 a knight's shield~
 A knight's shield lies here.~
 copper~
-armor K AJ
+armor Kq 0 AJgp
 14 14 14 0 0
 58 10 580 P
 A
@@ -478,7 +479,7 @@ helm~
 a knight's helm~
 A knight's helm lies here.~
 copper~
-armor K AE
+armor Kq 0 AEgk
 14 14 14 0 0
 58 5 580 P
 A
@@ -489,7 +490,7 @@ gauntlets~
 a pair of mail gauntlets~
 A pair of mail gauntlets lie here.~
 copper~
-armor GK AE
+armor GKmq 0 AEgk
 14 14 14 0 0
 58 4 580 P
 A
@@ -504,7 +505,7 @@ ring~
 a holy signet ring~
 A holy signet ring lies here.~
 copper~
-armor ABGK AB
+armor ABGKghmq 0 ABgh
 14 14 14 0 0
 58 10 580 P
 g none~
@@ -513,7 +514,7 @@ marshal uniform~
 the marshal's uniform~
 The marshal's uniform lies here, neatly pressed.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 15 15 15 0 0
 62 5 620 P
 A
@@ -526,7 +527,7 @@ swagger stick~
 the marshal's swagger stick~
 The marshal's swagger stick lies here.~
 copper~
-wand ABK AO
+wand ABKghq 0 AOgu
 60 1 1 'enchant weapon' 0
 62 1 620 P
 g none~
@@ -535,7 +536,7 @@ beacon~
 a wall beacon~
 This beacon illuminates the walls for guards patrolling at night.~
 copper~
-light G AQ
+light Gm 0 AQgw
 0 0 -1 0 0
 46 5 460 P
 g none~
@@ -544,7 +545,7 @@ pot boiling oil~
 a pot of boiling oil~
 A pot of boiling oil bubbles away here.~
 copper~
-furniture A 0
+furniture Ag 0 0
 0 0 0 0 0
 46 100 460 P
 E
@@ -556,7 +557,7 @@ murderhole murder hole~
 a murder hole~
 A murder hole is in the middle of the floor here.~
 copper~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 46 1 460 P
 E
@@ -569,7 +570,7 @@ crossbow~
 a crossbow~
 A finely-crafted crossbow lies here.~
 copper~
-weapon 0 AP
+weapon 0 Bh Ag
 bow 4 11 'pierce' 0
 48 10 480 P
 A
@@ -580,7 +581,7 @@ chainmail~
 a suit of chainmail~
 A suit of chainmail lies here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 12 12 12 0 0
 48 5 480 P
 A
@@ -591,7 +592,7 @@ leather leggings~
 a pair of leather leggings~
 A pair of leather leggings lie here.~
 copper~
-armor 0 AF
+armor 0 0 AFgl
 12 12 12 0 0
 48 5 480 P
 A
@@ -602,7 +603,7 @@ leather wristguard~
 a crossbowman's leather wristguard~
 A strip of hardened leather lies here.~
 copper~
-armor 0 AM
+armor 0 0 AMgs
 12 12 12 0 0
 48 1 480 P
 g none~
@@ -611,7 +612,7 @@ scroll~
 a torn scroll~
 ~
 copper~
-scroll 0 AO
+scroll 0 0 AOgu
 50 'dispel magic' '' '' ''
 46 1 460 P
 g none~
@@ -620,7 +621,7 @@ key~
 an old key~
 An old key lies here.~
 copper~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 60 1 600 P
 E
@@ -633,7 +634,7 @@ scroll~
 an old scroll~
 An old scroll has been left here, neatly rolled and sealed.~
 copper~
-scroll G AO
+scroll Gm 0 AOgu
 60 'flamestrike' 'flamestrike' 'flamestrike' ''
 60 1 600 P
 A
@@ -654,8 +655,8 @@ footlocker~
 a footlocker~
 A footlocker rests near a bed.~
 copper~
-container 0 0
-100 A 0 0 0
+container 0 0 0
+100 Ag 0 0 0
 60 10 600 P
 E
 footlocker~
@@ -667,7 +668,7 @@ tapestry~
 an ancient tapestry~
 An ancient tapestry depicting the construction of these walls hangs here.~
 copper~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 60 25 600 P
 g none~
@@ -676,7 +677,7 @@ tapestry~
 an ancient tapestry~
 An ancient tapestry depicting the construction of Midgaard hangs here.~
 copper~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 54 25 540 P
 g none~
@@ -685,7 +686,7 @@ tapestry~
 an ancient tapestry~
 An ancient tapestry depicting the construction of Malathar hangs here.~
 copper~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 58 25 580 P
 g none~
@@ -694,7 +695,7 @@ tapestry~
 an ancient tapestry~
 An ancient tapestry depicting the construction of Freeport hangs here.~
 copper~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 58 25 580 P
 g none~
@@ -703,7 +704,7 @@ belaying pin~
 a belaying pin~
 A belaying pin lies here.~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 3 5 'pound' 0
 8 5 80 P
 g none~
@@ -712,7 +713,7 @@ barrel ale~
 a barrel of ale~
 A barrel of ale sits here, ready to be transported.~
 copper~
-drink 0 A
+drink 0 0 Ag
 25 25 'ale' 0 0
 6 25 60 P
 g none~
@@ -721,7 +722,7 @@ barrel~
 an empty barrel~
 An empty barrel rests here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 4 4 4 0 0
 6 5 60 P
 g none~
@@ -730,7 +731,7 @@ lantern~
 a lantern~
 A lantern sits here.~
 copper~
-light 0 AQ
+light 0 0 AQgw
 0 0 200 0 0
 48 2 480 P
 g none~
@@ -739,7 +740,7 @@ rope~
 a coiled rope~
 A coil of rope lies here.~
 copper~
-armor 0 AL
+armor 0 0 ALgr
 12 12 12 0 0
 48 2 480 P
 A
@@ -750,8 +751,8 @@ backpack~
 a leather backpack~
 A leather backpack sits here.~
 copper~
-container 0 AD
-100 A 0 0 0
+container 0 0 ADgj
+100 Ag 0 0 0
 48 2 480 P
 g none~
 #31237
@@ -759,7 +760,7 @@ cloth~
 a bolt of cloth~
 A bolt of cloth lies on the floor here.~
 copper~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 48 5 480 P
 g none~
@@ -768,7 +769,7 @@ key~
 a warehouse key~
 A warehouse key is here.~
 copper~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 12 1 120 P
 g none~
@@ -777,7 +778,7 @@ scow~
 a scow~
 A scow is moored here.~
 copper~
-container ST 0
+container 0 Ci 0
 10000 0 0 1 0
 6 1000 60 P
 g none~
@@ -786,7 +787,7 @@ cutlass~
 a cutlass~
 A cutlass lies here.~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 3 5 'slash' 0
 8 7 80 P
 g none~
@@ -795,7 +796,7 @@ ring wizardry~
 a ring of wizardry~
 A ring of wizardry has been left here.~
 copper~
-armor AG AB
+armor AGgm 0 ABgh
 14 14 14 0 0
 56 1 560 P
 A
@@ -808,7 +809,7 @@ staff power~
 a staff of power~
 A staff of power rests on the floor here.~
 copper~
-staff AG AO
+staff AGgm 0 AOgu
 55 25 25 'lightning bolt' 0
 56 1 560 P
 A
@@ -821,7 +822,7 @@ robe magi~
 a white robe of the magi~
 A white robe of the magi lies here.~
 copper~
-map AGK AK
+map AGKgmq 0 AKgq
 0 0 0 0 0
 56 5 560 P
 A
@@ -842,7 +843,7 @@ boots speed~
 a pair of boots of speed~
 A pair of boots of speed lie here.~
 copper~
-armor AG AG
+armor AGgm 0 AGgm
 14 14 14 0 0
 56 2 560 P
 A
@@ -857,7 +858,7 @@ invincible plate~
 a suit of invincible plate~
 A suit of invincible plate lies here.~
 copper~
-armor BCEFGHJLM AD
+armor BCEFGHJLMhiklmnprs 0 ADgj
 15 15 15 0 0
 60 25 600 P
 A
@@ -884,7 +885,7 @@ duty guards. A spiral staircase winds its way up to the next floor in one
 corner. A fire burns merrily away in a hearth to the east, the smoke
 escaping through a small shaft that runs up one side of the turret.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -905,7 +906,7 @@ a friendly game between some guards was recently in progress. It seems the
 guards were called away in a hurry, for they left their winnings behind. A
 spiral staircase winds its way up to the next floor in one corner.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -921,7 +922,7 @@ You are standing inside the north tower at the west gatehouse. Doors lead
 north into the passages that run through the city walls, and south into the
 gatehouse proper. A staircase winds its way up to the next floor.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -946,7 +947,7 @@ claustrophobic.
 
 A door leads south into the north tower, west gatehouse.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -965,7 +966,7 @@ the city. Crossbowmen walk back and forth, talking and joking but ever alert
 for any signs of attack. After a while you begin to feel slightly
 claustrophobic.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -986,7 +987,7 @@ claustrophobic.
 
 A door leads north into the northwest tower.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1006,7 +1007,7 @@ to the east and south allow you to enter the passages that run through the
 bowels of the walls, and a staircase allows you to proceed up or down
 through the tower.
 ~
-0 CD inside
+0 CDij inside
 D1
 ~
 ~
@@ -1031,7 +1032,7 @@ north into the passages that run through the city walls, and south into the
 gatehouse proper. A staircase winds its way up to the next floor. A pile of
 old weapons lies in one corner, waiting to me removed.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1056,7 +1057,7 @@ claustrophobic.
 
 A door leads north into the south tower, west gatehouse.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1075,7 +1076,7 @@ the city. Crossbowmen walk back and forth, talking and joking but ever alert
 for any signs of attack. After a while you begin to feel slightly
 claustrophobic.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1096,7 +1097,7 @@ claustrophobic.
 
 A door leads south into the northwest tower.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1119,7 +1120,7 @@ through the tower.
 You hear the ringing of metal against metal coming from below, and feel a
 sudden wave of heat, as if from a furnace.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -1149,7 +1150,7 @@ its way up to the next floor in one corner. A fire burns merrily away in a
 hearth to the east, the smoke escaping through a small shaft that runs up one
 side of the turret.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -1170,7 +1171,7 @@ its way up to the next floor in one corner. A fire burns merrily away in a
 hearth to the east, the smoke escaping through a small shaft that runs up one
 side of the turret. A small cat purrs contentedly near the fire.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1188,7 +1189,7 @@ gatehouse proper. A staircase winds its way up to the next floor. The eastern
 wall is crossletted, allowing you to gaze out upon the forbidding plains of
 blood.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1210,7 +1211,7 @@ gatehouse proper. A staircase winds its way up to the next floor. The eastern
 wall is crossletted, allowing you to gaze out upon the forbidding plains of
 blood. There is some writing on the wall here.
 ~
-0 D inside
+0 Dj inside
 E
 writing wall~
 The writing says-
@@ -1248,7 +1249,7 @@ to pour boiling oil upon any who manage to breach the gate. The western wall
 is crossletted for archers, and through it you can see the plains of
 western Anon, and beyond them an impenetrable mountain range.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1267,7 +1268,7 @@ to pour boiling oil upon any who manage to breach the gate. The western wall
 is crossletted for archers, and through it you can see the forbidding plains
 of blood.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1288,7 +1289,7 @@ claustrophobic.
 
 A door leads south into the north tower, east gatehouse.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1307,7 +1308,7 @@ the city. Crossbowmen walk back and forth, talking and joking but ever alert
 for any signs of attack. After a while you begin to feel slightly
 claustrophobic.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1328,7 +1329,7 @@ claustrophobic.
 
 A door leads north into northeast tower.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1348,7 +1349,7 @@ to the west and south allow you to enter the passages that run through the
 bowels of the walls, and a staircase allows you to proceed up or down
 through the tower.
 ~
-0 CD inside
+0 CDij inside
 D2
 ~
 ~
@@ -1377,7 +1378,7 @@ claustrophobic.
 
 A door leads south into the north tower, east gatehouse.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1396,7 +1397,7 @@ the city. Crossbowmen walk back and forth, talking and joking but ever alert
 for any signs of attack. After a while you begin to feel slightly
 claustrophobic.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1417,7 +1418,7 @@ claustrophobic.
 
 A door leads south into southeast tower.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1437,7 +1438,7 @@ to the west and north allow you to enter the passages that run through the
 bowels of the walls, and a staircase allows you to proceed up or down
 through the tower.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -1461,7 +1462,7 @@ You are in the north tower, western gatehouse. The staircase you have been
 using continues up and down through the tower. Doors lead north and south
 onto the battlements.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1485,7 +1486,7 @@ You are in the south tower, western gatehouse. The staircase you have been
 using continues up and down through the tower. Doors lead north and south
 onto the battlements.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1509,7 +1510,7 @@ You are in the north tower, eastern gatehouse. The staircase you have been
 using continues up and down through the tower. Doors lead north and south
 onto the battlements.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1533,7 +1534,7 @@ You are in the south tower, eastern gatehouse. The staircase you have been
 using continues up and down through the tower. Doors lead north and south
 onto the battlements.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1560,7 +1561,7 @@ intervals, and regularly patrolled by squads of crossbowmen.
 
 A door leads west into northwest tower.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1577,7 +1578,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1594,7 +1595,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1611,7 +1612,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1628,7 +1629,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1645,7 +1646,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1662,7 +1663,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1679,7 +1680,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1696,7 +1697,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1713,7 +1714,7 @@ center of the vast northern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1732,7 +1733,7 @@ intervals, and regularly patrolled by squads of crossbowmen.
 
 A door leads east into northeast tower.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1751,7 +1752,7 @@ intervals, and regularly patrolled by squads of crossbowmen.
 
 A door leads west into southwest tower.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1768,7 +1769,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1785,7 +1786,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1802,7 +1803,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1819,7 +1820,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1836,7 +1837,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1853,7 +1854,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1870,7 +1871,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1887,7 +1888,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1904,7 +1905,7 @@ center of the vast southern wall of the City of Anon. This passage, like
 the shorter eastern and western versions, is crossletted at regular
 intervals, and regularly patrolled by squads of crossbowmen.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1923,7 +1924,7 @@ intervals, and regularly patrolled by squads of crossbowmen.
 
 A door to the east leads into southeast tower.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1940,7 +1941,7 @@ northwestern corner of the walls of the City of Anon. It appears to serve
 as some sort of storage area, being as it is full of weapons and armor.
 There are no visible exits, besides the staircase back up.
 ~
-0 ACD inside
+0 ACDgij inside
 D4
 ~
 ~
@@ -1953,7 +1954,7 @@ ages. Coughing, you make your way through a jumble of debris, looking for
 another exit, but you find none. You do spy several torn scraps of what
 looks like scrolls scattered about, though.
 ~
-0 ACD inside
+0 ACDgij inside
 D4
 ~
 ~
@@ -1965,7 +1966,7 @@ This chamber serves as quarters for the wall guard smith. He spends most of
 his day down here in this smithy, repairing the damaged equipment of the
 guards. He may even repair yours.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -1976,7 +1977,7 @@ Base of Southeast Tower~
 This rooms is totally devoid of furniture, and looks to have been swept
 recently. Wonder what it will be used for...?
 ~
-0 ACD inside
+0 ACDgij inside
 D4
 ~
 ~
@@ -1988,7 +1989,7 @@ You are inside the northwest tower of the walls of Anon. Up from here are
 the offices of some of the guard officers and other personnel. Doors lead
 east and south out onto the battlements.
 ~
-0 CD inside
+0 CDij inside
 D1
 ~
 ~
@@ -2012,7 +2013,7 @@ You are inside the northwest tower of the walls of Anon. From the look of it
 it hasn't been cleaned in ages. A bolted iron trapdoor blocks the staircase
 leading up. How odd...
 ~
-0 ACD inside
+0 ACDgij inside
 D2
 ~
 ~
@@ -2037,7 +2038,7 @@ You are inside the southwest tower of the walls of Anon. Up from here are
 the offices of some of the guard officers and other personnel. Doors lead
 east and north out onto the battlements.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -2061,7 +2062,7 @@ You are inside the southeast tower of the walls of Anon. Up from here are
 the offices of some of the guard officers and other personnel. Doors lead
 west and north out onto the battlements.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -2086,7 +2087,7 @@ this guard tower. This level appears to be the quarters of many of them,
 judging by the neatly-made beds and clothes racks. A trapdoor in the ceiling
 leads up the the roof of the tower.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -2103,7 +2104,7 @@ this guard tower. This level appears to be the quarters of many of them,
 judging by the neatly-made beds and clothes racks. A trapdoor in the ceiling
 leads up the the roof of the tower.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -2120,7 +2121,7 @@ this guard tower. This level appears to be the quarters of many of them,
 judging by the neatly-made beds and clothes racks. A trapdoor in the ceiling
 leads up the the roof of the tower.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -2137,7 +2138,7 @@ this guard tower. This level appears to be the quarters of many of them,
 judging by the neatly-made beds and clothes racks. A trapdoor in the ceiling
 leads up the the roof of the tower.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -2500,7 +2501,7 @@ This warehouse is filled with general goods such as coils of rope, piles of
 cheap cloth, barrels of ale and wine, lanterns, flasks of oil, jars of
 spices and dried meats. There is a sweet aroma in the air.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -2950,7 +2951,7 @@ wall guards. It is sparsely decorated, featuring only two beds, two wardrobes,
 a mirror and two footlockers. A few weapons are neatly arranged on one wall,
 and a throw rug lies near the staircase.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -2968,7 +2969,7 @@ anything, with two small cots arranged near an altar bearing a chalice and
 a ewer. A tapestry hangs on one wall, depicting knights receiving blessings
 from Lenny.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -2985,7 +2986,7 @@ wall guards. It is sparsely decorated, featuring only two beds, two wardrobes,
 a mirror and two footlockers. A few weapons are neatly arranged on one wall,
 and a throw rug lies near the staircase.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -3002,7 +3003,7 @@ broken bones are bad enough, but in addition there is a definite evil aura
 to this fell domain, as if some foul deed has been perpetrated here. You
 get the distinct feeling that this place is haunted.
 ~
-0 ADN inside
+0 ADNgjt inside
 D4
 ~
 ~
@@ -3019,7 +3020,7 @@ Llleweleucam. He is a rather senile old veteran of more wars than he could
 possibly count. The room is littered with memorabilia, probably worth a
 fortune to a collector, but useless to you. Then again, maybe not...
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -3049,7 +3050,7 @@ spend little free time doing anything but meditating or learning new spells,
 this room has little of interest. There is a bookcase full of scrolls, but
 none of them are magical.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -3078,7 +3079,7 @@ In this room, generous priests and priestesses of Lenny give up their time
 to tend to the illnesses of the city guards. They will tend to others'
 injuries as well, for a fee. Such is the way of Lenny.
 ~
-0 D inside
+0 Dj inside
 D4
 ~
 ~
@@ -3095,7 +3096,7 @@ Gods. The sun is caught by a reflecting crystal so that it shines directly
 onto the altar at all times during the day. The effect is quite splendid.
 You feel totally at ease in this place.
 ~
-0 K inside
+0 Kq inside
 D5
 ~
 ~
@@ -3108,7 +3109,7 @@ broken bones are bad enough, but in addition there is a definite evil aura
 to this fell domain, as if some foul deed has been perpetrated here. You
 get the distinct feeling that this place is haunted.
 ~
-0 ADN inside
+0 ADNgjt inside
 D4
 ~
 ~
@@ -3125,7 +3126,7 @@ silvery mystic runes, as is the stone around it. A chill wind blows here,
 at all times, and birds have been known to die when flying too close. It
 is truly a cursed place.
 ~
-0 AN city
+0 ANgt city
 D5
 ~
 ~
@@ -3138,7 +3139,7 @@ popular service, reharging magical staves and wands that have lost their
 energies. Piles of such items can be seen, awaiting retrieval by their 
 owners. You feel quite comfortable in this simple yet pleasant workshop.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -3152,11 +3153,11 @@ front of these shelves an ancient man sits reading an ancient text. As you
 enter he welcomes you and offers to show you some of his stock- abridged
 versions of some of the greatest works of Anonian literature.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
-ABZ 0 31004
+ABZgh 0 31004
 S
 #31322
 The Locksmith~
@@ -3164,11 +3165,11 @@ In this shop sits a small fat dwarf who is busy making locks and keys. He
 will also purchase your keys if you don't want them, for a good price. 
 You marvel at all the strange technology about you.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
-ABZ 0 31004
+ABZgh 0 31004
 S
 #31323
 Enhancing Shop~
@@ -3176,7 +3177,7 @@ In this small shop you can enhance your statistics, with the aid of one
 Thom, the enhancer. He stands ready to help you behind a massive oak desk.
 There are several degrees and diplomas affixed to the walls here.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~

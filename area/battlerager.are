@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Battlerager~
 VNUMs 95400 95499
 Credits Chronos~
@@ -22,10 +23,10 @@ hates magic.
 @rus Этот гигантский воин потратил всю свою жизнь на военные искусства. Он не верит в силу магии. Он никогда не использует жезлы, посохи и другие магические предметы. Он очень сильно ненавидит магию.
 ~
 giant~
-ABJKTVbefl DFlmt 0 0
+ABDEJTVeghjkpz BCDFGIhijlmo 0 0 ABgh 0 0
 92 70 2d500+25000 1d1+3999 10d40+90 'slash'
 -90 -90 -90 -70
-ACEFIK 0 0 0
+ACEFIKgikloq
 stand stand male 0
 0 0 giant unknown
 M grall 95400 100~
@@ -46,10 +47,10 @@ proficiencies on his weapons.
 @rus Проработав всю свою жизнь оружейных дел мастером, Гордалл продает сделанное им оружие.
 ~
 human~
-ABTVel DFHVe 800 0
+BTVehz 0 HVn Fl ABgh 800 0
 80 30 3d300+17000 1d1+2000 15d30+80 'pound'
 -80 -80 -80 -60
-CDEFIJKN 0 0 0
+CDEFIJKNijklopqt
 stand stand male 0
 0 0 medium unknown
 r bash 33
@@ -69,10 +70,10 @@ haters of magic by his beneficial herbs. If you need help just
 @rus Хотя мудрец никогда и не изучал магию, он может вылечить ненавидящих ее при помощи лечебных трав. Если вым нужна помощь, скажите "Вылечи меня мудрец".
 ~
 human~
-ABQVael DFH 1000 0
+BQVehw Hn Hn 0 ABgh 1000 0
 90 0 1d1+16999 1d1+999 20d30+40 'divine'
 -95 -95 -95 -65
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 5000
 0 0 medium unknown
 C Battleragers
@@ -102,10 +103,10 @@ urukhay troll~
 смотрят на тебя.
 ~
 troll~
-ABJKTbdefl CDEFGTVlmt -1000 0
+ABDEJTeghjkpz ABCDFGIghijlmo TVz 0 ABKLMghqrs -1000 0
 92 100 2d500+25000 1d1+2999 10d40+100 'crush'
 -70 -70 -70 -70
-ACEFJK 0 0 0
+ACEFJKgiklpq
 stand stand male 0
 0 0 large unknown
 M grall 95402 100~
@@ -121,13 +122,13 @@ A small rock lies here.
 ~
 ~
 human~
-ABf DEFTcglt 0 0
+ABDEJghjkp FGIlmo Tcz 0 ABLghr 0 0
 200 -1000 1d1+29999 10d10+4000 100d100+1000 'none'
 -1000 -1000 -1000 -1000
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 M exall 95403 2~
 I 1000
 r bash 100
@@ -154,13 +155,13 @@ A small rock lies here.
 ~
 ~
 human~
-ABf DFTcglmt 0 0
+ABDEJghjkp FGIlmo Tcz 0 ABgh 0 0
 200 -1000 1d1+29999 10d10+4000 0d0+0 'none'
 -1000 -1000 -1000 -1000
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 M exall 95404 0~
 I 1000
 r bash 100
@@ -188,7 +189,7 @@ key bone~
 @eng a bone key@rus ~~костяной~~ ~~ключ~~~
 @eng A key, made of bone, is lying on the ground.@rus Ключ (key), сделанный из кости, лежит на земле.~
 bone~
-key ORYf AOP
+key Y ABIJKghopq AOgu
 0 0 0 0 0
 0 4 0 P
 g none~
@@ -197,7 +198,7 @@ skull череп~
 @eng Skull of mage@rus ~~Череп~~ мага~
 An old glowing small skull is sitting on the ground.~
 bone~
-treasure ORe AO
+treasure 0 ABHghn AOgu
 0 0 0 0 0
 0 1 100000 P
 g none~
@@ -206,8 +207,8 @@ white throne~
 @eng a white throne@rus ~~белый~~ ~~трон~~~
 @eng White throne made of bone stands here.@rus Большой белый трон (throne), сделанный из костей, стоит возле стены.~
 bone~
-container ORY P
-10 ABCDE 95400 15 100
+container Y ABgh 0
+10 ABCDEghijk 95400 15 100
 60 1 20 P
 g male~
 #95403
@@ -215,7 +216,7 @@ pit~
 the pit for donations~
 A pit for sacrifices is in front of the altar.~
 unknown~
-container O 0
+container 0 Ag 0
 10000 0 0 1000 100
 0 0 0 P
 E
@@ -228,8 +229,8 @@ bed soldier's plank~
 @eng soldier's plank bed@rus ~~солдатские~~ ~~нары~~~
 @eng A soldier's plank bed is here.@rus Солдатские нары (bed) стоят здесь.~
 wood~
-furniture IY P
-EIJKN ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHKN DGH DGH
+furniture IYo Bh 0
+EIJKNkopqt ABCDEFGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopqrstuvwxyz EHKNknqt DGHjmn DGHjmn
 0 1000000000 0 P
 g none~
 #95405
@@ -237,8 +238,8 @@ dagger fine gordall~
 @eng a fine dagger@rus изящный кинжал~
 @eng A fine dagger lies upon the ground.@rus Изящный кинжал (dagger) лежит на земле.~
 adamantite~
-weapon 0 AN
-dagger 4 7 'pierce' DE
+weapon 0 0 ANgt
+dagger 4 7 'pierce' DEjk
 32 450 5600 P
 g none~
 #95406
@@ -246,8 +247,8 @@ sword fine gordall~
 @eng a fine sword@rus изящный меч~
 @eng A fine sword lies upon the ground.@rus Изящный меч (sword) лежит на земле.~
 adamantite~
-weapon 0 AN
-sword 5 6 'slash' DE
+weapon 0 0 ANgt
+sword 5 6 'slash' DEjk
 33 450 5600 P
 g none~
 #95407
@@ -255,8 +256,8 @@ axe fine gordall~
 @eng a fine two-handed axe@rus изящный двуручный топор~
 @eng A fine two-handed axe lies upon the ground.@rus Изящный двуручный топор (axe) лежит на земле.~
 adamantite~
-weapon 0 AN
-axe 6 6 'cleave' DF
+weapon 0 0 ANgt
+axe 6 6 'cleave' DFjl
 36 450 5600 P
 g none~
 #95408
@@ -264,7 +265,7 @@ tattoo clanmark~
 @eng {DI hate magic{x@rus {DНенавижу магию{x~
 @eng Strange tattoo.@rus Странная татуировка (tattoo).~
 unknown~
-jewelry AMTYZ AS
+jewelry AMYgs CEik ASgy
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -280,7 +281,7 @@ water fall still can light the enterance of the caven.
 какой-нибудь светильник, но не можешь. Однако, света, проходящего сквозь 
 водопад, достаточно для освещения входа.
 ~
-0 KWX hills
+0 KWXq hills
 D1
 ~
 ~
@@ -298,7 +299,7 @@ wall. There are several bones on the ground. You notice that the huge man
 looking over you before you moving on.
 @rus С запада в пещеру проникает немного света, который позволяет лучше рассмотреть все вокруг. Вы видите много оружия и следы крови на стенах. На полу лежит множество костей. Проход на запад загораживает возвышающийся над вами огромный богатырь.
 ~
-0 KWX hills
+0 KWXq hills
 D1
 ~
 ~
@@ -306,7 +307,7 @@ Z -1 95400
 D3
 ~
 ~
-DZ -1 95402
+DZj -1 95402
 S
 #95402
 @eng Inside the Caven@rus В пещере~
@@ -315,11 +316,11 @@ the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
 @rus Пол пещеры покрывают кости. Вам кажется что дальше на запад дороги нет. Однако, злясь на недостаточное количество света, вы помниче что вам следут двигаться именно в этом направлении.
 ~
-0 KWX hills
+0 KWXq hills
 D1
 ~
 ~
-DZ -1 95401
+DZj -1 95401
 D3
 ~
 ~
@@ -333,7 +334,7 @@ south you see some clothes and weapons left on the ground. It seems that
 the south is something like a donation room.
 @rus Эта пещера имеет два выхода, на север (north) и юг (south). Далеко на севере вы видите большой белый трон. На юге лежит множество оружия. Вам кажется, что на юге находится что-то похожее на комнату для пожертвований.
 ~
-0 KWX hills
+0 KWXq hills
 D0
 ~
 ~
@@ -359,7 +360,7 @@ magicians.
        "Каждый battlerager твой брат."
 У вас появляется желание оставить несколько хороших вещей и оружия для других членов клана, чтобы они могли увеличить свою мощь и уничтожать магов.
 ~
-0 KWX hills
+0 KWXq hills
 D0
 ~
 ~
@@ -374,7 +375,7 @@ to the north you see the shrine of battleragers, to the west you see the a
 Gordall's weapon house, to the very south you see the donation room.
 @rus На полу лежит множество костей. Вы понимаете, что именно здесь мастера боевых искусств повышают свое мастерство. На востоке (east) вы также видите множество костей, на севере (north) расположена святыня клана Battlerager, на западе (west) - оружейный магазин мастера Гордалла, далеко на юге (south) находится комната для пожертвований.
 ~
-0 KWX hills
+0 KWXq hills
 D0
 ~
 ~
@@ -401,7 +402,7 @@ the floor. You read the following on the wall:
 @rus Вы находитесь в военном здании. На полу вы видите множество костей и сломанного оружия. На одной из стен написано:
        "Ты становишся членом клана BattleRager после того, как ты убил своего первого мага."
 ~
-0 KWX hills
+0 KWXq hills
 D1
 ~
 ~
@@ -419,7 +420,7 @@ And to the higher portion of the wall you see the newly finished weapons,
 daggers, swords and axes.
 @rus На стенах висят куски различных металлов. Эти материалы Гордалл наиболее часто использует для изготовления оружия. Большую часть стены занимают недавно приготовленные кинжалы, мечи и топоры.
 ~
-0 KWX hills
+0 KWXq hills
 D1
 ~
 ~
@@ -434,7 +435,7 @@ blood and heads of magicians.
 @rus Перед вами находится большой белый трон, сделанный из костей. Вдоль стен тянутся полки на которых стоят кувшины, наполненные кровью и головами магов.
 На стене висит каменная табличка.
 ~
-0 KWX hills
+0 KWXq hills
 E
 tablet~
 *******************************************************************
@@ -460,7 +461,7 @@ S
 @eng Dark tunnel@rus Темный туннель~
 Здесь темно и сыро, но где-то рядом раздается треск костра и запах жареного мяса.
 ~
-0 ADKWX hills
+0 ADKWXgjq hills
 D5
 ~
 ~
@@ -473,7 +474,7 @@ S
 гигантским топором части тела. Посередине комнаты стоит огромный котел,
 в который тебе почему-то не хочется заглядывать.
 ~
-0 KWX inside
+0 KWXq inside
 D4
 ~
 ~
@@ -482,7 +483,7 @@ S
 #95411
 @eng Resting room@rus Комната отдыха~
 ~
-0 KSWX hills
+0 KSWXqy hills
 D3
 ~
 ~

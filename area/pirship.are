@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Pirate Ship~
 VNUMs 700 799
 Credits JullyRoger~
@@ -16,10 +17,10 @@ rottweiler ротвейлер~
 ~
 ~
 dog~
-ALSc DFJPTUVZclmtu -1000 0
+LScry 0 TUVcz Gm ABHghn -1000 0
 101 100 50d10+35000 10d10+10000 35d30+98 'bite'
 -82 -82 -82 -80
-CDFL 0 0 0
+CDFLijlr
 stand stand male 0
 0 0 large unknown
 M entry 700 100~
@@ -40,8 +41,8 @@ armchair кресло~
 @eng armchair@rus кресло~
 @eng A wooden armchair with gilding is standing before the table.@rus Возле стола стоит деревянное кресло (armchair) с позолотой.~
 oak~
-furniture GRT 0
-A 0 FIL DGH DGH
+furniture Gm BChi 0
+Ag 0 FILlor DGHjmn DGHjmn
 0 0 0 P
 g male~
 #701
@@ -49,7 +50,7 @@ table стол~
 @eng table@rus стол~
 @eng A large oak table is standing at the center of cabin.@rus Большой дубовый стол (table) стоит в центре каюты.~
 oak~
-furniture RT 0
+furniture 0 BChi 0
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -58,7 +59,7 @@ bottle rum бутылка рома~
 @eng Rum bottle@rus ~~бутылка~~ рома~
 @eng A bottle of pretty Rum is sits on the table.@rus На столе стоит бутылка (bottle) превосходного рома.~
 glass~
-drink GRT 0
+drink Gm BChi 0
 -1 -1 'rum' 0 0
 0 0 0 P
 g female~
@@ -67,7 +68,7 @@ rod rage жезл гнева~
 @eng Rod Of Rage@rus Жезл Гнева~
 @eng Rod Of Rage is here.@rus Жезл Гнева (rod) лежит здесь.~
 silver~
-wand ABCGIT AO
+wand ABCGIghimo Ci AOgu
 100 500 500 'web' 0
 93 0 0 P
 A
@@ -87,7 +88,7 @@ g male~
 #700
 @eng Captain's cabin@rus Капитанская каюта~
 ~
-0 NX inside
+0 NXt inside
 S
 #721
 ~

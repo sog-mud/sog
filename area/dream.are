@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Machine Dreams~
 VNUMs 8600 8699
 Credits Furey~
@@ -15,10 +16,10 @@ The keeper of the Morris equipment is here.
 Her job is to set the level for this equipment.
 ~
 human~
-A 0 1000 0
+0 0 0 0 0 1000 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 5
 0 0 medium unknown
 #0
@@ -29,7 +30,7 @@ bells morris leggings~
 morris bells~
 A set of leggings with a dozen brass bells sewn on has been left here.~
 leather~
-armor 0 AF
+armor 0 0 AFgl
 3 3 3 0 0
 3 50 310 P
 E
@@ -48,7 +49,7 @@ handkerchief hankie kerchief morris~
 a morris handkerchief~
 A white handkerchief is here.~
 cloth~
-armor 0 AM
+armor 0 0 AMgs
 3 3 3 0 0
 3 50 310 P
 E
@@ -61,7 +62,7 @@ sash morris white~
 a morris sash~
 A white sash is here.~
 cloth~
-armor 0 AL
+armor 0 0 ALgr
 3 3 3 0 0
 3 50 310 P
 E
@@ -74,7 +75,7 @@ staff morris~
 a morris staff~
 A short, stout staff made of polished wood is here.~
 wood~
-staff 0 AO
+staff 0 0 AOgu
 10 4 4 'protection evil' 0
 6 50 1460 P
 E
@@ -92,7 +93,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -130,7 +131,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -168,7 +169,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -206,7 +207,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -244,7 +245,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 CN field
+0 CNit field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -282,7 +283,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -320,7 +321,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -358,7 +359,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -396,7 +397,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -434,7 +435,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -472,7 +473,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see the Road to Newfane.
 ~
@@ -510,7 +511,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -548,7 +549,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -586,7 +587,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -624,7 +625,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -662,7 +663,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -700,7 +701,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -738,7 +739,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -776,7 +777,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -814,7 +815,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -852,7 +853,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -890,7 +891,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -928,7 +929,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -966,7 +967,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -1004,7 +1005,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -1042,7 +1043,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -1080,7 +1081,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 N field
+0 Nt field
 D0
 You see machine dreams and taste violet phosphor.
 ~
@@ -1258,7 +1259,7 @@ You are suspended in cool electric space above a translucent plain.  You feel
 synesthesia invading your nerves and reshuffling your senses.  The sky is the
 same obsidian color as the ground and you can't find a horizon.
 ~
-0 CL field
+0 CLir field
 S
 #0
 

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Greater Gerighelm~
 VNUMs 7500 7699
 Credits Zarchon~
@@ -15,10 +16,10 @@ A little squirrel is here, munching happily on nuts.
 He is a Small squirrel, and he is SOO cute!
 ~
 dog~
-AG 0 0 7500
+Gm 0 0 0 0 0 7500
 1 0 2d6+10 9d1+1 1d4+0 'bite'
 9 9 9 10
-EKN 0 0 0
+EKNkqt
 stand stand male 10
 0 0 small unknown
 #7501
@@ -30,10 +31,10 @@ He is about 2 1/2 inches high, and weighs about 7 ounces.
 He's got sharp teeth though....
 ~
 cat~
-AG 0 0 7501
+Gm 0 0 0 0 0 7501
 1 0 2d6+10 9d1+1 1d4+0 'claw'
 9 9 9 1
-EKN 0 0 0
+EKNkqt
 stand stand male 10
 0 0 small unknown
 #7502
@@ -45,10 +46,10 @@ His scales remind you of green mirrors.  There is something
 pretty about them though.
 ~
 snake~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 1 0 2d6+10 9d1+1 1d4+0 'scratch'
 9 9 9 10
-EKN 0 0 0
+EKNkqt
 stand stand male 0
 0 0 small unknown
 #7503
@@ -59,10 +60,10 @@ A small bird is here, on closer examination, you see that it is a swallow.
 It's a swallow, what do you EXPECT to see???
 ~
 song bird~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 1 0 2d6+10 9d1+1 1d4+0 'slap'
 9 9 9 10
-EKN 0 0 0
+EKNkqt
 stand stand male 0
 0 0 tiny unknown
 #7504
@@ -73,10 +74,10 @@ An African Swallow is here....
 An African Swallow is here.... Carrying a cocanut..... :)
 ~
 song bird~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'scratch'
 8 8 8 10
-EKN 0 0 0
+EKNkqt
 stand stand male 0
 0 0 small unknown
 #7505
@@ -87,10 +88,10 @@ A brown and black raccoon is here, rummageing through the undergrowth.
 He is very clean, must be from all those baths he gives his food...
 ~
 orc~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'bite'
 8 8 8 10
-EKN 0 0 0
+EKNkqt
 stand stand male 10
 0 0 medium unknown
 #7506
@@ -101,10 +102,10 @@ A ground-hog is here.  Digging holes.
 He is doing.. Well... Well, whatever ground-hogs DO, of course!
 ~
 cat~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'stab'
 8 8 8 10
-EKN 0 0 0
+EKNkqt
 stand stand male 44
 0 0 medium unknown
 #7507
@@ -115,10 +116,10 @@ A field mouse is here, being very small...
 He's small, and it is hard to see him clearly...
 ~
 elf~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 1 0 2d6+10 9d1+1 1d4+0 'claw'
 9 9 9 10
-EKN 0 0 0
+EKNkqt
 stand stand male 10
 0 0 tiny unknown
 #7508
@@ -130,10 +131,10 @@ He's small, furry, and brown.  Makes you wish you could step on him-except
 he's flying, and you're not.  We should fix this...
 ~
 song bird~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 2 0 2d7+21 19d1+1 1d5+0 'punch'
 8 8 8 10
-EKN 0 0 0
+EKNkqt
 stand stand male 40
 0 0 small unknown
 #7509
@@ -145,10 +146,10 @@ He is tall, and very handsome.  You feel that the object of his affections
 must be feeling very good.
 ~
 human~
-AG 0 300 0
+Gm 0 0 0 0 300 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-EKN 0 0 0
+EKNkqt
 stand stand male 350
 0 0 medium unknown
 #7510
@@ -160,10 +161,10 @@ She is young, beautiful, smart--- Kinda makes you jealous of the guy who
 has nabbed her..
 ~
 human~
-AG 0 300 0
+Gm 0 0 0 0 300 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-EKN 0 0 0
+EKNkqt
 stand stand female 60
 0 0 medium unknown
 #7511
@@ -174,10 +175,10 @@ A helper of the herbalist is here.
 He is collecting herbs for use in his training, and his mentors work.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'punch'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand male 90
 0 0 medium unknown
 #7512
@@ -188,10 +189,10 @@ A water snake is swimming (or is it sliding?) here.
 He has green scales,  almost like his cousin in the Park.
 ~
 snake~
-AG bz 0 0
+Gm 0 b 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'whip'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand male 110
 0 0 medium unknown
 #7513
@@ -202,10 +203,10 @@ A small fish with pointy teeth is here,  swimming along peacefully.
 He has many small sharp pointy teeth in his mouth.
 ~
 water fowl~
-AG z 0 0
+Gm 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'smash'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand male 133
 0 0 medium unknown
 F aff b
@@ -217,10 +218,10 @@ A medium fish with pointy teeth is here,  swimming along peacefully.
 He has many medium sharp pointy teeth in his mouth.
 ~
 water fowl~
-AG Jz 0 0
+Gm 0 0 0 Hn 0 0
 7 0 2d6+85 69d1+1 1d8+1 'smash'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand male 150
 0 0 medium unknown
 F aff b
@@ -232,10 +233,10 @@ A LARGE fish with pointy teeth is here, swimming along peacefully.
 He has MANY, MANY,  sharp pointy teeth of the medium type....
 ~
 water fowl~
-AG z 0 0
+Gm 0 0 0 0 0 0
 8 0 2d7+96 79d1+1 1d7+2 'smash'
 3 3 3 9
-EKN 0 0 0
+EKNkqt
 stand stand male 170
 0 0 medium unknown
 F aff b
@@ -248,10 +249,10 @@ Aw, the little fella must have been dumped here, all alone, to care for
 himself.  You should help him...
 ~
 water fowl~
-AG Jz 0 0
+Gm 0 0 0 Hn 0 0
 5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
-EKN 0 0 0
+EKNkqt
 stand stand male 170
 0 0 medium unknown
 F aff b
@@ -263,10 +264,10 @@ A happy guppy is here, being, well you know, HAPPY!
 He is almost as cute as the goldfish.  You should help him too.
 ~
 human~
-AG Jbz 0 0
+Gm 0 b 0 Hn 0 0
 5 0 2d6+60 49d1+1 1d6+1 'punch'
 5 5 5 9
-EKN 0 0 0
+EKNkqt
 stand stand male 134
 0 0 medium unknown
 #7518
@@ -279,10 +280,10 @@ and the LARGE ones,  AND NOW!  BLUNTED TEETHED ONES!
 It's enough to make you sick....
 ~
 water fowl~
-AG z 0 0
+Gm 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'claw'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand male 130
 0 0 medium unknown
 F aff b
@@ -294,10 +295,10 @@ An UGLY bugbear is here, plotting who knows what.
 He looks evil, and mean.  You wonder what he is planning to do down here..
 ~
 bear~
-AG J -500 0
+Gm 0 0 0 Hn -500 0
 9 0 2d6+110 89d1+1 1d8+2 'pierce'
 2 2 2 9
-KN 0 0 0
+KNqt
 stand stand male 170
 0 0 medium unknown
 #7520
@@ -308,10 +309,10 @@ A LARGE Cleaner Worm is here!
 Now you know why these tunnels are so clean.
 ~
 snake~
-AFG DFJ 0 0
+FGlm 0 0 0 ABHghn 0 0
 10 0 2d7+121 99d1+1 2d4+2 'grep'
 1 1 1 8
-EKN 0 0 0
+EKNkqt
 stand stand male 200
 0 0 medium unknown
 #7521
@@ -322,10 +323,10 @@ A citizen of the fine city or Gerighelm is here, going to and from his errands
 The citizen of Gerighelm looks happy, and contented.
 ~
 human~
-AEG 0 0 7521
+Gm 0 0 0 0 0 7521
 6 0 2d7+71 59d1+1 1d7+1 'punch'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand male 120
 0 0 medium unknown
 #7522
@@ -337,10 +338,10 @@ market.
 She looks very worn from all this haggling.  But she is happy nonetheless.
 ~
 human~
-A G 0 7521
+0 0 0 0 Ms 0 7521
 7 0 2d6+85 69d1+1 1d8+1 'punch'
 4 4 4 9
-EKN 0 0 0
+EKNkqt
 stand stand female 140
 0 0 medium unknown
 #7523
@@ -352,10 +353,10 @@ His voice is clear and strong.  It makes you want to join in the song
 (and buy him dinner...)
 ~
 human~
-AGI 0 0 0
+Gm 0 0 0 0 0 0
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
-EKN 0 0 0
+EKNkqt
 stand stand male 200
 0 0 medium unknown
 #7524
@@ -366,10 +367,10 @@ An old biddy is here, cussing out the children...
 She is wrinkled and bent.  She is also loud.....
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 11 0 2d8+134 109d1+1 1d10+2 'punch'
 1 1 1 8
-EKN 0 0 0
+EKNkqt
 stand stand female 280
 0 0 medium unknown
 r fire -50
@@ -395,10 +396,10 @@ He is telling everyone in earshot how he defeated the red dragon and then
 stayed to play with the kings wife.....
 ~
 human~
-AG 0 0 7525
+Gm 0 0 0 0 0 7525
 13 0 2d10+170 129d1+1 2d5+3 'punch'
 -1 -1 -1 8
-EKN 0 0 0
+EKNkqt
 stand stand male 360
 0 0 medium unknown
 r fire -50
@@ -424,10 +425,10 @@ He has a nice bag of marbles.  Some are red, some are blue, some are green
 with a curlycue.....
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-EKN 0 0 0
+EKNkqt
 stand stand male 100
 0 0 small unknown
 r fire -50
@@ -452,10 +453,10 @@ A little girl is here, talking to her doll.
 She is telling her doll The Facts Of Life....
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 4 0 2d7+46 39d1+1 1d5+1 'punch'
 6 6 6 9
-EKN 0 0 0
+EKNkqt
 stand stand female 100
 0 0 small unknown
 r fire -50
@@ -481,10 +482,10 @@ Hmm.  This is the new idea that the duke of Gerighelm has. It keeps youth
 Off The Streets...
 ~
 human~
-AGT 0 1000 7528
+GTmz 0 0 0 0 1000 7528
 15 0 3d9+208 149d1+1 2d6+3 'scratch'
 -2 -2 -2 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 600
 0 0 medium unknown
 r fire -50
@@ -509,10 +510,10 @@ A young woman is here, flirting with passerbys.
 She is about 16. And VERY attractive.
 ~
 human~
-AGT 0 1000 0
+GTmz 0 0 0 0 1000 0
 14 0 2d10+190 139d1+1 1d12+3 'punch'
 -1 -1 -1 8
-CDEKL 0 0 0
+CDEKLijkqr
 stand stand male 520
 0 0 medium unknown
 r fire -50
@@ -537,10 +538,10 @@ A Gerighelm cityguard is here, protecting the innocent.
 He is large and strong.  You are glad that he's a Good Guy....
 ~
 human~
-AGT 0 1000 7530
+GTmz 0 0 0 0 1000 7530
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 600
 0 0 medium unknown
 r fire -50
@@ -565,10 +566,10 @@ A Gerighelm cityguard is here, protecting the innocent.
 He is large and strong.  You are glad that he's a Good Guy....
 ~
 human~
-AGT 0 1000 7530
+GTmz 0 0 0 0 1000 7530
 16 0 3d9+233 159d1+1 2d6+4 'punch'
 -2 -2 -2 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 680
 0 0 medium unknown
 r fire -50
@@ -593,10 +594,10 @@ A Gerighelm cityguard is here, protecting the innocent.
 He is large and strong.  You are glad that he's a Good Guy....
 ~
 human~
-AGT 0 1000 7530
+GTmz 0 0 0 0 1000 7530
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 740
 0 0 medium unknown
 r fire -50
@@ -622,10 +623,10 @@ His job is to inspect the wine, cider, and beer of the town.
 He does his job well.....
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 740
 0 0 medium unknown
 r fire -50
@@ -650,10 +651,10 @@ A Defender of Gerighelm is here, on leave.
 He is worn and tired (WHOA! Army training must be HARD!).
 ~
 human~
-AGT 0 1000 7534
+GTmz 0 0 0 0 1000 7534
 19 0 3d9+308 189d1+1 2d7+5 'punch'
 -4 -4 -4 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 920
 0 0 medium unknown
 r fire -50
@@ -678,10 +679,10 @@ A Defender of Gerighelm is here, on patrol.
 He is worn, and tired.  But he still stays at his job!
 ~
 human~
-AGT 0 1000 7534
+GTmz 0 0 0 0 1000 7534
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 1000
 0 0 medium unknown
 r fire -50
@@ -706,10 +707,10 @@ A palace guard is here, standing tall.
 He looks happy with life-- As he is in the best position to enjoy it..
 ~
 human~
-AGT 0 1000 7536
+GTmz 0 0 0 0 1000 7536
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 1000
 0 0 medium unknown
 r fire -50
@@ -734,10 +735,10 @@ A palace guard is here, standing tall.
 He looks happy with life-- As he is in the best position to enjoy it..
 ~
 human~
-AGT 0 1000 7536
+GTmz 0 0 0 0 1000 7536
 21 0 4d10+360 209d1+1 4d4+5 'punch'
 -5 -5 -5 7
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 1300
 0 0 medium unknown
 r fire -50
@@ -762,10 +763,10 @@ The Cook is here, dreaming up new recipes.
 He looks like one of his creampuffs.  To bad he doesn't know how to diet...
 ~
 human~
-AGT J 1000 0
+GTmz 0 0 0 Hn 1000 0
 22 0 5d10+400 219d1+1 4d4+6 'punch'
 -5 -5 -5 7
-CDEKL 0 0 0
+CDEKLijkqr
 stand stand male 1600
 0 0 medium unknown
 r fire -50
@@ -790,10 +791,10 @@ The palace Mage is here, practicing his spells.
 He is the standard wizard:  Old, decrepit, exceedingly powerful...
 ~
 human~
-AGHR B 1000 0
+GHRmnx 0 0 Ag 0 1000 0
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-N 0 0 0
+Nt
 stand stand male 2000
 0 0 medium unknown
 r bash -50
@@ -806,10 +807,10 @@ The Priest of this palace is here, praying devotedly to his God.
 He is the standard priest:  Old, fatherly looking, REAL powerful...
 ~
 human~
-ABGR BH 1000 0
+BGRhmx 0 Hn Ag 0 1000 0
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-EFK 0 0 0
+EFKklq
 stand stand male 2000
 0 0 medium unknown
 r bash -50
@@ -821,10 +822,10 @@ The head of the guard is here--GOD He's HUGE!
 He's HUGE!!!!
 ~
 human~
-AGT 0 1000 7550
+GTmz 0 0 0 0 1000 7550
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 2000
 0 0 medium unknown
 r fire -50
@@ -849,10 +850,10 @@ The palace gardener is here, calmly uprooting some weeds.
 He is grabbing weeds like there is no tomorrow...
 ~
 human~
-AGT 0 1000 0
+GTmz 0 0 0 0 1000 0
 23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-CDEKL 0 0 0
+CDEKLijkqr
 stand stand male 2000
 0 0 medium unknown
 r fire -50
@@ -877,10 +878,10 @@ A bodyguard is here, guarding the Duke.
 He looks like he will give his life for his Duke.
 ~
 human~
-AGT 0 1000 0
+GTmz 0 0 0 0 1000 0
 24 0 5d10+500 239d1+1 2d10+6 'punch'
 -6 -6 -6 6
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 2200
 0 0 medium unknown
 r fire -50
@@ -905,10 +906,10 @@ A bodyguard is here, guarding his Duke.
 He looks like he will give his life for his Duke.
 ~
 human~
-AGT 0 1000 0
+GTmz 0 0 0 0 1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-CDEKLT 0 0 0
+CDEKLTijkqrz
 stand stand male 2500
 0 0 medium unknown
 r fire -50
@@ -933,10 +934,10 @@ The Duke of Gerighelm is here, watching over his proud lands.
 He looks worn, but happy.
 ~
 human~
-ABGRTl 0 1000 7550
+BGRThmxz 0 0 0 0 1000 7550
 30 0 6d12+853 299d1+1 4d6+8 'punch'
 -9 -9 -9 6
-CDEFJKLNU 0 0 0
+CDEFJKLNUijklpqrt
 stand stand male 4000
 0 0 medium unknown
 r bash -50
@@ -949,10 +950,10 @@ The Duchess of Gerighelm is here, pondering dinner parties and the like.
 She is a VERY social person...
 ~
 human~
-ABGRl 0 1000 0
+BGRhmx 0 0 0 0 1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-FKN 0 0 0
+FKNlqt
 stand stand female 2500
 0 0 medium unknown
 r bash -50
@@ -965,10 +966,10 @@ A servant of the duke is here serving.
 He looks at you and says, what are you doing here?
 ~
 human~
-AG 0 1000 0
+Gm 0 0 0 0 1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-CDEKL 0 0 0
+CDEKLijkqr
 stand stand male 1000
 0 0 medium unknown
 r fire -50
@@ -993,10 +994,10 @@ A cutpurse is here, attempting to hide.
 Well, COUNT your money!
 ~
 human~
-ACHS PQ -100 0
+CHSiny 0 0 BGhm 0 -100 0
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
-EFJN 0 0 0
+EFJNklpt
 stand stand either 200
 0 0 medium unknown
 #7592
@@ -1007,10 +1008,10 @@ The baker of Gerighelm is here, selling things.
 He looks like a friendly old man who likes to bake.
 ~
 human~
-ABVel 0 900 0
+BVeh 0 0 0 0 900 0
 50 0 1d1+2999 1d1+199 1d9+30 'beating'
 -25 -25 -25 -25
-CDF 0 0 0
+CDFijl
 stand stand male 100000
 0 0 medium unknown
 r bash 100
@@ -1039,10 +1040,10 @@ The way she is pounding her anvil makes you want to be on his good side.
 The main reason, is that I doubt the anvil can take much more of her pounding.
 ~
 human~
-ABTVel 0 900 0
+BTVehz 0 0 0 0 900 0
 50 10 1d1+2999 1d1+199 1d8+52 'punch'
 -25 -25 -25 -25
-CEIK 0 0 0
+CEIKikoq
 stand stand female 250000
 0 0 medium unknown
 r bash 100
@@ -1070,10 +1071,10 @@ The Mage is here, selling things.
 He is a powerful old coot....
 ~
 human~
-ABVel D 900 0
+BVeh 0 0 0 Ag 900 0
 50 0 1d1+2999 1d1+999 1d8+42 'magic'
 -15 -15 -15 -15
-AF 0 0 0
+AFgl
 stand stand male 150000
 0 0 medium unknown
 r bash 100
@@ -1101,10 +1102,10 @@ The Pawn Shop owner is here selling and buying things.
 He looks almost like the pawn...
 ~
 human~
-ABVel 0 900 0
+BVeh 0 0 0 0 900 0
 50 0 1d1+2999 1d1+199 1d8+32 'beating'
 -15 -15 -15 -15
-EFJ 0 0 0
+EFJklp
 stand stand male 130000
 0 0 medium unknown
 r bash 100
@@ -1132,10 +1133,10 @@ The merchant is here, selling his wares.
 HE'S A MERCHANT!
 ~
 human~
-AVel 0 900 0
+Ve 0 0 0 0 900 0
 40 0 1d1+1999 1d1+99 1d8+30 'beating'
 -15 -15 -15 -15
-EFJ 0 0 0
+EFJklp
 stand stand male 80000
 0 0 medium unknown
 r bash 100
@@ -1163,10 +1164,10 @@ The Herbalist is here, selling herbs.
 She looks like she is happy with her lot in life.
 ~
 human~
-ABVel 0 900 0
+BVeh 0 0 0 0 900 0
 30 0 1d1+999 1d1+99 1d8+20 'beating'
 -15 -15 -15 -15
-EFJ 0 0 0
+EFJklp
 stand stand female 150000
 0 0 medium unknown
 r bash 100
@@ -1194,10 +1195,10 @@ The Animal Man is here, selling pets.
 He is covered in his stock..
 ~
 human~
-ABVl 0 900 0
+BVh 0 0 0 0 900 0
 40 0 1d1+1999 1d1+99 1d8+40 'punch'
 -15 -15 -15 -15
-0 0 0 0
+0
 stand stand male 9000
 0 0 medium unknown
 r fire 100
@@ -1222,10 +1223,10 @@ The old Witch is here, selling things.
 She is old, and ugly- very good witch material...
 ~
 human~
-ABVel D 900 7006
+BVeh 0 0 0 Ag 900 7006
 40 0 1d1+1999 1d1+999 1d8+32 'magic'
 -15 -15 -15 -15
-AF 0 0 0
+AFgl
 stand stand male 20000
 0 0 medium unknown
 r bash 100
@@ -1253,10 +1254,10 @@ A hawk is here, loyal to it's owner.
 The hawk glares at you.
 ~
 human~
-AGI 0 1000 0
+Gm 0 0 0 0 1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-EKN 0 0 0
+EKNkqt
 stand stand male 10
 0 0 medium unknown
 #7699
@@ -1268,10 +1269,10 @@ It is strong, impertubable looking creature. It notice that you look at its,
 and it says: 'Have a nice day'. Hm?... Death is your only way, probably...
 ~
 human~
-ABGIT CDF 100 0
+BGThmz 0 0 0 ABKghq 100 0
 60 0 50d10+9500 599d1+1 8d6+28 'slap'
 -30 -30 -30 0
-A 0 0 0
+Ag
 stand stand either 0
 0 0 medium unknown
 r fire -50
@@ -1296,8 +1297,8 @@ apple~
 an apple~
 An apple is here.~
 food~
-food 0 A
-CE CE 0 0 0
+food 0 0 Ag
+CEik CEik 0 0 0
 1 1 2 P
 g none~
 #7501
@@ -1305,8 +1306,8 @@ apple pie~
 an apple pie~
 An apple pie is here.~
 food~
-food 0 A
-DF DF 0 0 0
+food 0 0 Ag
+DFjl DFjl 0 0 0
 1 4 10 P
 g none~
 #7502
@@ -1314,8 +1315,8 @@ beet~
 a beet~
 A beet is growing here.~
 food~
-food 0 A
-BEF BEF 0 A 0
+food 0 0 Ag
+BEFhkl BEFhkl 0 Ag 0
 1 4 40 P
 g none~
 #7503
@@ -1323,8 +1324,8 @@ carrot~
 a carrot~
 A carrot is lieing here.~
 food~
-food 0 A
-CE CE 0 0 0
+food 0 0 Ag
+CEik CEik 0 0 0
 1 4 10 P
 g none~
 #7504
@@ -1332,7 +1333,7 @@ beer bottle~
 a bottle of beer~
 A bottle of beer has been forgotten here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 2 2 'beer' 0 0
 1 10 100 P
 g none~
@@ -1341,7 +1342,7 @@ magic water pitcher~
 a magic water pitcher~
 A pitcher is here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 25 25 'water' 0 0
 0 5 100 P
 g none~
@@ -1350,7 +1351,7 @@ strengthening herbs red bunch~
 a bunch of red herbs~
 A bunch of strengthening herbs is growing here.~
 food~
-pill 0 A
+pill 0 0 Ag
 2 'giant strength' 'refresh' 'haste' ''
 1 15 855 P
 g none~
@@ -1359,7 +1360,7 @@ healing herb green bunch~
 a bunch of green herbs~
 A bunch of healing herbs is growing here.~
 food~
-pill 0 A
+pill 0 0 Ag
 1 'cure critical' 'remove curse' 'cure poison' 'cure disease'
 1 20 437 P
 g none~
@@ -1368,7 +1369,7 @@ strange herbs green bunch~
 a bunch of herbs~
 A bunch of strange herbs are growing here.~
 food~
-pill 0 A
+pill 0 0 Ag
 1 'detect hidden' 'detect invis' 'infravision' ''
 1 10 494 P
 g none~
@@ -1377,8 +1378,8 @@ corpse guppy~
 corpse of a guppy~
 The corpse of a guppy is here.  Just sitting and being dead.~
 food~
-food 0 A
-C C 0 0 0
+food 0 0 Ag
+Ci Ci 0 0 0
 1 10 0 P
 g none~
 #7512
@@ -1386,8 +1387,8 @@ corpse goldfish~
 corpse of a goldfish~
 The corpse of a goldfish is here.  It has been dead for a while..~
 food~
-food 0 A
-AC AC 0 0 0
+food 0 0 Ag
+ACgi ACgi 0 0 0
 1 10 0 P
 g none~
 #7513
@@ -1395,7 +1396,7 @@ lute~
 a lute~
 A lute is lieing on the ground here.~
 wood~
-wand G AO
+wand Gm 0 AOgu
 20 10 10 'gas breath' 0
 9 20 810 P
 A
@@ -1414,7 +1415,7 @@ harp~
 a harp~
 A harp is lieing on the ground here.~
 gold~
-wand G AO
+wand Gm 0 AOgu
 35 10 10 'word of recall' 0
 9 20 4200 P
 A
@@ -1432,7 +1433,7 @@ umbrella~
 an umbrella~
 An umbrella is here, forgotten.~
 wood~
-weapon CK AN
+weapon CKiq 0 ANgt
 exotic 3 4 'bite' 0
 7 50 5000 P
 g none~
@@ -1441,7 +1442,7 @@ stick~
 a stick~
 A stick is here, collecting dust.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 2 5 'pound' 0
 4 50 300 P
 g none~
@@ -1450,7 +1451,7 @@ bag marbles~
 a bag of marbles~
 A bag of marbles is lieing here.~
 marble~
-container 0 A
+container 0 0 Ag
 100 0 0 100 100
 1 10 10 P
 E
@@ -1465,7 +1466,7 @@ doll~
 a doll~
 A doll is on the ground here.~
 cloth~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 4 30 150 P
 g none~
@@ -1474,7 +1475,7 @@ vest junior guard~
 a junior guard vest~
 A junior guard vest is here. forgotten.~
 leather~
-armor G AD
+armor Gm 0 ADgj
 6 6 6 0 1
 14 60 2448 P
 A
@@ -1490,7 +1491,7 @@ shield junior guard~
 a junior guard shield~
 A junior guard shield is here.  Forgotten.~
 leather~
-armor G AJ
+armor Gm 0 AJgp
 6 6 6 0 1
 14 60 2400 P
 A
@@ -1506,7 +1507,7 @@ lantern junior guard~
 a junior guard lantern~
 A junior guard lantern is lieing here in the dust.~
 bronze~
-light 0 A
+light 0 0 Ag
 0 0 -1 0 0
 0 20 10 P
 g none~
@@ -1515,7 +1516,7 @@ cudgel junior guard~
 a junior guard cudgel~
 A junior guard cudgel is here, collection dust.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 5 4 'crush' 0
 14 50 2560 P
 g none~
@@ -1524,7 +1525,7 @@ sharp fingernail nail finger~
 a sharp fingernail~
 A sharp fingernail is in the dirt here.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 2 7 'stab' 0
 10 10 901 P
 g none~
@@ -1533,7 +1534,7 @@ gerighelm guard ring~
 Gerighelm guard ring~
 A Gerighelm guards ring is here, forgotten.~
 bronze~
-treasure 0 AB
+treasure 0 0 ABgh
 0 0 0 0 0
 15 10 2640 P
 A
@@ -1544,7 +1545,7 @@ helmet guard gerighelm~
 a Gerighelm guard helmet~
 A Gerighelm guard helmet is here.~
 bronze~
-armor 0 AE
+armor 0 0 AEgk
 3 3 3 0 2
 17 20 10 P
 g none~
@@ -1553,7 +1554,7 @@ sleeves guard gerighelm~
 a pair of Gerighelm guard sleeves~
 A set of Sleeves are here.~
 bronze~
-armor 0 AI
+armor 0 0 AIgo
 6 6 6 0 2
 17 40 2295 P
 g none~
@@ -1562,7 +1563,7 @@ leggings guard gerighelm~
 a pair of Gerighelm guard leggings~
 A set of leggings is here.~
 bronze~
-armor 0 AF
+armor 0 0 AFgl
 6 6 6 0 2
 16 50 2448 P
 g none~
@@ -1571,7 +1572,7 @@ shield guard gerighelm~
 a Gerighelm shield~
 A Gerighelm shield is here. getting buried in the dust.~
 bronze~
-armor 0 AJ
+armor 0 0 AJgp
 6 6 6 0 2
 16 60 2400 P
 g none~
@@ -1580,7 +1581,7 @@ vest guard gerighelm~
 a Gerighelm vest~
 a Gerighelm guard vest is here.~
 bronze~
-armor 0 AD
+armor 0 0 ADgj
 6 6 6 0 2
 16 70 2720 P
 g none~
@@ -1589,7 +1590,7 @@ cape guard gerighelm~
 a Gerighelm guard cape~
 A Gerighelm guard's cape is here.~
 cloth~
-armor 0 AK
+armor 0 0 AKgq
 6 6 6 0 2
 16 50 2560 P
 g none~
@@ -1598,7 +1599,7 @@ cloak guard gerighelm~
 a Gerighelm cloak~
 A Gerighelm guard's cloak is here.~
 cloth~
-armor G AC
+armor Gm 0 ACgi
 6 6 6 0 2
 16 50 2560 P
 A
@@ -1613,7 +1614,7 @@ gloves guard gerighelm~
 a pair of Gerighelm gloves~
 A pair of Gerighelm gloves are here.~
 bronze~
-armor 0 AH
+armor 0 0 AHgn
 6 6 6 0 2
 16 30 2448 P
 g none~
@@ -1622,7 +1623,7 @@ belt guard gerighelm~
 a Gerighelm belt~
 A Gerighelm belt is lieing here.~
 bronze~
-armor 0 AL
+armor 0 0 ALgr
 6 6 6 0 2
 16 20 2400 P
 g none~
@@ -1631,7 +1632,7 @@ bracer guard gerighelm~
 a Gerighelm bracer~
 A Gerighelm bracer is lying here.~
 bronze~
-armor 0 AM
+armor 0 0 AMgs
 6 6 6 0 2
 16 20 2560 P
 g none~
@@ -1640,7 +1641,7 @@ sword guard gerighelm~
 a Gerighelm sword~
 A sword with the colours of Gerighelm carved into the side is here.~
 bronze~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 5 4 'slash' 0
 15 80 2400 P
 g none~
@@ -1649,7 +1650,7 @@ boots guard gerighelm~
 a pair of Gerighelm boots~
 A pair of Gerighelm boots are here.~
 bronze~
-armor 0 AG
+armor 0 0 AGgm
 6 6 6 0 2
 16 50 3060 P
 g none~
@@ -1658,7 +1659,7 @@ helm defenders~
 a defenders helm~
 the helm of one of Gerighelms defenders is here.~
 gold~
-armor 0 AE
+armor 0 0 AEgk
 6 6 6 0 2
 20 40 3800 P
 g none~
@@ -1667,7 +1668,7 @@ sword defenders~
 a defenders sword~
 The sword of one of Gerighelms defenders is here.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 5 5 'slash' 0
 20 80 4400 P
 g none~
@@ -1676,7 +1677,7 @@ ring palace guard~
 a palace guard ring~
 A ring that glows!~
 brass~
-treasure A AB
+treasure Ag 0 ABgh
 0 0 0 0 0
 22 1 5082 P
 A
@@ -1687,7 +1688,7 @@ helmet palace guard~
 a palace guard helmet~
 A helmet that glows!~
 steel~
-armor A AE
+armor Ag 0 AEgk
 7 7 7 0 2
 22 30 3780 P
 g none~
@@ -1696,7 +1697,7 @@ sleeves palace guard~
 a pair of palace guard sleeves~
 Some sleeves that glow!~
 steel~
-armor A AI
+armor Ag 0 AIgo
 7 7 7 0 2
 22 50 5082 P
 g none~
@@ -1705,7 +1706,7 @@ leggings palace guard~
 a pair of palace guard leggings~
 Some leggings that glow!~
 steel~
-armor A AF
+armor Ag 0 AFgl
 7 7 7 0 2
 22 60 4851 P
 g none~
@@ -1714,7 +1715,7 @@ shield palace guard~
 a palace guard shield~
 A shield that glows!~
 steel~
-armor A AJ
+armor Ag 0 AJgp
 7 7 7 0 2
 22 50 5082 P
 g none~
@@ -1723,7 +1724,7 @@ vest palace guard~
 a palace guard vest~
 A vest that glows!~
 steel~
-armor A AD
+armor Ag 0 ADgj
 7 7 7 0 2
 22 60 4840 P
 g none~
@@ -1732,7 +1733,7 @@ cape palace guard~
 a palace guard cape~
 A cape that glows!~
 steel~
-armor A AK
+armor Ag 0 AKgq
 7 7 7 0 2
 22 40 4620 P
 g none~
@@ -1741,7 +1742,7 @@ cloak palace guard~
 a palace guard cloak~
 a cloak that glows! And Humms too!!~
 steel~
-armor ABG AC
+armor ABGghm 0 ACgi
 7 7 7 -1 2
 22 40 4700 P
 A
@@ -1756,7 +1757,7 @@ gloves palace guard~
 a pair of palace guard gloves~
 A pair of gloves that glow!~
 steel~
-armor A AH
+armor Ag 0 AHgn
 7 7 7 0 2
 22 40 4400 P
 g none~
@@ -1765,7 +1766,7 @@ belt palace guard~
 a palace guard belt~
 A belt the glows!~
 steel~
-armor A AL
+armor Ag 0 ALgr
 7 7 7 0 2
 22 60 4620 P
 g none~
@@ -1774,7 +1775,7 @@ bracer palace guard~
 a palace guard bracer~
 A bracer that glows!~
 steel~
-armor A AM
+armor Ag 0 AMgs
 7 7 7 0 2
 22 30 4410 P
 g none~
@@ -1783,7 +1784,7 @@ sword palace guard~
 a palace guard's sword~
 A sword with many runes on the side is here.~
 steel~
-weapon AB AN
+weapon ABgh 0 ANgt
 sword 4 8 'slash' 0
 22 80 3780 P
 E
@@ -1800,7 +1801,7 @@ cooks cook hat~
 the cooks hat~
 A hat is here.~
 cloth~
-clothing H AE
+clothing Hn 0 AEgk
 0 0 0 0 0
 20 10 4200 P
 g none~
@@ -1809,7 +1810,7 @@ silver staff~
 a silver staff~
 A staff made out of silver is here.~
 wood~
-staff 0 AO
+staff 0 0 AOgu
 40 20 20 'lightning bolt' 0
 20 40 4840 P
 g none~
@@ -1818,7 +1819,7 @@ dagger stabbing~
 the dagger of stabbing~
 A dagger is here.~
 silver~
-weapon G AN
+weapon Gm 0 ANgt
 dagger 5 6 'stab' 0
 20 40 4666 P
 A
@@ -1831,7 +1832,7 @@ holy word holyword~
 a holyword~
 A holyword is here, hanging in midair.~
 crystal~
-weapon G AN
+weapon Gm 0 ANgt
 exotic 5 6 'blast' 0
 25 50 5400 P
 A
@@ -1846,7 +1847,7 @@ mace~
 a mace~
 A mace is here.~
 wood~
-weapon AG AN
+weapon AGgm 0 ANgt
 mace 2 4 'pound' 0
 6 10 870 P
 A
@@ -1859,7 +1860,7 @@ sword thunder~
 the sword of thunder~
 A HUGE sword is here.~
 steel~
-weapon G AN
+weapon Gm 0 ANgt
 sword 5 6 'slash' 0
 21 80 5000 P
 A
@@ -1872,7 +1873,7 @@ vest titans titan~
 the vest of the titans~
 A vest is here.~
 leather~
-armor G AD
+armor Gm 0 ADgj
 7 7 7 0 3
 21 60 5520 P
 A
@@ -1885,7 +1886,7 @@ hoe destruction~
 the hoe of destruction~
 A hoe of destruction is here.~
 wood~
-weapon ABG AN
+weapon ABGghm 0 ANgt
 exotic 5 6 'blast' 0
 21 80 5175 P
 A
@@ -1896,7 +1897,7 @@ gardeners gloves~
 the gardeners gloves~
 Some gloves are here.~
 cloth~
-armor G AH
+armor Gm 0 AHgn
 3 3 3 0 1
 21 50 9 P
 A
@@ -1909,7 +1910,7 @@ cutlass~
 a cutlass~
 A cutlass is here.~
 steel~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 5 6 'pierce' 0
 22 80 6000 P
 g none~
@@ -1918,7 +1919,7 @@ uniform~
 a uniform~
 A uniform is here.~
 cloth~
-armor G AD
+armor Gm 0 ADgj
 8 8 8 0 3
 22 60 6000 P
 A
@@ -1929,7 +1930,7 @@ saber~
 a saber~
 A saber is here.~
 steel~
-weapon G AN
+weapon Gm 0 ANgt
 sword 5 6 'slash' 0
 22 80 7000 P
 A
@@ -1940,8 +1941,8 @@ two-handed two handed~
 a two-handed sword~
 A two handed sword is here.~
 steel~
-weapon G AN
-sword 5 7 'slash' F
+weapon Gm 0 ANgt
+sword 5 7 'slash' Fl
 28 8 8928 P
 A
 1 3
@@ -1959,7 +1960,7 @@ dukes duke helm~
 the Dukes Helm~
 A helmet is here.~
 steel~
-armor G AE
+armor Gm 0 AEgk
 9 9 9 0 3
 28 50 9920 P
 A
@@ -1970,7 +1971,7 @@ duchesses tiara~
 the Duchesses Tiara~
 A Tiara is here.~
 diamond~
-armor G AE
+armor Gm 0 AEgk
 7 7 7 0 2
 22 10 6520 P
 A
@@ -1983,7 +1984,7 @@ wedding ring~
 a wedding ring~
 A wedding ring is here.~
 gold~
-armor ABG AB
+armor ABGghm 0 ABgh
 7 7 7 0 2
 22 10 6600 P
 A
@@ -1996,7 +1997,7 @@ wedding ring~
 a wedding ring~
 A wedding ring is here.~
 gold~
-armor ABG AB
+armor ABGghm 0 ABgh
 8 8 8 0 2
 28 10 6600 P
 A
@@ -2009,7 +2010,7 @@ strange herbs green bunch~
 a bunch of herbs~
 A bunch of strange, green herbs are growing here.~
 food~
-pill G A
+pill Gm 0 Ag
 1 'detect magic' 'fly' 'word of recall' 'pass door'
 1 1 469 P
 g none~
@@ -2018,7 +2019,7 @@ magic bottle air~
 The Magic bottle of Air~
 A bottle is here,  collecting dust.~
 glass~
-boat A A
+boat Ag 0 Ag
 0 0 0 0 0
 3 1 300 P
 E
@@ -2033,7 +2034,7 @@ marbles marble green~
 a green marble~
 A green marble is here, all alone...~
 marble~
-wand A AO
+wand Ag 0 AOgu
 20 1 1 'fireball' 0
 20 1 2560 P
 g none~
@@ -2042,7 +2043,7 @@ marble marbles blue~
 a blue marble~
 A marble is here, it's blue.~
 marble~
-wand A AO
+wand Ag 0 AOgu
 20 1 1 'heal' 0
 20 1 2560 P
 g none~
@@ -2051,7 +2052,7 @@ marble marbles yellow~
 a yellow marble~
 A yellow marble is here.~
 marble~
-wand A AO
+wand Ag 0 AOgu
 49 1 1 'gas breath' 0
 20 1 2100 P
 g none~
@@ -2060,7 +2061,7 @@ sleeves defenders~
 a defenders sleeves~
 A pair of sleeves are here, collecting dust.~
 gold~
-armor 0 AI
+armor 0 0 AIgo
 6 6 6 0 2
 18 60 4000 P
 g none~
@@ -2069,7 +2070,7 @@ leggings defenders~
 a defenders leggings~
 A pair of leggings are here, collecting dust.~
 silver~
-armor 0 AF
+armor 0 0 AFgl
 6 6 6 0 2
 18 70 4180 P
 g none~
@@ -2078,7 +2079,7 @@ shield defenders~
 a defenders shield~
 A shield is here, emblazoned with Gerighelms coat of arms.~
 silver~
-armor 0 AJ
+armor 0 0 AJgp
 6 6 6 0 2
 18 80 3610 P
 g none~
@@ -2087,7 +2088,7 @@ ring defender~
 a defenders ring~
 A ring is shining in the dust.~
 gold~
-armor G AB
+armor Gm 0 ABgh
 0 0 0 0 0
 18 10 3610 P
 A
@@ -2098,7 +2099,7 @@ vest defender~
 a defenders vest~
 A gold and silver vest is lieing on the side of the road.~
 silver~
-armor 0 AD
+armor 0 0 ADgj
 5 5 5 -1 2
 18 60 3600 P
 g none~
@@ -2107,7 +2108,7 @@ cape defender~
 a defenders cape~
 A cape is hanging by a tree branch.~
 gold~
-armor 0 AK
+armor 0 0 AKgq
 6 6 6 0 2
 18 80 3800 P
 g none~
@@ -2116,7 +2117,7 @@ cloak defender~
 a defenders cloak~
 A heap of gold and silver cloth is on the ground here.~
 silver~
-armor 0 AC
+armor 0 0 ACgi
 6 6 6 0 2
 18 60 3240 P
 g none~
@@ -2125,7 +2126,7 @@ gloves defender~
 a defenders gloves~
 A pair of gloves are on the side of the road here.~
 gold~
-armor 0 AH
+armor 0 0 AHgn
 6 6 6 0 2
 18 70 4000 P
 g none~
@@ -2134,7 +2135,7 @@ belt defender~
 a defenders belt~
 A gold belt is lieing here.~
 gold~
-armor 0 AL
+armor 0 0 ALgr
 6 6 6 0 2
 18 70 3420 P
 g none~
@@ -2143,7 +2144,7 @@ bracer defender~
 a defenders bracer~
 A silver bracer is lieing here.~
 silver~
-armor 0 AM
+armor 0 0 AMgs
 6 6 6 0 2
 18 30 3800 P
 g none~
@@ -2152,7 +2153,7 @@ boots defender~
 a defenders pair of boots~
 A pair of silver boots are here.~
 silver~
-armor 0 AG
+armor 0 0 AGgm
 6 6 6 0 2
 18 50 3420 P
 g none~
@@ -2161,7 +2162,7 @@ boots palace guard~
 a palace guards boots~
 A pair of boots are here, glowing!!~
 steel~
-armor A AG
+armor Ag 0 AGgm
 3 3 3 0 2
 18 50 10 P
 g none~
@@ -2170,8 +2171,8 @@ scythe~
 the Death's Scythe~
 Very dangerous evil scythe is here.~
 mithril~
-weapon G AN
-polearm 10 8 'smash' DEF
+weapon Gm 0 ANgt
+polearm 10 8 'smash' DEFjkl
 60 200 50000 P
 g none~
 #0
@@ -2441,7 +2442,7 @@ D1
 You see the caretakers house.
 ~
 ~
-ABZ -1 7514
+ABZgh -1 7514
 D2
 You see the trail.
 ~
@@ -2458,12 +2459,12 @@ Care-Takers House.~
 You are in the home of the Caretaker of this Park.  You see shiny spades,
 hoes, and watering-cans that the Caretaker must like a lot.
 ~
-0 D inside
+0 Dj inside
 D3
 You see the trail.
 ~
 ~
-ABZ -1 7513
+ABZgh -1 7513
 S
 #7515
 The trail.~
@@ -2614,7 +2615,7 @@ In the Sewers.~
 You are inside the dark, dank sewers of Gerighelm.  There is a faint
 scent of mud in the air.  To the north, there is a wall.....
 ~
-0 A field
+0 Ag field
 D1
 You see the sewers.
 ~
@@ -2630,7 +2631,7 @@ S
 The Sewers.~
 You are in the old sewer system of Gerighelm.  It is dark and hard to see.
 ~
-0 A field
+0 Ag field
 D0
 You see the sewers.
 ~
@@ -2656,7 +2657,7 @@ S
 The Sewers.~
 Hmm, another dead end.
 ~
-0 A field
+0 Ag field
 D0
 You see the sewers.
 ~
@@ -2667,7 +2668,7 @@ S
 The Sewers.~
 You are in a tunnel that leads north-south.  The walls here are moist.
 ~
-0 A field
+0 Ag field
 D0
 You see the sewers.
 ~
@@ -2683,7 +2684,7 @@ S
 The Sewers.~
 You are in a tunnel that leads north-south.  The walls are moist here.
 ~
-0 A field
+0 Ag field
 D0
 You see the sewers.
 ~
@@ -2701,7 +2702,7 @@ You are at one end of a tunnel that leads north-south.  I wonder where
 it goes.  Oh well, you can keep wondering, because there is a magic sign
 that says 'UNDER CONSTRUCTION' to the west......
 ~
-0 A field
+0 Ag field
 D2
 You see the sewers.
 ~
@@ -2712,7 +2713,7 @@ S
 The Sewers.~
 You are in one of the twisting tunnels that abound in these sewers.
 ~
-0 AC field
+0 ACgi field
 D1
 You see some VERY clean sewers.
 ~
@@ -2728,7 +2729,7 @@ S
 The Sewers.~
 You are in one of the twisting tunnels in this maze of messy water.
 ~
-0 A field
+0 Ag field
 D0
 You see the sewers.
 ~
@@ -2746,7 +2747,7 @@ You are in the sewers.  Not a very nice area to be.
 Especially because it doesn't exactly smell nice.
 ( You just realized it wasn't your breath...)
 ~
-0 A field
+0 Ag field
 D0
 You see the sewers.
 ~
@@ -2768,7 +2769,7 @@ The Sewers.~
 The tunnel continues on, to the east, and west.  There is a tunnel to the
 south.
 ~
-0 A field
+0 Ag field
 D1
 You see the sewers.
 ~
@@ -2790,7 +2791,7 @@ The tunnel.~
 You are going down a tunnel that runs north-south.  To
 the south there is a wet scent.
 ~
-0 A city
+0 Ag city
 D0
 You see the sewers.
 ~
@@ -2807,7 +2808,7 @@ The tunnel.~
 You are going down a tunnel that leads north-south.  There is some water
 to the south.
 ~
-0 A field
+0 Ag field
 D0
 You see the tunnel.
 ~
@@ -2824,7 +2825,7 @@ The watery tunnel.~
 There is some water here, it is up to your waist.  It is calm enough
 to swim or wade though.
 ~
-0 A swim
+0 Ag swim
 D0
 You see the tunnel.
 ~
@@ -2840,7 +2841,7 @@ S
 The watery tunnel.~
 The water gets deeper here, it is up to your chin.
 ~
-0 A swim
+0 Ag swim
 D0
 You see the tunnel.
 ~
@@ -2858,7 +2859,7 @@ The tunnel ends here, with all that water in the tunnel pouring out.
 The water here is rough, it is all you can do to keep your head afloat.
 To the east and west, there a walls in the way of your movement. 
 ~
-0 AC swim
+0 ACgi swim
 D0
 You see the tunnel.
 ~
@@ -2869,7 +2870,7 @@ S
 The Sewers.~
 You are in the sewers.  There is the familiar dank smell to everything...
 ~
-0 AC field
+0 ACgi field
 D0
 You see the sewers.
 ~
@@ -2890,7 +2891,7 @@ S
 The Sewers.~
 You are in the sewers, to the east, the tunnel ends.  So it seems.
 ~
-0 A field
+0 Ag field
 D1
 You see the sewers.
 ~
@@ -2908,7 +2909,7 @@ You are at the end of one of the countless tunnels in these sewers.
 To the east, there is a grate that seems to have a force field in between
 the holes in it.
 ~
-0 A field
+0 Ag field
 D1
 You see the grate.
 ~
@@ -3010,7 +3011,7 @@ Half Flooded Sewers.~
 You are up to your waist in river water.  To the west there are some VERY
 clean sewers...
 ~
-0 C swim
+0 Ci swim
 D1
 You see the river.
 ~
@@ -3027,7 +3028,7 @@ Very clean Sewers.~
 You are standing at the start of a section of sewers that are VERY
 clean...  There is a sign here.
 ~
-0 A inside
+0 Ag inside
 E
 sign~
 The sign reads:
@@ -3054,7 +3055,7 @@ Very clean Sewers.~
 You are in some VERY clean sewers.  You have been wondering what that
 sign meant by 'MAGIC WORMS'.......
 ~
-0 A city
+0 Ag city
 D0
 You see the clean sewers.
 ~
@@ -3070,7 +3071,7 @@ S
 Very clean Sewers.~
 You are in the VERY clean sewers.
 ~
-0 A city
+0 Ag city
 D1
 You see the clean sewers.
 ~
@@ -3086,7 +3087,7 @@ S
 Very clean Sewers.~
 You are in the VERY clean sewers.
 ~
-0 A city
+0 Ag city
 D0
 You see the clean sewers.
 ~
@@ -3107,7 +3108,7 @@ S
 Very clean Sewers.~
 You are in the VERY clean sewers.
 ~
-0 A city
+0 Ag city
 D0
 You see the clean sewers.
 ~
@@ -3123,7 +3124,7 @@ S
 Very clean Sewers.~
 You are in some EXTREEMLY clean sewers!  There is a sign here.
 ~
-0 A city
+0 Ag city
 E
 sign~
 The sign reads:
@@ -3157,7 +3158,7 @@ You are in the VERY clean sewers.  There are some benches here, as well
 as some old books that are aged bye time..  You are afraid to touch them,
 unless they may crumble to dust with your touch.  One of the books is open.
 ~
-0 AC field
+0 ACgi field
 E
 book old~
 The page reads:
@@ -3263,7 +3264,7 @@ S
 @eng You are on the dirt path.
 @rus Вы стоите на грязной дороге.
 ~
-0 C city
+0 Ci city
 D1
 You see the dirt path.
 ~
@@ -3466,7 +3467,7 @@ The shop with lots of food~
 This shop has lots of food in it. Apples, pies, carrots, you name it.
 There is a sign here.
 ~
-0 D inside
+0 Dj inside
 E
 sign~
 The sign reads:
@@ -3508,7 +3509,7 @@ Weapon shop~
 You are in the weapon shop. There are many fine weapons here, but all of
 them are safe and out of your reach.  There is a sign here.
 ~
-0 D inside
+0 Dj inside
 E
 sign~
 The sign reads:
@@ -3547,7 +3548,7 @@ Herbalist Shop~
 You are inside the Herbalist Shop.  There are many herbs here- Lord knows
 WHAT some of them do... There is a sign here too, on the table.
 ~
-0 D inside
+0 Dj inside
 E
 sign~
 The sign reads:
@@ -3589,7 +3590,7 @@ Magic Shop~
 You are inside the magic shop.  There are many many many magical things
 of unknown nature.  There is a sign here.
 ~
-0 D inside
+0 Dj inside
 E
 sign~
 the sign reads:
@@ -3632,7 +3633,7 @@ The Pawn Shop~
 You are in the Pawn shop.  Unfourtuatly, there is no pawn here,
 just a hired merchant.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the merchant way.
 ~
@@ -3953,7 +3954,7 @@ Temple of Death~
 You are standing inside the temple of Death. It's kinda scary in here, how
 about running away hmm?
 ~
-0 D inside
+0 Dj inside
 E
 altar~
 It is a coffin.  It's kinda scary, maybe you should just run away now, hmm?
@@ -3993,7 +3994,7 @@ the place.  Some of it has been captured, and is sent streaming into veritable
 RIVERS of blood!  It's very artistic.  The altar contains: Blood, guts, a few
 sacrificial offerings (corpses, soon to be corpses, whatever).
 ~
-0 D inside
+0 Dj inside
 E
 altar~
 On the altar you see: babes, men, women, and, of course, ducklings.
@@ -4075,7 +4076,7 @@ Ye Olde Pet Shope~
 You are standing inside the pet shop.  There are pets EVERYWHERE.
 There are dogs, cats, kittens, puppy's, wolves, you name it.
 ~
-0 DKM inside
+0 DKMjqs inside
 D2
 You see the merchant way.
 ~
@@ -4109,7 +4110,7 @@ Greghimles furniture store~
 You are inside Greghimles furniture store.  There are lamps, boxes, great
 stuffed chairs, that sort of thing.
 ~
-0 D inside
+0 Dj inside
 D2
 You see the Merchant way.
 ~
@@ -4183,7 +4184,7 @@ S
 Water bottles and Beer~
 You are inside a shop with a small bar.
 ~
-0 D inside
+0 Dj inside
 D2
 You see the Merchant way.
 ~
@@ -4218,7 +4219,7 @@ The Potions and Wands shop~
 This shop is tended by an old witch.  There are boiling pots and cauldrons
 all over.
 ~
-0 D inside
+0 Dj inside
 D2
 You see the Merchant way.
 ~
@@ -4417,7 +4418,7 @@ S
 House~
 You are inside a house. the house continues to the east and west.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the door.
 ~
@@ -4438,7 +4439,7 @@ S
 House~
 You are inside a house.  The house continues to the west, and east.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the dining room.
 ~
@@ -4459,7 +4460,7 @@ S
 Dining room~
 You are inside the dining room.
 ~
-0 D inside
+0 Dj inside
 D3
 You see the entrance to the house.
 ~
@@ -4470,7 +4471,7 @@ S
 Sitting room~
 You are inside the sitting room.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the entrance to the house.
 ~
@@ -4481,7 +4482,7 @@ S
 Living room~
 You are inside the living room in the house.
 ~
-0 D inside
+0 Dj inside
 D3
 You see the entrance to the house.
 ~
@@ -4492,7 +4493,7 @@ S
 Drawing room~
 You are inside the drawing room in the house.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the entrance to the house.
 ~
@@ -5018,7 +5019,7 @@ You are standing beside the entrance to the Knights' castle.
 To the west, the palace stretches on, covered with silks, furs, and gold.
 To the south there is mable road
 ~
-0 D inside
+0 Dj inside
 E
 silks silk~
 The silks are very fine, they must have been purchased from China or Japan.
@@ -5050,7 +5051,7 @@ S
 The palace~
 You are inside the palace.  It's a very fine place to be you realize.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the entrance to the palace.
 ~
@@ -5068,7 +5069,7 @@ You are inside the palace of Gerighelm.  To the north, you see a room
 that is guarded by an old man.  To the east and west, the palace continues
 it's splendor.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the room guarded by the old man.
 ~
@@ -5090,7 +5091,7 @@ Treasury~
 You are standing just outside the treasury.  there is a huge iron door
 to the east.  The old man says 'STOP'. He says 'You cannot enter here.'  'Go.'
 ~
-0 D inside
+0 Dj inside
 D1
 You see the huge iron door.
 ~
@@ -5108,7 +5109,7 @@ You see the final defenses of the Treasury.  Three bugbears!!!
 Aside from you certain doom, you see lots of gold, silver, and other such
 valuables...
 ~
-0 D inside
+0 Dj inside
 D3
 You see the huge iron door
 ~
@@ -5120,7 +5121,7 @@ Inside the palace~
 You are inside the palace of Gerighelm.  here, the palace opens into
 a large garden.  Complete with birds, chipmunks, and bugs OUCH <stupid fly>
 ~
-0 D inside
+0 Dj inside
 D0
 You see the garden.
 ~
@@ -5137,7 +5138,7 @@ Garden~
 You are in the palace garden.  You hope that the Gardener won't catch
 you wandering about like this..
 ~
-0 D inside
+0 Dj inside
 D0
 You see the garden ending.
 ~
@@ -5159,7 +5160,7 @@ Garden~
 Here the garden is blocked by a wall to the north, west, and south.
 But the flowers are still as pretty though.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the garden.
 ~
@@ -5171,7 +5172,7 @@ End of the garden~
 You are at the and of the garden.  To the north there is a GRAND hall.
 I wonder whats at the end of it?.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the great hall.
 ~
@@ -5189,7 +5190,7 @@ You are in the great hall of the palace of Gerighelm. To the north, you
 see what may be a throne room. To the east however, there seems to be an altar.
 And to the west, there is some servants quarters.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the throne room.
 ~
@@ -5215,7 +5216,7 @@ S
 The Altar~
 What luck! It's the altar to your very own God! Better pray here and now!
 ~
-0 D inside
+0 Dj inside
 D3
 You see the great hall.
 ~
@@ -5229,7 +5230,7 @@ The quarters themselves are much like quarters indeed.  there are 4 beds to
 a room. and 4 boxes under each bed.  The boxes are locked, and pickproof,
 so don't be getting any ideas...
 ~
-0 D inside
+0 Dj inside
 D1
 You see the Great hall.
 ~
@@ -5246,7 +5247,7 @@ Servants Quarters~
 You are in some servants quarters.  They are much like the last one you
 saw, except there are only 3 beds and boxes.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the servants quarters.
 ~
@@ -5260,7 +5261,7 @@ respective thrones, which are carved out of the finest ebony and ivory.
 The furs, gold, and silks are VERY VERY VERY resplendent here.  There is a
 staircase that leads upward, and a staircase that leads down.
 ~
-0 D inside
+0 Dj inside
 D2
 You see the great hall.
 ~
@@ -5283,7 +5284,7 @@ You are in a hall way that leads to two bedrooms.  The door to the north
 has some gold words on it that say 'Dukes room' and the words on the south
 door say 'Duchesses room'.  This is all so formal, you think.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the door to the dukes room.
 ~
@@ -5301,7 +5302,7 @@ This is the Duchesses room.  She must come here when she and her husband
 have a spat.  You know this because the room is relatively dusty compared
 with all the other rooms here.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the door of this room.
 ~
@@ -5314,7 +5315,7 @@ This room is well used to say the least.  I'd say more, but it's not the
 kinda thing to transmit over phone lines.  But I can tell you this:
 The Duke and his wife have, shall we say, _interesting_ habits >:)
 ~
-0 D inside
+0 Dj inside
 D2
 You see the door to this room.
 ~
@@ -5328,7 +5329,7 @@ Throne room, but the Duke designed it himself, and..-Well anyway:
 The room is your standard cellar, there are many empty racks here, and only
 2 bottle left. Hmmm...
 ~
-0 AD inside
+0 ADgj inside
 D4
 You see the Throne room.
 ~
@@ -5339,7 +5340,7 @@ S
 Barracks~
 You are in the barracks.  There are guards all around you, coming and going.
 ~
-0 D inside
+0 Dj inside
 D0
 You see the Merchant way.
 ~
@@ -5351,7 +5352,7 @@ Ye Olde Pet Shope~
 You are standing inside the pet shop.  There are pets EVERYWHERE.
 There are dogs, cats, kittens, puppy's, wolves, you name it.
 ~
-0 DKM inside
+0 DKMjqs inside
 D2
 ~
 ~
@@ -5360,13 +5361,13 @@ S
 #7698
 Pet Shop Warehouse~
 ~
-0 CDK inside
+0 CDKijq inside
 S
 #7699
 Sacrifice Room~
 Blood, blood, blood, guts, flesh, corpses....
 ~
-0 CM inside
+0 CMis inside
 S
 #0
 

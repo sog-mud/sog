@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Valley of the Titans~
 VNUMs 18000 18199
 Credits Xavier~
@@ -17,10 +18,10 @@ crush you without a second thought. Aside from his mean and deadly build,
 he greets you a good day and wishes you on your way.
 ~
 giant~
-ABTl CDEFHJV 1000 0
+BThz 0 HVn 0 ABHKLghnqr 1000 0
 45 0 25d10+3000 1d1+99 3d12+15 'slash'
 -15 -15 -15 4
-EIK 0 0 0
+EIKkoq
 stand stand male 1200
 0 0 large unknown
 r acid -50
@@ -37,10 +38,10 @@ home and must seartch through the garbage for bit of supper. You feel sorry
 for the little fella.
 ~
 cat~
-ABl CDEFJ -1000 0
+Bh 0 0 0 ABHKLghnqr -1000 0
 30 0 6d12+853 299d1+5 4d6+8 'none'
 -9 -9 -9 6
-EIK 0 0 0
+EIKkoq
 stand stand either 0
 0 0 large unknown
 r acid -50
@@ -55,10 +56,10 @@ A wild bongo drummer is here, moving with his rythme.
 Beating his drums as best he can, this bongo player really grooves.
 ~
 giant~
-ABTl CDEFJ -1000 18004
+BThz 0 0 0 ABHKLghnqr -1000 18004
 25 0 5d10+750 1d1+99 2d10+7 'pierce'
 -7 -7 -7 0
-EIK 0 0 0
+EIKkoq
 stand stand male 3100
 0 0 large unknown
 r acid -50
@@ -75,10 +76,10 @@ can really rock! He plays a familliar tune as the people pass by, keeping
 a little music in the background.
 ~
 giant~
-ABl CDEFJ -1000 18004
+Bh 0 0 0 ABHKLghnqr -1000 18004
 25 0 5d10+650 1d1+99 2d10+7 'pierce'
 -7 -7 -7 0
-EIK 0 0 0
+EIKkoq
 stand stand male 4330
 0 0 large unknown
 r acid -50
@@ -95,10 +96,10 @@ combination; wooden guitar, bongo and windpipe! But their music is so
 wonderful! You hope it never ends.
 ~
 giant~
-ABl CDEFJ -1000 18004
+Bh 0 0 0 ABHKLghnqr -1000 18004
 25 0 5d10+650 1d1+99 2d10+7 'blast'
 -7 -7 -7 6
-EIK 0 0 0
+EIKkoq
 stand stand female 5300
 0 0 large unknown
 r acid -50
@@ -115,10 +116,10 @@ runs to you as you walk in, asking if you need any help. If
 you're in need of armour here is the place to shop!
 ~
 giant~
-ABTeil CDEFJ -500 0
+BTehz 0 0 0 ABHKLghnqr -500 0
 53 0 50d10+13000 1d1+99 6d7+41 'slice'
 -33 -33 -33 2
-EIK 0 0 0
+EIKkoq
 stand stand male 200000
 0 0 large unknown
 M greet 3024 1~
@@ -150,10 +151,10 @@ but these animals are basically for show and probably not for combat. Well,
 you know what they say: Don't knock 'em till you've bought 'em!
 ~
 giant~
-ABTel CDEFJ -500 0
+BTehz 0 0 0 ABHKLghnqr -500 0
 53 0 50d10+13000 1d1+99 6d7+31 'slice'
 -43 -43 -43 -10
-EIK 0 0 0
+EIKkoq
 stand stand female 200000
 0 0 large unknown
 r bash 100
@@ -184,10 +185,10 @@ t'day and y'can't beat th'lamb, fresh s'a cool mornin' breeze, if
 There is a big selection of meat and poultry to chose from.
 ~
 giant~
-ABTel CDEFJ -1000 0
+BTehz 0 0 0 ABHKLghnqr -1000 0
 51 0 50d10+14000 1d1+99 5d8+39 'scratch'
 -41 -41 -41 -3
-EIK 0 0 0
+EIKkoq
 stand stand male 200000
 0 0 large unknown
 r bash 100
@@ -207,10 +208,10 @@ seems to be selling quite an amount of produce. Perhaps you will
 buy some and help keep his business running?
 ~
 giant~
-ABTel CDEFJ -1000 0
+BTehz 0 0 0 ABHKLghnqr -1000 0
 51 0 50d10+14000 1d1+140 5d8+49 'scratch'
 -41 -41 -41 -30
-EIK 0 0 0
+EIKkoq
 stand stand male 200000
 0 0 large unknown
 r bash 100
@@ -232,10 +233,10 @@ the forging of the weapons. If ever you were to go to war, this would be the
 place to get your weapons.
 ~
 giant~
-ABTeil CDEFJ 0 0
+BTehz 0 0 0 ABHKLghnqr 0 0
 53 0 50d10+15000 1d1+99 6d7+41 'sting'
 -43 -43 -43 -30
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 M greet 3024 1~
@@ -256,10 +257,10 @@ sorting the books. This is no ordinary library but one that contains magical
 books and books of lore. Perhaps you should widen your magical knowledge.
 ~
 giant~
-ABel CDEFJ 500 0
+Beh 0 0 0 ABHKLghnqr 500 0
 48 0 25d10+13750 1d1+99 6d6+48 'beating'
 -38 -38 -38 -12
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r bash 100
@@ -280,10 +281,10 @@ leather garnets are here, quite the selection. To have the latest in fashion
 this is a good store to come to.
 ~
 giant~
-ABel CDEFJ -600 0
+Beh 0 0 0 ABHKLghnqr -600 0
 51 0 50d10+15000 1d1+99 5d8+40 'pierce'
 -41 -41 -41 -23
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 200000
 0 0 large unknown
 r bash 100
@@ -303,10 +304,10 @@ on the rocks? What'll it be?" The room seems filled with people who whish
 to have a good time; and get drunk.
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 51 0 50d10+15000 1d1+99 5d8+39 'slash'
 -41 -41 -41 -23
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r bash 100
@@ -327,10 +328,10 @@ cod and crab, our cook really did out-do himself this time!" This place seems
 mighty expensive.
 ~
 giant~
-ABTel CDEFJ 200 0
+BTehz 0 0 0 ABHKLghnqr 200 0
 45 0 25d10+14000 1d1+99 8d4+36 'pierce'
 -15 -15 -15 -1
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -348,10 +349,10 @@ get some good sleep. Please let me know if there is anything I
 could do."
 ~
 giant~
-ABTel CDEFJ -1000 0
+BTehz 0 0 0 ABHKLghnqr -1000 0
 51 0 50d10+5000 1d1+99 5d8+20 'pierce'
 -21 -21 -21 -3
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -368,10 +369,10 @@ flower arrangements. Perhaps she has something for that special "someone"
 in your life?
 ~
 giant~
-ABTel CDEFJ -300 0
+BTehz 0 0 0 ABHKLghnqr -300 0
 48 0 25d10+4750 1d1+99 6d6+18 'slice'
 -18 -18 -18 3
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 200000
 0 0 large unknown
 r acid -50
@@ -388,10 +389,10 @@ ever. It would be a real shame to disturb him, even though his cells are full,
 I am sure he could find room for one more unwanted tourist.
 ~
 giant~
-ABTl CDEFJ 500 0
+BThz 0 0 0 ABHKLghnqr 500 0
 30 0 6d12+1000 1d1+99 4d6+8 'pierce'
 -9 -9 -9 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 2100
 0 0 large unknown
 r acid -50
@@ -406,10 +407,10 @@ A jail guard is here, sleeping in his chair.
 ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....ZZZzzzz....
 ~
 giant~
-ABTl CDEFJ -500 0
+BThz 0 0 0 ABHKLghnqr -500 0
 28 0 6d12+703 1d1+99 2d12+8 'claw'
 -8 -8 -8 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 3100
 0 0 large unknown
 r acid -50
@@ -425,10 +426,10 @@ Locked behind steel bars, you see a stinky prisoner.
 Its the new prisoner! He got arrested for stinking the peace.
 ~
 giant~
-ABTl CDEFJ -1000 0
+BThz 0 0 0 ABHKLghnqr -1000 0
 25 0 5d10+650 1d1+100 2d10+7 'pierce'
 -7 -7 -7 1
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 0
 0 0 large unknown
 r acid -50
@@ -446,10 +447,10 @@ able to try them all? The man behind the counter seems to know his chocolates
 very well. Perhaps he could show you some of the most popular.
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 45 0 25d1+13000 1d1+100 8d4+26 'slice'
 -35 -35 -35 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -466,10 +467,10 @@ Mint...Strawberry Swirl...Which will you have? So many to chose
 form, but I'll bet that they are all superb!
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 30 0 6d12+853 1d1+99 4d6+15 'slap'
 -9 -9 -9 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -486,10 +487,10 @@ There are several different varieties to chose from. You really should
 try 'em all!
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 40 0 15d10+7850 1d1+100 4d8+13 'beating'
 -33 -33 -33 -21
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 200000
 0 0 large unknown
 r acid -50
@@ -506,10 +507,10 @@ You simply love the smell of this room, and all you can think of is Bread!
 Cookies! Pies!!! Try them all, the man looks willing to do business with you!
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 48 0 25d10+15050 1d1+100 6d6+38 'pierce'
 -48 -48 -48 -24
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -525,10 +526,10 @@ The tall young lad is here, selling his special containers. He was rated number
 1 in all the lands, for his speical containers and their capability.
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 48 0 25d10+12750 1d1+100 6d6+38 'pierce'
 -38 -38 -38 -22
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -544,10 +545,10 @@ All cloaked in black this wizard wishes to sell you his special
 wands. Magically tuned to perfection. They would be mighty handy.
 ~
 giant~
-ABTel CDEFJ -100 0
+BTehz 0 0 0 ABHKLghnqr -100 0
 55 0 10d10+15300 1d1+100 4d7+21 'slash'
 -51 -51 -51 -30
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 200000
 0 0 large unknown
 r acid -50
@@ -562,10 +563,10 @@ A strong knight templar is here, patroling the streets.
 All clad in armor this guy looks quite deadly. Would want to mess with him.
 ~
 giant~
-ABTl CDEFJ 1000 0
+BThz 0 0 0 ABHKLghnqr 1000 0
 40 0 15d10+2200 1d1+90 4d8+13 'scratch'
 -13 -13 -13 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 5250
 0 0 large unknown
 r acid -50
@@ -581,10 +582,10 @@ Tall and strong, a citizen of The Valley of The Titans greets
 you, welcoming you to his city.
 ~
 giant~
-ABTl CDEFJ -1000 0
+BThz 0 0 0 ABHKLghnqr -1000 0
 28 0 6d12+703 1d1+100 2d12+8 'pierce'
 -8 -8 -8 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 2500
 0 0 large unknown
 r acid -50
@@ -600,10 +601,10 @@ The house chef is here, cooking up a meal.
 away. *SSSsssssssnnnnnniiiiiifffffff!* It sure does smell nice!
 ~
 giant~
-ABTl CDEFJ -500 0
+BThz 0 0 0 ABHKLghnqr -500 0
 30 0 6d12+953 1d1+100 4d6+8 'blast'
 -9 -9 -9 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 3900
 0 0 large unknown
 r acid -50
@@ -619,10 +620,10 @@ To busy to talk. To busy to listen. This serf is WAY to busy to
 care. He is running back and forth, carrying out orders.
 ~
 giant~
-ABTl CDEFJ -500 0
+BThz 0 0 0 ABHKLghnqr -500 0
 30 0 6d12+853 1d1+100 4d6+8 'pierce'
 -9 -9 -9 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 5330
 0 0 large unknown
 r acid -50
@@ -638,10 +639,10 @@ Sitting on a pile of garbage which he calls "his", this grubby
 beggar asks for some coins. He sure does look poor.
 ~
 giant~
-ABTl CDEFJ -500 0
+BThz 0 0 0 ABHKLghnqr -500 0
 25 0 5d10+650 1d1+310 2d10+7 'slice'
 -7 -7 -7 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 10
 0 0 large unknown
 r acid -50
@@ -657,10 +658,10 @@ Very tall and very strong, this patrol guard looks as though he
 does his job quite well.
 ~
 giant~
-ABTl CDEFHJ 0 0
+BThz 0 Hn 0 ABHKLghnqr 0 0
 40 0 15d10+2100 1d1+201 4d8+13 'pierce'
 -13 -13 -13 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 3330
 0 0 large unknown
 r acid -50
@@ -676,10 +677,10 @@ If I were you, I wouldn't talk to this fella. He's to busy
 dancing to the music.
 ~
 giant~
-ABTl CDEFJu -1000 0
+BThz 0 0 0 ABHKLghnqr -1000 0
 30 0 6d12+953 299d1+1 4d6+8 'punch'
 -9 -9 -9 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 4003
 0 0 large unknown
 r acid -50
@@ -695,10 +696,10 @@ To busy keeping the warriors fighting with the magical monster,
 he doesn't have any time to speak to you.
 ~
 giant~
-ABTl CDEFJu -1000 0
+BThz 0 0 0 ABHKLghnqr -1000 0
 48 0 25d10+4750 1d1+120 6d6+18 'crush'
 -18 -18 -18 3
-CDEFIN 0 0 0
+CDEFINijklot
 stand stand male 5100
 0 0 large unknown
 r acid -50
@@ -713,10 +714,10 @@ The tournament warrior is here, practicing his skills.
 *SLICE* *BASH* *BLAM* He looks to be just a tad too busy to socialize.
 ~
 giant~
-ABTl CDEFJu -1000 0
+BThz 0 0 0 ABHKLghnqr -1000 0
 38 0 10d10+1800 1d1+100 5d6+12 'slash'
 -12 -12 -12 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 11300
 0 0 large unknown
 r acid -50
@@ -732,10 +733,10 @@ A tournament anti-paladin utters the words 'Algetharb'! She is far to busy
 perfecting her spells to speak with you. Maybe later.
 ~
 giant~
-ABRl CDEFJu -1000 0
+BRhx 0 0 0 ABHKLghnqr -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 'pierce'
 -12 -12 -12 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 6100
 0 0 large unknown
 r acid -50
@@ -751,10 +752,10 @@ She's very busy using her magical talents to speak with you. Remember, she is
 fighting real mobs, deadly mobs. You'd hate to get her killed!
 ~
 giant~
-ABQl CDEFJu -1000 0
+BQhw 0 0 0 ABHKLghnqr -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 'pierce'
 -12 -12 -12 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 6800
 0 0 large unknown
 r acid -50
@@ -769,10 +770,10 @@ A tournament ranger is here, stealing money from his foe.
 Better not talk to this rascal, he may kick your ass!
 ~
 giant~
-ABSl CDEFJu -1000 0
+BShy 0 0 0 ABHKLghnqr -1000 0
 38 0 10d10+1900 1d1+200 5d6+12 'pierce'
 -12 -12 -12 4
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 9100
 0 0 large unknown
 r acid -50
@@ -791,10 +792,10 @@ his massive wings, you notice now that he is a HUGE dragon, and an evil one at
 that.
 ~
 dragon~
-ABCFTl CDEFUV -1000 0
+BCFThilz 0 UV 0 ABKLghqr -1000 0
 25 0 5d10+650 1d1+99 2d10+7 'crush'
 -7 -7 -7 0
-BCDEFGHIJLMNO 0 0 0
+BCDEFGHIJLMNOhijklmnoprstu
 stand stand male 0
 0 0 large unknown
 r cold 0
@@ -814,10 +815,10 @@ the catch in the little light there is, a face. An evil face. One looking down,
 glaring at you. Panic races through your veins.
 ~
 giant~
-ABRl CDEFIJPV -1000 0
+BRhx 0 IVo Gm ABHKLghnqr -1000 0
 30 0 6d12+853 1d1+100 4d6+8 'crush'
 -9 -9 -9 -1
-BCDEFGHLO 0 0 0
+BCDEFGHLOhijklmnru
 stand stand either 0
 0 0 large unknown
 r bash -50
@@ -835,10 +836,10 @@ Flying madly through the air is a deadly rain cloud, spreading acid rain over
 the world. It would be a good idea not to go near this...thing.
 ~
 giant~
-ABFTl CDFJTV -1000 0
+BFThlz 0 TVz 0 ABHKghnq -1000 0
 23 0 5d10+450 1d1+100 3d6+6 'slash'
 -6 -6 -6 1
-DEFGHL 0 0 0
+DEFGHLjklmnr
 stand stand either 0
 0 0 large unknown
 r slash 100
@@ -856,10 +857,10 @@ or fight. Such a demon is very deadly and will surely burn you to a crisp.
 Chose wisely!
 ~
 giant~
-ABCTl FJTZ -1000 0
+BCThiz 0 Tz 0 BHhn -1000 0
 35 0 10d10+1500 1d1+234 4d7+11 'pierce'
 -11 -11 -11 -1
-BCDEFGHIJKLMNO 0 0 0
+BCDEFGHIJKLMNOhijklmnopqrstu
 stand stand either 0
 0 0 large unknown
 r bash -50
@@ -878,10 +879,10 @@ In a near-by pool you notice one of the deadly demons, the demon of fire.
 Something deep in your heart tells you to stay away from him.
 ~
 giant~
-ABCTl FJYZ -1000 0
+BCThiz 0 Y 0 BHhn -1000 0
 35 0 10d10+1500 1d1+234 4d7+11 'pierce'
 -11 -11 -11 5
-BCDEFGHIJKLMNO 0 0 0
+BCDEFGHIJKLMNOhijklmnopqrstu
 stand stand either 0
 0 0 large unknown
 r bash 33
@@ -899,10 +900,10 @@ In a blazing whirlwind, a demon of air is here, creating deadly
 storms. This is another of those deadly demons, another to avoid.
 ~
 giant~
-ABCTl FJYZ -1000 0
+BCThiz 0 Y 0 BHhn -1000 0
 35 0 10d10+1500 1d1+235 4d7+11 'pierce'
 -11 -11 -11 5
-BCDEFGHIJKLMNO 0 0 0
+BCDEFGHIJKLMNOhijklmnopqrstu
 stand stand either 0
 0 0 large unknown
 r bash 100
@@ -929,10 +930,10 @@ crashing out into daylight! Creating deadly earthquakes where ever it may go,
 the demons of earth a destroying all in sight!
 ~
 giant~
-ABCT FJYZ -1000 0
+BCThiz 0 Y 0 BHhn -1000 0
 35 0 10d10+1500 1d1+236 4d7+11 'pierce'
 -11 -11 -11 5
-BCDEFGHIJKLMNO 0 0 0
+BCDEFGHIJKLMNOhijklmnopqrstu
 stand stand either 0
 0 0 large unknown
 r fire 0
@@ -953,10 +954,10 @@ havoc. Having control over all wooden things, this demon isn't one to mess
 with.
 ~
 giant~
-ABCT FJYZ -1000 0
+BCThiz 0 Y 0 BHhn -1000 0
 35 0 10d10+1500 1d1+236 4d7+11 'pierce'
 -11 -11 -11 5
-BCDEFGHIJKLMNO 0 0 0
+BCDEFGHIJKLMNOhijklmnopqrstu
 stand stand either 0
 0 0 large unknown
 r pierce 100
@@ -974,10 +975,10 @@ A 20 foot demon made fully of stone is here. He brings fear into
 your heart, pain into your soul. This tough beast seems unstopable.
 ~
 giant~
-ABCTl FJYZ -1000 0
+BCThiz 0 Y 0 BHhn -1000 0
 35 0 10d10+1500 1d1+276 4d7+11 'pierce'
 -12 -12 -12 5
-BCDEFGHIJLNO 0 0 0
+BCDEFGHIJLNOhijklmnoprtu
 stand stand either 0
 0 0 large unknown
 r bash 33
@@ -1004,10 +1005,10 @@ A Royal Titan guard is here.
 Tall and strong, this Royal Titan guard patrols the castle walls.
 ~
 giant~
-ABCTl FJ -1000 0
+BCThiz 0 0 0 BHhn -1000 0
 40 0 15d10+2000 1d1+201 4d8+13 'slash'
 -12 -12 -12 -2
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand male 7000
 0 0 large unknown
 r acid -50
@@ -1022,10 +1023,10 @@ A small boy titan is here, plaing with some rocks.
 This little boy is amusing himself witha few rocks.
 ~
 giant~
-ABCTl FJ -1000 0
+BCThiz 0 0 0 BHhn -1000 0
 33 0 10d10+1300 1d1+111 6d4+10 'slash'
 -11 -11 -11 5
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand male 330
 0 0 large unknown
 r acid -50
@@ -1042,10 +1043,10 @@ pretty little girl, all dressed in pink. She looks like some of the other
 children at the park. Perhaps all titan children look the same.
 ~
 giant~
-ABCTl FJ -1000 0
+BCThiz 0 0 0 BHhn -1000 0
 33 0 10d10+1100 1d1+111 6d4+10 'slash'
 -11 -11 -11 5
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand female 390
 0 0 large unknown
 r acid -50
@@ -1061,10 +1062,10 @@ Zzzzzzz....Zzzzzzzz.....Zzzzzzzzz....
 *SSSSSHHHHHhhhhhhhhh.......!* He is sleeping and you'd hate to disturb him!
 ~
 giant~
-ABCTl FJ -1000 0
+BCThiz 0 0 0 BHhn -1000 0
 40 0 15d10+2000 1d1+111 4d8+13 'pierce'
 -13 -13 -13 4
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 sleep sleep male 5870
 0 0 large unknown
 r acid -50
@@ -1080,10 +1081,10 @@ She seems to be in deep conversation with the queen, it would be
 foolish to disturb her.
 ~
 dwarf~
-ABCTl F -1000 0
+BCThiz 0 0 0 Bh -1000 0
 50 0 50d10+5000 1d1+212 5d8+19 'beating'
 -20 -20 -20 3
-BCDEFGHIK 0 0 0
+BCDEFGHIKhijklmnoq
 stand stand female 7100
 0 0 large unknown
 r acid -50
@@ -1101,10 +1102,10 @@ face of a mage. He seems to be selling the best battle animals in the world.
 Perhaps he could interest you in some of his beasts?
 ~
 giant~
-ABTel FJ -1000 0
+BTehz 0 0 0 BHhn -1000 0
 50 0 50d10+14500 1d1+212 5d8+29 'pierce'
 -50 -50 -50 -23
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 5000
 0 0 large unknown
 r acid -50
@@ -1119,10 +1120,10 @@ A black cougar is here, protecting its master.
 Very large and very deadly, you would NOT want to mess with this black cougar!
 ~
 cat~
-ABITV DFHUV 1000 0
+BTVhz 0 HUVn 0 ABgh 1000 0
 40 1 15d10+1500 1d1+200 4d8+13 'beating'
 -13 -13 -13 4
-EN 0 0 0
+ENkt
 stand stand male 0
 0 0 large unknown
 r slash 33
@@ -1139,10 +1140,10 @@ VERY very big and tough, this kraken looks to be the most fearsome thing you
 have ever seen!
 ~
 dragon~
-ABITV DFHUV 1000 0
+BTVhz 0 HUVn 0 ABgh 1000 0
 45 1 25d10+2100 1d1+102 8d4+16 'beating'
 -15 -15 -15 3
-EN 0 0 0
+ENkt
 stand stand male 0
 0 0 large unknown
 r slash 33
@@ -1160,10 +1161,10 @@ Despite her size, she is one of the most rare and deadly creatures in all of
 Shades of Gray.  
 ~
 dragon~
-ABIORV DFHUV 1000 0
+BORVhux 0 HUVn 0 ABgh 1000 0
 50 0 50d10+3000 1d1+499 5d6+14 'beating'
 -20 -20 -20 2
-CEFIOY 0 0 0
+CEFIOYiklou
 stand stand female 0
 0 0 large unknown
 r cold 0
@@ -1181,10 +1182,10 @@ A small but cute little spider monkey is here, aiding its master
 in their times of need.
 ~
 human~
-ABIT DV 1000 0
+BThz 0 V 0 Ag 1000 0
 20 1 3d9+300 1d1+310 2d8+5 'beating'
 -4 -4 -4 7
-C 0 0 0
+Ci
 stand stand male 0
 0 0 large unknown
 r bash 33
@@ -1201,10 +1202,10 @@ A cute little male lion is here, following his master about,
 always ready for combat.
 ~
 cat~
-ABIT DV 1000 0
+BThz 0 V 0 Ag 1000 0
 25 0 5d10+500 1d1+249 2d10+7 'beating'
 -7 -7 -7 5
-C 0 0 0
+Ci
 stand stand male 0
 0 0 large unknown
 r pierce -50
@@ -1226,10 +1227,10 @@ A large black wolf is here, guarding his master.
 A fearsome black wolf is here, protecting his master.
 ~
 dog~
-ABIT DTV 1000 0
+BThz 0 TVz 0 Ag 1000 0
 30 0 6d12+823 1d1+299 4d6+8 'beating'
 -9 -9 -9 6
-C 0 0 0
+Ci
 stand stand male 0
 0 0 large unknown
 r bash -50
@@ -1249,10 +1250,10 @@ A large and deadly Java Beast is here, protecting her master with
 its magical flames.
 ~
 dragon~
-ABIR DV 1000 0
+BRhx 0 V 0 Ag 1000 0
 35 1 10d10+1550 1d1+904 4d7+11 'beating'
 -11 -11 -11 5
-C 0 0 0
+Ci
 stand stand female 0
 0 0 large unknown
 r cold 0
@@ -1267,10 +1268,10 @@ The King Dractax of The Titans is here.
 A tall and proud king is here, planning the future of his kingdom.
 ~
 giant~
-ABT DFJV -1000 0
+BThz 0 V 0 ABHghn -1000 0
 53 0 50d10+7000 1d1+401 6d7+21 'pierce'
 -22 -22 -22 2
-CDEFGKNO 0 0 0
+CDEFGKNOijklmqtu
 stand stand male 19990
 0 0 large unknown
 r lightning 0
@@ -1285,10 +1286,10 @@ The Queen Crystal of The Titans is here.
 A tall and proud queen is here, planning the future of her kingdom.
 ~
 giant~
-ABT DFJV -1000 0
+BThz 0 V 0 ABHghn -1000 0
 51 0 50d10+5500 1d1+502 5d8+19 'pierce'
 -21 -21 -21 3
-CDEFGKNO 0 0 0
+CDEFGKNOijklmqtu
 stand stand female 16990
 0 0 large unknown
 r lightning 0
@@ -1305,10 +1306,10 @@ passage-way behind the throne. Obviously, someone in the kingdom wants the
 king and queen destroyed. Why is beyon all knowledge.
 ~
 giant~
-ABTl DFJV -1000 0
+BThz 0 V 0 ABHghn -1000 0
 45 0 25d10+3500 1d1+302 8d4+16 'slash'
 -15 -15 -15 4
-CDEFGKNO 0 0 0
+CDEFGKNOijklmqtu
 stand stand male 8990
 0 0 large unknown
 r acid -50
@@ -1323,10 +1324,10 @@ An ugly small rat is here.
 An ugly rat is here, chewing on the carpet.
 ~
 giant~
-ABTl DFJV -500 0
+BThz 0 V 0 ABHghn -500 0
 30 0 6d12+953 1d1+201 4d6+8 'beating'
 -9 -9 -9 6
-CDEFGKNO 0 0 0
+CDEFGKNOijklmqtu
 stand stand male 0
 0 0 large unknown
 r acid -50
@@ -1342,10 +1343,10 @@ She seems to be quite busy, yet manages to have the time to enjoy
 the calm breeze and bright warm sunshine.
 ~
 giant~
-ABTl DFJu -1000 0
+BThz 0 0 0 ABHghn -1000 0
 28 0 6d12+703 1d1+504 2d12+8 'pierce'
 -8 -8 -8 6
-CDEFGKNO 0 0 0
+CDEFGKNOijklmqtu
 stand stand female 100
 0 0 large unknown
 r acid -50
@@ -1360,10 +1361,10 @@ The warrior and cleric guildmaster stands here.
 An old man peering through ancient tomes rests here.
 ~
 giant~
-ABJKRVbl DFJ 0 0
+BRVhx BCDhij 0 0 ABHghn 0 0
 40 0 15d10+8000 1d1+499 4d8+13 'slash'
 -13 -13 -13 4
-FHN 0 0 0
+FHNlnt
 stand stand male 8000
 0 0 large unknown
 r charm 100
@@ -1375,10 +1376,10 @@ A cleric guildstudent stands here, learning his skills.
 An young man wrapped in purple, long-flowing robes meditates here.
 ~
 giant~
-ABJKQVl DFJ -250 0
+BQVhw CDij 0 0 ABHghn -250 0
 35 0 10d10+1300 1d1+499 4d7+11 'pierce'
 -11 -11 -11 5
-EFGIK 0 0 0
+EFGIKklmoq
 stand stand male 4500
 0 0 large unknown
 r charm 100
@@ -1391,10 +1392,10 @@ A smaller man dressed in nothing but a tunic stands here waiting
 to fight mighty foes.
 ~
 giant~
-ABJKTVl DFJ 0 0
+BTVhz CDij 0 0 ABHghn 0 0
 35 0 10d10+1300 1d1+99 4d7+11 'pierce'
 -11 -11 -11 5
-ACEFHIK 0 0 0
+ACEFHIKgiklnoq
 stand stand male 5500
 0 0 large unknown
 r charm 100
@@ -1408,10 +1409,10 @@ a knife an throws it at you. It lands the wall next to your left ear.
 "We will now begin," is all he says.
 ~
 giant~
-ABJKTVbl DFJ -100 0
+BTVhz BCDhij 0 0 ABHghn -100 0
 40 0 15d10+4000 1d1+99 5d6+13 'pierce'
 -13 -13 -13 3
-BEFHJKN 0 0 0
+BEFHJKNhklnpqt
 stand stand male 3000
 0 0 large unknown
 r charm 100
@@ -1423,10 +1424,10 @@ The Guard for the Guild of Anti-Paladins stand here.
 This man looks like a mage/warrior, i wouldn't mess with him.
 ~
 giant~
-ABRT DJ 0 0
+BRThxz 0 0 0 AHgn 0 0
 30 0 6d12+953 3d7+4 4d6+8 'pierce'
 -9 -9 -9 5
-0 0 0 0
+0
 stand stand male 3345
 0 0 large unknown
 #18071
@@ -1437,10 +1438,10 @@ The Guard for the Guild of Clerics stands here.
 This man looks like a master cleric. I wouldn't mess with him.
 ~
 giant~
-ABQT DJ 0 0
+BQThwz 0 0 0 AHgn 0 0
 30 0 6d12+1003 3d7+4 4d6+8 'pierce'
 -9 -9 -9 5
-0 0 0 0
+0
 stand stand male 4367
 0 0 large unknown
 #18072
@@ -1451,10 +1452,10 @@ The Guard for the Guild of Warriors stands here.
 The man looks like Apollo's cousin, I wouldn't mess with him.
 ~
 giant~
-ABTU DJ 0 0
+BTUhz 0 0 0 AHgn 0 0
 30 0 6d12+1100 3d7+4 4d6+8 'pierce'
 -9 -9 -9 -1
-0 0 0 0
+0
 stand stand male 4278
 0 0 large unknown
 #18073
@@ -1466,10 +1467,10 @@ You see a ranger dressed all in black, he quickly stands as you enter and
 steps to bar your way. You notice his hands resting on two sheafs.
 ~
 giant~
-ABST DJ 0 0
+BSThyz 0 0 0 AHgn 0 0
 30 0 6d12+953 3d7+4 4d6+8 'pierce'
 -9 -9 -9 -1
-0 0 0 0
+0
 stand stand male 5657
 0 0 large unknown
 #18074
@@ -1480,10 +1481,10 @@ A servant boy is here running errands.
 You see a small boy running around the halls of the palace.
 ~
 giant~
-AG J 0 0
+Gm 0 0 0 Hn 0 0
 25 0 5d10+650 1d6+1 2d10+7 'beating'
 -7 -7 -7 0
-0 0 0 0
+0
 stand stand male 2267
 0 0 large unknown
 #18075
@@ -1495,10 +1496,10 @@ You see a small round dwarven man, gazing at all the sites. He's looking at
 a small tavelling map that he seems to be holding upside down.
 ~
 giant~
-ACGH J 0 0
+CGHimn 0 0 0 Hn 0 0
 25 0 5d10+650 1d6+1 2d10+7 'beating'
 -7 -7 -7 6
-0 0 0 0
+0
 stand stand male 3413
 0 0 large unknown
 #18076
@@ -1510,10 +1511,10 @@ A common possition for teenaged titans in this village. You'll be
 seeing several store aid's in stores allover the village!
 ~
 giant~
-ABGH J -1000 0
+BGHhmn 0 0 0 Hn -1000 0
 25 0 5d10+650 1d6+1 2d10+7 'beating'
 -17 -17 -17 5
-DEF 0 0 0
+DEFjkl
 stand stand male 2333
 0 0 large unknown
 r charm 33
@@ -1526,10 +1527,10 @@ A beautiful young women is here, sewing leather together to make the newest
 clothes around. She seems quite busy and you would hate to bug her.
 ~
 giant~
-ABGH J -1000 0
+BGHhmn 0 0 0 Hn -1000 0
 30 0 6d12+953 1d8+100 4d6+8 'pierce'
 -9 -9 -9 5
-0 0 0 0
+0
 stand stand female 4000
 0 0 large unknown
 r charm 33
@@ -1542,10 +1543,10 @@ He is all hot and sweaty from working over the great fires. He is
 forging many new weapons to sell in his store.
 ~
 giant~
-ABGH J -1000 0
+BGHhmn 0 0 0 Hn -1000 0
 35 0 10d10+1800 1d8+100 4d7+11 'slash'
 -11 -11 -11 4
-0 0 0 0
+0
 stand stand male 8900
 0 0 large unknown
 r charm 33
@@ -1559,10 +1560,10 @@ to be creating a defense plan, if the city is ever attacked. You better not
 disturb him.
 ~
 giant~
-ABGH J -1000 18062
+BGHhmn 0 0 0 Hn -1000 18062
 42 0 25d10+3250 1d8+100 3d12+14 'pierce'
 -14 -14 -14 4
-0 0 0 0
+0
 stand stand male 6699
 0 0 large unknown
 r bash 33
@@ -1589,10 +1590,10 @@ He is a strong looking man, working hard at making his sword sharp for combat.
 He seems to just be waiting around for his next order.
 ~
 giant~
-AGH J -1000 18079
+GHmn 0 0 0 Hn -1000 18079
 38 0 10d10+1800 1d8+120 5d6+12 'slash'
 -13 -13 -13 5
-0 0 0 0
+0
 stand stand male 6660
 0 0 large unknown
 r charm 33
@@ -1605,10 +1606,10 @@ He is busy working on putting together he newest steal to his
 finest armor. Perhaps he has something in your size.
 ~
 giant~
-ABGH J -1000 0
+BGHhmn 0 0 0 Hn -1000 0
 40 0 15d10+3050 1d8+100 4d8+13 'none'
 -13 -13 -13 4
-0 0 0 0
+0
 stand stand male 7999
 0 0 large unknown
 r charm 33
@@ -1620,10 +1621,10 @@ A large and deadly Hydra is here.
 A large deadly Hydra is here and will do anything to protect her master.
 ~
 dragon~
-ABIJRTV DFV 1000 0
+BRTVhxz Ci V 0 ABgh 1000 0
 35 0 10d10+1550 1d1+348 4d8+13 'beating'
 -11 -11 -11 5
-N 0 0 0
+Nt
 stand stand female 0
 0 0 large unknown
 r slash 33
@@ -1641,10 +1642,10 @@ want toget on this guys bad side, for he can draw a spell on you and your
 friends!
 ~
 giant~
-ABCTl FJ -1000 0
+BCThiz 0 0 0 BHhn -1000 0
 42 0 25d10+2250 1d1+1111 3d12+14 'pierce'
 -14 -14 -14 5
-BCDEFH 0 0 0
+BCDEFHhijkln
 stand stand male 9233
 0 0 large unknown
 r acid -50
@@ -1662,10 +1663,10 @@ in potions and pills, you wonder which you shall by. You know right away that
 anything type of cure you would need, here is where you'd get it.
 ~
 giant~
-ABTel CDEFJ -1000 0
+BTehz 0 0 0 ABHKLghnqr -1000 0
 45 0 25d10+3000 1d1+320 8d4+16 'slash'
 -15 -15 -15 -2
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand female 500000
 0 0 large unknown
 r acid -50
@@ -1683,10 +1684,10 @@ You are glad that this town is such a happy place... lets just hope it doesn't
 get too happy.
 ~
 giant~
-ABTl CDEFJ -1000 0
+BThz 0 0 0 ABHKLghnqr -1000 0
 28 0 6d12+703 1d1+195 2d12+8 'pierce'
 -8 -8 -8 6
-CDEFIKN 0 0 0
+CDEFIKNijkloqt
 stand stand male 100
 0 0 large unknown
 r acid -50
@@ -1703,10 +1704,10 @@ muscle.  He knows all the zones of realms of Shades of Gray.  It would be a
 Bad Thing to commit a crime in his presence.  
 ~
 giant~
-ABTVXel CDFJVZ 1000 3000
+BTVehz Ek V 0 ABHKghnq 1000 3000
 85 30 1d1+13999 1d1+1499 5d14+40 'crush'
 -50 -50 -50 -50
-ACDEFHIKLNOT 0 0 0
+ACDEFHIKLNOTgijklnoqrtuz
 stand stand male 0
 0 0 huge unknown
 r bash 33
@@ -1733,10 +1734,10 @@ Although retired from adventuring, the healer still lends a hand.
 Type 'heal' to see a listing of spells.
 ~
 giant~
-ABKQVaefl DFH 1000 0
+ABDEJQVeghjkpw DFGHIjlmno Hn 0 ABgh 1000 0
 120 10 1d1+26999 1d1+999 2d4+30 'divine'
 -15 -15 -15 -15
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 5000
 0 0 huge unknown
 r bash 33
@@ -1764,7 +1765,7 @@ bottle wine bordeau~
 a bottle of Bordeau Wine~
 A crystal clear bottle of wine lies here.~
 glass~
-drink A AO
+drink Ag 0 AOgu
 40 40 'elvish wine' 0 0
 2 10 140 G
 g none~
@@ -1773,7 +1774,7 @@ bottle wine chablis~
 a bottle of Chablis Wine~
 A crystal clear bottle of wine lies here.~
 glass~
-drink A AO
+drink Ag 0 AOgu
 40 40 'white wine' 0 0
 2 10 130 G
 g none~
@@ -1782,7 +1783,7 @@ bottle wine liebfraumilch~
 a bottle of Liebfraumilch~
 A crystal clear bottle of wine lies here.~
 glass~
-drink A AO
+drink Ag 0 AOgu
 40 40 'red wine' 0 0
 2 10 130 G
 g none~
@@ -1791,7 +1792,7 @@ bottle wine austrian red~
 a bottle of Austrian Red~
 A crystal clear bottle of wine lies here.~
 glass~
-drink A AO
+drink Ag 0 AOgu
 40 40 'red wine' 0 0
 2 10 100 G
 g none~
@@ -1800,7 +1801,7 @@ bottle wine sauvignon blanc~
 a bottle of Sauvignon Blanc~
 A crystal clear bottle of wine lies here.~
 glass~
-drink A AO
+drink Ag 0 AOgu
 40 40 'white wine' 0 0
 2 10 100 G
 g none~
@@ -1809,7 +1810,7 @@ bottle wine tanqueray~
 a bottle of Tanqueray~
 A crystal clear bottle of wine lies here.~
 glass~
-drink A AO
+drink Ag 0 AOgu
 40 40 'sherry' 0 0
 2 10 100 G
 g none~
@@ -1818,8 +1819,8 @@ slice ham meat~
 a slice of ham~
 A slice of ham is here, lieing in the dirt.~
 meat~
-food A A
-CDF BCDE 0 0 0
+food Ag 0 Ag
+CDFijl BCDEhijk 0 0 0
 20 50 244 P
 g none~
 #18007
@@ -1827,8 +1828,8 @@ side beef~
 a side of beef~
 A side of beef is here.~
 meat~
-food A A
-AF BCDE 0 0 0
+food Ag 0 Ag
+AFgl BCDEhijk 0 0 0
 20 20 260 P
 g none~
 #18008
@@ -1836,8 +1837,8 @@ chicken wing~
 a chicken wing~
 A chiken wing is here.~
 meat~
-food A A
-BCDE BCDE 0 0 0
+food Ag 0 Ag
+BCDEhijk BCDEhijk 0 0 0
 20 20 230 P
 g none~
 #18009
@@ -1845,8 +1846,8 @@ leg lamb~
 a leg of lamb~
 A leg of lamb is here.~
 meat~
-food A A
-BCDE BCDE 0 0 0
+food Ag 0 Ag
+BCDEhijk BCDEhijk 0 0 0
 20 20 203 P
 g none~
 #18010
@@ -1854,7 +1855,7 @@ bongo drum~
 a groovy Bong Drum~
 A bongo drum is here, lieing on the ground.~
 wood~
-weapon AB AN
+weapon ABgh 0 ANgt
 exotic 5 5 'pound' 0
 24 200 4350 G
 A
@@ -1869,7 +1870,7 @@ guitar~
 a groovy Guitar~
 A guitar is here, lieing on the ground.~
 wood~
-weapon AB AN
+weapon ABgh 0 ANgt
 exotic 5 6 'chomp' 0
 25 200 6500 G
 A
@@ -1882,7 +1883,7 @@ pipe wind windpipe~
 a groovy Wind-Pipe~
 A wind-pipe is here, lieing on the ground.~
 wood~
-weapon AB AN
+weapon ABgh 0 ANgt
 exotic 6 4 'slash' 0
 25 120 7500 G
 A
@@ -1895,7 +1896,7 @@ striped bodysuit~
 a Prisoner's Strip-Suit~
 A striped suit is here.~
 leather~
-armor ABG AK
+armor ABGghm 0 AKgq
 8 8 8 1 3
 25 200 7200 G
 A
@@ -1908,8 +1909,8 @@ bread~
 a fresh baked bread~
 A loaf of bread is here.~
 meat~
-food A A
-AC AC 0 0 0
+food Ag 0 Ag
+ACgi ACgi 0 0 0
 20 20 22 P
 g none~
 #18015
@@ -1917,8 +1918,8 @@ batch cookies~
 a batch of cookies~
 A pile of cookies are here.~
 meat~
-food A A
-CE CE 0 0 0
+food Ag 0 Ag
+CEik CEik 0 0 0
 20 20 100 P
 g none~
 #18016
@@ -1926,8 +1927,8 @@ bread stick~
 a fresh breadstick~
 A fresh breadstick is here.~
 meat~
-food A A
-ACDF ACDF 0 0 0
+food Ag 0 Ag
+ACDFgijl ACDFgijl 0 0 0
 20 2 400 P
 g none~
 #18017
@@ -1935,8 +1936,8 @@ pie peach~
 a peach pie~
 A pie is here on the ground.~
 meat~
-food A A
-AF BCDE 0 0 0
+food Ag 0 Ag
+AFgl BCDEhijk 0 0 0
 20 20 100 P
 g none~
 #18018
@@ -1944,8 +1945,8 @@ pie blueberry~
 a blueberry pie~
 A pie is here on the ground.~
 meat~
-food A A
-F F 0 0 0
+food Ag 0 Ag
+Fl Fl 0 0 0
 20 20 600 P
 g none~
 #18019
@@ -1953,8 +1954,8 @@ honey comb~
 a honey comb~
 A gewy honey comb is here.~
 meat~
-food A A
-ABCDF ABCDF 0 0 0
+food Ag 0 Ag
+ABCDFghijl ABCDFghijl 0 0 0
 20 20 300 P
 g none~
 #18020
@@ -1962,8 +1963,8 @@ honey mead~
 a bottle of honey mead~
 A bottle of honey mead is here.~
 meat~
-food A A
-CE 0 0 0 0
+food Ag 0 Ag
+CEik 0 0 0 0
 20 20 210 P
 g none~
 #18021
@@ -1971,8 +1972,8 @@ honey jar~
 a jar of honey~
 A jar of honey is here.~
 meat~
-food A A
-CE CE 0 0 0
+food Ag 0 Ag
+CEik CEik 0 0 0
 20 20 231 P
 g none~
 #18022
@@ -1980,7 +1981,7 @@ standard weapon combat tournament~
 a Standard Tournament Combat Weapon~
 A tournament weapon is here.~
 stone~
-weapon AB AN
+weapon ABgh 0 ANgt
 flail 5 8 'cleave' 0
 35 200 11407 P
 A
@@ -1995,7 +1996,7 @@ scribler~
 a tourists' scribler~
 A scribler is here.~
 cloth~
-trash A A
+trash Ag 0 Ag
 0 0 0 0 0
 20 20 1206 P
 g none~
@@ -2004,7 +2005,7 @@ fish bones~
 a fish bone~
 A fish bone is here.~
 stone~
-trash A A
+trash Ag 0 Ag
 0 0 0 0 0
 10 20 1260 P
 g none~
@@ -2013,7 +2014,7 @@ broken wine bottle~
 a broken wine bottle~
 A broken wine bottle is here.~
 glass~
-trash A A
+trash Ag 0 Ag
 0 0 0 0 0
 10 20 1260 P
 g none~
@@ -2022,7 +2023,7 @@ patch townguard crest~
 a townguard crest~
 A crest is here in the dirt.~
 leather~
-armor AG AC
+armor AGgm 0 ACgi
 12 12 12 0 4
 43 250 10900 G
 A
@@ -2035,7 +2036,7 @@ bottle rum~
 a bottle of Rum~
 A bottle of rum is here.~
 glass~
-drink A A
+drink Ag 0 Ag
 10 10 'rum' 0 0
 20 2 400 P
 g none~
@@ -2044,7 +2045,7 @@ potion invisibility~
 a Magical Potion of Invisibility.~
 A potion lies here in the dirt.~
 glass~
-potion AB AO
+potion ABgh 0 AOgu
 50 'invisibility' 'pass door' '' ''
 20 2 1660 P
 g none~
@@ -2053,7 +2054,7 @@ potion teleportation~
 a Magical Potion of Teleportation.~
 A potion lies here in the dirt.~
 glass~
-potion AB AO
+potion ABgh 0 AOgu
 50 'teleport' 'teleport' 'teleport' 'teleport'
 20 50 13000 P
 g none~
@@ -2062,7 +2063,7 @@ potion holy touch~
 a Magical Potion of The Holy Touch.~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABgh 0 Ag
 50 'bless' 'protection evil' 'haste' 'shield'
 20 100 25000 P
 g none~
@@ -2071,7 +2072,7 @@ potion deadly combat~
 a Magical Potion of Deadly Combat.~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABgh 0 Ag
 50 'frenzy' 'stone skin' 'giant strength' 'armor'
 20 100 19000 P
 g none~
@@ -2080,7 +2081,7 @@ potion cure battle wounds~
 a Magical Potion to Cure Battle Wounds~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABgh 0 Ag
 40 'cure serious' 'cure critical' 'heal' ''
 20 50 10500 P
 g none~
@@ -2089,7 +2090,7 @@ breast plate titan~
 the silver breast plate of the Titans~
 A breast plate lies here on the ground.~
 silver~
-armor G AD
+armor Gm 0 ADgj
 9 9 9 1 4
 25 350 12840 G
 A
@@ -2102,7 +2103,7 @@ bracer titan silver~
 the silver bracer of the Titans~
 A silver bracer lies here on the ground.~
 silver~
-armor G AI
+armor Gm 0 AIgo
 9 9 9 1 1
 25 100 10994 G
 A
@@ -2115,7 +2116,7 @@ legging silver titan~
 the silver leggings of the Titans~
 A pair of legging are here.~
 silver~
-armor G AF
+armor Gm 0 AFgl
 9 9 9 1 3
 25 200 9954 G
 A
@@ -2126,7 +2127,7 @@ silver boots boot titan~
 the silver boots of the Titans~
 A pair of boots are here.~
 silver~
-armor G AG
+armor Gm 0 AGgm
 9 9 9 1 2
 25 200 8906 G
 A
@@ -2139,7 +2140,7 @@ silver helm titan~
 the silver helm of the Titans~
 A helm is here on the ground.~
 silver~
-armor AD AE
+armor Ag 0 AEgk
 9 10 9 0 2
 25 20 9906 G
 g none~
@@ -2148,8 +2149,8 @@ carrot~
 a Titan grown carrot~
 A carrot is here, grown by the great Titans.~
 meat~
-food A A
-BEF BEF 0 0 0
+food Ag 0 Ag
+BEFhkl BEFhkl 0 0 0
 20 20 350 P
 g none~
 #18039
@@ -2157,8 +2158,8 @@ spinich~
 a Titan grown head of spinich~
 A head of spinich is here, grown by the great Titans.~
 meat~
-food A A
-BEF BEF 0 0 0
+food Ag 0 Ag
+BEFhkl BEFhkl 0 0 0
 20 20 300 P
 g none~
 #18040
@@ -2166,8 +2167,8 @@ apple~
 a Titan grown apple~
 an apple is here, grown by the great Titans.~
 meat~
-food A A
-CE CE 0 0 0
+food Ag 0 Ag
+CEik CEik 0 0 0
 20 20 250 P
 g none~
 #18041
@@ -2175,8 +2176,8 @@ orange~
 a Titan grown orange~
 an orange is here, grown by the great Titans.~
 meat~
-food A A
-F F 0 0 0
+food Ag 0 Ag
+Fl Fl 0 0 0
 20 20 100 P
 g none~
 #18042
@@ -2184,8 +2185,8 @@ cherry~
 a Titan grown cherry~
 a single cherry is here, grown by the great Titans.~
 meat~
-food A A
-CF CF 0 0 0
+food Ag 0 Ag
+CFil CFil 0 0 0
 30 20 440 P
 g none~
 #18043
@@ -2193,7 +2194,7 @@ titan dagger silver~
 a Silver Dagger of The Titans~
 A large silver dagger is here on the ground.~
 silver~
-weapon AB AN
+weapon ABgh 0 ANgt
 dagger 5 6 'stab' 0
 25 120 5900 P
 A
@@ -2206,7 +2207,7 @@ titan sword silver~
 a Silver Sword of The Titans~
 A large silver sword is here on the ground.~
 silver~
-weapon AB AN
+weapon ABgh 0 ANgt
 sword 5 6 'pierce' 0
 25 250 5100 P
 A
@@ -2217,7 +2218,7 @@ titan mace silver~
 a Silver Mace of The Titans~
 A large silver mace is here on the ground.~
 silver~
-weapon AB AN
+weapon ABgh 0 ANgt
 mace 6 5 'pound' 0
 25 250 5660 P
 A
@@ -2228,7 +2229,7 @@ titan axe silver~
 a Silver Axe of The Titans~
 A large silver axe is here on the ground.~
 silver~
-weapon AB AN
+weapon ABgh 0 ANgt
 axe 5 6 'chomp' 0
 25 250 5330 P
 A
@@ -2241,8 +2242,8 @@ titan silver spear~
 a Silver Spear of The Titans~
 A large silver spear is here on the ground.~
 silver~
-weapon AB AN
-spear 5 7 'pierce' K
+weapon ABgh 0 ANgt
+spear 5 7 'pierce' Kq
 25 250 5250 P
 A
 18 4
@@ -2252,7 +2253,7 @@ titan silver whip~
 a Silver-Linked Whip of The Titans~
 A large silver whip is here on the ground.~
 silver~
-weapon AB AN
+weapon ABgh 0 ANgt
 whip 6 6 'whip' 0
 30 200 1000 P
 A
@@ -2265,7 +2266,7 @@ book titan lore~
 a Leather Bound Book on Titan Lore~
 A large leather book is here.~
 leather~
-wand A AO
+wand Ag 0 AOgu
 30 10 10 'sleep' 0
 25 80 10620 P
 g none~
@@ -2274,7 +2275,7 @@ tulip yellow~
 a Bright Yellow Tulip~
 A small tulip is here on the ground.~
 wood~
-treasure A A
+treasure Ag 0 Ag
 0 0 0 0 0
 10 1 1004 P
 g none~
@@ -2283,7 +2284,7 @@ tulip red~
 a Bright Red Tulip~
 A small tulip is here on the ground.~
 wood~
-treasure A A
+treasure Ag 0 Ag
 0 0 0 0 0
 10 0 1330 P
 g none~
@@ -2292,7 +2293,7 @@ white rose~
 a Beautiful Single White Rose~
 A beautiful rose is here on the ground.~
 wood~
-treasure A AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 10 1 1000 P
 A
@@ -2305,7 +2306,7 @@ red rose dozen~
 One Dozen Red Roses~
 One dozen red roses lie here on the ground.~
 wood~
-treasure A A
+treasure Ag 0 Ag
 0 0 0 0 0
 10 0 1003 P
 g none~
@@ -2314,7 +2315,7 @@ chrysanthemum yellow~
 Twenty-Two Bright Yellow Chrysanthemums~
 Several bright yellow chyrsanthemums are here.~
 wood~
-treasure A A
+treasure Ag 0 Ag
 0 0 0 0 0
 10 0 1000 G
 g none~
@@ -2323,7 +2324,7 @@ cook hat~
 the Cook's Hat~
 A cooks hat is here on the ground.~
 leather~
-armor ABG AE
+armor ABGghm 0 AEgk
 9 9 9 1 0
 29 160 8400 G
 A
@@ -2336,7 +2337,7 @@ cook pot~
 the Cook's Pot~
 A cooking pot is here on the ground.~
 leather~
-armor ABG AE
+armor ABGghm 0 AEgk
 9 9 9 1 0
 28 200 8100 G
 A
@@ -2349,7 +2350,7 @@ serf shoes serfs shoe~
 the little serfs shoes~
 Little shoes lie here, belonging to a serf.~
 leather~
-armor A AG
+armor Ag 0 AGgm
 10 10 10 1 0
 28 20 450 G
 A
@@ -2362,8 +2363,8 @@ pouch beggar money~
 a little beggar's money pouch~
 A little pouch lies here~
 leather~
-container AG A
-200 A 0 100 50
+container AGgm 0 Ag
+200 Ag 0 100 50
 24 20 1500 P
 g none~
 #18059
@@ -2371,7 +2372,7 @@ staff knight templar~
 the Staff of The Knight Templar~
 A staff is here, leaning up against a wall.~
 iron~
-armor ABG AO
+armor ABGghm 0 AOgu
 10 10 10 50 0
 40 10 33350 G
 A
@@ -2386,7 +2387,7 @@ leather boot boots titan~
 a Titan Citizen's Leather Boots.~
 A pair of boots lie here.~
 stone~
-armor ABG AG
+armor ABGghm 0 AGgm
 8 8 8 1 2
 25 250 4700 G
 A
@@ -2397,7 +2398,7 @@ patrol guard club~
 a patrol guard's club~
 A club rests here against a wall.~
 stone~
-weapon AB AN
+weapon ABgh 0 ANgt
 mace 5 8 'pound' 0
 39 250 4570 P
 A
@@ -2408,7 +2409,7 @@ key town~
 the Golden Key to The  Valley of The Titans~
 A BIG key lies here.~
 gold~
-trash A AO
+trash Ag 0 AOgu
 0 0 0 0 0
 25 20 10000 P
 g none~
@@ -2417,8 +2418,8 @@ long dagger golden~
 a Long Golden Dagger~
 A Jail Guard's Long Golden Dagger is here.~
 gold~
-weapon ABG AN
-dagger 5 6 'cleave' D
+weapon ABGghm 0 ANgt
+dagger 5 6 'cleave' Dj
 25 120 4500 P
 A
 12 10
@@ -2428,8 +2429,8 @@ wooden carved music box~
 a beautifully carved music box~
 A small box lies here.~
 wood~
-container A A
-500 A 0 500 60
+container Ag 0 Ag
+500 Ag 0 500 60
 20 20 3340 P
 g none~
 #18065
@@ -2437,8 +2438,8 @@ small steel box~
 a small steel box~
 A small steel box is here.~
 wood~
-container A A
-500 A 0 500 50
+container Ag 0 Ag
+500 Ag 0 500 50
 20 20 4500 P
 g none~
 #18066
@@ -2446,8 +2447,8 @@ backpack~
 a Designer Backpack~
 A backpack is here on the ground.~
 leather~
-container AGH A
-1000 A 0 1000 25
+container AGHgmn 0 Ag
+1000 Ag 0 1000 25
 20 25 15000 P
 g none~
 #18067
@@ -2455,7 +2456,7 @@ wand titans titan magic~
 a Wand of Titan Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 50 19 19 'calm' 0
 25 200 17080 P
 g none~
@@ -2464,7 +2465,7 @@ wand elven magic~
 a Wand of Elven Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 50 60 60 'know alignment' 0
 25 200 11980 P
 g none~
@@ -2473,7 +2474,7 @@ wand druid magic~
 a Wand of Druid Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 25 10 10 'acid blast' 0
 25 200 49706 P
 g none~
@@ -2482,7 +2483,7 @@ wand pixie magic~
 a Wand of Pixie Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 30 15 15 'faerie fire' 0
 25 200 12204 P
 g none~
@@ -2491,7 +2492,7 @@ wand avian magic~
 a Wand of Avian Magic~
 A long wand is here on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 30 5 5 'fireball' 0
 25 20 14356 P
 g none~
@@ -2500,7 +2501,7 @@ wand drow magic~
 a Wand of Drow Magic~
 A long wand is here on the ground, glowing dark black.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 30 16 16 'curse' 0
 25 20 13490 P
 g none~
@@ -2509,8 +2510,8 @@ chocolate icecream~
 a Double Scoop of Chocolate Icecream~
 Some icecream is here.~
 food~
-food A A
-BEF BEF 0 0 0
+food Ag 0 Ag
+BEFhkl BEFhkl 0 0 0
 3 110 340 P
 g none~
 #18074
@@ -2518,8 +2519,8 @@ blueberry icecream~
 a Tripple Scoop of Blueberry Icecream~
 Some icecream is here.~
 food~
-food A A
-ABCEF ABCEF 0 0 0
+food Ag 0 Ag
+ABCEFghikl ABCEFghikl 0 0 0
 3 110 500 P
 g none~
 #18075
@@ -2527,8 +2528,8 @@ fudge icecream~
 a Single Scoop of Fudge Icecream~
 Some icecream is here.~
 food~
-food A A
-CDEF CDEF 0 0 0
+food Ag 0 Ag
+CDEFijkl CDEFijkl 0 0 0
 3 110 200 P
 g none~
 #18076
@@ -2536,8 +2537,8 @@ chocolate covered almonds~
 some chocolate covered almonds~
 Some chocolate is here.~
 food~
-food A A
-AG AG 0 0 0
+food Ag 0 Ag
+AGgm AGgm 0 0 0
 4 120 500 P
 g none~
 #18077
@@ -2545,8 +2546,8 @@ chocolate fudge~
 some chocolate fudge~
 Some chocolate is here.~
 food~
-food A A
-BCG BCG 0 0 0
+food Ag 0 Ag
+BCGhim BCGhim 0 0 0
 4 120 600 P
 g none~
 #18078
@@ -2554,8 +2555,8 @@ chocolate brittle~
 some chocolate brittle~
 Some chocolate is here.~
 food~
-food A A
-BD BD 0 0 0
+food Ag 0 Ag
+BDhj BDhj 0 0 0
 4 120 100 P
 g none~
 #18079
@@ -2563,8 +2564,8 @@ chocolate mint~
 some chocolate mint~
 Some chocolate is here.~
 food~
-food A A
-BEF BEF 0 0 0
+food Ag 0 Ag
+BEFhkl BEFhkl 0 0 0
 2 120 100 P
 g none~
 #18080
@@ -2572,7 +2573,7 @@ black suede boot boots~
 a pair of black suede boots~
 A pair of suede boots are here.~
 leather~
-armor A AG
+armor Ag 0 AGgm
 9 9 9 0 1
 25 200 4400 G
 g none~
@@ -2581,7 +2582,7 @@ navy blue skirt~
 a long navy blue skirt~
 A long skirt is here on the ground.~
 leather~
-armor AG AF
+armor AGgm 0 AFgl
 8 9 8 1 3
 25 300 5050 G
 A
@@ -2594,7 +2595,7 @@ silver white cloak~
 a beautiful silver and white cloak~
 A cloak is here on the ground.~
 leather~
-armor AG AK
+armor AGgm 0 AKgq
 8 8 8 0 0
 25 170 9604 G
 A
@@ -2607,7 +2608,7 @@ emerald studded bracer~
 an emerald-studded bracer~
 A bracer is here on the ground.~
 leather~
-armor AG AK
+armor AGgm 0 AKgq
 9 9 9 1 0
 25 10 7600 G
 A
@@ -2618,7 +2619,7 @@ fountain marble~
 a beautiful large marble fountain.~
 A beautiful larbe marble fountain is here.~
 marble~
-fountain AO 0
+fountain Ag Ag 0
 10000 10000 'vodka' 0 0
 0 0 0 P
 g none~
@@ -2627,8 +2628,8 @@ standard weapon~
 a Standard Demon Weapon~
 A dark demonic weapon is here on the ground.~
 stone~
-weapon ABCG AN
-exotic 5 9 'wrath' CF
+weapon ABCGghim 0 ANgt
+exotic 5 9 'wrath' CFil
 35 200 14300 P
 A
 22 -1
@@ -2642,7 +2643,7 @@ weapon combat tournament~
 an Enhanced Tournament Combat Weapon~
 A tournament weapon is here.~
 stone~
-weapon AB AN
+weapon ABgh 0 ANgt
 flail 6 8 'cleave' 0
 48 200 18907 P
 A
@@ -2657,7 +2658,7 @@ potion cure sickness~
 a Magical Potion of Cure Sickness.~
 A potion lies here in the dirt.~
 glass~
-potion AB A
+potion ABgh 0 Ag
 90 'remove curse' 'cure blindness' 'cure poison' 'cure disease'
 20 50 50333 P
 g none~
@@ -2666,8 +2667,8 @@ pie apple~
 an apple pie~
 A pie is here on the ground.~
 food~
-food A A
-CE CE 0 0 0
+food Ag 0 Ag
+CEik CEik 0 0 0
 20 20 50 P
 g none~
 #18101
@@ -2675,7 +2676,7 @@ pit~
 the donation pit~
 A pit for sacrifices is in front of the altar.~
 unknown~
-container Og 0
+container 0 Ag 0
 10000 0 0 1000 100
 0 0 0 P
 g none~
@@ -2684,7 +2685,7 @@ fountain~
 a fountain~
 A small marble fountain.~
 unknown~
-fountain A P
+fountain Ag Bh 0
 0 0 'water' 0 0
 0 0 0 P
 g none~
@@ -2702,7 +2703,7 @@ making the end of the road, or what it will bring to, impossible to see.
 A large sign is here, demanding your attention. (look sign)
      There is a small (Glowing) (Humming) tablet.
 ~
-0 AS forest
+0 ASgy forest
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2761,7 +2762,7 @@ adds to the quaint scene. A rustle in the trees above you finally shows life
 in the dreary forests. The path turns and continues west, north  and south
 back to the lighter forests. To the north you see a nice lake.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Path by a lake.
 ~
@@ -2789,7 +2790,7 @@ Bird. A soft mist whisps slowly past, cascading over the brook, creating
 a beautiful soft atmosphere. 
 The path continues west and east.
 ~
-0 AS forest
+0 ASgy forest
 D1
 back to the dusty trail.
 ~
@@ -2810,7 +2811,7 @@ high above you, creating a wonderous view of the lands. The crisp cool air
 seems to add new strength to your sore old bones. The path continues west 
 and back east.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The path continues...
 ~
@@ -2835,7 +2836,7 @@ soft brown pine neddles, matting you heavy footsteps. Several large boulders
 are scattered here and there throughout the woods. The path continues west and 
 back east.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The path continues...
 ~
@@ -2851,7 +2852,7 @@ S
 Void~
 Void.
 ~
-0 CS city
+0 CSiy city
 S
 #18007
 A Sharp Bend in the Road~
@@ -2863,7 +2864,7 @@ curves around the mountain, almost like a deer trail. Perhaps you should
 follow it to see where it takes you. The path continues north, through the 
 deer trail, and east, where you came from.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The matted deer trail.
 ~
@@ -2885,7 +2886,7 @@ little spider webs seem to stick to your face and clothes, making this trip
 very much unejoyable. Up ahead you see that the path widens. The path 
 continues west and south.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The path south.
 ~
@@ -2905,7 +2906,7 @@ to a lose gravel and begins to be flater than before. The masssive wall of
 the mountain suddenly looms up to your left, and up a head you notice that 
 it juts out, almost creating a dead end. The path continues west and east.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The way back.
 ~
@@ -2926,7 +2927,7 @@ trickles slowly underneath the small bridge, creating a relaxing sound. The
 forest seems to be more lush on the other side of the brook. The path continues
 north, across thr bridge, or east, back to the path.
 ~
-0 AS forest
+0 ASgy forest
 D0
 On the bridge.
 ~
@@ -2946,7 +2947,7 @@ A small rainbow trout jumps out of the water, landing with a splash so big it
 gets your shoes wet. This sure is a nice spot. The trail continues north, off 
 of the bridge, and south, back to the path.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The path continues.
 ~
@@ -2969,7 +2970,7 @@ forest floor a wider variety of color and beauty. In the distance you hear the
 rushing of a waterfall, and the loud soulfull cry of the Black Crane. The path 
 continues west and back to the bridge south.
 ~
-0 AS forest
+0 ASgy forest
 D2
 Back to the bridge.
 ~
@@ -2993,7 +2994,7 @@ your hair and brings you the fresh scent of Golden Wildflowers, making you
 wish you were in a sunny field, rolling in them. But you still would much 
 rather be here. The path continues west and east.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The path continues.
 ~
@@ -3015,7 +3016,7 @@ crafted bridge swings the span of the cliff, right in front of the waterfall.
 You would hate to make a mistake and take a step off the bridge. The path 
 continues out south across the bridge, or back east to the trail.
 ~
-0 AS forest
+0 ASgy forest
 D1
 Back to the path.
 ~
@@ -3036,7 +3037,7 @@ brings a cool, freesh breeze. Just being this high up is so exhilerating, you
 could stay here for ever! The bridge continues south or back to the solid 
 grounds, north.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to solid ground.
 ~
@@ -3046,7 +3047,7 @@ D1
 You see nothing special there.
 ~
 door~
-ABZ -1 18017
+ABZgh -1 18017
 D2
 Out across the bridge.
 ~
@@ -3060,7 +3061,7 @@ to the falls that a cool, fine mist is blown about. You notice that there
 is not a cloud in the sky. This has just been the most perfect day! 
 The bridge continues south, and north.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The beginning of the bridge.
 ~
@@ -3091,7 +3092,7 @@ floats magically in the top-most center of the cave. Magic just seems to flow
 through this cave, magic beyond your wildest wonders. You wonder where the 
 exits are.
 ~
-0 ADQS inside
+0 ADQSgjwy inside
 D3
 Back to the bridge.
 ~
@@ -3106,7 +3107,7 @@ above. Ahead the deep green trees and plants welcome you joyfully. You cannot
 wait to get on solid ground again. The exits are south to the road and north 
 to the middle of the bridge.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the middle of the bridge.
 ~
@@ -3131,7 +3132,7 @@ some sort. The land about you appears as though it was formed ages ago, due
 to earthquakes and storms. The path continues north to the bridge, or south 
 to the main road.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the bridge.
 ~
@@ -3152,7 +3153,7 @@ in a wonderous valley. It would be interesting to see what this place is
 like. The exits are north to the bridge, west along the road as well as 
 east. A large sign is here, demanding your attention.
 ~
-0 AS forest
+0 ASgy forest
 E
 sign valley~
 __________________________________________________________
@@ -3193,12 +3194,12 @@ or a Lady, or someone with LOTS of money. You wonder who would live in such
 an extravagent house. The exits are east to the house, or west to the main 
 road.
 ~
-0 AS forest
+0 ASgy forest
 D1
 Inside the front foyer
 ~
 door~
-ABZ 0 18022
+ABZgh 0 18022
 D3
 Back to the road.
 ~
@@ -3214,7 +3215,7 @@ dirt to be found. A house like this must have many maids and cleaning people
 to keep it so neat and tidy. You do not wish to intrude so you mine aswell 
 leave this house alone. Your only exit is west, back to the road.
 ~
-0 AS inside
+0 ASgy inside
 D3
 Back to the road.
 ~
@@ -3230,7 +3231,7 @@ find and Inn, in this..The Valley of The Titans. Heavens knows what type of
 beasts lurke in these forests at night. The path continues in an east-west 
 direction.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The path continues.
 ~
@@ -3250,7 +3251,7 @@ up again. You hope that you will find a village soon, or you will have to
 spend the night with those rich people back east. To the north you see
 a giant plate. The exits are in an east-west and north directions.
 ~
-0 AS forest
+0 ASgy forest
 D0
 ~
 ~
@@ -3275,7 +3276,7 @@ peace and beauty, you could hardly ask for anything more. It is starting to
 get dark and if you do not find a village soon, well, you're stuck outside
 for the evening. The exits are in an east-west direction
 ~
-0 AS forest
+0 ASgy forest
 D1
 The path continues.
 ~
@@ -3296,7 +3297,7 @@ this village, adding to the glorious beauty. You are almost quite sure that
 there are more than one Inn on this island. You better hurry, they may be
 closing this bridges soon. The exits are east and south, to the village.
 ~
-0 AS forest
+0 ASgy forest
 D1
 Back to the main road.
 ~
@@ -3317,7 +3318,7 @@ head on up through the bridges, across to the island, protected by the long
 water moat, and tall stone walls. The city looks to be as safe as any city 
 could possibly get. The exits are south and north.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the path.
 ~
@@ -3339,7 +3340,7 @@ floor. Crystal clear windows are along the side walls and several torches
 light the ceiling above. The smell of pitch burning reminds you of your 
 grandmothers cottage, in the early Winter. The path continues north and south.
 ~
-0 AS inside
+0 ASgy inside
 D0
 Back to the road.
 ~
@@ -3359,7 +3360,7 @@ the central city. You have never seen so many different races of people mixed
 together at once. It truely is wonderful to see so many races getting along 
 with eachother. The road of the Bridges continues north and south.
 ~
-0 AS inside
+0 ASgy inside
 D0
 Back to the beggining of the bridge.
 ~
@@ -3379,7 +3380,7 @@ enough light to show you your way. The ivory walls seem to glow bright white
 in the dim light. You wonder just how long it will take to get to this city. 
 The path continues north and south.
 ~
-0 AS inside
+0 ASgy inside
 D0
 Back from where you came.
 ~
@@ -3400,7 +3401,7 @@ is dress neatly. You feel a little out of place, wearing your traveling gear
 and battle armor. Maybe in town you can by yourself some descent clothes, that 
 is if they will accept your gold. The path continues north and south.
 ~
-0 AS inside
+0 ASgy inside
 D0
 The Bridge continues.
 ~
@@ -3421,7 +3422,7 @@ find an imm with a nice, cozy bed and room. A piping hot meal wouldn't be bad
 either. The bridge continues south to the town entrance, and north, back to 
 the center of the bridge.
 ~
-0 AS inside
+0 ASgy inside
 D0
 Back to the Bridge.
 ~
@@ -3447,7 +3448,7 @@ stables, north to the bridge, and south to the city.
 Лучше уже начинать искать ночлег! На Западе (West) и Востоке (East) отсюда
 расположены конюшни, на Севере (North) мост, на Юге (South) начинается город.
 ~
-0 AS city
+0 ASgy city
 D0
 ~
 ~
@@ -3481,7 +3482,7 @@ The exit is west back to the main road.
 чтобы лошадь немного отдохнула; свежее сено, много воды, чистое стойло.
 Единственный выход на Запад (West), обратно на главную дорогу.
 ~
-0 AS inside
+0 ASgy inside
 D3
 Back to the main road.
 ~
@@ -3501,7 +3502,7 @@ The exit is east back to the main road.
 того, чтобы лошадь немного отдохнула; свежее сено, много воды, чистое стойло.
 Единственный выход на Восток (East), обратно на главную дорогу.
 ~
-0 AS inside
+0 ASgy inside
 D1
 Back to the main road.
 ~
@@ -3521,7 +3522,7 @@ The road continues south and back north.
 тротуарами с каждой стороны и фонарями, развешанными примерно через каждые
 15 метров. Дорога продолжается на Юг (South) и на Север (North).
 ~
-0 AS city
+0 ASgy city
 D0
 The road continues.
 ~
@@ -3545,7 +3546,7 @@ crime! The road continues south, north and east to the prison.
 совершении преступления! Дорога продолжается на Юг (South), Север (North)
 и на Восток (East) к Тюрьме.
 ~
-0 AS city
+0 ASgy city
 D0
 The main road continues.
 ~
@@ -3555,7 +3556,7 @@ D1
 To the prison.
 ~
 door~
-ABZ 0 18038
+ABZgh 0 18038
 D2
 The main road continues.
 ~
@@ -3575,7 +3576,7 @@ road.
 они слишком заняты, чтобы уделить Вам свое внимание. Выходы ведут на
 Север (North) к лестничному колодцу и на Запад (West), обратно на дорогу.
 ~
-0 AS city
+0 ASgy city
 D0
 The stairwell.
 ~
@@ -3595,7 +3596,7 @@ light the path down, making it seem scarier than it really is. You wonder what
 is at the base of the stairs; of what you will find and what will happen. 
 The exits are back to the main office south, and down to the Cell room.
 ~
-0 AS city
+0 ASgy city
 D2
 Back to the main office.
 ~
@@ -3615,7 +3616,7 @@ the odd sound of snoring. To both sides of you there are empty Cells, but
 you cannot be so sure of what lies ahead. The exits are up to the stairwell 
 and north through the corridor.
 ~
-0 AS city
+0 ASgy city
 D0
 Through the corridor.
 ~
@@ -3634,7 +3635,7 @@ your left and right. A musty smell fills the air. Drat! Drows! You recognize
 the foul scent anywhere. The exits are east and west to the cells, north and 
 south to the corridor exits.
 ~
-0 AS city
+0 ASgy city
 D0
 The corridor continues.
 ~
@@ -3644,7 +3645,7 @@ D1
 The Eastern Cell.
 ~
 door~
-ABZ 0 18043
+ABZgh 0 18043
 D2
 Back to the stairwell.
 ~
@@ -3654,7 +3655,7 @@ D3
 The Western Cell.
 ~
 door~
-ABZ 0 18044
+ABZgh 0 18044
 S
 #18042
 The Guardsman~
@@ -3665,7 +3666,7 @@ They may question about why you were in the cells, perhaps think you were
 trying to free one of those stinky...DROWS! The corridor has only one exit, 
 and its south.
 ~
-0 AS city
+0 ASgy city
 D2
 Back to the cells.
 ~
@@ -3680,7 +3681,7 @@ be on your way, before someone comes. Besides, this place smells awefully bad.
 The stench of the drows makes it very hard to breath. The only exit is back 
 west to the main corridor.
 ~
-0 AS city
+0 ASgy city
 D3
 To the main corridor.
 ~
@@ -3695,7 +3696,7 @@ be on your way, before someone comes. Besides, this place smells awefully bad.
 The stench of the drows makes it very hard to breath. The only exit is back 
 east to the main corridor.
 ~
-0 AS city
+0 ASgy city
 D1
 To the main corridor.
 ~
@@ -3716,7 +3717,7 @@ Maybe not! The exits are in all directions: north, south, east, and west.
 быть и нет! Выходы ведут во всех направлениях: Север (North), Юг (South),
 Восток (East) и Запад (West).
 ~
-0 AS inside
+0 ASgy inside
 D0
 ~
 ~
@@ -3741,7 +3742,7 @@ S
 Void~
 Void.
 ~
-0 CS city
+0 CSiy city
 S
 #18047
 The Blue Rabbit Bar~
@@ -3751,7 +3752,7 @@ tables drinking their wine, with waiters rushing madly around, to make sure
 everyone is served. A tall man walks up to you calmly and asks if he can help 
 you. The only exit is west, back to the road.
 ~
-0 AS inside
+0 ASgy inside
 D3
 To the road.
 ~
@@ -3766,7 +3767,7 @@ heaven!  You do not know which you want to try first, perhaps you have enough
 to try them all! Mountains and Mountains of chocolate! The only exit is east 
 back to the road, but who says you'll ever leave??!!
 ~
-0 AS inside
+0 ASgy inside
 D1
 To the road.
 ~
@@ -3786,7 +3787,7 @@ way shall you chose? North, East, South or West?
 а на востоке (East) будут еще перекрестки и магазины. Какое же направление
 выбрать? Север, Восток, Юг, Запад?
 ~
-0 AS city
+0 ASgy city
 D0
 The road you came from.
 ~
@@ -3820,7 +3821,7 @@ things you may find there! Exits are north, east, west, and south.
 Представляете, сколько различных вещей, можно найти там! Выходы ведут на
 Север, Восток, Запад и Юг.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the town square.
 ~
@@ -3853,7 +3854,7 @@ trends at the Red Dragon. Straight to the west there are two little doors
 that say 'Employees only.' This is a really nice shoppe and you would really 
 like to buy something here. The only exit is west to the street.
 ~
-0 AS forest
+0 ASgy forest
 D3
 Back to the main street.
 ~
@@ -3872,12 +3873,12 @@ cover the floor; light blue pain covers the walls. To the north you notice
 a back room. You wonder what could be there? The exits are north to the back 
 room, and east back to the Southern Main Street.
 ~
-0 AS forest
+0 ASgy forest
 D0
 To the back room.
 ~
 door~
-ABZ 0 18053
+ABZgh 0 18053
 D1
 Back to the Southern Main Street.
 ~
@@ -3892,7 +3893,7 @@ all. Many people rush around working very hard, trying to beat the demand of
 clothes needed for this time of year. The exit is back south to the Red Dragon
 store.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The Red Dragon.
 ~
@@ -3911,7 +3912,7 @@ direction, with to the east a Florist and to the west and Apiarist.
 продолжается в Северном (North) и Южном (South) направлениях с цветочным
 магазином на Востоке (East) и пчеловодным на Западе (West).
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the Southern Main Street.
 ~
@@ -3931,7 +3932,7 @@ D3
 The rare Apiarist.
 ~
 door~
-ABZ 0 18058
+ABZgh 0 18058
 S
 #18055
 The Flower Shop~
@@ -3942,12 +3943,12 @@ A young lady is behind a vine-covered counter, humming to herself while she
 repots an Aloe Vera plant. Several rows of flowers line the wooden floors, 
 making it look almost like a jungle. The only exit is west, back to the road.
 ~
-0 AS forest
+0 ASgy forest
 D0
 To the hidden greenhouse.
 ~
 door~
-ABZ 0 18056
+ABZgh 0 18056
 D3
 Back to The Southern Main Street.
 ~
@@ -3963,12 +3964,12 @@ this room with a wonderous glow. A small pond sits in the corner, feeding many
 water-bound plants such as the Water Lily. The exits to this room are back 
 south to the Florists' Shop, and east to an outside garden.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Outside Garden.
 ~
 door~
-ABZ 0 18057
+ABZgh 0 18057
 D2
 Back to the Florists' Shop.
 ~
@@ -3984,7 +3985,7 @@ along a small stone garden to your left. A little wooden table is here, with
 an empty cup of coffee and an abandoned chair. The only exit is west to the
 GreenHouse.
 ~
-0 AS forest
+0 ASgy forest
 D3
 The GreenHouse.
 ~
@@ -4000,7 +4001,7 @@ heat to the west. Behind a strange counter is a young lady, pooring bright
 yello honey into a jar. You wonder at just what you can buy. The only exit is
 west to the main street.
 ~
-0 AS forest
+0 ASgy forest
 D1
 Back to the Main Street.
 ~
@@ -4026,7 +4027,7 @@ To the east in the far distance, you see a giant Castle.
 дорога приведет Вас к бакалейной и другим лавкам. На Востоке (East) вдалеке
 Вы видите гигантский Замок.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the Southern Main Streets.
 ~
@@ -4059,7 +4060,7 @@ walks up an down the road, passing between the villagers. Tall green trees
 lie in garden beds infront or beside the buildings. The exits are
 north, east, south, and west.
 ~
-0 AS forest
+0 ASgy forest
 D0
 Back to the market square.
 ~
@@ -4069,7 +4070,7 @@ D1
 A Large Armour Shop.
 ~
 door~
-ABZ 0 18061
+ABZgh 0 18061
 D2
 A quaint Cul-De-Sac.
 ~
@@ -4091,7 +4092,7 @@ far back right corner of this room. There is a large stone fireplace to your
 right, giving the room some added heat. The exits are north to the stairways, 
 and east to the side-street.
 ~
-0 AS forest
+0 ASgy forest
 D0
 A Large Spiral Staircase.
 ~
@@ -4112,7 +4113,7 @@ a large furnace, you think, and much more. You wonder what could be in the
 bowls of this building. The exits are down to the unknown, and back south 
 the the side streets.
 ~
-0 AS forest
+0 ASgy forest
 D2
 Back to the Large Armoury.
 ~
@@ -4134,7 +4135,7 @@ It seems that this part is open to the public so I guess you wouldn't be in
 trouble if you got caught. The exits are up the stairwell and west to the 
 Blacksmith.
 ~
-0 AS forest
+0 ASgy forest
 D3
 A Large Workroom.
 ~
@@ -4156,7 +4157,7 @@ It seems that this part is open to the public so I guess you wouldn't be in
 trouble if you got caught. The exits are up the stairwell and east to the 
 Armoury.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Large Workroom.
 ~
@@ -4177,7 +4178,7 @@ trying desparately to let in some light. The faint smell of pitch catch your
 sense with surprise. The exits are down to the unknown and south the The
 Weapon Shop.
 ~
-0 AS forest
+0 ASgy forest
 D2
 ~
 ~
@@ -4195,7 +4196,7 @@ are sure that there are many fine articles for sale in this store. It seems
 as though this weaponsmith supplies to the royal armies. The exits are north 
 to a stairwell, and east to the side streets.
 ~
-0 AS forest
+0 ASgy forest
 D0
 ~
 ~
@@ -4216,7 +4217,7 @@ grocer. To the west there is an Apothecary. The exits are north to the
 side-streets, south the the yard of the house, east to the very large grocer 
 and west to the Apothecary.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The side-street.
 ~
@@ -4226,17 +4227,17 @@ D1
 The very large grocer.
 ~
 door~
-ABZ 0 18070
+ABZgh 0 18070
 D2
 You see a Large White House.
 ~
 door~
-ABZ 0 18069
+ABZgh 0 18069
 D3
 The Apothecary.
 ~
 door~
-ABZ 0 18068
+ABZgh 0 18068
 S
 #18068
 The Apothecary~
@@ -4247,7 +4248,7 @@ a dark green and light yellow potions. Many runes and scrolls cover the walls,
 where there is not shelves. A white bear rug is under your feet, giving the 
 room a strange appearance. The only exit is east to the Cul-De-Sac.
 ~
-0 AS forest
+0 ASgy forest
 D1
 Back to the Cul-De-Sac.
 ~
@@ -4263,7 +4264,7 @@ removed, the extra long grass in the yard, and the window that needs to be
 replaced are just some of the give-aways. The only exits is north, back 
 to the road.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Cul-De-Sac.
 ~
@@ -4279,7 +4280,7 @@ department, aswell as the dairy products. The exits are north to the produce
 sections, south to the meat and fish department, and west to the Cul-De-Sac, 
 and east to the canned goods ect.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The produce section.
 ~
@@ -4308,7 +4309,7 @@ sides of this room. The bright torch light makes you able to see clearly on
 what there is to get. A tall young man stands here, ready to help you with 
 your purchase. The only exit is south to the main entrance.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The main enterance.
 ~
@@ -4324,7 +4325,7 @@ the bright special torches above you. Too bad there isn't anyone here to help
 you with your purchase; those cookies sure do look good! The only exit is 
 west back to the main entrance.
 ~
-0 AS forest
+0 ASgy forest
 D3
 The main enterance.
 ~
@@ -4338,7 +4339,7 @@ fish. A large butcher is working behind one of these tables, carving what looks
 like lamb into a wonderful roast. I am sure he will help you with anything you 
 could want to buy. The only exit is north to the main enterance.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The main enterance.
 ~
@@ -4355,7 +4356,7 @@ Ofcol, this would be considered one of the richer parts of town. Grey stones
 pave the road and sidewalks. The exits are east to the Southern main road, 
 west to the end of this road, north to a pub and south to a back alley.
 ~
-0 AS forest
+0 ASgy forest
 D0
 ~
 ~
@@ -4386,7 +4387,7 @@ over to your right, with several people sitting at the tables talking to each
 other. You notice that there is a second room to your left. The exits are south 
 to the western road, and west to a second room.
 ~
-0 AS forest
+0 ASgy forest
 D2
 ~
 ~
@@ -4406,12 +4407,12 @@ away their savings. A thin cloud of smoke lies in the air, dimming the light
 of the torches just a bit. You see to the north a stairwell leading into yet 
 another room. The exits are east to the pub and north to the unknown.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The unknown.
 ~
 door~
-ABZ 0 18077
+ABZgh 0 18077
 D1
 The pub.
 ~
@@ -4426,7 +4427,7 @@ for a drink. Soft music is played in this room, almost lovely enough to make
 you forget of the Game Room. You see a set of stairwells to your north leading
 upwards.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The stairwell.
 ~
@@ -4446,7 +4447,7 @@ You wonder what could be up on the wall that the bar would have access to.
 You see to your left a small door that says 'cooking hall' on it. Your exits 
 are up to the top of the wall, and south to the Lounge.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The Lounge.
 ~
@@ -4470,7 +4471,7 @@ the Valley. Beautiful green forests suround the outer walls, making it seem
 as though you are in a private heaven. There is a small dance floor to the 
 east and the stairwell down.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Dance Floor.
 ~
@@ -4490,7 +4491,7 @@ Soft music plays in the background and you have an urge to dance. Perhaps one
 day you should bring your special "someone" here and show them the city from 
 one of the finest views. The only exit is west.
 ~
-0 AS forest
+0 ASgy forest
 D3
 The Dining Lounge.
 ~
@@ -4504,7 +4505,7 @@ usual, for this town. You notice that a fair smell is in the air. An unsual
 smell.. Almost like rotting... Food. Garbage! A Garbage dump lies to the west. 
 The exits are west to the garbage dump and north to the Western Roads.
 ~
-0 AS forest
+0 ASgy forest
 D0
 ~
 ~
@@ -4522,7 +4523,7 @@ place of the whole city. Little ally cats rumage through the garbage, in hopes
 of finding something good to eat. You wish to leave this place as soon as you 
 possibly can. The only exits are east, and south to the sewers under the dump.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Ally.
 ~
@@ -4532,7 +4533,7 @@ D2
 A Pile of Garbage.
 ~
 door~
-ABZ 0 18097
+ABZgh 0 18097
 S
 #18083
 The End of The Western Road~
@@ -4542,7 +4543,7 @@ rest of the city, yet makes you more loney here. What used to be a container
 shop is all borded up an vacant. The only exit is east back to the western 
 road.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Western Road.
 ~
@@ -4557,12 +4558,12 @@ called The Green Dragon Inn to your left, and a second called The Blue
 Crossings Inn to your right. To road continues west and east to the main 
 square, north and south to the Inns.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Green Dragon Inn.
 ~
 door~
-ABZ 0 18088
+ABZgh 0 18088
 D1
 The Main Street.
 ~
@@ -4572,7 +4573,7 @@ D2
 The Blue Crossings Inn.
 ~
 door~
-ABZ 0 18085
+ABZgh 0 18085
 D3
 The Western Road continues.
 ~
@@ -4589,7 +4590,7 @@ help anyone with their suitcases and luggage. The manager of the Inn beams a
 big smile at you. The exits are north to the western road, and east 
 to the stairwell.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Western Main Street.
 ~
@@ -4608,7 +4609,7 @@ of the Inn. Large windows follow the stairs, adding to the beauty and quality
 of the Inn. You can hardly wait to see what one of the rooms look like in such 
 a classy Inn. The exits are west to the lobby and up to the second floor.
 ~
-0 AS forest
+0 ASgy forest
 D3
 The Lobby.
 ~
@@ -4630,7 +4631,7 @@ Inns you have ever been in. You can hardly wait to tell people back home
 about this glorious place. The only exit is down the stairwell, since you 
 have not paid for a room.
 ~
-0 AS forest
+0 ASgy forest
 D5
 The Stairwell.
 ~
@@ -4644,7 +4645,7 @@ name. Glorious silver stairs lead up to the second floor. This sure does
 look like an expensive and wonderful Inn. The name surely does suit it. 
 The only exit from this wonderful Inn is south to the Western Main Road.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The Western Street.
 ~
@@ -4662,12 +4663,12 @@ quaint little container shop. To the south and old-fashioned library.
 To the west the road continues, and the east will take you back to the market 
 square, eventually.
 ~
-0 AS forest
+0 ASgy forest
 D0
 A Quaint Little Shop.
 ~
 door~
-ABZ 0 18090
+ABZgh 0 18090
 D1
 The Western road continues.
 ~
@@ -4677,7 +4678,7 @@ D2
 The Library.
 ~
 ~
-ABZ 0 18091
+ABZgh 0 18091
 D3
 The Western road continues.
 ~
@@ -4692,7 +4693,7 @@ the walls, filled with containers of many different sizes. You see a large
 table with a man standing behind it, selling his grade A containers. 
 The only exit is south to the main road.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The Western Road.
 ~
@@ -4708,7 +4709,7 @@ set of stairs with a bookshelf lining it, leads to an upstairs balcony.
 A large sign overhead says "Shhhhh....Its a Library...." informing you to 
 keep quiet. The exits are north to the western road, and west to the stairwell.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Western Road.
 ~
@@ -4729,7 +4730,7 @@ carpet rests underfoot, softening the thuds of yours and others boots. From
 up here you notice how big and wonderful this library really is. Your exits
 are east to the main room in the library, and up to the balcony.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The main room.
 ~
@@ -4750,12 +4751,12 @@ window a then other end. A dark red carpet is under the tables, protecting the
 wooden floor from scratches. You wonder what book you would like to read 
 first! The only level is down the stairwell.
 ~
-0 AS forest
+0 ASgy forest
 D2
 You see nothing special there.
 ~
 ~
-ABZ 0 18094
+ABZgh 0 18094
 D5
 The stairwell.
 ~
@@ -4772,7 +4773,7 @@ a key to get back into the library. You wonder what mysterious things lie
 ahead, where does the path lead to, where shall you end up? The only exit is 
 west, and back north to the balcony.
 ~
-0 AS mountain
+0 ASgy mountain
 D0
 Back to the balcony.
 ~
@@ -4793,7 +4794,7 @@ You can always head back, in hopes someone will open the door, like you did.
 But the chances of that happening are very slim. The only exits are west
 and east.
 ~
-0 AS mountain
+0 ASgy mountain
 D1
 The passage continues.
 ~
@@ -4812,7 +4813,7 @@ heading slightly downwards. The passage also continues on to the west and east,
 into dark forbidding chambers. You hope to your wonderful deity that you find 
 an exit soon. Light lead the way!
 ~
-0 AS mountain
+0 ASgy mountain
 D0
 The passage continues.
 ~
@@ -4841,12 +4842,12 @@ wish there was another way but, 'Que sera, sera'...'whap happens, happens.'
 The exits are north, through the grate to the garbage dump and south to the 
 three-way passage.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The dirty grate.
 ~
 grate~
-ABZ 0 18082
+ABZgh 0 18082
 D2
 The three-way passage
 ~
@@ -4861,12 +4862,12 @@ a rugged shaved face walks up to you and shows you his pet collection. Such
 wild beasts made tame for fighting purposes! It would be neat to see what they 
 can really do! The only exit is back east to the three-way passage.
 ~
-0 AS forest
+0 ASgy forest
 D0
 You see eee...... nothing special there.
 ~
 secret~
-ABZ 0 18124
+ABZgh 0 18124
 D1
 The passage continues.
 ~
@@ -4882,7 +4883,7 @@ covering the second half. There is a baker, a wands shop, and a small pet shop.
 The exits are west to the pet shop, east to the western main road, north
 to the baker and south to the wand shop.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The baker.
 ~
@@ -4897,12 +4898,12 @@ D2
 The wand shop.
 ~
 door~
-ABZ 0 18103
+ABZgh 0 18103
 D3
 The pet shop.
 ~
 door~
-ABZ 0 18100
+ABZgh 0 18100
 S
 #18100
 The Pet Shop~
@@ -4912,12 +4913,12 @@ in front of you, with a small little girl humming to herself. She seems to
 enjoy playing with the animals and running her little shop. You wonder how much
 each of the pets will cost. The only exit is east back to the main road.
 ~
-0 DMS inside
+0 DMSjsy inside
 D0
 The forbidden store room.
 ~
 door~
-ABZ 0 18101
+ABZgh 0 18101
 D1
 The main road.
 ~
@@ -4933,7 +4934,7 @@ I find you I shall slay you personally. No hard feelings,
 The only exit is south to the pet shop where you belong! Not here in 
 the forbidden store room!
 ~
-0 DS inside
+0 DSjy inside
 D2
 The store room, where you belong!
 ~
@@ -4948,7 +4949,7 @@ at making bread and cakes. There is a large baker here, selling the goodies
 around you. You would sure like to buy something! The only exit is south 
 to the main street.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The main street.
 ~
@@ -4962,7 +4963,7 @@ to be glowing with magic and power. A large wizard is behind the counter,
 enchanting the latest wands with magical spells. You wonder what magical 
 things you can get in this store. The only exit is north to the main street.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The main street.
 ~
@@ -4981,7 +4982,7 @@ lieutenant commander. *Sigh* Perhaps they are all just dreams but someday
 you really do hope to meet them. The street continues south to the Northern 
 Royal Avenue, and west to the southern town square.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The Northern Royal Ave.
 ~
@@ -5004,7 +5005,7 @@ lieutenant commander. *Sigh* Perhaps they are all just dreams but someday
 you really do hope to meet them. The street coninues north to the Southern 
 Royal Avenue, and west to the Market Square.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Southern Royal Ave.
 ~
@@ -5025,7 +5026,7 @@ sides of the roads, nestled in packs of trees and shrubs. This is truely one
 of the most gloryious streets in all of the Valley. The exits are north to
 the Eastern Boulevard and south to the Royal Square.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Eastern Boulevard.
 ~
@@ -5046,7 +5047,7 @@ sides of the roads, nestled in packs of trees and shrubs. This is truely one
 of the most gloryious streets in all of the Valley. The exits are north to
 the Royal Square and south to the Eastern Boulevard.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Royal Square.
 ~
@@ -5067,7 +5068,7 @@ universe to save the city and protect it. This is truely a sacred place and
 it is said that no wrong can happen here. The exits are north to the Northern 
 Royal Avenue, south to the Southern Royal Avenue and east to The Royal Gates.
 ~
-0 AS city
+0 ASgy city
 D0
 The Northern Ave.
 ~
@@ -5077,7 +5078,7 @@ D1
 The Royal Gates.
 ~
 ~
-ABZ -1 18109
+ABZgh -1 18109
 D2
 The Southern Ave.
 ~
@@ -5097,7 +5098,7 @@ golden and silver symbol of the Titans is large on the door, seeming almost
 magical and protective. The exits are east to the palace grounds, and west 
 back to the Royal Square.
 ~
-0 AS city
+0 ASgy city
 D0
 Temple of titans.
 ~
@@ -5123,7 +5124,7 @@ all centered here! You do not know what you want to see first. The exits
 are south to warriors and clerics guild, north to the training grounds, 
 east on to the palace, and west back through the gates.
 ~
-0 AS city
+0 ASgy city
 D0
 The Training Grounds.
 ~
@@ -5154,7 +5155,7 @@ and warriors alike, are busy learning their skills to their maximum possible
 experties. Perhaps you can sharpen your skills and become a far better
 warrior or cleric. The only exit is north, back to the road.
 ~
-0 AS city
+0 ASgy city
 D0
 The Great Doors.
 ~
@@ -5171,7 +5172,7 @@ here, being the finest city in the world, their guildmasters must be the
 best. The exits are north to the training grounds, south to the guild, 
 east to the palace, and west to the road to the gates.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Training Grounds.
 ~
@@ -5181,12 +5182,12 @@ D1
 The Palace.
 ~
 door~
-ABZ 0 18120
+ABZgh 0 18120
 D2
 The Great Doors.
 ~
 door~
-ABZ 0 18113
+ABZgh 0 18113
 D3
 The Road to The Gates.
 ~
@@ -5201,7 +5202,7 @@ are here, teaching their students to be the best they can be. A couple of
 guildguards guard the doors, making sure no one who does not belong enters.
 The only exit is north, back to the road.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Great Doors.
 ~
@@ -5218,7 +5219,7 @@ his finest students. The ground is barren and empty. The only exits are
 north, to the training grounds south-center, south to the road, and east 
 to the training grounds center.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The Training Grounds.
 ~
@@ -5243,7 +5244,7 @@ into the palace for this test. The barren grounds are covered with the odd
 stain of blood, broken sword, and torn cloth. The exits are north east and 
 south, all to training grounds.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The training grounds.
 ~
@@ -5268,7 +5269,7 @@ cloth lieing about on the ground. You had best leave before you are asked
 to take part and join the never ending conquest for glory. The exits are 
 south and east to the training grounds.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The training grounds.
 ~
@@ -5290,7 +5291,7 @@ grounds have several blood stains streaking across them. The exits are in
 three directions, north, south, and west. All going to training grounds, 
 save south which takes you to the road.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The training grounds.
 ~
@@ -5315,7 +5316,7 @@ about, making this a very gruesome scene. There are several fine weaponmasters
 in all classes, fighting for their life, killing evil deamons and beasts from 
 hell. The exits are north, south and west, all leading to the training grounds.
 ~
-0 AS forest
+0 ASgy forest
 D0
 The training grounds.
 ~
@@ -5340,7 +5341,7 @@ rangers,anti-ps and clerics all fight for their lives here, against the demons
 of hell, shadowspawn. You have a choice of south or west, both  leading to 
 training grounds. You really do wish to leave here as fast as you may.
 ~
-0 AS forest
+0 ASgy forest
 D2
 The training grounds.
 ~
@@ -5362,7 +5363,7 @@ please the royal family. You notice a giant stairway leading to a second floor
 belcany. The exits are east, through a giant hall, and west, through 
 the palace doors.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Massive Hall.
 ~
@@ -5384,7 +5385,7 @@ ancient rulers and the wise ones line the hall, creating a historical look.
 A giantdoorway to the east leads into the beautiful throne room. To the
 west of this room lies the doorway you came through.
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Throne Room.
 ~
@@ -5407,12 +5408,12 @@ Queen have faces that look as though they have never aged.  The queen's
 advisors are about you, aiding her with the decisions of the future of the
 castle.  The only exit to this room is west, back to the massive hall.  
 ~
-0 AS forest
+0 ASgy forest
 D1
 The Throne.
 ~
 throne~
-ABZ 0 18123
+ABZgh 0 18123
 D3
 The massive hall.
 ~
@@ -5426,7 +5427,7 @@ there is an assassin here, stalking the king and queen! You better report him,
 and this room, or kill him yourself! I am sure the king and queen will pay 
 highly for his head. This assassin appears to be very talented.
 ~
-0 AS forest
+0 ASgy forest
 D3
 The Throne.
 ~
@@ -5446,7 +5447,7 @@ A sign is on the wall, writen in blood. It reads:
      The Keeper of The Deadly Pets.
 Freaky! There is no exit! Aaaahahhhhhhh.h........h.......!
 ~
-0 MS city
+0 MSsy city
 D2
 You see nothing special there.
 ~
@@ -5457,7 +5458,7 @@ S
 Store of the deadly beast~
 Store of the deadly beast
 ~
-0 CKS city
+0 CKSiqy city
 S
 #18126
 Temple of Titans Valley~
@@ -5465,7 +5466,7 @@ You are in eastern end of temple hall in the temple of titans valley.You
 notice that to the south then east  ,the palace, where you can train and 
 practice. And to the north you see the temple and healer.
 ~
-0 DS inside
+0 DSjy inside
 D0
 Healer's temple.
 ~
@@ -5487,7 +5488,7 @@ You are by the temple of titansin the middle of valley of titans. A huge
 altar made from white polished marble is standing in front of you and 
 behind it is a ten foot tall sitting statute of GODS of TITANS.
 ~
-0 CDKNS inside
+0 CDKNSijqty inside
 D2
 Healer's temple.
 ~
@@ -5499,7 +5500,7 @@ S
 You are in a large hall, nicely lit by big chandeliers hanging from the
 ceilings. A long counter lies through the room.
 ~
-0 KSU inside
+0 KSUqy inside
 D1
 ~
 ~

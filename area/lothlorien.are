@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Lothlorien~
 VNUMs 95900 95999
 Credits All'erh'mog'h'ohol~
@@ -15,10 +16,10 @@ Strong Elf watch to you.
 ~
 ~
 elf~
-ABTcl DEFHNTVclmt 5000 0
+BTchz 0 HNTVcntz 0 ABLghr 5000 0
 70 500 1d1+20000 1d1+10000 1d1+200 'pound'
 -70 -70 -70 -70
-ADEFHIKNQ 0 0 0
+ADEFHIKNQgjklnoqtw
 stand stand male 0
 0 0 medium unknown
 r bash 33
@@ -46,12 +47,12 @@ quiver lothlorien's~
 @eng quiver of lothlorien's rangers@rus колчан лотлориенских лучников~
 @eng Fine quiver lies here.@rus Изящный колчан лежит у твоих ног.~
 leather~
-container KTY AK
-200 F 0 200 100
+container KYq Ci AKgq
+200 Fl 0 200 100
 36 0 10 P
 A
 13 75
-S 'refresh' 100 A
+S 'refresh' 100 Ag
 g male~
 #0
 
@@ -65,11 +66,11 @@ g male~
 преградившую тебе дорогу стражу этих мест. Кто ты, осмелившийся вступить
 в пределы Наита?
 ~
-0 C forest
+0 Ci forest
 D0
 ~
 ~
-DZ 0 95902
+DZj 0 95902
 D1
 ~
 ~
@@ -77,7 +78,7 @@ Z 0 95900
 D2
 ~
 ~
-AIZ 0 95901
+AIZgo 0 95901
 D3
 ~
 ~
@@ -93,11 +94,11 @@ S
 Путник, подумай прежде чем сделать шаг. Этот лес опасен для зла и
 его служителей.
 ~
-0 C forest
+0 Ci forest
 D0
 ~
 ~
-AIZ 0 95900
+AIZgo 0 95900
 D1
 ~
 ~
@@ -119,11 +120,11 @@ S
 Это Кеин Эмрос - сердце древнего эльфийского государства. Но тропа уводит
 дальше, к виднеющемуся на севере Карс Галадону.
 ~
-0 CJ forest
+0 CJip forest
 D0
 ~
 ~
-DZ 0 95903
+DZj 0 95903
 D1
 ~
 ~
@@ -131,7 +132,7 @@ Z 0 95902
 D2
 ~
 ~
-DZ 0 95900
+DZj 0 95900
 D3
 ~
 ~
@@ -163,7 +164,7 @@ Z 0 95906
 D2
 ~
 ~
-DZ 0 95902
+DZj 0 95902
 D3
 ~
 ~

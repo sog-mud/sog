@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Hellfire~
 VNUMs 18700 18799
 Credits Orrin~
@@ -16,10 +17,10 @@ urukhay урукхай troll~
 ~
 ~
 troll~
-AJKTbef DFOPVlmt -1000 0
+ADEJTegjkpz BCDFGIhijlmo OVu Gm ABgh -1000 0
 0 100 1d1+29999 1d1+999 1d1+200 'none'
 -200 -200 -200 -200
-ACEFIJKLN 0 0 0
+ACEFIJKLNgiklopqrt
 stand stand male 1000000
 0 0 huge unknown
 M speech 18799 да пошел ты~
@@ -55,13 +56,13 @@ griswold грисвольд~
  
 ~
 human~
-ABTcekl CDEFHNTVlmt 584 0
+BTcehz 0 HNTVntz 0 ABKLghqr 584 0
 70 15 25d15+25000 1d1+999 8d8+60 'slash'
 -80 -80 -80 -80
-ACEFHJK 0 0 0
+ACEFHJKgiklnpq
 stand stand male 1000000
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r bash 33
 r pierce 33
 r slash 33
@@ -87,13 +88,13 @@ ogden огден~
 ~
 ~
 human~
-ABLT 0 -1000 0
+BLThrz 0 0 0 0 -1000 0
 85 0 0d0+0 1d1+9999 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 M act 18798 say~
 #18703
 cain кейн~
@@ -102,13 +103,13 @@ cain кейн~
 ~
 ~
 human~
-ABJKRXbdefl DFHV 367 0
+ABDEJReghjkpx ABCDEFGIghijklmo HVn 0 ABgh 367 0
 70 50 1d1+29999 1d1+499 6d14+100 'chill'
 -100 -100 -100 -100
-EFKT 0 0 0
+EFKTklqz
 stand stand male 1000
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r bash 100
 r pierce 33
 r slash 33
@@ -134,13 +135,13 @@ healer лекарь пепин pepin~
 ~
 ~
 human~
-ABQaefkl DFHNTVlmt 1000 0
+ABDEJQeghjkpw FGHIlmno HNTVntz 0 ABgh 1000 0
 120 300 1d1+29999 12d42+10000 20d10+100 'divine'
 -100 -100 -100 -100
-AN 0 0 0
+ANgt
 stand stand male 1000
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r bash 33
 r pierce 33
 r slash 33
@@ -165,13 +166,13 @@ adria ведьма адрия witch~
 ~
 ~
 human~
-ABRcefl DFVu -1000 0
+ABDEJRceghjkpx FGIlmo V 0 ABgh -1000 0
 92 0 1d1+28999 1d1+999 10d10+20 'none'
 -70 -70 -70 -70
-F 0 0 0
+Fl
 stand stand female 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r bash 33
 r pierce 33
 r slash 33
@@ -196,13 +197,13 @@ farnham алкаш drunk~
 ~
 ~
 human~
-ABUel Yd 0 0
+BUeh 0 Yd 0 0 0 0
 15 0 15d15+200 1d1+149 2d4+5 'punch'
 10 10 10 10
-DFK 0 0 0
+DFKjlq
 stand rest male 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r fire 33
 r cold 33
 r lightning 33
@@ -223,13 +224,13 @@ wirt вирт~
 ~
 ~
 human~
-ABCScel CDFGPdlmtu -436 0
+BCScehiy 0 d Gm ABKMghqs -436 0
 50 0 50d10+18000 1d1+99 6d8+30 'none'
 -23 -54 -34 -67
-BFNT 0 0 0
+BFNThltz
 stand stand male 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 M grall 18700 666~
 M exall 18702 2~
 M bribe 18701 5000~
@@ -244,13 +245,13 @@ bank~
 ~
 ~
 human~
-ABe 0 0 0
+Beh 0 0 0 0 0 0
 100 0 1d1+29999 0d0+0 0d0+0 'slash'
 0 0 0 0
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r mental -50
 #18710
 mage fire ball~
@@ -264,10 +265,10 @@ mage fire ball~
 собой лишь огонь и пепел.
 ~
 fire elemental~
-ARf DFJVlmtu -1000 0
+ADEJRgjkpx FGIlmo V 0 ABHghn -1000 0
 60 200 1d1+19999 1d1+999 10d10+50 'flame'
 -70 -70 -70 -70
-0 0 0 0
+0
 stand stand male 0
 0 0 medium unknown
 C Shalafi
@@ -279,34 +280,37 @@ axe huge flaming fire orrin~
 @eng {YHuge Flaming Axe{x@rus {Y~~Пылающая~~ ~~секира~~{x~
 @eng Huge {YFlaming{x Axe has been left here.@rus Orrin забыл здесь свою секиру (axe), может стоит вернуть?~
 flame~
-weapon ABKLRSTac ANP
-axe 1 9999 'flame' AD
+weapon ABKLghqr BCFGhilm ANgt
+axe 1 9999 'flame' ADgj
 95 300 2147483647 P
 F A 19 100000 a
 F A 18 100000 a
 A
 30 100
 F A 2 15 V
-F A 0 0 A
+F A 0 0 Ag
 g male~
 #18701
 ring power кольцо силы~
 @eng ring of power@rus Кольцо силы~
 @eng Ring of power lies here.@rus Кольцо силы(ring) валяется здесь.~
 energy~
-treasure BSTYa AB
+treasure BYh CFil ABgh
 0 0 0 0 0
 95 0 0 P
-F A 12 1000000 G
-F A 13 1000000 m
-F A 20 -1000000000 J
-F A 17 -1000000000 E
-F A 6 100 F
-F A 5 100 l
-F A 2 100 t
-F A 4 100 O
-F A 3 100 N
-F A 1 100 P
+F d 12 1000000 Ms
+A
+13 1000000
+F d 20 -1000000000 Hn
+F d 17 -1000000000 Lr
+F d 6 100 Bh
+A
+5 100
+A
+2 100
+F A 4 100 Ou
+F A 3 100 Nt
+F i 1 100 Gm
 F A 0 0 U
 g none~
 #18702
@@ -314,7 +318,7 @@ troll skin кожа троля~
 @eng tanned troll skin@rus дубленая кожа троля~
 @eng Tanned troll skin lies here.@rus Дубленка (skin) лежит здесь.~
 skin~
-armor CEJRSa AD
+armor CEJikp BFhl ADgj
 92 92 92 92 0
 92 0 0 P
 A
@@ -328,7 +332,7 @@ potion healing~
 @eng potion of healing@rus ~~лечебное~~ ~~снадобье~~~
 @eng Potion of healing lies here.@rus Какой-то пузырек (potion) валяется на полу.~
 glass~
-potion ABGIN A
+potion ABGIghmo 0 Ag
 100 'restoring light' 'disperse' 'teleport' 'terangreal'
 50 0 20000 P
 g none~
@@ -337,7 +341,7 @@ pill~
 pill~
 pill~
 unknown~
-pill 0 0
+pill 0 0 0
 2147483647 'cure critical' 'cure critical' 'cure critical' 'cure critical'
 0 0 10 P
 g male~
@@ -346,7 +350,7 @@ pill~
 pill~
 pill~
 unknown~
-pill 0 A
+pill 0 0 Ag
 91 'sanctuary' 'haste' 'bless' 'protection evil'
 0 0 100 P
 g male~
@@ -355,8 +359,8 @@ stake silver~
 silver stake~
 Brilliant stake lies here.~
 silver~
-weapon AGIK AN
-exotic 6 7 'sting' DI
+weapon AGIKgmoq 0 ANgt
+exotic 6 7 'sting' DIjo
 40 245 16230 P
 A
 18 8
@@ -366,8 +370,8 @@ dagger knight~
 knight's dagger of burning~
 Strange dagger lies here~
 steel~
-weapon AIY AN
-dagger 10 8 'thrust' AD
+weapon AIYgo 0 ANgt
+dagger 10 8 'thrust' ADgj
 70 300 85461 P
 A
 19 7
@@ -379,7 +383,7 @@ fountain фонтан~
 @eng town fountain@rus ~~городской~~ ~~фонтан~~~
 @eng A small white fountain gushes forth here.@rus В центре площади стоит фонтан (fountain) наполненый кристально чистой водой.~
 marble~
-fountain A A
+fountain Ag 0 Ag
 2147483647 2147483647 'beer' 0 0
 0 1000000 0 P
 g male~
@@ -388,7 +392,7 @@ altar алтарь~
 ~
 ~
 silver~
-portal AY 0
+portal AYg 0 0
 0 0 0 0 0
 0 1000000000 0 P
 g male~
@@ -397,8 +401,8 @@ axe large deadly~
 deadly axe of might~
 @eng Large two-handed axe lies here.@rus Большой двуручный топор (axe) лежит здесь.~
 unknown~
-weapon 0 AN
-axe 6 16 'grep' DEF
+weapon 0 0 ANgt
+axe 6 16 'grep' DEFjkl
 70 524 150000 P
 A
 19 8
@@ -410,7 +414,7 @@ club дубинка log~
 club~
 Dimly log lies here.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 7 3 'pound' 0
 15 10 1000 P
 g female~
@@ -419,7 +423,7 @@ axe~
 axe~
 Tiny axe has been left on the ground.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 6 3 'claw' 0
 5 50 1000 P
 g male~
@@ -428,7 +432,7 @@ glass vodka~
 @eng glass of vodka@rus ~~Стопарик~~ ~~водки~~~
 @eng A glass of vodka catches your eye, drink it!@rus Стопочка водки (vodka) притягивает твой взгляд.~
 glass~
-drink 0 A
+drink 0 0 Ag
 1 1 'vodka' 0 0
 0 10 10000 P
 g male~
@@ -437,7 +441,7 @@ sword~
 sword~
 Small sword lies here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 3 6 'slash' 0
 5 20 1000 P
 g male~
@@ -446,7 +450,7 @@ nail rusty~
 rusty nail~
 Rusty nail lies on the ground.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 whip 2 9 'scratch' 0
 3 0 900 P
 g male~
@@ -455,7 +459,7 @@ skin strong fox~
 strong skin of fox~
 Skin lies here.~
 skin~
-armor 0 AD
+armor 0 0 ADgj
 5 5 5 5 0
 12 0 10000 P
 A
@@ -470,8 +474,8 @@ dagger ice~
 ice dagger~
 A small graceful dagger lies here.~
 ice~
-weapon 0 AN
-dagger 5 7 'chill' B
+weapon 0 0 ANgt
+dagger 5 7 'chill' Bh
 20 0 25678 P
 g male~
 #18720
@@ -479,8 +483,8 @@ mace flaming~
 flaming mace~
 flaming mace lies here.~
 flame~
-weapon AB AN
-mace 7 5 'flame' AD
+weapon ABgh 0 ANgt
+mace 7 5 'flame' ADgj
 25 0 32536 P
 g male~
 #18721
@@ -488,8 +492,8 @@ slime~
 slime~
 A big piece of slime passes here.~
 acid~
-weapon BCM AN
-exotic 8 6 'slime' DH
+weapon BCMhis 0 ANgt
+exotic 8 6 'slime' DHjn
 35 0 150000 P
 A
 18 5
@@ -501,13 +505,13 @@ blackjade head~
 Blackjade's head~
 Blackjade's head float in the air.~
 flesh~
-weapon EHZ AN
-exotic 13 10 'kiss' DG
+weapon EHkn Ek ANgt
+exotic 13 10 'kiss' DGjm
 80 200 100000 P
 A
 8 2
-F A 0 0 G
-F A 0 0 K
+F d 0 0 Ms
+F A 0 0 Kq
 A
 19 20
 A
@@ -518,8 +522,8 @@ thron трон~
 @eng Orrin's throne@rus ~~Золотой~~ ~~трон~~ ~~Орина~~~
 @eng Orrin's throne is here, waiting his master.@rus Золотой трон Орина стоит здесь ожидая своего хозяина.~
 unknown~
-furniture A 0
-A JLOPRTUXYZbcd HK JLOPRTUXYZbcd JLOPRTUXYZbcd
+furniture Ag 0 0
+Ag JLOPRTUXYZbcdpruvxz HKnq JLOPRTUXYZbcdpruvxz JLOPRTUXYZbcdpruvxz
 0 0 0 P
 g male~
 #18751
@@ -527,8 +531,8 @@ portal~
 @eng portal@rus ~~портал~~~
 @eng Mistical portal humming here.@rus Таинственный портал мерцает в углу комнаты.~
 unknown~
-portal B 0
-0 I A 3001 0
+portal Bh 0 0
+0 Io Ag 3001 0
 0 2147483647 0 P
 g male~
 #18781
@@ -536,7 +540,7 @@ clanmark~
 I'm not a {Dfilthy{x magician!~
 A some piece of flesh magician lies here and bleeding.~
 flesh~
-fountain CEY AS
+fountain CEYik 0 ASgy
 2147483647 2147483647 'red wine' 0 0
 92 0 0 P
 g male~
@@ -545,7 +549,7 @@ poncho~
 a poncho from the carcass of Seneschal~
 A poncho from the carcass of Seneschal lies here.~
 flesh~
-armor 0 AK
+armor 0 0 AKgq
 92 92 92 92 0
 92 40 0 P
 A
@@ -566,20 +570,18 @@ light holy pillar свет~
 @eng holy light@rus ~~божественный~~ ~~свет~~~
 @eng The pillar of light falls from the heaven.@rus Столб света (light) льется с неба, освещая все вокруг.~
 light~
-light AIh A
+light AIgo 0 Ag
 0 0 -1 0 0
 10 0 100000 P
-S 'wrath' 100 A
-S 'ray of truth' 100 A
-S 'frenzy' 100 A
-S 'bless' 100 A
-F A 0 0 E
-F A 0 0 C
-F A 0 0 G
-F A 0 0 t
-F A 0 0 l
-F A 0 0 D
-F A 0 0 F
+S 'wrath' 100 Ag
+S 'ray of truth' 100 Ag
+S 'frenzy' 100 Ag
+S 'bless' 100 Ag
+F d 0 0 Lr
+F d 0 0 Kq
+F d 0 0 Ms
+F d 0 0 Ag
+F d 0 0 Bh
 g male~
 #0
 
@@ -684,7 +686,7 @@ S
 #18705
 @eng Drugstone@rus Аптека~
 ~
-0 KNS city
+0 KNSqty city
 D1
 ~
 ~
@@ -760,7 +762,7 @@ S
 Ты зашел в кузницу.
  
 ~
-0 C inside
+0 Ci inside
 D2
 ~
 ~
@@ -1490,7 +1492,7 @@ S
 хозяина этого зала - великого {WОрина{x - бога-покровителя войнов.
  
 ~
-0 NUZb forest
+0 NUZbt forest
 M 1000000 H 1000000
 S
 #0

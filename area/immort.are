@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Valhalla~
 VNUMs 1200 1299
 Credits Diku~
@@ -19,10 +20,10 @@ leaves his side, and shall remain unwinded until the dread ship Naglfar sails
 towards Valhalla on the dawn of Ragnarok.
 ~
 human~
-ABKTVel CDFJZ 1000 0
+BTVehz Dj 0 0 ABHKghnq 1000 0
 97 30 1d1+19999 1d1+499 5d4+40 'crush'
 -20 -20 -20 -10
-ACDEFHIKLNOT 0 0 0
+ACDEFHIKLNOTgijklnoqrtuz
 stand stand male 0
 0 0 large unknown
 r bash 33
@@ -50,8 +51,8 @@ nobody coffin~
 Nobody's coffin~
 A strange black coffin lies here.~
 wood~
-furniture CEJRY A
-CFG CFG L CFG CFG
+furniture CEJYikp Bh Ag
+CFGilm CFGilm Lr CFGilm CFGilm
 5 500 5000000 P
 E
 coffin~
@@ -69,7 +70,7 @@ which twinkles happily in a warm fireplace.  This is one of the many rooms
 where the heroes and gods come to socialize.  It is by far one of the most
 comfortable! 
 ~
-0 DJKQ inside
+0 DJKQjpqw inside
 D2
 Asgard lies to the south.
 ~
@@ -84,7 +85,7 @@ This room was designed for total relaxation.  You can watch television, listen
 to the stereo, even soak in a hot tub.
 There is a bell here for the butler.
 ~
-0 DQ inside
+0 DQjw inside
 D0
 Asgard lies to the north.
 ~
@@ -97,7 +98,7 @@ You are at the centre of the universe, everything is filled with bright
 light in all colors. You feel time and space no longer exist here.
 Exits fill the room in all 42 dimensions, leading everywhere.
 ~
-0 DJQ inside
+0 DJQjpw inside
 D1
 Asgard lies to the east.
 ~
@@ -112,12 +113,12 @@ continues to the east, and the gods make their homes north and south of
 the halls.  The golden gates are to the west.  You know not what lies 
 upward...
 ~
-0 DP inside
+0 DPjv inside
 D0
 Alander's workroom is to the north.
 ~
 door~
-ABZ -1 1209
+ABZgh -1 1209
 D1
 Valhalla continues east.
 ~
@@ -127,7 +128,7 @@ D2
 A sea cave is south of here.
 ~
 door~
-ABZ -1 1208
+ABZgh -1 1208
 D3
 The entrance to Valhalla is to the west.
 ~
@@ -146,12 +147,12 @@ in the world!!!  On a table in the middle of the room lies a book titled :
 "All You Ever Wanted to Know About Sex..But Were Afraid to Ask"
 There are things here that you never even imagined in your wildest dreams!
 ~
-0 DJP inside
+0 DJPjpv inside
 D0
 Valhalla is to the north.
 ~
 door~
-ABZ -1 1218
+ABZgh -1 1218
 S
 #1205
 The Eye of the Hurricane~
@@ -164,7 +165,7 @@ everything is strangely peaceful in here, with the sun shining in from above
 and a flock of birds winging across the sky.  You stretch out and relax, this
 storm is going to be here a while.
 ~
-0 CDJNO air
+0 CDJNOijptu air
 S
 #1206
 Walking on the Moon~
@@ -175,7 +176,7 @@ fields of Earth, looking fragile and far away, but full of hope.  A sense of
 wistful regret touches you, as you think about what might have been, and what
 will be.
 ~
-0 CJNO inside
+0 CJNOiptu inside
 E
 crater mare imbrium~
 A small shipping tag is pinned to the ground with a worn hunting knife.
@@ -193,7 +194,7 @@ of a poem sitting on a the velvet cushions of a rosewood chair
 that has been set so as to see the stark black mountains
 from one angle, or the wine-dark sea from another.
 ~
-0 DJNP hills
+0 DJNPjptv hills
 E
 rose rose-brambled balcony railing~
 Climbing white roses have swarmed over the original marble to obscure
@@ -320,7 +321,7 @@ D2
 Valhalla is to the south.
 ~
 door~
-ABZ -1 1217
+ABZgh -1 1217
 S
 #1208
 A Sea Cave~
@@ -332,12 +333,12 @@ you are protected from the weather in your cozy cave.  The foamy surf
 never seems to quite reach your feet.  Several boulders here have been
 worn by time into a shape similar to a comfortable chair.
 ~
-0 DJP inside
+0 DJPjpv inside
 D0
 Valhalla lies to the north.
 ~
 door~
-ABZ -1 1203
+ABZgh -1 1203
 S
 #1209
 The Archmage's Workroom~
@@ -349,7 +350,7 @@ can find whatever he needs without delay, however.  A heavy oak door stands
 barred to the south, to discourage idle visitors, and Alander's quarters
 are east.
 ~
-0 DK inside
+0 DKjq inside
 E
 tools scrolls braziers components~
 It's all worth a fortune, but you'd better not touch it.  Alander keeps
@@ -363,7 +364,7 @@ D2
 Valhalla is to the south.
 ~
 door~
-ABZ -1 1203
+ABZgh -1 1203
 S
 #1210
 Office~
@@ -374,7 +375,7 @@ the land.  In front of the window is a large desk.  Completely covering
 the east wall is a bookshelf, that is crammed full.  In the northwest
 corner, you notice a statue.
 ~
-0 DJP inside
+0 DJPjpv inside
 E
 desk~
 This desk is much larger than anyone could possibly need.  At one end you 
@@ -398,7 +399,7 @@ D0
 Valhalla is to the north
 ~
 door~
-ABZ -1 1217
+ABZgh -1 1217
 S
 #1211
 Arena of Judgement~
@@ -409,7 +410,7 @@ hillside where many aged crosses still stand.  The Arena is set in a wide
 pit-like field of trampled bloodstained grass, and is guarded by high walls
 of veinous marble.  A bloodstone seat awaits the true paragon of Romanity.
 ~
-0 DJP inside
+0 DJPjpv inside
 E
 statue~
 A statue of Pontius Pilate is here.  On it's face is the expression of some
@@ -420,7 +421,7 @@ D2
 Valhalla is to the south.
 ~
 door~
-ABZ -1 1218
+ABZgh -1 1218
 S
 #1212
 The Realm of the Dead~
@@ -428,7 +429,7 @@ You are standing on an immense, grey stone floor that stretches as far as you
 can see in all directions.  Rough winds plunging from the dark, starless sky
 tear savagely at your fragile body.
 ~
-0 DNP inside
+0 DNPjtv inside
 E
 sky wind winds~
 Cold winds plunge ceaselessly at you from the dark, cloudless sky.
@@ -500,7 +501,7 @@ This is the room full of souls that never made it to Asgard.  They are
 trapped here eternally, left to wander about in misery.  They were infidels
 and cowards.  Their cries of misery send a shiver down your spine.
 ~
-0 D inside
+0 Dj inside
 D5
 ~
 ~
@@ -533,7 +534,7 @@ these doors. You stare in awe at the sparkling mansion before you.  You
 wonder what secrets are held behind these doors and long to hear the stories
 of bravery and glory that you know are kept within the walls of Valhalla.
 ~
-0 P city
+0 Pv city
 D1
 Valhalla lies to the east.
 ~
@@ -553,12 +554,12 @@ to the east and west.  Rooms belonging to the gods lie to the north and
 south.  There appears to be an exit above you, but you do not know what is
 up there...
 ~
-0 P inside
+0 Pv inside
 D0
 The Satin Memorial Reading Room is north of here.
 ~
 door~
-ABZ -1 1207
+ABZgh -1 1207
 D1
 Valhalla continues east.
 ~
@@ -568,7 +569,7 @@ D2
 Bigfoots' room is south of here.
 ~
 door~
-ABZ -1 1210
+ABZgh -1 1210
 D3
 Valhalla continues west.
 ~
@@ -587,7 +588,7 @@ the walls.  A statue of Odin is here.  The halls continue to the east and
 west, and there are doors to the north and south of you.  There is some 
 sort of exit above you, but you do not know where it leads...
 ~
-0 P inside
+0 Pv inside
 E
 statue odin~
 The statue of Odin has been exquisitely crafted.  It is of white marble
@@ -597,7 +598,7 @@ D0
 Pontius' room is north of here.
 ~
 door~
-ABZ -1 1211
+ABZgh -1 1211
 D1
 Valhalla continues east.
 ~
@@ -607,7 +608,7 @@ D2
 Priscilla's Pleasure Palace is south of here.
 ~
 door~
-ABZ -1 1204
+ABZgh -1 1204
 D3
 Valhalla continues west.
 ~
@@ -626,7 +627,7 @@ on 3 walls.  They lead into the rooms of the gods.  The hall goes back to
 the west, and there is some sort of an exit above you.  Torches sputter
 softly and the scent of incense is strong here.
 ~
-0 P inside
+0 Pv inside
 D0
 Melancholys' room is north of here.
 ~
@@ -697,7 +698,7 @@ S
 #1250
 ~
 ~
-0 C inside
+0 Ci inside
 S
 #0
 

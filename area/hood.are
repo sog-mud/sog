@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Dangerous Neighborhood~
 VNUMs 2100 2199
 Credits Raff~
@@ -15,10 +16,10 @@ A member of the Trolls wanders about here.
 He's lived a life of violence ever since he was little.
 ~
 human~
-ACEG 0 -100 2100
+CGim 0 0 0 0 -100 2100
 5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 9
-DFNU 0 0 0
+DFNUjlt
 stand stand male 10
 0 0 medium unknown
 #2102
@@ -29,10 +30,10 @@ A member of the Ogres wanders about here.
 He wants to rid the world of every last Troll gang member.
 ~
 human~
-ACEG J 100 2101
+CGim 0 0 0 Hn 100 2101
 5 0 2d6+60 1d1+99 1d6+1 'punch'
 5 5 5 9
-FJNR 0 0 0
+FJNRlptx
 stand stand male 10
 0 0 medium unknown
 #2103
@@ -44,10 +45,10 @@ He's risen to be leader through brute force and cunning leadership, you'd
 guess mostly brute force from the size of his muscles.
 ~
 human~
-ABFGT J 0 2100
+BFGThlmz 0 0 0 Hn 0 2100
 13 0 2d20+170 1d1+99 2d5+5 'punch'
 -1 -1 -1 8
-CDEKU 0 0 0
+CDEKUijkq
 stand stand male 100
 0 0 medium unknown
 r bash 33
@@ -59,10 +60,10 @@ A big, mean bruiser is looking for limbs to break.
 He's 6'6" 245 pounds and enough muscle to bash your head in. How like a Troll.
 ~
 human~
-ACFGHT D -333 2100
+CFGHTilmnz 0 0 0 Ag -333 2100
 11 0 4d8+134 1d1+99 1d10+3 'punch'
 1 1 1 8
-CDKU 0 0 0
+CDKUijq
 stand stand male 75
 0 0 medium unknown
 r fire 33
@@ -87,10 +88,10 @@ A gang doll looks naughty and nice.
 She's a beauty (ok in RELATIVE terms) but you better not touch!
 ~
 human~
-ACGHS 0 0 0
+CGHSimny 0 0 0 0 0 0
 7 0 2d6+85 1d1+99 1d8+1 'slap'
 4 4 4 9
-FHNU 0 0 0
+FHNUlnt
 stand stand female 50
 0 0 medium unknown
 #2106
@@ -101,10 +102,10 @@ A patrolman is trying to keep the peace.
 He'd rather be at the local pub then out here with these nasty kids.
 ~
 human~
-AGT 0 700 0
+GTmz 0 0 0 0 700 0
 8 0 2d7+115 1d1+99 1d7+2 'punch'
 3 3 3 9
-CKLU 0 0 0
+CKLUiqr
 stand stand male 350
 0 0 medium unknown
 #2107
@@ -115,10 +116,10 @@ A vandal is spray painting pro-gang slogans on the wall here.
 He has a wary eye and a fine hand for art.
 ~
 human~
-AGHS P -400 2101
+GHSmny 0 0 Gm 0 -400 2101
 10 0 2d7+121 1d1+99 2d4+2 'punch'
 1 1 1 8
-FHJNU 0 0 0
+FHJNUlnpt
 stand stand male 25
 0 0 medium unknown
 #2108
@@ -130,10 +131,10 @@ You get a nice close look at him while he's tearing at your throat.
 His fangs are blood-stained from hearty meals of ... steak?!
 ~
 dog~
-ABFG DJQ -100 0
+BFGhlm 0 0 Bh AHgn -100 0
 5 2 4d6+60 2d9+100 1d8+1 'bite'
 5 5 5 9
-CEGQR 0 0 0
+CEGQRikmwx
 stand stand male 0
 0 0 small unknown
 #2109
@@ -144,10 +145,10 @@ A punk is here, carving his initials into a wall.
 He's a sterling example of rehabilitation at work.  Not nice.
 ~
 human~
-AFHS P -400 2100
+FHSlny 0 0 Gm 0 -400 2100
 10 0 2d7+121 1d1+99 2d4+2 'punch'
 1 1 1 8
-CDFJU 0 0 0
+CDFJUijlp
 stand stand male 25
 0 0 medium unknown
 #2110
@@ -158,10 +159,10 @@ The Ogre gang leader snaps out his stiletto. "Care to dance?"
 He's smaller, but undoubtably smarter, than the Troll's leader. 
 ~
 human~
-ABFGS J 0 2101
+BFGShlmy 0 0 0 Hn 0 2101
 13 0 2d10+160 1d1+99 2d5+3 'punch'
 -1 -1 -1 8
-EFHJKNU 0 0 0
+EFHJKNUklnpqt
 stand stand male 100
 0 0 medium unknown
 r slash 33
@@ -174,10 +175,10 @@ The thug isn't quite as big as the Troll's bruisers, but you can tell he loves
 breaking heads for the Ogres.
 ~
 human~
-ACFGHT DJ -333 2101
+CFGHTilmnz 0 0 0 AHgn -333 2101
 11 0 2d8+134 1d1+99 1d10+2 'punch'
 1 1 1 8
-JKNU 0 0 0
+JKNUpqt
 stand stand male 75
 0 0 medium unknown
 r fire 33
@@ -202,7 +203,7 @@ troll jacket~
 a Troll gang jacket~
 A Troll gang jacket has been carelessly tossed here.~
 leather~
-armor 0 AD
+armor 0 0 ADgj
 3 5 4 0 0
 5 20 970 A
 g none~
@@ -211,7 +212,7 @@ ogre jacket~
 an Ogre gang jacket~
 An Ogre gang jacket has been carelessly tossed here.~
 leather~
-armor 0 AD
+armor 0 0 ADgj
 5 4 3 0 0
 5 20 970 A
 g none~
@@ -220,7 +221,7 @@ chain~
 a hefty length of chain~
 A hefty length of chain lies in a heap here on the floor.~
 iron~
-weapon A AN
+weapon Ag 0 ANgt
 whip 2 6 'whip' 0
 12 100 960 A
 A
@@ -233,7 +234,7 @@ metal cover shield~
 a metal shield~
 A garbage can lid has been dropped on the floor.~
 steel~
-armor 0 AJ
+armor 0 0 AJgp
 3 3 3 1 0
 3 80 500 A
 g none~
@@ -242,7 +243,7 @@ spray paint can~
 a spray paint can~
 A can of spray paint has been discarded here.~
 aluminum~
-wand B AO
+wand Bh 0 AOgu
 11 2 2 'colour spray' 0
 12 10 2200 G
 g none~
@@ -251,7 +252,7 @@ stiletto~
 a stiletto~
 A killer stiletto has been forgotten here.~
 steel~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 5 2 'pierce' 0
 9 20 1090 G
 A
@@ -264,7 +265,7 @@ spiked heel boots~
 spiked heeled boots~
 A pair of black leather boots with 6 inch spikes have been left here.~
 leather~
-armor 0 AG
+armor 0 0 AGgm
 3 3 3 0 0
 5 40 260 G
 A
@@ -277,7 +278,7 @@ mirror~
 a mirror~
 A small mirror has been left here.~
 glass~
-wand AG AO
+wand AGgm 0 AOgu
 20 10 10 'blindness' 0
 8 10 1910 P
 g none~
@@ -286,7 +287,7 @@ gloves~
 comfortable leather gloves~
 A pair of soft lined leather gloves lie here.~
 leather~
-armor 0 AH
+armor 0 0 AHgn
 4 3 4 0 0
 7 20 1010 G
 A
@@ -297,7 +298,7 @@ patrol club~
 a patrol club~
 A patrolman's club has carelessly been forgotten here.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 1 10 'pound' 0
 9 10 980 G
 A
@@ -310,7 +311,7 @@ signet ring~
 a troll signet ring~
 A signet ring bearing the crest of a troll lies in the dust here.~
 bronze~
-jewelry 0 AB
+jewelry 0 0 ABgh
 0 0 0 0 0
 10 10 1090 P
 A
@@ -323,7 +324,7 @@ knuckles brass~
 brass knuckles~
 A set of brass knuckles left from a fight are here on the ground.~
 brass~
-armor 0 AH
+armor 0 0 AHgn
 1 1 1 0 0
 5 10 300 A
 A
@@ -334,7 +335,7 @@ pipe lead length~
 a lead pipe~
 A length of lead pipe sits here, just right for bashing heads.~
 lead~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 2 6 'pound' 0
 11 60 0 A
 A
@@ -347,7 +348,7 @@ troll jacket studded~
 a studded Troll gang jacket~
 A Troll gang jacket with sewn-in metal studs waits for an owner.~
 leather~
-armor 0 AD
+armor 0 0 ADgj
 4 6 5 0 0
 10 30 1470 G
 g none~
@@ -356,7 +357,7 @@ ogre jacket studded~
 a studded Ogre gang jacket~
 An Ogre gang jacket with sewn-in metal studs waits for an owner.~
 leather~
-armor 0 AD
+armor 0 0 ADgj
 6 5 4 0 0
 10 30 1470 P
 g none~
@@ -365,7 +366,7 @@ whistle steel police~
 a police whistle~
 You spot a steel whistle on a fine silver chain here.~
 steel~
-clothing 0 AC
+clothing 0 0 ACgi
 0 0 0 0 0
 0 2 100 G
 g none~
@@ -374,7 +375,7 @@ pants black leather~
 a pair of black leather pants~
 You see some tight-fitting leather pants sitting on the ground.~
 leather~
-armor 0 AF
+armor 0 0 AFgl
 3 4 4 0 0
 5 0 420 G
 E
@@ -387,7 +388,7 @@ switchblade knife~
 a switchblade~
 A strange looking knife is here.~
 steel~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 1 12 'stab' 0
 9 5 760 G
 A
@@ -398,7 +399,7 @@ bottle broken~
 a broken bottle~
 Yowch! You cut your foot on a broken bottle.~
 glass~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 2 7 'slash' 0
 11 10 0 W
 A
@@ -421,7 +422,7 @@ it says:    This section has been designed for levels 5 through 10
 Another section of graffiti says "Raff Rules!"
 There is a boulevard to the east and Emerald Avenue is visible to the west.
 ~
-0 AC city
+0 ACgi city
 D1
 ~
 ~
@@ -607,7 +608,7 @@ all been stolen or broken beyond repair. The back wall of the
 building has been bashed down, allowing you to go south.  White
 Dragon Boulevard is north.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -659,7 +660,7 @@ died and they took all his stuff and used it on their fellowmen.
 The front door leads west back out to the street.  There is a back
 door leading to another street to the east.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -752,7 +753,7 @@ someone forgot to water the plants and they all died.  Then again,
 you wonder how many people have died here too.  The courtyard extends
 to the south and there is a road to the west.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -818,7 +819,7 @@ stairs used to extend up to a suite of rooms but the set is missing
 stairs 3-15.  The courtyard extends north and there is a street to
 the south.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -835,11 +836,11 @@ disrepair like everything else.  It is now the hideout of the
 Dragon gang.  The gang leader runs his reign of terror from here.
 There is a wooden door barely on the hinges to the east.
 ~
-0 AD city
+0 ADgj city
 D1
 ~
 wooden door east~
-ABZ -1 2125
+ABZgh -1 2125
 S
 #2125
 Bronze Dragon Street at Warehouse~
@@ -858,7 +859,7 @@ Z -1 2130
 D3
 ~
 wooden door west~
-ABZ -1 2124
+ABZgh -1 2124
 S
 #2126
 Yellow Dragon Road~
@@ -1299,11 +1300,11 @@ It is now desecrated by graffiti and vandalism.  Perhaps its worst
 defilement is that it is the hangout of the Ogre gang.  There is a street to
 the east through a rusty metal door.
 ~
-0 AD city
+0 ADgj city
 D1
 ~
 rusted door metal~
-ABZ -1 2149
+ABZgh -1 2149
 S
 #2149
 Ajax Avenue at chapel~
@@ -1323,7 +1324,7 @@ Z -1 2154
 D3
 ~
 rusted door metal~
-ABZ -1 2148
+ABZgh -1 2148
 S
 #2150
 First intersection of Hector and Achilles~
@@ -1390,7 +1391,7 @@ received!  Blood is splattered and dried all over the walls here.
 It looks like a great deal of carnage happened here.  The way
 out to the east leads out onto a street.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1518,7 +1519,7 @@ One patch of graffiti actually looks readable:
 In another spot it says "now entering Ogre territory..."
 A street lies to the west and a major road to the east.
 ~
-0 AC city
+0 ACgi city
 D1
 ~
 ~
@@ -1604,7 +1605,7 @@ into oblivion sometimes.  It looks as if the beer is still on tap!!!
 A hallway leads south and you spy a street through the doorway
 to the north.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1693,7 +1694,7 @@ The stairs leading up to the guest rooms here do not seem
 advisable to climb.  A doorway empties out into Solomon
 street to the west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~

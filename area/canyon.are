@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Elemental Canyon~
 VNUMs 9200 9299
 Credits Raff~
@@ -15,10 +16,10 @@ A mountain climber is making the same trek that you are.
 He wants to see what's on the other side of the mountain too.
 ~
 human~
-ACGT 0 500 0
+CGTimz 0 0 0 0 500 0
 3 1 10d5+15 1d1+99 1d4+1 'punch'
 7 7 7 8
-JN 0 0 0
+JNpt
 stand stand male 30
 0 0 medium unknown
 r fire 33
@@ -32,10 +33,10 @@ A hungry cyclops snarls at you!
 He looks like he's about to have dinner (maybe it's you?).
 ~
 giant~
-ABFQTl DF -700 0
+BFQThlwz 0 0 0 ABgh -700 0
 22 7 10d10+600 10d10+100 6d4+10 'smash'
 -7 -7 -7 -2
-ACDIO 0 0 0
+ACDIOgijou
 stand stand male 600
 0 0 huge unknown
 r bash 33
@@ -61,10 +62,10 @@ A tiny elemental form wanders about.
 Rather small for an elemental form, looks like a reject.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #9204
@@ -75,10 +76,10 @@ The elemental guardian of the canyon.
 You can't tell which kind of elemental it is, maybe it's a bit o' all of them?
 ~
 human~
-AB 0 0 0
+Bh 0 0 0 0 0 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 500
 0 0 medium unknown
 #9205
@@ -89,10 +90,10 @@ A small, rather non-descript elemental.
 A small elemental, a resident of the canyon.
 ~
 human~
-ABG J 0 0
+BGhm 0 0 0 Hn 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 12
 0 0 medium unknown
 #9206
@@ -103,10 +104,10 @@ A medium-sized elemental.
 A medium elemental, a resident of the canyon.
 ~
 human~
-ABG J 10 0
+BGhm 0 0 0 Hn 10 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNU 0 0 0
+EFNUklt
 stand stand none 37
 0 0 medium unknown
 #9207
@@ -116,10 +117,10 @@ A large elemental.
 ~
 A large elemental, a resident of the canyon.~
 human~
-ABG 0 20 0
+BGhm 0 0 0 0 20 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 100
 0 0 medium unknown
 #9208
@@ -132,10 +133,10 @@ secrets and knowledge of the Earth.  You can't really tell where
 he begins and the rock wall ends.
 ~
 human~
-ABKQel HJ 0 0
+BQehw Dj Hn 0 Hn 0 0
 30 0 6d12+853 30d9+100 5d4+8 'none'
 -9 -9 -9 4
-EIKU 0 0 0
+EIKUkoq
 stand stand none 5000
 0 0 medium unknown
 r charm 100
@@ -147,10 +148,10 @@ The Ruler of the fire elementals.
 As you look at him he seems to blend in with the fire in his throne.
 ~
 human~
-ABKel H 0 0
+Beh Dj Hn 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 5000
 0 0 medium unknown
 r charm 100
@@ -162,10 +163,10 @@ The Ruler of the air elementals.
 As you peer at him you seem to be looking at the sky itself.
 ~
 human~
-ABKel H 0 0
+Beh Dj Hn 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 5000
 0 0 medium unknown
 r charm 100
@@ -178,10 +179,10 @@ As you examine him there is a blinding flash of light and a deafening boom!
 You rub your eyes and look and the ruler is there grinning at you.
 ~
 human~
-ABKel H 0 0
+Beh Dj Hn 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 5000
 0 0 medium unknown
 r charm 100
@@ -194,10 +195,10 @@ As you look at him he changes to mist, which swirls around you.  Just
 as you get scared, it reforms in elemental form.
 ~
 water fowl~
-ABKel H 0 0
+Beh Dj Hn 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNR 0 0 0
+EFNRkltx
 stand stand none 5000
 0 0 medium unknown
 r charm 100
@@ -209,10 +210,10 @@ A small puddle of water elemental.
 It trickles along the ground and gets your feet wet.
 ~
 water fowl~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNR 0 0 0
+EFNRkltx
 stand stand none 11
 0 0 medium unknown
 #9215
@@ -223,10 +224,10 @@ A small flickering flame elemental.
 It smolders along the grass aimlessly.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 7
 0 0 medium unknown
 #9216
@@ -237,10 +238,10 @@ A frozen snowflake water elemental.
 It looks a little blue.
 ~
 human~
-AG J 520 0
+Gm 0 0 0 Hn 520 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #9217
@@ -251,10 +252,10 @@ A small rock.
 It seems to be a small living pebble!
 ~
 human~
-AG J 0 0
+Gm 0 0 0 Hn 0 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand none 4
 0 0 medium unknown
 #9218
@@ -265,10 +266,10 @@ A small spark of electricity fizzles here.
 Zipping from place to place at the speed of light is tough work.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 7
 0 0 medium unknown
 #9219
@@ -279,10 +280,10 @@ A small blob of acid aimlessly eats away at the stone.
 The magical blob of acid is a cross between lightning and water.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNU 0 0 0
+EFNUklt
 stand stand none 50
 0 0 medium unknown
 #9220
@@ -293,10 +294,10 @@ A lava beast spews from place to place.
 The magical lava beast is a cross between fire and earth.
 ~
 human~
-AG J 0 0
+Gm 0 0 0 Hn 0 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 15
 0 0 medium unknown
 #9221
@@ -307,10 +308,10 @@ A mud monster slops around.
 The magical mud monster is a cross between water and earth.
 ~
 human~
-AG J 0 0
+Gm 0 0 0 Hn 0 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 20
 0 0 medium unknown
 #9222
@@ -321,10 +322,10 @@ The air is magically misty here.
 The magical mist is a cross between water and air.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 15
 0 0 medium unknown
 #9223
@@ -335,10 +336,10 @@ A sub-atomic particle is too small for you to see.
 The magical manifestation of energy.
 ~
 human~
-AG J 0 0
+Gm 0 0 0 Hn 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #9224
@@ -349,10 +350,10 @@ A dust cloud blowing by makes you sneeze.
 The magical dust cloud is a cross between air and earth.
 ~
 human~
-AGS DFJ 0 0
+GSmy 0 0 0 ABHghn 0 0
 6 0 2d6+60 3d9+100 1d6+1 'none'
 5 5 5 9
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand none 5
 0 0 medium unknown
 #9225
@@ -363,10 +364,10 @@ A small eddie current swirls junk around here.
 The magical eddie current is a manifestation of an air elemental.
 ~
 human~
-AGS DF 0 0
+GSmy 0 0 0 ABgh 0 0
 2 0 2d6+10 1d9+100 1d4+0 'none'
 9 9 9 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand none 1
 0 0 medium unknown
 #9226
@@ -378,10 +379,10 @@ As you look you see what seems to be a face and almost a
 humanoid figure somehow trapped in the fire.
 ~
 human~
-ABG 0 -100 0
+BGhm 0 0 0 0 -100 0
 26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 1250
 0 0 medium unknown
 #9227
@@ -392,10 +393,10 @@ The Magneto considers zapping you for the heck of it.
 A humanoid figure seems to be trapped in the field of the Magneto.
 ~
 human~
-ABG 0 -150 0
+BGhm 0 0 0 0 -150 0
 22 0 5d10+400 11d9+100 4d4+6 'none'
 -5 -5 -5 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 500
 0 0 medium unknown
 #9228
@@ -406,10 +407,10 @@ The Ice Bandit strikes cold fear in your heart.
 A humanoid figure encased in ice but still apparently alive.
 ~
 human~
-ABGH P -250 0
+BGHhmn 0 0 Gm 0 -250 0
 24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 1500
 0 0 medium unknown
 #9229
@@ -420,10 +421,10 @@ The Rock Monster considers you in stoney silence.
 A humanoid figure trapped in stone seems alive.
 ~
 human~
-ABG 0 -310 0
+BGhm 0 0 0 0 -310 0
 23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 950
 0 0 medium unknown
 #9230
@@ -434,10 +435,10 @@ A Hurricane rages across the sky.
 A humanoid figure is trapped in the rushing wind.
 ~
 human~
-ABG P -10 0
+BGhm 0 0 Gm 0 -10 0
 28 0 6d12+703 14d9+100 5d4+8 'none'
 -8 -8 -8 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 2054
 0 0 medium unknown
 #9231
@@ -449,10 +450,10 @@ The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
-ABGR B -50 0
+BGRhmx 0 0 Ag 0 -50 0
 17 0 3d9+233 17d9+100 1d12+3 'none'
 -2 -2 -2 4
-FU 0 0 0
+FUl
 stand stand none 400
 0 0 medium unknown
 #9232
@@ -464,10 +465,10 @@ The Rainbow Cult has received special powers for their service to
 the elemental forces.
 ~
 human~
-AGQ 0 150 0
+GQmw 0 0 0 0 150 0
 18 0 3d9+283 18d9+100 2d6+4 'none'
 -3 -3 -3 6
-EIKU 0 0 0
+EIKUkoq
 stand stand none 400
 0 0 medium unknown
 #9233
@@ -479,10 +480,10 @@ He seeks their aid for a powerful new spell of deception.
 <wielded>            The Sword of Illusions
 ~
 human~
-ABGR 0 -50 0
+BGRhmx 0 0 0 0 -50 0
 12 0 2d8+134 12d9+100 1d8+2 'none'
 1 1 1 6
-FU 0 0 0
+FUl
 stand stand none 95
 0 0 medium unknown
 #9234
@@ -493,10 +494,10 @@ An alchemist wanders by in search of magical herbs.
 Rare herbs are rumored to grow only in the canyon.
 ~
 human~
-AGS DF -50 0
+GSmy 0 0 0 ABgh -50 0
 13 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 7
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand none 95
 0 0 medium unknown
 #9235
@@ -507,10 +508,10 @@ A baby rainbow dragon plays among the elements here.
 It's only a baby by dragon standards.
 ~
 human~
-ABG DF 0 0
+BGhm 0 0 0 ABgh 0 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 500
 0 0 medium unknown
 #9236
@@ -521,10 +522,10 @@ A little imp runs along being annoying.
 The little bugger steals stuff and is generally obnoxious.
 ~
 human~
-ACGH JPQ -500 0
+CGHimn 0 0 BGhm Hn -500 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #9237
@@ -535,10 +536,10 @@ A HUGE elemental form stands here.
 HUGE, need i say more?
 ~
 human~
-ABG 0 30 0
+BGhm 0 0 0 0 30 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 500
 0 0 medium unknown
 #9238
@@ -549,10 +550,10 @@ A vendor is willing to sell you elixirs.
 I WOULD NOT suggest you attack me ...!
 ~
 human~
-ABEGRel 0 900 0
+BGRehmx 0 0 0 0 900 0
 30 0 6d12+778 30d9+100 5d4+7 'none'
 -9 -9 -9 1
-CFUZ 0 0 0
+CFUZil
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -581,10 +582,10 @@ The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
-ABGKRel D -50 0
+BGRehmx Dj 0 0 Ag -50 0
 46 30 3d9+8233 17d9+4100 10d12+33 'none'
 -12 -12 -12 -4
-F 0 0 0
+Fl
 stand stand none 400
 0 0 medium unknown
 r fire 100
@@ -609,7 +610,7 @@ ring earth~
 the earth ring~
 A dark ring which seems to absorb all the light around it lies here.~
 unknown~
-furniture I AB
+furniture Io 0 ABgh
 0 0 0 0 0
 7 50 1140 P
 A
@@ -622,7 +623,7 @@ breastplate stoney breast plate~
 a stoney breastplate~
 A breastplate made of the stone from deep within the earth lies here.~
 stone~
-armor 0 AD
+armor 0 0 ADgj
 10 10 10 2 0
 31 700 5500 P
 A
@@ -635,8 +636,8 @@ dagger fiery~
 a fiery dagger~
 A dagger made of fire crackles mysteriously here.~
 unknown~
-weapon A AN
-dagger 5 6 'pierce' A
+weapon Ag 0 ANgt
+dagger 5 6 'pierce' Ag
 29 20 2800 P
 A
 19 4
@@ -646,7 +647,7 @@ cape flame flaming red~
 a flame red cape~
 A cape made of ethereal red fiber lies neatly folded on the ground here.~
 etherealness~
-armor A AC
+armor Ag 0 ACgi
 9 9 9 3 0
 30 30 3100 P
 A
@@ -657,7 +658,7 @@ boots wind~
 the wind boots~
 A pair of boots that look fast standing still are here.~
 fiber~
-armor G AG
+armor Gm 0 AGgm
 8 8 8 2 0
 26 10 5200 P
 A
@@ -668,7 +669,7 @@ helmet hurricane~
 a hurricane helmet~
 A helmet that looks like it has weathered many storms has been set here.~
 iron~
-armor B AE
+armor Bh 0 AEgk
 9 9 9 3 0
 31 40 3800 P
 A
@@ -679,8 +680,8 @@ sword lightning bolt~
 a sparking lightning sword~
 A lightning bolt fashioned into a sword spits sparks here.~
 unknown~
-weapon AB AN
-sword 5 5 'slash' G
+weapon ABgh 0 ANgt
+sword 5 5 'slash' Gm
 25 100 2200 P
 A
 19 3
@@ -692,7 +693,7 @@ shield electric~
 an electric shield~
 A shield made entirely of energy buzzes here.~
 unknown~
-armor B AJ
+armor Bh 0 AJgp
 9 9 9 4 0
 28 80 4500 P
 A
@@ -705,7 +706,7 @@ girth icy~
 an icy girth~
 A girth made of magical ice has been left here.~
 ice~
-armor 0 AL
+armor 0 0 ALgr
 10 10 10 3 0
 31 100 1540 P
 A
@@ -716,7 +717,7 @@ cloak waterfall~
 a waterfall cloak~
 A cloak fashioned from a small magical waterfall is here.~
 unknown~
-armor 0 AK
+armor 0 0 AKgq
 9 9 9 2 0
 30 60 3000 P
 A
@@ -729,7 +730,7 @@ amulet elemental~
 an elemental amulet~
 An amulet depicting fire, water, lightning, earth, and air lies here.~
 unknown~
-jewelry A AC
+jewelry Ag 0 ACgi
 0 0 0 0 0
 20 10 860 P
 A
@@ -740,7 +741,7 @@ bracelet elemental~
 an elemental bracelet~
 A bracelet made of elemental magic lies here.~
 unknown~
-gem 0 AM
+gem 0 0 AMgs
 0 0 0 0 0
 20 40 580 P
 A
@@ -751,7 +752,7 @@ armband platinum band~
 a platinum arm band~
 A platinum arm band, once worn by the Cyclops, lie here.~
 platinum~
-armor 0 AM
+armor 0 0 AMgs
 9 9 9 2 0
 26 40 1700 P
 A
@@ -764,7 +765,7 @@ legbands platinum bands~
 some platinum leg bands~
 A pair of platinum leg bands, once worn by the Cyclops, lie here.~
 platinum~
-armor 0 AF
+armor 0 0 AFgl
 9 9 9 2 0
 26 40 1700 P
 A
@@ -777,7 +778,7 @@ wand~
 elemental wand of fire~
 A fire wand lies forgotten on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 15 3 3 'fireball' 0
 16 70 3900 P
 g none~
@@ -786,7 +787,7 @@ staff ice~
 an ice staff~
 An ice staff lies forgotten on the ground.~
 ice~
-wand A AO
+wand Ag 0 AOgu
 12 3 3 'frost breath' 0
 25 70 13700 P
 g none~
@@ -795,7 +796,7 @@ rod earthquake~
 an elemental rod of earthquake~
 An earthquake rod lies forgotten on the ground.~
 ebony~
-wand A AO
+wand Ag 0 AOgu
 7 3 3 'earthquake' 0
 7 70 1000 P
 g none~
@@ -804,7 +805,7 @@ wand air wind~
 elemental wand of wind and air~
 An air wand lies forgotten on the ground.~
 wood~
-wand A AO
+wand Ag 0 AOgu
 11 1 1 'gas breath' 0
 27 70 12600 P
 g none~
@@ -813,7 +814,7 @@ wand~
 elemental wand of lightning~
 A lightning wand lies forgotten on the ground.~
 ebony~
-wand A AO
+wand Ag 0 AOgu
 9 1 1 'lightning bolt' 0
 7 70 1420 P
 g none~
@@ -822,8 +823,8 @@ stone club two-handed~
 a stone club~
 A large stone club lies on the ground.~
 stone~
-weapon 0 AN
-mace 3 7 'pound' F
+weapon 0 0 ANgt
+mace 3 7 'pound' Fl
 13 160 730 P
 A
 19 1
@@ -835,7 +836,7 @@ lode load lodestone loadstone stone~
 a lodestone~
 A dull red rock lies here amid the weeds.~
 stone~
-wand 0 AO
+wand 0 0 AOgu
 19 2 2 'harm' 0
 13 20 2800 P
 A
@@ -846,7 +847,7 @@ lava lamp~
 a lava lamp~
 A lantern which glows with a red glowing light has been dumped.~
 unknown~
-light A A
+light Ag 0 Ag
 0 0 1000 0 0
 0 40 250 P
 g none~
@@ -855,7 +856,7 @@ energy scroll~
 an energy scroll~
 A scroll of energy replacement lies here.~
 paper~
-scroll B A
+scroll Bh 0 Ag
 19 'cure critical' 'refresh' '' ''
 5 10 860 P
 g none~
@@ -864,7 +865,7 @@ water jug~
 a water jug~
 A large but surprisingly light jug of water stands here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 150 150 'water' 0 0
 0 20 200 P
 g none~
@@ -873,7 +874,7 @@ dust~
 magic dust~
 A pile of dust of appearance has gathered here.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 20 'detect invis' '' '' ''
 0 10 300 P
 g none~
@@ -882,8 +883,8 @@ flame lance~
 a flame lance~
 A lance of blue flame burns the ground around it.~
 flame~
-weapon A AN
-lance 2 15 'thrust' A
+weapon Ag 0 ANgt
+lance 2 15 'thrust' Ag
 29 140 220 P
 A
 18 3
@@ -895,8 +896,8 @@ icicle dagger ice~
 an icicle~
 A glowing icicle dagger lies here amid a patch of frost.~
 ice~
-weapon A AN
-dagger 6 4 'pierce' B
+weapon Ag 0 ANgt
+dagger 6 4 'pierce' Bh
 28 10 1630 P
 A
 1 -1
@@ -908,7 +909,7 @@ avalanche~
 the avalanche~
 An avalanche is about to crush you!~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 1 25 'blast' 0
 24 160 3000 P
 A
@@ -919,7 +920,7 @@ star morning~
 the morning star~
 A chain with a star on the end lies here.~
 wood~
-weapon A AN
+weapon Ag 0 ANgt
 flail 6 4 'crush' 0
 23 110 3300 P
 A
@@ -932,7 +933,7 @@ shock whip~
 the Shock Whip~
 A whip hums innocently too itself.~
 leather~
-weapon B AN
+weapon Bh 0 ANgt
 whip 3 8 'stab' 0
 20 100 64 P
 A
@@ -945,7 +946,7 @@ elixir anti~
 anti-cyclops elixir~
 An elixir to ward off cyclopi has been bought then left behind here.~
 glass~
-potion 0 AO
+potion 0 0 AOgu
 15 'invisibility' '' '' ''
 0 10 250 P
 g none~
@@ -1113,7 +1114,7 @@ elemental forms wander the canyon floor, which extends in a wide swath
 northwards. To the up you see the Combat Magician Chamber and a magical
 force helps you to fly through to chamber.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -1373,7 +1374,7 @@ Dark Cave~
 You notice a path winding east among some huge boulders.  You feel a powerful
 source of energy from that direction.
 ~
-0 AD forest
+0 ADgj forest
 D1
 ~
 ~
@@ -1390,7 +1391,7 @@ are even darker than the darkness.  You hear a powerful humming all around
 you.  Cave paths go south and east roughly, its hard to tell exactly when you
 can't see where you are going.
 ~
-0 AD forest
+0 ADgj forest
 D1
 ~
 ~
@@ -1411,7 +1412,7 @@ are even darker than the darkness.  You hear a powerful humming all around
 you.  Cave paths go south and west roughly; it's hard to tell exactly when you
 can't see where you are going.
 ~
-0 AD forest
+0 ADgj forest
 D2
 ~
 ~
@@ -1428,7 +1429,7 @@ are even darker than the darkness.  You hear a powerful humming all around you.
 Cave paths go north, south and east roughly; it's hard to tell exactly when
 you can't see where you are going.
 ~
-0 AD forest
+0 ADgj forest
 D0
 ~
 ~
@@ -1449,7 +1450,7 @@ are even darker than the darkness.  You hear a powerful humming all around you.
 Cave paths go north, south and west roughly, it's hard to tell exactly when you
 can't see where you are going.
 ~
-0 AD forest
+0 ADgj forest
 D0
 ~
 ~
@@ -1470,7 +1471,7 @@ only to illuminate about a foot ahead of you.  You suddenly realize that the
 path has descended quite a bit but you didn't notice before because of the
 darkness.  You sense a great presence off to the east aways.
 ~
-0 AD forest
+0 ADgj forest
 D0
 ~
 ~
@@ -1487,7 +1488,7 @@ only to illuminate about a foot ahead of you.  You suddenly realize that the
 path has descended quite a bit but you didn't notice before because of the
 darkness.  You sense a great presence directly to the east.
 ~
-0 AD forest
+0 ADgj forest
 D0
 ~
 ~
@@ -1507,7 +1508,7 @@ This is the abode of the Earth Ruler.  He decides about earthquakes,
 landslides, and avalanches.  The Earth Ruler sits upon a huge marble throne
 carved into the wall.
 ~
-0 AD forest
+0 ADgj forest
 E
 marble throne~
 The ruler notices your stare, and doesn't like it one bit!  The whole
@@ -1669,7 +1670,7 @@ like it's been here for a long, long time.  Though you are 'under water' there
 is no difficulty breathing normally, and oddly you do not feel the pressure of
 the water above you.
 ~
-0 D swim
+0 Dj swim
 D4
 ~
 ~
@@ -1843,7 +1844,7 @@ There is some sort of control panel here. Apparently the Lightning Ruler
 observes and controls electric forces from here.  A set of steps carved into
 the hill lead down to a causeway.
 ~
-0 D swim
+0 Dj swim
 D5
 ~
 ~
@@ -1996,7 +1997,7 @@ Tiny tornadoes come and go and dance along the ground here.  At the back
 of the chamber you notice a huge throne made of swirling clouds.
 A tunnel leads west.
 ~
-0 D swim
+0 Dj swim
 E
 throne clouds~
 Although the cloud throne appears solid enough to sit on, I wouldn't try

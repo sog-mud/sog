@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Castle of Giants~
 Builders hlodvig~
 VNUMs 13000 13099
@@ -20,10 +21,10 @@ castle. I wouldn't mess with him.
 сокровищ замка. Я бы не $gn{хотел} иметь с ним проблем.
 ~
 giant~
-ABGT 0 0 0
+BGThmz 0 0 0 0 0 0
 35 -2 1d1+999 1d1+100 5d8+12 'smash'
 -8 -15 -10 -3
-CDEKOT 0 0 0
+CDEKOTijkquz
 stand stand male 25
 0 0 huge unknown
 #13001
@@ -36,10 +37,10 @@ of the giants. Stealth and Guile. He is a spy for the Lord of the Giants,
 spying on the guards and making sure they are loyal to the Lord.
 ~
 giant~
-ACHS DFHPU 0 0
+CHSiny 0 HUn Gm ABgh 0 0
 40 -2 1d1+3099 1d1+100 5d6+1 'pound'
 -10 -15 -7 -5
-CDEFHJKN 0 0 0
+CDEFHJKNijklnpqt
 stand stand male 0
 0 0 huge unknown
 #13002
@@ -53,10 +54,10 @@ defend his castle. You notice a dark look in his eyes as he hungers for
 your blood.
 ~
 giant~
-ABFGT DFGOu -1000 0
+BFGThlmz 0 Ou 0 ABMghs -1000 0
 55 -1 1d1+4899 1d1+100 9d9+25 'crush'
 -20 -20 -20 -5
-AFIJKNRVX 0 0 0
+AFIJKNRVXglopqtx
 stand stand male 200
 0 0 giant unknown
 #13003
@@ -74,10 +75,10 @@ and control to level anyone who challenges her.
 обратиться.
 ~
 giant~
-ABFGT V 0 0
+BFGThlmz 0 V 0 0 0 0
 50 0 1d1+8999 1d1+100 9d3+26 'slash'
 -11 -11 -11 -6
-ACDEFIJK 0 0 0
+ACDEFIJKgijklopq
 stand stand female 0
 0 0 giant unknown
 #13004
@@ -91,10 +92,10 @@ he seems just the person who you would want as a friend. (And his size makes
 him seem like someone who you WOULDN'T want as an enemy)
 ~
 giant~
-ABCGHQTl DFHTU 0 0
+BCGHQThimnwz 0 HTUnz 0 ABgh 0 0
 50 0 1d1+6499 1d1+100 4d4+20 'blast'
 -15 -15 -15 -10
-DEK 0 0 0
+DEKjkq
 stand stand male 2000
 0 0 giant unknown
 r charm 100
@@ -110,10 +111,10 @@ giants and the scars over his body show him to be experienced enough to
 hold his own in combat.
 ~
 human~
-ABHT H 0 0
+BHThnz 0 Hn 0 0 0 0
 50 1 1d1+9999 1d1+199 5d5+29 'pierce'
 -9 -9 -9 -9
-ACDEHT 0 0 0
+ACDEHTgijknz
 stand stand male 590
 0 0 medium unknown
 #13006
@@ -126,10 +127,10 @@ tells you that he never gets out of the castle to visit his homeland and
 longs to pay off his debt to the Lord.
 ~
 elf~
-ACGHRY N 1000 0
+CGHRYimnx 0 Nt 0 0 1000 0
 5 0 1d1+74 1d1+199 3d3+3 'slap'
 -3 -3 -3 -3
-FK 0 0 0
+FKlq
 stand stand male 500
 0 0 medium unknown
 #13007
@@ -141,10 +142,10 @@ He looks in admiration of everything he sees. The wealth of the giants here
 makes him proud to be a part of the race.
 ~
 giant~
-ACT 0 0 0
+CTiz 0 0 0 0 0 0
 20 0 4d9+333 1d1+100 2d9+5 'pound'
 -4 -4 -4 -1
-CDEJKR 0 0 0
+CDEJKRijkpqx
 stand stand male 900
 0 0 huge unknown
 #13008
@@ -157,10 +158,10 @@ spits up blood and coughs, trying to say something to you. All that you
 can make out is '..was.. framed'. He then goes into another coughing fit.
 ~
 gnome~
-AH 0 0 0
+Hn 0 0 0 0 0 0
 30 0 6d12+700 1d1+0 4d6+8 'digestion'
 -8 -8 -8 -8
-EFJK 0 0 0
+EFJKklpq
 rest rest male 0
 0 0 medium unknown
 #13009
@@ -174,10 +175,10 @@ women usually are. She says she doesn't even know what she has been charged
 with, but has to stay here for as long as they keep her.
 ~
 elf~
-A 0 1000 0
+0 0 0 0 0 1000 0
 30 0 6d12+850 1d1+0 5d6+8 'peck'
 -9 -9 -9 -9
-EFJKN 0 0 0
+EFJKNklpqt
 stand stand female 0
 0 0 medium unknown
 r negative -50
@@ -192,10 +193,10 @@ women usually are. She says she doesn't even know what she has been charged
 with, but has to stay here for as long as they keep her.
 ~
 elf~
-A 0 1000 0
+0 0 0 0 0 1000 0
 30 0 6d12+850 1d1+0 5d6+8 'peck'
 -9 -9 -9 -9
-EFJKN 0 0 0
+EFJKNklpqt
 stand stand female 0
 0 0 medium unknown
 r negative -50
@@ -210,10 +211,10 @@ literature. After bargaining with the Lord he obtained the statis of 'Castle
 Librarian' and has been as pleased as can be ever since.
 ~
 giant~
-ABGT 0 0 0
+BGThmz 0 0 0 0 0 0
 35 -2 1d1+999 1d1+100 5d8+12 'shbite'
 -8 -15 -10 -3
-CDEKOT 0 0 0
+CDEKOTijkquz
 sit stand male 25
 0 0 huge unknown
 #13012
@@ -227,10 +228,10 @@ beating a gnome to death, he cares not. It is merely part of his well-paid
 job.
 ~
 human~
-ABCFGHOT OV -1000 0
+BCFGHOThilmnuz 0 OVu 0 0 -1000 0
 40 0 1d1+3599 1d1+0 4d9+13 'wrath'
 -14 -14 -14 -10
-ADFHJN 0 0 0
+ADFHJNgjlnpt
 stand stand male 4000
 0 0 medium unknown
 r holy -50
@@ -245,10 +246,10 @@ and nights screaming from the torture, until his body finally gives up. He
 wishes someone would put him out of his misery.
 ~
 elf~
-AB IN 1000 0
+Bh 0 INot 0 0 1000 0
 40 0 1d1+3299 1d1+0 4d9+12 'divine'
 -15 -15 -15 -15
-FHJKN 0 0 0
+FHJKNlnpqt
 sit stand male 0
 0 0 medium unknown
 r fire 33
@@ -271,7 +272,7 @@ claymore adamantite адамантитовый палаш~
 @eng an adamantite claymore@rus ~~адамантитовый~~ ~~палаш~~~
 @eng A claymore forged of adamantite rests here.@rus Выкованный из адамантита палаш (claymore) отдыхает здесь от битв.~
 adamantite~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 6 5 'slash' 0
 35 200 150 P
 A
@@ -284,8 +285,8 @@ dagger thiulor кинжал тиулора~
 @eng the Barbed Dagger of Thiulor@rus ~~ядовитый~~ ~~кинжал~~ Тиулора~
 @eng A barbed and deadly dagger rests here in a pool of poison.@rus Ядовитый и смертоносный кинжал (dagger) лежит тут в лужице яда.~
 adamantite~
-weapon BEIM AN
-dagger 7 7 'pierce' H
+weapon BEIMhkos 0 ANgt
+dagger 7 7 'pierce' Hn
 50 50 2500 P
 S 'knife' 20 0
 A
@@ -298,28 +299,28 @@ cloak stealth плащ скрытности~
 @eng the cloak of stealth@rus ~~плащ~~ скрытности~
 @eng A cloak of strange material sits silently here.@rus Здесь безмолвно лежит плащ из странного материала (cloak).~
 etherealness~
-armor T AK
+armor 0 Ci AKgq
 1 1 1 1 0
 45 30 8000 P
-F A 0 0 P
+F i 0 0 Gm
 g male~
 #13003
 mask spy маска шпиона~
 @eng a Spy Mask@rus ~~шпионская~~ ~~маска~~~
 @eng A strange mask is here radiating the unknown.@rus Здесь лежит странная, излучающая неизвестность, маска (mask).~
 iron~
-armor ABGT AE
+armor ABGghm Ci AEgk
 1 1 1 1 0
 45 50 8000 P
-F A 0 0 D
-F A 0 0 F
+F d 0 0 Ag
+F d 0 0 Bh
 g female~
 #13004
 banner знамя~
 @eng the Banner of the Castle of Giants@rus ~~знамя~~ Замка Гигантов~
 @eng A Banner of the Castle of Giants flows in the wind here.@rus Знамя Замка Гигантов (banner) развевается на ветру.~
 cloth~
-light A A
+light Ag 0 Ag
 0 0 -1 0 0
 50 20 5000 P
 A
@@ -332,7 +333,7 @@ ring glory кольцо славы~
 @eng the Ring of Glory@rus ~~Кольцо~~ славы~
 @eng A glorious ring shines brightly here, glowing with the strength of a giant.@rus Великолепное кольцо (ring) ярко сверкает, излучая силу гигантов.~
 adamantite~
-armor ABM AB
+armor ABMghs 0 ABgh
 15 40 15 10 10
 50 10 8000 P
 A
@@ -351,8 +352,8 @@ huge broadsword огромный широкий меч~
 @eng the huge broadsword of Destruction@rus ~~огромный~~ ~~широкий~~ ~~Меч~~ Разрушения~
 @eng A powerful weapon of destruction lies here, waiting to be wielded.@rus На полу лежит ждущее своего череда мощное оружие (broadsword).~
 adamantite~
-weapon ABM AN
-sword 10 7 'slice' CF
+weapon ABMghs 0 ANgt
+sword 10 7 'slice' CFil
 55 350 10000 P
 A
 13 25
@@ -366,7 +367,7 @@ small spiked ring небольшое шипастое колечко~
 @eng a small spiked ring@rus ~~небольшое~~ ~~шипастое~~ ~~колечко~~~
 @eng A ring sits here with jagged spikes coming from it's sides.@rus На полу лежит кольцо (ring) с зазубренными краями.~
 iron~
-armor 0 AB
+armor 0 0 ABgh
 7 9 3 2 2
 35 20 5000 P
 A
@@ -379,7 +380,7 @@ spiked adamantite platemail шипастая адамантитовая пластинчатая кольчуга~
 @eng a suit of spiked adamantite platemail@rus ~~кольчужный~~ ~~набор~~ из адамантита с шипами~
 @eng Some spiked piles of admantite rest on the floor.@rus На полу лежит кольчужный набор из адамантита с шипами (platemail).~
 adamantite~
-armor AB AD
+armor ABgh 0 ADgj
 8 8 8 8 8
 50 200 8000 P
 A
@@ -394,7 +395,7 @@ spiked adamantite helm шипастый адамантитовый шлем~
 @eng a spiked adamantite battle helm@rus ~~боевой~~ ~~шипастый~~ ~~адамантитовый~~ ~~шлем~~~
 @eng A spiked adamantite helm rests in the corner.@rus Шипастый адамантитовый шлем (helm) закатился в угол.~
 adamantite~
-armor AB AE
+armor ABgh 0 AEgk
 8 8 8 8 8
 50 70 8000 P
 A
@@ -411,7 +412,7 @@ spiked adamantite leggings шипастые адамантитовые гамаши~
 @eng some spiked adamantite battle leggings@rus ~~боевые~~ ~~шипастые~~ ~~адамантитовые~~ ~~гамаши~~~
 @eng Some spiked adamantite leggings sit here.@rus На полу лежат шипастые гамаши из адамантита (leggings).~
 adamantite~
-armor AB AF
+armor ABgh 0 AFgl
 8 8 8 8 8
 50 8 8000 P
 A
@@ -426,7 +427,7 @@ spiked adamantite boots шипастые адамантитовые сапоги~
 @eng spiked adamantite battle boots@rus ~~боевые~~ ~~шипастые~~ ~~адамантитовые~~ ~~сапоги~~~
 @eng Some spiked adamantite boots are here.@rus На полу стоят шипастые сапоги из адамантита (boots).~
 adamantite~
-armor AB AG
+armor ABgh 0 AGgm
 8 8 8 8 8
 50 50 8000 P
 S 'kick' 30 0
@@ -442,12 +443,12 @@ robe халат~
 @eng Robe of the Healer@rus ~~халат~~ ~~лекаря~~~
 @eng A crumpled up robe radiates a magical aura here.@rus Лежащий на полу скомканный халат (robe) окружен волшебной аурой.~
 wool~
-armor B AD
+armor Bh 0 ADgj
 8 8 8 8 8
 45 50 8000 P
-S 'cure poison' 80 A
-S 'cure disease' 80 A
-S 'cure blindness' 100 A
+S 'cure poison' 80 Ag
+S 'cure disease' 80 Ag
+S 'cure blindness' 100 Ag
 A
 3 3
 A
@@ -460,8 +461,8 @@ hammer power молот силы~
 @eng the Hammer of Power@rus ~~Молот~~ ~~Силы~~~
 @eng A Huge hammer draws your attention as it radiates power.@rus Исходящая из огромного молота (hammer) сила влечет тебя.~
 adamantite~
-weapon 0 AN
-mace 8 7 'suction' F
+weapon 0 0 ANgt
+mace 8 7 'suction' Fl
 45 290 8000 P
 A
 1 4
@@ -473,7 +474,7 @@ ring signet кольцо с печаткой~
 @eng the Captain's Signet Ring@rus ~~капитанское~~ ~~кольцо~~ с печаткой~
 @eng The signet ring of the Captain of the Castle guard is here.@rus На полу лежит кольцо с печаткой (ring) капитана замковой стражи.~
 copper~
-armor A AB
+armor Ag 0 ABgh
 10 10 10 10 10
 50 70 8000 P
 A
@@ -488,7 +489,7 @@ fine copper chainmail~
 a suit of fine copper chainmail~
 A suit of fine copper chainmail is here.~
 copper~
-armor ABJK AD
+armor ABJKghpq 0 ADgj
 10 10 10 10 10
 50 120 8000 P
 A
@@ -503,7 +504,7 @@ fine copper helmet~
 a fine copper helmet~
 A fine copper helmet rests in the corner.~
 copper~
-armor ABJK AE
+armor ABJKghpq 0 AEgk
 10 10 10 10 10
 50 70 8000 P
 A
@@ -520,7 +521,7 @@ fine copper leggings~
 a set of fine copper leggings~
 A set of fine copper leggings is sitting here.~
 copper~
-armor ABJK AF
+armor ABJKghpq 0 AFgl
 8 9 8 10 10
 50 80 8000 P
 A
@@ -535,7 +536,7 @@ fine copper boots~
 a pair of fine copper boots~
 A pair of fine copper boots are here.~
 copper~
-armor ABJK AG
+armor ABJKghpq 0 AGgm
 8 8 8 8 8
 50 80 8000 P
 S 'trip' 25 0
@@ -551,7 +552,7 @@ badge order~
 the Badge of Order~
 The Badge of Order is here looking for an owner.~
 copper~
-armor A AC
+armor Ag 0 ACgi
 6 7 5 0 0
 50 20 8000 P
 A
@@ -570,7 +571,7 @@ gold treasure~
 vast treasure of gold~
 You are blinded by a huge pile of golden treasure sitting here.~
 gold~
-money 0 A
+money 0 0 Ag
 0 10000 0 0 0
 0 0 0 P
 g none~
@@ -579,7 +580,7 @@ bracelet copper~
 a fine copper bracelet~
 A shiny piece of fine copper is here.~
 copper~
-armor B AM
+armor Bh 0 AMgs
 7 7 7 7 7
 45 40 8000 P
 A
@@ -596,10 +597,10 @@ gloves bloody skin~
 some bloody gloves of elven skin~
 A pair of gloves stitched from bloody elven skin are here.~
 flesh~
-armor AJ AH
+armor AJgp 0 AHgn
 5 5 5 5 5
 45 50 8000 P
-S 'deathblow' 30 A
+S 'deathblow' 30 Ag
 A
 13 20
 A
@@ -612,7 +613,7 @@ skin giant~
 Skin of the Giant Lord~
 Some tough-looking skin is here.~
 flesh~
-armor QY AD
+armor QYw 0 ADgj
 6 5 7 3 2
 51 400 10000 P
 A
@@ -627,10 +628,10 @@ fur cloak~
 fine fur cloak~
 Some highly valuable fur is here.~
 fur~
-armor A AC
+armor Ag 0 ACgi
 9 8 9 5 5
 40 150 9000 P
-S 'camouflage' 50 A
+S 'camouflage' 50 Ag
 A
 2 2
 A
@@ -647,7 +648,7 @@ spiked adamantite sleeves~
 some spiked adamantite sleeves~
 A pair of spiked adamantite sleeves sit here.~
 adamantite~
-armor A AI
+armor Ag 0 AIgo
 7 7 7 7 0
 45 120 8000 P
 A
@@ -662,7 +663,7 @@ ring black torturer~
 a ring of the torturer~
 A black ring made of onyx sits here, eminating evil.~
 onyx~
-armor BEJ AB
+armor BEJhkp 0 ABgh
 5 5 5 5 0
 40 20 8000 P
 A
@@ -734,7 +735,7 @@ forest. No matter. It makes you feel good... that's it.
 каменные мемориалы, которые окружают полянку и защищают ее от наступления леса?
 Не важно. Это хорошо, тебе здесь нравится... и больше ничего.
 ~
-0 C field
+0 Ci field
 D0
 ~
 ~
@@ -778,7 +779,7 @@ south.
 очень много, сокровищница замка просто забита золотом. На север и восток идут
 два широких корридора, а на юге находятся ворота замка.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -799,7 +800,7 @@ around the world. Torches line the walls making your shadow seem to have
 a life of it's own. To the east you see the foyer of the castle and to 
 the west the hallway continues.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -815,7 +816,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -831,7 +832,7 @@ The turn here is lit by a single torch. The air is thick and quite
 uncomfortable, seeming to interupt your breathing. This is not a place you
 would like to stand around. Perhaps you should continue on your way...
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -847,7 +848,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -863,7 +864,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. To the west, you see a wooden door. The hallway continues 
 to the north where it meets a stairwell and south to more hallway.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -875,7 +876,7 @@ Z 0 13008
 D3
 ~
 wooden door~
-ABZ 0 13048
+ABZgh 0 13048
 S
 #13010
 A stairwell~
@@ -884,7 +885,7 @@ to the second floor of the castle. There are torches every few steps to
 guide you as you go up the flight. To the south there is a hallway and
 a stone doorway leads east into the castle garden.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -905,7 +906,7 @@ around the world. Torches line the walls making your shadow seem to have
 a life of it's own. To the west is the foyer and to the east the hall 
 continues.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -921,7 +922,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -937,7 +938,7 @@ The turn here is lit by a single torch. The air is thick and quite
 uncomfortable, seeming to interupt your breathing. This is not a place you
 would like to stand around. Perhaps you should continue on your way...
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -953,7 +954,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -969,7 +970,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. To the east you see a wooden door.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -977,7 +978,7 @@ Z 0 13016
 D1
 ~
 wooden door~
-ABZ 0 13049
+ABZgh 0 13049
 D2
 ~
 ~
@@ -990,7 +991,7 @@ to the second floor of the castle. There are torches every few steps to
 guide you as you go up the flight. To the south there is a hallway and
 a stone doorway leads west into the castle garden.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1010,7 +1011,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1026,7 +1027,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. There is a door to the west.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1038,7 +1039,7 @@ Z 0 13017
 D3
 ~
 wooden door~
-ABZ 0 13082
+ABZgh 0 13082
 S
 #13019
 A hallway in the castle~
@@ -1046,7 +1047,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1062,7 +1063,7 @@ The turn here is lit by a single torch. The air is thick and quite
 uncomfortable, seeming to interupt your breathing. This is not a place you
 would like to stand around. Perhaps you should continue on your way...
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1078,7 +1079,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1094,7 +1095,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. There is a door to the east.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1102,7 +1103,7 @@ Z 0 13023
 D1
 ~
 wooden door~
-ABZ 0 13083
+ABZgh 0 13083
 D2
 ~
 ~
@@ -1114,7 +1115,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1130,7 +1131,7 @@ The turn here is lit by a single torch. The air is thick and quite
 uncomfortable, seeming to interupt your breathing. This is not a place you
 would like to stand around. Perhaps you should continue on your way...
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1146,7 +1147,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1162,7 +1163,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1178,7 +1179,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. To the north you see a stairwell.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1198,7 +1199,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1215,7 +1216,7 @@ your shadow seem to dance to an ethereal music, providing entertainment
 for those seeking a unique perspective of themselves. The hallway is to
 the south and the stairwell leads up and down.
 ~
-0 A inside
+0 Ag inside
 D2
 ~
 ~
@@ -1235,7 +1236,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1251,7 +1252,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. There are doors to the east and west.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1260,7 +1261,7 @@ D1
 ~
 gold door
 ~
-ABZ 0 13078
+ABZgh 0 13078
 D2
 ~
 ~
@@ -1269,7 +1270,7 @@ D3
 ~
 dark door
 ~
-ABZ 0 13077
+ABZgh 0 13077
 S
 #13032
 A hallway in the castle~
@@ -1277,7 +1278,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1293,7 +1294,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. There are doors to the east and west.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1302,7 +1303,7 @@ D1
 ~
 wooden door
 ~
-ABZ 0 13075
+ABZgh 0 13075
 D2
 ~
 ~
@@ -1311,7 +1312,7 @@ D3
 ~
 ivory door
 ~
-ABZ 0 13076
+ABZgh 0 13076
 S
 #13034
 A hallway in the castle~
@@ -1319,7 +1320,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1335,7 +1336,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. There are doors to the east and west.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1344,7 +1345,7 @@ D1
 ~
 iron door
 ~
-ABZ 0 13073
+ABZgh 0 13073
 D2
 ~
 ~
@@ -1353,7 +1354,7 @@ D3
 ~
 black door
 ~
-ABZ 0 13074
+ABZgh 0 13074
 S
 #13036
 A hallway in the castle~
@@ -1361,7 +1362,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1377,7 +1378,7 @@ The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. 
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1395,7 +1396,7 @@ forest. Adamantite laces the paintings and makes them seem to hum with
 internal power. Even the torches leading to the fourth floor here are 
 wrapped in gold. The hallway is to the north.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1412,7 +1413,7 @@ Paintings, tapestries, sculptures, various busts of the Lord and other
 important people. Torches follow the steps to the third floor and a
 hallway continues north.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1429,7 +1430,7 @@ decorated paintings are to be found. Only a titanium door to the east with
 a picture of the Captain of the Guard and an obsidian door to the west 
 with a picture of a Giant lurking in the shadows.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1437,7 +1438,7 @@ Z 0 13041
 D1
 ~
 titanium door~
-ABZ 0 13047
+ABZgh 0 13047
 D2
 ~
 ~
@@ -1445,7 +1446,7 @@ Z 0 13039
 D3
 ~
 obsidian door~
-ABZ 0 13045
+ABZgh 0 13045
 S
 #13041
 The Hallway of Giants~
@@ -1455,15 +1456,15 @@ To the east is an ivory door with a picture of a cleric praying to his god
 above it. A HUGE adamantite door is north of you, scratches and dried blood 
 cover this door and a bone or two can be seen tossed a few feet from it.
 ~
-0 D city
+0 Dj city
 D0
 ~
 adamantite door~
-ABZ 0 13042
+ABZgh 0 13042
 D1
 ~
 ivory door~
-ABZ 0 13046
+ABZgh 0 13046
 D2
 ~
 ~
@@ -1471,7 +1472,7 @@ Z 0 13040
 D3
 ~
 iron door~
-ABZ 0 13044
+ABZgh 0 13044
 S
 #13042
 The Lord's Chamber~
@@ -1482,15 +1483,15 @@ preparing to attack one of the world's cities. Which one? Only time can say.
 Turning your attention to the Lord himself, he does not seem pleased with
 your uninvited entrance to his Chamber. He quickly stands up to engage you.
 ~
-0 D city
+0 Dj city
 D2
 ~
 adamantite door~
-ABZ 0 13041
+ABZgh 0 13041
 D5
 ~
 map~
-ABZ 0 13043
+ABZgh 0 13043
 S
 #13043
 The Treasure Room~
@@ -1499,11 +1500,11 @@ items here. The ceiling looks as though it goes on forever since you can't
 seem to see it, only darkness. There is a ladder that gives you the ability
 to climb back up to the Lord's Chamber.
 ~
-0 CDN city
+0 CDNijt city
 D4
 ~
 map secret~
-ABZ 0 13042
+ABZgh 0 13042
 S
 #13044
 Battle Grounds~
@@ -1514,11 +1515,11 @@ next to the door and look out onto the field. You see hills, a mountainous
 area, a plains area, a small stream running through, and a granite arena in
 the center... All within this room. I guess it's time to prove yourself.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 iron door~
-ABZ 0 13041
+ABZgh 0 13041
 S
 #13045
 The Dark Room~
@@ -1529,11 +1530,11 @@ near certain parts of it. After glancing it over and understanding nothing
 about it other than that it's a map, you turn to meet the occupant of this 
 room.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 obsidian door~
-ABZ 0 13040
+ABZgh 0 13040
 S
 #13046
 The Holy Room~
@@ -1543,11 +1544,11 @@ in emitting from a small bowl on the altar. This room seems to be the living
 quarters of a cleric or holy man. As you look around, the occupant appears
 and greets you.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ivory~
-ABZ 0 13041
+ABZgh 0 13041
 S
 #13047
 The Captain's Quarters~
@@ -1557,11 +1558,11 @@ captain is a bit smaller than the giants he commands, but is a superb
 leader, so they follow him wherever he takes them. There is a desk at the
 far wall and alot of paperwork sitting on top of it, waiting to be done.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 titanium door~
-ABZ 0 13040
+ABZgh 0 13040
 S
 #13048
 The kitchen~
@@ -1575,7 +1576,7 @@ but the elf get's very little recognition of this fact.
 D1
 ~
 wooden door~
-ABZ 0 13009
+ABZgh 0 13009
 S
 #13049
 The storage room~
@@ -1583,7 +1584,7 @@ Boxes, furniture and other things that usually just take up space have been
 placed here out of the way. It looks like the maid doesn't get here too 
 often.
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 wooden door~
@@ -1668,7 +1669,7 @@ have seen. It not only smells different, but also has no torches on the
 walls. You see a faint glow coming from above and to the south you see
 darkness.
 ~
-0 A inside
+0 Ag inside
 D2
 ~
 ~
@@ -1734,12 +1735,12 @@ D0
 ~
 cell door
 ~
-ABZ 0 13058
+ABZgh 0 13058
 D1
 ~
 cell door
 ~
-ABZ 0 13059
+ABZgh 0 13059
 D2
 ~
 ~
@@ -1759,7 +1760,7 @@ D2
 ~
 cell door
 ~
-ABZ 0 13057
+ABZgh 0 13057
 S
 #13059
 A dungeon cell~
@@ -1771,7 +1772,7 @@ D3
 ~
 cell door
 ~
-ABZ 0 13057
+ABZgh 0 13057
 S
 #13060
 A dungeon cell~
@@ -1783,7 +1784,7 @@ D3
 ~
 cell door
 ~
-ABZ 0 13061
+ABZgh 0 13061
 S
 #13061
 The castle dungeon~
@@ -1800,12 +1801,12 @@ D1
 ~
 cell door
 ~
-ABZ 0 13060
+ABZgh 0 13060
 D2
 ~
 cell door
 ~
-ABZ 0 13064
+ABZgh 0 13064
 D3
 ~
 ~
@@ -1877,7 +1878,7 @@ D0
 ~
 cell door
 ~
-ABZ 0 13067
+ABZgh 0 13067
 S
 #13066
 The castle dungeon~
@@ -1919,12 +1920,12 @@ D2
 ~
 cell door
 ~
-ABZ 0 13065
+ABZgh 0 13065
 D3
 ~
 cell door
 ~
-ABZ 0 13068
+ABZgh 0 13068
 S
 #13068
 A dungeon cell~
@@ -1936,7 +1937,7 @@ D1
 ~
 cell door
 ~
-ABZ 0 13067
+ABZgh 0 13067
 S
 #13069
 A dungeon cell~
@@ -1948,7 +1949,7 @@ D1
 ~
 cell door
 ~
-ABZ 0 13070
+ABZgh 0 13070
 S
 #13070
 The castle dungeon~
@@ -1962,7 +1963,7 @@ D0
 ~
 cell door
 ~
-ABZ 0 13072
+ABZgh 0 13072
 D1
 ~
 ~
@@ -1975,7 +1976,7 @@ D3
 ~
 cell door
 ~
-ABZ 0 13069
+ABZgh 0 13069
 S
 #13071
 The castle dungeon~
@@ -2007,7 +2008,7 @@ D2
 ~
 cell door
 ~
-ABZ 0 13070
+ABZgh 0 13070
 S
 #13073
 The Castle War Conference Room~
@@ -2021,7 +2022,7 @@ on the wall.
 D3
 ~
 iron door~
-ABZ 0 13035
+ABZgh 0 13035
 S
 #13074
 The lounge~
@@ -2037,7 +2038,7 @@ background.
 D1
 ~
 black door~
-ABZ 0 13035
+ABZgh 0 13035
 S
 #13075
 The Library~
@@ -2051,7 +2052,7 @@ bit more rare and hard to get are kept in the back room.
 D3
 ~
 wooden door~
-ABZ 0 13033
+ABZgh 0 13033
 S
 #13076
 The Altar Room~
@@ -2064,7 +2065,7 @@ god.
 D1
 ~
 ivory door~
-ABZ 0 13033
+ABZgh 0 13033
 S
 #13077
 A dark room~
@@ -2073,11 +2074,11 @@ eyes to the darkness and begin to make out shapes along the walls, which
 you assume to be paintings. You bump into a few things, break a few things, 
 and decide that you might want to leave this room.
 ~
-0 A inside
+0 Ag inside
 D1
 ~
 dark door~
-ABZ 0 13031
+ABZgh 0 13031
 S
 #13078
 Art Gallery~
@@ -2090,7 +2091,7 @@ trophies.
 D3
 ~
 gold door~
-ABZ 0 13031
+ABZgh 0 13031
 S
 #13079
 A dark hallway~
@@ -2098,7 +2099,7 @@ The smell in this hallway seems double that of the dungeon. Dried blood and
 rotting corpses litter the floor. You hear screams to the south and know
 that someone is being tortured.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2114,7 +2115,7 @@ The smell in this hallway seems double that of the dungeon. Dried blood and
 rotting corpses litter the floor. You hear screams coming from a door to the 
 south and know that someone is being tortured.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -2122,7 +2123,7 @@ Z 0 13079
 D2
 ~
 iron door~
-ABZ 0 13081
+ABZgh 0 13081
 S
 #13081
 The Torture Room~
@@ -2136,7 +2137,7 @@ of torture.
 D0
 ~
 iron door~
-ABZ 0 13080
+ABZgh 0 13080
 S
 #13082
 The storage room~
@@ -2144,11 +2145,11 @@ Boxes, furniture and other things that usually just take up space have been
 placed here out of the way. It looks like the maid doesn't get here too 
 often.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 wooden door~
-ABZ 0 13018
+ABZgh 0 13018
 S
 #13083
 The Guest Room~
@@ -2161,7 +2162,7 @@ a window overlooking a vast forest.
 D3
 ~
 wooden door~
-ABZ 0 13022
+ABZgh 0 13022
 S
 #0
 

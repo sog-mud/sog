@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Sands of Sorrow~
 VNUMs 5000 5099
 Credits Anon~
@@ -16,10 +17,10 @@ Dressed in loose fitting rags, this man looks like he could use
 some rest.
 ~
 human~
-ACGH P 900 0
+CGHimn 0 0 Gm 0 900 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 3
 0 0 medium unknown
 #5001
@@ -31,10 +32,10 @@ Dressed in loose fitting rags, this man looks like he could use
 LOTS of rest.
 ~
 human~
-AFG P 650 0
+FGlm 0 0 Gm 0 650 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 7
 0 0 medium unknown
 #5002
@@ -46,10 +47,10 @@ This relatively harmless snake has bright alternating bands of red, yellow
 and black.
 ~
 snake~
-AG 0 -10 0
+Gm 0 0 0 0 -10 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNR 0 0 0
+EFNRkltx
 stand stand none 0
 0 0 medium unknown
 #5003
@@ -60,10 +61,10 @@ A small, red scorpion scuttles away at your approach.
 The little tail is mighty dangerous for such a small creature.
 ~
 human~
-AG 0 -50 0
+Gm 0 0 0 0 -50 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #5004
@@ -74,10 +75,10 @@ A giant, purple sand worm thrusts up out of the sand and attacks!
 He's big, mean, and purple. Watch out!
 ~
 human~
-ABF 0 -100 0
+BFhl 0 0 0 0 -100 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
-EFNU 0 0 0
+EFNUklt
 stand stand none 127
 0 0 medium unknown
 #5005
@@ -88,10 +89,10 @@ Then adds to it, 'Prepare to die, have a nice day!'
 ~
 ~
 dragon~
-ABCF DH 450 0
+BCFhil 0 Hn 0 Ag 450 0
 28 45 6d12+1053 15d9+100 4d40+28 'none'
 -19 -19 -19 -10
-EFNR 0 0 0
+EFNRkltx
 stand stand female 275
 0 0 medium unknown
 #5006
@@ -104,10 +105,10 @@ is a large, engraved cutlass. He has an especially haughty air
 about him.
 ~
 human~
-AGH 0 950 0
+GHmn 0 0 0 0 950 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNUklt
 sit sit male 50
 0 0 medium unknown
 #5007
@@ -119,10 +120,10 @@ This is the nomad leader's second in command. His clothes are richly
 woven of silk and gold thread. A nasty cutlass hangs at his side.
 ~
 human~
-AB 0 900 0
+Bh 0 0 0 0 900 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 30
 0 0 medium unknown
 #5008
@@ -132,10 +133,10 @@ A proud nomad warrior stands here.
 ~
 ~
 human~
-AB 0 700 0
+Bh 0 0 0 0 700 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 15
 0 0 medium unknown
 #5009
@@ -145,10 +146,10 @@ A young slave sits here staring at you with pleading eyes.
 ~
 ~
 human~
-ABH 0 1000 0
+BHhn 0 0 0 0 1000 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 rest rest female 0
 0 0 medium unknown
 #5010
@@ -160,10 +161,10 @@ The dracolich is now only bone with pieces of flesh hanging from it.
 Obviously it no longer fears death.
 ~
 human~
-ABF DJu -1000 0
+BFhl 0 0 0 AHgn -1000 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 3750
 0 0 medium unknown
 #5011
@@ -174,10 +175,10 @@ The drider looks at you viciously while it draws its sword.
 This half-spider, half-drow creature is a formidable opponent.
 ~
 human~
-AFG DJ -1000 0
+FGlm 0 0 0 AHgn -1000 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand female 10
 0 0 medium unknown
 #5012
@@ -188,10 +189,10 @@ A duergar is here mining precious stones with his pick.
 The duergar could crush your head as easily as it does those rocks.
 ~
 human~
-AFG DJ -850 0
+FGlm 0 0 0 AHgn -850 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 8
 0 0 medium unknown
 #5013
@@ -203,10 +204,10 @@ The myconoid looks something like a giant mushroom (and probably
 has the same effect).
 ~
 human~
-AGH DJ 850 0
+GHmn 0 0 0 AHgn 850 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 2
 0 0 medium unknown
 #5014
@@ -217,10 +218,10 @@ A rather large myconoid stands here chanting in a strange tongue.
 The shaman shoots spores into the air.
 ~
 human~
-ABHQ DHJ 850 0
+BHQhnw 0 Hn 0 AHgn 850 0
 8 0 2d7+96 8d9+100 1d7+2 'none'
 3 3 3 8
-EIKU 0 0 0
+EIKUkoq
 stand stand male 75
 0 0 medium unknown
 #5015
@@ -230,10 +231,10 @@ A small oasis invites you to dive in.
 ~
 ~
 human~
-ABCF 0 -200 0
+BCFhil 0 0 0 0 -200 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 22
 0 0 medium unknown
 #5017
@@ -244,10 +245,10 @@ A very dangerous rabid camel snorts at you.
 Don't mess with this animal.
 ~
 human~
-ABF 0 -351 0
+BFhl 0 0 0 0 -351 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNU 0 0 0
+EFNUklt
 stand stand none 13
 0 0 medium unknown
 #0
@@ -258,7 +259,7 @@ pick~
 a small mining pick~
 A small mining pick made of what appears to be silver lies on the ground.~
 silver~
-weapon J AN
+weapon Jp 0 ANgt
 axe 1 9 'pierce' 0
 5 30 320 P
 g none~
@@ -267,7 +268,7 @@ banded mail~
 a glowing suit of banded mail~
 A glowing suit of banded mail lies on the ground.~
 iron~
-armor AG AD
+armor AGgm 0 ADgj
 7 7 7 0 0
 23 0 7300 P
 A
@@ -280,8 +281,8 @@ halberd~
 the halberd~
 A mighty halberd lies against the wall.~
 steel~
-weapon GI AN
-polearm 3 14 'cleave' F
+weapon GImo 0 ANgt
+polearm 3 14 'cleave' Fl
 29 160 1620 P
 A
 19 3
@@ -293,7 +294,7 @@ amulet~
 the amulet~
 A mushroom shaped amulet lies on the ground.~
 marble~
-jewelry G AC
+jewelry Gm 0 ACgi
 0 0 0 0 0
 5 20 550 P
 A
@@ -304,7 +305,7 @@ bone~
 a large leg bone~
 A large leg bone rests on the ground.~
 bone~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 1 4 'pound' 0
 0 50 140 P
 g none~
@@ -313,7 +314,7 @@ cactus~
 a small cactus cup~
 A small cactus cup lies on the ground.~
 plant~
-drink 0 A
+drink 0 0 Ag
 5 5 'water' 0 0
 0 60 5 P
 g none~
@@ -322,8 +323,8 @@ basket~
 a small wicker basket~
 A small wicker basket sits on the ground.~
 leather~
-container 0 A
-100 AC 0 10 100
+container 0 0 Ag
+100 ACgi 0 10 100
 0 20 20 P
 g none~
 #5008
@@ -331,8 +332,8 @@ basket~
 a small wicker basket~
 A small wicker basket sits on the ground.~
 leather~
-container 0 A
-100 AC 0 10 100
+container 0 0 Ag
+100 ACgi 0 10 100
 0 20 20 P
 g none~
 #5009
@@ -340,8 +341,8 @@ basket~
 a small wicker basket~
 A small wicker basket sits on the ground.~
 wood~
-container 0 A
-100 AC 0 10 100
+container 0 0 Ag
+100 ACgi 0 10 100
 0 20 20 P
 g none~
 #5010
@@ -349,8 +350,8 @@ basket~
 a small wicker basket~
 A small wicker basket sits on the ground.~
 wood~
-container 0 0
-100 AC 0 0 100
+container 0 0 0
+100 ACgi 0 0 100
 0 0 0 P
 g none~
 #5011
@@ -358,7 +359,7 @@ rope~
 a coil of rope~
 A long coil of rope lies on the ground.~
 linen~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 0 120 20 P
 g none~
@@ -367,7 +368,7 @@ stakes~
 a bunch of stakes~
 A small bundle of stakes lies here.~
 wood~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 0 60 20 P
 g none~
@@ -376,7 +377,7 @@ map~
 an old, tattered map~
 An old, tattered, and much faded map lies here.~
 paper~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 0 10 5 P
 g none~
@@ -385,7 +386,7 @@ turban~
 a thick padded turban~
 A thick padded turban lies here.~
 cloth~
-clothing GH AE
+clothing GHmn 0 AEgk
 0 0 0 0 0
 0 10 10 P
 A
@@ -396,7 +397,7 @@ coins~
 a great pile of treasure~
 A great, gleaming pile of treasure lies at your feet.~
 silver~
-money 0 A
+money 0 0 Ag
 427 12 0 0 0
 0 0 0 P
 g none~
@@ -405,7 +406,7 @@ sabre~
 a long, curved sabre~
 A long, curved sabre stands upright in the ground.~
 steel~
-weapon L AN
+weapon Lr 0 ANgt
 sword 3 7 'slash' 0
 16 70 1410 P
 A
@@ -418,7 +419,7 @@ scimitar~
 a curved scimitar~
 A curved scimitar lies at your feet.~
 steel~
-weapon L AN
+weapon Lr 0 ANgt
 sword 2 8 'slash' 0
 12 60 990 P
 A
@@ -431,7 +432,7 @@ cutlass~
 a long, pointed cutlass~
 A long, pointed cutlass lies here.~
 adamantite~
-weapon L AN
+weapon Lr 0 ANgt
 sword 3 6 'slash' 0
 12 50 930 P
 g none~
@@ -440,7 +441,7 @@ potion pink~
 a pink potion~
 A potion in a pink clay pot stands here.~
 clay~
-potion P A
+potion Pv 0 Ag
 25 'heal' 'remove curse' '' ''
 13 60 1220 P
 g none~
@@ -449,7 +450,7 @@ wand platinum~
 a platinum wand~
 A platinum wand lies here.~
 platinum~
-wand B AO
+wand Bh 0 AOgu
 30 10 10 'magic missile' 0
 2 80 990 P
 g none~
@@ -458,7 +459,7 @@ bow energy strange~
 a strange energy bow~
 A strange energy bow lies here.~
 unknown~
-weapon ABGI AN
+weapon ABGIghmo 0 ANgt
 bow 5 5 'blast' 0
 21 200 2600 P
 g none~
@@ -467,7 +468,7 @@ scroll encrypted~
 an encrypted scroll~
 An encrypted scroll lies at your feet.~
 vellum~
-scroll 0 A
+scroll 0 0 Ag
 22 'cure blindness' 'remove curse' 'cure poison' ''
 11 70 1730 P
 g none~
@@ -476,8 +477,8 @@ chest~
 an iron bound chest~
 An iron bound chest with a shiny lock sits here.~
 iron~
-container 0 0
-200 ACD 5024 200 100
+container 0 0 0
+200 ACDgij 5024 200 100
 0 0 0 P
 g none~
 #5024
@@ -485,8 +486,8 @@ key golden~
 a golden key~
 A shiny golden key lies here.~
 gold~
-key 0 A
-BD 0 0 0 0
+key 0 0 Ag
+BDhj 0 0 0 0
 0 10 0 P
 g none~
 #5025
@@ -494,7 +495,7 @@ bracelet copper~
 a copper bracelet~
 A tarnished copper bracelet lies at your feet.~
 copper~
-jewelry GH AM
+jewelry GHmn 0 AMgs
 0 0 0 0 0
 20 100 1300 P
 A
@@ -507,8 +508,8 @@ gem ruby~
 a large ruby~
 A large ruby lies on the ground collecting dust.~
 ruby~
-gem G AO
-CE 0 0 0 0
+gem Gm 0 AOgu
+CEik 0 0 0 0
 0 1 5000 P
 g none~
 #5027
@@ -516,8 +517,8 @@ gem diamond glittering~
 a glittering diamond~
 A glittering diamond lies at your feet.~
 diamond~
-gem G AO
-ACE 0 0 0 0
+gem Gm 0 AOgu
+ACEgik 0 0 0 0
 0 1 6000 P
 g none~
 #5028
@@ -525,8 +526,8 @@ gem sapphire~
 a brilliant sapphire~
 A brilliant sapphire lies here twinkling.~
 sapphire~
-gem G AO
-BCE 0 0 0 0
+gem Gm 0 AOgu
+BCEhik 0 0 0 0
 0 1 2000 P
 g none~
 #5029
@@ -534,8 +535,8 @@ gem lapis~
 a deep blue lapis lazuli~
 A deep blue lapis lazuli gem lies here.~
 gem~
-gem G AO
-DE 0 0 0 0
+gem Gm 0 AOgu
+DEjk 0 0 0 0
 0 1 800 P
 g none~
 #5030
@@ -543,7 +544,7 @@ jewel tiger~
 the tiger jewel~
 The Tiger Jewel lies here blazing.~
 gem~
-gem I AO
+gem Io 0 AOgu
 0 0 0 0 0
 5 1 550 P
 A
@@ -554,7 +555,7 @@ jewel red-eyed~
 the red-eyed jewel~
 The red-eyed jewel glares at you greedily.~
 gem~
-gem 0 AO
+gem 0 0 AOgu
 0 0 0 0 0
 15 1 2600 P
 A
@@ -565,8 +566,8 @@ gem emerald~
 a fiery green emerald~
 A fiery green emerald sits here.~
 gem~
-warp_stone T AO
-ABCE 0 0 0 0
+warp_stone 0 Ci AOgu
+ABCEghik 0 0 0 0
 0 1 4000 P
 g none~
 #0
@@ -577,7 +578,7 @@ A long tunnel~
 You encounter some rapids as you enter this tunnel cut out of
 the mountains by the river.
 ~
-0 AD noswim
+0 ADgj noswim
 D1
 ~
 ~
@@ -591,7 +592,7 @@ S
 A long tunnel~
 The tunnel branches off north.
 ~
-0 AD noswim
+0 ADgj noswim
 D0
 ~
 ~
@@ -609,7 +610,7 @@ S
 A long tunnel~
 The tunnel branches off south.
 ~
-0 AD noswim
+0 ADgj noswim
 D1
 ~
 ~
@@ -627,7 +628,7 @@ S
 A long tunnel~
 The tunnel branches off to the south.
 ~
-0 AD noswim
+0 ADgj noswim
 D1
 ~
 ~
@@ -648,7 +649,7 @@ water and lime from above. The tunnel continues to the east and the river
 leads back west. To the north is a roughly-hewn hallway. There is also
 a tunnel south.
 ~
-0 AD noswim
+0 ADgj noswim
 D0
 ~
 ~
@@ -670,7 +671,7 @@ S
 A long narrow tunnel~
 The tunnel rises sharply to the east.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 ~
 ~
@@ -685,7 +686,7 @@ A wide tunnel~
 The tunnel continues east and west. To the east the tunnel dives
 down into a bright light.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 ~
 ~
@@ -700,7 +701,7 @@ Cave-in~
 You stand at the edge of a large pile of rubble created from the last
 rockslide.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 ~
 ~
@@ -716,7 +717,7 @@ At the foot of the rubble~
 You are at the bottom of a large pile of rubble. A tunnel branches
 off to the north and east.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -735,7 +736,7 @@ Cave entrance~
 You stand in the middle of a large and beautiful cave. A path leads
 deeper into the darkness.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 ~
 ~
@@ -751,7 +752,7 @@ Giant cave~
 This cavern overwhelms you. The walls and ceiling seem miles away.
 Bones of previous adventurers lie strewn on the cavern floor.
 ~
-0 AD mountain
+0 ADgj mountain
 D4
 ~
 ~
@@ -761,7 +762,7 @@ S
 Narrow bend~
 The tunnel turns to the south and west.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 ~
 ~
@@ -775,7 +776,7 @@ S
 Large cave~
 You are standing in a large cave. Many furs are spread out on the floor.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -789,7 +790,7 @@ S
 Damp hallway~
 The walls here are extremely damp, as well as the floor.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 You hear drops of water.
 ~
@@ -804,7 +805,7 @@ S
 Underground pool~
 You are wading in a knee deep pool of lime-water.
 ~
-0 AD swim
+0 ADgj swim
 D2
 ~
 ~
@@ -819,7 +820,7 @@ Damp hallway~
 The walls of the tunnel are extremely damp here. You hear the faint
 sound of running water to the south.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 You hear drops of water.
 ~
@@ -835,7 +836,7 @@ Narrow crawlway~
 This crawlway is just big enough for a human to crawl through or a
 halfling to walk through.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -855,7 +856,7 @@ Large cavern~
 You have entered a very large cavern. The rock formations would amaze
 almost any dwarf.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -870,7 +871,7 @@ Fungus patch~
 As you walk through the fungus patch, you are shot at by many millions of
 spores. You can hardly breathe.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -886,7 +887,7 @@ Fungus path~
 As you walk along the path, millions of spores are shot at you. You can
 hardly breathe.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 A giant mushroom temple stands to the south.
 ~
@@ -903,7 +904,7 @@ Fungus temple~
 You find yourself standing inside of a giant mushroom. The inside
 is decorated in the fashion of a temple.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -917,7 +918,7 @@ S
 Sloping passage~
 You follow a path sloping down from the fungus temple.
 ~
-0 AD mountain
+0 ADgj mountain
 D3
 ~
 ~
@@ -931,7 +932,7 @@ S
 Sloping passage~
 You are on a path that gently slopes up from the underground pool.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 You hear sounds of trickling water.
 ~
@@ -947,7 +948,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -974,7 +975,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 E
 flower~
 Магическое цветение, благодоря воле Богов проросло своими корнями в Песках
@@ -1007,7 +1008,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1034,7 +1035,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1061,7 +1062,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1088,7 +1089,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1115,7 +1116,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1142,7 +1143,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1169,7 +1170,7 @@ The Sands of Sorrow~
 A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
 ~
-0 N desert
+0 Nt desert
 D0
 Sand as far as the eye can see.
 ~
@@ -1275,7 +1276,7 @@ This tent is as lavishly decorated on the inside as it is on the
 outside. A fancy carpet lies on the sand and numerous baskets line the
 walls.
 ~
-0 H field
+0 Hn field
 D1
 ~
 ~
@@ -1292,7 +1293,7 @@ This is where the leader of this band of nomads resides. He is
 definitely rich as you inspect the tapestries, baskets, and a few
 paintings as well.
 ~
-0 H field
+0 Hn field
 D3
 You see the entrance to this tent.
 ~
@@ -1305,7 +1306,7 @@ A vast desert stretches for miles, the sand constantly shifting around
 you.  But this patch of desert looks different...the sand glows.  You see a
 futuristic city to the south.
 ~
-0 CD mountain
+0 CDij mountain
 D2
 You see a futuristic city.
 ~
@@ -1341,7 +1342,7 @@ The air in here is MUCH cooler than outside. From the west you hear
 strange sounds, but can see nothing. The cave slopes down into the
 darkness.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 Outside is lighter and very windy.
 ~
@@ -1359,7 +1360,7 @@ haphazardly strewn about and the rotting carcasses, you would guess that
 this is a dragon's lair. As to what type, you can't really say. The cave
 narrows out into a tunnel to the west.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 ~
 ~
@@ -1367,18 +1368,18 @@ Z 0 5064
 D3
 ~
 door~
-ABCFZ 5024 5066
+ABCFZghil 5024 5066
 S
 #5066
 A wide tunnel~
 This tunnel seems to go on forever into the darkness. You carefully
 feel your way along the walls.
 ~
-0 ACD mountain
+0 ACDgij mountain
 D1
 ~
 door~
-ABCFZ 5024 5065
+ABCFZghil 5024 5065
 D3
 ~
 ~
@@ -1389,7 +1390,7 @@ A narrower tunnel~
 The tunnel becomes very narrow and you fight to squeeze your way through.
 The floor seems to level off a little.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 ~
 ~
@@ -1404,7 +1405,7 @@ A narrow crack~
 This part of the tunnel is the hardest to move through as the walls
 move in to meet you.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -1419,7 +1420,7 @@ A small cavern.~
 It is dark and damp and bats hang from the ceiling. A narrow crack is
 in the east wall. The floor now slopes upwards.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 ~
 ~
@@ -1434,7 +1435,7 @@ A small shaft~
 From within this shaft you can see a narrow hole in the roof just
 large enough for one person. Back south is the cavern.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 ~
 ~

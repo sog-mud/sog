@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Arcadia~
 VNUMs 12000 12199
 Credits Cernunn~
@@ -23,10 +24,10 @@ Seelie way, light, love, celebration, honor and wisdom.
 и благородства.
 ~
 elf~
-ABT CDEFH 1000 0
+BThz 0 Hn 0 ABKLghqr 1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 'bite'
 -56 -53 -51 -26
-EFHIKN 0 0 0
+EFHIKNklnoqt
 stand stand male 5000
 0 0 medium unknown
 r holy -50
@@ -48,10 +49,10 @@ of the sun.
 улыбка подобно солнцу озаряет все вокруг.
 ~
 elf~
-ABQ CDEHT 1000 0
+BQhw 0 HTnz 0 AKLgqr 1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 'bite'
 -53 -50 -52 -23
-FKN 0 0 0
+FKNlqt
 stand stand female 5000
 0 0 medium unknown
 r fire 33
@@ -79,10 +80,10 @@ laughter and joy, Puck is a dangerous one indeed.
 Его, пожалуй, действительно стоит опасаться.
 ~
 human~
-AGHS BNPQTU 0 0
+GHSmny 0 NTUtz ABGghm 0 0 0
 94 0 50d20+22000 10d20+2000 13d10+56 'bite'
 -55 -56 -54 -26
-BEFHIJKNY 0 0 0
+BEFHIJKNYhklnopqt
 sit sit male 100
 0 0 medium unknown
 r fire 33
@@ -111,10 +112,10 @@ voice is clear and strong and his mind is much quicker than yours.
 лучше тебя.
 ~
 elf~
-ABR ACDEFZ 850 0
+BRhx 0 Ag 0 ABKLghqr 850 0
 78 0 50d20+12500 10d20+2000 9d12+48 'bite'
 -40 -40 -42 -18
-BEFHIJKNY 0 0 0
+BEFHIJKNYhklnopqt
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -148,10 +149,10 @@ embodies not only the terror of death but the seductive beauty of night.
 обольстительной красоты ночи.
 ~
 elf~
-ABT Z -1000 0
+BThz 0 0 0 0 -1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 'slash'
 -56 -53 -51 -26
-EFHIKN 0 0 0
+EFHIKNklnoqt
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -171,10 +172,10 @@ while the Puck may be harmfull the Morrigan is deadly.
 самое пугающие создание ночи, ее повелительница.
 ~
 unique~
-ACFGOT CDEFZ -1000 0
+CFGOTilmuz 0 0 0 ABKLghqr -1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 'pierce'
 -53 -50 -52 -23
-ABDHNY 0 0 0
+ABDHNYghjnt
 stand stand female 5050
 0 0 medium unknown
 r holy -50
@@ -194,10 +195,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-AGT 0 800 0
+GTmz 0 0 0 0 800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIU 0 0 0
+CFIUilo
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -215,10 +216,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-AGT 0 800 0
+GTmz 0 0 0 0 800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIU 0 0 0
+CFIUilo
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -236,10 +237,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-AGT 0 -800 0
+GTmz 0 0 0 0 -800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIU 0 0 0
+CFIUilo
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -257,10 +258,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-AGT 0 -800 0
+GTmz 0 0 0 0 -800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIU 0 0 0
+CFIUilo
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -278,10 +279,10 @@ leadership that graces all of the sidhe.
 притягательность, несвойственная людям, но отличающая всех сидов.
 ~
 elf~
-ABT N 900 0
+BThz 0 Nt 0 0 900 0
 66 0 50d20+8500 10d20+2000 7d9+36 'pound'
 -22 -25 -23 -5
-EIKLQRTU 0 0 0
+EIKLQRTUkoqrwxz
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -300,10 +301,10 @@ not to admire.
 восхищения.
 ~
 elf~
-ABT N -900 0
+BThz 0 Nt 0 0 -900 0
 65 0 50d20+8250 10d20+2000 11d5+35 'pound'
 -22 -25 -23 -5
-EIKLQRTU 0 0 0
+EIKLQRTUkoqrwxz
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -321,10 +322,10 @@ loyalty, courage and skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-AGT G 1000 0
+GTmz 0 0 0 Ms 1000 0
 72 0 50d20+10250 10d20+2000 8d11+42 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -342,10 +343,10 @@ loyalty, courage and skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-AGT G 1000 0
+GTmz 0 0 0 Ms 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand female 500
 0 0 medium unknown
 r holy 100
@@ -364,10 +365,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-AGT G -1000 0
+GTmz 0 0 0 Ms -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -386,10 +387,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-AGT G 1000 0
+GTmz 0 0 0 Ms 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand female 500
 0 0 medium unknown
 r holy 100
@@ -408,10 +409,10 @@ loyalty, courage and skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-ABT G 1000 0
+BThz 0 0 0 Ms 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand male 500
 0 0 medium unknown
 r holy 100
@@ -430,10 +431,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-ABT G -1000 0
+BThz 0 0 0 Ms -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -452,10 +453,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-ABT G -1000 0
+BThz 0 0 0 Ms -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLS 0 0 0
+CDEFIKLSijkloqry
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -476,10 +477,10 @@ sidhe as faithfull warriors.
 заслужили репутацию хороших воинов.
 ~
 giant~
-ABT Nbcd 1000 0
+BThz 0 Nbcdt 0 0 1000 0
 69 0 50d20+9500 10d20+2000 7d11+39 'pierce'
 -39 -39 -39 -9
-CDIKNQU 0 0 0
+CDIKNQUijoqtw
 stand stand male 500
 0 0 giant unknown
 r holy -50
@@ -498,10 +499,10 @@ sidhe as faithfull warriors.
 заслужили репутацию хороших воинов.
 ~
 troll~
-ABT Nbd -1000 0
+BThz 0 Nbdt 0 0 -1000 0
 71 0 50d20+10000 10d20+2000 9d9+49 'pierce'
 -62 -63 -59 -29
-CIKNQU 0 0 0
+CIKNQUioqtw
 stand stand male 500
 0 0 giant unknown
 r lightning -50
@@ -523,10 +524,10 @@ After all, it's all in good fun.
 станется запустить в тебя пирогом.
 ~
 human~
-AGHS P 100 0
+GHSmny 0 0 Gm 0 100 0
 60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -32 -33 -33 -15
-BEFHJN 0 0 0
+BEFHJNhklnpt
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -547,10 +548,10 @@ fun....
 маскарадом что-то кроется.
 ~
 human~
-AGHS PQ -100 0
+GHSmny 0 0 BGhm 0 -100 0
 60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -32 -33 -33 -5
-BEFHJN 0 0 0
+BEFHJNhklnpt
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -565,10 +566,10 @@ Half-man, half-goat satyrs are the party animals of the Fae.  Renowned
 for their great stamina they can drink more than almost any other being.
 ~
 satyr~
-ABS d -100 0
+BShy 0 d 0 0 -100 0
 64 0 50d20+8000 10d20+2000 8d7+34 'slash'
 -30 -35 -32 -10
-CDIN 0 0 0
+CDINijot
 sit sit male 1000
 0 0 medium unknown
 r fire 33
@@ -593,10 +594,10 @@ The piper seems to be almost lost in the music issuing from his pipes.
 As you listen you too are drawn into the music.....
 ~
 satyr~
-AGR d 100 0
+GRmx 0 d 0 0 100 0
 66 0 50d20+8250 10d20+2000 11d5+35 'slash'
 -29 -28 -25 -10
-EHN 0 0 0
+EHNknt
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -623,10 +624,10 @@ by her long, sandy blonde hair.  Her singing is exquisite and the slight
 swaying of her body as she sings entrances you.
 ~
 satyr~
-AGR d 100 0
+GRmx 0 d 0 0 100 0
 62 0 50d20+7250 10d20+2000 6d9+32 'slash'
 -30 -26 -28 -1
-FHJ 0 0 0
+FHJlnp
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -641,10 +642,10 @@ nymph.  You can tell by the look in his eyes that it would be a BAD idea
 to get in his way.
 ~
 satyr~
-ABT Vbd -100 0
+BThz 0 Vbd 0 0 -100 0
 60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -28 -28 -20 -2
-CDR 0 0 0
+CDRijx
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -661,10 +662,10 @@ and a dark brown cap.  He holds in his hands what will be a finely
 wrought item when he is finished.
 ~
 dwarf~
-ABT Z 300 0
+BThz 0 0 0 0 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 'slash'
 -34 -35 -34 -2
-C 0 0 0
+Ci
 sit sit male 320
 0 0 small unknown
 r fire 33
@@ -689,10 +690,10 @@ This little smith is dressed in a dark leather apron  with bright red pants.
 He is working on a dark, rough-looking piece of armor.
 ~
 dwarf~
-ABT Z 300 0
+BThz 0 0 0 0 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 'slash'
 -34 -35 -34 -2
-C 0 0 0
+Ci
 sit sit male 320
 0 0 small unknown
 r fire 33
@@ -717,10 +718,10 @@ This tall, dark, man-shaped creature is almost completely covered in
 bright purple, flowing robes with a winding turban hiding his face.
 ~
 human~
-AT TU 0 0
+Tz 0 TUz 0 0 0 0
 58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
-CDEI 0 0 0
+CDEIijko
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -750,10 +751,10 @@ experienced than you will ever be.
 слышал.
 ~
 human~
-AT TU 0 0
+Tz 0 TUz 0 0 0 0
 58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
-CDEI 0 0 0
+CDEIijko
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -767,10 +768,10 @@ eshu drinker drunk эшу~
 @rus Этот человек мог бы послужить школой для детей бармена.
 ~
 human~
-AT TU -200 0
+Tz 0 TUz 0 0 -200 0
 58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
-CDEI 0 0 0
+CDEIijko
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -783,12 +784,12 @@ This nasty little creature is a blood-stained mouth with sharp-clawed
 appendages dressed in a brown tunic with a blood red hat.
 ~
 unique~
-ACFGS JVb -850 0
+CFGSilmy 0 Vb 0 Hn -850 0
 38 0 10d20+1600 10d20+2000 5d6+12 'pierce'
 -16 -20 -18 -6
-BDJVY 0 0 0
+BDJVYhjp
 stand stand male 500
-AHMV ABCDEFGHIJK small unknown
+AHMVgns ABCDEFGHIJKghijklmnopq small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -801,12 +802,12 @@ A murderous redcap attacks from behind.
 This redcap is a killing machine.  All sharp teeth, claws, and talons.
 ~
 unique~
-ACFGS JVb -850 0
+CFGSilmy 0 Vb 0 Hn -850 0
 43 0 10d20+2500 10d20+2000 8d4+15 'pierce'
 -20 -18 -20 0
-BDJVY 0 0 0
+BDJVYhjp
 stand stand male 500
-AHMV ABCDEFGHIJK small unknown
+AHMVgns ABCDEFGHIJKghijklmnopq small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -821,12 +822,12 @@ have seen. Even the Unseelie don't rival the natural repulsion you feel towards
 this creature.
 ~
 unique~
-AHS BCDEFJNPQUZ -20 0
+HSny 0 NUt ABGghm ABHKLghnqr -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 'pound'
 -12 -12 -13 -1
-EFHJK 0 0 0
+EFHJKklnpq
 stand stand female 500
-AHMV ABCDEFGHIJK small unknown
+AHMVgns ABCDEFGHIJKghijklmnopq small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -841,12 +842,12 @@ This dark fae is not willing to let you in on it's secrets, you had best
 leave now.
 ~
 unique~
-AHS BCDEFJNPQUZ -20 0
+HSny 0 NUt ABGghm ABHKLghnqr -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 'pierce'
 -12 -12 -13 -1
-EFHJK 0 0 0
+EFHJKklnpq
 stand stand female 500
-AHMV ABCDEFGHIJK small unknown
+AHMVgns ABCDEFGHIJKghijklmnopq small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -863,12 +864,12 @@ pixie пикси~
 полупрозрачными крылышками.  
 ~
 unique~
-AGR BTY 100 0
+GRmx 0 TYz Ag 0 100 0
 29 0 10d20+800 10d20+2000 4d6+7 'pound'
 -20 -20 -20 -1
-FHKR 0 0 0
+FHKRlnqx
 stand stand male 500
-AHMV ABCDEFGHIJK tiny unknown
+AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -884,12 +885,12 @@ smile on his face.
 бабочки и хитрой улыбкой.
 ~
 unique~
-AFHW BTV -300 0
+FHWln 0 TVz Ag 0 -300 0
 32 0 10d20+1000 10d20+2000 6d4+9 'pierce'
 -18 -18 -18 -1
-EFIK 0 0 0
+EFIKkloq
 stand stand male 500
-AHMV ABCDEFGHIJK tiny unknown
+AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -906,12 +907,12 @@ and form amaze and beguile you.
 очаровывают и вызывает изумление.
 ~
 unique~
-AGHQ BNT 300 0
+GHQmnw 0 NTtz Ag 0 300 0
 32 0 10d20+1000 10d20+2000 6d4+9 'slash'
 -20 -18 -16 -1
-FH 0 0 0
+FHln
 stand stand female 500
-AHMV ABCDEFGHIJK tiny unknown
+AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
 r holy -50
 r disease 33
 r poison 33
@@ -925,10 +926,10 @@ nymph нимфа~
 @rus Скудно одетая нимфа стоит здесь наполовину в воде.
 ~
 elf~
-ABHQ 0 100 0
+BHQhnw 0 0 0 0 100 0
 30 0 10d20+853 10d20+2000 4d6+8 'slash'
 -20 -15 -18 -1
-FN 0 0 0
+FNlt
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -945,10 +946,10 @@ leaves runs among the trees darting in and out of sight.
 снова появляясь в поле зрения.
 ~
 elf~
-AGHQ 0 100 0
+GHQmnw 0 0 0 0 100 0
 30 0 10d20+853 10d20+2000 4d6+8 'slash'
 -20 -15 -18 -1
-FN 0 0 0
+FNlt
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -964,10 +965,10 @@ finned tail.
 чешуей.
 ~
 unique~
-ABHT Tc 250 0
+BHThnz 0 Tcz 0 0 250 0
 30 0 10d20+853 10d20+2000 4d6+8 'pierce'
 -20 -15 -18 -1
-FMW 0 0 0
+FMWls
 stand stand female 500
 0 0 medium unknown
 r lightning -50
@@ -984,10 +985,10 @@ finned tail.
 есть и сильный хвост.
 ~
 unique~
-ABHT Tc 250 0
+BHThnz 0 Tcz 0 0 250 0
 28 0 10d20+750 10d20+2000 4d6+7 'pierce'
 -20 -15 -18 -1
-FMW 0 0 0
+FMWls
 stand stand male 500
 0 0 medium unknown
 r lightning -50
@@ -1003,12 +1004,12 @@ alive.
 @rus Что-то странное с этим цветком. Такое чувство, что на самом деле он живой.
 ~
 unique~
-ACGUl PVd 100 0
+CGUim 0 Vd Gm 0 100 0
 22 0 5d10+400 10d20+2000 4d4+6 'none'
 -12 -10 -12 -1
-FNU 0 0 0
+FNUlt
 stand stand male 0
-AHMV ABCDEFGHIJK tiny unknown
+AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
 r bash 100
 r pierce 33
 r fire -50
@@ -1025,12 +1026,12 @@ acorn fae фейри~
 @rus Желудь как желудь. Только вот он почему-то двигается...
 ~
 unique~
-ACGUl PVd 100 0
+CGUim 0 Vd Gm 0 100 0
 22 0 5d10+400 10d20+2000 4d4+6 'pound'
 -12 -10 -12 -1
-FNU 0 0 0
+FNUlt
 stand stand none 0
-AHMV ABCDEFGHIJK tiny unknown
+AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
 r bash 100
 r pierce 33
 r fire -50
@@ -1049,12 +1050,12 @@ strange music.  He holds a small set of glowing pipes in his hands.
 зверей. В руках он держит маленькую тростниковую свирель.
 ~
 unique~
-ABCUl PVd 100 0
+BCUhi 0 Vd Gm 0 100 0
 22 0 5d10+400 10d20+2000 4d4+6 'pound'
 -12 -10 -12 -1
-FNU 0 0 0
+FNUlt
 stand stand none 0
-AHMV ABCDEFGHIJK tiny unknown
+AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
 r bash 100
 r pierce 33
 r fire -50
@@ -1073,12 +1074,12 @@ measure of intelligence rarely seen in a normal animal.
 интеллект, что говорит о необычности этого животного.
 ~
 unique~
-AITU DFPZ 0 0
+TUz 0 0 Gm ABgh 0 0
 22 0 5d10+550 10d20+2000 2d10+7 'claw'
 -7 -7 -7 -1
-CDFLN 0 0 0
+CDFLNijlrt
 stand stand female 0
-BHMV ABCDEFGHIJKQV tiny unknown
+BHMVhns ABCDEFGHIJKQVghijklmnopqw tiny unknown
 r holy -50
 #12047
 bosidhe pet босид~
@@ -1092,12 +1093,12 @@ intelligence that is not common in one of it's species.
 интеллект, что весьма необычно для подобных ему животных.
 ~
 unique~
-AITU DFPZ 0 0
+TUz 0 0 Gm ABgh 0 0
 40 0 10d20+2000 10d20+2000 4d8+13 'pierce'
 -21 -20 -21 -2
-CDILN 0 0 0
+CDILNijort
 stand stand male 0
-BHMV ABCDEFGHIJKQV huge unknown
+BHMVhns ABCDEFGHIJKQVghijklmnopqw huge unknown
 #12048
 catsidhe pet котасид~
 @eng A CatSidhe@rus КотаСид~
@@ -1109,10 +1110,10 @@ inteligence.
 @rus Полностью белая кошка с красными глазами, в которых светится интеллект.
 ~
 cat~
-AIRU DFP 0 0
+RUx 0 0 Gm ABgh 0 0
 50 0 20d20+4250 10d20+2000 5d8+19 'claw'
 -24 -25 -23 -2
-BEJKNV 0 0 0
+BEJKNVhkpqt
 stand stand female 0
 0 0 medium unknown
 #12049
@@ -1129,12 +1130,12 @@ only its the size of a small child.
 похожа на ворона, только размером с маленького ребенка.
 ~
 unique~
-AIQU DEFTZ 0 0
+QUw 0 Tz 0 ABLghr 0 0
 70 0 50d20+9750 10d20+2000 8d10+40 'claw'
 -32 -32 -32 -3
-BEFHJKNX 0 0 0
+BEFHJKNXhklnpqt
 stand stand male 0
-AHMV ABCDEFGHIJKPU small unknown
+AHMVgns ABCDEFGHIJKPUghijklmnopqv small unknown
 r bash -50
 r pierce 33
 r holy -50
@@ -1146,7 +1147,7 @@ hat acorn шляпка~
 @eng An acorn hat@rus ~~желудевая~~ ~~шляпка~~~
 @eng A small brown cap lies here.@rus Маленькая коричневая шляпка (hat) лежит здесь.~
 wood~
-armor G AE
+armor Gm 0 AEgk
 5 6 5 3 0
 22 3 30 P
 g female~
@@ -1155,7 +1156,7 @@ nectar нектар~
 @eng A drop of nectar@rus ~~капелька~~ нектара~
 @eng A small drop af amber nectar.@rus Маленькая капелька янтарного нектара (nectar).~
 cloth~
-potion Q A
+potion Qw 0 Ag
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
 g male~
@@ -1164,8 +1165,8 @@ trident трезубец~
 @eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
 A long, perfectly balanced silver trident.~
 silver~
-weapon AG AN
-spear 6 6 'pierce' K
+weapon AGgm 0 ANgt
+spear 6 6 'pierce' Kq
 28 30 800 P
 g male~
 #12003
@@ -1173,7 +1174,7 @@ opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
 @eng A gleeming opal bracelet shines faintly from the floor.@rus Переливающийся опаловый браслет (bracelet) сверкает у твоих ног.~
 silver~
-armor AG AM
+armor AGgm 0 AMgs
 10 7 9 0 0
 30 5 400 P
 A
@@ -1184,7 +1185,7 @@ gown gossamer платье~
 @eng A light gossamer gown@rus ~~газовое~~ ~~платье~~~
 @eng This see through gossamer gown leaves little to the imagination.@rus Это газовое платье (gown) оставляет очень мало твоему воображению.~
 cloth~
-armor AFG AD
+armor AFGglm 0 ADgj
 10 10 10 0 0
 30 1 600 P
 A
@@ -1197,7 +1198,7 @@ sword slender меч клинок~
 @eng A small slender sword@rus ~~маленький~~ ~~тонкий~~ ~~клинок~~~
 @eng A small slender blade of good craftsmanship.@rus Маленький тонкий клинок (sword), выкованный с необыкновенным мастерством.~
 silver~
-weapon G AN
+weapon Gm 0 ANgt
 sword 4 9 'slash' 0
 32 10 800 P
 A
@@ -1208,7 +1209,7 @@ boots grey ботинки~
 @eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
 @eng A pair boots made of some grey material you haven't seen before.@rus Пара ботинок (boots), сделанных из серого, невиданного тобой ранее материала.~
 leather~
-armor G AG
+armor Gm 0 AGgm
 10 11 8 8 0
 32 5 500 P
 A
@@ -1221,7 +1222,7 @@ bow pixie лук~
 @eng A pixie bow@rus ~~эльфийский~~ ~~лук~~~
 @eng A small elegantly crafted bow with tiny arrows.@rus Небольшой, изящно сделанный лук (bow) с маленькими стрелами.~
 silver~
-wand ABC AO
+wand ABCghi 0 AOgu
 30 18 18 'curse' 0
 30 2 1000 P
 A
@@ -1232,8 +1233,8 @@ kris blade wavy~
 @eng A dull kris blade@rus ~~кривой~~ ~~нож~~ с тупым лезвием~
 @eng A dull kris blade with a broken handle and a few chips.@rus Кривой нож (kris) с тупым лезвием и сломанной рукоятью валяется здесь.~
 iron~
-weapon CG AN
-dagger 4 10 'pierce' D
+weapon CGim 0 ANgt
+dagger 4 10 'pierce' Dj
 40 9 30 W
 A
 19 4
@@ -1243,7 +1244,7 @@ blade jagged кинжал~
 @eng A jagged blade@rus ~~зазубренный~~ ~~кинжал~~~
 @eng A jagged, broken and chipped blade.@rus Кинжал (blade) со сломанным зазубренным лезвием.~
 unknown~
-weapon G AN
+weapon Gm 0 ANgt
 sword 4 11 'cleave' 0
 43 13 200 W
 A
@@ -1260,7 +1261,7 @@ cap red кепка~
 @eng A red cap@rus ~~красная~~ ~~кепка~~~
 @eng This hat looks as if it were dyed with the blood of several animals.@rus Эта кепка (hat) выглядит так, будто ее качественно измазали в чьей-то крови.~
 cloth~
-armor EGJ AE
+armor EGJkmp 0 AEgk
 12 12 13 4 0
 38 4 20 G
 A
@@ -1273,8 +1274,8 @@ club дубинка дубина~
 @eng A blood stained club@rus ~~дубинка~~, ~~испачканная~~ кровью~
 @eng This heavy club is marred by several blood stains.@rus Большая дубина (club), густо измазанная кровью валяется здесь.~
 wood~
-weapon EJ AN
-mace 7 7 'pound' D
+weapon EJkp 0 ANgt
+mace 7 7 'pound' Dj
 38 7 20 A
 A
 19 7
@@ -1286,7 +1287,7 @@ book книга tales~
 @eng A book of Tales@rus ~~книга~~ сказок~
 @eng This book contains the adventures of a wandering Eshu.@rus Эта книга (book), в которой собраны рассказы странствующего эшу.~
 paper~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 54 5 300 P
 A
@@ -1299,7 +1300,7 @@ khopesh~
 A gleaming khopesh~
 A bright, wide-bladed khopesh with a gold and ivory handle.~
 unknown~
-weapon G AN
+weapon Gm 0 ANgt
 sword 8 7 'slash' 0
 56 30 1200 P
 g none~
@@ -1308,7 +1309,7 @@ helmet unfinished шлем~
 @eng An unfinished helmet@rus ~~незаконченный~~ ~~шлем~~~
 @eng This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.@rus Этот шлем (helm) никогда не будет закончен мастером, слишком плохой уж материал попался.~
 unknown~
-armor G AEO
+armor Gm 0 AEOgku
 14 14 12 12 0
 51 15 800 G
 g none~
@@ -1318,7 +1319,7 @@ boots unfinished ботинки~
 @eng These boots would be the best pair you had ever seen if their maker had 
 ever finished them.@rus Эти ботинки (boots) будут лучшими из виденных тобой, если мастер их закончит.~
 leather~
-armor G AGO
+armor Gm 0 AGOgmu
 14 14 12 10 0
 52 8 1000 G
 A
@@ -1331,7 +1332,7 @@ stitching needle~
 A stitching needle~
 A small iron stitching needle.~
 iron~
-weapon AG AN
+weapon AGgm 0 ANgt
 dagger 6 9 'pierce' 0
 51 1 200 P
 g none~
@@ -1340,7 +1341,7 @@ apron leather передник~
 @eng A scorched leather apron@rus ~~кожаный~~ ~~передник~~~
 @eng A thick leather apron marked by many burns lies here.@rus Толстый кожаный передник (apron) с многочисленными пятнами лежит здесь.~
 leather~
-armor 0 AK
+armor 0 0 AKgq
 14 14 14 8 0
 51 20 100 A
 A
@@ -1351,7 +1352,7 @@ pan pipes свирель~
 @eng Pan pipes@rus ~~свирель~~~
 @eng A small set of playing pipes of varying lengths.@rus Маленькая свирель (pan pipes) валяется здесь.~
 wood~
-wand G AO
+wand Gm 0 AOgu
 50 20 20 'charm person' 0
 60 3 400 P
 g female~
@@ -1360,7 +1361,7 @@ flagon графин~
 @eng A flagon of dark ale@rus ~~графин~~ темного эля~
 @eng A large wooden flagon of almost endless capacity.@rus Большой деревянный графин (flagon) уже практически пустой стоит здесь.~
 wood~
-drink G AO
+drink Gm 0 AOgu
 200 100 'dark ale' 0 0
 30 10 120 W
 A
@@ -1373,7 +1374,7 @@ cap jester колпак~
 @eng A jester's cap@rus ~~шутовской~~ ~~колпак~~~
 @eng A multi-colored cap with four parts, each ending in a large silver bell.@rus Разноцветный колпак (cap) с четырьмя серебрянными бубенчиками лежит здесь.~
 cloth~
-armor BGHI AE
+armor BGHIhmno 0 AEgk
 17 17 18 10 0
 59 6 800 P
 A
@@ -1388,7 +1389,7 @@ axe unfinished секира~
 @eng An unfinished axe@rus ~~незаконченная~~ ~~секира~~~
 @eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка незбалансирована, лежит здесь.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 5 10 'chop' 0
 51 10 10 G
 A
@@ -1403,7 +1404,7 @@ ember уголек~
 @eng A fiery ember@rus ~~пылающий~~ ~~уголек~~~
 @eng A glowing ember from a forge.@rus Светящийся пылающий уголек (ember) выкатился из горна.~
 stone~
-light A A
+light Ag 0 Ag
 0 0 30 0 0
 50 1 0 G
 A
@@ -1414,7 +1415,7 @@ coals pile куча уголь~
 @eng A pile of coals@rus ~~куча~~ угля~
 @eng A small pile of coals lies beside the forge.@rus Небольшая куча угля (coals) лежит рядом с кузнечным горном.~
 stone~
-container A 0
+container Ag 0 0
 100 0 0 50 100
 100 1 0 P
 g none~
@@ -1423,7 +1424,7 @@ forge горн~
 @eng A HUGE stone forge@rus ~~Огромный~~ ~~кузнечный~~ ~~горн~~~
 @eng A HUGE stone forge is built into the mountain wall.@rus Огромный кузнечный горн (forge) встроен в стену.~
 stone~
-container 0 0
+container 0 0 0
 100 0 0 50 100
 100 1 0 W
 g none~
@@ -1432,7 +1433,7 @@ sword меч dark~
 @eng A crude, dark sword@rus ~~недоделанный~~ ~~темный~~ ~~меч~~~
 @eng A crudely made sword of some dark metal that is obviously not fit for use.@rus Меч (sword) темного металла, еще не сделанный до конца, лежит здесь.~
 mithril~
-weapon CFHJKM AN
+weapon CFHJKMilnpqs 0 ANgt
 exotic 6 6 'slice' 0
 48 29 10 W
 A
@@ -1457,7 +1458,7 @@ fountain фонтан~
 @eng A beautiful crystal fountain@rus ~~прекрасный~~ ~~кристальный~~ ~~фонтан~~~
 @eng A fountain of crystal reflects light from a thousand facets.@rus Фонтан (fountain), сделанный из кристалла, отражает свет, образуя тысячи бликов.~
 glass~
-fountain A 0
+fountain Ag 0 0
 1000 1000 'water' 0 0
 0 0 0 P
 E
@@ -1473,7 +1474,7 @@ bucket ведро~
 @eng A wooden bucket@rus ~~деревянное~~ ~~ведро~~~
 @eng This is the bucket the boggans use to cool items from the forge.@rus Ведро (bucket), в котором кузнец закаливает свои изделия.~
 wood~
-drink 0 A
+drink 0 0 Ag
 5 5 'water' 8 0
 1 8 0 W
 E
@@ -1489,7 +1490,7 @@ pool slime лужа~
 @eng slime pool@rus ~~лужа~~ грязи~
 @eng a slime pool is here.@rus Большая грязная лужа (pool). ~
 unknown~
-container 0 0
+container 0 0 0
 100 0 0 50 100
 1 0 0 A
 g female~
@@ -1498,7 +1499,7 @@ slime bit кусок~
 @eng A bit of slime@rus ~~кусок~~ грязи~
 @eng A small bit of purple slime with luminescent blue streaks.@rus Кусок красноватой грязи (slime) с голубыми прожилками валяется здесь.~
 unknown~
-pill A A
+pill Ag 0 Ag
 30 'know alignment' 'armor' '' ''
 28 2 0 G
 g male~
@@ -1507,7 +1508,7 @@ bookshelf полка~
 @eng A large oak bookshelf@rus ~~книжная~~ ~~полка~~~
 @eng This bookshelf is filled with books on various subjects.@rus Эта книжная полка (bookshelf) до отказа наполнена разного рода литературой.~
 unknown~
-container 0 0
+container 0 0 0
 100 0 12065 50 100
 0 0 0 P
 g female~
@@ -1516,7 +1517,7 @@ manuscript манускрипт~
 @eng An ancient manuscript@rus ~~старинный~~ ~~манускрипт~~~
 An ancient manuscript on the subject of the Seelie and Unseelie.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 20 3 2000 P
 E
@@ -1544,7 +1545,7 @@ manuscript~
 An ancient manuscript~
 A manuscript on the subject of Puck the fool of the fae.~
 unknown~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 20 3 2000 P
 E
@@ -1569,7 +1570,7 @@ jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BI AO
+staff BIho 0 AOgu
 60 20 20 'faerie fog' 0
 58 7 1200 G
 g none~
@@ -1578,7 +1579,7 @@ jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BI AO
+staff BIho 0 AOgu
 60 20 20 'blindness' 0
 58 7 1200 G
 g none~
@@ -1587,7 +1588,7 @@ jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BI AO
+staff BIho 0 AOgu
 60 20 20 'teleport' 0
 58 7 1200 G
 g none~
@@ -1596,8 +1597,8 @@ white marble mace~
 A white  mace~
 A large white marble mace.~
 marble~
-weapon GK AN
-mace 8 10 'pound' D
+weapon GKmq 0 ANgt
+mace 8 10 'pound' Dj
 70 25 1200 P
 A
 2 -1
@@ -1613,7 +1614,7 @@ spiked club~
 A twisted spiked club~
 A large spiked club made of dark twisted wood.~
 wood~
-weapon GJ AN
+weapon GJmp 0 ANgt
 mace 8 10 'blast' 0
 70 25 1200 W
 A
@@ -1630,7 +1631,7 @@ ice shield~
 An ice shield~
 A large shield made of pure ice.~
 ice~
-armor G AJ
+armor Gm 0 AJgp
 23 23 22 16 0
 70 25 1200 P
 A
@@ -1643,7 +1644,7 @@ oath ring~
 An oath ring~
 A brightly gleeming ring with a small inscription on the inside.~
 unknown~
-treasure G AB
+treasure Gm 0 ABgh
 0 0 0 0 0
 70 25 1200 P
 A
@@ -1656,7 +1657,7 @@ noble cape~
 A noble's cape~
 A long well made cape of some rich purple cloth.~
 unknown~
-armor G AC
+armor Gm 0 ACgi
 22 22 22 16 0
 72 5 1200 P
 g none~
@@ -1665,7 +1666,7 @@ noble sword~
 A sidhe broadsword~
 A well made sidhe broadsword with a strange inscription.~
 unknown~
-weapon G AN
+weapon Gm 0 ANgt
 sword 10 8 'slash' 0
 72 5 1200 P
 g none~
@@ -1674,7 +1675,7 @@ noble breastplate~
 A sidhe breastplate~
 A well made sidhe noble's breastplate with fine engraving.~
 unknown~
-armor G AD
+armor Gm 0 ADgj
 22 22 21 17 0
 72 9 1200 P
 A
@@ -1685,7 +1686,7 @@ sidhe armguards~
 A pair of sidhe armguards~
 A pair of bright silver armguards of fine craftsmanship.~
 unknown~
-armor G AI
+armor Gm 0 AIgo
 22 23 21 16 0
 68 6 1100 P
 A
@@ -1696,7 +1697,7 @@ sidhe greaves~
 A pair of sidhe greaves~
 A set of bright silver leg armor.~
 unknown~
-armor G AF
+armor Gm 0 AFgl
 23 23 21 16 0
 68 6 800 P
 A
@@ -1707,7 +1708,7 @@ sidhe braceers~
 An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
-armor G AM
+armor Gm 0 AMgs
 22 21 23 16 0
 68 3 960 P
 A
@@ -1720,7 +1721,7 @@ noble circlet~
 A noble's circlet~
 This silver circlet is covered in sidhe designs and pale green gems.~
 unknown~
-armor G AE
+armor Gm 0 AEgk
 23 23 23 17 0
 73 3 980 P
 A
@@ -1735,7 +1736,7 @@ noble rapier~
 A noble's rapier~
 The iron sword of a sidhe noble.~
 iron~
-weapon G AN
+weapon Gm 0 ANgt
 sword 8 12 'slash' 0
 75 5 990 P
 A
@@ -1748,7 +1749,7 @@ heart night~
 The heart of Night~
 The black heart of night pulses with power.~
 unknown~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 84 20 0 P
 A
@@ -1767,7 +1768,7 @@ night blood~
 night's blood~
 A drop of the blood of the Queen of night.~
 unknown~
-potion G AO
+potion Gm 0 AOgu
 80 'pass door' 'sanctuary' '' ''
 82 3 3000 P
 g none~
@@ -1776,7 +1777,7 @@ stag horned helmet~
 A stag horned helmet~
 This dark helm has two silver antlers of seven tines on the top.~
 unknown~
-armor G AE
+armor Gm 0 AEgk
 28 28 28 11 0
 86 11 2800 P
 A
@@ -1787,7 +1788,7 @@ silver torc~
 A silver torc~
 The silver torc of the Unseelie King.~
 silver~
-armor G AC
+armor Gm 0 ACgi
 28 28 28 10 0
 86 11 2900 P
 A
@@ -1798,7 +1799,7 @@ poetry~
 poetry~
 A large paper with poetry written on it.~
 unknown~
-scroll G A
+scroll Gm 0 Ag
 80 'enchant weapon' 'enchant weapon' 'enchant weapon' ''
 78 2 5000 P
 g none~
@@ -1807,7 +1808,7 @@ robe~
 A poet's robe~
 A heay blue poet's robe.~
 unknown~
-armor G AK
+armor Gm 0 AKgq
 25 25 25 18 0
 78 7 2000 P
 A
@@ -1818,7 +1819,7 @@ gown~
 An embroidered gown~
 A finely embroidered court gown.~
 unknown~
-armor G AK
+armor Gm 0 AKgq
 28 29 29 22 0
 84 8 2000 P
 A
@@ -1829,7 +1830,7 @@ locket~
 A summer locket~
 A golden locket that contains the essence of summer.~
 unknown~
-armor G AC
+armor Gm 0 ACgi
 28 28 29 22 0
 84 4 1750 P
 A
@@ -1844,7 +1845,7 @@ golden torc~
 A golden torc~
 The torc of Rulership of the Seelie Court.~
 gold~
-armor G AC
+armor Gm 0 ACgi
 28 28 28 20 0
 86 7 2500 P
 A
@@ -1859,7 +1860,7 @@ cloak shadows~
 The cloak of shadows~
 A cloak made of shifting formless shadows.~
 unknown~
-armor CG AC
+armor CGim 0 ACgi
 27 28 28 21 0
 84 2 3000 P
 A
@@ -1870,7 +1871,7 @@ bag tricks~
 A bag of tricks~
 A doe skin bag that looks empty.~
 unknown~
-container G AO
+container Gm 0 AOgu
 1000 0 0 500 100
 82 2 0 P
 g none~
@@ -1879,7 +1880,7 @@ orange~
 An orange~
 A small orange orange.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 82 'curse' 'sleep' 'blindness' 'poison'
 83 1 0 P
 g none~
@@ -1888,7 +1889,7 @@ pebble~
 A small pebble~
 This is a small pebble that has had a hole worn through it.~
 unknown~
-boat MN AO
+boat Ms 0 AOgu
 0 0 0 0 0
 89 0 0 W
 A
@@ -1901,8 +1902,8 @@ slime bit~
 A bit of slime~
 A small bit of blue slime with luminescent green streaks.~
 unknown~
-boat A A
-BCDE 0 0 DEGJ 0
+boat Ag 0 Ag
+BCDEhijk 0 0 DEGJjkmp 0
 28 2 0 G
 g none~
 #12062
@@ -1910,7 +1911,7 @@ bed~
 An unmade bed~
 A totally unkempt bed with covers thrown everywhere.~
 unknown~
-container 0 0
+container 0 0 0
 100 0 0 50 72
 0 0 0 P
 g none~
@@ -1919,7 +1920,7 @@ bed~
 A well made bed~
 A bed with all the covers in perfect order.~
 unknown~
-container 0 0
+container 0 0 0
 100 0 0 50 72
 0 0 0 P
 g none~
@@ -1928,7 +1929,7 @@ scroll armor~
 A scroll of armor making~
 This scroll is entitled "The secrets of Boggan armor".~
 unknown~
-scroll FG A
+scroll FGlm 0 Ag
 60 'armor' 'shield' 'stone skin' 'bless'
 55 3 1000 P
 g none~
@@ -1937,7 +1938,7 @@ oak key~
 A small oak key~
 This key is made of dark hard oak.~
 unknown~
-key B A
+key Bh 0 Ag
 0 0 0 0 0
 55 1 0 P
 g none~
@@ -1946,7 +1947,7 @@ page~
 A page of glowing script~
 The letters on this page are glowing and seem to move and change.~
 unknown~
-scroll AG A
+scroll AGgm 0 Ag
 50 'word of recall' '' '' ''
 55 4 10000 P
 g none~
@@ -1955,7 +1956,7 @@ black key~
 A small Black key~
 A small black key.~
 unknown~
-key CF A
+key CFil 0 Ag
 0 0 0 0 0
 55 1 0 W
 g none~
@@ -1964,7 +1965,7 @@ glowing dust~
 Some glowing dust~
 This dust glows faintly as you look at it.~
 unknown~
-pill G A
+pill Gm 0 Ag
 90 'dispel evil' 'create spring' 'armor' ''
 82 1 0 P
 g none~
@@ -1973,7 +1974,7 @@ crested shield~
 A crested shield~
 This shield bears the crest of one of the sidhe noble houses.~
 unknown~
-armor G AJ
+armor Gm 0 AJgp
 24 24 25 17 0
 74 13 1200 P
 A
@@ -4394,7 +4395,7 @@ This bustling inn is full of inhabitants.  There are several tables
 full of customers but you can't seem to find the proprieter.  The only 
 exit is back to the east.
 ~
-0 D inside
+0 Dj inside
 D1
 The Dirt Trod
 ~
@@ -4812,7 +4813,7 @@ rest.  The warm lights in the other parts of the caves are not found here
 and the place seems sort of slimy and eerie.  The only exit is back to 
 the east toward the lighter part of the cave.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 The Lighter Part of the Caves.
 ~
@@ -4832,7 +4833,7 @@ this one is well lit and dry.  The air is much warmer here but amazingly
 free of smoke. You see a small dark space behind the forge to the west.  
 The only other exit is back into the main caves.
 ~
-0 D inside
+0 Dj inside
 D1
 The Workplace Before the Forge
 ~
@@ -4851,7 +4852,7 @@ metalworking tools.  The area is covered by a rock overhang and to the
 north it looks as if caves extend into the mountains.  From a cave chamber 
 to the west you hear the sounds of a forge.  The path to the meadow is south.
 ~
-0 D inside
+0 Dj inside
 D0
 The Boggan Caverns
 ~
@@ -4879,7 +4880,7 @@ You stand on a path that leads from the meadow into the mountains
 all around you.  To the north you see caves, from the west you hear 
 the sounds of metalworking and from the east you hear deep voices.
 ~
-0 D inside
+0 Dj inside
 D0
 The Boggan Caverns.
 ~
@@ -4907,7 +4908,7 @@ There is absolutely nothing of interest on this small rock shelf.
 To the north are some cave entrances, from the east you hear voices and 
 to the west you hear the sound of metal banging on metal.
 ~
-0 D inside
+0 Dj inside
 D0
 The Boggan Caverns.
 ~
@@ -4935,7 +4936,7 @@ This room is a workplace for some sort of craftsmen.  There are
 tools for leatherworking, and sweing strewn all over the room.  To the 
 east and north the cavern extends and to the west is a rock ledge.
 ~
-0 D inside
+0 Dj inside
 D0
 A Cluttered Room.
 ~
@@ -4958,7 +4959,7 @@ This room is filled with shelves and chests containing cloth and
 pins and patterns.  There are small boxes on several shelves that contain 
 several little metal tols you can't even identify.
 ~
-0 D inside
+0 Dj inside
 D3
 The Crafts Shoppe.
 ~
@@ -4970,7 +4971,7 @@ A Cluttered Chamber~
 This room is cluttered with various objects of little value.  It 
 looks as if it is a place kept by several absent minded bachelors.
 ~
-0 D inside
+0 Dj inside
 D2
 The Crafts Shoppe.
 ~
@@ -4991,7 +4992,7 @@ and warm and you get the feeling that if it weren't so dirty this
 cavern might actually be a nice place to live.  There is what looks to be 
 a bedroom to the north and some kind of hall to the east.
 ~
-0 D inside
+0 Dj inside
 D0
 A Small Bedroom.
 ~
@@ -5022,7 +5023,7 @@ various places around the room.  To the north is a bedroom, the south
 the path to the meadow, the east the kitchen and the trophy room is to 
 the west.
 ~
-0 D inside
+0 Dj inside
 D0
 A Small Bedroom.
 ~
@@ -5054,7 +5055,7 @@ interlocking spiral beadwork.  The treasured creations of some of the
 realm's finest craftsmen lay in these cases just beyond your grasp.  To 
 the north is a bedroom and to the south you hear sounds of metalworking.
 ~
-0 D inside
+0 Dj inside
 D0
 A Small Bedroom.
 ~
@@ -5078,7 +5079,7 @@ unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.  
 The inhabitant of this room must never sleep.
 ~
-0 D inside
+0 Dj inside
 D2
 The Trophy Room.
 ~
@@ -5092,7 +5093,7 @@ unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.
 The inhabitant of this room must never sleep.
 ~
-0 D inside
+0 Dj inside
 D2
 The Welcoming Hall.
 ~
@@ -5106,7 +5107,7 @@ all the items on the dressers are meticulously arranged in some
 indecipherable order.  Despite it's order the room is still rather dusty 
 and it seems as if no one has used it in a long time.
 ~
-0 D inside
+0 Dj inside
 D2
 The Kitchen.
 ~
@@ -5119,7 +5120,7 @@ This dark hole is slimy and wet.  There is a strange stench about
 the place and the air is still and cold.  The hole extends to the north 
 and the way out is up.
 ~
-0 AD mountain
+0 ADgj mountain
 D0
 More Darkness and Slime.
 ~
@@ -5138,7 +5139,7 @@ increasingly covered in slime that seems to trickle down the walls and
 onto your skin.  There is a rough wooden door with blood traced in 
 strange designs on it to the west.
 ~
-0 AD mountain
+0 ADgj mountain
 D2
 A Dark Abyss.
 ~
@@ -5148,7 +5149,7 @@ D3
 The Forbidden Room.
 ~
 ~
-ABZ 0 12115
+ABZgh 0 12115
 S
 #12115
 The Forbiden Room~
@@ -5157,7 +5158,7 @@ color of dried blood) on all of the walls.  There is a pile of rags in
 one corner and some papers with scrawled markings on them on the floor.  
 You get the feeling you shouldn't be here.
 ~
-0 AD mountain
+0 ADgj mountain
 D1
 More Darkness and Slime.
 ~
@@ -5170,7 +5171,7 @@ You are at the top of the western guard tower.  You can look out
 upon the land from here and see a beautiful forest to the south, a 
 flowered meadow all around the castle and dark mountains to the north.
 ~
-0 D inside
+0 Dj inside
 D5
 In the Guard Tower.
 ~
@@ -5183,7 +5184,7 @@ You are inside one of the guard towers of this wondrous castle.  The
 room is well gloomy and rather unkempt.  There is a table in the room 
 where the guards obviously sit to play cards and drink.
 ~
-0 D inside
+0 Dj inside
 D4
 The Top of the Western Tower.
 ~
@@ -5201,7 +5202,7 @@ This room serves as a barracks for the guards of this majestic
 castle.  There are several large beds and a few tables.  The room is 
 gloomy, wet, and in a state of disorder.
 ~
-0 D inside
+0 Dj inside
 D1
 The Gates of the Fae Stronghold.
 ~
@@ -5222,7 +5223,7 @@ long hallway draped with many tapestries with swimming vivid colors and
 complex patterns. To the south you see a field of green grass out side 
 the gates.
 ~
-0 D inside
+0 Dj inside
 D0
 The Entryway.
 ~
@@ -5251,7 +5252,7 @@ wel disiplined ones because the room is in perfect order.  All the beds
 are made and the tables clear.  There is a stairway up into the tower and 
 a door to the west.
 ~
-0 D inside
+0 Dj inside
 D3
 The Gates of the Fae Stronghold.
 ~
@@ -5270,7 +5271,7 @@ this chamber a soft glow.  This room is used by the guards for recreation
 when they are off duty.  There are several dartboards on the walls with 
 knives stuck in them.  Also a new deck of cards sits on one of the tables.
 ~
-0 D inside
+0 Dj inside
 D4
 The Top of the Eastern Guard Tower.
 ~
@@ -5288,7 +5289,7 @@ You are at the top of the eastern guard tower.  You can look out
 upon the land from here and see a beautiful forest to the south, a
 flowered meadow all around the castle and dark mountains to the north.
 ~
-0 D inside
+0 Dj inside
 D5
 Inside the East Tower.
 ~
@@ -5302,7 +5303,7 @@ depicting beautiful nymphs, saytrs, sprites and Sidhe dancing in glades,
 ponds, caves and castles.  The castle hallway extends to the north and 
 back south to the gates.
 ~
-0 D inside
+0 Dj inside
 D0
 The Hall of Spring.
 ~
@@ -5324,7 +5325,7 @@ girl.  For a moment you long for the lost innocence of that youth and you
 yearn to enter the tapestry, but then you pull yourself away from it's 
 strange lure.  The hall continues north and south.
 ~
-0 D inside
+0 Dj inside
 D0
 The Hall of Summer.
 ~
@@ -5334,7 +5335,7 @@ D1
 Eternal Spring.
 ~
 tapestry~
-ABZ 0 12154
+ABZgh 0 12154
 D2
 The Castle Entryway.
 ~
@@ -5352,7 +5353,7 @@ tapestry you too would be forever young and beautiful, unchanging and
 untouchable.  The tapestry dims and you hear laughter in the distance.  
 The hall continues to the north and south.
 ~
-0 D inside
+0 Dj inside
 D0
 The Hall of Autumn.
 ~
@@ -5362,7 +5363,7 @@ D1
 Eternal Summer.
 ~
 tapestry~
-ABZ 0 12153
+ABZgh 0 12153
 D2
 The Hall of Spring.
 ~
@@ -5381,7 +5382,7 @@ companionship and find yourself reaching toward the tapestry.  You are
 shaken out of the trance by a raven's croak and you stand for a moment 
 confused.  The hall continues to the north and south.
 ~
-0 D inside
+0 Dj inside
 D0
 The Hall of Winter.
 ~
@@ -5391,7 +5392,7 @@ D1
 The Hidden Court.
 ~
 leaves~
-ABCZ 0 12150
+ABCZghi 0 12150
 D2
 The Hall of Summer.
 ~
@@ -5401,7 +5402,7 @@ D3
 Eternal Autumn.
 ~
 tapestry~
-ABZ 0 12152
+ABZgh 0 12152
 S
 #12127
 The Hall of Winter~
@@ -5416,7 +5417,7 @@ desire to seek it out by joining them in the tapestry. Then you hear a
 high pitched cackling and you shiver with the cold.  The Hall continues 
 to the north and south.
 ~
-0 D inside
+0 Dj inside
 D0
 An Intersection of Hallways.
 ~
@@ -5426,7 +5427,7 @@ D1
 The Hidden Court.
 ~
 ice~
-ABCZ 0 12149
+ABCZghi 0 12149
 D2
 The Hall of Autumn.
 ~
@@ -5436,7 +5437,7 @@ D3
 Eternal Winter.
 ~
 tapestry~
-ABZ 0 12151
+ABZgh 0 12151
 S
 #12128
 A Hallway Intersection~
@@ -5444,7 +5445,7 @@ This large chamber is well apointed with tapestries and paintings
 along the walls.  To the north is a large courtyard and to the east and 
 west are large chambers. From the south a chill wind blows in.
 ~
-0 D inside
+0 Dj inside
 D0
 The Courtyard.
 ~
@@ -5472,7 +5473,7 @@ This Chamber is dominated by the large fire pit in the center of the
 room. The walls are highly polished and reflect back the fire's light 
 intensifying it.  To the north and east is a hallway.
 ~
-0 D inside
+0 Dj inside
 D0
 A Hallway.
 ~
@@ -5491,7 +5492,7 @@ been plowed and planted.  The walls are bare and not much else of
 interest seems to be in this room.  To the north is a hallway and to the 
 west is the intersection.
 ~
-0 D inside
+0 Dj inside
 D0
 A Hallway.
 ~
@@ -5509,7 +5510,7 @@ You are at the base of a tall guard tower at the western end of the
 castle.  The room is bare and rather dusty.  To the east is a hallway 
 leading back to the main chambers and there is a stairway up into the tower.
 ~
-0 D inside
+0 Dj inside
 D1
 A Hallway.
 ~
@@ -5527,7 +5528,7 @@ This hallway extends east and west connecting the western guard
 tower with the main chambers.  It seems a little darker and less well 
 kept in this part of the castle.
 ~
-0 D inside
+0 Dj inside
 D1
 A Hallway.
 ~
@@ -5545,7 +5546,7 @@ This hallway connects the western tower with the main chambers of
 the castle.  To the north and south are some of the chambers. To the west 
 is the tower and to the east is a courtyard.
 ~
-0 D inside
+0 Dj inside
 D0
 The Chamber of Lughnasadh.
 ~
@@ -5573,7 +5574,7 @@ This castle's courtyard is a large open area with a large flower
 and herb garden.  Also several small trees provide shade for anyone 
 wanting to recline beside the fountain at the center.
 ~
-0 D inside
+0 Dj inside
 D0
 A Hallway.
 ~
@@ -5601,7 +5602,7 @@ This hallway connects the eastern tower to the main chambers of the
 castle.  To the north and south are two chambers and to the west is the 
 courtyard.  The east tower lies to the east.
 ~
-0 D inside
+0 Dj inside
 D0
 The Chamber of Samhain.
 ~
@@ -5628,7 +5629,7 @@ A Hallway~
 This Hallway connects the eastern tower to the main chambers of the 
 castle.  To the east is the tower base and to the west is another hallway.
 ~
-0 D inside
+0 Dj inside
 D1
 The Base of the Eastern Tower.
 ~
@@ -5647,7 +5648,7 @@ not ordinary soldiers.  The walls of the tower are bright and sparkiling
 golden.  To the west is a hallway leading to the main chambers of the 
 castle and there is a staircase going up the tower.
 ~
-0 D inside
+0 Dj inside
 D3
 A Hallway.
 ~
@@ -5667,7 +5668,7 @@ condition.  Unfortunately they are also locked into the racks so you
 cannot get one for yourself.  A staircase leads downward and up to the 
 top of the tower.
 ~
-0 D inside
+0 Dj inside
 D4
 The Top of the Eastern Guard Tower.
 ~
@@ -5686,7 +5687,7 @@ Unseelie court at the head of his hunting party, chasing a great stag
 through a dark forest.  There are also several hunting horns hanging on 
 the walls, along with the mounted heads of several animals.
 ~
-0 D inside
+0 Dj inside
 D2
 A Hallway.
 ~
@@ -5706,7 +5707,7 @@ the wall depicting various court scenes, many of which are dominated by a
 fiery King and a shining Queen.  To the south is a courtyard and to the 
 east and west are some large decorated chambers.
 ~
-0 D inside
+0 Dj inside
 D0
 The Court of the Fae.
 ~
@@ -5734,7 +5735,7 @@ This chamber holds several tapestries that depict times of harvest
 on the walls.  There are several sickle like objects on the walls and 
 there is, strangely out of place a bookcase along the northern wall.
 ~
-0 D inside
+0 Dj inside
 D1
 The Audience Chamber.
 ~
@@ -5754,7 +5755,7 @@ weapons because the weapons racks are empty of all but a few broken
 shafts, handles and shards of blades.  The staircase leads back down or 
 up to the top of the tower.
 ~
-0 D inside
+0 Dj inside
 D4
 The Top of the Western Guard Tower.
 ~
@@ -5774,12 +5775,12 @@ flowered meadow all around the castle and dark mountains to the north.  A
 large brass brazier filled with coals stands here giving off a good bit 
 of smoke.
 ~
-0 D inside
+0 Dj inside
 D5
 In the Guard Tower.
 ~
 ~
-ABZ 0 12142
+ABZgh 0 12142
 S
 #12144
 The Court of the Fae~
@@ -5789,7 +5790,7 @@ either services, conversations, dancing or games.  Rich purple draperies
 hang high above to the north and angle down towards the large golden 
 throne that sits farther to the north.
 ~
-0 D inside
+0 Dj inside
 D0
 The Throne of the Seelie Fae.
 ~
@@ -5809,12 +5810,12 @@ and a forest are to the south while dark mountains can be seen to the north.
 A large brass brazier burns brightly here, giving off a great amount of 
 light and heat.  The trapdoor leads back down into the tower.
 ~
-0 D inside
+0 Dj inside
 D5
 Inside the Eastern Tower.
 ~
 trapdoor~
-ABZ 12065 12138
+ABZgh 12065 12138
 S
 #12146
 The Throne of the Seelie Fae~
@@ -5823,12 +5824,12 @@ attendants await their every whim and dancers and jesters perform with a
 skill unparralelled in any mortal court.  Thick purple draperies fall 
 from the ceiling and are gathered back behind the massive throne.
 ~
-0 D inside
+0 Dj inside
 D0
 Behind the Drapes.
 ~
 drapes~
-ABZ 0 12147
+ABZgh 0 12147
 D2
 The Court of the Fae.
 ~
@@ -5841,7 +5842,7 @@ You are standing in a small space hidden behind the large purple
 drapes.  You can stand here unobserved and still hear the goings on of 
 the court outside quite well.
 ~
-0 D inside
+0 Dj inside
 D2
 The Throne of the Seelie Fae.
 ~
@@ -5851,7 +5852,7 @@ D5
 The Watcher's Home.
 ~
 floor~
-ABCZ 12067 12148
+ABCZghi 12067 12148
 S
 #12148
 The Watcher's Home~
@@ -5859,7 +5860,7 @@ This small bare room is home to one of the Fae who watches from
 behind the throne of the Seelie.  Nothing of interest is in this room 
 other than the rag bed and the small pool of slime in the corner.
 ~
-0 D inside
+0 Dj inside
 D4
 Behind the Royal Drapes.
 ~
@@ -5874,7 +5875,7 @@ the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the south is more 
 of the Dark court.
 ~
-0 D inside
+0 Dj inside
 D2
 The Hidden Court.
 ~
@@ -5884,7 +5885,7 @@ D3
 The Hall of Winter.
 ~
 wall~
-ABCZ 0 12127
+ABCZghi 0 12127
 S
 #12150
 The Hidden Court~
@@ -5894,7 +5895,7 @@ the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the north is more
 of the Dark court.
 ~
-0 D inside
+0 Dj inside
 D0
 The Hidden Court.
 ~
@@ -5904,7 +5905,7 @@ D3
 The Hall of Autumn.
 ~
 ~
-ABCZ 0 12126
+ABCZghi 0 12126
 S
 #12151
 Eternal Winter~
@@ -5912,7 +5913,7 @@ Your body is gripped by the freezing chill of ice and your mind is
 paralyzed by the all encompassing wisdom that only death can bring.  You 
 find yourself unable to even contemplate leaving this eternal winter.
 ~
-0 DLNTUVW inside
+0 DLNTUVWjrtz inside
 D0
 Eternal Winter.
 ~
@@ -5937,14 +5938,14 @@ D5
 Hope.
 ~
 hope~
-ABZ -1 12155
+ABZgh -1 12155
 S
 #12152
 Eternal Autumn~
 You find yourself growing more and more lethargic.  You seem so 
 comfortable that you really don't ever want to leave this place.
 ~
-0 DLNTUVW inside
+0 DLNTUVWjrtz inside
 D0
 Eternal Autumn.
 ~
@@ -5969,7 +5970,7 @@ D5
 Hope.
 ~
 hope~
-ABZ -1 12155
+ABZgh -1 12155
 S
 #12153
 Eternal Summer~
@@ -5978,7 +5979,7 @@ into you and all you can do is sit and rejoice in the sounds and the
 light that pour into you.  You are unable to leave for you are part now 
 of the eternal summer.
 ~
-0 DLNTUVW inside
+0 DLNTUVWjrtz inside
 D0
 Eternal Summer.
 ~
@@ -6003,7 +6004,7 @@ D5
 Hope.
 ~
 hope~
-ABZ -1 12155
+ABZgh -1 12155
 S
 #12154
 Eternal Spring~
@@ -6014,7 +6015,7 @@ are young and you don't ever want to grow old.  You can stay here and be
 young forever.
 
 ~
-0 DLNTUVW inside
+0 DLNTUVWjrtz inside
 D0
 Eternal Spring.
 ~
@@ -6039,14 +6040,14 @@ D5
 Hope.
 ~
 hope~
-ABZ -1 12155
+ABZgh -1 12155
 S
 #12155
 Hope~
 Just as you glimpsed eternity trapped in eternity your mortality has 
 let you grasp onto your hope and escape from your own actions.
 ~
-0 CD inside
+0 CDij inside
 S
 #12156
 @eng Behind the Hill@rus Позади холма~
@@ -6057,7 +6058,7 @@ stops playing.
 The boy says 'I will play a tune for you for the right price. What would
 you hear?'
 ~
-0 M field
+0 Ms field
 D0
 @eng The Flower Meadow
 @rus Цветочный луг.
@@ -6075,7 +6076,7 @@ D2
 @rus Под холмом.
 ~
 ~
-ABCFZ 0 12157
+ABCFZghil 0 12157
 D3
 @eng The Flower Meadow
 @rus Цветочный луг.
@@ -6091,13 +6092,13 @@ are several wondrous creatures standing here studying you.
 созданий. Они находятся прямо рядом с тобой, с интересом наблюдая за
 твоими действиями.
 ~
-0 M field
+0 Ms field
 D0
 @eng Behind the Hill.
 @rus Позади холма.
 ~
 ~
-ABFZ 0 12156
+ABFZghl 0 12156
 S
 #0
 

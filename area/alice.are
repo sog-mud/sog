@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Wonderland~
 VNUMs 21000 21099
 Credits Yaegar~
@@ -18,10 +19,10 @@ a strange being clad in dozens of different types of armor with no regard for
 fashion. Small wonder she is both amazed and afraid of you!
 ~
 human~
-AGHT HN 400 0
+GHTmnz 0 HNnt 0 0 400 0
 45 0 10d136+786 45d10+100 5d15+26 'pierce'
 -18 -18 -18 -4
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M act 21002 looks at you.~
@@ -38,12 +39,12 @@ for anyone for that matter. Perhaps you'd fancy acquiring some of his
 accoutrements? After all, how hard could he be to slay?
 ~
 rabbit~
-AGHT HJNPT 400 0
+GHTmnz 0 HNTntz Gm Hn 400 0
 40 0 10d108+648 40d10+100 5d14+20 'pierce'
 -15 -15 -15 -2
-ENR 0 0 0
+ENRktx
 stand stand male 0
-HM BGI medium unknown
+HMns BGIhmo medium unknown
 M greet 21003 100~
 M act 21024 leaves up.~
 M act 21024 leaves down.~
@@ -66,12 +67,12 @@ water. He looks startled upon seeing you approach, and cautiously demands
 to know whether you are a cat.
 ~
 rabbit~
-AGHT J 400 0
+GHTmnz 0 0 0 Hn 400 0
 37 0 10d92+578 37d10+100 5d12+23 'pound'
 -13 -13 -13 -1
-ENU 0 0 0
+ENUkt
 stand stand male 0
-HM B medium unknown
+HMns Bh medium unknown
 M greet 21004 100~
 M act 21025 leaves north.~
 M act 21025 leaves south.~
@@ -89,12 +90,12 @@ Like you, this creature found itself suddenly submerged in a pool of Alice's
 tears. Although being a duck, it isn't half as worried.
 ~
 water fowl~
-AGHT 0 400 0
+GHTmnz 0 0 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
-HMV B medium unknown
+HMVns Bh medium unknown
 M greet 21005 100~
 M act 21026 leaves north.~
 M act 21026 leaves south.~
@@ -113,10 +114,10 @@ consist of everyone gathering about in a circular shape ("the exact shape doesn'
 matter") and running about until they are quite dry.
 ~
 human~
-ABGT N 400 0
+BGThmz 0 Nt 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M act 21007 looks at you.~
@@ -137,10 +138,10 @@ The lory is feeling rather sulky, as it feels that as the oldest present
 (though it will NOT reveal its age) it knows best and should be in charge.
 ~
 human~
-AGHT T 400 0
+GHTmnz 0 Tz 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'slash'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M act 21010 looks at you.~
@@ -162,10 +163,10 @@ The eaglet is growing impatient with the talk- all the long words he doesn't
 know the meaning of, and doubtless nor do any of the others present.
 ~
 human~
-ABGT T 400 0
+BGThmz 0 Tz 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21011 100~
@@ -185,10 +186,10 @@ This magpie is quite frail and is concerned the chill from being wet will
 cause her to become ill.
 ~
 human~
-ABGHT T 400 0
+BGHThmnz 0 Tz 0 0 400 0
 35 0 10d82+534 35d10+100 5d12+18 'slash'
 -11 -11 -11 0
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21012 100~
@@ -208,10 +209,10 @@ This owl is quite young and not very wise as yet, so it is deferring to the
 wisdom of the older birds and engaging in the decidedly silly caucus race.
 ~
 human~
-ABGT T 400 0
+BGThmz 0 Tz 0 0 400 0
 35 0 10d82+534 35d10+100 5d12+18 'pound'
 -11 -11 -11 0
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21013 100~
@@ -223,10 +224,10 @@ An old crab is lecturing her daughter about losing her temper.
 This elderly crab is enough to try the patience of an oyster!
 ~
 human~
-ABGT N 400 0
+BGThmz 0 Nt 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21015 100~
@@ -238,10 +239,10 @@ A young crab is telling her mother to hold her tongue.
 This youthful crustacean is sick of her mother's constant lecturing.
 ~
 human~
-ABGHT N 400 0
+BGHThmnz 0 Nt 0 0 400 0
 35 0 10d82+534 35d10+100 5d12+18 'pierce'
 -11 -11 -11 0
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21014 100~
@@ -254,12 +255,12 @@ He doesn't look as if he is too keen to be doing this, but he's been given
 no choice.
 ~
 lizard~
-ABGHT 0 400 0
+BGHThmnz 0 0 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
-HMV B medium unknown
+HMVns Bh medium unknown
 M greet 21016 100~
 M kill 21017 100~
 M death 21018 100~
@@ -272,12 +273,12 @@ He and his fellow are preparing to lower poor Bill down the chimney to see
 what it is inside that is causing such a clamour.
 ~
 pig~
-ABGHT 0 400 0
+BGHThmnz 0 0 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
-HM B medium unknown
+HMns Bh medium unknown
 M greet 21019 100~
 M act 21020 looks at you.~
 #21013
@@ -289,12 +290,12 @@ This little pup has been abandoned here. He looks like he'd LOVE to have
 someone to play with.
 ~
 dog~
-ABGHT J 400 0
+BGHThmnz 0 0 0 Hn 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
-HM B medium unknown
+HMns Bh medium unknown
 M greet 21021 100~
 M act 21022 tells you~
 M act 21023 leaves north.~
@@ -313,10 +314,10 @@ The caterpillar stands and stretches himself to his full height of three
 inches and patiently awaits an answer. He is an infuriating conversationalist.
 ~
 human~
-ABGHT HJN 400 0
+BGHThmnz 0 HNnt 0 Hn 400 0
 40 0 10d108+648 40d10+100 5d14+20 'slash'
 -15 -15 -15 -2
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21031 100~
@@ -338,10 +339,10 @@ and detests because they steal her eggs. Too bad she's unlikely to live
 long enough to explain her actions...
 ~
 human~
-ABFGT T 400 0
+BFGThlmz 0 Tz 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21034 100~
@@ -363,10 +364,10 @@ quite disconcerting how he looks at the sky rather than looking you in the
 eyes when he speaks. Then again, its not like he can help it.
 ~
 fish~
-ABGT 0 400 0
+BGThmz 0 0 0 0 400 0
 37 0 10d92+578 37d10+100 5d12+23 'pierce'
 -13 -13 -13 -1
-EFNR 0 0 0
+EFNRkltx
 stand stand male 0
 0 0 medium unknown
 M greet 21037 100~
@@ -381,10 +382,10 @@ appearance is rendered by far more civil by the fact that he can look
 straight ahead.
 ~
 human~
-ABGT 0 400 0
+BGThmz 0 0 0 0 400 0
 37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M act 21039 tells you~
@@ -398,10 +399,10 @@ baby's cradle. The occupant of the cradle is in her lap. She seems quite
 short-tempered and irritable.
 ~
 human~
-ABDGT N 400 0
+BGThmz 0 Nt 0 0 400 0
 43 0 10d124+733 43d10+100 5d15+21 'pound'
 -16 -16 -16 -3
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21040 100~
@@ -417,10 +418,10 @@ then it is struck by a plate hurled by the cook, and it squeals anew, the
 dirge interrupted only by periodic sneezing due to all the pepper in the air.
 ~
 pig~
-ABGT 0 0 0
+BGThmz 0 0 0 0 0 0
 34 0 10d78+505 34d10+100 5d11+21 'slash'
 -11 -11 -11 0
-EFNR 0 0 0
+EFNRkltx
 stand stand male 0
 0 0 medium unknown
 M greet 21042 100~
@@ -434,10 +435,10 @@ From time to time she hurls a piece of crockery at the other occupants of the
 room, though it doesn't seem to bother most of them in the least!
 ~
 human~
-ABGT 0 0 0
+BGThmz 0 0 0 0 0 0
 37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21043 100~
@@ -461,10 +462,10 @@ itself invisible, leaving only a tail, head or just a grin floating eerily
 in the air.
 ~
 human~
-AGHT HJNU 1000 0
+GHTmnz 0 HNUnt 0 Hn 1000 0
 45 0 10d136+786 45d10+100 5d15+26 'slash'
 -18 -18 -18 -4
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21046 100~
@@ -496,10 +497,10 @@ the Queen, where he performed "Twinkle, twinkle, little bat"-
  How I wonder what you're at!
 ~
 human~
-ABGT H 400 0
+BGThmz 0 Hn 0 0 400 0
 42 0 10d119+700 42d10+100 5d14+24 'pierce'
 -16 -16 -16 -3
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21050 100~
@@ -522,10 +523,10 @@ it has always been tea-time, with no time to wash up. So they alternate
 seats and serving sets. The Hare wants you to tell them a story now.
 ~
 human~
-ABGT H 400 0
+BGThmz 0 Hn 0 0 400 0
 41 0 10d113+678 41d10+100 5d14+22 'pound'
 -15 -15 -15 -2
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21050 100~
@@ -547,10 +548,10 @@ sisters, treacle and treacle wells. It really doesn't make much sense, but
 the Dormouse gets irritated if interrupted, so you patiently listen.
 ~
 human~
-ABGT PR 400 0
+BGThmz 0 Rx Gm 0 400 0
 37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21055 100~
@@ -564,10 +565,10 @@ This fellow (who is the five of hearts) is busy trying to paint the white
 roses red before the Queen arrives.
 ~
 human~
-ABGHT 0 400 0
+BGHThmnz 0 0 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pierce'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21057 100~
@@ -585,10 +586,10 @@ This fellow (who is the seven of hearts) is busy trying to paint the white
 roses red before the Queen arrives.
 ~
 human~
-ABGHT 0 400 0
+BGHThmnz 0 0 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'pound'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21059 100~
@@ -603,10 +604,10 @@ This fellow (who is the two of hearts) is busy trying to paint the white
 roses red before the Queen arrives.
 ~
 human~
-ABGHT 0 400 0
+BGHThmnz 0 0 0 0 400 0
 36 0 10d87+555 36d10+100 5d12+21 'slash'
 -12 -12 -12 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21060 100~
@@ -626,10 +627,10 @@ A soldier, who is actually a playing card in the suit of clubs, marches by.
 These stern cards are sworn to protect and obey the Queen.
 ~
 human~
-AGT N 400 0
+GTmz 0 Nt 0 0 400 0
 37 0 10d92+578 37d10+100 5d12+23 'pierce'
 -13 -13 -13 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21063 100~
@@ -642,10 +643,10 @@ A flat, oblong courtier, ornamented with diamonds, strolls by.
 These noble cards accompany the Queen everywhere.
 ~
 human~
-AGT 0 400 0
+GTmz 0 0 0 0 400 0
 37 0 10d92+578 37d10+100 5d12+23 'slash'
 -13 -13 -13 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21065 100~
@@ -665,10 +666,10 @@ A tiny card bearing hearts upon it scurries about like a child.
 These small tykes are the children of the Queen.
 ~
 human~
-AGHT 0 400 0
+GHTmnz 0 0 0 0 400 0
 34 0 10d78+505 34d10+100 5d11+21 'slash'
 -11 -11 -11 0
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21068 100~
@@ -682,10 +683,10 @@ defers to his overbearing wife in most matters. He strngly resembles the
 Kings you see on playing cards.
 ~
 human~
-AGT HJ 400 0
+GTmz 0 Hn 0 Hn 400 0
 41 0 10d113+678 41d10+100 5d14+22 'pound'
 -15 -15 -15 -2
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21069 100~
@@ -707,10 +708,10 @@ demanding that the heads of the causes of them be lopped off. No-one's head
 ever actually DOES get lopped off, but that doesn't deter her.
 ~
 human~
-AGIJLNPQRSTYa JN -400 0
+GLQRSTYmrwxyz CHin Nt 0 Hn -400 0
 45 0 10d136+786 45d10+100 5d15+26 'slash'
 -18 -18 -18 -4
-EFNU 0 0 0
+EFNUklt
 stand stand female 0
 0 0 medium unknown
 M greet 21072 100~
@@ -734,10 +735,10 @@ notorious thief, his biggest crime to date being the theft of the Queen's
 tarts.
 ~
 human~
-AGHT 0 0 0
+GHTmnz 0 0 0 0 0 0
 40 0 10d108+648 40d10+100 5d14+20 'pierce'
 -15 -15 -15 -2
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M act 21048 looks at you.~
@@ -752,10 +753,10 @@ This poor bird is attempting to avoid being used by the many players as a
 croquet mallet.
 ~
 human~
-AGHT 0 0 0
+GHTmnz 0 0 0 0 0 0
 35 0 10d82+534 35d10+100 5d12+18 'pierce'
 -11 -11 -11 0
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21078 100~
@@ -768,10 +769,10 @@ The croquet players are using these unassuming creatures as balls in their
 bizarre version of the clasic game of nobility.
 ~
 human~
-AGHT 0 0 0
+GHTmnz 0 0 0 0 0 0
 35 0 10d82+534 35d10+100 5d12+18 'pierce'
 -11 -11 -11 0
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 #21038
@@ -786,10 +787,10 @@ attempting to figure out a way to decapitate the head of the Cheshire Cat
 from... nothing. Such are the weird ways of Wonderland.
 ~
 human~
-AGT HN 0 0
+GTmz 0 HNnt 0 0 0 0
 44 0 10d130+759 44d10+100 5d15+24 'pierce'
 -17 -17 -17 -3
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21079 100~
@@ -812,10 +813,10 @@ word out. The Turtle has the head of a pig, the shell of a turtle and the
 legs and tail of a cow. How peculiar!
 ~
 human~
-ABGT H 500 0
+BGThmz 0 Hn 0 0 500 0
 42 0 10d119+700 42d10+100 5d14+24 'pierce'
 -16 -16 -16 -3
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21083 100~
@@ -830,10 +831,10 @@ and Writhing, the three branches of Arithmetic- Ambition, Distraction,
 Uglification and Derision, and of course the classics- Laughing and Grief.
 ~
 human~
-ABDGT HJRT 500 0
+BGThmz 0 HRTnxz 0 Hn 500 0
 45 0 10d136+786 45d10+100 5d15+26 'pound'
 -18 -18 -18 -4
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21084 100~
@@ -851,10 +852,10 @@ course, justice in Wonderland is a very erratic process, much like everything
 else in this strange place.
 ~
 human~
-ABGHT 0 400 0
+BGHThmnz 0 0 0 0 400 0
 38 0 10d97+603 38d10+100 5d13+20 'slash'
 -13 -13 -13 -1
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21089 100~
@@ -868,10 +869,10 @@ A court officer stands ready to suppress rowdy members of the public.
 and sitting on them...
 ~
 human~
-ABGT N 400 0
+BGThmz 0 Nt 0 0 400 0
 39 0 10d102+629 39d10+100 5d13+22 'pierce'
 -14 -14 -14 -2
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 M greet 21091 100~
@@ -884,7 +885,7 @@ pretty blue frock~
 a pretty blue frock~
 A pretty blue frock is lying on the ground here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 12 12 12 0 0
 45 5 450 P
 A
@@ -895,8 +896,8 @@ apron~
 a white apron~
 A white apron with pockets sewn into it lies here.~
 copper~
-container 0 AL
-5 A -1 0 0
+container 0 0 ALgr
+5 Ag -1 0 0
 45 2 450 P
 g none~
 #21002
@@ -904,7 +905,7 @@ pair black shoes~
 a pair of black shoes~
 A pair of black shoes has been left here.~
 copper~
-armor 0 AG
+armor 0 0 AGgm
 12 12 12 0 0
 45 2 450 P
 A
@@ -915,7 +916,7 @@ thimble~
 a thimble~
 A thimble lies here.~
 copper~
-armor 0 AB
+armor 0 0 ABgh
 12 12 12 0 0
 45 1 450 P
 A
@@ -932,7 +933,7 @@ tweed jacket~
 a tweed jacket~
 A tweed jacket has been left here.~
 copper~
-armor 0 AK
+armor 0 0 AKgq
 11 11 11 0 0
 40 3 400 P
 g none~
@@ -941,7 +942,7 @@ waistcoat~
 a red waistcoat~
 A red waistcoat is lying here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 11 11 11 0 0
 40 2 400 P
 A
@@ -954,7 +955,7 @@ pocket watch~
 a pocket watch~
 A pocket watch is hanging by its chain from a hook here.~
 copper~
-armor B AO
+armor Bh 0 AOgu
 11 11 11 0 0
 40 1 400 P
 A
@@ -973,7 +974,7 @@ pair tiny white kid gloves~
 a pair of tiny white kid-gloves~
 A pair of tiny white kid-gloves have been dropped here.~
 copper~
-armor 0 AH
+armor 0 0 AHgn
 9 9 9 0 0
 33 2 330 P
 A
@@ -986,7 +987,7 @@ fan~
 a fan~
 A fan has been left here.~
 copper~
-armor 0 AJ
+armor 0 0 AJgp
 9 9 9 0 0
 33 1 330 P
 A
@@ -997,7 +998,7 @@ scarf~
 a neck scarf~
 A woolen neck scarf is lying here.~
 copper~
-armor 0 AC
+armor 0 0 ACgi
 11 11 11 0 0
 40 2 400 P
 A
@@ -1008,8 +1009,8 @@ shelf~
 a shelf~
 A shelf hangs from the wall here.~
 copper~
-container 0 0
-15 A -1 0 0
+container 0 0 0
+15 Ag -1 0 0
 48 100 480 P
 g none~
 #21011
@@ -1017,8 +1018,8 @@ jar orange marmalade~
 a jar of orange marmalade~
 A jar of orange marmalade sits here.~
 copper~
-container 0 AO
-2 AC 0 0 0
+container 0 0 AOgu
+2 ACgi 0 0 0
 48 1 480 P
 E
 jar~
@@ -1030,7 +1031,7 @@ glass thre legged table~
 a tiny three-legged table~
 A tiny three-legged table, all made of glass, sits here.~
 copper~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 48 5 480 P
 E
@@ -1043,7 +1044,7 @@ tiny golden key~
 a tiny golden key~
 A tiny golden key sits on a table here.~
 copper~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 48 1 480 P
 g none~
@@ -1052,7 +1053,7 @@ little bottle~
 a little bottle~
 A little bottle with a tiny paper label rests here.~
 copper~
-potion 0 AO
+potion 0 0 AOgu
 35 'weaken' 'weaken' 'weaken' ''
 48 1 480 P
 E
@@ -1065,8 +1066,8 @@ glass box~
 a tiny glass box~
 ~
 copper~
-container 0 A
-2 AC 0 0 0
+container 0 0 Ag
+2 ACgi 0 0 0
 48 1 480 P
 g none~
 #21016
@@ -1074,7 +1075,7 @@ small cake~
 a small cake~
 A small cake with something written on it with currants sits here.~
 copper~
-pill 0 A
+pill 0 0 Ag
 35 'giant strength' 'giant strength' 'giant strength' ''
 48 1 480 P
 g none~
@@ -1083,7 +1084,7 @@ little bottle~
 a little bottle~
 A little bottle with a tiny paper label rests on the table here.~
 copper~
-potion 0 AO
+potion 0 0 AOgu
 35 'giant strength' 'stone skin' 'armor' ''
 33 1 330 P
 E
@@ -1096,7 +1097,7 @@ table~
 a window table~
 A table sits in the window here.~
 copper~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 33 1000 330 P
 g none~
@@ -1105,7 +1106,7 @@ bottle brandy~
 a bottle of brandy~
 A bottle of brandy has been dropped here.~
 copper~
-drink 0 AO
+drink 0 0 AOgu
 2 2 'whisky' 0 0
 36 1 360 P
 g none~
@@ -1114,7 +1115,7 @@ hookah~
 a hookah~
 A hookah sits here.~
 copper~
-armor ABG AO
+armor ABGghm 0 AOgu
 11 11 11 0 0
 40 3 400 P
 A
@@ -1129,7 +1130,7 @@ mushroom flesh~
 some flesh from a mushroom~
 Some flesh has been torn off the mushroom and dropped here.~
 copper~
-pill 0 AO
+pill 0 0 AOgu
 40 'weaken' '' 'poison' ''
 40 1 400 P
 g none~
@@ -1138,7 +1139,7 @@ mushroom flesh~
 some flesh from a mushroom~
 Some flesh has been torn off the mushroom and dropped here.~
 copper~
-pill 0 AO
+pill 0 0 AOgu
 40 'protection evil' 'pass door' 'fly' ''
 40 1 400 P
 g none~
@@ -1147,7 +1148,7 @@ pigeon egg~
 a pigeon egg~
 A pigeon egg sits here.~
 copper~
-pill B AO
+pill Bh 0 AOgu
 36 'cure poison' '' '' ''
 34 1 340 P
 g none~
@@ -1156,7 +1157,7 @@ pigeon egg~
 a pigeon egg~
 A pigeon egg sits here.~
 copper~
-pill B AO
+pill Bh 0 AOgu
 36 'mind light' '' '' ''
 34 1 340 P
 g none~
@@ -1165,7 +1166,7 @@ pigeon egg~
 a pigeon egg~
 A pigeon egg sits here.~
 copper~
-pill B AO
+pill Bh 0 AOgu
 36 'detect hidden' '' '' ''
 34 1 340 P
 g none~
@@ -1174,8 +1175,8 @@ nest~
 a small nest~
 A small nest is stuck in the branches of this tree.~
 copper~
-container 0 A
-3 A 0 0 0
+container 0 0 Ag
+3 Ag 0 0 0
 34 1 340 P
 g none~
 #21027
@@ -1183,7 +1184,7 @@ footman livery~
 a footman's livery~
 A footman's livery has been left here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 10 10 10 0 0
 37 7 370 P
 A
@@ -1198,7 +1199,7 @@ powdered wig~
 a powdered wig~
 A powdered wig lies here.~
 copper~
-armor 0 AE
+armor 0 0 AEgk
 10 10 10 0 0
 37 1 370 P
 A
@@ -1213,7 +1214,7 @@ invitation~
 an invitation~
 An invitation from the Queen to play croquet lies here.~
 copper~
-scroll A AO
+scroll Ag 0 AOgu
 36 'bless' 'detect magic' 'faerie fog' ''
 37 1 370 P
 g none~
@@ -1222,8 +1223,8 @@ cradle~
 a baby's cradle~
 A baby's cradle is lying here.~
 copper~
-container M AE
-150 A 0 0 0
+container Ms 0 AEgk
+150 Ag 0 0 0
 43 14 430 P
 A
 14 -25
@@ -1233,8 +1234,8 @@ pot soup~
 a pot of soup~
 A pot of soup with LOTS of pepper in it makes you sneeze rather a lot.~
 copper~
-container 0 0
-10 A -1 0 0
+container 0 0 0
+10 Ag -1 0 0
 41 100 410 P
 g none~
 #21032
@@ -1242,7 +1243,7 @@ plate~
 a plate~
 This plate is one of several the cook has hurled at the Duchess.~
 copper~
-warp_stone 0 AO
+warp_stone 0 0 AOgu
 0 0 0 0 0
 37 2 370 P
 g none~
@@ -1251,7 +1252,7 @@ ladle~
 a ladle~
 A soup-covered ladle lies here, dripping.~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 5 8 'blast' 0
 37 10 370 P
 A
@@ -1264,7 +1265,7 @@ green top hat~
 a green top hat~
 A green top hat with a tag reading "In this Style 10/6" sits here.~
 copper~
-armor M AE
+armor Ms 0 AEgk
 11 11 11 0 0
 42 7 420 P
 A
@@ -1277,7 +1278,7 @@ table~
 a long dining table~
 A long dining table rests here.~
 copper~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 43 1000 430 P
 g none~
@@ -1286,7 +1287,7 @@ chair~
 a comfortable chair~
 A comfortable chair sits near the table here.~
 copper~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 33 50 330 P
 g none~
@@ -1295,7 +1296,7 @@ chair~
 a comfortable chair~
 A comfortable chair sits near the table here.~
 copper~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 33 50 330 P
 g none~
@@ -1304,7 +1305,7 @@ chair~
 a comfortable chair~
 A comfortable chair sits near the table here.~
 copper~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 43 50 430 P
 g none~
@@ -1313,7 +1314,7 @@ chair~
 a comfortable chair~
 A comfortable chair sits near the table here.~
 copper~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 43 50 430 P
 g none~
@@ -1322,7 +1323,7 @@ polka dot bow tie~
 a large polka dot bow tie~
 A large polka dot bow tie has been (purposefully?) left here.~
 copper~
-armor M AC
+armor Ms 0 ACgi
 11 11 11 0 0
 42 1 420 P
 A
@@ -1337,7 +1338,7 @@ green frock coat~
 a green frock coat~
 A green frock coat has been left here.~
 copper~
-armor 0 AK
+armor 0 0 AKgq
 11 11 11 0 0
 42 5 420 P
 g none~
@@ -1346,7 +1347,7 @@ bits of straw~
 some bits of straw~
 Some bits of straw have fallen out of someone's hair.~
 copper~
-armor 0 AE
+armor 0 0 AEgk
 11 11 11 0 0
 41 1 410 P
 A
@@ -1361,7 +1362,7 @@ biscuit plate~
 a biscuit plate~
 A biscuit plate sits on the table here.~
 copper~
-warp_stone 0 ANO
+warp_stone 0 0 ANOgtu
 0 0 0 0 0
 43 1 430 P
 g none~
@@ -1370,7 +1371,7 @@ tea pot~
 a tea pot~
 A tea pot sits on the table here.~
 copper~
-drink 0 AO
+drink 0 0 AOgu
 5 3 'tea' 0 0
 43 3 430 P
 g none~
@@ -1379,7 +1380,7 @@ tea cup~
 a tea cup~
 A tea cup sits on the table here.~
 copper~
-drink 0 AO
+drink 0 0 AOgu
 1 1 'tea' 0 0
 43 1 430 P
 g none~
@@ -1388,7 +1389,7 @@ checked shirt~
 a checked shirt~
 A garish checked shirt has been dropped here.~
 copper~
-armor 0 AD
+armor 0 0 ADgj
 10 10 10 0 0
 37 3 370 P
 g none~
@@ -1397,7 +1398,7 @@ brown breeches~
 some brown breeches~
 Someone's dropped their breeches...~
 copper~
-armor 0 AF
+armor 0 0 AFgl
 10 10 10 0 0
 37 4 370 P
 A
@@ -1412,7 +1413,7 @@ pair shoes~
 a pair of black shoes~
 A pair of shiny black buckled shoes sits here.~
 copper~
-armor 0 AG
+armor 0 0 AGgm
 10 10 10 0 0
 37 3 370 P
 g none~
@@ -1421,8 +1422,8 @@ paint red can~
 a can of red paint~
 A can of red paint is lying here, pouring paint onto the ground.~
 copper~
-container 0 AO
-5 A -1 0 0
+container 0 0 AOgu
+5 Ag -1 0 0
 36 2 360 P
 g none~
 #21050
@@ -1430,7 +1431,7 @@ paint brush~
 a paint brush~
 A paint brush stained bright red is dripping on the floor here.~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 5 8 'suction' 0
 36 5 360 P
 A
@@ -1441,7 +1442,7 @@ bush roses white red~
 a white rose bush~
 Someone has attempted to paint this white rose bush red.~
 copper~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 33 150 330 P
 g none~
@@ -1450,7 +1451,7 @@ club~
 a soldier's club~
 A soldier's club lies here. It looks like the club off a playing card.~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 5 8 'crush' 0
 37 15 370 P
 A
@@ -1465,7 +1466,7 @@ diamond~
 a diamond~
 A diamond has been dropped here.~
 copper~
-light AG AOQ
+light AGgm 0 AOQguw
 0 0 -1 0 0
 37 2 370 P
 A
@@ -1480,7 +1481,7 @@ king hearts sceptre~
 the King of Heart's sceptre~
 The King of Hearts has lost his sceptre.~
 copper~
-staff G AO
+staff Gm 0 AOgu
 41 8 8 'cure critical' 0
 41 5 410 P
 g none~
@@ -1489,7 +1490,7 @@ king hearts crown~
 the King of Heart's crown~
 The King of Heart's crown lies here.~
 copper~
-armor AM AE
+armor AMgs 0 AEgk
 11 11 11 0 0
 41 15 410 P
 A
@@ -1500,7 +1501,7 @@ queen hearts fan~
 the Queen of Heart's fan~
 The Queen of Hearts has dropped her heart-shaped fan.~
 copper~
-armor 0 AJ
+armor 0 0 AJgp
 12 12 12 0 0
 45 7 450 P
 A
@@ -1511,7 +1512,7 @@ flamingo~
 a flamingo~
 A flamingo that is being used as a croquet mallet wriggles about here.~
 copper~
-weapon G AN
+weapon Gm 0 ANgt
 exotic 5 8 'bite' 0
 37 10 370 P
 A
@@ -1528,7 +1529,7 @@ queen hearts sceptre~
 the Queen of Heart's sceptre~
 The Queen of Hearts has lost her sceptre...~
 copper~
-staff AGM AO
+staff AGMgms 0 AOgu
 45 9 9 'cause critical' 0
 45 8 450 P
 g none~
@@ -1537,8 +1538,8 @@ tarts~
 the Queen's tarts~
 The Queen's tarts sit on a table here.~
 copper~
-food 0 A
-DE 0 0 0 0
+food 0 0 Ag
+DEjk 0 0 0 0
 34 5 340 P
 g none~
 #21060
@@ -1546,7 +1547,7 @@ axe~
 the executioner's axe~
 The executioner's axe is leaning against one wall here.~
 copper~
-weapon AEGM ANP
+weapon AEGMgkms Bh ANgt
 axe 5 10 'slice' 0
 44 20 440 P
 A
@@ -1559,7 +1560,7 @@ executioner's hood~
 the executioner's hood~
 The executioner's hood has been left here.~
 copper~
-armor 0 AE
+armor 0 0 AEgk
 11 11 11 0 0
 44 1 440 P
 g none~
@@ -1568,7 +1569,7 @@ slate~
 a slate~
 A slate is covered with meaningless scribbles.~
 copper~
-scroll 0 AO
+scroll 0 0 AOgu
 35 'sleep' 'sleep' 'sleep' ''
 38 1 380 P
 g none~
@@ -1577,7 +1578,7 @@ pencil~
 a pencil~
 A squeaky pencil is driving you nuts!~
 copper~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 5 9 'stab' 0
 38 1 380 P
 g none~
@@ -1586,8 +1587,8 @@ hessian sack~
 a hessian sack~
 A hessian sack, used for supressing, lies here.~
 copper~
-container 0 A
-150 A 0 0 0
+container 0 0 Ag
+150 Ag 0 0 0
 39 15 390 P
 g none~
 #21065
@@ -1595,7 +1596,7 @@ rabbit hole~
 a rabbit hole~
 A rabbit hole beckons for you to enter!~
 copper~
-portal 0 0
+portal 0 0 0
 0 0 0 21002 0
 48 1 480 P
 g none~
@@ -1604,7 +1605,7 @@ tree door~
 a tree with a tiny door~
 A tree with a tiny door set in it stands here.~
 copper~
-portal 0 0
+portal 0 0 0
 0 0 0 21042 0
 35 1 350 P
 g none~
@@ -1620,7 +1621,7 @@ muttering something about being late, and disappears down the hole! Oddly
 enough, it has a pocket watch, and you have never seen a rabbit with a 
 watch. You are inspired to investigate!
 ~
-0 C field
+0 Ci field
 D0
 ~
 ~
@@ -1649,7 +1650,7 @@ life! The walls are lined with shelves filled with jars of many different
 substances. And though you are falling without restraint, you do not feel
 that it will cause you any injury upon impact.
 ~
-0 DU inside
+0 DUj inside
 D5
 ~
 ~
@@ -1663,7 +1664,7 @@ a long corridor lined with lamps and locked doors. You see the rabbit
 disappear around a corner and leap up to give chase, though you don't know
 why.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1679,7 +1680,7 @@ You try the handles of several of the doors, but they are all locked and
 look too strong to pick or bash down. The rabbit's tail can be seen
 disappearing around a corner just up ahead.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -1696,7 +1697,7 @@ see the rabbit duck out a door to the east, but you are sure you saw him
 drop something on the way. You hear what sounds like water lapping against
 the edge of a pool to the far north.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1712,7 +1713,7 @@ You have reached the door the rabbit bolted through. It is a small golden
 door, which is partially obscured by a curtain. To the north you see what
 looks like a pool of salty water.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1721,7 +1722,7 @@ D1
 You see a small golden door partially obscured by a curtain.
 ~
 curtain golden~
-ABCDZ 21013 21012
+ABCDZghij 21013 21012
 D2
 ~
 ~
@@ -1734,7 +1735,7 @@ of which taste rather like someone's tears! Other creatures, similarly
 marooned float by, equally disconcerted by the sudden appearance of this
 phenomenon.
 ~
-0 D noswim
+0 Dj noswim
 D0
 ~
 ~
@@ -1755,7 +1756,7 @@ of which taste rather like someone's tears! Other creatures, similarly
 marooned float by, equally disconcerted by the sudden appearance of this
 phenomenon.
 ~
-0 D noswim
+0 Dj noswim
 D0
 ~
 ~
@@ -1772,7 +1773,7 @@ of which taste rather like someone's tears! Other creatures, similarly
 marooned float by, equally disconcerted by the sudden appearance of this
 phenomenon.
 ~
-0 D noswim
+0 Dj noswim
 D1
 ~
 ~
@@ -1788,7 +1789,7 @@ You emerge from the pool onto solid ground, where several other animals are
 shivering and attempting to dry off. To the north you see a group of them
 running about madly, and your curiosity is aroused.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1808,7 +1809,7 @@ Here several animals are engaging in a Caucus-Race in order to dry off. It
 seems to involve running about in a circle at random until you are dry,
 though determining a winner is rather difficult.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -1828,7 +1829,7 @@ Z -1 21013
 D3
 ~
 ~
-ABCDZ 21013 21006
+ABCDZghij 21013 21006
 S
 #21013
 Outside the Rabbit's House~
@@ -1842,7 +1843,7 @@ D0
 The door has a plate that reads- W. RABBIT.
 ~
 door~
-ABZ 0 21014
+ABZgh 0 21014
 D1
 ~
 ~
@@ -1860,19 +1861,19 @@ out into the garden.
 
 A set of stairs leads up to the second floor.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
-ABZ 0 21018
+ABZgh 0 21018
 D2
 ~
 ~
-ABZ 0 21013
+ABZgh 0 21013
 D3
 ~
 ~
-ABZ 0 21015
+ABZgh 0 21015
 D4
 ~
 ~
@@ -1885,11 +1886,11 @@ table covered in papers and pens. A herald's uniform has been neatly laid
 out on the table as well, as has a long brass trumpet and a brightly-colored
 hat.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
-ABZ 0 21014
+ABZgh 0 21014
 S
 #21016
 The Rabbit's Bedroom~
@@ -1898,7 +1899,7 @@ several sets in fact- sitting on a a table near a strange looking glass. A
 fireplace can be seen on one wall, and you think you can hear voices coming
 from it.
 ~
-0 D inside
+0 Dj inside
 E
 fireplace~
 You peer up it and see a lizard being lowered down on a rope by two guinea
@@ -1940,7 +1941,7 @@ Z -1 21019
 D3
 ~
 ~
-ABZ 0 21014
+ABZgh 0 21014
 S
 #21019
 On the Edge of the Wood~
@@ -2076,7 +2077,7 @@ Z -1 21030
 D2
 ~
 ~
-ABZ 0 21027
+ABZgh 0 21027
 D3
 ~
 ~
@@ -2089,40 +2090,40 @@ smoke. Several people are moving about in here, most of them sneezing as you
 are due to the pepper that can be smelled everywhere. A grinning cat sits
 at the feet of the duchess, and its smirk unsettles you
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 21026
+ABZgh 0 21026
 D1
 ~
 ~
-ABZ -1 21029
+ABZgh -1 21029
 D2
 ~
 ~
-ABZ -1 21028
+ABZgh -1 21028
 S
 #21028
 A Bedroom~
 This is the sleeping quarters of the cook. It is currently empty.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 21027
+ABZgh 0 21027
 S
 #21029
 A Bedroom~
 This elegant chamber serves as quarters for the Duchess and her porcine
 child.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
-ABZ 0 21027
+ABZgh 0 21027
 S
 #21030
 A Bend in the Path~
@@ -2184,7 +2185,7 @@ You are standing outside the March Hare's House. It appears to be deserted...
 D0
 ~
 ~
-ABCZ 0 21034
+ABCZghi 0 21034
 D2
 ~
 ~
@@ -2197,7 +2198,7 @@ furniture are scattered about, along with items of clothing and pieces of
 crockery. The air is musty, and you cough as you stir up dust in your
 progress.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -2205,7 +2206,7 @@ Z -1 21036
 D2
 ~
 ~
-ABZ 0 21033
+ABZgh 0 21033
 D3
 ~
 ~
@@ -2218,7 +2219,7 @@ furniture are scattered about, along with items of clothing and pieces of
 crockery. The air is musty, and you cough as you stir up dust in your
 progress.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -2231,7 +2232,7 @@ furniture are scattered about, along with items of clothing and pieces of
 crockery. The air is musty, and you cough as you stir up dust in your
 progress.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -2255,7 +2256,7 @@ Z -1 21041
 D2
 ~
 ~
-ABZ 0 21038
+ABZgh 0 21038
 S
 #21038
 Inside the Hatter's House~
@@ -2263,11 +2264,11 @@ This house is positively crammed with hats of every shape, shize and
 description. You manage to shove enough aside to enter, and see two rooms
 adjoining this one, both of them equally packed.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 21037
+ABZgh 0 21037
 D1
 ~
 ~
@@ -2283,7 +2284,7 @@ This room, like the other two, is crammed with hats. If you didn't know
 better, you'd swear that a Hatter lived here, albeit a slightly deranged
 one...
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2295,7 +2296,7 @@ This room, like the other two, is crammed with hats. If you didn't know
 better, you'd swear that a Hatter lived here, albeit a slightly deranged
 one...
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -2321,11 +2322,11 @@ is gone, as is the table with they key and little bottle. The golden door
 behind the curtain is still present, however, and this provides your only
 way onwards.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 curtain golden~
-ABZ 0 21043
+ABZgh 0 21043
 S
 #21043
 In a Garden~
@@ -2342,7 +2343,7 @@ Z -1 21044
 D3
 ~
 curtain golden~
-ABZ 0 21042
+ABZgh 0 21042
 S
 #21044
 A Croquet Lawn~
@@ -2508,7 +2509,7 @@ To the north there is a courthouse.
 D0
 ~
 courthouse~
-ABZ -1 21059
+ABZgh -1 21059
 D1
 ~
 ~
@@ -2650,7 +2651,7 @@ Courthouse (Who Stole the Tarts?)~
 You have entered the courthouse, where people are beginning to settle down
 for the trial of the Knave of Hearts, who stole the Queen's tarts.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -2662,7 +2663,7 @@ Z -1 21061
 D2
 ~
 ~
-ABZ 0 21051
+ABZgh 0 21051
 D3
 ~
 ~
@@ -2674,7 +2675,7 @@ Here stands the jury box, where the 12 jurors will judge the case. Like all
 things in Wonderland, the judicial process is a complex, erratic and usually
 futile process.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -2686,7 +2687,7 @@ Here the accused or those giving evidence stand, to give their testimony. It
 is a rather pointless exercise, as their statements are either muddled,
 ignored or shouted down.
 ~
-0 D inside
+0 Dj inside
 D3
 ~
 ~
@@ -2697,7 +2698,7 @@ The Main Floor~
 Here the prosecuting and defense attorneys make their cases, before the
 throne where the judge (the King) sits.
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -2712,7 +2713,7 @@ The Throne~
 Here sits the King, where he judges the cases. He isn't here yet, as he hasn't
 finished pardoning the players the Queen condemned to death (all of them).
 ~
-0 D inside
+0 Dj inside
 D5
 ~
 ~

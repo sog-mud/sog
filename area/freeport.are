@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Freeport~
 VNUMs 29200 29299
 Credits Lok~
@@ -16,12 +17,12 @@ The blue-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 ~
 lizard~
-ACEH 0 0 0
+CHin 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'bite'
 3 3 3 8
-FHMR 0 0 0
+FHMRlnsx
 stand stand none 0
-0 P small unknown
+0 Pv small unknown
 #29202
 lizard red-tongued~
 the red-tongued lizard~
@@ -31,10 +32,10 @@ The red-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 ~
 lizard~
-ACEH 0 0 0
+CHin 0 0 0 0 0 0
 9 0 2d6+110 5d5+100 1d8+2 'bite'
 2 2 2 7
-HMR 0 0 0
+HMRnsx
 stand stand none 0
 0 0 small unknown
 #29203
@@ -46,10 +47,10 @@ The green-tongued lizard measures some 18" from head to tail,
 is very quick, and has sharp pointy teeth.
 ~
 lizard~
-ACEH 0 0 0
+CHin 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'bite'
 3 3 3 8
-FHMR 0 0 0
+FHMRlnsx
 stand stand none 0
 0 0 small unknown
 #29204
@@ -62,10 +63,10 @@ he has noticed several craft entering and leaving Freeport harbor
 at night, but when he reported it, nobody seemed to care.
 ~
 human~
-ABCE 0 300 0
+BChi 0 0 0 0 300 0
 12 0 2d10+150 5d5+100 1d10+3 'slash'
 0 0 0 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 100
 0 0 medium unknown
 #29205
@@ -78,10 +79,10 @@ you really should try the blue-tongued lizards which hide in the
 jetty rocks.
 ~
 human~
-ABCE 0 200 0
+BChi 0 0 0 0 200 0
 10 0 2d7+121 5d5+100 2d4+2 'pierce'
 1 1 1 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 10
 0 0 medium unknown
 #29206
@@ -93,10 +94,10 @@ The dockworker is dressed in loose-fitting cotton clothing and uses
 a rope to lift the heavy crate.
 ~
 human~
-ACE 0 0 0
+Ci 0 0 0 0 0 0
 9 0 2d6+110 5d5+100 1d8+2 'slash'
 2 2 2 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 10
 0 0 medium unknown
 #29207
@@ -108,10 +109,10 @@ The harbormaster is an old hand at this, and doesn't put up with
 any crap from you. Give him his list or go to the brig.
 ~
 human~
-ABCE 0 0 0
+BChi 0 0 0 0 0 0
 29 0 6d12+778 5d5+1000 2d12+8 'slash'
 -9 -9 -9 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 300
 0 0 medium unknown
 #29208
@@ -122,10 +123,10 @@ A citizen of Freeport walks along, whistling a sailing song.
 The citizen is dressed in light cotton clothing and sandals.
 ~
 human~
-ACE 0 200 0
+Ci 0 0 0 0 200 0
 10 0 2d7+121 5d5+100 2d4+2 'pierce'
 1 1 1 7
-EFNU 0 0 0
+EFNUklt
 stand stand male 15
 0 0 medium unknown
 #29209
@@ -136,10 +137,10 @@ A small child is laughing and playing a game here.
 The child is dressed in a white cotton shirt.
 ~
 human~
-ACE 0 500 0
+Ci 0 0 0 0 500 0
 7 0 2d6+85 5d5+100 1d8+1 'pierce'
 4 4 4 8
-EFNU 0 0 0
+EFNUklt
 stand stand female 1
 0 0 medium unknown
 #29210
@@ -152,10 +153,10 @@ The sailor's wife is dressed in a simple cotton dress,
 and has hair bleached blond by the sun and the sea.
 ~
 human~
-ACE 0 100 0
+Ci 0 0 0 0 100 0
 9 0 2d6+110 5d5+100 1d8+2 'slash'
 2 2 2 7
-EFNU 0 0 0
+EFNUklt
 stand stand female 3
 0 0 medium unknown
 #29211
@@ -169,10 +170,10 @@ commissioned to build 3 triremes, boats which offer little
 cargo storage, but excellent raiding speed.
 ~
 human~
-ABCEe 0 300 0
+BCehi 0 0 0 0 300 0
 65 0 50d10+8250 10d10+1000 11d5+35 'slash'
 -35 -35 -35 -17
-EFNU 0 0 0
+EFNUklt
 stand stand male 8000
 0 0 medium unknown
 #29212
@@ -184,10 +185,10 @@ The apprentice shipbuilder is a young boy dressed in a dirty
 grey smock.
 ~
 human~
-ABCE 0 300 0
+BChi 0 0 0 0 300 0
 7 0 2d6+85 5d5+100 1d8+1 'slash'
 4 4 4 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 18
 0 0 medium unknown
 #29213
@@ -200,10 +201,10 @@ of his employees. Why just this last month the records show 60 missing
 crates bound for destinations around the world.
 ~
 human~
-ABCE 0 300 0
+BChi 0 0 0 0 300 0
 34 0 10d10+1200 5d5+1000 4d7+10 'slash'
 -11 -11 -11 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 340
 0 0 medium unknown
 #29214
@@ -215,10 +216,10 @@ The harbor patrolman is dressed in light armor. He is well armed
 though, and looks like he is in no mood for your crap.
 ~
 human~
-ACE 0 500 0
+Ci 0 0 0 0 500 0
 20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 100
 0 0 medium unknown
 #29215
@@ -229,10 +230,10 @@ A teamster is here, taking a wagonload of cargo to the wharf.
 The teamster drives his single mule with a long whip and foul language.
 ~
 human~
-ACE 0 0 0
+Ci 0 0 0 0 0 0
 13 0 2d10+170 5d5+100 2d5+3 'slash'
 -1 -1 -1 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 70
 0 0 medium unknown
 #29216
@@ -245,10 +246,10 @@ a shady looking bunch talking about how Oglethorpe the master merchant
 had sold out Freeport to the pirates.
 ~
 human~
-ABCDEe 0 600 0
+BCehi 0 0 0 0 600 0
 65 0 50d10+8250 10d10+1000 11d5+35 'slash'
 -35 -35 -35 -17
-EFNU 0 0 0
+EFNUklt
 stand stand male 10000
 0 0 medium unknown
 #29217
@@ -262,10 +263,10 @@ very cheap in which you might be interested. When you scoff at his
 fenced goods, Anwar clams up.
 ~
 elf~
-ABCEVe 0 -300 0
+BCVehi 0 0 0 0 -300 0
 65 0 50d10+8250 10d10+1000 11d5+35 'slash'
 -35 -35 -35 -17
-EFNU 0 0 0
+EFNUklt
 stand stand male 15000
 0 0 medium unknown
 #29218
@@ -279,10 +280,10 @@ nobody he had talked to voted for Mayor Friendly. He offers to repair your
 armor.
 ~
 dwarf~
-ABCESVe 0 700 0
+BCSVehiy 0 0 0 0 700 0
 65 0 50d10+8250 10d10+1000 11d5+35 'slash'
 -35 -35 -35 -17
-EFNU 0 0 0
+EFNUklt
 stand stand male 15000
 0 0 medium unknown
 r fire 33
@@ -310,10 +311,10 @@ She lets slip that Lord Mourning was seen recently in her shop. She offers
 to identify anything you may have.
 ~
 human~
-ABCERVe 0 -700 0
+BCRVehix 0 0 0 0 -700 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -17
-EFNU 0 0 0
+EFNUklt
 stand stand female 15000
 0 0 medium unknown
 #29220
@@ -325,10 +326,10 @@ The apprentice is trying to fill his docket for the evening's tide. He
 wears a simple yellow smock.
 ~
 human~
-ABCE 0 200 0
+BChi 0 0 0 0 200 0
 7 0 2d6+85 5d5+100 1d8+1 'pierce'
 4 4 4 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 300
 0 0 medium unknown
 #29221
@@ -341,10 +342,10 @@ threatened by Oglethorpe (1st chair) when he brought up the subject of
 missing records of the guild.
 ~
 human~
-ABCEN 0 400 0
+BChi 0 0 0 0 400 0
 46 0 25d10+3250 5d5+1000 6d6+16 'slash'
 -16 -16 -16 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #29222
@@ -357,10 +358,10 @@ the strange happenings of Freeport. He excuses himself and goes to
 talk to a teller, who in turn leaves the bank in a hurry.
 ~
 human~
-ABCE 0 -500 0
+BChi 0 0 0 0 -500 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pierce'
 -19 -19 -19 1
-EFNU 0 0 0
+EFNUklt
 stand stand male 1000
 0 0 medium unknown
 #29224
@@ -375,10 +376,10 @@ bay, and wound up sinking his boat and having to swim back, missing
 the final race.
 ~
 human~
-ABCE 0 400 0
+BChi 0 0 0 0 400 0
 14 0 2d10+190 5d5+100 1d12+3 'pound'
 -1 -1 -1 6
-EFNU 0 0 0
+EFNUklt
 stand stand male 10
 0 0 medium unknown
 #29225
@@ -393,10 +394,10 @@ first admiral of Freeport, Blacksail, who has acquired an addiction to
 devil weed.
 ~
 human~
-ABCEPQ 0 900 0
+BCQhiw 0 0 0 0 900 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pierce'
 -19 -19 -19 1
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #29226
@@ -409,10 +410,10 @@ Mayor Friendly gets nervous and clams up. You notice that he keeps looking
 at a white marble statue.
 ~
 human~
-ABCE 0 -700 0
+BChi 0 0 0 0 -700 0
 44 0 25d10+2750 5d5+1000 8d4+15 'pierce'
 -15 -15 -15 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 6000
 0 0 medium unknown
 #29227
@@ -426,10 +427,10 @@ the last 6 years. Recently her business picked up again. In fact, she
 just last month had a week stay by a very rich visitor named Lord Vulture.
 ~
 human~
-ABCEe 0 400 0
+BCehi 0 0 0 0 400 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -35 -35 -35 -17
-EFNU 0 0 0
+EFNUklt
 stand stand female 9000
 0 0 medium unknown
 #29228
@@ -440,10 +441,10 @@ A scruffy sailor labors here to unload crates.
 The sailor reeks of rum and the sea.
 ~
 human~
-ACEX 0 -200 0
+Ci Ek 0 0 0 -200 0
 45 0 25d10+3000 5d5+1000 8d4+16 'slash'
 -15 -15 -15 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 45
 0 0 medium unknown
 #29229
@@ -455,10 +456,10 @@ The guard is heavily armed and moves with military
 precision.
 ~
 human~
-ABCEF J -600 0
+BCFhil 0 0 0 Hn -600 0
 46 0 25d10+3250 5d5+1000 6d6+16 'pierce'
 -16 -16 -16 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 150
 0 0 medium unknown
 #29230
@@ -472,10 +473,10 @@ to cut him off from all devil weed unless he complies with his every
 whim.
 ~
 human~
-ABCE 0 -200 0
+BChi 0 0 0 0 -200 0
 47 0 25d10+3500 5d5+1000 6d6+17 'slash'
 -17 -17 -17 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 250
 0 0 medium unknown
 #29231
@@ -489,10 +490,10 @@ He laughs at your puny attempts to frighten him, and vows your slow, cold
 torture. With that, he laughs and eats a blue lizard tongue.
 ~
 human~
-ABCE 0 -1000 0
+BChi 0 0 0 0 -1000 0
 47 0 25d10+3500 5d5+1000 6d6+17 'slash'
 -17 -17 -17 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 1500
 0 0 medium unknown
 #29232
@@ -507,10 +508,10 @@ place! With that Lord Mourning draws his saber and eats a blue lizard
 tongue.
 ~
 human~
-ABCE u -1000 0
+BChi 0 0 0 0 -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 'slash'
 -22 -22 -22 0
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #29233
@@ -524,10 +525,10 @@ a stain from the red wine he had this morning. There is the gravy from
 the meat he had for lunch.
 ~
 human~
-ACEX 0 0 0
+Ci Ek 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'pound'
 3 3 3 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 10
 0 0 medium unknown
 #0
@@ -538,7 +539,7 @@ key old~
 an old key~
 An old key is lying on the ground.~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 44 1 440 P
 g none~
@@ -547,7 +548,7 @@ tongue blue lizard~
 a blue lizard tongue~
 A blue lizard tongue is here.~
 flesh~
-pill 0 A
+pill 0 0 Ag
 30 'sanctuary' '' '' ''
 8 1 450 P
 g none~
@@ -556,7 +557,7 @@ tongue red lizard~
 a red lizard tongue~
 A red lizard tongue is here.~
 flesh~
-pill 0 A
+pill 0 0 Ag
 30 'poison' '' '' ''
 9 1 90 P
 g none~
@@ -565,7 +566,7 @@ tongue green lizard~
 a green lizard tongue~
 A green lizard tongue is here.~
 flesh~
-pill 0 A
+pill 0 0 Ag
 30 'curse' '' '' ''
 8 1 80 P
 g none~
@@ -574,7 +575,7 @@ watchfire~
 a watchfire~
 A watchfire is here, burning brightly.~
 unknown~
-light A AO
+light Ag 0 AOgu
 0 0 999 0 0
 10 20 100 P
 g none~
@@ -583,7 +584,7 @@ pole fishing~
 a fishing pole~
 A fishing pole is here, hooked and baited.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 3 5 'none' 0
 10 3 100 P
 g none~
@@ -592,7 +593,7 @@ notebook~
 a notebook~
 A notebook has been left here.~
 vellum~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 29 4 290 P
 g none~
@@ -601,7 +602,7 @@ globe patrol~
 a patrol globe~
 A glowing globe has been left here.~
 glass~
-light A AO
+light Ag 0 AOgu
 0 0 999 0 0
 20 5 200 P
 A
@@ -612,7 +613,7 @@ mail scale~
 scale mail~
 A suit of scale mail is here.~
 iron~
-armor G AD
+armor Gm 0 ADgj
 7 7 7 0 0
 20 20 200 P
 g none~
@@ -621,7 +622,7 @@ trident~
 a trident~
 A trident has been left here.~
 wood~
-weapon G AN
+weapon Gm 0 ANgt
 polearm 5 5 'none' 0
 20 9 200 P
 A
@@ -632,8 +633,8 @@ pie meat~
 a steaming meat pie~
 A steaming meat pie is here.~
 flesh~
-food 0 A
-D D 0 0 0
+food 0 0 Ag
+Dj Dj 0 0 0
 0 2 5 P
 g none~
 #29212
@@ -641,7 +642,7 @@ grog sailor's~
 a mug of sailor's grog~
 A mug of sailor's grog is here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 2 2 'water' 0 0
 0 2 10 P
 g none~
@@ -650,7 +651,7 @@ wafer holy~
 a holy wafer~
 A holy wafer is here.~
 flesh~
-pill G A
+pill Gm 0 Ag
 50 'bless' '' '' ''
 5 1 50 P
 g none~
@@ -659,7 +660,7 @@ plate silver~
 a silver plate~
 A silver plate has been left here.~
 silver~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 15 8 300 P
 g none~
@@ -668,7 +669,7 @@ tapestry~
 a tapestry~
 A tapestry has been left here.~
 cloth~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 15 30 150 P
 E
@@ -682,7 +683,7 @@ armor emerald~
 emerald armor~
 A suit of emerald armor is here.~
 stone~
-armor G AD
+armor Gm 0 ADgj
 13 13 13 10 0
 46 40 2000 P
 A
@@ -693,8 +694,8 @@ hammer dwarven thrower~
 a dwarven thrower~
 A dwarven throwing hammer is here.~
 unknown~
-weapon GP AN
-mace 9 5 'none' K
+weapon GPmv 0 ANgt
+mace 9 5 'none' Kq
 40 20 1500 P
 A
 18 4
@@ -706,7 +707,7 @@ sleeves elven chainmail~
 elven chainmail sleeves~
 A set of elven chainmail sleeves is here.~
 mithril~
-armor G AI
+armor Gm 0 AIgo
 5 5 5 5 0
 10 4 100 P
 g none~
@@ -715,7 +716,7 @@ leggings elven chainmail~
 elven chainmail leggings~
 A pair of elven chainmail leggings is here.~
 mithril~
-armor GQ AF
+armor GQmw 0 AFgl
 5 5 5 5 0
 10 5 100 P
 g none~
@@ -724,7 +725,7 @@ wine red~
 a glass of Freeport burgundy~
 A glass of Freeport Burgundy is here.~
 leather~
-drink 0 A
+drink 0 0 Ag
 1 1 'red wine' 0 0
 0 1 10 P
 g none~
@@ -733,7 +734,7 @@ wine white~
 a glass of Freeport chablis~
 A glass of Freeport Chablis is here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 1 1 'white wine' 0 0
 46 1 20 P
 g none~
@@ -742,8 +743,8 @@ dumplings plate gravy~
 a plate of gravy and dumplings~
 A plate of gravy and dumplings is here.~
 flesh~
-food 0 A
-AC AC 0 0 0
+food 0 0 Ag
+ACgi ACgi 0 0 0
 0 2 14 P
 g none~
 #29223
@@ -751,7 +752,7 @@ crate~
 a huge box crate~
 A huge box crate is here.~
 wood~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 7 100 70 P
 g none~
@@ -760,7 +761,7 @@ ship moored~
 a moored ship~
 A moored ship is here.~
 wood~
-boat 0 0
+boat 0 0 0
 0 0 0 0 0
 7 100 70 P
 g none~
@@ -769,7 +770,7 @@ wristguard emerald~
 an emerald wristguard~
 An emerald wristguard is here.~
 stone~
-armor G AM
+armor Gm 0 AMgs
 12 12 12 6 0
 46 10 3500 P
 A
@@ -780,7 +781,7 @@ longsword emerald~
 an emerald longsword~
 An emerald longsword is here.~
 stone~
-weapon G AN
+weapon Gm 0 ANgt
 sword 5 10 'none' 0
 46 10 3200 P
 A
@@ -791,7 +792,7 @@ helm emerald~
 an emerald helm~
 An emerald helm is here.~
 stone~
-armor G AE
+armor Gm 0 AEgk
 12 12 12 6 0
 46 15 1800 P
 A
@@ -802,7 +803,7 @@ weed devil's~
 a pinch of devil's weed~
 A pinch of devil's weed is here.~
 cloth~
-pill G A
+pill Gm 0 Ag
 40 'poison' '' '' ''
 45 1 450 P
 g none~
@@ -811,7 +812,7 @@ cape admiral's~
 an admiral's cape~
 A cape with the emblem of Freeport is here.~
 cloth~
-armor GI ACD
+armor GImo 0 ACDgij
 12 12 12 6 0
 45 10 3200 P
 A
@@ -830,7 +831,7 @@ signet ring freeport~
 an admiral's signet~
 A ring with the seal of Freeport is here.~
 gold~
-armor G AB
+armor Gm 0 ABgh
 12 12 12 6 0
 45 1 1800 P
 A
@@ -845,7 +846,7 @@ purse heavy~
 a very heavy purse~
 A very heavy purse is here.~
 leather~
-money 0 A
+money 0 0 Ag
 800 0 0 0 0
 47 100 470 P
 g none~
@@ -854,7 +855,7 @@ boots bladed~
 bladed boots~
 A pair of boots with a spring action blade lie here.~
 leather~
-armor 0 AG
+armor 0 0 AGgm
 17 17 17 9 0
 52 5 3900 P
 A
@@ -867,7 +868,7 @@ cape dimensional~
 a dimensional cape~
 A hole in reality lies here.~
 unknown~
-armor G AC
+armor Gm 0 ACgi
 13 13 13 13 0
 52 3 5000 P
 A
@@ -892,7 +893,7 @@ stone troll~
 the troll stone~
 A stone covered in green icor lies here.~
 glass~
-staff FG AO
+staff FGlm 0 AOgu
 55 10 8 'sanctuary' 0
 52 1 3000 P
 g none~
@@ -1433,7 +1434,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. A small road leads
 east into the village.
 ~
-0 C hills
+0 Ci hills
 D0
 Wharf road
 ~
@@ -1535,7 +1536,7 @@ has walls, made of the local slate and a mortar joint. Roads stretch off
 north to the shipyards, east to Freeport village, south to the mercantile
 warehouse, and westward wharf road continues along the harbor.
 ~
-0 C city
+0 Ci city
 D0
 The shipyards
 ~
@@ -1638,7 +1639,7 @@ become. Down next to the jetty where flooding is likely, live the poorest
 families, in temporary shacks which are prone to flooding. The road to the
 city of Freeport is to your west.
 ~
-0 C hills
+0 Ci hills
 D0
 On the rock jetty
 ~
@@ -1908,7 +1909,7 @@ and sail off with her cargo into the seas. Yes, you think you could get
 used to life here on Freeport. Commerce lane goes south through the city
 gates.
 ~
-0 C city
+0 Ci city
 D2
 Commerce lane
 ~
@@ -1960,7 +1961,7 @@ the packed tables to the delight of their naval and mercantile clientele.
 An unleavened spiced bread called Pilas is served hot and in generous portions
 in wicker baskets.
 ~
-0 D inside
+0 Dj inside
 D3
 Commerce Street
 ~
@@ -1974,7 +1975,7 @@ several lands. Bolts of cloth, silver plates and utensils, lanterns
 candles, rugs, etc. dazzle you. Several store boys work the floor, helping
 their customers.
 ~
-0 D inside
+0 Dj inside
 D1
 Commerce Street
 ~
@@ -2019,7 +2020,7 @@ Captains guild and the shipyards, where most of the arms of Freeport
 are made. In their spare time the metalworkers make various trinkets
 for the local citizenry and tourists.
 ~
-0 D inside
+0 Dj inside
 D3
 Commerce Street
 ~
@@ -2033,7 +2034,7 @@ Several lamps on display change from color to color, in addition to the
 everlasting variety. Scrolls and books are stored in a glass cabinet behind
 the counter.
 ~
-0 D inside
+0 Dj inside
 D1
 Commerce Street
 ~
@@ -2050,7 +2051,7 @@ guild every hour. To the east, Naval street runs to the Captains guild at
 the end, and to the west Shippers Lane goes to the Merchants guild. Commerce
 street leads northwards out of the city.
 ~
-0 K city
+0 Kq city
 D0
 Commerce Street
 ~
@@ -2129,7 +2130,7 @@ participate in the meetings. The role of the mayor is as arbitrator, and
 he is freely elected by popular vote. White marble statues are displayed
 in alcoves about the hall.
 ~
-0 D inside
+0 Dj inside
 E
 statues~
 The statues are of past mayors of the city. As you examine them more
@@ -2146,7 +2147,7 @@ D5
 A secret passage
 ~
 statue~
-ABCZ 29201 29264
+ABCZghi 29201 29264
 S
 #29257
 The Crew's Quarters~
@@ -2157,7 +2158,7 @@ and dark stained oak, the walls are paneled, and the windows facing the
 street resemble portholes. This is a popular meeting place for the captains
 when they have foreign visitors.
 ~
-0 D inside
+0 Dj inside
 D0
 Naval Street
 ~
@@ -2171,7 +2172,7 @@ continual stream of customers entering and depositing vast sums of money in
 the well guarded vault. The bank is faring well, as you can judge by
 the amount of gilding inside the building.
 ~
-0 CD inside
+0 CDij inside
 D0
 ~
 ~
@@ -2208,7 +2209,7 @@ record the latest buy and sell rates of commodities around the world upon
 the rolls of the school. This school is one of the main reasons for the
 economic dominance of Freeport of world trade.
 ~
-0 D inside
+0 Dj inside
 D2
 Shipper's Lane
 ~
@@ -2229,7 +2230,7 @@ the guilds behalf in contractual negotiations in town meetings. It has been
 said that the council of 5 collectively owns one quarter of the world's 
 wealth.
 ~
-0 D inside
+0 Dj inside
 D0
 Shipper's Lane
 ~
@@ -2245,7 +2246,7 @@ actual military vessels. The academy has a long tradition of turning out
 fine sailors. Most cadets eventually become captains of their own vessels
 and under contract to the Merchants guild.
 ~
-0 D inside
+0 Dj inside
 D2
 Naval Street
 ~
@@ -2263,7 +2264,7 @@ the number of vessels the captain has. The richest men with the most ships
 fill the 9 seats of honor in the guild, and are called the Admirals. It has
 been said that they control one third of the world's shipping.
 ~
-0 D inside
+0 Dj inside
 D0
 Naval Street
 ~
@@ -2277,7 +2278,7 @@ are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years. There is 
 a sign on the wall.
 ~
-0 AD hills
+0 ADgj hills
 E
 sign wall~
 {45 53} Lok  Hall of the 6th Pirate Lord
@@ -2291,7 +2292,7 @@ D4
 Through the secret door
 ~
 statue~
-ABCZ 29201 29256
+ABCZghi 29201 29256
 S
 #29265
 On a Secret Staircase~
@@ -2299,7 +2300,7 @@ You follow a secret staircase south and downward underground. The stairs
 are wet and mossy. Far below you hear the sounds of men loading a ship.
 The old torch sconces on the wall have not been used in years.
 ~
-0 AD hills
+0 ADgj hills
 D0
 On a secret staircase
 ~
@@ -2318,7 +2319,7 @@ room is a deep pool in which several triremes have been moored.
 Laughing sailors are unloading cargo from one of the ships. You quickly
 disguise yourself as one of the sailors.
 ~
-0 D inside
+0 Dj inside
 D0
 On a secret staircase
 ~
@@ -2341,7 +2342,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D inside
+0 Dj inside
 E
 crates~
 These crates are marked with a destination of Solace. That's funny. What
@@ -2370,7 +2371,7 @@ triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded. To
 the north of you is a guarded door.
 ~
-0 D inside
+0 Dj inside
 E
 crates~
 These crates are marked with a destination of Antharia. That's funny. What
@@ -2380,7 +2381,7 @@ D0
 Through the guarded door
 ~
 door~
-ABZ -1 29270
+ABZgh -1 29270
 D1
 In the hidden cavern
 ~
@@ -2408,7 +2409,7 @@ a rich noble. Yes you have discovered the kingpin of the pirate lords,
 the man who has terrorized commerce for a decade. What will you do about 
 it?
 ~
-0 D inside
+0 Dj inside
 D2
 Through the door
 ~
@@ -2421,7 +2422,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D inside
+0 Dj inside
 E
 crates~
 These crates are marked with a destination of the Shire. That's funny. What
@@ -2444,7 +2445,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D inside
+0 Dj inside
 E
 crates~
 These crates are marked with a destination of Camelot. That's funny. What
@@ -2474,7 +2475,7 @@ unnoticed behind several CRATES which have been recently off-loaded. To
 the south of you the waterway leaves the cavern through a tunnel which
 U's in a long curve.
 ~
-0 D inside
+0 Dj inside
 E
 crates~
 These crates are marked with a destination of Dunkeldorf. That's funny. What
@@ -2492,7 +2493,7 @@ You walk along the shore of an underground water cave in which several
 triremes have been moored, one of which is being unloaded. You sneak
 unnoticed behind several CRATES which have been recently off-loaded.
 ~
-0 D inside
+0 Dj inside
 E
 crates~
 These crates are marked with a destination of Malancandra. That's funny. What

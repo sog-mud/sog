@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Dragon Spyre~
 VNUMs 2400 2501
 Credits Anon~
@@ -17,10 +18,10 @@ copper scales seems to stop time.  The Dragon does not seem happy that you are
 here. It ATTACKS.
 ~
 copper dragon~
-ABFGHTZl DFHZ 350 0
+BFGHTZhlmnz 0 Hn 0 ABgh 350 0
 40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 -2
-CFM 0 0 0
+CFMils
 stand stand male 4999
 0 0 huge unknown
 r cold -50
@@ -34,10 +35,10 @@ A intimidating Dragon stands before you.  The icy glare blinds you long enough
 for the Ice Dragon to devour you.
 ~
 white dragon~
-ABFGHTl DFZu -350 0
+BFGHThlmnz 0 0 0 ABgh -350 0
 40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 -2
-CFM 0 0 0
+CFMils
 stand stand male 4999
 0 0 huge unknown
 r cold 0
@@ -51,10 +52,10 @@ This winged creature is the epitome of mischief. He loves to pick on travelers,
 and guess what....   It's your turn :).
 ~
 elf~
-AFGHl 0 -360 0
+FGHlmn 0 0 0 0 -360 0
 36 0 10d10+1400 15d5+25 3d10+11 'punch'
 -12 -12 -12 0
-FHKN 0 0 0
+FHKNlnqt
 stand stand male 1499
 0 0 small unknown
 r bash -50
@@ -70,10 +71,10 @@ The Spirit of the Time Dragon guards the hoard gathered by the copper dragons
 who have stood sentinel over this spot. The Spirit lunges for your SOUL!!!!!!!
 ~
 dragon~
-ABFGTl DFHU 0 0
+BFGThlmz 0 HUn 0 ABgh 0 0
 55 0 50d10+5500 20d12+100 10d4+23 'charge'
 -25 -25 -25 -7
-CFM 0 0 0
+CFMils
 stand stand male 6499
 0 0 huge unknown
 r charm 100
@@ -86,10 +87,10 @@ The Spirit of the Ice Dragon Stands over the hoard of the previous white dragon
 guardians. The Spirit attempts to leech you life blood from your body.
 ~
 dragon~
-ABFGTl DFHU 0 0
+BFGThlmz 0 HUn 0 ABgh 0 0
 55 0 50d10+5500 20d12+100 10d4+23 'charge'
 -25 -25 -25 -7
-CFM 0 0 0
+CFMils
 stand stand male 6999
 0 0 huge unknown
 r charm 100
@@ -103,10 +104,10 @@ The King loves to frolic and play, especially with new friends.
 He asks you "Will you be my friend?".
 ~
 elf~
-ABFGl DF 1000 0
+BFGhlm 0 0 0 ABgh 1000 0
 48 0 25d10+3500 23d8+100 6d6+18 'charge'
 -16 -16 -16 -3
-EN 0 0 0
+ENkt
 stand stand male 2499
 0 0 small unknown
 r bash -50
@@ -123,10 +124,10 @@ carrying a large burden for some time.  You feel sorry for him, but
 he does have the key that you need to continue on through the cave.
 ~
 elf~
-ABFGTl DF 0 0
+BFGThlmz 0 0 0 ABgh 0 0
 45 0 25d10+2750 24d7+100 8d4+16 'pound'
 -15 -15 -15 2
-EFHIKN 0 0 0
+EFHIKNklnoqt
 stand stand male 2799
 0 0 small unknown
 r bash -50
@@ -146,10 +147,10 @@ completely filled by the dragon.  At the time it seems peaceful, but you
 can tell that attacking it would be the dumbest, and last thing you ever did.
 ~
 dragon~
-AT BDFHU 0 0
+Tz 0 HUn Ag ABgh 0 0
 65 0 50d15+8250 52d12+100 11d5+35 'charge'
 -37 -37 -37 -20
-CFM 0 0 0
+CFMils
 stand stand male 14999
 0 0 huge unknown
 #2408
@@ -162,10 +163,10 @@ suppose that if pressed, he could fight quite visciously compared to most
 Pixies.
 ~
 elf~
-ABGMT 0 1000 2405
+BGThmz 0 0 0 0 1000 2405
 39 0 10d10+1700 5d10+50 5d6+13 'pound'
 -13 -13 -13 0
-EIN 0 0 0
+EINkot
 stand stand male 1799
 0 0 small unknown
 r bash -50
@@ -182,10 +183,10 @@ at you maliciously.  The Staff he carries seems familiar, but you are not
 sure from where you remember it.
 ~
 elf~
-ACGHR Du -500 0
+CGHRimnx 0 0 0 Ag -500 0
 58 0 50d10+6000 34d10+100 5d10+25 'pound'
 -27 -27 -27 -10
-FHN 0 0 0
+FHNlnt
 stand stand male 4499
 0 0 small unknown
 r bash -50
@@ -201,10 +202,10 @@ suppose that if pressed, she could fight quite visciously compared to most
 Pixies.
 ~
 elf~
-ABGMT 0 1000 2405
+BGThmz 0 0 0 0 1000 2405
 39 0 15d9+1700 5d10+50 3d10+11 'scratch'
 -13 -13 -13 0
-E 0 0 0
+Ek
 stand stand female 1899
 0 0 small unknown
 r bash -50
@@ -233,10 +234,10 @@ This winged creature is the epitome of mischief. He loves to pick on
 travelers, and guess what.... It's your turn :).
 ~
 elf~
-AHS DEQZ -500 0
+HSny 0 0 Bh ALgr -500 0
 36 0 10d30+1400 100d10+100 3d10+11 'pound'
 -11 -11 -11 0
-FHKN 0 0 0
+FHKNlnqt
 stand stand male 1499
 0 0 small unknown
 r bash -50
@@ -252,10 +253,10 @@ Shades of Gray for many years and in working for three years in
 Midgaard he retired. And found this job.
 ~
 human~
-ABHS DEJPZu -500 2402
+BHShny 0 0 Gm AHLgnr -500 2402
 65 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -33 -33 -33 -17
-FHKN 0 0 0
+FHKNlnqt
 stand stand male 1499
 0 0 medium unknown
 M give 2400 90~
@@ -272,10 +273,10 @@ The over lord of dragons is here, resting.
 He is, the old dragon, resting and getting off tired of years.
 ~
 gold dragon~
-AHS DEPZ 1000 2402
+HSny 0 0 Gm ALgr 1000 2402
 65 50 50d10+8250 10d10+1000 11d5+35 'punch'
 -33 -33 -33 -17
-FHKN 0 0 0
+FHKNlnqt
 stand stand male 1499
 0 0 small unknown
 M give 2404 91~
@@ -292,10 +293,10 @@ This winged creature is the epitome of mischief. He loves to pick on travelers,
 and guess what....   It's your turn :).
 ~
 elf~
-AFGHl 0 -360 0
+FGHlmn 0 0 0 0 -360 0
 33 0 10d10+1100 15d5+25 6d4+10 'punch'
 -10 -10 -10 0
-FHKN 0 0 0
+FHKNlnqt
 stand stand male 1499
 0 0 small unknown
 r bash -50
@@ -310,7 +311,7 @@ sword~
 a tiny sword~
 A petite sword of dragons lies here on the ground, you almost didn't see it.~
 steel~
-weapon AGL AN
+weapon AGLgmr 0 ANgt
 sword 4 8 'slice' 0
 36 20 2700 G
 A
@@ -328,7 +329,7 @@ white dragon claw key~
 a small white key shaped like a claw~
 A small white claw is sitting here, lost.~
 steel~
-key M AO
+key Ms 0 AOgu
 0 0 0 0 0
 18 10 0 G
 E
@@ -342,7 +343,7 @@ door key~
 a door key~
 There is a door key sitting here.~
 steel~
-key M AO
+key Ms 0 AOgu
 0 0 0 0 0
 0 10 0 G
 E
@@ -355,7 +356,7 @@ gate keeper key~
 the gatekeeper's key~
 A large bronze key sits upon the ground, covered with dust.~
 silver~
-key M AO
+key Ms 0 AOgu
 0 0 0 0 0
 25 10 0 G
 E
@@ -369,7 +370,7 @@ copper dragon claw key~
 a small copper key shaped like a claw~
 A small copper claw lies here, abonded by everyone~
 bone~
-key M AO
+key Ms 0 AOgu
 0 0 0 0 0
 19 10 0 G
 E
@@ -383,7 +384,7 @@ pixie king key~
 a very small key~
 The key to the Pixie King's bedroom is here, it is almost impossible find.~
 steel~
-key M AO
+key Ms 0 AOgu
 0 0 0 0 0
 22 10 0 G
 E
@@ -396,7 +397,7 @@ white pendant dragon scale~
 a white dragon scale pendant~
 Upon the ground lies a solid white pendant, it issues forth an aura of cold.~
 silver~
-armor AGI AC
+armor AGIgmo 0 ACgi
 18 18 18 9 0
 40 120 3500 G
 A
@@ -417,7 +418,7 @@ a copper dragon scale pendant~
 Upon the ground lies a solid copper pendant, as you reach for it, time seems
 to slow.~
 bone~
-armor AGI AC
+armor AGIgmo 0 ACgi
 18 18 18 9 0
 40 120 3500 G
 A
@@ -439,7 +440,7 @@ a pair of pixie wings~
 A pair of translucent wings lie upon the ground, their is an eerie glow about
 them.~
 flame~
-light AG A
+light AGgm 0 Ag
 0 0 -1 0 0
 48 60 7500 G
 A
@@ -459,7 +460,7 @@ the pendant of eternity~
 A small pendant is here on the ground, you almost ignore it, til it calls out 
 your name.~
 energy~
-armor AFGI AC
+armor AFGIglmo 0 ACgi
 20 20 20 9 0
 51 1 31970 G
 F A 17 -60 U
@@ -474,7 +475,7 @@ white dragon scale breast plate~
 a white dragonscale breast plate~
 A shimmering white breast plate lies here, it is cold to the touch.~
 steel~
-armor GJ AD
+armor GJmp 0 ADgj
 16 16 16 7 0
 40 190 6430 G
 A
@@ -492,7 +493,7 @@ copper dragon scale breast plate~
 a copper dragonscale breast plate~
 An elegant copper breast plate lies here, it looks very new.~
 bone~
-armor GK AD
+armor GKmq 0 ADgj
 18 18 18 8 0
 40 200 6230 G
 A
@@ -512,7 +513,7 @@ corpse~
 a corpse~
 A corpse is lying on the ground, mangled beyond recognition.~
 meat~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 0 0 G
 E
@@ -527,7 +528,7 @@ spray paint can~
 a can of spraypaint~
 A can of spraypaint is sitting here.~
 metal~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 1 1 'pierce' 0
 1 1 1 G
 g none~
@@ -536,8 +537,8 @@ pixie stick~
 a Pixie Stick~
 A Pixie Stick lies here on the ground, it looks tasty.~
 crystal~
-weapon AL AN
-mace 5 7 'pound' D
+weapon ALgr 0 ANgt
+mace 5 7 'pound' Dj
 35 20 1700 G
 A
 19 3
@@ -553,7 +554,7 @@ pixie plate breast~
 a Pixie breast plate~
 There is a very small piece of metal lying here.~
 steel~
-armor A AD
+armor Ag 0 ADgj
 15 15 15 7 0
 37 30 2230 G
 A
@@ -570,7 +571,7 @@ pixie greaves~
 a pair of Pixie greaves~
 A pair of very small metallic pants lie here.~
 steel~
-armor AG AF
+armor AGgm 0 AFgl
 15 15 15 7 0
 32 14 1900 G
 A
@@ -587,7 +588,7 @@ pixie arm plates~
 a pair of Pixie armplates~
 A pair of small metal sleeves lie here, glowing.~
 steel~
-armor AG AI
+armor AGgm 0 AIgo
 16 16 16 7 0
 35 19 2077 G
 A
@@ -606,7 +607,7 @@ wisp dragon fire~
 a wisp of DragonFyre~
 There is a nice flame sitting here.~
 flame~
-light AL A
+light ALgr 0 Ag
 0 0 -1 0 0
 38 20 2300 G
 A
@@ -623,7 +624,7 @@ helm dragon~
 a white dragon scale helm~
 A white dragon scale helm with a plume of dragon mane lies here.~
 steel~
-armor AGJ AE
+armor AGJgmp 0 AEgk
 16 16 16 8 0
 38 230 2460 G
 A
@@ -642,7 +643,7 @@ helm dragon~
 a copper dragon scale helm~
 A copper helm made from the scales of a dragon is here.~
 bone~
-armor AGK AE
+armor AGKgmq 0 AEgk
 16 16 16 9 0
 38 250 2960 G
 A
@@ -663,7 +664,7 @@ staff magius~
 the Staff of the Magius~
 A gnarled wooden shaft lies here, pulsing slightly.~
 wood~
-weapon ABCFGHM AN
+weapon ABCFGHMghilmns 0 ANgt
 staff 5 11 'pound' 0
 52 200 45780 G
 A
@@ -686,7 +687,7 @@ dagger~
 a Pixie dagger~
 A petite dagger lies here on the ground, you almost didn't see it.~
 steel~
-weapon AGL AN
+weapon AGLgmr 0 ANgt
 dagger 4 8 'stab' 0
 33 5 647 G
 A
@@ -699,7 +700,7 @@ diamond gem~
 a large diamond~
 A large diamond catches and reflects the lighting.~
 gem~
-gem W AO
+gem 0 Dj AOgu
 0 0 0 0 0
 0 1 25000 P
 g none~
@@ -708,7 +709,7 @@ red ruby gem~
 a red ruby~
 A beautiful, bloody red ruby is here.~
 gem~
-gem W AO
+gem 0 Dj AOgu
 0 0 0 0 0
 0 1 22000 P
 g none~
@@ -717,7 +718,7 @@ flaming quartz gem~
 a flaming quartz~
 A large piece of flaming quartz lies on the ground.~
 gem~
-gem AW AO
+gem Ag Dj AOgu
 0 0 0 0 0
 0 1 19000 P
 g none~
@@ -726,7 +727,7 @@ bar platinum~
 a bar of platinum~
 A bar of platinum has been left here.~
 platinum~
-treasure AW AO
+treasure Ag Dj AOgu
 0 0 0 0 0
 0 500 12000 P
 g none~
@@ -735,7 +736,7 @@ piece duranium~
 a piece of duranium~
 A piece of duranium is here.~
 gem~
-gem AW AO
+gem Ag Dj AOgu
 0 0 0 0 0
 0 1 300 P
 g none~
@@ -744,7 +745,7 @@ piece neutronium~
 a piece of neutronium~
 A piece of neutronium is here.~
 gem~
-gem AW AO
+gem Ag Dj AOgu
 0 0 0 0 0
 0 1 500 P
 g none~
@@ -753,7 +754,7 @@ black pearl~
 a black pearl~
 A black pearl lies here on the ground.~
 gem~
-gem AW AO
+gem Ag Dj AOgu
 0 0 0 0 0
 0 1 5000 P
 g none~
@@ -762,7 +763,7 @@ blue pearl~
 a blue pearl~
 A blue pearl lies here on the ground.~
 gem~
-gem AW AO
+gem Ag Dj AOgu
 0 0 0 0 0
 0 1 5000 P
 g none~
@@ -771,7 +772,7 @@ scarlet ribbon~
 scarlet ribbon~
 A scarlet ribbon is lying here, it is hot to touch.~
 flame~
-armor AG AQ
+armor AGgm 0 AQgw
 18 18 18 7 0
 45 20 4717 G
 A
@@ -782,7 +783,7 @@ rabbit's foot magic~
 rabbit's foot~
 Magic rabbit's foot is floating here.~
 meat~
-armor AG AQ
+armor AGgm 0 AQgw
 11 11 11 5 0
 33 20 617 G
 A
@@ -793,7 +794,7 @@ pixie shield~
 a Pixie shield~
 Very small shield lies here on the ground.~
 steel~
-armor A AJ
+armor Ag 0 AJgp
 10 10 10 6 0
 30 30 981 G
 g none~
@@ -802,7 +803,7 @@ old dragon captain key~
 a small white finger~
 A small white finger is left here, lost.~
 steel~
-key M AO
+key Ms 0 AOgu
 0 0 0 0 0
 18 10 0 G
 g none~
@@ -811,8 +812,8 @@ key~
 an old seal~
 A small, engraved treasure seal is here.~
 stone~
-key 0 A
-BCDE 0 0 0 0
+key 0 0 Ag
+BCDEhijk 0 0 0 0
 0 20 0 P
 g none~
 #2436
@@ -820,8 +821,8 @@ box~
 box~
 A old, trashed box is here.~
 wood~
-container 0 0
-100 ACD 2435 100 100
+container 0 0 0
+100 ACDgij 2435 100 100
 0 0 0 P
 g none~
 #2437
@@ -829,8 +830,8 @@ paper papers~
 abridged papers~
 A unknown old part of a book is here.~
 paper~
-map 0 A
-A 0 0 0 0
+map 0 0 Ag
+Ag 0 0 0 0
 0 10 500 P
 E
 paper papers~
@@ -847,8 +848,8 @@ xxx~
 an old key carved on 'xxx'~
 A small unknown key that resulted in old treasures, is here.~
 stone~
-key 0 A
-BCDE 0 0 0 0
+key 0 0 Ag
+BCDEhijk 0 0 0 0
 0 20 0 P
 g none~
 #0
@@ -863,7 +864,7 @@ east, the path continues.  It appears that the western opening you entered
 through is now impassible.  You are here whether you like it or not....
      There is a small (Glowing) (Humming) tablet.
 ~
-0 C forest
+0 Ci forest
 E
 tablet small~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1048,7 +1049,7 @@ with many differing shades of red or brown, with a few frost particles
 glittering on one of the walls.  Even with the cloth, the smell of the dragons
 is almost unbearable.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1067,7 +1068,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1086,7 +1087,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1105,7 +1106,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1124,7 +1125,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1143,7 +1144,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1162,7 +1163,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1186,7 +1187,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1205,7 +1206,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1224,7 +1225,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1243,7 +1244,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1262,7 +1263,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1281,7 +1282,7 @@ appear to reach out towards you, while the floor and ceiling struggle to crush
 the life from you.  The further you proceed into the Mountain, the more you
 wish you hadn't come here in the first place.
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1300,7 +1301,7 @@ DragonSpyre, the screams had been slowly dying off, and now they are no more.
 Normally the lack of death cries would be a welcome change, only now they
 have been replaced by a very eerie silence.  You don't like this one bit.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1319,7 +1320,7 @@ hear what sounds like giggling coming from all sides, goading you onward.
 Daring you to learn the secrets that DragonSpyre has held for the past three
 hundred years.  "They are only dragons."
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1338,7 +1339,7 @@ hear what sounds like giggling coming from all sides, goading you onward.
 Daring you to learn the secrets that DragonSpyre has held for the past three
 hundred years.  "They are only dragons."  To the north, the path forks.
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1357,7 +1358,7 @@ which way you should go, but the odd scraching sound to the east makes
 you want to go west.  The giggling that has been following you around has
 now become a full blown laugh.   "They are ONLY dragons."
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1381,7 +1382,7 @@ for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  "They are only dragons."
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1401,7 +1402,7 @@ of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  To the west is a small crevice
 that you could just barely squeeze through.  "They are only dragons."
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1420,7 +1421,7 @@ for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  "They are only dragons?"
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1439,7 +1440,7 @@ for unknown centuries.  The floor is scuffed and scraped from thousands
 of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  "They are only dragons?"
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1459,7 +1460,7 @@ of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  To the north you can hear a
 low rumbling sound.  "They are only DRAGONS!"
 ~
-0 D inside
+0 Dj inside
 D0
 Walking through DragonSpyre
 ~
@@ -1484,7 +1485,7 @@ of claws passing over it.  The ceiling is out of sight, the cave is obviously
 made for something well beyond human size.  To the north you can hear a
 low rumbling sound.  "They are only DRAGONS!"
 ~
-0 D inside
+0 Dj inside
 D0
 The Lair of the White Dragon
 ~
@@ -1504,12 +1505,12 @@ walls are coated with a thick layer of ice.  You slip several times before
 gaining your balance enough to face the fearsome beast.  Will you fight it,
 or flee?  "It is JUST a dragon."
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
 wall~
-ABCFZ 2401 2444
+ABCFZghil 2401 2444
 D2
 Walking through DragonSpyre
 ~
@@ -1522,7 +1523,7 @@ The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  Far ahead, you think you can see
 what looks like a large door.  "They are only dragons."
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1541,7 +1542,7 @@ breathe.  It still is not to late to go back.  Now that you are closer to the
 wall, you are sure that there is a door ahead and on the far eastern wall.
 "They are only dragons.  I have killed many dragons before!"
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1560,7 +1561,7 @@ breathe.  It still is not to late to go back.  Now that you are closer to the
 wall, you are sure that there is a door ahead and on the far eastern wall.
 "They are only dragons.  I have killed many dragons before!"
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1579,7 +1580,7 @@ breathe.  It still is not to late to go back.  Now that you are closer to the
 wall, you are sure that there is a door ahead and on the far eastern wall.
 "They are only dragons.  I have killed many dragons before!"
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
@@ -1597,12 +1598,12 @@ The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  On the eastern wall is a large
 oaken door.  "Surely i can kill a dragon."
 ~
-0 D inside
+0 Dj inside
 D1
 Walking through DragonSpyre
 ~
 door oaken~
-ABCFZ 2402 2438
+ABCFZghil 2402 2438
 D3
 Walking through DragonSpyre
 ~
@@ -1615,12 +1616,12 @@ The ground is damp here, and the air is so thick that it is almost hard to
 breathe.  It still is not to late to go back.  On the western wall is a large
 oaken door. "Dragons aren't THAT scary."
 ~
-0 D inside
+0 Dj inside
 D3
 Walking through DragonSpyre
 ~
 door oaken~
-ABCFZ 2402 2437
+ABCFZghil 2402 2437
 S
 #2439
 Walking through DragonSpyre~
@@ -1675,7 +1676,7 @@ D0
 Walking through DragonSpyre
 ~
 door~
-ABCFZ 2402 2443
+ABCFZghil 2402 2443
 D1
 Walking through DragonSpyre
 ~
@@ -1699,7 +1700,7 @@ The acid cascades over your body, and burns the skin from the muscle,
 then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
 ~
-0 ACDJ inside
+0 ACDJgijp inside
 S
 #2443
 Walking through DragonSpyre~
@@ -1713,7 +1714,7 @@ D2
 Walking through DragonSpyre
 ~
 door~
-ABCFZ 2402 2441
+ABCFZghil 2402 2441
 S
 #2444
 Walking through DragonSpyre~
@@ -1733,7 +1734,7 @@ D3
 Lair of the White Dragon
 ~
 wall~
-ABCFZ 2401 2432
+ABCFZghil 2401 2432
 S
 #2445
 Walking through DragonSpyre~
@@ -1788,7 +1789,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2448
+AFZgl 0 2448
 D1
 Walking through DragonSpyre
 ~
@@ -1813,7 +1814,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2449
+AFZgl 0 2449
 D2
 Walking through DragonSpyre
 ~
@@ -1833,7 +1834,7 @@ D1
 Walking through DragonSpyre
 ~
 door~
-ABCFZ 2401 2450
+ABCFZghil 2401 2450
 D2
 Treasure Room
 ~
@@ -1853,7 +1854,7 @@ D3
 Walking through DragonSpyre
 ~
 door~
-ABCFZ 2401 2449
+ABCFZghil 2401 2449
 S
 #2451
 Walking through DragonSpyre~
@@ -1968,7 +1969,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2455
+AFZgl 0 2455
 D2
 Walking through DragonSpyre
 ~
@@ -1988,7 +1989,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2456
+AFZgl 0 2456
 D2
 Walking through DragonSpyre
 ~
@@ -2008,7 +2009,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2457
+AFZgl 0 2457
 D3
 Walking through DragonSpyre
 ~
@@ -2088,7 +2089,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2461
+AFZgl 0 2461
 D2
 Walking through DragonSpyre
 ~
@@ -2108,7 +2109,7 @@ D0
 Walking through DragonSpyre
 ~
 ~
-AFZ 0 2462
+AFZgl 0 2462
 D1
 Walking through DragonSpyre
 ~
@@ -2148,7 +2149,7 @@ D2
 Walking through DragonSpyre
 ~
 wall~
-ABCFZ 2403 2466
+ABCFZghil 2403 2466
 D3
 Walking through DragonSpyre
 ~
@@ -2168,7 +2169,7 @@ D0
 Walking through DragonSpyre
 ~
 wall~
-ABCFZ 2403 2465
+ABCFZghil 2403 2465
 D2
 Walking through DragonSpyre
 ~
@@ -2258,7 +2259,7 @@ D3
 Walking through DragonSpyre
 ~
 gate~
-ABCFZ 2404 2474
+ABCFZghil 2404 2474
 S
 #2471
 Walking through DragonSpyre~
@@ -2328,7 +2329,7 @@ D1
 Walking through DragonSpyre
 ~
 gate~
-ABCFZ 0 2470
+ABCFZghil 0 2470
 D3
 Walking through DragonSpyre
 ~
@@ -2398,7 +2399,7 @@ D2
 Treasure Room
 ~
 door~
-ABCFZ 2404 2478
+ABCFZghil 2404 2478
 S
 #2478
 Treasure Room~
@@ -2411,12 +2412,12 @@ D0
 Walking through DragonSpyre
 ~
 door~
-ABCFZ 2404 2477
+ABCFZghil 2404 2477
 D2
 Walking through DragonSpyre
 ~
 door~
-AFZ 2404 2483
+AFZgl 2404 2483
 S
 #2479
 Walking through DragonSpyre~
@@ -2506,12 +2507,12 @@ D0
 Treasure Room
 ~
 door~
-ABCFZ 2404 2478
+ABCFZghil 2404 2478
 D2
 Walking through DragonSpyre
 ~
 ~
-AFZ 2404 2484
+AFZgl 2404 2484
 S
 #2484
 Walking through DragonSpyre~
@@ -2641,7 +2642,7 @@ D3
 Pixie King's Bedroom
 ~
 door~
-ABCFZ 2405 2490
+ABCFZghil 2405 2490
 S
 #2490
 Pixie King's Bedroom~
@@ -2655,7 +2656,7 @@ D1
 Walking through DragonSpyre
 ~
 door~
-ABCFZ 2405 2489
+ABCFZghil 2405 2489
 S
 #2491
 Walking through DragonSpyre~
@@ -2710,7 +2711,7 @@ D1
 Throne room of the Pixie King
 ~
 door~
-ABZ -1 2494
+ABZgh -1 2494
 D3
 Walking through DragonSpyre
 ~
@@ -2730,7 +2731,7 @@ D3
 Walking through DragonSpyre
 ~
 door~
-ABFZ -1 2493
+ABFZghl -1 2493
 S
 #2495
 Walking through DragonSpyre~
@@ -2838,12 +2839,12 @@ The acid cascades over your body, and burns the skin from the muscle,
 then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
 ~
-0 ACD inside
+0 ACDgij inside
 D0
 old dragon's office
 ~
 door~
-ABCFGZ 2434 2501
+ABCFGZghilm 2434 2501
 D1
 dragonspyre.
 ~
@@ -2857,7 +2858,7 @@ The acid cascades over your body, and burns the skin from the muscle,
 then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
 ~
-0 ACDJ inside
+0 ACDJgijp inside
 D2
 old dragon's office
 ~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Небольшой изврат~
 VNUMs 34400 34499
 Credits Askold~
@@ -20,12 +21,12 @@ but same you can see than he is corking something in leaves.
 которая растет тут. Но ты замечаешь, что он что-то заныкивает в кустах...
 ~
 bear~
-AGVWZel DFGHZ 1000 0
+GVWZem 0 Hn 0 ABMghs 1000 0
 50 0 1d1+1 0d0+0 0d0+0 'bite'
 0 0 0 0
-0 0 0 0
+0
 stand stand male 10000
-H 0 small unknown
+Hn 0 small unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -55,12 +56,12 @@ It's armor is covered by blood and squashed brains.
 Его броня заляпана мозгами и кровью тех кого он раздавил.
 ~
 human~
-AUVZl CDEFGHJNOQRTZbcd 0 0
+UVZ 0 HNORTbcdntuxz Bh ABHKLMghnqrs 0 0
 96 1 1d1+29999 1d1+29999 1d1+0 'blast'
 -900 -900 -900 -900
-0 0 0 0
+0
 stand stand either 0
-EIc X giant unknown
+EIcko X giant unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -84,13 +85,13 @@ Test is here
 ~
 ~
 human~
-AG AV 0 0
+Gm 0 AVg 0 0 0 0
 15 0 1d1+99 0d0+0 0d0+0 'none'
 0 0 0 0
-FK 0 0 0
+FKlq
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r bash 100
 r pierce 100
 r slash 100
@@ -116,7 +117,7 @@ russia love tattoo~
 {Wfrom Russia with love{x~
 {WShining tattoo{x~
 unknown~
-armor AJKRSTYa APR
+armor AJKYgpq BCFhil ARgx
 0 0 0 0 0
 96 0 2147483647 P
 A
@@ -151,7 +152,7 @@ abysmality~
 {Babysmality{w~
 Canteen without bottom lies here.~
 kender's skin~
-drink RYa AP
+drink Y BFhl Ag
 -1 -1 'cranberry juice' 0 0
 1 10 -1 P
 g female~
@@ -160,7 +161,7 @@ spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
 @eng {WSpring with crystal and clear water flushes from ground.{w@rus {WРодник кристально-чистой воды бьет из под земли.{w~
 unknown~
-fountain AIORTY P
+fountain AIYgo ABCghi 0
 -1 -1 'water' 0 0
 1 0 0 P
 g none~
@@ -169,8 +170,8 @@ trunk fallen tree~
 @eng fallen tree@rus ~~ствол~~ упавшего дерева~
 @eng {cCovered with soft moss trunk of a fallen tree.{w@rus {cПокрытый мягким мхом ствол упавшего дерева.{w~
 wood~
-furniture AIORSTYZa P
-BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
+furniture AIYgo ABCEFghikl 0
+BDhj ABCDEFGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopqrstuvwxyz AEHKNgknqt EHIkno EHIkno
 1 0 0 P
 g none~
 #34406
@@ -178,8 +179,8 @@ food~
 @eng {rHot and tasty bite of roasted meat{w@rus {rВкусный и горячий шашлык из свежей баранины{w~
 @eng Appetizing looking roasted bite of meat.@rus Аппетитно выглядящий шашлык нанизан на шампур.~
 meat~
-food SY A
-CE CE 0 0 0
+food Y 0 Ag
+CEik CEik 0 0 0
 1 1 1 P
 g none~
 #34407
@@ -187,7 +188,7 @@ glass vodka~
 @eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {WГраненый стакан водовки {BКосорылоФФ{w~
 @eng Heeled glass stands on the ground.@rus Граненый стакан стоит на земле.~
 glass~
-drink IU AO
+drink IUo 0 AOgu
 1 1 'vodka' 0 0
 1 0 1 P
 g none~
@@ -196,7 +197,7 @@ hero helm oleg~
 {WThe Real Hero helm of Oleg{x~
 First hero's helm lies here.~
 unknown~
-armor ABKTYZa AEP
+armor ABKYghq BCEFhikl AEgk
 33 33 33 33 0
 91 0 2147483647 P
 A
@@ -211,8 +212,8 @@ ring portal~
 @eng {Wring of repatriation{w@rus {Wk0льц0 b0зbpaщeHuЯ дomоu{x~
 @eng Abnormal rIng which sucks you in.@rus Ненормальное k0льц0, оно затягивает тебя внутрь.~
 unknown~
-portal ARTYa ABP
-A A AB 34400 0
+portal AYg BCFhil ABgh
+Ag Ag ABgh 34400 0
 96 1 2147483647 P
 g none~
 #34410
@@ -220,7 +221,7 @@ karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
 @eng {YStatue of Karmael stay there , him eye blob and worry , Karmael pissed at pool. You noise like scent white wine ...{x@rus {YСтатуя писающего Кармаеля стоит здесь!!{\Он одет в форму штандартенфюрера СС фон{\Штирлица, глаза дико выпучены!  Он рад!{x~
 marble~
-fountain RTYa AP
+fountain Y BCFhil Ag
 -1 -1 'salt water' 0 0
 1 20000 2147483647 P
 g none~
@@ -229,7 +230,7 @@ wand жезл~
 @eng small wooden wand@rus ~~маленький~~ ~~деревянный~~ ~~жезл~~~
 @eng Small wooden wand lies here.@rus Маленький жезл (wand), сделанный из дерева, забыт здесь.~
 wood~
-wand CF AO
+wand CFil 0 AOgu
 100 1 1 'improved identify' 0
 10 1 5000 P
 g none~
@@ -238,45 +239,46 @@ claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
 @eng Strange claws lie here.@rus Непонятного вида когти (claws) брошены здесь.~
 claw~
-clothing Yh AH
+clothing Y 0 AHgn
 0 0 0 0 0
 10 1 10000 P
-S 'grip' 75 A
-S 'master hand' 50 A
-S 'hand block' 75 A
-S 'disarm' 75 A
+S 'grip' 75 Ag
+S 'master hand' 50 Ag
+S 'hand block' 75 Ag
+S 'disarm' 75 Ag
 g plural~
 #34451
 book справочник энциклопедия old~
 @eng An old book@rus "~~Энциклопедия~~ юных сурков"~
 @eng The book about all you want to know lies here.@rus Большая толстая энциклопедия (book) кем-то оставлена тут.~
 paper~
-treasure Ah AO
+treasure Ag 0 AOgu
 0 0 0 0 0
 10 1 10000 P
-S 'locate object' 75 A
-S 'identify' 100 A
-S 'lore' 100 A
+S 'locate object' 75 Ag
+S 'identify' 100 Ag
+S 'lore' 100 Ag
 g none~
 #34452
 staff necromancy посох rod~
 @eng Rod of Necromancy@rus ~~Посох~~ некромансера~
 @eng Rod made of bone hums casts darkness arounf it.@rus Костяной посох (rod), кажется, поглощает весь свет.~
 bone~
-staff CGJMZh AO
+staff CGJMimps Ek AOgu
 70 100 100 'mana drain' 0
 40 20 0 P
 A
 35 100
 A
 20 -15
-F A 19 20 n
-S 'lich' 70 A
-S 'animate dead' 80 A
-S 'draining touch' 100 A
-S 'mana drain' 100 A
-S 'control undead' 50 A
-S 'bone dragon' 80 A
+A
+19 20
+S 'lich' 70 Ag
+S 'animate dead' 80 Ag
+S 'draining touch' 100 Ag
+S 'mana drain' 100 Ag
+S 'control undead' 50 Ag
+S 'bone dragon' 80 Ag
 g male~
 #0
 
@@ -292,7 +294,7 @@ g male~
 ягоды, по середине  -  журчит родник с кристальной чистой водой и
 маленький ручеек скрывается в глубине леса.
 ~
-0 C forest
+0 Ci forest
 S
 #34481
 @eng Forest Kindom Inn@rus Постоялый двор 'Лесное Царство'~

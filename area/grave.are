@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Graveyard~
 VNUMs 3600 3699
 Credits Alfa~
@@ -17,10 +18,10 @@ decades of hard work and his somewhat crouched expression is one of deep
 sorrow and depression.  He is haunted by a memory of a lost paradise.
 ~
 human~
-AG 0 350 0
+Gm 0 0 0 0 350 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 sit sit male 2
 0 0 medium unknown
 #3601
@@ -31,10 +32,10 @@ A rotting zombie is staggering towards you with outstretched hands.
 Maggots crawl all over its decaying body.
 ~
 human~
-ABF J -750 0
+BFhl 0 0 0 Hn -750 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 2
 0 0 medium unknown
 #3602
@@ -46,10 +47,10 @@ It is a walking corpse with long fangs and long, sharp nails that most of
 resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
 ~
 human~
-ABF J -750 0
+BFhl 0 0 0 Hn -750 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 5
 0 0 medium unknown
 #3603
@@ -61,10 +62,10 @@ The dusty bones are almost brown.  It must have been buried for a very long
 time.
 ~
 human~
-ABF J -750 0
+BFhl 0 0 0 Hn -750 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 r bash -50
@@ -77,10 +78,10 @@ The dusty bones are almost brown.  It must have been buried for a very long
 time.
 ~
 human~
-AF J -750 0
+Fl 0 0 0 Hn -750 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNU 0 0 0
+EFNUklt
 stand stand male 0
 0 0 medium unknown
 r bash -50
@@ -92,10 +93,10 @@ A rotting zombie is staggering towards you with outstretched hands.
 Maggots crawl all over its decaying body.
 ~
 human~
-AF J -750 0
+Fl 0 0 0 Hn -750 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 5
 0 0 medium unknown
 #0
@@ -106,7 +107,7 @@ candlestick~
 a candlestick~
 A pewter candlestick is standing here.~
 wax~
-light 0 AO
+light 0 0 AOgu
 0 0 24 0 0
 0 50 10 P
 E
@@ -120,7 +121,7 @@ brandy bottle~
 a brandy bottle~
 A brandy bottle is lying here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 32 32 'whisky' 0 0
 0 20 100 P
 E
@@ -135,7 +136,7 @@ brandy bottle~
 a brandy bottle~
 A brandy bottle is lying here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 32 0 'whisky' 0 0
 0 20 100 P
 E
@@ -150,7 +151,7 @@ wheelbarrow~
 a wheelbarrow~
 A green-painted wheelbarrow is standing here.~
 wood~
-boat 0 A
+boat 0 0 Ag
 0 0 0 0 0
 0 1000 50 P
 E
@@ -164,7 +165,7 @@ shovel~
 a shovel~
 A shovel is lying here.~
 iron~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 1 5 'pound' 0
 0 80 169 P
 E
@@ -177,7 +178,7 @@ rake~
 a rake~
 A rake is lying here.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 1 4 'claw' 0
 0 80 140 P
 E
@@ -190,7 +191,7 @@ skeleton~
 a dusty skeleton~
 A dusty skeleton lies here.~
 bone~
-furniture 0 A
+furniture 0 0 Ag
 0 0 0 0 0
 0 150 0 P
 E
@@ -205,7 +206,7 @@ amethyst gem~
 a amethyst~
 A large, beautifully polished amethyst has been left here.~
 amethyst~
-warp_stone T AO
+warp_stone 0 Ci AOgu
 0 0 0 0 0
 0 10 2500 P
 E
@@ -218,7 +219,7 @@ pendant silver~
 a silver pendant~
 A silver pendant has been left here.~
 silver~
-jewelry 0 AC
+jewelry 0 0 ACgi
 0 0 0 0 0
 7 10 800 P
 A
@@ -235,7 +236,7 @@ dagger silver~
 a silver dagger~
 A long silver dagger is lying here.~
 silver~
-weapon 0 AN
+weapon 0 0 ANgt
 dagger 2 4 'pierce' 0
 6 10 430 P
 A
@@ -260,7 +261,7 @@ D0
 Through the solid iron bars you see Elm Street. 
 ~
 grate~
-ABZ -1 3124
+ABZgh -1 3124
 D1
 The gravel path leads eastwards between the dark evergreen trees.
 ~
@@ -349,7 +350,7 @@ D2
 The chapel door is made of dark wood.
 ~
 door~
-ABZ -1 3405
+ABZgh -1 3405
 D3
 The gravel path leads westwards between the dark evergreen trees.
 ~
@@ -380,18 +381,18 @@ Z -1 3608
 D5
 ~
 tomb stone~
-ABZ -1 3607
+ABZgh -1 3607
 S
 #3607
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3606
+ABZgh -1 3606
 S
 #3608
 A Gravel Path on the Graveyard~
@@ -417,18 +418,18 @@ Z -1 3610
 D5
 ~
 tomb stone~
-ABZ -1 3609
+ABZgh -1 3609
 S
 #3609
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3608
+ABZgh -1 3608
 S
 #3610
 A Gravel Path on the Graveyard~
@@ -454,18 +455,18 @@ Z -1 3612
 D5
 ~
 tomb stone~
-ABZ -1 3611
+ABZgh -1 3611
 S
 #3611
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3610
+ABZgh -1 3610
 S
 #3612
 A Gravel Path on the Graveyard~
@@ -487,18 +488,18 @@ D3
 It is a small black-painted shed with a wooden door.
 ~
 door~
-ABZ -1 3613
+ABZgh -1 3613
 S
 #3613
 In a shed on the Graveyard~
 You are in a small shed that looks as if it is used to store all sorts of
 gardening equipment.  The only exit appears to be through a door to the east.
 ~
-0 D city
+0 Dj city
 D1
 ~
 door~
-ABZ -1 3612
+ABZgh -1 3612
 S
 #3614
 A Gravel Path on the Graveyard~
@@ -524,18 +525,18 @@ Z -1 3612
 D5
 ~
 tomb stone~
-ABZ -1 3615
+ABZgh -1 3615
 S
 #3615
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3614
+ABZgh -1 3614
 S
 #3616
 A Gravel Path on the Graveyard~
@@ -561,18 +562,18 @@ Z -1 3618
 D5
 ~
 tomb stone~
-ABZ -1 3617
+ABZgh -1 3617
 S
 #3617
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3616
+ABZgh -1 3616
 S
 #3618
 A Gravel Path on the Graveyard~
@@ -598,18 +599,18 @@ Z -1 3604
 D5
 ~
 tomb stone~
-ABZ -1 3619
+ABZgh -1 3619
 S
 #3619
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3618
+ABZgh -1 3618
 S
 #3638
 A Gravel Path on the Graveyard~
@@ -635,18 +636,18 @@ Z -1 3604
 D5
 ~
 tomb stone~
-ABZ -1 3639
+ABZgh -1 3639
 S
 #3639
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3638
+ABZgh -1 3638
 S
 #3640
 A Gravel Path on the Graveyard~
@@ -672,18 +673,18 @@ Z -1 3638
 D5
 ~
 tomb stone~
-ABZ -1 3641
+ABZgh -1 3641
 S
 #3641
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3640
+ABZgh -1 3640
 S
 #3642
 A Gravel Path on the Graveyard~
@@ -709,18 +710,18 @@ Z -1 3640
 D5
 ~
 tomb stone~
-ABZ -1 3643
+ABZgh -1 3643
 S
 #3643
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3642
+ABZgh -1 3642
 S
 #3644
 A Gravel Path on the Graveyard~
@@ -746,18 +747,18 @@ Z -1 3642
 D5
 ~
 tomb stone~
-ABZ -1 3645
+ABZgh -1 3645
 S
 #3645
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3644
+ABZgh -1 3644
 S
 #3646
 A Gravel Path on the Graveyard~
@@ -783,18 +784,18 @@ Z -1 3648
 D5
 ~
 tomb stone~
-ABZ -1 3647
+ABZgh -1 3647
 S
 #3647
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3646
+ABZgh -1 3646
 S
 #3648
 A Gravel Path on the Graveyard~
@@ -820,18 +821,18 @@ Z -1 3646
 D5
 ~
 tomb stone~
-ABZ -1 3649
+ABZgh -1 3649
 S
 #3649
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3648
+ABZgh -1 3648
 S
 #3650
 A Gravel Path on the Graveyard~
@@ -857,18 +858,18 @@ Z -1 3600
 D5
 ~
 tomb stone~
-ABZ -1 3651
+ABZgh -1 3651
 S
 #3651
 In a dusty Tomb~
 You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
 ~
-0 AD city
+0 ADgj city
 D4
 ~
 tomb stone~
-ABZ -1 3650
+ABZgh -1 3650
 S
 #0
 

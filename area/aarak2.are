@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Aarakocran City~
 VNUMs 5600 5699
 Credits Slash~
@@ -16,10 +17,10 @@ A fat bird with shiny feathers.  He eyes you cautiously and suggests you LIST
 his wares.
 ~
 song bird~
-ABGe 0 0 0
+BGehm 0 0 0 0 0 0
 30 0 7d10+800 1d8+200 4d8+13 'crush'
 -25 -25 -25 -25
-E 0 0 0
+Ek
 stand stand male 1000
 0 0 medium unknown
 #5601
@@ -31,10 +32,10 @@ A tall skinny bird with many black feathers.  He eyes you harshly and
 suggests you LIST his rare, imported wares.
 ~
 song bird~
-ABGNe 0 0 0
+BGehm 0 0 0 0 0 0
 34 0 12d10+900 1d8+200 5d8+10 'crush'
 -25 -25 -25 -25
-E 0 0 0
+Ek
 stand stand male 10000
 0 0 medium unknown
 #5602
@@ -47,10 +48,10 @@ suggesting you LIST her wares, but decides she doesn't want to part with any of
 them.
 ~
 song bird~
-ABGe 0 0 0
+BGehm 0 0 0 0 0 0
 34 0 8d10+900 1d8+200 5d9+10 'crush'
 -25 -25 -25 -25
-0 0 0 0
+0
 stand stand male 10000
 0 0 medium unknown
 #5603
@@ -62,10 +63,10 @@ The child is very curious about everything about you.  He looks you over hoping
 you will give him a shiny piece of metal or a pretty stone.
 ~
 song bird~
-ACGHM P 100 0
+CGHimn 0 0 Gm 0 100 0
 15 -1 2d20+200 2d4+180 2d6+3 'crush'
 -3 -2 -3 7
-0 0 0 0
+0
 stand stand male 340
 0 0 medium unknown
 #5604
@@ -77,10 +78,10 @@ The child is very curious about everything about you.  She looks you over
 hoping you will give her a shiny piece of metal or a pretty stone.
 ~
 song bird~
-ACGHM P -100 0
+CGHimn 0 0 Gm 0 -100 0
 16 0 2d20+210 2d4+180 2d6+3 'crush'
 -3 -2 -3 7
-ENU 0 0 0
+ENUkt
 stand stand male 440
 0 0 medium unknown
 #5605
@@ -95,10 +96,10 @@ jagged scar on the left side of the taxidermist's face suggests that he can
 hold his own in a scrape.
 ~
 song bird~
-ABGNl 0 -200 0
+BGhm 0 0 0 0 -200 0
 23 0 7d10+900 1d8+180 5d4+13 'crush'
 -25 -25 -25 -25
-ENU 0 0 0
+ENUkt
 stand stand male 1000
 0 0 medium unknown
 r bash 100
@@ -130,10 +131,10 @@ jagged scar on the right side of the taxidermist's face suggests that he can
 hold his own in a scrape.
 ~
 song bird~
-ABGNe 0 0 0
+BGehm 0 0 0 0 0 0
 34 0 10d10+900 1d8+180 5d9+13 'claw'
 -25 -25 -25 -25
-E 0 0 0
+Ek
 stand stand male 10000
 0 0 medium unknown
 #5608
@@ -146,10 +147,10 @@ of a cliff.  He won't be able to fly until his arm bone has knitted back
 together again.
 ~
 song bird~
-ABG 0 -100 0
+BGhm 0 0 0 0 -100 0
 14 0 2d12+150 1d1+99 2d5+4 'crush'
 -3 -3 -3 5
-E 0 0 0
+Ek
 stand stand male 1000
 0 0 medium unknown
 #5609
@@ -161,10 +162,10 @@ The humming commander was moving tokens representing Aarakocran
 soldiers around a map, but he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFGl DFHQ 0 0
+BCFGhilm 0 Hn Bh ABgh 0 0
 30 0 3d30+1200 1d9+250 4d6+8 'crush'
 -9 -9 -9 5
-CER 0 0 0
+CERikx
 stand stand male 1000
 0 0 medium unknown
 #5610
@@ -176,10 +177,10 @@ The commander was calculating a new backbreaking tax on an abacus, but
  he pushes that aside and lunges at your throat!
 ~
 song bird~
-ABCFG DFHNQ 0 0
+BCFGhilm 0 HNnt Bh ABgh 0 0
 30 0 3d30+1200 1d9+250 6d4+8 'crush'
 -9 -9 -9 5
-CER 0 0 0
+CERikx
 stand stand male 1000
 0 0 medium unknown
 #5611
@@ -191,10 +192,10 @@ The proud Aarakocran warrior defends his city against all threats.  He has
 decided you are a threat.  Prepare to die, dirt dweller!
 ~
 song bird~
-AFG DF -100 0
+FGlm 0 0 0 ABgh -100 0
 27 0 5d10+650 4d60+4 5d4+7 'crush'
 -5 -6 -6 5
-CEIR 0 0 0
+CEIRikox
 stand stand male 1000
 0 0 medium unknown
 #5612
@@ -206,10 +207,10 @@ The proud Aarakocran warrior defends his city against all threats.  He has
 decided you are a threat.  Prepare to die, dirt dweller!
 ~
 song bird~
-ABFGT DF 100 5612
+BFGThlmz 0 0 0 ABgh 100 5612
 24 0 20d6+470 4d60+4 2d10+6 'crush'
 -6 -6 -6 6
-CDEIJKR 0 0 0
+CDEIJKRijkopqx
 stand stand male 1000
 0 0 medium unknown
 #5613
@@ -224,10 +225,10 @@ much better off before merchant outsiders corrupt Aarakocran ideals.  You
 represent such a threat, and you can see his eyes smoldering with inner hatred.
 ~
 song bird~
-ABGH CDF 100 0
+BGHhmn 0 0 0 ABKghq 100 0
 24 0 20d8+430 4d60+4 2d10+6 'crush'
 -6 -6 -6 4
-E 0 0 0
+Ek
 stand stand male 1000
 0 0 medium unknown
 #5614
@@ -239,10 +240,10 @@ A fat bird with a bad slouch.  He is festooned with all kinds of shiny and dull
 metal objects.  His name is Fred.  He asks if you are interested in a bargain?
 ~
 song bird~
-ABCGNel 0 0 0
+BCGehim 0 0 0 0 0 0
 34 0 1d1+30000 1d80+20 5d4+40 'crush'
 -25 -25 -25 -25
-CE 0 0 0
+CEik
 stand stand male 1000
 0 0 medium unknown
 r bash 100
@@ -271,10 +272,10 @@ The business man has an intent look in his eye.  He is much to busy to be
 concerned with you...
 ~
 song bird~
-ACHN P -100 0
+CHin 0 0 Gm 0 -100 0
 16 0 20d5+200 2d4+180 2d6+4 'crush'
 -2 -2 -2 7
-CE 0 0 0
+CEik
 stand stand female 1000
 0 0 medium unknown
 #5616
@@ -287,10 +288,10 @@ having your kind here is an insult to her people.  She considers slaying you,
 but decides you will probably get killed soon without her help.
 ~
 song bird~
-ACGHN P -100 0
+CGHimn 0 0 Gm 0 -100 0
 16 0 2d7+250 2d4+180 2d6+4 'crush'
 -2 -1 -3 5
-CE 0 0 0
+CEik
 stand stand female 1000
 0 0 medium unknown
 #5617
@@ -302,10 +303,10 @@ The clansman pulls a fat, juicy grub worm from the ground and pops it into his
 beak.  Your mouth waters as you imagine the delicate texture of the grub.
 ~
 song bird~
-ACGHM P -100 0
+CGHimn 0 0 Gm 0 -100 0
 18 0 2d9+300 2d4+180 2d7+4 'crush'
 -4 -4 -4 7
-CER 0 0 0
+CERikx
 stand stand male 1000
 0 0 medium unknown
 #5618
@@ -318,10 +319,10 @@ can still hold her own in a scrape.  The bald patches in her feathers are not a
 sign of disease but reminders of the day she slew two dragons singlehandedly.
 ~
 song bird~
-ABFG DF -100 0
+BFGhlm 0 0 0 ABgh -100 0
 28 0 5d10+560 4d60+40 5d4+7 'crush'
 -8 -8 -8 5
-CER 0 0 0
+CERikx
 stand stand male 1000
 0 0 medium unknown
 #5619
@@ -335,10 +336,10 @@ impressively, and you notice this is the first aarakocran you have seen with
 really beefy legs as a powerful KICK knocks the wind out of you.
 ~
 song bird~
-ABFG DF -100 0
+BFGhlm 0 0 0 ABgh -100 0
 25 0 5d10+550 4d60+40 2d10+7 'crush'
 -7 -7 -7 6
-CE 0 0 0
+CEik
 stand stand male 1000
 0 0 medium unknown
 #5620
@@ -353,10 +354,10 @@ for a large metal furnace.
    He looks powerful enough to claw your face to shreds with a single swath.
 ~
 song bird~
-ABGNe 0 0 0
+BGehm 0 0 0 0 0 0
 34 0 10d10+1500 1d8+200 5d10+30 'crush'
 -25 -25 -25 -25
-CEIR 0 0 0
+CEIRikox
 stand stand male 1000
 0 0 medium unknown
 #5621
@@ -368,10 +369,10 @@ As the armorer looks up at you, the hammer comes down upon his claw and he
 lets out a piercing shriek.
 ~
 song bird~
-ABGe 0 0 0
+BGehm 0 0 0 0 0 0
 34 0 11d11+1500 1d8+200 5d6+30 'crush'
 -25 -25 -25 -25
-CEIKR 0 0 0
+CEIKRikoqx
 stand stand male 1000
 0 0 medium unknown
 #5622
@@ -383,10 +384,10 @@ The shaman's plumage is generally a drab grey, but there is a tremendous
 orange and yellow starburst on her chest.
 ~
 song bird~
-ABGKOl H 0 0
+BGOhmu Dj Hn 0 0 0 0
 30 0 10d10+1200 1d1+99 5d9+16 'crush'
 -25 -25 -25 -25
-CEIKR 0 0 0
+CEIKRikoqx
 stand stand male 1000
 0 0 medium unknown
 r bash 100
@@ -414,10 +415,10 @@ Your guildmaster is picking a *HUGE* (Glowing) Mithral lock.
 well, COUNT your money!
 ~
 song bird~
-ABGKSel J 0 0
+BGSehmy Dj 0 0 Hn 0 0
 19 0 10d10+400 1d8+20 10d5+10 'crush'
 -25 -25 -25 -25
-EIKNR 0 0 0
+EIKNRkoqtx
 stand stand male 1000
 0 0 medium unknown
 r bash 100
@@ -447,10 +448,10 @@ muscles rippling down his legs, wings, and chest.  He has an air of command and
 military discipline.
 ~
 song bird~
-ABKTl 0 0 0
+BThz Dj 0 0 0 0 0
 30 0 1d1+1500 1d8+200 5d9+15 'crush'
 -25 -25 -25 -25
-CDEIJKR 0 0 0
+CDEIJKRijkopqx
 stand stand male 1000
 0 0 medium unknown
 r bash 100
@@ -479,10 +480,10 @@ The cityguard is charged with keeping peace within the city.  She is especially
 on the lookout for the person who stole from the military treasury last week.
 ~
 song bird~
-ACGT 0 1000 0
+CGTimz 0 0 0 0 1000 0
 19 0 2d6+310 1d1+99 2d7+5 'crush'
 -4 -4 -4 2
-CDEIR 0 0 0
+CDEIRijkox
 stand stand female 1000
 0 0 medium unknown
 #5626
@@ -494,10 +495,10 @@ The cityguard is charged with keeping peace within the city.  He is especially
 on the lookout for the person who stole from the military treasury last week.
 ~
 song bird~
-ACG 0 1000 0
+CGim 0 0 0 0 1000 0
 17 0 2d6+260 1d1+99 3d4+4 'crush'
 -4 -4 -4 6
-CDER 0 0 0
+CDERijkx
 stand stand male 1000
 0 0 medium unknown
 #5627
@@ -509,10 +510,10 @@ The cityguard is charged with defending the temple against invaders from the
 north.
 ~
 song bird~
-ABCG 0 1000 5627
+BCGhim 0 0 0 0 1000 5627
 18 0 2d6+260 1d1+99 4d3+4 'crush'
 -4 -4 -4 6
-CDEIR 0 0 0
+CDEIRijkox
 stand stand male 1000
 0 0 medium unknown
 #5628
@@ -534,10 +535,10 @@ A recipe comes to mind...
    (leg of a small bat also makes a handy snack!)
 ~
 bat~
-ABFH 0 -400 0
+BFHhln 0 0 0 0 -400 0
 5 0 1d6+55 1d4+36 1d6+1 'grep'
 7 7 7 9
-0 0 0 0
+0
 stand stand male 1000
 0 0 small unknown
 #5629
@@ -553,10 +554,10 @@ his pitiful life, but occasionally closes his eyes and lets out a whimpering
 moan.
 ~
 kobold~
-AB P 1000 0
+Bh 0 0 Gm 0 1000 0
 1 0 1d6+10 1d1+49 1d4+0 'smash'
 9 9 9 9
-0 0 0 0
+0
 stand stand male 1000
 0 0 small unknown
 #0
@@ -567,8 +568,8 @@ worm crisps~
 a packet of worm crisps~
 You are enticed by the odor of spicy worm crisps.~
 food~
-food 0 A
-CE CE 0 0 0
+food 0 0 Ag
+CEik CEik 0 0 0
 1 10 5 P
 g none~
 #5601
@@ -576,8 +577,8 @@ bowl curry curried grubs~
 a bowl of curried grubs~
 You smell the delicate aroma of curried grubs.~
 food~
-food 0 A
-BEF BEF 0 0 0
+food 0 0 Ag
+BEFhkl BEFhkl 0 0 0
 2 1 30 P
 g none~
 #5602
@@ -585,8 +586,8 @@ cup spicy rodent stew~
 a cup of spicy rodent stew~
 A cup with some red liquid rests here.~
 food~
-food 0 A
-DF DF 0 0 0
+food 0 0 Ag
+DFjl DFjl 0 0 0
 3 1 25 P
 g none~
 #5603
@@ -594,8 +595,8 @@ meat seasoned rat kabob~
 a seasoned rat kabob~
 Some meat and vegetables on a stick lies on the ground.~
 food~
-food 0 A
-BCDE BCDE 0 0 0
+food 0 0 Ag
+BCDEhijk BCDEhijk 0 0 0
 1 1 20 P
 g none~
 #5604
@@ -603,8 +604,8 @@ raw worms rice~
 raw worms with rice~
 Your mouth waters at the sight of raw worms.~
 food~
-food 0 A
-BCDE BCDE 0 0 0
+food 0 0 Ag
+BCDEhijk BCDEhijk 0 0 0
 1 1 20 P
 g none~
 #5605
@@ -612,7 +613,7 @@ talon extenders~
 some talon extenders~
 Some shiny metal talons catch your fancy.~
 steel~
-armor 0 AH
+armor 0 0 AHgn
 5 6 5 1 0
 5 100 800 G
 A
@@ -623,7 +624,7 @@ packet black centipede spice~
 spice of the black, aquatic centipede~
 A packet of black spice has been forgotten here.~
 glass~
-pill 0 A
+pill 0 0 Ag
 20 'teleport' '' '' ''
 1 10 100 P
 g none~
@@ -632,7 +633,7 @@ seaweed~
 aromatic seaweed~
 You smell the dreamy smell of seaweed.~
 glass~
-pill 0 A
+pill 0 0 Ag
 20 'detect magic' '' '' ''
 2 100 100 P
 g none~
@@ -641,7 +642,7 @@ chameleon~
 a desiccated chameleon~
 A small chameleon corpse blends in with the ground.~
 snakeskin~
-pill 0 A
+pill 0 0 Ag
 11 'detect invis' '' '' ''
 3 100 300 P
 g none~
@@ -650,7 +651,7 @@ giant squid eye eyeball~
 the eye of a giant squid~
 An eyeball looks up at you strangely.~
 gut~
-pill 0 A
+pill 0 0 Ag
 13 'poison' 'plague' '' ''
 4 100 100 P
 g none~
@@ -659,7 +660,7 @@ shiny bit green glass~
 a shiny bit of green glass~
 You see a shiny bit of green glass and need to possess it.~
 glass~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 8 10 640 P
 A
@@ -670,7 +671,7 @@ shiny bit blue glass~
 a shiny bit of blue glass~
 You see a shiny bit of blue glass and decide it will soon be yours.~
 glass~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 8 10 650 P
 A
@@ -681,7 +682,7 @@ gold circlet~
 a bright gold circlet~
 You have a sudden urge to pick up a bright gold circlet.~
 gold~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 8 10 680 P
 A
@@ -692,7 +693,7 @@ piece string~
 a pretty piece of string~
 The most beautiful piece of string you have ever seen rests here.~
 steel~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 10 10 600 P
 A
@@ -703,7 +704,7 @@ silver coin disk~
 one silver coin~
 A shiny silver disk seems to call your name.~
 silver~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 1 10 100 P
 g none~
@@ -712,7 +713,7 @@ red glass~
 glittering red glass~
 You decide the important thing in your life is having some red glass.~
 glass~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 1 10 20 P
 g none~
@@ -721,7 +722,7 @@ ball string~
 a ball of string~
 A ball of string asks to be unrolled and hidden in your nest.~
 glass~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 1 10 300 P
 g none~
@@ -730,7 +731,7 @@ red string thread~
 a fine red thread~
 A thin piece of string has the deepest color you have ever seen.~
 glass~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 1 10 40 P
 g none~
@@ -739,7 +740,7 @@ gem garnet stone~
 a flawed garnet stone~
 A gem glows with a mystical inner light.~
 stone~
-trash A A
+trash Ag 0 Ag
 0 0 0 0 0
 1 10 50 P
 g none~
@@ -748,7 +749,7 @@ nest~
 a fancy nest~
 A fancy nest of string and straw seems very inviting.~
 wood~
-container 0 0
+container 0 0 0
 10000 0 0 0 0
 1 0 0 P
 g none~
@@ -757,7 +758,7 @@ nest~
 a straw nest~
 A straw nest with shiny twigs makes you feel sleepy.  ~
 wood~
-container 0 0
+container 0 0 0
 10000 0 0 0 0
 1000 0 0 P
 g none~
@@ -766,7 +767,7 @@ nest~
 a huge nest~
 A huge family nest of rough twigs looks preferable to adventuring.  ~
 wood~
-container 0 0
+container 0 0 0
 10000 0 0 0 0
 1000 0 0 P
 g none~
@@ -775,7 +776,7 @@ hand ashtray~
 an ashtray~
 An ashtray made out of the hand of a smurf lies on the floor.~
 gut~
-furniture 0 AO
+furniture 0 0 AOgu
 0 0 0 0 0
 1 1 0 P
 g none~
@@ -784,7 +785,7 @@ stuffed snow leopard~
 a stuffed snow leopard~
 A magnificent stuffed snow leopard almost appears to be walking.~
 gut~
-furniture 0 AL
+furniture 0 0 ALgr
 0 0 0 0 0
 1 20 0 P
 g none~
@@ -793,8 +794,8 @@ stuffed jaguar~
 a stuffed jaguar~
 A stuffed giant king jaguar appears to pace menacingly.~
 paper~
-furniture 0 0
-CEFGHI 0 0 0 0
+furniture 0 0 0
+CEFGHIiklmno 0 0 0 0
 500 0 0 P
 g none~
 #5625
@@ -802,7 +803,7 @@ stuffed orc~
 a stuffed orc~
 A stuffed orc in combat pose is glued to the floor.~
 paper~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 500 0 0 P
 g none~
@@ -811,7 +812,7 @@ stuffed grizzly bear~
 a stuffed grizzly bear~
 A stuffed grizzly bear prepares to maul you.  ~
 wood~
-container 0 0
+container 0 0 0
 500 0 0 0 0
 1 0 0 P
 g none~
@@ -820,7 +821,7 @@ dragon head~
 a stuffed dragon's head~
 A fierce dragon's head is nailed to the wall.~
 wood~
-treasure 0 0
+treasure 0 0 0
 0 0 0 0 0
 5 0 100 P
 g none~
@@ -829,7 +830,7 @@ glass eye~
 a glass eye~
 A glass eye looks back at you.~
 glass~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 10 4 10 P
 A
@@ -840,8 +841,8 @@ glass eye~
 a glass eye~
 A flawed glass eye looks back at you.~
 glass~
-trash 0 A
-CEFGHI 0 0 0 0
+trash 0 0 Ag
+CEFGHIiklmno 0 0 0 0
 5 2 3 P
 g none~
 #5630
@@ -849,8 +850,8 @@ painting~
 a strange bird painting~
 A strange bird painting hangs on the wall.~
 paper~
-furniture 0 0
-CEFGHI 0 0 0 0
+furniture 0 0 0
+CEFGHIiklmno 0 0 0 0
 50 0 0 P
 E
 painting~
@@ -865,7 +866,7 @@ hand ashtray~
 an ashtray~
 An ashtray made out of the hand of a dwarf lies on the floor.~
 gold~
-treasure G AO
+treasure Gm 0 AOgu
 0 0 0 0 0
 10 550 1000 P
 A
@@ -876,7 +877,7 @@ canoe~
 a light weight canoe~
 A canoe is lies here unused.~
 wood~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 4 0 0 P
 E
@@ -889,7 +890,7 @@ chain collar~
 a thick collar and chain~
 An empty chain and collar rest here.~
 copper~
-armor 0 AC
+armor 0 0 ACgi
 5 5 5 1 0
 1 1000 100 G
 g none~
@@ -898,7 +899,7 @@ bottle potion clear~
 a clear potion with feathers inside~
 Feathers float about inside a clear bottle.~
 glass~
-potion 0 AO
+potion 0 0 AOgu
 5 'fly' '' '' ''
 1 50 1001 P
 g none~
@@ -907,7 +908,7 @@ tapestry~
 a faded tapestry~
 A faded tapestry depicts the famous "Battle of the 1000".  ~
 wood~
-container 0 0
+container 0 0 0
 10000 0 0 0 0
 100 0 0 P
 g none~
@@ -916,7 +917,7 @@ sword~
 a sword~
 You see a sword here.~
 steel~
-weapon AG AN
+weapon AGgm 0 ANgt
 sword 5 6 'pierce' 0
 25 100 1000 P
 A
@@ -929,7 +930,7 @@ mace~
 a mace~
 You see a mace here.~
 bronze~
-weapon AG AN
+weapon AGgm 0 ANgt
 mace 5 7 'crush' 0
 27 100 3000 P
 A
@@ -942,7 +943,7 @@ vest~
 an open-winged vest~
 You see an Aarakocran-manufacture open-winged vest here.~
 steel~
-armor AO AD
+armor Ag Ag ADgj
 5 5 5 1 1
 5 100 1000 G
 E
@@ -957,7 +958,7 @@ shield spiked~
 a wicked, spiked shield~
 You see a shield here.~
 steel~
-armor AO AJ
+armor Ag Ag AJgp
 5 5 5 1 1
 5 100 1000 G
 A
@@ -968,7 +969,7 @@ cloak~
 a cloak~
 You see a cloak here.~
 wool~
-armor A AC
+armor Ag 0 ACgi
 5 5 5 1 1
 5 100 1000 G
 g none~
@@ -977,7 +978,7 @@ helmet~
 a full-view helmet~
 You see an Aarakocran-manufacture full-view helmet here.~
 steel~
-armor AO AE
+armor Ag Ag AEgk
 5 1 1 1 1
 5 100 100 G
 E
@@ -992,7 +993,7 @@ leggings~
 a pair of leggings~
 You see a pair of leggings here.~
 steel~
-armor AO AF
+armor Ag Ag AFgl
 5 10 10 1 1
 5 100 1000 G
 g none~
@@ -1001,7 +1002,7 @@ boots~
 a pair of open-toe boots~
 You see a pair of Aarakocran-manufacture boots here.~
 snakeskin~
-armor A AG
+armor Ag 0 AGgm
 5 5 5 1 1
 17 100 800 G
 A
@@ -1018,7 +1019,7 @@ talon extenders talons~
 a pair of talon extenders~
 You see a pair of talon extenders here.~
 tin~
-armor AO AH
+armor Ag Ag AHgn
 5 1 1 1 1
 5 100 1000 G
 A
@@ -1029,7 +1030,7 @@ wing guards wingguards~
 a pair of wing guards~
 You see a pair of wing guards here.~
 iron~
-armor AO AI
+armor Ag Ag AIgo
 5 5 5 1 1
 5 100 1000 G
 g none~
@@ -1038,7 +1039,7 @@ cape~
 a cape~
 You see a cape here.~
 snakeskin~
-armor A AK
+armor Ag 0 AKgq
 5 3 3 1 1
 5 100 1000 G
 g none~
@@ -1047,7 +1048,7 @@ belt~
 a belt~
 You see a belt here.~
 copper~
-armor A AL
+armor Ag 0 ALgr
 5 3 3 1 1
 3 100 1000 G
 g none~
@@ -1056,7 +1057,7 @@ bracer~
 a bracer~
 You see a bracer here.~
 tin~
-armor AO AM
+armor Ag Ag AMgs
 5 5 5 2 1
 5 100 1000 G
 g none~
@@ -1065,7 +1066,7 @@ vest~
 an open-winged vest~
 You see an Aarakocran-manufacture open-winged vest here.~
 steel~
-armor B AD
+armor Bh 0 ADgj
 5 5 5 5 1
 5 100 1000 G
 E
@@ -1080,7 +1081,7 @@ shield spiked~
 a wicked, spiked shield~
 You see a wicked, spiked shield here.~
 steel~
-armor BO AJ
+armor Bh Ag AJgp
 5 5 5 5 5
 5 100 1000 G
 A
@@ -1091,7 +1092,7 @@ cloak~
 a cloak~
 You see a cloak here.~
 wool~
-armor B AC
+armor Bh 0 ACgi
 5 3 4 1 1
 5 100 1000 G
 g none~
@@ -1100,7 +1101,7 @@ helmet~
 a full-view helmet~
 You see an Aarakocran-manufacture full-view helmet here.~
 brass~
-armor BO AE
+armor Bh Ag AEgk
 5 3 4 1 1
 5 100 1000 G
 E
@@ -1115,7 +1116,7 @@ leggings~
 a pair of leggings~
 You see a pair of leggings here.~
 steel~
-armor BO AF
+armor Bh Ag AFgl
 5 5 5 3 1
 5 100 1000 G
 g none~
@@ -1124,7 +1125,7 @@ boots~
 a pair of open-toe boots~
 You see a pair of Aarakocran-mangufacture boots here.~
 brass~
-armor B AG
+armor Bh 0 AGgm
 5 3 4 3 1
 5 110 1000 G
 A
@@ -1141,7 +1142,7 @@ talon extenders~
 a pair of talon extenders~
 You see a pair of talon extenders here.~
 bronze~
-armor BO AH
+armor Bh Ag AHgn
 5 1 1 1 0
 5 100 1000 G
 A
@@ -1152,7 +1153,7 @@ sleeves~
 a pair of sleeves~
 You see a pair of sleeves here.~
 steel~
-armor BO AI
+armor Bh Ag AIgo
 5 3 3 1 1
 5 100 1000 G
 g none~
@@ -1161,7 +1162,7 @@ cape~
 a cape~
 You see a cape here.~
 wool~
-armor BO AK
+armor Bh Ag AKgq
 5 4 4 1 1
 5 100 1000 G
 g none~
@@ -1170,7 +1171,7 @@ belt~
 a belt~
 You see a belt here.~
 tin~
-armor B AL
+armor Bh 0 ALgr
 5 5 5 1 1
 5 100 1000 G
 g none~
@@ -1179,7 +1180,7 @@ bracer~
 a bracer~
 You see a bracer here.~
 steel~
-armor BO AM
+armor Bh Ag AMgs
 5 5 5 1 1
 5 100 1000 G
 g none~
@@ -1188,7 +1189,7 @@ purse~
 a generic purse~
 A generic purse generates the VNUM for the 'make purse' spell.  ~
 steel~
-container 0 A
+container 0 0 Ag
 50 0 0 0 0
 5 50 0 P
 g none~
@@ -1197,7 +1198,7 @@ fire campfire~
 a campfire~
 There are the remains of a campfire here.  ~
 flame~
-container 0 0
+container 0 0 0
 10000 0 0 0 0
 5 0 0 P
 g none~
@@ -1206,7 +1207,7 @@ gold key~
 a shiny gold key~
 A shiny key gives a glint of gold.~
 gold~
-key AB A
+key ABgh 0 Ag
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -1215,7 +1216,7 @@ string green thread~
 a frayed bit of green thread~
 A piece of string, beautiful beyond measure, looks loose.~
 steel~
-staff AG AO
+staff AGgm 0 AOgu
 6 1 1 'charm person' 0
 6 1 1000 P
 g none~
@@ -1224,7 +1225,7 @@ stuffed polar bear~
 a stuffed polar bear~
 A stuffed polar bear prepares to maul you.  ~
 wood~
-container 0 0
+container 0 0 0
 500 0 0 0 0
 500 0 0 P
 g none~
@@ -1233,7 +1234,7 @@ small talon extenders~
 some small talon extenders~
 A pair of small shiny metal talons catch your fancy.~
 iron~
-armor 0 AH
+armor 0 0 AHgn
 5 5 5 3 1
 17 70 700 G
 A
@@ -1244,7 +1245,7 @@ small mace~
 a small mace~
 You see a small mace here.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 5 5 'pound' 0
 16 10 999 G
 A
@@ -1257,7 +1258,7 @@ small sticker~
 a small rat sticker~
 A small rat sticker would come in handy, and there is one here.~
 rubber~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 5 5 'pound' 0
 15 100 8880 G
 A
@@ -1276,7 +1277,7 @@ large sticker~
 a large rat sticker~
 A large rat sticker causes you to dream of a large rat dinner.~
 rubber~
-weapon 0 AN
+weapon 0 0 ANgt
 mace 5 5 'pound' 0
 17 140 7770 G
 A
@@ -1295,7 +1296,7 @@ helmet~
 a full-view helmet of plate~
 You see an Aarakocran-manufacture full-view helmet here.~
 steel~
-armor O AE
+armor 0 Ag AEgk
 5 5 5 1 1
 15 100 1000 G
 E
@@ -1310,7 +1311,7 @@ vest~
 an open-winged vest~
 You see an Aarakocran-manufacture open-winged vest here.~
 snakeskin~
-armor 0 AD
+armor 0 0 ADgj
 6 5 7 1 1
 16 100 1000 G
 E
@@ -1325,7 +1326,7 @@ boots~
 a pair of open-toe boots~
 You see a pair of Aarakocran-mangufacture boots here.~
 brass~
-armor 0 AG
+armor 0 0 AGgm
 5 6 7 1 1
 5 100 1000 G
 A
@@ -1342,8 +1343,8 @@ lump metal~
 a lump of shiny metal~
 A lump of shiny metal is a good thing to carry around and possess.~
 iron~
-trash 0 A
-CEFGHI 0 0 0 0
+trash 0 0 Ag
+CEFGHIiklmno 0 0 0 0
 5 0 0 G
 g none~
 #5673
@@ -1351,7 +1352,7 @@ pick lockpick metal bit~
 a lockpick~
 A L-shaped bit of metal has been left on the ground.~
 steel~
-treasure 0 AO
+treasure 0 0 AOgu
 0 0 0 0 0
 1 55 10 G
 A
@@ -1362,7 +1363,7 @@ bottle alcohol rotgut~
 a bottle of rotgut~
 You are surprised to see a bottle of alcohol out in the open.~
 glass~
-drink 0 A
+drink 0 0 Ag
 8 8 'vodka' 0 0
 10 5 140 G
 g none~
@@ -1371,7 +1372,7 @@ cracked crystal ball~
 a crystal ball~
 A broken crystal ball has been abandoned here.~
 glass~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 5 12 50 G
 E
@@ -1386,7 +1387,7 @@ rock~
 a worthless rock~
 A worthless rock that is very important to a lonely kobold rests here.~
 stone~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 1 20 300 G
 E
@@ -1400,7 +1401,7 @@ flying helmet~
 a leather flying helmet~
 You see an Aarakocran-manufacture leather flying helmet here.~
 steel~
-armor 0 AE
+armor 0 0 AEgk
 5 6 7 3 1
 16 100 1200 G
 E
@@ -1414,7 +1415,7 @@ wing guards wingguards~
 a pair of tough leather wing guards~
 You see a pair of tough leather wing guards here.~
 iron~
-armor 0 AI
+armor 0 0 AIgo
 5 5 5 3 1
 12 100 400 G
 g none~
@@ -1423,7 +1424,7 @@ fountain water~
 a fountain~
 A large fountain gushes forth here.~
 marble~
-fountain G 0
+fountain Gm 0 0
 100000 10000 'milk' 0 0
 0 0 0 P
 g none~
@@ -1432,7 +1433,7 @@ cannon tube~
 a cannon~
 A mysterious thick metal tube rests here.~
 steel~
-wand 0 AO
+wand 0 0 AOgu
 50 1 1 'high explosive' 0
 20 12 34570 G
 E
@@ -1446,7 +1447,7 @@ skin waterskin~
 a water skin~
 A soggy leather skin looks like it might hold water.~
 leather~
-drink 0 A
+drink 0 0 Ag
 100 100 'water' 0 0
 2 30 400 G
 g none~
@@ -1455,7 +1456,7 @@ bug glowbug chitin~
 a dead glowbug~
 You see the shiny chitin of a dead glowbug.~
 gut~
-light G A
+light Gm 0 Ag
 0 0 80 0 0
 5 33 567 P
 g none~
@@ -1468,7 +1469,7 @@ Ahh; to be in the air again, unencumbered by the cares of the material world
 and flying free above all other creatures.  You sense that the wind patterns
 are shifting, something very strange is going on below.
 ~
-0 C air
+0 Ci air
 D1
 ~
 ~
@@ -1521,7 +1522,7 @@ The Taxidermist's Gallery~
 You gape in amazement at how incredibly lifelike some of the stuffed animals
 and trophies appear.
 ~
-0 D inside
+0 Dj inside
 D1
 You see the sales counter.
 ~
@@ -1534,7 +1535,7 @@ You stand in a huge temple hewn directly from the cliff wall.  Giant murals
 depict fierce Aarakocran warriors flying into battle on the tails of
 whirlwinds.  There is a small plaque at eye level.
 ~
-0 DK city
+0 DKjq city
 E
 plaque~
 Slash decided when he was 17 years old to leave behind the strife and class
@@ -1580,7 +1581,7 @@ You are standing on a small ledge on the South face of the cliff.  There is
 nothing to the North, and you are totally blocked on all sides by steep cliff
 walls.
 ~
-0 C mountain
+0 Ci mountain
 E
 stone~
 The stone looks pretty heavy.  In fact, this would be the perfect stone to
@@ -1594,7 +1595,7 @@ D2
 A big stone blocks your path.
 ~
 stone~
-ABZ -1 5695
+ABZgh -1 5695
 S
 #5606
 Cave Entrance~
@@ -1602,7 +1603,7 @@ There is a large cave entrance to the South, and you can walk East along a
 narrow ledge.  There is nothing to the North.
    There is some (Flaming) writing on the cave entrance.
 ~
-0 C mountain
+0 Ci mountain
 E
 wall cave entrance writing~
 The wall reads:
@@ -1771,7 +1772,7 @@ This building has no exit to the south, as the warriors do not like having
 their privacy violated.  You see lots of equipment to practice with, and a
 huge set of weights.
 ~
-0 CD city
+0 CDij city
 D3
 ~
 ~
@@ -1840,7 +1841,7 @@ A giant grizzly bear's slash *** DEMOLISHES *** you.
 collection of heads, including a roc's, a dragon's, and a minotaur's.  There
 is a large gallery to the east.
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -2119,7 +2120,7 @@ the south face of the valley is not reachable except from the air.
 able to find some very valuable shiny stuff.  Your heart races as you imagine
 yourself living in such splendor one day.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -2207,7 +2208,7 @@ bigger and better booties, but the recent prosperity of the shopkeepers has
 caused operations to begin expanding again.
 You see a thin leather book tied to a string on the wall.
 ~
-0 ADK mountain
+0 ADKgjq mountain
 E
 book~
 The book is titled 'So You Want to be a Thief', by someone named Slash.
@@ -2270,7 +2271,7 @@ WALK INTO AN AGGRESSIVE AREA stealthily.  Use invisibility for this...
 D2
 ~
 ~
-ABZ -1 5640
+ABZgh -1 5640
 S
 #5634
 On the north cliff face~
@@ -2396,7 +2397,7 @@ fact, what you thought was the cliff face is a cave that is completely
 obscured.
 ~
 secret panel~
-ABZ -1 5633
+ABZgh -1 5633
 D1
 ~
 ~
@@ -2558,7 +2559,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -2578,7 +2579,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -2598,7 +2599,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -2618,7 +2619,7 @@ Inside the stronghold~
 You wonder where all the valuables are kept.  You see some nice tapestries
 around, but nothing you can take home with you.  The corridor dead ends here.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -2651,7 +2652,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -2671,7 +2672,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -2691,7 +2692,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -2711,7 +2712,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -2723,7 +2724,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -2735,7 +2736,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -2800,7 +2801,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -2904,7 +2905,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -2916,7 +2917,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -2928,7 +2929,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -3088,7 +3089,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -3108,7 +3109,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -3256,7 +3257,7 @@ This corridor splits into two sections heading N and E, both sections look
 equally interesting and you have a hard time making up your mind.  It is
 obvious from your footprints that W leads out of this confusing area.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -3267,7 +3268,7 @@ Corridor~
 This corridor looks frequently traveled, so you hunch down and try to look
 inconspicuous.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -3403,7 +3404,7 @@ It doesn't look like there are any valuables here.  You don't understand how
 anyone could plan anything without nice things around to bring peace and
 comfort.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -3415,7 +3416,7 @@ It doesn't look like there are any valuables here.  You don't understand how
 anyone could fight anyone without nice things around to bring peace and
 comfort.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -3425,7 +3426,7 @@ S
 Empty Room~
 It doesn't look like there are any valuables here.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -3435,7 +3436,7 @@ S
 Walkway~
 It doesn't look like there are any valuables here.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -3450,7 +3451,7 @@ Captain of the Guard's office~
 It doesn't look like there are any valuables here.  You don't understand how
 anyone could work without nice things around to bring peace and comfort.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -3461,7 +3462,7 @@ Secretary's Office~
 It doesn't look like there are any valuables here.  You don't understand how
 anyone could work without nice things around to bring peace and comfort.
 ~
-0 D city
+0 Dj city
 E
 stone~
 The stone is so big it looks like the hole it is filling would be big enough
@@ -3471,7 +3472,7 @@ D0
 A big stone blocks your escape.
 ~
 stone~
-ABZ -1 5605
+ABZgh -1 5605
 D1
 ~
 ~
@@ -3486,11 +3487,11 @@ Three way intersection~
 You see a very nice carpet leading off to the West, and a hole leads Down.
 To leave the cave complex, go Up.
 ~
-0 D city
+0 Dj city
 D2
 ~
 door~
-ABCFZ 5662 5698
+ABCFZghil 5662 5698
 D3
 ~
 ~
@@ -3510,7 +3511,7 @@ Strangely, this 'storage room' seems to be full of boxes of drab colored
 equipment and bland seed rations.  You wonder why they call it a storage room
 if they are not storing anything really valuable here.
 ~
-0 D city
+0 Dj city
 D4
 ~
 ~
@@ -3521,11 +3522,11 @@ Corridor~
 This corridor looks frequently traveled, so you hunch down and try to look
 inconspicuous.
 ~
-0 D city
+0 Dj city
 D0
 ~
 door~
-ABCFZ 5662 5696
+ABCFZghil 5662 5696
 D1
 There are some heavy footprints leading to the west, so I would suggest
 avoiding this area and turning around right now.
@@ -3541,7 +3542,7 @@ calendars, and star charts.
    In the center of the room is a huge mosaic, made of thousands of bits of
 glass.
 ~
-0 DK city
+0 DKjq city
 E
 mosaic~
 You stare in awe at the aching beauty of a quarter-completed mosaic of a huge

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Lich Tower~
 VNUMs 29300 29399
 Credits Ryzen~
@@ -20,12 +21,12 @@ necromancy, they were the most renown knights of their day.
 лучших бойцов.
 ~
 undead~
-AFGO c -1000 0
+FGOlmu 0 c 0 0 -1000 0
 20 0 7d45+300 25d10+100 4d5+10 'magic'
 -2 -2 -2 4
-CDEIKU 0 0 0
+CDEIKUijkoq
 stand stand none 800
-0 ABCDEFGHIJK medium unknown
+0 0 medium unknown
 r fire -50
 r cold 33
 r lightning 33
@@ -46,12 +47,12 @@ them.
 столе.  
 ~
 zombie~
-ABOQ cu -1000 0
+BOQhuw 0 c 0 0 -1000 0
 30 0 10d61+616 30d10+100 5d6+15 'magic'
 -9 -9 -9 0
-CN 0 0 0
+CNit
 stand stand none 800
-0 ABCDEFGHIJK medium unknown
+0 0 medium unknown
 r fire 33
 r holy 33
 #29352
@@ -70,12 +71,12 @@ and fangs it uses as weapons make you consider running as fast as posible.
 и тебе нужно поспешить хоть что-то противопоставить им, что бы выжить.
 ~
 human~
-ABT T -1000 0
+BThz 0 Tz 0 0 -1000 0
 30 30 10d61+1600 45d10+100 5d8+19 'magic'
 -9 -9 -9 0
-CDFHK 0 0 0
+CDFHKijlnq
 stand stand male 800
-C 0 medium unknown
+Ci 0 medium unknown
 r fire 100
 r cold -50
 r holy -50
@@ -100,12 +101,12 @@ corrupt your soul.  Fear him mortal for you are about to die.
 душу.  Смертельный ужас наполняет тебя предчувствием конца.  
 ~
 dragon~
-ABOT 0 -1000 0
+BOThuz 0 0 0 0 -1000 0
 45 45 10d150+1000 45d10+950 11d5+35 'magic'
 -18 -18 -18 -4
-ACFKM 0 0 0
+ACFKMgilqs
 stand stand none 800
-Cc L large unknown
+Cci Lr large unknown
 r pierce 0
 r slash 33
 r holy -50
@@ -135,12 +136,12 @@ now spends his time searching for ways to end all life in StormFront.
 прекращению всякой жизни.  
 ~
 lich~
-ABOQR Ju -1000 0
+BOQRhuwx 0 0 0 Hn -1000 0
 55 55 15d300+2000 45d10+1950 9d11+45 'magic'
 -24 -24 -24 -7
-IJN 0 0 0
+IJNopt
 stand stand none 800
-0 ABCDEFGHIJK medium unknown
+0 0 medium unknown
 r fire 33
 r acid 33
 r holy 0
@@ -166,12 +167,12 @@ perhaps you should run now, before you're dead.  ;>
 тебе придется снова драться, но недолго - до самой смерти...
 ~
 dracolich~
-ABOT 0 -1000 0
+BOThuz 0 0 0 0 -1000 0
 40 40 10d150+1500 45d10+1950 8d6+28 'magic'
 -15 -15 -15 -2
-CDFMO 0 0 0
+CDFMOijlsu
 stand stand none 800
-c ALPQUVX giant unknown
+c Lr giant unknown
 r fire 0
 r acid 33
 r holy -50
@@ -192,12 +193,12 @@ is much larger and appears to be more powerful as well.
 сильная тварь.  
 ~
 zombie~
-ABFOT Z -900 0
+BFOThluz 0 0 0 0 -900 0
 50 50 10d169+1000 45d10+2950 8d10+40 'magic'
 -24 -24 -24 -7
-CDFIKO 0 0 0
+CDFIKOijloqu
 stand stand none 800
-0 ABCDEFGHIJK large unknown
+0 0 large unknown
 r bash 0
 r pierce 0
 r slash 0
@@ -209,7 +210,7 @@ black mace ~
 an old black mace~
 An old, black iron mace lies here undisturbed~
 iron~
-weapon B AN
+weapon Bh 0 ANgt
 mace 6 7 'pound' 0
 40 25 1000 P
 g none~
@@ -218,7 +219,7 @@ glowing skull~
 a Flaming Skull~
 A human skull floats here, outlined in blue flames.~
 stone~
-light AG AO
+light AGgm 0 AOgu
 0 0 999 0 0
 48 5 1000 P
 A
@@ -239,7 +240,7 @@ wand golden~
 a golden wand~
 A small golden wand lies amongst the treasure~
 gold~
-wand 0 AO
+wand 0 0 AOgu
 50 10 10 'shield' 0
 50 3 500 P
 g none~
@@ -248,7 +249,7 @@ staff crystal~
 a crystal staff~
 A beautiful crystaline staff lies here amongst the treasure.~
 stone~
-staff G AO
+staff Gm 0 AOgu
 70 5 5 'heal' 0
 60 10 800 P
 g none~
@@ -257,7 +258,7 @@ garnet ring~
 a Garnet Ring~
 A small garnet ring lies here amongst the treasure.~
 gold~
-treasure AG AB
+treasure AGgm 0 ABgh
 0 0 0 0 0
 58 1 900 P
 A
@@ -274,7 +275,7 @@ bracer night~
 the Bracer of the Night~
 A black bracer covered in ancient runes lies here.~
 adamantite~
-armor BG AM
+armor BGhm 0 AMgs
 18 18 17 8 0
 54 5 1500 P
 A
@@ -289,7 +290,7 @@ amulet night~
 the Amulet of the Night~
 An old amulet lies here glowing in unnatural blue light.~
 silver~
-armor AG AC
+armor AGgm 0 ACgi
 21 21 21 10 0
 64 3 2000 P
 A
@@ -306,8 +307,8 @@ ancient longsword sword~
 an Ancient Longsword~
 An old longsword floats here, glowing slightly.~
 adamantite~
-weapon AG AN
-sword 10 8 'slash' DH
+weapon AGgm 0 ANgt
+sword 10 8 'slash' DHjn
 70 12 2500 P
 A
 19 3
@@ -319,7 +320,7 @@ black scale dragon~
 a black dragon scale~
 A black dragon scale that's been torn from one of the beasts.~
 adamantite~
-armor 0 AJ
+armor 0 0 AJgp
 21 22 21 10 0
 65 30 1200 P
 A
@@ -338,8 +339,8 @@ hell sword wraith~
 the Hell's Wraith~
 This sword was supposedly forged in the depths of Hell. It's wavy blade makes it appear much like a large kris. It is a bit unwieldly at first but the damage it inflicts is unbelievable.~
 adamantite~
-weapon ABEGM AN
-exotic 10 8 'bite' CE
+weapon ABEGMghkms 0 ANgt
+exotic 10 8 'bite' CEik
 73 10 5000 P
 A
 2 1
@@ -359,7 +360,7 @@ robes sorceror~
 sorceror's robes~
 Long black robes covered in moons and stars.~
 unknown~
-armor G AK
+armor Gm 0 AKgq
 24 24 24 11 0
 72 10 3000 P
 A
@@ -372,7 +373,7 @@ infinity scroll~
 the Infinity Scroll~
 The old scroll rumored to have answers to all questions. (Unfortunately you just killed the last thing in existance that could read it.)~
 silver~
-armor ABG AO
+armor ABGghm 0 AOgu
 23 23 24 11 0
 74 4 7500 P
 A
@@ -397,7 +398,7 @@ silvery potion~
 a silvery potion~
 A silvery potion has been left in the desk.~
 glass~
-potion AG AO
+potion AGgm 0 AOgu
 40 'invisibility' 'detect invis' 'detect magic' ''
 40 2 1000 P
 g none~
@@ -406,7 +407,7 @@ key golden~
 a golden key~
 A golden key lies here in the book.~
 gold~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 40 1 0 P
 g none~
@@ -415,7 +416,7 @@ boots water walking waterwalking~
 boots of waterwalking~
 Some old leather boots with fish painted on them rest here in the closet.~
 mithril~
-boat G AG
+boat Gm 0 AGgm
 0 0 0 0 0
 20 5 1000 P
 A
@@ -426,7 +427,7 @@ thieve's tunic~
 a Thieve's Tunic~
 A black shirt with many pockets.~
 adamantite~
-armor G AD
+armor Gm 0 ADgj
 13 13 12 5 0
 40 15 900 P
 A
@@ -439,8 +440,8 @@ paper blank~
 a blank piece of paper~
 A deteriorating piece of blank paper rests here on a shelf.~
 paper~
-gem 0 AO
-0 0 0 0 AB
+gem 0 0 AOgu
+0 0 0 0 ABgh
 35 1 2000 P
 g none~
 #29367
@@ -448,8 +449,8 @@ chair wooden~
 @eng a large wooden chair@rus большое деревянное кресло~
 @eng A large wooden chair sits here at the head of the table@rus Большое деревянное кресло стоит во главе стола.~
 wood~
-furniture 0 0
-0 0 D 0 0
+furniture 0 0 0
+0 0 Dj 0 0
 30 50 0 P
 g none~
 #29368
@@ -457,7 +458,7 @@ table dining~
 a huge dining table~
 A huge dining table~
 wood~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 30 100 0 P
 g none~
@@ -466,7 +467,7 @@ book shelf bookshelf~
 an old wooden bookshelf~
 An old wooden bookshelf lining the eastern wall~
 wood~
-container 0 0
+container 0 0 0
 10 0 0 0 75
 40 200 0 P
 g none~
@@ -475,7 +476,7 @@ desk mahogany~
 a large mahogany desk~
 A large mahogany desk rests against the western wall~
 wood~
-container 0 0
+container 0 0 0
 999 0 22001 499 75
 40 150 0 P
 g none~
@@ -484,7 +485,7 @@ closet~
 a closet carved into the wall~
 A large closet, carved into the wall.~
 stone~
-container 0 0
+container 0 0 0
 999 0 29363 499 75
 40 999 0 P
 g none~
@@ -493,7 +494,7 @@ grimoire~
 a powerful grimoire~
 An ancient and powerful grimoire beckons for you to open it~
 leather~
-container AG 0
+container AGgm 0 0
 100 0 0 50 75
 40 50 0 P
 g none~
@@ -502,7 +503,7 @@ cross obsidian~
 @eng a large obsidian cross@rus огромный обсидиановый крест~
 @eng A large obsidian cross@rus Огромный обсидиановый крест стоит у дороги.~
 stone~
-furniture R A
+furniture 0 Bh Ag
 0 0 0 0 0
 1 5000 0 P
 E
@@ -559,7 +560,7 @@ thick entanglements; you find yourself getting scratched in the most
 annoying of places.  From the west comes the faint light of torches, and
 from the north you hear what can only be described as an unholy growl.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -582,7 +583,7 @@ are wondering what could possibly fill that saddle, you notice the tremendous
 form of a dracolich towering above you.  The only exit is south, under the
 archway.  
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -597,7 +598,7 @@ from battles long past.  Two exits lead from the room, one south and one
 west.  From where you stand it is impossible to see what type of rooms lie
 beyond.  
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -618,7 +619,7 @@ dust lines the table settings, stating that the hall is never used anymore.
 To the west is the entrance to the kitchen and to your north is the entrance
 hall.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -635,7 +636,7 @@ assaults your senses.  You break into a run towards the nearest exit, hoping
 for fresh air.  To the north are the stairs, east is the dining hall, and a
 large storage room lies open to the south.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -655,7 +656,7 @@ A flight of stairs winds away into the darkness above you.  A stronger
 sense of evil comes from up the steps.  You can go south to the kitchen,
 east to the entrance hall, or up into the unknown.  
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -676,7 +677,7 @@ of light entering the room from a doorway east.  This whole area seems
 unnaturally quiet scaring you more than any screams of death you have ever
 heard.  
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -696,7 +697,7 @@ You continue your way on the stairs.  Listening intently, you think you
 hear what sounds like the screams of damned and tortured souls to the south
 and east.  
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -719,7 +720,7 @@ The Top of the Stairs~
 You have reached the top of the stairs.  To the south and east are long
 hallways and the stairs lead back down into darkness.  
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -741,7 +742,7 @@ light for the owner of the tower.  A large desk sits near the western wall,
 while a closet has been carved into the wall to the south.  The only exit
 appears to be back into the library to the east.  
 ~
-0 D inside
+0 Dj inside
 D1
 ~
 ~
@@ -755,7 +756,7 @@ Various tables line the walls, providing study space for anyone doing
 research here.  The library continues to the north and a small archway leads
 west into a study.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -772,7 +773,7 @@ entire length of both the north and east walls.  The collection of books
 accumulated here is amazing.  To the south the library continues, while the
 stairs are back to the west.  
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -788,7 +789,7 @@ Various runes and pentagrams have been scrawled into the stone at your
 feet.  A large golden brazier blasts flames in the middle of the room.  The
 only exits are north, to the stairs, and east, to the torture chamber.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -806,7 +807,7 @@ feel a tinge of remorse for the poor men before your heart rises in anger,
 now the only thing that matters to you is to avenge their deaths.  The
 summoning rooms provide exit to the north and west.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -823,7 +824,7 @@ feet.  Towards the middle of the room, a large silver brazier spouts fire.
 The only exits are west, back to the stairs, and south, to the torture
 chamber.  
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -838,7 +839,7 @@ A Large Hall~
 You stand in a large, elaborately decorated hallway.  The stairs are back
 to the north and a large set of double doors are to the east.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -846,7 +847,7 @@ Z 0 29359
 D1
 ~
 ~
-ABZ 0 29367
+ABZgh 0 29367
 S
 #29367
 The Lich's Throne Room~
@@ -856,26 +857,26 @@ Ancient grimoires and scrolls catch your eye for a brief second, just long
 enough for Myzelak the Lich Lord to attack.  The only exits are through the
 doors to your north or west.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
-ABZ 0 29368
+ABZgh 0 29368
 D3
 ~
 ~
-ABZ 0 29366
+ABZgh 0 29366
 S
 #29368
 A Large Hall~
 You stand in a large, elaborately decorated hallway.  The stairs are back
 to the west and a large set of doors block your way south.  
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
-ABZ 0 29367
+ABZgh 0 29367
 D3
 ~
 ~
@@ -888,7 +889,7 @@ old door has been knocked off of its hinges to the south, revealing an
 ancient tunnel sloping down into the ground.  You can go back north to the
 kitchen or south into the dark tunnel.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -905,7 +906,7 @@ the floor disappears, leaving a large hole in the ground.  You can go north
 into the storage room, or down an old rope ladder into the blackness of the
 pit.  
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -920,7 +921,7 @@ Under a Pit~
 You stand underneath the pit.  In this pitch black room the only thing
 that you can make out is a tunnel running in a south direction.  
 ~
-0 D inside
+0 Dj inside
 D2
 ~
 ~
@@ -936,7 +937,7 @@ You stand in an ancient and dark tunnel.  From the south light shines
 into the room.  You may go back north to the pit, or, south towards
 the light.  
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -954,7 +955,7 @@ magical glyphs and wards surround it, keeping this realm safe from any
 wandering spirits.  It is said that the only way for a mortal to enter the
 realms of hell is for them to make it through the maze of caverns below you.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Setepios II~
 VNUMs 95800 95899
 Credits Setepios~
@@ -17,10 +18,10 @@ Tall figure shrouded in midnight black robe stands here.
 He is praying Iluvator to grant freedom for his mistress Hera.
 ~
 troll~
-ABGQa u -1000 0
+BGQhmw Hn 0 0 0 -1000 0
 50 300 1d1+10000 1d1+10000 0d0+0 'divine'
 -99 -99 -99 -99
-0 0 0 0
+0
 stand stand male 0
 0 0 medium unknown
 r fire 100
@@ -43,13 +44,13 @@ no name~
 ~
 ~
 human~
-A 0 0 0
+0 0 0 0 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand none 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #0
 
 #OBJECTS
@@ -58,7 +59,7 @@ herastatue~
 @eng {rStatue of HERA (statue){x@rus {rСтатуя HERA (statue){x~
 @eng Statue of Hera (statue) stands here.@rus Статуя HERA (statue) смотрит на тебя.~
 unknown~
-furniture C 0
+furniture Ci 0 0
 0 0 0 0 0
 0 1 1 P
 g none~
@@ -67,8 +68,8 @@ armchair~
 armchair~
 Dark and soft armchair is here.~
 unknown~
-furniture C A
-A 0 FI DGH DGH
+furniture Ci 0 Ag
+Ag 0 FIlo DGHjmn DGHjmn
 92 1 1 P
 g none~
 #0
@@ -85,7 +86,7 @@ her Angel (Setepios). They are discusing something imortant ... But what ?
 Они обсуждают что-то важное. Икона (Icon) с заповедями Богини висит в
 воздухе ... Хм ! На нее можно глазеть с любой стороны.
 ~
-0 KW inside
+0 KWq inside
 E
 statue~
 @rus Тебя бросает в дрожь ! Статуя сделанна из запекшейся крови. Ее зеленые глаза
@@ -121,7 +122,7 @@ seems to be somewhere else...
 ломятся от обилия выпивки и закуски, но продавца не
 видно....
 ~
-0 CDNSX city
+0 CDNSXijty city
 D3
 ~
 ~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Olympus~
 VNUMs 900 999
 Credits Generic~
@@ -17,10 +18,10 @@ destroy you with a thought.  Every glance penetrates deep into your soul.
 You now know what true fear is.
 ~
 human~
-ABCQ BDFHNT 1000 0
+BCQhiw 0 HNTntz Ag ABgh 1000 0
 60 30 50d10+11000 60d9+100 5d10+28 'none'
 -30 -30 -30 -3
-EIKU 0 0 0
+EIKUkoq
 stand stand male 5000
 0 0 medium unknown
 r charm 100
@@ -33,10 +34,10 @@ This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
 looks up at you and smiles.
 ~
 human~
-ABC BDFHJNT 1000 0
+BChi 0 HNTntz Ag ABHghn 1000 0
 51 0 50d10+5000 25d9+100 5d8+20 'none'
 -21 -21 -21 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 2000
 0 0 medium unknown
 r charm 100
@@ -50,10 +51,10 @@ darts from place to place.  He looks very busy, and it seems as if he doesn't
 even notice your presence.
 ~
 human~
-ACS BDFHNPT 1000 0
+CSiy 0 HNTntz AGgm ABgh 1000 0
 56 0 50d10+7000 28d9+100 10d4+23 'none'
 -25 -25 -25 -1
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 2500
 0 0 medium unknown
 #904
@@ -66,10 +67,10 @@ visiting Mount Olympus.  He nods at you and motions for you to enter and
 have a seat.
 ~
 human~
-ABCR BDFHNT 1000 0
+BCRhix 0 HNTntz Ag ABgh 1000 0
 59 0 50d10+8500 59d9+100 10d4+24 'none'
 -28 -28 -28 -9
-FU 0 0 0
+FUl
 sit stand male 5000
 0 0 medium unknown
 r charm 100
@@ -83,10 +84,10 @@ join him.  You notice a dangerous looking bow by his side, however, and think
 that he knows more than music.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 58 0 50d10+8500 29d9+100 5d10+25 'none'
 -28 -28 -28 1
-EFNU 0 0 0
+EFNUklt
 stand stand male 2000
 0 0 medium unknown
 r charm 100
@@ -99,10 +100,10 @@ The God of War is here, studying some maps.  He scowls at you as you enter
 and says 'I am very busy.  What do you want?'
 ~
 human~
-ABCF BDFJTu -1000 0
+BCFhil 0 Tz Ag ABHghn -1000 0
 59 0 50d10+9000 29d9+100 8d6+26 'none'
 -29 -29 -29 1
-EFNU 0 0 0
+EFNUklt
 stand stand male 2500
 0 0 medium unknown
 r charm 100
@@ -115,10 +116,10 @@ Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
 you and invites you to join her.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 56 0 50d10+7500 28d9+100 10d4+24 'none'
 -26 -26 -26 1
-EFNU 0 0 0
+EFNUklt
 stand stand female 3000
 0 0 medium unknown
 #908
@@ -131,10 +132,10 @@ ugly.  You get the impression that he is kind, however, and would go out of his
 way to help you.  He is attended by three golden maidens.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 55 0 50d10+7000 27d9+100 10d4+23 'none'
 -25 -25 -25 2
-EFNU 0 0 0
+EFNUklt
 stand stand male 3000
 0 0 medium unknown
 #909
@@ -146,10 +147,10 @@ As you gaze upon this creation, you realize that she is made from solid
 gold.  She seems to be very lifelike as she assists the smith in his work.
 ~
 human~
-ABCT BDFHNT 0 0
+BCThiz 0 HNTntz Ag ABgh 0 0
 26 0 5d10+650 13d9+100 3d7+7 'none'
 -7 -7 -7 6
-CDEIKLU 0 0 0
+CDEIKLUijkoqr
 stand stand female 50
 0 0 medium unknown
 #910
@@ -161,10 +162,10 @@ This man is waiting on Ares.  Although he does not look very strong, you
 realize that Ares would not have any weaklings working for him.
 ~
 human~
-ABCF BDFHJT 0 0
+BCFhil 0 HTnz Ag ABHghn 0 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 250
 0 0 medium unknown
 #911
@@ -176,10 +177,10 @@ This man has mastered his first profession, and is now studying music from the
 immortal Apollo.
 ~
 human~
-ABC BDFHT 1000 0
+BChi 0 HTnz Ag ABgh 1000 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 125
 0 0 medium unknown
 #912
@@ -190,10 +191,10 @@ A servant is here, feeding Athena her grapes.
 This boy is truly lucky to be able to serve Athena herself.
 ~
 human~
-ABC BDFHT 1000 0
+BChi 0 HTnz Ag ABgh 1000 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 25
 0 0 medium unknown
 #913
@@ -205,10 +206,10 @@ This great beast can barely be called a dog.  It has been bred to cause fear
 on the battle field, and you have no doubt that it does its job well.
 ~
 human~
-ABCF BDFTu -600 0
+BCFhil 0 Tz Ag ABgh -600 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-EFNU 0 0 0
+EFNUklt
 stand stand none 0
 0 0 medium unknown
 #914
@@ -221,10 +222,10 @@ over you, and is so intent on his activities that he barely recognizes your
 presence.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 60 30 50d10+9500 30d9+100 8d6+28 'none'
 -50 -50 -50 -20
-EFNU 0 0 0
+EFNUklt
 stand stand male 5000
 0 0 medium unknown
 #915
@@ -238,10 +239,10 @@ not to underestimate him.  He smiles warmly at you and shows you his selection
 of delicious looking foods.
 ~
 human~
-ABCe BDFHNT 1000 0
+BCehi 0 HNTntz Ag ABgh 1000 0
 50 0 50d10+4500 25d9+100 5d8+19 'none'
 -40 -40 -40 -13
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #916
@@ -254,10 +255,10 @@ stands ready to supply the citizens here (but not you) with all manner of
 arcane supplies.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 50 0 50d10+9500 25d9+100 5d8+19 'none'
 -40 -40 -40 -13
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #917
@@ -269,10 +270,10 @@ Clive looks VERY big and VERY tough.  All those years in the army must have
 paid off.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 50 0 50d10+4500 25d9+100 5d8+19 'none'
 -20 -20 -20 3
-EFNU 0 0 0
+EFNUklt
 stand stand male 2000
 0 0 medium unknown
 #918
@@ -284,10 +285,10 @@ Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.
 He doesn't like what you've been doing in his city.
 ~
 human~
-ABCF BDFHNT 1000 0
+BCFhil 0 HNTntz Ag ABgh 1000 0
 34 0 10d10+1500 17d9+100 4d7+10 'none'
 -11 -11 -11 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 500
 0 0 medium unknown
 #919
@@ -300,10 +301,10 @@ about his appearance.  What you can tell, however, suggests that he is no one
 to be trifled with.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 60 85 50d10+12000 30d9+100 8d6+28 'none'
 -40 -40 -40 0
-ENR 0 0 0
+ENRktx
 stand stand male 5000
 0 0 medium unknown
 r charm 100
@@ -316,10 +317,10 @@ This bizarre creature has three heads - one of a goat, one of a lion, and one
 of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
 ~
 human~
-ABCF BDFJTu -1000 0
+BCFhil 0 Tz Ag ABHghn -1000 0
 34 0 10d10+1200 17d9+100 4d7+10 'none'
 -11 -11 -11 5
-EFNU 0 0 0
+EFNUklt
 stand stand male 50
 0 0 medium unknown
 #921
@@ -331,10 +332,10 @@ Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
 to rest and sit for a while.
 ~
 human~
-ABCQ BDFHNT 1000 0
+BCQhiw 0 HNTntz Ag ABgh 1000 0
 59 0 50d10+9000 59d9+100 6d8+26 'none'
 -29 -29 -29 -3
-EIKU 0 0 0
+EIKUkoq
 stand stand female 5000
 0 0 medium unknown
 r charm 100
@@ -347,10 +348,10 @@ This is a giant bird.  It looks at you quizzically, then makes a noise and
 looks away.
 ~
 human~
-AC BDFHNT 0 0
+Ci 0 HNTntz Ag ABgh 0 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNU 0 0 0
+EFNUklt
 stand stand none 250
 0 0 medium unknown
 #923
@@ -361,10 +362,10 @@ A citizen of this town is strolling down the street here.
 He looks happy and carefree.  He smiles and tips his hat to you.
 ~
 human~
-ACS BDFHNT 1000 0
+CSiy 0 HNTntz Ag ABgh 1000 0
 6 0 2d6+60 3d9+100 1d6+1 'none'
 5 5 5 9
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 3
 0 0 medium unknown
 #924
@@ -376,10 +377,10 @@ This horse is snow white with large wings.  Although it doesn't look very
 threatening, it seems as though it would be dangerous if provoked.
 ~
 human~
-ACZ BDFHNT 0 0
+CZi 0 HNTntz Ag ABgh 0 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNU 0 0 0
+EFNUklt
 stand stand none 40
 0 0 medium unknown
 #925
@@ -390,10 +391,10 @@ A cook is here, hard at work.
 This man looks as is he has been spending WAY too much time in the kitchen.
 ~
 human~
-ABC BDFHNT 1000 0
+BChi 0 HNTntz Ag ABgh 1000 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 5
 0 0 medium unknown
 #926
@@ -405,10 +406,10 @@ He looks as though he has spent a lot of time underground, guarding the
 prisoners.
 ~
 human~
-ABCR BDFHJNT 0 0
+BCRhix 0 HNTntz Ag ABHghn 0 0
 22 0 4d10+360 22d9+100 2d7+5 'none'
 -5 -5 -5 3
-FU 0 0 0
+FUl
 stand stand male 50
 0 0 medium unknown
 #0
@@ -419,7 +420,7 @@ aegis plate~
 the Aegis~
 A powerful breast plate has been left here.~
 platinum~
-armor FGK AD
+armor FGKlmq 0 ADgj
 12 12 11 6 0
 35 500 8400 P
 A
@@ -430,8 +431,8 @@ hammer thunder bolt thunderbolt~
 the Thunder Bolt~
 A huge hammer has been carelessly dropped here.~
 mithril~
-weapon FGK AN
-mace 8 7 'blast' G
+weapon FGKlmq 0 ANgt
+mace 8 7 'blast' Gm
 50 140 5400 P
 A
 18 5
@@ -445,7 +446,7 @@ helmet winged~
 a Winged Helmet~
 A helmet with small wings lies here.~
 platinum~
-armor FGK AE
+armor FGKlmq 0 AEgk
 11 12 11 5 0
 35 50 7300 P
 A
@@ -456,8 +457,8 @@ spear ares~
 the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
-weapon FGJ AN
-spear 5 10 'thrust' K
+weapon FGJlmp 0 ANgt
+spear 5 10 'thrust' Kq
 48 180 2000 P
 A
 19 4
@@ -471,17 +472,17 @@ sandals winged~
 a pair of winged sandals~
 A pair of well made sandals lies here.~
 silk~
-armor FGK AG
+armor FGKlmq 0 AGgm
 8 8 8 4 0
 25 50 2200 P
-F A 0 0 T
+F A 0 0 Tz
 g none~
 #905
 staff ivory~
 an ivory staff~
 An ivory staff.~
 ivory~
-staff FGK AO
+staff FGKlmq 0 AOgu
 30 3 3 'sanctuary' 0
 15 80 5800 P
 g none~
@@ -490,8 +491,8 @@ trident poseidon~
 poseidon's Trident~
 A huge three pronged spear lies here.~
 oak~
-weapon FGK AN
-spear 7 7 'pierce' FK
+weapon FGKlmq 0 ANgt
+spear 7 7 'pierce' FKlq
 47 160 5700 P
 A
 4 2
@@ -501,8 +502,8 @@ bow silver~
 a silver bow~
 A silver bow.~
 silver~
-weapon FGK AN
-bow 6 7 'pierce' F
+weapon FGKlmq 0 ANgt
+bow 6 7 'pierce' Fl
 47 150 10300 P
 A
 19 1
@@ -514,7 +515,7 @@ gauntlets flaming~
 flaming gauntlets~
 A pair of metal gauntlets flame here.~
 steel~
-armor G AH
+armor Gm 0 AHgn
 7 7 7 4 0
 27 60 2900 P
 A
@@ -525,7 +526,7 @@ vial potion ambrosia~
 ambrosia~
 A vial of ambrosia lies here.~
 glass~
-potion FGK A
+potion FGKlmq 0 Ag
 30 'dispel evil' 'heal' '' ''
 11 10 1130 P
 g none~
@@ -534,7 +535,7 @@ necklace glowing~
 a glowing necklace~
 A necklace with an inner glow lies here.~
 amethyst~
-jewelry FGK AC
+jewelry FGKlmq 0 ACgi
 0 0 0 0 0
 25 20 980 P
 A
@@ -545,7 +546,7 @@ ring sapphire~
 a sapphire ring~
 A sapphire ring lies here.~
 sapphire~
-jewelry FGK AB
+jewelry FGKlmq 0 ABgh
 0 0 0 0 0
 35 10 6900 P
 A
@@ -558,7 +559,7 @@ shield glowing~
 a brightly glowing shield~
 A shield lies here, filling the room with its aura.~
 silver~
-armor FGK AJ
+armor FGKlmq 0 AJgp
 9 9 9 6 0
 30 200 5300 P
 A
@@ -569,7 +570,7 @@ axe notched~
 a notched axe~
 A notched axe.~
 iron~
-weapon FGK AN
+weapon FGKlmq 0 ANgt
 axe 4 10 'slice' 0
 35 120 3600 P
 g none~
@@ -578,8 +579,8 @@ grapes~
 a bunch of grapes~
 A bunch of grapes.~
 food~
-food 0 A
-DE DE 0 0 0
+food 0 0 Ag
+DEjk DEjk 0 0 0
 0 10 100 P
 g none~
 #915
@@ -587,7 +588,7 @@ fan~
 a fan made of peacock feathers~
 A fan made of peacock feathers.~
 fur~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -596,7 +597,7 @@ lute~
 a lute~
 A lute.~
 unknown~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -605,7 +606,7 @@ nugget gold~
 a gold nugget~
 A gold nugget lies gleaming here.~
 gold~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 50 5000 P
 g none~
@@ -614,7 +615,7 @@ apple~
 an apple~
 An apple is here.~
 food~
-pill 0 A
+pill 0 0 Ag
 24 '' '' 'cure light' ''
 0 10 340 P
 g none~
@@ -623,7 +624,7 @@ pear~
 a pear~
 A pear is here.~
 food~
-pill 0 A
+pill 0 0 Ag
 24 '' '' 'cure poison' ''
 6 10 530 P
 g none~
@@ -632,7 +633,7 @@ orange~
 a orange~
 A orange is here.~
 food~
-pill 0 A
+pill 0 0 Ag
 24 '' '' 'armor' ''
 0 10 340 P
 g none~
@@ -641,7 +642,7 @@ kiwi~
 a kiwi~
 A kiwi is here.~
 food~
-pill 0 A
+pill 0 0 Ag
 24 '' '' 'cure poison' ''
 6 10 530 P
 g none~
@@ -650,7 +651,7 @@ amulet~
 the Amulet of Ra~
 A sun shaped medallion is lying here.~
 crystal~
-jewelry FGK AC
+jewelry FGKlmq 0 ACgi
 0 0 0 0 0
 40 10 4900 P
 A
@@ -661,7 +662,7 @@ sun sword~
 the Sword of the Sun~
 A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
-weapon FGK AN
+weapon FGKlmq 0 ANgt
 sword 8 8 'slash' 0
 50 200 6800 P
 A
@@ -676,7 +677,7 @@ robe blue~
 a blue robe~
 A deep blue robe is on the ground here.~
 unknown~
-armor FGK AK
+armor FGKlmq 0 AKgq
 6 6 6 8 0
 17 100 1960 P
 A
@@ -687,7 +688,7 @@ hat~
 a wide brimmed hat~
 A hat is lying here.~
 cloth~
-armor FGK AE
+armor FGKlmq 0 AEgk
 4 4 4 3 0
 5 50 580 P
 g none~
@@ -696,7 +697,7 @@ nectar~
 nectar~
 A vial of nectar is lying here.~
 glass~
-potion 0 A
+potion 0 0 Ag
 12 'sanctuary' 'giant strength' 'armor' ''
 12 10 810 P
 g none~
@@ -705,7 +706,7 @@ key cell~
 a Cell key~
 A key has been left here.~
 ivory~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -714,8 +715,8 @@ map olympus secret~
 a secret map of Olympus~
 A rolled up map is here.~
 paper~
-map 0 A
-A 0 0 0 0
+map 0 0 Ag
+Ag 0 0 0 0
 0 10 500 P
 E
 map olympus secret~
@@ -769,8 +770,8 @@ arrow silver~
 a silver arrow~
 A silver arrow with an inner glow lies here.~
 silver~
-weapon FGK AO
-arrow 6 7 'pierce' ABCDEFGHK
+weapon FGKlmq 0 AOgu
+arrow 6 7 'pierce' ABCDEFGHKghijklmnq
 47 20 10300 P
 A
 19 1
@@ -933,7 +934,7 @@ You are in the entryway of a large castle.  It is very beautiful, with
 large paintings and a lovely carpet.  You hear jovial laughter to the north,
 while smaller corridors branch off to the east and west.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -957,7 +958,7 @@ You stop dead in your tracks as you enter this room.  Before you is Zeus,
 in all his glory, sitting on a huge golden throne.  You had thought him to be 
 just a myth, but here he is ... you wonder who else lives in this castle.
 ~
-0 D city
+0 Dj city
 E
 throne~
 This huge golden throne looks as if it has been here for ages.  As you study it
@@ -975,14 +976,14 @@ Z -1 909
 D5
 ~
 throne trapdoor~
-ABZ -1 918
+ABZgh -1 918
 S
 #911
 Western Wing~
 You are in the western wing of the castle.  You see the entrance to the
 east, while this hallway continues to the west.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -997,7 +998,7 @@ Western Wing~
 You are in the western wing of the castle.  The hallway continues to the
 north, while there are private rooms to the west and south.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1020,7 +1021,7 @@ Western Wing~
 You are in the western wing of the castle.  This hallway continues to the
 south, and you hear pots and pans rattling to the north.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1035,7 +1036,7 @@ Kitchen~
 You have entered the kitchen of this castle, and it is a hotbed of
 activity.  Servants are bustling about, preparing food for the Gods themselves.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1046,7 +1047,7 @@ Eastern Wing~
 You are in the eastern wing of the castle.  The hall continues to the
 east, while the entrance is back to the west.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1061,7 +1062,7 @@ Eastern Wing~
 You are in the eastern wing of the castle.  The hall turns to the north
 here, while there are private rooms to the east and the south.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1084,7 +1085,7 @@ Eastern Wing~
 You are in the eastern wing of the castle.  You hear animals to the north,
 while the hallway continues to the south.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1099,7 +1100,7 @@ Dungeon~
 You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
 even mighty Zeus fears them enough to imprison them.
 ~
-0 AD city
+0 ADgj city
 D0
 ~
 ~
@@ -1114,15 +1115,15 @@ Dungeon~
 You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
 From the east and west, you hear guttural noises.  From the north, nothing ...
 ~
-0 AD city
+0 ADgj city
 D0
 ~
 ~
-ABCFZ 927 920
+ABCFZghil 927 920
 D1
 ~
 ~
-ABCFZ 927 922
+ABCFZghil 927 922
 D2
 ~
 ~
@@ -1130,44 +1131,44 @@ Z -1 918
 D3
 ~
 ~
-ABCFZ 927 921
+ABCFZghil 927 921
 S
 #920
 Cell~
 You are in a small, cramped, dirty cell.  It is a horrid place.
 ~
-0 AD city
+0 ADgj city
 D2
 ~
 ~
-ABCFZ 927 919
+ABCFZghil 927 919
 S
 #921
 Cell~
 You are in a small, cramped, dirty cell.  It is a horrid place.
 ~
-0 AD city
+0 ADgj city
 D1
 ~
 ~
-ABCFZ 927 919
+ABCFZghil 927 919
 S
 #922
 Cell~
 You are in a small, cramped, dirty cell.  It is a horrid place.
 ~
-0 AD city
+0 ADgj city
 D3
 ~
 ~
-ABCFZ 927 919
+ABCFZghil 927 919
 S
 #923
 Stairway~
 You have come to a large stairway leading up.  To the south, you see the
 throne room of Zeus. To the down you see a dark sea.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1186,7 +1187,7 @@ Bakery~
 You are in the small store which supplies the residents of this town with
 their food.  It smells wonderful in here!
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1197,7 +1198,7 @@ Residence~
 You are in the residence of one of the inhabitants of this town.  She
 looks vaguely familiar, but you can't place her name ...
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -1208,7 +1209,7 @@ Residence~
 You are in the residence of one of the inhabitants of this town.  He looks
 vaguely familiar, but you can't place his name ...
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1219,7 +1220,7 @@ Mystic Shop~
 You are in the store which provides the citizens here with whichever
 arcane objects they may need.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1230,7 +1231,7 @@ Ares Street~
 You are on a smaller road which branches off from the main street.  On a
 sign, you notice that the name of this road is Ares Street.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1246,7 +1247,7 @@ You have entered private quarters which are reserved for visitors to the
 castle.  You nearly faint as you recognize the occupant of this chamber as Odin
 himself, patron God of Midgaard.  He must be visiting Zeus.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1257,7 +1258,7 @@ Storage Room~
 You are in a storage room of the castle.  There isn't much here, just a
 few boxes filled with old junk.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1269,7 +1270,7 @@ You have entered a room reserved for visitors to this castle.  You are
 amazed as you recognize the occupant - Ra, the Egyptian Sun God.  He must be
 visiting Zeus.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -1280,7 +1281,7 @@ Storage Room~
 You are in a storage room of the castle.  There isn't much here, just a lot
 of dust.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1292,7 +1293,7 @@ You are in the stable of the castle.  Rather than the horses which you
 expected to find, it is filled with a wide variety of creatures which you
 thought were mythical.  Obviously, you were wrong.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1304,7 +1305,7 @@ You have reached the end of Ares Street.  To the south you see an armoury,
 while there is a weapons shop to the east.  To the north, you hear the sounds
 of a blacksmith.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1327,7 +1328,7 @@ Armoury~
 This small store is almost empty.  It seems as if there is not much here,
 but the shopkeeper doesn't want to do business with you anyways.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1339,7 +1340,7 @@ You have entered a small store with a modest selection of weapons.  You
 get the feeling that there is not a very wide selection here, but the
 shopkeeper doesn't want to do business with you anyways.
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -1351,7 +1352,7 @@ This large room is so noisy, you can barely hear yourself think.  All the
 occupants are hard at work, crafting high quality weapons and armor.  Something
 is strange about the west wall, although you can't quite tell what it is.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1360,7 +1361,7 @@ D3
 You see a concealed door!
 ~
 door concealed~
-ABZ -1 938
+ABZgh -1 938
 S
 #938
 The Planning Room~
@@ -1368,7 +1369,7 @@ You have entered a large room dominated by a huge table with a large map
 on it.  Several men are gathered around the table, studying the map carefully.
 You hear the barking of dogs to the north.
 ~
-0 AD city
+0 ADgj city
 D0
 ~
 ~
@@ -1385,7 +1386,7 @@ discoveries on the first floor, and wonder what secrets the upper floor of this
 castle holds.  Hallways extend in all directions, and you see a small, closed 
 hatch above you.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1406,7 +1407,7 @@ D4
 You see a sign on the hatch.  It reads 'Private Property. No trespassing!'
 ~
 hatch~
-ABZ -1 948
+ABZgh -1 948
 D5
 ~
 ~
@@ -1417,7 +1418,7 @@ Northern Hall~
 You are in the northern hallway.  There is a private room to the north,
 and the stairs leading down are to the south.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1432,7 +1433,7 @@ Southern Hall~
 You are in the southern hallway.  There is a private room to the south,
 and the stairs leading down are to the north.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1447,7 +1448,7 @@ Western Hall~
 You are in the western hallway.  There is a private room to the west, and
 the stairs leading down are to the east.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1462,7 +1463,7 @@ Eastern Hall~
 You are in the eastern hallway.  There is a private room to the east, and
 the stairs leading down are to the west.
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1476,7 +1477,7 @@ S
 Bed Room~
 You are in the bed room of a God!  This one seems to be empty.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1486,7 +1487,7 @@ S
 Bed Room~
 You are in the bed room of a God!
 ~
-0 D city
+0 Dj city
 D1
 ~
 ~
@@ -1496,7 +1497,7 @@ S
 Bed Room~
 You are in the bed room of a God!
 ~
-0 D city
+0 Dj city
 D3
 ~
 ~
@@ -1506,7 +1507,7 @@ S
 Bed Room~
 You are in the bed room of a God!
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1518,7 +1519,7 @@ You have entered the most sacred of places, the hall of true Gods.  If you
 are a mortal, it would probably be a good idea to leave NOW!  Exits leave in
 all directions.
 ~
-0 D city
+0 Dj city
 D0
 ~
 ~
@@ -1532,7 +1533,7 @@ S
 The Portal~
 A sign reads: Beware of the unexpected and don't expect too much.
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~
@@ -1542,7 +1543,7 @@ S
 The Believer~
 A voice whispers, 'before the time has passed, enjoy your life.'
 ~
-0 D city
+0 Dj city
 D2
 ~
 ~

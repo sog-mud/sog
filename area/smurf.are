@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Smurfville~
 VNUMs 100 199
 Credits Generic~
@@ -16,10 +17,10 @@ A cute little blue smurf with a white hat and white boots.  You have a sudden
 urge to crush him.
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 1 0 2d4+2 0d9+100 1d2+0 'none'
 10 10 10 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #102
@@ -30,10 +31,10 @@ A smurf is here, picking berries.
 A small smurf is quietly picking berries.  He seems to hardly notice you.
 ~
 human~
-ABHS DF 100 0
+BHShny 0 0 0 ABgh 100 0
 1 0 2d4+2 0d9+100 1d2+0 'none'
 10 10 10 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #103
@@ -45,10 +46,10 @@ Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
 other smurfs.  They fear his knowledge.  Knowledge is power!
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #104
@@ -60,10 +61,10 @@ Handy is always building something.  He never takes a break.  Why don't you
 give him a break, like all of his bones.
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #105
@@ -75,10 +76,10 @@ Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
 if he has ever stayed up a whole night without sleeping.
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #106
@@ -90,10 +91,10 @@ Hefty is a total health nut.  He lifts weights, eats right, and exercises all
 the time.  Won't do him much good when he's DEAD.
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #107
@@ -104,10 +105,10 @@ Grumpy Smurf is here, swearing.
 Grumpy has never been happy in his whole life.  So why don't you just end it?
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #108
@@ -119,10 +120,10 @@ Jokey loves to give people presents.  Too bad the present explodes when opened.
 Oh well, to each his own.
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand male 1
 0 0 medium unknown
 #109
@@ -134,10 +135,10 @@ Smurfette is the cutest little smurf you've ever seen.  If only she were your
 size.  I wonder how much she charges the other smurfs.
 ~
 human~
-AGHS DF 100 0
+GHSmny 0 0 0 ABgh 100 0
 3 0 2d7+21 1d9+100 1d5+0 'none'
 8 8 8 10
-BEFJNU 0 0 0
+BEFJNUhklpt
 stand stand female 1
 0 0 medium unknown
 #110
@@ -150,10 +151,10 @@ beard.  Papa Smurf treats his fellow smurfs with dignity and respect.  That
 is why Papa Smurf is so popular among the ladies.
 ~
 human~
-AGHR 0 100 0
+GHRmnx 0 0 0 0 100 0
 10 0 2d6+110 10d9+100 1d8+1 'none'
 2 2 2 6
-FU 0 0 0
+FUl
 stand stand male 2
 0 0 medium unknown
 #111
@@ -165,10 +166,10 @@ Gargamel has never done anything right in his life.  He has caught smurfs
 before but always lets them escape.  He brings true meaning to the word moron.
 ~
 human~
-ABHQ 0 -100 0
+BHQhnw 0 0 0 0 -100 0
 10 0 2d7+121 10d9+100 1d7+2 'none'
 1 1 1 7
-EIKU 0 0 0
+EIKUkoq
 stand stand male 2
 0 0 medium unknown
 #112
@@ -180,10 +181,10 @@ Gargamel's worthless cat.  He is just about as dumb as Gargamel.  He should
 just grab a smurf in his teeth and chew away.
 ~
 human~
-ABH 0 -100 0
+BHhn 0 0 0 0 -100 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNU 0 0 0
+EFNUklt
 stand stand male 1
 0 0 medium unknown
 #0
@@ -194,7 +195,7 @@ bunch berries smurfberries~
 a bunch of smurfberries~
 A bunch of delicious looking smurfberries lie here.~
 food~
-pill 0 A
+pill 0 0 Ag
 8 '' '' 'detect magic' ''
 0 20 180 P
 g none~
@@ -203,7 +204,7 @@ glasses~
 a pair of glasses~
 An odd pair of glasses has been left here.~
 glass~
-clothing A AE
+clothing Ag 0 AEgk
 0 0 0 0 0
 3 20 270 P
 A
@@ -216,7 +217,7 @@ smurf hat~
 a smurf hat~
 A smurf hat has been left here.~
 cloth~
-armor 0 AE
+armor 0 0 AEgk
 3 3 3 0 0
 3 20 310 P
 g none~
@@ -225,7 +226,7 @@ axe small~
 a small axe~
 A small axe has been dropped here.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 1 7 'slash' 0
 3 20 370 P
 g none~
@@ -234,7 +235,7 @@ necklace~
 a small necklace~
 A small necklace is lying on the ground.~
 gem~
-jewelry A AC
+jewelry Ag 0 ACgi
 0 0 0 0 0
 5 20 550 P
 A
@@ -245,7 +246,7 @@ pink potion~
 a pink potion~
 A pink potion is barely visible on the ground.~
 glass~
-potion 0 A
+potion 0 0 Ag
 6 'armor' 'cure blindness' '' ''
 0 20 160 P
 g none~
@@ -254,7 +255,7 @@ wand~
 a small wand~
 A small wand lies on the ground.~
 wood~
-wand 0 AO
+wand 0 0 AOgu
 5 1 1 'burning hands' 0
 3 20 540 P
 g none~
@@ -263,8 +264,8 @@ key~
 a tiny key~
 A tiny key is lying on the ground.~
 wood~
-key 0 A
-B 0 0 0 0
+key 0 0 Ag
+Bh 0 0 0 0
 0 20 0 P
 g none~
 #108
@@ -272,7 +273,7 @@ well~
 a smurf well~
 A small smurfy well is here.~
 stone~
-fountain 0 0
+fountain 0 0 0
 50 50 'water' 0 0
 0 0 0 P
 g none~
@@ -281,8 +282,8 @@ key~
 a small key~
 A key to Gargamel's door lies here.~
 wood~
-key 0 A
-B 0 0 0 0
+key 0 0 Ag
+Bh 0 0 0 0
 0 20 0 P
 g none~
 #0
@@ -310,7 +311,7 @@ Dimly Lit Path~
 This section of the road is badly worn and frequently traversed.  There is
 faint singing to the north.  The path back to the road lies to the south.
 ~
-0 C forest
+0 Ci forest
 D0
 The path continues toward the village.
 ~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Dark Haven~
 VNUMs 12200 12299
 Credits Maedhros~
@@ -15,13 +16,13 @@ linran~
 ~
 ~
 human~
-Al BCDFPQTclmtu -1000 0
+0 0 Tcz ABGghm ABKghq -1000 0
 70 200 1d1+20000 1d1+10000 8d9+1 'stab'
 0 0 0 0
-ABDFHJKO 0 0 0
+ABDFHJKOghjlnpqu
 stand stand male 1000000
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 r acid 33
 r mental 100
 r charm 100
@@ -33,8 +34,8 @@ r charm 100
 Платиновый трон~
 {WОгромный {Yплатиновый Трон, {RСделанный из {WКостей Арборна,{R украшенный {Wего черепом{x, стоит тут.~
 platinum~
-furniture 0 0
-A EIJKN E EIJKN EIJKN
+furniture 0 0 0
+Ag EIJKNkopqt Ek EIJKNkopqt EIJKNkopqt
 666 10000000 666666666 P
 g male~
 #12201
@@ -42,8 +43,8 @@ sword truth~
 @eng {WSword of Truth.@rus {WМеч Истины~
 @eng long sword egraved with word "Veritas" at hilt@rus длинны меч с выгравированном на рукоятке словом "Veritas"~
 platinum~
-weapon ABGHIORTZa AN
-sword 12 11 'wrath' EGI
+weapon ABGHIghmno ABCEFghikl ANgt
+sword 12 11 'wrath' EGIkmo
 87 10 1000000 P
 A
 17 200
@@ -51,36 +52,36 @@ A
 35 -50
 A
 26 1
-S 'sword' 20 B
-S 'mastering sword' 20 A
-F A 8 1 K
+S 'sword' 20 Bh
+S 'mastering sword' 20 Ag
+F A 8 1 Kq
 g none~
 #12202
 staff magi~
 {CStaff {Yof {Bthe {RMagi{x~
 wooden staff about 5 feet long~
 wood~
-staff FGHIRTYZa AO
+staff FGHIYlmno BCEFhikl AOgu
 70 25 19 'adamantite golem' 0
 55 10 1000000 P
 F A 12 20 U
-S 'dispel magic' 40 A
-S 'web' 40 A
-S 'iceball' 80 A
-S 'knock' 50 A
-S 'fireball' 40 A
-F A 12 20 B
+S 'dispel magic' 40 Ag
+S 'web' 40 Ag
+S 'iceball' 80 Ag
+S 'knock' 50 Ag
+S 'fireball' 40 Ag
+F i 12 20 Ag
 A
 26 1
-F A 12 20 N
-F A 8 2 E
+F A 12 20 Nt
+F d 8 2 Lr
 g none~
 #12203
 magic amulet death laerkai~
 laerkai death~
 medalion of thought projection~
 platinum~
-gem CGHMRa AC
+gem CGHMimns BFhl ACgi
 0 0 0 0 0
 1 10 10 P
 A
@@ -101,19 +102,19 @@ A
 8 3
 F A 0 0 d
 F A 0 0 Y
-F A 0 0 L
+F A 0 0 Lr
 F A 0 0 X
-F A 0 0 M
-F A 0 0 A
-F A 0 0 K
+F A 0 0 Ms
+F A 0 0 Ag
+F A 0 0 Kq
 g none~
 #12204
 warhammer~
 {RGreat {WWarHammer {cof {CC{Yh{Wa{Mo{Gs{x~
 very big and heavy hammer~
 unknown~
-weapon ABEGIMY AN
-mace 1000 2000 'stab' ABCDEGHI
+weapon ABEGIMYghkmos 0 ANgt
+mace 1000 2000 'stab' ABCDEGHIghijkmno
 92 10 1000000000 P
 A
 14 20000
@@ -138,12 +139,12 @@ A
 A
 18 20000
 F A 8 1000 U
-F A 14 30000 T
-F A 12 30000 E
-F A 13 30000 C
-F A 8 666 G
+F A 14 30000 Tz
+F d 12 30000 Lr
+F d 13 30000 Kq
+F d 8 666 Ms
 F A 26 10 V
-F A 26 10 H
+F A 26 10 Hn
 A
 8 666
 g none~

@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Heaven~
 VNUMs 15000 15199
 Credits abrazak~
@@ -17,10 +18,10 @@ Avatar of abrazak is here.
 @eng You see a huge man. He looks very strong and wise. You'd better never mess with him.
 ~
 aarakocra~
-Al 0 0 0
+0 0 0 0 0 0 0
 1000 0 5d5000+5000 1d1+666 5d300+1 'none'
 6 6 66 66
-YZ 0 0 0
+YZ
 stand stand female 2147483647
 0 0 huge unknown
 g @eng female@rus male~
@@ -50,10 +51,10 @@ prisoner karabas~
 @rus Он большой и толстый. лучше не ссорься с ним.
 ~
 human~
-Al 0 0 0
+0 0 0 0 0 0 0
 200 0 10d10+25000 0d0+0 10d10+1000 'none'
 -66 -66 -66 -66
-0 0 0 0
+0
 stand stand male 0
 0 0 huge unknown
 M act 15004 is dead!!~
@@ -72,13 +73,13 @@ cockroach~
 @rus Вполне обычный рыжий таракан.
 ~
 song bird~
-AZ 0 1000 0
+Z 0 0 0 0 1000 0
 1 0 1d1+1 0d0+0 1d1+1 'bite'
 0 0 0 0
-0 0 0 0
+0
 stand stand either 0
 0 0 small unknown
-F aff T
+F aff Tz
 r bash 100
 r pierce 100
 r slash 100
@@ -92,12 +93,12 @@ rat~
 @rus Маленькая злобная крыса с острыми зубами.
 ~
 human~
-A Z 0 0
+0 0 0 0 0 0 0
 0 0 1d1+1 0d0+0 1d1+1 'bite'
 0 0 0 0
-FH 0 0 0
+FHln
 stand stand either 0
-G 0 small unknown
+Gm 0 small unknown
 r charm 100
 r light -50
 #15005
@@ -110,10 +111,10 @@ kitten cat кошечка karapupa~
 @rus Маленькое пушистое существо глядит на тебя большими влажными глазами.
 ~
 cat~
-Aek DHPTclmt 1000 0
+e 0 HTcnz Gm Ag 1000 0
 150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
-ACDEIJKNO 0 0 0
+ACDEIJKNOgijkopqtu
 stand stand female 100000
 0 0 small unknown
 r bash 100
@@ -141,10 +142,10 @@ devil~
 ~
 ~
 pig~
-AGRTel CDEFGVZacu -1000 0
+GRTemxz 0 Vac 0 ABKLMghqrs -1000 0
 150 1000 1d1+10000 1d1+10000 1d1+100 'shbite'
 -100 -100 -100 -100
-0 0 0 0
+0
 stand stand male 0
 0 0 small unknown
 r bash 100
@@ -175,12 +176,12 @@ r light 100
 хвостом.
 ~
 unique~
-ABIXl BFHPQTVZcefglm 1000 0
+Bh Ek BCDEFGHJPQTVcehijklmnpvwz ABCDEFGghijklm BCDEFIJhijklop 1000 0
 95 1000 10d10+500 10d10+500 15d15+500 'bite'
 0 0 0 0
-ACDEFGHIJKNO 0 0 0
+ACDEFGHIJKNOgijklmnopqtu
 stand stand female 50
-G ABCQ medium unknown
+Gm ABCQghiw medium unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -208,13 +209,13 @@ r light 100
 @rus Старое кряжистое дерево, много повидавшее на своем веку.
 ~
 human~
-A 0 0 0
+0 0 0 0 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
-0 0 0 0
+0
 stand stand female 0
 0 0 medium unknown
-F for AHMV
+F for AHMVgns
 #0
 
 #OBJECTS
@@ -223,7 +224,7 @@ pill strange~
 strange pill~
 Someone has left a strange pill here.~
 unknown~
-pill ABG AOQ
+pill ABGghm 0 AOQguw
 66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
 g none~
@@ -232,7 +233,7 @@ food~
 Food~
 food~
 unknown~
-pill AG A
+pill AGgm 0 Ag
 300 'create food' 'create food' 'create food' 'create food'
 0 0 100 P
 g none~
@@ -241,7 +242,7 @@ blood fountain~
 @eng a fountain@rus фонтан~
 @eng Fountain is here.@rus Фонтан тут.~
 blood~
-fountain ABCEFI 0
+fountain ABCEFIghiklo 0 0
 0 0 'vodka' 0 0
 0 0 0 P
 g @eng none@rus male~
@@ -250,7 +251,7 @@ stats~
 stats~
 stats~
 unknown~
-trash 0 AO
+trash 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 A
@@ -271,7 +272,7 @@ beer barrel~
 @eng a BIG barrel of beer for Mabutu@rus БОЛЬШОЙ бочонок пива для старого негра~
 @eng Mabutu has left here his BIG barrel of beer.@rus Старый негр оставил здесь БОЛЬШОЙ бочонок (barrel) с пивом.~
 unknown~
-drink AGHIOTYZa AOP
+drink AGHIYgmno ABCEFghikl AOgu
 -1 100 'beer' 0 0
 0 0 0 P
 g none~
@@ -280,7 +281,7 @@ fountain~
 @eng a fountain with milk@rus ~~фонтан~~ с молоком~
 @eng Fountain with milk is here.@rus Тут зачем-то еще и фонтан с молоком.~
 unknown~
-fountain O 0
+fountain 0 Ag 0
 0 0 'milk' 0 0
 0 0 0 P
 g none~
@@ -289,8 +290,8 @@ bed~
 @eng bed@rus нары~
 @eng A bed is here.@rus Нары здесь.~
 unknown~
-furniture ABCEGIOY 0
-ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
+furniture ABCEGIYghikmo Ag 0
+ABEghk ABCDEFGHIJKLMNOPQRSTUVWXYZabcdeghijklmnopqrstuvwxyz BEKhkq DFGHIJjlmnop DFGHIJjlmnop
 0 0 0 P
 g none~
 #15007
@@ -298,7 +299,7 @@ bottle vodka absolute~
 @eng a bottle of crystal clear vodka@rus литровый пузырь кристалльно чистой водки~
 @eng A bottle of crystal clear vodka has been left here.@rus Темный властелин оставил здесь пузырь водки.~
 glass~
-drink ABCEHJLMORYZ AO
+drink ABCEHJLMYghiknprs ABEghk AOgu
 -1 1000 'vodka' 0 0
 99 1 2500 P
 g none~
@@ -307,7 +308,7 @@ pill anti invader~
 Anti-invader's pill~
 Someone has left an anti-invader's pill here.~
 energy~
-pill ABOT A
+pill ABgh ACgi Ag
 45 'detect fade' 'protection evil' 'bless' 'sanctuary'
 0 1 10000 P
 g none~
@@ -316,25 +317,21 @@ abrazak mace~
 Abrazak's mace~
 abrazak's mace~
 divinity~
-weapon 0 AN
-mace 2000 2000 'divine' BCDEGHI
+weapon 0 0 ANgt
+mace 2000 2000 'divine' BCDEGHIhijkmno
 100 0 1000000 P
 g none~
-R race
+R
 order allow_deny
-allow lich~
-end
-R class
-order allow_deny
-allow warrior~
+allow race("lich") && class("warrior")~
 end
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~
 {DScythe{x~
 unknown~
-weapon RYa ANP
-dagger 10000 10000 'pierce' ABCDEGHI
+weapon Y BFhl ANgt
+dagger 10000 10000 'pierce' ABCDEGHIghijkmno
 99 0 0 P
 A
 19 100000
@@ -346,7 +343,7 @@ horn~
 @eng {DHorns{x@rus {DРога{x~
 {DHorns{x~
 unknown~
-armor 0 AEP
+armor 0 Bh AEgk
 -1000 -1000 -1000 -1000 0
 99 0 0 P
 g none~
@@ -355,7 +352,7 @@ rose~
 @eng {DBlack Rose{x@rus {DЧерная роза{x~
 {DBlack Rose{x~
 unknown~
-trash 0 AOP
+trash 0 Bh AOgu
 0 0 0 0 0
 99 0 0 P
 g none~
@@ -364,7 +361,7 @@ hoof~
 @eng {DHooves{x@rus {DКопыта{x~
 {DHoofs{x~
 unknown~
-armor 0 AGP
+armor 0 Bh AGgm
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -373,7 +370,7 @@ mark beast~
 The Mark of the Beast~
 Mark of the Beast is here.~
 darkness~
-treasure ABCEG AS
+treasure ABCEGghikm 0 ASgy
 0 0 0 0 0
 100 0 0 P
 g none~
@@ -382,7 +379,7 @@ dress платье~
 @eng a green dress@rus {G~~платье~~ из зеленого муслина{x~
 @eng Beautiful green dress is lying here.@rus Очаровательнейшее муслиновое платье (dress) оставлено своей хозяйкой.~
 unknown~
-clothing GITY AD
+clothing GIYmo Ci ADgj
 0 0 0 0 0
 95 0 0 P
 g none~
@@ -391,7 +388,7 @@ g none~
 @eng a silver diadem@rus ~~серебряная~~ ~~диадема~~~
 @eng A silver diadem is lying here.@rus Очаровательная диадема (diadem) оставлена своей хозяйкой.~
 unknown~
-clothing GITY AE
+clothing GIYmo Ci AEgk
 0 0 0 0 0
 95 0 0 P
 A
@@ -430,21 +427,24 @@ A
 43 100
 A
 20 -10
-F A 20 -10 E
-F A 20 -10 C
-F A 20 -10 G
-F A 20 -10 m
-F A 20 -10 F
-F A 20 -10 l
-F A 20 -10 D
-F A 20 -10 t
+F d 20 -10 Lr
+F d 20 -10 Kq
+F d 20 -10 Ms
+A
+20 -10
+F d 20 -10 Bh
+A
+20 -10
+F d 20 -10 Ag
+A
+20 -10
 g none~
 #15017
 посох staff~
 @eng a wooden staff@rus ~~посох~~, обвитый лианами~
 @eng A strange staff is lying here.@rus Странного вида посох (staff) оставлен кем-то.~
 wood~
-weapon GI AN
+weapon GImo 0 ANgt
 staff 10 20 'none' 0
 95 0 0 P
 g none~
@@ -453,7 +453,7 @@ g none~
 @eng a pearl necklace@rus ~~жемчужное~~ ~~ожерелье~~~
 @eng A pearl necklace is lying here.@rus Ожерелье (necklace) из черного жемчуга забыто здесь своей хозяйкой.~
 pearl~
-jewelry GIT AC
+jewelry GImo Ci ACgi
 0 0 0 0 0
 95 0 0 P
 A
@@ -466,7 +466,7 @@ mark~
 @rus Свернувший с пути~
 abra kadabra madabra~
 unknown~
-treasure A S
+treasure Ag 0 Sy
 0 0 0 0 0
 0 0 100 P
 g none~
@@ -475,7 +475,7 @@ box~
 {Dящик ворсинского пива{x~
 {DЯщик темного Ворсинского пива дожидается своего хозяина здесь.{x~
 wood~
-container GRYa AOP
+container GYm BFhl AOgu
 20 0 0 100 0
 1 0 0 P
 g none~
@@ -484,7 +484,7 @@ bottle~
 {Dбутылка холодного Ворсинского пива{x~
 {DБутылка холодного Ворсинского пива лежит здесь.{x~
 glass~
-drink CGRYa AOP
+drink CGYim BFhl AOgu
 20 20 'beer' 0 0
 1 0 0 P
 g none~
@@ -493,17 +493,17 @@ shtuchka~
 shtuchka~
 shtuchka~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 0 0 'none' 0
 10 0 0 P
-S 'vampire' 100 A
+S 'vampire' 100 Ag
 g none~
 #15027
 elephant~
 @eng HUGE elephant@rus ОГРОМНЫЙ СЛОНЯРА~
 @eng HUGE elephant wanders around.@rus ОГРОМНЫЙ СЛОНЯРА бродит тут в поисках хозяина.~
 unknown~
-treasure 0 AO
+treasure 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -512,7 +512,7 @@ bell~
 @eng {Wlittle magic bell{x@rus {Wмаленький глиняный колокольчик{x~
 @eng A small little magic bell lies here.@rus Самая прекрасная ведьмочка оставила здесь свой колокольчик.~
 unknown~
-treasure 0 AO
+treasure 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -521,7 +521,7 @@ bear~
 @eng teddy bear@rus плюшевый медвежонок~
 @eng Teddy bear lies here, forgotten.@rus Уронили мишку на пол, оторвали мишке лапу...~
 unknown~
-treasure 0 AO
+treasure 0 0 AOgu
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -530,8 +530,8 @@ tron~
 {Gмаленькая удобная кроватка{x~
 {GМаленькая удобная кроватка для ведьмочки Faire стоит тут.{x~
 unknown~
-furniture RYa AP
-AC EIJKN HK CFG CFG
+furniture Y BFhl Ag
+ACgi EIJKNkopqt HKnq CFGilm CFGilm
 0 0 0 P
 g none~
 #15031
@@ -539,7 +539,7 @@ fff~
 ~
 ~
 unknown~
-trash 0 0
+trash 0 0 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -558,7 +558,7 @@ bottle champagne~
 @eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
 @eng Bottle of champagne is here.@rus Бутылка шампанского оставлена кем-то здесь.~
 glass~
-drink GRYa AOP
+drink GYm BFhl AOgu
 -1 2147483647 'champagne' 0 0
 0 0 0 P
 g none~
@@ -567,7 +567,7 @@ chocolate sweet~
 @eng {ychocolate sweet{x@rus {yшоколадная конфета{x~
 @eng Chocolate sweet is here.@rus Шоколадная конфета валяется тут.~
 chocolate~
-pill GRYa AOP
+pill GYm BFhl AOgu
 30 'haste' 'frenzy' 'enhanced armor' 'sanctuary'
 0 0 0 P
 g none~
@@ -576,7 +576,7 @@ box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
 @eng Box of chocolate sweets is here.@rus Коробка шоколадных кофет лежит тут.~
 paper~
-container GRYa AOP
+container GYm BFhl AOgu
 100 0 0 0 0
 0 0 0 P
 g none~
@@ -585,8 +585,8 @@ chair~
 ancient chair~
 The ancient chair is here.~
 unknown~
-furniture FGRTYa AP
-A FHJKPQ H BCEH BCEH
+furniture FGYlm BCFhil Ag
+Ag FHJKPQlnpqvw Hn BCEHhikn BCEHhikn
 0 0 0 P
 g none~
 #15041
@@ -594,8 +594,8 @@ chair~
 ancient chair~
 The ancient chair is here.~
 unknown~
-furniture FGRTYa AP
-A HJKMPTUX H CEFGHI CEFGHI
+furniture FGYlm BCFhil Ag
+Ag HJKMPTUXnpqsvz Hn CEFGHIiklmno CEFGHIiklmno
 0 0 0 P
 g none~
 #15042
@@ -603,7 +603,7 @@ gabagaba ring~
 gabagaba ring~
 Gabagaba ring is here.~
 unknown~
-armor GIRTYa ABP
+armor GIYmo BCFhil ABgh
 -20 -20 -20 -20 0
 0 0 0 P
 A
@@ -624,7 +624,7 @@ splinter~
 splinter "p"~
 splinter "n" is here.~
 unknown~
-trash GTYa AP
+trash GYm BCFhil Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -633,7 +633,7 @@ splinter~
 splinter "i"~
 splinter "i" is here.~
 unknown~
-trash GTYa AP
+trash GYm BCFhil Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -642,7 +642,7 @@ splinter~
 splinter "r"~
 splinter "l" is here.~
 unknown~
-trash GTYa AP
+trash GYm BCFhil Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -651,7 +651,7 @@ splinter~
 splinter "a"~
 splinter "b" is here.~
 unknown~
-trash GTYa AP
+trash GYm BCFhil Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -660,7 +660,7 @@ splinter~
 splinter "t"~
 splinter "o" is here.~
 unknown~
-trash GTYa AP
+trash GYm BCFhil Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -669,7 +669,7 @@ splinter~
 splinter "e"~
 splinter "g" is here.~
 unknown~
-trash GTYa AP
+trash GYm BCFhil Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -678,7 +678,7 @@ eye~
 eye~
 eye~
 unknown~
-staff EFHMPRTYa AOP
+staff EFHMPYklnsv BCFhil AOgu
 0 0 0 'reserved' 0
 10 10 0 P
 g none~
@@ -687,7 +687,7 @@ wand storm~
 the wand of death storm~
 The wand of death storm is here.~
 wood~
-wand CEGJLTYa AOP
+wand CEGJLYikmpr BCFhil AOgu
 50 10 10 'sand storm' 0
 20 10 0 P
 g none~
@@ -696,7 +696,7 @@ bucket rose~
 @eng Bucket full of roses@rus Ведерко для роз~
 @eng A bucket full of roses stands here.@rus Кто-то оставил тут ведерко с розами.~
 brass~
-container Yb AE
+container Yb 0 AEgk
 1000 0 0 1000 10
 0 0 0 P
 g none~
@@ -718,7 +718,7 @@ S
 #15001
 ~
 ~
-0 C inside
+0 Ci inside
 S
 #15002
 @eng Cell@rus Камера~
@@ -727,7 +727,7 @@ S
 даже бьет небольшой фонтан с вкусным молоком. Тем не менее, здесь до одури 
 скучно.
 ~
-0 CDNSTX inside
+0 CDNSTXijtyz inside
 S
 #15010
 @eng In the air ...@rus В воздухе...~
@@ -737,7 +737,7 @@ It seems like you can see forever!
 @rus   Ты летишь!  Внизу, метрах в сорока, виднеется северная окраина города.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
-0 CJNX inside
+0 CJNXipt inside
 S
 #15015
 @eng In the forest@rus На лесной поляне~
@@ -747,7 +747,7 @@ S
 наполняя воздух вокруг веселым журчанием. Вокруг скачут белки, 
 маленький зайчик притаился за кустом возле родничка.
 ~
-0 M forest
+0 Ms forest
 S
 #15016
 @eng In the forest@rus Бельчачье хранилище~
@@ -759,7 +759,7 @@ S
 #15100
 ~
 ~
-0 C inside
+0 Ci inside
 S
 #0
 

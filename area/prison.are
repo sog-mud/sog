@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Prison~
 VNUMs 32000 32099
 Credits Flar~
@@ -16,10 +17,10 @@ The gatekeeper is underpayed overweight and not too bright. He snores very
 loudly and occasionally rubs his chin. Well better kill him now I guess.
 ~
 human~
-ABG 0 0 0
+BGhm 0 0 0 0 0 0
 6 0 2d7+71 5d5+100 1d7+1 'pound'
 4 4 4 8
-EFNU 0 0 0
+EFNUklt
 stand stand male 100
 0 0 medium unknown
 #32001
@@ -30,10 +31,10 @@ The rat sits on its haunches here, thinking about its next meal.
 The rat looks as if it hasn't eaten in days....it contemplates eating YOU!
 ~
 unique~
-AG JQ 0 0
+Gm 0 0 Bh Hn 0 0
 5 0 2d6+60 5d5+100 1d6+1 'bite'
 5 5 5 9
-F 0 0 0
+Fl
 stand stand male 100
 0 0 medium unknown
 #32002
@@ -46,10 +47,10 @@ combat.  Selectively chosen from the ranks of cityguards he is the best of
 the elite.
 ~
 human~
-ACG J 0 0
+CGim 0 0 0 Hn 0 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-EFNU 0 0 0
+EFNUklt
 stand stand male 100
 0 0 medium unknown
 #32003
@@ -61,10 +62,10 @@ The Prison Worker looks almost exactly like a janitor you have seen in
 Midgaard!
 ~
 human~
-ACG DFJ 0 0
+CGim 0 0 0 ABHghn 0 0
 9 0 2d6+110 5d5+100 1d8+2 'slash'
 2 2 2 7
-FIJ 0 0 0
+FIJlop
 stand stand male 100
 0 0 medium unknown
 #32004
@@ -77,10 +78,10 @@ And for that matter anyone not wanted out! He is about 7'8'' and towers
 above  you.
 ~
 human~
-ABG HJ 100 0
+BGhm 0 Hn 0 Hn 100 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFIKU 0 0 0
+CDEFIKUijkloq
 stand stand male 100
 0 0 medium unknown
 #32005
@@ -92,10 +93,10 @@ The prisoner has been doing hard time for a while. He has the haggard look
 of an inmate with nothing to lose.
 ~
 human~
-AG J 0 0
+Gm 0 0 0 Hn 0 0
 33 0 10d10+1100 5d5+1000 6d4+10 'punch'
 -11 -11 -11 3
-FIJK 0 0 0
+FIJKlopq
 stand stand male 100
 0 0 medium unknown
 #32006
@@ -107,10 +108,10 @@ The huge black cockroach looks as if it must eat alot of food to support that hu
 ge body. It is at least 2 feet long. Do you have some bug spray?
 ~
 unique~
-AG J 500 0
+Gm 0 0 0 Hn 500 0
 8 0 2d7+96 5d5+100 1d7+2 'bite'
 3 3 3 8
-F 0 0 0
+Fl
 stand stand none 100
 0 0 medium unknown
 #32007
@@ -122,10 +123,10 @@ The flunky is the lowest ranking scum of the prison. He is a shame to all. kinda
  makes ya want to put him out of his misery.
 ~
 human~
-AGH 0 0 0
+GHmn 0 0 0 0 0 0
 13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
-F 0 0 0
+Fl
 stand stand male 100
 0 0 medium unknown
 #32008
@@ -138,10 +139,10 @@ The guard looks as if he has had a little too much to smoke after work today. He
 ll you get the idea.
 ~
 human~
-ABGH 0 0 0
+BGHhmn 0 0 0 0 0 0
 44 0 25d10+2750 5d5+1000 8d4+15 'pound'
 -15 -15 -15 2
-CDEFIJKU 0 0 0
+CDEFIJKUijklopq
 stand stand male 100
 0 0 medium unknown
 #32009
@@ -152,10 +153,10 @@ The gangster is here yelling orders to his flunkies.
 Sadly the gangster was caught not paying taxes to the mayor.
 ~
 human~
-ACGH 0 0 0
+CGHimn 0 0 0 0 0 0
 23 0 5d10+450 5d5+1000 3d6+6 'punch'
 -6 -6 -6 4
-FIJK 0 0 0
+FIJKlopq
 stand stand male 100
 0 0 medium unknown
 #32010
@@ -170,10 +171,10 @@ weak. Brad loves to  lust after Trixie. And after looking at him you
 notice he  has a preferance for  women's clothing.
 ~
 human~
-AG HU 0 0
+Gm 0 HUn 0 0 0 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FHIJK 0 0 0
+FHIJKlnopq
 stand stand male 100
 0 0 medium unknown
 #32011
@@ -185,12 +186,12 @@ She looks like your average, everyday, dumb, closed minded secretary.Great
 body.  No mind. And a great set of.....paper clips.
 ~
 human~
-AB 0 1000 0
+Bh 0 0 0 0 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'slap'
 -13 -13 -13 3
-0 0 0 0
+0
 stand stand female 100
-FIJK 0 medium unknown
+FIJKlopq 0 medium unknown
 #32012
 Steve maintenance man~
 Steve the maintenance man~
@@ -201,10 +202,10 @@ he likes to order supplies from Terry and he HATES to work. All of which
 is quite  evident. in this room
 ~
 human~
-ABG 0 0 0
+BGhm 0 0 0 0 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'slap'
 -20 -20 -20 0
-FIJK 0 0 0
+FIJKlopq
 stand stand male 100
 0 0 medium unknown
 #32013
@@ -216,10 +217,10 @@ Butch is a young lad with all the enthusiasm that ignorance can provide.
 He works long and hard to keep this prison in working order.
 ~
 human~
-AG 0 0 0
+Gm 0 0 0 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'pound'
 -23 -23 -23 -1
-CDEFIJK 0 0 0
+CDEFIJKijklopq
 stand stand male 100
 0 0 medium unknown
 #32014
@@ -232,10 +233,10 @@ a loose hairnet. She brings her light and salvation to work with
 her everyday..   Her son Jacob.
 ~
 human~
-ABG HN 1000 0
+BGhm 0 HNnt 0 0 1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'slap'
 -35 -35 -35 -5
-CDEFIJK 0 0 0
+CDEFIJKijklopq
 stand stand female 100
 0 0 medium unknown
 #32015
@@ -247,10 +248,10 @@ The Steam Monster is glittering although there is no light. It swirls about and
 about almost charming you in the process......
 ~
 unique~
-ABFG D 0 0
+BFGhlm 0 0 0 Ag 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'claw'
 -9 -9 -9 3
-FKN 0 0 0
+FKNlqt
 stand stand none 100
 0 0 medium unknown
 #32016
@@ -262,10 +263,10 @@ Larry is not the best paid person in here so he supplements his income with a li
 ttle on the side buying and selling.
 ~
 human~
-ABGe 0 0 0
+BGehm 0 0 0 0 0 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFHKN 0 0 0
+CDEFHKNijklnqt
 stand stand male 100
 0 0 medium unknown
 r bash 33
@@ -281,10 +282,10 @@ weapons at his diposal. The next step in his career was to become the weaponsmas
 ter. Unfortunately he has to resort to selling arms to pay the rent.
 ~
 human~
-ABGe 0 0 0
+BGehm 0 0 0 0 0 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFHKN 0 0 0
+CDEFHKNijklnqt
 stand stand male 100
 0 0 medium unknown
 r bash 33
@@ -299,10 +300,10 @@ You look at the slice of bologna and it curls itself into a tube and
 skitters away.
 ~
 unique~
-ABG 0 0 0
+BGhm 0 0 0 0 0 0
 1 0 2d6+10 5d5+100 1d4+0 'slice'
 9 9 9 10
-F 0 0 0
+Fl
 stand stand male 100
 0 0 medium unknown
 #32019
@@ -315,10 +316,10 @@ this time and place. He makes do with the clothes on his back and the
 hope that more and more worthy people like you will come and visit.
 ~
 human~
-ABGK HN 1000 0
+BGhm Dj HNnt 0 0 1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-CDEFHIJK 0 0 0
+CDEFHIJKijklnopq
 stand stand male 100
 0 0 medium unknown
 r fire 33
@@ -344,10 +345,10 @@ What an awful job the boy has, he has to watch these people drudge in and
 out of the shower all day long. But he keeps a few handy items on hand.
 ~
 human~
-ABG JN 0 0
+BGhm 0 Nt 0 Hn 0 0
 5 0 2d6+60 5d5+100 1d6+1 'pound'
 5 5 5 9
-FK 0 0 0
+FKlq
 stand stand male 100
 0 0 medium unknown
 #32021
@@ -360,10 +361,10 @@ is  really just a lonely lost being. All he really wants is a friend for
 eternity.
 ~
 human~
-ABG JN -1000 0
+BGhm 0 Nt 0 Hn -1000 0
 65 20 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-EFHKN 0 0 0
+EFHKNklnqt
 stand stand male 100
 0 0 medium unknown
 #32022
@@ -375,10 +376,10 @@ You stare at the center of the black mass but all you can see is a rainbow
 of colors swirling from the outside to the inside....swirling...swirling....
 ~
 unique~
-ABFG J 0 0
+BFGhlm 0 0 0 Hn 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'magic'
 -13 -13 -13 3
-FK 0 0 0
+FKlq
 stand stand none 100
 0 0 medium unknown
 #32023
@@ -389,10 +390,10 @@ A huge bronze Dragon is snoozing here with one eye open looking at you!
 Since you are a lesser being than Mnemoth you cannot comprehend what you see here.
 ~
 dragon~
-AG BDFHPU 1000 0
+Gm 0 HUn AGgm ABgh 1000 0
 1 0 2d6+10 5d5+100 1d4+0 'claw'
 9 9 9 10
-F 0 0 0
+Fl
 stand stand male 100
 0 0 huge unknown
 #32024
@@ -405,10 +406,10 @@ Chemicals to Steve in the prison maintenance. He also likes to stroll the
 grounds and flirt with Wendy his wife.
 ~
 human~
-ACHe H 0 0
+CHein 0 Hn 0 0 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-BCDEFIJK 0 0 0
+BCDEFIJKhijklopq
 stand stand male 100
 0 0 medium unknown
 r fire 33
@@ -433,7 +434,7 @@ gate key~
 a gate key~
 A metal key rests here.~
 iron~
-key B AO
+key Bh 0 AOgu
 0 0 0 0 0
 5 0 0 P
 g none~
@@ -442,7 +443,7 @@ short sword~
 a short sword~
 A dangerous short sword rests here.~
 steel~
-weapon 0 AN
+weapon 0 0 ANgt
 sword 1 6 'slash' 0
 5 5 100 P
 A
@@ -455,7 +456,7 @@ pack of cigarettes~
 a pack of cigarettes~
 A pack of smokes have been dropped here carelessly.~
 unknown~
-armor BE AO
+armor BEhk 0 AOgu
 3 3 3 0 0
 10 0 0 P
 A
@@ -471,8 +472,8 @@ Trojan wrapper~
 a used condom wrapper~
 A piece of crinkled foil rests here.~
 unknown~
-trash H A
-0 A BC ABD P
+trash Hn 0 Ag
+0 Ag BChi ABDghj Pv
 20 0 0 P
 g none~
 #32004
@@ -480,7 +481,7 @@ soap rope~
 a soap on a rope~
 Some soap on a rope is here.~
 unknown~
-weapon AGJL AN
+weapon AGJLgmpr 0 ANgt
 exotic 4 4 'pound' 0
 11 10 10 P
 A
@@ -493,7 +494,7 @@ tricks~
 flar's bag of tricks~
 An enchanted bag lies here~
 leather~
-container FG AO
+container FGlm 0 AOgu
 300 0 0 11 100
 0 10 10 P
 g none~
@@ -502,7 +503,7 @@ unknown ember ring~
 a unknown ember ring~
 A mystical ring of burning embers is here.~
 unknown~
-treasure 0 AB
+treasure 0 0 ABgh
 0 0 0 0 0
 1 5 0 P
 A
@@ -515,7 +516,7 @@ hatchling ember ring~
 a hatchling ember ring~
 A ring of burning embers is here.~
 unknown~
-treasure 0 AB
+treasure 0 0 ABgh
 0 0 0 0 0
 1 5 0 P
 A
@@ -528,7 +529,7 @@ Hatchling robe~
 a hatchling robe~
 An ivory robe lies here.~
 leather~
-armor 0 AK
+armor 0 0 AKgq
 2 0 0 0 0
 1 5 0 P
 A
@@ -541,8 +542,8 @@ filet rat~
 a rat filet~
 A juicy filet of rat lies here.~
 food~
-food 0 A
-D BC 0 A 0
+food 0 0 Ag
+Dj BChi 0 Ag 0
 0 1 0 P
 g none~
 #32010
@@ -550,7 +551,7 @@ hatchling cloak~
 a hatchling cloak~
 A  hatchling cloak lies here.~
 leather~
-armor 0 AC
+armor 0 0 ACgi
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -559,7 +560,7 @@ hatchling shirt~
 a hatchling shirt~
 A hatchling shirt lies here~
 leather~
-armor 0 AD
+armor 0 0 ADgj
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -568,7 +569,7 @@ helmet~
 a hatchling helmet~
 A hatchling helmet rests here.~
 steel~
-armor 0 AE
+armor 0 0 AEgk
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -577,7 +578,7 @@ hatchling leggings~
 a set of hatchling leggings~
 Some hatchling leggings lie here.~
 steel~
-armor 0 AF
+armor 0 0 AFgl
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -586,7 +587,7 @@ hatchling boots~
 a pair of hatchling boots~
 A pair of hatchling boots lie here.~
 leather~
-armor 0 AG
+armor 0 0 AGgm
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -595,7 +596,7 @@ hatchling gloves~
 a pair of hatchling gloves~
 A pair of hatchling gloves lie here.~
 leather~
-armor 0 AH
+armor 0 0 AHgn
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -604,7 +605,7 @@ hatchling sleeves~
 a set of hatchling sleeves~
 Some hatchling sleeves lie here.~
 steel~
-armor 0 AI
+armor 0 0 AIgo
 2 0 0 0 0
 1 10 0 P
 g none~
@@ -613,7 +614,7 @@ shield hatchling~
 a hatchling shield~
 A hatchling shield has been carelessly left here.~
 steel~
-armor 0 AJ
+armor 0 0 AJgp
 2 0 0 0 0
 1 10 0 P
 g none~
@@ -622,7 +623,7 @@ hatchling belt~
 a hatchling belt~
 A hatchling belt has been dropped here.~
 leather~
-container 0 AK
+container 0 0 AKgq
 100 0 0 5 100
 3 5 3000 P
 A
@@ -637,7 +638,7 @@ hatchling bracer~
 a hatchling bracer ~
 A hatchling bracer has been left here.~
 leather~
-armor 0 AM
+armor 0 0 AMgs
 2 0 0 0 0
 1 5 2000 P
 g none~
@@ -646,8 +647,8 @@ lucky charm hatchling~
 a lucky charm~
 A lucky charm has been left here.~
 unknown~
-treasure 0 AO
-B 0 0 0 0
+treasure 0 0 AOgu
+Bh 0 0 0 0
 5 10 110 P
 A
 4 1
@@ -659,7 +660,7 @@ Starter Kit~
 a starter kit~
 A starter kit has been dropped here.~
 unknown~
-container 0 AO
+container 0 0 AOgu
 75 0 0 5 100
 5 10 0 P
 E
@@ -673,7 +674,7 @@ fountain water~
 a fountain~
 An intricately carved ivory fountain is here, filled with holy water.~
 marble~
-fountain A 0
+fountain Ag 0 0
 1100 1100 'water' 0 0
 0 0 0 P
 g none~
@@ -682,7 +683,7 @@ crumpled piece paper~
 a crumpled piece of paper~
 A crumpled piece of paper has been left here.~
 paper~
-treasure 0 A
+treasure 0 0 Ag
 0 0 0 0 0
 0 10 0 P
 E
@@ -703,7 +704,7 @@ Desk~
 a large cluttered desk~
 A large cluttered desk with all sorts of paperwork is here.~
 wood~
-container 0 0
+container 0 0 0
 1000 0 0 50 100
 0 0 0 P
 E
@@ -715,7 +716,7 @@ Cell key~
 a cell block key  ~
 A cell block key rusts here~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 15 0 0 P
 g none~
@@ -724,7 +725,7 @@ joint~
 a big fat joint~
 A big fat joint lays here burning.~
 unknown~
-wand 0 AO
+wand 0 0 AOgu
 23 6 6 'faerie fire' 0
 5 5 10 P
 g none~
@@ -733,8 +734,8 @@ py check paycheck~
 a paycheck~
 A paycheck is here, longing for you to take it.~
 unknown~
-treasure 0 AO
-0 A 6 0 0
+treasure 0 0 AOgu
+0 Ag 6 0 0
 0 10 10 P
 g none~
 #32028
@@ -742,7 +743,7 @@ dirty mop~
 a dirty mop~
 A dirty mop has been set against the wall.~
 unknown~
-weapon 0 AN
+weapon 0 0 ANgt
 exotic 2 4 'pierce' 0
 5 5 10 P
 g none~
@@ -751,7 +752,7 @@ large battle axe~
 a large battle axe~
 A dangerous large battle axe rests here.~
 steel~
-weapon 0 AN
+weapon 0 0 ANgt
 axe 5 7 'chop' 0
 30 0 0 P
 A
@@ -764,7 +765,7 @@ spiked wristguard~
 a spiked wristguard~
 A wicked looking spiked wrist guard lies here.~
 unknown~
-armor 0 AM
+armor 0 0 AMgs
 20 21 20 20 0
 60 10 100 P
 A
@@ -783,7 +784,7 @@ titanium leggings~
 a pair of titanium leggings~
 A pair of strong leggings has been left here.~
 titanium~
-armor 0 AF
+armor 0 0 AFgl
 28 26 26 16 0
 60 15 100 P
 A
@@ -796,7 +797,7 @@ titanium sleeves~
 a set of titanium sleeves~
 A set of strong sleeves has been dropped here.~
 titanium~
-armor 0 AI
+armor 0 0 AIgo
 25 25 26 20 0
 60 5 100 P
 A
@@ -807,7 +808,7 @@ prison uniform~
 a prison uniform~
 A prison uniform lies here all starched up.~
 leather~
-armor 0 AK
+armor 0 0 AKgq
 6 6 7 5 0
 20 5 10 P
 A
@@ -818,7 +819,7 @@ titanium shield~
 a titanium shield~
 A shield of titanium rests here.~
 titanium~
-armor 0 AJ
+armor 0 0 AJgp
 29 29 28 20 0
 60 35 1000 P
 A
@@ -829,7 +830,7 @@ dagger curved~
 a curved  assasin's dagger~
 A curved dagger lies here.~
 steel~
-weapon EFJ AN
+weapon EFJklp 0 ANgt
 dagger 7 7 'pierce' 0
 45 5 1000 P
 A
@@ -842,7 +843,7 @@ ring guardian~
 a pitch black ring~
 A pitch black ring with sparkles of color lies on the ground here.~
 unknown~
-armor ABFG AB
+armor ABFGghlm 0 ABgh
 9 9 9 4 0
 30 5 1000 P
 A
@@ -855,7 +856,7 @@ iron manacle~
 a set of wrought iron manacles~
 A set of wrought iron manacles lay in the corner here.~
 iron~
-armor M AM
+armor Ms 0 AMgs
 1 1 1 0 0
 1 5 100 P
 A
@@ -868,7 +869,7 @@ zip gun~
 a zip gun~
 A home made zip gun lies here.~
 unknown~
-wand 0 AO
+wand 0 0 AOgu
 15 8 8 'high explosive' 0
 5 5 10 P
 g none~
@@ -877,7 +878,7 @@ coins gold pile~
 a pile of gold coins~
 A pile of gold coins are scattered about.~
 gold~
-money 0 A
+money 0 0 Ag
 1500 0 0 0 0
 0 0 0 P
 g none~
@@ -886,7 +887,7 @@ heels pink sequin~
 a set of pink sequined high heels~
 A set aof fabulous looking heels lie here.~
 unknown~
-armor 0 AG
+armor 0 0 AGgm
 26 26 26 16 0
 80 5 1000 P
 A
@@ -897,7 +898,7 @@ scarf pink cashmire~
 a pink cashmire scarf~
 A pink cashmire scarf has been left here, a definite plus for anyone's wardrobe.~
 cashmire~
-armor 0 AC
+armor 0 0 ACgi
 20 20 20 10 0
 60 5 1000 P
 A
@@ -908,7 +909,7 @@ bra push up~
 a push up bra~
 A busty bra lies here.~
 unknown~
-armor M AD
+armor Ms 0 ADgj
 12 12 12 10 0
 36 10 10 P
 A
@@ -921,7 +922,7 @@ coveralls~
 a pair of coveralls~
 A workers coveralls lay here.~
 unknown~
-armor BF AK
+armor BFhl 0 AKgq
 15 15 15 5 0
 48 10 1100 P
 A
@@ -934,7 +935,7 @@ indians baseball hat~
 an Indians baseball hat~
 A baseball hat with the tribe logo on it is here.~
 unknown~
-armor 0 AE
+armor 0 0 AEgk
 15 16 16 10 0
 48 2 10 P
 A
@@ -947,7 +948,7 @@ tool belt~
 a tool belt~
 A tool belt lies here.~
 unknown~
-armor 0 AL
+armor 0 0 ALgr
 16 17 15 10 0
 50 5 50 P
 A
@@ -958,7 +959,7 @@ golden hairnet~
 a golden hairnet~
 A pile of golden netting is here.~
 gold~
-armor 0 AE
+armor 0 0 AEgk
 9 9 9 5 0
 45 45 3000 P
 A
@@ -979,7 +980,7 @@ baby jacob~
 baby jacob~
 baby jacob lies here.~
 stone~
-light 0 0
+light 0 0 0
 0 0 0 0 0
 40 5 50 P
 g none~
@@ -988,7 +989,7 @@ scroll persuasion~
 a scroll of persuasion~
 A very delicate scroll set in silver leafs lies here.~
 vellum~
-scroll 0 A
+scroll 0 0 Ag
 60 'word of recall' '' '' ''
 40 5 50 P
 g none~
@@ -997,7 +998,7 @@ Gown virginity~
 a gown of virginity~
 A gown of virginity has been forgotten here.~
 unknown~
-armor 0 AK
+armor 0 0 AKgq
 27 26 25 20 0
 80 5 0 P
 A
@@ -1010,8 +1011,8 @@ packet boiler water treatment~
 a packet of boiler water treatment~
 A packet of boiler water treatment has been dropped here.~
 food~
-food H A
-BC BC 0 0 0
+food Hn 0 Ag
+BChi BChi 0 0 0
 0 5 0 P
 g none~
 #32051
@@ -1019,7 +1020,7 @@ dreadlocks~
 a mane of dreadlocks~
 A massive pile of dreadlocks rest here.~
 iron~
-armor ABFKL AE
+armor ABFKLghlqr 0 AEgk
 30 30 30 20 0
 45 25 110 P
 A
@@ -1030,8 +1031,8 @@ Axe destruction~
 an axe of destruction~
 A massive blood-stained axe of immeasurable age lies here.~
 steel~
-weapon BFG AN
-axe 6 11 'chop' DE
+weapon BFGhlm 0 ANgt
+axe 6 11 'chop' DEjk
 45 30 0 P
 A
 19 5
@@ -1043,7 +1044,7 @@ trash can~
 a trash can~
 A trash can is here so give a hoot and don't pollute!~
 bronze~
-container 0 0
+container 0 0 0
 200 0 0 6 100
 0 0 0 P
 g none~
@@ -1052,7 +1053,7 @@ chopping block~
 a chopping block~
 A chopping block covered in blood and gore is here.~
 iron~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1061,7 +1062,7 @@ head severed~
 a severed head~
 A severed head of a previous victim lies in the corner.~
 unknown~
-pill 0 0
+pill 0 0 0
 1 '' '' '' ''
 5 5 0 P
 E
@@ -1074,7 +1075,7 @@ rusty shower~
 a rusty leaky shower head~
 A rusty showerhead drips water on the floor here.~
 stone~
-fountain 0 0
+fountain 0 0 0
 0 0 'water' 0 0
 0 0 0 P
 g none~
@@ -1083,7 +1084,7 @@ pill lude~
 a lude~
 A pill called a "lude" lies here collecting dust.~
 unknown~
-pill 0 A
+pill 0 0 Ag
 10 'bless' 'cure serious' 'cure light' ''
 1 20 200 P
 g none~
@@ -1092,7 +1093,7 @@ flask vile mist~
 a flask of vile liquid~
 A flas full of vile liquid has been laid to rest here.~
 glass~
-potion 0 A
+potion 0 0 Ag
 8 'fly' 'refresh' '' ''
 2 25 10 P
 g none~
@@ -1101,7 +1102,7 @@ invisibility staff~
 a staff of invisibility~
 A twig of an oak tree lies here.~
 wood~
-staff 0 AO
+staff 0 0 AOgu
 12 8 8 'armor' 0
 5 5 100 P
 g none~
@@ -1110,7 +1111,7 @@ drum~
 a drum~
 A big yellow 55 gallon drum sits here.~
 unknown~
-furniture A A
+furniture Ag 0 Ag
 0 0 0 0 0
 0 10 100 P
 E
@@ -1123,7 +1124,7 @@ briefcase~
 a brown leather briefcase~
 A briefcase has been left here~
 leather~
-container 0 AJ
+container 0 0 AJgp
 50 0 0 5 100
 5 10 10 P
 A
@@ -1134,7 +1135,7 @@ Ball point pen~
 a ball point pen~
 A fine ball point pen lies here.~
 unknown~
-armor F AO
+armor Fl 0 AOgu
 16 17 16 9 0
 50 10 10 P
 A
@@ -1151,7 +1152,7 @@ quart~
 a quart of astro-sol#3~
 A quart of astrosol#3 has been left here.~
 unknown~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1160,7 +1161,7 @@ quart Natural ~
 a quart of Natural 50~
 A quart of Natural 50 has been dropped here, now you can smell oranges!~
 unknown~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1169,7 +1170,7 @@ Can ec50~
 a can of EC50~
 A can of EC50 is here looking dangerous.~
 unknown~
-wand 0 AO
+wand 0 0 AOgu
 13 5 5 'fireball' 0
 10 10 1000 P
 g none~
@@ -1178,7 +1179,7 @@ hatchling ember ring~
 a hatchling ember ring~
 A ring of burning embers lies here.~
 unknown~
-treasure 0 AB
+treasure 0 0 ABgh
 0 0 0 0 0
 1 8 0 P
 A
@@ -1191,7 +1192,7 @@ hatchling cloak~
 a hatchling cloak~
 A hatchling cloak lies here.~
 unknown~
-armor 0 AC
+armor 0 0 ACgi
 2 0 0 0 0
 1 5 0 P
 g none~
@@ -1200,7 +1201,7 @@ hatchling bracer~
 a hatchling bracer~
 A hatchling bracer lies here.~
 unknown~
-armor 0 AM
+armor 0 0 AMgs
 2 1 0 0 0
 1 5 0 P
 g none~
@@ -1209,7 +1210,7 @@ large desk~
 a large desk~
 A large oaken desk is in the corner here.~
 unknown~
-container 0 0
+container 0 0 0
 200 0 0 0 0
 0 0 0 P
 g none~
@@ -1218,7 +1219,7 @@ fountain water holy~
 an ivory fountain~
 A carved ivory fountain is here filled with Holy Water. ~
 ivory~
-fountain A 0
+fountain Ag 0 0
 100 100 'water' 0 0
 0 0 0 P
 g none~
@@ -1231,7 +1232,7 @@ You are standing in the shadow of a formiddable building. There are no
 windows only slits to let in light. In the distance you hear screams that
 send chills down your spine.
 ~
-0 C city
+0 Ci city
 D0
 ~
 ~
@@ -1261,7 +1262,7 @@ D0
 a rusty gate
 ~
 gate~
-ABCFZ 32000 32002
+ABCFZghil 32000 32002
 D2
 ~
 ~
@@ -1295,7 +1296,7 @@ A Dark Intersection~
 You are standing in a dark intersection. There appears to be cellblocks to
 the east and west of here. The hallway continues north and south.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1371,7 +1372,7 @@ A long hallway~
 You are standing in a long hallway. The hallway continues to the north and  
 south.
 ~
-0 D inside
+0 Dj inside
 D0
 ~
 ~
@@ -1406,7 +1407,7 @@ Z -1 32073
 D4
 ~
 ~
-ABZ -1 32010
+ABZgh -1 32010
 S
 #32009
 Executioners room~
@@ -1522,11 +1523,11 @@ A broom closet~
 You are in a small broom closet. There are old rags and other odds and
 ends stacked on the shelves here.
 ~
-0 A inside
+0 Ag inside
 D2
 ~
 ~
-ABZ -1 32015
+ABZgh -1 32015
 S
 #32017
 Spiral staircase~
@@ -1728,7 +1729,7 @@ Dimly lit hallway~
 You are standing in a dimly lit hallway.  It seems as though maintenance  
 ought to check on these lights in here.
 ~
-0 A inside
+0 Ag inside
 D0
 ~
 ~
@@ -1901,7 +1902,7 @@ Z -1 32003
 D3
 ~
 ~
-ABCFZ 32025 32042
+ABCFZghil 32025 32042
 S
 #32042
 A cellblock~
@@ -1909,15 +1910,15 @@ This is the reason this prison is here, to keep these people from getting
 out. You start to wonder if you can ever get out yourself. There are cells
 to the north and south.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32050
+ABZgh -1 32050
 D1
 ~
 ~
-AFZ -1 32041
+AFZgl -1 32041
 D2
 ~
 ~
@@ -1933,7 +1934,7 @@ This is the reason the prison is here, to keep these people from getting
 out. You start to wonder if you will ever get out yourself. There are
 cells to the north and south.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
@@ -1957,11 +1958,11 @@ This is the reason the prison is here, to keep the people from getting out. You
 start to wonder of you will ever get out yourself. There are cells to the north 
 and south. A small alcove leads to the west.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32046
+ABZgh -1 32046
 D1
 ~
 ~
@@ -1979,7 +1980,7 @@ S
 An alcove~
 This room is absolutely barren.........
 ~
-0 AN inside
+0 ANgt inside
 D1
 ~
 ~
@@ -1990,40 +1991,40 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
-ABZ -1 32044
+ABZgh -1 32044
 S
 #32047
 A cell~
 You are standing in a cell. There ais a pile of straw on the floor and
 some crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32044
+ABZgh -1 32044
 S
 #32048
 A cell~
 You are standing in a cell. There is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
-ABZ -1 32043
+ABZgh -1 32043
 S
 #32049
 A cell~
 You are standing in a cell. There is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
@@ -2034,33 +2035,33 @@ A cell~
 You are standing in a cell. There is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
-ABZ -1 32042
+ABZgh -1 32042
 S
 #32051
 A cell~
 You are standing in a cell. there is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32042
+ABZgh -1 32042
 S
 #32052
 A Guard Room~
 You are in what appears to be a guardroom. there is a huge locked door to
 the east.
 ~
-0 A inside
+0 Ag inside
 D1
 ~
 ~
-ABCFZ 32025 32053
+ABCFZghil 32025 32053
 D3
 ~
 ~
@@ -2072,11 +2073,11 @@ This is the reason the prison is here, to keep people from getting out.
 You start to wonder if you will ever get out yourself. there are cells to
 the north and south.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32057
+ABZgh -1 32057
 D1
 ~
 ~
@@ -2088,7 +2089,7 @@ Z -1 32058
 D3
 ~
 ~
-ABCFZ -1 32052
+ABCFZghil -1 32052
 S
 #32054
 A cellblock~
@@ -2096,7 +2097,7 @@ This is the reason the prison is here, to keep people from getting out.
 you start to wonder if you will ever get out yourself. There are cells to
 the north and south.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
@@ -2120,19 +2121,19 @@ this is the reason the prison is here, to keep people from getting out.
 You start to wonder if you will ever get out yourself. there are cells to
 the north and south. A small alcove leads to the east.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32061
+ABZgh -1 32061
 D1
 ~
 ~
-ABZ -1 32056
+ABZgh -1 32056
 D2
 ~
 ~
-ABZ -1 32062
+ABZgh -1 32062
 D3
 ~
 ~
@@ -2143,7 +2144,7 @@ An alcove~
 You are in a small alcove. It appears as if someone has been living here. Piles 
 of feces are in the corners and the smell of urine overpowers you.
 ~
-0 AN inside
+0 ANgt inside
 D3
 ~
 ~
@@ -2154,40 +2155,40 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
-ABZ -1 32053
+ABZgh -1 32053
 S
 #32058
 A cell~
 You are standing in a cell. there is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
-ABZ -1 32053
+ABZgh -1 32053
 S
 #32059
 A cell~
 You are standing in a cell. There is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
-ABZ -1 32054
+ABZgh -1 32054
 S
 #32060
 A cell~
 You are standing in a cell. There is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
@@ -2198,7 +2199,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and
 crude drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D2
 ~
 ~
@@ -2209,7 +2210,7 @@ A cell~
 You are standing in a cell. there is a pile of straw on the floor and some crude
 drawings on the wall.
 ~
-0 AN inside
+0 ANgt inside
 D0
 ~
 ~
@@ -2623,7 +2624,7 @@ Deep dank hall~
 You are in a passage that leads to the showers. The walls are moist and
 slimy here. You can smell fear and decay......better leave now.
 ~
-0 A inside
+0 Ag inside
 D1
 ~
 ~
@@ -2681,7 +2682,7 @@ S
 #32088
 Flar's Gateway to Unknown~
 ~
-0 CN city
+0 CNit city
 S
 #32089
 Flar's Gateway to heaven~
@@ -2689,7 +2690,7 @@ You are standing in a huge Warehouse. This must be where Flar spends his
 days working. From here you can see a desk in the corner and a large sign
 on the wall.
 ~
-0 C city
+0 Ci city
 S
 #0
 

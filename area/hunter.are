@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Hunter~
 VNUMs 95700 95799
 Credits Asena~
@@ -21,10 +22,10 @@ learned as guarding this palace for very very much amounts of gold.
 за очень большие деньги.
 ~
 beholder~
-ABJKefl DFHV 0 0
+ABDEJeghjkp CDFGIijlmo HVn 0 ABgh 0 0
 92 40 2d500+25000 1d200+600 10d35+50 'slash'
 -77 -77 -77 -37
-ACEFKNR 0 0 0
+ACEFKNRgiklqtx
 stand stand male 5000
 0 0 medium unknown
 F aff c
@@ -55,10 +56,10 @@ lost your eyed sword than say to him that 'trouble'.
 травами, чтобы они могли служить миру Теней.
 ~
 human~
-ABQVael DFH 0 0
+BQVehw Hn Hn 0 ABgh 0 0
 80 0 1d1+21999 1d1+999 2d4+50 'divine'
 -75 -75 -75 -15
-FHIK 0 0 0
+FHIKlnoq
 stand stand male 1000
 0 0 medium unknown
 C Hunters
@@ -91,12 +92,12 @@ learned as guarding this palace for very very much amounts of gold.
 за очень большие деньги.
 ~
 beholder~
-ABJKefl DFJVZlmtu -1000 0
+ABDEJeghjkp CDFGIijlmo V 0 ABHghn -1000 0
 92 40 2d500+22000 1d200+600 5d35+50 'slash'
 -77 -77 -77 -32
-ACEFKN 0 0 0
+ACEFKNgiklqt
 stand stand male 5000
-0 G medium unknown
+0 Gm medium unknown
 F aff c
 M grall 95700 100~
 M exall 95701 0~
@@ -123,8 +124,8 @@ platinum golden altar container~
 @eng the golden sign@rus золотой знак~
 @eng On the altar you see the sign of hunters with platinum carvings.@rus На алтаре (altar) выгравирован знак охотников.~
 gold~
-container CEORY P
-10 ABCD 95702 15 100
+container CEYik ABgh 0
+10 ABCDghij 95702 15 100
 60 1 20 P
 g none~
 #95701
@@ -132,7 +133,7 @@ tattoo golden золотая татуировка~
 @eng the golden tattoo@rus ~~золотая~~ ~~татуировка~~~
 @eng A small, golden tattoo floats in the air.@rus Маленькая золотая татуировка (tattoo) летает в воздухе.~
 gold~
-treasure CEORTe AO
+treasure CEik ABCHghin AOgu
 0 0 0 0 0
 0 1 10000 P
 g none~
@@ -141,7 +142,7 @@ bone gray кость~
 @eng a gray bone@rus ~~серая~~ ~~кость~~~
 @eng An ancient animal's bone is left on the floor here.@rus Древняя кость (bone) лежит на полу.~
 bone~
-key CEORYf AOP
+key CEYik ABIJKghopq AOgu
 0 0 0 0 0
 0 4 0 P
 g none~
@@ -150,7 +151,7 @@ tattoo~
 {Rbrand of the outlaw{x~
 strange tattoo~
 unknown~
-jewelry AMTZ AS
+jewelry AMgs CEik ASgy
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -163,7 +164,7 @@ g none~
 the well mouth. A golden aura fills your body.
 @rus Вы стоите возле золотого колодца, зев в который загораживает огромный валун. Золотая аура наполняет ваше тело.
 ~
-0 ACDK inside
+0 ACDKgijq inside
 D2
 ~
 ~
@@ -171,7 +172,7 @@ Z 0 9783
 D5
 ~
 ~
-ABZ 0 95701
+ABZgh 0 95701
 S
 #95701
 @eng Bottom of the Well@rus На дне колодца~
@@ -179,15 +180,15 @@ S
 The guardians are  keeping the hunters from enemies.
 @rus Через открытую северную дверь в комнату проникает немного света от мерцающего факела. Стражи охраняют охотников от вторжения врагов.
 ~
-0 ACDK inside
+0 ACDKgijq inside
 D0
 ~
 ~
-DZ -1 95702
+DZj -1 95702
 D4
 ~
 ~
-ABZ 0 95700
+ABZgh 0 95700
 S
 #95702
 @eng Golden chambers@rus Золотые палаты~
@@ -196,7 +197,7 @@ All three corridors connecting this hall, proves how easy hunters can
 find their way.
 @rus Вы стоите внутри палаты, стены которой отделаны золотыми плитами. Все три коридора соединяются с этой палатой, доказывая что охотники легко могут найти нужный путь.
 ~
-0 ADK inside
+0 ADKgjq inside
 D0
 ~
 ~
@@ -208,7 +209,7 @@ Z -1 95702
 D2
 ~
 ~
-DZ -1 95701
+DZj -1 95701
 D3
 ~
 ~
@@ -220,7 +221,7 @@ S
 north wall is a large skin sheet with blood script on it.
 @rus Вся комната наполнена блестящими золотыми монетами, которые освещают ее. На северной стене висит кожаная табличка с кровавой надписью.
 ~
-0 ADK inside
+0 ADKgjq inside
 D2
 ~
 ~

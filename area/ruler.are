@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Ruler~
 VNUMs 95100 95199
 Credits Chronos~
@@ -21,10 +22,10 @@ decades of devotion and training, he is almost perfect at many skills.
 службы он отточил свои умения до совершенства.
 ~
 human~
-ABJKWefl DFHJVZlmt 0 0
+ABDEJWeghjkp CDFGIijlmo HVn 0 ABHghn 0 0
 92 60 1d500+25000 1d200+1600 10d40+50 'none'
 -70 -70 -70 -20
-ACEFIKNOU 0 0 0
+ACEFIKNOUgikloqtu
 stand stand male 5000
 0 0 medium unknown
 M grall 95100 100~
@@ -44,10 +45,10 @@ gods for the balance on Shades of Gray.
 в этом мире.
 ~
 human~
-ABWal DFHJVZ 0 0
+BWh Hn HVn 0 ABHghn 0 0
 80 20 1d100+18000 1d300+900 15d30+40 'divine'
 -65 -65 -61 -39
-CEFNU 0 0 0
+CEFNUiklt
 stand stand male 0
 0 0 medium unknown
 C Rulers
@@ -72,8 +73,8 @@ book stand bookstand~
 @eng the bookstand@rus книжный шкаф~
 @eng The bookstand is standing against the east wall of room.@rus Книжный шкаф (bookstand) стоит у восточной стены.~
 ivory~
-container ORY P
-10 ABCD 95102 15 100
+container Y ABgh 0
+10 ABCDghij 95102 15 100
 60 1 20 P
 g none~
 #95101
@@ -81,7 +82,7 @@ law laws book~
 @eng the book of laws@rus Кодекс~
 @eng The book of laws is left here on the floor.@rus Кодекс (book) лежит на полу.~
 paper~
-treasure ORe AO
+treasure 0 ABHghn AOgu
 0 0 0 0 0
 0 1 100000 P
 g none~
@@ -90,7 +91,7 @@ paper rolled roll свиток~
 @eng a rolled paper@rus ~~бумажный~~ ~~свиток~~~
 @eng A rolled paper is left on the ground.@rus Свиток бумаги (paper) забыт на земле.~
 paper~
-key ORYf AOP
+key Y ABIJKghopq AOgu
 0 0 0 0 0
 0 4 0 P
 E
@@ -104,8 +105,8 @@ sofa silk~
 @eng a silk sofa@rus обитый шелком диван~
 @eng A silk sofa is here, for rulers sit and rest.@rus Обитый шелком диван (sofa) приглашает отдохнуть.~
 silk~
-furniture 0 0
-AB DFGHIJ BHKN BCEH BCEH
+furniture 0 0 0
+ABgh DFGHIJjlmnop BHKNhnqt BCEHhikn BCEHhikn
 20 400 100000 P
 g none~
 #95104
@@ -113,7 +114,7 @@ clan mark book law~
 Book of LAW~
 A big book lies here.~
 unknown~
-jewelry Y S
+jewelry Y 0 Sy
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -122,7 +123,7 @@ law~
 @eng {CLaw and order{x@rus {CНа страже порядка{x~
 Interesting tattoo.~
 unknown~
-trash AMOTZ AS
+trash AMgs ACEgik ASgy
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -141,11 +142,11 @@ light of the sun coming from the windows.
 клане, можно решить любые проблемы." Мраморный пол сверкает чистотой, отражая
 яркий солнечный свет из окон.
 ~
-0 DKX inside
+0 DKXjq inside
 D0
 ~
 ~
-DZ -1 95101
+DZj -1 95101
 D2
 ~
 ~
@@ -162,7 +163,7 @@ the rulers. And to the west you see the chapel.
 север (north) ты видишь комнату Закона,  на востоке (east) - комнату отдыха,
 на западе (west) - небольшую часовню.
 ~
-0 DKX inside
+0 DKXjq inside
 D0
 ~
 ~
@@ -174,7 +175,7 @@ Z -1 95104
 D2
 ~
 ~
-DZ -1 95100
+DZj -1 95100
 D3
 ~
 ~
@@ -190,7 +191,7 @@ laws are written in a book that stands inside of the bookstand.
 молодежь  учит их.  У восточной стены  стоит  книжный шкаф.  В шкафу стоит 
 Кодекс - в нем записаны все законы.
 ~
-0 DKX inside
+0 DKXjq inside
 D2
 ~
 ~
@@ -207,7 +208,7 @@ each side of the room. The mystical air freshens your mind.
 тем не менее, тут светло как днем. Сотни свечей на стенах дают мягкий свет.
 Мистический воздух просветляет твой разум.
 ~
-0 DKX inside
+0 DKXjq inside
 D1
 ~
 ~
@@ -222,7 +223,7 @@ the Shades of Gray, you think that they need such kind of rooms.
 отдохнуть и расслабиться. Нелегко управлять этим миром - поэтому такая комната
 просто необходима тем, кто стал на сторону Закона.
 ~
-0 DKX inside
+0 DKXjq inside
 D3
 ~
 ~

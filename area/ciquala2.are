@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Ciquala's Lair~
 VNUMs 13400 13499
 Credits Binky~
@@ -16,10 +17,10 @@ The Guardian lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
 human~
-ABCFl BJQT -1000 0
+BCFhil 0 Tz ABgh Hn -1000 0
 43 0 25d10+2750 329d1+100 8d4+15 'slash'
 -15 -15 -15 5
-BCDEH 0 0 0
+BCDEHhijkn
 stand stand male 4200
 0 0 medium unknown
 r acid -50
@@ -35,10 +36,10 @@ of magic, and his rather nasty disposition.  He revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
 ~
 human~
-ABCFHl DFJ -1000 13401
+BCFHhiln 0 0 0 ABHghn -1000 13401
 40 0 15d10+1850 219d1+100 4d8+13 'beating'
 -13 -13 -13 4
-BCDEH 0 0 0
+BCDEHhijkn
 stand stand male 1200
 0 0 medium unknown
 r acid -50
@@ -54,10 +55,10 @@ covered with scales, and others with hair.  It's head has 1 large bulbous eye,
 much like that of an insect.  Long talons reach out for you to shred you alive.
 ~
 human~
-AFGHl DFJT -1000 0
+FGHlmn 0 Tz 0 ABHghn -1000 0
 50 0 50d10+4500 399d1+100 5d8+19 'beating'
 -20 -20 -20 2
-BCDEH 0 0 0
+BCDEHhijkn
 stand stand male 5800
 0 0 medium unknown
 r acid -50
@@ -72,10 +73,10 @@ The creature would probably not hurt a fly.  Actually, it is unaware of its own
 existence.
 ~
 human~
-AB JNOu -1000 0
+Bh 0 NOtu 0 Hn -1000 0
 45 0 25d10+3000 349d1+100 8d4+16 'pierce'
 -15 -15 -15 5
-HO 0 0 0
+HOnu
 stand stand either 5199
 0 0 medium unknown
 r bash 100
@@ -93,10 +94,10 @@ As you examine this crate, a black tarlike substance seeps between the boards
 slowly eating the wood away.  It is a black pudding!
 ~
 human~
-ABFl J -1000 0
+BFhl 0 0 0 Hn -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 3
-BEF 0 0 0
+BEFhkl
 stand stand either 0
 0 0 medium unknown
 r cold 100
@@ -111,10 +112,10 @@ This gigantic construct is made of a metallic substance that you do not
 recognize.  He stands about 8' tall, brushing the ceiling.
 ~
 human~
-ABl HJ 0 0
+Bh 0 Hn 0 Hn 0 0
 59 0 50d10+7600 499d1+100 8d6+25 'beating'
 -30 -30 -30 0
-BEF 0 0 0
+BEFhkl
 stand stand male 0
 0 0 medium unknown
 r cold 100
@@ -129,10 +130,10 @@ This creature is a hovering dark shape.  It does not seem to have a body so
 to speak.  As it approaches you, a harsh chill makes you shiver.
 ~
 human~
-ABFl BDJT -1000 0
+BFhl 0 Tz Ag AHgn -1000 0
 55 0 50d10+6000 449d1+100 6d8+21 'beating'
 -25 -25 -25 1
-BEF 0 0 0
+BEFhkl
 stand stand male 7500
 0 0 medium unknown
 r cold 100
@@ -147,10 +148,10 @@ that it isn't a ceiling, but a LURKER ABOVE!  You had better attack before
 it drops on you!
 ~
 human~
-ABFHl J -1000 0
+BFHhln 0 0 0 Hn -1000 0
 37 0 10d10+1500 269d1+100 3d10+12 'pierce'
 -12 -12 -12 4
-BCDEH 0 0 0
+BCDEHhijkn
 stand stand male 0
 0 0 medium unknown
 r acid -50
@@ -166,10 +167,10 @@ enough time at night to feed properly.  He is VERY happy that you walked in
 on him.
 ~
 human~
-ABFl BDFJu -1000 0
+BFhl 0 0 Ag ABHghn -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'none'
 -17 -17 -17 2
-BEF 0 0 0
+BEFhkl
 stand stand male 5300
 0 0 medium unknown
 r acid -50
@@ -184,10 +185,10 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABFl JNO -1000 0
+BFhl 0 NOtu 0 Hn -1000 0
 42 0 25d10+2250 299d1+100 3d12+14 'beating'
 -14 -14 -14 4
-BEF 0 0 0
+BEFhkl
 stand stand male 3400
 0 0 medium unknown
 r acid -50
@@ -202,10 +203,10 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABl JNO -250 0
+Bh 0 NOtu 0 Hn -250 0
 43 0 25d10+2500 329d1+100 3d12+15 'beating'
 -15 -15 -15 4
-BEF 0 0 0
+BEFhkl
 stand stand male 0
 0 0 medium unknown
 r acid -50
@@ -220,10 +221,10 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABFl JNO 250 0
+BFhl 0 NOtu 0 Hn 250 0
 46 0 25d10+3250 359d1+100 6d6+16 'beating'
 -16 -16 -16 4
-BEF 0 0 0
+BEFhkl
 stand stand male 0
 0 0 medium unknown
 r acid -50
@@ -238,10 +239,10 @@ to a dull grey substance.  The automaton is very strong, and will be a fierce
 opponent.
 ~
 human~
-ABFl JNO 1000 0
+BFhl 0 NOtu 0 Hn 1000 0
 49 0 50d10+4000 389d1+100 4d10+18 'beating'
 -20 -20 -20 2
-BEF 0 0 0
+BEFhkl
 stand stand male 0
 0 0 medium unknown
 r acid -50
@@ -254,10 +255,10 @@ A blackened creature stands here, ready to cause you excruciating pain.
 You'd better not look to close, he may charm you.
 ~
 human~
-ABFl Ju -1000 0
+BFhl 0 0 0 Hn -1000 0
 51 0 50d10+4800 409d1+100 5d8+20 'pierce'
 -22 -22 -22 2
-B 0 0 0
+Bh
 stand stand male 7500
 0 0 medium unknown
 r acid -50
@@ -270,10 +271,10 @@ Ciquala's undead pet dragon is here, snacking on a fresh corpse.
 This skeletal dragon is an ancient red dragon preserved through arcane magic.
 ~
 dragon~
-ABFl DFu -1000 0
+BFhl 0 0 0 ABgh -1000 0
 60 0 50d10+7600 499d1+100 6d8+24 'beating'
 -30 -30 -30 -10
-B 0 0 0
+Bh
 stand stand female 9500
 0 0 medium unknown
 r acid -50
@@ -288,10 +289,10 @@ Ciquala still looks majestic after all these thousands of years.  But you can
 see the menace in her eye as she looks at you, and prepares her first spell.
 ~
 human~
-ABFl DFJTu -1000 0
+BFhl 0 Tz 0 ABHghn -1000 0
 62 0 50d15+10000 519d1+100 6d9+29 'pierce'
 -35 -35 -35 -1
-BCDEH 0 0 0
+BCDEHhijkn
 stand stand female 10000
 0 0 medium unknown
 r acid -50
@@ -306,10 +307,10 @@ The Lich looks like a decaying corpse, with small glowing points of
 light for eyes.
 ~
 human~
-ABCFl BDJ -1000 0
+BCFhil 0 0 Ag AHgn -1000 0
 47 0 25d10+3500 369d1+100 6d6+17 'slash'
 -17 -17 -17 1
-B 0 0 0
+Bh
 stand stand male 6500
 0 0 medium unknown
 r acid -50
@@ -324,10 +325,10 @@ The vampire looks incredibly strong.  He is wearing musty clothes, and has
 large fangs that seem to grow longer as he looks back at you.
 ~
 human~
-ABCFl BDJT -1000 0
+BCFhil 0 Tz Ag AHgn -1000 0
 57 0 50d10+6800 469d1+100 6d8+24 'slash'
 -27 -27 -27 1
-B 0 0 0
+Bh
 stand stand male 7800
 0 0 medium unknown
 r acid -50
@@ -342,10 +343,10 @@ of magic, and his rather nasty disposition.  She revels in creating loathesome,
 twisted, warped creatures to serve Ciquala.
 ~
 human~
-ABCFHl DFJ -1000 13401
+BCFHhiln 0 0 0 ABHghn -1000 13401
 32 0 10d10+1000 219d1+100 6d4+9 'beating'
 -10 -10 -10 5
-BCDEH 0 0 0
+BCDEHhijkn
 stand stand female 1200
 0 0 medium unknown
 r acid -50
@@ -359,8 +360,8 @@ ciquala's sword~
 Ciquala's sword~
 A large, black sword lies here.~
 iron~
-weapon BCHJM AN
-sword 5 13 'slice' C
+weapon BCHJMhinps 0 ANgt
+sword 5 13 'slice' Ci
 55 80 34799 P
 A
 18 10
@@ -380,7 +381,7 @@ ciquala's robe~
 Ciquala's robe~
 A heavy pile of black cloth lies in the dust.~
 leather~
-armor GHJM AK
+armor GHJMmnps 0 AKgq
 17 17 17 2 0
 51 50 29470 G
 A
@@ -395,7 +396,7 @@ Ciquala's staff~
 ciquala's staff~
 A black staff lies on the ground.~
 wood~
-staff GHJM AO
+staff GHJMmnps 0 AOgu
 40 20 20 'cure critical' 0
 54 20 22100 P
 A
@@ -410,8 +411,8 @@ crate~
 crate~
 A crate stands here.~
 iron~
-furniture 0 A
-B EGHIJK NO CFG CFG
+furniture 0 0 Ag
+Bh EGHIJKkmnopq NOtu CFGilm CFGilm
 0 0 0 P
 g none~
 #13404
@@ -419,7 +420,7 @@ key~
 a key~
 A key lies on the ground.~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -428,7 +429,7 @@ key~
 a iron key~
 A iron key lies on the ground.~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -437,7 +438,7 @@ key large~
 a large key~
 A large key lies on the ground.~
 iron~
-key 0 A
+key 0 0 Ag
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -446,7 +447,7 @@ blue potion~
 a blue potion~
 A blue bottle of liquid lies here.~
 glass~
-potion H A
+potion Hn 0 Ag
 38 'acid blast' 'acute vision' 'detect hidden' 'detect invis'
 20 20 3200 P
 g none~
@@ -455,7 +456,7 @@ emerald vial~
 an emerald vial~
 An emerald vial lies here~
 glass~
-potion 0 A
+potion 0 0 Ag
 25 'heal' 'heal' 'blindness' ''
 20 20 3350 P
 g none~
@@ -464,7 +465,7 @@ testube clear~
 a clear testube~
 A clear testube contains an unknown liquid.~
 glass~
-potion H A
+potion Hn 0 Ag
 38 'burning hands' 'colour spray' 'protection evil' 'giant strength'
 20 20 3300 P
 g none~
@@ -473,7 +474,7 @@ vial green~
 a green vial~
 A green vial sits on  a shelf.~
 glass~
-potion 0 A
+potion 0 0 Ag
 28 'create spring' 'energy drain' 'poison' 'armor'
 20 20 2300 P
 g none~
@@ -482,7 +483,7 @@ gold liquid vial~
 a vial with gold liquid~
 A vial with a gold colored liquid sits on the floor.~
 glass~
-potion 0 A
+potion 0 0 Ag
 30 'weaken' 'poison' 'teleport' 'curse'
 20 20 4300 P
 g none~
@@ -491,7 +492,7 @@ milky liquid vial~
 a vial with milky liquid~
 A vial with milky liquid sits on the shelf.~
 glass~
-potion 0 A
+potion 0 0 Ag
 30 'heal' 'pass door' 'teleport' 'sanctuary'
 20 20 4400 P
 g none~
@@ -500,7 +501,7 @@ black potion~
 a black potion~
 A black potion is waiting to be picked up.~
 glass~
-potion 0 A
+potion 0 0 Ag
 30 'shield' 'infravision' 'cause critical' 'protection good'
 20 20 4900 P
 g none~
@@ -509,7 +510,7 @@ beaker yellow~
 a beaker with yellow liquid~
 A beaker filled with yellow bubbling liquid sits on the counter.~
 glass~
-potion 0 A
+potion 0 0 Ag
 30 'harm' 'poison' 'weaken' 'sleep'
 20 20 3400 P
 g none~
@@ -518,7 +519,7 @@ iron maiden~
 an iron maiden~
 An iron maiden sits here, looking rather unused.  Why not try it on?~
 iron~
-armor 0 AD
+armor 0 0 ADgj
 20 20 20 5 0
 33 1000 0 G
 A
@@ -535,8 +536,8 @@ torturer's whip~
 the torturer's whip~
 An enormous whip lies here.~
 iron~
-weapon ABFG AN
-whip 5 10 'chop' C
+weapon ABFGghlm 0 ANgt
+whip 5 10 'chop' Ci
 48 90 14700 P
 A
 18 -10
@@ -550,7 +551,7 @@ treasure coins gold~
 a humongous pile of gold~
 A humongous pile of gold is waiting to be picked up.~
 gold~
-money 0 A
+money 0 0 Ag
 10000 0 0 0 0
 0 0 0 P
 g none~
@@ -559,7 +560,7 @@ gems pile~
 a pile of gems~
 A pile of gems lies on the ground.~
 iron~
-money A A
+money Ag 0 Ag
 20000 0 0 0 0
 0 0 0 P
 g none~
@@ -568,8 +569,8 @@ crate~
 crate~
 A crate stands here.~
 iron~
-furniture 0 A
-B EGHIJK NO CFG CFG
+furniture 0 0 Ag
+Bh EGHIJKkmnopq NOtu CFGilm CFGilm
 0 0 0 P
 g none~
 #13421
@@ -577,8 +578,8 @@ crate~
 crate~
 A crate stands here.~
 iron~
-furniture 0 A
-B EGHIJK NO CFG CFG
+furniture 0 0 Ag
+Bh EGHIJKkmnopq NOtu CFGilm CFGilm
 0 0 0 P
 g none~
 #13422
@@ -586,8 +587,8 @@ crate~
 crate~
 A crate stands here.~
 iron~
-furniture 0 A
-B EGHIJK NO CFG CFG
+furniture 0 0 Ag
+Bh EGHIJKkmnopq NOtu CFGilm CFGilm
 0 0 0 P
 g none~
 #13423
@@ -595,8 +596,8 @@ crate~
 crate~
 A crate stands here.~
 iron~
-furniture 0 A
-B EGHIJK NO CFG CFG
+furniture 0 0 Ag
+Bh EGHIJKkmnopq NOtu CFGilm CFGilm
 0 0 0 P
 g none~
 #13424
@@ -604,7 +605,7 @@ fizzing bottle~
 a fizzing bottle~
 A bottle of fizzing liquid lies here.~
 glass~
-potion 0 A
+potion 0 0 Ag
 28 'word of recall' 'sleep' 'poison' ''
 20 20 1000 P
 g none~
@@ -613,7 +614,7 @@ grey potion~
 a grey potion~
 A grey potion sits on the counter.~
 glass~
-potion 0 A
+potion 0 0 Ag
 30 'energy drain' 'energy drain' 'create food' 'create spring'
 20 20 1000 P
 g none~
@@ -652,18 +653,18 @@ Z 1 6153
 D5
 ~
 trapdoor~
-ABZ -1 13401
+ABZgh -1 13401
 S
 #13401
 A ladder descending into the darkness!~
 You are climbing on a ladder.  Above you is a trapdoor.  Below you
 is only darkness, from which a frigid breeze blows.
 ~
-0 A inside
+0 Ag inside
 D4
 ~
 trapdoor~
-ABZ -1 13400
+ABZgh -1 13400
 D5
 ~
 ~
@@ -674,7 +675,7 @@ A ladder descending into the darkness!~
 You are climbing on a ladder.  Above you the ladder disappears in the
 dark.  Below is only darkness, from which a frigid breeze blows.
 ~
-0 A inside
+0 Ag inside
 D4
 ~
 ~
@@ -691,7 +692,7 @@ You do not understand what is keeping the tunnel walls from caving in.  This
 would probably be a very bad place to use a dispel magic spell!  You do see
 some footprints in the dust, and looking up, you see who they belong to!
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 ~
@@ -699,7 +700,7 @@ Z -1 13404
 D3
 ~
 door~
-ABZ -1 13409
+ABZgh -1 13409
 D4
 ~
 ~
@@ -711,7 +712,7 @@ This room has a large pool of black water in the center.  You see
 many runes and glyphs surrounding it.  The room is lit by torches held in
 sconces.  Each of these items in the room merits more investigation.
 ~
-0 D inside
+0 Dj inside
 E
 runes~
 These runes are carved into the rock about the pool.  You think you
@@ -759,19 +760,19 @@ This room is lined with shelves that contain a multitude of jars,
 boxes, vials, chests, tubes, glasses, beakers, and other assorted containers.
 You think that drinking the contents of any might have undesireable effects.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 celldoor~
-ABCFZ 13404 13408
+ABCFZghil 13404 13408
 D1
 ~
 celldoor~
-ABCFZ 13404 13407
+ABCFZghil 13404 13407
 D2
 ~
 door~
-ABZ -1 13406
+ABZgh -1 13406
 D3
 ~
 ~
@@ -786,11 +787,11 @@ system.  Also several crates hold contents, whose scent is enought to make
 you wish to shut the door immediately.  You believe that you hear a noise
 from behind one of the crates.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABZ -1 13405
+ABZgh -1 13405
 S
 #13407
 Holding Cell~
@@ -798,11 +799,11 @@ This is nothing more than a small room with a very heavy iron door
 closing it off from the laboratory.  This is where Ciquala's assistants keep
 the experiments they are working on.
 ~
-0 AD inside
+0 ADgj inside
 D3
 ~
 celldoor~
-ABCFZ 13404 13405
+ABCFZghil 13404 13405
 S
 #13408
 Holding Cell~
@@ -810,11 +811,11 @@ This is nothing more than a small room with a very heavy iron door
 closing it off from the laboratory.  This is where Ciquala's minions keep
 the experiments they are working on.
 ~
-0 AD inside
+0 ADgj inside
 D2
 ~
 celldoor~
-ABCFZ 13404 13405
+ABCFZghil 13404 13405
 S
 #13409
 Guard room~
@@ -822,15 +823,15 @@ The occupants of this room were obviously left here by the Lich to
 keep intruders like you from bothering her, or learning her plans.  There
 are doors to both the east and west.
 ~
-0 AD inside
+0 ADgj inside
 D1
 ~
 door~
-ABZ -1 13403
+ABZgh -1 13403
 D3
 ~
 door~
-ABZ -1 13410
+ABZgh -1 13410
 S
 #13410
 A seemingly empty tunnel~
@@ -838,23 +839,23 @@ This empty tunnel has doors leading in all directions.  The roof of
 the tunnel seems abnormally low and shiny, almost as if it is not dirt.  This
 room is also as cold as all the others were.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABCFZ 13405 13411
+ABCFZghil 13405 13411
 D1
 ~
 door~
-ABZ -1 13409
+ABZgh -1 13409
 D2
 ~
 door~
-ABZ -1 13412
+ABZgh -1 13412
 D3
 ~
 door~
-ABZ -1 13413
+ABZgh -1 13413
 S
 #13411
 The Map Room~
@@ -863,7 +864,7 @@ plans.  You notice many maps of Lord British's castle.  You might be able to
 gain some information on Ciquala's plans, as well as learn your way through
 British's castle if you examine the map more closely.
 ~
-0 AD inside
+0 ADgj inside
 E
 map~
 As you reach for a map to examine it closer, it bursts into ice cold flames and
@@ -873,7 +874,7 @@ against people snooping in her Lair.
 D2
 ~
 door~
-ABCFZ 13405 13410
+ABCFZghil 13405 13410
 S
 #13412
 Storage Room~
@@ -881,11 +882,11 @@ You see many boxes before you, apparently this is a storage room of
 some sort.  You can bet that whatever a lich is storing, that it can't be good
 for the world in general.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABZ -1 13410
+ABZgh -1 13410
 S
 #13413
 A tunnel with a grate in the floor~
@@ -893,23 +894,23 @@ You see a grate on the floor.  When you look down it, you see several
 creatures below, humanoid, but you can't make out exactly what they are.
 There are also doors leading all directions but west.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABZ -1 13415
+ABZgh -1 13415
 D1
 ~
 door~
-ABZ -1 13410
+ABZgh -1 13410
 D2
 ~
 door~
-ABZ -1 13416
+ABZgh -1 13416
 D5
 ~
 grate~
-ABZ -1 13414
+ABZgh -1 13414
 S
 #13414
 The Room of the Automatons~
@@ -918,11 +919,11 @@ have a will of their own.  No doubt the work of the Lich.  If these
 monstrosities are allowed to escape into the world, they will cause no end
 of problems for Midgaard.
 ~
-0 AD inside
+0 ADgj inside
 D4
 ~
 grate~
-ABZ -1 13413
+ABZgh -1 13413
 S
 #13415
 Torture Chamber~
@@ -931,11 +932,11 @@ pain and fear in anyone who enters.  However, you don't pay as much attention
 to the racks and iron maidens as you would if were not for the lich in the
 room.
 ~
-0 AD inside
+0 ADgj inside
 D2
 ~
 door~
-ABZ -1 13413
+ABZgh -1 13413
 S
 #13416
 Entrance to Ciquala's Throne Room~
@@ -945,11 +946,11 @@ covered with murals proclaiming the might and majesty of Ciquala.  She does
 not look old and decayed as you would have pictured her.  Instead, she looks
 rather regal and stately, but undoubtedly evil.
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 door~
-ABZ -1 13413
+ABZgh -1 13413
 D2
 ~
 ~
@@ -963,7 +964,7 @@ ceiling rises above you, hidden in the darkness beyond the range your
 light can penetrate.  A feeling of hopelessness and insignificance overwhelms
 you as you face the Lich, Ciquala!
 ~
-0 AD inside
+0 ADgj inside
 D0
 ~
 ~
@@ -971,7 +972,7 @@ Z -1 13416
 D2
 ~
 tapestry~
-ABCFZ 13406 13418
+ABCFZghil 13406 13418
 S
 #13418
 Treasure Chamber of Ciquala~
@@ -980,7 +981,7 @@ kingdom.  Racks or weapons, and spellbooks, and potions, not to mention large
 piles of coins that cover the floor.  A large paving stone in this room seems
 slightly disturbed.
 ~
-0 AD inside
+0 ADgj inside
 E
 paving~
 The paving stone seems to be masking a passage down into a pit below this room.
@@ -988,23 +989,23 @@ The paving stone seems to be masking a passage down into a pit below this room.
 D0
 ~
 tapestry~
-ABCFZ 13406 13417
+ABCFZghil 13406 13417
 D5
 The stone appears to hide a secret passage going down.
 ~
 stone~
-ABZ -1 13419
+ABZgh -1 13419
 S
 #13419
 The hidden crypt of Ciquala~
 This room contains several crypts where the lichs and vampires rest.
 Unfortunately, they all seem to be out of their crypts right now.
 ~
-0 AD inside
+0 ADgj inside
 D4
 ~
 stone~
-ABZ -1 13418
+ABZgh -1 13418
 S
 #0
 

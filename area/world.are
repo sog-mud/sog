@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Nexis~
 VNUMs 2502 2799
 Credits Arwen~
@@ -13,17 +14,17 @@ harp winds арфа~
 @eng Harp of Winds@rus ~~Арфа~~ Ветров~
 @eng The beautiful harp with silver strings lies here.@rus Прекрасная арфа (harp) с серебрянными струнами лежит здесь.~
 unknown~
-treasure AGIT AO
+treasure AGIgmo Ci AOgu
 0 0 0 0 0
 0 0 0 P
-S 'control weather' 100 A
+S 'control weather' 100 Ag
 g female~
 #2503
 fountain фонтан~
 @eng white marble fountain@rus ~~фонтан~~ из белого мрамора~
 @eng White marble fountain babbles in the middle of the yard.@rus Фонтан из белого мрамора тихо журчит, переливаясь различными цветами.~
 marble~
-drink AGI 0
+drink AGIgmo 0 0
 -1 -1 'water' 0 0
 0 0 0 P
 g male~
@@ -32,8 +33,8 @@ fire-place камин~
 @eng fire-place@rus камин~
 @eng A clear flame is burning in the fire-place near east wall.@rus У стены весело пылает камин (fire-place).~
 marble~
-container AG 0
-100 E 0 100 100
+container AGgm 0 0
+100 Ek 0 100 100
 0 0 0 P
 g male~
 #2505
@@ -41,8 +42,8 @@ arm-chair кресло~
 @eng the soft arm-chair@rus ~~мягкое~~ ~~кресло~~~
 @eng The soft arm-chair offers you to rest.@rus Мягкое кресло (arm-chair) манит к себе, приглашая отдохнуть.~
 unknown~
-furniture AG 0
-A EIJKN FI DEFG DEFG
+furniture AGgm 0 0
+Ag EIJKNkopqt FIlo DEFGjklm DEFGjklm
 0 0 0 P
 g none~
 #2506
@@ -50,7 +51,7 @@ table столик~
 @eng a small table@rus столик~
 @eng A small table stays near arm-chair.@rus Маленький столик (table) черного дерева стоит рядом с креслом.~
 ebony~
-trash AG 0
+trash AGgm 0 0
 0 0 0 0 0
 0 0 10000 P
 g male~
@@ -59,7 +60,7 @@ ember уголек~
 @eng An ember@rus уголек~
 @eng An amber gives a poor light.@rus Уголек (ember) скоро уже совсем потухнет.~
 coal~
-light A A
+light Ag 0 Ag
 0 0 200 0 0
 30 2 500 P
 A
@@ -72,7 +73,7 @@ carpet ковер~
 @eng A carpet@rus ковер~
 @eng A big soft fluffy carpet lies here.@rus Большой мягкий пушистый ковер (carpet) лежит на полу.~
 wool~
-treasure 0 0
+treasure 0 0 0
 0 0 0 0 0
 0 0 0 P
 g male~
@@ -81,7 +82,7 @@ torch факел~
 @eng a torch@rus факел~
 @eng A torch lights all around.@rus Факел (torch) освещает все вокруг.~
 unknown~
-light 0 0
+light 0 0 0
 0 0 100 0 0
 0 0 0 P
 g none~
@@ -90,7 +91,7 @@ key small ключик~
 @eng A small key@rus ключик~
 @eng A small key lies on the ground.@rus Маленький ключик (key) валяется здесь.~
 steel~
-key 0 AO
+key 0 0 AOgu
 0 0 0 0 0
 0 10 500 P
 g none~
@@ -99,7 +100,7 @@ key ivory small ключик~
 @eng a small ivory key@rus ~~маленький~~ ~~ключик~~ из слоновой кости~
 @eng A small ivory key lies on the ground.@rus Маленький ключик (key) из слоновой кости брошен здесь.~
 ivory~
-key C AO
+key Ci 0 AOgu
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -108,8 +109,8 @@ carpet дорожка~
 @eng a red carpet@rus ~~ковровая~~ ~~дорожка~~~
 @eng A red carpet lies on steps of the staircase.@rus Ковровая дорожка (carpet) красного цвета заглушает твои шаги.~
 wool~
-furniture 0 0
-BD EIJKN EHK 0 0
+furniture 0 0 0
+BDhj EIJKNkopqt EHKknq 0 0
 0 0 0 P
 g female~
 #2513
@@ -117,7 +118,7 @@ ring split кольцо~
 @eng a split ring@rus ~~кольцо~~ для ключей~
 @eng A split ring was forgotten here.@rus Кольцо с ключами (ring) забыто здесь.~
 unknown~
-container G AO
+container Gm 0 AOgu
 10 0 0 0 0
 0 10 100 P
 g none~
@@ -126,8 +127,8 @@ chest сундучок~
 @eng a small chest@rus ~~маленький~~ ~~сундучок~~~
 @eng A small chest stands near wall.@rus Маленький сундучок (chest) черного дерева стоит подле стены.~
 ebony~
-container G AO
-10 AC 0 100 100
+container Gm 0 AOgu
+10 ACgi 0 100 100
 0 10 500 P
 g male~
 #2515
@@ -135,7 +136,7 @@ key ключ steel~
 @eng a steel key@rus ~~стальной~~ ~~ключ~~~
 @eng A steel key lies here.@rus Стальной ключ (key) оставлен здесь.~
 steel~
-key A AO
+key Ag 0 AOgu
 0 0 0 0 0
 0 1 10000 P
 g none~
@@ -144,7 +145,7 @@ box коробка~
 @eng a cardboard box@rus ~~картонная~~ ~~коробка~~~
 @eng A cardboard box stands near wall.@rus Картонная коробка (box) стоит у стены.~
 unknown~
-container 0 0
+container 0 0 0
 100 0 0 0 0
 0 0 0 P
 g male~
@@ -153,8 +154,8 @@ closet шкафчик magic~
 @eng a magic closet@rus ~~магический~~ ~~шкафчик~~~
 @eng A magic closet is in the wall.@rus Магический шкафчик (closet) вделан в стену.~
 magic~
-container G 0
-100 ABCD 2518 0 0
+container Gm 0 0
+100 ABCDghij 2518 0 0
 0 0 0 P
 g male~
 #2518
@@ -162,7 +163,7 @@ word magic слово~
 @eng the magic word@rus ~~волшебное~~ ~~слово~~~
 @eng The magic word.@rus Волшебное слово (word).~
 magic~
-key G AO
+key Gm 0 AOgu
 0 0 0 0 0
 0 10 10000 P
 g none~
@@ -171,7 +172,7 @@ cup life чаша~
 @eng Cup of Life@rus ~~Чаша~~ Жизни~
 @eng Cup of Life stands here.@rus Чаша Жизни (Cup) стоит здесь.~
 gold~
-trash CGT AO
+trash CGim Ci AOgu
 0 0 0 0 0
 0 0 0 P
 g female~
@@ -180,7 +181,7 @@ bookshelf полка~
 @eng the bookshelf@rus ~~книжная~~ ~~полка~~~
 @eng The bookshelf hangs on the wall@rus Книжная полка (bookshelf) висит на стене.~
 wood~
-container 0 0
+container 0 0 0
 100 0 0 0 0
 0 0 0 P
 g female~
@@ -189,7 +190,7 @@ scroll свиток~
 @eng an old scroll@rus ~~старинный~~ ~~свиток~~~
 @eng An old scroll lies on the ground.@rus Бесценный старинный свиток (scroll) лежит на земле.~
 unknown~
-scroll G AO
+scroll Gm 0 AOgu
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 10 10000 P
 g none~
@@ -198,7 +199,7 @@ book книга~
 @eng an old book@rus ~~старая~~ ~~книга~~~
 @eng An old book lies on the ground.@rus Бесценная старая книга (book) лежит на полу.~
 unknown~
-scroll G AO
+scroll Gm 0 AOgu
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 10 10000 P
 g none~
@@ -217,7 +218,7 @@ g none~
 D0
 ~
 ~
-ABZ 0 2511
+ABZgh 0 2511
 D1
 ~
 ~
@@ -439,7 +440,7 @@ Z 0 2512
 D2
 ~
 ~
-ABZ 0 2502
+ABZgh 0 2502
 S
 #2512
 @eng The Corridor@rus Коридор~
@@ -518,7 +519,7 @@ Z 0 2513
 D3
 ~
 ~
-ABCZ 2510 2518
+ABCZghi 2510 2518
 D4
 ~
 ~
@@ -575,11 +576,11 @@ S
 D1
 ~
 ~
-ABCZ 2510 2515
+ABCZghi 2510 2515
 D3
 ~
 ~
-ABCZ 2511 2525
+ABCZghi 2511 2525
 S
 #2519
 @eng The Spiral Staircase@rus Винтовая лестница~
@@ -676,7 +677,7 @@ Z 0 2522
 D4
 ~
 ~
-ABCZ 2515 2559
+ABCZghi 2515 2559
 S
 #2524
 @eng Miathan's garden@rus Личный сад Миафана~
@@ -716,7 +717,7 @@ Z 0 2526
 D1
 ~
 ~
-ABCZ 2511 2518
+ABCZghi 2511 2518
 D2
 ~
 ~
@@ -858,7 +859,7 @@ Z 0 2520
 D1
 ~
 ~
-ABZ 0 2533
+ABZgh 0 2533
 D2
 ~
 ~
@@ -880,7 +881,7 @@ Z 0 2534
 D3
 ~
 ~
-ABZ 0 2532
+ABZgh 0 2532
 S
 #2534
 @eng The Drawing-room@rus Гостиная~
@@ -895,11 +896,11 @@ S
 D0
 ~
 ~
-ABZ 0 2535
+ABZgh 0 2535
 D2
 ~
 ~
-ABZ 0 2536
+ABZgh 0 2536
 D3
 ~
 ~
@@ -918,11 +919,11 @@ S
 D2
 ~
 ~
-ABZ 0 2534
+ABZgh 0 2534
 D3
 ~
 ~
-ABZ 0 2537
+ABZgh 0 2537
 S
 #2536
 @eng The Study@rus Кабинет~
@@ -936,7 +937,7 @@ S
 D0
 ~
 ~
-ABZ 0 2534
+ABZgh 0 2534
 S
 #2537
 @eng The Bath-room@rus Ванная~
@@ -951,7 +952,7 @@ S
 D1
 ~
 ~
-ABZ 0 2535
+ABZgh 0 2535
 S
 #2538
 @eng The Third Floor@rus Третий этаж~
@@ -1005,11 +1006,11 @@ S
 D0
 ~
 ~
-ABZ 0 2542
+ABZgh 0 2542
 D2
 ~
 ~
-ABZ 0 2541
+ABZgh 0 2541
 D3
 ~
 ~
@@ -1026,7 +1027,7 @@ S
 D0
 ~
 ~
-ABZ 0 2540
+ABZgh 0 2540
 S
 #2542
 @eng The Bedroom@rus Спальня~
@@ -1035,15 +1036,15 @@ S
 D1
 ~
 ~
-ABCFGZ 0 2560
+ABCFGZghilm 0 2560
 D2
 ~
 ~
-ABZ 0 2540
+ABZgh 0 2540
 D3
 ~
 ~
-ABZ 0 2543
+ABZgh 0 2543
 S
 #2543
 @eng The Bath-room@rus Ванная~
@@ -1052,7 +1053,7 @@ S
 D1
 ~
 ~
-ABZ 0 2542
+ABZgh 0 2542
 S
 #2544
 @eng The Entrance of Eliseth's Apartments@rus Вход в апартаменты Элизеф~
@@ -1272,7 +1273,7 @@ S
 D5
 ~
 ~
-ABCZ 2515 2523
+ABCZghi 2515 2523
 S
 #2560
 @eng The Secret Room@rus Секретная комната~
@@ -1283,7 +1284,7 @@ S
 D3
 ~
 ~
-ABCFGZ 2518 2542
+ABCFGZghilm 2518 2542
 S
 #2561
 @eng The Cupola of Weather@rus Купол Погоды~
@@ -1375,7 +1376,7 @@ Z 0 2568
 D2
 ~
 ~
-ABZ 0 2569
+ABZgh 0 2569
 D3
 ~
 ~
@@ -1399,7 +1400,7 @@ Z 0 2575
 D1
 ~
 ~
-ABZ 0 2570
+ABZgh 0 2570
 D2
 ~
 ~
@@ -1421,7 +1422,7 @@ S
 D0
 ~
 ~
-ABZ 0 2567
+ABZgh 0 2567
 S
 #2570
 @eng The Storage Room@rus Кладовка~
@@ -1435,7 +1436,7 @@ S
 D3
 ~
 ~
-ABZ 0 2568
+ABZgh 0 2568
 S
 #2571
 @eng The Kitchen@rus Кухня~

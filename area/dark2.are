@@ -1,4 +1,5 @@
 #AREADATA
+Ver 1
 Name Dark Continent~
 VNUMs 14500 14599
 Credits Mort~
@@ -16,12 +17,12 @@ This BIG monkey must weigh at least 200 pounds. It is covered with black
 fur and has the ugliest teeth you have ever seen.
 ~
 human~
-AF c -500 0
+Fl 0 c 0 0 -500 0
 10 0 2d7+121 99d1+1 2d4+2 'pound'
 1 1 1 8
-BKP 0 0 0
+BKPhqv
 stand stand female 0
-B 0 large unknown
+Bh 0 large unknown
 r fire -50
 r cold -50
 r lightning -50
@@ -45,10 +46,10 @@ This Elf does not appear to be very prosperous. His violet eyes look you
 over as he tries to decide if you are a client or a salesman.
 ~
 elf~
-ABGe 0 -1 0
+BGehm 0 0 0 0 -1 0
 12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
-DE 0 0 0
+DEjk
 stand stand male 300000
 0 0 medium unknown
 #14503
@@ -59,10 +60,10 @@ The Dwarven Merchant greets you, "Welcome!"
 This merchant has the Eye of the Tiger. "Welcome my friend," he says.
 ~
 dwarf~
-ABGe 0 -1 0
+BGehm 0 0 0 0 -1 0
 12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
-DE 0 0 0
+DEjk
 stand stand male 300000
 0 0 medium unknown
 #14504
@@ -74,10 +75,10 @@ This man is only four feet tall but has a powerful body.  His arms reach
 almost to his calves.
 ~
 human~
-AGHe 0 90 0
+GHemn 0 0 0 0 90 0
 12 0 2d10+150 119d1+1 1d10+3 'pound'
 0 0 0 8
-NU 0 0 0
+NUt
 stand stand either 300000
 0 0 small unknown
 r fire -50
@@ -102,10 +103,10 @@ A large Human Merchant stands ready to sell you.
 Many of the merchants you have seen throughout your life resemble this man.
 ~
 human~
-ACSe 0 -200 0
+CSeiy 0 0 0 0 -200 0
 5 1 2d6+60 1d1+99 1d6+1 'punch'
 7 5 5 10
-BJNQ 0 0 0
+BJNQhptw
 stand stand male 300000
 0 0 medium unknown
 r fire -50
@@ -131,10 +132,10 @@ This adventurer is a largish, oafish, boy with the largest ego you've ever
 seen.  His ego is writing checks his character will never be able to cash.
 ~
 human~
-ACHS 0 -200 0
+CHSiny 0 0 0 0 -200 0
 7 0 2d6+85 69d1+1 1d8+1 'punch'
 4 4 4 9
-BJNQ 0 0 0
+BJNQhptw
 stand stand male 140
 0 0 medium unknown
 r fire -50
@@ -160,10 +161,10 @@ This soldier has an alert look about him.  With his pointed beard and
 sharp sword the security he provides comes mostly from his presence.
 ~
 human~
-ABT 0 1000 3000
+BThz 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'stab'
 0 0 0 8
-CDELU 0 0 0
+CDELUijkr
 stand stand male 2200
 0 0 medium unknown
 r fire 33
@@ -189,10 +190,10 @@ This soldier greets you with a bared blade. I don't think you'll be
 sneaking up on him.
 ~
 human~
-ABT 0 1000 3000
+BThz 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'slash'
 0 0 0 8
-CDEKLTU 0 0 0
+CDEKLTUijkqrz
 stand stand male 1530
 0 0 medium unknown
 r fire 33
@@ -217,10 +218,10 @@ This Sleepy Soldier doesn't see you.
 Without looking in his eye you have no idea how tough he would be.
 ~
 human~
-ABT 0 1000 3000
+BThz 0 0 0 0 1000 3000
 17 0 3d9+258 169d1+1 3d4+4 'pierce'
 -3 -3 -3 7
-CDEKLTU 0 0 0
+CDEKLTUijkqrz
 sleep sleep male 2502
 0 0 medium unknown
 r fire 33
@@ -246,10 +247,10 @@ This female Watcher is one of those cultist who protect the rest of the
 world from those they determine are evil.
 ~
 human~
-ABT JN 1000 3000
+BThz 0 Nt 0 Hn 1000 3000
 20 4 20d20+200 1d1+199 2d4+7 'punch'
 -4 -6 -6 0
-CDEHKLTU 0 0 0
+CDEHKLTUijknqrz
 stand stand female 3200
 0 0 medium unknown
 r fire 33
@@ -274,12 +275,12 @@ A fat pig is rooting around for food.
 This fat pig is very hungry. He eats just about ANYTHING.
 ~
 pig~
-ACGH Gb 500 0
+CGHimn 0 b 0 Ms 500 0
 5 0 2d6+60 49d1+1 1d6+1 'bite'
 5 5 5 9
-BDEI 0 0 0
+BDEIhjko
 stand stand either 35
-B V medium unknown
+Bh V medium unknown
 #14512
 dog~
 the dog~
@@ -289,10 +290,10 @@ The dog looks back at you.  After a few moments it sits up..
 puts a cigar in it's mouth, lights it, and asks, "So..what's up bub?"
 ~
 dog~
-AB F 400 0
+Bh 0 0 0 Bh 400 0
 7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
-CDL 0 0 0
+CDLijr
 stand stand either 0
 0 0 medium unknown
 r fire 33
@@ -318,10 +319,10 @@ This chicken is so skinny it WOULDN'T provide enough meat for a soup.
         ************ IT ESCAPE FROM KFC BAR !!! *************
 ~
 song bird~
-ACG NO 0 0
+CGim 0 NOtu 0 0 0 0
 35 0 10d10+1300 349d1+1 4d7+11 'peck'
 -11 -11 -11 5
-ADIJ 0 0 0
+ADIJgjop
 stand stand female 5000
 0 0 small unknown
 r slash -50
@@ -348,10 +349,10 @@ This guy looks like an advertisement for a wilderness clothing company.
 From his buckskins to his fur cap he fits the part.
 ~
 human~
-ACS 0 -200 0
+CSiy 0 0 0 0 -200 0
 5 1 2d6+60 1d1+99 1d6+1 'punch'
 7 5 5 10
-BJNQ 0 0 0
+BJNQhptw
 stand stand male 181
 0 0 medium unknown
 r fire -50
@@ -377,10 +378,10 @@ She appears to be distracted by some inner thought. Although she seems
 to be in good health, her eyes are puffy and red.
 ~
 human~
-ACS 0 -200 0
+CSiy 0 0 0 0 -200 0
 8 0 2d7+96 79d1+1 1d7+2 'punch'
 3 3 3 9
-BJNQ 0 0 0
+BJNQhptw
 stand stand female 223
 0 0 medium unknown
 r fire -50
@@ -405,10 +406,10 @@ An Elven Man is here, looking for something.
 The Elven Man looks at you intently before continuing on his way.
 ~
 elf~
-ABRl DEFZ 500 0
+BRhx 0 0 0 ABLghr 500 0
 13 0 2d10+170 129d1+1 2d5+3 'magic'
 -1 -1 -1 8
-FG 0 0 0
+FGlm
 stand stand male 513
 0 0 medium unknown
 #14517
@@ -419,10 +420,10 @@ A beautiful Elven Woman paces back and forth before you.
 Looking into her eyes causes you great fear.
 ~
 elf~
-ABRl DEFZ 500 0
+BRhx 0 0 0 ABLghr 500 0
 16 0 3d9+233 159d1+1 2d6+4 'magic'
 -2 -2 -2 7
-FG 0 0 0
+FGlm
 stand stand female 300
 0 0 medium unknown
 #14518
@@ -433,12 +434,12 @@ The Dwarven Woman is smacking her fist in her hand.
 Stand back!  She's about to blow!!!
 ~
 unique~
-ABTl DF 900 0
+BThz 0 0 0 ABgh 900 0
 16 0 3d9+233 159d1+1 2d6+4 'beating'
 -2 -2 -2 7
-CDEIK 0 0 0
+CDEIKijkoq
 stand stand female 122
-AHMV ABCDEFGHIJ medium unknown
+AHMVgns ABCDEFGHIJghijklmnop medium unknown
 r disease 33
 r poison 33
 #14519
@@ -449,12 +450,12 @@ A large Dwarven Man walks by you.
 He looks back at you, then dismisses you as unimportant.
 ~
 unique~
-ABTl DF 900 0
+BThz 0 0 0 ABgh 900 0
 19 0 3d9+308 189d1+1 2d7+5 'punch'
 -4 -4 -4 7
-CDEIK 0 0 0
+CDEIKijkoq
 stand stand male 444
-AHMV ABCDEFGHIJ medium unknown
+AHMVgns ABCDEFGHIJghijklmnop medium unknown
 r disease 33
 r poison 33
 #14520
@@ -468,10 +469,10 @@ armed and armored, doesn't wear boots, and has claws and talons with which
 to fight.
 ~
 goblin~
-AFG 0 -300 0
+FGlm 0 0 0 0 -300 0
 12 0 2d10+150 119d1+1 1d10+3 'slash'
 0 0 0 8
-CI 0 0 0
+CIio
 stand stand male 123
 0 0 huge unknown
 r poison 0
@@ -483,7 +484,7 @@ paw monkey~
 a monkey paw~
 A monkey paw lies here.~
 silver~
-treasure A A
+treasure Ag 0 Ag
 0 0 0 0 0
 5 2 400 P
 g none~
@@ -492,7 +493,7 @@ elven necklace~
 an Elven Necklace~
 An Elven Necklace has been dropped here.~
 steel~
-armor 0 AC
+armor 0 0 ACgi
 7 7 7 0 2
 19 50 4700 P
 A
@@ -506,7 +507,7 @@ potion elven~
 an Elven potion~
 An Elven potion has been dropped here.~
 glass~
-potion G AO
+potion Gm 0 AOgu
 10 'bless' 'cure critical' 'cure poison' 'heal'
 1 300 2000 P
 E
@@ -520,7 +521,7 @@ water walking boots elven~
 elven Water Walking Boots~
 A pair of Elven Water Walking Boots lie here.~
 ash~
-boat A AG
+boat Ag 0 AGgm
 0 0 0 0 0
 20 150 2000 P
 A
@@ -531,7 +532,7 @@ dwarven keg go juice~
 a keg of Dwarven Go Juice~
 A keg of Dwarven Go Juice has been discarded here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 20 20 'local specialty' 0 0
 1 30 90 G
 g none~
@@ -540,7 +541,7 @@ everlasting lantern dwarven~
 a Dwarven Everlasting Lantern~
 A Dwarven Everlasting Lantern sits here.~
 brass~
-light 0 A
+light 0 0 Ag
 0 0 99 0 0
 1 50 150 P
 g none~
@@ -549,8 +550,8 @@ dwarven adventurer bread~
 Dwarven Adventurer Bread~
 A fine example of Dwarven Adventurer Bread lies here.~
 food~
-food 0 A
-EF CE 0 0 0
+food 0 0 Ag
+EFkl CEik 0 0 0
 1 1 50 P
 g none~
 #14508
@@ -558,7 +559,7 @@ hip pack alligator skin~
 an Alligator skin hip pack~
 An Alligator skin hip pack has been dropped here.~
 leather~
-container G AM
+container Gm 0 AMgs
 100 0 0 20 80
 1 10 1200 G
 g none~
@@ -567,7 +568,7 @@ magical emergency wafer~
 a magical emergency wafer~
 A magical emergency wafer lies here.~
 bread~
-potion G AO
+potion Gm 0 AOgu
 15 'teleport' 'teleport' 'teleport' 'teleport'
 30 1 1000 P
 g none~
@@ -576,8 +577,8 @@ map treasure~
 a Treasure Map~
 A Treasure Map has been dropped here.~
 paper~
-map 0 A
-A 0 0 0 0
+map 0 0 Ag
+Ag 0 0 0 0
 1 10 500 P
 E
 map~
@@ -589,7 +590,7 @@ candlestick~
 a candlestick~
 A candlestick is lying here.~
 silver~
-treasure G AB
+treasure Gm 0 ABgh
 0 0 0 0 0
 1 10 1000 P
 g none~
@@ -598,7 +599,7 @@ quest note ~
 a Quest Note ~
 A Quest Note lies here.~
 paper~
-trash 0 A
+trash 0 0 Ag
 0 0 0 0 0
 0 1 0 P
 E
@@ -612,7 +613,7 @@ water urn~
 a Water Urn~
 A Water Urn lies here.~
 glass~
-drink 0 A
+drink 0 0 Ag
 15 15 'water' 0 0
 1 1 30 G
 g none~
@@ -621,7 +622,7 @@ head madboy~
 madboy's Head~
 Madboy's head is lying here.~
 meat~
-light 0 AO
+light 0 0 AOgu
 0 0 -1 0 0
 7 10 200 P
 g none~
@@ -630,7 +631,7 @@ sword madboy~
 madboy's sword~
 Madboy's sword has been dropped here.~
 iron~
-weapon BGI AN
+weapon BGIhmo 0 ANgt
 sword 1 12 'slash' 0
 7 50 500 P
 A
@@ -643,7 +644,7 @@ island sword~
 an Island Sword~
 An Island Sword has been dropped here.~
 iron~
-weapon BI AN
+weapon BIho 0 ANgt
 sword 5 5 'slash' 0
 15 150 1500 P
 g none~
@@ -652,7 +653,7 @@ island helmet~
 an Island Helmet~
 An Island Helmet is lying here.~
 silver~
-armor AGK AE
+armor AGKgmq 0 AEgk
 6 6 6 1 4
 15 5 1500 G
 A
@@ -669,7 +670,7 @@ shield island~
 an Island Shield~
 An Island Shield has been dropped here.~
 steel~
-armor G AJ
+armor Gm 0 AJgp
 6 6 6 1 5
 15 100 2000 G
 E
@@ -682,7 +683,7 @@ island mace~
 an Island Mace~
 An Island Mace is lying here.~
 mithril~
-weapon G AN
+weapon Gm 0 ANgt
 mace 5 5 'pound' 0
 17 300 2620 P
 A
@@ -699,7 +700,7 @@ scroll glowing~
 a Glowing Scroll~
 A Glowing Scroll is lying here.~
 vellum~
-scroll G AO
+scroll Gm 0 AOgu
 20 'earthquake' 'earthquake' 'earthquake' 'earthquake'
 17 300 5313 G
 g none~
@@ -708,7 +709,7 @@ watcher cape black~
 a Watcher's Black Cape~
 A Watcher's Black Cape has been dropped onto the floor.~
 cloth~
-armor GK AK
+armor GKmq 0 AKgq
 6 8 7 1 3
 20 200 4600 G
 A
@@ -723,7 +724,7 @@ watcher thrusting dagger~
 a Watcher's Thrusting Dagger~
 A Watcher's Thrusting Dagger is sticking in the floor.~
 corundum~
-weapon GK AN
+weapon GKmq 0 ANgt
 dagger 5 6 'thrust' 0
 20 50 3100 P
 A
@@ -736,7 +737,7 @@ watcher signet ring~
 a Watcher Signet Ring~
 A Watcher Signet Ring lies here discarded.~
 bone~
-treasure GK AB
+treasure GKmq 0 ABgh
 0 0 0 0 0
 20 1 4567 P
 A
@@ -747,8 +748,8 @@ reed basket~
 a reed basket~
 A reed basket rests here.~
 softwood~
-container 0 AO
-50 A 0 10 100
+container 0 0 AOgu
+50 Ag 0 10 100
 1 10 40 G
 g none~
 #14525
@@ -756,8 +757,8 @@ chair woven~
 a woven chair~
 A woven chair sits here.~
 wool~
-furniture 0 0
-A DF BEHKN BDEFGH BDEFGH
+furniture 0 0 0
+Ag DFjl BEHKNhknqt BDEFGHhjklmn BDEFGHhjklmn
 0 0 0 P
 g none~
 #14526
@@ -765,8 +766,8 @@ basket fruit~
 a basket of fruit~
 A basket full of fruit lies here.~
 food~
-food 0 A
-DE CD 0 0 0
+food 0 0 Ag
+DEjk CDij 0 0 0
 15 50 200 P
 g none~
 #14527
@@ -774,7 +775,7 @@ hat straw~
 a straw hat~
 A straw hat has been dropped here.~
 bamboo~
-armor 0 AE
+armor 0 0 AEgk
 6 6 6 0 1
 16 10 700 G
 g none~
@@ -783,7 +784,7 @@ stone well~
 a stone well~
 A stone well sits here.~
 stone~
-fountain G 0
+fountain Gm 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 g none~
@@ -792,8 +793,8 @@ featherbed~
 a featherbed~
 A featherbed sits here.~
 feathers~
-furniture 0 0
-B DF CFILO EHI EHI
+furniture 0 0 0
+Bh DFjl CFILOiloru EHIkno EHIkno
 0 500 0 P
 g none~
 #14530
@@ -801,8 +802,8 @@ wooden table~
 a wooden table~
 A wooden table sits here.~
 wood~
-furniture 0 0
-BD DF BEHN EHI EHI
+furniture 0 0 0
+BDhj DFjl BEHNhknt EHIkno EHIkno
 0 500 0 P
 g none~
 #14531
@@ -810,7 +811,7 @@ portrait~
 a portrait~
 A portrait of a beautiful woman lies here.~
 canvas~
-furniture 0 0
+furniture 0 0 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -828,7 +829,7 @@ toy bow~
 a toy bow~
 A toy bow has been dropped here.~
 wood~
-weapon 0 AN
+weapon 0 0 ANgt
 bow 1 1 'none' 0
 5 10 100 P
 g none~
@@ -837,8 +838,8 @@ wheelbarrow~
 a wheelbarrow~
 A wheelbarrow rests here.~
 steel~
-container 0 AO
-1000 A 0 200 50
+container 0 0 AOgu
+1000 Ag 0 200 50
 35 50 4000 G
 g none~
 #14534
@@ -846,7 +847,7 @@ chest~
 a chest~
 A chest is sitting on the floor.~
 wood~
-container 0 A
+container 0 0 Ag
 150 0 0 100 100
 0 50 50 G
 g none~
@@ -855,8 +856,8 @@ spear goblin~
 a Goblin Spear~
 A Goblin Spear is lying on the floor.~
 wood~
-weapon AG AN
-spear 4 5 'pierce' DK
+weapon AGgm 0 ANgt
+spear 4 5 'pierce' DKjq
 12 50 1700 P
 g none~
 #14536
@@ -864,7 +865,7 @@ goblin loincloth~
 a Goblin Loincloth~
 A Goblin Loincloth has been discarded here.~
 snakeskin~
-armor G AD
+armor Gm 0 ADgj
 7 7 7 0 2
 12 20 2456 G
 A
@@ -879,8 +880,8 @@ dwarven flail~
 A Dwarven Flail~
 A Dwarven Flail is lying on the floor.~
 wood~
-weapon AG AN
-flail 5 5 'pound' D
+weapon AGgm 0 ANgt
+flail 5 5 'pound' Dj
 17 250 3400 P
 g none~
 #14538
@@ -888,7 +889,7 @@ dwarven shield~
 a Dwarven Shield~
 A Dwarven Shield has been dropped here.~
 wood~
-armor AG AJ
+armor AGgm 0 AJgp
 6 6 6 1 5
 17 190 4500 G
 A
@@ -905,7 +906,7 @@ landing...trees wave in the wind and birds of many colors fly
 high above the land beyond the beach.
      There is a small (Glowing) (Humming) tablet.
 ~
-0 C noswim
+0 Ci noswim
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -939,7 +940,7 @@ The beach is quickly approaching and you had better take in
 your sail or you'll run aground.  From here you can see three
 huge mountaintops and a few trees next to two or three buildings.
 ~
-0 C noswim
+0 Ci noswim
 D0
 ~
 ~
@@ -954,7 +955,7 @@ Rough waters at the beach~
 The water rushes toward the beach causing large waves and
 a riptide which threatens to pull your vessel towards the west.
 ~
-0 C noswim
+0 Ci noswim
 D0
 ~
 ~
@@ -1070,7 +1071,7 @@ The sandy trail leads west and east.  You are standing at the
 base of a huge mountain.  If you listen closely you can hear
 the crashing of the waves upon the beach to the north of you.
 ~
-0 C desert
+0 Ci desert
 D0
 ~
 ~
@@ -1122,7 +1123,7 @@ The trail is coming to an end.  To the northwest you can see
 three or four buildings nestled within the palms of the beach.
 At least one of the buildings is a warehouse.
 ~
-0 C desert
+0 Ci desert
 D1
 ~
 ~
@@ -1203,7 +1204,7 @@ Climbing high into the mountains you approach a clearing, encircled
 by bushes your avenues of retreat are limited.  Either go forward
 or back down the mountain.
 ~
-0 C mountain
+0 Ci mountain
 D4
 ~
 ~
@@ -1404,7 +1405,7 @@ Down trail~
 This trail is cutting between several mountains and is very steep.
 A few shrubs line the trail as well as some beautiful flowers.
 ~
-0 C mountain
+0 Ci mountain
 D4
 ~
 ~
@@ -1535,7 +1536,7 @@ effective.  A large garden area borders the river bisecting
 the valley to the south.  Two huge towers on the other side of
 the river appear to be guarding a gate leading to the valley.
 ~
-0 C field
+0 Ci field
 D1
 ~
 ~
@@ -1557,7 +1558,7 @@ in wilderness harmony.  The village is alive with movement,
 everyone going about their business while the farm animals do
 what comes natural.
 ~
-0 C field
+0 Ci field
 D1
 ~
 ~
@@ -1581,7 +1582,7 @@ This wooden door has a circle with a large
 letter M in the middle of it.
 ~
 door~
-ABZ -1 14540
+ABZgh -1 14540
 D1
 ~
 ~
@@ -1589,7 +1590,7 @@ Z -1 14538
 D2
 ~
 door~
-ABZ -1 14541
+ABZgh -1 14541
 D3
 ~
 ~
@@ -1602,26 +1603,26 @@ hang on the walls and a small fire is burning in the fireplace.
 Yellow candles light the room.  The room does not have anything
 of value in it.
 ~
-0 DS inside
+0 DSjy inside
 D2
 The door is solid as a rock.  It has triple
 locks and should give you safety to the world.
 ~
 door~
-ABZ -1 14539
+ABZgh -1 14539
 S
 #14541
 Gray Stone house~
 A loving hand has created this home.  Fine detail has been given
 to all wooden items and the furniture was made by a master.
 ~
-0 DS inside
+0 DSjy inside
 D0
 This wooden door has a circle with a large
 letter M in the middle of it.
 ~
 door~
-ABZ -1 14539
+ABZgh -1 14539
 S
 #14542
 Malo main~
@@ -1648,7 +1649,7 @@ stone buildings create a wonderful setting for this family life.
 D0
 ~
 door~
-ABZ -1 14544
+ABZgh -1 14544
 D1
 ~
 ~
@@ -1656,7 +1657,7 @@ Z -1 14542
 D2
 ~
 door~
-ABZ -1 14545
+ABZgh -1 14545
 D3
 ~
 ~
@@ -1669,11 +1670,11 @@ door and it has a tile roof.  A large picture window at the
 rear of the house reveals a stunning view of the large
 mountain to the north of you.
 ~
-0 DS inside
+0 DSjy inside
 D2
 ~
 door~
-ABZ -1 14543
+ABZgh -1 14543
 S
 #14545
 Green house~
@@ -1681,11 +1682,11 @@ In an obvious effort to overshadow the brown house nearby,
 the owners of this home have applied an expensive dye to
 their home, turning it a brilliant green color.
 ~
-0 DS inside
+0 DSjy inside
 D0
 ~
 door~
-ABZ -1 14543
+ABZgh -1 14543
 S
 #14546
 Village well~
@@ -1713,7 +1714,7 @@ wall ringing the village proper.
 D0
 ~
 door~
-ABZ -1 14548
+ABZgh -1 14548
 D1
 ~
 ~
@@ -1721,11 +1722,11 @@ Z -1 14546
 D2
 ~
 door~
-ABZ -1 14550
+ABZgh -1 14550
 D3
 ~
 door~
-ABZ -1 14549
+ABZgh -1 14549
 S
 #14548
 Simple home~
@@ -1733,22 +1734,22 @@ Nothing special about this home except the fact that it's not
 special.  Even the fireplace is bare.  Where you might expect
 to see a display you see instead blank wall.
 ~
-0 DS inside
+0 DSjy inside
 D2
 ~
 door~
-ABZ -1 14547
+ABZgh -1 14547
 S
 #14549
 Last house~
 The last house of this village has a large porch and a huge fireplace.
 It appears to be large enough to hold several people at the same time.
 ~
-0 DS inside
+0 DSjy inside
 D1
 ~
 door~
-ABZ -1 14547
+ABZgh -1 14547
 S
 #14550
 A general store~
@@ -1756,11 +1757,11 @@ You have entered a general store laden with wilderness supplies
 and everyday items necessary for survival.  If you look closely,
 you'll find a little of everything.
 ~
-0 DS inside
+0 DSjy inside
 D0
 ~
 door~
-ABZ -1 14547
+ABZgh -1 14547
 S
 #14551
 A very old road~
@@ -1768,7 +1769,7 @@ This ancient, overgrown road was made years before the village
 was constructed.  It's age is so great you can see where trees
 grew through it's center, were cut down and made into firewood.
 ~
-0 C city
+0 Ci city
 D0
 ~
 ~
@@ -1855,7 +1856,7 @@ southern direction.  Although the road is cracked and crumbling
 at the edges it still provides the best travelling surface you
 have ever seen.
 ~
-0 C city
+0 Ci city
 D0
 ~
 ~
@@ -1916,7 +1917,7 @@ The roof has caved in, allowing the fresh mountain air to
 penetrate into every secret corner.  The entrance is to the east.
 The west wall has a large gaping hole in it's center.
 ~
-0 DS inside
+0 DSjy inside
 D1
 ~
 ~
@@ -1933,7 +1934,7 @@ bones and broken furniture.  The huge hole in the west wall shows
 signs of fire.  The bricks scattered about the room appear to have
 been caused by a very large explosion.
 ~
-0 DS inside
+0 DSjy inside
 D1
 ~
 ~
@@ -1966,7 +1967,7 @@ A thin layer of dust covers the floor of this tower.  The markings
 in the dust indicate that someone, or something, has passed this
 way recently.  The room is mostly bare.
 ~
-0 DS inside
+0 DSjy inside
 D1
 ~
 ~
@@ -1983,12 +1984,12 @@ shows a mountain scene, with a river running through a valley
 and into a large cave mouth.  Several arrow slits provide access
 for both air and light.
 ~
-0 DS inside
+0 DSjy inside
 D1
 A very large tapestry covers a hole in the wall.
 ~
 tapestry~
-ABZ -1 14596
+ABZgh -1 14596
 D3
 ~
 ~
@@ -2030,7 +2031,7 @@ D2
 This massive steel gate has spears along it's top.
 ~
 gate~
-ABZ -1 14566
+ABZgh -1 14566
 S
 #14566
 Other side of the gate~
@@ -2045,7 +2046,7 @@ D0
 This massive steel gate has sharpened spears along it's summit.
 ~
 gate~
-ABZ -1 14565
+ABZgh -1 14565
 D2
 ~
 ~
@@ -2226,7 +2227,7 @@ This lovely wooden home stands so near the water that it's
 occupants have the most beautiful view you've ever seen.  Several
 crabs have made their home outside the seaward window.
 ~
-0 DS inside
+0 DSjy inside
 D3
 ~
 ~
@@ -2239,7 +2240,7 @@ of the sailors and merchants expected to use Ocean View as a
 port of call.  Unfortunately, no one seems to know exactly
 where Ocean View is.
 ~
-0 DS inside
+0 DSjy inside
 D3
 ~
 ~
@@ -2252,7 +2253,7 @@ ocean.  The echo of your steps bounces back to you very quickly.
 When the weather turns incliment the local fishermen drag their
 vessels into this warehouse for safety.
 ~
-0 DS inside
+0 DSjy inside
 D1
 ~
 ~
@@ -2264,7 +2265,7 @@ This small home has been built from the bones of whales and
 other small sea animals.  Barnacles would feel right at home
 here...if the home were under water of course.
 ~
-0 DS inside
+0 DSjy inside
 D1
 ~
 ~
@@ -2386,7 +2387,7 @@ The garden ends here at the village wall.  The crops have been
 trampled and there's nothing here but a large mud patch.  A large
 mud patch with scores of tracks.
 ~
-0 C field
+0 Ci field
 E
 tracks track~
 The tracks you see are well defined and
@@ -2509,7 +2510,7 @@ you see no signs of them now.  The river passes through the 12 foot
 tall fence to your west.  A large section of the fence is gone,
 allowing passage into the countryside.
 ~
-0 C field
+0 Ci field
 D1
 ~
 ~
@@ -2529,7 +2530,7 @@ D3
 A very large tapestry covers a hole in the wall.
 ~
 tapestry~
-ABZ -1 14563
+ABZgh -1 14563
 S
 #14597
 Small path at river's edge~
@@ -2539,7 +2540,7 @@ however, no man sized creatures have passed this way for years.
 The river is rushing past you and flows through the large hole in
 the fence to your right.  Perhaps a large rain washed it away?
 ~
-0 C field
+0 Ci field
 D0
 ~
 ~
@@ -2556,7 +2557,7 @@ the south of you are two short towers and of course the wall which
 surrounds the village.  To the east is a large hole in the fence.
 The river runs through that hole.
 ~
-0 C noswim
+0 Ci noswim
 D1
 ~
 ~
@@ -2572,7 +2573,7 @@ You are passing through the hole in the wall which surrounds the
 village.  At first you thought that the river had created this
 hole but upon closer inspection it is obviously the work of man.
 ~
-0 C noswim
+0 Ci noswim
 D3
 ~
 ~
