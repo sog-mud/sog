@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.160 1999-04-13 02:48:32 kostik Exp $
+ * $Id: act_move.c,v 1.161 1999-04-13 19:30:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2280,6 +2280,7 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 	int sn;
+	int min_mana;
 
 	if ((sn = sn_lookup("vanish")) < 0
 	||  (chance = get_skill(ch, sn)) == 0) {
@@ -2287,11 +2288,11 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mana < 25) {
+	if (ch->mana < (min_mana = SKILL(sn)->min_mana)) {
 		char_puts("You don't have enough power.\n", ch);
 		return;
 	}
-	ch->mana -= 25;
+	ch->mana -= min_mana;
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (number_percent() > chance) {
@@ -2300,9 +2301,8 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->in_room == NULL
-	||  IS_SET(ch->in_room->room_flags, 
-		ROOM_NORECALL | ROOM_PEACE | ROOM_SAFE)) {
+	if (IS_SET(ch->in_room->room_flags, 
+		   ROOM_NORECALL | ROOM_PEACE | ROOM_SAFE)) {
 		char_puts("You failed.\n", ch);
 		return;
 	}
