@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.361 2002-11-28 21:40:28 fjoe Exp $
+ * $Id: handler.c,v 1.362 2002-11-28 21:46:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -911,7 +911,7 @@ quit_char(CHAR_DATA *ch, int flags)
 		CHAR_DATA *tch = d->original ? d->original : d->character;
 		d_next = d->next;
 
-		if (tch && !str_cmp(name, tch->name)) {
+		if (tch != NULL && !str_cmp(name, tch->name)) {
 			if (d->connected == CON_PLAYING)
 				extract_char(tch, XC_F_NOCOUNT);
 			close_descriptor(d, SAVE_F_NONE);
