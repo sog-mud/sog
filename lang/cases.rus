@@ -29,6 +29,16 @@ Form 5 -ом~
 End
 
 #WORD
+Name софа~
+BaseLen 3
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
 Name девушка~
 BaseLen 6
 Form 1 -и~
@@ -54,6 +64,16 @@ Form 1 -и~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name меч~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
 Form 5 -е~
 End
 
@@ -118,6 +138,16 @@ Form 5 -е~
 End
 
 #WORD
+Name вкусный~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
 Name Даркен~
 BaseLen 6
 Form 1 -а~
@@ -125,6 +155,16 @@ Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#WORD
+Name небольшой~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -им~
+Form 5 -ом~
 End
 
 #WORD
@@ -273,6 +313,26 @@ Form 5 -е~
 End
 
 #WORD
+Name пара~
+BaseLen 3
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name ошейник~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name мальчик~
 BaseLen 7
 Form 1 -а~
@@ -293,6 +353,16 @@ Form 5 -е~
 End
 
 #WORD
+Name магический~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+End
+
+#WORD
 Name золотая~
 BaseLen 5
 Form 1 -ой~
@@ -310,6 +380,16 @@ Form 2 -ему~
 Form 3 -его~
 Form 4 -им~
 Form 5 -ем~
+End
+
+#WORD
+Name пирожок~
+BaseLen 5
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
 End
 
 #WORD
@@ -360,6 +440,16 @@ Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#WORD
+Name костяное~
+BaseLen 6
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
 End
 
 #WORD
@@ -433,6 +523,16 @@ Form 5 -ом~
 End
 
 #WORD
+Name знак~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name желтая~
 BaseLen 4
 Form 1 -ой~
@@ -445,6 +545,16 @@ End
 #WORD
 Name золотая монета~
 Form 3 золотую монету~
+End
+
+#WORD
+Name кусок~
+BaseLen 3
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
 End
 
 #WORD
@@ -560,6 +670,16 @@ Form 1 золотых монет~
 End
 
 #WORD
+Name кувшин~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name голем~
 End
 
@@ -598,6 +718,16 @@ Form 1 золотых~
 End
 
 #WORD
+Name шлем~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name муха~
 BaseLen 3
 Form 1 -и~
@@ -632,6 +762,16 @@ Name морд-сит~
 End
 
 #WORD
+Name острые~
+BaseLen 4
+Form 1 -ых~
+Form 2 -ым~
+Form 3 -ые~
+Form 4 -ыми~
+Form 5 -ых~
+End
+
+#WORD
 Name ботинки~
 BaseLen 5
 Form 1 -ок~
@@ -659,6 +799,16 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name кинжал~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #WORD
@@ -730,6 +880,16 @@ Form 5 -е~
 End
 
 #WORD
+Name кнут~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name воришка~
 BaseLen 6
 Form 1 -и~
@@ -790,6 +950,16 @@ Form 5 -е~
 End
 
 #WORD
+Name зубы~
+BaseLen 3
+Form 1 -ов~
+Form 2 -ам~
+Form 3 -ы~
+Form 4 -ами~
+Form 5 -ах~
+End
+
+#WORD
 Name ящерка~
 BaseLen 5
 Form 1 -и~
@@ -830,6 +1000,16 @@ Form 5 -ой~
 End
 
 #WORD
+Name кистень~
+BaseLen 6
+Form 1 -я~
+Form 2 -ю~
+Form 3 -ь~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#WORD
 Name красный~
 BaseLen 5
 Form 1 -ого~
@@ -837,6 +1017,16 @@ Form 2 -ому~
 Form 3 -ого~
 Form 4 -ым~
 Form 5 -ом~
+End
+
+#WORD
+Name палица~
+BaseLen 5
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
 End
 
 #WORD
@@ -866,6 +1056,16 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name кривые~
+BaseLen 4
+Form 1 -ых~
+Form 2 -ым~
+Form 3 -ые~
+Form 4 -ыми~
+Form 5 -ых~
 End
 
 #WORD
@@ -1096,6 +1296,16 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name мешочек~
+BaseLen 5
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ек~
+Form 4 -ком~
+Form 5 -ке~
 End
 
 #WORD

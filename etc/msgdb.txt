@@ -4,6 +4,7 @@
 @rus *Щелк*
 ~
 @eng $n hits the ground ... DEAD.@rus $n $gn{упал} замертво!~
+@eng                       @rus                            ~
 @eng schnapps@rus шнапс~
 @eng No lines left to remove.
 @rus Больше нечего удалять.
@@ -63,7 +64,7 @@ Use 'desc edit' to edit your description.
 @rus Даже не думай об этом.
 ~
 @eng {csitting{x@rus {cсидишь{x~
-@eng You drop $p.@rus $n бросает $c3{$p}.~
+@eng You drop $p.@rus Ты бросаешь $c3{$p}.~
 @eng Pick what?
 @rus Взломать что?
 ~
@@ -500,7 +501,7 @@ Players found: %d. Most so far today: %d.
 @eng You slowly touch the ground.
 @rus Ты плавно опускаешься на землю.
 ~
-@eng You sit down on $p and rest.@rus Ты садишься отдыхать на $p.~
+@eng You sit down on $p and rest.@rus Ты присаживаешься отдохнуть на $c3{$p}.~
 @eng Spell: {c%-15s{x@rus Заклинание: {c%-15s{x~
 @eng You attempt to fade.
 @rus Ты пытаешься поблекнуть.
@@ -775,7 +776,7 @@ Get back to questor before your time runs out!
 ~
 @eng $n wakes and sits on $p.@rus $n просыпается и садится на $p.~
 @eng $n fades into existence.@rus $n появляется словно ниоткуда.~
-@eng You tell $N '{G$t{x'@rus Ты говоришь $N: "{G$t{x"~
+@eng You tell $N '{G$t{x'@rus Ты говоришь $c2{$N}: "{G$t{x"~
 @eng You buy $P for $j silver.@rus Ты покупаешь $c3{$P} за $j $c3{$qj{серебряных}}.~
 @eng $n looks at $N.@rus $n смотрит на $c3{$N}.~
 @eng You are too dazed to push anyone.
@@ -1248,7 +1249,7 @@ Get back to questor before your time runs out!
 @eng You only see %d of those here.
 @rus Ты здесь видишь только %d таких вещей.
 ~
-@eng You go to sleep on $p.@rus Ты засыпаешь на $p.~
+@eng You go to sleep on $p.@rus Ты засыпаешь на $c5{$p}.~
 @eng You dismount from $N.@rus Ты спешиваешься с $N.~
 @eng You are too full to eat more.
 @rus Твой желудок полон. Ты не можешь проглотить ни кусочка.
@@ -1323,6 +1324,7 @@ Get back to questor before your time runs out!
 ~
 @eng $n wears $p on $s head.@rus $n надевает $p на голову.~
 @eng $n stands up.@rus $n встает.~
+@eng $n has created $p!@rus $n $gn{создал} $c3{$p}!~
 @eng As you sacrifice the corpse, @rus На жертвенном костре осталось лежать ~
 @eng Bashing? What's that?
 @rus Bash? А что это?

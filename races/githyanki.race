@@ -18,7 +18,7 @@ BonusSkills 'sword' 'dagger'~
 Stats 0 2 -2 3 -1 0
 MaxStats 19 23 20 25 18 25
 Size medium
-RestrictAlign evil
+RestrictAlign evil~
 Slang human
 End
 

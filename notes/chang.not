@@ -1381,3 +1381,22 @@ if 'toggle noeng' is on english names will not be shown for objs/mobs.
  
 {WIluvatar{x, Eru, the One
 ~
+Sender  abrazak~
+Date    Tue Feb 23 15:21:46 1999~
+Stamp   919761706
+To      all~
+Subject Some News ~
+Text
+Hi there!
+ 
+После всех попыток атаковать того, кого в данный момент нет в комнате теперь одинаковая задержка.
+Увеличена задержка после blackjack, backstab, 'power word kill', 'disintegrate'.
+Вероятность успешного 'power word kill' и 'disintegrate' слегка уменьшена.
+Уменьшена задержка после спеллов группы healing
+Увеличен damage от 'ambush' (это становится ззаметно после 48 уровня), слегка 
+увеличен damage от charge.
+Паладины и клерики получили заклинание anathema.
+Рэнджеры - скилл 'forest fighting' (команда forest).
+ 
+/abrazak, the sovereign of shadows.
+~

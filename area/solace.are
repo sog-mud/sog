@@ -796,6 +796,7 @@ A
 13 1
 A
 1 1
+G none
 #10202
 sleeves obsidian~
 obsidian sleeves~
@@ -808,6 +809,7 @@ A
 5 1
 A
 24 -5
+G none
 #10203
 leggings obsidian~
 obsidian leggings~
@@ -820,6 +822,7 @@ A
 14 20
 A
 2 2
+G none
 #10204
 gauntlets obsidian~
 obsidian gauntlets~
@@ -832,6 +835,7 @@ A
 18 3
 A
 23 -3
+G none
 #10205
 boots obsidian~
 obsidian boots~
@@ -844,6 +848,7 @@ A
 13 10
 A
 23 -6
+G none
 #10206
 cloak obsidian~
 obsidian cloak~
@@ -856,6 +861,7 @@ A
 22 -4
 A
 24 -2
+G none
 #10207
 girth obsidian~
 the obsidian girth~
@@ -868,6 +874,7 @@ A
 1 1
 A
 24 -2
+G none
 #10208
 shield large obsidian~
 the large obsidian shield~
@@ -880,6 +887,7 @@ A
 17 4
 A
 19 3
+G none
 #10209
 amulet solace~
 the amulet of Solace~
@@ -892,6 +900,7 @@ A
 17 3
 A
 19 1
+G none
 #10210
 obsidian key~
 a obsidian key~
@@ -900,6 +909,7 @@ copper~
 key 0 A
 0 0 0 0 0
 30 5 300 P
+G none
 #10211
 sword doomgiver~
 a black hilted sword called, "Doomgiver"~
@@ -926,6 +936,7 @@ Apon the blade is engraved a poem:
                       The fate of all folk everywhere.
 
 ~
+G none
 #10212
 signet ring~
 an Solace signet ring~
@@ -938,6 +949,7 @@ A
 24 -2
 A
 13 4
+G none
 #10213
 bracer~
 a obsidian bracer~
@@ -946,6 +958,7 @@ copper~
 armor 0 BM
 9 9 9 0 0
 30 9 300 P
+G none
 #10214
 weapons cabinet~
 a weapons cabinet~
@@ -960,6 +973,7 @@ This is a finely crafted reinforced weapons cabinet. It looks very sturdy.
 The cabinet doors are made of smoked glass. Something seems to be
 calling you from within.
 ~
+G none
 #10215
 sword dragonslicer~
 a black hilted sword called, "Dragonslicer"~
@@ -988,6 +1002,7 @@ Apon the blade is engraved a poem:
                       In the belly of the giant that my blade impales.
 
 ~
+G none
 #10216
 helmet steel~
 the steel helmet~
@@ -1000,6 +1015,7 @@ A
 21 -2
 A
 3 1
+G none
 #10217
 sleeves steel~
 steel sleeves~
@@ -1012,6 +1028,7 @@ A
 20 -2
 A
 24 -1
+G none
 #10218
 leggings steel~
 steel leggings~
@@ -1024,6 +1041,7 @@ A
 14 10
 A
 2 1
+G none
 #10219
 gauntlets steel~
 steel gauntlets~
@@ -1038,6 +1056,7 @@ A
 23 -1
 A
 1 1
+G none
 #10220
 boots steel~
 steel boots~
@@ -1050,6 +1069,7 @@ A
 13 5
 A
 23 -2
+G none
 #10221
 cloak lieutenant ~
 the lieutenant's cloak~
@@ -1062,6 +1082,7 @@ A
 22 -2
 A
 24 -1
+G none
 #10222
 girth steel~
 the steel girth~
@@ -1072,6 +1093,7 @@ armor GK AL
 27 35 270 P
 A
 24 -1
+G none
 #10223
 shield large steel~
 the large steel shield~
@@ -1084,6 +1106,7 @@ A
 17 2
 A
 19 1
+G none
 #10224
 bracer steel~
 a steel bracer~
@@ -1094,6 +1117,7 @@ armor 0 BM
 27 9 270 P
 A
 12 5
+G none
 #10225
 sword shieldbreaker~
 black hilted sword called, "Shieldbreaker"~
@@ -1124,6 +1148,7 @@ Apon the blade is engraved a poem:
                       My edge the widowmaker.
 
 ~
+G none
 #10226
 helmet red~
 the red helmet~
@@ -1134,6 +1159,7 @@ armor GK AE
 20 20 200 P
 A
 21 -1
+G none
 #10227
 sleeves red scalemail~
 red scalemail sleeves~
@@ -1144,6 +1170,7 @@ armor GK AI
 20 30 200 P
 A
 20 -1
+G none
 #10228
 leggings red scalemail~
 red scalemail leggings~
@@ -1154,6 +1181,7 @@ armor GK AF
 20 30 200 P
 A
 14 5
+G none
 #10229
 gauntlets red scalemail~
 red scalemail gauntlets~
@@ -1164,6 +1192,7 @@ armor GK AH
 20 30 200 P
 A
 21 -1
+G none
 #10230
 boots red scalemail~
 red scalemail boots~
@@ -1176,6 +1205,7 @@ A
 13 2
 A
 23 -1
+G none
 #10231
 cloak red sergeant~
 the red sergeant's cloak~
@@ -1186,6 +1216,7 @@ armor GK AC
 20 30 200 P
 A
 22 -1
+G none
 #10232
 girth red scalemail~
 the red scalemail girth~
@@ -1194,6 +1225,7 @@ copper~
 armor GK AL
 7 7 7 0 0
 20 30 200 P
+G none
 #10233
 shield large red~
 the large red shield~
@@ -1204,6 +1236,7 @@ armor GK AJ
 20 30 200 P
 A
 17 1
+G none
 #10234
 bracer red~
 a red bracer~
@@ -1214,6 +1247,7 @@ armor 0 BM
 20 9 200 P
 A
 12 1
+G none
 #10235
 warhammer mage masher~
 a red steel warhammer called, "Mage Masher"~
@@ -1234,6 +1268,7 @@ This hammer has the words, "MAGE MASHER" engraved into it's head.
 It seems to glow and pulse when pointed at a magic user. It seems to just
 glow when pointed at clerics though.
 ~
+G none
 #10236
 plate black platemail~
 black platemail~
@@ -1246,6 +1281,7 @@ A
 24 -1
 A
 13 8
+G none
 #10237
 enchanted longsword~
 enchanted longsword~
@@ -1258,6 +1294,7 @@ A
 18 2
 A
 19 1
+G none
 #10238
 enchanted hammer~
 enchanted hammer~
@@ -1268,6 +1305,7 @@ exotic 4 5 none 0
 15 12 150 P
 A
 18 2
+G none
 #10239
 enchanted pike~
 enchanted pike~
@@ -1278,6 +1316,7 @@ exotic 4 5 none 0
 15 15 150 P
 A
 18 2
+G none
 #10240
 chamorro ringmail~
 chamorro ringmail~
@@ -1292,6 +1331,7 @@ E
 ringmail~
 This armor is imported from the island of Guam.
 ~
+G none
 #10241
 Mcbread~
 Mcbread~
@@ -1300,6 +1340,7 @@ copper~
 food 0 A
 CE 0 0 0 0
 0 5 0 P
+G none
 #10242
 Mcdonut~
 Mcdonut~
@@ -1308,6 +1349,7 @@ copper~
 food 0 A
 BD 0 0 0 0
 0 5 0 P
+G none
 #10243
 mcbagel~
 Mcbagel~
@@ -1316,6 +1358,7 @@ copper~
 food 0 A
 BD 0 0 0 0
 0 5 0 P
+G none
 #10244
 mcpastry~
 Mcpastry~
@@ -1324,6 +1367,7 @@ copper~
 food 0 A
 CD 0 0 0 0
 0 5 0 P
+G none
 #10245
 chocolate chip cookie~
 chocolate chip cookie~
@@ -1332,6 +1376,7 @@ copper~
 food 0 A
 ABC 0 0 0 0
 0 5 0 P
+G none
 #10246
 peanut butter cookie~
 peanut butter cookie~
@@ -1340,6 +1385,7 @@ copper~
 food 0 A
 ABC 0 0 0 0
 0 5 0 P
+G none
 #10247
 oatmeal cookie~
 oatmeal  cookie~
@@ -1348,6 +1394,7 @@ copper~
 food 0 A
 ABC 0 0 0 0
 0 5 0 P
+G none
 #10248
 sugar cookie~
 sugar cookie~
@@ -1356,6 +1403,7 @@ copper~
 food 0 A
 ABC 0 0 0 0
 0 5 0 P
+G none
 #10249
 taxes fines~
 taxes and fines~
@@ -1366,16 +1414,18 @@ exotic 5 4 suction 0
 17 40 170 P
 A
 15 -10000
+G none
 #10250
 enchanted two-handed sword~
 enchanted two-handed sword~
 A large two-handed sword with runes etched in it is on the floor.~
 copper~
-armor G AN
-6 6 6 0 0
+weapon G AN
+exotic 6 6 magic F
 16 30 160 P
 A
 18 4
+G male
 #10251
 carrot~
 carrot~
@@ -1384,6 +1434,7 @@ copper~
 food 0 A
 AC 0 0 0 0
 0 2 0 P
+G none
 #10252
 cauliflower~
 cauliflower~
@@ -1392,6 +1443,7 @@ copper~
 food 0 A
 AC 0 0 0 0
 0 2 0 P
+G none
 #10253
 bell pepper~
 bell pepper~
@@ -1400,6 +1452,7 @@ copper~
 food 0 A
 AC 0 0 0 0
 0 2 0 P
+G none
 #10254
 celery stick~
 celery stick~
@@ -1408,6 +1461,7 @@ copper~
 food 0 A
 AC 0 0 0 0
 0 2 0 P
+G none
 #10255
 glass ice tea~
 a glass of ice tea~
@@ -1416,6 +1470,7 @@ copper~
 drink 0 A
 5 5 'tea' 0 0
 0 5 0 P
+G none
 #10256
 glass water~
 a glass of water~
@@ -1424,6 +1479,7 @@ copper~
 drink 0 A
 5 5 'water' 0 0
 0 5 0 P
+G none
 #10257
 glass koca colah~
 a glass of koca colah~
@@ -1432,6 +1488,7 @@ copper~
 drink 0 A
 5 5 'coke' 0 0
 0 5 0 P
+G none
 #10258
 bottle Snapple ice tea~
 a bottle of Snapple ice tea~
@@ -1440,6 +1497,7 @@ copper~
 drink 0 A
 5 5 'tea' 0 0
 0 5 0 P
+G none
 #10259
 apple~
 apple~
@@ -1448,6 +1506,7 @@ copper~
 food 0 A
 AC 0 0 0 0
 0 2 0 P
+G none
 #10260
 grape~
 a grape~
@@ -1456,6 +1515,7 @@ copper~
 food 0 A
 AB 0 0 0 0
 0 2 0 P
+G none
 #10261
 orange~
 a orange~
@@ -1464,6 +1524,7 @@ copper~
 food 0 A
 BC 0 0 0 0
 0 2 0 P
+G none
 #10262
 pear~
 a pear~
@@ -1472,6 +1533,7 @@ copper~
 food 0 A
 BC 0 0 0 0
 0 2 0 P
+G none
 #10263
 charm solace~
 the charm of Solace~
@@ -1480,6 +1542,7 @@ copper~
 armor 0 AC
 5 5 5 0 0
 10 15 100 P
+G none
 #10264
 ring solace~
 the ring of Solace~
@@ -1488,6 +1551,7 @@ copper~
 armor 0 AB
 5 5 5 0 0
 10 5 100 P
+G none
 #10265
 earrings solace~
 the earrings of Solace~
@@ -1496,6 +1560,7 @@ copper~
 armor 0 AE
 5 5 5 0 0
 10 4 100 P
+G none
 #10266
 frozen pizza crust~
 a frozen pizza crust~
@@ -1504,6 +1569,7 @@ copper~
 armor 0 AJ
 5 5 5 0 0
 10 15 100 P
+G none
 #10267
 frozen pumpkin~
 a frozen pumpkin~
@@ -1512,6 +1578,7 @@ copper~
 armor 0 AE
 5 5 5 0 0
 10 15 100 P
+G none
 #10268
 frozen side beef~
 a frozen side of beef~
@@ -1520,6 +1587,7 @@ copper~
 armor 0 AD
 5 5 5 0 0
 10 23 100 P
+G none
 #10269
 frozen asparagus spear~
 a frozen asparagus spear~
@@ -1530,6 +1598,7 @@ spear 3 5 none 0
 10 15 100 P
 A
 18 1
+G none
 #10270
 mulburry extract~
 mulburry extract~
@@ -1538,6 +1607,7 @@ copper~
 potion G A
 20 'refresh' 'cure light' 'cure poison' ''
 5 1 50 P
+G none
 #10271
 rutabaga~
 rutabaga~
@@ -1546,6 +1616,7 @@ copper~
 pill G A
 20 'detect magic' 'dispel magic' 'stone skin' ''
 5 1 50 P
+G none
 #10272
 rutabaga~
 rutabaga~
@@ -1554,6 +1625,7 @@ copper~
 pill G A
 20 'poison' 'know alignment' 'blindness' ''
 5 1 50 P
+G none
 #10274
 rutabaga~
 rutabaga~
@@ -1562,6 +1634,7 @@ copper~
 pill G A
 20 'detect magic' 'dispel magic' 'stone skin' ''
 5 1 50 P
+G none
 #10275
 Scuba tank~
 scuba tank~
@@ -1570,6 +1643,7 @@ copper~
 boat 0 AK
 0 0 0 0 0
 0 30 0 P
+G none
 #10276
 Scuba flippers~
 scuba flippers~
@@ -1580,6 +1654,7 @@ armor G AG
 10 7 100 P
 A
 2 2
+G none
 #10277
 scuba snorkle~
 scuba snorkle~
@@ -1588,6 +1663,7 @@ copper~
 armor 0 AE
 5 5 5 0 0
 10 2 100 P
+G none
 #10278
 dive belt~
 dive belt~
@@ -1596,6 +1672,7 @@ copper~
 armor 0 AL
 5 5 5 0 0
 10 50 100 P
+G none
 #10279
 belt pouch~
 belt pouch~
@@ -1604,6 +1681,7 @@ copper~
 container 0 AL
 50 A 0 0 0
 0 5 0 P
+G none
 #10280
 cloak storage~
 cloak of storage~
@@ -1612,6 +1690,7 @@ copper~
 container G AC
 125 A 0 0 0
 0 5 0 P
+G none
 #10281
 ring holding~
 ring of holding~
@@ -1620,6 +1699,7 @@ copper~
 container G AB
 300 A 0 0 0
 0 3 0 P
+G none
 #10282
 travellers robe~
 travellers robe~
@@ -1628,6 +1708,7 @@ copper~
 armor 0 AK
 5 5 5 0 0
 14 15 140 P
+G none
 #10283
 travellers dagger~
 travellers dagger~
@@ -1636,6 +1717,7 @@ copper~
 weapon 0 AN
 exotic 4 4 pierce 0
 12 10 120 P
+G none
 #10284
 travellers spellbook~
 travellers spellbook~
@@ -1644,6 +1726,7 @@ copper~
 staff 0 AO
 14 5 5 'flamestrike' 0
 14 45 140 P
+G none
 #10285
 travellers holy symbol~
 travellers holy symbol~
@@ -1652,6 +1735,7 @@ copper~
 staff 0 AO
 19 5 5 'remove curse' 0
 19 20 190 P
+G none
 #10286
 travellers vest~
 a travellers vest~
@@ -1660,6 +1744,7 @@ copper~
 armor 0 AD
 5 5 5 0 0
 12 5 120 P
+G none
 #10287
 travellers cloak~
 a travellers cloak~
@@ -1668,6 +1753,7 @@ copper~
 armor 0 AC
 5 5 5 0 0
 12 5 120 P
+G none
 #10288
 travellers sword~
 a travellers sword~
@@ -1676,6 +1762,7 @@ copper~
 weapon G BN
 exotic 5 4 slash 0
 16 5 160 P
+G none
 #10289
 travellers scalemail~
 a travellers scalemail~
@@ -1684,6 +1771,7 @@ copper~
 armor 0 AD
 6 6 6 0 0
 16 5 160 P
+G none
 #10290
 travellers shield~
 a travellers shield~
@@ -1692,6 +1780,7 @@ copper~
 armor 0 BJ
 6 6 6 0 0
 16 5 160 P
+G none
 #10291
 travellers hammer~
 a travellers hammer~
@@ -1700,6 +1789,7 @@ copper~
 weapon 0 AN
 axe 5 5 none 0
 19 5 190 P
+G none
 #10292
 Magnus's spellbook~
 Magnus's spellbook~
@@ -1708,6 +1798,7 @@ copper~
 staff 0 AO
 19 5 5 'acid breath' 0
 19 55 190 P
+G none
 #10293
 robe magi~
 robe of the magi~
@@ -1720,6 +1811,7 @@ A
 12 50
 A
 24 -5
+G none
 #10294
 crystal plate armor~
 crystal plate armor~
@@ -1734,6 +1826,7 @@ A
 5 1
 A
 13 10
+G none
 #10295
 Scythe Grim Reaper~
 Scythe of the Grim Reaper~
@@ -1748,6 +1841,7 @@ A
 19 80
 A
 24 -30
+G none
 #10296
 crystal shield~
 crystal shield~
@@ -1758,6 +1852,7 @@ armor FG AJ
 18 20 180 P
 A
 13 10
+G none
 #10297
 crystal longsword~
 crystal longsword~
@@ -1770,6 +1865,7 @@ A
 13 10
 A
 18 3
+G none
 #10298
 obsidian plate armor~
 a suit of obsidian plate armor~
@@ -1782,6 +1878,7 @@ A
 13 20
 A
 14 20
+G none
 #10299
 steel plate armor~
 a suit of steel plate armor~
@@ -1794,6 +1891,7 @@ A
 13 15
 A
 14 15
+G none
 #10300
 red plate armor~
 a suit of red plate armor~
@@ -1806,6 +1904,7 @@ A
 13 10
 A
 14 10
+G none
 #10301
 enchanted bow~
 enchanted bow~
@@ -1816,6 +1915,7 @@ armor G AN
 15 7 150 P
 A
 18 2
+G none
 #10302
 safe deposit box~
 safe deposit box~
@@ -1828,6 +1928,7 @@ E
 safe deposit box~
 You see a strong metal box used to keep the town deposits in.
 ~
+G none
 #10303
 gold coins~
 a lot of gold coins~
@@ -1836,6 +1937,7 @@ copper~
 money 0 A
 140 0 0 0 0
 14 0 140 P
+G none
 #10304
 fountain water~
 a fountain~
@@ -1848,6 +1950,7 @@ E
 fountain~
 It is very nice.  Made from fine white marble.
 ~
+G none
 #10305
 depository key~
 a depository key~
@@ -1856,6 +1959,7 @@ copper~
 key 0 A
 0 0 0 0 0
 17 5 170 P
+G none
 #10306
 city key gold solace~
 Key to the City of Solace~
@@ -1864,6 +1968,7 @@ copper~
 key 0 A
 0 0 0 0 0
 30 5 300 P
+G none
 #10307
 flaming homer~
 a drink called, "a Flaming homer"~
@@ -1872,6 +1977,7 @@ copper~
 drink 0 A
 1 1 'firebreather' 0 0
 16 3 160 P
+G none
 #10308
 jello shot~
 a jello shot~
@@ -1880,6 +1986,7 @@ copper~
 drink 0 A
 1 1 'ale' 0 0
 16 3 160 P
+G none
 #10309
 bloody heads~
 a drink called, "bloody heads"~
@@ -1888,6 +1995,7 @@ copper~
 drink 0 A
 1 1 'whisky' 0 0
 16 3 160 P
+G none
 #0
 
 #ROOMS

@@ -13,7 +13,7 @@ ManaRate 70
 Flags mage~
 AddExp 400
 StatMod 2 0 1 0 2 5
-RestrictAlign good
+RestrictAlign good~
 Skill 'armor' 12 1
 Skill 'bless' 14 1
 Skill 'bless weapon' 55 1

@@ -21,7 +21,7 @@ MaxStats 22 16 18 20 21 25
 Size medium
 HPBonus 25
 ManaBonus -10
-RestrictAlign evil
+RestrictAlign evil~
 Slang dwarvish
 End
 

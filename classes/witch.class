@@ -16,7 +16,7 @@ ManaRate 100
 Flags mage~
 AddExp 200
 StatMod 0 3 0 0 0 5
-RestrictSex female
+RestrictSex female~
 Skill 'acetum primus' 34 1
 Skill 'acid arrow' 48 1
 Skill 'acid blast' 63 1

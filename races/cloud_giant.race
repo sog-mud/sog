@@ -19,7 +19,7 @@ MaxStats 25 16 17 16 22 25
 Size huge
 HPBonus 20
 ManaBonus -20
-RestrictAlign neutral
+RestrictAlign neutral~
 RestrictHometown Valley of the Titans~
 Slang giant
 End

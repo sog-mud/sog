@@ -237,8 +237,7 @@ UNACCEPTABLE:
 Anyway, immortals may ask you to choose another name if they consider your name inappropriate.
 
 If your name fits above restrictions, type Y. Otherwise choose another name.
-Last decision depends upon Immortals of Realms of Muddy. Do you accept?
-~
+Last decision depend upon Immortals of Realms of Muddy. Do you accept? ~
 0 CAST~
 Syntax: cast <spell> <target>
 
@@ -1983,7 +1982,7 @@ Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
 Felar       Felar    Dex,Con  Str,Int   450     "hand to hand", "tail"
 Troll       Troll    Str,Con  Int,Dex   400     evil, regen., "fast healing"
 
-What is your race (help <race> for more information)? ~
+What is your race ("help <race>" for more information)? ~
 -1 GNOME GNOMES~
 Gnomes are a race of small, wiry, but tough creatures.  They live a very
 long time and accumulate much wisdom. They are resistant to poisons, but
@@ -2187,7 +2186,7 @@ Samurai      Sam      STR        ANY    500  	masters of ancient battlearts
 Vampire      Vam      INT	 ANY	300	simply vampire
 Necromancer  Nec      INT	  M	300	simply necromancer
 
-~
+What is your class ("help <class>" for more information)? ~
 -1 RANGER RANGERS~
 RANGER
 Outdoorsmen, hunters, master of woodcraft, Rangers are the guardians of 
@@ -2291,6 +2290,7 @@ chaotic.  Ethos can only be set once.
 
 ~
 -2 'NEWBIE INFO' NEWBIE~
+
 Ah! Another mortal, seeking adventure.  You should go through mudschool 
 first, to gain experience to face the trials outside.  Be sure to practice 
 a weapon in the guild room, or your stay with us shall be very short  indeed.
@@ -3665,6 +3665,7 @@ Syntax: exd add keyword lang
         exd delete keyword
         exd show keyword
         exd format keyword
+        exd name keyword name
  
 ~
 0 'protection negative'~

@@ -19,7 +19,7 @@ Skill 'trance' 1
 Stats 2 -2 -1 -2 3 0
 MaxStats 19 23 20 25 18 25
 Size large
-RestrictAlign evil
+RestrictAlign evil~
 Slang trollish
 End
 

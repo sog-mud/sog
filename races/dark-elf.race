@@ -23,7 +23,7 @@ MaxStats 18 24 21 24 16 25
 Size medium
 HPBonus -10
 ManaBonus 20
-RestrictAlign evil
+RestrictAlign evil~
 Slang elvish
 End
 

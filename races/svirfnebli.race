@@ -21,7 +21,7 @@ MaxStats 20 19 23 18 19 25
 Size small
 HPBonus 10
 PracBonus 2
-RestrictAlign neutral
+RestrictAlign neutral~
 Slang gnomish
 End
 

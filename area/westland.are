@@ -104,7 +104,7 @@ human~
 ABT Vb -1000 0
 55 0 50d10+5500 10d10+3000 10d4+23 wrath
 -25 -25 -25 0
-BCDEFGHIKNV AH BL J
+BCDEFGHIKNUV AH BL J
 stand stand male 300
 0 0 large unknown
 #10006
@@ -692,15 +692,17 @@ A
 A
 2 -1
 E
-warden mace~
-It is a giant mace clad with sharp deadly teeth. It was made for
+warden mace дубинка стража~
+@eng It is a giant mace clad with sharp deadly teeth. It was made for
 the use of killing. This truly is a strong weapon.
+@rus Довольно крупная дубинка, усеянная острыми шипами. Сразу чувствуется, что
+это орудие убийства.
 ~
 G none
 #10002
-bone necklace~
-The Bone Woman's Necklace.~
-A Beautiful necklace lies here on the ground.~
+bone necklace ожерелье костяное~
+@eng the Bone Woman's necklace@rus ~~костяное~~ ~~ожерелье~~~
+@eng A Beautiful necklace lies here on the ground.@rus Красивое ожерелье (necklace), сделанное из костей, кем-то брошено здесь.~
 stone~
 armor AB AC
 30 30 30 20 0
@@ -712,15 +714,17 @@ A
 A
 2 3
 E
-bone necklace~
-This is a magical necklace that the bone woman HAD around her
+bone necklace костяное ожерелье~
+@eng This is a magical necklace that the bone woman HAD around her
 neck. It must be very powerful since the kill took awhile.
+@rus Магическое ожерелье, сделанное из невзрачных с виду косточек каких-то 
+животных. Но за его внешней невзрачностью многое скрывается.
 ~
 G none
 #10003
-gripper teeth~
-Some grippers teeth~
-Here are the teeth of the Gripper monster.~
+gripper teeth зубы острые кривые~
+@eng some grippers teeth@rus ~~острые~~ ~~кривые~~ ~~зубы~~~
+@eng Here are the teeth of the Gripper monster.@rus Острые зубы (teeth), оставшиеся от хватало, валяются тут.~
 stone~
 armor ABM AC
 26 26 27 16 0
@@ -731,18 +735,18 @@ A
 1 3
 G none
 #10004
-jug beer~
-A Jug 'o Beer~
-There is a jug of beer on the ground here.~
+jug beer кувшин эль~
+@eng a jug of beer@rus ~~кувшин~~ эля~
+@eng There is a jug of beer on the ground here.@rus Небольшой кувшин (jug) с непонятно чем оставлен кем-то.~
 glass~
 drink BC A
 20 20 'beer' 0 0
 1 1 1 P
 G none
 #10005
-thief boot boots black~
-A Pair of Black Boots~
-A dark pair of boots lie here soaking up the sun.~
+thief boot boots black пара ботинки черные кожаные~
+@eng a pair of black boots@rus ~~пара~~ кожаных черных ботинок~
+@eng A dark pair of boots lie here soaking up the sun.@rus Пара черных ботинок (boots) валяется тут, впитывая солнечный свет.~
 leather~
 armor BC AG
 20 20 20 10 0
@@ -813,9 +817,9 @@ A
 17 -9
 G none
 #10010
-boundary tunic warden плащ~
-Boundary Warden's Tunic~
-A tunic made from good leather has been left here.~
+boundary tunic warden плащ стража~
+@eng boundary warden's tunic@rus ~~плащ~~ стража границы~
+@eng A tunic made from good leather has been left here.@rus Плащ (tunic), сделанный из хорошей кожы, оставлен здесь своим хозаином.~
 unknown~
 armor BC AK
 20 20 20 10 0
@@ -824,9 +828,9 @@ A
 17 -21
 G none
 #10011
-boundary helmet warden~
-A Boundary Warden Helmet~
-A large helmet has been left by its owner...such a shame.~
+boundary helmet warden шлем стража~
+@eng a boundary warden's helmet@rus ~~шлем~~ стража границы~
+@eng A large helmet has been left by its owner...such a shame.@rus Чей-то шлем (helmet) валяется тут, забытый.~
 unknown~
 armor BC AE
 20 20 20 10 0
@@ -837,9 +841,9 @@ A
 1 2
 G none
 #10012
-boundary ring warden~
-A Boundary Warden Ring~
-A bright silver ring has been left in the dust.~
+boundary ring warden кольцо стража~
+@eng a boundary warden's ring@rus ~~кольцо~~ стража границы~
+@eng A bright silver ring has been left in the dust.@rus Массивное серебрянное кольцо (ring) кем-то оставлено здесь.~
 unknown~
 treasure BC AB
 0 0 0 0 0
@@ -848,9 +852,9 @@ A
 13 75
 G none
 #10013
-boundary legging warden leggings~
-Boundary Warden Leggings~
-A pair of leggings have been left here.~
+boundary legging warden leggings штаны стража~
+@eng boundary warden leggins@rus ~~штаны~~ стража границы~
+@eng A pair of leggings have been left here.@rus Какие-то черные штаны (leggins) оставлены здесь.~
 unknown~
 armor BC AF
 20 20 20 10 0
@@ -862,8 +866,8 @@ A
 G none
 #10014
 robe dark~
-a Dark Robe~
-A robe has been left in the shade of a tree here.~
+@eng a dark robe@rus ~~темный~~ ~~плащ~~~
+@eng A robe has been left in the shade of a tree here.@rus Темный плащ (robe) непонятного цвета валяется около тебя.~
 cloth~
 armor BC AD
 23 23 22 11 0
@@ -874,9 +878,9 @@ A
 12 50
 G none
 #10015
-collar heart hound~
-a Heart Hound Collar~
-A collar has been left sitting in the sun in the middle of a field.~
+collar heart hound ошейник гончей~
+@eng a heart hound collar@rus ~~ошейник~~ гончей~
+@eng A collar has been left sitting in the sun in the middle of a field.@rus Странного вида ошейник (collar) блестит под лучами солнца.~
 unknown~
 armor BC AC
 23 22 22 16 0
@@ -889,39 +893,39 @@ A
 12 50
 G none
 #10016
-pouch magical leather~
-a Magical Leather Pouch~
-A pouch has been left here in the mud.~
+pouch magical leather маленький магический мешочек~
+@eng a magical leather pouch@rus ~~маленький~~ ~~магический~~ ~~мешочек~~~
+@eng A pouch has been left here in the mud.@rus Маленький мешочек (pouch) валяется в грязи.~
 leather~
 container BC A
 700 A 0 350 72
 70 50 1000 P
 G none
 #10017
-cookie~
-a BIG cookie!~
-There is a cookie on the ground, what a shame.~
+cookie пирожок~
+@eng a BIG cookie!@rus ~~вкусный~~ ~~пирожок~~~
+@eng There is a cookie on the ground, what a shame.@rus Маленький пирожок (cookie) валяется на земле.~
 unknown~
 food B A
 DF 0 0 0 0
 8 10 0 P
 G none
 #10018
-cake~
-a BIG piece of cake!~
-A Big Yummy piece of CAKE has been left here.~
+cake кусок пирога~
+@eng a BIG piece of cake!@rus ~~кусок~~ пирога~
+@eng A Big Yummy piece of CAKE has been left here.@rus Большой кусок пирога (cake) почему-то валяется на земле.~
 unknown~
 food B A
 BD 0 0 0 0
 1 10 0 P
 G none
 #10019
-boundary sword warden~
-a Boundary Warden Sword~
-A well made sword has been left here.~
+boundary sword warden меч стража границы~
+@eng a boundary warden's sword@rus ~~меч~~ стража границы~
+@eng A well made sword has been left here.@rus Качественно выкованный меч (sword) почему-то брошен здесь.~
 unknown~
 weapon ABCEJL AN
-sword 9 5 slash 0
+sword 9 6 slash 0
 50 30 3500 P
 A
 19 4
@@ -933,9 +937,9 @@ This is a boundary warden sword that is made just for their use.
 ~
 G none
 #10020
-boundary flail warden~
-a Boundary Warden Flail~
-A flail has been left here.~
+boundary flail warden стража границы кистень~
+@eng a boundary warden's flail@rus ~~кистень~~ стража границы~
+@eng A flail has been left here.@rus Мрачного вида оружие (flail) валяется возле тебя.~
 unknown~
 weapon ABCEJL AN
 flail 7 7 pound 0
@@ -946,9 +950,9 @@ A
 18 4
 G none
 #10021
-boundary mace warden~
-a Boundary Warden Mace~
-A mace has been left here.~
+boundary mace warden палица стража границы~
+@eng a boundary warden's mace@rus ~~палица~~ стража границы~
+@eng A mace has been left here.@rus Чья-то палица (mace) оставлено здесь.~
 unknown~
 weapon ABCEIJ AN
 mace 7 7 pound 0
@@ -959,9 +963,9 @@ A
 18 3
 G none
 #10022
-boundary dagger warden~
-a Boundary Warden Dagger~
-A dagger has been left here.~
+boundary dagger warden кинжал стража границы~
+@eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
+@eng A dagger has been left here.@rus Небольшой, но острый кинжал (dagger) валяется подле тебя.~
 steel~
 weapon ABCEIJ AN
 dagger 5 10 pierce 0
@@ -1006,9 +1010,9 @@ A
 12 50
 G none
 #10025
-westland ~
-a sign~
-There is a sign that contains the map of Westlands here.~
+westland sign знак указатель вывеска вестландия~
+@eng a sign@rus ~~небольшой~~ ~~знак~~~
+@eng There is a sign that contains the map of Westlands here.@rus Небольшой, наполовину ушедший в землю знак (sign), на котором нацарапана карта Вестландии.~
 wood~
 furniture A 0
 0 0 0 0 0
@@ -1061,16 +1065,16 @@ stop all magic from  going into the other land.
 ~
 G none
 #10026
-sign~
-a little sign~
-There is a little sign here showing a map of D'Hara.~
+sign dhara d'hara дхара д'хара~
+@eng a little sign@rus ~~небольшой~~ ~~указатель~~~
+@eng There is a little sign here showing a map of D'Hara.@rus Еще один знак (sigh) с нарисованной на нем картой Д'Хары скрывается в   тени деревьев.~
 wood~
 furniture A 0
 0 0 0 0 0
 91 90 90 P
 E
-sign d'hara hara~
-**************************************************************** 
+sign d'hara hara знак д'хара хара~
+@eng **************************************************************** 
 */^/^/^\^\^\^\^/^\^\^\^\^\^\^\^\^/^\ ***********=-=-=- =-=-=-= * 
 */^\^\^/^\^\^/^\^\^\^\^\^\^\^/^\ -=- *D'H A R A*=-=- =-=-=- =  * 
 *^\^/^/^\^\^/^\^/^\^\^\^\^\ -=- =-=-=***********=-=-=-=- =-=-= * 
@@ -1108,21 +1112,51 @@ sign d'hara hara~
 */^/^\^\^/^\^\^\-=-=-=-/^\^\^\^/^/^/^/^/^\^\^\^/^/^\^/^\^\^/^\^*
 **************************************************************** 
 
-D'Hara.  This is Darken Rahl's home land and he is most powerful
-here. Even though he is powerful you might still be able to
-defeat him. Beware of the Azrith Plains for they are huge and go
-from north to west to east and to south. It is very easy to get
-lost in the Plains so try to fined the way to Darken Rahl and the
-People's Palace before it is too late or you get lost! You really
-must hurry for Darken Rahl has almost won the battle and will
-control the lands!
+D'Hara.  This is Darken Rahl's home land.
+@rus ****************************************************************
+*/^/^/^\^\^\^\^/^\^\^\^\^\^\^\^\^/^\ ***********=-=-=- =-=-=-= *
+*/^\^\^/^\^\^/^\^\^\^\^\^\^\^/^\ -=- *Д'Х А Р А*=-=- =-=-=- =  *
+*^\^/^/^\^\^/^\^/^\^\^\^\^\ -=- =-=-=***********=-=-=-=- =-=-= * 
+*/^/^/^\^/^/^\^\^\^\ -=- -=-=-=-=-=-=-=-=- =-=-=-=-=- =-=-=-   *
+*/^/^/^/^\^\^\^\^\   -=-=-=-=-=-=- =-=-=-=-=-=-=-=-=-=-=-=-=-  * 
+*/^/^\^\^\^/^/^\   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  *  
+*^\^\^\^Г/^/^\^\  =-=-=-=  -=-=-=- =-=-=-=-=- =-=-=-=-=-=-- =- * 
+*/^/^\^\^Р/^/^\^\^\ -=  *============================*  -=-=-  *
+*/^/^/^/^/А/^/^\   =-=  |     /^/^/^/^/^/^/^/^\^\    |  -=-=-= *
+*/^/^/^/^\^Н/^/^\^\ -=  | /^\^\^\^/^/НАРОДНЫЙ/^/^\^\ |   =-= - *
+*^/^/^/^\^\^И/^\   -=-  | /^\   /^/^\  ***  /^/^\^\^\|  =- =-  * 
+*/^/^/^/^/^\^Ц/^/^/^\^\ |    /^/^\^\   ***  /^/^\^\^\|   -=-=- *
+*/^/^\^\^\^\^/А/^/^\ -  | /^/^/^/^/--/ДВОРЕЦ /^/^\^\ |  -=- =  *
+*/^/^/^/^\^\^\^/^/^/^\  |    /^/^|--|^/^/^/^\^\^\    |   =-=-  *
+*/^/^\^\^\^\^\^\^\^\ -  | /^/^/^\^\--\^\^\^\^\^\     |  -=-=-  *
+*/^/^\^\^\^\^\^\  =-=-  |   /^/^\^\|--|/^/^\^\^\^\   |  =-=-=- *
+*/^/^\^\^\^\^\  =-=-=-  *==========*---*=============*   =-    *
+*/^/^\^\^\    -=-=--=-=-=-=-=-=-=-= |_ | -=- =-=-=-=-=- =-=-=- * 
+*/^/^/^/^\^\^\   =-=-=-=-=-=-=-=-= /_ / -=-=-=-=-=-=-=-=-=- =  *
+*/^/^/^/^/^\   -=-=-=-=-=-=-=-=-= |__| ==-=-=-=-=-=-=-=-=- =-= *
+*/^/^/^/^/^/^/^\  =-=-=-=-= =-=-=      =-=-=-=- =-=-=-=-=-=-=- *
+*/^/^\^\^\^\   =-=-=-=-=-= =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  *
+*/^/^\-=-/^\^\^\  =-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=- =-=-=- =-  * 
+*^\^\^\^\^/^\   -==-=-=-=- =-=-=-=-=-=-=- =-=-=-=-=-=- =-=-  /^*
+*^\^\^/^\^/^\^\  =-=-=-=-=-=-=- =-=-=-=-=-=-=- =-=-=-=-  /^/^/^*
+*\^\^\^/^  -=-=-=-=- РАВНИНЫ -=-=-=-=-=-=-=-=-=-=-=-=-=   /^/^/*
+*/^/^/^\ -=-=-=--=-=- АЗРИТА -=-=-=-=-=-=-=-=-=-=-   /^/^/^/^\^* 
+* /^\      -=-=-=-=-=-=-=-=-=-=-=-=-=- =-=-=-=-=-=   /^/^/^\^\^* 
+*########     =-=-=-=-=-=-=-=-=-=-=-=-=-=-=   /^/^/^\^\^/^/^\^\*
+* ПРОХОД ^/^\  =-=-=-=-=-=-=-=-=-=-=--  /^/^/^/^\^\^\^\^\^\^\^\*
+*          /^/^\ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  /^\^\^\^\^\^/* 
+* /^\^\^\^\^/^/^/^/^\^\=-=/^/^\=--=-/^/^\^\^\^/^\^/^\^/^\^\^\^\*
+* /^/^/^\=-/^/^/^/^\^/^/^/^\^\=-/^/^\^\^\^/^/^/^\^/^\^/^\^\^\^/*
+*/^/^/^\=-=-=-=-=-/^\ =-=-= /^\^/^\^\^\^\^/^\^\^/^\^\^\^\^/^/^\*
+*/^/^\^\^/^\^\^\-=-=-=-/^\^\^\^/^/^/^/^/^\^\^\^/^/^\^/^\^\^/^\^*
+****************************************************************
 ~
 G none
 #0
 
 #ROOMS
 #10001
-Path By a Lake.~
+@eng Path by a lake@rus Дорога к озеру~
 You are walking beside a beautiful lake that is crystal
 clear. There is a fresh breeze in the air and the trees are
 rocking freely. You feel as though you are entering a new world
@@ -1672,15 +1706,19 @@ Back to the forest.
 Z 0 10024
 S
 #10026
-The Bone Woman's Shack.~
-You enter a room that has bones all over the walls. There is
+@eng The Bone Woman's shack@rus В доме у Эди~
+@eng You enter a room that has bones all over the walls. There is
 a nice warm fireplace sitting in the corner giving off heat and
 light. A oil lamp is hanging from a beam in the roof and gives
 the room an eerie glow. There are bones in little piles on the
 floors and an old lady stands in the center of the room. She has
 a big smile on her face and offerse you to stay in her home for
-as long as you wish. The exit is back to the east, out on the
-trail.
+as long as you wish.
+@rus Небольшая уютная комнатка, возле стен и в углах которой навалено огромное
+количество всевозможных костей. В камине весело трещит огонь, согревая
+своим теплом все вокруг. Маслянная лампа, стоящая на столе, распростроняет
+вокруг мягкий свет. Возле стола стоит хозяйка этого странного места. На
+ее лице играет улыбка, но слишком уж странен взгляд ее белых глаз. 
 ~
 0 0 inside
 D2
@@ -1690,12 +1728,14 @@ Back to the road.
 Z 0 10025
 S
 #10027
-The Narrows.~
-You have reached the Narrows. This is a very dangerous place
+@eng The narrows@rus Теснина~
+@eng You have reached the Narrows. This is a very dangerous place
 to be in. There are many underworld beasts that live in the
-narrows. You should stay on guard and not fall asleep. The exits
-are west to continue into the narrows, or north to return to the
-bone woman for a cup of tea.
+narrows. You should stay on guard and not fall asleep.
+@rus Ты входишь в Теснину. Очень опасное место, где мир мертвых пересекается с
+миром живых. Повсюду виднеются порождения подземного мира, которые тока и
+ждут момента, когда смогут добраться до тебя. Главное -- не останавливаться
+и ни в коем случае не спать. 
 ~
 0 0 desert
 D1
@@ -1710,8 +1750,8 @@ Back to the bone woman's for a cup of tea.
 Z 0 10025
 S
 #10028
-The Path Through The Narrows.~
-The trail you are following is an easy on to follow. There
+@eng The path through the narrows@rus В теснине~
+@eng The trail you are following is an easy on to follow. There
 is no sound which frightens you a little but then the fear
 passes. As you continue west you can see the center of the
 narrows approaching. Apparently they are the most dangerous part
@@ -1773,7 +1813,7 @@ The way you came..of course.
 Z 0 10029
 S
 #10031
-The End of The Narrows.~
+@eng The end of the narrows~
 You have reached the end!!! Yay!..... Uh Oh!!! The sun has
 set and right before your eyes materializes The Spirit King. He
 is not going to let you pass. You must fend off this naughty
@@ -1793,14 +1833,19 @@ The Narrows.
 Z 0 10030
 S
 #10032
-The Azrith Plains.~
-Welcome to D'Hara! You have successfully passed through the
+@eng The Azrith plains@rus Равнины Азрита~
+@eng Welcome to D'Hara! You have successfully passed through the
 narrows and are standing infront of the Azrith Plains. The plains
 are quite massive and reach as far as your eyes can see. In the
 distance, you see the home of Darken Rahl, the Peoples Palace.
 You have to cross the Azrith Plains in order to get to Darken
 Rahl in his massive palace.
-The exits are north and east.
+@rus Ну вот ты и достиг Д'Хары. Перед тобой расстилаются поистине необозримые
+равнины Азрита. Безжизненная земля тянется до самого горизонта. Где-то
+там находится Народный дворец. Оттуда вершит свои дела Магистр Рал. Там
+живут его преданные слуги и простые почитатели, примкнувшие к нему в 
+надежде получить дорогой подарок. Там же держат тех, кому хватило смелости и
+мужества выступить против его захватнических планов.
 ~
 0 0 field
 D0
@@ -1815,8 +1860,8 @@ The Narrows end.
 Z 0 10031
 S
 #10033
-The Path Through the Plains.~
-You have found a path that is quite long but leads to Darken
+@eng The path through the plains@rus Дорога через равнины~
+@eng You have found a path that is quite long but leads to Darken
 Rahl's Palace. The path is covered with stones and there is an
 occassional tree here and there. The sky is bright and clear and
 it is a hot day. You start to be thirsty and you feel sort of
@@ -1824,10 +1869,17 @@ tired. Your only choice is to go ahead onto the Peoples Palace
 and stop Darken Ralh then steel a drink and a bite to eat. The
 way back through the Narrows doesn't seem appealing. The exits
 are north and south.
+@rus Тааак. По-видимому именно эта дорога и ведет к Народному Дворцу -- 
+сосредоточию силы и могущества Д'Хары. По крайней мере, она выглядит 
+гораздо более используемой чем те, по которым ты проезжал раньше.
+Но по-прежнему никого не видно на дороге и тебя сопровождает только лишь
+шум твоих шагов. На небе нет ни облачка, и солнечные лучи, отражаясь от
+песка у обочины дороги, слепят глаза.
 ~
 0 0 field
 D0
-The Azrith Plains.
+@eng The Azrith Plains.
+@rus Равнины Азрита.
 ~
 ~
 Z 0 10034
@@ -1838,13 +1890,20 @@ The path back where you came from.
 Z 0 10032
 S
 #10034
-The Azrith Plains.~
-You notice that you have traveled quite far and are almost
+@eng The Azrith plains@rus Равнины Азрита~
+@eng You notice that you have traveled quite far and are almost
 at the Palace. You feel a sudden urge to stop and go back but
 then it passes. You see ahead of you a giant Dragon blocking your
 trail. Maybe she will listen to you and move out of the way.
 Maybe she will eat you up for breakfast... Hmmmmmm...Breakfast
 sure would be nice. The exits are north and south.
+@rus Равнины Азрита кажутся поистине бесконечными. Ровная, лишенная всякой
+растительности, безжизненная пустыня тянется до самого горизонта. На небе нет
+ни облачка и ничто не нарушает этого мрачного безмолвия. Куда ни кинь взгляд,
+везде одно и то же -- молчаливый песок, убегающий к горизонту. 
+  Но вот пейзаж начал меняться. По краям дороги стали попадаться валуны, и
+чем дальше -- тем больше их становится. Да и сама дорога стала значительно
+уже.
 ~
 0 0 field
 D0
@@ -1859,14 +1918,20 @@ Back through the boring old plains.
 Z 0 10033
 S
 #10035
-At the BIG scary DRaGoN!~
-You approach the dragon and notice that she is the biggest
+@eng At the BIG scary DRaGoN!@rus В каньоне~
+@eng You approach the dragon and notice that she is the biggest
 most frightening beast you have ever seen. The dragon hardly
 notices you as you try to get by. Maybe you should TRY to kill it
 so you wont have to fight it on the way back...Maye you should
 just turn around and go back to mommy for some cookies...mmmm
 cookies. STOP THINKING ABOUT FOOD! You must go on and kill Darken
 Rahl. The exits are North and South ass usual.
+@rus Вид местности изменился. Теперь тропинка то ведет вдоль глубоких оврагов, то 
+петляет, огибая острые гребни скал. Узкая расщелина приводит тебя вниз, в 
+окруженный отвесными каменными стенами каньон. Повсюду валяются валуны и
+обломки скал. А над самим каньоном висит какая-то неестественная тишина.
+Вдруг дорогу тебе преграждает стена ревущего пламени. И кто бы мог подумать,
+что драконы умеют так хорошо сливаться с местностью.
 ~
 0 0 field
 D0
@@ -2061,21 +2126,20 @@ M 10031 spec_cast_undead	* The Evil Darken Rahl
 S
 
 #RESETS
-O 0 10025 0 10001	* a sign (Path By a Lake.)
-O 0 10026 0 10001	* a little sign (Path By a Lake.)
+O 0 10026 0 10001	* a little sign (Path by a lake)
+O 0 10025 0 10001	* a sign (Path by a lake)
 M 0 10007 1 10003 1	* a young lady (Welcome to Westlands)
 M 0 10008 1 10003 1	* a fisherman (Welcome to Westlands)
 M 0 10009 1 10003 1	* a little boy (Welcome to Westlands)
-M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
-M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
-M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
-M 0 10005 4 10005 1	* a quad assassin (A Turn in the Road.)
+M 0 10005 4 10005 4	* a quad assassin (A Turn in the Road.)
 M 0 10014 2 10006 1	* a boundary warden (A Path to the Mountains.)
-E 0 10012 0 1		*	A Boundary Warden Ring: on the left finger
-E 0 10012 0 2		*	A Boundary Warden Ring: on the right finger
-E 0 10013 0 7		*	Boundary Warden Leggings: on the legs
-M 0 10010 4 10008 1	* a heart hound (The Edge of Upper Ven.)
-M 0 10010 4 10008 1	* a heart hound (The Edge of Upper Ven.)
+E 0 10012 0 1		*	a boundary warden's ring: on the left finger
+E 0 10012 0 2		*	a boundary warden's ring: on the right finger
+E 0 10013 0 7		*	boundary warden leggins: on the legs
+M 0 10010 1 10008 1	* a heart hound (The Edge of Upper Ven.)
+E 0 10015 0 3		*	a heart hound collar: around the neck (1)
+M 0 10010 1 10008 1	* a heart hound (The Edge of Upper Ven.)
+E 0 10015 0 3		*	a heart hound collar: around the neck (1)
 M 0 10001 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
 M 0 10002 2 10009 1	* a long-tailed gar (The Trail in the Forest.)
 M 0 10004 4 10009 1	* a blood fly (The Trail in the Forest.)
@@ -2100,7 +2164,7 @@ M 0 10002 2 10015 1	* a long-tailed gar (The Path at the swamp.)
 M 0 10004 4 10015 1	* a blood fly (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
 M 0 10010 4 10015 1	* a heart hound (The Path at the swamp.)
-E 0 10015 0 1		*	a Heart Hound Collar: on the left finger
+E 0 10015 0 3		*	a heart hound collar: around the neck (1)
 M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
 M 0 10026 4 10016 1	* a yellow snake (Over the Swamp Waters.)
@@ -2111,22 +2175,22 @@ E 0 10006 0 9		*	boundary warden gloves: on the hands
 E 0 10007 0 8		*	boundary warden boots: on the feet
 E 0 10008 0 10		*	boundary warden sleeves: on the arms
 E 0 10009 0 11		*	boundary warden's shield: as a shield
-E 0 10010 0 5		*	Boundary Warden's Tunic: on the body
-E 0 10011 0 6		*	A Boundary Warden Helmet: over the head
-G 0 10020 0		*	a Boundary Warden Flail
-G 0 10021 0		*	a Boundary Warden Mace
-G 0 10022 0		*	a Boundary Warden Dagger
-G 0 10019 0		*	a Boundary Warden Sword
+E 0 10010 0 5		*	boundary warden's tunic: on the body
+E 0 10011 0 6		*	a boundary warden's helmet: over the head
+G 0 10020 0		*	a boundary warden's flail
+G 0 10021 0		*	a boundary warden's mace
+G 0 10022 0		*	a boundary warden's dagger
+G 0 10019 0		*	a boundary warden's sword
 M 0 10025 1 10022 1	* a little thief (The Road Along the Village.)
-G 0 10014 0		*	a Dark Robe
-E 0 10005 0 8		*	A Pair of Black Boots: on the feet
+G 0 10014 0		*	a dark robe
+E 0 10005 0 8		*	a pair of black boots: on the feet
 M 0 10028 1 10022 1	* a dopey little cat (The Road Along the Village.)
 G 0 10017 0		*	a BIG cookie!
 M 0 10023 1 10023 1	* the bar tender (The Bar.)
-G 0 10004 0		*	A Jug 'o Beer
-G 0 10016 0		*	a Magical Leather Pouch
+G 0 10004 0		*	a jug of beer
+G 0 10016 0		*	a magical leather pouch
 M 0 10024 4 10023 1	* a drunken villager (The Bar.)
-G 0 10004 0		*	A Jug 'o Beer
+G 0 10004 0		*	a jug of beer
 M 0 10024 4 10023 1	* a drunken villager (The Bar.)
 M 0 10024 4 10023 1	* a drunken villager (The Bar.)
 M 0 10024 4 10023 1	* a drunken villager (The Bar.)
@@ -2134,22 +2198,22 @@ M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
-M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's Shack.)
-E 0 10002 0 4		*	The Bone Woman's Necklace.: around the neck (2)
-M 0 10018 3 10028 1	* a nasty gripper (The Path Through The Narrows.)
-G 0 10003 0		*	Some grippers teeth
-M 0 10018 3 10028 1	* a nasty gripper (The Path Through The Narrows.)
+M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's shack)
+E 0 10002 0 4		*	the Bone Woman's necklace: around the neck (2)
+M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
+G 0 10003 0		*	some grippers teeth
+M 0 10018 3 10028 1	* a nasty gripper (The path through the narrows)
 M 0 10018 3 10029 1	* a nasty gripper (The Center of the Narrows.)
 M 0 10019 2 10029 1	* the scary shadow thing (The Center of the Narrows.)
 M 0 10030 2 10029 1	* a devoter of Darken Rahl (The Center of the Narrows.)
 M 0 10019 2 10030 1	* the scary shadow thing (Near The End of the Narrows.)
-M 0 10020 1 10031 1	* the spirit king (The End of The Narrows.)
-M 0 10022 4 10032 1	* an evil shadow person (The Azrith Plains.)
-M 0 10027 2 10032 1	* an underworld beast (The Azrith Plains.)
+M 0 10020 1 10031 1	* the spirit king (The end of the narrows)
+M 0 10022 4 10032 1	* an evil shadow person (The Azrith plains)
+M 0 10027 2 10032 1	* an underworld beast (The Azrith plains)
 G 0 10018 0		*	a BIG piece of cake!
-M 0 10027 2 10032 1	* an underworld beast (The Azrith Plains.)
-M 0 10022 4 10034 1	* an evil shadow person (The Azrith Plains.)
-M 0 10022 4 10034 1	* an evil shadow person (The Azrith Plains.)
+M 0 10027 2 10032 1	* an underworld beast (The Azrith plains)
+M 0 10022 4 10034 1	* an evil shadow person (The Azrith plains)
+M 0 10022 4 10034 1	* an evil shadow person (The Azrith plains)
 M 0 10021 1 10035 1	* Scarlet (At the BIG scary DRaGoN!)
 M 0 10029 2 10038 1	* Mord-Sith (The long hallway)
 E 0 10023 0 16		*	a mord-sith agiel: wielded

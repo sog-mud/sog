@@ -16,7 +16,7 @@ ManaRate 100
 Flags mage~
 AddExp 200
 StatMod 0 2 1 0 0 5
-RestrictAlign evil
+RestrictAlign evil~
 RestrictHometown Old Midgaard~
 Skill 'acid arrow' 48 1
 Skill 'acid blast' 63 1
