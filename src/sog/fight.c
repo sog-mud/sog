@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.129 1999-02-12 17:40:42 fjoe Exp $
+ * $Id: fight.c,v 1.130 1999-02-12 18:14:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,8 +59,6 @@
 #include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-
-#include "resource.h"
 
 DECLARE_DO_FUN(do_quit_count	);
 DECLARE_DO_FUN(do_crush		);

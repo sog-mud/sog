@@ -1,9 +1,9 @@
 #
-# $Id: Makefile,v 1.42 1998-12-29 16:47:57 fjoe Exp $
+# $Id: Makefile,v 1.43 1999-02-12 18:14:32 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
-INCLUDES	= -I . -I ../msgdb
+INCLUDES	= -I .
 
 CFLAGS		= -pg -g -Wall -O -pipe $(INCLUDES)
 LFLAGS		= -pg -g
@@ -44,10 +44,10 @@ COMM_OFILES = ban.o charset.o comm.o comm_act.o\
 
 DB_CFILES = db/cmd.c db/db.c db/db_area.c db/db_clan.c db/db_class.c\
 	    db/db_skills.c db/db_lang.c db/db_race.c\
-	    db/gsn.c db/lang.c db/msg.c db/resource.c db/spellfn.c db/word.c
+	    db/gsn.c db/lang.c db/msg.c db/spellfn.c db/word.c
 DB_OFILES = cmd.o db.o db_area.o db_clan.o db_class.o\
 	    db_skills.o db_lang.o db_race.o\
-	    gsn.o lang.o msg.o resource.o spellfn.o word.o
+	    gsn.o lang.o msg.o spellfn.o word.o
 
 OLC_CFILES = olc/olc.c olc/olc_area.c olc/olc_clan.c olc/olc_help.c\
 	     olc/olc_lang.c olc/olc_mob.c olc/olc_mpcode.c olc/olc_msg.c\
@@ -93,5 +93,5 @@ ctags:
 	ctags -dtw $(CFILES) *.h
 
 install: muddy
-	install -cp -m 770 muddy $(INSTALL_PATH)/bin
+	install -Cp -m 770 muddy $(INSTALL_PATH)/bin
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.94 1999-02-12 17:40:43 fjoe Exp $
+ * $Id: act_quest.c,v 1.95 1999-02-12 18:14:35 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -36,8 +36,6 @@
 #include "merc.h"
 #include "hometown.h"
 #include "quest.h"
-
-#include "resource.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -194,7 +192,7 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&  ch->master->class == CLASS_NECROMANCER)
 		ch = ch->master;
 
-	if (victim->hunter != NULL)
+	if (victim->hunter)
 		if (victim->hunter == ch) {
 			char_puts("You have almost completed your QUEST!\n",
 				  ch);
@@ -203,7 +201,7 @@ void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			ch->pcdata->questmob = -1;
 		}
 		else {
-			char_nputs(MSG_YOU_COMPLETED_SOMEONES_QUEST, ch);
+			char_puts("You have completed someone's quest.\n", ch);
 
 			ch = victim->hunter;
 			char_puts("Someone has completed you quest.\n", ch);
@@ -457,7 +455,8 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 
 			if (ch->pcdata->questpoints < qitem->price) {
 				quest_tell(ch, questor,
-					   msg(MSG_NOT_ENOUGH_QP, ch),
+					   "Sorry, {W%s{z, but you don't have "
+					   "enough quest points for that.",
 					   ch->name);
 				return;
 			}
@@ -500,7 +499,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 
 	if (ch->pcdata->questtime < 0) {
 		quest_tell(ch, questor,
-			   msg(MSG_BRAVE_BUT_LET_SOMEONE_ELSE, ch), ch->name);
+			   "You're very brave, {W%s{z, but let someone else "
+			   "have a chance.", ch->name);
 		quest_tell(ch, questor, "Come back later.");
 		return;
 	}
@@ -655,7 +655,9 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	if (ch->pcdata->questgiver != questor->pIndexData->vnum) {
-		quest_tell(ch, questor, vmsg(MSG_NEVER_QUEST, ch, questor));
+		quest_tell(ch, questor,
+			   "I never sent you on a quest! Perhaps you're "
+			   "thinking of someone else.");
 		return;
 	}
 
@@ -692,7 +694,9 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	if (!complete) {
-		quest_tell(ch, questor, msg(MSG_HAVENT_COMPLETE, ch));
+		quest_tell(ch, questor,
+			   "You haven't completed the quest yet, but there is "
+			   "still time!");
 		return;
 	}
 
@@ -914,7 +918,9 @@ static bool buy_tattoo(CHAR_DATA *ch, CHAR_DATA *questor)
 static bool buy_death(CHAR_DATA *ch, CHAR_DATA *questor)
 {
 	if (ch->pcdata->death < 1) {
-		quest_tell(ch, questor, msg(MSG_NO_DEATHS, ch), ch->name);
+		quest_tell(ch, questor, 
+			   "Sorry, {W%s{z, but you haven't got any deaths yet.",
+			   ch->name);
 		return FALSE;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.113 1999-02-12 17:40:41 fjoe Exp $
+ * $Id: act_obj.c,v 1.114 1999-02-12 18:14:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,8 +51,6 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"
-
-#include "resource.h"
 
 DECLARE_DO_FUN(do_split		);
 DECLARE_DO_FUN(do_say		);
@@ -295,7 +293,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 				found = TRUE;
 				if (container->pIndexData->vnum == OBJ_VNUM_PIT
 				    && !IS_IMMORTAL(ch)) {
-					char_nputs(MSG_DONT_BE_SO_GREEDY, ch);
+					char_puts("Don't be so greedy!\n", ch);
 					return;
 				}
 				get_obj(ch, obj, container);

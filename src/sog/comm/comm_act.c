@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.3 1998-12-23 16:11:19 fjoe Exp $
+ * $Id: comm_act.c,v 1.4 1999-02-12 18:14:37 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,8 +33,6 @@
 #include "comm_colors.h"
 #include "mob_prog.h"
 #include "db/word.h"
-
-#include "resource.h"
 
 /*
  * static functions declarations
@@ -48,41 +46,6 @@ static bool		act_skip(CHAR_DATA *ch, CHAR_DATA *vch, CHAR_DATA *to,
 static void		act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 				const void *arg1, const void *arg2,
 				const char *str, int flags);
-
-void act_nprintf(CHAR_DATA *ch, const void *arg1, 
-		 const void *arg2, int flags, int min_pos, int msgid, ...)
-{
-	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) arg2;
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	if (ch == NULL || ch->in_room == NULL)
-		return;
-
-	if (IS_SET(flags, TO_VICT)) {
-		if (!vch) {
-			bug("act_nprintf: null vch with TO_VICT.", 0);
-			return;
-		}
-
-		if (vch->in_room == NULL)
-			return;
-
-		to = vch->in_room->people;
-	}
-	else
-		to = ch->in_room->people;
- 
-	va_start(ap, msgid);
-	for(; to ; to = to->next_in_room) {
-		if (act_skip(ch, vch, to, flags, min_pos))
-			continue;
-		vsnprintf(buf, sizeof(buf), vmsg(msgid, to, ch), ap);
-		act_raw(ch, to, arg1, arg2, buf, flags);
-	}
-	va_end(ap);
-}
 
 void act_puts(const char *format, CHAR_DATA *ch,
 	      const void *arg1, const void *arg2, int flags, int min_pos)

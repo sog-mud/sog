@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.101 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: db.c,v 1.102 1999-02-12 18:14:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -346,7 +346,6 @@ void boot_db(void)
 	fBootDb = TRUE;
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
-	load_oldmsgdb();
 	load_msgdb();
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);

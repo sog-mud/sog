@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.114 1999-02-12 17:40:41 fjoe Exp $
+ * $Id: act_wiz.c,v 1.115 1999-02-12 18:14:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,8 +60,6 @@
 #include "quest.h"
 #include "db/cmd.h"
 #include "db/db.h"
-
-#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);

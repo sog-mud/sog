@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.49 1999-02-11 09:53:21 fjoe Exp $
+ * $Id: skills.c,v 1.50 1999-02-12 18:14:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,8 +47,6 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "update.h"
-
-#include "resource.h"
 
 varr skills = { sizeof(SKILL_DATA), 8 };
 

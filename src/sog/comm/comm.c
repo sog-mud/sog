@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.137 1999-02-11 16:40:31 fjoe Exp $
+ * $Id: comm.c,v 1.138 1999-02-12 18:14:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,8 +94,6 @@
 #include "olc/olc.h"
 #include "comm_info.h"
 #include "comm_colors.h"
-
-#include "resource.h"
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);

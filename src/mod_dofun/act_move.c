@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.135 1999-02-12 17:40:40 fjoe Exp $
+ * $Id: act_move.c,v 1.136 1999-02-12 18:14:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,8 +50,6 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "fight.h"
-
-#include "resource.h"
 
 char *	const	dir_name	[]		=
 {
@@ -139,16 +137,16 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		if ((chance = get_skill(ch, gsn_camouflage_move)) == 0) {
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 			char_puts("You step out from your cover.\n", ch);
-			act_nputs(MSG_N_STEPS_OUT_COVER,
-				  ch, NULL, NULL, TO_ROOM, POS_RESTING);
+			act("$n steps out from $m's cover.",
+			    ch, NULL, NULL, TO_ROOM);
 		}	    
 		else if (number_percent() < chance)
 			check_improve(ch, gsn_camouflage_move, TRUE, 5);
 		else {
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 			char_puts("You step out from your cover.\n", ch);
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    MSG_N_STEPS_OUT_COVER);
+			act("$n steps out from $m's cover.",
+			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, gsn_camouflage_move, FALSE, 5);
 		}	    
 	}
@@ -344,8 +342,8 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	&&  to_room->sector_type != SECT_HILLS) {
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 		char_puts("You step out from your cover.\n", ch);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			    MSG_N_STEPS_OUT_COVER);
+		act("$n steps out from $m's cover.",
+		    ch, NULL, NULL, TO_ROOM);
 	}
 
 	mount = MOUNTED(ch);
@@ -1558,7 +1556,8 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)) { 
-		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, MSG_YOU_CANT_WAKE_M); 
+		act_puts("You can't wake $M!",
+			 victim, NULL, ch, TO_VICT, POS_DEAD); 
 		return; 
 	}
 
@@ -1712,8 +1711,8 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)) {
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 		char_puts("You step out from your cover.\n", ch);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_STEPS_OUT_COVER);
+		act("$n steps out from $m's cover.",
+		    ch, NULL, NULL, TO_ROOM);
 	}
 
 	if (IS_AFFECTED(ch, AFF_INVIS | AFF_IMP_INVIS)) {
@@ -2382,12 +2381,13 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < 0.85 * chance
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim)) {
-		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
-				MSG_YOU_TOUCH_NS_NECK);
-		act("$N deadly touches your neck and puts you to nightmares.",
-		    victim, NULL, ch, TO_CHAR);
-		act_nprintf(victim, NULL, ch, TO_NOTVICT, POS_RESTING,
-				MSG_N_TOUCHES_NS_NECK);
+		act_puts("You deadly touch $n's neck and put $m to nightmares.",
+			 victim, NULL, ch, TO_VICT, POS_DEAD); 
+		act_puts("$N deadly touches your neck and puts you "
+			 "to nightmares.", victim, NULL, ch, TO_CHAR, POS_DEAD);
+		act("$N deadly touches $n's neck and puts $m to nightmares.",
+		    victim, NULL, ch, TO_NOTVICT);
+
 		check_improve(ch, sn, TRUE, 1);
 		
 		af.type = sn;
@@ -2607,7 +2607,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (is_affected(ch, sn)) {
-		char_nputs(MSG_CANT_PRAY_NOW, ch);
+		char_puts("You can't pray now.\n", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.35 1999-01-18 05:15:18 fjoe Exp $
+ * $Id: special.c,v 1.36 1999-02-12 18:14:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,8 +48,6 @@
 #include "merc.h"
 #include "hometown.h"
 #include "fight.h"
-
-#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_yell		);
