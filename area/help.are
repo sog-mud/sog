@@ -219,7 +219,7 @@ Use these commands to walk in a particular direction.
 -1 NAME~
 NAME POLICY:
 In order to create a role-playing and adventure atmosphere throughout the
-realms of Anatolia, you must choose a name accordingly explained below:
+realms of Muddy, you must choose a name accordingly explained below:
 
 ACCEPTABLE:
 1)  Proper names, medieval or modern. i.e  (Takasi, Mitra)
@@ -237,7 +237,7 @@ UNACCEPTABLE:
 6)  Object names. (Necklace,Staff,Sword, etc)
 
 If your name fits above restrictions, type Y. Otherwise choose another name. 
-Last decision depends upon Immortals of Realms of Anatolia. Do you accept? ~
+Last decision depends upon Immortals of Realms of Muddy. Do you accept? ~
 
 0 CAST~
 Syntax: cast <spell> <target>
@@ -401,7 +401,7 @@ is handy for talking to invisible or switched immortal players.
 ~
 
 -1 NOTE NOTES CHANGES NEWS PENALTY IDEA UNREAD~
-The notes on Anatolia replace the bulletin boards and mail systems found
+The notes on Muddy replace the bulletin boards and mail systems found
 on many other mud.  The following options are usable:
 
 reading notes:
@@ -983,7 +983,7 @@ SAVE saves your character and object. The game saves your character every
 15 minutes regardless, and is the preferred method of saving. Typing save
 will block all other command for about 20 seconds, so use it sparingly.
 You do not need to save. Every save operation requested by the players 
-causes lag. The Anatolia' auto saver does not cause even a tiny lag.
+causes lag. The Muddy' auto saver does not cause even a tiny lag.
 
 Some objects, such as keys and some maps, may not be saved. Those very 
 powerful items of very limited number, are not saved if you are below 
@@ -1187,7 +1187,7 @@ from restarting it.
 Syntax: wizlock
 	newlock
 
-Wizlock and newlock both block login attempts to Anatolia. Wizlock locks
+Wizlock and newlock both block login attempts to Muddy. Wizlock locks
 out all non-gods (i.e. level less than 91), except for link-dead players
 who are returning.  Newlock only locks out new character generation,
 typically used for preventing a spammer from returning.  Wizlocking should
@@ -2052,7 +2052,7 @@ frost can break objects, and acid can damage armor.
 High level mages may learn and cast these spells as well.
 ~
 -1 'RACE HELP' RACE RACES 'RACE HELP'~
-The culturally diverse realm of Anatolia MUD is home to 18 different races.
+The culturally diverse realm of Muddy MUD is home to 18 different races.
 Following  is  a  brief description  of  each main race to assist you in the 
 character creation process:
 
@@ -2217,7 +2217,7 @@ elves, half-elves see in the dark with infravision.
 ~
 -1 SVIRF SVIRFNEBLI DEEP-GNOME~
 
-The Svirfnebli, also known as deep gnomes, have made their way into Anatolia as
+The Svirfnebli, also known as deep gnomes, have made their way into Muddy as
 the paths to the Underdark have been found.  Slighty larger than their 
 surface cousins, these gnomes are also stronger and a little more hearty from
 centuries of working stone.  The dedication to stone has made them not  
@@ -2252,7 +2252,7 @@ once imprisoned them.
 -1 DUERGAR DARK-DWARF DARK-DWARVES~
 
 With the recent excavations unearthing paths to the Underdark, the race of
-dark dwarves known as Duergar has made its way into Anatolia.  Like their
+dark dwarves known as Duergar has made its way into Muddy.  Like their
 surface cousins they are strong, though their evil ways have changed them
 in other areas.  Unlike their cousins, they are not known for working stone
 and metal, something which has made them less hearty over time.  They have
@@ -2576,13 +2576,13 @@ believe that their cabal is superior.
 
 The following cabals have made their way into this world:
 
-           "Ruler"	       The Rulers of Anatolia
+           "Ruler"	       The Rulers of Muddy
            "Battlerager"       The Masters of Martial Arts
            "Chaos"             The Barons of Chaos
-           "Knight"            The Knights of Anatolia
+           "Knight"            The Knights of Muddy
            "Shalafi"           The Masters of Arcane Arts
            "Invader"           ? (No talent is heard about)
-	   "Hunter"	       Mercanary of Anatolia
+	   "Hunter"	       Mercanary of Muddy
 
 Cabals have special hideouts, each with a special item that gives members
 special powers.  Cabals whose special item is in another cabal's shrine lose
@@ -2640,7 +2640,7 @@ not type "counter" -- it happens automatic.
 ~
 
 0 ROLE-PLAYING ROLEPLAYING~
-Welcome to the world of Realms of Anatolia which is based on role-playing
+Welcome to the world of Realms of Muddy which is based on role-playing
 and adventure. Role-playing is encouraged, and in some cases, almost
 mandatory. One can enter a cabal for protection and gaining power. We
 want unique personalities, as they make the game more fun for you and
@@ -2652,7 +2652,7 @@ a better playing environment.
 see also: PLAYERKILLING
 ~
 0 PLAYERKILL PLAYERKILLING PK PKING~
-Player killing on Realms of Anatolia is totally permitted. In fact, it is
+Player killing on Realms of Muddy is totally permitted. In fact, it is
 encouraged, and since some fine objects have a finite number, you will have
 to kill other players to get them. You can playerkill after you are
 level 5. People you can pk are shown by a (PK) flag in front of their 
@@ -2674,7 +2674,7 @@ See also: ROLEPLAYING GROUP ALIGNMENT~
 
 0 ALIGNMENT~
 In the interest of attracting the right caliber of followers, the
-immortals of Anatolia have outlined the following alignments.  See where
+immortals of Muddy have outlined the following alignments.  See where
 you think you fit in.
 
 Lawful Good:   An orderly, strong society with a well-organized government
@@ -2763,7 +2763,7 @@ followers.  No one can follow you when this toggle is set.
 ~
 
 0 RULES~
-These are the rules of the Realms of Anatolia. Disobeying is grounds
+These are the rules of the Realms of Muddy. Disobeying is grounds
 for deletion. For other matters, use common sense.
 
 1. Remember that this is a roleplaying atmosphere.  If an immortal imposes
@@ -2914,7 +2914,7 @@ Invader:  Invader is born to invade or massacre.  Establishment of its power
           over all is its goal.  Invader, in short, wants to control the world, 
           but would never do so openly.
 
-Hunter:   Mercenary of Anatolia. These pupils  kill any mobile and player
+Hunter:   Mercenary of Muddy. These pupils  kill any mobile and player
 	  with the money that they will want. You may hire any of hunter
 	  for above purpose.
 
@@ -3116,7 +3116,7 @@ Affects strength by 2.
 ~
 
 -1 QUESTS~
-	There are currently n quests in Anatolia MUD.
+	There are currently n quests in Muddy MUD.
 	* Questor quest    : For more info type 'help 'questor quest''
 	* Kassandra quest  : Read some fascicles of books.. :)
 	* ....

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.9 1998-05-08 20:35:35 fjoe Exp $
+ * $Id: db.c,v 1.10 1998-05-18 14:00:12 efdi Exp $
  */
 
 /***************************************************************************
@@ -3206,7 +3206,7 @@ void do_areas(CHAR_DATA *ch, char *argument)
 		for (iArea = 0; iArea < iAreaHalf; iArea++)
 			pArea2 = pArea2->next;
 
-		sprintf(bufpage,"Current areas of Anatolia MUD: \n\r");
+		sprintf(bufpage,"Current areas of Muddy MUD: \n\r");
 		for (iArea = 0; iArea < iAreaHalf; iArea++) {
 			sprintf(buf2,"{W{{{x%2d %3d{W} {B%s {C%s{x",
 				pArea1->low_range,pArea1->high_range,

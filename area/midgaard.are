@@ -176,7 +176,7 @@ Questor~
 Questor is here, waiting to dispense some quest.
 ~
 Questor,  towers over you.  He's over 20 feet tall, every inch of it muscle. 
-He knows all the zones of Relams of Anatolia.It would be a Bad Thing to
+He knows all the zones of Relams of Muddy.It would be a Bad Thing to
 commit a crime in his presence. 
 ~
 giant~
@@ -2276,7 +2276,7 @@ Haon-Dor   |     Guild           .                 Guild        |
 ~
 #3163
 map anatolia~
-a map of Anatolia~ 
+a map of Muddy~ 
 A rolled up map is here.~
 paper~
 map 0 A
@@ -2285,7 +2285,7 @@ map 0 A
 E
 map anatolia~
 .
-                         * * * Northern Anatolia  * * *
+                         * * * Northern Muddy  * * *
                           = = ================== = =
 				DragonSpyre 	      /UnderDark
       Firetop-----Mirkwood            |             Moria
@@ -3134,7 +3134,7 @@ Shop---Western-Road---Square---------Boulevard
 ~
 #3383
 map anatolia~
-a map of West Anatolia~ 
+a map of West Muddy~ 
 A rolled up map is here.~
 paper~
 map 0 A
@@ -3143,7 +3143,7 @@ map 0 A
 E
 map west anatolia~
 .
-                         * * * Western Anatolia  * * *
+                         * * * Western Muddy  * * *
                          = = ================== = =
         Mage 
 Dragon  Tower						Plains
@@ -3179,7 +3179,7 @@ levels and the authors.
 ~
 #3384
 map anatolia~
-a map of East Anatolia~ 
+a map of East Muddy~ 
 A rolled up map is here.~
 paper~
 map 0 A
@@ -3188,7 +3188,7 @@ map 0 A
 E
 map east anatolia~
 .
-                         * * * East Anatolia  * * *
+                         * * * East Muddy  * * *
                          = = =============== = =
 				
 Olympus	King's Castle	Moria
@@ -3574,7 +3574,7 @@ MSM : Market Square of the Midgaard.
 #3394
 old book~
 an old book about known limited items, Fascicle I~
-This book is titled - "Known Limited Items of The Anatolian, Fascicle I" ~
+This book is titled - "Known Limited Items of The Muddyn, Fascicle I" ~
 leather~
 trash 0 AO
 0 0 0 0 0
@@ -3582,7 +3582,7 @@ trash 0 AO
 E
 old book~
 In this book you would find some short informations about the limited
-items of the Anatolian Mud. For further information, try read page1, read
+items of the Muddyn Mud. For further information, try read page1, read
 page2, read page3, etc.
 Note that: Most of the informations are based on legends and tales,
 therefore there can be some mistaken points and ofcourse there can be many
@@ -3788,7 +3788,7 @@ page8~
 #3395
 old book~
 an old book about known limited items, Fascicle II~
-This book is titled - "Known Limited Items of The Anatolian Fascicle II"~
+This book is titled - "Known Limited Items of The Muddyn Fascicle II"~
 leather~
 trash 0 AO
 0 0 0 0 0
@@ -3796,7 +3796,7 @@ trash 0 AO
 E
 old book~
 In this book you would find some short informations about the limited
-armor items of the Anatolian Mud (based on affections). For further
+armor items of the Muddyn Mud (based on affections). For further
 information, try read page1, read page2, read page3, read page4, etc.
 ~
 E
@@ -7765,10 +7765,10 @@ G 1 3167  -1     	*   a map of New Thalos
 G 1 3166  -1     	*   a map of the first level of Moria
 G 1 3165  -1     	*   a map of the Dwarven Kingdom
 G 1 3164  -1     	*   a map of southern Midgaard
-*G 1 3163  -1     	*   a map of Anatolia
+*G 1 3163  -1     	*   a map of Muddy
 G 1 3162  -1     	*   a map of the city of Midgaard
-G 1 3383  -1     	*   a map of West Anatolia
-G 1 3384  -1     	*   a map of East Anatolia
+G 1 3383  -1     	*   a map of West Muddy
+G 1 3384  -1     	*   a map of East Muddy
 G 1 3385  -1		*   a newbie map east
 G 1 3386  -1		*   a newbie map west
 M 0 3161   1 3160  1	* Lister

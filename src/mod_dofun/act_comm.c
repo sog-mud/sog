@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.17 1998-05-18 12:56:31 efdi Exp $
+ * $Id: act_comm.c,v 1.18 1998-05-18 14:00:10 efdi Exp $
  */
 
 /***************************************************************************
@@ -1087,7 +1087,6 @@ void do_save(CHAR_DATA *ch, char *argument)
 		return;
 	}
 	save_char_obj(ch);
-	send_to_char("Saving. Remember that Anatolia MUD has automatic saving.\n\r", ch);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
 	return;
 }

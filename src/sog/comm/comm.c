@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.25 1998-05-16 10:05:35 efdi Exp $
+ * $Id: comm.c,v 1.26 1998-05-18 14:00:11 efdi Exp $
  */
 
 /***************************************************************************
@@ -1867,7 +1867,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
 	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 	sprintf(buf,
-"The Anatolia MUD is home to %d different races with brief descriptions below:",
+"The Muddy MUD is home to %d different races with brief descriptions below:",
 			MAX_PC_RACE - 1);
 	write_to_buffer( d, buf, 0);
 	write_to_buffer( d, "\n\r", 0);
@@ -1884,7 +1884,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    if (argument[0] == '\0')
 	      {
 		sprintf(buf,
-"The Anatolia MUD is home to %d different races with brief descriptions below:",
+"The Muddy MUD is home to %d different races with brief descriptions below:",
 			MAX_PC_RACE - 1);
 		write_to_buffer( d, buf, 0);
 		write_to_buffer( d, "\n\r", 0);
@@ -2266,7 +2266,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
     case CON_READ_MOTD:
 	write_to_buffer( d, 
-    "\n\rWelcome to Multi User Dungeon of Anatolia. Enjoy!!...\n\r",
+    "\n\rWelcome to Muddy Multi User Dungeon. Enjoy!!...\n\r",
 	    0 );
 	ch->next	= char_list;
 	char_list	= ch;

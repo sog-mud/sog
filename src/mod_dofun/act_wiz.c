@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.10 1998-05-18 12:56:32 efdi Exp $
+ * $Id: act_wiz.c,v 1.11 1998-05-18 14:00:11 efdi Exp $
  */
 
 /***************************************************************************
@@ -5431,7 +5431,7 @@ void do_reboot(CHAR_DATA *ch, char *argument)
     if (is_number(arg))
     {
      reboot_counter = atoi(arg);
-     sprintf(buf,"Anatolia will reboot in %i ticks.\n\r",reboot_counter);
+     sprintf(buf,"Muddy will reboot in %i ticks.\n\r",reboot_counter);
      send_to_char(buf,ch);
      return;
     }
@@ -5450,7 +5450,7 @@ void reboot_anatolia(void)
     for (d = descriptor_list; d != NULL; d = d_next)
     {
 	d_next = d->next;
-	write_to_buffer(d,"Anatolia is going down for rebooting NOW!",0);
+	write_to_buffer(d,"Muddy is going down for rebooting NOW!",0);
         if (d->character != NULL)
 	   save_char_obj(d->character);
     	close_socket(d);
