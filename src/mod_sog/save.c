@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.154 2000-03-05 17:50:53 avn Exp $
+ * $Id: save.c,v 1.155 2000-03-05 18:05:37 avn Exp $
  */
 
 /***************************************************************************
@@ -650,12 +650,15 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				if (PC(ch)->version < 12
 				&&  (paf->where == TO_AFFECTS || paf->where == TO_DETECTS || paf->where == TO_INVIS)
 				&&  INT(paf->location) >=27) {
+					int loc;
 					AFFECT_DATA *paf2 = aff_new();
 					paf2->where = TO_RESIST;
 					paf2->type = str_empty;
 					paf2->duration = -1;
 					paf2->level = paf->level;
-					INT(paf2->location) = damtbl[INT(paf->location)-27];
+					paf2->type = str_qdup(paf->type);
+					loc = INT(paf->location) - 27;
+					INT(paf2->location) = damtbl[loc];
 					INT(paf->location) = APPLY_NONE;
 					paf2->modifier = paf->modifier;
 					paf->modifier = 0;
