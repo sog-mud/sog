@@ -39,6 +39,9 @@ Get back to questor before your time runs out!
 @eng For more information, type: help quests.
 @rus Для получения дополнительной информации набери: help quests.
 ~
+@eng First ask your beloved master!
+@rus Сначала спроси у своего любимого хозяина!
+~
 @eng ({DHidden{x) @rus ({DСкрыто{x) ~
 @eng $N appears to be using $p.@rus $N использует $p.~
 @eng You wear $p on your right finger.@rus Ты надеваешь $p на палец правой руки.~
@@ -429,9 +432,6 @@ Get back to questor before your time runs out!
 @rus Ты не умеешь лечить других прикосновением.
 ~
 @eng You go to sleep in $p.@rus Ты засыпаешь в $p.~
-@eng Oops.
-@rus Ой.
-~
 @eng $n wakes and sits up.@rus $n просыпается и садится.~
 @eng  is sitting in %s.@rus  сидит в %s.~
 @eng You only see %d of those here.
@@ -1032,7 +1032,7 @@ Use 'desc edit' to edit your description.
 @rus Ты уже верхом.
 ~
 @eng There are %d gold coins in the pile.
-@rus В этой куче %d золтых монет.
+@rus В этой куче %d золотых монет.
 ~
 @eng Sorry, {W%s{z, but you are not a %s.@rus Очень жаль, {W%s{z, но ты не %s.~
 @eng But you are already vampire. Kill them! Kill them!
@@ -1245,9 +1245,6 @@ Players found: %d. Most so far today: %d.
 @eng You stand in $p.@rus Ты встаешь в $p.~
 @eng You are hurt far too bad for that.
 @rus Тебе слишком больно делать это.
-~
-@eng First ask your beloved master!
-@rus Сначала спроси у своего любимого хозяина!
 ~
 @eng $n sits down on the ground.@rus $n садится на землю.~
 @eng $N gives 350,000 gold pieces to $n.@rus $N дает 350,000 gold $n.~
