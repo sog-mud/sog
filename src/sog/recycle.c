@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.166 2004-02-19 23:58:24 fjoe Exp $
+ * $Id: recycle.c,v 1.167 2004-03-01 18:35:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1361,8 +1361,10 @@ uhandler_mod_load(module_t *m)
 			continue;
 
 		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
-		if (hdlr->fun == NULL)
-			printlog(LOG_ERROR, "%s: %s", __FUNCTION__, dlerror());
+		if (hdlr->fun == NULL) {
+			printlog(LOG_ERROR, "%s: uhandler %s: %s",
+			    __FUNCTION__, hdlr->name, dlerror());
+		}
 	}
 }
 

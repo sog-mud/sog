@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_effects.c,v 1.2 2003-09-30 00:31:15 fjoe Exp $
+ * $Id: init_effects.c,v 1.3 2004-03-01 18:35:06 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -41,8 +41,11 @@ MODINIT_FUN(_module_load, m)
 
 	C_FOREACH(eff, &effects) {
 		eff->fun = dlsym(m->dlh, eff->fun_name);
-		if (eff->fun == NULL)
-			printlog(LOG_INFO, "%s: %s", __FUNCTION__, dlerror());
+		if (eff->fun == NULL) {
+			printlog(LOG_INFO,
+			    "_module_load(events): effect %s: %s",
+			    eff->name, dlerror());
+		}
 	}
 	return 0;
 }

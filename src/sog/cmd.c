@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.30 2003-10-10 16:15:10 fjoe Exp $
+ * $Id: cmd.c,v 1.31 2004-03-01 18:35:05 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -83,8 +83,10 @@ cmd_mod_load(module_t *m)
 			continue;
 
 		cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
-		if (cmd->do_fun == NULL)
-			printlog(LOG_INFO, "cmd_load: %s", dlerror());
+		if (cmd->do_fun == NULL) {
+			printlog(LOG_INFO, "cmd_load: command %s: %s",
+			    cmd->name, dlerror());
+		}
 	}
 }
 

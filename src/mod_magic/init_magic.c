@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.22 2003-10-10 16:14:43 fjoe Exp $
+ * $Id: init_magic.c,v 1.23 2004-03-01 18:35:05 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -46,8 +46,9 @@ MODINIT_FUN(_module_load, m)
 		||  sk->skill_type == ST_PRAYER) {
 			sk->fun = dlsym(m->dlh, sk->fun_name);
 			if (sk->fun == NULL) {
-				printlog(LOG_INFO, "_module_load(magic): %s",
-				    dlerror());
+				printlog(LOG_INFO,
+				    "_module_load(magic): skill %s: %s",
+				    gmlstr_mval(&sk->sk_name), dlerror());
 			}
 		}
 	}
