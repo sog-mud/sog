@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.252 2000-01-17 08:31:39 fjoe Exp $
+ * $Id: fight.c,v 1.253 2000-01-17 09:31:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2627,21 +2627,15 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int members)
 	return xp;
 }
 
-void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-		 const char *dt, bool immune, int dam_class, int dam_flags)
+void
+dam_alias(int dam, const char **pvs, const char **pvp)
 {
 	const char *vs;
 	const char *vp;
-	const char *msg_char;
-	const char *msg_vict = NULL;
-	const char *msg_notvict;
-	gmlstr_t *dam_noun = NULL;
-	int act_flags = 0;
 
 	if (dam == 0) {
 		vs = "miss";
 		vp = "misses";
-		act_flags = ACT_VERBOSE;
 	} else if (dam <= 4) {
 		vs = "{cscratch{x";
 		vp = "{cscratches{x";
@@ -2721,6 +2715,41 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 		vs = "{*{R[*] POWER HIT [*]{x";
 		vp = "{*{R[*] POWER HITS [*]{x";
 	}
+
+	if (pvs)
+		*pvs = vs;
+	if (pvp)
+		*pvp = vp;
+}
+
+const char *
+vs_dam_alias(int dam)
+{
+	const char *vs;
+	dam_alias(dam, &vs, NULL);
+	return vs;
+}
+
+const char *
+vp_dam_alias(int dam)
+{
+	const char *vp;
+	dam_alias(dam, NULL, &vp);
+	return vp;
+}
+
+void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
+		 const char *dt, bool immune, int dam_class, int dam_flags)
+{
+	const char *vs;
+	const char *vp;
+	const char *msg_char;
+	const char *msg_vict = NULL;
+	const char *msg_notvict;
+	gmlstr_t *dam_noun = NULL;
+	int act_flags = (dam == 0 ? ACT_VERBOSE : 0);
+
+	dam_alias(dam, &vs, &vp);
 
 	if ((IS_SET(dam_flags, DAMF_HIT) && dam_class == DAM_NONE)
 	||  IS_SET(dam_flags, DAMF_HUNGER)) {

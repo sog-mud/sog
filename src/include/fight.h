@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.19 2000-01-13 14:46:35 kostik Exp $
+ * $Id: fight.h,v 1.20 2000-01-17 09:31:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,10 @@ int	get_dam_class	(CHAR_DATA *ch, OBJ_DATA *wield, const char **dt,
 bool	backstab_ok	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	backstab	(CHAR_DATA *ch, CHAR_DATA *victim, int chance);
 void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
+
+void		dam_alias	(int dam, const char **pvs, const char **pvp);
+const char *	vs_dam_alias	(int dam);
+const char *	vp_dam_alias	(int dam);
 
 #define DAMF_NONE	(0)
 #define DAMF_SHOW	(A)	/* show dam message */
