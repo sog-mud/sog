@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.180 1998-12-23 16:11:09 fjoe Exp $
+ * $Id: act_info.c,v 1.181 1998-12-28 14:26:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -98,6 +98,7 @@ static int show_order[] = {
 	WEAR_HOLD,
 	WEAR_FLOAT,
 	WEAR_TATTOO,
+	WEAR_CLANMARK,
 	-1
 };
 
@@ -550,6 +551,7 @@ char* wear_loc_names[] =
 	"<floating nearby>   $t",
 	"<scratched tattoo>  $t",
 	"<dual wielded>      $t",
+	"<clan mark>         $t",
 	"<stuck in>          $t",
 };
 

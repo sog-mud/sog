@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.35 1998-12-23 16:11:18 fjoe Exp $
+ * $Id: tables.c,v 1.36 1998-12-28 14:26:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -513,6 +513,7 @@ FLAG wear_flags[] =
 	{ "float_around",	ITEM_WEAR_FLOAT,	TRUE	},
 /*	{ "twohands",		ITEM_TWO_HANDS,		TRUE	}, */
 	{ "tattoo",		ITEM_WEAR_TATTOO,	TRUE	},
+	{ "clanmark",		ITEM_WEAR_CLANMARK,	TRUE	},
 	{ NULL }
 };
 
@@ -588,6 +589,7 @@ FLAG wear_loc_strings[] =
 	{ "floating nearby",		WEAR_FLOAT,		TRUE	},
 	{ "scratched tattoo",		WEAR_TATTOO,		TRUE	},
 	{ "second wielded",		WEAR_SECOND_WIELD,	TRUE	},
+	{ "clan mark",			WEAR_CLANMARK,		TRUE	},
 	{ "stuck in",			WEAR_STUCK_IN,		TRUE	},
 	{ NULL }
 };
@@ -618,6 +620,7 @@ FLAG wear_loc_flags[] =
 	{ "tattoo",		WEAR_TATTOO,		TRUE	},
 	{ "second",		WEAR_SECOND_WIELD,	TRUE	},
 	{ "stuck",		WEAR_STUCK_IN,		TRUE	},
+	{ "clanmark",		WEAR_CLANMARK,		TRUE	},
 	{ NULL }
 };
 

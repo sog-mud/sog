@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.127 1998-12-23 16:11:11 fjoe Exp $
+ * $Id: act_move.c,v 1.128 1998-12-28 14:26:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -2783,6 +2783,17 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 	victim->hit = UMIN(victim->hit + ch->level * 2, victim->max_hit);
 	update_pos(victim);
 	char_puts("A warm feeling fills your body.\n", victim);
+
+	if (IS_AFFECTED(victim, AFF_BLIND)) 
+		spell_cure_blindness(sn_lookup("cure blindness"), ch->level, 
+			ch, (void*)victim, TARGET_CHAR);
+	if (IS_AFFECTED(victim, AFF_PLAGUE))
+		spell_cure_disease (sn_lookup("cure disease"), ch->level,
+			ch, (void*)victim, TARGET_CHAR);
+	if (IS_AFFECTED(victim, AFF_POISON))
+		spell_cure_poison(sn_lookup("cure poison"), ch->level,
+			ch, (void*)victim, TARGET_CHAR);
+
 	if (ch != victim)
 		char_puts("Ok.\n", ch);
 	check_improve(ch, sn, TRUE, 1);

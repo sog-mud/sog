@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.106 1998-12-25 06:56:37 kostik Exp $
+ * $Id: act_obj.c,v 1.107 1998-12-28 14:26:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -1636,6 +1636,16 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		act_puts("You now use $p as the tattoo of your religion.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		equip_char(ch, obj, WEAR_TATTOO);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)) {
+		if (!remove_obj(ch, WEAR_CLANMARK, fReplace))
+			return;
+		act("$n now uses $p as $s clan mark.",
+		    ch, obj, NULL, TO_ROOM);
+		act_puts("You now use $p as  your clan mark.",
+		    ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_CLANMARK);
 		return;
 	}
 	if (fReplace)

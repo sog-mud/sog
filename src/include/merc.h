@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.132 1998-12-23 16:11:17 fjoe Exp $
+ * $Id: merc.h,v 1.133 1998-12-28 14:26:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -814,6 +814,7 @@ enum {
 #define ITEM_NO_SAC		(P)
 #define ITEM_WEAR_FLOAT 	(Q)
 #define ITEM_WEAR_TATTOO	(R)
+#define ITEM_WEAR_CLANMARK	(S)
 
 /* obj_data->condition */
 #define COND_EXCELLENT		100
@@ -1016,8 +1017,9 @@ enum {
 #define WEAR_FLOAT		     18
 #define WEAR_TATTOO		     19
 #define WEAR_SECOND_WIELD	     20
-#define WEAR_STUCK_IN		     21
-#define MAX_WEAR		     22
+#define WEAR_CLANMARK		     21
+#define WEAR_STUCK_IN		     22
+#define MAX_WEAR		     23
 
 /***************************************************************************
  *									   *

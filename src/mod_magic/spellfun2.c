@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.67 1998-12-28 10:14:47 kostik Exp $
+ * $Id: spellfun2.c,v 1.68 1998-12-28 14:26:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -1974,7 +1974,12 @@ void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  NULL, NULL, TO_ROOM);
 	act("The thorny plants spring up around you, entangling your legs!", victim,
 	  NULL, NULL, TO_CHAR);
-	victim->move = victim->move / 3;
+
+	if (saves_spell(level-2, victim, DAM_PIERCE))
+		victim->move = victim->move / 3;
+	else 
+		victim->move = 0;
+
 	if (!is_affected(victim,gsn_entangle))
 	{
 	  AFFECT_DATA todex;
