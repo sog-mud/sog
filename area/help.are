@@ -9158,7 +9158,7 @@ our website forum.
 See also: RPTIPS-1 RPTIPS-2 RPTIPS-3
 ~
 0 'BLACK MARKET'~
-   Black market is a service which allows to sale and buy limited
+@eng    Black market is a service which allows to sale and buy limited
    objects (only). Hunters can sell and can't buy, others can buy
    but can't sell. Selling objects may be fellow types: light, map,
    food, scroll, wand, boat, staff, potion, armor, treasure, pill,
@@ -9188,6 +9188,40 @@ Syntax: {cbm propose/sell{x <object>
 Syntax: {cbm accept{x <number.item | number.>
    This service is available only for hunters. This commands allow
    to complete sale. (You can use object's name or ordinal number.)
+
+Annotation: You can't make a bet for object with anti-your alignment
+restriction.
+@rus    'Черный рынок' -- это сервис позволяющий вести торговлю лимитными
+   объектами (и только ими). Члены клана хантеров продают лимиты,
+   остальные их покупают. Продаваемые объекты могут быть следующих
+   типов: light, map, food, scroll, wand, boat, staff, potion, armor,
+   treasure, pill, weapon, clothing, drink, warp stone, pole, jewelry,
+   fish, gem and container. Контейнеры обязательно должны быть пустыми.
+ 
+   При любых операциях на рынке тебе приходит уведомление об этом.
+   Если в момент заключения сделки, или когда твоя ставка перебита
+   тебя не было в игре, уведомление придет нотой. Все денежные опе-
+   рации совершаются через банк.
+ 
+Синтаксис: {cbm list{x
+   С помощью этой команды можно увидеть, что продается на черном рынке.
+ 
+Синтаксис: {cbm bet{x <новая ставка> <название объекта | порядковый номер>
+   Эта команда позволяет делать ставку на желанный объект. Название
+   объекта может быть простым (bracelet), с номером (2.bracelet) или
+   можно сделать ставку по порядковому номеру ({cbm bet 500 8.{x - ставка
+   сделается на объект с порядковым номером 8)
+ 
+Синтаксис: {cbm propose/sell{x <объект>
+   Эта команда позволяет выставить объект на продажу. Доступна только
+   членам клана Hunters.
+ 
+Синтаксис: {cbm accept{x <название объекта | порядковый номер>
+   Заключить сделку. Объект может указываться с помощью названия или
+   порядкового номера. Доступна только членам клана Hunters.
+ 
+Примечание: вы не сможете сделать ставку на объект, если не можете
+им владеть из-за ограничений на алигнмент.
 ~
 -1 $~
 
