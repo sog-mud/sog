@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.131 1998-12-02 13:32:48 fjoe Exp $
+ * $Id: comm.c,v 1.132 1998-12-07 04:53:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -692,11 +692,11 @@ extern const HELP_DATA *help_greeting;
 
 void init_descriptor(int control)
 {
+	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *dnew;
 	struct sockaddr_in sock;
 	int desc;
 	int size;
-	const char *text;
 
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
@@ -756,8 +756,9 @@ void init_descriptor(int control)
 	/*
 	 * Send the greeting.
 	 */
-	text = mlstr_mval(help_greeting->text);
-	write_to_buffer(dnew, text + (text[0] == '.'), 0);
+	parse_colors(mlstr_mval(help_greeting->text), buf, sizeof(buf),
+		     FORMAT_DUMB);
+	write_to_buffer(dnew, buf + (buf[0] == '.'), 0);
 	cp_print(dnew);
 }
 
