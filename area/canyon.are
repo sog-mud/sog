@@ -13,7 +13,7 @@ End
 mountain climber mountainclimber rus альпинист~
 @eng the mountain climber@rus альпинист~
 @eng A mountain climber is making the same trek that you are.
-@rus Альпинист идет той же дорогой что и ты.
+@rus Альпинист (climber) идет той же дорогой что и ты.
 ~
 He wants to see what's on the other side of the mountain too.
 ~
@@ -31,7 +31,7 @@ r lightning 33
 cyclops~
 @eng the cyclops@rus циклоп~
 @eng A hungry cyclops snarls at you!
-@rus Голодный циклоп поглядывает на тебя !
+@rus Голодный циклоп (cyclops) поглядывает на тебя !
 ~
 He looks like he's about to have dinner (maybe it's you?).
 ~
@@ -61,7 +61,7 @@ r light 33
 tiny elemental крохотный элементал~
 @eng a tiny elemental@rus крохотный элементал~
 @eng A tiny elemental form wanders about.
-@rus крохотный элементал слоняется поблизости
+@rus Крохотный элементал (tiny) слоняется поблизости.
 ~
 Rather small for an elemental form, looks like a reject.
 ~

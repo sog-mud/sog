@@ -386,7 +386,7 @@ g @eng none@rus male~
 @eng This section of the path is slowly being drowned by the nearby swamp to the
 south, which is creeping slowly inland.  Several caved-in buildings sprawl
 here, torn apart both by battle and the elements.
-@rus Эта часть тропы медленно переходит в болото (swamp), испещренное кочками.
+@rus Эта часть тропы медленно переходит в болото, испещренное кочками.  
 Кое-где стоят странные здания полуразрушенные сражениями.
 ~
 0 0 field
@@ -415,14 +415,13 @@ Z -1 8302
 S
 #8302
 @eng Swamp's Edge@rus Край болота~
-@eng Briars and marsh plants stick to your boots and clothes, and clouds cover the
-skies above the murky marsh, leaving the path before you dark and sinister.
-You see some disturbances in the marsh, but after a few strangled screams,
-the sounds stop.
-@rus Колючие кустарники и растения цепляют тебя за одежду.
-Туман закрывает небо над болотом создавая зловещее впечатление темноты.
-Ты замечаешь какое-то движение, но после нескольких странных диких воплей
-все затихает.
+@eng Briars and marsh plants stick to your boots and clothes, and clouds cover
+the skies above the murky marsh, leaving the path before you dark and
+sinister.  You see some disturbances in the marsh, but after a few strangled
+screams, the sounds stop.  
+@rus Колючие кустарники и растения цепляют тебя за одежду.  Туман закрывает
+небо над болотом создавая зловещее впечатление темноты.  Ты замечаешь
+какое-то движение, но после нескольких странных диких воплей все затихает.  
 ~
 0 0 mountain
 D0
@@ -454,10 +453,10 @@ S
 trees it is one.  Occasionally you see a whole humanoid form floating face down
 in the water, but mostly you only find pieces.  You hear a loud bellow in the
 distance.  And feel fear creep into your heart.
-@rus Это место трудно назвать лесом, но для тех кто живет тут это именно он.
-Ты видишь что-то похожее на человека (corpse) плавающее в воде лицом вниз,
-Но большинство из того что ты видишь лишь куски (pieces) мертвой плоти.
-В отдалении слышно рычание. Оно наполняет ужасом твое сердце.
+@rus Это место трудно назвать лесом, но для тех кто живет тут это именно он. 
+Ты видишь что-то похожее на человека плавающее в воде лицом вниз, Но
+большинство из того что ты видишь лишь куски мертвой плоти.  В отдалении
+слышно рычание.  Оно наполняет ужасом твое сердце.  
 ~
 0 A mountain
 E
@@ -491,7 +490,7 @@ by the marsh.
 Z -1 8302
 S
 #8304
-@eng On a hill.@rus На холме~
+@eng On a hill@rus На холме~
 @eng You stand atop a hill on the northwestern side of the evil swamp. Dark
 clouds whip around you and the wind raises its voice and assails you.
 @rus Ты стоишь наверху холм на северо-западной стороне болота. Темный
@@ -530,12 +529,10 @@ accompanied by groans and soughing of the air.  Several large winged
 beasts flap over you and send chilling glares your way.  You feel out
 of place, and feel that the occupants of this realm will soon 
 have you for a feast.
-@rus Ты стоишь в вонючей трясине.
-Скрипящий шум заполняет болото, сопровожденный стонами и шорохом воздуха.
-Несколько крылатых зверей (beasts) вьются неподалеку.
-Ты чувствуешь что очутился не в том месте и не в то время...
-У этих милых зверушек намечается банкет...
-С тобой в роли главного блюда.
+@rus Ты стоишь в вонючей трясине.  Скрипящий шум заполняет болото,
+сопровожденный стонами и шорохом воздуха.  Несколько крылатых зверей вьются
+неподалеку.  Ты чувствуешь что очутился не в том месте и не в то время...  У
+этих милых зверушек намечается банкет...  С тобой в роли главного блюда.  
 ~
 0 A mountain
 E
@@ -611,10 +608,9 @@ S
 @eng You stand by a large oozing pool of quick sand.  Luckily only a complete
 klutz could not avoid it.  Dancing lights fly about you and one seems to
 be taunting you towards the pool.
-@rus Ты стоишь у полосы зыбучего песка (quicksand).
-К счастью только последний недотепа мог не заметить ловушку.
-Ты заслуженно поздравляешь себя с наблюдательностью. :-)
-Болотные огоньки (lights) кружат вокруг и мелькают за спиной.
+@rus Ты стоишь у полосы зыбучего песка. К счастью только последний недотепа 
+мог не заметить ловушку. Ты заслуженно поздравляешь себя с наблюдатель-
+ностью. Болотные огоньки кружат вокруг и мелькают за спиной.
 ~
 0 A swim
 E
@@ -653,11 +649,11 @@ D3
 Z -1 8309
 S
 #8309
-@eng A Dark Pool.@rus Темный водоем~
+@eng A Dark Pool@rus Темный водоем~
 @eng You stand beside a large dark pond.  The water boils not with heat, but with
 motion, as if it is alive.  A creaking beat pulses through the air, leaving
 you with a cold sweat and fear in your heart.
-@rus Ты возле темного водоема (pond). Ледяная вода бурлит и движется, как будто
+@rus Ты возле темного водоема. Ледяная вода бурлит и движется, как будто
 она живая. Шорох и вздохи висят в воздухе наполняя холодом сердце.
 ~
 0 A swim
@@ -692,15 +688,15 @@ D3
 Z -1 8304
 S
 #8310
-@eng Gloomy Path Through the Marsh.@rus Мрачная дорожка через болото.~
+@eng Gloomy Path Through the Marsh@rus Мрачная дорожка через болото.~
 @eng To the north lies a hill, shrouded in dark clouds, and to the south lies
 a huge patch of vegetation.  You sense an evil presence and notice 
 a beast flying overhead to the south east, towards what looks to be a 
 huge fortress, half buried in the marsh.
-@rus На севере находится холм, окутанный в темные облака (clouds),
-на юге буйная растительность (vegetation). Ты ощущаешь присутствие зла...
-Чуть погодя ты видишь животное (beast), летящее на юго-восток и в направлении
-его полета видишь крепость (fortress), затерянную в болотах.
+@rus На севере находится холм, окутанный в темные облака, на юге буйная
+растительность.  Ты ощущаешь присутствие зла...  Чуть погодя ты видишь
+животное, летящее на юго-восток и в направлении его полета видишь крепость,
+затерянную в болотах.  
 ~
 0 A swim
 E
@@ -743,7 +739,7 @@ D2
 Z -1 8312
 S
 #8311
-@eng Cloud of Darkness.@rus Облака Тьмы~
+@eng Cloud of Darkness@rus Облака Тьмы~
 @eng As you travel through this cloud of darkness, a fear such as you have never
 known before assails you.
 @rus Ты идешь в облаке тьмы приготовившись к самому худшему.
@@ -768,10 +764,10 @@ D2
 Z -1 8313
 S
 #8312
-@eng Near Vegetation from Hell.@rus Около адских трав~
+@eng Near Vegetation from Hell@rus Около адских трав~
 @eng You stand near some of the strangest plant life you have ever seen, a mixture
 of tumescent vegetables, evil-smelling fruit trees, and malignant ferns.
-@rus Ты стоишь около самой странной формы жизни растения (plants), которую ты
+@rus Ты стоишь около самой странной формы жизни растения, которую ты
 когда-либо видел, смесь из распухших овощей, пахнущих злом плодов,
 и злокачественных папоротников.
 ~
@@ -799,13 +795,13 @@ D1
 Z -1 8313
 S
 #8313
-@eng By the Monolith.@rus У Монолита~
+@eng By the Monolith@rus У Монолита~
 @eng You are standing near a monolith which protrudes some 20 feet from the
 marsh into the air.  Its black obsidian surface shines darkly in the 
 strange, almost unearthly light that enters through the clouds above.
-@rus Ты стоишь около монолита (monolith), который высовывается приблизительно
-на 20 футов из болота в воздух. Его черная поверхность из обсидиана сияет
-мрачно в странном, почти неземном свете, который сочится через облака.
+@rus Ты стоишь около монолита, который высовывается приблизительно на 20 футов
+из болота в воздух.  Его черная поверхность из обсидиана сияет мрачно в
+странном, почти неземном свете, который сочится через облака.  
 ~
 0 A mountain
 E
@@ -841,7 +837,7 @@ D3
 Z -1 8312
 S
 #8314
-@eng Murky Bog.@rus Темная Трясина~
+@eng Murky Bog@rus Темная Трясина~
 @eng A murky bog surrounds you.  To the east a black monolith juts forth from the
 ground.  Far to the north lies a huge pool of quicksand.  Snarls can be heard
 echoing as if from a great distance.
@@ -882,13 +878,13 @@ D3
 Z -1 8313
 S
 #8315
-@eng Northern Lake Side.@rus Северная часть озера~
+@eng Northern Lake Side@rus Северная часть озера~
 @eng Floating on this boiling lake is not what you would consider an enjoyable 
 experience.  Many a creature bumps the bottom of your boat, and glares 
 at you through unblinking eyes from the waters below.  The southern 
 portion of the lake looks calm and serene compared to this wild place.
-@rus Плыть по этому озеру - не слишком большое удовольствие...
-Какие-то существа стукаются о борт твоей лодки и пялятся на тебя из под воды.
+@rus Плыть по этому озеру - не слишком большое удовольствие...  Какие-то
+существа стукаются о борт твоей лодки и пялятся на тебя из под воды.
 Южная сторона озера относительно спокойна по сравнению с этой.
 ~
 0 A noswim
@@ -910,13 +906,13 @@ D3
 Z -1 8314
 S
 #8316
-@eng Southern Lake Side.@rus Южная часть озера~
+@eng Southern Lake Side@rus Южная часть озера~
 @eng You are floating on a calm section of blue crystal water.  You feel much more
 at ease then you were before in this area.  Then a wave of fear passes over
 you.  You are not alone.
 @rus Ты плывете по спокойной кристально-синей воде.  Ты чувствуешь себя
-намного более непринужденно чем тогда, когда ты был на другой части озера. 
-Волна опасения проходит.  Тут ты замечаешь, что ты не один.  
+намного более непринужденно чем тогда, когда ты был на другой части
+озера. Волна опасения проходит. Тут ты замечаешь, что ты не один.
 ~
 0 A noswim
 E
@@ -946,8 +942,8 @@ S
 @eng Beach@rus Берег~
 @eng You are on a sandy shore.  Marsh life creeps across the surface.  To the west
 lies an evil fortress.  You see figures walking along the battlements.
-@rus Ты на песчаном береге. Разная болотная живность ползает по берегу. На западе
-находится мрачная крепость (fortress). Ты видишь фигуры, идущие по зубчатым
+@rus Ты на песчаном береге. Разная болотная живность ползает по берегу. На
+западе находится мрачная крепость. Ты видишь фигуры, идущие по зубчатым
 стенам.
 ~
 0 A mountain
@@ -974,13 +970,13 @@ D3
 Z -1 8318
 S
 #8318
-@eng Before the Great Gates.@rus Перед Большими Воротами~
+@eng Before the Great Gates@rus Перед Большими Воротами~
 @eng You stand before the gates of a huge fortress.  The drawbridge is up, the
 gates closed, and the portcullis down.  This place looks very dangerous,
 and you decide not to continue onward.
-@rus Ты стоишь перед воротами огромной крепости. Разводной мост поднят,
-ворота закрылись. Это место выглядит очень опасным, и ты решаешь не продолжать
-путь вперед.
+@rus Ты стоишь перед воротами огромной крепости.  Разводной мост поднят,
+ворота закрылись.  Это место выглядит очень опасным, и ты решаешь не
+продолжать путь вперед.  
 ~
 0 A forest
 D1
@@ -1007,11 +1003,11 @@ M 0 8301 2 8303 1	* a swamp troll (Marshy Forest)
 M 0 8302 6 8303 2	* a green troll (Marshy Forest)
 G 0 8307 0		*	a murky green potion
 M 0 8303 3 8303 1	* an ogre (Marshy Forest)
-M 0 8302 6 8304 2	* a green troll (On a hill.)
+M 0 8302 6 8304 2	* a green troll (On a hill)
 G 0 8307 0		*	a murky green potion
-M 0 8306 2 8304 1	* a huge hairy beast (On a hill.)
-M 0 8310 2 8304 1	* a large snake (On a hill.)
-M 0 8314 6 8304 1	* a marsh wolf (On a hill.)
+M 0 8306 2 8304 1	* a huge hairy beast (On a hill)
+M 0 8310 2 8304 1	* a large snake (On a hill)
+M 0 8314 6 8304 1	* a marsh wolf (On a hill)
 M 0 8307 2 8305 1	* a rather small beast (An Oozing Bog)
 M 0 8309 2 8305 1	* the monstrous snake (An Oozing Bog)
 M 0 8310 2 8305 1	* a large snake (An Oozing Bog)
@@ -1029,32 +1025,32 @@ G 0 8301 0		*	a long spear
 M 0 8301 2 8308 1	* a swamp troll (Pool of Quick Sand)
 M 0 8308 1 8308 1	* the Will-O-Wisp (Pool of Quick Sand)
 M 0 8314 6 8308 1	* a marsh wolf (Pool of Quick Sand)
-M 0 8312 2 8309 1	* the Marsh Hag (A Dark Pool.)
-M 0 8314 6 8309 1	* a marsh wolf (A Dark Pool.)
-M 0 8320 5 8309 1	* a marsh giant (A Dark Pool.)
+M 0 8312 2 8309 1	* the Marsh Hag (A Dark Pool)
+M 0 8314 6 8309 1	* a marsh wolf (A Dark Pool)
+M 0 8320 5 8309 1	* a marsh giant (A Dark Pool)
 G 0 8301 0		*	a long spear
-M 0 8306 2 8310 1	* a huge hairy beast (Gloomy Path Through the Marsh.)
-M 0 8312 2 8310 1	* the Marsh Hag (Gloomy Path Through the Marsh.)
-M 0 8313 1 8310 1	* a Death Slaad (Gloomy Path Through the Marsh.)
+M 0 8306 2 8310 1	* a huge hairy beast (Gloomy Path Through the Marsh)
+M 0 8312 2 8310 1	* the Marsh Hag (Gloomy Path Through the Marsh)
+M 0 8313 1 8310 1	* a Death Slaad (Gloomy Path Through the Marsh)
 E 0 8306 0 16		*	a huge, wicked-looking scythe: wielded
 E 0 8302 0 6		*	a dark horned helmet: over the head
-M 0 8309 2 8311 1	* the monstrous snake (Cloud of Darkness.)
-M 0 8320 5 8311 1	* a marsh giant (Cloud of Darkness.)
+M 0 8309 2 8311 1	* the monstrous snake (Cloud of Darkness)
+M 0 8320 5 8311 1	* a marsh giant (Cloud of Darkness)
 G 0 8301 0		*	a long spear
-M 0 8318 2 8312 2	* a shambling mound (Near Vegetation from Hell.)
+M 0 8318 2 8312 2	* a shambling mound (Near Vegetation from Hell)
 G 0 8307 0		*	a murky green potion
-M 0 8318 2 8312 2	* a shambling mound (Near Vegetation from Hell.)
+M 0 8318 2 8312 2	* a shambling mound (Near Vegetation from Hell)
 G 0 8307 0		*	a murky green potion
-M 0 8303 3 8313 1	* an ogre (By the Monolith.)
-M 0 8307 2 8313 1	* a rather small beast (By the Monolith.)
-M 0 8320 5 8313 1	* a marsh giant (By the Monolith.)
+M 0 8303 3 8313 1	* an ogre (By the Monolith)
+M 0 8307 2 8313 1	* a rather small beast (By the Monolith)
+M 0 8320 5 8313 1	* a marsh giant (By the Monolith)
 G 0 8301 0		*	a long spear
 G 0 8307 0		*	a murky green potion
-M 0 8320 5 8315 1	* a marsh giant (Northern Lake Side.)
+M 0 8320 5 8315 1	* a marsh giant (Northern Lake Side)
 G 0 8301 0		*	a long spear
 E 0 8302 0 6		*	a dark horned helmet: over the head
-M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates.)
-M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates.)
+M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates)
+M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates)
 S
 
 #$

@@ -2247,8 +2247,8 @@ august company in Camelot.@rus Пергамент гласит:
 рыцарей на турнир Круглого Стола, который состоится в конце лета.
 ~
 D0
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2256,7 +2256,7 @@ D0
 Z -1 17302
 D3
 @eng Dark forest.
-@rus Темный лес
+@rus Темный лес.
 ~
 ~
 ~
@@ -2287,32 +2287,32 @@ there is a trail of strange claw marks heading to the west.@rus Присмотревшись, 
 ведут также следы странных когтистых лап.
 ~
 D0
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17305
 D1
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17306
 D2
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17301
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2333,16 +2333,16 @@ knats насекомые~
 @rus УЖАСНО НАДОЕДЛИВЫЕ!
 ~
 D1
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17302
 D2
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2367,16 +2367,16 @@ of the house Pellinore. There bones get deeper to the west.
 Костей становится еще больше на западе.
 ~
 D0
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17303
 D3
-@eng Even more bones
-@rus Еще больше костей
+@eng Even more bones.
+@rus Еще больше костей.
 ~
 ~
 ~
@@ -2401,16 +2401,16 @@ them.
 @rus Опустившись на колени, ты $gn{осмотрел} растения. Такое разнообразие!
 ~
 D2
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17302
 D3
-@eng Hut
-@rus Хатка
+@eng Hut.
+@rus Хатка.
 ~
 door дверь~
 ~
@@ -2433,24 +2433,24 @@ goes to the north and west.
 едут на север или на запад.
 ~
 D0
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17309
 D1
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17310
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2466,8 +2466,8 @@ The only exit is to the east.
 ~
 0 A forest
 D1
-@eng Trail of Bones
-@rus Дорога костей
+@eng Trail of Bones.
+@rus Дорога костей.
 ~
 ~
 ~
@@ -2494,8 +2494,8 @@ yellow stains strange желтые пятна~
 @rus Эти желтые пятна пахнут серой.
 ~
 D1
-@eng A wooden door
-@rus Деревянная дверь
+@eng A wooden door.
+@rus Деревянная дверь.
 ~
 ~
 ~
@@ -2519,16 +2519,16 @@ horsesign след~
 @rus Да, немало лошадей уже прошло тут.
 ~
 D0
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17313
 D2
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2545,24 +2545,24 @@ and play in the breeze. The trail continues north, east, and west.
 ~
 0 0 forest
 D0
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17311
 D1
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17312
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2587,8 +2587,8 @@ bones кости~
 @rus Может быть, все же стоит отдохнуть пока?
 ~
 D4
-@eng the trees
-@rus Деревья
+@eng The trees.
+@rus Деревья.
 ~
 ~
 ~
@@ -2610,8 +2610,8 @@ crow ворон~
 @rus Или это просто кто-то так хихикает? Бррр...
 ~
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2641,24 +2641,24 @@ trail horsesign sign тропа след~
 @rus Ты видишь, что следы в основном ведут на восток и на юг.
 ~
 D0
-@eng A dusty trail
-@rus Грязная дорога
+@eng A dusty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17314
 D1
-@eng A dusty trail
-@rus Грязная дорога
+@eng A dusty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17319
 D2
-@eng A dusty trail
-@rus Грязная дорога
+@eng A dusty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2684,16 +2684,16 @@ speared through the back.
 рыцарь с эмблемой Камелота, подло убитый ударом копья в спину...
 ~
 D2
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17313
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2719,24 +2719,24 @@ heaps knights steeds bones рыцари кости лошади кучи~
 @rus Зрелище боя завораживающе и отвратительно одновременно.
 ~
 D0
-@eng A winding road
-@rus Хорошая дорога
+@eng A winding road.
+@rus Хорошая дорога.
 ~
 ~
 ~
 ~
 Z -1 17316
 D1
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17314
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -2770,16 +2770,16 @@ humans люди~
 @rus Выглядят, как будто их души навеки прокляты.
 ~
 D0
-@eng Black Iron Gate
-@rus Черные ворота
+@eng Black Iron Gate.
+@rus Черные ворота.
 ~
 черные ворота black gate~
 the черные~
 ~
 ABZ -1 17327
 D2
-@eng A winding road
-@rus Хорошая дорога
+@eng A winding road.
+@rus Хорошая дорога.
 ~
 ~
 ~
@@ -2822,16 +2822,16 @@ to the south.
 ~
 0 0 forest
 D2
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17317
 D3
-@eng An inviting hut
-@rus Лесной домик
+@eng An inviting hut.
+@rus Лесной домик.
 ~
 door дверь~
 ~
@@ -2849,16 +2849,16 @@ dirty trail, and the cut rope bridge leads down.
 ~
 0 0 mountain
 D3
-@eng A dirty trail
-@rus Грязная дорога
+@eng A dirty trail.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17313
 D5
-@eng Down the dangling end of the rope bridge
-@rus Вниз по цепному мосту
+@eng Down the dangling end of the rope bridge.
+@rus Вниз по цепному мосту.
 ~
 ~
 ~
@@ -2877,24 +2877,24 @@ you can let go into the yawning depths of the chasm.
 ~
 0 A mountain
 D1
-@eng Hanging on the Rope Bridge
-@rus По цепному мосту
+@eng Hanging on the Rope Bridge.
+@rus По цепному мосту.
 ~
 ~
 ~
 ~
 Z -1 17321
 D4
-@eng The chasm
-@rus Пропасть
+@eng The chasm.
+@rus Пропасть.
 ~
 ~
 ~
 ~
 Z -1 17319
 D5
-@eng The Yawning Depths
-@rus Дно пропасти
+@eng The Yawning Depths.
+@rus Дно пропасти.
 ~
 ~
 ~
@@ -2911,24 +2911,24 @@ into the yawning depths of the chasm.
 ~
 0 A mountain
 D3
-@eng Hanging on the Rope Bridge
-@rus Вниз по цепному мосту
+@eng Hanging on the Rope Bridge.
+@rus Вниз по цепному мосту.
 ~
 ~
 ~
 ~
 Z -1 17320
 D4
-@eng The Chasm
-@rus Пропасть
+@eng The Chasm.
+@rus Пропасть.
 ~
 ~
 ~
 ~
 Z -1 17322
 D5
-@eng The Yawning Depths
-@rus Дно пропасти
+@eng The Yawning Depths.
+@rus Дно пропасти.
 ~
 ~
 ~
@@ -2947,16 +2947,16 @@ green field to the east.
 ~
 0 0 mountain
 D1
-@eng A green field
-@rus Зеленое поле
+@eng A green field.
+@rus Зеленое поле.
 ~
 ~
 ~
 ~
 Z -1 17325
 D5
-@eng Hanging on the Rope Bridge
-@rus По цепному мосту
+@eng Hanging on the Rope Bridge.
+@rus По цепному мосту.
 ~
 ~
 ~
@@ -3003,8 +3003,8 @@ chair стул~
 @rus Почему бы не сесть и не поесть? Все так аппетитно выглядит...
 ~
 D1
-@eng Before an Inviting Hut
-@rus Выход из домика
+@eng Before an Inviting Hut.
+@rus Выход из домика.
 ~
 ~
 ~
@@ -3038,16 +3038,16 @@ head east to Camelot or west to the chasm.
 ~
 0 0 field
 D1
-@eng The Eastern Gate of Camelot
-@rus Западные ворота Камелота
+@eng The Eastern Gate of Camelot.
+@rus Западные ворота Камелота.
 ~
 ~
 ~
 ~
 Z -1 17326
 D3
-@eng The Chasm
-@rus Пропасть
+@eng The Chasm.
+@rus Пропасть.
 ~
 ~
 ~
@@ -3063,16 +3063,16 @@ plane below. White granite walls rise impressively into the air.
 ~
 0 C city
 D1
-@eng The Western Gate
-@rus Западные ворота
+@eng The Western Gate.
+@rus Западные ворота.
 ~
 gate eastern ворота западные~
 the gate~
 ~
 ABZ -1 17341
 D3
-@eng A green field
-@rus Зеленое поле
+@eng A green field.
+@rus Зеленое поле.
 ~
 ~
 ~
@@ -3093,16 +3093,16 @@ hole holes бойницы~
 @rus Похоже, сейчас через них никто на тебя не смотрит.
 ~
 D0
-@eng Black Iron Gate
-@rus Черные металлические ворота
+@eng Black Iron Gate.
+@rus Черные металлические ворота.
 ~
 gate black iron~
 the gate~
 ~
 ABZ -1 17328
 D2
-@eng Black Iron Gate
-@rus Черные металлические ворота
+@eng Black Iron Gate.
+@rus Черные металлические ворота.
 ~
 ~
 ~
@@ -3120,24 +3120,24 @@ gate is to the south.
 ~
 0 A inside
 D1
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17329
 D2
-@eng Black Iron Gate
-@rus Черные металлические ворота
+@eng Black Iron Gate.
+@rus Черные металлические ворота.
 ~
 ~
 ~
 ~
 ABZ -1 17327
 D3
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3153,24 +3153,24 @@ to the eastern bailey tower and the road continues to the north and west.
 ~
 0 A city
 D0
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17335
 D3
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17328
 D4
-@eng The East Bailey Tower
-@rus Восточная башня
+@eng The East Bailey Tower.
+@rus Восточная башня.
 ~
 ~
 ~
@@ -3186,24 +3186,24 @@ bailey tower, and the road continues north and east.
 ~
 0 A city
 D0
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17331
 D1
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17328
 D4
-@eng The West Bailey Tower
-@rus Западная башня
+@eng The West Bailey Tower.
+@rus Западная башня.
 ~
 ~
 ~
@@ -3228,16 +3228,16 @@ of Camelot.
 возвращения своего рыцаря. Странно...
 ~
 D0
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17332
 D2
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3255,24 +3255,24 @@ to the east where the entrance to the keep proper is.
 ~
 0 A city
 D1
-@eng Entrance to the Keep Proper
-@rus Вход в форт
+@eng Entrance to the Keep Proper.
+@rus Вход в форт.
 ~
 ~
 ~
 ~
 Z -1 17333
 D2
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17331
 D4
-@eng The Northwestern Tower of Blackmoor
-@rus Северо-западная башня
+@eng The Northwestern Tower of Blackmoor.
+@rus Северо-западная башня.
 ~
 ~
 ~
@@ -3295,24 +3295,24 @@ door дверь~
 выломать.
 ~
 D1
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17334
 D2
-@eng A Massive Wooden Door
-@rus Массивная дубовая дверь
+@eng A Massive Wooden Door.
+@rus Массивная дубовая дверь.
 ~
 door wooden massive дверь деревянная~
 ~
 ~
 ABZ -1 17340
 D3
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3330,24 +3330,24 @@ and west, where the entrance to the keep proper is located.
 ~
 0 A city
 D2
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17335
 D3
-@eng Entrance to the Keep Proper
-@rus Вход в форт
+@eng Entrance to the Keep Proper.
+@rus Вход в форт.
 ~
 ~
 ~
 ~
 Z -1 17333
 D4
-@eng The Northeast Tower
-@rus Северо-восточная башня
+@eng The Northeast Tower.
+@rus Северо-восточная башня.
 ~
 ~
 ~
@@ -3363,16 +3363,16 @@ looms the keep proper. The road continues north and south.
 ~
 0 A city
 D0
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
 ~
 Z -1 17334
 D2
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3397,8 +3397,8 @@ moment you are glad you are in a solid tower.
 стоишь в твердой башне.
 ~
 D5
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3414,8 +3414,8 @@ the keep and the surrounding moor. Stairs lead down.
 ~
 0 A inside
 D5
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3438,8 +3438,8 @@ view hole bailey бойница~
 @rus Ты $gn{выглянул} в бойницу, как не раз уже делали защитники крепости.
 ~
 D5
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3457,8 +3457,8 @@ down.
 ~
 0 A inside
 D5
-@eng Inside the Curtain Wall
-@rus Внутри каменной стены
+@eng Inside the Curtain Wall.
+@rus Внутри каменной стены.
 ~
 ~
 ~
@@ -3493,8 +3493,8 @@ spell has hold of you!
 племянника короля Артура!
 ~
 D0
-@eng Entrance to the Keep Proper
-@rus Вход в форт
+@eng Entrance to the Keep Proper.
+@rus Вход в форт.
 ~
 ~
 ~
@@ -3512,32 +3512,32 @@ contiues east into the keep, and Knights Way runs north and south.
 ~
 0 0 city
 D0
-@eng Knights Way
-@rus Рыцарский путь
+@eng Knights Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
 ~
 Z -1 17342
 D1
-@eng Victory Road
-@rus Дорога Победы
+@eng Victory Road.
+@rus Дорога Победы.
 ~
 ~
 ~
 ~
 Z -1 17343
 D2
-@eng Knights Way
-@rus Рыцарский путь
+@eng Knights Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
 ~
 Z -1 17344
 D3
-@eng West Gate of Camelot
-@rus Западные врата Камелота
+@eng West Gate of Camelot.
+@rus Западные врата Камелота.
 ~
 ~
 ~
@@ -3569,24 +3569,24 @@ snap in  the breeze from the many towers of Camelot.
 Камелота.
 ~
 D0
-@eng Knights Way
-@rus Рыцарский путь
+@eng Knights Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
 ~
 Z -1 17345
 D1
-@eng Stables
-@rus Конюшни
+@eng Stables.
+@rus Конюшни.
 ~
 ~
 ~
 ~
 Z -1 17398
 D2
-@eng Knights Way
-@rus Рыцарский путь
+@eng Knights Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
@@ -3612,16 +3612,16 @@ of Gawaine, Tristram, and of course Lancelot.
 Ланселота.
 ~
 D1
-@eng Victory Road
-@rus Дорога Победы
+@eng Victory Road.
+@rus Дорога Победы.
 ~
 ~
 ~
 ~
 Z -1 17347
 D3
-@eng Victory Road and Knights Way
-@rus Дорога Победы и Рыцарский путь
+@eng Victory Road and Knights Way.
+@rus Дорога Победы и Рыцарский путь.
 ~
 ~
 ~
@@ -3648,24 +3648,24 @@ snap in  the breeze from the many towers of Camelot.
 Камелота.
 ~
 D0
-@eng Victory Lane and Knights Way
-@rus Дорога Победы и Рыцарский путь
+@eng Victory Lane and Knights Way.
+@rus Дорога Победы и Рыцарский путь.
 ~
 ~
 ~
 ~
 Z -1 17341
 D1
-@eng The Armory
-@rus Оружейная мастерская
+@eng The Armory.
+@rus Оружейная мастерская.
 ~
 ~
 ~
 ~
 Z -1 17348
 D2
-@eng Knights Way
-@rus Рыцарский путь
+@eng Knights Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
@@ -3692,24 +3692,24 @@ writing arch надпись арка~
     {RВПЕРЕД, К ПОБЕДЕ!{x
 ~
 D1
-@eng Squire's Run
-@rus Проспект Оруженосцев
+@eng Squire's Run.
+@rus Проспект Оруженосцев.
 ~
 ~
 ~
 ~
 Z -1 17350
 D2
-@eng Knight's Way
-@rus Рыцарский путь
+@eng Knight's Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
 ~
 Z -1 17342
 D4
-@eng Tower of Valor
-@rus Сторожевая башня
+@eng Tower of Valor.
+@rus Сторожевая башня.
 ~
 ~
 ~
@@ -3733,8 +3733,8 @@ barbarian horn варвар пикт рог~
 @rus Пикт заметил, что ты глядишь на него, и побежал еще быстрее!
 ~
 D1
-@eng Into the raging battle
-@rus В хаосе битвы
+@eng Into the raging battle.
+@rus В хаосе битвы.
 ~
 ranks~
 the ranks~
@@ -3755,16 +3755,16 @@ continues to the west, and the Tourney Yard of Camelot is to the east.
 ~
 0 K city
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17352
 D3
-@eng Victory Road
-@rus Дорога Победы
+@eng Victory Road.
+@rus Дорога Победы.
 ~
 ~
 ~
@@ -3795,8 +3795,8 @@ weapons rack шкаф оружие~
 @rus В шкафу ты видишь кинжалы, копья и шестоперы.
 ~
 D3
-@eng Knight's Way
-@rus Рыцарский путь
+@eng Knight's Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
@@ -3823,24 +3823,24 @@ inscription arch tower надпись арка башня~
       {BЧЕСТЬ ОТЛИЧАЕТ РЫЦАРЯ ОТ ПРЕСТУПНИКА{x
 ~
 D0
-@eng Knight's Way
-@rus Рыцарский путь
+@eng Knight's Way.
+@rus Рыцарский путь.
 ~
 ~
 ~
 ~
 Z -1 17344
 D1
-@eng Noble Road
-@rus Дорога Вельмож
+@eng Noble Road.
+@rus Дорога Вельмож.
 ~
 ~
 ~
 ~
 Z -1 17354
 D4
-@eng Tower of Honor
-@rus Башня Чести
+@eng Tower of Honor.
+@rus Башня Чести.
 ~
 ~
 ~
@@ -3873,16 +3873,16 @@ scroll свиток~
 улыбнулась мне, и на мгновение я потерял дар речи, а потом....
 ~
 D1
-@eng Squire's Run
-@rus Проспект Оруженосцев
+@eng Squire's Run.
+@rus Проспект Оруженосцев.
 ~
 ~
 ~
 ~
 Z -1 17355
 D3
-@eng Corner of Knight's Way and Squire's Run
-@rus Угол Рыцарского пути и Проспекта Оруженосцев
+@eng Corner of Knight's Way and Squire's Run.
+@rus Угол Рыцарского пути и Проспекта Оруженосцев.
 ~
 ~
 ~
@@ -3919,8 +3919,8 @@ though the tall grass. The dragon-
 Ты $gn{встряхнул} головой, и видение рассеялось...
 ~
 D5
-@eng Corner of Knight's Way and Squire's Run
-@rus Угол Рыцарского пути и Проспекта Оруженосцев
+@eng Corner of Knight's Way and Squire's Run.
+@rus Угол Рыцарского пути и Проспекта Оруженосцев.
 ~
 ~
 ~
@@ -3938,32 +3938,32 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 field
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена Камелота
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена Камелота.
 ~
 ~
 ~
 ~
 Z -1 17360
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена Камелота
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена Камелота.
 ~
 ~
 ~
 ~
 Z -1 17359
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена Камелота
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена Камелота.
 ~
 ~
 ~
 ~
 Z -1 17358
 D3
-@eng Victory Road
-@rus Дорога Победы
+@eng Victory Road.
+@rus Дорога Победы.
 ~
 ~
 ~
@@ -3999,8 +3999,8 @@ under the oaks. Lancelot turns to face Gwenivere-
 Ты $gn{встряхнул} головой, и видение рассеялось...
 ~
 D5
-@eng Corner of Knight's Way and Noble Road
-@rus Угол Рыцарского пути и дороги Вельмож
+@eng Corner of Knight's Way and Noble Road.
+@rus Угол Рыцарского пути и дороги Вельмож.
 ~
 ~
 ~
@@ -4026,16 +4026,16 @@ with an uneasy intensity.
 топором. Его глаза беспокойно смотрят на тебя.
 ~
 D1
-@eng Noble Road
-@rus Дорога Вельмож
+@eng Noble Road.
+@rus Дорога Вельмож.
 ~
 ~
 ~
 ~
 Z -1 17361
 D3
-@eng Corner of Knight's Way and Noble Road
-@rus Угол Рыцарского пути и дороги Вельмож
+@eng Corner of Knight's Way and Noble Road.
+@rus Угол Рыцарского пути и дороги Вельмож.
 ~
 ~
 ~
@@ -4067,32 +4067,32 @@ With a groan and a grovel the beggar shuffles off to the discard pile.
 убегает.
 ~
 D0
-@eng The Great Northern Gate of Camelot
-@rus Великие Северные врата Камелота
+@eng The Great Northern Gate of Camelot.
+@rus Великие Северные врата Камелота.
 ~
 gate врата~
 the gate~
 ~
 ABZ -1 17356
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена Камелота
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена Камелота.
 ~
 ~
 ~
 ~
 Z -1 17362
 D2
-@eng Squire's Barracks
-@rus Бараки оруженосцев
+@eng Squire's Barracks.
+@rus Бараки оруженосцев.
 ~
 door дверь~
 ~
 ~
 ABZ -1 17357
 D3
-@eng Squire's Run
-@rus Проспект Оруженосцев
+@eng Squire's Run.
+@rus Проспект Оруженосцев.
 ~
 ~
 ~
@@ -4110,16 +4110,16 @@ the north. To the south is Squire's Run.
 ~
 0 C city
 D0
-@eng A winding dirt road
-@rus Грязная дорога в чистом поле
+@eng A winding dirt road.
+@rus Грязная дорога в чистом поле.
 ~
 ~
 ~
 ~
 Z -1 17382
 D2
-@eng Squire's Run
-@rus Проспект Оруженосцев
+@eng Squire's Run.
+@rus Проспект Оруженосцев.
 ~
 ~
 ~
@@ -4143,8 +4143,8 @@ eating. There is a rudimentry camp kitchin, with a roster of the day
 ~
 0 D inside
 D0
-@eng Squire's Run at the North Gate
-@rus Проспект Оруженосцев возле Северных врат
+@eng Squire's Run at the North Gate.
+@rus Проспект Оруженосцев возле Северных врат.
 ~
 ~
 ~
@@ -4162,24 +4162,24 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17352
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17363
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
@@ -4197,32 +4197,32 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17365
 D1
-@eng You see the Court of Camelot
-@rus Трибуны Турнирной Арены Камелота
+@eng You see the Court of Camelot.
+@rus Трибуны Турнирной Арены Камелота.
 ~
 ~
 ~
 ~
 Z -1 17370
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17363
 D3
-@eng Victory Road
-@rus Дорога Победы
+@eng Victory Road.
+@rus Дорога Победы.
 ~
 ~
 ~
@@ -4240,24 +4240,24 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17362
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17365
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
@@ -4296,32 +4296,32 @@ of Arden.
 сражался за королеву Гвиневеру на поле боя в Арденнах.
 ~
 D0
-@eng Noble's Quarters
-@rus Квартал Вельмож
+@eng Noble's Quarters.
+@rus Квартал Вельмож.
 ~
 door~
 ~
 ~
 ABZ -1 17366
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17364
 D2
-@eng The Great Southern Gate
-@rus Великие Южные Врата
+@eng The Great Southern Gate.
+@rus Великие Южные Врата.
 ~
 gate~
 the gate~
 ~
 ABZ -1 17367
 D3
-@eng Noble Road
-@rus Дорога Вельмож
+@eng Noble Road.
+@rus Дорога Вельмож.
 ~
 ~
 ~
@@ -4339,24 +4339,24 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D1
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17368
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17360
 D3
-@eng Squire's Run at the North Gate
-@rus Проспект Оруженосцев возле Северных Врат
+@eng Squire's Run at the North Gate.
+@rus Проспект Оруженосцев возле Северных Врат.
 ~
 ~
 ~
@@ -4374,16 +4374,16 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17359
 D3
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
@@ -4401,16 +4401,16 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17358
 D3
-@eng Noble Run at the South Gate
-@rus Дорога Вельмож возле Южных Врат
+@eng Noble Run at the South Gate.
+@rus Дорога Вельмож возле Южных Врат.
 ~
 ~
 ~
@@ -4428,24 +4428,24 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17368
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17359
 D3
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
@@ -4491,32 +4491,32 @@ shoulder length hair.
 изумительная шевелюра слегка вьющихся волос длиной по плечи.
 ~
 D0
-@eng Noble Chamber
-@rus Покои вельможи
+@eng Noble Chamber.
+@rus Покои вельможи.
 ~
 door дверь~
 ~
 ~
 ABZ -1 17378
 D1
-@eng Noble Chamber
-@rus Покои вельможи
+@eng Noble Chamber.
+@rus Покои вельможи.
 ~
 door дверь~
 ~
 ~
 Z -1 17379
 D2
-@eng Noble Road at the South Gate
-@rus Дорога Вельмож возле Южных Врат
+@eng Noble Road at the South Gate.
+@rus Дорога Вельмож возле Южных Врат.
 ~
 ~
 ~
 ~
 ABZ -1 17361
 D3
-@eng Noble Chamber
-@rus Покои вельможи
+@eng Noble Chamber.
+@rus Покои вельможи.
 ~
 door дверь~
 ~
@@ -4535,16 +4535,16 @@ is fantastic, and the breeze clears your nose of the city smells.
 ~
 0 C city
 D0
-@eng The Great Southern Gate gate
-@rus Великие Южные Врата
+@eng The Great Southern Gate gate.
+@rus Великие Южные Врата.
 ~
 ~
 ~
 ~
 Z -1 17361
 D2
-@eng A Cobblestone Road
-@rus Дорога из гравия
+@eng A Cobblestone Road.
+@rus Дорога из гравия.
 ~
 ~
 ~
@@ -4562,16 +4562,16 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 inside
 D2
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17365
 D3
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
@@ -4589,16 +4589,16 @@ several contests underway- perhaps you would like to joust?
 ~
 0 0 field
 D0
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
 ~
 Z -1 17363
 D3
-@eng Tourney Yard of Camelot
-@rus Турнирная Арена
+@eng Tourney Yard of Camelot.
+@rus Турнирная Арена.
 ~
 ~
 ~
@@ -4663,32 +4663,32 @@ quickly recovers and tosses her favor to the black knight.
 собравшись, она кидает свой шелковый платок рыцарю в черном.
 ~
 D0
-@eng The Knights Barracks
-@rus Корпус рыцарей
+@eng The Knights Barracks.
+@rus Корпус рыцарей.
 ~
 door дверь~
 ~
 ~
 ABZ -1 17374
 D1
-@eng The Round Table
-@rus Зал Круглого Стола
+@eng The Round Table.
+@rus Зал Круглого Стола.
 ~
 door дверь~
 ~
 ~
 ABZ -1 17376
 D2
-@eng The Feast Hall
-@rus Праздничный Холл
+@eng The Feast Hall.
+@rus Праздничный Холл.
 ~
 ~
 ~
 ~
 Z -1 17371
 D3
-@eng The Tourney Yard of Camelot
-@rus Турнирная Арена Камелота
+@eng The Tourney Yard of Camelot.
+@rus Турнирная Арена Камелота.
 ~
 ~
 ~
@@ -4712,16 +4712,16 @@ Exits are north to the court of Camelot, and south to the ladies' chambers.
 ~
 0 0 inside
 D0
-@eng You see the Court of Camelot
-@rus Трибуны Турнирной Арены Камелота
+@eng You see the Court of Camelot.
+@rus Трибуны Турнирной Арены Камелота.
 ~
 ~
 ~
 ~
 Z -1 17370
 D2
-@eng The Ladies Chambers door
-@rus Дверь в Женские Палаты
+@eng The Ladies Chambers door.
+@rus Дверь в Женские Палаты.
 ~
 ~
 ~
@@ -4765,16 +4765,16 @@ safe return. I think my Gawaine can surely claim it...."
 думаю, мой славный Гавэйн скорее всего ее получит..."
 ~
 D0
-@eng The Feast Hall door
-@rus Дверь праздничного холла
+@eng The Feast Hall door.
+@rus Дверь праздничного холла.
 ~
 ~
 ~
 ~
 ABZ -1 17371
 D4
-@eng A staircase winding upwards
-@rus Винтовая лестница наверх
+@eng A staircase winding upwards.
+@rus Винтовая лестница наверх.
 ~
 ~
 ~
@@ -4801,8 +4801,8 @@ battle between knights and the other is of a hunt in the Forest Arden.
 охоту в Арденнском лесу.
 ~
 D5
-@eng A staircase winding downwards
-@rus Ступени, ведущие вниз
+@eng A staircase winding downwards.
+@rus Ступени, ведущие вниз.
 ~
 ~
 ~
@@ -4825,16 +4825,16 @@ to a tower.
 ~
 0 A inside
 D2
-@eng You see the Court of Camelot
-@rus Трибуны Арены
+@eng You see the Court of Camelot.
+@rus Трибуны Арены.
 ~
 ~
 ~
 ~
 ABZ -1 17370
 D4
-@eng A staircase winding upwards
-@rus Ступени в башню
+@eng A staircase winding upwards.
+@rus Ступени в башню.
 ~
 ~
 ~
@@ -4915,6 +4915,7 @@ to LEAVE IT ALONE!
 @rus Твой внутренний голос кричит Вам на ухо: "{RОСТАВЬ ЕЕ В ПОКОЕ!!!{x"
 ~
 D4
+@eng Pentagram!
 @rus Пентаграмма!
 ~
 ~
@@ -4922,8 +4923,8 @@ D4
 ~
 Z 0 17380
 D5
-@eng A staircase winding down
-@rus Ступени, ведущие вниз
+@eng A staircase winding down.
+@rus Ступени, ведущие вниз.
 ~
 ~
 ~
@@ -4956,16 +4957,16 @@ would get very tired fast, and attract every knight in the kingdom.
 за добычей.
 ~
 D3
-@eng You see the Court of Camelot
-@rus Трибуны Арены
+@eng You see the Court of Camelot.
+@rus Трибуны Арены.
 ~
 ~
 ~
 ~
 ABZ -1 17370
 D4
-@eng A staircase winding upward
-@rus Винтовая лестница уходит вверх
+@eng A staircase winding upward.
+@rus Винтовая лестница уходит вверх.
 ~
 ~
 ~
@@ -4987,8 +4988,8 @@ the stone, and his campaigns of unification adorn the walls.
 ~
 0 0 inside
 D5
-@eng A staircase winding downwards
-@rus Ступени, ведущие вниз
+@eng A staircase winding downwards.
+@rus Ступени, ведущие вниз.
 ~
 ~
 ~
@@ -5013,8 +5014,8 @@ possessions вещи~
 @rus Ничего из этого тебе не нужно.
 ~
 D2
-@eng Noble's Quarters
-@rus Квартал Вельмож
+@eng Noble's Quarters.
+@rus Квартал Вельмож.
 ~
 дверь~
 the дверь~
@@ -5037,8 +5038,8 @@ garden садик~
 @rus Какие-то овощи и цветы растут здесь.
 ~
 D3
-@eng Noble's Quarters
-@rus Квартал Вельмож
+@eng Noble's Quarters.
+@rus Квартал Вельмож.
 ~
 door дверь~
 ~
@@ -5055,8 +5056,8 @@ room, several bed chambers, and a servant area.
 ~
 0 0 inside
 D1
-@eng Noble's Quarters
-@rus Квартал Вельмож
+@eng Noble's Quarters.
+@rus Квартал Вельмож.
 ~
 door дверь~
 ~
@@ -5091,24 +5092,24 @@ goes into a grassy plain. To the south the road goes to Camelot.
 ~
 0 0 hills
 D0
-@eng The rolling hills
-@rus Холмы
+@eng The rolling hills.
+@rus Холмы.
 ~
 ~
 ~
 ~
 Z -1 17383
 D1
-@eng The grassy plain
-@rus Травянистые равнины
+@eng The grassy plain.
+@rus Травянистые равнины.
 ~
 ~
 ~
 ~
 Z -1 17384
 D2
-@eng A winding road
-@rus Дорога ведет к Камелоту
+@eng A winding road.
+@rus Дорога ведет к Камелоту.
 ~
 ~
 ~
@@ -5128,16 +5129,16 @@ highlands. The road continues south into the rolling hills.
 ~
 0 0 hills
 D0
-@eng The highlands
-@rus Плоскогорье
+@eng The highlands.
+@rus Плоскогорье.
 ~
 ~
 ~
 ~
 Z -1 17385
 D2
-@eng A winding road
-@rus Прямая дорога
+@eng A winding road.
+@rus Прямая дорога.
 ~
 ~
 ~
@@ -5192,16 +5193,16 @@ lettering надпись~
 LACNOGIRANDUTOS ROYU AYLGPIN LILSK SI BLAMMENEDOC
 ~
 D1
-@eng The rocky coast
-@rus Каменистое побережье
+@eng The rocky coast.
+@rus Каменистое побережье.
 ~
 ~
 ~
 ~
 Z -1 17386
 D3
-@eng The rolling hills
-@rus Холмы
+@eng The rolling hills.
+@rus Холмы.
 ~
 ~
 ~
@@ -5233,24 +5234,24 @@ lettering надпись~
 @rus Надпись гласит: HADRIANUS
 ~
 D0
-@eng The Scottish highlands
-@rus Шотландская горная местность
+@eng The Scottish highlands.
+@rus Шотландская горная местность.
 ~
 gate врата~
 the gate~
 ~
 ABZ -1 17387
 D1
-@eng An outpost
-@rus Застава
+@eng An outpost.
+@rus Застава.
 ~
 door дверь~
 ~
 ~
 ABZ -1 17388
 D3
-@eng A winding road
-@rus Открытая дорога
+@eng A winding road.
+@rus Открытая дорога.
 ~
 ~
 ~
@@ -5281,7 +5282,7 @@ $gn{заметил} дым, идущий с берега, а посмотрев внимательнее, $gn{обнаружил}
 и хижины какого-то варварского племени, обитающего там.
 ~
 D3
-@eng More rocks and rain
+@eng More rocks and rain...
 @rus Горы, дождь...
 ~
 ~
@@ -5289,8 +5290,8 @@ D3
 ~
 Z -1 17384
 D5
-@eng The rocky beach
-@rus Каменистый берег
+@eng The rocky beach.
+@rus Каменистый берег.
 ~
 ~
 ~
@@ -5309,7 +5310,7 @@ You are not certain you should go in.
 ~
 0 0 inside
 D2
-@eng More lassies and highlands
+@eng More lassies and highlands...
 @rus Снова горы...
 ~
 ~
@@ -5317,8 +5318,8 @@ D2
 ~
 Z -1 17385
 D4
-@eng The keep on the bluff
-@rus Форт
+@eng The keep on the bluff.
+@rus Форт.
 ~
 ~
 ~
@@ -5338,8 +5339,8 @@ as these bordermen don't see many people.
 ~
 0 0 inside
 D3
-@eng At the gate door
-@rus У ворот
+@eng At the gate door.
+@rus У ворот.
 ~
 ~
 ~
@@ -5368,11 +5369,11 @@ grotto grottos гроты~
 E
 cave caves пещеры~
 @eng You look at the caves- smoke! This place is inhabited!
-@rus Из пещеры идет дым - похоже, там кто-то живет.
+@rus Из пещеры идет дым - похоже, там кто-то живет!
 ~
 D4
-@eng A tough climb that you would rather not do
-@rus Карабкаясь по камням
+@eng A tough climb that you would rather not do.
+@rus Тяжелый подъем, надо быть сумасшедшим или альпинистом, чтобы идти туда.
 ~
 ~
 ~
@@ -5401,8 +5402,8 @@ iron pot котел железный~
 что все-же кабанья.
 ~
 D5
-@eng The Scottish Highlands
-@rus Шотландское плоскогорье
+@eng The Scottish Highlands.
+@rus Шотландское плоскогорье.
 ~
 ~
 ~
@@ -5425,24 +5426,24 @@ way.
 ~
 0 0 field
 D0
-@eng A cobblestone road
-@rus Дорога, вымощенная булыжником
+@eng A cobblestone road.
+@rus Дорога, вымощенная булыжником.
 ~
 ~
 ~
 ~
 Z -1 17367
 D2
-@eng A cobblestone road
-@rus Дорога, вымощенная булыжником
+@eng A cobblestone road.
+@rus Дорога, вымощенная булыжником.
 ~
 ~
 ~
 ~
 Z -1 17392
 D3
-@eng A cobblestone road
-@rus Дорога, вымощенная булыжником
+@eng A cobblestone road.
+@rus Дорога, вымощенная булыжником.
 ~
 ~
 ~
@@ -5468,24 +5469,24 @@ smoke screams дым крики~
 @rus Ты слышишь крики "К оружию! К оружию! Энглы, разбойники!"
 ~
 D0
-@eng A cobblestone road
-@rus Каменная дорога
+@eng A cobblestone road.
+@rus Каменная дорога.
 ~
 ~
 ~
 ~
 Z -1 17391
 D2
-@eng Towards the smoke
-@rus Поле боя
+@eng Towards the smoke.
+@rus Поле боя.
 ~
 ~
 ~
 ~
 Z -1 17395
 D3
-@eng A cobblestone road
-@rus Каменная дорога
+@eng A cobblestone road.
+@rus Каменная дорога.
 ~
 ~
 ~
@@ -5508,16 +5509,16 @@ along the way.
 ~
 0 0 field
 D1
-@eng A cobblestone road
-@rus Каменная дорога
+@eng A cobblestone road.
+@rus Каменная дорога.
 ~
 ~
 ~
 ~
 Z -1 17391
 D2
-@eng A cobblestone road
-@rus Каменная дорога
+@eng A cobblestone road.
+@rus Каменная дорога.
 ~
 ~
 ~
@@ -5539,24 +5540,24 @@ the east and north.
 ~
 0 0 field
 D0
-@eng A cobblestone road
-@rus Каменная дорога
+@eng A cobblestone road.
+@rus Каменная дорога.
 ~
 ~
 ~
 ~
 Z -1 17393
 D1
-@eng A cobblestone road
-@rus Каменная дорога
+@eng A cobblestone road.
+@rus Каменная дорога.
 ~
 ~
 ~
 ~
 Z -1 17392
 D3
-@eng A muddy road
-@rus Грязная дорога
+@eng A muddy road.
+@rus Грязная дорога.
 ~
 ~
 ~
@@ -5580,8 +5581,8 @@ the raider ship on the shore to the west.
 ~
 0 0 field
 D0
-@eng To where everybody else is fleeing
-@rus Туда бегут все, кто не сражается
+@eng To where everybody else is fleeing.
+@rus Туда бегут все, кто не сражается.
 ~
 ~
 ~
@@ -5605,16 +5606,16 @@ farms, and to the west you hear the terrible clash of war.
 ~
 0 0 field
 D1
-@eng A muddy road
-@rus Грязная дорога
+@eng A muddy road.
+@rus Грязная дорога.
 ~
 ~
 ~
 ~
 Z -1 17394
 D3
-@eng The clamor of battle
-@rus Поле боя
+@eng The clamor of battle.
+@rus Поле боя.
 ~
 ~
 ~
@@ -5637,16 +5638,16 @@ as their leader has already left the field in cowardly retreat.
 ~
 0 0 field
 D1
-@eng An outpost
-@rus Застава
+@eng An outpost.
+@rus Застава.
 ~
 ~
 ~
 ~
 Z -1 17396
 D3
-@eng Behind the Pict lines
-@rus За линиями пиктов
+@eng Behind the Pict lines.
+@rus За линиями пиктов.
 ~
 ranks~
 the ranks~
@@ -5666,8 +5667,8 @@ To your west is Knight's Way.
 ~
 0 M inside
 D3
-@eng Knight's Way
-@rus Рыцарский путь
+@eng Knight's Way.
+@rus Рыцарский путь.
 ~
 ~
 ~

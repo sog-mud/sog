@@ -257,7 +257,7 @@ Use 'desc edit' to edit your description.
 @eng $n sells $p.@rus $n $gn{продает} $c3{$p}.~
 @eng $n quaffs $p.@rus $n пьет $c3{$p}.~
 @eng all over the ground@rus на землю~
-@eng You follow $N.@rus Ты следуешь за $N.~
+@eng You follow $N.@rus Ты следуешь за $c4{$N}.~
 @eng Auction WHAT?
 @rus Тааак, и ЧТО будем продавать?
 ~

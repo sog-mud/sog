@@ -7865,7 +7865,7 @@ S
 #3057
 @eng In the air...@rus В воздухе...~
 @eng WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
-@rus Вау! Ты умеешь летать! И ты поднялся прямо над храмовой площадью. 
+@rus Вау! Ты умеешь летать! И ты $gn{поднялся} прямо над храмовой площадью. 
 ~
 0 CS air
 D4

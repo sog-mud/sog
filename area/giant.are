@@ -588,7 +588,7 @@ a '' to_object 45 -1 -10 20 0
 g @rus none~
 #13026
 ring black torturer~
-@eng a ring of the torturer@rus ~~кольцо~~ ~~мученика~~~
+@eng a ring of the torturer@rus ~~кольцо~~ мученика~
 A black ring made of onyx sits here, eminating evil.~
 onyx~
 armor BEJ 0 AB

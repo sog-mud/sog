@@ -5488,7 +5488,7 @@ immortal _GREETING~
 * This is a Roleplaying, PlayerKilling and Adventure MUD.
 * You are responsible for knowing the rules (type 'rules').  Ignorance of 
   the rules is no excuse.
-* Important cammands: help, commands, news, notes, changes.
+* Important commands: help, commands, news, notes, changes.
 * Read all helps. So many things are changed relatively before.
 * Added multi-language support command. See '{Clanguage{x' command.
 * Added short mode for flags. See '{CHELP TOGGLE{x'.
@@ -5658,6 +5658,9 @@ and mana cost (for spells and prayers).
 The values representing how good you are (the later in list, the better):
 ridiculous, very bad, bad, average, good, very good, remarkable, perfect.
 'Perfect' means you have mastered the skill.
+Notice, these values doesn't show you your absolute knowledge of skill, 
+for example warrior which has 'enhanced damage' remarkable knows it better
+when thief with which knows it 'perfect'.
 @rus Синтаксис: {cskills{x
 Синтаксис: {cspells{x
  

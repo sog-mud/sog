@@ -2334,8 +2334,8 @@ staff knight templar~
 the Staff of The Knight Templar~
 A staff is here, leaning up against a wall.~
 iron~
-armor ABG 0 AO
-10 10 10 50 0
+weapon ABG 0 AO
+staff 5 7 'smash' F
 40 10 33350 G
 a '' to_object 40 -1 2 18 0
 a '' to_object 40 -1 2 19 0

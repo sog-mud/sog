@@ -86,28 +86,34 @@ sit stand male 12
 0 0 medium unknown
 #2804
 giant troll~
-the giant troll~
-A giant troll is lying on a pile of carnage, pleasing his mistress.
+@eng the giant troll@rus ~~громадный~~ ~~тролль~~~
+@eng A giant troll is lying on a pile of carnage, pleasing his mistress.
+@rus Огромный тролль ублажает свою хозяйку на куче кровавых останков.
 ~
-He is a gigantic, muscular, furry humanoid.
+@eng He is a gigantic, muscular, furry humanoid.
 He gasps as he notices your intrusion.
 You gasp as you realize you have intruded upon his acts of passion!
+@rus Гигантский, мускулистый и мохнатый гуманоид открыл пасть в яростном изумлении,
+заметив твое вторжение.
 ~
-giant~
-BCFG 0 0 G H -1000 0
+troll~
+0 0 0 0 0 -1000 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNR
+0
 rest stand male 150
 0 0 medium unknown
 #2805
-large troll female троллиха ~~огромная~~ ~~троллиха~~~
-@eng the large female troll@rus троллиха~
-A large female troll is lying on the pile of carnage, blissfully writhing.
+large troll female троллиха~
+@eng the large female troll@rus ~~огромная~~ ~~троллиха~~~
+@eng A large female troll is lying on the pile of carnage, blissfully writhing.
+@rus Огромная троллиха корчится в блаженных конвульсиях на куче кровавых останков.
 ~
-She is a huge, grotesque, furry humanoid.
+@eng She is a huge, grotesque, furry humanoid.
 She moans in passion but gasps as she notices you.
 Her smiles turn into snarls as she screams at you!
+@rus Мохнатая и огромная троллиха стонет в экстазе, но, заметив тебя, c рычанием 
+бросается в атаку.
 ~
 troll~
 0 0 0 0 0 -800 0
@@ -180,12 +186,12 @@ stand stand male 75
 #2800
 corpse cadaver труп~
 @eng the cadaver-toy@rus труп~
-@eng A half eaten corpse is laying here@rus Полусъеденный труп (corpse) лежит тут~
+@eng A half eaten corpse is laying here.@rus Полусъеденный труп (corpse) лежит тут.~
 flesh~
 container 0 0 A
 30 0 0 30 100
 0 500 1 P
-g @rus none~
+g @rus male~
 #2801
 pile rotting heap bed~
 @eng the heap of carnage@rus ~~куча~~ гниющих останков~
@@ -194,11 +200,11 @@ unknown~
 container 0 0 0
 30 0 0 30 100
 0 0 0 P
-g @rus none~
+g @rus female~
 #2802
-trollskin troll skin~
-the troll skin~
-The filthy hide of a beast is laying here.~
+trollskin troll skin шкура~
+@eng the troll skin@rus ~~шкура~~ тролля~
+@eng The filthy hide of a beast is laying here.@rus Грязная звериная шкура валяется здесь.~
 skin~
 armor 0 0 AK
 5 5 5 0 0
@@ -206,10 +212,12 @@ armor 0 0 AK
 a '' to_object 12 -1 1 1 0
 E
 troll skin~
-This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
+@eng This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
 and feels bad.
+@rus Шкура снята с огромного (но мертвого) зверя. Выглядит она просто отвратительно,
+к тому же ужасно воняет, да и на ощупь - весьма противна.
 ~
-g @rus none~
+g @rus female~
 #2803
 ring opal~
 @eng an opal ring@rus ~~кольцо~~ из опала~
@@ -218,7 +226,7 @@ opal~
 jewelry G 0 AB
 0 0 0 0 0
 10 10 1150 P
-a '' to_object 20 -1 2 19 0
+a '' to_object 10 -1 2 19 0
 E
 ring opal~
 @eng It is a full circle of opal, smooth and simple.
@@ -234,10 +242,12 @@ armor G 0 AL
 6 6 6 0 0
 15 50 1050 P
 E
-leather belt~
-This old, smelly belt looks like it is barely better than rotting cloth.
+leather belt ремень~
+@eng This old, smelly belt looks like it is barely better than rotting cloth.
+@rus Старый вонючий ремень выглядит немногим лучше, чем просто кусок гниющей
+кожи.
 ~
-g @rus none~
+g @rus male~
 #2805
 bone cracked кость~
 @eng a cracked bone@rus ~~сломанная~~ ~~кость~~~
@@ -249,9 +259,11 @@ mace 3 3 'pound' 0
 a '' to_object 6 -1 -1 18 0
 a '' to_object 6 -1 -1 19 0
 E
-bone~
-This piece of bone looks sturdy enough to be used as a weapon, but you
+bone кость~
+@eng This piece of bone looks sturdy enough to be used as a weapon, but you
 wouldn't want to entrust your life to it.
+@rus Этот костяной кусок можно, конечно, использовать как оружие, хотя свою 
+жизнь ты бы ему не $gn{доверил}.
 ~
 g @rus none~
 #0
@@ -271,7 +283,8 @@ This zone (trollden) is created by MERC for any MERC Mud.
 copyright 1992
 ~
 D2
-You find the stench is stronger inside.
+@eng You find the stench is stronger inside.
+@rus Похоже, внутри воняет значительно сильнее.
 ~
 ~
 ~
@@ -294,8 +307,10 @@ Half-eaten body rotting corpse~
 YUCK!  You find worms crawling in and out this poor unfortunate former human.
 ~
 D1
-You welcome the fresh breeze coming from the east, but wrinkle your nose when
+@eng You welcome the fresh breeze coming from the east, but wrinkle your nose when
 the stench bears down on you once more.
+@rus Тебе приятно легкое, свежее дуновение с востока, но твой нос вновь морщится,
+когда его вновь достигает зловоние.
 ~
 ~
 ~
@@ -319,24 +334,30 @@ D0
 ~
 Z 0 2801
 D1
-Good God!  You spy corpses all over the floor in there.  It looks like a
+@eng Good God!  You spy corpses all over the floor in there.  It looks like a
 virtual graveyard in there.
+@rus О Боже! Там весь пол трупами засыпан, настоящее кладбище.
 ~
 ~
 ~
 ~
 Z 0 2804
 D2
-Whoa!  You reel back from the stench.  You believe you have found the source
+@eng Whoa!  You reel back from the stench.  You believe you have found the source
 of this bad smell.
+@rus Ффуу! Вонь с юга чуть не сбила тебя с ног. Похоже, именно там основной
+источник зловония.
 ~
 ~
 ~
 ~
 Z 0 2805
 D3
-You puke as you watch worms crawl between this room and the room west of here
+@eng You puke as you watch worms crawl between this room and the room west of here
 as they bore new holes into a corpse laying on the far wall of the west room.
+@rus Тебя чуть не вырвало, когда ты $gn{увидел} червей ползающих между этой и
+западной комнатой и прогрызающих новые и новые дырки в трупе, лежащем возле
+дальней стены западной комнаты.
 ~
 ~
 ~
@@ -359,8 +380,10 @@ This reminds you of what a baby would do to its formula during dinnertime,
 plastering it on the wall.
 ~
 D3
-You welcome the fresh breeze coming from the west, but wrinkle your nose when
+@eng You welcome the fresh breeze coming from the west, but wrinkle your nose when
 the stench bears down on you once more.
+@rus Тебе приятно легкое, свежее дуновение с запада, но твой нос вновь морщится,
+когда его вновь достигает зловоние.
 ~
 ~
 ~
@@ -380,8 +403,10 @@ flattened by something.
 ~
 0 ACD mountain
 D0
-You welcome the fresh breeze coming from the north, but wrinkle your nose when
+@eng You welcome the fresh breeze coming from the north, but wrinkle your nose when
 the stench bears down on you once more.
+@rus Тебе приятно легкое, свежее дуновение с севера, но твой нос вновь морщится,
+когда его вновь достигает зловоние.
 ~
 ~
 ~

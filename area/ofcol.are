@@ -7,6 +7,119 @@ Security 9
 LevelRange 1 100
 End
 
+#MOBILES
+#5501
+citizen~
+the citizen~
+There is a citizen of Ofcol here glaring at you ... stranger!
+~
+He seems like a nice person with no interest in harming you or others.
+He wears normal, light clothing and has an anonymous face.
+~
+human~
+CG 0 0 0 0 0 0
+6 0 2d7+71 3d9+100 1d7+1 'none'
+4 4 4 9
+EFNU
+stand stand male 10
+0 0 medium unknown
+#5502
+citizen~
+the citizen~
+There is a citizen of Ofcol here glaring at you ... stranger!
+~
+She seems like a nice person with no interest in harming you or others.
+She wears a minimum of clothing and has big ... eyes.
+~
+human~
+CG 0 0 0 0 0 0
+5 0 2d6+60 2d9+100 1d6+1 'none'
+5 5 5 9
+EFNU
+stand stand female 5
+0 0 medium unknown
+#5503
+luxan shopkeeper~
+Luxan~
+Luxan the Shopkeeper is here, eager to sell you anything.
+~
+Luxan is dressed in a strange jacket.
+He looks like a mean trader from the outskirts of Midgaard.
+His life is seems to be totally occupied with trading.
+He looks very fit and capable of protecting his goods.
+~
+human~
+BCe 0 0 0 0 400 0
+23 0 5d10+450 11d9+100 3d6+6 'none'
+-6 -6 -6 6
+EFNU
+stand stand male 400
+0 0 medium unknown
+#5504
+keeper innkeeper~
+the Innkeeper~
+An Innkeeper is here waiting for your order.
+~
+The Innkeeper looks skilled in brewing different beers and mixing the
+wierdest drinks known. He also looks very big.
+~
+human~
+Be 0 0 0 0 -100 0
+23 0 5d10+450 11d9+100 3d6+6 'none'
+-6 -6 -6 6
+EFNU
+stand stand male 5
+0 0 medium unknown
+#0
+
+#OBJECTS
+#5501
+dagger кинжал~
+@eng a dagger@rus кинжал~
+@eng A dagger with a long thin blade is here.@rus Кинжал (dagger) с длинным тонким лезвием лежит здесь.~
+steel~
+weapon 0 0 AN
+dagger 1 4 'stab' 0
+0 10 157 G
+#5502
+flowers wild цветы дикие~
+@eng wild flowers@rus ~~дикие~~ ~~цветы~~~
+@eng A bunch of pretty wild flowers is here.@rus Ты видишь перед собой куст прекрасных диких цветов (flowers).~
+plant~
+trash K 0 AEO
+0 0 0 0 0
+0 10 0 P
+E
+wild flowers дикие цветы~
+@eng These wild flowers are really pretty.
+Just like the flowers you would wear in your hair.@rus Эти цветы просто прекрасны, просто великолепны!
+~
+#5503
+torch факел~
+@eng a torch@rus факел~
+@eng A large torch lies here.@rus Большой факел (torch) оставлен здесь.~
+wood~
+light 0 0 A
+0 0 50 0 0
+0 30 4 G
+#5504
+barrel beer бочонок~
+@eng a barrel of beer@rus ~~бочонок~~ пива~
+@eng A beer barrel has been left here.@rus Бочонок (barrel) пива кем-то оставлен здесь.~
+wood~
+drink 0 0 A
+300 300 'beer' 0 0
+0 160 75 P
+#5505
+bottle beer бутылка~
+@eng a bottle of beer@rus ~~бутылка~~ пива~
+@eng A beer bottle has been left here.@rus Бутылка (bottle) пива оставлена здесь.~
+glass~
+drink 0 0 A
+16 16 'beer' 0 0
+0 10 5 P
+#0
+
 #ROOMS
 #5550
 Village street~
@@ -149,11 +262,10 @@ Z -1 5552
 S
 #5556
 The Local Inn~
-You are in the local inn, where the peaceful citizens of Ofcol
-gather to have a drink or 5 if they have dry throats.
-You can't help thinking that Ofcol is a dry city, when you see the
-many people here.
-The only exit is south to the village square.
+You are in the local inn, where the peaceful citizens of Ofcol gather to
+have a drink or 5 if they have dry throats.  You can't help thinking that
+Ofcol is a dry city, when you see the many people here.  The only exit is
+south to the village square.  
 ~
 0 D city
 D2
@@ -166,10 +278,9 @@ Z -1 5552
 S
 #5577
 Ravan's hideout~
-This place is a small, cosy place where no one disturbs you all
-the time. The room has little decoration except for some pictures
-on the wall.
-You notice that there are no exits from this room.
+This place is a small, cosy place where no one disturbs you all the time.
+The room has little decoration except for some pictures on the wall.  You
+notice that there are no exits from this room.  
 ~
 0 C inside
 E
@@ -193,17 +304,17 @@ S
 #0
 
 #RESETS
-M 0 303 5 5550 3	* the citizen (Village street)
-M 0 304 5 5552 3	* the citizen (Village square)
-E 0 3020 0 16		*	a dagger: wielded
-M 0 304 5 5553 3	* the citizen (The small alley)
-M 0 306 1 5555 1	* Luxan (Luxan's mixed shop)
-G 0 304 0		*	wild flowers
-G 0 3030 0		*	a torch
-M 0 303 5 5556 3	* the citizen (The Local Inn)
-M 0 308 1 5556 1	* the Innkeeper (The Local Inn)
-G 0 3000 0		*	a barrel of beer
-G 0 3001 0		*	a bottle of beer
+M 0 5501 5 5550 3	* the citizen (Village street)
+M 0 5501 5 5552 3	* the citizen (Village square)
+E 0 5501 0 16		*	a dagger: wielded
+M 0 5502 5 5553 3	* the citizen (The small alley)
+M 0 5503 1 5555 1	* Luxan (Luxan's mixed shop)
+G 0 5502 0		*	wild flowers
+G 0 5503 0		*	a torch
+M 0 5501 5 5556 3	* the citizen (The Local Inn)
+M 0 5504 1 5556 1	* the Innkeeper (The Local Inn)
+G 0 5504 0		*	a barrel of beer
+G 0 5505 0		*	a bottle of beer
 S
 
 #$

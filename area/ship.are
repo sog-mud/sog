@@ -124,6 +124,31 @@ portal FY B 0
 CE 0 0 10751 0
 0 0 0 P
 g @rus none~
+#10605
+key ключ~
+~
+~
+unknown~
+key U L A
+0 0 0 0 0
+0 10 10 P
+g @eng none@rus male~
+#10606
+key ключ~
+~
+~
+unknown~
+key U L A
+0 0 0 0 0
+0 10 10 P
+#10607
+key ключ~
+~
+~
+unknown~
+key U L A
+0 0 0 0 0
+0 10 10 P
 #0
 
 #ROOMS

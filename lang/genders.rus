@@ -31,6 +31,14 @@ Form 3 -ыми~
 End
 
 #RULE
+Name доверил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name наполняет~
 BaseLen 7
 Form 1 -ет~
@@ -81,6 +89,14 @@ End
 #RULE
 Name сделал~
 BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name овладел~
+BaseLen 6
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
@@ -1300,6 +1316,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name поднялся~
+BaseLen 6
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name решил~
 BaseLen 4
 Form 1 -ла~
@@ -1697,6 +1721,14 @@ BaseLen 5
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name ступил~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
