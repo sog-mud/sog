@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.86 1998-11-14 09:01:10 fjoe Exp $
+ * $Id: handler.c,v 1.87 1998-11-18 07:43:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3248,3 +3248,12 @@ void show_affects(CHAR_DATA *ch, BUFFER *output)
 		}
 }
 
+#ifdef WIN32
+void SET_ORG_RACE(CHAR_DATA *ch, int race)
+{
+	if (IS_NPC(ch))
+		ch->pIndexData->race = race;
+	else
+		ch->pcdata->race = race;
+}
+#endif

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.51 1998-11-17 08:06:25 fjoe Exp $
+ * $Id: martial_art.c,v 1.52 1998-11-18 07:43:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -575,6 +575,55 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	} 
 }
 
+bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (victim->fighting) {
+		if (ch)
+			char_puts("You can't backstab a fighting person.\n\r",
+				  ch);
+		return FALSE;
+	}
+
+	if (victim->hit < 7 * victim->max_hit / 10 && IS_AWAKE(victim)) {
+		if (ch)
+			act("$N is hurt and suspicious... "
+			    "you couldn't sneak up.",
+			    ch, NULL, victim, TO_CHAR);
+		return FALSE;
+	}
+
+	if (current_time - victim->last_fight_time < 300 && IS_AWAKE(victim)) {
+		if (ch)
+			act("$N is suspicious... you couldn't sneak up.",
+			    ch, NULL, victim, TO_CHAR);
+		return FALSE; 
+	}
+
+	return TRUE;
+}
+
+void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
+{
+	if (!IS_AWAKE(victim)
+	||  number_percent() < chance) {
+		check_improve(ch, gsn_backstab, TRUE, 1);
+		if (number_percent() <
+				get_skill(ch, gsn_dual_backstab) * 8 / 10) {
+			check_improve(ch, gsn_dual_backstab, TRUE, 1);
+			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
+			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
+		}
+		else {
+			check_improve(ch, gsn_dual_backstab, FALSE, 1);
+			multi_hit(ch, victim, gsn_backstab);
+		}
+	}
+	else {
+		check_improve(ch, gsn_backstab, FALSE, 1);
+		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
+	}
+}
+
 void do_backstab(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -594,6 +643,17 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
+		char_puts("You need to wield a weapon to backstab.\n\r", ch);
+		return;
+	}
+
+	if (attack_table[obj->value[3]].damage != DAM_PIERCE) {
+		char_puts("You need to wield a piercing weapon "
+			  "to backstab.\n\r", ch);
+		return;
+	}
+
 	if (arg[0] == '\0') {
 		char_puts("Backstab whom?\n\r", ch);
 		return;
@@ -606,65 +666,18 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && !IS_NPC(victim))
-		return;
-
 	if (victim == ch) {
 		char_puts("How can you sneak up on yourself?\n\r", ch);
-		return;
-	}
-
-	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
-		char_puts("You need to wield a weapon to backstab.\n\r", ch);
-		return;
-	}
-
-	if (attack_table[obj->value[3]].damage != DAM_PIERCE) {
-		char_puts("You need to wield a piercing weapon to backstab.\n\r",
-			  ch);
-		return;
-	}
-
-	if (victim->fighting != NULL) {
-		char_puts("You can't backstab a fighting person.\n\r", ch);
 		return;
 	}
 
 	if (is_safe(ch, victim))
 		return;
 
-	if (victim->hit < (0.7 * victim->max_hit) && (IS_AWAKE(victim))) {
-		act("$N is hurt and suspicious ... you couldn't sneak up.",
-		    ch, NULL, victim, TO_CHAR);
+	if (!backstab_ok(ch, victim))
 		return;
-	}
 
-	if (current_time-victim->last_fight_time < 300 && IS_AWAKE(victim)) {
-		act("$N is suspicious ... you couldn't sneak up.",
-		    ch, NULL, victim, TO_CHAR);
-		return;       
-	}
-
-	if (!IS_AWAKE(victim)
-	||  IS_NPC(ch)
-	||  number_percent() < chance) {
-		check_improve(ch, gsn_backstab, TRUE, 1);
-		if (!IS_NPC(ch)
-		&&  number_percent() <
-				(get_skill(ch, gsn_dual_backstab)/10)*8) {
-			check_improve(ch, gsn_dual_backstab, TRUE, 1);
-			one_hit(ch, victim, gsn_backstab, WEAR_WIELD);
-			one_hit(ch, victim, gsn_dual_backstab, WEAR_WIELD);
-		}
-		else {
-			check_improve(ch, gsn_dual_backstab, FALSE, 1);
-			multi_hit(ch, victim, gsn_backstab);
-		}
-	}
-	else {
-		check_improve(ch, gsn_backstab, FALSE, 1);
-		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
-	}
+	backstab(ch, victim, chance);
 }
 
 void do_cleave(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.87 1998-11-14 09:01:12 fjoe Exp $
+ * $Id: update.c,v 1.88 1998-11-18 07:43:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1712,8 +1712,14 @@ void aggr_update(void)
 				continue;
 
 			if (!is_safe_nomessage(ch, victim)) {
+				int dt = TYPE_UNDEFINED;
+				int bs_chance = get_skill(ch, gsn_backstab);
+
 				victim = check_guard(victim, ch); 
-				multi_hit(ch, victim, TYPE_UNDEFINED);
+				if (bs_chance && backstab_ok(NULL, victim))
+					backstab(ch, victim, bs_chance);
+				else
+					multi_hit(ch, victim, TYPE_UNDEFINED);
 			}
 		}
 	}

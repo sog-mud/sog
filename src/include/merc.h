@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.117 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: merc.h,v 1.118 1998-11-18 07:43:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1693,13 +1693,7 @@ struct mpcode
 #define ORG_RACE(ch)		(IS_NPC(ch) ? ch->pIndexData->race : ch->pcdata->race)
 
 #if defined(WIN32)
-#	define SET_ORG_RACE(victim, race)			\
-	{							\
- 		if (IS_NPC(victim))				\
- 			victim->pIndexData->race = race;	\
- 		else						\
-			victim->pcdata->race = race;		\
-	}
+void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #else
 #	define SET_ORG_RACE(victim, race)	ORG_RACE(victim) = race
 #endif

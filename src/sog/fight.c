@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.102 1998-11-17 07:28:25 fjoe Exp $
+ * $Id: fight.c,v 1.103 1998-11-18 07:43:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -524,6 +524,32 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 }
 
+int get_dam_type(CHAR_DATA *ch, OBJ_DATA *wield, int *dt)
+{
+	int dam_type;
+
+	if (*dt == TYPE_UNDEFINED) {
+		*dt = TYPE_HIT;
+		if (wield &&  wield->pIndexData->item_type == ITEM_WEAPON)
+			*dt += wield->value[3];
+		else
+			*dt += ch->dam_type;
+	}
+
+	if (*dt < TYPE_HIT)
+		if (wield)
+			dam_type = attack_table[wield->value[3]].damage;
+		else
+			dam_type = attack_table[ch->dam_type].damage;
+	else
+		dam_type = attack_table[*dt - TYPE_HIT].damage;
+
+	if (dam_type == TYPE_UNDEFINED)
+		dam_type = DAM_BASH;
+
+	return dam_type;
+}
+
 /*
  * Hit one guy once.
  */
@@ -564,26 +590,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	dam_flags = DAMF_SHOW;
 	if (loc == WEAR_SECOND_WIELD)
 		dam_flags |= DAMF_SECOND;
-
-	if (dt == TYPE_UNDEFINED) {
-		dt = TYPE_HIT;
-		if (wield != NULL
-		&&  wield->pIndexData->item_type == ITEM_WEAPON)
-			dt += wield->value[3];
-		else
-			dt += ch->dam_type;
-	}
-
-	if (dt < TYPE_HIT)
-		if (wield != NULL)
-			dam_type = attack_table[wield->value[3]].damage;
-		else
-			dam_type = attack_table[ch->dam_type].damage;
-	else
-		dam_type = attack_table[dt - TYPE_HIT].damage;
-
-	if (dam_type == -1)
-		dam_type = DAM_BASH;
+	dam_type = get_dam_type(ch, wield, &dt);
 
 	/* get the weapon skill */
 	sn = get_weapon_sn(wield);
@@ -826,14 +833,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	else if (!victim->fighting)
 		check_improve(victim, gsn_counter, FALSE, 1);
 
-	if (dt == gsn_backstab && wield != NULL)
-		dam = (ch->level < 50) ?
-				(ch->level/10 + 1) * dam + ch->level :
-				(ch->level/10) * dam + ch->level;
-	else if (dt == gsn_dual_backstab && wield != NULL)
-		dam = (ch->level < 56) ?
-				(ch->level/14 + 1) * dam + ch->level :
-				(ch->level/14) * dam + ch->level;
+	if (dt == gsn_backstab && (IS_NPC(ch) || wield))
+		dam = ch->level / 10 * dam + ch->level;
+	else if (dt == gsn_dual_backstab && (IS_NPC(ch) || wield))
+		dam = ch->level / 14 * dam + ch->level;
 	else if (dt == gsn_circle)
 		dam = (ch->level/40 + 1) * dam + ch->level;
 	else if (dt == gsn_vampiric_bite && is_affected(ch, gsn_vampire))
