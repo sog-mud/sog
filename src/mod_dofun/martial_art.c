@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.29 2002-10-03 15:00:31 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.30 2002-10-03 15:47:50 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1159,6 +1159,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_ambush, FALSE, 1);
 		act("Your attack was not so much surprising.",
 		    ch, NULL, NULL, TO_CHAR);
+		damage(ch, victim, 0, gsn_ambush, DAM_NONE, DAMF_SHOW);
 	}
 	yell(victim, ch, "Help! I've been ambushed by $i!");
 }
