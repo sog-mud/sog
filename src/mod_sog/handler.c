@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.59 1998-09-20 17:01:00 fjoe Exp $
+ * $Id: handler.c,v 1.60 1998-09-24 14:07:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1286,7 +1286,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 
 	if (ch->in_room->affected_by) {
 		 if (IS_IMMORTAL(ch))
-			do_raffects(ch,"");
+			do_raffects(ch,str_empty);
 		 else
 			raffect_to_char(ch->in_room, ch);
 	}
@@ -1831,7 +1831,7 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 		--ch->pIndexData->count;
 
 	if (ch->desc != NULL && ch->desc->original != NULL) {
-		do_return(ch, "");
+		do_return(ch, str_empty);
 		ch->desc = NULL;
 	}
 
@@ -2817,7 +2817,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		 return;
 		}
 	   }
-	do_track(victim,"");
+	do_track(victim,str_empty);
   }
 }
 

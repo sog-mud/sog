@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.10 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: rating.c,v 1.11 1998-09-24 14:07:41 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -111,9 +111,9 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 			char_puts("\n\rI bet you are {Rawful{x. \n\r"
 				     "You're at the top of this list!", ch);
 		char_printf(ch, "\n\rYou have killed %s{R%d{x player%s.\n\r",
-			    ch->pcdata->pc_killed == 1 ? "ONLY " : "",
+			    ch->pcdata->pc_killed == 1 ? "ONLY " : str_empty,
 			    ch->pcdata->pc_killed, 
-			    ch->pcdata->pc_killed == 1 ? "" : "s");
+			    ch->pcdata->pc_killed == 1 ? str_empty : "s");
 	}
 }
 

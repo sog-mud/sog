@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.16 1998-09-24 12:30:11 kostik Exp $
+ * $Id: clan.c,v 1.17 1998-09-24 14:07:39 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
@@ -81,7 +81,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			char_printf(ch,
 				    "Usage: petition %s<accept | reject> "
 				    "<char name>\n\r",
-				    IS_IMMORTAL(ch) ? "<clan name> " : "");
+				    IS_IMMORTAL(ch) ? "<clan name> " : str_empty);
 		if (!IS_IMMORTAL(ch) && ch->pcdata->clan_status != CLAN_LEADER)
 			char_puts("Usage: petition <clan name>\n\r", ch);
 		return;
@@ -91,12 +91,12 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		cn = cn_lookup(arg1);
 		if (cn <= 0) {
 			char_printf(ch, "%s: unknown clan\n\r", arg1);
-			do_petition(ch, "");
+			do_petition(ch, str_empty);
 			return;
 		}
 		argument = one_argument(argument, arg1);
 		if (IS_NULLSTR(arg1)) {
-			do_petition(ch, "");
+			do_petition(ch, str_empty);
 			return;
 		}
 		clan = CLAN(cn);
@@ -110,7 +110,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (!IS_IMMORTAL(ch)) {
 			if (ch->clan == 0
 			||  (clan = clan_lookup(ch->clan)) == NULL) {
-				do_petition(ch, "");
+				do_petition(ch, str_empty);
 				return;
 			}
 			cn = ch->clan;
@@ -118,7 +118,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 		argument = one_argument(argument, arg2);
 		if (IS_NULLSTR(arg2)) {
-			do_petition(ch, "");
+			do_petition(ch, str_empty);
 			return;
 		}
 
@@ -278,7 +278,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_promote(ch, "");
+	do_promote(ch, str_empty);
 }
 
 char *get_status_alias(int status)
@@ -321,7 +321,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 	for (d = descriptor_list; d; d = d->next)
 		if (d->character)
-			do_save(d->character, "");
+			do_save(d->character, str_empty);
 
 	char_puts("Now listing members of your clan:\n\r", ch);
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.70 1998-09-24 12:30:11 kostik Exp $
+ * $Id: interp.c,v 1.71 1998-09-24 14:07:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -471,6 +471,9 @@ const	struct	cmd_type	cmd_table	[] =
     { "mpdump",		do_mpdump,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
     { "mpstat",		do_mpstat,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
 
+
+    { "msgstat",	do_msgstat,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
+
     /*
      * OLC
      */
@@ -484,7 +487,7 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * End of list.
      */
-    { "",		0,		POS_DEAD,    0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST }
+    { str_empty,		0,		POS_DEAD,    0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST }
 };
 
 
@@ -629,7 +632,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	 * Log and snoop.
 	 */
 	if (cmd_table[cmd].log == LOG_NEVER)
-		strcpy(logline, "");
+		strcpy(logline, str_empty);
 
 	if (((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
 	||   fLogAll

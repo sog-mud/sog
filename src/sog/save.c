@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.58 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: save.c,v 1.59 1998-09-24 14:07:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1275,7 +1275,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 	}
 	if (obj == NULL) {	/* either not found or old style */
 		obj = new_obj();
-		obj->name = str_dup("");
+		obj->name = str_dup(str_empty);
 	}
 	fNest = FALSE;
 	fVnum = TRUE;

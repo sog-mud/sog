@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.133 1998-09-22 18:07:13 fjoe Exp $
+ * $Id: act_info.c,v 1.134 1998-09-24 14:07:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -627,9 +627,9 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	char_printf(ch, "%s%s%s %s\n\r",
-		    IS_IMMORTAL(victim) ? "{W" : "",
+		    IS_IMMORTAL(victim) ? "{W" : str_empty,
 		    PERS(victim, ch),
-		    IS_IMMORTAL(victim) ? "{x" : "",
+		    IS_IMMORTAL(victim) ? "{x" : str_empty,
 		    MSG(msg, ch->lang));
 
 	found = FALSE;
@@ -2343,7 +2343,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	one_argument(argument,dir);
 
 	if (dir[0] == '\0') {
-		do_scan2(ch, "");
+		do_scan2(ch, str_empty);
 		return;
 	}
 
@@ -2990,7 +2990,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		"(%d hours).\n\r",
 		MSG("You are", ch->lang),
 		ch->name,
-		IS_NPC(ch) ? "" : ch->pcdata->title, ch->level, get_age(ch),
+		IS_NPC(ch) ? str_empty : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
 
 	if (get_trust(ch) != ch->level)
@@ -3046,10 +3046,10 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		 "You have scored {c%d{x exp, and have %s%s%s.\n\r",
 		 ch->exp,
 		 ch->gold + ch->silver == 0 ? "no money" :
-					      ch->gold ? "{Y%ld gold{x " : "",
-		 ch->silver ? "{W%ld silver{x " : "",
+					      ch->gold ? "{Y%ld gold{x " : str_empty,
+		 ch->silver ? "{W%ld silver{x " : str_empty,
 		 ch->gold + ch->silver ? ch->gold + ch->silver == 1 ?
-					"coin" : "coins" : "");
+					"coin" : "coins" : str_empty);
 	if (ch->gold)
 		buf_printf(output, buf2, ch->gold, ch->silver);
 	else
@@ -3984,6 +3984,6 @@ void do_make(CHAR_DATA *ch, const char *argument)
 	else if (!str_prefix(arg, "bow"))
 		do_make_bow(ch, argument);
 	else
-		do_make(ch, "");
+		do_make(ch, str_empty);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.54 1998-09-24 06:37:46 kostik Exp $
+ * $Id: spellfun.c,v 1.55 1998-09-24 14:07:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -596,7 +596,7 @@ void obj_cast_spell(int sn, int level,
 	||  (target == TARGET_OBJ && ((OBJ_DATA*) vo)->extracted))
 		return;
 
-	target_name = "";
+	target_name = str_empty;
 	spell->spell_fun(sn, level, ch, vo, target);
 
 	if ((spell->target == TAR_CHAR_OFFENSIVE ||
@@ -2907,7 +2907,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (gate_pet) {
 		if (ch->pet->position != POS_STANDING)
-			do_stand(ch->pet, "");
+			do_stand(ch->pet, str_empty);
 
 		act("$n steps through a gate and vanishes.",
 			ch->pet, NULL, NULL, TO_ROOM);

@@ -1,12 +1,12 @@
 #
-# $Id: Makefile,v 1.24 1998-09-20 17:11:44 fjoe Exp $
+# $Id: Makefile,v 1.25 1998-09-24 14:07:38 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
 INCLUDES	= -I . -I ../msgdb
 CFLAGS		=  -g -Wall -O -pipe $(INCLUDES)
 LFLAGS		=  -g
-INSTALL_PATH	= /usr/local/muddy
+INSTALL_PATH	= ..
 
 #
 # for SUNOS
@@ -81,11 +81,6 @@ clean:
 ctags:
 	ctags -dtw *.c *.h
 
-resinstall:
-	install -c -m 664 ../msgdb/resource.h ../msgdb/lang.lst ../msgdb/*.lang $(INSTALL_PATH)/msgdb
-
-bininstall: muddy 
+install: muddy
 	install -c -m 554 muddy $(INSTALL_PATH)/bin
-
-install: bininstall resinstall
 

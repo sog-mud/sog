@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.63 1998-09-22 18:07:18 fjoe Exp $
+ * $Id: update.c,v 1.64 1998-09-24 14:07:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -505,7 +505,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people
 			&&  ch->fighting == NULL) {
-				if (!IS_AWAKE(ch)) do_stand(ch,"");
+				if (!IS_AWAKE(ch)) do_stand(ch,str_empty);
 			        for (vch = ch->in_room->people;
 			       	     vch != NULL && ch->fighting == NULL;
 				     vch = vch_next) {
@@ -602,7 +602,7 @@ void mobile_update(void)
 		if (!IS_NPC(ch) && bust_prompt
 		&&  ch->desc != NULL && ch->desc->pString == NULL
 		&&  ch->desc->showstr_point == NULL)
-			char_puts("", ch);
+			char_puts(str_empty, ch);
 
 		if (!IS_NPC(ch)
 		||  ch->in_room == NULL
@@ -1022,7 +1022,7 @@ void char_update(void)
 
 		if (!IS_NPC(ch) && ch->clan == CLAN_BATTLE)
 			if (!is_affected(ch, gsn_spellbane))
-				do_spellbane(ch, "");
+				do_spellbane(ch, str_empty);
 
 		/* Remove caltrops effect after fight off */
 		if (is_affected(ch, gsn_caltrops) && !ch->fighting)
@@ -1031,7 +1031,7 @@ void char_update(void)
 		/* Remove vampire effect when morning. */
 		if (IS_VAMPIRE(ch) && (weather_info.sunlight == SUN_LIGHT 
 				      || weather_info.sunlight == SUN_RISE))
-			do_human(ch, "");
+			do_human(ch, str_empty);
 
 		/* Reset sneak for vampire */
 		if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_SNEAK) 
@@ -1110,7 +1110,7 @@ void char_update(void)
 			&&  ch->desc->showstr_point == NULL
 			&&  (old_hit != ch->hit || old_mana != ch->mana ||
 			     old_move != ch->move))
-				char_puts("", ch);
+				char_puts(str_empty, ch);
 		}
 
 		if (ch->position == POS_STUNNED)
@@ -1320,7 +1320,7 @@ void char_update(void)
 			if (!IS_NPC(ch))
 				save_char_obj(ch, FALSE);
 			if (ch == ch_quit || ch->timer > 20)
-				do_quit(ch, "");
+				do_quit(ch, str_empty);
 		}
 	}
 

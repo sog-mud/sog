@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.86 1998-09-24 12:30:11 kostik Exp $
+ * $Id: act_comm.c,v 1.87 1998-09-24 14:07:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,7 +68,7 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_AFK)) {
 		REMOVE_BIT(ch->comm, COMM_AFK);
-		do_replay(ch, "");
+		do_replay(ch, str_empty);
 	} else {
 		if (!IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 		&&  !IS_IMMORTAL(ch)) {
@@ -203,7 +203,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 
 		wiznet("$N turns $Mself into line noise.",ch,NULL,0,0,0);
 		RESET_FIGHT_TIME(ch);
-		do_quit_count(ch,"");
+		do_quit_count(ch,str_empty);
 		dunlink(PLAYER_PATH, capitalize(ch->name));
 		return;
 	}

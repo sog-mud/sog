@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.25 1998-09-22 18:07:17 fjoe Exp $
+ * $Id: note.c,v 1.26 1998-09-24 14:07:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -148,25 +148,25 @@ void do_unread(CHAR_DATA *ch, const char *argument)
     {
 	found = TRUE;
 	char_printf(ch,"There %s %d new news article%s waiting.\n\r",
-	    count > 1 ? "are" : "is",count, count > 1 ? "s" : "");
+	    count > 1 ? "are" : "is",count, count > 1 ? "s" : str_empty);
     }
     if ((count = count_spool(ch,changes_list)) > 0)
     {
 	found = TRUE;
 	char_printf(ch,"There %s %d change%s waiting to be read.\n\r",
-	    count > 1 ? "are" : "is", count, count > 1 ? "s" : "");
+	    count > 1 ? "are" : "is", count, count > 1 ? "s" : str_empty);
     }
     if ((count = count_spool(ch,note_list)) > 0)
     {
 	found = TRUE;
 	char_printf(ch,"You have %d new note%s waiting.\n\r",
-	    count, count > 1 ? "s" : "");
+	    count, count > 1 ? "s" : str_empty);
     }
     if ((count = count_spool(ch,idea_list)) > 0)
     {
 	found = TRUE;
 	char_printf(ch,"You have %d unread idea%s to peruse.\n\r",
-	    count, count > 1 ? "s" : "");
+	    count, count > 1 ? "s" : str_empty);
     }
     if (IS_TRUSTED(ch,ANGEL) && (count = count_spool(ch,penalty_list)) > 0)
     {
@@ -874,7 +874,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		if (!str_cmp(ch->pnote->to_list,"")) {
+		if (!str_cmp(ch->pnote->to_list,str_empty)) {
 			char_puts("You need to provide a recipient "
 				  "(name, clan name, all, or immortal).\n\r",
 				  ch);

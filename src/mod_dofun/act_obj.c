@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.69 1998-09-22 18:07:14 fjoe Exp $
+ * $Id: act_obj.c,v 1.70 1998-09-24 14:07:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2778,11 +2778,11 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	else if (gold)
 		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
 			   "You sell $p for %d gold pieces%s.",
-			   gold, gold > 1 ? "s" : "");
+			   gold, gold > 1 ? "s" : str_empty);
 	else if (silver)
 		act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING,
 			   "You sell $p for %d silver pieces%s.",
-			   silver, silver > 1 ? "s" : "");
+			   silver, silver > 1 ? "s" : str_empty);
 	ch->gold += gold;
 	ch->silver += silver;
 	deduct_cost(keeper, cost);
@@ -3262,10 +3262,10 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 	bank_g = ch->pcdata->bank_g;
 	bank_s = ch->pcdata->bank_s;
 	sprintf(buf, "You have %s%s%s coin%s in the bank.\n\r",
-		bank_g != 0 ? "%ld gold" : "",
-		(bank_g != 0) && (bank_s != 0) ? " and " : "",
-		bank_s != 0 ? "%ld silver" : "",
-		bank_s + bank_g > 1 ? "s" : "");
+		bank_g != 0 ? "%ld gold" : str_empty,
+		(bank_g != 0) && (bank_s != 0) ? " and " : str_empty,
+		bank_s != 0 ? "%ld silver" : str_empty,
+		bank_s + bank_g > 1 ? "s" : str_empty);
 	if (bank_g == 0)
 		sprintf(buf2, buf, bank_s);
 	else

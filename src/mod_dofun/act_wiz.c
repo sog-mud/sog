@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.63 1998-09-23 05:18:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.64 1998-09-24 14:07:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -303,7 +303,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 		char_puts("Objects updated.\n\r", ch);
 		return;
 	}
-	do_tick(ch,"");
+	do_tick(ch,str_empty);
 	return;
 }
 
@@ -563,7 +563,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	char_puts("Ok.\n\r", ch);
 	save_char_obj(victim, FALSE);
 	stop_fighting(victim, TRUE);
-	do_quit(victim, "");
+	do_quit(victim, str_empty);
 }
 
 
@@ -1037,7 +1037,7 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "Room flags: [%s].\n\r",
 		   flag_string(room_flags, location->room_flags));
 	buf_add(output, "Description:\n\r");
-	mlstr_dump(output, "", location->description);
+	mlstr_dump(output, str_empty, location->description);
 
 	if (location->ed != NULL) {
 		ED_DATA *ed;
@@ -1916,7 +1916,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 	ch->desc->character->desc = ch->desc; 
 	ch->desc                  = NULL;
 
-	do_replay(ch, "");
+	do_replay(ch, str_empty);
 }
 
 /* trust levels for load and clone */
@@ -2074,7 +2074,7 @@ void do_load(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	/* echo syntax */
-	do_load(ch,"");
+	do_load(ch,str_empty);
 }
 
 
@@ -2629,7 +2629,7 @@ void do_set(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	/* echo syntax */
-	do_set(ch,"");
+	do_set(ch,str_empty);
 }
 
 
@@ -2835,7 +2835,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	}
 	
 	/* echo bad use message */
-	do_string(ch,"");
+	do_string(ch,str_empty);
 }
 
 
@@ -2928,7 +2928,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Generate usage message.
 	 */
-	do_oset(ch, "");
+	do_oset(ch, str_empty);
 	return;
 }
 
@@ -2990,7 +2990,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Generate usage message.
 	 */
-	do_rset(ch, "");
+	do_rset(ch, str_empty);
 	return;
 }
 
@@ -3026,7 +3026,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf2, "%d user%s\n\r", count, count == 1 ? "" : "s");
+	sprintf(buf2, "%d user%s\n\r", count, count == 1 ? str_empty : "s");
 	strcat(buf,buf2);
 	page_to_char(buf, ch);
 }
@@ -3287,7 +3287,7 @@ void do_prefix (CHAR_DATA *ch, const char *argument)
 
 		char_puts("Prefix removed.\r\n",ch);
 		free_string(ch->prefix);
-		ch->prefix = str_dup("");
+		ch->prefix = str_dup(str_empty);
 		return;
 	}
 
@@ -3930,7 +3930,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Generate usage message.
 	 */
-	do_mset(ch, "");
+	do_mset(ch, str_empty);
 }
 
 
@@ -4323,7 +4323,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_reboot(ch, "");   
+	do_reboot(ch, str_empty);   
 }
 
 
@@ -4342,3 +4342,42 @@ void reboot_muddy(void)
 	}
 	merc_down = TRUE;    
 }
+
+DO_FUN(do_msgstat)
+{
+	varr *v;
+	mlstring **mlp;
+	int i;
+	BUFFER *output;
+
+	if (argument[0] == '\0') {
+		for (i = 0; i < MAX_MSG_HASH; i++) 
+			char_printf(ch, "%3d: %d msgs\n\r",
+				    i, msg_hash_table[i]->nused);
+		return;
+	}
+
+	if (!is_number(argument)) {
+		do_help(ch, "MSGSTAT");
+		return;
+	}
+
+	i = atoi(argument);
+	if (i < 0 || i >= MAX_MSG_HASH) {
+		char_printf(ch, "Valid hash key range is 0..%d\n\r",
+			    MAX_KEY_HASH);
+		return;
+	}
+
+	v = msg_hash_table[i];
+	output = buf_new(0);
+	buf_printf(output, "Dumping msgs with hash #%d\n\r", i);
+	for (i = 0; i < v->nused; i++) {
+		mlp = VARR_GET(v, i);
+		mlstr_dump(output, str_empty, *mlp);
+		buf_add(output, "\n\r");
+	}
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: religion.c,v 1.2 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: religion.c,v 1.3 1998-09-24 14:07:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,15 +41,12 @@
 ***************************************************************************/
 
 #include <stdio.h>
-#include "const.h"
-#include "typedef.h"
-#include "religion.h"
-#include "tables.h"
+#include "merc.h"
 
 /* God's Name, name of religion, tattoo vnum  */
 const struct religion_type religion_table [] =
 {
-  { "",			"None",			0 },
+  { str_empty,		"None",			0 },
   { "Atum-Ra",		"Lawful Good",		OBJ_VNUM_TATTOO_APOLLON },
   { "Zeus",		"Neutral Good",		OBJ_VNUM_TATTOO_ZEUS },
   { "Siebele",		"True Neutral",		OBJ_VNUM_TATTOO_SIEBELE },

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.38 1998-09-22 18:07:16 fjoe Exp $
+ * $Id: martial_art.c,v 1.39 1998-09-24 14:07:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2407,7 +2407,7 @@ void do_hara(CHAR_DATA *ch, const char *argument)
 		act_puts("$n cuts his body and look in a deadly figure.",
 			 ch, NULL, NULL, TO_ROOM, POS_FIGHTING);
 		check_improve(ch, gsn_hara_kiri, TRUE, 2);
-		do_sleep(ch, "");
+		do_sleep(ch, str_empty);
 		SET_BIT(ch->act,PLR_HARA_KIRI);
 
 		af.where     = TO_AFFECTS;
@@ -2840,7 +2840,7 @@ void do_concentrate(CHAR_DATA *ch, const char *argument)
 		ch->mana -= mana;
 		ch->move /= 2;
 
-		do_sit(ch,"");
+		do_sit(ch,str_empty);
 		char_puts("You sit down and relax, "
 			  "concentrating on the next fight.!\n\r", ch);
 		act_puts("$n concentrates for the next fight.",

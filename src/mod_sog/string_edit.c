@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.16 1998-09-20 17:01:02 fjoe Exp $
+ * $Id: string_edit.c,v 1.17 1998-09-24 14:07:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,7 +41,7 @@ void string_edit(CHAR_DATA *ch, char **pString)
 
     if (*pString == NULL)
     {
-        *pString = str_dup("");
+        *pString = str_dup(str_empty);
     }
     else
     {
@@ -68,7 +68,7 @@ void string_append(CHAR_DATA *ch, char **pString)
     char_puts("-=======================================-\n\r", ch);
 
     if (*pString == NULL)
-	*pString = str_dup("");
+	*pString = str_dup(str_empty);
     char_puts(numlines(*pString), ch);
 
 /* numlines entrega el string con \n\r */
@@ -139,7 +139,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
         {
             char_puts("String cleared.\n\r", ch);
 	    free_string(*ch->desc->pString);
-	    *ch->desc->pString = str_dup("");
+	    *ch->desc->pString = str_dup(str_empty);
             return;
         }
 

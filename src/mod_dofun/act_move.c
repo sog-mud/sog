@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.92 1998-09-22 18:07:13 fjoe Exp $
+ * $Id: act_move.c,v 1.93 1998-09-24 14:07:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1616,7 +1616,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	}
 
 	act_puts("$n wakes you", ch, NULL, victim, TO_VICT, POS_SLEEPING);
-	do_stand(victim, "");
+	do_stand(victim, str_empty);
 	return;
 }
 

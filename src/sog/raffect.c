@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.11 1998-09-22 18:07:18 fjoe Exp $
+ * $Id: raffect.c,v 1.12 1998-09-24 14:07:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -360,14 +360,14 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 		{
 		 bug("Owner of lightning shield left the room.",0);
 		 free_string(room->owner);
-		 room->owner = str_dup("");	 
+		 room->owner = str_dup(str_empty);	 
 		 affect_strip_room(room,sn); 
 		}
 	 else 
 	 {
 	  char_puts("The protective shield of room blocks you.\n\r",ch);
 	  act("$N has entered the room.",vch,NULL,ch,TO_CHAR);
-	  do_wake(vch,"");
+	  do_wake(vch,str_empty);
 
 	  if ((paf = affect_find(room->affected,sn)) == NULL)
 		 { bug("Bad paf for lightning shield",0); return; }
@@ -376,7 +376,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 		{
 		 damage(vch,ch,dice(paf->level,4)+12,sn,DAM_LIGHTNING, TRUE);
 		 free_string(room->owner);
-		 room->owner = str_dup("");	 
+		 room->owner = str_dup(str_empty);	 
 		 affect_remove_room(room , paf);
 		}
 	 }
@@ -434,7 +434,7 @@ void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 	if (is_room_owner(ch,room)) 
 		{
 		 free_string(room->owner);
-		 room->owner = str_dup("");	 
+		 room->owner = str_dup(str_empty);	 
 		 affect_strip_room(room,sn); 
 		}
    }

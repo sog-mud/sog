@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.5 1998-09-22 18:07:18 fjoe Exp $
+ * $Id: tables.c,v 1.6 1998-09-24 14:07:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1027,7 +1027,7 @@ const struct translation_type translation_table[]=
 	{"À",			"Õ"},
 	{"ñ",			"ù"},
 	{"Ñ",			"Ù"},
-        {"",            	"" } 
+        {str_empty,            	str_empty } 
 };
 
 /* wiznet table and prototype for future flag setting */
@@ -1702,8 +1702,12 @@ const 	struct	race_type	race_table	[]		=
 
 const	struct	pc_race_type	pc_race_table	[MAX_PC_RACE]	=
 {
-  { "null race", "", 0, { 100, 100, 100, 100 ,100,100,100,100,100,100,100,100,100},
-      { "" }, { 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, 0,0,0,0,0 },
+	{
+		"null race", "", 0,
+		{ 100, 100, 100, 100 ,100,100,100,100,100,100,100,100,100},
+		{ str_empty },
+		{ 13, 13, 13, 13, 13 }, { 18, 18, 18, 18, 18 }, 0,0,0,0,0
+	},
  
 /*
     {
@@ -1723,28 +1727,28 @@ const	struct	pc_race_type	pc_race_table	[MAX_PC_RACE]	=
 
       {
        "human",	"Human",	0,	{100,100,100,100,100,100,100,100,100 ,100,100,100,100},
-       { "" },
+       { str_empty },
        { 0, 0, 0, 0, 0 ,0},	{ 20, 20, 20, 20, 20,25 },SIZE_MEDIUM,
         0,0,0,CR_NONE,SLANG_HUMAN
       },
 
       { 	
 	"elf",		" Elf ",500,{ 100,100,100,100,100,-1,-1,100,100,-1 ,-1,-1,-1}, 
-	{ "" },
+	{ str_empty },
 	{ -2, 5, 0, 2, -2,0 },	{ 18, 25, 21, 23, 16,25 }, SIZE_MEDIUM,
 	-10,30,0,CR_GOOD,SLANG_ELVISH
 	},
 
     {
 	"half-elf",	"H-Elf",200,{ 100,100,100,100,100,100,100,100,100,-1 ,-1,100,100},
-	{ "" },
+	{ str_empty },
 	{ -1, 2, 0, 1, -1,0 },	{ 19, 21, 21, 21, 19 ,25}, SIZE_MEDIUM,
 	-10,10,0,CR_NONE,SLANG_ELVISH
     },
 
     {
 	"dark-elf",	"D-Elf",500,{ 100, 100, 100, 100,-1,100,100,-1,100 ,-1,-1,100,-1},
-	{ "" },
+	{ str_empty },
 	{ -2, 4, 0, 2, -2 ,0},	{ 18, 24, 21, 24, 16,25 }, SIZE_MEDIUM,
 	-10,20,0,CR_EVIL,SLANG_ELVISH
     },
@@ -1779,7 +1783,7 @@ const	struct	pc_race_type	pc_race_table	[MAX_PC_RACE]	=
 
     {
 	"arial",	"Arial",250,{ 100, 100, 100, 100,-1,100,100,-1,100 ,-1,-1,100,-1},
-	{ "" },
+	{ str_empty },
 	{ -2, 3, 0, 5, -2 ,0},	{ 19, 23, 20, 25, 18,25 }, SIZE_MEDIUM,
 	-10,50,0,CR_NONE,SLANG_HUMAN
     },

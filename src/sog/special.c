@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.26 1998-09-22 18:07:18 fjoe Exp $
+ * $Id: special.c,v 1.27 1998-09-24 14:07:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -684,7 +684,7 @@ bool spec_cast_seneschal(CHAR_DATA *ch)
 	case 13: spell = "lightning breath";  break;
 	case 14:
 	case 15: spell = "acid blast";	break;
-	default: spell = "";     break;
+	default: spell = str_empty;     break;
 	}
 
 	if ((sn = sn_lookup(spell)) < 0)
@@ -756,7 +756,7 @@ bool spec_executioner(CHAR_DATA *ch)
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
 	return FALSE;
 
-	crime = "";
+	crime = str_empty;
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next)
 	{
 	v_next = victim->next_in_room;
@@ -1078,7 +1078,7 @@ bool spec_guard(CHAR_DATA *ch)
 	
 	max_evil = 300; 
 	ech      = NULL;
-	crime    = "";
+	crime    = str_empty;
 	
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
@@ -1142,7 +1142,7 @@ bool spec_special_guard(CHAR_DATA *ch)
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
 	return FALSE;
 
-	crime    = "";
+	crime    = str_empty;
 
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next)
 	{
@@ -1208,7 +1208,7 @@ bool spec_nasty(CHAR_DATA *ch)
 	             ch->gold     += gold;
 	             return TRUE;
  
-	    case 1:  do_flee(ch, "");
+	    case 1:  do_flee(ch, str_empty);
 	             return TRUE;
  
 	    default: return FALSE;
@@ -1518,7 +1518,7 @@ bool spec_cast_beholder(CHAR_DATA *ch)
 	case  3: spell = "cause critical";	break; /* disinteg */
 	case  4: spell = "harm";		break; 
 	case  5: spell = "dispel magic";	break; 
-	default: spell = "";			break;
+	default: spell = str_empty;			break;
 	}
 
 	if ((sn = sn_lookup(spell)) < 0)

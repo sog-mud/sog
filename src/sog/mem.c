@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.14 1998-09-17 15:51:20 fjoe Exp $
+ * $Id: mem.c,v 1.15 1998-09-24 14:07:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -186,7 +186,7 @@ EXIT_DATA *new_exit(void)
 /*  pExit->vnum         =   0;                        ROM OLC */
     pExit->exit_info    =   0;
     pExit->key          =   0;
-    pExit->keyword      =   &str_empty[0];
+    pExit->keyword      =   str_empty;
     pExit->rs_flags     =   0;
 
     return pExit;
@@ -230,7 +230,7 @@ ROOM_INDEX_DATA *new_room_index(void)
     for (door=0; door < MAX_DIR; door++)
         pRoom->exit[door]   =   NULL;
 
-    pRoom->owner	    =	&str_empty[0];
+    pRoom->owner	    =	str_empty;
     pRoom->vnum             =   0;
     pRoom->room_flags       =   0;
     pRoom->light            =   0;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.73 1998-09-22 18:10:44 fjoe Exp $
+ * $Id: fight.c,v 1.74 1998-09-24 14:07:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -286,7 +286,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		|| victim->mount->fighting == ch)
 			victim = victim->mount;
 		else
-			do_dismount(victim->mount, "");
+			do_dismount(victim->mount, str_empty);
 	}
 
 	if (IS_AFFECTED(ch,AFF_WEAK_STUN)) {
@@ -495,12 +495,12 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	{
 	case (0) :
 		if (IS_SET(ch->off_flags,OFF_BASH))
-		    do_bash(ch,"");
+		    do_bash(ch,str_empty);
 		break;
 
 	case (1) :
 		if (IS_SET(ch->off_flags,OFF_BERSERK) && !IS_AFFECTED(ch,AFF_BERSERK))
-		    do_berserk(ch,"");
+		    do_berserk(ch,str_empty);
 		break;
 
 
@@ -509,31 +509,31 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		|| (get_weapon_sn(ch, WEAR_WIELD) != gsn_hand_to_hand
 		&& (IS_SET(ch->act,ACT_WARRIOR)
 		||  IS_SET(ch->act,ACT_THIEF))))
-		    do_disarm(ch,"");
+		    do_disarm(ch,str_empty);
 		break;
 
 	case (3) :
 		if (IS_SET(ch->off_flags,OFF_KICK))
-		    do_kick(ch,"");
+		    do_kick(ch,str_empty);
 		break;
 
 	case (4) :
 		if (IS_SET(ch->off_flags,OFF_DIRT_KICK))
-		    do_dirt(ch,"");
+		    do_dirt(ch,str_empty);
 		break;
 
 	case (5) :
 		if (IS_SET(ch->off_flags,OFF_TAIL))
-		  do_tail(ch,"");
+		  do_tail(ch,str_empty);
 		break;
 
 	case (6) :
 		if (IS_SET(ch->off_flags,OFF_TRIP))
-		    do_trip(ch,"");
+		    do_trip(ch,str_empty);
 		break;
 	case (7) :
 		if (IS_SET(ch->off_flags,OFF_CRUSH))
-		    do_crush(ch,"");
+		    do_crush(ch,str_empty);
 		break;
 	}
 }
@@ -1034,7 +1034,7 @@ void delete_player(CHAR_DATA *victim, char* msg)
 	victim->position = POS_STANDING;
 	wiznet_printf(victim, NULL, 0, 0, 0, "$N is deleted due to %s.", msg);
 	RESET_FIGHT_TIME(victim);
-	do_quit_count(victim, "");
+	do_quit_count(victim, str_empty);
 	dunlink(PLAYER_PATH, capitalize(victim->name));
 }
 
@@ -1193,7 +1193,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	||  IS_SET(ch->affected_by, AFF_FADE)
 	||  IS_SET(ch->affected_by, AFF_CAMOUFLAGE)
 	||  IS_SET(ch->affected_by, AFF_IMP))
-		do_visible(ch, "");
+		do_visible(ch, str_empty);
 
 	/*
 	 * Damage modifiers.
@@ -1333,9 +1333,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (!IS_NPC(victim) && victim->desc == NULL) {
 		if (number_range(0, victim->wait) == 0) {
 			if (victim->level < 11)
-				do_recall(victim, "");
+				do_recall(victim, str_empty);
 			else
-				do_flee(victim, "");
+				do_flee(victim, str_empty);
 			return TRUE;
 		}
 	}
@@ -1351,7 +1351,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		     victim->master->in_room != victim->in_room)
 		||  (IS_AFFECTED(victim, AFF_DETECT_FEAR) &&
 		     !IS_SET(victim->act, ACT_NOTRACK))) {
-			do_flee(victim, "");
+			do_flee(victim, str_empty);
 			victim->last_fought = NULL;
 		}
 	}
@@ -1360,7 +1360,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  victim->hit > 0
 	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_DETECT_FEAR))
 	&&  victim->wait < PULSE_VIOLENCE / 2)
-		do_flee(victim, "");
+		do_flee(victim, str_empty);
 
 	tail_chain();
 	return TRUE;
@@ -2561,7 +2561,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (MOUNTED(ch))
-		do_dismount(ch,"");
+		do_dismount(ch,str_empty);
 
 	if ((victim = ch->fighting) == NULL) {
 		if (ch->position == POS_FIGHTING)
@@ -2767,7 +2767,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 
 		stop_fighting(ch, TRUE);
 		if (MOUNTED(ch))
-			do_dismount(ch,"");
+			do_dismount(ch,str_empty);
 
 		return;
 	}
