@@ -162,6 +162,7 @@ S
 #SPECIALS
 M 33000 spec_cast_adept	* the healer
 M 33001 spec_breath_lightning	* {BFafhrd{x
+M 33002 spec_breath_lightning	* (null)
 S
 
 
