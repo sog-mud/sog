@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.56 2002-01-12 08:51:27 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.57 2002-01-12 08:59:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3017,7 +3017,7 @@ int sharp_claws(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	||  get_eq_char(ch, WEAR_WIELD) != NULL)
 		return dam;
 
-	if (number_percent() > chance / 15 + (get_curr_stat(ch, STAT_DEX)
+	if (number_percent() < chance / 15 + (get_curr_stat(ch, STAT_DEX)
 				- get_curr_stat(victim, STAT_DEX)) * 2) {
 
 		dam = dam * number_range(3, 5) / 2;
