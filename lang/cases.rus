@@ -2000,6 +2000,17 @@ Form 6 -у~
 End
 
 #RULE
+Name эльфийская~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name язык~
 BaseLen 4
 Form 1 -а~
@@ -6081,6 +6092,16 @@ End
 
 #RULE
 Name гномийские~
+BaseLen 9
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
+Name эльфийские~
 BaseLen 9
 Form 1 -х~
 Form 2 -м~
