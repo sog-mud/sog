@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.38 2001-09-13 16:22:06 fjoe Exp $
+ * $Id: mpc.y,v 1.39 2001-09-14 17:11:22 fjoe Exp $
  */
 
 /*
@@ -442,13 +442,10 @@ switch:	L_SWITCH {
 		PUSH_EXPLICIT(mpc->curr_break_addr);
 		PUSH_EXPLICIT(mpc->curr_jumptab);
 
+		jumptab = (varr *) varr_enew(&mpc->jumptabs);
+		mpc->curr_jumptab = varr_index(&mpc->jumptabs, jumptab);
+
 		/* jumptab[0] reserved for 'default:' */
-		jumptab = (varr *) varr_get(
-		    &mpc->jumptabs, ++mpc->curr_jumptab);
-		if (jumptab == NULL)
-			jumptab = varr_enew(&mpc->jumptabs);
-		else
-			c_erase(jumptab);
 		jump = varr_enew(jumptab);
 		jump->addr = INVALID_ADDR;
 
