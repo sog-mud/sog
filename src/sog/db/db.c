@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.84 1998-10-28 19:46:24 fjoe Exp $
+ * $Id: db.c,v 1.85 1998-10-28 21:41:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2406,7 +2406,9 @@ void load_limited_objects()
 				  	get_obj_index(vnum)->count++;
 				}
 			} else if (letter == 'P') {
-				if (!strcmp(fread_word(pfile), "C_Killed")) {
+				word = fread_word(pfile);
+
+				if (!str_cmp(word, "C_Killed")) {
 					if (pname == NULL) {
 						bug("load_limited_objects: "
 						    "PC_Killed before Name "
@@ -2418,7 +2420,7 @@ void load_limited_objects()
 				}	
 			} 
 			else if (letter == 'N') {
-				if (strcmp(fread_word(pfile), "ame") == 0
+				if (!str_cmp(fread_word(pfile), "ame") == 0
 				&&  pname == NULL)
 					pname = fread_string(pfile);
 			}
