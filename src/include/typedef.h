@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.67 2002-11-22 17:59:58 fjoe Exp $
+ * $Id: typedef.h,v 1.68 2002-11-22 18:03:11 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -252,7 +252,6 @@ typedef void *(foreach_cb_t)(void *p, va_list ap);
 
 #define ISLOWER(c)		(islower((u_char) (c)))
 #define ISUPPER(c)		(isupper((u_char) (c)))
-#define ISALPHA(c)		(isalpha((u_char) (c)))
 #define LOWER(c)		(tolower((u_char) (c)))
 #define UPPER(c)		(toupper((u_char) (c)))
 
