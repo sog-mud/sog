@@ -47,9 +47,10 @@ M act 15004 is dead!!~
 M delay 15003 100~
 M random 15005 5~
 M bribe 15005 1~
+M fight 1 100~
 #15002
 cockroach~
-@eng a cockroach@rus таракан~
+@eng cockroach@rus таракан~
 @eng A little cockroach is crawling here.
 @rus Маленький таракан ползает тут.
 ~
@@ -96,7 +97,7 @@ stand stand male 0
 
 #OBJECTS
 #15000
-pill~
+pill strange~
 strange pill~
 Someone has left a strange pill here.~
 unknown~
@@ -163,6 +164,14 @@ unknown~
 furniture ABCEGIOY 0
 ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
 0 0 0 P
+#15007
+bottle vodka absolute~
+@eng a bottle of crystal clear vodka@rus литровый пузырь кристалльно чистой водки~
+@eng A bottle of crystal clear vodka has been left here.@rus Темный властелин оставил здесь пузырь водки.~
+glass~
+drink ABCEHJLMORYZ AO
+-1 1000 'vodka' 0 0
+99 1 2500 P
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~
@@ -426,7 +435,7 @@ M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
 O 0 15002 0 15000	* a fountain (Abrazak's Office)
 O 0 15005 0 15002	* a fountain with milk (Cell)
 M 0 15001 1 15002 1	* the prisoner (Cell)
-M 0 15002 1 15002 1	* a cockroach (Cell)
+M 0 15002 1 15002 1	* cockroach (Cell)
 M 0 15003 1 15002 1	* a rat (Cell)
 O 0 15006 0 15002	* bed (Cell)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)

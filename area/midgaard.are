@@ -948,7 +948,7 @@ human~
 ABVd DF 900 0
 75 0 1d1+28099 1d1+199 15d30+60 slap
 -65 -65 -65 -35
-FG AB CD 0
+FG ABU CD 0
 stand stand male 1000
 0 0 medium unknown
 #3163
@@ -4244,10 +4244,6 @@ You are standing in a dusty, defunct reception.  The staircase leads
 down to the entrance hall.
 ~
 0 DS inside
-D0
-~
-~
-Z 0 33000
 D5
 You see the entrance hall.
 ~
@@ -5511,7 +5507,7 @@ To the west you see the big hall of temple.
 Z -1 3063
 S
 #3065
-High road~
+High Road~
 You are at the norhtern part of the High Road, closer to the Market Square.
 The large square is cleary seen no the north, while much quite part of 
 the town lies to the south.  To the east is the Butchers', where the
@@ -5591,6 +5587,10 @@ The stairs lead to temple square.
 ~
 ~
 Z -1 3069
+D4
+~
+~
+Z 0 3757
 M 110 H 150
 S
 #3069
@@ -5668,6 +5668,10 @@ This way leads out to the park road.
 ~
 ~
 Z -1 3126
+D4
+~
+~
+Z 0 3757
 M 150 H 150
 S
 #3072
@@ -6583,10 +6587,6 @@ The waiting room is to the west.
 ~
 ~
 Z -1 3137
-D4
-~
-~
-Z 0 46000
 S
 #3139
 Penny Lane~

@@ -377,7 +377,7 @@ Lying on the ground is a jet black stone tablet.~
 stone~
 scroll E A
 30 'summon' 'charm person' '' ''
-12 50 2100 P
+30 50 2100 P
 E
 tablet scroll black~
 The tablet is an unreflective black rectangular piece of stone, with strange

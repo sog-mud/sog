@@ -698,7 +698,7 @@ a small leather-bound book~
 A small leather-bound book entitled "The Making and Casting of Dragonfire".~
 paper~
 scroll G AO
-40 'lightning breath' 'gas breath' 'fire breath' 'acid breath'
+20 'lightning breath' 'gas breath' 'fire breath' 'acid breath'
 12 50 300 P
 E
 book~
@@ -1292,7 +1292,7 @@ the Warlock's spellbook~
 The Warlock's spellbook has been lost by its guardian.~
 paper~
 scroll EGJ AO
-20 'dispel magic' 'fly' 'charm person' 'sleep'
+10 'dispel magic' 'fly' 'charm person' 'sleep'
 10 10 100 P
 A
 12 50

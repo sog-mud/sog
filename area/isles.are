@@ -761,7 +761,7 @@ EFIK 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17069
-pirate~
+cutter pirate~
 Cutter, the 5th Pirate Lord~
 A pirate bearing the cold of winter studies his charts here.
 ~
@@ -1114,7 +1114,7 @@ A round sphere on the ground is swallowing all the light around it.
 ~
 glass~
 wand C AO
-40 20 20 '' 0
+40 20 20 'dispel magic' 0
 30 3 1000 P
 E
 orb nullifier~

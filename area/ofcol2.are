@@ -3157,6 +3157,10 @@ Dragon Chamber of the Golden Citadel.  Above you, you see the sky, but
 currently, the way out is sealed by a layer of diamond that looks impenetrable.
 ~
 0 DS inside
+D0
+~
+~
+Z 0 510
 D5
 ~
 ~
@@ -3177,6 +3181,10 @@ D3
 ~
 gate~
 Z 651 699
+D4
+~
+~
+Z 0 3757
 S
 #699
 Outside the Entrance to the Golden Citadel~

@@ -65,15 +65,17 @@ bandana~
 @eng Black bandana with skull and crossbones lies her. You see the word "Phobos" on the inner side.@rus Черная бандана с черепом и скрещенными костями лежит здесь. С изнанки написано "Фобос".~
 kevlar~
 armor ACR AEI
--10 -10 -10 -10 0
+100 100 100 100 0
 98 5 100 P
+A
+24 -200
 #35251
 Stereosystem~
 @eng Huge stereosystem@rus Огромная стереосистема~
 @eng Huge stereosystem stands here. It looks really heavy and powerful@rus Огромная стереосистема стоит тут. Выглядит очень тяжелой и мощной~
 unknown~
 armor C AJ
--30 -30 -30 -30 0
+100 100 100 100 0
 98 20 1000 P
 A
 19 250
@@ -103,7 +105,7 @@ pants~
 @eng Black leather pants. And nothing more. @rus Черные штаны из кожи. Просто. Очень потертые.~
 leather~
 armor CY AF
--20 -20 -20 -20 0
+50 50 50 50 0
 98 20 0 P
 A
 5 3
@@ -113,7 +115,7 @@ Vest~
 @eng Rieted vest@rus Черный жилет кто-то оставил...~
 kevlar~
 armor CIY AD
--50 -50 -50 -50 0
+50 50 50 50 0
 98 50 0 P
 A
 18 50
@@ -136,7 +138,7 @@ key~
 kalarit~
 key AC AC
 0 0 0 0 0
-70 10 20 P
+70 10 70 P
 #35258
 torch~
 @eng Massive torch@rus Массивный факел~
@@ -167,6 +169,14 @@ unknown~
 weapon CE AN
 exotic 5 14 slash 0
 70 35 250 P
+#35261
+Rocket Launcher~
+~
+~
+steel~
+weapon 0 AN
+exotic 0 0 none 0
+50 100 300 P
 #0
 
 #ROOMS

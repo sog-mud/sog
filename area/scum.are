@@ -33,16 +33,13 @@ zombie~
 @rus Полуразложившийся живой труп дыхнул на тебя гнилью
 ~
 ~
-zombie~
+human~
 ABGORTef CDFHJNOVZalmt 0 0
 91 100 1d1+50000 1d1+4000 1d1+200 bite
 -10 -10 -10 -10
-ACDEIJKLO AU 0 0
+ACDEIJKLO ABU 0 0
 stand stand female 0
 I 0 large unknown
-F aff d
-F imm CL
-F res I
 M act 40001 *^\[CLAN\].+: +attack~
 M exall 40002 north~
 M delay 40004 100~
@@ -195,7 +192,7 @@ and forgetting this road forever!{x
 к твоей душе своими ледяными пальцами. Задумайся пока не поздно, может
 стоить бежать отсюда без оглядки и навсегда забыть сюда дорогу?{x
 ~
-0 AC inside
+0 ACN inside
 D4
 ~
 ~

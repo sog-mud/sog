@@ -9,22 +9,28 @@ End
 
 #MOBILES
 #35000
-Comrade Dzerzhinskii~
+comrade felix dzerzhinskii~
 Comrade Dzerzhinskii~
 Железный Феликс сдержанно приветствует тебя...
 ~
 Перед тобой живая легенда. Твои колени подкашиваются в благовейном трепете.
 ~
 human~
-ABRTVe DFHNOValt 1000 0
-91 100 1d1+25000 1d1+4000 1d1+200 none
+ABRTef DFHNOValt 1000 0
+91 100 1d1+50000 1d1+4000 1d1+200 none
 -10 -10 -10 -10
-AEFIJKN AB 0 0
+ACEFIJKNO AB 0 0
 stand stand male 0
-G 0 medium unknown
+G 0 large unknown
 F for AHMV
 F par ABCDEFGHIJK
 M grall 35000 100~
+M fight 1 100~
+M exall 35003 2~
+M act 35002 *^\[CLAN\].+: +attack ~
+M delay 35005 100~
+M exit 35004 north~
+C HKBD~
 #35001
 Comrade Mauzer~
 Comrade Mauzer~
@@ -33,7 +39,7 @@ Comrade Mauzer~
 Это конец.
 ~
 human~
-ABRTVe DFHValt 1000 0
+ABRTe DFHValt 1000 0
 91 100 1d1+25000 1d1+4000 1d1+200 none
 -10 -10 -10 -10
 AEFIJKN AB 0 0
@@ -187,26 +193,10 @@ D0
 ~
 ~
 Z 0 32000
-D1
-~
-~
-Z 0 35006
 D2
 ~
 door~
-ABDZ 0 35001
-D3
-~
-~
-Z 0 35006
-D4
-~
-~
-Z 0 35006
-D5
-~
-~
-Z 0 35006
+DZ 0 35001
 S
 #35001
 Приемная~
@@ -233,7 +223,7 @@ root the sysadmin на отдыхе.
 D0
 ~
 ~
-ABDZ 0 35000
+DZ 0 35000
 D1
 ~
 ~
@@ -306,10 +296,6 @@ S
 или "отбросить копыта" . 
 ~
 0 NX inside
-D4
-~
-~
-Z 0 35000
 M 0 H 0
 S
 #35100
@@ -320,15 +306,11 @@ S
 #0
 
 #SPECIALS
-M 35000 spec_breath_lightning	* Comrade Dzerzhinskii
 M 35001 spec_breath_lightning	* Comrade Mauzer
 M 35003 spec_cast_adept	* rough looking man
 S
 
 #RESETS
-D 0 35000 2 1	* Dark hallway: door to the south: closed
-D 0 35001 0 1	* Приемная: door to the north: closed
-M 0 35001 1 35000 1	* Comrade Mauzer (Dark hallway)
 M 0 35000 1 35000 1	* Comrade Dzerzhinskii (Dark hallway)
 O 0 35001 0 35002	* fountain (Кафетерий)
 M 0 35002 1 35002 1	* barmaid Margareth (Кафетерий)
@@ -351,7 +333,7 @@ S
 #MOBPROGS
 #35000
 if isimmort $n
-bow $n
+clan К нам пожаловал товарищ иммортал.
 say Welcome, товарищ $n!
 end
 else 
@@ -368,12 +350,36 @@ else
 if clan $n 'hkbd'
 say Приветствую , товарищ $n.
 else 
-yell Товарищи , в наших рядах есть товарищ $n , который нам вовсе не товарищ! 
-mob kill $n
+clan Товарищи , в наших рядах есть товарищ $n , который нам вовсе не товарищ!
 endif
 ~
 #35001
 mob echo Скрипучим голоском она спрашивает: "{GЧто пожелаете, дорогой товарищ?{x"
+~
+#35002
+say !
+cast 'gas breath'
+~
+#35003
+if clan $n hkbd
+mob transfer $n 35001
+else
+mob echoat $n Comrade Felix blocks your way.
+mob echoaround $n Comrade Felix blocks $n's way.
+endif
+~
+#35004
+if clan $n hkbd
+mob transfer $n 32000
+else
+say wait a moment, $n
+mob remember $n 
+mob delay 3
+endif
+~
+#35005
+say Ok, $q, you can pass.
+mob transfer $q 32000
 ~
 #0
 

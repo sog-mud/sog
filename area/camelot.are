@@ -1237,7 +1237,7 @@ a marble rod with a white hot tip~
 A marble rod with a white hot tip is smouldering here.~
 stone~
 wand ACGHJ AO
-40 20 20 'charm person' 0
+23 20 20 'charm person' 0
 23 1 3000 P
 E
 rod wand marble~
@@ -1533,7 +1533,7 @@ a rod of command~
 A rod of black, runed metal swallows light here.~
 iron~
 staff CJL AO
-55 24 24 'charm person' 0
+40 24 24 'charm person' 0
 40 9 3500 P
 A
 3 1

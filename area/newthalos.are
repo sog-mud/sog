@@ -4469,6 +4469,10 @@ D3
 ~
 ~
 Z -1 9608
+D4
+~
+~
+Z 0 3757
 S
 #9610
 Donation Room~
@@ -6615,6 +6619,10 @@ continues as far as the eye can see to the east and west. A large
 expanse of grass spreads out to the south.
 ~
 0 S field
+D0
+~
+~
+Z 0 570
 D2
 ~
 ~
@@ -6668,6 +6676,10 @@ D0
 ~
 ~
 Z -1 9787
+D1
+~
+~
+Z 0 550
 D3
 ~
 ~

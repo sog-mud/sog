@@ -16,7 +16,7 @@ samurai~
 ~
 ~
 human~
-A DFHlt 1000 0
+AZ DFHlt 1000 0
 150 500 50000d1+10000 0d0+0 200d1+100 slash
 100 100 100 100
 0 0 0 0
@@ -24,6 +24,22 @@ stand stand male 0
 Z LPQUX medium unknown
 F for AHMV
 F par CEFGHJ
+#44001
+sam~
+@eng sam@rus sam~
+@eng sam
+@rus sam
+~
+~
+human~
+AZ 0 0 0
+20 0 0d0+0 0d0+0 0d0+0 none
+1000 1000 1000 1000
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -34,7 +50,7 @@ grand katana of war~
 japan steel~
 weapon IMT AN
 sword 100 30 pierce D
-96 150 0 P
+96 10 0 P
 F
 A 0 0 V
 A

@@ -111,7 +111,8 @@ stand stand male 0
 #17
 mirror~
 the mirror~
-A mirror image of someone is here.
+@eng %s%s is here.
+@rus %s%s здесь.
 ~
 You see nothing special about it.
 ~
@@ -432,7 +433,7 @@ portal GOT 0
 #26
 poncho~
 a poncho from the carcass of %s~
-A poncho from the cascass of %s lies here.~
+A poncho from the carcass of %s lies here.~
 flesh~
 armor 0 AK
 0 0 0 0 0
@@ -525,26 +526,14 @@ A
 13 200
 A
 14 500
-#35
-conscience karmael~
-the cloud circle around Karmael named Conscience of Karamel~
-The cloud circle around Karmael named Conscience of Karamel~
-shit~
-trash AEIR APQ
-0 0 0 0 0
-0 0 0 P
-A
-2 8
-A
-18 8
 #40
 song hero~
 the %s Song of %s~
 You hear the Song of Real Hero filling the room with its power.~
-wood~
+energy~
 container IORYac APQ
 150 0 0 600 5
-21 5 0 P
+21 5 10000 P
 A
 24 -15
 A
@@ -722,8 +711,8 @@ tattoo ATUY AR
 0 0 -1 0 0
 0 0 0 P
 #65
-tattoo set~
-tattoo of set, god of anger~
+tattoo seth~
+tattoo of seth, god of anger~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
@@ -1098,79 +1087,76 @@ S
 
 #MOBPROGS
 #1
-say !
 if affected $n 'sanctuary'
-cast nowait 'dispel magic' $n
+cast nowait 'dispel magic' 
 end
 endif
 if rand 25
 if rand 10 
-cast nowait 'plague' $n
+cast nowait 'plague' 
 end
 endif
 if rand 11
-cast nowait 'poison' $n
+cast nowait 'poison' 
 end 
 endif
-if rand 14
 if affected $n 'blindness'
 else
-cast nowait 'blindness' $n
+cast nowait 'blindness' 
 end
 endif
 endif
 if rand 16
-if affected 'weaken' $n
+if affected $n 'weaken'
 else
-cast nowait 'weaken' $n
+cast nowait 'weaken' 
+end
+endif
+endif
+if affected $n 'slow'
+else
+cast nowait 'slow' 
+endif
+endif
+if rand 18
+if affected $n 'curse' 
+else
+cast nowait 'curse' 
 end
 endif
 endif
 if rand 18
-if affected 'slow' $n
+if affected $n 'corruption' 
 else
-cast nowait 'slow' $n
-endif
-endif
-if rand 18
-if affected 'curse' $n
-else
-cast nowait 'curse' $n
+cast nowait 'corruption' 
 end
 endif
 endif
 if rand 18
-if affected 'corruption' $n
+if affected $n 'faerie fire' 
 else
-cast nowait 'corruption' $n
-end
-endif
-endif
-if rand 18
-if affected 'faerie fire' $n
-else
-cast nowait 'faerie fire' $n
+cast nowait 'faerie fire' 
 end
 endif
 endif
 endif
 if rand 25 
-cast nowait 'acid blast' $n
+cast nowait 'acid blast' 
 end
 endif
 if rand 25 
-cast nowait 'fireball' $n
+cast nowait 'fireball' 
 end
 endif
 if rand 25
-cast nowait 'frost breath' $n
+cast nowait 'frost breath' 
 end
 endif
 if rand 30 
-cast nowait 'heat metal' $n
+cast nowait 'heat metal' 
 end
 endif
-cast nowait 'lightning breath' $n
+cast nowait 'lightning breath' 
 ~
 #2
 clan yes, sir?
@@ -1180,25 +1166,23 @@ clan yes, sir?
 #OMPROGS
 O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'
 O 28 fight_prog fight_prog_ranger_staff	* `a ranger staff'
-O 35 wear_prog wear_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
-O 35 remove_prog remove_prog_bracer	* `the cloud circle around Karmael named Conscience of Karamel'
 O 40 get_prog get_prog_quest_reward	* `the %s Song of %s'
-O 51 fight_prog fight_prog_tattoo_apollon	* `lawful good tattoo of atum-ra'
+O 51 fight_prog fight_prog_tattoo_atum_ra	* `lawful good tattoo of atum-ra'
 O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
 O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'
-O 54 fight_prog fight_prog_tattoo_hephaestus	* `tattoo of shamash, god of justice'
-O 55 fight_prog fight_prog_tattoo_ehrumen	* `chaotic good tattoo of ahuramazda'
-O 56 fight_prog fight_prog_tattoo_ahrumazda	* `chaotic evil tattoo of ehrumen'
+O 54 fight_prog fight_prog_tattoo_shamash	* `tattoo of shamash, god of justice'
+O 55 fight_prog fight_prog_tattoo_ahuramazda	* `chaotic good tattoo of ahuramazda'
+O 56 fight_prog fight_prog_tattoo_ehrumen	* `chaotic evil tattoo of ehrumen'
 O 57 fight_prog fight_prog_tattoo_deimos	* `lawful evil tattoo of deimos'
 O 58 fight_prog fight_prog_tattoo_phobos	* `neutral evil tattoo of phobos'
 O 59 fight_prog fight_prog_tattoo_odin	* `lawful neutral tattoo of odin'
-O 60 fight_prog fight_prog_tattoo_mars	* `chaotic neutral tattoo of teshub'
-O 61 fight_prog fight_prog_tattoo_athena	* `tattoo of ares, God of War'
+O 60 fight_prog fight_prog_tattoo_teshub	* `chaotic neutral tattoo of teshub'
+O 61 fight_prog fight_prog_tattoo_ares	* `tattoo of ares, God of War'
 O 62 fight_prog fight_prog_tattoo_goktengri	* `tattoo of goktengri, God of Honor'
 O 63 fight_prog fight_prog_tattoo_hera	* `tattoo of hera, god of hate'
 O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
-O 65 fight_prog fight_prog_tattoo_ares	* `tattoo of set, god of anger'
-O 66 fight_prog fight_prog_tattoo_prometheus	* `tattoo of enki, god of knowledge'
+O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of set, god of anger'
+O 66 fight_prog fight_prog_tattoo_enki	* `tattoo of enki, god of knowledge'
 O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
 O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
 O 80 death_prog death_prog_golden_weapon	* `a golden dagger'

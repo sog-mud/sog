@@ -18,7 +18,7 @@ elven maiden~
 ~
 elf~
 A 0 1000 0
-100 1000 1d1+10000 1d1+1 1d1+1000 kiss
+100 1000 1d1+5000 1d1+1 1d1+10000 kiss
 0 0 0 0
 0 0 0 0
 sleep sleep female 0
@@ -74,12 +74,12 @@ F par ABCDEFGHIJK
 M give 33104 33103~
 #33105
 warlock chaos~
-@eng Elder Warlock of Chaos~
+Elder Warlock of Chaos~
 @eng Very old warlock stands here, making strange various gests
 ~
 ~
 human~
-ABR 0 0 0
+ABR D 0 0
 100 1000 1d30000+30000 1d1+1000 1d1000+1000 none
 0 0 0 0
 0 0 0 0
@@ -88,6 +88,7 @@ stand stand male 0
 F for AHMV
 F par ABCDEFGHIJK
 M random 33105 3~
+M random 33106 5~
 #33106
 Bormental~
 @eng Bormental@rus Bormental~
@@ -119,22 +120,54 @@ ABGRSTVe CDEFGHNOPQUVZacefgilmnst -1000 0
 ABDEFGHJK ABHIKLMOQTUXYZ CDEFGNP 0
 stand stand none 1000000
 0 0 gargantuan unknown
-#33200
-bell~
-@eng Bell~
-@eng Bell Diamant Emerald Tagol
+#33108
+thanatos~
+a chaos warrior~
+A shadow guardian screams a challenge and attacks
 ~
+It seems to be made of nothing more than chaos ...
 ~
 human~
-A 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+ABf B 351 0
+7 0 2d6+110 4d9+100 1d8+2 none
 0 0 0 0
-0 0 0 0
+AEFHK CD 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+M speech 33102 worship chaos~
+#33200
+bell~
+Bell~
+Bell Diamant Emerald Tagol
+~
+~
+human~
+AXd 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 100000
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 M speech 33103 kill him~
+#33201
+Diam~
+Diam~
+Strange man here, wants to cut you in half!
+~
+~
+human~
+A 0 0 0
+0 -100 1d1+1 0d0+0 0d0+0 none
+0 0 0 0
+0 D 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -146,15 +179,12 @@ unknown~
 weapon CEFHJLMNOSTWYZa AN
 dagger 1 159 bite CDEGH
 100 10 2147483647 P
-F
-A 24 -30 g
 A
 13 100
 A
 19 16
 A
 18 16
-C Entropy~
 #33102
 Millennium~
 @eng {WMillennium{x@rus {WMillennium{x~
@@ -162,7 +192,11 @@ Millennium~
 ages~
 wand GT AO
 100 100 100 'pass door' 0
-90 1000 1000000 P
+50 1000 1000000 P
+A
+12 20000
+A
+13 100
 A
 12 200
 A
@@ -195,10 +229,6 @@ love~
 light ABFGHIMORSTYZ A
 0 0 -1 0 0
 100 1 1000000000 P
-A
-20 -10
-F
-R 26 4 D
 F
 I 6 100 B
 #33105
@@ -209,14 +239,80 @@ skin~
 armor CEHJLMOYZ AR
 666 666 666 666 0
 91 1 2147483647 P
-#33200
-no name~
-~
-~
-unknown~
-trash 0 0
-0 0 0 0 0
+#33106
+wand assistance~
+wand of assistance~
+wand of assistance~
+help~
+wand 0 AO
+180 10000 10000 'assist' 0
+40 0 1000 P
+#33107
+polearm~
+polearm~
+Polearm~
+titanium~
+weapon 0 AN
+polearm 8 8 bite 0
+48 0 0 P
+F
+A 19 25 V
+#33108
+pill~
+pill~
+poisoned pill~
+hope~
+pill 0 A
+100 'sanctuary' 'haste' 'frenzy' 'transform'
+40 0 1 P
+#33110
+spirt fountain~
+The meaning of life~
+The meaning of life flows here~
+spirt~
+fountain CE 0
+-1 -1 'vodka' 0 0
+100 0 2147483647 P
+#33111
+bed~
+Looooooong wiiiiiide warm bed.~
+Looooooong wiiiiiide warm bed.~
+love~
+furniture 0 0
+AB FHJKPQ DGJ DFGHIJ 0
 0 0 0 P
+#33112
+tea~
+@eng root's indian tea.@rus Чай.~
+Лучший чай, заваренный root'ом специально для Лады!~
+tea~
+drink 0 A
+100 100 'tea' 0 0
+1 0 2147483647 P
+#33113
+light lada~
+@eng root's Green lamp@rus Лампочка Ильича, подаренная root'ом Ладе.~
+Светильник с заметкой 'For LaDa да да да да да!".  ~
+love~
+light ATY A
+0 0 -1 0 0
+1 0 1000 P
+#33114
+rose chaos black~
+{DBlack Rose of Chaos~
+{rDark spiked flower fills the air with it's beautiful venoms.~
+chaos~
+treasure CEMYZ AO
+0 0 0 0 0
+2 0 0 P
+#33200
+scroll~
+satanic scroll~
+satanic scroll~
+paper~
+scroll 0 A
+40 'identify' 'bless' 'continual light' 'enchant armor'
+45 0 0 P
 #0
 
 #ROOMS
@@ -230,11 +326,7 @@ trash 0 0
  
 Внезапно ты почувствовал утечку сил и... погрузился в дремучий сон.
 ~
-0 JKNTXb inside
-D0
-~
-~
-Z 0 45000
+0 KNTXb inside
 D4
 ~
 ~
@@ -244,7 +336,6 @@ D5
 ~
 Z 0 33101
 M 1000 H 1000
-C Entropy~
 S
 #33101
 @eng Entrance to the ruined city of chaos.~
@@ -277,6 +368,10 @@ S
 #33103
 @eng Temple of Chaos@rus Храм Хаоса~
 @eng {gSpacious room surround you.{x
+@rus {gПросторное помещение окружает тебя со всех сторон.{x
+{gСплохи пламени мелькают на стенах, пытаясь дотянуться до тебя.
+╥десь те кто смел могут поклониться ьаосу и принести свои дары (sac).
+{g             Но будь осторожен, играя с огнем!{x
 ~
 0 0 inside
 D0
@@ -303,6 +398,12 @@ S
 On the north you can see a ruined town. It was a Chaos town.
 This town still same chaotic, as in early ages. Absolutely no law.
 Probably , absolutely anything can happen here...
+@rus Ты стоишь на площади, большой площади...
+ 
+На севере ты видишь большой город. Это город Хаоса.
+В нем есть только один закон, никакого закона.
+Там можно убивать и воровать, никто вас не осудит и никто не спасет.
+И врядли стоит расстраиваться если вас обворовали или убили в нем.
 ~
 0 0 city
 D0
@@ -325,6 +426,7 @@ S
 #33105
 @eng Temple Square.@rus Храмовая площадь~
 @eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
 ~
 0 0 inside
 D2
@@ -339,6 +441,7 @@ S
 #33106
 @eng Temple Square.@rus Храмовая площадь~
 @eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
 ~
 0 0 inside
 D0
@@ -353,6 +456,7 @@ S
 #33107
 @eng Temple Square.@rus Храмовая площадь~
 @eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
 ~
 0 0 inside
 D1
@@ -367,6 +471,7 @@ S
 #33108
 @eng Temple Square.@rus Храмовая площадь~
 @eng You stand on a square, big square...
+@rus Ты стоишь на площади, большой площади...
 ~
 0 0 inside
 D0
@@ -381,6 +486,7 @@ S
 #33109
 @eng Chaos Street@rus Хаотичная улица~
 @eng You see a bar on the west and the book shop on the east.
+@rus Направо пойдешь, пыво найдешь, налево пойдешь, чтива прикупишь.
 ~
 0 0 inside
 D0
@@ -403,6 +509,7 @@ S
 #33110
 @eng Chaos Street.@rus Хаотичная улица~
 @eng You can see an armory an the east and weaponry on the west.
+@rus Направо оружием торгуют, налево одежкой, а прямо улочка вьется.
 ~
 0 0 inside
 D0
@@ -425,6 +532,7 @@ S
 #33111
 @eng Chaos street@rus Хаотичная улица~
 @eng A magic is here.
+@rus Странный аромат магии вьется вокруг.
 ~
 0 0 inside
 D0
@@ -447,6 +555,7 @@ S
 #33112
 @eng Bar@rus Бар~
 @eng Here you can rest and drink a beer.
+@rus ╥десь в тишине и покое можно расслабится, да пивка попить.
 ~
 0 0 inside
 D1
@@ -457,6 +566,7 @@ S
 #33114
 @eng Book shop@rus Книжный киоск~
 @eng You can buy a books, newspapers, maps etc here.
+@rus ╥десь можно купить книжек, газет и всякой прочей муры.
 ~
 0 0 inside
 D3
@@ -467,6 +577,7 @@ S
 #33115
 @eng Weapon Shop@rus Оружейная~
 @eng Weapon,more weapon, and more weapon ...
+@rus Оружие, много оружия, очень много оружия...
 ~
 0 0 inside
 D1
@@ -477,6 +588,7 @@ S
 #33116
 @eng Armoury@rus Магазин Доспехов~
 @eng An armours of some heroes lies here on the shelfs.
+@rus Доспехи героев из разных веков разлеглись по разным полкам.
 ~
 0 0 inside
 D3
@@ -487,6 +599,7 @@ S
 #33117
 @eng Magic shop@rus Магический Магазин~
 @eng Hmm... A potions,scrolls,wands,staves, what may it mean ?
+@rus Куча склянок, книжек, свитков, и еще всяческой чертовщины навалено здесь.
 ~
 0 0 inside
 D1
@@ -497,6 +610,7 @@ S
 #33118
 @eng A strange place...@rus Странное место~
 @eng Hmm... what a strange place !
+@rus Ну и местечко.
 ~
 0 0 inside
 D3
@@ -507,6 +621,7 @@ S
 #33119
 @eng Chaos Street@rus Хаотичная улица~
 @eng An average street, you can see a square at the north.
+@rus Обычная улица с видом на площадь.
 ~
 0 0 inside
 D0
@@ -529,6 +644,7 @@ S
 #33120
 @eng Chaos Street@rus Хаотичная улица~
 @eng An average street.
+@rus Обычная улица.
 ~
 0 0 inside
 D0
@@ -543,6 +659,7 @@ S
 #33121
 @eng Chaos Street.@rus Хаотичная улица~
 @eng An average street.
+@rus Обычная улица.
 ~
 0 0 inside
 D0
@@ -558,6 +675,9 @@ S
 @eng Chaos Square@rus Площадь Хаоса~
 @eng Large square with mass of people , moving absolutely unruly there...
 Completely all town is viewed at this point.
+@rus Оживленная площадь кажется очень огромной.
+Сплохи пламени пробегающие иногда по ней скрывают ее границы.
+И все же отсюда можно увидеть почти весь город.
 ~
 0 0 inside
 D0
@@ -580,8 +700,10 @@ S
 #33123
 @eng Bank@rus Банк~
 @eng You can't see here money, they all pushed in safes.
+@rus Вполне понятно, что деньги здесь увидишь редко, они надежно укрыты в сейфах.
+╥а сохранность ваших вложений банк ответственности не несет.
 ~
-0 0 inside
+0 U inside
 D0
 ~
 ~
@@ -600,6 +722,7 @@ S
 @eng Sometime this town haved the goverment, but now you yet
 don't know what functions it haved.
 Entrance to the eastern building is blocked by the fallen columns.
+@rus Вот это да! ╥десь когда-то было правительство!
 @rusoff Sometime this town haved the goverment ...
 no yavno perestaralsya i goverment sdohlo ;)
 ~
@@ -620,6 +743,7 @@ S
 #33125
 @eng Chaos Street@rus Хаотичная улица~
 @eng An average street
+@rus Обычная улица.
 ~
 0 0 inside
 D1
@@ -634,6 +758,7 @@ S
 #33126
 @eng Chaos Street@rus Хаотичная улица~
 @eng An Average street.
+@rus Обычная улица.
 ~
 0 0 inside
 D2
@@ -648,6 +773,7 @@ S
 #33127
 @eng Chaos Street@rus Хаотичная улица~
 @eng An average street, you can see a square at the south.
+@rus Обычна╠ улица с видом на площадь.
 ~
 0 0 inside
 D0
@@ -670,6 +796,7 @@ S
 #33128
 @eng Chaos Street@rus Хаотичная улица~
 @eng You can see a grocer shop at the east and the jeweller on the west.
+@rus Универмаг торчит напротив магазина брюликов.
 ~
 0 0 inside
 D1
@@ -688,6 +815,7 @@ S
 #33129
 @eng Grocer shop@rus Универмаг~
 @eng A shells contains many different products.
+@rus Полки магазина забиты всякой всячиной, по большей мере никому не нужной.
 ~
 0 0 inside
 D3
@@ -698,6 +826,7 @@ S
 #33130
 @eng Jeweller shop@rus Ювелирный Магазин~
 @eng Hmm, a brilliants !..
+@rus Под пуленепробиваемыми стеклами здесь разложены какие-то камушки.
 ~
 0 0 inside
 D1
@@ -749,9 +878,12 @@ D0
 ~
 ~
 Z 0 33192
-M 10000 H 10000
+D5
+~
+~
+Z 0 3054
+M 10000 H 300
 O root~
-C Entropy~
 S
 #33140
 @eng Southern gate of New Chaos.@rus Южные врата Хаоса.~
@@ -1497,11 +1629,19 @@ Z 0 33189
 S
 #0
 
+#SPECIALS
+M 33108 spec_breath_any	* a chaos warrior
+S
+
 #RESETS
 M 0 33104 1 33101 1	* {rChaos Demon{x (Entrance to the ruined city of chaos.)
+M 0 33200 1 33131 1	* Bell (Home , Sweet Home)
+M 0 33201 1 33131 1	* Diam (Home , Sweet Home)
+O 0 33110 0 33131	* The meaning of life (Home , Sweet Home)
+O 0 33102 0 33131	* {WMillennium{x (Home , Sweet Home)
+O 0 33200 0 33131	* satanic scroll (Home , Sweet Home)
 M 0 33103 1 33160 1	* professor Preobrazhenskii ()
 M 0 33105 1 33183 1	* Elder Warlock of Chaos (Science Magic)
-M 0 33200 1 33192 1	* Bell (Private Sector)
 S
 
 #OLIMITS
@@ -1509,6 +1649,10 @@ O 33100 13	* {DOblivion{x
 O 33103 1	* Lifebane
 O 33104 2	* {CLove{x
 O 33105 1	* a dark ->*<- tattoo
+O 33106 1	* wand of assistance
+O 33107 2	* polearm
+O 33110 1	* The meaning of life
+O 33111 1	* Looooooong wiiiiiide warm bed.
 S
 
 #MOBPROGS
@@ -1526,9 +1670,18 @@ wave $n
 mob transfer $n 33100
 ~
 #33102
+if clan $n Entropy
+say Welcome Home !
+wave $n
+mob transfer $n 33100
+else
+say I don't think you tell truth...
+cast disperse
+endif
+yell А энтропия то - растет !
 ~
 #33103
-mob oload 33100 room
+mob transfer root 33131
 ~
 #33104
 bow $n
@@ -1552,6 +1705,12 @@ mob vforce 33102 cast teleport
 mob vforce 33102 yell Не хочет ли кто послушать сказку?
 ~
 #33106
+if mobexists thanatos
+else
+mob mload 33108
+endif
+mob vforce 33108 mob goto 1302
+emote utters the words 'abrakadabra'
 ~
 #0
 

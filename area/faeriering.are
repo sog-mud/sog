@@ -147,8 +147,7 @@ AHMV ABCDEFGHIJK medium unknown
 #29101
 rhyme catchy little~
 a catchy little rhyme~
-There is a tiny rolled up paper lying on the ground. 
-~
+There is a tiny rolled up paper lying on the ground.~
 paper~
 scroll AG AO
 15 'faerie fog' '' '' ''
@@ -165,8 +164,7 @@ Revealed to all, and to me
 #29102
 light twinkle twinkling ball~
 a *twinkling* ball of light~
-A twinkling ball of light sparkles here! 
-~
+A twinkling ball of light sparkles here!~
 unknown~
 light AGI AO
 0 0 999 0 0
@@ -182,8 +180,7 @@ A
 #29103
 belt sprite~
 a sprite belt~
-A loop of rainbow thread lies here.
-~
+A loop of rainbow thread lies here.~
 mithril~
 armor FM AL
 5 5 5 5 0
@@ -193,8 +190,7 @@ A
 #29104
 bracer brownie~
 a brownie bracer~
-An earthen colored band lies here.
-~
+An earthen colored band lies here.~
 mithril~
 armor G AM
 5 5 5 5 0
@@ -206,8 +202,7 @@ A
 #29105
 vial moonlight bottled~
 a vial of bottled moonlight~
-A vial of sparkling liquid emits a soft white glow. 
-~
+A vial of sparkling liquid emits a soft white glow.~
 glass~
 potion AG AO
 15 'fly' 'cure poison' 'cure critical' ''
@@ -215,8 +210,7 @@ potion AG AO
 #29106
 robe gossamer~
 a gossamer robe~
-A gossamer robe sparkles with a pale white glow! 
-~
+A gossamer robe sparkles with a pale white glow!~
 cloth~
 armor IM AK
 6 6 6 6 0
@@ -228,8 +222,7 @@ A
 #29107
 moonbeam~
 a moonbeam~
-A sparkling pale light ray glows here! 
-~
+A sparkling pale light ray glows here! ~
 unknown~
 weapon AF AN
 exotic 4 4 pierce G
@@ -241,8 +234,7 @@ A
 #29108
 wine goblet faerie~
 a goblet of faerie wine~
-A crystal goblet filled with a sparkling wine is here. 
-~
+A crystal goblet filled with a sparkling wine is here.~
 glass~
 potion G A
 10 'cure blindness' 'invisibility' '' ''
@@ -250,8 +242,7 @@ potion G A
 #29109
 britches dirty~
 a pair of dirty britches~
-A pair of dirty britches lies here. Get the laundry soap. 
-~
+A pair of dirty britches lies here. Get the laundry soap.~
 leather~
 armor C AF
 5 5 5 0 0
@@ -267,8 +258,7 @@ A
 #29110
 key sparkling~
 a sparkling key~
-A sparkling key glistens on the ground. 
-~
+A sparkling key glistens on the ground.~
 silver~
 key BG AO
 0 0 0 0 0
@@ -288,8 +278,7 @@ A
 #29112
 wand blue diamond~
 a blue diamond wand~
-A wand with a huge blue diamond on it is just lying here! Pick it up! 
-~
+A wand with a huge blue diamond on it is just lying here! Pick it up!~
 wood~
 wand G AO
 14 12 12 'create food' 0
@@ -301,8 +290,7 @@ They're magically delicious!
 #29113
 gold~
 whoooooopie! Gold!~
-A rainbow ends at this pot of gold!
-~
+A rainbow ends at this pot of gold!~
 gold~
 money A AO
 500 0 0 0 0
@@ -310,8 +298,7 @@ money A AO
 #29114
 food finger~
 delicious finger food~
-A delicious little plate of scrumptious finger foods lies beckons to you. 
-~
+A delicious little plate of scrumptious finger foods lies beckons to you.~
 flesh~
 food 0 AN
 DE DE 0 0 0
