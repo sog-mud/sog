@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.68 2002-11-22 18:03:11 fjoe Exp $
+ * $Id: typedef.h,v 1.69 2003-04-17 11:28:34 tatyana Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -121,6 +121,7 @@ typedef FILE				rfile_t;
 #endif
 
 #define UNUSED_ARG(a)			((void) &a)
+#define CAST(T, p)			((T) (uintptr_t) (const void *) (p))
 
 union vo_t {
 	int vnum;

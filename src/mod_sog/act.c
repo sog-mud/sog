@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.98 2002-12-11 13:59:45 fjoe Exp $
+ * $Id: act.c,v 1.99 2003-04-17 11:25:55 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -482,16 +482,16 @@ act_format_door(const gmlstr_t *gml)
 
 #define TSTACK_SZ 4
 
-#define VCH	((CHAR_DATA *) (uintptr_t) arg2)
-#define VCH1	((CHAR_DATA *) (uintptr_t) arg1)
-#define VCH3	((CHAR_DATA *) (uintptr_t) arg3)
+#define VCH	(CAST(CHAR_DATA *, arg2))
+#define VCH1	(CAST(CHAR_DATA *, arg1))
+#define VCH3	(CAST(CHAR_DATA *, arg3))
 #define NUM1	((int) arg1)
 #define NUM2	((int) arg2)
 #define NUM3	((int) arg3)
 #define ROOM1	((const ROOM_INDEX_DATA *) arg1)
 #define ROOM3	((const ROOM_INDEX_DATA *) arg3)
-#define OBJ1	((OBJ_DATA *) (uintptr_t) arg1)
-#define OBJ2	((OBJ_DATA *) (uintptr_t) arg2)
+#define OBJ1	(CAST(OBJ_DATA *, arg1))
+#define OBJ2	(CAST(OBJ_DATA *, arg2))
 #define GML1	((const gmlstr_t *) arg1)
 #define GML3	((const gmlstr_t *) arg3)
 
@@ -1049,7 +1049,7 @@ act_puts3(const char *format, CHAR_DATA *ch,
 	  int act_flags, int min_pos)
 {
 	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) (uintptr_t) arg2;
+	CHAR_DATA *vch = CAST(CHAR_DATA *, arg2);
 
 	if (IS_NULLSTR(format)
 	||  (to = act_args(ch, vch, act_flags)) == NULL)
@@ -1079,7 +1079,7 @@ act_mlputs3(mlstring *mlformat, CHAR_DATA *ch,
 	    int act_flags, int min_pos)
 {
 	CHAR_DATA *to;
-	CHAR_DATA *vch = (CHAR_DATA *) (uintptr_t) arg2;
+	CHAR_DATA *vch = CAST(CHAR_DATA *, arg2);
 
 	if (mlstr_null(mlformat)
 	||  (to = act_args(ch, vch, act_flags)) == NULL)
@@ -1342,12 +1342,12 @@ tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	if (IS_NPC(victim)) {
 		pull_mob_trigger(
-		    TRIG_MOB_SPEECH, victim, ch, (void *) (uintptr_t) msg);
+		    TRIG_MOB_SPEECH, victim, ch, CAST(void *, msg));
 		if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
 			return;
 
 		pull_mob_trigger(
-		    TRIG_MOB_TELL, victim, ch, (void *) (uintptr_t) msg);
+		    TRIG_MOB_TELL, victim, ch, CAST(void *, msg));
 		if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
 			return;
 	} else {

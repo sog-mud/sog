@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.42 2002-11-23 19:36:17 fjoe Exp $
+ * $Id: util.c,v 1.43 2003-04-17 11:25:59 tatyana Exp $
  */
 
 #include <sys/stat.h>
@@ -151,7 +151,7 @@ cstrfirst(const char *cstr)
 void
 cstrtoupper(char *cstr)
 {
-	cstr = (char *) (uintptr_t) (const void *) cstrfirst(cstr);
+	cstr = CAST(char *, cstrfirst(cstr));
 	*cstr = UPPER(*cstr);
 }
 

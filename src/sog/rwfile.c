@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.25 2001-11-11 17:42:12 avn Exp $
+ * $Id: rwfile.c,v 1.26 2003-04-17 11:25:59 tatyana Exp $
  */
 
 #include <ctype.h>
@@ -144,7 +144,7 @@ rfile_open(const char *dir, const char *file)
 void
 rfile_close(rfile_t *fp)
 {
-	munmap((void *)(uintptr_t)fp->p, (size_t) fp->len);
+	munmap(CAST(void *, fp->p), (size_t) fp->len);
 	close(fp->fd);
 	free(fp);
 }

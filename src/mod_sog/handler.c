@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.364 2003-04-17 11:13:14 tatyana Exp $
+ * $Id: handler.c,v 1.365 2003-04-17 11:25:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1669,7 +1669,7 @@ pull_greet_entry_triggers(CHAR_DATA *ch, ROOM_INDEX_DATA *to_room, int door)
 			return FALSE;
 
 		if (pull_room_trigger(TRIG_ROOM_GREET, to_room,
-				      ch, (char *) (uintptr_t) dir) > 0
+				      ch, CAST(char *, dir)) > 0
 		||  IS_EXTRACTED(ch))
 			return FALSE;
 	}

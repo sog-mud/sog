@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.12 2001-12-10 22:44:22 fjoe Exp $
+ * $Id: avltree.c,v 1.13 2003-04-17 11:25:59 tatyana Exp $
  */
 
 #include <assert.h>
@@ -34,8 +34,8 @@
 #include <avltree.h>
 #include <memalloc.h>
 
-#define GET_DATA(an) ((void *)(uintptr_t) (((const char *) (an)) + sizeof(avlnode_t) + sizeof(memchunk_t)))
-#define GET_AVLNODE(p) ((avlnode_t *)(uintptr_t) (((const char *) (p)) - sizeof(avlnode_t) - sizeof(memchunk_t)))
+#define GET_DATA(an)	(CAST(void *, (((const char *) (an)) + sizeof(avlnode_t) + sizeof(memchunk_t))))
+#define GET_AVLNODE(p)	(CAST(avlnode_t *, (((const char *) (p)) - sizeof(avlnode_t) - sizeof(memchunk_t))))
 
 #define DIR_LEFT	0
 #define DIR_RIGHT	1

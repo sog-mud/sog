@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.70 2002-01-23 10:11:44 fjoe Exp $
+ * $Id: mlstring.c,v 1.71 2003-04-17 11:25:59 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -359,7 +359,7 @@ mlstr_first(const mlstring *mlp)
 		return NULL;
 
 	if (mlp->nlang == 0)
-		return &((mlstring *) (uintptr_t) (const void *) mlp)->u.str;
+		return &CAST(mlstring *, mlp)->u.str;
 
 	return &mlp->u.lstr[0];
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.28 2001-12-08 10:22:51 fjoe Exp $
+ * $Id: trig.c,v 1.29 2003-04-17 11:25:59 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -312,7 +312,7 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
 
 	return pull_one_trigger(
 	    &spec->mp_trig, MP_T_SPEC,
-	    ch, (void *) (uintptr_t) spn_rm, (void *) (uintptr_t) spn_add);
+	    ch, CAST(void *, spn_rm), CAST(void *, spn_add));
 }
 
 bool
@@ -452,7 +452,7 @@ pull_one_trigger(trig_t *trig, int mp_type,
 			return MPC_ERR_COND_FAILED;
 
 		arg3 = NULL;
-		arg4 = (void *) (uintptr_t) argument;
+		arg4 = CAST(void *, argument);
 	} else if (HAS_EXIT_ARG(trig)) {
 		if (!is_name(arg3, trig_arg))
 			return MPC_ERR_COND_FAILED;

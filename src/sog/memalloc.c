@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.14 2001-09-13 12:03:10 fjoe Exp $
+ * $Id: memalloc.c,v 1.15 2003-04-17 11:25:59 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -33,8 +33,7 @@
 #include <log.h>
 #include <memalloc.h>
 
-#define GET_CHUNK(p)							\
-	(((memchunk_t *) (uintptr_t)(p)) - 1)
+#define GET_CHUNK(p)	(CAST(memchunk_t *, p) - 1)
 
 void *
 mem_alloc2(int type_tag, size_t mem_len, size_t mem_prealloc)

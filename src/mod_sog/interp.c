@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.197 2002-11-22 18:00:16 fjoe Exp $
+ * $Id: interp.c,v 1.198 2003-04-17 11:25:57 tatyana Exp $
  */
 
 /***************************************************************************
@@ -354,7 +354,7 @@ interpret(CHAR_DATA *ch, const char *argument, bool is_order)
 		&&  (!IS_AFFECTED(ch, AFF_CHARM) || is_order)) {
 			if (pull_room_trigger(TRIG_ROOM_CMD,
 				ch->in_room, ch,
-				(void *) (uintptr_t) save_argument) >= 0
+				CAST(void *, save_argument)) >= 0
 			||  IS_EXTRACTED(ch))
 				return;
 

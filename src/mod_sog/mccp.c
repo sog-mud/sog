@@ -8,7 +8,7 @@
  * This code may be freely distributed and used if this copyright notice is
  * retained intact.
  *
- * $Id: mccp.c,v 1.2 2001-12-16 10:06:00 fjoe Exp $
+ * $Id: mccp.c,v 1.3 2003-04-17 11:25:57 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -170,7 +170,7 @@ writeCompressed(DESCRIPTOR_DATA *desc, const char *txt, int length)
 {
 	z_stream *s = desc->out_compress;
 
-	s->next_in = (unsigned char *)(uintptr_t)(const void *)txt;
+	s->next_in = CAST(unsigned char *, txt);
 	s->avail_in = length;
 	desc->bytes_income += length;
 
