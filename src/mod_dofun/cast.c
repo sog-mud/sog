@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.5.2.3 2001-02-25 12:28:50 fjoe Exp $
+ * $Id: cast.c,v 1.5.2.4 2002-01-30 04:46:32 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -230,8 +230,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			victim = ch;
 		else if ((victim = get_char_room(ch, target_name)) == NULL
 		     ||  (!IS_NPC(ch) && victim != ch)) {
-			char_puts("You cannot cast this spell "
-				  "on another.\n", ch);
+			act("You cannot cast '$T' on another.",
+			    ch, NULL, spell->name, TO_CHAR);
 			return;
 		}
 
@@ -259,8 +259,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
 				WAIT_STATE(ch, MISSING_TARGET_DELAY);
-				char_puts("Cast the spell on whom or what?\n",
-					  ch);
+				act("Cast '$T' on whom or what?",
+				    ch, NULL, spell->name, TO_CHAR);
 				return;
 			}
 			vo = victim;
@@ -337,7 +337,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, spell->beats);
 
 	if (number_percent() > chance) {
-		char_puts("You lost your concentration.\n", ch);
+		act("You try to cast '$T', but lost your concentration.",
+		    ch, NULL, spell->name, TO_CHAR);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = FALSE;
